@@ -8,10 +8,18 @@ If true the _input_ steps to the next item, if false the previous item is retain
 If _latch_ is initially false then _initialValue_ is consulted.
 
 ```
->>> LsClutch(LsSeries(1, 3, 5), LsSeq([true false true true false], inf), -1).upToEnd
+>>> LsClutch(
+>>> 	LsSeries(1, 3, 5),
+>>> 	LsSeq([true false true true false], inf),
+>>> 	-1
+>>> ).upToEnd
 [1 1 4 7 7 10 10 13]
 
->>> LsClutch(LsSeries(1, 3, 5), LsSeq([1 0 1 1 0], inf), -1).upToEnd
+>>> LsClutch(
+>>> 	LsSeries(1, 3, 5),
+>>> 	LsSeq([1 0 1 1 0], inf),
+>>> 	-1
+>>> ).upToEnd
 [1 1 4 7 7 10 10 13]
 ```
 

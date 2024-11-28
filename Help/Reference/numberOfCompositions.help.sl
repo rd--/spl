@@ -31,7 +31,7 @@ The number of compositions of a number _n_ of length _k_ (where 0 is allowed).
 
 * * *
 
-See also: integerCompositions
+See also: integerCompositions, numberOfCompositionsWeak
 
 References:
 _Mathematica_

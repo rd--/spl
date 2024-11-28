@@ -6,7 +6,7 @@
 	"MD013": {
 		"line_length": 999,
 		"heading_line_length": 80,
-		"code_block_line_length": 80
+		"code_block_line_length": 70
 	},
 	"MD040": false,
 	"MD048": false

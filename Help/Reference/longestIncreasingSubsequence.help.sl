@@ -27,20 +27,30 @@ Find the longest ascending sequence of elements in a list:
 >>> [3 2 6 4 5 1].longestIncreasingSubsequence
 [2 4 5]
 
->>> [0 8 4 12 2 10 6 14 1 9 5 13 3 11 7 15].longestIncreasingSubsequence
+>>> [
+>>> 	0 8 4 12 2 10 6 14 1 9
+>>> 	5 13 3 11 7 15
+>>> ].longestIncreasingSubsequence
 [0 2 6 9 11 15]
 
->>> [6 0 0 4 4 7 6 6 9 5].longestIncreasingSubsequence
+>>> [
+>>> 	6 0 0 4 4 7 6 6 9 5
+>>> ].longestIncreasingSubsequence
 [0 4 6 9]
 
 >>> [2 9 4 7 3 4 5].longestIncreasingSubsequence
 [2 3 4 5]
 
->>> [6 3 4 8 10 5 7 1 9 2].longestIncreasingSubsequence
+>>> [
+>>> 	6 3 4 8 10 5 7 1 9 2
+>>> ].longestIncreasingSubsequence
 [3 4 5 7 9]
 
->>> let l = [7 4 4 5 2 7 1 8 13 2 10 4 9 1 4 5 5 4 3 10 3 4 5 8 15 7 11 19];
->>> l.longestIncreasingSubsequence
+>>> [
+>>> 	7 4 4 5 2 7 1 8 13 2
+>>> 	10 4 9 1 4 5 5 4 3 10
+>>> 	3 4 5 8 15 7 11 19
+>>> ].longestIncreasingSubsequence
 [1 2 3 4 5 7 11 19]
 ```
 

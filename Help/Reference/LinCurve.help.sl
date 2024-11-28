@@ -1,6 +1,6 @@
 # LinCurve
 
-- LinCurve(in, inMin, inMax, outMin, outMax, curve)
+- _LinCurve(in, inMin, inMax, outMin, outMax, curve)_
 
 Maps a linear input range to a curved output range.
 
@@ -9,15 +9,28 @@ Create a stepped sequence:
 ```
 let rate = MouseY(1 / 7, 1, 0, 0.2);
 let div = MouseX(5, 23, 1, 0.2);
-let phase = Phasor(0, rate * SampleDur() * [1, Rand(1, 3)], 0, 1, 0);
+let phase = Phasor(
+	0,
+	rate * SampleDur() * [1, Rand(1, 3)],
+	0,
+	1,
+	0
+);
+let toTrigger = { :x |
+	Hpz1(x) < 0 + Impulse(0, 0)
+};
 let warpedPhase = phase.LinCurve(0, 1, 0, 1, 4);
-let trigger = Hpz1(warpedPhase) < 0 + Impulse(0, 0);
+let trigger = warpedPhase.toTrigger;
 let wrappedPhase = (warpedPhase * div).Wrap(0, 1);
-let warpedTriggers = Hpz1(wrappedPhase) < 0 + Impulse(0, 0);
+let warpedTriggers = wrappedPhase.toTrigger;
 let stepped = (warpedPhase * div).Floor;
 let quantized = stepped / div;
-let freq = quantized * TExpRand(111, 1111, trigger) + TExpRand(111, 1111, trigger);
-Blip(freq, quantized * 13) * Perc(warpedTriggers, 0.01, 0.1, -4)
+let freq = quantized.MulAdd(
+	TExpRand(111, 1111, trigger),
+	TExpRand(111, 1111, trigger)
+);
+let signal = Blip(freq, quantized * 13);
+signal * Perc(warpedTriggers, 0.01, 0.1, -4)
 ```
 
 Plotting, fixed curve:

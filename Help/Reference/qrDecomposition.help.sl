@@ -56,7 +56,13 @@ The QR decomposition for a 5×3 matrix,
 zero padded to be 5×5:
 
 ```
->>> let [q, r] = [1 3 7 0 0; -1 2 -3 0 0; -1 2 -9 0 0; 1 -4 7 0 0; 1 2 1 0 0].qrDecomposition;
+>>> let [q, r] = [
+>>> 	1 3 7 0 0;
+>>> 	-1 2 -3 0 0;
+>>> 	-1 2 -9 0 0;
+>>> 	1 -4 7 0 0;
+>>> 	1 2 1 0 0
+>>> ].qrDecomposition;
 >>> (q, r)
 (
 	[
@@ -82,7 +88,15 @@ Answer the _QR_ decomposition of a matrix _A_ into a product _A = QR_ of an orth
 >>> let m = [12 -51 4; 6 167 -68; -4 24 -41];
 >>> let [q, r] = m.qrDecomposition;
 >>> let cQ = q * 175;
->>> (q, cQ, r, q.isOrthogonalMatrix, r.isUpperTriangularMatrix, q.dot(r) ~ m, q.dot(r))
+>>> (
+>>> 	q,
+>>> 	cQ,
+>>> 	r,
+>>> 	q.isOrthogonalMatrix,
+>>> 	r.isUpperTriangularMatrix,
+>>> 	q.dot(r) ~ m,
+>>> 	q.dot(r)
+>>> )
 (
 	[
 		-6/7   69/175  -58/175;

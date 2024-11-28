@@ -6,7 +6,9 @@ Get the word in _aString_ at index _anInteger_:
 
 ```
 >>> let s = 'a list of words';
->>> [1 3 8 11].collect { :each | s.whiteSpaceDelimitedWordAtIndex(each) }
+>>> [1 3 8 11].collect { :each |
+>>> 	s.whiteSpaceDelimitedWordAtIndex(each)
+>>> }
 ['a' 'list' 'of' 'words']
 ```
 

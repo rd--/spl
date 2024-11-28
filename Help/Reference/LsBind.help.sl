@@ -15,9 +15,10 @@ let ctl = (
 	cutoff: 5000,
 	q: 0.5
 ).localControls;
-let env = Linen(Impulse(0, 0), 0, 1, ctl::release, 2);
-let osc = Saw([ctl::freq, ctl::freq * ctl::detune]) * env;
-let sig = Rlpf(osc, XLine(ctl::cutoff, 100, ctl::release), 1 / ctl::q) * ctl::amp;
+let freq = [ctl::freq, ctl::freq * ctl::detune];
+let osc = Saw(freq).Release(0, 1, ctl::release);
+let cut = XLine(ctl::cutoff, 100, ctl::release);
+let sig = Rlpf(osc, cut, 1 / ctl::q) * ctl::amp;
 UgenGraph('saw', sig).send
 ~~~
 
@@ -61,8 +62,9 @@ let ctl = (
 	attack: 0.01,
 	release: 1
 ).localControls;
-let env = Asr(ctl::gate, ctl::attack, ctl::release, -4).FreeSelfWhenDone;
-let osc = Saw([ctl::freq, ctl::freq * ctl::detune]) * env;
+let freq = [ctl::freq, ctl::freq * ctl::detune];
+let env = Asr(ctl::gate, ctl::attack, ctl::release, -4);
+let osc = Saw(freq) * env.FreeSelfWhenDone;
 let sig = Rlpf(osc, ctl::cutoff, 1 / ctl::q) * ctl::amp;
 UgenGraph('saw', sig).send
 ~~~

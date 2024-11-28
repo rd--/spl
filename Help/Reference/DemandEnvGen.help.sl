@@ -9,9 +9,10 @@ Frequency envelope with random times:
 
 ```
 let cubicInterpolation = 7;
+let y = MouseY(0.01, 3, 1, 0.2);
 let freq = DemandEnvGen(
 	Dseq(inf, [204 400 201 502 300 200]),
-	Drand(inf, [1.01 0.2 0.1 2]) * MouseY(0.01, 3, 1, 0.2),
+	Drand(inf, [1.01 0.2 0.1 2]) * y,
 	cubicInterpolation,
 	0, 1, 1, 1, 0, 1, 0
 );
@@ -52,15 +53,17 @@ Sample and hold (0.5 > gate > 0),
 `MouseY` scales frequency:
 
 ```
+let x = MouseX(0, 1, 0, 0.2);
+let y = MouseY(0.25, 2, 0, 0.2);
 let freq = DemandEnvGen(
 	Dwhite(inf, 300, 1000).RoundTo(100),
 	0.1,
 	5,
 	0.3,
-	MouseX(0, 1, 0, 0.2) > 0.5 + 0.1,
+	x > 0.5 + 0.1,
 	1, 1, 0, 1, 0
 );
-SinOsc(freq * [1 1.21] * MouseY(0.25, 2, 0, 0.2), 0) * 0.1
+SinOsc(freq * [1 1.21] * y, 0) * 0.1
 ```
 
 Gate,
@@ -83,13 +86,16 @@ SinOsc(freq * [1, 1.001], 0) * 0.1
 Hardsyncing a saw:
 
 ```
+let x = MouseX(0.002, 1, 1, 0.2);
+let xx = MouseX(1, SampleRate() * x, 1, 0.2);
+let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
 	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
-	SampleDur() * MouseY(1, 100, 1, 0.2),
+	SampleDur() * y,
 	1,
 	0,
 	K2A(1),
-	Impulse(MouseX(1, SampleRate() * MouseX(0.002, 1, 1, 0.2), 1, 0.2), 0) * 1.5,
+	Impulse(xx, 0) * 1.5,
 	1, 0, 1, 0
 )
 ```
@@ -97,16 +103,16 @@ DemandEnvGen(
 Softsyncing a saw:
 
 ```
+let x = MouseX(0.002, 1, 1, 0.2);
+let xx = MouseX(1, SampleRate() * x, 1, 0.2);
+let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
 	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
-	SampleDur() * MouseY(1, 100, 1, 0.2),
+	SampleDur() * y,
 	1,
 	0,
 	K2A(1),
-	Impulse(
-		MouseX(1, SampleRate() * MouseX(0.002, 1, 1, 0.2), 1, 0.2),
-		0
-	) + [0, 0.3],
+	Impulse(xx, 0) + [0, 0.3],
 	1, 0, 1, 0
 )
 ```
@@ -118,7 +124,15 @@ Multichannel expansion,
 ```
 let freq = DemandEnvGen(
 	{
-		Dseq(inf, [300, 800, Drand(1, [1000, 460, 300]), 400]) + Rand(0, 3)
+		Dseq(
+			inf,
+			[
+				300,
+				800,
+				Drand(1, [1000 460 300]),
+				400
+			]
+		) + Rand(0, 3)
 	} ! 2,
 	MouseY(0.001, 2, 1, 0.2),
 	5,

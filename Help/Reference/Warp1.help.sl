@@ -21,14 +21,24 @@ Here the pointer moves from the beginning to the end of the soundfile over fifte
 
 ```
 let numChannels = 1;
-let sf = SfAcquireMono('Floating');
+let soundFile = SfAcquireMono('Floating');
 let pointer = LfSaw(1 / 15, 0).LinLin(-1, 1, 0, 1);
 let freqScale = MouseX(0.5, 2, 0, 0.2);
 let windowSize = 0.1;
-Warp1(numChannels, sf, pointer, freqScale, windowSize, -1, 8, 0.1, 2) * 0.25
+Warp1(
+	numChannels,
+	soundFile,
+	pointer,
+	freqScale,
+	windowSize,
+	-1,
+	8,
+	0.1,
+	2
+) * 0.25
 ```
 
-Pointer is _Phasor_, playback slows from unit to a quarter over twenty seconds:
+Pointer is `Phasor`, playback slows from unit to a quarter over twenty seconds:
 
 ```
 let sf = SfAcquireMono('Floating');

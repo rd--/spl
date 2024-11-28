@@ -17,7 +17,13 @@ Latch(WhiteNoise(), Impulse(900, 0)) * 0.1
 Step noise as frequency input:
 
 ```
-Blip(Latch(WhiteNoise(), Impulse(9, 0)) * 400 + 500, 4) * 0.1
+Blip(
+	Latch(
+		WhiteNoise(),
+		Impulse(9, 0)
+	) * 400 + 500,
+	4
+) * 0.1
 ```
 
 The above are just meant as examples.
@@ -30,7 +36,10 @@ Blip(LfNoise0(9) * 400 + 500, 4) * 0.1
 Array expansion:
 
 ```
-WhiteNoise().Latch(Impulse([2, 7], 0)).LinLin(-1, 1, 222, 777).SinOsc(0) * 0.1
+WhiteNoise()
+.Latch(Impulse([2, 7], 0))
+.LinLin(-1, 1, 222, 777)
+.SinOsc(0) * 0.1
 ```
 
 Plotting:

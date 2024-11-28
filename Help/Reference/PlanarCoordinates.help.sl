@@ -36,7 +36,11 @@ Threads over lists:
 
 ```
 >>> [1 2 3].PlanarCoordinates([4 5 6])
-[PlanarCoordinates(1, 4), PlanarCoordinates(2, 5), PlanarCoordinates(3, 6)]
+[
+	PlanarCoordinates(1, 4),
+	PlanarCoordinates(2, 5),
+	PlanarCoordinates(3, 6)
+]
 ```
 
 * * *

@@ -35,8 +35,14 @@ The three rotations of a 3×3 matrix:
 Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of nonzero elements.
 
 ```
->>> let a = [36 54 24 46 64 78 88 94 96 94 88 78 64 46 24 54 36].diagonalMatrix;
->>> let s = [-27 -12 -13 -24 -33 -40 -45 -48 -49 -48 -45 -40 -33 -12 -27 -36].diagonalMatrix(1);
+>>> let a = [
+>>> 	36 54 24 46 64 78 88 94 96 94
+>>> 	88 78 64 46 24 54 36
+>>> ].diagonalMatrix;
+>>> let s = [
+>>> 	-27 -12 -13 -24 -33 -40 -45 -48 -49 -48
+>>> 	-45 -40 -33 -12 -27 -36
+>>> ].diagonalMatrix(1);
 >>> a + s + s.matrixRotate(2)
 [
 	 36 -27   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0;

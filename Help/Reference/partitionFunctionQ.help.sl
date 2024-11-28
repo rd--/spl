@@ -13,7 +13,10 @@ since there are four partitions of 10 into three distinct parts:
 >>> 10.partitionFunctionQ(3)
 4
 
->>> 10.integerPartitions(3).collect(nub:/1).select { :each | each.size = 3 }
+>>> let p = 10.integerPartitions(3);
+>>> p.collect(nub:/1).select { :each |
+>>> 	each.size = 3
+>>> }
 [7 2 1; 6 3 1; 5 4 1; 5 3 2]
 ```
 

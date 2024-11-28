@@ -85,7 +85,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: exp, log2, log10
+See also: exp, log2, log10, logarithmicIntegralRamanujan
 
 References:
 _Apl_
