@@ -7,6 +7,6 @@ This is ordinarily used by methods that provide access to tables &etc. that are 
 
 * * *
 
-See also: atIfAbsentPut, whenCached
+See also: atIfAbsentPut, Cache, whenCached
 
 Categories: Accessing

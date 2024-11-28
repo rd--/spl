@@ -14,6 +14,6 @@ Answer _aString_ or a copy shortened by ellipsis to _anInteger_ places.
 
 * * *
 
-See also: String
+See also: printStringLimitedTo, String, truncateTo
 
 Categories: Converting

@@ -63,10 +63,12 @@ TextEditor : [Object, UserEventTarget, View] {
 			self.textEditorMenu(event)
 		};
 		self.editorText.addEventListener('keydown') { :event |
-			let bindings = self.menuItems.collect { :each |
-				each.keyBinding(event)
-			};
 			event.ctrlKey.ifTrue {
+				let where = system.window.caretBoundingBox;
+				let bindings = self.menuItems.collect { :each |
+					each.keyBinding(event, where)
+				};
+				self.smallKansas.where := where;
 				event.key.caseOfOtherwise(
 					bindings,
 					{ :key | nil }

@@ -50,10 +50,14 @@ Sᴘʟ parses it as the latter:
 
 * * *
 
-See also: Array Syntax, List, List Syntax, Matrix Syntax, Volume Syntax
+See also: List
+
+Guides: Array Syntax, List Syntax, Matrix Syntax, Volume Syntax
 
 References:
 _Fortress_
-[1](https://doi.org/10.1007/978-0-387-09766-4_190)
+[1](https://doi.org/10.1007/978-0-387-09766-4_190),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html)
 
 Categories: Syntax

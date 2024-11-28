@@ -8,12 +8,13 @@ A `Dictionary` at `System` to hold the set of `Trait`s.
 >>> system.traitDictionary['Collection'].isTrait
 true
 
->>> system.traitDictionary['Iterable'].methodDictionary.includesKey('sum:/1')
+>>> let trait = system.traitDictionary['Iterable'];
+>>> trait.methodDictionary.includesKey('sum:/1')
 true
 ```
 
 * * *
 
-See also: System, Trait
+See also: methodDictionary, packageDictionary, System, Trait, typeDictionary
 
-Categories: System, Reflection
+Categories: Reflection, System

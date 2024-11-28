@@ -16,6 +16,10 @@ Nil! : [Object, Json] {
 		anObject.isNil
 	}
 
+	concisePrintString { :self |
+		self.printString
+	}
+
 	copy { :self |
 		nil
 	}

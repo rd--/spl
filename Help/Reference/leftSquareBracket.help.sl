@@ -26,4 +26,6 @@ The name of this syntax token is `leftSquareBracket`.
 
 * * *
 
-See also: ], List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax
+See also: ]
+
+Guides: List Syntax, Matrix Syntax, Vector Syntax, Volume Syntax

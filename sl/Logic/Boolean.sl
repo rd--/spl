@@ -52,6 +52,10 @@ Boolean! : [Object, Json] {
 		self.asBit
 	}
 
+	concisePrintString { :self |
+		self.printString
+	}
+
 	if { :self :whenTrue:/0 :whenFalse:/0 |
 		<primitive: return _self ? _whenTrue_0() : _whenFalse_0();>
 	}

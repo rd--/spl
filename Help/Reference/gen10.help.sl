@@ -35,7 +35,9 @@ An approximation of a pulse wave, fundamental and eight harmonics:
 
 * * *
 
-See also: Csound Gen Routines, gen09, gen11, gen19
+See also: gen09, gen11, gen19
+
+Guides: Csound Gen Routines
 
 References:
 _Csound_

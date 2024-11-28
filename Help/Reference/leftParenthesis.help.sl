@@ -31,4 +31,6 @@ The name of this syntax token is `leftParenthesis`.
 
 * * *
 
-See also: ), Apply Syntax, Method Syntax, Tuple Syntax, Value Apply Syntax
+See also: )
+
+Guides: Apply Syntax, Method Syntax, Tuple Syntax, Value Apply Syntax

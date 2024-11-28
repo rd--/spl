@@ -8,7 +8,9 @@ The name of this token is `asteriskSolidus`.
 
 * * *
 
-See also: Comment Syntax
+See also: *, /
+
+Guides: Comment Syntax
 
 Unicode: U+000BB » Right-Pointing Double Angle Quotation Mark
 

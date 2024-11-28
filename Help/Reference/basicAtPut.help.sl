@@ -6,6 +6,8 @@ Unchecked mutation, answers nil for invalid indices.
 
 * * *
 
-See also: atPut, basicAt, Slot Access Syntax
+See also: atPut, basicAt
+
+Guides: Slot Access Syntax
 
 Categories: Accessing

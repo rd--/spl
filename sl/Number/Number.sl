@@ -161,6 +161,10 @@
 		low.max(self.min(high))
 	}
 
+	concisePrintString { :self |
+		self.printString
+	}
+
 	continuedFraction { :self :limit |
 		let answer = [];
 		let i = self.floor;

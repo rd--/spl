@@ -28,7 +28,7 @@ dotGraph.dotLayout('svg', 'dot').then { :answer |
 	system.smallKansas.SvgViewer(
 		'Dot Drawing',
 		answer.parseSvg,
-		nil
+		system.smallKansas.where
 	)
 }
 ~~~

@@ -14,6 +14,8 @@ A valid program can be enclosed within braces to define a no-argument `Block`.
 
 * * *
 
-See also: Block Syntax, Let Syntax, Var Syntax
+See also: ;, let, var
+
+Guides: Block Syntax, Let Syntax, Var Syntax
 
 Categories: Syntax

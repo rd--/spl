@@ -30,6 +30,10 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		self
 	}
 
+	concisePrintString { :self |
+		self.printString
+	}
+
 	isIntegerRange { :self |
 		self.start.isInteger & {
 			self.stop.isInteger & {

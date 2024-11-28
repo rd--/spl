@@ -32,6 +32,28 @@ Point : [Object] { | vector |
 		self.storeStringAsInitializeSlots
 	}
 
+	x { :self |
+		self.vector[1]
+	}
+
+	y { :self |
+		let v = self.vector;
+		(v.size < 2).if {
+			self.error('Point>>y: no y')
+		} {
+			v[2]
+		}
+	}
+
+	z { :self |
+		let v = self.vector;
+		(v.size < 3).if {
+			self.error('Point>>z: no z')
+		} {
+			v[3]
+		}
+	}
+
 }
 
 InfiniteLine : [Object] { | point vector |

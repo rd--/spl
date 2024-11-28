@@ -522,7 +522,8 @@
 
 ## Printing
 
-- `printString`, `storeString`
+- `asString`, `concisePrintString`, `printString`, `storeString`
+- `contractTo`, `printStringLimitedTo`, `trucateTo`
 
 ## Ranges
 

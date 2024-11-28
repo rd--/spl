@@ -2,12 +2,14 @@
 
 - _methodDictionary(aSystem | aTrait | aType)_
 
-Fetch the `Method Dictionary` of the `System` or of a `Trait` or `Type`.
+Fetch the `Method Dictionary` of the `System`,
+or of a `Trait`,
+or of a `Type`.
 
 At `Trait` and `Type` the method dictionaries are keyed by qualified method names,
 and the entries are methods.
 
-The method dictionary of `String`:
+The method dictionary of `List`:
 
 ```
 >>> let t = [1 2 3].typeDefinition;
@@ -54,6 +56,8 @@ true
 
 * * *
 
-See also: methodLookupAtType, Method Dictionary, System
+See also: methodLookupAtType, packageDictionary, System, traitDictionary, typeDictionary
+
+Guides: Method Dictionary
 
 Categories: Reflection, Accessing, System

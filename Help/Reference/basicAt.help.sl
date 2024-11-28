@@ -6,6 +6,8 @@ Unchecked lookup, answers nil for invalid indices.
 
 * * *
 
-See also: at, basicAtPut, Slot Access Syntax
+See also: at, basicAtPut
+
+Guides: Slot Access Syntax
 
 Categories: Accessing

@@ -26,7 +26,9 @@ The name of this token is `solidusAsterisk`.
 
 * * *
 
-See also: Comment Syntax
+See also: *, /, */
+
+Guides: Comment Syntax
 
 Unicode: U+000AB « Left-Pointing Double Angle Quotation Mark
 

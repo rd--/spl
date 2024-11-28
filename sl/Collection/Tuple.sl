@@ -14,6 +14,10 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		self.contents[index] := anObject
 	}
 
+	concisePrintString { :self |
+		'(' ++ self.contents.collect(concisePrintString:/1).join(', ') ++ ')'
+	}
+
 	copy { :self |
 		self.contents.asTuple
 	}

@@ -78,6 +78,8 @@ or with temporary variables:
 
 * * *
 
-See also: Dictionary Assignment Syntax
+See also: :=, List
+
+Guides: Dictionary Assignment Syntax
 
 Categories: Syntax

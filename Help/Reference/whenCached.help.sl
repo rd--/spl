@@ -9,6 +9,6 @@ This is ordinarily used by methods that provide access to tables &etc. that are 
 
 * * *
 
-See also: atIfAbsentPut, cached
+See also: atIfAbsentPut, Cache, cached
 
 Categories: Accessing

@@ -282,6 +282,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.primitiveCollectInto(identity:/1, [])
 	}
 
+	concisePrintString { :self |
+		self.contractTo(32)
+	}
+
 	contractTo { :self :smallSize |
 		(self.size <= smallSize).if {
 			self
@@ -475,9 +479,9 @@ String! : [Object, Json, Iterable, Character] {
 
 	indefiniteArticle { :self |
 		self.first.isVowel.if {
-			'an '
+			'an'
 		} {
-			'a '
+			'a'
 		}
 	}
 
@@ -865,7 +869,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	withIndefiniteArticle { :self |
-		self.indefiniteArticle ++ self
+		[self.indefiniteArticle, self].join(' ')
 	}
 
 	withoutLeadingBlanks { :self |

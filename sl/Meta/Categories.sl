@@ -1105,7 +1105,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'messageText'
 		'postLine'
 		'printString'
-		'printStringConcise'
+		'concisePrintString'
 		'printStringHex'
 		'printStringLimitedTo'
 		'printStringRoman'

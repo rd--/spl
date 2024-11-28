@@ -25,7 +25,9 @@ The same partials and amplitude as above, with phase shifts:
 
 * * *
 
-See also: Csound Gen Routines, gen10, gen11, gen19
+See also: gen10, gen11, gen19
+
+Guides: Csound Gen Routines
 
 References:
 _Csound_

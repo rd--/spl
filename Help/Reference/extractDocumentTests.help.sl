@@ -21,6 +21,8 @@ and can extract documentation tests from any text.
 
 * * *
 
-See also: asDocumentTest, Documentation Tests, DocumentTest
+See also: asDocumentTest, DocumentTest
+
+Guides: Documentation Tests
 
 Categories: Tests

@@ -19,7 +19,9 @@ Answer the number of arguments that must be used to evaluate _aBlock_.
 
 * * *
 
-See also: Block Semantics, cull, value
+See also: cull, value
+
+Guides: Block Semantics
 
 References:
 _Smalltalk_

@@ -35,6 +35,8 @@ true
 
 * * *
 
-See also: asJson, asRecord, Association, Dictionary, Dictionary Syntax, Map
+See also: asJson, asRecord, Association, Dictionary, Map
+
+Guides: Dictionary Syntax
 
 Categories: Collection, Type

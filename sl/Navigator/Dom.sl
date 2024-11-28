@@ -1040,7 +1040,7 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 +[HTMLDocument, Window] {
 
 	caretBoundingBox { :self |
-		system.window.elementAtCaret.getBoundingClientRect
+		self.elementAtCaret.getBoundingClientRect
 	}
 
 	caretIsInTextAreaElement { :self |

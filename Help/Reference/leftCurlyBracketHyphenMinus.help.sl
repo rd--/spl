@@ -4,4 +4,6 @@
 
 * * *
 
-See also: Comment Syntax
+See also: -}
+
+Guides: Comment Syntax

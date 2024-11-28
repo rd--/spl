@@ -26,7 +26,9 @@ An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 
 * * *
 
-See also: Csound Gen Routines, gen09, gen10, gen19
+See also: gen09, gen10, gen19
+
+Guides: Csound Gen Routines
 
 References:
 _Csound_

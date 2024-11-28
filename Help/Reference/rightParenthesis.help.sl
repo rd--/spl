@@ -12,4 +12,6 @@ The name of this syntax token is `rightParenthesis`.
 
 * * *
 
-See also: (, Apply Syntax, Method Syntax, Tuple Syntax
+See also: (
+
+Guides: Apply Syntax, Method Syntax, Tuple Syntax

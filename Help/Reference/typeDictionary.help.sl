@@ -5,15 +5,22 @@
 A `Dictionary` at `System` to hold the set of `Type`s.
 
 ```
+>>> system.typeDictionary.isDictionary
+true
+
+>>> system.typeDictionary.includesKey('List')
+true
+
 >>> system.typeDictionary['List'].isType
 true
 
->>> system.typeDictionary['List'].methodDictionary.includesKey('isList:/1')
+>>> let t = system.typeDictionary['List'];
+>>> t.methodDictionary.includesKey('isList:/1')
 true
 ```
 
 * * *
 
-See also: System, Type
+See also: methodDictionary, packageDictionary, System, traitDictionary, Type
 
-Categories: System, Reflection
+Categories: Reflection, System

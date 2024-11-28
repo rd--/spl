@@ -70,6 +70,10 @@
 		}
 	}
 
+	concisePrintString { :self |
+		self.typeOf.withIndefiniteArticle
+	}
+
 	constant { :self |
 		{ :unusedObject |
 			self
@@ -130,7 +134,7 @@
 			self.pseudoSlotList,
 			self.isIndexable.if {
 				self.indices.take(maxIndices).collect { :each |
-					each.asString -> self[each]
+					each.concisePrintString -> self[each]
 				}
 			} {
 				[]
@@ -201,15 +205,6 @@
 
 	printString { :self |
 		self.storeString
-	}
-
-	printStringConcise { :self :count |
-		let answer = self.printString;
-		(answer.size > count).if {
-			self.typeOf.withIndefiniteArticle
-		} {
-			answer
-		}
 	}
 
 	printStringLimitedTo { :self :count |

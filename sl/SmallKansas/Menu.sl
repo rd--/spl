@@ -16,10 +16,10 @@ MenuItem : [Object] { | name accessKey onSelect |
 		self.name ++ self.accessKeyDislayText
 	}
 
-	keyBinding { :self :event |
+	keyBinding { :self :event :where |
 		self.accessKey -> {
 			event.preventDefault;
-			self.onSelect . (nil)
+			self.onSelect . (where)
 		}
 	}
 
@@ -107,6 +107,7 @@ Menu : [Object, View] { | frame menuPane listPane menuList title isTransient |
 	menu { :self :title :entries :isTransient :event |
 		let menu = Menu(title, entries);
 		let frame = self.addFrame(menu, event);
+		self.where := event;
 		menu.isTransient := isTransient;
 		frame
 	}

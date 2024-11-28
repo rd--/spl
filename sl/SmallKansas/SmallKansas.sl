@@ -8,7 +8,7 @@
 
 }
 
-SmallKansas : [Object, Cache] { | container frameSet cache history |
+SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
 	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
 		let timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000);
@@ -129,9 +129,6 @@ SmallKansas : [Object, Cache] { | container frameSet cache history |
 				event.preventDefault;
 				self.WorldMenu(true, event)
 			}
-		};
-		self.container.addEventListener('mousemove') { :event |
-			(event.type, event.x, event.y).postLine
 		};
 		self
 	}

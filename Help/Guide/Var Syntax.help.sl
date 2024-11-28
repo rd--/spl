@@ -32,6 +32,8 @@ This is distinct from binding a literal block to an existing identifier defined 
 
 * * *
 
-See also: Block Syntax, Let Syntax, nil, Program Syntax, var
+See also: nil, var
+
+Guides: Block Syntax, Let Syntax, Program Syntax
 
 Categories: Syntax

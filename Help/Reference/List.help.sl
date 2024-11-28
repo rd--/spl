@@ -82,6 +82,8 @@ true
 
 See also: #, !, asList, asCollection, ByteArray, enclose, Float64Array, nest, Type
 
+Guides: List Syntax, Vector Syntax
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html),

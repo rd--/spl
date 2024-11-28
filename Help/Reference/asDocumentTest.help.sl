@@ -14,6 +14,8 @@ DocumentTest('>>>', ['a' 'b'], ['c' 'd'])
 
 * * *
 
-See also: Documentation Tests, DocumentTest, extractDocumentTests
+See also: DocumentTest, extractDocumentTests
+
+Guides: Documentation Tests
 
 Categories: Tests

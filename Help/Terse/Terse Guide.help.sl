@@ -2011,7 +2011,8 @@ let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permut
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) /* copy from start index to end index */
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) /* copy from start index to end index */
 (1, 3 .. 17).copyFromTo(6, 3).isEmpty /* if indices are out of order the interval is empty */
-9999:99999.printStringConcise(8) = 'a Range' /* consise printer */
+9999:99999.concisePrintString = '9999:99999' /* consise printer */
+[9999 .. 99999].concisePrintString = 'a List (size: 90001)' /* consise printer */
 ```
 
 ## Iterable -- collection trait

@@ -27,6 +27,8 @@ nil
 
 * * *
 
-See also: Block Semantics, numArgs, value
+See also: numArgs, value
+
+Guides: Block Semantics
 
 Categories: Evaluating

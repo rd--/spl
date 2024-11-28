@@ -33,6 +33,8 @@ A list of the empty list:
 
 * * *
 
-See also: Array Syntax, List, List Assignment Syntax, Tuple Syntax, Vector Syntax
+See also: List
+
+Guides: Array Syntax, List Assignment Syntax, Tuple Syntax, Vector Syntax
 
 Categories: Syntax

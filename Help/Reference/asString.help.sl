@@ -87,7 +87,7 @@ At `Record`:
 
 * * *
 
-See also: printString, storeString, String
+See also: concisePrintString, printString, storeString, String
 
 References:
 _Mathematica_

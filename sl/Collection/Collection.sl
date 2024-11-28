@@ -202,6 +202,13 @@
 		answer
 	}
 
+	concisePrintString { :self |
+		'% (size: %)'.format([
+			self.typeOf.withIndefiniteArticle,
+			self.size
+		])
+	}
+
 	contraharmonicMean { :self |
 		self.squared.sum / self.sum
 	}

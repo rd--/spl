@@ -1,16 +1,14 @@
 # let
 
-Let is a keyword that introduces a variable binding.
+- _let name = value; ..._
 
-Let bindings are of the form
+`let` is a keyword that introduces a variable binding.
 
-> _let namePattern = valueExpression; ..._
-
-Let bindings must be placed in sequence at the start of a `Block` or program,
+`let` bindings must be placed in sequence at the start of a `Block` or program,
 immediately following any argument names.
 
-Let bindings may not be interspersed with statements,
-however let bindings do allow the _unused variable_ syntax:
+`let` bindings may not be interspersed with statements,
+however `let` bindings do allow the _unused variable_ syntax:
 
 ```
 >>> let a = 1;
@@ -24,6 +22,8 @@ however let bindings do allow the _unused variable_ syntax:
 
 * * *
 
-See also: Block Syntax, Let Syntax, Program Syntax, Var Syntax, var
+See also: =, var
+
+Guides: Block Syntax, Let Syntax, Program Syntax, Var Syntax
 
 Categories: Keyword, Syntax

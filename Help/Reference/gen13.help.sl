@@ -86,7 +86,9 @@ let h = [5 0 3 0 1];
 
 * * *
 
-See also: Csound Gen Routines, gen03
+See also: gen03
+
+Guides: Csound Gen Routines
 
 References:
 _Csound_

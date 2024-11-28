@@ -29,6 +29,8 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 * * *
 
-See also: Non-local Return, repeat
+See also: repeat
+
+Guides: Non-local Return
 
 Unicode: U+2193 ↓ Downwards Arrow, U+2191 ↑ Upwards Arrow

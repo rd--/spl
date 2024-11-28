@@ -64,19 +64,22 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 			self.programMenu(event)
 		};
 		self.program.addEventListener('keydown') { :event |
-			let bindings = self.menuItems.collect { :each |
-				each.keyBinding(event)
-			};
 			event.ctrlKey.ifTrue {
+				let where = system.window.caretBoundingBox;
+				let bindings = self.menuItems.collect { :each |
+					each.keyBinding(event, where)
+				};
+				self.smallKansas.where := where;
 				event.key.caseOfOtherwise(
 					bindings,
 					{ :key | nil }
 				)
 			};
 			event.shiftKey.ifTrue {
+				let where = system.window.caretBoundingBox;
 				event.key.caseOfOtherwise([
 					'Enter' -> {
-						let result = self.smallKansas.evaluate(self.program.value, nil);
+						let result = self.smallKansas.evaluate(self.program.value, where);
 						event.preventDefault;
 						self.addToAnswer(self.program.value, result);
 						self.onEvaluate;
