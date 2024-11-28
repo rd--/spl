@@ -100,7 +100,10 @@ PolarCoordinates : [Object] { | r theta |
 +Record {
 
 	asPolarCoordinates { :self |
-		PolarCoordinates(self::r, self::theta)
+		PolarCoordinates(
+			self['r'],
+			self['theta']
+		)
 	}
 
 }

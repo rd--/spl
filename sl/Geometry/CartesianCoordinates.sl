@@ -164,7 +164,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 +Record {
 
 	asCartesianCoordinates { :self |
-		CartesianCoordinates(self::x, self::y, self::z)
+		CartesianCoordinates(self['x'], self['y'], self['z'])
 	}
 
 }

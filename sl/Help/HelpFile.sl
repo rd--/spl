@@ -33,8 +33,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 	fencedCodeBlockLineRanges { :self |
 		let answer = [];
 		self.markdown.do { :each |
-			(each::type = 'codeBlock').ifTrue {
-				let [start, end] = each::sourcePosition;
+			(each['type'] = 'codeBlock').ifTrue {
+				let [start, end] = each['sourcePosition'];
 				self.lines[start[1]].isCodeFence.ifTrue {
 					answer.add(Range(start[1], end[1], 1))
 				}
@@ -161,17 +161,18 @@ HelpFile : [Object, Cache] { | origin source cache |
 	terseReferenceEntry { :self :options |
 		let testCount = 0;
 		let passCount = 0;
-		options::verbose.ifTrue {
+		let verbose = options['verbose'];
+		verbose.ifTrue {
 			(self.origin.fileNameWithoutExtensions.decodeUri, self.name).postLine
 		};
 		self.codeBlocks.do { :each |
-			each::information.includesSubstring('methodDefinition').ifTrue {
-				system.evaluate(each::contents)
+			each['information'].includesSubstring('methodDefinition').ifTrue {
+				system.evaluate(each['contents'])
 			}
 		};
 		self.documentTests.do { :each |
 			testCount := testCount + 1;
-			options::verbose.ifTrue {
+			verbose.ifTrue {
 				('	' ++ each.format).postLine
 			};
 			each.evaluate.if {
@@ -180,7 +181,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 				('	FAIL: ' ++ each.format).postLine
 			}
 		};
-		options::verbose.ifTrue {
+		verbose.ifTrue {
 			'	Pass % of %'.format([passCount, testCount]).postLine
 		};
 		[testCount, passCount]

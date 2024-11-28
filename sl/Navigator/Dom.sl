@@ -592,7 +592,6 @@ DOMRect! : [Object] {
 	x { :self | <primitive: return _self.x;> }
 	y { :self | <primitive: return _self.y;> }
 
-
 	pseudoSlotNameList { :self |
 		['x' 'y' 'width' 'height']
 	}
@@ -979,10 +978,18 @@ Path2D! : [Object] {
 
 PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 
-	isPrimary { :self | <primitive: return _self.isPrimary;> }
-	pointerId { :self | <primitive: return _self.pointerId;> }
-	pointerPressure { :self | <primitive: return _self.pointerPressure;> }
-	pointerType { :self | <primitive: return _self.pointerType;> }
+	altitudeAngle { :self | <primitive: return _self.altitudeAngle;> } /* Read only */
+	azimuthAngle { :self | <primitive: return _self.azimuthAngle;> } /* Read only */
+	height { :self | <primitive: return _self.height;> } /* Read only */
+	isPrimary { :self | <primitive: return _self.isPrimary;> } /* Read only */
+	pointerId { :self | <primitive: return _self.pointerId;> } /* Read only */
+	pointerType { :self | <primitive: return _self.pointerType;> } /* Read only */
+	pressure { :self | <primitive: return _self.pressure;> } /* Read only */
+	tangentialPressure { :self | <primitive: return _self.tangentialPressure;> } /* Read only */
+	tiltX { :self | <primitive: return _self.tiltX;> } /* Read only */
+	tiltY { :self | <primitive: return _self.tiltY;> } /* Read only */
+	twist { :self | <primitive: return _self.twist;> } /* Read only */
+	width { :self | <primitive: return _self.width;> } /* Read only */
 
 }
 

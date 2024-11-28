@@ -20,13 +20,13 @@
 
 	asJiTuning { :self |
 		JiTuning(
-			self::name,
-			self::description,
-			self::tuning,
+			self['name'],
+			self['description'],
+			self['tuning'],
 			self.atIfAbsent('octave') {
 				2/1
 			},
-			self::limit
+			self['limit']
 		)
 	}
 

@@ -2,7 +2,7 @@
 
 - _match(aRegExp, aString)_
 
-Answer the part of _aString_ that matches _aRegExp_, else nil if there is no match.
+Answer the part of _aString_ that matches _aRegExp_, else `nil` if there is no match.
 
 ```
 >>> RegExp('c(a|d)+r').match('caddar')
@@ -23,6 +23,6 @@ nil
 
 * * *
 
-See also: matches, RegExp, search
+See also: matches, matchRegExp, RegExp, search
 
 Categories: Testing

@@ -160,10 +160,10 @@
 				{ :libraryItem |
 					libraryItem.collect { :each |
 						each.includesKey('octave').if {
-							let [numerator, denominator] = each::octave;
-							each::octave := Fraction(numerator, denominator)
+							let [numerator, denominator] = each['octave'];
+							each['octave'] := Fraction(numerator, denominator)
 						} {
-							each::octave := 2/1
+							each['octave'] := 2/1
 						};
 						each.asJiTuning
 					}

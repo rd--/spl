@@ -459,10 +459,10 @@ Polygon : [Object] { | coordinates |
 
 	asPoint { :self |
 		self.includesAllIndices(['x','y','z']).if {
-			Point([self::x, self::y, self::z])
+			Point([self['x'], self['y'], self['z']])
 		} {
 			self.includesAllIndices(['x','y']).if {
-				Point([self::x, self::y])
+				Point([self['x'], self['y']])
 			} {
 				self.error('@Dictionary>>asPoint: invalid dictionary')
 			}

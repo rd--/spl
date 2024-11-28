@@ -60,7 +60,12 @@ FourVector : [Object] { | w x y z |
 +Record {
 
 	asFourVector { :self |
-		FourVector(self::w, self::x, self::y, self::z)
+		FourVector(
+			self['w'],
+			self['x'],
+			self['y'],
+			self['z']
+		)
 	}
 
 }

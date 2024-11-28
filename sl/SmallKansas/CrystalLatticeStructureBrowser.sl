@@ -44,12 +44,14 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 	CrystalLatticeStructure { :self |
 		newCrystalLatticeStructure().initializeSlots(
-			self::name,
-			self::description,
-			self::vertexLabels.withCollect(self::vertexCoordinates) { :label :coordinates |
+			self['name'],
+			self['description'],
+			self['vertexLabels'].withCollect(
+				self['vertexCoordinates']
+			) { :label :coordinates |
 				[label, coordinates]
 			},
-			self::edges.collect { :edge |
+			self['edges'].collect { :edge |
 				edge.collect { :each |
 					each + 1
 				}

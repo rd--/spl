@@ -69,7 +69,7 @@ RegExp! : [Object] {
 	}
 
 	match { :self :aString |
-		self.exec(aString)::match
+		self.exec(aString)['match']
 	}
 
 	matchAll { :self :aString |
@@ -201,7 +201,11 @@ RegExp! : [Object] {
 
 	wordAtIndex { :self :index |
 		self.includesIndex(index).if {
-			let before = (index = 1).if { '' } { self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' } };
+			let before = (index = 1).if {
+				''
+			} {
+				self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' }
+			};
 			let after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' };
 			before ++ after
 		} {

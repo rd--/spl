@@ -280,7 +280,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 +Record {
 
 	asPlanarCoordinates { :self |
-		PlanarCoordinates(self::x, self::y)
+		PlanarCoordinates(self['x'], self['y'])
 	}
 
 }

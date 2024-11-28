@@ -64,7 +64,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 
 	limit { :self :anInteger |
 		anInteger.isInteger.ifTrue {
-			self.cache::limit := anInteger
+			self.cache['limit'] := anInteger
 		};
 		self
 	}

@@ -24,6 +24,7 @@ true
 
 >>> let d = system.typeDictionary;
 >>> d.includesKey('System')
+true
 
 >>> system.nextRandomFloat < 1
 true

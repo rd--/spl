@@ -378,7 +378,7 @@
 			next.ifNil {
 				nil
 			} {
-				let dur = next::dur;
+				let dur = next['dur'];
 				let events = next.multiChannelExpand;
 				let packets = events.collect { :each |
 					each.asPatternEventMessages(currentTime + timeDifference)
@@ -397,7 +397,7 @@
 
 	asPatternEventMessages { :self :currentTime |
 		let latency = 0.2; /* Preferences */
-		let instrument = self::instrument;
+		let instrument = self['instrument'];
 		let synthId = 100 + system.uniqueId; /* Node allocator */
 		let addAction = 0;
 		let targetNode = 1;
@@ -417,7 +417,7 @@
 		);
 		let sNewBundle = OscBundle(currentTime + latency, [sNewMessage]);
 		self.includesKey('gate').if {
-			let sustain = self::sustain;
+			let sustain = self['sustain'];
 			let releaseTime = currentTime + sustain;
 			let nSetMessage = OscMessage('/n_set', [synthId, 'gate', 0]);
 			let nSetBundle = OscBundle(releaseTime + latency, [nSetMessage]);

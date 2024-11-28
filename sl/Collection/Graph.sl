@@ -478,11 +478,11 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	vertexLabels { :self |
-		self.properties::vertexLabels
+		self.properties['vertexLabels']
 	}
 
 	vertexLabels { :self :labels |
-		self.properties::vertexLabels := labels;
+		self.properties['vertexLabels'] := labels;
 		self
 	}
 

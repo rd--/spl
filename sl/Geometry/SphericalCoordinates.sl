@@ -137,7 +137,11 @@ SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 +Record {
 
 	asSphericalCoordinates { :self |
-		SphericalCoordinates(self::r, self::theta, self::phi)
+		SphericalCoordinates(
+			self['r'],
+			self['theta'],
+			self['phi']
+		)
 	}
 
 }

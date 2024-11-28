@@ -237,12 +237,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		let answer = self.cached('uniqueId') {
 			1
 		};
-		self.cache::uniqueId := answer + 1;
+		self.cache['uniqueId'] := answer + 1;
 		answer
 	}
 
 	uniqueId { :self :anInteger |
-		self.cache::uniqueId := anInteger
+		self.cache['uniqueId'] := anInteger
 	}
 
 	unixTimeInMilliseconds { :self |

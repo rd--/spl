@@ -19,9 +19,9 @@
 	readDirectoryFileNames { :self |
 		self.readDirectory.then { :entries |
 			entries.select { :each |
-				each::isFile
+				each['isFile']
 			}.collect { :each |
-				[self, each::name].pathJoin
+				[self, each['name']].pathJoin
 			}
 		}
 	}

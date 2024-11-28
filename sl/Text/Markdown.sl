@@ -20,10 +20,10 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		items.withIndexDo { :each :index |
 			let value = each.value;
 			{
-				value::id = index
+				value['id'] = index
 			}.assert;
 			value.includesKey('parent').ifTrue {
-				items[value::parent].addChild(each)
+				items[value['parent']].addChild(each)
 			}
 		};
 		items.first.do { :each |
@@ -49,10 +49,10 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 	codeBlocks { :self |
 		let answer = [];
 		self.do { :each |
-			(each::type = 'codeBlock').ifTrue {
-				let codeBlock = (contents: each::literal);
-				codeBlock::information := each.includesKey('info').if {
-					each::info
+			(each['type'] = 'codeBlock').ifTrue {
+				let codeBlock = (contents: each['literal']);
+				codeBlock['information'] := each.includesKey('info').if {
+					each['info']
 				} {
 					''
 				};

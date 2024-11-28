@@ -85,9 +85,9 @@ Package! : [Object] {
 
 	derivePackageUrl { :self |
 		[
-			self::Category,
+			self['Category'],
 			'/',
-			self::Name,
+			self['Name'],
 			'.sl'
 		].join('')
 	}
@@ -95,9 +95,9 @@ Package! : [Object] {
 	Package { :self |
 		Package(
 			self.atIfAbsentPut('Category') {
-				system.categoryDictionary.categoryOf('type', self::Name)
+				system.categoryDictionary.categoryOf('type', self['Name'])
 			},
-			self::Name,
+			self['Name'],
 			self.atIfAbsent('Requires') {
 				[]
 			},

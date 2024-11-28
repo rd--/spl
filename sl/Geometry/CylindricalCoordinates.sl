@@ -70,7 +70,11 @@ CylindricalCoordinates : [Object] { | rho phi z |
 +Record {
 
 	asCylindricalCoordinates { :self |
-		CylindricalCoordinates(self::rho, self::phi, self::z)
+		CylindricalCoordinates(
+			self['rho'],
+			self['phi'],
+			self['z']
+		)
 	}
 
 
