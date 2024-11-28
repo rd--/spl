@@ -8,14 +8,22 @@ Select the prime numbers up to one hundred:
 
 ```
 >>> (1n .. 99n).select(isPrimeTrialDivision:/1)
-[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
+[
+	2 3 5 7 11 13 17 19 23 29
+	31 37 41 43 47 53 59 61 67 71
+	73 79 83 89 97
+]
 ```
 
 Validate using `isPrime`:
 
 ```
 >>> 1:99.select(isPrime:/1)
-[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
+[
+	2 3 5 7 11 13 17 19 23 29
+	31 37 41 43 47 53 59 61 67 71
+	73 79 83 89 97
+]
 ```
 
 Number of primes up to ten-thousand:

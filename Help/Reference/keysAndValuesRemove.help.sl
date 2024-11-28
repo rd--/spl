@@ -10,7 +10,9 @@ This method takes care of tallying the removals in a first pass, and then perfor
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);
->>> d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } };
+>>> d.keysAndValuesRemove { :key :value |
+>>> 	key = 'y' | { value = 3 }
+>>> };
 >>> d
 (x: 1)
 ```

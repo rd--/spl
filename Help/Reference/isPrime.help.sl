@@ -105,7 +105,9 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) -
 
 ```
 >>> let f = { :n |
->>> 	n.isPrime & { (2 ^ (n - 1) - 1) % (n ^ 2) = 0 }
+>>> 	n.isPrime & {
+>>> 		(2 ^ (n - 1) - 1) % (n ^ 2) = 0
+>>> 	}
 >>> };
 >>> (1n .. 9999n).select(f:/1)
 [1093n, 3511n]
@@ -115,7 +117,9 @@ Find twin primes:
 
 ```
 >>> 1:333.select { :each |
->>> 	each.isPrime & { each.nextPrime = (each + 2) }
+>>> 	each.isPrime & {
+>>> 		each.nextPrime = (each + 2)
+>>> 	}
 >>> }
 [
 	  3   5  11  17  29  41  59  71 101 107
@@ -138,7 +142,7 @@ Plot primes up to one-hundred-thousand:
 
 * * *
 
-See also: isGaussianPrime, isPrimePower, nextPrime, nthPrime
+See also: isGaussianPrime, isPrimePower, isPrimeTrialDivision, nextPrime, nthPrime
 
 References:
 _J_

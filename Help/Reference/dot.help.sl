@@ -97,7 +97,10 @@ A 2×3 matrix can be multiplied by a 2-vector only on the left:
 
 ```
 >>> let v = [0.618678 0.213605];
->>> let m = [0.187902 0.498054 0.767621; 0.226789 0.852257 0.819982];
+>>> let m = [
+>>> 	0.187902 0.498054 0.767621;
+>>> 	0.226789 0.852257 0.819982
+>>> ];
 >>> v.dot(m)
 [0.16469 0.49018 0.65006]
 ```
@@ -105,7 +108,10 @@ A 2×3 matrix can be multiplied by a 2-vector only on the left:
 A 2×3 matrix can be multiplied by a 3-vector only on the right:
 
 ```
->>> let m = [0.187902 0.498054 0.767621; 0.226789 0.852257 0.819982];
+>>> let m = [
+>>> 	0.187902 0.498054 0.767621;
+>>> 	0.226789 0.852257 0.819982
+>>> ];
 >>> let v = [0.804978 0.587651 0.2951];
 >>> m.dot(v)
 [0.67046 0.92537]
@@ -206,7 +212,9 @@ Project the vector _(-1, -4, -2)_ on the plane spanned by the vectors _(1, 1, -1
 >>> let b1 = [2 4 -2];
 >>> let b2 = [-3 3 0];
 >>> let b3 = b2 - (b2.dot(b1) / b1.dot(b1) * b1);
->>> let p = (v.dot(b1) / b1.dot(b1) * b1) + (v.dot(b3) / b3.dot(b3) * b3);
+>>> let p1 = v.dot(b1) / b1.dot(b1) * b1;
+>>> let p2 = v.dot(b3) / b3.dot(b3) * b3;
+>>> let p = p1 + p2;
 >>> (b3, p, v - p)
 (
 	[-7/2 2 1/2],
@@ -240,7 +248,12 @@ also show the diagonal and antidiagonal sums and the matrix rank:
 
 ```
 >>> let mu = 4 * (4 * 4 + 1) / 2;
->>> let m = [16 3 2 13; 5 10 11 8; 9 6 7 12; 4 15 14 1];
+>>> let m = [
+>>> 	16 3 2 13;
+>>> 	5 10 11 8;
+>>> 	9 6 7 12;
+>>> 	4 15 14 1
+>>> ];
 >>> let v = [1 1 1 1];
 >>> (
 >>> 	mu,

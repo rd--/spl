@@ -21,6 +21,6 @@ CentsTuning(
 
 * * *
 
-See also: asCents, equalTemperamentTuning, RatioTuning, Tuning
+See also: asCents, asCentsTuning, equalTemperamentTuning, RatioTuning, Tuning
 
 Categories: Tuning

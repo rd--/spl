@@ -10,7 +10,9 @@ At `List`:
 
 ```
 >>> let l = [];
->>> ['a', ['b', ['c', ['d']]]].deepDo { :each | l.add(each) };
+>>> ['a', ['b', ['c', ['d']]]].deepDo { :each |
+>>> 	l.add(each)
+>>> };
 >>> l
 ['a' 'b' 'c' 'd']
 ```
@@ -19,7 +21,9 @@ At `Tuple`:
 
 ```
 >>> let l = [];
->>> ('a', ('b', ('c', 'd'))).deepDo { :each | l.add(each) };
+>>> ('a', ('b', ('c', 'd'))).deepDo { :each |
+>>> 	l.add(each)
+>>> };
 >>> l
 ['a' 'b' 'c' 'd']
 ```
@@ -28,7 +32,9 @@ At `Record`:
 
 ```
 >>> let l = [];
->>> (x: 'a', y: (x: 'b', y: (x: 'c'))).deepDo { :each | l.add(each) };
+>>> (x: 'a', y: (x: 'b', y: (x: 'c'))).deepDo { :each |
+>>> 	l.add(each)
+>>> };
 >>> l
 ['a' 'b' 'c']
 ```

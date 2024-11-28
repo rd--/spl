@@ -31,7 +31,15 @@ Edges incident to vertex one of an undirected graph:
 Edges incident to vertex one of a directed graph:
 
 ```
->>> let g = [1 -> 3, 2 -> 1, 3 -> 6, 4 -> 6, 1 -> 5, 5 -> 4, 6 -> 1].asGraph;
+>>> let g = [
+>>> 	1 -> 3,
+>>> 	2 -> 1,
+>>> 	3 -> 6,
+>>> 	4 -> 6,
+>>> 	1 -> 5,
+>>> 	5 -> 4,
+>>> 	6 -> 1
+>>> ].asGraph;
 >>> g.adjacencyList(1)
 [3 2 5 6]
 ```

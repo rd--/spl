@@ -14,7 +14,10 @@ answer an infinite `Stream` of repeated applications of _aBlock_ to _anObject_.
 [42 45 48 51 54 57 60 63 66 69]
 
 >>> cos:/1.iterate(1).next(10)
-[1 0.54030 0.85755 0.65429 0.79348 0.70137 0.76396 0.72210 0.75042 0.73140]
+[
+	1.00000 0.54030 0.85755 0.65429 0.79348
+	0.70137 0.76396 0.72210 0.75042 0.73140
+]
 ```
 
 In the ternary case,
@@ -49,7 +52,9 @@ The regular paper-folding (or dragon curve) sequence,
 c.f. OEIS [A014707](https://oeis.org/A014707):
 
 ```
->>> { :l | l ++ [0] ++ (1 - l).reversed }.iterate([0], 5)
+>>> { :l |
+>>> 	l ++ [0] ++ (1 - l).reversed
+>>> }.iterate([0], 5)
 [
 	0 0 1 0 0 1 1 0 0 0 1 1 0 1 1 0 0 0 1 0
 	0 1 1 1 0 0 1 1 0 1 1 0 0 0 1 0 0 1 1 0

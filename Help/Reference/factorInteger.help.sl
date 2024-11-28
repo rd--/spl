@@ -18,7 +18,16 @@ Answer the `List` of prime factors of _aFraction_, each associated with its expo
 120
 
 >>> 20.!.factorInteger
-[2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
+[
+	2 -> 18,
+	3 -> 8,
+	5 -> 4,
+	7 -> 2,
+	11 -> 1,
+	13 -> 1,
+	17 -> 1,
+	19 -> 1
+]
 ```
 
 A prime power has one prime factor:
@@ -103,7 +112,9 @@ Compute the original number from a factorization:
 >>> 120.factorInteger
 [2 -> 3, 3 -> 1, 5 -> 1]
 
->>> [2 -> 3, 3 -> 1, 5 -> 1].collect { :x | x.key ^ x.value }.product
+>>> [2 -> 3, 3 -> 1, 5 -> 1].collect { :x |
+>>> 	x.key ^ x.value
+>>> }.product
 120
 ```
 
