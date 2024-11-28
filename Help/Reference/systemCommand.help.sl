@@ -8,7 +8,9 @@ a `Record` with the fields _exitCode_, _outputText_ and _errorText_.
 Test that a file exists:
 
 ~~~
-system.systemCommand('test', ['-f', '/etc/passwd']).then { :result |
+system.systemCommand(
+	'test', ['-f', '/etc/passwd']
+).then { :result |
 	(result::exitCode = 0).postLine
 }
 ~~~
@@ -16,7 +18,9 @@ system.systemCommand('test', ['-f', '/etc/passwd']).then { :result |
 Count the words in a file:
 
 ~~~
-system.systemCommand('wc', ['-w', '/etc/passwd']).then { :result |
+system.systemCommand(
+	'wc', ['-w', '/etc/passwd']
+).then { :result |
 	result::outputText.postLine
 }
 ~~~

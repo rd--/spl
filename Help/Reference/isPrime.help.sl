@@ -142,7 +142,7 @@ Plot primes up to one-hundred-thousand:
 
 * * *
 
-See also: isGaussianPrime, isPrimePower, isPrimeTrialDivision, nextPrime, nthPrime
+See also: isGaussianPrime, isPrimePower, isPrimeTrialDivision, millerRabinPrimalityTest, nextPrime, nthPrime, primesList
 
 References:
 _J_

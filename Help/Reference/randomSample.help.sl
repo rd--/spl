@@ -20,7 +20,10 @@ Find a sample in which no elements ever occur more than once:
 	16.4,
 	9.1272,
 	20,
-	[14 15 29 18 24 9 19 28 7 3 27 23 21 6 30 2 16 11 22 4]
+	[
+		14 15 29 18 24 9 19 28 7 3
+		27 23 21 6 30 2 16 11 22 4
+	]
 )
 ```
 
@@ -29,7 +32,15 @@ Generate a random permutation:
 ```
 >>> let l = Sfc32(49135).randomSample(1:20, 20);
 >>> (l.mean, l.standardDeviation, l.nub.size, l)
-(10.5, 5.91608, 20, [1 15 11 13 10 2 4 14 7 12 5 20 6 17 3 19 8 18 16 9])
+(
+	10.5,
+	5.91608,
+	20,
+	[
+		1 15 11 13 10 2 4 14 7 12
+		5 20 6 17 3 19 8 18 16 9
+	]
+)
 ```
 
 Generate a random sample of six elements, or as many as there are if fewer:

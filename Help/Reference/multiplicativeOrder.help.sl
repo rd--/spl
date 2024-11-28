@@ -15,7 +15,11 @@ If _n_ is `one` answer _n_:
 `multiplicativeOrder` answers `nil` if there is no integer satisfying the necessary conditions:
 
 ```
->>> 1:4.collect { :n | 1:10.collect { :k | k.multiplicativeOrder(n) } }
+>>> 1:4.collect { :n |
+>>> 	1:10.collect { :k |
+>>> 		k.multiplicativeOrder(n)
+>>> 	}
+>>> }
 [
 	1 1 1 1 1 1 1 1 1 1;
 	1 nil 1 nil 1 nil 1 nil 1 nil;
@@ -117,13 +121,17 @@ Solve the discrete log problem with _5 ^ m % 7 = 4_:
 Plot the sequence with a fixed modulus:
 
 ~~~
-1:50.functionPlot { :k | k.multiplicativeOrder(7) ? { 0 } }
+1:50.functionPlot { :k |
+	k.multiplicativeOrder(7) ? { 0 }
+}
 ~~~
 
 Plot the sequence, varying the modulus:
 
 ~~~
-1:22.functionPlot { :n | 7.multiplicativeOrder(n) ? { 0 } }
+1:22.functionPlot { :n |
+	7.multiplicativeOrder(n) ? { 0 }
+}
 ~~~
 
 * * *

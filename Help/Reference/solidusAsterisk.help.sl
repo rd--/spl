@@ -26,7 +26,7 @@ The name of this token is `solidusAsterisk`.
 
 * * *
 
-See also: *, /, */
+See also: *, /
 
 Guides: Comment Syntax
 

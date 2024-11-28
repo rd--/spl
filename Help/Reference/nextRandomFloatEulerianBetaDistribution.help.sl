@@ -31,13 +31,21 @@ This is a linear distribution.
 Biased low:
 
 ~~~
-({ system.nextRandomFloatEulerianBetaDistribution(0, 1, 1 / 3, 3) } ! 99).linePlot
+(
+	{
+		system.nextRandomFloatEulerianBetaDistribution(0, 1, 1 / 3, 3)
+	} ! 99
+).linePlot
 ~~~
 
 Biased high:
 
 ~~~
-({ system.nextRandomFloatEulerianBetaDistribution(0, 1, 3, 1 / 3) } ! 99).linePlot
+(
+	{
+		system.nextRandomFloatEulerianBetaDistribution(0, 1, 3, 1 / 3)
+	} ! 99
+).linePlot
 ~~~
 
 * * *

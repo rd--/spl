@@ -32,14 +32,20 @@ or, equivalently, the number of partitions into parts of which the largest is ex
 Initial triangle of _P(n, k)_:
 
 ```
->>> 1:6.collect { :n | 1:n.collect { :k | n.partitionFunctionP(k) } }
+>>> 1:6.collect { :n |
+>>> 	1:n.collect { :k |
+>>> 		n.partitionFunctionP(k)
+>>> 	}
+>>> }
 [1; 1 1; 1 1 1; 1 2 1 1; 1 2 2 1 1; 1 3 3 2 1 1]
 ```
 
 Plot the number of unrestricted partitions:
 
 ~~~
-0:50.functionPlot { :x | x.partitionFunctionP.asFloat.log10 }
+0:50.functionPlot { :x |
+	x.partitionFunctionP.asFloat.log10
+}
 ~~~
 
 * * *

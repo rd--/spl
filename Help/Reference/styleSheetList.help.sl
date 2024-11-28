@@ -5,5 +5,7 @@
 Answer the `List` of style sheets associated with _aDocument_.
 
 ~~~
-system.window.document.styleSheetList.collect { :each | each.href }
+system.window.document.styleSheetList.collect { :each |
+	each.href
+}
 ~~~

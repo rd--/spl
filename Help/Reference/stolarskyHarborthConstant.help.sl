@@ -13,16 +13,28 @@ The number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
 
 ```
->>> let b = { :k | k.digitCount(2, 1) };
->>> 1:15.collect { :n | (0 .. n - 1).collect { :k | 2 ^ b(k) }.sum }
+>>> let b = { :k |
+>>> 	k.digitCount(2, 1)
+>>> };
+>>> 1:15.collect { :n |
+>>> 	(0 .. n - 1).collect { :k |
+>>> 		2 ^ b(k)
+>>> 	}.sum
+>>> }
 [1 3 5 9 11 15 19 27 29 33 37 45 49 57 65]
 ```
 
 Plot of first two hundred terms of _f(n) / (n ^ theta)_, the minima of which :
 
 ~~~
-let b = { :k | k.digitCount(2, 1) };
-let f = { :n | (0 .. n - 1).collect { :k | 2 ^ b(k) }.sum };
+let b = { :k |
+	k.digitCount(2, 1)
+};
+let f = { :n |
+	(0 .. n - 1).collect { :k |
+		2 ^ b(k)
+	}.sum
+};
 let n = 1:200;
 (n.collect(f:/1) / (n ^ 3.log(2))).linePlot
 ~~~

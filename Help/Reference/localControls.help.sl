@@ -15,7 +15,10 @@ SinOsc(ctl::freq, 0) * ctl::amp
 is equivalent to:
 
 ~~~
-let ctl = (freq: NamedControl('freq', 440), amp: NamedControl('amp', 0.1));
+let ctl = (
+	freq: NamedControl('freq', 440),
+	amp: NamedControl('amp', 0.1)
+);
 SinOsc(ctl::freq, 0) * ctl::amp
 ~~~
 

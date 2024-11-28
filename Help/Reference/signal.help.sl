@@ -8,7 +8,11 @@ Control will be passed to the first error handler `Block` in the call stack.
 If no such block exists, the program will terminate.
 
 ```
->>> { Error('An error').signal }.ifError { :err | err.messageText }
+>>> {
+>>> 	Error('An error').signal
+>>> }.ifError { :err |
+>>> 	err.messageText
+>>> }
 'An error'
 ```
 

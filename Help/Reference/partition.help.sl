@@ -63,7 +63,11 @@ Find pairs of successive elements in a list:
 
 ```
 >>> [1 0 1 1 1 0 1 0 0 0 1 1 0 0 0].partition(2, 1)
-[1 0; 0 1; 1 1; 1 1; 1 0; 0 1; 1 0; 0 0; 0 0; 0 1; 1 1; 1 0; 0 0; 0 0]
+[
+	1 0; 0 1; 1 1; 1 1; 1 0;
+	0 1; 1 0; 0 0; 0 0; 0 1;
+	1 1; 1 0; 0 0; 0 0
+]
 ```
 
 Find successive ratios in a list:

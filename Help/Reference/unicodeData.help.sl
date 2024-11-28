@@ -11,18 +11,24 @@ Acquire the table, if it is not cached, and when it arrives print its size and t
 system.unicodeData.then { :unicodeTable |
 	(
 		unicodeTable.size,
-		unicodeTable[unicodeTable.findFirst { :each | each.first = '03C0' }]
+		unicodeTable[
+			unicodeTable.findFirst { :each |
+				each.first = '03C0'
+			}
+		]
 	).postLine
 }
 ~~~
 
 The most commonly used fields are:
 
-- 1\. Code point (four character hexadecimal string)
+- 1\. Code point
 - 2\. Name
 - 3\. General category
 - 13\. Simple uppercase mapping
 - 14\. Simple lowercase mapping
+
+The code point is a four character hexadecimal string.
 
 If the library has been acquired it may be accessed directly:
 

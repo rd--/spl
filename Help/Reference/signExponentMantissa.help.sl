@@ -11,7 +11,11 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 >>> 	let sem = x.signExponentMantissa;
 >>> 	(sem, sem.fromSignExponentMantissa)
 >>> };
->>> let n = [1 -1 0.123 -0.123 1.5 -1.5 1E100 -1E100 1E-100 -1E-100 inf];
+>>> let n = [
+>>> 	1 -1 0.123 -0.123 1.5
+>>> 	-1.5 1E100 -1E100 1E-100 -1E-100
+>>> 	inf
+>>> ];
 >>> n.collect(f:/1)
 [
 	([0 0 1], 1),

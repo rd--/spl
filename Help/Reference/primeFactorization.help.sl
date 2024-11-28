@@ -24,7 +24,16 @@ Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities 
 [7 7 7 7].asBag
 
 >>> 20.factorial.primeFactorization.sortedElements
-[2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
+[
+	2 -> 18,
+	3 -> 8,
+	5 -> 4,
+	7 -> 2,
+	11 -> 1,
+	13 -> 1,
+	17 -> 1,
+	19 -> 1
+]
 ```
 
 The keys are the prime divisors:

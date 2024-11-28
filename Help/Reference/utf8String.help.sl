@@ -19,7 +19,10 @@ Create a string from a ByteArray, assuming it contains UTF-8 data:
 >>> [97 65 206 177].asByteArray.utf8String
 'aAα'
 
->>> let list = [195 139 65 195 146 75 195 135 120 195 129 115 195 137 93];
+>>> let list = [
+>>> 	195 139 65 195 146 75 195 135 120 195
+>>> 	129 115 195 137 93
+>>> ];
 >>> let bytes = list.asByteArray;
 >>> bytes.utf8String
 'ËAÒKÇxÁsÉ]'

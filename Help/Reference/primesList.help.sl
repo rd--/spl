@@ -24,6 +24,6 @@ Plot first 500 places:
 
 * * *
 
-See also: cachedPrimesList, isPrime, nextPrime, nthPrime
+See also: cachedPrimesList, isPrime, nextPrime, nthPrime, primesBetweenAnd, sieveOfEratosthenes
 
 Categories: Primes

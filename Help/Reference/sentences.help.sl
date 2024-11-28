@@ -6,8 +6,8 @@ Answer a `List` of sentences in _aString_.
 This is a simple `RegExp` based method and will not work for complex sentences.
 
 ```
->>> 'First sentence. Second sentence. Third sentence.'.sentences
-['First sentence.', ' Second sentence.', ' Third sentence.']
+>>> 'A sentence. Another. A third.'.sentences
+['A sentence.', ' Another.', ' A third.']
 ```
 
 It does handle a number of common cases:
@@ -20,8 +20,18 @@ It does handle a number of common cases:
 Including common Markdown cases:
 
 ```
->>> '_A_ b *c* [d](http://x.y/z) e. *F*, g. ![H](i). `I` j...'.sentences
-['_A_ b *c* [d](http://x.y/z) e.', ' *F*, g.', ' ![H](i).', ' `I` j...']
+>>> [
+>>> 	'_A_ b *c* [d](http://x.y/z) e.'
+>>> 	'*F*, g.'
+>>> 	'![H](i).'
+>>> 	'`I` j...'
+>>> ].join(' ').sentences
+[
+	'_A_ b *c* [d](http://x.y/z) e.',
+	' *F*, g.',
+	' ![H](i).',
+	' `I` j...'
+]
 ```
 
 * * *
