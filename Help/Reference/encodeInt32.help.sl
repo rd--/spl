@@ -15,4 +15,6 @@ in _littleEndian_ format if the flag is `true`.
 
 * * *
 
-See also: encodeInt8, encodeInt16, encodeFloat32
+See also: encode, encodeInt8, encodeInt16, encodeFloat32, encodeFloat64
+
+Categories: Encoding

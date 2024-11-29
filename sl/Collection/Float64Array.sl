@@ -10,6 +10,10 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 		self.errorInvalidIndex('atPut', index)
 	}
 
+	encode { :self :littleEndian |
+		<primitive: return sc.encodeFloat64Array(_self, _littleEndian);>
+	}
+
 	shallowCopy { :self |
 		<primitive: return new Float64Array(_self);>
 	}

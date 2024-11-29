@@ -31,6 +31,12 @@ Diagonals of Pascal’s triangle:
 ]
 ```
 
+Plot a random walk:
+
+~~~
+Sfc32(89714).randomReal(-1, 1, [99]).accumulate.linePlot
+~~~
+
 * * *
 
 See also: +, foldList, scan, prefixSum

@@ -10,7 +10,11 @@ the algorithm is part of the _PractRand_ test suite, which it passes.
 
 ```
 >>> let rng = Sfc32(12345);
->>> (rng.isSfc32, rng.isRandomNumberGenerator, rng.isStream)
+>>> (
+>>> 	rng.isSfc32,
+>>> 	rng.isRandomNumberGenerator,
+>>> 	rng.isStream
+>>> )
 (true, true, true)
 ```
 

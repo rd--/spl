@@ -295,6 +295,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return sc.encodeFloat32(_self, _littleEndian);>
 	}
 
+	encodeFloat64 { :self :littleEndian |
+		<primitive: return sc.encodeFloat64(_self, _littleEndian);>
+	}
+
 	encodeInt8 { :self |
 		<primitive: return sc.encodeInt8(_self);>
 	}

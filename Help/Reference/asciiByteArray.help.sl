@@ -2,7 +2,8 @@
 
 - _asciiByteArray(aString)_
 
-Answer a `ByteArray` of the Ascii encoding of _aString_, which must be an Ascii string.
+Answer a `ByteArray` of the Ascii encoding of _aString_,
+which must be an Ascii string.
 
 ```
 >>> 'ascii'.asciiByteArray

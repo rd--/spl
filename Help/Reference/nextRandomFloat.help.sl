@@ -18,16 +18,24 @@ Answer the next thirteen random numbers scaled to lie between one and nine as in
 
 ```
 >>> let r = Sfc32(29315);
->>> { (r.nextRandomFloat * 8 + 1).ceiling } ! 13
+>>> {
+>>> 	(r.nextRandomFloat * 8 + 1).ceiling
+>>> } ! 13
 [6 3 4 8 4 9 7 3 7 6 4 2 3]
 ```
 
 Plot uniform distribution:
 
 ~~~
-({ system.nextRandomFloat * 2 - 1 } ! 99).linePlot
+(
+	{
+		system.nextRandomFloat * 2 - 1
+	} ! 99
+).linePlot
 ~~~
 
 * * *
 
 See also: nextRandomInteger, RandomNumberGenerator, randomReal
+
+Categories: Random
