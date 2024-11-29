@@ -2,16 +2,26 @@
 
 - _packageDictionary(aSystem)_
 
-Answer a `Dictionary` holding the packages known to _aSystem_.
+Answer a `Dictionary` holding the `Package`s known to _aSystem_.
 
 ```
->>> let d = system.packageDictionary;
->>> (d.isDictionary, d.size > 200)
-(true, true)
-
->>> system.packageDictionary.includesKey('Object')
+>>> system.packageDictionary.isDictionary
 true
 
+>>> system.packageDictionary.elementType
+'Package'
+```
+
+`Object` is a package:
+
+```
+>>> system.packageDictionary.includesKey('Object')
+true
+```
+
+Package fields include `category`, `name`, `isLoaded` and `url`:
+
+```
 >>> let p = system.packageDictionary['List'];
 >>> (p.category, p.name, p.isLoaded, p.url)
 (
@@ -20,15 +30,18 @@ true
 	true,
 	'Collection/List.sl'
 )
+```
 
-let p = system.packageDictionary['PackageBrowser'];
-let r = p.requires;
-(p, r)
+`requires` answers set of packages required by a package.
+`dependencies` answers the recursive set of packages required by a package:
 
-system.package('Trait')
-
-.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
-
+```
+>>> let p = system.packageDictionary;
+>>> let d = p['PackageBrowser'].dependencies;
+>>> d.collect(name:/1).includesAllOf(
+>>> 	['ColumnBrowser' 'Event' 'SmallKansas']
+>>> )
+true
 ```
 
 * * *

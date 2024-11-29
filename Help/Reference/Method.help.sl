@@ -28,21 +28,32 @@ true
 `methodLookupAtType` answers a method given an unqualified name, an arity and a type name:
 
 ```
->>> system.methodLookupAtType('collect', 2, 'List').isMethod
-true
-
->>> system.methodLookupAtType('collect', 2, 'List').origin.name
-'PrimitiveSequence'
-
->>> let m = system.methodLookupAtType('collect', 2, 'List');
->>> m.block . ([3, 4, 5], { :x | x * x })
-[9, 16, 25]
+>>> let m = system.methodLookupAtType(
+>>> 	'collect',
+>>> 	2,
+>>> 	'List'
+>>> );
+>>> (
+>>> 	m.isMethod,
+>>> 	m.origin.name,
+>>> 	m.block . ([3, 4, 5], { :x | x * x })
+>>> )
+(true, 'PrimitiveSequence', [9, 16, 25])
 
 >>> collect([3, 4, 5], { :x | x * x })
 [9, 16, 25]
+```
 
->>> let listSum = system.methodLookupAtType('sum', 1, 'List');
->>> let setSum = system.methodLookupAtType('sum', 1, 'Set');
+The `sum` method is implemented at a `Trait`,
+the copies at `List` and `Set` are identical:
+
+```
+>>> let listSum = system.methodLookupAtType(
+>>> 	'sum', 1, 'List'
+>>> );
+>>> let setSum = system.methodLookupAtType(
+>>> 	'sum', 1, 'Set'
+>>> );
 >>> listSum == setSum
 true
 ```

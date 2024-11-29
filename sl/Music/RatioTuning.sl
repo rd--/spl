@@ -4,11 +4,11 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
-			self.name = anObject.name & {
-				self.description = anObject.description & {
-					self.asRatios = anObject.asRatios
-				}
-			}
+			self.equalByAtNamedSlots(
+				anObject,
+				['name' 'description' 'asRatios' 'octave'],
+				=
+			)
 		}
 	}
 

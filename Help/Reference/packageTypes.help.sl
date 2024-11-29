@@ -5,9 +5,9 @@
 Answer the `List` of `Type`s defined in the named `Package`.
 
 ```
->>> let typeList = system.packageTypes('Complex');
->>> (typeList.size, typeList[1].category)
-(1, 'Number')
+>>> let t = system.packageTypes('Complex');
+>>> (t.elementType, t.size, t[1].name, t[1].category)
+('Type', 1, 'Complex', 'Number')
 ```
 
 * * *

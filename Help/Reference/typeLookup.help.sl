@@ -2,14 +2,20 @@
 
 - _typeLookup(aSystem, aString)_
 
-Answer the named `Type`, if it exists, else signal an error.
+Answer the named `Type`, if it exists:
 
 ```
->>> let listType = system.typeLookup('List');
->>> (listType.isType, listType.methodDictionary.size > 500)
+>>> let t = system.typeLookup('List');
+>>> (t.isType, t.methodDictionary.size > 500)
 (true, true)
+```
 
->>> { system.typeLookup('UnknownType') }.ifError { true }
+else signal an `error`:
+
+```
+>>> {
+>>> 	system.typeLookup('UnknownType')
+>>> }.ifError { true }
 true
 ```
 

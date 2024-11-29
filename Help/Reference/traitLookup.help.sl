@@ -13,12 +13,13 @@ The `methodDictionary` at a `Trait` is keyed by qualified method names:
 
 ```
 >>> let t = system.traitLookup('Iterable');
->>> t.methodDictionary.includesKey('sum:/1')
+>>> let m = t.methodDictionary;
+>>> m.includesKey('sum:/1')
 true
 ```
 
 * * *
 
-See also: System, Trait
+See also: Method, System, Trait
 
 Categories: System, Reflection

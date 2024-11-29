@@ -4,9 +4,11 @@
 
 Answer the `List` of `Method`s defined in the named `Package`.
 
+Find the definitions of `asHert` in the _Frequency_ package:
+
 ```
->>> let methodList = system.packageMethods('Frequency');
->>> methodList.select { :each |
+>>> let m = system.packageMethods('Frequency');
+>>> m.select { :each |
 >>> 	each.name = 'asHertz'
 >>> }.collect { :each |
 >>> 	(each.origin.name, each.arity)

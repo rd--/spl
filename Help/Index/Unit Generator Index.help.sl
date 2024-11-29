@@ -139,5 +139,6 @@
 
 * * *
 
-See also: Unit Generators
+See also: Ugen
 
+Guides: Unit Generators

@@ -23,6 +23,6 @@ Two distinct `List` objects are never identical, but may have identical elements
 
 * * *
 
-See also: =, ==
+See also: =, ==, ~, hasEqualElements
 
 Categories: Comparing

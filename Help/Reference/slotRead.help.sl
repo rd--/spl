@@ -12,14 +12,18 @@ or `nil` if no such slot exists.
 >>> let a = ('x' -> 1);
 >>> (a.slotRead('key'), a.slotRead('value'))
 ('x', 1)
+```
 
+Answer `nil` for unknown slot:
+
+```
 >>> ('x' -> 1).slotRead('unknownSlot')
 nil
 ```
 
 * * *
 
-See also: slotNameList, slotWrite
+See also: slotList, slotNameList, slotValueList, slotWrite
 
 Categories: Reflection
 

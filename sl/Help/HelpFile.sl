@@ -2,6 +2,16 @@
 
 HelpFile : [Object, Cache] { | origin source cache |
 
+	= { :self :anObject |
+		anObject.isHelp & {
+			self.equalByAtNamedSlots(
+				anObject,
+				['origin' 'source'],
+				=
+			)
+		}
+	}
+
 	categories { :self |
 		self.readCommaSeparatedField('Categories: ')
 	}

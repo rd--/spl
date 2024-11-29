@@ -87,7 +87,7 @@ The name of this operator and syntax token is `equalsSign`.
 
 * * *
 
-See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualSlots
+See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualElements, hasEqualSlots
 
 Guides: Comparison Functions, Let Syntax, Syntax Tokens
 

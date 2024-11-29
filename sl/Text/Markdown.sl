@@ -2,6 +2,12 @@
 
 Markdown : [Object, Cache, Iterable] { | source cache |
 
+	= { :self :anObject |
+		anObject.isMarkdown & {
+			self.source = anObject.source
+		}
+	}
+
 	asHtml { :self |
 		self.cached('html') {
 			self.basicAsHtml

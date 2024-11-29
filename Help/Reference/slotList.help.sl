@@ -11,6 +11,6 @@ Answer an `Association` `List` giving the name and value of each slot at _anObje
 
 * * *
 
-See also: slotNameList
+See also: Association, equalByAtNamedSlots, List, slotNameList
 
 Categories: Reflection

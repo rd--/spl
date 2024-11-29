@@ -12,6 +12,6 @@ true
 
 * * *
 
-See also: =, ==, hasEqualElements, slotList
+See also: =, ==, equalByAtNamedSlots, hasEqualElements, hasEqualSlots, slotList
 
 Categories: Comparing, Reflection

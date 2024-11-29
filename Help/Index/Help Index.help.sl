@@ -96,7 +96,8 @@
 - `=`, `~=`
 - `==`, `~~`
 - `>`, `<`, `<=`, `>=`, `<=>`
-- `~`, `!~`, `isCloseTo`, `isVeryCloseTo`, `isSameAs`
+- `~`, `!~`
+- `isCloseTo`, `isVeryCloseTo`, `isSameAs`
 
 ## Complex Numbers
 
@@ -196,8 +197,14 @@
 
 ## Equality Testing
 
-- `=`, `==`, `~=`, `~~`, `~`
+- `=`, `~=`
+- `==`, `~~`
+- `~`, `!~`
+- `isCloseTo`, `isCloseToBy`, `isVeryCloseTo`
+- `isSameAs`
 - `hasEqualElements`, `hasEqualElementsBy`
+- `equalByAtNamedSlots`
+- `hasEqualSlots`, `hasEqualSlotsBy`
 - `allEqual`, `allEqualBy`
 
 ## Error Functions
@@ -458,7 +465,7 @@
 - `isOperator`
 - `operatorCharacters`, `operatorName`, `operatorNameTable`
 - `isPunctuationCharacter`, `isPunctuationToken`
-- `punctuationCharacterNameTable`, `punctuationCharacters, `punctuationTokenName`
+- `punctuationCharacterNameTable`, `punctuationCharacters`, `punctuationTokenName`
 
 ## Package
 
@@ -574,12 +581,17 @@
 
 ## Reflection
 
-- `perform`, `respondsTo`, `type`, `typeOf`
-- `elementType`, `elementTypeIfAbsent`, `elementTypes`
+- `perform`, `respondsTo`
+- `type`, `typeOf`
+- `elementType`, `elementTypes`
+- `elementTypeIfAbsent`
 - `methodDictionary`, `traitDictionary`, `typeDictionary`
 - `Method`, `Trait`, `Type`
-- `slotList`, `slotRead`, `slotWrite`
-- `hasEqualSlots`, `storeStringAsInitializeSlots`
+- `slotList`, `slotNameList`, `slotValueList`
+- `slotRead`, `slotWrite`
+- `equalByAtNamedSlots`
+- `hasEqualSlots`, `hasEqualSlotsBy`
+- `storeStringAsInitializeSlots`
 
 ## Regular Expressions
 

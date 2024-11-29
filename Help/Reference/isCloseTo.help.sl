@@ -33,7 +33,7 @@ and ~~ is the binary operator for _not identical to_.
 
 * * *
 
-See also: =, <~, >~, isVeryCloseTo
+See also: =, <~, >~, isCloseToBy, isVeryCloseTo
 
 References:
 _Apl_

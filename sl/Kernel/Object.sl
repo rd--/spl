@@ -91,6 +91,13 @@
 		<primitive: return structuredClone(_self);>
 	}
 
+	equalByAtNamedSlots { :self :anObject :slotNameList :aBlock:/2 |
+		<primitive: return _slotNameList.every(function (key) {
+			return _aBlock_2(_self[key], _anObject[key]);
+		});
+		>
+	}
+
 	errorMessage { :self :message |
 		[
 			self.typeOf, ': ',
@@ -110,7 +117,7 @@
 
 	hasEqualSlotsBy { :self :anObject :aBlock:/2 |
 		self.typeOf = anObject.typeOf & {
-			self.primitiveEqualByAtNamedSlots(
+			self.equalByAtNamedSlots(
 				anObject,
 				self.slotNameList,
 				aBlock:/2
@@ -206,11 +213,8 @@
 		<primitive: return _self == _anObject;>
 	}
 
-	primitiveEqualByAtNamedSlots { :self :anObject :slotNameList :aBlock:/2 |
-		<primitive: return _slotNameList.every(function (key) {
-			return _aBlock_2(_self[key], _anObject[key]);
-		});
-		>
+	primitiveIdentity { :self :anObject |
+		<primitive: return _self === _anObject;>
 	}
 
 	printString { :self |

@@ -14,6 +14,6 @@ true
 
 * * *
 
-See also: =, ==
+See also: =, ==, hasEqualElementsBy, hasEqualSlots
 
 Categories: Comparing

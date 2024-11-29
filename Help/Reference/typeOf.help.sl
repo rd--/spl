@@ -4,6 +4,8 @@
 
 Answers the type name of _anObject_.
 
+The names of the primitive types:
+
 ```
 >>> 3.141.typeOf
 'SmallFloat'
@@ -36,13 +38,14 @@ The system includes a `typeDictionary` that maps type names to `Type` values.
 >>> system.typeLookup('String').isType
 true
 
->>> let type = system.typeLookup('String');
->>> type.methodDictionary.includesKey('includesSubstring:/2')
+>>> let t = system.typeLookup('String');
+>>> let m = t.methodDictionary;
+>>> m.includesKey('includesSubstring:/2')
 true
 ```
 
 * * *
 
-See also: elementTypes, species, typeDefinition, Type
+See also: elementTypes, species, typeDefinition, typeDictionary, Type
 
 Categories: Reflection, Types
