@@ -477,6 +477,18 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.hasValidEdges
 	}
 
+	lineDrawing { :self :derivePoint:/1 |
+		let vertices = self.vertexLabels.collect(derivePoint:/1);
+		let edges = self.edgeList.collect { :each |
+			let [i, j] = each;
+			Line(
+				[vertices[i].x, vertices[i].y],
+				[vertices[j].x, vertices[j].y]
+			)
+		};
+		vertices ++ edges
+	}
+
 	vertexLabels { :self |
 		self.properties['vertexLabels']
 	}

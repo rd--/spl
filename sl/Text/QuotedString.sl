@@ -1,6 +1,6 @@
 /* Requires: String */
 
-BacktickQuotedString : [Object] { |contents|
+BacktickQuotedString : [Object] { | contents |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
@@ -8,7 +8,7 @@ BacktickQuotedString : [Object] { |contents|
 
 }
 
-DoubleQuotedString : [Object] { |contents|
+DoubleQuotedString : [Object] { | contents |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots

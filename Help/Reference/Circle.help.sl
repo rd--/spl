@@ -35,9 +35,16 @@ Calculate arc length, area, circumference, perimeter, centroid, diameter and rad
 (2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1)
 ```
 
+The Svg description of a circle:
+
+```
+>>> Circle([0 0], 1).asSvg
+'<circle cx="0" cy="0" r="1" />'
+```
+
 * * *
 
-See also: arcLength, area, centroid, perimeter, r, x, y
+See also: arcLength, area, centroid, perimeter, Polygon, Rectangle, r, Triangle, x, y
 
 References:
 _Mathematica_

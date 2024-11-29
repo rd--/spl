@@ -26,14 +26,18 @@
 		let svg = 'svg'.createSvgElement(
 			width: bbox.width,
 			height: bbox.height,
-			viewBox: bbox.viewBoxString(5),
-			preserveAspectRatio: 'xMidYMid meet'
+			viewBox: bbox.svgViewBox(5),
+			preserveAspectRatio: 'xMidYMid meet' /* Default value */
 		);
 		let group = 'g'.createSvgElement(
 			transform: [
-				'translate(0, ' ++ (bbox.height + (2 * bbox.lowerLeft.y)) ++ ')',
-				'scale(' ++ scale ++ ', -' ++ scale ++ ')'
-			].stringJoin
+				'translate(0, %)'.format([
+					bbox.height + (2 * bbox.lowerLeft.y)
+				]),
+				'scale(%, %)'.format([
+					scale, 0 - scale
+				])
+			].join(' ')
 		);
 		group.appendChildren(dots);
 		group.appendChildren(lines);

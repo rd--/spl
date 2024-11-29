@@ -1,9 +1,9 @@
 [
 
 	/* Navigator */
-	'Dom'
-	'Midi'
-	'Svg'
+	'DocumentObjectModel'
+	'NavigatorMidi'
+	'NavigatorSvg'
 
 	/* SmallKansas */
 	'UserEventTarget'

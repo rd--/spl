@@ -49,7 +49,8 @@ Inspector : [Object, View] { | inspectorPane inspectorList |
 	}
 
 	inspect { :self |
-		system.smallKansas.inspectorOn(self, nil)
+		let smallKansas = system.smallKansas;
+		smallKansas.inspectorOn(self, smallKansas.where)
 	}
 
 }

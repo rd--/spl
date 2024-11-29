@@ -3,6 +3,8 @@
 - _Line(aMatrix)_
 - _Line(start, end, dur)_
 
+A `Line` is a `Type` representing straight lines connecting a sequence of points.
+
 Compute the `arcLength` of a line:
 
 ```
@@ -25,6 +27,20 @@ The `arcLength` of a `Line` in three-dimensions:
 ```
 >>> [0 0 0; 1 1 1; 0 1 1; 0 1 0].Line.arcLength
 (3.sqrt + 2)
+```
+
+The Svg description of a straight line:
+
+```
+>>> Line([0 0; 1 1]).asSvg
+'<line x1="0" y1="0" x2="1" y2="1" />'
+```
+
+The Svg description of a polyline:
+
+```
+>>> Line([0 0; 1 1; 1 0]).asSvg
+'<polyline points="0,0 1,1 1,0" />'
 ```
 
 The ternary form is a Line generator.

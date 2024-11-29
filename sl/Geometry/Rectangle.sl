@@ -36,6 +36,22 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		].join('')
 	}
 
+	asSvg { :self |
+		'<rect x="%" y="%" width="%" height="%" />'.format([
+			self.x,
+			self.y,
+			self.width,
+			self.height
+		])
+	}
+
+	boundingBox { :self |
+		[
+			self.lowerLeft,
+			self.upperRight
+		]
+	}
+
 	center { :self |
 		self.lowerLeft + self.upperRight / 2
 	}
@@ -264,13 +280,13 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		(self.shape = [2 2]).if {
 			Rectangle(self.first, self.second)
 		} {
-			self.error('List>>asRectangle')
+			self.error('List>>asRectangle: invalid shape')
 		}
 	}
 
 	computeBoundingBox { :self |
 		let box = Rectangle(self[1], self[1]);
-		self.do { :aPoint |
+		self.allButFirstDo { :aPoint |
 			box.swallow(Rectangle(aPoint, aPoint))
 		};
 		box

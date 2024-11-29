@@ -704,7 +704,7 @@ export function addType(
 	}
 }
 
-// Until the <primitive:> parser allows escaped >...
+// Until the <primitive:> parser allows escaped >, the following cannot be written inline...
 export function shiftRight(lhs: number, rhs: number): number {
 	return lhs >> rhs;
 }

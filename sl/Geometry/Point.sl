@@ -8,8 +8,23 @@ Point : [Object] { | vector |
 		self.vector
 	}
 
+	asSvg { :self |
+		(self.vector.size = 2).if {
+			'<circle cx="%" cy="%" r="2" fill="black" stroke="none" />'.format([
+				self.vector[1],
+				self.vector[2]
+			])
+		} {
+			self.error('asSvg: invalid size')
+		}
+	}
+
 	at { :self :index |
 		self.vector[index]
+	}
+
+	boundingBox { :self |
+		self.vector ! 2
 	}
 
 	dimension { :self |
@@ -121,18 +136,37 @@ LineSegment : [Object] { | u v |
 
 }
 
-Line : [Object] { | matrix |
+Line : [Object] { | coordinates |
 
 	arcLength { :self |
 		let answer = 0;
-		self.matrix.adjacentPairsDo { :u :v |
+		self.coordinates.adjacentPairsDo { :u :v |
 			answer := answer + u.euclideanDistance(v)
 		};
 		answer
 	}
 
+	asSvg { :self |
+		(self.coordinates.size = 2).if {
+			let [p1, p2] = self.coordinates;
+			let [x1, y1] = p1;
+			let [x2, y2] = p2;
+			'<line x1="%" y1="%" x2="%" y2="%" />'.format([
+				x1 y1 x2 y2
+			])
+		} {
+			'<polyline points="%" />'.format([
+				self.coordinates.asSvgPoints
+			])
+		}
+	}
+
 	at { :self :index |
-		self.matrix[index]
+		self.coordinates[index]
+	}
+
+	boundingBox { :self |
+		self.coordinates.coordinateBoundingBox
 	}
 
 	dimensions { :self |
@@ -140,11 +174,11 @@ Line : [Object] { | matrix |
 	}
 
 	embeddingDimension { :self |
-		self.matrix.first.size
+		self.coordinates.first.size
 	}
 
 	midpoint { :self |
-		let p = self.matrix;
+		let p = self.coordinates;
 		let l = self.arcLength;
 		let h = l / 2;
 		let i = 1;
@@ -163,7 +197,7 @@ Line : [Object] { | matrix |
 	}
 
 	size { :self |
-		self.matrix.size
+		self.coordinates.size
 	}
 
 }
@@ -184,6 +218,18 @@ Triangle : [Object] { | coordinates |
 
 	area { :self |
 		self.coordinates.shoelaceFormula
+	}
+
+	asPolygon { :self |
+		self.coordinates.Polygon
+	}
+
+	asSvg { :self |
+		self.asPolygon.asSvg
+	}
+
+	boundingBox { :self |
+		self.coordinates.coordinateBoundingBox
 	}
 
 	centroid { :self |
@@ -214,6 +260,12 @@ Polygon : [Object] { | coordinates |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
+	asSvg { :self |
+		'<polygon points="%" />'.format([
+			self.coordinates.asSvgPoints
+		])
+	}
+
 	arcLength { :self |
 		self.coordinates.polygonArcLength
 	}
@@ -229,6 +281,10 @@ Polygon : [Object] { | coordinates |
 		} {
 			self.coordinates[index]
 		}
+	}
+
+	boundingBox { :self |
+		self.coordinates.coordinateBoundingBox
 	}
 
 	centroid { :self |
@@ -266,6 +322,13 @@ Polygon : [Object] { | coordinates |
 
 	anglePath { :self |
 		self.anglePath([1], [0 0])
+	}
+
+	asSvgPoints { :self |
+		self.collect { :each |
+			let [x, y] = each;
+			'%,%'.format([x, y])
+		}.join(' ')
 	}
 
 	InfiniteLine { :aPoint :aVector |

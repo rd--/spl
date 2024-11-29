@@ -8,12 +8,27 @@ Circle : [Object] { | center radius |
 		}
 	}
 
+	asSvg { :self |
+		'<circle cx="%" cy="%" r="%" />'.format([
+			self.center.x,
+			self.center.y,
+			self.radius
+		])
+	}
+
 	arcLength { :self |
 		self.circumference
 	}
 
 	area { :self |
 		self.radius.squared.pi
+	}
+
+	boundingBox { :self |
+		[
+			self.center - self.radius,
+			self.center + self.radius
+		]
 	}
 
 	centroid { :self |
@@ -71,6 +86,36 @@ Circle : [Object] { | center radius |
 
 	Circle { :center :radius |
 		newCircle().initializeSlots(center, radius)
+	}
+
+}
+
+Ellipse : [Object] { | center radii |
+
+	area { :self |
+		let [rx, ry] = self.radii;
+		pi * rx * ry
+	}
+
+	asSvg { :self |
+		let [cx, cy] = self.center;
+		let [rx, ry] = self.radii;
+		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
+			cx cy rx ry
+		])
+	}
+
+}
+
+
++@Sequence {
+
+	Ellipse { :center :radii |
+		(radii.size = 2).if {
+			newEllipse().initializeSlots(center, radii)
+		} {
+			'Sequence>>Ellipse: invalid radii'.error
+		}
 	}
 
 }

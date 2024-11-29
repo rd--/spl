@@ -54,7 +54,9 @@
 
 	/* Graphics */
 	'Colour'
-	'Plot' /* Interval */
+	'Svg'
+	'LineDrawing' /* Svg */
+	'Plot' /* Interval, LineDrawing */
 
 	/* Help */
 	'HelpIndex'
@@ -120,6 +122,7 @@
 	'QuotedString'
 	'RegExp'
 	'Unicode'
+	'Writing'
 
 	/* Time */
 	'Clock'
@@ -143,6 +146,9 @@
 
 	/* Collection */
 	'SoundFile' /* Url */
+
+	/* Chemistry */
+	'CrystalLatticeStructure'
 
 	'Apl'
 

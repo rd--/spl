@@ -20,6 +20,13 @@ A three-dimensional cartesian co-ordinate:
 (0, 3)
 ```
 
+The Svg description of a point:
+
+```
+>>> Point([0 0]).asSvg
+'<circle cx="0" cy="0" r="2" fill="black" stroke="none" />'
+```
+
 * * *
 
 See also: asPoint, CartesianCoordinates, PolarCoordinates, PlanarCoordinates, SphericalCoordinates

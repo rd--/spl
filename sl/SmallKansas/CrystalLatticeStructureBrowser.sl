@@ -1,14 +1,6 @@
-CrystalLatticeStructure : [Object] { | name description atoms bonds |
+/* Requires: CrystalLatticeStructure */
 
-	drawing { :self :scale :projection:/1 |
-		self.graph.drawing(scale) { :each |
-			each.second.projection
-		}
-	}
-
-	graph { :self |
-		Graph([1 .. self.atoms.size], self.bonds).vertexLabels(self.atoms)
-	}
++CrystalLatticeStructure {
 
 	summary { :self |
 		let container = 'div'.createElement;
@@ -40,48 +32,18 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 
 }
 
-+Record {
-
-	CrystalLatticeStructure { :self |
-		newCrystalLatticeStructure().initializeSlots(
-			self['name'],
-			self['description'],
-			self['vertexLabels'].withCollect(
-				self['vertexCoordinates']
-			) { :label :coordinates |
-				[label, coordinates]
-			},
-			self['edges'].collect { :edge |
-				edge.collect { :each |
-					each + 1
-				}
-			}
-		)
-	}
-
-}
-
-+@Cache {
-
-	clsLeitner { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'clsLeitner',
-				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
-				'application/json',
-				{ :libraryItem |
-					libraryItem.collect(CrystalLatticeStructure:/1)
-				}
-			)
-		)
-	}
-
-}
-
 +SmallKansas {
 
 	CrystalLatticeStructureBrowser { :self :structures |
-		self.ColumnBrowser('Crystal Lattice Structure Browser', 'text/html', false, false, [1], nil, nil) { :browser :path |
+		self.ColumnBrowser(
+			'Crystal Lattice Structure Browser',
+			'text/html',
+			false,
+			false,
+			[1],
+			nil,
+			nil
+		) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					structures.collect(name:/1)

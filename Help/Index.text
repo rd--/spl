@@ -168,6 +168,7 @@ Reference/addAllIfNotPresent.help.sl
 Reference/addAllLast.help.sl
 Reference/addBefore.help.sl
 Reference/addBeforeIndex.help.sl
+Reference/addEventListener.help.sl
 Reference/addFirst.help.sl
 Reference/addFrame.help.sl
 Reference/addFrameWithAnimator.help.sl
@@ -269,6 +270,7 @@ Reference/asDate.help.sl
 Reference/asDocumentTest.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFloat32Array.help.sl
+Reference/asFloat64Array.help.sl
 Reference/asFloat.help.sl
 Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl
@@ -533,6 +535,7 @@ Reference/Complex.help.sl
 Reference/composeLeft.help.sl
 Reference/composeRight.help.sl
 Reference/concatenation.help.sl
+Reference/concisePrintString.help.sl
 Reference/confirm.help.sl
 Reference/conjugated.help.sl
 Reference/conjugateGradientMethod.help.sl
@@ -584,6 +587,7 @@ Reference/crossedMultiply.help.sl
 Reference/cross.help.sl
 Reference/crossMatrix.help.sl
 Reference/CrystalLatticeStructureBrowser.help.sl
+Reference/CrystalLatticeStructure.help.sl
 Reference/CssStyleSheet.help.sl
 Reference/cubed.help.sl
 Reference/Cubed.help.sl
@@ -725,6 +729,8 @@ Reference/elementTypes.help.sl
 Reference/embeddingDimension.help.sl
 Reference/enclose.help.sl
 Reference/encodeFloat32.help.sl
+Reference/encodeFloat64.help.sl
+Reference/encode.help.sl
 Reference/encodeInt16.help.sl
 Reference/encodeInt32.help.sl
 Reference/encodeUri.help.sl
@@ -978,6 +984,7 @@ Reference/includesScatteredSubsequence.help.sl
 Reference/includesSubsequence.help.sl
 Reference/includesSubstring.help.sl
 Reference/increasingSubsequenceList.help.sl
+Reference/indefiniteArticle.help.sl
 Reference/Indexable.help.sl
 Reference/Index.help.sl
 Reference/indexOf.help.sl
@@ -1003,6 +1010,7 @@ Reference/initializeSlots.help.sl
 Reference/injectInto.help.sl
 Reference/inner.help.sl
 Reference/InRange.help.sl
+Reference/inspectAsList.help.sl
 Reference/instanceOf.help.sl
 Reference/instructionSetArchitecture.help.sl
 Reference/integerCompositionsDo.help.sl
@@ -1118,6 +1126,7 @@ Reference/isPrimePower.help.sl
 Reference/isPrimeTrialDivision.help.sl
 Reference/isPrimeWilson.help.sl
 Reference/isProperSubsetOf.help.sl
+Reference/isPunctuationCharacter.help.sl
 Reference/isPunctuationToken.help.sl
 Reference/isPythagorean.help.sl
 Reference/isRational.help.sl
@@ -1356,6 +1365,7 @@ Reference/markdownToHtml.help.sl
 Reference/matches.help.sl
 Reference/matchesRegExp.help.sl
 Reference/match.help.sl
+Reference/matchRegExp.help.sl
 Reference/matrixColumn.help.sl
 Reference/Matrix.help.sl
 Reference/matrixPlot.help.sl
@@ -1532,6 +1542,7 @@ Reference/origin.help.sl
 Reference/orthogonalize.help.sl
 Reference/Osc1.help.sl
 Reference/OscBundle.help.sl
+Reference/Osc.help.sl
 Reference/OscMessage.help.sl
 Reference/OscParameter.help.sl
 Reference/outerElement.help.sl
@@ -1693,6 +1704,7 @@ Reference/primesListWheelSieve.help.sl
 Reference/primesUpToDo.help.sl
 Reference/primesUpTo.help.sl
 Reference/printString.help.sl
+Reference/printStringLimitedTo.help.sl
 Reference/printStringRoman.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
 Reference/PriorityQueue.help.sl
@@ -1732,6 +1744,7 @@ Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
 Reference/radius.help.sl
 Reference/raisedToInteger.help.sl
+Reference/Rand0.help.sl
 Reference/Rand2.help.sl
 Reference/Rand.help.sl
 Reference/randomBit.help.sl
@@ -1992,6 +2005,7 @@ Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
 Reference/splitBy.help.sl
+Reference/splitByLimitedTo.help.sl
 Reference/splitByRegExp.help.sl
 Reference/split.help.sl
 Reference/SplitMix.help.sl

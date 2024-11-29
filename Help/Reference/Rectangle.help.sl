@@ -14,8 +14,14 @@ Quadrants:
 
 ```
 >>> let r = [0 0; 1 1].asRectangle;
->>> (r.lowerLeftQuadrant.center, r.upperRightQuadrant.center)
-([1/4 1/4], [3/4 3/4])
+>>> (
+>>> 	r.lowerLeftQuadrant.center,
+>>> 	r.upperRightQuadrant.center
+>>> )
+(
+	[1/4 1/4],
+	[3/4 3/4]
+)
 ```
 
 Calculate the `circumcircle` and `incircle`, the latter only existing for squares:
@@ -33,9 +39,16 @@ Calculate the `centroid`:
 [3/2 2]
 ```
 
+The Svg description of a rectangle:
+
+```
+>>> Rectangle([0 0], [1 1]).asSvg
+'<rect x="0" y="0" width="1" height="1" />'
+```
+
 * * *
 
-See also: Circle, Polygon, Triangle
+See also: asRectangle, Circle, Polygon, Triangle
 
 References:
 _Mathematica_
