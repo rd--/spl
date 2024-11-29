@@ -26,7 +26,7 @@
 		let svg = 'svg'.createSvgElement(
 			width: bbox.width,
 			height: bbox.height,
-			viewBox: bbox.svgViewBox(5),
+			viewBox: bbox.asSvgViewBox(5),
 			preserveAspectRatio: 'xMidYMid meet' /* Default value */
 		);
 		let group = 'g'.createSvgElement(

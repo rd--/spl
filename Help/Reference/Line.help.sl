@@ -9,7 +9,7 @@ Compute the `arcLength` of a line:
 
 ```
 >>> [0 0; 1 1; 1 0; 2 0].Line.arcLength
-(2.sqrt + 2)
+2.sqrt + 2
 ```
 
 Compute the `midpoint` of a line:

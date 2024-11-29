@@ -20,6 +20,15 @@ true
 	true,
 	'Collection/List.sl'
 )
+
+let p = system.packageDictionary['PackageBrowser'];
+let r = p.requires;
+(p, r)
+
+system.package('Trait')
+
+.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
+
 ```
 
 * * *

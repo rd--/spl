@@ -2,16 +2,8 @@
 
 Frequency : [Object, Magnitude] { | hertz |
 
-	= { :self :anObject |
-		anObject.isFrequency & {
-			self.hertz = anObject.hertz
-		}
-	}
-
 	~ { :self :anObject |
-		anObject.isFrequency & {
-			self.hertz ~ anObject.hertz
-		}
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :aFrequency |

@@ -39,17 +39,20 @@
 	'CartesianCoordinates'
 	'Circle'
 	'Length'
+	'Line'
 	'Plane'
 	'PolarCoordinates'
 	'PlanarCoordinates'
 	'Matrix22' /* PlanarCoordinates */
 	'Matrix33' /* CartesianCoordinates */
+	'Polygon'
 	'Projection3' /* Matrix33 */
 	'Rectangle'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */
 	'Sphere' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */
+	'Triangle'
 	'Point' /* PlanarCoordinates CartesianCoordinates */
 
 	/* Graphics */

@@ -1,11 +1,7 @@
 Interval : [Object, Magnitude, Number] { | min max |
 
-	= { :self :operand |
-		self.equalBy(operand, =)
-	}
-
-	~ { :self :operand |
-		self.equalBy(operand, ~)
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :operand |

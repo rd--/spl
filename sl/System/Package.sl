@@ -191,13 +191,13 @@ Package! : [Object] {
 			}).if {
 				package
 			} {
-				self.error('package: category name mismatch or package not registered')
+				self.error('package: category name mismatch or package not registered: ' ++ name)
 			}
 		} {
 			self.includesPackage(name).if {
 				self.packageDictionary[name]
 			} {
-				self.error('package: package not registered')
+				self.error('package: package not registered: ' ++ name)
 			}
 		}
 	}

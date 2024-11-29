@@ -23,8 +23,8 @@ A three-dimensional cartesian co-ordinate:
 The Svg description of a point:
 
 ```
->>> Point([0 0]).asSvg
-'<circle cx="0" cy="0" r="2" fill="black" stroke="none" />'
+>>> Point([0 0]).asSvg.abbreviateTo(36)
+'<circle cx="0" cy="0" r="2" ... &etc'
 ```
 
 * * *

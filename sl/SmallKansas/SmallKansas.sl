@@ -1,4 +1,4 @@
-/* Requires: Dom Duration Set */
+/* Requires: DocumentObjectModel Duration Set */
 
 @SmallKansan {
 

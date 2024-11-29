@@ -1,9 +1,5 @@
 Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	+ { :self :aNumber |
 		self.binaryOperator(aNumber, +)
 	}

@@ -7,6 +7,7 @@
 
 	~ { :self :anObject |
 		self = anObject
+		/* self.hasEqualSlotsBy(anObject, ~) */
 	}
 
 	~= { :self :anObject |
@@ -103,15 +104,17 @@
 		Error(description).signal
 	}
 
-	hasEqualSlotsBy { :self :anObject :aBlock:/2 |
-		self.typeOf = anObject.typeOf & {
-			aBlock(self.slotValueList, anObject.slotValueList)
-		}
+	hasEqualSlots { :self :anObject |
+		self.hasEqualSlotsBy(anObject, =)
 	}
 
-	hasEqualSlots { :self :anObject |
+	hasEqualSlotsBy { :self :anObject :aBlock:/2 |
 		self.typeOf = anObject.typeOf & {
-			self.slotValueList = anObject.slotValueList
+			self.primitiveEqualByAtNamedSlots(
+				anObject,
+				self.slotNameList,
+				aBlock:/2
+			)
 		}
 	}
 
@@ -203,6 +206,13 @@
 		<primitive: return _self == _anObject;>
 	}
 
+	primitiveEqualByAtNamedSlots { :self :anObject :slotNameList :aBlock:/2 |
+		<primitive: return _slotNameList.every(function (key) {
+			return _aBlock_2(_self[key], _anObject[key]);
+		});
+		>
+	}
+
 	printString { :self |
 		self.storeString
 	}
@@ -210,7 +220,7 @@
 	printStringLimitedTo { :self :count |
 		let answer = self.printString;
 		(answer.size > count).if {
-			answer.truncateTo(count - 8) ++ '... &etc'
+			answer.abbreviateTo(count)
 		} {
 			answer
 		}
@@ -252,6 +262,13 @@
 
 	slotRead { :self :key |
 		<primitive: return _self[_key];>
+	}
+
+	slotReadList { :self :keyList |
+		<primitive: return _keyList.map(function (key) {
+			return _self[key];
+		});
+		>
 	}
 
 	slotWrite { :self :key :value |

@@ -82,13 +82,6 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		}
 	}
 
-	coordinates { :self |
-		[
-			self.lowerLeft, self.lowerRight,
-			self.upperRight, self.upperLeft
-		]
-	}
-
 	dimension { :self |
 		2
 	}
@@ -256,6 +249,15 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		)
 	}
 
+	vertices { :self |
+		[
+			self.lowerLeft
+			self.lowerRight
+			self.upperRight
+			self.upperLeft
+		]
+	}
+
 	width { :self |
 		self.upperRight[1] - self.lowerLeft[1]
 	}
@@ -274,7 +276,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 
 }
 
-+@Sequence {
++List {
 
 	asRectangle { :self |
 		(self.shape = [2 2]).if {
@@ -282,6 +284,16 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		} {
 			self.error('List>>asRectangle: invalid shape')
 		}
+	}
+
+	boundingBoxMerging { :self |
+		let lowerLeft = self[1][1];
+		let upperRight = self[1][2];
+		self.allButFirstDo { :each |
+			lowerLeft := lowerLeft.min(each[1]);
+			upperRight := upperRight.max(each[2])
+		};
+		[lowerLeft, upperRight]
 	}
 
 	computeBoundingBox { :self |
@@ -293,13 +305,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	rectangleMerging { :self |
-		let lowerLeft = self.first.lowerLeft;
-		let upperRight = self.first.upperRight;
-		self.allButFirstDo { :each |
-			lowerLeft := lowerLeft.min(each.lowerLeft);
-			upperRight := upperRight.max(each.upperRight)
-		};
-		Rectangle(lowerLeft, upperRight)
+		self.boundingBoxMerging.asRectangle
 	}
 
 	Rectangle { :lowerLeft :upperRight |

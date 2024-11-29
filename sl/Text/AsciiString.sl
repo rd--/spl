@@ -1,9 +1,5 @@
 AsciiString : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	asByteArray { :self |
 		self.contents.copy
 	}

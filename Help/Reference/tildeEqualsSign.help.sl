@@ -3,8 +3,8 @@
 - _anObject ~= anotherObject_
 
 This is the _structural inequality_ operator,
-it answers _false_ if _anObject_ is equal to _anotherObject_, else _true_.
-The meaning of _notEquals_ is determined by the _typeOf(anObject)_.
+it answers `false` if _anObject_ is equal to _anotherObject_, else `true`.
+The meaning of `notEquals` is determined by the type of _anObject_.
 
 ```
 >>> 2 ~= 2.5

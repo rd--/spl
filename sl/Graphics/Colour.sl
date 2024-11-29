@@ -1,11 +1,7 @@
 Colour : [Object] { | red green blue alpha |
 
-	= { :self :aColour |
-		self.equalBy(aColour, =)
-	}
-
 	~ { :self :aColour |
-		self.equalBy(aColour, ~)
+		self.hasEqualSlotsBy(aColour, ~)
 	}
 
 	asList { :self |

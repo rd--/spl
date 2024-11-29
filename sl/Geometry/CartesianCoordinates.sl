@@ -1,11 +1,7 @@
 CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
 	~ { :self :anObject |
-		self.equalBy(anObject, ~)
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	asCartesianCoordinates { :self |
@@ -80,22 +76,8 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 		3
 	}
 
-	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isCartesianCoordinates & {
-			aBlock(self.x, anObject.x) & {
-				aBlock(self.y, anObject.y) & {
-					aBlock(self.z, anObject.z)
-				}
-			}
-		}
-	}
-
 	first { :self |
 		self.x
-	}
-
-	isCartesianCoordinates { :self |
-		true
 	}
 
 	isZero { :self |

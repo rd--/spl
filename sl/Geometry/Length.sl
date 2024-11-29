@@ -1,15 +1,7 @@
 Length : [Object, Magnitude] { | metres |
 
-	= { :self :anObject |
-		anObject.isLength & {
-			self.metres = anObject.metres
-		}
-	}
-
 	~ { :self :anObject |
-		anObject.isLength & {
-			self.metres ~ anObject.metres
-		}
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :aLength |

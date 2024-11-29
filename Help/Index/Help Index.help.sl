@@ -523,7 +523,7 @@
 ## Printing
 
 - `asString`, `concisePrintString`, `printString`, `storeString`
-- `contractTo`, `printStringLimitedTo`, `trucateTo`
+- `contractTo`, `printStringLimitedTo`, `truncateTo`
 
 ## Ranges
 

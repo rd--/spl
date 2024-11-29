@@ -1,9 +1,5 @@
 AssociationList : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictionary] { | associationList |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	asList { :self |
 		self.associationList
 	}

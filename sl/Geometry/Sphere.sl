@@ -8,6 +8,10 @@ Sphere : [Object] { | center radius |
 		}
 	}
 
+	area { :self |
+		self.surfaceArea
+	}
+
 	diameter { :self |
 		self.radius * 2
 	}

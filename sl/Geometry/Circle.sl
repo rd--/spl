@@ -105,6 +105,20 @@ Ellipse : [Object] { | center radii |
 		])
 	}
 
+	eccentricity { :self |
+		let [a, b] = self.radii;
+		(1 - (b / a).squared).sqrt
+	}
+
+	linearEccentricity { :self |
+		let [a, b] = self.radii;
+		(a.squared - b.squared).sqrt
+	}
+
+	semiLatusRectum { :self |
+		let [a, b] = self.radii;
+		b.squared / a
+	}
 }
 
 

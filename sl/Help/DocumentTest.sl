@@ -1,9 +1,5 @@
 DocumentTest : [Object] { | prefix program expectedAnswer |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	evaluate { :self |
 		{
 			system.evaluate(self.format)

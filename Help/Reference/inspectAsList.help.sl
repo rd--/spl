@@ -2,11 +2,12 @@
 
 - _inspectAsList(anObject, maxIndices)_
 
-Answer a `List` of at most _maxInidices_ `Association`s describing _anObject_.
+Answer a `List` of at most _maxIndices_ `Association`s describing _anObject_.
 
 ```
->>> (x: 0, y: pi).inspectAsList(9)
-['Type' -> Record, 'size' -> 2, 'x' -> 0, 'y' -> pi]
+>>> let r = (x: 0, y: pi);
+>>> r.inspectAsList(9)
+['Type' -> r.typeDefinition, 'size' -> 2, 'x' -> 0, 'y' -> pi]
 ```
 
 * * *

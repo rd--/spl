@@ -4,10 +4,6 @@ HalfPlane : [Object] {
 
 InfinitePlane : [Object] { | a b c d |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	area { :self |
 		inf
 	}

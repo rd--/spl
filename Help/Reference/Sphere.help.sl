@@ -5,13 +5,14 @@
 Answer a `Sphere` with center at _aPoint_ and radius _aNumber_.
 
 ```
->>> Sphere([0 0 0], 1).volume
-4.18879
+>>> let s = Sphere([0 0 0], 1);
+>>> (s.center, s.surfaceArea, s.volume)
+([0 0 0], 4.pi, 4/3.pi)
 ```
 
 * * *
 
-See also: circle
+See also: Circle, Ellipse
 
 References:
 _Mathematica_

@@ -1,15 +1,7 @@
 Mass : [Object, Magnitude] { | grams |
 
-	= { :self :anObject |
-		anObject.isMass & {
-			self.grams = anObject.grams
-		}
-	}
-
 	~ { :self :anObject |
-		anObject.isMass & {
-			self.grams ~ anObject.grams
-		}
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :aMass |

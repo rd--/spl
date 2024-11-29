@@ -1,15 +1,7 @@
 Duration : [Object, Magnitude] { | seconds |
 
-	= { :self :anObject |
-		anObject.isDuration & {
-			self.seconds = anObject.seconds
-		}
-	}
-
 	~ { :self :anObject |
-		anObject.isDuration & {
-			self.seconds ~ anObject.seconds
-		}
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :aDuration |

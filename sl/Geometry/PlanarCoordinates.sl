@@ -1,11 +1,7 @@
 PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
 	~ { :self :anObject |
-		self.equalBy(anObject, ~)
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :anObject |
@@ -124,14 +120,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	embeddingDimension { :self |
 		2
-	}
-
-	equalBy { :self :anObject :aBlock:/2 |
-		anObject.isPlanarCoordinates & {
-			aBlock(self.x, anObject.x) & {
-				aBlock(self.y, anObject.y)
-			}
-		}
 	}
 
 	first { :self |

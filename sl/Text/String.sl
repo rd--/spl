@@ -50,6 +50,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.basicAppendString(anObject.asString)
 	}
 
+	abbreviateTo { :self :anInteger |
+		self.truncateTo(anInteger - 8) ++ '... &etc'
+	}
+
 	allButFirst { :self |
 		self.allButFirst(1)
 	}

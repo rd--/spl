@@ -4,7 +4,7 @@
 
 Answer the corners of the bounding box of the region defined by _aMatrix_.
 
-Find a bounding box for coordinates in 2 dimensions:
+Find a bounding box for coordinates in two dimensions:
 
 ```
 >>> [
@@ -37,6 +37,11 @@ The `transposed` `minMax` of the `transposed` matrix:
 ```
 
 `coordinateBoundingBox` is the `transposed` `coordinateBounds`.
+
+```
+>>> [0 1; 1 2; 2 1; 3 2; 4 0].computeBoundingBox
+[0 0; 4 2].asRectangle
+```
 
 * * *
 

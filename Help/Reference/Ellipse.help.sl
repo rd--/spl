@@ -2,7 +2,7 @@
 
 - _Ellipse(center, radius)_
 
-A `Type` that represents a circle of _radius_ at _center_.
+A `Type` that represents an axis aligned ellipse of _radii_ at _center_.
 
 ```
 >>> let c = Ellipse([0 0], [2 1]);
@@ -10,19 +10,11 @@ A `Type` that represents a circle of _radius_ at _center_.
 (true, [0 0], [2 1])
 ```
 
-Implements `x`, `y` and `r`:
-
-```
->>> let c = Ellipse([0 0], 1);
->>> (c.x, c.y, c.r)
-(0, 0, 1)
-```
-
 The Svg description of an ellipse:
 
 ```
->>> Ellipse([0 0], 1).asSvg
-'<circle cx="0" cy="0" r="1" />'
+>>> Ellipse([0 0], [2 1]).asSvg
+'<ellipse cx="0" cy="0" rx="2" ry="1" />'
 ```
 
 * * *

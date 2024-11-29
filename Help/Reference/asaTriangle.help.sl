@@ -9,7 +9,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 
 ```
 >>> let t = asaTriangle(pi / 6, 1, pi / 3);
->>> (t.coordinates, t.area, t.centroid, t.interiorAngles)
+>>> (t.vertices, t.area, t.centroid, t.interiorAngles)
 (
 	[[0, 0], [1, 0], [3 / 4, 3.sqrt / 4]],
 	3.sqrt / 8,

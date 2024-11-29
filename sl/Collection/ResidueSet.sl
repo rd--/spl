@@ -2,10 +2,6 @@
 
 ResidueSet : [Object, Iterable, Collection] { | modulus contents |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	+ { :self :anInteger |
 		(self.contents + anInteger).asResidueSet(self.modulus)
 	}

@@ -2,12 +2,8 @@
 
 @SphericalCoordinates {
 
-	= { :self :anObject |
-		self.compareBy(anObject, =)
-	}
-
 	~ { :self :anObject |
-		self.compareBy(anObject, ~)
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	asSphericalCoordinates { :self |
@@ -39,16 +35,6 @@
 
 	azimuth { :self |
 		self.theta
-	}
-
-	compareBy { :self :anObject :aBlock:/2 |
-		anObject.isSphericalCoordinates & {
-			aBlock(self.r, anObject.r) & {
-				aBlock(self.theta, anObject.theta) & {
-					aBlock(self.phi, anObject.phi)
-				}
-			}
-		}
 	}
 
 	elevation { :self |
