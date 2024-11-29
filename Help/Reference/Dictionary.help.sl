@@ -14,7 +14,7 @@ Dictionaries are indexed using the unique `key` to obtain the corresponding `val
 >>> system.traitTypes('Dictionary').includes('Map')
 true
 
->>> system.traitDictionary::Dictionary.isTrait
+>>> system.traitDictionary['Dictionary'].isTrait
 true
 ```
 

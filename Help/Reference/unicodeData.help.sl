@@ -35,7 +35,7 @@ If the library has been acquired it may be accessed directly:
 ~~~
 system.library.includesKey('unicodeData')
 
-system.library::unicodeData.value.size
+system.library['unicodeData'].value.size
 ~~~
 
 * * *

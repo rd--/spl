@@ -10,7 +10,7 @@ _fileMode_ specifies the file mode, ordinarily it is set to 8r755.
 >>> '/tmp/spl'.makeDirectory(false, 8r755)
 nil
 
->>> '/tmp/spl'.fileInformation::isDirectory
+>>> '/tmp/spl'.fileInformation['isDirectory']
 true
 
 >>> '/tmp/spl'.removeDirectory(false)

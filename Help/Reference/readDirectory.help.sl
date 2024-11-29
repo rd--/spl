@@ -14,9 +14,9 @@ Print only the names of sub-directories:
 ~~~
 '/etc'.readDirectory.thenElse { :answer |
 	answer.select { :each |
-		each::isDirectory
+		each['isDirectory']
 	}.collect { :each |
-		each::name
+		each['name']
 	}.postLine
 } { :reason |
 	reason.postLine

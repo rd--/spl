@@ -11,7 +11,7 @@ At `List`, list must have three places:
 3
 ```
 
-At `Tuple`, tuple must have three places::
+At `Tuple`, tuple must have three places:
 
 ```
 >>> (1, 2, 3).z

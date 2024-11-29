@@ -62,7 +62,7 @@ Sl {
 		| ApplyWithTrailingDictionariesSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
-		| MessageSendSyntax
+		// | MessageSendSyntax
 		| EmptyListSyntax
 		| reservedIdentifier
 		| literal
@@ -83,15 +83,15 @@ Sl {
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
-	AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
-	AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
+	// AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
+	// AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	QuotedAtSyntax = Primary "::" keyName
-	QuotedAtIfAbsentSyntax = Primary "::" keyName ":?" Block
-	QuotedAtIfAbsentPutSyntax = Primary "::" keyName ":?=" Block
-	AtPutDelegateSyntax = Primary ":." keyName ":=" Expression
-	MessageSendSyntax = Primary ":." keyName NonEmptyParameterList?
-	ReadSlotSyntax = Primary ":@" slotName
-	WriteSlotSyntax = Primary ":@" slotName ":=" Expression
+	// QuotedAtIfAbsentSyntax = Primary "::" keyName ":?" Block
+	// QuotedAtIfAbsentPutSyntax = Primary "::" keyName ":?=" Block
+	// AtPutDelegateSyntax = Primary ":." keyName ":=" Expression
+	// MessageSendSyntax = Primary ":." keyName NonEmptyParameterList?
+	// ReadSlotSyntax = Primary ":@" slotName
+	// WriteSlotSyntax = Primary ":@" slotName ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
@@ -188,11 +188,11 @@ Sl {
 	primitiveCharacter = ~">" sourceCharacter
 
 	comment = multiLineCComment
-	multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
-	singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
-	multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"
+	// multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
+	// singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
+	// multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"
 	multiLineCComment = "/*" (~"*/" sourceCharacter)* "*/"
-	singleLineHsComment = "--" (~lineTerminator sourceCharacter)*
+	// singleLineHsComment = "--" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment
 

@@ -18,7 +18,7 @@ let dur = 12;
 ```
 
 To stop a texture program the clock on which it is scheduled must be cleared.
-The keybinding _Ctrl-Shift->_ clears the _system::clock_.
+The keybinding _Ctrl-Shift->_ clears the `system` `Clock`.
 
 * * *
 

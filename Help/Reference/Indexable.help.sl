@@ -7,7 +7,7 @@ The required methods are `at`, `atPut` and `indices`.
 >>> system.traitTypes('Indexable').includes('List')
 true
 
->>> system.traitDictionary::Indexable.isTrait
+>>> system.traitDictionary['Indexable'].isTrait
 true
 ```
 

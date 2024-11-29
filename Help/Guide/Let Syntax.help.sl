@@ -81,7 +81,7 @@ At Record:
 9
 ```
 
-The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the values _p::x_ and _p::y_.
+The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the values _p['x']_ and _p['y']_.
 
 This rule can make writing temporaries with long initializers spanning multiple lines clearer.
 
@@ -97,13 +97,33 @@ The program below is by James McCartney and is taken from the SuperCollider2 doc
 
 ```
 /* ten voices of a random sine percussion sound */
-let s = { Resonz(Dust(0.2) * 50, Rand(200, 3200), 0.003) } !+ 10;
+let s = {
+	Resonz(
+		Dust(0.2) * 50,
+		Rand(200, 3200),
+		0.003
+	)
+} !+ 10;
 /* reverb predelay time */
 let z = DelayC(s, 0.048, 0.048);
-/* seven length modulated comb delays in parallel */
-let y = { CombL(z, 0.1, LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05, 15) } !+ 7;
+/* seven parallel length modulated comb delays */
+let y = {
+	CombL(
+		z,
+		0.1,
+		LfNoise1(Rand(0, 0.1)) * 0.04 + 0.05,
+		15
+	)
+} !+ 7;
 /* two parallel chains of four allpass delays */
-4.timesRepeat { y := AllpassC(y, 0.050, [Rand(0, 0.050), Rand(0, 0.050)], 1) };
+4.timesRepeat {
+	y := AllpassC(
+		y,
+		0.050,
+		[Rand(0, 0.050), Rand(0, 0.050)],
+		1
+	)
+};
 /* add original sound to reverb */
 s + (0.2 * y)
 ```

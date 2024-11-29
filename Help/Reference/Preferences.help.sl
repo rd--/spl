@@ -18,7 +18,12 @@ or `preferencesReadPath`:
 
 ```
 >>> system.preferencesReadPath(
->>> 	['ScSynth' 'Outputs' 'Main' 'NumberOfChannels'],
+>>> 	[
+>>> 	'ScSynth'
+>>> 	'Outputs'
+>>> 	'Main'
+>>> 	'NumberOfChannels'
+>>> ],
 >>> 	2
 >>> )
 2
@@ -27,16 +32,16 @@ or `preferencesReadPath`:
 Preferences can be assigned to:
 
 ```
->>> system.preferences::Configuration := '1×2+1×8+2×4';
->>> system.preferences::Configuration
+>>> system.preferences['Configuration'] := '1×2+1×8+2×4';
+>>> system.preferences['Configuration']
 '1×2+1×8+2×4'
 ```
 
 The default configuration is _Default_:
 
 ```
->>> system.preferences::Configuration := 'Default';
->>> system.preferences::Configuration
+>>> system.preferences['Configuration'] := 'Default';
+>>> system.preferences['Configuration']
 'Default'
 ```
 

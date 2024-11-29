@@ -51,11 +51,12 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		self.do { :each |
 			(each['type'] = 'codeBlock').ifTrue {
 				let codeBlock = (contents: each['literal']);
-				codeBlock['information'] := each.includesKey('info').if {
+				let annotation = each.includesKey('info').if {
 					each['info']
 				} {
 					''
 				};
+				codeBlock['information'] := annotation;
 				answer.add(codeBlock)
 			}
 		};

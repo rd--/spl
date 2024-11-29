@@ -389,26 +389,27 @@ const asJs: ohm.ActionDict<string> = {
 			commaList(elem)
 		}, ${v.asJs})`;
 	},
+	QuotedAtSyntax(c, _colonColon, k) {
+		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
+	},
 	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
 		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
-	},
-	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
-		return `_${
-			genName('atPutDelegateTo', 4)
-		}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		const elem = k.asIteration().children;
 		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${commaList(elem)})`;
+	},
+	/*
+	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
+		return `_${
+			genName('atPutDelegateTo', 4)
+		}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
 	},
 	AtIfAbsentSyntax(c, _leftBracket, k, _rightBracket, _colonQuery, a) {
 		return `_${genName('atIfAbsent', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
 	},
 	AtIfAbsentPutSyntax(c, _leftBracket, k, _rightBracket, _colonQueryEquals, a) {
 		return `_${genName('atIfAbsentPut', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
-	},
-	QuotedAtSyntax(c, _colonColon, k) {
-		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
 	},
 	QuotedAtIfAbsentSyntax(c, _colonColon, k, _colonQuery, a) {
 		return `_${
@@ -433,6 +434,7 @@ const asJs: ohm.ActionDict<string> = {
 			a.children.map((c) => c.asJs)
 		}])`;
 	},
+	*/
 	ValueApply(p, _dot, a) {
 		return `${p.asJs}(${a.asJs})`;
 	},
@@ -700,6 +702,7 @@ const asJs: ohm.ActionDict<string> = {
 		return k.sourceString;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
+		// console.debug(`singleQuotedStringLiteral: ${s.sourceString}`);
 		return `'${quoteNewLines(s.sourceString)}'`;
 	},
 	doubleQuotedStringLiteral(_l, s, _r) {

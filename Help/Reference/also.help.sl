@@ -8,7 +8,10 @@ See _in_ (or _with_) for a slight variation that answers the answer of _aBlock_ 
 
 ```
 >>> let d = (c: 1);
->>> let r = d.also { :x | x::c := 2; 0 };
+>>> let r = d.also { :x |
+>>> 	x['c'] := 2;
+>>> 	0
+>>> };
 >>> d = (c: 2) & { r == d }
 true
 ```

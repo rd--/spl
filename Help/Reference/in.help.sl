@@ -14,7 +14,10 @@ See `also` for a slight variation that answers _anObject_ instead.
 
 ```
 >>> let d = (c: 1);
->>> let r = d.in { :x | x::c := 2; 0 };
+>>> let r = d.in { :x |
+>>> 	x['c'] := 2;
+>>> 	0
+>>> };
 >>> d = (c: 2) & { r = 0 }
 true
 ```

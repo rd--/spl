@@ -436,7 +436,7 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].groupBy(isEven:/1).indices = [false, true] /* answer a Map grouping elements according to a predicate */
 [1 .. 5].groupBy(isEven:/1)[true] = [2, 4]
 let a = []; [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] /* iterate adjacent pairs */
-let r = (); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r::elmer = 3 /* iterate adjacent pairs */
+let r = (); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r['elmer'] = 3 /* iterate adjacent pairs */
 [1 .. 9].indexOfSubstring([3 .. 5]) = 3
 [1 .. 9].indexOfSubstringStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubstringStartingAt([9], 9) = 9
@@ -549,7 +549,7 @@ system.includesPackage('PrimitiveSequence') /* package */
 let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
 [1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
 [1, 7, 3, 9, 5].sort = [1, 3 .. 9] /* sort using default comparison of <= */
-let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each::y }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
+let a = [(x: 1, y: 9), (x: 9, y: 1)]; let b = a.sortOn { :each | each['y'] }; a = [(x: 9, y: 1), (x: 1, y: 9)] & { b == a } /* sort using provided key block */
 ```
 
 ## Assignment
@@ -1012,8 +1012,8 @@ let n = 0; 3:7.collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25,
 (p: (q: (r: (s: 1)))) @> ['p' 'q' 'r' 's'] = 1
 (p: (q: (r: 1))) @/ 'p/q/r' = 1 /* @/ = atPath of splitBy('/') */
 (p: (q: (r: (s: 1)))) @/ 'p/q/r/s' = 1
-let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d::w::x::y::z = -1 /* atPathPut of dictionary, depth = 4 */
-(x: (y: 1))::x::y = 1 /* index sequence */
+let d = (w: (x: (y: (z: 1)))); d.atPathPut(['w', 'x', 'y', 'z'], -1); d['w']['x']['y']['z'] = -1 /* atPathPut of dictionary, depth = 4 */
+(x: (y: 1))['x']['y'] = 1 /* index sequence */
 [['w', 'x'], ['y', 'z']].atPath([1, 2]) = 'x' /* atPath of arrays */
 [['w', 'x'], ['y', 'z']][1][2] = 'x' /* index sequence */
 [['w', 'x'], ['y', 'z']] @> [1 2] = 'x' /* atPath operator on array or arrays */
@@ -1087,8 +1087,8 @@ Hsv(0, 1, 0.75).isRed & { Hsv(120 / 360, 1, 0.5).isGreen } & { Hsv(240 / 360, 1,
 0.7353569830524495.srgbToLinear = 0.5 /* transfer function from srgb to (linear) rgb */
 let c = Colour(1, 0, 0, 0.5); let z = c.copy; z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } /* copy colour */
 '#f97306'.parseHexColour = Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255) /* parse hex colour, here orange */
-system.colourNameTable::orange = Colour(1, 0.6, 0) /* colour name table */
-system.colourNameTable::veryLightGray.isGrey /* colour name table */
+system.colourNameTable['orange'] = Colour(1, 0.6, 0) /* colour name table */
+system.colourNameTable['veryLightGray'].isGrey /* colour name table */
 ```
 
 ## Comparing
@@ -1338,7 +1338,7 @@ system.includesPackage('Dictionary') /* package */
 (x: nil).size = 1 /* nil fields exist */
 (x: nil).indices = ['x'] /* nil fields exist */
 ().atIfAbsentPut('x') { 1 } = 1 /* at or atPut followed by at */
-let d = (); d.atIfAbsentPut('x') { 1 } = 1 & { d::x = 1 }
+let d = (); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
 (x: 1, y: 2).includes(2) /* includes, testing values for equality */
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) /* includes, testing for identity not equality */
@@ -1798,10 +1798,10 @@ let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
 ```
 9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23] /* first elements of prime number sequence */
 9.nthPrime = 23 /* lookup prime by index in sequence */
-system.cache::primesList[9] = 23 /* the primes list is cached (memoized) by the system */
+system.cache['primesList'][9] = 23 /* the primes list is cached (memoized) by the system */
 5.nthPrime = 11 /* the nth entry in the sequence of prime numbers */
 23.nthPrime = 83 /* the nth entry in the sequence of prime numbers */
-system.cache::primesList[23] = 83 /* nthPrime extends the primesList cache as required */
+system.cache['primesList'][23] = 83 /* nthPrime extends the primesList cache as required */
 23.primesList = system.cachedPrimesList.first(23) /* the k primesList is the first k elements of the cached array */
 2:20.select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
 2:20.reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
@@ -2197,7 +2197,7 @@ let d = Map(); d.add('x' -> 1); d.removeKey('x'); d.isEmpty = true /* remove Ass
 let d = Map(); (d['x'] := 1) = 1 & { d['x'] = 1 } /* atPut (subscript mutation) syntax */
 let d = Map(); d[1] := 'x'; d[1] = 'x'
 let d = Map(); d['x'] := 1; d.removeKey('x'); d.isEmpty = true
-let d = (f: { :i | i * i }); d::f.value(9) = 81
+let d = (f: { :i | i * i }); d['f'].value(9) = 81
 { Map().removeKey('unknownKey') }.ifError { true }
 (x: 1, y: 1).copyWithoutIdenticalElements = (x: 1)
 let d = Map(); 1.toDo(100) { :i | d[i] := i; (i > 10).ifTrue { d.removeKey(i - 10) } }; d.size = 10
@@ -2402,19 +2402,19 @@ let a = [1 .. 5]; a.removeLast; a = [1 .. 4] /* remove last element */
 ## Package
 ```
 system.includesPackage('Package') /* package */
-system.packageDictionary::Date.typeOf = 'Package' /* type of package */
-system.packageDictionary::Date.isPackage /* package type predicate */
+system.packageDictionary['Date'].typeOf = 'Package' /* type of package */
+system.packageDictionary['Date'].isPackage /* package type predicate */
 Package('Category', 'Name', ['Requires'], 'Category/Name.sl', 'Code').isPackage
 (Name: 'Set').Package.isPackage /* package from dictionary, name is the only required field, package predicate */
 (Category: 'Time', Name: 'Date').Package.url = 'Time/Date.sl' /* derive url */
-system.packageDictionary::Date.name = 'Date' /* name of package */
-system.packageDictionary::Date.category = 'Time' /* category of package */
+system.packageDictionary['Date'].name = 'Date' /* name of package */
+system.packageDictionary['Date'].category = 'Time' /* category of package */
 system.includesPackage('Date')
 '/* Package: Collection-ByteArray */'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
-system.packageDictionary::PackageBrowser.dependencies.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
+system.packageDictionary['PackageBrowser'].dependencies.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 /* number of packages */
@@ -2454,7 +2454,7 @@ collect:/2.numArgs = 2 /* method arity */
 { { :x | 0 - x }.value(3, 4) = -3 }.ifError { true } /* too many arguments, c.f. non-strict */
 collect:/2.name = 'collect:/2'
 let f = { :x | x * x }; [f(5), f:/1.(5)] = [25, 25]
-let f = { :x | x * x }; let d = (p: f:/1); d::p.value(5) = 25
+let f = { :x | x * x }; let d = (p: f:/1); d['p'].value(5) = 25
 { 0 }.cull(23) = 0 /* ignore one argument */
 { 0 }.cull(23, 3.141) = 0 /* ignore two arguments */
 { :x | x }.cull(23) = 23 /* recognise one argument */
@@ -2470,10 +2470,10 @@ collect:/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is ma
 { { :x | x }.apply([]) }.ifError { true }
 9.with { :x | x.sqrt; x.negated } = -9 /* evaluate block with self and answer answer of block */
 9.also { :x | x.sqrt; x.negated } = 9 /* evaluate block with self and answer self */
-let d = (c: 1); d.with { :x | x::c := 2; 0 } = 0 & { d = (c: 2) }
-let d = (c: 1); d.also { :x | x::c := 2; 0 } == d & { d = (c: 2) }
-let d = (c: 1); let r = d.with { :x | x::c := 2; 0 }; d = (c: 2) & { r = 0 }
-let d = (c: 1); let r = d.also { :x | x::c := 2; 0 }; d = (c: 2) & { r == d }
+let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
+let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
+let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
+let d = (c: 1); let r = d.also { :x | x['c'] := 2; 0 }; d = (c: 2) & { r == d }
 let x = { }; x:/0.isBlock /* blocks are objects and may be assigned to a variable */
 { nil; 1 }.value = 1 /* value is last expression evaluated */
 { { 1 }.value }.value = 1 /* blocks may be nested */
@@ -2522,7 +2522,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 at:/2.parameterNames = ['self', 'index'] /* answer names of method parameters */
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
 randomReal:/4.parameterNames = ['self', 'min', 'max', 'shape'] /* answer names of method parameters */
-system.methodDictionary::at[2]::Map.information.parameterNames = ['self', 'key']
+system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
 { { }.deepCopy }.ifError { true } /* blocks cannot be deep copied */
@@ -2737,7 +2737,7 @@ Record().includesIndex('x') = false /* includes key predicate */
 let d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
 let d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
-let d = Record(); d::x := 1; d::y := 2; d.size = 2
+let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
 ['x' -> 1, 'y' -> 2].asRecord = (x: 1, y: 2) /* association array to record */
 ['x' -> 1, 'y' -> 2].asRecord['y'] = 2 /* association array to record */
 { Record().atPut(1, 1) }.ifError { true }
@@ -2746,13 +2746,12 @@ let d = Record(); d::x := 1; d::y := 2; d.size = 2
 let d = (x: 1, y: 2); let i = 9; d.associationsDo { :each | i := i - each.value }; i = 6 /* iterate over associations */
 let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 (x: 23, y: 3.141).isDictionary
-(x: 1.pi)::x = 1.pi
-(x : 1.pi) :: x = 1.pi
-let d = (x: 23, y: 3.141); d::x = 23
-let d = (x: 23, y: 3.141); d::x := 42; d = (x: 42, y: 3.141)
+(x: 1.pi)['x'] = 1.pi
+let d = (x: 23, y: 3.141); d['x'] = 23
+let d = (x: 23, y: 3.141); d['x'] := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) /* a copy of record is a record */
 let d = (x: 23, y: 3.141); let c = d.copy; d ~~ c & { d = c } /* copy is equal to but not identical to */
-let d = (x: 1, y: 2); let c = d.copy; c::x := 3; c::x = 3 & { d::x = 1 } /* copies are distinct */
+let d = (x: 1, y: 2); let c = d.copy; c['x'] := 3; c['x'] = 3 & { d['x'] = 1 } /* copies are distinct */
 (x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is optional */
 let x = 1; (x:9) = (x: 9) /* white space after colon is optional */
 let x = 9; (9:x) = 9:x /* interval literals may have identifiers as upper bound */
@@ -2762,18 +2761,18 @@ let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] /* partial dictionar
 let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(isEven:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
-let d = (x: 9); d::x.sqrt = 3
+let d = (x: 9); d['x'].sqrt = 3
 size (x: 1, y: 2, z: 3) = 3
 let c = (y: 2, z: 3); let r = (x: 1); r.addAll(c); r = (x: 1, y: 2, z: 3) /* add all elements of a Dictionary to a Dictionary */
 let c = (y: 2, z: 3); (x: 1).addAll(c) = c /* answer is argument */
 (x: 1) = ('x': 1) /* records with quoted keys */
 ('font-size': '11pt', 'font-style': 'italic').indices = ['font-size', 'font-style'] /* records with quoted keys that are not identifiers */
 (x: 1).asMap.asRecord = (x: 1) /* record to map to record is identity */
-(x: true)::x = true /* true value answers true */
+(x: true)['x'] = true /* true value answers true */
 (x: false).includesIndex('x') = true /* includes index at false value answers true */
-(x: false)::x = false /* at at key with false value answers false */
-(x: false)::x ~= nil /* at at key with false value does not answer nil */
-(x: nil)::x = nil /* at at key with nil value answers nil */
+(x: false)['x'] = false /* at at key with false value answers false */
+(x: false)['x'] ~= nil /* at at key with false value does not answer nil */
+(x: nil)['x'] = nil /* at at key with nil value answers nil */
 (x: 1, y: 2) = (x: 1, y: 2) /* Record equality */
 (x: 1, y: 2) ~= (x: 2, y: 1) /* Record in-equality */
 let r = (x: 1, y: 2); r == r /* Record identity */
@@ -3676,6 +3675,7 @@ let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] := -1; d = (w: (x: (y: (z: 
 ```
 'text'[3] = 'x'.asCharacter /* [At Syntax] */
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [AtPut Syntax] */
+(x : 1.pi) :: x = 1.pi /* quoted at syntax */
 let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
 let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
@@ -3818,8 +3818,8 @@ system.punctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of opera
 ## System -- cache
 ```
 system.cache.isMap /* cache is a map from string keys to cached values */
-let f = { system.cached('aUniqueKey') { (0 -- 1).atRandom } }; f() = f() & { f() = system.cache::aUniqueKey }
-let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & { f() = system.cache::anotherUniqueKey }
+let f = { system.cached('aUniqueKey') { (0 -- 1).atRandom } }; f() = f() & { f() = system.cache['aUniqueKey'] }
+let f = { { (0 -- 1).atRandom }.once(system, 'anotherUniqueKey') }; f() = f() & { f() = system.cache['anotherUniqueKey'] }
 ```
 
 ## System -- categoryDictionary
@@ -3861,8 +3861,8 @@ system.evaluateNotifying('') { :err | true } /* empty input likewise */
 system.isIndexable /* system is indexable */
 system.globalDictionary.isDictionary /* the system global dicitionary is a dictionary */
 system.globalDictionary.isRecord /* specifically, it is a record */
-{ system::undefined }.ifError { true } /* system implements the indexable trait, unknown indices (keys) raise errors */
-system::TwoPi := 2.pi; system::TwoPi / 2 = 1.pi /* declare and then access a global variable */
+{ system['undefined'] }.ifError { true } /* system implements the indexable trait, unknown indices (keys) raise errors */
+system['TwoPi'] := 2.pi; system['TwoPi'] / 2 = 1.pi /* declare and then access a global variable */
 system.indices.includes('TwoPi') /* system is indexable */
 system.indexOf(2.pi) = 'TwoPi' /* system is indexable */
 ```
@@ -3870,10 +3870,10 @@ system.indexOf(2.pi) = 'TwoPi' /* system is indexable */
 ## System -- methodDictionary
 ```
 system.methodDictionary.isDictionary = true
-system.methodDictionary::collect.isDictionary = true
-system.methodDictionary::collect[2].isDictionary = true
-system.methodDictionary::collect[2]::List.isMethod = true
-system.methodDictionary::collect[2]::List.information.isMethodInformation = true
+system.methodDictionary['collect'].isDictionary = true
+system.methodDictionary['collect'][2].isDictionary = true
+system.methodDictionary['collect'][2]['List'].isMethod = true
+system.methodDictionary['collect'][2]['List'].information.isMethodInformation = true
 system.methodDictionary.includesIndex('collect') = true
 system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2') = true
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
@@ -3941,13 +3941,13 @@ system.traitDictionary['Dictionary'].isTrait = true
 system.typeDictionary.isDictionary = true
 system.typeDictionary.indices.includes('List') = true
 system.typeDictionary.includesIndex('List') = true
-system.typeDictionary::List.typeOf = 'Type' /* type of type is Type */
-system.typeDictionary::List.isType = true /* Type type predicate */
-system.typeDictionary::List.traitNameList.includes('Collection') = true
-system.typeDictionary::Association.slotNameList = ['key', 'value']
-system.typeDictionary::Association.methodDictionary.indices.includes('equalsSign:/2')
-system.typeDictionary::Association.methodDictionary.includesIndex('key:/1') = true
-system.typeDictionary::Nil.methodDictionary.includesIndex('ifNil:/2') = true
+system.typeDictionary['List'].typeOf = 'Type' /* type of type is Type */
+system.typeDictionary['List'].isType = true /* Type type predicate */
+system.typeDictionary['List'].traitNameList.includes('Collection') = true
+system.typeDictionary['Association'].slotNameList = ['key', 'value']
+system.typeDictionary['Association'].methodDictionary.indices.includes('equalsSign:/2')
+system.typeDictionary['Association'].methodDictionary.includesIndex('key:/1') = true
+system.typeDictionary['Nil'].methodDictionary.includesIndex('ifNil:/2') = true
 system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('List').isType = true
@@ -3967,8 +3967,8 @@ system.localStorage.typeOf = 'Storage' /* system local storage, persistent key-v
 system.localStorage.isStorage = true /* storage predicate */
 system.localStorage.size >= 0 /* number of elements in local storage */
 system.localStorage.indices.allSatisfy(isString:/1) /* keys and values must each be strings */
-(system.localStorage::pi := 1.pi.asString) = 1.pi.asString /* store 1.pi as string at index 'pi', answer item stored */
-system.localStorage::pi = 1.pi.asString /* read pi */
+(system.localStorage['pi'] := 1.pi.asString) = 1.pi.asString /* store 1.pi as string at index 'pi', answer item stored */
+system.localStorage['pi'] = 1.pi.asString /* read pi */
 system.localStorage.indices.includes('pi') = true /* pi is an index */
 system.localStorage.removeAt('pi') = 1.pi.asString /* remove entry, answer removed item */
 system.localStorage.removeAll = system.localStorage /* remove all entries, answer self */
@@ -4001,7 +4001,7 @@ system.includesPackage('UrlQueryParameters') /* package */
 'x=1'.asUrlQueryParameters.typeOf = 'URLSearchParams' /* string constructor, note type name! */
 'x=1'.asUrlQueryParameters.isUrlQueryParameters /* type predicate */
 'x=3.141&y=23'.asUrlQueryParameters.includes('x') = true
-'x=3.141&y=23'.asUrlQueryParameters::y = '23'
+'x=3.141&y=23'.asUrlQueryParameters['y'] = '23'
 'x=3.141&y=23&z=pi'.asUrlQueryParameters.keys = ['x' 'y' 'z'] /* keys */
 'x=3.141&y=23&z=pi'.asUrlQueryParameters.values = ['3.141' '23' 'pi'] /* values */
 'x=a&x=b&x=c'.asUrlQueryParameters.keys = ['x' 'x' 'x'] /* keys, allows duplicates */
@@ -4010,7 +4010,7 @@ let p = 'x=3.141&y=23&z=pi'; p.asUrlQueryParameters.asString = p /* as search st
 'z=a&y=b&x=c'.asUrlQueryParameters.associations = ['z' -> 'a', 'y' -> 'b', 'x' -> 'c']
 let p = 'z=a&y=b&x=c'.asUrlQueryParameters; p.sort = nil & { p.associations = ['x' -> 'c', 'y' -> 'b', 'z' -> 'a'] }
 let p = 'x=a&y=b'.asUrlQueryParameters; p.add('z' -> 'c'); p.associations = ['x' -> 'a', 'y' -> 'b', 'z' -> 'c']
-let p = 'x=a&y=b'.asUrlQueryParameters; p::x := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
+let p = 'x=a&y=b'.asUrlQueryParameters; p['x'] := 'c'; p.associations = ['x' -> 'c', 'y' -> 'b']
 'x=a&y=b&x=c'.asUrlQueryParameters.atAllEntries('x') = ['a' 'c']
 let p = 'x=a&y=b&x=c'.asUrlQueryParameters; p.removeKey('x'); p.asString = 'y=b'
 'x=a&x=b&x=c'.asUrlQueryParameters.size = 3 /* size */
@@ -4282,7 +4282,7 @@ WeakMap().isWeakMap /* weak map predicate */
 WeakMap().printString = 'a WeakMap' /* weak map print string */
 { WeakMap().size }.ifError { true } /* the size of a weak map cannot be observed */
 let f = { system.nextRandomFloat }; f:/0.once = f:/0.once /* Block>>once caches output using a weak map */
-system.cache::onceCache.isWeakMap
+system.cache['onceCache'].isWeakMap
 ```
 
 ## MutableCollectionStream -- collection type

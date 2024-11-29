@@ -15,9 +15,12 @@ let ctl = (
 	amp: 0.1,
 	sustain: 1
 ).localControls;
-let osc = SinOsc(ctl::freq, 0);
-let env = Sine(1, ctl::sustain).FreeSelfWhenDone;
-UgenGraph('sin', OffsetOut(0, osc * env * ctl::amp)).send
+let osc = SinOsc(ctl['freq'], 0);
+let env = Sine(1, ctl['sustain']).FreeSelfWhenDone;
+UgenGraph(
+	'sin',
+	OffsetOut(0, osc * env * ctl['amp'])
+).send
 ~~~
 
 Schedule overlapping copies of the graph above:

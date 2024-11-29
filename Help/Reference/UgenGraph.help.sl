@@ -22,15 +22,25 @@ Accessors are:
 Collect names of `LocalControl` and `ScUgen` values:
 
 ```
->>> let freq = NamedControl('freq', 440);
->>> let ugenGraph = UgenGraph('sin', SinOsc(freq, 0) * 0.1);
+>>> let ugenGraph = UgenGraph(
+>>> 	'sin',
+>>> 	SinOsc(
+>>> 		NamedControl('freq', 440),
+>>> 		0
+>>> 	) * 0.1
+>>> );
 >>> (
 >>> 	ugenGraph.name,
 >>> 	ugenGraph.constantList,
 >>> 	ugenGraph.controlList.collect(name:/1),
 >>> 	ugenGraph.ugenList.collect(displayName:/1)
 >>> )
-('sin', [0 0.1], ['freq'], ['Control' 'SinOsc' 'Mul' 'Out'])
+(
+	'sin',
+	[0 0.1],
+	['freq'],
+	['Control' 'SinOsc' 'Mul' 'Out']
+)
 ```
 
 * * *

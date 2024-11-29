@@ -12,7 +12,7 @@ let f = { :x |
 let r = (z: pi);
 f(r);
 f:/1.valueAfterWith(1, r);
-r::z := 23
+r['z'] := 23
 ~~~
 
 * * *

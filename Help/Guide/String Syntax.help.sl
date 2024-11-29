@@ -17,6 +17,22 @@ Strings may include double quotes and backtick quotes:
 40
 ```
 
+All of the usual punctation symbols are allowed:
+
+```
+>>> let x = '~!@#$%^&*()-+=_[]{}|<>,.';
+>>> (x.size, x)
+(24, '~!@#$%^&*()-+=_[]{}|<>,.')
+```
+
+Unicode characters are allowed:
+
+```
+>>> let x = 'αβγδεζηθικλμνξοπρστυφχψω';
+>>> (x.size, x)
+(24, 'αβγδεζηθικλμνξοπρστυφχψω')
+```
+
 Double quoted and back tick quoted strings answer as simple types,
 `DoubleQuotedString` and `BacktickQuotedString` respectively,
 holding the quoted string.

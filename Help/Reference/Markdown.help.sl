@@ -7,10 +7,34 @@
 `asHtml` answers a rendering to an _Html_ `String`:
 
 ```
->>> let string = '# H\n\nP1\n\n- L1\n- L2\n\nP2\n';
+>>> let string = [
+>>> 	'# H'
+>>> 	''
+>>> 	'P1'
+>>> 	''
+>>> 	'- L1'
+>>> 	'- L2'
+>>> 	''
+>>> 	'P2'
+>>> ].join('\n');
 >>> let markdown = Markdown(string);
->>> (markdown.asMarkdown = string, markdown.asHtml)
-(true, '<h1>H</h1>\n<p>P1</p>\n<ul>\n<li>L1</li>\n<li>L2</li>\n</ul>\n<p>P2</p>\n')
+>>> (
+>>> 	markdown.asMarkdown = string,
+>>> 	markdown.asHtml
+>>> )
+(
+	true,
+	[
+		'<h1>H</h1>'
+		'<p>P1</p>'
+		'<ul>'
+		'<li>L1</li>'
+		'<li>L2</li>'
+		'</ul>'
+		'<p>P2</p>'
+		''
+	].join('\n')
+)
 ```
 
 `Markdown` is `Iterable`,
@@ -18,10 +42,23 @@
 answering a `Record` value for each node in the parse tree,
 and `contents` collects these nodes into a list:
 
-~~~
->>> let m = Markdown('# H\nP `c`\n* * *\n[a](b)\n\n- L **b**\n\nP ![_e_](g)\n');
+```
+>>> let m = Markdown(
+>>> 	[
+>>> 		'# H'
+>>> 		'P `c`'
+>>> 		'* * *'
+>>> 		'[a](b)'
+>>> 		''
+>>> 		'- L **b**'
+>>> 		''
+>>> 		'P ![_e_](g)'
+>>> 	].join('\n')
+>>> );
 >>> m.contents.collect { :each |
->>> 	each::type ++ each.includesKey('sourcePosition').if { '*' } { '' }
+>>> 	let p = each.includesKey('sourcePosition');
+>>> 	let mark = p.if { '*' } { '' };
+>>> 	each['type'] ++ mark
 >>> }
 [
 	'document*'
@@ -29,10 +66,11 @@ and `contents` collects these nodes into a list:
 	'paragraph*' 'text' 'code'
 	'thematicBreak*'
 	'paragraph*' 'link' 'text'
-	'list*' 'listItem*' 'paragraph*' 'text' 'strong' 'text'
+	'list*'
+	'listItem*' 'paragraph*' 'text' 'strong' 'text'
 	'paragraph*' 'text' 'image' 'emphasis' 'text'
 ]
-~~~
+```
 
 For each parse tree node there is
 a _type_ field (as shown above),
@@ -44,21 +82,55 @@ _Block_ nodes have a _sourcePosition_ field giving start and end line and column
 
 The `asTree` method answers a `Tree` of the parse tree:
 
-~~~
->>> let m = Markdown('# H\nP `c`\n* * *\n[a](b)\n\n- L **b**\n\nP ![_e_](g)\n');
+```
+>>> let m = Markdown(
+>>> 	[
+>>> 		'# H'
+>>> 		'P `c`'
+>>> 		'* * *'
+>>> 		'[a](b)'
+>>> 		''
+>>> 		'- L **b**'
+>>> 		''
+>>> 		'P ![_e_](g)'
+>>> 	].join('\n')
+>>> );
 >>> m.asTree.leafIndices
-[1 1; 2 1; 2 2; 3; 4 1 1; 5 1 1 1; 5 1 1 2 1; 6 1; 6 2 1 1]
-~~~
+[
+	1 1;
+	2 1; 2 2;
+	3;
+	4 1 1;
+	5 1 1 1; 5 1 1 2 1;
+	6 1; 6 2 1 1
+]
+```
 
 The `codeBlocks` method answers a `List` of each of the code block elements,
 which are stored as a `Record`:
 
 ```
->>> let m = Markdown('# H\n\n``` A\na\n```\n\n\tb\n');
+>>> let m = Markdown(
+>>> 	[
+>>> 		'# H'
+>>> 		''
+>>> 		'``` A'
+>>> 		'a'
+>>> 		'```'
+>>> 		''
+>>> 		'\tb'
+>>> 		''
+>>> 		'~~~ C'
+>>> 		'c'
+>>> 		'~~~'
+>>> 		''
+>>> 	].join('\n')
+>>> );
 >>> m.codeBlocks
 [
 	(contents: 'a\n', information: 'A'),
-	(contents: 'b\n', information: '')
+	(contents: 'b\n', information: ''),
+	(contents: 'c\n', information: 'C')
 ]
 ```
 
