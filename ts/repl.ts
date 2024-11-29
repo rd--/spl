@@ -13,17 +13,19 @@ const lineReader: ReadableStreamDefaultReader = lineStream.getReader();
 export function interact<T>(
 	processLine: (line: string) => T,
 ): Promise<void> {
-	return lineReader.read().then(({ done, value }) => {
-		if (done) {
-			// console.debug('repl: end of input');
-			return;
-		}
-		{
-			// console.debug('repl: next line', value);
-			processLine(value);
-			return interact(processLine);
-		}
-	});
+	return lineReader.read().then(
+		({ done, value }) => {
+			if (done) {
+				// console.debug('repl: end of input');
+				return;
+			}
+			{
+				// console.debug('repl: next line', value);
+				processLine(value);
+				return interact(processLine);
+			}
+		},
+	);
 }
 
 // Read and evaluate input per line.  Empty lines are not evaluated.

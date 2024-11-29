@@ -19,11 +19,11 @@ or `preferencesReadPath`:
 ```
 >>> system.preferencesReadPath(
 >>> 	[
->>> 	'ScSynth'
->>> 	'Outputs'
->>> 	'Main'
->>> 	'NumberOfChannels'
->>> ],
+>>> 		'ScSynth'
+>>> 		'Outputs'
+>>> 		'Main'
+>>> 		'NumberOfChannels'
+>>> 	],
 >>> 	2
 >>> )
 2

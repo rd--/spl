@@ -302,7 +302,7 @@
 	}
 
 	typeOf { :self |
-		<primitive: return sl.typeOf(_self);>
+		<primitive: return sl.splTypeOf(_self);>
 	}
 
 	value { :self |

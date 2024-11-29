@@ -9,14 +9,18 @@ export function evaluateFile(
 	packageName: string,
 ): Promise<unknown> {
 	// console.debug(`evaluateFile: ${fileName} ${packageName}`);
-	return host.readTextFileAsync(fileName).then(function (text) {
-		return evaluate.evaluateFor(packageName, text);
-	});
+	return host.readTextFileAsync(fileName).then(
+		function (text) {
+			return evaluate.evaluateFor(packageName, text);
+		},
+	);
 }
 
 export function rewriteFile(fileName: string): Promise<string> {
 	// console.debug(`rewriteFile: ${fileName}`);
-	return host.readTextFileAsync(fileName).then(rewrite.rewriteString);
+	return host.readTextFileAsync(fileName).then(
+		rewrite.rewriteString,
+	);
 }
 
 export function primitiveReadLocalBinaryFile(

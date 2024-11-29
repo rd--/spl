@@ -106,13 +106,15 @@ export function systemCommand(
 ) {
 	// console.debug('systemCommand', commandName, argumentArray);
 	const command = new Deno.Command(commandName, { args: argumentArray });
-	return command.output().then(function (result) {
-		return {
-			exitCode: result.code,
-			outputText: new TextDecoder().decode(result.stdout),
-			errorText: new TextDecoder().decode(result.stderr),
-		};
-	});
+	return command.output().then(
+		function (result) {
+			return {
+				exitCode: result.code,
+				outputText: new TextDecoder().decode(result.stdout),
+				errorText: new TextDecoder().decode(result.stderr),
+			};
+		},
+	);
 }
 
 export function writeBinaryFileAsync(

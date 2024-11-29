@@ -26,11 +26,15 @@ export function primitiveReadLocalBinaryFile(
 	fileName: string,
 ): Promise<Uint8Array> {
 	const resolvedFileName = resolveFileName(fileName);
-	return fetch(resolvedFileName).then(function (response) {
-		return response.arrayBuffer().then(function (arrayBuffer) {
-			return new Uint8Array(arrayBuffer);
-		});
-	});
+	return fetch(resolvedFileName).then(
+		function (response) {
+			return response.arrayBuffer().then(
+				function (arrayBuffer) {
+					return new Uint8Array(arrayBuffer);
+				},
+			);
+		},
+	);
 }
 
 export function primitiveReadLocalTextFileArray(

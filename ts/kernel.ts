@@ -18,7 +18,7 @@ type QualifiedMethodName = string; // i.e. MethodName:/Arity
 type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
-type SlObject = object & { _type: TypeName };
+type SplObject = object & { _type: TypeName };
 
 type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>;
 type TraitDictionary = Map<TraitName, Trait>;
@@ -28,18 +28,18 @@ type ByTypeMethodDictionary = Map<TypeName, Method>;
 type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
 type MethodDictionary = Map<MethodName, ByArityMethodDictionary>;
 
-function isRecord(anObject: SlObject): boolean {
+function isRecord(anObject: SplObject): boolean {
 	// console.debug(`isRecord: ${anObject}`);
 	const c = anObject.constructor;
 	return c === undefined || c.name === 'Object';
 }
 
-function objectNameByConstructor(anObject: SlObject): TypeName {
+function objectNameByConstructor(anObject: SplObject): TypeName {
 	const name = anObject.constructor.name;
 	return name == 'Range' ? 'DocumentRange' : name;
 }
 
-function objectType(anObject: SlObject): TypeName {
+function splObjectTypeOf(anObject: SplObject): TypeName {
 	if (anObject instanceof Array) {
 		return 'List';
 	}
@@ -78,33 +78,32 @@ function objectType(anObject: SlObject): TypeName {
 }
 
 /* This runs slower than the form above, is .constructor.name slow?
-function objectType(anObject: SlObject): TypeName {
+function splObjectTypeOf(anObject: SplObject): TypeName {
 	return anObject instanceof Uint8Array ? 'ByteArray' :
 		(anObject._type ||
 			(isRecord(anObject) ? 'Record' : anObject.constructor.name));
 }
 */
 
-export function typeOf(anObject: unknown): TypeName {
+export function splTypeOf(anObject: unknown): TypeName {
 	if (anObject === null || anObject === undefined) {
 		return 'Nil';
-	} else {
-		switch (typeof anObject) {
-			case 'boolean':
-				return 'Boolean';
-			case 'function':
-				return 'Block';
-			case 'number':
-				return 'SmallFloat';
-			case 'string':
-				return 'String';
-			case 'bigint':
-				return 'LargeInteger';
-			case 'object':
-				return objectType(<SlObject> anObject);
-			default:
-				throw new Error(`typeOf: unknown type: ${anObject}`);
-		}
+	}
+	switch (typeof anObject) {
+		case 'boolean':
+			return 'Boolean';
+		case 'function':
+			return 'Block';
+		case 'number':
+			return 'SmallFloat';
+		case 'string':
+			return 'String';
+		case 'bigint':
+			return 'LargeInteger';
+		case 'object':
+			return splObjectTypeOf(<SplObject> anObject);
+		default:
+			throw new Error(`splTypeOf: unknown type: ${anObject}`);
 	}
 }
 
@@ -253,11 +252,10 @@ export class Package {
 export function parsePackageRequires(text: string): string[] {
 	const firstLine = text.split('\n', 1)[0];
 	const packageNames = firstLine.match(/Requires: (.*)\*\//);
-	if (packageNames) {
-		return packageNames[1].trim().split(' ');
-	} else {
+	if (packageNames == null) {
 		return [];
 	}
+	return packageNames[1].trim().split(' ');
 }
 
 export function evaluatePackage(pkg: Package): unknown {
@@ -267,11 +265,10 @@ export function evaluatePackage(pkg: Package): unknown {
 			// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
 			return eval?.(`"use strict"; ${pkg.text}`);
 		} catch (err) {
-			console.error('Error loading package', pkg, err);
+			throw new Error(`Error loading package: ${pkg} ${err}`);
 		}
-	} else {
-		return evaluate.evaluateFor(pkg.name, pkg.text);
 	}
+	return evaluate.evaluateFor(pkg.name, pkg.text);
 }
 
 export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
@@ -322,9 +319,8 @@ function getTrait(traitName: TraitName): Trait {
 export function addTrait(traitName: TraitName, packageName: PackageName): void {
 	if (traitExists(traitName)) {
 		throw new Error(`addTrait: trait exists: ${traitName}`);
-	} else {
-		system.traitDictionary.set(traitName, new Trait(traitName, packageName));
 	}
+	system.traitDictionary.set(traitName, new Trait(traitName, packageName));
 }
 
 function typeExists(typeName: TypeName): boolean {
@@ -354,25 +350,24 @@ export function addTraitMethod(
 	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
-	if (traitExists(traitName)) {
-		const trait = getTrait(traitName);
-		const method = new Method(
-			block,
-			new MethodInformation(
-				methodName,
-				packageName,
-				parameterNames,
-				sourceCode,
-				trait,
-			),
-		);
-		trait.methodDictionary.set(method.qualifiedName(), method);
-		return method;
-	} else {
+	if (!traitExists(traitName)) {
 		throw new Error(
 			`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`,
 		);
 	}
+	const trait = getTrait(traitName);
+	const method = new Method(
+		block,
+		new MethodInformation(
+			methodName,
+			packageName,
+			parameterNames,
+			sourceCode,
+			trait,
+		),
+	);
+	trait.methodDictionary.set(method.qualifiedName(), method);
+	return method;
 }
 
 // Copy trait methods into type.  addMethodFor decides if the trait method is copied or not.
@@ -380,17 +375,16 @@ export function copyTraitToType(
 	traitName: TraitName,
 	typeName: TypeName,
 ): void {
-	if (traitExists(traitName) && typeExists(typeName)) {
-		const trait = getTrait(traitName);
-		const methodDictionary = trait.methodDictionary;
-		for (const [_unusedName, method] of methodDictionary) {
-			// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
-			addMethodFor(typeName, method, true);
-		}
-	} else {
+	if (!traitExists(traitName) || !typeExists(typeName)) {
 		throw new Error(
 			`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`,
 		);
+	}
+	const trait = getTrait(traitName);
+	const methodDictionary = trait.methodDictionary;
+	for (const [_unusedName, method] of methodDictionary) {
+		// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
+		addMethodFor(typeName, method, true);
 	}
 }
 
@@ -414,24 +408,25 @@ export function extendTraitWithMethod(
 	block: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
-	if (traitExists(traitName)) {
-		const method = addTraitMethod(
-			traitName,
-			packageName,
-			name,
-			parameterNames,
-			block,
-			sourceCode,
-		);
-		traitTypeArray(traitName).forEach(function (typeName) {
-			addMethodFor(typeName, method, true);
-		});
-		return method;
-	} else {
+	if (!traitExists(traitName)) {
 		throw new Error(
 			`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`,
 		);
 	}
+	const method = addTraitMethod(
+		traitName,
+		packageName,
+		name,
+		parameterNames,
+		block,
+		sourceCode,
+	);
+	traitTypeArray(traitName).forEach(
+		function (typeName) {
+			addMethodFor(typeName, method, true);
+		},
+	);
+	return method;
 }
 
 export function lookupGeneric(
@@ -459,37 +454,37 @@ export function applyGenericAt(
 }
 
 // The typeTable for zero arity methods always has exactly one entry, for Void.
+// name is for error reporting only.
 export function dispatchVoid(
 	name: string,
 	typeTable: ByTypeMethodDictionary,
 ) {
 	// console.debug(`dispatchVoid: ${name}, ${typeTable.size}`);
 	const voidMethod = typeTable.get('Void');
-	if (voidMethod) {
-		return voidMethod.block.call(null);
-	} else {
+	if (!voidMethod) {
 		throw new Error(`No Void method ${name}`);
 	}
+	return voidMethod.block.call(null);
 }
 
+// name is for error reporting only.
 export function dispatchByType(
 	name: string,
 	typeTable: ByTypeMethodDictionary,
 	parameterArray: unknown[],
 ) {
 	const receiver = parameterArray[0];
-	const receiverType = typeOf(receiver);
+	const receiverType = splTypeOf(receiver);
 	const typeMethod = typeTable.get(receiverType);
-	if (typeMethod) {
-		// console.debug(`dispatchByType: ${name}, ${parameterArray.length}, ${receiverType}`);
-		return typeMethod.block.apply(null, parameterArray);
-	} else {
+	if (!typeMethod) {
 		const arity = parameterArray.length;
 		const qualifiedName = `${name}:/${arity}`;
 		throw new Error(
 			`dispatchByType: no method ${qualifiedName} for ${receiverType}`,
 		);
 	}
+	// console.debug(`dispatchByType: ${name}, ${parameterArray.length}, ${receiverType}`);
+	return typeMethod.block.apply(null, parameterArray);
 }
 
 declare var globalThis: { [key: string]: unknown };
@@ -506,35 +501,33 @@ function isMoreSpecific(
 	const methodIsAtType = methodOrigin.name === typeName;
 	if (methodIsAtType) {
 		return false;
-	} else {
-		const existingOrigin = existingMethod.information.origin;
-		const existingIsAtType = existingOrigin.name === typeName;
-		if (existingIsAtType && !methodIsAtType) {
-			return true;
-		} else {
-			const typeValue = getType(typeName);
-			const existingTraitIndex = typeValue.traitNameArray.findIndex((item) =>
-				item === existingOrigin.name
-			);
-			const methodTraitIndex = typeValue.traitNameArray.findIndex((item) =>
-				item === methodOrigin.name
-			);
-			/*
-			if((existingTraitIndex > methodTraitIndex)) {
-				console.debug(
-					'isMoreSpecific',
-					typeName,
-					method.information.name,
-					existingOrigin.name,
-					existingTraitIndex,
-					methodOrigin.name,
-					methodTraitIndex
-				);
-			};
-			*/
-			return (existingTraitIndex > methodTraitIndex);
-		}
 	}
+	const existingOrigin = existingMethod.information.origin;
+	const existingIsAtType = existingOrigin.name === typeName;
+	if (existingIsAtType && !methodIsAtType) {
+		return true;
+	}
+	const typeValue = getType(typeName);
+	const existingTraitIndex = typeValue.traitNameArray.findIndex(
+		(item) => item === existingOrigin.name,
+	);
+	const methodTraitIndex = typeValue.traitNameArray.findIndex(
+		(item) => item === methodOrigin.name,
+	);
+	/*
+	if((existingTraitIndex > methodTraitIndex)) {
+		console.debug(
+			'isMoreSpecific',
+			typeName,
+			method.information.name,
+			existingOrigin.name,
+			existingTraitIndex,
+			methodOrigin.name,
+			methodTraitIndex
+		);
+	};
+	*/
+	return (existingTraitIndex > methodTraitIndex);
 }
 
 export function addMethodFor(
@@ -626,24 +619,23 @@ export function addMethod(
 		);
 		*/
 	}
-	if (typeExists(typeName)) {
-		const typeValue = system.typeDictionary.get(typeName)!;
-		const method = new Method(
-			block,
-			new MethodInformation(
-				methodName,
-				packageName,
-				parameterNames,
-				sourceCode,
-				typeValue,
-			),
-		);
-		return addMethodFor(typeName, method, slOptions.requireTypeExists);
-	} else {
+	if (!typeExists(typeName)) {
 		throw new Error(
 			`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`,
 		);
 	}
+	const typeValue = system.typeDictionary.get(typeName)!;
+	const method = new Method(
+		block,
+		new MethodInformation(
+			methodName,
+			packageName,
+			parameterNames,
+			sourceCode,
+			typeValue,
+		),
+	);
+	return addMethodFor(typeName, method, slOptions.requireTypeExists);
 }
 
 // Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
@@ -656,52 +648,55 @@ export function addType(
 	traitList: TraitName[],
 	slotNames: string[],
 ): void {
-	if (!typeExists(typeName) || preinstalledTypes.includes(typeName)) {
-		const initializeSlots = slotNames.map((each) =>
-			`anInstance.${each} = ${each}`
-		).join('; ');
-		const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
-		const defNewType = isHostType
-			? ''
-			: `sl.addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
-		const defInitializeSlots = isHostType
-			? ''
-			: `sl.addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
-				JSON.stringify(['self'].concat(slotNames))
-			}, function(anInstance, ${
-				slotNames.join(', ')
-			}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
-		const defPredicateFalse =
-			`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
-		const defPredicateTrue =
-			`sl.addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
-		const defSlotAccess = slotNames.map((each) =>
-			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`
-		).join('; ');
-		const defSlotMutate = slotNames.map((each) =>
-			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`
-		).join('; ');
-		// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
-		const methodDictionary = typeExists(typeName)
-			? system.typeDictionary.get(typeName)!.methodDictionary
-			: new Map();
-		system.typeDictionary.set(
-			typeName,
-			new Type(typeName, packageName, traitList, slotNames, methodDictionary),
+	if (typeExists(typeName) && !preinstalledTypes.includes(typeName)) {
+		throw new Error(
+			`addType: type exists and is not pre-installed: ${typeName}`,
 		);
-		const allDef = [
-			defNewType,
-			defInitializeSlots,
-			defPredicateFalse,
-			defPredicateTrue,
-			defSlotAccess,
-			defSlotMutate,
-		].join(';');
-		// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
-		eval?.(`"use strict"; ${allDef}`);
-	} else {
-		throw new Error(`addType: type exists: ${typeName}`);
 	}
+	const initializeSlots = slotNames.map(
+		(each) => `anInstance.${each} = ${each}`,
+	).join('; ');
+	const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
+	const defNewType = isHostType
+		? ''
+		: `sl.addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+	const defInitializeSlots = isHostType
+		? ''
+		: `sl.addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
+			JSON.stringify(['self'].concat(slotNames))
+		}, function(anInstance, ${
+			slotNames.join(', ')
+		}) { ${initializeSlots}; return anInstance; }, '<primitive: initializer>')`;
+	const defPredicateFalse =
+		`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
+	const defPredicateTrue =
+		`sl.addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+	const defSlotAccess = slotNames.map(
+		(each) =>
+			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
+	).join('; ');
+	const defSlotMutate = slotNames.map(
+		(each) =>
+			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
+	).join('; ');
+	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
+	const methodDictionary = typeExists(typeName)
+		? system.typeDictionary.get(typeName)!.methodDictionary
+		: new Map();
+	system.typeDictionary.set(
+		typeName,
+		new Type(typeName, packageName, traitList, slotNames, methodDictionary),
+	);
+	const allDef = [
+		defNewType,
+		defInitializeSlots,
+		defPredicateFalse,
+		defPredicateTrue,
+		defSlotAccess,
+		defSlotMutate,
+	].join(';');
+	// <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!>
+	eval?.(`"use strict"; ${allDef}`);
 }
 
 // Until the <primitive:> parser allows escaped >, the following cannot be written inline...
@@ -764,17 +759,18 @@ export async function primitiveLoadPackageSequence(
 ): Promise<void> {
 	// console.debug(`primitiveLoadPackageSequence: '${packageNames}'`);
 	const packageArray: Package[] = [];
-	packageNames.forEach((name) => {
-		const pkg = system.packageDictionary.get(name);
-		if (pkg == undefined) {
-			throw new Error(
-				`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
-			);
-		} else {
+	packageNames.forEach(
+		(name) => {
+			const pkg = system.packageDictionary.get(name);
+			if (pkg == undefined) {
+				throw new Error(
+					`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
+				);
+			}
 			pkg.isLoaded = true;
 			packageArray.push(pkg);
-		}
-	});
+		},
+	);
 	await evaluatePackageArrayInSequence(packageArray);
 }
 

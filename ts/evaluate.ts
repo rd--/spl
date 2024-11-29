@@ -49,9 +49,23 @@ export async function evaluateUrlFor(
 	url: string,
 ): Promise<void> {
 	// console.debug(`evaluateUrlFor: ${packageName} ${url}`);
-	await fetch(url, { cache: 'no-cache' }).then(function (response) {
-		return response.text();
-	}).then(function (text) {
-		return evaluateFor(packageName, text);
-	});
+	await fetch(url, { cache: 'no-cache' }).then(
+		function (response) {
+			return response.text();
+		},
+		function (reason) {
+			throw new Error(
+				`evaluateUrlFor: fetch failed: ${packageName}, ${url}, ${reason}`,
+			);
+		},
+	).then(
+		function (text) {
+			return evaluateFor(packageName, text);
+		},
+		function (reason) {
+			throw new Error(
+				`evaluateUrlFor: response.text() failed: ${packageName}, ${url}, ${reason}`,
+			);
+		},
+	);
 }
