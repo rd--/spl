@@ -1,16 +1,16 @@
-# extractDocumentTests
+# extractDocumentationTests
 
-- _extractDocumentTests(aHelpFile | aList)_
+- _extractDocumentationTests(aHelpFile | aList)_
 
-Answer the sequence of `DocumentTest` blocks in the sequence of `String` items at _aList_.
+Answer the sequence of `DocumentationTest` blocks in the sequence of `String` items at _aList_.
 
 ```
 >>> let string = 'a\nb\n\n```\n>>> c\nd\n```\ne\n```\n>>> f\ng\n```\nh';
 >>> let list = string.lines;
->>> list.extractDocumentTests
+>>> list.extractDocumentationTests
 [
-	DocumentTest('>>>', ['c'], ['d']),
-	DocumentTest('>>>', ['f'], ['g'])
+	DocumentationTest('>>>', ['c'], ['d']),
+	DocumentationTest('>>>', ['f'], ['g'])
 ]
 ```
 
@@ -21,7 +21,7 @@ and can extract documentation tests from any text.
 
 * * *
 
-See also: asDocumentTest, DocumentTest
+See also: asDocumentationTest, DocumentationTest
 
 Guides: Documentation Tests
 

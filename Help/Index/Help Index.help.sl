@@ -314,8 +314,8 @@
 
 ## Help Files
 
-- `DocumentTest`, `HelpFile`
-- `asDocumentTest`, `extractDocumentTests`
+- `DocumentationTest`, `HelpFile`
+- `asDocumentationTest`, `extractDocumentationTests`
 
 ## Hyperbolic Functions
 

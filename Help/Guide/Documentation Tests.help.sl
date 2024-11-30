@@ -36,14 +36,14 @@ Documentation tests are written in `Fenced Code Blocks`.
 
 `terseReferenceSummary` collects and runs all such tests and summarises the results.
 
-The `DocumentTest` type holds a documentation test, and
-`extractDocumentTests` finds all documentation test blocks in a `List` of `String` items.
+The `DocumentationTest` type holds a documentation test, and
+`extractDocumentationTests` finds all documentation test blocks in a `List` of `String` items.
 
 Where supported the token `>>>` is displayed as ⋙.
 
 * * *
 
-See also: ~, DocumentTest, extractDocumentTests, isCodeFence, terseReferenceSummary
+See also: ~, DocumentationTest, extractDocumentationTests, isCodeFence, terseReferenceSummary
 
 Guides: Fenced Code Blocks, Reference Help Files
 

@@ -1,8 +1,8 @@
-# DocumentTest
+# DocumentationTest
 
-- _DocumentTest(prefix, program, expectedAnswer)_
+- _DocumentationTest(prefix, program, expectedAnswer)_
 
-`DocumentTest` is a `Type` holding a test case given as two lists of strings,
+`DocumentationTest` is a `Type` holding a test case given as two lists of strings,
 one a _program_ to be evaluated,
 the other the _expectedAnswer_.
 
@@ -17,37 +17,37 @@ and that it should compare `=` to the `printString` of the answer of the test _p
 The `format` method prints the equivalence predicate:
 
 ```
->>> DocumentTest('>>>', ['3 + 4'], ['7']).format
+>>> DocumentationTest('>>>', ['3 + 4'], ['7']).format
 '3 + 4 ~ (7)'
 
->>> DocumentTest('>>', ['3 + 4'], ['7']).format
+>>> DocumentationTest('>>', ['3 + 4'], ['7']).format
 '(3 + 4).printString.utf8ByteArray = [55].asByteArray'
 
->>> DocumentTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
+>>> DocumentationTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
 'let x = 3 + 4; x * x ~ (49)'
 
->>> DocumentTest('>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
+>>> DocumentationTest('>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
 '(let x = 3 + 4; x * x).printString.utf8ByteArray = [52, 57].asByteArray'
 ```
 
 The `evaluate` method evaluates the test:
 
 ```
->>> DocumentTest('>>>', ['3 + 4'], ['7']).evaluate
+>>> DocumentationTest('>>>', ['3 + 4'], ['7']).evaluate
 true
 
->>> DocumentTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).evaluate
+>>> DocumentationTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).evaluate
 true
 
->>> DocumentTest('>>', ['3 + 4'], ['7']).evaluate
+>>> DocumentationTest('>>', ['3 + 4'], ['7']).evaluate
 true
 ```
 
-The parsers for `Documenatation Tests` are `asDocumentTest` and `extractDocumentTests`.
+The parsers for `Documenatation Tests` are `asDocumentationTest` and `extractDocumentationTests`.
 
 * * *
 
-See also: asDocumentTest, extractDocumentTests
+See also: asDocumentationTest, extractDocumentationTests
 
 Guides: Documentation Tests
 

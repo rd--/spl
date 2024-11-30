@@ -14,10 +14,12 @@ Harry Partch used the pentatonic form of the enharmonic (16/15 5/4 9/8 16/15 5/4
 in the first of his _Two Studies on Ancient Greek Scales_ (1946) [p.5]:
 
 ```
->>> [1/1 16/15 5/4 9/8 16/15 5/4].scan(*)
+>>> let i = [1/1 16/15 5/4 9/8 16/15 5/4];
+>>> i.scan(*)
 [1/1 16/15 4/3 3/2 8/5 2/1]
 
->>> [1/1 16/15 4/3 3/2 8/5 2/1].ratioToCents.rounded
+>>> let r = [1/1 16/15 4/3 3/2 8/5 2/1];
+>>> r.ratioToCents.rounded
 [0 112 498 702 814 1200]
 ```
 
@@ -37,7 +39,9 @@ The scale derived from the _Timaeus_ is the so-called Pythagorean
 tuning of Western European theory, but it is most likely of Babylonian origin [p.7]:
 
 ```
->>> [1/1 9/8 81/64 4/3 3/2 27/16 243/128 2/1].ratioToCents.rounded
+>>> [
+>>> 	1/1 9/8 81/64 4/3 3/2 27/16 243/128 2/1
+>>> ].ratioToCents.rounded
 [0 204 408 498 702 906 1110 1200]
 ```
 
@@ -332,11 +336,12 @@ Aristoxenos described his genera in units of twelfths of a tone (Macran 1902), b
 The term hyperenharmonic is originally from Wilson ... [p.26]:
 
 ```
->>> [40 36 34 33 32 31 30 28 27 26 25].withIndexCollect { :n :i |
->>> 	let pyknon = Fraction(n, n - 1);
->>> 	let characteristicInterval = 4/3 / pyknon;
->>> 	let cents = characteristicInterval.ratioToCents.rounded;
->>> 	[i, characteristicInterval, pyknon, cents, 498 - cents]
+>>> let n = [40 36 34 33 32 31 30 28 27 26 25];
+>>> n.withIndexCollect { :each :index |
+>>> 	let pyknon = Fraction(each, each - 1);
+>>> 	let interval = 4/3 / pyknon;
+>>> 	let cents = interval.ratioToCents.rounded;
+>>> 	[index, interval, pyknon, cents, 498 - cents]
 >>> }
 [
 	 1  13/10  40/39 454 44;
@@ -363,7 +368,11 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 >>> 		(i - 1 .. q + 1).collect { :j |
 >>> 			[
 >>> 				[p, i, j, q],
->>> 				[Fraction(p, i), Fraction(i, j), Fraction(j, q)].sort
+>>> 				[
+>>> 					Fraction(p, i),
+>>> 					Fraction(i, j),
+>>> 					Fraction(j, q)
+>>> 				].sort
 >>> 			]
 >>> 		}
 >>> 	}.concatenation

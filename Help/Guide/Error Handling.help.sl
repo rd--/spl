@@ -19,7 +19,11 @@ For instance `at` at `Record` signals an error if the key does not exist.
 In this case the exception can be _caught_ using `ifError`:
 
 ```
->>> { (x: 1, y: 2).at('z') }.ifError { 'z is not a valid key' }
+>>> {
+>>> 	(x: 1, y: 2).at('z')
+>>> }.ifError {
+>>> 	'z is not a valid key'
+>>> }
 'z is not a valid key'
 ```
 

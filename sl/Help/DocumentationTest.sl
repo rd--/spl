@@ -1,4 +1,4 @@
-DocumentTest : [Object] { | prefix program expectedAnswer |
+DocumentationTest : [Object] { | prefix program expectedAnswer |
 
 	evaluate { :self |
 		{
@@ -33,7 +33,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 
 +List {
 
-	asDocumentTest { :self |
+	asDocumentationTest { :self |
 		let prefix = RegExp('>+').match(self[1]);
 		let program = self.select { :each |
 			each.beginsWith(prefix)
@@ -43,10 +43,10 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 		let expectedAnswer = self.reject { :each |
 			each.beginsWith(prefix)
 		};
-		DocumentTest(prefix, program, expectedAnswer)
+		DocumentationTest(prefix, program, expectedAnswer)
 	}
 
-	extractDocumentTests { :self |
+	extractDocumentationTests { :self |
 		let answer = [];
 		let inBlock = false;
 		let block = [];
@@ -67,7 +67,7 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 					inBlock
 				}
 			).ifTrue {
-				answer.add(block.asDocumentTest);
+				answer.add(block.asDocumentationTest);
 				block.removeAll;
 				inBlock := false
 			};
@@ -82,8 +82,8 @@ DocumentTest : [Object] { | prefix program expectedAnswer |
 
 +String {
 
-	DocumentTest { :prefix :program :expectedAnswer |
-		newDocumentTest().initializeSlots(prefix, program, expectedAnswer)
+	DocumentationTest { :prefix :program :expectedAnswer |
+		newDocumentationTest().initializeSlots(prefix, program, expectedAnswer)
 	}
 
 }

@@ -882,7 +882,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Complex'
 		'CustomEvent'
 		'Date'
-		'DocumentTest'
+		'DocumentationTest'
 		'DoubleQuotedString'
 		'Duration'
 		'Error'

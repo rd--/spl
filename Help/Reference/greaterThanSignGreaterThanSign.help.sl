@@ -40,7 +40,7 @@ The name of this operator is `greaterThanSignGreaterThanSign`.
 
 * * *
 
-See also: >>>, bitShift, bitShiftLeft, bitShiftRight, DocumentTest
+See also: >>>, bitShift, bitShiftLeft, bitShiftRight, DocumentationTest
 
 Guides: Documentation Tests
 

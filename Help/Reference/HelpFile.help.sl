@@ -14,7 +14,7 @@ Accessors to read the parts of the file are:
 - `synopsis`: one sentence synopsis
 - `description`: one paragraph description
 - `codeBlocks`: list of code blocks
-- `documentTests`: list of `DocumentTest` entries
+- `documentationTests`: list of `DocumentationTest` entries
 - `rationale`: one paragraph rationale
 - `seeAlso`: list of related help topics
 - `references`: one paragraph of references
@@ -31,7 +31,7 @@ url.fetchText.then { :aString |
 		help.synopsis,
 		help.description,
 		help.markdown,
-		help.documentTests,
+		help.documentationTests,
 		help.rationale,
 		help.seeAlso,
 		help.references,

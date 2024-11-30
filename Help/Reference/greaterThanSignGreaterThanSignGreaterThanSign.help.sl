@@ -42,7 +42,7 @@ Where supported `>>>` is displayed as ⋙.
 
 * * *
 
-See also: >>, DocumentTest
+See also: >>, DocumentationTest
 
 Guides: Documentation Tests
 

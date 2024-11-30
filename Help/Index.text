@@ -267,7 +267,7 @@ Reference/asCollection.help.sl
 Reference/asColour.help.sl
 Reference/asComplex.help.sl
 Reference/asDate.help.sl
-Reference/asDocumentTest.help.sl
+Reference/asDocumentationTest.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFloat32Array.help.sl
 Reference/asFloat64Array.help.sl
@@ -687,7 +687,7 @@ Reference/divisorSum.help.sl
 Reference/Diwhite.help.sl
 Reference/Document.help.sl
 Reference/DocumentRange.help.sl
-Reference/DocumentTest.help.sl
+Reference/DocumentationTest.help.sl
 Reference/doesNotInclude.help.sl
 Reference/do.help.sl
 Reference/dollarSign.help.sl
@@ -775,7 +775,7 @@ Reference/ExpRandRange.help.sl
 Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
 Reference/Extensible.help.sl
-Reference/extractDocumentTests.help.sl
+Reference/extractDocumentationTests.help.sl
 Reference/factorial.help.sl
 Reference/factorialPower.help.sl
 Reference/factorInteger.help.sl

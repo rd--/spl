@@ -142,10 +142,10 @@
 	'Categories'
 
 	/* Help */
-	'DocumentTest'
+	'DocumentationTest'
 	'HelpFile' /* Cache */
 	'TerseGuide' /* Url */
-	'TerseReference' /* DocumentTest Url */
+	'TerseReference' /* DocumentationTest Url */
 
 	/* Collection */
 	'SoundFile' /* Url */

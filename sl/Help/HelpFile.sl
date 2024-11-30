@@ -30,14 +30,14 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.paragraphFrom(index)
 	}
 
-	documentTests { :self |
-		self.cached('documentTests') {
-			self.lines.extractDocumentTests
+	documentationTests { :self |
+		self.cached('documentationTests') {
+			self.lines.extractDocumentationTests
 		}
 	}
 
-	extractDocumentTests { :self |
-		self.lines.extractDocumentTests
+	extractDocumentationTests { :self |
+		self.lines.extractDocumentationTests
 	}
 
 	fencedCodeBlockLineRanges { :self |
@@ -53,8 +53,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 		answer
 	}
 
-	hasDocumentTests { :self |
-		self.documentTests.notEmpty
+	hasDocumentationTests { :self |
+		self.documentationTests.notEmpty
 	}
 
 	hasRationale { :self |
@@ -180,7 +180,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 				system.evaluate(each['contents'])
 			}
 		};
-		self.documentTests.do { :each |
+		self.documentationTests.do { :each |
 			testCount := testCount + 1;
 			verbose.ifTrue {
 				('	' ++ each.format).postLine

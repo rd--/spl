@@ -86,7 +86,7 @@
 	'Graphics-LineDrawing'
 	'Graphics-Plot'
 	'Graphics-Svg'
-	'Help-DocumentTest'
+	'Help-DocumentationTest'
 	'Help-HelpFile'
 	'Help-HelpIndex'
 	'Help-TerseGuide'

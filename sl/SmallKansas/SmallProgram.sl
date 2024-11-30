@@ -1,4 +1,4 @@
-/* Requires: DocumentTest SmallKansas Window */
+/* Requires: DocumentationTest SmallKansas Window */
 
 SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
@@ -171,7 +171,7 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 
 }
 
-+DocumentTest {
++DocumentationTest {
 
 	asSmallProgram { :self :smallKansas |
 		SmallProgram(smallKansas, '', self.program.unlines, self.expectedAnswer.unlines)

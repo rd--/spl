@@ -1,4 +1,4 @@
-/* Requires: DocumentTest FileSystem Url */
+/* Requires: DocumentationTest FileSystem Url */
 
 +String {
 
@@ -17,7 +17,7 @@
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.asFileUrl, text);
-			(helpFile.documentTests.size > 0).ifTrue {
+			(helpFile.documentationTests.size > 0).ifTrue {
 				let [testCount, passCount] = helpFile.terseReferenceEntry(options);
 				totalTestCount := totalTestCount + testCount;
 				totalPassCount := totalPassCount + passCount

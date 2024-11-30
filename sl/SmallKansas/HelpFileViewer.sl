@@ -1,4 +1,4 @@
-/* Requires: DocumentTest HelpFile SmallKansas SmallProgram TextEditor */
+/* Requires: DocumentationTest HelpFile SmallKansas SmallProgram TextEditor */
 
 HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement eventListeners |
 
@@ -31,7 +31,7 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 			each.first.isCodeFence.if {
 				each.allButFirstAndLast.splitBy(['']).do { :codeBlock |
 					codeBlock.first.beginsWith('>>> ').if {
-						codeBlock.asDocumentTest.asSmallProgram(self.smallKansas).place
+						codeBlock.asDocumentationTest.asSmallProgram(self.smallKansas).place
 					} {
 						SmallProgram(self.smallKansas, '', codeBlock.unlines, '').place
 					}
