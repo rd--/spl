@@ -25,6 +25,17 @@ allowing terms to be fetched using `List Assignment Syntax`:
 [3 2 1]
 ```
 
+Implements `<`,
+meaning behind, below and to the left of:
+
+```
+>>> CartesianCoordinates(0, 0, 0) < CartesianCoordinates(1, 1, 1)
+true
+
+>>> CartesianCoordinates(1, 1, 1) > CartesianCoordinates(0, 0, 0)
+true
+```
+
 * * *
 
 See also: asPoint, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z

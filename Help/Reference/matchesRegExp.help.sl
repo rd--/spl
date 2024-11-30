@@ -11,6 +11,9 @@ true
 
 >>> 'acggtaagc'.matchesRegExp('[acgt]+')
 true
+
+>>> 'xy.z'.matchesRegExp('x.*')
+true
 ```
 
 * * *

@@ -98,13 +98,13 @@ Block! : [Object] {
 		[vx, vy]
 	}
 
-	ifError { :self :errorHandlerBlock |
+	ifError { :self :errorHandlerBlock:/1 |
 		<primitive:
 		try {
 			return _self();
 		} catch (caughtValue) {
 			if(caughtValue instanceof Error) {
-				return _cull_2(_errorHandlerBlock, caughtValue)
+				return _cull_2(_errorHandlerBlock_1, caughtValue)
 			} {
 				throw caughtValue;
 			}

@@ -309,12 +309,10 @@ function traitExists(traitName: TraitName): boolean {
 }
 
 function getTrait(traitName: TraitName): Trait {
-	if (traitExists(traitName)) {
-		return system.traitDictionary.get(traitName)!;
-	}
-	{
+	if (!traitExists(traitName)) {
 		throw new Error(`getTrait: does not exist: ${traitName}`);
 	}
+	return system.traitDictionary.get(traitName)!;
 }
 
 export function addTrait(traitName: TraitName, packageName: PackageName): void {
@@ -329,12 +327,10 @@ function typeExists(typeName: TypeName): boolean {
 }
 
 function getType(typeName: TypeName): Type {
-	if (typeExists(typeName)) {
-		return system.typeDictionary.get(typeName)!;
-	}
-	{
+	if (!typeExists(typeName)) {
 		throw new Error(`getType: does not exist: ${typeName}`);
 	}
+	return system.typeDictionary.get(typeName)!;
 }
 
 function methodExists(methodName: MethodName): boolean {
@@ -430,47 +426,59 @@ export function extendTraitWithMethod(
 	return method;
 }
 
+// Only for Ugen>>adaptToNumberAndApply.
 export function lookupGeneric(
 	methodName: MethodName,
 	methodArity: Arity,
 	receiverType: TypeName,
 ): Method {
-	return system.methodDictionary.get(methodName)!.get(methodArity)!.get(
-		receiverType,
-	)!;
+	const byArity = system.methodDictionary.get(methodName)!;
+	const byType = byArity.get(methodArity)!;
+	return byType.get(receiverType)!;
 }
 
+// Only for Ugen>>adaptToNumberAndApply.
 export function nameWithoutArity(methodName: MethodName) {
 	return methodName.split(':')[0];
 }
 
+// Only for Ugen>>adaptToNumberAndApply.
 export function applyGenericAt(
 	methodName: MethodName,
 	parameterArray: unknown[],
 	receiverType: TypeName,
 ) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
-	const method = lookupGeneric(methodName, parameterArray.length, receiverType);
-	return method.block.apply(null, parameterArray);
+	const genericMethod = lookupGeneric(methodName, parameterArray.length, receiverType);
+	if (!genericMethod) {
+		throw new Error(`applyGenericAt: ${methodName}: lookup failed`);
+	}
+	if (!isFunction(genericMethod.block)) {
+		throw new Error(`applyGenericAt: ${methodName}: method.block not function`);
+	}
+	return genericMethod.block.apply(null, parameterArray);
 }
 
 // The typeTable for zero arity methods always has exactly one entry, for Void.
-// name is for error reporting only.
+// methodName is for error reporting only.
 export function dispatchVoid(
-	name: string,
+	methodName: string,
 	typeTable: ByTypeMethodDictionary,
 ) {
-	// console.debug(`dispatchVoid: ${name}, ${typeTable.size}`);
+	// console.debug(`dispatchVoid: ${methodName}, ${typeTable.size}`);
 	const voidMethod = typeTable.get('Void');
 	if (!voidMethod) {
-		throw new Error(`No Void method ${name}`);
+		throw new Error(`dispatchVoid: ${methodName}: method lookup failed`);
 	}
-	return voidMethod.block.call(null);
+	if (!isFunction(voidMethod.block)) {
+		throw new Error(`dispatchVoid: ${methodName}: block not function`);
+	}
+	return voidMethod.block.apply(null, []);
 }
 
-// name is for error reporting only.
+// methodName is for error reporting only.
 export function dispatchByType(
-	name: string,
+	methodName: string,
 	typeTable: ByTypeMethodDictionary,
 	parameterArray: unknown[],
 ) {
@@ -479,12 +487,14 @@ export function dispatchByType(
 	const typeMethod = typeTable.get(receiverType);
 	if (!typeMethod) {
 		const arity = parameterArray.length;
-		const qualifiedName = `${name}:/${arity}`;
+		const qualifiedName = `${methodName}:/${arity}`;
 		throw new Error(
 			`dispatchByType: no method ${qualifiedName} for ${receiverType}`,
 		);
 	}
-	// console.debug(`dispatchByType: ${name}, ${parameterArray.length}, ${receiverType}`);
+	if (!isFunction(typeMethod.block)) {
+		throw new Error(`dispatchByType: ${methodName}: block is not function`);
+	}
 	return typeMethod.block.apply(null, parameterArray);
 }
 

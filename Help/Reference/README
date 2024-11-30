@@ -1,3 +1,3 @@
-'/home/rohan/sw/spl/Help/Reference'.terseReferenceSummary(verbose: false)
+'/home/rohan/sw/spl/Help/Reference'.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 6637
+Total => 6650

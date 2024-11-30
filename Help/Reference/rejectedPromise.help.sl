@@ -5,7 +5,11 @@
 Answers a new `Promise` rejected with _anError_.
 
 ```
->>> Error('The reason').rejectedPromise.isPromise
+>>> Error('X').rejectedPromise.thenElse { :unusedAnswer |
+>>> 	'Y'.error
+>>> } { :err |
+>>> 	{ err.messageText = 'X' } .assert
+>>> }.isPromise
 true
 ```
 

@@ -18,7 +18,7 @@ If there is no extension answers the empty string:
 
 * * *
 
-See also: pathDirectory, pathIsAbsolute, pathJoin, pathNormalize
+See also: pathBasename, pathDirectory, pathIsAbsolute, pathJoin, pathNormalize
 
 Guides: File Functions
 

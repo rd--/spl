@@ -3,7 +3,8 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 	evaluate { :self |
 		{
 			system.evaluate(self.format)
-		}.ifError {
+		}.ifError { :err |
+			['DocumentationTest>>evaluate', err].postLine;
 			false
 		}
 	}

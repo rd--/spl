@@ -11,7 +11,7 @@ Answer the normalized form of the `String` _aPath_.
 
 * * *
 
-See also: pathDirectory, pathExtension, pathIsAbsolute, pathJoin
+See also: pathBasename, pathDirectory, pathExtension, pathIsAbsolute, pathJoin
 
 Guides: File Functions
 

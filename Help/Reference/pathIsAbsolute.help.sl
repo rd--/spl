@@ -14,7 +14,7 @@ false
 
 * * *
 
-See also: pathDirectory, pathExtension, pathJoin, pathNormalize
+See also: pathBasename, pathDirectory, pathExtension, pathJoin, pathNormalize
 
 Guides: File Functions
 

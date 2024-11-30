@@ -4,6 +4,10 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
+	< { :self :anObject |
+		self.compareBy(anObject, <)
+	}
+
 	asCartesianCoordinates { :self |
 		self
 	}

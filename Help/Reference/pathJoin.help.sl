@@ -18,7 +18,7 @@ The empty path:
 
 * * *
 
-See also: pathDirectory, pathExtension, pathIsAbsolute, pathNormalize
+See also: pathBasename, pathDirectory, pathExtension, pathIsAbsolute, pathNormalize
 
 Guides: File Functions
 

@@ -19,11 +19,9 @@ export function interact<T>(
 				// console.debug('repl: end of input');
 				return;
 			}
-			{
-				// console.debug('repl: next line', value);
-				processLine(value);
-				return interact(processLine);
-			}
+			// console.debug('repl: next line', value);
+			processLine(value);
+			return interact(processLine);
 		},
 	);
 }

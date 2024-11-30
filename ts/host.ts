@@ -82,22 +82,18 @@ export function removeDirectorySync(
 	recursive: boolean,
 ): void {
 	const info = Deno.statSync(path);
-	if (info.isDirectory) {
-		return Deno.removeSync(path, { recursive: recursive });
-	}
-	{
+	if (!info.isDirectory) {
 		throw new Error(`removeDirectory: not a directory: ${path}`);
 	}
+	return Deno.removeSync(path, { recursive: recursive });
 }
 
 export function removeFileSync(path: string | URL): void {
 	const info = Deno.statSync(path);
-	if (info.isFile) {
-		return Deno.removeSync(path);
-	}
-	{
+	if (!info.isFile) {
 		throw new Error(`removeFile: not a file: ${path}`);
 	}
+	return Deno.removeSync(path);
 }
 
 export function systemCommand(
@@ -105,16 +101,22 @@ export function systemCommand(
 	argumentArray: string[],
 ) {
 	// console.debug('systemCommand', commandName, argumentArray);
-	const command = new Deno.Command(commandName, { args: argumentArray });
-	return command.output().then(
-		function (result) {
-			return {
-				exitCode: result.code,
-				outputText: new TextDecoder().decode(result.stdout),
-				errorText: new TextDecoder().decode(result.stderr),
-			};
-		},
-	);
+	try {
+		const command = new Deno.Command(commandName, { args: argumentArray });
+		return command.output().then(
+			function (result) {
+				return {
+					exitCode: result.code,
+					outputText: new TextDecoder().decode(result.stdout),
+					errorText: new TextDecoder().decode(result.stderr),
+				};
+			},
+		)
+	} catch (err) {
+		return Promise.reject(
+			new Error(`systemCommand: ${err}`)
+		);
+	}
 }
 
 export function writeBinaryFileAsync(

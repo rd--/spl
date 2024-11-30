@@ -1,9 +1,9 @@
 Ugen! : [Object, Number] {
 
-	adaptToNumberAndApply { :self :aNumber :aBlock |
+	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		<primitive:
 		return sl.applyGenericAt(
-			sl.nameWithoutArity(_aBlock.name),
+			sl.nameWithoutArity(_aBlock_2.name),
 			[_aNumber, _self],
 			'Ugen'
 		);

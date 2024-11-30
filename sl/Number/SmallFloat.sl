@@ -343,7 +343,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isCloseToBy { :self :aNumber :epsilon |
 		aNumber.isNumber.not.if {
-			{ self = aNumber }.ifError { false }
+			false
 		} {
 			(self = 0).if {
 				aNumber.abs < epsilon

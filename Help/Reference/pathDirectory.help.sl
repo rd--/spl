@@ -18,7 +18,7 @@ If there is no directory:
 
 * * *
 
-See also: pathExtension, pathIsAbsolute, pathJoin, pathNormalize
+See also: pathBasename, pathExtension, pathIsAbsolute, pathJoin, pathNormalize
 
 Guides: File Functions
 

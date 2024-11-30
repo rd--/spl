@@ -1,5 +1,9 @@
 +String {
 
+	pathBasename { :self |
+		<primitive: return sc.pathBasename(_self);>
+	}
+
 	pathDirectory { :self |
 		<primitive: return sc.pathDirectory(_self);>
 	}
