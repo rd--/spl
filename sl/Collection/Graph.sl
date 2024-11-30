@@ -691,10 +691,15 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		return import(
 			'../lib/scsynth-wasm-builds/lib/ext/graphviz.js'
 		).then(
-			function({ Graphviz }) {
+			function ({ Graphviz }) {
 				return Graphviz.load().then(
-					function(graphviz) {
-						return graphviz.layout(_dotSource, _outputFormat, _layoutEngine, {});
+					function (graphviz) {
+						return graphviz.layout(
+							_dotSource,
+							_outputFormat,
+							_layoutEngine,
+							{}
+						);
 					}
 				)
 			}

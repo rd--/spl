@@ -2,6 +2,7 @@ import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.
 export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
 import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
+export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
@@ -762,13 +763,6 @@ declare global {
 export function assignGlobals() {
 	globalThis._system = system;
 	globalThis._workspace = new Map();
-}
-
-export function mersenneTwister53Generator(seed: number) {
-	const mt = new MersenneTwister(seed);
-	return function () {
-		return mt.genrand_res53();
-	};
 }
 
 /* https://regex101.com/r/Awcj1k/1 */

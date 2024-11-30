@@ -9,7 +9,11 @@ Implements the _Mt19937_ algorithm, part of the _PractRand_ test suite.
 
 ```
 >>> let rng = MersenneTwister(12345);
->>> (rng.isMersenneTwister, rng.isRandomNumberGenerator, rng.isStream)
+>>> (
+>>> 	rng.isMersenneTwister,
+>>> 	rng.isRandomNumberGenerator,
+>>> 	rng.isStream
+>>> )
 (true, true, true)
 ```
 

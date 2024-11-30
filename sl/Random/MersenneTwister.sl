@@ -21,7 +21,12 @@ MersenneTwister : [Object, Iterator, RandomNumberGenerator, Stream] { | seed blo
 +@Integer {
 
 	mt53RandomNumberGenerator { :self |
-		<primitive: return sl.mersenneTwister53Generator(_self);>
+		<primitive:
+		const mt = new sl.MersenneTwister(_self);
+		return function () {
+			return mt.genrand_res53();
+		};
+		>
 	}
 
 	MersenneTwister { :self |
