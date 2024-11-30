@@ -84,7 +84,7 @@
 		let index = self.indexOf(target);
 		(
 			index = 0 | {
-				index = self.lastIndex
+				index = self.size
 			}
 		).if {
 			exceptionBlock()
@@ -98,7 +98,7 @@
 	}
 
 	allButFirst { :self :n |
-		self.copyFromTo(self.firstIndex + n, self.lastIndex)
+		self.copyFromTo(1 + n, self.size)
 	}
 
 	allButFirstAndLast { :self |
@@ -106,11 +106,11 @@
 	}
 
 	allButFirstAndLast { :self :n |
-		self.copyFromTo(self.firstIndex + n, self.lastIndex - n)
+		self.copyFromTo(1 + n, self.size - n)
 	}
 
 	allButFirstDo { :self :aBlock:/1 |
-		(self.firstIndex + 1).toDo(self.lastIndex) { :index |
+		(1 + 1).toDo(self.size) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -120,11 +120,11 @@
 	}
 
 	allButLast { :self :n |
-		self.copyFromTo(self.firstIndex, self.lastIndex - n)
+		self.copyFromTo(1, self.size - n)
 	}
 
 	allButLastDo { :self :aBlock:/1 |
-		self.firstIndex.toDo(self.lastIndex - 1) { :index |
+		1.toDo(self.size - 1) { :index |
 			aBlock(self[index])
 		}
 	}
@@ -171,11 +171,11 @@
 				let answer = [];
 				let start = self.first;
 				let step = self.second - self.first;
-				(self.firstIndex + 1).toDo(self.lastIndex) { :i |
+				(1 + 1).toDo(self.size) { :i |
 					(self[i] - self[i - 1] = step).ifFalse {
 						answer.add(Range(start, self[i - 1], step));
 						start := self[i];
-						(i = self.lastIndex).if {
+						(i = self.size).if {
 							answer.add(Range(self.last, self.last, 1));
 							start := nil
 						} {
@@ -212,7 +212,7 @@
 	atAllPut { :self :anObject |
 		let size = self.size;
 		(size > 50).if {
-			self.fromToPut(self.firstIndex, self.lastIndex, anObject)
+			self.fromToPut(1, self.size, anObject)
 		} {
 			self.indicesDo { :index |
 				self[index] := anObject
@@ -230,7 +230,7 @@
 	}
 
 	atLastPut { :self :indexFromEnd :anObject |
-		self[self.lastIndex + 1 - indexFromEnd] := anObject
+		self[self.size + 1 - indexFromEnd] := anObject
 	}
 
 	atPin { :self :index |
@@ -246,7 +246,7 @@
 	}
 
 	atWrap { :self :index |
-		let k = index.wrapBetweenAnd(self.firstIndex, self.lastIndex + 1);
+		let k = index.wrapBetweenAnd(1, self.size + 1);
 		self[k]
 	}
 
@@ -255,15 +255,15 @@
 	}
 
 	atWrapPut { :self :index :anObject |
-		let k = index.wrapBetweenAnd(self.firstIndex, self.lastIndex + 1);
+		let k = index.wrapBetweenAnd(1, self.size + 1);
 		self[k] := anObject
 	}
 
 	atRandom { :self :shape :rng |
 		{
 			let index = rng.nextRandomInteger(
-				self.firstIndex,
-				self.lastIndex
+				1,
+				self.size
 			);
 			self[index]
 		} ! shape
@@ -438,26 +438,6 @@
 
 	convergents { :self |
 		self.prefixes.collect(fromContinuedFraction:/1)
-	}
-
-	coordinateBoundingBox { :self |
-		let minimum = self.anyOne.copy;
-		let maximum = minimum.copy;
-		self.do { :each |
-			each.withIndexDo { :n :i |
-				(n < minimum[i]).ifTrue {
-					minimum[i] := n
-				};
-				(n > maximum[i]).ifTrue {
-					maximum[i] := n
-				}
-			}
-		};
-		[minimum, maximum]
-	}
-
-	coordinateBounds { :self |
-		self.coordinateBoundingBox.transposed
 	}
 
 	copyFromTo { :self :start :stop |
@@ -689,19 +669,6 @@
 		basicTimes:/2.inner(self, aSequence, basicPlus:/2)
 	}
 
-	doWhile { :self :activity:/1 :conditionBlock:/1 |
-		let nextIndex = self.firstIndex;
-		let endIndex = self.lastIndex;
-		{
-			nextIndex <= endIndex & {
-				conditionBlock(self[nextIndex])
-			}
-		}.whileTrue {
-			activity(self[nextIndex]);
-			nextIndex := nextIndex + 1
-		}
-	}
-
 	doWithout { :self :aBlock:/1 :anItem |
 		self.indicesDo { :index |
 			(anItem = self[index]).ifFalse {
@@ -924,16 +891,12 @@
 	}
 
 	first { :self |
-		self[self.firstIndex]
+		self[1]
 	}
 
 	first { :self :n |
-		let i = self.firstIndex;
+		let i = 1;
 		self.copyFromTo(i, i + n - 1)
-	}
-
-	firstIndex { :self |
-		1
 	}
 
 	fisherYatesShuffle { :self :rng |
@@ -971,7 +934,7 @@
 	}
 
 	foldedIndex { :self :index |
-		index.foldBetweenAnd(self.firstIndex, self.lastIndex)
+		index.foldBetweenAnd(1, self.size)
 	}
 
 	foldLeftPrefix { :self :count :aBlock:/2 |
@@ -1024,7 +987,7 @@
 	}
 
 	fourth { :self |
-		self[self.firstIndex + 3]
+		self[1 + 3]
 	}
 
 	fourth { :self :n |
@@ -1301,7 +1264,7 @@
 	}
 
 	indices { :self |
-		(self.firstIndex .. self.lastIndex)
+		(1 .. self.size)
 	}
 
 	indicesSorted { :self |
@@ -1309,7 +1272,7 @@
 	}
 
 	indicesDo { :self :aBlock:/1 |
-		self.firstIndex.toDo(self.lastIndex, aBlock:/1)
+		1.toDo(self.size, aBlock:/1)
 	}
 
 	indicesOfSubsequence { :self :aSequence |
@@ -1323,7 +1286,7 @@
 	}
 
 	indicesOfSubstring { :self :aSequence |
-		self.indicesOfSubstringStartingAt(aSequence, self.firstIndex)
+		self.indicesOfSubstringStartingAt(aSequence, 1)
 	}
 
 	indicesOfSubstringStartingAt { :self :aSequence :initialIndex |
@@ -1496,24 +1459,20 @@
 	}
 
 	last { :self |
-		self[self.lastIndex]
+		self[self.size]
 	}
 
 	last { :self :n |
-		let i = self.lastIndex;
+		let i = self.size;
 		self.copyFromTo(i - n + 1, i)
 	}
 
-	lastIndex { :self |
-		self.size
-	}
-
 	lastIndexOf { :self :anElement |
-		self.lastIndexOfStartingAt(anElement, self.lastIndex)
+		self.lastIndexOfStartingAt(anElement, self.size)
 	}
 
 	lastIndexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
-		let index = self.lastIndexOfStartingAt(anElement, self.lastIndex);
+		let index = self.lastIndexOfStartingAt(anElement, self.size);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -1523,7 +1482,7 @@
 
 	lastIndexOfStartingAt { :self :anElement :lastIndex |
 		valueWithReturn { :return:/1 |
-			lastIndex.toByDo(self.firstIndex, -1) { :index |
+			lastIndex.toByDo(1, -1) { :index |
 				(self[index] = anElement).ifTrue {
 					index.return
 				}
@@ -2060,11 +2019,11 @@
 	}
 
 	pinnedIndex { :self :index |
-		(index < self.firstIndex).if {
-			self.firstIndex
+		(index < 1).if {
+			1
 		} {
-			(index > self.lastIndex).if {
-				self.lastIndex
+			(index > self.size).if {
+				self.size
 			} {
 				index
 			}
@@ -2574,7 +2533,7 @@
 	}
 
 	second { :self |
-		self[self.firstIndex + 1]
+		self[1 + 1]
 	}
 
 	second { :self :n |
@@ -2582,7 +2541,7 @@
 	}
 
 	secondLast { :self |
-		self[self.lastIndex - 1]
+		self[self.size - 1]
 	}
 
 	select { :self :aBlock:/1 |
@@ -2793,7 +2752,7 @@
 	}
 
 	third { :self |
-		self[self.firstIndex + 2]
+		self[3]
 	}
 
 	third { :self :n |
@@ -2801,7 +2760,7 @@
 	}
 
 	thirdLast { :self |
-		self[self.lastIndex - 2]
+		self[self.size - 2]
 	}
 
 	transposed { :self :permutation |

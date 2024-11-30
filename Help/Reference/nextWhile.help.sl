@@ -5,7 +5,8 @@
 Answer a `List` of the next items in _aStream_ for as long as _aBlock_, applied to each item, answers `true`.
 
 ```
->>> 1:inf.asStream.reject(isEven:/1).nextWhile { :x | x < 11 }
+>>> let s = 1:inf.asStream.reject(isEven:/1);
+>>> s.nextWhile { :x | x < 11 }
 [1 3 5 7 9 11]
 ```
 
@@ -13,4 +14,4 @@ Answer a `List` of the next items in _aStream_ for as long as _aBlock_, applied 
 
 See also: next, nextUntil, takeWhile, Stream
 
-Categories: Accessing
+Categories: Accessing, Stream

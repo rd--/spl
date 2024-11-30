@@ -45,12 +45,12 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 2.586232415111682e59
 ```
 
-Notable limits:
+Notable limits, the largest factorials that can fit into a specified type
 
-- 12! is the largest factorial that can fit into 32-bit integer.
-- 18! is the largest factorial that can fit into 53-bit integer.
-- 20! is the largest factorial that can fit into 64-bit integer.
-- 170! is the largest factorial that can fit into a 64-bit double.
+- 12!: 32-bit integer
+- 18!: 53-bit integer
+- 20!: 64-bit integer.
+- 170!: 64-bit double.
 
 ```
 >>> 12.factorial.log2.floor
@@ -98,7 +98,10 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 >>> 		n ^ k / k.factorial
 >>> 	}.sum
 >>> }
-[8 78 944 13800 237432 4708144 105822432 2660215680 73983185000 2255828154624]
+[
+	8 78 944 13800 237432 4708144 105822432
+	2660215680 73983185000 2255828154624
+]
 ```
 
 * * *

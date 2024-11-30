@@ -1,7 +1,7 @@
 # deleteAdjacentDuplicates
 
 - _deleteAdjacentDuplicates(aSequence, aBlock:/2)_
-- _deleteAdjacentDuplicates(alpha)_ ⟹ _deleteAdjacentDuplicates(alpha, =)_
+- _deleteAdjacentDuplicates(α)_ ⟹ _deleteAdjacentDuplicates(α, =)_
 
 Answer a sequence that deletes all duplicates in runs of identical elements in _aSequence_.
 
@@ -27,14 +27,22 @@ At sequence with integers, reals and fractions:
 Delete elements unless they are larger than the preceding ones:
 
 ```
->>> [1 3 5 4 3 4 1 9 9 7 8].deleteAdjacentDuplicates(>)
+>>> [
+>>> 	1 3 5 4 3 4 1 9 9 7 8
+>>> ].deleteAdjacentDuplicates(>)
 [1 3 5 4 9 9 8]
 ```
 
 Delete sublists that have the same total:
 
 ```
->>> [1 2; 0 3; 1 1; 2 0; 2 1].deleteAdjacentDuplicates { :i :j |
+>>> [
+>>> 	1 2;
+>>> 	0 3;
+>>> 	1 1;
+>>> 	2 0;
+>>> 	2 1
+>>> ].deleteAdjacentDuplicates { :i :j |
 >>> 	i.sum = j.sum
 >>> }
 [1 2; 1 1 ; 2 1]

@@ -2,11 +2,20 @@
 
 - _boundingBox(anObject)_
 
+Answer a `List` of the lower left and upper right coordinates of the bounding box of _anObject_.
+
 At `Point`:
 
 ```
 >>> Point([0, 0]).boundingBox
 [0 0; 0 0]
+```
+
+At `PointCloud`:
+
+```
+>>> [1 6; 3 1; 7 2; 4 4; 8 5].PointCloud.boundingBox
+[1 1; 8 6]
 ```
 
 At `Circle`:

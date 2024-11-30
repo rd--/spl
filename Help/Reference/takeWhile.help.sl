@@ -24,13 +24,15 @@ Answer the prefix of _aSequence_ or _aStream_ for which a _aBlock_ answers `true
 At `Stream`:
 
 ```
->>> Sfc32(12345).takeWhile { :each | each > 0.35 }.upToEnd
+>>> Sfc32(12345).takeWhile { :each |
+>>> 	each > 0.35
+>>> }.upToEnd
 [0.80111 0.47353 0.98349 0.92329]
 ```
 
 * * *
 
-See also: doWhile, dropWhile, take
+See also: doWhileTrue, dropWhile, take
 
 References:
 _Haskell_

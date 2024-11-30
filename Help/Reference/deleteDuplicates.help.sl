@@ -1,7 +1,7 @@
 # deleteDuplicates
 
-- _deleteDuplicates(alpha, beta)_ ⟹ _nubBy(alpha, beta)_
-- _deleteDuplicates(alpha)_ ⟹ _nub(alpha, beta)_
+- _deleteDuplicates(α, β)_ ⟹ _nubBy(α, β)_
+- _deleteDuplicates(α)_ ⟹ _nub(α, β)_
 
 An alias for `nub` and `nubBy`.
 
@@ -72,7 +72,7 @@ it answers a copy of the collection without the duplicate elements.
 
 * * *
 
-See also: counts, nub, nubBy
+See also: counts, deleteAdjacentDuplicates, nub, nubBy
 
 References:
 _Apl_

@@ -62,11 +62,17 @@ Ratios between neighboring pitches are superparticular:
 
 ```
 >>> { :i |
->>> 	i.tonalityDiamond.concatenation.nub.sort.ratios
+>>> 	let d = i.tonalityDiamond;
+>>> 	d.concatenation.nub.sort.ratios
 >>> }.map([5 7])
 [
-	6/5 25/24 16/15 9/8 16/15 25/24;
-	8/7 49/48 36/35 25/24 16/15 21/20 50/49 21/20 16/15 25/24 36/35 49/48
+	[
+		6/5 25/24 16/15 9/8 16/15 25/24
+	],
+	[
+		8/7 49/48 36/35 25/24 16/15 21/20
+		50/49 21/20 16/15 25/24 36/35 49/48
+	]
 ]
 ```
 
@@ -74,7 +80,8 @@ The scale is symmetrical within the octave:
 
 ```
 >>> { :i |
->>> 	let r = i.tonalityDiamond.concatenation.nub.sort ++ [2];
+>>> 	let d = i.tonalityDiamond;
+>>> 	let r = d.concatenation.nub.sort ++ [2];
 >>> 	r.collect(ratioToCents:/1).differences.rounded
 >>> }.map([5 7])
 [

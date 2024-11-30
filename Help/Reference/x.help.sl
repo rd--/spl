@@ -7,21 +7,21 @@ Answer the _x_-coordinate of a two or three dimensional Cartesian coordinate.
 At `List`:
 
 ```
->>> ([1 2].x, [3 4 5].x)
+>>> ([1 2].asPoint.x, [3 4 5].asPoint.x)
 (1, 3)
 ```
 
 At `Tuple`:
 
 ```
->>> [(1, 2).x, (3, 4, 5).x]
+>>> [(1, 2).asPoint.x, (3, 4, 5).asPoint.x]
 [1 3]
 ```
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).x
+>>> (x: 1, y: 2, z: 3).asPoint.x
 1
 ```
 

@@ -53,22 +53,42 @@ Compute the Fibonacci numbers:
 >>> 1:20.collect { :n |
 >>> 	(1.goldenRatio ^ n / 5.sqrt).rounded
 >>> }
-[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765]
+[
+	1 1 2 3 5 8 13 21 34 55
+	89 144 233 377 610 987 1597 2584 4181 6765
+]
 
 >>> 20.fibonacciSequence
-[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765]
+[
+	1 1 2 3 5 8 13 21 34 55
+	89 144 233 377 610 987 1597 2584 4181 6765
+]
 ```
 
 Position of 1s in a Fibonacci substitution system:
 
 ```
 >>> 1:30.collect { :n |
->>> 	2 - ((n + 1).goldenRatio.floor - n.goldenRatio.floor)
+>>> 	let p = (n + 1).goldenRatio.floor;
+>>> 	let q = n.goldenRatio.floor;
+>>> 	2 - (p - q)
 >>> }
-[0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0]
+[
+	0 1 0 0 1 0 1 0 0 1
+	0 0 1 0 1 0 0 1 0 1
+	0 0 1 0 0 1 0 1 0 0
+]
 
->>> [0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0 1 0 1 0 0 1 0 0 1 0 1 0 0].scan(+)
-[0 1 1 1 2 2 3 3 3 4 4 4 5 5 6 6 6 7 7 8 8 8 9 9 9 10 10 11 11 11]
+>>> [
+>>> 	0 1 0 0 1 0 1 0 0 1
+>>> 	0 0 1 0 1 0 0 1 0 1
+>>> 	0 0 1 0 0 1 0 1 0 0
+>>> ].scan(+)
+[
+	0  1  1  1  2  2  3  3  3  4
+	4  4  5  5  6  6  6  7  7  8
+	8  8  9  9  9 10 10 11 11 11
+]
 ```
 
 Compute the effective "inverse" of the Fibonacci numbers:

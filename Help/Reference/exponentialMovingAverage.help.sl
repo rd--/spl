@@ -9,7 +9,10 @@ Lists of integers yield rational numbers:
 
 ```
 >>> 1:9.exponentialMovingAverage(1/3)
-[1 4/3 17/9 70/27 275/81 1036/243 3773/729 13378/2187 46439/6561]
+[
+	1 4/3 17/9 70/27 275/81 1036/243
+	3773/729 13378/2187 46439/6561
+]
 ```
 
 Lists of approximate numbers yield approximate numbers:
@@ -22,8 +25,22 @@ Lists of approximate numbers yield approximate numbers:
 Exponential moving averages of matrices are matrices:
 
 ```
->>> [1 2; 2 3; 3 4; 4 5; 5 6; 6 7].exponentialMovingAverage(0.5)
-[1 2; 1.5 2.5; 2.25 3.25; 3.125 4.125; 4.0625 5.0625; 5.03125 6.03125]
+>>> [
+>>> 	1 2;
+>>> 	2 3;
+>>> 	3 4;
+>>> 	4 5;
+>>> 	5 6;
+>>> 	6 7
+>>> ].exponentialMovingAverage(0.5)
+[
+	1 2;
+	1.5 2.5;
+	2.25 3.25;
+	3.125 4.125;
+	4.0625 5.0625;
+	5.03125 6.03125
+]
 ```
 
 Exponential moving average with a smoothing coefficient of 0 is a constant:

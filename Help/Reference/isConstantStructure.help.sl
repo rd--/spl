@@ -46,7 +46,10 @@ A twelve note constant structure scale,
 16 harmonics on _1/1_ and 16 subharmonics on _15/8_:
 
 ```
->>> let t = [1/1 15/14 9/8 15/13 5/4 15/11 11/8 3/2 13/8 5/3 7/4 15/8].asJiTuning;
+>>> let t = [
+>>> 	1/1 15/14 9/8 15/13 5/4 15/11
+>>> 	11/8 3/2 13/8 5/3 7/4 15/8
+>>> ].asJiTuning;
 >>> t.isConstantStructure
 true
 ```

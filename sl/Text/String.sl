@@ -840,6 +840,10 @@ String! : [Object, Json, Iterable, Character] {
 		>
 	}
 
+	utf8List { :self |
+		self.utf8ByteArray.asList
+	}
+
 	utf16List { :self |
 		let answer = [];
 		1.toDo(self.countUtf16CodeUnits) { :index |

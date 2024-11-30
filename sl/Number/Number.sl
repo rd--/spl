@@ -479,6 +479,7 @@
 		-1 * self
 	}
 
+	/*
 	niceNumberAbove { :self |
 		let exponent = self.log10.floor;
 		let fraction = self / (10 ^ exponent);
@@ -497,9 +498,12 @@
 		};
 		niceFraction * (10 ^ exponent)
 	}
+	*/
 
 	niceNumberAbove { :self |
-		self.niceNumberBy { :l :n | l[l.bisect(n, <=)] }
+		self.niceNumberBy { :l :n |
+			l[l.bisect(n, <=)]
+		}
 	}
 
 	niceNumberBy { :self :aBlock:/2 |
@@ -511,7 +515,9 @@
 	}
 
 	niceNumberNear { :self |
-		self.niceNumberBy { :l :n | l.nearest(n, -).first }
+		self.niceNumberBy { :l :n |
+			l.nearest(n, -).first
+		}
 	}
 
 	numberDecompose { :self :u |

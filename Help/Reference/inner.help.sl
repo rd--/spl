@@ -33,18 +33,35 @@ Generalized inner product of:
 - two matrices
 
 ```
->>> let f = { :l | { :x :y | l ++ '(' ++ (x ++ y) ++ ')'} };
->>> let h = { :p :q | inner(f('f'), p, q, f('g')) };
->>> let a = h(['a' 'b'], ['x' 'y']);
->>> let w = 'g(f(ax)f(by))';
->>> let b = h(['a' 'b'; 'c' 'd'], ['s' 't']);
->>> let x = ['g(f(as)f(bt))' 'g(f(cs)f(dt))'];
->>> let c = h(['x' 'y'], ['a' 'b'; 'c' 'd']);
->>> let y = ['g(f(xa)f(yc))' 'g(f(xb)f(yd))'];
->>> let d = h(['a' 'b'; 'c' 'd'], ['u' 'v'; 'w' 'x']);
->>> let z = ['g(f(au)f(bw))' 'g(f(av)f(bx))'; 'g(f(cu)f(dw))' 'g(f(cv)f(dx))'];
->>> [a = w, b = x, c = y, d = z]
-[true true true true]
+>>> let f = { :l |
+>>> 	{ :x :y |
+>>> 		l ++ '(' ++ (x ++ y) ++ ')'
+>>> 	}
+>>> };
+>>> let h = { :p :q |
+>>> 	inner(f('f'), p, q, f('g'))
+>>> };
+>>> (
+>>> 	h(['a' 'b'], ['x' 'y']),
+>>> 	h(['a' 'b'; 'c' 'd'], ['s' 't']),
+>>> 	h(['x' 'y'], ['a' 'b'; 'c' 'd']),
+>>> 	h(['a' 'b'; 'c' 'd'], ['u' 'v'; 'w' 'x'])
+>>> )
+(
+	'g(f(ax)f(by))',
+	[
+		'g(f(as)f(bt))'
+		'g(f(cs)f(dt))'
+	],
+	[
+		'g(f(xa)f(yc))'
+		'g(f(xb)f(yd))'
+	],
+	[
+		'g(f(au)f(bw))' 'g(f(av)f(bx))';
+		'g(f(cu)f(dw))' 'g(f(cv)f(dx))'
+	]
+)
 ```
 
 The binary form is _adverbial_, it answers a `Block` that will perform _inner(f, α, β, g)_.

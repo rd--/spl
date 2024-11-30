@@ -6,6 +6,6 @@ Answer a copy of _aCollection_ with _newElement_ added (as last	element if seque
 
 * * *
 
-See also: copyWithout
+See also: copy, copyFromTo, copyWithout
 
 Categories: Copying

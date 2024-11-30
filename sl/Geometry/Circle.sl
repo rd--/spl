@@ -10,8 +10,8 @@ Circle : [Object] { | center radius |
 
 	asSvg { :self |
 		'<circle cx="%" cy="%" r="%" />'.format([
-			self.center.x,
-			self.center.y,
+			self.center[1],
+			self.center[2],
 			self.radius
 		])
 	}

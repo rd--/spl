@@ -20,8 +20,18 @@ At `cycleGraph`:
 At directed cycle graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 4, 4 -> 1].asGraph.complementGraph.edgeList
-[1 -> 3, 1 -> 4, 2 -> 1, 2 -> 4, 3 -> 1, 3 -> 2, 4 -> 2, 4 -> 3]
+>>> [
+>>> 	1 -> 2,
+>>> 	2 -> 3,
+>>> 	3 -> 4,
+>>> 	4 -> 1
+>>> ].asGraph.complementGraph.edgeList
+[
+	1 -> 3, 1 -> 4,
+	2 -> 1, 2 -> 4,
+	3 -> 1, 3 -> 2,
+	4 -> 2, 4 -> 3
+]
 ```
 
 The complementGraph of a `completeGraph` is an edgeless graph:
@@ -43,7 +53,8 @@ For simple graphs, the complementGraph of the complementGraph is the original gr
 The complementGraph of the line graph of _K(5)_ is a Petersen graph:
 
 ```
->>> 5.completeGraph.lineGraph.complementGraph.adjacencyMatrix
+>>> let g = 5.completeGraph.lineGraph;
+>>> g.complementGraph.adjacencyMatrix
 [
 	0 0 0 0 0 0 0 1 1 1;
 	0 0 0 0 0 1 1 0 0 1;

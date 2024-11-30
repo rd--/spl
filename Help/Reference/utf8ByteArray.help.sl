@@ -9,7 +9,12 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 [226 130 172].asByteArray
 
 >>> 'abcABCΑΒΓαβγ'.utf8ByteArray
-[97 98 99 65 66 67 206 145 206 146 206 147 206 177 206 178 206 179].asByteArray
+[
+	97 98 99
+	65 66 67
+	206 145 206 146 206 147
+	206 177 206 178 206 179
+].asByteArray
 ```
 
 `utf8String` is the inverse of `utf8ByteArray`:

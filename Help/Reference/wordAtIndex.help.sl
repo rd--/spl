@@ -32,6 +32,6 @@ true
 
 * * *
 
-See also: String
+See also: String, whiteSpaceDelimitedWordAtIndex
 
 Categories: Accessing

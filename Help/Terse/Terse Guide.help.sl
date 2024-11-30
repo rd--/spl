@@ -2426,6 +2426,12 @@ system.package('BounceBenchmark').dependencies.collect(name:/1) = ['Benchmark', 
 system.package('Tuple').requires = ['List']
 ```
 
+## Point -- geometry type
+```
+let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [q o; o p].boundingBoxMerging = [q, p]
+```
+
+
 ## PriorityQueue -- collection type
 ```
 system.includesPackage('PriorityQueue') /* PriorityQueue package */
@@ -2799,7 +2805,6 @@ Rectangle([0, 0], [2, 2]).intersect(Rectangle([1, 1], [4, 4])) = Rectangle([1, 1
 Rectangle([1, 1], [3, 3]).area = 4
 Rectangle([1, 1], [3, 3]).center = [2, 2]
 Rectangle([1, 1], [3, 3]).containsPoint([2, 2]) = true /* includes */
-let o = [0, 0]; let p = [10, 10]; let q = 0 - p; [Rectangle(q, o), Rectangle(o, p)].rectangleMerging = Rectangle(q, p)
 let r = Rectangle([0, 0], [10, 20]); r.area = (10 * 20) /* area is width by height */
 let r = Rectangle([0, 0], [10, 20]); r.translateBy([-20, 10]).area = (10 * 20) /* translation preserves area */
 let r = Rectangle([0, 0], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */

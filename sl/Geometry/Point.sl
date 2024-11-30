@@ -77,20 +77,13 @@ PointCloud : [Object] { | pointList |
 		self.pointList.collect(asSvg:/1).unlines
 	}
 
-}
-
-+List {
-
-	asSvgPoints { :self |
-		self.collect { :each |
-			let [x, y] = each;
-			'%,%'.format([x, y])
-		}.join(' ')
+	boundingBox { :self |
+		self.pointList.coordinateBoundingBox
 	}
 
 }
 
-+@Sequence {
++List {
 
 	anglePath { :angles :distances :origin |
 		let answer = [origin];
@@ -107,6 +100,33 @@ PointCloud : [Object] { | pointList |
 
 	anglePath { :self |
 		self.anglePath([1], [0 0])
+	}
+
+	asSvgPoints { :self |
+		self.collect { :each |
+			let [x, y] = each;
+			'%,%'.format([x, y])
+		}.join(' ')
+	}
+
+	coordinateBoundingBox { :self |
+		let minimum = self.anyOne.copy;
+		let maximum = minimum.copy;
+		self.do { :each |
+			each.withIndexDo { :n :i |
+				(n < minimum[i]).ifTrue {
+					minimum[i] := n
+				};
+				(n > maximum[i]).ifTrue {
+					maximum[i] := n
+				}
+			}
+		};
+		[minimum, maximum]
+	}
+
+	coordinateBounds { :self |
+		self.coordinateBoundingBox.transposed
 	}
 
 	lineEquation { :p1 :p2 |
@@ -162,6 +182,10 @@ PointCloud : [Object] { | pointList |
 
 	Point { :vector |
 		newPoint().initializeSlots(vector)
+	}
+
+	PointCloud { :pointList |
+		newPointCloud().initializeSlots(pointList)
 	}
 
 	pointLineDistance { :aLine :aPoint |
@@ -220,30 +244,6 @@ PointCloud : [Object] { | pointList |
 		a / 2
 	}
 
-	x { :self |
-		self.size.betweenAnd(2, 3).if {
-			self[1]
-		} {
-			self.error('@Sequence>>x: not two- three-vector')
-		}
-	}
-
-	y { :self |
-		self.size.betweenAnd(2, 3).if {
-			self[2]
-		} {
-			self.error('@Sequence>>y: not two- three-vector')
-		}
-	}
-
-	z { :self |
-		(self.size = 3).if {
-			self[3]
-		} {
-			self.error('@Sequence>>z: not three-vector')
-		}
-	}
-
 }
 
 +@Dictionary {
@@ -260,6 +260,7 @@ PointCloud : [Object] { | pointList |
 		}
 	}
 
+	/*
 	x { :self |
 		self.includesAllIndices(['x' 'y']).if {
 			self['x']
@@ -283,5 +284,40 @@ PointCloud : [Object] { | pointList |
 			self.error('@Dictionary>>z: incorrect keys')
 		}
 	}
+	*/
+
+}
+
++[List, Tuple] {
+
+	asPoint { :self |
+		Point(self.asList)
+	}
+
+	/*
+	x { :self |
+		self.size.betweenAnd(2, 3).if {
+			self[1]
+		} {
+			self.error('@Sequence>>x: not two- three-vector')
+		}
+	}
+
+	y { :self |
+		self.size.betweenAnd(2, 3).if {
+			self[2]
+		} {
+			self.error('@Sequence>>y: not two- three-vector')
+		}
+	}
+
+	z { :self |
+		(self.size = 3).if {
+			self[3]
+		} {
+			self.error('@Sequence>>z: not three-vector')
+		}
+	}
+	*/
 
 }

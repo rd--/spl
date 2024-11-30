@@ -1,30 +1,42 @@
-Slice : [Object, Iterable, Indexable, Collection, Sequence] { | contents firstIndex lastIndex |
+Slice : [Object, Iterable, Indexable, Collection, Sequence] { | contents startIndex size |
 
 	asList { :self |
-		self.contents.copyFromTo(self.firstIndex, self.lastIndex).asList
+		self.contents.copyFromTo(self.startIndex, self.endIndex).asList
 	}
 
 	at { :self :index |
-		self.contents[index]
+		self.includesIndex(index).if {
+			self.contents[index + self.startIndex - 1]
+		} {
+			self.error('at: invalid index: ' ++ index)
+		}
 	}
 
 	atPut { :self :index :value |
-		self.contents[index] := value
+		self.includesIndex(index).if {
+			self.contents[index + self.startIndex - 1] := value
+		} {
+			self.error('atPut: invalid index: ' ++ index)
+		}
 	}
 
 	do { :self :aBlock:/1 |
 		let items = self.contents;
-		self.firstIndex.toDo(self.lastIndex) { :index |
+		self.startIndex.toDo(self.endIndex) { :index |
 			aBlock(items[index])
 		}
 	}
 
-	printString { :self |
-		self.contents.printString ++ '.slice(' ++ self.firstIndex ++ ', ' ++ self.lastIndex ++ ')'
+	endIndex { :self |
+		self.startIndex + self.size - 1
 	}
 
-	size { :self |
-		self.lastIndex - self.firstIndex + 1
+	printString { :self |
+		'%.sliceFromTo(%, %)'.format([
+			self.contents.printString,
+			self.startIndex,
+			self.endIndex
+		])
 	}
 
 	storeString { :self |
@@ -35,8 +47,12 @@ Slice : [Object, Iterable, Indexable, Collection, Sequence] { | contents firstIn
 
 +@Sequence {
 
-	slice { :self :firstIndex :lastIndex |
-		newSlice().initializeSlots(self, firstIndex, lastIndex)
+	Slice { :self :startIndex :size |
+		newSlice().initializeSlots(self, startIndex, size)
+	}
+
+	sliceFromTo { :self :startIndex :endIndex |
+		Slice(self, startIndex, endIndex - startIndex + 1)
 	}
 
 }

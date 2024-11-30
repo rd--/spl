@@ -37,7 +37,9 @@ There are variant forms with distinct rules for how to behave when the sequences
 `withCollectEqual` signals an `error` if the sequenes are not of equal size:
 
 ```
->>> { [1 2 3].withCollectEqual([4 5 6 7], *) }.ifError { true }
+>>> {
+>>> 	[1 2 3].withCollectEqual([4 5 6 7], *)
+>>> }.ifError { true }
 true
 ```
 

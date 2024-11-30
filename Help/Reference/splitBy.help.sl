@@ -54,7 +54,8 @@ Split a string at every '--':
 Make a nested array by applying `splitBy` twice:
 
 ```
->>> '11:12:13//21:22:23//31:32:33'.splitBy('//').collect { :each |
+>>> let s = '11:12:13//21:22:23//31:32:33';
+>>> s.splitBy('//').collect { :each |
 >>> 	each.splitBy(':')
 >>> }
 [

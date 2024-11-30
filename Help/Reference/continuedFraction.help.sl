@@ -67,7 +67,9 @@ The continued fractions for _n-th_ roots of `e` are very regular:
 >>> pi.continuedFraction(13)
 [3 7 15 1 292 1 1 1 2 1 3 1 14]
 
->>> [3 7 15 1 292 1 1 1 2 1 3 1 14].fromContinuedFraction
+>>> [
+>>> 	3 7 15 1 292 1 1 1 2 1 3 1 14
+>>> ].fromContinuedFraction
 pi
 ```
 
@@ -81,8 +83,14 @@ The continued fraction of the `goldenRatio` is uniformly one:
 The continued fractions of integer square roots:
 
 ```
->>> [2 14 42].collect { :n | n.sqrt.continuedFraction(9) }
-[1 2 2 2 2 2 2 2 2; 3 1 2 1 6 1 2 1 6; 6 2 12 2 12 2 12 2 12]
+>>> [2 14 42].collect { :n |
+>>> 	n.sqrt.continuedFraction(9)
+>>> }
+[
+	1 2 2 2 2 2 2 2 2;
+	3 1 2 1 6 1 2 1 6;
+	6 2 12 2 12 2 12 2 12
+]
 ```
 
 Objects showing regularity in their continued fractions:
@@ -95,13 +103,17 @@ Objects showing regularity in their continued fractions:
 Examples of rational and irrational numbers:
 
 ```
->>> [123 12.3 1.23 0.123].collect { :n | n.continuedFraction(6) }
+>>> [123 12.3 1.23 0.123].collect {
+>>> 	:n | n.continuedFraction(6)
+>>> }
 [123; 12 3 3; 1 4 2 1 6 1; 0 8 7 1 2 5]
 
 >>> ((1 + 5.sqrt) / 2).continuedFraction(24)
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 
->>> [3.sqrt, 1 / 3.sqrt].collect { :n | n.continuedFraction(11) }
+>>> [3.sqrt, 1 / 3.sqrt].collect { :n |
+>>> 	n.continuedFraction(11)
+>>> }
 [1 1 2 1 2 1 2 1 2 1 2; 0 1 1 2 1 2 1 2 1 2 1]
 
 >>> e.continuedFraction(21)

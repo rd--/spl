@@ -28,7 +28,9 @@ Expressions for `goldenAngle` in terms of `goldenRatio`:
 Scatter plot of a phyllotaxis pattern:
 
 ~~~
-1:1000.collect { :i | i.sqrt * i.goldenAngle.angleVector }.scatterPlot
+1:1000.collect { :i |
+	i.sqrt * i.goldenAngle.angleVector
+}.scatterPlot
 ~~~
 
 * * *

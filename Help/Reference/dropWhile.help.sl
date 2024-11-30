@@ -20,7 +20,7 @@ Answer the suffix of _aSequence_ from where _aBlock_ first answers `false`.
 
 * * *
 
-See also: doWhile, drop, takeWhile
+See also: drop, takeWhile
 
 References:
 _Haskell_

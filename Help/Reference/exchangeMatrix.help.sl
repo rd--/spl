@@ -68,7 +68,9 @@ true
 The `trace` of an exchange matrix is `one` if _n_ is odd and `zero` if _n_ is even:
 
 ```
->>> 3:9.collect { :n | [n.isOdd.boole, n.exchangeMatrix.trace] }
+>>> 3:9.collect { :n |
+>>> 	[n.isOdd.boole, n.exchangeMatrix.trace]
+>>> }
 [1 1; 0 0; 1 1; 0 0; 1 1; 0 0; 1 1]
 ```
 

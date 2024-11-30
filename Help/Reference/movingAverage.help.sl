@@ -25,13 +25,25 @@ Lists of approximate numbers yield approximate numbers:
 Moving averages of matrices are matrices:
 
 ```
->>> [1 2 3; 2 3 4; 3 4 5; 4 5 6; 5 6 7; 6 7 8].movingAverage(3)
-[2 3 4; 3 4 5; 4 5 6; 5 6 7]
+>>> [
+>>> 	1 2 3;
+>>> 	2 3 4;
+>>> 	3 4 5;
+>>> 	4 5 6;
+>>> 	5 6 7;
+>>> 	6 7 8
+>>> ].movingAverage(3)
+[
+	2 3 4;
+	3 4 5;
+	4 5 6;
+	5 6 7
+]
 ```
 
 * * *
 
-See also: median, movingAverage, partition
+See also: median, exponentialMovingAverage, partition
 
 References:
 _Mathematica_

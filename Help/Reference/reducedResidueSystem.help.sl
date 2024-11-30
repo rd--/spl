@@ -21,13 +21,17 @@ Every number in a reduced residue system modulo _n_ is a generator for the addit
 ```
 >>> let m = 12;
 >>> let r = m.reducedResidueSystem;
->>> let f = { :n | { :each | (each + n) % m }.iterate(0).next(m) };
+>>> let f = { :n |
+>>> 	{ :each |
+>>> 		(each + n) % m
+>>> 	}.iterate(0).next(m)
+>>> };
 >>> r.collect(f:/1)
 [
-	0 1 2 3 4 5 6 7 8 9 10 11;
-	0 5 10 3 8 1 6 11 4 9 2 7;
-	0 7 2 9 4 11 6 1 8 3 10 5;
-	0 11 10 9 8 7 6 5 4 3 2 1
+	0  1  2  3  4  5  6  7  8  9 10 11;
+	0  5 10  3  8  1  6 11  4  9  2  7;
+	0  7  2  9  4 11  6  1  8  3 10  5;
+	0 11 10  9  8  7  6  5  4  3  2  1
 ]
 ```
 

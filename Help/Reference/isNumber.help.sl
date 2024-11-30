@@ -7,13 +7,23 @@ Answers `true` if _anObject_ is a `Number`, else `false`.
 At `SmallFloat`:
 
 ```
->>> 3.141.isNumber & { 3.141.isSmallFloat }
+>>> 3.141.isNumber & {
+>>> 	3.141.isSmallFloat
+>>> }
 true
 
->>> 23.isNumber & { 23.isSmallFloat & { 23.isInteger } }
+>>> 23.isNumber & {
+>>> 	23.isSmallFloat & {
+>>> 		23.isInteger
+>>> 	}
+>>> }
 true
 
->>> inf.isNumber & { inf.isSmallFloat & { inf.isFinite.not } }
+>>> inf.isNumber & {
+>>> 	inf.isSmallFloat & {
+>>> 		inf.isFinite.not
+>>> 	}
+>>> }
 true
 ```
 

@@ -14,7 +14,8 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 The complement of a `ResidueSet` is the difference to the complete residue set _Z_:
 
 ```
->>> [0 2 4 5 7 9 11].asResidueSet(12).complement.asList
+>>> let r = [0 2 4 5 7 9 11].asResidueSet(12);
+>>> r.complement.asList
 [1 3 6 8 10]
 ```
 
@@ -23,7 +24,12 @@ c.f. `complementGraph`:
 
 ```
 >>> 6.cycleGraph.complement.edgeList
-[1 3; 1 4; 1 5; 2 4; 2 5; 2 6; 3 5; 3 6; 4 6]
+[
+	1 3; 1 4; 1 5;
+	2 4; 2 5; 2 6;
+	3 5; 3 6;
+	4 6
+]
 ```
 
 * * *

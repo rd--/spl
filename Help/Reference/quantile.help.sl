@@ -1,7 +1,7 @@
 # quantile
 
 - _quantile(aCollection, p, a, b, c, d)_
-- _quantile(alpha, beta)_ ⟹ _quantile(alpha, beta, 0, 0, 1, 0)_
+- _quantile(α, β)_ ⟹ _quantile(α, β, 0, 0, 1, 0)_
 
 Answer the estimate of the _p-th_ quantile of _aCollection_,
 using the quantile definition specified by parameters _a_, _b_, _c_ and _d_.
@@ -83,8 +83,14 @@ Quartiles gives linearly interpolated quantile values for a list:
 
 ```
 >>> let list = [1 3 4 2 5 6];
->>> (list.quartiles, list.quantile([1 2 3] / 4, 1 / 2, 0, 0, 1))
-([2 3.5 5], [2 3.5 5])
+>>> (
+>>> 	list.quartiles,
+>>> 	list.quantile([1 2 3] / 4, 1 / 2, 0, 0, 1)
+>>> )
+(
+	[2 3.5 5],
+	[2 3.5 5]
+)
 ```
 
 * * *

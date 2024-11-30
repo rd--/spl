@@ -7,21 +7,21 @@ Answer the _y_ coordinate of a two or three dimensional point.
 At `List`:
 
 ```
->>> ([1 2].y, [3 4 5].y)
+>>> ([1 2].asPoint.y, [3 4 5].asPoint.y)
 (2, 4)
 ```
 
 At `Tuple`:
 
 ```
->>> [(1, 2).y, (3, 4, 5).y]
+>>> [(1, 2).asPoint.y, (3, 4, 5).asPoint.y]
 [2 4]
 ```
 
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).y
+>>> (x: 1, y: 2, z: 3).asPoint.y
 2
 ```
 

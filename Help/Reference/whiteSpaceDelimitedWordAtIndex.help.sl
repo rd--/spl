@@ -15,20 +15,22 @@ Get the word in _aString_ at index _anInteger_:
 If the index points to a space look backwards for a word:
 
 ```
->>> 'inner space'.whiteSpaceDelimitedWordAtIndex(6)
-'inner'
+>>> 'p q'.whiteSpaceDelimitedWordAtIndex(2)
+'p'
 
->>> ' leading space'.whiteSpaceDelimitedWordAtIndex(1)
+>>> ' p q'.whiteSpaceDelimitedWordAtIndex(1)
 ''
 
->>> 'trailing space '.whiteSpaceDelimitedWordAtIndex(15)
-'space'
+>>> 'p q '.whiteSpaceDelimitedWordAtIndex(4)
+'q'
 ```
 
 If the index is out of range answer signal an error:
 
 ```
->>> { 'four'.whiteSpaceDelimitedWordAtIndex(5) }.ifError { true }
+>>> {
+>>> 	'four'.whiteSpaceDelimitedWordAtIndex(5)
+>>> }.ifError { true }
 true
 ```
 

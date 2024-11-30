@@ -107,7 +107,15 @@ and hence `contents` answers all of the subTrees.
 `postOrderValues` collects the value of each tree visited by `postOrderDo`:
 
 ```
->>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.postOrderValues
+>>> [
+>>> 	1,
+>>> 	[
+>>> 		2,
+>>> 		[4, [7], 5],
+>>> 		3,
+>>> 		[6, [8, 9]]
+>>> 	]
+>>> ].asTree.postOrderValues
 [1 2 4 7 nil 5 nil 3 6 8 9 nil nil nil nil]
 ```
 
@@ -115,7 +123,27 @@ and hence `contents` answers all of the subTrees.
 `levelOrderValues` collects the value of each tree visited by `levelOrderDo`:
 
 ```
->>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.levelOrderValues
+>>> [
+>>> 	1,
+>>> 	[
+>>> 		2,
+>>> 		[
+>>> 			4,
+>>> 			[
+>>> 				7
+>>> 			],
+>>> 			5
+>>> 		],
+>>> 		3,
+>>> 		[
+>>> 			6,
+>>> 			[
+>>> 				8,
+>>> 				9
+>>> 			]
+>>> 		]
+>>> 	]
+>>> ].asTree.levelOrderValues
 [nil 1 nil 2 nil 3 nil 4 nil 5 6 nil 7 8 9]
 ```
 
@@ -243,9 +271,16 @@ Sub-trees at level two:
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree.level(2)
 [
 	Tree(2, []),
-	Tree(nil, [Tree(4, []), Tree(nil, [Tree(7, [])]), Tree(5, [])]),
+	Tree(nil, [
+		Tree(4, []),
+		Tree(nil, [Tree(7, [])]),
+		Tree(5, [])
+	]),
 	Tree(3, []),
-	Tree(nil, [Tree(6, []), Tree(nil, [Tree(8, []), Tree(9, [])])])
+	Tree(nil, [
+		Tree(6, []),
+		Tree(nil, [Tree(8, []), Tree(9, [])])
+	])
 ]
 ```
 
@@ -275,7 +310,11 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 >>> let e = { Tree(nil, []) };
 >>> let l = { :n | Tree(n, []) };
 >>> let b = { :n :l :r | Tree(n, [l, r]) };
->>> let t = b(6, b(2, l(1), b(3, e(), b(4, e(), l(5)))), b(8, l(7), l(9)));
+>>> let t = b(
+>>> 	6,
+>>> 	b(2, l(1), b(3, e(), b(4, e(), l(5)))),
+>>> 	b(8, l(7), l(9))
+>>> );
 >>> (t.isBinary, t.contents.collect(value:/1))
 (true, [6 2 1 3 nil 4 nil 5 8 7 9])
 ```

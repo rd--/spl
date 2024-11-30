@@ -42,7 +42,9 @@ A de Bruijn sequence of order 1 on a list is the list itself:
 The ordering of the input list determines the ordering of the de Bruijn sequence:
 
 ```
->>> [2 3 1; 3 1 2].collect { :each | each.deBruijnSequence(2) }
+>>> [2 3 1; 3 1 2].collect { :each |
+>>> 	each.deBruijnSequence(2)
+>>> }
 [
 	2 2 3 2 1 3 3 1 1;
 	3 3 1 3 2 1 1 2 2
