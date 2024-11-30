@@ -101,7 +101,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	>> { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
-			return sl.shiftRight(_self, _anObject);
+			return _self >> _anObject;
 		}
 		>
 		anObject.adaptToNumberAndApply(self, >>)
@@ -111,7 +111,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	>>> { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
-			return sl.shiftRightUnsigned(_self, _anObject);
+			return _self >>> _anObject;
 		}
 		>
 		anObject.adaptToNumberAndApply(self, >>>)
@@ -578,7 +578,16 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	signExponentMantissa { :self |
-		<primitive: return sl.signExponentMantissa(_self);>
+		<primitive:
+		const float = new Float64Array(1);
+		const bytes = new Uint8Array(float.buffer);
+		float[0] = _self;
+		const sign = bytes[7] >> 7;
+		const exponent = ((bytes[7] & 0x7f) << 4 | bytes[6] >> 4) - 0x3ff;
+		bytes[7] = 0x3f;
+		bytes[6] |= 0xf0;
+		return [sign, exponent, float[0]];
+		>
 	}
 
 	sin { :self |

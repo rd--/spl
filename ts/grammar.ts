@@ -99,7 +99,7 @@ Sl {
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
 	DotExpressionWithTrailingDictionariesSyntax = Primary "." selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
-	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList?~("{"))+
+	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~"{")+
 
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
@@ -185,7 +185,7 @@ Sl {
 	backtickCharacter = "${String.fromCodePoint(96)}"
 	sourceCharacter = any
 
-	primitiveCharacter = ~">" sourceCharacter
+	primitiveCharacter = ~(">\n" | "> }") sourceCharacter
 
 	comment = multiLineCComment
 	// multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"

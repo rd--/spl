@@ -3,11 +3,11 @@
 File! : [Object, Blob] {
 
 	lastModified { :self |
-		<primitive: return _self.lastModified;> /* Read only */
+		<primitive: return _self.lastModified;>
 	}
 
 	name { :self |
-		<primitive: return _self.name;> /* Read only */
+		<primitive: return _self.name;>
 	}
 
 }

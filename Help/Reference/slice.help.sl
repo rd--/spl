@@ -18,7 +18,6 @@ A 4×5 matrix:
 
 Columns 1-3 of all rows (i.e. rows 1-4):
 
-
 ```
 >>> [4 5].iota.slice([1 2 3 4; 1 2 3])
 [

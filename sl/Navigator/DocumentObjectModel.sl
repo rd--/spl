@@ -17,7 +17,7 @@
 	cssText { :self | <primitive: return _self.cssText;> }
 	getPropertyPriority { :self :name | <primitive: return _self.getPropertyPriority();> }
 	getPropertyValue { :self :name | <primitive: return _self.getPropertyValue(_name);> }
-	length { :self | <primitive: return _self.length;> } /* Read only */
+	length { :self | <primitive: return _self.length;> }
 	removeProperty { :self :name | <primitive: return _self.removeProperty(_name);> }
 	setProperty { :self :name :value :priority | <primitive: return _self.setProperty(_name, _value, _priority);> }
 
@@ -39,7 +39,7 @@
 
 @CssRule {
 
-	cssText { :self | <primitive: return _self.cssText;> } /* Read only */
+	cssText { :self | <primitive: return _self.cssText;> }
 
 }
 
@@ -171,19 +171,19 @@
 	innerHtml { :self | <primitive: return _self.innerHTML;> }
 	insertAdjacentElement { :self :position :element | <primitive: return _self.insertAdjacentElement(_position, _elementwhere);> }
 	insertAdjacentText { :self :where :data | <primitive: return _self.insertAdjacentText(_where, _data);> }
-	localName { :self | <primitive: return _self.localName;> } /* Read only */
+	localName { :self | <primitive: return _self.localName;> }
 	matches { :self :selectors | <primitive: return _self.matches(_selectors);> }
-	nextElementSibling { :self | <primitive: return _self.nextElementSibling;> } /* Read only */
+	nextElementSibling { :self | <primitive: return _self.nextElementSibling;> }
 	outerHtml { :self :aString | <primitive: return _self.outerHTML = _aString;> }
 	outerHtml { :self | <primitive: return _self.outerHTML;> }
-	previousElementSibling { :self | <primitive: return _self.previousElementSibling;> } /* Read only */
+	previousElementSibling { :self | <primitive: return _self.previousElementSibling;> }
 	releasePointerCapture { :self :pointerId | <primitive: return _self.releasePointerCapture(_pointerId);> }
 	remove { :self | <primitive: return _self.remove();> }
 	removeAttribute { :self :aString | <primitive: return _self.removeAttribute(_aString);> }
 	setAttribute { :self :name :value | <primitive: return _self.setAttribute(_name, _value);> }
 	setAttributeNS { :self :namespace :name :value | <primitive: return _self.setAttributeNS(_namespace, _name, _value);> }
 	setPointerCapture { :self :pointerId | <primitive: return _self.setPointerCapture(_pointerId);> }
-	tagName { :self | <primitive: return _self.tagName;> } /* Read only */
+	tagName { :self | <primitive: return _self.tagName;> }
 
 	removeAllChildren { :self |
 		self.children.asList.do { :each |
@@ -283,15 +283,15 @@
 @Node {
 
 	appendChild { :self :aChild | <primitive: return _self.appendChild(_aChild);> }
-	childNodes { :self | <primitive: return _self.childNodes;> } /* Read only */
-	firstChild { :self | <primitive: return _self.firstChild;> } /* Read only */
-	nextSibling { :self | <primitive: return _self.nextSibling;> } /* Read only */
-	nodeType { :self | <primitive: return _self.nodeType;> } /* Read only */
+	childNodes { :self | <primitive: return _self.childNodes;> }
+	firstChild { :self | <primitive: return _self.firstChild;> }
+	nextSibling { :self | <primitive: return _self.nextSibling;> }
+	nodeType { :self | <primitive: return _self.nodeType;> }
 	nodeValue { :self | <primitive: return _self.nodeValue;> }
 	normalize { :self | <primitive: return _self.normalize();> }
-	parentElement { :self | <primitive: return _self.parentElement;> } /* Read only */
-	parentNode { :self | <primitive: return _self.parentNode;> } /* Read only */
-	previousSibling { :self | <primitive: return _self.previousSibling;> } /* Read only */
+	parentElement { :self | <primitive: return _self.parentElement;> }
+	parentNode { :self | <primitive: return _self.parentNode;> }
+	previousSibling { :self | <primitive: return _self.previousSibling;> }
 	textContent { :self :aString | <primitive: return _self.textContent = _aString;> }
 	textContent { :self | <primitive: return _self.textContent;> }
 
@@ -337,17 +337,17 @@
 
 @StyleSheet {
 
-	href { :self | <primitive: return _self.href;> } /* Read only */
-	title { :self | <primitive: return _self.title;> } /* Read only */
-	type { :self | <primitive: return _self.type;> } /* Read only */
+	href { :self | <primitive: return _self.href;> }
+	title { :self | <primitive: return _self.title;> }
+	type { :self | <primitive: return _self.type;> }
 
 }
 
 @Text {
 
-	assignedSlot { :self | <primitive: return _self.assignedSlot;> } /* Read only */
+	assignedSlot { :self | <primitive: return _self.assignedSlot;> }
 	splitText { :self :offset | <primitive: return _self.splitText(_offset);> }
-	wholeText { :self | <primitive: return _self.wholeText;> } /* Read only */
+	wholeText { :self | <primitive: return _self.wholeText;> }
 
 }
 
@@ -413,20 +413,20 @@ CanvasRenderingContext2D! : [Object] {
 
 ClipboardEvent! : [Object, Event] {
 
-	clipboardData { :self | <primitive: return _self.clipboardData;> } /* Read only */
+	clipboardData { :self | <primitive: return _self.clipboardData;> }
 
 }
 
 CSSFontFaceRule! : [Object, CssRule] {
 
-	style { :self | <primitive: return _self.style;> } /* Read only */
+	style { :self | <primitive: return _self.style;> }
 
 }
 
 CSSRuleList! : [Object] {
 
 	item { :self :index | <primitive: return _self.item(_index);> }
-	length { :self | <primitive: return _self.length;> } /* Read only */
+	length { :self | <primitive: return _self.length;> }
 
 	at { :self :index |
 		self.item(index - 1) /* One-indexed */
@@ -453,7 +453,7 @@ CSSStyleRule! : [Object, CssRule] {
 CSSStyleSheet! : [Object, StyleSheet] {
 
 	cssRuleList { :self | <primitive: return [..._self.cssRules];> }
-	cssRules { :self | <primitive: return _self.cssRules;> } /* Read only */
+	cssRules { :self | <primitive: return _self.cssRules;> }
 	deleteRule { :self :index | <primitive: return _self.deleteRule(_index);> }
 	insertRule { :self :rule :index | <primitive: return _self.insertRule(_rule, _index);> }
 	insertRule { :self :rule | <primitive: return _self.insertRule(_rule);> }
@@ -480,7 +480,7 @@ CSSStyleSheet! : [Object, StyleSheet] {
 
 CustomEvent! : [Object, Event] {
 
-	detail { :self | <primitive: return _self.detail;> } /* Read only */
+	detail { :self | <primitive: return _self.detail;> }
 
 }
 
@@ -565,15 +565,15 @@ DOMPointReadOnly! : [Object, DOMPointReadOnly] {
 DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from Range */
 
 	cloneRange { :self | <primitive: return _self.cloneRange();> }
-	commonAncestorContainer { :self | <primitive: return _self.commonAncestorContainer;> } /* Read only */
+	commonAncestorContainer { :self | <primitive: return _self.commonAncestorContainer;> }
 	deleteContents { :self | <primitive: return _self.deleteContents();> }
-	endContainer { :self | <primitive: return _self.endContainer;> } /* Read only */
+	endContainer { :self | <primitive: return _self.endContainer;> }
 	endOffset { :self | <primitive: return _self.endOffset + 1;> } /* One-indexed */
 	insertNode { :self :aNode | <primitive: return _self.insertNode(_aNode);> }
 	selectNodeContents { :self :aNode | <primitive: return _self.selectNodeContents(_aNode);> }
 	setEnd { :self :endNode :endOffset | <primitive: return _self.setEnd(_endNode, _endOffset - 1);> } /* One-indexed */
 	setStart { :self :startNode :startOffset | <primitive: return _self.setStart(_startNode, _startOffset - 1);> } /* One-indexed */
-	startContainer { :self | <primitive: return _self.startContainer;> } /* Read only */
+	startContainer { :self | <primitive: return _self.startContainer;> }
 	startOffset { :self | <primitive: return _self.startOffset + 1;> } /* One-indexed */
 	toString { :self | <primitive: return _self.toString();> }
 
@@ -669,13 +669,13 @@ HTMLHtmlElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 HTMLImageElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	alt { :self | <primitive: return _self.value;> }
-	complete { :self | <primitive: return _self.complete;> } /* Read only */
+	complete { :self | <primitive: return _self.complete;> }
 	height { :self | <primitive: return _self.height;> }
 	src { :self :url | <primitive: return _self.src = _url;> }
 	src { :self | <primitive: return _self.src;> }
 	width { :self | <primitive: return _self.width;> }
-	x { :self | <primitive: return _self.x;> } /* Read only */
-	y { :self | <primitive: return _self.y;> } /* Read only */
+	x { :self | <primitive: return _self.x;> }
+	y { :self | <primitive: return _self.y;> }
 
 }
 
@@ -802,7 +802,7 @@ HTMLSpanElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 	caption { :self | <primitive: return _self.caption;> }
-	rows { :self | <primitive: return _self.rows;> } /* Read only */
+	rows { :self | <primitive: return _self.rows;> }
 
 	asHtmlTable { :self |
 		self
@@ -856,7 +856,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 HTMLTableCellElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
-	cellIndex { :self | <primitive: return _self.cellIndex;> } /* Read only */
+	cellIndex { :self | <primitive: return _self.cellIndex;> }
 
 }
 
@@ -897,8 +897,8 @@ HTMLUListElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 ImageBitmap! : [Object] {
 
 	close { :self | <primitive: return _self.close();> }
-	height { :self | <primitive: return _self.height;> } /* Read only */
-	width { :self | <primitive: return _self.width;> } /* Read only */
+	height { :self | <primitive: return _self.height;> }
+	width { :self | <primitive: return _self.width;> }
 
 }
 
@@ -910,10 +910,10 @@ ImageBitmap! : [Object] {
 
 ImageData! : [Object] {
 
-	colorSpace { :self | <primitive: return _self.colorSpace;> } /* Read only */
-	data { :self | <primitive: return _self.data;> } /* Read only */
-	height { :self | <primitive: return _self.height;> } /* Read only */
-	width { :self | <primitive: return _self.width;> } /* Read only */
+	colorSpace { :self | <primitive: return _self.colorSpace;> }
+	data { :self | <primitive: return _self.data;> }
+	height { :self | <primitive: return _self.height;> }
+	width { :self | <primitive: return _self.width;> }
 
 }
 
@@ -978,18 +978,18 @@ Path2D! : [Object] {
 
 PointerEvent! : [Object, UiEvent, Event, MouseEvent] {
 
-	altitudeAngle { :self | <primitive: return _self.altitudeAngle;> } /* Read only */
-	azimuthAngle { :self | <primitive: return _self.azimuthAngle;> } /* Read only */
-	height { :self | <primitive: return _self.height;> } /* Read only */
-	isPrimary { :self | <primitive: return _self.isPrimary;> } /* Read only */
-	pointerId { :self | <primitive: return _self.pointerId;> } /* Read only */
-	pointerType { :self | <primitive: return _self.pointerType;> } /* Read only */
-	pressure { :self | <primitive: return _self.pressure;> } /* Read only */
-	tangentialPressure { :self | <primitive: return _self.tangentialPressure;> } /* Read only */
-	tiltX { :self | <primitive: return _self.tiltX;> } /* Read only */
-	tiltY { :self | <primitive: return _self.tiltY;> } /* Read only */
-	twist { :self | <primitive: return _self.twist;> } /* Read only */
-	width { :self | <primitive: return _self.width;> } /* Read only */
+	altitudeAngle { :self | <primitive: return _self.altitudeAngle;> }
+	azimuthAngle { :self | <primitive: return _self.azimuthAngle;> }
+	height { :self | <primitive: return _self.height;> }
+	isPrimary { :self | <primitive: return _self.isPrimary;> }
+	pointerId { :self | <primitive: return _self.pointerId;> }
+	pointerType { :self | <primitive: return _self.pointerType;> }
+	pressure { :self | <primitive: return _self.pressure;> }
+	tangentialPressure { :self | <primitive: return _self.tangentialPressure;> }
+	tiltX { :self | <primitive: return _self.tiltX;> }
+	tiltY { :self | <primitive: return _self.tiltY;> }
+	twist { :self | <primitive: return _self.twist;> }
+	width { :self | <primitive: return _self.width;> }
 
 }
 
@@ -1001,11 +1001,11 @@ Selection! : [Object] {
 	collapseToEnd { :self | <primitive: return _self.collapseToEnd();> }
 	collapseToStart { :self | <primitive: return _self.collapseToStart();> }
 	containsNode{ :self :node :partialContainment | <primitive: return _self.containsNode(_node, _partialContainment);> }
-	direction { :self | <primitive: return _self.direction;> } /* Read only */
+	direction { :self | <primitive: return _self.direction;> }
 	focusNode { :self | <primitive: return _self.focusNode;> }
 	focusOffset { :self | <primitive: return _self.focusOffset + 1;> } /* One-indexed */
 	getRangeAt { :self :anInteger | <primitive: return _self.getRangeAt(_anInteger - 1);> } /* One-indexed */
-	rangeCount { :self | <primitive: return _self.rangeCount;> } /* Read only */
+	rangeCount { :self | <primitive: return _self.rangeCount;> }
 	removeAllRanges { :self | <primitive: return _self.removeAllRanges();> }
 	toString { :self | <primitive: return _self.toString();> }
 	type { :self | <primitive: return _self.type;> }

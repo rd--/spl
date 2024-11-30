@@ -687,7 +687,19 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 +String {
 
 	dotLayout { :dotSource :outputFormat :layoutEngine |
-		<primitive: return sl.dotLayout(_dotSource, _outputFormat, _layoutEngine);>
+		<primitive:
+		return import(
+			'../lib/scsynth-wasm-builds/lib/ext/graphviz.js'
+		).then(
+			function({ Graphviz }) {
+				return Graphviz.load().then(
+					function(graphviz) {
+						return graphviz.layout(_dotSource, _outputFormat, _layoutEngine, {});
+					}
+				)
+			}
+		);
+		>
 	}
 
 }

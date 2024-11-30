@@ -80,9 +80,9 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	>> { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
-			return sl.shiftRight(_self, _anObject);
+			return _self >> _anObject;
 		} else if(sl.isSmallFloat(_anObject)) {
-			return sl.shiftRight(_self, BigInt(_anObject));
+			return _self >> BigInt(_anObject);
 		}
 		>
 		self.error('shiftRight: operand not a LargeInteger or SmallFloat')
@@ -218,7 +218,31 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	sqrt { :self |
-		<primitive: return sl.bigIntSqrt(_self);>
+		<primitive:
+		/* https://github.com/Aisse-258/bigint-isqrt */
+		if (_self < 2n) {
+			return _self;
+		}
+		if (_self < 16n) {
+			return BigInt(Math.sqrt(Number(_self)) | 0);
+		}
+		let x0, x1;
+		if (_self < 4503599627370496n) {
+			x1 = BigInt(Math.sqrt(Number(_self)) | 0) - 3n;
+		} else {
+			const vlen = _self.toString().length;
+			if (!(vlen & 1)) {
+				x1 = 10n ** (BigInt(vlen / 2));
+			} else {
+				x1 = 4n * 10n ** (BigInt((vlen / 2) | 0));
+			}
+		}
+		do {
+			x0 = x1;
+			x1 = ((_self / x0) + x0) >> 1n;
+		} while ((x0 !== x1 && x0 !== (x1 - 1n)));
+		return x0;
+		>
 	}
 
 	toNumber { :self :precision |

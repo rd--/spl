@@ -35,7 +35,7 @@
 	}
 
 	origin { :self |
-		<primitive: return _self.origin;> /* Read only */
+		<primitive: return _self.origin;>
 	}
 
 	pathName { :self |
@@ -75,7 +75,7 @@ URL! : [Object, Url] {
 	}
 
 	userName { :self |
-		<primitive: return _self.username;> /* Read only */
+		<primitive: return _self.username;>
 	}
 
 }

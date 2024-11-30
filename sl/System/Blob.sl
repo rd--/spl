@@ -15,7 +15,7 @@
 	}
 
 	size { :self |
-		<primitive: return _self.size;> /* Read only */
+		<primitive: return _self.size;>
 	}
 
 	text { :self |
@@ -23,7 +23,7 @@
 	}
 
 	type { :self |
-		<primitive: return _self.type;> /* Read only */
+		<primitive: return _self.type;>
 	}
 
 }

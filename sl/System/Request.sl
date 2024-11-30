@@ -1,7 +1,7 @@
 Request! : [Object] {
 
 	url { :self |
-		<primitive: return _self.url;> /* read only */
+		<primitive: return _self.url;>
 	}
 
 }
