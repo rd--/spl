@@ -34,7 +34,14 @@ If _c_ is a matrix of three columns, plot a list of _x,y,z_ triples.
 Plot a 6×3 matrix:
 
 ~~~
-[0 0 0; 1 0 1; 1 1 2; 2 2 2; 2 4 3; 3 6 4].linePlot
+[
+	0 0 0;
+	1 0 1;
+	1 1 2;
+	2 2 2;
+	2 4 3;
+	3 6 4
+].linePlot
 ~~~
 
 Plot the prime counting sequence:
@@ -67,7 +74,7 @@ C.f. `functionPlot`:
 
 * * *
 
-See also: discretePlot, functionPlot, scatterPlot
+See also: discretePlot, functionPlot, matrixPlot, scatterPlot
 
 References:
 _Mathematica_

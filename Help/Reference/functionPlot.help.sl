@@ -135,7 +135,7 @@ let n = 250;
 
 * * *
 
-See also: discretePlot, linePlot, scatterPlot
+See also: discretePlot, linePlot, matrixPlot, scatterPlot
 
 References:
 _Mathematica_

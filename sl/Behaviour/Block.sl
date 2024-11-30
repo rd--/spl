@@ -185,10 +185,6 @@ Block! : [Object] {
 		}
 	}
 
-	methodName { :self |
-		<primitive: return _self.name.split(':')[0];>
-	}
-
 	millisecondsToRun { :self:/0 |
 		system.millisecondsToRun(self:/0)
 	}
@@ -308,6 +304,10 @@ Block! : [Object] {
 				}
 			}
 		}
+	}
+
+	unqualifiedName { :self |
+		<primitive: return _self.name.split(':')[0];>
 	}
 
 	value { :self:/0 |

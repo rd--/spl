@@ -27,7 +27,7 @@ A dense discrete plot of a cosine function:
 
 * * *
 
-See also: functionPlot, linePlot, plot, scatterPlot
+See also: functionPlot, linePlot, matrixPlot, scatterPlot
 
 References:
 _Mathematica_

@@ -7,7 +7,11 @@ Answer a plot that gives a visual representation of the elements in a matrix.
 Plot a 3×3 matrix:
 
 ~~~
-[1 2 1; 3 0 1; 0 0 -1].matrixPlot
+[
+	1 2 1;
+	3 0 1;
+	0 0 -1
+].matrixPlot
 ~~~
 
 Plot a 100×100 matrix:
@@ -49,6 +53,8 @@ Plot the `sin` function at integer points:
 ~~~
 
 * * *
+
+See also: discretePlot, functionPlot, linePlot, scatterPlot
 
 References:
 _Mathematica_

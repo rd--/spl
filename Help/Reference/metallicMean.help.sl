@@ -2,6 +2,10 @@
 
 - _metallicMean(anInteger)_
 
+The metallic mean,
+also called the metallic ratio or noble mean,
+of an integer _n_ is the number with the continued fraction _[n;n,n,n,n...]_.
+
 The first five metallic means:
 
 ```
@@ -15,9 +19,46 @@ The first five metallic means:
 ]
 ```
 
+The first metallic mean is the `goldenRatio`:
+
+```
+>>> let n = 1;
+>>> (
+>>> 	1.goldenRatio,
+>>> 	(n + (n.squared + 4).sqrt) / 2
+>>> )
+(1.618, 1.618)
+```
+
+The second metallic mean is the `silverRatio`:
+
+```
+>>> let n = 2;
+>>> (
+>>> 	1.silverRatio,
+>>> 	(n + (n.squared + 4).sqrt) / 2
+>>> )
+(2.4142, 2.4142)
+```
+
+The continued fractions of the first five metallic means:
+
+```
+>>> 1:5.collect{ :each |
+>>> 	each.metallicMean.continuedFraction(9)
+>>> }
+[
+	1 1 1 1 1 1 1 1 1;
+	2 2 2 2 2 2 2 2 2;
+	3 3 3 3 3 3 3 3 3;
+	4 4 4 4 4 4 4 4 4;
+	5 5 5 5 5 5 5 5 5
+]
+```
+
 * * *
 
-See also: goldenRatio, silverRatio
+See also: continuedFraction, goldenRatio, silverRatio
 
 References:
 _Mathematica_

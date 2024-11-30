@@ -1,41 +1,41 @@
 /* Requires: Interval */
 
-+@Sequence {
+Plot : [Object] { | contents format |
 
-	cliPlot { :self :format |
-		let shape = self.shape;
+	cliDraw { :self |
+		let shape = self.contents.shape;
 		let d = shape.size;
 		let a = 'x';
 		let c = [0];
-		let plotData = (format = 'matrix').if {
+		let plotData = (self.format = 'matrix').if {
 			a := 'matrix';
 			c := [];
-			self.reversed
+			self.contents.reversed
 		} {
 			(d = 1).if {
-				[self].transposed
+				[self.contents].transposed
 			} {
 				(d = 2).if {
 					let [m, n] = shape;
 					(n = 1).if {
-						self
+						self.contents
 					} {
 						(n = 2).if {
 							a := 'xy';
 							c := [0 1];
-							self
+							self.contents
 						} {
 							(n = 3).if {
 								a := 'xyz';
 								c := [0 1 2];
-								self
+								self.contents
 							} {
-								self.error('cliPlot: matrix columns > 3')
+								self.contents.error('cliDraw: matrix columns > 3')
 							}
 						}
 					}
 				} {
-					self.error('cliPlot: array dimensions > 2')
+					self.contents.error('cliPlot: array dimensions > 2')
 				}
 			}
 		};
@@ -46,31 +46,44 @@
 				[
 					'json',
 					a,
-					'--format=' ++ format,
+					'--format=' ++ self.format,
 					fileName
 				] ++ c.collect(asString:/1)
 			)
 		}
 	}
 
+	draw { :self |
+		self.cliDraw
+	}
+
+
+}
+
++List {
+
 	discretePlot { :self |
-		self.cliPlot('discrete')
+		self.Plot('discrete')
 	}
 
 	linePlot { :self |
-		self.cliPlot('line')
+		self.Plot('line')
 	}
 
 	matrixPlot { :self |
-		self.cliPlot('matrix')
-	}
-
-	scatterPlot { :self |
-		self.cliPlot('scatter')
+		self.Plot('matrix')
 	}
 
 	plot { :self |
 		self.linePlot
+	}
+
+	Plot { :contents :format |
+		newPlot().initializeSlots(contents, format)
+	}
+
+	scatterPlot { :self |
+		self.Plot('scatter')
 	}
 
 }

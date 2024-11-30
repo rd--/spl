@@ -47,7 +47,7 @@ let f = { :a :b :c :d :p |
 
 * * *
 
-See also: discretePlot, functionPlot, linePlot, plot
+See also: discretePlot, functionPlot, linePlot, matrixPlot
 
 References:
 _Mathematica_

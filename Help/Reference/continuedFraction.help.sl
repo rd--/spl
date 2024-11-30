@@ -1,7 +1,7 @@
 # continuedFraction
 
 - _continuedFraction(aNumber, anInteger)_
-- _continuedFraction(alpha)_ ⟹ _continuedFraction(alpha, 24)_
+- _continuedFraction(α)_ ⟹ _continuedFraction(α, 24)_
 
 Answer a list of at most the first _anInteger_ terms in the continued fraction representation of _aNumber_.
 
@@ -125,7 +125,7 @@ Examples of rational and irrational numbers:
 
 * * *
 
-See also: fromContinuedFraction
+See also: fromContinuedFraction, metallicMean
 
 References:
 _Mathematica_

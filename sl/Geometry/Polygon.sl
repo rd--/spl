@@ -6,7 +6,7 @@ Polygon : [Object] { | vertices |
 
 	asSvg { :self |
 		'<polygon points="%" />'.format([
-			self.vertices.asSvgPoints
+			self.vertices.asSvgPointList
 		])
 	}
 

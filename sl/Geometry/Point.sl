@@ -102,13 +102,6 @@ PointCloud : [Object] { | pointList |
 		self.anglePath([1], [0 0])
 	}
 
-	asSvgPoints { :self |
-		self.collect { :each |
-			let [x, y] = each;
-			'%,%'.format([x, y])
-		}.join(' ')
-	}
-
 	coordinateBoundingBox { :self |
 		let minimum = self.anyOne.copy;
 		let maximum = minimum.copy;

@@ -34,7 +34,7 @@ Line : [Object] { | vertices |
 			])
 		} {
 			'<polyline points="%" />'.format([
-				self.vertices.asSvgPoints
+				self.vertices.asSvgPointList
 			])
 		}
 	}
