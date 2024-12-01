@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="100" viewBox="5 5 150 110">
+<g fill="none" stroke="black" stroke-width="0.05%" transform="translate(0, 120) scale(20, -20)">
+<circle cx="1" cy="1" r="0.5" />
+<circle cx="1" cy="2" r="0.5" />
+<circle cx="1" cy="3" r="0.5" />
+<circle cx="1" cy="4" r="0.5" />
+<circle cx="1" cy="5" r="0.5" />
+<circle cx="2" cy="1" r="0.5" />
+<circle cx="2" cy="2" r="0.5" />
+<circle cx="2" cy="3" r="0.5" />
+<circle cx="2" cy="4" r="0.5" />
+<circle cx="2" cy="5" r="0.5" />
+<circle cx="3" cy="1" r="0.5" />
+<circle cx="3" cy="2" r="0.5" />
+<circle cx="3" cy="3" r="0.5" />
+<circle cx="3" cy="4" r="0.5" />
+<circle cx="3" cy="5" r="0.5" />
+<circle cx="4" cy="1" r="0.5" />
+<circle cx="4" cy="2" r="0.5" />
+<circle cx="4" cy="3" r="0.5" />
+<circle cx="4" cy="4" r="0.5" />
+<circle cx="4" cy="5" r="0.5" />
+<circle cx="5" cy="1" r="0.5" />
+<circle cx="5" cy="2" r="0.5" />
+<circle cx="5" cy="3" r="0.5" />
+<circle cx="5" cy="4" r="0.5" />
+<circle cx="5" cy="5" r="0.5" />
+<circle cx="6" cy="1" r="0.5" />
+<circle cx="6" cy="2" r="0.5" />
+<circle cx="6" cy="3" r="0.5" />
+<circle cx="6" cy="4" r="0.5" />
+<circle cx="6" cy="5" r="0.5" />
+<circle cx="7" cy="1" r="0.5" />
+<circle cx="7" cy="2" r="0.5" />
+<circle cx="7" cy="3" r="0.5" />
+<circle cx="7" cy="4" r="0.5" />
+<circle cx="7" cy="5" r="0.5" />
+</g>
+</svg>

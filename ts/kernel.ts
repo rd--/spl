@@ -221,8 +221,8 @@ export class Type {
 	}
 }
 
-/* Note: "package" is a reserved word
-c.f. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar */
+/* NB. "package" is a reserved word
+CF. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar */
 export class Package {
 	category: string;
 	name: string;
@@ -279,8 +279,8 @@ export async function evaluatePackageArrayInSequence(pkgArray: Package[]) {
 	}
 }
 
-// required if methods are added before type definition, this should be cleared up
-// Void is not an ordinary type, it names the place in the method table for no-argument blocks
+// Required if methods are added before type definition. This should all be cleared up.
+// Void is not an ordinary type, it names the place in the method table for no-argument blocks.
 const preinstalledTypes = ['List', 'SmallFloat', 'String', 'Void'];
 
 export class System {
@@ -337,7 +337,7 @@ function methodExists(methodName: MethodName): boolean {
 	return system.methodDictionary.has(methodName);
 }
 
-// c.f. rewrite/makeMethodList
+// CF. rewrite/makeMethodList
 export function addTraitMethod(
 	traitName: TraitName,
 	packageName: PackageName,
@@ -396,7 +396,7 @@ export function traitTypeArray(traitName: TraitName): TypeName[] {
 	return answer;
 }
 
-// c.f. rewrite/makeMethodList
+// CF. rewrite/makeMethodList
 export function extendTraitWithMethod(
 	traitName: TraitName,
 	packageName: PackageName,
@@ -453,14 +453,11 @@ export function applyGenericAt(
 	if (!genericMethod) {
 		throw new Error(`applyGenericAt: ${methodName}: lookup failed`);
 	}
-	if (!isFunction(genericMethod.block)) {
-		throw new Error(`applyGenericAt: ${methodName}: method.block not function`);
-	}
 	return genericMethod.block.apply(null, parameterArray);
 }
 
 // The typeTable for zero arity methods always has exactly one entry, for Void.
-// methodName is for error reporting only.
+// NB. methodName is for error reporting only.
 export function dispatchVoid(
 	methodName: string,
 	typeTable: ByTypeMethodDictionary,
@@ -470,13 +467,10 @@ export function dispatchVoid(
 	if (!voidMethod) {
 		throw new Error(`dispatchVoid: ${methodName}: method lookup failed`);
 	}
-	if (!isFunction(voidMethod.block)) {
-		throw new Error(`dispatchVoid: ${methodName}: block not function`);
-	}
 	return voidMethod.block.apply(null, []);
 }
 
-// methodName is for error reporting only.
+// NB. methodName is for error reporting only.
 export function dispatchByType(
 	methodName: string,
 	typeTable: ByTypeMethodDictionary,
@@ -492,16 +486,13 @@ export function dispatchByType(
 			`dispatchByType: no method ${qualifiedName} for ${receiverType}`,
 		);
 	}
-	if (!isFunction(typeMethod.block)) {
-		throw new Error(`dispatchByType: ${methodName}: block is not function`);
-	}
 	return typeMethod.block.apply(null, parameterArray);
 }
 
 declare var globalThis: { [key: string]: unknown };
 
 // Is existingMethod more specific than method.
-// TODO: This is not a correct test.
+// NB. This is not a correct test, it should be fixed.
 // It should not over-write less specific traits, however it works for stdlib.
 function isMoreSpecific(
 	typeName: TypeName,
@@ -566,7 +557,7 @@ export function addMethodFor(
 		// console.debug(`addMethodFor: generate global: ${prefixedNameWithArity}`);
 		let globalFunctionWithArity = globalThis[prefixedNameWithArity];
 		if (globalFunctionWithArity === undefined) {
-			// Note that the method name is passed for error reporting only
+			// NB. The method name is passed for error reporting only
 			const typeTable = arityTable.get(arity)!;
 			const voidFunction = function () {
 				return dispatchVoid(name, typeTable);
@@ -583,7 +574,7 @@ export function addMethodFor(
 			});
 			Object.defineProperty(globalFunctionWithArity, 'length', {
 				value: arity,
-			}); // c.f. makeCheckedAritySpecificFunction
+			}); // CF. makeCheckedAritySpecificFunction
 			Object.defineProperty(globalFunctionWithArity, 'parameterNames', {
 				value: method.information.parameterNames,
 			});
@@ -604,12 +595,7 @@ export function addMethodFor(
 	return method;
 }
 
-// Is type of type (i.e. meta-type)
-function isTypeType(typeName: TypeName): boolean {
-	return typeName.endsWith('^');
-}
-
-// c.f. rewrite/makeMethodList
+// CF. rewrite/makeMethodList
 export function addMethod(
 	typeName: TypeName,
 	packageName: PackageName,
@@ -619,17 +605,6 @@ export function addMethod(
 	sourceCode: MethodSourceCode,
 ): Method {
 	// console.debug(`addMethod: ${typeName}, ${packageName}, ${methodName}, ${parameterNames}`);
-	const isMeta = isTypeType(typeName);
-	if (isMeta && !typeExists(typeName)) {
-		// Lazily add meta-type entries as required
-		throw new Error('Meta Types Unused');
-		/*
-		system.typeDictionary.set(
-			typeName,
-			new Type(typeName, 'Kernel-System-Meta', ['Object'], [], new Map()),
-		);
-		*/
-	}
 	if (!typeExists(typeName)) {
 		throw new Error(
 			`addMethod: type does not exist: ${typeName}, ${methodName}, ${parameterNames.length}`,
@@ -649,7 +624,7 @@ export function addMethod(
 	return addMethodFor(typeName, method, slOptions.requireTypeExists);
 }
 
-// Allows methods to be added to 'pre-installed' types before the type is added, c.f. load &etc. (& parseInteger ...).
+// Allows methods to be added to 'pre-installed' types before the type is added, CF. load &etc. (& parseInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
 export function addType(
@@ -710,7 +685,7 @@ export function addType(
 	eval?.(`"use strict"; ${allDef}`);
 }
 
-/* spl = one-indexed.  The index is not decremented because in Js '1' - 1 is 0 &etc. */
+/* Spl is one-indexed.  NB. The index is not decremented because in Js '1' - 1 is 0 &etc. */
 export function arrayCheckIndex(
 	anArray: unknown[],
 	anInteger: number | bigint,
@@ -727,17 +702,18 @@ export function initializeLocalPackages(
 		const parts = qualifiedName.split('-');
 		const category = parts[0];
 		const name = parts[1];
-		const url = category + '/' + name + '.sl';
+		const url = `${category}/${name}.sl`;
 		const pkg = new Package(
 			category,
 			name,
 			[],
 			url,
-			'',
+			'', // text
 			true, // preCompiled
-			false,
-		); /* note: requires and text and preCompiled are set after fetch */
-		/* add to dictionary (initialized & fetched, not loaded) */
+			false, // isLoaded
+		);
+		/* NB. Requires text and preCompiled are set after fetch. */
+		/* Add to dictionary (initialized & fetched, not loaded) */
 		system.packageDictionary.set(name, pkg);
 		packageArray.push(pkg);
 	});

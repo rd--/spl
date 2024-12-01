@@ -94,7 +94,7 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 Delete any leading whitespace this creates."
   (spl-trim-leading-whitespace
-   (replace-regexp-in-string "^```\\|~~~" "" str)))
+   (replace-regexp-in-string "^```.*$\\|~~~.*$" "" str)))
 
 (defun spl-delete-doctest-prefixes (str)
   "Remove Doctest prefixes from the string STR if present.

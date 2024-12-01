@@ -112,15 +112,14 @@ ScSynth! : [Object] {
 		self.writeScSynDefFile(
 			'Anonymous',
 			scSynDefFileName
-		).then { :unused |
-			system.systemCommand(
-				'hsc3-dot',
-				[
-					'scsyndef-draw',
-					scSynDefFileName
-				]
-			)
-		}
+		);
+		system.systemCommand(
+			'hsc3-dot',
+			[
+				'scsyndef-draw',
+				scSynDefFileName
+			]
+		)
 	}
 
 	isOutputSignal { :self |
@@ -150,25 +149,24 @@ ScSynth! : [Object] {
 
 	plot { :self :duration |
 		let scSynDefFileName = '/tmp/splPlot.scsyndef';
+		let numberOfChannels = self.isCollection.if {
+			self.size
+		} {
+			1
+		};
 		self.writeScSynDefFile(
 			'Anonymous',
 			scSynDefFileName
-		).then { :unused |
-			let numberOfChannels = self.isCollection.if {
-				self.size
-			} {
-				1
-			};
-			system.systemCommand(
-				'hsc3-plot',
-				[
-					'scsyndef',
-					scSynDefFileName,
-					numberOfChannels.asString,
-					duration.asString
-				]
-			)
-		}
+		);
+		system.systemCommand(
+			'hsc3-plot',
+			[
+				'scsyndef',
+				scSynDefFileName,
+				numberOfChannels.asString,
+				duration.asString
+			]
+		)
 	}
 
 	print { :self |

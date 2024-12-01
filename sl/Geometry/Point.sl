@@ -173,8 +173,12 @@ PointCloud : [Object] { | pointList |
 		(n / d).arcCos
 	}
 
-	Point { :vector |
-		newPoint().initializeSlots(vector)
+	Point { :self |
+		(self.rank > 1).if {
+			self.collect(Point:/1)
+		} {
+			newPoint().initializeSlots(self)
+		}
 	}
 
 	PointCloud { :pointList |

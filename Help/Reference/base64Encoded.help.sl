@@ -6,13 +6,13 @@ Encode _aByteArray_ as a Base64 string.
 The answer is a `String`.
 
 ```
->>> 'Hello World'.ascii.base64Encoded
+>>> 'Hello World'.asciiByteArray.base64Encoded
 'SGVsbG8gV29ybGQ='
 
 >>> [1 .. 20].asByteArray.base64Encoded
 'AQIDBAUGBwgJCgsMDQ4PEBESExQ='
 
->>> '{1, 2, 3, 4, 5}'.ascii.base64Encoded
+>>> '{1, 2, 3, 4, 5}'.asciiByteArray.base64Encoded
 'ezEsIDIsIDMsIDQsIDV9'
 ```
 

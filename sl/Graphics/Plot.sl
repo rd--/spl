@@ -40,17 +40,16 @@ Plot : [Object] { | contents format |
 			}
 		};
 		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile(plotData.asJson).then { :unused |
-			system.systemCommand(
-				'hsc3-plot',
-				[
-					'json',
-					a,
-					'--format=' ++ self.format,
-					fileName
-				] ++ c.collect(asString:/1)
-			)
-		}
+		fileName.writeTextFile(plotData.asJson);
+		system.systemCommand(
+			'hsc3-plot',
+			[
+				'json',
+				a,
+				'--format=' ++ self.format,
+				fileName
+			] ++ c.collect(asString:/1)
+		)
 	}
 
 	draw { :self |

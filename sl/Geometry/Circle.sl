@@ -82,10 +82,14 @@ Circle : [Object] { | center radius |
 
 }
 
-+@Sequence {
++List {
 
 	Circle { :center :radius |
-		newCircle().initializeSlots(center, radius)
+		(center.rank > 1).if {
+			center.withCollect(radius.nest, Circle:/2)
+		} {
+			newCircle().initializeSlots(center, radius)
+		}
 	}
 
 }

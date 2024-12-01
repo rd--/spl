@@ -130,7 +130,7 @@ LineSegment : [Object] { | u v |
 
 }
 
-+@Sequence {
++List {
 
 	HalfLine { :aPoint :aVector |
 		newHalfLine().initializeSlots(aPoint, aVector)
@@ -140,8 +140,12 @@ LineSegment : [Object] { | u v |
 		newInfiniteLine().initializeSlots(aPoint, aVector)
 	}
 
-	Line { :aMatrix |
-		newLine().initializeSlots(aMatrix)
+	Line { :self |
+		(self.rank > 2).if {
+			self.collect(Line:/1)
+		} {
+			newLine().initializeSlots(self)
+		}
 	}
 
 	LineSegment { :u :v |

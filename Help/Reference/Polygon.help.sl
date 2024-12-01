@@ -41,6 +41,45 @@ The Svg description of a polygon:
 '<polygon points="1,0 1,1 0,0" />'
 ```
 
+Regular hexagonal tiling:
+
+~~~spl svg=A
+let h = { :x :y |
+	{ :k |
+		[
+			(2.pi * k / 6).cos + x,
+			(2.pi * k / 6).sin + y
+		]
+	}.table(1:6).Polygon
+};
+{ :i :j |
+	h(
+		3 * i + (3 * (-1 ^ j + 1) / 4),
+		3.sqrt / 2 * j
+	)
+}.table(1:5, 1:10).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Polygon-A.svg)
+
+Digital petals:
+
+~~~spl svg=B
+let d = 2.pi / 12;
+{ :r :q |
+	let dx = { :x |
+		d * (q + x)
+	};
+	[
+		(8 - r) * [-1.dx.cos, -1.dx.sin],
+		(8 - r) * [1.dx.cos, 1.dx.sin],
+		(10 - r) * [0.dx.cos, 0.dx.sin]
+	].Polygon
+}.table(1:6, 1:12).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Polygon-B.svg)
+
 * * *
 
 See also: area, centroid, Circle, Rectangle, Triangle

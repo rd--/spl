@@ -42,9 +42,66 @@ The Svg description of a circle:
 '<circle cx="0" cy="0" r="1" />'
 ```
 
+Circles can be elements of `LineDrawing`s.
+Specify radii:
+
+~~~spl svg=A
+Circle([0 0; 0 0; 0 0], [1 3 5]).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-A.svg)
+
+Specify centers:
+
+~~~spl svg=B
+Circle([0 0; 1 1; 2 2], [1 1 1]).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-B.svg)
+
+The _Seed of Life_:
+
+~~~spl svg=C
+[
+	Circle([0 0], 1),
+	{ :i |
+		let x = (2.pi * i / 6);
+		Circle([x.cos x.sin], 1)
+	}.table(1:6)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-C.svg)
+
+The square packing of circles:
+
+~~~spl svg=D
+{ :i :j |
+	Circle([i j], 0.5)
+}.table(1:7, 1:5).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-D.svg)
+
+The hexagonal packing of circles:
+
+~~~spl svg=E
+{ :i :j |
+	Circle(
+		[
+			i + ((-1 ^ j + 1) / 4),
+			3.sqrt / 2 * j
+		],
+		0.5
+	)
+}.table(1:7, 1:5).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-E.svg)
+
 * * *
 
-See also: arcLength, area, centroid, perimeter, Polygon, Rectangle, r, Triangle, x, y
+See also: arcLength, area, centroid, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, x, y
 
 References:
 _Mathematica_

@@ -3092,6 +3092,20 @@
 
 }
 
+/* NB. CopyableSequence */
++[List, String] {
+
+	chunksOf { :self :chunkSize |
+		let clumpCount = (self.size / chunkSize).ceiling;
+		0.to(clumpCount - 1).collect { :i |
+			let startIndex = i * chunkSize + 1;
+			let stopIndex = (startIndex + chunkSize - 1).min(self.size);
+			self.copyFromTo(startIndex, stopIndex)
+		}
+	}
+
+}
+
 +@Object {
 
 	isSequence { :self |

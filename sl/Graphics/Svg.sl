@@ -27,8 +27,8 @@ Svg : [Object] { | contents |
 
 	asSvgViewBox { :self :margin |
 		[
-			self.lowerLeft.x - margin,
-			self.lowerLeft.y - margin,
+			self.lowerLeft[1] - margin,
+			self.lowerLeft[2] - margin,
 			self.width + (margin * 2),
 			self.height + (margin * 2)
 		].collect(asString:/1).unwords

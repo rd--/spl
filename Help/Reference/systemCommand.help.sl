@@ -9,7 +9,8 @@ Test that a file exists:
 
 ~~~
 system.systemCommand(
-	'test', ['-f', '/etc/passwd']
+	'test',
+	['-f', '/etc/passwd']
 ).then { :result |
 	(result['exitCode'] = 0).postLine
 }
@@ -19,7 +20,8 @@ Count the words in a file:
 
 ~~~
 system.systemCommand(
-	'wc', ['-w', '/etc/passwd']
+	'wc',
+	['-w', '/etc/passwd']
 ).then { :result |
 	result['outputText'].postLine
 }

@@ -32,12 +32,22 @@
 		<primitive: return host.operatingSystem();>
 	}
 
+	primitiveSystemCommand { :self :commandName :arguments |
+		<primitive: return host.systemCommand(_commandName, _arguments);>
+	}
+
 	scriptArguments { :self |
 		<primitive: return Deno.args;>
 	}
 
 	systemCommand { :self :commandName :arguments |
-		<primitive: return host.systemCommand(_commandName, _arguments);>
+		commandName.isString.ifFalse {
+			self.error('systemCommand: invalid command name' ++ commandName)
+		};
+		arguments.isList.ifFalse {
+			self.error('systemCommand: invalid arguments' ++ arguements)
+		};
+		self.primitiveSystemCommand(commandName, arguments)
 	}
 
 }

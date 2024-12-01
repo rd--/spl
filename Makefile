@@ -15,7 +15,7 @@ remote-dist:
 	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
 
 tags:
-	etags --regex=@emacs/spl.tag sl/*/*.sl
+	etags --regex=@config/spl.tag sl/*/*.sl
 
 indent:
 	spl-indent sl/*/*.sl Help/Reference/*.sl Program/SuperCollider/Graph/*.sl Program/SuperCollider/Ugen/*.sl

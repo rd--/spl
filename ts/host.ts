@@ -96,11 +96,30 @@ export function removeFileSync(path: string | URL): void {
 	return Deno.removeSync(path);
 }
 
+interface CommandResult {
+	exitCode: number;
+	outputText: string;
+	errorText: string;
+}
+
 export function systemCommand(
 	commandName: string,
 	argumentArray: string[],
-) {
-	// console.debug('systemCommand', commandName, argumentArray);
+): CommandResult {
+	const command = new Deno.Command(commandName, { args: argumentArray });
+	const result = command.outputSync();
+	return {
+		exitCode: result.code,
+		outputText: new TextDecoder().decode(result.stdout),
+		errorText: new TextDecoder().decode(result.stderr),
+	};
+}
+
+export function systemCommandAsync(
+	commandName: string,
+	argumentArray: string[],
+): Promise<CommandResult> {
+	// console.debug('systemCommandAsync', commandName, argumentArray);
 	try {
 		const command = new Deno.Command(commandName, { args: argumentArray });
 		return command.output().then(
@@ -114,7 +133,7 @@ export function systemCommand(
 		)
 	} catch (err) {
 		return Promise.reject(
-			new Error(`systemCommand: ${err}`)
+			new Error(`systemCommandAsync: ${err}`)
 		);
 	}
 }
