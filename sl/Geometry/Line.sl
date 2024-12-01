@@ -24,7 +24,23 @@ Line : [Object] { | vertices |
 		answer
 	}
 
-	asSvg { :self |
+	at { :self :index |
+		self.vertices[index]
+	}
+
+	boundingBox { :self |
+		self.vertices.coordinateBoundingBox
+	}
+
+	dimensions { :self |
+		1
+	}
+
+	embeddingDimension { :self |
+		self.vertices.first.size
+	}
+
+	forSvg { :self :scaleFactor |
 		(self.vertices.size = 2).if {
 			let precision = 2;
 			let [p1, p2] = self.vertices;
@@ -41,22 +57,6 @@ Line : [Object] { | vertices |
 				self.vertices.asSvgPointList
 			])
 		}
-	}
-
-	at { :self :index |
-		self.vertices[index]
-	}
-
-	boundingBox { :self |
-		self.vertices.coordinateBoundingBox
-	}
-
-	dimensions { :self |
-		1
-	}
-
-	embeddingDimension { :self |
-		self.vertices.first.size
 	}
 
 	midpoint { :self |

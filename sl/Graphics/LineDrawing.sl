@@ -15,8 +15,8 @@ LineDrawing : [Object] { | contents |
 		let boundingBox = self.boundingBox.asRectangle;
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
-		let items = self.contents.collect(asSvg:/1);
-		let strokeWith = (1 / scaleFactor);
+		let items = self.contents.collect { :each | each.forSvg(scaleFactor) };
+		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([

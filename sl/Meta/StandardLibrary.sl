@@ -36,6 +36,7 @@
 
 	/* Geometry */
 	'Angle'
+	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
 	'Length'

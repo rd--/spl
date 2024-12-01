@@ -1,6 +1,13 @@
 Writing : [Object] { | contents lowerLeft |
 
-	asSvg { :self |
+	boundingBox { :self |
+		[
+			self.lowerLeft - [10 10],
+			self.lowerLeft + [self.contents.size * 10, 20]
+		]
+	}
+
+	forSvg { :self :scaleFactor |
 		let precision = 2;
 		let [x, y] = self.lowerLeft;
 		[
@@ -11,13 +18,6 @@ Writing : [Object] { | contents lowerLeft |
 				self.contents
 			]),
 			'</g>'
-		]
-	}
-
-	boundingBox { :self |
-		[
-			self.lowerLeft - [10 10],
-			self.lowerLeft + [self.contents.size * 10, 20]
 		]
 	}
 

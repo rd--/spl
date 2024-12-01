@@ -40,16 +40,6 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		].join('')
 	}
 
-	asSvg { :self |
-		let precision = 2;
-		'<rect x="%" y="%" width="%" height="%" />'.format([
-			self.x.printStringToFixed(precision),
-			self.y.printStringToFixed(precision),
-			self.width.printStringToFixed(precision),
-			self.height.printStringToFixed(precision)
-		])
-	}
-
 	boundingBox { :self |
 		[
 			self.lowerLeft,
@@ -104,6 +94,16 @@ Rectangle : [Object] { | lowerLeft upperRight |
 
 	extent { :self |
 		self.upperRight - self.lowerLeft
+	}
+
+	forSvg { :self :scaleFactor |
+		let precision = 2;
+		'<rect x="%" y="%" width="%" height="%" />'.format([
+			self.x.printStringToFixed(precision),
+			self.y.printStringToFixed(precision),
+			self.width.printStringToFixed(precision),
+			self.height.printStringToFixed(precision)
+		])
 	}
 
 	height { :self |

@@ -18,16 +18,16 @@ Triangle : [Object] { | vertices |
 		self.vertices.Polygon
 	}
 
-	asSvg { :self |
-		self.asPolygon.asSvg
-	}
-
 	boundingBox { :self |
 		self.vertices.coordinateBoundingBox
 	}
 
 	centroid { :self |
 		self.vertices.polygonCentroid
+	}
+
+	forSvg { :self :scaleFactor |
+		self.asPolygon.forSvg(scaleFactor)
 	}
 
 	interiorAngles { :self |

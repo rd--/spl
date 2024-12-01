@@ -64,6 +64,7 @@
 	'Collection-WeakMap'
 	'Exception-Error'
 	'Geometry-Angle'
+	'Geometry-BezierCurve'
 	'Geometry-CartesianCoordinates'
 	'Geometry-Circle'
 	'Geometry-CylindricalCoordinates'

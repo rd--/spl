@@ -4,12 +4,6 @@ Polygon : [Object] { | vertices |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
-	asSvg { :self |
-		'<polygon points="%" />'.format([
-			self.vertices.asSvgPointList
-		])
-	}
-
 	arcLength { :self |
 		self.vertices.polygonArcLength
 	}
@@ -33,6 +27,12 @@ Polygon : [Object] { | vertices |
 
 	centroid { :self |
 		self.vertices.polygonCentroid
+	}
+
+	forSvg { :self :scaleFactor |
+		'<polygon points="%" />'.format([
+			self.vertices.asSvgPointList
+		])
 	}
 
 	interiorAngles { :self |
@@ -60,7 +60,7 @@ Polygon : [Object] { | vertices |
 +List {
 
 	Polygon { :self |
-		(self.rank > 2).if {
+		(self.depth > 3).if {
 			self.collect(Polygon:/1)
 		} {
 			newPolygon().initializeSlots(self)

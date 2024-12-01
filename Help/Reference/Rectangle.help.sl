@@ -86,7 +86,7 @@ let rng = Sfc32(314920);
 
 * * *
 
-See also: asRectangle, Circle, Polygon, Triangle
+See also: asRectangle, Circle, Line, Point, Polygon, Triangle
 
 References:
 _Mathematica_

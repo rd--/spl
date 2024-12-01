@@ -91,9 +91,29 @@ Sfc32(147982)
 
 ![](sw/spl/Help/Image/Polygon-C.svg)
 
+The outline of a glyph:
+
+~~~spl svg=E
+[
+	2 3;
+	0.8125 0.625;
+	0.9375 0.625;
+	1.3125 1.375;
+	2.4375 1.375;
+	2.8125 0.625;
+	3.1875 0.625
+	:;
+	1.875 2.5;
+	1.375 1.5;
+	2.375 1.5
+].Polygon.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Polygon-D.svg)
+
 * * *
 
-See also: area, centroid, Circle, Rectangle, Triangle
+See also: area, centroid, BezierCurve, Circle, Point, PointCloud, Rectangle, Triangle
 
 References:
 _Mathematica_

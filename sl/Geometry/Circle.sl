@@ -8,15 +8,6 @@ Circle : [Object] { | center radius |
 		}
 	}
 
-	asSvg { :self |
-		let precision = 2;
-		'<circle cx="%" cy="%" r="%" />'.format([
-			self.center[1].printStringToFixed(precision),
-			self.center[2].printStringToFixed(precision),
-			self.radius.printStringToFixed(precision)
-		])
-	}
-
 	arcLength { :self |
 		self.circumference
 	}
@@ -42,6 +33,15 @@ Circle : [Object] { | center radius |
 
 	diameter { :self |
 		self.radius * 2
+	}
+
+	forSvg { :self :scaleFactor |
+		let precision = 2;
+		'<circle cx="%" cy="%" r="%" />'.format([
+			self.center[1].printStringToFixed(precision),
+			self.center[2].printStringToFixed(precision),
+			self.radius.printStringToFixed(precision)
+		])
 	}
 
 	perimeter { :self |
@@ -102,7 +102,12 @@ Ellipse : [Object] { | center radii |
 		pi * rx * ry
 	}
 
-	asSvg { :self |
+	eccentricity { :self |
+		let [a, b] = self.radii;
+		(1 - (b / a).squared).sqrt
+	}
+
+	forSvg { :self :scaleFactor |
 		let precision = 2;
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
@@ -112,11 +117,6 @@ Ellipse : [Object] { | center radii |
 			rx.printStringToFixed(precision),
 			ry.printStringToFixed(precision)
 		])
-	}
-
-	eccentricity { :self |
-		let [a, b] = self.radii;
-		(1 - (b / a).squared).sqrt
 	}
 
 	linearEccentricity { :self |

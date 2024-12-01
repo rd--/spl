@@ -12,20 +12,34 @@ Compute the `arcLength` of a line:
 2.sqrt + 2
 ```
 
-Compute the `midpoint` of a line:
+Compute the `midpoint` of a line in two dimensions:
 
 ```
 >>> [0 0; 1 1; 1 0; 2 0].Line.midpoint
 [1, 2.sqrt / 2]
+```
 
->>> [0 0 0; 1 1 1; 1 0 1; 0 0 1].Line.midpoint
+In three dimensions:
+
+```
+>>> [
+>>> 	0 0 0;
+>>> 	1 1 1;
+>>> 	1 0 1;
+>>> 	0 0 1
+>>> ].Line.midpoint
 [1, 3.sqrt / 2, 1]
 ```
 
 The `arcLength` of a `Line` in three-dimensions:
 
 ```
->>> [0 0 0; 1 1 1; 0 1 1; 0 1 0].Line.arcLength
+>>> [
+>>> 	0 0 0;
+>>> 	1 1 1;
+>>> 	0 1 1;
+>>> 	0 1 0
+>>> ].Line.arcLength
 (3.sqrt + 2)
 ```
 
@@ -43,8 +57,57 @@ The Svg description of a polyline:
 '<polyline points="0,0 1,1 1,0" />'
 ```
 
-The ternary form is a Line generator.
-Generates a line from the start value to the end value.
+A line drawing of a complete graph with eleven nodes:
+
+~~~spl svg=A
+[0, 2.pi / 11 .. 2.pi].collect { :t |
+	[t.cos, t.sin]
+}.tuples(2).Line.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-A.svg)
+
+A vector field:
+
+~~~spl svg=B
+{ :x :y |
+	[
+		[x, y],
+		[x, y] + ([y, x] / 5) - 1
+	].Line
+}.table(0:10, 0:10).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-B.svg)
+
+A random walk on a regular lattice:
+
+~~~spl svg=C
+let r = Sfc32(678215);
+let m = [-1 0; 1 0; 0 1; 0 -1];
+let p = m.atRandom(1000, r).accumulate;
+p.Line.nest.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-C.svg)
+
+Moiré pattern:
+
+~~~spl svg=D
+(0, 0.02 .. 1).collect { :x |
+	[
+		[[x, 0], [1 - x, 1]],
+		[[0, x], [1, 1 - x]]
+	]
+}.Line.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-D.svg)
+
+![](sw/spl/Help/Image/Line-E.svg)
+
+The ternary form of `Line` is a unit generator.
+`Line` generates a line from the start value to the end value.
 
 - start: starting value
 - end: ending value
@@ -59,7 +122,14 @@ SinOsc(Line(200, 17000, 10), 0) * 0.1
 Diverging frequencies:
 
 ```
-SinOsc(Line([900 1100], [200 1300], [9 17]), 0) * 0.1
+SinOsc(
+	Line(
+		[900 1100],
+		[200 1300],
+		[9 17]
+	),
+	0
+) * 0.1
 ```
 
 `XLine` is usually better than `Line` for frequency:

@@ -4,18 +4,6 @@ Point : [Object] { | vector |
 		self.vector
 	}
 
-	asSvg { :self |
-		let precision = 2;
-		self.isPlanar.if {
-			'<circle cx="%" cy="%" r="2" fill="black" stroke="none" />'.format([
-				self.vector[1].printStringToFixed(precision),
-				self.vector[2].printStringToFixed(precision)
-			])
-		} {
-			self.error('asSvg: not planar')
-		}
-	}
-
 	at { :self :index |
 		self.vector[index]
 	}
@@ -30,6 +18,19 @@ Point : [Object] { | vector |
 
 	embeddingDimension { :self |
 		self.vector.size
+	}
+
+	forSvg { :self :scaleFactor |
+		let precision = 2;
+		self.isPlanar.if {
+			'<circle cx="%" cy="%" r="%" />'.format([
+				self.vector[1].printStringToFixed(precision),
+				self.vector[2].printStringToFixed(precision),
+				(1 / scaleFactor).printStringToFixed(precision)
+			])
+		} {
+			self.error('forSvg: not planar')
+		}
 	}
 
 	isPlanar { :self |
@@ -74,12 +75,14 @@ Point : [Object] { | vector |
 
 PointCloud : [Object] { | pointList |
 
-	asSvg { :self |
-		self.pointList.collect(asSvg:/1).unlines
-	}
-
 	boundingBox { :self |
 		self.pointList.coordinateBoundingBox
+	}
+
+	forSvg { :self :scaleFactor |
+		self.pointList.Point.collect { :each |
+			each.forSvg(scaleFactor)
+		}.unlines
 	}
 
 }

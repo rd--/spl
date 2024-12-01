@@ -1,11 +1,12 @@
 # Geometry Types
 
+- `Point`, `PointCloud`
 - `Line`, `InfiniteLine`, `HalfLine`
-- `InfinitePlane`, `HalfPlane`
-- `Point`
+- `BezierCurve`
 - `Rectangle`, `Parallelogram`
 - `Polygon`, `RegularPolygon`
 - `Circle`, `Disk`, `Ellipse`
+- `InfinitePlane`, `HalfPlane`
 
 Two-dimensional (_planar_) coordinate types:
 

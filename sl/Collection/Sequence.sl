@@ -3095,13 +3095,17 @@
 /* NB. CopyableSequence */
 +[List, String] {
 
-	chunksOf { :self :chunkSize |
-		let clumpCount = (self.size / chunkSize).ceiling;
-		0.to(clumpCount - 1).collect { :i |
-			let startIndex = i * chunkSize + 1;
+	chunksOfFrom { :self :chunkSize :startingAt |
+		let chunkCount = (self.size - startingAt + 1 / chunkSize).ceiling;
+		0.to(chunkCount - 1).collect { :i |
+			let startIndex = i * chunkSize + startingAt;
 			let stopIndex = (startIndex + chunkSize - 1).min(self.size);
 			self.copyFromTo(startIndex, stopIndex)
 		}
+	}
+
+	chunksOf { :self :chunkSize |
+		self.chunksOfFrom(chunkSize, 1)
 	}
 
 }
