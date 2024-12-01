@@ -26,6 +26,10 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		}
 	}
 
+	asPolygon { :self |
+		self.vertices.Polygon
+	}
+
 	asString { :self :aBlock:/1 |
 		[
 			'Rectangle(',
@@ -37,11 +41,12 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	asSvg { :self |
+		let precision = 2;
 		'<rect x="%" y="%" width="%" height="%" />'.format([
-			self.x,
-			self.y,
-			self.width,
-			self.height
+			self.x.printStringToFixed(precision),
+			self.y.printStringToFixed(precision),
+			self.width.printStringToFixed(precision),
+			self.height.printStringToFixed(precision)
 		])
 	}
 
@@ -309,7 +314,11 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	Rectangle { :lowerLeft :upperRight |
-		newRectangle().initializeSlots(lowerLeft, upperRight)
+		(lowerLeft.rank > 1).if {
+			lowerLeft.withCollect(upperRight.nest, Rectangle:/2)
+		} {
+			newRectangle().initializeSlots(lowerLeft, upperRight)
+		}
 	}
 
 	RectangleCenterExtent { :centerPoint :extentPoint |

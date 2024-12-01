@@ -9,10 +9,11 @@ Circle : [Object] { | center radius |
 	}
 
 	asSvg { :self |
+		let precision = 2;
 		'<circle cx="%" cy="%" r="%" />'.format([
-			self.center[1],
-			self.center[2],
-			self.radius
+			self.center[1].printStringToFixed(precision),
+			self.center[2].printStringToFixed(precision),
+			self.radius.printStringToFixed(precision)
 		])
 	}
 
@@ -102,10 +103,14 @@ Ellipse : [Object] { | center radii |
 	}
 
 	asSvg { :self |
+		let precision = 2;
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
 		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
-			cx cy rx ry
+			cx.printStringToFixed(precision),
+			cy.printStringToFixed(precision),
+			rx.printStringToFixed(precision),
+			ry.printStringToFixed(precision)
 		])
 	}
 

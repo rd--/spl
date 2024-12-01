@@ -46,6 +46,44 @@ The Svg description of a rectangle:
 '<rect x="0" y="0" width="1" height="1" />'
 ```
 
+Two squares:
+
+~~~spl svg=A
+Rectangle(
+	[0 0; 0.5 0.5],
+	[1 1; 1.5 1.5]
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Rectangle-A.svg)
+
+Two rectangles, one rotated:
+
+~~~spl svg=B
+let r = Rectangle([0 0], [1.goldenRatio 1]);
+[
+	r,
+	r.asPolygon.rotated(pi / 3)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Rectangle-B.svg)
+
+A sequence of nine randomly displaced squares:
+
+~~~spl svg=C
+let rng = Sfc32(314920);
+1:9.collect { :x |
+	let y = rng.next * 4;
+	Rectangle(
+		[x, y],
+		[x + 1, y + 1]
+	).asPolygon.rotated(rng.next * pi)
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Rectangle-C.svg)
+
 * * *
 
 See also: asRectangle, Circle, Polygon, Triangle

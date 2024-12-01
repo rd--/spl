@@ -61,6 +61,6 @@ At `Complex`:
 
 * * *
 
-See also: asString, printString, storeString
+See also: asString, printString, printStringToFixed, printStringToPrecision, storeString
 
 Categories: Printing

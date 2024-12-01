@@ -535,6 +535,32 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	printStringToAtMostPlaces { :self :anInteger |
+		self.isInteger.if {
+			self.printString
+		} {
+			self.printStringToFixed(anInteger)
+		}
+	}
+
+	printStringToFixed { :self :anInteger |
+		<primitive:
+		if(sl.isSmallFloatInteger(_anInteger)) {
+			return _self.toFixed(_anInteger);
+		}
+		>
+		'SmallFloat>>printStringToFixed: not integer precision'.error
+	}
+
+	printStringToPrecision { :self :anInteger |
+		<primitive:
+		if(sl.isSmallFloatInteger(_anInteger)) {
+			return _self.toPrecision(_anInteger);
+		}
+		>
+		'SmallFloat>>printStringToPrecision: not integer precision'.error
+	}
+
 	raisedToSmallFloat { :self :aSmallFloat |
 		<primitive:
 		if(sl.isSmallFloat(_aSmallFloat)) {

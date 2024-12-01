@@ -1,39 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="140" height="100" viewBox="5 5 150 110">
-<g fill="none" stroke="black" stroke-width="0.05%" transform="translate(0, 120) scale(20, -20)">
-<circle cx="1" cy="1" r="0.5" />
-<circle cx="1" cy="2" r="0.5" />
-<circle cx="1" cy="3" r="0.5" />
-<circle cx="1" cy="4" r="0.5" />
-<circle cx="1" cy="5" r="0.5" />
-<circle cx="2" cy="1" r="0.5" />
-<circle cx="2" cy="2" r="0.5" />
-<circle cx="2" cy="3" r="0.5" />
-<circle cx="2" cy="4" r="0.5" />
-<circle cx="2" cy="5" r="0.5" />
-<circle cx="3" cy="1" r="0.5" />
-<circle cx="3" cy="2" r="0.5" />
-<circle cx="3" cy="3" r="0.5" />
-<circle cx="3" cy="4" r="0.5" />
-<circle cx="3" cy="5" r="0.5" />
-<circle cx="4" cy="1" r="0.5" />
-<circle cx="4" cy="2" r="0.5" />
-<circle cx="4" cy="3" r="0.5" />
-<circle cx="4" cy="4" r="0.5" />
-<circle cx="4" cy="5" r="0.5" />
-<circle cx="5" cy="1" r="0.5" />
-<circle cx="5" cy="2" r="0.5" />
-<circle cx="5" cy="3" r="0.5" />
-<circle cx="5" cy="4" r="0.5" />
-<circle cx="5" cy="5" r="0.5" />
-<circle cx="6" cy="1" r="0.5" />
-<circle cx="6" cy="2" r="0.5" />
-<circle cx="6" cy="3" r="0.5" />
-<circle cx="6" cy="4" r="0.5" />
-<circle cx="6" cy="5" r="0.5" />
-<circle cx="7" cy="1" r="0.5" />
-<circle cx="7" cy="2" r="0.5" />
-<circle cx="7" cy="3" r="0.5" />
-<circle cx="7" cy="4" r="0.5" />
-<circle cx="7" cy="5" r="0.5" />
+<svg xmlns="http://www.w3.org/2000/svg" width="140.00" height="100.00" viewBox="5.00 5.00 150.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.05%" transform="translate(0, 120.00) scale(20.00, -20.00)">
+<circle cx="1.00" cy="1.00" r="0.50" />
+<circle cx="1.00" cy="2.00" r="0.50" />
+<circle cx="1.00" cy="3.00" r="0.50" />
+<circle cx="1.00" cy="4.00" r="0.50" />
+<circle cx="1.00" cy="5.00" r="0.50" />
+<circle cx="2.00" cy="1.00" r="0.50" />
+<circle cx="2.00" cy="2.00" r="0.50" />
+<circle cx="2.00" cy="3.00" r="0.50" />
+<circle cx="2.00" cy="4.00" r="0.50" />
+<circle cx="2.00" cy="5.00" r="0.50" />
+<circle cx="3.00" cy="1.00" r="0.50" />
+<circle cx="3.00" cy="2.00" r="0.50" />
+<circle cx="3.00" cy="3.00" r="0.50" />
+<circle cx="3.00" cy="4.00" r="0.50" />
+<circle cx="3.00" cy="5.00" r="0.50" />
+<circle cx="4.00" cy="1.00" r="0.50" />
+<circle cx="4.00" cy="2.00" r="0.50" />
+<circle cx="4.00" cy="3.00" r="0.50" />
+<circle cx="4.00" cy="4.00" r="0.50" />
+<circle cx="4.00" cy="5.00" r="0.50" />
+<circle cx="5.00" cy="1.00" r="0.50" />
+<circle cx="5.00" cy="2.00" r="0.50" />
+<circle cx="5.00" cy="3.00" r="0.50" />
+<circle cx="5.00" cy="4.00" r="0.50" />
+<circle cx="5.00" cy="5.00" r="0.50" />
+<circle cx="6.00" cy="1.00" r="0.50" />
+<circle cx="6.00" cy="2.00" r="0.50" />
+<circle cx="6.00" cy="3.00" r="0.50" />
+<circle cx="6.00" cy="4.00" r="0.50" />
+<circle cx="6.00" cy="5.00" r="0.50" />
+<circle cx="7.00" cy="1.00" r="0.50" />
+<circle cx="7.00" cy="2.00" r="0.50" />
+<circle cx="7.00" cy="3.00" r="0.50" />
+<circle cx="7.00" cy="4.00" r="0.50" />
+<circle cx="7.00" cy="5.00" r="0.50" />
 </g>
 </svg>

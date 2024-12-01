@@ -3,7 +3,7 @@
 - _LineDrawing(aList)_
 
 A `LineDrawing` is a `Type` representing a line drawing.
-The items in the drawing are 
+The items in the drawing are geometric entities.
 
 
 A drawing consisting of two `Circle`s,

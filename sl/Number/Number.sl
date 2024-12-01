@@ -701,6 +701,11 @@
 		(self / quantum).rounded * quantum
 	}
 
+	roundToPrecision { :self :precision |
+		let scalar = 10 ^ precision;
+		(self * scalar).rounded / scalar
+	}
+
 	roundTowardsZero { :self |
 		self.roundToTowardsZero(1)
 	}

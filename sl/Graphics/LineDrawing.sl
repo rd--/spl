@@ -10,23 +10,26 @@ LineDrawing : [Object] { | contents |
 	}
 
 	asSvg { :self |
+		let precision = 2;
 		let height = 100;
 		let boundingBox = self.boundingBox.asRectangle;
-		let scaleFactor = (height / boundingBox.height).roundTo(0.01);
+		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
 		let items = self.contents.collect(asSvg:/1);
+		let strokeWith = (1 / scaleFactor);
+		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
 				'http://www.w3.org/2000/svg',
-				scaledBoundingBox.width,
-				scaledBoundingBox.height,
+				scaledBoundingBox.width.printStringToFixed(precision),
+				scaledBoundingBox.height.printStringToFixed(precision),
 				scaledBoundingBox.asSvgViewBox(5)
 			]),
 			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
-				(1 / scaleFactor), '%',
-				scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]),
-				scaleFactor,
-				scaleFactor.negated
+				strokeWith.printStringToFixed(precision), '%',
+				yTranslation.printStringToFixed(precision),
+				scaleFactor.printStringToFixed(precision),
+				scaleFactor.negated.printStringToFixed(precision)
 			]),
 			items,
 			'</g>',

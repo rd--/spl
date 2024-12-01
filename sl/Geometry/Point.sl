@@ -5,10 +5,11 @@ Point : [Object] { | vector |
 	}
 
 	asSvg { :self |
+		let precision = 2;
 		self.isPlanar.if {
 			'<circle cx="%" cy="%" r="2" fill="black" stroke="none" />'.format([
-				self.vector[1],
-				self.vector[2]
+				self.vector[1].printStringToFixed(precision),
+				self.vector[2].printStringToFixed(precision)
 			])
 		} {
 			self.error('asSvg: not planar')

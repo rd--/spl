@@ -4,12 +4,15 @@
 
 `Writing` is a `Type` holding a `String` with associated coordinates.
 
-An Svg decription of writing:
+Writing can be part of a line drawing:
 
-```
->>> Writing('Writing', [0, 0]).asSvg
-'<text x="0" y="0" fill="black" stroke="none">Writing</text>'
-```
+~~~spl svg=A
+let w = Writing('Writing', [0, 0]);
+let r = w.boundingBox.asRectangle;
+[w, r].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Writing-A.svg)
 
 Rationale: `Text` is a primitive type.
 It could be renamed safely, and this object called `Text`.

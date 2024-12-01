@@ -26,11 +26,15 @@ Line : [Object] { | vertices |
 
 	asSvg { :self |
 		(self.vertices.size = 2).if {
+			let precision = 2;
 			let [p1, p2] = self.vertices;
 			let [x1, y1] = p1;
 			let [x2, y2] = p2;
 			'<line x1="%" y1="%" x2="%" y2="%" />'.format([
-				x1 y1 x2 y2
+				x1.printStringToFixed(precision),
+				y1.printStringToFixed(precision),
+				x2.printStringToFixed(precision),
+				y2.printStringToFixed(precision)
 			])
 		} {
 			'<polyline points="%" />'.format([

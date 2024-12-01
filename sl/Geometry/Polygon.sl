@@ -39,6 +39,14 @@ Polygon : [Object] { | vertices |
 		self.vertices.polygonInteriorAngles
 	}
 
+	rotated { :self :theta |
+		let matrix = theta.rotationMatrix;
+		let center = self.centroid;
+		self.vertices.collect { :each |
+			matrix.dot(each - center) + center
+		}.Polygon
+	}
+
 	size { :self |
 		self.vertices.size
 	}
@@ -52,7 +60,11 @@ Polygon : [Object] { | vertices |
 +List {
 
 	Polygon { :self |
-		newPolygon().initializeSlots(self)
+		(self.rank > 2).if {
+			self.collect(Polygon:/1)
+		} {
+			newPolygon().initializeSlots(self)
+		}
 	}
 
 	polygonArcLength { :p |

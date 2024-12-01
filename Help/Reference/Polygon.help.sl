@@ -80,6 +80,17 @@ let d = 2.pi / 12;
 
 ![](sw/spl/Help/Image/Polygon-B.svg)
 
+A dozen random triangles:
+
+~~~spl svg=C
+Sfc32(147982)
+.randomReal(1, 100, [12 3 2])
+.Polygon
+.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Polygon-C.svg)
+
 * * *
 
 See also: area, centroid, Circle, Rectangle, Triangle
