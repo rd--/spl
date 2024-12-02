@@ -72,6 +72,16 @@ Signs are discarded:
 21
 ```
 
+For `zero` and `one`, `lcm` is analogous to logical and:
+
+```
+>>> lcm:/2.table([0 1], [0 1])
+[0 0; 0 1]
+
+>>> &&.table([false true], [false true])
+[false false; false true]
+```
+
 Plot the least common multiple for a number with 12:
 
 ~~~
@@ -80,7 +90,7 @@ Plot the least common multiple for a number with 12:
 
 * * *
 
-See also: gcd, Gcd, Lcm
+See also: &&, gcd, Gcd, Lcm
 
 References:
 _Apl_

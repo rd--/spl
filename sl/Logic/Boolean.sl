@@ -128,6 +128,14 @@ Boolean! : [Object, Json] {
 
 +@Integer {
 
+	&& { :self :aBoole |
+		self.assertIsBoole.lcm(aBoole.assertIsBoole)
+	}
+
+	|| { :self :aBoole |
+		self.assertIsBoole.gcd(aBoole.assertIsBoole)
+	}
+
 	asBoolean { :self |
 		(self = 0).if {
 			false
@@ -135,9 +143,18 @@ Boolean! : [Object, Json] {
 			(self = 1).if {
 				true
 			} {
-				'@Integer>>asBoolean: not 0 or 1'.error
+				self.error('asBoolean: not 0 or 1')
 			}
 		}
 	}
+
+	assertIsBoole { :self |
+		(self = 0 | { self = 1 }).if {
+			self
+		} {
+			self.error('assertIsBoole: not 0 or 1')
+		}
+	}
+
 
 }

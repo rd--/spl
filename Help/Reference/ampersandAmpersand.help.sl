@@ -38,11 +38,18 @@ Combine assertions with `&&`:
 true
 ```
 
+`&&` is defined for the integers `zero` and `one`, which are the `boole` of `false` and `true`:
+
+```
+>>> &&.table([0 1], [0 1])
+[0 0; 0 1]
+```
+
 The name of this operator is `ampersandAmpersand`.
 
 * * *
 
-See also: &, |, ||
+See also: &, |, ||, lcm
 
 References:
 _Apl_

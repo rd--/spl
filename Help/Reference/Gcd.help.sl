@@ -39,7 +39,7 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Lcm
+See also: ||, gcd, lcm, Lcm
 
 References:
 _Apl_

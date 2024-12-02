@@ -85,9 +85,19 @@ Plot the gcd for a number with 12:
 1:100.gcd(12).linePlot
 ~~~
 
+For `zero` and `one`, `gcd` is analogous to logical or:
+
+```
+>>> gcd:/2.table([0 1], [0 1])
+[0 1; 1 1]
+
+>>> ||.table([false true], [false true])
+[false true; true true]
+```
+
 * * *
 
-See also: euclideanAlgorithm, extendedGcd, lcm
+See also: ||, euclideanAlgorithm, extendedGcd, Gcd, lcm
 
 References:
 _Apl_

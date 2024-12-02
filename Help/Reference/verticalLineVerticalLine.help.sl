@@ -55,11 +55,18 @@ false
 [false true; true true]
 ```
 
+`||` is defined for the integers `zero` and `one`, which are the `boole` of `false` and `true`:
+
+```
+>>> ||.table([0 1], [0 1])
+[0 1; 1 1]
+```
+
 The name of this operator is `verticalLineVerticalLine`.
 
 * * *
 
-See also: &, &&, |
+See also: &, &&, |, gcd
 
 References:
 _Apl_
