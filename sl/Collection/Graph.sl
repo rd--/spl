@@ -212,6 +212,10 @@
 		self.edgeList.indexOf(edge)
 	}
 
+	graphPlot { :self |
+		Plot(self, 'graph')
+	}
+
 	hasValidEdgeList { :self |
 		let v = self.vertexList;
 		self.edgeList.allSatisfy { :edge |

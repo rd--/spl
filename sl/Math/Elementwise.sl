@@ -70,6 +70,10 @@
 		self.reduce(bitOr:/2)
 	}
 
+	bitNot { :self |
+		self.collect(bitNot:/1)
+	}
+
 	boole { :self |
 		self.collect(boole:/1)
 	}

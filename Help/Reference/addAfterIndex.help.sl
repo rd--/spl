@@ -8,13 +8,14 @@ Answer _newObject_.
 
 ```
 >>> let l = ['w' 'x' 'z'];
->>> l.addAfterIndex('y', 2) = 'y' & { l = ['w' 'x' 'y' 'z'] }
-true
+>>> let r = l.addAfterIndex('y', 2);
+>>> (r, l)
+('y', ['w' 'x' 'y' 'z'])
 ```
 
 * * *
 
-See also: add, addAfter, addBefore
+See also: add, addAfter, addBefore, insertAt
 
 References:
 _Smalltalk_

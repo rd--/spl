@@ -3,6 +3,24 @@
 Plot : [Object] { | contents format |
 
 	cliDraw { :self |
+		(self.format = 'graph').if {
+			self.cliGraphDraw
+		} {
+			self.cliListDraw
+		}
+	}
+
+	cliGraphDraw { :self |
+		let layoutEngine = self.contents.isDirected.if { 'dot' } { 'neato' };
+		let dotSource = self.contents.asDot;
+		dotSource.dotLayout('svg', layoutEngine).then { :svgText |
+			let fileName = '/tmp/graphDrawing.svg';
+			fileName.writeTextFile(svgText);
+			system.systemCommand('chromium', [fileName])
+		}
+	}
+
+	cliListDraw { :self |
 		let shape = self.contents.shape;
 		let d = shape.size;
 		let a = 'x';
@@ -65,6 +83,10 @@ Plot : [Object] { | contents format |
 		self.Plot('discrete')
 	}
 
+	graphPlot { :self |
+		self.Plot('graph')
+	}
+
 	linePlot { :self |
 		self.Plot('line')
 	}
@@ -77,12 +99,16 @@ Plot : [Object] { | contents format |
 		self.linePlot
 	}
 
-	Plot { :contents :format |
-		newPlot().initializeSlots(contents, format)
-	}
-
 	scatterPlot { :self |
 		self.Plot('scatter')
+	}
+
+}
+
++[List, Graph] {
+
+	Plot { :contents :format |
+		newPlot().initializeSlots(contents, format)
 	}
 
 }

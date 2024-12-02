@@ -1,5 +1,10 @@
 # BezierCurve
 
+- _BezierCurve(aList)_
+
+A `Type` that represents a Bézier curve with control points _aList_.
+A Bézier curve is a parametric curve defined by a sequence of control points.
+
 A Bézier curve and its control points:
 
 ~~~spl svg=A
@@ -51,7 +56,7 @@ Sfc32(314729)
 
 * * *
 
-See also: Circle, Line, Point, PointCloud, Polygon, Rectangle, Triangle
+See also: Circle, Line, LineDrawing, Point, PointCloud, Polygon, Rectangle, Triangle
 
 References:
 _Mathematica_

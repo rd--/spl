@@ -8,8 +8,9 @@ Answer _newObject_.
 
 ```
 >>> let l = [1 2 4];
->>> l.addBefore(3, 4) = 3 & { l = [1 2 3 4] }
-true
+>>> let r = l.addBefore(3, 4);
+>>> (r, l)
+(3, [1 2 3 4])
 ```
 
 * * *

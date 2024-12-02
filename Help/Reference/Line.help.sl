@@ -57,7 +57,7 @@ The Svg description of a polyline:
 '<polyline points="0,0 1,1 1,0" />'
 ```
 
-A line drawing of a complete graph with eleven nodes:
+A line drawing of a complete graph with eleven vertices:
 
 ~~~spl svg=A
 [0, 2.pi / 11 .. 2.pi].collect { :t |

@@ -8,13 +8,14 @@ Answer _newObject_.
 
 ```
 >>> let l = [1 2 4];
->>> l.addAfter(3, 2) = 3 & { l = [1 2 3 4] }
-true
+>>> let r = l.addAfter(3, 2);
+>>> (r, l)
+(3, [1 2 3 4])
 ```
 
 * * *
 
-See also: add, addAfterIndex, addBefore
+See also: add, addAfterIndex, addBefore, insertAt
 
 References:
 _Smalltalk_

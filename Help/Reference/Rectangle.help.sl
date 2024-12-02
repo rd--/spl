@@ -57,7 +57,7 @@ Rectangle(
 
 ![](sw/spl/Help/Image/Rectangle-A.svg)
 
-Two rectangles, one rotated:
+Two rectangles, one rotated by φ:
 
 ~~~spl svg=B
 let r = Rectangle([0 0], [1.goldenRatio 1]);

@@ -121,6 +121,8 @@ See also: e, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
 
 Guides: Mathematical Constants
 
+Unicode: U+03C6 φ Greek Small Letter Phi
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)

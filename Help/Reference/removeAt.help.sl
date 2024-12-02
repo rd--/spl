@@ -31,6 +31,6 @@ At `Record`:
 
 * * *
 
-See also: removeFirst, removeLast
+See also: at, insertAt, removeFirst, removeLast
 
 Categories: Removing

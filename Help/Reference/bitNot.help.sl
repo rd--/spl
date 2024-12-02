@@ -17,8 +17,12 @@ Answer bitwise not, i.e. invert bits.
 
 >>> 7.bitNot
 -8
+```
 
->>> 1:10.collect(bitNot:/1)
+Threads over lists:
+
+```
+>>> 1:10.bitNot
 [-2 .. -11]
 ```
 
@@ -29,6 +33,25 @@ At `BitSet`, mutates set:
 >>> b.bitNot;
 >>> b.asString
 '0110'
+```
+
+As `not` of `boole`:
+
+```
+>>> 1.bitNot + 2
+0
+
+>>> 0.bitNot + 2
+1
+
+>>> 5.identityMatrix.bitNot + 2
+[
+	0 1 1 1 1;
+	1 0 1 1 1;
+	1 1 0 1 1;
+	1 1 1 0 1;
+	1 1 1 1 0
+]
 ```
 
 * * *

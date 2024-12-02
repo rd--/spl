@@ -4,7 +4,7 @@
 
 A `Type` representing a set of disconnected points.
 
-A drawing of a twenty-three randomly displaced points:
+A drawing of twenty-three randomly displaced points:
 
 ~~~spl svg=A
 let r = Sfc32(376814);

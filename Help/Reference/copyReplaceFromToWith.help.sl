@@ -2,7 +2,8 @@
 
 - _copyReplaceFromToWith(aSequence, startIndex, stopIndex, replacement)_
 
-Answer a copy of _aSequence_ with items from _startIndex_ to _stopIndex_ replaced with items from _replacement_.
+Answer a copy of _aSequence_,
+with items from _startIndex_ to _stopIndex_ replaced with items from _replacement_.
 
 ```
 >>> let a = [1 2 3 4 5 6 7];
@@ -41,6 +42,6 @@ Expand size of region:
 
 * * *
 
-See also: copy, copyFromTo
+See also: copy, copyFromTo, insertAt
 
 Categories: Copying

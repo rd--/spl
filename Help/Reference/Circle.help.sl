@@ -54,7 +54,7 @@ Circle([0 0; 0 0; 0 0], [1 3 5]).LineDrawing
 Specify centers:
 
 ~~~spl svg=B
-Circle([0 0; 1 1; 2 2], [1 1 1]).LineDrawing
+Circle([0 0; 1 1; 2 2], 1).LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Circle-B.svg)

@@ -11,7 +11,12 @@ A `Type` holding a `Tuning` where the intervals are represented as _ratios_ stor
 >>> 	[1/1 8/7 4/3 14/9 16/9],
 >>> 	2
 >>> );
->>> (r.size, r.limit, r.asCents.rounded, r.asIntegers)
+>>> (
+>>> 	r.size,
+>>> 	r.limit,
+>>> 	r.asCents.rounded,
+>>> 	r.asIntegers
+>>> )
 (
 	5,
 	7,
