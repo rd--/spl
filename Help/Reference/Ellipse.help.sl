@@ -13,8 +13,8 @@ A `Type` that represents an axis aligned ellipse of _radii_ at _center_.
 The Svg description of an ellipse:
 
 ```
->>> Ellipse([0 0], [2 1]).asSvg
-'<ellipse cx="0" cy="0" rx="2" ry="1" />'
+>>> Ellipse([0 0], [2 1]).forSvg(1)
+'<ellipse cx="0.00" cy="0.00" rx="2.00" ry="1.00" />'
 ```
 
 * * *

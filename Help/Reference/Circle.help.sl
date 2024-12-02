@@ -38,8 +38,8 @@ Calculate arc length, area, circumference, perimeter, centroid, diameter and rad
 The Svg description of a circle:
 
 ```
->>> Circle([0 0], 1).asSvg
-'<circle cx="0" cy="0" r="1" />'
+>>> Circle([0 0], 1).forSvg(1)
+'<circle cx="0.00" cy="0.00" r="1.00" />'
 ```
 
 Circles can be elements of `LineDrawing`s.

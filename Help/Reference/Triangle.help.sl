@@ -58,18 +58,12 @@ Area, centroid and arc length of an isosceles triangle:
 )
 ```
 
-The Svg description of a triangle:
+The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
 
 ```
->>> Triangle([0 0], [1 0], [0 1]).asSvg
-'<polygon points="0,0 1,0 0,1" />'
-```
-
-which is equivalent to `asSvg` of `asPolygon`:
-
-```
->>> Triangle([0 0], [2 0], [1 3]).asPolygon.asSvg
-'<polygon points="0,0 2,0 1,3" />'
+>>> let t = Triangle([0 0], [1 0], [0 1]);
+>>> t.forSvg(1)
+t.asPolygon.forSvg(1)
 ```
 
 * * *

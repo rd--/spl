@@ -42,8 +42,8 @@ Calculate the `centroid`:
 The Svg description of a rectangle:
 
 ```
->>> Rectangle([0 0], [1 1]).asSvg
-'<rect x="0" y="0" width="1" height="1" />'
+>>> Rectangle([0 0], [1 1]).forSvg(1)
+'<rect x="0.00" y="0.00" width="1.00" height="1.00" />'
 ```
 
 Two squares:
