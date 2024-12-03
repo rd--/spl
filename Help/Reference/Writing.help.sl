@@ -15,8 +15,22 @@ let r = w.boundingBox.asRectangle;
 
 ![](sw/spl/Help/Image/Writing-A.svg)
 
-Rationale: `Text` is a primitive type.
-It could be renamed safely, and this object called `Text`.
+Letters randomly placed in a circle:
+
+~~~spl svg=A
+let r = Sfc32(6793);
+let c = Circle([0 0], 100);
+let l = 'greek'.alphabet.contents;
+let w = l.collect { :each |
+	Writing(
+		each,
+		r.randomInteger(-70, 70, [2])
+	)
+};
+[c, w].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Writing-B.svg)
 
 * * *
 
