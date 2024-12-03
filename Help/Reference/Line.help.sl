@@ -46,15 +46,15 @@ The `arcLength` of a `Line` in three-dimensions:
 The Svg description of a straight line:
 
 ```
->>> Line([0 0; 1 1]).forSvg(1)
-'<line x1="0.00" y1="0.00" x2="1.00" y2="1.00" />'
+>>> Line([0 0; 1 1]).forSvg(precision: 0)
+'<line x1="0" y1="0" x2="1" y2="1" />'
 ```
 
 The Svg description of a polyline:
 
 ```
->>> Line([0 0; 1 1; 1 0]).forSvg(1)
-'<polyline points="0.00,0.00 1.00,1.00 1.00,0.00" />'
+>>> Line([0 0; 1 1; 1 0]).forSvg(precision: 0)
+'<polyline points="0,0 1,1 1,0" />'
 ```
 
 A line drawing of a complete graph with eleven vertices:

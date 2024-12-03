@@ -449,7 +449,11 @@ export function applyGenericAt(
 	receiverType: TypeName,
 ) {
 	// console.log(`applyGenericAt: ${methodName}, ${parameterArray.length}, ${receiverType}`);
-	const genericMethod = lookupGeneric(methodName, parameterArray.length, receiverType);
+	const genericMethod = lookupGeneric(
+		methodName,
+		parameterArray.length,
+		receiverType,
+	);
 	if (!genericMethod) {
 		throw new Error(`applyGenericAt: ${methodName}: lookup failed`);
 	}

@@ -13,13 +13,11 @@ function genName(name: string, arity: number): string {
 }
 
 function genArityCheck(k: number, a: string): string {
-	return [
-		`if(arguments.length !== ${k}) {`,
-		`const errorMessage = 'Arity: expected ${k}, ${a}';`,
-		'/* console.error(errorMessage); */',
-		'throw new Error(errorMessage);',
-		'}\n',
-	].join(' ');
+	return `if(arguments.length !== ${k}) {
+	const errorMessage = 'Arity: expected ${k}, ${a}';
+	/* console.error(errorMessage); */
+	throw new Error(errorMessage);
+}`;
 }
 
 function genDotTrailing(
@@ -285,7 +283,7 @@ const asJs: ohm.ActionDict<string> = {
 		const slots = namesArray.map((name) =>
 			`_${name} = _${genName('at', 2)}(${rhsName}, '${name}')`
 		).join(', ');
-		return `${rhsName} = ${rhs.asJs}, ${slots}`;
+		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
 	},
 	TemporaryListInitializer(
 		_leftBracket,
@@ -325,7 +323,10 @@ const asJs: ohm.ActionDict<string> = {
 			`${name} = _${genName('at', 2)}(${rhsListName}, ${index + 1})`
 		).join(';\n');
 		// console.debug('ListAssignment', namesArray, rhsListName);
-		return `/* List Assignment */(function() {\n\tconst ${rhsListName} = ${rhs.asJs};\n\t${slots};\n})()`;
+		return `/* List Assignment */ (function() {
+	const ${rhsListName} = ${rhs.asJs};
+	${slots};
+})()`;
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
@@ -333,7 +334,10 @@ const asJs: ohm.ActionDict<string> = {
 		const slots = namesArray.map((name) =>
 			`_${name} = _${genName('at', 2)}(${rhsDictionaryName}, '${name}')`
 		).join(';\n');
-		return `/* DictionaryAssignment */\n(function() {\n\tconst ${rhsDictionaryName} = ${rhs.asJs};\n\t${slots};\n})()`;
+		return `/* DictionaryAssignment */ (function() {
+	const ${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length});
+	${slots};
+})()`;
 	},
 	AssignmentOperatorSyntax(lhs, op, rhs) {
 		const text =

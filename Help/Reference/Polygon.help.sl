@@ -34,13 +34,6 @@ The `area`, `centroid` and `interiorAngles` of a pentagon:
 )
 ```
 
-The Svg description of a polygon:
-
-```
->>> [1 0; 1 1; 0 0].Polygon.forSvg(1)
-'<polygon points="1.00,0.00 1.00,1.00 0.00,0.00" />'
-```
-
 Regular hexagonal tiling:
 
 ~~~spl svg=A

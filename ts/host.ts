@@ -130,10 +130,10 @@ export function systemCommandAsync(
 					errorText: new TextDecoder().decode(result.stderr),
 				};
 			},
-		)
+		);
 	} catch (err) {
 		return Promise.reject(
-			new Error(`systemCommandAsync: ${err}`)
+			new Error(`systemCommandAsync: ${err}`),
 		);
 	}
 }

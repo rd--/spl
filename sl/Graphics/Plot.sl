@@ -92,7 +92,8 @@ Plot : [Object] { | contents format |
 				},
 				'scatter' -> {
 					{ :p |
-						[p.PointCloud] }
+						[p.PointCloud]
+					}
 				},
 				'discrete' -> {
 					{ :p |

@@ -11,9 +11,10 @@ Writing : [Object] { | contents lowerLeft |
 		let precision = options::precision;
 		let [x, y] = self.lowerLeft;
 		[
-			'<g x="%" y="%" transform="translate(0, %) scale(1, -1)">'.format([
+			'<g x="%" y="%" transform="translate(%, %) scale(1, -1)">'.format([
 				x.printStringToFixed(precision),
 				y.printStringToFixed(precision),
+				x.printStringToFixed(precision),
 				y.printStringToFixed(precision)
 			]),
 			'<text fill="black" stroke="none">%</text>'.format([

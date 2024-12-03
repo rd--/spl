@@ -56,8 +56,8 @@ Test for powers of 2:
 
 ```
 >>> 1:20.collect { :i |
-	(i.bitAnd(i - 1) = 0).boole
-}
+>>> 	(i.bitAnd(i - 1) = 0).boole
+>>> }
 [1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0]
 
 >>> (1:20.bitAnd(0:19) =.map [0]).boole

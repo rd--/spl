@@ -62,8 +62,9 @@ The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
 
 ```
 >>> let t = Triangle([0 0], [1 0], [0 1]);
->>> t.forSvg(1)
-t.asPolygon.forSvg(1)
+>>> let p = t.asPolygon;
+>>> t.forSvg(precision: 0)
+p.forSvg(precision: 0)
 ```
 
 * * *
