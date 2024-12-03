@@ -11,14 +11,21 @@ Answer the _Hann_ window function at _aNumber_.
 
 Plot:
 
+~~~spl svg=A
+(-0.5 -- 0.5).functionPlot(
+	hannWindow:/1
+)
 ~~~
-(-0.5 -- 0.5).functionPlot(hannWindow:/1)
-~~~
+
+![](sw/spl/Help/Image/hannWindow-A.svg)
 
 Discrete _Hann_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, hannWindow:/1).discretePlot
+(-0.5 -- 0.5).discretize(
+	15,
+	hannWindow:/1
+).discretePlot
 ~~~
 
 * * *

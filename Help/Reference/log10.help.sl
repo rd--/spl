@@ -27,9 +27,11 @@ Answers the base-10 logarithm of _aNumber_.
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0.01 -- 5).functionPlot(log10:/1)
 ~~~
+
+![](sw/spl/Help/Image/log10-A.svg)
 
 * * *
 

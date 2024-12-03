@@ -7,15 +7,25 @@ The table is _not_ normalised, see `normalizeSignal`.
 
 Approximation of sawtooth wave:
 
+~~~spl svg=A
+1024.sineTable(
+	1 / 1:6,
+	[0]
+).normalizeSignal.linePlot
 ~~~
-1024.sineTable(1 / 1:6, [0]).normalizeSignal.linePlot
-~~~
+
+![](sw/spl/Help/Image/sineTable-A.svg)
 
 More accurate approximation:
 
+~~~spl svg=B
+512.sineTable(
+	1 / 1:128,
+	[0]
+).normalizeSignal.linePlot
 ~~~
-2048.sineTable(1 / 1:128, [0]).normalizeSignal.linePlot
-~~~
+
+![](sw/spl/Help/Image/sineTable-B.svg)
 
 * * *
 

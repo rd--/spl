@@ -7,9 +7,10 @@
 Writing can be part of a line drawing:
 
 ~~~spl svg=A
+let c = Circle([0 0], 100);
 let w = Writing('Writing', [0, 0]);
 let r = w.boundingBox.asRectangle;
-[w, r].LineDrawing
+[c, w, r].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Writing-A.svg)

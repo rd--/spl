@@ -40,9 +40,9 @@ Line : [Object] { | vertices |
 		self.vertices.first.size
 	}
 
-	forSvg { :self :scaleFactor |
+	forSvg { :self :options |
 		(self.vertices.size = 2).if {
-			let precision = 2;
+			let precision = options::precision;
 			let [p1, p2] = self.vertices;
 			let [x1, y1] = p1;
 			let [x2, y2] = p2;
@@ -54,7 +54,7 @@ Line : [Object] { | vertices |
 			])
 		} {
 			'<polyline points="%" />'.format([
-				self.vertices.asSvgPointList
+				self.vertices.asSvgPointList(options)
 			])
 		}
 	}

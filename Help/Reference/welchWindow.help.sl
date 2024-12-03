@@ -11,25 +11,34 @@ Answer the _Welch_ window function at _aNumber_.
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-0.5 -- 0.5).functionPlot(welchWindow:/1)
 ~~~
 
+![](sw/spl/Help/Image/welchWindow-A.svg)
+
 Shape of a _Welch_ window using a specified parameter:
 
+~~~spl svg=B
+(-1 -- 1).functionPlot { :x |
+	x.welchWindow(1.2)
+}
 ~~~
-(-1 -- 1).functionPlot { :x | x.welchWindow(1.2) }
-~~~
+
+![](sw/spl/Help/Image/welchWindow-B.svg)
 
 Discrete _Welch_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, welchWindow:/1).discretePlot
+(-0.5 -- 0.5).discretize(
+	15,
+	welchWindow:/1
+).discretePlot
 ~~~
 
 * * *
 
-See also: welchTable
+See also: gaussianWindow, welchTable
 
 Guides: Window Functions
 

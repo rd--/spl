@@ -12,19 +12,26 @@ The _Bartlett window_ is triangular.
 
 Plot:
 
+~~~spl svg=A
+(-0.5 -- 0.5).functionPlot(
+	bartlettWindow:/1
+)
 ~~~
-(-0.5 -- 0.5).functionPlot(bartlettWindow:/1)
-~~~
+
+![](sw/spl/Help/Image/bartlettWindow-A.svg)
 
 Discrete _Bartlett window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, bartlettWindow:/1).discretePlot
+(-0.5 -- 0.5).discretize(
+	15,
+	bartlettWindow:/1
+).discretePlot
 ~~~
 
 * * *
 
-See also: blackmanWindow
+See also: blackmanWindow, welchWindow
 
 Guides: Window Functions
 

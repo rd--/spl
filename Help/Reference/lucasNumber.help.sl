@@ -40,9 +40,11 @@ Threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-5 -- 5).functionPlot(lucasNumber:/1)
 ~~~
+
+![](sw/spl/Help/Image/lucasNumber-A.svg)
 
 * * *
 

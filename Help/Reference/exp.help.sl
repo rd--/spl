@@ -64,9 +64,11 @@ The inverse of `exp` is `log`:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-1 -- 1).functionPlot(exp:/1)
 ~~~
+
+![](sw/spl/Help/Image/exp-A.svg)
 
 * * *
 

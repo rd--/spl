@@ -7,14 +7,16 @@ Writing : [Object] { | contents lowerLeft |
 		]
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
 		let [x, y] = self.lowerLeft;
 		[
-			'<g transform="translate(0, 0) scale(1, -1)">',
-			'<text x="%" y="%" fill="black" stroke="none">%</text>'.format([
+			'<g x="%" y="%" transform="translate(0, %) scale(1, -1)">'.format([
 				x.printStringToFixed(precision),
 				y.printStringToFixed(precision),
+				y.printStringToFixed(precision)
+			]),
+			'<text fill="black" stroke="none">%</text>'.format([
 				self.contents
 			]),
 			'</g>'

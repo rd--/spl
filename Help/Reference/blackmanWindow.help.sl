@@ -11,14 +11,21 @@ Answer the _Blackman window_ function at _aNumber_.
 
 Plot:
 
+~~~spl svg=A
+(-0.5 -- 0.5).functionPlot(
+	blackmanWindow:/1
+)
 ~~~
-(-0.5 -- 0.5).functionPlot(blackmanWindow:/1)
-~~~
+
+![](sw/spl/Help/Image/blackmanWindow-A.svg)
 
 Discrete _Blackman window_ of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, blackmanWindow:/1).discretePlot
+(-0.5 -- 0.5).discretize(
+	15,
+	blackmanWindow:/1
+).discretePlot
 ~~~
 
 * * *

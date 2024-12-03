@@ -20,13 +20,14 @@ Point : [Object] { | vector |
 		self.vector.size
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
+		let scaleFactor = options::scaleFactor;
 		self.isPlanar.if {
 			'<circle cx="%" cy="%" r="%" />'.format([
 				self.vector[1].printStringToFixed(precision),
 				self.vector[2].printStringToFixed(precision),
-				(1 / scaleFactor).printStringToFixed(precision)
+				(0.5 / scaleFactor).printStringToFixed(precision)
 			])
 		} {
 			self.error('forSvg: not planar')
@@ -79,9 +80,9 @@ PointCloud : [Object] { | pointList |
 		self.pointList.coordinateBoundingBox
 	}
 
-	forSvg { :self :scaleFactor |
+	forSvg { :self :options |
 		self.pointList.Point.collect { :each |
-			each.forSvg(scaleFactor)
+			each.forSvg(options)
 		}.unlines
 	}
 

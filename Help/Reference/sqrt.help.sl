@@ -54,9 +54,11 @@ inf
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0 -- 10).functionPlot(sqrt:/1)
 ~~~
+
+![](sw/spl/Help/Image/sqrt-A.svg)
 
 Where supported `sqrt` is displayed as √.
 

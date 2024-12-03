@@ -84,9 +84,11 @@ For `zero` and `one`, `lcm` is analogous to logical and:
 
 Plot the least common multiple for a number with 12:
 
+~~~spl svg=A
+1:72.functionPlot { :x | x.lcm(12) }
 ~~~
-1:100.lcm(12).linePlot
-~~~
+
+![](sw/spl/Help/Image/lcm-A.svg)
 
 * * *
 

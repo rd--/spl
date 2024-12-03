@@ -14,8 +14,8 @@ Svg : [Object] { | contents |
 
 +List {
 
-	asSvgPointList { :self |
-		let precision = 2;
+	asSvgPointList { :self :options |
+		let precision = options::precision;
 		self.collect { :each |
 			let [x, y] = each;
 			'%,%'.format([
@@ -29,8 +29,9 @@ Svg : [Object] { | contents |
 
 +Rectangle {
 
-	asSvgViewBox { :self :margin |
-		let precision = 2;
+	asSvgViewBox { :self :options |
+		let precision = options::precision;
+		let margin = options::margin;
 		[
 			self.lowerLeft[1] - margin,
 			self.lowerLeft[2] - margin,

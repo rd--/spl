@@ -28,6 +28,13 @@ Assigning to multiple variables:
 (1, 1)
 ```
 
+It is an error to assign to an undeclared variable:
+
+```
+>>> { x := 3 }.ifError { true }
+true
+```
+
 The `:=` symbol is also part of `AtPut Syntax`, `List Assignment Syntax` and `Quoted AtPut Syntax`.
 
 The name of this token is `colonEqualsSign`.

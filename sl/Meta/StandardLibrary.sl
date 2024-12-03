@@ -61,6 +61,7 @@
 	'Svg'
 	'LineDrawing' /* Svg */
 	'Plot' /* Interval, LineDrawing */
+	'Writing'
 
 	/* Help */
 	'HelpIndex'
@@ -126,7 +127,6 @@
 	'QuotedString'
 	'RegExp'
 	'Unicode'
-	'Writing'
 
 	/* Time */
 	'Clock'

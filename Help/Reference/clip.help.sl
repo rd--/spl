@@ -53,17 +53,21 @@ To clip values only to an upper bound specify the lower bound as negative infini
 
 Plot the unit clip function over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot(clip:/1)
 ~~~
 
+![](sw/spl/Help/Image/clip-A.svg)
+
 Plot the composition of clip with a periodic function:
 
-~~~
+~~~spl svg=B
 (0 -- 2.pi).functionPlot { :x |
 	x.sin.clip(-0.5, 1)
 }
 ~~~
+
+![](sw/spl/Help/Image/clip-B.svg)
 
 * * *
 

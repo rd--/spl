@@ -79,13 +79,15 @@ Log threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0.01 -- 5).functionPlot(log:/1)
 ~~~
 
+![](sw/spl/Help/Image/log-A.svg)
+
 * * *
 
-See also: exp, log2, log10, logarithmicIntegralRamanujan
+See also: exp, log2, log10, logarithmicIntegral
 
 References:
 _Apl_
@@ -100,3 +102,5 @@ _Mathematica_
 _Smalltalk_
 5.6.7.9
 5.6.7.10
+
+Categories: Math

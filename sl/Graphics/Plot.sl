@@ -71,16 +71,73 @@ Plot : [Object] { | contents format |
 	}
 
 	draw { :self |
-		self.cliDraw
+		self.lineDrawing.draw
 	}
 
-
+	lineDrawing { :self |
+		let c = self.contents;
+		(c.shape[2] = 2).if {
+			let r = c.coordinateBoundingBox.asRectangle;
+			let w = r.width;
+			let h = r.height;
+			let aspectRatio = 1.goldenRatio;
+			let xScalar = aspectRatio / (w / h);
+			let scaledC = c * [[xScalar, 1]];
+			let items = [];
+			let gen:/1 = self.format.caseOf([
+				'line' -> {
+					{ :p |
+						[p.Line]
+					}
+				},
+				'scatter' -> {
+					{ :p |
+						[p.PointCloud] }
+				},
+				'discrete' -> {
+					{ :p |
+						p.collect { :each |
+							let [x, y] = each;
+							Line([x 0; x y])
+						}
+					}
+				}
+			]);
+			(r.lower <= 0 & { r.upper >= 0 }).ifTrue {
+				items.add(Point([r.left * xScalar, 0]))
+			};
+			(r.left <= 0 & { r.right >= 0 }).ifTrue {
+				items.add(Point([0, r.upper]))
+			};
+			items.addAll(scaledC.gen);
+			items.LineDrawing
+		} {
+			(c.shape[2] = 3 & { self.format = 'line' }).if {
+				let p:/1 = Projection3().chinese.block;
+				let r = [
+					-1 -1 0;
+					+1 -1 0;
+					+1 +1 0;
+					-1 +1 0
+				];
+				let t = { :list |
+					list.collect { :each |
+						let [x, y, z] = each;
+						[x.negated, z, y.negated].p
+					}
+				};
+				[c.t.Line, r.t.Polygon].LineDrawing
+			} {
+				self.error('cannot draw')
+			}
+		}
+	}
 }
 
 +List {
 
 	discretePlot { :self |
-		self.Plot('discrete')
+		self.typedPlot('discrete')
 	}
 
 	graphPlot { :self |
@@ -88,7 +145,7 @@ Plot : [Object] { | contents format |
 	}
 
 	linePlot { :self |
-		self.Plot('line')
+		self.typedPlot('line')
 	}
 
 	matrixPlot { :self |
@@ -100,7 +157,23 @@ Plot : [Object] { | contents format |
 	}
 
 	scatterPlot { :self |
-		self.Plot('scatter')
+		self.typedPlot('scatter')
+	}
+
+	typedPlot { :self :format |
+		(self.rank = 1).if {
+			self.withIndexCollect { :y :x |
+				[x y]
+			}.Plot(format)
+		} {
+			(self.rank = 2 & { self.shape[2] = 1}).if {
+				self.withIndexCollect { :y :x |
+					[x y.first]
+				}.Plot(format)
+			} {
+				self.Plot(format)
+			}
+		}
 	}
 
 }
@@ -134,8 +207,12 @@ Plot : [Object] { | contents format |
 
 +Interval {
 
-	functionPlot { :domain :functionBlock:/1 |
-		domain.subdivide(500).functionPlot(functionBlock:/1)
+	functionPlot { :domain :divisions :aBlock:/1 |
+		domain.subdivide(divisions).functionPlot(aBlock:/1)
+	}
+
+	functionPlot { :self :aBlock:/1 |
+		self.functionPlot(100, aBlock:/1)
 	}
 
 }

@@ -79,12 +79,6 @@ In a divisibility network, two numbers are connected if they share a common divi
 [2 4; 2 6; 2 8; 3 6; 3 9; 4 6; 4 8; 6 8; 6 9]
 ```
 
-Plot the gcd for a number with 12:
-
-~~~
-1:100.gcd(12).linePlot
-~~~
-
 For `zero` and `one`, `gcd` is analogous to logical or:
 
 ```
@@ -94,6 +88,14 @@ For `zero` and `one`, `gcd` is analogous to logical or:
 >>> ||.table([false true], [false true])
 [false true; true true]
 ```
+
+Plot the gcd for a number with 12:
+
+~~~spl svg=A
+1:72.functionPlot { :x | x.gcd(12) }
+~~~
+
+![](sw/spl/Help/Image/gcd-A.svg)
 
 * * *
 
@@ -111,3 +113,5 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/GCD.html),
 _Smalltalk_
 5.6.5.12
+
+Categories: Arithmetic

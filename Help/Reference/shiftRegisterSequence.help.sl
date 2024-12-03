@@ -29,7 +29,9 @@ giving a permutation list:
 >>> let n = 2 ^ 5 + 3;
 >>> let s = shiftRegisterSequence(i, t, n);
 >>> let r = s.partition(5, 1);
->>> let p = r.collect { :each | each.fromDigits(2) };
+>>> let p = r.collect { :each |
+>>> 	each.fromDigits(2)
+>>> };
 >>> (p, p.isPermutationList)
 (
 	[
@@ -45,7 +47,11 @@ giving a permutation list:
 The maximal Lfsr of four places:
 
 ```
->>> shiftRegisterSequence([0 0 0 1], [1 2], 2 ^ 4 - 1)
+>>> shiftRegisterSequence(
+>>> 	[0 0 0 1],
+>>> 	[1 2],
+>>> 	2 ^ 4 - 1
+>>> )
 [0 1 0 0 1 1 0 1 0 1 1 1 1 0 0]
 ```
 

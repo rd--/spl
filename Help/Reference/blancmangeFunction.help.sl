@@ -12,15 +12,19 @@ The _n_-th iteration contains _2^n + 1_ points.
 	0 2 0;
 	0 4 4 4 0;
 	0 6 8 10 8 10 8 6 0;
-	0 8 12 16 16 20 20 20 16 20 20 20 16 16 12 8 0
+	0 8 12 16 16 20 20 20
+	16
+	20 20 20 16 16 12 8 0
 ]
 ```
 
 Plot ninth iteration:
 
-~~~
+~~~spl svg=A
 9.blancmangeFunction.linePlot
 ~~~
+
+![](sw/spl/Help/Image/blancmangeFunction-A.svg)
 
 * * *
 

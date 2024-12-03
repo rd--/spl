@@ -64,15 +64,19 @@ i.e. non-negative and smaller than _m_:
 
 Plot the sequence with fixed modulus:
 
-~~~
+~~~spl svg=A
 (1:50 % 8).linePlot
 ~~~
 
+![](sw/spl/Help/Image/percentSign-A.svg)
+
 Plot the sequence, varying the modulus:
 
-~~~
+~~~spl svg=B
 (100 % 1:50).linePlot
 ~~~
+
+![](sw/spl/Help/Image/percentSign-B.svg)
 
 The name of this operator is `percentSign`.
 

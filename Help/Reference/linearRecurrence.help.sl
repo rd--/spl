@@ -22,13 +22,20 @@ Find the first few Fibonacci numbers:
 
 ```
 >>> linearRecurrence([1 1], [1 2; 2 1], 10)
-[1 2; 2 1; 3 3; 5 4; 8 7; 13 11; 21 18; 34 29; 55 47; 89 76]
+[
+	1 2; 2 1; 3 3; 5 4; 8 7; 13 11;
+	21 18; 34 29; 55 47; 89 76
+]
 ```
 
 `linearRecurrence` works if _k_ and _i_ are both matrices:
 
 ```
->>> linearRecurrence([1 1; 0 1:; 1 0; -1 1], [1 2; 2 1], 6)
+>>> linearRecurrence(
+>>> 	[1 1; 0 1:; 1 0; -1 1],
+>>> 	[1 2; 2 1],
+>>> 	6
+>>> )
 [1 2; 2 1; 4 2; 8 1; 13 -1; 20 -8]
 ```
 
@@ -67,13 +74,17 @@ Perrin sequence, OEIS [A001608](http://oeis.org/A001608):
 [3 0 2 3 2 5 5 7 10 12]
 ```
 
-Plot spiral:
+Draw spiral:
 
-~~~
+~~~spl svg=A
 let k = [(pi.i / 2.sqrt).exp, 1.i] / 1.1;
 let i = [1, 1];
-linearRecurrence(k, i, 100).collect(realImaginary:/1).linePlot
+linearRecurrence(k, i, 100)
+.collect(realImaginary:/1)
+.asLineDrawing
 ~~~
+
+![](sw/spl/Help/Image/linearRecurrence-A.svg)
 
 * * *
 

@@ -124,21 +124,27 @@ Find all perfect numbers less than 500:
 A logarithmic plot of `divisors` of the diatonic number 8640,
 showing the sigmoid shape typical of divisor sets:
 
-~~~
+~~~spl svg=A
 8640.divisors.log2.linePlot
 ~~~
 
+![](sw/spl/Help/Image/divisors-A.svg)
+
 At higher resolution (ie. the divisor set of a moderately large integer):
 
-~~~
+~~~spl svg=B
 345600.divisors.log2.linePlot
 ~~~
 
+![](sw/spl/Help/Image/divisors-B.svg)
+
 A logarithmic plot of the intervals between consecutive divisors:
 
-~~~
+~~~spl svg=C
 8640.divisors.log2.differences.linePlot
 ~~~
+
+![](sw/spl/Help/Image/divisors-C.svg)
 
 * * *
 

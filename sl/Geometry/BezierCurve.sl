@@ -4,8 +4,8 @@ BezierCurve : [Object] { | controlPoints |
 		self.controlPoints.coordinateBoundingBox
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
 		let p = self.controlPoints;
 		let c = p.chunksOfFrom(3, 2);
 		let d = [
@@ -14,7 +14,7 @@ BezierCurve : [Object] { | controlPoints |
 				p[1][2].printStringToFixed(precision)
 			]),
 			c.collect { :each |
-				'C ' ++ each.asSvgPointList
+				'C ' ++ each.asSvgPointList(options)
 			}
 		].stringJoin(' ');
 		'<path d="%" />'.format([d])

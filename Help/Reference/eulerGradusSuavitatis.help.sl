@@ -30,7 +30,9 @@ At `Fraction`:
 Select integers with gradus suavitatis value less than seven:
 
 ```
->>> 1:99.select { :each | each.eulerGradusSuavitatis < 7 }
+>>> 1:99.select { :each |
+>>> 	each.eulerGradusSuavitatis < 7
+>>> }
 [1 2 3 4 5 6 8 9 10 12 16 18 24 32]
 ```
 
@@ -43,9 +45,11 @@ Threads over lists:
 
 Plot:
 
-~~~
+~~~spl svg=A
 1:99.eulerGradusSuavitatis.linePlot
 ~~~
+
+![](sw/spl/Help/Image/eulerGradusSuavitatis-A.svg)
 
 * * *
 

@@ -19,17 +19,21 @@ otherwise _a[n] = a[n - 1] + n_.
 ]
 ```
 
-Line plot of the first one-thousand terms:
+Line plot of the first few terms:
 
-~~~
-1000.recamanSequence.linePlot
+~~~spl svg=A
+300.recamanSequence.linePlot
 ~~~
 
-Scatter plot of the first two-thousand terms:
+![](sw/spl/Help/Image/recamanSequence-A.svg)
 
+Scatter plot of the first few terms:
+
+~~~spl svg=B
+300.recamanSequence.scatterPlot
 ~~~
-2000.recamanSequence.scatterPlot
-~~~
+
+![](sw/spl/Help/Image/recamanSequence-B.svg)
 
 * * *
 

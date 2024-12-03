@@ -10,8 +10,10 @@ For real input the answer is symetrical:
 ```
 >>> [1 1 2 2 1 1 0 0].fft
 [
-	8J0 -1.4142J-3.4142 0J0 1.4142J0.5858
-	0J0 1.4142J-0.5858 0J-0 -1.4142J3.4142
+	8J0 -1.4142J-3.4142
+	0J0 1.4142J0.5858
+	0J0 1.4142J-0.5858
+	0J-0 -1.4142J3.4142
 ]
 
 >>> [1 1 2 2 1 1 0 0].fft.abs
@@ -28,22 +30,30 @@ The inverse transform is `ifft`:
 Plot complete symmetrical spectrum of two sine tones:
 
 ~~~
-let n = 512;
+let n = 256;
 let p = (0 -- 2.pi).discretize(n);
-let x = p.collect { :x | (x * [23 47]).sin.sum / 2 };
+let x = p.collect { :x |
+	(x * [23 47]).sin.sum / 2
+};
 (x.fft / n).abs.linePlot
 ~~~
+
+![](sw/spl/Help/Image/fft-A.svg)
 
 Plot half spectrum of two sine tones with added white noise:
 
 ~~~
-let n = 512;
+let n = 256;
 let m = n / 2;
 let p = (0 -- 2.pi).discretize(n);
-let x = p.collect { :x | (x * [23 47]).sin.sum / 2 };
+let x = p.collect { :x |
+	(x * [23 47]).sin.sum / 2
+};
 let y = system.randomReal(-1, 1, [n]);
 ((x + y).fft.take(m) / n).abs.linePlot
 ~~~
+
+![](sw/spl/Help/Image/fft-B.svg)
 
 * * *
 

@@ -56,6 +56,8 @@ Plot over a subset of the reals:
 (-1 -- 1).functionPlot { :x | x.nthRoot(3) }
 ~~~
 
+![](sw/spl/Help/Image/nthRoot-A.svg)
+
 Where supported `nthRoot` is displayed as √.
 
 * * *

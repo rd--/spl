@@ -526,6 +526,11 @@ If the string begins with a doctest, also delete all non doctest lines."
   "_Haskell_\n"
   "[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:" str | " *** Ref *** " ")\n")
 
+(define-skeleton spl-image-reference-skeleton
+  "Insert an image reference."
+  "Ref: "
+  "![](sw/spl/Help/Image/" str ".svg)\n")
+
 (provide 'spl-mode)
 
 ;;; spl.el ends here

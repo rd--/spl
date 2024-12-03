@@ -27,13 +27,19 @@ Plot:
 (-10, -9.9 .. 10).sinc.linePlot
 ~~~
 
+![](sw/spl/Help/Image/sinc-A.svg)
+
 Single-slit diffraction pattern for a 4λ slit:
 
 ~~~
 (-1 -- 1).functionPlot { :x |
-	((4 * pi * x) / (1 + x.squared).sqrt).sinc.squared
+	(
+		(4 * pi * x) / (1 + x.squared).sqrt
+	).sinc.squared
 }
 ~~~
+
+![](sw/spl/Help/Image/sinc-B.svg)
 
 * * *
 

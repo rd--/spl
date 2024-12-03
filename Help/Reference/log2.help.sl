@@ -20,14 +20,19 @@ Log base two of the first primes:
 
 ```
 >>> 10.primesList.log2
-[1 1.585 2.322 2.8074 3.4594 3.7004 4.0875 4.248 4.524 4.858]
+[
+	1.0000 1.5850 2.3220 2.8074 3.4594
+	3.7004 4.0875 4.2480 4.5240 4.8580
+]
 ```
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0.01 -- 5).functionPlot(log2:/1)
 ~~~
+
+![](sw/spl/Help/Image/log2-A.svg)
 
 * * *
 

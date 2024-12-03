@@ -26,8 +26,8 @@ Triangle : [Object] { | vertices |
 		self.vertices.polygonCentroid
 	}
 
-	forSvg { :self :scaleFactor |
-		self.asPolygon.forSvg(scaleFactor)
+	forSvg { :self :options |
+		self.asPolygon.forSvg(options)
 	}
 
 	interiorAngles { :self |

@@ -11,15 +11,23 @@ Answer the _Gaussian_ window function at _aNumber_.
 
 Plot:
 
+~~~spl svg=A
+(-1 -- 1).functionPlot(
+	gaussianWindow:/1
+)
 ~~~
-(-1 -- 1).functionPlot(gaussianWindow:/1)
-~~~
+
+![](sw/spl/Help/Image/gaussianWindow-A.svg)
 
 Shape of a _Gaussian_ window using a specified parameter:
 
+~~~spl svg=B
+(-1 -- 1).functionPlot { :x |
+	x.gaussianWindow(0.2)
+}
 ~~~
-(-1 -- 1).functionPlot { :x | x.gaussianWindow(0.2) }
-~~~
+
+![](sw/spl/Help/Image/gaussianWindow-B.svg)
 
 Discrete _Gaussian_ window of length 15:
 

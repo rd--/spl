@@ -10,12 +10,14 @@ LineDrawing : [Object] { | contents |
 	}
 
 	asSvg { :self |
-		let precision = 2;
 		let height = 100;
 		let boundingBox = self.boundingBox.asRectangle;
+		let yRange = boundingBox.height;
+		let precision = (yRange < 10).if { 3 } { 2 };
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
-		let items = self.contents.collect { :each | each.forSvg(scaleFactor) };
+		let options = (precision: precision, scaleFactor: scaleFactor);
+		let items = self.contents.collect { :each | each.forSvg(options) };
 		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
 		[
@@ -23,7 +25,7 @@ LineDrawing : [Object] { | contents |
 				'http://www.w3.org/2000/svg',
 				scaledBoundingBox.width.printStringToFixed(precision),
 				scaledBoundingBox.height.printStringToFixed(precision),
-				scaledBoundingBox.asSvgViewBox(5)
+				scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
 			]),
 			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
 				strokeWith.printStringToFixed(precision), '%',
@@ -51,6 +53,10 @@ LineDrawing : [Object] { | contents |
 }
 
 +List {
+
+	asLineDrawing { :self |
+		[self.Line].LineDrawing
+	}
 
 	LineDrawing { :self |
 		newLineDrawing().initializeSlots(self.flatten)

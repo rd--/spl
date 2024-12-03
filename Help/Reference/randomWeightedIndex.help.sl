@@ -8,12 +8,17 @@ The probablity of an index being drawn is given by the weight of that index in _
 Plot one hundred draws, ~10% will be 1, ~60% will be 2, ~30% will be 3.
 
 ~~~
+let r = Sfc32(37914);
 (
 	{
-		system.randomWeightedIndex([0.1, 0.6, 0.3])
+		r.randomWeightedIndex(
+			[0.1, 0.6, 0.3]
+		)
 	} ! 100
 ).linePlot
 ~~~
+
+![](sw/spl/Help/Image/randomWeightedIndex-A.svg)
 
 * * *
 

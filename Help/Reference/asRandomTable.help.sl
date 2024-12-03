@@ -7,13 +7,29 @@ answer a sequence of _anInteger_ places holding the associated cumulative distri
 
 ~~~
 [1 1 0 1 1].linePlot
+~~~
+
+![](sw/spl/Help/Image/asRandomTable-A.svg)
+
+~~~
 [1 1 0 1 1].asRandomTable(128).linePlot
 ~~~
 
+![](sw/spl/Help/Image/asRandomTable-B.svg)
+
 ~~~
 [1 0 0 0 1 0 0 0 1].linePlot
-[1 0 0 0 1 0 0 0 1].asRandomTable(128).linePlot
 ~~~
+
+![](sw/spl/Help/Image/asRandomTable-C.svg)
+
+~~~
+[1 0 0 0 1 0 0 0 1]
+.asRandomTable(128)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/asRandomTable-D.svg)
 
 * * *
 

@@ -24,7 +24,7 @@ OEIS [A006046](https://oeis.org/A006046):
 [1 3 5 9 11 15 19 27 29 33 37 45 49 57 65]
 ```
 
-Plot of first two hundred terms of _f(n) / (n ^ theta)_, the minima of which :
+Plot of first two hundred terms of _f(n) / (n ^ theta)_:
 
 ~~~
 let b = { :k |
@@ -38,6 +38,8 @@ let f = { :n |
 let n = 1:200;
 (n.collect(f:/1) / (n ^ 3.log(2))).linePlot
 ~~~
+
+![](sw/spl/Help/Image/stolarskyHarborthConstant-A.svg)
 
 * * *
 

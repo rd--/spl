@@ -29,9 +29,9 @@ Polygon : [Object] { | vertices |
 		self.vertices.polygonCentroid
 	}
 
-	forSvg { :self :scaleFactor |
+	forSvg { :self :options |
 		'<polygon points="%" />'.format([
-			self.vertices.asSvgPointList
+			self.vertices.asSvgPointList(options)
 		])
 	}
 

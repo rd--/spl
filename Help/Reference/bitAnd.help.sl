@@ -55,7 +55,9 @@ The unary form reduces over a collection:
 Test for powers of 2:
 
 ```
->>> 1:20.collect { :i | (i.bitAnd(i - 1) = 0).boole }
+>>> 1:20.collect { :i |
+	(i.bitAnd(i - 1) = 0).boole
+}
 [1 1 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 0 0 0]
 
 >>> (1:20.bitAnd(0:19) =.map [0]).boole
@@ -71,26 +73,34 @@ Truth table for and:
 
 Plot a nested pattern:
 
-~~~
+~~~spl svg=A
 1:100.bitAnd(0:99).linePlot
 ~~~
 
+![](sw/spl/Help/Image/bitAnd-A.svg)
+
 Plot bitAnd with double:
 
-~~~
+~~~spl svg=B
 1:63.bitAnd(2 * 1:64).linePlot
 ~~~
 
+![](sw/spl/Help/Image/bitAnd-B.svg)
+
 Plot bitAnd with double and triple:
 
-~~~
-1:64.functionPlot { :i | [i, i * 2, i * 3].bitAnd }
+~~~spl svg=C
+1:64.functionPlot { :i |
+	[i, i * 2, i * 3].bitAnd
+}
 ~~~
 
-Plot first six-hundred terms of OEIS [A279125](https://oeis.org/A279125):
+![](sw/spl/Help/Image/bitAnd-C.svg)
 
-~~~
-let n = 600;
+Plot first hundred terms of OEIS [A279125](https://oeis.org/A279125):
+
+~~~spl svg=D
+let n = 100;
 let g = List(n, 0);
 let answer = [];
 1.toDo(n - 1) { :i |
@@ -105,6 +115,8 @@ let answer = [];
 };
 answer.scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/bitAnd-D.svg)
 
 * * *
 

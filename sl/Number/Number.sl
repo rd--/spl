@@ -458,6 +458,10 @@
 		}
 	}
 
+	logarithmicIntegral { :self |
+		self.logarithmicIntegralRamanujan(9)
+	}
+
 	metallicMean { :n |
 		(n + (n.squared + 4).sqrt) / 2
 	}

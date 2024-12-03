@@ -32,7 +32,11 @@ At `Complex`:
 0.j(5.sqrt)
 
 >>> 1J1 ^ 1:11
-[1J1 0J2 -2J2 -4J0 -4J-4 0J-8 8J-8 16J0 16J16 0J32 -32J32]
+[
+	1J1 0J2 -2J2 -4J0 -4J-4
+	0J-8 8J-8 16J0 16J16 0J32
+	-32J32
+]
 ```
 
 Threads elementwise over lists and matrices:
@@ -128,9 +132,11 @@ Scientific notation:
 
 Plot over a subset of the reals:
 
+~~~spl svg=A
+(0 -- 5).functionPlot(50) { :each | each ^ 3 }
 ~~~
-(0 -- 5).functionPlot { :each | each ^ 3 }
-~~~
+
+![](sw/spl/Help/Image/circumflexAccent-A.svg)
 
 Where supported `^` is displayed as ˆ.
 

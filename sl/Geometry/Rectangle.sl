@@ -96,8 +96,8 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		self.upperRight - self.lowerLeft
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
 		'<rect x="%" y="%" width="%" height="%" />'.format([
 			self.x.printStringToFixed(precision),
 			self.y.printStringToFixed(precision),

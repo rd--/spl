@@ -35,8 +35,8 @@ Circle : [Object] { | center radius |
 		self.radius * 2
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
 		'<circle cx="%" cy="%" r="%" />'.format([
 			self.center[1].printStringToFixed(precision),
 			self.center[2].printStringToFixed(precision),
@@ -107,8 +107,8 @@ Ellipse : [Object] { | center radii |
 		(1 - (b / a).squared).sqrt
 	}
 
-	forSvg { :self :scaleFactor |
-		let precision = 2;
+	forSvg { :self :options |
+		let precision = options::precision;
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
 		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
