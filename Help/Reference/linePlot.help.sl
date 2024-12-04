@@ -4,6 +4,9 @@
 
 Plot data from a collection _c_.
 
+Plots are adjusted to have an aspect ratio of 1.618:1,
+if the ratio of the input data is not close to `one`.
+
 If _c_ is a vector, plot as list of _y_ values.
 Plot a six-vector:
 
@@ -93,7 +96,7 @@ C.f. `functionPlot`:
 
 * * *
 
-See also: discretePlot, functionPlot, matrixPlot, scatterPlot
+See also: discretePlot, functionPlot, matrixPlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

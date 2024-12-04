@@ -71,7 +71,11 @@ Plot : [Object] { | contents format |
 	}
 
 	draw { :self |
-		self.lineDrawing.draw
+		(self.format = 'matrix').if {
+			self.contents.asGreyscaleSvg.draw
+		} {
+			self.lineDrawing.draw
+		}
 	}
 
 	lineDrawing { :self |
@@ -80,7 +84,12 @@ Plot : [Object] { | contents format |
 			let r = c.coordinateBoundingBox.asRectangle;
 			let w = r.width;
 			let h = r.height;
-			let aspectRatio = 1.goldenRatio;
+			let dataRatio = (w / h);
+			let aspectRatio = ((dataRatio - 1).abs < 0.075).if {
+				dataRatio
+			} {
+				1.goldenRatio
+			}.also { :x | ['DATRAT', dataRatio, 'ASPECTRAT', x].postLine };
 			let xScalar = aspectRatio / (w / h);
 			let scaledC = c * [[xScalar, 1]];
 			let items = [];
@@ -133,6 +142,7 @@ Plot : [Object] { | contents format |
 			}
 		}
 	}
+
 }
 
 +List {
@@ -204,6 +214,14 @@ Plot : [Object] { | contents format |
 		}.linePlot
 	}
 
+	parametricPlot { :domain :xBlock:/1 :yBlock:/1 |
+		domain.collect { :u |
+			let x = xBlock(u);
+			let y = yBlock(u);
+			[x, y]
+		}.linePlot
+	}
+
 }
 
 +Interval {
@@ -214,6 +232,14 @@ Plot : [Object] { | contents format |
 
 	functionPlot { :self :aBlock:/1 |
 		self.functionPlot(100, aBlock:/1)
+	}
+
+	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
+		self.subdivide(divisions).parametricPlot(xBlock:/1, yBlock:/1)
+	}
+
+	parametricPlot { :self :xBlock:/1 :yBlock:/1 |
+		self.parametricPlot(100, xBlock:/1, yBlock:/1)
 	}
 
 }

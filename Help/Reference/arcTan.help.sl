@@ -107,6 +107,8 @@ Plot over a subset of the reals:
 (-5 -- 5).functionPlot(arcTan:/1)
 ~~~
 
+![](sw/spl/Help/Image/arcTan-A.svg)
+
 Note:
 The two argument form reverses the argument order to _arcTan:_ in Smalltalk.
 The method _atan2_ is the two argument _arcTan_ with arguments reversed.

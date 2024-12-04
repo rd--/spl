@@ -33,7 +33,7 @@ inf
 Minimum of `cosh`:
 
 ```
-0.cosh
+>>> 0.cosh
 1
 ```
 
@@ -42,6 +42,8 @@ Plot over a subset of the reals:
 ~~~
 (-4 -- 4).functionPlot(cosh:/1)
 ~~~
+
+![](sw/spl/Help/Image/cosh-A.svg)
 
 * * *
 

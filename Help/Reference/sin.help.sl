@@ -84,9 +84,19 @@ Noncommensurate waves (quasiperiodic function):
 
 ![](sw/spl/Help/Image/sin-B.svg)
 
+Plot the `sin` function at integer points:
+
+~~~
+{ :x :y |
+	(x * y).sin
+}.table(-40:40, -40:40).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/sin-C.svg)
+
 * * *
 
-See also: arcSin, cos, haversine, tan
+See also: arcSin, cos, cosecant, haversine, tan
 
 References:
 _Mathematica_

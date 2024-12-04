@@ -32,6 +32,26 @@ Threads elementwise over lists and matrices:
 [1.0729 1.0025 1.0269]
 ```
 
+Plot over a subset of the reals:
+
+~~~
+(-0.5.pi -- 1.5.pi).functionPlot { :x |
+	x.cosecant.clip(-6, 6)
+}
+~~~
+
+![](sw/spl/Help/Image/cosecant-A.svg)
+
+Plot cosecant at integer points:
+
+~~~
+{ :x :y |
+	(x * y).cosecant.abs.arcTan
+}.table(-20:20, -20:20).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/cosecant-B.svg)
+
 * * *
 
 See also: cotangent, secant, sin

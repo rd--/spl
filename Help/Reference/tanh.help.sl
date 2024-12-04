@@ -67,6 +67,8 @@ Plot over a subset of the reals:
 (-4 -- 4).functionPlot(tanh:/1)
 ~~~
 
+![](sw/spl/Help/Image/tanh-A.svg)
+
 * * *
 
 See also: arcTanh, sinh, coth, tan

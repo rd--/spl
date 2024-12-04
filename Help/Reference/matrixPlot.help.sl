@@ -14,47 +14,78 @@ Plot a 3×3 matrix:
 ].matrixPlot
 ~~~
 
-Plot a 100×100 matrix:
+![](sw/spl/Help/Image/matrixPlot-A.svg)
+
+Plot a 10×10 matrix (see also _n = 100_):
 
 ~~~
+let n = 10;
 { :i :j |
 	[
 		(i = j) -> 2,
-		((i = (j + 1)) || (i = (j - 1))) -> -1,
+		(
+			(i = (j + 1))
+			||
+			(i = (j - 1))
+		) -> -1,
 		true -> 0
 	].which
-}.table(1:100, 1:100).inverse.matrixPlot
+}.table(1:n, 1:n).inverse.matrixPlot
 ~~~
 
-Plot the imaginary parts of a discrete Fourier transform 33×33 matrix:
+![](sw/spl/Help/Image/matrixPlot-B.svg)
+
+Plot the imaginary parts of a discrete Fourier transform 24×24 matrix (see also _n = 33_):
 
 ~~~
+let n = 24;
 { :i :j |
-	(2.pi.i * i * j / 32).exp.imaginary
-}.table(0:32, 0:32).matrixPlot
+	(2.pi.i * i * j / n).exp.imaginary
+}.table(0:n, 0:n).matrixPlot
 ~~~
 
-Plot a table of values of five sine waves in random directions:
+![](sw/spl/Help/Image/matrixPlot-C.svg)
+
+Plot a table of values of five sine waves in random directions (see also _k = 100_):
 
 ~~~
-let r = Sfc32(31684).randomReal(0, 10, [5 2]);
-let i = (0, 0.05 .. 5);
+let r = Sfc32(31684);
+let n = r.randomReal(0, 10, [5 2]);
+let k = 35;
+let i = (0 -- 5).subdivide(k);
 { :x :y |
-	r.collect { :each | each.dot([x, y]).sin }.sum
+	n.collect { :each |
+		each.dot([x, y]).sin
+	}.sum
 }.table(i, i).matrixPlot
 ~~~
+
+![](sw/spl/Help/Image/matrixPlot-D.svg)
 
 Plot the `sin` function at integer points:
 
 ~~~
+let i = -20:20;
 { :x :y |
-	(x * y / 100).sin
-}.table(-50:50, -50:50).matrixPlot
+	(x * y / 50).sin
+}.table(i, i).matrixPlot
 ~~~
+
+![](sw/spl/Help/Image/matrixPlot-E.svg)
+
+Plot a random 50×10 matrix:
+
+~~~
+Sfc32(17492)
+.randomReal(0, 1, [50 10])
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/matrixPlot-F.svg)
 
 * * *
 
-See also: discretePlot, functionPlot, linePlot, scatterPlot
+See also: discretePlot, functionPlot, linePlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

@@ -25,9 +25,19 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-4 -- 4).functionPlot(sinh:/1)
 ~~~
+
+![](sw/spl/Help/Image/sinh-A.svg)
+
+Draw a hyperbola:
+
+~~~
+(-1 -- 1).parametricPlot(sinh:/1, cosh:/1)
+~~~
+
+![](sw/spl/Help/Image/sinh-B.svg)
 
 * * *
 

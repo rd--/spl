@@ -14,6 +14,16 @@ Evaluate numerically:
 1.19954
 ```
 
+Plot over a subset of the reals:
+
+~~~spl svg=A
+(-4 -- 4).functionPlot { :x |
+	x.coth.clip(-4, 4)
+}
+~~~
+
+![](sw/spl/Help/Image/coth-A.svg)
+
 * * *
 
 See also: cosh, sinh
