@@ -2,7 +2,7 @@
 
 - _chunksOf(aList | aString, length)_
 
-Split a `List` or 
+Split a `List` or `String` into parts of _length_ places.
 
 Split a `List` of nine places into three parts of three places:
 
@@ -30,7 +30,12 @@ At the `alphabet`:
 
 ```
 'english'.alphabet.join('').chunksOf(3)
-['abc' 'def' 'ghi' 'jkl' 'mno' 'pqr' 'stu' 'vwx' 'yz']
+[
+	'abc' 'def' 'ghi'
+	'jkl' 'mno' 'pqr'
+	'stu' 'vwx' 'yz'
+]
+```
 
 * * *
 

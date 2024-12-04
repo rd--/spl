@@ -2785,6 +2785,14 @@
 		}
 	}
 
+	tuplesCollect { :self :aBlock:/1 |
+		let answer = [];
+		self.tuplesDo { :each |
+			answer.add(each.aBlock)
+		};
+		answer
+	}
+
 	tuplesDo { :self :aBlock:/1 |
 		let tupleCount = self.collect(size:/1).product;
 		let tuple = self.species.new(self.size);
@@ -2800,11 +2808,7 @@
 	}
 
 	tuples { :self |
-		let answer = [];
-		self.tuplesDo { :each |
-			answer.add(each.copy)
-		};
-		answer
+		self.tuplesCollect(copy:/1)
 	}
 
 	tuples { :self :count |

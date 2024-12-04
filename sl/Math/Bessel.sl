@@ -12,7 +12,7 @@
 				(n = 1).if {
 					besselJ1(x)
 				} {
-					self.error('@Integer>>besselJ: only defined for n=0 and n=1')
+					n.error('@Integer>>besselJ: only defined for n=0 and n=1')
 				}
 			}
 		}

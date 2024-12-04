@@ -14,11 +14,16 @@ If there are to few items the last list may be truncated:
 The _size_ value may be a stream:
 
 ```
->>> LsClump(LsSeries(1, 1, 11), LsCyc([2 3])).upToEnd
+>>> LsClump(
+>>> 	LsSeries(1, 1, 11),
+>>> 	LsCyc([2 3])
+>>> ).upToEnd
 [1 2; 3 4 5; 6 7; 8 9 10; 11]
 ```
 
 * * *
+
+See also: chunksOf, clump
 
 References:
 _SuperCollider_

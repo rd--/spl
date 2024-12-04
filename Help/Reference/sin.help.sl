@@ -72,11 +72,17 @@ Plot over a subset of the reals:
 (0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
+![](sw/spl/Help/Image/sin-A.svg)
+
 Noncommensurate waves (quasiperiodic function):
 
 ~~~
-(0 -- 40.pi).functionPlot { :x | x.sin + (x * 2.sqrt).sin }
+(0 -- 16.pi).functionPlot { :x |
+	x.sin + (x * 2.sqrt).sin
+}
 ~~~
+
+![](sw/spl/Help/Image/sin-B.svg)
 
 * * *
 

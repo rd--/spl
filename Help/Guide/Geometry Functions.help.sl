@@ -53,8 +53,10 @@
 
 - `arcLength`: length of an object
 - `area`: area of an object
-- `diameter`: diameter of an object
 - `circumference`: arc length of a circle
+- `diameter`: diameter of an object
+- `dimension`: the dimension of an object
+- `embeddingDimension`: the dimension of a space
 - `perimeter`: perimeter of an object
 - `radius`: radius of an object
 - `unitNormal`: unit normal vector of a surface

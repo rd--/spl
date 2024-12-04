@@ -2,7 +2,8 @@
 
 - _adjacentPairsCollect(aSequence, aBlock:/2)_
 
-Collect over the items of _aSequence_ taken two at a time, moving forward one place each time.
+Collect over the items of _aSequence_ taken two at a time,
+moving forward one place each time.
 
 ```
 >>> 1:7.adjacentPairsCollect(+)

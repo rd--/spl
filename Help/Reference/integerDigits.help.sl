@@ -57,7 +57,16 @@ Count from zero to seven in binary, answers to three places:
 
 ```
 >>> 0:7.integerDigits(2, 3)
-[0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
+[
+	0 0 0;
+	0 0 1;
+	0 1 0;
+	0 1 1;
+	1 0 0;
+	1 0 1;
+	1 1 0;
+	1 1 1
+]
 ```
 
 Number of 1s in the ternary expansion of _n_,
@@ -67,7 +76,11 @@ OEIS [A062756](https://oeis.org/A062756):
 >>> 0:23.collect { :i |
 >>> 	i.integerDigits(3).count(isOne:/1)
 >>> }
-[0 1 0 1 2 1 0 1 0 1 2 1 2 3 2 1 2 1 0 1 0 1 2 1]
+[
+	0 1 0 1 2 1 0 1 0 1
+	2 1 2 3 2 1 2 1 0 1
+	0 1 2 1
+]
 ```
 
 Find the the _population count_,
@@ -79,8 +92,9 @@ for the first few powers of three:
 >>> 	(3 ^ i).integerDigits(2).count(isOne:/1)
 >>> }
 [
-	1 2 2 4 3 6 6 5 6 8 9 13 10 11 14
-	15 11 14 14 17 17 20 19 22 16 18 24 30 25 25
+	01 02 02 04 03 06 06 05 06 08
+	09 13 10 11 14 15 11 14 14 17
+	17 20 19 22 16 18 24 30 25 25
 ]
 ```
 
@@ -148,14 +162,17 @@ It is an error if the operand is not an integer:
 true
 ```
 
-Scatter plot of first two-thousand terms of OEIS [A265326](https://oeis.org/A265326):
+Scatter plot of first two-hundred terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~
 { :n |
 	let m = n.nthPrime;
-	m - m.integerDigits(2).reversed.fromDigits(2)
-}.map(1:2000).scatterPlot
+	let r = m.integerDigits(2).reversed;
+	m - r.fromDigits(2);
+}.map(1:200).scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/integerDigits-A.svg)
 
 Scatter plot of first two-thousand terms of OEIS [A117966](https://oeis.org/A117966):
 
@@ -164,8 +181,10 @@ Scatter plot of first two-thousand terms of OEIS [A117966](https://oeis.org/A117
 	i.integerDigits(3).collect { :n |
 		(n = 2).if { -1 } { n }
 	}.fromDigits(3)
-}.map(0:2000).scatterPlot
+}.map(0:200).scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/integerDigits-B.svg)
 
 * * *
 

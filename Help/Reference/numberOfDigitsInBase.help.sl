@@ -14,10 +14,10 @@ Base ten:
 [1 2 3 4 5]
 ```
 
-Negative numbers:
+Negative numbers, E-notation:
 
 ```
->>> [-1 -10 -100 -1000 -10000].collect { :each |
+>>> [-1 -1E1 -1E2 -1E3 -1E4].collect { :each |
 >>> 	each.numberOfDigitsInBase(10)
 >>> }
 [1 2 3 4 5]
@@ -26,7 +26,10 @@ Negative numbers:
 Base two:
 
 ```
->>> [1 2 4 8 16 32 64 128 256].collect { :each |
+>>> [
+>>> 	1 2 4 8 16
+>>> 	32 64 128 256
+>>> ].collect { :each |
 >>> 	each.numberOfDigitsInBase(2)
 >>> }
 [1 2 3 4 5 6 7 8 9]
@@ -35,7 +38,10 @@ Base two:
 Negative numbers:
 
 ```
->>> [-1 -2 -4 -8 -16 -32 -64 -128 -256].collect { :each |
+>>> [
+>>> 	-1 -2 -4 -8 -16
+>>> 	-32 -64 -128 -256
+>>> ].collect { :each |
 >>> 	each.numberOfDigitsInBase(2)
 >>> }
 [1 2 3 4 5 6 7 8 9]

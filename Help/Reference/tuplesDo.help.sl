@@ -7,6 +7,6 @@ which is an n-element sequence of any sized sequences.
 
 * * *
 
-See also: tuples
+See also: tuples, tuplesCollect
 
 Categories: Enumerating

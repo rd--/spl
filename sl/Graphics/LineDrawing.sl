@@ -13,7 +13,7 @@ LineDrawing : [Object] { | contents |
 		let height = 100;
 		let boundingBox = self.boundingBox.asRectangle;
 		let yRange = boundingBox.height;
-		let precision = (yRange < 10).if { 3 } { 2 };
+		let precision = (3 - yRange.log10.rounded).max(0).also { :x | ['RANGE/PREC', yRange, x].postLine };
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
 		let options = (precision: precision, scaleFactor: scaleFactor);
@@ -55,11 +55,19 @@ LineDrawing : [Object] { | contents |
 +List {
 
 	asLineDrawing { :self |
-		[self.Line].LineDrawing
+		self.Line.asLineDrawing
 	}
 
 	LineDrawing { :self |
 		newLineDrawing().initializeSlots(self.flatten)
+	}
+
+}
+
++[Circle, Line, Point, PointCloud, Polygon, Rectangle, Writing] {
+
+	asLineDrawing { :self |
+		[self].LineDrawing
 	}
 
 }

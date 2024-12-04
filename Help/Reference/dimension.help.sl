@@ -20,6 +20,20 @@ The dimension of a volumetric point is `zero`, the embedding dimension is three:
 (0, 3)
 ```
 
+The dimension of a `Line` is `one`:
+
+```
+>>> Line([0 0; 1 1]).dimension
+1
+```
+
+The dimension of a `Rectangle` is two:
+
+```
+>>> Rectangle([0 0], [1 1]).dimension
+2
+```
+
 * * *
 
 See also: embeddingDimension, size

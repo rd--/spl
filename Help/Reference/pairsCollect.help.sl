@@ -2,7 +2,8 @@
 
 - _pairsCollect(aSequence, aBlock:/2)_
 
-Apply _aBlock_ to the items of _aSequence_ taken two at a time.
+Apply _aBlock_ to the items of _aSequence_ taken two at a time,
+moving forward two places each time.
 Answer a `List` of the answers.
 
 ```
@@ -15,6 +16,6 @@ Answer a `List` of the answers.
 
 * * *
 
-See also: pairsDo
+See also: adjacentPairsCollect, pairsDo, tuples
 
 Categories: Enumerating

@@ -544,14 +544,14 @@
 		}
 	}
 
-	pi { :self |
-		self * 3.1415926535897932384626433
-	}
-
 	perrinFunction { :n |
 		let rho = 1.plasticRatio;
 		let theta = ((rho ^ 3).sqrt.- / 2).arcCos;
 		(rho ^ n) + (2 * (n * theta).cos * (rho ^ n.-).sqrt)
+	}
+
+	pi { :self |
+		self * 3.1415926535897932384626433
 	}
 
 	plasticRatio { :self |

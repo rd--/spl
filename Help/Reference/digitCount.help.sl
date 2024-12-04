@@ -38,26 +38,36 @@ Thue–Morse sequence:
 >>> 1:25.collect { :n |
 >>> 	1 - (n - 1).digitCount(2, 1) % 2
 >>> }
-[1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 1 0 0 1 1]
+[
+	1 0 0 1 0 1 1 0 0 1
+	1 0 1 0 0 1 0 1 1 0
+	1 0 0 1 1
+]
 ```
 
 Plot the number of 1s in the base-2 representation:
 
-~~~
+~~~spl svg=A
 1:63.functionPlot { :each |
 	each.digitCount(2, 1)
 }
 ~~~
+
+![](sw/spl/Help/Image/digitCount-A.svg)
 
 Plot the number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
 
 ~~~
 let b = { :k | k.digitCount(2, 1) };
-1:200.functionPlot { :n |
-	(0 .. n - 1).collect { :k | 2 ^ b(k) }.sum
+1:100.functionPlot { :n |
+	(0 .. n - 1).collect { :k |
+		2 ^ b(k)
+	}.sum
 }
 ~~~
+
+![](sw/spl/Help/Image/digitCount-B.svg)
 
 * * *
 

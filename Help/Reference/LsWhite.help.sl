@@ -4,13 +4,15 @@
 
 Random values that follow a uniform distribution.
 
-~~~
+~~~spl svg=A
 LsWhite(-1, 1, 99).upToEnd.linePlot
 ~~~
 
+![](sw/spl/Help/Image/LsWhite-A.svg)
+
 Diverging range:
 
-~~~
+~~~spl svg=B
 LsWhite(
 	LsSeries(0, -1, inf),
 	LsSeries(0, 1, inf),
@@ -18,9 +20,11 @@ LsWhite(
 ).upToEnd.linePlot
 ~~~
 
+![](sw/spl/Help/Image/LsWhite-B.svg)
+
 * * *
 
-See also: LsBrown, LsRand
+See also: LsBeta, LsBrown, LsRand
 
 References:
 _SuperCollider_

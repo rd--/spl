@@ -17,7 +17,9 @@ Evaluate at specific real values:
 The first three zeros of _J0(x)_:
 
 ```
->>> [2.40483 5.52008 8.65373].collect { :x | 0.besselJ(x) }
+>>> [2.405 5.520 8.654].collect { :x |
+>>> 	0.besselJ(x)
+>>> }
 [0 0 0]
 ```
 
@@ -30,29 +32,39 @@ Elementwise threading over lists and matrices:
 
 Plot _J0_ over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0 -- 50).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
+![](sw/spl/Help/Image/besselJ-A.svg)
+
 Plot _J0_ for _(-1, 9)_, showing the first three zero crossings:
 
-~~~
+~~~spl svg=B
 (-1 -- 9).functionPlot { :x | 0.besselJ(x) }
 ~~~
 
+![](sw/spl/Help/Image/besselJ-B.svg)
+
 Plot _J1_ for _(0, 15)_, showing the first four zero crossings:
 
-~~~
+~~~spl svg=C
 (0 -- 15).functionPlot { :x | 1.besselJ(x) }
 ~~~
 
+![](sw/spl/Help/Image/besselJ-C.svg)
+
 Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
 
-~~~
+~~~spl svg=D
 (0.15 -- 1/3.pi).functionPlot { :theta |
-	2 * ((besselJ1(20 * theta.sin) / (20 * theta.sin)) ^ 2)
+	let a = besselJ1(20 * theta.sin);
+	let b = 20 * theta.sin;
+	2 * ((a / b) ^ 2)
 }
 ~~~
+
+![](sw/spl/Help/Image/besselJ-D.svg)
 
 * * *
 

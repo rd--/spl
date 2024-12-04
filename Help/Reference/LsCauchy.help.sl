@@ -4,13 +4,15 @@
 
 Random values that follow a Cauchy distribution.
 
-~~~
+~~~spl svg=A
 LsCauchy(0, 1 / 9, 99).upToEnd.linePlot
 ~~~
 
+![](sw/spl/Help/Image/LsCauchy-A.svg)
+
 * * *
 
-See also: LsBeta
+See also: LsBeta, LsBrown, LsWhite
 
 References:
 _SuperCollider_

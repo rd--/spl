@@ -59,9 +59,9 @@
 	/* Graphics */
 	'Colour'
 	'Svg'
-	'LineDrawing' /* Svg */
 	'Plot' /* Interval, LineDrawing */
 	'Writing'
+	'LineDrawing' /* Svg Writing */
 
 	/* Help */
 	'HelpIndex'

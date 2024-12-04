@@ -75,7 +75,11 @@ Threads over lists:
 
 ```
 >>> [11 101 1001].factorInteger
-[[11 -> 1], [101 -> 1], [7 -> 1, 11 -> 1, 13 -> 1]]
+[
+	[11 -> 1],
+	[101 -> 1],
+	[7 -> 1, 11 -> 1, 13 -> 1]
+]
 ```
 
 A unit factor:
@@ -166,11 +170,13 @@ At zero and negative one and one:
 
 Plot the number of distinct prime factors of the first 100 numbers:
 
-~~~
+~~~spl svg=A
 1:99.functionPlot { :each |
 	each.factorInteger.size
 }
 ~~~
+
+![](sw/spl/Help/Image/factorInteger-A.svg)
 
 * * *
 

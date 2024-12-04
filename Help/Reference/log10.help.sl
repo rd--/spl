@@ -25,6 +25,16 @@ Answers the base-10 logarithm of _aNumber_.
 (n.log / 10.log)
 ```
 
+Threads over lists:
+
+```
+>>> [0.01 0.1 1 10 100 1000].log10
+[-2 -1 0 1 2 3]
+
+>>> [1 2.5 5 7.5 10 25 50 75 100].log10.rounded
+[0 0 1 1 1 1 2 2 2]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

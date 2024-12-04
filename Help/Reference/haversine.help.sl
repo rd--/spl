@@ -32,6 +32,8 @@ Plot over a subset of the reals:
 (0 -- 5.pi).functionPlot(haversine:/1)
 ~~~
 
+![](sw/spl/Help/Image/haversine-A.svg)
+
 * * *
 
 See also: cos, sin, tan

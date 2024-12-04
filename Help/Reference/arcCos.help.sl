@@ -48,9 +48,11 @@ n
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-0.95 -- 0.95).functionPlot(arcCos:/1)
 ~~~
+
+![](sw/spl/Help/Image/arcCos-A.svg)
 
 * * *
 

@@ -25,9 +25,11 @@ Threads over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (1 -- 10).functionPlot(arcCosh:/1)
 ~~~
+
+![](sw/spl/Help/Image/arcCosh-A.svg)
 
 * * *
 

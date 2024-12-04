@@ -1,11 +1,19 @@
 HalfLine : [Object] { | point vector |
 
+	dimension { :self |
+		1
+	}
+
 }
 
 InfiniteLine : [Object] { | point vector |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	dimension { :self |
+		1
 	}
 
 	storeString { :self |
@@ -32,7 +40,7 @@ Line : [Object] { | vertices |
 		self.vertices.coordinateBoundingBox
 	}
 
-	dimensions { :self |
+	dimension { :self |
 		1
 	}
 
@@ -105,7 +113,7 @@ LineSegment : [Object] { | u v |
 		self.midpoint
 	}
 
-	dimensions { :self |
+	dimension { :self |
 		1
 	}
 

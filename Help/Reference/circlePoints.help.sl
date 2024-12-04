@@ -34,8 +34,41 @@ C.f. `angleVector`:
 
 ```
 >>> 6.circlePoints(1, 0)
-(0, pi / 3 .. 2 * pi).collect(angleVector:/1).allButLast
+(0, pi / 3 .. 2 * pi)
+.collect(angleVector:/1)
+.allButLast
 ```
+
+Draw a pentagon:
+
+~~~
+let p = 5.circlePoints(1, pi / 10);
+p.Polygon.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-A.svg)
+
+Unit circles at each circle point:
+
+~~~
+20.circlePoints(1, 0).collect { :p |
+	Circle(p, 1)
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-B.svg)
+
+Three concentric complete graph drawings:
+
+~~~spl svg=C
+1:3.collect { :r |
+	8.circlePoints(r * 100, 0)
+	.tuples(2)
+	.Line
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-C.svg)
 
 * * *
 

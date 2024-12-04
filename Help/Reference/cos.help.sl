@@ -41,32 +41,42 @@ Fixed point:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0 -- 2.pi).functionPlot(cos:/1)
 ~~~
 
+![](sw/spl/Help/Image/cos-A.svg)
+
 Increasing amplitude:
 
-~~~
+~~~spl svg=B
 (0 -- 16.pi).functionPlot { :u | u * u.cos }
 ~~~
 
+![](sw/spl/Help/Image/cos-B.svg)
+
 Noncommensurate waves (quasiperiodic function):
 
+~~~spl svg=C
+(0 -- 16.pi).functionPlot { :x |
+	x.cos + (x * 2.sqrt).cos
+}
 ~~~
-(0 -- 40.pi).functionPlot { :x | x.cos + (x * 2.sqrt).cos }
-~~~
+
+![](sw/spl/Help/Image/cos-C.svg)
 
 Spiral:
 
-~~~
-(0 -- 6.pi).functionPlot { :t |
+~~~spl svg=D
+(0 -- 6.pi).subdivide(200).collect { :t |
 	[
 		t / pi * t.cos,
 		t / pi * t.sin
 	]
-}
+}.asLineDrawing
 ~~~
+
+![](sw/spl/Help/Image/cos-D.svg)
 
 * * *
 

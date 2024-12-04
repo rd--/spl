@@ -28,28 +28,42 @@ Find how the number of digits in _100!_ decreases with the base:
 >>> 	100.!.integerLength(n)
 >>> }
 [
-	525 332 263 227 204 187 175 166 158 152
-	147 142 138 135 132 129 126 124 122
+	525 332 263 227 204
+	187 175 166 158 152
+	147 142 138 135 132
+	129 126 124 122
 ]
 ```
 
 Plot for base 10 from -25 to 25:
 
 ~~~
--25:25.functionPlot { :x | x.integerLength(10) }
+-25:25.functionPlot { :x |
+	x.integerLength(10)
+}
 ~~~
+
+![](sw/spl/Help/Image/integerLength-A.svg)
 
 Plot for base 2 from 1 to 1023:
 
 ~~~
-1:1023.functionPlot { :x | x.integerLength(2) }
+1:1023.functionPlot { :x |
+	x.integerLength(2)
+}
 ~~~
+
+![](sw/spl/Help/Image/integerLength-B.svg)
 
 Plot for base 10 for factorials, minus pre-factorial value:
 
 ~~~
-1:50.functionPlot { :x | x.!.integerLength(10) - x }
+1:50.functionPlot { :x |
+	x.!.integerLength(10) - x
+}
 ~~~
+
+![](sw/spl/Help/Image/integerLength-C.svg)
 
 * * *
 

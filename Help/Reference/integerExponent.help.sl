@@ -25,18 +25,24 @@ Number of trailing zeros in factorials:
 >>> 	n.factorial.integerExponent(10)
 >>> }
 [
-	0 0 0 0 1 1 1 1 1 2 2 2 2 2 3 3 3 3 3 4
-	4 4 4 4 6 6 6 6 6 7 7 7 7 7 8 8 8 8 8 9
+	0 0 0 0 1 1 1 1 1 2
+	2 2 2 2 3 3 3 3 3 4
+	4 4 4 4 6 6 6 6 6 7
+	7 7 7 7 8 8 8 8 8 9
 ]
 ```
 
 Powers of 2 in successive integers:
 
 ```
->>> 1:40.collect { :n | n.integerExponent(2) }
+>>> 1:40.collect { :n |
+>>> 	n.integerExponent(2)
+>>> }
 [
-	0 1 0 2 0 1 0 3 0 1 0 2 0 1 0 4 0 1 0 2
-	0 1 0 3 0 1 0 2 0 1 0 5 0 1 0 2 0 1 0 3
+	0 1 0 2 0 1 0 3 0 1
+	0 2 0 1 0 4 0 1 0 2
+	0 1 0 3 0 1 0 2 0 1
+	0 5 0 1 0 2 0 1 0 3
 ]
 ```
 
@@ -54,11 +60,13 @@ A formula for digitCount:
 
 Plot it:
 
-~~~
+~~~spl svg=A
 (1:127).functionPlot { :n |
 	n.integerExponent(2)
 }
 ~~~
+
+![](sw/spl/Help/Image/integerExponent-A.svg)
 
 * * *
 
