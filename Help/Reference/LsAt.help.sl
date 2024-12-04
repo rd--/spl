@@ -8,8 +8,13 @@ Plot:
 
 ~~~
 let l = [1, 3 .. 23];
-LsAt(l, LsIBrown(1, l.size, 2, 99)).upToEnd.linePlot
+LsAt(
+	l,
+	LsIBrown(1, l.size, 2, 99)
+).upToEnd.linePlot
 ~~~
+
+![](sw/spl/Help/Image/LsAt-A.svg)
 
 * * *
 

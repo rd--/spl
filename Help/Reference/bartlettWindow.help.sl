@@ -29,6 +29,8 @@ Discrete _Bartlett window_ of length 15:
 ).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/bartlettWindow-B.svg)
+
 * * *
 
 See also: blackmanWindow, welchWindow

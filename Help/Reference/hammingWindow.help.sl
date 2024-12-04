@@ -26,9 +26,11 @@ Discrete Hamming window of length 15:
 ).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/hammingWindow-B.svg)
+
 * * *
 
-See also: hammingTable
+See also: hammingTable, hannWindow
 
 Guides: Window Functions
 

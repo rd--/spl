@@ -47,7 +47,10 @@ Compute using integers:
 `modularInverse` is a periodic function:
 
 ```
->>> [2.modularInverse(5), (2 + 5).modularInverse(5)]
+>>> [
+>>> 	2.modularInverse(5),
+>>> 	(2 + 5).modularInverse(5)
+>>> ]
 [3 3]
 ```
 
@@ -91,19 +94,23 @@ true
 1
 ```
 
-However, neither 10 and 22 nor 40 and 2018 are not coprime:
+However, neither 10 and 22 nor 40 and 2018 are coprime:
 
 ```
 >>> 10.isCoprime(22)
 false
 
->>> { 10.modularInverse(22) }.ifError { true }
+>>> {
+>>> 	10.modularInverse(22)
+>>> }.ifError { true }
 true
 
 >>> 40.isCoprime(2018)
 false
 
->>> { 40.modularInverse(2018) }.ifError { true }
+>>> {
+>>> 	40.modularInverse(2018)
+>>> }.ifError { true }
 true
 ```
 
@@ -114,6 +121,8 @@ Plot the sequence with a fixed modulus:
 	k.modularInverse(17)
 }.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/modularInverse-A.svg)
 
 * * *
 

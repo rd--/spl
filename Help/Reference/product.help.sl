@@ -36,15 +36,23 @@ Plot the sequence of partial products:
 
 ~~~
 (1 -- 50).functionPlot { :i |
-	(11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin)
+	let z = 2 + (i * 2 * pi / 15).sin;
+	(11 / 12) ^ i * z
 }
+~~~
 
+![](sw/spl/Help/Image/product-A.svg)
+
+~~~
 1:50.functionPlot { :j |
 	1:j.collect { :i |
-		(11 / 12) ^ i * (2 + (i * 2 * pi / 15).sin)
+		let z = 2 + (i * 2 * pi / 15).sin;
+		(11 / 12) ^ i * z
 	}.product
 }
 ~~~
+
+![](sw/spl/Help/Image/product-B.svg)
 
 Where supported `product` is displayed as Π.
 

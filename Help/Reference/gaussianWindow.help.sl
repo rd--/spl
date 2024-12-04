@@ -32,8 +32,12 @@ Shape of a _Gaussian_ window using a specified parameter:
 Discrete _Gaussian_ window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, gaussianWindow:/1).discretePlot
+(-0.5 -- 0.5)
+.discretize(15, gaussianWindow:/1)
+.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/gaussianWindow-C.svg)
 
 * * *
 

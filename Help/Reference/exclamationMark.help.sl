@@ -44,6 +44,8 @@ Plot over a subset of the reals:
 }
 ~~~
 
+![](sw/spl/Help/Image/exclamationMark-A.svg)
+
 Plot the volume of the unit hypersphere as a function of dimension:
 
 ~~~
@@ -51,6 +53,8 @@ Plot the volume of the unit hypersphere as a function of dimension:
 	pi ^ (n / 2) / (n / 2).!
 }
 ~~~
+
+![](sw/spl/Help/Image/exclamationMark-B.svg)
 
 In the binary case there two meanings depending on the type of the operand.
 In the `Integer` case,

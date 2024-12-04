@@ -51,11 +51,15 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(abs:/1)
 ~~~
 
+![](sw/spl/Help/Image/abs-A.svg)
+
 Plot _|1 + x|_:
 
 ~~~
 (-2 -- 4).functionPlot(abs:/1)
 ~~~
+
+![](sw/spl/Help/Image/abs-B.svg)
 
 * * *
 

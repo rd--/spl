@@ -91,21 +91,33 @@ Threads over lists:
 >>> 11:13.binomial(1:3)
 [11 66 286]
 
->>> [11.binomial(1), 12.binomial(2), 13.binomial(3)]
+>>> [
+>>> 	11.binomial(1),
+>>> 	12.binomial(2),
+>>> 	13.binomial(3)
+>>> ]
 [11 66 286]
 ```
 
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~
-(-1.975 -- 4).functionPlot { :x | x.binomial(3) }
+(-1.975 -- 4).functionPlot { :x |
+	x.binomial(3)
+}
 ~~~
+
+![](sw/spl/Help/Image/binomial-A.svg)
 
 Plot over a subset of the reals as a function of its second parameter:
 
 ~~~
-(-1.975 -- 4).functionPlot { :x | 3.binomial(x) }
+(-1.975 -- 4).functionPlot { :x |
+	3.binomial(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/binomial-B.svg)
 
 * * *
 

@@ -28,9 +28,11 @@ Discrete _Blackman window_ of length 15:
 ).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/blackmanWindow-B.svg)
+
 * * *
 
-See also: bartlettWindow
+See also: bartlettWindow, welchWindow
 
 Guides: Window Functions
 

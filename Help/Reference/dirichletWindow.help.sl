@@ -16,11 +16,17 @@ Plot:
 (-1 -- 1).functionPlot(dirichletWindow:/1)
 ~~~
 
+![](sw/spl/Help/Image/dirichletWindow-A.svg)
+
 Discrete _Dirichlet window_ of length 15:
 
-~~~
-(-0.5 -- 0.5).discretize(15, dirichletWindow:/1).discretePlot
-~~~
+```
+>>> (-0.5 -- 0.5).discretize(
+>>> 	15,
+>>> 	dirichletWindow:/1
+>>> )
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
 
 * * *
 

@@ -36,9 +36,11 @@ Discrete _Welch_ window of length 15:
 ).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/welchWindow-C.svg)
+
 * * *
 
-See also: gaussianWindow, welchTable
+See also: gaussianWindow, hammingWindow, welchTable
 
 Guides: Window Functions
 

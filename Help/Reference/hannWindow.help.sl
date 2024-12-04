@@ -28,6 +28,8 @@ Discrete _Hann_ window of length 15:
 ).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/hannWindow-B.svg)
+
 * * *
 
 See also: hammingTable

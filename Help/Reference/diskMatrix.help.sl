@@ -56,10 +56,10 @@ A _21×21_ disk matrix:
 ]
 ```
 
-Plot the 32×32 disk matrix:
+Plot the 12×12 disk matrix:
 
 ~~~
-32.diskMatrix.matrixPlot
+12.diskMatrix.matrixPlot
 ~~~
 
 * * *

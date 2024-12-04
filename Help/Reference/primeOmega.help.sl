@@ -59,6 +59,8 @@ Plot the `primeOmega` sequence for the first 100 numbers:
 (1:100).functionPlot(primeOmega:/1)
 ~~~
 
+![](sw/spl/Help/Image/primeOmega-A.svg)
+
 * * *
 
 See also: factorInteger, isPrimePower, primeNu

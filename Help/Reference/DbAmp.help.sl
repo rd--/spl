@@ -22,6 +22,8 @@ Plot curve:
 (-120 -- 0).functionPlot(DbAmp:/1)
 ~~~
 
+![](sw/spl/Help/Image/DbAmp-A.svg)
+
 Fixed amplitude:
 
 ```

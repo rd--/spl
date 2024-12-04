@@ -52,6 +52,8 @@ Plot over a subset of the reals:
 }
 ~~~
 
+![](sw/spl/Help/Image/multinomial-A.svg)
+
 * * *
 
 See also: binomial, factorial

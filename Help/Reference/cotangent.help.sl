@@ -35,6 +35,8 @@ Plot over a subset of the reals:
 }
 ~~~
 
+![](sw/spl/Help/Image/cotangent-A.svg)
+
 * * *
 
 See also: cos, sin, tan

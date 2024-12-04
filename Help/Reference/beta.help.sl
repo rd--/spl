@@ -37,8 +37,12 @@ Threads elementwise over lists:
 Plot over a subset of the reals:
 
 ~~~
-(0.025 -- 3).functionPlot { :x | 0.5.beta(x) }
+(0.025 -- 3).functionPlot { :x |
+	0.5.beta(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/beta-A.svg)
 
 * * *
 

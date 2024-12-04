@@ -39,13 +39,17 @@ Svg : [Object] { | contents |
 		let maxEntry = self.abs.max.max;
 		let viewBox = Rectangle([0, 0], [width * bitSize, height * bitSize]);
 		let items = { :x :y |
-			let level = (maxEntry - self[y][x].abs) * (255 / maxEntry);
+			let level = ((maxEntry - self[y][x].abs) * (255 / maxEntry)).rounded;
 			'<rect x="%" y="%" width="%" height="%" fill="%"/>'.format([
 				(x - 1 * bitSize),
 				(y - 1 * bitSize),
 				bitSize,
 				bitSize,
-				'rgb(%,%,%)'.format([level, level, level])
+				(level = 255).if {
+					'transparent'
+				} {
+					'rgb(%,%,%)'.format([level, level, level])
+				}
 			])
 		}.table(1:width, 1:height);
 		[

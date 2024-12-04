@@ -89,7 +89,7 @@ Plot : [Object] { | contents format |
 				dataRatio
 			} {
 				1.goldenRatio
-			}.also { :x | ['DATRAT', dataRatio, 'ASPECTRAT', x].postLine };
+			};
 			let xScalar = aspectRatio / (w / h);
 			let scaledC = c * [[xScalar, 1]];
 			let items = [];

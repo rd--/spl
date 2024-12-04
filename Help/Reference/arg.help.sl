@@ -60,11 +60,15 @@ Plot over a subset of the reals:
 (-3 -- 3).functionPlot(arg:/1)
 ~~~
 
+![](sw/spl/Help/Image/arg-A.svg)
+
 Plot _arg(x + i)_ on the reals:
 
 ~~~
 (-3 -- 3).functionPlot { :x | (x + 1.i).arg }
 ~~~
+
+![](sw/spl/Help/Image/arg-B.svg)
 
 * * *
 
