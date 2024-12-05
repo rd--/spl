@@ -15,7 +15,10 @@ Convert _aCollection_ to a `Bag`.
 Count occurrences of characters in a string:
 
 ```
->>> 'occurrences'.splitBy('').asBag.sortedCounts
+>>> 'occurrences'
+>>> .contents
+>>> .asBag
+>>> .sortedCounts
 [
 	3 -> 'c',
 	2 -> 'e', 2 -> 'r',

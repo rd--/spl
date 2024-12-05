@@ -3,8 +3,11 @@
 - _latticeVectorString(aFraction, primes)_
 
 Answer a `String` describing the tuning `latticeVector` of _aFraction_ for each entry in _primes_.
-Entries indicate the multiplicity of the prime in either the numerator (positive) or denominator (negative).
-Ordinarily the two (octave) column is elided, and the first column is three (perfect fifth).
+Entries indicate the multiplicity of the prime,
+in either the numerator (positive),
+or denominator (negative).
+Ordinarily the two (octave) column is elided,
+and the first column is three (perfect fifth).
 
 ```
 >>> 9/7.latticeVectorString([3 5 7 11 13])

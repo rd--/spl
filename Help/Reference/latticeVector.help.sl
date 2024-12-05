@@ -3,8 +3,11 @@
 - _latticeVector(aFraction, primes)_
 
 Answer a `List` of the tuning lattice vector of _aFraction_ for each entry in _primes_.
-Entries indicate the multiplicity of the prime in either the numerator (positive) or denominator (negative).
-Ordinarily the two (octave) column is elided, and the first column is three (perfect fifth).
+Entries indicate the multiplicity of the prime,
+in either the numerator (positive),
+or denominator (negative).
+Ordinarily the two (octave) column is elided,
+and the first column is three (perfect fifth).
 
 ```
 >>> 9/7.latticeVector([3 5 7 11 13])
@@ -17,7 +20,9 @@ Ordinarily the two (octave) column is elided, and the first column is three (per
 If _primes_ does not contain all of the factors for _aFraction_ signal an `error`:
 
 ```
->>> { 17/13.latticeVector([3 5 7 11 13]) }.ifError { true }
+>>> {
+>>> 	17/13.latticeVector([3 5 7 11 13])
+>>> }.ifError { true }
 true
 
 >>> 17/13.latticePrimes
@@ -29,6 +34,6 @@ true
 
 * * *
 
-See also: latticePrimes, latticeVectorString, Tuning
+See also: latticeEdges, latticePrimes, latticeVectorString, latticeVertices, Tuning
 
 Categories: Tuning

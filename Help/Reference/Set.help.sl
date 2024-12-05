@@ -24,7 +24,7 @@ Note:
 
 * * *
 
-See also: asSet, add, Bag, isSet, List
+See also: asSet, add, Bag, isImmediate, isSet, List
 
 References:
 _Smalltalk_

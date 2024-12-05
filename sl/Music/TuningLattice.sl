@@ -37,7 +37,9 @@
 +List {
 
 	latticeCoordinates { :self :unitVector |
-		self.withCollect(unitVector.first(self.size)) { :count :unit |
+		self.withCollect(
+			unitVector.first(self.size)
+		) { :count :unit |
 			count * unit
 		}.sum
 	}
@@ -47,7 +49,15 @@
 	}
 
 	wilsonLatticeCoordinates { :self |
-		self.latticeCoordinates([20 0; 0 20; 4 3; -3 4; -1 2])
+		self.latticeCoordinates(
+			[
+				20 0;
+				0 20;
+				4 3;
+				-3 4;
+				-1 2
+			]
+		)
 	}
 
 }

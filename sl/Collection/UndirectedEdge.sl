@@ -1,4 +1,4 @@
-UndirectedEdge : [Object] { | contents |
+UndirectedEdge : [Object, Indexable] { | contents |
 
 	asDirectedEdge { :self |
 		let [i, j] = self.contents;
@@ -36,6 +36,10 @@ UndirectedEdge : [Object] { | contents |
 		}
 	}
 
+	indices { :self |
+		[1 2]
+	}
+
 	isDirected { :self |
 		false
 	}
@@ -55,6 +59,10 @@ UndirectedEdge : [Object] { | contents |
 	printString { :self |
 		let [i, j] = self.contents;
 		'% --- %'.format([i, j])
+	}
+
+	size { :self |
+		2
 	}
 
 	storeString { :self |

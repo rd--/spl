@@ -14,7 +14,12 @@ to convert a `Bag` to a `List` use `asList`:
 >>> let list = [1 1 1 3 3 5];
 >>> let bag = list.asBag;
 >>> let set = bag.asSet;
->>> (list.size, bag.size, set.size, bag.asList)
+>>> (
+>>> 	list.size,
+>>> 	bag.size,
+>>> 	set.size,
+>>> 	bag.asList
+>>> )
 (6, 6, 3, list)
 ```
 
@@ -22,8 +27,14 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 
 ```
 >>> let bag = [1 1 1 3 3 5].asBag;
->>> (bag.sortedCounts, bag.sortedElements)
-([3 -> 1, 2 -> 3, 1 -> 5], [1 -> 3, 3 -> 2, 5 -> 1])
+>>> (
+>>> 	bag.sortedCounts,
+>>> 	bag.sortedElements
+>>> )
+(
+	[3 -> 1, 2 -> 3, 1 -> 5],
+	[1 -> 3, 3 -> 2, 5 -> 1]
+)
 ```
 
 To get the elements as a `Map` use `valuesAndCounts`:
@@ -72,7 +83,7 @@ To remove an element to a `Bag` use `remove`:
 
 * * *
 
-See also: add, addWithOccurrences, asBag, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: add, addWithOccurrences, asBag, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
 
 References:
 _Mathematica_
