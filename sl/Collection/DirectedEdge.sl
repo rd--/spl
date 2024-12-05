@@ -26,11 +26,15 @@ DirectedEdge : [Object] { | contents |
 		self[2]
 	}
 
+	isDirected { :self |
+		true
+	}
+
 	isEdge { :self |
 		true
 	}
 
-	isUndirectedEdge { :self |
+	isUndirected { :self |
 		false
 	}
 

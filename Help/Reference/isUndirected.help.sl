@@ -35,6 +35,13 @@ Mixed graphs are neither directed not undirected:
 (false, false)
 ```
 
+Edges answer `isUndirected`:
+
+```
+>>> [1 --- 2, 2 --> 3].collect(isUndirected:/1)
+[true false]
+```
+
 * * *
 
 See also: Graph, isDirected, isMixed

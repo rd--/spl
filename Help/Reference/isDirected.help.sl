@@ -30,6 +30,13 @@ An undirected graph is not directed:
 false
 ```
 
+Edges answer `isDirected`:
+
+```
+>>> [1 --- 2, 2 --> 3].collect(isDirected:/1)
+[false true]
+```
+
 * * *
 
 See also: Graph, isDirectedEdge, isMixed, isUndirected
