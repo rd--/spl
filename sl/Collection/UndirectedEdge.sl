@@ -1,10 +1,5 @@
 UndirectedEdge : [Object] { | contents |
 
-	asDot { :self |
-		let [i, j] = self.contents;
-		'% -- %;'.format([i, j])
-	}
-
 	asDirectedEdge { :self |
 		let [i, j] = self.contents;
 		DirectedEdge(i, j)
@@ -24,6 +19,15 @@ UndirectedEdge : [Object] { | contents |
 
 	at { :self :index |
 		self.contents[index]
+	}
+
+	forDot { :self :isMixed |
+		let [i, j] = self.contents;
+		isMixed.if {
+			'% -> % [dir=none];'.format([i, j])
+		} {
+			'% -- %;'.format([i, j])
+		}
 	}
 
 	hasCommonVertex { :self :anEdge |

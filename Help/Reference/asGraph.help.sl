@@ -1,14 +1,16 @@
 # asGraph
 
-- _asGraph(anAssociationList | aMatrix)_
+- _asGraph(anObject)_
 
 Answer a `Graph` having the specified edges.
 The `vertexList` of the graph is inferred.
 
-The `Association` `List` case makes a directed graph:
+At `Association` `List` makes a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.adjacencyMatrix
+>>> [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 0;
 	0 0 1;
@@ -16,15 +18,25 @@ The `Association` `List` case makes a directed graph:
 ]
 ```
 
-The two-column matrix case makes an undirected graph:
+At two-column matrix makes an undirected graph:
 
 ```
->>> [1 2; 2 3; 3 1].asGraph.adjacencyMatrix
+>>> [1 2; 2 3; 3 1]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 1;
 	1 0 1;
 	1 1 0
 ]
+```
+
+At a `List` of edges can make either kind of graph,
+or a mixed graph:
+
+```
+>>> [1 --- 2, 2 --> 3].asGraph.isMixed
+true
 ```
 
 * * *

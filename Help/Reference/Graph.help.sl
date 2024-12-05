@@ -8,7 +8,7 @@ The number of vertices is the `vertexCount`, or _order_, of the graph.
 
 The _vertices_ are ordinarily the integers from one up to _order_.
 
-The _edges_ are pairs of vertices, either ordered or unordered.
+The _edges_ are pairs of vertices, either directed (ordered) or undirected (unordered).
 
 Vertices may be labeled,
 in which case `vertexLabels` is a `List` of `vertexCount` labels, one for each vertex.
@@ -23,7 +23,7 @@ The coherence of a Graph can be queried using `isValid`.
 
 * * *
 
-See also: ---, -->, edgeCount, edgeList, vertexCount, vertexList
+See also: ---, -->, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
 
 References:
 _Mathematica_

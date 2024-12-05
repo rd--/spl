@@ -2,21 +2,26 @@
 
 - _isUndirected(aGraph)_
 
-Answers `true` if _aGraph_ is a directed graph, else `false`.
+Answers `true` if _aGraph_ is an undirected graph, else `false`.
 
 A graph is undirected if all of its edges are undirected.
 
 ```
 >>> let g = [1 2; 2 3; 3 1].asGraph;
 >>> let e = g.edgeList;
->>> (g.isUndirected, e.collect(isUndirectedEdge:/1))
+>>> (
+>>> 	g.isUndirected,
+>>> 	e.collect(isUndirectedEdge:/1)
+>>> )
 (true, [true true true])
 ```
 
 A directed graph is not undirected:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.isUndirected
+>>> [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .isUndirected
 false
 ```
 

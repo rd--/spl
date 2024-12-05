@@ -39,23 +39,17 @@
 	}
 
 	asDot { :self |
-		let begin = self.isDirected.if {
-			[
-				'digraph {',
-				'graph [layout=neato];'
-			].unlines
-		} {
-			[
-				'graph {',
-				'graph [layout=neato];'
-			].unlines
-		};
+		let isMixed = self.isMixed;
+		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
+		let begin = '% {\ngraph [layout=neato];'.format([graphType]);
 		let attributeText = [
 			'graph [size=0.75,bgcolor=transparent];',
 			'node [shape=point];',
-			'edge [penwidth=0.75, arrowsize=0.25];'
+			'edge [penwidth=0.75, arrowsize=0.5];'
 		].unlines;
-		let edgeText = self.edgeList.collect(asDot:/1).unlines;
+		let edgeText = self.edgeList.collect { :each |
+			each.forDot(isMixed)
+		}.unlines;
 		let end = '}';
 		[
 			begin,

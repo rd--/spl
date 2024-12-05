@@ -1,10 +1,5 @@
 DirectedEdge : [Object] { | contents |
 
-	asDot { :self |
-		let [from, to] = self.contents;
-		'% -> %;'.format([from, to])
-	}
-
 	asDirectedEdge { :self |
 		self
 	}
@@ -20,6 +15,11 @@ DirectedEdge : [Object] { | contents |
 
 	at { :self :index |
 		self.contents[index]
+	}
+
+	forDot { :self :isMixed |
+		let [from, to] = self.contents;
+		'% -> %;'.format([from, to])
 	}
 
 	head { :self |

@@ -4,6 +4,9 @@
 
 Answer a `DirectedEdge` between vertices α and β.
 The operator form is `-->`.
+This type can be used,
+more generally,
+to represent a rule that transforms α to β.
 
 ```
 >>> DirectedEdge(1, 2)
@@ -17,6 +20,22 @@ The operator form is `-->`.
 1 --> 2
 ```
 
+A graph with directed edges:
+
+~~~
+[1 --> 2, 2 --> 3, 3 --> 1]
+.asGraph
+.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/DirectedEdge-A.svg)
+
 * * *
 
-See also: ---, asEdge, Graph, UndirectedEdge
+See also: ->, ---, asEdge, Graph, UndirectedEdge
+
+Unicode: U+027F6 ⟶ Long Rightwards Arrow
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DirectedEdge.html)

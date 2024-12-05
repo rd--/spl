@@ -7,17 +7,20 @@ Answers `true` if _aGraph_ is a directed graph, else `false`.
 A graph is directed if all of its edges are directed.
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.isDirected
+>>> [1 --> 2, 2 --> 3, 3 --> 1]
+>>> .asGraph
+>>> .isDirected
 true
 ```
 
 `isDirectedEdge` of each item in `edgeList`:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> let e = g.edgeList;
->>> (g.isDirected, e.collect(isDirectedEdge:/1))
-(true, [true true true])
+>>> [1 --> 2, 2 --> 3, 3 --> 1]
+>>> .asGraph
+>>> .edgeList
+>>> .collect(isDirectedEdge:/1)
+[true true true]
 ```
 
 An undirected graph is not directed:
