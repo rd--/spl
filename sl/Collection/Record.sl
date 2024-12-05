@@ -23,12 +23,12 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		self.error('atPut key not a string: ' ++ aString.typeOf)
 	}
 
-	includesIndex { :self :key |
+	includesKey { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
 	indices { :self |
-		<primitive: return Object.keys(_self);>
+		self.keys
 	}
 
 	isJson { :self |
@@ -39,11 +39,25 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		self.allSatisfy(isLiteral:/1)
 	}
 
+	keys { :self |
+		<primitive: return Object.keys(_self);>
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		<primitive:
+		Object.entries(_self).forEach(function(entry) {
+			_aBlock_2(entry[0], entry[1]);
+		});
+		return null;
+		>
+	}
+
 	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
+			const removed = _self[_key];
 			delete _self[_key];
-			return _key;
+			return removed;
 		} else {
 			return _aBlock();
 		}
@@ -70,15 +84,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 
 	values { :self |
 		<primitive: return Object.values(_self);>
-	}
-
-	withIndexDo { :self :aBlock:/2 |
-		<primitive:
-		Object.entries(_self).forEach(function(entry) {
-			_aBlock_2(entry[1], entry[0]);
-		});
-		return null;
-		>
 	}
 
 }

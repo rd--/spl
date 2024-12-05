@@ -3,11 +3,16 @@
 `Indexable` is a collection `Trait`.
 The required methods are `at`, `atPut`, `indices` and `size`.
 
+Notably the `At Syntax` and `AtPut Syntax` are implemented in terms of `Indexable` methods.
+The `Dictionary` types are `Indexable` so that one may use this array indexing syntax for dictionaries.
+
 ```
->>> system.traitTypes('Indexable').includes('List')
+>>> let t = system.traitTypes('Indexable');
+>>> t.includes('List')
 true
 
->>> system.traitDictionary['Indexable'].isTrait
+>>> let d = system.traitDictionary;
+>>> d['Indexable'].isTrait
 true
 ```
 

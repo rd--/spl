@@ -159,24 +159,7 @@
 +@Cache {
 
 	jiScala { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'jiScala',
-				'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
-				'application/json',
-				{ :libraryItem |
-					libraryItem.collect { :each |
-						each.includesKey('octave').if {
-							let [numerator, denominator] = each['octave'];
-							each['octave'] := Fraction(numerator, denominator)
-						} {
-							each['octave'] := 2/1
-						};
-						each.asJiTuning
-					}
-				}
-			)
-		)
+		self.useLibraryItem('jiScala')
 	}
 
 }
@@ -190,3 +173,20 @@ ScalaJiTuningBrowser : [Object, SmallKansan] {
 	}
 
 }
+
+LibraryItem(
+	name: 'jiScala',
+	url: 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			each.includesKey('octave').if {
+				let [numerator, denominator] = each['octave'];
+				each['octave'] := Fraction(numerator, denominator)
+			} {
+				each['octave'] := 2/1
+			};
+			each.asJiTuning
+		}
+	}
+)

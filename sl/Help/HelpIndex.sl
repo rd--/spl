@@ -59,14 +59,14 @@ HelpIndex : [Object] { | contents |
 +@Cache {
 
 	helpIndex { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'helpIndex',
-				'https://rohandrape.net/sw/spl/Help/Index.text',
-				'text/plain',
-				HelpIndex:/1
-			)
-		)
+		self.useLibraryItem('helpIndex')
 	}
 
 }
+
+LibraryItem(
+	name: 'helpIndex',
+	url: 'https://rohandrape.net/sw/spl/Help/Index.text',
+	mimeType: 'text/plain',
+	parser: HelpIndex:/1
+)

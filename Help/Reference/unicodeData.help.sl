@@ -5,7 +5,9 @@
 Answer a `Promise` that will answer a _matrix_ holding the _Unicode Character Database_.
 Implemented as a `LibraryItem`.
 
-Acquire the table, if it is not cached, and when it arrives print its size and the entry for code point 03C0:
+Acquire the table,
+if it is not cached,
+and when it arrives print its size and the entry for code point 03C0:
 
 ~~~
 system.unicodeData.then { :unicodeTable |
@@ -30,11 +32,16 @@ The most commonly used fields are:
 
 The code point is a four character hexadecimal string.
 
-If the library has been acquired it may be accessed directly:
+If the library has been acquired it may be accessed directly.
+Check if the library item is acquired:
 
 ~~~
 system.library.includesKey('unicodeData')
+~~~
 
+Get the library item:
+
+~~~
 system.library['unicodeData'].value.size
 ~~~
 

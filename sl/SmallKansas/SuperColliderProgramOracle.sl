@@ -1,14 +1,7 @@
 +@Cache {
 
 	superColliderProgramOracle { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'superColliderProgramOracle',
-				'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
-				'text/plain',
-				SuperColliderProgramIndex:/1
-			)
-		)
+		self.useLibraryItem('superColliderProgramOracle')
 	}
 
 }
@@ -30,3 +23,10 @@ SuperColliderProgramOracle : [Object, SmallKansan] {
 	}
 
 }
+
+LibraryItem(
+	name: 'superColliderProgramOracle',
+	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
+	mimeType: 'text/plain',
+	parser: SuperColliderProgramIndex:/1
+)

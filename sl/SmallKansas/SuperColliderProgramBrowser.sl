@@ -13,7 +13,12 @@ SuperColliderProgramIndex : [Object] { | contents |
 	}
 
 	categories { :self |
-		self.contents.collect(first:/1).copyWithoutIdenticalElements.sort.reject { :each |
+		self
+		.contents
+		.collect(first:/1)
+		.copyWithoutIdenticalElements
+		.sort
+		.reject { :each |
 			each = 'collect'
 		}
 	}
@@ -43,14 +48,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 +@Cache {
 
 	superColliderProgramIndex { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'superColliderProgramIndex',
-				'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
-				'text/plain',
-				SuperColliderProgramIndex:/1
-			)
-		)
+		self.useLibraryItem('superColliderProgramIndex')
 	}
 
 }
@@ -110,3 +108,10 @@ SuperColliderProgramBrowser : [Object, SmallKansan] {
 	}
 
 }
+
+LibraryItem(
+	name: 'superColliderProgramIndex',
+	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
+	mimeType: 'text/plain',
+	parser: SuperColliderProgramIndex:/1
+)

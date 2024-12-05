@@ -1,4 +1,7 @@
 [
+	/* System (Initial) */
+	'LibraryItem'
+
 	/* Behaviour */
 	'Piecewise'
 	'Prototype'
@@ -67,7 +70,7 @@
 	'LineDrawing' /* Svg Writing */
 
 	/* Help */
-	'HelpIndex'
+	'HelpIndex' /* LibraryItem */
 
 	/* Math */
 	'Bessel'
@@ -107,7 +110,6 @@
 	'FilePath'
 	'FileSystem'
 	'Headers'
-	'LibraryItem'
 	'Method'
 	'MessageEvent'
 	'Navigator'

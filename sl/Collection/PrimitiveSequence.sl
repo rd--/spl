@@ -44,6 +44,10 @@
 		>
 	}
 
+	basicRemoveAt { :self :index |
+		<primitive: return _self.splice(_index - 1, 1)[0];>
+	}
+
 	collect { :self :aBlock:/1 |
 		<primitive:
 		if(_aBlock_1 instanceof Function) {

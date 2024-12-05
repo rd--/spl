@@ -5,14 +5,19 @@
 Answer a Block that will apply _aBlock_ element wise to two sequences of equal length.
 
 ```
->>> ['1' '2' '3'].withCollectEqual(['4' '5' '6'], ++)
+>>> ['1' '2' '3'].withCollectEqual(
+>>> 	['4' '5' '6'],
+>>> 	++
+>>> )
 ['14' '25' '36']
 ```
 
 It is an error if the sequences are not of equal size:
 
 ```
->>> { [1 2 3].withCollectEqual([4 5], +) }.ifError { true }
+>>> {
+>>> 	[1 2 3].withCollectEqual([4 5], +)
+>>> }.ifError { true }
 true
 ```
 

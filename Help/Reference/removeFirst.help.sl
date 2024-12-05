@@ -6,14 +6,21 @@
 Remove the first _anInteger_ element of _aSequence_ and answer it.
 If the sequence is empty it is an error.
 
+The unary form removes one item:
+
 ```
 >>> let l = [1 .. 9];
->>> l.removeFirst = 1 & { l = [2 .. 9] }
+>>> (l.removeFirst, l)
+(1, [2 .. 9])
 true
+```
 
+Remove three items:
+
+```
 >>> let l = [1 .. 9];
->>> l.removeFirst(3) = [1 .. 3] & { l = [4 .. 9] }
-true
+>>> (l.removeFirst(3), l)
+([1 .. 3], [4 .. 9])
 ```
 
 * * *

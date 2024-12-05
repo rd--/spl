@@ -245,6 +245,9 @@ const asJs: ohm.ActionDict<string> = {
 	ConstantDefinition(_constant, _dot_, name, _equals, value) {
 		return `globalThis._${name.sourceString} = ${value.asJs};\n`;
 	},
+	LibraryItem(_libraryItem, aRecord) {
+		return `_addLibraryItem_2(_system, _asLibraryItem_1(${aRecord.asJs}));\n`;
+	},
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
 	},

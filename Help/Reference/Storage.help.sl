@@ -10,6 +10,6 @@ There may also be a per-session persistent local store at `sessionStorage`.
 
 * * *
 
-See also: Dictionary, Indexable, System
+See also: Dictionary, Indexable, localStorage, sessionStorage, System
 
 Categories: Collection, Type

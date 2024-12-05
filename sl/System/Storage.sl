@@ -1,5 +1,9 @@
 Storage! : [Object, Collection, Dictionary] {
 
+	= { :self :anObject |
+		self == anObject
+	}
+
 	at { :self :key |
 		key.assertIsString;
 		self.assertIsValidKey(key);
@@ -23,7 +27,7 @@ Storage! : [Object, Collection, Dictionary] {
 		>
 	}
 
-	basicRemoveAt { :self :key |
+	basicRemoveKey { :self :key |
 		<primitive:
 		const answer = _self.getItem(_key);
 		_self.removeItem(_key);
@@ -31,11 +35,11 @@ Storage! : [Object, Collection, Dictionary] {
 		>
 	}
 
-	includesIndex { :self :key |
-		self.indices.includes(key)
+	includesKey { :self :key |
+		self.keys.includes(key)
 	}
 
-	indices { :self |
+	keys { :self |
 		<primitive:
 		const answer = [];
 		for(let index = 0; index < _self.length; index++) {
@@ -45,10 +49,18 @@ Storage! : [Object, Collection, Dictionary] {
 		>
 	}
 
-	removeAt { :self :key |
-		key.assertIsString;
-		self.assertIsValidKey(key);
-		self.basicRemoveAt(key)
+	removeKey { :self :key |
+		self.removeKeyIfAbsent(key) {
+			self.error('removeKey: invalid key')
+		}
+	}
+
+	removeKeyIfAbsent { :self :key :aBlock:/0 |
+		self.includesKey(key).if {
+			self.basicRemoveKey(key)
+		} {
+			aBlock()
+		}
 	}
 
 	removeAll { :self |
@@ -63,7 +75,7 @@ Storage! : [Object, Collection, Dictionary] {
 	}
 
 	storeString { :self |
-		'<a Storage>'
+		'a Storage'
 	}
 
 }

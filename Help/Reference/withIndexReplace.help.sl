@@ -6,7 +6,9 @@ Like _replace_ except that the iteration index supplies the second argument to t
 
 ```
 >>> let l = [9 .. 1];
->>> l.withIndexReplace { :each :index | each * index };
+>>> l.withIndexReplace { :each :index |
+>>> 	each * index
+>>> };
 >>> l
 [9 16 21 24 25 24 21 16 9]
 ```

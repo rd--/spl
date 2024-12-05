@@ -1,18 +1,18 @@
 +@Cache {
 
 	unicodeData { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'unicodeData',
-				'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt',
-				'text/plain',
-				{ :libraryItem |
-					libraryItem.lines.collect { :each |
-						each.splitBy(';')
-					}
-				}
-			)
-		)
+		self.requireLibraryItem('unicodeData')
 	}
 
 }
+
+LibraryItem(
+	name: 'unicodeData',
+	url: 'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt',
+	mimeType: 'text/plain',
+	parser: { :libraryItem |
+		libraryItem.lines.collect { :each |
+			each.splitBy(';')
+		}
+	}
+)

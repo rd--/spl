@@ -22,11 +22,12 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 
 	require { :self |
 		('LibraryItem>>require' ++ self.name).postLine;
+		self.url := self.url.asUrl;
 		Promise { :resolve:/1 :reject:/1 |
 			self.value.ifNotNil { :answer |
 				resolve(answer)
 			} {
-				system.localStorage.includesIndex(self.key).if {
+				system.localStorage.includesKey(self.key).if {
 					self.value := self.readLocalStorage;
 					resolve(self.value)
 				} {
@@ -62,15 +63,28 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 +String {
 
 	LibraryItem { :name :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, url.asUrl, mimeType, parser, true, nil)
+		newLibraryItem().initializeSlots(name, url, mimeType, parser, true, nil)
 	}
 
 }
 
-+@Cache {
++Record {
+
+	asLibraryItem { :self |
+		LibraryItem(
+			self['name'],
+			self['url'],
+			self['mimeType'],
+			self['parser']
+		)
+	}
+
+}
+
++System {
 
 	addLibraryItem { :self :libraryItem |
-		self.library.includesIndex(libraryItem.name).if {
+		self.library.includesKey(libraryItem.name).if {
 			self.warning('addLibraryItem: item exists: ' ++ libraryItem.name)
 		} {
 			self.library[libraryItem.name] := libraryItem
@@ -78,7 +92,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	includesLibraryItem { :self :name |
-		self.library.includesIndex(name)
+		self.library.includesKey(name)
 	}
 
 	library { :self |

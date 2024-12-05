@@ -1,25 +1,25 @@
-AssociationList : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictionary] { | associationList |
+AssociationList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | contents |
 
 	asList { :self |
-		self.associationList
+		self.contents
 	}
 
 	associations { :self |
-		self.associationList
+		self.contents
 	}
 
 	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		self.associationList.detectIndex { :each |
+		self.contents.detectIndex { :each |
 			each.key = key
 		}.ifNil {
 			ifAbsent()
 		} { :index |
-			ifPresent(self.associationList[index].value)
+			ifPresent(self.contents[index].value)
 		}
 	}
 
 	at { :self :key |
-		self.associationList.detectIfFoundIfNone { :each |
+		self.contents.detectIfFoundIfNone { :each |
 			each.key = key
 		} { :each |
 			each.value
@@ -29,37 +29,41 @@ AssociationList : [Object, Iterable, Collection, Extensible, Removable, Indexabl
 	}
 
 	atPut { :self :key :value |
-		self.associationList.detectIfFoundIfNone { :each |
+		self.contents.detectIfFoundIfNone { :each |
 			each.key = key
 		} { :each |
 			each.value := value
 		} {
-			self.associationList.add(key -> value)
+			self.contents.add(key -> value)
 		}
 	}
 
-	includesIndex { :self :key |
-		self.associationList.detectIndex { :each |
+	includesKey { :self :key |
+		self.contents.detectIndex { :each |
 			each.key = key
 		} ~= nil
 	}
 
 	indices { :self |
-		self.associationList.collect(key:/1)
+		self.keys
+	}
+
+	keys { :self |
+		self.contents.collect(key:/1)
 	}
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |
-		self.associationList.detectIndex { :each |
+		self.contents.detectIndex { :each |
 			each.key = key
 		}.ifNil {
 			aBlock()
 		} { :index |
-			self.associationList.removeAt(index)
+			self.contents.removeAt(index)
 		}
 	}
 
 	size { :self |
-		self.associationList.size
+		self.contents.size
 	}
 
 	storeString { :self |
@@ -67,7 +71,7 @@ AssociationList : [Object, Iterable, Collection, Extensible, Removable, Indexabl
 	}
 
 	values { :self |
-		self.associationList.collect(value:/1)
+		self.contents.collect(value:/1)
 	}
 
 }

@@ -21,7 +21,7 @@ Remove only one matching element:
 
 * * *
 
-See also: add, Removeable, removeAll
+See also: add, Removeable, removeAll, removeAt, removeKey, removeKeyIfAbsent
 
 References:
 _Smalltalk_

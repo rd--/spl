@@ -41,16 +41,16 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 +@Cache {
 
 	clsLeitner { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'clsLeitner',
-				'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
-				'application/json',
-				{ :libraryItem |
-					libraryItem.collect(asCrystalLatticeStructure:/1)
-				}
-			)
-		)
+		self.useLibraryItem('clsLeitner')
 	}
 
 }
+
+LibraryItem(
+	name: 'clsLeitner',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect(asCrystalLatticeStructure:/1)
+	}
+)

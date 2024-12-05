@@ -390,9 +390,10 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("Gamma" . ?Γ) ; U+0393 Γ Greek Capital Letter Gamma
      ("i" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
-     ("index" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
+     ("index" . ?ⅈ) ; U+02148 ⅈ Double-Struck Italic Small I
      ("inf" . ?∞) ; U+221E ∞ Infinity
      ("intersection" . ?∩) ; U+2229 ∩ Intersection
+     ("j" . ?𝑗) ; U+1D457 𝑗 Mathematical Italic Small J
      ("lambda" . ?λ) ; U+03BB λ Greek Small Letter Lamda
      ("mu" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign

@@ -18,18 +18,9 @@ At `Range`:
 [19 .. 11]
 ```
 
-At `Record`:
-
-```
->>> (x: 1, y: 2, z: 3).withIndexCollect { :each :index |
->>> 	each -> index
->>> }
-(x: 1 -> 'x', y: 2 -> 'y', z: 3 -> 'z')
-```
-
 * * *
 
-See also: collect, withCollect, withIndexDo, withIndexReplace
+See also: collect, keysAndValuesCollect, withCollect, withIndexDo, withIndexReplace
 
 References:
 _Julia_

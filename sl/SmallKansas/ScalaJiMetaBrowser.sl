@@ -3,7 +3,11 @@
 +SmallKansas {
 
 	ScalaJiMetaBrowser { :self :jiMeta |
-		self.ColumnBrowser('Scala Ji Meta Browser', 'text/html', false, false, [1, 4], nil, nil) { :browser :path |
+		self.ColumnBrowser(
+			'Scala Ji Meta Browser',
+			'text/html',
+			false, false, [1, 4], nil, nil
+		) { :browser :path |
 			path.size.caseOf([
 				0 -> {
 					jiMeta.indices
@@ -26,20 +30,7 @@
 
 	jiMeta { :self |
 		self.jiScala.then { :jiScala |
-			self.useLibraryItem(
-				LibraryItem(
-					'jiMeta',
-					'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
-					'application/json',
-					{ :libraryItem |
-						libraryItem.collect { :each |
-							each.collect { :aName |
-								jiScala[aName]
-							}.select(notNil:/1)
-						}
-					}
-				)
-			)
+			self.useLibraryItem('jiMeta')
 		}
 	}
 
@@ -54,3 +45,16 @@ ScalaJiMetaBrowser : [Object, SmallKansan] {
 	}
 
 }
+
+LibraryItem(
+	name: 'jiMeta',
+	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			each.collect { :aName |
+				jiScala[aName]
+			}.select(notNil:/1)
+		}
+	}
+)

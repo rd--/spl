@@ -15,19 +15,8 @@ At `Range`, iterate over indices and values:
 [3 -> 1, 2 -> 2, 1 -> 3]
 ```
 
-At `Record`, iterate over keys and values:
-
-```
->>> let n = 0;
->>> (x: 1, y: 2, z: 3).withIndexDo { :value :key |
->>> 	n := n + value
->>> };
->>> n
-6
-```
-
 * * *
 
-See also: do, indices, indicesDo, withDo, withIndexCollect, withIndexReplace
+See also: do, indices, indicesDo, keysAndValuesDo, withDo, withIndexCollect, withIndexReplace
 
 Categories: Enumerating

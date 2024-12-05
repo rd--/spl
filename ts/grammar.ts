@@ -5,7 +5,7 @@ export const slGrammarDefinition: string = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = TypeExpression | TraitExpression | ConstantDefinition
+	LibraryExpression = TypeExpression | TraitExpression | LibraryItem | ConstantDefinition
 	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
 	TypeExtension = "+" typeName "{" (methodName Block)* "}"
 	TypeTypeExtension = "+" typeName "^" "{" (methodName Block)* "}"
@@ -18,6 +18,7 @@ Sl {
 	TraitExtension = "+" "@" traitName "{" (methodName Block)* "}"
 	TraitListExtension = "+" "@" "[" NonemptyListOf<traitName, ","> "]" "{" (methodName Block)* "}"
 	TraitDefinition = "@" traitName "{" (methodName Block)* "}"
+	LibraryItem = "LibraryItem" DictionaryExpression
 	ConstantDefinition = "Constant" "." constantName "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+

@@ -18,8 +18,8 @@
 	}
 
 	add { :self :anAssociation |
-		self.includesIndex(anAssociation.key).if {
-			self.error('@Dictionary>>add: index exists: ' ++ anAssociation.key)
+		self.includesKey(anAssociation.key).if {
+			self.error('@Dictionary>>add: key exists: ' ++ anAssociation.key)
 		} {
 			self[anAssociation.key] := anAssociation.value;
 			anAssociation
@@ -34,17 +34,15 @@
 	}
 
 	asList { :self |
-		let answer = List(self.size);
-		let index = 1;
+		let answer = [];
 		self.valuesDo { :each |
-			answer[index] := each;
-			index := index + 1
+			answer.add(each)
 		};
 		answer
 	}
 
 	assertIsValidKey { :self :key |
-		self.includesIndex(key).if {
+		self.includesKey(key).if {
 			key
 		} {
 			self.error('@Dictionary>>assertIsValidKey: no such key: ' ++ key)
@@ -66,17 +64,15 @@
 	}
 
 	associations { :self |
-		let answer = List(self.size);
-		let index = 1;
+		let answer = [];
 		self.associationsDo { :each |
-			answer[index] := each;
-			index := index + 1
+			answer.add(each)
 		};
 		answer
 	}
 
 	associationsDo { :self :aBlock:/1 |
-		self.withIndexDo { :value :key |
+		self.keysAndValuesDo { :key :value |
 			aBlock(key -> value)
 		}
 	}
@@ -108,17 +104,17 @@
 
 	collect { :self :aBlock:/1 |
 		let answer = self.species.new;
-		self.withIndexDo { :value :key |
+		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aBlock(value))
 		};
 		answer
 	}
 
 	declareFrom { :self :key :aDictionary |
-		self.includesIndex(key).if {
+		self.includesKey(key).if {
 			nil
 		} {
-			aDictionary.includesIndex(key).if {
+			aDictionary.includesKey(key).if {
 				let association = aDictionary.associationAt(key);
 				self.add(association);
 				aDictionary.removeKey(key);
@@ -201,31 +197,8 @@
 		}
 	}
 
-	includesIndex { :self :index |
-		self.indices.includes(index)
-	}
-
-	indexOfIfAbsent { :self :value :exceptionBlock:/0 |
-		valueWithReturn { :return:/1 |
-			self.associationsDo { :association |
-				(value = association.value).ifTrue {
-					association.key.return
-				}
-			};
-			exceptionBlock()
-		}
-	}
-
-	indexOf { :self :value |
-		self.indexOfIfAbsent(value) {
-			self.errorValueNotFound
-		}
-	}
-
-	indicesDo { :self :aBlock:/1 |
-		self.associationsDo { :association |
-			aBlock(association.key)
-		}
+	includesKey { :self :key |
+		self.keys.includes(key)
 	}
 
 	isDictionary { :self |
@@ -238,12 +211,28 @@
 		}
 	}
 
-	keyAtValue { :self :value |
-		self.indexOf(value)
-	}
 
 	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
-		self.indexOfIfAbsent(value, exceptionBlock:/0)
+		valueWithReturn { :return:/1 |
+			self.associationsDo { :association |
+				(value = association.value).ifTrue {
+					association.key.return
+				}
+			};
+			exceptionBlock()
+		}
+	}
+
+	keyAtValue { :self :value |
+		self.keyAtValueIfAbsent(value) {
+			self.errorValueNotFound
+		}
+	}
+
+	keysDo { :self :aBlock:/1 |
+		self.associationsDo { :association |
+			aBlock(association.key)
+		}
 	}
 
 	remove { :self :anAssociation |
@@ -289,13 +278,7 @@
 	}
 
 	removeAt { :self :key |
-		self.includesIndex(key).if {
-			let removed = self[key];
-			self.removeKey(key);
-			removed
-		} {
-			self.error('@Dictionary>>removeAt')
-		}
+		self.removeKey(key)
 	}
 
 	removeKey { :self :key |
@@ -334,18 +317,12 @@
 		}
 	}
 
-	withIndexCollect { :self :aBlock:/2 |
+	keysAndValuesCollect { :self :aBlock:/2 |
 		let answer = self.species.new;
-		self.withIndexDo { :value :key |
+		self.keysAndValuesDo { :key :value |
 			answer.add(key -> aBlock(value, key))
 		};
 		answer
-	}
-
-	withIndexDo { :self :aBlock:/2 |
-		self.associationsDo { :association |
-			aBlock(association.value, association.key)
-		}
 	}
 
 }
@@ -370,29 +347,6 @@
 			};
 			answer
 		}
-	}
-
-}
-
-/* Keys */
-+@Dictionary {
-
-	includesKey { :self :key |
-		self.includesIndex(key)
-	}
-
-	keys { :self |
-		self.indices
-	}
-
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.withIndexDo { :value :key |
-			aBlock(key, value)
-		}
-	}
-
-	keysDo { :self :aBlock:/1 |
-		self.indicesDo(aBlock:/1)
 	}
 
 }

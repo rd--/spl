@@ -23,14 +23,20 @@ There are variant forms with distinct rules for how to behave when the sequences
 `withCollectFolding` indexes the shorter sequence using `atFold`:
 
 ```
->>> [1 2 3 4].withCollectFolding([5 6 7 8 9], *)
+>>> [1 2 3 4].withCollectFolding(
+>>> 	[5 6 7 8 9],
+>>> 	*
+>>> )
 [5 12 21 32 27]
 ```
 
 `withCollectTruncating` stops at the end of the shorter sequence:
 
 ```
->>> [1 2 3].withCollectTruncating([4 5 6 7], *)
+>>> [1 2 3].withCollectTruncating(
+>>> 	[4 5 6 7],
+>>> 	*
+>>> )
 [4 10 18]
 ```
 
@@ -38,7 +44,10 @@ There are variant forms with distinct rules for how to behave when the sequences
 
 ```
 >>> {
->>> 	[1 2 3].withCollectEqual([4 5 6 7], *)
+>>> 	[1 2 3].withCollectEqual(
+>>> 		[4 5 6 7],
+>>> 		*
+>>> 	)
 >>> }.ifError { true }
 true
 ```

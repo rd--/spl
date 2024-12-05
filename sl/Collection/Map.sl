@@ -7,7 +7,7 @@
 	}
 
 	asRecord { :self |
-		self.indices.allSatisfy(isString:/1).if {
+		self.keys.allSatisfy(isString:/1).if {
 			self.basicAsRecord
 		} {
 			self.error('asRecord: not all keys are strings')
@@ -30,15 +30,16 @@
 		>
 	}
 
-	includesIndex { :self :key |
+	includesKey { :self :key |
 		<primitive: return _self.has(_key);>
 	}
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |
 		<primitive:
-		const existed = _self.delete(_key);
-		if(existed) {
-			return _key;
+		if(_self.has(_key)) {
+			const removed = _self.get(_key);
+			_self.delete(_key);
+			return removed;
 		} else {
 			return _aBlock_0();
 		}
@@ -47,7 +48,7 @@
 
 }
 
-Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictionary, PrimitiveMap] {
+Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
 
 	add { :self :anAssociation |
 		<primitive:
@@ -69,7 +70,20 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 	}
 
 	indices { :self |
+		self.keys
+	}
+
+	keys { :self |
 		<primitive: return Array.from(_self.keys());>
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		<primitive:
+		_self.forEach(function(value, key, _) {
+			_aBlock_2(key, value);
+		});
+		return null;
+		>
 	}
 
 	removeAll { :self |
@@ -107,15 +121,6 @@ Map! : [Object, Iterable, Collection, Extensible, Removable, Indexable, Dictiona
 
 	values { :self |
 		<primitive: return Array.from(_self.values());>
-	}
-
-	withIndexDo { :self :aBlock |
-		<primitive:
-		_self.forEach(function(value, key, _) {
-			_aBlock(value, key);
-		});
-		return null;
-		>
 	}
 
 }

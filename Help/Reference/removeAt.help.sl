@@ -21,7 +21,15 @@ Remove third item:
 (3, [1 2 4 5])
 ```
 
-At `Record`:
+If is an error if the index is not valid:
+
+```
+>>> let l = [1 2 3 4 5];
+>>> { l.removeAt(7) }.ifError { true }
+true
+```
+
+At `Record`, alias for `removeKey`:
 
 ```
 >>> let r = (x: 1, y: 2, z: 3);
@@ -31,6 +39,6 @@ At `Record`:
 
 * * *
 
-See also: at, insertAt, removeFirst, removeLast
+See also: at, insertAt, removeFirst, removeKey, removeLast
 
 Categories: Removing

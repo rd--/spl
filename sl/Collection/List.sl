@@ -117,7 +117,9 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	removeAt { :self :index |
-		<primitive: return _self.splice(_index - 1, 1)[0];>
+		let removed = self[index];
+		self.basicRemoveAt(index);
+		removed
 	}
 
 	removeFirst { :self |

@@ -1375,7 +1375,7 @@ let d = (a: 1, b: 2, c: 1); let k = d.indexOf(1); k = 'a' | { k = 'c' } /* many 
 let d = (x: 1, y: 2, z: 3); d.removeAllSuchThat { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
 let d = (x: 1, y: 2, z: 3); d.associationsRemove { :each | each.key = 'y' | { each.value = 3 } }; d = (x: 1)
 let d = (x: 1, y: 2, z: 3); d.keysAndValuesRemove { :key :value | key = 'y' | { value = 3 } }; d = (x: 1)
-let d = (x: 1, y: 2, z: 3); d.removeKey('y') = 'y' & { d = (x: 1, z: 3) }
+let d = (x: 1, y: 2, z: 3); d.removeKey('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeKey('?') }.ifError { true }
 let d = (x: 1, y: 2, z: 3); d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
@@ -3971,11 +3971,11 @@ system.typeLookup(4/3.typeOf).slotNameList = ['numerator', 'denominator']
 system.localStorage.typeOf = 'Storage' /* system local storage, persistent key-value store */
 system.localStorage.isStorage = true /* storage predicate */
 system.localStorage.size >= 0 /* number of elements in local storage */
-system.localStorage.indices.allSatisfy(isString:/1) /* keys and values must each be strings */
+system.localStorage.keys.allSatisfy(isString:/1) /* keys and values must each be strings */
 (system.localStorage['pi'] := 1.pi.asString) = 1.pi.asString /* store 1.pi as string at index 'pi', answer item stored */
 system.localStorage['pi'] = 1.pi.asString /* read pi */
-system.localStorage.indices.includes('pi') = true /* pi is an index */
-system.localStorage.removeAt('pi') = 1.pi.asString /* remove entry, answer removed item */
+system.localStorage.keys.includes('pi') = true /* pi is an index */
+system.localStorage.removeKey('pi') = 1.pi.asString /* remove entry, answer removed item */
 system.localStorage.removeAll = system.localStorage /* remove all entries, answer self */
 ```
 

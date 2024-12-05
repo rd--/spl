@@ -52,19 +52,7 @@
 +@Cache {
 
 	scalaModenam { :self |
-		self.useLibraryItem(
-			LibraryItem(
-				'scalaModenam',
-				'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
-				'application/json',
-				{ :libraryItem |
-					libraryItem.collect { :each |
-						let [zeroIndexedStartIndex, intervals, description] = each;
-						Scale(zeroIndexedStartIndex + 1, intervals, description)
-					}
-				}
-			)
-		)
+		self.useLibraryItem('scalaModenam')
 	}
 
 }
@@ -78,3 +66,15 @@ ScalaScaleBrowser : [Object, SmallKansan] {
 	}
 
 }
+
+LibraryItem(
+	name: 'scalaModenam',
+	url: 'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			let [zeroIndexedStartIndex, intervals, description] = each;
+			Scale(zeroIndexedStartIndex + 1, intervals, description)
+		}
+	}
+)
