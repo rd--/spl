@@ -13,7 +13,7 @@ For single character operators this is the unicode table name of the character:
 'tilde'
 ```
 
-For multiple character operators, the indidual names are joined together:
+For multiple character operators, the individual names are joined together:
 
 ```
 >>> '!^'.operatorName
@@ -26,28 +26,29 @@ For multiple character operators, the indidual names are joined together:
 The names of all of the `operatorCharacters`:
 
 ```
->>> system.operatorCharacters.collect { :each |
+>>> let c = system.operatorCharacters;
+>>> c.collect { :each |
 >>> 	each -> each.operatorName
 >>> }
 [
-	'!' -> 'exclamationMark',
-	'#' -> 'numberSign',
-	'$' -> 'dollarSign',
-	'%' -> 'percentSign',
 	'&' -> 'ampersand',
 	'*' -> 'asterisk',
-	'+' -> 'plusSign',
-	'-' -> 'hyphenMinus',
-	'/' -> 'solidus',
-	'<' -> 'lessThanSign',
-	'=' -> 'equalsSign',
-	'>' -> 'greaterThanSign',
-	'?' -> 'questionMark',
-	'@' -> 'commercialAt',
-	'\\' -> 'reverseSolidus',
 	'^' -> 'circumflexAccent',
-	'|' -> 'verticalLine',
-	'~' -> 'tilde'
+	'@' -> 'commercialAt',
+	'$' -> 'dollarSign',
+	'=' -> 'equalsSign',
+	'!' -> 'exclamationMark',
+	'>' -> 'greaterThanSign',
+	'-' -> 'hyphenMinus',
+	'<' -> 'lessThanSign',
+	'#' -> 'numberSign',
+	'%' -> 'percentSign',
+	'+' -> 'plusSign',
+	'?' -> 'questionMark',
+	'\\' -> 'reverseSolidus',
+	'/' -> 'solidus',
+	'~' -> 'tilde',
+	'|' -> 'verticalLine'
 ]
 ```
 

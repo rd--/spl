@@ -59,7 +59,7 @@ HelpIndex : [Object] { | contents |
 +@Cache {
 
 	helpIndex { :self |
-		self.useLibraryItem('helpIndex')
+		self.requireLibraryItem('helpIndex')
 	}
 
 }

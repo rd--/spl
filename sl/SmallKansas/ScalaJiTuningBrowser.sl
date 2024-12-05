@@ -159,7 +159,7 @@
 +@Cache {
 
 	jiScala { :self |
-		self.useLibraryItem('jiScala')
+		self.requireLibraryItem('jiScala')
 	}
 
 }

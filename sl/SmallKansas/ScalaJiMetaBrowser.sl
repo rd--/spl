@@ -30,7 +30,7 @@
 
 	jiMeta { :self |
 		self.jiScala.then { :jiScala |
-			self.useLibraryItem('jiMeta')
+			self.requireLibraryItem('jiMeta')
 		}
 	}
 

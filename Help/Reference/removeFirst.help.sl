@@ -12,7 +12,6 @@ The unary form removes one item:
 >>> let l = [1 .. 9];
 >>> (l.removeFirst, l)
 (1, [2 .. 9])
-true
 ```
 
 Remove three items:

@@ -17,12 +17,16 @@ Answer the list of operator characters.
 ]
 ```
 
-The characters are listed sorted by their code point:
+The characters are listed sorted by name, not code point:
 
 ```
 >>> let c = system.operatorCharacters;
->>> c = c.sortOn(codePoint:/1)
+>>> c = c.copy.sortOn(operatorName:/1)
 true
+
+>>> let c = system.operatorCharacters;
+>>> c = c.copy.sortOn(codePoint:/1)
+false
 ```
 
 The `operatorCharacters` are a subset of the `punctuationCharacters`.

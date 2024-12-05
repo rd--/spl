@@ -1,7 +1,7 @@
 +@Cache {
 
 	superColliderProgramOracle { :self |
-		self.useLibraryItem('superColliderProgramOracle')
+		self.requireLibraryItem('superColliderProgramOracle')
 	}
 
 }

@@ -52,7 +52,7 @@
 +@Cache {
 
 	scalaModenam { :self |
-		self.useLibraryItem('scalaModenam')
+		self.requireLibraryItem('scalaModenam')
 	}
 
 }

@@ -41,7 +41,7 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 +@Cache {
 
 	clsLeitner { :self |
-		self.useLibraryItem('clsLeitner')
+		self.requireLibraryItem('clsLeitner')
 	}
 
 }

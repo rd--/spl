@@ -48,7 +48,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 +@Cache {
 
 	superColliderProgramIndex { :self |
-		self.useLibraryItem('superColliderProgramIndex')
+		self.requireLibraryItem('superColliderProgramIndex')
 	}
 
 }
