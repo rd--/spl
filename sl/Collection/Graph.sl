@@ -1,123 +1,3 @@
-/* UndirectedEdge */
-+List {
-
-	asDot { :self |
-		[
-			self[1].asString,
-			' -- ',
-			self[2].asString,
-			';'
-		].join('')
-	}
-
-	asEdge { :self |
-		(self.size ~= 2).if {
-			self.error('List>>asEdge: not two-list')
-		} {
-			self
-		}
-	}
-
-	asDirectedEdge { :self |
-		self.asEdge.asAssociation
-	}
-
-	asUndirectedEdge { :self |
-		self.asEdge
-	}
-
-	hasCommonVertex { :self :anEdge |
-		self.includes(anEdge.first) | {
-			self.includes(anEdge.second)
-		}
-	}
-
-	isDirectedEdge { :self |
-		false
-	}
-
-	isEdge { :self |
-		self.size = 2
-	}
-
-	isUndirectedEdge { :self |
-		self.size = 2
-	}
-
-	matchesEdge { :self :edge |
-		(self.size ~= 2).if {
-			self.error('List>>matchesEdge: not two-list')
-		} {
-			edge.isList.if {
-				self.sorted = edge.sorted
-			} {
-				edge.isAssociation.if {
-					self.sorted = edge.asList.sort
-				} {
-					false
-				}
-			}
-		}
-	}
-
-}
-
-/* DirectedEdge */
-+Association {
-
-	asDot { :self |
-		[
-			self.key.asString,
-			' -> ',
-			self.value.asString,
-			';'
-		].join('')
-	}
-
-	asEdge { :self |
-		self
-	}
-
-	asDirectedEdge { :self |
-		self.key
-	}
-
-	asUndirectedEdge { :self |
-		[self.key, self.value]
-	}
-
-	head { :self |
-		self.second
-	}
-
-	isDirectedEdge { :self |
-		true
-	}
-
-	isEdge { :self |
-		true
-	}
-
-	isUndirectedEdge { :self |
-		false
-	}
-
-	matchesEdge { :self :edge |
-		self = edge | {
-			edge.isList.if {
-				edge.matchesEdge(self)
-			} {
-				false
-			}
-		}
-	}
-
-	tail { :self |
-		self.first
-	}
-
-}
-
 @Graph {
 
 	+ { :self :aGraph |
@@ -133,11 +13,11 @@
 	adjacencyList { :self :vertex |
 		let answer = [];
 		self.edgeList.do { :each |
-			(each.first = vertex).ifTrue {
-				answer.add(each.second)
+			(each[1] = vertex).ifTrue {
+				answer.add(each[2])
 			};
-			(each.second = vertex).ifTrue {
-				answer.add(each.first)
+			(each[2] = vertex).ifTrue {
+				answer.add(each[1])
 			}
 		};
 		answer
@@ -147,7 +27,7 @@
 		let v = self.vertexList;
 		{ :i :j |
 			self.edgeList.count { :each |
-				each.matchesEdge(i -> j)
+				each.matchesEdge(i --> j)
 			}
 		}.table(v, v)
 	}
@@ -171,6 +51,7 @@
 			].unlines
 		};
 		let attributeText = [
+			'graph [size=0.75,bgcolor=transparent];',
 			'node [shape=point];',
 			'edge [penwidth=0.75, arrowsize=0.25];'
 		].unlines;
@@ -196,7 +77,7 @@
 	connectionMatrix { :self |
 		let v = self.vertexList;
 		{ :i :j |
-			self.includesEdge(i -> j).boole
+			self.includesEdge(i --> j).boole
 		}.table(v, v)
 	}
 
@@ -219,16 +100,16 @@
 	hasValidEdgeList { :self |
 		let v = self.vertexList;
 		self.edgeList.allSatisfy { :edge |
-			v.includes(edge.first) & {
-				v.includes(edge.second)
+			v.includes(edge[1]) & {
+				v.includes(edge[2])
 			}
 		}
 	}
 
 	incidenceList { :self :vertex |
 		self.edgeList.select { :each |
-			each.first = vertex | {
-				each.second = vertex
+			each[1] = vertex | {
+				each[2] = vertex
 			}
 		}
 	}
@@ -237,14 +118,14 @@
 		self.vertexList.collect { :v |
 			self.edgeList.collect { :e |
 				e.isUndirectedEdge.if {
-					(e.first = v).if {
-						(e.second = v).if {
+					(e[1] = v).if {
+						(e[2] = v).if {
 							2
 						} {
 							1
 						}
 					} {
-						(e.second = v).if {
+						(e[2] = v).if {
 							1
 						} {
 							0
@@ -252,14 +133,14 @@
 					}
 				} {
 					e.isDirectedEdge.if {
-						(e.first = v).if {
-							(e.second = v).if {
+						(e[1] = v).if {
+							(e[2] = v).if {
 								-2
 							} {
 								-1
 							}
 						} {
-							(e.second = v).if {
+							(e[2] = v).if {
 								1
 							} {
 								0
@@ -285,7 +166,7 @@
 
 	inEdgesOf { :self :vertex |
 		self.edgeList.select { :edge |
-			edge.second = vertex
+			edge[2] = vertex
 		}
 	}
 
@@ -299,7 +180,7 @@
 
 	isLoopFree { :self |
 		self.edgeList.allSatisfy { :each |
-			each.first ~= each.second
+			each[1] ~= each[2]
 		}
 	}
 
@@ -353,10 +234,10 @@
 				(i + 1).toDo(k) { :j |
 					(
 						i ~= j & {
-							self.edgeList[i].second = self.edgeList[j].first
+							self.edgeList[i][2] = self.edgeList[j][1]
 						}
 					).ifTrue {
-						e.add(i -> j)
+						e.add(i --> j)
 					}
 				}
 			}
@@ -373,7 +254,7 @@
 
 	outEdgesOf { :self :vertex |
 		self.edges.select { :edge |
-			edge.first = vertex
+			edge[1] = vertex
 		}
 	}
 
@@ -407,10 +288,10 @@
 	vertexDegree { :self :vertex |
 		let answer = 0;
 		self.edgeList.do { :each |
-			(vertex = each.first).ifTrue {
+			(vertex = each[1]).ifTrue {
 				answer := answer + 1
 			};
-			(vertex = each.second).ifTrue {
+			(vertex = each[2]).ifTrue {
 				answer := answer + 1
 			}
 		};
@@ -426,11 +307,11 @@
 	vertexInDegree { :self :vertex |
 		let answer = 0;
 		self.edgeList.do { :each |
-			(vertex = each.second).ifTrue {
+			(vertex = each[2]).ifTrue {
 				answer := answer + 1
 			};
-			each.isList.ifTrue {
-				(vertex = each.first).ifTrue {
+			each.isUndirectedEdge.ifTrue {
+				(vertex = each[1]).ifTrue {
 					answer := answer + 1
 				}
 			}
@@ -451,11 +332,11 @@
 	vertexOutDegree { :self :vertex |
 		let answer = 0;
 		self.edgeList.do { :each |
-			(vertex = each.first).ifTrue {
+			(vertex = each[1]).ifTrue {
 				answer := answer + 1
 			};
-			each.isList.ifTrue {
-				(vertex = each.second).ifTrue {
+			each.isUndirectedEdge.ifTrue {
+				(vertex = each[2]).ifTrue {
 					answer := answer + 1
 				}
 			}
@@ -469,6 +350,12 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	addEdge { :self :edge |
 		self.edgeList.add(edge)
+	}
+
+	dotDrawing { :self |
+		self.asDot.dotLayout('svg', 'neato').then { :answer |
+			answer.Svg
+		}
 	}
 
 	includeEdge { :self :edge |
@@ -586,6 +473,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 +List {
 
+	asEdgeList { :self |
+		self.collect(asEdge:/1)
+	}
+
 	gridGraph { :shape |
 		let k = shape.product;
 		let v = k.iota;
@@ -611,7 +502,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let k = vertexList.size;
 		let addEdge = { :i :j |
 			isDirected.if {
-				edgeList.add(v[i] -> v[j])
+				edgeList.add(v[i] --> v[j])
 			} {
 				(i <= j).ifTrue {
 					edgeList.add([v[i], v[j]])
@@ -635,7 +526,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let k = vertexList.size;
 		let addEdge = { :i :j |
 			isDirected.if {
-				edgeList.add(v[i] -> v[j])
+				edgeList.add(v[i] --> v[j])
 			} {
 				(i <= j).ifTrue {
 					edgeList.add([v[i], v[j]])
@@ -672,8 +563,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let edgeList = self.collect(asEdge:/1).asList;
 		let vertexList = [];
 		edgeList.do { :each |
-			vertexList.add(each.first);
-			vertexList.add(each.second)
+			vertexList.add(each[1]);
+			vertexList.add(each[2])
 		};
 		Graph(vertexList.nub.sort, edgeList)
 	}
@@ -681,7 +572,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	Graph { :vertices :edges |
 		newGraph().initializeSlots(
 			vertices,
-			edges,
+			edges.collect(asEdge:/1),
 			()
 		)
 	}

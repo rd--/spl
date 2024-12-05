@@ -291,7 +291,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("-<" . ?⤙) ; U+2919 ⤙ Leftwards Arrow-Tail
      ("->" . ?→) ; U+2190 → Rightwards Arrow
      ("->>" . ?↠) ; U+21A0 ↠ Rightwards Two Headed Arrow
-     ("--" . ?—) ; U+2014 — Em Dash
+     ("--" . ?—) ; U+2014 — Em Dash; U+02013 – En Dash
+     ("---" . ?⸺) ; U+02E3A ⸺ Two-Em Dash
+     ("-->" . ?⟶) ; U+027F6 ⟶ Long Rightwards Arrow
      (".." . ?…) ; U+2026 … Horizontal Ellipsis; U+2025 ‥ Two Dot Leader
      ("/" . ?÷) ; U+00F7 ÷ Division Sign
      (":." . ?‣) ; U+2023 ‣ Triangular Bullet

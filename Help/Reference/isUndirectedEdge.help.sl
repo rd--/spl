@@ -4,10 +4,17 @@
 
 Answer `true` if _anObject_ is allowed as an _undirected edge_ in a `Graph`.
 
-Undirected edges are written as two-element lists:
+Undirected edges are ordinarily written infix using `---`:
 
 ```
->>> [1 2].isUndirectedEdge
+>>> (1 --- 2).isUndirectedEdge
+true
+```
+
+`asEdge` at `List` answers an undirected edge:
+
+```
+>>> [1 2].asEdge.isUndirectedEdge
 true
 ```
 

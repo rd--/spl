@@ -4,17 +4,17 @@
 
 Answer `true` if _anObject_ is allowed as an _edge_ in a `Graph`.
 
-Directed edges are written as associations:
+Directed edges are edges:
 
 ```
->>> (1 -> 2).isEdge
+>>> (1 --> 2).isEdge
 true
 ```
 
-Undirected edges are written as two-elements lists:
+Undirected edges are edges:
 
 ```
->>> [1 2].isEdge
+>>> (1 --- 2).isEdge
 true
 ```
 

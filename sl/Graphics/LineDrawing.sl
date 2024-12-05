@@ -71,3 +71,15 @@ LineDrawing : [Object] { | contents |
 	}
 
 }
+
++Promise {
+
+	draw { :self |
+		self.thenElse { :result |
+			result.draw
+		} { :err |
+			self.error('draw: ' ++ err)
+		}
+	}
+
+}

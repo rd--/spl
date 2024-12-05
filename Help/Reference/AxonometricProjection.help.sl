@@ -1,4 +1,4 @@
-# Projection3
+# AxonometricProjection
 
 Projections from three to two dimensions.
 
@@ -23,7 +23,7 @@ let l = workspace::l := [
 	0 1 1;
 	1 1 1
 ];
-let p:/1 = Projection3().chinese.block;
+let p:/1 = AxonometricProjection('Chinese').asBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;
@@ -33,7 +33,7 @@ let t = { :list |
 [r.t.Polygon, l.t.Line].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Projection3-A.svg)
+![](sw/spl/Help/Image/AxonometricProjection-A.svg)
 
 Another convention is that
 _x_ is left to right,
@@ -46,7 +46,7 @@ and the line _l_ first moves torward the back (_z_), then up (_y_), then right (
 ~~~
 let r = workspace::r;
 let l = workspace::l;
-let p:/1 = Projection3().chinese.block;
+let p:/1 = AxonometricProjection('Chinese').asBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;
@@ -56,7 +56,7 @@ let t = { :list |
 [r.t.Polygon, l.t.Line].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/Projection3-B.svg)
+![](sw/spl/Help/Image/AxonometricProjection-B.svg)
 
 The `linePlot` method follows the first convention:
 
@@ -69,7 +69,7 @@ The `linePlot` method follows the first convention:
 ].linePlot
 ~~~
 
-![](sw/spl/Help/Image/Projection3-C.svg)
+![](sw/spl/Help/Image/AxonometricProjection-C.svg)
 
 * * *
 
@@ -79,4 +79,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CartesianCoordinates.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
+[1](https://en.wikipedia.org/wiki/Axonometric_projection)
+[2](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
+
+Further Reading: Krikke 2000

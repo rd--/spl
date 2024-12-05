@@ -32,7 +32,7 @@ The `vertexList` and `edgeList` of a star graph:
 >>> (g.vertexList, g.edgeList)
 (
 	[1 2 3 4 5 6 7],
-	[1 2; 1 3; 1 4; 1 5; 1 6; 1 7]
+	[1 2; 1 3; 1 4; 1 5; 1 6; 1 7].asEdgeList
 )
 ```
 
@@ -47,6 +47,22 @@ The line graph of the star graph _S(n)_ is a complete graph _K(n - 1)_:
 	1 1 1 0
 ]
 ```
+
+Drawing of the star graph on six vertices:
+
+~~~
+6.starGraph.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/starGraph-A.svg)
+
+Drawing of the line graph of the star graph on six vertices:
+
+~~~
+6.starGraph.lineGraph.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/starGraph-B.svg)
 
 * * *
 

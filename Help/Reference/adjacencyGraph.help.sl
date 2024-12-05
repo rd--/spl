@@ -15,7 +15,7 @@ The `edgeList` of the `adjacencyGraph` of the `cycleGraph` of three vertices,
 >>> let m = [0 1 0; 0 0 1; 1 0 0];
 >>> let g = m.adjacencyGraph;
 >>> g.edgeList
-[1 -> 2, 2 -> 3, 3 -> 1]
+[1 --> 2, 2 --> 3, 3 --> 1]
 ```
 
 A drawing of the cycle graph, which is directed:
@@ -33,7 +33,7 @@ A symmetric adjacency matrix results in an undirected graph:
 >>> let m = [0 1 1; 1 0 1; 1 1 0];
 >>> let g = m.adjacencyGraph;
 >>> g.edgeList
-[1 2; 1 3; 2 3]
+[1 2; 1 3; 2 3].asEdgeList
 ```
 
 A drawing of the complete three graph, which is undirected:

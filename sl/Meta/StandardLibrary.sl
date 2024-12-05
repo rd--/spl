@@ -9,6 +9,7 @@
 	'Bag'
 	'ByteArray'
 	'CategoryDictionary'
+	'DirectedEdge'
 	'Float32Array'
 	'Float64Array'
 	'Heap'
@@ -21,6 +22,7 @@
 	'SortedList'
 	'Tree'
 	'Tuple' /* List */
+	'UndirectedEdge'
 	'WeakMap'
 	'BitSet' /* ByteArray */
 	'Graph' /* Tuple */
@@ -47,7 +49,8 @@
 	'Matrix22' /* PlanarCoordinates */
 	'Matrix33' /* CartesianCoordinates */
 	'Polygon'
-	'Projection3' /* Matrix33 */
+	'Polyhedron'
+	'AxonometricProjection' /* */
 	'Rectangle'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */

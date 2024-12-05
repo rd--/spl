@@ -93,10 +93,10 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'TimeStamp'
 	],
 	'Geometry': [
+		'AxonometricProjection'
 		'Matrix22'
 		'Matrix33'
 		'PolarCoordinates'
-		'Projection3'
 		'Rectangle'
 		'Vector'
 	],

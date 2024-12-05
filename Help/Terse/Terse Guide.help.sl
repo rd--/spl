@@ -915,13 +915,13 @@ let s = 'string'; let a = []; a.addAll(s); a.size = 6 /* add elements from Strin
 ## Circle -- geometric type
 ```
 system.includesPackage('Circle') /* package */
-Circle((0, 0), 1).typeOf = 'Circle' /* type of */
-Circle((0, 0), 1).isCircle /* predicate */
-Circle((0, 0), 1).center = (0, 0) /* center */
-Circle((0, 0), 1).radius = 1 /* radius */
-Circle((0, 0), 1).diameter = 2 /* diameter */
-Circle((0, 0), 1).circumference = 2.pi /* circumference */
-Circle((0, 0), 1).area = 1.pi /* area */
+Circle([0 0], 1).typeOf = 'Circle' /* type of */
+Circle([0 0], 1).isCircle /* predicate */
+Circle([0 0], 1).center = [0 0] /* center */
+Circle([0 0], 1).radius = 1 /* radius */
+Circle([0 0], 1).diameter = 2 /* diameter */
+Circle([0 0], 1).circumference = 2.pi /* circumference */
+Circle([0 0], 1).area = 1.pi /* area */
 ```
 
 ## Clock -- temporal type
@@ -2763,7 +2763,7 @@ let x = 1; (x:9) = (x: 9) /* white space after colon is optional */
 let x = 9; (9:x) = 9:x /* interval literals may have identifiers as upper bound */
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] /* array of associations at record */
 (x: 1, y: 2).asList = [1, 2] /* values as List */
-let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] /* partial dictionary match */
+{ let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] }.ifError { true } /* partial dictionary match not allowed */
 let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(isEven:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6

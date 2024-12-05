@@ -123,7 +123,7 @@ Plot : [Object] { | contents format |
 			items.LineDrawing
 		} {
 			(c.shape[2] = 3 & { self.format = 'line' }).if {
-				let p:/1 = Projection3().chinese.block;
+				let p:/1 = AxonometricProjection('Chinese').asBlock;
 				let r = [
 					-1 -1 0;
 					+1 -1 0;

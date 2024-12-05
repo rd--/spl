@@ -4,10 +4,17 @@
 
 Answer `true` if _anObject_ is allowed as a _directed edge_ in a `Graph`.
 
-Directed edges are written as associations:
+Directed edges are ordinarily written infix using `-->`:
 
 ```
->>> (1 -> 2).isDirectedEdge
+>>> (1 --> 2).isDirectedEdge
+true
+```
+
+`asEdge` at `Association` answers a directed edge:
+
+```
+>>> (1 -> 2).asEdge.isDirectedEdge
 true
 ```
 

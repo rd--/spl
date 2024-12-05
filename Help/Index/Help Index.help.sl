@@ -283,8 +283,8 @@
 
 - `PolarCoordinates`, `PlanarCoordinates`
 - `CartesianCoordinates`, `CylindricalCoordinates`, `SphericalCoordinates`
-- `Circle`, `Rectangle`, `Sphere`
-- `Angle`, `Projection3`
+- `Circle`, `Ellipse`, `Line`, `Polygon`, `Rectangle`, `Sphere`
+- `Angle`, `AxonometricProjection`
 
 ## Geometry Functions
 

@@ -30,7 +30,11 @@ The `vertexCount`, `edgeCount` and `vertexDegree` of a wheel graph:
 
 ```
 >>> let g = 5.wheelGraph;
->>> (g.vertexCount, g.edgeCount, g.vertexDegree)
+>>> (
+>>> 	g.vertexCount,
+>>> 	g.edgeCount,
+>>> 	g.vertexDegree
+>>> )
 (5, 8, [4 3 3 3 3])
 ```
 
@@ -44,9 +48,17 @@ The `vertexList` and `edgeList` of a wheel graph:
 	[
 		2 3; 3 4; 4 5; 5 6; 6 7; 7 2;
 		1 2; 1 3; 1 4; 1 5; 1 6; 1 7
-	]
+	].asEdgeList
 )
 ```
+
+Draw the wheel graph on nine vertices:
+
+~~~
+9.wheelGraph.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/wheelGraph-A.svg)
 
 * * *
 

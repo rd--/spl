@@ -27,12 +27,32 @@ The `adjacencyMatrix` of three small complete graphs:
 The `edgeCount` of small complete graphs:
 
 ```
->>> 2:9.collect { :n | n.completeGraph.edgeCount }
+>>> 2:9.collect { :n |
+>>> 	n.completeGraph.edgeCount
+>>> }
 [1 3 6 10 15 21 28 36]
 
->>> 2:9.collect { :n | (-1 + n) * n / 2 }
+>>> 2:9.collect { :n |
+>>> 	(-1 + n) * n / 2
+>>> }
 [1 3 6 10 15 21 28 36]
 ```
+
+Draw complete graph on three vertices:
+
+~~~
+3.completeGraph.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/completeGraph-A.svg)
+
+Draw complete graph on five vertices:
+
+~~~
+5.completeGraph.dotDrawing
+~~~
+
+![](sw/spl/Help/Image/completeGraph-B.svg)
 
 * * *
 

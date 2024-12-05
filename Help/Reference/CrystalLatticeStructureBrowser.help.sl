@@ -22,11 +22,11 @@ Chinese projection:
 
 ~~~
 system.clsLeitner.then { :clsLeitner |
-	let m = Projection3().chinese.asMatrix;
+	let p:/1 = AxonometricProjection('Chinese').asBlock;
 	system.smallKansas.SvgViewer(
 		'Cls',
 		clsLeitner.atRandom.drawing(1) { :each |
-			m.applyTo(each) * 20
+			p(each) * 20
 		},
 		nil
 	)

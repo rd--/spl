@@ -20,6 +20,25 @@ dotGraph.dotLayout('plain', 'dot').then { :answer |
 }
 ~~~
 
+Draw graph:
+
+~~~
+let dotGraph = [
+	'digraph {'
+	' graph [size=1.5];'
+	' graph [bgcolor=transparent];'
+	' node [shape=circle];'
+	' edge [arrowsize=0.5];'
+	' a -> b; a -> c; b -> d; c -> d'
+	'}'
+].unlines;
+dotGraph.dotLayout('svg', 'dot').then { :answer |
+	answer.Svg
+}
+~~~
+
+![](sw/spl/Help/Image/dotLayout-A.svg)
+
 In _Small Kansas_ the following will display an _Svg_ drawing of the graph:
 
 ~~~
