@@ -129,11 +129,11 @@ Boolean! : [Object, Json] {
 +@Integer {
 
 	&& { :self :aBoole |
-		self.assertIsBoole.lcm(aBoole.assertIsBoole)
+		self.assertIsBoole.bitAnd(aBoole.assertIsBoole)
 	}
 
 	|| { :self :aBoole |
-		self.assertIsBoole.gcd(aBoole.assertIsBoole)
+		self.assertIsBoole.bitOr(aBoole.assertIsBoole)
 	}
 
 	asBoolean { :self |

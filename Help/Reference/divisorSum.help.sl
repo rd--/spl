@@ -22,6 +22,8 @@ Plot the sum of divisors for the first 50 numbers:
 }
 ~~~
 
+![](sw/spl/Help/Image/divisorSum-A.svg)
+
 * * *
 
 See also: divisors, divisorSigma, sum

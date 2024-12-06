@@ -10,8 +10,12 @@ This is the case if each interval in the `intervalMatrix` occurs in only one col
 A pentatonic scale that is a constant structure:
 
 ```
->>> let t = [1/1 9/8 5/4 3/2 5/3].asJiTuning;
->>> (t.isConstantStructure, t.intervalMatrix)
+>>> let r = [1/1 9/8 5/4 3/2 5/3];
+>>> let t = r.asJiTuning;
+>>> (
+>>> 	t.isConstantStructure,
+>>> 	t.intervalMatrix
+>>> )
 (
 	true,
 	[
@@ -28,8 +32,12 @@ A pentatonic scale that is not a constant structure,
 the intervals _5/3, 5/4, 6/5, 8/5_ each occur in two columns:
 
 ```
->>> let t = [1/1 25/24 6/5 3/2 5/3].asJiTuning;
->>> (t.isConstantStructure, t.intervalMatrix)
+>>> let r = [1/1 25/24 6/5 3/2 5/3]
+>>> let t = r.asJiTuning;
+>>> (
+>>> 	t.isConstantStructure,
+>>> 	t.intervalMatrix
+>>> )
 (
 	false,
 	[
@@ -46,11 +54,12 @@ A twelve note constant structure scale,
 16 harmonics on _1/1_ and 16 subharmonics on _15/8_:
 
 ```
->>> let t = [
+>>> [
 >>> 	1/1 15/14 9/8 15/13 5/4 15/11
 >>> 	11/8 3/2 13/8 5/3 7/4 15/8
->>> ].asJiTuning;
->>> t.isConstantStructure
+>>> ]
+>>> .asJiTuning
+>>> .isConstantStructure
 true
 ```
 

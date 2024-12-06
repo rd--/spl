@@ -9,7 +9,9 @@ In the binary case, the _scale_ is an instance of `Scale`:
 
 ```
 >>> let s = Scale(1, [2 2 1 2 2 2 1], 'Major');
->>> 1:7.collect { :each | s.degreeToKey(each) }
+>>> 1:7.collect { :each |
+>>> 	s.degreeToKey(each)
+>>> }
 [1 3 5 6 8 10 12]
 ```
 

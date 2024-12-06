@@ -17,7 +17,10 @@ Ratios are constant for a geometric sequence:
 >>> let l = 0:9.collect { :each | 2 ^ each };
 >>> let r = l.ratios;
 >>> (l, r)
-([1 2 4 8 16 32 64 128 256 512], [2 2 2 2 2 2 2 2 2])
+(
+	[1 2 4 8 16 32 64 128 256 512],
+	[2 2 2 2 2 2 2 2 2]
+)
 ```
 
 `scanLeft` of `*` is a kind of inverse:

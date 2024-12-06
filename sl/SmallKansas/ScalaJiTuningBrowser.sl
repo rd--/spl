@@ -156,20 +156,20 @@
 
 }
 
-+@Cache {
-
-	jiScala { :self |
-		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')
-	}
-
-}
-
 ScalaJiTuningBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		smallKansas.jiScala.then { :jiTuning |
 			smallKansas.addFrame(smallKansas.ScalaJiTuningBrowser(jiTuning), event)
 		}
+	}
+
+}
+
++@Cache {
+
+	jiScala { :self |
+		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')
 	}
 
 }

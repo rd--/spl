@@ -45,16 +45,21 @@ Select primes:
 ```
 >>> (1 .. 131).select(isPrime:/1)
 [
-	  2   3   5   7  11  13  17  19  23  29
-	 31  37  41  43  47  53  59  61  67  71
-	 73  79  83  89  97 101 103 107 109 113
+	  2   3   5   7  11
+	 13  17  19  23  29
+	 31  37  41  43  47
+	 53  59  61  67  71
+	 73  79  83  89  97
+	101 103 107 109 113
 	127 131
 ]
 
 >>> (827 .. 999).select(isPrime:/1)
 [
-	827 829 839 853 857 859 863 877 881 883
-	887 907 911 919 929 937 941 947 953 967
+	827 829 839 853 857
+	859 863 877 881 883
+	887 907 911 919 929
+	937 941 947 953 967
 	971 977 983 991 997
 ]
 ```
@@ -97,7 +102,8 @@ true
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
 
 ```
->>> (2n ^ (2 ^ 7) + 1).millerRabinPrimalityTest(10)
+>>> let n = (2n ^ (2 ^ 7) + 1);
+>>> n.millerRabinPrimalityTest(10)
 false
 ```
 
@@ -122,8 +128,10 @@ Find twin primes:
 >>> 	}
 >>> }
 [
-	  3   5  11  17  29  41  59  71 101 107
-	137 149 179 191 197 227 239 269 281 311
+	  3   5  11  17  29
+	 41  59  71 101 107
+	137 149 179 191 197
+	227 239 269 281 311
 ]
 ```
 
@@ -134,11 +142,13 @@ At `zero` and `one`:
 [false false]
 ```
 
-Plot primes up to one-hundred-thousand:
+Plot primes up to one-thousand:
 
 ~~~
-1:99999.select(isPrime:/1).linePlot
+1:999.select(isPrime:/1).linePlot
 ~~~
+
+![](sw/spl/Help/Image/isPrime-A.svg)
 
 * * *
 

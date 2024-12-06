@@ -33,7 +33,9 @@ With a non-associative operator:
 The accumulator value is at the left of the operator:
 
 ```
->>> [5 6 7 8].injectInto([1 2 3 4]) { :z :each |
+>>> [5 6 7 8].injectInto(
+>>> 	[1 2 3 4]
+>>> ) { :z :each |
 >>> 	[each] ++ z
 >>> }
 [8 7 6 5 1 2 3 4]

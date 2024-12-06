@@ -16,22 +16,25 @@ A list of vertices adjacent to vertices one through five of an undirected graph:
 >>> 	1 3; 1 4; 1 6; 2 4; 2 5; 2 7; 3 5; 3 8;
 >>> 	4 9; 5 10; 6 7; 6 10; 7 8; 8 9; 9 10
 >>> ].asGraph;
->>> 1:5.collect { :each | g.adjacencyList(each) }
+>>> 1:5.collect { :each |
+>>> 	g.adjacencyList(each)
+>>> }
 [3 4 6; 4 5 7; 1 5 8; 1 2 9; 2 3 10]
 ```
 
 Edges incident to vertex one of an undirected graph:
 
 ```
->>> let g = [1 2; 1 3; 1 5; 1 6; 4 5; 4 6].asGraph;
->>> g.adjacencyList(1)
+>>> [1 2; 1 3; 1 5; 1 6; 4 5; 4 6]
+>>> .asGraph
+>>> .adjacencyList(1)
 [2 3 5 6]
 ```
 
 Edges incident to vertex one of a directed graph:
 
 ```
->>> let g = [
+>>> [
 >>> 	1 -> 3,
 >>> 	2 -> 1,
 >>> 	3 -> 6,
@@ -39,8 +42,8 @@ Edges incident to vertex one of a directed graph:
 >>> 	1 -> 5,
 >>> 	5 -> 4,
 >>> 	6 -> 1
->>> ].asGraph;
->>> g.adjacencyList(1)
+>>> ].asGraph
+>>> .adjacencyList(1)
 [3 2 5 6]
 ```
 

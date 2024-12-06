@@ -19,15 +19,16 @@ a seven note scale into a twelve-note tuning has a tuning size of twelve.
 The `tuningIndices` of a scale are the indices into a `Tuning` of the required size.
 
 ```
->>> Scale(1, [2 2 1 2 2 2 1], 'Major').tuningIndices
+>>> Scale(1, [2 2 1 2 2 2 1], 'Major')
+>>> .tuningIndices
 [1 3 5 6 8 10 12]
 ```
 
 `degreeToKey` indexes a scale by _degree_:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Major');
->>> s.degreeToKey(1:7)
+>>> Scale(1, [2 2 1 2 2 2 1], 'Major')
+>>> .degreeToKey(1:7)
 [1 3 5 6 8 10 12]
 ```
 

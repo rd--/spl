@@ -15,7 +15,9 @@ false
 The primes up to 43 which are also Gaussian primes are:
 
 ```
->>> 1:43.select { :each | each.j(0).isGaussianPrime }
+>>> 1:43.select { :each |
+>>> 	each.j(0).isGaussianPrime
+>>> }
 [3 7 11 19 23 31 43]
 ```
 
@@ -37,7 +39,8 @@ prime numbers _n_ such that _1j1^n - 1_ is a Gaussian prime.
 ```
 >>> 1:30.select { :each |
 >>> 	each.isPrime & {
->>> 		(1j1 ^ each - 1).isGaussianPrime
+>>> 		let n = (1j1 ^ each - 1);
+>>> 		n.isGaussianPrime
 >>> 	}
 >>> }
 [2 3 5 7 11 19 29]

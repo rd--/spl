@@ -33,9 +33,11 @@ Count the prime numbers up to 9999 & 99999:
 
 Plot the prime counting function:
 
+~~~spl svg=A
+1:60.collect(primePi:/1).discretePlot
 ~~~
-1:100.collect(primePi:/1).discretePlot
-~~~
+
+![](sw/spl/Help/Image/primePi-A.svg)
 
 * * *
 

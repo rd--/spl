@@ -23,15 +23,15 @@ LineDrawing : [Object] { | contents |
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
 				'http://www.w3.org/2000/svg',
-				scaledBoundingBox.width.printStringToFixed(precision),
-				scaledBoundingBox.height.printStringToFixed(precision),
+				scaledBoundingBox.width.printStringToFixed(1),
+				scaledBoundingBox.height.printStringToFixed(1),
 				scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
 			]),
 			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
-				strokeWith.printStringToFixed(precision), '%',
-				yTranslation.printStringToFixed(precision),
-				scaleFactor.printStringToFixed(precision),
-				scaleFactor.negated.printStringToFixed(precision)
+				strokeWith.printStringToFixed(4), '%',
+				yTranslation.printStringToFixed(4),
+				scaleFactor.printStringToFixed(4),
+				scaleFactor.negated.printStringToFixed(4)
 			]),
 			items,
 			'</g>',

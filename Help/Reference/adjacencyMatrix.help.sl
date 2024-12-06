@@ -12,8 +12,9 @@ The adjacency matrix for a graph will have dimensions _n × n_, where _n_ is the
 The adjacency matrix of an undirected graph:
 
 ```
->>> let g = [1 2; 2 3; 3 1].asGraph;
->>> g.adjacencyMatrix
+>>> [1 2; 2 3; 3 1]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 1;
 	1 0 1;
@@ -25,7 +26,8 @@ The adjacency matrix of the `completeBipartiteGraph` _K(1,3)_,
 which is isomorphic to the `starGraph` _S(4)_:
 
 ```
->>> let m = 1.completeBipartiteGraph(3).adjacencyMatrix;
+>>> let g = 1.completeBipartiteGraph(3);
+>>> let m = g.adjacencyMatrix;
 >>> (m = 4.starGraph.adjacencyMatrix, m)
 (
 	true,
@@ -41,8 +43,9 @@ which is isomorphic to the `starGraph` _S(4)_:
 The adjacency matrix of a directed graph:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> g.adjacencyMatrix
+>>> [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 0;
 	0 0 1;
@@ -53,8 +56,9 @@ The adjacency matrix of a directed graph:
 The adjacency matrix of an undirected graph is symmetric:
 
 ```
->>> let g = [1 2; 1 3; 2 3; 2 4; 3 4].asGraph;
->>> g.adjacencyMatrix
+>>> [1 2; 1 3; 2 3; 2 4; 3 4]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 1 0;
 	1 0 1 1;
@@ -74,8 +78,13 @@ The adjacency matrix of an undirected graph is symmetric:
 The adjacency matrix of a directed graph can be unsymmetric:
 
 ```
->>> let g = [1 -> 2, 2 -> 1, 3 -> 1, 3 -> 2, 4 -> 1, 4 -> 2].asGraph;
->>> g.adjacencyMatrix
+>>> [
+>>> 	1 -> 2, 2 -> 1,
+>>> 	3 -> 1, 3 -> 2,
+>>> 	4 -> 1, 4 -> 2
+>>> ]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 0 0;
 	1 0 0 0;
@@ -87,16 +96,18 @@ The adjacency matrix of a directed graph can be unsymmetric:
 The adjacency matrix of a graph with self-loops has diagonal entries:
 
 ```
->>> let g = [1 2; 2 3; 3 1; 2 2].asGraph;
->>> g.adjacencyMatrix
+>>> [1 2; 2 3; 3 1; 2 2]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	0 1 1;
 	1 1 1;
 	1 1 0
 ]
 
->>> let g = [1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> g.adjacencyMatrix
+>>> [1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .adjacencyMatrix
 [
 	1 1 0;
 	0 0 1;
@@ -107,7 +118,9 @@ The adjacency matrix of a graph with self-loops has diagonal entries:
 The adjacency matrix of a multi-graph has non-boole entries:
 
 ```
->>> [1 2; 1 2; 2 3].asGraph.adjacencyMatrix
+>>> [1 2; 1 2; 2 3]
+>>> .asGraph
+>>> .adjacencyMatrix
 [0 2 0; 2 0 1; 0 1 0]
 ```
 

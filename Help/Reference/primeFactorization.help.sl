@@ -23,7 +23,9 @@ Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities 
 >>> 2401.primeFactorization
 [7 7 7 7].asBag
 
->>> 20.factorial.primeFactorization.sortedElements
+>>> 20.factorial
+>>> .primeFactorization
+>>> .sortedElements
 [
 	2 -> 18,
 	3 -> 8,
@@ -39,7 +41,10 @@ Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities 
 The keys are the prime divisors:
 
 ```
->>> 2434500.primeFactorization.asMap.keys
+>>> 2434500
+>>> .primeFactorization
+>>> .asMap
+>>> .keys
 [2 3 5 541]
 
 >>> 2434500.primeDivisors

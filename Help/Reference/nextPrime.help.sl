@@ -48,6 +48,8 @@ Plot the sequence of primes:
 0:50.functionPlot(nextPrime:/1)
 ~~~
 
+![](sw/spl/Help/Image/nextPrime-A.svg)
+
 * * *
 
 See also: isPrime, previousPrime

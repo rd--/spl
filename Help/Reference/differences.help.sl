@@ -21,7 +21,9 @@ At `List`:
 First differences are constant for a linear function:
 
 ```
->>> let l = 0:10.collect { :i | 3 * i + 6 };
+>>> let l = 0:10.collect { :i |
+>>> 	3 * i + 6
+>>> };
 >>> let d = l.differences;
 >>> (l, d)
 (
@@ -33,7 +35,9 @@ First differences are constant for a linear function:
 Second differences are constant for a quadratic function:
 
 ```
->>> let l = 0:10.collect { :i | 3 * (i ^ 2) + 6 };
+>>> let l = 0:10.collect { :i |
+>>> 	3 * (i ^ 2) + 6
+>>> };
 >>> let d = l.differences;
 >>> (l, d, d.differences)
 (
@@ -46,7 +50,9 @@ Second differences are constant for a quadratic function:
 Deduce the degree of a sequence by seeing when successive differences become constant:
 
 ```
->>> let l = 1:8.collect { :n | n ^ 5 + (2 * n) - 1 };
+>>> let l = 1:8.collect { :n |
+>>> 	n ^ 5 + (2 * n) - 1
+>>> };
 >>> differences:/1.nestList(l, 2)
 [
 	2 35 248 1031 3134 7787 16820 32783;

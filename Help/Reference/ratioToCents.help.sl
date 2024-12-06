@@ -25,11 +25,20 @@ The octave is 1200 cents:
 Threads over lists:
 
 ```
->>> [1 9/8 5/4 4/3 3/2 2].ratioToCents.rounded
+>>> [1 9/8 5/4 4/3 3/2 2]
+>>> .ratioToCents
+>>> .rounded
 [0 204 386 498 702 1200]
 
->>> [40/39 39/38 36/35 28/27].ratioToCents.rounded
+>>> [40/39 39/38 36/35 28/27]
+>>> .ratioToCents
+>>> .rounded
 [44 45 49 63]
+
+>>> [1/1 9/8 5/4 4/3 3/2 5/3 15/8]
+>>> .ratioToCents
+>>> .rounded
+[0 204 386 498 702 884 1088]
 ```
 
 * * *

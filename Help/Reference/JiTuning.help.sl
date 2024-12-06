@@ -10,7 +10,13 @@ Answers a `RatioTuning` representing a just-intonation (Ji) tuning.
 >>> let r = t.asRatios;
 >>> let c = t.asCents.rounded;
 >>> (t.limit, t.size, t.octave, r, c)
-(7, 5, 2, [1 8/7 4/3 14/9 16/9], [0 231 498 765 996])
+(
+	7,
+	5,
+	2,
+	[1 8/7 4/3 14/9 16/9],
+	[0 231 498 765 996]
+)
 ```
 
 * * *

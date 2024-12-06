@@ -69,6 +69,9 @@ Truth table for and:
 ```
 >>> bitAnd:/2.outer([1 0], [1 0])
 [1 0; 0 0]
+
+>>> [0 1; 0 1].bitAnd([0 0; 1 1])
+[0 0; 0 1]
 ```
 
 Plot a nested pattern:

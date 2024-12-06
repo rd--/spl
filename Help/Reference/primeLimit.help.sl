@@ -5,7 +5,9 @@
 Answer the largest prime number that is a factor of _aFraction_.
 
 ```
->>> 2:15.select { :each | each.primeLimit <= 5 }
+>>> 2:15.select { :each |
+>>> 	each.primeLimit <= 5
+>>> }
 [2 3 4 5 6 8 9 10 12 15]
 ```
 
@@ -25,9 +27,11 @@ At zero and one:
 
 Plot:
 
+~~~spl svg=A
+2:72.primeLimit.linePlot
 ~~~
-2:99.primeLimit.linePlot
-~~~
+
+![](sw/spl/Help/Image/primeLimit-A.svg)
 
 * * *
 

@@ -31,7 +31,9 @@ Perform a chain of cross products:
 Successively append to a string:
 
 ```
->>> 1:4.foldList('0') { :p :q | p ++ q.printString }
+>>> 1:4.foldList('0') { :p :q |
+>>> 	p ++ q.printString
+>>> }
 ['0' '01' '012' '0123' '01234']
 ```
 
@@ -39,7 +41,10 @@ Compute successive factorials:
 
 ```
 >>> 1:10.foldList(1, *)
-[1 1 2 6 24 120 720 5040 40320 362880 3628800]
+[
+	1 1 2 6 24 120 720 5040
+	40320 362880 3628800
+]
 ```
 
 Compute products of successive primes:
@@ -55,14 +60,18 @@ Compute products of successive primes:
 Build up a number from digits:
 
 ```
->>> [4 5 1 6 7 8].foldList(0) { :p :q | 10 * p + q }
+>>> [4 5 1 6 7 8].foldList(0) { :p :q |
+>>> 	10 * p + q
+>>> }
 [0 4 45 451 4516 45167 451678]
 ```
 
 Find the running maximum of a list:
 
 ```
->>> [1 3 1 2 4 1 5 3 6 2 8 11].foldList(0, max:/2)
+>>> [
+>>> 	1 3 1 2 4 1 5 3 6 2 8 11
+>>> ].foldList(0, max:/2)
 [0 1 3 3 3 4 4 5 5 6 6 8 11]
 ```
 

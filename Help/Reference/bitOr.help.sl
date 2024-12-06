@@ -39,6 +39,9 @@ Truth table for or:
 ```
 >>> bitOr:/2.outer([1 0], [1 0])
 [1 1; 1 0]
+
+>>> [0 1; 0 1].bitOr([0 0; 1 1])
+[0 1; 1 1]
 ```
 
 Plot a nested pattern:
