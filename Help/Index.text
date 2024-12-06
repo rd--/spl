@@ -285,7 +285,6 @@ Reference/asHex.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
 Reference/asIterator.help.sl
-Reference/asJiTuning.help.sl
 Reference/asJson.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asLargerPowerOfTwo.help.sl
@@ -1180,7 +1179,6 @@ Reference/Iterable.help.sl
 Reference/iterate.help.sl
 Reference/Iterator.help.sl
 Reference/j.help.sl
-Reference/JiTuning.help.sl
 Reference/join.help.sl
 Reference/json.help.sl
 Reference/Json.help.sl
@@ -1232,6 +1230,7 @@ Reference/leftParenthesis.help.sl
 Reference/leftParenthesisRightParenthesis.help.sl
 Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
+Reference/leitnerCatalogue.help.sl
 Reference/Length.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
 Reference/lessThanSignEqualsSign.help.sl

@@ -115,7 +115,6 @@
 	'Meta-StandardLibrary'
 	'Meta-SuperColliderLibrary'
 	'Music-CentsTuning'
-	'Music-JiTuning'
 	'Music-Meter'
 	'Music-Pitch'
 	'Music-RatioTuning'

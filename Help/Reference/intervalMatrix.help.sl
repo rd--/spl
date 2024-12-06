@@ -23,7 +23,7 @@ Interval matrix of a seven-tone five-limit tuning:
 
 ```
 >>> [1/1 9/8 5/4 4/3 3/2 5/3 15/8]
->>> .asJiTuning
+>>> .asRatioTuning
 >>> .intervalMatrix
 [
 	1/1  9/8  5/4  4/3  3/2  5/3  15/8;

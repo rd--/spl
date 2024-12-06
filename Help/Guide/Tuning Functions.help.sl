@@ -43,7 +43,7 @@ _Fraction Functions_:
 
 _Instance Creation_:
 
-- `asJiTuning`: construct ratio tuning
+- `asRatioTuning`: construct ratio tuning
 - `equalTemperamentTuning`: construct equal tempered tuning
 
 _Interval complexity measures_:

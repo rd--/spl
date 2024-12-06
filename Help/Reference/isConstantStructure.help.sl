@@ -11,7 +11,7 @@ A pentatonic scale that is a constant structure:
 
 ```
 >>> let r = [1/1 9/8 5/4 3/2 5/3];
->>> let t = r.asJiTuning;
+>>> let t = r.asRatioTuning;
 >>> (
 >>> 	t.isConstantStructure,
 >>> 	t.intervalMatrix
@@ -33,7 +33,7 @@ the intervals _5/3, 5/4, 6/5, 8/5_ each occur in two columns:
 
 ```
 >>> let r = [1/1 25/24 6/5 3/2 5/3]
->>> let t = r.asJiTuning;
+>>> let t = r.asRatioTuning;
 >>> (
 >>> 	t.isConstantStructure,
 >>> 	t.intervalMatrix
@@ -58,7 +58,7 @@ A twelve note constant structure scale,
 >>> 	1/1 15/14 9/8 15/13 5/4 15/11
 >>> 	11/8 3/2 13/8 5/3 7/4 15/8
 >>> ]
->>> .asJiTuning
+>>> .asRatioTuning
 >>> .isConstantStructure
 true
 ```

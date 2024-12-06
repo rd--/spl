@@ -30,6 +30,6 @@ The type caches the value of _limit_ since it is used to construct a large dicti
 
 * * *
 
-See also: asRatioTuning, CentsTuning, IntegerTuning, JiTuning, Tuning
+See also: asRatioTuning, CentsTuning, IntegerTuning, Tuning
 
 Categories: Tuning, Type

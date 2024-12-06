@@ -186,7 +186,7 @@ LibraryItem(
 			} {
 				each['octave'] := 2/1
 			};
-			each.asJiTuning
+			each.asRatioTuning
 		}
 	}
 )

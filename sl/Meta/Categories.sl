@@ -107,7 +107,6 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'CrystalLatticeStructure'
 	],
 	'Music-Tuning': [
-		'JiTuning'
 		'Scale'
 	],
 	'Sound-OpenSoundControl': [
@@ -641,7 +640,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asHtmlRow'
 		'asHtmlTable'
 		'asInteger'
-		'asJiTuning'
+		'asRatioTuning'
 		'asLinkedList'
 		'asList'
 		'asLowerCase'
@@ -930,7 +929,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'zero'
 	],
 	'instance creation-music': [
-		'JiTuning'
 		'RatioTuning'
 		'IntegerTuning'
 		'CentsTuning'

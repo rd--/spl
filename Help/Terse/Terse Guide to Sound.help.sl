@@ -21,24 +21,20 @@
 let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
-## Music-JiTuning
-```
-let t = [63, 72, 84, 98, 112].asJiTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
-let t = [63, 72, 84, 98, 112].asJiTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
-let t = [63, 72, 84, 98, 112].asJiTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
-let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
-[1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-[1, 8/7, 4/3, 14/9, 16/9].asJiTuning.asIntegers = [63, 72, 84, 98, 112]
-[63, 72, 84, 98, 112].asJiTuning.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
-[1, 3].asJiTuning.asRatios = [1, 3]
-```
-
 ## Music-RatioTuning
 ```
 let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
 IntegerTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
+let t = [63, 72, 84, 98, 112].asRatioTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
+let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
+let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
+[1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
+[1, 8/7, 4/3, 14/9, 16/9].asRatioTuning.asIntegers = [63, 72, 84, 98, 112]
+[63, 72, 84, 98, 112].asRatioTuning.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
+[1, 3].asRatioTuning.asRatios = [1, 3]
 ```
 
 ## Music-Pitch

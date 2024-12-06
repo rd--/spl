@@ -5,7 +5,6 @@
 	'TuningLattice'
 	'CentsTuning'
 	'RatioTuning'
-	'JiTuning'
 	'Pitch'
 	'Scale'
 	'Xenharmonic'

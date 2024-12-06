@@ -97,16 +97,47 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 		RatioTuning(self, description, ratios, octave)
 	}
 
-	RatioTuning { :self :description :ratios :octave |
+	RatioTuning { :self :description :ratiosOrIntegers :octave |
+		let ratios = ratiosOrIntegers;
+		ratios.allSatisfy(isSmallInteger:/1).ifTrue {
+			ratios := ratios.collect { :each |
+				Fraction(each, ratios.first)
+			}
+		};
 		newRatioTuning().initializeSlots(self, description, ratios, octave, Record())
+	}
+
+	RatioTuning { :name :description :ratiosOrIntegers :octave :limit |
+		RatioTuning(name, description, ratiosOrIntegers, octave).limit(limit)
 	}
 
 }
 
-+@Sequence {
++List {
 
 	asRatioTuning { :self |
-		RatioTuning('Unnamed tuning', 'Undescribed tuning', self, 2/1)
+		RatioTuning(
+			'Unnamed tuning',
+			'Undescribed tuning',
+			self,
+			2/1
+		)
+	}
+
+}
+
++Record {
+
+	asRatioTuning { :self |
+		RatioTuning(
+			self['name'],
+			self['description'],
+			self['tuning'],
+			self.atIfAbsent('octave') {
+				2/1
+			},
+			self['limit']
+		)
 	}
 
 }

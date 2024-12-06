@@ -762,7 +762,7 @@
 ## Tuning Type and Functions
 
 - `CentsTuning`, `RatioTuning`, `Scale`, `Tuning`
-- `asJiTuning`, `equalTemperamentTuning`
+- `asRatioTuning`, `equalTemperamentTuning`
 - `asCents`, `asFractions`, `asIntegers`, `asRatios`
 - `limit`, `octave`
 - `centsToRatio`, `degreeToKey`, `ratioToCents`

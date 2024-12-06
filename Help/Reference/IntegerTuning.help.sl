@@ -22,6 +22,6 @@ Answer a `RatioTuning` given intervals expressed as _integers_.
 
 * * *
 
-See also: asJiTuning, CentsTuning, JiTuning, limit, RatioTuning, Tuning
+See also: asRatioTuning, CentsTuning, limit, RatioTuning, Tuning
 
 Categories: Tuning, Type
