@@ -63,9 +63,9 @@
 CrystalLatticeStructureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.clsLeitner.then { :clsLeitner |
+		system.leitnerCatalogue.then { :leitnerCatalogue |
 			smallKansas.addFrame(
-				smallKansas.CrystalLatticeStructureBrowser(clsLeitner),
+				smallKansas.CrystalLatticeStructureBrowser(leitnerCatalogue),
 				event
 			)
 		}

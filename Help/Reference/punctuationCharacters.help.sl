@@ -8,7 +8,9 @@ Answer the list of punctuation characters.
 >>> system.punctuationCharacters.size
 32
 
->>> system.punctuationCharacters.reject { :each |
+>>> system
+>>> .punctuationCharacters
+>>> .reject { :each |
 >>> 	each.isApostrophe | {
 >>> 		each.isReverseSolidus
 >>> 	}

@@ -159,7 +159,7 @@
 +@Cache {
 
 	jiScala { :self |
-		self.requireLibraryItem('jiScala')
+		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')
 	}
 
 }
@@ -175,7 +175,7 @@ ScalaJiTuningBrowser : [Object, SmallKansan] {
 }
 
 LibraryItem(
-	name: 'jiScala',
+	name: 'Music/Tuning/Scala/JustIntonation',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |

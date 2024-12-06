@@ -5,7 +5,9 @@
 Answer a `String` having the query, also called the _search_, of the `Url`.
 
 ```
->>> 'http://google.com/search?q=cern'.asUrl.query
+>>> 'http://google.com/search?q=cern'
+>>> .asUrl
+>>> .query
 '?q=cern'
 ```
 

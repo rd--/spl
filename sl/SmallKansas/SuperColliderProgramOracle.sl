@@ -1,7 +1,7 @@
 +@Cache {
 
 	superColliderProgramOracle { :self |
-		self.requireLibraryItem('superColliderProgramOracle')
+		system.requestLibraryItem('Music/SuperCollider/ProgramOracle')
 	}
 
 }
@@ -25,7 +25,7 @@ SuperColliderProgramOracle : [Object, SmallKansan] {
 }
 
 LibraryItem(
-	name: 'superColliderProgramOracle',
+	name: 'Music/SuperCollider/ProgramOracle',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
 	mimeType: 'text/plain',
 	parser: SuperColliderProgramIndex:/1

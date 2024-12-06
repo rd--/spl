@@ -7,10 +7,12 @@ The types implementing the trait are: `Nil`, `Boolean`, `SmallFloat`, `String`, 
 
 * * *
 
-See also: Boolean, isJson, json, List, parseJson, Nil, Record, SmallFloat, String
+See also: asJson, Boolean, isJson, json, List, parseJson, Nil, Record, SmallFloat, String
 
 References:
 _Json_
 [1](https://www.json.org/json-en.html)
+
+Further Reading: Crockford 2006
 
 Categories: Protocol, Trait

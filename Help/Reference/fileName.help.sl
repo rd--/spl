@@ -6,8 +6,10 @@ Answer a `String` having the file name part of the `pathName` of _aUrl_,
 which may not name a file.
 
 ```
->>> 'https://www.audiosynth.com/files/sc-users-archive'.asUrl.fileName
-'sc-users-archive'
+>>> 'https://www.ubu.com/sound'
+>>> .asUrl
+>>> .fileName
+'sound'
 ```
 
 A local file Url:
@@ -21,6 +23,13 @@ The empty file Url:
 
 ```
 >>> ''.asFileUrl.fileName
+''
+```
+
+A Url with trailing directory separator:
+
+```
+>>> 'A://B/C/'.asUrl.fileName
 ''
 ```
 

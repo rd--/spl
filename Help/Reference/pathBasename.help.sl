@@ -3,13 +3,14 @@
 - _pathBasename(aPath)_
 
 Answer the last component of the `String` _aPath_.
+Components are ordinarily separated by _solidus_ characters.
 
 ```
 >>> '/p/q/r.s'.pathBasename
 'r.s'
 ```
 
-If there is a trailing directory spearator:
+If there is a trailing directory separator:
 
 ```
 >>> '/p/q/'.pathBasename

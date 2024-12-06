@@ -6,7 +6,27 @@
 Conditional evaluation.
 If _anObject_ is `nil` answer the result of _whenNil_,
 else answer _whenNotNil(anObject)_,
-or in the binary case `nil`.
+or in the binary case _anObject_.
+
+Binary cases:
+
+```
+>>> 1.ifNil { '?'.error }
+1
+
+>>> nil.ifNil { true }
+true
+```
+
+Ternary cases:
+
+```
+>>> 1.ifNil { '?'.error } { :x | x + 1 }
+2
+
+>>> nil.ifNil { true } { nil }
+true
+```
 
 * * *
 

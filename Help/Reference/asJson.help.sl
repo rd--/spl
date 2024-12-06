@@ -60,4 +60,6 @@ References:
 _Json_
 [1](https://www.json.org/json-en.html)
 
+Further Reading: Crockford 2006
+
 Categories: Protocol, Serialisation

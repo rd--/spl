@@ -12,6 +12,14 @@ At `String`:
 true
 ```
 
+With base `Url`:
+
+```
+>>> let base = 'http://rfc-editor.org/';
+>>> 'rfc/rfc1738.txt'.asUrl(base)
+'http://rfc-editor.org/rfc/rfc1738.txt'.asUrl
+```
+
 Component qeuries:
 
 ```
@@ -26,34 +34,6 @@ Component qeuries:
 
 >>> 'http://cern.ch/#home'.asUrl.fragment
 '#home'
-```
-
-With base `Url`:
-
-```
->>> let baseUrl = 'http://worldwideweb.cern.ch';
->>> 'browser/'.asUrl(baseUrl).pathName
-'/browser/'
-
->>> let baseUrl = 'https://rohandrape.net/sw/spl/';
->>> 'README.md'.asUrl(baseUrl).pathName
-'/sw/spl/README.md'
-```
-
-File `Url`:
-
-```
->>> '/home/rohan/sw/spl/help/Reference/add.help.sl'.asFileUrl
-'file:///home/rohan/sw/spl/help/Reference/add.help.sl'.asUrl
-```
-
-Fetch text from file Url:
-
-```
-let url = '/home/rohan/sw/spl/help/Reference/asUrl.help.sl'.asFileUrl;
-url.fetchText.then { :aString |
-	aString.postLine
-}
 ```
 
 * * *

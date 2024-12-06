@@ -2,6 +2,10 @@
 
 @Url {
 
+	asString { :self |
+		self.href
+	}
+
 	asUrl { :self |
 		self.typeReponsibility('asUrl')
 	}

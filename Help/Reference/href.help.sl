@@ -5,9 +5,12 @@
 Answer a `String` having the entire Url.
 
 ```
->>> 'http://audiosynth.com/readinglist.html'.asUrl.href
-'http://audiosynth.com/readinglist.html'
+>>> 'https://www.w3.org/'.asUrl.href
+'https://www.w3.org/'
 ```
+
+_href_ is an abbreviation for _Hypertext Reference_,
+also called a hyperlink.
 
 * * *
 

@@ -17,6 +17,13 @@ false
 false
 ```
 
+Note that a fractional number where the fractional part is zero answers `true`:
+
+```
+>>> 23.0.isInteger
+true
+```
+
 At `LargeInteger`:
 
 ```
@@ -31,6 +38,9 @@ At `Fraction`:
 false
 
 >>> 2/2.isInteger
+true
+
+>>> (1/3 * 3).isInteger
 true
 ```
 

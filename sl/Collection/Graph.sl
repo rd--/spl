@@ -366,12 +366,14 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let vertices = self.vertexLabels.collect(derivePoint:/1);
 		let edges = self.edgeList.collect { :each |
 			let [i, j] = each;
-			Line(
-				[vertices[i].x, vertices[i].y],
-				[vertices[j].x, vertices[j].y]
-			)
+			let [x1, y1] = vertices[i];
+			let [x2, y2] = vertices[j];
+			Line([x1 y1; x2 y2])
 		};
-		vertices ++ edges
+		[
+			PointCloud(vertices),
+			edges
+		].LineDrawing
 	}
 
 	vertexLabels { :self |

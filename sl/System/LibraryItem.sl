@@ -1,42 +1,51 @@
 /* Requires: Url */
 
-LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
+LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 
-	key { :self |
-		'sl/library/' ++ self.url.hostName ++ self.url.pathName
+	isAcquired { :self |
+		self.contents.notNil
 	}
 
-	readLocalStorage { :self |
-		let text = system.localStorage[self.key];
-		self.mimeType.caseOfOtherwise([
-			'application/json' -> {
-				self.parser.value(text.parseJson)
-			},
-			'text/plain' -> {
-				self.parser.value(text)
-			}
-		]) {
-			self.error('readLocalStorage: unsupported mimeType')
+	fetch { :self |
+		self.url.asUrl.fetchMimeType(self.mimeType).then { :answer |
+			self.useLocalStorage.ifTrue {
+				self.writeLocalStorage(answer)
+			};
+			self.contents := self.parse(answer);
+			self.contents
 		}
 	}
 
-	require { :self |
-		('LibraryItem>>require' ++ self.name).postLine;
-		self.url := self.url.asUrl;
+	parse { :self :aString |
+		self.parser.value(aString)
+	}
+
+	readLocalStorage { :self |
+		let text = system.localStorage[self.storageKey];
+		let decodedValue = self.mimeType.caseOfOtherwise([
+			'application/json' -> {
+				self.parse(text.parseJson)
+			},
+			'text/plain' -> {
+				self.parse(text)
+			}
+		]) {
+			self.error('readLocalStorage: unsupported mimeType')
+		};
+		self.contents := decodedValue
+	}
+
+	request { :self |
 		Promise { :resolve:/1 :reject:/1 |
-			self.value.ifNotNil { :answer |
+			self.contents.ifNotNil { :answer |
 				resolve(answer)
 			} {
-				system.localStorage.includesKey(self.key).if {
-					self.value := self.readLocalStorage;
-					resolve(self.value)
+				system.localStorage.includesKey(self.storageKey).if {
+					self.readLocalStorage;
+					resolve(self.contents)
 				} {
-					self.url.fetchMimeType(self.mimeType).thenElse { :answer |
-						self.useLocalStorage.ifTrue {
-							self.writeLocalStorage(answer)
-						};
-						self.value := self.parser.value(answer);
-						resolve(self.value)
+					self.fetch.thenElse { :answer |
+						resolve(answer)
 					} { :message |
 						reject(message)
 					}
@@ -45,17 +54,29 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 		}
 	}
 
+	require { :self |
+		self.contents.ifNil {
+			self.request;
+			self.error('require: item not on shelf, requested')
+		}
+	}
+
+	storageKey { :self |
+		'LibraryItem-' ++ self.url.asString
+	}
+
 	writeLocalStorage { :self :anObject |
-		self.mimeType.caseOfOtherwise([
+		let encodedText = self.mimeType.caseOfOtherwise([
 			'application/json' -> {
-				system.localStorage[self.key] := anObject.asJson
+				anObject.asJson
 			},
 			'text/plain' -> {
-				system.localStorage[self.key] := anObject.asString
+				anObject.asString
 			}
 		]) {
-			self.error('writeLocalStorage: unsupported mimeType')
-		}
+			self.error('writeLocalStorage: invalid mimeType')
+		};
+		system.localStorage[self.storageKey] := encodedText
 	}
 
 }
@@ -84,11 +105,11 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 +System {
 
 	addLibraryItem { :self :libraryItem |
-		self.library.includesKey(libraryItem.name).if {
-			self.warning('addLibraryItem: item exists: ' ++ libraryItem.name)
-		} {
-			self.library[libraryItem.name] := libraryItem
-		}
+		let key = libraryItem.name;
+		self.library.includesKey(key).ifTrue {
+			self.error('addLibraryItem: item exists: ' ++ key)
+		};
+		self.library[key] := libraryItem
 	}
 
 	includesLibraryItem { :self :name |
@@ -102,29 +123,29 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage value |
 	}
 
 	libraryItem { :self :name |
-		self.library[name].require
+		self.library[name]
 	}
 
-	requireLibraryItem { :self :name |
-		self.includesLibraryItem(name).if {
-			self.libraryItem(name)
+	requestLibraryItem { :self :name |
+		self.library.atIfPresentIfAbsent(name) { :item |
+			item.request
 		} {
-			self.error('@Cache>>requireLibraryItem: does not exist: ' ++ name)
+			self.error('requestLibraryItem: does not exist: ' ++ name)
 		}
 	}
 
-	requireLibraryItems { :self :names |
-		name.collect { :each |
-			self.requireLibraryItem(each)
+	requestLibraryItems { :self :names |
+		names.collect { :each |
+			self.requestLibraryItem(each)
 		}.Promise
 	}
 
-	useLibraryItem { :self :libraryItem |
-		let name = libraryItem.name;
-		self.includesLibraryItem(name).ifFalse {
-			self.addLibraryItem(libraryItem)
-		};
-		self.requireLibraryItem(name)
+	requireLibraryItem { :self :name |
+		self.library.atIfPresentIfAbsent(name) { :item |
+			item.require
+		} {
+			self.error('requireLibraryItem: does not exist: ' ++ name)
+		}
 	}
 
 }

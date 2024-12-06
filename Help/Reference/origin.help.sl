@@ -5,8 +5,10 @@
 Answer a `String` having the canonical form of the origin of the Url.
 
 ```
->>> 'http://audiosynth.com/readinglist.html'.asUrl.origin
-'http://audiosynth.com'
+>>> 'http://w3c.org/standards'
+>>> .asUrl
+>>> .origin
+'http://w3c.org'
 ```
 
 * * *

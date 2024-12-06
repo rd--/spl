@@ -5,14 +5,37 @@
 Construct a file protocol `Url`.
 
 ```
->>> let pathName = '/home/rohan/sw/spl/help/Reference/Url.help.sl';
->>> let url = pathName.asFileUrl;
->>> (url.protocol, url.pathName, url.href)
-('file:', pathName, 'file:///home/rohan/sw/spl/help/Reference/Url.help.sl')
+>>> let url = '/A/B.C'.asFileUrl;
+>>> (
+>>> 	url.protocol,
+>>> 	url.pathName,
+>>> 	url.href
+>>> )
+(
+	'file:',
+	'/A/B.C',
+	'file:///A/B.C'
+)
+```
+
+Unix password file `Url`:
+
+```
+>>> '/etc/passwd'.asFileUrl
+'file:///etc/passwd'.asUrl
+```
+
+Fetch text from password file Url:
+
+```
+let url = '/etc/passwd'.asFileUrl;
+url.fetchText.then { :aString |
+	aString.postLine
+}
 ```
 
 * * *
 
-See also: asFileUrl, href, hostName, Location, origin, pathName, Url
+See also: asUrl, href, hostName, Location, origin, pathName, protocol, Url
 
 Categories: Network

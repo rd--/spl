@@ -1,17 +1,17 @@
-+@Cache {
++System {
 
 	unicodeData { :self |
-		self.requireLibraryItem('unicodeData')
+		self.requestLibraryItem('Text/Unicode/CharacterDatabase')
 	}
 
 }
 
 LibraryItem(
-	name: 'unicodeData',
+	name: 'Text/Unicode/CharacterDatabase',
 	url: 'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt',
 	mimeType: 'text/plain',
-	parser: { :libraryItem |
-		libraryItem.lines.collect { :each |
+	parser: { :item |
+		item.lines.collect { :each |
 			each.splitBy(';')
 		}
 	}

@@ -174,11 +174,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	atRandom { :self :shape :rng |
-		self.isInteger.if {
-			rng.randomInteger(1, self, shape)
-		} {
-			rng.randomReal(0, self, shape)
-		}
+		rng.randomReal(0, self, shape)
 	}
 
 	basicSqrt { :self |

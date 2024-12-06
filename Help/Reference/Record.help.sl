@@ -9,10 +9,14 @@ There is a literal syntax for records.
 true
 ```
 
-There is a conversion method from an `Association` `List`:
+There is a conversion method,
+`asRecord`,
+from an `Association` `List`:
 
 ```
->>> ['x' -> 3.141, 'y' -> 23].asRecord.asJson
+>>> ['x' -> 3.141, 'y' -> 23]
+>>> .asRecord
+>>> .asJson
 '{"x":3.141,"y":23}'
 
 >>> ['x' -> 3.141, 'y' -> 23].asRecord
@@ -22,14 +26,22 @@ There is a conversion method from an `Association` `List`:
 true
 ```
 
-At the ordinary `asRecord` constructor it is an error if any key is not a string.
-There is a `basicAsRecord` form that coerces keys to strings.
+At the ordinary `asRecord` constructor it is an error if any key is not a string:
 
 ```
->>> { [1.pi -> 'pi'].asRecord }.ifError { :err | true }
+>>> {
+>>> 	[1.pi -> 'pi'].asRecord
+>>> }.ifError { :err | true }
 true
+```
 
->>> [1.pi -> 'pi'].asMap.basicAsRecord.keys
+There is a `basicAsRecord` form that coerces keys to strings:
+
+```
+>>> [1.pi -> 'pi']
+>>> .asMap
+>>> .basicAsRecord
+>>> .keys
 ['3.141592653589793']
 ```
 

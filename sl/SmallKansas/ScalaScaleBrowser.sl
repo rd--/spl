@@ -52,7 +52,7 @@
 +@Cache {
 
 	scalaModenam { :self |
-		self.requireLibraryItem('scalaModenam')
+		system.requestLibraryItem('Music/Scales/ScalaModeNames')
 	}
 
 }
@@ -68,7 +68,7 @@ ScalaScaleBrowser : [Object, SmallKansan] {
 }
 
 LibraryItem(
-	name: 'scalaModenam',
+	name: 'Music/Scales/ScalaModeNames',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |

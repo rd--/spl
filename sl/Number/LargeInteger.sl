@@ -104,6 +104,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		<primitive: return Number(_self);>
 	}
 
+	atRandom { :self :shape :rng |
+		rng.randomInteger(1, self.asSmallFloat, shape)
+	}
+
 	bitAnd { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {

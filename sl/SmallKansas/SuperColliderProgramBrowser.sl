@@ -48,7 +48,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 +@Cache {
 
 	superColliderProgramIndex { :self |
-		self.requireLibraryItem('superColliderProgramIndex')
+		system.requestLibraryItem('Music/SuperCollider/ProgramIndex')
 	}
 
 }
@@ -110,7 +110,7 @@ SuperColliderProgramBrowser : [Object, SmallKansan] {
 }
 
 LibraryItem(
-	name: 'superColliderProgramIndex',
+	name: 'Music/SuperCollider/ProgramIndex',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
 	mimeType: 'text/plain',
 	parser: SuperColliderProgramIndex:/1

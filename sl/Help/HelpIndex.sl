@@ -59,13 +59,13 @@ HelpIndex : [Object] { | contents |
 +@Cache {
 
 	helpIndex { :self |
-		self.requireLibraryItem('helpIndex')
+		self.requestLibraryItem('System/Help/Index')
 	}
 
 }
 
 LibraryItem(
-	name: 'helpIndex',
+	name: 'System/Help/Index',
 	url: 'https://rohandrape.net/sw/spl/Help/Index.text',
 	mimeType: 'text/plain',
 	parser: HelpIndex:/1

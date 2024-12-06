@@ -79,11 +79,11 @@ At `Set`:
 ]
 ```
 
-At `Integer`, select between `one` and five at random:
+At `LargeInteger`, select between `one` and five at random:
 
 ```
 >>> let r = Sfc32(52137);
->>> 5.atRandom([3 3], r)
+>>> 5n.atRandom([3 3], r)
 [
 	4 1 1;
 	2 4 5;

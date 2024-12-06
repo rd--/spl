@@ -3,21 +3,21 @@
 - _unicodeData(aCache)_
 
 Answer a `Promise` that will answer a _matrix_ holding the _Unicode Character Database_.
-Implemented as a `LibraryItem`.
+
+The `unicodeData` method is `requestLibraryItem` of 'Text/Unicode/CharacterDatabase'.
 
 Acquire the table,
 if it is not cached,
 and when it arrives print its size and the entry for code point 03C0:
 
 ~~~
-system.unicodeData.then { :unicodeTable |
+system.unicodeData.then { :table |
+	let index = table.findFirst { :each |
+		each.first = '03C0'
+	};
 	(
-		unicodeTable.size,
-		unicodeTable[
-			unicodeTable.findFirst { :each |
-				each.first = '03C0'
-			}
-		]
+		table.size,
+		table[index]
 	).postLine
 }
 ~~~
@@ -36,18 +36,25 @@ If the library has been acquired it may be accessed directly.
 Check if the library item is acquired:
 
 ~~~
-system.library.includesKey('unicodeData')
+system.libraryItem(
+	'Text/Unicode/CharacterDatabase'
+).isAcquired
 ~~~
 
 Get the library item:
 
 ~~~
-system.library['unicodeData'].value.size
+system
+.libraryItem(
+	'Text/Unicode/CharacterDatabase'
+)
+.require
+.size
 ~~~
 
 * * *
 
-See also: codePoint, LibraryItem
+See also: codePoint, libraryItem, LibraryItem, requestLibraryItem
 
 References:
 _Unicode_

@@ -9,7 +9,7 @@ Answer the directory component of the `String` _aPath_.
 '/p/q'
 ```
 
-If there is no directory:
+If there is no directory, answers a full stop:
 
 ```
 >>> 'r.s'.pathDirectory

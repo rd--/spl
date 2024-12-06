@@ -5,18 +5,26 @@
 ```
 >>> nil.typeOf
 'Nil'
+```
 
->>> let nilType = system.typeDictionary['Nil'];
->>> nilType.methodDictionary.keys.includes('ifNil:/2')
-true
+There are `ifNil` and `ifNotNil` control structures:
 
+```
 >>> nil.respondsTo(ifNil:/2)
 true
 ```
 
+There are two and three argument forms:
+
+```
+>>> let t = system.typeDictionary['Nil'];
+>>> let m = t.methodDictionary;
+>>> m.keys.includes('ifNil:/3')
+true
+```
 * * *
 
-See also: nil, Void
+See also: ?, ??, ~?, nil, ifNil, ifNotNil, Void
 
 References:
 _Smalltalk_

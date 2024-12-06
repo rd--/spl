@@ -6,8 +6,10 @@ Answer a `String` having an initial '/' followed by the path of _aUrl_,
 not including the query string or fragment.
 
 ```
->>> 'http://audiosynth.com/readinglist.html'.asUrl.pathName
-'/readinglist.html'
+>>> 'http://w3c.org/standards'
+>>> .asUrl
+>>> .pathName
+'/standards'
 ```
 
 The empty file `Url`:

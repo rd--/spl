@@ -9,11 +9,12 @@ At `Url`,
 answer a `String` having the name of the `host` subcomponent of _aUrl_.
 
 ```
->>> 'http://audiosynth.com/readinglist.html'.asUrl.hostName
-'audiosynth.com'
+>>> 'http://cern.ch/'.asUrl.hostName
+'cern.ch'
 ```
 
-The `hostName` does not include the port number:
+The `hostName` does not include the port number,
+unlike `host`:
 
 ```
 >>> let url = 'http://cern.ch:8080/'.asUrl;

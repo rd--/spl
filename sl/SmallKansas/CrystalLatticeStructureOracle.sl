@@ -1,8 +1,8 @@
 CrystalLatticeStructureOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.clsLeitner.then { :clsLeitner |
-			let cls = clsLeitner.atRandom;
+		smallKansas.leitnerCatalogue.then { :leitnerCatalogue |
+			let cls = leitnerCatalogue.atRandom;
 			let mtx = AxonometricProjection('Chinese').asMatrix;
 			smallKansas.SvgViewer(
 				'Cls - ' ++ cls.name,

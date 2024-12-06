@@ -30,7 +30,15 @@
 
 	jiMeta { :self |
 		self.jiScala.then { :jiScala |
-			self.requireLibraryItem('jiMeta')
+			system.requestLibraryItem(
+				'Music/Tuning/Scala/JustIntonation/Authors'
+			).then { :jiMeta |
+				jiMeta.collect { :each |
+					each.collect { :aName |
+						jiScala[aName]
+					}.select(notNil:/1)
+				}
+			}
 		}
 	}
 
@@ -47,14 +55,8 @@ ScalaJiMetaBrowser : [Object, SmallKansan] {
 }
 
 LibraryItem(
-	name: 'jiMeta',
+	name: 'Music/Tuning/Scala/JustIntonation/Authors',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
 	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			each.collect { :aName |
-				jiScala[aName]
-			}.select(notNil:/1)
-		}
-	}
+	parser: identity:/1
 )
