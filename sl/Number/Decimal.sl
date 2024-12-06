@@ -3,7 +3,7 @@ Decimal : [Object] { | fraction scale |
 	* { :self :operand |
 		operand.isDecimal.if {
 			Decimal(
-				self.fraction * operand.asFraction,
+				self.fraction * operand.fraction,
 				self.scale + operand.scale
 			)
 		} {
@@ -14,7 +14,7 @@ Decimal : [Object] { | fraction scale |
 	+ { :self :operand |
 		operand.isDecimal.if {
 			Decimal(
-				self.fraction + operand.asFraction,
+				self.fraction + operand.fraction,
 				self.scale.max(operand.scale)
 			)
 		} {
@@ -25,7 +25,7 @@ Decimal : [Object] { | fraction scale |
 	- { :self :operand |
 		operand.isDecimal.if {
 			Decimal(
-				self.fraction - operand.asFraction,
+				self.fraction - operand.fraction,
 				self.scale.max(operand.scale)
 			)
 		} {
@@ -39,7 +39,7 @@ Decimal : [Object] { | fraction scale |
 		} {
 			operand.isDecimal.if {
 				Decimal(
-					self.fraction / operand.asFraction,
+					self.fraction / operand.fraction,
 					self.scale.max(operand.scale)
 				)
 			} {
@@ -50,7 +50,7 @@ Decimal : [Object] { | fraction scale |
 
 	< { :self :operand |
 		operand.isDecimal.if {
-			self.fraction < operand.asFraction
+			self.fraction < operand.fraction
 		} {
 			operand.adaptToDecimalAndApply(self, <)
 		}
@@ -58,7 +58,7 @@ Decimal : [Object] { | fraction scale |
 
 	<= { :self :operand |
 		operand.isDecimal.if {
-			self.fraction <= operand.asFraction
+			self.fraction <= operand.fraction
 		} {
 			operand.adaptToDecimalAndApply(self, =)
 		}
@@ -67,7 +67,7 @@ Decimal : [Object] { | fraction scale |
 	= { :self :operand |
 		operand.isNumber.if {
 			operand.isDecimal.if {
-				self.fraction = operand.asFraction
+				self.fraction = operand.fraction
 			} {
 				operand.adaptToDecimalAndApply(self, =)
 			}
@@ -78,7 +78,7 @@ Decimal : [Object] { | fraction scale |
 
 	> { :self :operand |
 		operand.isDecimal.if {
-			self.fraction > operand.asFraction
+			self.fraction > operand.fraction
 		} {
 			operand.adaptToDecimalAndApply(self, >)
 		}
@@ -86,7 +86,7 @@ Decimal : [Object] { | fraction scale |
 
 	>= { :self :operand |
 		operand.isDecimal.if {
-			self.fraction >= operand.asFraction
+			self.fraction >= operand.fraction
 		} {
 			operand.adaptToDecimalAndApply(self, >=)
 		}

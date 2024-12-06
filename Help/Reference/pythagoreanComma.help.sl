@@ -2,9 +2,9 @@
 
 - _pythagoreanComma(aNumber)_
 
-Answer _aNumber_ times the Pythagorean comma.
+Answer the Pythagorean comma raised to _aNumber_.
 
-The Pythagorean or ditonic comma is the interval with the ratio 531441/524288.
+The Pythagorean, or ditonic, comma is the interval with the ratio 531441/524288.
 
 ```
 >>> 1.pythagoreanComma
@@ -28,11 +28,18 @@ It is the amount by which twelve fifths exceed seven octaves.
 1.pythagoreanComma
 ```
 
-It is also the ratio between the _apotome_ and the _Pythagorean limma_:
+It is also the ratio between the `pythagoreanChroma` and the `pythagoreanLimma`:
 
 ```
->>> 2187/2048 / 256/243
+>>> (
+>>> 	1.pythagoreanChroma
+>>> 	/
+>>> 	1.pythagoreanLimma
+>>> )
 1.pythagoreanComma
+
+>>> 2187/2048 / 256/243
+531441/524288
 ```
 
 It is also the ratio between the Pythagorean augmented fourth and diminished fifth:
@@ -59,20 +66,23 @@ It has lattice coordinates _-19 12_:
 The twelfth part of the ditonic comma is very nearly two cents:
 
 ```
->>> 1.pythagoreanComma.ratioToCents / 12
+>>> let c = 1.pythagoreanComma;
+>>> c.ratioToCents / 12
 1.955
 ```
 
 and it is conventionally taken as 24 cents:
 
 ```
->>> 1.pythagoreanComma.ratioToCents.ceiling
+>>> 1.pythagoreanComma
+>>> .ratioToCents
+>>> .ceiling
 24
 ```
 
 * * *
 
-See also: octaveReduced, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduced, septimalComma, syntonicComma
 
 References:
 _Xenharmonic_

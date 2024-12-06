@@ -15,6 +15,9 @@ There are 1200 cents in an octave.
 >>> 386.3.centsToRatio.asFraction
 5/4
 
+>>> 21.5.centsToRatio.asFraction
+81/80
+
 >>> 702.centsToRatio
 3/2
 

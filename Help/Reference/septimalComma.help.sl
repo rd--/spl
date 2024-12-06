@@ -2,7 +2,7 @@
 
 - _septimalComma(aNumber)_
 
-Answer _aNumber_ times the septimal comma.
+Answer the septimal comma raised to _aNumber_.
 
 The septimal comma is the interval with the square superparticular ratio 64/63.
 

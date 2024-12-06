@@ -267,6 +267,13 @@ answers a `SmallFloat`:
 0.111
 ```
 
+Convert degrees/minutes/seconds to precise rational representation:
+
+```
+>>> 57 + 45/60 + 17/3600
+207917/3600
+```
+
 * * *
 
 See also: denominator, normalized, numerator, ReducedFraction, reduced

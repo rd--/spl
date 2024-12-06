@@ -942,6 +942,7 @@ Reference/highBitOfMagnitude.help.sl
 Reference/hilbertMatrix.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
+Reference/holdersComma.help.sl
 Reference/host.help.sl
 Reference/hostName.help.sl
 Reference/hour.help.sl
@@ -1034,7 +1035,6 @@ Reference/Integer.help.sl
 Reference/integerLength.help.sl
 Reference/integerPart.help.sl
 Reference/integerPartitions.help.sl
-Reference/IntegerTuning.help.sl
 Reference/Integrator.help.sl
 Reference/intercalate.help.sl
 Reference/interiorAngles.help.sl
@@ -1401,6 +1401,7 @@ Reference/Median.help.sl
 Reference/mediant.help.sl
 Reference/memoize.help.sl
 Reference/Menu.help.sl
+Reference/mercatorsComma.help.sl
 Reference/mergeInPlace.help.sl
 Reference/mergeSort.help.sl
 Reference/MersenneTwister.help.sl

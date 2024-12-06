@@ -18,6 +18,9 @@ Threads element-wise over lists:
 
 >>> [2 3 4] * 5
 [10 15 20]
+
+>>> [1 2 3] * [4 5 6]
+[4 10 18]
 ```
 
 Vector times matrix:

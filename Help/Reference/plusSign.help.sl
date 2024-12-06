@@ -31,6 +31,9 @@ Plus threads element-wise over lists:
 
 >>> [1 2 3] + [2 3 4]
 [3 5 7]
+
+>>> [1 2 3] + [4 5 6]
+[5 7 9]
 ```
 
 Plus at `SmallFloat` is not always associative:

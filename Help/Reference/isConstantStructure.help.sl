@@ -32,7 +32,7 @@ A pentatonic scale that is not a constant structure,
 the intervals _5/3, 5/4, 6/5, 8/5_ each occur in two columns:
 
 ```
->>> let r = [1/1 25/24 6/5 3/2 5/3]
+>>> let r = [1/1 25/24 6/5 3/2 5/3];
 >>> let t = r.asRatioTuning;
 >>> (
 >>> 	t.isConstantStructure,

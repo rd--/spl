@@ -33,6 +33,9 @@ Scalar product of vectors in three dimensions:
 
 >>> [1 -1 2].dot([0 1 1])
 1
+
+>>> [1 2 3].dot([4 5 6])
+32
 ```
 
 Dot product of exact vectors:

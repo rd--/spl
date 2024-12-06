@@ -25,8 +25,8 @@ let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.l
 ```
 let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
-IntegerTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
-RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = IntegerTuning('', '', [63 72 84 98 112], 2)
+RatioTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
+RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 98 112], 2)
 let t = [63, 72, 84, 98, 112].asRatioTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.rounded = [0, 231, 498, 765, 996]

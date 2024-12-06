@@ -9,6 +9,9 @@ The cross product of two vectors in three dimensions:
 >>> let v = [-1 1 0];
 >>> u.cross(v)
 [1 1 3]
+
+>>> [1 2 3].cross([4 5 6])
+[-3 6 -3]
 ```
 
 The cross product of a single vector in two dimensions:

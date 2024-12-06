@@ -1,5 +1,7 @@
 # Decimal
 
+- _Decimal(aFraction, anInteger)_
+
 `Decimal` is a numeric `Type` for fixed point decimal numbers.
 It is able to accurately represent arbitrary precision decimal fractions.
 

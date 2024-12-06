@@ -2,7 +2,7 @@
 
 - _syntonicComma(aNumber)_
 
-Answer _aNumber_ times the syntonic comma.
+Answer the syntonic comma raised to _aNumber_.
 
 The syntonic (or syntonic or Ptolemaic) comma is the interval with the superparticular ratio 81/80.
 

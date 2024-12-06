@@ -930,7 +930,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'instance creation-music': [
 		'RatioTuning'
-		'IntegerTuning'
 		'CentsTuning'
 		'Scale'
 	],

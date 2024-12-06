@@ -1,33 +1,37 @@
 /* Requires: Cache Fraction Tuning */
 
-RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache |
+RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 	= { :self :anObject |
 		anObject.isRatioTuning & {
 			self.equalByAtNamedSlots(
 				anObject,
-				['name' 'description' 'asRatios' 'octave'],
+				['name' 'description' 'ratios' 'octave'],
 				=
 			)
 		}
 	}
 
 	asCents { :self |
-		self.asRatios.collect { :each |
+		self.ratios.collect { :each |
 			each.asFloat.log2 * 1200
 		}
 	}
 
 	asFractions { :self |
-		self.asRatios
+		self.ratios
 	}
 
 	asIntegers { :self |
-		(self.asRatios / self.asRatios.reduce(gcd:/2)).collect(asInteger:/1)
+		(self.ratios / self.ratios.reduce(gcd:/2)).collect(asInteger:/1)
+	}
+
+	asRatios { :self |
+		self.ratios
 	}
 
 	intervalMatrix { :self |
-		let n = self.asRatios;
+		let n = self.ratios;
 		n.withIndexCollect { :p :i |
 			n.rotatedLeft(i - 1).collect { :q |
 				(q / p).octaveReduced(self.octave)
@@ -53,12 +57,12 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 	}
 
 	isRational { :self |
-		self.asRatios.allSatisfy(isFraction:/1)
+		self.ratios.allSatisfy(isFraction:/1)
 	}
 
 	limit { :self |
 		self.cached('limit') {
-			self.asRatios.primeLimit.max
+			self.ratios.primeLimit.max
 		}
 	}
 
@@ -70,7 +74,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 	}
 
 	size { :self |
-		self.asRatios.size
+		self.ratios.size
 	}
 
 	storeString { :self |
@@ -79,7 +83,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 			[
 				self.name,
 				self.description,
-				self.asRatios,
+				self.ratios,
 				self.octave
 			].collect(storeString:/1).join(', '),
 			')'
@@ -89,13 +93,6 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 }
 
 +String {
-
-	IntegerTuning { :self :description :integers :octave |
-		let ratios = integers.collect { :each |
-			Fraction(each, integers.first)
-		};
-		RatioTuning(self, description, ratios, octave)
-	}
 
 	RatioTuning { :self :description :ratiosOrIntegers :octave |
 		let ratios = ratiosOrIntegers;
@@ -117,8 +114,8 @@ RatioTuning : [Object, Cache, Tuning] { | name description asRatios octave cache
 
 	asRatioTuning { :self |
 		RatioTuning(
-			'Unnamed tuning',
-			'Undescribed tuning',
+			'*Unnamed tuning*',
+			'*Undescribed tuning*',
 			self,
 			2/1
 		)

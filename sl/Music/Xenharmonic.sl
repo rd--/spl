@@ -156,24 +156,32 @@
 
 +@Number {
 
+	holdersComma { :self |
+		2.nthRoot(53) ^ self
+	}
+
+	mercatorsComma { :self |
+		Fraction(3n ^ 53, 2n ^ 84) ^ self
+	}
+
 	pythagoreanComma { :self |
-		self * 531441/524288
+		531441/524288 ^ self
 	}
 
 	pythagoreanChroma { :self |
-		self * 2187/2048
+		2187/2048 ^ self
 	}
 
 	pythagoreanLimma { :self |
-		self * 256/243
+		256/243 ^ self
 	}
 
 	septimalComma { :self |
-		self * 64/63
+		64/63 ^ self
 	}
 
 	syntonicComma { :self |
-		self * 81/80
+		81/80 ^ self
 	}
 
 }

@@ -15,6 +15,6 @@ Calcuate the distance from a plane to the origin, along the plane’s normal:
 
 * * *
 
-See also: pointPlaneDistance, signedPointPlaneDistance
+See also: euclideanDistance, pointPlaneDistance, signedPointPlaneDistance
 
 Categories: Geometry

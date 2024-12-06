@@ -12,6 +12,9 @@ Euclidean distance between numeric vectors:
 >>> [1 2 3].euclideanDistance([2 4 6])
 14.sqrt
 
+>>> [1 2 3].euclideanDistance([4 5 6])
+5.196
+
 >>> [1 5 2 3 10].euclideanDistance([4 15 20 5 5])
 462.sqrt
 ```

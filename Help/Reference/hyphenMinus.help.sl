@@ -37,6 +37,9 @@ Threads element-wise over lists:
 
 >>> (3 - [2 3 4.5]).sign
 [1 0 -1]
+
+>>> [1 2 3] - [4 5 6]
+[-3 -3 -3]
 ```
 
 As the argument to `reduce` and `foldRight`:
