@@ -2,60 +2,66 @@
 
 - _asRatioTuning(aList | aRecord)_
 
-Answer a `RatioTuning` for `List` of interval values from a reference pitch,
-which may be given as fractions or as integers,
-or a `Record` of having _name_, _description_, _tuning_, _octave_ and _limit_ fields.
+Answer a `RatioTuning` for either a `List` of interval values from a reference pitch,
+or a `Record` having _name_, _description_, _tuning_, _octave_ and _limit_ fields.
 
-At `List` of `Fraction`s:
-
-```
->>> let r = [1 6/5 4/3 3/2 8/5];
->>> let t = r.asRatioTuning;
->>> (
->>> 	t.asRatios,
->>> 	t.asCents.rounded,
->>> 	t.octave,
->>> 	t.isTuning,
->>> 	t.isRatioTuning,
->>> 	t.size,
->>> 	t.asIntegers
->>> )
-(
-	[1 6/5 4/3 3/2 8/5],
-	[0 316 498 702 814],
-	2/1,
-	true,
-	true,
-	5,
-	[30, 36, 40, 45, 48]
-)
-```
-
-At `List` of integers:
-
-```
->>> let i = [63 72 84 98 112];
->>> let t = i.asRatioTuning;
->>> let r = t.asRatios;
->>> let c = t.asCents.rounded;
->>> (t.limit, t.size, t.octave, r, c)
-(
-	7,
-	5,
-	2,
-	[1 8/7 4/3 14/9 16/9],
-	[0 231 498 765 996]
-)
-```
 
 In the `List` case,
-if the intervals are `Fraction` values they are understood to be ratios and the first ratio should be 1/1:
+if the intervals are `Fraction` values they are understood to be ratios.
+The first ratio should be 1/1:
 
 ```
 >>> [1/1 8/7 4/3 14/9 16/9]
 >>> .asRatioTuning
 >>> .asIntegers
 [63 72 84 98 112]
+```
+
+If the intervals are `Integer` values they are understood to be integer pitches:
+
+```
+>>> [63 72 84 98 112]
+>>> .asRatioTuning
+>>> .asRatios
+[1/1 8/7 4/3 14/9 16/9]
+```
+
+A five-limit tuning specified as a `List` of `Fraction`s:
+
+```
+>>> let r = [1 6/5 4/3 3/2 8/5];
+>>> let t = r.asRatioTuning;
+>>> (
+>>> 	t.limit,
+>>> 	t.octave,
+>>> 	t.asIntegers,
+>>> 	t.asCents.rounded
+>>> )
+(
+	5,
+	2,
+	[30 36 40 45 48],
+	[0 316 498 702 814]
+)
+```
+
+A seven-limit tuning specified as a `List` of integers:
+
+```
+>>> let i = [63 72 84 98 112];
+>>> let t = i.asRatioTuning;
+>>> (
+>>> 	t.limit,
+>>> 	t.octave,
+>>> 	t.asRatios,
+>>> 	t.asCents.rounded
+>>> )
+(
+	7,
+	2,
+	[1 8/7 4/3 14/9 16/9],
+	[0 231 498 765 996]
+)
 ```
 
 A seven-limit just intonation approximation of 13-tone equal temperament:
@@ -80,7 +86,7 @@ A seven-limit just intonation approximation of 13-tone equal temperament:
 	7,
 	[
 		0 92 185 277 369 462 554 646
-		738 831	923 1015 1108
+		738 831 923 1015 1108
 	],
 	[
 		0 92 204 267 386 471 547 653
@@ -93,14 +99,9 @@ A seven-limit just intonation approximation of 13-tone equal temperament:
 )
 ```
 
-If the intervals are `Integer` values they are understood to be integer pitches:
+An Erv Wilson scale (9 July 1967) specified as integers:
 
 ```
->>> [63 72 84 98 112]
->>> .asRatioTuning
->>> .asRatios
-[1/1 8/7 4/3 14/9 16/9]
-
 >>> let t = [
 >>> 	600 625 672 700 750 800
 >>> 	840 875 960 1000 1050 1120

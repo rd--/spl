@@ -47,6 +47,19 @@ It is the distance between the Ptolemaic and Pythagorean chromatic semitones:
 1.pythagoreanChroma
 ```
 
+The schisma, 32805/32768, is the difference between the Pythagorean comma and the syntonic comma:
+
+```
+>>> 1.pythagoreanComma / 1.syntonicComma
+32805/32768
+```
+
+The schisma also is the difference between eight perfect fifths plus a major third and five octaves;
+
+>>> (3/2 ^ 8) * (5/4 ^ 1) / (2/1 ^ 5)
+32805/32768
+```
+
 * * *
 
 See also: pythagoreanComma, septimalComma
@@ -54,5 +67,6 @@ See also: pythagoreanComma, septimalComma
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/81/80)
+[2](https://en.xen.wiki/w/Schisma)
 
 Categories: Math, Contant, Tuning

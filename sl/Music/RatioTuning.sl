@@ -53,7 +53,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 	}
 
 	isPythagorean { :self |
-		self.limit = 3
+		self.primeLimit = 3
 	}
 
 	isRational { :self |
@@ -61,15 +61,21 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 	}
 
 	limit { :self |
-		self.cached('limit') {
+		self.primeLimit
+	}
+
+	primeLimit { :self |
+		self.cached('primeLimit') {
 			self.ratios.primeLimit.max
 		}
 	}
 
-	limit { :self :anInteger |
-		anInteger.isInteger.ifTrue {
-			self.cache['limit'] := anInteger
-		};
+	primeLimit { :self :anInteger |
+		anInteger.isInteger.if {
+			self.cache['primeLimit'] := anInteger
+		} {
+			self.error('primeLimit: invalid limit')
+		}
 		self
 	}
 
@@ -104,8 +110,8 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 		newRatioTuning().initializeSlots(self, description, ratios, octave, Record())
 	}
 
-	RatioTuning { :name :description :ratiosOrIntegers :octave :limit |
-		RatioTuning(name, description, ratiosOrIntegers, octave).limit(limit)
+	RatioTuning { :name :description :ratiosOrIntegers :octave :primeLimit |
+		RatioTuning(name, description, ratiosOrIntegers, octave).primeLimit(primeLimit)
 	}
 
 }

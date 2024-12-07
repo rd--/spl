@@ -50,11 +50,17 @@ Plot the first few squarefree numbers:
 1:99.select(isSquareFree:/1).linePlot
 ~~~
 
+![](sw/spl/Help/Image/isSquareFree-A.svg)
+
 Plot the first few squareful numbers:
 
 ~~~
-1:99.select { :n | n.isSquareFree.not }.linePlot
+1:99.select { :n |
+	n.isSquareFree.not
+}.linePlot
 ~~~
+
+![](sw/spl/Help/Image/isSquareFree-B.svg)
 
 * * *
 

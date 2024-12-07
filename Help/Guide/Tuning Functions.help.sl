@@ -2,49 +2,54 @@
 
 _Accessing_:
 
-- `asCents`: intervals of a tuning in cents
-- `asFractions`: intervals of a tuning as ratios in fraction form
-- `asIntegers`: intervals of a tuning as integers
-- `asRatios`: intervals of a tuning as ratios
-- `intervalMatrix`:  all possible intervals in a tuning
-- `primeLimit`: prime limit of a fraction
-- `limit`: prime limit of a tuning
-- `octave`: the ratio of the octave of a tuning
+- `asCents`: intervals in cents
+- `asFractions`: intervals as fractions
+- `asIntegers`: intervals as integers
+- `asRatios`: intervals as ratios
+- `intervalMatrix`:  interval matrix
+- `primeLimit`: prime limit
+- `limit`: prime limit
+- `octave`: octave ratio
 
 _Alterations_:
 
 - `cancelFlat`: cancel flat
 - `cancelSharp`: cancel sharp
-- `flat`: lower by one place (a half-tone)
-- `sharp`: raise by one place (a half-tone)
-- `quarterToneFlat`: lower by half of one place (a quarter-tone)
-- `quarterToneSharp`: raise by half of one place (a quarter-tone)
+- `flat`: lower half-tone
+- `sharp`: raise half-tone
+- `quarterToneFlat`: lower quarter-tone
+- `quarterToneSharp`: raise quarter-tone
 
 _Constants_:
 
-- `pythagoreanComma`: the Pythagorean or ditonic comma
-- `septimalComma`: the septimal comma
-- `syntonicComma`: syntonic comma
+- `holdersComma`: Holders comma
+- `mercatorsComma`: 3^53/2^84
+- `pythagoreanChroma`: 2187/2048
+- `pythagoreanComma`: 531441/524288
+- `pythagoreanLimma`: 256/243
+- `septimalComma`: 64/63
+- `syntonicComma`: 81/80
 
 _Converting_:
 
-- `centsToRatio`: convert interval given as cents to a ratio
-- `degreeToKey`: convert from degree to key
-- `ratioToCents`: convert interval given as a ratio to cents
+- `asFraction`: as fraction
+- `centsToRatio`: cents to ratio
+- `degreeToKey`: degree to key
+- `ratioToCents`: ratio to cents
 
 _Fraction Functions_:
 
-- `continuedFraction`: continued fraction representation of a number
-- `convergents`: convergents corresponding to continued fraction
-- `fromContinuedFraction`: reconstructs a number a continued fraction
-- `octaveReduced`: reduce a number to within an octave
-- `semiconvergents`: semiconvergents corresponding to continued fraction
-- `rationalize`: derive an approximate fraction given an error bound
+- `continuedFraction`: continued fraction
+- `convergents`: convergents
+- `fromContinuedFraction`: to fraction
+- `octaveReduced`: octave reduced
+- `semiconvergents`: semiconvergents
+- `rationalize`: approximate fraction
 
 _Instance Creation_:
 
 - `asRatioTuning`: construct ratio tuning
-- `equalTemperamentTuning`: construct equal tempered tuning
+- `equalTemperamentTuning`: edo
 
 _Interval complexity measures_:
 
@@ -63,17 +68,18 @@ _Lattice Functions_:
 _Prime Numbers_:
 
 - `factorInteger`: primes factors
-- `primeExponents`: primes exponents of factorization
-- `primeFactorization`: prime factors of a fraction
-- `primeFactors`: prime factors of a fraction
+- `primeExponents`: primes exponents
+- `primeFactorization`: prime factors
+- `primeFactors`: prime factors
 
 _Testing_:
 
-- `isConstantStructure`: is a tuning a constant structure
-- `isRational`: is a tuning rational
-- `isSquareSuperparticular`: is a fraction square superparticular
-- `isSuperparticular`: is a fraction superparticular
-- `isTuning`: is an object a tuning
+- `isConstantStructure`: constant structure?
+- `isPythagorean`: isPythagorean?
+- `isRational`: rational?
+- `isSquareSuperparticular`: square superparticular?
+- `isSuperparticular`: superparticular?
+- `isTuning`: tuning?
 
 _Types & Traits_:
 

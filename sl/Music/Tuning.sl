@@ -21,6 +21,14 @@
 	}
 
 	limit { :self |
+		self.primeLimit
+	}
+
+	octave { :self |
+		self.typeResponsibility('@Tuning>>octave')
+	}
+
+	primeLimit { :self |
 		self.asIntegers.collect { :each |
 			(each = 1).if {
 				each
@@ -28,10 +36,6 @@
 				each.primeFactors.max
 			}
 		}.max
-	}
-
-	octave { :self |
-		self.typeResponsibility('@Tuning>>octave')
 	}
 
 	size { :self |

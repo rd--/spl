@@ -1,4 +1,4 @@
-# ScalaJiTuningBrowser
+# ScalaRationalTuningBrowser
 
 Tuning browser.
 
@@ -11,7 +11,7 @@ let url = 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json';
 url.fetchJson.then { :answer |
 	let sk = system.smallKansas;
 	let ji = answer.collect(asRatioTuning:/1);
-	sk.addFrame(ScalaJiTuningBrowser(sk, ji), nil)
+	sk.addFrame(ScalaRationalTuningBrowser(sk, ji), nil)
 }
 ~~~
 
@@ -20,3 +20,9 @@ url.fetchJson.then { :answer |
 See also: asRatioTuning, RatioTuning, SmallKansas
 
 Categories: Kansas
+
+References:
+_Scala_
+[1](https://www.huygens-fokker.org/scala/),
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Scala)

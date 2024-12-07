@@ -1,6 +1,6 @@
 # primeLimit
 
-- _primeLimit(aFraction)_
+- _primeLimit(aFraction | aTuning)_
 
 Answer the largest prime number that is a factor of _aFraction_.
 
