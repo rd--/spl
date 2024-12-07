@@ -4,8 +4,8 @@
 
 Plot data from a collection _c_.
 
-Plots are adjusted to have an aspect ratio of 1.618:1,
-if the ratio of the input data is not close to `one`.
+If the ratio of the input data is not close to `one`,
+plots are adjusted to have an aspect ratio of _1.618:1_.
 
 If _c_ is a vector, plot as list of _y_ values.
 Plot a six-vector:
@@ -93,6 +93,39 @@ C.f. `functionPlot`:
 ~~~
 
 ![](sw/spl/Help/Image/linePlot-H.svg)
+
+Plot a random walk in one dimension:
+
+~~~spl svg=I
+Sfc32(31804)
+.randomReal(-1, 1, 99)
+.accumulate
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-I.svg)
+
+Plot a random walk in two dimensions:
+
+~~~spl svg=J
+Sfc32(41975)
+.randomReal(-1, 1, [99 2])
+.accumulate
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-J.svg)
+
+Plot a random walk on a lattice:
+
+~~~spl svg=K
+Sfc32(80415)
+.randomChoice([1 0; -1 0; 0 1; 0 -1], 99)
+.accumulate
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-K.svg)
 
 * * *
 

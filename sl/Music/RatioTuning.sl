@@ -75,7 +75,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 			self.cache['primeLimit'] := anInteger
 		} {
 			self.error('primeLimit: invalid limit')
-		}
+		};
 		self
 	}
 

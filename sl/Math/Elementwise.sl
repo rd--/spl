@@ -325,6 +325,10 @@
 		self.collect(sinc:/1)
 	}
 
+	sincNormalized { :self |
+		self.collect(sincNormalized:/1)
+	}
+
 	sinh { :self |
 		self.collect(sinh:/1)
 	}

@@ -624,6 +624,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	sincNormalized { :self |
+		(self * pi).sinc
+	}
+
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
 	}

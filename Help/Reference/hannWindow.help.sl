@@ -38,7 +38,7 @@ Guide: Window Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/HannningFunction.html)
+[1](https://mathworld.wolfram.com/HanningFunction.html)
 [2](https://reference.wolfram.com/language/ref/HannWindow.html)
 
 Categories: Windowing

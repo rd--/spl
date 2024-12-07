@@ -80,7 +80,8 @@ Plot : [Object] { | contents format |
 
 	lineDrawing { :self |
 		let c = self.contents;
-		(c.shape[2] = 2).if {
+		let [rows, columns] = c.shape;
+		(columns = 2).if {
 			let r = c.coordinateBoundingBox.asRectangle;
 			let w = r.width;
 			let h = r.height;
@@ -113,32 +114,38 @@ Plot : [Object] { | contents format |
 					}
 				}
 			]);
-			(r.lower <= 0 & { r.upper >= 0 }).ifTrue {
+			let includesXAxis = r.lower <= 0 & { r.upper >= 0 };
+			let includesYAxis = r.left <= 0 & { r.right >= 0 };
+			includesXAxis.ifTrue {
 				items.add(Point([r.left * xScalar, 0]))
 			};
-			(r.left <= 0 & { r.right >= 0 }).ifTrue {
+			includesYAxis.ifTrue {
 				items.add(Point([0, r.upper]))
 			};
 			items.addAll(scaledC.gen);
 			items.LineDrawing
 		} {
-			(c.shape[2] = 3 & { self.format = 'line' }).if {
-				let p:/1 = AxonometricProjection('Chinese').asBlock;
-				let r = [
-					-1 -1 0;
-					+1 -1 0;
-					+1 +1 0;
-					-1 +1 0
-				];
-				let t = { :list |
-					list.collect { :each |
-						let [x, y, z] = each;
-						[x.negated, z, y.negated].p
-					}
-				};
-				[c.t.Line, r.t.Polygon].LineDrawing
+			(columns = 3).if {
+				(self.format = 'line').if {
+					let p:/1 = AxonometricProjection('Chinese').asBlock;
+					let r = [
+						-1 -1 0;
+						+1 -1 0;
+						+1 +1 0;
+						-1 +1 0
+					];
+					let t = { :list |
+						list.collect { :each |
+							let [x, y, z] = each;
+							[x.negated, z, y.negated].p
+						}
+					};
+					[c.t.Line, r.t.Polygon].LineDrawing
+				} {
+					self.error('n×3 matrix: format must be line')
+				}
 			} {
-				self.error('cannot draw')
+				self.error('Multiple plots not implemented')
 			}
 		}
 	}
@@ -172,12 +179,12 @@ Plot : [Object] { | contents format |
 	}
 
 	typedPlot { :self :format |
-		(self.rank = 1).if {
+		self.isVector.if {
 			self.withIndexCollect { :y :x |
 				[x y]
 			}.Plot(format)
 		} {
-			(self.rank = 2 & { self.shape[2] = 1}).if {
+			self.isColumnVector.if {
 				self.withIndexCollect { :y :x |
 					[x y.first]
 				}.Plot(format)

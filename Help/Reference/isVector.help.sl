@@ -2,7 +2,8 @@
 
 - _isVector(aSequence)_
 
-A `Sequence` is a vector if none of the elements in the sequence has the type of the sequence:
+A `Sequence` is a vector if none of the elements in the sequence has the type of the sequence.
+It is equivalent to asking if the `rank` is `one`.
 
 At `List`:
 
@@ -10,8 +11,18 @@ At `List`:
 >>> [1 2 3 4 5 6].isVector
 true
 
+>>> [1 2 3 4 5 6].rank = 1
+true
+
 >>> [1 2 3; 4 5 6].isVector
 false
+```
+
+A `List` of `Tuple`s is a vector:
+
+```
+>>> [(1, 2, 3), (4, 5, 6)].isVector
+true
 ```
 
 At `Tuple`:
@@ -33,7 +44,7 @@ true
 
 * * *
 
-See also: elementType, isArray, isList, isMatrix
+See also: elementType, isArray, isColumnVector, isRowVector, isList, isMatrix
 
 References:
 _Mathematica_
