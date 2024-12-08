@@ -34,22 +34,39 @@ A list of 10 _x_:
 Make a 3×3 matrix:
 
 ```
->>> { :i :j | i.squared + j.squared }.table(1:3, 1:3)
-[2 5 10; 5 8 13; 10 13 18]
+>>> { :i :j |
+>>> 	i.squared + j.squared
+>>> }.table(1:3, 1:3)
+[
+	 2  5 10;
+	 5  8 13;
+	10 13 18
+]
 ```
 
-Make a 3×3 matrix:
+Make a 3×4 matrix:
 
 ```
->>> { :i :j | i ^ j }.table(1:3, 1:4)
-[1 1 1 1; 2 4 8 16; 3 9 27 81]
+>>> { :i :j |
+>>> 	i ^ j
+>>> }.table(1:3, 1:4)
+[
+	1  1  1  1;
+	2  4  8 16;
+	3  9 27 81
+]
 ```
 
 Make a 4×3 matrix:
 
 ```
 >>> { :i :j | 10 * i + j }.table(1:4, 1:3)
-[11 12 13; 21 22 23; 31 32 33; 41 42 43]
+[
+	11 12 13;
+	21 22 23;
+	31 32 33;
+	41 42 43
+]
 ```
 
 The index in the table can run backward:
@@ -66,9 +83,14 @@ Make a 3×2×3 array:
 >>> 	(100 * i) + (10 * j) + k
 >>> }.table(1:3, 1:2, 1:3)
 [
-	111 112 113; 121 122 123:;
-	211 212 213; 221 222 223:;
-	311 312 313; 321 322 323
+	111 112 113;
+	121 122 123
+	:;
+	211 212 213;
+	221 222 223
+	:;
+	311 312 313;
+	321 322 323
 ]
 ```
 
@@ -79,9 +101,14 @@ Make a 3×2×4 array:
 >>> 	(10 * i) + (j * k)
 >>> }.table(1:3, [-1 1], 0:3)
 [
-	10 9 8 7; 10 11 12 13:;
-	20 19 18 17; 20 21 22 23:;
-	30 29 28 27; 30 31 32 33
+	10 9 8 7;
+	10 11 12 13
+	:;
+	20 19 18 17;
+	20 21 22 23
+	:;
+	30 29 28 27;
+	30 31 32 33
 ]
 ```
 
@@ -96,7 +123,11 @@ Make an array from existing lists:
 
 ```
 >>> { :i :j | j ^ (1 / i) }.table([1 2 4], [1 4 9])
-[1 4 9; 1 2 3; 1 2.sqrt 3.sqrt]
+[
+	1 4 9;
+	1 2 3;
+	1 2.sqrt 3.sqrt
+]
 ```
 
 The two argument form of table is _collect_ with reversed arguments:
@@ -131,14 +162,24 @@ it answers a Block that will apply the ternary form:
 
 ```
 >>> 1:3 *.table 1:5
-[1 2 3 4 5; 2 4 6 8 10; 3 6 9 12 15]
+[
+	1 2 3 4 5;
+	2 4 6 8 10;
+	3 6 9 12 15
+]
 ```
 
 At matrices answers a volume:
 
 ```
 >>> [1 2; 3 4] *.table [5 6; 7 8]
-[5 12; 7 16:; 15 24; 21 32]
+[
+	 5 12;
+	 7 16
+	:;
+	15 24;
+	21 32
+]
 ```
 
 A table of successively longer lists:
@@ -159,6 +200,8 @@ Plot a table:
 ~~~
 nthPrime:/1.table(1:50).linePlot
 ~~~
+
+![](sw/spl/Help/Image/table-A.svg)
 
 * * *
 

@@ -127,12 +127,25 @@ Sfc32(80415)
 
 ![](sw/spl/Help/Image/linePlot-K.svg)
 
+Plot two lines:
+
+~~~spl svg=L
+[
+	[0 0; 1 1; 2 0],
+	[0 1; 1 0; 2 1]
+].linePlot
+
+
+![](sw/spl/Help/Image/linePlot-L.svg)
+
 * * *
 
-See also: discretePlot, functionPlot, matrixPlot, parametricPlot, scatterPlot
+See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ListLinePlot.html)
+[1](https://reference.wolfram.com/language/ref/ListLinePlot.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/plot.html)
 
 Categories: Plotting

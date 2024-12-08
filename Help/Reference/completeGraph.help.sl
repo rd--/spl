@@ -41,7 +41,7 @@ The `edgeCount` of small complete graphs:
 Draw complete graph on three vertices:
 
 ~~~
-3.completeGraph.dotDrawing
+3.completeGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/completeGraph-A.svg)
@@ -49,7 +49,7 @@ Draw complete graph on three vertices:
 Draw complete graph on five vertices:
 
 ~~~
-5.completeGraph.dotDrawing
+5.completeGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/completeGraph-B.svg)

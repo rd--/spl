@@ -41,8 +41,14 @@ Complex number inputs:
 Construct an identity matrix:
 
 ```
->>> { :x :y | x.kroneckerDelta(y) }.table(1:3, 1:3)
-[1 0 0; 0 1 0; 0 0 1]
+>>> { :x :y |
+>>> 	x.kroneckerDelta(y)
+>>> }.table(1:3, 1:3)
+[
+	1 0 0;
+	0 1 0;
+	0 0 1
+]
 ```
 
 Generate a banded matrix with two superdiagonals:
@@ -54,19 +60,23 @@ Generate a banded matrix with two superdiagonals:
 >>> 	(p + q) * i * (j ^ 2)
 >>> }.table(1:5, 1:5)
 [
-	0 4 9 0 0;
-	0 0 18 32 0;
-	0 0 0 48 75;
-	0 0 0 0 100;
-	0 0 0 0 0
+	0   4   9   0   0;
+	0   0  18  32   0;
+	0   0   0  48  75;
+	0   0   0   0 100;
+	0   0   0   0   0
 ]
 ```
 
 Plot over a subset of the integers:
 
 ~~~
--2:2.functionPlot { :each | each.kroneckerDelta(0) }
+-2:2.functionPlot {
+	:each | each.kroneckerDelta(0)
+}
 ~~~
+
+![](sw/spl/Help/Image/kroneckerDelta-A.svg)
 
 * * *
 

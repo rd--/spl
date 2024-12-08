@@ -2,7 +2,7 @@
 
 - _nest(anObject)_
 
-Enclose _anObject_ in a `List` only if it is not a collection.
+Enclose _anObject_ in a `List` only if it is not a list.
 Answers either a `List` of one place, holding _anObject_, or _anObject_.
 
 ```

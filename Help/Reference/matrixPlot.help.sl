@@ -85,7 +85,7 @@ Sfc32(17492)
 
 * * *
 
-See also: discretePlot, functionPlot, linePlot, parametricPlot, scatterPlot
+See also: discretePlot, functionPlot, graphPlot, linePlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

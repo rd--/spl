@@ -25,7 +25,7 @@ A graph with directed edges:
 ~~~
 [1 --> 2, 2 --> 3, 3 --> 1]
 .asGraph
-.dotDrawing
+.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/DirectedEdge-A.svg)

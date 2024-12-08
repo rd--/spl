@@ -55,7 +55,7 @@ The `vertexList` and `edgeList` of a wheel graph:
 Draw the wheel graph on nine vertices:
 
 ~~~
-9.wheelGraph.dotDrawing
+9.wheelGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/wheelGraph-A.svg)

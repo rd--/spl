@@ -1,6 +1,6 @@
 /* Requires: Interval */
 
-Plot : [Object] { | contents format |
+Plot : [Object] { | pages format |
 
 	cliDraw { :self |
 		(self.format = 'graph').if {
@@ -11,49 +11,45 @@ Plot : [Object] { | contents format |
 	}
 
 	cliGraphDraw { :self |
-		let layoutEngine = self.contents.isDirected.if { 'dot' } { 'neato' };
-		let dotSource = self.contents.asDot;
-		dotSource.dotLayout('svg', layoutEngine).then { :svgText |
-			let fileName = '/tmp/graphDrawing.svg';
-			fileName.writeTextFile(svgText);
-			system.systemCommand('chromium', [fileName])
-		}
+		let [graph] = self.pages;
+		graph.dotDrawing.draw
 	}
 
 	cliListDraw { :self |
-		let shape = self.contents.shape;
+		let [contents] = self.pages;
+		let shape = contents.shape;
 		let d = shape.size;
 		let a = 'x';
 		let c = [0];
 		let plotData = (self.format = 'matrix').if {
 			a := 'matrix';
 			c := [];
-			self.contents.reversed
+			contents.reversed
 		} {
 			(d = 1).if {
-				[self.contents].transposed
+				[contents].transposed
 			} {
 				(d = 2).if {
 					let [m, n] = shape;
 					(n = 1).if {
-						self.contents
+						contents
 					} {
 						(n = 2).if {
 							a := 'xy';
 							c := [0 1];
-							self.contents
+							contents
 						} {
 							(n = 3).if {
 								a := 'xyz';
 								c := [0 1 2];
-								self.contents
+								contents
 							} {
-								self.contents.error('cliDraw: matrix columns > 3')
+								contents.error('cliDraw: matrix columns > 3')
 							}
 						}
 					}
 				} {
-					self.contents.error('cliPlot: array dimensions > 2')
+					contents.error('cliPlot: array dimensions > 2')
 				}
 			}
 		};
@@ -71,18 +67,23 @@ Plot : [Object] { | contents format |
 	}
 
 	draw { :self |
-		(self.format = 'matrix').if {
-			self.contents.asGreyscaleSvg.draw
-		} {
+		self.format.caseOfOtherwise([
+			'graph' -> {
+				self.cliGraphDraw
+			},
+			'matrix' -> {
+				let [contents] = self.pages;
+				contents.asGreyscaleSvg.draw
+			}
+		]) {
 			self.lineDrawing.draw
 		}
 	}
 
 	lineDrawing { :self |
-		let c = self.contents;
-		let [rows, columns] = c.shape;
-		(columns = 2).if {
-			let r = c.coordinateBoundingBox.asRectangle;
+		let [pageCount, rowCount, columnCount] = self.pages.shape;
+		(columnCount = 2).if {
+			let r = self.pages.concatenation.coordinateBoundingBox.asRectangle;
 			let w = r.width;
 			let h = r.height;
 			let dataRatio = (w / h);
@@ -92,7 +93,9 @@ Plot : [Object] { | contents format |
 				1.goldenRatio
 			};
 			let xScalar = aspectRatio / (w / h);
-			let scaledC = c * [[xScalar, 1]];
+			let scaledPages = self.pages.collect { :each |
+				each * [[xScalar, 1]]
+			};
 			let items = [];
 			let gen:/1 = self.format.caseOf([
 				'line' -> {
@@ -116,16 +119,19 @@ Plot : [Object] { | contents format |
 			]);
 			let includesXAxis = r.lower <= 0 & { r.upper >= 0 };
 			let includesYAxis = r.left <= 0 & { r.right >= 0 };
+			['GOTTOHERE', scaledPages].postLine;
 			includesXAxis.ifTrue {
 				items.add(Point([r.left * xScalar, 0]))
 			};
 			includesYAxis.ifTrue {
 				items.add(Point([0, r.upper]))
 			};
-			items.addAll(scaledC.gen);
+			scaledPages.do { :each |
+				items.addAll(each.gen)
+			};
 			items.LineDrawing
 		} {
-			(columns = 3).if {
+			(columnCount = 3).if {
 				(self.format = 'line').if {
 					let p:/1 = AxonometricProjection('Chinese').asBlock;
 					let r = [
@@ -140,7 +146,8 @@ Plot : [Object] { | contents format |
 							[x.negated, z, y.negated].p
 						}
 					};
-					[c.t.Line, r.t.Polygon].LineDrawing
+					let l = self.pages.collect { :each | each.t.Line };
+					[l, r.t.Polygon].LineDrawing
 				} {
 					self.error('n×3 matrix: format must be line')
 				}
@@ -159,7 +166,7 @@ Plot : [Object] { | contents format |
 	}
 
 	graphPlot { :self |
-		self.Plot('graph')
+		self.nest.Plot('graph')
 	}
 
 	linePlot { :self |
@@ -167,7 +174,7 @@ Plot : [Object] { | contents format |
 	}
 
 	matrixPlot { :self |
-		self.Plot('matrix')
+		[self].Plot('matrix')
 	}
 
 	plot { :self |
@@ -178,18 +185,46 @@ Plot : [Object] { | contents format |
 		self.typedPlot('scatter')
 	}
 
+	surfacePlot { :self |
+		self.isMatrix.if {
+			let [m, n] = self.shape;
+			{ :i :j | [i, j, self[i,j]] }.table(1:m, 1:n).surfacePlot
+		} {
+			let [m, n, _] = self.shape;
+			let p = 1:m.collect { :i |
+				1:n.collect { :j |
+					self[i][j]
+				}
+			};
+			let q = 1:n.collect { :j |
+				1:m.collect { :i |
+					self[i][j]
+				}
+			};
+			(p ++ q).linePlot
+		}
+	}
+
 	typedPlot { :self :format |
 		self.isVector.if {
-			self.withIndexCollect { :y :x |
-				[x y]
-			}.Plot(format)
+			[
+				self.withIndexCollect { :y :x |
+					[x y]
+				}
+			].Plot(format)
 		} {
 			self.isColumnVector.if {
-				self.withIndexCollect { :y :x |
-					[x y.first]
-				}.Plot(format)
+				[
+					self.withIndexCollect { :y :x |
+						[x y.first]
+					}
+				].Plot(format)
 			} {
-				self.Plot(format)
+				self.isMatrix.if {
+					[self].Plot(format)
+				} {
+					self.Plot(format)
+				}
 			}
 		}
 	}
@@ -198,8 +233,8 @@ Plot : [Object] { | contents format |
 
 +[List, Graph] {
 
-	Plot { :contents :format |
-		newPlot().initializeSlots(contents, format)
+	Plot { :self :format |
+		newPlot().initializeSlots(self, format)
 	}
 
 }

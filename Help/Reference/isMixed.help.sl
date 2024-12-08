@@ -30,7 +30,7 @@ Draw a mixed graph:
 ~~~
 [1 --> 2, 2 --- 3, 3 --> 1]
 .asGraph
-.dotDrawing
+.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/isMixed-A.svg)

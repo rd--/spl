@@ -37,7 +37,7 @@ The `vertexList` and `edgeList` of a cycle graph:
 Draw cycle graph on five vertices:
 
 ~~~
-5.cycleGraph.dotDrawing
+5.cycleGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/cycleGraph-A.svg)

@@ -2,10 +2,10 @@
 
 - _graphPlot(aGraph)_
 
-Plot a complete graph on 10 nodes:
+Plot a complete graph on eight vertices:
 
 ~~~spl svg=A
-10.completeGraph.graphPlot
+8.completeGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/graphPlot-A.svg)
@@ -21,7 +21,7 @@ m.adjacencyGraph.graphPlot
 
 ![](sw/spl/Help/Image/graphPlot-B.svg)
 
-A graph where edges indicated that one number can been derived from the other by the insertion of one bit:
+A graph of 64 vertices where edges indicated that one number can been derived from the other by the insertion of one bit:
 
 ~~~
 (0 .. 2 ^ 6 - 1).collect { :j |
@@ -38,7 +38,7 @@ A graph where edges indicated that one number can been derived from the other by
 
 * * *
 
-See also: discretePlot, functionPlot, linePlot, matrixPlot, scatterPlot
+See also: discretePlot, functionPlot, linePlot, matrixPlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

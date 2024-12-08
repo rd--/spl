@@ -35,7 +35,7 @@ A dense discrete plot of a cosine function:
 
 * * *
 
-See also: functionPlot, linePlot, matrixPlot, scatterPlot
+See also: functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

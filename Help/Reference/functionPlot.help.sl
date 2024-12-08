@@ -165,7 +165,7 @@ let n = 15;
 
 * * *
 
-See also: discretePlot, linePlot, matrixPlot, parametricPlot, scatterPlot
+See also: discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot
 
 References:
 _Mathematica_

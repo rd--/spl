@@ -23,7 +23,7 @@ The coherence of a Graph can be queried using `isValid`.
 
 * * *
 
-See also: ---, -->, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
+See also: ---, -->, asDot, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
 
 References:
 _Mathematica_

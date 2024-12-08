@@ -41,11 +41,11 @@
 	asDot { :self |
 		let isMixed = self.isMixed;
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
-		let begin = '% {\ngraph [layout=neato];'.format([graphType]);
+		let begin = '% {\ngraph [layout="neato"];'.format([graphType]);
 		let attributeText = [
-			'graph [size=0.75,bgcolor=transparent];',
-			'node [shape=point];',
-			'edge [penwidth=0.75, arrowsize=0.5];'
+			'graph [size="1.214,0.75",bgcolor="transparent"];',
+			'node [shape="point"];',
+			'edge [penwidth="0.75", arrowsize="0.5"];'
 		].unlines;
 		let edgeText = self.edgeList.collect { :each |
 			each.forDot(isMixed)
@@ -347,7 +347,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	dotDrawing { :self |
-		self.asDot.dotLayout('svg', 'neato').then { :answer |
+		let layoutEngine = self.isDirected.if { 'dot' } { 'neato' };
+		self.asDot.dotLayout('svg', layoutEngine).then { :answer |
 			answer.Svg
 		}
 	}

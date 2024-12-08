@@ -27,7 +27,7 @@ A graph with undirected edges:
 ~~~
 [1 --- 2, 2 --- 3, 3 --- 1]
 .asGraph
-.dotDrawing
+.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/UndirectedEdge-A.svg)
