@@ -193,6 +193,18 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self = 0n
 	}
 
+	log { :self |
+		self.asFloat.log
+	}
+
+	log2 { :self |
+		self.asFloat.log2
+	}
+
+	log10 { :self |
+		self.asFloat.log10
+	}
+
 	one { :self |
 		1n
 	}

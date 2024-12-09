@@ -131,16 +131,16 @@ Plot two lines:
 
 ~~~spl svg=L
 [
-	[0 0; 1 1; 2 0],
+	[0 0; 1 2; 2 0],
 	[0 1; 1 0; 2 1]
 ].linePlot
-
+~~~
 
 ![](sw/spl/Help/Image/linePlot-L.svg)
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot
+See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_

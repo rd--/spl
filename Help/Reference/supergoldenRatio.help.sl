@@ -25,7 +25,11 @@ Its true value is the real solution of the equation _x ^ 3 = x ^ 2 + 1_:
 It has the closed form:
 
 ```
->>> (2 / 3) * (1 / 3 * 14.5J0.arcCos).cos + (1 / 3)
+>>> (2 / 3)
+>>> *
+>>> (1 / 3 * 14.5J0.arcCos).cos
+>>> +
+>>> (1 / 3)
 1.supergoldenRatio
 ```
 
@@ -33,7 +37,8 @@ The continued fraction of its square begins as a permutation of the first six na
 and the next term is equal to their sum plus one:
 
 ```
->>> (1.supergoldenRatio ^ 2).continuedFraction(7)
+>>> (1.supergoldenRatio ^ 2)
+>>> .continuedFraction(7)
 [2 6 1 3 5 4 22]
 ```
 

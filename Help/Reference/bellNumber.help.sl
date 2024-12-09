@@ -15,8 +15,20 @@ Threads element-wise over lists (OEIS A000110):
 
 ```
 >>> 1:11.bellNumber
-[1 2 5 15 52 203 877 4140 21147 115975 678570]
+[
+	1 2 5 15 52 203 877
+	4140 21147 115975
+	678570
+]
 ```
+
+Plot first few terms:
+
+~~~
+1:99.bellNumber.logScale.discretePlot
+~~~
+
+![](sw/spl/Help/Image/bellNumber-A.svg)
 
 * * *
 

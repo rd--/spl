@@ -15,14 +15,21 @@ Matrix indices:
 
 ```
 >>> [3 2].shapeIndices
-[1 1; 1 2; 2 1; 2 2; 3 1; 3 2]
+[
+	1 1; 1 2;
+	2 1; 2 2;
+	3 1; 3 2
+]
 ```
 
 Volume indices:
 
 ```
 >>> [2 2 2].shapeIndices
-[1 1 1; 1 1 2; 1 2 1; 1 2 2; 2 1 1; 2 1 2; 2 2 1; 2 2 2]
+[
+	1 1 1; 1 1 2; 1 2 1; 1 2 2;
+	2 1 1; 2 1 2; 2 2 1; 2 2 2
+]
 ```
 
 `atPath` and `@>` index using lists:
@@ -30,7 +37,12 @@ Volume indices:
 ```
 >>> let a = [1 2; 3 4:; 5 6; 7 8];
 >>> let s = a.shape;
->>> (s, s.shapeIndices.collect { :each | a @> each })
+>>> (
+>>> 	s,
+>>> 	s.shapeIndices.collect { :each |
+>>> 		a @> each
+>>> 	}
+>>> )
 ([2 2 2], [1 2 3 4 5 6 7 8])
 ```
 

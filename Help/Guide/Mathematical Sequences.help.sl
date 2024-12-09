@@ -3,12 +3,12 @@
 Sequences:
 
 - `bellNumber`: OEIS A000110
-- `bernoulliSequence`:  OEIS A027641 and A027642
+- `bernoulliSequence`:  OEIS A027641 & A027642
 - `calkinWilfSequence`: OEIS A002487
 - `catalanNumber`: OEIS A000108
-- `fareySequence`: OEIS A006842 and A006843
+- `fareySequence`: OEIS A006842 & A006843
 - `fibonacciSequence`: OEIS A000045
-- `harmonicNumber`: OEIS A001008 and A002805
+- `harmonicNumber`: OEIS A001008 & A002805
 - `lassalleNumber`: OEIS A180874
 - `lobbNumber`: OEIS A039599
 - `lucasNumbers`: OEIS A000032
@@ -21,7 +21,7 @@ Sequences:
 - `recamanSequence`: OEIS A005132
 - `sternBrocotSequence`: OEIS A002487
 - `thueMorseSequence`: OEIS A010060
-- `vanDerCorputNumber`: OEIS A030101 and A030102
+- `vanDerCorputNumber`: OEIS A030101 & A030102
 - `vanDerLaanSequence`: OEIS A182097
 
 Trees:

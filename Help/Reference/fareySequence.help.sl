@@ -10,14 +10,22 @@ The Farey sequence of order five:
 
 ```
 >>> 5.fareySequence
-[0/1 1/5 1/4 1/3 2/5 1/2 3/5 2/3 3/4 4/5 1/1]
+[
+	0/1 1/5 1/4 1/3 2/5
+	1/2 3/5 2/3 3/4 4/5
+	1/1
+]
 ```
 
 The Farey sequence of order six:
 
 ```
 >>> 6.fareySequence
-[0/1 1/6 1/5 1/4 1/3 2/5 1/2 3/5 2/3 3/4 4/5 5/6 1/1]
+[
+	0/1 1/6 1/5 1/4 1/3 2/5
+	1/2 3/5 2/3 3/4 4/5 5/6
+	1/1
+]
 ```
 
 Find the 17th element of the Farey sequence of order 24,
@@ -34,7 +42,8 @@ and the 500th of order 50:
 Denominators of Farey sequence of order 12:
 
 ```
->>> 12.fareySequence.collect(denominator:/1)
+>>> 12.fareySequence
+>>> .collect(denominator:/1)
 [
 	1 12 11 10 9 8 7 6 11 5 9 4
 	11 7 10 3 11 8 5 12 7 9 11
@@ -48,7 +57,8 @@ The length of a Farey sequence for a few small orders,
 c.f. OEIS [A005728](https://oeis.org/A005728):
 
 ```
->>> 1:12.collect(fareySequence:/1).collect(size:/1)
+>>> 1:12.collect(fareySequence:/1)
+>>> .collect(size:/1)
 [2 3 5 7 11 13 19 23 29 33 43 47]
 ```
 
@@ -68,8 +78,10 @@ The product of all nonzero elements of the Farey sequence for a few small orders
 >>> 	n.fareySequence.allButFirst.product
 >>> }
 [
-	1/2 1/9 1/48 1/1250 1/9000 2/2941225 3/172103680
-	1/13610558304 1/720135360000 1/5147281912068450
+	1/2 1/9 1/48 1/1250
+	1/9000 2/2941225 3/172103680
+	1/13610558304 1/720135360000
+	1/5147281912068450
 ]
 ```
 
@@ -79,15 +91,36 @@ Lengths of longer Farey sequences, _50_ then _200, 300, 400, 500_:
 >>> 50.fareySequence.size
 775
 
->>> (2:5 * 100).collect { :n | n.fareySequence.size }
+>>> (2:5 * 100).collect { :n |
+>>> 	n.fareySequence.size
+>>> }
 [12233 27399 48679 76117]
 ```
 
-Plot first twenty three terms:
+Plot terms of Farey sequence:
 
 ~~~
-23.fareySequence.asFloat.linePlot
+23.fareySequence.linePlot
 ~~~
+
+![](sw/spl/Help/Image/fareySequence-A.svg)
+
+Plot numerators:
+
+~~~
+23.fareySequence.numerator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-B.svg)
+
+
+Plot denominators:
+
+~~~
+23.fareySequence.denominator.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-C.svg)
 
 * * *
 

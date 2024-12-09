@@ -26,6 +26,18 @@ which count the number of complete strings of balanced parentheses of a given le
 ]
 ```
 
+Plot first few terms:
+
+~~~
+0:19.collect { :m |
+	0:m.collect { :n |
+		n.lobbNumber(m)
+	}
+}.flatten.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/lobbNumber-A.svg)
+
 * * *
 
 See also: bellNumber, binomial, catalanNumber, narayanNumber

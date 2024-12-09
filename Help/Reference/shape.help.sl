@@ -22,10 +22,17 @@ The shape of a _matrix_ is a two element list,
 telling the number of rows and columns:
 
 ```
->>> [1 2; 3 4; 5 6].shape
+>>> [
+>>> 	1 2;
+>>> 	3 4;
+>>> 	5 6
+>>> ].shape
 [3 2]
 
->>> [1 2 3; 4 5 6].shape
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6
+>>> ].shape
 [2 3]
 
 >>> [[1]].shape
@@ -35,16 +42,44 @@ telling the number of rows and columns:
 The shape of a _volume_ is a three element list:
 
 ```
->>> [1 2; 3 4:; 5 6; 7 8].shape
+>>> [
+>>> 	1 2;
+>>> 	3 4
+>>> 	:;
+>>> 	5 6;
+>>> 	7 8
+>>> ].shape
 [2 2 2]
 
->>> [1; 2; 3:; 4; 5; 6].shape
+>>> [
+>>> 	1;
+>>> 	2;
+>>> 	3
+>>> 	:;
+>>> 	4;
+>>> 	5;
+>>> 	6
+>>> ].shape
 [2 3 1]
 
->>> [1 2; 3 4; 5 6:; 7 8; 9 10; 11 12].shape
+>>> [
+>>> 	1 2;
+>>> 	3 4;
+>>> 	5 6
+>>> 	:;
+>>> 	7 8;
+>>> 	9 10;
+>>> 	11 12
+>>> ].shape
 [2 3 2]
 
->>> [[1 2; 3 4; 5 6]].shape
+>>> [
+>>> 	[
+>>> 		1 2;
+>>> 		3 4;
+>>> 		5 6
+>>> 	]
+>>> ].shape
 [1 3 2]
 
 >>> [[[1]]].shape
@@ -100,7 +135,7 @@ Where supported `shape` is displayed as ⍴.
 
 * * *
 
-See also: iota, isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape
+See also: iota, isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape, shapeIndices
 
 References:
 _Apl_

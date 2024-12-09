@@ -55,6 +55,19 @@ The maximal Lfsr of four places:
 [0 1 0 0 1 1 0 1 0 1 1 1 1 0 0]
 ```
 
+Generate the first few steps of the rule 90 pattern:
+
+~~~
+let i = [1].padLeft(31, 0);
+let t = [1 2];
+let n = 2000;
+i.shiftRegisterSequence(t, n)
+.partition(31)
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/shiftRegisterSequence-A.svg)
+
 * * *
 
 See also: linearRecurrence

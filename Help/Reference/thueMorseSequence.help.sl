@@ -5,7 +5,7 @@
 Answer the first _anInteger_ elements of the Thue-Morse sequence.
 
 ```
->>> (2 ^ 0:6).collect { :k |
+>>> (2 ^ 0:5).collect { :k |
 >>> 	k.thueMorseSequence.stringJoin
 >>> }
 [
@@ -15,9 +15,16 @@ Answer the first _anInteger_ elements of the Thue-Morse sequence.
 	'01101001'
 	'0110100110010110'
 	'01101001100101101001011001101001'
-	'0110100110010110100101100110100110010110011010010110100110010110'
 ]
 ```
+
+Plot first few terms:
+
+~~~
+99.thueMorseSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-A.svg)
 
 * * *
 

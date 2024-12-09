@@ -45,7 +45,9 @@ The continued fractions of the first five metallic means:
 
 ```
 >>> 1:5.collect{ :each |
->>> 	each.metallicMean.continuedFraction(9)
+>>> 	each
+>>> 	.metallicMean
+>>> 	.continuedFraction(9)
 >>> }
 [
 	1 1 1 1 1 1 1 1 1;
@@ -58,7 +60,7 @@ The continued fractions of the first five metallic means:
 
 * * *
 
-See also: continuedFraction, goldenRatio, silverRatio
+See also: continuedFraction, goldenRatio, silverRatio, superGoldenRatio
 
 References:
 _Mathematica_

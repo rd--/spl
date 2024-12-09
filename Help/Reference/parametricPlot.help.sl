@@ -36,7 +36,7 @@ Undersampling:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, scatterPlot
+See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_

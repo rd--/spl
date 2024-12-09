@@ -119,7 +119,6 @@ Plot : [Object] { | pages format |
 			]);
 			let includesXAxis = r.lower <= 0 & { r.upper >= 0 };
 			let includesYAxis = r.left <= 0 & { r.right >= 0 };
-			['GOTTOHERE', scaledPages].postLine;
 			includesXAxis.ifTrue {
 				items.add(Point([r.left * xScalar, 0]))
 			};
@@ -174,7 +173,7 @@ Plot : [Object] { | pages format |
 	}
 
 	matrixPlot { :self |
-		[self].Plot('matrix')
+		[self.asFloat].Plot('matrix')
 	}
 
 	plot { :self |
@@ -188,7 +187,9 @@ Plot : [Object] { | pages format |
 	surfacePlot { :self |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
-			{ :i :j | [i, j, self[i,j]] }.table(1:m, 1:n).surfacePlot
+			{ :i :j |
+				[i, j, self[i,j]]
+			}.table(1:m, 1:n).surfacePlot
 		} {
 			let [m, n, _] = self.shape;
 			let p = 1:m.collect { :i |
@@ -206,17 +207,18 @@ Plot : [Object] { | pages format |
 	}
 
 	typedPlot { :self :format |
+		self := self.asFloat;
 		self.isVector.if {
 			[
 				self.withIndexCollect { :y :x |
-					[x y]
+					[x, y]
 				}
 			].Plot(format)
 		} {
 			self.isColumnVector.if {
 				[
 					self.withIndexCollect { :y :x |
-						[x y.first]
+						[x, y.first]
 					}
 				].Plot(format)
 			} {
@@ -282,6 +284,15 @@ Plot : [Object] { | pages format |
 
 	parametricPlot { :self :xBlock:/1 :yBlock:/1 |
 		self.parametricPlot(100, xBlock:/1, yBlock:/1)
+	}
+
+	surfacePlot { :self :divisions :aBlock:/2 |
+		let i = self.subdivide(divisions);
+		table(aBlock:/2, i, i).surfacePlot
+	}
+
+	surfacePlot { :self :aBlock:/2 |
+		self.surfacePlot(15, aBlock:/2)
 	}
 
 }

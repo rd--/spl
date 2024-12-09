@@ -20,7 +20,8 @@ The denominators give the terms of Stern’s diatomic sequence,
 c.f. OEIS A002487:
 
 ```
->>> 90.calkinWilfSequence.collect(denominator:/1)
+>>> 90.calkinWilfSequence
+>>> .collect(denominator:/1)
 [
 	 1  2  1  3  2  3  1  4  3  5
 	 2  5  3  4  1  5  4  7  3  8
@@ -43,6 +44,14 @@ The numerator of each succesive term is equal to the denominator of the previous
 >>> }.allTrue
 true
 ```
+
+Plot first few terms:
+
+~~~
+200.calkinWilfSequence.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/calkinWilfSequence-A.svg)
 
 * * *
 

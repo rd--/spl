@@ -38,7 +38,9 @@ Compare first two Bessel functions:
 ~~~spl svg=C
 { :n :x |
 	[x / 5, besselJ(n, x)]
-}.table(0:1, (0, 0.1 .. 14)).Line.LineDrawing
+}.table(0:1, (0, 0.1 .. 14))
+.Line
+.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/LineDrawing-C.svg)

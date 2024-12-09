@@ -253,6 +253,10 @@
 		self.collect(log2:/1)
 	}
 
+	logScale { :self |
+		self.collect(logScale:/1)
+	}
+
 	lucasNumber { :self |
 		self.collect(lucasNumber:/1)
 	}

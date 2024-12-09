@@ -38,7 +38,7 @@ A graph of 64 vertices where edges indicated that one number can been derived fr
 
 * * *
 
-See also: discretePlot, functionPlot, linePlot, matrixPlot, parametricPlot, scatterPlot
+See also: discretePlot, functionPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_

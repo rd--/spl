@@ -58,6 +58,13 @@ Complex arguments:
 0.990501j0.380506
 ```
 
+Show that the natural logarithm of -1 is iπ:
+
+```
+>>> -1j0.log
+0J3.14159
+```
+
 Log threads elementwise over lists:
 
 ```

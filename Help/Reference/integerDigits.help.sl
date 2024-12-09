@@ -162,7 +162,7 @@ It is an error if the operand is not an integer:
 true
 ```
 
-Scatter plot of first two-hundred terms of OEIS [A265326](https://oeis.org/A265326):
+Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~
 { :n |
@@ -174,7 +174,7 @@ Scatter plot of first two-hundred terms of OEIS [A265326](https://oeis.org/A2653
 
 ![](sw/spl/Help/Image/integerDigits-A.svg)
 
-Scatter plot of first two-thousand terms of OEIS [A117966](https://oeis.org/A117966):
+Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
 ~~~
 { :i |

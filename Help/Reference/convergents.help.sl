@@ -83,7 +83,7 @@ Continue until the precision of the input is reached:
 
 * * *
 
-See also: /, continuedFraction, fromContinuedFraction, rationalize
+See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents
 
 References:
 _Mathematica_

@@ -462,6 +462,15 @@
 		self.logarithmicIntegralRamanujan(9)
 	}
 
+	logScale { :self |
+		self.isZero.if {
+			0
+		} {
+			let x = self.asFloat;
+			x.sign * x.abs.log
+		}
+	}
+
 	metallicMean { :n |
 		(n + (n.squared + 4).sqrt) / 2
 	}

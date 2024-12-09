@@ -15,7 +15,9 @@ The `gcd` of adjacent values is always `one`:
 ```
 >>> let k = 1000;
 >>> let l = k.sternBrocotSequence;
->>> 2:k.allSatisfy { :i | l[i - 1].gcd(l[i]) = 1 }
+>>> 2:k.allSatisfy { :i |
+>>> 	l[i - 1].gcd(l[i]) = 1
+>>> }
 true
 ```
 
@@ -25,6 +27,14 @@ Find the index where the number 100 first appears in the sequence:
 >>> 10000.sternBrocotSequence.indexOf(100)
 1179
 ```
+
+Plot first few terms:
+
+~~~
+200.sternBrocotSequence.discretePlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
 
 * * *
 
