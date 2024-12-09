@@ -1,9 +1,13 @@
 # functionPlot
 
-- _functionPlot(d, f:/1)_
+- _functionPlot(domain, aBlock:/1 | aList)_
 
-Plot the unary function _f_ over the domain _d_, which may be discrete or continous.
-_f_ may answer a `Number`, a `Complex` or a `Sequence`.
+Plot the unary function _aBlock_ over _domain_,
+which may be discrete or continous.
+_aBlock_ may answer a `Number`, a `Complex` or a `Sequence`.
+
+If a list of blocks are given,
+plot each function atop the previous.
 
 `Interval` is a continuous domain, it is discretized by `functionPlot`.
 Plot one cycle of the sine function:
@@ -162,6 +166,61 @@ let n = 15;
 ~~~
 
 ![](sw/spl/Help/Image/functionPlot-O.svg)
+
+`functionPlot` is a special case of `parametricPlot`,
+where the _x_ parameter block is the identity.
+A `sin` function:
+
+~~~
+(0 -- 5).functionPlot { :x |
+	(x ^ 2).sin
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-P.svg)
+
+The same `sin` function at `parametricPlot`:
+
+~~~
+(0 -- 5).parametricPlot { :u |
+	u
+} { :u |
+	(u ^ 2).sin
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-Q.svg)
+
+Plot multiple functions:
+
+~~~
+(0 -- pi).functionPlot([
+	{ :x | x.sin },
+	{ :x | (2 * x).sin },
+	{ :x | (3 * x).sin }
+])
+~~~
+
+![](sw/spl/Help/Image/functionPlot-R.svg)
+
+Plot `sin` and `cos`:
+
+~~~
+(0 -- 2.pi).functionPlot([sin:/1, cos:/1])
+~~~
+
+![](sw/spl/Help/Image/functionPlot-S.svg)
+
+Plot two `sin` functions:
+
+~~~
+(0 -- 3.pi).functionPlot([
+	{ :x | x.sin + (x / 2) },
+	{ :x | x.sin + x }
+])
+~~~
+
+![](sw/spl/Help/Image/functionPlot-T.svg)
 
 * * *
 

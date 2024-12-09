@@ -51,7 +51,9 @@ Use `includes` to determine if a point is in the interval (checking for containm
 true
 
 >>> let i = (1 -- 5);
->>> [3.2, 5, 1, 9].collect { :each | i.includes(each) }
+>>> [3.2, 5, 1, 9].collect { :each |
+>>> 	i.includes(each)
+>>> }
 [true true true false]
 ```
 
@@ -68,7 +70,9 @@ Use `union` to combine intervals:
 Cannot combine disjoint intervals:
 
 ```
->>> { (-2 -- 0).union(1 -- 4) }.ifError { true }
+>>> {
+>>> 	(-2 -- 0).union(1 -- 4)
+>>> }.ifError { true }
 true
 ```
 
@@ -85,7 +89,9 @@ Use `intersection` to find where intervals overlap:
 Cannot intersect disjoint intervals:
 
 ```
->>> { (-2 -- 0).intersection(1 -- 4) }.ifError { true }
+>>> {
+>>> 	(-2 -- 0).intersection(1 -- 4)
+>>> }.ifError { true }
 true
 ```
 

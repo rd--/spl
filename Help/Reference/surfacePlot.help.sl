@@ -57,6 +57,15 @@ At `Interval`, which is implicitly disretized by `surfacePlot`:
 
 ![](sw/spl/Help/Image/surfacePlot-D.svg)
 
+~~~
+(-2 -- 2).surfacePlot { :x :y |
+	let n = (x ^ 2) + (y ^ 2);
+	n * (0 - n).exp * 3 + 9
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-E.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, parametricPlot, scatterPlot

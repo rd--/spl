@@ -19,7 +19,11 @@ equality is decided by `==`.
 Find divisors that occur in any of 10, 12, and 20:
 
 ```
->>> 10.divisors.union(12.divisors.union(20.divisors))
+>>> 10.divisors.union(
+>>> 	12.divisors.union(
+>>> 		20.divisors
+>>> 	)
+>>> )
 [1 2 3 4 5 6 10 12 20].asSet
 ```
 

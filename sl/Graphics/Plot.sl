@@ -243,16 +243,19 @@ Plot : [Object] { | pages format |
 
 +@Collection {
 
-	functionPlot { :domain :functionBlock:/1 |
-		domain.collect { :x |
-			let y = functionBlock(x);
-			y.isSequence.if {
-				y
-			} {
-				y.isComplex.if {
-					y.asList
+	functionPlot { :domain :anObject |
+		let blockList = anObject.nest;
+		blockList.collect { :aBlock:/1 |
+			domain.collect { :x |
+				let y = aBlock(x);
+				y.isSequence.if {
+					y
 				} {
-					[x, y]
+					y.isComplex.if {
+						y.asList
+					} {
+						[x, y]
+					}
 				}
 			}
 		}.linePlot
@@ -266,16 +269,26 @@ Plot : [Object] { | pages format |
 		}.linePlot
 	}
 
+	polarPlot { :domain :anObject |
+		let blockList = anObject.nest.collect { :aBlock:/1 |
+			{ :t |
+				let r = aBlock(t);
+				[r, t].fromPolarCoordinates
+			}
+		};
+		domain.functionPlot(blockList)
+	}
+
 }
 
 +Interval {
 
-	functionPlot { :domain :divisions :aBlock:/1 |
-		domain.subdivide(divisions).functionPlot(aBlock:/1)
+	functionPlot { :domain :divisions :anObject |
+		domain.subdivide(divisions).functionPlot(anObject)
 	}
 
-	functionPlot { :self :aBlock:/1 |
-		self.functionPlot(100, aBlock:/1)
+	functionPlot { :self :anObject |
+		self.functionPlot(100, anObject)
 	}
 
 	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
@@ -284,6 +297,14 @@ Plot : [Object] { | pages format |
 
 	parametricPlot { :self :xBlock:/1 :yBlock:/1 |
 		self.parametricPlot(100, xBlock:/1, yBlock:/1)
+	}
+
+	polarPlot { :domain :divisions :anObject |
+		domain.subdivide(divisions).polarPlot(anObject)
+	}
+
+	polarPlot { :self :anObject |
+		self.polarPlot(100, anObject)
 	}
 
 	surfacePlot { :self :divisions :aBlock:/2 |

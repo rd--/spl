@@ -29,7 +29,8 @@ If there is no intersection, the result is []:
 Comparison is by equality:
 
 ```
->>> [1 2; 3 4; 5 6].intersection([5 6; 7 8; 9 10])
+>>> [1 2; 3 4; 5 6]
+>>> .intersection([5 6; 7 8; 9 10])
 [[5 6]]
 ```
 
@@ -37,10 +38,13 @@ Implemented as _left argument filtered by its existence in the right argument_, 
 at `List` retains duplicates and order:
 
 ```
->>> [1 2 9 1].intersection([3 1 9])
+>>> [1 2 9 1]
+>>> .intersection([3 1 9])
 [1 9 1]
 
->>> [1 1 2 3].intersection([3 1 4]).intersection([4 1 3 3])
+>>> [1 1 2 3]
+>>> .intersection([3 1 4])
+>>> .intersection([4 1 3 3])
 [1 1 3]
 ```
 

@@ -26,14 +26,24 @@ In the ternary form apply _aBlock_ to each element during construction.
 Plot `exp` function from `zero` to `five`:
 
 ~~~
-(0 -- 5).functionPlot(exp:/1)
+(0 -- 5)
+.discretize(99)
+.exp
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/discretize-A.svg)
 
 Plot `hannFunction`:
 
 ~~~
-(-0.5 -- 0.5).functionPlot(hannWindow:/1)
+(-0.5 -- 0.5)
+.discretize(99)
+.collect(hannWindow:/1)
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/discretize-B.svg)
 
 * * *
 

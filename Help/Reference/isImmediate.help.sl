@@ -32,6 +32,6 @@ as for use as keys is `Map`.
 
 * * *
 
-See also: ==, ===, Bag, isJson, isLiteral, Map, Set
+See also: =, ==, Bag, isJson, isLiteral, Map, Set
 
 Categories: Testing

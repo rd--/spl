@@ -36,7 +36,12 @@ true
 A `List` is a literal if all of the items it holds are literal:
 
 ```
->>> [nil true false 3.14 23n 3/4 3j4 'x'].isLiteral
+>>> [
+>>> 	nil
+>>> 	true false
+>>> 	3.14 23n 3/4 3j4
+>>> 	'x'
+>>> ].isLiteral
 true
 ```
 

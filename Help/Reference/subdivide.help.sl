@@ -13,7 +13,11 @@ Subdivide the unit interval into 10 equal parts:
 Range(0, 1, 1/10)
 
 >>> 10.subdivide.asList
-[0 1/10 1/5 3/10 2/5 1/2 3/5 7/10 4/5 9/10 1/1]
+[
+	0/1 1/10 1/5 3/10 2/5
+	1/2 3/5 7/10 4/5 9/10
+	1/1
+]
 ```
 
 Subdivide the interval 0 to 10 into 5 equal parts:
