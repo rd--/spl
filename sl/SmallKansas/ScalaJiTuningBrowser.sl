@@ -54,7 +54,7 @@
 
 	htmlView { :self |
 		let ratios = self.asRatios;
-		let primesVector = self.latticePrimesVector(5);
+		let primesVector = self.latticePrimesVector([3 5 7 11 13]);
 		let div = 'div'.createElement;
 		div.appendChildren([
 			[
@@ -62,12 +62,15 @@
 				['Limit', self.limit.asString],
 				['Description', self.description],
 				['Octave', self.octave.asString],
-				['Primes', self.latticePrimes.asString]
+				['Primes', self.latticePrimes(false).asString]
 			].asHtmlTable,
 			primesVector.ifNil {
 				'No drawing'.TextParagraph
 			} {
-				self.latticeDrawing(primesVector)
+				self.latticeDrawing(
+					primesVector,
+					1.wilsonLatticeCoordinates
+				)
 			},
 			[
 				[1 .. self.size],
@@ -86,8 +89,8 @@
 		div
 	}
 
-	latticeDrawing { :self :primes |
-		self.latticeGraph(primes).drawing(1, identity:/1)
+	latticeDrawing { :self :primes :unitVector |
+		self.latticeGraph(primes, unitVector).drawing(1, identity:/1)
 	}
 
 }

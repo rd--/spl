@@ -1,8 +1,14 @@
 # latticeGraph
 
 - _latticeGraph(aRatioTuning)_
+- _latticeGraph(aRatioTuning, primesList, unitVectorList)_
 
 Answer a `Graph` of _aRatioTuning_.
+
+In the ternary case,
+_primesList_ and _unitVectorList_,
+which should be of equal size,
+specify the unit lattice.
 
 The vertices of the graph are labelled with their coordinates,
 allowing the graph to be drawn using `lineDrawing`.
@@ -12,7 +18,10 @@ A 7-note 7-limit tuning:
 ~~~
 [1/1 8/7 6/5 21/16 3/2 8/5 7/4]
 .asRatioTuning
-.latticeGraph
+.latticeGraph(
+	[3 5 7],
+	[1 0; 0 1; 0.2 0.15]
+)
 .lineDrawing
 ~~~
 
@@ -29,12 +38,52 @@ A 22-note 11-limit tuning:
 	15/8 64/33
 ]
 .asRatioTuning
-.latticeGraph
+.latticeGraph(
+	[3 5 7 11],
+	[1 0; 0 1; 0.2 0.15; -0.15 0.2]
+)
 .lineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-B.svg)
 
+The `divisors` set of sixty,
+drawn on a lattice including the octave,
+where the _y_ axis indicates pitch in logarithmic space:
+
+~~~
+[1 2 3 4 5 6 10 12 15 20 30 60]
+.asRatioTuning
+.latticeGraph(
+	[2 3 5],
+	[-0.69 0.69; 0.00 1.10; 1.61 1.61]
+)
+.lineDrawing
+~~~
+
+![](sw/spl/Help/Image/latticeGraph-C.svg)
+
+In the unary case the primes list is either _3 5 7 11 13_ or derived from the tuning,
+and the unit vector is that of Erv Wilson.
+
+A 7-note 19-limit tuning,
+note that the derived primes list is _3 13 19_:
+
+~~~
+[128 144 156 171 192 208 228]
+.asRatioTuning
+.latticeGraph
+.lineDrawing
+~~~
+
+![](sw/spl/Help/Image/latticeGraph-D.svg)
+
 * * *
 
 See also: asRatioTuning, Graph, lineDrawing
+
+References:
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Harmonic_lattice_diagram)
+
+Categories: Tuning

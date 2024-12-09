@@ -110,3 +110,27 @@
 	}
 
 }
+
++List {
+
+	combinationProductSet { :self :anInteger |
+		self.eulerFokkerGenus { :each |
+			each.size = anInteger
+		}
+	}
+
+	eulerFokkerGenus { :self :aBlock:/1 |
+		let combinations = self.subsets(aBlock:/1);
+		let products = combinations.collect(product:/1);
+		let normalized = Fraction(products, products.min);
+		let reduced = normalized.octaveReduced;
+		reduced.nub.sort
+	}
+
+	eulerFokkerGenus { :self |
+		self.eulerFokkerGenus { :each |
+			true
+		}
+	}
+
+}

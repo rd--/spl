@@ -23,7 +23,7 @@ If _primes_ does not contain all of the factors for _aFraction_, answer '*':
 >>> 17/13.latticeVectorString([3 5 7 11 13])
 '*'
 
->>> 17/13.latticePrimes
+>>> 17/13.latticePrimes(true)
 [13 17]
 
 >>> 17/13.latticeVectorString([13 17])

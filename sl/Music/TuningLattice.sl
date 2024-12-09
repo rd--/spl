@@ -2,17 +2,22 @@
 
 +Fraction {
 
-	latticePrimes { :self |
+	latticePrimes { :self :includeOctave |
 		let answer = Set();
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
-		answer.without(2).asList.sort
+		includeOctave.ifFalse {
+			answer.without(2)
+		};
+		answer.asList.sort
 	}
 
 	latticeVector { :self :primes |
-		primes.includesAllOf(self.latticePrimes).if {
+		primes.includesAllOf(
+			self.latticePrimes(primes.includes(2))
+		).if {
 			let pf1 = self.numerator.primeFactors;
-			let pf2 = self.denominator.primeFactors.collect(negated:/1);
+			let pf2 = self.denominator.primeFactors.negated;
 			let pf3 = (pf1 ++ pf2).asBag;
 			primes.collect { :each |
 				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
@@ -23,7 +28,9 @@
 	}
 
 	latticeVectorString { :self :primes |
-		primes.includesAllOf(self.latticePrimes).if {
+		primes.includesAllOf(
+			self.latticePrimes(primes.includes(2))
+		).if {
 			self.latticeVector(primes).collect { :each |
 				each.asString.padLeft(2, ' ')
 			}.join(' ')
@@ -37,9 +44,8 @@
 +List {
 
 	latticeCoordinates { :self :unitVector |
-		self.withCollect(
-			unitVector.first(self.size)
-		) { :count :unit |
+		let v = unitVector.first(self.size);
+		self.withCollect(v) { :count :unit |
 			count * unit
 		}.sum
 	}
@@ -48,16 +54,18 @@
 		(self - aList).abs.sum
 	}
 
+}
+
++SmallFloat {
+
 	wilsonLatticeCoordinates { :self |
-		self.latticeCoordinates(
-			[
-				20 0;
-				0 20;
-				4 3;
-				-3 4;
-				-1 2
-			] / 20
-		)
+		[
+			20 0;
+			0 20;
+			4 3;
+			-3 4;
+			-1 2
+		] / 20 * self
 	}
 
 }
@@ -76,33 +84,40 @@
 		answer
 	}
 
-	latticeGraph { :self :primes |
+	latticeGraph { :self :primes :unitVector |
 		let primesList = self.latticeVertices(primes);
 		let edgeList = self.latticeEdges(primesList);
-		let coordinateList = primesList.collect(wilsonLatticeCoordinates:/1);
-		Graph([1 .. primesList.size], edgeList).vertexLabels(coordinateList)
+		let coordinateList = primesList.collect { :each |
+			each.latticeCoordinates(unitVector)
+		};
+		Graph(
+			[1 .. primesList.size],
+			edgeList
+		).vertexLabels(coordinateList)
 	}
 
 	latticeGraph { :self |
-		self.latticeGraph(self.latticePrimesVector(5))
+		self.latticeGraph(
+			self.latticePrimesVector([3 5 7 11 13]),
+			1.wilsonLatticeCoordinates
+		)
 	}
 
-	latticePrimes { :self |
+	latticePrimes { :self :includeOctave |
 		let answer = Set();
 		self.asRatios.do { :each |
-			answer.includeAll(each.latticePrimes)
+			answer.includeAll(each.latticePrimes(includeOctave))
 		};
 		answer.asList.sort
 	}
 
-	latticePrimesVector { :self :count |
-		let upperLimit = (count + 1).nthPrime;
+	latticePrimesVector { :self :primes |
+		let upperLimit = primes.last;
 		(self.limit <= upperLimit).if {
-			let vectorLimit = self.limit.min(upperLimit);
-			vectorLimit.primesUpTo.allButFirst
+			primes
 		} {
-			let tuningPrimes = self.latticePrimes;
-			(tuningPrimes.size <= count).if {
+			let tuningPrimes = self.latticePrimes(false);
+			(tuningPrimes.size <= primes.size).if {
 				tuningPrimes
 			} {
 				nil

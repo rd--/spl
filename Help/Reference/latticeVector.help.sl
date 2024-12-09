@@ -6,6 +6,12 @@ Answer a `List` of the tuning lattice vector of _aFraction_ for each entry in _p
 Entries indicate the multiplicity of the prime,
 in either the numerator (positive),
 or denominator (negative).
+
+```
+>>> 9/7.latticeVector([2 3 5 7])
+[0 2 0 -1]
+```
+
 Ordinarily the two (octave) column is elided,
 and the first column is three (perfect fifth).
 
@@ -25,7 +31,7 @@ If _primes_ does not contain all of the factors for _aFraction_ signal an `error
 >>> }.ifError { true }
 true
 
->>> 17/13.latticePrimes
+>>> 17/13.latticePrimes(true)
 [13 17]
 
 >>> 17/13.latticeVector([13 17])

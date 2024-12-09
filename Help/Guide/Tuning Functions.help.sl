@@ -61,16 +61,16 @@ _Interval complexity measures_:
 
 _Lattice Functions_:
 
-- `latticeCoordinates`:
-- `latticeDrawing`: lattice drawing
-- `latticeEdges`: lattice edges
-- `latticeGraph`: lattice graph
-- `latticePrimes`: tuning lattice primes
-- `latticeVector`: tuning lattice vector
-- `latticeVectorString`:
-- `latticeVertices`: tuning lattice vertices
-- `manhattanDistance`: lattice distance
-- `wilsonLatticeCoordinates`:
+- `latticeCoordinates`: coordinates
+- `latticeDrawing`: drawing
+- `latticeEdges`: edges
+- `latticeGraph`: graph
+- `latticePrimes`: primes
+- `latticeVector`: vector
+- `latticeVectorString`: vector string
+- `latticeVertices`: vertices
+- `manhattanDistance`: distance metric
+- `wilsonLatticeCoordinates`: unit vector
 
 _Prime Numbers_:
 
@@ -78,6 +78,11 @@ _Prime Numbers_:
 - `primeExponents`: primes exponents
 - `primeFactorization`: prime factors
 - `primeFactors`: prime factors
+
+_Scales_:
+
+- `combinationProductSet`
+- `eulerFokkerGenus`: Euler-Fokker genus
 
 _Testing_:
 
