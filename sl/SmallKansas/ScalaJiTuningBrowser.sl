@@ -2,7 +2,7 @@
 
 	drawing { :self :scale :derivePoint:/1 |
 		let lineWidth = 1;
-		let points = self.vertexLabels.collect(derivePoint:/1);
+		let points = self.vertexLabels.collect(derivePoint:/1) * 80;
 		let bbox = points.computeBoundingBox.scaleBy(scale);
 		let dots = points.collect { :each |
 			let [x, y] = each;
@@ -54,18 +54,7 @@
 
 	htmlView { :self |
 		let ratios = self.asRatios;
-		let vectorLimit = self.limit.min(13);
-		let limitPrimes = vectorLimit.primesUpTo.allButFirst;
-		let tuningPrimes = self.latticePrimes;
-		let primesVector = (self.limit <= 13).if {
-			limitPrimes
-		} {
-			(tuningPrimes.size <= 5).if {
-				tuningPrimes
-			} {
-				nil
-			}
-		};
+		let primesVector = self.latticePrimesVector(5);
 		let div = 'div'.createElement;
 		div.appendChildren([
 			[
@@ -73,7 +62,7 @@
 				['Limit', self.limit.asString],
 				['Description', self.description],
 				['Octave', self.octave.asString],
-				['Primes', tuningPrimes.asString]
+				['Primes', self.latticePrimes.asString]
 			].asHtmlTable,
 			primesVector.ifNil {
 				'No drawing'.TextParagraph
@@ -99,13 +88,6 @@
 
 	latticeDrawing { :self :primes |
 		self.latticeGraph(primes).drawing(1, identity:/1)
-	}
-
-	latticeGraph { :self :primes |
-		let primesList = self.latticeVertices(primes);
-		let edgeList = self.latticeEdges(primesList);
-		let coordinateList = primesList.collect(wilsonLatticeCoordinates:/1) * 4;
-		Graph([1 .. primesList.size], edgeList).vertexLabels(coordinateList)
 	}
 
 }

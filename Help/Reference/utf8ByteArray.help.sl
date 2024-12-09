@@ -21,17 +21,27 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 
 ```
 >>> let integer = 8750;
->>> let string = integer.asCharacter.characterString;
+>>> let string = integer.asCharacter;
+>>> let character = string.characterString;
 >>> let byteArray = string.utf8ByteArray;
->>> (integer, byteArray.asList, byteArray.utf8String)
+>>> (
+>>> 	integer,
+>>> 	byteArray.asList,
+>>> 	byteArray.utf8String
+>>> )
 (8750, [226 136 174], '∮')
 ```
 
 Plot Utf-8 code points of a String:
 
 ~~~
-'utf8ByteArray'.utf8ByteArray.asList.linePlot
+'utf8ByteArray'
+.utf8ByteArray
+.asList
+.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/utf8ByteArray-A.svg)
 
 * * *
 

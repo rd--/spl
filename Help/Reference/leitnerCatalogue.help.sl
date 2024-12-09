@@ -37,7 +37,8 @@ system.leitnerCatalogue.then { :table |
 		'Isometric'
 	).asBlock;
 	cls.graph.lineDrawing { :each |
-		p(each[2])
+		let [name, coordinates] = each;
+		p(coordinates)
 	}
 }
 ~~~

@@ -61,9 +61,16 @@ _Interval complexity measures_:
 
 _Lattice Functions_:
 
+- `latticeCoordinates`:
+- `latticeDrawing`: lattice drawing
+- `latticeEdges`: lattice edges
+- `latticeGraph`: lattice graph
 - `latticePrimes`: tuning lattice primes
-- `latticeVertices`: tuning lattice vertices
 - `latticeVector`: tuning lattice vector
+- `latticeVectorString`:
+- `latticeVertices`: tuning lattice vertices
+- `manhattanDistance`: lattice distance
+- `wilsonLatticeCoordinates`:
 
 _Prime Numbers_:
 
@@ -75,7 +82,7 @@ _Prime Numbers_:
 _Testing_:
 
 - `isConstantStructure`: constant structure?
-- `isPythagorean`: isPythagorean?
+- `isPythagorean`: Pythagorean?
 - `isRational`: rational?
 - `isSquareSuperparticular`: square superparticular?
 - `isSuperparticular`: superparticular?

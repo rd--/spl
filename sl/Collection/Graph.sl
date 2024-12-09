@@ -45,7 +45,7 @@
 		let attributeText = [
 			'graph [size="1.214,0.75",bgcolor="transparent"];',
 			'node [shape="point"];',
-			'edge [penwidth="0.75", arrowsize="0.5"];'
+			'edge [penwidth="0.75",arrowsize="0.5"];'
 		].unlines;
 		let edgeText = self.edgeList.collect { :each |
 			each.forDot(isMixed)
@@ -375,6 +375,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			PointCloud(vertices),
 			edges
 		].LineDrawing
+	}
+
+	lineDrawing { :self |
+		self.lineDrawing(identity:/1)
 	}
 
 	vertexLabels { :self |

@@ -14,8 +14,18 @@ the _neato_ algorithm draws undirected graphs.
 Print the _plain_ form of the graph layout:
 
 ~~~
-let dotGraph = 'digraph { a -> b; a -> c; b -> d; c -> d }';
-dotGraph.dotLayout('plain', 'dot').then { :answer |
+let dotGraph = [
+	'digraph {'
+	' a -> b;'
+	' a -> c;'
+	' b -> d;'
+	' c -> d'
+	'}'
+].unlines;
+dotGraph.dotLayout(
+	'plain',
+	'dot'
+).then { :answer |
 	answer.postLine
 }
 ~~~
@@ -32,7 +42,10 @@ let dotGraph = [
 	' a -> b; a -> c; b -> d; c -> d'
 	'}'
 ].unlines;
-dotGraph.dotLayout('svg', 'dot').then { :answer |
+dotGraph.dotLayout(
+	'svg',
+	'dot'
+).then { :answer |
 	answer.Svg
 }
 ~~~
@@ -42,8 +55,18 @@ dotGraph.dotLayout('svg', 'dot').then { :answer |
 In _Small Kansas_ the following will display an _Svg_ drawing of the graph:
 
 ~~~
-let dotGraph = 'digraph { a -> b; a -> c; b -> d; c -> d }';
-dotGraph.dotLayout('svg', 'dot').then { :answer |
+let dotGraph = [
+	'digraph {'
+	' a -> b;'
+	' a -> c;'
+	' b -> d;'
+	' c -> d'
+	'}'
+].unlines;
+dotGraph.dotLayout(
+	'svg',
+	'dot'
+).then { :answer |
 	system.smallKansas.SvgViewer(
 		'Dot Drawing',
 		answer.parseSvg,

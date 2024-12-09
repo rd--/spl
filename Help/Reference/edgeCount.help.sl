@@ -17,7 +17,7 @@ Answer the number of edges in _aGraph_.
 
 * * *
 
-See also: Graph
+See also: edgeList, Graph, vertexCount
 
 References:
 _Mathematica_

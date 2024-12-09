@@ -14,7 +14,9 @@ At an undirected graph:
 At a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.vertexList
+>>> [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .vertexList
 [1 2 3]
 ```
 
@@ -27,7 +29,7 @@ At a multigraph:
 
 * * *
 
-See also: edgeList, Graph
+See also: edgeList, Graph, vertexCount
 
 References:
 _Mathematica_

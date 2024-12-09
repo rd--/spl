@@ -13,14 +13,18 @@ which must be an Ascii string.
 The inverse is `asciiString`:
 
 ```
->>> [97 115 99 105 105].asByteArray.asciiString
+>>> [97 115 99 105 105]
+>>> .asByteArray
+>>> .asciiString
 'ascii'
 ```
 
 It is an error if the string contains non-Ascii characters:
 
 ```
->>> { 'Mačiūnas'.asciiByteArray }.ifError { true }
+>>> {
+>>> 	'Mačiūnas'.asciiByteArray
+>>> }.ifError { true }
 true
 ```
 

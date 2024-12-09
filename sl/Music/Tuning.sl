@@ -75,3 +75,38 @@
 	}
 
 }
+
++Fraction {
+
+	integerLimit { :self |
+		let n = self.numerator;
+		let d = self.denominator;
+		n.max(d)
+	}
+
+	oddLimit { :self |
+		let n = self.numerator;
+		let d = self.denominator;
+		{ n.isEven }.whileTrue {
+			n := n / 2
+		};
+		{ d.isEven }.whileTrue {
+			d := d / 2
+		};
+		n.max(d)
+	}
+
+}
+
++SmallFloat {
+
+	oddLimitSet { :self |
+		let n = (1, 3 .. self);
+		let l = [];
+		let r = [n, n].tuplesDo { :each |
+			l.add(Fraction(each[1], each[2]))
+		};
+		l.nub.octaveReduced.sort
+	}
+
+}

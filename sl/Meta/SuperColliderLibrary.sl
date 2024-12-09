@@ -2,12 +2,12 @@
 	/* Music */
 	'Meter'
 	'Tuning'
-	'TuningLattice'
 	'CentsTuning'
 	'RatioTuning'
 	'Pitch'
 	'Scale'
 	'Xenharmonic'
+	'TuningLattice' /* RatioTuning */
 
 	/* Sound */
 	'Wavetable'

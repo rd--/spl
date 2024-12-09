@@ -104,6 +104,13 @@ Moiré pattern:
 
 ![](sw/spl/Help/Image/Line-D.svg)
 
+A horizontal line along the _x_ axis,
+the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
+
+~~~
+[[0 0; 1 0].Line].LineDrawing
+~~~
+
 ![](sw/spl/Help/Image/Line-E.svg)
 
 The ternary form of `Line` is a unit generator.

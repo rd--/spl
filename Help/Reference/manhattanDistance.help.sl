@@ -8,7 +8,9 @@ Answers the Manhattan or _city block_ distance between two vectors _u_ and _v_.
 >>> [1 2 3].manhattanDistance([2 4 6])
 6
 
->>> [1 5 2 3 10].manhattanDistance([4 15 20 5 5])
+>>> [1 5 2 3 10].manhattanDistance(
+>>> 	[4 15 20 5 5]
+>>> )
 38
 ```
 

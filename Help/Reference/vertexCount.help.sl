@@ -14,20 +14,24 @@ At an undirected graph:
 At a directed graph:
 
 ```
->>> [1 -> 2, 2 -> 3, 3 -> 1].asGraph.vertexCount
+>>> [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .vertexCount
 3
 ```
 
 At a multigraph:
 
 ```
->>> [1 -> 2, 1 -> 2].asGraph.vertexCount
+>>> [1 -> 2, 1 -> 2]
+>>> .asGraph
+>>> .vertexCount
 2
 ```
 
 * * *
 
-See also: Graph
+See also: edgeCount, Graph, vertexList
 
 References:
 _Mathematica_

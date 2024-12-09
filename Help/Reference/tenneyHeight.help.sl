@@ -31,18 +31,28 @@ The heights of three increasingly _dissonant_ intervals:
 Threads over lists:
 
 ```
->>> [1/1 2/1 3/2 4/3 5/3 5/4 7/4 6/5 9/7 13/11].tenneyHeight
-[0 1 2.585 3.585 3.907 4.322 4.807 4.907 5.977 7.16]
+>>> [
+>>> 	1/1 2/1 3/2 4/3 5/3
+>>> 	5/4 7/4 6/5 9/7 13/11
+>>> ].tenneyHeight
+[
+	0 1 2.585 3.585 3.907
+	4.322 4.807 4.907 5.977 7.16
+]
 ```
 
 Plot for a number of simple just ratios within the octave:
 
 ~~~
 [
-	1/1 9/8 7/6 6/5 5/4 21/16 7/5 4/3 11/8 3/2
-	10/7 13/8 8/5 5/3 27/16 7/4 9/5 15/8
+	1/1 9/8 7/6 6/5 5/4
+	21/16 7/5 4/3 11/8 3/2
+	10/7 13/8 8/5 5/3 27/16
+	7/4 9/5 15/8
 ].tenneyHeight.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/tenneyHeight-A.svg)
 
 * * *
 

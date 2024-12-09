@@ -5,16 +5,18 @@
 Answer a `String` of _aByteArray_ which must be an Ascii encoding.
 
 ```
->>> let bytes = [97 115 99 105 105].asByteArray;
->>> bytes.asciiString
+>>> [97 115 99 105 105]
+>>> .asByteArray
+>>> .asciiString
 'ascii'
 ```
 
 The inverse is `asciiByteArray`:
 
 ```
->>> let bytes = 'ascii'.asciiByteArray;
->>> bytes.asciiString
+>>> 'ascii'
+>>> .asciiByteArray
+>>> .asciiString
 'ascii'
 ```
 

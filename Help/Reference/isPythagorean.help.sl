@@ -28,4 +28,8 @@ true
 
 See also: limit, primeLimit, RatioTuning
 
+References:
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Pythagorean_tuning)
+
 Categories: Testing, Tuning

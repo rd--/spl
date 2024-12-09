@@ -9,7 +9,9 @@ Indigestibilities are combined to generate harmonicity functions.
 The indigestibility of the first seven prime numbers:
 
 ```
->>> [1 2 3 5 7 11 13].collect(barlowIndigestibility:/1)
+>>> [1 2 3 5 7 11 13].collect(
+>>> 	barlowIndigestibility:/1
+>>> )
 [0 1 8/3 32/5 72/7 200/11 288/13]
 ```
 
@@ -31,8 +33,10 @@ Plot the indigestibility of the first one hundred integers:
 1:100.functionPlot(barlowIndigestibility:/1)
 ~~~
 
+![](sw/spl/Help/Image/barlowIndigestibility-A.svg)
+
 * * *
 
-See also: barlowHarmonicity
+See also: barlowDisharmonicity, barlowHarmonicity, barlowIndispensability
 
 Further Reading: Barlow 1987

@@ -3,6 +3,7 @@
 - _latticeEdges(aTuning, vertices)_
 
 Answer a two column _matrix_ telling the edges that _aTuning_ describes between its _vertices_.
+Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 
 ```
 >>> let r = [
@@ -24,6 +25,6 @@ Answer a two column _matrix_ telling the edges that _aTuning_ describes between 
 
 * * *
 
-See also: latticePrimes, latticeVertices
+See also: latticePrimes, latticeVertices, manhattanDistance
 
 Categories: Tuning

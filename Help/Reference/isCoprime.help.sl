@@ -41,7 +41,9 @@ true
 Numbers up to 100 that that are coprime to 12:
 
 ```
->>> 1:100.select { :each | each.isCoprime(12) }
+>>> 1:100.select { :each |
+>>> 	each.isCoprime(12)
+>>> }
 [
 	 1  5  7 11 13 17 19 23 25 29
 	31 35 37 41 43 47 49 53 55 59
@@ -53,14 +55,20 @@ Numbers up to 100 that that are coprime to 12:
 Find the fraction of pairs of the first 100 numbers that are relatively prime:
 
 ```
->>> 1:100.tuples(2).collect(isCoprime:/1).boole.sum / (10 ^ 4)
+>>> 1:100
+>>> .tuples(2)
+>>> .collect(isCoprime:/1)
+>>> .boole
+>>> .sum / (10 ^ 4)
 0.6087
 ```
 
 Prime numbers are relatively prime to each other:
 
 ```
->>> [10 15 20 25].collect(nthPrime:/1).isCoprime
+>>> [10 15 20 25]
+>>> .collect(nthPrime:/1)
+>>> .isCoprime
 true
 
 >>> 99.primesList.isCoprime
@@ -73,13 +81,17 @@ _eulerPhi_ gives the count of the positive integers up to _n_ that are relativel
 >>> 20.eulerPhi
 8
 
->>> 1:20.select { :each | each.isCoprime(20) }
-[1, 3, 7, 9, 11, 13, 17, 19]
+>>> 1:20.select { :each |
+>>> 	each.isCoprime(20)
+>>> }
+[1 3 7 9 11 13 17 19]
 
 >>> 99.eulerPhi
 60
 
->>> 1:99.select { :each | each.isCoprime(99) }.size
+>>> 1:99.select { :each |
+>>> 	each.isCoprime(99)
+>>> }.size
 60
 ```
 

@@ -9,7 +9,9 @@ There are _aSequence.size.take(anInteger)_ combinations.
 
 ```
 >>> let l = [];
->>> 0:4.combinationsAtATimeDo(3) { :each | l.add(each.copy) };
+>>> 0:4.combinationsAtATimeDo(3) { :each |
+>>> 	l.add(each.copy)
+>>> };
 >>> l
 [
 	0 1 2; 0 1 3; 0 1 4; 0 2 3; 0 2 4; 0 3 4;
@@ -29,7 +31,10 @@ All Pythagorean triples with elements between 1 and _n_:
 >>> 	}
 >>> };
 >>> answer
-[3 4 5; 5 12 13; 6 8 10; 8 15 17; 9 12 15; 12 16 20]
+[
+	3 4 5; 5 12 13; 6 8 10;
+	8 15 17; 9 12 15; 12 16 20
+]
 ```
 
 * * *

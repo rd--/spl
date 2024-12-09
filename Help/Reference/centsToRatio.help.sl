@@ -50,9 +50,21 @@ Threads over lists:
 ]
 ```
 
+The inverse is `ratioToCents`:
+
+```
+>>> [0.000 203.910 498.045 701.955 996.090]
+>>> .centsToRatio
+>>> .asFraction
+[1/1 9/8 4/3 3/2 16/9]
+
+>>> [1/1 9/8 4/3 3/2 16/9].ratioToCents
+[0.000 203.910 498.045 701.955 996.090]
+```
+
 * * *
 
-See also: asFraction, centsToRatio, Tuning
+See also: asFraction, ratioToCents, Tuning
 
 References:
 _W_

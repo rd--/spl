@@ -1,4 +1,4 @@
-/* Requires: Bag Fraction */
+/* Requires: Bag Fraction RatioTuning */
 
 +Fraction {
 
@@ -56,24 +56,35 @@
 				4 3;
 				-3 4;
 				-1 2
-			]
+			] / 20
 		)
 	}
 
 }
 
-+@Tuning {
++RatioTuning {
 
 	latticeEdges { :self :vertices |
 		let indices = self.size.iota;
 		let answer = [];
 		indices.combinationsAtATimeDo(2) { :each |
 			let [i, j] = each;
-			(vertices[i].latticeDistance(vertices[j]) = 1).ifTrue {
+			(vertices[i].manhattanDistance(vertices[j]) = 1).ifTrue {
 				answer.add(each.copy)
 			}
 		};
 		answer
+	}
+
+	latticeGraph { :self :primes |
+		let primesList = self.latticeVertices(primes);
+		let edgeList = self.latticeEdges(primesList);
+		let coordinateList = primesList.collect(wilsonLatticeCoordinates:/1);
+		Graph([1 .. primesList.size], edgeList).vertexLabels(coordinateList)
+	}
+
+	latticeGraph { :self |
+		self.latticeGraph(self.latticePrimesVector(5))
 	}
 
 	latticePrimes { :self |
@@ -82,6 +93,21 @@
 			answer.includeAll(each.latticePrimes)
 		};
 		answer.asList.sort
+	}
+
+	latticePrimesVector { :self :count |
+		let upperLimit = (count + 1).nthPrime;
+		(self.limit <= upperLimit).if {
+			let vectorLimit = self.limit.min(upperLimit);
+			vectorLimit.primesUpTo.allButFirst
+		} {
+			let tuningPrimes = self.latticePrimes;
+			(tuningPrimes.size <= count).if {
+				tuningPrimes
+			} {
+				nil
+			}
+		}
 	}
 
 	latticeVertices { :self :primes |

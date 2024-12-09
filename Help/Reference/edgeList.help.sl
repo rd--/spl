@@ -33,7 +33,7 @@ At directed graphs:
 
 * * *
 
-See also: Graph, vertexList
+See also: edgeCount, Graph, vertexList
 
 References:
 _Mathematica_
