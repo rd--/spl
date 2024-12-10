@@ -27,7 +27,6 @@ false
 A directed edge matches an undirected edge,
 using the same rules as for matching an undirected edge with a directed edge:
 
-
 ```
 >>> (1 --> 2).matchesEdge(1 --- 2)
 true

@@ -9,7 +9,8 @@ Do not sample any of _aCollection_ more than once.
 Find a sample in which no elements ever occur more than once:
 
 ```
->>> let l = Sfc32(36814).randomSample(1:30, 20);
+>>> let r = Sfc32(36814);
+>>> let l = r.randomSample(1:30, 20);
 >>> (
 >>> 	l.mean,
 >>> 	l.standardDeviation,
@@ -30,8 +31,14 @@ Find a sample in which no elements ever occur more than once:
 Generate a random permutation:
 
 ```
->>> let l = Sfc32(49135).randomSample(1:20, 20);
->>> (l.mean, l.standardDeviation, l.nub.size, l)
+>>> let r = Sfc32(49135);
+>>> let l = r.randomSample(1:20, 20);
+>>> (
+>>> 	l.mean,
+>>> 	l.standardDeviation,
+>>> 	l.nub.size,
+>>> 	l
+>>> )
 (
 	10.5,
 	5.91608,
@@ -46,7 +53,8 @@ Generate a random permutation:
 Generate a random sample of six elements, or as many as there are if fewer:
 
 ```
->>> let l = Sfc32(71504).randomSample(1:5, 6);
+>>> let r = Sfc32(71504);
+>>> let l = r.randomSample(1:5, 6);
 >>> (l.size, l)
 (5, [5 2 1 4 3])
 ```
@@ -54,7 +62,9 @@ Generate a random sample of six elements, or as many as there are if fewer:
 Guarantee that a set of random integers over a large range has no repetitions:
 
 ```
->>> Sfc32(80158).randomSample(1:99999999, 4).nub
+>>> Sfc32(80158)
+>>> .randomSample(1:99999999, 4)
+>>> .nub
 [69186077 38465673 9419531 33425181]
 ```
 

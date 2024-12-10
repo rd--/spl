@@ -10,8 +10,12 @@ Plot `pdf` for a standard normal distribution:
 
 ~~~
 let d = NormalDistribution(0, 1);
-(-5 -- 5).functionPlot { :x | d.pdf(x) }
+(-5 -- 5).functionPlot { :x |
+	d.pdf(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/pdf-A.svg)
 
 * * *
 

@@ -31,6 +31,8 @@ Plot 99 random floating point numbers between `zero` and `one`:
 Sfc32(98765).next(99).linePlot
 ~~~
 
+![](sw/spl/Help/Image/Sfc32-A.svg)
+
 * * *
 
 See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream

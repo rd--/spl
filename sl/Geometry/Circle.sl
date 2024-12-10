@@ -52,9 +52,9 @@ Circle : [Object] { | center radius |
 		self.radius
 	}
 
-	randomPoint { :self :shape |
+	randomPoint { :self :rng :shape |
 		{
-			let theta = system.randomReal(0, 2.pi, []);
+			let theta = rng.randomReal(0, 2.pi, []);
 			self.center + [self.radius, theta].fromPolarCoordinates
 		} ! shape
 	}

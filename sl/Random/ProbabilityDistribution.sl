@@ -123,10 +123,10 @@ CauchyDistribution : [Object] { | x0 gamma |
 		self.x0 + (self.gamma * (p - 0.5).pi.tan)
 	}
 
-	randomVariate { :self :shape |
+	randomVariate { :self :rng :shape |
 		let [x0, gamma] = [self.x0, self.gamma];
 		{
-			system.nextRandomFloatCauchyDistribution(x0, gamma)
+			rng.nextRandomFloatCauchyDistribution(x0, gamma)
 		} ! shape
 	}
 
@@ -150,10 +150,10 @@ NormalDistribution : [Object] { | mu sigma |
 		normalDistributionPdf(self.mu, self.sigma, x)
 	}
 
-	randomVariate { :self :shape |
+	randomVariate { :self :rng :shape |
 		let [mu, sigma] = [self.mu, self.sigma];
 		{
-			system.nextRandomFloatGaussianDistribution(mu, sigma)
+			rng.nextRandomFloatGaussianDistribution(mu, sigma)
 		} ! shape
 	}
 
@@ -206,8 +206,8 @@ UniformDistribution : [Object] { | min max |
 		}
 	}
 
-	randomVariate { :self :shape |
-		system.randomReal(self.min, self.max, shape)
+	randomVariate { :self :rng :shape |
+		rng.randomReal(self.min, self.max, shape)
 	}
 
 	skewness { :self |

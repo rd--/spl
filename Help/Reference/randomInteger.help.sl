@@ -28,7 +28,8 @@ Generate a `List` of 13 random integers:
 A 3×4 matrix of random integers:
 
 ```
->>> Sfc32(49825).randomInteger(1, 9, [3 4])
+>>> Sfc32(49825)
+>>> .randomInteger(1, 9, [3 4])
 [
 	5 8 5 7;
 	8 3 7 4;

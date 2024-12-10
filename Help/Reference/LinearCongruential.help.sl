@@ -8,7 +8,11 @@ Answer a pseudo random number generator seeded with _anInteger_.
 
 ```
 >>> let rng = LinearCongruential(12345);
->>> (rng.isLinearCongruential, rng.isRandomNumberGenerator, rng.isStream)
+>>> (
+>>> 	rng.isLinearCongruential,
+>>> 	rng.isRandomNumberGenerator,
+>>> 	rng.isStream
+>>> )
 (true, true, true)
 ```
 
@@ -22,12 +26,20 @@ The first three random numbers given the seed _12345_:
 Plot random floating point numbers between `zero` and `one`:
 
 ~~~
-LinearCongruential(98765).next(99).linePlot
+LinearCongruential(98765)
+.next(99)
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/LinearCongruential-A.svg)
 
 * * *
 
 See also: MersenneTwister, RandomNumberGenerator, Sfc32, SplitMix, Stream
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Linear_congruential_generator)
 
 Further Reading: Thomson 1958
 

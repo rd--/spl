@@ -37,7 +37,11 @@ function isRecord(anObject: SplObject): boolean {
 
 function objectNameByConstructor(anObject: SplObject): TypeName {
 	const name = anObject.constructor.name;
-	return name == 'Range' ? 'DocumentRange' : (name == 'bound Storage' ? 'Storage' : name); /* deno 2.3.1, delete when fixed */
+	return name == 'Range'
+		? 'DocumentRange'
+		: (name == 'bound Storage'
+			? 'Storage'
+			: name); /* deno 2.3.1, delete when fixed */
 }
 
 function splObjectTypeOf(anObject: SplObject): TypeName {

@@ -34,7 +34,6 @@ It is also the amount by which a stack of four Pythagorean commas exceeds a Pyth
 
 It is also the amount by which a stack of eight apotomes exceeds a 27/16 major sixth:
 
-
 ```
 >>> 8n.pythagoreanChroma / 27/16
 1.mercatorsComma

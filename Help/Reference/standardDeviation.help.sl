@@ -16,15 +16,25 @@ The standard deviation is the square root of the `variance`.
 >>> [7 8 9].standardDeviation
 1
 
->>> [2 4 4 4 5 5 7 9].standardDeviation
+>>> [2 4 4 4 5 5 7 9]
+>>> .standardDeviation
 (32 / 7).sqrt
 ```
 
 Standard deviation at a matrix is column-wise:
 
 ```
->>> [1 0 4; 0 2 0; 0 0 3].standardDeviation
-[1 / 3.sqrt, 2 / 3.sqrt, (13 / 3).sqrt]
+>>> [
+>>> 	1 0 4;
+>>> 	0 2 0;
+>>> 	0 0 3
+>>> ]
+>>> .standardDeviation
+[
+	1 / 3.sqrt,
+	2 / 3.sqrt,
+	(13 / 3).sqrt
+]
 ```
 
 * * *

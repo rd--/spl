@@ -10,10 +10,15 @@ Generate a random integer between _min_ and _max_.
 At `LargeInteger`:
 
 ```
->>> Sfc32(36814).randomLargeInteger(2n ^ 99n)
+>>> Sfc32(36814)
+>>> .randomLargeInteger(2n ^ 99n)
 115777880821482561199158557812n
 
->>> Sfc32(37914).randomLargeInteger(2n ^ 98, 2n ^ 99)
+>>> Sfc32(37914)
+>>> .randomLargeInteger(
+>>> 	2n ^ 98,
+>>> 	2n ^ 99
+>>> )
 629038020770705179907744355227n
 ```
 

@@ -8,7 +8,8 @@ This process is known as _Bernoulli sampling_.
 The binary form uses the system wide random number generator.
 
 ```
->>> Sfc32(79431).randomSubsequence(1:23, 0.3)
+>>> Sfc32(79431)
+>>> .randomSubsequence(1:23, 0.3)
 [6 7 10 14 16 17]
 ```
 

@@ -5,7 +5,6 @@
 Answer a `RatioTuning` for either a `List` of interval values from a reference pitch,
 or a `Record` having _name_, _description_, _tuning_, _octave_ and _limit_ fields.
 
-
 In the `List` case,
 if the intervals are `Fraction` values they are understood to be ratios.
 The first ratio should be 1/1:

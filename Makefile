@@ -17,8 +17,16 @@ remote-dist:
 tags:
 	etags --regex=@config/spl.tag sl/*/*.sl
 
-indent:
-	spl-indent sl/*/*.sl Help/Reference/*.sl Program/SuperCollider/Graph/*.sl Program/SuperCollider/Ugen/*.sl
+indent-sl:
+	spl-indent sl/*/*.sl
+
+indent-help:
+	spl-indent Help/Reference/*.sl
+
+indent-programs:
+	spl-indent Program/SuperCollider/Graph/*.sl Program/SuperCollider/Ugen/*.sl
+
+indent-ts:
 	(cd ts ; make format-ts)
 
 doctest:

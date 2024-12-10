@@ -10,14 +10,28 @@ Also known as _Normal Distribution_.
 Mean at zero, small deviation:
 
 ~~~
-({ system.nextRandomFloatGaussianDistribution(0, 1 / 9) } ! 99).linePlot
+let r = Sfc32(378914);
+(
+	{
+		r.nextRandomFloatGaussianDistribution(0, 1 / 9)
+	} ! 99
+).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomFloatGaussianDistribution-A.svg)
 
 Plot sorted random list:
 
 ```
-({ system.nextRandomFloatGaussianDistribution(0, 1) } ! 500).sort.linePlot
+let r = Sfc32(789146);
+(
+	{
+		r.nextRandomFloatGaussianDistribution(0, 1)
+	} ! 500
+).sort.linePlot
 ```
+
+![](sw/spl/Help/Image/nextRandomFloatGaussianDistribution-B.svg)
 
 * * *
 

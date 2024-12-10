@@ -11,6 +11,8 @@ let d = NormalDistribution(0, 1);
 (-3 -- 3).functionPlot { :x | d.pdf(x) }
 ~~~
 
+![](sw/spl/Help/Image/NormalDistribution-A.svg)
+
 Plot `cdf` over a subset of the reals:
 
 ~~~
@@ -18,11 +20,17 @@ let d = NormalDistribution(0, 1);
 (-3 -- 3).functionPlot { :x | d.cdf(x) }
 ~~~
 
+![](sw/spl/Help/Image/NormalDistribution-B.svg)
+
 Plot `randomVariate`:
 
 ~~~
-NormalDistribution(0, 1).randomVariate(500).linePlot
+let r = Sfc32(789134);
+let d = NormalDistribution(0, 1);
+d.randomVariate(r, 99).linePlot
 ~~~
+
+![](sw/spl/Help/Image/NormalDistribution-C.svg)
 
 * * *
 

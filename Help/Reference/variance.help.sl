@@ -41,7 +41,10 @@ The second central moment is a scaled `variance`:
 >>> 	132 142 145 136 144 135 141
 >>> ];
 >>> let n = h.size;
->>> (h.variance, h.centralMoment(2) * (n / (n - 1)))
+>>> (
+>>> 	h.variance,
+>>> 	h.centralMoment(2) * (n / (n - 1))
+>>> )
 (34.04, 34.04)
 ```
 

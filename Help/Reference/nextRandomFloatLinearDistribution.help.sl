@@ -10,12 +10,15 @@ Values closer to _x1_ are more likely to occur.
 Biased to -1:
 
 ~~~
+let r = Sfc32(378141);
 (
 	{
-		system.nextRandomFloatLinearDistribution(-1, 1)
+		r.nextRandomFloatLinearDistribution(-1, 1)
 	} ! 99
 ).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomFloatLinearDistribution-A.svg)
 
 * * *
 

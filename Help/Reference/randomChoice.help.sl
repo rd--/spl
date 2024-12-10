@@ -1,20 +1,25 @@
 # randomChoice
 
-- _randomChoice(r, e, n)_
+- _randomChoice(r, e, shape)_
 
-Select _n_ elements at random from _e_ using the random number generator _r_.
+Select _shape_ elements at random from _e_ using the random number generator _r_.
 
 A list of twenty random choices:
 
 ```
->>> Sfc32(10841).randomChoice([1 2 3], 20)
-[2 3 3 2 3 1 3 3 1 2 3 1 1 1 3 1 3 3 2 1]
+>>> Sfc32(10841)
+>>> .randomChoice([1 2 3], 20)
+[
+	2 3 3 2 3 1 3 3 1 2
+	3 1 1 1 3 1 3 3 2 1
+]
 ```
 
 A 4×3 array of random choices:
 
 ```
->>> Sfc32(81349).randomChoice([1 2 3], [4 3])
+>>> Sfc32(81349)
+>>> .randomChoice([1 2 3], [4 3])
 [
 	2 2 3;
 	3 2 1;
@@ -26,14 +31,17 @@ A 4×3 array of random choices:
 Generate a random string:
 
 ```
->>> Sfc32(37914).randomChoice(['A' 'C' 'G' 'T'], 50).join('')
-'TTCGGAGGGCCCCGCAGATCTAAGTATTACCCTGGGTGTGAACTTACACT'
+>>> Sfc32(37914)
+>>> .randomChoice(['A' 'C' 'G' 'T'], 25)
+>>> .join('')
+'TTCGGAGGGCCCCGCAGATCTAAGT'
 ```
 
 Generate a random 9×9 matrix of `zero` and `one` entries:
 
 ```
->>> Sfc32(97415).randomChoice([0 1], [9 9])
+>>> Sfc32(97415)
+>>> .randomChoice([0 1], [9 9])
 [
 	0 0 1 0 0 1 0 0 0;
 	1 1 1 0 0 1 0 0 1;
@@ -49,9 +57,14 @@ Generate a random 9×9 matrix of `zero` and `one` entries:
 
 Plot a random walk with steps of unit length:
 
+~~~spl svg=A
+Sfc32(28974)
+.randomChoice([-1 1], 50)
+.accumulate
+.linePlot
 ~~~
-Sfc32(28974).randomChoice([-1 1], 50).accumulate.linePlot
-~~~
+
+![](sw/spl/Help/Image/randomChoice-A.svg)
 
 * * *
 

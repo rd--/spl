@@ -17,11 +17,22 @@ Effects of _shape_:
 - _shape_ = 1: same as exponential distribution
 
 ~~~
-({ system.nextRandomFloatWeibullDistribution(0, 1, 3 / 4) } ! 99).linePlot
+let rng = Sfc32(391437);
+(
+	{
+		rng.nextRandomFloatWeibullDistribution(
+			0,
+			1,
+			3 / 4
+		)
+	} ! 99
+).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomFloatWeibullDistribution-A.svg)
 
 * * *
 
-See also: nextRandomFloat
+See also: nextRandomFloat, nextRandomFloatEulerianBetaDistribution
 
 Categories: Random

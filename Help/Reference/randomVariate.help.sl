@@ -1,19 +1,23 @@
 # randomVariate
 
-- _randomVariate(d, shape)_
+- _randomVariate(d, r, shape)_
 
-Answer _shape_ pseudorandom variates from the `ProbablityDistribution` _d_.
+Answer _shape_ pseudorandom variates from the `ProbablityDistribution` _d_,
+drawn using the random number generator _r_.
 
 Plot `randomVariate` of `CauchyDistribution`:
 
 ~~~
+let r = Sfc32(478912);
 let d = CauchyDistribution(0, 0.025);
-d.randomVariate(500).clip(-1, 1).linePlot
+d.randomVariate(r, 99).clip(-1, 1).linePlot
 ~~~
+
+![](sw/spl/Help/Image/randomVariate-A.svg)
 
 * * *
 
-See also: ProbabilityDistribution
+See also: CauchyDistribution, NormalDistribution, ProbabilityDistribution, UniformDistribution
 
 References:
 _Mathematica_

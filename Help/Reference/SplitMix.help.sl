@@ -8,7 +8,11 @@ Answer a pseudo random number generator seeded with _anInteger_.
 
 ```
 >>> let rng = SplitMix(12345);
->>> (rng.isSplitMix, rng.isRandomNumberGenerator, rng.isStream)
+>>> (
+>>> 	rng.isSplitMix,
+>>> 	rng.isRandomNumberGenerator,
+>>> 	rng.isStream
+>>> )
 (true, true, true)
 ```
 
@@ -24,6 +28,8 @@ Plot 99 random floating point numbers between `zero` and `one`:
 ~~~
 SplitMix(98765).next(99).linePlot
 ~~~
+
+![](sw/spl/Help/Image/SplitMix-A.svg)
 
 * * *
 

@@ -10,8 +10,12 @@ Plot `cdf` for a standard normal distribution:
 
 ~~~
 let d = NormalDistribution(0, 1);
-(-3 -- 3).functionPlot { :x | d.cdf(x) }
+(-3 -- 3).functionPlot { :x |
+	d.cdf(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/cdf-A.svg)
 
 * * *
 

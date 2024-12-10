@@ -8,8 +8,13 @@ using the random number generator _r_.
 A random permutation in the symmetric group _S10_:
 
 ```
->>> Sfc32(47123).randomPermutation(10)
-[1 7 5 3 6; 2 4 10; 8 9].cycles
+>>> Sfc32(47123)
+>>> .randomPermutation(10)
+[
+	1 7 5 3 6;
+	2 4 10;
+	8 9
+].cycles
 ```
 
 * * *

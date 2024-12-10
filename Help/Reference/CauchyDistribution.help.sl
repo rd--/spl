@@ -10,15 +10,23 @@ Plot `pdf` over a subset of the reals:
 
 ~~~
 let d = CauchyDistribution(0, 2);
-(-7 -- 7).functionPlot { :x | d.pdf(x) }
+(-7 -- 7).functionPlot { :x |
+	d.pdf(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-A.svg)
 
 Plot `cdf` over a subset of the reals:
 
 ~~~
 let d = CauchyDistribution(0, 2);
-(-7 -- 7).functionPlot { :x | d.cdf(x) }
+(-7 -- 7).functionPlot { :x |
+	d.cdf(x)
+}
 ~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-B.svg)
 
 Plot `quantile` over a subset of the reals:
 
@@ -29,12 +37,17 @@ let d = CauchyDistribution(10, 3.5);
 }
 ~~~
 
+![](sw/spl/Help/Image/CauchyDistribution-C.svg)
+
 Plot `randomVariate`:
 
 ~~~
+let r = Sfc32(14232);
 let d = CauchyDistribution(0, 0.025);
-d.randomVariate(500).clip(-1, 1).linePlot
+d.randomVariate(r, 99).clip(-1, 1).linePlot
 ~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-D.svg)
 
 * * *
 

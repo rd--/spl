@@ -7,12 +7,19 @@ which must provide the next random number in the half-open range zero to one.
 
 The provided methods are:
 
-- `randomComplex`: random complex number
-- `randomChoice`: random choice
-- `randomInteger`: random small integer
-- `randomLargeInteger`: random large integer
-- `randomReal`: random real number
-- `randomWeightedChoice`: random weighted choice
+- `randomByteArray`: byte array
+- `randomChoice`: choice
+- `randomComplex`: complex number
+- `randomCycle`: cycle
+- `randomInteger`: small integer
+- `randomLargeInteger`: large integer
+- `randomPermutation`: permutation
+- `randomPermutationList`: permutation
+- `randomPoint`: point
+- `randomPrime`: prime
+- `randomReal`: real number
+- `randomSubsequence`: subsequence
+- `randomWeightedChoice`: biased choice
 
 `RandomNumberGenerator` implements `next` as `nextRandomFloat`:
 

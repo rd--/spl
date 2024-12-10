@@ -31,22 +31,38 @@ This is a linear distribution.
 Biased low:
 
 ~~~
+let rng = Sfc32(791741);
 (
 	{
-		system.nextRandomFloatEulerianBetaDistribution(0, 1, 1 / 3, 3)
+		rng.nextRandomFloatEulerianBetaDistribution(
+			0,
+			1,
+			1 / 3,
+			3
+		)
 	} ! 99
 ).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomFloatEulerianBetaDistribution-A.svg)
 
 Biased high:
 
 ~~~
+let rng = Sfc32(231749);
 (
 	{
-		system.nextRandomFloatEulerianBetaDistribution(0, 1, 3, 1 / 3)
+		rng.nextRandomFloatEulerianBetaDistribution(
+			0,
+			1,
+			3,
+			1 / 3
+		)
 	} ! 99
 ).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomFloatEulerianBetaDistribution-B.svg)
 
 * * *
 

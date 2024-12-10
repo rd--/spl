@@ -27,3 +27,5 @@ See also: hash, randomChoice, randomComplex, randomInteger, randomPrime, randomR
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SeedRandom.html)
+
+Categories: Random

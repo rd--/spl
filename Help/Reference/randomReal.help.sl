@@ -39,14 +39,23 @@ A 3×4 matrix of random numbers:
 Plot, uniform distribution:
 
 ~~~
-system.randomReal(-1, 1, [99]).linePlot
+Sfc32(67183)
+.randomReal(-1, 1, [99])
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/randomReal-A.svg)
 
 Plot a random walk:
 
 ~~~
-system.randomReal(-1, 1, [99]).accumulate.linePlot
+Sfc32(678314)
+.randomReal(-1, 1, [99])
+.accumulate
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/randomReal-B.svg)
 
 * * *
 

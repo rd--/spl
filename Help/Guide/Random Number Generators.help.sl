@@ -1,49 +1,127 @@
 # Random Number Generators
 
-Sc has distinct Ugens for:
+Random number generator traits:
 
-- continuous random numbers (WhiteNoise &etc.)
-- triggered random numbers (TRand &etc.)
-- singleton random numbers (Rand &etc.)
-- demand rate random numbers (Dwhite &etc.)
+- `RandomNumberGenerator`: trait
+- `Stream`: trait
+
+Pseudo random number generators:
+
+- `Sfc32`: Small Fast Counter
+- `LinearCongruential`: Thomson 1958
+- `MersenneTwister`: Matsumoto 1989
+- `SplitMix`: Steele 2014
+
+`System` random number generator:
+
+- `seedRandom`
+
+`RandomNumberGenerator` methods:
+
+- `randomByteArray`: byte array
+- `randomChoice`: choice
+- `randomComplex`: complex number
+- `randomCycle`: cycle
+- `randomInteger`: small integer
+- `randomLargeInteger`: large integer
+- `randomPermutation`: permutation
+- `randomPermutationList`: permutation
+- `randomPoint`: point
+- `randomPrime`: prime
+- `randomReal`: real number
+- `randomSubsequence`: subsequence
+- `randomWeightedChoice`: biased choice
+
+`Stream` methods:
+
+- `next`: next item
+
+Shuffling:
+
+- `fisherYatesShuffle`: shuffle
+- `sattoloShuffle`: shuffle
+- `shuffle`: shuffle
+- `shuffled`: shuffle
+
+Distribution generator functions:
+
+- `nextRandomFloatCauchyDistribution`
+- `nextRandomFloatEulerianBetaDistribution`
+- `nextRandomFloatGaussianDistribution`
+- `nextRandomFloatLinearDistribution`
+- `nextRandomFloatWeibullDistribution`
+- `nextRandomInteger`
+- `nextRandomIntegerPoissonDistribution`
+
+Probablity distributions:
+
+- `CauchyDistribution`
+- `NormalDistribution`
+- `UniformDistribution`
+
+Methods at `ProbablityDistribution`:
+
+- `randomVariate`
+
+Random number functions:
+
+- `atRandom`
+- `randomSample`
+
+SuperCollider has distinct unit generators for:
+
+- continuous random numbers
+- triggered random numbers
+- singleton random numbers
+- demand rate random numbers
 
 Random signal generators:
-PinkNoise,
-WhiteNoise,
-GrayNoise,
-BrownNoise,
-ClipNoise,
-LfNoise0,
-LfNoise1,
-LfNoise2,
-LfClipNoise,
-LfdNoise0,
-LfdNoise1,
-LfdNoise3,
-LfdClipNoise,
-Dust,
-Dust2,
-Crackle,
-TwChoose.
 
-Unary or binary random method producing a random value for each frame:
-BiLinRand
-ExpRandRange,
-LinRand,
-RandRange,
-Sum3Rand.
-These can be used to implement tendency masks.
+- `BrownNoise`
+- `ClipNoise`
+- `Crackle`
+- `Dust2`
+- `Dust`
+- `GrayNoise`
+- `LfClipNoise`
+- `LfNoise0`
+- `LfNoise1`
+- `LfNoise2`
+- `LfdClipNoise`
+- `LfdNoise0`
+- `LfdNoise1`
+- `LfdNoise3`
+- `PinkNoise`
+- `TwChoose`
+- `WhiteNoise`
 
-Ugens that generate random numbers once:
-ExpRand,
-IRand,
-LinRand,
-NRand,
-Rand.
+Unary or binary random method producing a random value for each frame,
+which can be used to implement tendency masks:
 
-Ugens that generate random numbers when triggered:
-CoinGate,
-TExpRand,
-TRand,
-TiRand,
-TwIndex.
+- `BiLinRand`
+- `ExpRandRange`
+- `LinRand`
+- `RandRange`
+- `Sum3Rand`
+
+Unit generators that generate random numbers once:
+
+- `ExpRand`
+- `IRand`
+- `LinRand`
+- `NRand`
+- `Rand`
+
+Unit generators that generate random numbers when triggered:
+
+- `CoinGate`
+- `TExpRand`
+- `TRand`
+- `TiRand`
+- `TwIndex`
+
+Demand rate random number unit generators:
+
+- `Dbrown`
+- `Diwhite`
+- `Dwhite`

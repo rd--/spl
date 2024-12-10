@@ -35,6 +35,8 @@ let d = UniformDistribution(0, 1);
 (-1 -- 2).functionPlot { :x | d.pdf(x) }
 ~~~
 
+![](sw/spl/Help/Image/UniformDistribution-A.svg)
+
 Plot `cdf` over a subset of the reals:
 
 ~~~
@@ -42,12 +44,17 @@ let d = UniformDistribution(0, 1);
 (-1 -- 2).functionPlot { :x | d.cdf(x) }
 ~~~
 
+![](sw/spl/Help/Image/UniformDistribution-B.svg)
+
 Plot `randomVariate`:
 
 ~~~
+let r = Sfc32(378914);
 let d = UniformDistribution(0, 1);
-d.randomVariate(500).linePlot
+d.randomVariate(r, 99).linePlot
 ~~~
+
+![](sw/spl/Help/Image/UniformDistribution-C.svg)
 
 * * *
 

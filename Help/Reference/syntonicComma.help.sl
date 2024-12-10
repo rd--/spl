@@ -50,12 +50,15 @@ It is the distance between the Ptolemaic and Pythagorean chromatic semitones:
 The schisma, 32805/32768, is the difference between the Pythagorean comma and the syntonic comma:
 
 ```
->>> 1.pythagoreanComma / 1.syntonicComma
+>>> 1.pythagoreanComma
+>>> /
+>>> 1.syntonicComma
 32805/32768
 ```
 
 The schisma also is the difference between eight perfect fifths plus a major third and five octaves;
 
+```
 >>> (3/2 ^ 8) * (5/4 ^ 1) / (2/1 ^ 5)
 32805/32768
 ```

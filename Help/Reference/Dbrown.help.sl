@@ -22,7 +22,7 @@ SinOsc(freq, 0) * 0.1
 
 * * *
 
-See also: Demand
+See also: Demand, Diwhite, Dwhite
 
 References:
 _SuperCollider_

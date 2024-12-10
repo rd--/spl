@@ -1,22 +1,29 @@
 # randomPoint
 
-- _randomPoint(aRegion, shape)_
+- _randomPoint(aRegion, r, shape)_
 
-Answer _shape_ random points on or in _aRegion_.
+Answer _shape_ random points on or in _aRegion_ drawn from the random number generator _r_.
 
 At `Circle`:
 
-~~~
+~~~spl svg=A
+let r = Sfc32(367814);
 let c = Circle([0, 0], 1);
-c.randomPoint([1000]).scatterPlot
+c.randomPoint(r, [66]).scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/randomPoint-A.svg)
 
 At `Rectangle`:
 
+~~~spl svg=B
+let r = Sfc32(789142);
+Rectangle([0, 0], [1 1])
+.randomPoint(r, [66])
+.scatterPlot
 ~~~
-let c = Rectangle([0, 0], [2 3]);
-c.randomPoint([1000]).scatterPlot
-~~~
+
+![](sw/spl/Help/Image/randomPoint-B.svg)
 
 * * *
 

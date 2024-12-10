@@ -113,7 +113,6 @@ Plot numerators:
 
 ![](sw/spl/Help/Image/fareySequence-B.svg)
 
-
 Plot denominators:
 
 ~~~

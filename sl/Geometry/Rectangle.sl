@@ -201,9 +201,14 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		self.asString(storeString:/1)
 	}
 
-	randomPoint { :self :shape |
+	randomPoint { :self :rng :shape |
 		{
-			self.pointAtFraction([system.nextRandomFloat, system.nextRandomFloat])
+			self.pointAtFraction(
+				[
+					rng.nextRandomFloat,
+					rng.nextRandomFloat
+				]
+			)
 		} ! shape
 	}
 

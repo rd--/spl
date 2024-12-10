@@ -70,7 +70,9 @@ A histogram of the cycle count for the permutations of the symmetric group _S6_:
 ```
 >>> let p = 1:6.permutations;
 >>> let k = p.collect { :each |
->>> 	each.permutationListToPermutationCycles(false).size
+>>> 	each
+>>> 	.permutationListToPermutationCycles(false)
+>>> 	.size
 >>> };
 >>> k.asBag.sortedElements
 [1 -> 120, 2 -> 274, 3 -> 225, 4 -> 85, 5 -> 15, 6 -> 1]
