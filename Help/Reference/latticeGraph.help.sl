@@ -63,11 +63,12 @@ where the _y_ axis indicates pitch in logarithmic space:
 
 ![](sw/spl/Help/Image/latticeGraph-C.svg)
 
-In the unary case the primes list is either _3 5 7 11 13_ or derived from the tuning,
-and the unit vector is that of Erv Wilson.
+In the unary case the primes list is either _3 5 7 11 13 17 19 23_,
+or is derived from the tuning using `latticePrimes`,
+and the unit vector is that of Kraig Grady,
+given by `gradyLatticeCoordinates`.
 
-A 7-note 19-limit tuning,
-note that the derived primes list is _3 13 19_:
+A 7-note 19-limit tuning:
 
 ~~~
 [128 144 156 171 192 208 228]
@@ -78,9 +79,13 @@ note that the derived primes list is _3 13 19_:
 
 ![](sw/spl/Help/Image/latticeGraph-D.svg)
 
+_Rationale_:
+While the unary case is useful for drawing simple examples,
+it is more usual to calculate the required primes vector.
+
 * * *
 
-See also: asRatioTuning, Graph, lineDrawing
+See also: asRatioTuning, gradyLatticeCoordinates, Graph, latticePrimes, lineDrawing, wilsonLatticeCoordinates
 
 References:
 _Xenharmonic_

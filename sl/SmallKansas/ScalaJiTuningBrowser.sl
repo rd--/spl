@@ -54,7 +54,7 @@
 
 	htmlView { :self |
 		let ratios = self.asRatios;
-		let primesVector = self.latticePrimesVector([3 5 7 11 13]);
+		let primesVector = self.latticeDerivedPrimesVector([3 5 7 11 13 17 19 23]);
 		let div = 'div'.createElement;
 		div.appendChildren([
 			[
@@ -69,7 +69,7 @@
 			} {
 				self.latticeDrawing(
 					primesVector,
-					1.wilsonLatticeCoordinates
+					1.gradyLatticeCoordinates
 				)
 			},
 			[

@@ -43,13 +43,6 @@
 
 +List {
 
-	latticeCoordinates { :self :unitVector |
-		let v = unitVector.first(self.size);
-		self.withCollect(v) { :count :unit |
-			count * unit
-		}.sum
-	}
-
 	latticeDistance { :self :aList |
 		(self - aList).abs.sum
 	}
@@ -57,6 +50,19 @@
 }
 
 +SmallFloat {
+
+	gradyLatticeCoordinates { :self |
+		[
+			40 0;
+			0 40;
+			13 11;
+			-14 18;
+			-8 4;
+			-5 32;
+			7 25;
+			20 6
+		] / 40 * self
+	}
 
 	wilsonLatticeCoordinates { :self |
 		[
@@ -88,7 +94,10 @@
 		let primesList = self.latticeVertices(primes);
 		let edgeList = self.latticeEdges(primesList);
 		let coordinateList = primesList.collect { :each |
-			each.latticeCoordinates(unitVector)
+			let v = unitVector.first(each.size);
+			each.withCollect(v) { :count :unit |
+				count * unit
+			}.sum
 		};
 		Graph(
 			[1 .. primesList.size],
@@ -98,8 +107,10 @@
 
 	latticeGraph { :self |
 		self.latticeGraph(
-			self.latticePrimesVector([3 5 7 11 13]),
-			1.wilsonLatticeCoordinates
+			self.latticeDerivedPrimesVector(
+				[3 5 7 11 13 17 19 23]
+			),
+			1.gradyLatticeCoordinates
 		)
 	}
 
@@ -111,7 +122,7 @@
 		answer.asList.sort
 	}
 
-	latticePrimesVector { :self :primes |
+	latticeDerivedPrimesVector { :self :primes |
 		let upperLimit = primes.last;
 		(self.limit <= upperLimit).if {
 			primes

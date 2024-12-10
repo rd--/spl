@@ -21,8 +21,12 @@ The subfactorial counts the number of derangements.
 Plot the values on a log scale over a subset of the reals:
 
 ~~~
-2:12.functionPlot { :x | x.subfactorial.log }
+2:19.functionPlot { :x |
+	x.subfactorial.logScale
+}
 ~~~
+
+![](sw/spl/Help/Image/subfactorial-A.svg)
 
 * * *
 

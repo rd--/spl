@@ -61,7 +61,6 @@ _Interval complexity measures_:
 
 _Lattice Functions_:
 
-- `latticeCoordinates`: coordinates
 - `latticeDrawing`: drawing
 - `latticeEdges`: edges
 - `latticeGraph`: graph
@@ -81,21 +80,20 @@ _Prime Numbers_:
 
 _Scales_:
 
-- `combinationProductSet`
+- `combinationProductSet`: CPS
 - `eulerFokkerGenus`: Euler-Fokker genus
 
 _Testing_:
 
-- `isConstantStructure`: constant structure?
-- `isPythagorean`: Pythagorean?
-- `isRational`: rational?
-- `isSquareSuperparticular`: square superparticular?
-- `isSuperparticular`: superparticular?
-- `isTuning`: tuning?
+- `isConstantStructure`: is CS
+- `isPythagorean`: is Pythagorean
+- `isRational`: is rational
+- `isSuperparticular`: is superparticular
+- `isTuning`: is tuning
 
 _Types & Traits_:
 
-- `CentsTuning`: tuning stored as cents
-- `RatioTuning`: tuning stored as ratios
-- `Scale`: a sub-set of the indices of a tuning
+- `CentsTuning`: cents tuning
+- `RatioTuning`: ratio tuning
+- `Scale`: scale type
 - `Tuning`: tuning trait

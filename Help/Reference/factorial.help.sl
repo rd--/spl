@@ -6,7 +6,11 @@ The `product` of `one` up to _anInteger_.
 
 ```
 >>> 1:10.factorial
-[1 2 6 24 120 720 5040 40320 362880 3628800]
+[
+	1 2 6 24 120
+	720 5040 40320
+	362880 3628800
+]
 
 >>> 9.factorial
 1:9.product
@@ -94,13 +98,16 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 
 ```
 >>> 3:12.collect { :n |
->>> 	(n - 1).factorial * (0 .. n - 2).collect { :k |
+>>> 	(n - 1).factorial
+>>> 	*
+>>> 	(0 .. n - 2).collect { :k |
 >>> 		n ^ k / k.factorial
 >>> 	}.sum
 >>> }
 [
-	8 78 944 13800 237432 4708144 105822432
-	2660215680 73983185000 2255828154624
+	8 78 944 13800 237432
+	4708144 105822432 2660215680
+	73983185000 2255828154624
 ]
 ```
 
