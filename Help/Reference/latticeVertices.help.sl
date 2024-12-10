@@ -11,7 +11,7 @@ where each entry tells the `latticeVector` of the corresponding entry in _aTunin
 >>> 	3/2 5/3 30/17
 >>> ];
 >>> let t = r.asRatioTuning;
->>> let p = t.latticePrimes;
+>>> let p = t.latticePrimes(false);
 >>> t.latticeVertices(p)
 [
 	0 0 0;

@@ -21,8 +21,8 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 
 ```
 >>> let integer = 8750;
->>> let string = integer.asCharacter;
->>> let character = string.characterString;
+>>> let character = integer.asCharacter;
+>>> let string = character.characterString;
 >>> let byteArray = string.utf8ByteArray;
 >>> (
 >>> 	integer,

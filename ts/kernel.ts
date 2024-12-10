@@ -37,7 +37,7 @@ function isRecord(anObject: SplObject): boolean {
 
 function objectNameByConstructor(anObject: SplObject): TypeName {
 	const name = anObject.constructor.name;
-	return name == 'Range' ? 'DocumentRange' : name;
+	return name == 'Range' ? 'DocumentRange' : (name == 'bound Storage' ? 'Storage' : name);
 }
 
 function splObjectTypeOf(anObject: SplObject): TypeName {
@@ -104,7 +104,7 @@ export function splTypeOf(anObject: unknown): TypeName {
 		case 'object':
 			return splObjectTypeOf(<SplObject> anObject);
 		default:
-			throw new Error(`splTypeOf: unknown type: ${anObject}`);
+			throw new Error(`splTypeOf: unknown type: "${anObject}"`);
 	}
 }
 
@@ -487,7 +487,7 @@ export function dispatchByType(
 		const arity = parameterArray.length;
 		const qualifiedName = `${methodName}:/${arity}`;
 		throw new Error(
-			`dispatchByType: no method ${qualifiedName} for ${receiverType}`,
+			`dispatchByType: no method "${qualifiedName}" for "${receiverType}"`,
 		);
 	}
 	return typeMethod.block.apply(null, parameterArray);

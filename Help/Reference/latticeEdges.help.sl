@@ -11,7 +11,7 @@ Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 >>> 	3/2 5/3 30/17
 >>> ];
 >>> let t = r.asRatioTuning;
->>> let p = t.latticePrimes;
+>>> let p = t.latticePrimes(false);
 >>> let v = t.latticeVertices(p);
 >>> t.latticeEdges(v)
 [

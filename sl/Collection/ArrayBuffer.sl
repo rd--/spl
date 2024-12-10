@@ -17,7 +17,15 @@ ArrayBuffer! : [Object] {
 	}
 
 	size { :self |
-		self.error('size: should not implement')
+		self.error('size: should not implement, see byteSize')
+	}
+
+}
+
++SmallFloat {
+
+	ArrayBuffer { :self |
+		<primitive: return new ArrayBuffer(_self);>
 	}
 
 }
