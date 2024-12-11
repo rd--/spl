@@ -6,6 +6,18 @@
 		x.digitalRootSet(b).second.size - 1
 	}
 
+	asBit { :self |
+		self.isZero.if {
+			0
+		} {
+			self.isOne.if {
+				1
+			} {
+				self.error('asBit')
+			}
+		}
+	}
+
 	asCodePoint { :self |
 		self
 	}

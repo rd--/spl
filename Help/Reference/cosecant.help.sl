@@ -34,7 +34,7 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-0.5.pi -- 1.5.pi).functionPlot { :x |
 	x.cosecant.clip(-6, 6)
 }
@@ -42,15 +42,17 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/cosecant-A.svg)
 
-Plot cosecant at integer points:
+Draw cosecant at integer points:
 
-~~~
-{ :x :y |
-	(x * y).cosecant.abs.arcTan
-}.table(-20:20, -20:20).matrixPlot
+~~~spl png=B
+(
+	{ :x :y |
+		(x * y).cosecant.abs.arcTan
+	}.table(-20:20, -20:20).abs / 2
+).Graymap
 ~~~
 
-![](sw/spl/Help/Image/cosecant-B.svg)
+![](sw/spl/Help/Image/cosecant-B.png)
 
 * * *
 

@@ -85,10 +85,12 @@ Sfc32(17492)
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MatrixPlot.html)
 
 Further Reading: Moreland 2009
+
+Categories: Plotting

@@ -60,6 +60,14 @@ A 3×2 identity matrix:
 ]
 ```
 
+Draw `identityMatrix`:
+
+~~~spl png=A
+33.identityMatrix.Bitmap
+~~~
+
+![](sw/spl/Help/Image/identityMatrix-A.png)
+
 * * *
 
 See also: diagonalMatrix, exchangeMatrix, kroneckerDelta, unitVector, permutationMatrix, table

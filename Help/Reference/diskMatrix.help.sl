@@ -56,11 +56,13 @@ A _21×21_ disk matrix:
 ]
 ```
 
-Plot the 12×12 disk matrix:
+Draw the 12×12 disk matrix:
 
+~~~spl png=A
+12.diskMatrix.Bitmap
 ~~~
-12.diskMatrix.matrixPlot
-~~~
+
+![](sw/spl/Help/Image/diskMatrix-A.png)
 
 * * *
 

@@ -63,7 +63,9 @@
 	'Point' /* PlanarCoordinates CartesianCoordinates */
 
 	/* Graphics */
+	'Bitmap'
 	'Colour'
+	'Graymap'
 	'Svg'
 	'Plot' /* Interval, LineDrawing */
 	'Writing'

@@ -57,16 +57,16 @@ The maximal Lfsr of four places:
 
 Generate the first few steps of the rule 90 pattern:
 
-~~~
+~~~spl png=A
 let i = [1].padLeft(31, 0);
 let t = [1 2];
 let n = 2000;
 i.shiftRegisterSequence(t, n)
 .partition(31)
-.matrixPlot
+.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/shiftRegisterSequence-A.svg)
+![](sw/spl/Help/Image/shiftRegisterSequence-A.png)
 
 * * *
 

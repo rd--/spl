@@ -19,3 +19,5 @@ A 3×3 matrix:
 * * *
 
 See also: matrixPlot
+
+Categories: Graphics

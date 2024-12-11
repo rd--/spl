@@ -56,6 +56,14 @@ A _21×21_ cross matrix:
 ]
 ```
 
+Draw `crossMatrix`:
+
+~~~spl png=A
+33.crossMatrix.Bitmap
+~~~
+
+![](sw/spl/Help/Image/crossMatrix-A.png)
+
 * * *
 
 See also: boxMatrix, diamondMatrix, diskMatrix, editDistance

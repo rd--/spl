@@ -84,15 +84,15 @@ Noncommensurate waves (quasiperiodic function):
 
 ![](sw/spl/Help/Image/sin-B.svg)
 
-Plot the `sin` function at integer points:
+Draw the `sin` function at integer points:
 
-~~~
+~~~spl png=C
 { :x :y |
 	(x * y).sin
-}.table(-40:40, -40:40).matrixPlot
+}.table(-40:40, -40:40).abs.Graymap
 ~~~
 
-![](sw/spl/Help/Image/sin-C.svg)
+![](sw/spl/Help/Image/sin-C.png)
 
 * * *
 

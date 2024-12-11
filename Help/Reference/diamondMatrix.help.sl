@@ -50,6 +50,14 @@ A _21×21_ diamond matrix:
 ]
 ```
 
+Draw `diamondMatrix`:
+
+~~~spl png=A
+33.diamondMatrix.Bitmap
+~~~
+
+![](sw/spl/Help/Image/diamondMatrix-A.png)
+
 * * *
 
 See also: boxMatrix, crossMatrix, diskMatrix, manhattanDistance

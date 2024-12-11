@@ -102,6 +102,14 @@ The `determinant` of an exchange matrix is a function of _n_ with period four:
 ]
 ```
 
+Draw `exchangeMatrix`:
+
+~~~spl png=A
+33.exchangeMatrix.Bitmap
+~~~
+
+![](sw/spl/Help/Image/exchangeMatrix-A.png)
+
 * * *
 
 See also: antidiagonalMatrix, diagonalMatrix, identityMatrix, kroneckerDelta, unitVector, permutationMatrix, table
