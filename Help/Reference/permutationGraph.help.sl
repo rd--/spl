@@ -10,8 +10,9 @@ That is, the edges in the permutation graph indicate inversions in the permutati
 A permutation graph for a permutation in _S10_:
 
 ```
->>> let g = [2 1 5 6 7 10 9 4 8 3].permutationGraph;
->>> g.adjacencyMatrix
+>>> [2 1 5 6 7 10 9 4 8 3]
+>>> .permutationGraph
+>>> .adjacencyMatrix
 [
 	0 1 0 0 0 0 0 0 0 0;
 	1 0 0 0 0 0 0 0 0 0;
@@ -25,6 +26,16 @@ A permutation graph for a permutation in _S10_:
 	0 0 1 1 0 0 0 1 1 0
 ]
 ```
+
+Draw graph:
+
+~~~
+[2 1 5 6 7 10 9 4 8 3]
+.permutationGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/permutationGraph-A.svg)
 
 * * *
 

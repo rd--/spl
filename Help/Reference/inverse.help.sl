@@ -36,25 +36,49 @@ Inverses of 3×3 integer matrices:
 
 ```
 >>> [1 2 3; 4 2 2; 5 1 7].inverse
-[-2/7 11/42 1/21; 3/7 4/21 -5/21; 1/7 -3/14 1/7]
+[
+	-2/7 11/42 1/21;
+	3/7 4/21 -5/21;
+	1/7 -3/14 1/7
+]
 
 >>> [2 3 2; 4 9 2; 7 2 4].inverse
-[-8/13 2/13 3/13; 1/26 3/26 -1/13; 55/52 -17/52 -3/26]
+[
+	-8/13 2/13 3/13;
+	1/26 3/26 -1/13;
+	55/52 -17/52 -3/26
+]
 
 >>> [0 -3 -2; 1 -4 -2; -3 4 1].inverse
-[4 -5 -2; 5 -6 -2; -8 9 3]
+[
+	4 -5 -2;
+	5 -6 -2;
+	-8 9 3
+]
 
 >>> [2 -1 0; -1 2 -1; 0 -1 2].inverse
-[3/4 1/2 1/4; 1/2 1 1/2; 1/4 1/2 3/4]
+[
+	3/4 1/2 1/4;
+	1/2 1 1/2;
+	1/4 1/2 3/4
+]
 
 >>> [1 1 1; 1 0 0; 0 1 0].inverse
-[0 1 0; 0 0 1; 1 -1 -1]
+[
+	0 1 0;
+	0 0 1;
+	1 -1 -1
+]
 ```
 
 Find the inverse of a 3×3 real valued matrix:
 
 ```
->>> [1.2 2.5 -3.2; 0.7 -9.4 5.8; -0.2 0.3 6.4].inverse
+>>> [
+>>> 	1.2 2.5 -3.2;
+>>> 	0.7 -9.4 5.8;
+>>> 	-0.2 0.3 6.4
+>>> ].inverse
 [
 	0.74546  0.20425  0.18763;
 	0.06792 -0.08478  0.11080;
@@ -89,7 +113,14 @@ Solve the matrix equation _m.x = y_, where _y_ is a matrix:
 >>> let y = [-5 6 -4; -7 7 8; -2 1 12];
 >>> let r = m.inverse.dot(y);
 >>> (r, m.dot(r) ~ y)
-([158/29 -305/58 -234/29; 4 -15/4 -7; -1/29 9/116 -11/29], true)
+(
+	[
+		158/29 -305/58 -234/29;
+		4 -15/4 -7;
+		-1/29 9/116 -11/29
+	],
+	true
+)
 ```
 
 A square matrix has an inverse if and only if it is non-singular, in which case its determinant is nonzero.
@@ -127,7 +158,9 @@ The classical adjoint (adjugate) of a square matrix is the `inverse` multiplied 
 Inverse of a matrix of rational numbers:
 
 ```
->>> { :i :j | Fraction(1, i + j) }.table(1:4, 1:4).inverse
+>>> { :i :j |
+>>> 	Fraction(1, i + j)
+>>> }.table(1:4, 1:4).inverse
 [
 	  200  -1200   2100  -1120;
 	-1200   8100 -15120   8400;

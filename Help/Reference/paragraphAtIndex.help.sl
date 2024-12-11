@@ -8,7 +8,8 @@ that is by two consecutive line feeds.
 
 ```
 >>> [1 6 11].collect { :index |
->>> 	'a\n\nb\nc\nd\n\n\e\n'.paragraphAtIndex(index)
+>>> 	'a\n\nb\nc\nd\n\n\e\n'
+>>> 	.paragraphAtIndex(index)
 >>> }
 ['a\n' 'b\nc\nd\n' 'e\n']
 ```
@@ -16,7 +17,8 @@ that is by two consecutive line feeds.
 If the index points to a line feed look backwards for a paragraph.
 
 ```
->>> 'a\n\nb\nc\nd\n\n\e\n'.paragraphAtIndex(3)
+>>> 'a\n\nb\nc\nd\n\n\e\n'
+>>> .paragraphAtIndex(3)
 'a\n'
 ```
 

@@ -51,7 +51,10 @@ The element-based inversion set is the place-based inversion set of the inverse 
 with the elements of the pairs exchanged:
 
 ```
->>> [3 1 4 2].inversePermutation.inversions.collect(reverse:/1)
+>>> [3 1 4 2]
+>>> .inversePermutation
+>>> .inversions
+>>> .collect(reverse:/1)
 [3 1; 3 2; 4 2]
 ```
 
@@ -62,7 +65,15 @@ and whose edges represent pairs of elements that are reversed by the permutation
 >>> let g = [4 3 5 1 2].permutationGraph;
 >>> (g.edgeList, g.adjacencyMatrix)
 (
-	[4 3; 4 1; 3 1; 5 1; 4 2; 3 2; 5 2].asEdgeList,
+	[
+		4 3;
+		4 1;
+		3 1;
+		5 1;
+		4 2;
+		3 2;
+		5 2
+	].asEdgeList,
 	[
 		0 0 1 1 1;
 		0 0 1 1 1;

@@ -18,7 +18,8 @@ The inverse is `rightInversionCountToPermutationList`:
 >>> [2 1 5 4 3].rightInversionCount
 [1 0 2 1 0]
 
->>> [1 0 2 1 0].rightInversionCountToPermutationList
+>>> [1 0 2 1 0]
+>>> .rightInversionCountToPermutationList
 [2 1 5 4 3]
 ```
 
@@ -26,7 +27,8 @@ Rothe (1800) defines the right inversion count under the name Stellenexponenten,
 with each place bigger by 1:
 
 ```
->>> [6 4 3 9 8 10 1 7 2 5].rightInversionCount
+>>> [6 4 3 9 8 10 1 7 2 5]
+>>> .rightInversionCount
 [6 4 3 6 5 5 1 3 1 1] - 1
 ```
 
@@ -43,21 +45,27 @@ For the permutation _4 3 6 5 1 2_ the signe figuratif is given as _(3 2 3 2 0)_:
 The right inversion counts of _S3_:
 
 ```
->>> let s3 = [1 .. 3].lexicographicPermutations;
->>> s3.collect(rightInversionCount:/1)
+>>> [1 .. 3]
+>>> .lexicographicPermutations
+>>> .collect(rightInversionCount:/1)
 [0 0 0; 0 1 0; 1 0 0; 1 1 0; 2 0 0; 2 1 0]
 ```
 
 The right inversion counts of _S4_:
 
 ```
->>> let s4 = [1 .. 4].lexicographicPermutations;
->>> s4.collect(rightInversionCount:/1)
+>>> [1 .. 4]
+>>> .lexicographicPermutations
+>>> .collect(rightInversionCount:/1)
 [
-	0 0 0 0; 0 0 1 0; 0 1 0 0; 0 1 1 0; 0 2 0 0; 0 2 1 0;
-	1 0 0 0; 1 0 1 0; 1 1 0 0; 1 1 1 0; 1 2 0 0; 1 2 1 0;
-	2 0 0 0; 2 0 1 0; 2 1 0 0; 2 1 1 0; 2 2 0 0; 2 2 1 0;
-	3 0 0 0; 3 0 1 0; 3 1 0 0; 3 1 1 0; 3 2 0 0; 3 2 1 0
+	0 0 0 0; 0 0 1 0; 0 1 0 0;
+	0 1 1 0; 0 2 0 0; 0 2 1 0;
+	1 0 0 0; 1 0 1 0; 1 1 0 0;
+	1 1 1 0; 1 2 0 0; 1 2 1 0;
+	2 0 0 0; 2 0 1 0; 2 1 0 0;
+	2 1 1 0; 2 2 0 0; 2 2 1 0;
+	3 0 0 0; 3 0 1 0; 3 1 0 0;
+	3 1 1 0; 3 2 0 0; 3 2 1 0
 ]
 ```
 
@@ -66,8 +74,9 @@ the right inversion count indicates the position of a permutation in the lexicog
 on the symmetric group to which it belongs:
 
 ```
->>> let c = [1 2 4 6 3 5].rightInversionCount;
->>> c.mixedRadixDecode([6 5 4 3 2 1])
+>>> [1 2 4 6 3 5]
+>>> .rightInversionCount
+>>> .mixedRadixDecode([6 5 4 3 2 1])
 10
 
 >>> { :each |

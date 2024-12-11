@@ -16,7 +16,7 @@ If the stream ends before _anInteger_ items are read it is an `error`, see `next
 
 * * *
 
-See also: atEnd, contents, nextPut, nextUntil, nextWhile, reset, Stream
+See also: atEnd, contents, nextOrUpToEnd, nextPut, nextSatisfy, nextUntil, nextWhile, reset, Stream
 
 References:
 _Smalltalk_

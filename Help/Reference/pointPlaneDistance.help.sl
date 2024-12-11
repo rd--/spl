@@ -28,7 +28,9 @@ the point as _x y z_.
 >>> [2 1 -2 -5].pointPlaneDistance([12 6 2])
 7
 
->>> [2 1 -2 -5].pointPlaneDistance([-120/11 -60/11 -62/11])
+>>> [2 1 -2 -5].pointPlaneDistance(
+>>> 	[-120/11 -60/11 -62/11]
+>>> )
 7
 ```
 

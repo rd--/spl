@@ -20,7 +20,14 @@ Hashes of the first six letters of the alphabet:
 
 ```
 >>> 'abcdef'.contents.collect(hash:/1)
-[3007810216 448595256 1180910169 1461823195 2696877920 634392818]
+[
+	3007810216
+	448595256
+	1180910169
+	1461823195
+	2696877920
+	634392818
+]
 ```
 
 Hash an integer by converting to a string:

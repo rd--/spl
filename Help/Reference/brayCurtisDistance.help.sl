@@ -20,7 +20,9 @@ Bray–Curtis distance is a ratio of Manhattan distances:
 
 >>> let u = [1 3 5 7 9];
 >>> let v = [1 2 3 4 5];
->>> u.manhattanDistance(v) / u.manhattanDistance(v.-)
+>>> let p = u.manhattanDistance(v);
+>>> let q = u.manhattanDistance(v.-);
+>>> p / q
 (10 / 40)
 ```
 

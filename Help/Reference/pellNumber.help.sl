@@ -13,7 +13,9 @@ Approximations of the square root of two:
 
 ```
 >>> let f = { :n |
->>> 	((n - 1).pellNumber + n.pellNumber) / n.pellNumber
+>>> 	let p = n.pellNumber;
+>>> 	let q = (n - 1).pellNumber;
+>>> 	(q + p) / p
 >>> };
 >>> 1:7.collect(f:/1)
 [1 1.5 1.4 1.4167 1.4138 1.4143 1.4142]

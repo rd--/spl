@@ -15,16 +15,22 @@ Trims any white spaces at the beginning and at the end before splitting.
 >>> 'first second third fourth'.words
 ['first' 'second' 'third' 'fourth']
 
->>> 'The quick brown fox jumps over the lazy dog.'.words.sort
-['brown' 'dog.' 'fox' 'jumps' 'lazy' 'over' 'quick' 'the' 'The']
+>>> 'The quick brown fox jumps over'
+>>> .words
+>>> .sort
+[
+	'brown' 'fox' 'jumps'
+	'over' 'quick' 'The'
+]
 ```
 
 `unwords` can sometimes undo `words`:
 
 ```
->>> let string = 'The quick brown fox jumps over the lazy dog.';
->>> string.words.unwords
-string
+>>> 'The quick brown fox jumps over'
+>>> .words
+>>> .unwords
+'The quick brown fox jumps over'
 ```
 
 Multiple spaces are treated as one space:

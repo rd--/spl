@@ -8,7 +8,13 @@ At a heterogeneous `List`:
 
 ```
 >>> [1 2/3 4j5 '6' 7n].elementTypes
-['SmallFloat' 'Fraction' 'Complex' 'String' 'LargeInteger'].asSet
+[
+	'SmallFloat'
+	'Fraction'
+	'Complex'
+	'String'
+	'LargeInteger'
+].asSet
 ```
 
 At a `Range`:

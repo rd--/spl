@@ -42,7 +42,8 @@ Find the projection of a real valued vector onto another:
 Projection of one complex vector onto another:
 
 ```
->>> [3J1 2J0 2J-1].projection([2J0 4J0 0J5])
+>>> [3J1 2J0 2J-1]
+>>> .projection([2J0 4J0 0J5])
 [
 	(2 / 5)  - (16.i / 45),
 	(4 / 5)  - (32.i / 45),
@@ -60,7 +61,8 @@ Projection of an exact vector onto another:
 Projection of one real vector onto another:
 
 ```
->>> [1.32293 1.47644].projection([2.54931 3.87734])
+>>> [1.32293 1.47644]
+>>> .projection([2.54931 3.87734])
 [1.07704 1.63811]
 ```
 
@@ -109,10 +111,12 @@ For subsequent vectors, components parallel to earlier basis vectors are subtrac
 >>> 	+0.405 -0.078 -0.511 +0.532;
 >>> 	-0.358 -0.452 +0.651 -0.130
 >>> ];
->>> let e1 = v1.normalize;
->>> let e2 = (v2 - v2.projection(e1)).normalize;
->>> let e3 = (v3 - v3.projection(e1) - v3.projection(e2)).normalize;
->>> let e4= (v4 - v4.projection(e1) - v4.projection(e2) - v4.projection(e3)).normalize;
+>>> let p = { :i :j | i.projection(j) };
+>>> let n = { :i | i.normalize };
+>>> let e1 = v1.n;
+>>> let e2 = (v2 - v2.p(e1)).n;
+>>> let e3 = (v3 - v3.p(e1) - v3.p(e2)).n;
+>>> let e4= (v4 - v4.p(e1) - v4.p(e2) - v4.p(e3)).n;
 >>> [e1 e2 e3 e4]
 [
 	-0.72134   -0.04498   -0.33577    0.60407;
@@ -140,16 +144,48 @@ and use that basis to find a QR factorization:
 >>> (q, r)
 (
 	[
-		[ 1 / 5.sqrt,   9 / (2 * 55.sqrt),   8 * (2 / 583).sqrt],
-		[-1 / 5.sqrt,   7 / (4 * 55.sqrt),   8 * (2 / 583).sqrt],
-		[-1 / 5.sqrt,   7 / (4 * 55.sqrt), -17 / 1166.sqrt     ],
-		[ 1 / 5.sqrt, -17 / (4 * 55.sqrt),       (2 / 583).sqrt],
-		[ 1 / 5.sqrt,  13 / (4 * 55.sqrt), -19 / 1166.sqrt     ]
+		[
+			1 / 5.sqrt,
+			9 / (2 * 55.sqrt),
+			8 * (2 / 583).sqrt
+		],
+		[
+			-1 / 5.sqrt,
+			7 / (4 * 55.sqrt),
+			8 * (2 / 583).sqrt
+		],
+		[
+			-1 / 5.sqrt,
+			7 / (4 * 55.sqrt),
+			-17 / 1166.sqrt
+		],
+		[
+			1 / 5.sqrt,
+			-17 / (4 * 55.sqrt),
+			(2 / 583).sqrt
+		],
+		[
+			1 / 5.sqrt,
+			13 / (4 * 55.sqrt),
+			-19 / 1166.sqrt
+		]
 	],
 	[
-		[5.sqrt,        -3 / 5.sqrt,       27 /  5.sqrt ],
-		[0,    4 * (11 / 5).sqrt,      -16 / 55.sqrt ],
-		[0,                 0, 2 * (106 / 11).sqrt]
+		[
+			5.sqrt,
+			-3 / 5.sqrt,
+			27 /  5.sqrt
+		],
+		[
+			0,
+			4 * (11 / 5).sqrt,
+			-16 / 55.sqrt
+		],
+		[
+			0,
+			0,
+			2 * (106 / 11).sqrt
+		]
 	]
 )
 ```
@@ -157,7 +193,8 @@ and use that basis to find a QR factorization:
 The projection of _u_ onto _v_ is in the direction of _v_:
 
 ```
->>> let [u, v] = Sfc32(17931).randomReal(0, 1, [2 6]);
+>>> let r = Sfc32(17931);
+>>> let [u, v] = r.randomReal(0, 1, [2 6]);
 >>> vectorAngle(projection(u, v), v)
 0
 ```
@@ -165,7 +202,8 @@ The projection of _u_ onto _v_ is in the direction of _v_:
 The projection of _v_ onto itself is _v_:
 
 ```
->>> let v = Sfc32(80145).randomReal(0, 1, [6]);
+>>> let r = Sfc32(80145);
+>>> let v = r.randomReal(0, 1, [6]);
 >>> projection(v, v) = v
 true
 ```

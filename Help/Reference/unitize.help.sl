@@ -16,15 +16,16 @@ Convert numerical values to zero or one:
 With `epsilon`:
 
 ```
->>> (2.sqrt + 3.sqrt - (5 + (2 * 6.sqrt)).sqrt).unitize(1.epsilon)
+>>> (2.sqrt + 3.sqrt - (5 + (2 * 6.sqrt)).sqrt)
+>>> .unitize(1.epsilon)
 0
 ```
 
 Replace values in a matrix with zeros or ones:
 
 ```
->>> let m = [-2 1 0 1; 1 -2 1 0; 0 1 -2 1; 1 0 -2 1];
->>> m.unitize
+>>> [-2 1 0 1; 1 -2 1 0; 0 1 -2 1; 1 0 -2 1]
+>>> .unitize
 [
 	1 1 0 1;
 	1 1 1 0;

@@ -44,7 +44,9 @@ Find divisors of 20 that are not also divisors of 12:
 Find which triples of digits do not occur in the binary decomposition of 12345:
 
 ```
->>> [0 1].tuples(3) \ 12345.integerDigits(2).partition(3, 1)
+>>> [0 1].tuples(3)
+>>> \
+>>> 12345.integerDigits(2).partition(3, 1)
 [0 1 0; 1 0 1]
 ```
 
@@ -57,7 +59,7 @@ The answer is not sorted and may contain repeated elements:
 
 * * *
 
-See also: intersection, symmetricDifference, union
+See also: differenceAll, intersection, symmetricDifference, union
 
 References:
 _Haskell_

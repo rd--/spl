@@ -30,7 +30,9 @@ system.systemCommand(
 If the system command does not exist an `Error` is answered:
 
 ~~~
-system.systemCommand('/noSuchFile', []).thenElse { :result |
+system.systemCommand(
+	'/noSuchFile', []
+).thenElse { :result |
 	nil
 } { :err |
 	err.postLine

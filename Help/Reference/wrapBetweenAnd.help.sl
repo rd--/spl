@@ -15,13 +15,17 @@ Wrap between two integer indices, note that the wrap occurs _before_ the high va
 Wrap a real number between two values:
 
 ```
->>> let w = (0.1, 0.2 .. 0.9).wrapBetweenAnd(0.3, 0.7 + 0.1);
+>>> let r = (0.1, 0.2 .. 0.9);
+>>> let w = r.wrapBetweenAnd(
+>>> 	0.3,
+>>> 	0.7 + 0.1
+>>> );
 >>> (w * 10).rounded
 [6 7 3 4 5 6 7 3 4]
 ```
 
 * * *
 
-See also: atFold, atWrap, foldIndex, wrapBetweenAnd, wrapIndex
+See also: atFold, atWrap, foldIndex, foldBetweenAnd, wrapIndex
 
 Categories: Testing

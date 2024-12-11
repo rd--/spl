@@ -21,7 +21,9 @@ The numerators of the tree to depth nine,
 c.f. OEIS A020651:
 
 ```
->>> 7.keplerTree.levelOrderValues.collect(numerator:/1)
+>>> 7.keplerTree
+>>> .levelOrderValues
+>>> .collect(numerator:/1)
 [
 	1  1  1  2  1  3  2  3  1  4
 	3  4  2  5  3  5  1  5  4  5

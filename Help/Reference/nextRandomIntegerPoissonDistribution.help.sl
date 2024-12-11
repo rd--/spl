@@ -10,14 +10,28 @@ The mean and variance of the function are _aNumber_.
 Small mean and variance:
 
 ~~~
-({ system.nextRandomIntegerPoissonDistribution(1 / 9) } ! 99).linePlot
+let r = Sfc32(36814);
+(
+	{
+		r.nextRandomIntegerPoissonDistribution(1 / 9)
+	} ! 99
+).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomIntegerPoissonDistribution-A.svg)
 
 Less small mean and variance:
 
 ~~~
-({ system.nextRandomIntegerPoissonDistribution(9) } ! 99).linePlot
+let r = Sfc32(980141);
+(
+	{
+		r.nextRandomIntegerPoissonDistribution(9)
+	} ! 99
+).linePlot
 ~~~
+
+![](sw/spl/Help/Image/nextRandomIntegerPoissonDistribution-B.svg)
 
 * * *
 

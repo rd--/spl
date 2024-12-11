@@ -12,15 +12,21 @@ Solve and plot a first-order ordinary differential equation:
 ~~~
 { :x :y |
 	y * (x + y).cos
-}.eulerMethod(1, 0, 30, 0.05).linePlot
+}.eulerMethod(1, 0, 30, 0.05)
+.transposed
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/eulerMethod-A.svg)
 
 Newton’s cooling law, with initial value 100, and with time running from 0 to 100 in steps of 2, downsampled:
 
 ```
 >>> { :x :y |
 >>> 	-0.07 * (y - 20)
->>> }.eulerMethod(100, 0, 100, 2).transposed.downsample(5)
+>>> }.eulerMethod(100, 0, 100, 2)
+>>> .transposed
+>>> .downsample(5)
 [
 	  0 100.000;
 	 10  57.634;
@@ -41,8 +47,12 @@ Plot:
 ~~~
 { :x :y |
 	-0.07 * (y - 20)
-}.eulerMethod(100, 0, 100, 2).linePlot
+}.eulerMethod(100, 0, 100, 2)
+.transposed
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/eulerMethod-B.svg)
 
 Compare to analytic solution:
 
@@ -51,6 +61,8 @@ Compare to analytic solution:
 	(20 + (80 * (-0.07 * t).exp))
 }
 ~~~
+
+![](sw/spl/Help/Image/eulerMethod-C.svg)
 
 * * *
 

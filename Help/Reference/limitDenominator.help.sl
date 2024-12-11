@@ -19,11 +19,17 @@ Recover a rational number that’s represented as a float:
 >>> let n = (pi / 3).cos;
 >>> let r = n.asFractionOver(1E23);
 >>> (r, r.limitDenominator(1E6))
-(1490116119384765/2980232238769531, 1/2)
+(
+	1490116119384765/2980232238769531,
+	1/2
+)
 
 >>> let r = 1.1.asFractionOver(1E23);
 >>> (r, r.limitDenominator(1E6))
-(6556510925292969/5960464477539062, 11/10)
+(
+	6556510925292969/5960464477539062,
+	11/10
+)
 ```
 
 * * *

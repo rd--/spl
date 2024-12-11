@@ -9,7 +9,10 @@ and is equal to `permutationMax`:
 
 ```
 >>> let p = [4 3 2 1];
->>> (p.permutationDegree, p.permutationMax)
+>>> (
+>>> 	p.permutationDegree,
+>>> 	p.permutationMax
+>>> )
 (4, 4)
 ```
 
@@ -18,7 +21,10 @@ including a unary cycle:
 
 ```
 >>> let p = [1 2 3; 4];
->>> (p.permutationDegree, p.permutationMax)
+>>> (
+>>> 	p.permutationDegree,
+>>> 	p.permutationMax
+>>> )
 (4, 3)
 ```
 

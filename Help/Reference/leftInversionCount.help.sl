@@ -18,21 +18,27 @@ Answer the left inversion count, also called the Lehmer co-code, of _aPermutatio
 The left inversion counts of _S3_:
 
 ```
->>> let s3 = [1 .. 3].lexicographicPermutations;
->>> s3.collect(leftInversionCount:/1)
+>>> [1 .. 3]
+>>> .lexicographicPermutations
+>>> .collect(leftInversionCount:/1)
 [0 0 0; 0 0 1; 0 1 0; 0 0 2; 0 1 1; 0 1 2]
 ```
 
 The left inversion counts of _S4_:
 
 ```
->>> let s4 = [1 .. 4].lexicographicPermutations;
->>> s4.collect(leftInversionCount:/1)
+>>> [1 .. 4]
+>>> .lexicographicPermutations
+>>> .collect(leftInversionCount:/1)
 [
-	0 0 0 0; 0 0 0 1; 0 0 1 0; 0 0 0 2; 0 0 1 1; 0 0 1 2;
-	0 1 0 0; 0 1 0 1; 0 0 2 0; 0 0 0 3; 0 0 2 1; 0 0 1 3;
-	0 1 1 0; 0 1 0 2; 0 1 2 0; 0 1 0 3; 0 0 2 2; 0 0 2 3;
-	0 1 1 1; 0 1 1 2; 0 1 2 1; 0 1 1 3; 0 1 2 2; 0 1 2 3
+	0 0 0 0; 0 0 0 1; 0 0 1 0;
+	0 0 0 2; 0 0 1 1; 0 0 1 2;
+	0 1 0 0; 0 1 0 1; 0 0 2 0;
+	0 0 0 3; 0 0 2 1; 0 0 1 3;
+	0 1 1 0; 0 1 0 2; 0 1 2 0;
+	0 1 0 3; 0 0 2 2; 0 0 2 3;
+	0 1 1 1; 0 1 1 2; 0 1 2 1;
+	0 1 1 3; 0 1 2 2; 0 1 2 3
 ]
 ```
 

@@ -5,8 +5,13 @@
 Answer a `Promise` that will resolve to a value having the decoded `Json` contents of _aUrl_.
 
 ~~~
-let url = 'https://rohandrape.net/sw/spl/config/preferences.json';
-url.fetchJson.then { :anObject | anObject.postLine }
+let url = [
+	'https://rohandrape.net/'
+	'sw/spl/config/preferences.json'
+].join('');
+url.fetchJson.then { :anObject |
+	anObject.postLine
+}
 ~~~
 
 * * *

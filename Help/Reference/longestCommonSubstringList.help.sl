@@ -7,21 +7,30 @@ Answer a `List` of the longest contiguous substrings of elements common to two s
 Find the longest contiguous subsequences common to two strings:
 
 ```
->>> 'ABCBCDCDE'.longestCommonSubstringList('ABCDE')
+>>> 'ABCBCDCDE'
+>>> .longestCommonSubstringList(
+>>> 	'ABCDE'
+>>> )
 [
 	'ABC'
 	'BCD'
 	'CDE'
 ]
 
->>> 'ABCBCDCDE'.longestCommonSubstringList('ABCBABCDCBCDEDC')
+>>> 'ABCBCDCDE'
+>>> .longestCommonSubstringList(
+>>> 	'ABCBABCDCBCDEDC'
+>>> )
 [
 	'ABCB'
 	'CBCD'
 	'BCDC'
 ]
 
->>> 'CANADAS'.longestCommonSubstringList('BADANAT')
+>>> 'CANADAS'
+>>> .longestCommonSubstringList(
+>>> 	'BADANAT'
+>>> )
 [
 	'ANA'
 	'ADA'
@@ -30,7 +39,7 @@ Find the longest contiguous subsequences common to two strings:
 
 * * *
 
-See also: longestCommonSubsequence, longestCommonSubstring
+See also: longestCommonSubsequence, longestCommonSubstring, longestIncreasingSubsequenceList
 
 References:
 _W_

@@ -8,17 +8,25 @@ If there are several common subsequences of the same length, answer the one that
 Find the longest contiguous subsequence common to two strings:
 
 ```
->>> 'AAABBBBCCCCC'.longestCommonSubstring('CCCBBBAAABABA')
+>>> 'AAABBBBCCCCC'
+>>> .longestCommonSubstring(
+>>> 	'CCCBBBAAABABA'
+>>> )
 'AAAB'
 ```
 
 Find the longest contiguous subsequence common to two lists:
 
 ```
->>> [1 2 3 4].longestCommonSubstring([2 3 1 4])
+>>> [1 2 3 4].longestCommonSubstring(
+>>> 	[2 3 1 4]
+>>> )
 [2 3]
 
->>> [1 2 3 4].substringsInCommon([2 3 1 4], 2)
+>>> [1 2 3 4].substringsInCommon(
+>>> 	[2 3 1 4],
+>>> 	2
+>>> )
 [
 	[2 3]
 ]
@@ -38,7 +46,7 @@ C.f. `longestCommonSubsequence`:
 
 * * *
 
-See also: longestCommonSubequence, longestCommonSubstring, partition, subsequences, substringsInCommon
+See also: longestCommonSubsequence, longestCommonSubstringList, partition, subsequences, substringsInCommon
 
 References:
 _Mathematica_

@@ -10,7 +10,8 @@ At `LargeInteger`:
 >>> (127n << 8).highBitOfMagnitude
 15
 
->>> 479363082683256994034920463268n.highBitOfMagnitude
+>>> 479363082683256994034920463268n
+>>> .highBitOfMagnitude
 99
 ```
 

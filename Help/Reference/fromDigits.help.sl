@@ -30,7 +30,9 @@ c.f. OEIS [A019518](https://oeis.org/A019518):
 
 ```
 >>> 1:9.collect { :n |
->>> 	n.primesList.collect(integerDigits:/1).flatten.fromDigits(10)
+>>> 	n.primesList.collect(
+>>> 		integerDigits:/1
+>>> 	).flatten.fromDigits(10)
 >>> }
 [
 	2

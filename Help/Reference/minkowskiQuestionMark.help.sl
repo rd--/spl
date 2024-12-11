@@ -7,7 +7,8 @@ Answer Minkowski’s question mark function.
 At a quadratic irrational number:
 
 ```
->>> ((3.sqrt - 1) / 2).minkowskiQuestionMark
+>>> ((3.sqrt - 1) / 2)
+>>> .minkowskiQuestionMark
 2/7
 ```
 
@@ -17,13 +18,17 @@ At `SmallFloat`:
 >>> 0.123456.minkowskiQuestionMark
 0.00780487
 
->>> (1 + 5.sqrt / 7).minkowskiQuestionMark
-11822865281537472/24019198012642645
+>>> (1 + 5.sqrt / 7)
+>>> .minkowskiQuestionMark
+11822865281537472
+/
+24019198012642645
 
 >>> pi.minkowskiQuestionMark
 3.015624761581421
 
->>> (13.sqrt - 7 / 6).minkowskiQuestionMark
+>>> (13.sqrt - 7 / 6)
+>>> .minkowskiQuestionMark
 -5/9
 ```
 
@@ -40,39 +45,48 @@ At `Integer`:
 At `goldenRatio`:
 
 ```
->>> 1.goldenRatio.minkowskiQuestionMark
+>>> 1.goldenRatio
+>>> .minkowskiQuestionMark
 5/3
 
->>> (1.goldenRatio - 1).minkowskiQuestionMark
+>>> (1.goldenRatio - 1)
+>>> .minkowskiQuestionMark
 2/3
 ```
 
 Threads over lists:
 
 ```
->>> [0 0.5 2.sqrt].minkowskiQuestionMark
+>>> [0 0.5 2.sqrt]
+>>> .minkowskiQuestionMark
 [0 0.5 7/5]
 
->>> ([1 2] / 3).minkowskiQuestionMark
+>>> ([1 2] / 3)
+>>> .minkowskiQuestionMark
 [1/4 3/4]
 
->>> [2.sqrt / 2, 3.sqrt / 2].minkowskiQuestionMark
+>>> [2.sqrt / 2, 3.sqrt / 2]
+>>> .minkowskiQuestionMark
 [4/5 84/85]
 ```
 
 The question-mark function is continuous and monotonically increasing, so it has an inverse:
 
 ```
->>> (7 / 5).minkowskiQuestionMarkInverse
+>>> (7 / 5)
+>>> .minkowskiQuestionMarkInverse
 2.sqrt
 
->>> (5 / 3).minkowskiQuestionMarkInverse
+>>> (5 / 3)
+>>> .minkowskiQuestionMarkInverse
 1.goldenRatio
 
->>> 3.015624761581421.minkowskiQuestionMarkInverse
+>>> 3.015624761581421
+>>> .minkowskiQuestionMarkInverse
 pi
 
->>> (1 / 4).minkowskiQuestionMarkInverse
+>>> (1 / 4)
+>>> .minkowskiQuestionMarkInverse
 1/3
 ```
 
@@ -82,27 +96,40 @@ one at approximately 0.42037,
 c.f. OEIS [A048819](https://oeis.org/A048819):
 
 ```
->>> [0 0.5 1 0.420372339423223].minkowskiQuestionMark
+>>> [0 0.5 1 0.420372339423223]
+>>> .minkowskiQuestionMark
 [0 0.5 1 0.4203723394232]
 ```
 
 Plot over the unit interval:
 
 ~~~
-(0 -- 1).functionPlot(minkowskiQuestionMark:/1)
+(0 -- 1).functionPlot(
+	minkowskiQuestionMark:/1
+)
 ~~~
+
+![](sw/spl/Help/Image/minkowskiQuestionMark-A.svg)
 
 Plot difference from input:
 
 ~~~
-(0 -- 2).functionPlot { :x | x.minkowskiQuestionMark - x }
+(0 -- 2).functionPlot { :x |
+	x.minkowskiQuestionMark - x
+}
 ~~~
+
+![](sw/spl/Help/Image/minkowskiQuestionMark-B.svg)
 
 Plot from -2 to 2, _?(x)_ is surjective:
 
 ~~~
-(-2 -- 2).functionPlot(minkowskiQuestionMark:/1)
+(-2 -- 2).functionPlot(
+	minkowskiQuestionMark:/1
+)
 ~~~
+
+![](sw/spl/Help/Image/minkowskiQuestionMark-C.svg)
 
 * * *
 

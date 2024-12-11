@@ -26,7 +26,9 @@ Replace hyphens with forward slashes:
 Replacement must be a string:
 
 ```
->>> { 'x x x'.replaceStringAll('x', 1) }.ifError { true }
+>>> {
+>>> 	'x x x'.replaceStringAll('x', 1)
+>>> }.ifError { true }
 true
 ```
 

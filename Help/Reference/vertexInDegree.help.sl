@@ -14,8 +14,15 @@ For an undirected graph, an edge is taken to be both an in-edge or an out-edge.
 At a directed graph:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1, 2 -> 4].asGraph;
->>> (g.vertexInDegree, g.vertexInDegree(2))
+>>> let g = [
+>>> 	1 -> 2,
+>>> 	2 -> 3, 2 -> 4,
+>>> 	3 -> 1
+>>> ].asGraph;
+>>> (
+>>> 	g.vertexInDegree,
+>>> 	g.vertexInDegree(2)
+>>> )
 ([1 1 1 1], 1)
 ```
 
@@ -23,39 +30,61 @@ At an undirected graph:
 
 ```
 >>> let g = [1 2; 2 3; 3 1; 3 4].asGraph;
->>> (g.vertexInDegree, g.vertexInDegree(2))
+>>> (
+>>> 	g.vertexInDegree,
+>>> 	g.vertexInDegree(2)
+>>> )
 ([2 2 3 1], 2)
 ```
 
 At a multigraph:
 
 ```
->>> let g = [1 -> 2, 1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> (g.vertexInDegree, g.vertexInDegree(2))
+>>> let g = [
+>>> 	1 -> 2, 1 -> 2,
+>>> 	2 -> 3,
+>>> 	3 -> 1
+>>> ].asGraph;
+>>> (
+>>> 	g.vertexInDegree,
+>>> 	g.vertexInDegree(2)
+>>> )
 ([1 2 1], 2)
 ```
 
 Self-loops are counted twice:
 
 ```
->>> [1 2; 2 3; 3 1; 3 3].asGraph.vertexInDegree
+>>> [1 2; 2 3; 3 1; 3 3]
+>>> .asGraph
+>>> .vertexInDegree
 [2 2 4]
 ```
 
 Undirected graphs correspond to directed graphs with each edge both an in- and out-edge:
 
 ```
->>> [1 2; 2 3; 3 1].asGraph.vertexInDegree
+>>> [1 2; 2 3; 3 1]
+>>> .asGraph
+>>> .vertexInDegree
 [2 2 2]
 
->>> [1 -> 2, 2 -> 1, 2 -> 3, 3 -> 2, 1 -> 3, 3 -> 1].asGraph.vertexInDegree
+>>> [
+>>> 	1 -> 2, 1 -> 3,
+>>> 	2 -> 1, 2 -> 3,
+>>> 	3 -> 1, 3 -> 2
+>>> ].asGraph.vertexInDegree
 [2 2 2]
 ```
 
 The vertex in-degrees of an undirected graph can be obtained from its adjacency matrix:
 
 ```
->>> let g = [1 -> 1, 1 -> 2, 2 -> 3, 3 -> 1, 3 -> 4].asGraph;
+>>> let g = [
+>>> 	1 -> 1, 1 -> 2,
+>>> 	2 -> 3,
+>>> 	3 -> 1, 3 -> 4
+>>> ].asGraph;
 >>> let m = g.adjacencyMatrix;
 >>> (m, g.vertexInDegree, m.sum)
 (
@@ -72,7 +101,7 @@ The vertex in-degrees of an undirected graph can be obtained from its adjacency 
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, Graph
+See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, vertexOutDegree, Graph
 
 References:
 _Mathematica_

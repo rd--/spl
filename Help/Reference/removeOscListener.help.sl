@@ -5,7 +5,12 @@
 Remove a listener for Osc messages from an Osc source, for instance _ScSynth_.
 
 ```
-system.scSynth.removeOscListener('/done', workspace::onDone)
+system
+.scSynth
+.removeOscListener(
+	'/done',
+	workspace::onDone
+)
 ```
 
 * * *

@@ -13,7 +13,11 @@ The _n_-th prime gap is the difference between the _(n + 1)_-st and the _n_-th p
 Most frequent gaps in initial primes sequence:
 
 ```
->>> 2:999.collect(nthPrimeGap:/1).asBag.sortedCounts.take(4)
+>>> 2:999
+>>> .collect(nthPrimeGap:/1)
+>>> .asBag
+>>> .sortedCounts
+>>> .take(4)
 [
 	244 -> 6,
 	174 -> 2,
@@ -25,8 +29,10 @@ Most frequent gaps in initial primes sequence:
 Plot:
 
 ~~~
-1:999.functionPlot(nthPrimeGap:/1)
+1:99.functionPlot(nthPrimeGap:/1)
 ~~~
+
+![](sw/spl/Help/Image/nthPrimeGap-A.svg)
 
 * * *
 

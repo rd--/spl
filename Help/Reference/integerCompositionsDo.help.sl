@@ -10,7 +10,9 @@ A positive integer _n_ has _2 ^ (n - 1)_ compositions:
 
 ```
 >>> let n = 0;
->>> 16.integerCompositionsDo { :unused | n := n + 1 };
+>>> 16.integerCompositionsDo { :unused |
+>>> 	n := n + 1
+>>> };
 >>> n
 (2 ^ 15)
 ```

@@ -7,24 +7,28 @@ Answer the longest ascending sequence of contiguous or disjoint elements in _aSe
 Find the longest ordered substring, in this case formed by contiguous characters:
 
 ```
->>> 'BAABCA'.longestIncreasingSubsequence
+>>> 'BAABCA'
+>>> .longestIncreasingSubsequence
 'ABC'
 ```
 
 and in this case formed by non-contiguous characters:
 
 ```
->>> 'BAACBC'.longestIncreasingSubsequence
+>>> 'BAACBC'
+>>> .longestIncreasingSubsequence
 'ABC'
 ```
 
 Find the longest ascending sequence of elements in a list:
 
 ```
->>> [2 8 9 5 6 7 1].longestIncreasingSubsequence
+>>> [2 8 9 5 6 7 1]
+>>> .longestIncreasingSubsequence
 [2 5 6 7]
 
->>> [3 2 6 4 5 1].longestIncreasingSubsequence
+>>> [3 2 6 4 5 1]
+>>> .longestIncreasingSubsequence
 [2 4 5]
 
 >>> [
@@ -38,7 +42,8 @@ Find the longest ascending sequence of elements in a list:
 >>> ].longestIncreasingSubsequence
 [0 4 6 9]
 
->>> [2 9 4 7 3 4 5].longestIncreasingSubsequence
+>>> [2 9 4 7 3 4 5]
+>>> .longestIncreasingSubsequence
 [2 3 4 5]
 
 >>> [

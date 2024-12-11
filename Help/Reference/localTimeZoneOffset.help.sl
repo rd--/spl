@@ -5,7 +5,10 @@
 Answer a `Duration` giving the local time offset from _Greenwich Mean Time_.
 
 ```
->>> system.localTimeZoneOffset.hours.betweenAnd(-24, 24)
+>>> system
+>>> .localTimeZoneOffset
+>>> .hours
+>>> .betweenAnd(-24, 24)
 true
 ```
 

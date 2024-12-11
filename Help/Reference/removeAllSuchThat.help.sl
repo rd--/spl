@@ -7,7 +7,9 @@ Use a copy to enumerate collections whose order changes when an element is remov
 
 ```
 >>> let c = [1 2 2 3 3 3 4 4 4 4];
->>> c.removeAllSuchThat { :each | [2 3].includes(each) };
+>>> c.removeAllSuchThat { :each |
+>>> 	[2 3].includes(each)
+>>> };
 >>> c
 [1 4 4 4 4]
 ```
@@ -17,6 +19,6 @@ This is defined at `Dictionary`, where the argument to _aBlock_ will be an `Asso
 
 * * *
 
-See also: reject, remove, keysAndValuesRemove
+See also: keysAndValuesRemove, reject, remove, removeAll
 
 Categories: Removing

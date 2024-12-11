@@ -6,14 +6,22 @@ Answers the _(x,y,z)_ Cartesian coordinates corresponding to the spherical coord
 where θ is azimuth and ϕ is inclination.
 
 ```
->>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan].fromSphericalCoordinates
+>>> [
+>>> 	3.sqrt,
+>>> 	0.25.pi,
+>>> 	2.sqrt.arcTan
+>>> ].fromSphericalCoordinates
 [1 1 1]
 ```
 
 Equivalent to:
 
 ```
->>> let v = [3.sqrt, 0.25.pi, 2.sqrt.arcTan];
+>>> let v = [
+>>> 	3.sqrt,
+>>> 	0.25.pi,
+>>> 	2.sqrt.arcTan
+>>> ];
 >>> let p = v.asSphericalCoordinates;
 >>> p.asCartesianCoordinates.asList
 [1 1 1]
@@ -23,17 +31,28 @@ Note that this notation extends the usual polar coordinates notation,
 with theta remaining the angle in the xy-plane and phi becoming the angle out of that plane.
 
 ```
->>> [2.sqrt, 0.25.pi, 1.arcSin].fromSphericalCoordinates
+>>> [
+>>> 	2.sqrt,
+>>> 	0.25.pi,
+>>> 	1.arcSin
+>>> ].fromSphericalCoordinates
 [1 1 0]
 
->>> [2.sqrt, 0.25.pi].fromPolarCoordinates
+>>> [
+>>> 	2.sqrt,
+>>> 	0.25.pi
+>>> ].fromPolarCoordinates
 [1 1]
 ```
 
 Collects over lists:
 
 ```
->>> [2.sqrt 0 0.25.pi; 2 pi 0.5.pi; 2.sqrt 0.5.pi 0.75.pi].fromSphericalCoordinates
+>>> [
+>>> 	2.sqrt 0 0.25.pi;
+>>> 	2 pi 0.5.pi;
+>>> 	2.sqrt 0.5.pi 0.75.pi
+>>> ].fromSphericalCoordinates
 [1 0 1; -2 0 0; 0 1 -1]
 ```
 

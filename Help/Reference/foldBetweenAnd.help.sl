@@ -5,7 +5,9 @@
 Fold an integer between two indices:
 
 ```
->>> 1:9.collect { :each | each.foldBetweenAnd(3, 7) }
+>>> 1:9.collect { :each |
+>>> 	each.foldBetweenAnd(3, 7)
+>>> }
 [5 4 3 4 5 6 7 6 5]
 ```
 

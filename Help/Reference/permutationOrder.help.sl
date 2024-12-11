@@ -17,7 +17,8 @@ The only permutation with order 1 is the identity permutation:
 Find the order of a permutation:
 
 ```
->>> [2 3 5; 1 6 7 4 10; 8 9].permutationOrder
+>>> [2 3 5; 1 6 7 4 10; 8 9]
+>>> .permutationOrder
 30
 ```
 
@@ -27,14 +28,17 @@ then the group is Abelian (the opposite implication does not hold).
 This group is Abelian:
 
 ```
->>> [3 4:; 1 2:; 1 2; 3 4].collect(permutationOrder:/1)
+>>> [3 4:; 1 2:; 1 2; 3 4].collect(
+>>> 	permutationOrder:/1
+>>> )
 [2 2 2]
 ```
 
 The order of a permutation can be computed as the least common multiple of the lengths of its cycles:
 
 ```
->>> [2 3 5; 1 6 7 4 10; 8 9].permutationOrder
+>>> [2 3 5; 1 6 7 4 10; 8 9]
+>>> .permutationOrder
 30
 
 >>> [3 5 2].lcm

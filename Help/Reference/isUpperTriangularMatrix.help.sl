@@ -48,10 +48,12 @@ true
 Test rectangular matrices:
 
 ```
->>> [1 2 3; 0 4 5].isUpperTriangularMatrix
+>>> [1 2 3; 0 4 5]
+>>> .isUpperTriangularMatrix
 true
 
->>> [1 2; 0 3; 0 0].isUpperTriangularMatrix
+>>> [1 2; 0 3; 0 0]
+>>> .isUpperTriangularMatrix
 true
 ```
 

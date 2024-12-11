@@ -28,7 +28,9 @@ true
 At `String`:
 
 ```
->>> [0 3 7].collect { :each | 'string'.includesIndex(each) }
+>>> [0 3 7].collect { :each |
+>>> 	'string'.includesIndex(each)
+>>> }
 [false true false]
 ```
 

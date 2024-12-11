@@ -5,10 +5,12 @@
 Answer the next element of _aStream_ that satisfies the predicate _aBlock_.
 
 ```
->>> 1:9.asIterator.nextSatisfy { :each | each >= 5 } = 5
+>>> 1:9.asIterator.nextSatisfy { :each |
+>>> 	each >= 5
+>>> } = 5
 true
 ```
 
 * * *
 
-See also: Iterator, Stream
+See also: Iterator, next, Stream

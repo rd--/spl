@@ -29,7 +29,8 @@ Answer a concise string representation of _anObject_.
 >>> 'short text'.concisePrintString
 'short text'
 
->>> 'a text that is rather a lot longer'.concisePrintString
+>>> 'a text that is rather a lot longer'
+>>> .concisePrintString
 'a text that is ...r a lot longer'
 
 >>> [1 .. 9].concisePrintString
@@ -38,6 +39,6 @@ Answer a concise string representation of _anObject_.
 
 * * *
 
-See also: asString, printString, storeString
+See also: asString, contractTo, printString, storeString
 
 Categories: Printing

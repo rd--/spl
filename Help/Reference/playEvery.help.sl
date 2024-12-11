@@ -14,18 +14,22 @@ so that is does not overlap by very much with the next sound:
 
 ```
 { :nextDelay |
-	let attackTime = (0 -- 1).atRandom;
-	let decayTime = (2 -- 3).atRandom;
-	let sustainTime = nextDelay - (attackTime + decayTime) + 0.5;
+	let attack = (0 -- 1).atRandom;
+	let decay = (2 -- 3).atRandom;
+	let transition = attack + decay;
+	let sustain = nextDelay - transition + 0.5;
 	Release(
 		Pan2(
-			SinOsc(IRand(48, 72).MidiCps, 0),
+			SinOsc(
+				IRand(48, 72).MidiCps,
+				0
+			),
 			Rand(-1, 1),
 			Rand(0, 0.1)
 		),
-		attackTime,
-		sustainTime.max(0),
-		decayTime
+		attack,
+		sustain.max(0),
+		decay
 	)
 }.playEvery {
 	(1 -- 3.5).atRandom

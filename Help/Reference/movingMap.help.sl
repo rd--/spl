@@ -15,15 +15,22 @@ The `size` of the answer is _aSequence.size - anInteger + 1_.
 `movingMap` of `median` over regular data is equivalent to `movingMedian`:
 
 ```
->>> median:/1.movingMap([-6 8 -10 -4 9 -9 8 0 1 4], 3)
+>>> median:/1.movingMap(
+>>> 	[-6 8 -10 -4 9 -9 8 0 1 4],
+>>> 	3
+>>> )
 [-6 -4 -4 -4 8 0 1 1]
 ```
 
 Can implement `differences`:
 
 ```
->>> let l = 0:10.collect { :i | 3 * i + 6 };
->>> { :each | each.last - each.first}.movingMap(l, 2)
+>>> let l = 0:10.collect { :i |
+>>> 	3 * i + 6
+>>> };
+>>> { :each |
+>>> 	each.last - each.first
+>>> }.movingMap(l, 2)
 [3 3 3 3 3 3 3 3 3 3]
 ```
 

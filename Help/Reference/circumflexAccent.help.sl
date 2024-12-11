@@ -68,15 +68,17 @@ Values at `zero`:
 Five-percent compound interest:
 
 ```
->>> 1:5.collect { :each | (1 + 0.05) ^ each }
+>>> 1:5.collect { :each |
+>>> 	(1 + 0.05) ^ each
+>>> }
 [1.05 1.1025 1.15763 1.21551 1.27628]
 ```
 
 At `LargeInteger`:
 
 ```
->>> 33n ^ 33
-129110040087761027839616029934664535539337183380513n
+>>> 23n ^ 23
+20880467999847912034355032910567n
 ```
 
 The unary form is `exp`:

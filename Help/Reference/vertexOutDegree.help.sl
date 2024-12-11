@@ -14,8 +14,15 @@ For an undirected graph, an edge is taken to be both an in-edge or an out-edge.
 At a directed graph:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1, 2 -> 4].asGraph;
->>> (g.vertexOutDegree, g.vertexOutDegree(2))
+>>> let g = [
+>>> 	1 -> 2,
+>>> 	2 -> 3, 2 -> 4,
+>>> 	3 -> 1
+>>> ].asGraph;
+>>> (
+>>> 	g.vertexOutDegree,
+>>> 	g.vertexOutDegree(2)
+>>> )
 ([1 2 1 0], 2)
 ```
 
@@ -23,38 +30,58 @@ At an undirected graph:
 
 ```
 >>> let g = [1 2; 2 3; 3 1; 3 4].asGraph;
->>> (g.vertexOutDegree, g.vertexOutDegree(2))
+>>> (
+>>> 	g.vertexOutDegree,
+>>> 	g.vertexOutDegree(2)
+>>> )
 ([2 2 3 1], 2)
 ```
 
 At a multigraph:
 
 ```
->>> let g = [1 -> 2, 1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> (g.vertexOutDegree, g.vertexOutDegree(2))
+>>> let g = [
+>>> 	1 -> 2, 1 -> 2,
+>>> 	2 -> 3,
+>>> 	3 -> 1
+>>> ].asGraph;
+>>> (
+>>> 	g.vertexOutDegree,
+>>> 	g.vertexOutDegree(2)
+>>> )
 ([2 1 1], 1)
 ```
 
 Self-loops are counted twice:
 
 ```
->>> [1 2; 2 3; 3 1; 3 3].asGraph.vertexOutDegree
+>>> [1 2; 2 3; 3 1; 3 3]
+>>> .asGraph
+>>> .vertexOutDegree
 [2 2 4]
 ```
 
 Undirected graphs correspond to directed graphs with each edge both an in- and out-edge:
 
 ```
->>> [1 2; 2 3; 3 1].asGraph.vertexOutDegree
+>>> [1 2; 2 3; 3 1]
+>>> .asGraph
+>>> .vertexOutDegree
 [2 2 2]
 
->>> [1 -> 2, 2 -> 1, 2 -> 3, 3 -> 2, 1 -> 3, 3 -> 1].asGraph.vertexOutDegree
+>>> [
+>>> 	1 -> 2, 1 -> 3,
+>>> 	2 -> 1, 2 -> 3,
+>>> 	3 -> 1, 3 -> 2
+>>> ]
+>>> .asGraph
+>>> .vertexOutDegree
 [2 2 2]
 ```
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, Graph
+See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexInDegree, vertexList, Graph
 
 References:
 _Mathematica_

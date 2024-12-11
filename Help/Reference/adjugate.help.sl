@@ -16,7 +16,8 @@ Compute the adjugate for a 3×3 matrix:
 ```
 >>> let m = [15 3 4; 3 15 11; -2 1 7];
 >>> let a = m.adjugate;
->>> (a, a.dot(m) ~ (m.determinant * m.size.identityMatrix))
+>>> let d = m.determinant * m.size.identityMatrix;
+>>> (a, a.dot(m) ~ d)
 (
 	[
 		94 -17 -27;

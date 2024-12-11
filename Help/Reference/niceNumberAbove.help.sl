@@ -16,8 +16,13 @@ Find three nice numbers:
 An `Association` `List` of numbers to nice numbers:
 
 ```
->>> let l = [0.083 0.149 0.192 0.231 0.352 0.567 0.791];
->>> l.collect { :each | each -> each.niceNumberAbove }
+>>> let l = [
+>>> 	0.083 0.149 0.192 0.231
+>>> 	0.352 0.567 0.791
+>>> ];
+>>> l.collect { :each |
+>>> 	each -> each.niceNumberAbove
+>>> }
 [
 	0.083 -> 0.10,
 	0.149 -> 0.15,
@@ -32,7 +37,9 @@ An `Association` `List` of numbers to nice numbers:
 Nice numbers starting from integers:
 
 ```
->>> [7 11 23 31 64 78].collect(niceNumberAbove:/1)
+>>> [7 11 23 31 64 78].collect(
+>>> 	niceNumberAbove:/1
+>>> )
 [7.5 15 25 50 75 100]
 ```
 

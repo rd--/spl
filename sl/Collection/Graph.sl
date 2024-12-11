@@ -88,7 +88,7 @@
 	}
 
 	graphPlot { :self |
-		Plot(self, 'graph')
+		Plot([self], 'graph')
 	}
 
 	hasValidEdgeList { :self |

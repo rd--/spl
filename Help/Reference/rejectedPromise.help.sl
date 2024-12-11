@@ -5,7 +5,9 @@
 Answers a new `Promise` rejected with _anError_.
 
 ```
->>> Error('X').rejectedPromise.thenElse { :unusedAnswer |
+>>> Error('X')
+>>> .rejectedPromise
+>>> .thenElse { :unusedAnswer |
 >>> 	'Y'.error
 >>> } { :err |
 >>> 	{ err.messageText = 'X' } .assert

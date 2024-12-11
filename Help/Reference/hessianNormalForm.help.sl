@@ -9,24 +9,29 @@ The Hesse form is primarily used for calculating distances.
 Calculate signed point-plane distances using Hesse normal form:
 
 ```
->>> let [n, p] = InfinitePlane(1, 2, 2, -2).hessianNormalForm;
->>> n.dot([2 5 4]) + p
+>>> let p = InfinitePlane(1, 2, 2, -2);
+>>> let [n, d] = p.hessianNormalForm;
+>>> n.dot([2 5 4]) + d
 6
 
->>> let [n, p] = InfinitePlane(2, 3, -1, -6).hessianNormalForm;
->>> n.dot([0 0 0]) + p
+>>> let p = InfinitePlane(2, 3, -1, -6);
+>>> let [n, d] = p.hessianNormalForm;
+>>> n.dot([0 0 0]) + d
 (-6 / 14.sqrt)
 
->>> let [n, p] = InfinitePlane(1, 1, 0, -2).hessianNormalForm;
->>> n.dot([-1 1 2]) + p
+>>> let p = InfinitePlane(1, 1, 0, -2);
+>>> let [n, d] = p.hessianNormalForm;
+>>> n.dot([-1 1 2]) + d
 2.sqrt.negated
 
->>> let [n, p] = InfinitePlane(3, 4, -1, -1).hessianNormalForm;
->>> n.dot([1 2 3]) + p
+>>> let p = InfinitePlane(3, 4, -1, -1);
+>>> let [n, d] = p.hessianNormalForm;
+>>> n.dot([1 2 3]) + d
 (7 / 26.sqrt)
 
->>> let [n, p] = InfinitePlane(5, 3, 1, -8).hessianNormalForm;
->>> n.dot([1 7 4]) + p
+>>> let p = InfinitePlane(5, 3, 1, -8);
+>>> let [n, d] = p.hessianNormalForm;
+>>> n.dot([1 7 4]) + d
 (22 / 35.sqrt)
 ```
 

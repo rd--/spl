@@ -8,25 +8,32 @@ The answer is a `ByteArray`.
 Decode an encoded `ByteArray`:
 
 ```
->>> 'AQIDBAUGBwgJCgsMDQ4PEBESExQ='.base64Decoded
-[1 .. 20].asByteArray
+>>> 'AQIDBAUGBwgJCgsMDQ4PEB'
+>>> .base64Decoded
+[1 .. 16].asByteArray
 ```
 
 Decode an encoded Ascii `String`:
 
 ```
->>> 'SGVsbG8gV29ybGQ='.base64Decoded.asciiString
+>>> 'SGVsbG8gV29ybGQ='
+>>> .base64Decoded
+>>> .asciiString
 'Hello World'
 ```
 
 Decode `ByteArray` and Ascii `String`:
 
 ```
->>> let encoded = 'ezEsIDIsIDMsIDQsIDV9';
->>> let decoded = encoded.base64Decoded;
->>> (decoded.asList, decoded.asciiString)
+>>> let e = 'ezEsIDIsIDMsIDQsIDV9';
+>>> let d = e.base64Decoded;
+>>> (d.asList, d.asciiString)
 (
-	[123 49 44 32 50 44 32 51 44 32 52 44 32 53 125],
+	[
+		123  49  44  32  50
+		 44  32  51  44  32
+		 52  44  32  53 125
+	],
 	'{1, 2, 3, 4, 5}'
 )
 ```
@@ -34,8 +41,9 @@ Decode `ByteArray` and Ascii `String`:
 The inverse is `base64Encoded`:
 
 ```
->>> let encoded = 1:9.asByteArray.base64Encoded;
->>> (encoded, encoded.base64Decoded)
+>>> let b = 1:9.asByteArray;
+>>> let e = b.base64Encoded;
+>>> (e, e.base64Decoded)
 (
 	'AQIDBAUGBwgJ',
 	1:9.asByteArray
@@ -45,7 +53,9 @@ The inverse is `base64Encoded`:
 Out of range values raise an error:
 
 ```
->>> { 'ABαCD'.base64Decoded }.ifError { true }
+>>> {
+>>> 	'ABαCD'.base64Decoded
+>>> }.ifError { true }
 true
 ```
 

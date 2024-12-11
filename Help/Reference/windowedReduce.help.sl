@@ -30,7 +30,8 @@ Adjacent differences with swapped operator,
 c.f. `differences`:
 
 ```
->>> [1 2 4 7 11].windowedReduce(2, -.swap)
+>>> [1 2 4 7 11]
+>>> .windowedReduce(2, -.swap)
 [2 - 1, 4 - 2, 7 - 4, 11 - 7]
 ```
 
@@ -45,10 +46,15 @@ c.f. `ratios`:
 Adjacent triples collected into a `List`:
 
 ```
->>> 1:5.windowedReduce(3, ++.over(nest:/1))
+>>> 1:5.windowedReduce(
+>>> 	3,
+>>> 	++.over(nest:/1)
+>>> )
 [1 2 3; 2 3 4; 3 4 5]
 
->>> 1:5.windowedReduce(3) { :p :q | p.nest ++ q.nest }
+>>> 1:5.windowedReduce(3) { :p :q |
+>>> 	p.nest ++ q.nest
+>>> }
 [1 2 3; 2 3 4; 3 4 5]
 ```
 
@@ -65,8 +71,10 @@ When the window size is negative, each window is reversed before the reduction i
 Adjacent comparisons, edge detection:
 
 ```
->>> [1] ++ [1 1 2 2 2 3 3].windowedReduce(2, ~=).boole
-[1 0 1 0 0 1 0]
+>>> [1 1 2 2 2 3 3]
+>>> .windowedReduce(2, ~=)
+>>> .boole
+[0 1 0 0 1 0]
 ```
 
 * * *

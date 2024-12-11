@@ -66,7 +66,8 @@ Multiplication with the inverse permutation returns the identity:
 Any cycle of length _k_ is equivalent to a product of _k_ transpositions (cycles of length 2) all having the same first point:
 
 ```
->>> [3 5:; 3 7:; 3 4:; 3 9].permutationProduct
+>>> [3 5:; 3 7:; 3 4:; 3 9]
+>>> .permutationProduct
 [1; 2; 3 5 7 4 9; 6; 8].cycles
 ```
 

@@ -13,7 +13,9 @@ Sort _aSequence_ using the patience sort algorithm.
 Sort a random permutation:
 
 ```
->>> system.randomSample(1:99, 99).patienceSort
+>>> system
+>>> .randomSample(1:99, 99)
+>>> .patienceSort
 [1 .. 99]
 ```
 

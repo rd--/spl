@@ -123,7 +123,7 @@ answer.scatterPlot
 
 * * *
 
-See also: and, bitAnd, bitNot, bitXor
+See also: &, bitAnd, bitNot, bitXor
 
 References:
 _Mathematica_

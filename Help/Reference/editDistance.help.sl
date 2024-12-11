@@ -31,17 +31,23 @@ Compute distance between strings of unequal length:
 Compute distance between any strings of equal length:
 
 ```
->>> 'abcdefghijklmn'.editDistance('akmdjbglhfecni')
+>>> 'abcdefghijklmn'.editDistance(
+>>> 	'akmdjbglhfecni'
+>>> )
 11
 ```
 
 `editDistance` is less than or equal to `hammingDistance` for strings of equal length:
 
 ```
->>> 'bccbbcb'.editDistance('ccbbccb')
+>>> 'bccbbcb'.editDistance(
+>>> 	'ccbbccb'
+>>> )
 2
 
->>> 'bccbbcb'.hammingDistance('ccbbccb')
+>>> 'bccbbcb'.hammingDistance(
+>>> 	'ccbbccb'
+>>> )
 3
 ```
 

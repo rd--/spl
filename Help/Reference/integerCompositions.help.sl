@@ -10,9 +10,19 @@ There are eight compositions of 4:
 
 ```
 >>> 4.integerCompositions
-[4; 1 3; 2 2; 3 1; 1 1 2; 1 2 1; 2 1 1; 1 1 1 1]
+[
+	4;
+	1 3; 2 2; 3 1;
+	1 1 2; 1 2 1; 2 1 1;
+	1 1 1 1
+]
 
->>> [4; 1 3; 2 2; 3 1; 1 1 2; 1 2 1; 2 1 1; 1 1 1 1].collect(sum:/1)
+>>> [
+>>> 	4;
+>>> 	1 3; 2 2; 3 1;
+>>> 	1 1 2; 1 2 1; 2 1 1;
+>>> 	1 1 1 1
+>>> ].collect(sum:/1)
 (4 # 8)
 ```
 
@@ -27,7 +37,7 @@ and two of three into two parts:
 [1 2; 2 1]
 ```
 
-The compositions of 1, 2, 3 & 4:
+The compositions of 1, 2 & 3:
 
 ```
 >>> 1.integerCompositions
@@ -38,20 +48,18 @@ The compositions of 1, 2, 3 & 4:
 
 >>> 3.integerCompositions
 [3; 1 2; 2 1; 1 1 1]
-
->>> 4.integerCompositions
-[4; 1 3; 2 2; 3 1; 1 1 2; 1 2 1; 2 1 1; 1 1 1 1]
 ```
 
 The composition of 5:
 
 ```
->>> 5.integerCompositions.allButLast(2)
+>>> 5.integerCompositions
 [
 	5;
 	1 4; 2 3; 3 2; 4 1;
 	1 1 3; 1 2 2; 1 3 1; 2 1 2; 2 2 1; 3 1 1;
-	1 1 1 2; 1 1 2 1; 1 2 1 1
+	1 1 1 2; 1 1 2 1; 1 2 1 1; 2 1 1 1;
+	1 1 1 1 1
 ]
 ```
 

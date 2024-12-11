@@ -29,38 +29,65 @@ The permanent of a _2×2_ `Integer` matrix:
 The permanents of _3×3_ `Integer` matrices:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].asMatrix.permanent
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .permanent
 450
 
->>> [-1 4 -2; -2 -4 3; 6 -5 1].permanent
+>>> [-1 4 -2; -2 -4 3; 6 -5 1]
+>>> .permanent
 111
 
->>> [1 2 4; 5 4 5; 9 2 7].permanent
+>>> [1 2 4; 5 4 5; 9 2 7]
+>>> .permanent
 382
 
->>> [-2 -1 2; 2 1 4; -3 3 -1].permanent
+>>> [-2 -1 2; 2 1 4; -3 3 -1]
+>>> .permanent
 -2
 
->>> [1 2 3; 4 1 6; 7 8 1].transposed.permanent
+>>> [1 2 3; 4 1 6; 7 8 1]
+>>> .transposed
+>>> .permanent
 258
 
->>> [2 9 4; 7 5 3; 6 1 8].permanent
+>>> [2 9 4; 7 5 3; 6 1 8]
+>>> .permanent
 900
 ```
 
 The permanents of _4×4_ `Integer` matrices:
 
 ```
->>> [1 1 1 1; 2 1 0 0; 3 0 1 0; 4 0 0 1].permanent
+>>> [
+>>> 	1 1 1 1;
+>>> 	2 1 0 0;
+>>> 	3 0 1 0;
+>>> 	4 0 0 1
+>>> ].permanent
 10
 
->>> [1 2 3 4; 4 5 6 7; 7 8 9 10; 10 11 12 13].permanent
+>>> [
+>>> 	1 2 3 4;
+>>> 	4 5 6 7;
+>>> 	7 8 9 10;
+>>> 	10 11 12 13
+>>> ].permanent
 29556
 
->>> [1 2 3 1; -1 -1 -1 2; 1 3 1 1; -2 -2 0 -1].permanent
+>>> [
+>>> 	1 2 3 1;
+>>> 	-1 -1 -1 2;
+>>> 	1 3 1 1;
+>>> 	-2 -2 0 -1
+>>> ].permanent
 -10
 
->>> [7 2 -2 4; 4 4 1 7; 11 -8 9 10; 10 5 12 13].permanent
+>>> [
+>>> 	7 2 -2 4;
+>>> 	4 4 1 7;
+>>> 	11 -8 9 10;
+>>> 	10 5 12 13
+>>> ].permanent
 10723
 ```
 
@@ -97,7 +124,9 @@ The permanent of a square matrix of all ones is the factorial of the dimension:
 
 ```
 >>> 1:5.collect { :each |
->>> 	{ :i :j | 1 }.table(1:each, 1:each).permanent
+>>> 	{ :i :j |
+>>> 		1
+>>> 	}.table(1:each, 1:each).permanent
 >>> }
 [1 2 6 24 120]
 ```

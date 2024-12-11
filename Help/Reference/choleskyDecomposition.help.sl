@@ -18,14 +18,16 @@ Compute the Cholesky decomposition of a 2×2 integer matrix:
 Find the Cholesky decomposition of two 3×3 integer matrices:
 
 ```
->>> [4 12 -16; 12 37 -43; -16 -43 98].choleskyDecomposition
+>>> [4 12 -16; 12 37 -43; -16 -43 98]
+>>> .choleskyDecomposition
 [
 	 2 0 0;
 	 6 1 0;
 	-8 5 3
 ]
 
->>> [25 15 -5; 15 18 0; -5 0 11].choleskyDecomposition
+>>> [25 15 -5; 15 18 0; -5 0 11]
+>>> .choleskyDecomposition
 [
 	 5 0 0;
 	 3 3 0;
@@ -42,7 +44,11 @@ Find the Cholesky decomposition of a 3×3 real matrix:
 >>> 	0.4 -0.2  0.7
 >>> ];
 >>> let l = m.choleskyDecomposition;
->>> (l, l.isLowerTriangularMatrix, l.dot(l.transposed) ~ m)
+>>> (
+>>> 	l,
+>>> 	l.isLowerTriangularMatrix,
+>>> 	l.dot(l.transposed) ~ m
+>>> )
 (
 	[
 		0.7071  0      0;
@@ -83,7 +89,11 @@ Find the Cholesky decomposition of a 6×6 real matrix:
 >>> 	0.1667   0.3333   0.5000   0.6667   0.8333   1.0000
 >>> ];
 >>> let l = m.choleskyDecomposition;
->>> (l, l.isLowerTriangularMatrix, l.dot(l.transposed) ~ m)
+>>> (
+>>> 	l,
+>>> 	l.isLowerTriangularMatrix,
+>>> 	l.dot(l.transposed) ~ m
+>>> )
 (
 	[
 		1      0      0      0      0      0;

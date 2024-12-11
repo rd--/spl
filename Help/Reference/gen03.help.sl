@@ -60,7 +60,12 @@ C.f.
 Seventh-order Chebyshev, _64x^7 - 112x^5 + 56x^3 - 7x_:
 
 ~~~spl svg=G
-129.gen03(-1, 1, [0 -7 0 56 0 -112 0 64]).linePlot
+129.gen03(
+	-1,
+	1,
+	[0 -7 0 56 0 -112 0 64]
+)
+.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/gen03-G.svg)

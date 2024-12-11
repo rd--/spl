@@ -9,7 +9,10 @@ returning a `Promise` which is fulfilled once the `Response` is available.
 Fetch a text file:
 
 ~~~
-let url = 'https://rohandrape.net/sw/spl/README.md';
+let url = [
+	'https://rohandrape.net/'
+	'sw/spl/README.md'
+].join('');
 url.fetch.then { :response |
 	response.text
 }.then { :text |
@@ -20,7 +23,10 @@ url.fetch.then { :response |
 Fetch a Json file:
 
 ~~~
-let url = 'https://rohandrape.net/sw/spl/config/preferences.json';
+let url = [
+	'https://rohandrape.net/'
+	'sw/spl/config/preferences.json'
+].join('');
 url.fetch.then { :response |
 	response.json
 }.then { :anObject |
@@ -31,28 +37,42 @@ url.fetch.then { :response |
 Fetch a binary file, read _Content-Type_ from `Headers`:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/squeak-mouse.png'
+].join('');
 url.fetch.then { :response |
-	response.headers.atIfAbsent('Content-Type') {
+	response
+	.headers
+	.atIfAbsent('Content-Type') {
 		''
-	}.postLine;
+	}
+	.postLine;
 	response.byteArray
 }.then { :aByteArray |
-	aByteArray.base64Encoded.postLine
+	aByteArray
+	.base64Encoded
+	.postLine
 }
 ~~~
 
 Fetch a binary file as a `Blob` with associated mime type:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/squeak-mouse.png'
+].join('');
 url.fetch.then { :response |
 	response.blob
 }.then { :aBlob |
 	aBlob.type.postLine;
 	aBlob.arrayBuffer
 }.then { :anArrayBuffer |
-	anArrayBuffer.asByteArray.base64Encoded.postLine
+	anArrayBuffer
+	.asByteArray
+	.base64Encoded
+	.postLine
 }
 ~~~
 

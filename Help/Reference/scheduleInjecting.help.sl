@@ -12,18 +12,27 @@ with random inter-offset delays, durations and pan locations:
 
 ~~~
 { :currentTime :midiNoteNumber |
-	['Midi', midiNoteNumber].postLine;
+	let n = midiNoteNumber;
 	Release(
 		EqPan(
-			SinOsc(midiNoteNumber.MidiCps, 0) * 0.1,
+			SinOsc(
+				n.MidiCps,
+				0
+			) * 0.1,
 			Rand(-1, 1)
 		),
 		0.01, Rand(3, 7), 0.9
 	).playAt(currentTime);
-	(midiNoteNumber <= 72).ifTrue {
+	(n <= 72).ifTrue {
 		[
-			[1 / 3, 1 / 2, 1, 3 / 2, 5].atRandom,
-			midiNoteNumber + 1
+			[
+				1 / 3,
+				1 / 2,
+				1,
+				3 / 2,
+				5
+			].atRandom,
+			n + 1
 		]
 	}
 }.scheduleInjecting(36)

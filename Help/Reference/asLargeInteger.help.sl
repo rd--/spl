@@ -21,7 +21,11 @@ At `ByteArray`:
 >>> 1:4.collect { :each | n.digitAt(each) }
 [1n 3n 5n 7n]
 
->>> [245 124 239 253 184 104 49 179 174 168 5 89 18].asByteArray.asLargeInteger
+>>> [
+>>> 	245 124 239 253 184
+>>> 	104 49 179 174 168
+>>> 	5 89 18
+>>> ].asByteArray.asLargeInteger
 1453657932340170668622419557621n
 ```
 

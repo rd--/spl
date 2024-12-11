@@ -5,8 +5,14 @@
 Regular expressions:
 
 ```
->>> 'A tree, an apple, four pears. And more: two sacks'.splitByRegExp('\\W+')
-['A' 'tree' 'an' 'apple' 'four' 'pears' 'And' 'more' 'two' 'sacks']
+>>> [
+>>> 	'A tree, an apple, four pears.'
+>>> 	'And more: two sacks'
+>>> ].join(' ').splitByRegExp('\\W+')
+[
+	'A' 'tree' 'an' 'apple' 'four' 'pears'
+	'And' 'more' 'two' 'sacks'
+]
 ```
 
 Split into substrings separated by either delimiter:

@@ -33,7 +33,8 @@ Permute several characters:
 
 ```
 >>> let a = 'english'.alphabet;
->>> let p = [1 6 18 2; 3 20 11].asPermutation;
+>>> let c = [1 6 18 2; 3 20 11];
+>>> let p = c.asPermutation;
 >>> a.permute(p).join('')
 'brkdeaghijtlmnopqfscuvwxyz'
 ```
@@ -59,7 +60,8 @@ When applied to the identity permutation list, `permute` is the inverse of `perm
 >>> [1 .. 10].permute([1 5 3; 4 2 8])
 [3 4 5 8 1 6 7 2 9 10]
 
->>> [3 4 5 8 1 6 7 2 9 10].permutationReplace([1 5 3; 4 2 8])
+>>> [3 4 5 8 1 6 7 2 9 10]
+>>> .permutationReplace([1 5 3; 4 2 8])
 [1 .. 10]
 ```
 
@@ -88,7 +90,7 @@ Applying `permute` to a vector is equivalent to multiplying the vector from the 
 
 * * *
 
-See also: cycles, findPermutation, permutationMatrix
+See also: cycles, findPermutation, permutationMatrix, permutationReplace
 
 References:
 _Mathematica_

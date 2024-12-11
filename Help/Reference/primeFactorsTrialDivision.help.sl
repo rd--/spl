@@ -17,7 +17,9 @@ Prime factors of the first seventeen integers:
 Prime factors of specific values:
 
 ```
->>> (2 ^ [43 47 53] - 1).collect(primeFactorsTrialDivision:/1)
+>>> (2 ^ [43 47 53] - 1).collect(
+>>> 	primeFactorsTrialDivision:/1
+>>> )
 [
 	431 9719 2099863;
 	2351 4513 13264529;

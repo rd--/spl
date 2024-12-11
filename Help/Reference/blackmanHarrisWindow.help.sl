@@ -12,14 +12,24 @@ Answer the _Blackman-Harris window_ function at _aNumber_.
 Plot:
 
 ~~~
-(-1 -- 1).functionPlot(blackmanHarrisWindow:/1)
+(-1 -- 1).functionPlot(
+	blackmanHarrisWindow:/1
+)
 ~~~
+
+![](sw/spl/Help/Image/blackmanHarrisWindow-A.svg)
 
 Discrete Blackman-Harris window of length 15:
 
 ~~~
-(-0.5 -- 0.5).discretize(15, blackmanHarrisWindow:/1).discretePlot
+(-0.5 -- 0.5).discretize(
+	15,
+	blackmanHarrisWindow:/1
+)
+.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/blackmanHarrisWindow-B.svg)
 
 * * *
 

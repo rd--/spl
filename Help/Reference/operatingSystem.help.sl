@@ -5,7 +5,10 @@
 Answer a `String` indicating the operating system.
 
 ```
->>> ['android', 'darwin', 'linux', 'windows'].includes(system.operatingSystem)
+>>> ['android' 'darwin' 'linux' 'windows']
+>>> .includes(
+>>> 	system.operatingSystem
+>>> )
 true
 ```
 

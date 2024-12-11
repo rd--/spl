@@ -12,9 +12,14 @@ according to the value of _aMimeType_, which should be either:
 Fetch Utf-8 encoded text:
 
 ~~~
-let url = 'https://rohandrape.net/sw/spl/README.md';
+let url = [
+	'https://rohandrape.net/'
+	'sw/spl/README.md'
+].join('');
 let mimeType = 'text/plain';
-url.fetchMimeType(mimeType).then { :aString |
+url.fetchMimeType(
+	mimeType
+).then { :aString |
 	aString.postLine
 }
 ~~~
@@ -22,9 +27,14 @@ url.fetchMimeType(mimeType).then { :aString |
 Fetch and decode `Json`:
 
 ~~~
-let url = 'https://rohandrape.net/sw/spl/config/preferences.json';
+let url = [
+	'https://rohandrape.net/'
+	'sw/spl/config/preferences.json'
+].join('');
 let mimeType = 'application/json';
-url.fetchMimeType(mimeType).then { :anObject |
+url.fetchMimeType(
+	mimeType
+).then { :anObject |
 	anObject.postLine
 }
 ~~~
@@ -32,10 +42,17 @@ url.fetchMimeType(mimeType).then { :anObject |
 Fetch binary data:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/squeak-mouse.png'
+].join('');
 let mimeType = 'application/octet-stream';
-url.fetchMimeType(mimeType).then { :aByteArray |
-	aByteArray.base64Encoded.postLine
+url.fetchMimeType(
+	mimeType
+).then { :aByteArray |
+	aByteArray
+	.base64Encoded
+	.postLine
 }
 ~~~
 

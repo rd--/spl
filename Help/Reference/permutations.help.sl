@@ -54,7 +54,8 @@ A permutation that leaves no element invariant is called a derangement:
 
 ```
 >>> 1:5.permutations.select { :each |
->>> 	(each =.map each.sorted).noneSatisfy(identity:/1)
+>>> 	(each =.map each.sorted)
+>>> 	.noneSatisfy(identity:/1)
 >>> }.size
 44
 ```
@@ -87,15 +88,19 @@ The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n
 ```
 
 The four element permutations,
-not that the answer is not in lexicographic order:
+note that the answer is not in lexicographic order:
 
 ```
 >>> [1 2 3 4].permutations
 [
-	1 2 3 4; 1 2 4 3; 1 3 2 4; 1 3 4 2; 1 4 3 2; 1 4 2 3;
-	2 1 3 4; 2 1 4 3; 2 3 1 4; 2 3 4 1; 2 4 3 1; 2 4 1 3;
-	3 2 1 4; 3 2 4 1; 3 1 2 4; 3 1 4 2; 3 4 1 2; 3 4 2 1;
-	4 2 3 1; 4 2 1 3; 4 3 2 1; 4 3 1 2; 4 1 3 2; 4 1 2 3
+	1 2 3 4; 1 2 4 3; 1 3 2 4;
+	1 3 4 2; 1 4 3 2; 1 4 2 3;
+	2 1 3 4; 2 1 4 3; 2 3 1 4;
+	2 3 4 1; 2 4 3 1; 2 4 1 3;
+	3 2 1 4; 3 2 4 1; 3 1 2 4;
+	3 1 4 2; 3 4 1 2; 3 4 2 1;
+	4 2 3 1; 4 2 1 3; 4 3 2 1;
+	4 3 1 2; 4 1 3 2; 4 1 2 3
 ]
 ```
 
@@ -114,11 +119,12 @@ the answer will too:
 Different algorithms answer the same permutations in different sequences:
 
 ```
->>> let a1 = [1 .. 4].permutations;
->>> let a2 = [1 .. 4].minimumChangePermutations;
->>> let a3 = [1 .. 4].lexicographicPermutations;
->>> let a4 = [1 .. 4].plainChanges;
->>> let a = [a1 a2 a3 a4];
+>>> let a = [
+>>> 	[1 .. 4].permutations,
+>>> 	[1 .. 4].minimumChangePermutations,
+>>> 	[1 .. 4].lexicographicPermutations,
+>>> 	[1 .. 4].plainChanges
+>>> ];
 >>> { :p :q | p ~= q }.table(a, a).boole
 [0 1 1 1; 1 0 1 1; 1 1 0 1; 1 1 1 0]
 ```

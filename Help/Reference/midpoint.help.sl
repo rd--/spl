@@ -46,7 +46,10 @@ The midpoint is equidistant from the two points:
 >>> let p1 = [1 2];
 >>> let p2 = [3 4];
 >>> let p3 = p1.midpoint(p2);
->>> (p1.euclideanDistance(p3), p2.euclideanDistance(p3))
+>>> (
+>>> 	p1.euclideanDistance(p3),
+>>> 	p2.euclideanDistance(p3)
+>>> )
 (2.sqrt, 2.sqrt)
 ```
 

@@ -56,7 +56,9 @@ A seven element permutation vector:
 The `determinant` is always one:
 
 ```
->>> [2 3 1].permutationMatrix.determinant
+>>> [2 3 1]
+>>> .permutationMatrix
+>>> .determinant
 1
 ```
 
@@ -90,7 +92,8 @@ The `transposed` is also the `inverse`:
 The dot product of a permutation matrix _m_ with it’s transpose is the identity matrix:
 
 ```
->>> let m = [4 5 1 3 2 6 7].permutationMatrix;
+>>> let l = [4 5 1 3 2 6 7];
+>>> let m = l.permutationMatrix;
 >>> m.dot(m.transposed)
 7.identityMatrix
 ```

@@ -8,20 +8,32 @@ If there are several common sequences of the same length, answer the one that be
 Find the longest noncontiguous sequence common to two strings:
 
 ```
->>> 'XMJYAUZ'.longestCommonSubsequence('MZJAWXU')
+>>> 'XMJYAUZ'
+>>> .longestCommonSubsequence(
+>>> 	'MZJAWXU'
+>>> )
 'MJAU'
 
->>> 'AAABBBBCCCCC'.longestCommonSubsequence('CCCBBBAAABABA')
+>>> 'AAABBBBCCCCC'
+>>> .longestCommonSubsequence(
+>>> 	'CCCBBBAAABABA'
+>>> )
 'AAABB'
 ```
 
 Find the longest noncontiguous sequence common to two lists:
 
 ```
->>> [1 2 3 4].longestCommonSubsequence([2 3 1 4])
+>>> [1 2 3 4]
+>>> .longestCommonSubsequence(
+>>> 	[2 3 1 4]
+>>> )
 [2 3 4]
 
->>> [1 2 3 4].longestCommonSubsequence([1 2 2 4 5 3 3 3 2 4])
+>>> [1 2 3 4]
+>>> .longestCommonSubsequence(
+>>> 	[1 2 2 4 5 3 3 3 2 4]
+>>> )
 [1 2 3 4]
 ```
 

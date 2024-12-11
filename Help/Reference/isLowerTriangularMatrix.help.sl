@@ -56,10 +56,12 @@ true
 Test rectangular matrices:
 
 ```
->>> [1 0 0; 2 3 0].isLowerTriangularMatrix
+>>> [1 0 0; 2 3 0]
+>>> .isLowerTriangularMatrix
 true
 
->>> [1 0; 2 3; 4 5].isLowerTriangularMatrix
+>>> [1 0; 2 3; 4 5]
+>>> .isLowerTriangularMatrix
 true
 ```
 

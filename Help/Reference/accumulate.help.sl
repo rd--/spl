@@ -21,7 +21,9 @@ Triangular numbers:
 Diagonals of Pascal’s triangle:
 
 ```
->>> accumulate:/1.nestList(1:5, 5).transposed
+>>> accumulate:/1
+>>> .nestList(1:5, 5)
+>>> .transposed
 [
 	1  1  1  1   1   1;
 	2  3  4  5   6   7;
@@ -44,7 +46,7 @@ Sfc32(89714)
 
 * * *
 
-See also: +, foldList, scan, prefixSum
+See also: +, foldList, prefixSum, scan
 
 References:
 _Mathematica_

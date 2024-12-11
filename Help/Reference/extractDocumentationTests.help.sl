@@ -5,7 +5,21 @@
 Answer the sequence of `DocumentationTest` blocks in the sequence of `String` items at _aList_.
 
 ```
->>> let string = 'a\nb\n\n```\n>>> c\nd\n```\ne\n```\n>>> f\ng\n```\nh';
+>>> let string = [
+>>> 	'a'
+>>> 	'b'
+>>> 	''
+>>> 	'```'
+>>> 	'>>> c'
+>>> 	'd'
+>>> 	'```'
+>>> 	'e'
+>>> 	'```'
+>>> 	'>>> f'
+>>> 	'g'
+>>> 	'```'
+>>> 	'h'
+>>> ].unlines;
 >>> let list = string.lines;
 >>> list.extractDocumentationTests
 [

@@ -8,7 +8,11 @@ The first 23 entries, c.f. OEIS A182097:
 
 ```
 >>> 23.vanDerLaanSequence
-[1 0 1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200]
+[
+	1 0 1 1 1 2 2 3 4 5
+	7 9 12 16 21 28 37 49 65 86
+	114 151 200
+]
 ```
 
 The table of the eight van der Laan measures:

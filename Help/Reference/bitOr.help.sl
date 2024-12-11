@@ -16,8 +16,8 @@ Answers the bitwise or of the integers _aNumber_ and _anotherNumber_.
 At `LargeInteger`:
 
 ```
->>> (3n ^ 100).bitOr(5n ^ 100)
-7888609052210118054117297117069515706082347426840895402878464599718897n
+>>> (3n ^ 40).bitOr(5n ^ 40)
+90949470206566400040055596489n
 ```
 
 Use negative numbers:
@@ -46,21 +46,29 @@ Truth table for or:
 
 Plot a nested pattern:
 
-~~~
+~~~spl svg=A
 1:100.bitOr(0:99).linePlot
 ~~~
 
+![](sw/spl/Help/Image/bitOr-A.svg)
+
 Plot `bitOr` with double:
 
-~~~
+~~~spl svg=B
 1:63.bitOr(2 * 1:64).linePlot
 ~~~
 
+![](sw/spl/Help/Image/bitOr-B.svg)
+
 Plot bitOr with double and triple:
 
+~~~spl svg=C
+1:64.functionPlot { :i |
+	[i, i * 2, i * 3].bitOr
+}
 ~~~
-1:64.functionPlot { :i | [i, i * 2, i * 3].bitOr }
-~~~
+
+![](sw/spl/Help/Image/bitOr-C.svg)
 
 * * *
 

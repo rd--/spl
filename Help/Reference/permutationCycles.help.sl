@@ -28,14 +28,16 @@ Permutation with three two-cycles:
 Cyclic form of a permutation list of length 10:
 
 ```
->>> [2 5 3 6 1 8 7 9 4 10].permutationCycles
+>>> [2 5 3 6 1 8 7 9 4 10]
+>>> .permutationCycles
 [1 2 5; 4 6 8 9]
 ```
 
 Identity permutation list, written with unary cycles:
 
 ```
->>> 1:5.permutationListToPermutationCycles(false)
+>>> 1:5
+>>> .permutationListToPermutationCycles(false)
 [1; 2; 3; 4; 5]
 ```
 
@@ -71,7 +73,9 @@ A histogram of the cycle count for the permutations of the symmetric group _S6_:
 >>> let p = 1:6.permutations;
 >>> let k = p.collect { :each |
 >>> 	each
->>> 	.permutationListToPermutationCycles(false)
+>>> 	.permutationListToPermutationCycles(
+>>> 		false
+>>> 	)
 >>> 	.size
 >>> };
 >>> k.asBag.sortedElements

@@ -7,14 +7,16 @@ Answer the permutation cycle, or orbit, of the permutation list _aSequence_ begi
 The answer begins at _anInteger_:
 
 ```
->>> [4 3 2 1].permutationListToPermutationCycle(3)
+>>> [4 3 2 1]
+>>> .permutationListToPermutationCycle(3)
 [3 2]
 ```
 
 Unary cycles are answered:
 
 ```
->>> [2 4 3 1].permutationListToPermutationCycle(3)
+>>> [2 4 3 1]
+>>> .permutationListToPermutationCycle(3)
 [3]
 ```
 
@@ -31,7 +33,8 @@ Form un-reduced permutation cycles by collecting each orbit separately:
 C.f. `permutationCycles`:
 
 ```
->>> [2 5 3 6 1 8 7 9 4 10].permutationCycles
+>>> [2 5 3 6 1 8 7 9 4 10]
+>>> .permutationCycles
 [1 2 5; 4 6 8 9]
 ```
 

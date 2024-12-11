@@ -29,7 +29,7 @@ tidyPost l =
 
 {- | Indented to fenced code blocks
 
-> s <- readFile "/home/rohan/sw/spl/help/Reference/abs.help.sl"
+> s <- readFile "/home/rohan/sw/spl/Help/Reference/abs.help.sl"
 > putStr $ unlines $ toDoctest (lines s)
 -}
 toDoctest :: [String] -> [String]

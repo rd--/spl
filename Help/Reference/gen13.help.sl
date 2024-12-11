@@ -25,6 +25,8 @@ let h = [
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 
+![](sw/spl/Help/Image/gen13-A.svg)
+
 Quasi-square wave transfer function:
 
 ~~~
@@ -36,6 +38,8 @@ let h = [
 ];
 513.gen13(1, 1, 0, h).linePlot
 ~~~
+
+![](sw/spl/Help/Image/gen13-B.svg)
 
 Quasi-triangle wave transfer function:
 
@@ -49,6 +53,8 @@ let h = [
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 
+![](sw/spl/Help/Image/gen13-C.svg)
+
 Transfer function:
 
 ~~~
@@ -59,12 +65,19 @@ let h = [
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 
+![](sw/spl/Help/Image/gen13-D.svg)
+
 Transfer function, high partials, sometimes without a fundamental, give inharmonic spectra:
 
 ~~~
-let h = [0 0 -0.1 0 0.3 0 -0.5 0 0.7 0 -0.9 0 1 0 -1 0];
+let h = [
+	0 0 -0.1 0 0.3 0 -0.5 0
+	0.7 0 -0.9 0 1 0 -1 0
+];
 513.gen13(1, 1, 0, h).linePlot
 ~~~
+
+![](sw/spl/Help/Image/gen13-E.svg)
 
 Another inharmonic spectra:
 
@@ -77,6 +90,8 @@ let h = [
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 
+![](sw/spl/Help/Image/gen13-F.svg)
+
 Split a sinusoid into 3 odd-harmonic partials of relative strength _5-3-1_:
 
 ~~~
@@ -84,9 +99,11 @@ let h = [5 0 3 0 1];
 513.gen13(1, 1, 0, h).linePlot
 ~~~
 
+![](sw/spl/Help/Image/gen13-G.svg)
+
 * * *
 
-See also: gen03
+See also: gen03, gen10
 
 Guides: Csound Gen Routines
 

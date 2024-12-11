@@ -64,11 +64,13 @@ Cayley table of _Z2^4_, also the binary 4-tuples combined by `bitXor`:
 
 Scatter plot of OEIS [A003188](https://oeis.org/A003188):
 
-~~~
-0:2000.collect { :n |
+~~~spl svg=A
+0:250.collect { :n |
 	(n / 2).floor.bitXor(n)
 }.scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/bitXor-A.svg)
 
 * * *
 

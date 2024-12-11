@@ -11,21 +11,24 @@ The answer has the same structure as _aCollection_.
 At `List`:
 
 ```
->>> ['a' ['b' ['c' ['d']]]].deepCollect(asUpperCase:/1)
+>>> ['a' ['b' ['c' ['d']]]]
+>>> .deepCollect(asUpperCase:/1)
 ['A' ['B' ['C' ['D']]]]
 ```
 
 At `Tuple`:
 
 ```
->>> ('a', ('b', ('c', 'd'))).deepCollect(asUpperCase:/1)
+>>> ('a', ('b', ('c', 'd')))
+>>> .deepCollect(asUpperCase:/1)
 ('A', ('B', ('C', 'D')))
 ```
 
 At `Record`:
 
 ```
->>> (x: 'a', y: (x: 'b', y: (x: 'c'))).deepCollect(asUpperCase:/1)
+>>> (x: 'a', y: (x: 'b', y: (x: 'c')))
+>>> .deepCollect(asUpperCase:/1)
 (x: 'A', y: (x: 'B', y: (x: 'C')))
 ```
 

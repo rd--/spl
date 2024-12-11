@@ -6,7 +6,9 @@ Answer at most the next _anInteger_ number of objects accessible by _aStream_.
 If the stream ends, the answer will contain fewer items than requested.
 
 ```
->>> 1:7.asStream.reject(isEven:/1).nextOrUpToEnd(5)
+>>> 1:7.asStream
+>>> .reject(isEven:/1)
+>>> .nextOrUpToEnd(5)
 [1 3 5 7]
 ```
 

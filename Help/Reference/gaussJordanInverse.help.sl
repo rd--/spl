@@ -30,7 +30,11 @@ Inverses of 3×3 integer matrices:
 Find the gaussJordanInverse of a 3×3 real valued matrix:
 
 ```
->>> [1.2 2.5 -3.2; 0.7 -9.4 5.8; -0.2 0.3 6.4].gaussJordanInverse
+>>> [
+>>> 	1.2 2.5 -3.2;
+>>> 	0.7 -9.4 5.8;
+>>> 	-0.2 0.3 6.4
+>>> ].gaussJordanInverse
 [
 	0.74546  0.20425  0.18763;
 	0.06792 -0.08478  0.11080;

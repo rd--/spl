@@ -31,7 +31,7 @@ Multiples of items in _aCollection_ will not necessarily be removed.
 
 * * *
 
-See also: remove, removeAllFoundIn
+See also: remove, removeAllFoundIn, removeAllSuchThat
 
 References:
 _Smalltalk_

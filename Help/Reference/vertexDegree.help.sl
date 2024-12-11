@@ -14,7 +14,11 @@ For a directed graph, an edge is incident to a vertex whether it is an in-edge o
 At a directed graph:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1, 2 -> 4].asGraph;
+>>> let g = [
+>>> 	1 -> 2,
+>>> 	2 -> 3, 2 -> 4,
+>>> 	3 -> 1
+>>> ].asGraph;
 >>> (g.vertexDegree, g.vertexDegree(2))
 ([2 3 2 1], 3)
 ```
@@ -30,7 +34,11 @@ At an undirected graph:
 At a multigraph:
 
 ```
->>> let g = [1 -> 2, 1 -> 2, 2 -> 3, 3 -> 1].asGraph;
+>>> let g = [
+>>> 	1 -> 2, 1 -> 2,
+>>> 	2 -> 3,
+>>> 	3 -> 1
+>>> ].asGraph;
 >>> (g.vertexDegree, g.vertexDegree(2))
 ([3 3 2], 3)
 ```
@@ -38,7 +46,9 @@ At a multigraph:
 Self-loops are counted twice:
 
 ```
->>> [1 2; 2 3; 3 1; 3 3].asGraph.vertexDegree
+>>> [1 2; 2 3; 3 1; 3 3]
+>>> .asGraph
+>>> .vertexDegree
 [2 2 4]
 ```
 
@@ -54,7 +64,11 @@ The vertex degrees of an undirected graph can be obtained from its adjacency mat
 ```
 >>> let g = [1 1; 1 2; 1 3; 2 3; 3 4].asGraph;
 >>> let m = g.adjacencyMatrix;
->>> (m, g.vertexDegree, m.transposed.sum +  m.diagonal)
+>>> (
+>>> 	m,
+>>> 	g.vertexDegree,
+>>> 	m.transposed.sum +  m.diagonal
+>>> )
 (
 	[
 		1 1 1 0;

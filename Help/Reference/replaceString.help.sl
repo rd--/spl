@@ -1,11 +1,12 @@
 # replaceString
 
-- _replaceString(aString, anotherString)_
+- _replaceString(aString, searchString, replaceString)_
 
 Replace substring:
 
 ```
->>> 'a short string'.replaceString('short', 'longer')
+>>> 'a short string'
+>>> .replaceString('short', 'longer')
 'a longer string'
 ```
 
@@ -19,7 +20,9 @@ Replace first occurence of one string with another:
 Replacement must be a string:
 
 ```
->>> { 'x x x'.replaceString('x', 1) }.ifError { true }
+>>> {
+>>> 	'x x x'.replaceString('x', 1)
+>>> }.ifError { true }
 true
 ```
 

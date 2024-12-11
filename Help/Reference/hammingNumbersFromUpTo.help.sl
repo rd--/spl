@@ -21,5 +21,13 @@ Hamming numbers up to 2^96:
 ```
 >>> let h = hammingNumbersFromUpTo(1n, 2 ^ 96);
 >>> (h.size, h[1691], h.last)
-(43210, 2125764000n, 79228162514264337593543950336n)
+(
+	43210,
+	2125764000n,
+	79228162514264337593543950336n
+)
 ```
+
+* * *
+
+See also: hammingDistance

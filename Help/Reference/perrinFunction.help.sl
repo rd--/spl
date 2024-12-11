@@ -28,7 +28,10 @@ The first few terms in negative direction:
 The first thirteen prime Perrin numbers:
 
 ```
->>> [2 3 4 5 6 7 10 12 20 21 24 34 38].collect(perrinFunction:/1)
+>>> [
+>>> 	2 3 4 5 6 7 10 12 20 21
+>>> 	24 34 38
+>>> ].collect(perrinFunction:/1)
 [
 	2 3 2 5 5 7 17 29 277 367
 	853 14197 43721

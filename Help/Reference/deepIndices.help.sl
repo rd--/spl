@@ -44,10 +44,12 @@ At `Tuple`:
 At `Record`:
 
 ```
->>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices
+>>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6))
+>>> .deepIndices
 ['x'; 'y' 'x'; 'y' 'y'; 'z' 'x'; 'z' 'y'; 'z' 'z']
 
->>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6)).deepIndices(isEven:/1)
+>>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6))
+>>> .deepIndices(isEven:/1)
 ['y' 'x'; 'z' 'x'; 'z' 'z']
 ```
 
@@ -59,7 +61,11 @@ At `Record`:
 >>> [l] @>.map i
 [1 2 3 4 5 6]
 
->>> let r = (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6));
+>>> let r = (
+>>> 	x: 1,
+>>> 	y: (x: 2, y:3),
+>>> 	z: (x: 4, y: 5, z: 6)
+>>> );
 >>> let i = r.deepIndices;
 >>> [r] @>.map i
 [1 2 3 4 5 6]
@@ -68,14 +74,16 @@ At `Record`:
 Find the positions at which zero occurs:
 
 ```
->>> [1 1 0; 0 1 1; 1 0 1].deepIndices(isZero:/1)
+>>> [1 1 0; 0 1 1; 1 0 1]
+>>> .deepIndices(isZero:/1)
 [1 3; 2 1; 3 2]
 ```
 
 Find positions with prime values:
 
 ```
->>> (x: 3, y: (x: 4, y: (x: 5))).deepIndices(isPrime:/1)
+>>> (x: 3, y: (x: 4, y: (x: 5)))
+>>> .deepIndices(isPrime:/1)
 ['x'; 'y' 'y' 'x']
 ```
 

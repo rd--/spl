@@ -19,7 +19,10 @@ Sum a list of sawtooths:
 The above is the same as this due to multichannel expansion:
 
 ```
-LfSaw([200.1, 500.2, 1200.3, 700.4], 0).Sum * 0.04
+LfSaw(
+	[200.1, 500.2, 1200.3, 700.4],
+	0
+).Sum * 0.04
 ```
 
 Sine oscillators:
@@ -36,7 +39,10 @@ Sine oscillators:
 Sum nine oscillators, utilising two _Sum4_ Ugens and two _Add_ Ugens:
 
 ```
-SinOsc({ Rand(111, 555) } ! 9, 0).Sum / 27
+SinOsc(
+	{ Rand(111, 555) } ! 9,
+	0
+).Sum / 27
 ```
 
 * * *

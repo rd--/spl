@@ -14,7 +14,8 @@ The first eleven Pell-Lucas numbers (OEIS A002203):
 Pell-Lucas numbers are always even:
 
 ```
->>> 33.pellLucasNumbers.allSatisfy(isEven:/1)
+>>> 33.pellLucasNumbers
+>>> .allSatisfy(isEven:/1)
 true
 ```
 

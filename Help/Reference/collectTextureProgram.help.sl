@@ -8,10 +8,14 @@ evaluate _aBlock_ at each element of _aCollection_ with _aDelay.value_ seconds b
 Play ascending diatonic scale:
 
 ```
-[0 2 4 5 7 9 11 12].collectTextureProgram { :pitchClass |
+[0 2 4 5 7 9 11 12]
+.collectTextureProgram { :pitchClass |
 	Release(
 		EqPan2(
-			SinOsc(MidiCps(pitchClass + 48), 0) * 0.1,
+			SinOsc(
+				MidiCps(pitchClass + 48),
+				0
+			) * 0.1,
 			Rand(-1, 1)
 		),
 		3, 4, 3
