@@ -133,4 +133,32 @@
 		}
 	}
 
+	kurenniemiNotation { :self |
+		let chordDegrees = self.ratioToCents / 100;
+		let upper = chordDegrees.max + 1;
+		let lineDegrees = [2 5 9 12 16 19 23];
+		let allLines = 0:3.collect { :each |
+			each * 24 + lineDegrees
+		}.concatenation.takeWhile { :each |
+			each <= upper
+		};
+		let staffLines = [
+			19 23 26 29 33
+			40 43 47 50 53
+		];
+		[
+			allLines.collect { :y |
+				let [x1, x2] = staffLines.includes(y).if {
+					[0 30]
+				} {
+					[10 20]
+				};
+				Line([x1 y; x2 y])
+			},
+			chordDegrees.collect { :y |
+				Point([15 y])
+			}
+		].LineDrawing
+	}
+
 }

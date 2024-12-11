@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="31.6" height="100.0" viewBox="-5.0 -5.0 41.6 110.0">
-<g fill="none" stroke="black" stroke-width="0.4750%" transform="translate(0, 100.0000) scale(1.0526, -1.0526)">
+<svg xmlns="http://www.w3.org/2000/svg" width="42.3" height="100.0" viewBox="-5.0 -5.0 52.3 110.0">
+<g fill="none" stroke="black" stroke-width="0.3550%" transform="translate(0, 100.0000) scale(1.4085, -1.4085)">
 <line x1="10.0" y1="2.0" x2="20.0" y2="2.0" />
 <line x1="10.0" y1="5.0" x2="20.0" y2="5.0" />
 <line x1="10.0" y1="9.0" x2="20.0" y2="9.0" />
@@ -21,24 +21,17 @@
 <line x1="10.0" y1="64.0" x2="20.0" y2="64.0" />
 <line x1="10.0" y1="67.0" x2="20.0" y2="67.0" />
 <line x1="10.0" y1="71.0" x2="20.0" y2="71.0" />
-<line x1="10.0" y1="74.0" x2="20.0" y2="74.0" />
-<line x1="10.0" y1="77.0" x2="20.0" y2="77.0" />
-<line x1="10.0" y1="81.0" x2="20.0" y2="81.0" />
-<line x1="10.0" y1="84.0" x2="20.0" y2="84.0" />
-<line x1="10.0" y1="88.0" x2="20.0" y2="88.0" />
-<line x1="10.0" y1="91.0" x2="20.0" y2="91.0" />
-<line x1="10.0" y1="95.0" x2="20.0" y2="95.0" />
-<circle cx="15.0" cy="0.0" r="0.5" />
-<circle cx="15.0" cy="12.0" r="0.5" />
-<circle cx="15.0" cy="19.0" r="0.5" />
-<circle cx="15.0" cy="24.0" r="0.5" />
-<circle cx="15.0" cy="27.9" r="0.5" />
-<circle cx="15.0" cy="31.0" r="0.5" />
-<circle cx="15.0" cy="39.9" r="0.5" />
-<circle cx="15.0" cy="43.0" r="0.5" />
-<circle cx="15.0" cy="46.9" r="0.5" />
-<circle cx="15.0" cy="51.9" r="0.5" />
-<circle cx="15.0" cy="58.9" r="0.5" />
-<circle cx="15.0" cy="70.9" r="0.5" />
+<circle cx="15.0" cy="0.0" r="0.4" />
+<circle cx="15.0" cy="12.0" r="0.4" />
+<circle cx="15.0" cy="19.0" r="0.4" />
+<circle cx="15.0" cy="24.0" r="0.4" />
+<circle cx="15.0" cy="27.9" r="0.4" />
+<circle cx="15.0" cy="31.0" r="0.4" />
+<circle cx="15.0" cy="39.9" r="0.4" />
+<circle cx="15.0" cy="43.0" r="0.4" />
+<circle cx="15.0" cy="46.9" r="0.4" />
+<circle cx="15.0" cy="51.9" r="0.4" />
+<circle cx="15.0" cy="58.9" r="0.4" />
+<circle cx="15.0" cy="70.9" r="0.4" />
 </g>
 </svg>
