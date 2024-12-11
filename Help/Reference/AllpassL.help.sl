@@ -47,15 +47,13 @@ Show calculation of feedback coefficient and decay time:
 ```
 >>> let delayTime = 0.1;
 >>> let decayTime = 1;
->>> let feedbackCoefficient = 0.001 ^ (delayTime / decayTime.abs) * decayTime.sign;
->>> feedbackCoefficient.roundTo(0.01)
-0.5
+>>> 0.001 ^ (delayTime / decayTime.abs) * decayTime.sign
+0.5012
 
 >>> let delayTime = 0.1;
 >>> let feedbackCoefficient = 0.5;
->>> let decayTime = delayTime / (feedbackCoefficient.log / 0.001.log.abs);
->>> decayTime.roundTo(0.01)
--1
+>>> delayTime / (feedbackCoefficient.log / 0.001.log.abs)
+-0.9966
 ```
 
 * * *

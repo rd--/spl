@@ -10,12 +10,14 @@ A `Bitmap` is a discrete image where each cell is either `zero` or `one`.
 >>> [1 0 0; 0 1 0; 0 0 1]
 >>> .Bitmap
 >>> .asPbm
-'P1
-3 3
-1 0 0
-0 1 0
-0 0 1
-'
+[
+	'P1'
+	'3 3'
+	'1 0 0'
+	'0 1 0'
+	'0 0 1'
+	''
+].unlines
 ```
 
 Draw `identityMatrix`:

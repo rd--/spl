@@ -8,9 +8,8 @@ Find three nice numbers:
 
 ```
 >>> [0.0415 0.0681 0.0896].collect(
-	niceNumberNear:/1
-)
-
+>>> 	niceNumberNear:/1
+>>> )
 [0.05 0.075 0.1]
 ```
 
