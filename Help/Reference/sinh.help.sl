@@ -33,7 +33,7 @@ Plot over a subset of the reals:
 
 Draw a hyperbola:
 
-~~~
+~~~spl svg=B
 (-1 -- 1).parametricPlot(sinh:/1, cosh:/1)
 ~~~
 

@@ -28,7 +28,7 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0 -- 2.pi).functionPlot { :x |
 	x.tan.clip(-6, 6)
 }

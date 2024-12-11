@@ -99,7 +99,7 @@ Lengths of longer Farey sequences, _50_ then _200, 300, 400, 500_:
 
 Plot terms of Farey sequence:
 
-~~~
+~~~spl svg=A
 23.fareySequence.linePlot
 ~~~
 
@@ -107,16 +107,20 @@ Plot terms of Farey sequence:
 
 Plot numerators:
 
-~~~
-23.fareySequence.numerator.discretePlot
+~~~spl svg=B
+23.fareySequence
+.numerator
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-B.svg)
 
 Plot denominators:
 
-~~~
-23.fareySequence.denominator.discretePlot
+~~~spl svg=C
+23.fareySequence
+.denominator
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-C.svg)

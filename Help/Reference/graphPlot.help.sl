@@ -13,7 +13,7 @@ Plot a complete graph on eight vertices:
 Plot a random graph of twenty vertices.
 The probablity of an edge occuring is 5%:
 
-~~~
+~~~spl svg=B
 let r = Sfc32(379714);
 let m = { (r.next < 0.05).boole } ! [20 20];
 m.adjacencyGraph.graphPlot
@@ -21,17 +21,18 @@ m.adjacencyGraph.graphPlot
 
 ![](sw/spl/Help/Image/graphPlot-B.svg)
 
-A graph of 64 vertices where edges indicated that one number can been derived from the other by the insertion of one bit:
+A graph of 32 vertices,
+edges indicate that one number can been derived from the other by the insertion of one bit:
 
-~~~
-(0 .. 2 ^ 6 - 1).collect { :j |
+~~~spl svg=C
+(0 .. 2 ^ 5 - 1).collect { :j |
 	let p = j.integerDigits(2);
 	(1 .. p.size + 1).collect { :i |
 		let q = p.copy;
 		q.insertAt(1, i);
 		j -> q.fromDigits(2)
 	}
-}.flatten.nub.asGraph.graphPlot
+}.flatten.nub.sizeasGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/graphPlot-C.svg)

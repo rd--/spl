@@ -102,6 +102,13 @@ Ellipse : [Object] { | center radii |
 		pi * rx * ry
 	}
 
+	boundingBox { :self |
+		[
+			self.center - self.radii,
+			self.center + self.radii
+		]
+	}
+
 	eccentricity { :self |
 		let [a, b] = self.radii;
 		(1 - (b / a).squared).sqrt

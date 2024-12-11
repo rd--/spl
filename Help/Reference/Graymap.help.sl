@@ -39,6 +39,18 @@ let i = (0 -- 5).subdivide(k);
 
 ![](sw/spl/Help/Image/Graymap-A.png)
 
+Plot the `sin` function at integer points:
+
+~~~spl png=B
+let i = -90:90;
+{ :x :y |
+	(x * y * 1E-3).sin * 0.5 + 0.5
+}.table(i, i)
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/Graymap-B.png)
+
 * * *
 
 See also: Bitmap, matrixPlot, Svg

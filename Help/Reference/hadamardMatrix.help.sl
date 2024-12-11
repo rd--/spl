@@ -114,6 +114,14 @@ Plot the 16×16 Hadamard matrix:
 
 ![](sw/spl/Help/Image/hadamardMatrix-A.svg)
 
+Draw the 128×128 Hadamard matrix:
+
+~~~spl png=B
+(128.hadamardMatrix + 1 / 2).Bitmap
+~~~
+
+![](sw/spl/Help/Image/hadamardMatrix-B.png)
+
 * * *
 
 See also: walshMatrix

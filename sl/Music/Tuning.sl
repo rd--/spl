@@ -149,16 +149,16 @@
 		[
 			allLines.collect { :y |
 				let [x1, x2] = staffLines.includes(y).if {
-					[0 30]
+					[0 15]
 				} {
-					[10 20]
+					[5 10]
 				};
 				Line([x1 y; x2 y])
 			},
 			chordDegrees.collect { :y |
-				Point([15 y])
+				Ellipse([7.5, y], [4 / 5, 2 / 3])
 			}
-		].LineDrawing
+		].LineDrawing(height: 300)
 	}
 
 }

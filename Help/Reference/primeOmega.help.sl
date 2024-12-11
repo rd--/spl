@@ -55,7 +55,7 @@ true
 
 Plot the `primeOmega` sequence for the first 100 numbers:
 
-~~~
+~~~spl svg=A
 (1:100).functionPlot(primeOmega:/1)
 ~~~
 

@@ -17,7 +17,7 @@ Plot a parametric curve:
 
 Circle:
 
-~~~
+~~~spl svg=B
 (0 -- 2.pi).parametricPlot(cos:/1, sin:/1)
 ~~~
 
@@ -25,7 +25,7 @@ Circle:
 
 Undersampling:
 
-~~~spl svg=A
+~~~spl svg=C
 (0 -- 100).parametricPlot(
 	{ :u | u * u.sin },
 	{ :u | u * u.cos }

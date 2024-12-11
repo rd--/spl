@@ -46,7 +46,7 @@ The first few squareful numbers are:
 
 Plot the first few squarefree numbers:
 
-~~~
+~~~spl svg=A
 1:99.select(isSquareFree:/1).linePlot
 ~~~
 
@@ -54,7 +54,7 @@ Plot the first few squarefree numbers:
 
 Plot the first few squareful numbers:
 
-~~~
+~~~spl svg=B
 1:99.select { :n |
 	n.isSquareFree.not
 }.linePlot

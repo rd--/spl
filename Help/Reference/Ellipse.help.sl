@@ -10,6 +10,13 @@ A `Type` that represents an axis aligned ellipse of _radii_ at _center_.
 (true, [0 0], [2 1])
 ```
 
+The bounding box of an ellipse:
+
+```
+>>> Ellipse([0 0], [2 1]).boundingBox
+[-2 -1; 2 1]
+```
+
 The Svg description of an ellipse:
 
 ```

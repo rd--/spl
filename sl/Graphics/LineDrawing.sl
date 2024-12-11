@@ -1,6 +1,6 @@
 /* Requires: Svg */
 
-LineDrawing : [Object] { | contents |
+LineDrawing : [Object] { | contents metadata |
 
 	asImg { :self |
 		let svgText = self.asSvg;
@@ -10,7 +10,7 @@ LineDrawing : [Object] { | contents |
 	}
 
 	asSvg { :self |
-		let height = 100;
+		let height = self.metadata['height'];
 		let actualBoundingBox = self.boundingBox.asRectangle;
 		let boundingBox = actualBoundingBox.height.isZero.if {
 			Rectangle(
@@ -66,8 +66,12 @@ LineDrawing : [Object] { | contents |
 		self.Line.asLineDrawing
 	}
 
+	LineDrawing { :self :options |
+		newLineDrawing().initializeSlots(self.flatten, options)
+	}
+
 	LineDrawing { :self |
-		newLineDrawing().initializeSlots(self.flatten)
+		self.LineDrawing(height: 100)
 	}
 
 }

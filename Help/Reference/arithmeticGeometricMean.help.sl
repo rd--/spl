@@ -37,9 +37,13 @@ The `reciprocal` of the arithmetic–geometric mean of `one` and the square root
 
 Plot over a subset of the reals:
 
+~~~spl svg=A
+(0 -- 1).functionPlot { :x |
+	1.arithmeticGeometricMean(x)
+}
 ~~~
-(0 -- 1).functionPlot { :x | 1.arithmeticGeometricMean(x) }
-~~~
+
+![](sw/spl/Help/Image/arithmeticGeometricMean-A.svg)
 
 Special values: OEIS A068521, A084895, A084896 & A084897:
 

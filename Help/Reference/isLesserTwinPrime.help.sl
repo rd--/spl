@@ -6,7 +6,9 @@ Answer `true` if _anInteger_ is the first (lesser) element of a twin prime pair.
 Twin primes are pairs of primes of the form _(p, p + 2)_.
 
 ```
->>> 3:1607.select(isLesserTwinPrime:/1) + 1
+>>> 3:1607.select(
+>>> 	isLesserTwinPrime:/1
+>>> ) + 1
 [
 	4 6 12 18 30 42 60 72
 	102 108 138 150 180 192 198
@@ -26,9 +28,13 @@ Twin primes are pairs of primes of the form _(p, p + 2)_.
 
 Plot:
 
+~~~spl svg=A
+3:1607
+.select(isLesserTwinPrime:/1)
+.linePlot
 ~~~
-3:1607.select(isLesserTwinPrime:/1).linePlot
-~~~
+
+![](sw/spl/Help/Image/isLesserTwinPrime-A.svg)
 
 * * *
 

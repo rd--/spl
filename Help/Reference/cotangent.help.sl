@@ -29,7 +29,7 @@ z.cotangent
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot { :x |
 	x.cotangent.clip(-6, 6)
 }

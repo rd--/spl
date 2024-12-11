@@ -8,7 +8,7 @@ It is also the distribution of the ratio of two independent normally distributed
 
 Plot `pdf` over a subset of the reals:
 
-~~~
+~~~spl svg=A
 let d = CauchyDistribution(0, 2);
 (-7 -- 7).functionPlot { :x |
 	d.pdf(x)
@@ -19,7 +19,7 @@ let d = CauchyDistribution(0, 2);
 
 Plot `cdf` over a subset of the reals:
 
-~~~
+~~~spl svg=B
 let d = CauchyDistribution(0, 2);
 (-7 -- 7).functionPlot { :x |
 	d.cdf(x)
@@ -30,7 +30,7 @@ let d = CauchyDistribution(0, 2);
 
 Plot `quantile` over a subset of the reals:
 
-~~~
+~~~spl svg=C
 let d = CauchyDistribution(10, 3.5);
 (0.05 -- 0.95).functionPlot { :x |
 	d.quantile(x).clip(-30, 50)
@@ -41,7 +41,7 @@ let d = CauchyDistribution(10, 3.5);
 
 Plot `randomVariate`:
 
-~~~
+~~~spl svg=D
 let r = Sfc32(14232);
 let d = CauchyDistribution(0, 0.025);
 d.randomVariate(r, 99).clip(-1, 1).linePlot

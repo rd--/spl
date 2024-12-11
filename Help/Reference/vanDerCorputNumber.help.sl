@@ -58,7 +58,7 @@ n.integerDigits(k).reversed.fromDigits(k)
 
 Plot decimal sequence:
 
-~~~
+~~~spl svg=A
 let v = 1:300.vanDerCorputNumber(10);
 v.asFloat.linePlot
 ~~~
@@ -67,7 +67,7 @@ v.asFloat.linePlot
 
 Plot numerators of decimal sequence:
 
-~~~
+~~~spl svg=B
 let v = 1:300.vanDerCorputNumber(10);
 v.numerator.linePlot
 ~~~

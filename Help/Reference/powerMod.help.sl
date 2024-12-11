@@ -23,7 +23,7 @@ Use `powerMod` to generate all coprime integers modulo 9:
 
 Plot the sequence with fixed powers:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot { :x |
 	x.powerMod(2, 11)
 }
@@ -33,7 +33,7 @@ Plot the sequence with fixed powers:
 
 Plot the sequence with varying powers:
 
-~~~
+~~~spl svg=B
 1:50.functionPlot { :x |
 	2.powerMod(x, 11)
 }
@@ -43,7 +43,7 @@ Plot the sequence with varying powers:
 
 Plot a list of powers of 3 where the exponent is varied, modulo some prime number:
 
-~~~
+~~~spl svg=C
 let n = 22.nthPrime;
 1:n.functionPlot { :x |
 	3.powerMod(x, n)

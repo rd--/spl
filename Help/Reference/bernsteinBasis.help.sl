@@ -13,11 +13,13 @@ Evaluate a Bernstein basis polynomial numerically:
 
 Plot:
 
-~~~
+~~~spl svg=A
 (0 -- 1).functionPlot { :x |
 	4.bernsteinBasis(3, x)
 }
 ~~~
+
+![](sw/spl/Help/Image/bernsteinBasis-A.svg)
 
 * * *
 

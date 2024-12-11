@@ -125,7 +125,7 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 
 Plot divisor function _σ₀(n)_ up to _n = 100_:
 
-~~~
+~~~spl svg=A
 1:100.functionPlot { :x |
 	0.divisorSigma(x)
 }
@@ -135,7 +135,7 @@ Plot divisor function _σ₀(n)_ up to _n = 100_:
 
 Plot divisor function _σ₁(n)_ up to _n = 100_:
 
-~~~
+~~~spl svg=B
 1:100.functionPlot { :x |
 	1.divisorSigma(x)
 }
@@ -145,7 +145,7 @@ Plot divisor function _σ₁(n)_ up to _n = 100_:
 
 Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
 
-~~~
+~~~spl svg=C
 1:100.functionPlot { :x |
 	2.divisorSigma(x).log
 }

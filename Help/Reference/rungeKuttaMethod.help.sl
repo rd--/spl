@@ -9,27 +9,39 @@ The start time is _x0_, the end time is _x1_ and the step size is _h_.
 
 Solve and plot a first-order ordinary differential equation (ODE):
 
-~~~
+~~~spl svg=A
 { :x :y |
 	y * (x + y).cos
-}.rungeKuttaMethod(1, 0, 30, 0.1).linePlot
+}.rungeKuttaMethod(1, 0, 30, 0.1)
+.second
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/rungeKuttaMethod-A.svg)
 
 Over a smaller domain with smaller time step:
 
-~~~
+~~~spl svg=B
 { :x :y |
 	y * x.sin.squared
-}.rungeKuttaMethod(1, 0, 5, 0.05).linePlot
+}.rungeKuttaMethod(1, 0, 5, 0.05)
+.second
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/rungeKuttaMethod-B.svg)
 
 An equation that does not consult _y_:
 
-~~~
+~~~spl svg=C
 { :x :y |
 	2 * x
-}.rungeKuttaMethod(0, 0, 5, 0.1).linePlot
+}.rungeKuttaMethod(0, 0, 5, 0.1)
+.second
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/rungeKuttaMethod-C.svg)
 
 Solve with timestep of 0.1 and downsample to show results at time steps of one:
 
@@ -55,17 +67,18 @@ Solve with timestep of 0.1 and downsample to show results at time steps of one:
 
 Solve van der Pol equation, a second-order ODE, with mu = 1, plot phase diagram:
 
-~~~
-let vdp = { :x :y |
+~~~spl svg=D
+{ :x :y |
 	[
 		y[2],
 		(1 - (y[1] ^ 2)) * y[2] - y[1]
 	]
-};
-let [x, y] = vdp:/2.rungeKuttaMethod([2 0], 0, 20, 0.1);
-let [y1, y2] = y.transposed;
-[y1, y2].linePlot
+}.rungeKuttaMethod([2 0], 0, 20, 0.1)
+.second
+.linePlot
 ~~~
+
+![](sw/spl/Help/Image/rungeKuttaMethod-D.svg)
 
 * * *
 

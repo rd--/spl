@@ -12,7 +12,7 @@ The default value for _defaultValue_ is _0.constant_.
 
 Plot a piecewise function with different pieces below and above zero:
 
-~~~
+~~~spl svg=A
 let pieces = [
 	({ :x | x ^ 2 }, { :x | x < 0 }),
 	({ :x | x }, { :x | x > 0 })
@@ -23,23 +23,32 @@ let pieceWise = Piecewise(pieces);
 }
 ~~~
 
+![](sw/spl/Help/Image/Piecewise-A.svg)
+
 Plot another piecewise function with branches below and at zero, and with a _defaultValue_:
 
-~~~
+~~~spl svg=B
 let pieces = [
 	({ :x | x.sin / x }, { :x | x < 0}),
 	({ :x | 1 }, { :x | x = 0 })
 ];
-let defaultValue = { :x | (x ^ 2).- / 100 + 1 };
-let pieceWise = Piecewise(pieces, defaultValue:/1) ;
+let defaultValue = { :x |
+	(x ^ 2).- / 100 + 1
+};
+let pieceWise = Piecewise(
+	pieces,
+	defaultValue:/1
+);
 (-10 -- 10).functionPlot { :x |
 	pieceWise.value(x)
 }
 ~~~
 
+![](sw/spl/Help/Image/Piecewise-B.svg)
+
 If values are not specified in a region, they are assumed to be zero:
 
-~~~
+~~~spl svg=C
 let piece = ({ :x | x.sqrt }, { :x | x > 0 });
 let pieceWise = Piecewise([piece]);
 (-2 -- 2).functionPlot { :x |
@@ -47,16 +56,23 @@ let pieceWise = Piecewise([piece]);
 }
 ~~~
 
+![](sw/spl/Help/Image/Piecewise-C.svg)
+
 Specify a default value of one:
 
-~~~
+~~~spl svg=D
 let piece = ({ :x | x.sqrt }, { :x | x > 0 });
 let defaultValue = { :x | 1 };
-let pieceWise = Piecewise([piece], defaultValue:/1);
+let pieceWise = Piecewise(
+	[piece],
+	defaultValue:/1
+);
 (-2 -- 2).functionPlot { :x |
 	pieceWise.value(x)
 }
 ~~~
+
+![](sw/spl/Help/Image/Piecewise-D.svg)
 
 * * *
 

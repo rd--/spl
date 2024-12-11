@@ -6,7 +6,7 @@ Answer a plot that gives a visual representation of the elements in a matrix.
 
 Plot a 3×3 matrix:
 
-~~~
+~~~spl svg=A
 [
 	1 2 1;
 	3 0 1;
@@ -18,7 +18,7 @@ Plot a 3×3 matrix:
 
 Plot a 10×10 matrix (see also _n = 100_):
 
-~~~
+~~~spl svg=B
 let n = 10;
 { :i :j |
 	[
@@ -37,7 +37,7 @@ let n = 10;
 
 Plot the imaginary parts of a discrete Fourier transform 24×24 matrix (see also _n = 33_):
 
-~~~
+~~~spl svg=C
 let n = 24;
 { :i :j |
 	(2.pi.i * i * j / n).exp.imaginary
@@ -48,11 +48,11 @@ let n = 24;
 
 Plot a table of values of five sine waves in random directions (see also _k = 100_):
 
-~~~
+~~~spl svg=D
 let r = Sfc32(31684);
 let n = r.randomReal(0, 10, [5 2]);
-let k = 35;
-let i = (0 -- 5).subdivide(k);
+let k = 20;
+let i = (0 -- 2).subdivide(k);
 { :x :y |
 	n.collect { :each |
 		each.dot([x, y]).sin
@@ -65,9 +65,9 @@ let i = (0 -- 5).subdivide(k);
 Plot the `sin` function at integer points:
 
 ~~~
-let i = -20:20;
+let i = -12:12;
 { :x :y |
-	(x * y / 50).sin
+	(x * y / 4).sin
 }.table(i, i).matrixPlot
 ~~~
 

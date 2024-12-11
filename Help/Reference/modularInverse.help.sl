@@ -116,7 +116,7 @@ true
 
 Plot the sequence with a fixed modulus:
 
-~~~
+~~~spl svg=A
 1:16.collect { :k |
 	k.modularInverse(17)
 }.discretePlot

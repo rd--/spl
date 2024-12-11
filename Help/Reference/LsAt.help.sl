@@ -6,7 +6,7 @@ At each step answer _at_ of _indices_ into _list_.
 
 Plot:
 
-~~~
+~~~spl svg=A
 let l = [1, 3 .. 23];
 LsAt(
 	l,

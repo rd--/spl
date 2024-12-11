@@ -29,7 +29,7 @@ The inverse transform is `ifft`:
 
 Plot complete symmetrical spectrum of two sine tones:
 
-~~~
+~~~spl svg=A
 let n = 256;
 let p = (0 -- 2.pi).discretize(n);
 let x = p.collect { :x |
@@ -42,7 +42,7 @@ let x = p.collect { :x |
 
 Plot half spectrum of two sine tones with added white noise:
 
-~~~
+~~~spl svg=B
 let n = 256;
 let m = n / 2;
 let p = (0 -- 2.pi).discretize(n);
