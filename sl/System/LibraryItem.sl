@@ -6,6 +6,10 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 		self.contents.notNil
 	}
 
+	isLocal { :self |
+		system.localStorage.includesKey(self.storageKey)
+	}
+
 	fetch { :self |
 		self.url.asUrl.fetchMimeType(self.mimeType).then { :answer |
 			self.useLocalStorage.ifTrue {
@@ -40,7 +44,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 			self.contents.ifNotNil { :answer |
 				resolve(answer)
 			} {
-				system.localStorage.includesKey(self.storageKey).if {
+				self.isLocal.if {
 					self.readLocalStorage;
 					resolve(self.contents)
 				} {
@@ -56,8 +60,13 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 
 	require { :self |
 		self.contents.ifNil {
-			self.request;
-			self.error('require: item not on shelf, requested')
+			self.isLocal.if {
+				self.readLocalStorage;
+				self.contents
+			} {
+				self.request;
+				self.error('require: item not on shelf, requested')
+			}
 		}
 	}
 

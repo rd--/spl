@@ -1,16 +1,8 @@
-+System {
-
-	superColliderProgramOracle { :self |
-		self.requestLibraryItem('Music/SuperCollider/ProgramOracle')
-	}
-
-}
-
 SuperColliderProgramOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.superColliderProgramIndex.then { :superColliderProgramIndex |
-			smallKansas.superColliderProgramOracle.then { :superColliderProgramOracle |
+		system.superColliderProgramIndex.then { :superColliderProgramIndex |
+			system.superColliderProgramOracle.then { :superColliderProgramOracle |
 				smallKansas.addFrame(
 					smallKansas.SuperColliderProgramBrowser(
 						superColliderProgramIndex,
@@ -23,10 +15,3 @@ SuperColliderProgramOracle : [Object, SmallKansan] {
 	}
 
 }
-
-LibraryItem(
-	name: 'Music/SuperCollider/ProgramOracle',
-	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
-	mimeType: 'text/plain',
-	parser: SuperColliderProgramIndex:/1
-)

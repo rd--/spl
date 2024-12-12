@@ -1,23 +1,36 @@
 # keysAndValuesDo
 
-- _keysAndValuesDo(aDictionary, aBlock:/2)_
+- _keysAndValuesDo(aDictionary | aSequence, aBlock:/2)_
 
 Apply _aBlock_ to each `key` and `value` of _aDictionary_.
 
+At `Record`:
+
 ```
->>> let list = [];
+>>> let answer = [];
 >>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value |
->>> 	list.addAll([key, value])
+>>> 	answer.addAll([key, value])
 >>> };
->>> list
+>>> answer
 ['x' 1 'y' 2 'z' 3]
+```
+
+At `List`:
+
+```
+>>> let answer = [];
+>>> ['x' 'y' 'z'].keysAndValuesDo { :key :value |
+>>> 	answer.addAll([key, value])
+>>> };
+>>> answer
+[1 'x' 2 'y' 3 'z']
 ```
 
 Iterate over keys and values:
 
 ```
 >>> let n = 0;
->>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value |
+>>> (x: 1, y: 2, z: 3).keysAndValuesDo { :unusedKey :value |
 >>> 	n := n + value
 >>> };
 >>> n
@@ -26,7 +39,7 @@ Iterate over keys and values:
 
 * * *
 
-See also: associationsDo, do, keysDo, valuesDo, withIndexDo
+See also: associationsDo, do, fromTokeysAndValuesDo, keysAndValuesCollect, keysDo, valuesDo, withIndexDo
 
 References:
 _Smalltalk_

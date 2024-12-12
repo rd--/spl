@@ -4,18 +4,21 @@
 
 Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop (inclusive).
 
+At `List`:
+
 ```
->>> let list = [];
->>> 1:9.fromToKeysAndValuesDo(3, 7) { :each :index |
->>> 	list.add([each.-, index])
+>>> let list = 1:9.collect(printString:/1);
+>>> let answer = [];
+>>> list.fromToKeysAndValuesDo(3, 7) { :key :value |
+>>> 	answer.add([key.negated, value])
 >>> };
->>> list
-[-3 3; -4 4; -5 5; -6 6; -7 7]
+>>> answer
+[-3 '3'; -4 '4'; -5 '5'; -6 '6'; -7 '7']
 ```
 
 * * *
 
-See also: do, fromToDo, toDo
+See also: do, fromToDo, keysAndValuesDo, toDo
 
 References:
 _Smalltalk_

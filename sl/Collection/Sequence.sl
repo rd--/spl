@@ -1039,7 +1039,7 @@
 
 	fromToKeysAndValuesDo { :self :start :stop :aBlock:/2 |
 		start.toDo(stop) { :index |
-			aBlock(self[index], index)
+			aBlock(index, self[index])
 		}
 	}
 
@@ -1455,6 +1455,12 @@
 	isVectorOf { :self :elementType |
 		self.isVector & {
 			self.elementType = elementType
+		}
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		self.withIndexDo { :each :index |
+			aBlock(index, each)
 		}
 	}
 

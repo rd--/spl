@@ -5,6 +5,7 @@
 	'CentsTuning'
 	'RatioTuning'
 	'Pitch'
+	'Scala'
 	'Scale'
 	'Xenharmonic'
 	'TuningLattice' /* RatioTuning */
@@ -26,6 +27,7 @@
 	'KeywordUgens' /* < Ugen */
 	'PseudoUgens' /* < Ugen */
 	'ScLang'
+	'ScProgram'
 	'ScSynth' /* < Ugen */
 	'ScSynthOptions'
 	'ScSynthStatus'

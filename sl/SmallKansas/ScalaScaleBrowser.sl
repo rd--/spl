@@ -49,32 +49,12 @@
 
 }
 
-+System {
-
-	scalaModenam { :self |
-		self.requestLibraryItem('Music/Scales/ScalaModeNames')
-	}
-
-}
-
 ScalaScaleBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.scalaModenam.then { :scalaModenam |
+		system.scalaModenam.then { :scalaModenam |
 			smallKansas.addFrame(smallKansas.ScalaScaleBrowser(scalaModenam), event)
 		}
 	}
 
 }
-
-LibraryItem(
-	name: 'Music/Scales/ScalaModeNames',
-	url: 'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			let [zeroIndexedStartIndex, intervals, description] = each;
-			Scale(zeroIndexedStartIndex + 1, intervals, description)
-		}
-	}
-)

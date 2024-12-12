@@ -320,7 +320,7 @@
 	keysAndValuesCollect { :self :aBlock:/2 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
-			answer.add(key -> aBlock(value, key))
+			answer.add(key -> aBlock(key, value))
 		};
 		answer
 	}

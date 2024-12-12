@@ -150,28 +150,3 @@ ScalaJiTuningBrowser : [Object, SmallKansan] {
 	}
 
 }
-
-+System {
-
-	jiScala { :self |
-		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')
-	}
-
-}
-
-LibraryItem(
-	name: 'Music/Tuning/Scala/JustIntonation',
-	url: 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			each.includesKey('octave').if {
-				let [numerator, denominator] = each['octave'];
-				each['octave'] := Fraction(numerator, denominator)
-			} {
-				each['octave'] := 2/1
-			};
-			each.asRatioTuning
-		}
-	}
-)

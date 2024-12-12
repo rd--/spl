@@ -4,7 +4,8 @@
 
 A `Scale` is a sub-set of the indices of a `Tuning`.
 
-_startIndex_ is the index at the `Tuning` of the first note of the scale, and is usually one.
+_startIndex_ is the index at the `Tuning` of the first note of the scale,
+and is usually one.
 
 _intervals_ is a sequence of integers giving the distance of each index from the last.
 
@@ -16,7 +17,9 @@ a seven note scale has size seven.
 The `tuningSize` of a scale is the `sum` of the _intervals_ sequence,
 a seven note scale into a twelve-note tuning has a tuning size of twelve.
 
-The `tuningIndices` of a scale are the indices into a `Tuning` of the required size.
+The `tuningIndices` of a scale are the indices,
+starting from one,
+into a `Tuning` of the required size.
 
 ```
 >>> Scale(1, [2 2 1 2 2 2 1], 'Major')
