@@ -177,12 +177,14 @@ URL! : [Object, Url] {
 	}
 
 	fetchThenElse { :self :onSuccess:/1 :onError |
-		self.fetch.then { :response |
+		self.fetch.thenElse { :response |
 			response.ok.if {
 				onSuccess(response)
 			} {
 				onError.cull(response.ok)
 			}
+		} { :reason |
+			onError.cull(reason)
 		}
 	}
 

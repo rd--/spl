@@ -22,7 +22,11 @@ Accessors to read the parts of the file are:
 - `categories`: list of categories
 
 ~~~
-let url = '/home/rohan/sw/spl/Help/Reference/add.help.sl'.asFileUrl;
+let url = [
+	'/home/rohan/'
+	'sw/spl/Help/Reference/'
+	'add.help.sl'
+].join('').asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
 	[

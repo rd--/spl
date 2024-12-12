@@ -7,8 +7,14 @@ The input list is arranged as _[l1, t2, l2, t3, l3 .. ln]_.
 The initial time (_t1_) is zero.
 
 ```
-let env = EnvBreakPoint([0 5 1 6 0], [4 -4]).asEnvGen(1);
-SinOsc(LinLin(env, 0, 1, 220, 880), 0) * env * 0.1
+let env = EnvBreakPoint(
+	[0 5 1 6 0],
+	[4 -4]
+).asEnvGen(1);
+SinOsc(
+	LinLin(env, 0, 1, 220, 880),
+	0
+) * env * 0.1
 ```
 
 Observe calculated `Env` parameters:

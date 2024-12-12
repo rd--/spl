@@ -8,8 +8,16 @@ Apply a three stage envelope to _in_ and release the synthesis node once the env
 With counter to check timing:
 
 ```
-let counter = PinkNoise() * Decay(Impulse(1, 0), 0.1) * 0.1;
-Release(SinOsc(440, 0) * 0.1, 3, 3, 5) + counter
+let counter = PinkNoise() * Decay(
+	Impulse(1, 0),
+	0.1
+) * 0.1;
+Release(
+	SinOsc(440, 0) * 0.1,
+	3,
+	3,
+	5
+) + counter
 ```
 
 Short attack time:

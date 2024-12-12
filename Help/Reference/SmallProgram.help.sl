@@ -49,7 +49,7 @@ then `SmallProgram` will add a listener to the `Promise` object and update the a
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'
-	'squeak-mouse.png'
+	'smalltalk-balloon.png'
 ].join('');
 url.fetchBlob
 ~~~

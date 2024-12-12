@@ -9,6 +9,15 @@ LineDrawing : [Object] { | contents metadata |
 		'<img src="data:image/svg+xml;base64,\n%\n">'.format([svgEncodedPretty])
 	}
 
+	asObjectUrl { :self |
+		self
+		.asSvg
+		.utf8ByteArray
+		.asBlob(
+			(type: 'image/svg+xml')
+		).createObjectUrl
+	}
+
 	asSvg { :self |
 		let height = self.metadata['height'];
 		let actualBoundingBox = self.boundingBox.asRectangle;

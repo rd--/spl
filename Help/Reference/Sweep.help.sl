@@ -22,7 +22,8 @@ Using sweep to index into a buffer:
 ```
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
 let sf = SfAcquireMono('Floating');
-BufRd(1, sf, Sweep(trig, BufSampleRate(sf)), 1, 2)
+let ph = Sweep(trig, BufSampleRate(sf));
+BufRd(1, sf, ph, 1, 2)
 ```
 
 Backwards, variable offset:
@@ -42,7 +43,8 @@ Raising rate:
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
 let sf = SfAcquireMono('Floating');
 let rate = Sweep(trig, 2) + 0.5;
-BufRd(1, sf, Sweep(trig, BufSampleRate(sf) * rate), 1, 2)
+let ph = Sweep(trig, BufSampleRate(sf) * rate);
+BufRd(1, sf, ph, 1, 2)
 ```
 
 * * *

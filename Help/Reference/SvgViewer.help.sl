@@ -9,7 +9,11 @@ Add a window displaying an Svg image.
 The expression below fetches an Svg file from a Url and displays it when it arrives.
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/svg/smalltalk-balloon.svg';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/svg/'
+	'smalltalk-balloon.svg'
+].join('');
 url.fetchText.then { :answer |
 	system.smallKansas.SvgViewer(
 		'Smalltalk Balloon',
@@ -63,7 +67,11 @@ group.appendChildren([
 	line
 ]);
 svg.appendChild(group);
-system.smallKansas.SvgViewer('Circle and Line', svg, nil)
+system.smallKansas.SvgViewer(
+	'Circle and Line',
+	svg,
+	nil
+)
 ~~~
 
 * * *

@@ -5,6 +5,19 @@
 A image viewer.
 Add a window to _smallKansas_ with the given _title_ displaying the image at _aUrl_.
 
+Create an object `Url` of an `Svg` of a `LineDrawing`,
+and display it:
+
+~~~
+system.smallKansas.ImageViewer(
+	'A Circle & Line',
+	[
+		Circle([0 0], 1),
+		Line([0 0; 2 0])
+	].LineDrawing.asObjectUrl
+)
+~~~
+
 Fetch a Png file, and display by creating an object Url:
 
 ~~~
@@ -13,7 +26,7 @@ let url = [
 	'sw/stsc3/lib/png/'
 	'smalltalk-balloon.png'
 ].join('');
-url.fetchBlob.then { :answer |
+url.fetchBlob.thenElse { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
 		'Smalltalk Balloon',
@@ -21,6 +34,8 @@ url.fetchBlob.then { :answer |
 	).onClose { :unused |
 		url.revokeObjectUrl
 	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 
@@ -32,7 +47,7 @@ let url = [
 	'sw/stsc3/lib/svg/'
 	'smalltalk-balloon.svg'
 ].join('');
-url.fetchBlob.then { :answer |
+url.fetchBlob.thenElse { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
 		'Smalltalk Balloon',
@@ -40,6 +55,8 @@ url.fetchBlob.then { :answer |
 	).onClose { :unused |
 		url.revokeObjectUrl
 	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 

@@ -11,12 +11,15 @@ Fetch a text file:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/spl/README.md'
+	'sw/spl/'
+	'README.md'
 ].join('');
-url.fetch.then { :response |
-	response.text
-}.then { :text |
-	text.postLine
+url.fetch.thenElse { :response |
+	response.text.then { :text |
+		text.postLine
+	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 
@@ -25,12 +28,15 @@ Fetch a Json file:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/spl/config/preferences.json'
+	'sw/spl/config/'
+	'preferences.json'
 ].join('');
-url.fetch.then { :response |
-	response.json
-}.then { :anObject |
-	anObject.postLine
+url.fetch.thenElse { :response |
+	response.json.then { :anObject |
+		anObject.postLine
+	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 
@@ -39,20 +45,23 @@ Fetch a binary file, read _Content-Type_ from `Headers`:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/squeak-mouse.png'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
 ].join('');
-url.fetch.then { :response |
+url.fetch.thenElse { :response |
 	response
 	.headers
 	.atIfAbsent('Content-Type') {
 		''
 	}
 	.postLine;
-	response.byteArray
-}.then { :aByteArray |
-	aByteArray
-	.base64Encoded
-	.postLine
+	response.byteArray.then { :aByteArray |
+		aByteArray
+		.base64Encoded
+		.postLine
+	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 
@@ -61,18 +70,21 @@ Fetch a binary file as a `Blob` with associated mime type:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/squeak-mouse.png'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
 ].join('');
-url.fetch.then { :response |
-	response.blob
-}.then { :aBlob |
-	aBlob.type.postLine;
-	aBlob.arrayBuffer
-}.then { :anArrayBuffer |
-	anArrayBuffer
-	.asByteArray
-	.base64Encoded
-	.postLine
+url.fetch.thenElse { :response |
+	response.blob.then { :aBlob |
+		aBlob.type.postLine;
+		aBlob.arrayBuffer.then { :anArrayBuffer |
+			anArrayBuffer
+			.asByteArray
+			.base64Encoded
+			.postLine
+		}
+	}
+} { :reason |
+	reason.postLine
 }
 ~~~
 

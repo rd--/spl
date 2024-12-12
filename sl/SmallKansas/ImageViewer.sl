@@ -31,7 +31,10 @@ ImageViewer : [Object, View] { | title url outerElement |
 +SmallKansas {
 
 	ImageViewer { :self :title :url |
-		self.addFrame(ImageViewer(title, url), nil)
+		self.addFrame(
+			ImageViewer(title, url),
+			self.where
+		)
 	}
 
 }

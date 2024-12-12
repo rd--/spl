@@ -3,12 +3,19 @@
 - _PngViewer(smallKansas, title, pngData)_
 
 A _Png_ (Portable Network Graphics) image viewer.
-Add a window to _smallKansas_ with the given _title_ displaying the _Png_ image encoded at _pngData_.
+Add a window to _smallKansas_,
+with the given _title_,
+displaying the _Png_ image encoded at _pngData_.
 
-The expression below fetches a Png file from a Url and displays it when it arrives:
+The expression below fetches a Png file from a Url,
+and displays it when it arrives:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
+].join('');
 url.fetchBlob.then { :answer |
 	system.smallKansas.PngViewer(
 		'Smalltalk Balloon',

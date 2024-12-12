@@ -34,11 +34,7 @@ Blob! : [Object, Blob] {
 
 +List {
 
-	asBlob { :self |
-		<primitive: return new Blob(_self);>
-	}
-
-	asBlob { :self :options |
+	Blob { :self :options |
 		<primitive: return new Blob(_self, _options);>
 	}
 
@@ -46,8 +42,12 @@ Blob! : [Object, Blob] {
 
 +[ByteArray, Float64Array] {
 
+	asBlob { :self :options |
+		Blob([self], options)
+	}
+
 	asBlob { :self |
-		[self].asBlob
+		Blob([self], ())
 	}
 
 }

@@ -10,7 +10,9 @@ Mouse control:
 
 ```
 let freq = 0:9.collect { :i |
-	LfNoise2(Rand(10, 20)) * 200 + (i + 3 * 100)
+	LfNoise2(
+		Rand(10, 20)
+	) * 200 + (i + 3 * 100)
 };
 Splay2(
 	SinOsc(freq, 0),
@@ -26,8 +28,15 @@ Texture graph:
 ```
 { :tr |
 	let k = 7;
-	let o = SinOsc({ TiRand(40, 90, tr).MidiCps } ! k, 0);
-	let a = { TRand(0.05, 0.1, tr) } ! k;
+	let o = SinOsc(
+		{
+			TiRand(40, 90, tr).MidiCps
+		} ! k,
+		0
+	);
+	let a = {
+		TRand(0.05, 0.1, tr)
+	} ! k;
 	Splay2(o * a)
 }.OverlapTexture(6, 3, 3).Mix
 ```
@@ -37,7 +46,10 @@ Texture program:
 ~~~
 {
 	let k = 7;
-	let o = SinOsc({ IRand(40, 90).MidiCps } ! k, 0);
+	let o = SinOsc(
+		{ IRand(40, 90).MidiCps } ! k,
+		0
+	);
 	let a = { Rand(0.05, 0.1) } ! k;
 	Splay2(o * a)
 }.overlapTextureProgram(6, 3, 3)

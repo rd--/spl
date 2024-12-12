@@ -5,7 +5,11 @@
 Answer an Url that represents the data at _aFile_ or _aBlob_.
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
+].join('');
 url.fetchBlob.then { :answer |
 	answer.createObjectUrl.postLine
 }

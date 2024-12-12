@@ -18,7 +18,13 @@ LfCub(LfCub(0.2, 0) * 400 + 800, 0) * 0.1
 As nested frequency modulator:
 
 ```
-LfCub(LfCub(LfCub(0.2, 0) * 8 + 10, 0) * 400 + 800, 0) * 0.1
+LfCub(
+	LfCub(
+		LfCub(0.2, 0) * 8 + 10,
+		0
+	) * 400 + 800,
+	0
+) * 0.1
 ```
 
 Frequency sweep:

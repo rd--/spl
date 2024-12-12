@@ -29,7 +29,8 @@ Fetch and decode `Json`:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/spl/config/preferences.json'
+	'sw/spl/config/'
+	'preferences.json'
 ].join('');
 let mimeType = 'application/json';
 url.fetchMimeType(
@@ -44,15 +45,18 @@ Fetch binary data:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/squeak-mouse.png'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
 ].join('');
 let mimeType = 'application/octet-stream';
 url.fetchMimeType(
 	mimeType
-).then { :aByteArray |
+).thenElse { :aByteArray |
 	aByteArray
 	.base64Encoded
 	.postLine
+} { :reason |
+	reason.postLine
 }
 ~~~
 
