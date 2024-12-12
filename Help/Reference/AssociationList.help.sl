@@ -16,8 +16,15 @@ An empty `AssociationList`:
 An `AssociationList` with lists for keys:
 
 ```
->>> let d = [[1 2] -> 3, [4 5] -> 6].asAssociationList;
->>> (d.keys, d.keys.collect { :each | d[each] }, d.values)
+>>> let d = [
+>>> 	[1 2] -> 3,
+>>> 	[4 5] -> 6
+>>> ].asAssociationList;
+>>> (
+>>> 	d.keys,
+>>> 	d.keys.collect { :each | d[each] },
+>>> 	d.values
+>>> )
 ([1 2; 4 5], [3 6], [3 6])
 ```
 

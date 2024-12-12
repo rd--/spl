@@ -56,7 +56,7 @@ HelpIndex : [Object] { | contents |
 
 }
 
-+@Cache {
++System {
 
 	helpIndex { :self |
 		self.requestLibraryItem('System/Help/Index')

@@ -20,11 +20,14 @@ There may be elements that are equally near:
 
 Plot the `nearest` of a list of:
 
-~~~
+~~~spl svg=A
 (0 -- 10).functionPlot { :x |
 	[1 3 4 7 8].nearest(x, -).first
 }
 ~~~
+
+![](sw/spl/Help/Image/nearest-A.svg)
+
 
 * * *
 

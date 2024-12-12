@@ -22,7 +22,8 @@ which are reordered for a given speaker arrangement:
 
 ```
 let p = PinkNoise();
-let [w, x, y] = PanB2(p, MouseX(-1, 1, 0, 0.2), 0.1);
+let x = MouseX(-1, 1, 0, 0.2);
+let [w, x, y] = PanB2(p, x, 0.1);
 let [a, b, c, d] = DecodeB2(4, w, x, y, 0.5);
 [a, b, d, c]
 ```

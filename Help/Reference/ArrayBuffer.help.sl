@@ -12,7 +12,9 @@ Create new zeroed array buffer of eight bytes:
 Create new zeroed array buffer of sixteen bytes and form a `Float32Array` upon it:
 
 ```
->>> ArrayBuffer(16).asFloat32Array.asList
+>>> ArrayBuffer(16)
+>>> .asFloat32Array
+>>> .asList
 [0 0 0 0]
 ```
 

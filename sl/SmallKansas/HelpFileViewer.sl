@@ -51,7 +51,7 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 +SmallKansas {
 
 	helpFor { :self :topic :event |
-		self.helpIndex.then { :helpIndex |
+		system.helpIndex.then { :helpIndex |
 			helpIndex.fetchFor(topic).then { :aString |
 				aString.ifNotNil {
 					let subject = self.helpFileViewer(event).subject;

@@ -4,9 +4,11 @@
 
 Answer a `List` describing a _Hamming window_ of the indicated size.
 
+~~~spl svg=A
+256.hammingTable.linePlot
 ~~~
-1024.hammingTable.linePlot
-~~~
+
+![](sw/spl/Help/Image/hammingTable-A.svg)
 
 * * *
 

@@ -8,7 +8,10 @@ if known,
 else the empty string.
 
 ~~~
-[65 .. 69].asByteArray.asBlob.text.then { :answer |
+[65 .. 69].asByteArray
+.asBlob
+.text
+.then { :answer |
 	(answer = 'ABCDE').postLine
 }
 ~~~

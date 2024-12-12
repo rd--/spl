@@ -18,35 +18,71 @@ If it is 1, W is varied according to the scaling of the X, Y and Z channels.
 Decode to octaphonic:
 
 ```
-let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-let mouseRho = MouseY(0, 4, 0, 0.2);
-let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+let useMouse = false;
+let azimuth = useMouse.if {
+	MouseX(0, 2 * pi, 0, 0.2)
+} {
+	LfSaw(1 / 4, 0)
+	.LinLin(-1, 1, 0, 2 * pi)
+};
+let rho = useMouse.if {
+	MouseY(0, 4, 0, 0.2)
+} {
+	1
+};
 let [w, x, y, z] = BfEncode1(
 	PinkNoise(),
-	cycleAzimuth, /* mouseAzimuth */
+	azimuth,
 	0,
-	1, /* mouseRho */
+	rho,
 	0.3,
 	0
 );
-BfDecode1(w, x, y, z, [-0.75 -0.5 -0.25 0 0.25 0.5 0.75 1] * pi, 0, 0)
+BfDecode1(
+	w, x, y, z,
+	[
+		-0.75 -0.5
+		-0.25 0
+		0.25 0.5
+		0.75 1
+	] * pi,
+	0,
+	0
+)
 ```
 
 Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 
 ```
-let mouseAzimuth = MouseX(0, 2 * pi, 0, 0.2);
-let mouseRho = MouseY(0, 4, 0, 0.2);
-let cycleAzimuth = LfSaw(1 / 4, 0).LinLin(-1, 1, 0, 2 * pi);
+let useMouse = false;
+let azimuth = useMouse.if {
+	MouseX(0, 2 * pi, 0, 0.2)
+} {
+	LfSaw(1 / 4, 0)
+	.LinLin(-1, 1, 0, 2 * pi)
+};
+let rho = useMouse.if {
+	MouseY(0, 4, 0, 0.2)
+} {
+	1
+};
 let [w, x, y, z] = BfEncode1(
 	PinkNoise(),
-	cycleAzimuth, /* mouseAzimuth */
+	azimuth,
 	0,
-	1, /* mouseRho */
+	rho,
 	0.3,
 	0
 );
-BfDecode1(w, x, y, z, [-0.25 0.25 1.25 0.75] * pi, 0, 0)
+BfDecode1(
+	w, x, y, z,
+	[
+		-0.25 0.25
+		1.25 0.75
+	] * pi,
+	0,
+	0
+)
 ```
 
 * * *

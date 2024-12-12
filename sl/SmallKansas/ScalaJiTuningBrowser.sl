@@ -151,7 +151,7 @@ ScalaJiTuningBrowser : [Object, SmallKansan] {
 
 }
 
-+@Cache {
++System {
 
 	jiScala { :self |
 		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')

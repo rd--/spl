@@ -40,7 +40,9 @@ A number is squareful, or nonsquarefree, if it contains at least one square.
 The first few squareful numbers are:
 
 ```
->>> 1:25.select { :each | each.isSquareFree.not }
+>>> 1:25.select { :each |
+>>> 	each.isSquareFree.not
+>>> }
 [4 8 9 12 16 18 20 24 25]
 ```
 

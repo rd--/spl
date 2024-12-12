@@ -6,7 +6,11 @@ A `Date` can be read from a `String` using `parseDate`.
 
 ```
 >>> let date = '2024-03-04'.parseDate;
->>> (date.year, date.month, date.dayOfMonth)
+>>> (
+>>> 	date.year,
+>>> 	date.month,
+>>> 	date.dayOfMonth
+>>> )
 (2024, 3, 4)
 ```
 

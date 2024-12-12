@@ -18,9 +18,11 @@ Equivalent to `floor` of `log` plus `one`:
 
 Plot is a kind of staircase:
 
-~~~
+~~~spl svg=A
 (-25:25).functionPlot(bitLength:/1)
 ~~~
+
+![](sw/spl/Help/Image/bitLength-A.svg)
 
 * * *
 

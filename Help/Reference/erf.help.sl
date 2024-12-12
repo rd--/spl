@@ -33,9 +33,11 @@ Threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot(erf:/1)
 ~~~
+
+![](sw/spl/Help/Image/erf-A.svg)
 
 * * *
 

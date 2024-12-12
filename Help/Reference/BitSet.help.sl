@@ -25,7 +25,9 @@ A new `BitSet` is empty, the `size` of a `BitSet` is the number of non-zero bits
 All bytes at the empty `BitSet` are `zero`:
 
 ```
->>> BitSet(64).bytes.allSatisfy { :each | each = 0 }
+>>> BitSet(64).bytes.allSatisfy { :each |
+>>> 	each = 0
+>>> }
 true
 ```
 
@@ -69,11 +71,15 @@ however including it is:
 true
 
 >>> let b = [1 3 9].asBitSet;
->>> [1, 3 .. 9].collect { :each | b.includes(each) }
+>>> [1, 3 .. 9].collect { :each |
+>>> 	b.includes(each)
+>>> }
 [true true false false true]
 
 >>> let b = '101001'.asBitSet;
->>> [0 2 5].collect { :each | b.includes(each) }
+>>> [0 2 5].collect { :each |
+>>> 	b.includes(each)
+>>> }
 [true true true]
 ```
 
@@ -92,7 +98,9 @@ Read entries using `at`, which answers `zero` or `one` values:
 
 ```
 >>> let b = [1 3 9].asBitSet;
->>> [1, 3 .. 9].collect { :each | b[each] }
+>>> [1, 3 .. 9].collect { :each |
+>>> 	b[each]
+>>> }
 [1 1 0 0 1]
 ```
 
@@ -103,7 +111,9 @@ Add elements using `addAll` and iterate over indices using `do`:
 >>> let c = [1 3 9 27];
 >>> let l = [];
 >>> b.addAll(c);
->>> b.do { :each | l.add(each) };
+>>> b.do { :each |
+>>> 	l.add(each)
+>>> };
 >>> (b.size, l)
 (4, [1 3 9 27])
 ```

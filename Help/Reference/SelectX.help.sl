@@ -17,7 +17,10 @@ let a = [
 	Pulse(440, 0.5)
 ];
 let cycle = a.size * 0.5;
-SelectX(LfSaw(1, 0) * cycle + cycle, a) * 0.2
+SelectX(
+	LfSaw(1, 0) * cycle + cycle,
+	a
+) * 0.2
 ```
 
 Use MouseX to select frequency modulator:
@@ -28,7 +31,13 @@ let a = [
 	LfSaw(10, 0),
 	LfPulse(0.3, 0, 0.5)
 ].kr;
-SinOsc(SelectX(MouseX(0, 1, 0, 0.2) * a.size, a) * 300 + 400, 0) * 0.2
+SinOsc(
+	SelectX(
+		MouseX(0, 1, 0, 0.2) * a.size,
+		a
+	) * 300 + 400,
+	0
+) * 0.2
 ```
 
 * * *

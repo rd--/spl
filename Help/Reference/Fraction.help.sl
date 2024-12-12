@@ -125,7 +125,10 @@ Operands may be collections:
 [5/12 5/16 1/4 5/24 5/28]
 
 >>> 5/4 ^ 3:7
-[125/64 625/256 3125/1024 15625/4096 78125/16384]
+[
+	125/64 625/256 3125/1024
+	15625/4096 78125/16384
+]
 ```
 
 A `Fraction` whose elements are of type `SmallFloat` will have odd behaviour for large components,
@@ -176,9 +179,14 @@ Written using `Infix Method Syntax` this provides a concise notation for writing
 Enter a rational number with very big integers in the numerator and denominator:
 
 ```
->>> let n = 1237918739182739817238917127398123n r: 12809812308120812038038101n;
->>> (n.numerator, n.denominator)
-(1237918739182739817238917127398123n, 12809812308120812038038101n)
+>>> let n = 1237918739182739817238917127398123n;
+>>> let d = 12809812308120812038038101n;
+>>> let r = Fraction(n, d);
+>>> (r.numerator, r.denominator)
+(
+	1237918739182739817238917127398123n,
+	12809812308120812038038101n
+)
 ```
 
 Rational numbers are represented with the smallest possible positive denominator:
@@ -209,10 +217,19 @@ This is a close approximation to 2.sqrt:
 >>> 	let [x, y] = r.asTuple;
 >>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
 >>> };
->>> (f:/1.iterate(3/2, 4), f:/1.iterate(3n r: 2n, 5))
+>>> (
+>>> 	f:/1.iterate(3/2, 4),
+>>> 	f:/1.iterate(3n r: 2n, 5)
+>>> )
 (
-	886731088897 r: 627013566048,
-	1572584048032918633353217n r: 1111984844349868137938112n
+	Fraction(
+		886731088897,
+		627013566048
+	),
+	Fraction(
+		1572584048032918633353217n,
+		1111984844349868137938112n
+	)
 )
 
 >>> 886731088897 / 627013566048
@@ -243,7 +260,8 @@ The denominator of a rational is positive:
 The numerator and denominator of a rational are relatively prime:
 
 ```
->>> let r = system.nextRandomFloat.asFraction;
+>>> let x = system.nextRandomFloat;
+>>> let r = x.asFraction;
 >>> r.numerator.gcd(r.denominator)
 1
 ```

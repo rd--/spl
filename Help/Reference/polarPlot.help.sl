@@ -6,7 +6,7 @@ Generate a polar plot of a curve with radius r as a function of angle θ in _dom
 
 A circle:
 
-~~~
+~~~spl svg=A
 (0 -- pi).polarPlot(sin:/1)
 ~~~
 
@@ -14,7 +14,7 @@ A circle:
 
 Another circle:
 
-~~~
+~~~spl svg=B
 (0 -- 2.pi).polarPlot { :t | 1 }
 ~~~
 
@@ -22,7 +22,7 @@ Another circle:
 
 A knot:
 
-~~~
+~~~spl svg=C
 (0 -- pi).polarPlot { :t | (3 * t).sin * t }
 ~~~
 
@@ -30,7 +30,7 @@ A knot:
 
 An oscillation around a circle:
 
-~~~
+~~~spl svg=D
 (0 -- 2.pi).polarPlot([
 	{ :t |
 		1
@@ -45,7 +45,7 @@ An oscillation around a circle:
 
 An Archimedean spiral:
 
-~~~
+~~~spl svg=E
 (0 -- 20).polarPlot { :t | t ^ (1 / 2) }
 ~~~
 
@@ -53,7 +53,7 @@ An Archimedean spiral:
 
 Another Archimedean spiral:
 
-~~~
+~~~spl svg=F
 (0 -- 20).polarPlot { :t | t ^ 1 }
 ~~~
 

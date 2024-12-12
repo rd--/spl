@@ -12,7 +12,11 @@ Tracks the peak amplitude of a signal.
 Use input amplitude to control Pulse amplitude, _use headphones to prevent feedback_.
 
 ```
-Pulse(90, 0.3) * Amplitude(AudioIn(1), 0.01, 0.01)
+Pulse(90, 0.3) * Amplitude(
+	AudioIn(1),
+	0.01,
+	0.01
+)
 ```
 
 Use input amplitude to control SinOsc frequency, _use headphones to prevent feedback_.

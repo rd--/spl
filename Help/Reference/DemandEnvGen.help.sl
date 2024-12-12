@@ -23,10 +23,11 @@ Frequency modulation:
 
 ```
 let curveInterpolation = 5;
+let y = MouseY(1, 3000, 1, 0.2);
 let list = { ExpRand(200, 1000) } ! 32;
 let freq = DemandEnvGen(
 	{ Dseq(inf, list.scramble) } ! 2,
-	SampleDur() * MouseY(1, 3000, 1, 0.2),
+	SampleDur() * y,
 	curveInterpolation,
 	MouseX(-0.01, -4, 0, 0.2),
 	1, 1, 1, 0, 1, 0
@@ -38,7 +39,11 @@ Gate, `MouseX` on right side of screen toggles gate:
 
 ```
 let freq = DemandEnvGen(
-	Dwhite(inf, 300, 1000).RoundTo(100),
+	Dwhite(
+		inf,
+		300,
+		1000
+	).RoundTo(100),
 	0.1,
 	5,
 	0.3,
@@ -72,7 +77,17 @@ Gate,
 
 ```
 let freq = DemandEnvGen(
-	Dseq(2, [Dseries(5, 400, 200), 500, 800, 530, 4000, 900]),
+	Dseq(
+		2,
+		[
+			Dseries(5, 400, 200),
+			500,
+			800,
+			530,
+			4000,
+			900
+		]
+	),
 	Dseq(inf, [0.2, 0.1, 0.2, 0.3, 0.1]),
 	Dseq(inf, [1, 0, 0, 6, 1, 1, 0, 2]),
 	0,
@@ -86,8 +101,9 @@ SinOsc(freq * [1, 1.001], 0) * 0.1
 Hardsyncing a saw:
 
 ```
+let sr = SampleRate();
 let x = MouseX(0.002, 1, 1, 0.2);
-let xx = MouseX(1, SampleRate() * x, 1, 0.2);
+let xx = MouseX(1, sr * x, 1, 0.2);
 let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
 	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
@@ -103,8 +119,9 @@ DemandEnvGen(
 Softsyncing a saw:
 
 ```
+let sr = SampleRate();
 let x = MouseX(0.002, 1, 1, 0.2);
-let xx = MouseX(1, SampleRate() * x, 1, 0.2);
+let xx = MouseX(1, sr * x, 1, 0.2);
 let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
 	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
@@ -129,7 +146,10 @@ let freq = DemandEnvGen(
 			[
 				300,
 				800,
-				Drand(1, [1000 460 300]),
+				Drand(
+					1,
+					[1000 460 300]
+				),
 				400
 			]
 		) + Rand(0, 3)

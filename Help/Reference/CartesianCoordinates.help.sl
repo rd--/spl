@@ -20,7 +20,8 @@ Implements `size` and `at`:
 allowing terms to be fetched using `List Assignment Syntax`:
 
 ```
->>> let [x, y, z] = CartesianCoordinates(1, 2, 3);
+>>> let p = CartesianCoordinates(1, 2, 3);
+>>> let [x, y, z] = p;
 >>> [z y x]
 [3 2 1]
 ```
@@ -29,10 +30,14 @@ Implements `<`,
 meaning behind, below and to the left of:
 
 ```
->>> CartesianCoordinates(0, 0, 0) < CartesianCoordinates(1, 1, 1)
+>>> CartesianCoordinates(0, 0, 0)
+>>> <
+>>> CartesianCoordinates(1, 1, 1)
 true
 
->>> CartesianCoordinates(1, 1, 1) > CartesianCoordinates(0, 0, 0)
+>>> CartesianCoordinates(1, 1, 1)
+>>> >
+>>> CartesianCoordinates(0, 0, 0)
 true
 ```
 

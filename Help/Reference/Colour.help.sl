@@ -8,13 +8,21 @@ Parse colour from hash-prefixed hexadecimal string:
 
 ```
 >>> '#f97306'.parseHexColour
-Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255)
+Colour(
+	16rf9 / 255,
+	16r73 / 255,
+	16r06 / 255
+)
 ```
 
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255).hexString
+>>> Colour(
+>>> 	16rf9 / 255,
+>>> 	16r73 / 255,
+>>> 	16r06 / 255
+>>> ).hexString
 '#f97306'
 ```
 

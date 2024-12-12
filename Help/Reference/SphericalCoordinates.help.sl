@@ -26,10 +26,18 @@ ie. from the reference plane upward (towards to the positive _z_-axis) to the ra
 The depression angle is the negative of the elevation angle.
 
 ```
->>> SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates
+>>> SphericalCoordinates(
+>>> 	2.sqrt,
+>>> 	1.pi / 4,
+>>> 	1.pi / 2
+>>> ).asCartesianCoordinates
 CartesianCoordinates(1, 1, 0)
 
->>> SphericalCoordinates(3.sqrt, 0.25.pi, 2.sqrt.arcTan).asCartesianCoordinates
+>>> SphericalCoordinates(
+>>> 	3.sqrt,
+>>> 	0.25.pi,
+>>> 	2.sqrt.arcTan
+>>> ).asCartesianCoordinates
 CartesianCoordinates(1, 1, 1)
 ```
 

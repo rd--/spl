@@ -34,7 +34,9 @@ The `product` of a finite arithmetic progression has a closed form:
 >>> (3, 8 .. 248).product
 3.78438E98
 
->>> (5 ^ 50) * ((3 / 5 + 50).gamma / (3 / 5).gamma)
+>>> (5 ^ 50) * (
+>>> 	(3 / 5 + 50).gamma / (3 / 5).gamma
+>>> )
 3.78438E98
 ```
 

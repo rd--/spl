@@ -24,7 +24,7 @@ The limit ratio between consecutive terms is the supergolden ratio:
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 23.narayanaSequence.linePlot
 ~~~
 

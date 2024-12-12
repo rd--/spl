@@ -7,7 +7,12 @@ _Excess(α, β)_ answers the difference of the original signal and its clipped f
 ie. _α - Clip2(α, β)_.
 
 ```
-SinOsc(1000, 0).Excess(Line(0, 1, 23)) / 3
+SinOsc(
+	1000,
+	0
+).Excess(
+	Line(0, 1, 23)
+) / 3
 ```
 
 * * *

@@ -23,13 +23,15 @@ Threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot(erfc:/1)
 ~~~
 
+![](sw/spl/Help/Image/erfc-A.svg)
+
 * * *
 
-See also: erf
+See also: erf, inverseErf
 
 References:
 _Mathematica_

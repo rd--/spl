@@ -44,7 +44,10 @@ Evaluate several values of the gamma function between [-3.5 3.5]:
 
 ```
 >>> (-3.5, -2.5 .. 3.5).gamma
-[0.2701 -0.9453 2.3633 -3.5449 1.7725 0.8862 1.3293 3.3234]
+[
+	0.2701 -0.9453 2.3633 -3.5449
+	1.7725 0.8862 1.3293 3.3234
+]
 ```
 
 The gamma function interpolates the factorial function.
@@ -57,9 +60,13 @@ For integers, _n.gamma = (n - 1).!_:
 
 Plot the Euler gamma function:
 
+~~~spl svg=A
+(-4 -- 4).functionPlot { :x |
+	x.gamma.clip(-10, 10)
+}
 ~~~
-(-4 -- 4).functionPlot { :x | x.gamma.clip(-10, 10) }
-~~~
+
+![](sw/spl/Help/Image/gamma-A.svg)
 
 * * *
 

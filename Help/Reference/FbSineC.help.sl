@@ -23,19 +23,43 @@ For im = 1, fb = 0, and a = 1 a normal sinewave results.
 Default initial parameters:
 
 ```
-FbSineC(SampleRate() / 4, 1, 0.1, 1.1, 0.5, 0.1, 0.1) * 0.1
+FbSineC(
+	SampleRate() / 4,
+	1,
+	0.1,
+	1.1,
+	0.5,
+	0.1,
+	0.1
+) * 0.1
 ```
 
 Increase feedback:
 
 ```
-FbSineC(SampleRate(), 1, Line(0.01, 4, 10), 1, 0.1, 0.1, 0.1) * 0.1
+FbSineC(
+	SampleRate(),
+	1,
+	Line(0.01, 4, 10),
+	1,
+	0.1,
+	0.1,
+	0.1
+) * 0.1
 ```
 
 Increase phase multiplier:
 
 ```
-FbSineC(SampleRate(), 1, 0, XLine(1, 2, 10), 0.1, 0.1, 0.1) * 0.1
+FbSineC(
+	SampleRate(),
+	1,
+	0,
+	XLine(1, 2, 10),
+	0.1,
+	0.1,
+	0.1
+) * 0.1
 ```
 
 Modulate frequency and index multiplier:

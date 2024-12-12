@@ -3,10 +3,14 @@
 `Collection` is a `Trait` holding behaviours common to collections.
 
 ```
->>> system.traitDictionary['Collection'].isTrait
+>>> system
+>>> .traitDictionary['Collection']
+>>> .isTrait
 true
 
->>> system.traitTypes('Collection').includes('List')
+>>> system
+>>> .traitTypes('Collection')
+>>> .includes('List')
 true
 ```
 

@@ -21,7 +21,10 @@ Compare a sine tone with and without amplitude compensation:
 ```
 let freq = MouseX(300, 15000, 1, 0.2);
 let osc = SinOsc(freq, 0) * 0.1;
-[osc, osc * AmpComp(freq, 300, 1 / 3).kr]
+[
+	osc,
+	osc * AmpComp(freq, 300, 1 / 3).kr
+]
 ```
 
 Different sounds cause quite different loudness perception,
@@ -30,7 +33,8 @@ so the exponent can be tuned:
 
 ```
 let freq = MouseX(300, 15000, 1, 0.2);
-Pulse(freq, 0.5) * 0.1 * AmpComp(freq, 300, 4 / 3).kr
+let mul = AmpComp(freq, 300, 4 / 3).kr;
+Pulse(freq, 0.5) * mul * 0.1
 ```
 
 * * *

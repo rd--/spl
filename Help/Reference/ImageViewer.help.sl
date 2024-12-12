@@ -8,7 +8,11 @@ Add a window to _smallKansas_ with the given _title_ displaying the image at _aU
 Fetch a Png file, and display by creating an object Url:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/'
+	'smalltalk-balloon.png'
+].join('');
 url.fetchBlob.then { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
@@ -23,7 +27,11 @@ url.fetchBlob.then { :answer |
 Fetch an Svg file, and display by creating an object Url:
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/svg/smalltalk-balloon.svg';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/svg/'
+	'smalltalk-balloon.svg'
+].join('');
 url.fetchBlob.then { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
@@ -40,7 +48,11 @@ Using a remote Url may not work due to _Cross-Origin Resource Policy_:
 ~~~
 system.smallKansas.ImageViewer(
 	'Smalltalk Balloon',
-	'https://rohandrape.net/sw/stsc3/lib/png/smalltalk-balloon.png'
+	[
+		'https://rohandrape.net/'
+		'sw/stsc3/lib/png/'
+		'smalltalk-balloon.png'
+	].join('')
 )
 ~~~
 

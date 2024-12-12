@@ -17,12 +17,17 @@ Answer the factorial power _aNumber ^ (anInteger)_.
 
 Plot over a subset of the reals:
 
+~~~spl svg=A
+(-0.5 -- 3.5).functionPlot(
+	1:4.collect { :k |
+		{ : each |
+			each.factorialPower(k)
+		}
+	}
+)
 ~~~
-(-3 -- 4).functionPlot { :each | each.factorialPower(1) }
-(-3 -- 4).functionPlot { :each | each.factorialPower(2) }
-(-3 -- 4).functionPlot { :each | each.factorialPower(3) }
-(-3 -- 4).functionPlot { :each | each.factorialPower(4) }
-~~~
+
+![](sw/spl/Help/Image/factorialPower-A.svg)
 
 * * *
 

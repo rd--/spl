@@ -29,7 +29,12 @@ In this program two sine oscillators (at 440 and 550 hz) are balanced using a lo
 
 ```
 let o = SinOsc([440, 550], 0);
-Balance2(o.first, o.second, LfNoise1(4), 0.1)
+Balance2(
+	o.first,
+	o.second,
+	LfNoise1(4),
+	0.1
+)
 ```
 
 * * *

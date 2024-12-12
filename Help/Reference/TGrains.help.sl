@@ -32,7 +32,17 @@ let dur = 4 / triggerRate;
 let pan = Dseq(inf, [-1, -0.9 .. 1]);
 let amp = 1 / 4;
 let interp = 2;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Uniform unary rate, perturb _centerPos_ at clock rate
@@ -49,7 +59,17 @@ let dur = 12 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Stochastic clock (_Dust_):
@@ -66,7 +86,17 @@ let dur = 4 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Mouse control of _centerPos_ and _dur_:
@@ -83,7 +113,17 @@ let dur = MouseY(0.2, 24, 1, 0.2) / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Stochastic _centerPos_, no external control:
@@ -94,12 +134,25 @@ let triggerRate = 100;
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let centerPos = Integrator(BrownNoise().kr * 0.001, 1);
+let centerPos = Integrator(
+	BrownNoise().kr * 0.001,
+	1
+);
 let dur = 8 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Stochastic _rate_:
@@ -115,7 +168,17 @@ let dur = 8 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 Stochastic _rate_, fixed clock rate:
@@ -130,7 +193,17 @@ let dur = 1.2 / MouseY(2, 120, 1, 0.2);
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
-TGrains(numChannels, trigger, sf, rate, centerPos, dur, pan, amp, interp).Splay
+TGrains(
+	numChannels,
+	trigger,
+	sf,
+	rate,
+	centerPos,
+	dur,
+	pan,
+	amp,
+	interp
+).Splay
 ```
 
 * * *

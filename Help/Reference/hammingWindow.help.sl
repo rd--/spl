@@ -12,7 +12,9 @@ Answer the Hamming window function at _aNumber_.
 Plot:
 
 ~~~spl svg=A
-(-0.5 -- 0.5).functionPlot(hammingWindow:/1)
+(-0.5 -- 0.5).functionPlot(
+	hammingWindow:/1
+)
 ~~~
 
 ![](sw/spl/Help/Image/hammingWindow-A.svg)

@@ -25,7 +25,11 @@ Example signal to process:
 
 ```
 Decay2(
-	Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
+	Impulse(8, 0) * MulAdd(
+		LfSaw(0.3, 0),
+		-0.3,
+		0.3
+	),
 	0.001,
 	0.3
 ) * Pulse([80, 81], 0.3).Sum
@@ -35,7 +39,11 @@ Noise gate (keywords):
 
 ```
 let z = Decay2(
-	Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
+	Impulse(8, 0) * MulAdd(
+		LfSaw(0.3, 0),
+		-0.3,
+		0.3
+	),
 	0.001,
 	0.3
 ) * Pulse([80, 81], 0.3).Sum;
@@ -54,7 +62,11 @@ Compressor (keywords):
 
 ```
 let z = Decay2(
-	Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
+	Impulse(8, 0) * MulAdd(
+		LfSaw(0.3, 0),
+		-0.3,
+		0.3
+	),
 	0.001,
 	0.3
 ) * Pulse([80, 81], 0.3).Sum;
@@ -73,7 +85,11 @@ Limiter (keywords):
 
 ```
 let z = Decay2(
-	Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
+	Impulse(8, 0) * MulAdd(
+		LfSaw(0.3, 0),
+		-0.3,
+		0.3
+	),
 	0.001,
 	0.3
 ) * Pulse([80, 81], 0.3).Sum;
@@ -92,7 +108,11 @@ Sustainer (keywords):
 
 ```
 let z = Decay2(
-	Impulse(8, 0) * MulAdd(LfSaw(0.3, 0), -0.3, 0.3),
+	Impulse(8, 0) * MulAdd(
+		LfSaw(0.3, 0),
+		-0.3,
+		0.3
+	),
 	0.001,
 	0.3
 ) * Pulse([80, 81], 0.3).Sum;

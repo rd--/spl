@@ -35,8 +35,8 @@ There is no literal syntax for characters,
 the `printString` for a `Character` is equal to the `printString` for a one place `String`:
 
 ```
->>> 'x'.printString = 'x'.asCharacter.printString
-true
+>>> 'x'.printString
+'x'.asCharacter.printString
 ```
 
 The `storeString` is distinguished:

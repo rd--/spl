@@ -26,7 +26,12 @@ Indexing by hand:
 
 ```
 let sf = SfAcquireMono('Floating');
-let ph = MouseX(0, BufFrames(sf), 0, 0.2).K2A;
+let ph = MouseX(
+	0,
+	BufFrames(sf),
+	0,
+	0.2
+).K2A;
 BufRd(1, sf, ph, 1, 2)
 ```
 

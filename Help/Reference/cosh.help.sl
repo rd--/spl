@@ -39,7 +39,7 @@ Minimum of `cosh`:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-4 -- 4).functionPlot(cosh:/1)
 ~~~
 

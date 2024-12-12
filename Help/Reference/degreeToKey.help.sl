@@ -109,7 +109,7 @@ Indices wrap around the table and shift octaves as they do:
 
 * * *
 
-See also: cancelFlat, cancelSharp, flat, Scale, sharp
+See also: cancelFlat, cancelSharp, DegreeToKey, flat, Scale, sharp
 
 References:
 _SuperCollider_

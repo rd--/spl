@@ -22,9 +22,9 @@ Threads over lists:
 
 ```
 >>> (1 / [2 3 4 5]).inverseErf
-[0.476936 0.304570 0.225312 0.179143]
+[0.47694 0.30457 0.22531 0.17914]
 
->>> [0.476936 0.304570 0.225312 0.179143].erf
+>>> [0.47694 0.30457 0.22531 0.17914].erf
 (1 / [2 3 4 5])
 ```
 
@@ -40,9 +40,11 @@ At `one` and `zero` and negative `one`:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-0.99 -- 0.99).functionPlot(inverseErf:/1)
 ~~~
+
+![](sw/spl/Help/Image/inverseErf-A.svg)
 
 * * *
 

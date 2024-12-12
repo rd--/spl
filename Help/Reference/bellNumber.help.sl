@@ -24,7 +24,7 @@ Threads element-wise over lists (OEIS A000110):
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 1:99.bellNumber.logScale.discretePlot
 ~~~
 

@@ -47,7 +47,7 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot(abs:/1)
 ~~~
 
@@ -55,7 +55,7 @@ Plot over a subset of the reals:
 
 Plot _|1 + x|_:
 
-~~~
+~~~spl svg=B
 (-2 -- 4).functionPlot(abs:/1)
 ~~~
 

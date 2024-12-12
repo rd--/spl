@@ -8,7 +8,7 @@ Answer the probability density function for the distribution _d_ evaluated at _x
 
 Plot `pdf` for a standard normal distribution:
 
-~~~
+~~~spl svg=A
 let d = NormalDistribution(0, 1);
 (-5 -- 5).functionPlot { :x |
 	d.pdf(x)

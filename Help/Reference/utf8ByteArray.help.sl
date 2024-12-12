@@ -34,7 +34,7 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 
 Plot Utf-8 code points of a String:
 
-~~~
+~~~spl svg=A
 'utf8ByteArray'
 .utf8ByteArray
 .asList

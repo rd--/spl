@@ -18,9 +18,13 @@ WhiteNoise().AmClip(SinOsc(1, 0) * 0.2)
 
 Plot:
 
+~~~spl svg=A
+(0 -- 4.pi).functionPlot { :x |
+	AmClip(1, x.sin)
+}
 ~~~
-(0 -- 4.pi).functionPlot { :x | AmClip(1, x.sin) }
-~~~
+
+![](sw/spl/Help/Image/AmClip-A.svg)
 
 * * *
 

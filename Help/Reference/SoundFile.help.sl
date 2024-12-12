@@ -10,27 +10,45 @@ The method `interleavedData` reads the indicated interleave channel data as a `F
 The method `channelData` reads the indicated one-indexed channel data as a `Float32Array`.
 
 ~~~
-let url = 'https://rohandrape.net/pub/jssc3/flac/Then.wav'.asUrl;
+let url = [
+	'https://rohandrape.net/'
+	'pub/jssc3/flac/'
+	'Then.wav'
+].join('').asUrl;
 SoundFile(url).then { :soundFile |
 	let channelData = soundFile.channelData(1);
 	(
-		numberOfChannels: soundFile.numberOfChannels,
-		numberOfFrames: soundFile.numberOfFrames,
-		sampleRate: soundFile.sampleRate,
-		url: soundFile.url,
-		channelDataSize: channelData.size,
-		channelDataTypeOf: channelData.typeOf
+		soundFile.numberOfChannels,
+		soundFile.numberOfFrames,
+		soundFile.sampleRate,
+		soundFile.url,
+		channelData.size,
+		channelData.typeOf
 	).postLine;
-	channelData.asList.drop(1024 * 8).take(1024 * 1).linePlot
+	channelData
+	.asList
+	.drop(1024 * 8)
+	.take(1024 * 1)
+	.linePlot
 }
 ~~~
 
-Define a 128 place sine table, construct a SoundFile to hold it, and send to the table to the synthesiser:
+Define a 128 place sine table,
+construct a SoundFile to hold it,
+and send to the table to the synthesiser:
 
 ~~~
-let table = (0 -- 2.pi).discretize(128).collect(sin:/1);
-let soundFile = SoundFile(table.asFloat32Array, 1, 128, 48000, '');
-system.scSynth.sendOsc(soundFile.allocSendMessage(10))
+let table = (0 -- 2.pi).discretize(128).sin;
+let soundFile = SoundFile(
+	table.asFloat32Array,
+	1,
+	128,
+	48000,
+	''
+);
+system.scSynth.sendOsc(
+	soundFile.allocSendMessage(10)
+)
 ~~~
 
 Read the table as a frequency control:

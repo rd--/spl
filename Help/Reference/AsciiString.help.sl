@@ -6,8 +6,18 @@ A `Type` holding an Ascii encoded text string.
 
 ```
 >>> let s = 'text'.asAsciiString;
->>> (s.isAsciiString, s.size, s.first, s.last(3))
-(true, 4, 't'.asCharacter, 'ext'.asAsciiString)
+>>> (
+>>> 	s.isAsciiString,
+>>> 	s.size,
+>>> 	s.first,
+>>> 	s.last(3)
+>>> )
+(
+	true,
+	4,
+	't'.asCharacter,
+	'ext'.asAsciiString
+)
 ```
 
 Select characters by index:
@@ -21,7 +31,8 @@ Select characters by index:
 Transform to upper case using `collect` and `asUpperCase`:
 
 ```
->>> 'text'.asAsciiString.collect(asUpperCase:/1)
+>>> 'text'.asAsciiString
+>>> .collect(asUpperCase:/1)
 'TEXT'.asAsciiString
 ```
 
@@ -42,8 +53,12 @@ Concatenate using `++`:
 Split on sub-string using `splitBy`:
 
 ```
->>> 'two words'.asAsciiString.splitBy(' '.asAsciiString)
-['two'.asAsciiString, 'words'.asAsciiString]
+>>> 'two words'.asAsciiString
+>>> .splitBy(' '.asAsciiString)
+[
+	'two'.asAsciiString,
+	'words'.asAsciiString
+]
 ```
 
 * * *

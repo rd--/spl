@@ -15,7 +15,9 @@ Note: Since end is defined as the wrap point, its value is never actually output
 - end: end point of ramp
 - resetPos: the value to jump to upon receiving a trigger.
 
-Phasor controls sine frequency, end frequency matches a second sine wave:
+Phasor controls sine frequency,
+end frequency matches a second sine wave,
+`LinLin` converts range:
 
 ```
 let rate = MouseX(0.2, 2, 1, 0.2);
@@ -24,21 +26,30 @@ let sr = SampleRate();
 let x = Phasor(trig, rate / sr, 0, 1, 0);
 SinOsc(
 	[
-		x.LinLin(0, 1, 600, 1000), /* convert range */
-		1000 /* constant second frequency */
+		x.LinLin(0, 1, 600, 1000),
+		1000
 	],
 	0
 ) * 0.1
 ```
 
 Two phasors control two sine frequencies.
-_MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
+`MouseX` controls trigger frequency and `MouseY` controls resetPos of the second:
 
 ```
 let rate = MouseX(1, 200, 1, 0.2);
 let trig = Impulse(rate, 0);
 let sr = SampleRate();
-let x = Phasor(trig, rate / sr, 0, 1, [0, MouseY(0, 1, 0, 0.2)]);
+let x = Phasor(
+	trig,
+	rate / sr,
+	0,
+	1,
+	[
+		0,
+		MouseY(0, 1, 0, 0.2)
+	]
+);
 SinOsc(x * 500 + 500, 0) * 0.2
 ```
 
@@ -50,7 +61,18 @@ which is perfect for driving BufRd.
 
 ```
 let b = SfAcquire('CrotaleD6', 1, [1]);
-SfRead(b, Phasor(1, SfRateScale(b), 0, SfFrames(b), 0), 1, 2)
+SfRead(
+	b,
+	Phasor(
+		1,
+		SfRateScale(b),
+		0,
+		SfFrames(b),
+		0
+	),
+	1,
+	2
+)
 ```
 
 Two phasors control two sound file positions.
@@ -61,8 +83,17 @@ let b = SfAcquire('CrotaleD6', 1, [1]);
 let rate = MouseX(0.1, 100, 1, 0.2);
 let trig = Impulse(rate, 0);
 let bFrames = SfFrames(b);
-let resetPos = [0, MouseY(0, bFrames, 0, 0.2)];
-let x = Phasor(trig, SfRateScale(b), 0, bFrames, resetPos);
+let resetPos = [
+	0,
+	MouseY(0, bFrames, 0, 0.2)
+];
+let x = Phasor(
+	trig,
+	SfRateScale(b),
+	0,
+	bFrames,
+	resetPos
+);
 SfRead(b, x, 1, 2)
 ```
 

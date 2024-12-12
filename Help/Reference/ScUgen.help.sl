@@ -16,7 +16,12 @@ Accessors are:
 ```
 >>> let ugen = SinOsc(440, 0);
 >>> let scUgen = ugen.scUgen;
->>> (scUgen.name, scUgen.numberOfChannels, scUgen.rate, scUgen.inputList)
+>>> (
+>>> 	scUgen.name,
+>>> 	scUgen.numberOfChannels,
+>>> 	scUgen.rate,
+>>> 	scUgen.inputList
+>>> )
 ('SinOsc', 1, 2, [440, 0])
 ```
 

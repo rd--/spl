@@ -15,12 +15,23 @@ _Shift-UpArrow_ and _Shift-DownArrow_ allow retrieving previous programs.
 A small program may optionally have a _description_ and an _expected answer_.
 
 ~~~
-let description = '# A Description\n\nOf a small program.';
+let description = [
+	'# A Description'
+	''
+	'Of a small program.'
+].unlines;
 let program = '3 + 4';
 let expectedAnswer = '7';
 let smallKansas = system.smallKansas;
-let smallProgram = smallKansas.SmallProgram(description, program, expectedAnswer);
-smallKansas.addFrame(smallProgram, nil)
+let smallProgram = smallKansas.SmallProgram(
+	description,
+	program,
+	expectedAnswer
+);
+smallKansas.addFrame(
+	smallProgram,
+	nil
+)
 ~~~
 
 If an answer is a `Promise`,
@@ -35,7 +46,11 @@ then `SmallProgram` will add a listener to the `Promise` object and update the a
 ~~~
 
 ~~~
-let url = 'https://rohandrape.net/sw/stsc3/lib/png/squeak-mouse.png';
+let url = [
+	'https://rohandrape.net/'
+	'sw/stsc3/lib/png/'
+	'squeak-mouse.png'
+].join('');
 url.fetchBlob
 ~~~
 

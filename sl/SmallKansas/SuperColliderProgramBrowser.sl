@@ -45,10 +45,10 @@ SuperColliderProgramIndex : [Object] { | contents |
 
 }
 
-+@Cache {
++System {
 
 	superColliderProgramIndex { :self |
-		system.requestLibraryItem('Music/SuperCollider/ProgramIndex')
+		self.requestLibraryItem('Music/SuperCollider/ProgramIndex')
 	}
 
 }

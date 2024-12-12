@@ -13,36 +13,57 @@ The counter wraps between min and max.
 - step: step value each trigger. May be negative.
 - resetVal: value to which the counter is reset when it receives a reset trigger. If nil, then this is patched to min.
 
-Count by 1:
+Count by one from four up to sixteen:
 
 ```
-let step = Stepper(Impulse(10, 0), 0, 4, 16, 1, 0);
-SinOsc(step * 100, 0) * 0.05
+SinOsc(
+	Stepper(
+		Impulse(10, 0),
+		0,
+		4,
+		16,
+		1,
+		0
+	) * 100,
+	0
+) * 0.05
 ```
 
 Count by -3:
 
 ```
-let step = Stepper(Impulse(10, 0), 0, 4, 16, -3, 0);
-SinOsc(step * 100, 0) * 0.05
+SinOsc(
+	Stepper(
+		Impulse(10, 0), 0, 4, 16, -3, 0
+	) * 100,
+	0
+) * 0.05
 ```
 
 Count by 4:
 
 ```
-let step = Stepper(Impulse(10, 0), 0, 4, 16, 4, 0);
-SinOsc(step * 100, 0) * 0.05
+SinOsc(
+	Stepper(
+		Impulse(10, 0), 0, 4, 16, 4, 0
+	) * 100,
+	0
+) * 0.05
 ```
 
 Count by mouse control:
 
 ```
 let x = MouseX(-9, 9, 0, 0.2);
-let step = Stepper(Impulse(10, 0), 0, 4, 16, x, 0);
-SinOsc(step * 100, 0) * 0.05
+SinOsc(
+	Stepper(
+		Impulse(10, 0), 0, 4, 16, x, 0
+	) * 100,
+	0
+) * 0.05
 ```
 
-Using Stepper and BufRd for sequencing, mouse controls clock rate:
+Using `Stepper` and `BufRd` for sequencing, mouse controls clock rate:
 
 ```
 let b = [
@@ -56,9 +77,17 @@ let index = Stepper(clock, 0, 0, 15, 1, 0);
 let freq = BufRd(1, b, index, 1, 1).MidiCps;
 let lfreq = Lag2(freq, 0.1) + [0, 0.3];
 let ffreq = Lag2(lfreq, 0.1) + [0, 0.3];
-let lfo = SinOsc(0.2, [0, 0.5 * pi]) * 0.0024 + 0.0025;
+let lfo = SinOsc(
+	0.2,
+	[0, 0.5 * pi]
+) * 0.0024 + 0.0025;
 let rvb = { :in |
-	let c = CombL(in, 1, 0.66 / rate, 2) * 0.8 + in; /* echo */
+	let c = CombL(
+		in,
+		1,
+		0.66 / rate,
+		2
+	) * 0.8 + in; /* echo */
 	let z = c;
 	5.timesRepeat {
 		z := AllpassN(
@@ -70,7 +99,11 @@ let rvb = { :in |
 	};
 	c + (0.3 * z)
 };
-let out = LfPulse(lfreq * [1, 3 / 2, 2], 0, 0.3).Sum;
+let out = LfPulse(
+	lfreq * [1, 3 / 2, 2],
+	0,
+	0.3
+).Sum;
 out := Rlpf(out, ffreq, 0.3) * env;
 out := Rlpf(out, ffreq, 0.3) * env;
 out := LeakDc(rvb(out * 0.02), 0.995);

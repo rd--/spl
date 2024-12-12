@@ -33,7 +33,7 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 * * *
 
-See also: asciiByteArray, BacktickQuotedString, characterList, Character, DoubleQuotedString, utf8ByteArray, utf16List
+See also: AsciiString, asciiByteArray, BacktickQuotedString, characterList, Character, DoubleQuotedString, utf8ByteArray, utf16List
 
 Guides: String Syntax
 

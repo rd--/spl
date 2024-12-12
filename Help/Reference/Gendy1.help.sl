@@ -93,7 +93,10 @@ An overlapping texture program:
 	{
 		let freq = Rand(50, 560.3);
 		let numCps = Rand(2, 20);
-		let kNum = SinOsc(ExpRand(0.02, 0.2), 0).LinLin(-1, 1, 0, numCps);
+		let kNum = SinOsc(
+			ExpRand(0.02, 0.2),
+			0
+		).LinLin(-1, 1, 0, numCps);
 		let osc = Gendy1(
 			ampDist: Rand(0, 6),
 			durDist: Rand(0, 6),

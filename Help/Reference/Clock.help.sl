@@ -46,7 +46,8 @@ system.clock.schedule(0) { :t |
 A scheduling process that passes an object between iterations:
 
 ~~~
-system.clock.scheduleInjecting(0, 1) { :t :i |
+system.clock
+.scheduleInjecting(0, 1) { :t :i |
 	let x = system.nextRandomFloat;
 	[t, i, x].postLine;
 	(x > 0.1).if {

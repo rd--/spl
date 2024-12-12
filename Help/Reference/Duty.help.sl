@@ -40,7 +40,15 @@ Control rate resetting the demand ugens:
 
 ```
 let freq = Duty(
-	Dseq(inf, [0.2, 0.3, 0.4, Dseq(inf, [1 1 1 2 1 2])]) / 2,
+	Dseq(
+		inf,
+		[
+			0.2,
+			0.3,
+			0.4,
+			Dseq(inf, [1 1 1 2 1 2])
+		]
+	) / 2,
 	Dust(1).kr,
 	Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
 ) * 30 + 250;
@@ -51,7 +59,15 @@ Demand rate reset:
 
 ```
 let freq = Duty(
-	Dseq(inf, [0.2, 0.3, 0.4, Dseq(inf, [1 1 1 2 1 2])]) / 2,
+	Dseq(
+		inf,
+		[
+			0.2,
+			0.3,
+			0.4,
+			Dseq(inf, [1 1 1 2 1 2])
+		]
+	) / 2,
 	Dseq(inf, [1 2 4 5]),
 	Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
 ) * 30 + 250;
@@ -62,27 +78,52 @@ Demand Ugen as audio oscillator:
 
 ```
 let n = 5;
-let m = 64;
+let m = 32;
 let a = {
+	let r = { (-0.2 -- 0.2).atRandom } ! m;
 	let x = [
-		{ (-0.2 -- 0.2).atRandom } ! m,
-		{ Drand(1, { (-0.2 -- 0.2).atRandom } ! n) } ! m.atRandom
+		r,
+		{
+			let r = { (-0.2 -- 0.2).atRandom } ! n;
+			Drand(
+				1,
+				r
+			)
+		} ! m.atRandom.rounded
 	].++;
 	Dseq(inf, x.scramble)
 } ! n;
 Duty(
-	MouseX(1, 125, 1, 0.2) * SampleDur() * [1, 1.02],
+	(
+		MouseX(1, 125, 1, 0.2)
+		*
+		SampleDur()
+		*
+		[1, 1.02]
+	),
 	0,
-	Dswitch1(MouseY(0, n - 1, 0, 0.2), a)
+	Dswitch1(
+		MouseY(0, n - 1, 0, 0.2),
+		a
+	)
 )
 ```
 
 With non-demand inputs:
 
 ```
-let freq = LfNoise2(1).LinLin(-1, 1, 111, 555);
-let latchFreq = Duty(MouseX(0.1, 1, 1, 0.2), 0, freq);
-SinOsc([freq, latchFreq], 0) * 0.1
+let freq = LfNoise2(1).LinLin(
+	-1, 1, 111, 555
+);
+let latchFreq = Duty(
+	MouseX(0.1, 1, 1, 0.2),
+	0,
+	freq
+);
+SinOsc(
+	[freq, latchFreq],
+	0
+) * 0.1
 ```
 
 * * *

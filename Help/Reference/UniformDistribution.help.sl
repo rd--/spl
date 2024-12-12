@@ -30,7 +30,7 @@ Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviatio
 
 Plot `pdf` over a subset of the reals:
 
-~~~
+~~~spl svg=A
 let d = UniformDistribution(0, 1);
 (-1 -- 2).functionPlot { :x | d.pdf(x) }
 ~~~
@@ -39,7 +39,7 @@ let d = UniformDistribution(0, 1);
 
 Plot `cdf` over a subset of the reals:
 
-~~~
+~~~spl svg=B
 let d = UniformDistribution(0, 1);
 (-1 -- 2).functionPlot { :x | d.cdf(x) }
 ~~~
@@ -48,7 +48,7 @@ let d = UniformDistribution(0, 1);
 
 Plot `randomVariate`:
 
-~~~
+~~~spl svg=C
 let r = Sfc32(378914);
 let d = UniformDistribution(0, 1);
 d.randomVariate(r, 99).linePlot

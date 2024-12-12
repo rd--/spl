@@ -12,8 +12,15 @@ Mouse controls probablity:
 
 ```
 let prob = MouseX(0, 1, 0, 0.2);
-let trig = CoinGate(prob, Impulse(10, 0));
-let freq = TRand([200, 300], [400, 900], trig);
+let trig = CoinGate(
+	prob,
+	Impulse(10, 0)
+);
+let freq = TRand(
+	[200, 300],
+	[400, 900],
+	trig
+);
 SinOsc(freq, 0) * 0.1
 ```
 
@@ -21,7 +28,9 @@ Trigger level is preserved, mouse controls probablity over partial range:
 
 ```
 let prob = MouseX(0, 0.65, 0, 0.2);
-let trig = Impulse(20, 0) * (SinOsc(0.5, 0) + 1);
+let trig = Impulse(20, 0) * (
+	SinOsc(0.5, 0) + 1
+);
 {
 	Ringz(
 		CoinGate(prob, trig * 0.5),

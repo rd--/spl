@@ -48,9 +48,11 @@ Threads elementwise over lists:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-2 -- 2).functionPlot(integerPart:/1)
 ~~~
+
+![](sw/spl/Help/Image/integerPart-A.svg)
 
 * * *
 

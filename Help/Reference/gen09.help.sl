@@ -13,7 +13,7 @@ The answer is scaled to unity.
 
 An approximation of a square wave:
 
-~~~
+~~~spl svg=A
 (2 ^ 7).gen09(
 	[
 		1 3 0;
@@ -27,7 +27,7 @@ An approximation of a square wave:
 
 The same partials and amplitude as above, with phase shifts:
 
-~~~
+~~~spl svg=B
 (2 ^ 7).gen09(
 	[
 		1 3 180;
@@ -41,7 +41,7 @@ The same partials and amplitude as above, with phase shifts:
 
 * * *
 
-See also: gen10, gen11, gen19
+See also: gen03, gen10, gen11, gen13, gen19
 
 Guides: Csound Gen Routines
 

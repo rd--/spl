@@ -17,29 +17,75 @@ and that it should compare `=` to the `printString` of the answer of the test _p
 The `format` method prints the equivalence predicate:
 
 ```
->>> DocumentationTest('>>>', ['3 + 4'], ['7']).format
+>>> DocumentationTest(
+>>> 	'>>>',
+>>> 	['3 + 4'],
+>>> 	['7']
+>>> ).format
 '3 + 4 ~ (7)'
 
->>> DocumentationTest('>>', ['3 + 4'], ['7']).format
-'(3 + 4).printString.utf8ByteArray = [55].asByteArray'
+>>> DocumentationTest(
+>>> 	'>>',
+>>> 	['3 + 4'],
+>>> 	['7']
+>>> ).format
+[
+	'(3 + 4).printString.utf8ByteArray'
+	' = '
+	'[55].asByteArray'
+].join('')
 
->>> DocumentationTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
+>>> DocumentationTest(
+>>> 	'>>>',
+>>> 	[
+>>> 		'let x = 3 + 4;'
+>>> 		'x * x'
+>>> 	],
+>>> 	['49']
+>>> ).format
 'let x = 3 + 4; x * x ~ (49)'
 
->>> DocumentationTest('>>', ['let x = 3 + 4;' 'x * x'], ['49']).format
-'(let x = 3 + 4; x * x).printString.utf8ByteArray = [52, 57].asByteArray'
+>>> DocumentationTest(
+>>> 	'>>',
+>>> 	[
+>>> 		'let x = 3 + 4;'
+>>> 		'x * x'
+>>> 	],
+>>> 	['49']
+>>> ).format
+[
+	'(let x = 3 + 4; x * x)'
+	'.printString.utf8ByteArray'
+	' = '
+	'[52, 57].asByteArray'
+].join('')
 ```
 
 The `evaluate` method evaluates the test:
 
 ```
->>> DocumentationTest('>>>', ['3 + 4'], ['7']).evaluate
+>>> DocumentationTest(
+>>> 	'>>>',
+>>> 	['3 + 4'],
+>>> 	['7']
+>>> ).evaluate
 true
 
->>> DocumentationTest('>>>', ['let x = 3 + 4;' 'x * x'], ['49']).evaluate
+>>> DocumentationTest(
+>>> 	'>>>',
+>>> 	[
+>>> 		'let x = 3 + 4;'
+>>> 		'x * x'
+>>> 	],
+>>> 	['49']
+>>> ).evaluate
 true
 
->>> DocumentationTest('>>', ['3 + 4'], ['7']).evaluate
+>>> DocumentationTest(
+>>> 	'>>',
+>>> 	['3 + 4'],
+>>> 	['7']
+>>> ).evaluate
 true
 ```
 

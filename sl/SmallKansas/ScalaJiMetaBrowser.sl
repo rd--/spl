@@ -26,11 +26,11 @@
 
 }
 
-+@Cache {
++System {
 
 	jiMeta { :self |
 		self.jiScala.then { :jiScala |
-			system.requestLibraryItem(
+			self.requestLibraryItem(
 				'Music/Tuning/Scala/JustIntonation/Authors'
 			).then { :jiMeta |
 				jiMeta.collect { :each |
@@ -47,8 +47,11 @@
 ScalaJiMetaBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.jiMeta.then { :jiMeta |
-			smallKansas.addFrame(smallKansas.ScalaJiMetaBrowser(jiMeta), event)
+		system.jiMeta.then { :jiMeta |
+			smallKansas.addFrame(
+				smallKansas.ScalaJiMetaBrowser(jiMeta),
+				event
+			)
 		}
 	}
 

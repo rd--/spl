@@ -17,16 +17,19 @@ let x = LfPulse(300, 0, 0.5) * 0.1;
 [x, Lag(x, 0.002)]
 ```
 
-Used to lag pitch:
+Used to lag pitch,
+`LfPulse` is the frequency modulator,
+`Line` modulates the lag time:
 
 ```
-SinOsc( /* sine wave */
-	Lag( /* lag the modulator */
-		LfPulse(4, 0, 0.5) * 50 + 400, /* frequency modulator */
-		Line(0, 1, 15) /* modulate lag time */
+SinOsc(
+	Lag(
+		LfPulse(4, 0, 0.5) * 50 + 400,
+		Line(0, 1, 15)
 	),
-0) /* phase */
-* 0.3 /* sine amplitude */
+	0
+)
+* 0.3
 ```
 
 * * *

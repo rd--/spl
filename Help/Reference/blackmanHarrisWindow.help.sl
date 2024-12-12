@@ -11,7 +11,7 @@ Answer the _Blackman-Harris window_ function at _aNumber_.
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-1 -- 1).functionPlot(
 	blackmanHarrisWindow:/1
 )
@@ -21,7 +21,7 @@ Plot:
 
 Discrete Blackman-Harris window of length 15:
 
-~~~
+~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
 	blackmanHarrisWindow:/1

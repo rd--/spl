@@ -49,10 +49,10 @@
 
 }
 
-+@Cache {
++System {
 
 	scalaModenam { :self |
-		system.requestLibraryItem('Music/Scales/ScalaModeNames')
+		self.requestLibraryItem('Music/Scales/ScalaModeNames')
 	}
 
 }

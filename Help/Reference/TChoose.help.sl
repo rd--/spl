@@ -18,7 +18,12 @@ let a = [
 	Saw(440),
 	Pulse(440, 0.5)
 ];
-TChoose(Dust(MouseX(1, 1000, 1, 0.2)), a) * 0.2
+TChoose(
+	Dust(
+		MouseX(1, 1000, 1, 0.2)
+	),
+	a
+) * 0.2
 ```
 
 Note:

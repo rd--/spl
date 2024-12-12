@@ -23,9 +23,11 @@ Compute the Möbius function at ten and eleven:
 
 Plot the Möbius sequence for the first 20 numbers:
 
-~~~
+~~~spl svg=A
 1:20.collect(moebiusMu:/1).discretePlot
 ~~~
+
+![](sw/spl/Help/Image/moebiusMu-A.svg)
 
 * * *
 

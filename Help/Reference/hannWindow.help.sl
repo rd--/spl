@@ -32,7 +32,7 @@ Discrete _Hann_ window of length 15:
 
 * * *
 
-See also: hammingTable
+See also: hammingTable, hammingWindow
 
 Guide: Window Functions
 

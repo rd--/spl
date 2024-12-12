@@ -7,7 +7,9 @@ The `contents` method answers the quoted string.
 
 ```
 >>> `Backtick Quoted String`
-BacktickQuotedString('Backtick Quoted String')
+BacktickQuotedString(
+	'Backtick Quoted String'
+)
 ```
 
 Backtick quotes allow single quotes:

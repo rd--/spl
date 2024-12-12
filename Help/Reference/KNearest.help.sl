@@ -16,10 +16,22 @@ The distance from four equally spaced co-ordinates on the unit circle controls t
 ```
 let k = 2;
 let usePen = false;
-let x = usePen.if { PenX(1) * 2 - 1 } { MouseX(-1, 1, 0, 0.2) };
-let y = usePen.if { PenY(1) * 2 - 1 } { MouseY(-1, 1, 0, 0.2) };
+let x = usePen.if {
+	PenX(1) * 2 - 1
+} {
+	MouseX(-1, 1, 0, 0.2)
+};
+let y = usePen.if {
+	PenY(1) * 2 - 1
+} {
+	MouseY(-1, 1, 0, 0.2)
+};
 let c = [-45, 45, 135, -135].collect { :each |
-	[1, each.degreesToRadians, pi / 2].fromSphericalCoordinates
+	[
+		1,
+		each.degreesToRadians,
+		pi / 2
+	].fromSphericalCoordinates
 }.++;
 let n = KNearest(k, x, y, 0, c);
 let z = [

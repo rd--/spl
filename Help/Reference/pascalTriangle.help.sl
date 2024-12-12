@@ -28,8 +28,13 @@ A `log` scaled scatter plot of the row-order sequence,
 c.f. OEIS [A007318](https://oeis.org/A007318):
 
 ~~~
-50.pascalTriangle.concatenation.log.scatterPlot
+20.pascalTriangle
+.concatenation
+.logScale
+.scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/pascalTriangle-A.svg)
 
 * * *
 

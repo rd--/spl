@@ -3,7 +3,7 @@
 - _liouvilleLambda(aNumber)_
 
 Answer the Liouville lambda function at _aNumber_.
-The answer is one whenever the number of prime factors counting multiplicity of n is even,
+The answer is one whenever the number of prime factors counting multiplicity of _aNumber_ is even,
 and negative one otherwise.
 
 Compute the Liouville function at 8 and 9:
@@ -19,8 +19,11 @@ Compute the Liouville function at 8 and 9:
 Plot the Liouville lambda sequence for the first 20 numbers:
 
 ~~~
-1:20.collect(liouvilleLambda:/1).discretePlot
+1:20.collect(liouvilleLambda:/1)
+.discretePlot
 ~~~
+
+![](sw/spl/Help/Image/liouvilleLambda-A.svg)
 
 * * *
 

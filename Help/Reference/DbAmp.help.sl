@@ -33,7 +33,8 @@ SinOsc(440, 0) * -24.DbAmp
 Modulate amplitude:
 
 ```
-FSinOsc(800, 0) * Line(-12, -40, 10).DbAmp
+let mul = Line(-12, -40, 10).DbAmp;
+SinOsc(800, 0) * mul
 ```
 
 * * *

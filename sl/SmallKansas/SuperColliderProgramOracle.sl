@@ -1,7 +1,7 @@
-+@Cache {
++System {
 
 	superColliderProgramOracle { :self |
-		system.requestLibraryItem('Music/SuperCollider/ProgramOracle')
+		self.requestLibraryItem('Music/SuperCollider/ProgramOracle')
 	}
 
 }

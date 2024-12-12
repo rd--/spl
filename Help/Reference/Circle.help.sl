@@ -46,7 +46,8 @@ Circles can be elements of `LineDrawing`s.
 Specify radii:
 
 ~~~spl svg=A
-Circle([0 0; 0 0; 0 0], [1 3 5]).LineDrawing
+Circle([0 0; 0 0; 0 0], [1 3 5])
+.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Circle-A.svg)

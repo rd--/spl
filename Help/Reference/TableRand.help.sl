@@ -12,10 +12,21 @@ Randomly set the frequency of a sine oscillator according to an indicated probab
 
 ```
 let k = 8;
-let tbl = [0 0 0 0 1 0 1 0 1 0 1 0 1 0].asRandomTable(1111).asLocalBuf;
-let w = TrigRoundRobin(k * 2, Impulse(k, 0).kr);
-let f = TableRand(w, tbl).LinExp(0, 1, 111, 1111);
-let o = SinOsc(f, 0) * Perc(w, 1 / 111, 1, -1);
+let tbl = [
+	0 0 0 0 1 0 1
+	0 1 0 1 0 1 0
+].asRandomTable(1111)
+.asLocalBuf;
+let w = TrigRoundRobin(
+	k * 2,
+	Impulse(k, 0).kr
+);
+let f = TableRand(
+	w,
+	tbl
+).LinExp(0, 1, 111, 1111);
+let e = Perc(w, 1 / 111, 1, -1);
+let o = SinOsc(f, 0) * e;
 o.Splay / 3
 ```
 
@@ -24,7 +35,12 @@ carrier and modulation frequencies and modulation index:
 
 ```
 let tbl = { :trig :dist :lo :hi |
-	TableRand(trig, dist.asRandomTable(128).asLocalBuf).LinExp(0, 1, lo, hi)
+	TableRand(
+		trig,
+		dist
+		.asRandomTable(128)
+		.asLocalBuf
+	).LinExp(0, 1, lo, hi)
 };
 let x = MouseX(7, [7 * 11, 11 * 23], 1, 0.2);
 let tr = Dust(x).kr;
@@ -40,7 +56,17 @@ let index = [
 	tbl(tr, [0 0 0 1], 1, 23),
 	tbl(tr, [1 0 0 0], 1, 23)
 ];
-GrainFm(1, tr, 7 / x, carFreq, modFreq, index, 0, -1, 512).Mix / 23 / 7
+GrainFm(
+	1,
+	tr,
+	7 / x,
+	carFreq,
+	modFreq,
+	index,
+	0,
+	-1,
+	512
+).Mix / 23 / 7
 ```
 
 * * *

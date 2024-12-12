@@ -3,7 +3,7 @@
 +SmallKansas {
 
 	helpTextFor { :self :topic :event |
-		self.helpIndex.then { :helpIndex |
+		system.helpIndex.then { :helpIndex |
 			helpIndex.fetchFor(topic).then { :aString |
 				aString.ifNotNil {
 					self.helpTextViewer(event).subject.setEditorText(aString)
