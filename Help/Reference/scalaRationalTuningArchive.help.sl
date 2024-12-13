@@ -17,7 +17,8 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 
 ```
 >>> system
->>> .scalaRationalTuningArchive['aeolic']
+>>> .scalaRationalTuningArchive
+>>> .at('aeolic')
 >>> .asRatios
 [1/1 9/8 32/27 4/3 3/2 128/81 16/9]
 ```

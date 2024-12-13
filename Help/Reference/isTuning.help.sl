@@ -16,6 +16,6 @@ true
 
 * * *
 
-See also: CentsTuning, RatioTuning, Tuning
+See also: CentsTuning, RatioTuning, ScalaTuning, Tuning
 
 Categories: Testing

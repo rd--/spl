@@ -1,7 +1,7 @@
 +System {
 
 	unicodeData { :self |
-		self.requestLibraryItem('Text/Unicode/CharacterDatabase')
+		self.requireLibraryItem('Text/Unicode/CharacterDatabase')
 	}
 
 }

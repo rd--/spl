@@ -11,7 +11,9 @@ and thereby also in the `scalaRationalTuningArchive`.
 Count the number of entries:
 
 ```
->>> system.categorizedTuningArchive.size
+>>> system
+>>> .categorizedTuningArchive
+>>> .size
 33
 ```
 

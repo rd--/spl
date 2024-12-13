@@ -1,7 +1,23 @@
 # Blob
 
+- _Blob(aList, aRecord)_
+
 A `Blob` is both a `Trait` and an opaque `Type` holding immutable binary data.
 A `Blob` represents a "Binary Large Object".
+
+`Blob` joins multiple parts together:
+
+```
+>>> let list = [1:5, 6:9].collect(
+>>> 	asByteArray:/1
+>>> );
+>>> let blob = Blob(
+>>> 	list,
+>>> 	(type: 'application/octet-stream')
+>>> );
+>>> (list.size, blob.size, blob.type)
+(2, 9, 'application/octet-stream')
+```
 
 The `type` of a `Blob` is the _mime type_ of the resource,
 if known,

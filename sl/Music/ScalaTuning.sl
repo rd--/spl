@@ -91,7 +91,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	scalaIntervalNames { :self |
-		self.requireLibraryItem('Music/Scales/ScalaIntervalNames')
+		self.requireLibraryItem('Music/Tuning/ScalaIntervalNames')
 	}
 
 	scalaRationalTuningArchive { :self |

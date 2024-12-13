@@ -20,20 +20,11 @@ At `Float64Array` encloses data as a byte array:
 (9, 72, '')
 ```
 
-At `List`, joins multiple parts together:
-
-```
->>> let list = [1:5, 6:9].collect(asByteArray:/1);
->>> let blob = list.asBlob;
->>> (list.size, blob.size, blob.type)
-(2, 9, '')
-```
-
 Fetch text from `Blob`:
 
 ~~~
 [65 .. 69].asByteArray.asBlob.text.then { :answer |
-	answer.postLine
+	(answer = 'ABCDE').postLine
 }
 ~~~
 

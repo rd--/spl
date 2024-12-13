@@ -24,7 +24,7 @@ A `ResidueSet` is a `Type` holding a `Set` of common residues of a `modulus`.
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
->>> let s = r.asResidueSet(12);
+>>> let s = l.asResidueSet(12);
 >>> (s.size, s.modulus, s.asList)
 (7, 12, [0 2 4 5 7 9 11])
 ```

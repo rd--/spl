@@ -32,7 +32,9 @@
 HelpBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.helpIndex.then { :helpIndex |
+		system.requestLibraryItem(
+			'System/Help/Index'
+		).then { :helpIndex |
 			smallKansas.addFrame(
 				smallKansas.HelpBrowser(helpIndex),
 				event

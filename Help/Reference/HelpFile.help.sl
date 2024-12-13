@@ -14,11 +14,11 @@ Accessors to read the parts of the file are:
 - `synopsis`: one sentence synopsis
 - `description`: one paragraph description
 - `codeBlocks`: list of code blocks
-- `documentationTests`: list of `DocumentationTest` entries
+- `documentationTests`: list of tests
 - `rationale`: one paragraph rationale
 - `seeAlso`: list of related help topics
 - `references`: one paragraph of references
-- `unicode`: list of related unicode code points
+- `unicode`: list of unicode code points
 - `categories`: list of categories
 
 ~~~
@@ -49,15 +49,26 @@ url.fetchText.then { :aString |
 Print the reference help files with an empty categories field:
 
 ~~~
-let directory = '/home/rohan/sw/spl/Help/Reference/';
-let fileList = directory.readDirectoryFileNames;
-fileList.select { :each |
+let directory = [
+	'/home/rohan/'
+	'sw/spl/Help/'
+	'Reference/'
+].join('');
+directory
+.readDirectoryFileNames
+.select { :each |
 	each.endsWith('.help.sl')
 }.do { :each |
 	let text = each.readTextFile;
-	let help = HelpFile(each.asFileUrl, text);
+	let help = HelpFile(
+		each.asFileUrl,
+		text
+	);
 	help.categories.isEmpty.ifTrue {
-		each.asFileUrl.fileName.postLine
+		each
+		.asFileUrl
+		.fileName
+		.postLine
 	}
 };
 nil
@@ -65,7 +76,7 @@ nil
 
 * * *
 
-See also: terseReferenceSummary
+See also: helpIndex, HelpIndex, terseReferenceSummary
 
 Guides: Documentation Tests
 

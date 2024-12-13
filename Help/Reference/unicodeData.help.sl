@@ -1,25 +1,51 @@
 # unicodeData
 
-- _unicodeData(aCache)_
+- _unicodeData(aSystem)_
 
-Answer a `Promise` that will answer a _matrix_ holding the _Unicode Character Database_.
+Answer a _matrix_ holding the _Unicode Character Database_.
 
-The `unicodeData` method is `requestLibraryItem` of 'Text/Unicode/CharacterDatabase'.
+The `unicodeData` method is `requireLibraryItem` of 'Text/Unicode/CharacterDatabase'.
 
-Acquire the table,
-if it is not cached,
-and when it arrives print its size and the entry for code point 03C0:
+Acquire the table if it is not cached:
 
 ~~~
-system.unicodeData.then { :table |
-	let index = table.findFirst { :each |
-		each.first = '03C0'
-	};
-	(
-		table.size,
-		table[index]
-	).postLine
+system.awaitLibraryItem(
+	'Text/Unicode/CharacterDatabase'
+) {
+	'Acquired'.postLine
 }
+~~~
+
+Only if the library has been acquired may it be accessed directly.
+Check if the library item is acquired (this will acquire it if it is locally stored):
+
+~~~
+>>> system.libraryItem(
+>>> 	'Text/Unicode/CharacterDatabase'
+>>> ).isAcquired
+true
+~~~
+
+Count the number of entries:
+
+~~~
+>>> system.unicodeData.size
+40116
+~~~
+
+The entry for code point 03C0:
+
+~~~
+>>> system.unicodeData.detect { :each |
+>>> 	each.first = '03C0'
+>>> }
+[
+	'03C0',
+	'GREEK SMALL LETTER PI',
+	'Ll',
+	'0', 'L', '', '', '', '', 'N', '', '',
+	'03A0', '', '03A0'
+]
 ~~~
 
 The most commonly used fields are:
@@ -32,29 +58,13 @@ The most commonly used fields are:
 
 The code point is a four character hexadecimal string.
 
-If the library has been acquired it may be accessed directly.
-Check if the library item is acquired:
-
-~~~
-system.libraryItem(
-	'Text/Unicode/CharacterDatabase'
-).isAcquired
-~~~
-
-Get the library item:
-
-~~~
-system
-.libraryItem(
-	'Text/Unicode/CharacterDatabase'
-)
-.require
-.size
-~~~
+_Note:_
+The archive is a `LibraryItem`,
+and this function requires the item be available locally.
 
 * * *
 
-See also: codePoint, libraryItem, LibraryItem, requestLibraryItem
+See also: codePoint, libraryItem, LibraryItem, requestLibraryItem, requireLibraryItem
 
 References:
 _Unicode_

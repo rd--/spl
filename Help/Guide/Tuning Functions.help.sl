@@ -33,6 +33,8 @@ _Constants_:
 _Converting_:
 
 - `asFraction`: as fraction
+- `asCentsTuning`: as cents tuning
+- `asRatioTuning`: as ratio tuning
 - `centsToRatio`: cents to ratio
 - `degreeToKey`: degree to key
 - `ratioToCents`: ratio to cents
@@ -48,8 +50,12 @@ _Fraction Functions_:
 
 _Instance Creation_:
 
-- `asRatioTuning`: construct ratio tuning
 - `equalTemperamentTuning`: edo
+
+_Interval Functions_:
+
+- `intervalName`: interval name
+- `namedInterval`: interval lookup
 
 _Interval complexity measures_:
 
@@ -71,6 +77,24 @@ _Lattice Functions_:
 - `manhattanDistance`: distance metric
 - `wilsonLatticeCoordinates`: unit vector
 
+_Library Items_:
+
+- `categorizedTuningArchive`: archive
+- `scalaRationalTuningArchive`: archive
+- `scalaTuningArchive`: tuning archive
+
+_Metric Functions_:
+
+- `barlowDisharmonicity`: disharmonicity
+- `barlowHarmonicity`: harmonicity
+- `barlowIndigestibility`: indigestibility
+- `barlowIndispensability`: indispensability
+- `kurenniemiMajorMinorIndex`: quality
+
+_Notation Functions_:
+
+- `kurenniemiNotation`: draw chord
+
 _Prime Numbers_:
 
 - `factorInteger`: primes factors
@@ -78,10 +102,11 @@ _Prime Numbers_:
 - `primeFactorization`: prime factors
 - `primeFactors`: prime factors
 
-_Scales_:
+_Scale Functions_:
 
 - `combinationProductSet`: CPS
 - `eulerFokkerGenus`: Euler-Fokker genus
+- `tuningIndices`: scale indexing
 
 _Testing_:
 
@@ -95,5 +120,6 @@ _Types & Traits_:
 
 - `CentsTuning`: cents tuning
 - `RatioTuning`: ratio tuning
+- `ScalaTuning`: Scala tuning
 - `Scale`: scale type
 - `Tuning`: tuning trait

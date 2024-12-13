@@ -3,7 +3,15 @@
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 
 	isAcquired { :self |
-		self.contents.notNil
+		let hasContents = self.contents.notNil;
+		hasContents | {
+			self.isLocal.if {
+				self.readLocalStorage;
+				true
+			} {
+				false
+			}
+		}
 	}
 
 	isLocal { :self |
@@ -121,7 +129,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 		self.library[key] := libraryItem
 	}
 
-	awaitLibraryItems { :self :name :aBlock:/0 |
+	awaitLibraryItem { :self :name :aBlock:/0 |
 		self.requestLibraryItem(name).then { :unused |
 			aBlock()
 		}

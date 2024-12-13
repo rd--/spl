@@ -2,7 +2,7 @@ HelpIndex : [Object] { | contents |
 
 	fetch { :self :path |
 		path.ifNotNil {
-			let url = self.url(path[1], path[2]);
+			let url = self.urlFor(path[1], path[2]);
 			self.notify('fetch: ' ++ path.join('/'));
 			url.fetchTextWithDefault('*Fetch Failed*')
 		}
@@ -31,7 +31,7 @@ HelpIndex : [Object] { | contents |
 		}.collect(second:/1).sorted
 	}
 
-	url { :self :kind :name |
+	urlFor { :self :kind :name |
 		[
 			'./lib/spl/Help/',
 			kind,
@@ -43,15 +43,10 @@ HelpIndex : [Object] { | contents |
 
 }
 
-+String {
++List {
 
 	HelpIndex { :self |
-		newHelpIndex().initializeSlots(
-			self.lines.select(notEmpty:/1).collect { :each |
-				let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
-				[kind, name]
-			}
-		)
+		newHelpIndex().initializeSlots(self)
 	}
 
 }
@@ -59,7 +54,7 @@ HelpIndex : [Object] { | contents |
 +System {
 
 	helpIndex { :self |
-		self.requestLibraryItem('System/Help/Index')
+		self.requireLibraryItem('System/Help/Index')
 	}
 
 }
@@ -68,5 +63,14 @@ LibraryItem(
 	name: 'System/Help/Index',
 	url: 'https://rohandrape.net/sw/spl/Help/Index.text',
 	mimeType: 'text/plain',
-	parser: HelpIndex:/1
+	parser: { :text |
+		text
+		.lines
+		.select(notEmpty:/1)
+		.collect { :each |
+			let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
+			[kind, name]
+		}
+		.HelpIndex
+	}
 )
