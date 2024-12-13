@@ -1,4 +1,6 @@
-ScalaTuning : [Object] { | contents |
+/* Requires: Tuning */
+
+ScalaTuning : [Object, Tuning] { | contents |
 
 	asCents { :self |
 		let answer = self.contents['pitches'].collect { :each |
@@ -97,7 +99,7 @@ ScalaTuning : [Object] { | contents |
 			self.scalaTuningArchive.select { :each |
 				each.isRational
 			}.collect { :each |
-				each.contents.asRatioTuning
+				each.asRatioTuning
 			}
 		}
 	}

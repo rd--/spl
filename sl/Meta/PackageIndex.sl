@@ -120,7 +120,7 @@
 	'Music-Meter'
 	'Music-Pitch'
 	'Music-RatioTuning'
-	'Music-Scala'
+	'Music-ScalaTuning'
 	'Music-Scale'
 	'Music-Tuning'
 	'Music-TuningLattice'

@@ -1,6 +1,6 @@
 # asRatioTuning
 
-- _asRatioTuning(aList | aRecord)_
+- _asRatioTuning(aList | aTuning)_
 
 Answer a `RatioTuning` for either a `List` of interval values from a reference pitch,
 or a `Record` having _name_, _description_, _tuning_, _octave_ and _limit_ fields.
@@ -115,10 +115,10 @@ An Erv Wilson scale (9 July 1967) specified as integers:
 )
 ```
 
-At `Record`:
+At `ScalaTuning`:
 
 ```
->>> (
+>>> ScalaTuning(
 >>> 	name: 'alves_pelog',
 >>> 	description: 'Pelog, 1/1 Vol.9 No.4',
 >>> 	octave: [2 1],
@@ -135,6 +135,6 @@ RatioTuning(
 
 * * *
 
-See also: asCents, asIntegers, asRatios, CentsTuning, limit, RatioTuning, Tuning
+See also: asCents, asIntegers, asRatios, CentsTuning, limit, RatioTuning, ScalaTuning, Tuning
 
 Categories: Converting

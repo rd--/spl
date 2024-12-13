@@ -1,6 +1,6 @@
 # asCentsTuning
 
-- _asCentsTuning(aList | aRecord)_
+- _asCentsTuning(aList | aTuning)_
 
 Answer a `CentsTuning` given either a `List` of intervals in _cents_,
 or a `Record` holding a Scala tuning description.
@@ -32,10 +32,10 @@ Translate the simplified ratios to cents courtesy `asRatioTuning` and `asCents`:
 ]
 ```
 
-At `Record`, with ratio octave:
+At `ScalaTuning`, with ratio octave:
 
 ```
->>> (
+>>> ScalaTuning(
 >>> 	name: '05-19',
 >>> 	description: '5 out of 19-tET',
 >>> 	pitches: [252.6 505.3 757.9 1010.5],
@@ -49,10 +49,10 @@ CentsTuning(
 )
 ```
 
-At `Record`, with cents octave:
+At `ScalaTuning`, with cents octave:
 
 ```
->>> (
+>>> ScalaTuning(
 >>> 	name: 'angklung',
 >>> 	description: 'From Tasikmalaya',
 >>> 	pitches: [
@@ -74,6 +74,6 @@ CentsTuning(
 
 * * *
 
-See also: asCents, asRatioTuning, CentsTuning, RatioTuning, Tuning
+See also: asCents, asRatioTuning, CentsTuning, RatioTuning, ScalaTuning, Tuning
 
 Categories: Converting

@@ -1,13 +1,13 @@
 [
 	/* Music */
 	'Meter'
-	'Tuning'
-	'CentsTuning'
-	'RatioTuning'
 	'Pitch'
-	'Scala'
 	'Scale'
+	'Tuning'
 	'Xenharmonic'
+	'ScalaTuning' /* Tuning */
+	'CentsTuning' /* Tuning, ScalaTuning */
+	'RatioTuning' /* Tuning, ScalaTuning */
 	'TuningLattice' /* RatioTuning */
 
 	/* Sound */

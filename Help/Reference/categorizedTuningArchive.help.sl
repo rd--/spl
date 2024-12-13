@@ -4,6 +4,10 @@
 
 Answer a `Record` where the keys are categories and the associated values are `List`s of tuning names.
 
+The names of the tunings correspond to entries in the `scalaTuningArchive`,
+and thereby also in the `scalaRationalTuningArchive`.
+
+
 Count the number of entries:
 
 ```
@@ -27,4 +31,4 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: LibraryItem, scalaTuningArchive, ScalaTuning
+See also: LibraryItem, scalaRationalTuningArchive, scalaTuningArchive, ScalaTuning

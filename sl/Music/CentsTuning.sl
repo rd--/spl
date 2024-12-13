@@ -1,4 +1,4 @@
-/* Requires: Tuning */
+/* Requires: ScalaTuning, Tuning */
 
 CentsTuning : [Object, Tuning] { | name description asCents octave |
 
@@ -64,15 +64,14 @@ CentsTuning : [Object, Tuning] { | name description asCents octave |
 
 }
 
-+Record {
++ScalaTuning {
 
 	asCentsTuning { :self |
-		let tuning = ScalaTuning(self);
 		CentsTuning(
-			tuning.name,
-			tuning.description,
-			tuning.asCents,
-			tuning.octave
+			self.name,
+			self.description,
+			self.asCents,
+			self.octave
 		)
 	}
 

@@ -1,15 +1,9 @@
-/* Requires: Cache Fraction Tuning */
+/* Requires: Cache Fraction ScalaTuning Tuning */
 
 RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 	= { :self :anObject |
-		anObject.isRatioTuning & {
-			self.equalByAtNamedSlots(
-				anObject,
-				['name' 'description' 'ratios' 'octave'],
-				=
-			)
-		}
+		self.equalBy(anObject, =)
 	}
 
 	asCents { :self |
@@ -28,6 +22,16 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 	asRatios { :self |
 		self.ratios
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isRatioTuning & {
+			self.equalByAtNamedSlots(
+				anObject,
+				['name' 'description' 'ratios' 'octave'],
+				aBlock:/2
+			)
+		}
 	}
 
 	intervalMatrix { :self |
@@ -129,16 +133,15 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 }
 
-+Record {
++ScalaTuning {
 
 	asRatioTuning { :self |
-		let tuning = ScalaTuning(self);
 		RatioTuning(
-			tuning.name,
-			tuning.description,
-			tuning.asRatios,
-			tuning.octave,
-			tuning.limit
+			self.name,
+			self.description,
+			self.asRatios,
+			self.octave,
+			self.limit
 		)
 	}
 

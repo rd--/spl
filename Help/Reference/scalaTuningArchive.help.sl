@@ -11,6 +11,17 @@ Count number of entries:
 5231
 ```
 
+The keys are the names of the tunings,
+the values are `ScalaTuning` objects.
+
+```
+>>> system
+>>> .scalaTuningArchive
+>>> .anyOne
+>>> .isScalaTuning
+true
+```
+
 Select only the rational tunings:
 
 ```
@@ -26,7 +37,8 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 
 ```
 >>> system
->>> .scalaTuningArchive['wilson_class']
+>>> .scalaTuningArchive
+>>> .at('wilson_class')
 >>> .asRatios
 [
 	1 25/24 28/25 7/6 5/4 4/3 7/5
