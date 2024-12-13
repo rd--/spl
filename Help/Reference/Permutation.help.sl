@@ -190,23 +190,51 @@ The `runs` of a permutation, c.f. `orderedSubstrings`:
 The `decreasingRuns`:
 
 ```
->>> [2,8,3,9,6,4,5,1,7].asPermutation.decreasingRuns
+>>> [2,8,3,9,6,4,5,1,7]
+>>> .asPermutation
+>>> .decreasingRuns
 [2; 8 3; 9 6 4; 5 1; 7]
 ```
 
 The runs of two random permutations:
 
 ```
->>> let p = Sfc32(12345).randomPermutationList(13, 2);
+>>> let r = Sfc32(12345)
+>>> let p = r.randomPermutationList(13, 2);
 >>> (p, p.collect(runs:/1))
 (
 	[
-		[1 2 3; 4 5 8 7 9; 6 12; 11 13].cycles,
-		[1 7 10 11; 2 8 3; 4 12 9 13 5 6].cycles
+		[
+			1 2 3;
+			4 5 8 7 9;
+			6 12;
+			11 13
+		].cycles,
+		[
+			1 7 10 11;
+			2 8 3;
+			4 12 9 13 5 6
+		].cycles
 	],
 	[
-		[2 3; 1 5 8 12; 9; 7; 4 10 13; 6 11],
-		[7 8; 2 12; 6; 4 10; 3 13; 11; 1 9; 5]
+		[
+			2 3;
+			1 5 8 12;
+			9;
+			7;
+			4 10 13;
+			6 11
+		],
+		[
+			7 8;
+			2 12;
+			6;
+			4 10;
+			3 13;
+			11;
+			1 9;
+			5
+		]
 	]
 )
 ```
@@ -218,7 +246,15 @@ The runs of two random permutations:
 [1 -> 2, 2 -> 1, 3 -> 3].asMap
 
 >>> [1 2 5 3 7; 4; 6].cycles.dictionary
-[1 -> 2, 2 -> 5, 3 -> 7, 4 -> 4, 5 -> 3, 6 -> 6, 7 -> 1].asMap
+[
+	1 -> 2,
+	2 -> 5,
+	3 -> 7,
+	4 -> 4,
+	5 -> 3,
+	6 -> 6,
+	7 -> 1
+].asMap
 ```
 
 Cauchy’s two-line notation lists the elements of S in the first row,

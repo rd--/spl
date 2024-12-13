@@ -16,15 +16,25 @@ The buffer size must be a power of two.
 With small sine table:
 
 ```
-let c = 128.sineTable(1 / 1:3, [0]).normalizeSignal;
+let c = 128.sineTable(
+	1 / 1:3,
+	[0]
+).normalizeSignal;
 let b = c.asWavetable.asLocalBuf;
-Osc(c, MouseX(222, 555, 1, 0.2), 0) * 0.1
+Osc(
+	c,
+	MouseX(222, 555, 1, 0.2),
+	0
+) * 0.1
 ```
 
 With less small sine table:
 
 ```
-let c = 2048.sineTable(1 / 1:128, [0]).normalizeSignal
+let c = 2048.sineTable(
+	1 / 1:128,
+	[0]
+).normalizeSignal
 let b = c.asWavetable.asLocalBuf;
 {
 	Osc(
@@ -32,7 +42,9 @@ let b = c.asWavetable.asLocalBuf;
 		SinOsc(
 			{ Rand(3.3, 4.4) } ! 6,
 			0
-		) * 0.01 + 1 * [82 123 196 147 41 55],
+		) * 0.01 + 1 * [
+			82 123 196 147 41 55
+		],
 		0
 	).Sum
 } !^ 3 / 17

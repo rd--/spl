@@ -12,14 +12,22 @@ Random walk with Gendyn distributions.
 As audio signal:
 
 ```
-LfBrownNoise1(1000, 1, MouseX(0, 5, 0, 0.2)) * 0.1
+LfBrownNoise1(
+	1000,
+	1,
+	MouseX(0, 5, 0, 0.2)
+) * 0.1
 ```
 
 As frequency control:
 
 ```
 SinOsc(
-	LfBrownNoise1([3 11] ! 8, 0.2, 2) * 400 + 450,
+	LfBrownNoise1(
+		[3 11] ! 8,
+		0.2,
+		2
+	) * 400 + 450,
 	0
 ).Mix * 0.1
 ```

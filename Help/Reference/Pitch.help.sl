@@ -1,6 +1,6 @@
 # Pitch
 
-- _Pitch(in, initFreq, minFreq, maxFreq, execFreq, maxBinsPerOctave, median, ampThreshold, peakThreshold, downSample)_
+- _Pitch(in, initFreq, minFreq, maxFreq, execFreq, maxBinsPerOctave, median, ampThreshold, peakThreshold, downSample, clar)_
 
 Autocorrelation pitch follower.
 Returns two signals, _freq_ and _hasFreq_.
@@ -18,7 +18,14 @@ Track sine oscillator:
 let x = MouseX(220, 660, 0, 0.1);
 let y = MouseY(0.01, 0.1, 0, 0.1);
 let z = SinOsc(x, 0) * y;
-let f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
+let f = Pitch(
+	z,
+	440, 60, 4000, 100,
+	16,
+	7,
+	0.02, 0.5,
+	1, 0
+);
 [z, SinOsc(f.first / 2, 0) * 0.1]
 ```
 
@@ -26,14 +33,26 @@ Track audio input, __use headphones__:
 
 ```
 let z = AudioIn([1, 2]).Sum;
-let f = Pitch(z, 440, 60, 4000, 100, 16, 7, 0.02, 0.5, 1, 0);
+let f = Pitch(
+	z,
+	440, 60, 4000, 100,
+	16,
+	7,
+	0.02, 0.5,
+	1, 0
+);
 let s = VarSaw(
 	f.first * [0.5, 1, 2],
 	0,
 	LfNoise1(0.3) * 0.1 + 0.1
 ) * 0.1;
 6.timesRepeat {
-	s := AllpassN(s, 0.040, { Rand(0, 0.04) } ! 2, 2)
+	s := AllpassN(
+		s,
+		0.040,
+		{ Rand(0, 0.04) } ! 2,
+		2
+	)
 };
 s
 ```

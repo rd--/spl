@@ -6,20 +6,29 @@ An _Open Sound Control_ message consists of an _address_ `String` and a (possibl
 
 ```
 >>> OscMessage('/x', []).asRecord
-(address: '/x', args: [])
+(
+	address: '/x',
+	args: []
+)
 
 >>> OscMessage('/y', [3.141]).asRecord
-(address: '/y', args: [(type: 'f', value: 3.141)])
+(
+	address: '/y',
+	args: [
+		(type: 'f', value: 3.141)
+	]
+)
 ```
 
 The `encode` method answers the binary encoding of the message as a `ByteArray`:
 
 ```
 >>> OscMessage('/x', []).encode
-[47, 120, 0, 0, 44, 0, 0, 0].asByteArray
+[47 120 0 0 44 0 0 0].asByteArray
 
 >>> OscMessage('/y', [3.141]).encode
-[47, 121, 0, 0, 44, 102, 0, 0, 64, 73, 6, 37].asByteArray
+[47 121 0 0 44 102 0 0 64 73 6 37]
+.asByteArray
 ```
 
 * * *
