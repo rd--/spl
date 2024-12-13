@@ -29,6 +29,12 @@ Multiples of items in _aCollection_ will not necessarily be removed.
 (['x' -> 1, 'y' -> 2], (z: 3))
 ```
 
+At `Storage` will remove all entries:
+
+~~~
+system.localStorage.removeAll
+~~~
+
 * * *
 
 See also: remove, removeAllFoundIn, removeAllSuchThat

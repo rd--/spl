@@ -1,8 +1,9 @@
 # asCentsTuning
 
-- _asCentsTuning(aList)_
+- _asCentsTuning(aList | aRecord)_
 
-Answer a `CentsTuning` given a sequence of intervals in _cents_.
+Answer a `CentsTuning` given either a `List` of intervals in _cents_,
+or a `Record` holding a Scala tuning description.
 
 ```
 >>> let c = (0:11 * 100);
@@ -25,7 +26,50 @@ Translate the simplified ratios to cents courtesy `asRatioTuning` and `asCents`:
 >>> ];
 >>> let t = r.asRatioTuning;
 >>> t.asCents.rounded
-[0 112 204 289 386 498 603 702 796 906 996 1101]
+[
+	0 112 204 289 386 498 603
+	702 796 906 996 1101
+]
+```
+
+At `Record`, with ratio octave:
+
+```
+>>> (
+>>> 	name: '05-19',
+>>> 	description: '5 out of 19-tET',
+>>> 	pitches: [252.6 505.3 757.9 1010.5],
+>>> 	octave: [2, 1]
+>>> ).asCentsTuning
+CentsTuning(
+	'05-19',
+	'5 out of 19-tET',
+	[0 252.6 505.3 757.9 1010.5],
+	2/1
+)
+```
+
+At `Record`, with cents octave:
+
+```
+>>> (
+>>> 	name: 'angklung',
+>>> 	description: 'From Tasikmalaya',
+>>> 	pitches: [
+>>> 		206.1 382.3 610.0 823.6
+>>> 		1234.5 1406.1 1633.4
+>>> 	],
+>>> 	octave: 1841.2
+>>> ).asCentsTuning
+CentsTuning(
+	'angklung',
+	'From Tasikmalaya',
+	[
+		0 206.1 382.3 610 823.6
+		1234.5 1406.1 1633.4
+	],
+	2.8965
+)
 ```
 
 * * *

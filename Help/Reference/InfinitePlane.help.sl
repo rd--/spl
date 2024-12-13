@@ -32,7 +32,9 @@ Determine if points belongs to a given plane:
 
 ```
 >>> let p = InfinitePlane([1 0 0], [1 0 1], [1 1 0]);
->>> [1 2 3; 0 2 3].collect { :each | p.includes(each) }
+>>> [1 2 3; 0 2 3].collect { :each
+>>> 	| p.includes(each)
+>>> }
 [true, false]
 ```
 

@@ -1,29 +1,113 @@
-+System {
+ScalaTuning : [Object] { | contents |
 
-	jiMeta { :self |
-		self.jiScala.then { :jiScala |
-			self.requestLibraryItem(
-				'Music/Tuning/Scala/JustIntonation/Authors'
-			).then { :jiMeta |
-				jiMeta.collect { :each |
-					each.collect { :aName |
-						jiScala[aName]
-					}.select(notNil:/1)
+	asCents { :self |
+		let answer = self.contents['pitches'].collect { :each |
+			each.isNumber.if {
+				each
+			} {
+				each.isList.if {
+				let [numerator, denominator] = each;
+					(numerator / denominator).ratioToCents
+				} {
+					self.error('asCents: invalid pitch')
 				}
+			}
+		};
+		answer.addFirst(0);
+		answer
+	}
+
+	asRatios { :self |
+		let answer = self.contents['pitches'].collect { :each |
+			each.isNumber.if {
+				self.error('asRatios: non-ratio pitch')
+			} {
+				each.isList.if {
+				let [numerator, denominator] = each;
+					Fraction(numerator, denominator)
+				} {
+					self.error('asRatios: invalid pitch')
+				}
+			}
+		};
+		answer.addFirst(1/1);
+		answer
+	}
+
+	degree { :self |
+		self.contents['degree']
+	}
+
+	description { :self |
+		self.contents['description']
+	}
+
+	isRational { :self |
+		self.contents.includesKey('limit')
+	}
+
+	limit { :self |
+		self.contents['limit']
+	}
+
+	name { :self |
+		self.contents['name']
+	}
+
+	octave { :self |
+		let octave = self.contents['octave'];
+		octave.isNumber.if {
+			octave.centsToRatio
+		} {
+			octave.isList.if {
+				let [numerator, denominator] = octave;
+				Fraction(numerator, denominator)
+			} {
+				self.error('octave: invalid octave')
 			}
 		}
 	}
 
-	jiScala { :self |
-		system.requestLibraryItem('Music/Tuning/Scala/JustIntonation')
+	primeLimit { :self |
+		self.limit
 	}
 
-	scalaModenam { :self |
-		self.requestLibraryItem('Music/Scales/ScalaModeNames')
+}
+
++Record {
+
+	ScalaTuning { :self |
+		newScalaTuning().initializeSlots(self)
 	}
 
-	scalaIntnam { :self |
-		self.requestLibraryItem('Music/Scales/ScalaIntervalNames')
+}
+
++System {
+
+	categorizedTuningArchive { :self |
+		self.requireLibraryItem('Music/Tuning/CategorizedTuningArchive')
+	}
+
+	scalaIntervalNames { :self |
+		self.requireLibraryItem('Music/Scales/ScalaIntervalNames')
+	}
+
+	scalaRationalTuningArchive { :self |
+		self.cached('scalaRationalTuningArchive') {
+			self.scalaTuningArchive.select { :each |
+				each.isRational
+			}.collect { :each |
+				each.contents.asRatioTuning
+			}
+		}
+	}
+
+	scalaScaleNames { :self |
+		self.requireLibraryItem('Music/Scales/ScalaModeNames')
+	}
+
+	scalaTuningArchive { :self |
+		self.requireLibraryItem('Music/Tuning/ScalaTuningArchive')
 	}
 
 }
@@ -31,7 +115,7 @@
 +Fraction {
 
 	intervalName { :self |
-		let dataBase = system.requireLibraryItem('Music/Tuning/ScalaIntervalNames');
+		let dataBase = system.scalaIntervalNames;
 		dataBase.atIfAbsent(self.printString) {
 			'*unnamed interval*'
 		}
@@ -42,7 +126,7 @@
 +String {
 
 	namedInterval { :self |
-		let dataBase = system.requireLibraryItem('Music/Tuning/ScalaIntervalNames');
+		let dataBase = system.scalaIntervalNames;
 		let key = dataBase.keyAtValueIfAbsent(self) {
 			self.error('namedInterval: no such interval')
 		};
@@ -69,13 +153,6 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Music/Tuning/Scala/JustIntonation/Authors',
-	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
-	mimeType: 'application/json',
-	parser: identity:/1
-)
-
-LibraryItem(
 	name: 'Music/Scales/ScalaModeNames',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
 	mimeType: 'application/json',
@@ -99,4 +176,20 @@ LibraryItem(
 		};
 		answer
 	}
+)
+
+LibraryItem(
+	name: 'Music/Tuning/ScalaTuningArchive',
+	url: 'https://rohandrape.net/sw/hmt/data/json/scala-db.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect(ScalaTuning:/1)
+	}
+)
+
+LibraryItem(
+	name: 'Music/Tuning/CategorizedTuningArchive',
+	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
+	mimeType: 'application/json',
+	parser: identity:/1
 )

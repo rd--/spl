@@ -9,7 +9,14 @@ Offset eight random sine tones by eight silent channels,
 requires sixteen channel system to hear:
 
 ```
-Silent(8) ++ ({ SinOsc(Rand(200, 2000), 0) * 0.1 } ! 8)
+Silent(8) ++ (
+	{
+		SinOsc(
+			Rand(200, 2000),
+			0
+		) * 0.1
+	} ! 8
+)
 ```
 
 * * *

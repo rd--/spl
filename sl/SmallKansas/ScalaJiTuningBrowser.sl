@@ -144,8 +144,15 @@
 ScalaJiTuningBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.jiScala.then { :jiTuning |
-			smallKansas.addFrame(smallKansas.ScalaJiTuningBrowser(jiTuning), event)
+		system.awaitLibraryItems([
+			'Music/Tuning/CategorizedTuningArchive',
+			'Music/Tuning/ScalaTuningArchive'
+		]) {
+			let tuningList = system.scalaRationalTuningArchive;
+			smallKansas.addFrame(
+				smallKansas.ScalaJiTuningBrowser(tuningList),
+				event
+			)
 		}
 	}
 

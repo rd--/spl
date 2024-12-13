@@ -9,7 +9,9 @@ In addition to the `Blob` trait, it implements the methods `lastModified` and `n
 ```
 >>> let fileData = 1:9.asByteArray;
 >>> let fileName = 'x.bin';
->>> let fileOptions = (type: 'application/octet-stream');
+>>> let fileOptions = (
+>>> 	type: 'application/octet-stream'
+>>> );
 >>> let file = File(fileData, fileName, fileOptions);
 >>> (file.name, file.size, file.type)
 ('x.bin', 9, 'application/octet-stream')

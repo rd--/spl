@@ -25,10 +25,16 @@ let scale = [0 2 4 5 7 9 10 12].asLocalBuf;
 	{
 		let scaleDegree = IRand(0, 7);
 		let octave = IRand(3, 5);
-		let pitchClass = Index(scale, scaleDegree);
+		let pitchClass = Index(
+			scale,
+			scaleDegree
+		);
 		let mnn = (octave * 12) + pitchClass;
 		let numHarm = IRand(1, 4);
-		Blip(mnn.MidiCps, numHarm) * Rand(0.01, 0.1)
+		Blip(
+			mnn.MidiCps,
+			numHarm
+		) * Rand(0.01, 0.1)
 	} !^ 3:7.atRandom
 }.overlapTextureProgram(3, 3, 3)
 ~~~

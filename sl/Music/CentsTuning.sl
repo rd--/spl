@@ -2,6 +2,10 @@
 
 CentsTuning : [Object, Tuning] { | name description asCents octave |
 
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
 	asFractions { :self :epsilon |
 		self.asRatios.collect { :each |
 			each.asFraction(epsilon)
@@ -56,6 +60,20 @@ CentsTuning : [Object, Tuning] { | name description asCents octave |
 
 	asCentsTuning { :self |
 		CentsTuning('Unnamed tuning', 'Undescribed tuning', self, 2)
+	}
+
+}
+
++Record {
+
+	asCentsTuning { :self |
+		let tuning = ScalaTuning(self);
+		CentsTuning(
+			tuning.name,
+			tuning.description,
+			tuning.asCents,
+			tuning.octave
+		)
 	}
 
 }

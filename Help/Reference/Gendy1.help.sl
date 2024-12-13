@@ -32,20 +32,21 @@ A texture:
 
 ```
 {
+	let freq = Gendy1(
+		IRand(0, 6),
+		IRand(0, 6),
+		SinOsc(0.1, 0) * 0.49 + 0.51,
+		SinOsc(0.13, 0) * 0.49 + 0.51,
+		Rand(130, 160.3),
+		Rand(130, 160.3),
+		SinOsc(0.17, 0) * 0.49 + 0.51,
+		SinOsc(0.19, 0) * 0.49 + 0.51,
+		12,
+		12
+	) * 200 + 400;
 	EqPan(
 		SinOsc(
-			Gendy1(
-				IRand(0, 6),
-				IRand(0, 6),
-				SinOsc(0.1, 0) * 0.49 + 0.51,
-				SinOsc(0.13, 0) * 0.49 + 0.51,
-				Rand(130, 160.3),
-				Rand(130, 160.3),
-				SinOsc(0.17, 0) * 0.49 + 0.51,
-				SinOsc(0.19, 0) * 0.49 + 0.51,
-				12,
-				12
-			) * 200 + 400,
+			freq,
 			0
 		),
 		Rand(-1, 1)
@@ -78,7 +79,10 @@ Resonz(
 			initCps: numCps,
 			kNum: kNum.kr
 		);
-		EqPan2(osc, Rand(-1, 1)) * 0.5 / n.sqrt
+		EqPan2(
+			osc,
+			Rand(-1, 1)
+		) * 0.5 / n.sqrt
 	} !+ n,
 	MouseX(100, 2000, 0, 0.2),
 	MouseY(0.01, 1.0, 0, 0.2)
@@ -109,7 +113,10 @@ An overlapping texture program:
 			initCps: numCps,
 			kNum: kNum.kr
 		);
-		EqPan2(osc, Rand(-1, 1)) * 0.1 / n.sqrt
+		EqPan2(
+			osc,
+			Rand(-1, 1)
+		) * 0.1 / n.sqrt
 	} !+ n
 }.overlapTextureProgram(4, 5, 3)
 ~~~

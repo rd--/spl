@@ -2,7 +2,7 @@
 
 +SmallKansas {
 
-	ScalaJiMetaBrowser { :self :jiMeta |
+	ScalaJiMetaBrowser { :self :meta |
 		self.ColumnBrowser(
 			'Scala Ji Meta Browser',
 			'text/html',
@@ -10,13 +10,13 @@
 		) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					jiMeta.indices
+					meta.keys
 				},
 				1 -> {
-					jiMeta[path[1]].collect(description:/1)
+					meta[path[1]].collect(description:/1)
 				},
 				2 -> {
-					jiMeta[path[1]].detect { :each |
+					meta[path[1]].detect { :each |
 						each.description = path[2]
 					}.htmlView.outerHtml
 				}
@@ -29,9 +29,20 @@
 ScalaJiMetaBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.jiMeta.then { :jiMeta |
+		system.awaitLibraryItems([
+			'Music/Tuning/CategorizedTuningArchive',
+			'Music/Tuning/ScalaTuningArchive'
+		]) {
+			let meta = system.categorizedTuningArchive;
+			let archive = system.scalaRationalTuningArchive;
 			smallKansas.addFrame(
-				smallKansas.ScalaJiMetaBrowser(jiMeta),
+				smallKansas.ScalaJiMetaBrowser(
+					meta.collect { :author |
+						author.collect { :each |
+							archive[each]
+						}
+					}
+				),
 				event
 			)
 		}

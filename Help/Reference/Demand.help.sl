@@ -33,7 +33,9 @@ let seq = Drand(2000, [
 ]) * Drand(2000, [1 1 1 2 2 2 4 4 8]);
 let freq = Demand(trig, 0, seq * 100);
 let osc = SinOsc(freq + [0 0.7], 0);
-osc.Cubed.Cubed.ScaleNeg(MouseX(-1, 1, 0, 0.2)) * 0.1
+osc.Cubed.Cubed.ScaleNeg(
+	MouseX(-1, 1, 0, 0.2)
+) * 0.1
 ```
 
 Randomly select among sequences:
@@ -48,8 +50,14 @@ let seq = Drand(inf, [
 	Dseq(1, [4 1 1 1 2 2 3 3]),
 	Dseq(1, [4 1 0 1 0 1 0 1])
 ]);
-let trigSeq = Demand(trig, 0, seq * 0.4) * trig;
-{ Lpf(PinkNoise(), 5000) } ! 2 * Decay(trigSeq, 0.5)
+let trigSeq = Demand(
+	trig,
+	0,
+	seq * 0.4
+) * trig;
+{
+	Lpf(PinkNoise(), 5000)
+} ! 2 * Decay(trigSeq, 0.5)
 ```
 
 * * *

@@ -23,7 +23,8 @@ let l = workspace::l := [
 	0 1 1;
 	1 1 1
 ];
-let p:/1 = AxonometricProjection('Chinese').asBlock;
+let p = AxonometricProjection('Chinese');
+let p:/1 = p.asBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;
@@ -46,7 +47,8 @@ and the line _l_ first moves torward the back (_z_), then up (_y_), then right (
 ~~~
 let r = workspace::r;
 let l = workspace::l;
-let p:/1 = AxonometricProjection('Chinese').asBlock;
+let p = AxonometricProjection('Chinese');
+let p:/1 = p.asBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;

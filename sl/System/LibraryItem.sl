@@ -121,6 +121,20 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 		self.library[key] := libraryItem
 	}
 
+	awaitLibraryItems { :self :name :aBlock:/0 |
+		self.requestLibraryItem(name).then { :unused |
+			aBlock()
+		}
+	}
+
+	awaitLibraryItems { :self :names :aBlock:/0 |
+		names.collect { :each |
+			self.requestLibraryItem(each)
+		}.allFulfilled.then { :unused |
+			aBlock()
+		}
+	}
+
 	includesLibraryItem { :self :name |
 		self.library.includesKey(name)
 	}

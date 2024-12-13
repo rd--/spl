@@ -132,14 +132,13 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 +Record {
 
 	asRatioTuning { :self |
+		let tuning = ScalaTuning(self);
 		RatioTuning(
-			self['name'],
-			self['description'],
-			self['tuning'],
-			self.atIfAbsent('octave') {
-				2/1
-			},
-			self['limit']
+			tuning.name,
+			tuning.description,
+			tuning.asRatios,
+			tuning.octave,
+			tuning.limit
 		)
 	}
 

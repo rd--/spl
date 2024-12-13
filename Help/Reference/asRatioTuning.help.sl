@@ -115,6 +115,24 @@ An Erv Wilson scale (9 July 1967) specified as integers:
 )
 ```
 
+At `Record`:
+
+```
+>>> (
+>>> 	name: 'alves_pelog',
+>>> 	description: 'Pelog, 1/1 Vol.9 No.4',
+>>> 	octave: [2 1],
+>>> 	pitches: [8 7; 6 5; 21 16; 3 2; 8 5; 7 4],
+>>> 	limit: 7
+>>> ).asRatioTuning
+RatioTuning(
+	'alves_pelog',
+	'Pelog, 1/1 Vol.9 No.4',
+	[1 8/7 6/5 21/16 3/2 8/5 7/4],
+	2/1
+)
+```
+
 * * *
 
 See also: asCents, asIntegers, asRatios, CentsTuning, limit, RatioTuning, Tuning
