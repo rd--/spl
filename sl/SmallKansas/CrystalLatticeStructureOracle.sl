@@ -1,13 +1,15 @@
 CrystalLatticeStructureOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		smallKansas.leitnerCatalogue.then { :leitnerCatalogue |
+		system.requestLibraryItem(
+			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+		).then { :leitnerCatalogue |
 			let cls = leitnerCatalogue.atRandom;
-			let mtx = AxonometricProjection('Chinese').asMatrix;
+			let matrix = AxonometricProjection('Chinese').asMatrix;
 			smallKansas.SvgViewer(
 				'Cls - ' ++ cls.name,
-				cls.drawing(0.25) { :each |
-					mtx.dot(each).first(2) * 50
+				cls.drawing(0.15) { :each |
+					matrix.dot(each).first(2)
 				},
 				event
 			)

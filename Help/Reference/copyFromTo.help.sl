@@ -46,7 +46,8 @@ At `String`:
 >>> 'text'.copyFromTo(2, 4)
 'ext'
 
->>> 'the quick brown fox jumps'.copyFromTo(17, 19)
+>>> 'the quick brown fox jumps'
+>>> .copyFromTo(17, 19)
 'fox'
 
 >>> 'text'.copyFromTo(3, 3)
@@ -56,19 +57,25 @@ At `String`:
 It is an error if either index is out of bounds:
 
 ```
->>> { 1:9.copyFromTo(-3, 5) }.ifError { true }
+>>> {
+>>> 	1:9.copyFromTo(-3, 5)
+>>> }.ifError { true }
 true
 
->>> { 1:9.copyFromTo(7, 11) }.ifError { true }
+>>> {
+>>> 	1:9.copyFromTo(7, 11)
+>>> }.ifError { true }
 true
 
->>> { 'text'.copyFromTo(0, 3) }.ifError { true }
+>>> {
+>>> 	'text'.copyFromTo(0, 3)
+>>> }.ifError { true }
 true
 ```
 
 * * *
 
-See also: copy, copyWith, copyWithout
+See also: copy, copyWith, copyWithout, deepCopy
 
 References:
 _Smalltalk_

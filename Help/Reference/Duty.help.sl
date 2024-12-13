@@ -80,11 +80,15 @@ Demand Ugen as audio oscillator:
 let n = 5;
 let m = 32;
 let a = {
-	let r = { (-0.2 -- 0.2).atRandom } ! m;
+	let r = {
+		(-0.2 -- 0.2).atRandom
+	} ! m;
 	let x = [
 		r,
 		{
-			let r = { (-0.2 -- 0.2).atRandom } ! n;
+			let r = {
+				(-0.2 -- 0.2).atRandom
+			} ! n;
 			Drand(
 				1,
 				r

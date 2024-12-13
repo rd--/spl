@@ -41,7 +41,9 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 +System {
 
 	leitnerCatalogue { :self |
-		self.requestLibraryItem('Chemistry/CrystalLatticeStructure/LeitnerCatalogue')
+		self.requireLibraryItem(
+			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+		)
 	}
 
 }

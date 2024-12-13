@@ -24,6 +24,17 @@ The Svg description of an ellipse:
 '<ellipse cx="0" cy="0" rx="2" ry="1" />'
 ```
 
+A drawing of two ellipses:
+
+~~~spl svg=A
+Ellipse(
+	[0 0; 0 0],
+	[3 4; 3 2]
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Ellipse-A.svg)
+
 * * *
 
 See also: Circle, Polygon, Rectangle, Triangle

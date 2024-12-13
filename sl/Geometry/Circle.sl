@@ -141,10 +141,14 @@ Ellipse : [Object] { | center radii |
 +@Sequence {
 
 	Ellipse { :center :radii |
-		(radii.size = 2).if {
-			newEllipse().initializeSlots(center, radii)
+		(center.rank > 1).if {
+			center.withCollect(radii, Ellipse:/2)
 		} {
-			'Sequence>>Ellipse: invalid radii'.error
+			(radii.size = 2).if {
+				newEllipse().initializeSlots(center, radii)
+			} {
+				'Sequence>>Ellipse: invalid radii'.error
+			}
 		}
 	}
 

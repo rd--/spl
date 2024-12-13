@@ -8,6 +8,6 @@ A _bond_ has the form _(i, j)_, where _i_ and _j_ are indices into the `List` of
 
 * * *
 
-See also: asCrystalLatticeStructure, CrystalLatticeStructureBrowser
+See also: asCrystalLatticeStructure, CrystalLatticeStructureBrowser, leitnerCatalogue
 
 Categories: Chemistry

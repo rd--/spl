@@ -8,9 +8,7 @@
 		let projectionsA = 'p'.createElement;
 		let projectionsB = 'p'.createElement;
 		let scaledDrawing = { :projection:/1 |
-			self.drawing(0.25) { :each |
-				each.projection * 50
-			}
+			self.drawing(0.15, projection:/1)
 		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([
@@ -46,7 +44,7 @@
 		) { :browser :path |
 			path.size.caseOf([
 				0 -> {
-					structures.collect(name:/1)
+					structures.keys
 				},
 				1 -> {
 					let cls = structures.detect { :each |
@@ -63,7 +61,9 @@
 CrystalLatticeStructureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.leitnerCatalogue.then { :leitnerCatalogue |
+		system.requestLibraryItem(
+			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+		).then { :leitnerCatalogue |
 			smallKansas.addFrame(
 				smallKansas.CrystalLatticeStructureBrowser(leitnerCatalogue),
 				event

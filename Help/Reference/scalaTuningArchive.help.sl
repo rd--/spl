@@ -22,15 +22,26 @@ the values are `ScalaTuning` objects.
 true
 ```
 
-Select only the rational tunings:
+Count the rational tunings:
 
 ```
 >>> system
 >>> .scalaTuningArchive
->>> .select { :each |
+>>> .count { :each |
 >>> 	each.isRational
->>> }.size
+>>> }
 2738
+```
+
+Count the tunings where the octave is non-standard:
+
+```
+>>> system
+>>> .scalaTuningArchive
+>>> .counts { :each |
+>>> 	each.octave ~= 2
+>>> }
+806
 ```
 
 Look up an entry in the archive by name, and fetch the pitches as ratios:

@@ -4,47 +4,58 @@
 
 The Leitner catalogue is a collection of crystal lattice structures by Michael Leitner at Universität Wien.
 
-Answer a `Promise` that will resolve to a `List` of `CrystalLatticeStructure`s.
+Answer a `Record` of `CrystalLatticeStructure`s,
+keyed by name.
 
-The `leitnerCatalogue` method is `requestLibraryItem` of
+The `leitnerCatalogue` method is `requireLibraryItem` of
 'Chemistry → CrystalLatticeStructure → LeitnerCatalogue'.
 
-Request the catalogue,
-fetching it if it is not already cached,
-and when it arrives print its size and a random entry:
+Count entries:
 
 ~~~
-system.leitnerCatalogue.then { :table |
-	let cls = table.atRandom;
-	(
-		table.size,
-		cls.name,
-		cls.description.trim,
-		cls.atoms.size,
-		cls.bonds.size
-	).postLine
-}
+>>> system.leitnerCatalogue.size
+268
+~~~
+
+Lookup the entry for 'NbP':
+
+~~~
+>>> let cls = system.leitnerCatalogue.at(
+>>> 	'NbP'
+>>> );
+>>> (
+>>> 	cls.name,
+>>> 	cls.description.take(25),
+>>> 	cls.atoms.size,
+>>> 	cls.bonds.size
+>>> )
+(
+	'NbP',
+	'NbP     & I4_1/amd (#141)',
+	23,
+	42
+)
 ~~~
 
 Draw a picture of the entry for _NbP_ in an axonometric perspective:
 
-~~~
-system.leitnerCatalogue.then { :table |
-	let cls = table.detect { :each |
-		each.name = 'NbP'
-	};
-	let p:/1 = AxonometricProjection(
-		'Isometric'
-	).asBlock;
-	cls.graph.lineDrawing { :each |
-		let [name, coordinates] = each;
-		p(coordinates)
-	}
+~~~spl svg=A
+let cls = system.leitnerCatalogue['NbP'];
+let p:/1 = AxonometricProjection(
+	'Isometric'
+).asBlock;
+cls.graph.lineDrawing { :each |
+	let [name, coordinates] = each;
+	p(coordinates)
 }
 ~~~
 
 ![](sw/spl/Help/Image/leitnerCatalogue-A.svg)
 
+_Note:_
+The catalogue is a `LibraryItem`,
+and this function requires the item be available locally.
+
 * * *
 
-See also: CrystalLatticeStructure, requestLibraryItem
+See also: CrystalLatticeStructure, CrystalLatticeStructureBrowser, LibraryItem, requireLibraryItem

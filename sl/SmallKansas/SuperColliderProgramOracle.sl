@@ -1,8 +1,12 @@
 SuperColliderProgramOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		system.superColliderProgramIndex.then { :superColliderProgramIndex |
-			system.superColliderProgramOracle.then { :superColliderProgramOracle |
+		system.requestLibraryItem(
+			'Music/SuperCollider/ProgramIndex'
+		).then { :superColliderProgramIndex |
+			system.requestLibraryItem(
+				'Music/SuperCollider/ProgramOracle'
+			).then { :superColliderProgramOracle |
 				smallKansas.addFrame(
 					smallKansas.SuperColliderProgramBrowser(
 						superColliderProgramIndex,

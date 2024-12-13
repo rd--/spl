@@ -3,34 +3,15 @@
 ScalaTuning : [Object, Tuning] { | contents |
 
 	asCents { :self |
-		let answer = self.contents['pitches'].collect { :each |
-			each.isNumber.if {
-				each
-			} {
-				each.isList.if {
-				let [numerator, denominator] = each;
-					(numerator / denominator).ratioToCents
-				} {
-					self.error('asCents: invalid pitch')
-				}
-			}
-		};
+		let answer = self.pitches;
 		answer.addFirst(0);
 		answer
 	}
 
 	asRatios { :self |
-		let answer = self.contents['pitches'].collect { :each |
-			each.isNumber.if {
-				self.error('asRatios: non-ratio pitch')
-			} {
-				each.isList.if {
-				let [numerator, denominator] = each;
-					Fraction(numerator, denominator)
-				} {
-					self.error('asRatios: invalid pitch')
-				}
-			}
+		let answer = self.pitches;
+		answer.allSatisfy(isFraction:/1).ifFalse {
+			self.error('asRatios: non-ratio pitch')
 		};
 		answer.addFirst(1/1);
 		answer
@@ -66,6 +47,21 @@ ScalaTuning : [Object, Tuning] { | contents |
 				Fraction(numerator, denominator)
 			} {
 				self.error('octave: invalid octave')
+			}
+		}
+	}
+
+	pitches { :self |
+		self.contents['pitches'].collect { :each |
+			each.isNumber.if {
+				each
+			} {
+				each.isList.if {
+					let [numerator, denominator] = each;
+					Fraction(numerator, denominator)
+				} {
+					self.error('pitches: invalid pitch')
+				}
 			}
 		}
 	}

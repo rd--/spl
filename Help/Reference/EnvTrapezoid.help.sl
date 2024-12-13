@@ -47,12 +47,18 @@ let env = EnvTrapezoid(
 let osc = Blip(
 	TRand(
 		333,
-		SinOsc(1 / 17, pi).LinLin(-1, 1, 333, 555),
+		SinOsc(1 / 17, pi).LinLin(
+			-1, 1,
+			333, 555
+		),
 		w
 	),
 	TRand(
 		1,
-		SinOsc(1 / 23, pi).LinLin(-1, 1, 1, 4),
+		SinOsc(1 / 23, pi).LinLin(
+			-1, 1,
+			1, 4
+		),
 		w
 	)
 ) * env / 2;

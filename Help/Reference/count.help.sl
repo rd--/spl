@@ -20,14 +20,18 @@ Count the number of items in a random list of 100 numbers that are greater than 
 
 ```
 >>> let l = Sfc32(98765).next(100);
->>> l.count { :each | each > 0.5 }
+>>> l.count { :each |
+>>> 	each > 0.5
+>>> }
 48
 ```
 
 Count the number of rows whose first element is 1:
 
 ```
->>> [1 2; 2 3; 1 5].count { :each | each.first = 1 }
+>>> [1 2; 2 3; 1 5].count { :each |
+>>> 	each.first = 1
+>>> }
 2
 ```
 

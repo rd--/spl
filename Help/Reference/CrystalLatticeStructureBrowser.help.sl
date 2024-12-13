@@ -6,35 +6,8 @@ The single column shows the names of the crytsal lattice structures from the Lei
 
 When selected, the text view shows the description of the lattice and a number of perspective drawings.
 
-~~~
-system.clsLeitner.then { :clsLeitner |
-	system.smallKansas.SvgViewer(
-		'Cls',
-		clsLeitner.atRandom.drawing(1) { :each |
-			each * 20
-		},
-		nil
-	)
-}
-~~~
-
-Chinese projection:
-
-~~~
-system.clsLeitner.then { :clsLeitner |
-	let p:/1 = AxonometricProjection('Chinese').asBlock;
-	system.smallKansas.SvgViewer(
-		'Cls',
-		clsLeitner.atRandom.drawing(1) { :each |
-			p(each) * 20
-		},
-		nil
-	)
-}
-~~~
-
 * * *
 
-See also: ColumnBrowser
+See also: ColumnBrowser, CrystalLatticeStructure, leitnerCatalogue, WorldMenu
 
 Categories: Kansas

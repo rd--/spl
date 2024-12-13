@@ -8,6 +8,9 @@ The `scalaTuningArchive` stores items as `ScalaTuning` objects.
 
 The `asCentsTuning` and `asRatioTuning` methods convert between tuning types.
 
+The `octave` method answers the octave as a ratio,
+though not not necessarily a fraction.
+
 * * *
 
 See also: asCents, asCentsTuning, asRatios, asRatioTuning, CentsTuning, RatioTuning, scalaTuningArchive, Tuning

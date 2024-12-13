@@ -137,8 +137,11 @@
 
 ## Copying
 
-- `copy`, `copyFromTo`, `copyUpTo`, `deepCopy`, `postCopy`, `shallowCopy`
-- `copyReplaceAllWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `copyWithoutIdenticalElements`
+- `copy`, `deepCopy`, `postCopy`, `shallowCopy`
+- `copyFromTo`, `copyUpTo`
+- `copyReplaceAllWith`
+- `copyWith`
+- `copyWithout`, `copyWithoutAll`, `copyWithoutIdenticalElements`
 - `#`, `replicateEach`, `replicateInteger`
 - `!`, `duplicateInteger`, `duplicateShape`
 
