@@ -51,6 +51,7 @@ _Fraction Functions_:
 _Instance Creation_:
 
 - `equalTemperamentTuning`: edo
+- `namedTuning`: archive lookup
 
 _Interval Functions_:
 

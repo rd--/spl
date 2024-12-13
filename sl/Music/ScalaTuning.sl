@@ -117,8 +117,9 @@ ScalaTuning : [Object, Tuning] { | contents |
 +Fraction {
 
 	intervalName { :self |
-		let dataBase = system.scalaIntervalNames;
-		dataBase.atIfAbsent(self.printString) {
+		system.scalaIntervalNames.atIfAbsent(
+			self.printString
+		) {
 			'*unnamed interval*'
 		}
 	}
@@ -128,11 +129,16 @@ ScalaTuning : [Object, Tuning] { | contents |
 +String {
 
 	namedInterval { :self |
-		let dataBase = system.scalaIntervalNames;
-		let key = dataBase.keyAtValueIfAbsent(self) {
+		system.scalaIntervalNames.keyAtValueIfAbsent(self) {
 			self.error('namedInterval: no such interval')
 		};
 		key.parseFraction
+	}
+
+	namedTuning { :self |
+		system.scalaTuningArchive.atIfAbsent(self) {
+			self.error('namedTuning: no such tuning')
+		}
 	}
 
 }

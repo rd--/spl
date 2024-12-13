@@ -52,4 +52,4 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: categorizedTuningArchive, LibraryItem, scalaRationalTuningArchive, ScalaTuning
+See also: categorizedTuningArchive, LibraryItem, namedTuning, scalaRationalTuningArchive, ScalaTuning

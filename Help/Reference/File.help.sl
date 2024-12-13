@@ -12,7 +12,11 @@ In addition to the `Blob` trait, it implements the methods `lastModified` and `n
 >>> let fileOptions = (
 >>> 	type: 'application/octet-stream'
 >>> );
->>> let file = File(fileData, fileName, fileOptions);
+>>> let file = File(
+>>> 	fileData,
+>>> 	fileName,
+>>> 	fileOptions
+>>> );
 >>> (file.name, file.size, file.type)
 ('x.bin', 9, 'application/octet-stream')
 ```

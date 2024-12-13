@@ -30,8 +30,11 @@ SoundFile(url).then { :soundFile |
 	.drop(1024 * 8)
 	.take(1024 * 1)
 	.linePlot
+	.draw
 }
 ~~~
+
+![](sw/spl/Help/Image/SoundFile-A.svg)
 
 Define a 128 place sine table,
 construct a SoundFile to hold it,
@@ -55,7 +58,8 @@ Read the table as a frequency control:
 
 ```
 let rate = MouseX(0.001, 0.1, 0, 0.2);
-let freq = PlayBuf(1, 10, rate, 1, 0, 1, 0) * 110 + 220;
+let lfo = PlayBuf(1, 10, rate, 1, 0, 1, 0);
+let freq = lfo * 110 + 220;
 SinOsc(freq, 0) * 0.1
 ```
 
