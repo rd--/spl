@@ -32,7 +32,7 @@ In the unary case answers the sum of the numerators divided by the sum of the de
 
 * * *
 
-See also: fareySequence, sternBrocotTree
+See also: fareySequence, sternBrocotTree, weightedMediant
 
 References:
 _Mathematica_

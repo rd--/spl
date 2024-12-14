@@ -138,6 +138,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 }
 
+/*
 LibraryItem(
 	name: 'Music/Tuning/Scala/JustIntonation',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
@@ -154,6 +155,7 @@ LibraryItem(
 		}
 	}
 )
+*/
 
 LibraryItem(
 	name: 'Music/Scales/ScalaModeNames',

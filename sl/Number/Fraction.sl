@@ -193,6 +193,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.numerator.isNegative
 	}
 
+	isPhiWeightedMediantNoble { :self :aFraction |
+		(
+			(self.numerator * aFraction.denominator)
+			-
+			(self.denominator * aFraction.numerator)
+		).abs = 1
+	}
+
 	isPowerOfTwo { :self |
 		self.isInteger & {
 			self.numerator.isPowerOfTwo
@@ -303,6 +311,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	parts { :self |
 		[self.numerator, self.denominator]
+	}
+
+	phiWeightedMediant { :self :aFraction |
+		self.weightedMediant(aFraction, 1, 1.goldenRatio)
 	}
 
 	printString { :self |

@@ -462,6 +462,10 @@
 		self.logarithmicIntegralRamanujan(9)
 	}
 
+	logarithmicPhi { :self |
+		self * (2 ^ 1.goldenRatio)
+	}
+
 	logScale { :self |
 		self.isZero.if {
 			0

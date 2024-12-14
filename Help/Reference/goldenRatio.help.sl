@@ -115,6 +115,15 @@ As a continued fraction:
 (1 # 20)
 ```
 
+ϕ, taken as a frequency ratio, is about 833.1¢,
+sometimes called acoustic phi,
+or the phi neutral sixth:
+
+```
+>>> 1.goldenRatio.ratioToCents
+833.1
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~
@@ -138,6 +147,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
 [2](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Golden_ratio)
+[1](https://en.wikipedia.org/wiki/Golden_ratio),
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Acoustic_phi)
 
 Categories: Math, Constant

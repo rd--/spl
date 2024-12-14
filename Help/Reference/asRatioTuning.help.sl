@@ -3,7 +3,7 @@
 - _asRatioTuning(aList | aTuning)_
 
 Answer a `RatioTuning` for either a `List` of interval values from a reference pitch,
-or a `Record` having _name_, _description_, _tuning_, _octave_ and _limit_ fields.
+or a `ScalaTuning`.
 
 In the `List` case,
 if the intervals are `Fraction` values they are understood to be ratios.
