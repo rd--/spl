@@ -15,6 +15,14 @@ Colour(
 )
 ```
 
+Colour values can be drawn as swatches:
+
+~~~spl svg=A
+'#f97306'.parseHexColour
+~~~
+
+![](sw/spl/Help/Image/Colour-A.svg)
+
 Colour as hash-prefixed hexadecimal string:
 
 ```

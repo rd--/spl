@@ -12,6 +12,20 @@ Colour : [Object] { | red green blue alpha |
 		self.alpha := 1
 	}
 
+	asSvg { :self |
+		[
+			'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">',
+			'<rect x="0" y="0" width="100" height="100" fill="%"/>'.format([
+				self.hexString
+			]),
+			'</svg>'
+		].unlines.Svg
+	}
+
+	draw { :self |
+		self.asSvg.draw
+	}
+
 	equalBy { :self :aColour :aBlock:/2 |
 		aColour.isColour & {
 			aBlock(self.red, aColour.red) & {
@@ -185,12 +199,12 @@ Colour : [Object] { | red green blue alpha |
 
 +SmallFloat {
 
-	Colour { :self :g :b |
-		Colour(self, g, b, 1)
+	Colour { :r :g :b |
+		Colour(r, g, b, 1)
 	}
 
-	Colour { :self :g :b :a |
-		newColour().initializeSlots(self, g, b, a)
+	Colour { :r :g :b :a |
+		newColour().initializeSlots(r, g, b, a)
 	}
 
 	greyLevel { :level :alpha |
@@ -218,7 +232,7 @@ Colour : [Object] { | red green blue alpha |
 			{ 4 } ->  { Colour(t, p, v) },
 			{ 5 } ->  { Colour(v, p, q) }
 		]) {
-			self.error('Hsv: implementation error')
+			'Hsv'.error('implementation error')
 		}
 	}
 

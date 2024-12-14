@@ -13,3 +13,7 @@ c.f. OEIS A001950.
 * * *
 
 See also: wythoffArray, wythoffLower, wythoffPair
+
+References:
+_OEIS_
+[1](https://oeis.org/A001950)

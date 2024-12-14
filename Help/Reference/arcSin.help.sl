@@ -48,9 +48,11 @@ n
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-0.95 -- 0.95).functionPlot(arcSin:/1)
 ~~~
+
+![](sw/spl/Help/Image/arcSin-A.svg)
 
 * * *
 

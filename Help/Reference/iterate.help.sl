@@ -8,15 +8,20 @@ answer an infinite `Stream` of repeated applications of _aBlock_ to _anObject_.
 
 ```
 >>> not:/1.iterate(true).next(10)
-[true false true false true false true false true false]
+[
+	true false true false true
+	false true false true false
+]
 
->>> { :each | each + 3 }.iterate(42).next(10)
+>>> { :each |
+>>> 	each + 3
+>>> }.iterate(42).next(10)
 [42 45 48 51 54 57 60 63 66 69]
 
 >>> cos:/1.iterate(1).next(10)
 [
-	1.00000 0.54030 0.85755 0.65429 0.79348
-	0.70137 0.76396 0.72210 0.75042 0.73140
+	1.0000 0.5403 0.8576 0.6543 0.7935
+	0.7014 0.7640 0.7221 0.7504 0.7314
 ]
 ```
 
@@ -28,7 +33,9 @@ apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
 256
 
 >>> let x = 2;
->>> 3.timesRepeat { x := x ^ 2};
+>>> 3.timesRepeat {
+>>> 	x := x ^ 2
+>>> };
 >>> x
 256
 
@@ -45,7 +52,7 @@ Derive the seven tone Pythagorean scale:
 >>> { :n |
 >>> 	(n * 3/2).octaveReduced
 >>> }.iterate(1/1).next(7).sort
-[1/1, 9/8, 81/64, 729/512, 3/2, 27/16, 243/128]
+[1/1 9/8 81/64 729/512 3/2 27/16 243/128]
 ```
 
 The regular paper-folding (or dragon curve) sequence,

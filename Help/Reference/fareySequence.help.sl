@@ -125,6 +125,19 @@ Plot denominators:
 
 ![](sw/spl/Help/Image/fareySequence-C.svg)
 
+Plot diferrences between adjacent mediants:
+
+~~~spl svg=D
+let f = 20.fareySequence;
+(2 .. f.size - 1).collect { :i |
+	let p = f[i - 1].mediant(f[i]);
+	let q = f[i].mediant(f[i + 1]);
+	q - p
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-D.svg)
+
 * * *
 
 See also: Fraction, eulerPhi, gcd, minkowskiQuestionMark, sternBrocotSequence, subdivide

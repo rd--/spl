@@ -61,6 +61,16 @@ Plot _|1 + x|_:
 
 ![](sw/spl/Help/Image/abs-B.svg)
 
+Plot `abs` at Gaussian integers:
+
+~~~
+{ :x :y |
+	x.j(y).abs.rounded % 2
+}.table(-36:36, -36:36).Bitmap
+~~~
+
+![](sw/spl/Help/Image/abs-C.png)
+
 * * *
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real

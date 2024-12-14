@@ -60,6 +60,27 @@ For coordinates, `midpoint` gives the same result as `mean`:
 [1 2; -3 5].mean
 ```
 
+Draw a series of seven pentagons,
+each placed at the midpoints of the line segments of the last:
+
+~~~spl svg=A
+let k = 5;
+let n = 7;
+{ :last |
+	(1 .. k).collect { :i |
+		let j = i % k + 1;
+		last[i].midpoint(last[j])
+	}
+}.nestList(
+	k.circlePoints(1, 0),
+	n - 1
+).collect(
+	Polygon:/1
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/midpoint-A.svg)
+
 * * *
 
 See also: Line, Point
