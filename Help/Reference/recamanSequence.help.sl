@@ -35,6 +35,27 @@ Scatter plot of the first few terms:
 
 ![](sw/spl/Help/Image/recamanSequence-B.svg)
 
+Drawing connecting adjacent elements with arcs,
+radii are proportionate to distance:
+
+~~~spl svg=C
+let z = true;
+30.recamanSequence
+.adjacentPairsCollect { :i :j |
+        let r = ((j - i) / 2).abs;
+	let cx = i + ((j - i) / 2);
+	let a = Arc(
+		[cx 0],
+		[r r],
+		z.if { [0 pi] } { [pi 0] }
+	);
+	z := z.not;
+	a
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/recamanSequence-C.svg)
+
 * * *
 
 See also: Set
