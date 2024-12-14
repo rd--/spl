@@ -13,12 +13,12 @@
 [1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
 [1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
 [1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
-30/17.latticePrimes = [3 5 17]
+30/17.latticePrimes(false) = [3 5 17]
 30/17.latticeVector([3 5 17]) = [1 1 -1]
 30/17.latticeVectorString([3 5 17]) = ' 1  1 -1'
-[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.latticePrimes = [3 5 17] /* Average Bac System */
+[1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.latticePrimes(false) = [3 5 17] /* Average Bac System */
 [1/1 10/9 20/17 4/3 3/2 5/3 30/17].asRatioTuning.latticeVertices([3 5 17]) = [0 0 0; -2 1 0; 0 1 -1; -1 0 0; 1 0 0; -1 1 0; 1 1 -1]
-let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.latticePrimes; let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
+let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.latticePrimes(false); let v = t.latticeVertices(p); t.latticeEdges(v) = [1 4; 1 5; 2 6; 3 7; 4 6]
 ```
 
 ## Music-RatioTuning

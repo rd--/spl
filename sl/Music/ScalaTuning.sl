@@ -127,8 +127,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 	namedInterval { :self |
 		system.scalaIntervalNames.keyAtValueIfAbsent(self) {
 			self.error('namedInterval: no such interval')
-		};
-		key.parseFraction
+		}.parseFraction
 	}
 
 	namedTuning { :self |

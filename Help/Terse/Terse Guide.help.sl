@@ -717,9 +717,9 @@ BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to a
 ## Blob -- system type
 ```
 system.includesPackage('Blob') /* blob package */
-[].asBlob.typeOf = 'Blob' /* type of Blob */
-[].asBlob.size = 0 /* empty Blob has size zero */
-[].asBlob.isEmpty /* empty Blob is empty */
+Blob([], ()).typeOf = 'Blob' /* type of Blob */
+Blob([], ()).size = 0 /* empty Blob has size zero */
+Blob([], ()).isEmpty /* empty Blob is empty */
 ```
 
 ## Boolean -- logic type
@@ -2521,7 +2521,7 @@ let f = { 1:9.atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } /* t
 let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
-{ 9.atRandom }.!(9).allSatisfy(isInteger:/1) /* evaluate a block n times and collect answers in an array */
+{ 1:9.atRandom }.!(9).allSatisfy(isInteger:/1) /* evaluate a block n times and collect answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* operator notation */
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
@@ -2585,14 +2585,14 @@ system.includesPackage('RandomNumberGenerator') /* package */
 let r = Sfc32(); r.isStream = true
 let r = Sfc32(); r.randomInteger(1, 9, []).isInteger /* random integer between 1 and 9 inclusive */
 system.randomInteger(1, 9, []).isInteger /* random integers (1 to self) */
-let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s.minMax = [1, 9] /* check distribution */
-let s = Set(); 729.timesRepeat { s.include(9.atRandom) }; s = 1:9.asSet /* check distribution */
+let s = Set(); 729.timesRepeat { s.include(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
+let s = Set(); 729.timesRepeat { s.include(1:9.atRandom) }; s = 1:9.asSet /* check distribution */
 let s = Set(); 729.timesRepeat { s.include(system.randomInteger(-3, 3, [])) }; s = -3:3.asSet /* check distribution */
 system.randomReal(0, 9, []).isNumber /* random floating point number (0 to self) */
 let s = Set(); 729.timesRepeat { s.include(system.randomReal(0, 9, []).rounded) }; s.minMax = [0, 9] /* check distribution */
 system.randomInteger(3, 9, []).isInteger /* random integer in range */
 system.randomReal(3, 9, []).isNumber /* random float in range */
-let b = Bag(); 5000.timesRepeat { b.add(5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
+let b = Bag(); 5000.timesRepeat { b.add(1:5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom = nil }.ifError { true } /* random element of empty collection (nil if unsafe indexing is allowed) */
 [1].atRandom = 1 /* random element of one-element collection */
 let c = [1 .. 5]; c.includes(c.atRandom) /* answer random element from a collection */
@@ -2819,7 +2819,7 @@ let r = Rectangle([30, 10], [10, 20]); let c = r.center; r.containsPoint(c).not 
 let r = Rectangle([0, 0], [50, 50]); [r.center, [1.5, 1.5], r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.lowerLeft) /* a rectangle does contain its lower left corner */
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.upperRight).not /* a rectangle does not contain its upper right corner */
-let r = Rectangle([0, 0], [50, 50]); let pt = r.randomPoint([]); r.containsPoint(pt) /* a rectangle contains any random point in it */
+let r = Rectangle([0, 0], [50, 50]); let pt = r.randomPoint(system, []); r.containsPoint(pt) /* a rectangle contains any random point in it */
 let r = Rectangle([0, 0], [50, 50]); r.pointAtFraction([0.5, 0.5]) = r.center /* pointAtFraction can find the center */
 let r = Rectangle([10, 20], [30, 50]); r.upperHalf = Rectangle([10, 35], [30, 50]) & { r.upperHalf.upperHalf = Rectangle([10, 42.5], [30, 50]) }
 let r = Rectangle([10, 20], [30, 50]); r.upperLeftQuadrant = Rectangle([10, 35], [20, 50])
@@ -3234,7 +3234,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 12345.truncateTo(600) = 12000
 13.betweenAnd(11, 14) = true /* is number between two numbers, inclusive */
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
-9.atRandom.isInteger = true /* random number between 1 and 9 */
+1:9.atRandom.isInteger = true /* random number between 1 and 9 */
 system.randomInteger(1, 9, []).isInteger = true
 system.randomReal(0, 9, []).isInteger = false /* possible it could be an integer, but very unlikely */
 system.randomReal(0, pi, []).isInteger = false

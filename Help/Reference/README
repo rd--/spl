@@ -1,3 +1,5 @@
 '/home/rohan/sw/spl/Help/Reference'.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 6801
+Total => 6809
+
+Note: Requires LibraryItems be locally stored.
