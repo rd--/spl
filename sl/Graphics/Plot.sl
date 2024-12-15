@@ -180,8 +180,48 @@ Plot : [Object] { | pages format |
 		self.linePlot
 	}
 
+	polarPlot { :self |
+		let k = self.rank;
+		(k = 2).if {
+			self.collect(fromPolarCoordinates:/1).linePlot
+		} {
+			(k = 3).if {
+				self.collect { :each |
+					each.collect(fromPolarCoordinates:/1)
+				}.linePlot
+			} {
+				self.error('polarPlot')
+			}
+		}
+	}
+
 	scatterPlot { :self |
 		self.typedPlot('scatter')
+	}
+
+	stepPlot { :self |
+		self.isVector.if {
+			let l = [];
+			self.withIndexDo { :each :index |
+				l.add([index, each]);
+				l.add([index + 1, each])
+			};
+			l.linePlot
+		} {
+			self.isMatrix.if {
+				let x1 = self[1][1];
+				let l = [];
+				self.do { :each |
+					let [x2, y] = each;
+					l.add([x1, y]);
+					l.add([x2, y]);
+					x1 := x2
+				};
+				l.linePlot
+			} {
+				self.error('stepPlot')
+			}
+		}
 	}
 
 	surfacePlot { :self |

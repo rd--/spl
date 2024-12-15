@@ -45,9 +45,21 @@ so that subsequent accesses do not require recalculation:
 
 Plot first fifty primes:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot(nthPrime:/1)
 ~~~
+
+![](sw/spl/Help/Image/nthPrime-A.svg)
+
+Generate a path based on the prime sequence:
+
+~~~spl svg=B
+1:500.collect { :n |
+	n.nthPrime
+}.anglePath.Line.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/nthPrime-B.svg)
 
 * * *
 

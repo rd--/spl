@@ -1,5 +1,6 @@
 # polarPlot
 
+- _polarPlot(aList)_
 - _polarPlot(domain, aBlock:/1 | aList)_
 
 Generate a polar plot of a curve with radius r as a function of angle θ in _domain_.
@@ -58,6 +59,34 @@ Another Archimedean spiral:
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-F.svg)
+
+A circle, given as a `List` or polar coordinates:
+
+~~~spl svg=G
+(0 -- 2.pi).discretize(99).collect { :each |
+	[1, each]
+}.polarPlot
+~~~
+
+![](sw/spl/Help/Image/polarPlot-G.svg)
+
+Spiral of primes:
+
+~~~spl svg=H
+let k = 99;
+let r = k.nthPrime;
+[
+	1:k.collect { :each |
+		[r, 2.pi / k * each]
+	},
+	1:k.collect { :n |
+		let t = (0.5.pi - (n * 4.pi / k));
+		[n.nthPrime, t % 2.pi]
+	}
+].polarPlot
+~~~
+
+![](sw/spl/Help/Image/polarPlot-H.svg)
 
 * * *
 

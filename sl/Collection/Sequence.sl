@@ -233,6 +233,15 @@
 		self[self.size + 1 - indexFromEnd] := anObject
 	}
 
+	atMod { :self :index :n |
+		self[index - 1 % n + 1]
+	}
+
+	atMod { :self :index |
+		let n = self.size;
+		self[index - 1 % n + 1]
+	}
+
 	atPin { :self :index |
 		self[self.pinnedIndex(index)]
 	}
@@ -1513,7 +1522,6 @@
 		let b = { :i | self[i - 1 % n + 1] };
 		1.toDo(2 * n - 1) { :j |
 			let i = f[j - k];
-			(f, k, j, i).postLine;
 			{
 				(i ~= -1) & {
 					b(j) ~= b(k + i + 1)

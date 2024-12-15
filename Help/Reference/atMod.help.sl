@@ -1,5 +1,6 @@
 # atMod
 
+- _atMod(aSequence, anIndex, anInteger)_
 - _atMod(aSequence, anIndex)_
 
 Answer the item associated with the cyclical, or modular, index _anIndex_ in _aSequence_.
@@ -9,8 +10,9 @@ Cycle though a list three times:
 
 ```
 >>> let l = [1 2 3];
+>>> let n = l.size;
 >>> -2:6.collect { :each |
->>> 	[each, l.atMod(each)]
+>>> 	[each, l.atMod(each, n)]
 >>> }
 [
 	-2 1;
@@ -24,6 +26,8 @@ Cycle though a list three times:
 	 6 3
 ]
 ```
+
+The unary form is equivalent to `atWrap`.
 
 * * *
 

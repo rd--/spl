@@ -41,7 +41,7 @@ Collects over lists:
 
 * * *
 
-See also: absArg, arcTan, norm, toSphericalCoordinates
+See also: absArg, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
 
 References:
 _Mathematica_

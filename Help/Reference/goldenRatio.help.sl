@@ -31,6 +31,13 @@ The golden ratio is the `metallicMean` of `one`:
 (x - 1)
 ```
 
+and therefore phi and its inverse have equal fraction parts:
+
+```
+>>> let phi = 1.goldenRatio;
+>>> (phi, 1 / phi)
+(1.61803, 0.61803)
+
 φ has minimal polynomial:
 
 ```

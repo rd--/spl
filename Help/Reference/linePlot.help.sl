@@ -140,7 +140,7 @@ Plot two lines:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, stepPlot, surfacePlot
 
 References:
 _Mathematica_

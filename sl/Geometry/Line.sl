@@ -144,6 +144,35 @@ LineSegment : [Object] { | u v |
 
 +List {
 
+	bresenhamLineAlgorithm { :self |
+		let [x1, y1] = self[1];
+		let [x2, y2] = self[2];
+		let dx = (x2 - x1).abs;
+		let sx = (x1 < x2).if { 1 } { -1 };
+		let dy = (y2 - y1).abs.-;
+		let sy = (y1 < y2).if { 1 } { -1 };
+		let e = dx + dy;
+		let answer = [];
+		{
+			answer.add([x1, y1]);
+			((x1 == x2) & { y1 == y2 }).if {
+				false
+			} {
+				let e2 = 2 * e;
+				(e2 >= dy).ifTrue {
+					e := e + dy;
+					x1 := x1 + sx
+				};
+				(e2 <= dx).ifTrue {
+					e := e + dx;
+					y1 := y1 + sy
+				};
+				true
+			}
+		}.whileTrue;
+		answer
+	}
+
 	HalfLine { :aPoint :aVector |
 		newHalfLine().initializeSlots(aPoint, aVector)
 	}

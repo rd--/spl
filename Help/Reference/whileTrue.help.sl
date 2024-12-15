@@ -20,7 +20,10 @@ the sum of two elements defines the next:
 >>> 	[a, b] := [b, a + b]
 >>> };
 >>> answer
-[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987]
+[
+	1 1 2 3 5 8 13 21 34 55
+	89 144 233 377 610 987
+]
 ```
 
 In the unary case, simply evaluate _condition_ repeatedly as long as it answers `true`.
