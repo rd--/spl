@@ -2,7 +2,8 @@
 
 - _holdersComma(aNumber)_
 
-Answer Holders comma raised to _aNumber_.
+Answer Holders, also called Holdrians, comma raised to _aNumber_.
+It is equal to one step of the 53-EDO tuning.
 
 ```
 >>> 1.holdersComma

@@ -29,18 +29,20 @@ Scale : [Object] { | startIndex intervals description |
 		}
 	}
 
+	nameList { :self |
+		self.description.splitBy(', ')
+	}
+
 	size { :self |
 		self.intervals.size
 	}
 
+	stepArity { :self |
+		self.intervals.nub.size
+	}
+
 	storeString { :self |
-		[
-			'Scale(',
-			self.startIndex.storeString, ', ',
-			self.intervals.storeString, ',',
-			'"', self.description, '"',
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	tuningIndices { :self |

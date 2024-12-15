@@ -86,7 +86,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 		self.requireLibraryItem('Music/Tuning/CategorizedTuningArchive')
 	}
 
-	scalaIntervalNames { :self |
+	scalaIntervalArchive { :self |
 		self.requireLibraryItem('Music/Tuning/ScalaIntervalNames')
 	}
 
@@ -100,7 +100,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 		}
 	}
 
-	scalaScaleNames { :self |
+	scalaScaleArchive { :self |
 		self.requireLibraryItem('Music/Scales/ScalaModeNames')
 	}
 
@@ -113,7 +113,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 +Fraction {
 
 	intervalName { :self |
-		system.scalaIntervalNames.atIfAbsent(
+		system.scalaIntervalArchive.atIfAbsent(
 			self.printString
 		) {
 			'*unnamed interval*'
@@ -125,7 +125,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 +String {
 
 	namedInterval { :self |
-		system.scalaIntervalNames.keyAtValueIfAbsent(self) {
+		system.scalaIntervalArchive.keyAtValueIfAbsent(self) {
 			self.error('namedInterval: no such interval')
 		}.parseFraction
 	}
@@ -134,6 +134,14 @@ ScalaTuning : [Object, Tuning] { | contents |
 		system.scalaTuningArchive.atIfAbsent(self) {
 			self.error('namedTuning: no such tuning')
 		}
+	}
+
+}
+
++List {
+
+	intervalName { :self |
+		self.collect(intervalName:/1)
 	}
 
 }

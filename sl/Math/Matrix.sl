@@ -1249,6 +1249,29 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		]
 	}
 
+	spiralMatrix { :n |
+		let [dx, dy] = [1, 0];
+		let [x, y] = [1, 1];
+		let answer = { nil ! n } ! n;
+		1.toDo(n ^ 2) { :i |
+			let [nx, ny] = [x + dx, y + dy];
+			answer[x][y] := i;
+			[
+				{ 1 <= nx },
+				{ nx <= n },
+				{ 1 <= ny },
+				{ ny <= n },
+				{ answer[nx][ny] = nil }
+			].&.if {
+				[x, y] := [nx, ny]
+			} {
+				[dx, dy] := [dy.-, dx];
+				[x, y] := [x + dx, y + dy]
+			}
+		};
+		answer
+	}
+
 }
 
 +Block {

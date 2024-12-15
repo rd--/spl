@@ -57,3 +57,5 @@ _OEIS_
 [1](https://oeis.org/A001037),
 _W_
 [1](https://en.wikipedia.org/wiki/Lyndon_word)
+
+Further Reading: Booth 1980

@@ -22,6 +22,13 @@ The octave is 1200 cents:
 1200
 ```
 
+One step in 16-EDO is 75¢:
+
+```
+>>> (2 ^ (1 / 16)).ratioToCents
+75
+```
+
 Threads over lists:
 
 ```

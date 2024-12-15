@@ -95,7 +95,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.raisedToInteger(aNumber)
 		} {
 			aNumber.isFraction.if {
-				self.asFloat ^ aNumber
+				self.asFloat ^ aNumber.asFloat
 			} {
 				aNumber.adaptToFractionAndApply(self, ^)
 			}
@@ -179,6 +179,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	isCloseToBy { :self :aNumber :epsilon |
 		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
+	}
+
+	isFareyPair { :self :aFraction |
+		let [a, b] = self.asTuple;
+		let [c, d] = aFraction.asTuple;
+		(b * c) - (a * d) = 1
 	}
 
 	isInteger { :self |

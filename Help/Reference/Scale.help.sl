@@ -35,14 +35,8 @@ into a `Tuning` of the required size.
 [1 3 5 6 8 10 12]
 ```
 
-The file _modename.par_ in the [Scala](https://www.huygens-fokker.org/scala/) distribution includes many scales.
-
 * * *
 
-See also: asScale, degreeToKey, Tuning
-
-References:
-_Scala_
-[1](https://www.huygens-fokker.org/scala/)
+See also: asScale, degreeToKey, scalaScaleArchive, Tuning
 
 Categories: Music, Type

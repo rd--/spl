@@ -113,6 +113,9 @@ and a `SmallFloat` if not:
 ```
 >>> 3/2 ^ 1/2
 1.2247
+
+>>> 2/1 ^ 1/16
+1.0443
 ```
 
 Operators are evaluated strictly left to right:

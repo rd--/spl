@@ -12,6 +12,9 @@ Test whether two numbers are relatively prime:
 ```
 >>> 8.isCoprime(11)
 true
+
+>>> 8.gcd(11) = 1
+true
 ```
 
 Numbers are not coprime to themselves:
@@ -104,6 +107,15 @@ true
 >>> 6.lcm(11)
 (6 * 11)
 ```
+Visualize when two numbers are coprime:
+
+~~~spl png=A
+{ :i :j |
+	i.isCoprime(j).boole
+}.table(1:99, 1:99).Bitmap
+~~~
+
+![](sw/spl/Help/Image/isCoprime-A.png)
 
 * * *
 

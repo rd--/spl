@@ -52,11 +52,13 @@
 
 - `binomial`: binomial coefficients
 - `catalanNumber`: Catalan numbers
+- `deBruijnSequence`: de Bruijn sequence
 - `doubleFactorial`: double factorial
 - `factorialPower`: factorial power
 - `factorial`: factorial function (total arrangements of n objects)
 - `hyperfactorial`: hyperfactorial function
 - `multinomial`: multinomial coefficients
+- `partitionFunctionP`: number of partitions of an integer
 - `polygonalNumber`: triangular and other polygonal numbers
 - `subfactorial`: number of derangements of  objects, leaving none unchanged
 

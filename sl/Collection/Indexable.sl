@@ -97,6 +97,15 @@
 		self[index] := self[index] + value
 	}
 
+	atMod { :self :index :n |
+		self[index - 1 % n + 1]
+	}
+
+	atMod { :self :index |
+		let n = self.size;
+		self[index - 1 % n + 1]
+	}
+
 	atModify { :self :index :aBlock:/1 |
 		self[index] := aBlock(self[index])
 	}

@@ -73,4 +73,6 @@ _Xenharmonic_
 [1](https://en.xen.wiki/w/Cent)
 [2](https://en.xen.wiki/w/Ratio)
 
+Unicode: U+000A2 ¢ Cent Sign
+
 Categories: Converting, Tuning

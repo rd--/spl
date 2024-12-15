@@ -1506,6 +1506,44 @@
 		}
 	}
 
+	lexicographicallyLeastRotationStartIndex { :self |
+		let n = self.size;
+		let f = List(2 * n, -1);
+		let k = 0;
+		let b = { :i | self[i - 1 % n + 1] };
+		1.toDo(2 * n - 1) { :j |
+			let i = f[j - k];
+			(f, k, j, i).postLine;
+			{
+				(i ~= -1) & {
+					b(j) ~= b(k + i + 1)
+				}
+			}.whileTrue {
+				(b(j) < b(k + i + 1)).ifTrue {
+					k := j - i - 1
+				};
+				i := f[i + 1]
+			};
+			(
+				(i = -1) & {
+					b(j) ~= b(k + i + 1)
+				}
+			).if {
+				(b(j) < b(k + i + 1)).ifTrue {
+					k := j
+				};
+				f[j - k + 1] := -1
+			} {
+				f[j - k + 1] := i + 1
+			}
+		};
+		k - 1 % n + 1
+	}
+
+	lexicographicallyLeastRotation { :self |
+		self.rotatedLeft(self.lexicographicallyLeastRotationStartIndex - 1)
+	}
+
 	leastSquares { :m :b |
 		let x = m.transposed;
 		let y = [b];

@@ -34,6 +34,19 @@ The first nine superparticular ratios:
 ]
 ```
 
+Threads over lists:
+
+```
+>>> [
+>>> 	128/125 648/625 256/243
+>>> ].intervalName
+[
+	'minor diesis, diesis'
+	'major diesis'
+	'limma, Pythagorean minor second'
+]
+```
+
 Intervals not in the database answer as un-named:
 
 ```
@@ -47,4 +60,4 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: LibraryItem, namedInterval
+See also: LibraryItem, namedInterval, scalaIntervalArchive
