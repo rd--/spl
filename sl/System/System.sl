@@ -85,7 +85,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 	}
 
 	localStorage { :self |
-		self.window.localStorage
+		<primitive: return _self.window.localStorage;>
 	}
 
 	localTimeZoneOffsetInMinutes { :self |

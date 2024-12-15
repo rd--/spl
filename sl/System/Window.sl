@@ -8,6 +8,10 @@ Window! : [Object] {
 		<primitive: return _self.confirm(_aString);>
 	}
 
+	document { :self |
+		<primitive: return _self.document;>
+	}
+
 	localStorage { :self |
 		<primitive: return _self.localStorage;>
 	}

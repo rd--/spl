@@ -1,7 +1,27 @@
 Navigator! : [Object] {
 
+	deviceMemory { :self |
+		<primitive: return _self.deviceMemory;>
+	}
+
+	geolocation { :self |
+		<primitive: return _self.geolocation;>
+	}
+
+	getBattery { :self |
+		<primitive: return _self.getBattery();>
+	}
+
+	gpu { :self |
+		<primitive: return _self.gpu;>
+	}
+
 	hardwareConcurrency { :self |
 		<primitive: return _self.hardwareConcurrency;>
+	}
+
+	language { :self |
+		<primitive: return _self.language;>
 	}
 
 	maxTouchPoints { :self |
@@ -26,6 +46,14 @@ Navigator! : [Object] {
 
 	userAgent { :self |
 		<primitive: return _self.userAgent;>
+	}
+
+}
+
++System {
+
+	navigator { :self |
+		<primitive: return _self.window.navigator;>
 	}
 
 }
