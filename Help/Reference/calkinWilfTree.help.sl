@@ -5,7 +5,9 @@
 Answer the Calkin-Wilf `Tree` of depth _anInteger_.
 
 ```
->>> 1:4.collect { :n | n.calkinWilfTree.values }
+>>> 1:4.collect { :n |
+>>> 	n.calkinWilfTree.values
+>>> }
 [
 	1/1;
 	1/1 1/2

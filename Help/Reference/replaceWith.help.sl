@@ -11,6 +11,6 @@ Replace first occurence of a string matching _aRegExp_ in _aString_ with _anothe
 
 * * *
 
-See also: replaceString, replaceStringAll, replaceAllWith
+See also: replace, replaceString, replaceStringAll, replaceAllWith
 
 Categories: Replacing

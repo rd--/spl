@@ -25,6 +25,6 @@ At `List`:
 
 * * *
 
-See also: collect
+See also: collect, replaceWith
 
 Categories: Enumerating

@@ -121,6 +121,9 @@ Examples of rational and irrational numbers:
 
 >>> 1.tan.continuedFraction(21)
 [1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1 16 1 17 1]
+
+>>> (5 / 4).log2.reciprocal.continuedFraction(9)
+[3 9 2 2 4 6 2 1 1]
 ```
 
 * * *

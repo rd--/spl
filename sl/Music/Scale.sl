@@ -163,3 +163,32 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 }
+
++SmallFloat {
+
+	momentOfSymmetry { :generator :period |
+		let i = generator;
+		let j = period - generator;
+		let nextPair = { :pair |
+			let [i, j] = pair;
+			(i < j).if { [i, j - i] } { [i - j, j] }
+		};
+		let answer = [[i, j]];
+		{
+			let previousLevel = answer.last;
+			let k = i.max(j);
+			let [p, q] = [i, j].nextPair;
+			let nextLevel = previousLevel.copyReplaceAllWith([k], [p, q]);
+			[i, j] := [p, q];
+			( i ~ j | { i ~ 0 } | { j ~ 0 } ).if {
+				false
+			} {
+				answer.add(nextLevel);
+				true
+			}
+		}.whileTrue;
+		answer
+	}
+
+}
+

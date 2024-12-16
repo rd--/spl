@@ -29,6 +29,14 @@ Replace with longer sequence:
 [1 2 3 4 1 2 3 4 1]
 ```
 
+Replace singular item with list:
+
+```
+>>> [1 2 3 1 2 1]
+>>> .copyReplaceAllWith([2], [-2, 2])
+[1 -2 2 3 1 -2 2 1]
+```
+
 * * *
 
 See also: copy

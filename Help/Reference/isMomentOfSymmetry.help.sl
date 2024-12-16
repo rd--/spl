@@ -26,7 +26,7 @@ false
 
 * * *
 
-See also: intervalClass, intervalClasses, isBinary, isProper, isStrictlyProper, Scale
+See also: intervalClass, intervalClasses, isBinary, isProper, isStrictlyProper, momentOfSymmetry, Scale
 
 References:
 _Xenharmonic_

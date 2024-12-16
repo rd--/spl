@@ -1,6 +1,6 @@
 # withReplace
 
-- _withCollect(aSequence, anotherSequence, aBlock:/2)_
+- _withReplace(aSequence, anotherSequence, aBlock:/2)_
 
 In place `withCollect`.
 

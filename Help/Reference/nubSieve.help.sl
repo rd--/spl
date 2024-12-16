@@ -13,7 +13,7 @@ More precisely, it indicates all items which do not match any earlier indicated 
 
 * * *
 
-See also: nub
+See also: copyWithoutIdenticalElements, nub, nubBy
 
 References:
 _Apl_
