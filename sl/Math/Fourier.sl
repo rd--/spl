@@ -33,15 +33,6 @@
 		}
 	}
 
-	interleaveComplexData { :self |
-		let answer = [];
-		self.collect { :each |
-			answer.add(each.real);
-			answer.add(each.imaginary)
-		};
-		answer
-	}
-
 	fft { :self |
 		self.size.isPowerOfTwo.if {
 			(self.elementType = 'SmallFloat').if {
@@ -54,6 +45,14 @@
 		}
 	}
 
+	fftConvolve { :u :v |
+		let n = u.size + v.size - 1;
+		let m = n.nextPowerOfTwo;
+		let a = u.padRight(m, 0);
+		let b = v.padRight(m, 0);
+		ifft(a.fft * b.fft).first(n).real
+	}
+
 	ifft { :self |
 		self.size.isPowerOfTwo.if {
 			(self.elementType = 'Complex').if {
@@ -64,6 +63,15 @@
 		} {
 			self.error('fft: size not power of two')
 		}
+	}
+
+	interleaveComplexData { :self |
+		let answer = [];
+		self.collect { :each |
+			answer.add(each.real);
+			answer.add(each.imaginary)
+		};
+		answer
 	}
 
 }

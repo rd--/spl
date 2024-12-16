@@ -7,6 +7,9 @@ also called step variety,
 of _aScale_.
 
 The step arity is the number of step sizes.
+Scales with a step arity of one are called unary scales,
+those with a step arity of two are called binary scales,
+those with a step arity of three are called ternary scales.
 
 A unary scale:
 

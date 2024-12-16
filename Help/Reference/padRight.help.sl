@@ -11,6 +11,15 @@ At `List`:
 [1 2 3 0 0 0 0 0 0]
 ```
 
+Not in place:
+
+```
+>>> let a = [1 2 3];
+>>> let b = a.padRight(5, 0);
+>>> (a, b)
+([1 2 3], [1 2 3 0 0])
+```
+
 At `String`:
 
 ```

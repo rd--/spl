@@ -43,9 +43,7 @@ Count the scales where the `startIndex` is not `one`:
 17
 ```
 
-Count the scales where the `stepArity` is not three
-(scales with a step arity of two are called binary scales,
-those with a step arity of three are called ternary scales):
+Count the scales where the `stepArity` is not three:
 
 ```
 >>> system
