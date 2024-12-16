@@ -17,50 +17,50 @@ the entries are taken to be _x,y,z_ triples.
 
 In each case the plot is made as a ruled surface over the specified places.
 
-At `Interval`, which is implicitly disretized by `surfacePlot`:
+At `Interval`, which is implicitly discretized by `surfacePlot`:
 
-~~~
+~~~spl svg=A
 (-2 -- 2).surfacePlot { :x :y |
 	let z = x * (0 - (x ^ 2) - (y ^ 2)).exp;
-	[x, y, z + 1]
+	[x, y, z]
 }
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-A.svg)
 
-~~~
+~~~spl svg=B
 (-5 -- 5).surfacePlot { :x :y |
 	let z = x.sin + y.cos;
-	[x, y, z / 6 + 3]
+	[x, y, z / 6]
 }
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-B.svg)
 
-~~~
+~~~spl svg=C
 (-10 -- 10).surfacePlot { :x :y |
 	let r = ((x ^ 2) + (y ^ 2)).sqrt;
 	let q = r + 1E-9;
 	let z = q.sin / q;
-	[x, y, z + 6]
+	[x, y, z]
 }
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-C.svg)
 
-~~~
+~~~spl svg=D
 (-5 -- 5).surfacePlot { :x :y |
 	let z = (y * x.sin) - (x * y.cos);
-	[x, y, z / 6 + 3]
+	[x, y, z / 6]
 }
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-D.svg)
 
-~~~
+~~~spl svg=E
 (-2 -- 2).surfacePlot { :x :y |
 	let n = (x ^ 2) + (y ^ 2);
-	n * (0 - n).exp * 3 + 9
+	n * (0 - n).exp * 3
 }
 ~~~
 

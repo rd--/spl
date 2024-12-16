@@ -86,6 +86,58 @@ Select set of scales by name:
 ]
 ```
 
+Lookup an entry by interval sequence:
+
+```
+>>> system
+>>> .scalaScaleArchive
+>>> .detect { :each |
+>>> 	each.intervals = [2 2 3 2 3]
+>>> }.nameList.first(4)
+[
+	'Major Pentatonic'
+	'Ryosen'
+	'Yona Nuki Major: Japan'
+	'Man Jue'
+]
+```
+
+Select five note scales that are proper but not strictly proper,
+then select only the lexicographically least rotations of each answer:
+
+```
+>>> system
+>>> .scalaScaleArchive
+>>> .select { :each |
+>>> 	each.size = 5 & {
+>>> 		each.isProper & {
+>>> 			each.isStrictlyProper.not
+>>> 		}
+>>> 	}
+>>> }.collect { :each |
+>>> 	each
+>>> 	.intervals
+>>> 	.lexicographicallyLeastRotation
+>>> }.nub
+>>> .sortBy(precedes:/2)
+[
+	1 1 2 1 2;
+	1 2 1 2 2;
+	1 2 3 1 3;
+	1 2 3 3 3;
+	1 3 1 3 2;
+	1 3 2 2 4;
+	1 3 2 3 3;
+	1 3 3 1 4;
+	1 3 3 2 3;
+	1 3 3 3 2;
+	1 4 2 2 3;
+	2 2 2 3 3;
+	2 5 2 5 3;
+	3 7 3 7 4
+]
+```
+
 _Note:_
 The archive is a `LibraryItem`,
 and this function requires the item be available locally.

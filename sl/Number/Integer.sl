@@ -34,6 +34,22 @@
 		}
 	}
 
+	assertIsPositiveInteger { :self :origin |
+		self.isPositiveInteger.if {
+			self
+		} {
+			self.error('Not a positive integer: ' ++ origin)
+		}
+	}
+
+	assertIsPositiveOddInteger { :self :origin |
+		self.isPositiveOddInteger.if {
+			self
+		} {
+			self.error('Not a positive odd integer: ' ++ origin)
+		}
+	}
+
 	asWords { :self |
 		let mils = [
 			'',
@@ -719,6 +735,12 @@
 		}
 	}
 
+	isPositiveOddInteger { :self |
+		self.isPositiveInteger & {
+			self % 2 = 1
+		}
+	}
+
 	isRoughNumber { :self :k |
 		self.primeFactors.allSatisfy { :each |
 			each >= k
@@ -773,6 +795,13 @@
 			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
 		} {
 			'@Integer>>lobbNumber: domain error'.error
+		}
+	}
+
+	lowerChristoffelWord { :a :b |
+		a.isCoprime(b).if {
+		} {
+			self.error('lowerChristoffelWord: not coprime')
 		}
 	}
 

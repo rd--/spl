@@ -29,6 +29,70 @@ Scale : [Object] { | startIndex intervals description |
 		}
 	}
 
+	intervalsBy { :self :anInteger |
+		anInteger.betweenAnd(1, self.size).if {
+			let intervals = self.intervals;
+			let k = anInteger - 1;
+			(1 .. self.size).collect { :i |
+				(i .. i + k).collect { :j |
+					intervals.atWrap(j)
+				}.sum
+			}
+		} {
+			self.error('intervalsBy: invalid step size')
+		}
+	}
+
+	intervalClass { :self :anInteger |
+		self.intervalsBy(anInteger).nub.sort
+	}
+
+	intervalClasses { :self |
+		1.to(self.size).collect { :each |
+			self.intervalClass(each)
+		}
+	}
+
+	isBinary { :self |
+		self.stepArity = 2
+	}
+
+	isImproper { :self |
+		self.isProper.not
+	}
+
+	isMomentOfSymmetry { :self |
+		1.to(self.size - 1).collect { :each |
+			self.intervalClass(each)
+		}.allSatisfy { :each |
+			each.size = 2
+		}
+	}
+
+	isProper { :self |
+		self.intervalClasses.isSortedBy { :p :q |
+			p.allSatisfy { :i |
+				q.allSatisfy { :j |
+					i <= j
+				}
+			}
+		}
+	}
+
+	isStrictlyProper { :self |
+		self.intervalClasses.isSortedBy { :p :q |
+			p.allSatisfy { :i |
+				q.allSatisfy { :j |
+					i < j
+				}
+			}
+		}
+	}
+
+	isTernary { :self |
+		self.stepArity = 3
+	}
+
 	nameList { :self |
 		self.description.splitBy(', ')
 	}
@@ -73,7 +137,7 @@ Scale : [Object] { | startIndex intervals description |
 +List {
 
 	asScale { :self |
-		Scale(1, self, 'Undescribed scale')
+		Scale(1, self, '*undescribed scale*')
 	}
 
 }

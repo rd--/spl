@@ -3,6 +3,8 @@
 - _isCoprime(anInteger, anotherInteger)_
 - _isCoprime(aCollection)_
 
+Is co-prime, also called relatively prime, predicate.
+
 In the binary form answer true if _anInteger_ and _anotherInteger_ are relatively prime, else false.
 
 In the unary form answer true if all possible pairs of _aCollection_ are relatively prime, else false.
@@ -117,6 +119,8 @@ Visualize when two numbers are coprime:
 
 ![](sw/spl/Help/Image/isCoprime-A.png)
 
+Where supported `isCoprime` is displayed as ⟂.
+
 * * *
 
 See also: %, eulerPhi, factorInteger, gcd, isPrime
@@ -125,5 +129,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RelativelyPrime.html)
 [2](https://reference.wolfram.com/language/ref/CoprimeQ.html)
+
+Unicode: U+027C2 ⟂ Perpendicular
 
 Categories: Math

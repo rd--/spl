@@ -4,7 +4,7 @@
 - _diracDelta(alpha)_ ⟹ _diracDelta(alpha, inf)_
 
 Answer the Dirac delta function _δ(x)_,
-which is _z_ at `zero`, and `zero` elsewhere.
+which is _z_ at `zero`, and `z` elsewhere.
 
 `diracDelta` vanishes for nonzero arguments:
 

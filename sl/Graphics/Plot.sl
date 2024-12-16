@@ -146,7 +146,7 @@ Plot : [Object] { | pages format |
 						}
 					};
 					let l = self.pages.collect { :each | each.t.Line };
-					[l, r.t.Polygon].LineDrawing
+					[l].LineDrawing
 				} {
 					self.error('n×3 matrix: format must be line')
 				}

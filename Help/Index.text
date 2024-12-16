@@ -227,6 +227,7 @@ Reference/apply.help.sl
 Reference/arcCos.help.sl
 Reference/ArcCos.help.sl
 Reference/arcCosh.help.sl
+Reference/Arc.help.sl
 Reference/arcLength.help.sl
 Reference/arcMinute.help.sl
 Reference/arcSecond.help.sl
@@ -356,6 +357,7 @@ Reference/atIfAbsentPut.help.sl
 Reference/atIfPresent.help.sl
 Reference/atIfPresentIfAbsent.help.sl
 Reference/atLevelCollect.help.sl
+Reference/atMod.help.sl
 Reference/atModify.help.sl
 Reference/atop.help.sl
 Reference/atPath.help.sl
@@ -443,6 +445,7 @@ Reference/boxMatrix.help.sl
 Reference/Bpf.help.sl
 Reference/Bpz2.help.sl
 Reference/brayCurtisDistance.help.sl
+Reference/bresenhamLineAlgorithm.help.sl
 Reference/Brf.help.sl
 Reference/BrownNoise.help.sl
 Reference/brunsConstant.help.sl
@@ -471,6 +474,7 @@ Reference/caseOf.help.sl
 Reference/caseOfOtherwise.help.sl
 Reference/catalanNumber.help.sl
 Reference/catalanTriangle.help.sl
+Reference/categorizedTuningArchive.help.sl
 Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
 Reference/CauchyDistribution.help.sl
@@ -938,6 +942,7 @@ Reference/Headers.help.sl
 Reference/Heap.help.sl
 Reference/HelpBrowser.help.sl
 Reference/HelpFile.help.sl
+Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
 Reference/HelpViewer.help.sl
 Reference/HenonC.help.sl
@@ -1051,6 +1056,7 @@ Reference/intersection.help.sl
 Reference/intersperse.help.sl
 Reference/Interval.help.sl
 Reference/intervalMatrix.help.sl
+Reference/intervalName.help.sl
 Reference/inverseErf.help.sl
 Reference/inverse.help.sl
 Reference/inversePermutation.help.sl
@@ -1092,6 +1098,7 @@ Reference/isDuplicateFree.help.sl
 Reference/isEdge.help.sl
 Reference/isEmpty.help.sl
 Reference/isEven.help.sl
+Reference/isFareyPair.help.sl
 Reference/isFinite.help.sl
 Reference/isFloatString.help.sl
 Reference/isFormFeed.help.sl
@@ -1137,8 +1144,10 @@ Reference/isPerfectSquare.help.sl
 Reference/isPermutationCycles.help.sl
 Reference/isPermutationList.help.sl
 Reference/isPermutationOf.help.sl
+Reference/isPhiWeightedMediantNoble.help.sl
 Reference/isPositive.help.sl
 Reference/isPositiveInteger.help.sl
+Reference/isPositiveOddInteger.help.sl
 Reference/isPowerfulNumber.help.sl
 Reference/isPowerOfTwo.help.sl
 Reference/isPrime.help.sl
@@ -1253,6 +1262,7 @@ Reference/levelBy.help.sl
 Reference/levelEach.help.sl
 Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
+Reference/lexicographicallyLeastRotation.help.sl
 Reference/lexicographicPermutations.help.sl
 Reference/LfBrownNoise1.help.sl
 Reference/LfClipNoise.help.sl
@@ -1313,6 +1323,7 @@ Reference/log2.help.sl
 Reference/Log2.help.sl
 Reference/logarithmicIntegral.help.sl
 Reference/logarithmicIntegralRamanujan.help.sl
+Reference/logarithmicPhi.help.sl
 Reference/logGamma.help.sl
 Reference/log.help.sl
 Reference/Log.help.sl
@@ -1474,9 +1485,12 @@ Reference/multiplicativeOrder.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MutableCollectionStream.help.sl
 Reference/NamedControl.help.sl
+Reference/namedInterval.help.sl
+Reference/namedTuning.help.sl
 Reference/name.help.sl
 Reference/narayanaNumber.help.sl
 Reference/narayanaSequence.help.sl
+Reference/Navigator.help.sl
 Reference/nearest.help.sl
 Reference/negated.help.sl
 Reference/Neg.help.sl
@@ -1673,6 +1687,7 @@ Reference/perrinFunction.help.sl
 Reference/perrinSequence.help.sl
 Reference/Phasor.help.sl
 Reference/phi.help.sl
+Reference/phiWeightedMediant.help.sl
 Reference/Piecewise.help.sl
 Reference/pi.help.sl
 Reference/PingPongDelay.help.sl
@@ -1931,6 +1946,10 @@ Reference/sattoloShuffle.help.sl
 Reference/SawDpw.help.sl
 Reference/Saw.help.sl
 Reference/ScalaJiTuningBrowser.help.sl
+Reference/scalaRationalTuningArchive.help.sl
+Reference/scalaScaleArchive.help.sl
+Reference/scalaTuningArchive.help.sl
+Reference/ScalaTuning.help.sl
 Reference/Scale.help.sl
 Reference/ScaleNeg.help.sl
 Reference/scalingMatrix.help.sl
@@ -2042,6 +2061,7 @@ Reference/spawnTextureProgram.help.sl
 Reference/species.help.sl
 Reference/Sphere.help.sl
 Reference/SphericalCoordinates.help.sl
+Reference/spiralMatrix.help.sl
 Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
@@ -2068,6 +2088,7 @@ Reference/starGraph.help.sl
 Reference/startIndex.help.sl
 Reference/stemLeafPlot.help.sl
 Reference/Stepper.help.sl
+Reference/stepPlot.help.sl
 Reference/sternBrocotNumber.help.sl
 Reference/sternBrocotSequence.help.sl
 Reference/sternBrocotTree.help.sl
@@ -2098,10 +2119,13 @@ Reference/sumGraph.help.sl
 Reference/sum.help.sl
 Reference/Sum.help.sl
 Reference/sumOfSquares.help.sl
+Reference/superColliderProgramIndex.help.sl
+Reference/SuperColliderProgramIndex.help.sl
 Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
 Reference/surfacePlot.help.sl
 Reference/Svf.help.sl
+Reference/Svg.help.sl
 Reference/SvgViewer.help.sl
 Reference/swap.help.sl
 Reference/swapWith.help.sl
@@ -2283,6 +2307,7 @@ Reference/whiteSpaceDelimitedWordAtIndex.help.sl
 Reference/wilsonHeight.help.sl
 Reference/wilsonLatticeCoordinates.help.sl
 Reference/windowedReduce.help.sl
+Reference/Window.help.sl
 Reference/WindowMenu.help.sl
 Reference/withBlanksTrimmed.help.sl
 Reference/withCollectCrossed.help.sl

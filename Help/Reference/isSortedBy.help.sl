@@ -14,7 +14,9 @@ true
 With literal sort block:
 
 ```
->>> [11, 9 .. 1].isSortedBy { :i :j | i > j }
+>>> [11, 9 .. 1].isSortedBy { :i :j |
+>>> 	i > j
+>>> }
 true
 ```
 
@@ -24,7 +26,9 @@ At `Tuple`:
 >>> (11, 9, 7, 5, 3, 1).isSortedBy(>)
 true
 
->>> (11, 9, 7, 5, 3, 1).isSortedBy { :i :j | i > j }
+>>> (11, 9, 7, 5, 3, 1).isSortedBy { :i :j |
+>>> 	i > j
+>>> }
 true
 ```
 

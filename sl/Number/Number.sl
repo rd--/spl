@@ -840,6 +840,10 @@
 		1
 	}
 
+	unitBox { :self |
+		(self.abs <= 0.5).boole
+	}
+
 	unitize { :self :dx |
 		(self.abs < dx).if {
 			self.zero
@@ -854,6 +858,10 @@
 		} {
 			self.one
 		}
+	}
+
+	unitStep { :self |
+		(self > 0).boole
 	}
 
 	unitVector { :n :k |
@@ -875,6 +883,18 @@
 
 	zero { :self |
 		0
+	}
+
+}
+
++List {
+
+	unitBox { :self |
+		self.collect(unitBox:/1).product
+	}
+
+	unitStep { :self |
+		self.collect(unitStep:/1).product
 	}
 
 }

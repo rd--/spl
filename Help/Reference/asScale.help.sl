@@ -3,7 +3,7 @@
 - _asScale(aList)_
 
 Answer a `Scale` given _aList_ of intervals.
-The _startIndex_ is set to `one` and the description is set to 'Undescribed scale'.
+The _startIndex_ is set to `one` and the description is set to '*undescribed scale*'.
 
 ```
 >>> [2 2 1 2 2 2 1].asScale.tuningIndices
