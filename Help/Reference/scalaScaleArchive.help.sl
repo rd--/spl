@@ -50,9 +50,9 @@ those with a step arity of three are called ternary scales):
 ```
 >>> system
 >>> .scalaScaleArchive
->>> .count { :each |
+>>> .select { :each |
 >>> 	each.stepArity = 3
->>> }
+>>> }.take(9)
 657
 ```
 

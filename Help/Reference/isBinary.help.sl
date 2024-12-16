@@ -1,5 +1,7 @@
 # isBinary
 
+- _isBinary(anObject)_
+
 Predicate to test if a value implements the `Binary` trait.
 
 ```

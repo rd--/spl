@@ -8,7 +8,7 @@ Convert from degree to key.
 In the binary case, the _scale_ is an instance of `Scale`:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Major');
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
 >>> 1:7.collect { :each |
 >>> 	s.degreeToKey(each)
 >>> }
@@ -18,7 +18,7 @@ In the binary case, the _scale_ is an instance of `Scale`:
 Threads over lists:
 
 ```
->>> let s = Scale(1, [2 2 1 2 2 2 1], 'Major');
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
 >>> s.degreeToKey(1:7)
 [1 3 5 6 8 10 12]
 ```
@@ -34,7 +34,7 @@ The methods `sharp` and `flat` answer appropriately modified degrees:
 At major scale:
 
 ```
->>> let scale = Scale(1, [2 2 1 2 2 2 1], 'Major');
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
 >>> let allSharps = [
 >>> 	1 1.sharp 2 2.sharp 3 4
 >>> 	4.sharp 5 5.sharp 6 6.sharp 7
@@ -44,8 +44,8 @@ At major scale:
 >>> 	5.flat 5 6.flat 6 7.flat 7
 >>> ];
 >>> (
->>> 	scale.degreeToKey(allSharps),
->>> 	scale.degreeToKey(allFlats)
+>>> 	s.degreeToKey(allSharps),
+>>> 	s.degreeToKey(allFlats)
 >>> )
 (
 	[1 .. 12],
@@ -56,7 +56,7 @@ At major scale:
 At minor scale:
 
 ```
->>> let s = Scale(1, [2 1 2 2 1 2 2], 'Minor');
+>>> let s = Scale(1, [2 1 2 2 1 2 2], 'Min.');
 >>> let d = [
 >>> 	1 2.flat 2 3 3.sharp 4
 >>> 	5.flat 5 6 6.sharp 7 7.sharp
@@ -75,7 +75,7 @@ Likewise the methods `cancelFlat` and `cancelSharp`:
 At minor scale:
 
 ```
->>> let s = Scale(1, [2 1 2 2 1 2 2], 'Minor');
+>>> let s = Scale(1, [2 1 2 2 1 2 2], 'Min.');
 >>> let d = [
 >>> 	1 2.flat 2 3 3.cancelFlat 4
 >>> 	5.flat 5 6 6.cancelFlat 7 7.cancelFlat
@@ -104,7 +104,11 @@ Indices wrap around the table and shift octaves as they do:
 
 ```
 >>> 1:15.degreeToKey([0 1 5 9 11], 12)
-[1 5 9 11 12 13 17 21 23 24 25 29 33 35 36]
+[
+	1 5 9 11 12
+	13 17 21 23 24
+	25 29 33 35 36
+]
 ```
 
 * * *

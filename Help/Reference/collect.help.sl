@@ -44,15 +44,26 @@ At `Set`:
 At `Tree`:
 
 ```
->>> Tree(4, [Tree(9, [Tree(16, [])])]).collect(sqrt:/1)
+>>> Tree(4, [Tree(9, [Tree(16, [])])])
+>>> .collect(sqrt:/1)
 Tree(2, [Tree(3, [Tree(4, [])])])
 ```
 
 Make a triangular array:
 
 ```
->>> 1:5.collect { :i | 1:i.collect { :j | 10 * i + j } }
-[11; 21 22; 31 32 33; 41 42 43 44; 51 52 53 54 55]
+>>> 1:5.collect { :i |
+>>> 	1:i.collect { :j |
+>>> 		10 * i + j
+>>> 	}
+>>> }
+[
+	11;
+	21 22;
+	31 32 33;
+	41 42 43 44;
+	51 52 53 54 55
+]
 ```
 
 Collect is implemented in terms of `new`, `do` and `add` for unordered collections,

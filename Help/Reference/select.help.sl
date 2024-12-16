@@ -23,28 +23,35 @@ Select prime numbers:
 Use a literal block to test each element:
 
 ```
->>> [1 2 4 7 6 2].select { :each | each > 2 }
+>>> [1 2 4 7 6 2].select { :each |
+>>> 	each > 2
+>>> }
 [4 7 6]
 ```
 
 Only the first expression selected (c.f. `detect`):
 
 ```
->>> [1 2 4 7 6 2].select { :each | each > 2 }.first
+>>> [1 2 4 7 6 2].select { :each |
+>>> 	each > 2
+>>> }.first
 4
 ```
 
 Select operates on values in a dictionary:
 
 ```
->>> (a: 1, b: 2, c: 3, d: 4).select { :each | each > 2 }
+>>> (a: 1, b: 2, c: 3, d: 4).select { :each |
+>>> 	each > 2
+>>> }
 (c: 3, d: 4)
 ```
 
 Find pairs containing x:
 
 ```
->>> [1 'y'; 2 'x'; 3 'x'; 4 'z'; 5 'x'].select { :each |
+>>> [1 'y'; 2 'x'; 3 'x'; 4 'z'; 5 'x']
+>>> .select { :each |
 >>> 	each.includes('x')
 >>> }
 [2 'x'; 3 'x'; 5 'x']

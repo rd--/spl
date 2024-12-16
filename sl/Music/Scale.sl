@@ -141,3 +141,25 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 }
+
++String {
+
+	namedScale { :self |
+		let answers = self.namedScales;
+		(answers.size ~= 1).ifTrue {
+			self.error('namedScale: no such singular scale')
+		};
+		answers[1]
+	}
+
+	namedScales { :self |
+		let answer = system.scalaScaleArchive.select { :each |
+			each.nameList.includes(self)
+		};
+		answer.isEmpty.ifTrue {
+			self.error('namedScales: no such scale')
+		};
+		answer
+	}
+
+}

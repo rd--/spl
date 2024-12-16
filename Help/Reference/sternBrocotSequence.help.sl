@@ -24,7 +24,9 @@ true
 Find the index where the number 100 first appears in the sequence:
 
 ```
->>> 10000.sternBrocotSequence.indexOf(100)
+>>> 10000
+>>> .sternBrocotSequence
+>>> .indexOf(100)
 1179
 ```
 
