@@ -11,9 +11,6 @@ Triangular numbers:
 >>> 1:10.accumulate
 [1 3 6 10 15 21 28 36 45 55]
 
->>> 1:10.prefixSum
-[1 3 6 10 15 21 28 36 45 55]
-
 >>> 1:10.scan(+)
 [1 3 6 10 15 21 28 36 45 55]
 ```
@@ -46,7 +43,7 @@ Sfc32(89714)
 
 * * *
 
-See also: +, foldList, prefixSum, scan
+See also: +, differences, foldList, prefixSum, scan, sum
 
 References:
 _Mathematica_

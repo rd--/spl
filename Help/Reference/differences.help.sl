@@ -61,13 +61,37 @@ Deduce the degree of a sequence by seeing when successive differences become con
 ]
 ```
 
+The differences of a `prefixSum`:
+
+```
+>>> 1:10.prefixSum.differences
+[2 3 4 5 6 7 8 9 10]
+```
+
+Successive differences modulo two of a sequence based on the primes:
+
+~~~spl svg=A
+let k = 20;
+let m = differences:/1.nestList(
+	k.primesList - 1 / 2,
+	k
+).collect { :each |
+	each.padLeft(k, 0)
+};
+(m % 2).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/differences-A.svg)
+
 * * *
 
-See also: -, ratios
+See also: -, accumulate, foldList, prefixSum, ratios
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CommonDifference.html)
-[2](https://reference.wolfram.com/language/ref/Differences.html)
+[2](https://reference.wolfram.com/language/ref/Differences.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SequenceableCollection.html#-differentiate)
 
 Categories: Math

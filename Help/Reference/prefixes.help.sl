@@ -14,7 +14,7 @@ Answer a List of all of the prefixes of _aSequence_.
 
 * * *
 
-See also: suffixes
+See also: prefixSum, suffixes
 
 References:
 _Haskell_

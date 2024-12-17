@@ -1864,6 +1864,13 @@
 		self.mergeSortFromToBy(1, self.size, <=)
 	}
 
+	middle { :self :count |
+		let i = self.size // 2 + 1;
+		let j = count // 2;
+		let k = i - j;
+		self.copyFromTo(k, k + count - 1)
+	}
+
 	middle { :self |
 		self[self.size // 2 + 1]
 	}
@@ -1995,6 +2002,17 @@
 		} {
 			let prefix = anObject # (anInteger - self.size);
 			prefix ++ self
+		}
+	}
+
+	padLeftAndRight { :self :anInteger :anObject |
+		(self.size >= anInteger).if {
+			self
+		} {
+			let i = anInteger - self.size;
+			let j = i // 2;
+			let k = i - j;
+			(anObject # j) ++ self ++ (anObject # k)
 		}
 	}
 
@@ -2313,6 +2331,28 @@
 			index := index + 1;
 			item
 		}
+	}
+
+	retainFirstOccurrencesOnly { :self :compareBlock:/2 |
+		let seen = Set();
+		self.collect { :each |
+			let answer = each.copy;
+			answer.removeAllSuchThat { :p |
+				seen.detectIfFoundIfNone { :q |
+					compareBlock(p, q)
+				} { :unused |
+					true
+				} {
+					false
+				}
+			};
+			seen.includeAll(each);
+			answer
+		}
+	}
+
+	retainFirstOccurrencesOnly { :self |
+		self.retainFirstOccurrencesOnly(=)
 	}
 
 	reversed { :self |

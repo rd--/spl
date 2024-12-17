@@ -52,12 +52,23 @@ u.convolve(v).linePlot
 
 ![](sw/spl/Help/Image/convolve-C.svg)
 
+Find the autocorrelation of a list:
+
+~~~spl svg=D
+let u = 1:100.collect { :i | (i ^ 2) % 17 };
+let v = u.reversed;
+(u ++ u).convolve(v).middle(100).linePlot
+~~~
+
+![](sw/spl/Help/Image/convolve-D.svg)
+
 * * *
 
 See also: fft, fftConvolve, ifft
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Convolve.html),
+[1](https://reference.wolfram.com/language/ref/ListConvolve.html)
+[2](https://reference.wolfram.com/language/ref/Convolve.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/conv.html)

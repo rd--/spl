@@ -166,13 +166,14 @@ Scale : [Object] { | startIndex intervals description |
 
 +SmallFloat {
 
-	momentOfSymmetry { :generator :period |
+	momentOfSymmetry { :generator :period :maxDepth |
 		let i = generator;
 		let j = period - generator;
 		let nextPair = { :pair |
 			let [i, j] = pair;
 			(i < j).if { [i, j - i] } { [i - j, j] }
 		};
+		let depth = 1;
 		let answer = [[i, j]];
 		{
 			let previousLevel = answer.last;
@@ -180,7 +181,8 @@ Scale : [Object] { | startIndex intervals description |
 			let [p, q] = [i, j].nextPair;
 			let nextLevel = previousLevel.copyReplaceAllWith([k], [p, q]);
 			[i, j] := [p, q];
-			( i ~ j | { i ~ 0 } | { j ~ 0 } ).if {
+			depth := depth + 1;
+			( i ~ j | { i ~ 0 } | { j ~ 0 } | { depth > maxDepth } ).if {
 				false
 			} {
 				answer.add(nextLevel);
@@ -188,6 +190,10 @@ Scale : [Object] { | startIndex intervals description |
 			}
 		}.whileTrue;
 		answer
+	}
+
+	momentOfSymmetry { :generator :period |
+		momentOfSymmetrymax(generator, period, 24)
 	}
 
 }

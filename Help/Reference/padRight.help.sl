@@ -29,7 +29,7 @@ At `String`:
 
 * * *
 
-See also: #, ++, size
+See also: #, ++, padLeft, padLeftAndRight, size
 
 References:
 _Mathematica_
