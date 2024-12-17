@@ -2333,26 +2333,22 @@
 		}
 	}
 
-	retainFirstOccurrencesOnly { :self :compareBlock:/2 |
+	cumulativeNub { :self :compareBlock:/2 |
 		let seen = Set();
 		self.collect { :each |
-			let answer = each.copy;
-			answer.removeAllSuchThat { :p |
-				seen.detectIfFoundIfNone { :q |
-					compareBlock(p, q)
-				} { :unused |
-					true
-				} {
+			each.select { :item |
+				seen.includesBy(item, compareBlock:/2).if {
 					false
+				} {
+					seen.add(item);
+					true
 				}
-			};
-			seen.includeAll(each);
-			answer
+			}
 		}
 	}
 
-	retainFirstOccurrencesOnly { :self |
-		self.retainFirstOccurrencesOnly(=)
+	cumulativeNub { :self |
+		self.cumulativeNub(=)
 	}
 
 	reversed { :self |
