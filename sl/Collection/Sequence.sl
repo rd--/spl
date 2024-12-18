@@ -1932,6 +1932,24 @@
 		0.5 * (uu - vv).norm.squared / (uu.norm.squared + vv.norm.squared)
 	}
 
+	nubCumulatively { :self :compareBlock:/2 |
+		let seen = []; /* not Set() */
+		self.collect { :each |
+			each.select { :item |
+				seen.includesBy(item, compareBlock:/2).if {
+					false
+				} {
+					seen.add(item);
+					true
+				}
+			}
+		}
+	}
+
+	nubCumulatively { :self |
+		self.nubCumulatively(=)
+	}
+
 	nubSieve { :self |
 		let seen = [];
 		self.collect { :each |
@@ -2331,24 +2349,6 @@
 			index := index + 1;
 			item
 		}
-	}
-
-	cumulativeNub { :self :compareBlock:/2 |
-		let seen = Set();
-		self.collect { :each |
-			each.select { :item |
-				seen.includesBy(item, compareBlock:/2).if {
-					false
-				} {
-					seen.add(item);
-					true
-				}
-			}
-		}
-	}
-
-	cumulativeNub { :self |
-		self.cumulativeNub(=)
 	}
 
 	reversed { :self |

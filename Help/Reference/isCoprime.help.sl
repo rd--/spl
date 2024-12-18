@@ -109,6 +109,7 @@ true
 >>> 6.lcm(11)
 (6 * 11)
 ```
+
 Visualize when two numbers are coprime:
 
 ~~~spl png=A

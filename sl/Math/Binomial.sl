@@ -77,6 +77,17 @@
 		}.sum
 	}
 
+	superCatalanNumber { :self |
+		let f = { :n |
+			(n <= 2).if {
+				1
+			} {
+				((3 * (2 * n - 3) * f(n - 1)) - ((n - 3) * f(n - 2))) / n
+			}
+		};
+		f:/1.memoize.value(self)
+	}
+
 	take { :n :k |
 		(k > n).if {
 			0

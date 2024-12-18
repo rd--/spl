@@ -23,6 +23,7 @@
 	'Slice'
 	'Stack' /* LinkedList */
 	'SortedList'
+	'TimeSeries'
 	'Tree'
 	'Tuple' /* List */
 	'UndirectedEdge'

@@ -27,4 +27,4 @@ C.f. `transposed` to answer all columns:
 
 * * *
 
-See also: at, matrixRow, submatrix, transposed
+See also: at, List, matrixRow, Matrix, submatrix, transposed

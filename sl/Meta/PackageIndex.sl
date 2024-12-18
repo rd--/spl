@@ -59,6 +59,7 @@
 	'Collection-SortedList'
 	'Collection-SoundFile'
 	'Collection-Stack'
+	'Collection-TimeSeries'
 	'Collection-Tree'
 	'Collection-Tuple'
 	'Collection-UndirectedEdge'

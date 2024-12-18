@@ -105,8 +105,23 @@ _Prime Numbers_:
 
 _Scale Functions_:
 
+- `asScale`: intervals to scale
 - `combinationProductSet`: CPS
+- `degreeToKey`: degree to key
 - `eulerFokkerGenus`: Euler-Fokker genus
+- `intervalClass`: interval class of
+- `intervalClasses`: interval classes
+- `intervalsBy`: intervals at step
+- `intervals`: intervals
+- `isImproper`: predicate
+- `isMomentOfSymmetry`: predicate
+- `isProper`: predicate
+- `isStrictlyProper`: predicate
+- `lineDrawing`: line drawing
+- `momentOfSymmetry`: scale generator
+- `scalaScaleArchive`: scale archive
+- `stepArity`: step variety
+- `textDrawing`: text drawing
 - `tuningIndices`: scale indexing
 
 _Testing_:

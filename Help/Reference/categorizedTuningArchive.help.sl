@@ -7,7 +7,6 @@ Answer a `Record` where the keys are categories and the associated values are `L
 The names of the tunings correspond to entries in the `scalaTuningArchive`,
 and thereby also in the `scalaRationalTuningArchive`.
 
-
 Count the number of entries:
 
 ```

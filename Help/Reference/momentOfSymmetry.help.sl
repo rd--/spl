@@ -1,9 +1,11 @@
 # momentOfSymmetry
 
-- _momentOfSymmetry(generator, period)_
+- _momentOfSymmetry(generator, period, maxDepth)_
 
 Answer the sequence of moment of symmetry scales specified by a _generator_ and a _period_.
-The sequence ends when the next step would have only one interval size.
+The sequence ends when the next step would have only one interval size,
+according to `~`,
+or when _maxDepth_, which may be omitted, is reached.
 
 The familiar diatonic scale is the last item in the _5/12_ sequence:
 
@@ -70,6 +72,7 @@ _6L1s_ and _1L6s_ scales:
 >>> 1.momentOfSymmetry(7).last
 [1 1 1 1 1 2]
 ```
+
 _5L2s_ and _2L5s_ scales:
 
 ```

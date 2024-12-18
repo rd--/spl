@@ -12,8 +12,8 @@ At `Bag`:
 ```
 >>> let c = [1 2 2 3 3 3];
 >>> let b = Bag();
->>> b.addAll(c) = c & { b.size = 6 }
-true
+>>> (b.addAll(c), b.size)
+(c, 6)
 ```
 
 At `Set`:
@@ -21,8 +21,8 @@ At `Set`:
 ```
 >>> let c = [1 2 3];
 >>> let s = Set();
->>> s.addAll(c) = c & { c.size = 3 }
-true
+>>> (s.addAll(c), c.size)
+(c, 3)
 ```
 
 At `List`:
@@ -30,8 +30,8 @@ At `List`:
 ```
 >>> let c = 1:9;
 >>> let l = [];
->>> l.addAll(c) = c & { l.size = 9 }
-true
+>>> (l.addAll(c), l.size)
+(c, 9)
 ```
 
 At `Record`:
@@ -39,8 +39,8 @@ At `Record`:
 ```
 >>> let c = (y: 2, z: 3);
 >>> let r = (x: 1);
->>> r.addAll(c) = c & { r = (x: 1, y: 2, z: 3) }
-true
+>>> (r.addAll(c), r)
+(c, (x: 1, y: 2, z: 3))
 ```
 
 * * *

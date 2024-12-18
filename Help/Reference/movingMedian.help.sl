@@ -12,25 +12,49 @@ Moving median of a vector:
 [2 5 5 4 3]
 ```
 
-Moving median of a matrix:
+Moving median of a matrix is a matrix:
 
 ```
->>> [1 2; 5 3; 1 4; 3 2; 5 5].movingMedian(2)
-[3 2.5; 3 3.5; 2 3; 4 3.5]
+>>> [
+>>> 	1 2;
+>>> 	5 3;
+>>> 	1 4;
+>>> 	3 2;
+>>> 	5 5
+>>> ].movingMedian(2)
+[
+	3.0 2.5;
+	3.0 3.5;
+	2.0 3.0;
+	4.0 3.5
+]
 ```
 
 Lists of approximate numbers yield approximate numbers:
 
 ```
->>> [1, e, pi.sqrt, 2, 10, e ^ 2].movingMedian(3)
+>>> [1, e, pi.sqrt, 2, 10, e ^ 2]
+>>> .movingMedian(3)
 [pi.sqrt, 2, 2, e ^ 2]
 ```
 
-Moving averages of matrices are matrices:
+Integer moving averages of a matrix:
 
 ```
->>> [1 2; 2 3; 3 4; 4 5; 5 6; 6 7].movingMedian(3)
-[2 3; 3 4; 4 5; 5 6]
+>>> [
+>>> 	1 2;
+>>> 	2 3;
+>>> 	3 4;
+>>> 	4 5;
+>>> 	5 6;
+>>> 	6 7
+>>> ].movingMedian(3)
+[
+	2 3;
+	3 4;
+	4 5;
+	5 6
+]
 ```
 
 * * *

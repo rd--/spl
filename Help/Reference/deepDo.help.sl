@@ -32,7 +32,8 @@ At `Record`:
 
 ```
 >>> let l = [];
->>> (x: 'a', y: (x: 'b', y: (x: 'c'))).deepDo { :each |
+>>> (x: 'a', y: (x: 'b', y: (x: 'c')))
+>>> .deepDo { :each |
 >>> 	l.add(each)
 >>> };
 >>> l

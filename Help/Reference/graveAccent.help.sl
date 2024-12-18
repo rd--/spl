@@ -6,9 +6,12 @@ It is part of `String Syntax`.
 
 ```
 >>> `Backtick Quoted String`
-BacktickQuotedString('Backtick Quoted String')
+BacktickQuotedString(
+	'Backtick Quoted String'
+)
 
->>> `Backtick Quoted String`.isBacktickQuotedString
+>>> `Backtick Quoted String`
+>>> .isBacktickQuotedString
 true
 ```
 

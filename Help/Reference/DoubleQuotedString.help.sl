@@ -7,7 +7,9 @@ The `contents` method answers the quoted string.
 
 ```
 >>> "Double Quoted String"
-DoubleQuotedString('Double Quoted String')
+DoubleQuotedString(
+	'Double Quoted String'
+)
 ```
 
 Double quotes allow quoting single quote:

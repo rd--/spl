@@ -93,6 +93,18 @@ Scale : [Object] { | startIndex intervals description |
 		self.stepArity = 3
 	}
 
+	lineDrawing { :self |
+		let i = [0] ++ self.intervals.prefixSum * 3;
+		[
+			i.collect { :x |
+				Line([x -1; x 1])
+			},
+			Line([[i.min, 0], [i.max, 0]])
+		].LineDrawing(
+			height: 50
+		)
+	}
+
 	nameList { :self |
 		self.description.splitBy(', ')
 	}
@@ -107,6 +119,20 @@ Scale : [Object] { | startIndex intervals description |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	textDrawing { :self |
+		let opening = '├';
+		let separator = '┼';
+		let closing = '┤';
+		let dash = '─';
+		[
+			opening,
+			self.intervals.collect { :each |
+				dash # (each - 1)
+			}.intersperse(separator),
+			closing
+		].stringJoin
 	}
 
 	tuningIndices { :self |
@@ -193,7 +219,7 @@ Scale : [Object] { | startIndex intervals description |
 	}
 
 	momentOfSymmetry { :generator :period |
-		momentOfSymmetrymax(generator, period, 24)
+		momentOfSymmetry(generator, period, 24)
 	}
 
 }

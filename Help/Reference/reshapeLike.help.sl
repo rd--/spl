@@ -25,7 +25,8 @@ Cycle shorter input:
 Reshape non-vector input, discarding excess elements:
 
 ```
->>> [9 8 7; 6 5 4; 3 2 1].reshapeLike([1; 2 3; 4 5 6])
+>>> [9 8 7; 6 5 4; 3 2 1]
+>>> .reshapeLike([1; 2 3; 4 5 6])
 [9; 8 7; 6 5 4]
 ```
 
@@ -39,4 +40,4 @@ Reverse complex nested structure:
 
 * * *
 
-See also: deepCollect, flatten, rank, reshap, shape
+See also: deepCollect, flatten, rank, reshape, shape

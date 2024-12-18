@@ -9,28 +9,39 @@ Answers _newObject_.
 ```
 >>> let r = Map();
 >>> r.include('x' -> 1);
->>> r.include('x' -> 2) = ('x' -> 2) & { r.size = 1 }
-true
-
->>> let r = Record();
->>> r.include('x' -> 1);
->>> r.include('x' -> 2) = ('x' -> 2) & { r.size = 1 }
-true
-
->>> let r = Set();
->>> r.include('x');
->>> r.include('x') = 'x' & { r.size = 1 }
-true
+>>> (r.include('x' -> 2), r.size)
+('x' -> 2, 1)
 ```
 
-Attempting to `include` a non-immediate object in a Set is an error,
-see instead `basicInclude`.
+At `Record`:
+
+```
+>>> let r = Record();
+>>> r.include('x' -> 1);
+>>> (r.include('x' -> 2), r.size)
+('x' -> 2, 1)
+```
+
+At `Set`:
+
+```
+>>> let r = Set();
+>>> r.include('x');
+>>> (r.include('x'), r.size)
+('x', 1)
+```
+
+Attempting to `include` a non-immediate object in a Set is an `error`:
 
 ```
 >>> let s = Set();
 >>> { s.include([1]) }.ifError { true }
 true
+```
 
+See instead `basicInclude`:
+
+```
 >>> let s = Set();
 >>> s.basicInclude([1]);
 >>> s.basicInclude([1]);

@@ -6,9 +6,12 @@ It is part of `String Syntax`.
 
 ```
 >>> "Double Quoted String"
-DoubleQuotedString('Double Quoted String')
+DoubleQuotedString(
+	'Double Quoted String'
+)
 
->>> "Double Quoted String".isDoubleQuotedString
+>>> "Double Quoted String"
+>>> .isDoubleQuotedString
 true
 ```
 

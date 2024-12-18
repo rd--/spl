@@ -10,11 +10,11 @@ Strings are written between single quote marks, i.e. _'Single Quoted String'_.
 Strings may include double quotes and backtick quotes:
 
 ```
->>> 'A single quoted "double quoted" string'.size
-38
+>>> 'Quoted "double quoted" string'.size
+29
 
->>> 'A single quoted `backtick quoted` string'.size
-40
+>>> 'Quoted `backtick quoted` string'.size
+31
 ```
 
 All of the usual punctation symbols are allowed:
@@ -41,17 +41,34 @@ A double quoted string:
 
 ```
 >>> "Double Quoted String"
-DoubleQuotedString('Double Quoted String')
+DoubleQuotedString(
+	'Double Quoted String'
+)
 ```
 
 A backtick quoted string:
 
 ```
 >>> `Backtick Quoted String`
-BacktickQuotedString('Backtick Quoted String')
+BacktickQuotedString(
+	'Backtick Quoted String'
+)
 ```
 
-The `contents` method answers the quoted string:
+At `String` the `contents` method answers single character strings that make up the quoted string:
+
+```
+>>> 'Single Quoted String'.contents
+[
+	'S' 'i' 'n' 'g' 'l' 'e'
+	' '
+	'Q' 'u' 'o' 't' 'e' 'd'
+	' '
+	'S' 't' 'r' 'i' 'n' 'g'
+]
+```
+
+At `DoubleQuotedString` and `BacktickQuotedString` the `contents` method answers the quoted string:
 
 ```
 >>> "Double Quoted String".contents

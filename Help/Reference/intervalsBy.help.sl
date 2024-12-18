@@ -23,7 +23,6 @@ Answer the cyclic intervals of _aScale_ at the specified distance _anInteger_.
 
 * * *
 
-
 See also: intervalClass, intervalClasses, intervals, Scale
 
 References:

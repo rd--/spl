@@ -37,7 +37,7 @@ true
 
 * * *
 
-See also: basicAsSet, Collection, isImmediate, Set
+See also: basicAsSet, Collection, isImmediate, nub, Set
 
 References:
 _Smalltalk_

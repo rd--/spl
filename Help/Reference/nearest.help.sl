@@ -28,7 +28,6 @@ Plot the `nearest` of a list of:
 
 ![](sw/spl/Help/Image/nearest-A.svg)
 
-
 * * *
 
 See also: -, abs
