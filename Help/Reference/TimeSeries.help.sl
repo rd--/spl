@@ -4,6 +4,12 @@
 
 A `Type` representing a time series, specified as a two-column matrix of _(time, value)_ pairs.
 
+`size` tells the number of entries,
+`startTime` tells the time of the first entry and `endTime` that of the last,
+`min` tells the least value and `max` the greatest,
+`minimumTimeIncrement` tells the least time difference,
+and `isRegularlySampled` tells if the items are equally spaced in time:
+
 ```
 >>> let ts = TimeSeries(
 >>> 	[1 2; 2 1; 5 6; 10 5; 12 7; 15 4]
@@ -14,9 +20,40 @@ A `Type` representing a time series, specified as a two-column matrix of _(time,
 >>> 	ts.endTime,
 >>> 	ts.min,
 >>> 	ts.max,
+>>> 	ts.minimumTimeIncrement,
 >>> 	ts.isRegularlySampled
 >>> )
-(6, 1, 15, 1, 7, false)
+(6, 1, 15, 1, 7, 1, false)
+```
+
+Accessors includes `keys` (or equivalently `indices`),
+`values`,
+`associations`,
+and `contents`:
+
+```
+>>> let ts = TimeSeries(
+>>> 	[1 2; 2 1; 5 6; 10 5; 12 7; 15 4]
+>>> );
+>>> (
+>>> 	ts.keys,
+>>> 	ts.values,
+>>> 	ts.associations,
+>>> 	ts.contents
+>>> )
+(
+	[1 2 5 10 12 15],
+	[2 1 6 5 7 4],
+	[
+		1 -> 2,
+		2 -> 1,
+		5 -> 6,
+		10 -> 5,
+		12 -> 7,
+		15 -> 4
+	],
+	[1 2; 2 1; 5 6; 10 5; 12 7; 15 4]
+)
 ```
 
 Time series implements `at`:

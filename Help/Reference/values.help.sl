@@ -2,13 +2,20 @@
 
 - _values(aDictionary)_
 
-Answer a `List` of the values of a dictionary.
+Answer a `List` of the values of a dictionary or dictionary-like object.
 
 At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).values
 [1 2 3]
+```
+
+At `TimeSeries`:
+
+```
+>>> [1 1; 2 3; 3 5].TimeSeries.values
+[1 3 5]
 ```
 
 * * *

@@ -65,6 +65,13 @@ A zero count entry skips over the corresponding item
 [2 3 5 5]
 ```
 
+It is an error if the count is not integral:
+
+```
+>>> { 3 # 3.5 }.ifError { true }
+true
+```
+
 The name of this operator is `numberSign`.
 
 * * *

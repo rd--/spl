@@ -15,3 +15,5 @@ false
 * * *
 
 See also: =, allSatisfy, kroneckerDelta
+
+Categories: Testing

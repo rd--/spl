@@ -48,9 +48,9 @@ Count the scales where the `stepArity` is not three:
 ```
 >>> system
 >>> .scalaScaleArchive
->>> .select { :each |
+>>> .count { :each |
 >>> 	each.stepArity = 3
->>> }.take(9)
+>>> }
 657
 ```
 

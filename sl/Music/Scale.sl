@@ -224,3 +224,38 @@ Scale : [Object] { | startIndex intervals description |
 
 }
 
++List {
+
+	horogramDrawing { :self :radius |
+		let circleCount = self.size + 1;
+		let outerRadius = circleCount * radius;
+		let period = self[1].sum;
+		let innerCircle = [period];
+		let pitches = [
+			[innerCircle],
+			self
+		].concatenation.collect(prefixSum:/1).nubCumulatively;
+		let angles = pitches.collect { :p |
+			p.collect { :q |
+				((q / period).negated * 2.pi + 0.5.pi) % 2.pi
+			}
+		};
+		let circles = (1 .. circleCount).collect { :each |
+			Circle([0 0], each * radius)
+		};
+		let lines = (1 .. circleCount).collect { :each |
+			let innerRadius = each - 1 * radius;
+			angles[each].collect { :theta |
+				[innerRadius theta; outerRadius theta]
+				.fromPolarCoordinates
+				.Line
+			}
+		};
+		[circles, lines].LineDrawing
+	}
+
+	horogramDrawing { :self |
+		self.horogramDrawing(1)
+	}
+
+}

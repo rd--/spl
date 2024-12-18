@@ -1,5 +1,11 @@
 TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 
+	associations { :self |
+		self.contents.collect { :each |
+			each[1] -> each[2]
+		}
+	}
+
 	associationsDo { :self :aBlock:/1 |
 		self.contents.do { :each |
 			aBlock(each[1] -> each[2])
@@ -64,6 +70,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 		}
 	}
 
+	keys { :self |
+		self.indices
+	}
+
 	keysDo { :self :aBlock:/1 |
 		self.contents.do { :each |
 			aBlock(each[1])
@@ -123,6 +133,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 		}
 	}
 
+	minimumTimeIncrement { :self |
+		self.keys.differences.min
+	}
+
 	size { :self |
 		self.contents.size
 	}
@@ -133,6 +147,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	values { :self |
+		self.contents.collect(second:/1)
 	}
 
 	valuesDo { :self :aBlock:/1 |

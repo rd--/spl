@@ -12,7 +12,7 @@ At `Bag`:
 ```
 >>> let c = [1 2 2 3 3 3];
 >>> let r = Bag();
->>> (r.includeAll(c), r.size
+>>> (r.includeAll(c), r.size)
 (c, 6)
 ```
 
