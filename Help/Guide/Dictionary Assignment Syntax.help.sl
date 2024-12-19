@@ -3,7 +3,8 @@
 There is dictionary assignment syntax for both temporary variable initialisers:
 
 ```
->>> let (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6);
+>>> let d = (x: 1 * 2, y: 3 * 4, z: 5 * 6);
+>>> let (x: x, y: y, z: z) = d;
 >>> [z, y, x]
 [30, 12, 2]
 ```
@@ -11,8 +12,9 @@ There is dictionary assignment syntax for both temporary variable initialisers:
 and for variable assignment:
 
 ```
->>> var x, y, z;
->>> (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6);
+>>> var d, x, y, z;
+>>> d := (x: 1 * 2, y: 3 * 4, z: 5 * 6);
+>>> (x: x, y: y, z: z) := d;
 >>> [z, y, x]
 [30, 12, 2]
 ```
@@ -20,12 +22,12 @@ and for variable assignment:
 Fields may be accessed out of order:
 
 ```
->>> let (y, x) = (x: 1, y: 2);
+>>> let (y: y, x: x) = (x: 1, y: 2);
 >>> (x, y)
 (1, 2)
 
 >>> var x, y;
->>> (y, x) := (x: 1, y: 2);
+>>> (y: y, x: x) := (x: 1, y: 2);
 >>> (x, y)
 (1, 2)
 ````
@@ -34,14 +36,14 @@ It is an error if a requested field is not present:
 
 ```
 >>> {
->>> 	let (x, y) = (x: 1);
+>>> 	let (x: x, y: y) = (x: 1);
 >>> 	nil
 >>> }.ifError { true }
 true
 
 >>> {
 >>> 	var x, y;
->>> 	(x, y) := (x: 1);
+>>> 	(x: x, y: y) := (x: 1);
 >>> 	nil
 >>> }.ifError { true }
 true
@@ -51,14 +53,14 @@ It is an error if not all fields are matched:
 
 ```
 >>> {
->>> 	let (x, y) = (x: 1, y: 2, z: 3);
+>>> 	let (x: x, y: y) = (x: 1, y: 2, z: 3);
 >>> 	(x, y)
 >>> }.ifError { true }
 true
 
 >>> {
 >>> 	var x, y;
->>> 	(x, y) := (x: 1, y: 2, z: 3);
+>>> 	(x: x, y: y) := (x: 1, y: 2, z: 3);
 >>> 	(x, y)
 >>> }.ifError { true }
 true

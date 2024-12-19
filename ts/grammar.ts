@@ -29,7 +29,7 @@ Sl {
 		TemporaryListInitializer
 	TemporaryBlockLiteralInitializer = varName "=" Block ~("." | operator)
 	TemporaryExpressionInitializer = varNameOrUnused "=" Expression
-	TemporaryDictionaryInitializer = "(" NonemptyListOf<keyName, ","> ")" "=" Expression
+	TemporaryDictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
 	TemporaryListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"
 	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
@@ -39,7 +39,7 @@ Sl {
 	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
-	DictionaryAssignment = "(" NonemptyListOf<keyName, ","> ")" ":=" Expression
+	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
 	AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = Expression ((operatorWithAdverb | operator | infixMethod) Primary)+
 
@@ -119,6 +119,7 @@ Sl {
 	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
 	AssociationExpression = NameAssociation | StringAssociation
 	NameAssociation = keyName ":" Expression
+	KeyVarNameAssociation = keyName ":" varName
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"

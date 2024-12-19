@@ -6,7 +6,10 @@ The `contents` of an `Iterable` is a `List` of all of the items accessed by `do`
 At `Tree`:
 
 ```
->>> [1, [2, [3], 4], 5].asTree.contents.collect(value:/1)
+>>> [1, [2, [3], 4], 5]
+>>> .asTree
+>>> .contents
+>>> .collect(value:/1)
 [nil 1 nil 2 nil 3 4 5]
 ```
 

@@ -53,7 +53,7 @@ Note that the initialiser syntax, _p = x_, is distinct from the assignment synta
 ```
 
 - _let [e, ...] = c; ..._ ⟹ _let e = at(c, 1); let ...; ..._
-- _let (k, ...) = d; ..._ ⟹ _let k = at(d, 'k'); let ...; ..._
+- _let (k: v, ...) = d; ..._ ⟹ _let v = at(d, 'k'); let ...; ..._
 
 These rules allow destructuring `Sequence` and `Dictionary` values respectively.
 
@@ -76,12 +76,14 @@ At `Tuple`:
 At Record:
 
 ```
->>> let (i, j, k) = (i: 1, j: 2, k: 3);
+>>> let (i: i, j: j, k: k) = (i: 1, j: 2, k: 3);
 >>> i + j * k
 9
 ```
 
-The notation _let (x, y) = p;_ initialises the variables _x_ and _y_ to the values _p['x']_ and _p['y']_.
+The notation _let (x: x, y: y) = p;_ initialises the variables _x_ and _y_ to the values _p['x']_ and _p['y']_.
+
+The key name and variable name do not need to be equal, although that is the common case.
 
 This rule can make writing temporaries with long initializers spanning multiple lines clearer.
 

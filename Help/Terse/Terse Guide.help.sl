@@ -2763,8 +2763,8 @@ let x = 1; (x:9) = (x: 9) /* white space after colon is optional */
 let x = 9; (9:x) = 9:x /* interval literals may have identifiers as upper bound */
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] /* array of associations at record */
 (x: 1, y: 2).asList = [1, 2] /* values as List */
-{ let d = (x: 1, y: 2, z: 3); let (x, z) = d; [x, z] = [1, 3] }.ifError { true } /* partial dictionary match not allowed */
-let (x, y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
+{ let d = (x: 1, y: 2, z: 3); let (x: x, z: z) = d; [x, z] = [1, 3] }.ifError { true } /* partial dictionary match not allowed */
+let (x: x, y: y) = { let n = system.nextRandomFloat; (x: n, y: n) }.value; x = y
 (x:1, y:2, z:3).select(isEven:/1) = (y: 2)
 (x:1, y:2, z:3).sum = 6
 let d = (x: 9); d['x'].sqrt = 3
@@ -3689,12 +3689,12 @@ let d = (w: (x: (y: (z: 1)))); d::w::x::y::z := -1; d = (w: (x: (y: (z: -1)))) /
 
 ## Syntax -- dictionary assignment syntax
 ```
-let (x, y) = (x: 1, y: 2); x = 1 & { y = 2 } /* variable declaration, retrieve named fields from the dictionary */
-let (y, x) = (x: 1, y: 2); y = 2 & { x = 1 } /* selection is by name, not position */
-let (x, y, z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
-var x, y; (x, y) := (x: 1, y: 2); x = 1 & { y = 2 } /* variable assignment, retrieve named fields from the dictionary */
-var y, x; (y, x) := (x: 1, y: 2); y = 2 & { x = 1 } /* selection is by name, not position */
-var x, y, z; (x, y, z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
+let (x: x, y: y) = (x: 1, y: 2); x = 1 & { y = 2 } /* variable declaration, retrieve named fields from the dictionary */
+let (y: y, x: x) = (x: 1, y: 2); y = 2 & { x = 1 } /* selection is by name, not position */
+let (x: x, y: y, z: z) = (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
+var x, y; (x: x, y: y) := (x: 1, y: 2); x = 1 & { y = 2 } /* variable assignment, retrieve named fields from the dictionary */
+var y, x; (y: y, x: x) := (x: 1, y: 2); y = 2 & { x = 1 } /* selection is by name, not position */
+var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [30, 12, 2]
 ```
 
 ## Syntax -- dictionary literals

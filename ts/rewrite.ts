@@ -20,6 +20,19 @@ function genArityCheck(k: number, a: string): string {
 }`;
 }
 
+function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
+	console.log('genDictionaryAssignmentSlots', rhsDictionaryName, keyVarNamesArray);
+	const slots = keyVarNamesArray.map(
+		function (keyVarNames) {
+			const keyName = keyVarNames[0];
+			const varName = keyVarNames[1];
+			return `_${varName} = _${genName('at', 2)}(${rhsDictionaryName}, '${keyName}')`;
+		}
+	).join(', ');
+	console.log('genDictionaryAssignmentSlots', slots);
+	return slots;
+}
+
 function genDotTrailing(
 	lhs: ohm.Node,
 	name: ohm.Node,
@@ -281,12 +294,10 @@ const asJs: ohm.ActionDict<string> = {
 		_equals,
 		rhs,
 	) {
-		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
-		const rhsName = genSym();
-		const slots = namesArray.map((name) =>
-			`_${name} = _${genName('at', 2)}(${rhsName}, '${name}')`
-		).join(', ');
-		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
+		const rhsDictionaryName = genSym();
+		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
+		const slots = genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray);
+		return `${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length}), ${slots}`;
 	},
 	TemporaryListInitializer(
 		_leftBracket,
@@ -332,13 +343,11 @@ const asJs: ohm.ActionDict<string> = {
 })()`;
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
-		const namesArray = lhs.asIteration().children.map((c) => c.sourceString);
 		const rhsDictionaryName = genSym();
-		const slots = namesArray.map((name) =>
-			`_${name} = _${genName('at', 2)}(${rhsDictionaryName}, '${name}')`
-		).join(';\n');
+		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
+		const slots = genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray);
 		return `/* DictionaryAssignment */ (function() {
-	const ${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length});
+	const ${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length});
 	${slots};
 })()`;
 	},
@@ -536,6 +545,12 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	NonEmptyDictionaryExpression(_leftParen, dict, _rightParen) {
 		return `Object.fromEntries([${commaList(dict.asIteration().children)}])`;
+	},
+	KeyVarNameAssociation(lhs, _colon, rhs) {
+		return [
+			lhs.sourceString,
+			rhs.sourceString
+		];
 	},
 	NameAssociation(lhs, _colon, rhs) {
 		return `['${lhs.sourceString}', ${rhs.asJs}]`;
