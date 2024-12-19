@@ -31,7 +31,7 @@
 							author,
 							' - ',
 							name,
-							'.play.sl'
+							'.sp'
 						].join('');
 						url.fetchTextWithDefault('*Fetch failed*')
 					}
