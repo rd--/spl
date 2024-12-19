@@ -222,6 +222,74 @@ Scale : [Object] { | startIndex intervals description |
 		momentOfSymmetry(generator, period, 24)
 	}
 
+	momentOfSymmetryPattern { :generator :period :alpha :beta |
+		let x = period - generator;
+		let y = period - (x * 2);
+		momentOfSymmetryXy(x, y, alpha, beta)
+	}
+
+	momentOfSymmetryPattern { :generator :period |
+		generator.momentOfSymmetryPattern(period, 'L', 's')
+	}
+
+	momentOfSymmetryXy { :x :y :l :s |
+		let answer = '';
+		(x = 1 | { y = 1 }).if {
+			(x = 1 & { y = 1 }).if {
+				answer := l ++ s
+			} {
+				(x = 1 & { y > 1 }).if {
+					answer := [l, s # y].stringJoin
+				} {
+					(x > 1 & { y = 1 }).if {
+						answer := [l # x, s].stringJoin
+					} {
+						'momentOfSymmetryXy'.error
+					}
+				}
+			}
+		} {
+			let k = x.gcd(y);
+			(k ~= 1).if {
+				answer := (momentOfSymmetryXy(x // k, y // k, l, s) # k).stringJoin
+			} {
+				(k = 1).if {
+					let m1 = min(x, y);
+					let m2 = max(x, y);
+					let z = m2 % m1;
+					let w = m1 - z;
+					let prescale = momentOfSymmetryXy(z, w, l, s);
+					let lRule = '';
+					let sRule = '';
+					(x < y).ifTrue {
+						prescale.reverse
+					};
+					(x > y).if {
+						lRule := [l # ceiling(m2 / m1), s].stringJoin;
+						sRule := [l # floor(m2 / m1), s].stringJoin
+					} {
+						lRule := [l, s # ceiling(m2 / m1)].stringJoin;
+						sRule := [l, s # floor(m2 / m1)].stringJoin
+					};
+					prescale.contents.do { :step |
+						(step = l).if {
+							answer := answer ++ lRule
+						} {
+							(step = s).if {
+								answer := answer ++ sRule
+							} {
+								'momentOfSymmetryXy'.error
+							}
+						}
+					}
+				} {
+					'momentOfSymmetryXy'.error
+				}
+			}
+		};
+		answer
+	}
+
 }
 
 +List {

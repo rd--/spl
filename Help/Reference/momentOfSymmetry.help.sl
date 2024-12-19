@@ -226,7 +226,7 @@ Requires that the scale have only integer step sizes.
 
 * * *
 
-See also: horogramDrawing, horogramTable, isMomentOfSymmetry, prefixSum, nubCumulatively, rectangularHorogramDrawing, Scale
+See also: bjorklundsAlgorithm, horogramDrawing, horogramTable, isMomentOfSymmetry, momentOfSymmetryPattern, nubCumulatively, prefixSum, rectangularHorogramDrawing, Scale
 
 References:
 _Anaphoria_

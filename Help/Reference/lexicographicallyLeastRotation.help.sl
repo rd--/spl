@@ -4,22 +4,29 @@
 
 Answer the rotation of _aSequence_ that is lexicographically least of all the rotations.
 
+Three rotations that are not least:
+
 ```
->>> [1 3 2 1].lexicographicallyLeastRotation
-[1 1 3 2]
+>>> [1 3 2 1; 3 2 1 1; 2 1 1 3].collect(
+>>> 	lexicographicallyLeastRotation:/1
+>>> )
+[1 1 3 2; 1 1 3 2; 1 1 3 2]
+```
 
->>> [3 2 1 1].lexicographicallyLeastRotation
-[1 1 3 2]
+Least rotation of the letters in a word:
 
->>> [2 1 1 3].lexicographicallyLeastRotation
-[1 1 3 2]
-
+```
 >>> 'BCABDADAB'
 >>> .contents
 >>> .lexicographicallyLeastRotation
 ['A' 'B' 'B' 'C' 'A' 'B' 'D' 'A' 'D']
+```
 
->>> [0 0 1 0].lexicographicallyLeastRotation
+The published form of Booths algorithm fails for cases such as:
+
+```
+>>> [0 0 1 0]
+>>> .lexicographicallyLeastRotation
 [0 0 0 1]
 ```
 
