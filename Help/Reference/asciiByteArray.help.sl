@@ -30,6 +30,6 @@ true
 
 * * *
 
-See also: asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16List
+See also: ascii, asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16List
 
 Categories: String, Encoding

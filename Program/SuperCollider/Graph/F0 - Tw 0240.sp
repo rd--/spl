@@ -1,5 +1,5 @@
 /* http://sccode.org/1-4Qy (F0) ; 0240 ; requires=BLowPass4 */
-let l = ' #SuperCollider '.ascii.asList.pyramid(6);
+let l = ' #SuperCollider '.ascii.pyramid(6);
 let d = Pulse(Duty(1 / [10, 4], 0, Dseq(99, l.MidiCps)).mean, 0.5);
 EqPan(CombN(BLowPass4(d, 1200, 1), 1, 1, 8) / 2, d) / 2
 
@@ -8,14 +8,14 @@ EqPan(CombN(BLowPass4(d, 1200, 1), 1, 1, 8) / 2, d) / 2
 `ascii` derives note numbers from character encodings:
 
 ```
->>> ' #SuperCollider '.ascii.asList
+>>> ' #SuperCollider '.ascii
 [32 35 83 117 112 101 114 67 111 108 108 105 100 101 114 32]
 ```
 
 `pyramid` applies a counting algorithm to a sequence:
 
 ```
->>> ' #SuperCollider '.ascii.asList.pyramid(6)
+>>> ' #SuperCollider '.ascii.pyramid(6)
 [
 	32 114
 	32 101 114

@@ -3,9 +3,9 @@ let t = SinOsc([7.992, 8], 0);
 let e = Perc(t, 0.005, 0.2, -4);
 let f = [1, 2].collect { :i |
 	let q = [
-		Dseq(240, '@BGIJB@IGBJI'.ascii.asList),
-		Dseq(120, '@LEGJLEG'.ascii.asList),
-		Dseq(60, 'EGJL'.ascii.asList)
+		Dseq(240, '@BGIJB@IGBJI'.ascii),
+		Dseq(120, '@LEGJLEG'.ascii),
+		Dseq(60, 'EGJL'.ascii)
 	];
 	Demand(t[i], 0, Dseq(1, q)).MidiCps
 };
@@ -17,12 +17,12 @@ FreeVerb2(x[1], x[2], 0.1, 1, 0)
 `ascii` derives note numbers from character encodings:
 
 ```
->>> '@BGIJB@IGBJI'.ascii.asList
+>>> '@BGIJB@IGBJI'.ascii
 [64 66 71 73 74 66 64 73 71 66 74 73]
 
->>> '@LEGJLEG'.ascii.asList
+>>> '@LEGJLEG'.ascii
 [64 76 69 71 74 76 69 71]
 
->>> 'EGJL'.ascii.asList
+>>> 'EGJL'.ascii
 [69 71 74 76]
 ```

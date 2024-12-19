@@ -4,7 +4,9 @@ Small Hours is an experimental interpreter for the experimental `Simple Programm
 
 It includes a library for communicating with the `SuperCollider Synthesiser`.
 
-To play a synthesiser program select it and type _Ctrl-Enter_.
+To play a synthesiser program select it,
+or place the caret anywhere within it,
+and type _Ctrl-Enter_.
 
 ```
 /* https://sccode.org/1-4Qy ; f0 ; 0283 */
@@ -15,7 +17,10 @@ let o1 = SinOscFb(
 ) / 5;
 let o2 = SinOscFb(
 	999 * b,
-	SinOscFb(SinOscFb(b, 1) < 0.1 + 1, 1) % b
+	SinOscFb(
+		SinOscFb(b, 1) < 0.1 + 1,
+		1
+	) % b
 );
 let o3 = SinOscFb(
 	0.1 - b,

@@ -108,6 +108,14 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 }
 
++List {
+
+	asciiString { :self |
+		self.asByteArray.asciiString
+	}
+
+}
+
 +SmallFloat {
 
 	ByteArray { :self |

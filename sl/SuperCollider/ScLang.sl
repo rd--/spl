@@ -776,7 +776,7 @@
 	}
 
 	ascii { :self |
-		self.asciiByteArray
+		self.asciiByteArray.asList
 	}
 
 }

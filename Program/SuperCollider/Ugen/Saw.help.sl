@@ -2,7 +2,7 @@
 Saw(440) * SinOsc(MouseX(1, 880, 1, 0.2), 0) / 5
 
 /* Saw ; https://sccode.org/1-4Qy ; f0 ; 0287 */
-let c = ':>AEH.'.ascii.asList;
+let c = ':>AEH.'.ascii;
 let m = c - (2 ^ LfSaw([1 .. 5] / 32, 0)).Ceiling;
 let o = Saw(m.MidiCps);
 o.Splay / 2

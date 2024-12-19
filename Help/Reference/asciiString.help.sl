@@ -1,19 +1,22 @@
 # asciiString
 
-- _asciiString(aByteArray)_
+- _asciiString(aByteArray | aList)_
 
-Answer a `String` of _aByteArray_ which must be an Ascii encoding.
+Answer a `String` of _aByteArray_ or _aList_,
+which must be an Ascii encoding.
 
 ```
 >>> [97 115 99 105 105]
->>> .asByteArray
 >>> .asciiString
 'ascii'
 ```
 
-The inverse is `asciiByteArray`:
+The inverses are `ascii` and `asciiByteArray`:
 
 ```
+>>> 'ascii'.ascii.asciiString
+'ascii'
+
 >>> 'ascii'
 >>> .asciiByteArray
 >>> .asciiString
@@ -22,6 +25,6 @@ The inverse is `asciiByteArray`:
 
 * * *
 
-See also: asciiByteArray, ByteArray, String
+See also: ascii, asciiByteArray, ByteArray, String
 
 Categories: Converting, String, Encoding
