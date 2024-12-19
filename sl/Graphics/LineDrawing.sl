@@ -104,3 +104,67 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 }
+
++List {
+
+	circularPartitionsDrawing { :self |
+		let radius = 1;
+		let circleCount = self.size + 1;
+		let period = self.anyOne.sum;
+		let innerCircle = [period];
+		let places = [
+			[innerCircle],
+			self
+		].concatenation.collect(prefixSum:/1);
+		let angles = places.collect { :p |
+			p.collect { :q |
+				((q / period).negated * 2.pi + 0.5.pi) % 2.pi
+			}
+		};
+		let circles = (1 .. circleCount).collect { :each |
+			Circle([0 0], each * radius)
+		};
+		let lines = (1 .. circleCount).collect { :each |
+			let innerRadius = each - 1 * radius;
+			let outerRadius = each * radius;
+			angles[each].collect { :theta |
+				[innerRadius theta; outerRadius theta]
+				.fromPolarCoordinates
+				.Line
+			}
+		};
+		[circles, lines].LineDrawing
+	}
+
+	rectangularPartitionsDrawing { :self |
+		let rowHeight = 10;
+		let rowCount = self.size;
+		let columnWidth = rowHeight * rowCount * 2.goldenRatio;
+		let height = rowCount * rowHeight;
+		let period = self.anyOne.sum;
+		let places = self.collect(prefixSum:/1);
+		let marks = places.collect { :p |
+			p.collect { :q |
+				q * (columnWidth / period)
+			}
+		};
+		let horizontalLines = (0 .. rowCount).collect { :each |
+			let y = each * rowHeight;
+			Line([0 y; columnWidth y])
+		};
+		let leftmostVerticalLine = Line([0 0; 0 height]);
+		let verticalLines = (1 .. rowCount).collect { :each |
+			let y1 = height - (each * rowHeight);
+			let y2 = height - (each - 1 * rowHeight);
+			marks[each].collect { :x |
+				Line([x y1; x y2])
+			}
+		};
+		[
+			horizontalLines,
+			leftmostVerticalLine,
+			verticalLines
+		].LineDrawing
+	}
+
+}

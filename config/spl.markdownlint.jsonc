@@ -8,6 +8,7 @@
 		"heading_line_length": 80,
 		"code_block_line_length": 60
 	},
+	"MD033": false,
 	"MD040": false,
 	"MD045": false,
 	"MD048": false

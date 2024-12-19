@@ -14,6 +14,6 @@ false
 
 * * *
 
-See also: endsWith, beginsWithAnyOf
+See also: endsWith, beginsWith, beginsWithAnyOf
 
 Categories: Testing

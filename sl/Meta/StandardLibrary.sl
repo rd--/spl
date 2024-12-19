@@ -131,6 +131,7 @@
 
 	/* Text */
 	'AsciiString'
+	'Html'
 	'Markdown'
 	'QuotedString'
 	'RegExp'

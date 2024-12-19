@@ -15,7 +15,7 @@ The diatonic scale is the last item in the _5/12_ sequence:
 	5 7;
 	5 5 2;
 	3 2 3 2 2;
-	1 2 2 1 2 2 2;
+	1 2 2 1 2 2 2
 ]
 ```
 
@@ -185,9 +185,48 @@ considered to a depth of nine places:
 
 ![](sw/spl/Help/Image/momentOfSymmetry-C.svg)
 
+`rectangularHorogramDrawing` answers a line drawing of a rectangular Wilson horogram showing the scale structure.
+`zero` is at the left,
+intervals increase rightwards until the period,
+which is at the right,
+and rows are descending:
+
+~~~spl svg=D
+7.momentOfSymmetry(12)
+.rectangularHorogramDrawing
+~~~
+
+![](sw/spl/Help/Image/momentOfSymmetry-D.svg)
+
+A rectangular drawing of the same phi-weighted mediant scale as above:
+
+~~~spl svg=E
+1/5.phiWeightedMediant(3/14)
+.momentOfSymmetry(1, 9)
+.rectangularHorogramDrawing
+~~~
+
+![](sw/spl/Help/Image/momentOfSymmetry-E.svg)
+
+`horogramTable` answers a `Html` table of a rectangular Wilson horogram showing the scale structure.
+Requires that the scale have only integer step sizes.
+
+~~~
+7.momentOfSymmetry(12)
+.horogramTable
+~~~
+
+<table style="width: 100%; border: solid 1px black;"><tbody>
+<tr><td colspan="7">7</td><td colspan="5">5</td></tr>
+<tr><td colspan="2">2</td><td colspan="5">5</td><td colspan="5">5</td></tr>
+<tr><td colspan="2">2</td><td colspan="2">2</td><td colspan="3">3</td><td colspan="2">2</td><td colspan="3">3</td></tr>
+<tr><td colspan="2">2</td><td colspan="2">2</td><td colspan="2">2</td><td>1</td><td colspan="2">2</td><td colspan="2">2</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+</tbody></table>
+
 * * *
 
-See also: horogramDrawing, isMomentOfSymmetry, prefixSum, nubCumulatively, Scale
+See also: horogramDrawing, horogramTable, isMomentOfSymmetry, prefixSum, nubCumulatively, rectangularHorogramDrawing, Scale
 
 References:
 _Anaphoria_

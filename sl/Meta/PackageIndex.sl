@@ -252,6 +252,7 @@
 	'System-Window'
 	'Text-AsciiString'
 	'Text-Character'
+	'Text-Html'
 	'Text-Markdown'
 	'Text-QuotedString' /* String */
 	'Text-RegExp'

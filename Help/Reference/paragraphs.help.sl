@@ -4,15 +4,25 @@
 
 Answer a `List` of `String`, one for each paragraph in _aString_.
 
-```
->>> 'a\nb\n\nc'.paragraphs.collect(lines:/1)
-['a' 'b'; 'c']
+Two paragraphs, the first having two lines:
 
->>> 'a\nb\nc'.paragraphs.collect(lines:/1)
+```
+>>> 'a\nb\n\nc'
+>>> .paragraphs
+>>> .collect(lines:/1)
+['a' 'b'; 'c']
+```
+
+One paragraph of three lines:
+
+```
+>>> 'a\nb\nc'
+>>> .paragraphs
+>>> .collect(lines:/1)
 [['a' 'b' 'c']]
 ```
 
-At empty `String`:
+At empty `String` has one paragraph which is empty:
 
 ```
 >>> ''.paragraphs

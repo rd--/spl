@@ -10,7 +10,10 @@ or, equivalently, the number of partitions into parts of which the largest is ex
 
 ```
 >>> 0:15.collect(partitionFunctionP:/1)
-[1 1 2 3 5 7 11 15 22 30 42 56 77 101 135 176]
+[
+	1 1 2 3 5 7 11 15 22 30
+	42 56 77 101 135 176
+]
 
 >>> 121.partitionFunctionP
 2056148051
@@ -37,16 +40,25 @@ Initial triangle of _P(n, k)_:
 >>> 		n.partitionFunctionP(k)
 >>> 	}
 >>> }
-[1; 1 1; 1 1 1; 1 2 1 1; 1 2 2 1 1; 1 3 3 2 1 1]
+[
+	1;
+	1 1;
+	1 1 1;
+	1 2 1 1;
+	1 2 2 1 1;
+	1 3 3 2 1 1
+]
 ```
 
 Plot the number of unrestricted partitions:
 
-~~~
+~~~spl svg=A
 0:50.functionPlot { :x |
 	x.partitionFunctionP.asFloat.log10
 }
 ~~~
+
+![](sw/spl/Help/Image/partitionFunctionP-A.svg)
 
 * * *
 

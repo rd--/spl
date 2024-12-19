@@ -15,7 +15,9 @@ false
 Prefix must be a sequence:
 
 ```
->>> { [1 .. 5].beginsWith(1) = false }.ifError { true }
+>>> {
+>>> 	[1 .. 5].beginsWith(1) = false
+>>> }.ifError { true }
 true
 ```
 
@@ -36,7 +38,7 @@ true
 true
 ```
 
-Code fences:
+Markdown code fences:
 
 ```
 >>> '```spl'.beginsWith('```')
@@ -58,7 +60,7 @@ false
 
 * * *
 
-See also: beginsWithAnyOf, endsWith
+See also: beginsWithAnyOf, endsWith, first
 
 References:
 _Haskell_

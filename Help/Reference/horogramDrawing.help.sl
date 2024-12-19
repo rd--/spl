@@ -28,7 +28,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 	5 7;
 	5 5 2;
 	3 2 3 2 2;
-	1 2 2 1 2 2 2;
+	1 2 2 1 2 2 2
 ].horogramDrawing
 ~~~
 
@@ -36,7 +36,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 
 * * *
 
-See also: Circle, Line, LineDrawing, momentOfSymmetry
+See also: Circle, circularPartitionsDrawing, horogramTable, Line, LineDrawing, momentOfSymmetry, rectangularHorogramDrawing
 
 _Anaphoria_
 [1](https://www.anaphoria.com/wilsonscaletree.html)

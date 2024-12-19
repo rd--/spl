@@ -92,6 +92,20 @@
 		<primitive: return _self.getSelection();>
 	}
 
+	importNode { :self :externalNode :deep |
+		<primitive: return _self.importNode(_externalNode, _deep);>
+	}
+
+	parseHtml { :self :aString |
+		let template = self.createElement('template');
+		template.innerHtml(aString);
+		(template.content.childNodes.length = 1).if {
+			template.content.firstChild
+		} {
+			self.error('parseHtml: not singular node')
+		}
+	}
+
 	querySelector { :self :aString |
 		<primitive: return _self.querySelector(_aString);>
 	}
@@ -169,7 +183,8 @@
 	id { :self | <primitive: return _self.id;> }
 	innerHtml { :self :aString | <primitive: return _self.innerHTML = _aString;> }
 	innerHtml { :self | <primitive: return _self.innerHTML;> }
-	insertAdjacentElement { :self :position :element | <primitive: return _self.insertAdjacentElement(_position, _elementwhere);> }
+	insertAdjacentElement { :self :position :element | <primitive: return _self.insertAdjacentElement(_position, _element);> }
+	insertAdjacentHtml { :self :position :text | <primitive: return _self.insertAdjacentHTML(_position, _text);> }
 	insertAdjacentText { :self :where :data | <primitive: return _self.insertAdjacentText(_where, _data);> }
 	localName { :self | <primitive: return _self.localName;> }
 	matches { :self :selectors | <primitive: return _self.matches(_selectors);> }
@@ -284,6 +299,7 @@
 
 	appendChild { :self :aChild | <primitive: return _self.appendChild(_aChild);> }
 	childNodes { :self | <primitive: return _self.childNodes;> }
+	cloneNode { :self :deep | <primitive: return _self.cloneNode(_deep);> }
 	firstChild { :self | <primitive: return _self.firstChild;> }
 	nextSibling { :self | <primitive: return _self.nextSibling;> }
 	nodeType { :self | <primitive: return _self.nodeType;> }
@@ -498,6 +514,10 @@ DataTransfer! : [Object] {
 
 }
 
+DocumentFragment! : [Object, EventTarget, Node] {
+
+}
+
 DOMMatrix! : [Object, DOMMatrixReadOnly] {
 
 }
@@ -566,6 +586,7 @@ DocumentRange! : [Object, AbstractRange] { /* Note: Renamed by Spl kernel from R
 
 	cloneRange { :self | <primitive: return _self.cloneRange();> }
 	commonAncestorContainer { :self | <primitive: return _self.commonAncestorContainer;> }
+	createContextualFragment { :self :tagString | <primitive: return _self.createContextualFragment(_tagString);> }
 	deleteContents { :self | <primitive: return _self.deleteContents();> }
 	endContainer { :self | <primitive: return _self.endContainer;> }
 	endOffset { :self | <primitive: return _self.endOffset + 1;> } /* One-indexed */
@@ -869,6 +890,12 @@ HTMLTableRowElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 }
 
 HTMLTableSectionElement! : [Object, EventTarget, Node, Element, HtmlElement] {
+
+}
+
+HTMLTemplateElement! : [Object, EventTarget, Node, Element, HtmlElement] {
+
+	content { :self | <primitive: return _self.content;> }
 
 }
 
