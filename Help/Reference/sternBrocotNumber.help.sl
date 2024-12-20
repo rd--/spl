@@ -26,15 +26,20 @@ The first one hundred entries:
 At specific values:
 
 ```
->>> [1173 35499 699051 19573419].collect(sternBrocotNumber:/1)
+>>> [1173 35499 699051 19573419]
+>>> .collect(sternBrocotNumber:/1)
 [108 1076 10946 103682]
 ```
 
-Plot the first 4096 terms:
+Plot the first few terms:
 
+~~~spl svg=A
+1:256
+.collect(sternBrocotNumber:/1)
+.scatterPlot
 ~~~
-1:4096.collect(sternBrocotNumber:/1).scatterPlot
-~~~
+
+![](sw/spl/Help/Image/sternBrocotNumber-A.svg)
 
 * * *
 

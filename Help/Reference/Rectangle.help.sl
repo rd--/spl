@@ -6,7 +6,12 @@ A `Type` that represents an axis-aligned rectangle from _lowerLeft_ to _upperRig
 
 ```
 >>> let r = [0 0; 1 1].asRectangle;
->>> (r.isRectangle, r.center, r.width, r.height)
+>>> (
+>>> 	r.isRectangle,
+>>> 	r.center,
+>>> 	r.width,
+>>> 	r.height
+>>> )
 (true, [0.5 0.5], 1, 1)
 ```
 
@@ -39,13 +44,6 @@ Calculate the `centroid`:
 [3/2 2]
 ```
 
-The Svg description of a rectangle:
-
-```
->>> Rectangle([0 0], [1 1]).forSvg(precision: 0)
-'<rect x="0" y="0" width="1" height="1" />'
-```
-
 Two squares:
 
 ~~~spl svg=A
@@ -57,7 +55,7 @@ Rectangle(
 
 ![](sw/spl/Help/Image/Rectangle-A.svg)
 
-Two rectangles, one rotated by φ:
+Two golden rectangles, one rotated:
 
 ~~~spl svg=B
 let r = Rectangle([0 0], [1.goldenRatio 1]);
@@ -83,6 +81,32 @@ let rng = Sfc32(314920);
 ~~~
 
 ![](sw/spl/Help/Image/Rectangle-C.svg)
+
+Golden rectangle sub-divisions:
+
+~~~spl svg=D
+let phi = 1.goldenRatio;
+let f = { :n |
+	(n = 0).if {
+		[0, 0, 1, -1]
+	} {
+		let [a, b, c, d] = f(n - 1);
+		let x = phi ^ n.-;
+		(n % 4).caseOf([
+			0 -> [a, d, a + x, d - x],
+			1 -> [c, d + x, c + x, d],
+			2 -> [c - x, b + x, c, b],
+			3 -> [a - x, b, a, b - x]
+		])
+	}
+};
+0:7.collect { :k |
+	let [a, b, c, d] = f(k);
+	Rectangle([a, b.-], [c, d.-])
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Rectangle-D.svg)
 
 * * *
 

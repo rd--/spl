@@ -12,7 +12,12 @@ Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 
 ```
 >>> let t = aasTriangle(pi / 6, pi / 3, 1);
->>> (t.vertices, t.area, t.centroid, t.interiorAngles)
+>>> (
+>>> 	t.vertices,
+>>> 	t.area,
+>>> 	t.centroid,
+>>> 	t.interiorAngles
+>>> )
 (
 	[[0, 0], [2, 0], [3/2, 3.sqrt / 2]],
 	3.sqrt / 2,
@@ -20,6 +25,16 @@ Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 	pi / [6 3 2]
 )
 ```
+
+Varying an angle:
+
+~~~
+(0.1, 0.14 .. 0.9).collect { :beta |
+	aasTriangle(1, 1 + beta, 1)
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/aasTriangle-A.svg)
 
 * * *
 

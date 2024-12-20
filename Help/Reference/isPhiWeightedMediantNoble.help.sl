@@ -3,7 +3,7 @@
 - _isPhiWeightedMediantNoble(aFraction, anotherFraction)_
 
 Answer `true` if the φ-weighted mediant of two fractions is a noble number.
-
+A number is noble if its continued fraction becomes an infinite sequence of ones.
 ```
 >>> isPhiWeightedMediantNoble(5/4, 9/7)
 true
@@ -22,7 +22,7 @@ true
 
 * * *
 
-See also: mediant, phiWeightedMediant, weightedMediant
+See also: convergents, mediant, phiWeightedMediant, weightedMediant
 
 References:
 _Xenharmonic_

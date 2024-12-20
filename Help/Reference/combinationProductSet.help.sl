@@ -2,6 +2,8 @@
 
 - _combinationProductSet(aList, anInteger)_
 
+Answer the combination product set of the items in _aList_ take _anInteger_ at a time.
+
 The _2_ combination product set of _1 1 3 5_:
 
 ```
@@ -73,6 +75,8 @@ A worked example:
 See also: eulerFokkerGenus, latticeGraph, nub, product, octaveReduced, subsets
 
 References:
+_Anaphoria_
+[1](https://anaphoria.com/wilsoncps.html)
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Combination_product_set)
 

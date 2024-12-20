@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: calkinWilfTree, mediant, sternBrocotSequence
+See also: calkinWilfTree, mediant, sternBrocotNumber, sternBrocotSequence
 
 References:
 _Mathematica_

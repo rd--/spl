@@ -15,14 +15,14 @@ The inverse is `grayDecode`.
 >>> 	}
 >>> }
 [
-	'0' '0' '0';
-	'1' '1' '1';
-	'10' '11' '10';
-	'11' '10' '11';
-	'100' '110' '100';
-	'101' '111' '101';
-	'110' '101' '110';
-	'111' '100' '111';
+	   '0'    '0'    '0';
+	   '1'    '1'    '1';
+	  '10'   '11'   '10';
+	  '11'   '10'   '11';
+	 '100'  '110'  '100';
+	 '101'  '111'  '101';
+	 '110'  '101'  '110';
+	 '111'  '100'  '111';
 	'1000' '1100' '1000';
 	'1001' '1101' '1001';
 	'1010' '1111' '1010';
@@ -46,11 +46,13 @@ Gray encodings of the integers _(0, 2^k - 1)_ are a permutation:
 ]
 ```
 
-Scatter plot of the gray encodings of the first two-thousand integers:
+Scatter plot of the gray encodings of the first few integers:
 
+~~~spl svg=A
+0:250.collect(grayEncode:/1).scatterPlot
 ~~~
-0:2000.collect(grayEncode:/1).scatterPlot
-~~~
+
+![](sw/spl/Help/Image/grayEncode-A.svg)
 
 * * *
 

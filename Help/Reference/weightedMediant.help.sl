@@ -63,6 +63,8 @@ true
 See also: isPhiWeightedMediantNoble, mediant, phiWeightedMediant
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NobleNumber.html),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Merciful_intonation)
 

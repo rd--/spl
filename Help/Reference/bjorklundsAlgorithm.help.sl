@@ -40,7 +40,7 @@ The two forms have the same least rotation:
 
 * * *
 
-See also: bjorklundsAlgorithmDo, euclideanAlgorithm, lexicographicallyLeastRotation
+See also: bjorklundsAlgorithmDo, bresenhamLineAlgorithm, euclideanAlgorithm, lexicographicallyLeastRotation
 
 Further Reading: Bjorklund 1989, Demaine 2005
 

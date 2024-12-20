@@ -40,7 +40,7 @@ Plot first few terms:
 
 * * *
 
-See also: fareySequence, sternBrocotTree
+See also: fareySequence, sternBrocotNumber, sternBrocotTree
 
 Guides: Mathematical Sequences
 

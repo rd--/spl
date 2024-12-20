@@ -22,12 +22,18 @@ _Alterations_:
 
 _Constants_:
 
+- `goldenAngle`: 137.5°
+- `goldenRatio`: phi
 - `holdersComma`: Holders comma
 - `mercatorsComma`: 3^53/2^84
+- `metallicMean`: metallic mean
+- `plasticRatio`: 
 - `pythagoreanChroma`: 2187/2048
 - `pythagoreanComma`: 531441/524288
 - `pythagoreanLimma`: 256/243
 - `septimalComma`: 64/63
+- `silverRatio`: 
+- `supergoldenRatio`: 
 - `syntonicComma`: 81/80
 
 _Converting_:
@@ -44,6 +50,7 @@ _Fraction Functions_:
 - `continuedFraction`: continued fraction
 - `convergents`: convergents
 - `fromContinuedFraction`: to fraction
+- `limitDenominator`: limit denominator
 - `octaveReduced`: octave reduced
 - `semiconvergents`: semiconvergents
 - `rationalize`: approximate fraction
@@ -106,23 +113,33 @@ _Prime Numbers_:
 _Scale Functions_:
 
 - `asScale`: intervals to scale
+- `bjorklundsAlgorithm`: lattice divisions
+- `bresenhamLineAlgorithm`: lattice line
 - `combinationProductSet`: CPS
 - `degreeToKey`: degree to key
 - `eulerFokkerGenus`: Euler-Fokker genus
+- `horogramDrawing`: circular horogram
+- `horogramTable`: text horogram
 - `intervalClass`: interval class of
 - `intervalClasses`: interval classes
 - `intervalsBy`: intervals at step
 - `intervals`: intervals
 - `isImproper`: predicate
 - `isMomentOfSymmetry`: predicate
+- `isPhiWeightedMediantNoble`: predicate
 - `isProper`: predicate
 - `isStrictlyProper`: predicate
 - `lineDrawing`: line drawing
+- `mediant`: mediant
 - `momentOfSymmetry`: scale generator
+- `momentOfSymmetryPattern`: MOS
+- `phiWeightedMediant`: mediant
+- `rectangularHorogramDrawing`: drawing
 - `scalaScaleArchive`: scale archive
 - `stepArity`: step variety
 - `textDrawing`: text drawing
 - `tuningIndices`: scale indexing
+- `weightedMediant`: mediant
 
 _Testing_:
 

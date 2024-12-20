@@ -13,7 +13,7 @@ Find the nearest approximation to _aFraction_ that has a denominator less than o
 22/7
 ```
 
-Recover a rational number that’s represented as a float:
+Recover a rational number that is represented as a float:
 
 ```
 >>> let n = (pi / 3).cos;

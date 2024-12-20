@@ -33,6 +33,21 @@ Quadrant four:
 [0 1; 1 0; 2 -1; 3 -2; 4 -2; 5 -3; 6 -4]
 ```
 
+There is a connection to Bjorklund’s algorithm,
+the least rotation of equivalent queries are equal:
+
+```
+>>> [0 0; 7 12].bresenhamLineAlgorithm
+>>> .collect(first:/1)
+>>> .differences
+>>> .lexicographicallyLeastRotation
+[0 1 0 1 0 1 1 0 1 0 1 1]
+
+>>> 7.bjorklundsAlgorithm(12)
+>>> .lexicographicallyLeastRotation
+[0 1 0 1 0 1 1 0 1 0 1 1]
+```
+
 A step plot:
 
 ~~~spl svg=A
