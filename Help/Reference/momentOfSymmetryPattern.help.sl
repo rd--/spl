@@ -48,7 +48,6 @@ where _L_ is four and _s_ is one:
 
 And so on indefinitely.
 
-
 * * *
 
 See also: isMomentOfSymmetry, momentOfSymmetry, Scale

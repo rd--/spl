@@ -4,6 +4,7 @@
 
 The inverse of `grayEncode`.
 
+Decode encoded first few integers:
 
 ```
 >>> [
@@ -17,5 +18,4 @@ The inverse of `grayEncode`.
 
 * * *
 
-See also: bitShiftRight, bitXor, grayEncode
-
+See also: Binary, bitShiftRight, bitXor, grayEncode
