@@ -2,19 +2,25 @@
 
 ## Accessing
 
-- `at`, `atModify`, `atPut`
-- `atFold`, `atPath`, `atPin`, `atWrap`, `atWrapPut`
-- `atAll`, `atAllPut`, `atAllPutAll`
-- `atIfAbsent`, `atIfAbsentPut`, `atIfPresent`
+- `at`, `atModify`
+- `atIfAbsent`, `atIfPresent`
+- `atFold`, `atPath`, `atPin`, `atWrap`
+- `atAll`
+- `atPut`
+- `atIfAbsentPut`
+- `atWrapPut`
+- `atAllPut`, `atAllPutAll`
 - `associationAt`, `associationAtIfAbsent`
 - `any`, `anyAs`
 - `first`, `second`, `third`, `fourth`, `last`
 
 ## Adding
 
-- `addFirst`, `add`, `addLast`, `addWithOccurrences`
+- `add`, `addWithOccurrences`
+- `addFirst`, `addLast`
 - `addAfter`, `addAfterIndex`, `addBefore`
-- `addAllFirst`, `addAll`, `addAllIfNotPresent`, `addAllLast`
+- `addAll`, `addAllIfNotPresent`
+- `addAllFirst`, `addAllLast`
 - `addIfNotPresent`, `ifAbsentAdd`
 
 ## Array Operations
@@ -31,12 +37,16 @@
 
 - `assert`
 - `assertIsOfSize`, `assertIsValidIndex`
-- `assertIsCollection`, `assertIsSmallInteger`, `assertIsString`
+- `assertIsCollection`
+- `assertIsSmallInteger`
+- `assertIsString`
 
 ## Binary, Bitwise
 
 - `bitAnd`, `bitOr`, `bitXor`, `bitNot`
-- `<<`, `>>`, `bitCount`, `bitShift`, `bitShiftLeft`, `bitShiftRight`, `highBit`, `lowBit`
+- `bitCount`, `highBit`, `lowBit`
+- `<<`, `>>`
+- `bitShift`, `bitShiftLeft`, `bitShiftRight`
 - `bitAt`, `bitAtPut`
 
 ## Blocks
@@ -49,7 +59,8 @@
 - `&`, `&&`, `|`, `||`, `not`
 - `false`, `true`
 - `boole`
-- `allSatisfy`, `anySatisfy`, `allTrue`, `noneSatisfy`
+- `allSatisfy`, `anySatisfy`, `noneSatisfy`
+- `allTrue`
 - `if`, `ifFalse`, `ifTrue`
 
 ## Character
@@ -60,23 +71,31 @@
 ## Character Predicates
 
 - `isCharacter`
-- `isAlphaNumeric`, `isDigit`, `isLetter`, `isLowerCase`, `isUpperCase`
-- `isCarriageReturn`, `isFormFeed`, `isLineFeed`, `isSeparator`, `isSpace`, `isTab`
+- `isAlphaNumeric`, `isDigit`, `isLetter`
+- `isLowerCase`, `isUpperCase`
+- `isCarriageReturn`
+- `isFormFeed`, `isLineFeed`
+- `isSeparator`, `isSpace`, `isTab`
 
 ## Collection Tests
 
 - `isArray`, `isVector`, `isMatrix`
-- `isCollection`, `isDictionary`, `isIndexable`, `isSequence`
+- `isCollection`, `isIndexable`
+- `isDictionary`, `isSequence`
 - `isBag`, `isList`, `isMap`, `isRecord`, `isSet`
-- `isBitSet`, `isPriorityQueue`, `isRange`, `isSortedList`
+- `isRange`, `isSortedList`
+- `isBitSet`, `isPriorityQueue`
 - `isAssociation`, `isAssociationList`
 - `capacity`, `depth`, `size`
 
 ## Collection Types & Traits
 
 - `Collection`, `Dictionary`, `Sequence`
-- `Extensible`, `Indexable`, `Keyed`, `Removable`, `Unordered`
-- `Bag`, `List`, `Map`, `Record`, `Set`, `Tree`, `Tuple`
+- `Indexable`, `Keyed`
+- `Extensible`, `Removable`
+- `Unordered`
+- `List`, `Map`, `Record`, `Set`
+- `Bag`, `Tree`, `Tuple`
 - `BitSet`, `PriorityQueue`, `SortedList`
 - `ArithmeticProgression`, `Range`
 - `Association`
@@ -84,12 +103,19 @@
 
 ## Combinatorial Functions
 
-- `!`, `doubleFactorial`, `factorial`, `factorialPower`, `hyperfactorial`, `subfactorial`
-- `binomial`, `catalanNumber`, `catalanTriangle`, `multinomial`
+- `!`, `factorial`
+- `doubleFactorial`, `subfactorial`
+- `factorialPower`, `hyperfactorial`
+- `binomial`, `multinomial`
+- `catalanNumber`, `catalanTriangle`
 - `polygonalNumber`
 - `partitionsP`, `partitionsQ`
 - `dyckWords`
-- `bellNumber`, `lassalleNumber`, `lobbNumber`, `narayanaNumber`, `vanDerCorputNumber`
+- `bellNumber`
+- `lassalleNumber`
+- `lobbNumber`
+- `narayanaNumber`
+- `vanDerCorputNumber`
 
 ## Comparison Operators
 
