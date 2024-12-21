@@ -158,9 +158,20 @@ points upwards and intervals increase clockwise:
 
 ![](sw/spl/Help/Image/momentOfSymmetry-A.svg)
 
-An outer ring of the least step equally dividing the period can be appended before drawing:
+A moment of symmetry with a generator derived as the phi-weighted mediant of _1/5_ and _3/14_,
+considered to a depth of nine places:
 
 ~~~spl svg=B
+1/5.phiWeightedMediant(3/14)
+.momentOfSymmetry(1, 9)
+.horogramDrawing
+~~~
+
+![](sw/spl/Help/Image/momentOfSymmetry-B.svg)
+
+An outer ring of the least step equally dividing the period can be appended before drawing:
+
+~~~spl svg=C
 let appendOuterRing = { :mos |
 	let period = mos.anyOne.sum;
 	let leastStep = mos.last.min;
@@ -169,17 +180,6 @@ let appendOuterRing = { :mos |
 };
 7.momentOfSymmetry(12)
 .appendOuterRing
-.horogramDrawing
-~~~
-
-![](sw/spl/Help/Image/momentOfSymmetry-B.svg)
-
-A moment of symmetry with a generator derived as the phi-weighted mediant of _1/5_ and _3/14_,
-considered to a depth of nine places:
-
-~~~spl svg=C
-1/5.phiWeightedMediant(3/14)
-.momentOfSymmetry(1, 9)
 .horogramDrawing
 ~~~
 

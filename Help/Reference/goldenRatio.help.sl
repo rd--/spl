@@ -2,7 +2,9 @@
 
 - _goldenRatio(aNumber)_
 
-Answer _aNumber_ × the golden ratio, usually written as Phi or phi, also as tau.
+Answer _aNumber_ × the golden ratio,
+_(√5 + 1) / 2_,
+usually written as Phi or phi, also as tau.
 
 ```
 >>> 1.goldenRatio
@@ -13,7 +15,7 @@ Answer _aNumber_ × the golden ratio, usually written as Phi or phi, also as tau
 
 ```
 >>> 2.goldenRatio
-(5.sqrt + 1)
+5.sqrt + 1
 ```
 
 The golden ratio is the `metallicMean` of `one`:
@@ -28,7 +30,7 @@ The golden ratio is the `metallicMean` of `one`:
 ```
 >>> let x = 1.goldenRatio;
 >>> 1 / x
-(x - 1)
+x - 1
 ```
 
 and therefore phi and its inverse have equal fraction parts:
@@ -134,13 +136,24 @@ or the phi neutral sixth:
 
 Plot the fractional part of multiples of the golden ratio:
 
-~~~
+~~~spl svg=A
 1:100.functionPlot { :n |
 	n.goldenRatio.fractionPart
 }
 ~~~
 
 ![](sw/spl/Help/Image/goldenRatio-A.svg)
+
+Position of ones in a Fibonacci substitution system:
+
+~~~spl svg=B
+1:30.collect { :n |
+	let f = { :x | x.goldenRatio.floor };
+	2 - (f(n + 1) - f(n))
+}.prefixSum.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-B.svg)
 
 * * *
 

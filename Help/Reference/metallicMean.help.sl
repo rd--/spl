@@ -60,7 +60,7 @@ The continued fractions of the first five metallic means:
 
 * * *
 
-See also: continuedFraction, goldenRatio, silverRatio, superGoldenRatio
+See also: continuedFraction, goldenRatio, silverRatio, supergoldenRatio
 
 References:
 _Mathematica_

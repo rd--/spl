@@ -2,7 +2,7 @@
 
 - _silverRatio(aNumber)_
 
-Answer _aNumber_ × the silver ratio, usually written as δs or λ or σ.
+Answer _aNumber_ × the silver ratio, _√2 + 1_, usually written as δs or λ or σ.
 
 ```
 >>> 1.silverRatio
@@ -13,7 +13,7 @@ Answer _aNumber_ × the silver ratio, usually written as δs or λ or σ.
 
 ```
 >>> 1.silverRatio
-(2.sqrt + 1)
+2.sqrt + 1
 ```
 
 The silver ratio is the `metallicMean` of two:
@@ -39,7 +39,7 @@ As a continued fraction:
 
 * * *
 
-See also: e, silverAngle, metallicMean, pi, plasticRatio, supersilverRatio
+See also: e, metallicMean, pi, plasticRatio, supersilverRatio
 
 Guides: Mathematical Constants
 

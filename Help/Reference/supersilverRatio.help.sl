@@ -22,7 +22,8 @@ Its true value is the real solution of the equation _x ^ 3 = 2 * (x ^ 2) + 1_:
 The continued fraction:
 
 ```
->>> 1.supersilverRatio.continuedFraction(11)
+>>> 1.supersilverRatio
+>>> .continuedFraction(11)
 [2 4 1 6 2 1 1 1 1 1 1]
 ```
 

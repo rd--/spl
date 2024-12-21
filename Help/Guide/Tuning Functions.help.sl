@@ -22,18 +22,20 @@ _Alterations_:
 
 _Constants_:
 
-- `goldenAngle`: 137.5°
-- `goldenRatio`: phi
+- `goldenAngle`: ~137.5°
+- `goldenRatio`: (√5 + 1) / 2
 - `holdersComma`: Holders comma
 - `mercatorsComma`: 3^53/2^84
 - `metallicMean`: metallic mean
-- `plasticRatio`: 
+- `pi`: π
+- `plasticRatio`: minimal Pisot number
 - `pythagoreanChroma`: 2187/2048
 - `pythagoreanComma`: 531441/524288
 - `pythagoreanLimma`: 256/243
 - `septimalComma`: 64/63
-- `silverRatio`: 
-- `supergoldenRatio`: 
+- `silverRatio`: √2 + 1
+- `supergoldenRatio`: ~85/58
+- `supersilverRatio`: ~75/34
 - `syntonicComma`: 81/80
 
 _Converting_:
