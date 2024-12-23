@@ -67,7 +67,8 @@ let r = Rectangle([0 0], [1.goldenRatio 1]);
 
 ![](sw/spl/Help/Image/Rectangle-B.svg)
 
-A sequence of nine randomly displaced squares:
+A sequence of nine randomly displaced squares,
+each rotated:
 
 ~~~spl svg=C
 let rng = Sfc32(314920);
@@ -110,7 +111,7 @@ let f = { :n |
 
 * * *
 
-See also: asRectangle, Circle, Line, Point, Polygon, Triangle
+See also: asPolygon, asRectangle, Circle, Line, Point, Polygon, Triangle
 
 References:
 _Mathematica_

@@ -14,9 +14,10 @@ Plot a random graph of twenty vertices.
 The probablity of an edge occuring is 5%:
 
 ~~~spl svg=B
-let r = Sfc32(379714);
-let m = { (r.next < 0.05).boole } ! [20 20];
-m.adjacencyGraph.graphPlot
+Sfc32(379714)
+.randomBit(5 / 100, [20 20])
+.adjacencyGraph
+.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/graphPlot-B.svg)

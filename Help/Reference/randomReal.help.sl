@@ -57,6 +57,26 @@ Sfc32(678314)
 
 ![](sw/spl/Help/Image/randomReal-B.svg)
 
+A `matrixPlot` of a random 13×11 _(-1, 1)_ matrix:
+
+```spl svg=C
+Sfc32(329149)
+.randomReal(-1, 1, [13 11])
+.matrixPlot
+```
+
+![](sw/spl/Help/Image/randomReal-C.svg)
+
+A `Greymap` of a random 50×90 _(0, 1)_ matrix:
+
+```spl png=D
+Sfc32(814789)
+.randomReal(0, 1, [50 90])
+.Graymap
+```
+
+![](sw/spl/Help/Image/randomReal-D.png)
+
 * * *
 
 See also: atRandom, nextRandomFloat, RandomNumberGenerator, randomChoice, randomComplex, randomInteger, randomPoint, randomVariate, System
