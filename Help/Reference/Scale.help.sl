@@ -11,7 +11,7 @@ _intervals_ is a sequence of integers giving the distance of each index from the
 
 _description_ is a `String` describing the scale.
 
-The `nameList` of a scale is the `description` separated into parts by the substring ', '.
+The `nameList` of a scale is the `description` separated into parts by the sub-string ', '.
 
 The `size` of a scale is the size of the _intervals_ sequence,
 a seven note scale has size seven.
@@ -85,7 +85,7 @@ into a `Tuning` of the required size.
 true
 ```
 
-`isProper` tells if `intervalClasses` are descending,
+`isProper` tells if `intervalClasses` are ascending,
 allowing for equal elements:
 
 ```

@@ -11,7 +11,7 @@ Count number of entries:
 3087
 ```
 
-The items are are `Scale` objects:
+The items are `Scale` objects:
 
 ```
 >>> system
