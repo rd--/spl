@@ -1,4 +1,4 @@
-spl = (cd ../sl ; make update-cache) ; ./spl
+spl = (cd ../Package ; make update-cache) ; ./spl
 
 spl-repl:
 	$(spl) replPerLine --lib=StandardLibrary --strict

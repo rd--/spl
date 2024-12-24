@@ -2,7 +2,6 @@ all:
 	echo "spl"
 
 clean:
-	rm -f sl/*/*.sl.js
 	rm -f js/sl.js
 
 push-all:
@@ -15,10 +14,10 @@ remote-dist:
 	sftp rd@rohandrape.net:rohandrape.net/pub/spl/dist/ <<< $'put dist/sl.js'
 
 tags:
-	etags --regex=@config/spl.tag sl/*/*.sl
+	etags --regex=@config/spl.tag Package/*/*.sl
 
-indent-sl:
-	spl-indent sl/*/*.sl
+indent-spl:
+	spl-indent Package/*/*.sl
 
 indent-help:
 	spl-indent Help/Reference/*.sl
@@ -36,7 +35,7 @@ help-index:
 	(cd Help; ls Guide/*.help.sl Reference/*.help.sl Index/*.help.sl Definitions/*.help.sl Terse/*.help.sl > Index.text)
 
 update-cache:
-	(cd sl; make)
+	(cd Package; make)
 
 clear-cache:
 	rm -f .cache/*.js

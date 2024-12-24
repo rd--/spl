@@ -186,7 +186,7 @@ async function loadSpl(opt: Args, lib: string[]): Promise<void> {
 	fileio.addLoadFileMethods();
 	sl.assignGlobals();
 	load.setSplDir(splDir);
-	await fileio.evaluateFile(splDir + '/sl/Meta/PackageIndex.sl', 'LoadSpl');
+	await fileio.evaluateFile(splDir + '/Package/Meta/PackageIndex.sl', 'LoadSpl');
 	await kernel.primitiveLoadPackageSequence(['Kernel'].concat(lib));
 	if (lib.includes('SuperColliderLibrary')) {
 		globalThis.sc = sc;
