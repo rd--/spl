@@ -49,9 +49,15 @@ An acute angle:
 All interior angles of a triangle:
 
 ```
->>> let [a, b, c] = [[0, 0], [2, 0], [3 / 2, 3.sqrt / 2]];
+>>> let [a, b, c] = [
+>>> 	[0, 0],
+>>> 	[2, 0],
+>>> 	[3 / 2, 3.sqrt / 2]
+>>> ];
 >>> (
->>> 	[b a c; c b a; a c b].collect(planarAngle:/1),
+>>> 	[b a c; c b a; a c b].collect(
+>>> 		planarAngle:/1
+>>> ),
 >>> 	Triangle(a, b, c).interiorAngles
 >>> )
 (

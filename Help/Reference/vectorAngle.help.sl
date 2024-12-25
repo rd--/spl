@@ -32,7 +32,9 @@ The angle between orthogonal vectors:
 >>> [1 0 1].vectorAngle([0 1 0])
 0.5.pi
 
->>> 10.unitVector(1).vectorAngle(10.unitVector(2))
+>>> 10.unitVector(1).vectorAngle(
+>>> 	10.unitVector(2)
+>>> )
 0.5.pi
 ```
 

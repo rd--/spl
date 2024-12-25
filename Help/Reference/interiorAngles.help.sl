@@ -16,7 +16,7 @@ At `Polygon`:
 
 * * *
 
-See also: planarAngle, vectorAngle
+See also: planarAngle, polygonInteriorAngles, vectorAngle
 
 References:
 _Mathematica_

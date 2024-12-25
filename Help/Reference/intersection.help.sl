@@ -52,7 +52,7 @@ Where supported `intersection` is displayed as ∩.
 
 * * *
 
-See also: difference, union
+See also: difference, lineLineIntersection, union
 
 References:
 _Apl_

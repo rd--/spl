@@ -8,6 +8,10 @@ Angle : [Object, Magnitude] { | radians |
 		self.radians < anAngle.radians
 	}
 
+	asGradians { :self |
+		self.radians / 400
+	}
+
 	asRadians { :self |
 		self.radians
 	}
@@ -46,6 +50,10 @@ Angle : [Object, Magnitude] { | radians |
 
 	degrees { :self |
 		(self / 180 * pi).radians
+	}
+
+	gradians { :self |
+		(self * 400).radians
 	}
 
 	radians { :self |

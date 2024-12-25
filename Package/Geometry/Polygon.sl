@@ -98,3 +98,12 @@ Polygon : [Object] { | vertices |
 	}
 
 }
+
++SmallFloat {
+
+	regularPolygon { :n :center :radius |
+		let theta = 0;
+		Polygon(n.circlePoints(radius, theta) + center)
+	}
+
+}

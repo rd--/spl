@@ -19,7 +19,8 @@ let p = Polyhedron(
 		1 4 3
 	]
 );
-(p.vertices.size, p.faces.size)
+let g = p.asGraph;
+(p.vertices.size, p.faces.size, g.vertexList, g.edgeList, g.vertexLabels)
 ~~~
 
 * * *
@@ -30,3 +31,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Polyhedron.html)
 [2](https://reference.wolfram.com/language/ref/Polyhedron.html)
+
+Categories: Geometry

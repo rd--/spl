@@ -25,9 +25,16 @@ At `Rectangle`:
 8
 ```
 
+At `Polygon`:
+
+```
+>>> 5.regularPolygon([0 0], 1).arcLength
+5.8779
+```
+
 * * *
 
-See also: Circle, circumference, perimeter, Rectangle
+See also: Circle, circumference, perimeter, Polygon, Rectangle, regularPolygon
 
 References:
 _Mathematica_
