@@ -102,7 +102,7 @@ The hexagonal packing of circles:
 
 * * *
 
-See also: arcLength, area, centroid, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, x, y
+See also: arcLength, area, centroid, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
 
 References:
 _Mathematica_

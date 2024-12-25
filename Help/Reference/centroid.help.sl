@@ -35,8 +35,9 @@ Find the centroid of a `Rectangle`:
 Find the centroid of a `Polygon`:
 
 ```
->>> let p = Polygon([0 0; 1 0; 3/2 1/2; 1 1; 0 1; -1/2 1/2]);
->>> p.centroid
+>>> [0 0; 1 0; 3/2 1/2; 1 1; 0 1; -1/2 1/2]
+>>> .Polygon
+>>> .centroid
 [1/2 1/2]
 ```
 

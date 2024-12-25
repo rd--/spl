@@ -111,7 +111,7 @@ let f = { :n |
 
 * * *
 
-See also: asPolygon, asRectangle, Circle, Line, Point, Polygon, Triangle
+See also: asLineDrawing, asPolygon, asRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare
 
 References:
 _Mathematica_

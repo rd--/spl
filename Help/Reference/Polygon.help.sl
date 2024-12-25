@@ -106,7 +106,7 @@ The outline of a glyph:
 
 * * *
 
-See also: area, centroid, BezierCurve, Circle, Point, PointCloud, Rectangle, Triangle
+See also: area, centroid, BezierCurve, Circle, Point, PointCloud, Rectangle, rotated, Triangle
 
 References:
 _Mathematica_

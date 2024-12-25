@@ -331,4 +331,11 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		Rectangle(centerPoint - half, centerPoint + half)
 	}
 
+	unitSquare { :center |
+		Rectangle(
+			center - [0.5, 0.5],
+			center + [0.5, 0.5]
+		)
+	}
+
 }

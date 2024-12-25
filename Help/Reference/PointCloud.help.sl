@@ -7,9 +7,10 @@ A `Type` representing a set of disconnected points.
 A drawing of twenty-three randomly displaced points:
 
 ~~~spl svg=A
-let r = Sfc32(376814);
-let p = r.randomInteger(1, 200, [23 2]);
-[p.PointCloud].LineDrawing
+Sfc32(376814)
+.randomInteger(1, 200, [23 2])
+.PointCloud
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/PointCloud-A.svg)
@@ -28,7 +29,7 @@ let p = g.collect { :x |
 	].product;
 	x + dx
 };
-[PointCloud(p)].LineDrawing
+PointCloud(p).asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/PointCloud-B.svg)

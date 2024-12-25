@@ -56,7 +56,7 @@ Draw complete graph on five vertices:
 
 * * *
 
-See also: adjacencyMatrix, cycleGraph, edgeCount, Graph, pathGraph, starGraph
+See also: adjacencyMatrix, completeGraphDrawing, cycleGraph, edgeCount, Graph, pathGraph, starGraph
 
 References:
 _Mathematica_

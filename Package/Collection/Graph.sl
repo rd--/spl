@@ -420,6 +420,14 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		Graph([1 .. self], edgeList)
 	}
 
+	completeGraphDrawing { :self :radius |
+		let p = self.circlePoints(radius, 0);
+		[
+			p.PointCloud,
+			p.tuples(2).Line
+		].LineDrawing
+	}
+
 	cubeGraph { :self |
 		let k = 2 ^ self;
 		let m = (k - 1).integerLength(2);

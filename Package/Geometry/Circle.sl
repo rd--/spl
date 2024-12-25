@@ -93,6 +93,10 @@ Circle : [Object] { | center radius |
 		}
 	}
 
+	unitCircle { :center |
+		Circle(center, 1)
+	}
+
 }
 
 Ellipse : [Object] { | center radii |

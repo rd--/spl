@@ -72,7 +72,16 @@ LineDrawing : [Object] { | contents metadata |
 +List {
 
 	asLineDrawing { :self |
-		self.Line.asLineDrawing
+		self.isMatrix.if {
+			let [m, n] = self.shape;
+			(n = 2).if {
+				self.Line.asLineDrawing
+			} {
+				self.error('asLineDrawing')
+			}
+		} {
+			LineDrawing(self)
+		}
 	}
 
 	LineDrawing { :self :options |
@@ -85,7 +94,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[Circle, Line, Point, PointCloud, Polygon, Rectangle, Writing] {
++[Circle, Line, Point, PointCloud, Polygon, Rectangle, Triangle, Writing] {
 
 	asLineDrawing { :self |
 		[self].LineDrawing

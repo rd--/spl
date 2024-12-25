@@ -46,7 +46,7 @@ Compare first two Bessel functions:
 
 * * *
 
-See also: Circle, draw, Line, Point, Polygon, Rectangle
+See also: asLineDrawing, Circle, draw, Line, Point, Polygon, Rectangle
 
 References:
 _Mathematica_
