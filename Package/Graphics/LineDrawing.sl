@@ -61,7 +61,7 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	draw { :self |
-		let fileName = '/tmp/lineDrawing.svg';
+		let fileName = '/tmp/LineDrawing.svg';
 		let svgText = self.asSvg;
 		fileName.writeTextFile(svgText);
 		system.systemCommand('chromium', [fileName])

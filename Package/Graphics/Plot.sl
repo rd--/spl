@@ -2,85 +2,7 @@
 
 Plot : [Object] { | pages format |
 
-	cliDraw { :self |
-		(self.format = 'graph').if {
-			self.cliGraphDraw
-		} {
-			self.cliListDraw
-		}
-	}
-
-	cliGraphDraw { :self |
-		let [graph] = self.pages;
-		graph.dotDrawing.draw
-	}
-
-	cliListDraw { :self |
-		let [contents] = self.pages;
-		let shape = contents.shape;
-		let d = shape.size;
-		let a = 'x';
-		let c = [0];
-		let plotData = (self.format = 'matrix').if {
-			a := 'matrix';
-			c := [];
-			contents.reversed
-		} {
-			(d = 1).if {
-				[contents].transposed
-			} {
-				(d = 2).if {
-					let [m, n] = shape;
-					(n = 1).if {
-						contents
-					} {
-						(n = 2).if {
-							a := 'xy';
-							c := [0 1];
-							contents
-						} {
-							(n = 3).if {
-								a := 'xyz';
-								c := [0 1 2];
-								contents
-							} {
-								contents.error('cliDraw: matrix columns > 3')
-							}
-						}
-					}
-				} {
-					contents.error('cliPlot: array dimensions > 2')
-				}
-			}
-		};
-		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile(plotData.asJson);
-		system.systemCommand(
-			'hsc3-plot',
-			[
-				'json',
-				a,
-				'--format=' ++ self.format,
-				fileName
-			] ++ c.collect(asString:/1)
-		)
-	}
-
-	draw { :self |
-		self.format.caseOfOtherwise([
-			'graph' -> {
-				self.cliGraphDraw
-			},
-			'matrix' -> {
-				let [contents] = self.pages;
-				contents.asGreyscaleSvg.draw
-			}
-		]) {
-			self.lineDrawing.draw
-		}
-	}
-
-	lineDrawing { :self |
+	asLineDrawing { :self |
 		let [pageCount, rowCount, columnCount] = self.pages.shape;
 		(columnCount = 2).if {
 			let r = self.pages.concatenation.coordinateBoundingBox.asRectangle;
@@ -155,6 +77,85 @@ Plot : [Object] { | pages format |
 			}
 		}
 	}
+
+	cliDraw { :self |
+		(self.format = 'graph').if {
+			self.cliGraphDraw
+		} {
+			self.cliListDraw
+		}
+	}
+
+	cliGraphDraw { :self |
+		let [graph] = self.pages;
+		graph.dotDrawing.draw
+	}
+
+	cliListDraw { :self |
+		let [contents] = self.pages;
+		let shape = contents.shape;
+		let d = shape.size;
+		let a = 'x';
+		let c = [0];
+		let plotData = (self.format = 'matrix').if {
+			a := 'matrix';
+			c := [];
+			contents.reversed
+		} {
+			(d = 1).if {
+				[contents].transposed
+			} {
+				(d = 2).if {
+					let [m, n] = shape;
+					(n = 1).if {
+						contents
+					} {
+						(n = 2).if {
+							a := 'xy';
+							c := [0 1];
+							contents
+						} {
+							(n = 3).if {
+								a := 'xyz';
+								c := [0 1 2];
+								contents
+							} {
+								contents.error('cliDraw: matrix columns > 3')
+							}
+						}
+					}
+				} {
+					contents.error('cliPlot: array dimensions > 2')
+				}
+			}
+		};
+		let fileName = '/tmp/listPlot.json';
+		fileName.writeTextFile(plotData.asJson);
+		system.systemCommand(
+			'hsc3-plot',
+			[
+				'json',
+				a,
+				'--format=' ++ self.format,
+				fileName
+			] ++ c.collect(asString:/1)
+		)
+	}
+
+	draw { :self |
+		self.format.caseOfOtherwise([
+			'graph' -> {
+				self.cliGraphDraw
+			},
+			'matrix' -> {
+				let [contents] = self.pages;
+				contents.asGreyscaleSvg.draw
+			}
+		]) {
+			self.asLineDrawing.draw
+		}
+	}
+
 
 }
 

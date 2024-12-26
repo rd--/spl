@@ -114,6 +114,7 @@ _Prime Numbers_:
 
 _Scale Functions_:
 
+- `asLineDrawing`: line drawing
 - `asScale`: intervals to scale
 - `bjorklundsAlgorithm`: lattice divisions
 - `bresenhamLineAlgorithm`: lattice line
@@ -131,7 +132,6 @@ _Scale Functions_:
 - `isPhiWeightedMediantNoble`: predicate
 - `isProper`: predicate
 - `isStrictlyProper`: predicate
-- `lineDrawing`: line drawing
 - `mediant`: mediant
 - `momentOfSymmetry`: scale generator
 - `momentOfSymmetryPattern`: MOS

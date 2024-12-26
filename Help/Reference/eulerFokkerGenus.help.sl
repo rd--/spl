@@ -33,7 +33,7 @@ Draw the _3 3 3 5 5_ genus:
 [3 3 3 5 5].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-A.svg)
@@ -44,7 +44,7 @@ Draw the _3 3 3 5 7 11_ genus:
 [3 3 3 5 7 11].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-B.svg)
@@ -55,7 +55,7 @@ Draw the _3 5 7 11 13_ genus:
 [3 5 7 11 13].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-C.svg)

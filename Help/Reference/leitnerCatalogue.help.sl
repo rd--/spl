@@ -44,7 +44,7 @@ let cls = system.leitnerCatalogue['NbP'];
 let p:/1 = AxonometricProjection(
 	'Isometric'
 ).asBlock;
-cls.graph.lineDrawing { :each |
+cls.graph.asLineDrawing { :each |
 	let [name, coordinates] = each;
 	p(coordinates)
 }

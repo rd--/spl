@@ -17,13 +17,44 @@ Polyhedron : [Object] { | vertices faces |
 		graph
 	}
 
-	lineDrawing { :self :aBlock:/1 |
-		self.asGraph.lineDrawing(aBlock:/1)
+	asLineDrawing { :self :aBlock:/1 |
+		self.asGraph.asLineDrawing(aBlock:/1)
+	}
+
+	asLineDrawing { :self |
+		self.asLineDrawing(
+			AxonometricProjection(
+				pi / 6, 0,
+				1, 1, 1 / 2
+			).asBlock
+		)
 	}
 
 }
 
 +List {
+
+	unitCube { :center |
+		let vertices = [
+			0 0 0;
+			1 0 0;
+			1 1 0;
+			0 1 0;
+			0 0 1;
+			1 0 1;
+			1 1 1;
+			0 1 1
+		] - [0.5 0.5 0.5] + center;
+		let faces = [
+			0 1 2 3;
+			4 5 6 7;
+			2 3 7 6;
+			0 1 5 4;
+			0 4 7 3;
+			1 2 6 5
+		] + 1;
+		Polyhedron(vertices, faces)
+	}
 
 	Polyhedron { :vertices :faces |
 		newPolyhedron().initializeSlots(vertices, faces)

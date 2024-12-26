@@ -28,6 +28,8 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 
 ![](sw/spl/Help/Image/surfacePlot-A.svg)
 
+A `sin` and `cos` plot with dampened _z_:
+
 ~~~spl svg=B
 (-5 -- 5).surfacePlot { :x :y |
 	let z = x.sin + y.cos;
@@ -36,6 +38,8 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-B.svg)
+
+A `sin` plot:
 
 ~~~spl svg=C
 (-10 -- 10).surfacePlot { :x :y |
@@ -48,6 +52,8 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 
 ![](sw/spl/Help/Image/surfacePlot-C.svg)
 
+A `sin` and `cos` plot with dampened _z_:
+
 ~~~spl svg=D
 (-5 -- 5).surfacePlot { :x :y |
 	let z = (y * x.sin) - (x * y.cos);
@@ -57,6 +63,8 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 
 ![](sw/spl/Help/Image/surfacePlot-D.svg)
 
+A height plot:
+
 ~~~spl svg=E
 (-2 -- 2).surfacePlot { :x :y |
 	let n = (x ^ 2) + (y ^ 2);
@@ -65,6 +73,22 @@ At `Interval`, which is implicitly discretized by `surfacePlot`:
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-E.svg)
+
+A half sphere:
+
+~~~spl svg=F
+(-0.5 -- 0.5).surfacePlot { :u :v |
+	let theta = 2.pi * u;
+	let phi = pi * v;
+	[
+		theta.cos * phi.sin,
+		theta.sin * phi.sin,
+		phi.cos
+	]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-F.svg)
 
 * * *
 

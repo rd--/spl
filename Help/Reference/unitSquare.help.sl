@@ -39,6 +39,10 @@ Three rotated unit squares:
 
 * * *
 
-See also: LineDrawing, Rectangle, unitCircle
+See also: LineDrawing, Rectangle, unitCircle, unitCube
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/UnitSquare.html)
 
 Categories: Geometry

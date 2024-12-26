@@ -1,5 +1,8 @@
 # AxonometricProjection
 
+- _AxonometricProjection(alpha, beta, x, y, z)_
+- _AxonometricProjection(aString)_
+
 Projections from three to two dimensions.
 
 In each of the pictures below the rectangle _r_ is in the _x_ & _y_ plane,

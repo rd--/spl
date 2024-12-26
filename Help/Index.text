@@ -292,6 +292,7 @@ Reference/asIterator.help.sl
 Reference/asJson.help.sl
 Reference/asLargeInteger.help.sl
 Reference/asLargerPowerOfTwo.help.sl
+Reference/asLineDrawing.help.sl
 Reference/asList.help.sl
 Reference/asLocalBuf.help.sl
 Reference/asLowerCase.help.sl
@@ -303,6 +304,7 @@ Reference/asPermutation.help.sl
 Reference/asPlanarCoordinates.help.sl
 Reference/asPoint.help.sl
 Reference/asPolarCoordinates.help.sl
+Reference/asPolygon.help.sl
 Reference/asPowerOfTwo.help.sl
 Reference/asRandomTable.help.sl
 Reference/asRange.help.sl
@@ -545,6 +547,7 @@ Reference/compare.help.sl
 Reference/complementGraph.help.sl
 Reference/complement.help.sl
 Reference/completeBipartiteGraph.help.sl
+Reference/completeGraphDrawing.help.sl
 Reference/completeGraph.help.sl
 Reference/Complex.help.sl
 Reference/composeLeft.help.sl
@@ -912,6 +915,7 @@ Reference/gramSchmidtProcess.help.sl
 Reference/Graph.help.sl
 Reference/graphPlot.help.sl
 Reference/graveAccent.help.sl
+Reference/grayDecode.help.sl
 Reference/grayEncode.help.sl
 Reference/Graymap.help.sl
 Reference/GrayNoise.help.sl
@@ -1304,7 +1308,6 @@ Reference/LinearCongruential.help.sl
 Reference/linearIndex.help.sl
 Reference/linearRecurrence.help.sl
 Reference/lineCount.help.sl
-Reference/lineDrawing.help.sl
 Reference/LineDrawing.help.sl
 Reference/lineEquation.help.sl
 Reference/lineGraph.help.sl
@@ -1878,6 +1881,7 @@ Reference/reducedWords.help.sl
 Reference/reduce.help.sl
 Reference/reflectionMatrix.help.sl
 Reference/RegExp.help.sl
+Reference/regularPolygon.help.sl
 Reference/rejectedPromise.help.sl
 Reference/reject.help.sl
 Reference/relationGraph.help.sl
@@ -1949,6 +1953,7 @@ Reference/Rlpf.help.sl
 Reference/romanNumber.help.sl
 Reference/rootMeanSquare.help.sl
 Reference/Rotate2.help.sl
+Reference/rotated.help.sl
 Reference/rotatedLeft.help.sl
 Reference/rotatedRight.help.sl
 Reference/rotationMatrix.help.sl
@@ -2270,8 +2275,11 @@ Reference/uniqueElements.help.sl
 Reference/unique.help.sl
 Reference/uniqueId.help.sl
 Reference/unitBox.help.sl
+Reference/unitCircle.help.sl
+Reference/unitCube.help.sl
 Reference/unitize.help.sl
 Reference/unitNormal.help.sl
+Reference/unitSquare.help.sl
 Reference/unitStep.help.sl
 Reference/unitVector.help.sl
 Reference/unixTimeInMilliseconds.help.sl

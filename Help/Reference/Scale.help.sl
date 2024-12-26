@@ -124,14 +124,14 @@ A line drawing of the interval structure:
 
 ~~~spl svg=A
 Scale(1, [2 2 1 2 2 2 1], 'Maj.')
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Scale-A.svg)
 
 * * *
 
-See also: asScale, degreeToKey, intervalClass, intervalClasses, intervals, intervalsBy, isImproper, isMomentOfSymmetry, isProper, isStrictlyProper, lineDrawing, scalaScaleArchive, stepArity, textDrawing, Tuning
+See also: asLineDrawing, asScale, degreeToKey, intervalClass, intervalClasses, intervals, intervalsBy, isImproper, isMomentOfSymmetry, isProper, isStrictlyProper, scalaScaleArchive, stepArity, textDrawing, Tuning
 
 References:
 _Xenharmonic_

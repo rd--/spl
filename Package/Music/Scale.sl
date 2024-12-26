@@ -1,5 +1,17 @@
 Scale : [Object] { | startIndex intervals description |
 
+	asLineDrawing { :self |
+		let i = [0] ++ self.intervals.prefixSum * 3;
+		[
+			i.collect { :x |
+				Line([x -1; x 1])
+			},
+			Line([[i.min, 0], [i.max, 0]])
+		].LineDrawing(
+			height: 50
+		)
+	}
+
 	degreeToKey { :self :degree |
 		degree.isCollection.if {
 			degree.collect { :each |
@@ -91,18 +103,6 @@ Scale : [Object] { | startIndex intervals description |
 
 	isTernary { :self |
 		self.stepArity = 3
-	}
-
-	lineDrawing { :self |
-		let i = [0] ++ self.intervals.prefixSum * 3;
-		[
-			i.collect { :x |
-				Line([x -1; x 1])
-			},
-			Line([[i.min, 0], [i.max, 0]])
-		].LineDrawing(
-			height: 50
-		)
 	}
 
 	nameList { :self |

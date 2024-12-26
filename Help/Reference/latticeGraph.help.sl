@@ -11,7 +11,7 @@ which should be of equal size,
 specify the unit lattice.
 
 The vertices of the graph are labelled with their coordinates,
-allowing the graph to be drawn using `lineDrawing`.
+allowing the graph to be drawn using `asLineDrawing`.
 
 A 7-note 7-limit tuning:
 
@@ -22,7 +22,7 @@ A 7-note 7-limit tuning:
 	[3 5 7],
 	[1 0; 0 1; 0.2 0.15]
 )
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-A.svg)
@@ -42,7 +42,7 @@ A 22-note 11-limit tuning:
 	[3 5 7 11],
 	[1 0; 0 1; 0.2 0.15; -0.15 0.2]
 )
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-B.svg)
@@ -58,7 +58,7 @@ where the _y_ axis indicates pitch in logarithmic space:
 	[2 3 5],
 	[-0.69 0.69; 0.00 1.10; 1.61 1.61]
 )
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-C.svg)
@@ -74,7 +74,7 @@ A 7-note 19-limit tuning:
 [128 144 156 171 192 208 228]
 .asRatioTuning
 .latticeGraph
-.lineDrawing
+.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-D.svg)
@@ -85,7 +85,7 @@ it is more usual to calculate the required primes vector.
 
 * * *
 
-See also: asRatioTuning, gradyLatticeCoordinates, Graph, latticePrimes, lineDrawing, wilsonLatticeCoordinates
+See also: asLineDrawing, asRatioTuning, gradyLatticeCoordinates, Graph, latticePrimes, wilsonLatticeCoordinates
 
 References:
 _Xenharmonic_

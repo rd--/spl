@@ -28,7 +28,7 @@ Where supported `degree` is displayed as °.
 
 * * *
 
-See also: pi
+See also: arcMinute, arcSecond, degrees, pi
 
 Guides: Mathematical Constants
 

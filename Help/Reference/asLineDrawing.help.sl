@@ -47,8 +47,25 @@ Sfc32(156732)
 
 ![](sw/spl/Help/Image/asLineDrawing-E.svg)
 
+At `Plot`:
+
+~~~spl svg=F
+[1 .. 9].discretePlot.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/asLineDrawing-F.svg)
+
+At `Scale`:
+
+~~~spl svg=G
+Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/asLineDrawing-G.svg)
+
 * * *
 
-See also: Circle, LineDrawing, Polygon, Rectangle, Triangle
+See also: Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle
 
 Categories: Converting

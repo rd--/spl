@@ -14,4 +14,4 @@ At `Scale`:
 
 * * *
 
-See also: lineDrawing, Scale, String
+See also: asLineDrawing, Scale, String

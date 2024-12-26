@@ -222,6 +222,20 @@ Plot two `sin` functions:
 
 ![](sw/spl/Help/Image/functionPlot-T.svg)
 
+Trace over a sphere:
+
+~~~spl svg=U
+(0 -- pi).functionPlot { :t |
+	[
+		t.sin * (10 * t).cos,
+		t.sin * (10 * t).sin,
+		t.cos
+	]
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-U.svg)
+
 * * *
 
 See also: discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

@@ -59,6 +59,24 @@
 		].unlines
 	}
 
+	asLineDrawing { :self :derivePoint:/1 |
+		let vertices = self.vertexLabels.collect(derivePoint:/1);
+		let edges = self.edgeList.collect { :each |
+			let [i, j] = each;
+			let [x1, y1] = vertices[i];
+			let [x2, y2] = vertices[j];
+			Line([x1 y1; x2 y2])
+		};
+		[
+			PointCloud(vertices),
+			edges
+		].LineDrawing
+	}
+
+	asLineDrawing { :self |
+		self.asLineDrawing(identity:/1)
+	}
+
 	complement { :self |
 		self.complementGraph
 	}
@@ -361,24 +379,6 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	isValid {
 		self.hasValidEdges
-	}
-
-	lineDrawing { :self :derivePoint:/1 |
-		let vertices = self.vertexLabels.collect(derivePoint:/1);
-		let edges = self.edgeList.collect { :each |
-			let [i, j] = each;
-			let [x1, y1] = vertices[i];
-			let [x2, y2] = vertices[j];
-			Line([x1 y1; x2 y2])
-		};
-		[
-			PointCloud(vertices),
-			edges
-		].LineDrawing
-	}
-
-	lineDrawing { :self |
-		self.lineDrawing(identity:/1)
 	}
 
 	vertexLabels { :self |
