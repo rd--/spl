@@ -2,10 +2,14 @@
 
 - _Polyhedron(vertexList, faceList)_
 
-A polyhedron:
+A `Type` representing a polyhedron with the specified vertices and faces.
+_vertexList_ is a `List` of Cartesian coordinates,
+_faceList_ is a `List` of lists of integers that indicate indexes into the _vertexList_.
 
-~~~
-let p = Polyhedron(
+Draw a polyhedron:
+
+~~~spl svg=A
+Polyhedron(
 	[
 		+0.0 +0.0 +0.6;
 		-0.3 -0.5 -0.2;
@@ -18,14 +22,18 @@ let p = Polyhedron(
 		4 1 2;
 		1 4 3
 	]
-);
-let g = p.asGraph;
-(p.vertices.size, p.faces.size, g.vertexList, g.edgeList, g.vertexLabels)
+).lineDrawing(
+	AxonometricProjection(
+		'Planometric'
+	).asBlock
+)
 ~~~
+
+![](sw/spl/Help/Image/Polyhedron-A.svg)
 
 * * *
 
-See also: Polygon
+See also: lineDrawing, Polygon
 
 References:
 _Mathematica_

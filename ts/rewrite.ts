@@ -21,7 +21,7 @@ function genArityCheck(k: number, a: string): string {
 }
 
 function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
-	console.log('genDictionaryAssignmentSlots', rhsDictionaryName, keyVarNamesArray);
+	// console.debug('genDictionaryAssignmentSlots', rhsDictionaryName, keyVarNamesArray);
 	const slots = keyVarNamesArray.map(
 		function (keyVarNames) {
 			const keyName = keyVarNames[0];
@@ -29,7 +29,7 @@ function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
 			return `_${varName} = _${genName('at', 2)}(${rhsDictionaryName}, '${keyName}')`;
 		}
 	).join(', ');
-	console.log('genDictionaryAssignmentSlots', slots);
+	// console.debug('genDictionaryAssignmentSlots', slots);
 	return slots;
 }
 

@@ -21,22 +21,38 @@ AxonometricProjection : [Object] { | alpha beta x y z |
 +Void {
 
 	AxonometricProjection {
-		newAxonometricProjection().initializeSlots(0, 0, 1, 1, 1)
+		AxonometricProjection(0, 0, 1, 1, 1)
+	}
+
+}
+
++SmallFloat {
+
+	AxonometricProjection { :alpha :beta :x :y :z |
+		newAxonometricProjection().initializeSlots(alpha, beta, x, y, z)
 	}
 
 }
 
 +String {
 
-	AxonometricProjection { :self |
-		let p = AxonometricProjection();
+	AxonometricProjection { :self :alpha |
 		self.caseOfOtherwise([
-			'Chinese' -> { p.initializeSlots(pi / 6, 0, 1, 1, 1 / 2) },
-			'Isometric' -> { p.initializeSlots(pi / 6, pi / 6, 1, 1, 1) }
+			'CabinetOblique' -> { AxonometricProjection(alpha, 0, 1, 1, 1 / 2) }
+		]) {
+			self.error('AxonometricProjection: alpha')
+		}
+	}
+
+	AxonometricProjection { :self |
+		self.caseOfOtherwise([
+			'CavalierOblique' -> { AxonometricProjection(pi / 4, 0, 1, 1, 1) },
+			'Chinese' -> { AxonometricProjection(pi / 6, 0, 1, 1, 1 / 2) },
+			'Isometric' -> { AxonometricProjection(pi / 6, pi / 6, 1, 1, 1) },
+			'Planometric' -> { AxonometricProjection(pi / 4, pi / 4, 1, 1, 1) }
 		]) {
 			self.error('AxonometricProjection')
-		};
-		p
+		}
 	}
 
 }

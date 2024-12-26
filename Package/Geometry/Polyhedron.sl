@@ -17,6 +17,10 @@ Polyhedron : [Object] { | vertices faces |
 		graph
 	}
 
+	lineDrawing { :self :aBlock:/1 |
+		self.asGraph.lineDrawing(aBlock:/1)
+	}
+
 }
 
 +List {
