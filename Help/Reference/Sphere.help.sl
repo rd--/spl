@@ -6,13 +6,19 @@ Answer a `Sphere` with center at _aPoint_ and radius _aNumber_.
 
 ```
 >>> let s = Sphere([0 0 0], 1);
->>> (s.center, s.surfaceArea, s.volume)
-([0 0 0], 4.pi, 4/3.pi)
+>>> (
+>>> 	s.center,
+>>> 	s.radius,
+>>> 	s.diameter,
+>>> 	s.surfaceArea,
+>>> 	s.volume
+>>> )
+([0 0 0], 1, 2, 4.pi, 4/3.pi)
 ```
 
 * * *
 
-See also: Circle, Ellipse
+See also: center, diameter, Circle, Ellipse, radius, randomSurfacePoint, spherePoints, surfaceArea, volume
 
 References:
 _Mathematica_

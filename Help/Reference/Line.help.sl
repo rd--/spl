@@ -107,11 +107,24 @@ Moiré pattern:
 A horizontal line along the _x_ axis,
 the drawing specifies a minimal bounding box of _[0 0; 1 1]_:
 
-~~~
+~~~spl svg=E
 [[0 0; 1 0].Line].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Line-E.svg)
+
+Draw a line in three dimensions:
+
+~~~spl svg=F
+[
+	0 0 0;
+	0 0 1;
+	0 1 1;
+	1 1 1
+].Line.twoDimensional.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-F.svg)
 
 The ternary form of `Line` is a unit generator.
 `Line` generates a line from the start value to the end value.

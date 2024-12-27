@@ -16,14 +16,23 @@ Sphere : [Object] { | center radius |
 		self.radius * 2
 	}
 
+	randomSurfacePoint { :self :aRandom |
+		let c = self.center;
+		let r = self.radius;
+		let z = aRandom.randomReal(r.negated, r, []);
+		let phi = aRandom.randomReal(0, 2.pi, []);
+		let m = (r.squared - z.squared).sqrt;
+		let x = m * phi.cos;
+		let y = m * phi.sin;
+		[x, y, z] + c
+	}
+
+	randomSurfacePoint { :self :aRandom :shape |
+		{ self.randomSurfacePoint(aRandom) } ! shape
+	}
+
 	storeString { :self |
-		[
-			'Sphere(',
-			self.center.storeString,
-			', ',
-			self.radius.storeString,
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	surfaceArea { :self |

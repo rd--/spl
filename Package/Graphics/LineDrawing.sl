@@ -85,7 +85,10 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	LineDrawing { :self :options |
-		newLineDrawing().initializeSlots(self.flatten, options)
+		newLineDrawing().initializeSlots(
+			self.flatten,
+			options
+		)
 	}
 
 	LineDrawing { :self |

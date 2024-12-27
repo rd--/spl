@@ -45,7 +45,7 @@ Line : [Object] { | vertices |
 	}
 
 	embeddingDimension { :self |
-		self.vertices.first.size
+		self.vertices.anyOne.size
 	}
 
 	forSvg { :self :options |
@@ -92,6 +92,20 @@ Line : [Object] { | vertices |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	twoDimensional { :self |
+		self.embeddingDimension.caseOfOtherwise([
+			2 -> { self },
+			3 -> {
+				let f:/1 = AxonometricProjection('Chinese').asBlock;
+				Line(
+					self.vertices.collect(f:/1)
+				)
+			}
+		]) {
+			self.error('twoDimensional: invalid embeddingDimension')
+		}
 	}
 
 }
