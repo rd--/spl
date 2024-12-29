@@ -2,7 +2,7 @@
 
 - _Triangle(p1, p2, p3)_
 
-A `Type` representing a filled triangle with corner points _p1_, _p2_, and _p3_.
+A `Type` representing a triangle with corner points _p1_, _p2_, and _p3_.
 
 Find the area, centroid and arc length and interior angles of a `Triangle`:
 
@@ -67,9 +67,17 @@ The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
 p.forSvg(precision: 0)
 ```
 
+Draw a triangle:
+
+~~~spl svg=A
+Triangle([0 0], [1 3], [2 0]).asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/Triangle-A.svg)
+
 * * *
 
-See also: Circle, Line, Polygon, Rectangle
+See also: Circle, equilateralTriangle, Line, Polygon, Rectangle
 
 References:
 _Mathematica_

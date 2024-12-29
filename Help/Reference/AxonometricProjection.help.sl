@@ -123,5 +123,7 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Axonometric_projection)
 [2](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
+[3](https://en.wikipedia.org/wiki/Isometric_projection)
+[4](https://en.wikipedia.org/wiki/Orthographic_projection)
 
 Further Reading: Krikke 2000

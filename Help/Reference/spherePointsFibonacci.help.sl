@@ -25,6 +25,19 @@ in _x,y_ and _x,z_ views:
 
 ![](sw/spl/Help/Image/spherePointsFibonacci-B.svg)
 
+An _isometric_ projection of the same point set:
+
+~~~
+200.spherePointsFibonacci.collect(
+	AxonometricProjection(
+		pi / 6, pi / 6,
+		1, 1, 1
+	).asBlock
+).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/spherePointsFibonacci-C.svg)
+
 * * *
 
 See also: cos, sin, spherePoints, Sphere

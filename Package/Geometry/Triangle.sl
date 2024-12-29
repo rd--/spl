@@ -46,6 +46,16 @@ Triangle : [Object] { | vertices |
 
 +List {
 
+	equilateralTriangle { :center :radius :angle |
+		let f = { :n |
+			center + [
+				radius,
+				angle + (2.pi * n / 3)
+			].fromPolarCoordinates
+		};
+		Triangle(0.f, 1.f, 2.f)
+	}
+
 	Triangle { :p1 :p2 :p3 |
 		newTriangle().initializeSlots([p1, p2, p3])
 	}

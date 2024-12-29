@@ -4,12 +4,13 @@
 
 Answer _shape_ random points on or in _aRegion_ drawn from the random number generator _r_.
 
-At `Circle`:
+At `Circle` answers points _on_ the circle:
 
 ~~~spl svg=A
-let r = Sfc32(367814);
-let c = Circle([0, 0], 1);
-c.randomPoint(r, [66]).scatterPlot
+Circle([0, 0], 1).randomPoint(
+	Sfc32(367814),
+	[66]
+).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/randomPoint-A.svg)
@@ -27,7 +28,7 @@ Rectangle([0, 0], [1 1])
 
 * * *
 
-See also: circlePoints, randomInteger, randomReal, randomVariate
+See also: circlePoints, randomInteger, randomReal, randomSurfacePoint, randomVariate
 
 References:
 _Mathematica_

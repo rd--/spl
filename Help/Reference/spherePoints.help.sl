@@ -4,13 +4,13 @@
 
 Answer the positions of approximately _n_ points equally spaced on a sphere of radius _r_.
 
-A line drawing of one hundred points on the surface of the unit sphere,
-each drawn as a 1/10th unit line directed at the center:
+A _y,z_ projection of one hundred points on the surface of the unit sphere:
 
 ~~~
 100.spherePoints(1).collect { :each |
-	[each * 0.9, each]
-}.linePlot
+	let [x, y, z] = each;
+	[y, z]
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/spherePoints-A.svg)
