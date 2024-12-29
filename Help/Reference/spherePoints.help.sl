@@ -17,10 +17,12 @@ each drawn as a 1/10th unit line directed at the center:
 
 * * *
 
-See also: %, ^, angleVector, Sphere, cos, Range, sin
+See also: %, ^, angleVector, cos, Range, sin, Sphere, spherePointsFibonacci
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SpherePoints.html)
+
+Further Reading: Deserno 2004
 
 Categories: Geometry

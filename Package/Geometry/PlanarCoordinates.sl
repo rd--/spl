@@ -312,4 +312,18 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		answer
 	}
 
+	spherePointsFibonacci { :n |
+		let answer = [];
+		let phi = (5.sqrt - 1).pi;
+		0.toDo(n - 1) { :i |
+			let y = 1 - ((i / (n - 1)) * 2);
+			let radius = (1 - (y * y)).sqrt;
+			let theta = phi * i;
+			let x = theta.cos * radius;
+			let z = theta.sin * radius;
+			answer.add([x, y, z])
+		};
+		answer
+	}
+
 }
