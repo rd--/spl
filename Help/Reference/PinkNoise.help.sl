@@ -32,6 +32,15 @@ Compare to `WhiteNoise`:
 ]
 ```
 
+Shifting band-pass filter:
+
+```
+PinkNoise(0.2 # 2, 0).Bpf(
+	LfNoise2(0.2).LinLin(-1, 1, 20, 3000),
+	LfNoise2(0.2).LinLin(-1, 1, 0.1, 2)
+)
+```
+
 * * *
 
 See also: BrownNoise, ClipNoise, GrayNoise, WhiteNoise
