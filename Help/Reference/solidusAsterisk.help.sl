@@ -6,8 +6,15 @@ It is closed by `*/`.
 Sum two numbers and comment upon this:
 
 ```
->>> 3 + 4 /* The sum of three and four is seven. */
+>>> 3 + 4 /* Three plus four is seven. */
 7
+```
+
+The answers to programs may be commented:
+
+```
+>>> 7
+3 + 4 /* Seven is three plus four. */
 ```
 
 Comments within strings are not comments:
