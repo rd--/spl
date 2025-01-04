@@ -13,4 +13,4 @@ Videos:
 [Small Kansas](?t=spl&e=md/video.md)
 
 
-© [Rohan Drape](http://rohandrape.net/), 2022-2024, [Gpl](http://gnu.org/copyleft/)
+© [Rohan Drape](http://rohandrape.net/), 2022-2025, [Gpl](http://gnu.org/copyleft/)

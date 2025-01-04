@@ -42,7 +42,7 @@ radii are proportionate to distance:
 let z = true;
 30.recamanSequence
 .adjacentPairsCollect { :i :j |
-        let r = ((j - i) / 2).abs;
+	let r = ((j - i) / 2).abs;
 	let cx = i + ((j - i) / 2);
 	let a = Arc(
 		[cx 0],

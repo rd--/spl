@@ -21,6 +21,7 @@ Guide/Block Semantics.help.sl
 Guide/Block Syntax.help.sl
 Guide/Categories and Categoriser.help.sl
 Guide/Class Methods.help.sl
+Guide/Column Width.help.sl
 Guide/Comment Syntax.help.sl
 Guide/Comparing Collections.help.sl
 Guide/Comparison Functions.help.sl
@@ -41,6 +42,7 @@ Guide/Experimental Initialised Temporaries Syntax.help.sl
 Guide/Experimental Simple Method Arity.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Fenced Code Blocks.help.sl
+Guide/File Extensions.help.sl
 Guide/File Functions.help.sl
 Guide/Filters and Method Syntax.help.sl
 Guide/Fraction Literals.help.sl
@@ -98,6 +100,7 @@ Guide/Patterns and Streams.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
 Guide/Primitive Types.help.sl
+Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
 Guide/Quoted AtIfAbsentPut Syntax.help.sl
 Guide/Quoted AtIfAbsent Syntax.help.sl
@@ -770,6 +773,7 @@ Reference/equalByAtNamedSlots.help.sl
 Reference/equalsSignEqualsSign.help.sl
 Reference/equalsSign.help.sl
 Reference/equalTemperamentTuning.help.sl
+Reference/equilateralTriangle.help.sl
 Reference/erfc.help.sl
 Reference/erf.help.sl
 Reference/error.help.sl
@@ -950,6 +954,7 @@ Reference/Headers.help.sl
 Reference/Heap.help.sl
 Reference/HelpBrowser.help.sl
 Reference/HelpFile.help.sl
+Reference/helpFileName.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
 Reference/HelpViewer.help.sl
@@ -1787,8 +1792,6 @@ Reference/printStringRoman.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
 Reference/PriorityQueue.help.sl
 Reference/product.help.sl
-Reference/ProgramBrowser.help.sl
-Reference/ProgramOracle.help.sl
 Reference/projection.help.sl
 Reference/Promise.help.sl
 Reference/prompt.help.sl
@@ -1845,6 +1848,7 @@ Reference/randomPrime.help.sl
 Reference/randomReal.help.sl
 Reference/randomSample.help.sl
 Reference/randomSubsequence.help.sl
+Reference/randomSurfacePoint.help.sl
 Reference/randomVariate.help.sl
 Reference/randomWeightedChoice.help.sl
 Reference/randomWeightedIndex.help.sl
@@ -2091,11 +2095,15 @@ Reference/SparseMatrixMixer.help.sl
 Reference/spawnTextureProgram.help.sl
 Reference/species.help.sl
 Reference/Sphere.help.sl
+Reference/spherePointsFibonacci.help.sl
+Reference/spherePoints.help.sl
 Reference/SphericalCoordinates.help.sl
 Reference/spiralMatrix.help.sl
 Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
+Reference/splDirectory.help.sl
+Reference/splFile.help.sl
 Reference/splitBy.help.sl
 Reference/splitByLimitedTo.help.sl
 Reference/splitByRegExp.help.sl
@@ -2152,8 +2160,10 @@ Reference/sum.help.sl
 Reference/Sum.help.sl
 Reference/sumOfSquares.help.sl
 Reference/superCatalanNumber.help.sl
+Reference/SuperColliderProgramBrowser.help.sl
 Reference/superColliderProgramIndex.help.sl
 Reference/SuperColliderProgramIndex.help.sl
+Reference/SuperColliderProgramOracle.help.sl
 Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
 Reference/surfacePlot.help.sl

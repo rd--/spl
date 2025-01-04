@@ -26,8 +26,10 @@ function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
 		function (keyVarNames) {
 			const keyName = keyVarNames[0];
 			const varName = keyVarNames[1];
-			return `_${varName} = _${genName('at', 2)}(${rhsDictionaryName}, '${keyName}')`;
-		}
+			return `_${varName} = _${
+				genName('at', 2)
+			}(${rhsDictionaryName}, '${keyName}')`;
+		},
 	).join(', ');
 	// console.debug('genDictionaryAssignmentSlots', slots);
 	return slots;
@@ -43,17 +45,17 @@ function genDotTrailing(
 	const qualifiedName = `${
 		genName(name.asJs, 1 + numArgs + trailing.children.length)
 	}`;
-	//const argsJs = (args == null) ? [] : args.children.map((each) => each.asJs);
-	//const trailingJs = trailing.children.map((each) => each.asJs);
-	return `${qualifiedName}(${commaList([lhs].concat(args ? args.children : [], trailing.children))})`;
+	return `${qualifiedName}(${
+		commaList([lhs].concat(args ? args.children : [], trailing.children))
+	})`;
 }
 
 function genApplyTrailing(name: ohm.Node, args: ohm.Node, trailing: ohm.Node) {
 	const numArgs = (args ? args.arityOf : 0) + trailing.children.length;
-	//const argsJs = (args == null) ? [] : args.children.map((each) => each.asJs);
-	//const opt = args.asJs;
 	const qualifiedName = `${genName(name.asJs, numArgs)}`;
-	return `${qualifiedName}(${commaList((args ? args.children : []).concat(trailing.children))})`;
+	return `${qualifiedName}(${
+		commaList((args ? args.children : []).concat(trailing.children))
+	})`;
 }
 
 function quoteNewLines(input: string): string {
@@ -297,7 +299,10 @@ const asJs: ohm.ActionDict<string> = {
 	) {
 		const rhsDictionaryName = genSym();
 		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
-		const slots = genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray);
+		const slots = genDictionaryAssignmentSlots(
+			rhsDictionaryName,
+			keyVarNamesArray,
+		);
 		return `${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length}), ${slots}`;
 	},
 	TemporaryListInitializer(
@@ -346,7 +351,10 @@ const asJs: ohm.ActionDict<string> = {
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const rhsDictionaryName = genSym();
 		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
-		const slots = genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray);
+		const slots = genDictionaryAssignmentSlots(
+			rhsDictionaryName,
+			keyVarNamesArray,
+		);
 		return `/* DictionaryAssignment */ (function() {
 	const ${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length});
 	${slots};
@@ -550,7 +558,7 @@ const asJs: ohm.ActionDict<string> = {
 	KeyVarNameAssociation(lhs, _colon, rhs) {
 		return [
 			lhs.sourceString,
-			rhs.sourceString
+			rhs.sourceString,
 		];
 	},
 	NameAssociation(lhs, _colon, rhs) {

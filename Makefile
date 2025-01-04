@@ -6,6 +6,7 @@ clean:
 
 push-all:
 	r.gitlab-push.sh spl
+	r.github-push.sh spl
 
 remote-update:
 	ssh rd@rohandrape.net "(cd rohandrape.net/pub/spl ; git pull)"
@@ -23,7 +24,7 @@ indent-help:
 	spl-indent Help/Reference/*.sl
 
 indent-programs:
-	spl-indent Program/SuperCollider/Graph/*.sl Program/SuperCollider/Ugen/*.sl
+	spl-indent Program/SuperCollider/Graph/*.sp Program/SuperCollider/Ugen/*.help.sl
 
 indent-ts:
 	(cd ts ; make format-ts)
