@@ -16,6 +16,16 @@ The will be at least entries for _isFile_, _isDirectory_, _size_ and _mtime_.
 (false, true, true, true)
 ```
 
+It is an `error` if the file does not exist:
+
+```
+>>> {
+>>> 	'/FileDoesNotExist'
+>>> 	.fileInformation
+>>> }.ifError { true }
+true
+```
+
 * * *
 
 See also: modificationTime

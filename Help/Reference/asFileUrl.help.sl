@@ -28,8 +28,9 @@ Unix password file `Url`:
 Fetch text from password file Url:
 
 ```
-let url = '/etc/passwd'.asFileUrl;
-url.fetchText.then { :aString |
+'/etc/passwd'
+.asFileUrl
+.fetchText.then { :aString |
 	aString.postLine
 }
 ```

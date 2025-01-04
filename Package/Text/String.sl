@@ -466,7 +466,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	includes { :self :aCharacter |
-		self.characterList.includes(aCharacter)
+		self.characterList.includes(aCharacter.asCharacter)
 	}
 
 	includesIndex { :self :index |

@@ -55,12 +55,12 @@ Sl {
 		| QuotedAtSyntax
 		// | ReadSlotSyntax
 		| ValueApply
+		| DotExpressionWithTrailingDictionarySyntax
 		| DotExpressionWithTrailingClosuresSyntax
-		| DotExpressionWithTrailingDictionariesSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
-		| ApplyWithTrailingDictionariesSyntax
+		| ApplyWithTrailingDictionarySyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		// | MessageSendSyntax
@@ -98,9 +98,9 @@ Sl {
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
-	DotExpressionWithTrailingDictionariesSyntax = Primary "." selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
+	DotExpressionWithTrailingDictionarySyntax = Primary "." selectorName NonEmptyDictionaryExpression+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
-	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~"{")+
+	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
 	Block = "{" BlockBody "}"
 	BlockBody = Arguments? Temporaries? Primitive? Statements?
@@ -112,7 +112,7 @@ Sl {
 	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
-	ApplyWithTrailingDictionariesSyntax = selectorName NonEmptyParameterList? NonEmptyDictionaryExpression+
+	ApplyWithTrailingDictionarySyntax = selectorName NonEmptyDictionaryExpression+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
 	ParenthesisedExpression = "(" Expression ")"
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"

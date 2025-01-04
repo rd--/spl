@@ -5,13 +5,23 @@
 `var` is a _keyword_ that introduces a set of temporary variable names,
 each initialized to `nil`.
 
+Declare a variable _x_:
+
+```
+>>> var x;
+>>> x
+nil
+```
+
+Declare three variables:
+
 ```
 >>> var x, y, z;
 >>> (x, y, z)
 (nil, nil, nil)
 ```
 
-Variables are assigned to using `:=`:
+A variables is assigned to using `:=`:
 
 ```
 >>> var x;

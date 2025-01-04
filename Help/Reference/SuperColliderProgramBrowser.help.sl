@@ -1,8 +1,8 @@
-# ProgramBrowser
+# SuperColliderProgramBrowser
 
 A `ColumnBrowser` where:
 
-- column one lists the kinds of programs the system knows of
+- column one lists the kinds of SuperCollider programs the system knows of
 - column two shows the initials of the authors of the programs of the selected kind
 - column three shows the names of the programs by the selected author
 
@@ -11,6 +11,6 @@ The context menu of the `TextEditor` can be used to play the program, and to res
 
 * * *
 
-See also: CategoryBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SystemBrowser
+See also: CategoryBrowser, MethodSignatureBrowser, TraitBrowser, TypeBrowser, SuperColliderProgramOracle, SystemBrowser
 
 Categories: Kansas

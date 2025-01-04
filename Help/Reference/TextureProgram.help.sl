@@ -16,7 +16,10 @@ and the _delayTime_ block selects a random integer to divide down:
 ~~~
 {
 	EqPan2(
-		SinOsc(Rand(111, 555), 0) * Rand(1, 5) / 100,
+		SinOsc(
+			Rand(111, 555),
+			0
+		) * Rand(1, 5) / 100,
 		Rand(-1, 1)
 	)
 }.TextureProgram { :x |

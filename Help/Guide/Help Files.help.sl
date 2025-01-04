@@ -22,6 +22,10 @@ _Guide_ files are freely structured and are organised by cross-reference.
 
 * * *
 
+See also: helpFileName, HelpFile
+
+Guides: File Extensions
+
 References:
 _CommonMark_
 [1](https://spec.commonmark.org/)

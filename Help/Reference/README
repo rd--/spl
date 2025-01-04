@@ -1,5 +1,5 @@
-'/home/rohan/sw/spl/Help/Reference'.terseReferenceSummary(verbose: false, pattern: '.*')
+'Help/Reference'.splFile.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 6966
+Total => 7003
 
 Note: Requires LibraryItems be locally stored.

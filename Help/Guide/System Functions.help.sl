@@ -2,15 +2,15 @@
 
 _Environment Variables_:
 
-- `environmentVariable`: read or write an environment variable
-- `environmentVariables`: read all environment variables
+- `environmentVariable`
+- `environmentVariables`
 
 _Local Host_:
 
-- `currentWorkingDirectory`: current working directory of process
-- `hostName`: name of local host
-- `instructionSetArchitecture`: instruction set architecture of local host
-- `operatingSystem`: operating system of local host
+- `currentWorkingDirectory`
+- `hostName`
+- `instructionSetArchitecture`
+- `operatingSystem`
 
 _Subprocess_:
 

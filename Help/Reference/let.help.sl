@@ -20,6 +20,17 @@ however `let` bindings do allow the _unused variable_ syntax:
 [6 7 8]
 ```
 
+It is an `error` to refer to a variable before it is declared:
+
+```
+>>> {
+>>> 	let x = y;
+>>> 	let y = 4;
+>>> 	x
+>>> }.ifError { true }
+true
+```
+
 * * *
 
 See also: =, var

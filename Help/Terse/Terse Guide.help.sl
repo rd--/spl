@@ -3993,11 +3993,10 @@ system.includesPackage('Url') /* package */
 
 ## System -- fetch
 ```
-'/home/rohan/sw/spl/README.md'.asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
-'/home/rohan/sw/spl/README'.asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
-'file://localhost/home/rohan/sw/spl/README.md'.asUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from url (local) */
+'README.md'.splFile.asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
+'README'.splFile.asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
 'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | { text.size > 0 }.assert } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
-'file://localhost/home/rohan/sw/spl/sl/SmallKansas/PackageBrowser.sl'.asUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
+'Package/SmallKansas/PackageBrowser.sl'.splFile.asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
 ```
 
 ## System -- UrlQueryParameters

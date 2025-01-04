@@ -45,4 +45,4 @@ false
 
 * * *
 
-See also: includesSubsequence, substrings
+See also: includes, includesSubsequence, substrings

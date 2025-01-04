@@ -32,6 +32,16 @@ At `Record`:
 true
 ```
 
+At `String`:
+
+```
+>>> 'String'.includes('i')
+true
+
+>>> 'String'.includes('s')
+false
+```
+
 Map over matrix:
 
 ```

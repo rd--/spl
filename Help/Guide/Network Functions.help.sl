@@ -2,42 +2,42 @@
 
 _Accessing_:
 
-- `fileName`: file name of the path component of a Url
-- `fragment`: fragment, or hash, component of a Url
-- `host`: host subcomponent of a Url
-- `hostName`: name of host component of a Url
+- `fileName`: file name of Url
+- `fragment`: fragment, or hash, of Url
+- `host`: host of Url
+- `hostName`: hot name of Url
 - `href`: string of entire Url
-- `pathName`: name of path component of a Url
-- `port`: port of host component of a Url
-- `protocol`: procotol, or scheme, component of a Url
-- `query`: query, or search, component of a Url
-- `queryParameters`: query component as UrlQueryParameters value
-- `userName`: user name of the authority component of a Url
+- `pathName`: path name of Url
+- `port`: port of Url
+- `protocol`: procotol, or scheme, of Url
+- `query`: query, or search, of Url
+- `queryParameters`: UrlQueryParameters
+- `userName`: user name of Url
 
 _Converting_:
 
 - `asUrl`: construct a Url
-- `asUrlQueryParameters`: construct a UrlQueryParameters
+- `asUrlQueryParameters`: converting
 
 _Encoding & Decoding_:
 
-- `decodeUri`: the Uri decoded form of a string
-- `encodeUri`: the Uri encoded form of a string
+- `decodeUri`: decode Uri
+- `encodeUri`: encode Uri
 
 _Fetching_:
 
-- `fetch`: fetch a resource from the network
-- `fetchText`: fetch a text resource from the network
-- `fetchJson`: fetch a Json resource from the network
-- `fetchByteArray`: fetch a binary resource from the network
+- `fetch`: fetch resource from network
+- `fetchText`: fetch text resource
+- `fetchJson`: fetch Json resource
+- `fetchByteArray`: fetch binary resource
 
 _Types & Traits_:
 
-- `Location`: the location of an object
-- `Request`: a resource request
-- `Response`: the promised answer of a fetch
-- `Url`: a uniform resource locator
-- `UrlQueryParameters`: url query parameters
+- `Location`: location of an object
+- `Request`: resource request
+- `Response`: answer of fetch
+- `Url`: uniform resource locator
+- `UrlQueryParameters`: query parameters
 
 * * *
 

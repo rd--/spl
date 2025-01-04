@@ -12,6 +12,9 @@ At `SmallFloat`:
 >>> 23.asString
 '23'
 
+>>> -23.asString
+'-23'
+
 >>> 3.141.asString
 '3.141'
 

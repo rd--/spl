@@ -22,12 +22,10 @@ Accessors to read the parts of the file are:
 - `categories`: list of categories
 
 ~~~
-let url = [
-	'/home/rohan/'
-	'sw/spl/Help/Reference/'
-	'add.help.sl'
-].join('').asFileUrl;
-url.fetchText.then { :aString |
+'Help/Reference/add.help.sl'
+.splFile
+.asFileUrl
+.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
 	[
 		help.name,
@@ -49,12 +47,8 @@ url.fetchText.then { :aString |
 Print the reference help files with an empty categories field:
 
 ~~~
-let directory = [
-	'/home/rohan/'
-	'sw/spl/Help/'
-	'Reference/'
-].join('');
-directory
+'Help/Reference'
+.splFile
 .readDirectoryFileNames
 .select { :each |
 	each.endsWith('.help.sl')
@@ -78,6 +72,6 @@ nil
 
 See also: helpIndex, HelpIndex, terseReferenceSummary
 
-Guides: Documentation Tests
+Guides: Documentation Tests, Help Files
 
 Categories: Help

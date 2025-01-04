@@ -4,9 +4,19 @@
 
 Answer a `String` giving the current workinf directory of the process.
 
-~~~
->>> system.currentWorkingDirectory.isString
+The answer is a `String`:
+
+```
+>>> system
+>>> .currentWorkingDirectory
+>>> .isString
 true
+```
+
+Show current working directory:
+
+~~~
+system.currentWorkingDirectory
 ~~~
 
 * * *

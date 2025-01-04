@@ -39,20 +39,21 @@ function genDotTrailing(
 	args: ohm.Node,
 	trailing: ohm.Node,
 ) {
+	const numArgs = args ? args.arityOf : 0;
 	const qualifiedName = `${
-		genName(name.asJs, 1 + args.arityOf + trailing.children.length)
+		genName(name.asJs, 1 + numArgs + trailing.children.length)
 	}`;
-	const argsJs = args.children.map((each) => each.asJs);
-	const trailingJs = trailing.children.map((each) => each.asJs);
-	return `${qualifiedName}(${[lhs.asJs].concat(argsJs, trailingJs)})`;
+	//const argsJs = (args == null) ? [] : args.children.map((each) => each.asJs);
+	//const trailingJs = trailing.children.map((each) => each.asJs);
+	return `${qualifiedName}(${commaList([lhs].concat(args ? args.children : [], trailing.children))})`;
 }
 
-function genApplyTrailing(rcv: ohm.Node, arg: ohm.Node, trailing: ohm.Node) {
-	const opt = arg.asJs;
-	const name = `${genName(rcv.asJs, arg.arityOf + trailing.children.length)}`;
-	return `${name}(${opt === '' ? '' : opt + ', '} ${
-		commaList(trailing.children)
-	})`;
+function genApplyTrailing(name: ohm.Node, args: ohm.Node, trailing: ohm.Node) {
+	const numArgs = (args ? args.arityOf : 0) + trailing.children.length;
+	//const argsJs = (args == null) ? [] : args.children.map((each) => each.asJs);
+	//const opt = args.asJs;
+	const qualifiedName = `${genName(name.asJs, numArgs)}`;
+	return `${qualifiedName}(${commaList((args ? args.children : []).concat(trailing.children))})`;
 }
 
 function quoteNewLines(input: string): string {
@@ -461,8 +462,8 @@ const asJs: ohm.ActionDict<string> = {
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
 		return genDotTrailing(lhs, name, args, trailing);
 	},
-	DotExpressionWithTrailingDictionariesSyntax(lhs, _dot, name, args, trailing) {
-		return genDotTrailing(lhs, name, args, trailing);
+	DotExpressionWithTrailingDictionarySyntax(lhs, _dot, name, trailing) {
+		return genDotTrailing(lhs, name, null, trailing);
 	},
 	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
 		return `${genName(name.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`;
@@ -525,11 +526,11 @@ const asJs: ohm.ActionDict<string> = {
 		return `return ${e.asJs};`;
 	},
 
-	ApplyWithTrailingClosuresSyntax(rcv, arg, trailing) {
-		return genApplyTrailing(rcv, arg, trailing);
+	ApplyWithTrailingClosuresSyntax(name, args, trailing) {
+		return genApplyTrailing(name, args, trailing);
 	},
-	ApplyWithTrailingDictionariesSyntax(rcv, arg, trailing) {
-		return genApplyTrailing(rcv, arg, trailing);
+	ApplyWithTrailingDictionarySyntax(name, trailing) {
+		return genApplyTrailing(name, null, trailing);
 	},
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;

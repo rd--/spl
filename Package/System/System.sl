@@ -72,6 +72,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		}
 	}
 
+	homeDirectory { :self |
+		self.environmentVariable('HOME').ifNil {
+			self.error('homeDirectory: not set')
+		}
+	}
+
 	indices { :self |
 		self.globalDictionary.indices
 	}
@@ -225,6 +231,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return _self.typeDictionary;>
 	}
 
+	splDirectory { :self |
+		self.environmentVariable('SPL_DIR').ifNil {
+			self.error('splDirectory: not set')
+		}
+	}
+
 	systemTimeInMilliseconds { :self |
 		<primitive: return performance.now();>
 	}
@@ -351,6 +363,13 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	punctuationTokenName { :self |
 		self.punctuationTokenName(system.punctuationCharacterNameTable)
+	}
+
+	splFile { :self |
+		[
+			system.splDirectory,
+			self
+		].join('/')
 	}
 
 }

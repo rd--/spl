@@ -19,7 +19,7 @@ nil
 
 * * *
 
-See also: fetchText, removeDirectory, writeTextFile
+See also: fetchText, fileInformation, removeDirectory, writeTextFile
 
 Guides: File Functions
 

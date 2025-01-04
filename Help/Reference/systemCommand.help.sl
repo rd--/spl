@@ -31,7 +31,8 @@ If the system command does not exist an `Error` is answered:
 
 ~~~
 system.systemCommand(
-	'/noSuchFile', []
+	'/CommandDoesNotExist',
+	[]
 ).thenElse { :result |
 	nil
 } { :err |

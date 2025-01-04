@@ -210,3 +210,18 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 }
+
++String {
+
+	helpFileName { :topic |
+		'Help/%/%.help.sl'.format([
+			topic.includes(' ').if {
+				'Guide'
+			} {
+				'Reference'
+			},
+			topic
+		])
+	}
+
+}

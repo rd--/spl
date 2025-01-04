@@ -12,11 +12,10 @@ true
 If _aPath_ does not exist, the modification time will be reported as `zero`.
 
 ```
->>> '/DirectoryDoesNotExist'.modificationTime
+>>> '/DirectoryDoesNotExist'
+>>> .modificationTime
 0
 ```
-
-* * *
 
 * * *
 

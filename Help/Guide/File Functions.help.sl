@@ -2,29 +2,30 @@
 
 _Files_:
 
-- `readBinaryFile`: read named binary file as ByteArray
-- `readTextFile`: read named text file as String
-- `removeFile`: remove named file
-- `writeBinaryFile`: write ByteArray to named binary file
-- `writeTextFile`: write String to named text file
+- `readBinaryFile`: read binary file
+- `readTextFile`: read text file
+- `removeFile`: remove file
+- `writeBinaryFile`: write binary file
+- `writeTextFile`: write text file
 
 _Directories_:
 
-- `makeDirectory`: make named directory
-- `readDirectory`: read list of entries in named directory
-- `readDirectoryFileNames`: read list of file names in named directory
-- `removeDirectory`: remove named directory
+- `makeDirectory`: make directory
+- `readDirectory`: read directory entries
+- `readDirectoryFileNames`: file entries
+- `removeDirectory`: remove directory
 
 _File Information_:
 
-- `fileInformation`: information about named file
-- `modificationTime`: modification time of named file
+- `fileInformation`: file information
+- `modificationTime`: modification time
 
 _File Paths_:
 
-- `pathDirectory`: the directory component of a file path
-- `pathExtension`: the extension component of a file path
-- `pathIsAbsolute`: is a file path absolute or relative
+- `pathBasename`: basename of file path
+- `pathDirectory`: directory of file path
+- `pathExtension`: extension of file path
+- `pathIsAbsolute`: is file path absolute
 - `pathJoin`: join list of file paths
 - `pathNormalize`: normalize file path
 

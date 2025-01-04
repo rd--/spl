@@ -9,12 +9,23 @@ let dur = 12;
 {
 	{
 		Pan2(
-			SinOsc(IRand(48, 72).MidiCps, 0),
-			Line(Rand(-1, 1), Rand(-1, 1), dur),
+			SinOsc(
+				IRand(48, 72).MidiCps,
+				0
+			),
+			Line(
+				Rand(-1, 1),
+				Rand(-1, 1),
+				dur
+			),
 			Rand(0.01, 0.05)
 		)
 	} !+ 3
-}.overlapTextureProgram(dur // 3, dur // 3, 4)
+}.overlapTextureProgram(
+	dur // 3,
+	dur // 3,
+	4
+)
 ```
 
 To stop a texture program the clock on which it is scheduled must be cleared.

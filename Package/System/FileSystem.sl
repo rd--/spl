@@ -16,8 +16,20 @@
 		<primitive: return host.readDirectorySync(_self);>
 	}
 
+	readDirectoryAsync { :self |
+		<primitive: return host.readDirectoryAsync(_self);>
+	}
+
 	readDirectoryFileNames { :self |
-		self.readDirectory.then { :entries |
+		self.readDirectory.select { :each |
+			each['isFile']
+		}.collect { :each |
+			[self, each['name']].pathJoin
+		}
+	}
+
+	readDirectoryFileNamesAsync { :self |
+		self.readDirectoryAsync.then { :entries |
 			entries.select { :each |
 				each['isFile']
 			}.collect { :each |

@@ -7,11 +7,31 @@ The qualified name of a package is _category-name_.
 
 The following `Trait` packages are considered to be part of the _Kernel_ and do not need to be required:
 
-- Binary, Cache, Integer, Magnitude, Number, Object, Random
+- `Binary`
+- `Cache`
+- `Integer`
+- `Magnitude`
+- `Number`
+- `Object`
+- `Random`
 
 The following `Type` packages are considered to be part of the _Kernel_ and do not need to be required:
 
-- Association, List, Boolean, Error, Range, Map, Nil, Block, Promise, Record, Reponse, SmallFloat, String, System, Void
+- `Association`
+- `Block`
+- `Boolean`
+- `Error`
+- `List`
+- `Map`
+- `Nil`
+- `Promise`
+- `Range`
+- `Record`
+- `Reponse`
+- `SmallFloat`
+- `String`
+- `System`
+- `Void`
 
 * * *
 

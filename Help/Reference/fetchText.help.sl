@@ -31,11 +31,10 @@ url.fetchText.thenElse { :aString |
 A file protocol `Url`:
 
 ```
-let url = [
-	'/home/rohan/'
-	'sw/spl/Help/Reference/Url.help.sl'
-].join('').asFileUrl;
-url.fetchText.then { :aString |
+'Help/Reference/Url.help.sl'
+.splFile
+.asFileUrl
+.fetchText.then { :aString |
 	aString.postLine
 }
 ```

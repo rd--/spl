@@ -27,8 +27,6 @@ workspace::smallHours.helpFind('Collection')
 
 ## Cli
 ```
-'/home/rohan/sw/spl/doc/spl/Terse Guide.help.sl'.asFileUrl.terseGuideSummary
-'/home/rohan/sw/spl/doc/spl/Terse Guide to Sound.help.sl'.asFileUrl.terseGuideSummary
-'http://rohandrape.net/sw/spl/doc/spl/Terse Guide.help.sl'.asUrl.terseGuideSummary
-'http://localhost:8000/lib/spl/doc/spl/Terse Guide.help.sl'.asUrl.terseGuideSummary
+'Help/Terse/Terse Guide.help.sl'.splFile.asFileUrl.terseGuideSummary
+'Help/Terse/Terse Guide to Sound.help.sl'.splFile.asFileUrl.terseGuideSummary
 ```

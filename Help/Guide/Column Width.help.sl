@@ -70,22 +70,24 @@ when viewed using a proportional font.
 The programs above illustrate roughly the maximum width of program texts that can be shown in such a column when prefixed with a leading `>>>` indicator.
 
 An additional consideration is the use of tab characters for indentation.
-The programs below show a sequence of left brackets separated by eight spaces,
-then eight zeroes,
+Tab width is often set to eight characters,
+however in the context of a narrow window view or two column layout a tab width of four may be preferable.
+The programs below show a sequence of left brackets separated by three spaces,
+then three zeroes,
 then one tab:
 
 ```
->>> '[       [       [       [       [       [       ['
+>>> '[   [   [   [   [   [   [   [   [   [   [   [   ['
 >>> .size
 49
 
->>> '[0000000[0000000[0000000[0000000[0'
+>>> '[000[000[000[000[000[000[000[000[0000'
 >>> .size
-34
+37
 
->>> '[	[	[	[	['
+>>> '[	[	[	[	[	[	[	['
 >>> .size
-9
+15
 ```
 
 The tab-indented nested list below indicates the most deeply nested list or program that can readily be printed in the column width described above where the tab size is approximately the space of eight characters:
@@ -95,12 +97,20 @@ The tab-indented nested list below indicates the most deeply nested list or prog
 >>> 	[
 >>> 		[
 >>> 			[
->>> 				[0]
+>>> 				[
+>>> 					[
+>>> 						[
+>>> 							[
+>>> 								[0]
+>>> 							]
+>>> 						]
+>>> 					]
+>>> 				]
 >>> 			]
 >>> 		]
 >>> 	]
 >>> ].shape
-[1 1 1 1 1]
+1 # 9
 ```
 
 _Rationale_:

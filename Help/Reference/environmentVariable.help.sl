@@ -10,15 +10,29 @@ which must be a `String`.
 Set _EDITOR_ to _emacs_:
 
 ```
->>> system.environmentVariable('EDITOR', 'emacs')
+>>> system.environmentVariable(
+>>> 	'EDITOR',
+>>> 	'emacs'
+>>> )
 nil
 ```
 
 Read _EDITOR_:
 
 ```
->>> system.environmentVariable('EDITOR')
+>>> system.environmentVariable(
+>>> 	'EDITOR'
+>>> )
 'emacs'
+```
+
+If the requested variable is not set, answers `nil`:
+
+```
+>>> system.environmentVariable(
+>>> 	'NO_SUCH_VARIABLE'
+>>> )
+nil
 ```
 
 * * *
