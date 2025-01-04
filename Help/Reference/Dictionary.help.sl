@@ -11,10 +11,14 @@ For both `Map` and `Record` the uniqueness of keys is determined using `==`, not
 Dictionaries are indexed using the unique `key` to obtain the corresponding `value`.
 
 ```
->>> system.traitTypes('Dictionary').includes('Map')
+>>> system
+>>> .traitTypes('Dictionary')
+>>> .includes('Map')
 true
 
->>> system.traitDictionary['Dictionary'].isTrait
+>>> system
+>>> .traitDictionary['Dictionary']
+>>> .isTrait
 true
 ```
 
