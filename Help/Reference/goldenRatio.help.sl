@@ -157,7 +157,7 @@ Position of ones in a Fibonacci substitution system:
 
 * * *
 
-See also: e, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
+See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
 
 Guides: Mathematical Constants
 

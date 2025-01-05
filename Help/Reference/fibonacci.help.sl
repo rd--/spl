@@ -56,41 +56,51 @@ Fibonomial coefficients:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-2 -- 2).functionPlot(fibonacci:/1)
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-A.svg)
+
 The sequence of _F(n) % m_ is periodic with respect to _n_ for a fixed natural number _m_:
 
-~~~
+~~~spl svg=B
 (0:35.fibonacci % 7).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-B.svg)
+
 Fibonacci numbers modulo 10:
 
-~~~
+~~~spl svg=C
 (1:100.fibonacci % 10).discretePlot
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-C.svg)
+
 Plot Fibonacci modulo _n_:
 
-~~~
+~~~spl svg=D
 1:200.functionPlot { :n |
 	n.fibonacci % n
 }
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-D.svg)
+
 Log plot of positive and negative Fibonacci numbers:
 
-~~~
+~~~spl svg=E
 (-10 -- 10).functionPlot { :x |
 	(x.fibonacci.abs + 1).log
 }
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-E.svg)
+
 * * *
 
-See also: fibonacciSequence, goldenRatio
+See also: binetsFormula, fibonacciSequence, goldenRatio
 
 References:
 _Mathematica_
