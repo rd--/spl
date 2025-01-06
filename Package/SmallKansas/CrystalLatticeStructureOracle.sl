@@ -8,7 +8,7 @@ CrystalLatticeStructureOracle : [Object, SmallKansan] {
 			let matrix = AxonometricProjection('Chinese').asMatrix;
 			smallKansas.SvgViewer(
 				'Cls - ' ++ cls.name,
-				cls.drawing(0.15) { :each |
+				cls.asSvgElement(12) { :each |
 					matrix.dot(each).first(2)
 				},
 				event

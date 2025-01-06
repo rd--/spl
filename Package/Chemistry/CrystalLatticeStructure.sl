@@ -1,18 +1,35 @@
 /* Requires: Graph LibraryItem */
 
-CrystalLatticeStructure : [Object] { | name description atoms bonds |
+CrystalLatticeStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
 
-	drawing { :self :scale :projection:/1 |
-		self.graph.drawing(scale) { :each |
-			each.second.projection
+	asGraph { :self |
+		let answer = Graph(
+			self.vertices,
+			self.edges
+		);
+		answer.vertexLabels(self.vertexLabels);
+		answer.vertexCoordinates(self.vertexCoordinates);
+		answer
+	}
+
+	asPerspectiveDrawing { :self :projection:/1 |
+		self.asGraph.asPerspectiveDrawing(projection:/1)
+	}
+
+	atoms { :self |
+		self.vertexLabels.withCollect(
+			self.vertexCoordinates
+		) { :label :coordinates |
+			[label, coordinates]
 		}
 	}
 
-	graph { :self |
-		Graph(
-			[1 .. self.atoms.size],
-			self.bonds
-		).vertexLabels(self.atoms)
+	bonds { :self |
+		self.edges
+	}
+
+	vertices { :self |
+		[1 .. self.vertexCount]
 	}
 
 }
@@ -23,16 +40,14 @@ CrystalLatticeStructure : [Object] { | name description atoms bonds |
 		newCrystalLatticeStructure().initializeSlots(
 			self['name'],
 			self['description'],
-			self['vertexLabels'].withCollect(
-				self['vertexCoordinates']
-			) { :label :coordinates |
-				[label, coordinates]
-			},
+			self['vertexLabels'].size,
 			self['edges'].collect { :edge |
 				edge.collect { :each |
 					each + 1
 				}
-			}
+			},
+			self['vertexLabels'],
+			self['vertexCoordinates']
 		)
 	}
 

@@ -13,6 +13,9 @@ The _edges_ are pairs of vertices, either directed (ordered) or undirected (unor
 Vertices may be labeled,
 in which case `vertexLabels` is a `List` of `vertexCount` labels, one for each vertex.
 
+Vertices may be given coordinates,
+in which case `vertexCoordinates` is a `List` of `vertexCount` coordinates, one for each vertex.
+
 Edges may also be labeled,
 in which case `edgeLabels` is a `List` of labels, one for each edge.
 

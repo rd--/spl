@@ -339,7 +339,7 @@
 - `completeGraph`, `completeBipartiteGraph`
 - `cycleGraph`, `gridGraph`, `pathGraph`, `starGraph`, `wheelGraph`
 - `sumGraph`
-- `edgeLabels`, `vertexLabels`
+- `edgeLabels`, `vertexCoordinates`, `vertexLabels`
 
 ## Help Files
 

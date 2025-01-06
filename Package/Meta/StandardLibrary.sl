@@ -63,6 +63,9 @@
 	'Triangle'
 	'Point' /* PlanarCoordinates CartesianCoordinates */
 
+	/* Chemistry */
+	'CrystalLatticeStructure'
+
 	/* Graphics */
 	'Bitmap'
 	'Colour'
@@ -159,9 +162,6 @@
 
 	/* Collection */
 	'SoundFile' /* Url */
-
-	/* Chemistry */
-	'CrystalLatticeStructure'
 
 	'Apl'
 

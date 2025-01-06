@@ -26,8 +26,8 @@ Lookup the entry for 'NbP':
 >>> (
 >>> 	cls.name,
 >>> 	cls.description.take(25),
->>> 	cls.atoms.size,
->>> 	cls.bonds.size
+>>> 	cls.vertexCount,
+>>> 	cls.edges.size
 >>> )
 (
 	'NbP',
@@ -40,14 +40,12 @@ Lookup the entry for 'NbP':
 Draw a picture of the entry for _NbP_ in an axonometric perspective:
 
 ~~~spl svg=A
-let cls = system.leitnerCatalogue['NbP'];
-let p:/1 = AxonometricProjection(
-	'Isometric'
-).asBlock;
-cls.graph.asLineDrawing { :each |
-	let [name, coordinates] = each;
-	p(coordinates)
-}
+system.leitnerCatalogue['NbP']
+.asPerspectiveDrawing(
+	AxonometricProjection(
+		'Isometric'
+	).asBlock
+)
 ~~~
 
 ![](sw/spl/Help/Image/leitnerCatalogue-A.svg)

@@ -1,4 +1,4 @@
-/* Requires: DocumentObjectModel EventTarget */
+/* Requires: DocumentObjectModel EventTarget Graph */
 
 +@Document {
 
@@ -143,5 +143,55 @@ SVGTransformList! : [Object] {
 
 	appendItem { :self :aTransform | <primitive: return _self.appendItem(_aTransform);> }
 	getItem { :self :index | <primitive: return _self.getItem(_index);> }
+
+}
+
++Graph {
+
+	asSvgElement { :self :scale :projection:/1 |
+		let lineWidth = 0.25;
+		let points = (self.vertexCoordinates * scale).collect(projection:/1);
+		let bbox = points.computeBoundingBox;
+		let dots = points.collect { :each |
+			let [x, y] = each;
+			'circle'.createSvgElement(
+				cx: x,
+				cy: y,
+				r: lineWidth * 2,
+				fill: 'black'
+			)
+		};
+		let lines = self.edgeList.collect { :each |
+			let [i, j] = each;
+			let [x1, y1] = points[i];
+			let [x2, y2] = points[j];
+			'line'.createSvgElement(
+				x1: x1,
+				y1: y1,
+				x2: x2,
+				y2: y2,
+				stroke: 'black',
+				'stroke-width': lineWidth
+			)
+		};
+		let svg = 'svg'.createSvgElement(
+			width: bbox.width,
+			height: bbox.height,
+			viewBox: bbox.asSvgViewBox(margin: 5, precision: 1),
+			preserveAspectRatio: 'xMidYMid meet' /* Default value */
+		);
+		let group = 'g'.createSvgElement(
+			transform: [
+				'translate(0, %)'.format([
+					bbox.height + (2 * bbox.lowerLeft[2])
+				]),
+				'scale(1, -1)'
+			].join(' ')
+		);
+		group.appendChildren(dots);
+		group.appendChildren(lines);
+		svg.appendChild(group);
+		svg
+	}
 
 }

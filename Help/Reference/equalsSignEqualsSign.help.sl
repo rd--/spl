@@ -69,8 +69,10 @@ See also: =, ~~, ~
 Unicode: U+2261 ≡ Identical To
 
 References:
+_Lisp_
+[1](https://www.lispworks.com/documentation/HyperSpec/Body/f_eq.htm#eq)
 _Mathematica_
-[2](https://reference.wolfram.com/language/ref/SameQ.html),
+[1](https://reference.wolfram.com/language/ref/SameQ.html),
 _Smalltalk_
 5.3.1.2
 

@@ -1,10 +1,10 @@
 # Polyhedron
 
-- _Polyhedron(vertexList, faceList)_
+- _Polyhedron(vertexCoordinates, faceIndices)_
 
 A `Type` representing a polyhedron with the specified vertices and faces.
-_vertexList_ is a `List` of Cartesian coordinates,
-_faceList_ is a `List` of lists of integers that indicate indexes into the _vertexList_.
+`vertexCoordinates` is a `List` of Cartesian coordinates,
+`faceIndices` is a `List` of lists of integers that indicate indexes into `vertexCoordinates`.
 
 Draw a polyhedron:
 
@@ -22,9 +22,10 @@ Polyhedron(
 		4 1 2;
 		1 4 3
 	]
-).asLineDrawing(
+).asPerspectiveDrawing(
 	AxonometricProjection(
-		'Planometric'
+		pi / 4, pi / 4,
+		1, 1, 1
 	).asBlock
 )
 ~~~
@@ -33,7 +34,7 @@ Polyhedron(
 
 * * *
 
-See also: asLineDrawing, Polygon
+See also: asPerspectiveDrawing, LineDrawing, Polygon
 
 References:
 _Mathematica_

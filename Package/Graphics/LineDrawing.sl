@@ -1,4 +1,4 @@
-/* Requires: Svg */
+/* Requires: CrystalLatticeStructure Svg */
 
 LineDrawing : [Object] { | contents metadata |
 
@@ -177,6 +177,19 @@ LineDrawing : [Object] { | contents metadata |
 			leftmostVerticalLine,
 			verticalLines
 		].LineDrawing
+	}
+
+}
+
++[CrystalLatticeStructure, Polyhedron] {
+
+	asPerspectiveDrawing { :self |
+		self.asPerspectiveDrawing(
+			AxonometricProjection(
+				pi / 6, 0,
+				1, 1, 1 / 2
+			).asBlock
+		)
 	}
 
 }

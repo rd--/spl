@@ -2,13 +2,17 @@
 
 +CrystalLatticeStructure {
 
+	asSvgElement { :self :scale :projection:/1 |
+		self.asGraph.asSvgElement(scale, projection:/1)
+	}
+
 	summary { :self |
 		let container = 'div'.createElement;
 		let description = 'p'.createElement;
 		let projectionsA = 'p'.createElement;
 		let projectionsB = 'p'.createElement;
 		let scaledDrawing = { :projection:/1 |
-			self.drawing(0.15, projection:/1)
+			self.asSvgElement(12, projection:/1)
 		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([

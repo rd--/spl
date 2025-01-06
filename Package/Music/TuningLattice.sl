@@ -102,7 +102,7 @@
 		Graph(
 			[1 .. primesList.size],
 			edgeList
-		).vertexLabels(coordinateList)
+		).vertexCoordinates(coordinateList)
 	}
 
 	latticeGraph { :self |

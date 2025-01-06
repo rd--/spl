@@ -66,6 +66,6 @@ Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
 
 * * *
 
-See also: Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle
+See also: asPerspectiveDrawing, Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle
 
 Categories: Converting

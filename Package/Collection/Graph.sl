@@ -59,8 +59,7 @@
 		].unlines
 	}
 
-	asLineDrawing { :self :derivePoint:/1 |
-		let vertices = self.vertexLabels.collect(derivePoint:/1);
+	asLineDrawingWithVertices { :self :vertices |
 		let edges = self.edgeList.collect { :each |
 			let [i, j] = each;
 			let [x1, y1] = vertices[i];
@@ -74,7 +73,15 @@
 	}
 
 	asLineDrawing { :self |
-		self.asLineDrawing(identity:/1)
+		self.asLineDrawingWithVertices(
+			self.vertexCoordinates
+		)
+	}
+
+	asPerspectiveDrawing { :self :projection:/1 |
+		self.asLineDrawingWithVertices(
+			self.vertexCoordinates.collect(projection:/1)
+		)
 	}
 
 	complement { :self |
@@ -381,12 +388,21 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.hasValidEdges
 	}
 
+	vertexCoordinates { :self |
+		self.properties['vertexCoordinates']
+	}
+
+	vertexCoordinates { :self :aList |
+		self.properties['vertexCoordinates'] := aList;
+		self
+	}
+
 	vertexLabels { :self |
 		self.properties['vertexLabels']
 	}
 
-	vertexLabels { :self :labels |
-		self.properties['vertexLabels'] := labels;
+	vertexLabels { :self :aList |
+		self.properties['vertexLabels'] := aList;
 		self
 	}
 

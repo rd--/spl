@@ -49,7 +49,7 @@
 SuperColliderProgramBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
-		self.requestLibraryItem(
+		system.requestLibraryItem(
 			'Music/SuperCollider/ProgramIndex'
 		).then { :superColliderProgramIndex |
 			smallKansas.addFrame(
