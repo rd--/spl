@@ -42,6 +42,17 @@ Triangle : [Object] { | vertices |
 		self.storeStringAsInitializeSlots
 	}
 
+	surfaceNormal { :self |
+		let [p1, p2, p3] = self.vertices;
+		let u = p2 - p1;
+		let v = p3 - p1;
+		u.cross(v)
+	}
+
+	unitNormal { :self |
+		self.surfaceNormal.normalize
+	}
+
 }
 
 +List {

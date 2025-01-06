@@ -49,6 +49,10 @@ InfinitePlane : [Object] { | a b c d |
 		self.storeStringAsInitializeSlots
 	}
 
+	surfaceNormal { :self |
+		[self.a, self.b, self.c]
+	}
+
 	terms { :self |
 		[self.a, self.b, self.c, self.d]
 	}

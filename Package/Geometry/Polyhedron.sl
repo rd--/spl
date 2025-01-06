@@ -63,7 +63,7 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 				1 0 1;
 				1 1 1;
 				0 1 1
-			] - [0.5 0.5 0.5] + center,
+			] - 0.5 + center,
 			[
 				0 1 2 3;
 				4 5 6 7;
@@ -160,13 +160,13 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 	unitOctahedron { :center |
 		Polyhedron(
 			[
-				-0.707107 0 0;
-				0 0.707107 0;
-				0 0 -0.707107;
-				0 0 0.707107;
-				0 -0.707107 0;
-				0.707107 0 0
-			] + center,
+				-1 0  0;
+				0  1  0;
+				0  0 -1;
+				0  0  1;
+				0 -1  0;
+				1  0  0
+			] * 0.707107 + center,
 			[
 				4 5 6;
 				4 6 2;

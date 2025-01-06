@@ -7,8 +7,8 @@ Answer the unit normal vector of _aSurface_.
 The unit normal of the _x/y_ infinite plane:
 
 ```
->>> let r = InfinitePlane([0 0 0], [1 0 0], [0 1 0]);
->>> r.unitNormal
+>>> InfinitePlane([0 0 0], [1 0 0], [0 1 0])
+>>> .unitNormal
 [0 0 1]
 ```
 
@@ -21,13 +21,34 @@ The nearest point on a plane:
 [1 2.7 0.9]
 ```
 
+At `Triangle`:
+
+```
+>>> Triangle([1 1 1], [1 -1 1], [1 0 -1])
+>>> .unitNormal
+[1 0 0]
+
+>>> Triangle([0 0 1], [1 0 0], [0 1 0])
+>>> .unitNormal
+[0.5774 0.5774 0.5774]
+
+>>> Triangle([0 0 1], [0 1 0], [1 0 0])
+>>> .unitNormal
+[-0.5774 -0.5774 -0.5774]
+
+>>> Triangle([0 0 0], [2 0 0], [0 2 0])
+>>> .unitNormal
+[0 0 1]
+```
+
 * * *
 
-See also: InfinitePlane, unitVector
+See also: InfinitePlane, normalize, surfaceNormal, Triangle, unitVector
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/NormalVector.html),
+[1](https://mathworld.wolfram.com/NormalVector.html)
+[2](https://mathworld.wolfram.com/UnitVector.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Normal_(geometry))
 
