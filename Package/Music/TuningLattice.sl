@@ -78,12 +78,12 @@
 
 +RatioTuning {
 
-	latticeEdges { :self :vertices |
+	latticeEdges { :self :vertexCoordinates |
 		let indices = self.size.iota;
 		let answer = [];
 		indices.combinationsAtATimeDo(2) { :each |
 			let [i, j] = each;
-			(vertices[i].manhattanDistance(vertices[j]) = 1).ifTrue {
+			(vertexCoordinates[i].manhattanDistance(vertexCoordinates[j]) = 1).ifTrue {
 				answer.add(each.copy)
 			}
 		};
@@ -91,7 +91,7 @@
 	}
 
 	latticeGraph { :self :primes :unitVector |
-		let primesList = self.latticeVertices(primes);
+		let primesList = self.latticeVertexCoordinates(primes);
 		let edgeList = self.latticeEdges(primesList);
 		let coordinateList = primesList.collect { :each |
 			let v = unitVector.first(each.size);
@@ -136,7 +136,7 @@
 		}
 	}
 
-	latticeVertices { :self :primes |
+	latticeVertexCoordinates { :self :primes |
 		self.asRatios.collect { :each |
 			each.latticeVector(primes)
 		}

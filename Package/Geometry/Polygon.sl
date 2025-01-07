@@ -1,58 +1,58 @@
-Polygon : [Object] { | vertices |
+Polygon : [Object] { | vertexCoordinates |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	arcLength { :self |
-		self.vertices.polygonArcLength
+		self.vertexCoordinates.polygonArcLength
 	}
 
 	area { :self |
-		self.vertices.shoelaceFormula
+		self.vertexCoordinates.shoelaceFormula
 	}
 
 	at { :self :index |
-		let n = self.size;
+		let n = self.vertexCount;
 		(index = (n + 1)).if {
-			self.vertices[1]
+			self.vertexCoordinates[1]
 		} {
-			self.vertices[index]
+			self.vertexCoordinates[index]
 		}
 	}
 
 	boundingBox { :self |
-		self.vertices.coordinateBoundingBox
+		self.vertexCoordinates.coordinateBoundingBox
 	}
 
 	centroid { :self |
-		self.vertices.polygonCentroid
+		self.vertexCoordinates.polygonCentroid
 	}
 
 	forSvg { :self :options |
 		'<polygon points="%" />'.format([
-			self.vertices.asSvgPointList(options)
+			self.vertexCoordinates.asSvgPointList(options)
 		])
 	}
 
 	interiorAngles { :self |
-		self.vertices.polygonInteriorAngles
+		self.vertexCoordinates.polygonInteriorAngles
 	}
 
 	rotated { :self :theta |
 		let matrix = theta.rotationMatrix;
 		let center = self.centroid;
-		self.vertices.collect { :each |
+		self.vertexCoordinates.collect { :each |
 			matrix.dot(each - center) + center
 		}.Polygon
 	}
 
-	size { :self |
-		self.vertices.size
-	}
-
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	vertexCount { :self |
+		self.vertexCoordinates.size
 	}
 
 }
@@ -67,13 +67,14 @@ Polygon : [Object] { | vertices |
 		}
 	}
 
-	polygonArcLength { :p |
-		p.polylineArcLength + p.last.euclideanDistance(p.first)
+	polygonArcLength { :self |
+		self.polylineArcLength + self.last.euclideanDistance(self.first)
 	}
 
-	polygonCentroid { :p |
-		let n = p.size;
-		let m = 1 / (p.shoelaceFormula * 6);
+	polygonCentroid { :self |
+		let n = self.size;
+		let m = 1 / (self.shoelaceFormula * 6);
+		let p = self;
 		let x = 0;
 		let y = 0;
 		1.toDo(n) { :i |
@@ -85,13 +86,13 @@ Polygon : [Object] { | vertices |
 		[x y] * m
 	}
 
-	polygonInteriorAngles { :p |
-		let n = p.size;
+	polygonInteriorAngles { :self |
+		let n = self.size;
 		let a = [];
 		1.toDo(n) { :j |
 			let i = (j - 1).wrapIndex(n);
 			let k = (j + 1).wrapIndex(n);
-			let r = (p @* [i, j, k]).planarAngle;
+			let r = (self @* [i, j, k]).planarAngle;
 			a.add(r)
 		};
 		a
@@ -101,9 +102,9 @@ Polygon : [Object] { | vertices |
 
 +SmallFloat {
 
-	regularPolygon { :n :center :radius |
+	regularPolygon { :self :center :radius |
 		let theta = 0;
-		Polygon(n.circlePoints(radius, theta) + center)
+		Polygon(self.circlePoints(radius, theta) + center)
 	}
 
 }

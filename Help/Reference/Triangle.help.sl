@@ -4,7 +4,12 @@
 
 A `Type` representing a triangle with corner points _p1_, _p2_, and _p3_.
 
-Find the area, centroid and arc length and interior angles of a `Triangle`:
+Find the area,
+centroid,
+arc length,
+interior angles,
+and embedding dimension of a `Triangle`
+(the dimension is in all cases two):
 
 ```
 >>> let t = Triangle([0 0], [1 0], [0 1]);
@@ -12,13 +17,17 @@ Find the area, centroid and arc length and interior angles of a `Triangle`:
 >>> 	t.area,
 >>> 	t.centroid,
 >>> 	t.arcLength,
->>> 	t.interiorAngles
+>>> 	t.interiorAngles,
+>>> 	t.dimension,
+>>> 	t.embeddingDimension
 >>> )
 (
 	1/2,
 	[1/3 1/3],
 	2 + 2.sqrt,
-	pi / [2 4 4]
+	pi / [2 4 4],
+	2,
+	2
 )
 ```
 
@@ -67,7 +76,7 @@ The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
 p.forSvg(precision: 0)
 ```
 
-Draw a triangle:
+Draw a triangle in planar (two dimensional) space:
 
 ~~~spl svg=A
 Triangle([0 0], [1 3], [2 0]).asLineDrawing

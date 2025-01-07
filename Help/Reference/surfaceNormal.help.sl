@@ -2,9 +2,11 @@
 
 - _surfaceNormal(aSurface)_
 
-Answer the normal vector of _aSurface_.
+Answer the normal vector of _aSurface_,
+which may or may not be a unit vector
+(see `unitNormal` for the unit vector case).
 
-At `Triangle`:
+A `Triangle` has a surface normal if its `embeddingDimension` is three:
 
 ```
 >>> Triangle([0 0 1], [1 0 0], [0 1 0])
@@ -30,7 +32,7 @@ At `InfinitePlane`:
 
 * * *
 
-See also: InfinitePlane, normalize, Triangle, unitNormal, unitVector
+See also: embeddingDimension, InfinitePlane, normalize, Triangle, unitNormal, unitVector
 
 References:
 _Mathematica_

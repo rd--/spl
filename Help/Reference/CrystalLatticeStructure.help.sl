@@ -4,8 +4,7 @@ A `CrystalLatticeStructure` is a `Type`.
 
 The structure consists of the fields `name`, `description`, `vertexCount`, `vertexLabels`, `vertexCoordinates` and `edges`.
 
-`vertices` are the integers from one up to the `vertexCount`
-`atoms` and `bonds`.
+`vertexList` is the list of integers from one up to the `vertexCount`.
 
 `atoms` answers a `List` of _(symbol, (x, y, z))_ pairs.
 

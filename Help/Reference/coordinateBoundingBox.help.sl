@@ -29,7 +29,9 @@ The `transposed` `minMax` of the `transposed` matrix:
 >>> 	2 1;
 >>> 	3 2;
 >>> 	4 0
->>> ].transposed.collect(minMax:/1).transposed
+>>> ].transposed.collect(
+>>> 	minMax:/1
+>>> ).transposed
 [
 	0 0;
 	4 2
@@ -39,8 +41,9 @@ The `transposed` `minMax` of the `transposed` matrix:
 `coordinateBoundingBox` is the `transposed` `coordinateBounds`.
 
 ```
->>> [0 1; 1 2; 2 1; 3 2; 4 0].computeBoundingBox
-[0 0; 4 2].asRectangle
+>>> [0 1; 1 2; 2 1; 3 2; 4 0]
+>>> .coordinateBounds
+[0 4; 0 2]
 ```
 
 * * *

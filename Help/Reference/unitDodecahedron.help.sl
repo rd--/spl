@@ -15,9 +15,7 @@ and that each edge as a unit:
 >>> 	p.faceCount,
 >>> 	p.edgeCount,
 >>> 	p.faceIndices.collect(size:/1),
->>> 	p.edgeCoordinates.collect { :each |
->>> 		each.Line.arcLength
->>> 	}
+>>> 	p.edgeLengths
 >>> )
 (20, 12, 60, 5 # 12, 1 # 60)
 ```
@@ -37,7 +35,7 @@ Draw the _xy_ projection of the unit dodecahedron:
 
 * * *
 
-See also: LineDrawing, Polyhedron, unitCube, unitOctahedron, unitSquare, unitTetrahedron
+See also: LineDrawing, Polyhedron, unitCube, unitIcosahedron, unitOctahedron, unitSquare, unitTetrahedron
 
 References:
 _Mathematica_

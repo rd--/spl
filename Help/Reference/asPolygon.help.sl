@@ -20,6 +20,6 @@ Polygon([0 0; 1 0; 0 1])
 
 * * *
 
-See also: Polygon, Rectangle, Triangle
+See also: asPolyhedron, Polygon, Polyhedron, Rectangle, Triangle
 
 Categories: Geometry

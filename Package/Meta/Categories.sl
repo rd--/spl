@@ -433,10 +433,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'accessing-graph': [
 		'degree'
 		'edgeLabels'
-		'edges'
+		'edgeList'
 		'labeledVertices'
 		'vertexLabels'
-		'vertices'
+		'vertexList'
+		'vertexCoordinates'
 	],
 	'accessing-transcript': [
 		'errorMessages'

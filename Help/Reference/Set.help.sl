@@ -20,6 +20,14 @@ Set predicate:
 true
 ```
 
+Sets are unordered collections,
+and have the expected mathematical behavior in relation to scalars:
+
+```
+>>> [1 2 3].asSet * 5
+[5 10 15].asSet
+```
+
 Note:
 `Set` is what Smalltalk calls _IdentitySet_.
 

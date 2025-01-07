@@ -43,6 +43,14 @@ Drawing of a hexagon:
 
 ![](sw/spl/Help/Image/regularPolygon-B.svg)
 
+Drawing of a diamond:
+
+~~~spl svg=C
+4.regularPolygon([0 0], 1).asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/regularPolygon-C.svg)
+
 * * *
 
-See also: interiorAngles, Polygon
+See also: interiorAngles, Polygon, unitSquare

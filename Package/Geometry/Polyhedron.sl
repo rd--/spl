@@ -14,6 +14,12 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 		self.faceIndices.collect(size:/1).sum
 	}
 
+	edgeLengths { :self |
+		self.edgeCoordinates.collect { :each |
+			each.Line.arcLength
+		}
+	}
+
 	edgeList { :self |
 		let answer = [];
 		self.faceIndices.do { :each |

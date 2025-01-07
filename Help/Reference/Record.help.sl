@@ -45,6 +45,21 @@ There is a `basicAsRecord` form that coerces keys to strings:
 ['3.141592653589793']
 ```
 
+Records are unordered collections,
+and have expected mathematical behavior in relation to scalars:
+
+```
+>>> (a: 1, b: 2, c: 3) * 5
+(a: 5, b: 10, c: 15)
+```
+
+and sequences:
+
+```
+>>> (x: 3, y: 5) * [7 9]
+(x: [21 27], y: [35 45])
+```
+
 * * *
 
 See also: asJson, asRecord, Association, Dictionary, Map

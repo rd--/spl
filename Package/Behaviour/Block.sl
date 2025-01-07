@@ -23,6 +23,34 @@ Block! : [Object] {
 		self.error('apply: argument is not a list or not of required size')
 	}
 
+	asBinaryBlock { :self |
+		(self.numArgs = 2).if {
+			self
+		} {
+			self.error('asBinaryBlock: not binary')
+		}
+	}
+
+	asBlock { :self |
+		self
+	}
+
+	asTernaryBlock { :self |
+		(self.numArgs = 3).if {
+			self
+		} {
+			self.error('asTernaryBlock: not ternary')
+		}
+	}
+
+	asUnaryBlock { :self |
+		(self.numArgs = 1).if {
+			self
+		} {
+			self.error('asUnaryBlock: not unary')
+		}
+	}
+
 	assert { :self |
 		self.assert(self);
 		nil

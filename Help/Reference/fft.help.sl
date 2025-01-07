@@ -57,7 +57,7 @@ let y = system.randomReal(-1, 1, [n]);
 
 * * *
 
-See also: ifft, Complex
+See also: convolve, fftConvolve, ifft, Complex
 
 References:
 _Mathematica_

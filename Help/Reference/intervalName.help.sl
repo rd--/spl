@@ -14,6 +14,16 @@ Two commas:
 'Pythagorean comma, ditonic comma'
 ```
 
+Two fourths:
+
+```
+>>> 4/3.intervalName
+'perfect fourth'
+
+>>> 11/8.intervalName
+'undecimal semi-augmented fourth'
+```
+
 The first nine superparticular ratios:
 
 ```

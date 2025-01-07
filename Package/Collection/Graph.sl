@@ -59,21 +59,21 @@
 		].unlines
 	}
 
-	asLineDrawingWithVertices { :self :vertices |
+	asLineDrawingWithVertexCoordinates { :self :vertexCoordinates |
 		let edges = self.edgeList.collect { :each |
 			let [i, j] = each;
-			let [x1, y1] = vertices[i];
-			let [x2, y2] = vertices[j];
+			let [x1, y1] = vertexCoordinates[i];
+			let [x2, y2] = vertexCoordinates[j];
 			Line([x1 y1; x2 y2])
 		};
 		[
-			PointCloud(vertices),
+			PointCloud(vertexCoordinates),
 			edges
 		].LineDrawing
 	}
 
 	asLineDrawing { :self |
-		self.asLineDrawingWithVertices(
+		self.asLineDrawingWithVertexCoordinates(
 			self.vertexCoordinates
 		)
 	}
@@ -594,10 +594,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		Graph(vertexList.nub.sort, edgeList)
 	}
 
-	Graph { :vertices :edges |
+	Graph { :vertexList :edgeList |
 		newGraph().initializeSlots(
-			vertices,
-			edges.collect(asEdge:/1),
+			vertexList,
+			edgeList.collect(asEdge:/1),
 			()
 		)
 	}

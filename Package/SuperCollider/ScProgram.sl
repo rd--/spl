@@ -69,7 +69,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 	parseSuperColliderProgramIndex { :self |
 		SuperColliderProgramIndex(
 			self.lines.select(notEmpty:/1).collect { :each |
-				each.replaceString('.sl', '').splitByRegExp(RegExp(' - |/'))
+				each.replaceString('.sp', '').splitByRegExp(RegExp(' - |/'))
 			}
 		)
 	}

@@ -39,7 +39,7 @@ Three rotated unit squares:
 
 * * *
 
-See also: LineDrawing, Rectangle, unitCircle, unitCube
+See also: LineDrawing, Rectangle, regularPolygon, unitCircle, unitCube
 
 References:
 _Mathematica_

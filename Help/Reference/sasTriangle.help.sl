@@ -10,7 +10,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 ```
 >>> let t = sasTriangle(1, pi / 2, 2);
 >>> (
->>> 	t.vertices,
+>>> 	t.vertexCoordinates,
 >>> 	t.area,
 >>> 	t.centroid,
 >>> 	t.interiorAngles

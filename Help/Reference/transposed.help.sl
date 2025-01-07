@@ -40,7 +40,9 @@ Transpose a row matrix into a column matrix:
 Transposition of a vector is an error:
 
 ```
->>> { [1.5 2.2 3.1].transposed }.ifError { true }
+>>> {
+>>> 	[1.5 2.2 3.1].transposed
+>>> }.ifError { true }
 true
 ```
 
@@ -74,7 +76,11 @@ Transpose a 2×3×4 array into 3×2×4 and 2×4×3 arrays:
 
 ```
 >>> let a = [2 3 4].iota;
->>> (a, a.transposed, a.collect(transposed:/1))
+>>> (
+>>> 	a,
+>>> 	a.transposed,
+>>> 	a.collect(transposed:/1)
+>>> )
 (
 	[
 		1  2  3  4;

@@ -4,7 +4,8 @@
 
 The dimension of the space in which _anObject_ is embedded.
 
-The `dimension` of a planar point is `zero`, the embedding dimension is two:
+The `dimension` of a planar point is `zero`,
+the embedding dimension is two:
 
 ```
 >>> let p = Point([0 0]);

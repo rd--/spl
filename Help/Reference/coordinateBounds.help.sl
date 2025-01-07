@@ -29,7 +29,9 @@ The `minMax` of the `transposed` matrix:
 >>> 	2 1;
 >>> 	3 2;
 >>> 	4 0
->>> ].transposed.collect(minMax:/1)
+>>> ].transposed.collect(
+>>> 	minMax:/1
+>>> )
 [
 	0 4;
 	0 2

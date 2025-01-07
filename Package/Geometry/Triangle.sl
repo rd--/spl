@@ -1,29 +1,49 @@
 /* Requires: Polygon */
 
-Triangle : [Object] { | vertices |
+Triangle : [Object] { | vertexCoordinates |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	arcLength { :self |
-		self.vertices.polygonArcLength
+		self.vertexCoordinates.polygonArcLength
 	}
 
 	area { :self |
-		self.vertices.shoelaceFormula
+		self.vertexCoordinates.shoelaceFormula
 	}
 
 	asPolygon { :self |
-		self.vertices.Polygon
+		(self.embeddingDimension = 2).if {
+			self.vertexCoordinates.Polygon
+		} {
+			self.error('asPolygon: embeddingDimension not two')
+		}
+	}
+
+	asPolyhedron { :self |
+		(self.embeddingDimension = 3).if {
+			self.vertexCoordinates.Polyhedron
+		} {
+			self.error('asPolyhedron: embeddingDimension not three')
+		}
 	}
 
 	boundingBox { :self |
-		self.vertices.coordinateBoundingBox
+		self.vertexCoordinates.coordinateBoundingBox
 	}
 
 	centroid { :self |
-		self.vertices.polygonCentroid
+		self.vertexCoordinates.polygonCentroid
+	}
+
+	dimension { :self |
+		2
+	}
+
+	embeddingDimension { :self |
+		self.vertexCoordinates.anyOne.size
 	}
 
 	forSvg { :self :options |
@@ -31,11 +51,7 @@ Triangle : [Object] { | vertices |
 	}
 
 	interiorAngles { :self |
-		self.vertices.polygonInteriorAngles
-	}
-
-	size { :self |
-		3
+		self.vertexCoordinates.polygonInteriorAngles
 	}
 
 	storeString { :self |
@@ -43,10 +59,14 @@ Triangle : [Object] { | vertices |
 	}
 
 	surfaceNormal { :self |
-		let [p1, p2, p3] = self.vertices;
+		let [p1, p2, p3] = self.vertexCoordinates;
 		let u = p2 - p1;
 		let v = p3 - p1;
 		u.cross(v)
+	}
+
+	vertexCount { :self |
+		3
 	}
 
 	unitNormal { :self |

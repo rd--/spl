@@ -22,22 +22,22 @@ InfiniteLine : [Object] { | point vector |
 
 }
 
-Line : [Object] { | vertices |
+Line : [Object] { | vertexCoordinates |
 
 	arcLength { :self |
 		let answer = 0;
-		self.vertices.adjacentPairsDo { :u :v |
+		self.vertexCoordinates.adjacentPairsDo { :u :v |
 			answer := answer + u.euclideanDistance(v)
 		};
 		answer
 	}
 
 	at { :self :index |
-		self.vertices[index]
+		self.vertexCoordinates[index]
 	}
 
 	boundingBox { :self |
-		self.vertices.coordinateBoundingBox
+		self.vertexCoordinates.coordinateBoundingBox
 	}
 
 	dimension { :self |
@@ -45,13 +45,13 @@ Line : [Object] { | vertices |
 	}
 
 	embeddingDimension { :self |
-		self.vertices.anyOne.size
+		self.vertexCoordinates.anyOne.size
 	}
 
 	forSvg { :self :options |
-		(self.vertices.size = 2).if {
+		(self.vertexCount = 2).if {
 			let precision = options::precision;
-			let [p1, p2] = self.vertices;
+			let [p1, p2] = self.vertexCoordinates;
 			let [x1, y1] = p1;
 			let [x2, y2] = p2;
 			'<line x1="%" y1="%" x2="%" y2="%" />'.format([
@@ -62,13 +62,13 @@ Line : [Object] { | vertices |
 			])
 		} {
 			'<polyline points="%" />'.format([
-				self.vertices.asSvgPointList(options)
+				self.vertexCoordinates.asSvgPointList(options)
 			])
 		}
 	}
 
 	midpoint { :self |
-		let p = self.vertices;
+		let p = self.vertexCoordinates;
 		let l = self.arcLength;
 		let h = l / 2;
 		let i = 1;
@@ -86,10 +86,6 @@ Line : [Object] { | vertices |
 		p[i - 1] + (v.normalize * d)
 	}
 
-	size { :self |
-		self.vertices.size
-	}
-
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -100,12 +96,16 @@ Line : [Object] { | vertices |
 			3 -> {
 				let f:/1 = AxonometricProjection('Chinese').asBlock;
 				Line(
-					self.vertices.collect(f:/1)
+					self.vertexCoordinates.collect(f:/1)
 				)
 			}
 		]) {
 			self.error('twoDimensional: invalid embeddingDimension')
 		}
+	}
+
+	vertexCount { :self |
+		self.vertexCoordinates.size
 	}
 
 }
@@ -150,7 +150,7 @@ LineSegment : [Object] { | u v |
 	nearestPoint { :self :aPoint |
 	}
 
-	size { :self |
+	vertexCount { :self |
 		2
 	}
 

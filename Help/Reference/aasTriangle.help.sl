@@ -13,7 +13,7 @@ Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 ```
 >>> let t = aasTriangle(pi / 6, pi / 3, 1);
 >>> (
->>> 	t.vertices,
+>>> 	t.vertexCoordinates,
 >>> 	t.area,
 >>> 	t.centroid,
 >>> 	t.interiorAngles

@@ -12,7 +12,7 @@ Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 >>> ];
 >>> let t = r.asRatioTuning;
 >>> let p = t.latticePrimes(false);
->>> let v = t.latticeVertices(p);
+>>> let v = t.latticeVertexCoordinates(p);
 >>> t.latticeEdges(v)
 [
 	1 4;
@@ -25,6 +25,6 @@ Edges connect vertices whose coordinates have a `manhattanDistance` of `one`.
 
 * * *
 
-See also: latticePrimes, latticeVertices, manhattanDistance
+See also: latticePrimes, latticeVertexCoordinates, manhattanDistance
 
 Categories: Tuning

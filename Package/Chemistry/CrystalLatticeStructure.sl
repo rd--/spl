@@ -4,7 +4,7 @@ CrystalLatticeStructure : [Object] { | name description vertexCount edges vertex
 
 	asGraph { :self |
 		let answer = Graph(
-			self.vertices,
+			self.vertexList,
 			self.edges
 		);
 		answer.vertexLabels(self.vertexLabels);
@@ -28,7 +28,7 @@ CrystalLatticeStructure : [Object] { | name description vertexCount edges vertex
 		self.edges
 	}
 
-	vertices { :self |
+	vertexList { :self |
 		[1 .. self.vertexCount]
 	}
 

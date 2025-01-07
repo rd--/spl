@@ -34,7 +34,7 @@ Polyhedron(
 
 * * *
 
-See also: asPerspectiveDrawing, LineDrawing, Polygon
+See also: asPerspectiveDrawing, LineDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
 
 References:
 _Mathematica_

@@ -83,7 +83,7 @@ _Lattice Functions_:
 - `latticePrimes`: primes
 - `latticeVector`: vector
 - `latticeVectorString`: vector string
-- `latticeVertices`: vertices
+- `latticeVertexCoordinates`: vertices
 - `manhattanDistance`: distance metric
 - `wilsonLatticeCoordinates`: unit vector
 

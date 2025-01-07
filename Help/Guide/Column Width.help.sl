@@ -48,26 +48,26 @@ can make these words particularly prominent if a variable-width font is selected
 The programs below count the number of characters in three strings,
 which are of equal length.
 The strings are sorted by the amount of space they will likely occupy in a proportional font.
-While the strings have nine fewer characters than those in the examples above,
-the shorter string of upper case letters will likely take somewhat more space than the longer string of lower case letters.
+While the strings have ten fewer characters than those in the examples above,
+the shorter string of upper case letters will likely take more or less the same amount of space as the longer string of lower case letters.
 
 ```
->>> 'abcdefghijklmnopqrstuvw'
+>>> 'abcdefghijklmnopqrstuv'
 >>> .size
-23
+22
 
->>> '12345678901234567890123'
+>>> '1234567890123456789012'
 >>> .size
-23
+22
 
->>> 'ABCDEFGHIJKLMNOPQRSTUVW'
+>>> 'ABCDEFGHIJKLMNOPQRSTUV'
 >>> .size
-23
+22
 ```
 
 The Sᴘʟ help files are designed so that they can be viewed in a column width that allows program fragments to have line lengths of approximately fourty characters,
 when viewed using a proportional font.
-The programs above illustrate roughly the maximum width of program texts that can be shown in such a column when prefixed with a leading `>>>` indicator.
+The programs above illustrate roughly the maximum width of program texts that can be shown in such a column when prefixed with a leading indicator of approximately one tab place.
 
 An additional consideration is the use of tab characters for indentation.
 Tab width is often set to eight characters,
@@ -77,20 +77,20 @@ then three zeroes,
 then one tab:
 
 ```
->>> '[   [   [   [   [   [   [   [   [   [   [   [   ['
+>>> '[   [   [   [   [   [   [   [   [   [   [   [   '
 >>> .size
-49
+48
 
->>> '[000[000[000[000[000[000[000[000[0000'
+>>> '[000[000[000[000[000[000[000[000[000'
 >>> .size
-37
+36
 
 >>> '[	[	[	[	[	[	[	['
 >>> .size
 15
 ```
 
-The tab-indented nested list below indicates the most deeply nested list or program that can readily be printed in the column width described above where the tab size is approximately the space of eight characters:
+The tab-indented nested list below indicates the most deeply nested list or program that can readily be printed in the column width described above where the tab size is approximately the space of four characters:
 
 ```
 >>> [
@@ -100,9 +100,7 @@ The tab-indented nested list below indicates the most deeply nested list or prog
 >>> 				[
 >>> 					[
 >>> 						[
->>> 							[
->>> 								[0]
->>> 							]
+>>> 							[0]
 >>> 						]
 >>> 					]
 >>> 				]
@@ -110,7 +108,7 @@ The tab-indented nested list below indicates the most deeply nested list or prog
 >>> 		]
 >>> 	]
 >>> ].shape
-1 # 9
+1 # 8
 ```
 
 _Rationale_:

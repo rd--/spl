@@ -27,7 +27,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	asPolygon { :self |
-		self.vertices.Polygon
+		self.vertexCoordinates.Polygon
 	}
 
 	asString { :self :aBlock:/1 |
@@ -259,7 +259,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		)
 	}
 
-	vertices { :self |
+	vertexCoordinates { :self |
 		[
 			self.lowerLeft
 			self.lowerRight
@@ -306,12 +306,12 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		[lowerLeft, upperRight]
 	}
 
-	computeBoundingBox { :self |
-		let box = Rectangle(self[1], self[1]);
+	computeBoundingBoxRectangle { :self |
+		let answer = Rectangle(self[1], self[1]);
 		self.allButFirstDo { :aPoint |
-			box.swallow(Rectangle(aPoint, aPoint))
+			answer.swallow(Rectangle(aPoint, aPoint))
 		};
-		box
+		answer
 	}
 
 	rectangleMerging { :self |

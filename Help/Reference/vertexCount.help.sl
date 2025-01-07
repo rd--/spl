@@ -1,6 +1,6 @@
 # vertexCount
 
-- _vertexCount(aGraph)_
+- _vertexCount(aGraph | aGeometry)_
 
 Answer the number of vertices in _aGraph_, also called the _order_ of the graph.
 
@@ -29,9 +29,26 @@ At a multigraph:
 2
 ```
 
+At `Polygon`:
+
+```
+>>> 4.regularPolygon([0 0], 1).vertexCount
+4
+```
+
+At `Polyhedron`:
+
+```
+>>> [0 0 0].unitCube.vertexCount
+8
+
+>>> [0 0 0].unitDodecahedron.vertexCount
+20
+```
+
 * * *
 
-See also: edgeCount, Graph, vertexList
+See also: edgeCount, Graph, vertexCoordinates, vertexList
 
 References:
 _Mathematica_

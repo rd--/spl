@@ -9,6 +9,9 @@ The Pythagorean, or ditonic, comma is the interval with the ratio 531441/524288.
 ```
 >>> 1.pythagoreanComma
 531441/524288
+
+>>> 1.pythagoreanComma.ratioToCents
+23.46
 ```
 
 It is approximated by the superparticular ratio 74/73:

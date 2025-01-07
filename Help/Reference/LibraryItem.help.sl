@@ -25,6 +25,12 @@ true
 true
 ```
 
+Request all library items be fetched:
+
+~~~
+system.library.collect(request:/1)
+~~~
+
 * * *
 
 See also: awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeData

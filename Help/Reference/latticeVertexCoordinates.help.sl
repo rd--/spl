@@ -1,6 +1,6 @@
-# latticeVertices
+# latticeVertexCoordinates
 
-- _latticeVertices(aTuning, primes)_
+- _latticeVertexCoordinates(aTuning, primes)_
 
 Answer a _matrix_,
 where each entry tells the `latticeVector` of the corresponding entry in _aTuning_ in relation to _primes_.
@@ -12,7 +12,7 @@ where each entry tells the `latticeVector` of the corresponding entry in _aTunin
 >>> ];
 >>> let t = r.asRatioTuning;
 >>> let p = t.latticePrimes(false);
->>> t.latticeVertices(p)
+>>> t.latticeVertexCoordinates(p)
 [
 	0 0 0;
 	-2 1 0;

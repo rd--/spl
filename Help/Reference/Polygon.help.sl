@@ -2,7 +2,7 @@
 
 - _Polygon(aSequence)_
 
-A Polygon is a `Type` representing a polygon with vertices given by _aSequence_.
+A Polygon is a `Type` representing a polygon with vertex coordinates given by _aSequence_.
 
 The `area` and `centroid` of two triangle:
 
@@ -106,7 +106,7 @@ The outline of a glyph:
 
 * * *
 
-See also: area, centroid, BezierCurve, Circle, interiorAngles, Point, PointCloud, Rectangle, regularPolygon, rotated, Triangle
+See also: area, centroid, BezierCurve, Circle, interiorAngles, Point, PointCloud, Rectangle, regularPolygon, rotated, Triangle, vertexCoordinates
 
 References:
 _Mathematica_
