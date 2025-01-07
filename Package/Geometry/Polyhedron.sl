@@ -46,6 +46,10 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 		self.faceIndices.size
 	}
 
+	faceSizeCount { :self |
+		self.faceIndices.collect(size:/1).asBag.sortedElements
+	}
+
 	vertexCount { :self |
 		self.vertexCoordinates.size
 	}
@@ -208,3 +212,46 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 	}
 
 }
+
++System {
+
+	fradinCatalogue { :self :name |
+		self.requireLibraryItem(
+			'Geometry/Polyhedron/Fradin%Catalogue'.format([name])
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'Geometry/Polyhedron/FradinDualUniformPolyhedraCatalogue',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/DualUniformPolyhedra.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertex'], each['face'].concatenation + 1)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'Geometry/Polyhedron/FradinJohnsonSolidsCatalogue',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/JohnsonSolids.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertex'], each['face'].concatenation + 1)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'Geometry/Polyhedron/FradinUniformPolyhedraCatalogue',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/UniformPolyhedra.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertex'], each['face'].concatenation + 1)
+		}
+	}
+)

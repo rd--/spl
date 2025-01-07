@@ -79,7 +79,7 @@
 	}
 
 	asPerspectiveDrawing { :self :projection:/1 |
-		self.asLineDrawingWithVertices(
+		self.asLineDrawingWithVertexCoordinates(
 			self.vertexCoordinates.collect(projection:/1)
 		)
 	}
