@@ -483,6 +483,15 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		a
 	}
 
+	homogeneousTranslationMatrix { :self |
+		let k = self.size + 1;
+		let answer = k.identityMatrix;
+		1.toDo(self.size) { :i |
+			answer[i][k] := self[i]
+		};
+		answer
+	}
+
 	inverse { :self |
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;

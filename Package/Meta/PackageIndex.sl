@@ -77,6 +77,7 @@
 	'Geometry-Line'
 	'Geometry-Matrix22'
 	'Geometry-Matrix33'
+	'Geometry-Perspective'
 	'Geometry-PlanarCoordinates'
 	'Geometry-Plane'
 	'Geometry-Point'

@@ -150,15 +150,27 @@ Note that it is effectively multiplying _v_ on the left side of the matrix, not 
 >>> let m = [0.5 0.32; 0.19 0.73];
 >>> let u = [1.5 0.27];
 >>> let v = [-3.2 5.5];
->>> (m.dot(u).dot(v), v.dot(m).dot(u), u.dot(m).dot(v))
+>>> (
+>>> 	m.dot(u).dot(v),
+>>> 	v.dot(m).dot(u),
+>>> 	u.dot(m).dot(v)
+>>> )
 (-0.02493, -0.02493, 1.15989)
 ```
 
 Multiply real 3×3 matrices:
 
 ```
->>> let m = [1.2 3.2 5.2; 2.2 4.2 -6.4; 3.1 5.1 7.3];
->>> let n = [4.2 6.3 8.2; 2.5 -7.3 9.3; 6.3 8.3 -1.10];
+>>> let m = [
+>>> 	1.2 3.2 5.2;
+>>> 	2.2 4.2 -6.4;
+>>> 	3.1 5.1 7.3
+>>> ];
+>>> let n = [
+>>> 	4.2 6.3 8.2;
+>>> 	2.5 -7.3 9.3;
+>>> 	6.3 8.3 -1.10
+>>> ];
 >>> m.dot(n)
 [
 	 45.8   27.36  33.88;
@@ -170,13 +182,21 @@ Multiply real 3×3 matrices:
 Product of complex 3×3 matrices:
 
 ```
->>> let m = [1j1 2j0 3j-2; 0j0 4j0 5j2; 0j0 0j0 6j0];
->>> let n = [6j1 4j0 5j-7; 5j0 3j0 2j1; 5j0 2j0 7j0];
+>>> let m = [
+>>> 	1J1 2J0 3J-2;
+>>> 	0J0 4J0 5J2;
+>>> 	0J0 0J0 6J0
+>>> ];
+>>> let n = [
+>>> 	6J1 4J0 5J-7;
+>>> 	5J0 3J0 2J1;
+>>> 	5J0 2J0 7J0
+>>> ];
 >>> m.dot(n)
 [
-	30j-3 16j0 37j-14;
-	45j10 22j4 43j18;
-	30j0  12j0 42j0
+	30J-3 16J0 37J-14;
+	45J10 22J4 43J18;
+	30J0  12J0 42J0
 ]
 ```
 
@@ -234,14 +254,52 @@ For a vector _v_ with real entries, _v.norm_ equals _(v.v).sqrt_:
 v.norm
 ```
 
-Multiply two integer matrices:
+Multiply 2×3 and 3×4 integer matrices:
 
 ```
->>> [2 1 4; 0 1 1].dot([6 3 -1 0; 1 1 0 4; -2 5 0 2])
-[5 27 -2 12; -1 6 0 6]
+>>> [
+>>> 	2 1 4;
+>>> 	0 1 1
+>>> ].dot([
+>>> 	6 3 -1 0;
+>>> 	1 1 0 4;
+>>> 	-2 5 0 2
+>>> ])
+[
+	5 27 -2 12;
+	-1 6 0 6
+]
+```
 
+Multiply two 2×2 integer matrices:
+
+```
 >>> [1 2; 3 4].dot([1 0; 3 2])
 [7 4; 15 8]
+```
+
+Multiply two 4×4 integer matrices:
+
+```
+>>> let a = [
+>>> 	1 2 3 4;
+>>> 	5 6 7 8;
+>>> 	2 3 4 5;
+>>> 	6 7 8 9
+>>> ];
+>>> let b = [
+>>> 	6 7 8 9;
+>>> 	5 6 7 8;
+>>> 	2 3 4 5;
+>>> 	1 2 3 4
+>>> ];
+>>> a.dot(b)
+[
+	26 36 46 56;
+	82 108 134 160;
+	40 54 68 82;
+	96 126 156 186
+]
 ```
 
 Examine properties of a magic square,

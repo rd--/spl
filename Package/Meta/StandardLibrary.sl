@@ -47,6 +47,7 @@
 	'Circle'
 	'Length'
 	'Line'
+	'Perspective'
 	'Plane'
 	'PolarCoordinates'
 	'PlanarCoordinates'
