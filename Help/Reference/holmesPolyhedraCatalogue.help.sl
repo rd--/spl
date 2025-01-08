@@ -3,14 +3,9 @@
 - _holmesPolyhedraCatalogue(aSystem)_
 
 The Holmes polyhedron catalogue is a collection of polyhedra by Ryan Holmes.
+Answers a `Record` of `Polyhedron`s, keyed by name.
 
-Answer a `Record` of `Polyhedron`s,
-keyed by name.
-
-The `holmesPolyhedraCatalogue` method is `requireLibraryItem` of
-'Geometry → Polhyedra → HolmesPolyhedraCatalogue'.
-
-Count entries,
+Count catalgue entries,
 contains the five Platonic solids and the thirteen Archimedean solids:
 
 ~~~
@@ -34,6 +29,9 @@ system
 _Note:_
 The catalogue is a `LibraryItem`,
 and this function requires the item be available locally.
+
+The `holmesPolyhedraCatalogue` method is `requireLibraryItem` of
+'Geometry → Polhyedra → HolmesPolyhedraCatalogue'.
 
 * * *
 

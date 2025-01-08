@@ -35,7 +35,7 @@ The Fibonacci Q-matrix:
 
 * * *
 
-See also: binetsFormula, fibonacci, goldenRatio
+See also: binetsFormula, fibonacci, goldenRatio, pellNumbers
 
 Guides: Mathematical Sequences
 

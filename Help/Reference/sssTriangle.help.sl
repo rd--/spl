@@ -5,7 +5,7 @@
 Answer a `Triangle` with sides of lengths _a_, _b_, and _c_.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
-`coordinates`, `area` and `centroid` of a _3,4,5_ triangle:
+`coordinates`, `area` and `centroid` and `interiorAngles` of a _3,4,5_ triangle:
 
 ```
 >>> let t = sssTriangle(3, 4, 5);
@@ -34,6 +34,18 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 )
 ```
 
+Another right triangle:
+
+```
+>>> sssTriangle(1, 1.goldenRatio.sqrt, 1.goldenRatio)
+>>> .interiorAngles
+>>> .third
+0.5.pi
+
+>>> (1, 1.goldenRatio.sqrt, 1.goldenRatio) * 3
+(3, 3.8161, 4.8541)
+```
+
 Varying one side length:
 
 ~~~spl svg=A
@@ -43,6 +55,23 @@ Varying one side length:
 ~~~
 
 ![](sw/spl/Help/Image/sssTriangle-A.svg)
+
+The _3,4,5_ triangle is the only right triangle with sides in an arithmetic series:
+
+~~~spl svg=B
+sssTriangle(3, 4, 5).asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/sssTriangle-B.svg)
+
+The _1,√φ,φ_ triangle is the only right triangle with sides in a geometric series:
+
+~~~spl svg=C
+sssTriangle(1, 1.goldenRatio.sqrt, 1.goldenRatio)
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/sssTriangle-C.svg)
 
 * * *
 

@@ -54,7 +54,7 @@ The zero indices of the Pell primes in `pellNumbers` are themselves prime (OEIS 
 
 * * *
 
-See also: linearRecurrence, pellLucasNumbers, silverRatio
+See also: fibonacciSequence, linearRecurrence, pellLucasNumbers, silverRatio
 
 Guides: Mathematical Sequences
 
