@@ -3,7 +3,7 @@
 - _fradinCatalogue(aSystem, aString)_
 
 The Fradin catalogue is a collection of polyhedra distributed with TeXgraph by Patrick Fradin.
-The cataloue is divided into parts:
+The catalogue is divided into parts:
 
 - JohnsonSolids
 - UniformPolyhedra
@@ -64,4 +64,4 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: asPerspectiveDrawing, Polyhedra
+See also: asPerspectiveDrawing, holmesPolyhedraCatalogue, Polyhedra

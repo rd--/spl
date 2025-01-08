@@ -11,7 +11,7 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 	}
 
 	edgeCount { :self |
-		self.faceIndices.collect(size:/1).sum
+		self.faceIndices.collect(size:/1).sum / 2
 	}
 
 	edgeLengths { :self |
@@ -28,11 +28,11 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 					[
 						each.at(i),
 						each.atWrap(i + 1)
-					]
+					].sort
 				)
 			}
 		};
-		answer
+		answer.nub
 	}
 
 	edgeCoordinates { :self |
@@ -221,6 +221,18 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 		)
 	}
 
+	holmesPolyhedraCatalogue { :self |
+		self.requireLibraryItem(
+			'Geometry/Polyhedron/HolmesPolyhedraCatalogue'
+		)
+	}
+
+	levskayaPolyhedraCatalogue { :self |
+		self.requireLibraryItem(
+			'Geometry/Polyhedron/LevskayaPolyhedraCatalogue'
+		)
+	}
+
 }
 
 LibraryItem(
@@ -252,6 +264,28 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			Polyhedron(each['vertex'], each['face'].concatenation + 1)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'Geometry/Polyhedron/HolmesPolyhedraCatalogue',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/holmes/HolmesPolyhedraCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertexCoordinates'], each['faceIndices'] + 1)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'Geometry/Polyhedron/LevskayaPolyhedraCatalogue',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/levskaya/LevskayaPolyhedraCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertexCoordinates'], each['faceIndices'] + 1)
 		}
 	}
 )

@@ -1,8 +1,8 @@
 # edgeList
 
-- _edgeList(aGraph)_
+- _edgeList(aGraph | aGeometry)_
 
-Answer a `List` of the edges in _aGraph_.
+Answer a `List` of the edges in a `Graph` or a geometric object.
 
 At undirected graphs:
 
@@ -29,6 +29,17 @@ At directed graphs:
 >>> .asGraph
 >>> .edgeList
 [1 -> 2, 2 -> 3, 3 -> 1].asEdgeList
+```
+
+At `Polyhedron`:
+
+```
+>>> [0 0 0].unitCube.edgeList
+[
+	1 2; 2 3; 3 4; 1 4;
+	5 6; 6 7; 7 8; 5 8;
+	4 8; 3 7; 2 6; 1 5
+]
 ```
 
 * * *

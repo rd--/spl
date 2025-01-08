@@ -2,6 +2,11 @@
 
 LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 
+	deleteLocalStorage { :self |
+		system.localStorage.removeKeyIfAbsent(self.storageKey) { };
+		self
+	}
+
 	isAcquired { :self |
 		let hasContents = self.contents.notNil;
 		hasContents | {

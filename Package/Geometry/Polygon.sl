@@ -29,6 +29,10 @@ Polygon : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonCentroid
 	}
 
+	edgeCount { :self |
+		self.vertexCount
+	}
+
 	forSvg { :self :options |
 		'<polygon points="%" />'.format([
 			self.vertexCoordinates.asSvgPointList(options)

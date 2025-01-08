@@ -1,8 +1,10 @@
 # edgeCount
 
-- _edgeCount(aGraph)_
+- _edgeCount(aGraph | aGeometry)_
 
-Answer the number of edges in _aGraph_.
+Answer the number of edges in a `Graph` or a geometric object.
+
+At `Graph`:
 
 ```
 >>> 5.completeGraph.edgeCount
@@ -15,9 +17,28 @@ Answer the number of edges in _aGraph_.
 4
 ```
 
+At `Polyhedron`, the number of edges is half of the sum of the face degrees:
+
+```
+>>> let p = [0 0 0].unitCube;
+>>> (
+>>> 	p.faceIndices.collect(size:/1).sum,
+>>> 	p.edgeCount
+>>> )
+(24, 12)
+```
+
+At `Polygon` the number of edges is equal to the number of vertices:
+
+```
+>>> let p = 4.regularPolygon([0 0], 1);
+>>> (p.vertexCount, p.edgeCount)
+(4, 4)
+```
+
 * * *
 
-See also: edgeList, Graph, vertexCount
+See also: edgeList, Graph, Polygon, Polyhedron, vertexCount
 
 References:
 _Mathematica_

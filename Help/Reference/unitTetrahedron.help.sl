@@ -19,7 +19,7 @@ and that each edge as a unit:
 >>> 		each.Line.arcLength
 >>> 	}
 >>> )
-(4, 4, 12, 3 # 4, 1 # 12)
+(4, 4, 6, 3 # 4, 1 # 6)
 ```
 
 Draw the _xy_ projection of the unit tetrahedron:

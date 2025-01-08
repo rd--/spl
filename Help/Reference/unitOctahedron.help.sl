@@ -19,7 +19,7 @@ and that each edge as a unit:
 >>> 		each.Line.arcLength
 >>> 	}
 >>> )
-(6, 8, 24, 3 # 8, 1 # 24)
+(6, 8, 12, 3 # 8, 1 # 12)
 ```
 
 Draw the unit octahedron:

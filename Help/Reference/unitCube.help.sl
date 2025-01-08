@@ -33,7 +33,7 @@ and that each edge as a unit:
 >>> 	p.faceIndices.collect(size:/1),
 >>> 	p.edgeLengths
 >>> )
-(8, 6, 24, 4 # 6, 1 # 24)
+(8, 6, 12, 4 # 6, 1 # 12)
 ```
 
 Draw the unit cube:

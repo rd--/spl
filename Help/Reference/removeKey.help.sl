@@ -22,7 +22,7 @@ true
 
 * * *
 
-See also: remove, removeAllKeys, removeAt
+See also: remove, removeAllKeys, removeAt, removeKeyIfAbsent
 
 References:
 _Smalltalk_
