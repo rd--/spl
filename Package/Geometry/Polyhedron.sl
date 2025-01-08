@@ -215,29 +215,30 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 
 +System {
 
-	fradinCatalogue { :self :name |
+	fradinPolyhedraCatalogue { :self |
 		self.requireLibraryItem(
-			'Geometry/Polyhedron/Fradin%Catalogue'.format([name])
+			'FradinPolyhedraCatalogue'
 		)
 	}
 
 	holmesPolyhedraCatalogue { :self |
 		self.requireLibraryItem(
-			'Geometry/Polyhedron/HolmesPolyhedraCatalogue'
+			'HolmesPolyhedraCatalogue'
 		)
 	}
 
 	levskayaPolyhedraCatalogue { :self |
 		self.requireLibraryItem(
-			'Geometry/Polyhedron/LevskayaPolyhedraCatalogue'
+			'LevskayaPolyhedraCatalogue'
 		)
 	}
 
 }
 
 LibraryItem(
-	name: 'Geometry/Polyhedron/FradinDualUniformPolyhedraCatalogue',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/DualUniformPolyhedra.json',
+	name: 'FradinPolyhedraCatalogue',
+	category: 'Geometry/Polyhedron',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/FradinPolyhedraCatalogue.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
@@ -247,29 +248,8 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Geometry/Polyhedron/FradinJohnsonSolidsCatalogue',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/JohnsonSolids.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			Polyhedron(each['vertex'], each['face'].concatenation + 1)
-		}
-	}
-)
-
-LibraryItem(
-	name: 'Geometry/Polyhedron/FradinUniformPolyhedraCatalogue',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/fradin/UniformPolyhedra.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			Polyhedron(each['vertex'], each['face'].concatenation + 1)
-		}
-	}
-)
-
-LibraryItem(
-	name: 'Geometry/Polyhedron/HolmesPolyhedraCatalogue',
+	name: 'HolmesPolyhedraCatalogue',
+	category: 'Geometry/Polyhedron',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/holmes/HolmesPolyhedraCatalogue.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
@@ -280,7 +260,8 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Geometry/Polyhedron/LevskayaPolyhedraCatalogue',
+	name: 'LevskayaPolyhedraCatalogue',
+	category: 'Geometry/Polyhedron',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/levskaya/LevskayaPolyhedraCatalogue.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |

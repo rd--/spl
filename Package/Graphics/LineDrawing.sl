@@ -1,4 +1,4 @@
-/* Requires: CrystalLatticeStructure Svg */
+/* Requires: CrystalStructure Svg */
 
 LineDrawing : [Object] { | contents metadata |
 
@@ -181,7 +181,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[CrystalLatticeStructure, Polyhedron] {
++[CrystalStructure, Polyhedron] {
 
 	asPerspectiveDrawing { :self |
 		self.asPerspectiveDrawing(

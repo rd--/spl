@@ -1,6 +1,6 @@
-# categorizedTuningArchive
+# scalaTuningMetaArchive
 
-- _categorizedTuningArchive(aSystem)_
+- _scalaTuningMetaArchive(aSystem)_
 
 Answer a `Record` where the keys are categories and the associated values are `List`s of tuning names.
 
@@ -11,7 +11,7 @@ Count the number of entries:
 
 ```
 >>> system
->>> .categorizedTuningArchive
+>>> .scalaTuningMetaArchive
 >>> .size
 33
 ```
@@ -20,7 +20,7 @@ Count the number of entries at a particular key:
 
 ```
 >>> system
->>> .categorizedTuningArchive
+>>> .scalaTuningMetaArchive
 >>> .at('Wilson, Erv')
 >>> .size
 113

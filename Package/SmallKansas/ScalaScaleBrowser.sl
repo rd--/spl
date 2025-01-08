@@ -53,7 +53,7 @@ ScalaScaleBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		system.requestLibraryItem(
-			'Music/Scales/ScalaModeNames'
+			'ScalaScaleArchive'
 		).then { :answer |
 			smallKansas.addFrame(
 				smallKansas.ScalaScaleBrowser(answer),

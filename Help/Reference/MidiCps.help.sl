@@ -33,6 +33,25 @@ The inverse is `CpsMidi`:
 69
 ```
 
+Midi note numbers are a linear pitch space,
+each twelve steps is an octave:
+
+```
+>>> [48 60 72].MidiCps
+[130.8 261.6 523.2]
+
+>>> 130.8 * [1 2 4]
+[130.8 261.6 523.2]
+```
+
+Plot over a subset of the reals:
+
+~~~spl svg=A
+(0 -- 100).functionPlot(MidiCps:/1)
+~~~
+
+![](sw/spl/Help/Image/MidiCps-A.svg)
+
 * * *
 
 See also: CpsMidi, MidiRatio

@@ -30,10 +30,10 @@ ScalaJiMetaBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		system.awaitLibraryItems([
-			'Music/Tuning/CategorizedTuningArchive',
-			'Music/Tuning/ScalaTuningArchive'
+			'ScalaTuningArchive',
+			'ScalaTuningMetaArchive'
 		]) {
-			let meta = system.categorizedTuningArchive;
+			let meta = system.scalaTuningMetaArchive;
 			let archive = system.scalaRationalTuningArchive;
 			smallKansas.addFrame(
 				smallKansas.ScalaJiMetaBrowser(

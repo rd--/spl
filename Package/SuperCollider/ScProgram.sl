@@ -79,24 +79,26 @@ SuperColliderProgramIndex : [Object] { | contents |
 +System {
 
 	superColliderProgramIndex { :self |
-		self.requireLibraryItem('Music/SuperCollider/ProgramIndex')
+		self.requireLibraryItem('SuperColliderProgramIndex')
 	}
 
 	superColliderProgramOracle { :self |
-		self.requireLibraryItem('Music/SuperCollider/ProgramOracle')
+		self.requireLibraryItem('SuperColliderProgramOracle')
 	}
 
 }
 
 LibraryItem(
-	name: 'Music/SuperCollider/ProgramIndex',
+	name: 'SuperColliderProgramIndex',
+	category: 'Music/Synthesis',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursPrograms.text',
 	mimeType: 'text/plain',
 	parser: parseSuperColliderProgramIndex:/1
 )
 
 LibraryItem(
-	name: 'Music/SuperCollider/ProgramOracle',
+	name: 'SuperColliderProgramOracle',
+	category: 'Music/Synthesis',
 	url: 'https://rohandrape.net/sw/jssc3/text/SmallHoursOracle.text',
 	mimeType: 'text/plain',
 	parser: parseSuperColliderProgramIndex:/1

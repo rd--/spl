@@ -64,19 +64,18 @@ _Note:_
 The catalogue is a `LibraryItem`,
 and this function requires the item be available locally.
 
-The `levskayaPolyhedraCatalogue` method is `requireLibraryItem` of
-'Geometry → Polyhedron → LevskayaPolyhedraCatalogue'.
+The `levskayaPolyhedraCatalogue` method is `requireLibraryItem` of 'LevskayaPolyhedraCatalogue'.
 
 To clear the library item:
 
 ~~~
 system
 .library[
-	'Geometry/Polyhedron/LevskayaPolyhedraCatalogue'
+	'LevskayaPolyhedraCatalogue'
 ]
 .deleteLocalStorage
 ~~~
 
 * * *
 
-See also: asPerspectiveDrawing, fradinCatalogue, holmesPolyhedraCatalogue, Polyhedron
+See also: asPerspectiveDrawing, fradinPolhyedraCatalogue, holmesPolyhedraCatalogue, Polyhedron

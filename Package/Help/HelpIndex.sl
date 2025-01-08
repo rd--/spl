@@ -54,13 +54,14 @@ HelpIndex : [Object] { | contents |
 +System {
 
 	helpIndex { :self |
-		self.requireLibraryItem('System/Help/Index')
+		self.requireLibraryItem('HelpIndex')
 	}
 
 }
 
 LibraryItem(
-	name: 'System/Help/Index',
+	name: 'HelpIndex',
+	category: 'System/Help',
 	url: 'https://rohandrape.net/sw/spl/Help/Index.text',
 	mimeType: 'text/plain',
 	parser: { :text |

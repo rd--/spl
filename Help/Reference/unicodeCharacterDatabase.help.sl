@@ -1,16 +1,16 @@
-# unicodeData
+# unicodeCharacterDatabase
 
-- _unicodeData(aSystem)_
+- _unicodeCharacterDatabase(aSystem)_
 
 Answer a _matrix_ holding the _Unicode Character Database_.
 
-The `unicodeData` method is `requireLibraryItem` of 'Text/Unicode/CharacterDatabase'.
+The `unicodeCharacterDatabase` method is `requireLibraryItem` of 'UnicodeCharacterDatabase'.
 
 Acquire the table if it is not cached:
 
 ~~~
 system.awaitLibraryItem(
-	'Text/Unicode/CharacterDatabase'
+	'UnicodeCharacterDatabase'
 ) {
 	'Acquired'.postLine
 }
@@ -21,7 +21,7 @@ Check if the library item is acquired (this will acquire it if it is locally sto
 
 ~~~
 >>> system.libraryItem(
->>> 	'Text/Unicode/CharacterDatabase'
+>>> 	'UnicodeCharacterDatabase'
 >>> ).isAcquired
 true
 ~~~
@@ -29,14 +29,18 @@ true
 Count the number of entries:
 
 ~~~
->>> system.unicodeData.size
+>>> system
+>>> .unicodeCharacterDatabase
+>>> .size
 40116
 ~~~
 
 The entry for code point 03C0:
 
 ~~~
->>> system.unicodeData.detect { :each |
+>>> system
+>>> .unicodeCharacterDatabase
+>>> .detect { :each |
 >>> 	each.first = '03C0'
 >>> }
 [

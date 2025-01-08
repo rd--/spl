@@ -4,7 +4,7 @@
 
 	helpTextFor { :self :topic :event |
 		system.requestLibraryItem(
-			'System/Help/Index'
+			'HelpIndex'
 		).then { :helpIndex |
 			helpIndex.fetchFor(topic).then { :aString |
 				aString.ifNotNil {

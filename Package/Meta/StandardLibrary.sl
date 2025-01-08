@@ -65,7 +65,7 @@
 	'Point' /* PlanarCoordinates CartesianCoordinates */
 
 	/* Chemistry */
-	'CrystalLatticeStructure'
+	'CrystalStructure'
 
 	/* Graphics */
 	'Bitmap'

@@ -82,12 +82,8 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 +System {
 
-	categorizedTuningArchive { :self |
-		self.requireLibraryItem('Music/Tuning/CategorizedTuningArchive')
-	}
-
 	scalaIntervalArchive { :self |
-		self.requireLibraryItem('Music/Tuning/ScalaIntervalNames')
+		self.requireLibraryItem('ScalaIntervalArchive')
 	}
 
 	scalaRationalTuningArchive { :self |
@@ -101,11 +97,15 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	scalaScaleArchive { :self |
-		self.requireLibraryItem('Music/Scales/ScalaModeNames')
+		self.requireLibraryItem('ScalaScaleArchive')
 	}
 
 	scalaTuningArchive { :self |
-		self.requireLibraryItem('Music/Tuning/ScalaTuningArchive')
+		self.requireLibraryItem('ScalaTuningArchive')
+	}
+
+	scalaTuningMetaArchive { :self |
+		self.requireLibraryItem('ScalaTuningMetaArchive')
 	}
 
 }
@@ -146,27 +146,9 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 }
 
-/*
 LibraryItem(
-	name: 'Music/Tuning/Scala/JustIntonation',
-	url: 'https://rohandrape.net/sw/hmt/data/json/scala-ji-tuning.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			each.includesKey('octave').if {
-				let [numerator, denominator] = each['octave'];
-				each['octave'] := Fraction(numerator, denominator)
-			} {
-				each['octave'] := 2/1
-			};
-			each.asRatioTuning
-		}
-	}
-)
-*/
-
-LibraryItem(
-	name: 'Music/Scales/ScalaModeNames',
+	name: 'ScalaScaleArchive',
+	category: 'Music/Tuning',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-modenam.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
@@ -178,7 +160,8 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Music/Tuning/ScalaIntervalNames',
+	name: 'ScalaIntervalArchive',
+	category: 'Music/Tuning',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-intnam.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
@@ -192,7 +175,8 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Music/Tuning/ScalaTuningArchive',
+	name: 'ScalaTuningArchive',
+	category: 'Music/Tuning',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-db.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
@@ -201,7 +185,8 @@ LibraryItem(
 )
 
 LibraryItem(
-	name: 'Music/Tuning/CategorizedTuningArchive',
+	name: 'ScalaTuningMetaArchive',
+	category: 'Music/Tuning',
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-meta-au.json',
 	mimeType: 'application/json',
 	parser: identity:/1

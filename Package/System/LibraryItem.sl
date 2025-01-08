@@ -1,6 +1,6 @@
 /* Requires: Url */
 
-LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
+LibraryItem : [Object] { | name category url mimeType parser useLocalStorage contents |
 
 	deleteLocalStorage { :self |
 		system.localStorage.removeKeyIfAbsent(self.storageKey) { };
@@ -105,8 +105,8 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 
 +String {
 
-	LibraryItem { :name :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, url, mimeType, parser, true, nil)
+	LibraryItem { :name :category :url :mimeType :parser |
+		newLibraryItem().initializeSlots(name, category, url, mimeType, parser, true, nil)
 	}
 
 }
@@ -116,6 +116,7 @@ LibraryItem : [Object] { | name url mimeType parser useLocalStorage contents |
 	asLibraryItem { :self |
 		LibraryItem(
 			self['name'],
+			self['category'],
 			self['url'],
 			self['mimeType'],
 			self['parser']

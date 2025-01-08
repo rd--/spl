@@ -52,7 +52,7 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 
 	helpFor { :self :topic :event |
 		system.requestLibraryItem(
-			'System/Help/Index'
+			'HelpIndex'
 		).then { :helpIndex |
 			helpIndex.fetchFor(topic).then { :aString |
 				aString.ifNotNil {

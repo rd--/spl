@@ -1,8 +1,8 @@
-CrystalLatticeStructureOracle : [Object, SmallKansan] {
+CrystalStructureOracle : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		system.requestLibraryItem(
-			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+			'LeitnerCrystalStructureCatalogue'
 		).then { :leitnerCatalogue |
 			let cls = leitnerCatalogue.atRandom;
 			let matrix = AxonometricProjection('Chinese').asMatrix;

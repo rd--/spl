@@ -1,6 +1,6 @@
 /* Requires: Graph LibraryItem */
 
-CrystalLatticeStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
+CrystalStructure : [Object] { | name description vertexCount edges vertexLabels vertexCoordinates |
 
 	asGraph { :self |
 		let answer = Graph(
@@ -36,8 +36,8 @@ CrystalLatticeStructure : [Object] { | name description vertexCount edges vertex
 
 +Record {
 
-	asCrystalLatticeStructure { :self |
-		newCrystalLatticeStructure().initializeSlots(
+	asCrystalStructure { :self |
+		newCrystalStructure().initializeSlots(
 			self['name'],
 			self['description'],
 			self['vertexLabels'].size,
@@ -55,19 +55,20 @@ CrystalLatticeStructure : [Object] { | name description vertexCount edges vertex
 
 +System {
 
-	leitnerCatalogue { :self |
+	leitnerCrystalStructureCatalogue { :self |
 		self.requireLibraryItem(
-			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+			'LeitnerCrystalStructureCatalogue'
 		)
 	}
 
 }
 
 LibraryItem(
-	name: 'Chemistry/CrystalLatticeStructure/LeitnerCatalogue',
+	name: 'LeitnerCrystalStructureCatalogue',
+	category: 'Chemistry/Crystallography',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/chemistry/json/cls.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
-		libraryItem.collect(asCrystalLatticeStructure:/1)
+		libraryItem.collect(asCrystalStructure:/1)
 	}
 )

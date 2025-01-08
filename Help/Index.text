@@ -304,6 +304,7 @@ Reference/asMatrix.help.sl
 Reference/asNumber.help.sl
 Reference/asOscParameter.help.sl
 Reference/asPermutation.help.sl
+Reference/asPerspectiveDrawing.help.sl
 Reference/asPlanarCoordinates.help.sl
 Reference/asPoint.help.sl
 Reference/asPolarCoordinates.help.sl
@@ -480,7 +481,6 @@ Reference/caseOf.help.sl
 Reference/caseOfOtherwise.help.sl
 Reference/catalanNumber.help.sl
 Reference/catalanTriangle.help.sl
-Reference/categorizedTuningArchive.help.sl
 Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
 Reference/CauchyDistribution.help.sl
@@ -607,8 +607,8 @@ Reference/createObjectUrl.help.sl
 Reference/crossedMultiply.help.sl
 Reference/cross.help.sl
 Reference/crossMatrix.help.sl
-Reference/CrystalLatticeStructureBrowser.help.sl
-Reference/CrystalLatticeStructure.help.sl
+Reference/CrystalStructureBrowser.help.sl
+Reference/CrystalStructure.help.sl
 Reference/CssStyleSheet.help.sl
 Reference/cubed.help.sl
 Reference/Cubed.help.sl
@@ -803,6 +803,7 @@ Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
 Reference/Extensible.help.sl
 Reference/extractDocumentationTests.help.sl
+Reference/faceIndices.help.sl
 Reference/factorial.help.sl
 Reference/factorialPower.help.sl
 Reference/factorInteger.help.sl
@@ -869,6 +870,7 @@ Reference/fourth.help.sl
 Reference/Frac.help.sl
 Reference/Fraction.help.sl
 Reference/fractionPart.help.sl
+Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
 Reference/Frame.help.sl
 Reference/FreeVerb.help.sl
@@ -910,6 +912,8 @@ Reference/Gendy1.help.sl
 Reference/geometricMean.help.sl
 Reference/geometricSeries.help.sl
 Reference/GetTempo.help.sl
+Reference/gluLookAt.help.sl
+Reference/gluPerspective.help.sl
 Reference/goldenAngle.help.sl
 Reference/goldenRatio.help.sl
 Reference/gradyLatticeCoordinates.help.sl
@@ -968,6 +972,8 @@ Reference/hilbertMatrix.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
 Reference/holdersComma.help.sl
+Reference/holmesPolyhedraCatalogue.help.sl
+Reference/homogeneousTranslationMatrix.help.sl
 Reference/horogramDrawing.help.sl
 Reference/horogramTable.help.sl
 Reference/host.help.sl
@@ -1256,7 +1262,7 @@ Reference/latticeGraph.help.sl
 Reference/latticePrimes.help.sl
 Reference/latticeVector.help.sl
 Reference/latticeVectorString.help.sl
-Reference/latticeVertices.help.sl
+Reference/latticeVertexCoordinates.help.sl
 Reference/lcm.help.sl
 Reference/Lcm.help.sl
 Reference/leafCount.help.sl
@@ -1273,7 +1279,7 @@ Reference/leftParenthesis.help.sl
 Reference/leftParenthesisRightParenthesis.help.sl
 Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
-Reference/leitnerCatalogue.help.sl
+Reference/leitnerCrystalStructureCatalogue.help.sl
 Reference/Length.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
 Reference/lessThanSignEqualsSign.help.sl
@@ -1287,6 +1293,7 @@ Reference/levelBy.help.sl
 Reference/levelEach.help.sl
 Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
+Reference/levskayaPolyhedraCatalogue.help.sl
 Reference/lexicographicallyLeastRotation.help.sl
 Reference/lexicographicPermutations.help.sl
 Reference/LfBrownNoise1.help.sl
@@ -1985,6 +1992,7 @@ Reference/scalaRationalTuningArchive.help.sl
 Reference/scalaScaleArchive.help.sl
 Reference/scalaTuningArchive.help.sl
 Reference/ScalaTuning.help.sl
+Reference/scalaTuningMetaArchive.help.sl
 Reference/Scale.help.sl
 Reference/ScaleNeg.help.sl
 Reference/scalingMatrix.help.sl
@@ -2166,6 +2174,7 @@ Reference/SuperColliderProgramIndex.help.sl
 Reference/SuperColliderProgramOracle.help.sl
 Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
+Reference/surfaceNormal.help.sl
 Reference/surfacePlot.help.sl
 Reference/Svf.help.sl
 Reference/Svg.help.sl
@@ -2277,7 +2286,7 @@ Reference/UgenGraph.help.sl
 Reference/Ugen.help.sl
 Reference/UndirectedEdge.help.sl
 Reference/undirectedGraph.help.sl
-Reference/unicodeData.help.sl
+Reference/unicodeCharacterDatabase.help.sl
 Reference/unicode.help.sl
 Reference/UniformDistribution.help.sl
 Reference/union.help.sl
@@ -2287,10 +2296,14 @@ Reference/uniqueId.help.sl
 Reference/unitBox.help.sl
 Reference/unitCircle.help.sl
 Reference/unitCube.help.sl
+Reference/unitDodecahedron.help.sl
+Reference/unitIcosahedron.help.sl
 Reference/unitize.help.sl
 Reference/unitNormal.help.sl
+Reference/unitOctahedron.help.sl
 Reference/unitSquare.help.sl
 Reference/unitStep.help.sl
+Reference/unitTetrahedron.help.sl
 Reference/unitVector.help.sl
 Reference/unixTimeInMilliseconds.help.sl
 Reference/unlines.help.sl
@@ -2325,6 +2338,7 @@ Reference/VarLag.help.sl
 Reference/VarSaw.help.sl
 Reference/vectorAngle.help.sl
 Reference/vedicSquare.help.sl
+Reference/vertexCoordinates.help.sl
 Reference/vertexCount.help.sl
 Reference/vertexDegree.help.sl
 Reference/vertexInDegree.help.sl
@@ -2332,7 +2346,6 @@ Reference/vertexList.help.sl
 Reference/vertexOutDegree.help.sl
 Reference/verticalLine.help.sl
 Reference/verticalLineVerticalLine.help.sl
-Reference/vertices.help.sl
 Reference/View.help.sl
 Reference/Void.help.sl
 Reference/Vosim.help.sl

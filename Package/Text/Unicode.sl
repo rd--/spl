@@ -1,13 +1,14 @@
 +System {
 
-	unicodeData { :self |
-		self.requireLibraryItem('Text/Unicode/CharacterDatabase')
+	unicodeCharacterDatabase { :self |
+		self.requireLibraryItem('UnicodeCharacterDatabase')
 	}
 
 }
 
 LibraryItem(
-	name: 'Text/Unicode/CharacterDatabase',
+	name: 'UnicodeCharacterDatabase',
+	category: 'Text/Encoding',
 	url: 'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt',
 	mimeType: 'text/plain',
 	parser: { :item |

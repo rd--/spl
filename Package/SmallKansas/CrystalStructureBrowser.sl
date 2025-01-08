@@ -1,6 +1,6 @@
-/* Requires: CrystalLatticeStructure */
+/* Requires: CrystalStructure */
 
-+CrystalLatticeStructure {
++CrystalStructure {
 
 	asSvgElement { :self :scale :projection:/1 |
 		self.asGraph.asSvgElement(scale, projection:/1)
@@ -36,7 +36,7 @@
 
 +SmallKansas {
 
-	CrystalLatticeStructureBrowser { :self :structures |
+	CrystalStructureBrowser { :self :structures |
 		self.ColumnBrowser(
 			'Crystal Lattice Structure Browser',
 			'text/html',
@@ -62,14 +62,14 @@
 
 }
 
-CrystalLatticeStructureBrowser : [Object, SmallKansan] {
+CrystalStructureBrowser : [Object, SmallKansan] {
 
 	openIn { :self :smallKansas :event |
 		system.requestLibraryItem(
-			'Chemistry/CrystalLatticeStructure/LeitnerCatalogue'
+			'LeitnerCrystalStructureCatalogue'
 		).then { :leitnerCatalogue |
 			smallKansas.addFrame(
-				smallKansas.CrystalLatticeStructureBrowser(leitnerCatalogue),
+				smallKansas.CrystalStructureBrowser(leitnerCatalogue),
 				event
 			)
 		}

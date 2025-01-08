@@ -1,6 +1,6 @@
-# CrystalLatticeStructure
+# CrystalStructure
 
-A `CrystalLatticeStructure` is a `Type`.
+A `CrystalStructure` is a `Type`.
 
 The structure consists of the fields `name`, `description`, `vertexCount`, `vertexLabels`, `vertexCoordinates` and `edges`.
 
@@ -13,6 +13,10 @@ where _i_ and _j_ are indices into the `List` of atoms.
 
 * * *
 
-See also: asCrystalLatticeStructure, CrystalLatticeStructureBrowser, leitnerCatalogue
+See also: asCrystalStructure, CrystalStructureBrowser, leitnerCrystalStructureCatalogue
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Crystal_structure)
 
 Categories: Chemistry

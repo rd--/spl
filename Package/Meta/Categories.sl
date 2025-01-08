@@ -104,7 +104,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'Colour'
 	],
 	'Data-Chemistry': [
-		'CrystalLatticeStructure'
+		'CrystalStructure'
 	],
 	'Music-Tuning': [
 		'Scale'

@@ -46,6 +46,25 @@ SinOsc(
 ) * 0.1
 ```
 
+Midi note numbers are a linear pitch space,
+each twelve steps is an octave:
+
+```
+>>> [130.8 261.6 523.2].CpsMidi
+[48 60 72]
+
+>>> 48 + (12 * [0 1 2])
+[48 60 72]
+```
+
+Plot over a subset of the reals:
+
+~~~spl svg=A
+(20 -- 1280).functionPlot(CpsMidi:/1)
+~~~
+
+![](sw/spl/Help/Image/CpsMidi-A.svg)
+
 * * *
 
 See also: CpsRatio, MidiCps

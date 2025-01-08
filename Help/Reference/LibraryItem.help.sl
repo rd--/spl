@@ -20,7 +20,7 @@ true
 'LibraryItem'
 
 >>> system.library.includesKey(
->>> 	'Text/Unicode/CharacterDatabase'
+>>> 	'UnicodeCharacterDatabase'
 >>> )
 true
 ```
@@ -33,4 +33,4 @@ system.library.collect(request:/1)
 
 * * *
 
-See also: awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeData
+See also: awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeCharacterDatabase

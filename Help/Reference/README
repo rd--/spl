@@ -1,6 +1,6 @@
 'Help/Reference'.splFile.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7041
+Total => 7063
 
 Note: Requires LibraryItems be locally stored, i.e.
 
