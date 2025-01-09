@@ -35,6 +35,11 @@ See also: Block
 
 Guides: Arity Notation
 
-Unicode: U+00B0 ⧸ Big Solidus
+Unicode:
+U+00B0 ⧸ Big Solidus,
+U+02080 ₀ Subscript Zero,
+U+02081 ₁ Subscript One,
+U+02082 ₂ Subscript Two,
+U+02083 ₃ Subscript Three
 
 Categories: Syntax

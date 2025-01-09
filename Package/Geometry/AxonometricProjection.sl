@@ -10,9 +10,21 @@ AxonometricProjection : [Object] { | alpha beta x y z |
 
 	asMatrix { :self |
 		[
-			[self.x * self.beta.cos.negated, 0, self.z * self.alpha.cos],
-			[self.x * self.beta.sin, self.y , self.z * self.alpha.sin],
-			[0, 0, 0]
+			[
+				self.x * self.beta.cos.negated,
+				0,
+				self.z * self.alpha.cos
+			],
+			[
+				self.x * self.beta.sin,
+				self.y,
+				self.z * self.alpha.sin
+			],
+			[
+				0,
+				0,
+				0
+			]
 		]
 	}
 
