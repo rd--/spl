@@ -47,8 +47,9 @@ system
 .at('NbP')
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		'Isometric'
-	).asBlock
+		pi / 6, pi / 6,
+		1, 1, 1
+	)
 )
 ~~~
 

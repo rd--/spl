@@ -30,7 +30,7 @@ the cube is projected as two horizontally adjacent squares:
 	AxonometricProjection(
 		0, 0,
 		1, 1, 1
-	).asBlock
+	)
 )
 ~~~
 
@@ -47,7 +47,7 @@ the cube is projected as two vertically adjacent squares:
 	AxonometricProjection(
 		pi / 2, 0,
 		1, 1, 1
-	).asBlock
+	)
 )
 ~~~
 
@@ -64,7 +64,7 @@ and the cube is projected as a hexagon:
 	AxonometricProjection(
 		pi / 6, pi / 6,
 		1, 1, 1
-	).asBlock
+	)
 )
 ~~~
 
@@ -80,7 +80,7 @@ the planometric or military projection is given:
 	AxonometricProjection(
 		pi / 4, pi / 4,
 		1, 1, 1
-	).asBlock
+	)
 )
 ~~~
 
@@ -95,7 +95,7 @@ ISO 5456-3 (NEN 2536) gives the following dimetric projection for technical draw
 	AxonometricProjection(
 		42.degree, 7.degree,
 		1, 1, 1 / 2
-	).asBlock
+	)
 )
 ~~~
 
@@ -110,7 +110,7 @@ The oblique projection given by Carlbom and Paciorek in Figure 3-11b:
 	AxonometricProjection(
 		30.degree, 0,
 		1, 1, 2 / 3
-	).asBlock
+	)
 )
 ~~~
 
@@ -125,7 +125,7 @@ A trimetric projection given by Carlbom and Paciorek in Figure 3-9:
 	AxonometricProjection(
 		24.degree, 17.degree,
 		7 / 8, 1, 3 / 4
-	).asBlock
+	)
 )
 ~~~
 
@@ -140,7 +140,7 @@ The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 	AxonometricProjection(
 		30.degree, 0,
 		1, 1, 1 / 2
-	).asBlock
+	)
 )
 ~~~
 

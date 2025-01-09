@@ -6,8 +6,8 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 		answer
 	}
 
-	asPerspectiveDrawing { :self :projection:/1 |
-		self.asGraph.asPerspectiveDrawing(projection:/1)
+	asPerspectiveDrawing { :self :projection |
+		self.asGraph.asPerspectiveDrawing(projection)
 	}
 
 	edgeCount { :self |

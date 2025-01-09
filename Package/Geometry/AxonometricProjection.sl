@@ -1,13 +1,5 @@
 AxonometricProjection : [Object] { | alpha beta x y z |
 
-	asBlock { :self |
-		let matrix = self.asMatrix;
-		{ :aVector |
-			let [x, y, _] = matrix.dot(aVector);
-			[x, y]
-		}
-	}
-
 	asMatrix { :self |
 		[
 			[
@@ -26,6 +18,14 @@ AxonometricProjection : [Object] { | alpha beta x y z |
 				0
 			]
 		]
+	}
+
+	asUnaryBlock { :self |
+		let matrix = self.asMatrix;
+		{ :aVector |
+			let [x, y, _] = matrix.dot(aVector);
+			[x, y]
+		}
 	}
 
 }

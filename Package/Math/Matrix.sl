@@ -696,11 +696,26 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	matrixColumn { :self :anInteger |
 		let [m, n] = self.shape;
 		anInteger.betweenAnd(1, n).if {
-			(1 .. m).collect { :each |
-				self[each][anInteger]
+			(1 .. m).collect { :i |
+				self[i][anInteger]
 			}
 		} {
 			self.error('@Sequence>>matrixColumn: illegal index')
+		}
+	}
+
+	matrixColumns { :self :aList |
+		let [m, n] = self.shape;
+		aList.allSatisfy { :each |
+			each.betweenAnd(1, n)
+		}.if {
+			(1 .. m).collect { :i |
+				aList.collect { :j |
+					self[i][j]
+				}
+			}
+		} {
+			self.error('@Sequence>>matrixColumns: illegal index')
 		}
 	}
 

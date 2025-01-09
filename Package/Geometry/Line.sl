@@ -100,7 +100,7 @@ Line : [Object] { | vertexCoordinates |
 		self.embeddingDimension.caseOfOtherwise([
 			2 -> { self },
 			3 -> {
-				let f:/1 = AxonometricProjection('Chinese').asBlock;
+				let f:/1 = AxonometricProjection('Chinese').asUnaryBlock;
 				Line(
 					self.vertexCoordinates.collect(f:/1)
 				)
@@ -236,9 +236,7 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinKnotCatalogue.json',
 	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect(Line:/1)
-	}
+	parser: identity:/1
 )
 
 LibraryItem(
@@ -246,9 +244,5 @@ LibraryItem(
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinLinkCatalogue.json',
 	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :each |
-			each.collect(Line:/1)
-		}
-	}
+	parser:  identity:/1
 )

@@ -36,7 +36,7 @@ let p = workspace::p := (
 		1, 1, 1 / 2
 	)
 );
-let p:/1 = p.asBlock;
+let p:/1 = p.asUnaryBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;
@@ -61,7 +61,7 @@ and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_
 let r = workspace::r;
 let l = workspace::l;
 let p = workspace::p;
-let p:/1 = p.asBlock;
+let p:/1 = p.asUnaryBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;
@@ -88,7 +88,7 @@ then rightward (_x_):
 let r = workspace::r;
 let l = workspace::l;
 let p = workspace::p;
-let p:/1 = p.asBlock;
+let p:/1 = p.asUnaryBlock;
 let t = { :list |
 	list.collect { :each |
 		let [x, y, z] = each;

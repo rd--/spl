@@ -181,6 +181,36 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
+PerspectiveDrawing : [Object] { | contents metadata |
+
+	asLineDrawing { :self |
+		let f:/1 = self.metadata['projection'].asUnaryBlock;
+		self.error('not implemented')
+	}
+
+}
+
++List {
+
+	PerspectiveDrawing { :self :options |
+		newPerspectiveDrawing().initializeSlots(
+			self.flatten,
+			options
+		)
+	}
+
+	PerspectiveDrawing { :self |
+		self.PerspectiveDrawing(
+			projection: AxonometricProjection(
+				pi / 6, 0,
+				1, 1, 1 / 2
+			),
+			height: 100
+		)
+	}
+
+}
+
 +[CrystalStructure, Polyhedron] {
 
 	asPerspectiveDrawing { :self |
@@ -188,7 +218,7 @@ LineDrawing : [Object] { | contents metadata |
 			AxonometricProjection(
 				pi / 6, 0,
 				1, 1, 1 / 2
-			).asBlock
+			)
 		)
 	}
 

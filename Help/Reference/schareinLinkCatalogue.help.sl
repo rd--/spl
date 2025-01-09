@@ -23,10 +23,7 @@ system
 .schareinLinkCatalogue
 .at('8-2-13')
 .collect { :each |
-	each.collect { :c |
-		let [x, y, z] = c;
-		[x, y]
-	}
+	each.matrixColumns([1 2]).Line
 }
 .LineDrawing
 ~~~

@@ -32,7 +32,7 @@ An _isometric_ projection of the same point set:
 	AxonometricProjection(
 		pi / 6, pi / 6,
 		1, 1, 1
-	).asBlock
+	).asUnaryBlock
 ).scatterPlot
 ~~~
 

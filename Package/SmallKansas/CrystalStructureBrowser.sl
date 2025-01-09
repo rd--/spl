@@ -11,8 +11,8 @@
 		let description = 'p'.createElement;
 		let projectionsA = 'p'.createElement;
 		let projectionsB = 'p'.createElement;
-		let scaledDrawing = { :projection:/1 |
-			self.asSvgElement(12, projection:/1)
+		let scaledDrawing = { :projection |
+			self.asSvgElement(12, projection.asUnaryBlock)
 		};
 		description.textContent := self.description;
 		projectionsA.appendChildren([
@@ -21,8 +21,8 @@
 			scaledDrawing { :each | let [x, y, z] = each; [x z] }
 		]);
 		projectionsB.appendChildren([
-			scaledDrawing(AxonometricProjection('Chinese').asBlock),
-			scaledDrawing(AxonometricProjection('Isometric').asBlock)
+			scaledDrawing(AxonometricProjection('Chinese')),
+			scaledDrawing(AxonometricProjection('Isometric'))
 		]);
 		container.appendChildren([
 			description,

@@ -60,6 +60,16 @@ The third column of a 5×5 matrix:
 ]
 ```
 
+The middle two columns of a 4×4 matrix:
+
+```
+>>> [4 4].iota.submatrix(1:4, 2:3)
+[
+	 2  3;
+	 6  7;
+	10 11;
+	14 15
+]
 * * *
 
 See also: Matrix

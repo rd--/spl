@@ -78,9 +78,9 @@
 		)
 	}
 
-	asPerspectiveDrawing { :self :projection:/1 |
+	asPerspectiveDrawing { :self :projection |
 		self.asLineDrawingWithVertexCoordinates(
-			self.vertexCoordinates.collect(projection:/1)
+			self.vertexCoordinates.collect(projection.asUnaryBlock)
 		)
 	}
 

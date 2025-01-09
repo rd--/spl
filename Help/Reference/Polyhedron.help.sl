@@ -26,7 +26,7 @@ Polyhedron(
 	AxonometricProjection(
 		pi / 4, pi / 4,
 		1, 1, 1
-	).asBlock
+	)
 )
 ~~~
 
