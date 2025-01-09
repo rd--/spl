@@ -40,6 +40,12 @@ Line : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
+	collect { :self :aBlock:/1 |
+		Line(
+			self.vertexCoordinates.collect(aBlock:/1)
+		)
+	}
+
 	dimension { :self |
 		1
 	}
@@ -208,3 +214,41 @@ LineSegment : [Object] { | u v |
 	}
 
 }
+
++System {
+
+	schareinKnotCatalogue { :self |
+		self.requireLibraryItem(
+			'SchareinKnotCatalogue'
+		)
+	}
+
+	schareinLinkCatalogue { :self |
+		self.requireLibraryItem(
+			'SchareinLinkCatalogue'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'SchareinKnotCatalogue',
+	category: 'Geometry/Knot',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinKnotCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect(Line:/1)
+	}
+)
+
+LibraryItem(
+	name: 'SchareinLinkCatalogue',
+	category: 'Geometry/Knot',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinLinkCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			each.collect(Line:/1)
+		}
+	}
+)

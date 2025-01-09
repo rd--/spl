@@ -4,6 +4,12 @@
 
 Answer a plot that gives a visual representation of the elements in a matrix.
 
+`zero` is drawn as white,
+or as transparent if supported,
+and the maximum value in the matrix is drawn as black.
+Ony the magnitude of each cell is considered,
+not the sign.
+
 Plot a 3×3 matrix:
 
 ~~~spl svg=A

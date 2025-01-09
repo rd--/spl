@@ -30,6 +30,6 @@ Draw `identityMatrix`:
 
 * * *
 
-See also: Graymap, Svg
+See also: asPbm, Graymap, matrixPlot, Svg
 
 Categories: Graphics
