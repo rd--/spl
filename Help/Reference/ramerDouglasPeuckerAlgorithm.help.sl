@@ -40,4 +40,4 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm)
 
-Further Reading: Douglas and Peucker (1973), Ramer (1972)
+Further Reading: Douglas and Peucker 1973, Ramer 1972

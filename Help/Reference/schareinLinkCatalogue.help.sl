@@ -38,7 +38,7 @@ The `schareinLinkCatalogue` method is `requireLibraryItem` of 'SchareinLinkCatal
 
 * * *
 
-See also: Line, schareinKnotCatalogue
+See also: Line, schareinKnotCatalogue, schareinMinimalLinkCatalogue
 
 References:
 _W_

@@ -118,6 +118,22 @@ Line : [Object] { | vertexCoordinates |
 
 +List {
 
+	closedLine { :self |
+		Line(self ++ [self.first])
+	}
+
+	Line { :self |
+		(self.rank > 2).if {
+			self.collect(Line:/1)
+		} {
+			newLine().initializeSlots(self)
+		}
+	}
+
+}
+
++[List, Slice] {
+
 	bresenhamLineAlgorithm { :self |
 		let [x1, y1] = self[1];
 		let [x2, y2] = self[2];
@@ -146,18 +162,6 @@ Line : [Object] { | vertexCoordinates |
 		}.whileTrue;
 		answer
 	}
-
-	Line { :self |
-		(self.rank > 2).if {
-			self.collect(Line:/1)
-		} {
-			newLine().initializeSlots(self)
-		}
-	}
-
-}
-
-+[List, Slice] {
 
 	ramerDouglasPeuckerAlgorithm { :self :epsilon |
 		let dMax = 0;
@@ -202,6 +206,18 @@ Line : [Object] { | vertexCoordinates |
 		)
 	}
 
+	schareinMinimalKnotCatalogue { :self |
+		self.requireLibraryItem(
+			'SchareinMinimalKnotCatalogue'
+		)
+	}
+
+	schareinMinimalLinkCatalogue { :self |
+		self.requireLibraryItem(
+			'SchareinMinimalLinkCatalogue'
+		)
+	}
+
 }
 
 LibraryItem(
@@ -216,6 +232,22 @@ LibraryItem(
 	name: 'SchareinLinkCatalogue',
 	category: 'Geometry/Knot',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinLinkCatalogue.json',
+	mimeType: 'application/json',
+	parser:  identity:/1
+)
+
+LibraryItem(
+	name: 'SchareinMinimalKnotCatalogue',
+	category: 'Geometry/Knot',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinMinimalKnotCatalogue.json',
+	mimeType: 'application/json',
+	parser: identity:/1
+)
+
+LibraryItem(
+	name: 'SchareinMinimalLinkCatalogue',
+	category: 'Geometry/Knot',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/scharein/SchareinMinimalLinkCatalogue.json',
 	mimeType: 'application/json',
 	parser:  identity:/1
 )

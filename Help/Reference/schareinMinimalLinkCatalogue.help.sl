@@ -1,0 +1,47 @@
+# schareinMinimalLinkCatalogue
+
+- _schareinMinimalLinkCatalogue(aSystem)_
+
+This is the minimal configuration data for the knots at `schareinKnotCatalogue`.
+
+Count the number of entries:
+
+```
+>>> system
+>>> .schareinMinimalLinkCatalogue
+>>> .size
+130
+```
+
+Draw the entry for the link _3-1_,
+the first (and only) three crossing knot in the catalogue,
+using an _xy_ projection:
+
+~~~spl svg=A
+system
+.schareinMinimalLinkCatalogue
+.at('6-2-1')
+.collect { :each |
+	each.matrixColumns([1 2]).closedLine
+}
+.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/schareinMinimalLinkCatalogue-A.svg)
+
+_Note:_
+The catalogue is a `LibraryItem`,
+and this function requires the item be available locally.
+
+The `schareinMinimalLinkCatalogue` method is `requireLibraryItem` of 'SchareinMinimalKnotCatalogue'.
+
+* * *
+
+See also: Line, schareinKnotCatalogue, schareinMinimalKnotCatalogue
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Knot_(mathematics))
+
+Further Reading: Rolfsen 1976
+
