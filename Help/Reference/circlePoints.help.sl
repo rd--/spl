@@ -1,7 +1,7 @@
 # circlePoints
 
-- _circlePoints(n, r, theta)_
-- _circlePoints(alpha, beta)_ ⟹ _circlePoints(alpha, beta, (2 * pi) / alpha))_
+- _circlePoints(n, o, r, theta)_
+- _circlePoints(alpha, beta)_ ⟹ _circlePoints(alpha, [0 0], beta, (pi / alpha) - (pi / 2))_
 
 Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _theta_.
 
@@ -26,14 +26,14 @@ A square with side length two centered at _(0,0)_:
 Four unitary vectors aligned with the axes:
 
 ```
->>> 4.circlePoints(1, 0)
+>>> 4.circlePoints([0 0], 1, 0)
 [1 0; 0 1; -1 0; 0 -1]
 ```
 
 C.f. `angleVector`:
 
 ```
->>> 6.circlePoints(1, 0)
+>>> 6.circlePoints([0 0], 1, 0)
 (0, pi / 3 .. 2 * pi)
 .collect(angleVector:/1)
 .allButLast
@@ -42,7 +42,7 @@ C.f. `angleVector`:
 Draw a pentagon:
 
 ~~~
-let p = 5.circlePoints(1, pi / 10);
+let p = 5.circlePoints([0 0], 1, pi / 10);
 p.Polygon.asLineDrawing
 ~~~
 
@@ -51,7 +51,7 @@ p.Polygon.asLineDrawing
 Unit circles at each circle point:
 
 ~~~
-20.circlePoints(1, 0).collect { :p |
+20.circlePoints([0 0], 1, 0).collect { :p |
 	Circle(p, 1)
 }.LineDrawing
 ~~~
@@ -62,7 +62,7 @@ Three concentric complete graph drawings:
 
 ~~~spl svg=C
 1:3.collect { :r |
-	8.circlePoints(r * 100, 0)
+	8.circlePoints([0 0], r * 100, 0)
 	.tuples(2)
 	.Line
 }.LineDrawing

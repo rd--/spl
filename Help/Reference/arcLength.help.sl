@@ -28,7 +28,7 @@ At `Rectangle`:
 At `Polygon`:
 
 ```
->>> 5.regularPolygon([0 0], 1).arcLength
+>>> 5.regularPolygon([0 0], 1, 0).arcLength
 5.8779
 ```
 

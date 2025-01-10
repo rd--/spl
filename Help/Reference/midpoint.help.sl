@@ -72,7 +72,7 @@ let n = 7;
 		last[i].midpoint(last[j])
 	}
 }.nestList(
-	k.circlePoints(1, 0),
+	k.circlePoints([0 0], 1, 0),
 	n - 1
 ).collect(
 	Polygon:/1

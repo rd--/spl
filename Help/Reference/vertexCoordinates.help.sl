@@ -31,7 +31,7 @@ At `Rectangle`:
 At `Polygon`:
 
 ```
->>> 4.regularPolygon([0 0], 1)
+>>> 4.regularPolygon([0 0], 1, 0)
 >>> .vertexCoordinates
 [1 0; 0 1; -1 0; 0 -1]
 ```

@@ -31,7 +31,7 @@ At `Polyhedron`, the number of edges is half of the sum of the face degrees:
 At `Polygon` the number of edges is equal to the number of vertices:
 
 ```
->>> let p = 4.regularPolygon([0 0], 1);
+>>> let p = 4.regularPolygon([0 0], 1, 0);
 >>> (p.vertexCount, p.edgeCount)
 (4, 4)
 ```

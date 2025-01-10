@@ -106,9 +106,10 @@ Polygon : [Object] { | vertexCoordinates |
 
 +SmallFloat {
 
-	regularPolygon { :self :center :radius |
-		let theta = 0;
-		Polygon(self.circlePoints(radius, theta) + center)
+	regularPolygon { :self :center :radius :theta |
+		Polygon(
+			self.circlePoints(center, radius, theta)
+		)
 	}
 
 }

@@ -275,16 +275,16 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 +@Integer {
 
-	circlePoints { :n :r :theta |
+	circlePoints { :n :o :r :theta |
 		let m = 2.pi / n;
 		0.to(n - 1).collect { :i |
-			[r, theta + (i * m)].fromPolarCoordinates
+			o + [r, theta + (i * m)].fromPolarCoordinates
 		}
 	}
 
 	circlePoints { :n :r |
 		let theta = (pi / n) - (pi / 2);
-		n.circlePoints(r, theta)
+		n.circlePoints([0 0], r, theta)
 	}
 
 	spherePoints { :n :r |

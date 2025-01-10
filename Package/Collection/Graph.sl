@@ -437,7 +437,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeGraphDrawing { :self :radius |
-		let p = self.circlePoints(radius, 0);
+		let p = self.circlePoints([0 0], radius, 0);
 		[
 			p.PointCloud,
 			p.tuples(2).Line

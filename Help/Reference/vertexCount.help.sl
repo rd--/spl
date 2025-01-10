@@ -32,7 +32,8 @@ At a multigraph:
 At `Polygon`:
 
 ```
->>> 4.regularPolygon([0 0], 1).vertexCount
+>>> 4.regularPolygon([0 0], 1, 0)
+>>> .vertexCount
 4
 ```
 

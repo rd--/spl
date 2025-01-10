@@ -92,6 +92,12 @@ Line : [Object] { | vertexCoordinates |
 		p[i - 1] + (v.normalize * d)
 	}
 
+	project { :self :projection |
+		Line(
+			self.vertexCoordinates.collect(projection.asUnaryBlock)
+		)
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}

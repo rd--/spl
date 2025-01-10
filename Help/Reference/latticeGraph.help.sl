@@ -133,7 +133,7 @@ Draw a _1,3,5,7,11,13_ diamond on a circular lattice:
 
 ~~~spl svg=G
 let m = [4.35 4.25 3.5 3.35 3.75];
-let v = 5.circlePoints(1, pi / 4) * m;
+let v = 5.circlePoints([0 0], 1, pi / 4) * m;
 let n = [1 3 5 7 11 13];
 [n, n].tuples.collect { :each |
 	let [n, d] = each;
