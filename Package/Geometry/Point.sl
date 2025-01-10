@@ -42,6 +42,12 @@ Point : [Object] { | vector |
 		Point(self.vector.midpoint(aPoint.vector))
 	}
 
+	project { :self :projection |
+		Point(
+			projection.asUnaryBlock.value(self.vector)
+		)
+	}
+
 	size { :self |
 		self.vector.size
 	}
@@ -70,20 +76,6 @@ Point : [Object] { | vector |
 		} {
 			v[3]
 		}
-	}
-
-}
-
-PointCloud : [Object] { | pointList |
-
-	boundingBox { :self |
-		self.pointList.coordinateBoundingBox
-	}
-
-	forSvg { :self :options |
-		self.pointList.Point.collect { :each |
-			each.forSvg(options)
-		}.unlines
 	}
 
 }

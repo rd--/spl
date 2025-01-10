@@ -1,66 +1,21 @@
-Polyhedron : [Object] { | vertexCoordinates faceIndices |
+/* Requires: PolygonMesh */
 
-	asGraph { :self |
-		let answer = Graph(self.vertexList, self.edgeList);
-		answer.vertexCoordinates := self.vertexCoordinates;
-		answer
-	}
+Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 
-	asPerspectiveDrawing { :self :projection |
-		self.asGraph.asPerspectiveDrawing(projection)
-	}
-
-	edgeCount { :self |
-		self.faceIndices.collect(size:/1).sum / 2
-	}
-
-	edgeLengths { :self |
-		self.edgeCoordinates.collect { :each |
-			each.Line.arcLength
-		}
-	}
-
-	edgeList { :self |
-		let answer = [];
-		self.faceIndices.do { :each |
-			1.toDo(each.size) { :i |
-				answer.add(
-					[
-						each.at(i),
-						each.atWrap(i + 1)
-					].sort
-				)
-			}
-		};
-		answer.nub
-	}
-
-	edgeCoordinates { :self |
-		let vertexCoordinates = self.vertexCoordinates;
-		self.edgeList.collect { :each |
-			vertexCoordinates.atAll(each)
-		}
-	}
-
-	faceCount { :self |
-		self.faceIndices.size
-	}
-
-	faceSizeCount { :self |
-		self.faceIndices.collect(size:/1).asBag.sortedElements
-	}
-
-	vertexCount { :self |
-		self.vertexCoordinates.size
-	}
-
-	vertexList { :self |
-		[1 .. self.vertexCount]
+	project { :self :projection |
+		PolygonMesh(
+			self.vertexCoordinates.collect(projection.asUnaryBlock),
+			self.faceIndices
+		)
 	}
 
 }
 
 +List {
+
+	Polyhedron { :vertexCoordinates :faceIndices |
+		newPolyhedron().initializeSlots(vertexCoordinates, faceIndices)
+	}
 
 	unitCube { :center |
 		Polyhedron(
@@ -205,10 +160,6 @@ Polyhedron : [Object] { | vertexCoordinates faceIndices |
 				1 4 3
 			]
 		)
-	}
-
-	Polyhedron { :vertexCoordinates :faceIndices |
-		newPolyhedron().initializeSlots(vertexCoordinates, faceIndices)
 	}
 
 }

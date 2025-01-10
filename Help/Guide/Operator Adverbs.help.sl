@@ -42,7 +42,7 @@ The _t_ adverb is the only form that changes the shape of the input sequence.
 [5 6 7; 6 7 8; 7 8 9]
 ```
 
-# J
+## J
 
 To start, note that _verbs_ (i.e. Blocks) in J can apply to several data items at once.
 Indeed, the basic datatype is an array, and J verbs are designed to apply to arrays.

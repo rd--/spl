@@ -109,7 +109,7 @@ _reshape(v, s)_ makes an array of shape _s_ using the elements _v_.
 ]
 ```
 
-# Assignment
+## Assignment
 
 An array or function can be assigned a name using _let_.
 
@@ -127,7 +127,7 @@ An array or function can be assigned a name using _let_.
 [0 1 1.41421 1.73205 2 2.23607 2.44949]
 ```
 
-# Monadic or Dyadic
+## Monadic or Dyadic
 
 A function can be monadic or dyadic, depending on whether there is an argument on the right or on the left and right.
 
@@ -400,7 +400,7 @@ is that one can then apply matrix operations to it, such as matrix inverse.
 ]
 ```
 
-# Prefix
+## Prefix
 
 Prefix can be implemented as a unary adverb,
 applying a unary block to the prefixes of the argument.
@@ -428,7 +428,7 @@ applying a unary block to the prefixes of the argument.
 [1 2 6 12 60 60 420]
 ```
 
-# Permutations
+## Permutations
 
 The dyadic function `@*` indexes a collection by a collection.
 If _p_ is a permutation, _y @* p_ permutes _y_ by _p_.

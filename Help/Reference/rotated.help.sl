@@ -18,4 +18,3 @@ A square rotated by one eighth turn:
 * * *
 
 See also: centroid, Polygon
-

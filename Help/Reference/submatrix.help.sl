@@ -70,6 +70,8 @@ The middle two columns of a 4×4 matrix:
 	10 11;
 	14 15
 ]
+```
+
 * * *
 
 See also: Matrix

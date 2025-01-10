@@ -4,6 +4,10 @@ HalfLine : [Object] { | point vector |
 		1
 	}
 
+	embeddingDimension { :self |
+		self.point.size
+	}
+
 }
 
 InfiniteLine : [Object] { | point vector |
@@ -14,6 +18,10 @@ InfiniteLine : [Object] { | point vector |
 
 	dimension { :self |
 		1
+	}
+
+	embeddingDimension { :self |
+		self.point.size
 	}
 
 	storeString { :self |

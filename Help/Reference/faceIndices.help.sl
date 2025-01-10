@@ -35,4 +35,3 @@ See also: faceCount, Polyhedron, vertexCoordinates, vertexCount
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Face.html)
-

@@ -1,4 +1,4 @@
-/* Requires: CrystalStructure Svg */
+/* Requires: Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Polyhedron, Rectangle, Svg, Triangle, Writing */
 
 LineDrawing : [Object] { | contents metadata |
 
@@ -97,7 +97,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[Circle, Line, Point, PointCloud, Polygon, Rectangle, Triangle, Writing] {
++[Circle, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
 
 	asLineDrawing { :self |
 		[self].LineDrawing
@@ -184,8 +184,17 @@ LineDrawing : [Object] { | contents metadata |
 PerspectiveDrawing : [Object] { | contents metadata |
 
 	asLineDrawing { :self |
-		let f:/1 = self.metadata['projection'].asUnaryBlock;
-		self.error('not implemented')
+		let projection = self.metadata['projection'];
+		LineDrawing(
+			self.contents.collect { :each |
+				each.project(projection)
+			},
+			self.metadata
+		)
+	}
+
+	draw { :self |
+		self.asLineDrawing.draw
 	}
 
 }
@@ -211,15 +220,17 @@ PerspectiveDrawing : [Object] { | contents metadata |
 
 }
 
-+[CrystalStructure, Polyhedron] {
++[GeometryCollection, Line, PointCloud, PolygonMesh, Polyhedron] {
+
+	asPerspectiveDrawing { :self :projection |
+		self.nest.PerspectiveDrawing(
+			projection: projection,
+			height: 100
+		)
+	}
 
 	asPerspectiveDrawing { :self |
-		self.asPerspectiveDrawing(
-			AxonometricProjection(
-				pi / 6, 0,
-				1, 1, 1 / 2
-			)
-		)
+		self.nest.PerspectiveDrawing
 	}
 
 }

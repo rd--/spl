@@ -14,7 +14,6 @@ Answer an `Angle` representing _aNumber_ degrees.
 
 See also `degree`, which answers the angle in radians directly:
 
-
 ```
 >>> 90.degree
 0.5.pi

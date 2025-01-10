@@ -59,29 +59,23 @@
 		].unlines
 	}
 
-	asLineDrawingWithVertexCoordinates { :self :vertexCoordinates |
-		let edges = self.edgeList.collect { :each |
-			let [i, j] = each;
-			let [x1, y1] = vertexCoordinates[i];
-			let [x2, y2] = vertexCoordinates[j];
-			Line([x1 y1; x2 y2])
+	asGeometryCollection { :self |
+		let vertexCoordinates = self.vertexCoordinates;
+		let contents = [PointCloud(vertexCoordinates)];
+		self.edgeList.do { :each |
+			contents.add(
+				Line(vertexCoordinates @* each)
+			)
 		};
-		[
-			PointCloud(vertexCoordinates),
-			edges
-		].LineDrawing
+		GeometryCollection(contents)
 	}
 
 	asLineDrawing { :self |
-		self.asLineDrawingWithVertexCoordinates(
-			self.vertexCoordinates
-		)
+		self.asGeometryCollection.asLineDrawing
 	}
 
 	asPerspectiveDrawing { :self :projection |
-		self.asLineDrawingWithVertexCoordinates(
-			self.vertexCoordinates.collect(projection.asUnaryBlock)
-		)
+		self.asGeometryCollection.project(projection).asLineDrawing
 	}
 
 	complement { :self |

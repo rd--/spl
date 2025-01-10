@@ -45,6 +45,7 @@
 	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
+	'GeometryCollection'
 	'Length'
 	'Line'
 	'Perspective'
@@ -53,16 +54,18 @@
 	'PlanarCoordinates'
 	'Matrix22' /* PlanarCoordinates */
 	'Matrix33' /* CartesianCoordinates */
+	'Point'
+	'PointCloud'
 	'Polygon'
-	'Polyhedron'
-	'AxonometricProjection' /* */
+	'PolygonMesh'
+	'Polyhedron' /* PolygonMesh */
+	'AxonometricProjection'
 	'Rectangle'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */
 	'Sphere' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */
 	'Triangle'
-	'Point' /* PlanarCoordinates CartesianCoordinates */
 
 	/* Chemistry */
 	'CrystalStructure'

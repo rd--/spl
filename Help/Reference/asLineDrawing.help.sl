@@ -64,6 +64,17 @@ Scale(1, [2 2 3 2 3], 'Maj. Pentatonic')
 
 ![](sw/spl/Help/Image/asLineDrawing-G.svg)
 
+At `Graph`:
+
+~~~spl svg=H
+[1/1 8/7 3/2 8/5 7/4]
+.asRatioTuning
+.latticeGraph
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/asLineDrawing-H.svg)
+
 * * *
 
 See also: asPerspectiveDrawing, Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle
