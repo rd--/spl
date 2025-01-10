@@ -221,6 +221,37 @@ LineSegment : [Object] { | u v |
 
 }
 
++[List, Slice] {
+
+	ramerDouglasPeuckerAlgorithm { :self :epsilon |
+		let dMax = 0;
+		let index = 0;
+		let end = self.size;
+		let answer = [];
+		/* ['ramerDouglasPeuckerAlgorithm', self, epsilon].postLine; */
+		2.toDo(end - 1) { :i |
+			let d = [self[1], self[end]].pointLineDistance(self[i]);
+			(d > dMax).ifTrue {
+				index := i;
+				dMax := d
+			}
+		};
+		/* ['postInit', dMax, index, end].postLine; */
+		(dMax > epsilon).if {
+			let p = ramerDouglasPeuckerAlgorithm(self.sliceFromTo(1, index), epsilon);
+			let q = ramerDouglasPeuckerAlgorithm(self.sliceFromTo(index, end), epsilon);
+			/* ['subdivide', dMax, p, q].postLine; */
+			answer.addAll(p.sliceFromTo(1, p.size - 1));
+			answer.addAll(q)
+		} {
+			answer.add(self[1]);
+			answer.add(self[end])
+		};
+		answer
+	}
+
+}
+
 +System {
 
 	schareinKnotCatalogue { :self |

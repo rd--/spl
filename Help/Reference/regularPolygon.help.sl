@@ -127,7 +127,7 @@ Overlap regular polygons of increasing radii and vertices:
 
 * * *
 
-See also: interiorAngles, Polygon, unitSquare
+See also: circlePoints, interiorAngles, Polygon, unitSquare
 
 References:
 _Mathematica_
