@@ -1,19 +1,27 @@
-PointCloud : [Object] { | pointList |
+PointCloud : [Object] { | vertexCoordinates |
 
 	boundingBox { :self |
-		self.pointList.coordinateBoundingBox
+		self.vertexCoordinates.coordinateBoundingBox
 	}
 
 	forSvg { :self :options |
-		self.pointList.Point.collect { :each |
+		self.vertexCoordinates.Point.collect { :each |
 			each.forSvg(options)
 		}.unlines
 	}
 
 	project { :self :projection |
 		PointCloud(
-			self.pointList.collect(projection.asUnaryBlock)
+			self.vertexCoordinates.collect(projection.asUnaryBlock)
 		)
+	}
+
+}
+
++List {
+
+	PointCloud { :self |
+		newPointCloud().initializeSlots(self)
 	}
 
 }

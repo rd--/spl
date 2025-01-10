@@ -3,7 +3,10 @@
 - _fromSphericalCoordinates(aSequence)_
 
 Answers the _(x,y,z)_ Cartesian coordinates corresponding to the spherical coordinates _(r,θ,ϕ)_,
-where θ is azimuth and ϕ is inclination.
+where θ is azimuth,
+usually in _(0, 2π)_,
+and ϕ is inclination,
+usually in _(0, π)_.
 
 ```
 >>> [

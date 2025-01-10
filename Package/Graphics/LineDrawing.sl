@@ -220,7 +220,7 @@ PerspectiveDrawing : [Object] { | contents metadata |
 
 }
 
-+[GeometryCollection, Line, PointCloud, PolygonMesh, Polyhedron] {
++[GeometryCollection, Line, PointCloud, Polygon, PolygonMesh, Polyhedron] {
 
 	asPerspectiveDrawing { :self :projection |
 		self.nest.PerspectiveDrawing(

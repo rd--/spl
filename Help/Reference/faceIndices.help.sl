@@ -1,8 +1,32 @@
 # faceIndices
 
-- _faceIndices(aPolyhedron)_
+- _faceIndices(aGeometry)_
 
 Answer a `List` of lists holding the indices of the vertices of each face.
+
+At `Triangle`:
+
+```
+>>> sasTriangle(1, pi / 2, 2).faceIndices
+[[1 2 3]]
+```
+
+At `Rectangle`:
+
+```
+>>> [0 0].unitSquare.faceIndices
+[[1 2 3 4]]
+```
+
+At `Polygon`:
+
+```
+>>> 5.regularPolygon([0 0], 1, 0)
+>>> .faceIndices
+[[1 2 3 4 5]]
+```
+
+At the unit tetrahedron, a `Polyhedron`:
 
 ```
 >>> [0 0 0].unitTetrahedron.faceIndices
@@ -14,7 +38,7 @@ Answer a `List` of lists holding the indices of the vertices of each face.
 ]
 ```
 
-At unit cube:
+At the unit cube, a `Polyhedron`:
 
 ```
 >>> [0 0 0].unitCube.faceIndices
@@ -30,7 +54,7 @@ At unit cube:
 
 * * *
 
-See also: faceCount, Polyhedron, vertexCoordinates, vertexCount
+See also: faceCount, Polygon, Polyhedron, vertexCoordinates, vertexCount
 
 References:
 _Mathematica_

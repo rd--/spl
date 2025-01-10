@@ -1,8 +1,8 @@
 # diameter
 
-- _diameter(anObject)_
+- _diameter(aGeometry)_
 
-Answer the diameter of _anObject_,
+Answer the diameter of _aGeometry_,
 which is twice the `radius`.
 
 At `Circle`:

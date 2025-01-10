@@ -13,7 +13,8 @@ the embedding dimension is two:
 (0, 2)
 ```
 
-The dimension of a volumetric point is `zero`, the embedding dimension is three:
+The dimension of a volumetric point is `zero`,
+the embedding dimension is three:
 
 ```
 >>> let p = Point([0 0 0]);

@@ -29,8 +29,34 @@ Polygon : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonCentroid
 	}
 
+	dimension { :self |
+		2
+	}
+
 	edgeCount { :self |
 		self.vertexCount
+	}
+
+	edgeList { :self |
+		let k = self.vertexCount;
+		let answer = [];
+		1.toDo(k - 1) { :i |
+			answer.add([i, i + 1])
+		};
+		answer.add([1, k]);
+		answer
+	}
+
+	embeddingDimension { :self |
+		self.vertexCoordinates.anyOne.size
+	}
+
+	faceCount { :self |
+		1
+	}
+
+	faceIndices { :self |
+		[self.vertexList]
 	}
 
 	forSvg { :self :options |
@@ -41,6 +67,12 @@ Polygon : [Object] { | vertexCoordinates |
 
 	interiorAngles { :self |
 		self.vertexCoordinates.polygonInteriorAngles
+	}
+
+	project { :self :projection |
+		Polygon(
+			self.vertexCoordinates.collect(projection.asUnaryBlock)
+		)
 	}
 
 	rotated { :self :theta |
@@ -57,6 +89,10 @@ Polygon : [Object] { | vertexCoordinates |
 
 	vertexCount { :self |
 		self.vertexCoordinates.size
+	}
+
+	vertexList { :self |
+		[1 .. self.vertexCoordinates.size]
 	}
 
 }
@@ -113,3 +149,25 @@ Polygon : [Object] { | vertexCoordinates |
 	}
 
 }
+
++@RandomNumberGenerator {
+
+	randomStarConvexPolygon { :self :k :minRadius :maxRadius |
+		let d = 2;
+		let r = self.randomReal(minRadius, maxRadius, [k]);
+		(d = 2).if {
+			let theta = self.randomReal(0, 2.pi, [k]).sort;
+			r.withCollect(theta) { :i :j |
+				[i j].fromPolarCoordinates
+			}.Polygon
+		} {
+			(d = 3).if {
+				self.error('randomStarConvexPolygon: d=3 not implemented')
+			} {
+				self.error('randomStarConvexPolygon: d={2,3}')
+			}
+		}
+	}
+
+}
+

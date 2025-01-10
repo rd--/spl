@@ -106,7 +106,7 @@ The outline of a glyph:
 
 * * *
 
-See also: area, centroid, BezierCurve, Circle, interiorAngles, Point, PointCloud, Rectangle, regularPolygon, rotated, Triangle, vertexCoordinates
+See also: area, centroid, BezierCurve, Circle, interiorAngles, Point, PointCloud, Rectangle, randomStarConvexPolygon, regularPolygon, rotated, Triangle, vertexCoordinates
 
 References:
 _Mathematica_

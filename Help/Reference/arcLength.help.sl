@@ -11,6 +11,13 @@ At `Circle`:
 2.pi
 ```
 
+At `Line`:
+
+```
+>>> Line([0 0; 1 1; 2 0]).arcLength
+2.sqrt * 2
+```
+
 At `Triangle`:
 
 ```
@@ -34,7 +41,7 @@ At `Polygon`:
 
 * * *
 
-See also: Circle, circumference, perimeter, Polygon, Rectangle, regularPolygon
+See also: Circle, circumference, perimeter, Line, Polygon, Rectangle, regularPolygon
 
 References:
 _Mathematica_

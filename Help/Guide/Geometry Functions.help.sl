@@ -19,6 +19,19 @@
 
 - `degree`: number of radians in one degree
 
+## Constructors
+
+- `circlePoints`: circle points
+- `randomStarConvexPolygon`: random polygon
+- `regularPolygon`: regular polygon
+- `unitCircle`: unit circle
+- `unitCube`: unit cube
+- `unitDodecahedron`: unit dodecahedron
+- `unitIcosahedron`: unit icosahedron
+- `unitOctahedron`: unit octahedron
+- `unitSquare`: unit square
+- `unitTetrahedron`: unit tetrahedron
+
 ## Converting Functions
 
 - `asCartesianCoordinates`: as CartesianCoordinates
@@ -51,19 +64,29 @@
 
 ## Query Functions
 
-- `arcLength`: length of an object
-- `area`: area of an object
-- `circumference`: arc length of a circle
-- `diameter`: diameter of an object
-- `dimension`: the dimension of an object
-- `embeddingDimension`: the dimension of a space
-- `perimeter`: perimeter of an object
-- `radius`: radius of an object
-- `unitNormal`: unit normal vector of a surface
+- `arcLength`: arc length
+- `area`: area
+- `boundingBox`: bounding box
+- `circumference`: circumference
+- `coordinateBoundingBox`: bounding box
+- `coordinateBounds`: coordinate bounds
+- `diameter`: diameter
+- `dimension`: dimension
+- `edgeCoordinates`: edge coordinates
+- `edgeCount`: edge list
+- `edgeList`: edge list
+- `embeddingDimension`: embedding dimension
+- `faceCount`: face count
+- `faceIndices`: face indices
+- `perimeter`: perimeter
+- `radius`: radius
+- `unitNormal`: unit normal
+- `vertexCoordinates`: vertex coordinates
+- `vertexCount`: vertex count
+- `vertexList`: vertex list
 
 ## Uncategorized
 
-- `circlePoints`
 - `lineEquation`
 - `unitVector`
 

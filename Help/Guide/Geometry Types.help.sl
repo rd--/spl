@@ -4,9 +4,11 @@
 - `Line`, `InfiniteLine`, `HalfLine`
 - `BezierCurve`
 - `Rectangle`, `Parallelogram`
-- `Polygon`, `RegularPolygon`
+- `Polygon`
+- `PolygonMesh`, `Polyhedron`
 - `Circle`, `Disk`, `Ellipse`
 - `InfinitePlane`, `HalfPlane`
+- `GeometryCollection`
 
 Two-dimensional (_planar_) coordinate types:
 

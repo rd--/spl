@@ -29,12 +29,26 @@ At a multigraph:
 2
 ```
 
+At `Triangle`:
+
+```
+>>> sasTriangle(1, pi / 2, 2).vertexCount
+3
+```
+
+At `Rectangle`:
+
+```
+>>> [0 0].unitSquare.vertexCount
+4
+```
+
 At `Polygon`:
 
 ```
->>> 4.regularPolygon([0 0], 1, 0)
+>>> 5.regularPolygon([0 0], 1, 0)
 >>> .vertexCount
-4
+5
 ```
 
 At `Polyhedron`:

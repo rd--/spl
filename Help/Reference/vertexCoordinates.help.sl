@@ -2,26 +2,52 @@
 
 - _vertexCoordinates(aGeometry)_
 
-Answer the coordinats of the of _aGeometry_.
+Answer the coordinates of _aGeometry_.
+
+At `Point`, in two dimensions:
+
+```
+>>> Point([0 0]).vertexCoordinates
+[[0, 0]]
+```
+
+At `PointCloud`, in two dimensions:
+
+```
+>>> PointCloud([0 0; 1 1])
+>>> .vertexCoordinates
+[0 0; 1 1]
+```
+
+At `Line`, in two dimensions:
+
+```
+>>> Line([0 0; 1 1; 2 0])
+>>> .vertexCoordinates
+[0 0; 1 1; 2 0]
+```
 
 At `Triangle`, in two dimensions:
 
 ```
->>> Triangle([0 0], [0 1], [1 0]).vertexCoordinates
+>>> Triangle([0 0], [0 1], [1 0])
+>>> .vertexCoordinates
 [0 0; 0 1; 1 0]
 ```
 
 At `Triangle`, in three dimensions:
 
 ```
->>> Triangle([0 0 0], [1 0 0], [0 1 1]).vertexCoordinates
+>>> Triangle([0 0 0], [1 0 0], [0 1 1])
+>>> .vertexCoordinates
 [0 0 0; 1 0 0; 0 1 1]
 ```
 
 At `Rectangle`:
 
 ```
->>> Rectangle([0 0], [1 1]).vertexCoordinates
+>>> Rectangle([0 0], [1 1])
+>>> .vertexCoordinates
 [0 0; 1 0; 1 1; 0 1]
 
 >>> [0 0].unitSquare.vertexCoordinates * 2

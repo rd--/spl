@@ -96,6 +96,14 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		self.upperRight - self.lowerLeft
 	}
 
+	faceCount { :self |
+		1
+	}
+
+	faceIndices { :self |
+		[[1 .. 4]]
+	}
+
 	forSvg { :self :options |
 		let precision = options::precision;
 		'<rect x="%" y="%" width="%" height="%" />'.format([
@@ -266,6 +274,10 @@ Rectangle : [Object] { | lowerLeft upperRight |
 			self.upperRight
 			self.upperLeft
 		]
+	}
+
+	vertexCount { :self |
+		4
 	}
 
 	width { :self |

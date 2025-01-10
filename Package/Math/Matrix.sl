@@ -1253,13 +1253,25 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	rotationMatrix { :self :vector |
 		vector.caseOfOtherwise([
 			[1 0 0] -> {
-				[[1,0,0],[0,self.cos,0 - self.sin],[0,self.sin,self.cos]]
+				[
+					[1,0,0],
+					[0,self.cos,0 - self.sin],
+					[0,self.sin,self.cos]
+				]
 			},
 			[0 1 0] -> {
-				[[self.cos,0,self.sin],[0,1,0],[0 - self.sin,0,self.cos]]
+				[
+					[self.cos,0,self.sin],
+					[0,1,0],
+					[0 - self.sin,0,self.cos]
+				]
 			},
 			[0 0 1] -> {
-				[[self.cos,0 - self.sin,0],[self.sin,self.cos,0],[0,0,1]]
+				[
+					[self.cos,0 - self.sin,0],
+					[self.sin,self.cos,0],
+					[0,0,1]
+				]
 			}
 		]) {
 			self.error('rotationMatrix: vector not axis aligned')

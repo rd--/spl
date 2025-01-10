@@ -1,23 +1,31 @@
-Point : [Object] { | vector |
+Point : [Object] { | coordinates |
 
 	asList { :self |
-		self.vector
+		self.coordinates
 	}
 
 	at { :self :index |
-		self.vector[index]
+		self.coordinates[index]
 	}
 
 	boundingBox { :self |
-		self.vector ! 2
+		self.coordinates ! 2
 	}
 
 	dimension { :self |
 		0
 	}
 
+	edgeCount { :self |
+		0
+	}
+
+	edgeList { :self |
+		[]
+	}
+
 	embeddingDimension { :self |
-		self.vector.size
+		self.coordinates.size
 	}
 
 	forSvg { :self :options |
@@ -25,8 +33,8 @@ Point : [Object] { | vector |
 		let scaleFactor = options::scaleFactor;
 		self.isPlanar.if {
 			'<circle cx="%" cy="%" r="%" />'.format([
-				self.vector[1].printStringToFixed(precision),
-				self.vector[2].printStringToFixed(precision),
+				self.coordinates[1].printStringToFixed(precision),
+				self.coordinates[2].printStringToFixed(precision),
 				(0.5 / scaleFactor).printStringToFixed(precision)
 			])
 		} {
@@ -35,33 +43,37 @@ Point : [Object] { | vector |
 	}
 
 	isPlanar { :self |
-		self.vector.size = 2
+		self.coordinates.size = 2
 	}
 
 	midpoint { :self :aPoint |
-		Point(self.vector.midpoint(aPoint.vector))
+		Point(self.coordinates.midpoint(aPoint.coordinates))
 	}
 
 	project { :self :projection |
 		Point(
-			projection.asUnaryBlock.value(self.vector)
+			projection.asUnaryBlock.value(self.coordinates)
 		)
 	}
 
 	size { :self |
-		self.vector.size
+		self.coordinates.size
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
+	vertexCoordinates { :self |
+		[self.coordinates]
+	}
+
 	x { :self |
-		self.vector[1]
+		self.coordinates[1]
 	}
 
 	y { :self |
-		let v = self.vector;
+		let v = self.coordinates;
 		(v.size < 2).if {
 			self.error('Point>>y: no y')
 		} {
@@ -70,7 +82,7 @@ Point : [Object] { | vector |
 	}
 
 	z { :self |
-		let v = self.vector;
+		let v = self.coordinates;
 		(v.size < 3).if {
 			self.error('Point>>z: no z')
 		} {
@@ -176,10 +188,6 @@ Point : [Object] { | vector |
 		} {
 			newPoint().initializeSlots(self)
 		}
-	}
-
-	PointCloud { :pointList |
-		newPointCloud().initializeSlots(pointList)
 	}
 
 	pointLineDistance { :aLine :aPoint |

@@ -35,6 +35,14 @@ Circle : [Object] { | center radius |
 		self.radius * 2
 	}
 
+	dimension { :self |
+		1
+	}
+
+	embeddingDimension { :self |
+		2
+	}
+
 	forSvg { :self :options |
 		let precision = options::precision;
 		'<circle cx="%" cy="%" r="%" />'.format([

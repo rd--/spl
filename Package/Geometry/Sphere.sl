@@ -16,6 +16,14 @@ Sphere : [Object] { | center radius |
 		self.radius * 2
 	}
 
+	dimension { :self |
+		2
+	}
+
+	embeddingDimension { :self |
+		self.center.size
+	}
+
 	randomSurfacePoint { :self :aRandom |
 		let c = self.center;
 		let r = self.radius;

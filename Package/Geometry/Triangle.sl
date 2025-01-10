@@ -46,6 +46,14 @@ Triangle : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
+	faceCount { :self |
+		1
+	}
+
+	faceIndices { :self |
+		[[1 .. 3]]
+	}
+
 	forSvg { :self :options |
 		self.asPolygon.forSvg(options)
 	}

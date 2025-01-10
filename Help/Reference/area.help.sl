@@ -1,8 +1,8 @@
 # area
 
-- _area(anObject)_
+- _area(aGeometry)_
 
-Answer the area of _anObject_.
+Answer the area of _aGeometry_.
 
 Find the area of a `Circle`:
 
@@ -18,6 +18,13 @@ Find the area of a `Triangle`:
 1/2
 ```
 
+Find the area of a `Rectangle`:
+
+```
+>>> Rectangle([-1 -1], [1 1]).area
+4
+```
+
 Find the area of a `Polygon`:
 
 ```
@@ -27,7 +34,7 @@ Find the area of a `Polygon`:
 
 * * *
 
-See also: arcLength, Circle
+See also: arcLength, Circle, Polygon, Rectangle, Triangle
 
 References:
 _Mathematica_

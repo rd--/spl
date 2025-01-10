@@ -1,6 +1,6 @@
 # PointCloud
 
-- _PointCloud(aList)_
+- _PointCloud(aMatrix)_
 
 A `Type` representing a set of disconnected points.
 
@@ -36,7 +36,7 @@ PointCloud(p).asLineDrawing
 
 * * *
 
-See also: BezierCurve, Circle, Line, Point, Polygon, Rectangle, Triangle
+See also: BezierCurve, Circle, Line, Point, Polygon, Rectangle, Triangle, vertexCoordinates
 
 Guides: Geometry Types
 

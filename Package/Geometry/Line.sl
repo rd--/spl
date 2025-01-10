@@ -1,35 +1,3 @@
-HalfLine : [Object] { | point vector |
-
-	dimension { :self |
-		1
-	}
-
-	embeddingDimension { :self |
-		self.point.size
-	}
-
-}
-
-InfiniteLine : [Object] { | point vector |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	dimension { :self |
-		1
-	}
-
-	embeddingDimension { :self |
-		self.point.size
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-}
-
 Line : [Object] { | vertexCoordinates |
 
 	arcLength { :self |
@@ -58,6 +26,16 @@ Line : [Object] { | vertexCoordinates |
 		1
 	}
 
+	edgeCount { :self |
+		self.vertexCount - 1
+	}
+
+	edgeList { :self |
+		(1 .. self.vertexCount - 1).collect { :i |
+			[i, i + 1]
+		}
+	}
+
 	embeddingDimension { :self |
 		self.vertexCoordinates.anyOne.size
 	}
@@ -79,6 +57,10 @@ Line : [Object] { | vertexCoordinates |
 				self.vertexCoordinates.asSvgPointList(options)
 			])
 		}
+	}
+
+	lineIndices { :self |
+		[self.vertexList]
 	}
 
 	midpoint { :self |
@@ -128,50 +110,8 @@ Line : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.size
 	}
 
-}
-
-LineSegment : [Object] { | u v |
-
-	arcLength { :self |
-		self.u.euclideanDistance(self.v)
-	}
-
-	at { :self :index |
-		index.caseOf([
-			1 -> { self.u },
-			2 -> { self.v }
-		])
-	}
-
-	centroid { :self |
-		self.midpoint
-	}
-
-	dimension { :self |
-		1
-	}
-
-	distance { :self :aPoint |
-		[self.u, self.v].pointLineDistance(aPoint)
-	}
-
-	embeddingDimension { :self |
-		self.u.size
-	}
-
-	includes { :self :aPoint |
-		self.distance(aPoint).isVeryCloseTo(0)
-	}
-
-	midpoint { :self |
-		self.u.midpoint(self.v)
-	}
-
-	nearestPoint { :self :aPoint |
-	}
-
-	vertexCount { :self |
-		2
+	vertexList { :self |
+		[1 .. self.vertexCoordinates.size]
 	}
 
 }
@@ -207,24 +147,12 @@ LineSegment : [Object] { | u v |
 		answer
 	}
 
-	HalfLine { :aPoint :aVector |
-		newHalfLine().initializeSlots(aPoint, aVector)
-	}
-
-	InfiniteLine { :aPoint :aVector |
-		newInfiniteLine().initializeSlots(aPoint, aVector)
-	}
-
 	Line { :self |
 		(self.rank > 2).if {
 			self.collect(Line:/1)
 		} {
 			newLine().initializeSlots(self)
 		}
-	}
-
-	LineSegment { :u :v |
-		newLineSegment().initializeSlots(u, v)
 	}
 
 }

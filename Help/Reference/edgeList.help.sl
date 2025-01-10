@@ -31,6 +31,13 @@ At directed graphs:
 [1 -> 2, 2 -> 3, 3 -> 1].asEdgeList
 ```
 
+At `Polygon`:
+
+```
+>>> 5.regularPolygon([0 0], 1, 0).edgeList
+[1 2; 2 3; 3 4; 4 5; 1 5]
+```
+
 At `Polyhedron`:
 
 ```
@@ -44,7 +51,7 @@ At `Polyhedron`:
 
 * * *
 
-See also: edgeCount, Graph, vertexList
+See also: edgeCount, Graph, Polygon, Polyhedron, vertexList
 
 References:
 _Mathematica_
