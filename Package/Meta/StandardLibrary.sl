@@ -51,6 +51,7 @@
 	'Length'
 	'Line'
 	'LineSegment'
+	'Parallelogram'
 	'Perspective'
 	'Plane'
 	'PolarCoordinates'

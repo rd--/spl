@@ -81,6 +81,7 @@
 	'Geometry-LineSegment'
 	'Geometry-Matrix22'
 	'Geometry-Matrix33'
+	'Geometry-Parallelogram'
 	'Geometry-Perspective'
 	'Geometry-PlanarCoordinates'
 	'Geometry-Plane'

@@ -97,7 +97,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[Circle, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
++[Circle, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
 
 	asLineDrawing { :self |
 		[self].LineDrawing
@@ -212,7 +212,7 @@ PerspectiveDrawing : [Object] { | contents metadata |
 		self.PerspectiveDrawing(
 			projection: AxonometricProjection(
 				pi / 6, 0,
-				1, 1, 1 / 2
+				-1, 1, 1 / 2
 			),
 			height: 100
 		)

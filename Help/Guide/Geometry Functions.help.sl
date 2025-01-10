@@ -22,6 +22,7 @@
 ## Constructors
 
 - `circlePoints`: circle points
+- `closedLine`: close line
 - `randomStarConvexPolygon`: random polygon
 - `regularPolygon`: regular polygon
 - `unitCircle`: unit circle

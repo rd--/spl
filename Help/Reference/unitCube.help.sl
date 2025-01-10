@@ -44,6 +44,16 @@ Draw the unit cube:
 
 ![](sw/spl/Help/Image/unitCube-A.svg)
 
+Draw two unit cubes:
+
+~~~spl svg=B
+[0 0 0; 0.5 0.5 0.5]
+.collect(unitCube:/1)
+.PerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/unitCube-B.svg)
+
 * * *
 
 See also: asPerspectiveDrawing, LineDrawing, Polyhedron, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron

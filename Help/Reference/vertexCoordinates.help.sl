@@ -43,7 +43,7 @@ At `Triangle`, in three dimensions:
 [0 0 0; 1 0 0; 0 1 1]
 ```
 
-At `Rectangle`:
+At `Rectangle`, note _winding order_ is counter-clockwise:
 
 ```
 >>> Rectangle([0 0], [1 1])
