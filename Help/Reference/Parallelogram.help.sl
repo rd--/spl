@@ -48,6 +48,8 @@ A Parallelogram can tile the plane:
 
 See also: asLineDrawing, Polygon, vertexCoordinates
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Parallelogram.html)

@@ -13,6 +13,17 @@ Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 
 +List {
 
+	Cuboid { :p :q |
+		let m = q - p;
+		let c = [0.5 0.5 0.5].unitCube;
+		Polyhedron(
+			c.vertexCoordinates.collect { :each |
+				(each * m) + p
+			},
+			c.faceIndices
+		)
+	}
+
 	Polyhedron { :vertexCoordinates :faceIndices |
 		newPolyhedron().initializeSlots(vertexCoordinates, faceIndices)
 	}

@@ -21,6 +21,22 @@
 
 ## Constructors
 
+- `BezierCurve`: Bézier curve
+- `Circle`: circle
+- `Ellipse`: ellipse
+- `GeometryCollection`
+- `HalfLine`: half line
+- `HalfPlane`: half plane
+- `InfiniteLine`: infinite line
+- `InfinitePlane`: infinite plane
+- `Line`: line
+- `Parallelogram`: parallelogram
+- `PointCloud`: point cloud
+- `Point`: point
+- `PolygonMesh`: polygon mesh
+- `Polygon`: polygon
+- `Polyhedron`: polyhedron
+- `Rectangle`: rectangle
 - `circlePoints`: circle points
 - `closedLine`: close line
 - `randomStarConvexPolygon`: random polygon
