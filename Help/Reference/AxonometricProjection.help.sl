@@ -1,26 +1,28 @@
 # AxonometricProjection
 
-- _AxonometricProjection(alpha, beta, x, y, z)_
+- _AxonometricProjection(alpha, beta, gamma, x, y, z)_
 - _AxonometricProjection(aString)_
 
 Projections from three to two dimensions.
 
-_alpha_ gives the angle of projection for the _Z₃_ axis,
+_alpha_ gives the angle of projection for the _Y₃_ axis,
 in radians,
 where `zero` indicates the positive _X₂_ axis,
 and rotation is counter-clockwise.
 
-_beta_ gives the angle of projection of the _X₃_ axis,
+_beta_ gives the angle of projection of the _Y₃_ axis,
+in radians,
+where `zero` indicates the positive _X₂_ axis,
+and rotation is clockwise.
+
+_gamma_ gives the angle of projection of the _X₃_ axis,
 in radians,
 where `zero` indicates the negative _X₂_ axis,
 and rotation is clockwise.
 
-The _Y₃_ axis angle is fixed,
-and points along the positive _Y₂_ axis.
-
 _x_, _y_ and _z_ are scaling factors for each axis.
 
-If both _alpha_ and _beta_ are `zero`,
+If both _alpha_ and _gamma_ are `zero` and _beta_ is _pi/2_,
 the cube is projected as two horizontally adjacent squares:
 
 ~~~spl svg=A
@@ -28,7 +30,7 @@ the cube is projected as two horizontally adjacent squares:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		0, 0,
+		0, pi / 2, 0,
 		1, 1, 1
 	)
 )
@@ -36,8 +38,7 @@ the cube is projected as two horizontally adjacent squares:
 
 ![](sw/spl/Help/Image/AxonometricProjection-A.svg)
 
-If either _alpha_ or _beta_ is `zero`,
-and the other is half of `pi`,
+If two of _alpha_ or _beta_ or _gamma_ is _pi/2_ and the other is `zero`,
 the cube is projected as two vertically adjacent squares:
 
 ~~~spl svg=B
@@ -45,7 +46,7 @@ the cube is projected as two vertically adjacent squares:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		pi / 2, 0,
+		pi / 2, pi / 2, 0,
 		1, 1, 1
 	)
 )
@@ -53,7 +54,8 @@ the cube is projected as two vertically adjacent squares:
 
 ![](sw/spl/Help/Image/AxonometricProjection-B.svg)
 
-If _alpha_ and _beta_ are both one-sixth of `pi` (30°),
+If _alpha_ and _gamma_ are both one-sixth of `pi` (30°),
+and _beta_ is _pi/2_,
 the ordinary Farish isometric projection is given,
 and the cube is projected as a hexagon:
 
@@ -62,7 +64,7 @@ and the cube is projected as a hexagon:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		pi / 6, pi / 6,
+		pi / 6, pi / 2, pi / 6,
 		1, 1, 1
 	)
 )
@@ -70,7 +72,7 @@ and the cube is projected as a hexagon:
 
 ![](sw/spl/Help/Image/AxonometricProjection-C.svg)
 
-If _alpha_ and _beta_ are both one-quarter of `pi` (45°),
+If _alpha_ and _gamma_ are both one-quarter of `pi` (45°),
 the planometric or military projection is given:
 
 ~~~spl svg=D
@@ -78,7 +80,7 @@ the planometric or military projection is given:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		pi / 4, pi / 4,
+		pi / 4, pi / 2, pi / 4,
 		1, 1, 1
 	)
 )
@@ -93,7 +95,7 @@ ISO 5456-3 (NEN 2536) gives the following dimetric projection for technical draw
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		42.degree, 7.degree,
+		42.degree, 90.degree, 7.degree,
 		1, 1, 1 / 2
 	)
 )
@@ -108,7 +110,7 @@ The oblique projection given by Carlbom and Paciorek in Figure 3-11b:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		30.degree, 0,
+		30.degree, 90.degree, 0,
 		1, 1, 2 / 3
 	)
 )
@@ -123,7 +125,7 @@ A trimetric projection given by Carlbom and Paciorek in Figure 3-9:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		24.degree, 17.degree,
+		24.degree, 90.degree, 17.degree,
 		7 / 8, 1, 3 / 4
 	)
 )
@@ -138,7 +140,7 @@ The last oblique projection given by Carlbom and Paciorek in Figure 3-12:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		30.degree, 0,
+		30.degree, 90.degree, 0,
 		1, 1, 1 / 2
 	)
 )

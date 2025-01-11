@@ -25,3 +25,7 @@ Cuboids with different sizes:
 * * *
 
 See also: Polyhedron, unitCube
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Cuboid.html)
