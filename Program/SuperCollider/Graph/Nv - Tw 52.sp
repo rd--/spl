@@ -4,6 +4,11 @@ let z = x *.x (x *.x x).tuples;
 let y = (z * 4).++.clump(2) ++ [0];
 let f = Duty(1 / 5, 0, Dseq(inf, y));
 GVerb(
-	VarSaw(f, 0, 0.9) * LfPulse(5, 0, 0.5).Lag(0.01),
-	99, 5, 0.5, 0.5, 15, 1, 0.7, 0.5, 300
+	VarSaw(
+		f, 0, 0.9
+	) * LfPulse(
+		5, 0, 0.5
+	).Lag(0.01),
+	99, 5, 0.5, 0.5, 15,
+	1, 0.7, 0.5, 300
 ).transposed.Mix / 15
