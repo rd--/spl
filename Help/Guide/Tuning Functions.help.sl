@@ -141,6 +141,7 @@ _Scale Functions_:
 - `stepArity`: step variety
 - `textDrawing`: text drawing
 - `tuningIndices`: scale indexing
+- `tuningSize`: scale tuning size
 - `weightedMediant`: mediant
 
 _Testing_:

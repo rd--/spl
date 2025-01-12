@@ -1,4 +1,4 @@
-# \\\\ (reverseSolidusReverseSolidus)
+# \\\\\ (reverseSolidusReverseSolidus)
 
 - _aNumber \\\\ anotherNumber_
 
@@ -16,6 +16,13 @@ The operator name for _remainder_.
 
 >>> 8.625 \\ 0.75
 0.375
+```
+
+Threads over lists:
+
+```
+>>> 7.iota \\ 2
+[1 0 1 0 1 0 1]
 ```
 
 The name of this operator is `reverseSolidusReverseSolidus`.

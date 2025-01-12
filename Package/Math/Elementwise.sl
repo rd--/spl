@@ -411,6 +411,10 @@
 		anObject.adaptToCollectionAndApply(self, //)
 	}
 
+	\\ { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, \\)
+	}
+
 	< { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, <)
 	}

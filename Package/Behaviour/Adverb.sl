@@ -51,7 +51,7 @@
 			}
 		} {
 			{ :alpha :beta |
-				alpha.withCollect(beta, self)
+				alpha.withCollect(beta.nest, self)
 			}
 		}
 	}

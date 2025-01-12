@@ -23,6 +23,13 @@ The inverse is `sqrt`:
 3
 ```
 
+Threads over lists:
+
+```
+>>> 1:9.sum.squared
+2025
+```
+
 Where supported `squared` is displayed as ².
 
 * * *

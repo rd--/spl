@@ -16,6 +16,9 @@ Operator form of `quotient`.
 
 >>> 10E4 // 985
 101
+
+>>> -8 // 7
+-1
 ```
 
 Threads over lists:

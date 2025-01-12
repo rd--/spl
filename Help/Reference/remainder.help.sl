@@ -55,6 +55,20 @@ where _q_ is the integer nearest to _x / y_.
 x
 ```
 
+Detect odd numbers in a given list of numbers:
+
+```
+>>> 7.iota \\ 2
+[1 0 1 0 1 0 1]
+```
+
+Detect perfect multiples in a given list of numbers:
+
+```
+>>> 7.iota \\ 3 =.each 0
+[false false true false false true false]
+```
+
 * * *
 
 See also: \\, quotient, remainderBy
@@ -63,6 +77,8 @@ References:
 _Haskell_:
 [1](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:rem)
 [2](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:mod),
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/bar#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Remainder.html)
 [2](https://reference.wolfram.com/language/ref/QuotientRemainder.html)

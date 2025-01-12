@@ -724,11 +724,15 @@
 
 +SmallFloat {
 
-	degreeToKey { :scaleDegree :scale :stepsPerOctave |
-		let k = scale.size;
-		let d = scaleDegree.rounded;
-		let a = (scaleDegree - d) * 10 * (stepsPerOctave / 12);
-		(stepsPerOctave * (d // k)) + scale[d % k + 1] + a
+	degreeToKey { :self :scale :stepsPerOctave |
+		let scaleDegree = self.rounded;
+		let accidental = (self - scaleDegree) * 10;
+		let baseKey = (stepsPerOctave * (scaleDegree.quotientBy(scale.size, floor:/1))) + scale.atWrap(scaleDegree + 1);
+		(accidental = 0).if {
+			baseKey
+		} {
+			baseKey + (accidental * (stepsPerOctave / 12.0))
+		}
 	}
 
 	geom { :self :start :grow |

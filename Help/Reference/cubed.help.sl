@@ -16,6 +16,13 @@ The inverse is `cubeRoot`:
 3
 ```
 
+Threads over lists:
+
+```
+>>> 1:9.cubed.sum
+2025
+```
+
 Where supported `cubed` is displayed as ³.
 
 * * *

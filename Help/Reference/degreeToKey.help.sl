@@ -5,7 +5,9 @@
 
 Convert from degree to key.
 
-In the binary case, the _scale_ is an instance of `Scale`:
+In the binary case,
+the _scale_ is an instance of `Scale`,
+and both and indices are counted from `one`:
 
 ```
 >>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
@@ -21,6 +23,32 @@ Threads over lists:
 >>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
 >>> s.degreeToKey(1:7)
 [1 3 5 6 8 10 12]
+```
+
+Multiple octaves:
+
+```
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> s.degreeToKey(1:15)
+[
+	1 3 5 6 8 10 12
+	13 15 17 18 20 22 24
+	25
+]
+```
+
+Negative (and zero) degrees:
+
+```
+>>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
+>>> s.degreeToKey(-13:8)
+[
+	-23
+	-21 -19 -18 -16 -14 -12
+	-11 -9 -7 -6 -4 -2 0
+	1 3 5 6 8 10 12
+	13
+]
 ```
 
 Allows fractional degrees, where 0.1 indicates a one step alteration.
@@ -105,9 +133,25 @@ Indices wrap around the table and shift octaves as they do:
 ```
 >>> 1:15.degreeToKey([0 1 5 9 11], 12)
 [
-	1 5 9 11 12
+	01 05 09 11 12
 	13 17 21 23 24
 	25 29 33 35 36
+]
+```
+
+Negative degrees:
+
+```
+>>> -12.degreeToKey([0 2 4 6 7 9 11], 12)
+-20
+
+>>> (-14, -12 .. 14)
+>>> .degreeToKey([0, 2, 4, 6, 7, 9, 11], 12)
+[
+	-24 -20 -17 -13
+	-10 -6 -3
+	0 4 7 11
+	14 18 21 24
 ]
 ```
 

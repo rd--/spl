@@ -12,13 +12,13 @@ Scale : [Object] { | startIndex intervals description |
 		)
 	}
 
-	degreeToKey { :self :degree |
-		degree.isCollection.if {
-			degree.collect { :each |
+	degreeToKey { :self :scaleDegree |
+		scaleDegree.isCollection.if {
+			scaleDegree.collect { :each |
 				self.fractionalDegreeToKey(each)
 			}
 		} {
-			self.fractionalDegreeToKey(degree)
+			self.fractionalDegreeToKey(scaleDegree)
 		}
 	}
 
@@ -33,7 +33,7 @@ Scale : [Object] { | startIndex intervals description |
 	integerDegreeToKey { :self :scaleDegree :accidental |
 		let stepsPerOctave = self.tuningSize;
 		let tuningIndices = self.tuningIndices;
-		let baseKey = (stepsPerOctave * (scaleDegree // (self.size + 1))) + tuningIndices.atWrap(scaleDegree);
+		let baseKey = (stepsPerOctave * ((scaleDegree - 1).quotientBy(self.size, floor:/1))) + tuningIndices.atWrap(scaleDegree);
 		(accidental = 0).if {
 			baseKey
 		} {
