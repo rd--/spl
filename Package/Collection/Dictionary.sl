@@ -281,6 +281,10 @@
 		self.removeKey(key)
 	}
 
+	removeAtAll { :self :keys |
+		self.removeAllKeys(keys)
+	}
+
 	removeKey { :self :key |
 		self.removeKeyIfAbsent(key) {
 			self.error('@Dictionary>>removeKey')

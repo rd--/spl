@@ -38,7 +38,7 @@ The angle between orthogonal vectors:
 0.5.pi
 ```
 
-The angle between a vector and a vector on the same line:
+The angle between a vector and another vector on the same line:
 
 ```
 >>> [1 1].vectorAngle([2 2])

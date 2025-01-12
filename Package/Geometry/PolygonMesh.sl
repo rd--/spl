@@ -70,6 +70,21 @@
 
 PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 
+	canonicalForm { :self |
+		let v = self.vertexCoordinates;
+		let w = v.nub.sort;
+		PolygonMesh(
+			w,
+			self.faceIndices.collect { :each |
+				each.collect { :i |
+					w.indexOf(v[i])
+				}.lexicographicallyLeastRotation.deleteAdjacentDuplicates
+			}.reject { :each |
+				each.size <= 2
+			}.nub.sort
+		)
+	}
+
 	forSvg { :self :options |
 		let vertexCoordinates = self.vertexCoordinates;
 		self.faceIndices.collect { :each |

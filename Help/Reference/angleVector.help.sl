@@ -2,7 +2,9 @@
 
 - _angleVector(aNumber)_
 
-Answer the `List` representing the two-dimensional unit vector at angle _aNumber_, in radians, relative to the _x_-axis.
+Answer the `List` representing the two-dimensional unit vector at angle _aNumber_,
+in radians,
+relative to the _x_-axis.
 
 Unit vector at angle one-sixth of pi:
 

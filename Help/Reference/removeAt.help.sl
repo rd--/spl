@@ -39,6 +39,6 @@ At `Record`, alias for `removeKey`:
 
 * * *
 
-See also: at, insertAt, removeFirst, removeKey, removeLast
+See also: at, insertAt, removeAtAll, removeFirst, removeKey, removeLast
 
 Categories: Removing

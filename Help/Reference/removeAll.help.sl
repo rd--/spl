@@ -37,7 +37,7 @@ system.localStorage.removeAll
 
 * * *
 
-See also: remove, removeAllEqualTo, removeAllFoundIn, removeAllSuchThat
+See also: remove, removeAllEqualTo, removeAllFoundIn, removeAllSuchThat, removeAt, removeAtAll
 
 References:
 _Smalltalk_

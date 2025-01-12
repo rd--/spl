@@ -6,9 +6,9 @@ A `Trait` and a related `Type` holding a polygon mesh.
 
 `Polyhedron` implements the `PolygonMesh` trait.
 
-`project` at `Polyhedron`,
+The `project` method at `Polyhedron`,
 which projects from a three-dimensional space into a two-dimensional space,
-the answer is a `PolygonMesh`.
+answers a `PolygonMesh`:
 
 ```
 >>> [0 0 0].unitCube.project(
@@ -22,6 +22,6 @@ true
 
 * * *
 
-See also: Polygon, Polyhedron
+See also: Polygon, Polyhedron, project
 
 Guides: Geometry Functions

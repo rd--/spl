@@ -2,9 +2,9 @@
 
 ## Angle Functions
 
-- `angleVector`: unit vector relative to x-axis
-- `planarAngle`: planar angle defined by three points
-- `vectorAngle`: angle between vectors
+- `angleVector`: unit vector at angle
+- `planarAngle`: planar angle
+- `vectorAngle`: vector angle
 
 ## Catalogues
 
@@ -19,16 +19,16 @@
 
 ## Coordinate Transformations
 
-- `fromCylindricalCoordinates`: convert from _(ρ,φ,z)_ to _(x,y,z)_
-- `fromPolarCoordinates`: convert from _(r,θ)_ to _(x,y)_
-- `fromSphericalCoordinates`: convert from _(r,θ,ϕ)_ to _(x,y,z)_
-- `toCylindricalCoordinates`: convert from _(x,y,z)_ to _(ρ,φ,z)_
-- `toPolarCoordinates`: convert from _(x,y)_ to _(r,θ)_
-- `toSphericalCoordinates`: convert from _(x,y,z)_ to _(r,θ,ϕ)_
+- `fromCylindricalCoordinates`: _(ρ,φ,z)_ → _(x,y,z)_
+- `fromPolarCoordinates`: _(r,θ)_ → _(x,y)_
+- `fromSphericalCoordinates`: _(r,θ,ϕ)_ → _(x,y,z)_
+- `toCylindricalCoordinates`: _(x,y,z)_ → _(ρ,φ,z)_
+- `toPolarCoordinates`: _(x,y)_ → _(r,θ)_
+- `toSphericalCoordinates`: _(x,y,z)_ → _(r,θ,ϕ)_
 
 ## Constants
 
-- `degree`: number of radians in one degree
+- `degree`: radians per degree (0.0175)
 
 ## Constructors
 
