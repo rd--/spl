@@ -372,6 +372,15 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}
 	}
 
+	edgeLabels { :self |
+		self.properties['edgeLabels']
+	}
+
+	edgeLabels { :self :aList |
+		self.properties['edgeLabels'] := aList;
+		self
+	}
+
 	includeEdge { :self :edge |
 		self.includesEdge(edge).ifFalse {
 			self.addEdge(edge)

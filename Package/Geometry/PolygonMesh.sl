@@ -54,7 +54,7 @@
 		self.faceIndices.size
 	}
 
-	faceSizeCount { :self |
+	faceDegreeCounts { :self |
 		self.faceIndices.collect(size:/1).asBag.sortedElements
 	}
 

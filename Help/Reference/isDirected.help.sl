@@ -1,6 +1,6 @@
 # isDirected
 
-- _isDirected(aGraph)_
+- _isDirected(aGraph | anEdge)_
 
 Answers `true` if _aGraph_ is a directed graph, else `false`.
 
@@ -33,7 +33,10 @@ false
 Edges answer `isDirected`:
 
 ```
->>> [1 --- 2, 2 --> 3].collect(isDirected:/1)
+>>> [
+>>> 	1 --- 2,
+>>> 	2 --> 3
+>>> ].collect(isDirected:/1)
 [false true]
 ```
 

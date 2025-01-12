@@ -1,6 +1,6 @@
 # isUndirected
 
-- _isUndirected(aGraph)_
+- _isUndirected(aGraph | anEdge)_
 
 Answers `true` if _aGraph_ is an undirected graph, else `false`.
 
@@ -38,7 +38,10 @@ Mixed graphs are neither directed not undirected:
 Edges answer `isUndirected`:
 
 ```
->>> [1 --- 2, 2 --> 3].collect(isUndirected:/1)
+>>> [
+>>> 	1 --- 2,
+>>> 	2 --> 3
+>>> ].collect(isUndirected:/1)
 [true false]
 ```
 

@@ -3,10 +3,10 @@
 - _adjacencyGraph(aMatrix)_
 - _adjacencyGraph(aMatrix, vertexList)_
 
-In the ternary case,
+In the binary case,
 answer the `Graph` with adjacency matrix _aMatrix_ and vertices from _vertexList_.
 
-In the binary case,
+In the unary case,
 vertices are numbered from `one`.
 
 The `edgeList` of the `adjacencyGraph` of the `cycleGraph` of three vertices,

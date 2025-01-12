@@ -30,7 +30,7 @@ Count the vertices, and faces, and face sizes of the 70th Johnson solid:
 >>> (
 >>> 	j70.vertexCount,
 >>> 	j70.faceCount,
->>> 	j70.faceSizeCount
+>>> 	j70.faceDegreeCounts
 >>> )
 (
 	70,

@@ -40,10 +40,10 @@ At `Polyhedron`, the number of edges is half of the sum of the face degrees:
 ```
 >>> let p = [0 0 0].unitCube;
 >>> (
->>> 	p.faceIndices.collect(size:/1).sum,
+>>> 	p.faceDegreeCounts,
 >>> 	p.edgeCount
 >>> )
-(24, 12)
+([4 -> 6], 12)
 ```
 
 * * *

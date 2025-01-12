@@ -434,7 +434,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'degree'
 		'edgeLabels'
 		'edgeList'
-		'labeledVertices'
+		'labeledVertexList'
 		'vertexLabels'
 		'vertexList'
 		'vertexCoordinates'

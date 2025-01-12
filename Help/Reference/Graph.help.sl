@@ -2,7 +2,7 @@
 
 - _Graph(vertexList, edgeList)_
 
-A `Graph` is a collection of _vertices_ and _edges_.
+A `Graph` is a `Type` holding a collection of _vertices_ and _edges_.
 
 The number of vertices is the `vertexCount`, or _order_, of the graph.
 
@@ -19,7 +19,7 @@ in which case `vertexCoordinates` is a `List` of `vertexCount` coordinates, one 
 Edges may also be labeled,
 in which case `edgeLabels` is a `List` of labels, one for each edge.
 
-`labeledVertices` answers a `List` of `Associations` between vertices and labels,
+`labeledVertexList` answers a `List` of `Associations` between vertices and labels,
 providing a default empty label if `vertexLabels` is `nil`.
 
 The coherence of a Graph can be queried using `isValid`.
@@ -27,6 +27,8 @@ The coherence of a Graph can be queried using `isValid`.
 * * *
 
 See also: ---, -->, asDot, edgeCount, edgeList, isDirected, isMixed, isUndirected, vertexCount, vertexList
+
+Guides: Graph Functions
 
 References:
 _Mathematica_
