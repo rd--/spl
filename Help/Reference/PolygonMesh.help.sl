@@ -13,7 +13,7 @@ the answer is a `PolygonMesh`.
 ```
 >>> [0 0 0].unitCube.project(
 >>> 	AxonometricProjection(
->>> 		pi / 6, pi / 6,
+>>> 		pi / 6, 0, pi / 6,
 >>> 		1, 1, 1
 >>> 	)
 >>> ).isPolygonMesh

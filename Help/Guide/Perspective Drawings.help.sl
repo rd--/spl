@@ -6,6 +6,22 @@ and the line _l_ moves in positive steps first along the _z_ axis,
 then the _y_ axis,
 then lastly the _x_ axis.
 
+~~~
+workspace::scene := [
+	[	-2 -1 0;
+		+2 -1 0;
+		+2 +1 0;
+		-2 +1 0
+	].Polygon,
+	[
+		0 0 0;
+		0 0 1;
+		0 1 1;
+		1 1 1
+	].Line
+].GeometryCollection
+~~~
+
 One convention is that
 _x_ is back to front,
 _y_ is left to right, and
@@ -18,32 +34,14 @@ then right (_y_),
 then toward the front (_x_):
 
 ~~~spl svg=A
-let r = workspace::r := [
-	-2 -1 0;
-	+2 -1 0;
-	+2 +1 0;
-	-2 +1 0
-];
-let l = workspace::l := [
-	0 0 0;
-	0 0 1;
-	0 1 1;
-	1 1 1
-];
-let p = workspace::p := (
-	AxonometricProjection(
-		pi / 6, 0,
-		1, 1, 1 / 2
-	)
-);
-let p:/1 = p.asUnaryBlock;
-let t = { :list |
-	list.collect { :each |
-		let [x, y, z] = each;
-		[y.negated, z, x.negated].p
-	}
-};
-[r.t.Polygon, l.t.Line].LineDrawing
+workspace::scene
+.asPerspectiveDrawing(
+	[
+		-1/2 1/6.pi;
+		1 0;
+		1 1/2.pi
+	].asAxonometricProjection
+)
 ~~~
 
 ![](<sw/spl/Help/Image/Perspective Drawings-A.svg>)
@@ -58,17 +56,14 @@ In the picture below the rectangle _r_ is in the vertical (_x_ & _y_) plane,
 and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_x_):
 
 ~~~spl svg=B
-let r = workspace::r;
-let l = workspace::l;
-let p = workspace::p;
-let p:/1 = p.asUnaryBlock;
-let t = { :list |
-	list.collect { :each |
-		let [x, y, z] = each;
-		[x.negated, y, z.negated].p
-	}
-};
-[r.t.Polygon, l.t.Line].LineDrawing
+workspace::scene
+.asPerspectiveDrawing(
+	[
+		0 1;
+		1/2.pi 1;
+		1/6.pi 1/2
+	].asAxonometricProjection
+)
 ~~~
 
 ![](<sw/spl/Help/Image/Perspective Drawings-B.svg>)
@@ -85,17 +80,14 @@ then backward (_y_),
 then rightward (_x_):
 
 ~~~spl svg=C
-let r = workspace::r;
-let l = workspace::l;
-let p = workspace::p;
-let p:/1 = p.asUnaryBlock;
-let t = { :list |
-	list.collect { :each |
-		let [x, y, z] = each;
-		[x.negated, z, y].p
-	}
-};
-[r.t.Polygon, l.t.Line].LineDrawing
+workspace::scene
+.asPerspectiveDrawing(
+	[
+		0 1;
+		1/6.pi 1/2;
+		1/2.pi 1
+	].asAxonometricProjection
+)
 ~~~
 
 ![](<sw/spl/Help/Image/Perspective Drawings-C.svg>)

@@ -30,7 +30,7 @@ An _isometric_ projection of the same point set:
 ~~~
 200.spherePointsFibonacci.collect(
 	AxonometricProjection(
-		pi / 6, pi / 6,
+		pi / 6, 0, pi / 6,
 		1, 1, 1
 	).asUnaryBlock
 ).scatterPlot

@@ -1,16 +1,16 @@
-AxonometricProjection : [Object] { | alpha beta gamma x y z |
+AxonometricProjection : [Object] { | xRadius xTheta yRadius yTheta zRadius zTheta |
 
-	asMatrix { :self |
+	asTransformationMatrix { :self |
 		[
 			[
-				self.x * self.gamma.cos.-,
-				self.y * self.beta.cos,
-				self.z * self.alpha.cos
+				self.xRadius * self.xTheta.cos,
+				self.yRadius * self.yTheta.cos,
+				self.zRadius * self.zTheta.cos
 			],
 			[
-				self.x * self.gamma.sin,
-				self.y * self.beta.sin,
-				self.z * self.alpha.sin
+				self.xRadius * self.xTheta.sin,
+				self.yRadius * self.yTheta.sin,
+				self.zRadius * self.zTheta.sin
 			],
 			[
 				0,
@@ -21,49 +21,67 @@ AxonometricProjection : [Object] { | alpha beta gamma x y z |
 	}
 
 	asUnaryBlock { :self |
-		let matrix = self.asMatrix;
+		let matrix = self.asTransformationMatrix;
 		{ :aVector |
 			let [x, y, _] = matrix.dot(aVector);
 			[x, y]
 		}
 	}
 
-}
-
-+Void {
-
-	AxonometricProjection {
-		AxonometricProjection(0, pi / 2, 0, 1, 1, 1)
+	polarCoordinates { :self |
+		[
+			self.xRadius self.xTheta;
+			self.yRadius self.yTheta;
+			self.zRadius self.zTheta
+		]
 	}
 
 }
 
 +SmallFloat {
 
-	AxonometricProjection { :alpha :beta :gamma :x :y :z |
-		newAxonometricProjection().initializeSlots(alpha, beta, gamma, x, y, z)
+	AxonometricProjection { :gamma :beta :alpha :z :y :x |
+		newAxonometricProjection()
+		.initializeSlots(
+			x, pi - alpha,
+			y, 0.5.pi + beta,
+			z, gamma
+		)
+	}
+
+}
+
++List {
+
+	asAxonometricProjection { :self |
+		let [x, y, z] = self;
+		newAxonometricProjection()
+		.initializeSlots(
+			x[1], x[2],
+			y[1], y[2],
+			z[1], z[2]
+		)
 	}
 
 }
 
 +String {
 
-	AxonometricProjection { :self :alpha |
+	namedAxonometricProjection { :self :alpha |
 		self.caseOfOtherwise([
-			'CabinetOblique' -> { AxonometricProjection(alpha, pi / 2, 0, 1, 1, 1 / 2) }
+			'CabinetOblique' -> { AxonometricProjection(alpha, 0, 0, 1 / 2, 1, 1) }
 		]) {
-			self.error('AxonometricProjection: alpha')
+			self.error('namedAxonometricProjection: alpha')
 		}
 	}
 
-	AxonometricProjection { :self |
+	namedAxonometricProjection { :self |
 		self.caseOfOtherwise([
-			'CavalierOblique' -> { AxonometricProjection(pi / 4, pi / 2, 0, 1, 1, 1) },
-			'Chinese' -> { AxonometricProjection(pi / 6, pi / 2, 0, 1, 1, 1 / 2) },
-			'Isometric' -> { AxonometricProjection(pi / 6, pi / 2, pi / 6, 1, 1, 1) },
-			'Planometric' -> { AxonometricProjection(pi / 4, pi / 2, pi / 4, 1, 1, 1) }
+			'CavalierOblique' -> { AxonometricProjection(pi / 4, 0, 0, 1, 1, 1) },
+			'Isometric' -> { AxonometricProjection(pi / 6, 0, pi / 6, 1, 1, 1) },
+			'Planometric' -> { AxonometricProjection(pi / 4, 0, pi / 4, 1, 1, 1) }
 		]) {
-			self.error('AxonometricProjection')
+			self.error('namedAxonometricProjection')
 		}
 	}
 

@@ -6,6 +6,17 @@
 - `planarAngle`: planar angle defined by three points
 - `vectorAngle`: angle between vectors
 
+## Catalogues
+
+- `fradinPolyhedraCatalogue`
+- `holmesPolyhedraCatalogue`
+- `leitnerCrystalStructureCatalogue`
+- `levskayaPolyhedraCatalogue`
+- `schareinKnotCatalogue`
+- `schareinLinkCatalogue`
+- `schareinMinimalKnotCatalogue`
+- `schareinMinimalLinkCatalogue`
+
 ## Coordinate Transformations
 
 - `fromCylindricalCoordinates`: convert from _(ρ,φ,z)_ to _(x,y,z)_

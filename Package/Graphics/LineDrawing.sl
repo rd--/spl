@@ -211,8 +211,8 @@ PerspectiveDrawing : [Object] { | contents metadata |
 	PerspectiveDrawing { :self |
 		self.PerspectiveDrawing(
 			projection: AxonometricProjection(
-				pi / 6, 0,
-				-1, 1, 1 / 2
+				pi / 6, 0, 0,
+				1 / 2, 1, -1
 			),
 			height: 100
 		)

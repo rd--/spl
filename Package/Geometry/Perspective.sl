@@ -10,15 +10,15 @@
 		[x 0 0 0; 0 y 0 0; a b c -1; a 0 d 0]
 	}
 
-	glOrtho { :left :right :bottom :top :nearval :farval |
+	glOrtho { :left :right :bottom :top :nearVal :farVal |
 		[
 			[2 / (right - left), 0, 0, 0],
 			[0, 2 / (top - bottom), 0, 0],
-			[0, 0, -2 / (farval - nearval), 0],
+			[0, 0, -2 / (farVal - nearVal), 0],
 			[
 				(right + left).negated / (right - left),
 				(top + bottom).negated / (top - bottom),
-				(farval + nearva.negatedl) / (farval - nearval),
+				(farVal + nearVal.negated) / (farVal - nearVal),
 				1
 			]
 		]

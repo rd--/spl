@@ -5,11 +5,11 @@ CrystalStructureOracle : [Object, SmallKansan] {
 			'LeitnerCrystalStructureCatalogue'
 		).then { :leitnerCatalogue |
 			let cls = leitnerCatalogue.atRandom;
-			let matrix = AxonometricProjection('Chinese').asMatrix;
+			let prj:/1 = 'CabinetOblique'.namedAxonometricProjection(pi / 6).asUnaryBlock;
 			smallKansas.SvgViewer(
 				'Cls - ' ++ cls.name,
 				cls.asSvgElement(12) { :each |
-					matrix.dot(each).first(2)
+					prj(each).first(2)
 				},
 				event
 			)

@@ -56,4 +56,4 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: asPerspectiveDrawing, holmesPolyhedraCatalogue, Polyhedra
+See also: asPerspectiveDrawing, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue, Polyhedra

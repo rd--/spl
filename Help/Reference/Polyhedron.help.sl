@@ -23,10 +23,7 @@ Polyhedron(
 		1 4 3
 	]
 ).asPerspectiveDrawing(
-	AxonometricProjection(
-		pi / 4, pi / 4,
-		1, 1, 1
-	)
+	'Planometric'.namedAxonometricProjection
 )
 ~~~
 
@@ -35,6 +32,8 @@ Polyhedron(
 * * *
 
 See also: asPerspectiveDrawing, LineDrawing, Polygon, unitCube, unitDodecahedron, unitIcosahedron, unitSquare, unitTetrahedron
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

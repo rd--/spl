@@ -3,6 +3,7 @@
 - _gradyLatticeCoordinates(aNumber)_
 
 Answer a 8×2 matrix of the vectors of the Kraig Grady lattice template.
+The coordinates are in planar, or Cartesian, form.
 
 At `one` the first two vectors are unit vectors:
 

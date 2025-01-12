@@ -54,7 +54,7 @@ Plot : [Object] { | pages format |
 		} {
 			(columnCount = 3).if {
 				(self.format = 'line').if {
-					let p:/1 = AxonometricProjection('Chinese').asUnaryBlock;
+					let p:/1 = 'CabinetOblique'.namedAxonometricProjection(pi / 6).asUnaryBlock;
 					let r = [
 						-1 -1 0;
 						+1 -1 0;

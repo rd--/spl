@@ -121,7 +121,7 @@ Draw a line in three dimensions:
 	0 0 1;
 	0 1 1;
 	1 1 1
-].Line.twoDimensional.asLineDrawing
+].Line.asPerspectiveDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Line-F.svg)

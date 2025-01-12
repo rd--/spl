@@ -92,20 +92,6 @@ Line : [Object] { | vertexCoordinates |
 		self.storeStringAsInitializeSlots
 	}
 
-	twoDimensional { :self |
-		self.embeddingDimension.caseOfOtherwise([
-			2 -> { self },
-			3 -> {
-				let f:/1 = AxonometricProjection('Chinese').asUnaryBlock;
-				Line(
-					self.vertexCoordinates.collect(f:/1)
-				)
-			}
-		]) {
-			self.error('twoDimensional: invalid embeddingDimension')
-		}
-	}
-
 	vertexCount { :self |
 		self.vertexCoordinates.size
 	}

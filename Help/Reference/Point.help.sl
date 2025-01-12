@@ -47,6 +47,24 @@ Threads over lists:
 
 ![](sw/spl/Help/Image/Point-B.svg)
 
+Use as a simple way to visualize volumes:
+
+~~~spl svg=C
+let p = [];
+(-2, -1.8 .. 2).tuples(3).do { :each |
+	(
+		each.squared.sum.betweenAnd(1, 2) & {
+			each.product >= 0
+		}
+	).ifTrue {
+		p.add(each.Point)
+	}
+};
+p.PerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/Point-C.svg)
+
 * * *
 
 See also: asPoint, Circle, dimension, embeddingDimension, LineDrawing, PointCloud

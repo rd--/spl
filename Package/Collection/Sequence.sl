@@ -3027,13 +3027,6 @@
 		}
 	}
 
-	withWithCollect { :self :aSequence :anotherSequence :aBlock:/3 |
-		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
-		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
-		}
-	}
-
 	withDo { :self :otherCollection :twoArgBlock:/2 |
 		self.isOfSameSizeCheck(otherCollection);
 		self.indicesDo { :index |
@@ -3065,6 +3058,21 @@
 	withIndexReplace { :self :aBlock:/2 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index], index)
+		}
+	}
+
+	withWithCollect { :self :aSequence :anotherSequence :aBlock:/3 |
+		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
+		1.toAsCollect(maximumSize, self.species) { :index |
+			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
+		}
+	}
+
+	withWithDo { :self :aSequence :anotherSequence :aBlock:/3 |
+		self.isOfSameSizeCheck(aSequence);
+		self.isOfSameSizeCheck(anotherSequence);
+		self.indicesDo { :index |
+			aBlock(self[index], aSequence[index], anotherSequence[index])
 		}
 	}
 
