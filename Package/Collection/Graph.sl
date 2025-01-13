@@ -1,5 +1,11 @@
 @Graph {
 
+	~ { :self :aGraph |
+		self.vertexList.sorted = aGraph.vertexList.sorted & {
+			self.edgeList.sorted = aGraph.edgeList.sorted
+		}
+	}
+
 	+ { :self :aGraph |
 		self.sumGraph(aGraph)
 	}
@@ -685,3 +691,28 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 }
+
++System {
+
+	sageSmallGraphCatalogue { :self |
+		self.requireLibraryItem(
+			'SageSmallGraphCatalogue'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'SageSmallGraphCatalogue',
+	category: 'Math/Graph',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/graph/sage/small-graphs.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Graph(
+				each['vertexList'] + 1,
+				each['edgeList'] + 1
+			)
+		}
+	}
+)

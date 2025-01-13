@@ -1,5 +1,15 @@
 DirectedEdge : [Object, Indexable] { | vertexList |
 
+	< { :self :anEdge |
+		self.vertexList.precedes(anEdge.vertexList)
+	}
+
+	<= { :self :anEdge |
+		self = anEdge | {
+			self < anEdge
+		}
+	}
+
 	asAssociation { :self |
 		let [from, to] = self.vertexList;
 		from -> to

@@ -1,5 +1,15 @@
 UndirectedEdge : [Object, Indexable] { | vertexList |
 
+	< { :self :anEdge |
+		self.vertexList.precedes(anEdge.vertexList)
+	}
+
+	<= { :self :anEdge |
+		self = anEdge | {
+			self < anEdge
+		}
+	}
+
 	asDirectedEdge { :self |
 		let [i, j] = self.vertexList;
 		DirectedEdge(i, j)

@@ -86,6 +86,13 @@ The complementGraph of the line graph of _K(5)_ is a Petersen graph:
 ]
 ```
 
+The complement of the union of the two and three path graphs:
+
+```
+>>> [1 2; 3 4; 4 5].asGraph.complementGraph
+[1 3; 1 4; 1 5; 2 3; 2 4; 2 5; 3 5].asGraph
+```
+
 * * *
 
 See also: complement, Graph, lineGraph, undirectedGraph

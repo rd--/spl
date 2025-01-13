@@ -35,6 +35,8 @@ c.f. `complementGraph`:
 ].asEdgeList
 ```
 
+Where supported `complement` is displayed as ∁.
+
 * * *
 
 See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, symmetricDifference
@@ -44,5 +46,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Complement.html)
 [2](https://mathworld.wolfram.com/ComplementSet.html)
 [3](https://mathworld.wolfram.com/GraphComplement.html)
+
+Unicode: U+02201 ∁ Complement
 
 Categories: Enumerating, Set
