@@ -58,34 +58,31 @@ Higher-dimensional grid graphs:
 
 >>> [2 2 2].gridGraph.edgeCount
 (2 * 2 * 2) * 3 / 2
-
->>> [2 2 2 2].gridGraph.adjacencyMatrix
-[
-	0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0;
-	1 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0;
-	1 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0;
-	0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 0;
-	1 0 0 0 0 1 1 0 0 0 0 0 1 0 0 0;
-	0 1 0 0 1 0 0 1 0 0 0 0 0 1 0 0;
-	0 0 1 0 1 0 0 1 0 0 0 0 0 0 1 0;
-	0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 1;
-	1 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0;
-	0 1 0 0 0 0 0 0 1 0 0 1 0 1 0 0;
-	0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0;
-	0 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1;
-	0 0 0 0 1 0 0 0 1 0 0 0 0 1 1 0;
-	0 0 0 0 0 1 0 0 0 1 0 0 1 0 0 1;
-	0 0 0 0 0 0 1 0 0 0 1 0 1 0 0 1;
-	0 0 0 0 0 0 0 1 0 0 0 1 0 1 1 0
-]
-
->>> [2 2 2 2].gridGraph.edgeCount
-(2 * 2 * 2 * 2) * 4 / 2
 ```
+
+Plot adjacency matrix:
+
+~~~spl svg=A
+[2 2 3 2].gridGraph
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/gridGraph-A.svg)
+
+Plot graph:
+
+~~~spl svg=A
+[2 2 3 2].gridGraph.graphPlot
+~~~
+
+![](sw/spl/Help/Image/gridGraph-B.svg)
 
 * * *
 
 See also: Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

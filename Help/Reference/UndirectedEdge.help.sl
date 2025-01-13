@@ -15,11 +15,26 @@ Make an undirected edge:
 1 --- 2
 ```
 
+The vertices are sorted by construction:
+
+```
+>>> UndirectedEdge(2, 1)
+1 --- 2
+```
+
 `asEdge` at `List` answers a `UndirectedEdge`:
 
 ```
 >>> [1 2].asEdge
 1 --- 2
+```
+
+`UndirectedEdge` implements the `Indexable` trait:
+
+```
+>>> let e = 13 --- 9;
+>>> (e[1], e[2])
+(9, 13)
 ```
 
 A graph with undirected edges:

@@ -14,6 +14,13 @@ true
 true
 ```
 
+Undirected edges are sorted by construction, so:
+
+```
+>>> (1 --- 2).matchesEdge(2 --- 1)
+true
+```
+
 A directed edge matches a directed edge if they are equal:
 
 ```
@@ -38,3 +45,7 @@ true
 * * *
 
 See also: DirectedEdge, Graph, UndirectedEdge
+
+Guides: Graph Functions
+
+Category: Collection, Graph

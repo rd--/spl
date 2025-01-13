@@ -56,6 +56,8 @@ The `vertexDegree` of a `pathGraph`:
 
 See also: cycleGraph, Graph
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PathGraph.html)

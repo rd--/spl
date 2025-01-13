@@ -58,7 +58,7 @@ Fifteen limit:
 ]
 ```
 
-Ratios between neighboring pitches are superparticular:
+Ratios between neighbouring pitches are superparticular:
 
 ```
 >>> { :i |

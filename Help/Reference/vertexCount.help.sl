@@ -65,9 +65,11 @@ At `Polyhedron`:
 
 See also: edgeCount, Graph, vertexCoordinates, vertexList
 
+Guides: Geometry Functions, Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/VertexCount.html)
 [2](https://reference.wolfram.com/language/ref/VertexCount.html)
 
-Categories: Collection
+Categories: Collection, Geometry, Graph

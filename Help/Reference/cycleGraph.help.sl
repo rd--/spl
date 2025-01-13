@@ -30,21 +30,42 @@ The `vertexList` and `edgeList` of a cycle graph:
 >>> (g.vertexList, g.edgeList)
 (
 	[1 2 3 4 5 6 7],
-	[1 2; 2 3; 3 4; 4 5; 5 6; 6 7; 7 1].asEdgeList
+	[
+		1 2; 2 3; 3 4; 4 5;
+		5 6; 6 7; 7 1
+	].asEdgeList
 )
 ```
 
 Draw cycle graph on five vertices:
 
-~~~
+~~~spl svg=A
 5.cycleGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/cycleGraph-A.svg)
 
+The adjacency matrix is banded:
+
+~~~spl svg=B
+17.cycleGraph.adjacencyMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/cycleGraph-B.svg)
+
+The incidence matrix is banded:
+
+~~~spl svg=C
+17.cycleGraph.incidenceMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/cycleGraph-C.svg)
+
 * * *
 
 See also: completeGraph, Graph, pathGraph, starGraph, wheelGraph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

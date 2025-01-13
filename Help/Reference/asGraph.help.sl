@@ -43,4 +43,6 @@ true
 
 See also: adjacencyMatrix, Graph
 
+Guides: Graph Functions
+
 Categories: Converting

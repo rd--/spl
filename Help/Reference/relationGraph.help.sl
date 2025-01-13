@@ -98,6 +98,17 @@ Construct a coprime graph:
 ]
 ```
 
+Draw coprime graph:
+
+~~~spl svg=A
+isCoprime:/2.relationGraph(
+	false,
+	[1 .. 7]
+).graphPlot
+~~~
+
+![](sw/spl/Help/Image/relationGraph-A.svg)
+
 Construct a graph from its adjacency matrix:
 
 ```
@@ -115,6 +126,8 @@ Construct a graph from its adjacency matrix:
 * * *
 
 See also: adjacencyGraph, Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

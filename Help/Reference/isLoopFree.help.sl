@@ -23,6 +23,8 @@ The adjacency matrix of a graph without self-loops has a zero diagonal:
 
 See also: asGraph, Graph, isDirected, isUndirected
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/LoopFreeGraphQ.html)

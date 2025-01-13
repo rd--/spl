@@ -31,6 +31,14 @@ The complete bipartite graph _(2, 3)_:
 ]
 ```
 
+Draw the complete bipartite graph _(2, 3)_:
+
+~~~spl svg=A
+2.completeBipartiteGraph(3).graphPlot
+~~~
+
+![](sw/spl/Help/Image/completeBipartiteGraph-A.svg)
+
 * * *
 
 See also: completeGraph

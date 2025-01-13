@@ -1,7 +1,7 @@
-UndirectedEdge : [Object, Indexable] { | contents |
+UndirectedEdge : [Object, Indexable] { | vertexList |
 
 	asDirectedEdge { :self |
-		let [i, j] = self.contents;
+		let [i, j] = self.vertexList;
 		DirectedEdge(i, j)
 	}
 
@@ -10,7 +10,7 @@ UndirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	asList { :self |
-		self.contents
+		self.vertexList
 	}
 
 	asUndirectedEdge { :self |
@@ -18,11 +18,11 @@ UndirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	at { :self :index |
-		self.contents[index]
+		self.vertexList[index]
 	}
 
 	forDot { :self :isMixed |
-		let [i, j] = self.contents;
+		let [i, j] = self.vertexList;
 		isMixed.if {
 			'% -> % [dir=none];'.format([i, j])
 		} {
@@ -31,9 +31,13 @@ UndirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	hasCommonVertex { :self :anEdge |
-		self.contents.includes(anEdge[1]) | {
-			self.contents.includes(anEdge[2])
+		self.vertexList.includes(anEdge[1]) | {
+			self.vertexList.includes(anEdge[2])
 		}
+	}
+
+	includes { :self :vertex |
+		self.vertexList.includes(vertex)
 	}
 
 	indices { :self |
@@ -53,12 +57,16 @@ UndirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	matchesEdge { :self :edge |
-		self.contents = edge.contents.sorted
+		self.vertexList = edge.vertexList.sorted
 	}
 
 	printString { :self |
-		let [i, j] = self.contents;
+		let [i, j] = self.vertexList;
 		'% --- %'.format([i, j])
+	}
+
+	rename { :self :aDictionary |
+		aDictionary[self[1]] --- aDictionary[self[2]]
 	}
 
 	size { :self |

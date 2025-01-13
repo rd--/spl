@@ -4,7 +4,7 @@
 
 Answer the vertex-edge incidence matrix of _aGraph_.
 
-The incidence matrix of an undirected graph:
+The incidence matrix of an undirected graph (a cycle graph):
 
 ```
 >>> [1 2; 1 4; 2 3; 3 4]
@@ -18,7 +18,7 @@ The incidence matrix of an undirected graph:
 ]
 ```
 
-The incidence matrix of a directed graph:
+The incidence matrix of a directed graph (a cycle graph):
 
 ```
 >>> [1 -> 2, 2 -> 3, 3 -> 4, 4 -> 1]
@@ -84,6 +84,8 @@ The incidence matrix of a graph with self-loops has some entries equal to 2:
 * * *
 
 See also: adjacencyMatrix, incidenceList
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

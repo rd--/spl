@@ -68,7 +68,9 @@ Relation to `adjacencyList`:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceMatrix
+See also: adjacencyList, Graph, incidenceGraph, incidenceMatrix
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

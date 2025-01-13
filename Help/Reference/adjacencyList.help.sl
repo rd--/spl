@@ -63,6 +63,8 @@ Relation to `incidenceList`:
 
 See also: adjacencyGraph, adjacencyMatrix, incidenceList
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AdjacencyList.html)

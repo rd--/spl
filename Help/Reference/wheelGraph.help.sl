@@ -64,6 +64,8 @@ Draw the wheel graph on nine vertices:
 
 See also: cycleGraph, Graph, pathGraph, starGraph
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WheelGraph.html)

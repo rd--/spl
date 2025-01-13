@@ -32,12 +32,6 @@
 		}.table(v, v)
 	}
 
-	allNeighbours { :self |
-		self.vertexList.collect { :each |
-			each -> self.neighboursOf(each)
-		}
-	}
-
 	asDot { :self |
 		let isMixed = self.isMixed;
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
@@ -119,6 +113,10 @@
 		}
 	}
 
+	incidenceGraph { :self :vertex |
+		self.incidenceList(vertex).asGraph
+	}
+
 	incidenceList { :self :vertex |
 		self.edgeList.select { :each |
 			each[1] = vertex | {
@@ -177,9 +175,13 @@
 		self.vertexList.includes(vertex)
 	}
 
-	inEdgesOf { :self :vertex |
+	inEdgeListOf { :self :vertex |
 		self.edgeList.select { :edge |
-			edge[2] = vertex
+			(edge[2] = vertex) | {
+				edge.isUndirected & {
+					edge[1] = vertex
+				}
+			}
 		}
 	}
 
@@ -261,14 +263,36 @@
 		Graph(v, e)
 	}
 
-	neighboursOf { :self :vertex |
-		self.outEdgesOf(vertex).collect(second:/1)
+	neighbourhoodGraph { :self :vertex |
+		let vertexList = [];
+		self.incidenceList(vertex).do { :each |
+			vertexList.addAll(each.vertexList)
+		};
+		self.subgraph(vertexList)
 	}
 
-	outEdgesOf { :self :vertex |
-		self.edges.select { :edge |
-			edge[1] = vertex
+	neighbours { :self :vertex |
+		let vertexList = [];
+		self.incidenceList(vertex).do { :each |
+			vertexList.addAll(each.vertexList)
+		};
+		vertexList.nub.sort.without(vertex)
+	}
+
+	outEdgeListOf { :self :vertex |
+		self.edgeList.select { :edge |
+			(edge[1] = vertex) | {
+				edge.isUndirected & {
+					edge[2] = vertex
+				}
+			}
 		}
+	}
+
+	subgraph { :self :vertexList |
+		self.edgeList.select { :each |
+			vertexList.includesAllOf(each.vertexList)
+		}.asGraph
 	}
 
 	sumGraph { :self :aGraph |
@@ -319,21 +343,35 @@
 
 	vertexInDegree { :self :vertex |
 		let answer = 0;
-		self.edgeList.do { :each |
-			(vertex = each[2]).ifTrue {
-				answer := answer + 1
-			};
-			each.isUndirectedEdge.ifTrue {
-				(vertex = each[1]).ifTrue {
-					answer := answer + 1
-				}
-			}
+		self.vertexInNeighboursDo(vertex) { :unused |
+			answer := answer + 1
 		};
 		answer
 	}
 
 	vertexIndex { :self :vertex |
 		self.vertexList.indexOf(vertex)
+	}
+
+	vertexInNeighbours { :self :vertex |
+		let answer = [];
+		self.vertexInNeighboursDo(vertex) { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	vertexInNeighboursDo { :self :vertex :aBlock:/1 |
+		self.edgeList.do { :each |
+			(vertex = each[2]).ifTrue {
+				aBlock(each[1])
+			};
+			each.isUndirectedEdge.ifTrue {
+				(vertex = each[1]).ifTrue {
+					aBlock(each[2])
+				}
+			}
+		}
 	}
 
 	vertexOutDegree { :self |
@@ -344,15 +382,29 @@
 
 	vertexOutDegree { :self :vertex |
 		let answer = 0;
+		self.vertexOutNeighboursDo(vertex) { :unused |
+			answer := answer + 1
+		};
+		answer
+	}
+
+	vertexOutDo { :self :vertex :aBlock:/1 |
 		self.edgeList.do { :each |
 			(vertex = each[1]).ifTrue {
-				answer := answer + 1
+				aBlock(each[2])
 			};
 			each.isUndirectedEdge.ifTrue {
 				(vertex = each[2]).ifTrue {
-					answer := answer + 1
+					aBlock(each[1])
 				}
 			}
+		}
+	}
+
+	vertexOutNeighbours { :self :vertex |
+		let answer = [];
+		self.vertexOutNeighboursDo(vertex) { :each |
+			answer.add(each)
 		};
 		answer
 	}
@@ -388,7 +440,11 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	isValid {
-		self.hasValidEdges
+		self.hasValidEdgeList
+	}
+
+	printString { :self |
+		'%.asGraph'.format([self.edgeList])
 	}
 
 	vertexCoordinates { :self |
@@ -503,6 +559,16 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	asEdgeList { :self |
 		self.collect(asEdge:/1)
+	}
+
+	canonicalEdgeList { :self |
+		let vertexList = self.collect(vertexList:/1).concatenation.nub.sort;
+		let renameTable = vertexList.collect { :vertex |
+				vertex -> vertexList.indexOf(vertex)
+		}.asMap;
+		self.collect { :each |
+			each.rename(renameTable)
+		}
 	}
 
 	gridGraph { :shape |

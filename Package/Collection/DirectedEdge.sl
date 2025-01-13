@@ -1,4 +1,9 @@
-DirectedEdge : [Object, Indexable] { | contents |
+DirectedEdge : [Object, Indexable] { | vertexList |
+
+	asAssociation { :self |
+		let [from, to] = self.vertexList;
+		from -> to
+	}
 
 	asDirectedEdge { :self |
 		self
@@ -9,21 +14,25 @@ DirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	asUndirectedEdge { :self |
-		let [i, j] = self.contents;
+		let [i, j] = self.vertexList;
 		UndirectedEdge(i, j)
 	}
 
 	at { :self :index |
-		self.contents[index]
+		self.vertexList[index]
 	}
 
 	forDot { :self :isMixed |
-		let [from, to] = self.contents;
+		let [from, to] = self.vertexList;
 		'% -> %;'.format([from, to])
 	}
 
 	head { :self |
 		self[2]
+	}
+
+	includes { :self :vertex |
+		self.vertexList.includes(vertex)
 	}
 
 	indices { :self |
@@ -53,8 +62,12 @@ DirectedEdge : [Object, Indexable] { | contents |
 	}
 
 	printString { :self |
-		let [i, j] = self.contents;
+		let [i, j] = self.vertexList;
 		'% --> %'.format([i, j])
+	}
+
+	rename { :self :aDictionary |
+		aDictionary[self[1]] --> aDictionary[self[2]]
 	}
 
 	size { :self |

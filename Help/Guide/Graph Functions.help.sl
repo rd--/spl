@@ -3,16 +3,18 @@
 ## Constructor Functions
 
 - `adjacencyGraph`: adjacency graph
-- `completeBipartiteGraph`
+- `completeBipartiteGraph`: bipartite
 - `completeGraph`: complete graph
-- `cubeGraph`
-- `cycleGraph`
-- `edgeCountGraph`
-- `gridGraph`
-- `pathGraph`
-- `relationGraph`
-- `starGraph`
-- `wheelGraph`
+- `cubeGraph`: cube graph
+- `cycleGraph`: cycle graph
+- `gridGraph`: grid graph
+- `incidenceGraph`: incidence graph
+- `neighbourhoodGraph`: neighbourhood
+- `pathGraph`: path graph
+- `relationGraph`: relation graph
+- `starGraph`: star graph
+- `subgraph`: subgraph
+- `wheelGraph`: wheel graph
 - `DirectedEdge`: directed edge
 - `Graph`: graph
 - `UndirectedEdge`: undirected edge
@@ -24,9 +26,8 @@
 
 ## Accessing (Query) Functions
 
-- `adjacencyList`
-- `adjacencyMatrix`
-- `allNeighbours`
+- `adjacencyList`: adjacency list
+- `adjacencyMatrix`: adjacency matrix
 - `complementGraph`
 - `connectionMatrix`
 - `degreeSequence`
@@ -36,19 +37,20 @@
 - `edgeList`: edge list
 - `incidenceList`
 - `incidenceMatrix`
-- `inEdgesOf`
 - `labeledVertexList`: labeled vertex list
 - `lineGraph`
-- `neighboursOf`
-- `outEdgesOf`
+- `neighbours`: neighbours
+- `outEdgeListOf`
 - `sumGraph`
 - `undirectedGraph`
 - `vertexCoordinates`: vertex coordinates
 - `vertexCount`: vertex count
-- `vertexDegree`
-- `vertexInDegree`
+- `vertexDegree`: vertex degree
+- `vertexInDegree`: vertex in degree
 - `vertexIndex`
-- `vertexOutDegree`
+- `vertexInNeighbours`
+- `vertexOutDegree`: vertex out degree
+- `vertexOutNeighbours`
 - `vertexLabels`: vertex labels
 - `vertexList`: vertex list
 
@@ -57,20 +59,23 @@
 - `hasValidEdgeList`
 - `includesEdge`
 - `isDirected`: is directed
-- `isEmpty`
-- `isLoopFree`
-- `isMixed`: isMixed
-- `isRegular`
-- `isSingleton`
-- `isUndirected`: isUndirected
+- `isDirectedEdge`: is directed edge
+- `isEmpty`: is empty
+- `isLoopFree`: is loop free
+- `isMixed`: is mixed
+- `isRegular`: is regular
+- `isSingleton`: is singleton
+- `isUndirected`: is undirected
+- `isUndirectedEdge`: is undirected edge
 - `isValid`: is valid
+- `matchesEdge`: matches edge
 
 ## Converting Functions
 
 - `asDot`: as dot
 - `asEdge`: as edge
 - `asEdgeList`: as edge list
-- `asGraph`
+- `asGraph`: as graph
 
 ## Drawing Functions
 

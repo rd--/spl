@@ -81,7 +81,7 @@ The vertex degrees of an undirected graph can be obtained from its adjacency mat
 )
 ```
 
-Each vertex of a _k_-regular graph has the same vertex degree _k_:
+Each vertex of a _k_-regular graph has the same vertex degree _k-1_:
 
 ```
 >>> 5.completeGraph.vertexDegree
@@ -90,7 +90,9 @@ Each vertex of a _k_-regular graph has the same vertex degree _k_:
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexList, Graph
+See also: adjacencyMatrix, asGraph, vertexCount, vertexInDegree, vertexList, vertexOutDegree, Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

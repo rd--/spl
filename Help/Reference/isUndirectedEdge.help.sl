@@ -22,6 +22,8 @@ true
 
 See also: Graph, isDirectedEdge, isEdge
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GraphEdge.html)

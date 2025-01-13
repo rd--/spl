@@ -6,6 +6,8 @@ The required methods are `at`, `atPut`, `indices` and `size`.
 Notably the `At Syntax` and `AtPut Syntax` are implemented in terms of `Indexable` methods.
 The `Dictionary` types are `Indexable` so that one may use this array indexing syntax for dictionaries.
 
+Note, however, that `atAll` is not at `Indexable`, but instead at `Sequence` since it requires `species` to decide the answer type.
+
 ```
 >>> let t = system.traitTypes('Indexable');
 >>> t.includes('List')

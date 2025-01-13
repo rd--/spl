@@ -103,6 +103,8 @@ The vertex in-degrees of an undirected graph can be obtained from its adjacency 
 
 See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexList, vertexOutDegree, Graph
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Indegree.html)

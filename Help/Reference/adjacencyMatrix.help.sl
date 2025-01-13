@@ -137,9 +137,50 @@ The adjacency matrix of a path graph:
 ]
 ```
 
+For a complete graph, all entries outside the diagonal are `one` in the adjacency matrix:
+
+~~~spl svg=A
+13.completeGraph
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/adjacencyMatrix-A.svg)
+
+A complete _k_-partite graph has zero diagonal block entries:
+
+~~~spl svg=B
+2.completeBipartiteGraph(7)
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/adjacencyMatrix-B.svg)
+
+For a path graph,
+rows of an adjacency matrix will contain one or two elements:
+
+~~~spl svg=C
+20.pathGraph.adjacencyMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/adjacencyMatrix-C.svg)
+
+The adjacency matrix of a grid graph:
+
+~~~spl svg=D
+[3 3 3].gridGraph
+.adjacencyMatrix
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/adjacencyMatrix-D.svg)
+
 * * *
 
 See also: adjacencyGraph, adjacencyList, Graph, incidenceList
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

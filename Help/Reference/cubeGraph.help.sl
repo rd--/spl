@@ -45,33 +45,27 @@ The three-cube, also called cube and hexahedron:
 ]
 ```
 
-The four-cube, also called tesseract and octachoron:
+Draw the four-cube, also called tesseract and octachoron:
 
-```
->>> 4.cubeGraph.adjacencyMatrix
-[
-	0 1 1 0 1 0 0 0 1 0 0 0 0 0 0 0;
-	1 0 0 1 0 1 0 0 0 1 0 0 0 0 0 0;
-	1 0 0 1 0 0 1 0 0 0 1 0 0 0 0 0;
-	0 1 1 0 0 0 0 1 0 0 0 1 0 0 0 0;
-	1 0 0 0 0 1 1 0 0 0 0 0 1 0 0 0;
-	0 1 0 0 1 0 0 1 0 0 0 0 0 1 0 0;
-	0 0 1 0 1 0 0 1 0 0 0 0 0 0 1 0;
-	0 0 0 1 0 1 1 0 0 0 0 0 0 0 0 1;
-	1 0 0 0 0 0 0 0 0 1 1 0 1 0 0 0;
-	0 1 0 0 0 0 0 0 1 0 0 1 0 1 0 0;
-	0 0 1 0 0 0 0 0 1 0 0 1 0 0 1 0;
-	0 0 0 1 0 0 0 0 0 1 1 0 0 0 0 1;
-	0 0 0 0 1 0 0 0 1 0 0 0 0 1 1 0;
-	0 0 0 0 0 1 0 0 0 1 0 0 1 0 0 1;
-	0 0 0 0 0 0 1 0 0 0 1 0 1 0 0 1;
-	0 0 0 0 0 0 0 1 0 0 0 1 0 1 1 0
-]
-```
+~~~
+4.cubeGraph.graphPlot
+~~~
+
+![](sw/spl/Help/Image/cubeGraph-A.svg)
+
+Plot the adjacency matrix:
+
+~~~
+5.cubeGraph.adjacencyMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/cubeGraph-B.svg)
 
 * * *
 
 See also: adjacencyMatrix, Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

@@ -68,6 +68,8 @@ Drawing of the line graph of the star graph on six vertices:
 
 See also: cycleGraph, Graph
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StarGraph.html)
