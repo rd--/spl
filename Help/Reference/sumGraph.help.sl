@@ -42,6 +42,8 @@ The graph sum of the pentatope graph _K(5)_ and the cycle graph _C(5)_.
 
 See also: Graph
 
+Guide: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GraphSum.html)

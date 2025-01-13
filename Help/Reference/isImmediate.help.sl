@@ -30,6 +30,14 @@ as for use as keys is `Map`.
 [false false false false false false]
 ```
 
+Note however that character values are cached,
+so that they also might be considered immediate:
+
+```
+>>> 'x'.asCharacter == 'x'.asCharacter
+true
+```
+
 * * *
 
 See also: =, ==, Bag, isJson, isLiteral, Map, Set

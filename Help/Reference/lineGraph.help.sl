@@ -15,14 +15,19 @@ The `lineGraph` of a directed graph:
 >>> 	5 -> 6
 >>> ].asGraph;
 >>> g.lineGraph.edgeList
-[1 --> 3, 2 --> 4, 2 --> 5, 3 --> 6, 4 --> 6, 5 --> 7]
+[
+	1 --> 3, 2 --> 4, 2 --> 5,
+	3 --> 6, 4 --> 6, 5 --> 7
+]
 ```
 
 The line graph of _K(1, 3)_ is a triangle:
 
 ```
->>> let g = [1 2; 1 3; 1 4].asGraph;
->>> g.lineGraph.edgeList
+>>> [1 2; 1 3; 1 4]
+>>> .asGraph
+>>> .lineGraph
+>>> .edgeList
 [1 2; 1 3; 2 3].asEdgeList
 ```
 
@@ -39,8 +44,13 @@ The line graph of the `pathGraph` of _n_ is isomorphic to the `pathGraph` of _n 
 The line graph of a bipartite graph is perfect:
 
 ```
->>> let g = [1 3; 1 4; 1 5; 2 3; 2 4; 2 5].asGraph;
->>> g.lineGraph.adjacencyMatrix
+>>> [
+>>> 	1 3; 1 4; 1 5;
+>>> 	2 3; 2 4; 2 5
+>>> ]
+>>> .asGraph
+>>> .lineGraph
+>>> .adjacencyMatrix
 [
 	0 1 1 1 0 0;
 	1 0 1 0 1 0;
@@ -54,7 +64,9 @@ The line graph of a bipartite graph is perfect:
 The line graph of a Hamiltonian graph is Hamiltonian:
 
 ```
->>> 4.completeGraph.lineGraph.adjacencyMatrix
+>>> 4.completeGraph
+>>> .lineGraph
+>>> .adjacencyMatrix
 [
 	0 1 1 1 1 0;
 	1 0 1 1 0 1;
@@ -68,6 +80,8 @@ The line graph of a Hamiltonian graph is Hamiltonian:
 * * *
 
 See also: Graph
+
+Guide: Graph Functions
 
 References:
 _Mathematica_

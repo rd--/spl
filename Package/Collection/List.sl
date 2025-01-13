@@ -288,7 +288,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	nest { :self |
-		self.isList.if {
+		self.isSequence.if {
 			self
 		} {
 			[self]

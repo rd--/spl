@@ -5,8 +5,7 @@
 The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
 
 ```
->>> let l = [0 2 4 5 7 9 11];
->>> let b = l.asBitSet;
+>>> let b = [0 2 4 5 7 9 11].asBitSet;
 >>> (b.asList, b.complement.asList)
 (l, [1 3 6 8 10])
 ```
@@ -14,8 +13,10 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 The complement of a `ResidueSet` is the difference to the complete residue set _Z_:
 
 ```
->>> let r = [0 2 4 5 7 9 11].asResidueSet(12);
->>> r.complement.asList
+>>> [0 2 4 5 7 9 11]
+>>> .asResidueSet(12)
+>>> .complement
+>>> .asList
 [1 3 6 8 10]
 ```
 
@@ -23,7 +24,9 @@ The `complement` of a `Graph` is a graph with the same vertices and the compleme
 c.f. `complementGraph`:
 
 ```
->>> 6.cycleGraph.complement.edgeList
+>>> 6.cycleGraph
+>>> .complement
+>>> .edgeList
 [
 	1 3; 1 4; 1 5;
 	2 4; 2 5; 2 6;
@@ -34,7 +37,7 @@ c.f. `complementGraph`:
 
 * * *
 
-See also: BitSet, intersection, union, ResidueSet, symmetricDifference
+See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, symmetricDifference
 
 References:
 _Mathematica_

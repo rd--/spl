@@ -38,9 +38,10 @@ The system includes a `typeDictionary` that maps type names to `Type` values.
 >>> system.typeLookup('String').isType
 true
 
->>> let t = system.typeLookup('String');
->>> let m = t.methodDictionary;
->>> m.includesKey('includesSubstring:/2')
+>>> system
+>>> .typeLookup('String')
+>>> .methodDictionary
+>>> .includesKey('includesSubstring:/2')
 true
 ```
 

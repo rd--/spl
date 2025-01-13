@@ -43,3 +43,5 @@ false
 * * *
 
 See also: DirectedEdge, Graph, matchesEdge, UndirectedEdge
+
+Guides: Graph Functions

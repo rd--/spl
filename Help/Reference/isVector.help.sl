@@ -44,7 +44,7 @@ true
 
 * * *
 
-See also: elementType, isArray, isColumnVector, isRowVector, isList, isMatrix
+See also: elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
 
 References:
 _Mathematica_

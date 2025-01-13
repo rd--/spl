@@ -96,10 +96,6 @@
 		self.edgeList.size
 	}
 
-	edgeIndex { :self :edge |
-		self.edgeList.indexOf(edge)
-	}
-
 	graphPlot { :self |
 		Plot([self], 'graph')
 	}
@@ -349,10 +345,6 @@
 		answer
 	}
 
-	vertexIndex { :self :vertex |
-		self.vertexList.indexOf(vertex)
-	}
-
 	vertexInNeighbours { :self :vertex |
 		let answer = [];
 		self.vertexInNeighboursDo(vertex) { :each |
@@ -382,7 +374,7 @@
 
 	vertexOutDegree { :self :vertex |
 		let answer = 0;
-		self.vertexOutNeighboursDo(vertex) { :unused |
+		self.vertexOutDo(vertex) { :unused |
 			answer := answer + 1
 		};
 		answer
@@ -403,7 +395,7 @@
 
 	vertexOutNeighbours { :self :vertex |
 		let answer = [];
-		self.vertexOutNeighboursDo(vertex) { :each |
+		self.vertexOutDo(vertex) { :each |
 			answer.add(each)
 		};
 		answer
@@ -437,10 +429,6 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.includesEdge(edge).ifFalse {
 			self.addEdge(edge)
 		}
-	}
-
-	isValid {
-		self.hasValidEdgeList
 	}
 
 	printString { :self |

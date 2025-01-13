@@ -36,8 +36,9 @@ The incidence matrix of an undirected graph has no negative entries
 the sum of the entries in any column is 2:
 
 ```
->>> let g = [1 2; 2 3; 3 1].asGraph;
->>> let m = g.incidenceMatrix;
+>>> let m = [1 2; 2 3; 3 1]
+>>> .asGraph
+>>> .incidenceMatrix;
 >>> (m, m.sum)
 ([1 0 1; 1 1 0; 0 1 1], [2 2 2])
 ```
@@ -46,8 +47,9 @@ The incidence matrix of a directed graph has some negative entries,
 if there are no self-loops, the sum of the entries in any column is 0:
 
 ```
->>> let g = [1 -> 2, 2 -> 3, 3 -> 1].asGraph;
->>> let m = g.incidenceMatrix;
+>>> let m = [1 -> 2, 2 -> 3, 3 -> 1]
+>>> .asGraph
+>>> .incidenceMatrix;
 >>> (m, m.sum)
 (
 	[

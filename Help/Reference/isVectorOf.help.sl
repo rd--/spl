@@ -1,24 +1,24 @@
 # isVectorOf
 
-- _isVectorOf(aSequence, aString)_
+- _isVectorOf(aSequence, elementType)_
 
-Answers _true_ if _aSequence_ is a vector with the indicated _elementType_,
-else _false_.
+Answers `true` if _aSequence_ is a vector with the indicated _elementType_,
+else `false`.
 
 ```
->>> [1 2 3 4 5 6].isVectorOf('SmallFloat')
+>>> [1 2 3 4].isVectorOf('SmallFloat')
 true
 
->>> [1/2 3/4 5/6 7/6].isVectorOf('Fraction')
+>>> [1/2 3/4 5/6].isVectorOf('Fraction')
 true
 
->>> [1j2 3j4 5j6 7j6].isVectorOf('Complex')
+>>> [1j2 3j4 5j6].isVectorOf('Complex')
 true
 
->>> ['a' 'b' 'c' 'd'].isVectorOf('String')
+>>> ['a' 'b' 'c'].isVectorOf('String')
 true
 
->>> [1n 2n 3n 4n].isVectorOf('LargeInteger')
+>>> [1n 2n].isVectorOf('LargeInteger')
 true
 ```
 

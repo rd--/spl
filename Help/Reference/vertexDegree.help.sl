@@ -19,7 +19,10 @@ At a directed graph:
 >>> 	2 -> 3, 2 -> 4,
 >>> 	3 -> 1
 >>> ].asGraph;
->>> (g.vertexDegree, g.vertexDegree(2))
+>>> (
+>>> 	g.vertexDegree,
+>>> 	g.vertexDegree(2)
+>>> )
 ([2 3 2 1], 3)
 ```
 
@@ -27,7 +30,10 @@ At an undirected graph:
 
 ```
 >>> let g = [1 2; 2 3; 3 1; 2 4].asGraph;
->>> (g.vertexDegree, g.vertexDegree(2))
+>>> (
+>>> 	g.vertexDegree,
+>>> 	g.vertexDegree(2)
+>>> )
 ([2 3 2 1], 3)
 ```
 
@@ -39,7 +45,10 @@ At a multigraph:
 >>> 	2 -> 3,
 >>> 	3 -> 1
 >>> ].asGraph;
->>> (g.vertexDegree, g.vertexDegree(2))
+>>> (
+>>> 	g.vertexDegree,
+>>> 	g.vertexDegree(2)
+>>> )
 ([3 3 2], 3)
 ```
 
@@ -62,7 +71,11 @@ Every graph has an even number of vertices with odd degree:
 The vertex degrees of an undirected graph can be obtained from its adjacency matrix:
 
 ```
->>> let g = [1 1; 1 2; 1 3; 2 3; 3 4].asGraph;
+>>> let g = [
+>>> 	1 1; 1 2; 1 3;
+>>> 	2 3;
+>>> 	3 4
+>>> ].asGraph;
 >>> let m = g.adjacencyMatrix;
 >>> (
 >>> 	m,
