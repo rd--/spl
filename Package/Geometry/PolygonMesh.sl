@@ -106,18 +106,61 @@ PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 
 +System {
 
-	planarGraphCatalogue { :self |
+	planarConvexPolytopeGraphCatalogue { :self |
 		self.requireLibraryItem(
-			'PlanarGraphCatalogue'
+			'PlanarConvexPolytopeGraphCatalogue'
+		)
+	}
+
+
+	planarNonHamiltonianGraphCatalogue { :self |
+		self.requireLibraryItem(
+			'PlanarNonHamiltonianGraphCatalogue'
+		)
+	}
+
+	planarRegularGraphCatalogue { :self |
+		self.requireLibraryItem(
+			'PlanarRegularGraphCatalogue'
 		)
 	}
 
 }
 
 LibraryItem(
-	name: 'PlanarGraphCatalogue',
+	name: 'PlanarRegularGraphCatalogue',
 	category: 'Geometry/Graph',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarGraphCatalogue.json',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarRegularGraphCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			PolygonMesh(
+				each['vertexCoordinates'],
+				each['faceIndices'] + 1
+			)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'PlanarNonHamiltonianGraphCatalogue',
+	category: 'Geometry/Graph',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarNonHamiltonianGraphCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			PolygonMesh(
+				each['vertexCoordinates'],
+				each['faceIndices'] + 1
+			)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'PlanarConvexPolytopeGraphCatalogue',
+	category: 'Geometry/Graph',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarConvexPolytopeGraphCatalogue.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |

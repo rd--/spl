@@ -59,9 +59,10 @@ The complementGraph of a `completeGraph` is an edgeless graph:
 For simple graphs, the complementGraph of the complementGraph is the original graph:
 
 ```
->>> let g = 6.cycleGraph;
->>> g.complementGraph
->>> .complementGraph.edgeList
+>>> 6.cycleGraph
+>>> .complementGraph
+>>> .complementGraph
+>>> .edgeList
 [1 2; 1 6; 2 3; 3 4; 4 5; 5 6].asEdgeList
 ```
 
@@ -69,7 +70,7 @@ The complementGraph of the line graph of _K(5)_ is a Petersen graph:
 
 ```
 >>> 5.completeGraph
->>> .lineGraph;
+>>> .lineGraph
 >>> .complementGraph
 >>> .adjacencyMatrix
 [
