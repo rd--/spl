@@ -103,3 +103,28 @@ PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 	}
 
 }
+
++System {
+
+	planarGraphCatalogue { :self |
+		self.requireLibraryItem(
+			'PlanarGraphCatalogue'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'PlanarGraphCatalogue',
+	category: 'Geometry/Graph',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarGraphCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			PolygonMesh(
+				each['vertexCoordinates'],
+				each['faceIndices'] + 1
+			)
+		}
+	}
+)
