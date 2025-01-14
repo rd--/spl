@@ -11,7 +11,7 @@ Count entries:
 >>> system
 >>> .planarRegularGraphCatalogue
 >>> .size
-7236
+650
 ```
 
 Draw the seventh graph in the set _5reg\_22-35_,
@@ -32,6 +32,6 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, PolygonMesh
+See also: planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, PolygonMesh
 
 Further Reading: Brinkmann & McKay 2007

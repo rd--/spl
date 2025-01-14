@@ -11,7 +11,7 @@ Count entries:
 >>> system
 >>> .planarNonHamiltonianGraphCatalogue
 >>> .size
-7236
+1213
 ```
 
 Count the vertices and face degrees of the entry for the sixth graph in the set _nonham52c5_,
@@ -34,7 +34,7 @@ system
 .asLineDrawing
 ~~~
 
-![](sw/spl/Help/Image/planarRegularGraphCatalogue-A.svg)
+![](sw/spl/Help/Image/planarNonHamiltonianGraphCatalogue-A.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,
@@ -42,6 +42,6 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: planarConvexPolytopeGraphCatalogue, planarRegularGraphCatalogue, PolygonMesh
+See also: planarConvexPolytopeGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue, PolygonMesh
 
 Further Reading: Brinkmann & McKay 2007

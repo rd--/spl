@@ -119,6 +119,12 @@ PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 		)
 	}
 
+	planarQuadrangulationsCatalogue { :self |
+		self.requireLibraryItem(
+			'PlanarQuadrangulationsCatalogue'
+		)
+	}
+
 	planarRegularGraphCatalogue { :self |
 		self.requireLibraryItem(
 			'PlanarRegularGraphCatalogue'
@@ -161,6 +167,21 @@ LibraryItem(
 	name: 'PlanarConvexPolytopeGraphCatalogue',
 	category: 'Geometry/Graph',
 	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarConvexPolytopeGraphCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			PolygonMesh(
+				each['vertexCoordinates'],
+				each['faceIndices'] + 1
+			)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'PlanarQuadrangulationsCatalogue',
+	category: 'Geometry/Graph',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/planar/PlanarQuadrangulationsCatalogue.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |

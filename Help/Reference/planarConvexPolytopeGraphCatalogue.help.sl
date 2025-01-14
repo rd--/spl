@@ -11,7 +11,7 @@ Count entries:
 >>> system
 >>> .planarConvexPolytopeGraphCatalogue
 >>> .size
-7236
+2907
 ```
 
 Draw the entry for the 189th graph in the set _convexpolytopes\_8_,
@@ -32,6 +32,6 @@ and this function requires the item be available locally.
 
 * * *
 
-See also: planarNonHamiltonianGraphCatalogue, planarRegularGraphCatalogue, PolygonMesh
+See also: planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, planarRegularGraphCatalogue, PolygonMesh
 
 Further Reading: Brinkmann & McKay 2007
