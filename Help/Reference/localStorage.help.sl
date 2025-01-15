@@ -6,8 +6,12 @@ Answer the local `Storage` value of _aSystem_.
 
 ```
 >>> let s = system.localStorage;
->>> (s.isStorage, s.isDictionary)
-(true, true)
+>>> (
+>>> 	s.isStorage,
+>>> 	s.isDictionary,
+>>> 	s.size.isInteger
+>>> )
+(true, true, true)
 ```
 
 Check if a key exists:
@@ -44,4 +48,4 @@ Delete an entry:
 
 * * *
 
-See also: Storage, System
+See also: :=, at, atPut, Dictionary, includesKey, sessionStorage, Storage, System

@@ -2,6 +2,8 @@
 
 - _ArrayBuffer(anInteger)_
 
+An `ArrayBuffer` is a `Type` representing a binary data buffer.
+
 Create new zeroed array buffer of eight bytes:
 
 ```
@@ -31,5 +33,9 @@ true
 * * *
 
 See also: ByteArray, Float32Array, Float64Array
+
+References:
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/structured-data.html#sec-arraybuffer-objects)
 
 Categories: Collection

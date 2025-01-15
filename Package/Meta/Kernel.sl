@@ -31,7 +31,6 @@
 	'Adverb' /* Block */
 	'Promise'
 	'Request'
-	'Response'
 	'SmallFloat'
 	'Character'
 	'String' /* Character */
@@ -44,4 +43,13 @@
 	'Range'
 	'Record'
 	'Map' /* Record */
+
+	'ArrayBuffer'
+	'ByteArray'
+	'Float32Array'
+	'Float64Array'
+	'Blob' /* ByteArray, Float64Array */
+
+	'Response'
+
 ].primitiveLoadPackageSequence

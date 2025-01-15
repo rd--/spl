@@ -7,6 +7,11 @@ Implements `blob`, `byteArray`, `json` and `text` methods to retrieve the held v
 Implements `headers` to retrieve any associated Http headers,
 and `contentType` to get the 'Content-Type' field of `headers`.
 
+```
+>>> Response('!').isResponse
+true
+```
+
 * * *
 
 See also: blob, byteArray, fetch, headers, Headers, json, Promise, text

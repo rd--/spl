@@ -1,6 +1,6 @@
 # Cache
 
-Cache is used to implement initialise-on-demand global variables.
+`Cache` is a `Trait` used to implement initialise-on-demand global variables.
 
 The requried method is `cache`, which should answer a `Dictionary`.
 

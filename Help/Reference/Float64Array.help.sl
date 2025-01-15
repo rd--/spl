@@ -17,4 +17,8 @@ Unlike a `List`, a `Float64Array` is of fixed size.
 
 See also: asFloat64Array, ByteArray, List, Float32Array
 
+References:
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/indexed-collections.html#table-49)
+
 Categories: Collection, Type

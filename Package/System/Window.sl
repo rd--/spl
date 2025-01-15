@@ -4,6 +4,10 @@ Window! : [Object] {
 		<primitive: return _self.alert(_aString);>
 	}
 
+	caches { :self |
+		<primitive: return _self.caches;>
+	}
+
 	confirm { :self :aString |
 		<primitive: return _self.confirm(_aString);>
 	}

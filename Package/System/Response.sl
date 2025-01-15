@@ -61,3 +61,11 @@ Response! : [Object] {
 	}
 
 }
+
++[ArrayBuffer, Blob, ByteArray, Float32Array, Float64Array, String] {
+
+	Response { :self |
+		<primitive: return new Response(_self);>
+	}
+
+}

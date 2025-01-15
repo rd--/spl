@@ -33,6 +33,8 @@ See also: asByteArray, List, Float64Array
 
 References:
 _Smalltalk_
-5.7.15
+5.7.15,
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/indexed-collections.html#table-49)
 
 Categories: Collection, Type

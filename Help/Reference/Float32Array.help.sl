@@ -4,7 +4,7 @@
 
 Answer an array of _anInteger_ places, each initialized to `zero`,
 
-A `Float32Array` is an array whose elements are IEEE 32-bit floating point values.
+A `Float32Array` is a `Type` representing an array whose elements are IEEE 32-bit floating point values.
 Unlike `List`, a `Float32Array` is of fixed size.
 
 ```
@@ -30,5 +30,9 @@ the boolean parameter indicates if the encoding is in little (`true`) or big (`f
 * * *
 
 See also: asFloat32Array, ByteArray, List, Float64Array
+
+References:
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/indexed-collections.html#table-49)
 
 Categories: Collection, Type

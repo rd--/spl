@@ -7,14 +7,10 @@
 	'Prototype'
 
 	/* Collection */
-	'ArrayBuffer'
 	'AssociationList'
 	'Bag'
-	'ByteArray'
 	'CategoryDictionary'
 	'DirectedEdge'
-	'Float32Array'
-	'Float64Array'
 	'Heap'
 	'LinkedList'
 	'PriorityQueue'
@@ -117,7 +113,6 @@
 	'SplitMix'
 
 	/* System */
-	'Blob'
 	'Event'
 	'EventTarget'
 	'File' /* Blob */
