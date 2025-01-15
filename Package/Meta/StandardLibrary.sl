@@ -122,6 +122,7 @@
 	'Method'
 	'MessageEvent'
 	'Navigator'
+	'ReadableStream'
 	'Scheduling'
 	'Storage'
 	'SubProcess'

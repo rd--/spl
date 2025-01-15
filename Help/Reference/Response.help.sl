@@ -1,15 +1,40 @@
 # Response
 
+- _Response(body, options)_
+
 A `Response` is a `Type` that is the promised answer to a `fetch` request.
 
 Implements `blob`, `byteArray`, `json` and `text` methods to retrieve the held value as a further `Promise`.
 
-Implements `headers` to retrieve any associated Http headers,
-and `contentType` to get the 'Content-Type' field of `headers`.
+Implements `headers` to retrieve any associated Http headers.
+The `contentType` method at `Headers` can be used to get the 'Content-Type' field.
 
 ```
->>> Response('!').isResponse
-true
+>>> let r = Response(
+>>> 	'Plain text',
+>>> 	(
+>>> 		status: 200,
+>>> 		headers: (
+>>> 			'Content-Type': 'text/plain'
+>>> 		)
+>>> 	)
+>>> );
+>>> (
+>>> 	r.body.isReadableStream,
+>>> 	r.bodyUsed,
+>>> 	r.headers.contentType,
+>>> 	r.status,
+>>> 	r.type,
+>>> 	r.ok
+>>> )
+(
+	true,
+	false,
+	'text/plain',
+	200,
+	'default',
+	true
+)
 ```
 
 * * *

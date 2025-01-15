@@ -244,6 +244,7 @@
 	'System-Method'
 	'System-Navigator'
 	'System-Package'
+	'System-ReadableStream'
 	'System-Reflection'
 	'System-Request'
 	'System-Response'
