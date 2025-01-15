@@ -27,7 +27,7 @@ Lookup a guide entry:
 
 _Note:_
 The index is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
 
 * * *
 

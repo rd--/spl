@@ -28,7 +28,7 @@ Count the number of entries at a particular key:
 
 _Note:_
 The archive is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
 
 * * *
 

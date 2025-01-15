@@ -1,7 +1,7 @@
 'Help/Reference'.splFile.terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7170
+Total => 7181
 
-Note: Requires LibraryItems be locally stored, i.e.
+Note: Requires LibraryItems be stored at the system cache, i.e. that all items have requested and have been acquired
 
 system.library.collect(request:/1)

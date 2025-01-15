@@ -62,7 +62,7 @@ system
 
 _Note:_
 The catalogue is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
 
 The `levskayaPolyhedraCatalogue` method is `requireLibraryItem` of 'LevskayaPolyhedraCatalogue'.
 

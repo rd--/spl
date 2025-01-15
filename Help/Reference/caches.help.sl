@@ -9,13 +9,17 @@ Answer the `CacheStorage` value associated with _aSystem_.
 true
 ```
 
+`LibraryItem` entries are cached at 'SplLibrary':
 
-
-```
+~~~
 system
 .caches
 .includesKey('SplLibrary')
 .then { :answer |
 	answer.postLine
 }
-```
+~~~
+
+* * *
+
+See also: Cache, CacheStorage, system, System

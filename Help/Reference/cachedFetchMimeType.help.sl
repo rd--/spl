@@ -1,13 +1,9 @@
 # cachedFetchMimeType
 
-- _cachedFetchMimeType(aUrl, aMimeType)_
+- _cachedFetchMimeType(aUrl, cacheName, aMimeType)_
 
-Answer a `Promise` that will resolve to the contents of _aUrl_,
-according to the value of _aMimeType_, which should be either:
-
-- 'application/octet-stream'
-- 'application/json'
-- 'text/plain'
+A caching variant of `fetchMimeType`.
+Runs `fetchMimeType` unless _aUrl_ is not located in _cacheName_ at `caches`.
 
 Fetch Utf-8 encoded text:
 
@@ -27,6 +23,6 @@ url.cachedFetchMimeType(
 
 * * *
 
-See also: Cache, cachedFetch, fetch, Url
+See also: Cache, CacheStorage, cachedFetch, fetch, fetchMimeType, Url
 
 Categories: Network

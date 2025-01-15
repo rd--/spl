@@ -1,3 +1,5 @@
+/* Requires: LibraryItem */
+
 +System {
 
 	unicodeCharacterDatabase { :self |
@@ -9,11 +11,7 @@
 LibraryItem(
 	name: 'UnicodeCharacterDatabase',
 	category: 'Text/Encoding',
-	url: 'https://www.unicode.org/Public/UCD/latest/ucd/UnicodeData.txt',
-	mimeType: 'text/plain',
-	parser: { :item |
-		item.lines.collect { :each |
-			each.splitBy(';')
-		}
-	}
+	url: 'https://rohandrape.net/sw/hsc3-data/data/text/unicode/unicode-character-table.json',
+	mimeType: 'application/json',
+	parser: identity:/1
 )

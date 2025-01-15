@@ -15,7 +15,7 @@ The `primesList` method caches previous requests, and continues any required cal
 system.cachedPrimesList.first(23)
 ```
 
-`Cache` is also the `Type` of the persistent store for `fetch` responses.
+`Cache` is also the `Type` of the persistent store for `fetch` `Request` and `Response` data.
 
 ~~~
 system
@@ -27,6 +27,6 @@ system
 
 * * *
 
-See also: cached, System, whenCached
+See also: cached, caches, CacheStorage, System, whenCached
 
 Categories: System, Trait

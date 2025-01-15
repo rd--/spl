@@ -194,17 +194,12 @@ URL! : [Object, Url] {
 
 	cachedFetch { :self :cacheName |
 		system.caches.atIfPresent(cacheName) { :cache |
-			'cachedFetch: GOT CACHE'.postLine;
 			cache.atIfAbsent(self) {
-				'cachedFetch: NO KEY'.postLine;
 				self.fetch.thenElse { :response |
-					'cachedFetch: GOT RESPONSE'.postLine;
 					cache.atPut(self, response).then { :unused |
-						'cachedFetch: CACHE PUT'.postLine;
 						cache.basicMatch(self)
 					}
 				} { :reason |
-					'cachedFetch: GOT ERROR'.postLine;
 					self.error('cachedFetch: ' ++ reason)
 				}
 			}

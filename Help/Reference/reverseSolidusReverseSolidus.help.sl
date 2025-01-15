@@ -1,4 +1,4 @@
-g# \\\\\ (reverseSolidusReverseSolidus)
+# \\\\\ (reverseSolidusReverseSolidus)
 
 - _aNumber \\\\ anotherNumber_
 

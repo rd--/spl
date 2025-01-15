@@ -138,7 +138,7 @@ then select only the lexicographically least rotations of each answer:
 
 _Note:_
 The archive is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
 
 The archive is stored in the file _modename.par_ in the Scala distribution.
 

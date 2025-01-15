@@ -21,7 +21,7 @@ true
 
 _Note:_
 The database is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
 
 * * *
 

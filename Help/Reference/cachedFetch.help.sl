@@ -1,31 +1,31 @@
 # cachedFetch
 
-- _cachedFetch(aUrl, cacheName)_
+- _cachedFetch(aUrl | aLibraryItem, cacheName)_
 
-Start the process of fetching a resource from the network,
-returning a `Promise` which is fulfilled once the `Response` is available.
+A caching variant of `fetch`.
+Runs `fetch` unless _aUrl_ is not located in _cacheName_ at `caches`.
 
 Fetch a text file:
 
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/spl/'
-	'README.md'
+	'sw/spl/README.md'
 ].join('').asUrl;
-url.cachedFetch('*scratch*').thenElse { :response |
-	response.text.thenElse { :text |
+url.cachedFetch(
+	'*scratch*'
+).then { :response |
+	response.text.then { :text |
 		text.postLine
-	} { :reason |
-		reason.postLine
 	}
-} { :reason |
-	reason.postLine
 }
 ~~~
 
+At `LibraryItem` initiates a `cachedFetch` of the contents,
+and schedules for them to be added to the interpreter cache.
+
 * * *
 
-See also: Cache, CacheStorage, cachedFetchMimeType, fetch, Promise, Response
+See also: Cache, CacheStorage, cachedFetchMimeType, fetch, fetchMimeType, Promise, Response
 
 Categories: Network, Scheduling

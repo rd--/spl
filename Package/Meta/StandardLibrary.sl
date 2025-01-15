@@ -1,6 +1,9 @@
 [
 	/* System (Initial) */
-	'LibraryItem'
+	'File' /* Blob */
+	'Url' /* Blob File */
+	'CacheStorage'
+	'LibraryItem' /* CacheStorage, Url */
 
 	/* Behaviour */
 	'Piecewise'
@@ -113,10 +116,8 @@
 	'SplitMix'
 
 	/* System */
-	'CacheStorage'
 	'Event'
 	'EventTarget'
-	'File' /* Blob */
 	'FilePath'
 	'FileSystem'
 	'Headers'
@@ -130,7 +131,6 @@
 	'Trait'
 	'Transcript'
 	'Type'
-	'Url' /* Blob File */
 	'UrlQueryParameters'
 	'WebSocket' /* EventTarget Url */
 	'Window'

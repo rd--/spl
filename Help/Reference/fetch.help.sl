@@ -11,8 +11,7 @@ Fetch a text file:
 ~~~
 let url = [
 	'https://rohandrape.net/'
-	'sw/spl/'
-	'README.md'
+	'sw/spl/README.md'
 ].join('');
 url.fetch.thenElse { :response |
 	response.text.then { :text |

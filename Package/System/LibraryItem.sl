@@ -1,40 +1,9 @@
-/* Requires: Url */
+/* Requires: CacheStorage, Url */
 
 LibraryItem : [Object] { | name category url mimeType parser contents |
 
-	/*
-	deleteLocalStorage { :self |
-		system.localStorage.removeKeyIfAbsent(self.storageKey) {
-		};
-		self
-	}
-
-	isAcquired { :self |
-		let hasContents = self.contents.notNil;
-		hasContents | {
-			self.isLocal.if {
-				self.readLocalStorage;
-				true
-			} {
-				false
-			}
-		}
-	}
-
-	isLocal { :self |
-		system.localStorage.includesKey(self.storageKey)
-	}
-	*/
-
-	fetch { :self |
-		'LibraryItem>>fetch: %'.format([self.url]).postLine;
+	cachedFetch { :self |
 		self.url.asUrl.cachedFetchMimeType('SplLibraryItems', self.mimeType).thenElse { :answer |
-			/*
-			self.useLocalStorage.ifTrue {
-				self.writeLocalStorage(answer)
-			};
-			*/
-			'LibraryItem>>fetch: arrived: %'.format([self.url]).postLine;
 			self.contents := self.parse(answer);
 			system.cache[self.name] := self.contents;
 			self.contents
@@ -47,35 +16,12 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 		self.parser.value(aString)
 	}
 
-	/*
-	readLocalStorage { :self |
-		let text = system.localStorage[self.storageKey];
-		let decodedValue = self.mimeType.caseOfOtherwise([
-			'application/json' -> {
-				self.parse(text.parseJson)
-			},
-			'text/plain' -> {
-				self.parse(text)
-			}
-		]) {
-			self.error('readLocalStorage: unsupported mimeType')
-		};
-		self.contents := decodedValue
-	}
-	*/
-
 	request { :self |
 		Promise { :resolve:/1 :reject:/1 |
 			self.contents.ifNotNil { :answer |
 				resolve(answer)
 			} {
-				/*
-				self.isLocal.if {
-					self.readLocalStorage;
-					resolve(self.contents)
-				} {
-				*/
-				self.fetch.thenElse { :answer |
+				self.cachedFetch.thenElse { :answer |
 					resolve(answer)
 				} { :message |
 					reject(message)
@@ -86,36 +32,10 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 
 	require { :self |
 		self.contents.ifNil {
-			/*
-			self.isLocal.if {
-				self.readLocalStorage;
-				self.contents
-			} {
-			*/
 			self.request;
 			self.error('require: item not on shelf, requested')
 		}
 	}
-
-	/*
-	storageKey { :self |
-		'LibraryItem-' ++ self.url.asString
-	}
-
-	writeLocalStorage { :self :anObject |
-		let encodedText = self.mimeType.caseOfOtherwise([
-			'application/json' -> {
-				anObject.asJson
-			},
-			'text/plain' -> {
-				anObject.asString
-			}
-		]) {
-			self.error('writeLocalStorage: invalid mimeType')
-		};
-		system.localStorage[self.storageKey] := encodedText
-	}
-	*/
 
 }
 
@@ -148,7 +68,9 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 		self.library.includesKey(key).ifTrue {
 			self.error('addLibraryItem: item exists: ' ++ key)
 		};
-		self.library[key] := libraryItem
+		self.library[key] := libraryItem;
+		libraryItem.cachedFetch;
+		libraryItem
 	}
 
 	awaitLibraryItem { :self :name :aBlock:/0 |

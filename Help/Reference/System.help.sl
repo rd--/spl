@@ -29,7 +29,9 @@ true
 >>> system.nextRandomFloat < 1
 true
 
->>> system.uniqueId ~= system.uniqueId
+>>> let p = system.uniqueId;
+>>> let q = system.uniqueId;
+>>> p ~= q
 true
 ```
 

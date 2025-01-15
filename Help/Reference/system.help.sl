@@ -2,27 +2,48 @@
 
 `system` is the name of the singular instance of the `System` type.
 
-```
->>> system.methodDictionary.keys.includes('sum')
-true
-
->>> system.traitDictionary.keys.includes('Collection')
-true
-
->>> system.typeDictionary.keys.includes('List')
-true
-```
-
-It holds the `Method`, `Trait` and `Type` dictionaries.
+`system` holds the `methodDictionary`:
 
 ```
->>> system.methodDictionary.size > 1000
-true
+>>> system
+>>> .methodDictionary
+>>> .size
+3779
 
->>> system.traitDictionary.size > 10
+>>> system
+>>> .methodDictionary
+>>> .keys
+>>> .includes('sum')
 true
+```
 
->>> system.typeDictionary.size > 50
+`system` holds the `traitDictionary`:
+
+```
+>>> system
+>>> .traitDictionary
+>>> .size
+37
+
+>>> system
+>>> .traitDictionary
+>>> .keys
+>>> .includes('Collection')
+true
+```
+
+`system` holds the `typeDictionary`:
+
+```
+>>> system
+>>> .typeDictionary
+>>> .size
+159
+
+>>> system
+>>> .typeDictionary
+>>> .keys
+>>> .includes('List')
 true
 ```
 

@@ -739,7 +739,7 @@ export async function primitiveLoadPackageSequence(
 			const pkg = system.packageDictionary.get(name);
 			if (pkg == undefined) {
 				throw new Error(
-					`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}`,
+					`primitiveLoadPackageSequence: no such package: ${name}, ${pkg}, ${packageNames.length}, [${packageNames}]`,
 				);
 			}
 			pkg.isLoaded = true;

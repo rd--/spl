@@ -4,11 +4,17 @@ A `Type` holding a library item.
 
 A `LibraryItem` is an arbitrary value that is cached by the system the first time it is fetched.
 
-A `LibraryItem` has a `name`, a `url`, a `mimeType`, a `parser`, a `useLocalStorage` flag and a `value`.
+A `LibraryItem` has
+a `category`,
+a `name`,
+a `url`,
+a `mimeType`,
+a `parser` and
+its `contents`.
 
-The names of library items are triples of _Area/Subject/Entry_.
+The categories of library items are of the form _Area/Subject_.
 Areas include _Text_, _Graphics_, _Geometry_, _Chemistry_, _Music_ and _System_.
-Subjects include _Help_, _Unicode_, _Tuning_ and _SuperCollider_.
+Subjects include _Help_, _Text_, _Tuning_ and _SuperCollider_.
 
 The `library` method at `System` answers a `Record` of the available library items:
 
@@ -25,16 +31,13 @@ true
 true
 ```
 
-Request all library items be fetched:
+Request all library items be fetched,
+unless the contents are already stored:
 
 ~~~
-system.library.at('ScalaIntervalArchive').fetch
-
 system.library.collect(request:/1)
 ~~~
 
-system.cache.keys
-
 * * *
 
-See also: awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeCharacterDatabase
+See also: addLibraryItem, awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeCharacterDatabase

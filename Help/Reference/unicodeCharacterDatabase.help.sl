@@ -4,36 +4,24 @@
 
 Answer a _matrix_ holding the _Unicode Character Database_.
 
-The `unicodeCharacterDatabase` method is `requireLibraryItem` of 'UnicodeCharacterDatabase'.
+Count the number of entries, or rows:
 
-Acquire the table if it is not cached:
-
-~~~
-system.awaitLibraryItem(
-	'UnicodeCharacterDatabase'
-) {
-	'Acquired'.postLine
-}
-~~~
-
-Only if the library has been acquired may it be accessed directly.
-Check if the library item is acquired (this will acquire it if it is locally stored):
-
-~~~
->>> system.libraryItem(
->>> 	'UnicodeCharacterDatabase'
->>> ).isAcquired
-true
-~~~
-
-Count the number of entries:
-
-~~~
+```
 >>> system
 >>> .unicodeCharacterDatabase
 >>> .size
 40116
-~~~
+```
+
+Count the number of fields, or columns:
+
+```
+>>> system
+>>> .unicodeCharacterDatabase
+>>> .anyOne
+>>> .size
+5
+```
 
 The entry for code point 03C0:
 
@@ -47,12 +35,19 @@ The entry for code point 03C0:
 	'03C0',
 	'GREEK SMALL LETTER PI',
 	'Ll',
-	'0', 'L', '', '', '', '', 'N', '', '',
-	'03A0', '', '03A0'
+	'03A0',
+	''
 ]
 ~~~
 
-The most commonly used fields are:
+Parse code point and convert to a character:
+
+```
+>>> '03C0'.parseInteger(16).asCharacter
+'π'
+```
+
+The tabl contains only the most commonly used fields of the database:
 
 - 1\. Code point
 - 2\. Name
@@ -64,11 +59,13 @@ The code point is a four character hexadecimal string.
 
 _Note:_
 The archive is a `LibraryItem`,
-and this function requires the item be available locally.
+and this function requires the item be in the interpreter cache.
+
+`unicodeCharacterDatabase` is `requireLibraryItem` of 'UnicodeCharacterDatabase'.
 
 * * *
 
-See also: codePoint, libraryItem, LibraryItem, requestLibraryItem, requireLibraryItem
+See also: codePoint, LibraryItem
 
 References:
 _Unicode_
