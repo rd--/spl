@@ -29,4 +29,8 @@ system
 
 See also: cached, caches, CacheStorage, System, whenCached
 
+References:
+_W3c_
+[1](https://w3c.github.io/ServiceWorker/#cache-interface)
+
 Categories: System, Trait

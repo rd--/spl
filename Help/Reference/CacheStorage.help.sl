@@ -17,3 +17,7 @@ system
 * * *
 
 See also: Cache, caches, system, System
+
+References:
+_W3c_
+[1](https://w3c.github.io/ServiceWorker/#cachestorage-interface)

@@ -23,3 +23,7 @@ system
 * * *
 
 See also: Cache, CacheStorage, system, System
+
+References:
+_W3c_
+[1](https://w3c.github.io/ServiceWorker/#self-caches)
