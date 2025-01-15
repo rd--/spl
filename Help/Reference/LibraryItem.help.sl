@@ -28,8 +28,12 @@ true
 Request all library items be fetched:
 
 ~~~
+system.library.at('ScalaIntervalArchive').fetch
+
 system.library.collect(request:/1)
 ~~~
+
+system.cache.keys
 
 * * *
 

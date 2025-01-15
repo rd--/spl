@@ -15,6 +15,16 @@ The `primesList` method caches previous requests, and continues any required cal
 system.cachedPrimesList.first(23)
 ```
 
+`Cache` is also the `Type` of the persistent store for `fetch` responses.
+
+~~~
+system
+.caches
+.atIfPresent('SplLibrary') { :cache |
+	cache.isCache.postLine
+}
+~~~
+
 * * *
 
 See also: cached, System, whenCached

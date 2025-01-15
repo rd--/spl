@@ -4,6 +4,12 @@
 
 }
 
+@AnimationTimeline {
+
+	currentTime { :self | <primitive: return _self.currentTime;> }
+
+}
+
 @CharacterData {
 
 	data { :self | <primitive: return _self.data;> }
@@ -120,6 +126,10 @@
 
 	styleSheets { :self |
 		<primitive: return _self.styleSheets;>
+	}
+
+	timeline { :self |
+		<primitive: return _self.timeline;>
 	}
 
 	visibilityState { :self |
@@ -515,6 +525,10 @@ DataTransfer! : [Object] {
 }
 
 DocumentFragment! : [Object, EventTarget, Node] {
+
+}
+
+DocumentTimeline! : [Object, AnimationTimeline] {
 
 }
 

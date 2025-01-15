@@ -231,6 +231,7 @@
 	'SuperCollider-UgenBindings'
 	'SuperCollider-UgenGraph'
 	'System-Blob'
+	'System-CacheStorage'
 	'System-Event'
 	'System-EventTarget'
 	'System-File'

@@ -1,9 +1,11 @@
 /* Requires: Url */
 
-LibraryItem : [Object] { | name category url mimeType parser useLocalStorage contents |
+LibraryItem : [Object] { | name category url mimeType parser contents |
 
+	/*
 	deleteLocalStorage { :self |
-		system.localStorage.removeKeyIfAbsent(self.storageKey) { };
+		system.localStorage.removeKeyIfAbsent(self.storageKey) {
+		};
 		self
 	}
 
@@ -22,14 +24,22 @@ LibraryItem : [Object] { | name category url mimeType parser useLocalStorage con
 	isLocal { :self |
 		system.localStorage.includesKey(self.storageKey)
 	}
+	*/
 
 	fetch { :self |
-		self.url.asUrl.fetchMimeType(self.mimeType).then { :answer |
+		'LibraryItem>>fetch: %'.format([self.url]).postLine;
+		self.url.asUrl.cachedFetchMimeType('SplLibraryItems', self.mimeType).thenElse { :answer |
+			/*
 			self.useLocalStorage.ifTrue {
 				self.writeLocalStorage(answer)
 			};
+			*/
+			'LibraryItem>>fetch: arrived: %'.format([self.url]).postLine;
 			self.contents := self.parse(answer);
+			system.cache[self.name] := self.contents;
 			self.contents
+		} { :reason |
+			self.error(reason)
 		}
 	}
 
@@ -37,6 +47,7 @@ LibraryItem : [Object] { | name category url mimeType parser useLocalStorage con
 		self.parser.value(aString)
 	}
 
+	/*
 	readLocalStorage { :self |
 		let text = system.localStorage[self.storageKey];
 		let decodedValue = self.mimeType.caseOfOtherwise([
@@ -51,21 +62,23 @@ LibraryItem : [Object] { | name category url mimeType parser useLocalStorage con
 		};
 		self.contents := decodedValue
 	}
+	*/
 
 	request { :self |
 		Promise { :resolve:/1 :reject:/1 |
 			self.contents.ifNotNil { :answer |
 				resolve(answer)
 			} {
+				/*
 				self.isLocal.if {
 					self.readLocalStorage;
 					resolve(self.contents)
 				} {
-					self.fetch.thenElse { :answer |
-						resolve(answer)
-					} { :message |
-						reject(message)
-					}
+				*/
+				self.fetch.thenElse { :answer |
+					resolve(answer)
+				} { :message |
+					reject(message)
 				}
 			}
 		}
@@ -73,16 +86,18 @@ LibraryItem : [Object] { | name category url mimeType parser useLocalStorage con
 
 	require { :self |
 		self.contents.ifNil {
+			/*
 			self.isLocal.if {
 				self.readLocalStorage;
 				self.contents
 			} {
-				self.request;
-				self.error('require: item not on shelf, requested')
-			}
+			*/
+			self.request;
+			self.error('require: item not on shelf, requested')
 		}
 	}
 
+	/*
 	storageKey { :self |
 		'LibraryItem-' ++ self.url.asString
 	}
@@ -100,13 +115,14 @@ LibraryItem : [Object] { | name category url mimeType parser useLocalStorage con
 		};
 		system.localStorage[self.storageKey] := encodedText
 	}
+	*/
 
 }
 
 +String {
 
 	LibraryItem { :name :category :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, category, url, mimeType, parser, true, nil)
+		newLibraryItem().initializeSlots(name, category, url, mimeType, parser, nil)
 	}
 
 }

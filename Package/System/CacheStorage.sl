@@ -1,31 +1,55 @@
 CacheStorage : [Object] {
 
+	basicDelete { :self :key |
+		<primitive: return _self.delete(_key);>
+	}
+
+	basicHas { :self :key |
+		<primitive: return _self.has(_key);>
+	}
+
 	basicOpen { :self :key |
 		<primitive: return _self.open(_key);>
 	}
 
-	at { :self :key |
-		self.includesKey(key).if {
-			self.basicOpen(key)
-		} {
-			self.error('at: key does not exist')
+	atIfAbsent { :self :key :ifAbsent:/0 |
+		self.includesKey(key).then { :answer |
+			answer.if {
+				self.basicOpen(key)
+			} {
+				ifAbsent()
+			}
 		}
 	}
 
-	create { :self :key |
-		self.includesKey(key).if {
-			self.error('create: key exists')
-		} {
-			self.basicOpen(key)
+	atIfPresent { :self :key :aBlock:/1 |
+		let validKey = self.validateKey(key);
+		self.basicOpen(key).then { :cache |
+			aBlock(cache)
 		}
 	}
 
 	includesKey { :self :key |
-		<primitive: return _self.has(_key);>
+		let validKey = self.validateKey(key);
+		self.basicHas(validKey)
 	}
 
-	removeKey { :self :key |
-		<primitive: return _self.delete(_key);>
+	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
+		self.includesKey(key).then { :answer |
+			answer.if {
+				self.basicDelete(key)
+			} {
+				ifAbsent()
+			}
+		}
+	}
+
+	validateKey { :self :key |
+		key.isString.if {
+			key
+		} {
+			self.error('CacheStorage>>validateKey: key not String')
+		}
 	}
 
 }

@@ -68,7 +68,7 @@ Collections may implement extended arity forms as required.
 
 * * *
 
-See also: atFold, atMod, atPin, atPut, atWrap, Indexable, size
+See also: atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPin, atPut, atWrap, Indexable, size
 
 Guides: AtPut Syntax, At Syntax, Quoted At Syntax
 

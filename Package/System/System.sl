@@ -20,6 +20,10 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return _self.cache;>
 	}
 
+	caches { :self |
+		<primitive: return _self.window.caches;>
+	}
+
 	consoleClear { :self |
 		<primitive:
 		console.clear;

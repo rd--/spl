@@ -15,7 +15,7 @@ nil
 
 * * *
 
-See also: at, atIfPresent
+See also: at, atIfPresent, atIfPresentIfAbsent
 
 References:
 _Smalltalk_

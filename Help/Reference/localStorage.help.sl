@@ -46,6 +46,12 @@ Delete an entry:
 (1.pi.asString, false)
 ```
 
+Remove all entries:
+
+~~~
+system.localStorage.removeAll
+~~~
+
 * * *
 
 See also: :=, at, atPut, Dictionary, includesKey, sessionStorage, Storage, System

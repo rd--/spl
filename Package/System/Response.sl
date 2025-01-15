@@ -48,6 +48,10 @@ Response! : [Object] {
 		>
 	}
 
+	clone { :self |
+		<primitive: return _self.clone();>
+	}
+
 	headers { :self |
 		<primitive: return _self.headers;>
 	}

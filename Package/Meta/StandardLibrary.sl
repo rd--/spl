@@ -113,6 +113,7 @@
 	'SplitMix'
 
 	/* System */
+	'CacheStorage'
 	'Event'
 	'EventTarget'
 	'File' /* Blob */
