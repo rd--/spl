@@ -56,7 +56,7 @@ Polar decomposition of a complex number:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot(arg:/1)
 ~~~
 
@@ -64,7 +64,7 @@ Plot over a subset of the reals:
 
 Plot _arg(x + i)_ on the reals:
 
-~~~
+~~~spl svg=B
 (-3 -- 3).functionPlot { :x | (x + 1.i).arg }
 ~~~
 

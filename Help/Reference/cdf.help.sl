@@ -8,7 +8,7 @@ Answer the cumulative distribution function for the distribution _d_ evaluated a
 
 Plot `cdf` for a standard normal distribution:
 
-~~~
+~~~spl svg=A
 let d = NormalDistribution(0, 1);
 (-3 -- 3).functionPlot { :x |
 	d.cdf(x)

@@ -9,7 +9,7 @@ Also known as _Normal Distribution_.
 
 Mean at zero, small deviation:
 
-~~~
+~~~spl svg=A
 let r = Sfc32(378914);
 (
 	{
@@ -22,7 +22,7 @@ let r = Sfc32(378914);
 
 Plot sorted random list:
 
-```
+```spl svg=B
 let r = Sfc32(789146);
 (
 	{

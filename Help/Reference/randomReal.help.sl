@@ -38,7 +38,7 @@ A 3×4 matrix of random numbers:
 
 Plot, uniform distribution:
 
-~~~
+~~~spl svg=A
 Sfc32(67183)
 .randomReal(-1, 1, [99])
 .linePlot
@@ -48,7 +48,7 @@ Sfc32(67183)
 
 Plot a random walk:
 
-~~~
+~~~spl svg=B
 Sfc32(678314)
 .randomReal(-1, 1, [99])
 .accumulate

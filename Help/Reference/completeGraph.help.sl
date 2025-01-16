@@ -40,7 +40,7 @@ The `edgeCount` of small complete graphs:
 
 Draw complete graph on three vertices:
 
-~~~
+~~~spl svg=A
 3.completeGraph.graphPlot
 ~~~
 
@@ -48,7 +48,7 @@ Draw complete graph on three vertices:
 
 Draw complete graph on five vertices:
 
-~~~
+~~~spl svg=B
 5.completeGraph.graphPlot
 ~~~
 

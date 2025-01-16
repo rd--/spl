@@ -101,7 +101,7 @@ Threads over lists:
 
 Plot over a subset of the reals as a function of its first parameter:
 
-~~~
+~~~spl svg=A
 (-1.975 -- 4).functionPlot { :x |
 	x.binomial(3)
 }
@@ -111,7 +111,7 @@ Plot over a subset of the reals as a function of its first parameter:
 
 Plot over a subset of the reals as a function of its second parameter:
 
-~~~
+~~~spl svg=B
 (-1.975 -- 4).functionPlot { :x |
 	3.binomial(x)
 }

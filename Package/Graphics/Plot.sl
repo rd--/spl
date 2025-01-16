@@ -145,7 +145,8 @@ Plot : [Object] { | pages format |
 	draw { :self |
 		self.format.caseOfOtherwise([
 			'graph' -> {
-				self.cliGraphDraw
+				let [graph] = self.pages;
+				graph.dotDrawing.draw
 			},
 			'matrix' -> {
 				let [contents] = self.pages;
@@ -156,6 +157,20 @@ Plot : [Object] { | pages format |
 		}
 	}
 
+	writeSvg { :self :fileName |
+		self.format.caseOfOtherwise([
+			'graph' -> {
+				let [graph] = self.pages;
+				graph.dotDrawing.writeSvg(fileName)
+			},
+			'matrix' -> {
+				let [contents] = self.pages;
+				contents.asGreyscaleSvg.writeSvg(fileName)
+			}
+		]) {
+			self.asLineDrawing.writeSvg(fileName)
+		}
+	}
 
 }
 

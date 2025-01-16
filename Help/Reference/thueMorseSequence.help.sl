@@ -20,7 +20,7 @@ Answer the first _anInteger_ elements of the Thue-Morse sequence.
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 99.thueMorseSequence.discretePlot
 ~~~
 

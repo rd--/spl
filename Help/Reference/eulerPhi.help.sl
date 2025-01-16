@@ -55,7 +55,7 @@ the totient of _n_ is equal to the `product` of the totients of each factor of _
 
 Plot the sequence:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot(eulerPhi:/1)
 ~~~
 
@@ -63,7 +63,7 @@ Plot the sequence:
 
 Plot the cumulative `sum` of `eulerPhi`:
 
-~~~
+~~~spl svg=B
 1:50.eulerPhi.prefixSum.linePlot
 ~~~
 

@@ -72,7 +72,7 @@ Plot adjacency matrix:
 
 Plot graph:
 
-~~~spl svg=A
+~~~spl svg=B
 [2 2 3 2].gridGraph.graphPlot
 ~~~
 

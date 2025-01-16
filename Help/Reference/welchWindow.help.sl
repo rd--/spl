@@ -29,7 +29,7 @@ Shape of a _Welch_ window using a specified parameter:
 
 Discrete _Welch_ window of length 15:
 
-~~~
+~~~spl svg=C
 (-0.5 -- 0.5).discretize(
 	15,
 	welchWindow:/1

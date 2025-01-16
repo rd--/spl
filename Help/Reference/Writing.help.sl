@@ -17,7 +17,7 @@ let r = w.boundingBox.asRectangle;
 
 Letters randomly placed in a circle:
 
-~~~spl svg=A
+~~~spl svg=B
 let r = Sfc32(6793);
 let c = Circle([0 0], 100);
 let l = 'greek'.alphabet.contents;

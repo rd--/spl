@@ -22,7 +22,7 @@ to represent a rule that transforms α to β.
 
 A graph with directed edges:
 
-~~~
+~~~spl svg=A
 [1 --> 2, 2 --> 3, 3 --> 1]
 .asGraph
 .graphPlot

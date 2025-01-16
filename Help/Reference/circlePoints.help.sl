@@ -41,7 +41,7 @@ C.f. `angleVector`:
 
 Draw a pentagon:
 
-~~~
+~~~spl svg=A
 let p = 5.circlePoints([0 0], 1, pi / 10);
 p.Polygon.asLineDrawing
 ~~~
@@ -50,7 +50,7 @@ p.Polygon.asLineDrawing
 
 Unit circles at each circle point:
 
-~~~
+~~~spl svg=B
 20.circlePoints([0 0], 1, 0).collect { :p |
 	Circle(p, 1)
 }.LineDrawing

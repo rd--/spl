@@ -28,7 +28,7 @@ Most frequent gaps in initial primes sequence:
 
 Plot:
 
-~~~
+~~~spl svg=A
 1:99.functionPlot(nthPrimeGap:/1)
 ~~~
 

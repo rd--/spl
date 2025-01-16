@@ -18,7 +18,7 @@ Compute the Liouville function at 8 and 9:
 
 Plot the Liouville lambda sequence for the first 20 numbers:
 
-~~~
+~~~spl svg=A
 1:20.collect(liouvilleLambda:/1)
 .discretePlot
 ~~~

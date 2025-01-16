@@ -29,7 +29,7 @@ Threads elementwise over lists and matrices:
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-10, -9.9 .. 10).sincNormalized.linePlot
 ~~~
 

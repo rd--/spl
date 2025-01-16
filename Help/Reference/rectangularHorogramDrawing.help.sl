@@ -36,7 +36,7 @@ A drawing of the _5/12_ moment of symmetry scale construction:
 
 A drawing of the first eleven steps of an irrational moment of symmetry scale construction:
 
-~~~
+~~~spl svg=C
 0.420422529
 .momentOfSymmetry(1, 11)
 .rectangularHorogramDrawing

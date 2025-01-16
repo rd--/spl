@@ -108,7 +108,7 @@ The product of a Boolean function and a Hadamard matrix is its Walsh spectrum:
 
 Plot the 16×16 Hadamard matrix:
 
-~~~
+~~~spl svg=A
 (16.hadamardMatrix + 1).matrixPlot
 ~~~
 

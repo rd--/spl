@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150.00" height="100.00" viewBox="-5.00 -55.00 160.00 110.00">
-<g fill="none" stroke="black" stroke-width="0.01%" transform="translate(0, 0.00) scale(50.00, -50.00)">
-<polyline points="0.00,0.00 1.00,1.00 2.00,-1.00 3.00,0.00" />
-<path d="M 0.00,0.00 C 1.00,1.00 2.00,-1.00 3.00,0.00" />
-<circle cx="0.00" cy="0.00" r="0.02" />
-<circle cx="1.00" cy="1.00" r="0.02" />
-<circle cx="2.00" cy="-1.00" r="0.02" />
-<circle cx="3.00" cy="0.00" r="0.02" />
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="100.0" viewBox="-5.000 -55.000 160.000 110.000">
+<g fill="none" stroke="black" stroke-width="0.0100%" transform="translate(0, 0.0000) scale(50.0000, -50.0000)">
+<path d="M 0.000,0.000 C 1.000,1.000 2.000,-1.000 3.000,0.000" />
+<polyline points="0.000,0.000 1.000,1.000 2.000,-1.000 3.000,0.000" />
+<circle cx="0.000" cy="0.000" r="0.010" />
+<circle cx="1.000" cy="1.000" r="0.010" />
+<circle cx="2.000" cy="-1.000" r="0.010" />
+<circle cx="3.000" cy="0.000" r="0.010" />
 </g>
 </svg>

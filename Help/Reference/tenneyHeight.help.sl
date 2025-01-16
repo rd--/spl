@@ -43,7 +43,7 @@ Threads over lists:
 
 Plot for a number of simple just ratios within the octave:
 
-~~~
+~~~spl svg=A
 [
 	1/1 9/8 7/6 6/5 5/4
 	21/16 7/5 4/3 11/8 3/2

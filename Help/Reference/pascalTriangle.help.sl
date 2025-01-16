@@ -27,7 +27,7 @@ The first eleven rows:
 A `log` scaled scatter plot of the row-order sequence,
 c.f. OEIS [A007318](https://oeis.org/A007318):
 
-~~~
+~~~spl svg=A
 20.pascalTriangle
 .concatenation
 .logScale

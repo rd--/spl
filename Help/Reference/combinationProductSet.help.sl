@@ -27,7 +27,7 @@ The _4_ combination product set of _1 3 5 7 11_:
 
 Draw the _2_ combination product set of _1 3 5 7 11_:
 
-~~~
+~~~spl svg=A
 [1 3 5 7 11].combinationProductSet(2)
 .asRatioTuning
 .latticeGraph
@@ -38,7 +38,7 @@ Draw the _2_ combination product set of _1 3 5 7 11_:
 
 Draw the _3_ combination product set of _1 3 5 7 11_:
 
-~~~
+~~~spl svg=B
 [1 3 5 7 11].combinationProductSet(3)
 .asRatioTuning
 .latticeGraph

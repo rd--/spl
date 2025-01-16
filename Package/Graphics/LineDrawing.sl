@@ -118,6 +118,14 @@ LineDrawing : [Object] { | contents metadata |
 		}
 	}
 
+	writeSvg { :self :fileName |
+		self.thenElse { :result |
+			result.writeSvg(fileName)
+		} { :err |
+			self.error('writeSvg: ' ++ err)
+		}
+	}
+
 }
 
 +List {

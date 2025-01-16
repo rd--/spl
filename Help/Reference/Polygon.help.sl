@@ -86,7 +86,7 @@ Sfc32(147982)
 
 The outline of a glyph:
 
-~~~spl svg=E
+~~~spl svg=D
 [
 	2 3;
 	0.8125 0.625;

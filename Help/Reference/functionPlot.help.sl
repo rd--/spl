@@ -171,7 +171,7 @@ let n = 15;
 where the _x_ parameter block is the identity.
 A `sin` function:
 
-~~~
+~~~spl svg=P
 (0 -- 5).functionPlot { :x |
 	(x ^ 2).sin
 }
@@ -181,7 +181,7 @@ A `sin` function:
 
 The same `sin` function at `parametricPlot`:
 
-~~~
+~~~spl svg=Q
 (0 -- 5).parametricPlot { :u |
 	u
 } { :u |
@@ -193,7 +193,7 @@ The same `sin` function at `parametricPlot`:
 
 Plot multiple functions:
 
-~~~
+~~~spl svg=R
 (0 -- pi).functionPlot([
 	{ :x | x.sin },
 	{ :x | (2 * x).sin },
@@ -205,7 +205,7 @@ Plot multiple functions:
 
 Plot `sin` and `cos`:
 
-~~~
+~~~spl svg=S
 (0 -- 2.pi).functionPlot([sin:/1, cos:/1])
 ~~~
 
@@ -213,7 +213,7 @@ Plot `sin` and `cos`:
 
 Plot two `sin` functions:
 
-~~~
+~~~spl svg=T
 (0 -- 3.pi).functionPlot([
 	{ :x | x.sin + (x / 2) },
 	{ :x | x.sin + x }

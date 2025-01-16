@@ -27,7 +27,7 @@ Answers `true` if _aGraph_ has both directed and undirected edges, else `false`.
 
 Draw a mixed graph:
 
-~~~
+~~~spl svg=A
 [1 --> 2, 2 --- 3, 3 --> 1]
 .asGraph
 .graphPlot

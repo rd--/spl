@@ -6,7 +6,7 @@ Answer a `Type` that represents a normal (Gaussian) distribution with mean `μ` 
 
 Plot `pdf` over a subset of the reals:
 
-~~~
+~~~spl svg=A
 let d = NormalDistribution(0, 1);
 (-3 -- 3).functionPlot { :x | d.pdf(x) }
 ~~~
@@ -15,7 +15,7 @@ let d = NormalDistribution(0, 1);
 
 Plot `cdf` over a subset of the reals:
 
-~~~
+~~~spl svg=B
 let d = NormalDistribution(0, 1);
 (-3 -- 3).functionPlot { :x | d.cdf(x) }
 ~~~
@@ -24,7 +24,7 @@ let d = NormalDistribution(0, 1);
 
 Plot `randomVariate`:
 
-~~~
+~~~spl svg=C
 let r = Sfc32(789134);
 let d = NormalDistribution(0, 1);
 d.randomVariate(r, 99).linePlot

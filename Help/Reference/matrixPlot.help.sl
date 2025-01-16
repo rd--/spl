@@ -70,7 +70,7 @@ let i = (0 -- 2).subdivide(k);
 
 Plot the `sin` function at integer points:
 
-~~~
+~~~spl svg=E
 let i = -12:12;
 { :x :y |
 	(x * y / 4).sin
@@ -81,7 +81,7 @@ let i = -12:12;
 
 Plot a random 50×10 matrix:
 
-~~~
+~~~spl svg=F
 Sfc32(17492)
 .randomReal(0, 1, [50 10])
 .matrixPlot

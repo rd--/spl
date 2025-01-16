@@ -26,7 +26,7 @@ true
 
 Plot the imaginary part of the 24×24 Fourier matrix:
 
-~~~
+~~~spl svg=A
 24.fourierMatrix.imaginary.matrixPlot
 ~~~
 

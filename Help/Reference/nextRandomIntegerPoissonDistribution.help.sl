@@ -9,7 +9,7 @@ The mean and variance of the function are _aNumber_.
 
 Small mean and variance:
 
-~~~
+~~~spl svg=A
 let r = Sfc32(36814);
 (
 	{
@@ -22,7 +22,7 @@ let r = Sfc32(36814);
 
 Less small mean and variance:
 
-~~~
+~~~spl svg=B
 let r = Sfc32(980141);
 (
 	{

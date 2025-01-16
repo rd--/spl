@@ -32,7 +32,7 @@ Find the index where the number 100 first appears in the sequence:
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 200.sternBrocotSequence.discretePlot
 ~~~
 

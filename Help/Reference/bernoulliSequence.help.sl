@@ -19,7 +19,7 @@ Answer the first _anInteger_ Bernoulli numbers.
 
 Plot numerator:
 
-~~~
+~~~spl svg=A
 99.bernoulliSequence
 .numerator
 .logScale
@@ -30,7 +30,7 @@ Plot numerator:
 
 Plot denominator:
 
-~~~
+~~~spl svg=B
 99.bernoulliSequence
 .denominator
 .logScale

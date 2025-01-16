@@ -197,7 +197,7 @@ A table of successively longer lists:
 
 Plot a table:
 
-~~~
+~~~spl svg=A
 nthPrime:/1.table(1:50).linePlot
 ~~~
 

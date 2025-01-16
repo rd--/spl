@@ -9,7 +9,7 @@ Values closer to _x1_ are more likely to occur.
 
 Biased to -1:
 
-~~~
+~~~spl svg=A
 let r = Sfc32(378141);
 (
 	{

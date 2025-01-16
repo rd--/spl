@@ -15,7 +15,7 @@ relative to C1 (the pitch three octaves below middle C).
 
 Draw the twelve pitches of the `divisors` set of sixty:
 
-~~~
+~~~spl svg=A
 60.divisors.kurenniemiNotation
 ~~~
 

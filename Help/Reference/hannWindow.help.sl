@@ -21,7 +21,7 @@ Plot:
 
 Discrete _Hann_ window of length 15:
 
-~~~
+~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
 	hannWindow:/1

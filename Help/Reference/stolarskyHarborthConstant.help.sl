@@ -26,7 +26,7 @@ OEIS [A006046](https://oeis.org/A006046):
 
 Plot of first two hundred terms of _f(n) / (n ^ theta)_:
 
-~~~
+~~~spl svg=A
 let b = { :k |
 	k.digitCount(2, 1)
 };

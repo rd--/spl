@@ -16,7 +16,7 @@ Effects of _shape_:
 - 0 < _shape_ <= 1: occurance of values near _location_ increases as _shape_ -> 0
 - _shape_ = 1: same as exponential distribution
 
-~~~
+~~~spl svg=A
 let rng = Sfc32(391437);
 (
 	{

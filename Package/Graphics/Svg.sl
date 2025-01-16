@@ -4,9 +4,12 @@ Svg : [Object] { | contents |
 
 	draw { :self |
 		let fileName = '/tmp/svgImage.svg';
-		let svgText = self.contents;
-		fileName.writeTextFile(svgText);
+		self.writeSvg(fileName);
 		system.systemCommand('chromium', [fileName])
+	}
+
+	writeSvg { :self :fileName |
+		fileName.writeTextFile(self.contents)
 	}
 
 }

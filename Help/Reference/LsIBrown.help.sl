@@ -1,6 +1,6 @@
-# LsIbrown
+# LsIBrown
 
-- _LsIbrown(low, high, step, length)_
+- _LsIBrown(low, high, step, length)_
 
 Integer brownian motion between _low_ and _high_ with maximum step size _step_.
 Steps have uniform distribution, and exclude the possibility of a zero step.

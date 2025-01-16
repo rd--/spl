@@ -33,7 +33,7 @@ edges indicate that one number can been derived from the other by the insertion 
 		q.insertAt(1, i);
 		j -> q.fromDigits(2)
 	}
-}.flatten.nub.sizeasGraph.graphPlot
+}.flatten.nub.asGraph.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/graphPlot-C.svg)

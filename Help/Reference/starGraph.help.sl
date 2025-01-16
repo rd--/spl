@@ -50,7 +50,7 @@ The line graph of the star graph _S(n)_ is a complete graph _K(n - 1)_:
 
 Drawing of the star graph on six vertices:
 
-~~~
+~~~spl svg=A
 6.starGraph.graphPlot
 ~~~
 
@@ -58,7 +58,7 @@ Drawing of the star graph on six vertices:
 
 Drawing of the line graph of the star graph on six vertices:
 
-~~~
+~~~spl svg=B
 6.starGraph.lineGraph.graphPlot
 ~~~
 

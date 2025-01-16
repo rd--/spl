@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="98.56" height="100.00" viewBox="-0.14 -3.39 108.56 110.00">
-<g fill="none" stroke="black" stroke-width="0.48%" transform="translate(0, 103.22) scale(1.04, -1.04)">
-<polygon points="10.75,71.14 50.39,91.09 92.85,44.88" />
-<polygon points="88.90,75.77 99.87,88.86 4.70,81.51" />
-<polygon points="13.80,77.57 99.58,64.95 33.29,23.73" />
-<polygon points="75.71,98.12 43.34,61.48 6.63,58.09" />
-<polygon points="94.31,41.37 59.18,46.55 65.22,1.55" />
-<polygon points="60.63,58.89 74.78,37.52 34.83,66.44" />
-<polygon points="60.62,5.42 10.51,38.71 39.07,45.64" />
-<polygon points="88.69,84.66 68.49,86.34 52.33,80.73" />
-<polygon points="66.18,61.83 17.53,16.91 36.03,24.98" />
-<polygon points="12.92,80.40 8.30,91.55 61.48,76.92" />
-<polygon points="88.98,74.50 83.16,78.35 76.96,96.39" />
-<polygon points="27.38,4.83 24.24,94.04 57.53,74.38" />
+<svg xmlns="http://www.w3.org/2000/svg" width="98.6" height="100.0" viewBox="-0.1 -3.4 108.6 110.0">
+<g fill="none" stroke="black" stroke-width="0.4828%" transform="translate(0, 103.2197) scale(1.0356, -1.0356)">
+<polygon points="10.7,71.1 50.4,91.1 92.9,44.9" />
+<polygon points="88.9,75.8 99.9,88.9 4.7,81.5" />
+<polygon points="13.8,77.6 99.6,65.0 33.3,23.7" />
+<polygon points="75.7,98.1 43.3,61.5 6.6,58.1" />
+<polygon points="94.3,41.4 59.2,46.5 65.2,1.6" />
+<polygon points="60.6,58.9 74.8,37.5 34.8,66.4" />
+<polygon points="60.6,5.4 10.5,38.7 39.1,45.6" />
+<polygon points="88.7,84.7 68.5,86.3 52.3,80.7" />
+<polygon points="66.2,61.8 17.5,16.9 36.0,25.0" />
+<polygon points="12.9,80.4 8.3,91.6 61.5,76.9" />
+<polygon points="89.0,74.5 83.2,78.4 77.0,96.4" />
+<polygon points="27.4,4.8 24.2,94.0 57.5,74.4" />
 </g>
 </svg>

@@ -10,7 +10,7 @@
 
 A polyline of three segments:
 
-~~~
+~~~spl svg=A
 let t = [90 130 -85].degree;
 let r = [1.2 2.1 0.7];
 let p = t.anglePath(r, [0 0]);
@@ -21,7 +21,7 @@ p.asLineDrawing
 
 Advance 20 steps, always turning 110° toward the left:
 
-~~~
+~~~spl svg=B
 let p = (110.degree # 20).anglePath;
 p.asLineDrawing
 ~~~
@@ -30,7 +30,7 @@ p.asLineDrawing
 
 With unit step sizes:
 
-~~~
+~~~spl svg=C
 (pi / [2 3 -4]).anglePath.asLineDrawing
 ~~~
 
@@ -38,7 +38,7 @@ With unit step sizes:
 
 With specified step sizes:
 
-~~~ spl figure
+~~~ spl svg=D
 (pi / [2 3 -4]).anglePath(
 	[0.7 2.3 3.5],
 	[0 0]
@@ -49,7 +49,7 @@ With specified step sizes:
 
 Make a random walk where successive steps change direction by at most 20°:
 
-~~~
+~~~spl svg=E
 Sfc32(57951)
 .randomReal(-20, 20, 1000)
 .degree
@@ -61,7 +61,7 @@ Sfc32(57951)
 
 Generate a dragon curve:
 
-~~~
+~~~spl svg=F
 let c = { :l |
 	l ++ [0] ++ (1 - l).reverse
 }.iterate([0], 9);
@@ -73,7 +73,7 @@ theta.anglePath.asLineDrawing
 
 Generate a Koch snowflake curve:
 
-~~~
+~~~spl svg=G
 let t = 256.thueMorseSequence;
 (t * 2.pi / 3).anglePath.asLineDrawing
 ~~~
@@ -82,7 +82,7 @@ let t = 256.thueMorseSequence;
 
 Another pattern based on the Thue-Morse sequence:
 
-~~~
+~~~spl svg=H
 let t = 256.thueMorseSequence;
 (t * 2.pi / 5).anglePath.asLineDrawing
 ~~~

@@ -33,7 +33,7 @@ At twenty the vectors are scaled for graph paper with ten squares per inch:
 Compare Wilson and Grady lattice templates using a 7-note 13-limit scale
 (see `gradyLatticeCoordinates` for equivalent drawing):
 
-~~~
+~~~spl svg=A
 [1/1 21/20 11/10 13/10 7/5 3/2 8/5]
 .asRatioTuning
 .latticeGraph(

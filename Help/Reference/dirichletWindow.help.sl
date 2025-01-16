@@ -12,7 +12,7 @@ The _Dirichlet window_ is rectangular.
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-1 -- 1).functionPlot(dirichletWindow:/1)
 ~~~
 

@@ -58,7 +58,7 @@ Plot the number of 1s in the base-2 representation:
 Plot the number of odd elements in the first _n_ rows of Pascal’s triangle,
 OEIS [A006046](https://oeis.org/A006046):
 
-~~~
+~~~spl svg=B
 let b = { :k | k.digitCount(2, 1) };
 1:100.functionPlot { :n |
 	(0 .. n - 1).collect { :k |

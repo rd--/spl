@@ -44,7 +44,7 @@ true
 
 Plot the sequence of primes:
 
-~~~
+~~~spl svg=A
 0:50.functionPlot(nextPrime:/1)
 ~~~
 

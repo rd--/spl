@@ -23,9 +23,15 @@ Answer the next thirteen random integers between one and nine:
 
 Plot, uniform distribution:
 
+~~~spl svg=A
+(
+	{
+		system.nextRandomInteger(1, 99)
+	} ! 99
+).linePlot
 ~~~
-({ system.nextRandomInteger(1, 99) } ! 99).linePlot
-~~~
+
+![](sw/spl/Help/Image/nextRandomInteger-A.svg)
 
 * * *
 

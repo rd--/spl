@@ -164,11 +164,11 @@ true
 
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
-~~~
+~~~spl svg=A
 { :n |
 	let m = n.nthPrime;
 	let r = m.integerDigits(2).reversed;
-	m - r.fromDigits(2);
+	m - r.fromDigits(2)
 }.map(1:200).scatterPlot
 ~~~
 
@@ -176,7 +176,7 @@ Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
-~~~
+~~~spl svg=B
 { :i |
 	i.integerDigits(3).collect { :n |
 		(n = 2).if { -1 } { n }

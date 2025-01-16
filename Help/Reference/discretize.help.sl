@@ -25,7 +25,7 @@ In the ternary form apply _aBlock_ to each element during construction.
 
 Plot `exp` function from `zero` to `five`:
 
-~~~
+~~~spl svg=A
 (0 -- 5)
 .discretize(99)
 .exp
@@ -36,7 +36,7 @@ Plot `exp` function from `zero` to `five`:
 
 Plot `hannFunction`:
 
-~~~
+~~~spl svg=B
 (-0.5 -- 0.5)
 .discretize(99)
 .collect(hannWindow:/1)

@@ -29,7 +29,7 @@ The _3 3 3 5_ genus:
 
 Draw the _3 3 3 5 5_ genus:
 
-~~~
+~~~spl svg=A
 [3 3 3 5 5].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph
@@ -40,7 +40,7 @@ Draw the _3 3 3 5 5_ genus:
 
 Draw the _3 3 3 5 7 11_ genus:
 
-~~~
+~~~spl svg=B
 [3 3 3 5 7 11].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph
@@ -51,7 +51,7 @@ Draw the _3 3 3 5 7 11_ genus:
 
 Draw the _3 5 7 11 13_ genus:
 
-~~~
+~~~spl svg=C
 [3 5 7 11 13].eulerFokkerGenus
 .asRatioTuning
 .latticeGraph

@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="161.803" height="100.000" viewBox="3.090 -5.000 171.803 110.000">
-<g fill="none" stroke="black" stroke-width="0.001%" transform="translate(0, 100.000) scale(400.000, -400.000)">
-<circle cx="0.020" cy="0.000" r="0.001" />
-<circle cx="0.020" cy="0.000" r="0.001" />
-<circle cx="0.040" cy="0.048" r="0.001" />
-<circle cx="0.061" cy="0.090" r="0.001" />
-<circle cx="0.081" cy="0.128" r="0.001" />
-<circle cx="0.101" cy="0.160" r="0.001" />
-<circle cx="0.121" cy="0.188" r="0.001" />
-<circle cx="0.142" cy="0.210" r="0.001" />
-<circle cx="0.162" cy="0.227" r="0.001" />
-<circle cx="0.182" cy="0.240" r="0.001" />
-<circle cx="0.202" cy="0.247" r="0.001" />
-<circle cx="0.222" cy="0.250" r="0.001" />
-<circle cx="0.243" cy="0.247" r="0.001" />
-<circle cx="0.263" cy="0.240" r="0.001" />
-<circle cx="0.283" cy="0.227" r="0.001" />
-<circle cx="0.303" cy="0.210" r="0.001" />
-<circle cx="0.324" cy="0.187" r="0.001" />
-<circle cx="0.344" cy="0.160" r="0.001" />
-<circle cx="0.364" cy="0.127" r="0.001" />
-<circle cx="0.384" cy="0.090" r="0.001" />
-<circle cx="0.405" cy="0.047" r="0.001" />
-<circle cx="0.425" cy="-0.000" r="0.001" />
+<svg xmlns="http://www.w3.org/2000/svg" width="161.8" height="100.0" viewBox="3.0902 -5.0000 171.8034 110.0000">
+<g fill="none" stroke="black" stroke-width="0.0013%" transform="translate(0, 100.0000) scale(400.0000, -400.0000)">
+<circle cx="0.0202" cy="0.0000" r="0.0013" />
+<circle cx="0.0202" cy="0.0000" r="0.0013" />
+<circle cx="0.0405" cy="0.0475" r="0.0013" />
+<circle cx="0.0607" cy="0.0900" r="0.0013" />
+<circle cx="0.0809" cy="0.1275" r="0.0013" />
+<circle cx="0.1011" cy="0.1600" r="0.0013" />
+<circle cx="0.1214" cy="0.1875" r="0.0013" />
+<circle cx="0.1416" cy="0.2100" r="0.0013" />
+<circle cx="0.1618" cy="0.2275" r="0.0013" />
+<circle cx="0.1820" cy="0.2400" r="0.0013" />
+<circle cx="0.2023" cy="0.2475" r="0.0013" />
+<circle cx="0.2225" cy="0.2500" r="0.0013" />
+<circle cx="0.2427" cy="0.2475" r="0.0013" />
+<circle cx="0.2629" cy="0.2400" r="0.0013" />
+<circle cx="0.2832" cy="0.2275" r="0.0013" />
+<circle cx="0.3034" cy="0.2100" r="0.0013" />
+<circle cx="0.3236" cy="0.1875" r="0.0013" />
+<circle cx="0.3438" cy="0.1600" r="0.0013" />
+<circle cx="0.3641" cy="0.1275" r="0.0013" />
+<circle cx="0.3843" cy="0.0900" r="0.0013" />
+<circle cx="0.4045" cy="0.0475" r="0.0013" />
+<circle cx="0.4247" cy="-0.0000" r="0.0013" />
 </g>
 </svg>

@@ -39,7 +39,7 @@ The vertices are sorted by construction:
 
 A graph with undirected edges:
 
-~~~
+~~~spl svg=A
 [1 --- 2, 2 --- 3, 3 --- 1]
 .asGraph
 .graphPlot

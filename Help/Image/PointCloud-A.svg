@@ -1,27 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100.55" height="100.00" viewBox="1.01 2.65 110.55 110.00">
-<g fill="none" stroke="black" stroke-width="1.8%" transform="translate(0, 115.30) scale(0.55, -0.55)">
-<circle cx="83.00" cy="30.00" r="1.83" />
-<circle cx="39.00" cy="164.00" r="1.83" />
-<circle cx="20.00" cy="170.00" r="1.83" />
-<circle cx="132.00" cy="125.00" r="1.83" />
-<circle cx="127.00" cy="161.00" r="1.83" />
-<circle cx="141.00" cy="75.00" r="1.83" />
-<circle cx="186.00" cy="126.00" r="1.83" />
-<circle cx="113.00" cy="64.00" r="1.83" />
-<circle cx="44.00" cy="184.00" r="1.83" />
-<circle cx="174.00" cy="106.00" r="1.83" />
-<circle cx="11.00" cy="197.00" r="1.83" />
-<circle cx="195.00" cy="99.00" r="1.83" />
-<circle cx="188.00" cy="107.00" r="1.83" />
-<circle cx="157.00" cy="97.00" r="1.83" />
-<circle cx="151.00" cy="51.00" r="1.83" />
-<circle cx="57.00" cy="14.00" r="1.83" />
-<circle cx="20.00" cy="123.00" r="1.83" />
-<circle cx="108.00" cy="179.00" r="1.83" />
-<circle cx="86.00" cy="15.00" r="1.83" />
-<circle cx="180.00" cy="107.00" r="1.83" />
-<circle cx="102.00" cy="83.00" r="1.83" />
-<circle cx="53.00" cy="68.00" r="1.83" />
-<circle cx="83.00" cy="48.00" r="1.83" />
+<svg xmlns="http://www.w3.org/2000/svg" width="100.5" height="100.0" viewBox="1.0 2.7 110.5 110.0">
+<g fill="none" stroke="black" stroke-width="0.9150%" transform="translate(0, 115.3005) scale(0.5464, -0.5464)">
+<circle cx="83.0" cy="30.0" r="0.9" />
+<circle cx="39.0" cy="164.0" r="0.9" />
+<circle cx="20.0" cy="170.0" r="0.9" />
+<circle cx="132.0" cy="125.0" r="0.9" />
+<circle cx="127.0" cy="161.0" r="0.9" />
+<circle cx="141.0" cy="75.0" r="0.9" />
+<circle cx="186.0" cy="126.0" r="0.9" />
+<circle cx="113.0" cy="64.0" r="0.9" />
+<circle cx="44.0" cy="184.0" r="0.9" />
+<circle cx="174.0" cy="106.0" r="0.9" />
+<circle cx="11.0" cy="197.0" r="0.9" />
+<circle cx="195.0" cy="99.0" r="0.9" />
+<circle cx="188.0" cy="107.0" r="0.9" />
+<circle cx="157.0" cy="97.0" r="0.9" />
+<circle cx="151.0" cy="51.0" r="0.9" />
+<circle cx="57.0" cy="14.0" r="0.9" />
+<circle cx="20.0" cy="123.0" r="0.9" />
+<circle cx="108.0" cy="179.0" r="0.9" />
+<circle cx="86.0" cy="15.0" r="0.9" />
+<circle cx="180.0" cy="107.0" r="0.9" />
+<circle cx="102.0" cy="83.0" r="0.9" />
+<circle cx="53.0" cy="68.0" r="0.9" />
+<circle cx="83.0" cy="48.0" r="0.9" />
 </g>
 </svg>

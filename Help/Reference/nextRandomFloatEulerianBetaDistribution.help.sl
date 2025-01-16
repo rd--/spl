@@ -30,7 +30,7 @@ This is a linear distribution.
 
 Biased low:
 
-~~~
+~~~spl svg=A
 let rng = Sfc32(791741);
 (
 	{
@@ -48,7 +48,7 @@ let rng = Sfc32(791741);
 
 Biased high:
 
-~~~
+~~~spl svg=B
 let rng = Sfc32(231749);
 (
 	{

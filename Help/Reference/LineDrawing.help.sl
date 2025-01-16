@@ -23,7 +23,7 @@ and a `Rectangle`:
 
 Twenty unit circles at equaly spaced points on the unit circle:
 
-~~~
+~~~spl svg=B
 1:20.collect { :t |
 	let p = 2.pi * t / 20;
 	Circle([p.cos p.sin], 1)

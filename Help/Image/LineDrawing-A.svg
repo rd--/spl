@@ -1,11 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="73.33" height="100.00" viewBox="-41.67 -55.00 83.33 110.00">
-<g fill="none" stroke="black" stroke-width="3.00%" transform="translate(0, 0.00) scale(0.33, -0.33)">
-<circle cx="0.00" cy="0.00" r="100.00" />
-<circle cx="75.00" cy="-25.00" r="15.00" />
-<circle cx="75.00" cy="-25.00" r="2" fill="black" stroke="none" />
-<circle cx="70.00" cy="-20.00" r="2" fill="black" stroke="none" />
-<line x1="-50.00" y1="-25.00" x2="25.00" y2="50.00" />
-<line x1="-25.00" y1="-15.00" x2="20.00" y2="30.00" />
-<rect x="-110.00" y="-150.00" width="220.00" height="300.00" />
+<svg xmlns="http://www.w3.org/2000/svg" width="73.3" height="100.0" viewBox="-41.7 -55.0 83.3 110.0">
+<g fill="none" stroke="black" stroke-width="1.5000%" transform="translate(0, 0.0000) scale(0.3333, -0.3333)">
+<circle cx="0.0" cy="0.0" r="100.0" />
+<circle cx="75.0" cy="-25.0" r="15.0" />
+<circle cx="75.0" cy="-25.0" r="1.5" />
+<circle cx="70.0" cy="-20.0" r="1.5" />
+<line x1="-50.0" y1="-25.0" x2="25.0" y2="50.0" />
+<line x1="-25.0" y1="-15.0" x2="20.0" y2="30.0" />
+<rect x="-110.0" y="-150.0" width="220.0" height="300.0" />
 </g>
 </svg>

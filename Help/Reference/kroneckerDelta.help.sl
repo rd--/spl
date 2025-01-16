@@ -70,7 +70,7 @@ Generate a banded matrix with two superdiagonals:
 
 Plot over a subset of the integers:
 
-~~~
+~~~spl svg=A
 -2:2.functionPlot { :each |
 	each.kroneckerDelta(0)
 }

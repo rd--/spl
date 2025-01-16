@@ -47,7 +47,7 @@ true
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 200.calkinWilfSequence.scatterPlot
 ~~~
 

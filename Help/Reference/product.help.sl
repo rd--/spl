@@ -34,7 +34,7 @@ Factorial is product of a `Range`:
 
 Plot the sequence of partial products:
 
-~~~
+~~~spl svg=A
 (1 -- 50).functionPlot { :i |
 	let z = 2 + (i * 2 * pi / 15).sin;
 	(11 / 12) ^ i * z
@@ -43,7 +43,7 @@ Plot the sequence of partial products:
 
 ![](sw/spl/Help/Image/product-A.svg)
 
-~~~
+~~~spl svg=B
 1:50.functionPlot { :j |
 	1:j.collect { :i |
 		let z = 2 + (i * 2 * pi / 15).sin;

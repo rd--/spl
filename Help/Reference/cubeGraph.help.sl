@@ -47,7 +47,7 @@ The three-cube, also called cube and hexahedron:
 
 Draw the four-cube, also called tesseract and octachoron:
 
-~~~
+~~~spl svg=A
 4.cubeGraph.graphPlot
 ~~~
 
@@ -55,7 +55,7 @@ Draw the four-cube, also called tesseract and octachoron:
 
 Plot the adjacency matrix:
 
-~~~
+~~~spl svg=B
 5.cubeGraph.adjacencyMatrix.matrixPlot
 ~~~
 

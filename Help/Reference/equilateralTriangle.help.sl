@@ -15,7 +15,7 @@ and with all three angles equal.
 
 Draw triangle vortex:
 
-~~~
+~~~spl svg=B
 let r = 100;
 let a = 0;
 let l = [];
@@ -33,7 +33,7 @@ l.LineDrawing
 
 Draw iterated triangles, scaling radius and shifting angle:
 
-~~~
+~~~spl svg=C
 let r = 100;
 let a = 0;
 let l = [];

@@ -46,7 +46,7 @@ The number of distinct permutations of _Mississippi_ is:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-2 -- 4).functionPlot { :x |
 	[x 0.5 3].multinomial
 }

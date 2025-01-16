@@ -34,7 +34,7 @@ At half integer:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0.02 -- 5).functionPlot(logGamma:/1)
 ~~~
 

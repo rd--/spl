@@ -28,7 +28,7 @@ Sinc threads elementwise over lists and matrices:
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-10, -9.9 .. 10).sinc.linePlot
 ~~~
 
@@ -36,7 +36,7 @@ Plot:
 
 Single-slit diffraction pattern for a 4λ slit:
 
-~~~
+~~~spl svg=B
 (-1 -- 1).functionPlot { :x |
 	(
 		(4 * pi * x)
@@ -50,7 +50,7 @@ Single-slit diffraction pattern for a 4λ slit:
 
 The normalilzed sinc function multiplies the input by π (`pi`):
 
-~~~
+~~~spl svg=C
 let z = (-10, -9.9 .. 10);
 (z * pi).sinc.linePlot
 ~~~

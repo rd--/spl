@@ -28,7 +28,7 @@ which count the number of complete strings of balanced parentheses of a given le
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 0:19.collect { :m |
 	0:m.collect { :n |
 		n.lobbNumber(m)

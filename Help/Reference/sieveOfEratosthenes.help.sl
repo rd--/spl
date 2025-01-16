@@ -72,7 +72,7 @@ Approximations:
 
 Plot the prime counting function:
 
-~~~
+~~~spl svg=A
 1:99.functionPlot { :each |
 	each.sieveOfEratosthenes.size
 }

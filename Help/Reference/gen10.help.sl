@@ -11,7 +11,7 @@ The answer is scaled to unity.
 
 A sine table:
 
-~~~
+~~~spl svg=A
 (2 ^ 10).gen10([1]).linePlot
 ~~~
 
@@ -19,7 +19,7 @@ A sine table:
 
 An approximation of a sawtooth wave, fundamental and eight harmonics:
 
-~~~
+~~~spl svg=B
 (2 ^ 10).gen10(
 	[
 		1 0.5 0.3 0.25 0.2
@@ -32,7 +32,7 @@ An approximation of a sawtooth wave, fundamental and eight harmonics:
 
 An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 
-~~~
+~~~spl svg=C
 (2 ^ 10).gen10(
 	[1 0 0.3 0 0.2 0 0.14 0 0.111]
 ).linePlot
@@ -42,7 +42,7 @@ An approximation of a square wave, fundamental and eight harmonics, four zeroed:
 
 An approximation of a pulse wave, fundamental and eight harmonics:
 
-~~~
+~~~spl svg=D
 (2 ^ 10).gen10(
 	[1 1 1 1 0.7 0.5 0.3 0.1]
 ).linePlot

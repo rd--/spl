@@ -195,6 +195,10 @@ Colour : [Object] { | red green blue alpha |
 		)
 	}
 
+	writeSvg { :self :fileName |
+		self.asSvg.writeSvg(fileName)
+	}
+
 }
 
 +SmallFloat {

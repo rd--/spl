@@ -23,7 +23,7 @@ Threads over lists:
 
 Plot:
 
-~~~
+~~~spl svg=A
 (-33 .. 33).collect { :each |
 	10 ^ each
 }.logScale.discretePlot

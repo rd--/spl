@@ -9,7 +9,7 @@ The method `url` reads the Url the file was fetched from.
 The method `interleavedData` reads the indicated interleave channel data as a `Float32Array`.
 The method `channelData` reads the indicated one-indexed channel data as a `Float32Array`.
 
-~~~
+~~~spl svg=A
 let url = [
 	'https://rohandrape.net/'
 	'pub/jssc3/flac/'
@@ -30,7 +30,6 @@ SoundFile(url).then { :soundFile |
 	.drop(1024 * 8)
 	.take(1024 * 1)
 	.linePlot
-	.draw
 }
 ~~~
 

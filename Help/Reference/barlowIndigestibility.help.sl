@@ -29,7 +29,7 @@ The indigestibility of the first sixteen integers:
 
 Plot the indigestibility of the first one hundred integers:
 
-~~~
+~~~spl svg=A
 1:100.functionPlot(barlowIndigestibility:/1)
 ~~~
 

@@ -22,7 +22,7 @@ Plot:
 
 Discrete _Bartlett window_ of length 15:
 
-~~~
+~~~spl svg=B
 (-0.5 -- 0.5).discretize(
 	15,
 	bartlettWindow:/1

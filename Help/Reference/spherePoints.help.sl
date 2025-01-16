@@ -6,7 +6,7 @@ Answer the positions of approximately _n_ points equally spaced on a sphere of r
 
 A _y,z_ projection of one hundred points on the surface of the unit sphere:
 
-~~~
+~~~spl svg=A
 100.spherePoints(1).collect { :each |
 	let [x, y, z] = each;
 	[y, z]

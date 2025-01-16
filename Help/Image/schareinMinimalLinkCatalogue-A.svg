@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100.8" height="100.0" viewBox="-48.06 -52.06 110.78 110.00">
 <g fill="none" stroke="black" stroke-width="0.0181%" transform="translate(0, 5.8899) scale(27.6670, -27.6670)">
-<polygon points="-0.86,1.91 2.09,-0.21 -1.23,-1.70" />
-<polygon points="0.78,1.35 0.49,-1.48 0.78,-1.35 -1.53,0.31 -1.56,-0.00" />
+<polyline points="-0.86,1.91 2.09,-0.21 -1.23,-1.70 -0.86,1.91" />
+<polyline points="0.78,1.35 0.49,-1.48 0.78,-1.35 -1.53,0.31 -1.56,-0.00 0.78,1.35" />
 </g>
 </svg>

@@ -25,7 +25,7 @@ The first three random numbers given the seed _12345_:
 
 Plot random floating point numbers between `zero` and `one`:
 
-~~~
+~~~spl svg=A
 LinearCongruential(98765)
 .next(99)
 .linePlot

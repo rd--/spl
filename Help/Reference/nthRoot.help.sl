@@ -52,7 +52,7 @@ Threads elementwise over lists and matrices:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-1 -- 1).functionPlot { :x | x.nthRoot(3) }
 ~~~
 

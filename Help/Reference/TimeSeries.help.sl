@@ -140,7 +140,7 @@ else conflicts are treated as errors:
 
 `discretePlot` of time series:
 
-~~~
+~~~spl svg=A
 [2 1 6 5 7 4].asTimeSeries(
 	[1 2 5 10 12 15]
 ).discretePlot

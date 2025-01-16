@@ -19,7 +19,7 @@ Threads over lists:
 
 Plot curve:
 
-~~~
+~~~spl svg=A
 (0.001 -- 1).functionPlot(AmpDb:/1)
 ~~~
 

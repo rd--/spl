@@ -7,7 +7,7 @@ drawn using the random number generator _r_.
 
 Plot `randomVariate` of `CauchyDistribution`:
 
-~~~
+~~~spl svg=A
 let r = Sfc32(478912);
 let d = CauchyDistribution(0, 0.025);
 d.randomVariate(r, 99).clip(-1, 1).linePlot

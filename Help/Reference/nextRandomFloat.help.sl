@@ -43,7 +43,7 @@ Answer the next thirteen random numbers scaled to lie between one and nine as in
 
 Plot uniform distribution:
 
-~~~
+~~~spl svg=A
 let rng = Sfc32(698412);
 (
 	{

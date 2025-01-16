@@ -29,7 +29,7 @@ A permutation graph for a permutation in _S10_:
 
 Draw graph:
 
-~~~
+~~~spl svg=A
 [2 1 5 6 7 10 9 4 8 3]
 .permutationGraph
 .graphPlot

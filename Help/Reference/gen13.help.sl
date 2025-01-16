@@ -15,7 +15,7 @@ can be used to split a sinusoid into harmonic partials having a pre-definable sp
 
 Quasi-sawtooth transfer function:
 
-~~~
+~~~spl svg=A
 let h = [
 	100 -50 -33 25 20
 	-16.7 -14.2 12.5 11.1 -10
@@ -29,7 +29,7 @@ let h = [
 
 Quasi-square wave transfer function:
 
-~~~
+~~~spl svg=B
 let h = [
 	100 0 -33 0 20
 	0 -14.2 0 11.1 0
@@ -43,7 +43,7 @@ let h = [
 
 Quasi-triangle wave transfer function:
 
-~~~
+~~~spl svg=C
 let h = [
 	100 0 -11.11 0 4
 	0 -2.04 0 1.23 0
@@ -57,7 +57,7 @@ let h = [
 
 Transfer function:
 
-~~~
+~~~spl svg=D
 let h = [
 	1 -0.8 0 0.6 0 0 0 0.4 0 0
 	0 0 0.1 -0.2 -0.3 0.5
@@ -69,7 +69,7 @@ let h = [
 
 Transfer function, high partials, sometimes without a fundamental, give inharmonic spectra:
 
-~~~
+~~~spl svg=E
 let h = [
 	0 0 -0.1 0 0.3 0 -0.5 0
 	0.7 0 -0.9 0 1 0 -1 0
@@ -81,7 +81,7 @@ let h = [
 
 Another inharmonic spectra:
 
-~~~
+~~~spl svg=F
 let h = [
 	0 0 0 0 0 0 -1 0 1 0
 	0 -0.1 0 0.1 0 -0.2 0.3 0 -0.7 0
@@ -94,7 +94,7 @@ let h = [
 
 Split a sinusoid into 3 odd-harmonic partials of relative strength _5-3-1_:
 
-~~~
+~~~spl svg=G
 let h = [5 0 3 0 1];
 513.gen13(1, 1, 0, h).linePlot
 ~~~

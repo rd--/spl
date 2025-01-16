@@ -7,7 +7,7 @@ Answer the positions of _n_ points of the Fibonacci lattice on the surface of a 
 Line drawings of two hundred points on the surface of the unit sphere,
 in _x,y_ and _x,z_ views:
 
-~~~
+~~~spl svg=A
 200.spherePointsFibonacci.collect { :each |
 	let [x, y, z] = each;
 	[x, y]
@@ -16,7 +16,7 @@ in _x,y_ and _x,z_ views:
 
 ![](sw/spl/Help/Image/spherePointsFibonacci-A.svg)
 
-~~~
+~~~spl svg=B
 200.spherePointsFibonacci.collect { :each |
 	let [x, y, z] = each;
 	[x, z]
@@ -27,7 +27,7 @@ in _x,y_ and _x,z_ views:
 
 An _isometric_ projection of the same point set:
 
-~~~
+~~~spl svg=C
 200.spherePointsFibonacci.collect(
 	AxonometricProjection(
 		pi / 6, 0, pi / 6,

@@ -32,7 +32,7 @@ dotGraph.dotLayout(
 
 Draw graph:
 
-~~~
+~~~spl svg=A
 let dotGraph = [
 	'digraph {'
 	' graph [size=1.5];'

@@ -20,7 +20,7 @@ Draw the standard _isometric_ projection of the unit dodecahedron:
 Draw a _cabinet oblique_ projection of the unit icosahedron,
 with the _Z_-axis angle set to _pi/6_:
 
-~~~spl svg=A
+~~~spl svg=B
 [0 0 0]
 .unitIcosahedron
 .asPerspectiveDrawing(

@@ -37,7 +37,7 @@ Find how the number of digits in _100!_ decreases with the base:
 
 Plot for base 10 from -25 to 25:
 
-~~~
+~~~spl svg=A
 -25:25.functionPlot { :x |
 	x.integerLength(10)
 }
@@ -47,7 +47,7 @@ Plot for base 10 from -25 to 25:
 
 Plot for base 2 from 1 to 1023:
 
-~~~
+~~~spl svg=B
 1:1023.functionPlot { :x |
 	x.integerLength(2)
 }
@@ -57,7 +57,7 @@ Plot for base 2 from 1 to 1023:
 
 Plot for base 10 for factorials, minus pre-factorial value:
 
-~~~
+~~~spl svg=C
 1:50.functionPlot { :x |
 	x.!.integerLength(10) - x
 }

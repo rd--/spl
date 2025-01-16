@@ -68,7 +68,7 @@ Fixed point:
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (0 -- 2.pi).functionPlot(sin:/1)
 ~~~
 
@@ -76,7 +76,7 @@ Plot over a subset of the reals:
 
 Noncommensurate waves (quasiperiodic function):
 
-~~~
+~~~spl svg=B
 (0 -- 16.pi).functionPlot { :x |
 	x.sin + (x * 2.sqrt).sin
 }

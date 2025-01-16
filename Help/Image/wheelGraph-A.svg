@@ -22,6 +22,16 @@
 <title>2&#45;&#45;3</title>
 <path fill="none" stroke="black" stroke-width="0.75" d="M103.96,-3.08C111.42,-8.93 142.2,-33.05 149.78,-38.99"/>
 </g>
+<!-- 9 -->
+<g id="node8" class="node">
+<title>9</title>
+<ellipse fill="black" stroke="black" cx="40.28" cy="-9.33" rx="1.8" ry="1.8"/>
+</g>
+<!-- 2&#45;&#45;9 -->
+<g id="edge8" class="edge">
+<title>2&#45;&#45;9</title>
+<path fill="none" stroke="black" stroke-width="0.75" d="M100.26,-2.05C90.84,-3.19 51.98,-7.91 42.42,-9.07"/>
+</g>
 <!-- 4 -->
 <g id="node3" class="node">
 <title>4</title>
@@ -72,20 +82,10 @@
 <title>7&#45;&#45;8</title>
 <path fill="none" stroke="black" stroke-width="0.75" d="M9.26,-118.51C8.09,-109.09 3.26,-70.27 2.07,-60.71"/>
 </g>
-<!-- 9 -->
-<g id="node8" class="node">
-<title>9</title>
-<ellipse fill="black" stroke="black" cx="40.28" cy="-9.33" rx="1.8" ry="1.8"/>
-</g>
 <!-- 8&#45;&#45;9 -->
 <g id="edge7" class="edge">
 <title>8&#45;&#45;9</title>
 <path fill="none" stroke="black" stroke-width="0.75" d="M3.08,-56.94C8.92,-49.46 33.02,-18.62 38.96,-11.02"/>
-</g>
-<!-- 9&#45;&#45;2 -->
-<g id="edge8" class="edge">
-<title>9&#45;&#45;2</title>
-<path fill="none" stroke="black" stroke-width="0.75" d="M42.35,-9.08C51.77,-7.94 90.62,-3.22 100.19,-2.06"/>
 </g>
 <!-- 1 -->
 <g id="node9" class="node">

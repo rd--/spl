@@ -144,7 +144,7 @@ At `zero` and `one`:
 
 Plot primes up to one-thousand:
 
-~~~
+~~~spl svg=A
 1:999.select(isPrime:/1).linePlot
 ~~~
 
