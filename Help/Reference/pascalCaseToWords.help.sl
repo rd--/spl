@@ -11,4 +11,4 @@ Pascal case names capitalize each word, including the first word.
 
 * * *
 
-See also: camelCaseToWords
+See also: camelCaseToWords, RegExp

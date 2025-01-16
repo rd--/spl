@@ -9,6 +9,13 @@ Answer a `HelpIndex` holding an index of the Spl help files.
 'HelpIndex'
 ```
 
+Count entries:
+
+```
+>>> system.helpIndex.size
+2434
+```
+
 Lookup a reference entry:
 
 ```

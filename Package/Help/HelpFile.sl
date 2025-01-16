@@ -225,3 +225,27 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 }
+
++System {
+
+	helpFilesDo { :self :kind :aBlock:/1 |
+		self
+		.splFile('Help/' ++ kind)
+		.readDirectoryFileNames
+		.select { :each |
+			each.endsWith('.help.sl')
+		}.do { :each |
+			let text = each.readTextFile;
+			let help = HelpFile(
+				each.asFileUrl,
+				text
+			);
+			aBlock(help)
+		}
+	}
+
+	referenceHelpFilesDo { :self :aBlock:/1 |
+		self.helpFilesDo('Reference', aBlock:/1)
+	}
+
+}

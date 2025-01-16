@@ -19,6 +19,6 @@ The input string must not be empty.
 
 * * *
 
-See also: asNumber, isDecimalIntegerString, parseNumber
+See also: asNumber, isDecimalIntegerString, parseNumber, RegExp
 
 Categories: Testing

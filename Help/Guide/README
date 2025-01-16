@@ -1,3 +1,3 @@
-'Help/Guide'.splFile.terseReferenceSummary(verbose: false, pattern: '.*')
+system.splFile('Help/Guide').terseReferenceSummary(verbose: false, pattern: '.*')
 
 Total => 391

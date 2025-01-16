@@ -42,7 +42,7 @@ Multiple spaces are treated as one space:
 
 * * *
 
-See also: lines, paragraphs, sentences, splitByRegExp, unwords
+See also: lines, paragraphs, RegExp, sentences, splitByRegExp, unwords
 
 References:
 _Haskell_

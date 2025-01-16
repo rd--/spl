@@ -62,9 +62,12 @@ LineDrawing : [Object] { | contents metadata |
 
 	draw { :self |
 		let fileName = '/tmp/LineDrawing.svg';
-		let svgText = self.asSvg;
-		fileName.writeTextFile(svgText);
+		self.writeSvg(fileName);
 		system.systemCommand('chromium', [fileName])
+	}
+
+	writeSvg { :self :fileName |
+		fileName.writeTextFile(self.asSvg)
 	}
 
 }
@@ -195,6 +198,10 @@ PerspectiveDrawing : [Object] { | contents metadata |
 
 	draw { :self |
 		self.asLineDrawing.draw
+	}
+
+	writeSvg { :self :fileName |
+		self.asLineDrawing.writeSvg(fileName)
 	}
 
 }

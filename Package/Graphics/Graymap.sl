@@ -20,11 +20,8 @@ Graymap : [Object] { | contents |
 	}
 
 	draw { :self |
-		let pgmFileName = '/tmp/graymap.pgm';
 		let pngFileName = '/tmp/graymap.png';
-		let pgmText = self.asPgm(255);
-		pgmFileName.writeTextFile(pgmText);
-		system.systemCommand('convert', [pgmFileName, '-transparent', 'white', pngFileName]);
+		self.writePng(pngFileName);
 		system.systemCommand('chromium', [pngFileName])
 	}
 
@@ -34,6 +31,16 @@ Graymap : [Object] { | contents |
 
 	width { :self |
 		self.contents.first.size
+	}
+
+	writePgm { :self :fileName |
+		fileName.writeTextFile(self.asPgm(255))
+	}
+
+	writePng { :self :fileName |
+		let pgmFileName = '/tmp/graymap.pgm';
+		self.writePgm(pgmFileName);
+		system.systemCommand('convert', [pgmFileName, '-transparent', 'white', fileName])
 	}
 
 }

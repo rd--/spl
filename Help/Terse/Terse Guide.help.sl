@@ -3993,10 +3993,10 @@ system.includesPackage('Url') /* package */
 
 ## System -- fetch
 ```
-'README.md'.splFile.asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
-'README'.splFile.asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
+system.splFile('README.md').asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
+system.splFile('README').asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
 'https://rohandrape.net/sw/spl/README.md'.asUrl.fetchText.thenElse { :text | { text.size > 0 }.assert } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
-'Package/SmallKansas/PackageBrowser.sl'.splFile.asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
+system.splFile('Package/SmallKansas/PackageBrowser.sl').asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
 ```
 
 ## System -- UrlQueryParameters

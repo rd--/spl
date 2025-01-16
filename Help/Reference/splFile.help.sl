@@ -1,20 +1,20 @@
 # splFile
 
-- _splFile(aString)_
+- _splFile(aSystem, aString)_
 
 Answer a `String` holding the absolute file path to _aString_ given by prepending the `splDirectory`.
 
-The Spl read me file:
+The Spl _read me_ file:
 
 ```
->>> 'README.md'.splFile
+>>> system.splFile('README.md')
 '/home/rohan/sw/spl/README.md'
 ```
 
 The directory holding the Spl help files:
 
 ```
->>> 'Help'.splFile
+>>> system.splFile('Help')
 '/home/rohan/sw/spl/Help'
 ```
 

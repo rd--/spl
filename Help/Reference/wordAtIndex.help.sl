@@ -36,6 +36,6 @@ true
 
 * * *
 
-See also: String, whiteSpaceDelimitedWordAtIndex
+See also: RegExp, String, whiteSpaceDelimitedWordAtIndex
 
 Categories: Accessing

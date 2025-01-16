@@ -51,6 +51,7 @@ Guide/Generic Functions.help.sl
 Guide/Geometry Functions.help.sl
 Guide/Geometry Types.help.sl
 Guide/Glossary of Terms.help.sl
+Guide/Graph Functions.help.sl
 Guide/Help Files.help.sl
 Guide/Implicit Dictionary.help.sl
 Guide/Implicit Self.help.sl
@@ -97,6 +98,7 @@ Guide/Operator Precedence.help.sl
 Guide/Operator Syntax.help.sl
 Guide/Parts of Speech.help.sl
 Guide/Patterns and Streams.help.sl
+Guide/Perspective Drawings.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
 Guide/Primitive Types.help.sl
@@ -180,6 +182,7 @@ Reference/Add.help.sl
 Reference/addIfNotPresent.help.sl
 Reference/additivePersistence.help.sl
 Reference/addLast.help.sl
+Reference/addLibraryItem.help.sl
 Reference/addOscListener.help.sl
 Reference/addSine.help.sl
 Reference/addWithOccurrences.help.sl
@@ -253,6 +256,7 @@ Reference/asAsciiString.help.sl
 Reference/asAssociation.help.sl
 Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
+Reference/asAxonometricProjection.help.sl
 Reference/asBag.help.sl
 Reference/asBit.help.sl
 Reference/asBitSet.help.sl
@@ -275,6 +279,8 @@ Reference/asComplex.help.sl
 Reference/asDate.help.sl
 Reference/asDocumentationTest.help.sl
 Reference/asDot.help.sl
+Reference/asEdge.help.sl
+Reference/asEdgeList.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFloat32Array.help.sl
 Reference/asFloat64Array.help.sl
@@ -283,6 +289,7 @@ Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl
 Reference/asFractions.help.sl
 Reference/asGaussianInteger.help.sl
+Reference/asGeometryCollection.help.sl
 Reference/asGraph.help.sl
 Reference/asGreyscaleSvg.help.sl
 Reference/asHeaders.help.sl
@@ -460,9 +467,14 @@ Reference/Brz2.help.sl
 Reference/BufFrames.help.sl
 Reference/BufRd.help.sl
 Reference/ByteArray.help.sl
+Reference/cachedFetch.help.sl
+Reference/cachedFetchMimeType.help.sl
 Reference/cached.help.sl
 Reference/cachedPrimesList.help.sl
+Reference/cache.help.sl
 Reference/Cache.help.sl
+Reference/caches.help.sl
+Reference/CacheStorage.help.sl
 Reference/calkinWilfSequence.help.sl
 Reference/calkinWilfTree.help.sl
 Reference/camelCaseToWords.help.sl
@@ -512,6 +524,7 @@ Reference/clip.help.sl
 Reference/Clip.help.sl
 Reference/ClipNoise.help.sl
 Reference/Clock.help.sl
+Reference/closedLine.help.sl
 Reference/clump.help.sl
 Reference/codePoint.help.sl
 Reference/codePoints.help.sl
@@ -614,6 +627,7 @@ Reference/cubed.help.sl
 Reference/Cubed.help.sl
 Reference/cubeGraph.help.sl
 Reference/cubeRoot.help.sl
+Reference/Cuboid.help.sl
 Reference/cull.help.sl
 Reference/currentWorkingDirectory.help.sl
 Reference/CuspL.help.sl
@@ -741,6 +755,7 @@ Reference/Dwhite.help.sl
 Reference/dyckWords.help.sl
 Reference/each.help.sl
 Reference/edgeCount.help.sl
+Reference/edgeLabels.help.sl
 Reference/edgeList.help.sl
 Reference/editDistance.help.sl
 Reference/e.help.sl
@@ -803,6 +818,7 @@ Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
 Reference/Extensible.help.sl
 Reference/extractDocumentationTests.help.sl
+Reference/faceCount.help.sl
 Reference/faceIndices.help.sl
 Reference/factorial.help.sl
 Reference/factorialPower.help.sl
@@ -911,6 +927,7 @@ Reference/gen19.help.sl
 Reference/Gendy1.help.sl
 Reference/geometricMean.help.sl
 Reference/geometricSeries.help.sl
+Reference/GeometryCollection.help.sl
 Reference/GetTempo.help.sl
 Reference/gluLookAt.help.sl
 Reference/gluPerspective.help.sl
@@ -1016,6 +1033,7 @@ Reference/ImageViewer.help.sl
 Reference/imaginary.help.sl
 Reference/Impulse.help.sl
 Reference/ImpulseSequencer.help.sl
+Reference/incidenceGraph.help.sl
 Reference/incidenceList.help.sl
 Reference/incidenceMatrix.help.sl
 Reference/inclination.help.sl
@@ -1023,6 +1041,7 @@ Reference/includeAll.help.sl
 Reference/include.help.sl
 Reference/includesAllOf.help.sl
 Reference/includesAnyOf.help.sl
+Reference/includesEdge.help.sl
 Reference/includes.help.sl
 Reference/includesIndex.help.sl
 Reference/includesKey.help.sl
@@ -1249,6 +1268,7 @@ Reference/kroneckerProduct.help.sl
 Reference/kurenniemiMajorMinorIndex.help.sl
 Reference/kurenniemiNotation.help.sl
 Reference/kurtosis.help.sl
+Reference/labeledVertexList.help.sl
 Reference/Lag.help.sl
 Reference/LagUd.help.sl
 Reference/LargeInteger.help.sl
@@ -1310,6 +1330,7 @@ Reference/LfPar.help.sl
 Reference/LfPulse.help.sl
 Reference/LfSaw.help.sl
 Reference/LfTri.help.sl
+Reference/library.help.sl
 Reference/LibraryItem.help.sl
 Reference/limitDenominator.help.sl
 Reference/Limiter.help.sl
@@ -1437,6 +1458,7 @@ Reference/matchesRegExp.help.sl
 Reference/match.help.sl
 Reference/matchRegExp.help.sl
 Reference/matrixColumn.help.sl
+Reference/matrixColumns.help.sl
 Reference/Matrix.help.sl
 Reference/matrixPlot.help.sl
 Reference/matrixPower.help.sl
@@ -1517,6 +1539,7 @@ Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MutableCollectionStream.help.sl
+Reference/namedAxonometricProjection.help.sl
 Reference/NamedControl.help.sl
 Reference/namedInterval.help.sl
 Reference/namedScale.help.sl
@@ -1529,6 +1552,8 @@ Reference/Navigator.help.sl
 Reference/nearest.help.sl
 Reference/negated.help.sl
 Reference/Neg.help.sl
+Reference/neighbourhoodGraph.help.sl
+Reference/neighbours.help.sl
 Reference/nest.help.sl
 Reference/nestList.help.sl
 Reference/nestWhileList.help.sl
@@ -1651,6 +1676,7 @@ Reference/PanB.help.sl
 Reference/paragraphAtCaret.help.sl
 Reference/paragraphAtIndex.help.sl
 Reference/paragraphs.help.sl
+Reference/Parallelogram.help.sl
 Reference/parameterNames.help.sl
 Reference/parametricPlot.help.sl
 Reference/parseDate.help.sl
@@ -1735,7 +1761,11 @@ Reference/PitchShift.help.sl
 Reference/plainChangesDo.help.sl
 Reference/plainChanges.help.sl
 Reference/planarAngle.help.sl
+Reference/planarConvexPolytopeGraphCatalogue.help.sl
 Reference/PlanarCoordinates.help.sl
+Reference/planarNonHamiltonianGraphCatalogue.help.sl
+Reference/planarQuadrangulationsCatalogue.help.sl
+Reference/planarRegularGraphCatalogue.help.sl
 Reference/plasticRatio.help.sl
 Reference/PlayBuf.help.sl
 Reference/playEvery.help.sl
@@ -1759,6 +1789,7 @@ Reference/polarPlot.help.sl
 Reference/polygonalNumber.help.sl
 Reference/Polygon.help.sl
 Reference/polygonInteriorAngles.help.sl
+Reference/PolygonMesh.help.sl
 Reference/Polyhedron.help.sl
 Reference/pop.help.sl
 Reference/port.help.sl
@@ -1799,6 +1830,7 @@ Reference/printStringRoman.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
 Reference/PriorityQueue.help.sl
 Reference/product.help.sl
+Reference/project.help.sl
 Reference/projection.help.sl
 Reference/Promise.help.sl
 Reference/prompt.help.sl
@@ -1828,12 +1860,14 @@ Reference/questionMark.help.sl
 Reference/quickSortFromToBy.help.sl
 Reference/quickSort.help.sl
 Reference/quotationMark.help.sl
+Reference/quotientBy.help.sl
 Reference/quotient.help.sl
 Reference/radians.help.sl
 Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
 Reference/radius.help.sl
 Reference/raisedToInteger.help.sl
+Reference/ramerDouglasPeuckerAlgorithm.help.sl
 Reference/Rand0.help.sl
 Reference/Rand2.help.sl
 Reference/Rand.help.sl
@@ -1854,6 +1888,7 @@ Reference/randomPoint.help.sl
 Reference/randomPrime.help.sl
 Reference/randomReal.help.sl
 Reference/randomSample.help.sl
+Reference/randomStarConvexPolygon.help.sl
 Reference/randomSubsequence.help.sl
 Reference/randomSurfacePoint.help.sl
 Reference/randomVariate.help.sl
@@ -1897,6 +1932,7 @@ Reference/rejectedPromise.help.sl
 Reference/reject.help.sl
 Reference/relationGraph.help.sl
 Reference/Release.help.sl
+Reference/remainderBy.help.sl
 Reference/remainder.help.sl
 Reference/Removeable.help.sl
 Reference/removeAllEqualTo.help.sl
@@ -1904,6 +1940,7 @@ Reference/removeAllFoundIn.help.sl
 Reference/removeAll.help.sl
 Reference/removeAllKeys.help.sl
 Reference/removeAllSuchThat.help.sl
+Reference/removeAtAll.help.sl
 Reference/removeAt.help.sl
 Reference/removeDiacritics.help.sl
 Reference/removeDirectory.help.sl
@@ -1979,6 +2016,7 @@ Reference/rowReduce.help.sl
 Reference/RunArray.help.sl
 Reference/rungeKuttaMethod.help.sl
 Reference/RunningSum.help.sl
+Reference/sageSmallGraphCatalogue.help.sl
 Reference/SampleDur.help.sl
 Reference/SampleRate.help.sl
 Reference/sampleStandardDeviation.help.sl
@@ -2001,6 +2039,10 @@ Reference/scanLeftAssociatingRight.help.sl
 Reference/scanLeft.help.sl
 Reference/scanRight.help.sl
 Reference/scatterPlot.help.sl
+Reference/schareinKnotCatalogue.help.sl
+Reference/schareinLinkCatalogue.help.sl
+Reference/schareinMinimalKnotCatalogue.help.sl
+Reference/schareinMinimalLinkCatalogue.help.sl
 Reference/schedule.help.sl
 Reference/scheduleInjecting.help.sl
 Reference/Schmidt.help.sl
@@ -2154,6 +2196,7 @@ Reference/stringList.help.sl
 Reference/styleSheetList.help.sl
 Reference/subdivide.help.sl
 Reference/subfactorial.help.sl
+Reference/subgraph.help.sl
 Reference/submatrix.help.sl
 Reference/subsequences.help.sl
 Reference/subsets.help.sl
@@ -2265,6 +2308,7 @@ Reference/true.help.sl
 Reference/truncated.help.sl
 Reference/truncateTo.help.sl
 Reference/Tuning.help.sl
+Reference/tuningSize.help.sl
 Reference/Tuple.help.sl
 Reference/tuplesDo.help.sl
 Reference/tuples.help.sl
@@ -2342,6 +2386,7 @@ Reference/vertexCoordinates.help.sl
 Reference/vertexCount.help.sl
 Reference/vertexDegree.help.sl
 Reference/vertexInDegree.help.sl
+Reference/vertexLabels.help.sl
 Reference/vertexList.help.sl
 Reference/vertexOutDegree.help.sl
 Reference/verticalLine.help.sl

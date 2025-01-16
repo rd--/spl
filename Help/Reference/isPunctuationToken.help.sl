@@ -16,6 +16,9 @@ true
 
 >>> '..'.isPunctuationToken
 true
+
+>>> 'x'.isPunctuationToken
+false
 ```
 
 * * *

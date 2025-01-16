@@ -13,6 +13,9 @@ true
 
 >>> '_'.isOperator
 false
+
+>>> 'x'.isOperator
+false
 ```
 
 * * *

@@ -1,0 +1,22 @@
+# Regular Expressions
+
+- `RegExp`: type
+- `allRegExpMatches`
+- `asRegExp`: converting
+- `exec`
+- `execIndices`
+- `lastIndex`
+- `matchAll`
+- `match`: partial match
+- `matchesRegExp`
+- `matches`: exact match
+- `replaceAllModifying`
+- `replaceAllWith`: replace all
+- `replaceModifying`
+- `replaceWith`: replace first
+- `search`: predicate
+- `searchRegExp`
+- `source`
+- `splitBy`
+- `splitByRegExp`
+- `stringLiteral`

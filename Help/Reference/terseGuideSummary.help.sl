@@ -8,8 +8,8 @@ run all of the terse examples,
 and print a summary of each section and of the guide altogether.
 
 ~~~
-'Help/Terse/Terse Guide.help.sl'
-.splFile
+system
+.splFile('Help/Terse/Terse Guide.help.sl')
 .asFileUrl
 .terseGuideSummary
 ~~~
@@ -19,8 +19,8 @@ run all of the terse examples in _aString_,
 and print a summary of each section and of the guide altogether.
 
 ~~~
-'Help/Terse/Terse Guide.help.sl'
-.splFile
+system
+.splFile('Help/Terse/Terse Guide.help.sl')
 .readTextFile
 .terseGuideSummary
 ~~~

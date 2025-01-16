@@ -15,11 +15,8 @@ Bitmap : [Object] { | contents |
 	}
 
 	draw { :self |
-		let pbmFileName = '/tmp/bitmap.pbm';
 		let pngFileName = '/tmp/bitmap.png';
-		let pbmText = self.asPbm;
-		pbmFileName.writeTextFile(pbmText);
-		system.systemCommand('convert', [pbmFileName, '-transparent', 'white', pngFileName]);
+		self.writePng(pngFileName);
 		system.systemCommand('chromium', [pngFileName])
 	}
 
@@ -29,6 +26,16 @@ Bitmap : [Object] { | contents |
 
 	width { :self |
 		self.contents.first.size
+	}
+
+	writePbm { :self :fileName |
+		fileName.writeTextFile(self.asPbm)
+	}
+
+	writePng { :self :fileName |
+		let pbmFileName = '/tmp/bitmap.pbm';
+		pbmFileName.writeTextFile(self.asPbm);
+		system.systemCommand('convert', [pbmFileName, '-transparent', 'white', fileName])
 	}
 
 }

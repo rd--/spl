@@ -18,7 +18,7 @@ however that name is awkward in relation to `substrings` and `substrings`.
 
 * * *
 
-See also: splitBy, splitByRegExp, words
+See also: RegExp, splitBy, splitByRegExp, words
 
 References:
 _Smalltalk_

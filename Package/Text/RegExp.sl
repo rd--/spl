@@ -68,6 +68,10 @@ RegExp! : [Object] {
 		<primitive: return _self.global;>
 	}
 
+	lastIndex { :self |
+		<primitive: return _self.lastIndex;>
+	}
+
 	match { :self :aString |
 		self.exec(aString)['match']
 	}

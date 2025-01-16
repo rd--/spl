@@ -11,8 +11,8 @@ The name is given relative to the specified directory.
 Print only the names of sub-directories:
 
 ~~~
->>> 'Help'
->>> .splFile
+>>> system
+>>> .splFile('Help')
 >>> .readDirectory
 >>> .select { :each |
 >>> 	each['isDirectory']

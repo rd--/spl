@@ -67,15 +67,23 @@ The binary form answers a `Number` with the same sign as _anotherNumber_ and the
 
 Plot the `real` part of the `sign` function:
 
+~~~spl svg=A
+(-3 -- 3).functionPlot { :x |
+	x.j(1).sign.real
+}
 ~~~
-(-3 -- 3).functionPlot { :x | x.j(1).sign.real }
-~~~
+
+![](sw/spl/Help/Image/sign-A.svg)
 
 Plot the `imaginary` part of the `sign` function:
 
+~~~spl svg=B
+(-3 -- 3).functionPlot { :x |
+	x.j(1).sign.imaginary
+}
 ~~~
-(-3 -- 3).functionPlot { :x | x.j(1).sign.imaginary }
-~~~
+
+![](sw/spl/Help/Image/sign-B.svg)
 
 * * *
 

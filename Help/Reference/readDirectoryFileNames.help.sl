@@ -9,7 +9,7 @@ The names are given in qualified form, that is with the directory prefix.
 Only ordinary files are listed, not sub-directories.
 
 ```
->>> 'Help'.splFile.readDirectoryFileNames
+>>> system.splFile('Help').readDirectoryFileNames
 ['/home/rohan/sw/spl/Help/Index.text']
 ```
 

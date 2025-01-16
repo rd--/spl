@@ -1,7 +1,32 @@
-'Help/Reference'.splFile.terseReferenceSummary(verbose: false, pattern: '.*')
+system.splFile('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7181
+Total => 7184
 
 Note: Requires LibraryItems be stored at the system cache, i.e. that all items have requested and have been acquired
 
 system.library.collect(request:/1)
+
+
+Write Png files:
+
+~~~
+system.helpFilesDo('Reference') { :each |
+	each.codeBlocks.do { :item |
+		let information = item['information'];
+		let contents = item['contents'];
+		information.beginsWith('spl png=').ifTrue {
+			let givenName = each.name.words.first;
+			let actualName = givenName.isOperator.if {
+				givenName.operatorName
+			} {
+				givenName
+			};
+			let pictureLetter = information.last;
+			let fileName = system.splFile('Help/%/%-%.png'.format(['Reference', actualName, pictureLetter]));
+			[actualName, pictureLetter, fileName].postLine
+			/* system.evaluate(contents) */
+		}
+	}
+};
+nil
+~~~

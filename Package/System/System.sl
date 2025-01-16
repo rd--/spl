@@ -227,18 +227,25 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return Number.EPSILON;>
 	}
 
+	splDirectory { :self |
+		self.environmentVariable('SPL_DIR').ifNil {
+			self.error('splDirectory: not set')
+		}
+	}
+
+	splFile { :self :aString |
+		[
+			self.splDirectory,
+			aString
+		].join('/')
+	}
+
 	traitDictionary { :self |
 		<primitive: return _self.traitDictionary;>
 	}
 
 	typeDictionary { :self |
 		<primitive: return _self.typeDictionary;>
-	}
-
-	splDirectory { :self |
-		self.environmentVariable('SPL_DIR').ifNil {
-			self.error('splDirectory: not set')
-		}
 	}
 
 	systemTimeInMilliseconds { :self |
@@ -367,13 +374,6 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	punctuationTokenName { :self |
 		self.punctuationTokenName(system.punctuationCharacterNameTable)
-	}
-
-	splFile { :self |
-		[
-			system.splDirectory,
-			self
-		].join('/')
 	}
 
 }

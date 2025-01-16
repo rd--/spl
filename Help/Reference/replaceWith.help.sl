@@ -5,7 +5,10 @@
 Replace first occurence of a string matching _aRegExp_ in _aString_ with _anotherString_:
 
 ```
->>> RegExp('x|z').replaceWith('x y z', '-')
+>>> RegExp('x|z').replaceWith(
+>>> 	'-'
+>>> 	'x y z',
+>>> )
 '- y z'
 ```
 

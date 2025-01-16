@@ -14,6 +14,6 @@ true
 
 * * *
 
-See also: RegExp, search
+See also: RegExp, searchRegExp
 
 Categories: Testing

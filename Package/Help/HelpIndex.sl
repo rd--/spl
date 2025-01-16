@@ -41,6 +41,10 @@ HelpIndex : [Object] { | contents |
 		].join('')
 	}
 
+	size { :self |
+		self.contents.size
+	}
+
 }
 
 +List {

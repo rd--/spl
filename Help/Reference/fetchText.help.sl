@@ -30,14 +30,14 @@ url.fetchText.thenElse { :aString |
 
 A file protocol `Url`:
 
-```
-'Help/Reference/Url.help.sl'
-.splFile
+~~~
+system
+.splFile('Help/Reference/Url.help.sl')
 .asFileUrl
 .fetchText.then { :aString |
 	aString.postLine
 }
-```
+~~~
 
 * * *
 
