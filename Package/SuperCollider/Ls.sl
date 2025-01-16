@@ -143,15 +143,15 @@
 		}
 	}
 
-	LsRand { :list |
+	LsRand { :list :randomNumberGenerator |
 		BlockStream {
-			list.atRandom
+			list.atRandom([], randomNumberGenerator)
 		} {
 		}
 	}
 
-	LsRand { :list :count |
-		LsRand(list).take(count)
+	LsRand { :list :count :randomNumberGenerator |
+		LsRand(list, randomNumberGenerator).take(count)
 	}
 
 	LsSeq { :list :repeats |
@@ -217,12 +217,12 @@
 		LsAtFold(list, LsAccum(LsConstant(steps)))
 	}
 
-	LsXRand { :list |
-		LsRemDup(LsRand(list))
+	LsXRand { :list :randomNumberGenerator |
+		LsRemDup(LsRand(list, randomNumberGenerator))
 	}
 
-	LsXRand { :list :count |
-		LsXRand(list).take(count)
+	LsXRand { :list :count :randomNumberGenerator |
+		LsXRand(list, randomNumberGenerator).take(count)
 	}
 
 }
@@ -452,13 +452,13 @@
 
 +@[Number, Stream] {
 
-	LsBeta { :low :high :p1 :p2 :length |
+	LsBeta { :low :high :p1 :p2 :length :randomNumberGenerator |
 		low := LsConstant(low);
 		high := LsConstant(high);
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			system.nextRandomFloatEulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			randomNumberGenerator.nextRandomFloatEulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
 			low.reset;
 			high.reset;
@@ -467,51 +467,53 @@
 		}.take(length)
 	}
 
-	LsBrownUsing { :low :high :step :aBlock:/4 |
+	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock:/4 |
 		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		next := aBlock(system, low.next, high.next, []);
+		next := aBlock(randomNumberGenerator, low.next, high.next, []);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
-			next := (next + aBlock(system, step.negated, step, [])).foldBetweenAnd(low, high);
+			next := (next + aBlock(randomNumberGenerator, step.negated, step, [])).foldBetweenAnd(low, high);
 			answer
 		}
 	}
 
-	LsBrown { :low :high :step :length |
+	LsBrown { :low :high :step :length :randomNumberGenerator |
 		LsBrownUsing(
 			low,
 			high,
 			step,
+			randomNumberGenerator,
 			randomReal:/4
 		).take(length)
 	}
 
-	LsCauchy { :mean :spread :length |
+	LsCauchy { :mean :spread :length :randomNumberGenerator |
 		mean := LsConstant(mean);
 		spread := LsConstant(spread);
 		mean.withCollect(
 			spread,
 			{ :p :q |
-				system.nextRandomFloatCauchyDistribution(p, q)
+				randomNumberGenerator.nextRandomFloatCauchyDistribution(p, q)
 			}
 		).take(length)
 	}
 
-	LsIBrown { :low :high :step :length |
+	LsIBrown { :low :high :step :length :randomNumberGenerator |
 		LsBrownUsing(
 			low,
 			high,
 			step,
+			randomNumberGenerator,
 			randomIntegerExcludingZero:/4
 		).take(length)
 	}
 
-	LsWhite { :low :high :length |
+	LsWhite { :low :high :length :randomNumberGenerator |
 		LsConstant(low).withCollect(LsConstant(high)) { :min :max |
-			system.randomReal(min, max, [])
+			randomNumberGenerator.randomReal(min, max, [])
 		}.take(length)
 	}
 

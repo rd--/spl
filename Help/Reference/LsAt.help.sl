@@ -10,7 +10,7 @@ Plot:
 let l = [1, 3 .. 23];
 LsAt(
 	l,
-	LsIBrown(1, l.size, 2, 99)
+	LsIBrown(1, l.size, 2, 99, Sfc32(798143))
 ).upToEnd.linePlot
 ~~~
 

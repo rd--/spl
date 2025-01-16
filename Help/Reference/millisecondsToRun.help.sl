@@ -6,7 +6,9 @@
 Answers the number of milliseconds required to evaluate _aBlock:/0_.
 
 ```
->>> let t = { 3579.nthPrime }.millisecondsToRun;
+>>> let t = {
+>>> 	3579.nthPrime
+>>> }.millisecondsToRun;
 >>> t >= 0 & { t < 1000 }
 true
 ```

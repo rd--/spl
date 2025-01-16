@@ -35,8 +35,7 @@ Bitmap : [Object] { | contents |
 	writePng { :self :fileName |
 		let pbmFileName = '/tmp/bitmap.pbm';
 		pbmFileName.writeTextFile(self.asPbm);
-		system.systemCommand('convert', [pbmFileName, '-transparent', 'white', fileName]);
-		system.systemCommand('mogrify', [fileName, '-strip'])
+		system.systemCommand('convert', [pbmFileName, '-transparent', 'white', '-strip', fileName])
 	}
 
 }

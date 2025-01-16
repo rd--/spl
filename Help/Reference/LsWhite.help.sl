@@ -1,11 +1,13 @@
 # LsWhite
 
-- _LsWhite(low, high, length)_
+- _LsWhite(low, high, length, randomNumberGenerator)_
 
 Random values that follow a uniform distribution.
 
 ~~~spl svg=A
-LsWhite(-1, 1, 99).upToEnd.linePlot
+LsWhite(-1, 1, 99, Sfc32(240981))
+.upToEnd
+.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/LsWhite-A.svg)
@@ -16,7 +18,8 @@ Diverging range:
 LsWhite(
 	LsSeries(0, -1, inf),
 	LsSeries(0, 1, inf),
-	99
+	99,
+	Sfc32(538921)
 ).upToEnd.linePlot
 ~~~
 

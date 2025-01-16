@@ -105,7 +105,6 @@ let p = {
 	let c = rng.randomReal(0, 9, [2]);
 	let r = rng.randomReal(0, 1, []);
 	let t = rng.randomReal(0, pi, []);
-	[n, r, c].postLine;
 	n.regularPolygon(c, r, t)
 } ! 23;
 p.LineDrawing

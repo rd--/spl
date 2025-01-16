@@ -65,6 +65,20 @@ Make a nested array by applying `splitBy` twice:
 ]
 ```
 
+Simple attribute parser:
+
+```
+>>> 'x=A y z=C'.words.collect { :each |
+>>> 	let parts = each.splitBy('=');
+>>> 	parts[1] -> (parts.size = 1).if {
+>>> 		''
+>>> 	} {
+>>> 		parts[2]
+>>> 	}
+>>> }.asRecord
+(x: 'A', y: '', z: 'C')
+```
+
 * * *
 
 See also: join, split, splitByRegExp, stringJoin

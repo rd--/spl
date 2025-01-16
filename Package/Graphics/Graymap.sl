@@ -40,8 +40,7 @@ Graymap : [Object] { | contents |
 	writePng { :self :fileName |
 		let pgmFileName = '/tmp/graymap.pgm';
 		self.writePgm(pgmFileName);
-		system.systemCommand('convert', [pgmFileName, '-transparent', 'white', '-strip', fileName]);
-		system.systemCommand('mogrify', [fileName, '-strip'])
+		system.systemCommand('convert', [pgmFileName, '-transparent', 'white', '-strip', fileName])
 	}
 
 }

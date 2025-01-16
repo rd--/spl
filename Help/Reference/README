@@ -1,6 +1,6 @@
 system.splFile('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7184
+Total => 7188
 
 Note: Requires LibraryItems be stored at the system cache, i.e. that all items have requested and have been acquired
 
@@ -10,21 +10,12 @@ Write Png files:
 
 ~~~
 system.helpFilesDo('Reference') { :each |
-	each.codeBlocks.do { :item |
-		let information = item['information'];
+	each.pngCodeBlocks.do { :item |
 		let contents = item['contents'];
-		information.beginsWith('spl png=').ifTrue {
-			let givenName = each.name.words.first;
-			let actualName = givenName.isOperator.if {
-				givenName.operatorName
-			} {
-				givenName
-			};
-			let pictureLetter = information.last;
-			let fileName = system.splFile('Help/Image/%-%.png'.format([actualName, pictureLetter]));
-			[actualName, pictureLetter, fileName].postLine;
-			system.evaluate(contents).writePng(fileName)
-		}
+		let identifier = item['attributes']['png'];
+		let fileName = system.splFile('Help/Image/%-%.png'.format([each.referenceName, identifier]));
+		fileName.postLine;
+		system.evaluate(contents).writePng(fileName)
 	}
 };
 nil
@@ -34,21 +25,12 @@ Write Svg files:
 
 ~~~
 system.helpFilesDo('Reference') { :each |
-	each.codeBlocks.do { :item |
-		let information = item['information'];
+	each.svgCodeBlocks.do { :item |
 		let contents = item['contents'];
-		information.beginsWith('spl svg=').ifTrue {
-			let givenName = each.name.words.first;
-			let actualName = givenName.isOperator.if {
-				givenName.operatorName
-			} {
-				givenName
-			};
-			let pictureLetter = information.last;
-			let fileName = system.splFile('Help/Image/%-%.svg'.format([actualName, pictureLetter]));
-			[actualName, pictureLetter, fileName].postLine;
-			system.evaluate(contents).writeSvg(fileName)
-		}
+		let identifier = item['attributes']['svg'];
+		let fileName = system.splFile('Help/Image/%-%.svg'.format([each.referenceName, identifier]));
+		fileName.postLine;
+		system.evaluate(contents).writeSvg(fileName)
 	}
 };
 nil

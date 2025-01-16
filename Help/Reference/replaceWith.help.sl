@@ -6,8 +6,8 @@ Replace first occurence of a string matching _aRegExp_ in _aString_ with _anothe
 
 ```
 >>> RegExp('x|z').replaceWith(
->>> 	'-'
 >>> 	'x y z',
+>>> 	'-'
 >>> )
 '- y z'
 ```

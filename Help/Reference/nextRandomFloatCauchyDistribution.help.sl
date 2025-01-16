@@ -9,9 +9,10 @@ It is unbounded above and below the mean similar to the Gaussian distribution bu
 - spread: determines horizontal dispersion of values along curve
 
 ~~~spl svg=A
+let r = Sfc32(789413);
 {
-	system
-	.nextRandomFloatCauchyDistribution(
+
+	r.nextRandomFloatCauchyDistribution(
 		0,
 		1 / 9
 	)

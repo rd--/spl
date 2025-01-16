@@ -6,10 +6,12 @@ Answer the next random integer at _aRandomNumberGenerator_.
 The answer will be between _min_ (inclusive) and _max_ (inclusive).
 
 ```
->>> Sfc32(54321).nextRandomInteger(1, 9)
+>>> Sfc32(54321)
+>>> .nextRandomInteger(1, 9)
 1
 
->>> Sfc32(12345).nextRandomInteger(-9, 9)
+>>> Sfc32(12345)
+>>> .nextRandomInteger(-9, 9)
 6
 ```
 
@@ -24,9 +26,10 @@ Answer the next thirteen random integers between one and nine:
 Plot, uniform distribution:
 
 ~~~spl svg=A
+let r = Sfc32(901813);
 (
 	{
-		system.nextRandomInteger(1, 99)
+		r.nextRandomInteger(1, 99)
 	} ! 99
 ).linePlot
 ~~~

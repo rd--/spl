@@ -18,7 +18,17 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	codeBlocks { :self |
 		self.cached('codeBlocks') {
-			self.markdown.codeBlocks
+			self.markdown.codeBlocks.collect { :each |
+				each['attributes'] := each['information'].words.collect { :each |
+					let parts = each.splitBy('=');
+					parts[1] -> (parts.size = 1).if {
+						''
+					} {
+						parts[2]
+					}
+				}.asRecord;
+				each
+			}
 		}
 	}
 
@@ -117,6 +127,12 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
+	pngCodeBlocks { :self |
+		self.codeBlocks.select { :each |
+			each['attributes'].includesKey('png')
+		}
+	}
+
 	rationale { :self |
 		self.readParagraphField('_Rationale_:')
 	}
@@ -154,6 +170,15 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.readParagraphField('References:')
 	}
 
+	referenceName { :self |
+		let firstWord = self.name.words.first;
+		firstWord.isOperator.if {
+			firstWord.operatorName
+		} {
+			firstWord
+		}
+	}
+
 	seeAlso { :self |
 		self.readCommaSeparatedField('See also: ')
 	}
@@ -161,6 +186,12 @@ HelpFile : [Object, Cache] { | origin source cache |
 	signatures { :self |
 		self.linesFromWhile(3) { :each :unusedIndex |
 			each.beginsWith('- _')
+		}
+	}
+
+	svgCodeBlocks { :self |
+		self.codeBlocks.select { :each |
+			each['attributes'].includesKey('svg')
 		}
 	}
 
