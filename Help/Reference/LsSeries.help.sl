@@ -12,7 +12,9 @@ Arithmetic series from _start_, incrementing by _step_, for _length_ places.
 Non-cubical squares:
 
 ~~~
->>> let powers = { :m | LsSeries(0, 1, inf) ^ m };
+>>> let powers = { :m |
+>>> 	LsSeries(0, 1, inf) ^ m
+>>> };
 >>> let squares = powers(2);
 >>> let cubes = powers(3);
 >>> let uncubicalSquares = squares.reject { :each |
@@ -23,13 +25,18 @@ Non-cubical squares:
 >>> 	};
 >>> 	each = cubes.peek
 >>> };
->>> uncubicalSquares.drop(20).take(10).upToEnd
-[529 576 625 676 784 841 900 961 1024 1089]
+>>> uncubicalSquares
+>>> .drop(20)
+>>> .take(9)
+>>> .upToEnd
+[529 576 625 676 784 841 900 961 1024]
 ~~~
 
 * * *
 
 See also: LsGeom, LsUnfold
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_

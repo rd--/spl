@@ -30,6 +30,8 @@ If the key does not exist, make an entry:
 
 See also: LsBind
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pset.html)

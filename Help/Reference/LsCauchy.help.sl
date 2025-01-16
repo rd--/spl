@@ -16,6 +16,8 @@ LsCauchy(0, 1 / 9, 99, Sfc32(280142))
 
 See also: LsBeta, LsBrown, LsWhite
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pcauchy.html)

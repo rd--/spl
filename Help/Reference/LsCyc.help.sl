@@ -11,6 +11,8 @@ Infinite _LsSeq_.
 
 * * *
 
-See also: LsSeq
+See also: LsGeom, LsSeq
+
+Guides: Patterns and Streams
 
 Categories: Stream

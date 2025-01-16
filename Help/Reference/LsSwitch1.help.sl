@@ -34,6 +34,8 @@ If the element is itself a stream, only one item is taken for each index.
 
 See also: LsSwitch
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pswitch1.html)

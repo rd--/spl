@@ -5,7 +5,7 @@ The matrix-vector product sums the rows,
 the vector-matrix product sums the columns,
 also show the diagonal and antidiagonal sums and the matrix rank:
 
-~~~ spl methodDefinition
+~~~spl define=Method
 +List {
 	magicSquareSummary { :m |
 		let n = m.size;

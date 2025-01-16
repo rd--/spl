@@ -18,7 +18,9 @@ Equivalent to `repeat`:
 
 * * *
 
-See also: LsForever
+See also: LsForever, LsSeries
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_

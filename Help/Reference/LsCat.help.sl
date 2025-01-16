@@ -19,4 +19,6 @@ Apply _LsOnce_ at each element in _list_ and sequence the answers.
 
 See also: LsSeq
 
+Guides: Patterns and Streams
+
 Categories: Stream

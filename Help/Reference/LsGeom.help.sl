@@ -13,6 +13,8 @@ Geometric series from _start_, incrementing by _grow_, for _length_ places.
 
 See also: LsSeries, LsUnfold
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pgeom.html)

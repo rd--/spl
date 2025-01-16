@@ -29,7 +29,9 @@ If the element is itself a stream, all items are taken for each index.
 
 * * *
 
-See also: LsSwitch1
+See also: LsSeq, LsSwitch1
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_

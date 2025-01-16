@@ -17,4 +17,6 @@ else answer a stream that will answer _anObject_ once and then end.
 
 See also: LsConstant, LsForever
 
+Guides: Patterns and Streams
+
 Categories: Stream

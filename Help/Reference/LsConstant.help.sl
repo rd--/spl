@@ -17,4 +17,6 @@ else answer a stream that will answer _anObject_ forever.
 
 See also: LsForever, LsOnce
 
+Guides: Patterns and Streams
+
 Categories: Stream

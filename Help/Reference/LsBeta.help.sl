@@ -40,6 +40,8 @@ LsBeta(0, 1, 3, 1 / 3, 99, Sfc32(678142))
 
 See also: LsBrown, LsCauchy, LsRand, LsWhite
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pbeta.html)

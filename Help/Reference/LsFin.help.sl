@@ -18,7 +18,9 @@ Equivalent to `take`:
 
 * * *
 
-See also: LsTake
+See also: LsForever, LsTake
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_

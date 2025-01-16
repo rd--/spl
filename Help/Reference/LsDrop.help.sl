@@ -20,6 +20,8 @@ This is equivalent to `drop`:
 
 See also: drop, LsTake
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pdrop.html)

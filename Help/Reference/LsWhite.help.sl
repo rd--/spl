@@ -29,6 +29,8 @@ LsWhite(
 
 See also: LsBeta, LsBrown, LsRand
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pwhite.html)

@@ -128,6 +128,84 @@ At `Complex`:
 ]
 ```
 
+Plot at `Range`:
+
+~~~spl svg=A
+(1, 3 .. 9)
+.atRandom([43], Sfc32(902132))
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/atRandom-A.svg)
+
+Plot at `Interval`:
+
+~~~spl svg=B
+(1 -- 5)
+.atRandom([43], Sfc32(297142))
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/atRandom-B.svg)
+
+Plot at `Bag`:
+
+~~~spl svg=C
+[1 3 3 3 5 5 5 5 5]
+.asBag
+.atRandom([43], Sfc32(134717))
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/atRandom-C.svg)
+
+Planar random lattice walk with eight directions:
+
+~~~spl svg=D
+[-1 0 1]
+.atRandom([99 2], Sfc32(789417))
+.accumulate
+.Line
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/atRandom-D.svg)
+
+Volumetric random lattice walk:
+
+~~~spl svg=E
+[-1 0 1]
+.atRandom([99 3], Sfc32(192133))
+.accumulate
+.Line
+.asPerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/atRandom-E.svg)
+
+Random walk on a hexagonal lattice:
+
+~~~spl svg=F
+1:6.collect { :i |
+	let phase = (2.pi * i / 6);
+	[phase.sin, phase.cos]
+}.atRandom(
+	[99], Sfc32(379379)
+).accumulate.Line.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/atRandom-F.svg)
+
+Random array of three shades of colours (greyscale):
+
+~~~spl svg=G
+[1 2 3].atRandom(
+	[17 17], Sfc32(131939)
+).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/atRandom-G.svg)
+
 * * *
 
 See also: anyOne, randomChoice, randomInteger, randomReal, randomSample, randomVariate, randomWeightedChoice

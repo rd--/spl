@@ -17,6 +17,8 @@ LsBrown(-1, 1, 1 / 100, 99, Sfc32(318402))
 
 See also: LsBeta, LsCauchy, LsWhite
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pbrown.html)

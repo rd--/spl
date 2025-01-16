@@ -13,6 +13,8 @@ Answer a stream of the differences between the current and previous values of _i
 
 See also: adjacentPairsCollect, adjacentPairsDo, LsAdjacent
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pdiff.html)

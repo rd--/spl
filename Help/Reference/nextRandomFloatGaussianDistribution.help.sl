@@ -22,14 +22,14 @@ let r = Sfc32(378914);
 
 Plot sorted random list:
 
-```spl svg=B
+~~~spl svg=B
 let r = Sfc32(789146);
 (
 	{
 		r.nextRandomFloatGaussianDistribution(0, 1)
 	} ! 500
 ).sort.linePlot
-```
+~~~
 
 ![](sw/spl/Help/Image/nextRandomFloatGaussianDistribution-B.svg)
 

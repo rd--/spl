@@ -33,6 +33,8 @@ Equivalent to `LsTake`, or `take`, of `LsCyc`:
 
 See also: LsCat, LsN, LsSeq, LsTake
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pser.html)

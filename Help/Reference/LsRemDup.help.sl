@@ -14,8 +14,11 @@ Remove successive duplicates from _input_.
 [1 4 7 10 13]
 ```
 
+
 * * *
 
 See also: LsDupEach
+
+Guides: Patterns and Streams
 
 Categories: Stream

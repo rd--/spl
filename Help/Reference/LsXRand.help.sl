@@ -49,6 +49,8 @@ LsXRand(
 
 See also: LsRand, LsRemDup
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pxrand.html)

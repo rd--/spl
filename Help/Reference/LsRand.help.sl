@@ -33,9 +33,24 @@ Can be implemented using `BlockStream` and `atRandom`:
 [1 3 5 7 9].asSet
 ```
 
+Plot:
+
+~~~spl svg=A
+LsRand(
+	[1 3 5 7 9],
+	47,
+	Sfc32(789142)
+).upToEnd
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/LsRand-A.svg)
+
 * * *
 
 See also: atRandom, BlockStream, LsXRand, LsWhite
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_

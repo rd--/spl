@@ -27,6 +27,8 @@ If _latch_ is initially false then _initialValue_ is consulted.
 
 See also: LsDupEach
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pclutch.html)

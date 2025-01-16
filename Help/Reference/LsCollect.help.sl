@@ -15,4 +15,6 @@ Answer a stream that applies β at each element of α.
 
 See also: LsReject, LsSelect, LsWithCollect
 
+Guides: Patterns and Streams
+
 Categories: Stream

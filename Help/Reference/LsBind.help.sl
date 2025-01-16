@@ -169,6 +169,8 @@ LsBind(
 
 See also: play, Record
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pbind.html)

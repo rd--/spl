@@ -22,7 +22,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 				each['attributes'] := each['information'].words.collect { :each |
 					let parts = each.splitBy('=');
 					parts[1] -> (parts.size = 1).if {
-						''
+						'true'
 					} {
 						parts[2]
 					}
@@ -30,6 +30,20 @@ HelpFile : [Object, Cache] { | origin source cache |
 				each
 			}
 		}
+	}
+
+	codeBlockImageFileName { :self :codeBlock |
+		let attributes = codeBlock['attributes'];
+		let imageType = attributes.includesKey('png').if { 'png' } { 'svg' };
+		system.splFile(
+			'Help/Image/%-%.%'.format(
+				[
+					self.referenceName,
+					attributes[imageType],
+					imageType
+				]
+			)
+		)
 	}
 
 	description { :self |
@@ -207,7 +221,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 			(self.origin.fileNameWithoutExtensions.decodeUri, self.name).postLine
 		};
 		self.codeBlocks.do { :each |
-			each['information'].includesSubstring('methodDefinition').ifTrue {
+			each['attributes'].includesKey('define').ifTrue {
 				system.evaluate(each['contents'])
 			}
 		};

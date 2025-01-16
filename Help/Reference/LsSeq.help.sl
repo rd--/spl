@@ -33,6 +33,8 @@ Equivalent to `LsN`, or `repeat`, of `LsCat`:
 
 See also: LsCat, LsN, LsSer
 
+Guides: Patterns and Streams
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pseq.html)

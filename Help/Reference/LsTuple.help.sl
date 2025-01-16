@@ -18,7 +18,9 @@ When any of list item ends, that repeat and all of the list items are reset.
 
 * * *
 
-See also: LsForever, LsLace
+See also: LsCyc, LsForever, LsLace, LsSeq
+
+Guides: Patterns and Streams
 
 References:
 _SuperCollider_
