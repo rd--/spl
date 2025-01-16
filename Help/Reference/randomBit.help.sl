@@ -31,22 +31,22 @@ The same array using `seedRandom` to set the system random number generator:
 A `matrixPlot` of a 13×11 matrix where each cell has a 10% probablity of being `one`,
 or equally a 90% chance of being `zero`:
 
-```
+~~~spl svg=A
 Sfc32(67814)
 .randomBit(0.1, [13 11])
 .matrixPlot
-```
+~~~
 
 ![](sw/spl/Help/Image/randomBit-A.svg)
 
 A `Bitmap` of a 50×90 matrix where each cell has a 33% probablity of being `one`,
 or equally a 66% chance of being `zero`:
 
-```
+~~~spl png=B
 Sfc32(701459)
 .randomBit(0.33, [50 90])
 .Bitmap
-```
+~~~
 
 ![](sw/spl/Help/Image/randomBit-B.png)
 

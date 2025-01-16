@@ -23,8 +23,8 @@ system.helpFilesDo('Reference') { :each |
 			};
 			let pictureLetter = information.last;
 			let fileName = system.splFile('Help/%/%-%.png'.format(['Reference', actualName, pictureLetter]));
-			[actualName, pictureLetter, fileName].postLine
-			/* system.evaluate(contents) */
+			[actualName, pictureLetter, fileName].postLine;
+			system.evaluate(contents).writePng(fileName)
 		}
 	}
 };
