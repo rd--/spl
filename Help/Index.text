@@ -63,6 +63,7 @@ Guide/Integer Sequences.help.sl
 Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
 Guide/Lexical Scoping.help.sl
+Guide/Library Catalogue.help.sl
 Guide/List Assignment Syntax.help.sl
 Guide/List Comprehensions.help.sl
 Guide/List Syntax.help.sl
@@ -113,6 +114,7 @@ Guide/Radix Syntax.help.sl
 Guide/Random Number Generators.help.sl
 Guide/Range Syntax.help.sl
 Guide/Reference Help Files.help.sl
+Guide/Regular Expressions.help.sl
 Guide/Scalars and Lists.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Simple Editor.help.sl
@@ -976,6 +978,7 @@ Reference/Heap.help.sl
 Reference/HelpBrowser.help.sl
 Reference/HelpFile.help.sl
 Reference/helpFileName.help.sl
+Reference/helpFilesDo.help.sl
 Reference/helpIndex.help.sl
 Reference/HelpIndex.help.sl
 Reference/HelpViewer.help.sl
@@ -1763,6 +1766,7 @@ Reference/plainChanges.help.sl
 Reference/planarAngle.help.sl
 Reference/planarConvexPolytopeGraphCatalogue.help.sl
 Reference/PlanarCoordinates.help.sl
+Reference/planarGraphCatalogue.help.sl
 Reference/planarNonHamiltonianGraphCatalogue.help.sl
 Reference/planarQuadrangulationsCatalogue.help.sl
 Reference/planarRegularGraphCatalogue.help.sl
@@ -1824,6 +1828,7 @@ Reference/primesList.help.sl
 Reference/primesListWheelSieve.help.sl
 Reference/primesUpToDo.help.sl
 Reference/primesUpTo.help.sl
+Reference/primitiveLoadPackageSequence.help.sl
 Reference/printString.help.sl
 Reference/printStringLimitedTo.help.sl
 Reference/printStringRoman.help.sl
@@ -2025,6 +2030,7 @@ Reference/sasTriangle.help.sl
 Reference/sattoloShuffle.help.sl
 Reference/SawDpw.help.sl
 Reference/Saw.help.sl
+Reference/scalaIntervalArchive.help.sl
 Reference/ScalaJiTuningBrowser.help.sl
 Reference/scalaRationalTuningArchive.help.sl
 Reference/scalaScaleArchive.help.sl

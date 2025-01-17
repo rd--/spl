@@ -12,6 +12,11 @@
 - `holmesPolyhedraCatalogue`
 - `leitnerCrystalStructureCatalogue`
 - `levskayaPolyhedraCatalogue`
+- `planarConvexPolytopeGraphCatalogue`
+- `planarGraphCatalogue`
+- `planarNonHamiltonianGraphCatalogue`
+- `planarQuadrangulationsCatalogue`
+- `planarRegularGraphCatalogue`
 - `schareinKnotCatalogue`
 - `schareinLinkCatalogue`
 - `schareinMinimalKnotCatalogue`
