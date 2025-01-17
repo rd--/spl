@@ -44,6 +44,16 @@ The `last`, `min` and `max` methods report the true value:
 (2.1, 2.1, 2.1)
 ```
 
+This is distinct from the problem of accumulating errors in the summation process:
+
+```
+>>> Range(0, 1, 0.01).last > 1
+false
+
+>>> Range(0, 1, 0.01).asList.last > 1
+true
+```
+
 There is a `Range Syntax` for writing Ranges and interval lists:
 
 ```

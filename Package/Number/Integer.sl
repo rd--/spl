@@ -137,11 +137,8 @@
 	}
 
 	bernsteinBasis { :d :n :x |
-		x.betweenAnd(0, 1).if {
-			d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
-		} {
-			0
-		}
+		x := x.clip(0, 1);
+		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
 	}
 
 	binetsFormula { :n |

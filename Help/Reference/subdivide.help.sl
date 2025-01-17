@@ -20,6 +20,13 @@ Range(0, 1, 1/10)
 ]
 ```
 
+Subdivide the interval `zero` to `one` into 100 equal parts:
+
+```
+>>> (0 -- 1).subdivide(100)
+(0, 0.01 .. 1)
+```
+
 Subdivide the interval 0 to 10 into 5 equal parts:
 
 ```

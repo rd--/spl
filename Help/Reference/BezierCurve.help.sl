@@ -56,7 +56,7 @@ Sfc32(314729)
 
 * * *
 
-See also: Circle, Line, LineDrawing, Point, PointCloud, Polygon, Rectangle, Triangle
+See also: bernsteinBasis, Circle, Line, LineDrawing, Point, PointCloud, Polygon, Rectangle, Triangle
 
 References:
 _Mathematica_

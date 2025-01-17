@@ -9,6 +9,18 @@ Evaluate a Bernstein basis polynomial numerically:
 ```
 >>> 4.bernsteinBasis(3, 0.5)
 0.25
+
+>>> [0 0.5 1].collect { :x |
+>>> 	[0 1 2 3].collect { :n |
+>>> 		let d = 3;
+>>> 		d.bernsteinBasis(n, x)
+>>> 	}
+>>> }
+[
+	1 0 0 0;
+	1/8 6/16 6/16 1/8;
+	0 0 0 1
+]
 ```
 
 Plot:
@@ -23,7 +35,7 @@ Plot:
 
 * * *
 
-See also: ^, binomial, Piecewise
+See also: ^, BezierCurve, binomial, Piecewise
 
 References:
 _Mathematica_

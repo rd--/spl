@@ -70,6 +70,26 @@ c.f. OEIS [A014707](https://oeis.org/A014707):
 ]
 ```
 
+Show that the cumulative sum of approximate numbers can accumulate errors,
+including in cases where multiplication does not:
+
+```
+>>> { :x |
+>>> 	x + 0.01
+>>> }.iterate(0, 100) > 1
+true
+
+>>> 0.01 * 100 > 1
+false
+```
+
+Fractions are, of course, exact:
+
+```
+>>> { :x | x + 1/100 }.iterate(0, 100)
+1/1
+```
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,
