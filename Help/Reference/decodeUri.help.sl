@@ -27,3 +27,5 @@ See also: encodeUri
 References:
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/global-object.html#sec-decodeuri-encodeduri)
+
+Categories: Text, Encoding

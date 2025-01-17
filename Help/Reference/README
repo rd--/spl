@@ -1,6 +1,6 @@
 system.splFile('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7188
+Total => 7190
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -8,28 +8,9 @@ Note: Requires LibraryItems be at the interpreter cache, i.e.
 system.library.collect(request:/1)
 ~~~
 
-Write Png files:
+Write image files:
 
 ~~~
-system.helpFilesDo('Reference') { :each |
-	each.pngCodeBlocks.do { :item |
-		let fileName = each.codeBlockImageFileName(item);
-		fileName.postLine;
-		system.evaluate(item['contents']).writePng(fileName)
-	}
-};
-nil
-~~~
-
-Write Svg files:
-
-~~~
-system.helpFilesDo('Reference') { :each |
-	each.svgCodeBlocks.do { :item |
-		let fileName = each.codeBlockImageFileName(item);
-		fileName.postLine;
-		system.evaluate(item['contents']).writeSvg(fileName)
-	}
-};
+system.helpFilesDo('Reference', writeImageFiles:/1);
 nil
 ~~~

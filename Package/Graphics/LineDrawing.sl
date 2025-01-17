@@ -30,7 +30,7 @@ LineDrawing : [Object] { | contents metadata |
 			actualBoundingBox
 		};
 		let yRange = boundingBox.height;
-		let precision = (3 - yRange.log10.rounded).max(0).also { :x | ['RANGE/PREC', yRange, x].postLine };
+		let precision = (3 - yRange.log10.rounded).max(0);
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
 		let options = (precision: precision, scaleFactor: scaleFactor);

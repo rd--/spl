@@ -297,7 +297,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		(0 .. mTheta - 1).do { :m |
 			let theta = (m + 0.5).pi / mTheta;
 			let mPhi = (2.pi * theta.sin / dPhi).rounded;
-			[mTheta, mPhi].postLine;
 			(0 .. mPhi - 1).do { :n |
 				let phi = (2.pi * n) / mPhi;
 				answer.add(

@@ -33,17 +33,36 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 	codeBlockImageFileName { :self :codeBlock |
-		let attributes = codeBlock['attributes'];
-		let imageType = attributes.includesKey('png').if { 'png' } { 'svg' };
+		let imageType = self.codeBlockImageType(codeBlock);
+		let imageIdentifier = codeBlock['attributes'][imageType];
 		system.splFile(
 			'Help/Image/%-%.%'.format(
 				[
-					self.referenceName,
-					attributes[imageType],
+					self.originName,
+					imageIdentifier,
 					imageType
 				]
 			)
 		)
+	}
+
+	codeBlockImageType { :self :codeBlock |
+		let attributes = codeBlock['attributes'];
+		attributes.includesKey('png').if {
+			'png'
+		} {
+			attributes.includesKey('svg').if {
+				'svg'
+			} {
+				self.error('codeBlockImageType: not image code block?')
+			}
+		}
+	}
+
+	definitionCodeBlocks { :self |
+		self.codeBlocks.select { :each |
+			each['attributes'].includesKey('define')
+		}
 	}
 
 	description { :self |
@@ -97,6 +116,14 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.unicode.notEmpty
 	}
 
+	isGuideFile { :self |
+		self.origin.pathName.includesSubstring('Help/Guide')
+	}
+
+	isReferenceFile { :self |
+		self.origin.pathName.includesSubstring('Help/Reference')
+	}
+
 	lines { :self |
 		self.cached('lines') {
 			self.source.lines
@@ -135,6 +162,10 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
+	originName { :self |
+		self.origin.fileNameWithoutExtensions.decodeUri
+	}
+
 	paragraphFrom { :self :index |
 		self.linesFromWhile(index) { :each :unusedIndex |
 			each.notEmpty
@@ -146,6 +177,21 @@ HelpFile : [Object, Cache] { | origin source cache |
 			each['attributes'].includesKey('png')
 		}
 	}
+
+	/*
+	properName { :self |
+		self.isReferenceFile.if {
+			let firstWord = self.name.words.first;
+			firstWord.isOperator.if {
+				firstWord.operatorName
+			} {
+			firstWord
+			}
+		} {
+			self.name
+		}
+	}
+	*/
 
 	rationale { :self |
 		self.readParagraphField('_Rationale_:')
@@ -184,15 +230,6 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.readParagraphField('References:')
 	}
 
-	referenceName { :self |
-		let firstWord = self.name.words.first;
-		firstWord.isOperator.if {
-			firstWord.operatorName
-		} {
-			firstWord
-		}
-	}
-
 	seeAlso { :self |
 		self.readCommaSeparatedField('See also: ')
 	}
@@ -218,7 +255,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 		let passCount = 0;
 		let verbose = options['verbose'];
 		verbose.ifTrue {
-			(self.origin.fileNameWithoutExtensions.decodeUri, self.name).postLine
+			(self.originName, self.name).postLine
 		};
 		self.codeBlocks.do { :each |
 			each['attributes'].includesKey('define').ifTrue {
@@ -244,6 +281,22 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	unicode { :self |
 		self.readCommaSeparatedField('Unicode: ')
+	}
+
+	writeImageFiles { :self |
+		self.definitionCodeBlocks.do { :each |
+			system.evaluate(each['contents'])
+		};
+		self.pngCodeBlocks.do { :each |
+			let fileName = self.codeBlockImageFileName(each);
+			fileName.postLine;
+			system.evaluate(each['contents']).writePng(fileName)
+		};
+		self.svgCodeBlocks.do { :each |
+			let fileName = self.codeBlockImageFileName(each);
+			fileName.postLine;
+			system.evaluate(each['contents']).writeSvg(fileName)
+		}
 	}
 
 }

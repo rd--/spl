@@ -22,13 +22,16 @@ Accessors to read the parts of the file are:
 - `categories`: list of categories
 
 ~~~
-let url = 'Help/Reference/add.help.sl'
-.splFile
+let url = system
+.splFile('Help/Reference/add.help.sl')
 .asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
 	[
 		help.name,
+		help.originName,
+		help.isReferenceFile,
+		help.isGuideFile,
 		help.signatures,
 		help.synopsis,
 		help.description,

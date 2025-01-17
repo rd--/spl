@@ -6,20 +6,24 @@ and the line _l_ moves in positive steps first along the _z_ axis,
 then the _y_ axis,
 then lastly the _x_ axis.
 
-~~~
-workspace::scene := [
-	[	-2 -1 0;
-		+2 -1 0;
-		+2 +1 0;
-		-2 +1 0
-	].Polygon,
-	[
-		0 0 0;
-		0 0 1;
-		0 1 1;
-		1 1 1
-	].Line
-].GeometryCollection
+~~~spl define=Method
++Void {
+	perspectiveScene {
+		[
+			[	-2 -1 0;
+				+2 -1 0;
+				+2 +1 0;
+				-2 +1 0
+			].Polygon,
+			[
+				0 0 0;
+				0 0 1;
+				0 1 1;
+				1 1 1
+			].Line
+		].GeometryCollection
+	}
+}
 ~~~
 
 One convention is that
@@ -34,7 +38,7 @@ then right (_y_),
 then toward the front (_x_):
 
 ~~~spl svg=A
-workspace::scene
+perspectiveScene()
 .asPerspectiveDrawing(
 	[
 		-1/2 1/6.pi;
@@ -56,12 +60,12 @@ In the picture below the rectangle _r_ is in the vertical (_x_ & _y_) plane,
 and the line _l_ first moves toward the back (_z_), then up (_y_), then right (_x_):
 
 ~~~spl svg=B
-workspace::scene
+perspectiveScene()
 .asPerspectiveDrawing(
 	[
-		0 1;
-		1/2.pi 1;
-		1/6.pi 1/2
+		1 0;
+		1 1/2.pi;
+		1/2 1/6.pi
 	].asAxonometricProjection
 )
 ~~~
@@ -80,12 +84,12 @@ then backward (_y_),
 then rightward (_x_):
 
 ~~~spl svg=C
-workspace::scene
+perspectiveScene()
 .asPerspectiveDrawing(
 	[
-		0 1;
-		1/6.pi 1/2;
-		1/2.pi 1
+		1 0;
+		1/2 1/6.pi;
+		1 1/2.pi
 	].asAxonometricProjection
 )
 ~~~

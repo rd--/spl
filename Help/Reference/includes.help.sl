@@ -32,7 +32,7 @@ At `Record`:
 true
 ```
 
-At `String`:
+At `String`, answer `true` if string includes character:
 
 ```
 >>> 'String'.includes('i')
@@ -40,6 +40,16 @@ true
 
 >>> 'String'.includes('s')
 false
+```
+
+It is an error to search for a substring, see `includesSubstring`:
+
+```
+>>> { 'String'.includes('tri') }.ifError { true }
+true
+
+>>> 'String'.includesSubstring('tri')
+true
 ```
 
 Map over matrix:
