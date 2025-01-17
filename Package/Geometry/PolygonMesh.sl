@@ -112,6 +112,16 @@ PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 		)
 	}
 
+	planarGraphCatalogue { :self |
+		self.cached('planarGraphCatalogue') {
+			[
+				self.planarConvexPolytopeGraphCatalogue,
+				self.planarNonHamiltonianGraphCatalogue,
+				self.planarQuadrangulationsCatalogue,
+				self.planarRegularGraphCatalogue
+			].dictionaryJoin
+		}
+	}
 
 	planarNonHamiltonianGraphCatalogue { :self |
 		self.requireLibraryItem(

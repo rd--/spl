@@ -16,11 +16,13 @@ The primes `List` is cached (memoized) by the system:
 23
 ```
 
-Plot first 500 places:
+Plot first few places:
 
+~~~spl svg=A
+47.primesList.linePlot
 ~~~
-500.primesList.linePlot
-~~~
+
+![](sw/spl/Help/Image/primesList-A.svg)
 
 * * *
 

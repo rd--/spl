@@ -12,10 +12,12 @@ The `primesList` method caches previous requests, and continues any required cal
 
 ```
 >>> 23.primesList
-system.cachedPrimesList.first(23)
+system.cache['primesList'].first(23)
 ```
 
-`Cache` is also the `Type` of the persistent store for `fetch` `Request` and `Response` data.
+`Cache` is also the `Type` of the persistent store for `fetch` results,
+where the keys are `Request` or `Url` objects,
+and values are `Response` objects.
 
 ~~~
 system
@@ -24,6 +26,15 @@ system
 	cache.isCache.postLine
 }
 ~~~
+
+This cache is not an ordinary dictionary type,
+however it does implement:
+
+- `atIfAbsent`
+- `atIfPresentIfAbsent`
+- `atIfPresent`
+- `atPut`
+- `removeKeyIfAbsent`
 
 * * *
 

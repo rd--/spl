@@ -213,7 +213,7 @@ stepWhere w s =
     (InDocumentTestProgram, True) -> InDocumentTestProgram
     (InDocumentTestProgram, False) -> InDocumentTestExpectedAnswer
     (InDocumentTestExpectedAnswer, False) -> if null s then InPlain else InDocumentTestExpectedAnswer
-    (InDocumentTestExpectedAnswer, True) -> error "indentLine: wrong transition?"
+    (InDocumentTestExpectedAnswer, True) -> error ("indentLine: wrong transition: " ++ s)
     (InPlain, True) -> InDocumentTestProgram
     (InPlain, False) -> InPlain
 

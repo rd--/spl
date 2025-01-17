@@ -14,8 +14,8 @@ The trait definitions of the extended arity forms are as above.
 
 ```
 >>> let l = [1 2 3];
->>> l.atPut(2, 'two') = 'two' & { l = [1 'two' 3] }
-true
+>>> (l.atPut(2, 'two'), l)
+('two', [1 'two' 3])
 ```
 
 - _atPut(aCollection, aKey, anObject)_
@@ -27,8 +27,8 @@ Answer _anObject_.
 
 ```
 >>> let r = Record();
->>> r.atPut('x', 1) = 1 & { r.at('x') = 1 }
-true
+>>> (r.atPut('x', 1), r.at('x'))
+(1, 1)
 ```
 
 There is `AtPut Syntax` for mutating indexed values:

@@ -185,7 +185,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 			firstWord.isOperator.if {
 				firstWord.operatorName
 			} {
-			firstWord
+				firstWord
 			}
 		} {
 			self.name

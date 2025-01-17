@@ -11,7 +11,11 @@ At `List`:
 ```
 >>> [1 2 3] ++ [4 5 6]
 [1 2 3 4 5 6]
+```
 
+With empty list:
+
+```
 >>> [] ++ [1 2 3]
 [1 2 3]
 
@@ -26,11 +30,41 @@ At `Record`:
 (x: 1, y: 2, z: 3)
 ```
 
+With empty record:
+
+```
+>>> (x: 1) ++ ()
+(x: 1)
+
+>>> () ++ (x: 1)
+(x: 1)
+
+>>> () ++ ()
+()
+```
+
+Biases right, keys that are given in both records will retain the value from the right hand side record:
+
+```
+>>> (x: 1, y: 2) ++ (y: 3, z: 4)
+(x: 1, y: 3, z: 4)
+```
+
 At `String`:
 
 ```
 >>> '123' ++ '456'
 '123456'
+```
+
+With empty string:
+
+```
+>>> 'xyz' ++ ''
+'xyz'
+
+>>> '' ++ 'xyz'
+'xyz'
 ```
 
 The unary form flattens the collection by one level into a `List`:
@@ -57,6 +91,8 @@ See also: +++, concatenation, flatten, join
 Unicode: U+29FA ⧺ Double plus
 
 References:
+_Common Lisp_
+[1](http://clhs.lisp.se/Body/f_append.htm),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-43--43-)
 _Mathematica_

@@ -7,7 +7,9 @@ Answer the removed element.
 
 ```
 >>> let r = (x: 1, z: 3);
->>> let z = r.removeKeyIfAbsent('z') { nil };
+>>> let z = r.removeKeyIfAbsent('z') {
+>>> 	nil
+>>> };
 >>> (z, r)
 (3, (x: 1))
 ```
@@ -16,7 +18,9 @@ If no such key exists answer _aBlock()_.
 
 ```
 >>> let r = (x: 1, z: 3);
->>> r.removeKeyIfAbsent('y') { true }
+>>> r.removeKeyIfAbsent('y') {
+>>> 	true
+>>> }
 true
 ```
 

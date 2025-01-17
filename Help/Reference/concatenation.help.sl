@@ -19,7 +19,10 @@ Is `identity` at the empty `List`:
 Concatenate two matrices vertically, ie. columnwise:
 
 ```
->>> [[1 2; 3 4], [5 6; 7 8; 9 0]].concatenation
+>>> [
+>>> 	1 2; 3 4:;
+>>> 	5 6; 7 8; 9 0
+>>> ].concatenation
 [
 	1 2;
 	3 4;
@@ -29,11 +32,19 @@ Concatenate two matrices vertically, ie. columnwise:
 ]
 ```
 
+At a `List` of `Record` answers the `concatenation` of the values,
+see `dictionaryJoin` for a _merge_ function:
+
+```
+>>> [(x: 1), (y: 2), (z: 3)].concatenation
+[1 2 3]
+```
+
 Where supported `concatenation` is displayed as ⧻.
 
 * * *
 
-See also: ++
+See also: ++, dictionaryJoin
 
 Unicode: U+29FB ⧻ Triple Plus
 

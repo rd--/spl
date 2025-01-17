@@ -35,6 +35,10 @@ Cache! : [Object] {
 		<primitive: return _self.put(_key, _value);>
 	}
 
+	at { :self :key |
+		self.error('at not implemented, see atIfPresentIfAbsent')
+	}
+
 	atIfAbsent { :self :key :ifAbsent:/0 |
 		self.atIfPresentIfAbsent(key, identity:/1, ifAbsent:/0)
 	}
@@ -60,6 +64,10 @@ Cache! : [Object] {
 		let validKey = self.validateKey(key);
 		let validValue = self.validateValue(value);
 		self.basicPut(validKey, validValue)
+	}
+
+	includesKey { :self :key |
+		self.error('includesKey not implemented, see atPut and removeKeyIfAbsent')
 	}
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |

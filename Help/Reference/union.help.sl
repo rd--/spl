@@ -31,7 +31,7 @@ Where supported `union` is displayed as ∪.
 
 * * *
 
-See also: difference, intersection, Set
+See also: ++, difference, intersection, Set
 
 References:
 _Haskell_

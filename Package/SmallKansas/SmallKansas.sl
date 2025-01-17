@@ -180,21 +180,17 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
 }
 
-+@Cache {
-
-	smallKansas { :self |
-		self.cached('smallKansas') {
-			SmallKansas()
-		}
-	}
-
-}
-
 +System {
 
 	smallKansans { :self |
 		self.traitTypes('SmallKansan').collect { :each |
 			system.typeLookup(each)
+		}
+	}
+
+	smallKansas { :self |
+		self.cached('smallKansas') {
+			SmallKansas()
 		}
 	}
 

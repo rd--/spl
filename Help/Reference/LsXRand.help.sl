@@ -21,9 +21,9 @@ Equivalent to `LsRemDup` of `LsRand`:
 ```
 >>> LsRemDup(
 >>> 	LsRand(
->>>		[1 3 5 7 9],
->>>		99,
->>>		Sfc32(898714)
+>>> 		[1 3 5 7 9],
+>>> 		99,
+>>> 		Sfc32(898714)
 >>> 	)
 >>> ).upToEnd
 >>> .differentiate
