@@ -39,7 +39,7 @@ An arc:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction
+See also: bernsteinBasis, BezierCurve, bezierFunction, quadraticBezierFunctionAt
 
 References:
 _Mathematica_

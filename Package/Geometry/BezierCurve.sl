@@ -110,4 +110,22 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		(p1 * u2) + (p2 * (3 * u2 * x)) + (p3 * (3 * u * x2)) + (p4 * x3)
 	}
 
+	deCasteljausAlgorithm { :self :x |
+		  (self.size = 1).if {
+			  self[1]
+		  } {
+			  (1 .. self.size - 1).collect { :i |
+				  ((1 - x) * self[i]) + (x * self[i + 1])
+			  }.deCasteljausAlgorithm(x)
+		  }
+	}
+
+	quadraticBezierFunctionAt { :self :x |
+		let [p1, p2, p3] = self;
+		let x2 = x * x;
+		let u = 1 - x;
+		let u2 = u * u;
+		(p1 * u2) + (p2 * 2 * u * x) + (p3 * x2)
+	}
+
 }

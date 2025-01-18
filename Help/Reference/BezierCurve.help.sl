@@ -138,7 +138,7 @@ A Bézier curve with spline degree 1 is equivalent to `Line`:
 
 * * *
 
-See also: bernsteinBasis, Circle, Line, LineDrawing, Point, PointCloud, Polygon, Rectangle, Triangle
+See also: bernsteinBasis, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, Rectangle, Triangle
 
 References:
 _Mathematica_
