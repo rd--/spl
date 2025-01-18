@@ -5,10 +5,23 @@
 Answer a `List` of the answers of applying _aBlock_ to successive windows of _aSequence_, each of _anInteger_ elements.
 The `size` of the answer is _aSequence.size - anInteger + 1_.
 
+`movingMap` of `identity` over regular data is equivalent to `partition`:
+
+```
+>>> identity:/1.movingMap([1 5 7 3 6 2], 3)
+[1 5 7; 5 7 3; 7 3 6; 3 6 2]
+
+>>> [1 5 7 3 6 2].partition(3, 1)
+[1 5 7; 5 7 3; 7 3 6; 3 6 2]
+```
+
 `movingMap` of `mean` over regular data is equivalent to `movingAverage`:
 
 ```
 >>> mean:/1.movingMap([1 5 7 3 6 2], 3)
+[13/3 5 16/3 11/3]
+
+>>> [1 5 7 3 6 2].movingAverage(3)
 [13/3 5 16/3 11/3]
 ```
 
@@ -19,6 +32,10 @@ The `size` of the answer is _aSequence.size - anInteger + 1_.
 >>> 	[-6 8 -10 -4 9 -9 8 0 1 4],
 >>> 	3
 >>> )
+[-6 -4 -4 -4 8 0 1 1]
+
+>>> [-6 8 -10 -4 9 -9 8 0 1 4]
+>>> .movingMedian(3)
 [-6 -4 -4 -4 8 0 1 1]
 ```
 

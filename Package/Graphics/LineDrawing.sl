@@ -1,4 +1,4 @@
-/* Requires: Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Polyhedron, Rectangle, Svg, Triangle, Writing */
+/* Requires: BezierCurve, Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Polyhedron, Rectangle, Svg, Triangle, Writing */
 
 LineDrawing : [Object] { | contents metadata |
 
@@ -100,7 +100,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[Circle, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
++[BezierCurve, Circle, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
 
 	asLineDrawing { :self |
 		[self].LineDrawing

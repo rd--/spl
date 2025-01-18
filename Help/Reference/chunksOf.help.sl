@@ -39,4 +39,4 @@ At the `alphabet`:
 
 * * *
 
-See also: clump, copyFromTo
+See also: chunksOfFrom, clump, copyFromTo

@@ -3,7 +3,11 @@
 - _bezierFunction(aList)_
 
 Answers a unary function that will index the Bézier curve defined by the sequence of control points at _aList_.
-In the common case, _aList_ will be a 4×2 matrix.
+In common cases _aList_ will be a either
+a 3×2 matrix specifying a quadratic Bézier curve,
+or a 4×2 matrix specifying a cubic Bézier curve.
+
+A cubic Bézier curve:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
@@ -13,7 +17,7 @@ In the common case, _aList_ will be a 4×2 matrix.
 
 ![](sw/spl/Help/Image/bezierFunction-A.svg)
 
-A symmetric curve:
+A symmetric cubic Bézier curve:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot(
@@ -25,7 +29,7 @@ A symmetric curve:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve
+See also: bernsteinBasis, BezierCurve, cubicBezierFunctionAt
 
 References:
 _Mathematica_

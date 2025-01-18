@@ -1,42 +1,79 @@
-BezierCurve : [Object] { | controlPoints |
+BezierCurve : [Object] { | controlPoints splineDegree |
 
 	boundingBox { :self |
 		self.controlPoints.coordinateBoundingBox
 	}
 
+	componentCoordinates { :self |
+		self.controlPoints.partition(
+			self.splineDegree + 1,
+			self.splineDegree
+		)
+	}
+
+	componentCount { :self |
+		(self.controlPoints.size - 1) / self.splineDegree
+	}
+
 	forSvg { :self :options |
-		let precision = options::precision;
-		let p = self.controlPoints;
-		let c = p.chunksOfFrom(3, 2);
-		let d = [
-			'M %,%'.format([
-				p[1][1].printStringToFixed(precision),
-				p[1][2].printStringToFixed(precision)
-			]),
-			c.collect { :each |
-				'C ' ++ each.asSvgPointList(options)
-			}
-		].stringJoin(' ');
-		'<path d="%" />'.format([d])
+		let n = self.splineDegree;
+		(n = 1).if {
+			self.controlPoints.Line.forSvg(options)
+		} {
+			let precision = options::precision;
+			let p = self.controlPoints;
+			let z = (n = 2).if {
+				'Q '
+			} {
+				(n = 3).if {
+					'C '
+				} {
+					self.error('not Q or C')
+				}
+			};
+			let c = p.chunksOfFrom(n, 2);
+			let d = [
+				'M %,%'.format([
+					p[1][1].printStringToFixed(precision),
+					p[1][2].printStringToFixed(precision)
+				]),
+				c.collect { :each |
+					z ++ each.asSvgPointList(options)
+				}
+			].stringJoin(' ');
+			'<path d="%" />'.format([d])
+		}
+	}
+
+	isComposite { :self |
+		self.isValid & {
+			self.isSimple.not
+		}
+	}
+
+	isSimple { :self |
+		self.controlPoints.size = (self.splineDegree + 1)
+	}
+
+	isValid { :self |
+		self.componentCount.isInteger
+	}
+
+	size { :self |
+		self.controlPoints.size
 	}
 
 }
 
 +List {
 
-	basicBezierFunctionAt { :self :x |
-		let n = self.size - 1;
-		let b = [0 .. n].collect { :d |
-			n.bernsteinBasis(d, x)
-		};
-		(b * self).sum
-	}
-
-	BezierCurve { :self |
+	BezierCurve { :self :degree |
 		(self.rank > 2).if {
-			self.collect(BezierCurve:/1)
+			self.collect { :each |
+				BezierCurve(each, degree)
+			}
 		} {
-			newBezierCurve().initializeSlots(self)
+			newBezierCurve().initializeSlots(self, degree)
 		}
 	}
 
@@ -46,13 +83,31 @@ BezierCurve : [Object] { | controlPoints |
 			let [x, y] = self.transposed;
 			{ :index |
 				[
-					x.basicBezierFunctionAt(index),
-					y.basicBezierFunctionAt(index)
+					x.bezierFunctionAt(index),
+					y.bezierFunctionAt(index)
 				]
 			}
 		} {
 			self.error('bezierFunction: not two column matrix')
 		}
+	}
+
+	bezierFunctionAt { :self :x |
+		let n = self.size - 1;
+		let b = [0 .. n].collect { :d |
+			n.bernsteinBasis(d, x)
+		};
+		(b * self).sum
+	}
+
+	cubicBezierFunctionAt { :self :x |
+		let [p1, p2, p3, p4] = self;
+		let u = 1 - x;
+		let x2 = x * x;
+		let x3 = x2 * x;
+		let u2 = u * u;
+		let u3 = u2 * u;
+		(p1 * u2) + (p2 * (3 * u2 * x)) + (p3 * (3 * u * x2)) + (p4 * x3)
 	}
 
 }

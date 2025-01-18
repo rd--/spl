@@ -10,6 +10,9 @@ Moving median of a vector:
 ```
 >>> [1 2 5 6 1 4 3].movingMedian(3)
 [2 5 5 4 3]
+
+>>> [4 8 6 -1 -2 -3 -1 3 4 5].movingMedian(3)
+[6 6 -1 -2 -2 -1 3 4]
 ```
 
 Moving median of a matrix is a matrix:
@@ -65,5 +68,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MovingMedian.html)
 [2](https://reference.wolfram.com/language/ref/MovingMedian.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/movmedian.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Moving_average)
