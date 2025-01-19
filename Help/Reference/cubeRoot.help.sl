@@ -4,11 +4,17 @@
 
 Answer the real-valued cube root of _aNumber_.
 
-CubeRoot gives a real root:
+`cubeRoot` gives a real root:
 
 ```
 >>> -27.cubeRoot
 -3
+
+>>> 27.cubeRoot.negated
+-3
+
+>>> -8.cubeRoot
+-2
 
 >>> -4.5.cubeRoot
 -1.65096
@@ -37,7 +43,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ^, nthRoot, sqrt
+See also: ^, nthRoot, real, sqrt
 
 References:
 _Mathematica_

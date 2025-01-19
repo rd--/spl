@@ -27,7 +27,8 @@ A simple cubic Bézier curve:
 true
 ```
 
-The `componentCoordinates` of a composite cubic Bézier curve are the coordinates of simple curves:
+The `componentCoordinates` of a composite cubic Bézier curve are the coordinates of simple curves,
+the `componentCount` is the number of components:
 
 ```
 >>> let c = [
@@ -136,9 +137,21 @@ A Bézier curve with spline degree 1 is equivalent to `Line`:
 
 ![](sw/spl/Help/Image/BezierCurve-G.svg)
 
+A cubic Bézier curve with a crossing:
+
+~~~spl svg=H
+let p = [1 1; 8 7; 2 8; 6 0];
+[
+	p.BezierCurve(3),
+	p.Line
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/BezierCurve-H.svg)
+
 * * *
 
-See also: bernsteinBasis, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, Rectangle, Triangle
+See also: bernsteinBasis, bezierDerivatives, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
 
 References:
 _Mathematica_

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50.0" height="100.0" viewBox="-5.00 -55.00 60.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.0300%" transform="translate(0, 0.0000) scale(16.6667, -16.6667)">
+<polyline points="0.00,0.00 0.00,1.00 1.00,1.00 1.00,0.00" />
+<path d="M 0.00,0.00 C 0.00,1.00 1.00,1.00 1.00,0.00" />
+<polyline points="0.00,3.00 3.00,0.00 0.00,-3.00" />
+<path d="M 0.00,3.00 Q 3.00,0.00 0.00,-3.00" />
+</g>
+</svg>

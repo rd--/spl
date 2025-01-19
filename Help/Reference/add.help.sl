@@ -17,7 +17,7 @@ At `Bag`:
 ('y', 2, ['x' 'y'])
 ```
 
-At `List`:
+At `List`, add to end of list, see also `addFirst` and `addLast`:
 
 ```
 >>> let l = List();
@@ -66,7 +66,7 @@ true
 
 * * *
 
-See also: addAll, Extensible, include, remove
+See also: addAll, addFirst, addLast, Extensible, include, remove
 
 References:
 _Smalltalk_

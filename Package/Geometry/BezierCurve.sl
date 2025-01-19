@@ -77,6 +77,21 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		}
 	}
 
+	bezierDerivatives { :self |
+		let answer = [];
+		let p = self;
+		p.size.downToDo(1) { :d |
+			let c = d - 1;
+			let q = [];
+			1.toDo(c) { :j |
+				q.add(c * (p[j + 1] - p[j]))
+			};
+			answer.add(q);
+			p := q
+		};
+		answer
+	}
+
 	bezierFunction { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
@@ -100,6 +115,30 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		(b * self).sum
 	}
 
+	bezierSplitAt { :self :x |
+		let left = [];
+		let right = [];
+		let deCasteljaus = { :p :t |
+			(p.size = 1).if {
+				left.addLast(p[1]);
+				right.addFirst(p[1])
+			} {
+				let k = p.size - 1;
+				(1 .. k).collect { :i |
+					(i = 1).ifTrue {
+						left.addLast(p[i])
+					};
+					(i = k).ifTrue {
+						right.addFirst(p[i + 1])
+					};
+					((1 - t) * p[i]) + (t * p[i + 1])
+				}.deCasteljaus(t)
+			}
+		};
+		deCasteljaus(self, x);
+		(left, right)
+	}
+
 	cubicBezierFunctionAt { :self :x |
 		let [p1, p2, p3, p4] = self;
 		let u = 1 - x;
@@ -111,13 +150,13 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 	}
 
 	deCasteljausAlgorithm { :self :x |
-		  (self.size = 1).if {
-			  self[1]
-		  } {
-			  (1 .. self.size - 1).collect { :i |
-				  ((1 - x) * self[i]) + (x * self[i + 1])
-			  }.deCasteljausAlgorithm(x)
-		  }
+		(self.size = 1).if {
+			self[1]
+		} {
+			(1 .. self.size - 1).collect { :i |
+				((1 - x) * self[i]) + (x * self[i + 1])
+			}.deCasteljausAlgorithm(x)
+		}
 	}
 
 	quadraticBezierFunctionAt { :self :x |
@@ -126,6 +165,15 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		let u = 1 - x;
 		let u2 = u * u;
 		(p1 * u2) + (p2 * 2 * u * x) + (p3 * x2)
+	}
+
+	quadraticBezierToCubicBezier { :self |
+		let [q1, q2, q3] = self;
+		let c1 = q1;
+		let c2 = q1 + ((q2 - q1) * (2 / 3));
+		let c3 = q3 + ((q2 - q3) * (2 / 3));
+		let c4 = q3;
+		[c1, c2, c3, c4]
 	}
 
 }
