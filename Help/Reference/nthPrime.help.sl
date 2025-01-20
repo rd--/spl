@@ -41,6 +41,9 @@ so that subsequent accesses do not require recalculation:
 ```
 >>> system.cachedPrimesList[5]
 11
+
+>>> 10001.nthPrime
+104743
 ```
 
 Plot first fifty primes:

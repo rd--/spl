@@ -115,6 +115,7 @@
 	'Math-Elementwise'
 	'Math-Fourier'
 	'Math-Gamma'
+	'Math-Interpolation'
 	'Math-Matrix'
 	'Math-Permutations'
 	'Math-Primes'

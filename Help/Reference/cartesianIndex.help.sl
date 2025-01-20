@@ -54,5 +54,7 @@ At volume:
 See also: linearIndex
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/arrays/#Base.IteratorsMD.CartesianIndex),
 _MathWorks_
 [1](https://mathworks.com/help/matlab/ref/ind2sub.html)

@@ -95,6 +95,13 @@ Sorted into descending order:
 ]
 ```
 
+The largest prime factor of an integer:
+
+```
+>>> 600851475143.primeFactors.max
+6857
+```
+
 * * *
 
 See also: factorInteger, isPrime, primeLimit, product

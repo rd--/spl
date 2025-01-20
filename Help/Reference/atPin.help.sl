@@ -18,6 +18,10 @@ Answer the first or last element if _index_ is out of bounds.
 
 * * *
 
-See also: at, atFold, atWrap
+See also: at, atFold, atPinAll, atWrap, clip
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Array.html#-clipAt)
 
 Categories: Accessing

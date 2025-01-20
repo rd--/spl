@@ -2,7 +2,7 @@
 
 - _dividesImmediately(aNumber, anotherNumber)_
 
-Answer true if _aNumber_ is _anotherNumber_ times a prime number.
+Answer `true` if _aNumber_ is _anotherNumber_ times a prime number.
 
 Twelve divided by four is three, and three is a prime number:
 

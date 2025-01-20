@@ -60,6 +60,12 @@
 		}
 	}
 
+	adjacentPairs { :self |
+		self.adjacentPairsCollect { :i :j |
+			self.species.newFrom([i, j])
+		}
+	}
+
 	adjacentPairsDo { :self :aBlock:/2 |
 		2.toDo(self.size) { :i |
 			aBlock(self[i - 1], self[i])
@@ -67,9 +73,11 @@
 	}
 
 	adjacentPairsCollect { :self :aBlock:/2 |
-		let answer = [];
+		let answer = self.species.new(self.size - 1);
+		let index = 1;
 		self.adjacentPairsDo { :p :q |
-			answer.add(aBlock(p, q))
+			answer[index] := aBlock(p, q);
+			index := index + 1
 		};
 		answer
 	}
@@ -1592,7 +1600,6 @@
 		(aSequence - 1).reverse.mixedRadixDecode(shape) + 1
 	}
 
-
 	linearRecurrence { :kernel :init :n |
 		let answer = init.copy;
 		let m = kernel.size;
@@ -2055,6 +2062,14 @@
 		}
 	}
 
+	partitionCollect { :self :windowSize :stepSize :aBlock:/1 |
+		let answer = [];
+		self.partitionDo(windowSize, stepSize) { :each |
+			answer.add(aBlock(each))
+		};
+		answer
+	}
+
 	partitionDo { :self :windowSize :stepSize :aBlock:/1 |
 		(windowSize <= self.size).ifTrue {
 			(windowSize = 0).if {
@@ -2070,11 +2085,7 @@
 	}
 
 	partition { :self :windowSize :stepSize |
-		let answer = [];
-		self.partitionDo(windowSize, stepSize) { :each |
-			answer.add(each.copy)
-		};
-		answer
+		self.partitionCollect(windowSize, stepSize, copy:/1)
 	}
 
 	partition { :self :windowSize |

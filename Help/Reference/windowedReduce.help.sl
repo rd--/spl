@@ -79,7 +79,7 @@ Adjacent comparisons, edge detection:
 
 * * *
 
-See also: adjacentPairsCollect, collect, movingMap, pairsCollect
+See also: adjacentPairsCollect, collect, movingMap, pairsCollect, partition
 
 References:
 _Apl_

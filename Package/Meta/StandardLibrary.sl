@@ -91,6 +91,7 @@
 	'Elementwise'
 	'Fourier'
 	'Gamma'
+	'Interpolation'
 	'Matrix'
 	'Permutations'
 	'Primes'

@@ -67,7 +67,7 @@ Select primes:
 Number of primes up to ten-thousand:
 
 ```
->>> 1:9999.select(isPrime:/1).size
+>>> 1:9999.count(isPrime:/1)
 1229
 ```
 

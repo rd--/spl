@@ -149,6 +149,20 @@ let p = [1 1; 8 7; 2 8; 6 0];
 
 ![](sw/spl/Help/Image/BezierCurve-H.svg)
 
+The distance between equally spaces indices is not, in general, equal:
+
+~~~spl svg=I
+let p = [110 150; 25 190; 210 250; 210 30];
+let l = (0, 0.01 .. 1).collect { :x |
+	p.deCasteljausAlgorithm(x)
+};
+l.adjacentPairsCollect(
+	euclideanDistance:/2
+).linePlot
+~~~
+
+![](sw/spl/Help/Image/BezierCurve-I.svg)
+
 * * *
 
 See also: bernsteinBasis, bezierDerivatives, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle

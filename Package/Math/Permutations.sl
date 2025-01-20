@@ -481,7 +481,8 @@ Permutation : [Object] { | cycles degree |
 	lexicographicPermutations { :self |
 		let answer = [];
 		self.lexicographicPermutationsDo { :each |
-			answer.add(each.copy)
+			answer.add(each.copy);
+			true
 		};
 		answer
 	}
@@ -489,12 +490,15 @@ Permutation : [Object] { | cycles degree |
 	lexicographicPermutationsDo { :self :aBlock:/1 |
 		let list = self.copy.sort;
 		let next = nil;
-		aBlock(list);
+		let continue = true;
 		{
-			next := list.nextPermutationLexicographic;
-			next.isNil
-		}.whileFalse {
-			aBlock(list)
+			continue
+		}.whileTrue {
+			continue := aBlock(list);
+			continue.ifTrue {
+				next := list.nextPermutationLexicographic;
+				continue := next.notNil
+			}
 		}
 	}
 
@@ -573,6 +577,21 @@ Permutation : [Object] { | cycles degree |
 			};
 			self
 		}
+	}
+
+	nthLexicographicPermutation { :self :n |
+		let index = 1;
+		let answer = nil;
+		self.lexicographicPermutationsDo { :each |
+			(index = n).if {
+				answer := each.copy;
+				false
+			} {
+				index := index + 1;
+				true
+			}
+		};
+		answer
 	}
 
 	plainChanges { :self |

@@ -36,6 +36,9 @@ At `Collection`:
 
 >>> [5].lcm
 5
+
+>>> 1:20.lcm
+232792560
 ```
 
 Lcm threads elementwise over lists:

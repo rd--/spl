@@ -104,7 +104,7 @@ A sequence has one zero partition:
 
 * * *
 
-See also: clump, pairsCollect, pairsDo, partitionDo, windowedReduce
+See also: clump, adjacentPairsCollect, pairsCollect, pairsDo, partitionDo, windowedReduce
 
 References:
 _Mathematica_

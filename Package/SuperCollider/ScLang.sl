@@ -390,8 +390,8 @@
 
 	blendAt { :self :index |
 		let indexMin = index.roundUpTo(1) - 1;
-		self.clipAt(indexMin).blend(
-			self.clipAt(indexMin + 1),
+		self.atPin(indexMin).blend(
+			self.atPin(indexMin + 1),
 			(index - indexMin).abs
 		)
 	}
@@ -399,16 +399,6 @@
 	blendAtAll { :self :indices |
 		indices.collect { :each |
 			self.blendAt(each)
-		}
-	}
-
-	clipAt { :self :index |
-		self[index.clamp(1, self.size)]
-	}
-
-	clipAtAll { :self :indices |
-		indices.collect { :each |
-			self.clipAt(each)
 		}
 	}
 

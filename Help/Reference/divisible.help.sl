@@ -84,6 +84,17 @@ Divisible threads elementwise over lists:
 [false true false true false true]
 ```
 
+The sum of the first few multiples of three or five:
+
+```
+>>> 1:999.select { :each |
+>>> 	each.divisible(3) | {
+>>> 		each.divisible(5)
+>>> 	}
+>>> }.sum
+233168
+```
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

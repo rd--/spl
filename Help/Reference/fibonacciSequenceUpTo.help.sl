@@ -14,6 +14,16 @@ There are seven Fibonacci numbers less than or equal to twenty:
 [1 1 2 3 5 8 13]
 ```
 
+The sum of the even Fibonacci numbers less than four million:
+
+```
+>>> 4E6
+>>> .fibonacciSequenceUpTo
+>>> .select(isEven:/1)
+>>> .sum
+4613732
+```
+
 * * *
 
 See also: fibonacci, fibonacciSequence

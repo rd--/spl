@@ -62,6 +62,14 @@ The sum of an empty collection is `zero`:
 0
 ```
 
+Difference between a sum squared, and the sum of squares:
+
+```
+>>> let x = 1:100;
+>>> (x.sum ^ 2) - (x ^ 2).sum
+25502500 - 338350
+```
+
 Where supported `sum` is displayed as Σ.
 
 * * *

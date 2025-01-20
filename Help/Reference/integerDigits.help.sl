@@ -162,6 +162,16 @@ It is an error if the operand is not an integer:
 true
 ```
 
+First few non-trivial palindromic prime numbers:
+
+```
+>>> 99.primesList.select { :x |
+>>> 	let d = x.integerDigits;
+>>> 	d.size > 1 & { d = d.reversed }
+>>> }
+[11 101 131 151 181 191 313 353 373 383]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A

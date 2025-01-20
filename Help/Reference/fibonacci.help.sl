@@ -30,8 +30,10 @@ Threads over lists:
 ```
 >>> 1:20.fibonacci
 [
-	1 1 2 3 5 8 13 21 34 55
-	89 144 233 377 610 987 1597 2584 4181 6765
+	1 1 2 3 5
+	8 13 21 34 55
+	89 144 233 377 610
+	987 1597 2584 4181 6765
 ]
 ```
 
@@ -40,7 +42,9 @@ Fibonomial coefficients:
 ```
 >>> { :n :k |
 >>> 	1:k.collect { :j |
->>> 		(n + j - k).fibonacci / j.fibonacci
+>>> 		(n + j - k).fibonacci
+>>> 		/
+>>> 		j.fibonacci
 >>> 	}.product
 >>> }.table(1:7, 1:7)
 [
@@ -100,7 +104,7 @@ Log plot of positive and negative Fibonacci numbers:
 
 * * *
 
-See also: binetsFormula, fibonacciSequence, goldenRatio
+See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio
 
 References:
 _Mathematica_

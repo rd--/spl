@@ -82,7 +82,7 @@ The name of this operator is `percentSign`.
 
 * * *
 
-See also: /, //, \\, minimalResidue, quotient, remainder
+See also: /, //, \\, divisible, minimalResidue, quotient, remainder
 
 References:
 _Apl_

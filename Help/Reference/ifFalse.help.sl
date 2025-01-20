@@ -12,6 +12,15 @@ If _aBoolean_ is _false_ answer the result of  _aBlock()_, else answer _nil_.
 1
 ```
 
+Non-boolean values signal an error:
+
+```
+>>> {
+>>> 	nil.ifFalse { nil }
+>>> }.ifError { true }
+true
+```
+
 * * *
 
 See also: if, ifEmpty, ifNil, ifNotNil, ifTrue

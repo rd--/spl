@@ -4,13 +4,32 @@
 
 Implements the Smalltalk idiom _aCollection.species.newFrom(anotherCollection)_.
 
+At `List`:
+
 ```
->>> Set().species.newFrom(1:9)
+>>> List:/1.newFrom(1:9)
+[1 2 3 4 5 6 7 8 9]
+
+>>> [].species.newFrom(1:9)
+[1 2 3 4 5 6 7 8 9]
+```
+
+At `Tuple`:
+
+```
+>>> Tuple:/1.newFrom(1:9)
+(1, 2, 3, 4, 5, 6, 7, 8, 9)
+```
+
+At `Set`:
+
+```
+>>> Set:/0.newFrom(1:9)
 1:9.asSet
 ```
 
 * * *
 
-See also: new, species
+See also: fillFrom, new, species
 
 Categories: Instance Creation, Reflection

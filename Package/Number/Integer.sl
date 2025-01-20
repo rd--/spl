@@ -206,6 +206,22 @@
 		(self .. anInteger).collect(asCharacter:/1)
 	}
 
+	collatzSequence { :n |
+		let answer = [];
+		let i = n;
+		{
+			answer.add(i);
+			i ~= 1
+		}.whileTrue {
+			i.isEven.if {
+				i := i / 2
+			} {
+				i := 3 * i + 1
+			}
+		};
+		answer
+	}
+
 	combinations { :n :m |
 		let answer = [];
 		1:n.combinationsAtATimeDo(m) { :each |

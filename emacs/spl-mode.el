@@ -303,6 +303,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      (":/2" . ?₂) ; U+2082 ₂ Subscript Two
      (":/3" . ?₃) ; U+2083 ₃ Subscript Three
      (":/4" . ?₄) ; U+2084 ₄ Subscript Four
+     (":/5" . ?₅) ; U+2085 ₅ Subscript Five
      ("::" . ?·) ; U+00B7 · Middle Dot ; ∷
      (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
      (":?" . ?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond

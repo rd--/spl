@@ -4,7 +4,8 @@
 
 Enumerate all of the indices given by the shape indicated at _aSequence_.
 
-Indices are `List`s, if the shape indicates a vector the indices are lists of one place.
+Indices are `List`s,
+if the shape indicates a vector the indices are lists of one place.
 
 ```
 >>> [3].shapeIndices
@@ -48,6 +49,6 @@ Volume indices:
 
 * * *
 
-See also: @>, atPath, deepIndices, reshape, shape, shapeIndicesDo
+See also: @>, atPath, cartesianIndex, deepIndices, linearIndex, reshape, shape, shapeIndicesDo
 
 Categories: Accessing, Indexing
