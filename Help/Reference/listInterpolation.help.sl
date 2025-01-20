@@ -60,7 +60,7 @@ Catmull-Rom interpolation:
 
 ![](sw/spl/Help/Image/listInterpolation-D.svg)
 
-No interpolation:
+No interpolation, use next sample point:
 
 ~~~spl svg=E
 (1 -- 8).functionPlot(
@@ -72,6 +72,51 @@ No interpolation:
 ~~~
 
 ![](sw/spl/Help/Image/listInterpolation-E.svg)
+
+No interpolation, use previous sample point:
+
+~~~spl svg=F
+(1 -- 8).functionPlot(
+	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
+	.listInterpolation { :y1 :y2 :mu |
+		y1
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/listInterpolation-F.svg)
+
+
+No interpolation, use nearest sample point:
+
+~~~spl svg=G
+(1 -- 8).functionPlot(
+	[3.5 1.5 1.75 1.25 3.75 0 2.5 0.75]
+	.listInterpolation { :y1 :y2 :mu |
+		(mu < 0.5).if { y1 } { y2 }
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/listInterpolation-G.svg)
+
+Compare linear and Catmull-Rom interpolation using test data that connects multiple flat regions:
+
+~~~spl svg=H
+let l = [-1 -1 -1 0 1 1 1];
+let n = l.size;
+(1 -- n).functionPlot(
+	[
+		linearInterpolation:/3,
+		catmullRomInterpolation:/5
+	].collect { :each |
+		l.listInterpolation(each)
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/listInterpolation-H.svg)
+
 
 * * *
 

@@ -11,8 +11,7 @@ The first, second, and third derivatives of a cubic Bézier curve:
 [
 	0 3; 3 0; 0 -3:;
 	6 -6; -6 -6:;
-	-12 0:;
-	:;
+	-12 0
 ]
 ```
 
@@ -110,4 +109,3 @@ let f = { :l |
 See also: BezierCurve
 
 Further Reading: Riesenfeld 1973
-

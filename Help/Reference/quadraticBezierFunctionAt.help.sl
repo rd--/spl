@@ -2,7 +2,7 @@
 
 - _quadraticBezierFunctionAt(aList, aNumber)_
 
-Answers the cubic Bézier curve at _aNumber_ given the three row matrix _aList_.
+Answers the quadratic Bézier curve at _aNumber_ given the three row matrix _aList_.
 
 A quadratic Bézier curve:
 
@@ -15,7 +15,7 @@ A quadratic Bézier curve:
 
 ![](sw/spl/Help/Image/quadraticBezierFunctionAt-A.svg)
 
-A symmetric quadratic Bézier curve:
+A symmetric quadratic Bézier curve (an arc):
 
 ~~~spl svg=B
 (0 -- 1).functionPlot { :x |
@@ -25,17 +25,6 @@ A symmetric quadratic Bézier curve:
 ~~~
 
 ![](sw/spl/Help/Image/quadraticBezierFunctionAt-B.svg)
-
-An arc:
-
-~~~spl svg=C
-(0 -- 1).functionPlot { :x |
-	[0 0; 1 1; 2 1; 3 0]
-	.quadraticBezierFunctionAt(x)
-}
-~~~
-
-![](sw/spl/Help/Image/quadraticBezierFunctionAt-C.svg)
 
 * * *
 

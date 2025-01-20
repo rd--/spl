@@ -80,7 +80,7 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 	bezierDerivatives { :self |
 		let answer = [];
 		let p = self;
-		p.size.downToDo(1) { :d |
+		p.size.downToDo(2) { :d |
 			let c = d - 1;
 			let q = [];
 			1.toDo(c) { :j |

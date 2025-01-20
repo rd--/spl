@@ -3,6 +3,7 @@
 - _contents(anIterable | aStream | aCollection | aString | aQuotedString)_
 
 The `contents` of an `Iterable` is a `List` of all of the items accessed by `do`.
+
 At `Tree`:
 
 ```
@@ -16,6 +17,7 @@ At `Tree`:
 The `contents` of a `Stream` is a `Sequence` of all of the items in the stream.
 
 The `contents` of a `Collection` is the collection itself.
+
 At `Record`:
 
 ```

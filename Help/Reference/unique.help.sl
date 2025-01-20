@@ -7,12 +7,12 @@ The appended identifier is given by `uniqueId`.
 
 ```
 >>> 'x'.unique
-('x' ++ (system.uniqueId - 1).asString)
+'x' ++ (system.uniqueId - 1).asString
 ```
 
 * * *
 
-See also: ++, uniqueId
+See also: ++, String, uniqueId
 
 References:
 _Mathematica_

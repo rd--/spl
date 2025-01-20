@@ -3,7 +3,7 @@
 Plot : [Object] { | pages format |
 
 	asLineDrawing { :self |
-		let [pageCount, rowCount, columnCount] = self.pages.shape;
+		let columnCount = self.columnCount;
 		(columnCount = 2).if {
 			let r = self.pages.concatenation.coordinateBoundingBox.asRectangle;
 			let w = r.width;
@@ -145,6 +145,18 @@ Plot : [Object] { | pages format |
 		)
 	}
 
+	columnCount { :self |
+		let counts = self.pages.collect { :each |
+			let [rowCount, columnCount] = each.shape;
+			columnCount
+		}.nub;
+		(counts.size = 1).if {
+			counts.anyOne
+		} {
+			self.error('columnCount: pages have differing column counts')
+		}
+	}
+
 	draw { :self |
 		self.format.caseOfOtherwise([
 			'graph' -> {
@@ -158,6 +170,10 @@ Plot : [Object] { | pages format |
 		]) {
 			self.asLineDrawing.draw
 		}
+	}
+
+	pageCount { :self |
+		self.pages.size
 	}
 
 	writeSvg { :self :fileName |

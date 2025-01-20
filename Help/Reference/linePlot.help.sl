@@ -131,12 +131,24 @@ Plot two lines:
 
 ~~~spl svg=L
 [
-	[0 0; 1 2; 2 0],
-	[0 1; 1 0; 2 1]
+	0 0; 1 2; 2 0:;
+	0 1; 1 0; 2 1
 ].linePlot
 ~~~
 
 ![](sw/spl/Help/Image/linePlot-L.svg)
+
+Plot two lines with different numbers of points:
+
+
+~~~spl svg=M
+[
+	0 0; 2 2; 4 0:;
+	0 1; 1 0; 2 4; 3 0; 4 1
+].linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-M.svg)
 
 * * *
 
