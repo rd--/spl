@@ -2062,6 +2062,18 @@
 		}
 	}
 
+	pairwiseSum { :self |
+		let n = self.size;
+		(n <= 128).if {
+			self.sum
+		} {
+			let m = (n / 2).floor;
+			self.sliceFromTo(1, m).pairwiseSum
+			+
+			self.sliceFromTo(m + 1, n).pairwiseSum
+		}
+	}
+
 	partitionCollect { :self :windowSize :stepSize :aBlock:/1 |
 		let answer = [];
 		self.partitionDo(windowSize, stepSize) { :each |

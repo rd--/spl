@@ -7,6 +7,7 @@
 > discrete Fourier transform, but the suppression is at the expense of
 > widening the lines, resulting in a decrease in the resolution. (Weisstein, E.)
 
+- `bartlettHannWindow`: Bartlett-Hann apodization function
 - `bartlettWindow`: Bartlett apodization function
 - `blackmanWindow`: Blackman apodization function
 - `blackmanHarrisWindow`: Blackman-Harris apodization function

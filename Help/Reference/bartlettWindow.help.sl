@@ -33,7 +33,7 @@ Discrete _Bartlett window_ of length 15:
 
 * * *
 
-See also: blackmanWindow, welchWindow
+See also: bartlettHannWindow, blackmanWindow, welchWindow
 
 Guides: Window Functions
 

@@ -676,6 +676,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 }
 
++@Collection {
+
+	isFinite { :self |
+		self.allSatisfy(isFinite:/1)
+	}
+
+}
+
 +String {
 
 	basicParseDecimalInteger { :self |

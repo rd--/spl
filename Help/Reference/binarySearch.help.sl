@@ -39,3 +39,9 @@ Answers `zero` if no item is found:
 * * *
 
 See also: binaryDetectIndex, detectIndex, indexOf
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/BinarySearch.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Binary_search)

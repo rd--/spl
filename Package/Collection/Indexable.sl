@@ -164,6 +164,16 @@
 		answer
 	}
 
+	deepIndicesOf { :self :anObject |
+		let answer = [];
+		self.withDeepIndexDo { :each :index |
+			(each = anObject).ifTrue {
+				answer.add(index)
+			}
+		};
+		answer
+	}
+
 	deepIndicesStartingAtDo { :self :startIndex :aBlock:/2 |
 		let type = self.typeOf;
 		self.withIndexDo { :each :index |
@@ -245,6 +255,12 @@
 
 	isIndexable { :self |
 		true
+	}
+
+	withDeepIndexDo { :self :elementAndIndexBlock:/2 |
+		self.deepIndices.do { :index |
+			elementAndIndexBlock(self.atPath(index), index)
+		}
 	}
 
 	withIndexDo { :self :elementAndIndexBlock:/2 |

@@ -1,10 +1,10 @@
 # linearInterpolation
 
-- _linearInterpolation(p, q, x)_
+- _linearInterpolation(y1, y2, mu)_
 
-Calculate an intepolated point that lies between _p_ and _q at _x_,
-where _x_ of `zero` answers _p_,
-and _x_ of `one` answers _q_.
+Calculate an intepolated point that lies between _y1_ and _y2_ at _mu_,
+where _mu_ of `zero` answers _y1_,
+and _mu_ of `one` answers _y2_.
 
 At `SmallFloat`:
 
@@ -44,7 +44,22 @@ Plot the line that intepolates from _(1,3)_ to _(3,-1)_:
 
 ![](sw/spl/Help/Image/linearInterpolation-B.svg)
 
+Linear impulse response:
+
+~~~spl svg=C
+(1 -- 5).functionPlot(
+	[0 0 1 0 0]
+	.listInterpolation(
+		linearInterpolation:/3
+	)
+)
+~~~
+
+![](sw/spl/Help/Image/linearInterpolation-C.svg)
+
 * * *
+
+See also: catmullRomInterpolation, cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, listInterpolation
 
 References:
 _W_

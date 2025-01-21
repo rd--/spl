@@ -33,6 +33,10 @@ At `String`:
 
 * * *
 
-See also: indicesOfSubstring, indexOf, occurrencesOf
+See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Position.html)
 
 Categories: Indexing

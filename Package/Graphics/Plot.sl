@@ -76,7 +76,19 @@ Plot : [Object] { | pages format |
 					self.error('n×3 matrix: format must be line')
 				}
 			} {
-				self.error('Multiple plots not implemented')
+				(columnCount = 1).if {
+					Plot(
+						self.pages.collect { :each |
+							each.withIndexCollect { :item :x |
+								let [y] = item;
+								[x, y]
+							}
+						},
+						self.format
+					).asLineDrawing
+				} {
+					self.error('Multiple plots not implemented: ' ++ columnCount)
+				}
 			}
 		}
 	}

@@ -12,7 +12,7 @@ A `Range` is a `Type` that represents a finite arithmetic progression.
 [1 3 5 7 9]
 ```
 
-_step_ may be negative:
+`step` may be negative:
 
 ```
 >>> Range(9, 1, -2).asList
@@ -20,8 +20,8 @@ _step_ may be negative:
 ```
 
 Ordinarily the range is inclusive,
-both _start_ and _stop_ are elements of the answer.
-However the _step_ value may specify a range that not include _stop_.
+both `start` and `stop` are elements of the answer.
+However the `step` value may specify a range that not include `stop`.
 
 ```
 >>> Range(1, 9, 3).asList
@@ -44,14 +44,20 @@ The `last`, `min` and `max` methods report the true value:
 (2.1, 2.1, 2.1)
 ```
 
-This is distinct from the problem of accumulating errors in the summation process:
+This is distinct from the problem of accumulating errors in the summation process,
+which is handled specially:
 
 ```
+>>> { :x |
+>>> 	x + 0.01
+>>> }.iterate(0, 100) > 1
+true
+
 >>> Range(0, 1, 0.01).last > 1
 false
 
 >>> Range(0, 1, 0.01).asList.last > 1
-true
+false
 ```
 
 There is a `Range Syntax` for writing Ranges and interval lists:
@@ -181,7 +187,7 @@ Compute the first ten squares:
 
 * * *
 
-See also: .., :, ArithmeticProgression, downTo, Interval, isIntegerRange, thenTo, to, toBy, upOrDownTo
+See also: .., :, ArithmeticProgression, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
 Guides: Range Syntax
 

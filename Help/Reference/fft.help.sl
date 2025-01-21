@@ -5,7 +5,7 @@
 Compute the discrete Fourier transform (DFT) of _aList_ using a fast Fourier transform (FFT) algorithm.
 The answer is the same size as _aList_.
 
-For real input the answer is symetrical:
+For real input the answer is symmetrical:
 
 ```
 >>> [1 1 2 2 1 1 0 0].fft

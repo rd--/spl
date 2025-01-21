@@ -74,7 +74,7 @@ Where supported `sum` is displayed as Σ.
 
 * * *
 
-See also: +, product, injectInto, reduce
+See also: +, product, injectInto, neumaierSum, pairwiseSum, reduce
 
 References:
 _Mathematica_

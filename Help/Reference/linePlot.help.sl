@@ -150,6 +150,17 @@ Plot two lines with different numbers of points:
 
 ![](sw/spl/Help/Image/linePlot-M.svg)
 
+Plot list of column vectors:
+
+~~~spl svg=N
+[
+	1; 5; 3; 7; 5; 9:;
+	5; 3; 7; 5; 9; 7
+].linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-N.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, stepPlot, surfacePlot

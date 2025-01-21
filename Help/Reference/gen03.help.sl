@@ -96,7 +96,7 @@ A 4th order polynomial function:
 
 * * *
 
-See also: gen13
+See also: gen05, gen07, gen09, gen10, gen11, gen13, gen16, gen19
 
 Guides: Csound Gen Routines
 

@@ -14,6 +14,17 @@
 		}
 	}
 
+	bartlettHannWindow { :self |
+		(self.abs > 0.5).if {
+			0
+		}  {
+			let a0 = 0.62;
+			let a1 = 0.48;
+			let a2 = 0.38;
+			a0 - (a1 * self.abs) + (a2 * (2.pi * self).cos)
+		}
+	}
+
 	blackmanWindow { :self |
 		(self.abs > 0.5).if {
 			0

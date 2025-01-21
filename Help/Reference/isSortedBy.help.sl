@@ -42,11 +42,27 @@ true
 true
 ```
 
+Specify `>` as the ordering function:
+
+```
+>>> [4 3 2 1].isSortedBy(>)
+true
+```
+
+Use `>=` to allow repeated elements:
+
+```
+>>> [4 3 3 2 1 1].isSortedBy(>=)
+true
+```
+
 * * *
 
 See also: isSorted, sort, sorted
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/OrderedQ.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/issorted.html)
 

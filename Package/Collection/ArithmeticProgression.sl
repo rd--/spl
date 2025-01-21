@@ -53,12 +53,13 @@
 		let count = self.size;
 		let stepSize = self.step;
 		{
-			count >= 1
+			count > 1
 		}.whileTrue {
 			aBlock(nextValue);
 			nextValue := nextValue + stepSize;
 			count := count - 1
 		};
+		aBlock(self.end);
 		self
 	}
 
@@ -130,16 +131,18 @@
 	}
 
 	reverseDo { :self :aBlock:/1 |
-		let each = self.last;
-		let predicate = (self.step < 0).if {
-			{ self.start >= each }
-		} {
-			{ self.start <= each }
+		let nextValue = self.end;
+		let count = self.size;
+		let stepSize = self.step.negated;
+		{
+			count > 1
+		}.whileTrue {
+			aBlock(nextValue);
+			nextValue := nextValue + stepSize;
+			count := count - 1
 		};
-		predicate.whileTrue {
-			aBlock(each);
-			each := each - self.step
-		}
+		aBlock(self.start);
+		self
 	}
 
 	size { :self |
@@ -164,12 +167,13 @@
 		let endIndex = self.size;
 		let stepSize = self.step;
 		{
-			nextIndex <= endIndex
+			nextIndex < endIndex
 		}.whileTrue {
 			aBlock(nextValue, nextIndex);
 			nextValue := nextValue + stepSize;
 			nextIndex := nextIndex + 1
 		};
+		aBlock(self.end, endIndex);
 		self
 	}
 

@@ -277,6 +277,21 @@
 		[min, max]
 	}
 
+	neumaierSum { :self |
+		let sum = 0.0;
+		let c = 0.0;
+		self.do { :each |
+			let t = sum + each;
+			(sum.abs >= each.abs).if {
+				c := c + ((sum - t) + each)
+			} {
+				c := c + ((each - t) + sum)
+			};
+			sum := t
+		};
+		sum + c
+	}
+
 	noneSatisfy { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			self.do { :each |

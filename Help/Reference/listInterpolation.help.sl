@@ -117,7 +117,6 @@ let n = l.size;
 
 ![](sw/spl/Help/Image/listInterpolation-H.svg)
 
-
 * * *
 
 See also: catmullRomInterpolation, cosineInterpolation, cubicInterpolation, linearInterpolation

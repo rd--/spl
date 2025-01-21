@@ -35,9 +35,20 @@ The `product` of a finite arithmetic progression has a closed form:
 3.78438E98
 
 >>> (5 ^ 50) * (
->>> 	(3 / 5 + 50).gamma / (3 / 5).gamma
+>>> 	(3 / 5 + 50).gamma
+>>> 	/
+>>> 	(3 / 5).gamma
 >>> )
 3.78438E98
+```
+
+When iterating the summation is subject to accumulating floating point errors.
+The last item is treated especially so that it will not be outside the specified range:
+
+```
+>>> let r = (1 -- 5).subdivide(100);
+>>> (r.size, r.end, r.last, r[101], r.asList.last)
+(101, 5, 5, 5, 5)
 ```
 
 * * *

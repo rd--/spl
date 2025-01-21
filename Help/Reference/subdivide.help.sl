@@ -74,6 +74,14 @@ Compare `subdivide` and `discretize`:
 1:10
 ```
 
+The last value is treated especially to avoid range errors:
+
+```
+>>> let l = (1 -- 5).subdivide(100).asList;
+>>> (l[100] > 4.96, l[101] > 5)
+(true, false)
+```
+
 * * *
 
 See also: --, discretize, Interval, Range

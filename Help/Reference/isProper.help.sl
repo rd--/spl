@@ -1,10 +1,19 @@
 # isProper
 
-- _isProper(aScale)_
+- _isProper(aRange | aScale)_
 
-Answer `true` if _aScale_ is proper, else `false`.
+Answer `true` if _aRange_ or _aScale_ is proper, else `false`.
 
-A scale is proper (Rothenberg 1977) if its `intervalClasses` are ascending,
+A `Range` is proper if it is not empty,
+and if the `stop` value is the `last` value:
+
+```
+>>> let r = 1:9;
+>>> (r.isEmpty, r.stop, r.last, r.isProper)
+(false, 9, 9, true)
+```
+
+A `Scale` is proper (Rothenberg 1977) if its `intervalClasses` are ascending,
 allowing equal elements at adjacent steps.
 
 A proper scale:
@@ -33,6 +42,6 @@ true
 
 * * *
 
-See also: intervalClasses, isMomentOfSymmetry, isImproper, isStrictlyProper, scalaScaleArchive, Scale
+See also: intervalClasses, isMomentOfSymmetry, isImproper, isNormal, isStrictlyProper, Range, scalaScaleArchive, Scale
 
 Further Reading: Rothenberg 1977
