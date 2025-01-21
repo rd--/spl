@@ -95,6 +95,7 @@
 	'Matrix'
 	'Permutations'
 	'Primes'
+	'UnivariatePolynomial'
 	'WindowFunction'
 
 	/* Stream */

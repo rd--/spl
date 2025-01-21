@@ -119,6 +119,7 @@
 	'Math-Matrix'
 	'Math-Permutations'
 	'Math-Primes'
+	'Math-UnivariatePolynomial'
 	'Math-WindowFunction'
 	'Meta-BenchmarkLibrary'
 	'Meta-Categories'
