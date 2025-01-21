@@ -4,6 +4,10 @@ Colour : [Object] { | red green blue alpha |
 		self.hasEqualSlotsBy(aColour, ~)
 	}
 
+	asColour { :self |
+		self
+	}
+
 	asList { :self |
 		[self.red, self.green, self.blue, self.alpha]
 	}
@@ -173,6 +177,17 @@ Colour : [Object] { | red green blue alpha |
 		)
 	}
 
+	rgbString { :self |
+		'rgb(%,%,%,%)'.format(
+			[
+				(self.red * 255).rounded,
+				(self.green * 255).rounded,
+				(self.blue * 255).rounded,
+				self.alpha
+			]
+		)
+	}
+
 	storeString { :self |
 		[
 			'Colour(',
@@ -202,6 +217,10 @@ Colour : [Object] { | red green blue alpha |
 }
 
 +SmallFloat {
+
+	asColour { :self |
+		Colour(self, self, self, 1)
+	}
 
 	Colour { :r :g :b |
 		Colour(r, g, b, 1)

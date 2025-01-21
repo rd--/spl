@@ -36,14 +36,14 @@ Colour as hash-prefixed hexadecimal string:
 
 There are a number of colour predicates:
 
-Is colour black:
+Is colour black predicate:
 
 ```
 >>> Colour(0, 0, 0).isBlack
 true
 ```
 
-Is colour white:
+Is colour white predicate:
 
 ```
 >>> Colour(1, 1, 1).isWhite
@@ -57,49 +57,49 @@ Is colour grey with particular value:
 true
 ```
 
-Is colour grey:
+Is colour grey predicate:
 
 ```
 >>> Colour(0.5, 0.5, 0.5).isGrey
 true
 ```
 
-Is colour red:
+Is colour red predicate:
 
 ```
 >>> Colour(1, 0.2, 0.2).isRed
 true
 ```
 
-Is colour green:
+Is colour green predicate:
 
 ```
 >>> Colour(0.2, 1, 0.2).isGreen
 true
 ```
 
-Is colour blue:
+Is colour blue predicate:
 
 ```
 >>> Colour(0.2, 0.2, 1).isBlue
 true
 ```
 
-Is colour yellow:
+Is colour yellow predicate:
 
 ```
 >>> Colour(0.9, 0.75, 0).isYellow
 true
 ```
 
-Is colour cyan:
+Is colour cyan predicate:
 
 ```
 >>> Colour(0, 0.75, 0.9).isCyan
 true
 ```
 
-Is colour magenta:
+Is colour magenta predicate:
 
 ```
 >>> Colour(0.9, 0, 0.75).isMagenta
@@ -108,10 +108,10 @@ true
 
 * * *
 
-See also: alpha, blue, green, Hsv, red
+See also: asColour, alpha, blue, green, Hsv, red
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RGBColor.html)
+[1](https predicate://reference.wolfram.com/language/ref/RGBColor.html)
 
 Categories: Colour, Type

@@ -89,9 +89,17 @@ Sfc32(17492)
 
 ![](sw/spl/Help/Image/matrixPlot-F.svg)
 
+Plot a row-order 4×4 linear image:
+
+~~~spl svg=G
+[4 4].iota.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/matrixPlot-G.svg)
+
 * * *
 
-See also: Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_

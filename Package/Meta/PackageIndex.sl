@@ -98,6 +98,7 @@
 	'Graphics-Bitmap'
 	'Graphics-Colour'
 	'Graphics-Graymap'
+	'Graphics-Image'
 	'Graphics-LineDrawing'
 	'Graphics-Plot'
 	'Graphics-Svg'

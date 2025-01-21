@@ -12,6 +12,6 @@ Answer a the _hue_ of _aColour_.
 
 * * *
 
-See also: Colour, hsv
+See also: Colour, Hsv, hsv, hsvToRgb
 
 Categories: Accessing, Colour

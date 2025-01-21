@@ -16,8 +16,16 @@ A 3×3 matrix:
 
 ![](sw/spl/Help/Image/asGreyscaleSvg-A.svg)
 
+A 5×9 matrix:
+
+~~~spl svg=A
+[5 9].iota.asGreyscaleSvg
+~~~
+
+![](sw/spl/Help/Image/asGreyscaleSvg-B.svg)
+
 * * *
 
-See also: matrixPlot
+See also: asColourSvg, matrixPlot
 
 Categories: Graphics

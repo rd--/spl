@@ -77,6 +77,7 @@
 	'Bitmap'
 	'Colour'
 	'Graymap'
+	'Image'
 	'Svg'
 	'Plot' /* Interval, LineDrawing */
 	'Writing'

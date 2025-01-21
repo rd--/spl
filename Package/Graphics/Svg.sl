@@ -24,35 +24,19 @@ Svg : [Object] { | contents |
 
 +List {
 
-	asSvgPointList { :self :options |
-		let precision = options::precision;
-		self.collect { :each |
-			let [x, y] = each;
-			'%,%'.format([
-				x.printStringToFixed(precision),
-				y.printStringToFixed(precision)
-			])
-		}.join(' ')
-	}
-
-	asGreyscaleSvg { :self |
+	asColourSvg { :self |
 		let yAscending = false;
-		let [height, width] = self.shape;
+		let height = self.numberOfRows;
+		let width = self.numberOfColumns;
 		let bitSize = (100 / height.max(width)).rounded.max(1);
-		let maxEntry = self.abs.max.max;
 		let viewBox = Rectangle([0, 0], [width * bitSize, height * bitSize]);
 		let items = { :x :y |
-			let level = ((maxEntry - self[y][x].abs) * (255 / maxEntry)).rounded;
 			'<rect x="%" y="%" width="%" height="%" fill="%"/>'.format([
 				(x - 1 * bitSize),
 				(y - 1 * bitSize),
 				bitSize,
 				bitSize,
-				(level = 255).if {
-					'transparent'
-				} {
-					'rgb(%,%,%)'.format([level, level, level])
-				}
+				self[y][x].asColour.rgbString
 			])
 		}.table(1:width, 1:height);
 		[
@@ -70,6 +54,30 @@ Svg : [Object] { | contents |
 			'</g>',
 			'</svg>'
 		].flatten.unlines.Svg
+	}
+
+	asGreyscaleSvg { :self |
+		let maxEntry = self.abs.max.max;
+		self.deepCollect { :each |
+			let level = (maxEntry - each.abs) / maxEntry;
+			[maxEntry, each, level].postLine;
+			level.isVeryCloseTo(1).if {
+				Colour(1, 1, 1, 0)
+			} {
+				Colour(level, level, level, 1)
+			}
+		}.asColourSvg
+	}
+
+	asSvgPointList { :self :options |
+		let precision = options::precision;
+		self.collect { :each |
+			let [x, y] = each;
+			'%,%'.format([
+				x.printStringToFixed(precision),
+				y.printStringToFixed(precision)
+			])
+		}.join(' ')
 	}
 
 }
