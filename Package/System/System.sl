@@ -16,6 +16,14 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return Math.random();>
 	}
 
+	byteOrdering { :self |
+		self.isLittleEndian.if {
+			-1
+		} {
+			1
+		}
+	}
+
 	cache { :self |
 		<primitive: return _self.cache;>
 	}
@@ -24,35 +32,35 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return _self.window.caches;>
 	}
 
-	consoleClear { :self |
+	consoleClear { :unused |
 		<primitive:
 		console.clear;
 		return null;
 		>
 	}
 
-	consoleError { :self :message |
+	consoleError { :unused :message |
 		<primitive:
 		console.error(_message);
 		return null;
 		>
 	}
 
-	consoleNotification { :self :message |
+	consoleNotification { :unused :message |
 		<primitive:
 		console.log(_message);
 		return null;
 		>
 	}
 
-	consoleWarning { :self :message |
+	consoleWarning { :unused :message |
 		<primitive:
 		console.warn(_message);
 		return null;
 		>
 	}
 
-	evaluateOrSignalError { :self :aString |
+	evaluateOrSignalError { :unused :aString |
 		<primitive: return sl.evaluateForSignalling('*Interactive*', _aString);>
 	}
 
@@ -66,7 +74,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	evaluate { :self :aString |
 		self.evaluateNotifying(aString) { :err |
-			system.consoleError(err)
+			self.consoleError(err)
 		}
 	}
 
@@ -86,11 +94,19 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.globalDictionary.indices
 	}
 
-	loadFile { :self :fileName |
+	isBigEndian { :unused |
+		1.unsigned32BitWordList[1] = 16r3FF00000
+	}
+
+	isLittleEndian { :self |
+		self.isBigEndian.not
+	}
+
+	loadFile { :unused :fileName |
 		<primitive: evaluateFile(_fileName);>
 	}
 
-	loadUrl { :self :url |
+	loadUrl { :unused :url |
 		<primitive: evaluateUrl(_url);>
 	}
 
@@ -98,7 +114,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return _self.window.localStorage;>
 	}
 
-	localTimeZoneOffsetInMinutes { :self |
+	localTimeZoneOffsetInMinutes { :unused |
 		<primitive:
 		const aDate = new Date(0);
 		return aDate.getTimezoneOffset();
@@ -139,7 +155,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 	}
 
 	postLine { :self :aString |
-		system.consoleNotification(aString)
+		self.consoleNotification(aString)
 	}
 
 	preference { :self :path :defaultValue |
@@ -176,7 +192,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		}
 	}
 
-	pseudoSlotNameList { :self |
+	pseudoSlotNameList { :unused |
 		[
 			'cache',
 			'methodDictionary',
@@ -189,11 +205,11 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		]
 	}
 
-	punctuationCharacterNameTable { :self |
+	punctuationCharacterNameTable { :unused |
 		<primitive: return sl.punctuationCharacterNameTable;>
 	}
 
-	punctuationCharacters { :self |
+	punctuationCharacters { :unused |
 		<primitive: return sl.punctuationCharacters.split('');>
 	}
 
@@ -201,7 +217,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.randomNumberGenerator.next
 	}
 
-	randomByteArray { :self :anInteger |
+	randomByteArray { :unused :anInteger |
 		<primitive:
 		let bytes = new Uint8Array(_anInteger);
 		crypto.getRandomValues(bytes);
@@ -223,7 +239,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.window.sessionStorage
 	}
 
-	smallFloatEpsilon { :self |
+	smallFloatEpsilon { :unused |
 		<primitive: return Number.EPSILON;>
 	}
 
@@ -248,11 +264,11 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return _self.typeDictionary;>
 	}
 
-	systemTimeInMilliseconds { :self |
+	systemTimeInMilliseconds { :unused |
 		<primitive: return performance.now();>
 	}
 
-	systemTimeInSeconds { :self |
+	systemTimeInSeconds { :unused |
 		<primitive: return performance.now() * 0.001;>
 	}
 
@@ -268,7 +284,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.cache['uniqueId'] := anInteger
 	}
 
-	unixTimeInMilliseconds { :self |
+	unixTimeInMilliseconds { :unused |
 		<primitive: return Date.now();>
 	}
 

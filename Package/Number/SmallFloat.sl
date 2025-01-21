@@ -656,6 +656,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.trunc(_self)>
 	}
 
+	unsigned32BitWordList { :self |
+		<primitive:
+		const f64 = new Float64Array(1);
+		const u32 = new Uint32Array(f64.buffer);
+		f64[0] = _self;
+		return [u32[0], u32[1]];
+		>
+	}
+
 	weierstrassFunction { :x :a :m |
 		1:m.collect { :k |
 			(pi * (k ^ a) * x).sin / (pi * (k ^ a))

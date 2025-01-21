@@ -59,7 +59,9 @@
 			nextValue := nextValue + stepSize;
 			count := count - 1
 		};
-		aBlock(self.end);
+		(count > 0).ifTrue {
+			aBlock(self.end)
+		};
 		self
 	}
 
@@ -141,7 +143,9 @@
 			nextValue := nextValue + stepSize;
 			count := count - 1
 		};
-		aBlock(self.start);
+		(count > 0).ifTrue {
+			aBlock(self.start)
+		};
 		self
 	}
 

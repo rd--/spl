@@ -43,6 +43,15 @@ At `Record`:
 (c, (x: 1, y: 2, z: 3))
 ```
 
+Adding no items to a `List`:
+
+```
+>>> let l = [1 2 3];
+>>> l.addAll([]);
+>>> l
+[1 2 3]
+```
+
 * * *
 
 See also: add, Extensible, include, includeAll, Iterable, remove, removeAll
