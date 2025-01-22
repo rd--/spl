@@ -21,7 +21,7 @@ The sequence converges extremely slowly:
 
 * * *
 
-See also: isPrime, isLesserTwinPrime
+See also: boltzmannConstant, e, goldenRatio, isPrime, isLesserTwinPrime, pi, planckConstant, silverConstant, stolarskyHarborthConstant
 
 References:
 _Mathematica_

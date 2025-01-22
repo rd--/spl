@@ -140,6 +140,10 @@
 		}
 	}
 
+	boltzmannConstant { :self |
+		self * 1.380649E-23
+	}
+
 	brunsConstant { :self |
 		1.90216058 * self
 	}
@@ -567,6 +571,40 @@
 		self * 3.1415926535897932384626433
 	}
 
+	planckConstant { :self |
+		self * 6.62607015E-34
+	}
+
+	plancksRadiationFunction { :x |
+		(x <= 0).if {
+			0
+		} {
+			(15 / (pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
+		}
+	}
+
+	planckRadiationLawFrequency { :nu :t |
+		let c = 1.speedOfLight;
+		let h = 1.planckConstant;
+		let k = 1.boltzmannConstant;
+		((2 * h * nu.cubed) / (c.squared)) * (1 / (((h * nu) / (k * t)).exp - 1))
+	}
+
+	planckRadiationLawWavelength { :lambda :t |
+		let c = 1.speedOfLight;
+		let h = 1.planckConstant;
+		let k = 1.boltzmannConstant;
+		((2 * h * c.squared) / (lambda ^ 5)) * (1 / (((h * c) / (lambda * k * t)).exp - 1))
+	}
+
+	planckRadiationLaw { :nuOrLambda :t |
+		(nuOrLambda > 1).if {
+			nuOrLambda.planckRadiationLawFrequency(t)
+		} {
+			nuOrLambda.planckRadiationLawWavelength(t)
+		}
+	}
+
 	plasticRatio { :self |
 		self * 1.3247179572447460259609089
 	}
@@ -767,6 +805,10 @@
 
 	smallFloatEpsilon { :self |
 		self * system.smallFloatEpsilon
+	}
+
+	speedOfLight { :self |
+		self * 299792458
 	}
 
 	squared { :self |

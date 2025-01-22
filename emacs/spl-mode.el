@@ -399,6 +399,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("mu" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
      ("not" . ?¬) ; U+00AC ¬ Not sign
+     ("nu" . ?ν) ; U+003BD ν Greek Small Letter Nu
      ("omega" . ?ω) ; U+03C9 ω Greek Small Letter Omega
      ("Omega" . ?Ω) ; U+03A9 Ω Greek Capital Letter Omega
      ("or" . ?∨) ; ∨ U+2228 Logical Or
