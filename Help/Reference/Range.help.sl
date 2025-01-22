@@ -69,6 +69,9 @@ Range(1, 4, 1)
 >>> (1 .. 4)
 Range(1, 4, 1)
 
+>>> 1:2:9
+Range(1, 9, 2)
+
 >>> (1, 3 .. 9)
 Range(1, 9, 2)
 ```
@@ -169,6 +172,9 @@ Floating point ranges are subject to floating point errors:
 
 >>> 0:2 * 0.05 + 1.8
 [1.8 1.85 1.9]
+
+>>> 2 * 0.05 + 1.8 > 1.9
+true
 ```
 
 The elements of a simple integer range are all integers:

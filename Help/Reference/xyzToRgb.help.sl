@@ -22,4 +22,6 @@ See also: Colour, rgbToXyz, srgbFromLinear
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/images/ref/rgb2xyz.html)
+[1](https://mathworks.com/help/images/ref/rgb2xyz.html),
+_Python_
+[1](https://colour.readthedocs.io/en/latest/generated/colour.XYZ_to_RGB.html)

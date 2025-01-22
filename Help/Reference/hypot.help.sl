@@ -26,6 +26,8 @@ At large numbers:
 See also: +, abs, norm, sqrt, sum
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Hypotenuse.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hypot.html),
 _Tc39_

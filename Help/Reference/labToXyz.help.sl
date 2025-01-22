@@ -27,4 +27,6 @@ See also: Colour, xyzToLab
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/images/ref/lab2xyz.html)
+[1](https://mathworks.com/help/images/ref/lab2xyz.html),
+_Python_
+[1](https://colour.readthedocs.io/en/latest/generated/colour.Lab_to_XYZ.html)

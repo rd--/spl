@@ -49,7 +49,7 @@ let i = (0 -- 1).discretize(n);
 
 ![](sw/spl/Help/Image/hsvToRgb-B.svg)
 
-A colour drawing of an 9×9 gradient matrix with the _hue_ parameter traversing _(0,1)_ and the _value_ parameter _(0.3, 1)_:
+An image of the same gradient matrix at higher resolution:
 
 ~~~spl png=C
 let n = 99;
@@ -63,7 +63,7 @@ let i = (0 -- 1).subdivide(n);
 
 * * *
 
-See also: Colour, Hsv, hsv, hue, rgbToHsv
+See also: Colour, Hsv, hslToHsv, hslToRgb, hsv, hsvToHsl, hue, rgbToHsv
 
 References:
 _Mathworks_

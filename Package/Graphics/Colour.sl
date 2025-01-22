@@ -277,6 +277,44 @@ Colour : [Object] { | red green blue alpha |
 		])
 	}
 
+	hslToHsv { :self |
+		let [h, s, l] = self;
+		let v = l + (s * l.min(1 - l));
+		[
+			h,
+			(v = 0).if {
+				0
+			} {
+				2 * (1 - (l / v))
+			},
+			v
+		]
+	}
+
+	hslToRgb { :self |
+		let [hUnit, s, l] = self.asFloat;
+		let h = hUnit * 360;
+		let a = s * l.min(1 - l);
+		[0 8 4].collect { :n |
+			let k = (n + (h / 30)) % 12;
+			l - (a * -1.max([k - 3, 9 - k, 1].min))
+		}
+	}
+
+	hsvToHsl { :self |
+		let [h, s, v] = self;
+		let l = v * (1 - (s / 2));
+		[
+			h,
+			[0 1].includes(l).if {
+				0
+			} {
+				(v - l) / l.min(1 - l)
+			},
+			l
+		]
+	}
+
 	hsvToRgb { :self |
 		let [hue, saturation, brightness] = self.asFloat;
 		let s = saturation.min(1).max(0);
@@ -297,6 +335,13 @@ Colour : [Object] { | red green blue alpha |
 		]) {
 			'hsvToRgb'.error('implementation error')
 		}
+	}
+
+	labToLch { :self |
+		let [l, a, b] = self;
+		let c = a.hypot(b);
+		let h = (b / a).arcTan;
+		[l, c, h]
 	}
 
 	labToXyz { :self :reference |
@@ -325,6 +370,17 @@ Colour : [Object] { | red green blue alpha |
 		self.labToXyz(d65)
 	}
 
+	lchToLab { :self |
+		let [l, c, h] = self;
+		let a = c * h.cos;
+		let b = c * h.sin;
+		[l, a, b]
+	}
+
+	lchToLuv { :self |
+		self.lchToLab
+	}
+
 	luvToXyz { :self :reference |
 		let [l, u, v] = self;
 		let epsilon = 216 / 24389;
@@ -342,9 +398,17 @@ Colour : [Object] { | red green blue alpha |
 		[x y z]
 	}
 
+	luvToLch { :self |
+		self.labToLch
+	}
+
 	luvToXyz { :self |
 		let d65 = [95.0489, 100, 108.8840];
 		self.luvToXyz(d65)
+	}
+
+	rgbToHsl { :self |
+		self.rgbToHsv.hsvToHsl
 	}
 
 	rgbToHsv { :self |
@@ -445,6 +509,30 @@ Colour : [Object] { | red green blue alpha |
 			[0.055630079696994, -0.203976958888977, 1.056971514242879]
 		];
 		m.dot(self)
+	}
+
+	xyyToXyz { :self |
+		let [x, y1, y2] = self;
+		(y1 = 0).if {
+			[0 0 0]
+		} {
+			[
+				(x * y2) / y1,
+				y2,
+				((1 - x - y1) * y2) / y1
+			]
+		}
+	}
+
+	xyzToXyy { :self |
+		let [x, y, z] = self;
+		let n = x + y + z;
+		(n = 0).if {
+			[1 1 1]
+		} {
+			let m = 1 / n;
+			[x * m, y * m, y]
+		}
 	}
 
 }

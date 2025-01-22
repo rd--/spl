@@ -11,6 +11,9 @@ With standard (D65) white reference:
 
 >>> [69.4695 -48.0439 57.1259].labToXyz
 [25 40 10]
+
+>>> [20.654 12.197 5.137].xyzToLab
+[41.527 52.636 26.916]
 ```
 
 With specified white references:
@@ -43,4 +46,6 @@ See also: Colour, labToXyz
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/images/ref/xyz2lab.html)
+[1](https://mathworks.com/help/images/ref/xyz2lab.html),
+_Python_
+[1](https://colour.readthedocs.io/en/latest/generated/colour.XYZ_to_Lab.html)
