@@ -30,7 +30,7 @@ A blue colour patch:
 
 A light grey colour patch:
 
-~~~spl svg=A
+~~~spl svg=B
 0.75.asColour
 ~~~
 

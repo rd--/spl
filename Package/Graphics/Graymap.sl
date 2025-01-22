@@ -8,9 +8,9 @@ Graymap : [Object] { | contents |
 			maxDepth.printString
 		];
 		let rows = self.contents.collect { :each |
-			each.collect { :item |
-				item.betweenAnd(0, 1).if {
-					(item * maxDepth).rounded.printString
+			each.collect { :level |
+				level.betweenAnd(0, 1).if {
+					(level * maxDepth).rounded.printString
 				} {
 					self.error('asPgm: not (0,1) matrix')
 				}

@@ -164,6 +164,10 @@ Colour : [Object] { | red green blue alpha |
 		[self.red, self.green, self.blue]
 	}
 
+	rgba { :self |
+		[self.red, self.green, self.blue, self.alpha]
+	}
+
 	rgbString { :self |
 		'rgb(%,%,%,%)'.format(
 			[

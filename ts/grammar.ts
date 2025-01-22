@@ -169,8 +169,8 @@ Sl {
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
-	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
-	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
+	rangeFromByToLiteral = integerOrFloatLiteral ":" integerOrFloatLiteral ":" (integerOrFloatLiteral | identifier)
+	rangeFromToLiteral = integerOrFloatLiteral ":" (integerOrFloatLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
 	decimalLiteral = plusOrMinus? digit+ "." digit+ ("d" | "D")
 	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral
@@ -181,6 +181,7 @@ Sl {
 	radixIntegerLiteral = plusOrMinus? digit+ "r" letterOrDigit+
 	constantNumberLiteral = "Infinity" | "NaN"
 	integerLiteral = plusOrMinus? digit+
+    integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""
 	backtickQuotedStringLiteral = backtickCharacter (~backtickCharacter sourceCharacter)* backtickCharacter

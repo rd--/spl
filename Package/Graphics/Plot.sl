@@ -112,7 +112,7 @@ Plot : [Object] { | pages format |
 		let d = shape.size;
 		let a = 'x';
 		let c = [0];
-		let plotData = (self.format = 'matrix').if {
+		let plotData = ['array' 'matrix'].includes(self.format).if {
 			a := 'matrix';
 			c := [];
 			contents.reversed
@@ -171,6 +171,10 @@ Plot : [Object] { | pages format |
 
 	draw { :self |
 		self.format.caseOfOtherwise([
+			'array' -> {
+				let [contents] = self.pages;
+				contents.asColourSvg.draw
+			},
 			'graph' -> {
 				let [graph] = self.pages;
 				graph.dotDrawing.draw
@@ -190,6 +194,10 @@ Plot : [Object] { | pages format |
 
 	writeSvg { :self :fileName |
 		self.format.caseOfOtherwise([
+			'array' -> {
+				let [contents] = self.pages;
+				contents.asColourSvg.writeSvg(fileName)
+			},
 			'graph' -> {
 				let [graph] = self.pages;
 				graph.dotDrawing.writeSvg(fileName)
@@ -206,6 +214,10 @@ Plot : [Object] { | pages format |
 }
 
 +List {
+
+	arrayPlot { :self |
+		[self.asFloat].Plot('array')
+	}
 
 	discretePlot { :self |
 		self.typedPlot('discrete')

@@ -1,8 +1,8 @@
 # matrixPlot
 
-- _matrixPlot(m)_
+- _matrixPlot(aMatrix)_
 
-Answer a plot that gives a visual representation of the elements in a matrix.
+Answer a plot that gives a visual representation of the elements in _aMatrix_.
 
 `zero` is drawn as white,
 or as transparent if supported,
@@ -99,7 +99,7 @@ Plot a row-order 4×4 linear image:
 
 * * *
 
-See also: asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 References:
 _Mathematica_

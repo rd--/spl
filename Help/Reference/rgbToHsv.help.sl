@@ -1,8 +1,8 @@
 # rgbToHsv
 
-- _rgbToHsv([r,g,b])_
+- _rgbToHsv(rgb)_
 
-Answer an _[h,s,v]_ triple given an _[r,g,b]_ triple.
+Answer an _(h,s,v)_ triple given an _(r,g,b)_ triple.
 
 Convert table of _Rgb_ values to _Hsv_.
 

@@ -1,8 +1,8 @@
 # hsvToRgb
 
-- _hsvToRgb([h,s,v])_
+- _hsvToRgb(hsv)_
 
-Answer a _[r,g,b]_ triple given an _[h,s,v]_ triple.
+Answer an _(r,g,b)_ triple given an _(h,s,v)_ triple.
 
 Convert table of _Hsv_ values to _Rgb_.
 
@@ -26,15 +26,40 @@ Convert table of _Hsv_ values to _Rgb_.
 ]
 ```
 
-A colour drawing of an 8×8 matrix with the _hue_ parameter linearly rotating in row order:
+A colour drawing of an 5×5 matrix with the _hue_ parameter linearly rotating in row order:
 
 ~~~spl svg=A
-(0 -- 1).discretize(64).collect { :each |
-	Hsv(each, 0.65, 0.75)
-}.reshape([8 8]).asColourSvg
+let n = 5;
+[n n].iota.deepCollect { :each |
+	[each / n / n, 0.65, 0.75].hsvToRgb
+}.arrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/hsvToRgb-A.svg)
+
+A colour drawing of an 9×9 gradient matrix with the _hue_ parameter traversing _(0,1)_ and the _value_ parameter _(0.3, 1)_:
+
+~~~spl svg=B
+let n = 9;
+let i = (0 -- 1).discretize(n);
+{ :h :v |
+	[h, 0.5, v].hsvToRgb
+}.table(i, i * 0.7 + 0.3).arrayPlot
+~~~
+
+![](sw/spl/Help/Image/hsvToRgb-B.svg)
+
+A colour drawing of an 9×9 gradient matrix with the _hue_ parameter traversing _(0,1)_ and the _value_ parameter _(0.3, 1)_:
+
+~~~spl png=C
+let n = 99;
+let i = (0 -- 1).subdivide(n);
+{ :h :v |
+	[h, 0.5, v].hsvToRgb
+}.table(i, i * 0.7 + 0.3).Image
+~~~
+
+![](sw/spl/Help/Image/hsvToRgb-C.png)
 
 * * *
 
