@@ -7,18 +7,32 @@ Commonly, a binomial coefficient is indexed by a pair of integers _n ≥ k ≥ 0
 Tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```
->>> 5.binomial(3)
-10
-
->>> 3.binomial(5)
-0
+>>> 4.binomial(2)
+6
 
 >>> 6.binomial(3)
-((6 * 5 * 4) / (1 * 2 * 3))
+20
 
 >>> 8.binomial(4)
 70
 
+>>> 8.binomial(5)
+56
+```
+
+_n_ less than _k_:
+
+```
+>>> 3.binomial(5)
+0
+
+>>> 5.binomial(23)
+0
+```
+
+Real valued arguments:
+
+```
 >>> 8.5.binomial(-4.2)
 0.0000604992
 
@@ -88,6 +102,9 @@ If _k_ is greater than _n_ the answer is zero:
 Threads over lists:
 
 ```
+>>> 5.binomial([3 4 5])
+[10 5 1]
+
 >>> 11:13.binomial(1:3)
 [11 66 286]
 
@@ -132,6 +149,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialCoefficient.html)
 [2](https://mathworld.wolfram.com/Choose.html)
 [3](https://reference.wolfram.com/language/ref/Binomial.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/nchoosek.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 

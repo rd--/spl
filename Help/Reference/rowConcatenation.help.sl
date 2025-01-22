@@ -50,7 +50,7 @@ References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/base/arrays/#Base.hcat),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/double.horzcat.html)
-[2](https://au.mathworks.com/help/matlab/ref/double.cat.html)
+[1](https://mathworks.com/help/matlab/ref/double.horzcat.html)
+[2](https://mathworks.com/help/matlab/ref/double.cat.html)
 
 Categories: Converting

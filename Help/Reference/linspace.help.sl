@@ -29,4 +29,4 @@ See also: discretize, logspace, subdivide
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/linspace.html)
+[1](https://mathworks.com/help/matlab/ref/linspace.html)

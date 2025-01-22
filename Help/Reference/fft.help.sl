@@ -63,7 +63,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Fourier.html),
 _Matlab_
-[1](https://au.mathworks.com/help/matlab/ref/fft.html),
+[1](https://mathworks.com/help/matlab/ref/fft.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Signal.html#-fft)
 

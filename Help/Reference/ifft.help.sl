@@ -25,7 +25,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseFourier.html),
 _Matlab_
-[1](https://au.mathworks.com/help/matlab/ref/ifft.html),
+[1](https://mathworks.com/help/matlab/ref/ifft.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Signal.html#-ifft)
 

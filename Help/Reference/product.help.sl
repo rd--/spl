@@ -32,6 +32,27 @@ Factorial is product of a `Range`:
 362880
 ```
 
+At a matrix answer the products of the columns:
+
+```
+>>> [3 3].iota.product
+[28 80 162]
+
+>>> [1 4 7; 2 5 8; 3 6 9]
+>>> .collect(product:/1)
+[28 80 162]
+```
+
+Collecting answers the products of the rows:
+
+```
+>>> [3 3].iota.collect(product:/1)
+[6 120 504]
+
+>>> [1 4 7; 2 5 8; 3 6 9].product
+[6 120 504]
+```
+
 Plot the sequence of partial products:
 
 ~~~spl svg=A
@@ -63,6 +84,8 @@ See also: *, injectInto, reduce, sum
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Product.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.prod.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Empty_product)
 

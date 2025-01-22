@@ -92,10 +92,10 @@ A half sphere:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, parametricPlot, scatterPlot
+See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/surf.html)
+[1](https://mathworks.com/help/matlab/ref/surf.html)
 
 Categories: Plotting

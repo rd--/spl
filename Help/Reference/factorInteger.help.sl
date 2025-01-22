@@ -187,6 +187,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
-[2](https://reference.wolfram.com/language/ref/FactorInteger.html)
+[2](https://reference.wolfram.com/language/ref/FactorInteger.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/factor.html)
 
 Categories: Arithmetic

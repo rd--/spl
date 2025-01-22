@@ -5,6 +5,9 @@
 Answer a `List` of the prime numbers less than or equal to _anInteger_.
 
 ```
+>>> 25.primesUpTo
+[2 3 5 7 11 13 17 19 23]
+
 >>> 100.primesUpTo
 [
 	2 3 5 7 11 13 17 19 23 29
@@ -37,5 +40,9 @@ There is one prime up to two:
 * * *
 
 See also: primesList, primesUpToDo
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/primes.html)
 
 Categories: Primes

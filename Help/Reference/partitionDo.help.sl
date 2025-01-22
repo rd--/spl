@@ -16,4 +16,4 @@ Only one `List`, of _windowSize_ places, is allocated.
 
 * * *
 
-See also: partition
+See also: adjacentPairs, partition, partitionCollect

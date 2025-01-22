@@ -37,6 +37,13 @@ A list that consists of two copies of each element of a sequence:
 [1 1 2 2 3 3]
 ```
 
+A list that consists of three copies of each element of a sequence:
+
+```
+>>> 1:4 # 3
+[1 1 1 2 2 2 3 3 3 4 4 4]
+```
+
 If the count is `zero` answer the empty list:
 
 ```
@@ -53,6 +60,9 @@ make the indicated number of copies of each element in turn:
 
 >>> 1:3 # 3:1
 [1 1 1 2 2 3]
+
+>>> 1:4 # [2 2 3 3]
+[1 1 2 2 3 3 3 4 4 4]
 ```
 
 A zero count entry skips over the corresponding item
@@ -82,4 +92,6 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Replicate),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic)
+[1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/repelem.html)

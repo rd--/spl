@@ -84,6 +84,9 @@ Threads over lists:
 >>> 1:6.isPrime
 [false true true false true false]
 
+>>> [2 3 0 6 10].isPrime.boole
+[1 1 0 0 0]
+
 >>> 0:24.isPrime.boole
 [
 	0 0 1 1 0 1 0 1 0 0
@@ -161,6 +164,8 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=isprime),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Primes.html)
-[2](https://reference.wolfram.com/language/ref/PrimeQ.html)
+[2](https://reference.wolfram.com/language/ref/PrimeQ.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/isprime.html)
 
 Categories: Arithmetic

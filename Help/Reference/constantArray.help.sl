@@ -11,10 +11,30 @@ A vector of five threes:
 [3 3 3 3 3]
 ```
 
+For the vector case see also `#` and `!`:
+
+```
+>>> 3 # 5
+[3 3 3 3 3]
+
+>>> 3 ! 5
+[3 3 3 3 3]
+```
+
 A 3×4 array of fives:
 
 ```
 >>> [3 4].constantArray(5)
+[5 5 5 5; 5 5 5 5; 5 5 5 5]
+```
+
+For the matrix case see also `reshape`:
+
+```
+>>> [5].reshape([3 4])
+[5 5 5 5; 5 5 5 5; 5 5 5 5]
+
+>>> (5 # 12).reshape([3 4])
 [5 5 5 5; 5 5 5 5; 5 5 5 5]
 ```
 
@@ -25,7 +45,7 @@ A matrix of exact zeros:
 [0 0 0; 0 0 0; 0 0 0]
 ```
 
-A deeply nested constant array (tree):
+A deeply nested constant array (a tree):
 
 ```
 >>> [2 1 2 1 2].constantArray(0)
@@ -34,7 +54,7 @@ A deeply nested constant array (tree):
 
 * * *
 
-See also: identityMatrix, iota, Range, reshape, table, unitVector
+See also: #, !, identityMatrix, iota, Range, reshape, table, unitVector
 
 References:
 _Mathematica_

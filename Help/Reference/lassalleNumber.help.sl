@@ -21,6 +21,6 @@ References:
 _OEIS_
 [1](https://oeis.org/A180874)
 
-Further Reading: Lassalle 2012
+Further Reading: Defant 2020, Lassalle 2012
 
 Categories: Math, Sequence

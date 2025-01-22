@@ -407,6 +407,14 @@
 		}
 	}
 
+	combinations { :self :m |
+		let answer = [];
+		self.combinationsAtATimeDo(m) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
 	compare { :self :aSequence |
 		let n = self.size;
 		let m = aSequence.size;
@@ -1869,6 +1877,15 @@
 
 	mergeSort { :self |
 		self.mergeSortFromToBy(1, self.size, <=)
+	}
+
+	meshGrid { :x :y |
+		let m = y.size;
+		let n = x.size;
+		[
+			x.asList ! m,
+			(y.asList ! n).transposed
+		]
 	}
 
 	middle { :self :count |

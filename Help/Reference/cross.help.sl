@@ -114,7 +114,7 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/PerpendicularVector.html)
 [3](https://reference.wolfram.com/language/ref/Cross.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/cross.html),
+[1](https://mathworks.com/help/matlab/ref/cross.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cross_product)
 

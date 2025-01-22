@@ -20,6 +20,12 @@ In the `Integer` case all factors will be integers:
 
 >>> 25.primeFactors
 [5 5]
+
+>>> 200.primeFactors
+[2 2 2 5 5]
+
+>>> 138.primeFactors
+[2 3 23]
 ```
 
 The number 30 is the smallest 3-dimensional number,
@@ -111,6 +117,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/qco),
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
-[2](https://reference.wolfram.com/language/ref/FactorInteger.html)
+[2](https://reference.wolfram.com/language/ref/FactorInteger.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/factor.html)
 
 Categories: Arithmetic

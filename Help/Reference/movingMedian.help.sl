@@ -69,6 +69,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/MovingMedian.html)
 [2](https://reference.wolfram.com/language/ref/MovingMedian.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/movmedian.html),
+[1](https://mathworks.com/help/matlab/ref/movmedian.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Moving_average)

@@ -223,11 +223,7 @@
 	}
 
 	combinations { :n :m |
-		let answer = [];
-		1:n.combinationsAtATimeDo(m) { :each |
-			answer.add(each.copy)
-		};
-		answer
+		(1 .. n).combinations(m)
 	}
 
 	commonResidue { :self :modulus |

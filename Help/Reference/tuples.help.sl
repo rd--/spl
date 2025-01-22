@@ -6,32 +6,50 @@
 Answer all of the possible _n_-tuples of each of the elements of _aSequence_,
 which is an _n_-element sequence of any sized sequences.
 
+`tuples` of a 2×2 matrix is a 4×2 matrix:
+
 ```
 >>> [1 2; 3 4].tuples
 [1 3; 1 4; 2 3; 2 4]
 
 >>> [3 4; 1 2].tuples
 [3 1; 3 2; 4 1; 4 2]
+```
 
+`tuples` of a two-vector and a three-vector is a 6×2 matrix:
+
+```
 >>> [1 2; 7 8 9].tuples
 [1 7; 1 8; 1 9; 2 7; 2 8; 2 9]
+```
 
->>> [
->>> 	'a' 'b';
->>> 	'x' 'y' 'z';
->>> 	'u' 'v'
->>> ].tuples.collect(stringJoin:/1)
-[
-	'axu' 'axv' 'ayu' 'ayv' 'azu' 'azv'
-	'bxu' 'bxv' 'byu' 'byv' 'bzu' 'bzv'
-]
+`tuples` of a three-vector and a four-vector is a 12×2 matrix:
 
+```
 >>> [0:2, 0:3].tuples
 [
 	0 0; 0 1; 0 2; 0 3;
 	1 0; 1 1; 1 2; 1 3;
 	2 0; 2 1; 2 2; 2 3
 ]
+```
+
+`tuples` of a two-vector, a three-vector, and a two-vector is a 12×3 matrix:
+
+```
+>>> let m = [
+>>> 	'a' 'b';
+>>> 	'x' 'y' 'z';
+>>> 	'u' 'v'
+>>> ].tuples;
+>>> (m.shape, m.collect(stringJoin:/1))
+(
+	[12 3],
+	[
+		'axu' 'axv' 'ayu' 'ayv' 'azu' 'azv'
+		'bxu' 'bxv' 'byu' 'byv' 'bzu' 'bzv'
+	]
+)
 ```
 
 Two-tuples are the cartesian product of a set with itself:
@@ -156,6 +174,8 @@ References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlylf),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Tuples.html)
+[1](https://reference.wolfram.com/language/ref/Tuples.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/combinations.html)
 
 Categories: Combinatorics, Enumerating, Math

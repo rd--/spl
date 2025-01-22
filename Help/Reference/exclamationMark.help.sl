@@ -73,13 +73,32 @@ evaluate _value(anObject)_ to fill an array of the indicated shape:
 
 ```
 >>> { 1 } ! [2 3]
-[1 1 1; 1 1 1]
+[
+	1 1 1;
+	1 1 1
+]
+```
 
->>> 1 ! [3 2 3]
-[1 1 1; 1 1 1:; 1 1 1; 1 1 1:; 1 1 1; 1 1 1]
+Create a 3×2 constant matrix:
 
+```
 >>> 'x' ! [3 2]
-['x' 'x'; 'x' 'x'; 'x' 'x']
+[
+	'x' 'x';
+	'x' 'x';
+	'x' 'x'
+]
+```
+
+Create a 3×2×3 constant array:
+
+```
+>>> 1 ! [3 2 3]
+[
+	1 1 1; 1 1 1:;
+	1 1 1; 1 1 1:;
+	1 1 1; 1 1 1
+]
 ```
 
 An empty shape answers a scalar value:

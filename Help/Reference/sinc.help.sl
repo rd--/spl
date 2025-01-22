@@ -66,7 +66,9 @@ See also: sin, sincNormalized
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SincFunction.html)
-[2](https://reference.wolfram.com/language/ref/Sinc.html)
+[2](https://reference.wolfram.com/language/ref/Sinc.html),
+_Mathworks_
+[1](https://mathworks.com/help/signal/ref/sinc.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Sinc_function)
 

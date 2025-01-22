@@ -239,7 +239,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianElimination.html)
 [2](https://reference.wolfram.com/language/ref/RowReduce.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/rref.html),
+[1](https://mathworks.com/help/matlab/ref/rref.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gaussian_elimination)
 [2](https://en.wikipedia.org/wiki/Row_echelon_form)
