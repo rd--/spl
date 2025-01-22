@@ -29,9 +29,9 @@ Convert table of _Hsv_ values to _Rgb_.
 A colour drawing of an 8×8 matrix with the _hue_ parameter linearly rotating in row order:
 
 ~~~spl svg=A
-([8 8].iota / 64).deepCollect { :each |
-	[each, 0.65, 0.75].hsvToRgb
-}.asColourSvg
+(0 -- 1).discretize(64).collect { :each |
+	Hsv(each, 0.65, 0.75)
+}.reshape([8 8]).asColourSvg
 ~~~
 
 ![](sw/spl/Help/Image/hsvToRgb-A.svg)

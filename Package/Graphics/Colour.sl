@@ -58,24 +58,7 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	hsv { :self |
-		let [r, g, b] = [self.red, self.green, self.blue];
-		let v = [r g b].max;
-		let c = v - [r g b].min;
-		let s = (v = 0).if { 0 } { c / v };
-		let h = (c = 0).if {
-			0
-		} {
-			(v = r).if {
-				60 * ((g - b) / c % 6)
-			} {
-				(v = g).if {
-					60 * ((b - r) / c + 2)
-				} {
-					60 * ((r - g) / c + 4)
-				}
-			}
-		};
-		[h / 360, s, v]
+		self.rgb.rgbToHsv
 	}
 
 	hue { :self |
@@ -177,6 +160,10 @@ Colour : [Object] { | red green blue alpha |
 		)
 	}
 
+	rgb { :self |
+		[self.red, self.green, self.blue]
+	}
+
 	rgbString { :self |
 		'rgb(%,%,%,%)'.format(
 			[
@@ -238,25 +225,9 @@ Colour : [Object] { | red green blue alpha |
 		level.greyLevel(1)
 	}
 
-	Hsv { :hue :saturation :brightness |
-		let s = saturation.min(1).max(0);
-		let v = brightness.min(1).max(0);
-		let h = (hue * 360) % 360;
-		let i = h // 60;
-		let f = (h % 60) / 60;
-		let p = (1 - s) * v;
-		let q = (1 - (s * f)) * v;
-		let t = (1 - (s * (1 - f))) * v;
-		i.caseOfOtherwise([
-			{ 0 } ->  { Colour(v, t, p) },
-			{ 1 } ->  { Colour(q, v, p) },
-			{ 2 } ->  { Colour(p, v, t) },
-			{ 3 } ->  { Colour(p, q, v) },
-			{ 4 } ->  { Colour(t, p, v) },
-			{ 5 } ->  { Colour(v, p, q) }
-		]) {
-			'Hsv'.error('implementation error')
-		}
+	Hsv { :h :s :v |
+		let [r, g, b] = [h, s, v].hsvToRgb;
+		Colour(r, g, b, 1)
 	}
 
 	srgbFromLinear { :self |
@@ -303,16 +274,174 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	hsvToRgb { :self |
-		let [h, s, v] = self.asFloat;
-		let [r, g, b, a] = Hsv(h, s, v).asList;
-		[r g b]
+		let [hue, saturation, brightness] = self.asFloat;
+		let s = saturation.min(1).max(0);
+		let v = brightness.min(1).max(0);
+		let h = (hue * 360) % 360;
+		let i = h // 60;
+		let f = (h % 60) / 60;
+		let p = (1 - s) * v;
+		let q = (1 - (s * f)) * v;
+		let t = (1 - (s * (1 - f))) * v;
+		i.caseOfOtherwise([
+			{ 0 } ->  { [v, t, p] },
+			{ 1 } ->  { [q, v, p] },
+			{ 2 } ->  { [p, v, t] },
+			{ 3 } ->  { [p, q, v] },
+			{ 4 } ->  { [t, p, v] },
+			{ 5 } ->  { [v, p, q] }
+		]) {
+			'hsvToRgb'.error('implementation error')
+		}
+	}
+
+	labToXyz { :self :reference |
+		let [l, a, b] = self;
+		let [xn, yn, zn] = reference;
+		let delta = 6 / 29;
+		let epsilon = delta.cubed;
+		let kappa = 8 / epsilon;
+		let fy = (l + 16) / 116;
+		let fx = (a / 500) + fy;
+		let fz = fy - (b / 200);
+		let fx3 = fx.cubed;
+		let fz3 = fz.cubed;
+		let x = (fx3 > epsilon).if { fx3 } { (116 * fx - 16) / kappa };
+		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116).cubed } { l / kappa };
+		let z = (fz3 > epsilon).if { fz3 } { (116 * fz - 16) / kappa };
+		[
+			x * xn,
+			y * yn,
+			z * zn
+		]
+	}
+
+	labToXyz { :self |
+		let d65 = [95.0489, 100, 108.8840];
+		self.labToXyz(d65)
+	}
+
+	luvToXyz { :self :reference |
+		let [l, u, v] = self;
+		let epsilon = 216 / 24389;
+		let kappa = 24389 / 27;
+		let [xn, yn, zn] = reference;
+		let v0 = 9 * yn / (xn + (15 * yn) + (3 * zn));
+		let u0 = 4 * xn / (xn + (15 * yn) + (3 * zn));
+		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116) ^ 3 } { l / kappa };
+		let d = (l = 0).if { 0 } { y * (39 * l / (v + (13 * l * v0)) - 5) };
+		let c = -1 / 3;
+		let b = -5 * y;
+		let a = (l = 0).if { 0 } { (52 * l / (u + (13 * l * u0)) - 1) / 3 };
+		let x = (d - b) / (a - c);
+		let z = x * a + b;
+		[x y z]
+	}
+
+	luvToXyz { :self |
+		let d65 = [95.0489, 100, 108.8840];
+		self.luvToXyz(d65)
 	}
 
 	rgbToHsv { :self |
 		let [r, g, b] = self.asFloat;
-		Colour(r, g, b, 1).hsv
+		let v = [r g b].max;
+		let c = v - [r g b].min;
+		let s = (v = 0).if { 0 } { c / v };
+		let h = (c = 0).if {
+			0
+		} {
+			(v = r).if {
+				60 * ((g - b) / c % 6)
+			} {
+				(v = g).if {
+					60 * ((b - r) / c + 2)
+				} {
+					60 * ((r - g) / c + 4)
+				}
+			}
+		};
+		[h / 360, s, v]
 	}
 
+	rgbToXyz { :self |
+		let m = [
+			[0.412390799265959, 0.357584339383878, 0.180480788401834],
+			[0.212639005871510, 0.715168678767756, 0.072192315360734],
+			[0.019330818715592, 0.119194779794626, 0.950532152249661]
+		];
+		m.dot(self)
+	}
+
+	srgbFromLinear { :self |
+		self.collect(srgbFromLinear:/1)
+	}
+
+	srgbToLinear { :self |
+		self.collect(srgbToLinear:/1)
+	}
+
+	xyzToLab { :self :reference |
+		let [x, y, z] = self;
+		let [xn, yn, zn] = reference;
+		let delta = 6 / 29;
+		let epsilon = delta.cubed;
+		let kappa = 8 / epsilon;
+		let f = { :t |
+			(t > epsilon).if {
+				t.cubeRoot
+			} {
+				((kappa * t) + 16) / 116
+			}
+		};
+		let fX = f(x / xn);
+		let fY = f(y / yn);
+		let fZ = f(z / zn);
+		[
+			(116 * fY) - 16,
+			500 * (fX - fY),
+			200 * (fY - fZ)
+		]
+	}
+
+	xyzToLab { :self |
+		let d65 = [95.0489, 100, 108.8840];
+		self.xyzToLab(d65)
+	}
+
+	xyzToLuv { :self :reference |
+		(self = [0 0 0]).if {
+			[0 0 0]
+		} {
+			let [x, y, z] = self;
+			let epsilon = 216 / 24389;
+			let kappa = 24389 / 27;
+			let [xn, yn, zn] = reference;
+			let vr = 9 * yn / (xn + (15 * yn) + (3 * zn));
+			let ur = 4 * xn / (xn + (15 * yn) + (3 * zn));
+			let v1 = 9 * y / (x + (15 * y) + (3 * z));
+			let u1 = 4 * x / (x + (15 * y) + (3 * z));
+			let yr = y / yn;
+			let l = (yr > epsilon).if { (116 * yr.cubeRoot) - 16 } { kappa * yr };
+			let u = 13 * l * (u1 - ur);
+			let v = 13 * l * (v1 - vr);
+			[l, u, v] * 100
+		}
+	}
+
+	xyzToLuv { :self |
+		let d65 = [95.0489, 100, 108.8840];
+		self.xyzToLuv(d65)
+	}
+
+	xyzToRgb { :self |
+		let m = [
+			[3.240969941904523, -1.537383177570094, -0.498610760293003],
+			[-0.969243636280880, 1.875967501507721, 0.041555057407176],
+			[0.055630079696994, -0.203976958888977, 1.056971514242879]
+		];
+		m.dot(self)
+	}
 
 }
 

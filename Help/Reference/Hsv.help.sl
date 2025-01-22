@@ -75,7 +75,7 @@ Colour(0.25980, 0.10374, 0.918)
 
 * * *
 
-See also: Colour
+See also: Colour, hsvToRgb
 
 References:
 _Mathematica_

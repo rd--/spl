@@ -10,8 +10,14 @@ Answer the real-valued cube root of _aNumber_.
 >>> -27.cubeRoot
 -3
 
+>>> -3.cubed
+-27
+
 >>> 27.cubeRoot.negated
 -3
+
+>>> 27 ^ (1 / 3)
+3
 
 >>> -8.cubeRoot
 -2
