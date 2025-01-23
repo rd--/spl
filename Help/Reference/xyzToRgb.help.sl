@@ -22,6 +22,8 @@ Converts Cie 1931 Xyz values (2° observer) to (s)Rgb values.
 
 See also: Colour, rgbToXyz, srgbEncode
 
+Guides: Colour Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/images/ref/rgb2xyz.html),

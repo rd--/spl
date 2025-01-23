@@ -3,6 +3,9 @@
 - _labToXyz(xyz)_
 - _labToXyz(xyz, whiteReference)_
 
+Convert from Cie _L*a*b*_ colourspace to Cie _Xyz_ tristimulus values _(0,1)_.
+_L_ is in _(0,100)_ and _a_ and _b_ are in _(-100,100)_.
+
 With default (D65) white reference:
 
 ```
@@ -45,9 +48,30 @@ Inverse is `xyzToLab`:
 [50 10 -5]
 ```
 
+A 9×9 gradient over a subset of _Lab_ colour space,
+out of gamut values are clipped:
+
+~~~spl svg=A
+let n = 9;
+let u = (-50 -- 50).discretize(n);
+{ :i :j |
+	[50, i * 1.3, j]
+	.labToXyz
+	.xyzToRgb
+	.clip(0, 1)
+	.srgbEncode
+}
+.table(u, u)
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/labToXyz-A.svg)
+
 * * *
 
 See also: Colour, xyzToLab
+
+Guides: Colour Functions
 
 References:
 _Mathworks_

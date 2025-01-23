@@ -48,6 +48,8 @@ With specified white references:
 
 See also: Colour, labToXyz
 
+Guides: Colour Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/images/ref/xyz2lab.html),
