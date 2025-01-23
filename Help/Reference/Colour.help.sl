@@ -110,6 +110,8 @@ true
 
 See also: asColour, alpha, blue, green, Hsv, red
 
+Guides: Colour Functions
+
 References:
 _Mathematica_
 [1](https predicate://reference.wolfram.com/language/ref/RGBColor.html)

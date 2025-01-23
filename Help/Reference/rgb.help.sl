@@ -11,4 +11,4 @@ Answer the _rgb_ components of _aColour_.
 
 * * *
 
-See also: Colour, hsv
+See also: Colour, hsv, rgba

@@ -20,3 +20,9 @@ Answer an _(h,s,v)_ triple given an _(h,s,l)_ triple.
 
 See also: hslToRgb, hsvToHsl, rgbToHsl, rgbToHsv
 
+Guides: Colour Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/HSL_and_HSV)
+

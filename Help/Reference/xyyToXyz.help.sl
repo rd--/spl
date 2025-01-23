@@ -36,7 +36,8 @@ White point in Rgb space:
 
 See also: Colour, xyzToxyy
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/latest/generated/colour.xyY_to_XYZ.html)
-

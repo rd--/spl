@@ -2,6 +2,7 @@
 
 - _hslToRgb(hsl)_
 
+Convert from _Hsl_ _(0,1)_ colourspace to _Rgb_ _(0,1)_ colourspace.
 Answer an _(r,g,b)_ triple given an _(h,s,l)_ triple.
 
 ```
@@ -13,6 +14,13 @@ Answer an _(r,g,b)_ triple given an _(h,s,l)_ triple.
 
 >>> [0.99604 0.87347 0.24351].hslToRgb
 [0.45621 0.03081 0.04092]
+```
+
+Inverse is `rgbToHsl`:
+
+```
+>>> [0.45621 0.03081 0.04092].rgbToHsl
+[0.99604 0.87347 0.24351]
 ```
 
 A colour drawing of an 5×5 matrix with the _hue_ parameter linearly rotating in row order:

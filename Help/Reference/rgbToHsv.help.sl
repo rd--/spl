@@ -4,6 +4,20 @@
 
 Answer an _(h,s,v)_ triple given an _(r,g,b)_ triple.
 
+Specific values:
+
+```
+>>> [0.45621 0.03081 0.04092].rgbToHsv
+[0.99604 0.93246 0.45621]
+```
+
+Inverse is `hsvToRgb`:
+
+```
+>>> [0.99604 0.93246 0.45621].hsvToRgb
+[0.45621 0.03081 0.04092]
+```
+
 Convert table of _Rgb_ values to _Hsv_.
 
 ```
@@ -31,5 +45,7 @@ Convert table of _Rgb_ values to _Hsv_.
 See also: Colour, Hsv, hsv, hsvToRgb, hue
 
 References:
+_Python_
+[1](https://colour.readthedocs.io/en/develop/generated/colour.RGB_to_HSV.html)
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/rgb2hsv.html)

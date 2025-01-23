@@ -42,15 +42,6 @@ Colour : [Object] { | red green blue alpha |
 		}
 	}
 
-	fromSrgb { :self |
-		Colour(
-			self.red.srgbToLinear,
-			self.green.srgbToLinear,
-			self.blue.srgbToLinear,
-			self.alpha
-		)
-	}
-
 	hexString { :self |
 		'#' ++ [self.red, self.green, self.blue].collect { :each |
 			(each * 255).rounded.byteHexString
@@ -179,6 +170,24 @@ Colour : [Object] { | red green blue alpha |
 		)
 	}
 
+	srgbDecode { :self |
+		Colour(
+			self.red.srgbDecode,
+			self.green.srgbDecode,
+			self.blue.srgbDecode,
+			self.alpha
+		)
+	}
+
+	srgbEncode { :self |
+		Colour(
+			self.red.srgbEncode,
+			self.green.srgbEncode,
+			self.blue.srgbEncode,
+			self.alpha
+		)
+	}
+
 	storeString { :self |
 		[
 			'Colour(',
@@ -190,15 +199,6 @@ Colour : [Object] { | red green blue alpha |
 			].collect(storeString:/1).join(', '),
 			')'
 		].join('')
-	}
-
-	toSrgb { :self |
-		Colour(
-			self.red.srgbFromLinear,
-			self.green.srgbFromLinear,
-			self.blue.srgbFromLinear,
-			self.alpha
-		)
 	}
 
 	writeSvg { :self :fileName |
@@ -234,20 +234,19 @@ Colour : [Object] { | red green blue alpha |
 		Colour(r, g, b, 1)
 	}
 
-	srgbFromLinear { :self |
-		(self = 1).if {
-			1
-		} {
-			(self <= 0.0031308).if {
-				12.92 * self
+	lightnessCie { :y :yn |
+		let f = { :y :yn |
+			let yyn = y / yn;
+			(yyn > ((24 / 116) ^ 3)).if {
+				yyn.cubeRoot
 			} {
-				let a = 0.055;
-				(1 + a) * (self ^ (1 / 2.4)) - a
+				((841 / 108) * yyn) + (16 / 116)
 			}
-		}
+		};
+		116 * f(y * 100, yn * 100) - 16
 	}
 
-	srgbToLinear { :self |
+	srgbDecode { :self |
 		(self = 1).if {
 			1
 		} {
@@ -256,6 +255,19 @@ Colour : [Object] { | red green blue alpha |
 			} {
 				let a = 0.055;
 				((self + a) / (1 + a)) ^ 2.4
+			}
+		}
+	}
+
+	srgbEncode { :self |
+		(self = 1).if {
+			1
+		} {
+			(self <= 0.0031308).if {
+				12.92 * self
+			} {
+				let a = 0.055;
+				(1 + a) * (self ^ (1 / 2.4)) - a
 			}
 		}
 	}
@@ -337,16 +349,27 @@ Colour : [Object] { | red green blue alpha |
 		}
 	}
 
-	labToLch { :self |
+	jabToJch { :self |
 		let [l, a, b] = self;
-		let c = a.hypot(b);
-		let h = (b / a).arcTan;
-		[l, c, h]
+		let [c, h] = [a, b].toPolarCoordinates;
+		[l, c, h.radiansToDegrees % 360]
+	}
+
+	jchToJab { :self |
+		let [j, c, h] = self;
+		let hRadians = h.degree;
+		let a = c * hRadians.cos;
+		let b = c * hRadians.sin;
+		[j, a, b]
+	}
+
+	labToLch { :self |
+		self.jabToJch
 	}
 
 	labToXyz { :self :reference |
 		let [l, a, b] = self;
-		let [xn, yn, zn] = reference;
+		let [rx, ry, rz] = reference;
 		let delta = 6 / 29;
 		let epsilon = delta.cubed;
 		let kappa = 8 / epsilon;
@@ -359,10 +382,10 @@ Colour : [Object] { | red green blue alpha |
 		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116).cubed } { l / kappa };
 		let z = (fz3 > epsilon).if { fz3 } { (116 * fz - 16) / kappa };
 		[
-			x * xn,
-			y * yn,
-			z * zn
-		]
+			x * rx,
+			y * ry,
+			z * rz
+		] / 100
 	}
 
 	labToXyz { :self |
@@ -371,35 +394,32 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	lchToLab { :self |
-		let [l, c, h] = self;
-		let a = c * h.cos;
-		let b = c * h.sin;
-		[l, a, b]
+		self.jchToJab
 	}
 
 	lchToLuv { :self |
-		self.lchToLab
+		self.jchToJab
+	}
+
+	luvToLch { :self |
+		self.jabToJch
 	}
 
 	luvToXyz { :self :reference |
 		let [l, u, v] = self;
+		let [rx, ry, rz] = reference;
 		let epsilon = 216 / 24389;
 		let kappa = 24389 / 27;
-		let [xn, yn, zn] = reference;
-		let v0 = 9 * yn / (xn + (15 * yn) + (3 * zn));
-		let u0 = 4 * xn / (xn + (15 * yn) + (3 * zn));
+		let u0 = (4 * rx) / (rx + (15 * ry) + (3 * rz));
+		let v0 = (9 * ry) / (rx + (15 * ry) + (3 * rz));
 		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116) ^ 3 } { l / kappa };
-		let d = (l = 0).if { 0 } { y * (39 * l / (v + (13 * l * v0)) - 5) };
-		let c = -1 / 3;
+		let a = (l = 0).if { 0 } { (((52 * l) / (u + (13 * l * u0))) - 1) / 3 };
 		let b = -5 * y;
-		let a = (l = 0).if { 0 } { (52 * l / (u + (13 * l * u0)) - 1) / 3 };
+		let c = -1 / 3;
+		let d = (l = 0).if { 0 } { y * (((39 * l) / (v + (13 * l * v0))) - 5) };
 		let x = (d - b) / (a - c);
-		let z = x * a + b;
+		let z = (x * a) + b;
 		[x y z]
-	}
-
-	luvToLch { :self |
-		self.labToLch
 	}
 
 	luvToXyz { :self |
@@ -441,30 +461,31 @@ Colour : [Object] { | red green blue alpha |
 		m.dot(self)
 	}
 
-	srgbFromLinear { :self |
-		self.collect(srgbFromLinear:/1)
+	srgbDecode { :self |
+		self.collect(srgbDecode:/1)
 	}
 
-	srgbToLinear { :self |
-		self.collect(srgbToLinear:/1)
+	srgbEncode { :self |
+		self.collect(srgbEncode:/1)
 	}
 
 	xyzToLab { :self :reference |
 		let [x, y, z] = self;
-		let [xn, yn, zn] = reference;
+		let [rx, ry, rz] = reference;
 		let delta = 6 / 29;
 		let epsilon = delta.cubed;
 		let kappa = 8 / epsilon;
-		let f = { :t |
+		let f = { :tu |
+			let t = tu * 100;
 			(t > epsilon).if {
 				t.cubeRoot
 			} {
 				((kappa * t) + 16) / 116
 			}
 		};
-		let fX = f(x / xn);
-		let fY = f(y / yn);
-		let fZ = f(z / zn);
+		let fX = f(x / rx);
+		let fY = f(y / ry);
+		let fZ = f(z / rz);
 		[
 			(116 * fY) - 16,
 			500 * (fX - fY),
@@ -482,18 +503,24 @@ Colour : [Object] { | red green blue alpha |
 			[0 0 0]
 		} {
 			let [x, y, z] = self;
+			let [rx, ry, rz] = reference;
 			let epsilon = 216 / 24389;
 			let kappa = 24389 / 27;
-			let [xn, yn, zn] = reference;
-			let vr = 9 * yn / (xn + (15 * yn) + (3 * zn));
-			let ur = 4 * xn / (xn + (15 * yn) + (3 * zn));
-			let v1 = 9 * y / (x + (15 * y) + (3 * z));
-			let u1 = 4 * x / (x + (15 * y) + (3 * z));
-			let yr = y / yn;
-			let l = (yr > epsilon).if { (116 * yr.cubeRoot) - 16 } { kappa * yr };
+			let yr = (y / ry) * 100;
+			let xyz = x + (15 * y) + (3 * z);
+			let rxryrz = rx + (15 * ry) + (3 * rz);
+			let u1 = (4 * x) / xyz;
+			let v1 = (9 * y) / xyz;
+			let ur = (4 * rx) / rxryrz;
+			let vr = (9 * ry) / rxryrz;
+			let l = (yr > epsilon).if {
+				(116 * yr.cubeRoot) - 16
+			} {
+				kappa * yr
+			};
 			let u = 13 * l * (u1 - ur);
 			let v = 13 * l * (v1 - vr);
-			[l, u, v] * 100
+			[l, u, v]
 		}
 	}
 

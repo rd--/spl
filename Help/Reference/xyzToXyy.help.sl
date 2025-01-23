@@ -16,7 +16,9 @@ At specific value:
 
 * * *
 
-See also: Colour, xyyToxyz
+See also: Colour, xyyToXyz, xyzToRgb
+
+Guides: Colour Functions
 
 References:
 _Python_

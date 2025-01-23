@@ -2,6 +2,7 @@
 
 - _rgbToHsl(rgb)_
 
+Convert from _Rgb_ _(0,1)_ colourspace to _Hsl_ _(0,1)_ colourspace.
 Answer an _(h,s,l)_ triple given an _(r,g,b)_ triple.
 
 ```
@@ -13,6 +14,13 @@ Answer an _(h,s,l)_ triple given an _(r,g,b)_ triple.
 
 >>> [0.45621 0.03081 0.04092].rgbToHsl
 [0.99604 0.87347 0.24351]
+```
+
+Inverse is ``hslToRgb`:
+
+```
+>>> [0.99604 0.87347 0.24351].hslToRgb
+[0.45621 0.03081 0.04092]
 ```
 
 * * *

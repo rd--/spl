@@ -1,8 +1,8 @@
 # rgbToXyz
 
-- rgbToXyz(rgb)_
+- _rgbToXyz(rgb)_
 
-Converts (s)Rgb values to CIE 1931 Xyz values (2° observer).
+Converts (s)_Rgb_ values to CIE 1931 _Xyz_ values (2° observer).
 
 ```
 >>> [1 1 1].rgbToXyz
@@ -16,7 +16,7 @@ Converts (s)Rgb values to CIE 1931 Xyz values (2° observer).
 [0.25 0.4 0.1]
 
 >>> [0.417450 0.743363 0.215123]
->>> .srgbToLinear
+>>> .srgbDecode
 >>> .rgbToXyz
 [0.25 0.4 0.1]
 ```
@@ -25,6 +25,10 @@ Converts (s)Rgb values to CIE 1931 Xyz values (2° observer).
 
 See also: Colour, srgbToLinear, xyzToRgb
 
+Guides: Colour Functions
+
 References:
+_Python_:
+[1](https://colour.readthedocs.io/en/develop/generated/colour.RGB_to_XYZ.html),
 _Mathworks_
 [1](https://mathworks.com/help/images/ref/rgb2xyz.html)

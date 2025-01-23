@@ -2,7 +2,22 @@
 
 - _hsvToRgb(hsv)_
 
+Convert from _Hsv_ _(0,1)_ colourspace to _Rgb_ _(0,1)_ colourspace.
 Answer an _(r,g,b)_ triple given an _(h,s,v)_ triple.
+
+At specific value:
+
+```
+>>> [0.99604 0.93246 0.45621].hsvToRgb
+[0.45621 0.03081 0.04092]
+```
+
+Inverse is `rgbToHsv`:
+
+```
+>>> [0.45621 0.03081 0.04092].rgbToHsv
+[0.99604 0.93246 0.45621]
+```
 
 Convert table of _Hsv_ values to _Rgb_.
 
@@ -67,4 +82,7 @@ See also: Colour, Hsv, hslToHsv, hslToRgb, hsv, hsvToHsl, hue, rgbToHsv
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/hsv2rgb.html)
+[1](https://mathworks.com/help/matlab/ref/hsv2rgb.html),
+_Python_
+[1](https://colour.readthedocs.io/en/develop/generated/colour.HSV_to_RGB.html)
+
