@@ -140,7 +140,6 @@ Plot two lines:
 
 Plot two lines with different numbers of points:
 
-
 ~~~spl svg=M
 [
 	0 0; 2 2; 4 0:;

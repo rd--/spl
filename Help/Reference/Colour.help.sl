@@ -114,6 +114,6 @@ Guides: Colour Functions
 
 References:
 _Mathematica_
-[1](https predicate://reference.wolfram.com/language/ref/RGBColor.html)
+[1](https://reference.wolfram.com/language/ref/RGBColor.html)
 
 Categories: Colour, Type

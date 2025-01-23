@@ -37,7 +37,10 @@ let u = (0 -- 1).discretize(n);
 
 See also: Colour, hslToRgb, hsvToRgb, jchToJab, luvToLch
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/develop/generated/colour.LCHuv_to_Luv.html)
 
+Categories: Colour

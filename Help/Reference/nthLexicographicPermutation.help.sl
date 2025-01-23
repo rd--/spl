@@ -19,7 +19,7 @@ The ninth lexicographic permutation of _1234_:
 
 The 3333rd lexicographic permutation of _123456789_:
 
-
+```
 >>> [1 .. 9].nthLexicographicPermutation(3333)
 [1 2 7 6 8 9 4 3 5]
 ```

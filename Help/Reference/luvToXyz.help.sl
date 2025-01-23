@@ -63,8 +63,12 @@ let u = (-100 -- 100).discretize(n);
 
 See also: Colour, labToXyz, lchToLuv, xyzToLuv
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/develop/generated/colour.Luv_to_XYZ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/CIELUV)
+
+Categories: Colour

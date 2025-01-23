@@ -91,7 +91,6 @@ system
 
 ![](sw/spl/Help/Image/sageSmallGraphCatalogue-D.svg)
 
-
 The complement ('\\co') of the graph _E_:
 
 ~~~spl svg=E

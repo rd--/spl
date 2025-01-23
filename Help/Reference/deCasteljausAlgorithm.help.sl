@@ -19,7 +19,6 @@ Draw a quadratic Bézier curve using de Casteljaus algorithm:
 
 ![](sw/spl/Help/Image/deCasteljausAlgorithm-A.svg)
 
-
 Draw a cubic Bézier curve:
 
 ~~~spl svg=B

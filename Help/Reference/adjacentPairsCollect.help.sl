@@ -21,7 +21,6 @@ At `List`:
 
 At `Tuple`:
 
-
 ```
 >>> (7, 23, 47).adjacentPairsCollect(*)
 (161, 1081)

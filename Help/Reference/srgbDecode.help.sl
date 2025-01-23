@@ -29,5 +29,7 @@ Plot curve:
 See also: Colour, srgbEncode
 
 References:
+_Python_
+[1](https://colour.readthedocs.io/en/develop/generated/colour.cctf_decoding.html),
 _W_
 [1](https://en.wikipedia.org/wiki/SRGB)

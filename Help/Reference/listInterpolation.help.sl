@@ -86,7 +86,6 @@ No interpolation, use previous sample point:
 
 ![](sw/spl/Help/Image/listInterpolation-F.svg)
 
-
 No interpolation, use nearest sample point:
 
 ~~~spl svg=G

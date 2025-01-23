@@ -43,4 +43,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Knot_(mathematics))
 
 Further Reading: Rolfsen 1976
-

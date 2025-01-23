@@ -30,5 +30,7 @@ Inverse is identity:
 See also: Colour, srgbDecode
 
 References:
+_Python_
+[1](https://colour.readthedocs.io/en/develop/generated/colour.cctf_encoding.html),
 _W_
 [1](https://en.wikipedia.org/wiki/SRGB)

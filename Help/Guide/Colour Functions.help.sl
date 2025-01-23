@@ -26,11 +26,13 @@
 - `labToXyz`: Lab to Xyz
 - `lchToLuv`: Lch to Luv
 - `luvToXyz`: Luc to Xyz
+- `oklabToXyz`: Oklab to Xyz
 - `rgbToHsl`: Rgb to Hsl
 - `rgbToHsv`: Rgb to Hsv
 - `rgbToXyz`: Rgb to Xyz
 - `xyyToXyz`: Xyy to Xyz
-- `xyzToLab`: Xyz to Lab
+- `xyzToOklab`: Xyz to Oklab
+- `oklabToXyz`: Oklab to Xyz
 - `xyzToRgb`: Xyz to Rgb
 - `xyzToXyy`: Xyz to Xyy
 

@@ -80,9 +80,12 @@ let i = (0 -- 1).subdivide(n);
 
 See also: Colour, Hsv, hslToHsv, hslToRgb, hsv, hsvToHsl, hue, rgbToHsv
 
+Guides: Colour Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hsv2rgb.html),
 _Python_
 [1](https://colour.readthedocs.io/en/develop/generated/colour.HSV_to_RGB.html)
 
+Categories: Colour

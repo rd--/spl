@@ -26,3 +26,4 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/HSL_and_HSV)
 
+Categories: Colour

@@ -14,7 +14,6 @@ Remove successive duplicates from _input_.
 [1 4 7 10 13]
 ```
 
-
 * * *
 
 See also: LsDupEach

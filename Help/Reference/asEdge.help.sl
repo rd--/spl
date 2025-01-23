@@ -25,7 +25,6 @@ At `DirectedEdge`:
 1 --> 3
 ```
 
-
 At `UndirectedEdge`:
 
 ```

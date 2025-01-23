@@ -2,6 +2,7 @@
 
 - _xyyToXyz(xyy)_
 
+Convert from Cie _Xyz_ tristimulus values to Cie _Xyy_ colourspace.
 Answer an _(x,y,z)_ triple given an _(x,y,y)_ triple.
 
 At specific value:
