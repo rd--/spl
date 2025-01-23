@@ -14,6 +14,13 @@ true
 [false true true true true true false]
 ```
 
+Threads over lists:
+
+```
+>>> [-1 0 1 2].betweenAnd(0, 1)
+[false true true false]
+```
+
 Use `Interval` or `Range` and `includes` instead of `betweenAnd`:
 
 ```

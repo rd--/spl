@@ -137,6 +137,10 @@ Colour : [Object] { | red green blue alpha |
 		}
 	}
 
+	isValid { :self |
+		self.rgba.isValidRgba
+	}
+
 	negated { :self |
 		Colour(1 - self.red, 1 - self.green, 1 - self.blue, self.alpha)
 	}
@@ -160,14 +164,18 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 	rgbString { :self |
-		'rgb(%,%,%,%)'.format(
-			[
-				(self.red * 255).rounded,
-				(self.green * 255).rounded,
-				(self.blue * 255).rounded,
-				self.alpha
-			]
-		)
+		self.isValid.if {
+			'rgb(%,%,%,%)'.format(
+				[
+					(self.red * 255).rounded,
+					(self.green * 255).rounded,
+					(self.blue * 255).rounded,
+					self.alpha
+				]
+			)
+		} {
+			'rgb(255,255,255,0)'
+		}
 	}
 
 	srgbDecode { :self |
@@ -347,6 +355,22 @@ Colour : [Object] { | red green blue alpha |
 		]) {
 			'hsvToRgb'.error('implementation error')
 		}
+	}
+
+	isValidHsl { :self |
+		self.betweenAnd(0, 1).allTrue
+	}
+
+	isValidHsv { :self |
+		self.betweenAnd(0, 1).allTrue
+	}
+
+	isValidRgb { :self |
+		self.betweenAnd(0, 1).allTrue
+	}
+
+	isValidRgba { :self |
+		self.betweenAnd(0, 1).allTrue
 	}
 
 	jabToJch { :self |

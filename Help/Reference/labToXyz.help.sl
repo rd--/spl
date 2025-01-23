@@ -4,7 +4,7 @@
 - _labToXyz(xyz, whiteReference)_
 
 Convert from Cie _L*a*b*_ colourspace to Cie _Xyz_ tristimulus values _(0,1)_.
-_L_ is in _(0,100)_ and _a_ and _b_ are in _(-100,100)_.
+_L_ is in _(0,100)_ and _a_ and _b_ are unbounded but ordinarily in _(-100,100)_.
 
 With default (D65) white reference:
 
@@ -48,8 +48,8 @@ Inverse is `xyzToLab`:
 [50 10 -5]
 ```
 
-A 9×9 gradient over a subset of _Lab_ colour space,
-out of gamut values are clipped:
+A 9×9 gradient over a subset of _L*a*b*_ colour space at _L*=50_,
+with out of gamut values clipped:
 
 ~~~spl svg=A
 let n = 9;
@@ -67,9 +67,27 @@ let u = (-50 -- 50).discretize(n);
 
 ![](sw/spl/Help/Image/labToXyz-A.svg)
 
+A slice of the _L*a*b*_ colour space at _L*=75_,
+where `Image` replaces out of gamut colours with _transparent_:
+
+~~~spl svg=B
+let n = 100;
+let u = (-100 -- 100).discretize(n);
+{ :i :j |
+	[75, j, i]
+	.labToXyz
+	.xyzToRgb
+	.srgbEncode
+}
+.table(u.negated, u)
+.Image
+~~~
+
+![](sw/spl/Help/Image/labToXyz-B.png)
+
 * * *
 
-See also: Colour, xyzToLab
+See also: Colour, luvToXyz, xyzToLab
 
 Guides: Colour Functions
 
@@ -77,4 +95,6 @@ References:
 _Mathworks_
 [1](https://mathworks.com/help/images/ref/lab2xyz.html),
 _Python_
-[1](https://colour.readthedocs.io/en/latest/generated/colour.Lab_to_XYZ.html)
+[1](https://colour.readthedocs.io/en/latest/generated/colour.Lab_to_XYZ.html),
+_W_
+[1](https://en.wikipedia.org/wiki/CIELAB_color_space)

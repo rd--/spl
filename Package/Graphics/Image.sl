@@ -9,12 +9,10 @@ Image : [Object] { | contents |
 		];
 		let rows = self.contents.collect { :each |
 			each.collect { :pixel |
-				pixel.allSatisfy { :channel |
-					channel.betweenAnd(0, 1)
-				}.if {
+				pixel.isValidRgb.if {
 					(pixel.first(3) * maxDepth).rounded.collect(printString:/1).join(' ')
 				} {
-					self.error('asPpm: not (0,1) pixel')
+					'% % %'.format([maxDepth, maxDepth, maxDepth])
 				}
 			}.join(' ')
 		};

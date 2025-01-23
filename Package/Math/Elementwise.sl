@@ -62,6 +62,12 @@
 		self.collect(bellNumber:/1)
 	}
 
+	betweenAnd { :self :min :max |
+		self.collect { :each |
+			each.betweenAnd(min, max)
+		}
+	}
+
 	bitAnd { :self |
 		self.reduce(bitAnd:/2)
 	}
