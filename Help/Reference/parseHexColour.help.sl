@@ -2,18 +2,27 @@
 
 - _parseHexColour(aString)_
 
-Parse a Css and Html format hexadecimal colour string.
-Note that the answer is an `Srgb` value, not an `Rgb` value.
+Parse a subset of the _Css_ and _Html_ format hexadecimal colour notation.
+Note that the answer is an `Srgb` value.
 
 ```
 >>> let c = '#98ece8'.parseHexColour;
->>> (c, c.rgbString, c.hexString)
+>>> (c, c.hexString, c.rgbString)
 (
 	Srgb([152 236 232] / 255, 1),
-	'rgb(152,236,232)',
-	'#98ece8'
+	'#98ece8',
+	'rgb(152,236,232)'
 )
 ```
+
+
+Draw parsed colour:
+
+~~~spl svg=A
+'#5F9EA0'.parseHexColour
+~~~
+
+![](sw/spl/Help/Image/parseHexColour-A.svg)
 
 * * *
 

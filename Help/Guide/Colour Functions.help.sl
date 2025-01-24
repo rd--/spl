@@ -59,6 +59,11 @@
 - `srgbDecode`
 - `srgbEncode`
 
+## Parsers
+
+- `parseHexColour`
+- `parseRgbColour`
+
 ## Physics
 
 - `planckRadiationLaw`
