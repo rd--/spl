@@ -1,19 +1,15 @@
-Colour : [Object] { | red green blue alpha |
+@Colour {
 
 	~ { :self :aColour |
 		self.hasEqualSlotsBy(aColour, ~)
 	}
 
+	alpha { :self |
+		self.typeResponsibility('alpha')
+	}
+
 	asColour { :self |
 		self
-	}
-
-	asList { :self |
-		[self.red, self.green, self.blue, self.alpha]
-	}
-
-	asNontranslucentColor { :self |
-		self.alpha := 1
 	}
 
 	asSvg { :self |
@@ -26,24 +22,20 @@ Colour : [Object] { | red green blue alpha |
 		].unlines.Svg
 	}
 
+	blue { :self |
+		self.rgb.third
+	}
+
 	draw { :self |
 		self.asSvg.draw
 	}
 
-	equalBy { :self :aColour :aBlock:/2 |
-		aColour.isColour & {
-			aBlock(self.red, aColour.red) & {
-				aBlock(self.green, aColour.green) & {
-					aBlock(self.blue, aColour.blue) & {
-						aBlock(self.alpha, aColour.alpha)
-					}
-				}
-			}
-		}
+	green { :self |
+		self.rgb.second
 	}
 
 	hexString { :self |
-		'#' ++ [self.red, self.green, self.blue].collect { :each |
+		'#' ++ self.rgb.collect { :each |
 			(each * 255).rounded.byteHexString
 		}.join('')
 	}
@@ -141,72 +133,57 @@ Colour : [Object] { | red green blue alpha |
 		self.rgba.isValidRgba
 	}
 
+	linearRgb { :self |
+		self.rgb
+	}
+
 	negated { :self |
-		Colour(1 - self.red, 1 - self.green, 1 - self.blue, self.alpha)
+		self.species.value(
+			1 - self.rgb,
+			self.alpha
+		)
 	}
 
 	over { :self :aColour |
 		let alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha));
-		Colour(
-			(aColour.red * aColour.alpha / alpha) + (self.red * self.alpha * (1 - aColour.alpha) / alpha),
-			(aColour.green * aColour.alpha / alpha) + (self.green * self.alpha * (1 - aColour.alpha) / alpha),
-			(aColour.blue * aColour.alpha / alpha) + (self.blue * self.alpha * (1 - aColour.alpha) / alpha),
+		self.species.value(
+			(aColour.rgb * aColour.alpha / alpha) + (self.rgb * self.alpha * (1 - aColour.alpha) / alpha),
 			alpha
 		)
 	}
 
-	rgb { :self |
-		[self.red, self.green, self.blue]
+	red { :self |
+		self.rgb.first
 	}
 
 	rgba { :self |
-		[self.red, self.green, self.blue, self.alpha]
+		self.rgb ++ [self.alpha]
+	}
+
+	rgb { :self |
+		self.typeResponsibility('rgb')
 	}
 
 	rgbString { :self |
 		self.isValid.if {
-			'rgb(%,%,%,%)'.format(
-				[
-					(self.red * 255).rounded,
-					(self.green * 255).rounded,
-					(self.blue * 255).rounded,
-					self.alpha
-				]
-			)
+			let [r, g, b] = (self.rgb * 255).rounded;
+			let alpha = self.alpha;
+			(alpha = 1).if {
+				'rgb(%,%,%)'.format([r, g, b])
+			} {
+				'rgba(%,%,%,%)'.format([r, g, b, alpha])
+			}
 		} {
-			'rgb(255,255,255,0)'
+			'rgba(255,255,255,0)'
 		}
 	}
 
-	srgbDecode { :self |
-		Colour(
-			self.red.srgbDecode,
-			self.green.srgbDecode,
-			self.blue.srgbDecode,
-			self.alpha
-		)
-	}
-
-	srgbEncode { :self |
-		Colour(
-			self.red.srgbEncode,
-			self.green.srgbEncode,
-			self.blue.srgbEncode,
-			self.alpha
-		)
+	srgb { :self |
+		self.rgb.srgbEncode
 	}
 
 	storeString { :self |
-		[
-			'Colour(',
-			[
-				self.red,
-				self.green,
-				self.blue,
-				self.alpha
-			].collect(storeString:/1).join(', '),
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	writeSvg { :self :fileName |
@@ -215,31 +192,73 @@ Colour : [Object] { | red green blue alpha |
 
 }
 
-+SmallFloat {
+Rgb : [Object, Colour] { | rgb alpha |
+
+	species { :self |
+		Rgb:/2
+	}
+
+}
+
+Srgb : [Object, Colour] { | rgb alpha |
+
+	linearRgb { :self |
+		self.rgb.srgbDecode
+	}
+
+	species { :self |
+		Srgb:/2
+	}
+
+	srgb { :self |
+		self.rgb
+	}
+
+}
+
++List {
 
 	asColour { :self |
-		Colour(self, self, self, 1)
+		Rgb(self, 1)
 	}
 
-	Colour { :r :g :b |
-		Colour(r, g, b, 1)
+	Hsv { :self :alpha |
+		Rgb(
+			self.hsvToRgb,
+			alpha
+		)
 	}
 
-	Colour { :r :g :b :a |
-		newColour().initializeSlots(r, g, b, a)
+	Rgb { :self :alpha |
+		newRgb().initializeSlots(self, alpha)
+	}
+
+	Srgb { :self :alpha |
+		newSrgb().initializeSlots(self, alpha)
+	}
+
+}
+
++SmallFloat {
+
+	adobeRgbDecode { :self |
+		self ^ (563 / 256)
+	}
+
+	adobeRgbEncode { :self |
+		self ^ (256 / 563)
+	}
+
+	asColour { :self |
+		self.greyLevel
 	}
 
 	greyLevel { :level :alpha |
-		Colour(level, level, level, alpha)
+		Rgb([level, level, level], alpha)
 	}
 
 	greyLevel { :level |
 		level.greyLevel(1)
-	}
-
-	Hsv { :h :s :v |
-		let [r, g, b] = [h, s, v].hsvToRgb;
-		Colour(r, g, b, 1)
 	}
 
 	lightnessCie { :y :yn |
@@ -284,17 +303,13 @@ Colour : [Object] { | red green blue alpha |
 
 +List {
 
-	asColour { :self |
-		self.size.caseOf([
-			{ 3 } -> {
-				let [r, g, b] = self;
-				Colour(r, g, b, 1)
-			},
-			{ 4 } -> {
-				let [r, g, b, a] = self;
-				Colour(r, g, b, a)
-			}
-		])
+	adobeRgbToXyz { :self |
+		let m = [
+			0.5767309  0.1855540  0.1881852;
+			0.2973769  0.6273491  0.0752741;
+			0.0270343  0.0706872  0.9911085
+		];
+		m.dot(self)
 	}
 
 	hslToHsv { :self |
@@ -453,14 +468,14 @@ Colour : [Object] { | red green blue alpha |
 
 	oklabToXyz { :self |
 		let labToLms = [
-			[0.9999999984505201, 0.3963377921737678, 0.21580375806075877],
-			[1.0000000088817607, -0.10556134232365634, -0.0638541747717059],
-			[1.0000000546724108, -0.08948418209496575, -1.2914855378640917]
+			[ 1.0,           0.3963377922,  0.2158037581],
+			[ 1.0,          -0.1055613423, -0.0638541748],
+			[ 1.0,          -0.0894841821, -1.2914855379]
 		];
 		let lmsToXyz = [
-			[1.2270138511035211, -0.5577999806518221, 0.2812561489664678],
-			[-0.04058017842328059, 1.11225686961683, -0.0716766786656012],
-			[-0.0763812845057069, -0.4214819784180127, 1.5861632204407947]
+			[ 1.2270138511, -0.5577999807,  0.2812561490],
+			[-0.0405801784,  1.1122568696, -0.0716766787],
+			[-0.0763812845, -0.4214819784,  1.5861632204]
 		];
 		let lms = labToLms.dot(self);
 		lmsToXyz.dot(lms.cubed)
@@ -468,14 +483,14 @@ Colour : [Object] { | red green blue alpha |
 
 	xyzToOklab { :self |
 		let xyzToLms = [
-			[0.8189330101, 0.3618667424, -0.1288597137],
-			[0.0329845436, 0.9293118715, 0.0361456387],
-			[0.0482003018, 0.2643662691, 0.6338517070]
+			[0.8189330101,  0.3618667424, -0.1288597137],
+			[0.0329845436,  0.9293118715,  0.0361456387],
+			[0.0482003018,  0.2643662691,  0.6338517070]
 		];
 		let lmsToLab = [
-			[0.2104542553, 0.7936177850, -0.0040720468],
-			[1.9779984951, -2.4285922050, 0.4505937099],
-			[0.0259040371, 0.7827717662, -0.8086757660]
+			[0.2104542553,  0.7936177850, -0.0040720468],
+			[1.9779984951, -2.4285922050,  0.4505937099],
+			[0.0259040371,  0.7827717662, -0.8086757660]
 		];
 		let lms = xyzToLms.dot(self);
 		lmsToLab.dot(lms.cubeRoot)
@@ -508,11 +523,19 @@ Colour : [Object] { | red green blue alpha |
 
 	rgbToXyz { :self |
 		let m = [
-			[0.412390799265959, 0.357584339383878, 0.180480788401834],
-			[0.212639005871510, 0.715168678767756, 0.072192315360734],
-			[0.019330818715592, 0.119194779794626, 0.950532152249661]
+			[0.4124, 0.3576, 0.1805],
+			[0.2126, 0.7152, 0.0722],
+			[0.0193, 0.1192, 0.9505]
 		];
 		m.dot(self)
+	}
+
+	adobeRgbDecode { :self |
+		self.collect(adobeRgbDecode:/1)
+	}
+
+	adobeRgbEncode { :self |
+		self.collect(adobeRgbEncode:/1)
 	}
 
 	srgbDecode { :self |
@@ -583,11 +606,20 @@ Colour : [Object] { | red green blue alpha |
 		self.xyzToLuv(d65)
 	}
 
+	xyzToAdobeRgb { :self |
+		let m = [
+			+2.0413690 -0.5649464 -0.3446944;
+			-0.9692660 +1.8760108 +0.0415560;
+			+0.0134474 -0.1183897 +1.0154096
+		];
+		m.dot(self)
+	}
+
 	xyzToRgb { :self |
 		let m = [
-			[3.240969941904523, -1.537383177570094, -0.498610760293003],
-			[-0.969243636280880, 1.875967501507721, 0.041555057407176],
-			[0.055630079696994, -0.203976958888977, 1.056971514242879]
+			[ 3.2406255, -1.5372080, -0.4986286],
+			[-0.9689307,  1.8757561,  0.0415175],
+			[ 0.0557101, -0.2040211,  1.0569959]
 		];
 		m.dot(self)
 	}
@@ -621,15 +653,36 @@ Colour : [Object] { | red green blue alpha |
 +String {
 
 	parseHexColour { :self |
+		Srgb(
+			self.parseHexTriplet,
+			1
+		)
+	}
+
+	parseHexTriplet { :self |
 		(self.size = 7).if {
 			let r = self.copyFromTo(2, 3);
 			let g = self.copyFromTo(4, 5);
 			let b = self.copyFromTo(6, 7);
-			[r, g, b, 'ff'].collect { :each |
+			[r, g, b].collect { :each |
 				each.parseInteger(16) / 255
-			}.asColour
+			}
 		} {
-			self.error('parseHexColour')
+			self.error('parseHexTriplet')
+		}
+	}
+
+	parseRgbColour { :self |
+		self.beginsWith('rgb(').if {
+			let [r, g, b] = self.copyFromTo(5, self.size - 1).splitBy(',');
+			Srgb(
+				[r, g, b].collect { :each |
+					each.parseInteger(10) / 255
+				},
+				1
+			)
+		} {
+			self.error('parseRgbColour')
 		}
 	}
 
@@ -683,3 +736,25 @@ Colour : [Object] { | red green blue alpha |
 	}
 
 }
+
++System {
+
+	svgColourCatalogue { :self |
+		self.requireLibraryItem(
+			'SvgColourCatalogue'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'SvgColourCatalogue',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/svg.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Srgb(each / 255, 1)
+		}
+	}
+)

@@ -1,17 +1,23 @@
 # Colour
 
-- _Colour(red, green, blue, alpha)_
-
-The `Type` representing a colour with three colour component channels and an _alpha_ channel indicating transparency (or opacity).
+A `Trait` representing colours.
+The required methods are `rgb`,
+which should answer a _(red,green,blue)_ triple in _(0,1)_,
+and `alpha`,
+which should answer a value indicating transparency (or opacity).
 
 Parse colour from hash-prefixed hexadecimal string:
 
 ```
->>> '#f97306'.parseHexColour
-Colour(
-	16rf9 / 255,
-	16r73 / 255,
-	16r06 / 255
+>>> let c = '#f97306'.parseHexColour;
+>>> (c.rgb, c.alpha)
+(
+	[
+		16rf9 / 255,
+		16r73 / 255,
+		16r06 / 255
+	],
+	1
 )
 ```
 
@@ -26,11 +32,8 @@ Colour values can be drawn as swatches:
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> Colour(
->>> 	16rf9 / 255,
->>> 	16r73 / 255,
->>> 	16r06 / 255
->>> ).hexString
+>>> Srgb([16rf9 16r73 16r06] / 255, 1)
+>>> .hexString
 '#f97306'
 ```
 
@@ -39,70 +42,70 @@ There are a number of colour predicates:
 Is colour black predicate:
 
 ```
->>> Colour(0, 0, 0).isBlack
+>>> Rgb([0, 0, 0], 1).isBlack
 true
 ```
 
 Is colour white predicate:
 
 ```
->>> Colour(1, 1, 1).isWhite
+>>> Rgb([1, 1, 1], 1).isWhite
 true
 ```
 
 Is colour grey with particular value:
 
 ```
->>> Colour(0.5, 0.5, 0.5).isGreyOf(0.5)
+>>> Rgb([0.5, 0.5, 0.5], 1).isGreyOf(0.5)
 true
 ```
 
 Is colour grey predicate:
 
 ```
->>> Colour(0.5, 0.5, 0.5).isGrey
+>>> Rgb([0.5, 0.5, 0.5], 1).isGrey
 true
 ```
 
 Is colour red predicate:
 
 ```
->>> Colour(1, 0.2, 0.2).isRed
+>>> Rgb([1, 0.2, 0.2], 1).isRed
 true
 ```
 
 Is colour green predicate:
 
 ```
->>> Colour(0.2, 1, 0.2).isGreen
+>>> Rgb([0.2, 1, 0.2], 1).isGreen
 true
 ```
 
 Is colour blue predicate:
 
 ```
->>> Colour(0.2, 0.2, 1).isBlue
+>>> Rgb([0.2, 0.2, 1], 1).isBlue
 true
 ```
 
 Is colour yellow predicate:
 
 ```
->>> Colour(0.9, 0.75, 0).isYellow
+>>> Rgb([0.9, 0.75, 0], 1).isYellow
 true
 ```
 
 Is colour cyan predicate:
 
 ```
->>> Colour(0, 0.75, 0.9).isCyan
+>>> Rgb([0, 0.75, 0.9], 1).isCyan
 true
 ```
 
 Is colour magenta predicate:
 
 ```
->>> Colour(0.9, 0, 0.75).isMagenta
+>>> Rgb([0.9, 0, 0.75], 1).isMagenta
 true
 ```
 

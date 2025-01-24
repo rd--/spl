@@ -60,11 +60,10 @@ Svg : [Object] { | contents |
 		let maxEntry = self.abs.max.max;
 		self.deepCollect { :each |
 			let level = (maxEntry - each.abs) / maxEntry;
-			[maxEntry, each, level].postLine;
 			level.isVeryCloseTo(1).if {
-				Colour(1, 1, 1, 0)
+				Srgb([1 1 1], 0)
 			} {
-				Colour(level, level, level, 1)
+				level.greyLevel
 			}
 		}.asColourSvg
 	}

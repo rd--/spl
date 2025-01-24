@@ -2,7 +2,7 @@
 
 - _randomColor(r, shape)_
 
-Answer an array of the indicated _shape_ containing random `Colour` values.
+Answer an array of the indicated _shape_ containing random `Rgb` values.
 
 The `hue` of a 3×3 matrix of random colours:
 

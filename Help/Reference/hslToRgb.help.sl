@@ -51,12 +51,27 @@ An image of the same gradient matrix at higher resolution:
 ~~~spl png=C
 let n = 99;
 let i = (0 -- 1).subdivide(n);
-{ :h :v |
-	[h, 0.5, v].hslToRgb
+{ :h :l |
+	[h, 0.5, l].hslToRgb
 }.table(i, i * 0.5 + 0.3).Image
 ~~~
 
 ![](sw/spl/Help/Image/hslToRgb-C.png)
+
+A gradient at _s=1_ where
+_h_ is _(0,1)_ along the _X_-axis,
+and _l_ is _(0.2,0.8)_ along the _Y_-axis:
+
+~~~spl png=D
+{ :l :h |
+	[h, 1, 1 - l].hslToRgb
+}.table(
+	(0.2 -- 0.8).discretize(75),
+	(0 -- 1).discretize(250)
+).Image
+~~~
+
+![](sw/spl/Help/Image/hslToRgb-D.png)
 
 * * *
 

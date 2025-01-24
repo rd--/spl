@@ -41,7 +41,7 @@ let u = (-0.125 -- 0.125).discretize(n);
 A slice of the _Oklab_ colour space at _L=0.75_,
 where `Image` replaces out of gamut colours with _transparent_:
 
-~~~spl svg=B
+~~~spl png=B
 let n = 100;
 let u = (-0.25 -- 0.25).discretize(n);
 { :i :j |

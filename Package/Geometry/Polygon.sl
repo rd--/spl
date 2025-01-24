@@ -170,4 +170,3 @@ Polygon : [Object] { | vertexCoordinates |
 	}
 
 }
-

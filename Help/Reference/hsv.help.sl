@@ -6,13 +6,13 @@ Answer a triple of _hue_, _saturation_ and _value_.
 _Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ color model.
 
 ```
->>> Colour(0.75, 1, 0.75, 1).hsv
+>>> Srgb([0.75, 1, 0.75], 1).hsv
 [1/3 0.25 1]
 ```
 
 * * *
 
-See also: Colour, Hsv, hsvToRgb, hue
+See also: Colour, Hsv, hsvToRgb, hue, Srgb
 
 References:
 _W_

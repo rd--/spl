@@ -2,11 +2,11 @@
 
 - _rgbToXyz(rgb)_
 
-Converts (s)_Rgb_ values to CIE 1931 _Xyz_ values (2° observer).
+Convert _Rgb_ colourspace array to Cie _Xyz_ tristimulus values.
 
 ```
 >>> [1 1 1].rgbToXyz
-[0.9505 1.0000 1.0891]
+[0.9505 1.0000 1.0890]
 
 >>> [1 1 1].rgbToXyz.xyzToRgb
 [1 1 1]
@@ -21,6 +21,12 @@ Converts (s)_Rgb_ values to CIE 1931 _Xyz_ values (2° observer).
 [0.25 0.4 0.1]
 ```
 
+_Note_:
+The _Srgb_ standard specifies the colors and relative intensities of the three primaries by defining the mapping between these values,
+in linear brightness scale,
+before the gamma encoding,
+and the Cie _Xyz_ perceptual color coordinates.
+
 * * *
 
 See also: Colour, srgbToLinear, xyzToRgb
@@ -31,4 +37,6 @@ References:
 _Python_:
 [1](https://colour.readthedocs.io/en/develop/generated/colour.RGB_to_XYZ.html),
 _Mathworks_
-[1](https://mathworks.com/help/images/ref/rgb2xyz.html)
+[1](https://mathworks.com/help/images/ref/rgb2xyz.html),
+_W_
+[1](https://en.wikipedia.org/wiki/SRGB)

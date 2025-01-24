@@ -1,12 +1,12 @@
 # Hsv
 
-- _Hsv(hue, saturation, value)_
+- _Hsv(hsv, alpha)_
 
-Answer a `Colour` value given _hue_, _saturation_ and _value_, all in _(0,1)_.
-Hsv is a cylindrical-coordinate representations of points in an Rgb color model.
+Answer an `Rgb` value given `hue`, `saturation` and `value`, all in _(0,1)_.
+`Hsv` is a cylindrical-coordinate representations of points in an `Rgb` color model.
 
 ~~~spl svg=A
-Hsv(1 / 3, 1 / 4, 1)
+Hsv([1 / 3, 1 / 4, 1], 1)
 ~~~
 
 ![](sw/spl/Help/Image/Hsv-A.svg)
@@ -15,9 +15,12 @@ Value of `zero` is black:
 
 ```
 >>> Hsv(
->>> 	(0 -- 1).atRandom,
->>> 	(0 -- 1).atRandom,
->>> 	0
+>>> 	[
+>>> 		(0 -- 1).atRandom,
+>>> 		(0 -- 1).atRandom,
+>>> 		0
+>>> 	],
+>>> 	1
 >>> ).isBlack
 true
 ```
@@ -26,9 +29,12 @@ Saturation of `zero` is grey:
 
 ```
 >>> Hsv(
->>> 	(0 -- 1).atRandom,
->>> 	0,
->>> 	(0 -- 1).atRandom
+>>> 	[
+>>> 		(0 -- 1).atRandom,
+>>> 		0,
+>>> 		(0 -- 1).atRandom
+>>> 	],
+>>> 	1
 >>> ).isGrey
 true
 ```
@@ -37,8 +43,11 @@ Saturation of `zero` and value of `one` is white:
 
 ```
 >>> Hsv(
->>> 	(0 -- 1).atRandom,
->>> 	0,
+>>> 	[
+>>> 		(0 -- 1).atRandom,
+>>> 		0,
+>>> 		1
+>>> 	],
 >>> 	1
 >>> ).isWhite
 true
@@ -47,30 +56,30 @@ true
 Colour predicates (s=1 & v=1):
 
 ```
->>> Hsv(0 / 360, 1, 1).isRed
+>>> Hsv([0 / 360, 1, 1], 1).isRed
 true
 
->>> Hsv(120 / 360, 1, 1).isGreen
+>>> Hsv([120 / 360, 1, 1], 1).isGreen
 true
 
->>> Hsv(240 / 360, 1, 1).isBlue
+>>> Hsv([240 / 360, 1, 1], 1).isBlue
 true
 
->>> Hsv(60 / 360, 1, 1).isYellow
+>>> Hsv([60 / 360, 1, 1], 1).isYellow
 true
 
->>> Hsv(180 / 360, 1, 1).isCyan
+>>> Hsv([180 / 360, 1, 1], 1).isCyan
 true
 
->>> Hsv(300 / 360, 1, 1).isMagenta
+>>> Hsv([300 / 360, 1, 1], 1).isMagenta
 true
 ```
 
 At specific values:
 
 ```
->>> Hsv(251.5 / 360, 0.887, 0.918)
-Colour(0.25980, 0.10374, 0.918)
+>>> Hsv([251.5 / 360, 0.887, 0.918], 1)
+Rgb([0.25980, 0.10374, 0.918], 1)
 ```
 
 * * *

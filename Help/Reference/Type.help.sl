@@ -31,9 +31,9 @@ A `Type` holds a `methodDictionary`:
 `Type` implements `category`, `name` and `packageName`:
 
 ```
->>> let c = system.typeLookup('Colour');
+>>> let c = system.typeLookup('Rgb');
 >>> (c.category, c.name, c.packageName)
-('Graphics', 'Colour', 'Colour')
+('Graphics', 'Rgb', 'Colour')
 ```
 
 * * *

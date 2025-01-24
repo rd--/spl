@@ -2,10 +2,10 @@
 <g stroke="none" transform="translate(0, 0) scale(1, 1)">
 <rect x="0" y="0" width="33" height="33" fill="rgb(170,170,170)"/>
 <rect x="0" y="33" width="33" height="33" fill="rgb(0,0,0)"/>
-<rect x="0" y="66" width="33" height="33" fill="transparent"/>
+<rect x="0" y="66" width="33" height="33" fill="rgba(255,255,255,0)"/>
 <rect x="33" y="0" width="33" height="33" fill="rgb(85,85,85)"/>
-<rect x="33" y="33" width="33" height="33" fill="transparent"/>
-<rect x="33" y="66" width="33" height="33" fill="transparent"/>
+<rect x="33" y="33" width="33" height="33" fill="rgba(255,255,255,0)"/>
+<rect x="33" y="66" width="33" height="33" fill="rgba(255,255,255,0)"/>
 <rect x="66" y="0" width="33" height="33" fill="rgb(170,170,170)"/>
 <rect x="66" y="33" width="33" height="33" fill="rgb(170,170,170)"/>
 <rect x="66" y="66" width="33" height="33" fill="rgb(170,170,170)"/>

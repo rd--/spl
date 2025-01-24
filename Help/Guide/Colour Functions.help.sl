@@ -1,9 +1,14 @@
 # Colour Functions
 
-## Constructors
+## Traits
 
 - `Colour`
+
+## Constructors
+
 - `Hsv`
+- `Rgb`
+- `Srgb`
 
 ## Accessing
 
@@ -15,6 +20,11 @@
 - `red`
 - `rgb`
 - `rgba`
+- `srgb`
+
+## Catalogues
+
+- `svgColourCatalogue`
 
 ## Converting
 
@@ -35,6 +45,12 @@
 - `oklabToXyz`: Oklab to Xyz
 - `xyzToRgb`: Xyz to Rgb
 - `xyzToXyy`: Xyz to Xyy
+
+## Drawing
+
+- `arrayPlot`
+- `asGreyscaleSvg`
+- `asColourSvg`
 
 ## Encoding and Decoding
 

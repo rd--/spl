@@ -76,6 +76,21 @@ let i = (0 -- 1).subdivide(n);
 
 ![](sw/spl/Help/Image/hsvToRgb-C.png)
 
+A gradient at _s=1_ where
+_h_ is _(0,1)_ along the _X_-axis,
+and _v_ is _(0.2,0.8)_ along the _Y_-axis:
+
+~~~spl png=D
+{ :v :h |
+	[h, 1, 1 - v].hsvToRgb
+}.table(
+	(0.2 -- 0.8).discretize(75),
+	(0 -- 1).discretize(250)
+).Image
+~~~
+
+![](sw/spl/Help/Image/hsvToRgb-D.png)
+
 * * *
 
 See also: Colour, Hsv, hslToHsv, hslToRgb, hsv, hsvToHsl, hue, rgbToHsv

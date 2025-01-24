@@ -27,7 +27,7 @@ Sfc32(821343)
 
 Plot a color map:
 
-~~~spl svg=A
+~~~spl svg=C
 (0, 0.2 .. 1).collect { :h |
 	[h 0.6 0.9].hsvToRgb
 }.enclose.arrayPlot

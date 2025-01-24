@@ -6,7 +6,7 @@ Answer a color in the grayscale color space with gray level _aNumber_ and alpha 
 
 ```
 >>> 0.5.greyLevel(0.75)
-Colour(0.5, 0.5, 0.5, 0.75)
+Rgb([0.5, 0.5, 0.5], 0.75)
 ```
 
 * * *

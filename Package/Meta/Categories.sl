@@ -102,6 +102,8 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Graphics': [
 		'Colour'
+		'Rgb'
+		'Srgb'
 	],
 	'Data-Chemistry': [
 		'CrystalStructure'
@@ -1442,7 +1444,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'red'
 	],
 	'converting-colour': [
-		'asNontranslucentColor'
 		'fromSrgb'
 		'hexString'
 		'hsv'

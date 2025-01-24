@@ -2,14 +2,14 @@
 
 - _asColour(aNumber | aSequence)_
 
-Answer a `Colour` given specified either as _aNumber_ or as parameters in _aSequence_.
+Answer an `Rgb` value specified as either _aNumber_ or as _(r,g,b)_ parameters in _aSequence_.
 
 Opaque grey:
 
 ```
 >>> let c = 0.5.asColour;
 >>> (c, c.isGrey)
-(Colour(0.5, 0.5, 0.5, 1), true)
+(Rgb([0.5, 0.5, 0.5], 1), true)
 ```
 
 Opaque yellow:
@@ -17,7 +17,7 @@ Opaque yellow:
 ```
 >>> let c = [1 1 0].asColour;
 >>> (c, c.isYellow)
-(Colour(1, 1, 0, 1), true)
+(Rgb([1, 1, 0], 1), true)
 ```
 
 A blue colour patch:
@@ -38,6 +38,8 @@ A light grey colour patch:
 
 * * *
 
-See also: Colour
+See also: Colour, Rgb, Srgb
+
+Guides: Colour Functions
 
 Categories: Converting

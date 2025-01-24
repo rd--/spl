@@ -18,7 +18,7 @@ A 3×3 matrix:
 
 A 5×9 matrix:
 
-~~~spl svg=A
+~~~spl svg=B
 [5 9].iota.asGreyscaleSvg
 ~~~
 
@@ -27,5 +27,7 @@ A 5×9 matrix:
 * * *
 
 See also: asColourSvg, matrixPlot
+
+Guides: Colour Functions
 
 Categories: Graphics

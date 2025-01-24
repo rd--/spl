@@ -377,7 +377,7 @@
 <rect x="14" y="48" width="2" height="2" fill="rgb(2,2,2)"/>
 <rect x="14" y="50" width="2" height="2" fill="rgb(35,35,35)"/>
 <rect x="14" y="52" width="2" height="2" fill="rgb(242,242,242)"/>
-<rect x="14" y="54" width="2" height="2" fill="transparent"/>
+<rect x="14" y="54" width="2" height="2" fill="rgb(255,255,255)"/>
 <rect x="14" y="56" width="2" height="2" fill="rgb(180,180,180)"/>
 <rect x="14" y="58" width="2" height="2" fill="rgb(85,85,85)"/>
 <rect x="14" y="60" width="2" height="2" fill="rgb(186,186,186)"/>
