@@ -54,8 +54,15 @@
 
 ## Encoding and Decoding
 
+- `adobeRgbDecode`
+- `adobeRgbEncode`
 - `srgbDecode`
 - `srgbEncode`
+
+## Physics
+
+- `planckRadiationLaw`
+- `plancksRadiationFunction`
 
 ## Standards
 

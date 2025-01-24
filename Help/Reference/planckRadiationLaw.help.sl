@@ -24,7 +24,7 @@ Specified as wavelength (λ, in metres):
 
 Plot specifying as wavelength, scaling output:
 
-~~~
+~~~spl svg=A
 let t = 5777;
 (1E-9 -- 3E-6).functionPlot { :lambda |
 	let r = lambda.planckRadiationLaw(t);
