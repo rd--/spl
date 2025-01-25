@@ -2,7 +2,7 @@
 
 - _rgbString(aColour)_
 
-Answer the _Svg_ or _Css_ format _rgb_ notation string for _aColour_.
+Answer the _Svg_ or _Css_ format _rgb_-notation string for _aColour_.
 
 At `RgbColour`
 
@@ -18,13 +18,17 @@ With `alpha`:
 'rgba(51,153,191,0.25)'
 ```
 
-At `SrgbColour`:
+At `RgbColour` after _Srgb_ encoding:
 
 ```
->>> SrgbColour([1, 0.8, 0.25], 1).rgbString
-'rgb(255,204,64)'
+>>> RgbColour([1, 0.8, 0.25], 1)
+>>> .srgbEncode
+>>> .rgbString
+'rgb(255,231,137)'
 ```
 
 * * *
 
-See also: Colour, Svg
+See also: Colour, Svg, RgbColour
+
+Guides: Colour Functions

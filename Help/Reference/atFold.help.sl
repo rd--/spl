@@ -16,12 +16,18 @@ If _index_ is out of bounds, let it fold back in on itself.
 This form of indexing _reflects_ points at the boundaries:
 
 ```
->>> -1:9.collect { :i | 1:5.atFold(i) }
+>>> -1:9.collect { :i |
+>>> 	1:5.atFold(i)
+>>> }
 [3 2 1 2 3 4 5 4 3 2 1]
 ```
 
 * * *
 
-See also: at, atPin, atWrap, atWrapPut
+See also: at, atBlend, atPin, atWrap
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Array.html#-foldAt)
 
 Categories: Acccessing

@@ -19,7 +19,8 @@ Inverse is `rgbToHsv`:
 [0.99604 0.93246 0.45621]
 ```
 
-Convert table of _Hsv_ values to _Rgb_.
+Threads over lists,
+convert table of _Hsv_ values to _Rgb_.
 
 ```
 >>> let hsv = [
@@ -30,7 +31,7 @@ Convert table of _Hsv_ values to _Rgb_.
 >>> 	2/3   1   1;
 >>> 	7/9   1   1
 >>> ];
->>> hsv.collect(hsvToRgb:/1)
+>>> hsv.hsvToRgb
 [
 	1   0   0;
 	1   1/2 0;

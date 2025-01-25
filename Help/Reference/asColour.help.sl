@@ -46,7 +46,7 @@ A light grey colour patch:
 
 * * *
 
-See also: Colour, Rgb, Srgb
+See also: Colour, RgbColour
 
 Guides: Colour Functions
 

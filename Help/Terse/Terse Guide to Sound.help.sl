@@ -128,7 +128,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 5.geom(3, 2) = [3, 6, 12, 24, 48] /* geometric series (size from by) */
 (1, 3 .. 9).indexOfGreaterThan(6) = 4
 [2, 3, 5, 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
-[2, 3, 5, 6].blendAt(3.2) = 5.2 /* interpolated value between indices */
+[2, 3, 5, 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
 [0, 4].collect { :i | [2, 3, 5].atPin(i) } = [2, 5] /* clamp index to valid range */
 0:10.collect { :n | n.linLin(0, 10, -4.3, 100).rounded } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
 0:10.collect { :n | n.linExp(0, 10, 4.3, 100).rounded } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]

@@ -118,7 +118,7 @@ let n = l.size;
 
 * * *
 
-See also: catmullRomInterpolation, cosineInterpolation, cubicInterpolation, linearInterpolation
+See also: blend, catmullRomInterpolation, cosineInterpolation, cubicInterpolation, linearInterpolation
 
 References:
 _Mathematica_

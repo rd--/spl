@@ -25,9 +25,23 @@ Downsample an array:
 [1 3 5 7 9]
 ```
 
+Downsample a sine function from 512 to 64 places:
+
+~~~spl svg=A
+(0 -- 2.pi)
+.subdivide(512)
+.sin
+.resample(64)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/resample-A.svg)
+
 * * *
 
-See also: blendAt, downsample, upsample
+See also: atBlend, blend, downsample, linearInterpolation, listInterpolation, upsample
+
+Guides: Interpolation Functions
 
 References:
 _Mathematica_

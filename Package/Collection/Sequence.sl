@@ -217,6 +217,14 @@
 		self.atAllUsing(indexList, at:/2)
 	}
 
+	atAllFold { :self :indexList |
+		self.atAllUsing(indexList, atFold:/2)
+	}
+
+	atAllPin { :self :indexList |
+		self.atAllUsing(indexList, atPin:/2)
+	}
+
 	atAllPut { :self :anObject |
 		let size = self.size;
 		(size > 50).if {
@@ -229,12 +237,12 @@
 		anObject
 	}
 
-	atFold { :self :index |
-		self[self.foldedIndex(index)]
+	atAllWrap { :self :indexList |
+		self.atAllUsing(indexList, atWrap:/2)
 	}
 
-	atFoldAll { :self :indexList |
-		self.atAllUsing(indexList, atFold:/2)
+	atFold { :self :index |
+		self[self.foldedIndex(index)]
 	}
 
 	atLastPut { :self :indexFromEnd :anObject |
@@ -254,26 +262,18 @@
 		self[self.pinnedIndex(index)]
 	}
 
-	atPinAll { :self :indexList |
-		self.atAllUsing(indexList, atPin:/2)
+	atPutPin { :self :index :value |
+		self.atPut(self.pinnedIndex(index), value)
 	}
 
-	atPinPut { :self :index :value |
-		self.atPut(self.pinnedIndex(index), value)
+	atPutWrap { :self :index :anObject |
+		let k = index.wrapBetweenAnd(1, self.size + 1);
+		self[k] := anObject
 	}
 
 	atWrap { :self :index |
 		let k = index.wrapBetweenAnd(1, self.size + 1);
 		self[k]
-	}
-
-	atWrapAll { :self :indexList |
-		self.atAllUsing(indexList, atWrap:/2)
-	}
-
-	atWrapPut { :self :index :anObject |
-		let k = index.wrapBetweenAnd(1, self.size + 1);
-		self[k] := anObject
 	}
 
 	atRandom { :self :shape :rng |
@@ -700,16 +700,6 @@
 				aBlock(self[index])
 			}
 		}
-	}
-
-	downsample { :self :anInteger |
-		(1, 1 + anInteger .. self.size).collect { :each |
-			self[each]
-		}
-	}
-
-	downsampleSteinarsson { :self :threshold |
-		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>
 	}
 
 	drop { :self :count |
@@ -2364,7 +2354,7 @@
 	resample { :self :newSize |
 		let factor = (self.size - 1) / (newSize - 1).max(1);
 		0.to(newSize - 1).collect { :each |
-			self.blendAt(1 + (each * factor))
+			self.atBlend(1 + (each * factor))
 		}
 	}
 
@@ -2961,14 +2951,6 @@
 			};
 			p.difference(seen).nubBy(aBlock:/2)
 		}
-	}
-
-	upsample { :self :anInteger |
-		let answer = List(self.size * anInteger, 0);
-		0.to(self.size - 1).do { :each |
-			answer[(each * anInteger) + 1] := self[each + 1]
-		};
-		answer
 	}
 
 	variance { :self |

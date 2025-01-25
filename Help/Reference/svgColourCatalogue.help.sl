@@ -2,7 +2,7 @@
 
 - _svgColourCatalogue(aSystem)_
 
-The Svg colour catalogue is a collection of named colours from the Svg 1.1 specification.
+The Svg colour catalogue is a `Record` of named colours from the Svg 1.1 specification.
 
 Count the entries:
 
@@ -11,13 +11,13 @@ Count the entries:
 147
 ```
 
-The colours are `SrgbColour` values:
+The colours are _(r,g,b)_ triples, not `RgbColour` values:
 
 ```
 >>> system
 >>> .svgColourCatalogue
 >>> .anyOne
->>> .isSrgbColour
+>>> .isList
 true
 ```
 
@@ -26,6 +26,7 @@ Lookup a colour:
 ```
 >>> system
 >>> .svgColourCatalogue['powderblue']
+>>> .asColour
 >>> .rgbString
 'rgb(176,224,230)'
 ```
@@ -37,8 +38,7 @@ the end of the table recycles earlier colours:
 system
 .svgColourCatalogue
 .values
-.reshape([13 13])
-.deepCollect(rgb:/1)
+.reshape([13 13 3])
 .arrayPlot
 ~~~
 
@@ -52,7 +52,7 @@ The `svgColourCatalogue` method is `requireLibraryItem` of 'SvgColourCatalogue'.
 
 * * *
 
-See also: Colour, LibraryItem, Srgb
+See also: asColour, Colour, LibraryItem, RgbColour
 
 Guides: Colour Functions
 

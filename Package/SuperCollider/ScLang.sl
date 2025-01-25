@@ -69,10 +69,6 @@
 		self.log10 * 20
 	}
 
-	blend { :self :other :blendFrac |
-		self + (blendFrac * (other - self))
-	}
-
 	coin { :self |
 		system.nextRandomFloat < self
 	}
@@ -388,7 +384,7 @@
 		self.atWrap(index)
 	}
 
-	blendAt { :self :index |
+	atBlend { :self :index |
 		let indexMin = index.roundUpTo(1) - 1;
 		self.atPin(indexMin).blend(
 			self.atPin(indexMin + 1),
@@ -396,9 +392,9 @@
 		)
 	}
 
-	blendAtAll { :self :indices |
+	atBlendAll { :self :indices |
 		indices.collect { :each |
-			self.blendAt(each)
+			self.atBlend(each)
 		}
 	}
 
@@ -647,7 +643,7 @@
 	}
 
 	tableRand { :self |
-		self.blendAt(system.randomReal(1, self.size, []))
+		self.atBlend(system.randomReal(1, self.size, []))
 	}
 
 	waveFill { :self :aBlock:/3 :start :end |

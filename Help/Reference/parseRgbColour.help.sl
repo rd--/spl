@@ -3,14 +3,16 @@
 - _parseRgbColour(aString)_
 
 Parse a subset of the _Css_ and _Svg_ format _rgb_ colour notation.
-Note that the answer is an `SrgbColour` value, the inverse is `rgbString`.
+The answer is an `RgbColour` value,
+in the ordinary case the value is in the _Srgb_ colour space.
+The inverse is `rgbString`.
 
 ```
 >>> let s = 'rgb(152,236,232)';
 >>> let c = s.parseRgbColour;
 >>> (c, c.rgbString, c.hexString)
 (
-	SrgbColour([152 236 232] / 255, 1),
+	RgbColour([152 236 232] / 255, 1),
 	'rgb(152,236,232)',
 	'#98ece8'
 )
@@ -26,7 +28,7 @@ Draw parsed colour:
 
 * * *
 
-See also: Colour, parseHexColour, Rgb, rgbString, Srgb
+See also: Colour, parseHexColour, parseRgbTriplet, RgbColour, rgbString
 
 Guides: Colour Functions
 

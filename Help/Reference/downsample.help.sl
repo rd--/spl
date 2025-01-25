@@ -21,6 +21,29 @@ Downsample a `List` by a factor of three:
 [1 4 7 10]
 ```
 
+A random walk of three-hundred places:
+
+~~~spl svg=A
+Sfc32(289714)
+.randomReal(-1, 1, 300)
+.accumulate
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/downsample-A.svg)
+
+Downsample to one-hundred places:
+
+~~~spl svg=B
+Sfc32(289714)
+.randomReal(-3, 3, 300)
+.accumulate
+.downsample(3)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/downsample-B.svg)
+
 * * *
 
 See also: downsampleSteinarsson, resample, upsample

@@ -25,3 +25,5 @@ Cosine impulse response:
 * * *
 
 See also: catmullRomInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, listInterpolation
+
+Guides: Interpolation Functions

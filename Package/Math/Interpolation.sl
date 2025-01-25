@@ -1,5 +1,21 @@
 +[SmallFloat, List] {
 
+	blend { :y1 :y2 :mu |
+		y1.blend(y2, mu) { :y1 :y2 :mu |
+			y1 + (mu * (y2 - y1))
+		}
+	}
+
+	blend { :y1 :y2 :mu :aBlock:/3 |
+		mu.isSequence.if {
+			mu.collect { :each |
+				y1.blend(y2, each, aBlock:/3)
+			}
+		} {
+			aBlock(y1, y2, mu)
+		}
+	}
+
 	catmullRomInterpolation { :y0 :y1 :y2 :y3 :mu |
 		let a0 = (-0.5 * y0) + (1.5 * y1) - (1.5 * y2) + (0.5 * y3);
 		let a1 = y0 - (2.5 * y1) + (2 * y2) - (0.5 * y3);
@@ -81,6 +97,36 @@
 		]) {
 			self.error('listInterpolation: not 3- or 5- argument block')
 		}
+	}
+
+}
+
++@Sequence {
+
+	basicDownsampleSteinarsson { :self :threshold |
+		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>
+	}
+
+	downsample { :self :anInteger |
+		(1, 1 + anInteger .. self.size).collect { :each |
+			self[each]
+		}
+	}
+
+	downsampleSteinarsson { :self :threshold |
+		self.isVector.if {
+			[self.indices, self].transposed.basicDownsampleSteinarsson(threshold)
+		} {
+			self.basicDownsampleSteinarsson(threshold)
+		}
+	}
+
+	upsample { :self :anInteger |
+		let answer = List(self.size * anInteger, 0);
+		0.to(self.size - 1).do { :each |
+			answer[(each * anInteger) + 1] := self[each + 1]
+		};
+		answer
 	}
 
 }

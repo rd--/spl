@@ -12,7 +12,7 @@ The value is in _(0,1)_.
 
 * * *
 
-See also: alpha, Colour, green, red, Rgb, Srgb
+See also: alpha, Colour, green, red, RgbColour
 
 Guides: Colour Functions
 

@@ -12,13 +12,15 @@ Answer the first or last element if _index_ is out of bounds.
 >>> [1 .. 5].atPin(9)
 5
 
->>> -1:9.collect { :i | 1:5.atPin(i) }
+>>> -1:9.collect { :i |
+>>> 	1:5.atPin(i)
+>>> }
 [1 1 1 2 3 4 5 5 5 5 5]
 ```
 
 * * *
 
-See also: at, atFold, atPinAll, atWrap, clip
+See also: at, atAllPin, atFold, atWrap, clip
 
 References:
 _SuperCollider_

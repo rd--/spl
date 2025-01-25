@@ -2,7 +2,8 @@
 
 - _colourCheckerChart(aSystem)_
 
-Answer a `Record` of named `SrgbColour` colours.
+Answer a `Record` of named _Rgb_ colours,
+colours are answered as _(r,g,b)_ triples.
 
 Count entries:
 
@@ -19,19 +20,19 @@ Colour names:
 >>> .keys
 >>> .reshape([4 6])
 [
-	'Dark skin', 'Light skin',
-	'Blue sky', 'Foliage',
-	'Blue flower', 'Bluish green'
+	'Dark skin' 'Light skin'
+	'Blue sky' 'Foliage'
+	'Blue flower' 'Bluish green'
 	;
-	'Orange', 'Purplish blue',
-	'Moderate red', 'Purple',
-	'Yellow green', 'Orange yellow'
+	'Orange' 'Purplish blue'
+	'Moderate red' 'Purple'
+	'Yellow green' 'Orange yellow'
 	;
-	'Blue', 'Green', 'Red',
-	'Yellow', 'Magenta', 'Cyan'
+	'Blue' 'Green' 'Red'
+	'Yellow' 'Magenta' 'Cyan'
 	;
-	'White', 'Neutral 8', 'Neutral 6.5',
-	'Neutral 5', 'Neutral 3.5', 'Black'
+	'White' 'Neutral 8' 'Neutral 6.5'
+	'Neutral 5' 'Neutral 3.5' 'Black'
 ]
 ```
 
@@ -41,6 +42,7 @@ Lookup and draw entry:
 system
 .colourCheckerChart
 .at('Bluish green')
+.asColour
 ~~~
 
 ![](sw/spl/Help/Image/colourCheckerChart-A.svg)
@@ -51,8 +53,7 @@ Plot colour checker chart:
 system
 .colourCheckerChart
 .values
-.reshape([4 6])
-.deepCollect(rgb:/1)
+.reshape([4 6 3])
 .arrayPlot
 ~~~
 
@@ -64,7 +65,7 @@ and this function requires the item be in the interpreter cache.
 
 * * *
 
-See also: Colour, LibraryItem, parseHexColour, RgbColour, SrgbColour
+See also: Colour, LibraryItem, parseHexColour, parseHexTriplet, RgbColour
 
 References:
 _W_

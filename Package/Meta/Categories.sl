@@ -103,7 +103,6 @@ system.categoryDictionary.categorizeDictionary('type', (
 	'Graphics': [
 		'Colour'
 		'RgbColour'
-		'SrgbColour'
 	],
 	'Data-Chemistry': [
 		'CrystalStructure'
@@ -292,7 +291,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'atRandom'
 		'atRandomBy'
 		'atWrap'
-		'atWrapPut'
+		'atPutWrap'
 		'binary'
 		'blob'
 		'byteList'
@@ -1444,10 +1443,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'red'
 	],
 	'converting-colour': [
-		'fromSrgb'
 		'hexString'
-		'hsv'
-		'toSrgb'
+		'hsvToRgb'
+		'rgbString'
+		'rgbToHsv'
 	],
 	'mathematical functions-colour': [
 		'over'

@@ -32,7 +32,7 @@ Colour values can be drawn as swatches:
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> SrgbColour([16rf9 16r73 16r06] / 255, 1)
+>>> RgbColour([16rf9 16r73 16r06] / 255, 1)
 >>> .hexString
 '#f97306'
 ```

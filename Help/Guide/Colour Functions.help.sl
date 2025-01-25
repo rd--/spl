@@ -8,7 +8,6 @@
 
 - `HsvColour`
 - `RgbColour`
-- `SrgbColour`
 
 ## Accessing
 

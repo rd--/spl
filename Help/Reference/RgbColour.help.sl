@@ -2,13 +2,13 @@
 
 - _RgbColour([r, g, b], alpha)_
 
-A `Trait` and `Type` representing a color in the _Rgb_ color space,
+A `Type` representing a color in the _Rgb_ color space,
 using red, blue and green components,
 with an `alpha` channel.
 
 * * *
 
-See also: Colour, HsvColour, SrgbColour
+See also: asColour, Colour, HsvColour, srgbEncode
 
 References:
 _Mathematica_

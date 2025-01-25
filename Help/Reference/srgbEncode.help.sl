@@ -1,13 +1,36 @@
 # srgbEncode
 
-- _srgbEncode(aNumber)_
+- _srgbEncode(aNumber | aList | aColour)_
 
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Srgb_ colour component transfer function (Cctf).
 Also called the companding or gamma function.
 
+At `SmallFloat`:
+
 ```
 >>> 0.5.srgbEncode
 0.73536
+```
+
+At `List`:
+
+```
+>>> [1 0.8 0.25].srgbEncode
+[1 0.9063 0.5371]
+```
+
+At `RgbColour`:
+
+```
+>>> RgbColour([1 0.8 0.25], 1).srgbEncode
+RgbColour([1 0.9063 0.5371], 1)
+```
+
+Threads over lists:
+
+```
+>>> [1 0.8 0.25; 1 0 1].srgbEncode
+[1 0.9063 0.5371; 1 0 1]
 ```
 
 Plot curve:
@@ -20,7 +43,7 @@ Plot curve:
 
 ![](sw/spl/Help/Image/srgbEncode-A.svg)
 
-Inverse is identity:
+Inverse is `srgbDecode`:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot { :x |
@@ -32,7 +55,9 @@ Inverse is identity:
 
 * * *
 
-See also: Colour, srgbDecode
+See also: Colour, List, srgbDecode, RgbColour, SmallFloat
+
+Guides: Colour Functions
 
 References:
 _Python_

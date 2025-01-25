@@ -2,7 +2,8 @@
 
 - _rgbToHsv(rgb)_
 
-Answer an _(h,s,v)_ triple given an _(r,g,b)_ triple.
+Convert from _Rgb_ colourspace to _Hsv_ colourspace.
+Answer an _(h,s,v)_ triple in _(0,1)_ given an _(r,g,b)_ triple in _(0,1)_.
 
 Specific values:
 
@@ -18,7 +19,8 @@ Inverse is `hsvToRgb`:
 [0.45621 0.03081 0.04092]
 ```
 
-Convert table of _Rgb_ values to _Hsv_.
+Threads over lists,
+convert table of _Rgb_ values to _Hsv_.
 
 ```
 >>> let rgb = [
@@ -29,7 +31,7 @@ Convert table of _Rgb_ values to _Hsv_.
 >>> 	0   0   1;
 >>> 	2/3 0   1
 >>> ];
->>> rgb.collect(rgbToHsv:/1)
+>>> rgb.rgbToHsv
 [
 	0     1   1;
 	1/12  1   1;

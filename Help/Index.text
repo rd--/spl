@@ -21,6 +21,7 @@ Guide/Block Semantics.help.sl
 Guide/Block Syntax.help.sl
 Guide/Categories and Categoriser.help.sl
 Guide/Class Methods.help.sl
+Guide/Colour Functions.help.sl
 Guide/Column Width.help.sl
 Guide/Comment Syntax.help.sl
 Guide/Comparing Collections.help.sl
@@ -193,6 +194,7 @@ Reference/adjacencyList.help.sl
 Reference/adjacencyMatrix.help.sl
 Reference/adjacentPairsCollect.help.sl
 Reference/adjacentPairsDo.help.sl
+Reference/adjacentPairs.help.sl
 Reference/adjugate.help.sl
 Reference/Adsr.help.sl
 Reference/after.help.sl
@@ -251,6 +253,7 @@ Reference/ArithmeticProgression.help.sl
 Reference/arithmeticSeries.help.sl
 Reference/ArrayBuffer.help.sl
 Reference/arrayFlatten.help.sl
+Reference/arrayPlot.help.sl
 Reference/arrayReduce.help.sl
 Reference/arrayRules.help.sl
 Reference/asApproximateFraction.help.sl
@@ -277,6 +280,7 @@ Reference/asciiValue.help.sl
 Reference/asCodePoint.help.sl
 Reference/asCollection.help.sl
 Reference/asColour.help.sl
+Reference/asColourSvg.help.sl
 Reference/asComplex.help.sl
 Reference/asDate.help.sl
 Reference/asDocumentationTest.help.sl
@@ -363,8 +367,11 @@ Reference/asUrlQueryParameters.help.sl
 Reference/asWords.help.sl
 Reference/asWriteStream.help.sl
 Reference/atAll.help.sl
+Reference/atAllPin.help.sl
 Reference/atAllPutAll.help.sl
 Reference/atAllPut.help.sl
+Reference/atAllWrap.help.sl
+Reference/atBlend.help.sl
 Reference/atEnd.help.sl
 Reference/atFold.help.sl
 Reference/at.help.sl
@@ -379,9 +386,9 @@ Reference/atop.help.sl
 Reference/atPath.help.sl
 Reference/atPin.help.sl
 Reference/atPut.help.sl
+Reference/atPutWrap.help.sl
 Reference/atRandom.help.sl
 Reference/atWrap.help.sl
-Reference/atWrapPut.help.sl
 Reference/AudioIn.help.sl
 Reference/AxonometricProjection.help.sl
 Reference/azimuth.help.sl
@@ -394,6 +401,7 @@ Reference/barlowHarmonicity.help.sl
 Reference/barlowIndigestibility.help.sl
 Reference/barlowIndispensabilities.help.sl
 Reference/barlowIndispensability.help.sl
+Reference/bartlettHannWindow.help.sl
 Reference/bartlettWindow.help.sl
 Reference/base64Decoded.help.sl
 Reference/base64Encoded.help.sl
@@ -413,6 +421,9 @@ Reference/besselJ.help.sl
 Reference/beta.help.sl
 Reference/betweenAnd.help.sl
 Reference/BezierCurve.help.sl
+Reference/bezierDerivatives.help.sl
+Reference/bezierFunction.help.sl
+Reference/bezierSplitAt.help.sl
 Reference/BfDecode1.help.sl
 Reference/BfEncode1.help.sl
 Reference/BiLinRand.help.sl
@@ -444,7 +455,7 @@ Reference/bjorklundsAlgorithm.help.sl
 Reference/blackmanHarrisWindow.help.sl
 Reference/blackmanWindow.help.sl
 Reference/blancmangeFunction.help.sl
-Reference/blendAt.help.sl
+Reference/blend.help.sl
 Reference/Blip.help.sl
 Reference/Blob.help.sl
 Reference/blockDiagonalMatrix.help.sl
@@ -454,6 +465,7 @@ Reference/BlockStream.help.sl
 Reference/blomqvistBeta.help.sl
 Reference/BLowPass.help.sl
 Reference/blue.help.sl
+Reference/boltzmannConstant.help.sl
 Reference/Boolean.help.sl
 Reference/boole.help.sl
 Reference/boundingBox.help.sl
@@ -469,6 +481,7 @@ Reference/Brz2.help.sl
 Reference/BufFrames.help.sl
 Reference/BufRd.help.sl
 Reference/ByteArray.help.sl
+Reference/byteOrdering.help.sl
 Reference/cachedFetch.help.sl
 Reference/cachedFetchMimeType.help.sl
 Reference/cached.help.sl
@@ -497,6 +510,7 @@ Reference/catalanNumber.help.sl
 Reference/catalanTriangle.help.sl
 Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
+Reference/catmullRomInterpolation.help.sl
 Reference/CauchyDistribution.help.sl
 Reference/cdf.help.sl
 Reference/ceiling.help.sl
@@ -511,9 +525,12 @@ Reference/Character.help.sl
 Reference/characterList.help.sl
 Reference/characterRange.help.sl
 Reference/characterString.help.sl
+Reference/chebyshevT.help.sl
+Reference/chebyshevU.help.sl
 Reference/chessboardDistance.help.sl
 Reference/chineseRemainder.help.sl
 Reference/choleskyDecomposition.help.sl
+Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
 Reference/Circle.help.sl
 Reference/circlePoints.help.sl
@@ -528,11 +545,13 @@ Reference/ClipNoise.help.sl
 Reference/Clock.help.sl
 Reference/closedLine.help.sl
 Reference/clump.help.sl
+Reference/cmyToRgb.help.sl
 Reference/codePoint.help.sl
 Reference/codePoints.help.sl
 Reference/CoinGate.help.sl
 Reference/coin.help.sl
 Reference/Coin.help.sl
+Reference/collatzSequence.help.sl
 Reference/collect.help.sl
 Reference/collectInto.help.sl
 Reference/Collection.help.sl
@@ -544,6 +563,7 @@ Reference/colonEqualsSign.help.sl
 Reference/colon.help.sl
 Reference/colonSemicolon.help.sl
 Reference/colonSolidus.help.sl
+Reference/colourCheckerChart.help.sl
 Reference/ColourChooser.help.sl
 Reference/Colour.help.sl
 Reference/ColumnBrowser.help.sl
@@ -608,6 +628,7 @@ Reference/Cos.help.sl
 Reference/cosh.help.sl
 Reference/Cosh.help.sl
 Reference/cosineDistance.help.sl
+Reference/cosineInterpolation.help.sl
 Reference/cotangent.help.sl
 Reference/coth.help.sl
 Reference/count.help.sl
@@ -629,6 +650,8 @@ Reference/cubed.help.sl
 Reference/Cubed.help.sl
 Reference/cubeGraph.help.sl
 Reference/cubeRoot.help.sl
+Reference/cubicBezierFunctionAt.help.sl
+Reference/cubicInterpolation.help.sl
 Reference/Cuboid.help.sl
 Reference/cull.help.sl
 Reference/currentWorkingDirectory.help.sl
@@ -645,6 +668,7 @@ Reference/DbAmp.help.sl
 Reference/Dbrown.help.sl
 Reference/Dc.help.sl
 Reference/deBruijnSequence.help.sl
+Reference/deCasteljausAlgorithm.help.sl
 Reference/Decay2.help.sl
 Reference/Decay.help.sl
 Reference/Decimal.help.sl
@@ -655,6 +679,7 @@ Reference/deepCollect.help.sl
 Reference/deepCopy.help.sl
 Reference/deepDo.help.sl
 Reference/deepIndices.help.sl
+Reference/deepIndicesOf.help.sl
 Reference/degreeCos.help.sl
 Reference/degree.help.sl
 Reference/degreeSequence.help.sl
@@ -985,6 +1010,7 @@ Reference/HelpViewer.help.sl
 Reference/HenonC.help.sl
 Reference/hertz.help.sl
 Reference/hessianNormalForm.help.sl
+Reference/hexString.help.sl
 Reference/highBit.help.sl
 Reference/highBitOfByte.help.sl
 Reference/highBitOfMagnitude.help.sl
@@ -1004,8 +1030,11 @@ Reference/Hpf.help.sl
 Reference/Hpz1.help.sl
 Reference/Hpz2.help.sl
 Reference/href.help.sl
+Reference/hslToHsv.help.sl
+Reference/hslToRgb.help.sl
+Reference/HsvColour.help.sl
 Reference/hsv.help.sl
-Reference/Hsv.help.sl
+Reference/hsvToHsl.help.sl
 Reference/hsvToRgb.help.sl
 Reference/Html.help.sl
 Reference/hue.help.sl
@@ -1032,6 +1061,7 @@ Reference/ifNotNil.help.sl
 Reference/ifTrue.help.sl
 Reference/i.help.sl
 Reference/image.help.sl
+Reference/Image.help.sl
 Reference/ImageViewer.help.sl
 Reference/imaginary.help.sl
 Reference/Impulse.help.sl
@@ -1121,6 +1151,7 @@ Reference/isArray.help.sl
 Reference/isAsciiCodePoint.help.sl
 Reference/isAscii.help.sl
 Reference/isAssociationList.help.sl
+Reference/isBigEndian.help.sl
 Reference/isBinary.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
@@ -1171,6 +1202,7 @@ Reference/isLetter.help.sl
 Reference/isLineFeed.help.sl
 Reference/isList.help.sl
 Reference/isLiteral.help.sl
+Reference/isLittleEndian.help.sl
 Reference/isLoopFree.help.sl
 Reference/isLowerCase.help.sl
 Reference/isLowerTriangularMatrix.help.sl
@@ -1183,6 +1215,7 @@ Reference/isNegativeZero.help.sl
 Reference/isNil.help.sl
 Reference/isNonNegative.help.sl
 Reference/isNonPositive.help.sl
+Reference/isNormal.help.sl
 Reference/isNumber.help.sl
 Reference/iso8601.help.sl
 Reference/isOdd.help.sl
@@ -1272,6 +1305,7 @@ Reference/kurenniemiMajorMinorIndex.help.sl
 Reference/kurenniemiNotation.help.sl
 Reference/kurtosis.help.sl
 Reference/labeledVertexList.help.sl
+Reference/labToXyz.help.sl
 Reference/Lag.help.sl
 Reference/LagUd.help.sl
 Reference/LargeInteger.help.sl
@@ -1286,6 +1320,7 @@ Reference/latticePrimes.help.sl
 Reference/latticeVector.help.sl
 Reference/latticeVectorString.help.sl
 Reference/latticeVertexCoordinates.help.sl
+Reference/lchToLuv.help.sl
 Reference/lcm.help.sl
 Reference/Lcm.help.sl
 Reference/leafCount.help.sl
@@ -1318,6 +1353,7 @@ Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
 Reference/levskayaPolyhedraCatalogue.help.sl
 Reference/lexicographicallyLeastRotation.help.sl
+Reference/lexicographicPermutationsDo.help.sl
 Reference/lexicographicPermutations.help.sl
 Reference/LfBrownNoise1.help.sl
 Reference/LfClipNoise.help.sl
@@ -1335,6 +1371,7 @@ Reference/LfSaw.help.sl
 Reference/LfTri.help.sl
 Reference/library.help.sl
 Reference/LibraryItem.help.sl
+Reference/lightnessCie.help.sl
 Reference/limitDenominator.help.sl
 Reference/Limiter.help.sl
 Reference/limit.help.sl
@@ -1342,6 +1379,7 @@ Reference/LinCongC.help.sl
 Reference/LinCurve.help.sl
 Reference/LinearCongruential.help.sl
 Reference/linearIndex.help.sl
+Reference/linearInterpolation.help.sl
 Reference/linearRecurrence.help.sl
 Reference/lineCount.help.sl
 Reference/LineDrawing.help.sl
@@ -1362,6 +1400,7 @@ Reference/linspace.help.sl
 Reference/LinXFade2.help.sl
 Reference/liouvilleLambda.help.sl
 Reference/List.help.sl
+Reference/listInterpolation.help.sl
 Reference/lobbNumber.help.sl
 Reference/LocalBuf.help.sl
 Reference/LocalControl.help.sl
@@ -1446,6 +1485,7 @@ Reference/Lt.help.sl
 Reference/lucasNumber.help.sl
 Reference/lucasNumbers.help.sl
 Reference/luDecomposition.help.sl
+Reference/luvToXyz.help.sl
 Reference/lyndonWords.help.sl
 Reference/Magnitude.help.sl
 Reference/makeDirectory.help.sl
@@ -1483,6 +1523,7 @@ Reference/mercatorsComma.help.sl
 Reference/mergeInPlace.help.sl
 Reference/mergeSort.help.sl
 Reference/MersenneTwister.help.sl
+Reference/meshGrid.help.sl
 Reference/messageText.help.sl
 Reference/metallicMean.help.sl
 Reference/MethodBrowser.help.sl
@@ -1560,6 +1601,7 @@ Reference/neighbours.help.sl
 Reference/nest.help.sl
 Reference/nestList.help.sl
 Reference/nestWhileList.help.sl
+Reference/neumaierSum.help.sl
 Reference/newFrom.help.sl
 Reference/new.help.sl
 Reference/next.help.sl
@@ -1606,6 +1648,7 @@ Reference/notify.help.sl
 Reference/notNil.help.sl
 Reference/now.help.sl
 Reference/NRand.help.sl
+Reference/nthLexicographicPermutation.help.sl
 Reference/nthPrimeGap.help.sl
 Reference/nthPrime.help.sl
 Reference/nthRoot.help.sl
@@ -1634,6 +1677,7 @@ Reference/oddLimit.help.sl
 Reference/oddLimitSet.help.sl
 Reference/OffsetOut.help.sl
 Reference/ofSize.help.sl
+Reference/oklabToXyz.help.sl
 Reference/once.help.sl
 Reference/one.help.sl
 Reference/OnePole.help.sl
@@ -1672,6 +1716,7 @@ Reference/padovanSequence.help.sl
 Reference/padRight.help.sl
 Reference/pairsCollect.help.sl
 Reference/pairsDo.help.sl
+Reference/pairwiseSum.help.sl
 Reference/Pan2.help.sl
 Reference/PanAz.help.sl
 Reference/PanB2.help.sl
@@ -1687,11 +1732,14 @@ Reference/parseDecimalInteger.help.sl
 Reference/parseDuration.help.sl
 Reference/parseFraction.help.sl
 Reference/parseHexColour.help.sl
+Reference/parseHexTriplet.help.sl
 Reference/parseHtml.help.sl
 Reference/parseInteger.help.sl
 Reference/parseJson.help.sl
 Reference/parseMethodSignature.help.sl
 Reference/parseNumber.help.sl
+Reference/parseRgbColour.help.sl
+Reference/parseRgbTriplet.help.sl
 Reference/parseSvg.help.sl
 Reference/partitionDo.help.sl
 Reference/partitionFunctionP.help.sl
@@ -1770,6 +1818,9 @@ Reference/planarGraphCatalogue.help.sl
 Reference/planarNonHamiltonianGraphCatalogue.help.sl
 Reference/planarQuadrangulationsCatalogue.help.sl
 Reference/planarRegularGraphCatalogue.help.sl
+Reference/planckConstant.help.sl
+Reference/planckRadiationLaw.help.sl
+Reference/plancksRadiationFunction.help.sl
 Reference/plasticRatio.help.sl
 Reference/PlayBuf.help.sl
 Reference/playEvery.help.sl
@@ -1855,6 +1906,8 @@ Reference/pythagoreanChroma.help.sl
 Reference/pythagoreanComma.help.sl
 Reference/pythagoreanLimma.help.sl
 Reference/qrDecomposition.help.sl
+Reference/quadraticBezierFunctionAt.help.sl
+Reference/quadraticBezierToCubicBezier.help.sl
 Reference/quantile.help.sl
 Reference/quarterToneFlat.help.sl
 Reference/quarterToneSharp.help.sl
@@ -1989,7 +2042,13 @@ Reference/reverseSolidus.help.sl
 Reference/reverseSolidusReverseSolidus.help.sl
 Reference/reverseWithDo.help.sl
 Reference/revokeObjectUrl.help.sl
+Reference/rgba.help.sl
+Reference/RgbColour.help.sl
+Reference/rgb.help.sl
+Reference/rgbString.help.sl
+Reference/rgbToHsl.help.sl
 Reference/rgbToHsv.help.sl
+Reference/rgbToXyz.help.sl
 Reference/r.help.sl
 Reference/rho.help.sl
 Reference/Rhpf.help.sl
@@ -2150,6 +2209,7 @@ Reference/SoundFile.help.sl
 Reference/SparseMatrixMixer.help.sl
 Reference/spawnTextureProgram.help.sl
 Reference/species.help.sl
+Reference/speedOfLight.help.sl
 Reference/Sphere.help.sl
 Reference/spherePointsFibonacci.help.sl
 Reference/spherePoints.help.sl
@@ -2172,6 +2232,9 @@ Reference/Sqrt.help.sl
 Reference/squaredEuclideanDistance.help.sl
 Reference/squared.help.sl
 Reference/Squared.help.sl
+Reference/srgbDecode.help.sl
+Reference/srgbEncode.help.sl
+Reference/srgb.help.sl
 Reference/sssTriangle.help.sl
 Reference/Stack.help.sl
 Reference/stackSort.help.sl
@@ -2226,6 +2289,7 @@ Reference/supersilverRatio.help.sl
 Reference/surfaceNormal.help.sl
 Reference/surfacePlot.help.sl
 Reference/Svf.help.sl
+Reference/svgColourCatalogue.help.sl
 Reference/Svg.help.sl
 Reference/SvgViewer.help.sl
 Reference/swap.help.sl
@@ -2355,9 +2419,11 @@ Reference/unitSquare.help.sl
 Reference/unitStep.help.sl
 Reference/unitTetrahedron.help.sl
 Reference/unitVector.help.sl
+Reference/UnivariatePolynomial.help.sl
 Reference/unixTimeInMilliseconds.help.sl
 Reference/unlines.help.sl
 Reference/unrankPermutation.help.sl
+Reference/unsigned32BitWordList.help.sl
 Reference/unwords.help.sl
 Reference/upOrDownTo.help.sl
 Reference/upperTriangularize.help.sl
@@ -2468,6 +2534,12 @@ Reference/xFadeTextureProgram.help.sl
 Reference/x.help.sl
 Reference/XLine.help.sl
 Reference/xor.help.sl
+Reference/xyyToXyz.help.sl
+Reference/xyzToAdobeRgb.help.sl
+Reference/xyzToLab.help.sl
+Reference/xyzToOklab.help.sl
+Reference/xyzToRgb.help.sl
+Reference/xyzToXyy.help.sl
 Reference/year.help.sl
 Reference/y.help.sl
 Reference/zeckendorfRepresentation.help.sl

@@ -7,8 +7,8 @@
 - `atFold`, `atPath`, `atPin`, `atWrap`
 - `atAll`
 - `atPut`
+- `atPutWrap`
 - `atIfAbsentPut`
-- `atWrapPut`
 - `atAllPut`, `atAllPutAll`
 - `associationAt`, `associationAtIfAbsent`
 - `any`, `anyAs`

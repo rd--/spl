@@ -27,7 +27,7 @@ To convert Cie _xy_ chromaticity coordinates to _xyz_ set _Y_ to `one`:
 [1.69334 1 0.42116]
 ```
 
-White point in _Srgb_ space:
+White point in _Srgb_ colour space:
 
 ```
 >>> let xyy = [0.3127 0.3290 1];
@@ -47,7 +47,7 @@ White point in _Srgb_ space:
 
 * * *
 
-See also: Colour, Rgb, rgbToXyz, Srgb, srgbEncode, xyzToxyy
+See also: Colour, Rgb, rgbToXyz, srgbEncode, xyzToxyy
 
 Guides: Colour Functions
 
