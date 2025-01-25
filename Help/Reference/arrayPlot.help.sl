@@ -35,6 +35,30 @@ Plot a color map:
 
 ![](sw/spl/Help/Image/arrayPlot-C.svg)
 
+Interpolate between a list of _Rgb_ triples:
+
+~~~spl svg=D
+let c = [
+	1 0 0;
+	1 0.65 0;
+	1 1 0;
+	0 1 0;
+	0 0 1;
+	0.25 0 1;
+	0.5 0 1
+];
+let g = (1 -- c.size).discretize(36).collect(
+	c.listInterpolation(
+		linearInterpolation:/3
+	)
+);
+(0.4 -- 1).discretize(12).collect { :each |
+	each * g
+}.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/arrayPlot-D.svg)
+
 * * *
 
 See also: asColourSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

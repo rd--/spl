@@ -6,9 +6,9 @@
 
 ## Constructors
 
-- `Hsv`
-- `Rgb`
-- `Srgb`
+- `HsvColour`
+- `RgbColour`
+- `SrgbColour`
 
 ## Accessing
 
@@ -29,6 +29,7 @@
 ## Converting
 
 - `asColour`: as Colour
+- `cmyToRgb`: Cmy to Rgb
 - `hslToHsv`: Hsl to Hsv
 - `hslToRgb`: Hsl to Rgb
 - `hsvToHsl`: Hsv to Hsl

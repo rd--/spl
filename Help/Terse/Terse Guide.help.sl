@@ -1065,30 +1065,6 @@ let r = Set(); r.add('x'); r.remove('x'); r.size = 0
 ## Colour -- graphics type
 ```
 system.includesPackage('Colour') /* colour package */
-Colour(1, 0, 0, 0.5).over(Colour(0, 1, 0, 0.5)) = Colour(1 / 3, 2 / 3, 0, 3 / 4)
-Colour(0, 0, 0).isBlack /* is colour black */
-Colour(1, 1, 1).isWhite /* is colour white */
-[0.1, 0.2, 0.3].asColour = Colour(0.1, 0.2, 0.3) /* three element array constructor */
-[0.1, 0.2, 0.3, 0.4].asColour = Colour(0.1, 0.2, 0.3, 0.4) /* four element array constructor */
-Colour(0.5, 0.5, 0.5).isGreyOf(0.5) /* is colour grey with particular value */
-Colour(0.5, 0.5, 0.5).isGrey /* is colour grey */
-Colour(1, 0.2, 0.2).isRed /* is colour red */
-Colour(0.2, 1, 0.2).isGreen /* is colour green */
-Colour(0.2, 0.2, 1).isBlue /* is colour blue */
-Colour(0.9, 0.75, 0).isYellow /* is colour yellow */
-Colour(0, 0.75, 0.9).isCyan /* is colour cyan */
-Colour(0.9, 0, 0.75).isMagenta /* is colour magenta */
-Hsv(0, 0, 0).isBlack & { Hsv(0, 0, 1).isWhite } /* hue (in degrees) & saturation & value (in 0-1) */
-Hsv(0, 1, 1).isRed & { Hsv(120 / 360, 1, 1).isGreen } & { Hsv(240 / 360, 1, 1).isBlue }
-Hsv(60 / 360, 1, 1).isYellow & { Hsv(180 / 360, 1, 1).isCyan } & { Hsv(300 / 360, 1, 1).isMagenta }
-Hsv(0, 0, 0.5).isGreyOf(0.5) & { Hsv(0, 0, 0.75).isGreyOf(0.75) }
-Hsv(0, 1, 0.75).isRed & { Hsv(120 / 360, 1, 0.5).isGreen } & { Hsv(240 / 360, 1, 0.5).isBlue }
-0.5.srgbFromLinear = 0.7353569830524495 /* transfer function from (linear) rgb to srgb */
-0.7353569830524495.srgbToLinear = 0.5 /* transfer function from srgb to (linear) rgb */
-let c = Colour(1, 0, 0, 0.5); let z = c.copy; z.green := 1; c ~= z & { z = Colour(1, 1, 0, 0.5) } /* copy colour */
-'#f97306'.parseHexColour = Colour(16rf9 / 255, 16r73 / 255, 16r06 / 255) /* parse hex colour, here orange */
-system.colourNameTable['orange'] = Colour(1, 0.6, 0) /* colour name table */
-system.colourNameTable['veryLightGray'].isGrey /* colour name table */
 ```
 
 ## Comparing

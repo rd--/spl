@@ -61,7 +61,7 @@ Svg : [Object] { | contents |
 		self.deepCollect { :each |
 			let level = (maxEntry - each.abs) / maxEntry;
 			level.isVeryCloseTo(1).if {
-				Srgb([1 1 1], 0)
+				SrgbColour([1 1 1], 0)
 			} {
 				level.greyLevel
 			}

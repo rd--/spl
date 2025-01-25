@@ -5,10 +5,10 @@
 Answer the _rgb_ components of _aColour_.
 
 ```
->>> Rgb([1, 0.8, 0.25], 1).rgb
+>>> RgbColour([1, 0.8, 0.25], 1).rgb
 [1 0.8 0.25]
 
->>> Srgb([1, 0.8, 0.25], 1).rgb
+>>> SrgbColour([1, 0.8, 0.25], 1).rgb
 [1 0.8 0.25]
 ```
 

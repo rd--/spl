@@ -2,7 +2,7 @@
 
 `Cache` is a `Trait` used to implement initialise-on-demand global variables.
 
-The requried method is `cache`, which should answer a `Dictionary`.
+The required method is `cache`, which should answer a `Dictionary`.
 
 Implements the methods `cached`, for where the initializer is synchronous, and `whenCached` for where it is not.
 
@@ -36,9 +36,23 @@ however it does implement:
 - `atPut`
 - `removeKeyIfAbsent`
 
+Remove an item from the 'SplLibrary' cache:
+
+~~~
+system
+.caches
+.atIfPresent('SplLibraryItems') { :cache |
+	cache.removeKeyIfAbsent(
+		system.library['ColourCheckerChart'].url.asUrl
+	) {
+		'Not present'.postLine
+	}
+}
+~~~
+
 * * *
 
-See also: cached, caches, CacheStorage, System, whenCached
+See also: cached, caches, CacheStorage, LibraryItem, System, whenCached
 
 References:
 _W3c_

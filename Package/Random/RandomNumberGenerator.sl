@@ -38,7 +38,7 @@
 
 	randomColour { :self :shape |
 		{
-			Rgb(
+			RgbColour(
 				[
 					self.randomReal(0, 1, []),
 					self.randomReal(0, 1, []),

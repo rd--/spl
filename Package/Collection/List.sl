@@ -77,7 +77,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 				self.error('List>>join: element type not List or String: ' ++ elementType)
 			}
 		} {
-			self.error('List>>join: heterogenous list')
+			self.error('List>>join: heterogenous list: ' ++ self.elementTypes)
 		}
 	}
 

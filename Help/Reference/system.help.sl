@@ -23,7 +23,7 @@ true
 >>> system
 >>> .traitDictionary
 >>> .size
-38
+39
 
 >>> system
 >>> .traitDictionary

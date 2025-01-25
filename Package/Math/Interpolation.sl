@@ -1,4 +1,4 @@
-+SmallFloat {
++[SmallFloat, List] {
 
 	catmullRomInterpolation { :y0 :y1 :y2 :y3 :mu |
 		let a0 = (-0.5 * y0) + (1.5 * y1) - (1.5 * y2) + (0.5 * y3);
@@ -44,10 +44,6 @@
 }
 
 +List {
-
-	linearInterpolation { :self :aSequence :index |
-		(self * (1 - index)) + (aSequence * index)
-	}
 
 	listInterpolation { :self :aBlock |
 		let k = self.size;

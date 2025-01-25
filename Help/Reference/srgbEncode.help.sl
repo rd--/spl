@@ -5,6 +5,11 @@
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Srgb_ colour component transfer function (Cctf).
 Also called the companding or gamma function.
 
+```
+>>> 0.5.srgbEncode
+0.73536
+```
+
 Plot curve:
 
 ~~~spl svg=A

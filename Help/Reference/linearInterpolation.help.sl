@@ -24,6 +24,14 @@ At `List`:
 [1 3; 1.4 2.2; 1.8 1.4; 2.2 0.6; 2.6 -0.2; 3 -1]
 ```
 
+In the `List` case _mu_ may be a list:
+
+```
+>>> let [y1, y2, mu] = [1 3; 3 7; 0.2 0.75];
+>>> y1.linearInterpolation(y2, mu)
+[1.4 6]
+```
+
 Plot the line that intepolates from _1_ to _3_:
 
 ~~~spl svg=A

@@ -6,7 +6,7 @@ Answer a triple of _hue_, _saturation_ and _value_.
 _Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ color model.
 
 ```
->>> Srgb([0.75, 1, 0.75], 1).hsv
+>>> SrgbColour([0.75, 1, 0.75], 1).hsv
 [1/3 0.25 1]
 ```
 

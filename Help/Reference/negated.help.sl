@@ -45,7 +45,7 @@ At `Complex`:
 At a `Colour`, inverts the value of the colour channels:
 
 ```
->>> let r = Rgb([1, 0, 0], 1);
+>>> let r = RgbColour([1, 0, 0], 1);
 >>> let c = r.negated;
 >>> (r.isRed, c.isCyan)
 (true, true)

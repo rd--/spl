@@ -11,13 +11,13 @@ Count the entries:
 147
 ```
 
-The colours are `Srgb` values:
+The colours are `SrgbColour` values:
 
 ```
 >>> system
 >>> .svgColourCatalogue
 >>> .anyOne
->>> .isSrgb
+>>> .isSrgbColour
 true
 ```
 

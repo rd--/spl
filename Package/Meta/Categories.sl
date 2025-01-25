@@ -102,8 +102,8 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Graphics': [
 		'Colour'
-		'Rgb'
-		'Srgb'
+		'RgbColour'
+		'SrgbColour'
 	],
 	'Data-Chemistry': [
 		'CrystalStructure'

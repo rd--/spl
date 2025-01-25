@@ -5,9 +5,9 @@
 Create an uninitialized instance of _aType_.
 
 ```
->>> let rgbType = system.typeLookup('Rgb');
->>> let rgbValue = rgbType.instanceOf;
->>> (rgbType.isType, rgbValue.isRgb, rgbValue.rgb)
+>>> let type = system.typeLookup('RgbColour');
+>>> let value = type.instanceOf;
+>>> (type.isType, value.isRgbColour, value.rgb)
 (true, true, nil)
 ```
 

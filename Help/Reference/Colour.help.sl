@@ -32,7 +32,7 @@ Colour values can be drawn as swatches:
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> Srgb([16rf9 16r73 16r06] / 255, 1)
+>>> SrgbColour([16rf9 16r73 16r06] / 255, 1)
 >>> .hexString
 '#f97306'
 ```
@@ -42,71 +42,81 @@ There are a number of colour predicates:
 Is colour black predicate:
 
 ```
->>> Rgb([0, 0, 0], 1).isBlack
+>>> RgbColour([0, 0, 0], 1).isBlack
 true
 ```
 
 Is colour white predicate:
 
 ```
->>> Rgb([1, 1, 1], 1).isWhite
+>>> RgbColour([1, 1, 1], 1).isWhite
 true
 ```
 
 Is colour grey with particular value:
 
 ```
->>> Rgb([0.5, 0.5, 0.5], 1).isGreyOf(0.5)
+>>> RgbColour([0.5, 0.5, 0.5], 1).isGreyOf(0.5)
 true
 ```
 
 Is colour grey predicate:
 
 ```
->>> Rgb([0.5, 0.5, 0.5], 1).isGrey
+>>> RgbColour([0.5, 0.5, 0.5], 1).isGrey
 true
 ```
 
 Is colour red predicate:
 
 ```
->>> Rgb([1, 0.2, 0.2], 1).isRed
+>>> RgbColour([1, 0.2, 0.2], 1).isRed
 true
 ```
 
 Is colour green predicate:
 
 ```
->>> Rgb([0.2, 1, 0.2], 1).isGreen
+>>> RgbColour([0.2, 1, 0.2], 1).isGreen
 true
 ```
 
 Is colour blue predicate:
 
 ```
->>> Rgb([0.2, 0.2, 1], 1).isBlue
+>>> RgbColour([0.2, 0.2, 1], 1).isBlue
 true
 ```
 
 Is colour yellow predicate:
 
 ```
->>> Rgb([0.9, 0.75, 0], 1).isYellow
+>>> RgbColour([0.9, 0.75, 0], 1).isYellow
 true
 ```
 
 Is colour cyan predicate:
 
 ```
->>> Rgb([0, 0.75, 0.9], 1).isCyan
+>>> RgbColour([0, 0.75, 0.9], 1).isCyan
 true
 ```
 
 Is colour magenta predicate:
 
 ```
->>> Rgb([0.9, 0, 0.75], 1).isMagenta
+>>> RgbColour([0.9, 0, 0.75], 1).isMagenta
 true
+```
+
+Copy colour and mutate components:
+
+```
+>>> let c = RgbColour([1 0 0], 0.5);
+>>> let z = c.copy;
+>>> z.rgb := [1 1 0];
+>>> (c ~= z, c.isRed, z)
+(true, true, RgbColour([1 1 0], 0.5))
 ```
 
 * * *

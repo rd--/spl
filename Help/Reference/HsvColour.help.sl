@@ -1,12 +1,12 @@
-# Hsv
+# HsvColour
 
-- _Hsv(hsv, alpha)_
+- _HsvColour(hsv, alpha)_
 
-Answer an `Rgb` value given `hue`, `saturation` and `value`, all in _(0,1)_.
-`Hsv` is a cylindrical-coordinate representations of points in an `Rgb` color model.
+Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)_.
+`HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` color model.
 
 ~~~spl svg=A
-Hsv([1 / 3, 1 / 4, 1], 1)
+HsvColour([1 / 3, 1 / 4, 1], 1)
 ~~~
 
 ![](sw/spl/Help/Image/Hsv-A.svg)
@@ -14,7 +14,7 @@ Hsv([1 / 3, 1 / 4, 1], 1)
 Value of `zero` is black:
 
 ```
->>> Hsv(
+>>> HsvColour(
 >>> 	[
 >>> 		(0 -- 1).atRandom,
 >>> 		(0 -- 1).atRandom,
@@ -28,7 +28,7 @@ true
 Saturation of `zero` is grey:
 
 ```
->>> Hsv(
+>>> HsvColour(
 >>> 	[
 >>> 		(0 -- 1).atRandom,
 >>> 		0,
@@ -42,7 +42,7 @@ true
 Saturation of `zero` and value of `one` is white:
 
 ```
->>> Hsv(
+>>> HsvColour(
 >>> 	[
 >>> 		(0 -- 1).atRandom,
 >>> 		0,
@@ -53,33 +53,33 @@ Saturation of `zero` and value of `one` is white:
 true
 ```
 
-Colour predicates (s=1 & v=1):
+Colour predicates (_s=1_ & _v=1_):
 
 ```
->>> Hsv([0 / 360, 1, 1], 1).isRed
+>>> HsvColour([0 / 360, 1, 1], 1).isRed
 true
 
->>> Hsv([120 / 360, 1, 1], 1).isGreen
+>>> HsvColour([120 / 360, 1, 1], 1).isGreen
 true
 
->>> Hsv([240 / 360, 1, 1], 1).isBlue
+>>> HsvColour([240 / 360, 1, 1], 1).isBlue
 true
 
->>> Hsv([60 / 360, 1, 1], 1).isYellow
+>>> HsvColour([60 / 360, 1, 1], 1).isYellow
 true
 
->>> Hsv([180 / 360, 1, 1], 1).isCyan
+>>> HsvColour([180 / 360, 1, 1], 1).isCyan
 true
 
->>> Hsv([300 / 360, 1, 1], 1).isMagenta
+>>> HsvColour([300 / 360, 1, 1], 1).isMagenta
 true
 ```
 
 At specific values:
 
 ```
->>> Hsv([251.5 / 360, 0.887, 0.918], 1)
-Rgb([0.25980, 0.10374, 0.918], 1)
+>>> HsvColour([251.5 / 360, 0.887, 0.918], 1)
+RgbColour([0.25980, 0.10374, 0.918], 1)
 ```
 
 * * *
@@ -92,6 +92,6 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/HSL_and_HSV)
 
-Further Reading: Joblove 1978
+Further Reading: Joblove 1978, Smith 1978
 
 Categories: Colour, Graphics

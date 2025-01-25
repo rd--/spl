@@ -16,7 +16,7 @@ Answer an _(h,s,l)_ triple given an _(r,g,b)_ triple.
 [0.99604 0.87347 0.24351]
 ```
 
-Inverse is ``hslToRgb`:
+Inverse is `hslToRgb`:
 
 ```
 >>> [0.99604 0.87347 0.24351].hslToRgb

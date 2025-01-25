@@ -137,21 +137,6 @@
 		self.rgb
 	}
 
-	negated { :self |
-		self.species.value(
-			1 - self.rgb,
-			self.alpha
-		)
-	}
-
-	over { :self :aColour |
-		let alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha));
-		self.species.value(
-			(aColour.rgb * aColour.alpha / alpha) + (self.rgb * self.alpha * (1 - aColour.alpha) / alpha),
-			alpha
-		)
-	}
-
 	red { :self |
 		self.rgb.first
 	}
@@ -192,22 +177,43 @@
 
 }
 
-Rgb : [Object, Colour] { | rgb alpha |
+@RgbColour {
 
-	species { :self |
-		Rgb:/2
+	negated { :self |
+		self.species.value(
+			1 - self.rgb,
+			self.alpha
+		)
+	}
+
+	over { :self :aColour |
+		let alpha = 1 - ((1 - aColour.alpha) * (1 - self.alpha));
+		let m = self.alpha * (1 - aColour.alpha) / alpha;
+		let n = aColour.alpha / alpha;
+		self.species.value(
+			(self.rgb * m) + (aColour.rgb * n),
+			alpha
+		)
 	}
 
 }
 
-Srgb : [Object, Colour] { | rgb alpha |
+RgbColour : [Object, Colour, RgbColour] { | rgb alpha |
+
+	species { :self |
+		RgbColour:/2
+	}
+
+}
+
+SrgbColour : [Object, Colour, RgbColour] { | rgb alpha |
 
 	linearRgb { :self |
 		self.rgb.srgbDecode
 	}
 
 	species { :self |
-		Srgb:/2
+		SrgbColour:/2
 	}
 
 	srgb { :self |
@@ -219,22 +225,27 @@ Srgb : [Object, Colour] { | rgb alpha |
 +List {
 
 	asColour { :self |
-		Rgb(self, 1)
+		self.size.caseOfOtherwise([
+			3 -> { RgbColour(self, 1) },
+			4 -> { RgbColour(self.take(3), self[4]) }
+		]) {
+			self.error('asColour')
+		}
 	}
 
-	Hsv { :self :alpha |
-		Rgb(
+	HsvColour { :self :alpha |
+		RgbColour(
 			self.hsvToRgb,
 			alpha
 		)
 	}
 
-	Rgb { :self :alpha |
-		newRgb().initializeSlots(self, alpha)
+	RgbColour { :self :alpha |
+		newRgbColour().initializeSlots(self, alpha)
 	}
 
-	Srgb { :self :alpha |
-		newSrgb().initializeSlots(self, alpha)
+	SrgbColour { :self :alpha |
+		newSrgbColour().initializeSlots(self, alpha)
 	}
 
 }
@@ -254,7 +265,7 @@ Srgb : [Object, Colour] { | rgb alpha |
 	}
 
 	greyLevel { :level :alpha |
-		Rgb([level, level, level], alpha)
+		RgbColour([level, level, level], alpha)
 	}
 
 	greyLevel { :level |
@@ -310,6 +321,10 @@ Srgb : [Object, Colour] { | rgb alpha |
 			0.0270343  0.0706872  0.9911085
 		];
 		m.dot(self)
+	}
+
+	cmyToRgb { :self |
+		1 - self
 	}
 
 	hslToHsv { :self |
@@ -653,7 +668,7 @@ Srgb : [Object, Colour] { | rgb alpha |
 +String {
 
 	parseHexColour { :self |
-		Srgb(
+		SrgbColour(
 			self.parseHexTriplet,
 			1
 		)
@@ -675,7 +690,7 @@ Srgb : [Object, Colour] { | rgb alpha |
 	parseRgbColour { :self |
 		self.beginsWith('rgb(').if {
 			let [r, g, b] = self.copyFromTo(5, self.size - 1).splitBy(',');
-			Srgb(
+			SrgbColour(
 				[r, g, b].collect { :each |
 					each.parseInteger(10) / 255
 				},
@@ -688,56 +703,13 @@ Srgb : [Object, Colour] { | rgb alpha |
 
 }
 
-+@Cache {
-
-	colourNameTable { :self |
-		self.cached('colourNameTable') {
-			(
-				black: Colour(0, 0, 0),
-				veryVeryDarkGray: Colour(0.125, 0.125, 0.125),
-				veryDarkGray: Colour(0.25, 0.25, 0.25),
-				darkGray: Colour(0.375, 0.375, 0.375),
-				gray: Colour(0.5, 0.5, 0.5),
-				lightGray: Colour(0.625, 0.625, 0.625),
-				veryLightGray: Colour(0.75, 0.75, 0.75),
-				veryVeryLightGray: Colour(0.875, 0.875, 0.875),
-				white: Colour(1, 1, 1.0),
-				red: Colour(1, 0, 0),
-				yellow: Colour(1, 1, 0),
-				green: Colour(0, 1, 0),
-				cyan: Colour(0, 1, 1.0),
-				blue: Colour(0, 0, 1.0),
-				magenta: Colour(1, 0, 1.0),
-				brown: Colour(0.6, 0.2, 0),
-				orange: Colour(1, 0.6, 0),
-				lightRed: Colour(1, 0.8, 0.8),
-				lightYellow: Colour(1, 1, 0.8),
-				lightGreen: Colour(0.8, 1, 0.6),
-				lightCyan: Colour(0.4, 1, 1.0),
-				lightBlue: Colour(0.8, 1, 1.0),
-				lightMagenta: Colour(1, 0.8, 1.0),
-				lightBrown: Colour(1, 0.6, 0.2),
-				lightOrange: Colour(1, 0.8, 0.4),
-				transparent: Colour(0, 0, 0, 0),
-				paleBuff: Colour(254 / 255, 250 / 255, 235 / 255),
-				paleBlue: Colour(222 / 255, 249 / 255, 254 / 255),
-				paleYellow: Colour(255 / 255, 255 / 255, 217 / 255),
-				paleGreen: Colour(223 / 255, 255 / 255, 213 / 255),
-				paleRed: Colour(255 / 255, 230 / 255, 230 / 255),
-				veryPaleRed: Colour(255 / 255, 242 / 255, 242 / 255),
-				paleTan: Colour(235 / 255, 224 / 255, 199 / 255),
-				paleMagenta: Colour(255 / 255, 230 / 255, 255 / 255),
-				paleOrange: Colour(253 / 255, 237 / 255, 215 / 255),
-				palePeach: Colour(255 / 255, 237 / 255, 213 / 255),
-				pantonePurple: Colour(193 / 255, 81 / 255, 184 / 255)
-			)
-		}
-
-	}
-
-}
-
 +System {
+
+	colourCheckerChart { :self |
+		self.requireLibraryItem(
+			'ColourCheckerChart'
+		)
+	}
 
 	svgColourCatalogue { :self |
 		self.requireLibraryItem(
@@ -754,7 +726,19 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
-			Srgb(each / 255, 1)
+			SrgbColour(each / 255, 1)
+		}
+	}
+)
+
+LibraryItem(
+	name: 'ColourCheckerChart',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/colour-checker-chart.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			each.parseHexColour
 		}
 	}
 )
