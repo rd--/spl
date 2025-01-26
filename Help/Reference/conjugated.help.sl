@@ -26,7 +26,7 @@ Value at zero:
 0
 ```
 
-Value at real number is identity:
+Value at real number is `identity`:
 
 ```
 >>> let n = system.nextRandomFloat;

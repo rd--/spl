@@ -64,18 +64,8 @@ _Note:_
 The catalogue is a `LibraryItem`,
 and this function requires the item be in the interpreter cache.
 
-The `levskayaPolyhedraCatalogue` method is `requireLibraryItem` of 'LevskayaPolyhedraCatalogue'.
-
-To clear the library item:
-
-~~~
-system
-.library[
-	'LevskayaPolyhedraCatalogue'
-]
-.deleteLocalStorage
-~~~
-
 * * *
 
-See also: asPerspectiveDrawing, fradinPolhyedraCatalogue, holmesPolyhedraCatalogue, Polyhedron
+See also: asPerspectiveDrawing, fradinPolhyedraCatalogue, holmesPolyhedraCatalogue, mcClurePolyhedraCatalogue, Polyhedron
+
+Guides: Library Catalogue

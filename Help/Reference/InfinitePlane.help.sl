@@ -68,6 +68,15 @@ InfinitePlane(3, 9, 1, -8)
 InfinitePlane(1, 0, -1, 2)
 ```
 
+Dihedral angle:
+
+```
+>>> let p1 = InfinitePlane([0 0 0], [1 0 0], [0 1 0]);
+>>> let p2 = InfinitePlane([0 0 0], [1 1 1], [0 1 0]);
+>>> p1.dihedralAngle(p2)
+1/4.pi
+```
+
 * * *
 
 See also: HalfPlane, hessianNormalForm, unitNormal

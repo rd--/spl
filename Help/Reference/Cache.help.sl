@@ -43,7 +43,7 @@ system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
 	cache.removeKeyIfAbsent(
-		system.library['ColourCheckerChart'].url.asUrl
+		system.library['McClurePolyhedraCatalogue'].url.asUrl
 	) {
 		'Not present'.postLine
 	}

@@ -4,6 +4,10 @@ InfinitePlane : [Object] { | a b c d |
 		inf
 	}
 
+	dihedralAngle { :self :aPlane |
+		self.unitNormal.dot(aPlane.unitNormal).arcCos
+	}
+
 	dimension { :self |
 		2
 	}

@@ -74,6 +74,7 @@
 	'Geometry-CylindricalCoordinates'
 	'Geometry-FourVector'
 	'Geometry-GeometryCollection'
+	'Geometry-HalfPlane'
 	'Geometry-InfiniteLine'
 	'Geometry-InfinitePlane'
 	'Geometry-Length'

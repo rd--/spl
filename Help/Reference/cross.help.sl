@@ -7,8 +7,8 @@ The cross product of two vectors in three dimensions:
 ```
 >>> let u = [1 2 -1];
 >>> let v = [-1 1 0];
->>> u.cross(v)
-[1 1 3]
+>>> (u.cross(v), v.cross(u))
+([1 1 3], [-1 -1 -3])
 
 >>> [1 2 3].cross([4 5 6])
 [-3 6 -3]

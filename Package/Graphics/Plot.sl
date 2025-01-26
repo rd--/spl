@@ -416,3 +416,15 @@ Plot : [Object] { | pages format |
 	}
 
 }
+
++SmallFloat {
+
+	matlabPeaksFunction { :x :y |
+		(3 * (1 - x).squared * (0 - x.squared - (y + 1).squared).exp)
+		-
+		(10 * ((x / 5) - x.cubed- (y ^ 5)) * (0 - x.squared - y.squared).exp)
+		-
+		((1 / 3) * (0 - (x + 1).squared - y.squared).exp)
+	}
+
+}

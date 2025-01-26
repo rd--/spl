@@ -1,6 +1,6 @@
 # planarAngle
 
-- _planarAngle(q1, p, q2)_
+- _planarAngle([q1, p, q2])_
 
 Answer the angle subtended by the line segment _q1, q2_ from _p_.
 

@@ -5,6 +5,7 @@
 - `holmesPolyhedraCatalogue`
 - `leitnerCrystalStructureCatalogue`
 - `levskayaPolyhedraCatalogue`
+- `mcClurePolyhedraCatalogue`
 - `planarConvexPolytopeGraphCatalogue`
 - `planarGraphCatalogue`
 - `planarNonHamiltonianGraphCatalogue`

@@ -195,6 +195,12 @@ Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 		)
 	}
 
+	mcClurePolyhedraCatalogue { :self |
+		self.requireLibraryItem(
+			'McClurePolyhedraCatalogue'
+		)
+	}
+
 }
 
 LibraryItem(
@@ -232,3 +238,16 @@ LibraryItem(
 		}
 	}
 )
+
+LibraryItem(
+	name: 'McClurePolyhedraCatalogue',
+	category: 'Geometry/Polyhedron',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/geometry/mclure/mcClurePolyhedraCatalogue.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			Polyhedron(each['vertexCoordinates'], each['faceIndices'] + 1)
+		}
+	}
+)
+

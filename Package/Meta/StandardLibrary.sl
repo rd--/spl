@@ -45,6 +45,7 @@
 	'CartesianCoordinates'
 	'Circle'
 	'GeometryCollection'
+	'HalfPlane'
 	'InfiniteLine'
 	'InfinitePlane'
 	'Length'
