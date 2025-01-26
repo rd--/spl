@@ -24,7 +24,7 @@ swapping _v_ & _w_:
 >>> 	[p2, p1].dihedralAngle([v, w]),
 >>> 	[p1, p2].dihedralAngle([w, v])
 >>> )
-1/2.pi # 3
+(1/2.pi, 1/2.pi, 1/2.pi)
 ```
 
 * * *

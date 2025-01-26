@@ -1,5 +1,13 @@
 +[SmallFloat, List] {
 
+	bilinearInterpolation { :q11 :q21 :q12 :q22 :mu1 :mu2 |
+		linearInterpolation(
+			linearInterpolation(q11, q21, mu1),
+			linearInterpolation(q12, q22, mu1),
+			mu2
+		)
+	}
+
 	blend { :y1 :y2 :mu |
 		y1.blend(y2, mu) { :y1 :y2 :mu |
 			y1 + (mu * (y2 - y1))
@@ -99,6 +107,24 @@
 		}
 	}
 
+	matrixInterpolation { :self :aBlock:/6 |
+		let [m, n] = [self.numberOfRows, self.numberOfColumns];
+		{ :x :y |
+			let i1 = x.integerPart;
+			let j1 = y.integerPart;
+			let i2 = (i1 = m).if { i1 } { i1 + 1 };
+			let j2 = (j1 = n).if { j1 } { j1 + 1 };
+			aBlock(
+				self[i1][j1],
+				self[i2][j1],
+				self[i1][j2],
+				self[i2][j2],
+				x.fractionPart,
+				y.fractionPart
+			)
+		}
+	}
+
 }
 
 +@Sequence {
@@ -118,6 +144,23 @@
 			[self.indices, self].transposed.basicDownsampleSteinarsson(threshold)
 		} {
 			self.basicDownsampleSteinarsson(threshold)
+		}
+	}
+
+	matrixResample { :self :shape |
+		let [m, n] = [self.numberOfRows, self.numberOfColumns];
+		let [p, q] = shape;
+		let i = (1 -- m).discretize(p);
+		let j = (1 -- n).discretize(q);
+		self.matrixInterpolation(
+			bilinearInterpolation:/6
+		).table(i, j)
+	}
+
+	resample { :self :newSize |
+		let factor = (self.size - 1) / (newSize - 1).max(1);
+		0.to(newSize - 1).collect { :each |
+			self.atBlend(1 + (each * factor))
 		}
 	}
 

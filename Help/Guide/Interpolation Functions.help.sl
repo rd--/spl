@@ -1,6 +1,7 @@
 # Interpolation Functions
 
 - `atBlend`
+- `bilinearInterpolation`
 - `blend`
 - `catmullRomInterpolation`
 - `cosineInterpolation`
@@ -11,5 +12,7 @@
 - `indexOfInBetween`
 - `linearInterpolation`
 - `listInterpolation`
+- `matrixInterpolation`
+- `matrixResample`
 - `resample`
 - `upsample`

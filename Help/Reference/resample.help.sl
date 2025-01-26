@@ -2,6 +2,8 @@
 
 - _resample(aSequence, anInteger)_
 
+Resample _aSequence_ to have _anInteger_ places.
+
 Subsample a list:
 
 ```

@@ -13,6 +13,12 @@ At `SmallFloat`:
 At `SmallFloat` with `List` of _mu_:
 
 ```
+>>> 1.blend(5, [0 0.5 1])
+[1 3 5]
+
+>>> 1.blend(5, (0 -- 1).subdivide(8))
+[1 3/2 2 5/2 3 7/2 4 9/2 5]
+
 >>> 1.blend(9, [0 0.2 0.4 0.5 1])
 [1 2.6 4.2 5 9]
 ```
