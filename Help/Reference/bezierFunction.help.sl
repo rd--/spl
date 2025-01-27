@@ -29,8 +29,12 @@ A symmetric cubic Bézier curve:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, cubicBezierFunctionAt
+See also: bernsteinBasis, BezierCurve, bezierFunctionAt
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BezierFunction.html)
+
+Categories: Geometry

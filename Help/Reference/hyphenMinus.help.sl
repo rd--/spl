@@ -46,20 +46,56 @@ As the argument to `reduce` and `foldRight`:
 
 ```
 >>> [6 1 2].reduce(-)
-((6 - 1) - 2)
+(6 - 1) - 2
 
 >>> [6 1 2].foldRight(-)
-(6 - (1 - 2))
+6 - (1 - 2)
 ```
 
-The unary form is equivalent to `negated`, answering the negation of _aNumber_:
+The unary form is equivalent to `negated`, answering the negation of _aNumber_.
+
+At `SmallFloat`:
 
 ```
 >>> 3.-
 -3
+```
 
+At `Range`:
+
+```
 >>> 1:9.-
-[-1 -2 -3 -4 -5 -6 -7 -8 -9]
+-1:-1:-9
+
+>>> 1:3:9.-
+-1:-3:-9
+```
+
+Threads over lists:
+
+```
+>>> [1 3 5 7 6 4 2].-
+[-1 -3 -5 -7 -6 -4 -2]
+
+>>> [3 3].iota.-
+[
+	-1 -2 -3;
+	-4 -5 -6;
+	-7 -8 -9
+]
+```
+
+Negation is its own inverse:
+
+```
+>>> 3.-.-
+3
+
+>>> 1:9.-.-
+1:9
+
+>>> [1 3 5].-.-
+[1 3 5]
 ```
 
 The name of this operator is `hyphenMinus`.

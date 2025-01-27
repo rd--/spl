@@ -81,7 +81,7 @@ Compare to `longestCommonSubsequence`:
 Substrings preserves the order of the input:
 
 ```
->>> 3:1.substrings
+>>> (3 .. 1).substrings
 [; 3; 2; 1; 3 2; 2 1; 3 2 1]
 ```
 

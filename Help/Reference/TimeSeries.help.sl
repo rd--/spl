@@ -118,7 +118,7 @@ TimeSeries([1 2; 2 1; 3 6; 4 5; 5 7; 6 4])
 >>> let b = q.merge(p);
 >>> (a, a = b)
 (
-	-1:-5.asTimeSeries(1:5),
+	(-1 .. -5).asTimeSeries(1:5),
 	true
 )
 ```
@@ -133,7 +133,7 @@ else conflicts are treated as errors:
 >>> let b = q.merge(p, rightIdentity:/2);
 >>> (a, a = b)
 (
-	-1:-5.asTimeSeries(1:5),
+	(-1 .. -5).asTimeSeries(1:5),
 	true
 )
 ```

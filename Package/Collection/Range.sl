@@ -18,6 +18,10 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		}
 	}
 
+	- { :self |
+		self.negated
+	}
+
 	- { :self :operand |
 		operand.isSmallFloat.if {
 			Range(self.start - operand, self.stop - operand, self.step)
@@ -52,6 +56,10 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		self.isEmpty.not & {
 			self.stop ~ self.last
 		}
+	}
+
+	negated { :self |
+		Range(self.start.negated, self.stop.negated, self.step.negated)
 	}
 
 	printString { :self |

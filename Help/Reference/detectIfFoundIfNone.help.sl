@@ -7,7 +7,7 @@ Answer the value of _foundBlock_ at the first element for which _predicateBlock_
 If there is no such element, evaluate and answer _exceptionBlock_.
 
 ```
->>> 5:1.detectIfFoundIfNone { :each |
+>>> 5:-1:1.detectIfFoundIfNone { :each |
 >>> 	each % 2 = 0
 >>> } { :each |
 >>> 	each ^ 3

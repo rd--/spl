@@ -8,7 +8,7 @@ Answer the fourth element of _aSequence_.
 >>> 1:6.fourth
 4
 
->>> 6:1.fourth
+>>> (6 .. 1).fourth
 3
 ```
 

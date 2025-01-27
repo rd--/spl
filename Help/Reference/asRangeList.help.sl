@@ -25,7 +25,7 @@ Any two element numerical sequence is a `Range`:
 [1:2]
 
 >>> [1 0].asRangeList
-[1:0]
+[1:-1:0]
 
 >>> [1 3].asRangeList
 [Range(1, 3, 2)]

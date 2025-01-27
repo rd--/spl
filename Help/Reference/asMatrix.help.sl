@@ -4,7 +4,7 @@
 
 Answer a value of type `Matrix` representing the matrix at _aMatrix_.
 
-A 2×2 matrix:
+A 2×2 matrix from a nested `List`:
 
 ```
 >> [1 2; 3 4].asMatrix
@@ -14,7 +14,7 @@ A 2×2 matrix:
    3   4
 ```
 
-A 3×3 matrix:
+A 3×3 matrix from a nested `List`:
 
 ```
 >> [3 3].iota.asMatrix
@@ -28,6 +28,8 @@ A 3×3 matrix:
 * * *
 
 See also: Matrix
+
+Guides: Matrix Operations
 
 References:
 _Mathematica_

@@ -60,17 +60,26 @@ false
 false
 ```
 
-There is a `Range Syntax` for writing Ranges and interval lists:
+There is two distinct `Range Syntax` forms for writing Ranges and interval lists.
+Range literals are written _i:j_,
+or _i:j:k_ where _j_ is the step size,
+and can only be used to specify integer ranges:
 
 ```
 >>> 1:4
 Range(1, 4, 1)
 
->>> (1 .. 4)
-Range(1, 4, 1)
-
 >>> 1:2:9
 Range(1, 9, 2)
+```
+
+Range expressions are written _(i .. j)_,
+or _(i, j .. k)_ where _j_ is the second term,
+and can specify arbitrary ranges:
+
+```
+>>> (1 .. 4)
+Range(1, 4, 1)
 
 >>> (1, 3 .. 9)
 Range(1, 9, 2)
@@ -95,7 +104,7 @@ A `Range` is _normal_ if it is _proper_ and if the _start_ value is less than or
 >>> 1:9.isNormal
 true
 
->>> 7:5.isNormal
+>>> 7:-1:5.isNormal
 false
 ```
 

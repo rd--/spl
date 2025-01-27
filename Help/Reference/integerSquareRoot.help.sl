@@ -1,0 +1,78 @@
+# integerSquareRoot
+
+- _integerSquareRoot(anInteger)_
+
+Integer square root of the first few integers:
+
+```
+>>> 0:65.collect(integerSquareRoot:/1)
+[
+	0 1 1 1 2 2 2 2 2 3
+	3 3 3 3 3 3 4 4 4 4
+	4 4 4 4 4 5 5 5 5 5
+	5 5 5 5 5 5 6 6 6 6
+	6 6 6 6 6 6 6 6 6 7
+	7 7 7 7 7 7 7 7 7 7
+	7 7 7 7 8 8
+]
+```
+
+Integer square root of the first few odd powers of seven:
+
+```
+>>> (7n ^ 1:2:21).integerSquareRoot
+[
+	2
+	18
+	129
+	907
+	6352
+	44467
+	311269
+	2178889
+	15252229
+	106765608
+	747359260
+]
+```
+
+Integer square root of a large integer:
+
+```
+>>> (7n ^ 73).integerSquareRoot
+7015820362023593956150476655802n
+
+>>> (7n ^ 73).sqrt
+7015820362023593956150476655802n
+```
+
+Show that the expression _f_ below answers non-square numbers:
+
+```
+>>> let f = { :n |
+>>> 	n + ((1 / 2) + n.sqrt).floor
+>>> };
+>>> let isSquare = { :n |
+>>> 	let r = n.integerSquareRoot;
+>>> 	r.squared = n
+>>> };
+>>> (
+>>> 	1:22.collect(f:/1),
+>>> 	1:1000.anySatisfy { :n | f(n).isSquare }
+>>> )
+(
+	[
+		2  3  5  6  7 10 11 13 14 15
+		17 19 21 22 23 26 29 30 31 33
+	],
+	true
+)
+```
+
+* * *
+
+See also: Integer, LargeInteger, sqrt
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Integer_square_root)

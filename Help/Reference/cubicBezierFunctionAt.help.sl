@@ -3,6 +3,7 @@
 - _cubicBezierFunctionAt(aList, aNumber)_
 
 Answers the cubic Bézier curve at _aNumber_ given the four row matrix _aList_.
+This is a special case of the more general `bezierFunctionAt`.
 
 A cubic Bézier curve:
 
@@ -39,8 +40,12 @@ An arc:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction, quadraticBezierFunctionAt
+See also: bernsteinBasis, BezierCurve, bezierFunction, bezierFunctionAt, deCasteljausAlgorithm, quadraticBezierFunctionAt
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BezierFunction.html)
+
+Categories: Geometry

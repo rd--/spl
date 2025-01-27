@@ -87,6 +87,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.contents.matrixPrintString
 	}
 
+	ravel { :self |
+		self.contents.ravel
+	}
+
 	shape { :self |
 		[self.numberOfRows, self.numberOfColumns]
 	}

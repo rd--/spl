@@ -720,6 +720,31 @@
 		}.concatenation
 	}
 
+	integerSquareRoot { :self |
+		(self < 0).if {
+			self.error('integerSquareRoot: negative')
+		} {
+			let x = self;
+			let z = self;
+			let r = self.zero;
+			let q = self.one;
+			{ q <= x }.whileTrue {
+				q := q.bitShiftLeft(2)
+			};
+			{ q > 1 }.whileTrue {
+				let t = x - r;
+				q := q.bitShiftRight(2);
+				t := t - q;
+				r := r.bitShiftRight(1);
+				(t >= 0).ifTrue {
+					x := t;
+					r := r + q
+				}
+			};
+			r
+		}
+	}
+
 	isByte { :self |
 		self.isInteger & {
 			self.betweenAnd(0, 255)

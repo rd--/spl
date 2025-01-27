@@ -218,6 +218,10 @@
 		self.collect(integerPart:/1)
 	}
 
+	integerSquareRoot { :self |
+		self.collect(integerSquareRoot:/1)
+	}
+
 	inverseErf { :self |
 		self.collect(inverseErf:/1)
 	}

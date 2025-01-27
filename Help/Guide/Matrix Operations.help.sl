@@ -26,7 +26,10 @@ Matrix dimensions:
 [3 2]
 
 >>> let m = [1 2; 3 4; 5 6];
->>> (m.numberOfRows, m.numberOfColumns)
+>>> (
+>>> 	m.numberOfRows,
+>>> 	m.numberOfColumns
+>>> )
 (3, 2)
 ```
 
@@ -62,7 +65,9 @@ Matrix transposition:
 Matrix multiplication:
 
 ```
->>> [2 3 4; 1 0 0].dot([0 1000; 1 100; 0 10])
+>>> [2 3 4; 1 0 0].dot(
+>>> 	[0 1000; 1 100; 0 10]
+>>> )
 [3 2340; 0 1000]
 
 >>> [3 1; 4 1] dot: [1 2 3; 4 5 6]

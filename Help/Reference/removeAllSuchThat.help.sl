@@ -2,23 +2,34 @@
 
 - _removeAllSuchThat(aCollection, aBlock:/1)_
 
-Evaluate _aBlock_ for each element of _aCollection_ and remove all elements that evaluate to true.
+Evaluate _aBlock_ for each element of _aCollection_ and remove all elements that evaluate to `true`.
 Use a copy to enumerate collections whose order changes when an element is removed (i.e. sets).
+
+At `List`, answer a copy:
 
 ```
 >>> let c = [1 2 2 3 3 3 4 4 4 4];
->>> c.removeAllSuchThat { :each |
+>>> let z = c.removeAllSuchThat { :each |
 >>> 	[2 3].includes(each)
 >>> };
->>> c
-[1 4 4 4 4]
+>>> (c, c ~= z)
+([1 4 4 4 4], true)
 ```
 
-_Note:_
-This is defined at `Dictionary`, where the argument to _aBlock_ will be an `Association`.
+At `Record` modify in place,
+see also `associationsRemove`:
+
+```
+>>> let r = (x: 1, y: 2, z: 3);
+>>> let z = r.removeAllSuchThat { :each |
+>>> 	[2 3].includes(each)
+>>> };
+>>> (r, z)
+((x: 1), ['y', 'z'])
+```
 
 * * *
 
-See also: keysAndValuesRemove, reject, remove, removeAll
+See also: associationsRemove, keysAndValuesRemove, reject, remove, removeAll
 
 Categories: Removing

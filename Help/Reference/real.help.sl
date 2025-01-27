@@ -9,12 +9,15 @@ At `Complex`:
 ```
 >>> 1j2.real
 1
+
+>>> (1 + 3.i).real
+1
 ```
 
 Threads over lists:
 
 ```
->>> -1:-5.sqrt.real
+>>> (-1 .. -5).sqrt.real
 [0 0 0 0 0]
 ```
 

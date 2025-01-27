@@ -102,7 +102,7 @@ CombC(
 let b = [1 .. 3];
 let o1 = SinOscFb(13 * 13 * b, 1 / 3);
 let o2 = SinOscFb(b / 13, 1);
-let o3 = SinOscFb(1 / 13:3, 0) + 133 * b;
+let o3 = SinOscFb(1 / 13:-1:3, 0) + 133 * b;
 let o4 = SinOscFb(b, 1) % 1;
 let o5 = SinOscFb(b / 333, o4) % 1;
 let o6 = SinOscFb(o3, o5);
@@ -116,7 +116,7 @@ Splay(o1 * o2 / 13 + o6) / 3
 }.Sum.Splay / 7
 
 /* https://sccode.org/1-4Qy ; f0 ; tweet0350 ; Splay */
-let b = 9:1 / 99;
+let b = (9 .. 1) / 99;
 let o = LfSaw(LfSaw(b, b) + 1 * 99, b) * (LfSaw(LfSaw(b, 0) > b, 0) > 0.9);
 CombN(
 	GVerb(o, 99, 1, b * 9, b, 15, 1, 0.7, 0.5, 300) / 19,

@@ -92,6 +92,7 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		answer
 	}
 
+	/*
 	bezierFunction { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
@@ -104,6 +105,13 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 			}
 		} {
 			self.error('bezierFunction: not two column matrix')
+		}
+	}
+	*/
+
+	bezierFunction { :self |
+		{ :index |
+			self.bezierFunctionAt(index)
 		}
 	}
 

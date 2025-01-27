@@ -9,6 +9,15 @@ Arithmetic series from _start_, incrementing by _step_, for _length_ places.
 [1 .. 9]
 ```
 
+With infinite length:
+
+```
+let p = LsSeries(1, 3, inf);
+let q = LsSeries(3, 5, inf);
+p.next(4) ++ q.next(4)
+[1 4 7 10 3 8 13 18]
+```
+
 Non-cubical squares:
 
 ~~~

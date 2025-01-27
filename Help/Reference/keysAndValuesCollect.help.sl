@@ -7,7 +7,8 @@ Like `keysAndValuesDo` except that the answers are collected into a new dictiona
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).keysAndValuesCollect { :key :value |
+>>> (x: 1, y: 2, z: 3)
+>>> .keysAndValuesCollect { :key :value |
 >>> 	value -> key
 >>> }
 (x: 1 -> 'x', y: 2 -> 'y', z: 3 -> 'z')

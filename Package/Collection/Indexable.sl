@@ -6,6 +6,10 @@
 		self[index]
 	}
 
+	@* { :self :indexList |
+		self.atAll(indexList)
+	}
+
 	@> { :self :path |
 		self.atPath(path)
 	}

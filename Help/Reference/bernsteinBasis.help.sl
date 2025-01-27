@@ -42,4 +42,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BernsteinPolynomial.html)
 [2](https://reference.wolfram.com/language/ref/BernsteinBasis.html)
 
-Categories: Math
+Categories: Math, Geometry

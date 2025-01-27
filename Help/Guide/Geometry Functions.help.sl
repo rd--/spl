@@ -6,12 +6,26 @@
 - `planarAngle`: planar angle
 - `vectorAngle`: vector angle
 
+## Bezier Functions
+
+- `bernsteinBasis`
+- `BezierCurve`
+- `bezierDerivatives`
+- `bezierFunction`
+- `bezierFunctionAt`
+- `bezierSplitAt`
+- `cubicBezierFunctionAt`
+- `deCasteljausAlgorithm`
+- `quadraticBezierFunctionAt`
+- `quadraticBezierToCubicBezier`
+
 ## Catalogues
 
 - `fradinPolyhedraCatalogue`
 - `holmesPolyhedraCatalogue`
 - `leitnerCrystalStructureCatalogue`
 - `levskayaPolyhedraCatalogue`
+- `mcClurePolyhedraCatalogue`
 - `planarConvexPolytopeGraphCatalogue`
 - `planarGraphCatalogue`
 - `planarNonHamiltonianGraphCatalogue`

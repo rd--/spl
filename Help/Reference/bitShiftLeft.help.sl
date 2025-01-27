@@ -23,9 +23,16 @@ Shift 7 places to the left:
 4096
 ```
 
+The operator form is `<<`:
+
+```
+>>> 32 << 7
+4096
+```
+
 * * *
 
-See also: bitShift, bitShiftRight
+See also: <<, bitShift, bitShiftRight
 
 References:
 _Mathematica_

@@ -33,7 +33,7 @@ At `Range`:
 >>> 1:9.isSorted
 true
 
->>> 9:1.isSorted
+>>> 9:-1:1.isSorted
 false
 ```
 

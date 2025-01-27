@@ -7,6 +7,9 @@ Answer the real-valued cube root of _aNumber_.
 `cubeRoot` gives a real root:
 
 ```
+>>> 27.cubeRoot
+3
+
 >>> -27.cubeRoot
 -3
 
@@ -39,6 +42,13 @@ Values at `zero` & `inf`:
 inf
 ```
 
+Threads over lists:
+
+```
+>>> [1 8 27 64].cubeRoot
+[1 2 3 4]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -54,4 +64,6 @@ See also: ^, nthRoot, real, sqrt
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CubeRoot.html)
-[2](https://reference.wolfram.com/language/ref/CubeRoot.html)
+[2](https://reference.wolfram.com/language/ref/CubeRoot.html),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.cbrt)

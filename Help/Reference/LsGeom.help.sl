@@ -9,6 +9,15 @@ Geometric series from _start_, incrementing by _grow_, for _length_ places.
 [1 2 4 8 16 32 64 128 256]
 ```
 
+With non-finite length:
+
+```
+>>> let p = LsGeom(1, 3, inf);
+>>> let q = LsGeom(3, 5, inf);
+>>> p.next(4) ++ q.next(4)
+[1 3 9 27 3 15 75 375]
+```
+
 * * *
 
 See also: LsSeries, LsUnfold

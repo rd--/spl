@@ -8,7 +8,7 @@ At `Range`, iterate over indices and values:
 
 ```
 >>> let l = [];
->>> 3:1.withIndexDo { :each :index |
+>>> (3 .. 1).withIndexDo { :each :index |
 >>> 	l.add(each -> index)
 >>> };
 >>> l

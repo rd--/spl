@@ -32,6 +32,13 @@ At `Complex`:
 2.24711j0.22250
 ```
 
+At `LargeInteger`:
+
+```
+>>> 81n.sqrt
+9n
+```
+
 Threads elementwise over lists and matrices:
 
 ```
@@ -40,6 +47,9 @@ Threads elementwise over lists and matrices:
 
 >>> [1 4 9 16].sqrt
 [1 2 3 4]
+
+>>> 1:4.sqrt
+[1 1.4142 1.7321 2]
 ```
 
 Values at `zero` and infinity:

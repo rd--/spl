@@ -2,7 +2,8 @@
 
 - _LsXRand(list)_
 
-Answer randomly selected items from _list_, however do not answer the same item twice in succession.
+Answer randomly selected items from _list_,
+however do not answer the same item twice in succession.
 
 ```
 >>> LsXRand(
@@ -13,6 +14,20 @@ Answer randomly selected items from _list_, however do not answer the same item 
 >>> .differentiate
 >>> .includes(0)
 >>> .not
+true
+```
+
+Compare to `LsRand`
+
+```
+>>> LsRand(
+>>> 	[1 3 5 7 9],
+>>> 	99,
+>>> 	Sfc32(890142)
+>>> )
+>>> .upToEnd
+>>> .differentiate
+>>> .includes(0)
 true
 ```
 

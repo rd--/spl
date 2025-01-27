@@ -149,7 +149,7 @@ let p = [1 1; 8 7; 2 8; 6 0];
 
 ![](sw/spl/Help/Image/BezierCurve-H.svg)
 
-The distance between equally spaces indices is not, in general, equal:
+The distance between equally spaced indices is not, in general, equal:
 
 ~~~spl svg=I
 let p = [110 150; 25 190; 210 250; 210 30];

@@ -112,8 +112,8 @@
 		{ :x :y |
 			let i1 = x.integerPart;
 			let j1 = y.integerPart;
-			let i2 = (i1 = m).if { i1 } { i1 + 1 };
-			let j2 = (j1 = n).if { j1 } { j1 + 1 };
+			let i2 = m.min(i1 + 1);
+			let j2 = n.min(j1 + 1);
 			aBlock(
 				self[i1][j1],
 				self[i2][j1],

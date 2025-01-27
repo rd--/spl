@@ -26,10 +26,6 @@
 		self ++.each aSequence
 	}
 
-	@* { :self :indexList |
-		self.atAll(indexList)
-	}
-
 	# { :self :anObject |
 		self.replicateEach(anObject)
 	}
@@ -215,6 +211,18 @@
 
 	atAll { :self :indexList |
 		self.atAllUsing(indexList, at:/2)
+	}
+
+	atAll { :self :primaryIndices :secondaryIndices |
+		self.atAll(primaryIndices).collect { :each |
+			each.atAll(secondaryIndices)
+		}
+	}
+
+	atAll { :self :primaryIndices :secondaryIndices :tertiaryIndices |
+		self.atAll(primaryIndices).collect { :each |
+			each.atAll(secondaryIndices, tertiaryIndices)
+		}
 	}
 
 	atAllFold { :self :indexList |

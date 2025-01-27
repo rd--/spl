@@ -18,7 +18,7 @@ The first few terms in positive direction:
 The first few terms in negative direction:
 
 ```
->>> 0:-17.collect(perrinFunction:/1)
+>>> 0:-1:-17.collect(perrinFunction:/1)
 [
 	3 -1 1 2 -3 4 -2 -1 5 -7 6
 	-1 -6 12 -13 7 5 -18

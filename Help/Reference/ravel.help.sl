@@ -22,6 +22,13 @@ i.e. _row_ order for a matrix.
 )
 ```
 
+At `Matrix`:
+
+```
+>>> [3 3].iota.asMatrix.ravel
+[1 2 3 4 5 6 7 8 9]
+```
+
 * * *
 
 See also: flatten
@@ -31,3 +38,5 @@ _Apl_
 [1](https://aplwiki.com/wiki/Ravel),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/comma)
+
+Categories: Collection

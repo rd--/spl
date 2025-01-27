@@ -38,7 +38,9 @@ The determinants of _3×3_ `Integer` matrices:
 >>> [-2 -1 2; 2 1 4; -3 3 -1].determinant
 54
 
->>> [1 2 3; 4 1 6; 7 8 1].transposed.determinant
+>>> [1 2 3; 4 1 6; 7 8 1]
+>>> .transposed
+>>> .determinant
 104
 
 >>> [2 9 4; 7 5 3; 6 1 8].determinant
@@ -48,13 +50,28 @@ The determinants of _3×3_ `Integer` matrices:
 The determinants of _4×4_ `Integer` matrices:
 
 ```
->>> [1 2 3 4; 4 5 6 7; 7 8 9 10; 10 11 12 13].determinant
+>>> [
+>>> 	1 2 3 4;
+>>> 	4 5 6 7;
+>>> 	7 8 9 10;
+>>> 	10 11 12 13
+>>> ].determinant
 0
 
->>> [1 2 3 1; -1 -1 -1 2; 1 3 1 1; -2 -2 0 -1].determinant
+>>> [
+>>> 	1 2 3 1;
+>>> 	-1 -1 -1 2;
+>>> 	1 3 1 1;
+>>> 	-2 -2 0 -1
+>>> ].determinant
 26
 
->>> [7 2 -2 4; 4 4 1 7; 11 -8 9 10; 10 5 12 13].determinant
+>>> [
+>>> 	7 2 -2 4;
+>>> 	4 4 1 7;
+>>> 	11 -8 9 10;
+>>> 	10 5 12 13
+>>> ].determinant
 -4319
 ```
 
@@ -128,7 +145,11 @@ Find the area of the image of the unit disk under the linear transformation asso
 
 ```
 >>> let m = [7 -3; 5 7; -10 4];
->>> m.transposed.dot(m).determinant.sqrt * pi
+>>> m
+>>> .transposed
+>>> .dot(m)
+>>> .determinant
+>>> .sqrt * pi
 10 * 122.sqrt * pi
 ```
 

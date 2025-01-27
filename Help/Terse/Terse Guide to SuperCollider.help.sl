@@ -95,19 +95,7 @@ system.scSynth.isScSynth
 
 ## Ls -- lazy sequence library
 ```
-LsOnce(1).upToEnd = [1] /* value as one element stream */
 let l = LsOnce(1); let a = l.upToEnd; l.reset ; l.upToEnd = a
-LsOnce(LsSeries(1, 1, 3)).upToEnd = [1 2 3]
-LsForever(1).next(5) = [1 1 1 1 1] /* value as infinite stream */
-LsForever(LsSeries(1, 1, 3)).next(9) = [1 2 3 1 2 3 1 2 3]
-LsSeries(1, 1, 9).upToEnd = [1 .. 9] /* arithmetic series */
-LsGeom(1, 3, inf).next(5) = [1 3 9 27 81] /* geometric series */
-LsGeom(1, 2, 9).upToEnd = [1 2 4 8 16 32 64 128 256] /* geometric series */
-let l = LsGeom(1, 3, inf); let a = l.next(5); l.reset; l.next(5) = a
-let p = LsGeom(1, 3, inf); let q = LsGeom(3, 5, inf); p.next(4) ++ q.next(4) = [1 3 9 27 3 15 75 375]
-LsSeries(1, 3, inf).next(5) = [1 4 7 10 13]
-let l = LsSeries(1, 3, inf); let a = l.next(5); l.reset; l.next(5) = a
-let p = LsSeries(1, 3, inf); let q = LsSeries(3, 5, inf); p.next(4) ++ q.next(4) = [1 4 7 10 3 8 13 18]
 LsCat([1 2 3]).upToEnd = [1 2 3]
 let l = LsCat([1 2 3]); let a = l.upToEnd; l.reset; l.upToEnd = a
 LsCat([LsGeom(1, 3, 4), 0, LsSeries(1, 3, 4)]).upToEnd = [1 3 9 27 0 1 4 7 10]
@@ -126,7 +114,6 @@ LsClutch(LsSeries(1, 3, 5), LsSeq([true false true true false], inf), -1).upToEn
 LsClutch(LsSeries(1, 3, 5), LsSeq([1 0 1 1 0], inf), -1).upToEnd = [1 1 4 7 7 10 10 13]
 LsClump(LsSeries(1, 1, 5), 2).upToEnd = [1 2; 3 4; 5]
 LsClump(LsSeries(1, 1, 11), LsCyc([2 3])).upToEnd = [1 2; 3 4 5; 6 7; 8 9 10; 11]
-LsRand([1 3 5 7 9], 99).upToEnd.asSet = [1 3 5 7 9].asSet
 LsSeries(1, 1, 9).collect { :each | each * each }.upToEnd = [1 4 9 16 25 36 49 64 81]
 LsSeries(1, 1, inf).select(isEven:/1).next(4) = [2 4 6 8]
 LsSeries(1, 1, inf).reject(isEven:/1).next(5) = [1 3 5 7 9]
@@ -139,19 +126,13 @@ LsTuple([1 2 3; 4 5; 6].collect(LsCyc:/1), inf).next(6) = [1 4 6; 2 5 6; 3 4 6; 
 LsTuple([LsCyc([1 .. 5]), LsSeq([5 6 7], 2)], 1).upToEnd = [1 5; 2 6; 3 7; 4 5; 5 6; 1 7; 1 5]
 LsSeries(1, 2, 5).drop(2).upToEnd = [5 7 9]
 let l = LsSeries(1, 2, 5).drop(2); let a = l.upToEnd; l.reset; l.upToEnd = a
-LsXRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0).not /* does not includes successive duplicates */
-LsRand([1 3 5 7 9], 99).upToEnd.differentiate.includes(0) /* includes successive duplicates */
 (LsGeom(1, 3, 4) + LsSeries(1, 3, inf)).upToEnd = [1 + 1, 3 + 4, 9 + 7, 27 + 10]
 (LsGeom(1, 3, 4) * LsSeries(1, 3, inf)).upToEnd = ([1 3 9 27] * [1 4 7 10])
 (LsGeom(2, 4, 5) / 2).upToEnd = [1 4 16 64 256]
 (512 / LsGeom(2, 4, 5)).upToEnd = [256 64 16 4 1]
-let l = LsWhite(-1, 1, inf); let a = l.next(99); l.reset; l.next(99) ~= a /* reset does not reset seed */
-LsWhite(LsSeries(1, 1, 9), LsSeries(2, 1, 9), inf).next(9).floor = [1 .. 9]
 LsAt([1 3 5 7 9], LsSeries(1, 1, 5)).upToEnd = [1 3 5 7 9]
 LsAtWrap([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [7 9 1 3 5 7 9 1 3]
 LsAtFold([1 3 5 7 9], LsSeries(-1, 1, 9)).upToEnd = [5 3 1 3 5 7 9 7 5]
-LsBrown(3, 7, 1, 999).upToEnd.allSatisfy { :each | each.betweenAnd(3, 7) }
-LsIBrown(3, 11, 2, 999).upToEnd.asSet = 3:11.asSet
 LsAccum(LsSeries(1, 1, 9)).upToEnd = [1 3 6 10 15 21 28 36 45]
 LsWalk([1 3 5 7 9], 1).next(13) = [1 3 5 7 9 7 5 3 1 3 5 7 9]
 LsWalk([1 3 5 7 9 11], LsCyc([1, 2])).next(13) = [1 5 7 11 9 5 3 3 5 9 11 7 5]

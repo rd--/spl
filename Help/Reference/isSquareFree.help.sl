@@ -29,21 +29,27 @@ The number 1 is by convention taken to be squarefree:
 true
 ```
 
-The first few squarefree numbers are:
+The first few squarefree numbers are after `one`:
 
 ```
->>> 1:15.select(isSquareFree:/1)
-[1 2 3 5 6 7 10 11 13 14 15]
+>>> 2:33.select(isSquareFree:/1)
+[
+	 2  3  5  6  7 10 11 13 14 15
+	17 19 21 22 23 26 29 30 31 33
+]
 ```
 
 A number is squareful, or nonsquarefree, if it contains at least one square.
 The first few squareful numbers are:
 
 ```
->>> 1:25.select { :each |
+>>> 1:52.select { :each |
 >>> 	each.isSquareFree.not
 >>> }
-[4 8 9 12 16 18 20 24 25]
+[
+	 4  8  9 12 16 18 20 24 25 27
+	28 32 36 40 44 45 48 49 50 52
+]
 ```
 
 Plot the first few squarefree numbers:

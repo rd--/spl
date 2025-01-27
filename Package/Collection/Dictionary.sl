@@ -78,7 +78,15 @@
 	}
 
 	associationsRemove { :self :aBlock:/1 |
-		self.removeAllSuchThat(aBlock:/1)
+		let removals = [];
+		self.associationsDo { :each |
+			aBlock(each).ifTrue {
+				removals.add(each.key)
+			}
+		};
+		removals.do { :key |
+			self.removeKey(key)
+		}
 	}
 
 	associationsSelect { :self :aBlock:/1 |
@@ -89,6 +97,12 @@
 			}
 		};
 		answer
+	}
+
+	atAll { :self :keys |
+		self.associationsSelect { :each |
+			keys.includes(each.key)
+		}
 	}
 
 	basicAt { :self :key |
@@ -229,6 +243,14 @@
 		}
 	}
 
+	keysAndValuesCollect { :self :aBlock:/2 |
+		let answer = self.species.new;
+		self.keysAndValuesDo { :key :value |
+			answer.add(key -> aBlock(key, value))
+		};
+		answer
+	}
+
 	keysDo { :self :aBlock:/1 |
 		self.associationsDo { :association |
 			aBlock(association.key)
@@ -240,26 +262,20 @@
 	}
 
 	removeAll { :self |
-		self.removeAllSuchThat { :unusedItem |
+		self.associationsRemove { :unusedItem |
 			true
 		}
 	}
 
 	removeAllKeys { :self :keys |
-		self.removeAllSuchThat { :each |
+		self.associationsRemove { :each |
 			keys.includes(each.key)
 		}
 	}
 
 	removeAllSuchThat { :self :aBlock:/1 |
-		let removals = [];
-		self.associationsDo { :each |
-			aBlock(each).ifTrue {
-				removals.add(each.key)
-			}
-		};
-		removals.do { :key |
-			self.removeKey(key)
+		self.associationsRemove { :each |
+			aBlock(each.value)
 		}
 	}
 
@@ -321,12 +337,10 @@
 		}
 	}
 
-	keysAndValuesCollect { :self :aBlock:/2 |
-		let answer = self.species.new;
-		self.keysAndValuesDo { :key :value |
-			answer.add(key -> aBlock(key, value))
-		};
-		answer
+	withIndexCollect { :self :aBlock:/2 |
+		self.keysAndValuesCollect { :key :value |
+			aBlock(value, key)
+		}
 	}
 
 }

@@ -21,7 +21,9 @@
 Calculate `determinant`:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].asMatrix.determinant
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .asMatrix
+>>> .determinant
 0
 ```
 
@@ -53,7 +55,7 @@ Inverse of a 2×2 matrix:
 
 * * *
 
-See also: asMatrix, List, Sequence
+See also: asMatrix, determinant, elementType, inverse, isSquareMatrix, List, numberOfColumns, numberOfRows, Sequence, shape
 
 Guides: Matrix Operations
 

@@ -4,6 +4,18 @@
 
 Random values that follow a uniform distribution.
 
+Reset does not reset seed:
+
+```
+>>> let l = LsWhite(-1, 1, inf, Sfc32(189314));
+>>> let a = l.next(99);
+>>> l.reset;
+>>> l.next(99) ~= a
+true
+```
+
+Plot:
+
 ~~~spl svg=A
 LsWhite(-1, 1, 99, Sfc32(240981))
 .upToEnd

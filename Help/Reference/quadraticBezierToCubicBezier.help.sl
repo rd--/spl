@@ -41,3 +41,7 @@ let q = p.quadraticBezierToCubicBezier;
 * * *
 
 See also: BezierCurve
+
+Guides: Geometry Functions
+
+Categories: Geometry

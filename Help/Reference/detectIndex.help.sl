@@ -6,7 +6,7 @@ Answer the index of the first item in _aSequence_ that answers `true` to _aBlock
 Answer `nil` if there is no such item.
 
 ```
->>> 9:1.detectIndex(isEven:/1)
+>>> 9:-1:1.detectIndex(isEven:/1)
 2
 
 >>> 1:9.detectIndex(isZero:/1)

@@ -26,7 +26,7 @@ If _stop_ is less than _start_ the `Range` is empty:
 To write a descending `Range` see `Range Syntax` or `thenTo` or `toBy`:
 
 ```
->>> 7:5.asList
+>>> 7:-1:5.asList
 [7 6 5]
 
 >>> (7 .. 5).asList

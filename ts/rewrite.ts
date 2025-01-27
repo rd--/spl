@@ -686,7 +686,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${genName('toBy', 3)}(${start.asJs}, ${end.asJs}, ${step.asJs})`;
 	},
 	rangeFromToLiteral(start, _colon, end) {
-		return genRange(start, end);
+		return `_${genName('to', 2)}(${start.asJs}, ${end.asJs})`;
 	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;

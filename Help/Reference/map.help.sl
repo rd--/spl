@@ -30,7 +30,7 @@ i.e. _map(α, β) ⇒ collect(β, α)_.
 The ternary form is _map(α, β, γ) ⇒ withCollect(γ, α, β)_.
 
 ```
->>> { :p :q | p * 2 + q }.map(9:1, 1:9)
+>>> { :p :q | p * 2 + q }.map(9:-1:1, 1:9)
 [19 .. 11]
 
 >>> *.map([1 3 5], [3 5 7])
@@ -40,7 +40,7 @@ The ternary form is _map(α, β, γ) ⇒ withCollect(γ, α, β)_.
 The quaternary form is _map(α, β, γ, δ) ⇒ withWithCollect(γ, α, β, δ)_.
 
 ```
->>> { :p :q :r | p * q ^ r }.map(1:7, 9:3, 5:-1)
+>>> { :p :q :r | p * q ^ r }.map(1:7, 9:-1:3, 5:-1:-1)
 [59049 65536 9261 576 25 1 0.04762]
 ```
 

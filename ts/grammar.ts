@@ -169,12 +169,12 @@ Sl {
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
 	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
-	rangeFromByToLiteral = integerOrFloatLiteral ":" integerOrFloatLiteral ":" (integerOrFloatLiteral | identifier)
-	rangeFromToLiteral = integerOrFloatLiteral ":" (integerOrFloatLiteral | identifier)
+	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
+	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
 	decimalLiteral = plusOrMinus? digit+ "." digit+ ("d" | "D")
-	scientificLiteral = (floatLiteral | integerLiteral) ("e" | "E") integerLiteral
-	complexLiteral = (floatLiteral | integerLiteral) ("j" | "J") (floatLiteral | integerLiteral)
+	scientificLiteral = integerOrFloatLiteral ("e" | "E") integerLiteral
+	complexLiteral = integerOrFloatLiteral ("j" | "J") integerOrFloatLiteral
 	residueLiteral = integerLiteral ("z" | "Z") digit+
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
 	largeIntegerLiteral = plusOrMinus? digit+ "n"
