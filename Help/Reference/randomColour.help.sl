@@ -9,8 +9,7 @@ The `hue` of a 3×3 matrix of random colours:
 ```
 >>> let r = 2166136261.seedRandom;
 >>> let c = system.randomColour([4 4]);
->>> let h = c.deepCollect(hue:/1);
->>> (h * 360).rounded
+>>> (c.hue * 360).rounded
 [
 	227 277 196 121;
 	277 309 123 228;
@@ -18,6 +17,17 @@ The `hue` of a 3×3 matrix of random colours:
 	171  59 207  46
 ]
 ```
+
+Plot a 3×5 matrix of random colours:
+
+~~~spl svg=A
+Sfc32(329743)
+.randomColour([3 5])
+.rgb
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/randomColor-A.svg)
 
 * * *
 

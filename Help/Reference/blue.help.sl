@@ -1,13 +1,22 @@
 # blue
 
-- _blue(aColour)_
+- _blue(aColour | aNumber)_
 
-Answer the value of the _blue_ channel of _aColour_.
+At `Colour`,
+answer the value of the _blue_ channel of _aColour_.
 The value is in _(0,1)_.
 
 ```
 >>> HsvColour([111, 0.5, 0.5], 1).blue
 0.25
+```
+
+At `Number`,
+answer a blue colour value with the alpha channel set to _aNumber_.
+
+```
+>>> 0.65.blue
+RgbColour([0 0 1], 0.65)
 ```
 
 * * *

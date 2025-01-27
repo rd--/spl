@@ -12,6 +12,19 @@ Answer the _rgb_ components of _aColour_.
 [1 0.9063 0.5371]
 ```
 
+Threads over lists:
+
+```
+>>> Sfc32(361784)
+>>> .randomColour([3])
+>>> .rgb
+[
+	0.17075 0.05137 0.80406;
+	0.45096 0.18293 0.05489;
+	0.89833 0.89440 0.40245
+]
+```
+
 * * *
 
 See also: Colour, hsv, rgba, srgbEncode

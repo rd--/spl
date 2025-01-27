@@ -175,6 +175,13 @@
 
 RgbColour : [Object, Colour] { | rgb alpha |
 
+	lighten { :self :aNumber |
+		RgbColour(
+			self.rgb.linearInterpolation([1 1 1], aNumber),
+			self.alpha
+		)
+	}
+
 	negated { :self |
 		RgbColour(
 			1 - self.rgb,
@@ -220,8 +227,24 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		)
 	}
 
+	hsv { :self |
+		self.collect(hsv:/1)
+	}
+
+	hue { :self |
+		self.collect(hue:/1)
+	}
+
 	RgbColour { :self :alpha |
 		newRgbColour().initializeSlots(self, alpha)
+	}
+
+	rgba { :self |
+		self.collect(rgba:/1)
+	}
+
+	rgb { :self |
+		self.collect(rgb:/1)
 	}
 
 }
@@ -240,12 +263,24 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		self.greyLevel
 	}
 
+	blue { :alpha |
+		RgbColour([0 0 1], alpha)
+	}
+
+	green { :alpha |
+		RgbColour([0 1 0], alpha)
+	}
+
 	greyLevel { :level :alpha |
 		RgbColour([level, level, level], alpha)
 	}
 
 	greyLevel { :level |
 		level.greyLevel(1)
+	}
+
+	red { :alpha |
+		RgbColour([1 0 0], alpha)
 	}
 
 	lightnessCie { :y :yn |

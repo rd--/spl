@@ -9,7 +9,21 @@ Answer a color in the grayscale color space with gray level _aNumber_ and alpha 
 RgbColour([0.5, 0.5, 0.5], 0.75)
 ```
 
+Plot a 10×10 matrix of varying shades of grey and alpha:
+
+~~~spl svg=A
+let i = (0 -- 1).subdivide(9);
+greyLevel:/2
+.table(i, i)
+.rgba
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/greyLevel-A.svg)
+
 * * *
+
+See also: blue, Colour, green, red, RgbColour
 
 References:
 _Mathematica_

@@ -10,6 +10,13 @@ Answer a the _hue_ of _aColour_.
 1/3
 ```
 
+Threads over lists:
+
+```
+>>> [1.red 1.green 1.blue].hue
+[0 1 2] / 3
+```
+
 * * *
 
 See also: Colour, Hsv, hsv, hsvToRgb

@@ -10,6 +10,13 @@ _Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ color mod
 [1/3 0.25 1]
 ```
 
+Threads over lists:
+
+```
+>>> [1.red 1.green 1.blue].hsv
+[0 1 1; 1/3 1 1; 2/3 1 1]
+```
+
 * * *
 
 See also: Colour, Hsv, hsvToRgb, hue, RgbColour

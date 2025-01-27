@@ -28,7 +28,7 @@ Svg : [Object] { | contents |
 		let yAscending = false;
 		let height = self.numberOfRows;
 		let width = self.numberOfColumns;
-		let bitSize = (100 / height.max(width)).rounded.max(1);
+		let bitSize = (100 / height.max(width / 1.goldenRatio)).rounded.max(1);
 		let viewBox = Rectangle([0, 0], [width * bitSize, height * bitSize]);
 		let items = { :x :y |
 			'<rect x="%" y="%" width="%" height="%" fill="%"/>'.format([
