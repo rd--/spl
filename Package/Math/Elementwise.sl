@@ -30,6 +30,10 @@
 		self.collect(abs:/1)
 	}
 
+	absSquared { :self |
+		self.collect(absSquared:/1)
+	}
+
 	arcCosh { :self |
 		self.collect(arcCosh:/1)
 	}

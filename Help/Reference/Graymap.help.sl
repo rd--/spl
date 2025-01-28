@@ -51,6 +51,33 @@ let i = -50:50;
 
 ![](sw/spl/Help/Image/Graymap-B.png)
 
+Draw Julia set:
+
+~~~
+let julia = { :c |
+	let iter = { :z |
+		let n = 0;
+		{ z.absSquared < 4 }.whileTrue {
+			z := z ^ 2 + c;
+			n := n + 1
+		};
+		n
+	};
+	{ :y :x |
+		iter(x.j(y))
+	}.table(
+		(-1 -- 1).discretize(100),
+		(-1.5 -- 1.5).discretize(150)
+	)
+};
+let m = julia(-0.786J0.147);
+m
+.rescale(m.min.min, m.max.max, 1, 0)
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/Graymap-C.png)
+
 * * *
 
 See also: Bitmap, matrixPlot, Svg

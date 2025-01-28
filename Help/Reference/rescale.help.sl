@@ -98,13 +98,26 @@ Linear rescaling from (0, 1) to (3, 9):
 [3 6 9]
 ```
 
+At a 3×3 matrix:
+
+```
+>>> [3 3].iota.rescale(1, 9, -1, 1)
+[
+	-1.00 -0.75 -0.50;
+	-0.25 +0.00 +0.25;
+	+0.50 +0.75 +1.00
+]
+```
+
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot { :each |
 	each.rescale(-2, 2)
 }
 ~~~
+
+![](sw/spl/Help/Image/rescale-A.svg)
 
 * * *
 

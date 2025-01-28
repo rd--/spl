@@ -14,3 +14,5 @@ Write image files:
 system.helpFilesDo('Reference', writeImageFiles:/1);
 nil
 ~~~
+
+'ls ~/sw/spl/Help/Image/* | wc -l' => 733
