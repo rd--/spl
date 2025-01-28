@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="102" height="68" viewBox="0 0 102 68">
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100">
 <g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="17" height="17" fill="rgb(115,82,68)"/>
-<rect x="0" y="17" width="17" height="17" fill="rgb(214,126,44)"/>
-<rect x="0" y="34" width="17" height="17" fill="rgb(56,61,150)"/>
-<rect x="0" y="51" width="17" height="17" fill="rgb(243,243,243)"/>
-<rect x="17" y="0" width="17" height="17" fill="rgb(194,150,130)"/>
-<rect x="17" y="17" width="17" height="17" fill="rgb(80,91,166)"/>
-<rect x="17" y="34" width="17" height="17" fill="rgb(70,148,73)"/>
-<rect x="17" y="51" width="17" height="17" fill="rgb(200,200,200)"/>
-<rect x="34" y="0" width="17" height="17" fill="rgb(98,122,157)"/>
-<rect x="34" y="17" width="17" height="17" fill="rgb(193,90,99)"/>
-<rect x="34" y="34" width="17" height="17" fill="rgb(175,54,60)"/>
-<rect x="34" y="51" width="17" height="17" fill="rgb(160,160,160)"/>
-<rect x="51" y="0" width="17" height="17" fill="rgb(87,108,67)"/>
-<rect x="51" y="17" width="17" height="17" fill="rgb(94,60,108)"/>
-<rect x="51" y="34" width="17" height="17" fill="rgb(231,199,31)"/>
-<rect x="51" y="51" width="17" height="17" fill="rgb(122,122,122)"/>
-<rect x="68" y="0" width="17" height="17" fill="rgb(133,128,177)"/>
-<rect x="68" y="17" width="17" height="17" fill="rgb(157,188,64)"/>
-<rect x="68" y="34" width="17" height="17" fill="rgb(187,86,149)"/>
-<rect x="68" y="51" width="17" height="17" fill="rgb(85,85,85)"/>
-<rect x="85" y="0" width="17" height="17" fill="rgb(103,189,170)"/>
-<rect x="85" y="17" width="17" height="17" fill="rgb(224,163,46)"/>
-<rect x="85" y="34" width="17" height="17" fill="rgb(8,133,161)"/>
-<rect x="85" y="51" width="17" height="17" fill="rgb(52,52,52)"/>
+<rect x="0" y="0" width="25" height="25" fill="rgb(115,82,68)"/>
+<rect x="0" y="25" width="25" height="25" fill="rgb(214,126,44)"/>
+<rect x="0" y="50" width="25" height="25" fill="rgb(56,61,150)"/>
+<rect x="0" y="75" width="25" height="25" fill="rgb(243,243,243)"/>
+<rect x="25" y="0" width="25" height="25" fill="rgb(194,150,130)"/>
+<rect x="25" y="25" width="25" height="25" fill="rgb(80,91,166)"/>
+<rect x="25" y="50" width="25" height="25" fill="rgb(70,148,73)"/>
+<rect x="25" y="75" width="25" height="25" fill="rgb(200,200,200)"/>
+<rect x="50" y="0" width="25" height="25" fill="rgb(98,122,157)"/>
+<rect x="50" y="25" width="25" height="25" fill="rgb(193,90,99)"/>
+<rect x="50" y="50" width="25" height="25" fill="rgb(175,54,60)"/>
+<rect x="50" y="75" width="25" height="25" fill="rgb(160,160,160)"/>
+<rect x="75" y="0" width="25" height="25" fill="rgb(87,108,67)"/>
+<rect x="75" y="25" width="25" height="25" fill="rgb(94,60,108)"/>
+<rect x="75" y="50" width="25" height="25" fill="rgb(231,199,31)"/>
+<rect x="75" y="75" width="25" height="25" fill="rgb(122,122,122)"/>
+<rect x="100" y="0" width="25" height="25" fill="rgb(133,128,177)"/>
+<rect x="100" y="25" width="25" height="25" fill="rgb(157,188,64)"/>
+<rect x="100" y="50" width="25" height="25" fill="rgb(187,86,149)"/>
+<rect x="100" y="75" width="25" height="25" fill="rgb(85,85,85)"/>
+<rect x="125" y="0" width="25" height="25" fill="rgb(103,189,170)"/>
+<rect x="125" y="25" width="25" height="25" fill="rgb(224,163,46)"/>
+<rect x="125" y="50" width="25" height="25" fill="rgb(8,133,161)"/>
+<rect x="125" y="75" width="25" height="25" fill="rgb(52,52,52)"/>
 </g>
 </svg>

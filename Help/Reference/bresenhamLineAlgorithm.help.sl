@@ -61,7 +61,7 @@ A step plot:
 A matrix plot:
 
 ~~~spl svg=B
-let [x2, y2] = [11, 5];
+let [x2, y2] = [33, 15];
 let l = [
 	1 1; x2 y2
 ].bresenhamLineAlgorithm;

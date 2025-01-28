@@ -49,7 +49,7 @@ system
 
 Plot colour checker chart:
 
-~~~spl svg=A
+~~~spl svg=B
 system
 .colourCheckerChart
 .values

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
+<g stroke="none" transform="translate(0, 0) scale(1, 1)">
+<rect x="0" y="0" width="32" height="32" fill="rgb(201,75,235)"/>
+<rect x="0" y="32" width="32" height="32" fill="rgb(41,91,141)"/>
+<rect x="0" y="64" width="32" height="32" fill="rgb(95,179,37)"/>
+<rect x="32" y="0" width="32" height="32" fill="rgb(96,161,206)"/>
+<rect x="32" y="32" width="32" height="32" fill="rgb(165,60,172)"/>
+<rect x="32" y="64" width="32" height="32" fill="rgb(62,167,245)"/>
+<rect x="64" y="0" width="32" height="32" fill="rgb(18,141,110)"/>
+<rect x="64" y="32" width="32" height="32" fill="rgb(208,53,3)"/>
+<rect x="64" y="64" width="32" height="32" fill="rgb(167,32,9)"/>
+<rect x="96" y="0" width="32" height="32" fill="rgb(79,145,123)"/>
+<rect x="96" y="32" width="32" height="32" fill="rgb(20,86,115)"/>
+<rect x="96" y="64" width="32" height="32" fill="rgb(64,214,169)"/>
+<rect x="128" y="0" width="32" height="32" fill="rgb(225,102,139)"/>
+<rect x="128" y="32" width="32" height="32" fill="rgb(251,126,119)"/>
+<rect x="128" y="64" width="32" height="32" fill="rgb(235,175,208)"/>
+</g>
+</svg>

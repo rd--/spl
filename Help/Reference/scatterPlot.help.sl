@@ -15,7 +15,7 @@ Plot seven integers:
 Plot the cocatenation of three Ranges:
 
 ~~~spl svg=B
-(1:20 ++ 20:1 ++ 1:30).scatterPlot
+(1:20 ++ 20:-1:1 ++ 1:30).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/scatterPlot-B.svg)

@@ -284,6 +284,10 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 	writeImageFiles { :self |
+		let verbose = false;
+		verbose.ifTrue {
+			['writeImageFiles', self.name].postLine
+		};
 		self.definitionCodeBlocks.do { :each |
 			system.evaluate(each['contents'])
 		};
