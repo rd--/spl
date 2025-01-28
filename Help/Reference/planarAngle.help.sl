@@ -8,42 +8,42 @@ The angle between the half-lines from _(0,0)_ through _(1,1)_ and _(1,0)_:
 
 ```
 >>> [1 0; 0 0; 1 1].planarAngle
-(pi / 4)
+1/4.pi
 ```
 
 The angle formed by a triangle at origin:
 
 ```
 >>> [0 1; 0 0; 1 0].planarAngle
-(pi / 2)
+1/2.pi
 ```
 
 A straight angle:
 
 ```
 >>> [1 0; 0 0; -1 0].planarAngle
-pi
+1.pi
 ```
 
 An obtuse angle:
 
 ```
 >>> [1 0; 0 0; -1 1].planarAngle
-(3.pi / 4)
+3/4.pi
 ```
 
 A right angle:
 
 ```
 >>> [1 0; 0 0; 0 1].planarAngle
-(pi / 2)
+1/2.pi
 ```
 
 An acute angle:
 
 ```
 >>> [1 0; 0 0; 1 1].planarAngle
-(pi / 4)
+1/4.pi
 ```
 
 All interior angles of a triangle:
@@ -61,8 +61,8 @@ All interior angles of a triangle:
 >>> 	Triangle(a, b, c).interiorAngles
 >>> )
 (
-	pi / [6 3 2],
-	pi / [6 3 2]
+	1.pi / [6 3 2],
+	1.pi / [6 3 2]
 )
 ```
 
@@ -81,7 +81,7 @@ Relation between `planarAngle` of _(q2, p, q1)_ and _(q1, p, q2)_:
 >>> 	[q2 p q1].planarAngle,
 >>> 	[q1 p q2].planarAngle
 >>> )
-(pi / 4, pi / 4)
+(1/4.pi, 1/4.pi)
 ```
 
 * * *

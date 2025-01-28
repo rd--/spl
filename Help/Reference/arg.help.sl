@@ -10,16 +10,16 @@ At `SmallFloat`:
 
 ```
 >>> -1.arg
-pi
+1.pi
 ```
 
 At `Complex`:
 
 ```
->>> 1j1.arg
-(pi / 4)
+>>> 1J1.arg
+1/4.pi
 
->>> 0.5j1.arg
+>>> 0.5J1.arg
 1.10715
 ```
 
@@ -27,7 +27,7 @@ Real numbers are a special kind of complex number:
 
 ```
 >>> -0.5.arg
-pi
+1.pi
 
 >>> 3.arg
 0
@@ -36,21 +36,21 @@ pi
 Threads elementwise over lists and matrices:
 
 ```
->>> [1.2 0j1.5 0j-1.8].arg
+>>> [1.2 0J1.5 0J-1.8].arg
 [0 1.5708 -1.5708]
 ```
 
-Values at `zero` & infinity:
+Values at `zero` & `Infinity`:
 
 ```
->>> [0 inf].arg
+>>> [0 Infinity].arg
 [0 0]
 ```
 
 Polar decomposition of a complex number:
 
 ```
->>> (1j3.abs, 1j3.arg)
+>>> (1J3.abs, 1J3.arg)
 (10.sqrt, 3.arcTan)
 ```
 

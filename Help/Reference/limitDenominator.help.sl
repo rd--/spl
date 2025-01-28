@@ -5,7 +5,7 @@
 Find the nearest approximation to _aFraction_ that has a denominator less than or equal to _anInteger_.
 
 ```
->>> let r = pi.asFractionOver(1E6);
+>>> let r = 1.pi.asFractionOver(1E6);
 >>> (r, r.limitDenominator(1E4))
 (3141593/1000000, 355/113)
 
@@ -16,7 +16,7 @@ Find the nearest approximation to _aFraction_ that has a denominator less than o
 Recover a rational number that is represented as a float:
 
 ```
->>> let n = (pi / 3).cos;
+>>> let n = 1/3.pi.cos;
 >>> let r = n.asFractionOver(1E23);
 >>> (r, r.limitDenominator(1E6))
 (

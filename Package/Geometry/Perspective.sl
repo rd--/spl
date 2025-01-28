@@ -25,7 +25,7 @@
 	}
 
 	gluPerspective { :fovy :aspect :zNear :zFar |
-		let ymax = zNear * (fovy * pi / 360).tan;
+		let ymax = zNear * (fovy.pi / 360).tan;
 		let ymin = ymax.negated;
 		let xmin = ymin * aspect;
 		let xmax = ymax * aspect;

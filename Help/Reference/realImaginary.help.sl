@@ -7,7 +7,7 @@ Answer the real and imaginary part of _aNumber_.
 At `Complex`:
 
 ```
->>> 1j2.realImaginary
+>>> 1J2.realImaginary
 [1 2]
 ```
 

@@ -41,7 +41,7 @@
 		}.whileTrue {
 			r := self.nextRandomFloat
 		};
-		spread * (r * pi).tan + mean
+		spread * r.pi.tan + mean
 	}
 
 	nextRandomFloatGaussianDistribution { :self :mu :sigma |
@@ -95,7 +95,7 @@ CauchyDistribution : [Object] { | x0 gamma |
 
 	cdf { :self :x |
 		let [x0, gamma] = [self.x0, self.gamma];
-		(1 / pi) * ((x - x0) / gamma).arcTan + 0.5
+		(1 / 1.pi) * ((x - x0) / gamma).arcTan + 0.5
 	}
 
 	entropy { :self |

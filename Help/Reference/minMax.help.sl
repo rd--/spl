@@ -20,7 +20,7 @@ Find the minimum and maximum of a `Range`:
 Find the minimum and maximum of a `List`:
 
 ```
->>> [pi 1.3 e 10.sqrt].minMax
+>>> [1.pi 1.3 1.e 10.sqrt].minMax
 [1.3 10.sqrt]
 
 >>> [3 1 2 5 4].minMax

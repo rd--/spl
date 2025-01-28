@@ -13,11 +13,11 @@ the answer lines when concatenated and placed in parentheses.
 To show that real numbers are commutative under addition and multiplication we can write:
 
 ```
->>> pi + e
-e + pi
+>>> 2.pi + 1.e
+1.e + 2.pi
 
->>> pi * e
-e * pi
+>>> 2.pi * 1.e
+1.e * 2.pi
 ```
 
 Multiple _program_ and _expected answer_ lines:

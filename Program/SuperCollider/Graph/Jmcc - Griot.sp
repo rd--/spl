@@ -6,7 +6,7 @@ let tapTimes = n.arithmeticSeries(0.003, 0.0005); /* Tap times to determine stri
 let exc = (1 .. n).collect { :i |
 	let excEnv = Env([0 1 0], [0.01 0.2], -2, nil, nil, 0);
 	let excTrig = Impulse(n, 0);
-	let excCh = Demand(excTrig, 0, Dbrown(inf, 0, n - 1, 1));
+	let excCh = Demand(excTrig, 0, Dbrown(Infinity, 0, n - 1, 1));
 	let excFr = MouseY(10, 10000, 0, 0.2);
 	let excSg = LfNoise2(excFr) * excEnv.asEnvGen(excTrig) * Rand(0, 0.1);
 	excSg * ((excCh - i).Abs < 1)

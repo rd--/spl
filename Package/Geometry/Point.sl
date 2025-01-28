@@ -165,7 +165,7 @@ Point : [Object] { | coordinates |
 	}
 
 	perpendicularBisector { :u :v |
-		let m = (pi / 2).rotationMatrix;
+		let m = 0.5.pi.rotationMatrix;
 		InfiniteLine(
 			u.midpoint(v),
 			(v - u).dot(m)
@@ -218,7 +218,7 @@ Point : [Object] { | coordinates |
 			let v = b - a;
 			let r = projection(u, v);
 			let t = v.vectorAngle(r);
-			(t ~ pi).if {
+			(t ~ 1.pi).if {
 				a
 			} {
 				let i = a + r;

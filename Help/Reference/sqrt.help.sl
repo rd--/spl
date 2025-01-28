@@ -19,17 +19,17 @@ Negative numbers have imaginary square roots:
 
 ```
 >>> -9.sqrt
-0j3
+0J3
 
->>> -25j0.sqrt
-0j5
+>>> -25J0.sqrt
+0J5
 ```
 
 At `Complex`:
 
 ```
->>> 5j1.sqrt
-2.24711j0.22250
+>>> 5J1.sqrt
+2.24711J0.22250
 ```
 
 At `LargeInteger`:
@@ -42,8 +42,8 @@ At `LargeInteger`:
 Threads elementwise over lists and matrices:
 
 ```
->>> [0 1.5 0j1 pi inf].sqrt
-[0, 1.22474, -1j0 ^ 0.25, pi.sqrt, inf]
+>>> [0 1.5 0J1 1.pi Infinity].sqrt
+[0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, Infinity]
 
 >>> [1 4 9 16].sqrt
 [1 2 3 4]
@@ -58,8 +58,8 @@ Values at `zero` and infinity:
 >>> 0.sqrt
 0
 
->>> inf.sqrt
-inf
+>>> Infinity.sqrt
+Infinity
 ```
 
 Plot over a subset of the reals:

@@ -25,7 +25,7 @@ The polar coordinates of the axes of the ordinary Farish isometric projection:
 
 ```
 >>> AxonometricProjection(
->>> 	pi / 6, 0, pi / 6,
+>>> 	1/6.pi, 0, 1/6.pi,
 >>> 	1, 1, 1
 >>> ).polarCoordinates
 [
@@ -68,7 +68,7 @@ Project a cube as three vertically adjacent squares:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		0, 0, pi / 2,
+		0, 0, 1/2.pi,
 		1, 2, 1
 	)
 )
@@ -86,7 +86,7 @@ and the cube is projected as a hexagon:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		pi / 6, 0, pi / 6,
+		1/6.pi, 0, 1/6.pi,
 		1, 1, 1
 	)
 )
@@ -102,7 +102,7 @@ the planometric or military projection is given:
 .unitCube
 .asPerspectiveDrawing(
 	AxonometricProjection(
-		pi / 4, 0, pi / 4,
+		1/4.pi, 0, 1/4.pi,
 		1, 1, 1
 	)
 )

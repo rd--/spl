@@ -21,7 +21,7 @@ as for use as keys is `Map`.
 ```
 >>> [
 >>> 	'x'.asCharacter,
->>> 	2j3,
+>>> 	2J3,
 >>> 	2/3,
 >>> 	[2, 3],
 >>> 	(x: 2, y: 3),

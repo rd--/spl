@@ -4,8 +4,8 @@ AsciiString : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		self.contents.copy
 	}
 
-	asHex { :self |
-		self.contents.hex.asAsciiString
+	asHexString { :self |
+		self.contents.hexString.asAsciiString
 	}
 
 	asList { :self |

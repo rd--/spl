@@ -23,7 +23,7 @@
 	}
 
 	^ { :self |
-		e ^ self
+		1.e ^ self
 	}
 
 	abs { :self |

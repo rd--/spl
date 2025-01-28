@@ -22,7 +22,7 @@ Minimum of the support of the identity:
 
 ```
 >>> [].permutationMin
-inf
+Infinity
 ```
 
 * * *

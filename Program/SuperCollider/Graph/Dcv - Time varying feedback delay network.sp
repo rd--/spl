@@ -23,7 +23,7 @@ let rotatableMatrix = { :angle |
 };
 let matrix = { :trig :rotateFreq :rotateAmount |
 	let rotate = SinOsc(rotateFreq, 0).LinLin(-1, 1, 0, rotateAmount);
-	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2 * pi;
+	let angle = Phasor(trig, rotate * SampleDur(), 0, 1, 0) * 2.pi;
 	rotatableMatrix(angle)
 };
 let ctl = (

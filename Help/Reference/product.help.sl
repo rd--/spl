@@ -57,7 +57,7 @@ Plot the sequence of partial products:
 
 ~~~spl svg=A
 (1 -- 50).functionPlot { :i |
-	let z = 2 + (i * 2 * pi / 15).sin;
+	let z = 2 + (i * 2.pi / 15).sin;
 	(11 / 12) ^ i * z
 }
 ~~~
@@ -67,7 +67,7 @@ Plot the sequence of partial products:
 ~~~spl svg=B
 1:50.functionPlot { :j |
 	1:j.collect { :i |
-		let z = 2 + (i * 2 * pi / 15).sin;
+		let z = 2 + (i * 2.pi / 15).sin;
 		(11 / 12) ^ i * z
 	}.product
 }

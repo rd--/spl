@@ -2,14 +2,14 @@
 LfSaw(110, 2 * [0.5, 0]) * 0.1
 
 /* LfSaw ; as phasor */
-(LfSaw(220, 0) * pi + pi).Sin * 0.1
+(LfSaw(220, 0).pi + 1.pi).Sin * 0.1
 
 /* LfSaw ; as phase input to sin ; scale using LinLin */
-LinLin(LfSaw(440, 0), -1, 1, 0, 2 * pi).Sin * 0.1
+LinLin(LfSaw(440, 0), -1, 1, 0, 2.pi).Sin * 0.1
 
 /* LfSaw ; as phasor */
 let freq = LfNoise2(3) * 110 + 220;
-[(LfSaw(freq, 0) * pi + pi).Sin, SinOsc(freq, 0)] * 0.1
+[(LfSaw(freq, 0).pi + 1.pi).Sin, SinOsc(freq, 0)] * 0.1
 
 /* LfSaw */
 LfSaw(500, 1) * 0.05
@@ -35,7 +35,7 @@ Voicer(1, 16) { :e |
 	let formantTable = [400 1600 2700; 830 1200 4000; 325 600 2530].asLocalBuf;
 	let formants = BufRd(3, formantTable, e.y * 3, 1, 2).kr * [1 / auto, auto, auto ^ 0.5];
 	let phase = LfSaw(freq, 0).LinLin(-1, 1, 0, 1);
-	let snd = (phase * formants / freq * 2 * pi).Sin;
+	let snd = (phase * formants / freq * 2.pi).Sin;
 	EqPan2(
 		(snd.first + (snd.second.Sign * 0.25)) * e.z * 2 * e.w,
 		e.i * 2 - 1

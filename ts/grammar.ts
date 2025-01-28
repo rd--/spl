@@ -5,7 +5,7 @@ export const slGrammarDefinition: string = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = TypeExpression | TraitExpression | LibraryItem | ConstantDefinition
+	LibraryExpression = TypeExpression | TraitExpression | LibraryItem
 	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
 	TypeExtension = "+" typeName "{" (methodName Block)* "}"
 	TypeTypeExtension = "+" typeName "^" "{" (methodName Block)* "}"
@@ -19,7 +19,7 @@ Sl {
 	TraitListExtension = "+" "@" "[" NonemptyListOf<traitName, ","> "]" "{" (methodName Block)* "}"
 	TraitDefinition = "@" traitName "{" (methodName Block)* "}"
 	LibraryItem = "LibraryItem" DictionaryExpression
-	ConstantDefinition = "Constant" "." constantName "=" literal
+	// ConstantDefinition = "Constant" "." constantName "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
 	TemporaryInitializer =
@@ -172,14 +172,15 @@ Sl {
 	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
-	decimalLiteral = plusOrMinus? digit+ "." digit+ ("d" | "D")
-	scientificLiteral = integerOrFloatLiteral ("e" | "E") integerLiteral
-	complexLiteral = integerOrFloatLiteral ("j" | "J") integerOrFloatLiteral
-	residueLiteral = integerLiteral ("z" | "Z") digit+
+	decimalLiteral = plusOrMinus? digit+ "." digit+ "D" // ("d" | "D")
+	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
+	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
+	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
 	largeIntegerLiteral = plusOrMinus? digit+ "n"
 	radixIntegerLiteral = plusOrMinus? digit+ "r" letterOrDigit+
-	constantNumberLiteral = "Infinity" | "NaN"
+    infinityLiteral = plusOrMinus? "Infinity"
+	constantNumberLiteral = infinityLiteral | "NaN" | "Pi"
 	integerLiteral = plusOrMinus? digit+
     integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"

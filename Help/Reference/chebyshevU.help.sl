@@ -22,13 +22,13 @@ Evaluate at specific _x_:
 31938720
 
 >>> 0:3.collect { :n |
->>> 	n.chebyshevU.at(pi / 2)
+>>> 	n.chebyshevU.at(1/2.pi)
 >>> }
 [
 	1,
-	pi,
-	-1 + pi.squared,
-	-2.pi + pi.cubed
+	1.pi,
+	-1 + 1.pi.squared,
+	-2.pi + 1.pi.cubed
 ]
 ```
 

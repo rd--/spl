@@ -1,6 +1,6 @@
 # Dseries
 
-- _Dseries(length=inf, start=1, step=1)_
+- _Dseries(length=Infinity, start=1, step=1)_
 
 Demand rate arithmetic series UGen.
 
@@ -32,7 +32,7 @@ Ascending sequences:
 
 ```
 let seq = Dseries(
-	inf,
+	Infinity,
 	0,
 	[1, 3]
 );
@@ -53,7 +53,7 @@ Plotting:
 Duty(
 	0.004,
 	0,
-	Dseries(inf, 1, [1, 2])
+	Dseries(Infinity, 1, [1, 2])
 ).plot(0.1)
 ~~~
 

@@ -3,7 +3,7 @@
 Body : [Object] { | x y z vx vy vz mass |
 
 	offsetMomentumXyz { :self :px :py :pz |
-		let solarMass = 4 * pi * pi;
+		let solarMass = 4.pi.pi;
 		self.vx := 0.0 - (px / solarMass);
 		self.vy := 0.0 - (py / solarMass);
 		self.vz := 0.0 - (pz / solarMass)
@@ -15,7 +15,7 @@ Body : [Object] { | x y z vx vy vz mass |
 
 	Body { :x :y :z :vx :vy :vz :mass |
 		let daysPerYear = 365.24;
-		let solarMass = 4 * pi * pi;
+		let solarMass = 4.pi.pi;
 		newBody().initializeSlots(
 			x, y, z,
 			vx * daysPerYear, vy * daysPerYear, vz * daysPerYear,

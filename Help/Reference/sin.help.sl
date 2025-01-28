@@ -5,14 +5,14 @@
 Answers the sin of _z_.
 
 ```
->>> (pi / 3).sin
-(3.sqrt / 2)
+>>> 1/3.pi.sin
+3.sqrt / 2
 
->>> (pi / 5).sin
+>>> 1/5.pi.sin
 ((5 / 8) - (5.sqrt / 8)).sqrt
 
->>> 60.degrees.sin
-(3.sqrt / 2)
+>>> 60.degree.sin
+3.sqrt / 2
 ```
 
 Prefix notation:
@@ -25,8 +25,8 @@ Prefix notation:
 `sin` can take `Complex` number inputs:
 
 ```
->>> 2.5j1.sin
-0.923491j-0.941505
+>>> 2.5J1.sin
+0.923491J-0.941505
 ```
 
 Threads elementwise over lists and matrices:
@@ -39,7 +39,9 @@ Threads elementwise over lists and matrices:
 Values of `sin` at fixed points:
 
 ```
->>> 0:6.collect { :n | (n.pi / 6).sin }
+>>> 0:6.collect { :n |
+>>> 	(n / 6).pi.sin
+>>> }
 [0, 1 / 2, 3.sqrt / 2, 1, 3.sqrt / 2, 1 / 2, 0]
 ```
 

@@ -1,7 +1,7 @@
 # diracDelta
 
 - _diracDelta(x, z)_
-- _diracDelta(alpha)_ ⟹ _diracDelta(alpha, inf)_
+- _diracDelta(alpha)_ ⟹ _diracDelta(alpha, Infinity)_
 
 Answer the Dirac delta function _δ(x)_,
 which is _z_ at `zero`, and `z` elsewhere.
@@ -20,7 +20,7 @@ which is _z_ at `zero`, and `z` elsewhere.
 1
 
 >>> 0.diracDelta
-inf
+Infinity
 ```
 
 * * *

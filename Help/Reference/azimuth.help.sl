@@ -5,8 +5,8 @@
 Another name for `theta`:
 
 ```
->>> SphericalCoordinates(1, pi, 0).azimuth
-pi
+>>> SphericalCoordinates(1, 1.pi, 0).azimuth
+1.pi
 ```
 
 * * *

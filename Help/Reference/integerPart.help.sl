@@ -14,7 +14,7 @@ Find the integer part of a real number:
 >>> 456.457.integerPart
 456
 
->>> (pi + e).integerPart
+>>> (1.pi + 1.e).integerPart
 5
 ```
 
@@ -36,7 +36,7 @@ At `Complex`:
 
 ```
 >>> (78 / 47).j(-4.2).integerPart
-1j-4
+1J-4
 ```
 
 Threads elementwise over lists:

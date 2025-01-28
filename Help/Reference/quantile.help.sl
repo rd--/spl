@@ -30,7 +30,7 @@ Find the top percentile of a list:
 Quantile works with any real numeric quantities:
 
 ```
->>> [e pi 2.sqrt 3.sqrt].quantile(1 / 4)
+>>> [1.e 1.pi 2.sqrt 3.sqrt].quantile(1 / 4)
 2.sqrt
 
 >>> [5 10 4 25 2 1].quantile(2 / 3)
@@ -50,15 +50,15 @@ Compute results using other parametrizations:
 Find quantiles of elements in each column:
 
 ```
->>> [1 2.pi; 2 pi; 3 3.pi].quantile(1 / 3)
-[1 pi]
+>>> [1 2.pi; 2 1.pi; 3 3.pi].quantile(1 / 3)
+[1 1.pi]
 ```
 
 Find multiple quantiles of elements in each column:
 
 ```
->>> [1 2.pi; 2 pi; 3 3.pi].quantile([1 / 3, 4 / 5])
-[1 3; pi 3.pi]
+>>> [1 2.pi; 2 1.pi; 3 3.pi].quantile([1 / 3, 4 / 5])
+[1 3; 1.pi 3.pi]
 ```
 
 Compute quantiles for the heights of children in a class:

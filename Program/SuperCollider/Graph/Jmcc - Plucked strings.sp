@@ -4,7 +4,7 @@
 		let s0 = Impulse(TRand(2, 2.2, tr), 0) * 0.3;
 		let s1 = Dust(0.5) * 0.3;
 		let s2 = Impulse(
-			SinOsc(TRand(0.05, 0.15, tr), TRand(0, pi * 2, tr)) * 5 + 5.2,
+			SinOsc(TRand(0.05, 0.15, tr), TRand(0, 2.pi, tr)) * 5 + 5.2,
 			0
 		) * 0.3;
 		Choose(tr, [s0, s1, s2])

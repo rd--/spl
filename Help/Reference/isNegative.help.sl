@@ -34,7 +34,7 @@ true
 Threads over lists:
 
 ```
->>> [1.6, 3/4, pi, 0, -5, (10 ^ 5).sin].isNegative
+>>> [1.6, 3/4, 1.pi, 0, -5, (10 ^ 5).sin].isNegative
 [false false false false true false]
 ```
 

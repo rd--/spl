@@ -16,11 +16,11 @@ Half-integer values:
 ```
 >>> (1.5 .. 5.5).collect(gamma:/1)
 [
-	pi.sqrt / 2,
-	(3 * pi.sqrt) / 4,
-	(15 * pi.sqrt) / 8,
-	(105 * pi.sqrt) / 16,
-	(945 * pi.sqrt) / 32
+	1.pi.sqrt / 2,
+	(3 * 1.pi.sqrt) / 4,
+	(15 * 1.pi.sqrt) / 8,
+	(105 * 1.pi.sqrt) / 16,
+	(945 * 1.pi.sqrt) / 32
 ]
 ```
 

@@ -7,7 +7,7 @@ Random values that follow a uniform distribution.
 Reset does not reset seed:
 
 ```
->>> let l = LsWhite(-1, 1, inf, Sfc32(189314));
+>>> let l = LsWhite(-1, 1, Infinity, Sfc32(189314));
 >>> let a = l.next(99);
 >>> l.reset;
 >>> l.next(99) ~= a
@@ -28,8 +28,8 @@ Diverging range:
 
 ~~~spl svg=B
 LsWhite(
-	LsSeries(0, -1, inf),
-	LsSeries(0, 1, inf),
+	LsSeries(0, -1, Infinity),
+	LsSeries(0, 1, Infinity),
 	99,
 	Sfc32(538921)
 ).upToEnd.linePlot

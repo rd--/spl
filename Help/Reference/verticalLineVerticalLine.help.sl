@@ -34,7 +34,7 @@ true
 Combine assertions with `||`:
 
 ```
->>> (2 < 1) || (pi > 3)
+>>> (2 < 1) || (1.pi > 3)
 true
 ```
 

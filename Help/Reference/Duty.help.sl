@@ -18,9 +18,9 @@ Demand Ugen as durations:
 
 ```
 let freq = Duty(
-	Drand(inf, [0.01 0.2 0.4]),
+	Drand(Infinity, [0.01 0.2 0.4]),
 	0,
-	Dseq(inf, [204 400 201 502 300 200])
+	Dseq(Infinity, [204 400 201 502 300 200])
 ).Lag(0.2);
 SinOsc(freq * [1 1.01], 0) * 0.1
 ```
@@ -31,7 +31,7 @@ Control rate ugen as durations:
 let freq = Duty(
 	MouseX(0.001, 2, 1, 0.2),
 	0,
-	Dseq(inf, [204 400 201 502 300 200])
+	Dseq(Infinity, [204 400 201 502 300 200])
 );
 SinOsc(freq * [1 1.01], 0) * 0.1
 ```
@@ -41,16 +41,16 @@ Control rate resetting the demand ugens:
 ```
 let freq = Duty(
 	Dseq(
-		inf,
+		Infinity,
 		[
 			0.2,
 			0.3,
 			0.4,
-			Dseq(inf, [1 1 1 2 1 2])
+			Dseq(Infinity, [1 1 1 2 1 2])
 		]
 	) / 2,
 	Dust(1).kr,
-	Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
+	Dseq(Infinity, [0, 1, 2, Dseq(Infinity, [1 .. 5])])
 ) * 30 + 250;
 SinOsc(freq * [1 1.01], 0) * 0.1
 ```
@@ -60,16 +60,16 @@ Demand rate reset:
 ```
 let freq = Duty(
 	Dseq(
-		inf,
+		Infinity,
 		[
 			0.2,
 			0.3,
 			0.4,
-			Dseq(inf, [1 1 1 2 1 2])
+			Dseq(Infinity, [1 1 1 2 1 2])
 		]
 	) / 2,
-	Dseq(inf, [1 2 4 5]),
-	Dseq(inf, [0, 1, 2, Dseq(inf, [1 .. 5])])
+	Dseq(Infinity, [1 2 4 5]),
+	Dseq(Infinity, [0, 1, 2, Dseq(Infinity, [1 .. 5])])
 ) * 30 + 250;
 SinOsc(freq * [1 1.01], 0) * 0.1
 ```
@@ -95,7 +95,7 @@ let a = {
 			)
 		} ! m.atRandom.rounded
 	].++;
-	Dseq(inf, x.scramble)
+	Dseq(Infinity, x.scramble)
 } ! n;
 Duty(
 	(

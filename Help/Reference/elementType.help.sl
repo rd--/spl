@@ -37,7 +37,7 @@ At `Matrix`:
 At heterogeneous `List`:
 
 ```
->>> [1 2/3 4j5 '6' 7n].elementType
+>>> [1 2/3 4J5 '6' 7n].elementType
 nil
 ```
 

@@ -11,7 +11,7 @@ Reflection about an angle:
 >>> 0.reflectionMatrix
 [1 0; 0 -1]
 
->>> (pi / 2).reflectionMatrix
+>>> 1/2.pi.reflectionMatrix
 [-1 0; 0 1]
 ```
 

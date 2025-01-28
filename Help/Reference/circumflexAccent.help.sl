@@ -42,8 +42,8 @@ At `Complex`:
 Threads elementwise over lists and matrices:
 
 ```
->>> [0 1.5 0J1 pi inf] ^ 0.5
-[0, 1.22474, -1J0 ^ 0.25, pi.sqrt, inf]
+>>> [0 1.5 0J1 1.pi 1.inf] ^ 0.5
+[0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, 1.inf]
 
 >>> 2 ^ [1 2 3]
 [2 4 8]
@@ -85,9 +85,9 @@ The unary form is `exp`:
 
 ```
 >>> 1.^
-e
+1.e
 
->>> [1 2 e].^
+>>> [1 2 1.e].^
 [2.71828 7.38906 15.15426]
 
 >>> let antiLog = { :x | 10 ^ x };

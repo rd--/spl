@@ -8,7 +8,7 @@ SinOsc(200 + (Lpf(lfo, freq) * 200), 0) * 0.1
 Lpf(WhiteNoise(), 500) * 0.1
 
 /* Lpf ; modulate frequency */
-Lpf(WhiteNoise(), SinOsc([0.1, 0.13], pi) * [2300, 3000] + 3500) * 0.1
+Lpf(WhiteNoise(), SinOsc([0.1, 0.13], 1.pi) * [2300, 3000] + 3500) * 0.1
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */
 [

@@ -6,7 +6,7 @@ Answer the uniform `typeOf` each element of _aCollection_,
 else answer _aBlock()_.
 
 ```
->>> [1 2/3 4j5 '6' 7n]
+>>> [1 2/3 4J5 '6' 7n]
 >>> .elementTypeIfAbsent { 'Any' }
 'Any'
 ```

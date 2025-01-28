@@ -21,7 +21,7 @@ Separate an improper fraction into an integer and a proper fraction:
 Inexact numbers:
 
 ```
->>> (pi ^ 20).mixedFractionParts
+>>> (1.pi ^ 20).mixedFractionParts
 [8769956796 0.08269]
 ```
 
@@ -42,8 +42,8 @@ Negative numbers:
 Complex numbers:
 
 ```
->>> (17 / 1j3).mixedFractionParts
-[1j-5 0.7j-0.1]
+>>> (17 / 1J3).mixedFractionParts
+[1J-5 0.7J-0.1]
 ```
 
 * * *

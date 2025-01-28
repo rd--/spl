@@ -31,7 +31,7 @@ p.asLineDrawing
 With unit step sizes:
 
 ~~~spl svg=C
-(pi / [2 3 -4]).anglePath.asLineDrawing
+(1.pi / [2 3 -4]).anglePath.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-C.svg)
@@ -39,7 +39,7 @@ With unit step sizes:
 With specified step sizes:
 
 ~~~ spl svg=D
-(pi / [2 3 -4]).anglePath(
+(1.pi / [2 3 -4]).anglePath(
 	[0.7 2.3 3.5],
 	[0 0]
 ).asLineDrawing

@@ -25,7 +25,7 @@ Equal complex numbers, fractions and lists are not identical.
 At `Complex`:
 
 ```
->>> 1j1 == 1j1
+>>> 1J1 == 1J1
 false
 ```
 

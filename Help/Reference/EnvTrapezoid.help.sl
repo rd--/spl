@@ -32,7 +32,7 @@ let tr = DustRange(
 );
 let dur = TRand(
 	0.05,
-	SinOsc(1 / 13, pi).LinLin(-1, 1, 0.05, 0.125),
+	SinOsc(1 / 13, 1.pi).LinLin(-1, 1, 0.05, 0.125),
 	tr
 );
 let w = TrigAllocator(256, 1, tr, dur);
@@ -47,7 +47,7 @@ let env = EnvTrapezoid(
 let osc = Blip(
 	TRand(
 		333,
-		SinOsc(1 / 17, pi).LinLin(
+		SinOsc(1 / 17, 1.pi).LinLin(
 			-1, 1,
 			333, 555
 		),
@@ -55,7 +55,7 @@ let osc = Blip(
 	),
 	TRand(
 		1,
-		SinOsc(1 / 23, pi).LinLin(
+		SinOsc(1 / 23, 1.pi).LinLin(
 			-1, 1,
 			1, 4
 		),

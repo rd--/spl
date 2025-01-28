@@ -22,7 +22,7 @@ If the element is itself a stream, all items are taken for each index.
 
 >>> let a = LsSeq([1 2], 2);
 >>> let b = LsSeq([6 7], 1);
->>> let c = LsSeq([3 3 1 2], inf);
+>>> let c = LsSeq([3 3 1 2], Infinity);
 >>> LsSwitch([a b 8], c).next(13)
 [8 8 1 2 1 2 6 7 8 8 1 2 1]
 ```

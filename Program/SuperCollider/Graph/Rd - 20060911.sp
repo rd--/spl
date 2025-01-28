@@ -3,7 +3,7 @@ let x = MouseX(0.03, 0.12, 1, 0.1);
 let y = MouseY(0.01, 0.52, 1, 0.1) * 0.4;
 let z = {
 	let t = [
-		SinOsc(Rand(0.3, 0.5), Rand(0, pi)) + 1,
+		SinOsc(Rand(0.3, 0.5), Rand(0, 1.pi)) + 1,
 		Impulse(LfNoise2(1 / 3) * 11 + 11, 0),
 		0.5
 	].product;

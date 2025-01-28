@@ -19,9 +19,9 @@ true
 >>> }
 true
 
->>> inf.isNumber & {
->>> 	inf.isSmallFloat & {
->>> 		inf.isFinite.not
+>>> Infinity.isNumber & {
+>>> 	Infinity.isSmallFloat & {
+>>> 		Infinity.isFinite.not
 >>> 	}
 >>> }
 true
@@ -44,7 +44,7 @@ true
 At `Complex`:
 
 ```
->>> 2j3.isNumber & { 2j3.isComplex }
+>>> 2J3.isNumber & { 2J3.isComplex }
 true
 ```
 

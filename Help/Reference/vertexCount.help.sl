@@ -32,7 +32,7 @@ At a multigraph:
 At `Triangle`:
 
 ```
->>> sasTriangle(1, pi / 2, 2).vertexCount
+>>> sasTriangle(1, 1/2.pi, 2).vertexCount
 3
 ```
 

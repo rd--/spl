@@ -5,18 +5,18 @@
 The complex conjugate of a complex number _a + bi_ is defined to be _a - bi_.
 
 ```
->>> 1j1.conjugated
-1j-1
+>>> 1J1.conjugated
+1J-1
 
->>> 0.7j0.conjugated
-0.7j0
+>>> 0.7J0.conjugated
+0.7J0
 ```
 
 Conjugate threads elementwise over lists and matrices:
 
 ```
->>> [1.2 2.5j1.5 0j-1.8].conjugated
-[1.2 2.5j-1.5 0j1.8]
+>>> [1.2 2.5J1.5 0J-1.8].conjugated
+[1.2 2.5J-1.5 0J1.8]
 ```
 
 Value at zero:

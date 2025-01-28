@@ -11,7 +11,7 @@ and _C_ in the half-plane _y > 0_.
 Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 
 ```
->>> let t = aasTriangle(pi / 6, pi / 3, 1);
+>>> let t = aasTriangle(1/6.pi, 1/3.pi, 1);
 >>> (
 >>> 	t.vertexCoordinates,
 >>> 	t.area,
@@ -22,7 +22,7 @@ Calculate the `coordinates`, `area` and `centroid` of an _aas_ triangle:
 	[[0, 0], [2, 0], [3/2, 3.sqrt / 2]],
 	3.sqrt / 2,
 	[7/6, 1 / (2 * 3.sqrt)],
-	pi / [6 3 2]
+	1.pi / [6 3 2]
 )
 ```
 

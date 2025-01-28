@@ -30,7 +30,7 @@ Equal to:
 >>> 1 + 1 <=> 2
 0
 
->>> 2.pi / 2 <=> pi
+>>> 2.pi / 2 <=> 1.pi
 0
 
 >>> 'abc' <=> 'abc'
@@ -43,7 +43,7 @@ Descending:
 >>> 3 <=> 1
 1
 
->>> e ^ 2 <=> pi
+>>> 1.e ^ 2 <=> 1.pi
 1
 
 >>> 'bcd' <=> 'abc'
@@ -67,14 +67,14 @@ Mixed numeric types, equal to:
 -∞ comes before any real-valued expression:
 
 ```
->>> inf.- <=> 1.goldenRatio
+>>> -1.inf <=> 1.goldenRatio
 -1
 ```
 
 ∞ comes after any real-valued expression:
 
 ```
->>> 1E53 <=> inf
+>>> 1E53 <=> 1.inf
 -1
 ```
 

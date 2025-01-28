@@ -14,7 +14,7 @@
 		SinOscBank(
 			freq,
 			0.1,
-			{ 2 * pi.Rand0 } ! (3 * n)
+			{ 2.pi.Rand0 } ! (3 * n)
 		)
 	} / n
 }.xFadeTextureProgram(4, 4)

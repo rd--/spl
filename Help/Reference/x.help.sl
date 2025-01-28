@@ -38,7 +38,7 @@ Two-dimensional case:
 `PolarCoordinates` implements `x`:
 
 ```
->>> PolarCoordinates(1, pi).x
+>>> PolarCoordinates(1, 1.pi).x
 -1
 ```
 

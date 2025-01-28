@@ -9,7 +9,7 @@ let f = [1, 2].collect { :i |
 	];
 	Demand(t[i], 0, Dseq(1, q)).MidiCps
 };
-let x = SinOsc(f, SinOsc(1 / [12, 9], 0) / 4 + 1 * SinOsc(f, e * pi)) * e / 2;
+let x = SinOsc(f, SinOsc(1 / [12, 9], 0) / 4 + 1 * SinOsc(f, e.pi)) * e / 2;
 FreeVerb2(x[1], x[2], 0.1, 1, 0)
 
 # Notes

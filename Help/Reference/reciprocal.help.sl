@@ -21,11 +21,11 @@ At `Fraction`:
 At `zero` and `inf`:
 
 ```
->>> inf.reciprocal
+>>> Infinity.reciprocal
 0
 
 >>> 0.reciprocal
-inf
+Infinity
 ```
 
 * * *

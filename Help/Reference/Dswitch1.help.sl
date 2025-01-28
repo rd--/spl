@@ -17,7 +17,7 @@ let a = Dswitch1(
 		3,
 		MouseY(1, 15, 0, 0.2),
 		2,
-		Dwhite(inf, 0, 3)
+		Dwhite(Infinity, 0, 3)
 	]
 );
 let trig = Impulse(3, 0);
@@ -31,7 +31,7 @@ Inputs are of increasing number of steps:
 let a = Dswitch1(
 	MouseX(0, 4, 0, 0.2),
 	0:4.collect { :i |
-		Dseq(inf, [0 .. i * 3])
+		Dseq(Infinity, [0 .. i * 3])
 	}
 );
 let trig = Impulse(6, 0);

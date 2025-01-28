@@ -1,5 +1,5 @@
 /* SinOscBank */
-SinOscBank([800, 1000, 1200], [0.3, 0.3, 0.3], [pi, pi, pi]) * 0.4
+SinOscBank([800, 1000, 1200], [0.3, 0.3, 0.3], [1.pi, 1.pi, 1.pi]) * 0.4
 
 /* SinOscBank */
 SinOscBank([800, 1000, 1200], 1, 0) * 0.3 * 0.4

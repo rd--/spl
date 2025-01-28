@@ -209,6 +209,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		1n
 	}
 
+	printString { :self :radix |
+		<primitive: return _self.toString(_radix).toUpperCase();>
+	}
+
 	printString { :self |
 		<primitive: return _self.toString();>
 	}

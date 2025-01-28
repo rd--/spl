@@ -11,7 +11,7 @@ true
 >>> 0.isPositiveInteger
 false
 
->>> pi.isPositiveInteger
+>>> 1.pi.isPositiveInteger
 false
 ```
 

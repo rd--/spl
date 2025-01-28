@@ -22,8 +22,8 @@ The binary form answers _anotherNumber_ subtracted from _aNumber_.
 Subtracting `Complex` numbers subtracts their components:
 
 ```
->>> 2j1 - 1j-1
-1j2
+>>> 2J1 - 1J-1
+1J2
 ```
 
 Threads element-wise over lists:

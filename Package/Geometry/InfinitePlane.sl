@@ -1,7 +1,7 @@
 InfinitePlane : [Object] { | a b c d |
 
 	area { :self |
-		inf
+		Infinity
 	}
 
 	dihedralAngle { :self :aPlane |

@@ -17,7 +17,7 @@ and:
 
 where
 
-> _angle = pos * pi_
+> _angle = pos.pi_
 
 so that -1 becomes -pi and +1 becomes +pi.
 This allows you to use an `LfSaw` to do continuous rotation around a circle.

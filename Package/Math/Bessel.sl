@@ -26,8 +26,8 @@
 		x := x.abs;
 		(x > 8).if {
 			let [p0, q0] = besselAsympt0(x);
-			let nn = x - (pi / 4);
-			(2 / pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin))
+			let nn = x - 0.25.pi;
+			(2 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin))
 		} {
 			let xsq = x * x;
 			let p1 = 26857.86856980014981415848441;
@@ -58,8 +58,8 @@
 		x := x.abs;
 		(x > 8).if {
 			let [p0, q0] = besselAsympt1(x);
-			let nn = x - (3 * pi / 4);
-			(2 / pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin)) * sign
+			let nn = x - (3.pi / 4);
+			(2 / 1.pi / x).sqrt * ((p0 * nn.cos) - (q0 * nn.sin)) * sign
 		} {
 			let xsq = x * x;
 			let p1 = 2701.122710892323414856790990;

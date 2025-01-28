@@ -79,7 +79,7 @@ A half sphere:
 ~~~spl svg=F
 (-0.5 -- 0.5).surfacePlot { :u :v |
 	let theta = 2.pi * u;
-	let phi = pi * v;
+	let phi = v.pi;
 	[
 		theta.cos * phi.sin,
 		theta.sin * phi.sin,

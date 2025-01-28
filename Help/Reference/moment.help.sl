@@ -14,8 +14,8 @@ Second moment of four-vector:
 First moment of three-vector:
 
 ```
->>> [pi e 2].moment(1)
-(1 / 3 * (2 + e + pi))
+>>> [1.pi 1.e 2].moment(1)
+(1 / 3 * (2 + 1.e + 1.pi))
 ```
 
 * * *

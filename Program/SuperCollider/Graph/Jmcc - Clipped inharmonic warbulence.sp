@@ -9,7 +9,7 @@ let z = { :tr |
 		let o1 = SinOsc(f * g, 0);
 		let o2 = SinOsc(
 			r * TRand(0.9, 1.1, tr),
-			TRand(0, 2 * pi, tr)
+			TRand(0, 2.pi, tr)
 		) * 0.08 - 0.04;
 		let o = (o1 * o2.Max(0)).Max(0);
 		EqPan2(o, TRand(-1, 1, tr)) * 2 / g

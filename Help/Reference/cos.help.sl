@@ -5,10 +5,10 @@
 Answers the cosine of _aNumber_.
 
 ```
->>> (pi / 6).cos
+>>> 1/6.pi.cos
 (3.sqrt / 2)
 
->>> (pi / 5).cos
+>>> 1/5.pi.cos
 (1 + 5.sqrt) / 4
 
 >>> 30.degrees.cos
@@ -21,8 +21,8 @@ Answers the cosine of _aNumber_.
 `cos` can take `Complex` number inputs:
 
 ```
->>> 2.5j1.cos
--1.23623j-0.70333
+>>> 2.5J1.cos
+-1.23623J-0.70333
 ```
 
 Threads elementwise over lists and matrices:
@@ -70,8 +70,8 @@ Spiral:
 ~~~spl svg=D
 (0 -- 6.pi).subdivide(200).collect { :t |
 	[
-		t / pi * t.cos,
-		t / pi * t.sin
+		t / 1.pi * t.cos,
+		t / 1.pi * t.sin
 	]
 }.asLineDrawing
 ~~~

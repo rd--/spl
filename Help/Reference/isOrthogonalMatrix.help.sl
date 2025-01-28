@@ -14,7 +14,7 @@ true
 Test if a 3×3 symbolic matrix is orthogonal:
 
 ```
->>> let a = pi / 3;
+>>> let a = 1/3.pi;
 >>> let m = [[1, 0, 0], [0, a.cos, a.sin.-], [0, a.sin, a.cos]];
 >>> m.isOrthogonalMatrix
 true
@@ -53,10 +53,10 @@ true
 Rotation matrices are orthogonal:
 
 ```
->>> (pi / 7).rotationMatrix.isOrthogonalMatrix
+>>> 1/7.pi.rotationMatrix.isOrthogonalMatrix
 true
 
->>> (pi / [3 5 7]).eulerMatrix.isOrthogonalMatrix
+>>> (1.pi / [3 5 7]).eulerMatrix.isOrthogonalMatrix
 true
 ```
 

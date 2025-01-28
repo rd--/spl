@@ -14,7 +14,7 @@ At `CartesianCoordinates`:
 At `Complex`:
 
 ```
->>> 1j3.asTuple
+>>> 1J3.asTuple
 (1, 3)
 ```
 

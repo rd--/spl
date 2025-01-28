@@ -42,7 +42,7 @@ Randomly select among sequences:
 
 ```
 let trig = Impulse(8, 0);
-let seq = Drand(inf, [
+let seq = Drand(Infinity, [
 	Dseq(1, [4 0 0 1 2 1 0 1]),
 	Dseq(1, [4 0 2 0 1 0 1 1]),
 	Dseq(1, [4 0 0 2 0 0 1 1]),

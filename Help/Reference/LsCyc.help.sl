@@ -1,6 +1,6 @@
 # LsCyc
 
-- _LsCyc(α)_ ⟹ _LsSeq(α, inf)_
+- _LsCyc(α)_ ⟹ _LsSeq(α, Infinity)_
 
 Infinite _LsSeq_.
 

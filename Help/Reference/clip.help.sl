@@ -30,7 +30,7 @@ Clip number that is already in range:
 Specify replacement values for clipping:
 
 ```
->>> pi.-.clip(-1, 1, 0, 0)
+>>> 1.pi.-.clip(-1, 1, 0, 0)
 0
 ```
 
@@ -47,7 +47,7 @@ Clip threads over lists and arrays:
 To clip values only to an upper bound specify the lower bound as negative infinity:
 
 ```
->>> -6:6.clip(inf.-, 0)
+>>> -6:6.clip(-1.inf, 0)
 [-6 -5 -4 -3 -2 -1 0 0 0 0 0 0 0]
 ```
 

@@ -41,8 +41,8 @@ There is a rich set of primitives.
 >>> 2 ^ 0.5
 1.41421
 
->>> -2j0 ^ 0.5
-0j1.41421
+>>> -2J0 ^ 0.5
+0J1.41421
 
 >>> 3.log(2)
 1.58496
@@ -160,8 +160,8 @@ And all of these can be monadic or dyadic, and apply to arrays.
 >>> 2 ^ [0.5 3 -5]
 [1.41421 8 0.03125]
 
->>> -2j0 ^ [0.5 6 7]
-[0j1.41421 64 -128]
+>>> -2J0 ^ [0.5 6 7]
+[0J1.41421 64 -128]
 ```
 
 `gcd` & `lcm`:

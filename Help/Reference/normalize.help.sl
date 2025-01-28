@@ -36,7 +36,7 @@ v
 At `Complex`:
 
 ```
->>> let v = [1j0 0j2 3j0 0j4 5j0 0j6];
+>>> let v = [1J0 0J2 3J0 0J4 5J0 0J6];
 >>> v.normalize
 (v / 91.sqrt)
 ```

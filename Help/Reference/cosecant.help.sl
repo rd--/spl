@@ -7,8 +7,8 @@ Answer the cosecant of _aNumber_.
 Equal to the reciprocal of `sin`:
 
 ```
->>> (pi / 2).cosecant
-(1 / (pi / 2).sin)
+>>> 1/2.pi.cosecant
+1 / 1/2.pi.sin
 ```
 
 At `SmallFloat`:

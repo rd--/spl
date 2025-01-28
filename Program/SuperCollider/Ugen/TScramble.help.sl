@@ -18,7 +18,7 @@ SinOsc(TScramble(tr, [60 62 64 65 67 69 71 72].MidiCps), 0).Splay * 0.1
 let a = [1 2 3; 1 2 3 4 5; 1 2 3 4 5 6 7];
 let t1 = Impulse(1 / 5, 0);
 let t2 = Impulse(5, 0);
-let m = Choose(t1, a.collect { :x | Demand(t2, 0, Dseq(inf, TScramble(t1, x))) });
+let m = Choose(t1, a.collect { :x | Demand(t2, 0, Dseq(Infinity, TScramble(t1, x))) });
 let c = SinOsc(1200, 0) * Decay(t1, 1) * 0.1;
 SinOsc(m * 110, 0) * 0.1 + c
 

@@ -44,7 +44,7 @@ Subdivide the interval -1 to 1 into 8 equal parts:
 Subdivide the interval from `e` to `pi`:
 
 ```
->>> (e -- pi).subdivide(4).asList
+>>> (1.e -- 1.pi).subdivide(4).asList
 [2.7183 2.8241 2.9299 3.0358 3.1416]
 ```
 

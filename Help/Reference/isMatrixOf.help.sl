@@ -14,7 +14,7 @@ true
 >>> [1/2 3/4; 5/6 7/6].isMatrixOf('Fraction')
 true
 
->>> [1j2 3j4; 5j6 7j6].isMatrixOf('Complex')
+>>> [1J2 3J4; 5J6 7J6].isMatrixOf('Complex')
 true
 
 >>> ['a' 'b'; 'c' 'd'].isMatrixOf('String')

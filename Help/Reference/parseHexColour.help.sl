@@ -6,11 +6,11 @@ Parse a subset of the _Css_ and _Html_ format hexadecimal colour notation,
 answering an `RgbColour` value in _Srgb_ colour space.
 
 ```
->>> let c = '#98ece8'.parseHexColour;
+>>> let c = '#98ECE8'.parseHexColour;
 >>> (c, c.hexString, c.rgbString)
 (
 	RgbColour([152 236 232] / 255, 1),
-	'#98ece8',
+	'#98ECE8',
 	'rgb(152,236,232)'
 )
 ```

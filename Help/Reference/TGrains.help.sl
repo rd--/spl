@@ -4,7 +4,7 @@
 
 Buffer granulator.
 Triggers generate grains from a buffer.
-Each grain has a Hanning envelope (_sin^2(x)_ for x from 0 to pi),
+Each grain has a Hanning envelope (_sin^2(x)_ for x from `zero` to `pi`),
 and is panned between two channels of multiple outputs.
 
 - numChannels: number of output channels.
@@ -26,10 +26,10 @@ let numChannels = 8;
 let triggerRate = MouseY(2, 200, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
-let rate = Dseq(inf, [10, 1, 1, 0.5, 0.5, 0.2, 0.1]);
+let rate = Dseq(Infinity, [10, 1, 1, 0.5, 0.5, 0.2, 0.1]);
 let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 4 / triggerRate;
-let pan = Dseq(inf, [-1, -0.9 .. 1]);
+let pan = Dseq(Infinity, [-1, -0.9 .. 1]);
 let amp = 1 / 4;
 let interp = 2;
 TGrains(

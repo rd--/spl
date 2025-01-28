@@ -24,7 +24,7 @@ High frequencies:
 let o = Fold2(
 	SinOsc(
 		[9333, 12111],
-		[0, 5 / pi]
+		[0, 5 / 1.pi]
 	),
 	SinOsc(
 		[0.51, 0.37],
@@ -36,7 +36,7 @@ let e = SinOsc(
 		[0.5, 0.33],
 		0
 	).LinLin(-1, 1, 1, [3, 4]),
-	[0, 3 / pi]
+	[0, 3 / 1.pi]
 );
 o * e
 ```

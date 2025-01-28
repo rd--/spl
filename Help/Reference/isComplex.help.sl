@@ -5,7 +5,7 @@
 Answers `true` if _anObject_ is a `Complex`, else `false`.
 
 ```
->>> 3j4.isComplex
+>>> 3J4.isComplex
 true
 
 >>> 3.141.isComplex

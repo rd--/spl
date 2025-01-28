@@ -6,10 +6,10 @@ Answer the `List` representing the two-dimensional unit vector at angle _aNumber
 in radians,
 relative to the _x_-axis.
 
-Unit vector at angle one-sixth of pi:
+Unit vector at angle one-sixth of `pi`:
 
 ```
->>> (pi / 6).angleVector
+>>> 1/6.pi.angleVector
 [3.sqrt / 2, 1/2]
 ```
 
@@ -23,7 +23,7 @@ Unit vector at angle 30°:
 Unit vector at angle _pi / 3_:
 
 ```
->>> (pi / 3).angleVector
+>>> 1/3.pi.angleVector
 [1/2, 3.sqrt / 2]
 ```
 

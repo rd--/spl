@@ -1,5 +1,5 @@
 /* http://earslap.com/weblog/music-release-laconicism.html */
-let k = Duty(6.4, 0, Dseq(inf, [0.05, Drand(1, [0.04, 0.08])]));
+let k = Duty(6.4, 0, Dseq(Infinity, [0.05, Drand(1, [0.04, 0.08])]));
 Integrator((LfNoise0([5, 5, 5]) * k).RoundTo(k / 10), 1).Sin.Sqrt.Tanh.Splay2(0.3,1, 0, true)
 
 /* http://earslap.com/weblog/music-release-laconicism.html ; wait */
@@ -22,7 +22,7 @@ s <! LocalOut(x)
 /* http://earslap.com/weblog/music-release-laconicism.html ; wait */
 let q = [0 3 5 7 10];
 let t = Impulse(4, 0) * LfNoise0(500) > 0;
-let f = Demand(t, 0, Drand(inf, (q + 12 ++ q + 33).MidiCps));
+let f = Demand(t, 0, Drand(Infinity, (q + 12 ++ q + 33).MidiCps));
 PitchShift(Saw(f) * Decay(t, 3), 7, 2, 0, 0)
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
@@ -71,7 +71,7 @@ let o = (LfNoise0(4).Max(l).Max(SinOsc(f * (l * 9).Ceiling.Lag(0.1), 0) * 0.7));
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
 let t = [0 0 0 1 5 7 10 12 12 12] + 30;
-let a = Duty(1 / 8, 0, Drand(inf, t + 24 ++ t ++ t));
+let a = Duty(1 / 8, 0, Drand(Infinity, t + 24 ++ t ++ t));
 (BHiPass(LfNoise1(8) ^ 6, [a, a + 7].MidiCps, a / 3000) * (67 - a)).Tanh
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
@@ -79,12 +79,12 @@ AllpassL(SinOsc(55,0).Tanh, 0.4, TExpRand(0.0002, 0.4, Impulse(8, 0)).RoundTo([0
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
 let i = { :freq | Impulse(freq, 0) };
-let ph = Integrator(Integrator(i(64).Lag(LfNoise1([2, 2]) * 2 + 2) * 99, 0.9), 0.99).Fold2(pi);
+let ph = Integrator(Integrator(i(64).Lag(LfNoise1([2, 2]) * 2 + 2) * 99, 0.9), 0.99).Fold2(1.pi);
 SinOsc(LagUd(Impulse(2, 0), 0, 0.4) * 360, ph) / 3
 
 /* http://earslap.com/weblog/music-release-laconicism.html */
 let t = [0 3 5 7 10 12] + 40;
-let p = Duty(1 / 4, 0, Drand(inf, (t + 12 ++ t).MidiCps));
+let p = Duty(1 / 4, 0, Drand(Infinity, (t + 12 ++ t).MidiCps));
 let b = TRand(1500, 2000, Impulse(16, 0)).Lag(0.1);
 Blip([b, b + p], 1).mean ^ 2
 
@@ -106,7 +106,7 @@ let v = Blip([20000, 20000 - 9], 1) * (LfNoise0(16) * 0.5 + 0.5 ^ 9);
 (Hpf(LfNoise1(2), [10, 10.1]) * 100).Tanh
 
 /* http://earslap.com/weblog/music-release-laconicism.html ; requires=kr */
-let x = Duty(1 / 8, 0, Drand(inf, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
+let x = Duty(1 / 8, 0, Drand(Infinity, [0, Drand(1, [0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])]));
 LeakDc(Brf(Saw(8) * Decay2(x, 0.01, 0.3).kr ^ 1.5, x * 20 + [45.1, 45], 0.1), 0.995).Tanh
 
 /* http://earslap.com/weblog/music-release-laconicism.html ; wait */

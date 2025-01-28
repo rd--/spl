@@ -21,7 +21,7 @@ false
 At `Interval`:
 
 ```
->>> (1 -- 5).includes(pi)
+>>> (1 -- 5).includes(1.pi)
 true
 ```
 

@@ -4,7 +4,7 @@
 
 Answers the _(r,θ,ϕ)_ spherical coordinates corresponding to the Cartesian coordinates _(x,y,z)_,
 where θ is azimuth & ϕ is inclination.
-Answers are in the range (r > 0, -pi < θ < pi, 0 < ϕ < pi).
+Answers are in the range _(r > 0, -1.pi < θ < 1.pi, 0 < ϕ < 1.pi)_.
 
 At `List`:
 
@@ -46,7 +46,7 @@ Collects over lists:
 
 ```
 >>> [1 0 1; -2 0 0; 0 1 -1].toSphericalCoordinates
-[2.sqrt 0 0.25.pi; 2 pi 0.5.pi; 2.sqrt 0.5.pi 0.75.pi]
+[2.sqrt 0 0.25.pi; 2 1.pi 0.5.pi; 2.sqrt 0.5.pi 0.75.pi]
 ```
 
 * * *

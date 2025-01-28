@@ -5,7 +5,7 @@ CombL(
 		EqPan(
 			SinOsc(
 				MulAdd(
-					SinOsc(Rand(0, 0.1) + 0.02, 2 * Rand(0, pi)),
+					SinOsc(Rand(0, 0.1) + 0.02, 2 * Rand(0, 1.pi)),
 					Rand(0, 600),
 					1000 + Rand(-300, 300)
 				),

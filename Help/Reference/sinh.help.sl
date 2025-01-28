@@ -12,8 +12,8 @@ Answer the hyperbolic sine of _aNumber_.
 `sinh` can take `Complex` number inputs:
 
 ```
->>> 2.5j1.sinh
-3.26894j5.16014
+>>> 2.5J1.sinh
+3.26894J5.16014
 ```
 
 Threads elementwise over lists and matrices:

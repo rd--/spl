@@ -12,7 +12,7 @@ In the `Integer` case answer `identity`:
 In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`:
 
 ```
->>> pi.asInteger
+>>> 1.pi.asInteger
 3
 
 >>> 22/7.asInteger

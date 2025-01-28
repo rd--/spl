@@ -135,8 +135,8 @@ String! : [Object, Json, Iterable, Character] {
 		self.asBracketedComment('{-', '-}')
 	}
 
-	asHex { :self |
-		self.asciiByteArray.hex
+	asHexString { :self |
+		self.asciiByteArray.hexString
 	}
 
 	asList { :self |

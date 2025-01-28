@@ -147,7 +147,7 @@ Complex : [Object, Number] { | real imaginary |
 	arcSin { :self |
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
-				(pi / 2 * self.real.sign).j(
+				(0.5.pi * self.real.sign).j(
 					self.real.copySignTo(self.real.abs.arcCosh).negated
 				)
 			} {
@@ -179,15 +179,15 @@ Complex : [Object, Number] { | real imaginary |
 			aNumber.isZero.if {
 				Complex(0, 0)
 			} {
-				Complex(pi / aNumber.real.copySignTo(2), 0)
+				Complex(1.pi / aNumber.real.copySignTo(2), 0)
 			}
 		} {
 			let answer = (aNumber / self).arcTan;
 			(self.real < 0).if {
-				answer + pi
+				answer + 1.pi
 			} {
-				(answer.real > pi).if {
-					answer - (pi * 2)
+				(answer.real > 1.pi).if {
+					answer - 2.pi
 				} {
 					answer
 				}
@@ -445,7 +445,7 @@ Complex : [Object, Number] { | real imaginary |
 
 	weierstrassFunction { :x :a :m |
 		1:m.collect { :k |
-			(0J1 * pi * (k ^ a) * x).exp / (pi * (k ^ a))
+			(0J1.pi * (k ^ a) * x).exp / (k ^ a).pi
 		}.sum
 	}
 

@@ -21,7 +21,7 @@ let z = VarSaw(freq * [1, 1.505], 0, MouseY(0, 1, 0, 0.2)) * Decay2(trig2, 0.005
 CombN(x + z * 0.5, 0.26, 0.26, 4).SoftClip
 
 /* Sequencer ; Jmcc */
-let p = Drand(inf, [
+let p = Drand(Infinity, [
 	Dseq(1, [0 0 1 2 7 8 9 8 10 10 1 2 1 2 3 4 0 0 1 2 7 8 9 8 11 11 1 2 1 2 3 4]),
 	Dseq(2, [0 0 1 2 7 8 3 4 0 0 1 2 1 2 3 4 0 0 1 2 7 8 3 4 0 0 1 2 1 2 3 4])
 ]);
@@ -70,7 +70,7 @@ let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;
 let p = Dseq(1, [
 	Dseq(2, [c z z z z z z z]),
 	Dseq(2, [c z z b z z b z c z z z b z b a]),
-	Drand(inf, [
+	Drand(Infinity, [
 		Dseq(2, [c z z b z z b z c z b z c z b z]),
 		Dseq(2, [c z a b z a b z c z b z c a b a]),
 		Dseq(2, [c a a b z a b a c z b z c a b a]),
@@ -79,7 +79,7 @@ let p = Dseq(1, [
 		Dseq(2, [c z z b z z b z c z z z b z b a])
 	])
 ]);
-let q = Drand(inf, [
+let q = Drand(Infinity, [
 	Dseq(2, [c z b z a a a a b z b z z z b z]),
 	Dseq(2, [c z z z z z z z b z b z z z c z]),
 	Dseq(2, [c z z z a z z z b z b z a z c z])
@@ -115,7 +115,7 @@ snd
 
 /* Sequencer ; Jmcc */
 let clock = Impulse(XLine(24, 1, 12), 0);
-let x = SinOsc(DemandSequencer(Dwhite(inf, 2000, 12000), clock), 0) * Decay2(clock, 0.002, 0.04);
+let x = SinOsc(DemandSequencer(Dwhite(Infinity, 2000, 12000), clock), 0) * Decay2(clock, 0.002, 0.04);
 {
 	CombN(x, 0.1, { ExpRand(0.02, 0.05) } ! 2, 2) * XLine(0.2, 0.001, 12)
 } !+ 2

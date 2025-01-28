@@ -5,8 +5,8 @@
 Sine function.
 
 ```
->>> (pi / 3).Sin
-(3.sqrt / 2)
+>>> 1/3.pi.Sin
+3.sqrt / 2
 ```
 
 * * *

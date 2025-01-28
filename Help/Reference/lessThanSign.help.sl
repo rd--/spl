@@ -42,7 +42,7 @@ true
 At `Complex`, inequalities are defined only for real numbers:
 
 ```
->>> { 3j3 < 5j5 }.ifError { true }
+>>> { 3J3 < 5J5 }.ifError { true }
 true
 ```
 

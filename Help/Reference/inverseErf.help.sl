@@ -32,9 +32,9 @@ At `one` and `zero` and negative `one`:
 
 ```
 >>> [-1 0 1].inverseErf
-[inf.negated 0 inf]
+[-1.inf 0 1.inf]
 
->>> [inf.negated 0 inf].erf
+>>> [-1.inf 0 1.inf].erf
 [-1 0 1]
 ```
 

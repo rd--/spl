@@ -13,7 +13,7 @@ Kurtosis for a list of values:
 >>> [1 3 7 4].kurtosis
 (3607 / 1875)
 
->>> [pi e 2].kurtosis
+>>> [1.pi 1.e 2].kurtosis
 (3 / 2)
 ```
 

@@ -5,7 +5,7 @@
 Answers `true` if _aMagnitude_ is greater than _anotherMagnitude_, else `false`.
 
 ```
->>> pi > e
+>>> 1.pi > 1.e
 true
 
 >>> 3 ^ 3 > 23

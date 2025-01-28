@@ -13,6 +13,9 @@ Answer _aNumber_ times e.
 
 >>> 2.e
 5.43656
+
+>>> 3.e
+8.15485
 ```
 
 `e` threads over lists:
@@ -20,13 +23,6 @@ Answer _aNumber_ times e.
 ```
 >>> [0.5, 1.5].e
 [1.35914, 4.07742]
-```
-
-`e` is also defined as a constant:
-
-```
->>> e * 3
-8.15485
 ```
 
 _e_ is also a part of the _E Notation_ for `Number Literals`,

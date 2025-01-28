@@ -1,5 +1,5 @@
 /* F0 ; <http://twitter.com/redFrik/status/1395519538008141835> */
-let c = Duty(0.004, 0, Dseries(inf, 1, [1, 2]) % Duty(8.192, 0, Dseq(1, 1:6 * 75)));
+let c = Duty(0.004, 0, Dseries(Infinity, 1, [1, 2]) % Duty(8.192, 0, Dseq(1, 1:6 * 75)));
 let d = Hpf(MantissaMask(c, 3),5);
 let f = { :x |
 	SinOscFb(x, 0).Max(0)

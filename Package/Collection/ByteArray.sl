@@ -74,8 +74,8 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		crc
 	}
 
-	hex { :self |
-		let map = '0123456789abcdef'.asciiByteArray;
+	hexString { :self |
+		let map = '0123456789ABCDEF'.asciiByteArray;
 		let array = ByteArray(self.size * 2);
 		let index = 1;
 		self.do { :each |

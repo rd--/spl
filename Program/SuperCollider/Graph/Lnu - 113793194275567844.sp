@@ -14,6 +14,6 @@ Splay2(
 				p / p.radiansToDegrees,
 				0
 			)
-		).Max(0) ^ 2 * pi
+		).Max(0) ^ 2 * 1.pi
 	) * SinOsc(p.degreesToRadians, 0).Max(0) / 3
 )

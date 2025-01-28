@@ -50,7 +50,7 @@ Plot the volume of the unit hypersphere as a function of dimension:
 
 ~~~spl svg=B
 (0 -- 25).functionPlot { :n |
-	pi ^ (n / 2) / (n / 2).!
+	1.pi ^ (n / 2) / (n / 2).!
 }
 ~~~
 

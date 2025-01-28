@@ -7,7 +7,7 @@ Answer a `List` of lists holding the indices of the vertices of each face.
 At `Triangle`:
 
 ```
->>> sasTriangle(1, pi / 2, 2).faceIndices
+>>> sasTriangle(1, 1.pi / 2, 2).faceIndices
 [[1 2 3]]
 ```
 

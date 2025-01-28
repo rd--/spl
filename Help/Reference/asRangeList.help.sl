@@ -30,8 +30,8 @@ Any two element numerical sequence is a `Range`:
 >>> [1 3].asRangeList
 [Range(1, 3, 2)]
 
->>> [0, pi].asRangeList
-[Range(0, pi, pi)]
+>>> [0, 1.pi].asRangeList
+[Range(0, 1.pi, 1.pi)]
 ```
 
 Reconstruct a `List` of `Range` items:

@@ -14,7 +14,7 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 >>> let n = [
 >>> 	1 -1 0.123 -0.123 1.5
 >>> 	-1.5 1E100 -1E100 1E-100 -1E-100
->>> 	inf
+>>> 	Infinity
 >>> ];
 >>> n.collect(f:/1)
 [
@@ -28,7 +28,7 @@ The reconstruction is _(-1 ^ sign) * (2 ^ exponent) * mantissa_.
 	([1 332 1.142987391282275], -1E100),
 	([0 -333 1.7498005798264096], 1E-100),
 	([1 -333 1.7498005798264096], -1E-100),
-	([0, 1024, 1], inf)
+	([0, 1024, 1], Infinity)
 ]
 ```
 

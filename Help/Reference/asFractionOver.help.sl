@@ -5,7 +5,7 @@
 Derive a `Fraction` where _anInteger_ is the unreduced denominator.
 
 ```
->>> pi.asFractionOver(1E11)
+>>> 1.pi.asFractionOver(1E11)
 314159265359/100000000000
 
 >>> 6.75.asFractionOver(1E11)

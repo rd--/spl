@@ -9,7 +9,7 @@ Non-existing method:
 
 ```
 >>> system.evaluateNotifying(
->>> 	'pi.notAMethod'
+>>> 	'1.pi.notAMethod'
 >>> ) { :unusedError |
 >>> 	true
 >>> }

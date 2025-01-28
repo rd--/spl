@@ -29,7 +29,7 @@ starting _stepSize_ places after the last.
 [1 2 3; 4 5 6; 7 8 9]
 
 >>> LsSlidingWindows(
->>> 	LsSeries(1, 1, inf),
+>>> 	LsSeries(1, 1, Infinity),
 >>> 	4,
 >>> 	2
 >>> ).next(3)

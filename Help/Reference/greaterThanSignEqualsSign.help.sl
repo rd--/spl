@@ -5,10 +5,10 @@
 Answers _true_ if _aMagnitude_ is greater than or equal to _anotherMagnitude_.
 
 ```
->>> pi >= e
+>>> 1.pi >= 1.e
 true
 
->>> pi >= pi
+>>> 1.pi >= 1.pi
 true
 ```
 

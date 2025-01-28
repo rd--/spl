@@ -16,10 +16,10 @@ in _littleEndian_ format if the flag is `true`.
 Encode `pi` and `e`:
 
 ```
->>> pi.encodeFloat32(true)
+>>> 1.pi.encodeFloat32(true)
 [219 15 73 64].asByteArray
 
->>> e.encodeFloat32(true)
+>>> 1.e.encodeFloat32(true)
 [84 248 45 64].asByteArray
 ```
 

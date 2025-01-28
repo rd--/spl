@@ -22,7 +22,7 @@ true
 >>> false | { false }
 false
 
->>> (1 > 2) | { pi > 3 }
+>>> (1 > 2) | { 1.pi > 3 }
 true
 ```
 

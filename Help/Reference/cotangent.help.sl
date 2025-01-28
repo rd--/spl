@@ -7,14 +7,14 @@ Answer the cotangent of _z_.
 The argument of _cotangent_ is assumed to be in radians:
 
 ```
->>> (pi / 3).cotangent
-(1 / 3.sqrt)
+>>> 1/3.pi.cotangent
+1 / 3.sqrt
 ```
 
 Relation to `tan`:
 
 ```
->>> let z = pi / 2;
+>>> let z = 1/2.pi;
 >>> 1 / z.tan
 z.cotangent
 ```
@@ -22,7 +22,7 @@ z.cotangent
 Relation to `cos` and `sin`:
 
 ```
->>> let z = pi / 2;
+>>> let z = 1/2.pi;
 >>> z.cos / z.sin
 z.cotangent
 ```

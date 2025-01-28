@@ -5,10 +5,10 @@
 Answer a `Triangle` with sides of lengths _a_ and _b_ and angle _γ_ between them.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
-`coordinates`, `area`, `centroid` and `interiorAngles` of a _1, pi/2, 2_ triangle:
+`coordinates`, `area`, `centroid` and `interiorAngles` of a _1, 1/2.pi, 2_ triangle:
 
 ```
->>> let t = sasTriangle(1, pi / 2, 2);
+>>> let t = sasTriangle(1, 1/2.pi, 2);
 >>> (
 >>> 	t.vertexCoordinates,
 >>> 	t.area,
@@ -29,7 +29,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 	[
 		(2 / 5.sqrt).arcCos,
 		(1 / 5.sqrt).arcCos,
-		pi / 2
+		1/2.pi
 	]
 )
 ```

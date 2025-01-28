@@ -22,7 +22,7 @@ The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boole
 `Fraction` and `Complex` are both literals, but not `isJson` or `isImmediate`.
 
 ```
->>> [3/4 3j4].collect(isLiteral:/1)
+>>> [3/4 3J4].collect(isLiteral:/1)
 [true true]
 ```
 
@@ -39,7 +39,7 @@ A `List` is a literal if all of the items it holds are literal:
 >>> [
 >>> 	nil
 >>> 	true false
->>> 	3.14 23n 3/4 3j4
+>>> 	3.14 23n 3/4 3J4
 >>> 	'x'
 >>> ].isLiteral
 true

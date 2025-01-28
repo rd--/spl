@@ -953,7 +953,7 @@
 	}
 
 	flatten { :self |
-		self.flattenTo(inf)
+		self.flattenTo(Infinity)
 	}
 
 	foldedIndex { :self :index |

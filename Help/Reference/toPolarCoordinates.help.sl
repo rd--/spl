@@ -22,7 +22,7 @@ Collects over lists:
 
 ```
 >>> [1 0; -2 0; 0 1].toPolarCoordinates
-[1 0; 2 pi; 1 0.5.pi]
+[1 0; 2 1.pi; 1 0.5.pi]
 ```
 
 `toPolarCoordinates` converts pairs of real numbers to their polar representation:
@@ -35,7 +35,7 @@ Collects over lists:
 `absArg` converts complex numbers to their polar representation:
 
 ```
->>> 1j2.absArg
+>>> 1J2.absArg
 [5.sqrt 2.arcTan]
 ```
 

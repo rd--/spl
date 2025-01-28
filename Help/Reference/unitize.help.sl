@@ -9,7 +9,7 @@ In the binary case _dx_, answer `zero` for any _x_ with magnitude less than _dx_
 Convert numerical values to zero or one:
 
 ```
->>> pi.unitize
+>>> 1.pi.unitize
 1
 ```
 

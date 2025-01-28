@@ -97,11 +97,11 @@ Word combinations:
 >>> [
 >>> 	'' '-';
 >>> 	'1';
->>> 	'j';
+>>> 	'J';
 >>> 	'' '-';
 >>> 	'1'
 >>> ].tuples.collect(stringJoin:/1)
-['1j1' '1j-1' '-1j1' '-1j-1']
+['1J1' '1J-1' '-1J1' '-1J-1']
 ```
 
 All possible two and three-tuples of 0 and 1,

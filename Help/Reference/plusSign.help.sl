@@ -19,8 +19,8 @@ The binary form answers the sum of _aNumber_ and _anotherNumber_.
 `Complex` numbers add their components:
 
 ```
->>> 2j1 + 3j-7
-5j-6
+>>> 2J1 + 3J-7
+5J-6
 ```
 
 Plus threads element-wise over lists:
@@ -39,21 +39,21 @@ Plus threads element-wise over lists:
 Plus at `SmallFloat` is not always associative:
 
 ```
->>> 1e20 + (-1e20 + 1)
+>>> 1E20 + (-1E20 + 1)
 0
 
->>> (1e20 + -1e20) + 1
+>>> (1E20 + -1E20) + 1
 1
 ```
 
 The unary form of `+` is `conjugated`:
 
 ```
->>> [0 2 -1.1 1e300 -200].+
-[0 2 -1.1 1e300 -200]
+>>> [0 2 -1.1 1E300 -200].+
+[0 2 -1.1 1E300 -200]
 
->>> [2j3 -4j-3 -12 1.5j1.5].+
-[2j-3 -4j3 -12 1.5j-1.5]
+>>> [2J3 -4J-3 -12 1.5J1.5].+
+[2J-3 -4J3 -12 1.5J-1.5]
 ```
 
 The name of this operator is `plusSign`.

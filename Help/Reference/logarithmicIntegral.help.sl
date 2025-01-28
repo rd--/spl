@@ -45,7 +45,7 @@ Plot over a subset of the reals:
 ~~~spl svg=A
 (0 -- 10).functionPlot { :x |
 	let y = x.logarithmicIntegral;
-	y.clip(-5, inf)
+	y.clip(-5, Infinity)
 }
 ~~~
 

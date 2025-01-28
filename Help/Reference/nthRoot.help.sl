@@ -33,18 +33,18 @@ Note that this is not the same as _x ^ (1 / n)_.
 >>> -4.5.nthRoot(3)
 -1.65096
 
->>> -4.5j0 ^ (1 / 3)
-0.82548j1.42978
+>>> -4.5J0 ^ (1 / 3)
+0.82548J1.42978
 
->>> -1j0 ^ (1 / 3)
-0.5j0.866
+>>> -1J0 ^ (1 / 3)
+0.5J0.866
 ```
 
 Threads elementwise over lists and matrices:
 
 ```
->>> [0 1.5 8 inf].nthRoot(3)
-[0 1.14471 2 inf]
+>>> [0 1.5 8 Infinity].nthRoot(3)
+[0 1.14471 2 Infinity]
 
 >>> [2 3 6].collect { :n | 729.nthRoot(n) }
 [27 9 3]

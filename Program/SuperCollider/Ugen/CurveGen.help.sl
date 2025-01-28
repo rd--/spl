@@ -8,7 +8,7 @@ let tEnvx = { :tr :atk :hld :rel |
 };
 let noteZero = MouseY(48, 75, 0, 0.2).rounded;
 let decayTime = MouseX(2, 4, 0, 0.2);
-let seq = Dseq(inf, [0 5 0 3 0 3 5 0 3] + noteZero);
+let seq = Dseq(Infinity, [0 5 0 3 0 3 5 0 3] + noteZero);
 let tr = Impulse(4, 0);
 let osc = SinOsc(Demand(tr, 0, seq.MidiCps), 0) * 0.1;
 let env = tEnvx(tr, 0.01, 0.1, 0.2) + tEnvx(PulseDivider(tr, 2, 0), 0.01, 0.1, 0.2);

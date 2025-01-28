@@ -25,7 +25,7 @@ with the _Z_-axis angle set to _pi/6_:
 .unitIcosahedron
 .asPerspectiveDrawing(
 	'CabinetOblique'
-	.namedAxonometricProjection(pi / 6)
+	.namedAxonometricProjection(1/6.pi)
 )
 ~~~
 

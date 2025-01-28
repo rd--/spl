@@ -81,7 +81,7 @@
 	}
 
 	DemandSequencer { :self :trig |
-		Demand(trig, 0, Dseq(inf, self))
+		Demand(trig, 0, Dseq(Infinity, self))
 	}
 
 	Distances { :x :y :z :coordinateList |
@@ -89,7 +89,7 @@
 	}
 
 	DurationSequencer { :self :dur |
-		Duty(dur, 0, Dseq(inf, self))
+		Duty(dur, 0, Dseq(Infinity, self))
 	}
 
 	DemandImpulseSequencer { :self :trig |
@@ -270,7 +270,7 @@
 	}
 
 	TDurationSequencer { :self :dur |
-		TDuty(dur, 0, Dseq(inf, self))
+		TDuty(dur, 0, Dseq(Infinity, self))
 	}
 
 	Tr { :self |

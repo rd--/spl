@@ -38,7 +38,7 @@ false
 The elements need not be of the same type:
 
 ```
->>> [1 'Two' pi 4n 5j0].isVector
+>>> [1 'Two' 1.pi 4n 5J0].isVector
 true
 ```
 

@@ -9,7 +9,7 @@ A square rotated by one eighth turn:
 ~~~spl svg=A
 [0 0].unitSquare
 .asPolygon
-.rotated(pi / 4)
+.rotated(1/4.pi)
 .asLineDrawing
 ~~~
 

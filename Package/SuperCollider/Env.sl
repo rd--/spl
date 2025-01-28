@@ -17,7 +17,7 @@ Env! : [Object] {
 		self.releaseNode.isNil.if {
 			self.levels := [0] ++ self.levels ++ [0];
 			self.curves := [curve] ++ self.curves.asList.wrapExtend(self.times.size) ++ ['lin'];
-			self.times  := [first0Then1 * timeFromLastToFirst] ++ self.times ++ [inf];
+			self.times  := [first0Then1 * timeFromLastToFirst] ++ self.times ++ [Infinity];
 			self.releaseNode := self.levels.size - 2
 		} {
 			self.levels := [0] ++ self.levels;

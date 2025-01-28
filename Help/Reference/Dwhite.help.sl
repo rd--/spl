@@ -16,7 +16,7 @@ Mouse controls range of frequency and rate of change.
 
 ```
 let seq = Dwhite(
-	inf,
+	Infinity,
 	0,
 	MouseY(7, 45, 0, 0.2)
 );

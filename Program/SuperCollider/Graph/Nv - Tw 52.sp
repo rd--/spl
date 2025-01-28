@@ -2,7 +2,7 @@
 let x = [4 4.5; 2 3 5 6];
 let z = x *.x (x *.x x).tuples;
 let y = (z * 4).++.clump(2) ++ [0];
-let f = Duty(1 / 5, 0, Dseq(inf, y));
+let f = Duty(1 / 5, 0, Dseq(Infinity, y));
 GVerb(
 	VarSaw(
 		f, 0, 0.9

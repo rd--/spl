@@ -1,7 +1,7 @@
 # circlePoints
 
 - _circlePoints(n, o, r, theta)_
-- _circlePoints(alpha, beta)_ ⟹ _circlePoints(alpha, [0 0], beta, (pi / alpha) - (pi / 2))_
+- _circlePoints(alpha, beta)_ ⟹ _circlePoints(alpha, [0 0], beta, (1/alpha).pi - (1/2).pi)_
 
 Answer the positions of _n_ points equally spaced around a circle of radius _r_ given initial angle _theta_.
 
@@ -34,7 +34,7 @@ C.f. `angleVector`:
 
 ```
 >>> 6.circlePoints([0 0], 1, 0)
-(0, pi / 3 .. 2 * pi)
+(0, 1/3.pi .. 2.pi)
 .collect(angleVector:/1)
 .allButLast
 ```
@@ -42,7 +42,7 @@ C.f. `angleVector`:
 Draw a pentagon:
 
 ~~~spl svg=A
-let p = 5.circlePoints([0 0], 1, pi / 10);
+let p = 5.circlePoints([0 0], 1, 1.pi / 10);
 p.Polygon.asLineDrawing
 ~~~
 

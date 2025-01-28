@@ -10,10 +10,10 @@ except at zero where it is one.
 
 ```
 >>> 0.5.sincNormalized
-(2 / pi)
+(2 / 1.pi)
 
->>> (pi / 2).sinc
-(2 / pi)
+>>> 1/2.pi.sinc
+(2 / 1.pi)
 ```
 
 Threads elementwise over lists and matrices:
@@ -21,9 +21,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> (1 / [2 3 4]).sincNormalized
 [
-	2 / pi,
+	2 / 1.pi,
 	3 * 3.sqrt / 2.pi,
-	2 * 2.sqrt / pi
+	2 * 2.sqrt / 1.pi
 ]
 ```
 

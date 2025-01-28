@@ -15,7 +15,7 @@ in which the meaning (and ordering) of `theta` and `phi` are reversed.
 `radius`, `rho`, `azimuth` and `inclination` are provided as aliases.
 
 `theta` is the angle of counter-clockwise rotation from the initial meridian plane,
-ie. in the _xy_-plane from the _x_-axis with _0 <= phi < 2 * pi_.
+ie. in the _xy_-plane from the _x_-axis with _0 <= phi < 2.pi_.
 
 `phi` is with respect to the positive polar axis,
 ie. from the positive _z_-axis with _0 <= theta <= pi_.

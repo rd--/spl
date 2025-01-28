@@ -48,13 +48,13 @@ true
 At `Complex`:
 
 ```
->>> 1j1 = 1j1
+>>> 1J1 = 1J1
 true
 
->>> [3j2 2j2 1j2] =.each [2j2]
+>>> [3J2 2J2 1J2] =.each [2J2]
 [false true false]
 
->>> 1j0 = 1
+>>> 1J0 = 1
 true
 ```
 

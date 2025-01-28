@@ -53,7 +53,7 @@ Collects over lists:
 ```
 >>> [
 >>> 	2.sqrt 0 0.25.pi;
->>> 	2 pi 0.5.pi;
+>>> 	2 1.pi 0.5.pi;
 >>> 	2.sqrt 0.5.pi 0.75.pi
 >>> ].fromSphericalCoordinates
 [1 0 1; -2 0 0; 0 1 -1]
@@ -65,7 +65,7 @@ Inverse is `toSphericalCoordinates`:
 >>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
 [1 1 1].toSphericalCoordinates
 
->>> let u = [8, pi / 3, pi / 6];
+>>> let u = [8, 1/3.pi, 1/6.pi];
 >>> let v = u.fromSphericalCoordinates;
 >>> (v.toSphericalCoordinates ~ u, v)
 (true, [2, 2 * 3.sqrt, 4 * 3.sqrt])
@@ -74,12 +74,12 @@ Inverse is `toSphericalCoordinates`:
 Convert to cyclindrical coordinates:
 
 ```
->>> let u = [2, -5 * pi / 6, pi / 6];
+>>> let u = [2, -5.pi / 6, 1.pi / 6];
 >>> let v = u.fromSphericalCoordinates;
 >>> (v, v.toCylindricalCoordinates)
 (
 	[3.sqrt / -2, -1 / 2, 3.sqrt],
-	[1, -5 * pi / 6, 3.sqrt]
+	[1, -5.pi / 6, 3.sqrt]
 )
 ```
 

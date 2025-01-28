@@ -1,4 +1,4 @@
-/* VarSaw ; phase value = (0, 2 * pi), offset to lowest and midpoint ascending */
+/* VarSaw ; phase value = (0, 2.pi), offset to lowest and midpoint ascending */
 VarSaw(110, 1 * [0, 0.25], 0.5) * 0.1
 
 /* VarSaw ; per-note width modulation */

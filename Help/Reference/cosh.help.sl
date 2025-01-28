@@ -12,8 +12,8 @@ Answer the hyperbolic cosine of _aNumber_.
 `cosh` can take `Complex` number inputs:
 
 ```
->>> 2.5j1.cosh
-3.31329j5.09107
+>>> 2.5J1.cosh
+3.31329J5.09107
 ```
 
 Threads elementwise over lists and matrices:
@@ -26,8 +26,8 @@ Threads elementwise over lists and matrices:
 Value at infinity:
 
 ```
->>> inf.cosh
-inf
+>>> Infinity.cosh
+Infinity
 ```
 
 Minimum of `cosh`:

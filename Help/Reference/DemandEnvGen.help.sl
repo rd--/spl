@@ -11,8 +11,8 @@ Frequency envelope with random times:
 let cubicInterpolation = 7;
 let y = MouseY(0.01, 3, 1, 0.2);
 let freq = DemandEnvGen(
-	Dseq(inf, [204 400 201 502 300 200]),
-	Drand(inf, [1.01 0.2 0.1 2]) * y,
+	Dseq(Infinity, [204 400 201 502 300 200]),
+	Drand(Infinity, [1.01 0.2 0.1 2]) * y,
 	cubicInterpolation,
 	0, 1, 1, 1, 0, 1, 0
 );
@@ -26,7 +26,7 @@ let curveInterpolation = 5;
 let y = MouseY(1, 3000, 1, 0.2);
 let list = { ExpRand(200, 1000) } ! 32;
 let freq = DemandEnvGen(
-	{ Dseq(inf, list.scramble) } ! 2,
+	{ Dseq(Infinity, list.scramble) } ! 2,
 	SampleDur() * y,
 	curveInterpolation,
 	MouseX(-0.01, -4, 0, 0.2),
@@ -40,7 +40,7 @@ Gate, `MouseX` on right side of screen toggles gate:
 ```
 let freq = DemandEnvGen(
 	Dwhite(
-		inf,
+		Infinity,
 		300,
 		1000
 	).RoundTo(100),
@@ -61,7 +61,7 @@ Sample and hold (0.5 > gate > 0),
 let x = MouseX(0, 1, 0, 0.2);
 let y = MouseY(0.25, 2, 0, 0.2);
 let freq = DemandEnvGen(
-	Dwhite(inf, 300, 1000).RoundTo(100),
+	Dwhite(Infinity, 300, 1000).RoundTo(100),
 	0.1,
 	5,
 	0.3,
@@ -88,8 +88,8 @@ let freq = DemandEnvGen(
 			900
 		]
 	),
-	Dseq(inf, [0.2, 0.1, 0.2, 0.3, 0.1]),
-	Dseq(inf, [1, 0, 0, 6, 1, 1, 0, 2]),
+	Dseq(Infinity, [0.2, 0.1, 0.2, 0.3, 0.1]),
+	Dseq(Infinity, [1, 0, 0, 6, 1, 1, 0, 2]),
 	0,
 	MouseX(0, 1, 0, 0.2) > 0.5,
 	MouseButton(0, 1, 0.2) > 0.5,
@@ -106,7 +106,7 @@ let x = MouseX(0.002, 1, 1, 0.2);
 let xx = MouseX(1, sr * x, 1, 0.2);
 let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
-	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
+	Dseq(Infinity, [Dseries(20, -0.1, 0.01)]),
 	SampleDur() * y,
 	1,
 	0,
@@ -124,7 +124,7 @@ let x = MouseX(0.002, 1, 1, 0.2);
 let xx = MouseX(1, sr * x, 1, 0.2);
 let y = MouseY(1, 100, 1, 0.2);
 DemandEnvGen(
-	Dseq(inf, [Dseries(20, -0.1, 0.01)]),
+	Dseq(Infinity, [Dseries(20, -0.1, 0.01)]),
 	SampleDur() * y,
 	1,
 	0,
@@ -142,7 +142,7 @@ Multichannel expansion,
 let freq = DemandEnvGen(
 	{
 		Dseq(
-			inf,
+			Infinity,
 			[
 				300,
 				800,

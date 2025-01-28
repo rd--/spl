@@ -21,7 +21,7 @@ Angle : [Object, Magnitude] { | radians |
 	}
 
 	degrees { :self |
-		self.radians / pi * 180
+		self.radians / 1.pi * 180
 	}
 
 	sin { :self |
@@ -49,7 +49,7 @@ Angle : [Object, Magnitude] { | radians |
 	}
 
 	degrees { :self |
-		(self / 180 * pi).radians
+		(self.pi / 180).radians
 	}
 
 	gradians { :self |

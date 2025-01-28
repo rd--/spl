@@ -97,11 +97,11 @@ The determinant of a _3×3_ `Complex` matrix:
 
 ```
 >>> [
->>> 	1j1 2j0 3j-2;
->>> 	0j0 12.56637j0 0j5;
->>> 	3j0 0j0 6j0
+>>> 	1J1 2J0 3J-2;
+>>> 	0J0 12.56637J0 0J5;
+>>> 	3J0 0J0 6J0
 >>> ].determinant
--37.6991j180.79644
+-37.6991J180.79644
 ```
 
 An `identityMatrix` always has unit determinant:
@@ -149,8 +149,9 @@ Find the area of the image of the unit disk under the linear transformation asso
 >>> .transposed
 >>> .dot(m)
 >>> .determinant
->>> .sqrt * pi
-10 * 122.sqrt * pi
+>>> .sqrt
+>>> .pi
+10 * 122.sqrt.pi
 ```
 
 Determine whether the following basis for _R ^3_ is right-handed:

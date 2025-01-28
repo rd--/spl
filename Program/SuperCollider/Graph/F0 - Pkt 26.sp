@@ -10,7 +10,7 @@ let n = 8;
 	let f = VarSaw(100 + i, t, e);
 	let g = VarSaw(0.048, 0, 0.5) * 25 + 150;
 	let h = VarSaw(i + 1 * g, t, 1 / 3) * 150;
-	let o = SinOsc(h, f * pi) * d + b;
+	let o = SinOsc(h, f.pi) * d + b;
 	let z = LeakDc(VarSaw(o, t, 0.5), 0.995);
 	EqPan2(z, VarSaw(0.02, t, 0.5)) / n
 }.Mix * 0.35

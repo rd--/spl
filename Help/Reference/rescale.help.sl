@@ -27,7 +27,7 @@ At `Fraction`:
 At `SmallFloat`:
 
 ```
->>> pi.rescale(0, 2.5, 0, 1)
+>>> 1.pi.rescale(0, 2.5, 0, 1)
 1.25664
 
 >>> 3.rescale(-9, 7, 11, 28)

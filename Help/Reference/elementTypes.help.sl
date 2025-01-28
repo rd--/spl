@@ -7,7 +7,7 @@ Answer a `Set` of answers of `typeOf` for each element of _aCollection_.
 At a heterogeneous `List`:
 
 ```
->>> [1 2/3 4j5 '6' 7n].elementTypes
+>>> [1 2/3 4J5 '6' 7n].elementTypes
 [
 	'SmallFloat'
 	'Fraction'

@@ -120,19 +120,23 @@ Solve the discrete log problem with _5 ^ m % 7 = 4_:
 
 Plot the sequence with a fixed modulus:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot { :k |
 	k.multiplicativeOrder(7) ? { 0 }
 }
 ~~~
 
+![](sw/spl/Help/Image/multiplicativeOrder-A.svg)
+
 Plot the sequence, varying the modulus:
 
-~~~
+~~~spl svg=B
 1:22.functionPlot { :n |
 	7.multiplicativeOrder(n) ? { 0 }
 }
 ~~~
+
+![](sw/spl/Help/Image/multiplicativeOrder-B.svg)
 
 * * *
 

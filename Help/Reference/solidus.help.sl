@@ -12,8 +12,8 @@ The binary form answers _aNumber_ divided by _anotherNumber_.
 >>> 2 / 4
 0.5
 
->>> 3j1 / 2
-1.5j0.5
+>>> 3J1 / 2
+1.5J0.5
 ```
 
 Divide threads element-wise over lists:
@@ -25,8 +25,8 @@ Divide threads element-wise over lists:
 >>> [2 1 5] / [4 1 2]
 [0.5 1 2.5]
 
->>> [3j1 2.5 4j5] / [2 1j1 0.2]
-[1.5j0.5 1.25j-1.25 20j25]
+>>> [3J1 2.5 4J5] / [2 1J1 0.2]
+[1.5J0.5 1.25J-1.25 20J25]
 ```
 
 Divide is applied sequentially:

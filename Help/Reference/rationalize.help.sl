@@ -6,7 +6,7 @@
 Answer a `Fraction` that approximates a floating point number given an error bound.
 
 ```
->>> pi.rationalize(1E-5)
+>>> 1.pi.rationalize(1E-5)
 355/113
 
 >>> 6.75.rationalize(1E-2)
@@ -19,7 +19,7 @@ Answer a `Fraction` that approximates a floating point number given an error bou
 Find rational approximations to within a given tolerance:
 
 ```
->>> pi.rationalize(1E-2)
+>>> 1.pi.rationalize(1E-2)
 22/7
 
 >>> 2.sqrt.exp.rationalize(1E-4)

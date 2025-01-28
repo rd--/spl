@@ -26,8 +26,8 @@ Compose exact numbers:
 >>> [1 3 2/3 3].numberCompose([10 5 2 1])
 88/3
 
->>> [1 pi e].numberCompose([5 2 1])
-5 + 2.pi + e
+>>> [1 1.pi 1.e].numberCompose([5 2 1])
+5 + 2.pi + 1.e
 ```
 
 Compose inexact numbers:

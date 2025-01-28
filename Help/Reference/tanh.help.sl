@@ -33,10 +33,10 @@ Threads elementwise over lists and matrices:
 [0.83365, 0.90515, 0.94681]
 ```
 
-Values at `inf`:
+Values at `Infinity`:
 
 ```
->>> inf.tanh
+>>> Infinity.tanh
 1
 ```
 

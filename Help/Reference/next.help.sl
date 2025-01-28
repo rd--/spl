@@ -10,7 +10,7 @@ In the binary case, answer the next _anInteger_ number of objects accessible by 
 If the stream ends before _anInteger_ items are read it is an `error`, see `nextOrUpToEnd`.
 
 ```
->>> 1:inf.asStream.reject(isEven:/1).next(5)
+>>> (1 .. Infinity).asStream.reject(isEven:/1).next(5)
 [1 3 5 7 9]
 ```
 

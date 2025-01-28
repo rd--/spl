@@ -1,6 +1,6 @@
 /* Impulse sequencer (Jmcc) Sc2 */
 let t = Impulse(8, 0);
-let seq = { :s | t * Demand(t, 0, Dseq(inf, s)) };
+let seq = { :s | t * Demand(t, 0, Dseq(Infinity, s)) };
 let cSeq = seq([1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0]);
 let dSeq = seq([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0]);
 let nSeq = seq([1.0, 0.1, 0.1, 1.0, 0.1, 1.0, 0.1, 0.1]);

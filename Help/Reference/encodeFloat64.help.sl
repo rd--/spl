@@ -18,10 +18,10 @@ Encode small integer:
 Encode `pi` and `e`:
 
 ```
->>> pi.encodeFloat64(true)
+>>> 1.pi.encodeFloat64(true)
 [24 45 68 84 251 33 9 64].asByteArray
 
->>> e.encodeFloat64(true)
+>>> 1.e.encodeFloat64(true)
 [105 87 20 139 10 191 5 64].asByteArray
 ```
 

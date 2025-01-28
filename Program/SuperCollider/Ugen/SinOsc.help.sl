@@ -1,5 +1,5 @@
-/* SinOsc ; phase value = (0, 2 * pi), offset to lowest and midpoint ascending */
-SinOsc(110, 2 * pi * [0.75, 0]) * 0.1
+/* SinOsc ; phase value = (0, 2.pi), offset to lowest and midpoint ascending */
+SinOsc(110, 2.pi * [0.75, 0]) * 0.1
 
 /* SinOsc */
 {
@@ -26,7 +26,7 @@ sig * 0.1
 	let freq = { Choose(tr, [45, 48, 52, 53, 57, 58, 60, 64, 65, 70]).MidiCps } ! 5;
 	let in = LfTri(freq, 0);
 	let phase = Sweep(in, freq * syncRatio * syncEnv);
-	let synced = SinOsc(0, (phase % 1) * 2 * pi).Squared;
+	let synced = SinOsc(0, (phase % 1) * 2.pi).Squared;
 	let sig = synced * in * gainEnv;
 	sig.Splay2 * 0.2
 }.OverlapTexture(2, 0, 2).Mix
@@ -40,7 +40,7 @@ let tilt = MouseY(-5, -1, 0, 0.2);
 let ampList = (spectrum.log2 * tilt).DbAmp;
 let freq0 = 110;
 let freq = freq0 * spectrum * tension;
-let sig = SinOsc(freq, { Rand(0, 2 * pi) } ! numPartials);
+let sig = SinOsc(freq, { Rand(0, 2.pi) } ! numPartials);
 (sig * ampList).Sum / numPartials
 
 /* SinOsc ; https://scsynth.org/t/6256/5 ; bipolar version */
@@ -49,22 +49,22 @@ let squeezeStretch = LfTri(0.1, 0) * 5;
 let tri = LfTri(freq, 1) * 0.5 + 0.5;
 let pulse = LfPulse(freq, 0, 0.5) * 2 - 1;
 let outPhase = pulse * (tri ^ (2 ^ squeezeStretch));
-SinOsc(0, outPhase * pi) * 0.1
+SinOsc(0, outPhase.pi) * 0.1
 
 /* SinOsc ; https://llllllll.co/t/45623/25 */
 let freqBase = 200;
 let freqRes = MouseY(100, 1200, 0, 0.2);
 let pdbase = Impulse(freqBase, 0);
-let pd = Phasor(pdbase, 2 * pi* freqBase / SampleRate(), 0, 2 * pi, 0);
-let pdres = Phasor(pdbase, 2 * pi * freqRes / SampleRate(), 0, 2 * pi, 0);
-let pdi = LinLin((2 * pi - pd).Max(0), 0, 2 * pi, 0, 1);
+let pd = Phasor(pdbase, 2.pi* freqBase / SampleRate(), 0, 2.pi, 0);
+let pdres = Phasor(pdbase, 2.pi * freqRes / SampleRate(), 0, 2.pi, 0);
+let pdi = LinLin((2.pi - pd).Max(0), 0, 2.pi, 0, 1);
 Lag(SinOsc(0, pdres) * pdi, 1 / freqBase)
 
 /* SinOsc ; https://scsynth.org/t/6264/9 (es) */
 let freq = [440, 880];
 let k = 12000 * (SampleRate() / 44100) / (freq * freq.log);
 let sinSig = SinOsc(freq, 0);
-let cosSig = SinOsc(freq, pi / 2);
+let cosSig = SinOsc(freq, 1/2.pi);
 let sqSig = (sinSig * k).Tanh;
 let sawSig = sqSig * (cosSig + 1);
 sawSig * 0.1
@@ -72,7 +72,7 @@ sawSig * 0.1
 /* SinOsc ; https://scsynth.org/t/6264/8 (fm) */
 let freq = 110;
 let indexLimit = 1.5;
-let index = LinLin(SinOsc(1 / 10, 3 * pi / 2), -1, 1, 1, indexLimit);
+let index = LinLin(SinOsc(1 / 10, 3.pi / 2), -1, 1, 1, indexLimit);
 let phase = index * LocalIn(1, 1);
 let sig = SinOsc(freq, phase) + SinOsc(freq * 0.001, index * LocalIn(1, 1)).SoftClip;
 sig <! LocalOut(sig) * 0.1
@@ -86,7 +86,7 @@ SinOsc(f * 200 + 400, 0) * 0.1
 
 /* SinOsc ; cancellation (silence) */
 let o1 = SinOsc(440, 0);
-let o2 = SinOsc(440, pi);
+let o2 = SinOsc(440, 1.pi);
 o1 + o2
 
 /* SinOsc ; modulate freq */
@@ -95,11 +95,11 @@ let f2 = SinOsc(f1, 0) * 200 + 800;
 SinOsc(f2, 0) * 0.25
 
 /* SinOsc ; modulate phase */
-let ph = SinOsc(XLine(20, 8000, 10), 0) * 2 * pi;
+let ph = SinOsc(XLine(20, 8000, 10), 0) * 2.pi;
 SinOsc(800, ph) * 0.1
 
 /* SinOsc ; phase input only */
-let ph = SinOsc(XLine(20, 8000, 10), 0) * 2 * pi;
+let ph = SinOsc(XLine(20, 8000, 10), 0) * 2.pi;
 SinOsc(0, ph) * 0.1
 
 /* SinOsc ; multiple channel expansion */
@@ -167,7 +167,7 @@ SinOsc(freq, phase) * amp
 /* SinOsc ; requires 0.Max(aUgen) */
 let n = 16;
 {
-	let amp = 0.Max(SinOsc(ExpRand(0.1, 1), Rand(0, 2 * pi))) / n / 2;
+	let amp = 0.Max(SinOsc(ExpRand(0.1, 1), Rand(0, 2.pi))) / n / 2;
 	EqPan(
 		SinOsc(ExpRand(100, 1000), 0) * amp,
 		Rand(-1, 1)
@@ -226,7 +226,7 @@ SelectX(control, tone) * 0.1
 /* alarm ; mouse selects timbre */
 let freq = Lpf(Sequencer([723 932 1012], Impulse(1 / 0.05, 0)), 70);
 let osc = SinOsc(freq, 0);
-let operations = [osc, (osc * pi).Sin, (osc * pi).Cos, ((osc + 0.25) * pi).Cos];
+let operations = [osc, osc.pi.Sin, osc.pi.Cos, (osc + 0.25).pi.Cos];
 Select(MouseX(0, 4, 0, 0.2), operations) * 0.1
 
 /* https://github.com/redFrik/udk08-Soft_and_Hard/tree/master/121220soft */

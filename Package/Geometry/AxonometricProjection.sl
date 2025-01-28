@@ -43,7 +43,7 @@ AxonometricProjection : [Object] { | xRadius xTheta yRadius yTheta zRadius zThet
 	AxonometricProjection { :gamma :beta :alpha :z :y :x |
 		newAxonometricProjection()
 		.initializeSlots(
-			x, pi - alpha,
+			x, 1.pi - alpha,
 			y, 0.5.pi + beta,
 			z, gamma
 		)
@@ -77,9 +77,9 @@ AxonometricProjection : [Object] { | xRadius xTheta yRadius yTheta zRadius zThet
 
 	namedAxonometricProjection { :self |
 		self.caseOfOtherwise([
-			'CavalierOblique' -> { AxonometricProjection(pi / 4, 0, 0, 1, 1, 1) },
-			'Isometric' -> { AxonometricProjection(pi / 6, 0, pi / 6, 1, 1, 1) },
-			'Planometric' -> { AxonometricProjection(pi / 4, 0, pi / 4, 1, 1, 1) }
+			'CavalierOblique' -> { AxonometricProjection(1/4.pi, 0, 0, 1, 1, 1) },
+			'Isometric' -> { AxonometricProjection(1/6.pi, 0, 1/6.pi, 1, 1, 1) },
+			'Planometric' -> { AxonometricProjection(1/5.pi, 0, 1/4.pi, 1, 1, 1) }
 		]) {
 			self.error('namedAxonometricProjection')
 		}

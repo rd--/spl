@@ -16,7 +16,7 @@ let ctl = (
 	wdVel: 100
 ).localControls;
 let rGen = { :k :l :r | { system.nextRandomFloatLinearDistribution(l, r) } ! k };
-let master = (LfSaw(ctl::speed, pi) * 0.5 + 0.5).LinCurve(0, 1, 0, 1, ctl::swing);
+let master = (LfSaw(ctl::speed, 1.pi) * 0.5 + 0.5).LinCurve(0, 1, 0, 1, ctl::swing);
 let trig = (master % (1 / ctl::div)) * ctl::div;
 let kdEnv = (((trig[1].negated + 1).LinCurve(0, 1, 0, 1, ctl::kdDcy).cubed * 2) + 1).Lag(0.001);
 let sdEnv = ((trig[2].negated + 1).LinCurve(0, 1, 0, 1, ctl::sdDcy).cubed).Lag(0.001);

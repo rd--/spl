@@ -92,14 +92,14 @@ Voicer(1, 16) { :e |
 	let env = Decay2(Trig(e.w, 0.001), 0.05 * e.y, 2 * e.y);
 	let amp = env * e.z + 0.02;
 	let filt = env * (FSinOsc(0.17, 0) * 800) + 1400;
-	let pw = SinOsc(0.08, [0, 0.5 * pi]) * 0.45 + 0.5;
+	let pw = SinOsc(0.08, [0, 0.5.pi]) * 0.45 + 0.5;
 	let s = Pulse(freq, pw) * amp;
 	CombC(Rlpf(s, filt, 0.15), 0.2, [0.2, 0.17], 1.5) * LagUd(e.w, 0, 2 + e.y)
 }.Mix
 
 /* Berlin 1977 (Jmcc) #4 ; let syntax */
-let sequ = { :s :tr | Demand(tr, 0, Dseq(inf, s)) };
-let sequR = { :s :tr | Demand(tr, 0, Dshuf(inf, s)) };
+let sequ = { :s :tr | Demand(tr, 0, Dseq(Infinity, s)) };
+let sequR = { :s :tr | Demand(tr, 0, Dshuf(Infinity, s)) };
 let clockRate = MouseX(5, 20, 1, 0.2);
 let clockTime = 1 / clockRate;
 let clock = Impulse(clockRate, 0);
@@ -111,7 +111,7 @@ let freq = noteTrs.MidiCps;
 let env = Decay2(clock, 0.05 * clockTime, 2 * clockTime);
 let amp = env * 0.1 + 0.02;
 let filt = env * FSinOsc(0.17, 0) * 800 + 1400;
-let pw = SinOsc(0.08, [0, 0.5 * pi]) * 0.45 + 0.5;
+let pw = SinOsc(0.08, [0, 0.5.pi]) * 0.45 + 0.5;
 let s = Pulse(freq, pw) * amp;
 CombC(Rlpf(s, filt, 0.15), 0.2, [0.2, 0.17], 1.5)
 
@@ -197,7 +197,7 @@ let txt = { :tr |
 	let f = TRand(0, 50, tr).MulAdd(1, 30).MidiCps;
 	SyncSaw(
 		[f, f + 0.2],
-		SinOsc(0.2, { TRand(0, pi, tr).Mul(2) } ! 2).Mul(2).MulAdd(f, f * 3)
+		SinOsc(0.2, { TRand(0, 1.pi, tr).Mul(2) } ! 2).Mul(2).MulAdd(f, f * 3)
 	).Mul(0.05)
 }.OverlapTexture(4, 4, 4).Mix;
 txt.CombN(0.3, 0.3, 4) + txt.reversed
@@ -255,7 +255,7 @@ EqPan(o, Rand(-1, 1))
 let n = 6;
 {
 	let a = LfPulse(4 + Rand(0, 10), 0, Rand(0, 0.7)) * 0.8 / n;
-	let l = SinOsc(0.1 + Rand(0, 0.4), Rand(0, 2 * pi));
+	let l = SinOsc(0.1 + Rand(0, 0.4), Rand(0, 2.pi));
 	Pan2(Resonz(WhiteNoise(), 400 + LinRand(0, 7000, 0), 0.01), l, 1) * a
 } !> n
 
@@ -330,8 +330,8 @@ let s = RingzBank(exc, f, nil, dt) * 0.1;
 s.SoftClip
 
 /* Zizle (Jmcc) #SC3d1.5 ; texture=overlap,4,4,12,inf */
-let a = { :f | (SinOsc(f * [Rand(0.7, 1.3), 1], { Rand(0, 2 * pi) } ! 2) * 0.1).Sum };
-let o = SinOsc(Rand(24, 108).MidiCps, Rand(0, 2 * pi));
+let a = { :f | (SinOsc(f * [Rand(0.7, 1.3), 1], { Rand(0, 2.pi) } ! 2) * 0.1).Sum };
+let o = SinOsc(Rand(24, 108).MidiCps, Rand(0, 2.pi));
 let s = o * a(ExpRand(0.3, 8)).Max(0) * a(ExpRand(6, 24)).Abs;
 EqPan(s, Rand(-1, 1))
 
@@ -401,7 +401,7 @@ let z = { :tr |
 			trig: trig,
 			reset: 0,
 			demandUgens: Dseq(
-				repeats: inf,
+				repeats: Infinity,
 				list: list
 			)
 		)
@@ -494,7 +494,7 @@ n.timesRepeat {
 	{ q.add(freq + d.Rand2) } ! 3
 };
 [p, q].collect { :freq |
-	SinOscBank(freq, [1], { Rand(0, 2 * pi) } ! (3 * n))
+	SinOscBank(freq, [1], { Rand(0, 2.pi) } ! (3 * n))
 } * 0.1 / n
 
 /* Police state ; Jmcc ; requires=keywords */
@@ -504,7 +504,7 @@ let node = {
 		in: SinOsc(
 			freq: SinOsc(
 				freq: 0.1.Rand0 + 0.02,
-				phase: 2 * pi.Rand0
+				phase: 2.pi.Rand0
 			) * 600.Rand0 + 1000 + 300.Rand2,
 			phase: 0
 		),

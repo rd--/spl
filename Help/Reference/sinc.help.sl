@@ -3,13 +3,13 @@
 - _sinc(z)_
 
 The historical unnormalized `sinc` function.
-_sinc(z)_ is equivalent to _sin(z) / z_, except at zero where it is one.
+_sinc(z)_ is equivalent to _sin(z) / z_, except at `zero` where it is `one`.
 
 The argument is given in radians:
 
 ```
->>> (pi / 2).sinc
-(2 / pi)
+>>> 1/2.pi.sinc
+2 / 1.pi
 
 >>> 3.5.sinc
 -0.10022
@@ -18,11 +18,11 @@ The argument is given in radians:
 Sinc threads elementwise over lists and matrices:
 
 ```
->>> (pi / [2 3 4]).sinc
+>>> (1.pi / [2 3 4]).sinc
 [
-	2 / pi,
+	2 / 1.pi,
 	3 * 3.sqrt / 2.pi,
-	2 * 2.sqrt / pi
+	2 * 2.sqrt / 1.pi
 ]
 ```
 
@@ -39,7 +39,7 @@ Single-slit diffraction pattern for a 4λ slit:
 ~~~spl svg=B
 (-1 -- 1).functionPlot { :x |
 	(
-		(4 * pi * x)
+		(4.pi * x)
 		/
 		(1 + x.squared).sqrt
 	).sinc.squared
@@ -52,7 +52,7 @@ The normalilzed sinc function multiplies the input by π (`pi`):
 
 ~~~spl svg=C
 let z = (-10, -9.9 .. 10);
-(z * pi).sinc.linePlot
+z.pi.sinc.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/sinc-C.svg)

@@ -283,15 +283,15 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	circlePoints { :n :r |
-		let theta = (pi / n) - (pi / 2);
+		let theta = (1 / n).pi - (1 / 2).pi;
 		n.circlePoints([0 0], r, theta)
 	}
 
 	spherePoints { :n :r |
 		let a = (4.pi * r.squared) / n;
 		let d = a.sqrt;
-		let mTheta = (pi / d).rounded;
-		let dTheta = pi / mTheta;
+		let mTheta = (1.pi / d).rounded;
+		let dTheta = 1.pi / mTheta;
 		let dPhi = a / dTheta;
 		let answer = [];
 		(0 .. mTheta - 1).do { :m |

@@ -57,7 +57,7 @@ At `Complex`:
 
 ```
 >>> (235 / 47).j(5.3).fractionPart
-0j0.3
+0J0.3
 ```
 
 Threads element-wise over lists:

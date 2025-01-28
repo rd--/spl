@@ -33,7 +33,7 @@ Answer the integer nearest _aNumber_.
 Threads elementwise over lists:
 
 ```
->>> [e pi].rounded
+>>> [1.e 1.pi].rounded
 [3 3]
 ```
 

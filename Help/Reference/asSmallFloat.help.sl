@@ -19,7 +19,7 @@ In the `LargeInteger` case:
 18014398509481984
 
 >>> (2n ^ 99).asSmallFloat
-6.33825e29
+6.33825E29
 ```
 
 In the `SmallFloat` case answer _identity_:
@@ -28,8 +28,8 @@ In the `SmallFloat` case answer _identity_:
 >>> 23.asSmallFloat
 23
 
->>> pi.asSmallFloat
-pi
+>>> 1.pi.asSmallFloat
+1.pi
 ```
 
 * * *

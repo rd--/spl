@@ -15,7 +15,7 @@ true
 Negate assertions:
 
 ```
->>> (1 > pi).not
+>>> (1 > 1.pi).not
 true
 ```
 

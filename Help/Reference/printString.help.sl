@@ -1,14 +1,29 @@
 # printString
 
 - _printString(anObject)_
+- _printString(anInteger, radix)_
 
-Answer a _String_ that is a description of the receiver.
+Answer a `String` that is a description of the receiver.
 
 At `Integer`:
 
 ```
 >>> 23.printString
 '23'
+```
+
+At `SmallFloat` with radix argument:
+
+```
+>>> 254.printString(16)
+'FE'
+```
+
+At `LargeInteger` with radix argument:
+
+```
+>>> 254n.printString(16)
+'FE'
 ```
 
 Negative zero is printed as it is typed:

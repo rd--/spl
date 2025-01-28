@@ -3,7 +3,7 @@
 	let f = TRand(97, 101, tr);
 	let o = LfTri(
 		{ TRand(0, 200, tr) + 216 } ! 8 + f,
-		{ TRand(0, pi * 2, tr) } ! 8
+		{ TRand(0, 2.pi, tr) } ! 8
 	);
 	let e = LfTri(
 		{ TRand(0, 0.01, tr) + 0.1 } ! 8,

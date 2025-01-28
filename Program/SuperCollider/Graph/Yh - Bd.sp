@@ -10,7 +10,7 @@ let env = mkEnv([0.11, 1, 0], [0, decay], -225);
 let triEnv = mkEnv([0.11, 0.6, 0], [0, decay], -230);
 let fEnv = mkEnv([tone * 7, tone * 1.35, tone], [0.05, 0.6], -14);
 let pfEnv = mkEnv([tone * 7, tone * 1.35, tone], [0.03, 0.6], -10);
-let sig = SinOsc(fEnv, pi / 2) * env; /* Phase is not reset */
-let sub = LfTri(fEnv, pi / 2) * triEnv * 0.05;
-let punch = Hpf(SinOsc(pfEnv, pi / 2) * env * 2, 350);
+let sig = SinOsc(fEnv, 1/2.pi) * env; /* Phase is not reset */
+let sub = LfTri(fEnv, 1/2.pi) * triEnv * 0.05;
+let punch = Hpf(SinOsc(pfEnv, 1/2.pi) * env * 2, 350);
 Pan2(Limiter((sig + sub + punch) * 2.5, 0.5, 0.01), 0, amp / 2)

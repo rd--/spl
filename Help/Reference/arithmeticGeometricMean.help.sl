@@ -24,8 +24,8 @@ Answer the arithmetic-geometric mean.
 At `Complex`:
 
 ```
->>> 1j1.arithmeticGeometricMean(3j1)
-1.89938j1.05741
+>>> 1J1.arithmeticGeometricMean(3J1)
+1.89938J1.05741
 ```
 
 The `reciprocal` of the arithmetic–geometric mean of `one` and the square root of 2 is Gauss’s constant.

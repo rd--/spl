@@ -107,7 +107,7 @@
 	}
 
 	LsCyc { :list |
-		LsSeq(list, inf)
+		LsSeq(list, Infinity)
 	}
 
 	LsLace { :list |
@@ -303,7 +303,7 @@
 	}
 
 	LsForever { :input |
-		LsN(input, inf)
+		LsN(input, Infinity)
 	}
 
 	LsLast { :input |

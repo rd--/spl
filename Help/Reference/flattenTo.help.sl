@@ -42,7 +42,7 @@ Flatten to level four:
 This is the same as using level `inf`:
 
 ```
->>> [0, [1], [[2, -2]], [[[3, -3]]], [[[[4]]]]].flattenTo(inf)
+>>> [0, [1], [[2, -2]], [[[3, -3]]], [[[[4]]]]].flattenTo(Infinity)
 [0 1 2 -2 3 -3 4]
 ```
 

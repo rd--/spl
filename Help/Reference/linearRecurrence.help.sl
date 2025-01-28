@@ -77,7 +77,7 @@ Perrin sequence, OEIS [A001608](http://oeis.org/A001608):
 Draw spiral:
 
 ~~~spl svg=A
-let k = [(pi.i / 2.sqrt).exp, 1.i] / 1.1;
+let k = [(1.pi.i / 2.sqrt).exp, 1.i] / 1.1;
 let i = [1, 1];
 linearRecurrence(k, i, 100)
 .collect(realImaginary:/1)

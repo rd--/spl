@@ -95,7 +95,7 @@ At `SmallFloat`, select between `zero` and `pi` at random:
 
 ```
 >>> let r = Sfc32(83014);
->>> pi.atRandom([3 3], r)
+>>> 1.pi.atRandom([3 3], r)
 [
 	1.79715 1.06430 0.23637;
 	1.53715 1.10037 2.02229;

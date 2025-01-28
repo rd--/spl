@@ -2,7 +2,7 @@
 let b = [1 2 6 3] + (SinOsc(0.0345, 0) < 0);
 let c = 2 ^ SinOsc(b, 0);
 let j = MulAdd(SinOsc(1 / b, 0), b / 3, b * (SinOsc(0.0234, 0) < 0 + 1)).RoundTo(0);
-let f = Duty(c, 0, Dseq(inf, 99 * j));
+let f = Duty(c, 0, Dseq(Infinity, 99 * j));
 let n = SinOsc(f, b);
 let o = n * SinOsc(1.5 / c, 0).Max(SinOsc(0.0123, 0) * 0.5 - 0.5);
 let z = CombC(

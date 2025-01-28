@@ -15,15 +15,15 @@ Answers the haversine of _z_.
 `haverssine` can take `Complex` number inputs:
 
 ```
->>> 798j1.haversine
--0.271055j0.020835
+>>> 798J1.haversine
+-0.271055J0.020835
 ```
 
 Threads elementwise over lists and matrices:
 
 ```
 >>> [0, 1.5, 0.5.i.pi].haversine
-[0 0.46463 -0.75459j0]
+[0 0.46463 -0.75459J0]
 ```
 
 Plot over a subset of the reals:

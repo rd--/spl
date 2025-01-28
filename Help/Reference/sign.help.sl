@@ -44,17 +44,17 @@ The unary operator `*` is `sign`:
 Complex numbers, division by absolute value:
 
 ```
->>> 1.4j2.3.sign
-0.5199j0.8542
+>>> 1.4J2.3.sign
+0.5199J0.8542
 
->>> 1j1.sign
-(1j1 / 1j1.abs)
+>>> 1J1.sign
+(1J1 / 1J1.abs)
 ```
 
 Element-wise sign function:
 
 ```
->>> [-3 -0 0 5 inf].sign
+>>> [-3 -0 0 5 Infinity].sign
 [-1 -0 0 1 1]
 ```
 

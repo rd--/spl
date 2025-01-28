@@ -186,7 +186,7 @@ Cf: isImmediate
 - _Infinity_:
 The floating point numeric values representing positive or negative infinity,
 written `inf`.
-Cf: inf, isFinite
+Cf: inf, Infinity, isFinite
 
 - _Infix_:
 A form of notation where a _verb_ is written between two _nouns_,

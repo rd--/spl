@@ -9,7 +9,7 @@ and then by γ around the current _z_-axis.
 Rotate a vector:
 
 ```
->>> let m = [3.pi / 4, pi / 3, pi / 3].eulerMatrix;
+>>> let m = [3/4.pi, 1/3.pi, 1/3.pi].eulerMatrix;
 >>> let v = [1 0 0];
 >>> m.dot(v)
 [
@@ -22,7 +22,7 @@ Rotate a vector:
 `eulerMatrix` corresponds to three rotations:
 
 ```
->>> let [a, b, c] = [3.pi / 4, pi / 3, pi / 3];
+>>> let [a, b, c] = [3/4.pi, 1/3.pi, 1/3.pi];
 >>> let p = a.rotationMatrix([0, 0, 1]);
 >>> let q = b.rotationMatrix([0, 1, 0]);
 >>> let r = c.rotationMatrix([0, 0, 1]);

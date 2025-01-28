@@ -12,7 +12,7 @@
 	};
 	[p, q].collect { :freqList |
 		freqList.collect { :freq |
-			SinOsc(freq, TRand(0, 2 * pi, tr))
+			SinOsc(freq, TRand(0, 2.pi, tr))
 		}.Sum
 	} * 0.1 / n
 }.OverlapTexture(4, 4, 2).Mix

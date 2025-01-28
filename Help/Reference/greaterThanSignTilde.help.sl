@@ -5,10 +5,10 @@
 Answer true if _p_ is greater than or similar to _q_, else false.
 
 ```
->>> 3.1415 >~ pi
+>>> 3.1415 >~ 1.pi
 true
 
->>> 3.1415 < pi
+>>> 3.1415 < 1.pi
 true
 ```
 

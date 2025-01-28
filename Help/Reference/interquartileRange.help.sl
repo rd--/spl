@@ -21,8 +21,8 @@ Exact input yields exact output:
 At `SmallFloat`:
 
 ```
->>> [pi e 2].interquartileRange
-(3 / 4 * (-2 + pi))
+>>> [1.pi 1.e 2].interquartileRange
+(3 / 4 * (-2 + 1.pi))
 ```
 
 Compute results using other parametrizations:

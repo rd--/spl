@@ -224,7 +224,7 @@ Permutation : [Object] { | cycles degree |
 
 	min { :self |
 		self.isIdentity.if {
-			inf
+			Infinity
 		} {
 			self.support.min
 		}

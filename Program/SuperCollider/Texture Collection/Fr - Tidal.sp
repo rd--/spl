@@ -26,7 +26,7 @@ UgenGraph('saw', saw).send;
 LsBind(
 	instrument: 'saw',
 	dur: 1 / 16,
-	freq: LsSeq((60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).MidiCps, inf),
+	freq: LsSeq((60 + (seq - 1).degreeToKey([0 2 5 7 9], 12)).MidiCps, Infinity),
 	amp: 0.1
 )
 

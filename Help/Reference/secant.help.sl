@@ -7,15 +7,15 @@ Answer the secant of _aNumber_.
 Equal to the reciprocal of `cos`:
 
 ```
->>> (pi / 6).secant
-(1 / (pi / 6).cos)
+>>> 1/6.pi.secant
+1 / 1/6.pi.cos
 ```
 
 At `SmallFloat`:
 
 ```
->>> (pi / 6).secant
-(2 / 3.sqrt)
+>>> 1/6.pi.secant
+2 / 3.sqrt
 ```
 
 Threads elementwise over lists and matrices:

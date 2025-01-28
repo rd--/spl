@@ -39,7 +39,7 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 265252859812191058636308480000000n
 
 >>> 30.factorial
-2.652528598121911e32
+2.652528598121911E32
 
 
 >>> 47n.factorial
@@ -53,7 +53,7 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 ).sum
 
 >>> 47.factorial
-2.586232415111682e59
+2.586232415111682E59
 ```
 
 Notable limits, the largest factorials that can fit into a specified type

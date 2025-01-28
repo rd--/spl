@@ -62,14 +62,14 @@ SinOsc(carFreq + (SinOsc(modFreq, 0) * modFreq * modIndex), 0.0) * 0.1
 /* tutorial 2.4 ; pm */
 let modFreq = MouseX(1,1000, 1, 0.2);
 let modIndex = MouseY(0.0, 100.0, 0, 0.2);
-let conversion = 2 * pi / SampleRate();
-let phase = Phasor(0, 440 * conversion, 0, 2 * pi, 0) + (modFreq * modIndex * conversion * SinOsc(modFreq, 0));
+let conversion = 2.pi / SampleRate();
+let phase = Phasor(0, 440 * conversion, 0, 2.pi, 0) + (modFreq * modIndex * conversion * SinOsc(modFreq, 0));
 SinOsc(0, phase) * 0.25
 
 /* tutorial 2.4 ; pm ; equivalent */
 let modFreq = MouseX(1,1000, 1, 0.2);
 let modIndex = MouseY(0.0, 100.0, 0, 0.2);
-let conversion = 2 * pi / SampleRate();
+let conversion = 2.pi / SampleRate();
 SinOsc(440, (modFreq * modIndex * conversion * SinOsc(modFreq, 0))) * 0.25
 
 /* tutorial 2.5 ; chorus */

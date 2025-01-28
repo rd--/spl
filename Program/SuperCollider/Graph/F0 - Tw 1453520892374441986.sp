@@ -1,7 +1,7 @@
 /* http://twitter.com/redFrik/status/1453520892374441986 ; F0 */
 let b = [1, 2, 3] / 3;
-let c = 2 * pi * b;
-let t = SinOsc(10, pi * b);
+let c = 2.pi * b;
+let t = SinOsc(10, b.pi);
 let x = SinOsc(b, 0) > 0 * SinOsc(b * 50, 0) + 1 / 2;
 let y = 300 ^ SinOsc(1 / 32, c) + 99 * x;
 let z = SinOsc(1 / 256, c).RoundTo(1) * 50 + 99 + y;

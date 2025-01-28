@@ -15,7 +15,7 @@ You will only hear the first two channels on a stereo setup.
 ```
 let [w, x, y, z] = PanB(
 	PinkNoise() * 0.1,
-	LfSaw(0.5, pi),
+	LfSaw(0.5, 1.pi),
 	0,
 	0.3
 );

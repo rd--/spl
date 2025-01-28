@@ -14,7 +14,7 @@ _Dbrown_ answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
 ```
-let seq = Dbrown(inf, 10, 15, 1);
+let seq = Dbrown(Infinity, 10, 15, 1);
 let trig = Impulse(
 	MouseX(1, 40, 1, 0.2),
 	0

@@ -1060,7 +1060,7 @@
 	}
 
 	printStringHex { :self |
-		<primitive: return _self.toString(16).toUpperCase();>
+		self.printString(16)
 	}
 
 	printStringRoman { :self |

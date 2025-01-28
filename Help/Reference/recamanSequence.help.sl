@@ -47,7 +47,7 @@ let z = true;
 	let a = Arc(
 		[cx 0],
 		[r r],
-		z.if { [0 pi] } { [pi 0] }
+		z.if { [0 1.pi] } { [1.pi 0] }
 	);
 	z := z.not;
 	a

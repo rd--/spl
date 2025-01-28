@@ -37,7 +37,7 @@ Obtain the super-antidiagonal:
 	[4 2]
 )
 
->>> [1j1 2 3j-2; 0 4.pi 0j5; e 0 6].antidiagonal(1)
+>>> [1J1 2 3J-2; 0 4.pi 0J5; 1.e 0 6].antidiagonal(1)
 [0 2]
 ```
 

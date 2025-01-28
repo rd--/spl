@@ -24,7 +24,7 @@ At `SmallFloat`:
 /
 24019198012642645
 
->>> pi.minkowskiQuestionMark
+>>> 1.pi.minkowskiQuestionMark
 3.015624761581421
 
 >>> (13.sqrt - 7 / 6)
@@ -83,7 +83,7 @@ The question-mark function is continuous and monotonically increasing, so it has
 
 >>> 3.015624761581421
 >>> .minkowskiQuestionMarkInverse
-pi
+1.pi
 
 >>> (1 / 4)
 >>> .minkowskiQuestionMarkInverse

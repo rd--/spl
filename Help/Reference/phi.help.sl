@@ -7,9 +7,9 @@ Answer the `phi` (inclination) field of _aPoint_.
 At `SphericalCoordinates`, also called `inclination`:
 
 ```
->>> let p = SphericalCoordinates(1, 0, pi);
+>>> let p = SphericalCoordinates(1, 0, 1.pi);
 >>> (p.phi, p.inclination)
-(pi, pi)
+(1.pi, 1.pi)
 ```
 
 `CartesianCoordinates` implements `phi`:
@@ -17,7 +17,7 @@ At `SphericalCoordinates`, also called `inclination`:
 ```
 >>> let p = CartesianCoordinates(1, 0, 1);
 >>> (p.phi, p.inclination)
-(pi / 4, pi / 4)
+(1/4.pi, 1/4.pi)
 ```
 
 Where supported `phi` is displayed as φ.

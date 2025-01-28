@@ -4,7 +4,7 @@
 
 Convert from degrees to radians.
 
-There are 180° in pi radians:
+There are 180° in `pi` radians:
 
 ```
 >>> 360.degreesToRadians
@@ -15,7 +15,7 @@ Equivalent to `degree`:
 
 ```
 >>> 1.degree
-(pi / 180)
+1/180.pi
 ```
 
 * * *

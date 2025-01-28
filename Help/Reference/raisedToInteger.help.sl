@@ -13,8 +13,8 @@ An exponent of zero answers one of correct type:
 >>> 7/9 ^ 0
 1/1
 
->>> 7j9 ^ 0
-1j0
+>>> 7J9 ^ 0
+1J0
 ```
 
 An exponent of one answers _aNumber_:
@@ -24,8 +24,8 @@ An exponent of one answers _aNumber_:
 >>> n ^ 1
 n
 
->>> 2j3 ^ 1
-2j3
+>>> 2J3 ^ 1
+2J3
 ```
 
 Three raised to integers one through nine:

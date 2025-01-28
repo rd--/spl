@@ -38,8 +38,8 @@ Values at `zero` & `inf`:
 >>> 0.cubeRoot
 0
 
->>> inf.cubeRoot
-inf
+>>> Infinity.cubeRoot
+Infinity
 ```
 
 Threads over lists:

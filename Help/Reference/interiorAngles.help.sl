@@ -11,7 +11,10 @@ At `Polygon`:
 >>> let p = [0 0; 1 0; 0 1].Polygon;
 >>> let a = p.interiorAngles;
 >>> (a, a.sum)
-(pi / [2 4 4], (3-2).pi)
+(
+	1.pi / [2 4 4],
+	(3 - 2).pi
+)
 ```
 
 * * *

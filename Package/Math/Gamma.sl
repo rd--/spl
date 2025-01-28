@@ -32,7 +32,7 @@
 	}
 
 	gammaLanczosFormula { :self |
-		let sqrtTwoPi = (pi * 2).sqrt;
+		let sqrtTwoPi = 2.pi.sqrt;
 		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
 		let series = self.gammaLanczosFormulaSeries;
 		(leadingFactor.exp * series) * sqrtTwoPi / self
@@ -45,7 +45,7 @@
 			(self - 1).factorial
 		} {
 			(self < 0).if {
-				pi / ((pi * self).sin * (1 - self).gamma)
+				1.pi / (self.pi.sin * (1 - self).gamma)
 			} {
 				(self + 1).gammaLanczosFormula / self
 			}
@@ -57,7 +57,7 @@
 	}
 
 	logGammaLanczosFormula { :self |
-		let sqrtTwoPi = (pi * 2).sqrt;
+		let sqrtTwoPi = 2.pi.sqrt;
 		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
 		let series = self.gammaLanczosFormulaSeries;
 		leadingFactor + (series * sqrtTwoPi / self).log

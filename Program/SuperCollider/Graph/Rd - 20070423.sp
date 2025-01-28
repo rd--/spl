@@ -1,5 +1,5 @@
 /* 20070423 ; rd ; requires=kr */
-let eggcrate = { :x :y | (x * pi).Cos * (y * pi).Sin };
+let eggcrate = { :x :y | x.pi.Cos * y.pi.Sin };
 let p = [64 72 96 128 256 6400 7200 8400 9600];
 let x = BrownNoise();
 let y = BrownNoise();

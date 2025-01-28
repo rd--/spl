@@ -20,7 +20,7 @@ false
 Non-integers are never odd:
 
 ```
->>> pi.isOdd
+>>> 1.pi.isOdd
 false
 ```
 

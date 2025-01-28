@@ -15,7 +15,7 @@ let ln = [
 	90 21 4.0
 ];
 let trig = Impulse(1 / [4, 5], 0);
-let pairs = Duty(trig, 0.0, Drand(inf, ln));
+let pairs = Duty(trig, 0.0, Drand(Infinity, ln));
 let env = Env(
 	[pairs.first, pairs.first, pairs.second],
 	[0, pairs.third],

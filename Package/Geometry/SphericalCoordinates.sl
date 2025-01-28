@@ -38,7 +38,7 @@
 	}
 
 	elevation { :self |
-		(self.phi - (pi / 2)).negated
+		(self.phi - 0.5.pi).negated
 	}
 
 	inclination { :self |

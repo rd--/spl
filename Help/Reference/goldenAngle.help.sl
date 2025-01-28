@@ -8,7 +8,7 @@ Answer _aNumber_ × the golden angle, _pi × (3 - 5.sqrt)_.
 >>> 1.goldenAngle
 137.5.degree
 
->>> (1 / pi).goldenAngle
+>>> (1 / 1.pi).goldenAngle
 (3 - 5.sqrt)
 ```
 

@@ -11,7 +11,7 @@ The vector norm is also called the vector magnitude or Euclidean length.
 At `Complex`:
 
 ```
->>> -2j1.norm
+>>> -2J1.norm
 5.sqrt
 ```
 

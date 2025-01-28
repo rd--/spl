@@ -258,9 +258,9 @@ const asJs: ohm.ActionDict<string> = {
 		);
 		return `${trait}\n${mth}\n`;
 	},
-	ConstantDefinition(_constant, _dot_, name, _equals, value) {
+	/*ConstantDefinition(_constant, _dot_, name, _equals, value) {
 		return `globalThis._${name.sourceString} = ${value.asJs};\n`;
-	},
+	},*/
 	LibraryItem(_libraryItem, aRecord) {
 		return `_addLibraryItem_2(_system, _asLibraryItem_1(${aRecord.asJs}));\n`;
 	},
@@ -729,8 +729,15 @@ const asJs: ohm.ActionDict<string> = {
 		return `${s.sourceString + parseInt(i.sourceString)}`;
 	},
 	constantNumberLiteral(k) {
-		// console.debug('constantNumberLiteral: ', k.sourceString);
-		return k.sourceString;
+		const text = k.sourceString;
+		//console.debug('constantNumberLiteral: ', text);
+		if(text === "Pi") {
+			return "3.1415926535897932384626433";
+		}
+		/*if(text === "inf") {
+			return "Infinity";
+		}*/
+		return text;
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		// console.debug(`singleQuotedStringLiteral: ${s.sourceString}`);
@@ -890,7 +897,7 @@ export function rewriteStringFor(packageName: string, slText: string): string {
 		return jsText;
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
-		// console.debug('rewriteStringFor', err);
+		// console.debug('rewriteStringFor', packageName, slText, err);
 		throw new Error('Rewrite failed', { cause: err });
 	}
 }

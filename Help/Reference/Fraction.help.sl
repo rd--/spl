@@ -166,7 +166,7 @@ The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner t
 3/7
 
 >>> 3.j(7)
-3j7
+3J7
 ```
 
 Written using `Infix Method Syntax` this provides a concise notation for writing Fractions with `LargeInteger` parts:

@@ -35,7 +35,7 @@ Decompose an exact number using a basis of exact numbers:
 Use inexact numbers:
 
 ```
->>> 10.pi.numberDecompose([e 1])
+>>> 10.pi.numberDecompose([1.e 1])
 [11 1.51483]
 ```
 

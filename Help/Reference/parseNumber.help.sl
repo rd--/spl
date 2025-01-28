@@ -40,6 +40,28 @@ Parse negative zero:
 -0
 ```
 
+Parse scientific notation:
+
+```
+>>> '1E6'.parseNumber
+1E6
+
+>>> '-1E6'.parseNumber
+-1E6
+
+>>> '1E-6'.parseNumber
+1E-6
+
+>>> '-1E-6'.parseNumber
+-1E-6
+
+>>> '3.141E3'.parseNumber
+3.141E3
+
+>>> '-3.141E3'.parseNumber
+-3.141E3
+```
+
 Does not parse radix notation,
 signals `error` on failure:
 

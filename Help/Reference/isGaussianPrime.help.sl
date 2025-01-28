@@ -5,10 +5,10 @@
 Gaussian primes are Gaussian integers satisying one of three properties (see References below).
 
 ```
->>> 2j1.isGaussianPrime
+>>> 2J1.isGaussianPrime
 true
 
->>> 5j0.isGaussianPrime
+>>> 5J0.isGaussianPrime
 false
 ```
 
@@ -34,12 +34,12 @@ The Guassian integers with components in _-5:-1_ that are prime:
 ```
 
 Recognize Gaussian Mersenne primes,
-prime numbers _n_ such that _1j1^n - 1_ is a Gaussian prime.
+prime numbers _n_ such that _1J1^n - 1_ is a Gaussian prime.
 
 ```
 >>> 1:30.select { :each |
 >>> 	each.isPrime & {
->>> 		let n = (1j1 ^ each - 1);
+>>> 		let n = (1J1 ^ each - 1);
 >>> 		n.isGaussianPrime
 >>> 	}
 >>> }

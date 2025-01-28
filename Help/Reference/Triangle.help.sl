@@ -25,7 +25,7 @@ and embedding dimension of a `Triangle`
 	1/2,
 	[1/3 1/3],
 	2 + 2.sqrt,
-	pi / [2 4 4],
+	1.pi / [2 4 4],
 	2,
 	2
 )

@@ -7,7 +7,7 @@ Linear interpolating wavetable lookup oscillator with frequency and phase modula
 
 - bufnum: buffer index
 - freq: frequency in hertz
-- phase: phase offset or modulator in radians, within the range (-8, 8) * pi
+- phase: phase offset or modulator in radians, within the range _(-8, 8).pi_
 
 This oscillator requires a buffer to be filled with a wavetable format signal.
 This preprocesses the signal into a form which can be used efficiently by the oscillator.

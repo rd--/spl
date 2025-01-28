@@ -129,7 +129,7 @@ It is an error to invert a singular matrix:
 ```
 >>> let m = [1 2; 1 2];
 >>> (m.determinant, m.inverse)
-(0, [inf inf.negated; inf.negated inf])
+(0, [1.inf -1.inf; -1.inf 1.inf])
 
 >>> let m = [1 2 3; 4 5 6; 7 8 9];
 >>> (m.determinant, m.inverse.dot(m))

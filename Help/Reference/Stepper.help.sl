@@ -79,7 +79,7 @@ let lfreq = Lag2(freq, 0.1) + [0, 0.3];
 let ffreq = Lag2(lfreq, 0.1) + [0, 0.3];
 let lfo = SinOsc(
 	0.2,
-	[0, 0.5 * pi]
+	[0, 0.5.pi]
 ) * 0.0024 + 0.0025;
 let rvb = { :in |
 	let c = CombL(

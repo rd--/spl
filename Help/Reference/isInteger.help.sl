@@ -13,7 +13,7 @@ true
 >>> 3.141.isInteger
 false
 
->>> inf.isInteger
+>>> Infinity.isInteger
 false
 ```
 
@@ -47,7 +47,7 @@ true
 At `Complex` answers `false`, see `isGaussianInteger`:
 
 ```
->>> 2j3.isInteger
+>>> 2J3.isInteger
 false
 ```
 

@@ -11,7 +11,7 @@ Formula is equivalent to:
 Same as `TwoPole`:
 
 ```
-let theta = MouseX(0.2 * pi, pi, 0, 0.2);
+let theta = MouseX(0.2.pi, 1.pi, 0, 0.2);
 let rho = MouseY(0.6, 0.99, 0, 0.2);
 let b1 = 2 * rho * theta.Cos;
 let b2 = rho.Squared.Neg;

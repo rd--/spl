@@ -49,15 +49,15 @@ _arcTan(x, y)_ gives the angle of the point _(x, y)_:
 Evaluate for `Complex` arguments:
 
 ```
->>> 2.5j1.arcTan
-1.23343j0.12367
+>>> 2.5J1.arcTan
+1.23343J0.12367
 ```
 
 The two-argument form supports `Complex` numbers:
 
 ```
->>> arcTan(2.5j1, 2j0)
-0.62828j-0.18589
+>>> arcTan(2.5J1, 2J0)
+0.62828J-0.18589
 ```
 
 Threads elementwise over lists and matrices:
@@ -70,13 +70,13 @@ Threads elementwise over lists and matrices:
 At infinity:
 
 ```
->>> inf.arcTan
+>>> Infinity.arcTan
 0.5.pi
 
->>> arcTan(inf, 1)
+>>> arcTan(Infinity, 1)
 0
 
->>> arcTan(-1, inf)
+>>> arcTan(-1, Infinity)
 0.5.pi
 ```
 

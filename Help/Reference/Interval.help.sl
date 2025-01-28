@@ -22,7 +22,7 @@ Squaring gives a non-negative interval:
 Exact comparisons can be made with intervals:
 
 ```
->>> (5 -- 8) > pi
+>>> (5 -- 8) > 1.pi
 true
 ```
 
@@ -39,15 +39,15 @@ Numbers automatically turn into intervals:
 Use `min` and `max` to find end points of intervals:
 
 ```
->>> let i = (-1.pi -- pi);
+>>> let i = (-1.pi -- 1.pi);
 >>> (i.min, i.max)
-(-1.pi, pi)
+(-1.pi, 1.pi)
 ```
 
 Use `includes` to determine if a point is in the interval (checking for containment):
 
 ```
->>> (2 -- 5).includes(pi)
+>>> (2 -- 5).includes(1.pi)
 true
 
 >>> let i = (1 -- 5);
@@ -82,8 +82,8 @@ Use `intersection` to find where intervals overlap:
 >>> (-2 -- 3).intersection(1 -- 4)
 (1 -- 3)
 
->>> (-2 -- pi).intersection(e -- 4)
-(e -- pi)
+>>> (-2 -- 1.pi).intersection(1.e -- 4)
+(1.e -- 1.pi)
 ```
 
 Cannot intersect disjoint intervals:

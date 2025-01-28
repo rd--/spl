@@ -57,20 +57,20 @@ Quadratic irrational (recurring continued fraction):
 The continued fractions for _n-th_ roots of `e` are very regular:
 
 ```
->>> e.sqrt.continuedFraction(17)
+>>> 1.e.sqrt.continuedFraction(17)
 [1 1 1 1 5 1 1 9 1 1 13 1 1 17 1 1 21]
 ```
 
 `fromContinuedFraction` is effectively the inverse of `continuedFraction`:
 
 ```
->>> pi.continuedFraction(13)
+>>> 1.pi.continuedFraction(13)
 [3 7 15 1 292 1 1 1 2 1 3 1 14]
 
 >>> [
 >>> 	3 7 15 1 292 1 1 1 2 1 3 1 14
 >>> ].fromContinuedFraction
-pi
+1.pi
 ```
 
 The continued fraction of the `goldenRatio` is uniformly one:
@@ -116,7 +116,7 @@ Examples of rational and irrational numbers:
 >>> }
 [1 1 2 1 2 1 2 1 2 1 2; 0 1 1 2 1 2 1 2 1 2 1]
 
->>> e.continuedFraction(21)
+>>> 1.e.continuedFraction(21)
 [2 1 2 1 1 4 1 1 6 1 1 8 1 1 10 1 1 12 1 1 11]
 
 >>> 1.tan.continuedFraction(21)

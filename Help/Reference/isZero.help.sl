@@ -30,10 +30,10 @@ true
 At `Complex`:
 
 ```
->>> 0j0.isZero
+>>> 0J0.isZero
 true
 
->>> 0j1.isZero
+>>> 0J1.isZero
 false
 ```
 

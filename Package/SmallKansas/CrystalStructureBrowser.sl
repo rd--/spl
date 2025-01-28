@@ -21,7 +21,7 @@
 			scaledDrawing { :each | let [x, y, z] = each; [x z] }
 		]);
 		projectionsB.appendChildren([
-			scaledDrawing('CabinetOblique'.namedAxonometricProjection(pi / 6)),
+			scaledDrawing('CabinetOblique'.namedAxonometricProjection(1/6.pi)),
 			scaledDrawing('Isometric'.namedAxonometricProjection)
 		]);
 		container.appendChildren([

@@ -18,23 +18,23 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 `abs` is defined at `Complex`:
 
 ```
->>> 1j1.abs
+>>> 1J1.abs
 2.sqrt
 
->>> 1.4j2.3.abs
+>>> 1.4J2.3.abs
 2.69258
 
->>> -2j1.abs
+>>> -2J1.abs
 5.sqrt
 
->>> 3j-4.abs
+>>> 3J-4.abs
 5
 ```
 
 `abs` collects over lists:
 
 ```
->>> [-2.5 3.141 1.4j2.3 -2j1].abs
+>>> [-2.5 3.141 1.4J2.3 -2J1].abs
 [2.5 3.141 2.69258 2.23607]
 ```
 

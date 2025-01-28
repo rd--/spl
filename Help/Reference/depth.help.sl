@@ -69,7 +69,7 @@ A `Number` has depth one:
 >>> 12345.depth
 1
 
->>> 3j1.depth
+>>> 3J1.depth
 1
 
 >>> 2/3.depth

@@ -9,7 +9,7 @@ The usual mathematical notation is _(r, theta)_, where _r_ is the radius and _th
 The ISO standardised notation is _(rho, phi)_, where _rho_ is the radius and _phi_ the angle.
 
 Theta, or phi, is the angle of counter-clockwise rotation from the positive _x_ axis,
-with _0 <= theta < 2 pi_.
+with _0 <= theta < 2.pi_.
 
 ```
 >>> let p = PolarCoordinates(2.sqrt, 0.25.pi);
@@ -30,11 +30,11 @@ with _0 <= theta < 2 pi_.
 Threads over lists:
 
 ```
->>> [1 2 3].PolarCoordinates(pi / [1 2 3])
+>>> [1 2 3].PolarCoordinates(1.pi / [1 2 3])
 [
-	PolarCoordinates(1, pi),
-	PolarCoordinates(2, pi / 2),
-	PolarCoordinates(3, pi / 3)
+	PolarCoordinates(1, 1.pi),
+	PolarCoordinates(2, 1/2.pi),
+	PolarCoordinates(3, 1/3.pi)
 ]
 ```
 

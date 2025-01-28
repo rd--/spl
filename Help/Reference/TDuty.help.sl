@@ -21,9 +21,9 @@ Demand Ugen as durations:
 
 ```
 let trig = TDuty(
-	Drand(inf, [0.01 0.2 0.4 0.3]),
+	Drand(Infinity, [0.01 0.2 0.4 0.3]),
 	0,
-	Dseq(inf, [0.1 0.4 0.01 0.1 1])
+	Dseq(Infinity, [0.1 0.4 0.01 0.1 1])
 );
 Ringz(trig, 1000, 1) * 0.1
 ```
@@ -34,7 +34,7 @@ Control rate ugen as durations:
 let trig = TDuty(
 	MouseX(0.1, 0.5, 1, 0.2),
 	0,
-	Dseq(inf, [0.1 0.4 0.01 0.1 1])
+	Dseq(Infinity, [0.1 0.4 0.01 0.1 1])
 );
 Ringz(trig, 1000, 1) * 0.1
 ```
@@ -43,7 +43,7 @@ Duration sequence:
 
 ```
 let b = [3 3 2 2 2 1 2 2 2] / 3;
-TDuty(Dseq(inf, b), 0, 1)
+TDuty(Dseq(Infinity, b), 0, 1)
 ```
 
 * * *

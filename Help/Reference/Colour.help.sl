@@ -9,7 +9,7 @@ which should answer a value indicating transparency (or opacity).
 Parse colour from hash-prefixed hexadecimal string:
 
 ```
->>> let c = '#f97306'.parseHexColour;
+>>> let c = '#F97306'.parseHexColour;
 >>> (c.rgb, c.alpha)
 (
 	[
@@ -24,7 +24,7 @@ Parse colour from hash-prefixed hexadecimal string:
 Colour values can be drawn as swatches:
 
 ~~~spl svg=A
-'#f97306'.parseHexColour
+'#F97306'.parseHexColour
 ~~~
 
 ![](sw/spl/Help/Image/Colour-A.svg)
@@ -34,7 +34,7 @@ Colour as hash-prefixed hexadecimal string:
 ```
 >>> RgbColour([16rf9 16r73 16r06] / 255, 1)
 >>> .hexString
-'#f97306'
+'#F97306'
 ```
 
 There are a number of colour predicates:

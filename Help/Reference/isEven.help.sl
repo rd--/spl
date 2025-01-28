@@ -20,7 +20,7 @@ false
 Non-integers are never even:
 
 ```
->>> pi.isEven
+>>> 1.pi.isEven
 false
 ```
 

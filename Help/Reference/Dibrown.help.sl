@@ -14,7 +14,7 @@ _Dibrown_ answers numbers in the continuous range between lo and hi.
 The arguments can be a number or any other ugen.
 
 ```
-let a = Dibrown(inf, 0, 15, 1);
+let a = Dibrown(Infinity, 0, 15, 1);
 let trig = Impulse(
 	MouseX(1, 40, 1, 0.2),
 	0

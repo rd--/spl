@@ -19,7 +19,7 @@ system.includesPackage('Angle') /* angle package */
 [0 + 0, 1 + 0, 0 + 1, 1 + 1, -1 + 1, -1 + 2] = [0, 1, 1, 2, 0, 1] /* addition */
 [1 2 3] + [2 3 4] = [3 5 7] /* pointwise array addition */
 0.1 + [3 4 5] = [3.1 4.1 5.1] /* number array addition */
-1e20 + (-1e20 + 1) = 0 & { (1e20 + -1e20) + 1 = 1 } /* non-associative addition */
+1E20 + (-1E20 + 1) = 0 & { (1E20 + -1E20) + 1 = 1 } /* non-associative addition */
 ```
 
 ## Arithmetic -- subtraction
@@ -154,7 +154,6 @@ NaN.isNaN /* literal for NaN */
 1.pi.cos = -1 /* cosine */
 (2 * 1.pi).cos = 1 /* cosine */
 2.pi.cos = 1 /* pi as unary operator */
-1.mu = 1e-6 /* mu as unary operator */
 (1.pi / 2).cos.isVeryCloseTo(0) /* cosine */
 0.0.tan = 0.0 /* tangent */
 [0, 45, 90, 180].collect(degreeSin:/1) = [0, 0.7071067811865475, 1, 0] /* sine given angle in degree */
@@ -185,23 +184,23 @@ let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self
 -0.cubeRoot = -0 /* cube root */
 0.cubeRoot = 0 /* cube root */
 -2.cubeRoot = -1.2599210498948732 /* cube root */
-inf = Infinity /* Infinity is the literal for IEEE infinity, inf is a constant, like 1.pi */
-3 / 0 = inf /* division by zero is infinity */
--3 / 0 = inf.negated /* negative division by zero is negative infinity */
+1.inf = Infinity /* Infinity is the literal for IEEE infinity, inf is a constant, like 1.pi */
+3 / 0 = 1.inf /* division by zero is infinity */
+-3 / 0 = -1.inf /* negative division by zero is negative infinity */
 (0 / 0).isNaN /* division of zero by zero is NaN */
 1.isNaN.not /* one is a number */
-4 / 0:3 = [inf, 4, 2, 4 / 3] /* divide by zero is infinity */
-inf.sign = 1
-inf.isPositive = true
-(0 - inf).sign = -1
-(0 - inf).isNegative = true
+4 / 0:3 = [Infinity, 4, 2, 4 / 3] /* divide by zero is infinity */
+Infinity.sign = 1
+Infinity.isPositive = true
+(0 - Infinity).sign = -1
+(0 - Infinity).isNegative = true
 25.sqrt = 5 /* integer sqrt */
 (2 / 4) * 2 = 1 /* integer division */
 2 * (2 / 4) = 1 /* integer division */
 let x = 10 ^ -7; let nearest = 10 ^ -8; let furthest = 0; (x - nearest).abs < (x - furthest).abs & { (x ~ furthest) ==> { (x ~ nearest) } }
 -1 !~ 1 /* negative one is not close to one */
-1 !~ inf /* one is not close to inifinity */
-inf ~ inf /* being equal, infinty is also close to itself */
+1 !~ Infinity /* one is not close to inifinity */
+Infinity ~ Infinity /* being equal, infinty is also close to itself */
 0 ~ 1.epsilon & { 1.epsilon ~ 0 } & { 1 + 1.epsilon ~ 1 } /* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one */
 let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 [8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] /* modulo */
@@ -212,11 +211,11 @@ let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
 let x = 15; let y = 4; (x // y) * y + (x \\ y) = x /* quotient by denominator + remainder = numerator */
 let x = 9; let y = 4; (x // y) * y + (x \\ y) = x /* // = quotient, \\ = remainder */
 -5:5.collect { :each | each.remainder(3) } = [-2 -1 -0 -2 -1 0 1 2 0 1 2]
-1e6 = 1000000 /* scientific notation, unit base, positive exponent */
-3e9 = (3 * (10 ^ 9)) /* scientific notation, integer base */
-23e-1 = 2.3 /* scientific notation, negative exponent */
-3.141e-1 = 0.3141 /* scientific notation, float base, negative exponent */
-0.1e-6 = 1e-7 /* scientific notation, equivalence */
+1E6 = 1000000 /* scientific notation, unit base, positive exponent */
+3E9 = (3 * (10 ^ 9)) /* scientific notation, integer base */
+23E-1 = 2.3 /* scientific notation, negative exponent */
+3.141E-1 = 0.3141 /* scientific notation, float base, negative exponent */
+0.1E-6 = 1E-7 /* scientific notation, equivalence */
 8.625 / 0.75 = 11.5 /* a number divided by a number less than zero */
 let x = 8.625; let y = 0.75; let q = x.quotient(y); let r = x.remainder(y); [q, r, x = (y * q + r)] = [11, 0.375, true]
 let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.remainderBy(y, rounded:/1); [q, r, x = (y * q + r)] = [12, -0.375, true]
@@ -842,16 +841,13 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.reversed = 9:-1:1.asByteArray
 1:3.asByteArray.printString = '[1, 2, 3].asByteArray'
 1:3.asByteArray.storeString = '[1, 2, 3].asByteArray'
-ByteArray(4).hex = '00000000'
+ByteArray(4).hexString = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4); b[1] := 15; b[3] := 240; b.hex = '0f00f000'
-let b = ByteArray(4); b[2] := 15; b[4] := 240; b.hex = '000f00f0'
-1:4.asByteArray.hex = '01020304'
-'string'.asciiByteArray.hex = '737472696e67' /* hexadecimal string of ByteArray */
-'737472696e67'.parseHexString.asciiString = 'string' /* ByteArray of hexadecimal string */
-let b = ByteArray(4); b.atAllPut(15); b.hex = '0f0f0f0f'
+let b = ByteArray(4); b[1] := 15; b[3] := 240; b.hexString = '0F00F000'
+let b = ByteArray(4); b[2] := 15; b[4] := 240; b.hexString = '000F00F0'
+1:4.asByteArray.hexString = '01020304'
+let b = ByteArray(4); b.atAllPut(15); b.hexString = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
-'0f00f010'.parseHexString = [15, 0, 240, 16].asByteArray
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } /* ByteArrays are not Extensible */
 1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */
 1:9.asByteArray ~= [1 .. 9] /* ByteArray and List of equal elements are not equal */
@@ -1101,7 +1097,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 (5 = 5.i) = false
 1 ~= 1.i
 (6 - 6.i).abs = 72.sqrt /* absolute value */
--2j1.abs = 5.sqrt /* absolute value */
+-2J1.abs = 5.sqrt /* absolute value */
 (1 + 2.i) + 1 = (2 + 2.i)
 1 + (1 + 2.i) = (2 + 2.i)
 ((1 + 2.i) + 1) = (2 + 2.i)
@@ -1164,21 +1160,21 @@ let n = (1 + 2.i); n.reciprocal * n = 1 /* multiplicative inverse */
 (1 + -2.i) + (3 + 4.i) = (4 + 2.i) /* i is a monadic complex number constructor */
 1.j(-2) + 3.j(4) = 4.j(2) /* j is the dyadic complex number constructor */
 1.j(-2) = 1.Complex(-2) /* j is an alias for Complex */
-1j-2 = Complex(1, -2) /* complex literal, integral components */
+1J-2 = Complex(1, -2) /* complex literal, integral components */
 3.1J2.3 = Complex(3.1, 2.3) /* complex literal, fractional components */
-1j-2 + 3j4 = 4j2 /* complex literals, lower case */
+1J-2 + 3J4 = 4J2 /* complex literals, lower case */
 1J-2 + 3J4 = 4J2 /* complex literals, upper case */
-4j3 / 2j-1 = 1j2 /* ratio of two complex number */
-2j9.exp ~ -6.73239j3.04517 /* complex exponential */
-2j3.real = 2 /* real part */
-2j3.imaginary = 3 /* imaginary part */
-1.4j2.3.abs ~ 2.69258 /* absolute value */
-[3 -5 2j5].abs = [3 5 29.sqrt] /* absolute value */
--1j0.arg = pi /* argument (in radians) */
-1j1.arg = (pi/4)
-[5j12.abs, 5j12.arg] = [13, (12 / 5).arcTan] /* absolute value & argument */
-1.4j2.3.sign ~ 0.519947j0.854199 /* sign */
-1j1.conjugated = 1j-1
+4J3 / 2J-1 = 1J2 /* ratio of two complex number */
+2J9.exp ~ -6.73239J3.04517 /* complex exponential */
+2J3.real = 2 /* real part */
+2J3.imaginary = 3 /* imaginary part */
+1.4J2.3.abs ~ 2.69258 /* absolute value */
+[3 -5 2J5].abs = [3 5 29.sqrt] /* absolute value */
+-1J0.arg = 1.pi /* argument (in radians) */
+1J1.arg = 1/4.pi
+[5J12.abs, 5J12.arg] = [13, (12 / 5).arcTan] /* absolute value & argument */
+1.4J2.3.sign ~ 0.519947J0.854199 /* sign */
+1J1.conjugated = 1J-1
 ```
 
 ## Conditional Statements
@@ -1197,7 +1193,7 @@ let x = nil; false | { x := 1 }; x = 1 /* side effect on conditional or */
 true /* true constant */
 false.not /* false constant */
 nil.isNil /* nil object constant */
-inf.isNumber /* Infinity constant */
+Infinity.isNumber /* Infinity constant */
 1.pi.isNumber /* pi constant */
 1.isNumber /* integer constants */
 3.14.isNumber /* float constants */
@@ -1238,7 +1234,7 @@ true.asBit = 1 /* asBit */
 23.asNumber = 23 /* identity */
 '3.141'.parseNumber = 3.141 /* parse floating point */
 '-672.433244'.parseNumber = -672.433244 /* parse negative floating point */
-'0.03141e2'.parseNumber = 3.141 /* parse scientific */
+'0.03141E2'.parseNumber = 3.141 /* parse scientific */
 '23'.parseNumber = 23 /* parse integer */
 '-23'.parseNumber = -23 /* parse integer */
 1.pi.asFraction = 355/113 /* asFraction */
@@ -1752,6 +1748,7 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 /* if k is greater than n answer is zero */
 58909.printStringHex = 'E61D' /* hexadecimal representation */
+58909.printString(16) = 'E61D' /* hexadecimal representation */
 let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
@@ -2156,7 +2153,7 @@ system.includesPackage('Magnitude') /* magnitude package */
 3.3 < 5.5 /* float */
 3/4 < 4/5 /* fraction */
 '3' < '5' /* string */
-{ 3j3 < 5j5 }.ifError { true } /* complex */
+{ 3J3 < 5J5 }.ifError { true } /* complex */
 { '3' < 5 }.ifError { true } /* string & number are not comparable */
 { 3 < '5' }.ifError { true } /* number & string are not comparable */
 ```
@@ -2211,7 +2208,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated /* ceiling is equal
 3.negated = -3 /* negation */
 3.isOdd = true /* oddness predicate */
 1.pi.isVeryCloseTo(3.1415926535898) /* constant pi (Float pi) */
-inf.isNumber /* constant positive infinity (is a number) */
+Infinity.isNumber /* constant positive infinity (is a number) */
 2 ^ 3 = 8 /* i to the power of j */
 5.reciprocal = 0.2 /* 1 / x */
 (1.pi / 2).sin = 1 /* sine */
@@ -2527,8 +2524,8 @@ let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 
 1:9.asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
 1:9.asStream.select(isEven:/1).upToEnd = [2 4 6 8]
 1:9.asStream.reject(isEven:/1).upToEnd = [1 3 5 7 9]
-1:inf.asStream.select(isEven:/1).next(4) = [2 4 6 8]
-1:inf.asStream.reject(isEven:/1).next(5) = [1 3 5 7 9]
+(1 .. Infinity).asStream.select(isEven:/1).next(4) = [2 4 6 8]
+(1 .. Infinity).asStream.reject(isEven:/1).next(5) = [1 3 5 7 9]
 not:/1.iterate(true).next(10) = [true false true false true false true false true false]
 { :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
 ```
@@ -2552,8 +2549,8 @@ let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } 
 false.isBoolean /* constant */
 false.isBoolean /* constant */
 nil.isNil /* constant */
-1.pi.isNumber /* constant */
-inf.isNumber /* constant (infinity) */
+Pi.isNumber /* constant */
+Infinity.isNumber /* constant (infinity) */
 ```
 
 ## RandomNumberGenerator -- trait and system random number generator
@@ -2884,16 +2881,16 @@ RegExp('x|z', 'g').replaceAllModifying('x y z', asUpperCase:/1) = 'X y Z'
 '23.'.isFloatString.not
 '0.00012'.isFloatString
 '0E-10'.isFloatString
-'1.2e3'.isFloatString
 '1.2E3'.isFloatString
-'-1.2e3'.isFloatString
-'1.2e-3'.isFloatString
-'-1.2e-3'.isFloatString
+'1.2E3'.isFloatString
+'-1.2E3'.isFloatString
+'1.2E-3'.isFloatString
+'-1.2E-3'.isFloatString
 '3.141x'.isFloatString.not
 '-3.141x'.isFloatString.not
 '23x'.isFloatString.not
 '-23x'.isFloatString.not
-'1.2e-4x'.isFloatString.not
+'1.2E-4x'.isFloatString.not
 ''.isFloatString.not
 'x'.isFloatString.not
 ```
@@ -3214,7 +3211,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 1:9.atRandom.isInteger = true /* random number between 1 and 9 */
 system.randomInteger(1, 9, []).isInteger = true
 system.randomReal(0, 9, []).isInteger = false /* possible it could be an integer, but very unlikely */
-system.randomReal(0, pi, []).isInteger = false
+system.randomReal(0, 1.pi, []).isInteger = false
 [3.141.asJson, 23.asJson] = ['3.141', '23'] /* numbers have json encodings */
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] /* parse json numbers */
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5
@@ -3254,8 +3251,8 @@ system.smallFloatEpsilon > (10 ^ -16)
 (1 - 1.epsilon).isVeryCloseTo(1)
 Infinity.isFinite = false /* Infinity is not finite */
 NaN.isFinite = false /* NaN is not finite */
-inf.isFinite = false /* Infinity is not finite */
-1.pi.isFinite = true /* 1.pi is finite */
+Infinity.isFinite = false /* Infinity is not finite */
+Pi.isFinite = true /* 1.pi is finite */
 { nil.isFinite }.ifError { true } /* nil is not a number, so we cannot ask if it is finite */
 5.isCloseTo(5) = true
 5.isCloseTo('5') = false
@@ -3271,8 +3268,8 @@ inf.isFinite = false /* Infinity is not finite */
 let x = (2 ^ 54); x ~= (x - 1) = false /* large numbers behave strangely */
 let x = (2.0 ^ 54.0); x ~= (x - 1.0) = false /* large numbers behave strangely */
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
-inf.asString = 'inf' /* inf prints as inf */
-(0 - inf).asString = '(0 - inf)'
+Infinity.asString = 'Infinity' /* Infinity prints as Infinity */
+(0 - Infinity).asString = '(0 - Infinity)'
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */
@@ -3305,7 +3302,7 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 0 = -0 /* zero is equal to negative zero */
 92233720368 * 100000000 + 54775807 = 9223372036854775807 /* reader for large small float integer literals */
 let n = 3.141; n.copy == n /* copy is identity */
-1.pi.in { :pi | pi } = 1.pi /* 1.pi is a constant, it can be shadowed */
+1.pi.in { :pi | 1.pi } = 1.pi /* 1.pi is a constant, it can be shadowed */
 let pi = 23; pi = 23 /* 1.pi is a constant, it can be shadowed */
 1.pi.zero = 0 /* zero of same type, i.e. small float */
 1.pi.one = 1 /* one of same type, i.e. small float */
@@ -3548,9 +3545,9 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.stringJoin = '
 'x' ~= 'x'.asCharacter /* a single element string is not equal to a character */
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
-'string'.asHex = '737472696e67' /* hex string of ascii codes of string */
-let s = 'string'; (s.size * 2) = s.asHex.size /* asHex, hex string is twice as long */
-{ 'Mačiūnas'.asHex }.ifError { true } /* asHex, non-ascii strings raise an error */
+'string'.asHexString = '737472696E67' /* hex string of ascii codes of string */
+let s = 'string'; (s.size * 2) = s.asHexString.size /* asHex, hex string is twice as long */
+{ 'Mačiūnas'.asHexString }.ifError { true } /* asHex, non-ascii strings raise an error */
 '"'.asCharacter.codePoint = 34 /* double quote */
 '\''.asCharacter.codePoint = 39 /* single quote (') */
 '\\'.asCharacter.codePoint = 92 /* backslash (escape) */

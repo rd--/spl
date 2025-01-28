@@ -17,11 +17,11 @@ Answers the arc cosine of the complex number _z_.
 `Complex` arguments:
 
 ```
->>> 1.5j0.arcCos
-0j0.96242
+>>> 1.5J0.arcCos
+0J0.96242
 
->>> 2.5j1.arcCos
-0.40617j1.65869
+>>> 2.5J1.arcCos
+0.40617J1.65869
 ```
 
 Threads elementwise over lists:

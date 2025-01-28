@@ -18,7 +18,7 @@ Answers the base-10 logarithm of _aNumber_.
 0.243038
 
 >>> 0.log10
-(0 - inf)
+(0 - Infinity)
 
 >>> let n = system.nextRandomFloat;
 >>> n.log10

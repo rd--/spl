@@ -98,7 +98,7 @@ Combinations of operands of different types:
 2
 
 >>> 1J2.conjugated
-1j-2
+1J-2
 
 >>> 1J2.abs
 2.23607
@@ -113,20 +113,20 @@ Combinations of operands of different types:
 Standard functions:
 
 ```
->>> 0j1.sqrt
-0.70711j0.70711
+>>> 0J1.sqrt
+0.70711J0.70711
 
 >>> 1J2.sqrt
-1.27202j0.78615
+1.27202J0.78615
 
 >>> 1J2.cos
-2.03272j-3.05190
+2.03272J-3.05190
 
 >>> 1J2.exp
--1.13120j2.47173
+-1.13120J2.47173
 
 >>> 1J2.sinh
--0.48906j1.40312
+-0.48906J1.40312
 ```
 
 The `printString` of a `Complex` number is the literal notation:

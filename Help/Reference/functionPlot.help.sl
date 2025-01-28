@@ -194,7 +194,7 @@ The same `sin` function at `parametricPlot`:
 Plot multiple functions:
 
 ~~~spl svg=R
-(0 -- pi).functionPlot([
+(0 -- 1.pi).functionPlot([
 	{ :x | x.sin },
 	{ :x | (2 * x).sin },
 	{ :x | (3 * x).sin }
@@ -225,7 +225,7 @@ Plot two `sin` functions:
 Trace over a sphere:
 
 ~~~spl svg=U
-(0 -- pi).functionPlot { :t |
+(0 -- 1.pi).functionPlot { :t |
 	[
 		t.sin * (10 * t).cos,
 		t.sin * (10 * t).sin,

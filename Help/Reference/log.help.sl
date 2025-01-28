@@ -12,7 +12,7 @@ The unary form answers the natural logarithm of _aNumber_:
 >>> 1.5.log
 0.405465
 
->>> e.log
+>>> 1.e.log
 1
 ```
 
@@ -20,7 +20,7 @@ At `zero` and `one`:
 
 ```
 >>> 0.log
-inf.negated
+-1.inf
 
 >>> 1.log
 0
@@ -44,7 +44,7 @@ The binary form answers the _base_ logarithm of _aNumber_.
 >>> (3 ^ -12).log(3)
 -12
 
->>> pi.sqrt.log(pi)
+>>> 1.pi.sqrt.log(1.pi)
 0.5
 
 >>> 1.log(system.nextRandomFloat)
@@ -54,14 +54,14 @@ The binary form answers the _base_ logarithm of _aNumber_.
 Complex arguments:
 
 ```
->>> 2.5j1.log
-0.990501j0.380506
+>>> 2.5J1.log
+0.990501J0.380506
 ```
 
 Show that the natural logarithm of -1 is iπ:
 
 ```
->>> -1j0.log
+>>> -1J0.log
 0J3.14159
 ```
 

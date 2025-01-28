@@ -7,7 +7,7 @@ Answer the real part of _aNumber_.
 At `Complex`:
 
 ```
->>> 1j2.real
+>>> 1J2.real
 1
 
 >>> (1 + 3.i).real

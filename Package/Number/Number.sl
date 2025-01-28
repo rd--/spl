@@ -17,7 +17,7 @@
 	}
 
 	^ { :self |
-		e ^ self
+		1.e ^ self
 	}
 
 	! { :self |
@@ -221,7 +221,7 @@
 	}
 
 	degreesToRadians { :self |
-		self * 0.01745329251994329547 /* pi / 180 */
+		self * 0.01745329251994329547 /* 1/180.pi */
 	}
 
 	diracDelta { :self :aNumber |
@@ -233,7 +233,7 @@
 	}
 
 	diracDelta { :self |
-		self.diracDelta(inf)
+		self.diracDelta(Infinity)
 	}
 
 	divisible { :self :aNumber |
@@ -348,7 +348,7 @@
 	}
 
 	goldenAngle { :self |
-		self * (pi * (3 - 5.sqrt))
+		self.pi * (3 - 5.sqrt)
 	}
 
 	goldenRatio { :self |
@@ -368,13 +368,17 @@
 		self.zero
 	}
 
+	inf { :self |
+		self * Infinity
+	}
+
 	integerPart { :self |
 		self.truncated
 	}
 
 	inverseErf { :x |
 		(x.abs >= 1).if {
-			inf * x.sign
+			Infinity * x.sign
 		} {
 			let a = [0.886226899 -1.645349621 0.914624893 -0.140543331];
 			let b = [1 -2.118377725 1.442710462 -0.329097515 0.012229801];
@@ -393,8 +397,8 @@
 			};
 			r := r * x.sign;
 			z := z * x.sign;
-			r := r - ((r.erf - z) / (2 / pi.sqrt * (r.negated * r).exp));
-			r := r - ((r.erf - z) / (2 / pi.sqrt * (r.negated * r).exp));
+			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negated * r).exp));
+			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negated * r).exp));
 			r
 		}
 	}
@@ -492,10 +496,6 @@
 		[i, self - i]
 	}
 
-	mu { :self |
-		self / 1000000
-	}
-
 	negated { :self |
 		-1 * self
 	}
@@ -579,7 +579,7 @@
 		(x <= 0).if {
 			0
 		} {
-			(15 / (pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
+			(15 / (1.pi ^ 4)) * (1 / ((x ^ 5) * ((1.e ^ (1 / x)) - 1)))
 		}
 	}
 
@@ -663,7 +663,7 @@
 	}
 
 	radiansToDegrees { :self |
-		self * 57.29577951308232286465 /* 180 / pi */
+		self * 57.29577951308232286465 /* 1/180.pi */
 	}
 
 	raisedToSmallInteger { :self :operand |

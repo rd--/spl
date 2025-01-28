@@ -19,12 +19,12 @@ Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviatio
 >>> )
 (
 	2.pi.log,
-	pi,
-	pi,
+	1.pi,
+	1.pi,
 	9/5,
 	0,
-	pi / 3.sqrt,
-	(pi / 3.sqrt).squared
+	1.pi / 3.sqrt,
+	(1.pi / 3.sqrt).squared
 )
 ```
 

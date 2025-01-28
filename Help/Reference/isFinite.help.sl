@@ -6,10 +6,10 @@ Answer true if _aNumber_ is not infinite,
 or if all items in _aCollection_ are finite.
 
 ```
->>> pi.isFinite
+>>> 1.pi.isFinite
 true
 
->>> inf.isFinite
+>>> Infinity.isFinite
 false
 
 >>> { nil.isFinite }.ifError { true }
@@ -19,16 +19,16 @@ true
 At `List`:
 
 ```
->>> [pi 23].isFinite
+>>> [1.pi 23].isFinite
 true
 
->>> [23, inf, pi / 0].isFinite
+>>> [23, Infinity, 1.pi / 0].isFinite
 false
 ```
 
 * * *
 
-See also: /, allSatisfy, inf, isInteger, Number, SmallFloat, zero
+See also: /, allSatisfy, Infinity, isInteger, Number, SmallFloat, zero
 
 References:
 _Mathematica_

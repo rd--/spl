@@ -7,7 +7,7 @@ Answer the number of faces at _aGeometry_.
 At `Triangle`:
 
 ```
->>> sasTriangle(1, pi / 2, 2).faceCount
+>>> sasTriangle(1, 1/2.pi, 2).faceCount
 1
 ```
 

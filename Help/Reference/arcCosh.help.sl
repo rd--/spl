@@ -19,7 +19,7 @@ Inverse is cosh:
 Threads over lists:
 
 ```
->>> [1 2 3 pi].arcCosh
+>>> [1 2 3 1.pi].arcCosh
 [0 1.31696 1.76275 1.81153]
 ```
 

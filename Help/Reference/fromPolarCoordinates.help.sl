@@ -21,7 +21,7 @@ At `Tuple`:
 Collects over lists:
 
 ```
->>> [1 0; 2 pi; 1 0.5.pi].fromPolarCoordinates
+>>> [1 0; 2 1.pi; 1 0.5.pi].fromPolarCoordinates
 [1 0; -2 0; 0 1]
 ```
 

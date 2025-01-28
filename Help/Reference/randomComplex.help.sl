@@ -5,7 +5,7 @@
 Answer an array of the indicated _shape_ containing pseudo-random `Complex` numbers
 that lie inside the rectangle with corners given by _min_ and _max_.
 
-A 3×4 matrix of random complex numbers in the rectangle with corners at _10j10_ and _100j100_:
+A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_ and _100J100_:
 
 ```
 >>> Sfc32(2166136261)
@@ -26,7 +26,7 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10j10_
 ]
 ```
 
-`randomComplex` generates a uniform distribution, here with mean _0.5j0.5_:
+`randomComplex` generates a uniform distribution, here with mean _0.5J0.5_:
 
 ```
 >>> Sfc32(2166136261)

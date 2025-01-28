@@ -521,13 +521,13 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return "-0"
 		};
 		if(Number.isFinite(_self)) {
-			return _self.toString(_radix);
+			return _self.toString(_radix).toUpperCase();
 		}
 		>
 		self.isPositive.if {
-			'inf'
+			'Infinity'
 		} {
-			'(0 - inf)'
+			'(0 - Infinity)'
 		}
 	}
 
@@ -625,7 +625,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	sincNormalized { :self |
-		(self * pi).sinc
+		self.pi.sinc
 	}
 
 	sinh { :self |
@@ -667,7 +667,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	weierstrassFunction { :x :a :m |
 		1:m.collect { :k |
-			(pi * (k ^ a) * x).sin / (pi * (k ^ a))
+			((k ^ a).pi * x).sin / (k ^ a).pi
 		}.sum
 	}
 
@@ -734,7 +734,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	parseNumber { :self |
 		self.assert {
-			self.matchesRegExp('^[0-9e.+-]+$')
+			self.matchesRegExp('^[0-9eE.+-]+$')
 		};
 		self.basicParseNumber
 	}
@@ -756,8 +756,3 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 }
-
-Constant.inf = Infinity
-Constant.pi = 3.1415926535897932384626433
-Constant.e = 2.71828182845904523536028747135266249775724709369995
-Constant.epsilon = 0.000000000000001

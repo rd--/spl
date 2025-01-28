@@ -9,7 +9,7 @@ that is _e ^ n_.
 >>> 1.5.exp
 4.48169
 
->>> e ^ 1.5
+>>> 1.e ^ 1.5
 4.48169
 
 >>> 3.4.exp
@@ -25,8 +25,8 @@ that is _e ^ n_.
 Exp can take complex number inputs:
 
 ```
->>> 2.5j1.exp
-6.58223j10.2512
+>>> 2.5J1.exp
+6.58223J10.2512
 
 >>> (2.pi.i / 23).exp
 0.9629J0.2698
@@ -38,8 +38,8 @@ Exp threads elementwise over lists and matrices:
 >>> [1 2].exp
 [2.71828 7.38906]
 
->>> [0 1.5 pi.i inf].exp
-[1 4.48169 -1j0 inf]
+>>> [0 1.5 Pi.i Infinity].exp
+[1 4.48169 -1J0 Infinity]
 ```
 
 The values at zero, one & infinity:
@@ -49,10 +49,10 @@ The values at zero, one & infinity:
 1
 
 >>> 1.exp
-e
+1.e
 
->>> inf.exp
-inf
+>>> Infinity.exp
+Infinity
 ```
 
 The inverse of `exp` is `log`:

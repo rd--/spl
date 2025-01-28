@@ -1,5 +1,5 @@
 /* Mouse x controls phase relation ; / shape = in-phase ; \ shape = out-of-phase ; O shape = 90 degree phase relation ; Jmcc */
-SinOsc(80, [0, MouseX(0, 2 * pi, 0, 0.2)]) / 3
+SinOsc(80, [0, MouseX(0, 2.pi, 0, 0.2)]) / 3
 
 /* Harmonic relations ; Jmcc */
 SinOsc([MouseX(60, 300, 0, 30) + 0.04, MouseY(60, 300, 1 , 30)], 0) * 0.1
@@ -32,7 +32,7 @@ PinkNoise(0.1 # 2, 0)
 		1 / 80,
 		1 / 80,
 		0.3
-	) * SinOsc(80.04, 0.5 * pi).Abs
+	) * SinOsc(80.04, 0.5.pi).Abs
 ]
 
 /* Waveform ; Jmcc */

@@ -5,7 +5,7 @@
 Answer `true` if _aNumber_ has sign bit set (including case of IEEE-754 negative-zero and negative infinity), else `false`.
 
 ```
->>> [inf.negated -1 -0 0 1 inf].collect(signBit:/1)
+>>> [-1.inf -1 -0 0 1 1.inf].collect(signBit:/1)
 [true true true false false false]
 ```
 

@@ -55,8 +55,8 @@ Plot : [Object] { | pages format |
 			(columnCount = 3).if {
 				(self.format = 'line').if {
 					let p:/1 = AxonometricProjection(
-						pi / 6, 0, 0,
-						1 / 2, 1, 1
+						1/6.pi, 0, 0,
+						0.5, 1, 1
 					).asUnaryBlock;
 					let r = [
 						-1 -1 0;

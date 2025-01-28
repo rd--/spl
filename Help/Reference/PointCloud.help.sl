@@ -19,7 +19,7 @@ Disperse a grid of points, _g_, about a focus point _c_:
 
 ~~~spl svg=B
 let g = (-1.5, -1.4 .. 1.5).tuples(2);
-let q = pi / 11;
+let q = 1/11.pi;
 let c = [q.cos q.sin];
 let p = g.collect { :x |
 	let dx = [

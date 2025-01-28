@@ -8,7 +8,7 @@ Compile and execute _aString_ in the context of _aSystem_.
 >>> system.evaluate('3 + 4')
 7
 
->>> system.evaluate('pi ^ e')
+>>> system.evaluate('1.pi ^ 1.e')
 22.45915
 ```
 

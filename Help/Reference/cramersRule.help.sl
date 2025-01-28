@@ -46,7 +46,7 @@ _-4x + 3y = 15_ and _-12x + 9y = 18_ are parallel lines so there is no solution:
 
 ```
 >>> [-4 3; -12 9].cramersRule([15 18])
-[inf inf]
+[Infinity Infinity]
 ```
 
 _2x + 5y = 45_ and _6x - 15y = -135_ are equal lines so there are infinite solutions, one of which is:

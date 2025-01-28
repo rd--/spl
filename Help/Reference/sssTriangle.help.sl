@@ -29,7 +29,7 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 	[
 		(4 / 5).arcCos,
 		(3 / 5).arcCos,
-		pi / 2
+		1/2.pi
 	]
 )
 ```

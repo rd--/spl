@@ -19,7 +19,7 @@ Vectors are perpendicular if their inner product is zero:
 
 ```
 >>> [1 1].vectorAngle([-1 1])
-(pi / 2)
+1/2.pi
 ```
 
 Scalar product of vectors in three dimensions:
@@ -48,11 +48,11 @@ Dot product of exact vectors:
 Dot allows complex inputs, but does not conjugate any of them:
 
 ```
->>> let u = [1 2j-1];
+>>> let u = [1 2J-1];
 >>> let z = 7;
 >>> let v = [z 3];
 >>> u.dot(v)
-(6j-3 + z)
+(6J-3 + z)
 ```
 
 Compute the `norm` of a vector using the Hermitian inner product:

@@ -18,7 +18,7 @@ Polygon([1 0; 0 1; -1 0; 0 -1])
 or a square:
 
 ```
->>> 4.regularPolygon([0 0], 2.sqrt, pi / 4)
+>>> 4.regularPolygon([0 0], 2.sqrt, 1.pi / 4)
 Polygon([1 1; -1 1; -1 -1; 1 -1])
 ```
 
@@ -66,7 +66,7 @@ Drawing of a square:
 
 ~~~spl svg=D
 4
-.regularPolygon([0 0], 1, pi / 4)
+.regularPolygon([0 0], 1, 1.pi / 4)
 .asLineDrawing
 ~~~
 
@@ -76,7 +76,7 @@ Drawing of an _X_-axis aligned pentagon:
 
 ~~~spl svg=E
 5
-.regularPolygon([0 0], 1, pi / 10)
+.regularPolygon([0 0], 1, 1.pi / 10)
 .asLineDrawing
 ~~~
 
@@ -104,7 +104,7 @@ let p = {
 	let n = rng.randomInteger(3, 7, []);
 	let c = rng.randomReal(0, 9, [2]);
 	let r = rng.randomReal(0, 1, []);
-	let t = rng.randomReal(0, pi, []);
+	let t = rng.randomReal(0, 1.pi, []);
 	n.regularPolygon(c, r, t)
 } ! 23;
 p.LineDrawing
@@ -117,7 +117,7 @@ Overlap regular polygons of increasing radii and vertices:
 ~~~spl svg=H
 1:9.collect { :r |
 	let n = r + 2;
-	let t = (pi / n) - (pi / 2);
+	let t = (1 / n).pi - (1 / 2).pi;
 	n.regularPolygon([0 0], r, t)
 }.LineDrawing
 ~~~

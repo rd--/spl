@@ -17,11 +17,11 @@ Answers the arc sine of the complex number _z_.
 `Complex` arguments:
 
 ```
->>> 1.5j0.arcSin
-1.5708j-0.96242
+>>> 1.5J0.arcSin
+1.5708J-0.96242
 
->>> 2.5j1.arcSin
-1.16462j1.65869
+>>> 2.5J1.arcSin
+1.16462J1.65869
 ```
 
 Threads elementwise over lists:

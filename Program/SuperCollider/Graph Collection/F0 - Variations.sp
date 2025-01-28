@@ -54,7 +54,7 @@ Rhpf(
 /* https://sccode.org/1-4S6 ; f0 ; 't' */
 let p = Saw([3, 4]) * (Saw(1) * 32 + 128) + Duty(1, 0, (Dseq(1, [0, 8, 1, 5]) * [1, 4, 8]).flop);
 let o = SinOsc(Saw(3) * 64 + 99, p) / 9;
-CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5 * pi).LinLin(-1, 1, 0, 6)).transposed.Sum
+CombN(o, 1 / 4, 1 / 2.125, SinOsc(0.005, 1.5.pi).LinLin(-1, 1, 0, 6)).transposed.Sum
 
 /* tw 0120 (f0) ; requires=kr */
 let z = LfTri(1 / [7, 8], 0) * LfTri(1 / 9, 0) * 99;
@@ -84,7 +84,7 @@ let n = 50;
 /* https://sccode.org/1-4Qy ; f0 ; 0233 ; requires=kr */
 let b = 1 / [1 4 6 8 11];
 let c = LfTri(b / 98, 0);
-let q = Dseq(inf, Select(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).MidiCps;
+let q = Dseq(Infinity, Select(LfTri(b / 99, 0) + c * 5, 1 / b + 59).kr).MidiCps;
 Splay(LfTri(Duty(b, c, q) + c, 0) / 3)
 
 /* https://sccode.org/1-4Qy ; f0 ; 0246 ; requires=DynRingzBank */
@@ -144,7 +144,7 @@ let e = [3, 2 / 3, 4, 3 / 2, 2];
 let c = 0.021;
 let d = LfTri(b / 999, 0) % 1;
 let m = LfTri(b * c, 0);
-let l = m * 7 + 20 + Dseq(inf, b % m * 5 + 6);
+let l = m * 7 + 20 + Dseq(Infinity, b % m * 5 + 6);
 let j = Duty(e / (12 ^ m), 0, l);
 let k = DegreeToKey(b.asLocalBuf, j, 12);
 let o = SinOscFb(k.MidiCps, LfTri(c / b + 1 / 3, Decay2(Impulse([2 / 3, 1.5, 3, 1.5, 3], 0), c, d)) * d);
@@ -155,7 +155,7 @@ let i = Rand(1, 64);
 let x = (SinOsc(i % 9.33, 0) * 5 + 5).Ceiling;
 let t = SinOsc(2 ^ (i % 11) * 150 / x, 0);
 let y = Hpz1(x).Abs > 0;
-let f = LinExp(t, -1, 1, Latch(LinExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y), Latch(LinExp(SinOsc(i % pi, 0), -1, 1, 99, 9000), y));
+let f = LinExp(t, -1, 1, Latch(LinExp(SinOsc(i % 4.4, 0), -1, 1, 9, 999), y), Latch(LinExp(SinOsc(i % 1.pi, 0), -1, 1, 99, 9000), y));
 EqPan(
 	Blip(f, t + 2) * (1 - t),
 	SinOsc(0.1, i)
@@ -181,7 +181,7 @@ let m = HoldSequence([0 8 5 1 5 4 5] * (c * 18).RoundTo(1), c) + 60;
 AllpassN(SinOscFb(m.MidiCps, c * 2), 0.2, 0.2, 1) / 2
 
 /* f0 ; <https://twitter.com/redFrik/status/1395519538008141835> ; edit (rd) */
-let c = Duty(0.004, 0, Dseries(inf, 1, [1, 2]) % HoldSequence(1:6 * 75, 8.192));
+let c = Duty(0.004, 0, Dseries(Infinity, 1, [1, 2]) % HoldSequence(1:6 * 75, 8.192));
 let d = Hpf(MantissaMask(c, 3),5);
 let f = { :x |
 	SinOscFb(x, 0).Max(0)

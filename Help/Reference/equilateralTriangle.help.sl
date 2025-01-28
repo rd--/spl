@@ -7,7 +7,7 @@ a triangle with all three sides of equal length,
 and with all three angles equal.
 
 ~~~spl svg=A
-[0 0].equilateralTriangle(1, pi / 4)
+[0 0].equilateralTriangle(1, 1/4.pi)
 .asLineDrawing
 ~~~
 

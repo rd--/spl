@@ -14,7 +14,7 @@ The inverse is `rgbString`.
 (
 	RgbColour([152 236 232] / 255, 1),
 	'rgb(152,236,232)',
-	'#98ece8'
+	'#98ECE8'
 )
 ```
 

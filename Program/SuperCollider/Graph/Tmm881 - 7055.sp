@@ -11,9 +11,9 @@ let tendencyMask = [
 {
 	let modRate = {
 		TRand(
-			pi / 2,
-			pi,
-			Impulse(TRand(pi / 2, pi, Impulse(pi / 2, 0)), 0)
+			1/2.pi,
+			1.pi,
+			Impulse(TRand(1/2.pi, 1.pi, Impulse(1/2.pi, 0)), 0)
 		)
 	} ! 3;
 	let mod = {

@@ -76,7 +76,7 @@ Evaluate using both apply and method send syntaxes:
 The unary form is `sign`:
 
 ```
->>> pi.*
+>>> 1.pi.*
 1
 
 >>> [-3 0 3].*

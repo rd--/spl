@@ -3,12 +3,12 @@ SinOscFb([400, 301], MouseX(0, 4, 0, 0.2)) * 0.1
 
 /* SinOscFb */
 let y = MouseY(10, 1000, 1, 0.2);
-let x = MouseX(0.5 * pi, pi, 0, 0.2);
+let x = MouseX(0.5.pi, 1.pi, 0, 0.2);
 SinOscFb(y, x) * 0.1
 
 /* SinOscFb */
 let y = MouseY(1, 1000, 1, 0.2);
-let x = MouseX(0.5 * pi, pi, 0, 0.2);
+let x = MouseX(0.5.pi, 1.pi, 0, 0.2);
 SinOscFb(100 * SinOscFb(y, 0) + 200, x) * 0.1
 
 /* SinOscFb ; OverlapTexture */

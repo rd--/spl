@@ -11,7 +11,7 @@ let a = [
 ];
 { :tr |
 	let t = Impulse(8, 0);
-	let i = Demand(t, 0, Dseq(inf, TScramble(tr, TChoose(tr, a)))) * t;
+	let i = Demand(t, 0, Dseq(Infinity, TScramble(tr, TChoose(tr, a)))) * t;
 	let d = TRand(0.05, 0.5, tr);
 	let z = PinkNoise() * (LfNoise1(TRand(0, 3, tr)) * 0.0008 + 0.0022);
 	let s = (

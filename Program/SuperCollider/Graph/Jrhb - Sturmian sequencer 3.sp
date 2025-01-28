@@ -14,5 +14,5 @@ let x = MouseX(1, SampleRate(), 1, 0.2);
 (1 .. n).collect { :i |
 	let str = rewrite([0], i + 5);
 	let dt = 1 / SampleRate() / (n - i + 1) * x;
-	TDuty(dt, 0, Dseq(inf, str - 0.5))
+	TDuty(dt, 0, Dseq(Infinity, str - 0.5))
 }.Splay * 0.3

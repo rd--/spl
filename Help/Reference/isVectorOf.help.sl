@@ -12,7 +12,7 @@ true
 >>> [1/2 3/4 5/6].isVectorOf('Fraction')
 true
 
->>> [1j2 3j4 5j6].isVectorOf('Complex')
+>>> [1J2 3J4 5J6].isVectorOf('Complex')
 true
 
 >>> ['a' 'b' 'c'].isVectorOf('String')

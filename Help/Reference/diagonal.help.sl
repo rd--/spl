@@ -31,8 +31,8 @@ Obtain the superdiagonal:
 >>> [3 3].iota.diagonal(1)
 [2 6]
 
->>> [1j1 2 3j-2; 0 4.pi 0j5; e 0 6].diagonal(1)
-[2 0j5]
+>>> [1J1 2 3J-2; 0 4.pi 0J5; 1.e 0 6].diagonal(1)
+[2 0J5]
 ```
 
 Obtain the subdiagonal:

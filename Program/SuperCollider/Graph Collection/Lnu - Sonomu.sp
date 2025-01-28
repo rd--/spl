@@ -3,7 +3,7 @@ let m = {
 	LfdNoise3(1 / 7).ExpRange(0.01, 1)
 };
 let d = { :a :p |
-	TDuty(Dseq(inf, a.pyramid(p)) / 8.3, 0, 1)
+	TDuty(Dseq(Infinity, a.pyramid(p)) / 8.3, 0, 1)
 };
 let q = [1 2 3 4 5 11 9];
 let a = [
@@ -108,11 +108,11 @@ let c = 0:5.collect { :n |
 	n * 12 + [2 15 7 12]
 }.flatten;
 let o = VarSaw(
-	10 * pi * c.MidiRatio,
+	10.pi * c.MidiRatio,
 	0,
 	t(r) / 2
 ) * ((t(r) ^ ((t(r / 2) * 4) + 1).Abs * c).Log.Sin.Max(0).Sin.Max(0) ^ 8);
-let e = t(-1 * r) > (t(pi / r) / 1.5 + 0.05);
+let e = t(-1 * r) > (t(1.pi / r) / 1.5 + 0.05);
 BBandStop(
 	Splay(
 		o * e,
@@ -131,11 +131,11 @@ let c = 0:5.collect { :n |
 	n * 12 + [2 15 7 12]
 }.flatten;
 let o = VarSaw(
-	t(1 / 13) < 0.5 * 2 + 8 * pi * c.MidiRatio,
+	t(1 / 13) < 0.5 * 2 + 8 * 1.pi * c.MidiRatio,
 	0,
 	t(r) / 2
 ) * ((t(r) ^ ((t(r / 2) * 4) + 1).Abs * c).Log.Sin.Max(0).Sin.Max(0) ^ 8);
-let e = t(-1 * r) > (t(pi / r) / 1.5 + 0.05);
+let e = t(-1 * r) > (t(1.pi / r) / 1.5 + 0.05);
 let x = BBandStop(
 	Splay(
 		o * e,
@@ -187,7 +187,7 @@ CombC(
 )
 
 /* https://sonomu.club/@lukiss/111534001937293189 ; Dec 07, 2023 */
-let t = TDuty(1 / (2 ^ Diwhite(inf, 0, 8)), 0, 1).kr;
+let t = TDuty(1 / (2 ^ Diwhite(Infinity, 0, 8)), 0, 1).kr;
 let l = {
 	let z = nil;
 	TChoose(
@@ -248,7 +248,7 @@ let c = { :a |
 	a.collect { :each |
 		z.addAll(each.integerDigits(2, 8))
 	};
-	Demand(m, 0, Dseq(inf, z))
+	Demand(m, 0, Dseq(Infinity, z))
 };
 let p = m * [
 	c([136 138]),
@@ -283,7 +283,7 @@ let c = [0, 3, 7, -2];
 let f = Demand(
 	t,
 	0,
-	Dseq(inf, c) + Dxrand(inf, 48 + (0 .. 2).collect { :o | o * 12 + c }.flatten)
+	Dseq(Infinity, c) + Dxrand(Infinity, 48 + (0 .. 2).collect { :o | o * 12 + c }.flatten)
 ).MidiCps;
 Splay(
 	SinOsc(
@@ -295,7 +295,7 @@ Splay(
 
 /* https://sonomu.club/@lukiss/111455666847951601 ; Nov 23, 2023 */
 let t = {
-	TDuty(Dseq(inf, [3 4 2 1 2 4] / 8), 0, 1).kr
+	TDuty(Dseq(Infinity, [3 4 2 1 2 4] / 8), 0, 1).kr
 };
 let r = { :l :h |
 	TExpRand(l, h, t()).Lag3Ud(1 / 48, 1 / 16)
@@ -318,11 +318,11 @@ o.SoftClip
 /* https://sonomu.club/@lukiss/110533029814503247 ; Jun 13, 2023 */
 let p = [1, 2 .. 14].degreeToKey([0 2 4 7 9], 12).MidiRatio;
 let f = SinOsc(p.Sin * 8, 0) * 0.005 + 1 * p * 52;
-let h = SinOsc(f * 2, 0) * SinOsc(1 / 4 / p, 0) * SinOsc(pi / p, 0).LinExp(-1, 1, 0.01, 1) * 8 * pi;
+let h = SinOsc(f * 2, 0) * SinOsc(1 / 4 / p, 0) * SinOsc(1.pi / p, 0).LinExp(-1, 1, 0.01, 1) * 8.pi;
 let m = LfSaw(-1 * [7, 3.5, 7 / 10] * (SinOsc(f.Sin.LinExp(-1, 1, 0.01, 1), 0) * 0.001 + 1), 1) * 0.5 + 0.5;
 let e = m ^ (SinOsc(8 / p / f.ArcTan, 0) * 30 + 32);
 let o = SinOsc(f, h) * e;
-Splay(0.5 * o, SinOsc(pi, 0))
+Splay(0.5 * o, SinOsc(1.pi, 0))
 
 /* https://sonomu.club/@lukiss/110538742878262809 ; Jun 14, 2023 */
 let c = [12 .. 38].shuffled.degreeToKey([0 2 4 7 9], 12);
@@ -331,18 +331,18 @@ let t = [6, 3 / 2, 3, 3 / 4, 1 / 4];
 let d = Demand(
 	TDuty(1 / t, 0, 1),
 	0,
-	Dseq(inf, [1 .. 24].collect { :n | Dseq(1, c @* [1, n + 1 .. c.size]) })
+	Dseq(Infinity, [1 .. 24].collect { :n | Dseq(1, c @* [1, n + 1 .. c.size]) })
 ).Lag3(0.001);
 let e = LfSaw(-1 * t, 1) * 1 + 1 / 2;
 let o = (LfSaw(w * d.MidiCps, 0) * e).Fold2(1) * (LfSaw(d % t.Log, 0) > 0);
-let f = e.Lag3(0.005) ^ (LfSaw(pi / t, 1) * 8 + 9) * (LfSaw(0.1 / t, 1) + 1 * 5E3 + 200);
+let f = e.Lag3(0.005) ^ (LfSaw(1.pi / t, 1) * 8 + 9) * (LfSaw(0.1 / t, 1) + 1 * 5E3 + 200);
 Splay(
 	CombC(MoogFf(o, f, 2, 0), 0.2, 0.2, 1) * 0.8,
-	LfSaw(pi, 0)
+	LfSaw(1.pi, 0)
 )
 
 /* https://sonomu.club/@lukiss/111518889311136686 ; Dec 04, 2023 */
-let t = TDuty(1 / (2 ^ Diwhite(inf, 0, 6)), 0, 1).kr;
+let t = TDuty(1 / (2 ^ Diwhite(Infinity, 0, 6)), 0, 1).kr;
 let r = { :lo :hi |
 	TRand(lo, hi, t)
 };
@@ -361,7 +361,7 @@ let f = r(24, 48).Ceiling.MidiCps;
 let p = [1 .. 32];
 let q = SinOsc(
 	f * p * p.MidiRatio,
-	SinOsc(p.MidiRatio ^ 2, 0) * (l() * 2 - e * 2 * pi)
+	SinOsc(p.MidiRatio ^ 2, 0) * (l() * 2 - e * 2.pi)
 ) * ((e * p.MidiRatio).Log.Sin.Abs ^ r(4, 128));
 let a = Splay(q.shuffled, SinOsc(r(0.5,8), 0));
 let h = SinOsc(
@@ -374,13 +374,13 @@ let b = SinOsc(f, h) * (1.1 - e ^ 2) * 0.5;
 /* https://sonomu.club/@lukiss/111749211970689312 ; Jan 14, 2024 */
 let p = [1, 5 .. 96];
 let c = { :a :b :c |
-	StandardL(a / pi, 1, 0.5, 0).Sin.LinLin(-1, 1, b, c)
+	StandardL(a / 1.pi, 1, 0.5, 0).Sin.LinLin(-1, 1, b, c)
 };
 let t = 2 ^ (c(5, 0, 4)).Floor;
 let d = Latch((c(13, 1, 5)).Floor / t, TDuty(1 / t, 0, 1));
 let l = {
 	TChoose(
-		TDuty(c(pi, 1 / t, 5) * d, 0, 1),
+		TDuty(c(1.pi, 1 / t, 5) * d, 0, 1),
 		[
 			p * p.degree,
 			p.DifSqr(p.shuffled),
@@ -481,7 +481,7 @@ let o = SinOsc(440, 0);
 (0 .. 4).do { :n |
 	o := SinOsc(
 		SinOsc(o ^ n, o).LinExp(-1, 1, 0.01, 1) ^ n,
-		SinOsc(o + 1 ^ (n + 1).nthPrime, 0) * pi
+		SinOsc(o + 1 ^ (n + 1).nthPrime, 0).pi
 	)
 };
 o ! 2 / 3

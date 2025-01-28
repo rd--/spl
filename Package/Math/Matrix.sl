@@ -991,7 +991,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let u = m.identityMatrix;
 		let s = a.conjugateTranspose;
 		let v = n.identityMatrix;
-		let err = inf;
+		let err = Infinity;
 		let ss = nil;
 		{
 			err > tolerance & {
@@ -1148,9 +1148,11 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	fourierMatrix { :n |
 		let m = 1 / n.sqrt;
-		let omega = e ^ (2.pi * 0J1 / n);
+		let omega = 1.e ^ (2.pi * 0J1 / n);
 		let l = (0 .. n - 1);
-		{ :i :j | m * (omega ^ (i * j)) }.table(l, l)
+		{ :i :j |
+			m * (omega ^ (i * j))
+		}.table(l, l)
 	}
 
 	hadamardMatrix { :n |

@@ -1,19 +1,28 @@
 # inf
 
-A constant representing floating point infinity.
+- _inf(aNumber)_
+
+Answer `Infinity` times _aNumber_,
+a constant representing either positive or negative floating point infinity.
 
 ```
->>> inf > 0
+>>> 1.inf > 0
 true
 
->>> inf - 1
-inf
+>>> -1.inf < 0
+true
+
+>>> 1.inf - 1
+1.inf
+
+>>> -1.inf + 1
+-1.inf
 ```
 
 Infinity is a `SmallFloat` value:
 
 ```
->>> inf.isSmallFloat
+>>> 1.inf.isSmallFloat
 true
 ```
 

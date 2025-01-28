@@ -5,7 +5,7 @@ let o = Blip(
 	Duty(
 		1 / [9, 8],
 		0,
-		Dseq(inf, 'AVVVF'.ascii.MidiCps / a)
+		Dseq(Infinity, 'AVVVF'.ascii.MidiCps / a)
 	),
 	c
 ) * (c + 5);

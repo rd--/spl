@@ -33,7 +33,7 @@ Division endpoints may be outside the initial range:
 Find divisions that are aligned to multiples of `pi`:
 
 ```
->>> (0 -- 10).findDivisions(pi, 5)
+>>> (0 -- 10).findDivisions(1.pi, 5)
 [0 3.14159 6.28318 9.42478 12.56637]
 ```
 

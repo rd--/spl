@@ -7,7 +7,7 @@ let osc = {
 	let sig = SinOsc((mnn0 + mnn).MidiCps, 0);
 	sig := Lpf(
 		sig,
-		LinExp(SinOsc(Rand(1 / 30, 1 / 10), Rand(0, 2 * pi)), -1, 1, 20, 12000)
+		LinExp(SinOsc(Rand(1 / 30, 1 / 10), Rand(0, 2.pi)), -1, 1, 20, 12000)
 	) * 2;
 	sig := DelayC(
 		sig,

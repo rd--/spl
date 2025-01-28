@@ -24,7 +24,7 @@ In the `Integer` case, answer a `Fraction` above `one`:
 In the `SmallFloat` case derive a `Fraction` using `rationalize`:
 
 ```
->>> pi.asFraction
+>>> 1.pi.asFraction
 355/113
 
 >>> 6.75.asFraction
@@ -37,7 +37,7 @@ In the `SmallFloat` case derive a `Fraction` using `rationalize`:
 In the `SmallFloat` case a tolerance may be given:
 
 ```
->>> pi.asFraction(0.01)
+>>> 1.pi.asFraction(0.01)
 22/7
 
 >>> 2.sqrt.exp.asFraction(0.0001)

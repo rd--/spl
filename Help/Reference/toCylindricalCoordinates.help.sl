@@ -10,7 +10,7 @@ where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesi
 [4, 2.pi / 3, -2]
 
 >>> [5 * 3.sqrt / 2, 5 / 2, 4].toCylindricalCoordinates
-[5, pi / 6, 4]
+[5, 1/6.pi, 4]
 
 >>> [-8 8 -7].toCylindricalCoordinates
 [8 * 2.sqrt, 3.pi / 4, -7]

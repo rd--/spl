@@ -12,7 +12,7 @@ let fftSize = 2 ^ (window * sampleRate).Log2.Floor;
 let trigPeriod = fftSize / sampleRate;
 let trig = Impulse(1 / trigPeriod, 0);
 let bufDur = BufDur(sndBuf);
-let pos1 = Demand(trig, 0, Dseries(inf, 0, trigPeriod / (stretch * bufDur)));
+let pos1 = Demand(trig, 0, Dseries(Infinity, 0, trigPeriod / (stretch * bufDur)));
 let pos2 = pos1 + (trigPeriod / (2 * stretch * bufDur));
 let grains = GrainBuf(
 	1,

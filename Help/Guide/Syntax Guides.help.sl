@@ -17,7 +17,6 @@
 - `Apply Syntax`
 - `Binary Operator Syntax`
 - `Comment Syntax`
-- `Constant Syntax`
 - `Dictionary Assignment Syntax`
 - `Dictionary Syntax`
 - `Infix Method Syntax`
@@ -54,6 +53,7 @@
 - `AtIfAbsent Syntax`
 - `AtIfAbsentPut Syntax`
 - `AtPutDelegateTo Syntax`
+- `Constant Syntax`
 - `Initialised Temporaries Syntax`
 - `MessageSend Syntax`
 - `Quoted AtIfAbsent Syntax`

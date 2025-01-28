@@ -8,7 +8,7 @@ Answer the sum of all the elements in _aCollection_.
 >>> [1 2 3 5 7 9].sum
 27
 
->>> [pi 1 4 e 7 8].sum
+>>> [1.pi 1 4 1.e 7 8].sum
 25.8599
 ```
 

@@ -20,10 +20,10 @@ Decode to octaphonic:
 ```
 let useMouse = false;
 let azimuth = useMouse.if {
-	MouseX(0, 2 * pi, 0, 0.2)
+	MouseX(0, 2.pi, 0, 0.2)
 } {
 	LfSaw(1 / 4, 0)
-	.LinLin(-1, 1, 0, 2 * pi)
+	.LinLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {
 	MouseY(0, 4, 0, 0.2)
@@ -45,7 +45,7 @@ BfDecode1(
 		-0.25 0
 		0.25 0.5
 		0.75 1
-	] * pi,
+	].pi,
 	0,
 	0
 )
@@ -56,10 +56,10 @@ Decode to quadraphonic in sequence _fl, fr, rl, rr_:
 ```
 let useMouse = false;
 let azimuth = useMouse.if {
-	MouseX(0, 2 * pi, 0, 0.2)
+	MouseX(0, 2.pi, 0, 0.2)
 } {
 	LfSaw(1 / 4, 0)
-	.LinLin(-1, 1, 0, 2 * pi)
+	.LinLin(-1, 1, 0, 2.pi)
 };
 let rho = useMouse.if {
 	MouseY(0, 4, 0, 0.2)
@@ -79,7 +79,7 @@ BfDecode1(
 	[
 		-0.25 0.25
 		1.25 0.75
-	] * pi,
+	].pi,
 	0,
 	0
 )

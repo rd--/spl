@@ -16,7 +16,7 @@ A negative sign indicates a polarity to the upper tone.
 0.27272
 
 >>> 1/1.barlowHarmonicity
-inf
+Infinity
 ```
 
 Table of harmonicities:
@@ -36,7 +36,7 @@ Table of harmonicities:
 >>> 	.rounded
 >>> }
 [
-	inf 5 5 -8 -5
+	Infinity 5 5 -8 -5
 	8 12 -8 7 5
 	-8 -10 12 6 -6
 	-5 -21 -6 5 6

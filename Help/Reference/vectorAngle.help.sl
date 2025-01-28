@@ -8,7 +8,7 @@ The angle between two vectors in two-dimensions:
 
 ```
 >>> [1 0].vectorAngle([1 1])
-(pi / 4)
+1/4.pi
 ```
 
 The angle between two vectors in three-dimensions:

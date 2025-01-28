@@ -5,7 +5,7 @@
 Answers the tangent of _aNumber_.
 
 ```
->>> (pi / 6).tan
+>>> 1/6.pi.tan
 (1 / 3.sqrt)
 
 >>> 30.degrees.tan
@@ -15,8 +15,8 @@ Answers the tangent of _aNumber_.
 `tan` can take `Complex` number inputs:
 
 ```
->>> 2.5j1.tan
--0.237014j0.896438
+>>> 2.5J1.tan
+-0.237014J0.896438
 ```
 
 Threads elementwise over lists and matrices:

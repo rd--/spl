@@ -30,7 +30,7 @@ let c = [-45, 45, 135, -135].collect { :each |
 	[
 		1,
 		each.degreesToRadians,
-		pi / 2
+		1.pi / 2
 	].fromSphericalCoordinates
 }.++;
 let n = KNearest(k, x, y, 0, c);

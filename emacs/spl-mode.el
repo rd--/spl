@@ -394,6 +394,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
      ("index" . ?ⅈ) ; U+02148 ⅈ Double-Struck Italic Small I
      ("inf" . ?∞) ; U+221E ∞ Infinity
+     ("Infinity" . ?∞) ; U+221E ∞ Infinity
      ("intersection" . ?∩) ; U+2229 ∩ Intersection
      ("j" . ?𝑗) ; U+1D457 𝑗 Mathematical Italic Small J
      ("kappa" .?κ) ; U+003BA κ Greek Small Letter Kappa
@@ -408,6 +409,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("phi" . ?φ) ; U+03C6 φ Greek Small Letter Phi
      ("psi" . ?ψ) ; U+03C8 ψ Greek Small Letter Psi
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
+     ("Pi" . ?Π) ; U+003A0 Π Greek Capital Letter Pi
      ("precedes" . ?≺) ; U+227a ≺ Precedes
      ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi
      ("quarterToneFlat" . ?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat

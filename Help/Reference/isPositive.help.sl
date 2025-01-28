@@ -7,7 +7,7 @@ Answer `true` if _aNumber_ is greater than `zero`.
 Evaluate at different types of numbers:
 
 ```
->>> [1.6 3/4 pi 0 -5].collect(isPositive:/1)
+>>> [1.6 3/4 1.pi 0 -5].collect(isPositive:/1)
 [true true true false false]
 ```
 

@@ -46,7 +46,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 			self.secondHand
 		]);
 		group.appendChildren([1 .. 12].collect { :each |
-			let theta = each - 3 / 12 * 2 * pi;
+			let theta = each - 3 / 12 * 2.pi;
 			let point = PolarCoordinates(80, theta);
 			let text = 'text'.createSvgElement(
 				x: point.x,
@@ -70,17 +70,17 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 	}
 
 	moveHourHand { :self :fractionalHour |
-		let theta = fractionalHour - 3 / 12 * 2 * pi;
+		let theta = fractionalHour - 3 / 12 * 2.pi;
 		self.hourHand.p2 := PolarCoordinates(55, theta.negated)
 	}
 
 	moveMinuteHand { :self :minute |
-		let theta = minute - 15 / 60 * 2 * pi;
+		let theta = minute - 15 / 60 * 2.pi;
 		self.minuteHand.p2 := PolarCoordinates(80, theta.negated)
 	}
 
 	moveSecondHand { :self :second |
-		let theta = second - 15 / 60 * 2 * pi;
+		let theta = second - 15 / 60 * 2.pi;
 		self.secondHand.p2 := PolarCoordinates(85, theta.negated)
 	}
 

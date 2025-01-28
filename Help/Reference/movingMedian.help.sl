@@ -36,9 +36,9 @@ Moving median of a matrix is a matrix:
 Lists of approximate numbers yield approximate numbers:
 
 ```
->>> [1, e, pi.sqrt, 2, 10, e ^ 2]
+>>> [1, 1.e, 1.pi.sqrt, 2, 10, 1.e ^ 2]
 >>> .movingMedian(3)
-[pi.sqrt, 2, 2, e ^ 2]
+[1.pi.sqrt, 2, 2, 1.e ^ 2]
 ```
 
 Integer moving averages of a matrix:

@@ -8,31 +8,41 @@ The meaning of _close to_ is determined by the type of _anObject_.
 At `SmallFloat`:
 
 ```
->>> (e ~ 2.7183, pi ~ 3.1416)
+>>> (1.e ~ 2.7183, 1.pi ~ 3.1416)
 (true, true)
 ```
 
 At `Interval`:
 
 ```
->>> (e -- pi) ~ (2.7183 -- 3.1416)
+>>> (1.e -- 1.pi) ~ (2.7183 -- 3.1416)
 true
 ```
 
 At `Complex`:
 
 ```
->>> Complex(e, pi) ~ Complex(2.7183, 3.1416)
+>>> Complex(1.e, 1.pi) ~ Complex(2.7183, 3.1416)
 true
 ```
 
 At `List`:
 
 ```
->>> [e pi] ~ [2.7183 3.1416]
+>>> [1.e 1.pi] ~ [2.7183 3.1416]
 true
+```
 
->>> [e pi; pi e] ~ [2.7183 3.1416; 3.1416 2.7183]
+At `List` of `List`:
+
+```
+>>> [
+>>> 	1.e 1.pi;
+>>> 	1.pi 1.e
+>>> ] ~ [
+>>> 	2.7183 3.1416;
+>>> 	3.1416 2.7183
+>>> ]
 true
 ```
 

@@ -118,4 +118,4 @@ Pan2(CombC(SinOsc(200, 0), 2, LfNoise1(13.8389 * LfSaw(0.1, 0) + 14) * 0.5 + 1.4
 Pan2(CombC(SinOsc(100, 0), 2, LfTri(LfNoise0(0.2) + 1, 0) * 0.6 + 1.4, 80), 0, 0.1)
 
 /* shifty feedback ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #16d */
-Pan2(CombC(SinOsc(200, 0), 2, LfTri(LfSaw(pi / 9, 0) * 9 + 9, 0) * 0.1 + 1.9, 20), 0, 0.1)
+Pan2(CombC(SinOsc(200, 0), 2, LfTri(LfSaw(1/9.pi, 0) * 9 + 9, 0) * 0.1 + 1.9, 20), 0, 0.1)

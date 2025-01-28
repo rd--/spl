@@ -8,7 +8,7 @@ Generate a polar plot of a curve with radius r as a function of angle θ in _dom
 A circle:
 
 ~~~spl svg=A
-(0 -- pi).polarPlot(sin:/1)
+(0 -- 1.pi).polarPlot(sin:/1)
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-A.svg)
@@ -24,7 +24,9 @@ Another circle:
 A knot:
 
 ~~~spl svg=C
-(0 -- pi).polarPlot { :t | (3 * t).sin * t }
+(0 -- 1.pi).polarPlot { :t |
+	(3 * t).sin * t
+}
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-C.svg)

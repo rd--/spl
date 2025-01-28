@@ -5,7 +5,7 @@
 Answers the tangent of _aNumber_.
 
 ```
->>> (pi / 6).Tan
+>>> 1/6.pi.Tan
 (1 / 3.sqrt)
 ```
 

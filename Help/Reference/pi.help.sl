@@ -2,7 +2,7 @@
 
 - _pi(aNumber)_
 
-Answer _aNumber_ times pi,
+Answer _aNumber_ times `pi`,
 the ratio of a circles circumference to its diameter,
 approximately equal to _3.14159_.
 
@@ -21,10 +21,27 @@ approximately equal to _3.14159_.
 [1.5708, 4.71239]
 ```
 
-pi is also defined as a constant:
+It is common to write fractional values of `pi` using `Fraction Literals`,
+which can be confusing if one is not aware of the distinction between _x / y_ and _x/y_:
 
 ```
->>> pi * 2
+>>> 1/2.pi
+1.5708
+
+>>> (1 / 2).pi
+1.5708
+
+>>> 1.pi / 2
+1.5708
+
+>>> 1 / 2.pi
+0.15915
+```
+
+`pi` is also defined as a constant, like `Infinity` and `NaN`:
+
+```
+>>> Pi * 2
 2.pi
 ```
 
@@ -32,7 +49,7 @@ Where supported `pi` is displayed as π.
 
 * * *
 
-See also: e, pi
+See also: e, Infinity, NaN
 
 Guides: Mathematical Constants
 

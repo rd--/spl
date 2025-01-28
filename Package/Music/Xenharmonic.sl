@@ -12,7 +12,7 @@
 
 	barlowHarmonicity { :self |
 		self.isOne.if {
-			inf
+			Infinity
 		} {
 			let q = self.numerator.barlowIndigestibility;
 			let p = self.denominator.barlowIndigestibility;

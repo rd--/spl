@@ -133,7 +133,7 @@ Use a negative step:
 Use a non-integer step:
 
 ```
->>> Range(0, 10, pi).asList
+>>> Range(0, 10, 1.pi).asList
 [0 3.14159 6.28319 9.42478]
 ```
 

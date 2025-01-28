@@ -174,9 +174,9 @@ let o = Splay(
 			c,
 			f * 3,
 			0
-		) * SinOsc(1 / Rand(33, 45), 0) * pi
+		) * SinOsc(1 / Rand(33, 45), 0).pi
 	) / 5,
-	SinOsc(1 / pi, 0)
+	SinOsc(1 / 1.pi, 0)
 );
 o := BHiPass4(o, w(1 / 7), 1) + Bpf(o, w(1 / 5), 1) + MoogFf(o, w(1 / 3), 2, 0);
 4.timesRepeat {
@@ -198,9 +198,9 @@ let f = Demand(
 	t,
 	0,
 	[
-		Drand(inf, c),
+		Drand(Infinity, c),
 		Dxrand(
-			inf,
+			Infinity,
 			48 + 0:2.collect { :o |
 				o * 12 + c
 			}.++
@@ -216,13 +216,13 @@ Splay(o, 3 / 4)
 /* Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111071167369230347 */
 let p = (1, 3 .. 64);
 let n = 110;
-let f = p / pi * p.degreesToRadians * n;
+let f = p / 1.pi * p.degreesToRadians * n;
 Splay(
 	PmOsc(
 		f,
 		f * 2,
 		SinOsc(f / n, 0) * SinOsc(n / f, 0) * 2,
-		SinOsc(3 / p, 0) * pi
+		SinOsc(3 / p, 0).pi
 	) * SinOsc(1 / p, 0),
 	SinOsc(SinOsc(0.1 / n, 0) * 8, 0) / SinOsc(1 / n, 0) / 2
 ) / 3
@@ -261,16 +261,16 @@ let c = p ^ (p / p.sum).ArcTan * f * p;
 Splay(
 	SinOsc(
 		c,
-		SinOsc(c * 3, 0) * SinOsc((SinOsc(p / c, 0) * 8 + 8) / c, 0) * pi
+		SinOsc(c * 3, 0) * SinOsc((SinOsc(p / c, 0) * 8 + 8) / c, 0).pi
 	) * SinOsc(p / c, 0),
 	SinOsc(1 / 3, 0) * SinOsc(1 / 32, 0)
 ) / 3
 
 /* Tw 14 Nov 2022 Ballad ; https://github.com/lukiss/Losers-Union-SC-Research */
-let d = Dseq(inf, [1, 3 .. 21]);
+let d = Dseq(Infinity, [1, 3 .. 21]);
 let f = Ddup(
 	LfPar(0.05, 0) * d / [3 7 5 1],
-	Dseq(inf, [9 .. 42].degreeToKey([0 1 3 5 7 8 10], 12)).MidiCps
+	Dseq(Infinity, [9 .. 42].degreeToKey([0 1 3 5 7 8 10], 12)).MidiCps
 );
 let n = 8;
 LeakDc(
@@ -293,21 +293,21 @@ let l = { :freq :mul |
 	(LfdNoise3(freq) * mul).Abs
 };
 let i = 1 / 16;
-let t = Impulse(l(pi, pi), 0);
+let t = Impulse(l(1.pi, 1.pi), 0);
 CombC(
 	{
 		SinOsc(
 			Demand(
 				t,
 				0,
-				Drand(inf, [9 .. 42].degreeToKey([0 2 4 7 9], pi * pi))
+				Drand(Infinity, [9 .. 42].degreeToKey([0 2 4 7 9], 1.pi.pi))
 			).MidiCps,
 			0
-		) * (t.Lag3Ud(0, i) + (t.Lag3Ud(i + l(9, i * 4), l(pi, pi)) / pi))
+		) * (t.Lag3Ud(0, i) + (t.Lag3Ud(i + l(9, i * 4), l(1.pi, 1.pi)) / 1.pi))
 	} !^ 5,
 	i,
 	i,
-	pi
+	1.pi
 ) / 3
 
 /* 9 Jan 2019 ; https://github.com/lukiss/Losers-Union-SC-Research */
@@ -361,7 +361,7 @@ let d = {
 		Demand(
 			Impulse(1 / 30:53.atRandom, 0),
 			0,
-			Dxrand(inf, 7:53.degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
+			Dxrand(Infinity, 7:53.degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
 		)
 	} ! n
 };
@@ -384,7 +384,7 @@ Splay(
 
 /* 30 Apr. 2020 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let t = {
-	TDuty(Drand(inf, 1:8 / 16), 0, 1)
+	TDuty(Drand(Infinity, 1:8 / 16), 0, 1)
 };
 let r = { :lo :hi |
 	TRand(lo, hi, t())
@@ -648,14 +648,14 @@ let tab = [
 	400 750 2400 2600 2900; 40 80 100 120 120; 0 -11 -21 -20 -40:;
 	350 600 2400 2675 2950; 40 80 100 120 120; 0 -20 -32 -28 -36
 ];
-let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.LinLin(-1, 1, 1, 4) / Diwhite(inf, 2, 10);
+let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.LinLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
 let mel = 26:42.degreeToKey([0 2 4 5 7 9 11], 12);
 let mnn = Demand(
 	trg,
 	0,
-	Dseq(inf, mel.scramble)
+	Dseq(Infinity, mel.scramble)
 );
 let env = Adsr(
 	Trig(trg, dur * LfNoise2(4).LinLin(-1, 1, 0.5, 1)),

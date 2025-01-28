@@ -12,8 +12,8 @@ Arithmetic series from _start_, incrementing by _step_, for _length_ places.
 With infinite length:
 
 ```
-let p = LsSeries(1, 3, inf);
-let q = LsSeries(3, 5, inf);
+let p = LsSeries(1, 3, Infinity);
+let q = LsSeries(3, 5, Infinity);
 p.next(4) ++ q.next(4)
 [1 4 7 10 3 8 13 18]
 ```
@@ -22,7 +22,7 @@ Non-cubical squares:
 
 ~~~
 >>> let powers = { :m |
->>> 	LsSeries(0, 1, inf) ^ m
+>>> 	LsSeries(0, 1, Infinity) ^ m
 >>> };
 >>> let squares = powers(2);
 >>> let cubes = powers(3);
