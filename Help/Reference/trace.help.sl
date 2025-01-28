@@ -16,8 +16,8 @@ Answer the trace of the matrix or tensor list.
 For a vector `trace` gives the sum of the elements:
 
 ```
->>> 1:3.trace
-(1 + 2 + 3)
+>>> 3.iota.trace
+1 + 2 + 3
 ```
 
 For a higher-rank Array, trace gives the `sum` of elements with equal indices:

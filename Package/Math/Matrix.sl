@@ -110,7 +110,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 }
 
-+@Sequence {
++List {
 
 	adjugate { :self |
 		self.inverse * self.determinant

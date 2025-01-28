@@ -64,6 +64,37 @@ The parser does not require that _1 <= a < 10_:
 1E3
 ```
 
+`Complex` literals:
+
+```
+>>> 3J4
+Complex(3, 4)
+```
+
+`Decimal` literals:
+
+```
+>>> 3.1416D.fraction
+Decimal(3927/1250, 4)
+```
+
+`LargeInteger` literals:
+
+```
+>>> 23n ^ 23n
+20880467999847912034355032910567n
+```
+
+Radix literals:
+
+```
+>>> 16rFE
+254
+
+>>> 2r101101110
+366
+```
+
 * * *
 
 See also: SmallFloat

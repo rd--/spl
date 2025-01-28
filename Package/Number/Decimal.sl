@@ -93,11 +93,11 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	adaptToFractionAndApply { :self :receiver :aBlock:/2 |
-		aBlock(receiver.asScaledDecimal(self.scale), self)
+		aBlock(receiver.asDecimal(self.scale), self)
 	}
 
 	adaptToIntegerAndApply { :self :receiver :aBlock:/2 |
-		aBlock(receiver.asScaledDecimal(0), self)
+		aBlock(receiver.asDecimal(0), self)
 	}
 
 	asFloat { :self |

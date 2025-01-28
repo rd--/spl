@@ -6,7 +6,7 @@ Answer the circulant matrix of _aSequence_,
 a square matrix in which each row is rotated one element to the right relative to the preceding row.
 
 ```
->>> 1:4.circulantMatrix
+>>> 4.iota.circulantMatrix
 [
 	4 1 2 3;
 	3 4 1 2;

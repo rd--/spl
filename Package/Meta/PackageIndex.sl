@@ -21,6 +21,7 @@
 	'Benchmark-TowersBenchmark'
 	'Chemistry-CrystalStructure'
 	'Collection-ArithmeticProgression'
+	'Collection-Array'
 	'Collection-ArrayBuffer'
 	'Collection-Association'
 	'Collection-AssociationList'

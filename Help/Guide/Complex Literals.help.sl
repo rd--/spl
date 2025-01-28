@@ -15,11 +15,31 @@ Complex(2, 3)
 
 The rewrite rule is _rJi => Complex(r, i)_.
 
-The _J_ may also be written _j_.
+The _J_ may also be written _j_,
+however Spl writes _J_ consistently.
+
+`j` is the name of a method:
+
+```
+>>> 3.j(4)
+3J4
+
+>>> 2.j(3)
+2J3
+```
+
+`j` is equivalent to `Complex`:
+
+```
+>>> 3.Complex(4)
+3J4
+```
 
 * * *
 
 See also: Complex, i, j
+
+Guides: Number Literals
 
 References:
 _Apl_

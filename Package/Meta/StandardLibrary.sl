@@ -10,6 +10,7 @@
 	'Prototype'
 
 	/* Collection */
+	'Array'
 	'AssociationList'
 	'Bag'
 	'CategoryDictionary'

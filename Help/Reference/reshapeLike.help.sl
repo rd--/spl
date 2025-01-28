@@ -3,7 +3,7 @@
 - _reshapeLike(material, model)_
 
 Answer a `List` with the same structure as _model_ and with elements drawn from _material_.
-Elements are drawn in ravel order,
+Elements are drawn in `ravel` order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
 

@@ -1,6 +1,6 @@
 # shape
 
-- _shape(aSequence | aMatrix | anObject)_
+- _shape(anArray | anObject)_
 
 Answer the shape of the argument, a vector of lengths of the array along each axis.
 
@@ -14,12 +14,13 @@ The shape of a _scalar_ is the empty list:
 The shape of a _vector_ is a one element list:
 
 ```
->>> 1:5.shape
+>>> [1 2 3 4 5].shape
 [5]
 ```
 
 The shape of a _matrix_ is a two element list,
-telling the number of rows and columns:
+telling the number of rows and columns.
+A 3×2 matrix:
 
 ```
 >>> [
@@ -28,18 +29,27 @@ telling the number of rows and columns:
 >>> 	5 6
 >>> ].shape
 [3 2]
+```
 
+A 2×3 matrix:
+
+```
 >>> [
 >>> 	1 2 3;
 >>> 	4 5 6
 >>> ].shape
 [2 3]
+```
 
+A 1×1 matrix:
+
+```
 >>> [[1]].shape
 [1 1]
 ```
 
-The shape of a _volume_ is a three element list:
+The shape of a _volume_ is a three element list.
+A 2×2×2 array:
 
 ```
 >>> [
@@ -50,7 +60,11 @@ The shape of a _volume_ is a three element list:
 >>> 	7 8
 >>> ].shape
 [2 2 2]
+```
 
+A 2×3×1 array:
+
+```
 >>> [
 >>> 	1;
 >>> 	2;
@@ -61,7 +75,11 @@ The shape of a _volume_ is a three element list:
 >>> 	6
 >>> ].shape
 [2 3 1]
+```
 
+A 2×3×2 array:
+
+```
 >>> [
 >>> 	1 2;
 >>> 	3 4;
@@ -72,7 +90,11 @@ The shape of a _volume_ is a three element list:
 >>> 	11 12
 >>> ].shape
 [2 3 2]
+```
 
+A 1×3×2 array:
+
+```
 >>> [
 >>> 	[
 >>> 		1 2;
@@ -81,7 +103,11 @@ The shape of a _volume_ is a three element list:
 >>> 	]
 >>> ].shape
 [1 3 2]
+```
 
+A 1×1×1 array:
+
+```
 >>> [[[1]]].shape
 [1 1 1]
 ```

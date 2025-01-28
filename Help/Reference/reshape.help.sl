@@ -3,9 +3,11 @@
 - _reshape(aCollection, shape)_
 
 Answer a `List` with the indicated _shape_ and with elements drawn from _aCollection_.
-Elements are drawn in ravel order,
+Elements are drawn in `ravel` order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
+
+Create a 3×3 matrix from a nine-vector:
 
 ```
 >>> 9.iota.reshape([3 3])
@@ -14,32 +16,52 @@ and repeating cyclically if it has larger bound.
 	4 5 6;
 	7 8 9
 ]
+```
 
+Create a 3×3 matrix from a three-vector,
+recycling elements as required:
+
+```
 >>> 3.iota.reshape([3 3])
 [
 	1 2 3;
 	1 2 3;
 	1 2 3
 ]
+```
 
+Create a 2×2 matrix from a nine-vector,
+discaring excess elements:
+
+```
 >>> 9.iota.reshape([2 2])
 [
 	1 2;
 	3 4
 ]
+```
 
+Create a 3×4 matrix from a twelve-vector:
+
+```
 >>> 12.iota.reshape([3 4])
 [
-	1 2 3 4;
-	5 6 7 8;
+	1  2  3  4;
+	5  6  7  8;
 	9 10 11 12
 ]
+```
 
+Create a twelve-vector from a four-vector,
+recycle elements are required:
+
+```
 >>> 4.iota.reshape([12])
 [1 2 3 4 1 2 3 4 1 2 3 4]
 ```
 
-`reshape` can decrease the rank or bound of a list:
+`reshape` can decrease the rank or bound of a list.
+Create a nine-vector from a 3×3 matrix:
 
 ```
 >>> [
@@ -48,14 +70,24 @@ and repeating cyclically if it has larger bound.
 >>> 	7 8 9
 >>> ].reshape([9])
 [1 2 3 4 5 6 7 8 9]
+```
 
+Create a three-vector from a 3×3 matrix,
+discarding excess elements:
+
+```
 >>> [
 >>> 	1 2 3;
 >>> 	4 5 6;
 >>> 	7 8 9
 >>> ].reshape([3])
 [1 2 3]
+```
 
+Create a 3×3 matrix from a 2×2 matrix,
+recycling elements as required:
+
+```
 >>> [
 >>> 	1 2;
 >>> 	3 4
@@ -66,7 +98,7 @@ and repeating cyclically if it has larger bound.
 ]
 ```
 
-`reshape` can be used to produce an identity matrix by reshaping a vector which is one longer than the desired side length.
+`reshape` can be used to produce an identity matrix by reshaping a vector which is one longer than the desired side length:
 
 ```
 >>> [1 0 0 0 0].reshape([4 4])
@@ -78,7 +110,7 @@ and repeating cyclically if it has larger bound.
 ]
 ```
 
-Create a 2×3 matrix:
+Create a 2×3 matrix from a `Range` value:
 
 ```
 >>> 1:6.reshape([2 3])
@@ -86,7 +118,11 @@ Create a 2×3 matrix:
 	1 2 3;
 	4 5 6
 ]
+```
 
+Create a 2×3 matrix from the `contents` of a `String` value:
+
+```
 >>> 'abcdef'.contents.reshape([2 3])
 [
 	'a' 'b' 'c';
@@ -94,7 +130,7 @@ Create a 2×3 matrix:
 ]
 ```
 
-Reshape a vector into a matrix:
+Reshape a four-vector into a 2×2 matrix:
 
 ```
 >>> [1 2 3 4].reshape([2 2])
@@ -104,7 +140,7 @@ Reshape a vector into a matrix:
 ]
 ```
 
-Reshape a vector into a depth-3 array (2×3×4):
+Reshape a 24-vector into a 2×3×4 array:
 
 ```
 >>> 1:24.reshape([2 3 4])
@@ -119,7 +155,8 @@ Reshape a vector into a depth-3 array (2×3×4):
 ]
 ```
 
-Reshape a matrix into another matrix with different dimensions:
+`reshape` can transform a matrix into another matrix with different dimensions.
+Reshape a 4×3 matrix into a 3×4 matrix.
 
 ```
 >>> let m = [4 3].iota;
@@ -139,7 +176,8 @@ Reshape a matrix into another matrix with different dimensions:
 )
 ```
 
-Reshape into a higher rank array:
+`reshape` can transform a matrix into a higher rank array:
+Reshape a 4×3 matrix into a 2×2×3 array.
 
 ```
 >>> [

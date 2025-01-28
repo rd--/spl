@@ -17,14 +17,14 @@ true
 false
 ```
 
-At `Tuple`:
+At `Tuple` always answer `false`:
 
 ```
 >>> (1, 2, 3, 4, 5, 6).isMatrix
 false
 
 >>> ((1, 2, 3), (4, 5, 6)).isMatrix
-true
+false
 
 >>> ((1, 2), (3, 4, 5)).isMatrix
 false

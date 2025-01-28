@@ -11,6 +11,14 @@ At `List`:
 true
 ```
 
+A 1×4 matrix is a row vector:
+
+```
+>>> let m = [[1 2 3 4]];
+>>> (m.shape, m.isRowVector)
+([1 4], true)
+```
+
 At `Matrix`:
 
 ```
