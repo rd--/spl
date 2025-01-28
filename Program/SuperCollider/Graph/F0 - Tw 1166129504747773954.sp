@@ -3,7 +3,7 @@ let z = 0:2;
 let f = z.collect { :i |
 	i + 3.33 + LfTri(3 / 3333, 0)
 } % 3 * 33 * (3 / 3.pi + LfPulse(0.003 * 3, 0, 0.5));
-let p = LfTri(3 * 3 ^ [3.3, 3] + (LfTri([3, pi], 0)), 3);
+let p = LfTri(3 * 3 ^ [3.3, 3] + (LfTri([3, 1.pi], 0)), 3);
 let q = p * (LfPulse(1.pi, 0, 0.5) / 3 * LfTri(0.003, 0));
 let r = ((LfTri(f, 3) * z.collect { :i |
 	i + 3

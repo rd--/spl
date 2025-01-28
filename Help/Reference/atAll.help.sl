@@ -95,7 +95,7 @@ The infix form of the binary `atAll` is `@*`:
 
 * * *
 
-See also: at, atAllPut, atPath
+See also: at, atAllBlend, atAllPin, atAllPut, atPath
 
 References:
 _Apl_

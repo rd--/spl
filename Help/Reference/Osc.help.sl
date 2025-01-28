@@ -34,7 +34,7 @@ With less small sine table:
 let c = 2048.sineTable(
 	1 / 1:128,
 	[0]
-).normalizeSignal
+).normalizeSignal;
 let b = c.asWavetable.asLocalBuf;
 {
 	Osc(

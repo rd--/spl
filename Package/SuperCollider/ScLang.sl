@@ -392,7 +392,7 @@
 		)
 	}
 
-	atBlendAll { :self :indices |
+	atAllBlend { :self :indices |
 		indices.collect { :each |
 			self.atBlend(each)
 		}

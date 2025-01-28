@@ -34,7 +34,7 @@ Resample sequence:
 
 * * *
 
-See also: at, atFold, atPin, atWrap, blend, indexOfInBetween, linearInterpolation, listInterpolation, resample
+See also: at, atAllBlend, atFold, atPin, atWrap, blend, indexOfInBetween, linearInterpolation, listInterpolation, resample
 
 References:
 _SuperCollider_
