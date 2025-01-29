@@ -4,6 +4,9 @@ export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.
 import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 
+import { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
+export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
+
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
 

@@ -1,11 +1,5 @@
 @PolygonMesh {
 
-	asGraph { :self |
-		let answer = Graph(self.vertexList, self.edgeList);
-		answer.vertexCoordinates := self.vertexCoordinates;
-		answer
-	}
-
 	boundingBox { :self |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
@@ -56,6 +50,12 @@
 
 	faceDegreeCounts { :self |
 		self.faceIndices.collect(size:/1).asBag.sortedElements
+	}
+
+	graph { :self |
+		let answer = Graph(self.vertexList, self.edgeList);
+		answer.vertexCoordinates := self.vertexCoordinates;
+		answer
 	}
 
 	vertexCount { :self |

@@ -11,13 +11,17 @@ which projects from a three-dimensional space into a two-dimensional space,
 answers a `PolygonMesh`:
 
 ```
->>> [0 0 0].unitCube.project(
+>>> let m = [0 0 0].unitCube.project(
 >>> 	AxonometricProjection(
 >>> 		1/6.pi, 0, 1/6.pi,
 >>> 		1, 1, 1
 >>> 	)
->>> ).isPolygonMesh
-true
+>>> );
+>>> (
+>>> 	m.isPolygonMesh,
+>>> 	m.embeddingDimension
+>>> )
+(true, 2)
 ```
 
 * * *

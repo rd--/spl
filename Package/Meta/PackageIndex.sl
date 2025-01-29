@@ -73,6 +73,7 @@
 	'Geometry-CartesianCoordinates'
 	'Geometry-Circle'
 	'Geometry-CylindricalCoordinates'
+	'Geometry-DelaunayTriangulation'
 	'Geometry-FourVector'
 	'Geometry-GeometryCollection'
 	'Geometry-HalfPlane'

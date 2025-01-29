@@ -45,6 +45,7 @@
 	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
+	'DelaunayTriangulation'
 	'GeometryCollection'
 	'HalfPlane'
 	'InfiniteLine'

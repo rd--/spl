@@ -38,6 +38,10 @@ Triangle : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonCentroid
 	}
 
+	circumcircle { :self |
+		self.vertexCoordinates.circumcircle
+	}
+
 	dimension { :self |
 		2
 	}
@@ -85,6 +89,28 @@ Triangle : [Object] { | vertexCoordinates |
 
 +List {
 
+	asTriangle { :self |
+		let [a, b, c] = self;
+		Triangle(a, b, c)
+	}
+
+	circumcircle { :self |
+		let [a, b, c] = self;
+		let [ax, ay] = a;
+		let [bx, by] = b;
+		let [cx, cy] = c;
+		let ad = (ax * ax) + (ay * ay);
+		let bd = (bx * bx) + (by * by);
+		let cd = (cx * cx) + (cy * cy);
+		let d = 2 * ((ax * (by - cy)) + (bx * (cy - ay)) + (cx * (ay - by)));
+		let center = [
+			1 / d * ((ad * (by - cy)) + (bd * (cy - ay)) + (cd * (ay - by))),
+			1 / d * ((ad * (cx - bx)) + (bd * (ax - cx)) + (cd * (bx - ax)))
+		];
+		let radius = center.euclideanDistance(self.anyOne);
+		Circle(center, radius)
+	}
+
 	equilateralTriangle { :center :radius :angle |
 		let f = { :n |
 			center + [
@@ -127,6 +153,18 @@ Triangle : [Object] { | vertexCoordinates |
 		let y = ((a ^ 2).negated + (b ^ 2) + (c ^ 2)) / (2 * c);
 		let z = ((a + b - c) * (a - b + c) * (a.negated + b + c) * (a + b + c)).sqrt / (2 * c);
 		Triangle([0 0], [c 0], [y z])
+	}
+
+}
+
++[List, Triangle] {
+
+	circumcenter { :self |
+		self.circumcircle.center
+	}
+
+	circumradius { :self |
+		self.circumcircle.radius
 	}
 
 }

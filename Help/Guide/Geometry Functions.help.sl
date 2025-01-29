@@ -114,6 +114,9 @@
 - `arcLength`: arc length
 - `area`: area
 - `boundingBox`: bounding box
+- `circumcenter`: circumcenter
+- `circumcircle`: circumcircle
+- `circumradius`: circumradius
 - `circumference`: circumference
 - `coordinateBoundingBox`: bounding box
 - `coordinateBounds`: coordinate bounds
