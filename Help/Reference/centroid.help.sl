@@ -41,9 +41,18 @@ Find the centroid of a `Polygon`:
 [1/2 1/2]
 ```
 
+Draw a regular eight polygon and its centroid:
+
+~~~spl svg=A
+let p = 8.regularPolygon([0 0], 1, 0);
+[p, p.centroid.Point].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/centroid-A.svg)
+
 * * *
 
-See also: Circle, Line, Polygon, Rectangle
+See also: Circle, Line, Polygon, polygonCentroid, Rectangle
 
 References:
 _Mathematica_

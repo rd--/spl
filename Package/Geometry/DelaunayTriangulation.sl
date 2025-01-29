@@ -10,6 +10,10 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		].LineDrawing
 	}
 
+	basicCoordinates { :self |
+		<primitive: return _self.triangulation.coords;>
+	}
+
 	basicConvexHullIndices { :self |
 		<primitive: return Array.from(_self.triangulation.hull);>
 	}
@@ -35,6 +39,25 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 
 	basicFaceIndices { :self |
 		<primitive: return Array.from(_self.triangulation.triangles);>
+	}
+
+	basicVoronoiEdgeList { :self |
+		<primitive:
+		const delaunay = _self.triangulation;
+		const answer = [];
+		for (let e = 0; e < delaunay.triangles.length; e++) {
+			if (e < delaunay.halfedges[e]) {
+				const p = Math.floor(e / 3);;
+				const q = Math.floor(delaunay.halfedges[e] / 3);
+				answer.push([p, q]);
+			}
+		};
+		return answer;
+		>
+        }
+
+	convexHull { :self |
+		self.vertexCoordinates.atAll(self.convexHullIndices)
 	}
 
 	convexHullIndices { :self |
@@ -88,11 +111,40 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		[1 .. self.vertexCount]
 	}
 
+	voronoiEdgeList { :self |
+		self.basicVoronoiEdgeList + 1
+        }
+
+
 	voronoiVertexCoordinates { :self |
-		let v = self.vertexCoordinates;
+		let vertices = self.vertexCoordinates;
 		self.faceIndices.collect { :each |
-			v.atAll(each).circumcenter
+			vertices.atAll(each).circumcenter
 		}
+	}
+
+	voronoiExteriorCellRays { :self |
+		let answer = [self.vertexCount, 2].zeros;
+		let hull = self.convexHullIndices;
+		let coord = self.basicCoordinates;
+		let h = hull.last;
+		let p1 = h;
+		let x1 = coord[2 * h + 1];
+		let y1 = coord[2 * h + 2];
+		1.toDo(hull.size) { :i |
+			var p0, x0, y0, x, y;
+			h := hull[i];
+			p0 := p1;
+			x0 := x1;
+			y0 := y1;
+			p1 := h;
+			x1 := coord[2 * h + 1];
+			y1 := coord[2 * h + 2];
+			x := x1 - x0;
+			y := y0 - y1;
+			answer[p0 + 1] := answer[p1] := [y, x]
+		};
+		answer
 	}
 
 }

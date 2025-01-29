@@ -290,7 +290,7 @@ Point : [Object] { | coordinates |
 
 }
 
-+[List, Tuple] {
++List {
 
 	asPoint { :self |
 		Point(self.asList)

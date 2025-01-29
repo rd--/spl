@@ -62,7 +62,7 @@ _c_:
 let r = Sfc32(273214);
 let p = r.randomReal(-1, 1, [5, 2]);
 let d = DelaunayTriangulation(p);
-let h = p.atAll(d.convexHullIndices);
+let h = d.convexHull;
 let v = d.voronoiVertexCoordinates;
 let c = d.faceIndices.collect { :each |
 	p.atAll(each).circumcircle
@@ -76,6 +76,30 @@ let c = d.faceIndices.collect { :each |
 ~~~
 
 ![](sw/spl/Help/Image/DelaunayTriangulation-D.svg)
+
+Draw a set of seventeen random points,
+_p_,
+their `voronoiVertexCoordinates`,
+_v_,
+and the `voronoiEdgeList` connecting _v_,
+_e_:
+
+~~~spl svg=E
+let r = Sfc32(789147);
+let p = r.randomReal(-1, 1, [17, 2]);
+let d = DelaunayTriangulation(p);
+let v = d.voronoiVertexCoordinates;
+let e = d.voronoiEdgeList.collect { : each |
+	v.atAll(each)
+};
+[
+	p.PointCloud,
+	v.PointCloud,
+	e.Line
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/DelaunayTriangulation-E.svg)
 
 * * *
 
