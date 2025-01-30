@@ -918,8 +918,16 @@
 	}
 
 	first { :self :n |
-		let i = 1;
-		self.copyFromTo(i, i + n - 1)
+		self.copyFromTo(1, n)
+	}
+
+	first { :self :n :zero |
+		let k = self.size;
+		(k >= n).if {
+			self.copyFromTo(1, n)
+		} {
+			self ++ (zero # (n - k))
+		}
 	}
 
 	fisherYatesShuffle { :self :rng |
@@ -1490,6 +1498,15 @@
 	last { :self :n |
 		let i = self.size;
 		self.copyFromTo(i - n + 1, i)
+	}
+
+	last { :self :n :zero |
+		let i = self.size;
+		(i >= n).if {
+			self.copyFromTo(i - n + 1, i)
+		} {
+			(zero # (n - i)) ++ self
+		}
 	}
 
 	lastIndexOf { :self :anElement |

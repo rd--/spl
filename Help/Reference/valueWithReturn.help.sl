@@ -4,11 +4,29 @@
 
 Non-local control flow.
 Provides a return block to _aBlock_, which can be used exit directly from _aBlock_, returning a value.
-By convention the return block is called return.
+
+In the example below if _k_ were between one and nine the answer would be `one`,
+but it is not and the answer is negative `one`:
+
+```
+>>> let k = 23;
+>>> { :f |
+>>> 	1.toDo(9) { :i |
+>>> 		(i = k).ifTrue {
+>>> 			f.value(1)
+>>> 		}
+>>> 	};
+>>> 	-1
+>>> }.valueWithReturn
+-1
+```
+
+By convention the return block is called return:/1.
+`repeat` repeats a block until it exits non-locally:
 
 ```
 >>> let count = 1;
->>> let answer = valueWithReturn { :return:/1 |
+>>> let answer = { :return:/1 |
 >>> 	{
 >>> 		(count > 99).if {
 >>> 			count.return
@@ -16,7 +34,7 @@ By convention the return block is called return.
 >>> 			count := count + 1
 >>> 		}
 >>> 	}.repeat
->>> };
+>>> }.valueWithReturn;
 >>> answer
 100
 ```
@@ -29,8 +47,12 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 * * *
 
-See also: repeat
+See also: Block, repeat, value
 
 Guides: Non-local Return
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Function.html#-block)
 
 Unicode: U+2193 ↓ Downwards Arrow, U+2191 ↑ Upwards Arrow

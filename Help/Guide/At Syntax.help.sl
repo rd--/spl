@@ -8,61 +8,61 @@ Rewrite rule:
 
 Syntax for the `at` protocol.
 
+At `Range`:
+
+```
+>>> let aRange = 9.iota.reversed;
+>>> aRange[7]
+3
+```
+
 At `List`:
 
 ```
->>> let list = [1 2 3 4 5 6];
->>> list[3]
+>>> let aList = [9 .. 1];
+>>> aList[7]
 3
 ```
 
 At `Record`:
 
 ```
->>> let record = (x: 1, y: 2, z: 3);
->>> record['z']
+>>> let aRecord = (x: 1, y: 2, z: 3);
+>>> aRecord['z']
 3
 ```
 
-At List of List:
+At a `List` of lists:
 
 ```
->>> let list = [1 2; 3 4; 5 6];
->>> list[2, 2]
-4
+>>> let aMatrix = [4 2].iota;
+>>> aMatrix[2, 1]
+3
 ```
 
-At Record of Record:
+At a `Record` of records:
 
 ```
->>> let record = (x: (p: 1), y: (q: 2), z: (r: 3));
->>> record['y', 'q']
-2
+>>> let aRecord = (x: (p: 1), y: (q: 2), z: (r: 3));
+>>> aRecord['z', 'r']
+3
 ```
 
 _Note:_
 This syntax is for accessing containers that support multiple indices, such as a matrix.
-It is not a syntax for the _atAll_ protocol.
+It is not a syntax for the `atAll` protocol, see `AtAll Syntax`.
 
 ```
->>> let list = [1 .. 9];
->>> list.atAll([1 3 7])
-[1 3 7]
-```
-
-The @* operator expresses this method succinctly:
-
-```
->>> let list = [1 .. 9];
->>> list @* [1 3 7]
-[1 3 7]
+>>> let aMatrix = [5 5].iota;
+>>> aMatrix[1:5, 3:3]
+[3; 8; 13; 18; 23]
 ```
 
 * * *
 
-See also: @*
+See also: @, at, atAll, List, Range, Record
 
-Guides: AtPut Syntax, Quoted At Syntax
+Guides: AtAll Syntax, AtPut Syntax, Quoted At Syntax
 
 References:
 _Apl_

@@ -124,6 +124,10 @@
 		self.collect(degree:/1)
 	}
 
+	decrement { :self |
+		self.collect(decrement:/1)
+	}
+
 	degreesToRadians { :self |
 		self.collect(degreesToRadians:/1)
 	}
@@ -196,6 +200,10 @@
 		self.collect(harmonicNumber:/1)
 	}
 
+	halved { :self |
+		self.collect(halved:/1)
+	}
+
 	haversine { :self |
 		self.collect(haversine:/1)
 	}
@@ -206,6 +214,10 @@
 
 	imaginary { :self |
 		self.collect(imaginary:/1)
+	}
+
+	increment { :self |
+		self.collect(increment:/1)
 	}
 
 	integerDigits { :self :base :count |

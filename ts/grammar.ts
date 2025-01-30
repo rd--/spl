@@ -49,6 +49,7 @@ Sl {
 		// | AtPutDelegateSyntax
 		// | WriteSlotSyntax
 		// | AtIfAbsentSyntax
+		| AtAllSyntax
 		| AtSyntax
 		// | QuotedAtIfAbsentSyntax
 		// | QuotedAtIfAbsentPutSyntax
@@ -84,6 +85,7 @@ Sl {
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
+	AtAllSyntax = Primary "[" NonemptyListOf<(rangeLiteral | ListExpression), ","> "]"
 	// AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
 	// AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	QuotedAtSyntax = Primary "::" keyName

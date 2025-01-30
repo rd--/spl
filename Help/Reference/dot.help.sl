@@ -217,6 +217,9 @@ Product of exact 3×2 and 2×3 matrices:
 		14 20
 	]
 )
+
+>>> [4 3 8; 6 5 3].dot([5 4; 9 6; 4 2])
+[79 50; 87 60]
 ```
 
 Project the vector _(-1, 3)_ on the line spanned by the vector _(1, 1)_:

@@ -74,6 +74,8 @@ _J_
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=ithprime),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Prime.html)
+[1](https://reference.wolfram.com/language/ref/Prime.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Integer.html#-nthPrime)
 
 Categories: Math

@@ -208,6 +208,10 @@
 		self * self * self
 	}
 
+	decrement { :self |
+		self - 1
+	}
+
 	degree { :self |
 		self * 0.017453292519943295
 	}
@@ -366,6 +370,10 @@
 
 	imaginary { :self |
 		self.zero
+	}
+
+	increment { :self |
+		self + 1
 	}
 
 	inf { :self |

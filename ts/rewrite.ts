@@ -424,6 +424,10 @@ const asJs: ohm.ActionDict<string> = {
 		const elem = k.asIteration().children;
 		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${commaList(elem)})`;
 	},
+	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
+		const elem = k.asIteration().children;
+		return `_${genName('atAll', 1 + elem.length)}(${c.asJs}, ${commaList(elem)})`;
+	},
 	/*
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
 		return `_${

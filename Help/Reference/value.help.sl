@@ -75,7 +75,7 @@ This mode is off by default.
 
 * * *
 
-See also: also, Association, Block, cull, identity, in, with
+See also: also, Association, Block, cull, identity, in, valueWithReturn, with
 
 Guides: Value Protocol
 

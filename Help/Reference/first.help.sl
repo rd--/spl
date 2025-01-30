@@ -2,6 +2,7 @@
 
 - _first(aSequence)_
 - _first(aSequence, anInteger)_
+- _first(aSequence, anInteger, anObject)_
 
 The unary form answers the first element of _aSequence_.
 
@@ -33,11 +34,24 @@ The first element in a sorted list is the same as finding the minimum element:
 1
 ```
 
+The ternary form will fill missing places with the specified value.
+Convert a list to a fixed size:
+
+```
+>>> [3 1 4 1 5 9 6 2 3 5].first(6, 0)
+[3 1 4 5 9]
+
+>>> [3 1 4].first(6, 0)
+[3 1 4 0 0 0]
+```
+
 * * *
 
 See also: firstIndex, fourth, last, middle, second, third
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot#dyadic),
 _Smalltalk_
 5.7.8.17
 

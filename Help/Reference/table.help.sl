@@ -163,9 +163,30 @@ it answers a Block that will apply the ternary form:
 ```
 >>> 1:3 *.table 1:5
 [
-	1 2 3 4 5;
-	2 4 6 8 10;
-	3 6 9 12 15
+	1  2  3  4  5;
+	2  4  6  8 10;
+	3  6  9 12 15
+]
+
+>>> let i = 6.iota;
+>>> i *.table i
+[
+	1  2  3  4  5  6;
+	2  4  6  8 10 12;
+	3  6  9 12 15 18;
+	4  8 12 16 20 24;
+	5 10 15 20 25 30;
+	6 12 18 24 30 36
+]
+```
+
+Show the truth table for a given `Boolean` verb:
+
+```
+>>> [true false] &&.table [true false]
+[
+	true false;
+	false false
 ]
 ```
 
@@ -205,8 +226,10 @@ nthPrime:/1.table(1:50).linePlot
 
 * * *
 
-See also: collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, withCollect
+See also: collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/slash#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Table.html)

@@ -7,6 +7,12 @@ Answer a `List`, possibly empty, of all the indices of _anObject_ in _aCollectio
 At `List`:
 
 ```
+>>> [0 0 1 0 1 0].indicesOf(1)
+[3 5]
+
+>>> ([3 1 4] > [1 5 9]).indicesOf(true)
+[1]
+
 >>> [1 2 3 2 3 4 3 4 5].indicesOf(3)
 [3 5 7]
 
@@ -36,6 +42,8 @@ At `String`:
 See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/icapdot),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Position.html)
 

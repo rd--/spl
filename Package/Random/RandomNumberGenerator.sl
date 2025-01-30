@@ -21,7 +21,13 @@
 	}
 
 	randomBit { :self :probablity :shape |
-		{ (self.nextRandomFloat < probablity).boole } ! shape
+		self.randomBoolean(probablity, shape).boole
+	}
+
+	randomBoolean { :self :probablity :shape |
+		{
+			(self.nextRandomFloat < probablity)
+		} ! shape
 	}
 
 	randomByteArray { :self :n |

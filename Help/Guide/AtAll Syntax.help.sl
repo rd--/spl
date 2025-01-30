@@ -1,0 +1,65 @@
+# AtAll Syntax
+
+Rewrite rule,
+where _i_ and _j_ are instances of `Range Syntax` or `List Syntax`:
+
+- _c[i]_ ⟹ _atAll(c, i, j)_
+- _c[i, j]_ ⟹ _atAll(c, i, j)_
+- _&etc_
+
+Syntax for the `atAll` protocol.
+
+At `Range`:
+
+```
+>>> let aRange = 9.iota.reversed;
+>>> (aRange[3:7], aRange[[7, 3]])
+([7 6 5 4 3], [3 7])
+```
+
+At `List`:
+
+```
+>>> let aList = [9 .. 1];
+>>> (aList[3:7], aList[[7, 3]])
+([7 6 5 4 3], [3 7])
+```
+
+At a `List` of lists:
+
+```
+>>> let aMatrix = [5 5].iota;
+>>> (
+>>> 	aMatrix[1:2, 3:4],
+>>> 	aMatrix[[2, 1], [4, 3]]
+>>> )
+([3 4; 8 9], [9 8; 4 3])
+```
+
+Select one column of a matrix:
+
+```
+>>> let aMatrix = [5 5].iota;
+>>> aMatrix[1:5, 3:3]
+[3; 8; 13; 18; 23]
+```
+
+The @* operator expresses this operation succinctly at vectors:
+
+```
+>>> let aList = [9 .. 1];
+>>> aList @* 3:7
+[7 6 5 4 3]
+```
+
+* * *
+
+See also: @*, at, atAll, atPath
+
+Guides: At Syntax, AtPut Syntax, Quoted At Syntax
+
+References:
+_Apl_
+[1](https://aplwiki.com/wiki/Bracket_indexing)
+
+Categories: Syntax

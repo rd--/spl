@@ -54,6 +54,8 @@ The empty field will be _[[]]_, an empty matrix, not an empty vector:
 Where supported, `:;` is displayed as ↲.
 This suggests the Apl notation where matrices are separated by empty lines.
 
+In _J_ three dimensional arrays are called _bricks_.
+
 * * *
 
 See also: Array Syntax, List Syntax, Matrix Syntax, Vector Syntax

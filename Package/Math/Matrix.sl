@@ -119,7 +119,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	antidiagonal { :self :k |
 		let m = self.assertIsMatrix('@Sequence>>antidiagonal');
 		let l = m.shape.min - k.abs;
-		(1 .. l).collect { :i |
+		(l .. 1).collect { :i |
 			let r = l - i + 1 - k.min(0);
 			let c = i - k.min(0);
 			m[r][c]
