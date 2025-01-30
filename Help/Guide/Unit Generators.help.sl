@@ -36,6 +36,15 @@
 - `HenonC`: Henon map chaotic generator
 - `LatoocarfianC`: latoocarfian chaotic generator
 
+## Comparison
+
+- `Equal`
+- `GreaterThanOrEqual`
+- `GreaterThan`
+- `LessThanOrEqual`
+- `LessThan`
+- `Unequal`
+
 ## Control Signals
 
 - `Integrator`: leaky integrator
@@ -150,12 +159,13 @@
 - `Cosh`: hyperbolic cosine
 - `Cubed`: cubed value
 - `Exp`: exponential
+- `Divide`: division
 - `Floor`: next lower integer
 - `Fold`: fold a signal outside given thresholds
 - `Fold2`: bilateral folding
 - `Gcd`: greatest common divisor
-- `Frac`: fractional part
-- `Hypot`: hypotenuse
+- `FractionPart`: fractional part
+- `Hypotenuse`: hypotenuse
 - `Lcm`: least common multiple
 - `Log`: natural logarithm
 - `Log10`: base 10 logarithm
@@ -164,14 +174,17 @@
 - `Min`: minimum
 - `ModDif`: minimum difference of two values in modulo arithmetics
 - `MulAdd`: multiply and add
-- `Neg`: negation (inversion)
-- `Pow`: raised to
-- `Recip`: reciprocal
+- `Minus`: minus (negation, inversion)
+- `Plus`: addition
+- `Power`: raised to
+- `Quotient`: quotient
+- `Reciprocal`: reciprocal
 - `RoundTo`: round to multiple of
 - `Sin`: sine
 - `Sinh`: hyperbolic sine
 - `Sqrt`: square root
 - `Squared`: squared value
+- `Subtract`: subtraction
 - `Tan`: tangent
 - `Tanh`: hyperbolic tangent
 - `Wrap`: wrap a signal outside given thresholds

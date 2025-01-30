@@ -26,7 +26,7 @@ with unicode symbols:
 If the symbol names are elided the letters of the greek alphabet are used:
 
 ```
->>> Hypot:/2
+>>> Hypotenuse:/2
 >>> .asSymbolicExpression
 >>> .printString
 '(sqrt (+ (* α α) (* β β)))'

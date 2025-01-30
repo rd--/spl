@@ -670,6 +670,13 @@
 		self.quotientBy(aNumber, truncated:/1)
 	}
 
+	quotientRemainder { :self :aNumber |
+		[
+			self.quotient(aNumber),
+			self.remainder(aNumber)
+		]
+	}
+
 	radiansToDegrees { :self |
 		self * 57.29577951308232286465 /* 1/180.pi */
 	}

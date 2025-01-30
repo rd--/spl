@@ -2,11 +2,11 @@
 { :tr |
 	let trRand = { :tr :lo :hi | TRand(lo, hi, tr) };
 	let trExpRand = { :tr :lo :hi | TExpRand(lo, hi, tr) };
-	let r = tr.trRand(-0.2, [0.1, 0.2]).Exp.Mul(11).Fold(1, 30);
+	let r = tr.trRand(-0.2, [0.1, 0.2]).Exp.Times(11).Fold(1, 30);
 	r.Formant(
 		tr.trExpRand([200, 300], 3000),
 		tr.trRand([0, 1], 9).MulAdd(r, r)
-	).Mul(0.05)
+	).Times(0.05)
 }.OverlapTexture(0.5, 0.25, 5).Mix
 
 /* Alien meadow (Jmcc) #6 ; left-to-right */
@@ -29,30 +29,30 @@
 )
 .MidiCps
 .SinOsc(0)
-.Mul(0.04)
+.Times(0.04)
 .CombN(0.2, 0.2, 4)
-.Mul(0.1)
+.Times(0.1)
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
-0.4.LfSaw(0).Mul(24).Add([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Mul(0.04).CombN(0.2, 0.2, 4).Mul(0.1)
+0.4.LfSaw(0).Times(24).Plus([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Times(0.04).CombN(0.2, 0.2, 4).Times(0.1)
 
 /* Analog bubbles (Jmcc) ; Alternate linearisation */
 [8 7.23]
 .LfSaw(0)
 .MulAdd(3, 80)
-.Add(
+.Plus(
 	0.4
 	.LfSaw(0)
-	.Mul(24)
+	.Times(24)
 )
 .MidiCps
 .SinOsc(0)
-.Mul(0.05)
+.Times(0.05)
 .CombN(0.2, 0.2, 4)
-.Mul(0.1)
+.Times(0.1)
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
-[8, 7.23].LfSaw(0).MulAdd(3, 80).Add(0.4.LfSaw(0).Mul(24)).MidiCps.SinOsc(0).Mul(0.05).CombN(0.2, 0.2, 4).Mul(0.1)
+[8, 7.23].LfSaw(0).MulAdd(3, 80).Plus(0.4.LfSaw(0).Times(24)).MidiCps.SinOsc(0).Times(0.05).CombN(0.2, 0.2, 4).Times(0.1)
 
 /* Analog bubbles (Jmcc) #1 ; variable bindings */
 let o = LfSaw([8, 7.23], 0) * 3 + 80;
@@ -187,8 +187,8 @@ let s = Pan2(SinOsc(f, 0) * a, LfNoise1(Rand(0, 5)), 1);
 { :tr |
 	let trRand = { :lo :hi | TRand(lo, hi, tr) };
 	let f = LfNoise1(trRand(0, 0.3)).MulAdd(60, 70).MidiCps;
-	let a = LfNoise2(f.Mul(trRand(0, 0.5))).Mul((LfNoise1(trRand(0, 8)).Mul(SinOsc(trRand(0, 40), 0)).Mul(0.1)).Max(0));
-	let s = SinOsc(f, 0).Mul(a).Pan2(LfNoise1(trRand(0, 5)), 1);
+	let a = LfNoise2(f.Times(trRand(0, 0.5))).Times((LfNoise1(trRand(0, 8)).Times(SinOsc(trRand(0, 40), 0)).Times(0.1)).Max(0));
+	let s = SinOsc(f, 0).Times(a).Pan2(LfNoise1(trRand(0, 5)), 1);
 	{ s.CombN(0.5, { trRand(0, 0.2) + 0.3 } ! 2, 20) } !+ 2 + s
 }.OverlapTexture(12, 4, 4).Mix
 
@@ -197,8 +197,8 @@ let txt = { :tr |
 	let f = TRand(0, 50, tr).MulAdd(1, 30).MidiCps;
 	SyncSaw(
 		[f, f + 0.2],
-		SinOsc(0.2, { TRand(0, 1.pi, tr).Mul(2) } ! 2).Mul(2).MulAdd(f, f * 3)
-	).Mul(0.05)
+		SinOsc(0.2, { TRand(0, 1.pi, tr).Times(2) } ! 2).Times(2).MulAdd(f, f * 3)
+	).Times(0.05)
 }.OverlapTexture(4, 4, 4).Mix;
 txt.CombN(0.3, 0.3, 4) + txt.reversed
 
@@ -356,12 +356,12 @@ CombN(
 ) * 0.1 /* echoing sine wave */
 
 /* Analog bubbles (Jmcc) #1 ; left-to-right */
-0.4.LfSaw(0).Mul(24).Add([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Mul(0.04).CombN(0.2, 0.2, 4)
+0.4.LfSaw(0).Times(24).Plus([8, 7.23].LfSaw(0).MulAdd(3, 80)).MidiCps.SinOsc(0).Times(0.04).CombN(0.2, 0.2, 4)
 
 /* Analog bubbles (Jmcc) #1 ; left-to-right */
 let o = LfSaw([8, 7.23], 0).MulAdd(3, 80);
 let m = LfSaw(0.4, 0).MulAdd(24, o);
-SinOsc(m.MidiCps, 0).Mul(0.04).CombN(0.2, 0.2, 4)
+SinOsc(m.MidiCps, 0).Times(0.04).CombN(0.2, 0.2, 4)
 
 /* Babbling brook (Jmcc) #SC3 ; left-to-right */
 let b = { :f :m :a :g |
@@ -370,7 +370,7 @@ let b = { :f :m :a :g |
 		.Rhpf(BrownNoise()
 			.Lpf(f)
 			.MulAdd(m, a), 0.03)
-		.Mul(g)
+		.Times(g)
 };
 [
 	{ b(14, 400, 500, 0.06) } ! 2,
@@ -378,16 +378,16 @@ let b = { :f :m :a :g |
 ].Sum
 
 /* Coolant (Jmcc) ; requires=filterMethods */
-{ BrownNoise().Mul(0.002).OnePole(0.95).RingzBank({ 40 + 2000.Rand0 } ! 10, [0.1], [1]) } ! 2
+{ BrownNoise().Times(0.002).OnePole(0.95).RingzBank({ 40 + 2000.Rand0 } ! 10, [0.1], [1]) } ! 2
 
 /* Modal space (Jmcc) #8 ; left-to-right */
 let b = [0 2 3.2 5 7 9 10].asLocalBuf;
 let k = DegreeToKey(b, MouseX(0, 15, 0, 0.1), 12);
 let c = { :n :r |
-	let o = SinOsc((k + r + (n * 0.04)).MidiCps, 0).Mul(0.1);
+	let o = SinOsc((k + r + (n * 0.04)).MidiCps, 0).Times(0.1);
 	let t = LfPulse([48, 55].MidiCps, 0, 0.15);
 	let f = SinOsc(0.1, 0).MulAdd(10, r).MidiCps;
-	let d = t.Rlpf(f, 0.1).Mul(0.1);
+	let d = t.Rlpf(f, 0.1).Times(0.1);
 	let m = o + d;
 	m.CombN(0.31, 0.31, 2) + m
 };
@@ -480,7 +480,7 @@ let z = { :tr |
 z
 
 /* Scratchy ; Jmcc ; left-to-right */
-BrownNoise(0.5 # 2, -0.49).Max(0).Mul(20).Rhpf(5000, 1)
+BrownNoise(0.5 # 2, -0.49).Max(0).Times(20).Rhpf(5000, 1)
 
 /* Slow beating sines (Jmcc) #7 ; texture=xFade,4,4,inf */
 let n = 20;
@@ -535,7 +535,7 @@ let r = MouseX(
 	warp: 1,
 	lag: 0.1
 );
-let t = r.Recip;
+let t = r.Reciprocal;
 let c = Impulse(
 	freq: r,
 	phase: 0

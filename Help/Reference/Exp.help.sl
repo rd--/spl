@@ -14,7 +14,7 @@ At `SmallFloat`:
 
 * * *
 
-See also: ^, e, Log, Pow
+See also: ^, e, Log, Power
 
 References:
 _Csound_

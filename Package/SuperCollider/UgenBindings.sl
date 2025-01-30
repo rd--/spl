@@ -318,10 +318,10 @@
 
 /* Auto-generated */
 +[List, Ugen] {
-	Neg { :self | <primitive: return sc.Neg(_self);> }
+	Minus { :self | <primitive: return sc.Neg(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
 	Cubed { :self | <primitive: return sc.Cubed(_self);> }
-	Recip { :self | <primitive: return sc.Recip(_self);> }
+	Reciprocal { :self | <primitive: return sc.Recip(_self);> }
 	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
 	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }
 	MidiRatio { :self | <primitive: return sc.MidiRatio(_self);> }
@@ -337,7 +337,7 @@
 	Abs { :self | <primitive: return sc.Abs(_self);> }
 	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
-	Frac { :self | <primitive: return sc.Frac(_self);> }
+	FractionPart { :self | <primitive: return sc.Frac(_self);> }
 	Sign { :self | <primitive: return sc.Sign(_self);> }
 	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
 	Exp { :self | <primitive: return sc.Exp(_self);> }
@@ -365,18 +365,18 @@
 
 /* Auto-generated */
 +[List, SmallFloat, Ugen] {
-	Add { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
-	Sub { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
-	Mul { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
-	Idiv { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
-	Fdiv { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
+	Plus { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
+	Subtract { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
+	Times { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
+	Quotient { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
+	Divide { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
 	Mod { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
-	Eq { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
-	Ne { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
-	Lt { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
-	Gt { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
-	Le { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
-	Ge { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
+	Equal { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
+	Unequal { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
+	LessThan { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
+	GreaterThan { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
+	LessThanOrEqual { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
+	GreaterThanOrEqual { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
 	Min { :self :anObject | <primitive: return sc.Min(_self, _anObject);> }
 	Max { :self :anObject | <primitive: return sc.Max(_self, _anObject);> }
 	BitAnd { :self :anObject | <primitive: return sc.BitAnd(_self, _anObject);> }
@@ -384,10 +384,10 @@
 	Lcm { :self :anObject | <primitive: return sc.Lcm(_self, _anObject);> }
 	Gcd { :self :anObject | <primitive: return sc.Gcd(_self, _anObject);> }
 	RoundTo { :self :anObject | <primitive: return sc.RoundTo(_self, _anObject);> }
-	Trunc { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
+	IntegerPart { :self :anObject | <primitive: return sc.Trunc(_self, _anObject);> }
 	Atan2 { :self :anObject | <primitive: return sc.Atan2(_self, _anObject);> }
-	Hypot { :self :anObject | <primitive: return sc.Hypot(_self, _anObject);> }
-	Pow { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
+	Hypotenuse { :self :anObject | <primitive: return sc.Hypot(_self, _anObject);> }
+	Power { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
 	ShiftLeft { :self :anObject | <primitive: return sc.ShiftLeft(_self, _anObject);> }
 	ShiftRight { :self :anObject | <primitive: return sc.ShiftRight(_self, _anObject);> }
 	AmClip { :self :anObject | <primitive: return sc.AmClip(_self, _anObject);> }
@@ -427,27 +427,26 @@
 	}
 
 	truncateTo { :self :anObject |
-		Trunc(self, anObject)
+		IntegerPart(self, anObject)
 	}
 
 	UnitCps { :self |
 		(self * 100).MidiCps
 	}
 
-	^ { :self :anObject | <primitive: return sc.Pow(_self, _anObject);> }
-
-	+ { :self :anObject | Add(self, anObject) }
-	* { :self :anObject | Mul(self, anObject) }
-	- { :self :anObject | Sub(self, anObject) }
-	/ { :self :anObject | Fdiv(self, anObject) }
-	// { :self :anObject | Idiv(self, anObject) }
+	^ { :self :anObject | Power(self, anObject) }
+	+ { :self :anObject | Plus(self, anObject) }
+	* { :self :anObject | Times(self, anObject) }
+	- { :self :anObject | Subtract(self, anObject) }
+	/ { :self :anObject | Divide(self, anObject) }
+	// { :self :anObject | Quotient(self, anObject) }
 	% { :self :anObject | Mod(self, anObject) }
-	= { :self :anObject | Eq(self, anObject) }
-	~= { :self :anObject | Ne(self, anObject) }
-	< { :self :anObject | Lt(self, anObject) }
-	> { :self :anObject | Gt(self, anObject) }
-	<= { :self :anObject | Le(self, anObject) }
-	>= { :self :anObject | Ge(self, anObject) }
+	= { :self :anObject | Equal(self, anObject) }
+	~= { :self :anObject | Unequal(self, anObject) }
+	< { :self :anObject | LessThan(self, anObject) }
+	> { :self :anObject | GreaterThan(self, anObject) }
+	<= { :self :anObject | LessThanOrEqual(self, anObject) }
+	>= { :self :anObject | GreaterThanOrEqual(self, anObject) }
 	<< { :self :anObject | ShiftLeft(self, anObject) }
 	>> { :self :anObject | ShiftRight(self, anObject) }
 
@@ -491,7 +490,7 @@
 		}
 	}
 
-	Pow { :self :aNumber |
+	Power { :self :aNumber |
 		self.isNegative.if {
 			(self.negated ^ aNumber).negated
 		} {

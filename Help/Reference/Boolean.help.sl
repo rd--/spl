@@ -35,7 +35,7 @@ See also: &, &&, |, ||, false, not, true, xor
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#t:Bool),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Bool),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Booleans.html),
 _Smalltalk_

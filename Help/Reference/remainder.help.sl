@@ -75,8 +75,8 @@ See also: \\, quotient, remainderBy
 
 References:
 _Haskell_:
-[1](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:rem)
-[2](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:mod),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:rem)
+[2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:mod),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bar#dyadic),
 _Mathematica_

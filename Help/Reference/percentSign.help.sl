@@ -78,6 +78,39 @@ Plot the sequence, varying the modulus:
 
 ![](sw/spl/Help/Image/percentSign-B.svg)
 
+Binomial coefficients modulo two:
+
+~~~spl png=C
+let k = (0n .. 64n);
+{ :i :j |
+	(i >= j).if {
+		i.binomial(j) % 2
+	} {
+		0
+	}
+}.table(k, k).Bitmap
+~~~
+
+![](sw/spl/Help/Image/percentSign-C.png)
+
+Plot of an Ulam spiral where numbers are colored based on their congruence:
+
+~~~spl png=D
+(109.ulamSpiralMatrix % 109 / 109).Graymap
+~~~
+
+![](sw/spl/Help/Image/percentSign-D.png)
+
+Modular addition tables:
+
+~~~spl svg=E
+{ :a :b |
+	a + b % 4
+}.table(0:8, 0:8).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-E.svg)
+
 The name of this operator is `percentSign`.
 
 * * *

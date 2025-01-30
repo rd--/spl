@@ -324,7 +324,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return _self % 1;>
 	}
 
-	hypot { :self :anObject |
+	hypotenuse { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return Math.hypot(_self, _anObject);

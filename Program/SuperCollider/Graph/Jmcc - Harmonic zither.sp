@@ -5,7 +5,7 @@ let panSpacing = 1.5 / (pitch.size - 1);
 let strings = pitch.indices.collect { :i |
 	let trigger = Hpz1(MouseX(0, 1, 0, 0.2) > (0.25 + i * triggerSpacing)).Abs;
 	let pluck = PinkNoise() * Decay(trigger, 0.05);
-	let period = pitch[i].MidiCps.Recip;
+	let period = pitch[i].MidiCps.Reciprocal;
 	let string = CombL(pluck, period, period, 8);
 	EqPan(string, i - 1 * panSpacing - 0.75)
 };

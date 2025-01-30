@@ -56,7 +56,7 @@ C.f. `hypot`:
 >>> [3 4].norm
 5
 
->>> 3.hypot(4)
+>>> 3.hypotenuse(4)
 5
 ```
 

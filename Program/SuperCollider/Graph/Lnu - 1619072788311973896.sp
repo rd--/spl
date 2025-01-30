@@ -8,7 +8,7 @@ let n = c / c.Sum;
 let o = SinOsc(c.Log10 * c, 0);
 let r = TChoose(
 	Dust(1 + m),
-	[c.Sum, n, c.RoundTo(32), n.Atan2(m), c.Sin, c.Tan, n.Hypot(c)]
+	[c.Sum, n, c.RoundTo(32), n.Atan2(m), c.Sin, c.Tan, n.Hypotenuse(c)]
 );
 let e = ((LfSaw(c.Tan / m, 0).Abs ^ r.Max(0)).Log10.Sin.Abs ^ 10).Tanh;
 Splay(

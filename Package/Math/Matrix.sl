@@ -874,7 +874,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		1.toDo(n) { :k |
 			let norm = 0;
 			k.toDo(m) { :i |
-				norm := norm.hypot(qr[i][k])
+				norm := norm.hypotenuse(qr[i][k])
 			};
 			norm.isZero.ifFalse {
 				(qr[k][k] < 0).ifTrue {
@@ -1312,6 +1312,17 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			}
 		};
 		answer
+	}
+
+	ulamSpiralMatrix { :n |
+		[1 .. n ^ 2].permute(
+			[
+				[n ^ 2 + 1] / 2,
+				{ :j :i |
+					-1 ^ j * i # j
+				}.table(1:n, [-1, n])
+			].flatten.take(n ^ 2).accumulate
+		).partition(n)
 	}
 
 }

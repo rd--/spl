@@ -424,13 +424,13 @@ Splay(
 		33 * n(),
 		0,
 		LfSaw(1 / 3 * n(), 0) * LfSaw(n() / 3, 0)
-	) * (LfSaw(5 / 3, 0) * (LfSaw(7 / 3 * n().Neg, 0).Tan)).Abs
+	) * (LfSaw(5 / 3, 0) * (LfSaw(7 / 3 * n().Minus, 0).Tan)).Abs
 ).Tanh
 
 /* 12 Juli 2019 ; https://github.com/lukiss/Losers-Union-SC-Research ; rd edit */
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
-	z.Ring1(z % 0.01).Hypot(z)
+	z.Ring1(z % 0.01).Hypotenuse(z)
 };
 let o = Formant(
 	f(f(3, 13), 220),
@@ -447,7 +447,7 @@ let a = Excess(
 let k = 8;
 let f = { :freq :mul |
 	let z = LfdNoise3(freq) * mul;
-	z.Ring1(z % 0.01).Hypot(z)
+	z.Ring1(z % 0.01).Hypotenuse(z)
 };
 let o = Formant(
 	f(f(3, 13), 220),
@@ -537,7 +537,7 @@ let e = TChoose(
 		n.Atan2(m()),
 		c.Sin,
 		c.Tan,
-		n.Hypot(c)
+		n.Hypotenuse(c)
 	]
 );
 let a = ((LfSaw(c.Tan / m(), 0).Abs ^ e.Max(0)).Log10.Sin.Abs ^ 10).Tanh;
@@ -603,7 +603,7 @@ let l = { :lo :hi |
 };
 let a = { l(0.001, 1) } ! 6;
 let f = l(12, 999);
-let e = Env(a, a / a.Sum / f, a.Neg * 9, nil, nil, 0).circle(0, 'lin').asEnvGen(1);
+let e = Env(a, a / a.Sum / f, a.Minus * 9, nil, nil, 0).circle(0, 'lin').asEnvGen(1);
 let g = Perc(e > 0.1, 0.005, 0.9 / f, -4);
 let p = (1 - g).LinLin(0, 1, -1, 1);
 (XFade2(e, (e * f).Sin, p, 1) + g).Tanh.Splay

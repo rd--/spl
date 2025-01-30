@@ -5,7 +5,7 @@ let m = {
 let v = LfTri(m(), 0) * 0.001 + 0.6;
 let c = {
 	Choose(
-		CuspN(120 * m().Hypot(v.Tan) ^ v, 1, 1.9, 0),
+		CuspN(120 * m().Hypotenuse(v.Tan) ^ v, 1, 1.9, 0),
 		[0 5.1 -4.7 -12 7]
 	)
 };
@@ -22,7 +22,7 @@ let f = { :a |
 Splay2(
 	[0 3.1 7.05 10 -9 17].collect { :n |
 		EqPan2(
-			f(c() + 52 + n) * (12 * m().Neg).DbAmp,
+			f(c() + 52 + n) * (12 * m().Minus).DbAmp,
 			LfNoise2(500)
 		)
 	},

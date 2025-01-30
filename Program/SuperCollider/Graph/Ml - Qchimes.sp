@@ -18,6 +18,6 @@ Voicer(1, 16) { :e |
 	let amp = { Rand(0.1, 0.9) } ! numPartials;
 	let dcy = { Rand(0.5, 9) } ! numPartials;
 	let osc = DynRingzBank(sig, freq, amp, dcy);
-	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.Recip; /* Note .kr! */
+	let env = LagUd(e.w * e.z, 0.5, 8).kr * 0.1 * numPartials.Reciprocal; /* Note .kr! */
 	EqPan2(osc, e.i * 2 - 1) * env
 }.Mix

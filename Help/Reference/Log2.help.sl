@@ -5,7 +5,7 @@
 Base two logarithm.
 
 ```
->>> Log2(Pow(2, 10))
+>>> Log2(Power(2, 10))
 10
 ```
 
@@ -18,6 +18,6 @@ The `Log2` of the `Sqrt` of two is one half:
 
 * * *
 
-See also: Exp, Log, Log10, Pow, Sqrt
+See also: Exp, Log, Log10, Power, Sqrt
 
 Categories: Ugen

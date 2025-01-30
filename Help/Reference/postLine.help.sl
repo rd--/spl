@@ -45,7 +45,7 @@ See also: system, Transcript
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.20.0.0/docs/Prelude.html#v:print),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:print),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Print.html)
 [2](https://reference.wolfram.com/language/ref/Echo.html)

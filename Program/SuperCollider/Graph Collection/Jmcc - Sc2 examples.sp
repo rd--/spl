@@ -117,7 +117,7 @@ CombL(
 			1.Rand2
 		)
 	} !> n
-	+ LfNoise2(LfNoise2([0.4, 0.4]).MulAdd(90, 620)).Mul(LfNoise2([0.3, 0.3]).MulAdd(0.15, 0.18)),
+	+ LfNoise2(LfNoise2([0.4, 0.4]).MulAdd(90, 620)).Times(LfNoise2([0.3, 0.3]).MulAdd(0.15, 0.18)),
 	0.3, 0.3, 3)
 
 /********** analogue daze (commented) ; Jmcc **********/
@@ -155,7 +155,7 @@ let anaSynFunc = { :octave :clockRate :pwmrate :fltrate |
 /* analogue snare drum */
 let snare = Decay( /* an exponential decay envelope */
 	Impulse(2, 0), /* impulses trigger envelope at 2 beats per second */
-	0.15).Mul( /* 0.15 seconds to decay by 60 dB */
+	0.15).Times( /* 0.15 seconds to decay by 60 dB */
 		LfNoise0( /* step noise used as snare sound */
 			LfNoise1(0.3).MulAdd(6000, 8000)) * /* sweep the noise frequency between 2000 and 14000 Hz */
 		[0.07, 0.07]); /* amplitude (in stereo, causes whole snare subpatch to be stereo, see MultiChannel.help) */
@@ -225,7 +225,7 @@ let out = 1:8.collect { :ix |
 	let n = 15;
 	/* place trigger points from 0.25 to 0.75 */
 	let trigger = Hpz1(mousex > (0.25 + (ix - 1 * 0.07))).Abs;
-	let pluck = PinkNoise() * Decay(Impulse(14, 0).Mul(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
+	let pluck = PinkNoise() * Decay(Impulse(14, 0).Times(Lag(Trig(trigger, 1), 0.2) * 0.01), 0.04);
 	let freq = ([-2 0 3 5 7 10 12 15].at(ix) + 60).MidiCps;
 	let metal = RingzBank(pluck,
 		1:n * freq, /* frequencies */
@@ -278,7 +278,7 @@ AudioIn([1, 2])
 
 /********** Distort input ; Jmcc **********/
 let gain = MouseX(1, 100, 1, 0.2); /* mouse x controls gain into distortion */
-AudioIn([1, 2]).Mul(gain).Distort * 0.4
+AudioIn([1, 2]).Times(gain).Distort * 0.4
 
 /********** Ring modulate input ; Jmcc **********/
 let input = AudioIn([1, 2]);
@@ -423,8 +423,8 @@ CombN(
 /********** Aleatoric quartet ; mouse x controls density ; Jmcc **********/
 let amp = 0.07;
 let density = MouseX(0.01, 1, 0, 0.2); /* mouse determines density of excitation */
-let dmul = density.Recip * 0.5 * amp; /* calculate multiply and add for excitation probability */
-let dadd = dmul.Neg + amp;
+let dmul = density.Reciprocal * 0.5 * amp; /* calculate multiply and add for excitation probability */
+let dadd = dmul.Minus + amp;
 let signal = Sum( /* mix a list of 4 instruments */
 	{
 		/* if amplitude is below zero it is clipped, density determines the probability of being above zero */
@@ -453,8 +453,8 @@ let mix = SinOsc( /* lead tone */
 		MouseX(0, 15, 0, 0.2), /* mouse indexes into scale */
 		12) /* 12 notes per octave */
 		+ 72
-		+ LfNoise1([3 3]).Mul(0.04)).MidiCps,
+		+ LfNoise1([3 3]).Times(0.04)).MidiCps,
 	0) * 0.1
 + Rlpf(LfPulse([48 55].MidiCps, 0, 0.15), /* drone 5ths */
-	SinOsc(0.1, 0).MulAdd(10, 72).MidiCps, 0.1).Mul(0.1);
+	SinOsc(0.1, 0).MulAdd(10, 72).MidiCps, 0.1).Times(0.1);
 CombN(mix, 0.31, 0.31, 2) + mix

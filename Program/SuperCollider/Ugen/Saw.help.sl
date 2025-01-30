@@ -12,7 +12,7 @@ Saw(
 	SinOsc(0.2, 0)
 	.LinLin(-1, 1, [200 300 400], [600 700 800])
 	.Latch(Impulse([2 6], 0))
-).Sum.Mul(
+).Sum.Times(
 	Impulse([2 3], 0)
 	.Perc(0.01, 0.04, -4)
 	.Lag(10)

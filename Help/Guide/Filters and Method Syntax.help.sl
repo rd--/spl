@@ -13,9 +13,9 @@ let lfo = { :freq :lo :hi |
 	LfNoise2(freq).LinLin(-1, 1, lo, hi)
 };
 Dust([1, 3])
-.Mul(1 / 4)
+.Times(1 / 4)
 .Decay((1 / 3).lfo(1 / 5, 5 / 7))
-.Mul(PinkNoise())
+.Times(PinkNoise())
 .Bpf((1 / 3).lfo(700, 2300), (1 / 3).lfo(1 / 9, 3))
 .AllpassN(1 / 5, 1 / 5, lfo(1 / 3, 1 / 3, 3))
 ```

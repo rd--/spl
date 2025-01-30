@@ -81,8 +81,8 @@ See also: //, quotientBy, remainder
 
 References:
 _Haskell_:
-[1](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:quot)
-[2](https://hackage.haskell.org/package/base-4.19.0.0/docs/Prelude.html#v:div),
+[1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:quot)
+[2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:div),
 _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerDivision.html)
 [2](https://mathworld.wolfram.com/Quotient.html)

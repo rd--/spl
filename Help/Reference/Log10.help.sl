@@ -5,7 +5,7 @@
 Base ten logarithm.
 
 ```
->>> Log10(Pow(10, 6))
+>>> Log10(Power(10, 6))
 6
 
 >>> 5.Log10
@@ -14,6 +14,6 @@ Base ten logarithm.
 
 * * *
 
-See also: Exp, Log, Log2, Pow
+See also: Exp, Log, Log2, Power
 
 Categories: Ugen

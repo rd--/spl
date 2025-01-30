@@ -26,7 +26,7 @@ let freq = [a, b * scale, c * scale.squared] * 100 + 200;
 SinOsc(freq, 0).Splay * 0.1
 ```
 
-For another example of `Slope` see `Hypot`.
+For another example of `Slope` see `Hypotenuse`.
 
 * * *
 

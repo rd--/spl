@@ -60,7 +60,7 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 		RingzBank( /* resonant filter bank simulates resonant modes of bouncing objects */
 			Decay( /* decays excite filter bank, each impulse triggers a decay */
 				Impulse( /* impulses trigger decay envelope */
-					XLine(5 + 2.Rand2, 600, 4), 0).Mul( /* accellerating frequency */
+					XLine(5 + 2.Rand2, 600, 4), 0).Times( /* accellerating frequency */
 						XLine(0.09, 0.000009, 4)), /* decaying impulse amplitude */
 				0.001 /* decay time - very short */
 			),
@@ -172,7 +172,7 @@ let n = 4; /* number of simultaneous events */
 	let a = [a0, a1];
 	let b = 2000.Rand0;
 	let c = [a0 + 1.Rand2, a1 + 1.Rand2];
-	SinOsc(SinOsc(a, 0).MulAdd(1.0.Rand0 * b, b), 0).Mul(SinOsc(c, 0).MulAdd(0.05, 0.05))
+	SinOsc(SinOsc(a, 0).MulAdd(1.0.Rand0 * b, b), 0).Times(SinOsc(c, 0).MulAdd(0.05, 0.05))
 }.overlapTextureProgram(8, 4, n)
 
 /********** Birdies ; Jmcc **********/
@@ -181,9 +181,9 @@ let n = 4; /* number of simultaneous events */
 	EqPan2(SinOsc(
 		Lag(LfSaw(
 			LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).MulAdd(3.Rand0 + 4, 2)
-			+ LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).Mul(3.Rand0 + 4), 0).MulAdd(
-				(1000 + 800.Rand0).Neg, 4000 + 1200.Rand2), 0.05),
-		0).Mul(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
+			+ LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).Times(3.Rand0 + 4), 0).MulAdd(
+				(1000 + 800.Rand0).Minus, 4000 + 1200.Rand2), 0.05),
+		0).Times(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
 }.overlapTextureProgram(7, 4, n)
 
 /********** Birdies ; Jmcc **********/
@@ -191,7 +191,7 @@ let n = 4; /* number of simultaneous events */
 {
 	let p1 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 2);
 	let p2 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 0);
-	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Neg, 4000 + 1200.Rand2), 0.05);
+	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Minus, 4000 + 1200.Rand2), 0.05);
 	let amp = Lag(MulAdd(LfPulse(0.2 + 0.5.Rand0, 0, 0.4), 0.02, 0), 0.3);
 	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
 }.overlapTextureProgram(7, 4, n)

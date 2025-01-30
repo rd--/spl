@@ -3,7 +3,7 @@ let rotatableMatrix = { :angle |
 	let s = angle.Sin;
 	let c = angle.Cos;
 	let givens2x2 = [
-		[c, s.Neg],
+		[c, s.Minus],
 		[s, c]
 	];
 	let householder4x4 = [

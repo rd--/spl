@@ -181,11 +181,11 @@
 		}
 	}
 
-	Hypot { :self :aNumber |
+	Hypotenuse { :self :aNumber |
 		((self * self) + (aNumber * aNumber)).sqrt
 	}
 
-	Hypotx { :self :aNumber |
+	HypotenuseApproximate { :self :aNumber |
 		self.abs + aNumber.abs - ((2.sqrt - 1) * self.abs.min(aNumber.abs))
 	}
 
@@ -245,12 +245,12 @@
 		2.0 ^ (self * (1 / 12))
 	}
 
-	MulAdd { :self :mul :add |
-		self * mul + add
+	Minus { :self |
+		0 - self
 	}
 
-	Neg { :self |
-		0 - self
+	MulAdd { :self :mul :add |
+		self * mul + add
 	}
 
 	nextPowerOfTwo { :self |
@@ -278,7 +278,7 @@
 		12 * self.log2
 	}
 
-	Recip { :self |
+	Reciprocal { :self |
 		1 / self
 	}
 

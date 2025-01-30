@@ -140,6 +140,6 @@ See also: accumulate, collect, differences, foldLeft, injectInto, ratios
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base-4.19.1.0/docs/Data-List.html#v:mapAccumL),
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:mapAccumL),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldList.html)

@@ -1,23 +1,23 @@
-# hypot
+# hypotenuse
 
-- _hypot(aNumber, anotherNumber)_
+- _hypotenuse(aNumber, anotherNumber)_
 
 Answer the square root of the sum of the squares.
 
 Integer answers:
 
 ```
->>> 3.hypot(4)
+>>> 3.hypotenuse(4)
 5
 
->>> 5.hypot(12)
+>>> 5.hypotenuse(12)
 13
 ```
 
 At large numbers:
 
 ```
->>> hypot(1E308,1E308)
+>>> hypotenuse(1E308, 1E308)
 1.41421E308
 ```
 
@@ -27,7 +27,7 @@ See also: +, abs, norm, sqrt, sum
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Hypotenuse.html),
+[1](https://mathworld.wolfram.com/Hypotenuseenuse.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hypot.html),
 _Tc39_

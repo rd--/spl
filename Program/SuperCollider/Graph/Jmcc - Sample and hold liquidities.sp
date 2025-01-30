@@ -1,6 +1,6 @@
 /* Sample and hold liquidities (Jmcc) #4 */
 let r = MouseX(1, 200, 1, 0.1);
-let t = r.Recip;
+let t = r.Reciprocal;
 let c = Impulse(r, 0) * 0.4;
 let cf = MouseY(100, 8000, 1, 0.1);
 let i = EqPan(

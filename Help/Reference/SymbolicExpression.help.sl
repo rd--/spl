@@ -29,19 +29,19 @@ Symbolic expressions implement `Number`.
 (23 - x) * (23 - x)
 ```
 
-`Hypot` is the `sqrt` of the sum of the squares:
+`Hypotenuse` is the `sqrt` of the sum of the squares:
 
 ```
 >>> let x = 'x'.Symbol;
 >>> let y = 'y'.Symbol;
->>> x.Hypot(y)
+>>> x.Hypotenuse(y)
 ((x * x) + (y * y)).sqrt
 ```
 
 The `printString` of a symbolic expression is an _S-expression_:
 
 ```
->>> Hypot:/2
+>>> Hypotenuse:/2
 >>> .asSymbolicExpression(['x' 'y'])
 >>> .printString
 '(sqrt (+ (* x x) (* y y)))'

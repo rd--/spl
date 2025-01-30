@@ -14,6 +14,9 @@ The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 
 >>> 3 ^ -2
 1/9
+
+>>> 0 ^ 0
+1
 ```
 
 At `Complex`:
@@ -53,6 +56,16 @@ Threads elementwise over lists and matrices:
 
 >>> [1 2 3] ^ [2 3 4]
 [1 8 81]
+
+>>> 2 ^ -1:5
+[0.5 1 2 4 8 16 32]
+```
+
+Choose sign based on a `List` of `boole`:
+
+```
+>>> -1 ^ [1 0 0 1 0]
+[-1 1 1 -1 1]
 ```
 
 Values at `zero`:
@@ -133,6 +146,53 @@ Scientific notation:
 ```
 >>> 10 ^ 4
 1E4
+```
+For positive integers _y_, _x ^ y_ equals the `product` of _y_ copies of _x_.
+
+```
+>>> 3 ^ 5
+243
+
+>>> (3 # 5).product
+243
+```
+
+When _y_ is `zero`, _x ^ y_ equals `one`:
+
+```
+>>> [-1 0 1 2 3] ^ 0
+[1 1 1 1 1]
+```
+
+Negating the exponent gives the `reciprocal` of the answer:
+
+```
+>>> 2 ^ -4
+(2 ^ 4)./
+```
+
+If the exponent is the `reciprocal` of some number _n_, the result is the _n_-th root of the base,
+for example a right argument of _1/2_ gives the square root:
+
+```
+>>> 3 ^ 2
+9
+
+>>> 9 ^ 1/2
+3
+```
+
+`^` has two inverses, `nthRoot` and `log`:
+
+```
+>>> 2 ^ 3
+8
+
+>>> 8.nthRoot(3)
+2
+
+>>> 8.log(2)
+3
 ```
 
 Plot over a subset of the reals:

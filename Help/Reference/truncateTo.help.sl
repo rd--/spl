@@ -40,7 +40,7 @@ If there are less places than requested answer the complete string:
 
 * * *
 
-See also: contractTo, roundTo, truncated
+See also: contractTo, roundTo, integerPart, truncated
 
 References:
 _Smalltalk_

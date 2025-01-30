@@ -1,3 +1,15 @@
+@SymbolicBoolean {
+
+	if { :self :whenTrue:/1 :whenFalse |
+		SymbolicExpression('if', [self, whenTrue.value, whenFalse.value])
+	}
+
+	not { :self |
+		SymbolicExpression('not', [self])
+	}
+
+}
+
 @SymbolicNumber {
 
 	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
@@ -35,6 +47,10 @@
 }
 
 Symbol : [Object, Number, SymbolicNumber] { | name |
+
+	~ { :self :aSymbol |
+		self = aSymbol
+	}
 
 	printString { :self |
 		self.name
