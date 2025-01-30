@@ -45,7 +45,11 @@ Symbol : [Object, Number, SymbolicNumber] { | name |
 +String {
 
 	Symbol { :self |
-		newSymbol().initializeSlots(self)
+		system.cache.atIfAbsentPut('symbolDictionary') {
+			()
+		}.atIfAbsentPut(self) {
+			newSymbol().initializeSlots(self)
+		}
 	}
 
 }

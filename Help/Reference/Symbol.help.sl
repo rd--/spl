@@ -26,6 +26,20 @@ SymbolicExpression(
 )
 ```
 
+Symbols are cached on construction,
+so that equal symbols compare identically:
+
+```
+>>> Symbol('x') == Symbol('x')
+true
+
+>>> system
+>>> .cache
+>>> .at('symbolDictionary')
+>>> .at('x')
+Symbol('x')
+```
+
 * * *
 
 See also: name, String, SymbolicExpression
