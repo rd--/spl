@@ -39,7 +39,7 @@ Convert a list to a fixed size:
 
 ```
 >>> [3 1 4 1 5 9 6 2 3 5].first(6, 0)
-[3 1 4 5 9]
+[3 1 4 1 5 9]
 
 >>> [3 1 4].first(6, 0)
 [3 1 4 0 0 0]

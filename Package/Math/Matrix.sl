@@ -134,7 +134,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let k = self.size;
 		let answer = k.zeroMatrix(k);
 		1.toDo(k) { :each |
-			answer[k - each + 1][each] := self[each]
+			answer[k - each + 1][each] := self[k - each + 1]
 		};
 		answer
 	}
