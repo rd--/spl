@@ -2,7 +2,7 @@
 
 - _operatorNameTable(aSystem)_
 
-Answer a `Dictionary` where the `keys` are operators and the values are operator names.
+Answer a `Dictionary` where the `keys` are operator tokens and the values are operator names.
 
 ```
 >>> let t = system.operatorNameTable;
@@ -74,7 +74,7 @@ One- and two-character operators:
 
 * * *
 
-See also: punctuationCharacterNameTable, operatorName
+See also: punctuationCharacterNameTable, operatorTokenName
 
 Guides: Binary Operators
 

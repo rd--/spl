@@ -491,8 +491,8 @@
 
 ## Operators
 
-- `isOperator`
-- `operatorCharacters`, `operatorName`, `operatorNameTable`
+- `isOperatorCharacter`, `isOperatorToken`
+- `operatorCharacters`, `operatorTokenName`, `operatorNameTable`
 - `isPunctuationCharacter`, `isPunctuationToken`
 - `punctuationCharacterNameTable`, `punctuationCharacters`, `punctuationTokenName`
 

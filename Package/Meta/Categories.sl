@@ -1225,12 +1225,12 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'testing-system': [
 		'isMethodName'
-		'isOperator'
+		'isOperatorName'
 		'isQualifiedTraitName'
 		'isTraitName'
 		'isTraitOrTypeName'
 		'isTypeName'
-		'operatorMethodName'
+		'operatorTokenName'
 	],
 	'testing-stream': [
 		'atEnd'

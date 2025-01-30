@@ -58,6 +58,6 @@ in alphabetical order:
 
 * * *
 
-See also: isOperator, operatorCharacters, operatorName, operatorNameTable
+See also: isOperatorToken, operatorCharacters, operatorTokenName, operatorNameTable
 
 Guides: Binary Operator Syntax, Syntax Tokens

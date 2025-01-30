@@ -1220,7 +1220,7 @@ Reference/isNumber.help.sl
 Reference/iso8601.help.sl
 Reference/isOdd.help.sl
 Reference/isOne.help.sl
-Reference/isOperator.help.sl
+Reference/isOperatorName.help.sl
 Reference/isOrthogonalMatrix.help.sl
 Reference/IsoSphericalCoordinates.help.sl
 Reference/isPerfectNumber.help.sl
@@ -1686,7 +1686,7 @@ Reference/onRejection.help.sl
 Reference/openIn.help.sl
 Reference/operatingSystem.help.sl
 Reference/operatorCharacters.help.sl
-Reference/operatorName.help.sl
+Reference/operatorTokenName.help.sl
 Reference/operatorNameTable.help.sl
 Reference/OrderedCollection.help.sl
 Reference/orderedSubstrings.help.sl

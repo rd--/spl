@@ -64,17 +64,9 @@ Method! : [Object] {
 		self.information.name
 	}
 
-	operatorNameOrQualifiedName { :self |
+	operatorTokenOrQualifiedName { :self |
 		(self.arity = 2).if {
-			let name = self.name;
-			valueWithReturn { :return:/1 |
-				system.operatorNameTable.associationsDo { :each |
-					(each.value = name).ifTrue {
-						each.key.return
-					}
-				};
-				self.qualifiedName
-			}
+			self.name.operatorNameToken ? self.qualifiedName
 		} {
 			self.qualifiedName
 		}
@@ -120,18 +112,10 @@ Method! : [Object] {
 +String {
 
 	asMethodName { :self |
-		self.isOperator.if {
-			self.operatorMethodName
+		self.isOperatorToken.if {
+			self.operatorTokenName
 		} {
 			self
-		}
-	}
-
-	operatorMethodName { :self |
-		self.isOperator.if {
-			self.punctuationTokenName
-		} {
-			self.error('operatorMethodName: not operator')
 		}
 	}
 

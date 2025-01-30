@@ -3,6 +3,7 @@
 - _isPunctuationCharacter(aString)_
 
 Answer `true` if _aString_ is a puncuation character in the context of the Spl grammar.
+The punctuation characters are the union of the operator and syntax characters.
 
 ```
 >>> '*'.isPunctuationCharacter
@@ -24,4 +25,4 @@ true
 
 * * *
 
-See also: isOperator, isPunctuationCharacter, operatorName
+See also: isOperatorCharacter, isPunctuationToken, isSyntaxCharacter

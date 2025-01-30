@@ -1,26 +1,33 @@
-# operatorName
+# operatorTokenName
 
-- _operatorName(aString)_
+- _operatorTokenName(aString)_
 
 Answer the name,
 which is a `String`,
-of the operator _aString_.
+of the operator token _aString_.
 
 For single character operators this is the unicode table name of the character:
 
 ```
->>> '~'.operatorName
+>>> '~'.operatorTokenName
 'tilde'
 ```
 
 For multiple character operators, the individual names are joined together:
 
 ```
->>> '!^'.operatorName
+>>> '!^'.operatorTokenName
 'exclamationMarkCircumflexAccent'
 
->>> '<=>'.operatorName
+>>> '<=>'.operatorTokenName
 'lessThanSignEqualsSignGreaterThanSign'
+```
+
+The inverse is `operatorNameToken`:
+
+```
+>>> '/'.operatorTokenName.operatorNameToken
+'/'
 ```
 
 The names of all of the `operatorCharacters`:
@@ -28,7 +35,7 @@ The names of all of the `operatorCharacters`:
 ```
 >>> let c = system.operatorCharacters;
 >>> c.collect { :each |
->>> 	each -> each.operatorName
+>>> 	each -> each.operatorTokenName
 >>> }
 [
 	'&' -> 'ampersand',
@@ -67,13 +74,13 @@ which will also answer the names of operators (since operators are a subset of p
 It is an `error` if the string is not an operator character:
 
 ```
->>> { 'x'.operatorName }.ifError { true }
+>>> { 'x'.operatorTokenName }.ifError { true }
 true
 ```
 
 * * *
 
-See also: isOperator, isPunctuationToken, operatorCharacters, operatorNameTable, punctuationCharacterNameTable, punctuationCharacters, punctuationTokenName
+See also: isOperatorToken, isPunctuationToken, operatorCharacters, operatorNameTable, operatorTokenName, punctuationTokenName
 
 Guides: Binary Operators
 

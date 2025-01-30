@@ -34,4 +34,4 @@ true
 
 * * *
 
-See also: operatorName, operatorNameTable, punctuationCharacters, punctuationCharacterNameTable
+See also: operatorTokenName, operatorNameTable, punctuationCharacterNameTable

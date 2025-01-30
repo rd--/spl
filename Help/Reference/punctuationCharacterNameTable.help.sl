@@ -18,6 +18,6 @@ Answer a `Dictionary` where the `keys` are punctuation characters and the values
 
 * * *
 
-See also: operatorName, operatorNameTable, punctuationCharacters
+See also: operatorTokenName, operatorNameTable, punctuationCharacters
 
 Categories: Reflection

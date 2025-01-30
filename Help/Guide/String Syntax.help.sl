@@ -17,7 +17,7 @@ Strings may include double quotes and backtick quotes:
 31
 ```
 
-All of the usual punctation symbols are allowed:
+All of the usual punctuation symbols are allowed:
 
 ```
 >>> let x = '~!@#$%^&*()-+=_[]{}|<>,.';

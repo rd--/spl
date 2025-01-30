@@ -145,7 +145,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // ~= ~~ ||'
 				'>>> <=> +++'
 			].collect(words:/1).++.collect { :each |
-				each -> each.operatorName(table)
+				each -> each.operatorTokenName(table)
 			}.asRecord
 		}
 	}
@@ -356,8 +356,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 +String {
 
-	isOperator { :self |
-		<primitive: return sl.isOperator(_self);>
+	isOperatorCharacter { :self |
+		<primitive: return sl.isOperatorCharacter(_self);>
+	}
+
+	isOperatorToken { :self |
+		<primitive: return sl.isOperatorToken(_self);>
 	}
 
 	isPunctuationCharacter { :self |
@@ -368,18 +372,35 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		<primitive: return sl.isPunctuationToken(_self);>
 	}
 
-	operatorName { :self :table |
-		self.isOperator.if {
-			self.contents.collect { :letter |
-				table[letter]
-			}.camelCase.join('')
-		} {
-			self.error('operatorName: not operator')
+	isSyntaxCharacter { :self |
+		<primitive: return sl.isSyntaxCharacter(_self);>
+	}
+
+	isSyntaxToken { :self |
+		<primitive: return sl.isSyntaxToken(_self);>
+	}
+
+	operatorNameToken { :self |
+		valueWithReturn { :return:/1 |
+			system.operatorNameTable.associationsDo { :each |
+				(each.value = self).ifTrue {
+					each.key.return
+				}
+			};
+			nil
 		}
 	}
 
-	operatorName { :self |
-		self.operatorName(system.punctuationCharacterNameTable)
+	operatorTokenName { :self :table |
+		self.isOperatorToken.if {
+			self.punctuationTokenName(table)
+		} {
+			self.error('operatorTokenName: not operator token')
+		}
+	}
+
+	operatorTokenName { :self |
+		self.operatorTokenName(system.punctuationCharacterNameTable)
 	}
 
 	punctuationTokenName { :self :table |

@@ -2119,8 +2119,6 @@ let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] /* muta
 [1, 3 .. 9].asLinkedList.indices = 1:5 /* indices of linked list (an interval) */
 let l = 1:9.asLinkedList; l.copy = l & { l.copy ~~ l } /* copy is equal but not identical */
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
-[6 5; 4 3; 2 1].asLinkedList.isMatrix.not
-[6 5; 4 3; 2 1].collect(asLinkedList:/1).asLinkedList.isMatrix
 ```
 
 ## Magnitude -- numeric trait
@@ -3559,7 +3557,7 @@ let s = 'string'; (s.size * 2) = s.asHexString.size /* asHex, hex string is twic
 '\f'.asCharacter.codePoint = 12 /* form feed, new page */
 '\r'.asCharacter.codePoint = 13 /* carriage return */
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
-'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperator:/1)
+'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorToken:/1)
 'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */
 'a comment'.asPliComment = '/* a comment */' /* add PL/I (or C) comment brackets */
 'a comment'.asMlComment = '(* a comment *)' /* add Ml comment brackets */
@@ -3783,13 +3781,13 @@ system.lowBitPerByteTable.asBag.sortedCounts = [128 -> 1, 64 -> 2, 32 -> 3, 16 -
 
 ## System -- system names
 ```
-'!'.isOperator = true /* operator predicate */
-'*'.operatorMethodName = 'asterisk' /* operator name */
-['~', '!', '@', '#', '$','%'].collect(operatorMethodName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
-['^', '&', '*', '-', '+', '='].collect(operatorMethodName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
-['?', '<', '>'].collect(operatorMethodName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
-'!^'.operatorMethodName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
-'~='.operatorMethodName = 'tildeEqualsSign'
+'!'.isOperatorToken = true /* operator token predicate */
+'*'.operatorTokenName = 'asterisk' /* operator token name */
+['~', '!', '@', '#', '$','%'].collect(operatorTokenName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
+['^', '&', '*', '-', '+', '='].collect(operatorTokenName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
+['?', '<', '>'].collect(operatorTokenName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
+'!^'.operatorTokenName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
+'~='.operatorTokenName = 'tildeEqualsSign'
 system.punctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
 '+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
 ```
@@ -3858,7 +3856,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 '@Iterable>>do:/2'.parseMethodSignature = ['@Iterable', 'do:/2']
 '@Collection'.parseQualifiedTraitName = 'Collection'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorNameOrQualifiedName = '+'
+let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true

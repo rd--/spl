@@ -4,10 +4,40 @@
 
 Answer the name of _anObject_, if it has one.
 
+At `Block`:
+
+```
+>>> +.name
+'plusSign:/2'
+
+>>> sqrt:/1.name
+'sqrt:/1'
+```
+
+The name of an anonymous block is the empty `String`:
+
+```
+>>> { }.name
+''
+```
+
+At `Symbol`:
+
+```
+>>> 'x'.Symbol.name
+'x'
+```
+
+At `Error`:
+
 ```
 >>> Error('message text').name
 'Error'
+```
 
+At `Type`:
+
+```
 >>> [].typeDefinition.name
 'List'
 ```

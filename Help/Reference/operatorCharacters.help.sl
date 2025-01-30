@@ -21,7 +21,7 @@ The characters are listed sorted by name, not code point:
 
 ```
 >>> let c = system.operatorCharacters;
->>> c = c.copy.sortOn(operatorName:/1)
+>>> c = c.copy.sortOn(operatorTokenName:/1)
 true
 
 >>> let c = system.operatorCharacters;
@@ -33,4 +33,4 @@ The `operatorCharacters` are a subset of the `punctuationCharacters`.
 
 * * *
 
-See also: operatorName, operatorNameTable, punctuationCharacterNameTable, punctuationCharacters
+See also: operatorNameTable, operatorTokenName, punctuationCharacters

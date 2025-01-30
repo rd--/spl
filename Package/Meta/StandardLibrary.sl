@@ -40,6 +40,9 @@
 	'Residue'
 	'Decimal' /* Fraction */
 
+	/* Logic */
+	'SymbolicExpression'
+
 	/* Geometry */
 	'Angle'
 	'BezierCurve'

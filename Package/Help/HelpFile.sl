@@ -182,8 +182,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 	properName { :self |
 		self.isReferenceFile.if {
 			let firstWord = self.name.words.first;
-			firstWord.isOperator.if {
-				firstWord.operatorName
+			firstWord.isOperatorName.if {
+				firstWord.operatorTokenName
 			} {
 				firstWord
 			}

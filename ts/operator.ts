@@ -3,7 +3,7 @@ import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 export const operatorCharacters = '!#$%&*+-/<=>?@\\^|~';
 
 /* These characters aren't allowed in operator names. They're here so help file lookup can find them. */
-export const nonOperatorPunctuationCharacters = '"\'(),:;.[]_`{}';
+export const syntaxCharacters = '"\'(),:;.[]_`{}';
 
 export const punctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
 
@@ -14,11 +14,11 @@ export function isOperatorCharacter(character: string): boolean {
 	throw new Error('isOperatorCharacter: not character');
 }
 
-export function isNonOperatorPunctuationCharacter(character: string): boolean {
+export function isSyntaxCharacter(character: string): boolean {
 	if (character.length === 1) {
-		return nonOperatorPunctuationCharacters.includes(character[0]);
+		return syntaxCharacters.includes(character[0]);
 	}
-	throw new Error('isNonOperatorPunctuationCharacter: not character');
+	throw new Error('isSyntaxCharacter: not character');
 }
 
 export function isPunctuationCharacter(character: string): boolean {
@@ -28,9 +28,18 @@ export function isPunctuationCharacter(character: string): boolean {
 	throw new Error('isPunctuationCharacter: not character');
 }
 
-export function isOperator(name: string): boolean {
+export function isOperatorToken(name: string): boolean {
 	for (const character of name) {
 		if (!operatorCharacters.includes(character)) {
+			return false;
+		}
+	}
+	return true;
+}
+
+export function isSyntaxToken(name: string): boolean {
+	for (const character of name) {
+		if (!syntaxCharacters.includes(character)) {
 			return false;
 		}
 	}
@@ -47,7 +56,7 @@ export function isPunctuationToken(name: string): boolean {
 }
 
 export const punctuationCharacterNameTable: Record<string, string> = {
-	// OPERATOR CHARACTERS
+	// Operator Characters
 	'!': 'exclamationMark', // U+0021 ! Exclamation Mark
 	'#': 'numberSign', // U+0023 # Number Sign
 	'$': 'dollarSign', // U+0024 $ Dollar Sign
@@ -66,7 +75,7 @@ export const punctuationCharacterNameTable: Record<string, string> = {
 	'^': 'circumflexAccent', // U+005e ^ Circumflex Accent
 	'|': 'verticalLine', // - U+007c | Vertical Line
 	'~': 'tilde', // U+007e ~ Tilde
-	// NON-OPERATOR CHARACTERS
+	// Syntax (Non-operator) Characters
 	'"': 'quotationMark', // U+0022 " Quotation Mark
 	"'": 'apostrophe', // U+0027 ' Apostrophe
 	'(': 'leftParenthesis', // U+0028 ( Left Parenthesis
@@ -93,7 +102,7 @@ export function punctuationTokenName(operator: string): string {
 }
 
 export function resolveMethodName(name: string): string {
-	return isOperator(name) ? punctuationTokenName(name) : name;
+	return isOperatorToken(name) ? punctuationTokenName(name) : name;
 }
 
 export function resolveTokenName(name: string): string {

@@ -29,6 +29,6 @@ true
 
 * * *
 
-See also: operatorCharacters, operatorNameTable, punctuationCharacterNameTable, punctuationTokenName
+See also: operatorNameTable, operatorTokenName, punctuationCharacterNameTable
 
 Categories: Reflection

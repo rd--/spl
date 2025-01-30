@@ -28,7 +28,7 @@ Lookup the `+` method at `SmallFloat`:
 >>> 	'SmallFloat'
 >>> );
 >>> (
->>> 	m.operatorNameOrQualifiedName,
+>>> 	m.operatorTokenOrQualifiedName,
 >>> 	m.block . (3, 4)
 >>> )
 ('+', 7)

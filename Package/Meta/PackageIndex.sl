@@ -114,6 +114,7 @@
 	'Kernel-Nil'
 	'Kernel-Object'
 	'Logic-Boolean'
+	'Logic-SymbolicExpression'
 	'Math-Bessel'
 	'Math-Binomial'
 	'Math-Elementwise'
