@@ -91,7 +91,7 @@ Resonz(
 
 An overlapping texture program:
 
-~~~
+~~~spl textureProgram=A
 {
 	let n = 11;
 	{

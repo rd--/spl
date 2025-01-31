@@ -7,7 +7,7 @@ Runs `fetch` unless _aUrl_ is not located in _cacheName_ at `caches`.
 
 Fetch a text file:
 
-~~~
+~~~spl async=String
 let url = [
 	'https://rohandrape.net/'
 	'sw/spl/README.md'
@@ -15,9 +15,7 @@ let url = [
 url.cachedFetch(
 	'*scratch*'
 ).then { :response |
-	response.text.then { :text |
-		text.postLine
-	}
+	response.text
 }
 ~~~
 

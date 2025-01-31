@@ -11,7 +11,7 @@ according to the value of _aMimeType_, which should be either:
 
 Fetch Utf-8 encoded text:
 
-~~~
+~~~spl async=String
 let url = [
 	'https://rohandrape.net/'
 	'sw/spl/README.md'
@@ -19,14 +19,12 @@ let url = [
 let mimeType = 'text/plain';
 url.fetchMimeType(
 	mimeType
-).then { :aString |
-	aString.postLine
-}
+)
 ~~~
 
 Fetch and decode `Json`:
 
-~~~
+~~~spl async=Dictionary
 let url = [
 	'https://rohandrape.net/'
 	'sw/spl/config/'
@@ -35,14 +33,12 @@ let url = [
 let mimeType = 'application/json';
 url.fetchMimeType(
 	mimeType
-).then { :anObject |
-	anObject.postLine
-}
+)
 ~~~
 
 Fetch binary data:
 
-~~~
+~~~spl async=String
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'
@@ -51,12 +47,9 @@ let url = [
 let mimeType = 'application/octet-stream';
 url.fetchMimeType(
 	mimeType
-).thenElse { :aByteArray |
+).then { :aByteArray |
 	aByteArray
 	.base64Encoded
-	.postLine
-} { :reason |
-	reason.postLine
 }
 ~~~
 

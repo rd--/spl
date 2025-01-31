@@ -7,7 +7,7 @@ In a console this will wait for a particular keypress, usually _y_ or _n_.
 In a windowing system this will wait until a modal dialog is processed.
 Answers `true` (confirmed) or `false` (denied).
 
-~~~
+~~~spl program=Interactive
 system.window.confirm('Confirm?')
 ~~~
 

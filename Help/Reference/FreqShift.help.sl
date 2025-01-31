@@ -154,7 +154,7 @@ FreqShift, feedback, FreqShift:
 
 Non-graph variant:
 
-~~~
+~~~spl textureProgram=A
 {
 	let table = [0 2 4 5 7 9 11 12];
 	let octave = [0 .. 2].atRandom;

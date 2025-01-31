@@ -13,7 +13,7 @@ the _neato_ algorithm draws undirected graphs.
 
 Print the _plain_ form of the graph layout:
 
-~~~
+~~~spl async=String
 let dotGraph = [
 	'digraph {'
 	' a -> b;'
@@ -25,9 +25,7 @@ let dotGraph = [
 dotGraph.dotLayout(
 	'plain',
 	'dot'
-).then { :answer |
-	answer.postLine
-}
+)
 ~~~
 
 Draw graph:
@@ -54,7 +52,7 @@ dotGraph.dotLayout(
 
 In _Small Kansas_ the following will display an _Svg_ drawing of the graph:
 
-~~~
+~~~spl kansasProgram=A
 let dotGraph = [
 	'digraph {'
 	' a -> b;'

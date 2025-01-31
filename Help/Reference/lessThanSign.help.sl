@@ -84,7 +84,7 @@ selecting only items less than five:
 >>> let list = [3 1 4 1 5 9 2 6];
 >>> let mask = list < 5;
 >>> list # mask.boole
-[3 1 4 2]
+[3 1 4 1 2]
 ```
 
 The name of this operator is `lessThanSign`.

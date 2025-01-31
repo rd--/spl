@@ -7,7 +7,7 @@ evaluate _aBlock_ at each element of _aCollection_ with _aDelay.value_ seconds b
 
 Play ascending diatonic scale:
 
-```spl program=Texture
+~~~spl textureProgram=A
 [0 2 4 5 7 9 11 12]
 .collectTextureProgram { :pitchClass |
 	Release(
@@ -23,7 +23,7 @@ Play ascending diatonic scale:
 } {
 	[1 3 5 7].atRandom
 }
-```
+~~~
 
 * * *
 

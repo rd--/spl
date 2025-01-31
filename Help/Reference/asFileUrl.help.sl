@@ -27,13 +27,11 @@ Unix password file `Url`:
 
 Fetch text from password file Url:
 
-```
+~~~spl async=String
 '/etc/passwd'
 .asFileUrl
-.fetchText.then { :aString |
-	aString.postLine
-}
-```
+.fetchText
+~~~
 
 * * *
 

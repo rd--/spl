@@ -4,7 +4,7 @@ Texture programs generate sound by scheduling overlapping instances of a synthes
 
 This program generates random panning three note chords.
 
-```
+~~~spl textureProgram=A
 let dur = 12;
 {
 	{
@@ -26,7 +26,7 @@ let dur = 12;
 	dur // 3,
 	4
 )
-```
+~~~
 
 To stop a texture program the clock on which it is scheduled must be cleared.
 The keybinding _Ctrl-Shift->_ clears the `system` `Clock`.

@@ -22,7 +22,7 @@ LfClipNoise(XLine(1000, 10000, 10)) * 0.05
 
 Texture program:
 
-~~~
+~~~spl textureProgram=A
 {
 	let freq = Rand(47, 69) * [1, 1.1];
 	let mul = {

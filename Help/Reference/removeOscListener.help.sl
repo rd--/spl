@@ -5,12 +5,17 @@
 Remove a listener for Osc messages from an Osc source, for instance _ScSynth_.
 
 ```
-system
-.scSynth
-.removeOscListener(
-	'/done',
-	workspace::onDone
-)
+>>> workspace.includesKey('onDone').if {
+>>> 	system
+>>> 	.scSynth
+>>> 	.removeOscListener(
+>>> 		'/done',
+>>> 		workspace::onDone
+>>> 	).isBlock
+>>> } {
+>>> 	true
+>>> }
+true
 ```
 
 * * *

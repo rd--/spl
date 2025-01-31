@@ -2,16 +2,25 @@
 
 - _base64Encoded(aByteArray)_
 
-Encode _aByteArray_ as a Base64 string.
-The answer is a `String`.
+Answer _aByteArray_ encoded as a Base64 `String`.
+
+Encode plain text:
 
 ```
 >>> 'Hello World'.asciiByteArray.base64Encoded
 'SGVsbG8gV29ybGQ='
+```
 
+Encode bytes:
+
+```
 >>> [1 .. 20].asByteArray.base64Encoded
 'AQIDBAUGBwgJCgsMDQ4PEBESExQ='
+```
 
+Encode Json:
+
+```
 >>> '{1, 2, 3, 4, 5}'.asciiByteArray.base64Encoded
 'ezEsIDIsIDMsIDQsIDV9'
 ```

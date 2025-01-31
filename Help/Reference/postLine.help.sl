@@ -15,7 +15,7 @@ Print the answer of _3 + 4_ and answer it multiplied by _7_:
 
 Print hounds-tooth like pattern to console:
 
-~~~
+~~~spl program=Text
 let d = [3 6 13 11 223 191 111 207];
 4.timesRepeat {
 	1.toDo(8) { :l |

@@ -11,13 +11,10 @@ true
 
 `LibraryItem` entries are cached at 'SplLibrary':
 
-~~~
+~~~spl async=Boolean
 system
 .caches
 .includesKey('SplLibrary')
-.then { :answer |
-	answer.postLine
-}
 ~~~
 
 * * *

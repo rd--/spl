@@ -13,7 +13,7 @@ In the program below the _soundBlock_ generates a random sine tone,
 the _envelopeBlock_ applies a `Release` envelope,
 and the _delayTime_ block selects a random integer to divide down:
 
-~~~
+~~~spl textureProgram=A
 {
 	EqPan2(
 		SinOsc(

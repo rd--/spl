@@ -6,19 +6,19 @@ Answer a `ByteArray` holding the contents of the named file.
 Signal an `Error` if the file does not exist.
 
 ~~~
-let bytes = '/etc/passwd'.readBinaryFile;
-bytes.base64Encoded.postLine
+>>> '/etc/passwd'
+>>> .readBinaryFile
+>>> .isByteArray
+true
 ~~~
 
 This uses a different primitive to `fetch` and is synchronous,
 however it should answer equivalently:
 
-~~~
+~~~spl async=String
 let url = '/etc/passwd'.asFileUrl;
-url.fetchByteArray.thenElse { :answer |
-	answer.base64Encoded.postLine
-} { :reason |
-	reason.postLine
+url.fetchByteArray.then { :answer |
+	answer.base64Encoded
 }
 ~~~
 

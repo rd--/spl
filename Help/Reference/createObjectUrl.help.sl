@@ -2,16 +2,16 @@
 
 - _createObjectUrl(aFile | aBlob)_
 
-Answer an Url that represents the data at _aFile_ or _aBlob_.
+Answer a `String` holding a `Url` that represents the data at _aFile_ or _aBlob_.
 
-~~~
+~~~spl async=String
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'
 	'smalltalk-balloon.png'
 ].join('');
 url.fetchBlob.then { :answer |
-	answer.createObjectUrl.postLine
+	answer.createObjectUrl
 }
 ~~~
 
@@ -20,6 +20,8 @@ url.fetchBlob.then { :answer |
 See also: revokeObjectUrl
 
 References:
+_Mozilla_
+[1](https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL_static)
 _W3c_
 [1](https://w3c.github.io/FileAPI/#dfn-createObjectURL)
 

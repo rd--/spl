@@ -5,7 +5,7 @@
 Schedule _aBlock_ to be evaluated repeatedly at an interval of _aNumber_ of seconds.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
-~~~
+~~~spl program=Scheduler
 let t = system.unixTimeInMilliseconds;
 let k = {
 	(system.unixTimeInMilliseconds - t).postLine

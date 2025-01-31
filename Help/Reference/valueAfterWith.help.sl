@@ -5,11 +5,11 @@
 Schedule _aBlock_ to be evaluated after _aNumber_ of seconds has passed with _anObject_ as its parameter.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
-~~~
+~~~spl program=Scheduler
 let f = { :x |
 	['x', x].postLine
 };
-let r = (z: pi);
+let r = (z: 1.pi);
 f(r);
 f:/1.valueAfterWith(1, r);
 r['z'] := 23

@@ -176,6 +176,11 @@ If the string begins with a doctest, also delete all non doctest lines."
   (interactive)
   (spl-eval-string (format "{ %s }.value.draw" (spl-get-paragraph))))
 
+(defun spl-print-promise ()
+  "Print Promise of current paragraph when it resolves."
+  (interactive)
+  (spl-eval-string (format "{ %s }.value.then { :answer | answer.postLine }" (spl-get-paragraph))))
+
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
   (interactive)
@@ -463,6 +468,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   (define-key map (kbd "C-c C-h") 'spl-help)
   (define-key map (kbd "C-c C-a") 'spl-play-paragraph)
   (define-key map (kbd "C-c C-g") 'spl-draw-paragraph)
+  (define-key map (kbd "C-c C-p") 'spl-print-promise)
   (define-key map (kbd "C-c C-e") 'spl-eval-paragraph)
   (define-key map (kbd "C-c C-c") 'spl-eval-region-or-line)
   (define-key map (kbd "C-c C-k") 'spl-reset-scsynth)

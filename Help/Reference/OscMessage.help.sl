@@ -2,7 +2,10 @@
 
 - _OscMessage(address, parameterList)_
 
-An _Open Sound Control_ message consists of an _address_ `String` and a (possibly empty) _parameterList_.
+A `Type` representing an _Open Sound Control_ message,
+which consists of an _address_ `String` and a (possibly empty) _parameterList_.
+
+An `OscMessage` with no parameters:
 
 ```
 >>> OscMessage('/x', []).asRecord
@@ -10,7 +13,11 @@ An _Open Sound Control_ message consists of an _address_ `String` and a (possibl
 	address: '/x',
 	args: []
 )
+```
 
+An `OscMessage` with one parameter:
+
+```
 >>> OscMessage('/y', [3.141]).asRecord
 (
 	address: '/y',
@@ -24,11 +31,17 @@ The `encode` method answers the binary encoding of the message as a `ByteArray`:
 
 ```
 >>> OscMessage('/x', []).encode
-[47 120 0 0 44 0 0 0].asByteArray
+[
+	47 120   0   0
+	44   0   0   0
+].asByteArray
 
 >>> OscMessage('/y', [3.141]).encode
-[47 121 0 0 44 102 0 0 64 73 6 37]
-.asByteArray
+[
+	47 121   0   0
+	44 102   0   0
+	64  73   6  37
+].asByteArray
 ```
 
 * * *

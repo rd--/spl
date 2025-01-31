@@ -15,7 +15,7 @@ o.Splay
 
 `TextureProgram` of pulsing sine tones (Jmcc):
 
-~~~
+~~~spl textureProgram=A
 {
 	EqPan(
 		SinOsc(
