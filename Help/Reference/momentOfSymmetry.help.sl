@@ -24,7 +24,9 @@ Each of the scales given is a moment of symmetry scale:
 ```
 >>> 5.momentOfSymmetry(12)
 >>> .allSatisfy { :each |
->>> 	each.asScale.isMomentOfSymmetry
+>>> 	each
+>>> 	.asScale
+>>> 	.isMomentOfSymmetry
 >>> }
 true
 ```
@@ -57,12 +59,12 @@ The interval pairs only of the _41/58_ sequence:
 [
 	41 17;
 	24 17;
-	7 17;
-	7 10;
-	7 3;
-	4 3;
-	1 3;
-	1 2
+	 7 17;
+	 7 10;
+	 7  3;
+	 4  3;
+	 1  3;
+	 1  2
 ]
 ```
 
@@ -100,13 +102,13 @@ The interval pairs only of the _22/49_ sequence:
 >>> .collect(nub:/1)
 [
 	22 27;
-	22 5;
-	17 5;
-	12 5;
-	7 5;
-	2 5;
-	2 3;
-	2 1
+	22  5;
+	17  5;
+	12  5;
+	 7  5;
+	 2  5;
+	 2  3;
+	 2  1
 ]
 ```
 
@@ -119,7 +121,7 @@ The _58.33/100_ sequence, rounded:
 	58 42;
 	17 42 42;
 	17 17 25 17 25;
-	17 17 17 8 17 17 8
+	17 17 17  8 17 17  8
 ]
 ```
 
@@ -132,8 +134,8 @@ concluding with the period:
 [
 	5 12;
 	5 10 12;
-	3 5 8 10 12;
-	1 3 5 6 8 10 12
+	3  5  8 10 12;
+	1  3  5  6  8 10 12
 ]
 ```
 
@@ -211,7 +213,7 @@ A rectangular drawing of the same phi-weighted mediant scale as above:
 `horogramTable` answers a `Html` table of a rectangular Wilson horogram showing the scale structure.
 Requires that the scale have only integer step sizes.
 
-~~~
+~~~spl html=F
 7.momentOfSymmetry(12)
 .horogramTable
 ~~~

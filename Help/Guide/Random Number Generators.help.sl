@@ -59,6 +59,12 @@ Probablity distributions:
 - `NormalDistribution`
 - `UniformDistribution`
 
+Pdf and Cdf:
+
+- `normalDistributionCdf`
+- `normalDistributionPdf`
+- `poissonDistributionPdf`
+
 Methods at `ProbablityDistribution`:
 
 - `randomVariate`

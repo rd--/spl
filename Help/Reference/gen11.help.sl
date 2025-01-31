@@ -8,21 +8,27 @@ The answer is scaled to unity.
 
 A cosine table:
 
-~~~
+~~~spl svg=A
 (2 ^ 10).gen11(1, 1, 1).linePlot
 ~~~
 
-An approximation of a sawtooth wave, fundamental and eight harmonics:
+![](sw/spl/Help/Image/gen11-A.svg)
 
-~~~
+An approximation of an impulse wave, fundamental and ten harmonics:
+
+~~~spl svg=B
 (2 ^ 10).gen11(10, 1, 0.7).linePlot
 ~~~
 
-An approximation of a square wave, fundamental and eight harmonics, four zeroed:
+![](sw/spl/Help/Image/gen11-B.svg)
 
-~~~
+Ten harmonics starting at the fifth harmonic:
+
+~~~spl svg=C
 (2 ^ 10).gen11(10, 5, 2).linePlot
 ~~~
+
+![](sw/spl/Help/Image/gen11-C.svg)
 
 * * *
 

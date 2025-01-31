@@ -42,7 +42,7 @@ Find positions of elements from the fourth smallest to the largest:
 Find positions of elements in list sorted by _>_:
 
 ```
-[2 6 1 9 1 2 3].ordering(>)
+>>> [2 6 1 9 1 2 3].ordering(>)
 [4 2 7 1 6 3 5]
 ```
 

@@ -147,6 +147,7 @@ Scientific notation:
 >>> 10 ^ 4
 1E4
 ```
+
 For positive integers _y_, _x ^ y_ equals the `product` of _y_ copies of _x_.
 
 ```

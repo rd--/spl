@@ -24,9 +24,11 @@ At `ByteArray`, sum `bitCount` of each byte:
 
 Plot sequence:
 
-~~~
+~~~spl svg=A
 0:255.functionPlot(bitCount:/1)
 ~~~
+
+![](sw/spl/Help/Image/bitCount-A.svg)
 
 * * *
 

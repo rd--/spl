@@ -19,14 +19,19 @@ HelpFile : [Object, Cache] { | origin source cache |
 	codeBlocks { :self |
 		self.cached('codeBlocks') {
 			self.markdown.codeBlocks.collect { :each |
-				each['attributes'] := each['information'].words.collect { :each |
-					let parts = each.splitBy('=');
-					parts[1] -> (parts.size = 1).if {
-						'true'
-					} {
-						parts[2]
-					}
-				}.asRecord;
+				let information = each['information'];
+				information.isEmpty.if {
+					each['attributes'] := ()
+				} {
+					each['attributes'] := information.words.collect { :each |
+						let parts = each.splitBy('=');
+						parts[1] -> (parts.size = 1).if {
+							'true'
+						} {
+							parts[2]
+						}
+					}.asRecord
+				};
 				each
 			}
 		}
@@ -281,6 +286,14 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	unicode { :self |
 		self.readCommaSeparatedField('Unicode: ')
+	}
+
+	unspecifiedCodeBlocks { :self |
+		self.codeBlocks.reject { :each |
+			each['contents'].isDocumentationTestString | {
+				each['attributes'].isEmpty.not
+			}
+		}
 	}
 
 	writeImageFiles { :self |

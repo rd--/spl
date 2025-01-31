@@ -6,15 +6,17 @@ Answer the probability density function for the normal distribution.
 
 Plot over a subset of the reals:
 
-~~~
+~~~spl svg=A
 (-3 -- 3).functionPlot { :x |
 	normalDistributionPdf(0, 1, x)
 }
 ~~~
 
+![](sw/spl/Help/Image/normalDistributionPdf-A.svg)
+
 * * *
 
-See also: normalDistributionCdf
+See also: normalDistributionCdf, poissonDistributionPdf
 
 References:
 _Mathematica_

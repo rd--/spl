@@ -23,7 +23,7 @@ At `List` of `Integer`:
 At a tree flattens list structure:
 
 ```
-[['x' 'y'] 'z'].stringJoin
+>>> [['x', 'y'], 'z'].stringJoin
 'xyz'
 ```
 

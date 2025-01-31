@@ -235,10 +235,6 @@ Plot : [Object] { | pages format |
 		[self.asFloat].Plot('matrix')
 	}
 
-	plot { :self |
-		self.linePlot
-	}
-
 	polarPlot { :self |
 		let k = self.rank;
 		(k = 2).if {

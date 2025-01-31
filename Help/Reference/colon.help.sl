@@ -28,10 +28,6 @@ An infix colon defines a `Range` in `Range Syntax`:
 
 An infix colon declares a type in `Type Definition Syntax`.
 
-~~~
-Foo : [Object] { |bar| foo { :self | 'foo' } }
-~~~
-
 A colon suffix in `Infix Method Syntax` allows two argument methods to be written infix:
 
 ```
@@ -45,7 +41,7 @@ The name of this syntax token is `colon`.
 
 See also: ,, ., ;, :;, :=
 
-Guides: Block Syntax, Dictionary Syntax, Infix Method Syntax, Range Syntax, Syntax Tokens
+Guides: Block Syntax, Dictionary Syntax, Infix Method Syntax, Range Syntax, Syntax Tokens, Type Definition Syntax
 
 References:
 _Mathworks_

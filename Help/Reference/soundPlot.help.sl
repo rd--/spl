@@ -1,6 +1,6 @@
-# plot
+# soundPlot
 
-- _plot(aSound, aNumber)_
+- _soundPlot(aSound, aNumber)_
 
 Render _aNumber_ seconds of _aSound_,
 which may have multiple channels,
@@ -18,7 +18,7 @@ Latch(d, d).plot(0.1)
 See also: discretePlot, functionPlot, linePlot, scatterPlot
 
 References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/Plot.html)
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Function.html#-plot)
 
 Categories: Plotting

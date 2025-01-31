@@ -24,7 +24,7 @@ true
 All lists, including the empty list, begin with the empty list:
 
 ```
-[].beginsWith([])
+>>> [].beginsWith([])
 true
 ```
 

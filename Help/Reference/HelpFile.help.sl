@@ -3,7 +3,7 @@
 - _HelpFile(origin, source)_
 
 `HelpFile` is a `Type` holding an Spl help file.
-The constructor requires a `Url`
+The constructor requires a `Url`.
 
 Help files are written in Markdown.
 
@@ -42,7 +42,9 @@ url.fetchText.then { :aString |
 		help.references,
 		help.unicode,
 		help.categories,
-		help.codeBlocks
+		help.pngCodeBlocks,
+		help.svgCodeBlocks,
+		help.unspecifiedCodeBlocks
 	].do(postLine:/1)
 }
 ~~~

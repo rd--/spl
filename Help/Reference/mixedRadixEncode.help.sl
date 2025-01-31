@@ -105,7 +105,7 @@ Decompose a number of Roman soldiers in these tactical units:
 Conversely, the number of soldiers in a legion:
 
 ```
-[1 0 0 0 0].mixedRadixDecode([10 6 10 8])
+>>> [1 0 0 0 0].mixedRadixDecode([10 6 10 8])
 4800
 ```
 

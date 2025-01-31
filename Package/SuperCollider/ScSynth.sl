@@ -147,7 +147,11 @@ ScSynth! : [Object] {
 		}
 	}
 
-	plot { :self :duration |
+	print { :self |
+		<primitive: return sc.prettyPrintSyndefOf(_self);>
+	}
+
+	soundPlot { :self :duration |
 		let scSynDefFileName = '/tmp/splPlot.scsyndef';
 		let numberOfChannels = self.isCollection.if {
 			self.size
@@ -167,10 +171,6 @@ ScSynth! : [Object] {
 				duration.asString
 			]
 		)
-	}
-
-	print { :self |
-		<primitive: return sc.prettyPrintSyndefOf(_self);>
 	}
 
 	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |

@@ -8,7 +8,7 @@ Also called the inverse companding or gamma function.
 At `SmallFloat`:
 
 ```
-0.73536.srgbDecode
+>>> 0.73536.srgbDecode
 0.5
 ```
 

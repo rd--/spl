@@ -5,7 +5,7 @@
 Answer an `Html` value containg a rectangular _table_ of the integer partitions at _aList_.
 Each integer occupies as many columns as its value.
 
-~~~
+~~~spl html=A
 6.integerPartitions
 .integerPartitionsTable
 ~~~

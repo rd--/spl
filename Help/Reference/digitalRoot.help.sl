@@ -27,9 +27,11 @@ The base-10 digital roots of the first few integers:
 
 Plot:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot { :n | n.digitalRoot(10) }
 ~~~
+
+![](sw/spl/Help/Image/digitalRoot-A.svg)
 
 * * *
 

@@ -14,9 +14,11 @@ The answer is scaled to unity.
 
 A rising sigmoid:
 
-~~~
+~~~spl svg=A
 (2 ^ 10).gen19([[0.5 0.5 270 0.5]]).linePlot
 ~~~
+
+![](sw/spl/Help/Image/gen19-A.svg)
 
 * * *
 

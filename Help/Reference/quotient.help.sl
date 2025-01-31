@@ -63,15 +63,17 @@ For positive integers _quotient(m, n) + fractionPart(m / n)_ is always equal to 
 Division by `zero` is an `error`:
 
 ```
-{ 3 // 0 }.ifError { true }
+>>> { 3 // 0 }.ifError { true }
 true
 ```
 
 Plot the sequence of quotients:
 
-~~~
+~~~spl svg=A
 1:50.functionPlot { :n | n // 8 }
 ~~~
+
+![](sw/spl/Help/Image/quotient-A.svg)
 
 `remainder` answers the remainder from this division.
 

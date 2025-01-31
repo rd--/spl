@@ -38,9 +38,11 @@ true
 
 Plot the `primeNu` sequence for the first 100 numbers:
 
-~~~
+~~~spl svg=A
 1:100.functionPlot(primeNu:/1)
 ~~~
+
+![](sw/spl/Help/Image/primeNu-A.svg)
 
 * * *
 

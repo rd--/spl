@@ -36,7 +36,7 @@ true
 At `List`:
 
 ```
-[1 3 5 7 9].copyFromTo(3, 5)
+>>> [1 3 5 7 9].copyFromTo(3, 5)
 [5 7 9]
 ```
 

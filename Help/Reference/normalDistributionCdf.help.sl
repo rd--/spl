@@ -12,11 +12,11 @@ Plot over a subset of the reals:
 }
 ~~~
 
-![](Help/Image/normalDistributionCdf-A.svg)
+![](sw/spl/Help/Image/normalDistributionCdf-A.svg)
 
 * * *
 
-See also: normalDistributionPdf
+See also: normalDistributionPdf, poissonDistributionPdf
 
 References:
 _Mathematica_

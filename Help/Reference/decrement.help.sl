@@ -16,6 +16,7 @@ At `SmallFloat`:
 
 At `Complex`:
 
+```
 >>> 4J2.decrement
 3J2
 ```

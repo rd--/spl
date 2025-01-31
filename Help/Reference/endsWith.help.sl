@@ -21,7 +21,7 @@ true
 All lists, including the empty list, end with the empty list:
 
 ```
-[].endsWith([])
+>>> [].endsWith([])
 true
 ```
 

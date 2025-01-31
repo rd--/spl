@@ -35,4 +35,4 @@ let r = Sfc32(980141);
 
 * * *
 
-See also: Random, randomInteger, randomReal
+See also: Random, poissonDistributionPdf, randomInteger, randomReal

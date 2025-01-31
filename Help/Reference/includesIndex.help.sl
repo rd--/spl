@@ -14,7 +14,7 @@ true
 At `Record`:
 
 ```
-(w: 1, x: 2, y: 3).includesIndex('x')
+>>> (w: 1, x: 2, y: 3).includesIndex('x')
 true
 ```
 

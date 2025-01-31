@@ -179,7 +179,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 (defun spl-plot-paragraph ()
   "Plot Ugen graph of current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.plot(0.1)" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.soundPlot(0.1)" (spl-get-paragraph))))
 
 (defun spl-print-paragraph ()
   "Print Ugen graph of current paragraph."

@@ -16,6 +16,7 @@ At `SmallFloat`:
 
 At `Complex`:
 
+```
 >>> 4J2.increment
 5J2
 ```

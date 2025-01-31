@@ -32,15 +32,19 @@ The state of lower bits does not affect the answer:
 High bit is not defined for negative integers:
 
 ```
->>> { 2r00101000.negated.highBit }.ifError { true }
+>>> {
+>>> 	2r00101000.negated.highBit
+>>> }.ifError { true }
 true
 ```
 
 Plot it:
 
-~~~
+~~~spl svg=A
 (0 .. 2 ^ 11 - 1).functionPlot(highBit:/1)
 ~~~
+
+![](sw/spl/Help/Image/highBit-A.svg)
 
 * * *
 

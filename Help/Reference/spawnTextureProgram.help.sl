@@ -9,7 +9,7 @@ which is sent the `value` message at each recurrence.
 
 Texture of overlapping sine tone dyads:
 
-```
+~~~spl program=Texture
 {
 	{
 		Release(
@@ -25,7 +25,7 @@ Texture of overlapping sine tone dyads:
 }.spawnTextureProgram {
 	(0.5 -- 1.5).atRandom
 }
-```
+~~~
 
 * * *
 

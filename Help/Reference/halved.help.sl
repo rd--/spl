@@ -16,6 +16,7 @@ At `SmallFloat`:
 
 At `Complex`:
 
+```
 >>> 2J0.halved
 1J0
 

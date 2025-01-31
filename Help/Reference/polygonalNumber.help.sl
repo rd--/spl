@@ -46,11 +46,15 @@ Return the tenth r-gonal number of several regular polygons (OEIS A139610):
 15
 ```
 
-~~~
+Plot:
+
+~~~spl svg=A
 0:23.collect { :n |
 	n.polygonalNumber
 }.linePlot
 ~~~
+
+![](sw/spl/Help/Image/polygonalNumber-A.svg)
 
 * * *
 

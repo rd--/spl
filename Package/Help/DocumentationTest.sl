@@ -83,6 +83,10 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 
 +String {
 
+	isDocumentationTestString { :self |
+		self.beginsWith('>>')
+	}
+
 	DocumentationTest { :prefix :program :expectedAnswer |
 		newDocumentationTest().initializeSlots(prefix, program, expectedAnswer)
 	}

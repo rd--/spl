@@ -6,12 +6,14 @@ Answer the probability density function for the Poisson distribution.
 
 Plot over the positive integers:
 
-~~~
+~~~spl svg=A
 let lambda = 35;
 0:60.functionPlot { :x |
 	poissonDistributionPdf(lambda, x)
 }
 ~~~
+
+![](sw/spl/Help/Image/poissonDistributionPdf-A.svg)
 
 * * *
 

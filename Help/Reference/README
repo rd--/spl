@@ -16,3 +16,15 @@ nil
 ~~~
 
 'ls ~/sw/spl/Help/Image/* | wc -l' => 733
+
+~~~
+system.referenceHelpFilesDo { :each |
+	let c = each.unspecifiedCodeBlocks;
+	c.isEmpty.ifFalse {
+		each.name.first.isLowerCase.ifTrue {
+			['U', each.name, c.size].postLine
+		}
+	}
+};
+nil
+~~~

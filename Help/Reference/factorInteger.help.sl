@@ -85,7 +85,7 @@ Threads over lists:
 A unit factor:
 
 ```
--60.factorInteger
+>>> -60.factorInteger
 [-1 -> 1, 2 -> 2, 3 -> 1, 5 -> 1]
 ```
 

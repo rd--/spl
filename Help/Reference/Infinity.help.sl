@@ -19,7 +19,7 @@ true
 true
 ```
 
-In particular, `Infinity`` is a `SmallFloat`:
+In particular, `Infinity` is a `SmallFloat`:
 
 ```
 >>> Infinity.isSmallFloat

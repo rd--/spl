@@ -33,7 +33,7 @@ Shift to have mean zero without scaling:
 Shift by the Median and scale by the InterquartileRange:
 
 ```
-> 1:10.standardize(median:/1, interquartileRange:/1)
+>>> 1:10.standardize(median:/1, interquartileRange:/1)
 [-0.9 -0.7 -0.5 -0.3 -0.1 0.1 0.3 0.5 0.7 0.9]
 ```
 

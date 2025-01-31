@@ -31,10 +31,15 @@ Histogram of the first one-hundred integers:
 
 Plot histogram of random numbers with normal distribution:
 
+~~~spl svg=A
+NormalDistribution(0, 1)
+.randomVariate(Sfc32(890141), 500)
+.histogramList
+.second
+.discretePlot
 ~~~
-let r = NormalDistribution(0, 1).randomVariate(500);
-r.histogramList.second.discretePlot
-~~~
+
+![](sw/spl/Help/Image/histogramList-A.svg)
 
 * * *
 

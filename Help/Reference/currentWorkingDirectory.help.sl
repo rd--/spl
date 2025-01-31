@@ -2,7 +2,7 @@
 
 - _currentWorkingDirectory(aSystem)_
 
-Answer a `String` giving the current workinf directory of the process.
+Answer a `String` giving the current working directory of the process.
 
 The answer is a `String`:
 
@@ -12,12 +12,6 @@ The answer is a `String`:
 >>> .isString
 true
 ```
-
-Show current working directory:
-
-~~~
-system.currentWorkingDirectory
-~~~
 
 * * *
 
