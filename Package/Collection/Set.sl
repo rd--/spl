@@ -135,6 +135,14 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 }
 
++@Dictionary {
+
+	asSet { :self |
+		self.values.asSet
+	}
+
+}
+
 +List {
 
 	basicAsSet { :self |
@@ -156,14 +164,6 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		let answer = Set();
 		answer.includeAll(self);
 		answer
-	}
-
-}
-
-+@Dictionary {
-
-	asSet { :self |
-		self.values.asSet
 	}
 
 }

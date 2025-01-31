@@ -1,39 +1,33 @@
 # r
 
 - _r(aPoint)_
+- _r(anInteger, anotherInteger)
 
-Answer the radius field of _aPoint_.
+In the unary case,
+answers the _r_ or _radius_ field of _aPoint_.
 
-The two-dimensional case, also named `rho` and `radius`:
+In the binary case,
+answer the `Fraction` with the indicated numerator and denominator.
 
-```
->>> let p = PolarCoordinates(1, 0);
->>> (p.r, p.rho, p.radius)
-(1, 1, 1)
-```
-
-`PlanarCoordinates` implements `r`:
+At `PolarCoordinates`:
 
 ```
->>> let p = PlanarCoordinates(1, 1);
->>> (p.r, p.rho, p.radius)
-(2.sqrt, 2.sqrt, 2.sqrt)
+>>> PolarCoordinates(1, 0).r
+1
 ```
 
-The three-dimensional case:
+At `SphericalCoordinates`:
 
 ```
->>> let p = SphericalCoordinates(1, 0, 0);
->>> (p.r, p.rho, p.radius)
-(1, 1, 1)
+>>> SphericalCoordinates(1, 0, 0).r
+1
 ```
 
-`CartesianCoordinates` implements `r`:
+At `Integer`, _r_ defines a _rational_ number, in Spl called a `Fraction`:
 
 ```
->>> let p = CartesianCoordinates(1, 0, 1);
->>> (p.r, p.rho, p.radius)
-(2.sqrt, 2.sqrt, 2.sqrt)
+>>> 3.r(4)
+3/4
 ```
 
 Where supported `r` is displayed as 𝑟.

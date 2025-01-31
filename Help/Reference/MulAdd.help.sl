@@ -8,13 +8,23 @@ Equivalent to _input * mul + add_ but potentially more efficient.
 At `SmallFloat`:
 
 ```
->>> 3.MulAdd(3, -2)
+>>> MulAdd(3, 3, -2)
 3 * 3 - 2
 ```
 
+At `Ugen`:
+
+~~~
+MulAdd(
+	SinOsc(440, 0),
+	0.1,
+	0
+)
+~~~
+
 * * *
 
-See also: +, *
+See also: +, *, Plus, Times
 
 Categories: Ugen
 

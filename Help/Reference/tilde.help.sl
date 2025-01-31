@@ -64,6 +64,13 @@ true
 true
 ```
 
+At `Tuple`:
+
+```
+>>> (1, 2) ~ (1.000000001, 2)
+true
+```
+
 The name of this operator is `tilde`.
 
 Where supported `~` is displayed as ≈.

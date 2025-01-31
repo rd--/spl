@@ -1910,6 +1910,10 @@
 		self[self.size // 2 + 1]
 	}
 
+	mirror { :self :m :n |
+		self ++ self.copyFromTo(n + 1, self.size - m).reversed
+	}
+
 	mixedRadixDecode { :self :factors |
 		let answer = 0;
 		let base = 1;

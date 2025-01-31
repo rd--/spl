@@ -2,11 +2,28 @@
 
 - _radius(anObject)_
 
-At `PolarCoordinates`, another name for `r`:
+Answer the _radius_ of _anObject_.
+
+At `PlanarCoordinates`:
 
 ```
->>> PolarCoordinates(1, 0).radius
-1
+>>> PlanarCoordinates(1, 1).radius
+2.sqrt
+```
+
+At `CartesianCoordinates`:
+
+```
+>>> CartesianCoordinates(1, 0, 1).radius
+2.sqrt
+```
+
+At `PolarCoordinates`, also named `rho` and `r`:
+
+```
+>>> let p = PolarCoordinates(1, 0);
+>>> (p.r, p.rho, p.radius)
+(1, 1, 1)
 ```
 
 At `Circle`:

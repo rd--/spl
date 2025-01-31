@@ -515,18 +515,6 @@
 		self.copyFromTo(size - n, size)
 	}
 
-	mirror { :self |
-		self ++ self.reversed.allButFirst
-	}
-
-	mirror1 { :self |
-		self ++ self.reversed.allButFirstAndLast
-	}
-
-	mirror2 { :self |
-		self ++ self.reversed
-	}
-
 	multiChannelExpand { :self |
 		let k = self.collect(sizeForExtending:/1).max;
 		1:k.collect { :index |
@@ -548,12 +536,17 @@
 		let answer = [];
 		let lastIndex = self.size;
 		(patternType = 1).ifTrue {
-			1.toDo(lastIndex) { :index |
-				answer.addAll(self.copyFromTo(1, index))
+			1.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(1, i))
+			}
+		};
+		(patternType = 2).ifTrue {
+			lastIndex.downToDo(1) { :i |
+				answer.addAll(self.copyFromTo(i, lastIndex))
 			}
 		};
 		(patternType = 3).ifTrue {
-			1.toDo(lastIndex) { :i |
+			lastIndex.downToDo(1) { :i |
 				answer.addAll(self.copyFromTo(1, i))
 			}
 		};
@@ -566,20 +559,23 @@
 			1.toDo(lastIndex) { :i |
 				answer.addAll(self.copyFromTo(1, i))
 			};
-			lastIndex.toByDo(1, -1) { :i |
+			(lastIndex - 1).toByDo(1, -1) { :i |
 				answer.addAll(self.copyFromTo(1, i))
 			}
 		};
 		(patternType = 6).ifTrue {
-			0.toDo(lastIndex - 1) { :index |
-				answer.addAll(self.copyFromTo(lastIndex - index, lastIndex))
+			lastIndex.toByDo(1, -1) { :i |
+				answer.addAll(self.copyFromTo(i, lastIndex))
+			};
+			2.toDo(lastIndex) { :i |
+				answer.addAll(self.copyFromTo(i, lastIndex))
 			}
 		};
 		(patternType = 7).ifTrue {
 			lastIndex.toByDo(1, -1) { :i |
 				answer.addAll(self.copyFromTo(1, i))
 			};
-			1.toDo(lastIndex) { :i |
+			2.toDo(lastIndex) { :i |
 				answer.addAll(self.copyFromTo(1, i))
 			}
 		};

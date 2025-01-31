@@ -3,10 +3,14 @@
 - _aNumber - anotherNumber_
 - _aNumber.-_
 
-The binary form answers _anotherNumber_ subtracted from _aNumber_.
+The binary form answers _anotherNumber_ subtracted from _aNumber_,
+or equally _aNumber_ plus the negation of _anotherNumber_.
 
 ```
 >>> 10 - 3
+7
+
+>>> 10 + 3.negated
 7
 
 >>> 1 - 0.3
@@ -59,6 +63,9 @@ At `SmallFloat`:
 ```
 >>> 3.-
 -3
+
+>>> -3.-
+3
 ```
 
 At `Range`:
@@ -71,11 +78,21 @@ At `Range`:
 -1:-3:-9
 ```
 
+At `LargeInteger`:
+
+```
+>>> 32n.!.-
+-263130836933693530167218012160000000n
+```
+
 Threads over lists:
 
 ```
 >>> [1 3 5 7 6 4 2].-
 [-1 -3 -5 -7 -6 -4 -2]
+
+>>> [0 1 2.2 3J4 4/5 -66].-
+[-0 -1 -2.2 -3J-4 -4/5 66]
 
 >>> [3 3].iota.-
 [
@@ -102,7 +119,7 @@ The name of this operator is `hyphenMinus`.
 
 * * *
 
-See also: +, *, /, ^
+See also: +, *, /, ^, Minus
 
 References:
 _Apl_

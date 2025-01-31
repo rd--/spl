@@ -44,6 +44,9 @@ The last entry of a `scan` is the answer to `reduce`:
 ```
 >>> 1:5.scan(+).last
 1:5.reduce(+)
+
+>>> 1:5.scan(*).last
+1 * 2 * 3 * 4 * 5
 ```
 
 * * *

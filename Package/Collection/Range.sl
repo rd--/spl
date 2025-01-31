@@ -164,7 +164,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 	}
 
 	to { :self :stop |
-		Range(self, stop, 1)
+		stop.isSequence.if {
+			[self].to(stop)
+		} {
+			Range(self, stop, 1)
+		}
 	}
 
 	toBy { :self :stop :step |

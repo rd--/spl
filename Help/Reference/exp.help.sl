@@ -22,7 +22,7 @@ that is _e ^ n_.
 3.970929
 ```
 
-Exp can take complex number inputs:
+`exp` can take complex number inputs:
 
 ```
 >>> 2.5J1.exp
@@ -32,7 +32,7 @@ Exp can take complex number inputs:
 0.9629J0.2698
 ```
 
-Exp threads elementwise over lists and matrices:
+`exp` threads elementwise over lists and matrices:
 
 ```
 >>> [1 2].exp
@@ -42,7 +42,7 @@ Exp threads elementwise over lists and matrices:
 [1 4.48169 -1J0 Infinity]
 ```
 
-The values at zero, one & infinity:
+The values at `zero`, `one` & `Infinity`:
 
 ```
 >>> 0.exp

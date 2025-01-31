@@ -65,7 +65,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	asPolarCoordinates { :self |
-		PolarCoordinates(self.r, self.theta)
+		PolarCoordinates(self.radius, self.theta)
 	}
 
 	asRecord { :self |
@@ -185,16 +185,12 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		atan2(self.y, self.x)
 	}
 
-	r { :self |
+	radius { :self |
 		(self.x.squared + self.y.squared).sqrt
 	}
 
-	radius { :self |
-		self.r
-	}
-
 	rho { :self |
-		self.r
+		self.radius
 	}
 
 	second { :self |

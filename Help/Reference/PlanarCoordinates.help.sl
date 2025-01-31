@@ -20,7 +20,7 @@ and for converting to a `PolarCoordinates`:
 >>> let p = PlanarCoordinates(1, 1);
 >>> (
 >>> 	p.x, p.y,
->>> 	p.r, p.theta,
+>>> 	p.radius, p.theta,
 >>> 	p.rho, p.phi,
 >>> 	p.asPolarCoordinates
 >>> )

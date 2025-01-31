@@ -59,8 +59,7 @@ true
 At `String`, which is not `Extensible`:
 
 ```
->>> let s = 'string';
->>> { s.add('!') }.ifError { :err | true }
+>>> { 'string'.add('!') }.ifError { true }
 true
 ```
 

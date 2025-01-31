@@ -56,10 +56,6 @@ Circle : [Object] { | center radius |
 		self.circumference
 	}
 
-	r { :self |
-		self.radius
-	}
-
 	randomPoint { :self :rng :shape |
 		{
 			let theta = rng.randomReal(0, 2.pi, []);

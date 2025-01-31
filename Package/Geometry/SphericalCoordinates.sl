@@ -26,7 +26,7 @@
 	}
 
 	asRecord { :self |
-		(r: self.r, theta: self.theta, phi: self.phi)
+		(radius: self.r, theta: self.theta, phi: self.phi)
 	}
 
 	asTuple { :self |
@@ -50,7 +50,7 @@
 	}
 
 	rho { :self |
-		self.r
+		self.radius
 	}
 
 	storeString { :self |
@@ -157,16 +157,12 @@ SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 		(self.x.squared + self.y.squared).sqrt.atan2(self.z)
 	}
 
-	r { :self |
+	radius { :self |
 		(self.x.squared + self.y.squared + self.z.squared).sqrt
 	}
 
-	radius { :self |
-		self.r
-	}
-
 	rho { :self |
-		self.r
+		self.radius
 	}
 
 	theta { :self |

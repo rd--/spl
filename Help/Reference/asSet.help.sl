@@ -18,6 +18,13 @@ At `Tuple`:
 3
 ```
 
+At `Bag`:
+
+```
+>>> [1 1 2 1 2 3].asBag.asSet
+[1 2 3].asSet
+```
+
 At `String`:
 
 ```

@@ -424,7 +424,7 @@ CombN(
 let amp = 0.07;
 let density = MouseX(0.01, 1, 0, 0.2); /* mouse determines density of excitation */
 let dmul = density.Reciprocal * 0.5 * amp; /* calculate multiply and add for excitation probability */
-let dadd = dmul.Minus + amp;
+let dadd = dmul.- + amp;
 let signal = Sum( /* mix a list of 4 instruments */
 	{
 		/* if amplitude is below zero it is clipped, density determines the probability of being above zero */

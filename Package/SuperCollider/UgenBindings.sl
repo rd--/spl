@@ -366,7 +366,7 @@
 /* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	Plus { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
-	Subtract { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
+	Minus { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
 	Times { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
 	Quotient { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
 	Divide { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }
@@ -434,10 +434,12 @@
 		(self * 100).MidiCps
 	}
 
+	- { :self | Minus(self) }
+
 	^ { :self :anObject | Power(self, anObject) }
 	+ { :self :anObject | Plus(self, anObject) }
 	* { :self :anObject | Times(self, anObject) }
-	- { :self :anObject | Subtract(self, anObject) }
+	- { :self :anObject | Minus(self, anObject) }
 	/ { :self :anObject | Divide(self, anObject) }
 	// { :self :anObject | Quotient(self, anObject) }
 	% { :self :anObject | Mod(self, anObject) }

@@ -182,7 +182,7 @@ let n = 4; /* number of simultaneous events */
 		Lag(LfSaw(
 			LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).MulAdd(3.Rand0 + 4, 2)
 			+ LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1).Times(3.Rand0 + 4), 0).MulAdd(
-				(1000 + 800.Rand0).Minus, 4000 + 1200.Rand2), 0.05),
+				(1000 + 800.Rand0).-, 4000 + 1200.Rand2), 0.05),
 		0).Times(Lag(LfPulse(0.5.Rand0 + 0.2, 0, 0.4) * 0.02, 0.3)), 1.Rand2)
 }.overlapTextureProgram(7, 4, n)
 
@@ -191,7 +191,7 @@ let n = 4; /* number of simultaneous events */
 {
 	let p1 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 2);
 	let p2 = MulAdd(LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1), 3.Rand0 + 4, 0);
-	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).Minus, 4000 + 1200.Rand2), 0.05);
+	let freq = Lag(MulAdd(LfSaw(p1 + p2, 0), (1000 + 800.Rand0).-, 4000 + 1200.Rand2), 0.05);
 	let amp = Lag(MulAdd(LfPulse(0.2 + 0.5.Rand0, 0, 0.4), 0.02, 0), 0.3);
 	EqPan2(SinOsc(freq, 0) * amp, 1.Rand2)
 }.overlapTextureProgram(7, 4, n)

@@ -1,8 +1,9 @@
 # Plus
 
-- _Plus(aNumber, anotherNumber=0)_
+- _Plus(aNumber, anotherNumber)_
 
 Answer the sum of _aNumber_ and _anotherNumber_.
+`Plus` is an alias for `+`.
 
 At `SmallFloat`:
 
@@ -14,11 +15,17 @@ At `SmallFloat`:
 At `Ugen`:
 
 ```
-SinOsc(220, 0).Plus(Saw(110)) * 0.1
+Times(
+	Plus(
+		SinOsc(220, 0),
+		Saw(110)
+	),
+	0.1
+)
 ```
 
 * * *
 
-See also: +, *, Mul, MulAdd
+See also: +, *, Minus, Times, MulAdd
 
 Categories: Math, Ugen

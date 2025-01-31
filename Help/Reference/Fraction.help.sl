@@ -1,5 +1,6 @@
 # Fraction
 
+- _Fraction([numerator, denominator])_
 - _Fraction(numerator, denominator)_
 
 `Fraction` is a numerical `Type` that provides methods for working with fractions like 1/3 as a ratio of two integers.
@@ -20,6 +21,9 @@ Fractions can be converted to floating point numbers:
 
 ```
 >>> 3/4.asSmallFloat
+0.75
+
+>>> 3/4.asFloat
 0.75
 ```
 
@@ -47,7 +51,18 @@ The `Fraction` method reduces fractions on construction:
 1/2
 ```
 
-The `ReducedFraction` method does not, it assumes the fraction being specified is in reduced form:
+The unary `Fraction` requires a two-element sequence:
+
+```
+>>> (2, 4).Fraction
+1/2
+
+>>> [7 21].Fraction
+1/3
+```
+
+The `ReducedFraction` method does not,
+it assumes the fraction being specified is in reduced form:
 
 ```
 >>> ReducedFraction(2, 4).asTuple
@@ -152,14 +167,21 @@ There are accessor methods for the `numerator` and `denominator`:
 (22, 7)
 ```
 
-The `asTuple` method answers a two tuple of these:
+The `asTuple` method answers a `Tuple` of these:
 
 ```
 >>> 22/7.asTuple
 (22, 7)
 ```
 
-The letter _r_ abbreviates _Fraction_ (_r_ for _rational_), in the same manner that _j_ abbreviates _Complex_.
+The `asList` method answers a `List` of these:
+
+```
+>>> 22/7.asList
+[22 7]
+```
+
+The letter `r` abbreviates `Fraction` (`r` for _rational_), in the same manner that `j` abbreviates `Complex`.
 
 ```
 >>> 3.r(7)

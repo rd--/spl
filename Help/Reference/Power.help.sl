@@ -2,6 +2,13 @@
 
 - _Power(aNumber, anotherNumber)_
 
+Answer _aNumber_ raised to the power _anotherNumber_.
+
+```
+>>> Power(2, 3)
+8
+```
+
 This method extends the usual definition of exponentiation,
 and for negative _i_ in _Power(i, j)_ answers _Minus(Power(Minus(i), j))_.
 

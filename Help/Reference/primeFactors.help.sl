@@ -119,6 +119,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeFactorization.html)
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/factor.html)
+[1](https://mathworks.com/help/matlab/ref/factor.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Integer.html#-factors)
 
 Categories: Arithmetic

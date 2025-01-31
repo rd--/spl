@@ -4,7 +4,7 @@
 
 Answer a `List` of the elements of the power set of _aCollection_.
 
-All subsets of the `List` _[1 2 3]_, including the empty set:
+All subsets of the `List` _[1,2,3]_, including the empty set:
 
 ```
 >>> [1 2 3].powerSet
@@ -68,6 +68,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Subsets.html),
 _Sage_
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/subset.html#sage.combinat.subset.powerset),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Array.html#-powerset),
 _W_
 [1](https://en.wikipedia.org/wiki/Power_set)
 

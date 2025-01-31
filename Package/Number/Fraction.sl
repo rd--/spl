@@ -148,6 +148,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.asFloat
 	}
 
+	asList { :self |
+		[self.numerator, self.denominator]
+	}
+
 	asTuple { :self |
 		(self.numerator, self.denominator)
 	}
@@ -489,8 +493,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +@Sequence {
 
-	r { :numerator :denominator |
-		Fraction(numerator, denominator)
+	Fraction { :self |
+		(self.size = 2).if {
+			Fraction(self[1], self[2])
+		} {
+			self.error('@Sequence>>Fraction: invalid size')
+		}
 	}
 
 }

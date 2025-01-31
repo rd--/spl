@@ -26,6 +26,36 @@ Log base two of the first primes:
 ]
 ```
 
+The pitch of A4 in octaves above `one` hertz:
+
+```
+>>> 440.log2
+8.7814
+
+>>> 2 ^ 8.7814
+440
+```
+
+The pitch of middle C (C4) in octaves above `one` hertz:
+
+```
+>>> 440.log2 - 9/12
+8.0314
+
+>>> 2 ^ (440.log2 - 9/12)
+261.6256
+```
+
+Frequency of middle C (C4) in hertz:
+
+```
+>>> 2 ^ (440.log2 - 9/12)
+261.6256
+
+>>> 261.6256.CpsMidi
+60
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

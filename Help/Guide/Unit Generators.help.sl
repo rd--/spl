@@ -172,9 +172,9 @@
 - `Log2`: base 2 logarithm
 - `Max`: maximum
 - `Min`: minimum
+- `Minus`: subtraction and negation
 - `ModDif`: minimum difference of two values in modulo arithmetics
 - `MulAdd`: multiply and add
-- `Minus`: minus (negation, inversion)
 - `Plus`: addition
 - `Power`: raised to
 - `Quotient`: quotient
@@ -184,7 +184,6 @@
 - `Sinh`: hyperbolic sine
 - `Sqrt`: square root
 - `Squared`: squared value
-- `Subtract`: subtraction
 - `Tan`: tangent
 - `Tanh`: hyperbolic tangent
 - `Wrap`: wrap a signal outside given thresholds

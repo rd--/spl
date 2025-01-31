@@ -12,7 +12,7 @@
 	let p3 = LfPulse(0.2 + 0.5.Rand0, 0, 0.4);
 	let sw = MulAdd(
 		LfSaw(p1 + p2, 0),
-		(1000 + 800.Rand0).Minus,
+		(1000 + 800.Rand0).-,
 		4000 + 1200.Rand2
 	);
 	let freq = Lag(sw, 0.05);

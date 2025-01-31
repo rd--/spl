@@ -2,6 +2,9 @@
 
 `Collection` is a `Trait` holding behaviours common to collections.
 
+The required methods are `size` and `do`,
+meaning that all collections can also implement `Iterable`.
+
 ```
 >>> system
 >>> .traitDictionary['Collection']
@@ -13,8 +16,6 @@ true
 >>> .includes('List')
 true
 ```
-
-`size` and `do` are the basic methods of a collection.
 
 Methods for testing: `isEmpty`, `occurrencesOf`, `anySatisfy`, `allSatisfy`, `includes`, `includesAllOf`, `includesAnyOf`
 

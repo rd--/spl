@@ -80,7 +80,7 @@ Integer division does not neccesarily answer an integer, c.f. `//`:
 
 * * *
 
-See also: //, +, -, *
+See also: //, +, -, *, Divide
 
 Guides: Fraction Literals
 

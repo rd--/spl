@@ -42,6 +42,13 @@ At `Matrix`:
 [1 2; 3 4; 5 6]
 ```
 
+At `Fraction`:
+
+```
+>>> 1/3.asList
+[1 3]
+```
+
 This should not be defined for scalar values, see _asCollection_.
 
 * * *
@@ -49,6 +56,8 @@ This should not be defined for scalar values, see _asCollection_.
 See also: List, asCollection
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/xco#dyadic),
 _Smalltalk_
 5.7.1.3
 

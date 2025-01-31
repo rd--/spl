@@ -4,7 +4,8 @@
 
 To implement `Iterable` a type must provide `do`.
 
-Iterable defines `size` in terms of `do`, but for many types a more efficient form is possible.
+Iterable defines `size` in terms of `do`,
+but for many types a more efficient form is possible.
 
 ```
 >>> system.traitDictionary['Iterable'].isTrait

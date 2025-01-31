@@ -17,13 +17,12 @@ At `List`:
 ```
 >>> [10 6 3 1 0].adjacentPairsCollect(-)
 [4 3 2 1]
-```
 
-At `Tuple`:
+>>> [7 9 16 20 1 5].adjacentPairsCollect(-.swap)
+[2 7 4 -19 4]
 
-```
->>> (7, 23, 47).adjacentPairsCollect(*)
-(161, 1081)
+>>> [7 23 47].adjacentPairsCollect(*)
+[161 1081]
 ```
 
 Answer a matrix:

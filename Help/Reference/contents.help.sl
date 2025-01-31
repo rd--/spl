@@ -1,6 +1,13 @@
 # contents
 
-- _contents(anIterable | aStream | aCollection | aString | aQuotedString)_
+- _contents(aBox | anIterable | aStream | aCollection | aString | aQuotedString)_
+
+At `Box`:
+
+```
+>>> Box(23).contents
+23
+```
 
 The `contents` of an `Iterable` is a `List` of all of the items accessed by `do`.
 

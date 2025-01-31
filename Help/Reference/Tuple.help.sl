@@ -1,6 +1,8 @@
 # Tuple
 
-An n-tuple is an ordered heterogeneous set of n elements.
+A `Type` holding an _n_-tuple.
+
+An _n_-tuple is an ordered heterogeneous set of _n_ elements.
 
 There is a syntax for writing tuples, _(p, q) ⇒ [p, q].asTuple_ &etc.
 

@@ -10,15 +10,15 @@ A `Type` that represents a circle of _radius_ at _center_.
 (true, [0 0], 1)
 ```
 
-Implements `x`, `y` and `r`:
+Implements `x` and `y` to access components of `center`:
 
 ```
 >>> let c = Circle([0 0], 1);
->>> (c.x, c.y, c.r)
-(0, 0, 1)
+>>> (c.x, c.y)
+(0, 0)
 ```
 
-Calculate arc length, area, circumference, perimeter, centroid, diameter and radius:
+Calculate `arcLength`, `area`, `circumference`, `perimeter`, `centroid`, `diameter` and `radius`:
 
 ```
 >>> let c = Circle([0 0], 1);

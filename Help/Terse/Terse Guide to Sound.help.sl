@@ -115,9 +115,6 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 4].similarity([1 .. 4]) = 1 /* similarity based on Levenshtein distance (1 = equal) */
 [1 .. 4].similarity([5 .. 8]) = 0 /* similarity based on Levenshtein distance (0 = unequal) */
 [1 .. 4].similarity([1 3 2 4]) = 0.5 /* similarity based on Levenshtein distance */
-[1 .. 4].mirror = [1 2 3 4 3 2 1] /* append reverse of prefix of list */
-1:4.mirror1 = [1 2 3 4 3 2] /* mirror without last element */
-1:4.mirror2 = [1 2 3 4 4 3 2 1] /* append reverse of list */
 [1 .. 9].normalizeSum.sum = 1 /* self / self.sum */
 [1 .. 9].normalizeRange(10, 90) = [10, 20 .. 90] /* normalise between minima and maxima */
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) /* extend list cyclically */

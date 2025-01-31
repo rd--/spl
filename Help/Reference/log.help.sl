@@ -65,7 +65,7 @@ Show that the natural logarithm of -1 is iπ:
 0J3.14159
 ```
 
-Log threads elementwise over lists:
+`log` threads elementwise over lists:
 
 ```
 >>> [1 2.1 3.1 4.1].log

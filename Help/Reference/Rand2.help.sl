@@ -1,6 +1,6 @@
 # Rand2
 
-- _Rand2(α)_ ⟹ _Rand(α.Minus, α)_
+- _Rand2(α)_ ⟹ _Rand(-α, α)_
 
 Random number generator.
 

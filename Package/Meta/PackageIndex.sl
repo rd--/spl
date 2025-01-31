@@ -27,6 +27,7 @@
 	'Collection-AssociationList'
 	'Collection-Bag'
 	'Collection-BitSet'
+	'Collection-Box'
 	'Collection-ByteArray'
 	'Collection-Cache'
 	'Collection-CategoryDictionary'

@@ -17,7 +17,7 @@ Modulate both fold points, at different ratios:
 
 ```
 let x = MouseX(0.1, 0.2, 0, 0.2);
-Fold(SinOsc(440, 0) * 0.2, x.Minus / 2, x)
+Fold(SinOsc(440, 0) * 0.2, x.- / 2, x)
 ```
 
 Modulate one fold point:

@@ -18,7 +18,7 @@ CylindricalCoordinates : [Object] { | rho phi z |
 		(self.rho, self.phi, self.z)
 	}
 
-	r { :self |
+	radius { :self |
 		self.rho
 	}
 

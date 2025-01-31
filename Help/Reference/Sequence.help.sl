@@ -4,10 +4,14 @@
 Thus each element is externally-named by integers referred to as indices.
 
 ```
->>> system.traitDictionary['Sequence'].isTrait
+>>> system
+>>> .traitDictionary['Sequence']
+>>> .isTrait
 true
 
->>> system.traitTypes('Sequence').includes('List')
+>>> system
+>>> .traitTypes('Sequence')
+>>> .includes('List')
 true
 ```
 

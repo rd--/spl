@@ -39,6 +39,19 @@ To write a descending `Range` see `Range Syntax` or `thenTo` or `toBy`:
 [7 6 5]
 ```
 
+Threads over lists:
+
+```
+>>> [0 2].to(4)
+[0:4 2:4]
+
+>>> 0.to([2 4])
+[0:2 0:4]
+
+>>> [0 2].to([3 5 7])
+[0:3 2:5 0:7]
+```
+
 _Rationale_:
 The behaviour when _stop < start_ is inherited from Smalltalk,
 and mirrors the behaviour at Haskell.
@@ -53,6 +66,8 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:enumFromTo),
 _Smalltalk_
-5.6.2.37
+5.6.2.37,
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Integer.html#-to)
 
 Categories: Constructor, Range

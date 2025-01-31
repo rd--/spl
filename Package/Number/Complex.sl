@@ -354,7 +354,7 @@ Complex : [Object, Number] { | real imaginary |
 
 	normalize { :self |
 		self.isZero.if {
-			0j0
+			0J0
 		} {
 			self / self.abs
 		}

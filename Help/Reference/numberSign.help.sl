@@ -75,7 +75,7 @@ A zero count entry skips over the corresponding item
 [2 3 5 5]
 ```
 
-It is an error if the count is not integral:
+It is an `error` if the count is not integral:
 
 ```
 >>> { 3 # 3.5 }.ifError { true }
@@ -95,3 +95,5 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/repelem.html)
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Array.html#-dupEach)

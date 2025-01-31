@@ -13,6 +13,7 @@
 	'Array'
 	'AssociationList'
 	'Bag'
+	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
 	'Heap'

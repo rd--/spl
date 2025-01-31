@@ -39,7 +39,7 @@ Splay(
 				SinOsc(freq, 0)
 			},
 			SinOsc(2 / c.Log10, 0),
-			LfSaw(11 / c.Minus, 0).Max(0).Lag3(0.1)
+			LfSaw(11 / c.-, 0).Max(0).Lag3(0.1)
 		].product,
 		0.995
 	),

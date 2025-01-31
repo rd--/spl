@@ -32,6 +32,9 @@ In the `SmallFloat` case derive a `Fraction` using `rationalize`:
 
 >>> 0.202898.asFraction
 14/69
+
+>>> 0.333333333333.asFraction
+1/3
 ```
 
 In the `SmallFloat` case a tolerance may be given:
@@ -63,6 +66,8 @@ At negative numbers:
 See also: asApproximateFraction, asFloat, asInteger, asNumber, rationalize
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Vocabulary/xco),
 _Smalltalk_
 5.6.2.15
 
