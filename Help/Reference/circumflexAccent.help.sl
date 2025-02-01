@@ -258,7 +258,7 @@ In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
 
 * * *
 
-See also: +, -, *, /, exp, sqrt, log
+See also: +, -, *, /, exp, log, sqrt, symmetricPower
 
 References:
 _Apl_

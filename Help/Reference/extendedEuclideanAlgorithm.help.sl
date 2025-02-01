@@ -16,8 +16,14 @@ Answer greatest common divisor and Bézout coefficients.
 
 >>> 3.extendedEuclideanAlgorithm(15)
 [3, [1, 0]]
+```
 
->>> 42823.extendedEuclideanAlgorithm(6409)
+Illustrate coefficients:
+
+```
+>>> 42823.extendedEuclideanAlgorithm(
+>>> 	6409
+>>> )
 [17, [-22, 147]]
 
 >>> (-22 * 42823) + (147 * 6409)

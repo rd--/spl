@@ -850,6 +850,14 @@
 		self * 2.2055694304005903
 	}
 
+	symmetricPower { :self :aNumber |
+		self.isNegative.if {
+			(self.negated ^ aNumber).negated
+		} {
+			self ^ aNumber
+		}
+	}
+
 	toByDo { :self :stop :step :aBlock:/1 |
 		(step = 0).if {
 			'@Number>>toByDo: step must be non-zero'.error

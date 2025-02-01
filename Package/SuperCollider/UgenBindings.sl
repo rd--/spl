@@ -493,16 +493,6 @@
 		}
 	}
 
-	/*
-	Power { :self :aNumber |
-		self.isNegative.if {
-			(self.negated ^ aNumber).negated
-		} {
-			self ^ aNumber
-		}
-	}
-	*/
-
 	Sqrt { :self |
 		self.isNegative.if {
 			self.negated.sqrt.negated

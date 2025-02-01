@@ -111,6 +111,18 @@ Modular addition tables:
 
 ![](sw/spl/Help/Image/percentSign-E.svg)
 
+Modulo sum pattern:
+
+~~~spl svg=F
+let m = 7;
+let n = 2;
+{ :i :j |
+	((i % m) + (j % m)) = n
+}.table(0:25, 0:25).boole.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-F.svg)
+
 The name of this operator is `percentSign`.
 
 * * *

@@ -11,10 +11,19 @@ This makes it consistent with the lattice-theoretical interpretation and it’s 
 >>> 1624.Lcm(-26)
 -21112
 
+>>> 1624.lcm(-26)
+21112
+
 >>> -1624.Lcm(-26)
 -21112
 
+>>> -1624.lcm(-26)
+21112
+
 >>> 513.Lcm(513.Gcd(44))
+513
+
+>>> 513.lcm(513.gcd(44))
 513
 ```
 
@@ -26,6 +35,9 @@ Following the example of the programming language _J_, `Lcm` is analogous to log
 
 >>> &&.table([false true], [false true])
 [false false; false true]
+
+>>> lcm:/2.table([0 1], [0 1])
+[0 0; 0 1]
 ```
 
 Mouse control of frequency:
@@ -51,7 +63,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/stardot#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
-[2](https://mathworld.wolfram.com/LCM.html)
+[2](https://mathworld.wolfram.com/LCM.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Overviews/Operators.html#lcm)
 
 Further Reading: McDonnell 1975
 

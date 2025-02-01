@@ -48,7 +48,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plusdot#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
-[2](https://mathworld.wolfram.com/GCD.html)
+[2](https://mathworld.wolfram.com/GCD.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Overviews/Operators.html#lcm)
 
 Further Reading: McDonnell 1975
 
