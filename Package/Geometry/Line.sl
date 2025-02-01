@@ -178,6 +178,108 @@ Line : [Object] { | vertexCoordinates |
 
 }
 
++@Integer {
+
+	hilbertCurve { :self |
+		let angle = 0;
+		let answer = [[0 0]];
+		[
+			'A' -> '+BF-AFA-FB+',
+			'B' -> '-AF+BFB+FA-',
+			'F' -> 'F',
+			'+' -> '+',
+			'-' -> '-'
+		]
+		.asMap
+		.substitutionSystem('A', self)
+		.last
+		.select { :each | '+-F'.includes(each) }
+		.contents
+		.do { :each |
+			(each = 'F').if {
+				answer.add(answer.last + angle.angleVector)
+			} {
+				angle := angle + (each = '+').if { 0.5.pi } { -0.5.pi }
+			}
+		};
+		answer
+	}
+
+	kochCurve { :self |
+		let angle = 0;
+		let answer = [[0 0]];
+		[
+			'F' -> 'F+F--F+F',
+			'+' -> '+',
+			'-' -> '-'
+		]
+		.asMap
+		.substitutionSystem('F', self)
+		.last
+		.select { :each | '+-F'.includes(each) }
+		.contents
+		.do { :each |
+			(each = 'F').if {
+				answer.add(answer.last + angle.angleVector)
+			} {
+				angle := angle + (each = '+').if { 1/3.pi } { -1/3.pi }
+			}
+		};
+		answer
+	}
+
+	peanoCurve { :self |
+		let angle = 0;
+		let answer = [[0 0]];
+		[
+			'X' -> 'XFYFX+F+YFXFY-F-XFYFX',
+			'Y' -> 'YFXFY-F-XFYFX+F+YFXFY',
+			'F' -> 'F',
+			'+' -> '+',
+			'-' -> '-'
+		]
+		.asMap
+		.substitutionSystem('X', self)
+		.last
+		.select { :each | '+-F'.includes(each) }
+		.contents
+		.do { :each |
+			(each = 'F').if {
+				answer.add(answer.last + angle.angleVector)
+			} {
+				angle := angle + (each = '+').if { 0.5.pi } { -0.5.pi }
+			}
+		};
+		answer
+	}
+
+	sierpinskiCurve { :self |
+		let angle = 0;
+		let answer = [[0 0]];
+		[
+			'X' -> 'XF+G+XF--F--XF+G+X',
+			'F' -> 'F',
+			'G' -> 'G',
+			'+' -> '+',
+			'-' -> '-'
+		]
+		.asMap
+		.substitutionSystem('F--XF--F--XF', self)
+		.last
+		.select { :each | '+-FG'.includes(each) }
+		.contents
+		.do { :each |
+			('FG'.includes(each)).if {
+				answer.add(answer.last + angle.angleVector)
+			} {
+				angle := angle + (each = '+').if { 0.25.pi } { -0.25.pi }
+			}
+		};
+		answer
+	}
+
+}
+
 +System {
 
 	schareinKnotCatalogue { :self |

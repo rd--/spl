@@ -3,6 +3,9 @@
 - _anglePath(thetaList, radiusList, origin)_
 - _anglePath(α)_ ⟹ _anglePath(α, [1], [0, 0])_
 
+Answer the `List` of two-dimensional coordinates corresponding to a path that starts at _origin_,
+then takes a series of steps of length _radius_ at successive relative angles _theta_.
+
 ```
 >>> (90.degree # 3).anglePath
 [0 0; 0 1; -1 1; -1 0]
@@ -88,6 +91,16 @@ let t = 256.thueMorseSequence;
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-H.svg)
+
+Draw a line for which consecutive relative angles increase and are modulated by a `sin` function:
+
+~~~spl svg=I
+(0, 0.01 .. 50).collect { :t |
+	t * t.sin
+}.anglePath.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/anglePath-I.svg)
 
 * * *
 

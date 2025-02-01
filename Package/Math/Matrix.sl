@@ -1171,10 +1171,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
-	hilbertMatrix { :n |
+	hilbertMatrix { :m :n |
 		{ :i :j |
 			1 / (i + j - 1)
-		}.table(1:n, 1:n)
+		}.table(1:m, 1:n)
 	}
 
 	identityMatrix { :n :m |

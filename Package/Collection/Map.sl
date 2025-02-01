@@ -107,8 +107,8 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 		self.associations.storeString ++ '.asMap'
 	}
 
-	substitutionSystem { :self :aSequence :anInteger |
-		let answer = [aSequence];
+	listSubstitutionSystem { :self :aList :anInteger |
+		let answer = [aList];
 		anInteger.timesRepeat {
 			let next = [];
 			answer.last.do { :each |
@@ -117,6 +117,45 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 			answer.add(next)
 		};
 		answer
+	}
+
+	matrixSubstitutionSystem { :self :aMatrix :anInteger |
+		let answer = [aMatrix];
+		anInteger.timesRepeat {
+			let next = answer.last.deepCollect { :each |
+				self[each]
+			}.arrayFlatten;
+			answer.add(next)
+		};
+		answer
+	}
+
+	stringSubstitutionSystem { :self :aString :anInteger |
+		let answer = [aString];
+		anInteger.timesRepeat {
+			let next = [];
+			answer.last.do { :each |
+				next.add(self[each])
+			};
+			answer.add(next.join(''))
+		};
+		answer
+	}
+
+	substitutionSystem { :self :initialCondition :anInteger |
+		initialCondition.isString.if {
+			self.stringSubstitutionSystem(initialCondition, anInteger)
+		} {
+			initialCondition.isVector.if {
+				self.listSubstitutionSystem(initialCondition, anInteger)
+			} {
+				initialCondition.isMatrix.if {
+					self.matrixSubstitutionSystem(initialCondition, anInteger)
+				} {
+					self.error('substitutionSystem: not string or vector or matrix')
+				}
+			}
+		}
 	}
 
 	values { :self |

@@ -32,14 +32,20 @@ With zero matrices:
 Flatten a rank-four array to rank two:
 
 ```
->>> [0].reshape([1 2 3 4]).arrayFlatten.shape
+>>> [0]
+>>> .reshape([1 2 3 4])
+>>> .arrayFlatten
+>>> .shape
 [3 8]
 ```
 
 Flatten only the first four levels of a rank-6 array:
 
 ```
->>> [0].reshape([1 2 3 4 5 6]).arrayFlatten.shape
+>>> [0]
+>>> .reshape([1 2 3 4 5 6])
+>>> .arrayFlatten
+>>> .shape
 [3 8 5 6]
 ```
 
@@ -52,6 +58,22 @@ Flatten only the first four levels of a rank-6 array:
 >>> k = o.arrayFlatten
 true
 ```
+
+Iterate a two-dimensional substitution system:
+
+~~~spl svg=A
+{ :x |
+	x.deepCollect { :each |
+		(each = 1).if {
+			[1 0; 1 1]
+		} {
+			[0 0; 0 0]
+		}
+	}.arrayFlatten
+}.nestList([[1]], 3).last.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/arrayFlatten-A.svg)
 
 * * *
 

@@ -74,7 +74,7 @@ Iterates in the _3 n + 1_ problem:
 ]
 ```
 
-Linear congruential pseudorandom generator:
+Linear congruential pseudo-random generator:
 
 ```
 >>> { :x |
@@ -84,6 +84,16 @@ Linear congruential pseudorandom generator:
 	1 59 47 46 88 41 96 8 68 73
 	65 98 25 61 64 39
 ]
+```
+
+Random walk:
+
+```
+>>> let r = Sfc32(671431);
+>>> { :x |
+>>> 	x + r.randomChoice([-1 1], [])
+>>> }.nestList(0, 9)
+[0 -1 -2 -1 0 1 2 3 2 1]
 ```
 
 Successively append to a string:

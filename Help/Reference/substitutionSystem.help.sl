@@ -6,11 +6,28 @@ Answer a `List` representing the evolution of the substitution system with the s
 given as a `Map`,
 from _initialCondition_ for _count_ steps.
 
+Five steps of a `String` substitution system:
+
+```
+>>> ['A' -> 'AB', 'B' -> 'A']
+>>> .asMap
+>>> .substitutionSystem('A', 5)
+[
+	'A'
+	'AB'
+	'ABA'
+	'ABAAB'
+	'ABAABABA'
+	'ABAABABAABAAB'
+]
+```
+
 Five steps of a substitution system that generates the infinite Fibonacci word:
 
 ```
->>> let rule = [0 -> [0 1], 1 -> [0]].asMap;
->>> rule.substitutionSystem([0], 5)
+>>> [0 -> [0 1], 1 -> [0]]
+>>> .asMap
+>>> .substitutionSystem([0], 5)
 [
 	0;
 	0 1;
@@ -31,8 +48,9 @@ C.f. `fibonacciWord`:
 Generate five steps in a Thue–Morse substitution system:
 
 ```
->>> let rule = [0 -> [0 1], 1 -> [1 0]].asMap;
->>> rule.substitutionSystem([0], 5)
+>>> [0 -> [0 1], 1 -> [1 0]]
+>>> .asMap
+>>> .substitutionSystem([0], 5)
 [
 	0;
 	0 1;
@@ -57,21 +75,24 @@ C.f. `thueMorse`:
 The initial condition can be of any length:
 
 ```
->>> let rule = [0 -> [0 1], 1 -> [1 0]].asMap;
->>> rule.substitutionSystem([0 1 0], 3)
+>>> [0 -> [0 1], 1 -> [1 0]]
+>>> .asMap
+>>> .substitutionSystem([0 1 0], 3)
 [
 	0 1 0;
 	0 1 1 0 0 1;
 	0 1 1 0 1 0 0 1 0 1 1 0;
-	0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1
+	0 1 1 0 1 0 0 1 1 0 0 1
+	0 1 1 0 0 1 1 0 1 0 0 1
 ]
 ```
 
 Rule with three tokens:
 
 ```
->>> let rule = [0 -> [1 2], 1 -> [1 2], 2 -> [0 1]].asMap;
->>> rule.substitutionSystem([0], 3)
+>>> [0 -> [1 2], 1 -> [1 2], 2 -> [0 1]]
+>>> .asMap
+>>> .substitutionSystem([0], 3)
 [
 	0;
 	1 2;
@@ -83,8 +104,11 @@ Rule with three tokens:
 Derived rule:
 
 ```
->>> let rule = 1:3.collect { :n | n -> [1 .. n] }.asMap;
->>> rule.substitutionSystem([3], 3)
+>>> 1:3.collect { :n |
+>>> 	n -> [1 .. n]
+>>> }
+>>> .asMap
+>>> .substitutionSystem([3], 3)
 [
 	3;
 	1 2 3;
@@ -96,8 +120,9 @@ Derived rule:
 Steps in constructing a Cantor set:
 
 ```
->>> let rule = [1 -> [1 0 1], 0 -> [0 0 0]].asMap;
->>> rule.substitutionSystem([1], 3)
+>>> [1 -> [1 0 1], 0 -> [0 0 0]]
+>>> .asMap
+>>> .substitutionSystem([1], 3)
 [
 	1;
 	1 0 1;
@@ -107,6 +132,40 @@ Steps in constructing a Cantor set:
 	1 0 1 0 0 0 1 0 1
 ]
 ```
+
+Create an analogous two-dimensional nested object:
+
+~~~spl png=A
+[
+	1 -> [1 1 1; 1 0 1; 1 1 1],
+	0 -> [3 3].constantArray(0)
+]
+.asMap
+.substitutionSystem([[1]], 5)
+.last
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-A.png)
+
+Generate a "C curve" fractal:
+
+~~~spl svg=B
+[
+	0 -> [0 0 1],
+	1 -> [1]
+]
+.asMap
+.substitutionSystem([0], 10)
+.last
+.collect { :x |
+	-1 ^ x * 1.pi / 2
+}
+.anglePath
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-B.svg)
 
 * * *
 
