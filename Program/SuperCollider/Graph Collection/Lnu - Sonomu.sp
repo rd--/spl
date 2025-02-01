@@ -506,3 +506,70 @@ Splay(
 	),
 	z(1)
 )
+
+/* https://sonomu.club/@lukiss/113817432455425855 ; Jan 13, 2025, 08:09 AM */
+let p = (1 .. 14).nthPrime;
+let o = SinOsc(p, 0);
+let e = 1 / 8;
+let z = 0.1 * e;
+let f = p.Log2 * p.MidiCps + o;
+let q = SinOsc(1 + o / p ^ 2, 0);
+let g = FbSineN(
+	z * o / p + 8,
+	1,
+	1 / p,
+	o + (1.pi / p).degreesToRadians,
+	0.5,
+	0.1,
+	0.1
+).Sin > (o.reversed % q).Lag(q.Max(0)).RoundTo(q * e);
+let x = SinOsc(
+	f,
+	SinOsc(
+		2 * f + o + p.sin.degreesToRadians,
+		o.pi
+	) * q.pi
+) * Adsr(g, z, e, e / 2, 2 * e, -4);
+Splay(
+	x,
+	x.Sum.Sin
+) / 2
+
+/* https://sonomu.club/@lukiss/113821046696857368 ; Jan 13, 2025, 11:29 PM */
+let t = LfSaw(-8, 1);
+Splay(
+	MoogFf(
+		LfSaw(
+			(
+				12 + Latch(
+					(
+						LfSaw(
+							(1 .. 4).nthPrime * (
+								LfSaw(
+									(1 .. 3).degreesToRadians,
+									0
+								)
+							),
+							0
+						) + 1 * 17
+					).RoundTo(
+						3
+					),
+					t
+				)
+			).MidiCps * [2, 1, 4],
+			0
+		).Sign * t.Max(0) ^ 0.1,
+		(
+			1 + t - (
+				LfSaw(
+					1 / 32 * (1 .. 3),
+					0
+				) * 1.9
+			).Abs
+		) * 5000 + 40,
+		2,
+		0
+	).Tanh,
+	t
+)

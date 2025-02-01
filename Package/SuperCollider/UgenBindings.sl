@@ -99,6 +99,7 @@
 	ExpRand { :lo :hi | <primitive: return sc.ExpRand(_lo, _hi);> }
 	FbSineC { :freq :im :fb :a :c :xi :yi | <primitive: return sc.FbSineC(_freq, _im, _fb, _a, _c, _xi, _yi);> }
 	FbSineL { :freq :im :fb :a :c :xi :yi | <primitive: return sc.FbSineL(_freq, _im, _fb, _a, _c, _xi, _yi);> }
+	FbSineN { :freq :im :fb :a :c :xi :yi | <primitive: return sc.FbSineN(_freq, _im, _fb, _a, _c, _xi, _yi);> }
 	Fft { :buffer :in :hop :wintype :active :winsize | <primitive: return sc.Fft(_buffer, _in, _hop, _wintype, _active, _winsize);> }
 	Fos { :in :a0 :a1 :b1 | <primitive: return sc.Fos(_in, _a0, _a1, _b1);> }
 	FSinOsc { :freq :iphase | <primitive: return sc.FSinOsc(_freq, _iphase);> }
