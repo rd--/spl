@@ -26,6 +26,16 @@ Compare with `^`:
 -0.25J0.25
 ```
 
+Plot:
+
+~~~spl svg=A
+-0.25.Power(
+	[0, 0.01 .. 1]
+).linePlot
+~~~
+
+![](sw/spl/Help/Image/Power-A.svg)
+
 * * *
 
 See also: ^, Exp, factorialPower, Log, powerMod, powerRange, Sqrt

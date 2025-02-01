@@ -6,11 +6,11 @@ The `caches` method answers the `CacheStorage` of the `system`.
 
 `LibraryItem`s are cached at the key 'SplLibrary':
 
-~~~
+~~~spl async
 system
 .caches
 .atIfPresent('SplLibrary') { :cache |
-	cache.isCache.postLine
+	cache.isCache
 }
 ~~~
 

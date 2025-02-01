@@ -16,6 +16,11 @@ Ugen! : [Object, Number] {
 		}
 	}
 
+	/* Copy, c.f. Interpolation */
+	blend { :y1 :y2 :mu |
+		y1 + (mu * (y2 - y1))
+	}
+
 	port { :self |
 		<primitive: return _self.port>
 	}

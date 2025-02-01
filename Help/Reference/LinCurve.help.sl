@@ -4,6 +4,16 @@
 
 Maps a linear input range to a curved output range.
 
+The output clips when the input is out of range:
+
+```
+SinOsc(
+	Phasor(1, 3E-5, -1, 5, 0)
+	.LinCurve(0, 3, 111, 333, -4),
+	0
+) * 0.1
+```
+
 Create a stepped sequence:
 
 ```
@@ -35,18 +45,18 @@ signal * Perc(warpedTriggers, 0.01, 0.1, -4)
 
 Plotting, fixed curve:
 
-~~~
+~~~spl ui
 let l = Line(-1, 5, 0.1);
 let c = l.LinCurve(0, 3, -1, 1, -4);
-[l, c].plot(0.1)
+[l, c].soundPlot(0.1)
 ~~~
 
 Plotting, time-varying curve:
 
-~~~
+~~~spl ui
 let l = SinOsc(100, 0);
 let c = l.LinCurve(-1, 1, -1, 1, XLine(-3, -100, 0.1));
-[l, c].plot(0.1)
+[l, c].soundPlot(0.1)
 ~~~
 
 * * *

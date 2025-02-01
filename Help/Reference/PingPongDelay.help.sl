@@ -15,7 +15,7 @@ PingPong is a pseudo-Ugen built upon `DelayWrite` and `DelayTap`.
 Mouse control of delay time:
 
 ```
-let left = Mul(
+let left = Times(
 	Decay2(
 		Impulse(0.6, 0) * 0.25,
 		0.01,
@@ -26,7 +26,7 @@ let left = Mul(
 		0
 	)
 );
-let right = Mul(
+let right = Times(
 	Decay2(
 		Impulse(0.5, 0) * 0.25,
 		0.01,

@@ -48,7 +48,7 @@ Delete an entry:
 
 Remove all entries:
 
-~~~
+~~~spl effect=cache
 system.localStorage.removeAll
 ~~~
 

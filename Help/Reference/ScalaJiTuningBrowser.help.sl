@@ -6,9 +6,9 @@ A `ColumnBrowser` on the just-intonation tunings subset of the _Scala_ scale dat
 
 The browser is organised by degree and limit.
 
-~~~
+~~~spl kansas
 system.requestLibraryItem(
-	'Music/Tuning/Scala/JustIntonation'
+	'ScalaTuningArchive'
 ).then { :answer |
 	let smallKansas = system.smallKansas;
 	smallKansas.addFrame(

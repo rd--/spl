@@ -17,7 +17,7 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 				[
 					'(',
 					self.program.unwords,
-					').printString.utf8ByteArray = ',
+					').asString.utf8ByteArray = ',
 					self.expectedAnswer.unlines.utf8ByteArray.storeString
 				].join('')
 			} {

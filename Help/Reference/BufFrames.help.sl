@@ -10,7 +10,7 @@ Note: A buffer can be reallocated at any time, the frame count can change at any
 
 Indexing with a phasor:
 
-```
+```spl SfAcquire
 let sf = SfAcquireMono('Floating');
 let ph = Phasor(
 	0,
@@ -24,7 +24,7 @@ BufRd(1, sf, ph, 1, 2)
 
 Indexing by hand:
 
-```
+```spl SfAcquire
 let sf = SfAcquireMono('Floating');
 let ph = MouseX(
 	0,

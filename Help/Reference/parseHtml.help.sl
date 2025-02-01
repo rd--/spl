@@ -7,7 +7,7 @@ Implemented using the _template_ element type.
 
 Create a _paragraph_ element:
 
-~~~
+~~~spl requires=document
 system
 .window
 .document

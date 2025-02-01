@@ -6,20 +6,22 @@ Answer a `String` holding the contents of the named file.
 If the file does not exists signal an `Error`.
 
 ~~~
-'/etc/passwd'.readTextFile
+>>> system
+>>> .splFile('README.md')
+>>> .readTextFile
+>>> .lines
+>>> .size
+16
 ~~~
 
-This uses a different primitive to `fetch` and is synchronous,
+This uses a different primitive to `fetch` and is asynchronous,
 however it should answer equivalently:
 
-~~~
-'/etc/passwd'
+~~~spl async
+system
+.splFile('README.md')
 .asFileUrl
-.fetchText.thenElse { :answer |
-	answer.postLine
-} { :reason |
-	reason.postLine
-}
+.fetchText
 ~~~
 
 * * *

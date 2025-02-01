@@ -53,7 +53,7 @@ let i = -50:50;
 
 Draw Julia set:
 
-~~~
+~~~spl png=C
 let julia = { :c |
 	let iter = { :z |
 		let n = 0;

@@ -31,7 +31,7 @@ Multiples of items in _aCollection_ will not necessarily be removed.
 
 At `Storage` will remove all entries:
 
-~~~
+~~~spl effect=cache
 system.localStorage.removeAll
 ~~~
 

@@ -49,25 +49,25 @@ SinOsc(freq.Lag(0.025), 0) * 0.1
 
 Plotting:
 
-~~~
+~~~spl ui
 Duty(
 	0.004,
 	0,
 	Dseries(Infinity, 1, [1, 2])
-).plot(0.1)
+).soundPlot(0.1)
 ~~~
 
 Note that a very similar,
 but not identical,
 signal can be generated using `PulseCount` and `Impulse` as:
 
-~~~
+~~~spl ui
 (
 	PulseCount(
 		Impulse(1 / 0.004, 0),
 		0
 	) * [1, 2]
-).plot(0.1)
+).soundPlot(0.1)
 ~~~
 
 * * *

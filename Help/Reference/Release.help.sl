@@ -39,7 +39,7 @@ Release(
 
 Scheduling process:
 
-~~~
+~~~spl scheduler
 let t = system.systemTimeInSeconds;
 0:9.do { :x |
 	Release(

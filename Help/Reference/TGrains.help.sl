@@ -21,7 +21,7 @@ If the trigger is audio rate then the grains will start with sample accuracy.
 
 Demand sequences for _rate_ and _pan_ inputs, mouse control of _trigger_ rate and _pos_:
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = MouseY(2, 200, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
@@ -47,7 +47,7 @@ TGrains(
 
 Uniform unary rate, perturb _centerPos_ at clock rate
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
@@ -74,7 +74,7 @@ TGrains(
 
 Stochastic clock (_Dust_):
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Dust(triggerRate);
@@ -101,7 +101,7 @@ TGrains(
 
 Mouse control of _centerPos_ and _dur_:
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = 12;
 let trigger = Impulse(triggerRate, 0);
@@ -128,7 +128,7 @@ TGrains(
 
 Stochastic _centerPos_, no external control:
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = 100;
 let trigger = Impulse(triggerRate, 0);
@@ -157,7 +157,7 @@ TGrains(
 
 Stochastic _rate_:
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let triggerRate = MouseY(1, 400, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
@@ -183,7 +183,7 @@ TGrains(
 
 Stochastic _rate_, fixed clock rate:
 
-```
+```spl SfAcquire
 let numChannels = 8;
 let trigger = Impulse(440, 0);
 let sf = SfAcquireMono('Floating');

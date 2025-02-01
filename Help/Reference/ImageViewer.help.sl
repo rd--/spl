@@ -8,7 +8,7 @@ Add a window to _smallKansas_ with the given _title_ displaying the image at _aU
 Create an object `Url` of an `Svg` of a `LineDrawing`,
 and display it:
 
-~~~
+~~~spl smallKansas
 system.smallKansas.ImageViewer(
 	'A Circle & Line',
 	[
@@ -20,7 +20,7 @@ system.smallKansas.ImageViewer(
 
 Fetch a Png file, and display by creating an object Url:
 
-~~~
+~~~spl smallKansas
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'
@@ -41,7 +41,7 @@ url.fetchBlob.thenElse { :answer |
 
 Fetch an Svg file, and display by creating an object Url:
 
-~~~
+~~~spl smallKansas
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/svg/'
@@ -62,7 +62,7 @@ url.fetchBlob.thenElse { :answer |
 
 Using a remote Url may not work due to _Cross-Origin Resource Policy_:
 
-~~~
+~~~spl smallKansas
 system.smallKansas.ImageViewer(
 	'Smalltalk Balloon',
 	[

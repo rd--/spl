@@ -19,7 +19,7 @@ SinOsc(Sweep(trig, 700) + 500, 0) * 0.1
 
 Using sweep to index into a buffer:
 
-```
+```spl SfAcquire
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
 let sf = SfAcquireMono('Floating');
 let ph = Sweep(trig, BufSampleRate(sf));
@@ -28,7 +28,7 @@ BufRd(1, sf, ph, 1, 2)
 
 Backwards, variable offset:
 
-```
+```spl SfAcquire
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
 let sf = SfAcquireMono('Floating');
 let rate = BufSampleRate(sf);
@@ -39,7 +39,7 @@ BufRd(1, sf, ph, 1, 2)
 
 Raising rate:
 
-```
+```spl SfAcquire
 let trig = Impulse(MouseX(0.5, 10, 1, 0.2), 0);
 let sf = SfAcquireMono('Floating');
 let rate = Sweep(trig, 2) + 0.5;

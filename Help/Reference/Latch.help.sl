@@ -44,9 +44,9 @@ WhiteNoise()
 
 Plotting:
 
-~~~
+~~~spl ui
 let d = Dust([1 5] * 100);
-Latch(d, d).plot(0.1)
+Latch(d, d).soundPlot(0.1)
 ~~~
 
 * * *

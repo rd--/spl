@@ -18,13 +18,28 @@ nil
 'ls ~/sw/spl/Help/Image/* | wc -l' => 733
 
 ~~~
+let verbose = false;
+let passCount = 0;
+let failCount = 0;
 system.referenceHelpFilesDo { :each |
-	let c = each.unspecifiedCodeBlocks;
-	c.isEmpty.ifFalse {
-		each.name.first.isLowerCase.ifTrue {
-			['U', each.name, c.size].postLine
+	let scGraphCodeBlocks = each.unspecifiedCodeBlocks;
+	scGraphCodeBlocks.isEmpty.ifFalse {
+		verbose.ifTrue {
+			each.name.postLine
+		};
+		scGraphCodeBlocks.do { :x |
+			let programText = x['contents'];
+			let result = system.evaluate(programText);
+			result.isOutputSignal.if {
+				passCount := passCount + 1
+			} {
+				failCount := failCount + 1;
+				['Failure', each.name, programText].postLine
+			}
 		}
 	}
 };
-nil
+[passCount, failCount].postLine
 ~~~
+
+Total => 566

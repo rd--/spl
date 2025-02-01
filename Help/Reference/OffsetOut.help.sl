@@ -9,7 +9,7 @@ Write a signal to a bus with sample accurate timing.
 
 Define a simple unit generator graph:
 
-~~~
+~~~spl scsynth
 let ctl = (
 	freq: 440,
 	amp: 0.1,
@@ -25,7 +25,7 @@ UgenGraph(
 
 Schedule overlapping copies of the graph above:
 
-~~~
+~~~spl scheduler
 let freq = 555;
 LsBind(
 	instrument: 'sin',

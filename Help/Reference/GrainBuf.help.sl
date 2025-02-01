@@ -28,7 +28,7 @@ All arguments except numChannels and trigger are polled at grain creation time.
 
 Use MouseY to control grain frequency and MouseX to control panning:
 
-```
+```spl SfAcquire
 let sndBuf = SfAcquireMono('Floating');
 let envBuf = -1;
 let freq = MouseY(10, 100, 1, 0.2);

@@ -22,10 +22,8 @@ At `Float64Array` encloses data as a byte array:
 
 Fetch text from `Blob`:
 
-~~~
-[65 .. 69].asByteArray.asBlob.text.then { :answer |
-	(answer = 'ABCDE').postLine
-}
+~~~spl async
+[65 .. 69].asByteArray.asBlob.text
 ~~~
 
 * * *

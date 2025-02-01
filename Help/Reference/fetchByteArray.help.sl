@@ -4,7 +4,7 @@
 
 Answer a `Promise` that will resolve to a `ByteArray` having the contents of _aUrl_.
 
-~~~
+~~~spl async effect=network
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'
@@ -13,9 +13,8 @@ let url = [
 url.fetchByteArray.thenElse { :aByteArray |
 	aByteArray
 	.base64Encoded
-	.postLine
 } { :reason |
-	reason.postLine
+	reason
 }
 ~~~
 

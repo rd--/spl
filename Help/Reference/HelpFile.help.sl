@@ -21,13 +21,13 @@ Accessors to read the parts of the file are:
 - `unicode`: list of unicode code points
 - `categories`: list of categories
 
-~~~
+~~~spl async
 let url = system
 .splFile('Help/Reference/add.help.sl')
 .asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
-	[
+	(
 		help.name,
 		help.originName,
 		help.isReferenceFile,
@@ -45,7 +45,7 @@ url.fetchText.then { :aString |
 		help.pngCodeBlocks,
 		help.svgCodeBlocks,
 		help.unspecifiedCodeBlocks
-	].do(postLine:/1)
+	)
 }
 ~~~
 

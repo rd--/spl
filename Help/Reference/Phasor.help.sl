@@ -59,7 +59,7 @@ This means that the Phasor will output values from 0 to numFrames - 1 before loo
 which is perfect for driving BufRd.
 (See note above)
 
-```
+```spl SfAcquire
 let b = SfAcquire('CrotaleD6', 1, [1]);
 SfRead(
 	b,
@@ -78,7 +78,7 @@ SfRead(
 Two phasors control two sound file positions.
 _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second:
 
-```
+```spl SfAcquire
 let b = SfAcquire('CrotaleD6', 1, [1]);
 let rate = MouseX(0.1, 100, 1, 0.2);
 let trig = Impulse(rate, 0);

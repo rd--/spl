@@ -6,17 +6,53 @@
 The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 
 ```
->>> 2 ^ -0.5
-0.707107
-
 >>> 2n ^ 100n
 1267650600228229401496703205376n
 
+>>> 0 ^ 0
+1
+
+>>> 2.squared ^ 3
+64
+```
+
+Fractional exponents:
+
+```
+>>> 4 ^ 1/2
+2
+
+>>> 8 ^ 1/3
+2
+
+>>> 2 ^ 1/2
+1.4142
+```
+
+Signed exponents:
+
+```
 >>> 3 ^ -2
 1/9
 
->>> 0 ^ 0
-1
+>>> 2 ^ -1/2
+0.707107
+```
+
+Signed bases:
+
+```
+>>> -7 ^ 2
+49
+
+>>> -7 ^ 3
+-343
+
+>>> (-7 ^ 0.5).isFinite
+false
+
+>>> -7J0 ^ 0.5
+0J2.646
 ```
 
 At `Complex`:
@@ -45,11 +81,14 @@ At `Complex`:
 Threads elementwise over lists and matrices:
 
 ```
+>>> 7 ^ [2 3 4]
+[49 343 2401]
+
 >>> [0 1.5 0J1 1.pi 1.inf] ^ 0.5
 [0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, 1.inf]
 
->>> 2 ^ [1 2 3]
-[2 4 8]
+>>> 2 ^ [1 2 3 5 10]
+[2 4 8 32 1024]
 
 >>> 1:10 ^ 2
 [1 4 9 16 25 36 49 64 81 100]
@@ -75,6 +114,12 @@ Values at `zero`:
 1
 
 >>> 0 ^ system.nextRandomFloat
+0
+
+>>> 0 ^ -1
+Infinity
+
+>>> Infinity ^ -1
 0
 ```
 

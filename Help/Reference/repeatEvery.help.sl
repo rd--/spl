@@ -7,7 +7,7 @@ _aBlock_ receives the current time and the delay interval before the block will 
 
 Print a message every few seconds indefinitely:
 
-~~~
+~~~spl scheduler
 system.clock.repeatEvery { :t :d |
 	['About to delay for', t, d].postLine
 } {
@@ -17,7 +17,7 @@ system.clock.repeatEvery { :t :d |
 
 Clear clock to end:
 
-~~~
+~~~spl scheduler
 system.clock.removeAll
 ~~~
 

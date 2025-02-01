@@ -23,13 +23,10 @@ The `type` of a `Blob` is the _mime type_ of the resource,
 if known,
 else the empty string.
 
-~~~
+~~~spl async
 [65 .. 69].asByteArray
 .asBlob
 .text
-.then { :answer |
-	(answer = 'ABCDE').postLine
-}
 ~~~
 
 Blob implements: `arrayBuffer`, `isEmpty`, `size`, `text` & `type`.

@@ -19,7 +19,7 @@ A granular time stretcher and pitchshifter.
 
 Here the pointer moves from the beginning to the end of the soundfile over fifteen seconds, control pitch with _MouseX_:
 
-```
+```spl SfAcquire
 let numChannels = 1;
 let soundFile = SfAcquireMono('Floating');
 let pointer = LfSaw(1 / 15, 0).LinLin(-1, 1, 0, 1);
@@ -40,7 +40,7 @@ Warp1(
 
 Pointer is `Phasor`, playback slows from unit to a quarter over twenty seconds:
 
-```
+```spl SfAcquire
 let sf = SfAcquireMono('Floating');
 let pointer = Phasor(
 	0,

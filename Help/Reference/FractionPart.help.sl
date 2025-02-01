@@ -1,6 +1,6 @@
-# Frac
+# FractionPart
 
-- _Frac(aNumber)_
+- _FractionPart(aNumber)_
 
 Fractional part.
 Answer only the fractional part of the signal.
@@ -17,7 +17,7 @@ let phase = Phasor(
 );
 let mnn = [
 	phase,
-	(phase * mul).Frac
+	(phase * mul).FractionPart
 ] * [12, -12] + [48, 72];
 SinOsc(mnn.MidiCps, 0) * 0.1
 ```

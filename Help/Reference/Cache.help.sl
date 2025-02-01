@@ -19,11 +19,11 @@ system.cache['primesList'].first(23)
 where the keys are `Request` or `Url` objects,
 and values are `Response` objects.
 
-~~~
+~~~spl async
 system
 .caches
 .atIfPresent('SplLibrary') { :cache |
-	cache.isCache.postLine
+	cache.isCache
 }
 ~~~
 
@@ -38,14 +38,14 @@ however it does implement:
 
 Remove an item from the 'SplLibrary' cache:
 
-~~~
+~~~spl async effect=cache
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
 	cache.removeKeyIfAbsent(
 		system.library['McClurePolyhedraCatalogue'].url.asUrl
 	) {
-		'Not present'.postLine
+		'Not present'
 	}
 }
 ~~~

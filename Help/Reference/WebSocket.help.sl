@@ -8,7 +8,7 @@ Message are received by registering a listener using either _addEventListener_ o
 
 WebSockets are somewhat similar to standard Unix-style sockets.
 
-~~~
+~~~spl network
 let ws = WebSocket('ws://localhost:9160');
 ws.onOpen {
 	ws.send('hello!');

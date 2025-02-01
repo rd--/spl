@@ -6,7 +6,7 @@ Transform a dictionary of streams into a stream of dictionaries.
 
 An instrument that releases itself (ie. no gate):
 
-~~~
+~~~spl scsynth
 let ctl = (
 	freq: 440,
 	amp: 0.1,
@@ -39,39 +39,47 @@ UgenGraph('saw', sig).send
 
 Random linear sequence:
 
-~~~
+~~~spl sequence
+let r = Sfc32(378141);
 LsBind(
 	instrument: 'saw',
 	dur: LsXRand(
 		1 / [23 19 17 13 11 7 5 3 1],
-		inf
+		Infinity,
+		r
 	),
 	release: LsRand(
 		5 / [17 13 11 7 5 3 1],
-		inf
+		Infinity,
+		r
 	),
 	freq: LsXRand(
 		[1 .. 23] * 111,
-		inf
+		Infinity,
+		r
 	),
 	amp: LsRand(
 		1 / [99 77 55 33 11],
-		inf
+		Infinity,
+		r
 	),
 	detune: LsRand(
 		[3 2 1.5 1 0.5] / 100 + 1,
-		inf
+		Infinity,
+		r
 	),
 	cutoff: LsRand(
 		1000 * [1 .. 9],
-		inf
+		Infinity,
+		r
 	)
-).play
+)
 ~~~
 
 Dyads courtesy list expansion:
 
-~~~
+~~~spl sequence
+let r = Sfc32(738914);
 LsBind(
 	instrument: 'saw',
 	dur: 1 / 5,
@@ -80,25 +88,28 @@ LsBind(
 		{
 			LsXRand(
 				[1 .. 23] * 55,
-				inf
+				Infinity,
+				r
 			)
 		} ! 2,
-		inf
+		Infinity
 	),
 	amp: LsRand(
 		1 / [99 77 55 33 11],
-		inf
+		Infinity,
+		r
 	),
 	detune: LsRand(
 		[3 2 1.5 1 0.5] / 100 + 1,
-		inf
+		Infinity,
+		r
 	)
-).play
+)
 ~~~
 
 A very similar instrument with a _gate_ control:
 
-~~~
+~~~spl scsynth
 let ctl = (
 	freq: 440,
 	detune: 1.01,
@@ -130,39 +141,47 @@ UgenGraph('saw', sig).send
 
 A very similar random linear sequence with _sustain_ and _gate_ parameters:
 
-~~~
+~~~spl sequence
+let r = Sfc32(738914);
 LsBind(
 	instrument: 'saw',
 	gate: 1,
 	dur: LsXRand(
 		1 / [23 19 17 13 11 7 5 3 1],
-		inf
+		Infinity,
+		r
 	),
 	sustain: LsRand(
 		3 / [17 13 11 7 5 3 1],
-		inf
+		Infinity,
+		r
 	),
 	release: LsRand(
 		5 / [17 13 11 7 5 3 1],
-		inf
+		Infinity,
+		r
 	),
 	freq: LsXRand(
 		[1 .. 23] * 111,
-		inf
+		Infinity,
+		r
 	),
 	amp: LsRand(
 		1 / [99 77 55 33 11],
-		inf
+		Infinity,
+		r
 	),
 	detune: LsRand(
 		[3 2 1.5 1 0.5] / 100 + 1,
-		inf
+		Infinity,
+		r
 	),
 	cutoff: LsRand(
 		1000 * [1 .. 9],
-		inf
+		Infinity,
+		r
 	)
-).play
+)
 ~~~
 
 * * *

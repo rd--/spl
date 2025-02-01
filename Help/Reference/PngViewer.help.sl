@@ -10,7 +10,7 @@ displaying the _Png_ image encoded at _pngData_.
 The expression below fetches a Png file from a Url,
 and displays it when it arrives:
 
-~~~
+~~~spl smallKansas
 let url = [
 	'https://rohandrape.net/'
 	'sw/stsc3/lib/png/'

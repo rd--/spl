@@ -39,7 +39,7 @@ Define a 128 place sine table,
 construct a SoundFile to hold it,
 and send to the table to the synthesiser:
 
-~~~
+~~~spl scsynth
 let table = (0 -- 2.pi).discretize(128).sin;
 let soundFile = SoundFile(
 	table.asFloat32Array,
