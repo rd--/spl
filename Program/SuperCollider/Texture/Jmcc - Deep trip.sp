@@ -1,7 +1,7 @@
 /* Deep Trip (Jmcc) #9 */
 {
 	let f = (LfNoise1(0.3.Rand0) * 60 + 70).MidiCps;
-	let a = Mul(
+	let a = Times(
 		LfNoise2(f * 0.5.Rand0),
 		[
 			LfNoise1(8.Rand0),

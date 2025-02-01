@@ -53,7 +53,6 @@ let env = EnvLinen(2, 5, 2, 0.02, -4);
 	).CombN(0.1, 0.1, 1)
 }.xFadeTextureProgram(2, 0.5)
 
-
 /********** Bouncing lightbulbs, pencils, cans, and other assorted objects ; Jmcc **********/
 {
 	EqPan2(

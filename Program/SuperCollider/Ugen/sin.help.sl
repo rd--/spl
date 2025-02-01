@@ -1,3 +1,7 @@
+# sin
+
+Requires Bilin
+
 /* ---- sin ; https://scsynth.org/t/6256/7 ; requires=Bilin */
 let freq = 130;
 let width = LinLin(LfTri(0.1, 0), -1, 1, 0.01, 0.99);

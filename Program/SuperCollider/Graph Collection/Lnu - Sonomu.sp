@@ -170,7 +170,7 @@ let p = {
 	}.flatten - 24;
 	SinOsc(5, 0) * 0.01 + a.shuffled.MidiRatio
 };
-let e = LfSaw(-1 * p(), 1).Max(0) ^ SinOsc(p().Frac / 8, 0).LinLin(-1, 1, 4, 32);
+let e = LfSaw(-1 * p(), 1).Max(0) ^ SinOsc(p().FractionPart / 8, 0).LinLin(-1, 1, 4, 32);
 CombC(
 	Splay(
 		VarSaw(

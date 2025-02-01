@@ -42,8 +42,8 @@ url.fetchText.then { :aString |
 		help.references,
 		help.unicode,
 		help.categories,
-		help.pngCodeBlocks,
-		help.svgCodeBlocks,
+		help.codeBlocksWithKey('png'),
+		help.codeBlocksWithKey('svg'),
 		help.unspecifiedCodeBlocks
 	)
 }

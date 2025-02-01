@@ -20,4 +20,3 @@ Voicer(1, 16) { :e |
 	let cmb = CombL(loc, 0.1, SinOsc(0.01, 0) * 0.03 + 0.07, 5) * 0.7;
 	XFade2(Lpf(cmb, 4800), loc, -0.5, 0.3)
 }.Mix
-

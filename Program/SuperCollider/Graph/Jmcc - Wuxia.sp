@@ -8,7 +8,7 @@
 		TExpRand(10, 12000, tr),
 		4,
 		tr
-	).Recip;
+	).Reciprocal;
 	6.timesRepeat {
 		noise := LeakDc(CombC(noise, 0.1, dt, dt * 6) + dt, 0.995)
 	};

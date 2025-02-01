@@ -8,4 +8,3 @@ let snare = n * Decay2(tr2, 0.005, 0.5);
 let bass = SinOsc(60, 0) * Decay2(tr4, 0.005, 0.5);
 let hihat = Hpf(n, 10000) * Decay2(tr1, 0.005, 0.5);
 EqPan2(snare + bass + hihat, 0) * 0.1
-

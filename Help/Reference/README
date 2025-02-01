@@ -1,6 +1,6 @@
 system.splFile('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 7665
+Total => 7682
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -15,31 +15,10 @@ system.helpFilesDo('Reference', writeImageFiles:/1);
 nil
 ~~~
 
-'ls ~/sw/spl/Help/Image/* | wc -l' => 733
+'ls ~/sw/spl/Help/Image/* | wc -l' => 779
 
 ~~~
-let verbose = false;
-let passCount = 0;
-let failCount = 0;
-system.referenceHelpFilesDo { :each |
-	let scGraphCodeBlocks = each.unspecifiedCodeBlocks;
-	scGraphCodeBlocks.isEmpty.ifFalse {
-		verbose.ifTrue {
-			each.name.postLine
-		};
-		scGraphCodeBlocks.do { :x |
-			let programText = x['contents'];
-			let result = system.evaluate(programText);
-			result.isOutputSignal.if {
-				passCount := passCount + 1
-			} {
-				failCount := failCount + 1;
-				['Failure', each.name, programText].postLine
-			}
-		}
-	}
-};
-[passCount, failCount].postLine
+system.splFile('Help/Reference').terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
 ~~~
 
 Total => 566

@@ -12,7 +12,7 @@ let count = PulseCount(trig, 0);
 let chord = Demand(
 	trig,
 	0,
-	Dbufrd(buf, count + 1.to(length), 1)
+	Dbufrd(buf, count + [1 .. length], 1)
 ).reversed <! Demand(
 	trig,
 	0,
@@ -21,7 +21,7 @@ let chord = Demand(
 let chordCps = chord.MidiCps;
 let cf = Vibrato(chordCps, 6, 0.02, 0, 0, 0.04, 0.1, 0, 0);
 let mf = chordCps * LinLin(LfPulse(1 / 8, 0, 0.5), 0, 1, 1.01, 2.01);
-let sig = PmOsc(cf, mf, XLine(trig, 3, 0.0001, 0.2), 0);
+let sig = PmOsc(cf, mf, TxLine(3, 0.0001, 0.2, trig), 0);
 let cmp = (sig * AmpCompA(chordCps, 0, 0.32, 1) * amp).sum;
 XFade2(
 	[cmp, cmp],

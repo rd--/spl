@@ -1,18 +1,29 @@
 # flatten
 
-- _flatten(aCollection)_
+- _flatten(aCollection, anInteger=Infinity)_
 
 Similar to `concatenation` but removes all nesting.
 
 ```
->>> [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten
+>>> [1, [2, [3, [4, [5], 6], 7], 8], 9]
+>>> .flatten
 [1 .. 9]
 
->>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].flatten
+>>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]]
+>>> .flatten
 [1 .. 9]
 
->>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].flatten
+>>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9]
+>>> .flatten
 [1 .. 9]
+```
+
+Only flatten one level:
+
+```
+>>> [['a', 'b'], ['c', ['d'], 'e'], ['f', ['g', 'h']]]
+>>> .flatten(1)
+['a', 'b', 'c', ['d'], 'e', 'f', ['g', 'h']]
 ```
 
 Strings are not flattened to sequences of characters:
@@ -25,10 +36,12 @@ Strings are not flattened to sequences of characters:
 Join lists and individual elements:
 
 ```
->>> [1:5, -1, 1:5, 1:5, -1].flatten
+>>> [1:5, -1, 1:5, 1:5, -1]
+>>> .flatten
 [1 2 3 4 5 -1 1 2 3 4 5 1 2 3 4 5 -1]
 
->>> [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []].flatten
+>>> [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]
+>>> .flatten
 [1 .. 8]
 ```
 
@@ -65,6 +78,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/comma),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Flatten.html)
+[1](https://reference.wolfram.com/language/ref/Flatten.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SequenceableCollection.html#-flatten)
 
 Categories: Converting

@@ -6,4 +6,3 @@ let x = Resonz(GrayNoise(amp # 2, 0), 5200, 0.2);
 	x := AllpassN(x, 0.05, { 0.05.Rand0 } ! 2, 4)
 };
 x
-

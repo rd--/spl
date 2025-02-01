@@ -4,6 +4,12 @@
 
 A `Type` representing a univariate polynomial, specified as the sequence of descending coefficients.
 
+```
+>>> let x = 2;
+>>> UnivariatePolynomial([3 2 1]).at(x)
+(3 * (x ^ 2)) + (2 ^ (x ^ 1)) + (1 * (x ^ 0))
+```
+
 Polynomial of degree two, a parabola:
 
 ~~~spl svg=A

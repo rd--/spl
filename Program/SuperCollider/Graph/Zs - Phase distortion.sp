@@ -12,4 +12,3 @@ Voicer(1, 16) { :e |
 	let env = Decay2(Trig(e.w, SampleDur()), 0.005, 10);
 	EqPan2(snd, e.i * 2 - 1) * env * amp
 }.Mix
-

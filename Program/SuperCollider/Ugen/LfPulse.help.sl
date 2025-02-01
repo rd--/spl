@@ -46,14 +46,3 @@ p(
 	-0.1,
 	0.1
 )
-
-/* ---- LfPulse ; Jmcc ; process ---- */
-{
-	let p1 = LfPulse(ExpRand(0.1, 1), 0, 0.3) * 0.2 + 0.02;
-	let in = LfSaw([21000, 21001], 0) * p1;
-	let sr = ExpRand(300, 3000) + [-0.6, 0.6];
-	let p2 = LfPulse(sr, 0, MouseY(0.01, 0.99, 0, 0.2));
-	let p3 = LfPulse(ExpRand(0.1,12), 0, 0.7) * 0.2;
-	let p4 = LfPulse(ExpRand(0.1,12), 0, 0.4) * 0.2 + 0.2 + p3;
-	Rlpf(in * p2, sr * p4, 0.1)
-}.overlapTextureProgram(4, 4, 4)

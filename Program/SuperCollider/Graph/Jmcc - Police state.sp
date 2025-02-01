@@ -13,7 +13,7 @@ CombL(
 			),
 			Rand(-1, 1)
 		) * LfNoise2(100 + Rand(-20, 20)) * 0.1
-	} !+ 4 + Mul(
+	} !+ 4 + Times(
 		LfNoise2(MulAdd(LfNoise2([0.4, 0.4]), 90, 620)),
 		MulAdd(LfNoise2([0.3, 0.3]), 0.15, 0.18)
 	),

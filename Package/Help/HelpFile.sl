@@ -37,8 +37,13 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
-	codeBlockImageFileName { :self :codeBlock |
-		let imageType = self.codeBlockImageType(codeBlock);
+	codeBlocksWithAttribute { :self :key |
+		self.codeBlocks.select { :each |
+			each['attributes'].includesKey(key)
+		}
+	}
+
+	codeBlockImageFileName { :self :codeBlock :imageType |
 		let imageIdentifier = codeBlock['attributes'][imageType];
 		system.splFile(
 			'Help/Image/%-%.%'.format(
@@ -53,14 +58,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	codeBlockImageType { :self :codeBlock |
 		let attributes = codeBlock['attributes'];
-		attributes.includesKey('png').if {
-			'png'
-		} {
-			attributes.includesKey('svg').if {
-				'svg'
-			} {
-				self.error('codeBlockImageType: not image code block?')
-			}
+		['png' 'svg'].detect { :each |
+			attributes.includesKey(each)
 		}
 	}
 
@@ -177,12 +176,6 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
-	pngCodeBlocks { :self |
-		self.codeBlocks.select { :each |
-			each['attributes'].includesKey('png')
-		}
-	}
-
 	/*
 	properName { :self |
 		self.isReferenceFile.if {
@@ -245,12 +238,6 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
-	svgCodeBlocks { :self |
-		self.codeBlocks.select { :each |
-			each['attributes'].includesKey('svg')
-		}
-	}
-
 	synopsis { :self |
 		self.description.unlines.sentences.first
 	}
@@ -258,28 +245,24 @@ HelpFile : [Object, Cache] { | origin source cache |
 	terseReferenceEntry { :self :options |
 		let testCount = 0;
 		let passCount = 0;
-		let verbose = options['verbose'];
-		verbose.ifTrue {
-			(self.originName, self.name).postLine
-		};
-		self.codeBlocks.do { :each |
-			each['attributes'].includesKey('define').ifTrue {
-				system.evaluate(each['contents'])
-			}
-		};
-		self.documentationTests.do { :each |
-			testCount := testCount + 1;
-			verbose.ifTrue {
-				('	' ++ each.format).postLine
+		(self.documentationTests.size > 0).ifTrue {
+			let verbose = options['verbose'];
+			self.codeBlocks.do { :each |
+				each['attributes'].includesKey('define').ifTrue {
+					system.evaluate(each['contents'])
+				}
 			};
-			each.evaluate.if {
-				passCount := passCount + 1
-			} {
-				('	FAIL: ' ++ each.format).postLine
+			self.documentationTests.do { :each |
+				testCount := testCount + 1;
+				verbose.ifTrue {
+					('	' ++ each.format).postLine
+				};
+				each.evaluate.if {
+					passCount := passCount + 1
+				} {
+					('	FAIL: ' ++ each.format).postLine
+				}
 			}
-		};
-		verbose.ifTrue {
-			'	Pass % of %'.format([passCount, testCount]).postLine
 		};
 		[testCount, passCount]
 	}
@@ -304,13 +287,13 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.definitionCodeBlocks.do { :each |
 			system.evaluate(each['contents'])
 		};
-		self.pngCodeBlocks.do { :each |
-			let fileName = self.codeBlockImageFileName(each);
+		self.codeBlocksWithAttribute('png').do { :each |
+			let fileName = self.codeBlockImageFileName(each, 'png');
 			fileName.postLine;
 			system.evaluate(each['contents']).writePng(fileName)
 		};
-		self.svgCodeBlocks.do { :each |
-			let fileName = self.codeBlockImageFileName(each);
+		self.codeBlocksWithAttribute('svg').do { :each |
+			let fileName = self.codeBlockImageFileName(each, 'svg');
 			fileName.postLine;
 			system.evaluate(each['contents']).writeSvg(fileName)
 		}

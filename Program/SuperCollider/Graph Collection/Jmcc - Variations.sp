@@ -60,7 +60,7 @@ let m = LfSaw(0.4, 0) * 24 + o;
 CombN(SinOsc(m.MidiCps, 0) * 0.04, 0.2, 0.2, 4) * 0.1
 
 /* Analog bubbles (Jmcc) #1 ; applicative order */
-Mul(
+Times(
 	CombN(
 		MulAdd(
 			SinOsc(
@@ -84,7 +84,7 @@ Mul(
 )
 
 /* Analog bubbles (Jmcc) ; as above ; one line */
-Mul(CombN(Mul(SinOsc(MidiCps(MulAdd(LfSaw(0.4, 0), 24, MulAdd(LfSaw([8, 7.23], 0), 3, 80))), 0), 0.05), 0.2, 0.2, 4), 0.1)
+Times(CombN(Times(SinOsc(MidiCps(MulAdd(LfSaw(0.4, 0), 24, MulAdd(LfSaw([8, 7.23], 0), 3, 80))), 0), 0.05), 0.2, 0.2, 4), 0.1)
 
 /* Berlin 1977 (Jmcc) #4 ; Event control */
 Voicer(1, 16) { :e |

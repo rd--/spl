@@ -63,8 +63,8 @@
 	}
 
 	adjacentPairsDo { :self :aBlock:/2 |
-		2.toDo(self.size) { :i |
-			aBlock(self[i - 1], self[i])
+		1.toDo(self.size - 1) { :i |
+			aBlock(self[i], self[i + 1])
 		}
 	}
 
@@ -962,6 +962,10 @@
 
 	flatten { :self |
 		self.flattenTo(Infinity)
+	}
+
+	flatten { :self :depth |
+		self.flattenTo(depth)
 	}
 
 	foldedIndex { :self :index |

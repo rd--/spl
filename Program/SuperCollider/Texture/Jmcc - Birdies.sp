@@ -5,7 +5,7 @@
 		Rand(4, 7),
 		2
 	);
-	let p2 = Mul(
+	let p2 = Times(
 		LfPulse(0.4 + 1.Rand0, 0, 0.8.Rand0 + 0.1),
 		Rand(4, 7)
 	);

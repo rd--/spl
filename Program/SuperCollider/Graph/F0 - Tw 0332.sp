@@ -1,5 +1,5 @@
 /* http://sccode.org/1-4Qy (F0) ; 0332 */
-let f = Mul(
+let f = Times(
 	2 ^ (SinOscFb([4 3], 0) > 0),
 	SinOscFb(1 / 16, 0) > 0 + 2 * (SinOscFb(1 / [32 48], 0) > 0 * 20 + 99)
 );
