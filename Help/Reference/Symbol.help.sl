@@ -16,14 +16,8 @@ Symbols implement the `Number` trait,
 answering `SymbolicExpression` values:
 
 ```
->>> 'x'.Symbol + 23
-SymbolicExpression(
-	'+',
-	[
-		'x'.Symbol,
-		23
-	]
-)
+>>> ('x'.Symbol + 23).isSymbolicExpression
+true
 ```
 
 Symbols are cached on construction,
@@ -37,7 +31,8 @@ true
 >>> .cache
 >>> .at('symbolDictionary')
 >>> .at('x')
-Symbol('x')
+>>> .isSymbol
+true
 ```
 
 * * *

@@ -1,7 +1,31 @@
+@SymbolicObject {
+
+	isEqualSymbolicExpression { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
+	= { :self :anObject |
+		SymbolicExpression('=', [self, anObject])
+	}
+
+	~ { :self :anObject |
+		SymbolicExpression('~', [self, anObject])
+	}
+
+}
+
 @SymbolicBoolean {
 
-	if { :self :whenTrue:/1 :whenFalse |
-		SymbolicExpression('if', [self, whenTrue.value, whenFalse.value])
+	& { :self :aBlock:/0 |
+		SymbolicExpression('and', [self, aBlock()])
+	}
+
+	| { :self :aBlock:/0 |
+		SymbolicExpression('or', [self, aBlock()])
+	}
+
+	if { :self :whenTrue:/0 :whenFalse:/0 |
+		SymbolicExpression('if', [self, whenTrue(), whenFalse()])
 	}
 
 	not { :self |
@@ -10,15 +34,27 @@
 
 }
 
-@SymbolicNumber {
+@SymbolicMagnitude {
 
-	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
-		let name = aBlock:/2.unqualifiedName;
-		SymbolicExpression(
-			name.operatorNameToken ? name,
-			[receiver, self]
-		)
+	< { :self :aMagnitude |
+		SymbolicExpression('<', [self, aMagnitude])
 	}
+
+	<= { :self :aMagnitude |
+		SymbolicExpression('<=', [self, aMagnitude])
+	}
+
+	> { :self :aMagnitude |
+		SymbolicExpression('>', [self, aMagnitude])
+	}
+
+	>= { :self :aMagnitude |
+		SymbolicExpression('>=', [self, aMagnitude])
+	}
+
+}
+
+@SymbolicNumber {
 
 	+ { :self :operand |
 		SymbolicExpression('+', [self, operand])
@@ -40,17 +76,25 @@
 		SymbolicExpression('^', [self, operand])
 	}
 
+	abs { :self |
+		SymbolicExpression('abs', [self])
+	}
+
+	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
+		let name = aBlock:/2.unqualifiedName;
+		SymbolicExpression(
+			name.operatorNameToken ? name,
+			[receiver, self]
+		)
+	}
+
 	sqrt { :self |
 		SymbolicExpression('sqrt', [self])
 	}
 
 }
 
-Symbol : [Object, Number, SymbolicNumber] { | name |
-
-	~ { :self :aSymbol |
-		self = aSymbol
-	}
+Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
 	printString { :self |
 		self.name
@@ -70,7 +114,7 @@ Symbol : [Object, Number, SymbolicNumber] { | name |
 
 }
 
-SymbolicExpression : [Object, Number, SymbolicNumber] { | operator operands |
+SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | operator operands |
 
 	~ { :self :aSymbolicExpression |
 		self = aSymbolicExpression

@@ -10,7 +10,8 @@ At one argument `Block`:
 >>> { :x |
 >>> 	x / 3 ^ 2
 >>> }.asSymbolicExpression(['x'])
-'x'.Symbol / 3 ^ 2
+>>> .printString
+'(^ (/ x 3) 2)'
 ```
 
 At two argument `Block`,
@@ -20,7 +21,8 @@ with unicode symbols:
 >>> { :x :y |
 >>> 	(2 * x) + (3 * y)
 >>> }.asSymbolicExpression(['α' 'β'])
-(2 * 'α'.Symbol) + (3 * 'β'.Symbol)
+>>> .printString
+'(+ (* 2 α) (* 3 β))'
 ```
 
 If the symbol names are elided the letters of the greek alphabet are used:
@@ -30,6 +32,21 @@ If the symbol names are elided the letters of the greek alphabet are used:
 >>> .asSymbolicExpression
 >>> .printString
 '(sqrt (+ (* α α) (* β β)))'
+```
+
+```
+>>> { :x :y |
+>>> 	(
+>>> 		(x.abs < 0.01) | {
+>>> 			y.abs < 0.01
+>>> 		}
+>>> 	).if {
+>>> 		1
+>>> 	} {
+>>> 		0
+>>> 	}
+>>> }.asSymbolicExpression.printString
+'(if (or (< (abs α) 0.01) (< (abs β) 0.01)) 1 0)'
 ```
 
 * * *
