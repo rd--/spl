@@ -28,6 +28,22 @@ Draw `identityMatrix`:
 
 ![](sw/spl/Help/Image/Bitmap-A.png)
 
+Bit map image function,
+evaluate for _(x,y)_ lattice,
+draw when either is near `zero`:
+
+~~~
+let i = (-1 -- 1).subdivide(99);
+{ :x :y |
+	let e = 0.02;
+	(x.abs < e) | {
+		y.abs < e
+	}
+}.table(i, i).boole.Bitmap
+~~~
+
+![](sw/spl/Help/Image/Bitmap-B.png)
+
 * * *
 
 See also: asPbm, Graymap, matrixPlot, Svg

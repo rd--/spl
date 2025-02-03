@@ -75,7 +75,7 @@ true
 
 * * *
 
-See also: copy, copyWith, copyWithout, deepCopy
+See also: copy, copyFromToInto, copyFromToWrap, copyWith, copyWithout, deepCopy
 
 References:
 _Smalltalk_

@@ -55,16 +55,14 @@ Draw Julia set:
 
 ~~~spl png=C
 let julia = { :c |
-	let iter = { :z |
+	{ :y :x |
+		let z = x.j(y);
 		let n = 0;
 		{ z.absSquared < 4 }.whileTrue {
 			z := z ^ 2 + c;
 			n := n + 1
 		};
 		n
-	};
-	{ :y :x |
-		iter(x.j(y))
 	}.table(
 		(-1 -- 1).discretize(100),
 		(-1.5 -- 1.5).discretize(150)

@@ -43,6 +43,6 @@ This is equivalent to `partition` with window size of two and step size of one:
 
 * * *
 
-See also: adjacentPairs, adjacentPairsDo, collect, pairsCollect, partition, partitionDo
+See also: adjacentPairs, adjacentPairsDo, blockMap, collect, pairsCollect, partition, partitionDo
 
 Categories: Enumerating

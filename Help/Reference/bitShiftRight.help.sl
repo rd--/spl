@@ -23,6 +23,22 @@ Shift 7 places to the right, leaving no nonzero bits:
 0
 ```
 
+`bitShiftRight` works with numbers of any size:
+
+```
+>>> (2n ^ 111 - 1).bitShiftRight(7)
+20282409603651670423947251286015n
+```
+
+`bitShiftRight` automatically threads itself over lists:
+
+```
+>>> [1 2 4 16].bitShiftRight(2)
+[0 0 1 4]
+```
+
+The operator form is `>>`.
+
 * * *
 
 See also: >>, bitShift, bitShiftLeft

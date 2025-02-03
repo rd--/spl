@@ -37,7 +37,7 @@ Convert a list to a fixed size:
 
 * * *
 
-See also: drop, first, lastIndex, middle, take
+See also: drop, first, middle, take
 
 References:
 _J_

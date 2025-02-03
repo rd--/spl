@@ -51,6 +51,8 @@ At a `Colour`, inverts the value of the colour channels:
 (true, true)
 ```
 
+The unary operator form is `-`.
+
 * * *
 
 See also: -, abs, sign

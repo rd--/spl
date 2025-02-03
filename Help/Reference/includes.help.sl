@@ -45,7 +45,9 @@ false
 It is an error to search for a substring, see `includesSubstring`:
 
 ```
->>> { 'String'.includes('tri') }.ifError { true }
+>>> {
+>>> 	'String'.includes('tri')
+>>> }.ifError { true }
 true
 
 >>> 'String'.includesSubstring('tri')

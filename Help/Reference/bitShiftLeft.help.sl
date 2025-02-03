@@ -23,6 +23,20 @@ Shift 7 places to the left:
 4096
 ```
 
+`bitShiftLeft` works with numbers of any size:
+
+```
+>>> (2n ^ 100 - 1).bitShiftLeft(7)
+162259276829213363391578010288000n
+```
+
+`bitShiftLeft` automatically threads itself over lists:
+
+```
+>>> [1 2 4 16].bitShiftLeft(2)
+[4 8 16 64]
+```
+
 The operator form is `<<`:
 
 ```

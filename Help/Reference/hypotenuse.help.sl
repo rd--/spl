@@ -21,6 +21,17 @@ At large numbers:
 1.41421E308
 ```
 
+The hypotenuse gives the distance of a point _(x,y)_ from the origin:
+
+~~~
+let i = (-1 -- 1).subdivide(99);
+{ :x :y |
+	x.hypotenuse(y)
+}.table(i, i).clip(0, 1).Graymap
+~~~
+
+![](sw/spl/Help/Image/hypotenuse-A.png)
+
 * * *
 
 See also: +, abs, norm, sqrt, sum

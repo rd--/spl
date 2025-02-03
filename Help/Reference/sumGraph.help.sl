@@ -38,13 +38,23 @@ The graph sum of the pentatope graph _K(5)_ and the cycle graph _C(5)_.
 ]
 ```
 
+Draw the sum of the three cycle and path graphs:
+
+~~~
+3.cycleGraph.sumGraph(
+	3.pathGraph
+).graphPlot
+~~~
+
+![](sw/spl/Help/Image/sumGraph-A.svg)
+
 * * *
 
 See also: Graph
 
-Guide: Graph Functions
+Guides: Graph Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GraphSum.html)
-[2](https://mathworld.wolfram.com/GraphSum.html)
+[2](https://reference.wolfram.com/language/ref/GraphSum.html)

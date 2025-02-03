@@ -50,7 +50,7 @@ Directed edges with different directions convert to one undirected edge:
 
 Categories: Converting
 
-Guide: Graph Functions
+Guides: Graph Functions
 
 References:
 _Mathematica_

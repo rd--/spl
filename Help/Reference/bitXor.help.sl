@@ -92,6 +92,25 @@ Scatter plot of OEIS [A003188](https://oeis.org/A003188):
 
 ![](sw/spl/Help/Image/bitXor-A.svg)
 
+Matrix plot of `bitXor`:
+
+~~~spl png=B
+let n = 127;
+(bitXor:/2.array([n n]) / n).Graymap
+~~~
+
+![](sw/spl/Help/Image/bitXor-B.png)
+
+Generate a Gray code sequence:
+
+~~~spl svg=C
+{ :i |
+	i.bitXor((i / 2).floor)
+}.table(1:64).linePlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-C.svg)
+
 * * *
 
 See also: bitAnd, bitOr

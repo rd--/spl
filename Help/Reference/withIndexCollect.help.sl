@@ -51,6 +51,8 @@ See also: collect, keysAndValuesCollect, withCollect, withIndexDo, withIndexRepl
 
 References:
 _Julia_
-[1](https://docs.julialang.org/en/v1/base/iterators/#Base.Iterators.enumerate)
+[1](https://docs.julialang.org/en/v1/base/iterators/#Base.Iterators.enumerate),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/MapIndexed.html)
 
 Categories: Enumerating

@@ -47,7 +47,7 @@ Convert a list to a fixed size:
 
 * * *
 
-See also: firstIndex, fourth, last, middle, second, third
+See also: fourth, last, middle, second, third
 
 References:
 _J_

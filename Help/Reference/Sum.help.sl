@@ -3,9 +3,9 @@
 - _Sum(inputList)_
 
 Sums a list of inputs.
-Unlike _sum_, implements optimization using the _Sum4_ primitive Ugen.
+Unlike `sum`, implements optimization using the `Sum4` primitive `Ugen`.
 
-Sum a list of sawtooths:
+Sum a list of sawtooth oscillators:
 
 ```
 [
@@ -36,7 +36,7 @@ Sine oscillators:
 ].Sum * 0.1
 ```
 
-Sum nine oscillators, utilising two _Sum4_ Ugens and two _Add_ Ugens:
+Sum nine oscillators, utilising two `Sum4` Ugens and two `Plus` Ugens:
 
 ```
 SinOsc(

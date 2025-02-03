@@ -81,7 +81,7 @@ The line graph of a Hamiltonian graph is Hamiltonian:
 
 See also: Graph
 
-Guide: Graph Functions
+Guides: Graph Functions
 
 References:
 _Mathematica_

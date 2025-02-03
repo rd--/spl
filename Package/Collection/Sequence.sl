@@ -379,6 +379,16 @@
 		(anInteger - 1).mixedRadixEncode(shape).reverse + 1
 	}
 
+	centerArray { :aList :anInteger :anObject |
+		(aList.size > anInteger).if {
+			aList.error('centerArray')
+		} {
+			let prefixSize = (anInteger - aList.size / 2).ceiling.max(0);
+			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
+			(anObject # prefixSize) ++ aList ++ (anObject # suffixSize)
+		}
+	}
+
 	chessboardDistance { :self :aSequence |
 		(self - aSequence).abs.max
 	}
@@ -482,6 +492,18 @@
 	copyFromToInto { :self :start :stop :aSequence |
 		1.toDo(stop - start + 1) { :index |
 			aSequence[index] := self[index + start - 1]
+		}
+	}
+
+	copyFromToPin { :self :start :stop |
+		1.toAsCollect(stop - start + 1, self.species) { :index |
+			self.atPin(index + start - 1)
+		}
+	}
+
+	copyFromToWrap { :self :start :stop |
+		1.toAsCollect(stop - start + 1, self.species) { :index |
+			self.atWrap(index + start - 1)
 		}
 	}
 

@@ -23,6 +23,24 @@ Block! : [Object] {
 		self.error('apply: argument is not a list or not of required size')
 	}
 
+	array { :aBlock :shape |
+		shape.size.caseOfOtherwise(
+			[
+				1 -> { aBlock.table((1 .. shape[1])) },
+				2 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2])) },
+				3 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2]), (1 .. shape[3])) }
+			]
+		) {
+			aBlock.error('array: not vector or matrix or volume')
+		}
+	}
+
+	arrayFilter { :aBlock:/1 :aList :anInteger |
+		(1 .. aList.size).collect { :i |
+			aBlock(aList.copyFromToPin(i - anInteger, i + anInteger))
+		}
+	}
+
 	asBinaryBlock { :self |
 		(self.numArgs = 2).if {
 			self
@@ -54,6 +72,15 @@ Block! : [Object] {
 	assert { :self |
 		self.assert(self);
 		nil
+	}
+
+	blockMap { :aBlock:/1 :aList :n :d |
+		let answer = [];
+		let index = 1;
+		(1, 1 + d .. aList.size - n + 1).collect { :i |
+			answer.add(aBlock(aList.copyFromTo(i, i + n - 1)))
+		};
+		answer
 	}
 
 	cull { :self :firstArg |

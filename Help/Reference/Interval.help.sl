@@ -116,6 +116,16 @@ or `subdivide`:
 1:10
 ```
 
+Sample a function uniformly on an interval:
+
+~~~spl svg=A
+(0 -- 2.pi).subdivide(47).collect { :x |
+	(2 * x).sin - (3 * x).cos
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/Interval-A.svg)
+
 * * *
 
 See also: --, discretize, includes, intersection, Range, subdivide, union

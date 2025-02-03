@@ -328,6 +328,25 @@
 		f([0], 1, 1, 0)
 	}
 
+	elementaryCellularAutomaton { :ruleNumber :initialState :stepLimit |
+		let stateSize = initialState.size;
+		let ruleTable = ruleNumber.integerDigits(2, 8);
+		let stepCount = 0;
+		let answer = [initialState];
+		let previousState = initialState;
+		{ stepCount < stepLimit }.whileTrue {
+			let nextState = (1 .. stateSize).collect { :i |
+				let j = [i - 1, i, i + 1];
+				let k = previousState.atAllWrap(j).fromDigits(2);
+				ruleTable[8 - k]
+			};
+			answer.add(nextState);
+			previousState := nextState;
+			stepCount := stepCount + 1
+		};
+		answer
+	}
+
 	euclideanAlgorithm { :a :b |
 		{
 			b ~= 0

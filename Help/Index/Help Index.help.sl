@@ -214,7 +214,7 @@
 
 ## Enumerating
 
-- `indices`, `shapeIndices`
+- `indices`, `shapeIndices`, `shapeIndicesDo`
 - `fill`, `table`
 
 ## Environment
@@ -353,9 +353,8 @@
 
 ## Indexing
 
-- `firstIndex`, `lastIndex`
-- `indices`, `indicesDo`, `withIndexDo`
-- `firstIndex`, `lastIndexOf`
+- `indices`
+- `indicesDo`, `withIndexDo`
 
 ## Integer Functions
 

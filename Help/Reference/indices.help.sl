@@ -5,7 +5,7 @@
 
 Answer the valid indices for _aCollection_.
 The binary form only answers indices where the associated item satisifes the predicate _aBlock_.
-At `Sequence`, `indices` answers a `Range` from the `firstIndex` to the `lastIndex` by `one`.
+At `Sequence`, `indices` answers a `Range` from the first to the last index by `one`.
 
 At `List`:
 
@@ -65,6 +65,6 @@ The `size` of a collection is equal to the size of its `indices`:
 
 * * *
 
-See also: deepIndices, Dictionary, firstIndex, includesIndex, Indexable, indicesDo, keys, lastIndex, withIndexDo
+See also: deepIndices, Dictionary, includesIndex, Indexable, indicesDo, keys, withIndexDo
 
 Categories: Accessing

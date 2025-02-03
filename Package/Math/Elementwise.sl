@@ -445,6 +445,10 @@
 		anObject.adaptToCollectionAndApply(self, <)
 	}
 
+	<< { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, <<)
+	}
+
 	<= { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, <=)
 	}
@@ -455,6 +459,10 @@
 
 	>= { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, >=)
+	}
+
+	>> { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, >>)
 	}
 
 	^ { :self :anObject |
@@ -487,6 +495,18 @@
 
 	bitOr { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitOr:/2)
+	}
+
+	bitShiftLeft { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftLeft:/2)
+	}
+
+	bitShiftRight { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftRight:/2)
+	}
+
+	bitShiftRightUnsigned { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned:/2)
 	}
 
 	Complex { :self :anObject |

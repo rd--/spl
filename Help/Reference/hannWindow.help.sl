@@ -34,7 +34,7 @@ Discrete _Hann_ window of length 15:
 
 See also: hammingTable, hammingWindow
 
-Guide: Window Functions
+Guides: Window Functions
 
 References:
 _Mathematica_

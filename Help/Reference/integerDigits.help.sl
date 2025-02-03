@@ -1,7 +1,6 @@
 # integerDigits
 
-- _integerDigits(anInteger, base)_
-- _integerDigits(alpha)_ ⟹ _integerDigits(alpha, 10)_
+- _integerDigits(anInteger, base=10, numDigits=auto)_
 
 Answer a `List` of the decimal digits in the integer _anInteger_.
 

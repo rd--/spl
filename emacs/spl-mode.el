@@ -405,6 +405,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("kappa" .?κ) ; U+003BA κ Greek Small Letter Kappa
      ("lambda" . ?λ) ; U+03BB λ Greek Small Letter Lamda
      ("mu" . ?μ) ; U+03BC μ Greek Small Letter Mu
+     ("micro" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign
      ("not" . ?¬) ; U+00AC ¬ Not sign
      ("nu" . ?ν) ; U+003BD ν Greek Small Letter Nu
