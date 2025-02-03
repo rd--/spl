@@ -1,4 +1,4 @@
-Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
+@Set {
 
 	= { :self :anObject |
 		anObject.isSet & {
@@ -17,6 +17,41 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 			self.include(anObject)
 		}
 	}
+
+	collect { :self :aBlock:/1 |
+		let answer = self.species.new;
+		self.do { :each |
+			answer.include(aBlock(each))
+		};
+		answer
+	}
+
+	isSet { :unused |
+		true
+	}
+
+	occurrencesOf { :self :anObject |
+		self.includes(anObject).if {
+			1
+		} {
+			0
+		}
+	}
+
+	remove { :self :anObject |
+		self.removeIfAbsent(anObject) {
+			self.error('remove: item does not exist')
+		}
+	}
+
+	without { :self :anObject |
+		self.removeIfAbsent(anObject) { };
+		self
+	}
+
+}
+
+Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] {
 
 	asList { :self |
 		<primitive: return Array.from(_self);>
@@ -45,14 +80,6 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		>
 	}
 
-	collect { :self :aBlock:/1 |
-		let answer = IdentitySet();
-		self.do { :each |
-			answer.basicInclude(aBlock(each))
-		};
-		answer
-	}
-
 	do { :self :aBlock |
 		<primitive:
 		_self.forEach(function(item) {
@@ -77,22 +104,8 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		true
 	}
 
-	occurrencesOf { :self :anObject |
-		self.includes(anObject).if {
-			1
-		} {
-			0
-		}
-	}
-
 	pseudoSlotNameList { :self |
 		['size']
-	}
-
-	remove { :self :anObject |
-		self.removeIfAbsent(anObject) {
-			self.error('remove: item does not exist')
-		}
 	}
 
 	removeAll { :self |
@@ -126,11 +139,65 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	storeString { :self |
-		self.isEmpty.if {
-			'IdentitySet()'
+		self.asList.storeString ++ '.asIdentitySet'
+	}
+
+}
+
+SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents predicate |
+
+	asList { :self |
+		self.contents.copy
+	}
+
+	do { :self :aBlock:/1 |
+		self.contents.do(aBlock:/1);
+		self
+	}
+
+	include { :self :anObject |
+		self.contents.addIfNotPresentBy(anObject, self.predicate)
+	}
+
+	includes { :self :anObject |
+		self.contents.includesBy(anObject, self.predicate)
+	}
+
+	removeAll { :self |
+		self.contents.removeAll
+	}
+
+	removeIfAbsent { :self :anObject :aBlock:/0 |
+		self.contents.detectIndexIfFoundIfNone { :item |
+			self.predicate.value(item, anObject)
+		} { :index |
+			self.contents.removeAt(index)
 		} {
-			self.asList.storeString ++ '.asIdentitySet'
+			aBlock()
 		}
+	}
+
+	shallowCopy { :self |
+		self.contents.shallowCopy.asSet(self.predicate)
+	}
+
+	size { :self |
+		self.contents.size
+	}
+
+	species { :self |
+		{
+			Set(self.predicate)
+		}
+	}
+
+	storeString { :self |
+		'%.asSet(%)'.format(
+			[
+				self.contents.storeString,
+				self.predicate.name
+			]
+		)
 	}
 
 }
@@ -141,11 +208,15 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		self.values.asIdentitySet
 	}
 
+	asSet { :self :aBlock:/2 |
+		self.values.asSet(aBlock:/2)
+	}
+
 }
 
 +List {
 
-	basicAsSet { :self |
+	basicAsIdentitySet { :self |
 		<primitive: return new Set(_self);>
 	}
 
@@ -153,7 +224,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		self.allSatisfy(isImmediate:/1).ifFalse {
 			'List>>asIdentitySet: non-immediate entry'.error
 		};
-		self.basicAsSet
+		self.basicAsIdentitySet
 	}
 
 }
@@ -162,6 +233,12 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 	asIdentitySet { :self |
 		let answer = IdentitySet();
+		answer.includeAll(self);
+		answer
+	}
+
+	asSet { :self :aBlock:/2 |
+		let answer = Set(aBlock:/2);
 		answer.includeAll(self);
 		answer
 	}
@@ -180,6 +257,18 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 	IdentitySet {
 		<primitive: return new Set();>
+	}
+
+}
+
++Block {
+
+	Set { :aBlock:/2 |
+		(aBlock:/2 == ==).if {
+			IdentitySet()
+		} {
+			newSetBy().initializeSlots([], aBlock:/2)
+		}
 	}
 
 }

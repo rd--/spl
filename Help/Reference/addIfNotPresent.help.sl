@@ -7,6 +7,6 @@ Answers _anObject_.
 
 * * *
 
-See also: ifAbsentAdd
+See also: addIfNotPresentBy, ifAbsentAdd
 
 Categories: Adding

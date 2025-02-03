@@ -3,12 +3,13 @@
 - _do(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with each element of _aCollection_ as the argument.
+Answers _aCollection_.
 
 ```
 >>> let list = [];
->>> 1:9.do { :each | list.add(each) };
->>> list
-[1 .. 9]
+>>> let answer = 1:9.do { :each | list.add(each) };
+>>> (answer, list)
+(1:9, [1 .. 9])
 ```
 
 It is not safe to modify a mutable collection that is being iterated over,

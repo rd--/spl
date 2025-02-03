@@ -35,7 +35,7 @@ At `String`:
 Lists that compare `=` do not compare `==`, that is they are not `isImmediate`:
 
 ```
->>> [1 1; 1 1].basicAsSet.size
+>>> [1 1; 1 1].basicAsIdentitySet.size
 2
 
 >>> { [1 1; 1 1].asIdentitySet }.ifError { true }
@@ -44,7 +44,7 @@ true
 
 * * *
 
-See also: basicAsSet, Collection, IdentitySet, isImmediate, nub, Set
+See also: basicAsIdentitySet, Collection, IdentitySet, isImmediate, nub, Set
 
 References:
 _Smalltalk_

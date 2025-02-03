@@ -163,6 +163,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.contents.asIdentitySet
 	}
 
+	asSet { :self :aBlock:/2 |
+		self.contents.asSet(aBlock:/2)
+	}
+
 	asString { :self |
 		self
 	}
@@ -467,6 +471,10 @@ String! : [Object, Json, Iterable, Character] {
 
 	includes { :self :aCharacter |
 		self.characterList.includes(aCharacter.asCharacter)
+	}
+
+	includesBy { :self :aCharacter :aBlock:/2 |
+		self.characterList.includesBy(aCharacter.asCharacter, aBlock:/2)
 	}
 
 	includesIndex { :self :index |

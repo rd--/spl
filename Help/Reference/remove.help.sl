@@ -21,6 +21,27 @@ Remove only one matching element:
 (2, [1 3 2 1])
 ```
 
+At `Set`:
+
+```
+>>> let s = [1 2 3].asSet(~);
+>>> let z = s.remove(1.00001);
+>>> (s.asList, z)
+([2 3], 1)
+```
+
+If no item matches an `error` is signaled:
+
+```
+>>> { [1 2 3].remove(4) }.ifError { true }
+true
+
+>>> {
+>>> 	[1 2 3].asSet(=).remove(4)
+>>> }.ifError { true }
+true
+```
+
 * * *
 
 See also: add, Removeable, removeAll, removeAllSuchThat, removeAt, removeKey, removeKeyIfAbsent, without

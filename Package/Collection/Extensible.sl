@@ -23,6 +23,13 @@
 		anObject
 	}
 
+	addIfNotPresentBy { :self :anObject :aBlock:/2 |
+		self.includesBy(anObject, aBlock:/2).ifFalse {
+			self.add(anObject)
+		};
+		anObject
+	}
+
 	addWithOccurrences { :self :newObject :anInteger |
 		anInteger.timesRepeat {
 			self.add(newObject)

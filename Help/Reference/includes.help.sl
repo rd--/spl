@@ -65,7 +65,7 @@ Where supported `includes` is displayed as ∋.
 
 * * *
 
-See also: anySatisfy, includesAllOf
+See also: anySatisfy, includesAllOf, includesBy
 
 References:
 _Apl_

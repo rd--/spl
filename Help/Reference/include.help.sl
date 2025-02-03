@@ -31,7 +31,16 @@ At `IdentitySet`:
 ('x', 1)
 ```
 
-Attempting to `include` a non-immediate object in a Set is an `error`:
+At `Set`:
+
+```
+>>> let s = Set(~);
+>>> s.include(1);
+>>> (s.include(1.00001), s.asList, s.size)
+(1.00001, [1], 1)
+```
+
+Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`:
 
 ```
 >>> let s = IdentitySet();

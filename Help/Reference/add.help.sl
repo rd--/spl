@@ -58,6 +58,15 @@ At `IdentitySet`, add will include _newObject_ as one of the set elements only i
 true
 ```
 
+At `Set`:
+
+```
+>>> {
+>>> 	[1 2 3].asSet(~).add(1.00001)
+>>> }.ifError { true }
+true
+```
+
 At `String`, which is not `Extensible`:
 
 ```
