@@ -1,31 +1,19 @@
-```
-let testCount = 0;
-let passCount = 0;
-let errorCount = 0;
-system
-.splFile('Program/SuperCollider/Texture Collection')
-.readDirectoryFileNames
-.do { :fileName |
-	let fileText = fileName.readTextFile;
-	let programTexts = fileText.paragraphs.takeWhile { :each |
-		each.beginsWith('#').not
-	};
-	[fileName, programTexts.size].postLine;
-	programTexts.do { :each |
-		let result = system.evaluate(each);
-		testCount := testCount + 1;
-		result.isTextureProgram.if { /* isOutputSignal */
-			passCount := passCount + 1
-		} {
-			['FAIL', each].postLine
-		}
-	}
-};
-[testCount, passCount, errorCount].postLine
-```
+system.splFile('Program/SuperCollider/Graph').terseProgramSummary(isOutputSignal:/1)
 
-Graph => 391
-Graph Collection => 349
-Ugen => 503
-Texure => 70
-Texure Collection => 17
+=> 391
+
+system.splFile('Program/SuperCollider/Graph Collection').terseProgramSummary(isOutputSignal:/1)
+
+=> 351
+
+system.splFile('Program/SuperCollider/Ugen').terseProgramSummary(isOutputSignal:/1)
+
+=> 503
+
+system.splFile('Program/SuperCollider/Texture').terseProgramSummary(isTextureProgram:/1)
+
+=> 70
+
+system.splFile('Program/SuperCollider/Texture Collection').terseProgramSummary(isTextureProgram:/1)
+
+=> 17

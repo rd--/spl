@@ -2,6 +2,31 @@
 
 +String {
 
+	terseProgramSummary { :directoryName :answerPredicate:/1 |
+		let testCount = 0;
+		let passCount = 0;
+		let errorCount = 0;
+		directoryName
+		.readDirectoryFileNames
+		.do { :fileName |
+			let fileText = fileName.readTextFile;
+			let programTexts = fileText.paragraphs.takeWhile { :each |
+				each.beginsWith('#').not
+			};
+			[fileName, programTexts.size].postLine;
+			programTexts.do { :each |
+				let result = system.evaluate(each);
+				testCount := testCount + 1;
+				result.answerPredicate.if {
+					passCount := passCount + 1
+				} {
+					['FAIL', each].postLine
+				}
+			}
+		};
+		[testCount, passCount, errorCount].postLine
+	}
+
 	terseReferenceSummaryDo { :directoryName :options :testName :aBlock:/2 |
 		let totalTestCount = 0;
 		let totalPassCount = 0;

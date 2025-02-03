@@ -91,7 +91,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] {
 
 	include { :self :anObject |
 		anObject.isImmediate.ifFalse {
-			'Set>>include: non-immediate entry'.error
+			self.error('IdentitySet>>include: non-immediate entry: ' ++ anObject)
 		};
 		self.basicInclude(anObject)
 	}

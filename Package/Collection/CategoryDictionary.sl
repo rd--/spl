@@ -110,7 +110,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	multiplyCategorized { :self :domain |
-		self.entries.collect { :each |
+		self.entries.asList.collect { :each |
 			each -> self.categoriesOf(domain, each)
 		}.select { :each |
 			each.value.size > 1
