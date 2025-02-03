@@ -15,7 +15,7 @@ let counter = PinkNoise() * Decay(
 Release(
 	SinOsc(440, 0) * 0.1,
 	3,
-	3,
+	2,
 	5
 ) + counter
 ```
