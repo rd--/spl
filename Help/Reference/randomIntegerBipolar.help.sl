@@ -7,10 +7,12 @@ Generate a random integer between negative and positive _anInteger_, inclusive.
 Draw enough random numbers to form complete set:
 
 ```
->>> let set = Set();
->>> 99.timesRepeat { set.include(3.randomIntegerBipolar) };
+>>> let set = IdentitySet();
+>>> 99.timesRepeat {
+>>> 	set.include(3.randomIntegerBipolar)
+>>> };
 >>> set
-(-3 .. 3).asSet
+(-3 .. 3).asIdentitySet
 ```
 
 * * *

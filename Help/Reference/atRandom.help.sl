@@ -53,11 +53,11 @@ At `Record`:
 ]
 ```
 
-At `Bag` makes a weighted choice:
+At `IdentityBag` makes a weighted choice:
 
 ```
 >>> let r = Sfc32(13952);
->>> let c = [1 3 3 3 5 5 5 5 5].asBag;
+>>> let c = [1 3 3 3 5 5 5 5 5].asIdentityBag;
 >>> c.atRandom([3 3], r)
 [
 	3 3 5;
@@ -66,11 +66,11 @@ At `Bag` makes a weighted choice:
 ]
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
 >>> let r = Sfc32(31052);
->>> let c = [1 .. 9].asSet;
+>>> let c = [1 .. 9].asIdentitySet;
 >>> c.atRandom([3 3], r)
 [
 	4 8 5;
@@ -148,11 +148,11 @@ Plot at `Interval`:
 
 ![](sw/spl/Help/Image/atRandom-B.svg)
 
-Plot at `Bag`:
+Plot at `IdentityBag`:
 
 ~~~spl svg=C
 [1 3 3 3 5 5 5 5 5]
-.asBag
+.asIdentityBag
 .atRandom([43], Sfc32(134717))
 .stepPlot
 ~~~

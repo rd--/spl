@@ -26,7 +26,7 @@ ResidueSet : [Object, Iterable, Collection] { | modulus contents |
 		self.contents.asList.sort
 	}
 
-	asSet { :self |
+	asIdentitySet { :self |
 		self.contents.copy
 	}
 
@@ -65,7 +65,7 @@ ResidueSet : [Object, Iterable, Collection] { | modulus contents |
 	}
 
 	ResidueSet { :modulus |
-		newResidueSet().initializeSlots(modulus, Set())
+		newResidueSet().initializeSlots(modulus, IdentitySet())
 	}
 
 }

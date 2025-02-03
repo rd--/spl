@@ -21,6 +21,6 @@ At `Record`:
 
 * * *
 
-See also: =, ==, asSet, copyWithoutIdenticalElements, deleteDuplicates, nub, nubBy, nubCumulatively, nubSieve, Set
+See also: =, ==, asIdentitySet, copyWithoutIdenticalElements, deleteDuplicates, nub, nubBy, nubCumulatively, nubSieve, Set
 
 Categories: Copying

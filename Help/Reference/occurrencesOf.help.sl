@@ -11,18 +11,18 @@ At `List`:
 2
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> [2 3 3 4 4 4].asBag.occurrencesOf(4)
+>>> [2 3 3 4 4 4].asIdentityBag.occurrencesOf(4)
 3
 ```
 
 The number of occurrences of an element in set will be zero or one.
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> [1 2 2 3 3 3].asSet.occurrencesOf(3)
+>>> [1 2 2 3 3 3].asIdentitySet.occurrencesOf(3)
 1
 ```
 

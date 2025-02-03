@@ -245,7 +245,7 @@
 			};
 			total
 		};
-		let seen = Set();
+		let seen = IdentitySet();
 		{
 			seen.includes(x)
 		}.whileFalse {
@@ -476,7 +476,7 @@
 	}
 
 	hammingNumbersFromUpTo { :self :limit |
-		let answer = Set();
+		let answer = IdentitySet();
 		let step = { :n |
 			(n <= limit).ifTrue {
 				answer.includes(n).ifFalse {
@@ -1090,7 +1090,7 @@
 
 	recamanSequence { :self |
 		let answer = List(self, 0);
-		let seen = [0].asSet;
+		let seen = [0].asIdentitySet;
 		1.toDo(self - 1) { :n |
 			let next = answer[n] - n;
 			(

@@ -94,8 +94,8 @@
 - `Indexable`, `Keyed`
 - `Extensible`, `Removable`
 - `Unordered`
-- `List`, `Map`, `Record`, `Set`
-- `Bag`, `Tree`, `Tuple`
+- `List`, `IdentityMap`, `Record`, `IdentitySet`
+- `IdentityBag`, `Tree`, `Tuple`
 - `BitSet`, `PriorityQueue`, `SortedList`
 - `ArithmeticProgression`, `Range`
 - `Association`
@@ -158,7 +158,7 @@
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
-- `asBag`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asSet`, `asSortedList`, `asTree`
+- `asIdentityBag`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying

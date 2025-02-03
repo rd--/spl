@@ -56,17 +56,21 @@ true
 'r'
 ```
 
-`Set` is not indexable:
+`IdentitySet` is not indexable:
 
 ```
->>> { [1 2 3].asSet.at(1) }.ifError { true }
+>>> {
+>>> 	[1 2 3].asIdentitySet.at(1)
+>>> }.ifError { true }
 true
 ```
 
-`Bag` is not indexable:
+`IdentityBag` is not indexable:
 
 ```
->>> { [1 2 3].asBag.at(1) }.ifError { true }
+>>> {
+>>> 	[1 2 3].asIdentityBag.at(1)
+>>> }.ifError { true }
 true
 ```
 

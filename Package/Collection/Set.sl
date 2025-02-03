@@ -46,7 +46,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	collect { :self :aBlock:/1 |
-		let answer = Set();
+		let answer = IdentitySet();
 		self.do { :each |
 			answer.basicInclude(aBlock(each))
 		};
@@ -73,7 +73,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		<primitive: return _self.has(_anObject);>
 	}
 
-	isSet { :self |
+	isIdentitySet { :self |
 		true
 	}
 
@@ -122,14 +122,14 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 	}
 
 	species { :self |
-		Set:/0
+		IdentitySet:/0
 	}
 
 	storeString { :self |
 		self.isEmpty.if {
-			'Set()'
+			'IdentitySet()'
 		} {
-			self.asList.storeString ++ '.asSet'
+			self.asList.storeString ++ '.asIdentitySet'
 		}
 	}
 
@@ -137,8 +137,8 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +@Dictionary {
 
-	asSet { :self |
-		self.values.asSet
+	asIdentitySet { :self |
+		self.values.asIdentitySet
 	}
 
 }
@@ -149,9 +149,9 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 		<primitive: return new Set(_self);>
 	}
 
-	asSet { :self |
+	asIdentitySet { :self |
 		self.allSatisfy(isImmediate:/1).ifFalse {
-			'List>>asSet: non-immediate entry'.error
+			'List>>asIdentitySet: non-immediate entry'.error
 		};
 		self.basicAsSet
 	}
@@ -160,8 +160,8 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +@Collection {
 
-	asSet { :self |
-		let answer = Set();
+	asIdentitySet { :self |
+		let answer = IdentitySet();
 		answer.includeAll(self);
 		answer
 	}
@@ -170,7 +170,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +@Object {
 
-	isSet { :self |
+	isIdentitySet { :self |
 		false
 	}
 
@@ -178,7 +178,7 @@ Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered] {
 
 +Void {
 
-	Set {
+	IdentitySet {
 		<primitive: return new Set();>
 	}
 

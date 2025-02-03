@@ -8,8 +8,13 @@ It is an error if there are not enough elements.
 At `List`:
 
 ```
->>> [1 .. 9].anyAs(3, { :k | Set() })
-[1 .. 3].asSet
+>>> [1 .. 9].anyAs(
+>>> 	3,
+>>> 	{ :k |
+>>> 		IdentitySet()
+>>> 	}
+>>> )
+[1 .. 3].asIdentitySet
 ```
 
 At `Record`:

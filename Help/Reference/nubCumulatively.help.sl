@@ -28,6 +28,6 @@ Relation to `nub`:
 
 * * *
 
-See also: add, includesBy, nub, nubBy, nubIdentical, nubSieve, select, Set
+See also: add, IdentitySet, includesBy, nub, nubBy, nubIdentical, nubSieve, select
 
 Categories: Copying

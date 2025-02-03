@@ -34,7 +34,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 	category { :self :domain :category |
 		self.domain(domain).atIfAbsentPut(category) {
-			Set()
+			IdentitySet()
 		}
 	}
 
@@ -74,7 +74,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	entries { :self |
-		let answer = Set();
+		let answer = IdentitySet();
 		self.domainDictionary.do { :each |
 			each.valuesDo { :item |
 				answer.basicInclude(item)

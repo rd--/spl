@@ -20,16 +20,16 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		answer
 	}
 
-	asBag { :self |
-		let answer = Bag();
+	asIdentityBag { :self |
+		let answer = IdentityBag();
 		self.runsAndValuesDo { :run :value |
 			answer.addWithOccurrences(value, run)
 		};
 		answer
 	}
 
-	asSet  { :self |
-		self.values.asSet
+	asIdentitySet  { :self |
+		self.values.asIdentitySet
 	}
 
 	allocatedSize { :self |

@@ -10,7 +10,7 @@ Accessors are:
 - `specialIndex`: an `Integer` index, selects the operating mode of multiple-mode unit generators
 - `id`: an `Integer`, unique within the context of graph
 - `inputList`: a `List` of inputs, which may be constants, controls or unit generators
-- `multipleRootGraph`: a `Set` of nodes that are attached to this node which would otherwise be disconnected
+- `multipleRootGraph`: ab `IdentitySet` of nodes that are attached to this node which would otherwise be disconnected
 - `localControl`: `nil` unless a `LocalControl`, in which case the other fields are ignored
 
 ```

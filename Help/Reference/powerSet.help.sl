@@ -35,10 +35,10 @@ At `List`, different occurrences of the same element are treated as distinct:
 [; 1; 1; 1 1]
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> [1 2 3].asSet.powerSet
+>>> [1 2 3].asIdentitySet.powerSet
 [
 	;
 	1; 2;
@@ -46,7 +46,7 @@ At `Set`:
 	3;
 	1 3; 2 3;
 	1 2 3
-].collect(asSet:/1)
+].collect(asIdentitySet:/1)
 ```
 
 The power set of the integers _1 .. n_ give the indices for all subsequences, disjoint and continuous, of a sequence of size _n_:

@@ -11,10 +11,10 @@ At `List`:
 true
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> Bag().isSequence
+>>> IdentityBag().isSequence
 false
 ```
 
@@ -32,10 +32,10 @@ At `Record`:
 false
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> Set().isSequence
+>>> IdentitySet().isSequence
 false
 ```
 

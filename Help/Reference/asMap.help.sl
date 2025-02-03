@@ -18,10 +18,10 @@ At `Record`:
 true
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> [1 2 2 3 3 3].asBag.asMap
+>>> [1 2 2 3 3 3].asIdentityBag.asMap
 [1 -> 1, 2 -> 2, 3 -> 3].asMap
 ```
 
@@ -34,6 +34,6 @@ At a 3×2 matrix:
 
 * * *
 
-See also: ->, Association, Bag, List, Map, Record
+See also: ->, Association, IdentityBag, List, Map, Record
 
 Categories: Converting

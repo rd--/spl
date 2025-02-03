@@ -5,10 +5,10 @@
 Ensure anObject is part of _aCollection_.
 Answer whether it’s membership was newly acquired.
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> let s = Set();
+>>> let s = IdentitySet();
 >>> let i = s.ifAbsentAdd(1);
 >>> let j = s.ifAbsentAdd(1);
 >>> (s.asList, i, j)
@@ -27,6 +27,6 @@ At `List`:
 
 * * *
 
-See also: add, include, Set
+See also: add, IdentitySet, include, Set
 
 Categories: Adding

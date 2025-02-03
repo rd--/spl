@@ -15,7 +15,7 @@ Most frequent gaps in initial primes sequence:
 ```
 >>> 2:999
 >>> .collect(nthPrimeGap:/1)
->>> .asBag
+>>> .asIdentityBag
 >>> .sortedCounts
 >>> .take(4)
 [

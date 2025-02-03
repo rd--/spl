@@ -21,10 +21,10 @@ At `Record`:
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> [1 2 2 3 3 3 4 4 4 4].asBag.asList
+>>> [1 2 2 3 3 3 4 4 4 4].asIdentityBag.asList
 [1 2 2 3 3 3 4 4 4 4]
 ```
 

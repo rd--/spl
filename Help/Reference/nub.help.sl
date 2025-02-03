@@ -42,7 +42,7 @@ At `String`:
 
 * * *
 
-See also: =, ==, asSet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, nubSieve, Set
+See also: =, ==, asIdentitySet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, nubSieve, Set
 
 References:
 _Apl_

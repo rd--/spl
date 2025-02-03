@@ -7,20 +7,20 @@ Answer _anotherCollection_.
 
 In general, any object responding to _do_ can be used as the second argument.
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
 >>> let c = [1 2 2 3 3 3];
->>> let r = Bag();
+>>> let r = IdentityBag();
 >>> (r.includeAll(c), r.size)
 (c, 6)
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
 >>> let c = [1 2 2 3 3 3];
->>> let r = Set();
+>>> let r = IdentitySet();
 >>> (r.includeAll(c), r.size)
 (c, 3)
 ```

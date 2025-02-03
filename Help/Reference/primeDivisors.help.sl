@@ -15,7 +15,7 @@ Answer the prime divisors of `anInteger`.
 4500
 
 >>> 2434500.primeFactorization
-[2 2 3 3 5 5 5 541].asBag
+[2 2 3 3 5 5 5 541].asIdentityBag
 ```
 
 * * *

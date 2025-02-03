@@ -3,7 +3,7 @@
 - _ResidueSet(anInteger)_
 
 Answer an empty `ResidueSet` with modulus _anInteger_.
-A `ResidueSet` is a `Type` holding a `Set` of common residues of a `modulus`.
+A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modulus`.
 
 `leastResidueSystem` answers a complete `ResidueSet`:
 
@@ -99,4 +99,4 @@ indicating the presence of entries in the set:
 
 * * *
 
-See also: commonResidue, leastResidueSystem, Residue, Set
+See also: commonResidue, IdentitySet, leastResidueSystem, Residue, Set

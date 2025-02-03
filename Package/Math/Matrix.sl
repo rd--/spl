@@ -553,7 +553,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				each.isVector
 			}
 		} & {
-			self.collect(size:/1).asSet.size = 1
+			self.collect(size:/1).asIdentitySet.size = 1
 		}
 	}
 

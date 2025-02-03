@@ -6,11 +6,11 @@
 The unary form implements the Smalltalk idiom _aCollection.species.new()_.
 
 ```
->>> Set().species
-Set:/0
+>>> IdentitySet().species
+IdentitySet:/0
 
->>> Set().species.new
-Set()
+>>> IdentitySet().species.new
+IdentitySet()
 ```
 
 The binary form implements the Smalltalk idiom _aCollection.species.new(aSize)_.

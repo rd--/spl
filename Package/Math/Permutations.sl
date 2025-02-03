@@ -70,7 +70,7 @@ Permutation : [Object] { | cycles degree |
 	}
 
 	fixedPoints { :self |
-		let support = self.support.asSet;
+		let support = self.support.asIdentitySet;
 		let answer = [];
 		1.toDo(self.degree) { :each |
 			support.includes(each).ifFalse {
@@ -701,7 +701,7 @@ Permutation : [Object] { | cycles degree |
 	}
 
 	permutationListToPermutationCycles { :self :deleteUnaryCycles |
-		let visited = Set();
+		let visited = IdentitySet();
 		let answer = [];
 		1.toDo(self.size) { :each |
 			visited.includes(each).ifFalse {

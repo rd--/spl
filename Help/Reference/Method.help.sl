@@ -45,7 +45,7 @@ true
 ```
 
 The `sum` method is implemented at a `Trait`,
-the copies at `List` and `Set` are identical:
+the copies at `List` and `IdentitySet` are identical:
 
 ```
 >>> let listSum = system.methodLookupAtType(

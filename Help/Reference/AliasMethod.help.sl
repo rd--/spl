@@ -9,7 +9,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let d = [0.25 0.3 0.1 0.2 0.15];
 >>> let m = AliasMethod(d, Sfc32(1372));
 >>> let r = { m.next } ! 1000;
->>> let a = r.asBag.sortedElements;
+>>> let a = r.asIdentityBag.sortedElements;
 >>> (->.map(1:5, d * 1000), a)
 (
 	[

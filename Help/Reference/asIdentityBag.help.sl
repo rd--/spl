@@ -1,14 +1,14 @@
-# asBag
+# asIdentityBag
 
-- _asBag(aCollection)_
+- _asIdentityBag(aCollection)_
 
-Convert _aCollection_ to a `Bag`.
+Convert _aCollection_ to a `IdentityBag`.
 
 ```
->>> [1 1 1 3 3 5].asBag.sortedElements
+>>> [1 1 1 3 3 5].asIdentityBag.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 1 1 3 3 5].asBag.sortedCounts
+>>> [1 1 1 3 3 5].asIdentityBag.sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
 ```
 
@@ -17,7 +17,7 @@ Count occurrences of characters in a string:
 ```
 >>> 'occurrences'
 >>> .contents
->>> .asBag
+>>> .asIdentityBag
 >>> .sortedCounts
 [
 	3 -> 'c',

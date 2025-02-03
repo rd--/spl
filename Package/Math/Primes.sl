@@ -174,7 +174,7 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.asBag
+		self.primeFactors.asIdentityBag
 	}
 
 	primeFactors { :self |

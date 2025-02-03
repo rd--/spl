@@ -20,6 +20,6 @@ If _aCollection_ is a sequence the copy will preserve the order of elements.
 
 * * *
 
-See also: ==, asSet, copy, copyWith, copyWithout, nub, Set
+See also: ==, asIdentitySet, copy, copyWith, copyWithout, IdentitySet, nub, Set
 
 Categories: Copying

@@ -22,10 +22,10 @@ At `Record`:
 ('x' -> 2, 1)
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> let r = Set();
+>>> let r = IdentitySet();
 >>> r.include('x');
 >>> (r.include('x'), r.size)
 ('x', 1)
@@ -34,7 +34,7 @@ At `Set`:
 Attempting to `include` a non-immediate object in a Set is an `error`:
 
 ```
->>> let s = Set();
+>>> let s = IdentitySet();
 >>> { s.include([1]) }.ifError { true }
 true
 ```
@@ -42,7 +42,7 @@ true
 See instead `basicInclude`:
 
 ```
->>> let s = Set();
+>>> let s = IdentitySet();
 >>> s.basicInclude([1]);
 >>> s.basicInclude([1]);
 >>> s.size = 2

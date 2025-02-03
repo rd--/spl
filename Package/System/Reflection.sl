@@ -80,7 +80,7 @@
 	methodImplementations { :self :methodName |
 		/* Implementations of methodName. */
 		self.isMethodName(methodName).if {
-			let answer = Set();
+			let answer = IdentitySet();
 			let table = self.methodDictionary[methodName];
 			table.do { :dictionary |
 				dictionary.do { :method |

@@ -17,7 +17,7 @@ Use `powerMod` to generate all coprime integers modulo 9:
 ```
 >>> 2:10.collect { :each |
 >>> 	2.powerMod(each, 9)
->>> }.asSet.sorted
+>>> }.asIdentitySet.sorted
 [1 2 4 5 7 8]
 ```
 

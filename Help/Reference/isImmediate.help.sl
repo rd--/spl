@@ -4,8 +4,8 @@
 
 Answer if _anObject_ will compare `==` when it compares `=`.
 
-Immediate objects are suitable for inclusion in `Set` and `Bag`,
-as for use as keys is `Map`.
+Immediate objects are suitable for inclusion in `IdentitySet` and `IdentityBag`,
+as for use as keys in `IdentityMap`.
 
 `Nil`, `Boolean`, `SmallFloat`, `LargeInteger`, `String` and `Block` values are all immediate.
 
@@ -40,6 +40,6 @@ true
 
 * * *
 
-See also: =, ==, Bag, isJson, isLiteral, Map, Set
+See also: =, ==, IdentityBag, isJson, isLiteral, Map, IdentitySet
 
 Categories: Testing

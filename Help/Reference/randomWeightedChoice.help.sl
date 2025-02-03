@@ -16,7 +16,7 @@ weights are automatically normalized:
 >>> 	[2 2 5 1],
 >>> 	100
 >>> );
->>> c.asBag.sortedElements
+>>> c.asIdentityBag.sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
 ```
 

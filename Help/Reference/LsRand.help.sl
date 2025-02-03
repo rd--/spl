@@ -8,8 +8,8 @@ Select elements from _aCollection_ at random.
 ```
 >>> LsRand([1 3 5 7 9], 99, Sfc32(891423))
 >>> .upToEnd
->>> .asSet
-[1 3 5 7 9].asSet
+>>> .asIdentitySet
+[1 3 5 7 9].asIdentitySet
 ```
 
 The ternary form is equivalent to `take` of the binary form:
@@ -17,8 +17,8 @@ The ternary form is equivalent to `take` of the binary form:
 ```
 >>> LsRand([1 3 5 7 9], Sfc32(891423))
 >>> .take(99)
->>> .upToEnd.asSet
-[1 3 5 7 9].asSet
+>>> .upToEnd.asIdentitySet
+[1 3 5 7 9].asIdentitySet
 ```
 
 Can be implemented using `BlockStream` and `atRandom`:
@@ -29,8 +29,8 @@ Can be implemented using `BlockStream` and `atRandom`:
 >>> } {
 >>> }.take(99)
 >>> .upToEnd
->>> .asSet
-[1 3 5 7 9].asSet
+>>> .asIdentitySet
+[1 3 5 7 9].asIdentitySet
 ```
 
 Plot:

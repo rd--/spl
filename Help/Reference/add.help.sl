@@ -4,14 +4,14 @@
 
 Include _newObject_ as one of the elements of _aCollection_.
 After adding an entry, the `size` of the collection increases by one.
-Therefore, for collections with invariants such as `Dictionary` and `Set`, add may fail.
+Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, add may fail.
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
 Answers _newObject_.
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> let b = Bag();
+>>> let b = IdentityBag();
 >>> b.add('x');
 >>> (b.add('y'), b.size, b.asList)
 ('y', 2, ['x' 'y'])
@@ -44,15 +44,17 @@ At `Record`:
 ('y' -> 2, 2, (x: 1, y: 2))
 ```
 
-At `Set`, add will include _newObject_ as one of the set elements only if not already present:
+At `IdentitySet`, add will include _newObject_ as one of the set elements only if not already present:
 
 ```
->>> let s = Set();
+>>> let s = IdentitySet();
 >>> s.add('x');
 >>> (s.add('y'), s.size, s.asList)
 ('y', 2, ['x' 'y'])
 
->>> { [1].asSet.add(1) }.ifError { true}
+>>> {
+>>> 	[1].asIdentitySet.add(1)
+>>> }.ifError { true}
 true
 ```
 

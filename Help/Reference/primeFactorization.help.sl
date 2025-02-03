@@ -2,26 +2,26 @@
 
 - _primeFactorization(anInteger)_
 
-Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities (exponents).
+Answer a `IdentityBag` giving the prime factors of `anInteger` and their multiplicities (exponents).
 
 ```
 >>> 21.primeFactorization
-[3 7].asBag
+[3 7].asIdentityBag
 
 >>> 36.primeFactorization
-[2 2 3 3].asBag
+[2 2 3 3].asIdentityBag
 
 >>> 60.primeFactorization
-[2 2 3 5].asBag
+[2 2 3 5].asIdentityBag
 
 >>> 120.primeFactorization
-[2 2 2 3 5].asBag
+[2 2 2 3 5].asIdentityBag
 
 >>> 6.factorial.primeFactorization
-[2 2 2 2 3 3 5].asBag
+[2 2 2 2 3 3 5].asIdentityBag
 
 >>> 2401.primeFactorization
-[7 7 7 7].asBag
+[7 7 7 7].asIdentityBag
 
 >>> 20.factorial
 >>> .primeFactorization
@@ -55,7 +55,7 @@ Powerful numbers are numbers whose prime factors are all repeated:
 
 ```
 >>> 324.primeFactorization
-[2 2 3 3 3 3].asBag
+[2 2 3 3 3 3].asIdentityBag
 
 >>> 324.isPowerfulNumber
 true
@@ -63,7 +63,7 @@ true
 
 _Rationale_:
 Not implemented at `Fraction` since the usual notation is for the exponent to be negative for factors of the denominator,
-and a `Bag` cannot have negative counts.
+and a `IdentityBag` cannot have negative counts.
 
 * * *
 

@@ -16,10 +16,10 @@ At `List`:
 [9 7 5 3 1]
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> let s = Set();
+>>> let s = IdentitySet();
 >>> s.includeAll([1 9 3 7 5]);
 >>> s.asSortedList.contents
 [1 3 5 7 9]

@@ -236,7 +236,7 @@
 	}
 
 	copyWithoutIdenticalElements { :self |
-		let seen = Set();
+		let seen = IdentitySet();
 		self.select { :each |
 			seen.includes(each).if {
 				false
@@ -326,7 +326,7 @@
 	}
 
 	elementTypes { :self |
-		let answer = Set();
+		let answer = IdentitySet();
 		self.do { :each |
 			answer.include(each.typeOf)
 		};
@@ -637,7 +637,7 @@
 	}
 
 	nubIdentical { :self |
-		let seen = Set();
+		let seen = IdentitySet();
 		self.select { :each |
 			seen.includes(each).if {
 				false
@@ -781,6 +781,14 @@
 		self.asList.sortBy(sortBlock:/2)
 	}
 
+	sortedCounts { :self |
+		self.asIdentityBag.sortedCounts
+	}
+
+	sortedElements { :self |
+		self.asIdentityBag.sortedElements
+	}
+
 	stemLeafPlot { :self |
 		let negative = Map();
 		let positive = Map();
@@ -857,7 +865,7 @@
 	}
 
 	union { :self :aCollection |
-		let answer = self.asSet;
+		let answer = self.asIdentitySet;
 		answer.includeAll(aCollection);
 		answer
 	}

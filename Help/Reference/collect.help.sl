@@ -27,18 +27,18 @@ At `Record`:
 (x: 36, y: 100, z: 196)
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> [2, 6 .. 14].asBag.collect { :x | x * x }
-[4 36 100 196].asBag
+>>> [2, 6 .. 14].asIdentityBag.collect { :x | x * x }
+[4 36 100 196].asIdentityBag
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> [2, 6 .. 14].asSet.collect { :x | x * x }
-[4 36 100 196].asSet
+>>> [2, 6 .. 14].asIdentitySet.collect { :x | x * x }
+[4 36 100 196].asIdentitySet
 ```
 
 At `Tree`:

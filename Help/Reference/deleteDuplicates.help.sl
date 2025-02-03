@@ -46,7 +46,7 @@ Similar to `union` with an empty set:
 >>> )
 (
 	[9 0 3 2 6 8 4 5 7],
-	[9 0 3 2 6 8 4 5 7].asSet
+	[9 0 3 2 6 8 4 5 7].asIdentitySet
 )
 ```
 

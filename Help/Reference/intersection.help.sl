@@ -5,11 +5,11 @@
 Answer the set theoretic intersection of two collections.
 
 ```
->>> let s1 = [1 1 2 3].asSet;
->>> let s2 = [3 1 4].asSet;
->>> let s3 = [4 1 3 3].asSet;
+>>> let s1 = [1 1 2 3].asIdentitySet;
+>>> let s2 = [3 1 4].asIdentitySet;
+>>> let s3 = [4 1 3 3].asIdentitySet;
 >>> s1.intersection(s2).intersection(s3)
-[1 3].asSet
+[1 3].asIdentitySet
 ```
 
 Find divisors common to 45 and 78:

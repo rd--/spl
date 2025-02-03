@@ -159,8 +159,8 @@ String! : [Object, Json, Iterable, Character] {
 		self
 	}
 
-	asSet { :self |
-		self.contents.asSet
+	asIdentitySet { :self |
+		self.contents.asIdentitySet
 	}
 
 	asString { :self |

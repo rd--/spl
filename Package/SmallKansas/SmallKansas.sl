@@ -121,7 +121,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
 	initialize { :self |
 		self.container := 'smallKansas'.getElementById;
-		self.frameSet := Set();
+		self.frameSet := IdentitySet();
 		self.cache := Record();
 		self.history := [];
 		self.container.addEventListener('contextmenu') { :event |

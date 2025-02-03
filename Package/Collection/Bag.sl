@@ -26,7 +26,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.basicAddWithOccurrences(anObject, anInteger)
 	}
 
-	asBag { :self |
+	asIdentityBag { :self |
 		self
 	}
 
@@ -42,8 +42,8 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		self.contents
 	}
 
-	asSet { :self |
-		self.contents.indices.asSet
+	asIdentitySet { :self |
+		self.contents.indices.asIdentitySet
 	}
 
 	atRandom { :self :shape :r |
@@ -148,11 +148,11 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	storeString { :self |
-		self.contents.storeString ++ '.asBag'
+		self.contents.storeString ++ '.asIdentityBag'
 	}
 
 	species { :self |
-		Bag:/0
+		IdentityBag:/0
 	}
 
 	sum { :self |
@@ -175,7 +175,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 +Void {
 
-	Bag {
+	IdentityBag {
 		newBag().initializeSlots(Map())
 	}
 
@@ -183,24 +183,24 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 +@Collection {
 
-	asBag { :self |
-		let answer = Bag();
+	asIdentityBag { :self |
+		let answer = IdentityBag();
 		answer.addAll(self);
 		answer
 	}
 
 	commonest { :self |
-		let byCount = self.asBag.sortedCounts;
+		let byCount = self.asIdentityBag.sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each | each.key = count }.collect(value:/1)
 	}
 
 	counts { :self |
-		self.asBag.sortedElements
+		self.asIdentityBag.sortedElements
 	}
 
 	histogramOf { :self :aBlock:/1 |
-		let answer = Bag();
+		let answer = IdentityBag();
 		self.collectInto(aBlock:/1, answer);
 		answer
 	}

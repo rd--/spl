@@ -11,10 +11,10 @@ Determine whether or not a list has duplicated elements:
 false
 ```
 
-Use `asBag` to reveal duplicate elements:
+Use `asIdentityBag` to reveal duplicate elements:
 
 ```
->>> [1 7 8 4 3 4 1 9 9 2].asBag.sortedElements
+>>> [1 7 8 4 3 4 1 9 9 2].asIdentityBag.sortedElements
 [1 -> 2, 2 -> 1, 3 -> 1, 4 -> 2, 7 -> 1, 8 -> 1, 9 -> 2]
 ```
 

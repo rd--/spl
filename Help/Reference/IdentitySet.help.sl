@@ -1,22 +1,22 @@
-# Set
+# IdentitySet
 
-- _Set()_
+- _IdentitySet()_
 
 A collection of objects without duplicates.
 The comparison operator is `==`, not `=`,
-i.e. `Set` is an identity set, not an equality set.
+i.e. `IdentitySet` is an identity set, not an equality set.
 
 The empty set constructor:
 
 ```
->>> Set().size
+>>> IdentitySet().size
 0
 ```
 
 Set predicate:
 
 ```
->>> Set().isSet
+>>> IdentitySet().isIdentitySet
 true
 ```
 
@@ -24,16 +24,13 @@ Sets are unordered collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
->>> [1 2 3].asSet * 5
-[5 10 15].asSet
+>>> [1 2 3].asIdentitySet * 5
+[5 10 15].asIdentitySet
 ```
-
-Note:
-`Set` is what Smalltalk calls _IdentitySet_.
 
 * * *
 
-See also: asSet, add, Bag, isImmediate, isSet, List
+See also: asIdentitySet, add, IdentityBag, isImmediate, isSet, List
 
 References:
 _Smalltalk_

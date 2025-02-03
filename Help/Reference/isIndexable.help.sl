@@ -12,10 +12,10 @@ At `List`:
 true
 ```
 
-At `Bag`:
+At `IdentityBag`:
 
 ```
->>> Bag().isIndexable
+>>> IdentityBag().isIndexable
 false
 ```
 
@@ -33,10 +33,10 @@ At `Record`:
 true
 ```
 
-At `Set`:
+At `IdentitySet`:
 
 ```
->>> Set().isIndexable
+>>> IdentitySet().isIndexable
 false
 ```
 

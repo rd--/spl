@@ -21,7 +21,7 @@ Nub by `=`:
 [1 2; 2 3; 3 3]
 ```
 
-Using `==` is special-cased to call `nubIdentical`, which stores seen items in a `Set`.
+Using `==` is special-cased to call `nubIdentical`, which stores seen items in a `IdentitySet`.
 This will signal an error if the list contains non-immediate values:
 
 ```

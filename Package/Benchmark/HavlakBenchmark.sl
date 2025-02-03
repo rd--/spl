@@ -200,7 +200,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 					self.maxSize := size
 				};
 				1.toDo(size) { :i |
-					self.nonBackPreds.addLast(Set());
+					self.nonBackPreds.addLast(IdentitySet());
 					self.backPreds.addLast(List());
 					self.nodes[i] := UnionFindNode()
 				};
@@ -460,8 +460,8 @@ SimpleLoop : [Object] { | counter depthLevel parent isRoot nestingLevel header i
 		self.nestingLevel := 0;
 		self.header := aBB;
 		self.isReducible := aBool;
-		self.basicBlocks := Set();
-		self.children := Set();
+		self.basicBlocks := IdentitySet();
+		self.children := IdentitySet();
 		aBB.ifNotNil {
 			self.basicBlocks.basicInclude(aBB)
 		};
