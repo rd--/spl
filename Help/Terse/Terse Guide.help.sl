@@ -1529,7 +1529,7 @@ Fraction(3, 1) = 3/1
 3/2.floor = 1
 -3/2.floor = -2
 353/359.printString = '353/359' /* Fraction print string */
-59/61.storeString = 'Fraction(59, 61)' /* Fraction store string */
+59/61.storeString = 'Fraction(59n, 61n)' /* Fraction store string */
 4 / (2/3) = 6
 4 / (-2/3) = -6
 -4 / (-2/3) = 6
@@ -1590,7 +1590,7 @@ let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorte
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.ifError { true } /* the fraction module does not modify asNumber to parse fractions */
-let x = Fraction(2 ^ 55, 2); x ~= (x - 1) = false /* fractions of large small floats behave strangely */
+let x = ReducedFraction(2 ^ 55, 2); x ~= (x - 1) = false /* fractions of large small floats behave strangely */
 let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) /* fractions of large large integers behave ordinarily */
 2/3 ~= 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */

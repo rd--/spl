@@ -2,60 +2,108 @@
 
 LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
-	== { :self :anInteger |
-		<primitive: return _self === _anInteger;>
+	== { :self :anObject |
+		<primitive: return _self === _anObject;>
 	}
 
-	= { :self :anInteger |
-		<primitive: return _self === BigInt(_anInteger);>
-	}
-
-	~ { :self :anInteger |
-		self = anInteger
-	}
-
-	< { :self :anInteger |
-		<primitive: return _self < BigInt(_anInteger);>
-	}
-
-	<= { :self :anInteger |
-		<primitive: return _self <= BigInt(_anInteger);>
-	}
-
-	+ { :self :anInteger |
-		<primitive: return _self + BigInt(_anInteger);>
-	}
-
-	- { :self :anInteger |
-		<primitive: return _self - BigInt(_anInteger);>
-	}
-
-	* { :self :anInteger |
-		<primitive: return _self * BigInt(_anInteger);>
-	}
-
-	/ { :self :anInteger |
-		let fraction = Fraction(self, anInteger.asLargeInteger);
-		fraction.isInteger.if {
-			fraction.numerator
-		} {
-			fraction
-		}
-	}
-
-	// { :self :anInteger |
-		<primitive: return _self / BigInt(_anInteger);>
-	}
-
-	% { :self :anInteger |
+	= { :self :anObject |
 		<primitive:
-		const i = BigInt(_anInteger);
-		return ((_self % i) + i) % i;
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self === BigInt(_anObject);
+		} else {
+			return false;
+		}
 		>
 	}
 
-	^ { :self :anInteger |
-		<primitive: return _self ** BigInt(_anInteger);>
+	~ { :self :anObject |
+		self = anObject
+	}
+
+	< { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self < BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, <)
+	}
+
+	<= { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self <= BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, <=)
+	}
+
+	+ { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self + BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, +)
+	}
+
+	- { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self - BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, -)
+	}
+
+	* { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self * BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, *)
+	}
+
+	/ { :self :anObject |
+		anObject.isInteger.if {
+			let fraction = Fraction(self, anObject.asLargeInteger);
+			fraction.isInteger.if {
+				fraction.numerator
+			} {
+				fraction
+			}
+		} {
+			anObject.adaptToIntegerAndApply(self, /)
+		}
+	}
+
+	// { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self / BigInt(_anObject);
+		};
+		>
+		anObject.adaptToIntegerAndApply(self, //)
+	}
+
+	% { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			const i = BigInt(_anObject);
+			return ((_self % i) + i) % i;
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, %)
+	}
+
+	^ { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self ** BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, ^)
 	}
 
 	^ { :self :anObject |

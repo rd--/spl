@@ -125,7 +125,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
-		ReducedFraction(anInteger, 1).aBlock(self)
+		ReducedFraction(anInteger, 1n).aBlock(self)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
@@ -316,7 +316,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	one { :self |
-		ReducedFraction(1, 1)
+		ReducedFraction(1n, 1n)
 	}
 
 	parts { :self |
@@ -408,11 +408,15 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		let b = self.denominator;
 		let c = aFraction.numerator;
 		let d = aFraction.denominator;
-		((m * a) + (n * c)) / ((m * b) + (n * d))
+		(m.isFraction && n.isFraction).if {
+			((m * a) + (n * c)) / ((m * b) + (n * d))
+		} {
+			((m * a.asFloat) + (n * c.asFloat)) / ((m * b.asFloat) + (n * d.asFloat))
+		}
 	}
 
 	zero { :self |
-		ReducedFraction(0, 1)
+		ReducedFraction(0n, 1n)
 	}
 
 }
@@ -469,7 +473,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	Fraction { :numerator :denominator |
 		denominator.isInteger.if {
-			ReducedFraction(numerator, denominator).simplify
+			ReducedFraction(
+				numerator.asLargeInteger,
+				denominator.asLargeInteger
+			).simplify
 		} {
 			denominator.adaptToNumberAndApply(numerator, Fraction:/2)
 		}
@@ -519,7 +526,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFractionOver { :self :denominator |
 		self.isInteger.if {
-			ReducedFraction(self, 1)
+			ReducedFraction(self, 1n)
 		} {
 			Fraction(
 				(self * denominator).rounded,
@@ -534,7 +541,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFraction { :self :epsilon |
 		self.isInteger.if {
-			ReducedFraction(self, 1)
+			ReducedFraction(self, 1n)
 		} {
 			self.rationalize(epsilon)
 		}
@@ -556,18 +563,29 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
++LargeInteger {
+
+	asFraction { :self |
+		Fraction(self, 1n)
+	}
+
+}
+
 +String {
 
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {
 			let parts = self.splitBy(separator);
 			(parts.size = 2).if {
-				Fraction(parts[1].parseInteger(10), parts[2].parseInteger(10))
+				Fraction(
+					parts[1].parseInteger(10),
+					parts[2].parseInteger(10)
+				)
 			} {
 				self.error('parseFraction: parse failed')
 			}
 		} {
-			ReducedFraction(self.parseInteger(10), 1)
+			ReducedFraction(self.parseInteger(10), 1n)
 		}
 	}
 

@@ -148,15 +148,24 @@ Operands may be collections:
 
 A `Fraction` whose elements are of type `SmallFloat` will have odd behaviour for large components,
 a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
+The `Fraction` constructor constructs fractions with `LargeInteger` components.
 
 ```
->>> let x = Fraction(2 ^ 55, 2);
->>> x ~= (x - 1)
-false
+>>> let x = ReducedFraction(2 ^ 55, 2);
+>>> (x, x - 1, x = (x - 1))
+(
+	36028797018963970/2,
+	36028797018963970/2,
+	true
+)
 
 >>> let x = Fraction(2n ^ 55n, 2);
->>> x ~= (x - 1)
-true
+>>> (x, x - 1, x = (x - 1))
+(
+	18014398509481984/1,
+	18014398509481983/1,
+	false
+)
 ```
 
 There are accessor methods for the `numerator` and `denominator`:
@@ -222,7 +231,7 @@ The store string of a Fraction is the constructor notation:
 
 ```
 >>> 22/7.storeString
-'Fraction(22, 7)'
+'Fraction(22n, 7n)'
 ```
 
 The reciprocal of a `Fraction` is a `Fraction`:

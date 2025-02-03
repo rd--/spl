@@ -54,7 +54,7 @@
 	}
 
 	tenneyHeight { :self :base |
-		(self.numerator * self.denominator).log(base)
+		(self.numerator * self.denominator).asFloat.log(base)
 	}
 
 	tenneyHeight { :self |

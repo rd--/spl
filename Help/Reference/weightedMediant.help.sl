@@ -4,8 +4,8 @@
 
 Answer the weighted mediant of two fractions.
 Assign weight _m_ to the left fraction _a/b_,
-and weight _n_ to the right fraction _c/d_,
-the weighted mediant is _(ma +nc)/(mb + nd)_.
+and weight _n_ to the right fraction _c/d,
+the weighted mediant is _(ma + nc)/(mb + nd)_.
 
 ```
 >>> let phi = 1.goldenRatio;

@@ -8,7 +8,7 @@ that accepts initial values for each slot in sequence.
 
 ```
 >>> 2/3.storeStringAsInitializeSlots
-'Fraction(2, 3)'
+'Fraction(2n, 3n)'
 ```
 
 * * *

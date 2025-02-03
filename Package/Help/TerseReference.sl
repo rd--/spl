@@ -5,6 +5,7 @@
 	terseReferenceSummaryDo { :directoryName :options :testName :aBlock:/2 |
 		let totalTestCount = 0;
 		let totalPassCount = 0;
+		let totalErrorCount = 0;
 		let fileNameList = directoryName.readDirectoryFileNames;
 		let helpFileNameList = fileNameList.sort.select { :each |
 			each.endsWith('.help.sl') & {
@@ -15,15 +16,27 @@
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.asFileUrl, text);
-			let [testCount, passCount] = aBlock(helpFile, options);
+			let [testCount, passCount, errorCount] = {
+				options['verbose'].ifTrue {
+					(helpFile.originName, helpFile.name).postLine
+				};
+				aBlock(helpFile, options)
+			}.value;
 			options['verbose'].ifTrue {
-				(helpFile.originName, helpFile.name).postLine;
 				'	Pass % of %'.format([passCount, testCount]).postLine
 			};
 			totalTestCount := totalTestCount + testCount;
-			totalPassCount := totalPassCount + passCount
+			totalPassCount := totalPassCount + passCount;
+			totalErrorCount := totalErrorCount + errorCount
 		};
-		'Terse Reference Summary: %: Pass % of %'.format([testName, totalPassCount, totalTestCount]).postLine
+		'Terse Reference Summary: %: Pass % of % (% Error)'.format(
+			[
+				testName,
+				totalPassCount,
+				totalTestCount,
+				totalErrorCount
+			]
+		).postLine
 	}
 
 	terseReferenceSummary { :directoryName :options |

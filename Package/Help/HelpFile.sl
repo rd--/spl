@@ -161,7 +161,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 			entry.beginsWith('# ').if {
 				entry.drop(2)
 			} {
-				self.error('HelpFile>>name')
+				self.error('HelpFile>>name: ' ++ entry)
 			}
 		}
 	}
@@ -245,6 +245,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 	terseReferenceEntry { :self :options |
 		let testCount = 0;
 		let passCount = 0;
+		let errorCount = 0;
 		(self.documentationTests.size > 0).ifTrue {
 			let verbose = options['verbose'];
 			self.codeBlocks.do { :each |
@@ -257,14 +258,20 @@ HelpFile : [Object, Cache] { | origin source cache |
 				verbose.ifTrue {
 					('	' ++ each.format).postLine
 				};
-				each.evaluate.if {
+				{
+					each.evaluate
+				}.ifError {
+					('	ERROR: ' ++ each.format).postLine;
+					errorCount := errorCount + 1;
+					false
+				}.if {
 					passCount := passCount + 1
 				} {
 					('	FAIL: ' ++ each.format).postLine
 				}
 			}
 		};
-		[testCount, passCount]
+		[testCount, passCount, errorCount]
 	}
 
 	unicode { :self |

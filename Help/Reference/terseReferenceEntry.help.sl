@@ -13,7 +13,7 @@ Evaluate document tests at _aHelpFile_, reading options from _aDictionary_.
 >>> 	fileName.asFileUrl,
 >>> 	text
 >>> ).terseReferenceEntry(verbose: false)
-[4, 4]
+[4, 4, 0]
 ~~~
 
 * * *

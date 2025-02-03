@@ -16,6 +16,18 @@ Equality with `SmallFloat`:
 true
 ```
 
+Non-identity with `SmallFloat`:
+
+>>> 1 == 1n
+false
+
+>>> 1 == 1
+true
+
+>>> 1n == 1n
+true
+```
+
 Adapts left and right operands to `LargeIntegers`:
 
 ```
@@ -27,6 +39,56 @@ Adapts left and right operands to `LargeIntegers`:
 
 >>> 23 ^ 23
 2.088E31
+```
+
+Division by an integer answers a `Fraction`:
+
+```
+>>> 23n / 5
+23/5
+```
+
+Math with a `Fraction` answers a `Fraction`:
+
+```
+>>> 23n - 2/3
+67/3
+
+>>> 23n + 2/3
+71/3
+
+>>> 23n * 2/3
+46/3
+
+>>> 23n / 2/3
+69/2
+```
+
+`negated` answers a `LargeInteger`:
+
+```
+>>> 23n.negated
+-23n
+```
+
+Cannot be implicitly converted to a `SmallFloat`:
+
+```
+>>> { 23n * 2.5 }.ifError { true }
+true
+
+>>> 23n.asSmallFloat * 2.5
+57.5
+```
+
+`floor` and `ceiling` are identity:
+
+```
+>>> 23n.floor
+23n
+
+>>> 23n.ceiling
+23n
 ```
 
 * * *

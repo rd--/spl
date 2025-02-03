@@ -505,7 +505,7 @@
 	}
 
 	negated { :self |
-		-1 * self
+		self * -1
 	}
 
 	/*

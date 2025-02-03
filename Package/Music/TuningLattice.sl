@@ -3,13 +3,13 @@
 +Fraction {
 
 	latticePrimes { :self :includeOctave |
-		let answer = Set();
+		let answer = [];
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
 		includeOctave.ifFalse {
 			answer.without(2)
 		};
-		answer.asList.sort
+		answer.nub.sort
 	}
 
 	latticeVector { :self :primes |
@@ -18,7 +18,7 @@
 		).if {
 			let pf1 = self.numerator.primeFactors;
 			let pf2 = self.denominator.primeFactors.negated;
-			let pf3 = (pf1 ++ pf2).asBag;
+			let pf3 = pf1 ++ pf2;
 			primes.collect { :each |
 				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
 			}
@@ -115,11 +115,11 @@
 	}
 
 	latticePrimes { :self :includeOctave |
-		let answer = Set();
+		let answer = [];
 		self.asRatios.do { :each |
-			answer.includeAll(each.latticePrimes(includeOctave))
+			answer.addAll(each.latticePrimes(includeOctave))
 		};
-		answer.asList.sort
+		answer.nub.sort
 	}
 
 	latticeDerivedPrimesVector { :self :primes |

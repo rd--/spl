@@ -1,3 +1,5 @@
+# arrayFilter
+
 - _arrayFilter(aBlock:/1, aList, anInteger)_
 
 Apply _aBlock_ to all _anInteger * 2 + 1_ sublists of _aList_.

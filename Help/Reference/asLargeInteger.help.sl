@@ -11,6 +11,13 @@ At `SmallFloat`:
 8388608n
 ```
 
+At `LargeInteger`:
+
+```
+>>> 8388608n.asLargeInteger
+8388608n
+```
+
 At `ByteArray`:
 
 ```
@@ -18,7 +25,9 @@ At `ByteArray`:
 (1n + (3 << 8) + (5 << 16) + (7 << 24))
 
 >>> let n = 117768961n;
->>> 1:4.collect { :each | n.digitAt(each) }
+>>> 1:4.collect { :each |
+>>> 	n.digitAt(each)
+>>> }
 [1n 3n 5n 7n]
 
 >>> [

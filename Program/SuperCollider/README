@@ -1,6 +1,7 @@
 ```
 let testCount = 0;
 let passCount = 0;
+let errorCount = 0;
 system
 .splFile('Program/SuperCollider/Texture Collection')
 .readDirectoryFileNames
@@ -20,7 +21,7 @@ system
 		}
 	}
 };
-[testCount, passCount].postLine
+[testCount, passCount, errorCount].postLine
 ```
 
 Graph => 391

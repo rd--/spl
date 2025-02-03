@@ -9,7 +9,9 @@ In the `Integer` case answer `identity`:
 23
 ```
 
-In the `Number` case, i.e. `SmallFloat` or `Fraction`, answer `truncated`:
+In the `Number` case,
+i.e. `SmallFloat` or `Fraction`,
+answer `truncated`:
 
 ```
 >>> 1.pi.asInteger

@@ -35,10 +35,10 @@
 
 	/* Number */
 	'Complex'
-	'Fraction'
 	'Interval'
 	'LargeInteger' /* ByteArray */
 	'Residue'
+	'Fraction' /* LargeInteger */
 	'Decimal' /* Fraction */
 
 	/* Logic */
