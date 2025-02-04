@@ -217,6 +217,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	isRational { :unused |
+		true
+	}
+
 	isSmallInteger { :self |
 		self.isInteger & {
 			self.numerator.isSmallInteger

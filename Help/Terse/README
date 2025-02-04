@@ -1,6 +1,6 @@
 system.splFile('Help/Terse/Terse Guide.help.sl').asFileUrl.terseGuideSummary
 
-Total => 3698
+Total => 3699
 
 system.splFile('Help/Terse/Terse Guide to Sound.help.sl').asFileUrl.terseGuideSummary
 

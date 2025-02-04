@@ -310,6 +310,10 @@ Complex : [Object, Number] { | real imaginary |
 		true
 	}
 
+	isRational { :unused |
+		false
+	}
+
 	isVeryCloseTo { :self :anObject |
 		self.isCloseToBy(anObject, 0.000000000001)
 	}

@@ -9,10 +9,10 @@
 12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
 7.equalTemperamentTuning.asCents.rounded = [0 171 343 514 686 857 1029]
-[1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
-[1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
-[1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
-[1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
+[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
+[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
+[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
+[1/1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
 30/17.latticePrimes(false) = [3 5 17]
 30/17.latticeVector([3 5 17]) = [1 1 -1]
 30/17.latticeVectorString([3 5 17]) = ' 1  1 -1'
@@ -30,9 +30,9 @@ RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 
 let t = [63, 72, 84, 98, 112].asRatioTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
-let r = [1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
+let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
-[1, 8/7, 4/3, 14/9, 16/9].asRatioTuning.asIntegers = [63, 72, 84, 98, 112]
+[1/1, 8/7, 4/3, 14/9, 16/9].asRatioTuning.asIntegers = [63, 72, 84, 98, 112]
 [63, 72, 84, 98, 112].asRatioTuning.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 [1, 3].asRatioTuning.asRatios = [1, 3]
 ```

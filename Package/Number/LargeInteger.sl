@@ -217,16 +217,20 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 0n
 	}
 
-	isInteger { :self |
+	isInteger { :unused |
 		true
 	}
 
-	isLiteral { :self |
+	isLiteral { :unused |
 		true
 	}
 
 	isOdd { :self |
 		(self % 2n) = 1n
+	}
+
+	isRational { :unused |
+		true
 	}
 
 	isSmallInteger { :self |
@@ -253,7 +257,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.asFloat.log10
 	}
 
-	one { :self |
+	one { :unused |
 		1n
 	}
 
@@ -317,11 +321,11 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		<primitive: BigInt.asIntN(_precision, _self);>
 	}
 
-	unit { :self |
+	unit { :unused |
 		1n
 	}
 
-	zero { :self |
+	zero { :unused |
 		0n
 	}
 

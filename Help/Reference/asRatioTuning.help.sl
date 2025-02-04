@@ -28,7 +28,7 @@ If the intervals are `Integer` values they are understood to be integer pitches:
 A five-limit tuning specified as a `List` of `Fraction`s:
 
 ```
->>> let r = [1 6/5 4/3 3/2 8/5];
+>>> let r = [1/1 6/5 4/3 3/2 8/5];
 >>> let t = r.asRatioTuning;
 >>> (
 >>> 	t.limit,

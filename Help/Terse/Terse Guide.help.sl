@@ -1517,7 +1517,8 @@ Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
 1/2 = 2/4 = true
 1/2 * 2 = 1
 2 * 1/2 = 1
-23.isFraction = true
+23.isFraction = false /* type predicate, c.f. isRational */
+23.isRational = true
 23.numerator = 23
 23.denominator = 1 /* denominator of integer is one */
 1/3 + 1/7 = 10/21

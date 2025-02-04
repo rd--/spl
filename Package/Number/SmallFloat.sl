@@ -372,10 +372,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isFinite(_self);>
 	}
 
-	isFraction { :self |
-		self.isInteger
-	}
-
 	isImmediate { :self |
 		true
 	}
@@ -398,6 +394,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isOdd { :self |
 		<primitive: return Math.abs(_self % 2) === 1;>
+	}
+
+	isRational { :self |
+		self.isInteger
 	}
 
 	isSmallInteger { :self |
