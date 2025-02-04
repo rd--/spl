@@ -1,4 +1,4 @@
-Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | contents |
+@Bag {
 
 	= { :self :aBag |
 		aBag.isBag & {
@@ -20,14 +20,15 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	addWithOccurrences { :self :anObject :anInteger |
-		anObject.isImmediate.ifFalse {
-			'Bag>>addWithOccurrences: non-immediate entry'.error
-		};
 		self.basicAddWithOccurrences(anObject, anInteger)
 	}
 
-	asIdentityBag { :self |
+	asBag { :self |
 		self
+	}
+
+	asDictionary { :self |
+		self.contents
 	}
 
 	asList { :self |
@@ -38,12 +39,8 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 		answer
 	}
 
-	asMap { :self |
-		self.contents
-	}
-
-	asIdentitySet { :self |
-		self.contents.indices.asIdentitySet
+	asSet { :self :aBlock:/2 |
+		self.contents.indices.asSet(aBlock:/2)
 	}
 
 	atRandom { :self :shape :r |
@@ -53,13 +50,20 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	basicAddWithOccurrences { :self :anObject :anInteger |
-		self.includes(anObject).if {
-			self.contents[anObject] := self.contents[anObject] + anInteger
+		let dictionary = self.contents;
+		dictionary.includesIndex(anObject).if {
+			dictionary[anObject] := dictionary[anObject] + anInteger
 		} {
-			self.contents[anObject] := anInteger
+			dictionary[anObject] := anInteger
 		};
 		anObject
 	}
+
+	/*
+	contents { :self |
+		self.typeResponsibility('@Bag>>contents')
+	}
+	*/
 
 	cumulativeCounts { :self |
 		let s = self.size / 100.0;
@@ -81,6 +85,10 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 	includes { :self :anObject |
 		self.contents.includesIndex(anObject)
+	}
+
+	isBag { :unused |
+		true
 	}
 
 	max { :self |
@@ -148,11 +156,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	storeString { :self |
-		self.contents.storeString ++ '.asIdentityBag'
-	}
-
-	species { :self |
-		IdentityBag:/0
+		self.contents.storeString ++ '.as' ++ self.typeOf
 	}
 
 	sum { :self |
@@ -173,15 +177,72 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 
 }
 
++@Object {
+
+	isBag { :unused |
+		false
+	}
+
+}
+
+Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | contents |
+
+	asSet { :self |
+		self.contents.indices.asSet(=)
+	}
+
+	species { :self |
+		Bag:/0
+	}
+
+}
+
+IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | contents |
+
+	addWithOccurrences { :self :anObject :anInteger |
+		anObject.isImmediate.ifFalse {
+			'IdentityBag>>addWithOccurrences: non-immediate entry'.error
+		};
+		self.basicAddWithOccurrences(anObject, anInteger)
+	}
+
+	asIdentityBag { :self |
+		self
+	}
+
+	asMap { :self |
+		self.contents
+	}
+
+	asIdentitySet { :self |
+		self.contents.indices.asIdentitySet
+	}
+
+	species { :self |
+		IdentityBag:/0
+	}
+
+}
+
 +Void {
 
+	Bag {
+		newBag().initializeSlots(Dictionary())
+	}
+
 	IdentityBag {
-		newBag().initializeSlots(Map())
+		newIdentityBag().initializeSlots(Map())
 	}
 
 }
 
 +@Collection {
+
+	asBag { :self |
+		let answer = Bag();
+		answer.addAll(self);
+		answer
+	}
 
 	asIdentityBag { :self |
 		let answer = IdentityBag();
@@ -190,17 +251,17 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered] { | conte
 	}
 
 	commonest { :self |
-		let byCount = self.asIdentityBag.sortedCounts;
+		let byCount = self.asBag.sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each | each.key = count }.collect(value:/1)
 	}
 
 	counts { :self |
-		self.asIdentityBag.sortedElements
+		self.asBag.sortedElements
 	}
 
 	histogramOf { :self :aBlock:/1 |
-		let answer = IdentityBag();
+		let answer = Bag();
 		self.collectInto(aBlock:/1, answer);
 		answer
 	}

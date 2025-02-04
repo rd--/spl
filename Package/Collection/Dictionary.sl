@@ -105,17 +105,6 @@
 		}
 	}
 
-	basicAt { :self :key |
-		<primitive: return _self[_key];>
-	}
-
-	basicAtPut { :self :key :value |
-		<primitive:
-		_self[_key] = _value;
-		return _value;
-		>
-	}
-
 	collect { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
@@ -225,7 +214,6 @@
 		}
 	}
 
-
 	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
 		valueWithReturn { :return:/1 |
 			self.associationsDo { :association |
@@ -328,7 +316,7 @@
 	}
 
 	storeString { :self |
-		self.associations.storeString ++ '.' ++ self.typeOf
+		self.associations.storeString ++ '.as' ++ self.typeOf
 	}
 
 	valuesDo { :self :aBlock:/1 |
@@ -345,10 +333,86 @@
 
 }
 
-+@Object {
+Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values |
 
-	isDictionary { :self |
-		false
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		let index = self.keys.indexOf(key);
+		(index = 0).if {
+			ifAbsent()
+		} {
+			ifPresent(self.values[index])
+		}
+	}
+
+	at { :self :key |
+		self.atIfPresentIfAbsent(key, identity:/1) {
+			self.error('at: unknown key: ' ++ key)
+		}
+	}
+
+	atPut { :self :key :value |
+		let index = self.keys.indexOf(key);
+		(index = 0).if {
+			self.keys.add(key);
+			self.values.add(value)
+		} {
+			self.values[index] := value
+		};
+		value
+	}
+
+	includesKey { :self :key |
+		self.keys.inclues(key)
+	}
+
+	indices { :self |
+		self.keys
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		let keys = self.keys;
+		let values = self.values;
+		1.toDo(keys.size) { :index |
+			aBlock(keys[index], values[index])
+		};
+		nil
+	}
+
+	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
+		let index = self.keys.indexOf(key);
+		(index = 0).if {
+			ifAbsent()
+		} {
+			self.keys.removeAt(index);
+			self.values.removeAt(index)
+		}
+	}
+
+	size { :self |
+		self.keys.size
+	}
+
+}
+
++Void {
+
+	Dictionary {
+		newDictionary().initializeSlots([], [])
+	}
+
+}
+
++List {
+
+	asDictionary { :self |
+		self.allSatisfy(isAssociation:/1).if {
+			newDictionary().initializeSlots(
+				self.collect(key:/1),
+				self.collect(value:/1)
+			)
+		} {
+			self.error('List>>asDictionary: not list of associations')
+		}
 	}
 
 }

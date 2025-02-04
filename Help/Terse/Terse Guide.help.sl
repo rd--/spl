@@ -590,7 +590,7 @@ let a = 'x' -> 1; a.keyValue('y', 2); a = ('y' -> 2) /* set key and value */
 ```
 system.includesPackage('Bag') /* bag package */
 IdentityBag().isBag = true
-IdentityBag().typeOf = 'Bag'
+IdentityBag().typeOf = 'IdentityBag'
 IdentityBag().isCollection
 IdentityBag().isIndexable = false
 IdentityBag().isSequence = false
@@ -2497,7 +2497,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { '3' } ! 3 = ['3', '3', '3'] /* operator notation */
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
-atAll:/2.parameterNames = ['self', 'indices'] /* answer names of method parameters */
+atAll:/2.parameterNames = ['self', 'keys'] /* answer names of method parameters */
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
 randomReal:/4.parameterNames = ['self', 'min', 'max', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
@@ -3901,7 +3901,7 @@ system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Number']) = true
-system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Iterable']
+system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Iterable', 'Bag']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true

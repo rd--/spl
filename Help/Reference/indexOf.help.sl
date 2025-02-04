@@ -4,7 +4,7 @@
 
 Answer the index of the first occurence of _anElement_ within _aCollection_.
 At sequences answer zero (an invalid index) if _anElement_ is not found,
-else raise an error.
+else signal an `error`.
 
 Find index of first occurrence of element in sequence:
 

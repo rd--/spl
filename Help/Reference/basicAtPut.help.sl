@@ -1,6 +1,6 @@
 # basicAtPut
 
-- _basicAtPut(aList | aDictionary, index, value)_
+- _basicAtPut(aList | aRecord, index, value)_
 
 Unchecked mutation, answers nil for invalid indices.
 

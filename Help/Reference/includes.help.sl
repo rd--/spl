@@ -32,6 +32,13 @@ At `Record`:
 true
 ```
 
+At `Dictionary`:
+
+```
+>>> [1n -> 'A', 2n -> 'B'].asDictionary.includes('A')
+true
+```
+
 At `String`, answer `true` if string includes character:
 
 ```
@@ -42,7 +49,7 @@ true
 false
 ```
 
-It is an error to search for a substring, see `includesSubstring`:
+It is an `error` to search for a substring, see `includesSubstring`:
 
 ```
 >>> {

@@ -1,16 +1,19 @@
-# asAssociationList
+# asDictionary
 
-- _asAssociationList(aList)_
+- _asDictionary(aList)_
 
-Answer an `AssociationList`.
+Answer an `Dictionary`.
 
 ```
->>> [-1.sqrt -> -1, -3.sqrt -> 3].asAssociationList.keys
+>>> [
+>>> 	-1.sqrt -> -1,
+>>> 	-3.sqrt -> 3
+>>> ].asDictionary.keys
 [0J1, 0J1.7321]
 ```
 
 * * *
 
-See also: AssociationList
+See also: Dictionary
 
 Categories: Converting, Collection

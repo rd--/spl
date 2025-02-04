@@ -89,7 +89,7 @@
 					}
 				}
 			};
-			[testCount, passCount]
+			[testCount, passCount, 0]
 		}
 	}
 

@@ -20,6 +20,6 @@ true
 
 * * *
 
-See also: at, atPut, Collection, includesIndex, indices, indicesDo, Keyed, size, withIndexDo
+See also: at, atPut, Collection, includesIndex, indices, indicesDo, size, withIndexDo
 
 Categories: Trait

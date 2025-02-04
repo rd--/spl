@@ -18,6 +18,7 @@ true
 
 Non-identity with `SmallFloat`:
 
+```
 >>> 1 == 1n
 false
 

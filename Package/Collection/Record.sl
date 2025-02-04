@@ -23,6 +23,17 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		self.error('atPut key not a string: ' ++ aString.typeOf)
 	}
 
+	basicAt { :self :key |
+		<primitive: return _self[_key];>
+	}
+
+	basicAtPut { :self :key :value |
+		<primitive:
+		_self[_key] = _value;
+		return _value;
+		>
+	}
+
 	includesKey { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}

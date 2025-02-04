@@ -2,24 +2,26 @@
 
 - _isImmediate(anObject)_
 
-Answer if _anObject_ will compare `==` when it compares `=`.
+Answer if _anObject_ is _immediate_,
+one criteria for which is that an instance will compare `==` when it compares `=`.
 
 Immediate objects are suitable for inclusion in `IdentitySet` and `IdentityBag`,
-as for use as keys in `IdentityMap`.
+as for use as keys in `Map` (the identity dictionary).
 
-`Nil`, `Boolean`, `SmallFloat`, `LargeInteger`, `String` and `Block` values are all immediate.
+`Nil`, `Boolean`, `SmallFloat`, `String` and `Block` values are all immediate.
 
 ```
 >>> [
->>> 	nil, true, false, 3.141, 23n, 'txt', {}
+>>> 	nil, true, false, 3.141, 'txt', {}
 >>> ].collect(isImmediate:/1)
-[true true true true true true true]
+[true true true true true true]
 ```
 
-`Character`, `Complex`, `Fraction`, `List`, `Record` and `Tuple` values are all non-immediate:
+`LargeInteger`, `Character`, `Complex`, `Fraction`, `List`, `Record` and `Tuple` values are all non-immediate:
 
 ```
 >>> [
+>>> 	23n,
 >>> 	'x'.asCharacter,
 >>> 	2J3,
 >>> 	2/3,
@@ -27,14 +29,31 @@ as for use as keys in `IdentityMap`.
 >>> 	(x: 2, y: 3),
 >>> 	(2, 3)
 >>> ].collect(isImmediate:/1)
-[false false false false false false]
+[false false false false false false false]
 ```
 
-Note however that character values are cached,
+Note however that both `Character` and `Symbol` values are cached,
 so that they also might be considered immediate:
 
 ```
 >>> 'x'.asCharacter == 'x'.asCharacter
+true
+
+>>> 'x'.Symbol == 'x'.Symbol
+true
+```
+
+_Rationale_:
+`LargeInteger` is not considered immediate because of the subtle behaviour regarding `=` and `==` with `SmallFloat`:
+
+```
+>>> 1 == 1n
+false
+
+>>> 1 = 1n & { 1n = 1n & { 1 = 1 } }
+true
+
+>>> 1n == 1n & { 1 == 1 }
 true
 ```
 

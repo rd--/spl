@@ -2,26 +2,26 @@
 
 - _primeFactorization(anInteger)_
 
-Answer a `IdentityBag` giving the prime factors of `anInteger` and their multiplicities (exponents).
+Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities (exponents).
 
 ```
 >>> 21.primeFactorization
-[3 7].asIdentityBag
+[3 7].asBag
 
 >>> 36.primeFactorization
-[2 2 3 3].asIdentityBag
+[2 2 3 3].asBag
 
 >>> 60.primeFactorization
-[2 2 3 5].asIdentityBag
+[2 2 3 5].asBag
 
 >>> 120.primeFactorization
-[2 2 2 3 5].asIdentityBag
+[2 2 2 3 5].asBag
 
 >>> 6.factorial.primeFactorization
-[2 2 2 2 3 3 5].asIdentityBag
+[2 2 2 2 3 3 5].asBag
 
 >>> 2401.primeFactorization
-[7 7 7 7].asIdentityBag
+[7 7 7 7].asBag
 
 >>> 20.factorial
 >>> .primeFactorization
@@ -43,7 +43,7 @@ The keys are the prime divisors:
 ```
 >>> 2434500
 >>> .primeFactorization
->>> .asMap
+>>> .asDictionary
 >>> .keys
 [2 3 5 541]
 
@@ -55,7 +55,7 @@ Powerful numbers are numbers whose prime factors are all repeated:
 
 ```
 >>> 324.primeFactorization
-[2 2 3 3 3 3].asIdentityBag
+[2 2 3 3 3 3].asBag
 
 >>> 324.isPowerfulNumber
 true

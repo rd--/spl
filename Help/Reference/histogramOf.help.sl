@@ -13,6 +13,6 @@ A more efficient form of _aCollection.collect(aBlock:/1).asIdentityBag_.
 
 * * *
 
-See also: asIdentityBag, IdentityBag
+See also: asBag, Bag
 
 Categories: Converting

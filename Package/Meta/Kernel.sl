@@ -13,7 +13,6 @@
 	'PrimitiveSequence'
 	'ArithmeticProgression'
 	'Collection'
-	'Dictionary' /* Collection */
 	'Extensible'
 	'Indexable'
 	'Iterable'
@@ -21,6 +20,7 @@
 	'Removable'
 	'Sequence'
 	'Unordered'
+	'Dictionary' /* Collection */
 
 	/* Kernel Types */
 	'Boolean'

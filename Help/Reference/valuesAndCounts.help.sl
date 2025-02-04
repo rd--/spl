@@ -2,7 +2,7 @@
 
 - _valuesAndCounts(aBag)_
 
-Answer a `List` of `Association`s between values and counts, not sorted.
+Answer a `Dictionary` of `Association`s between values and counts, not sorted.
 
 ```
 >>> [3 2 1 2 3 1 2 1 0].asIdentityBag.valuesAndCounts

@@ -40,7 +40,7 @@ The graph sum of the pentatope graph _K(5)_ and the cycle graph _C(5)_.
 
 Draw the sum of the three cycle and path graphs:
 
-~~~
+~~~spl svg=A
 3.cycleGraph.sumGraph(
 	3.pathGraph
 ).graphPlot

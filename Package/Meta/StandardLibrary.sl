@@ -11,7 +11,6 @@
 
 	/* Collection */
 	'Array'
-	'AssociationList'
 	'Bag'
 	'Box'
 	'CategoryDictionary'

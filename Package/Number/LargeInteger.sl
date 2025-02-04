@@ -217,10 +217,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 0n
 	}
 
-	isImmediate { :self |
-		true
-	}
-
 	isInteger { :self |
 		true
 	}

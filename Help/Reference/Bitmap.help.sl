@@ -32,7 +32,7 @@ Bit map image function,
 evaluate for _(x,y)_ lattice,
 draw when either is near `zero`:
 
-~~~
+~~~spl png=B
 let i = (-1 -- 1).subdivide(99);
 { :x :y |
 	let e = 0.02;

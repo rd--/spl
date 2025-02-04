@@ -480,7 +480,7 @@
 		let step = { :n |
 			(n <= limit).ifTrue {
 				answer.includes(n).ifFalse {
-					answer.include(n);
+					answer.basicInclude(n);
 					step(n * 2);
 					step(n * 3);
 					step(n * 5)

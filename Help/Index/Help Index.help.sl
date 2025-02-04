@@ -91,7 +91,7 @@
 ## Collection Types & Traits
 
 - `Collection`, `Dictionary`, `Sequence`
-- `Indexable`, `Keyed`
+- `Indexable`
 - `Extensible`, `Removable`
 - `Unordered`
 - `List`, `IdentityMap`, `Record`, `IdentitySet`

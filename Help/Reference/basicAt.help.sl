@@ -1,6 +1,6 @@
 # basicAt
 
-- _basicAt(aList | aDictionary, index)_
+- _basicAt(aList | aRecord, index)_
 
 Unchecked lookup, answers nil for invalid indices.
 

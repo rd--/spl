@@ -23,7 +23,7 @@ At large numbers:
 
 The hypotenuse gives the distance of a point _(x,y)_ from the origin:
 
-~~~
+~~~spl png=A
 let i = (-1 -- 1).subdivide(99);
 { :x :y |
 	x.hypotenuse(y)
