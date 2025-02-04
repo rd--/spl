@@ -217,6 +217,12 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	isSmallInteger { :self |
+		self.isInteger & {
+			self.numerator.isSmallInteger
+		}
+	}
+
 	isSquareSuperparticular { :self |
 		self.isSuperparticular & {
 			self.numerator.isSquareFree.not

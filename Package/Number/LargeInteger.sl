@@ -229,6 +229,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 1n
 	}
 
+	isSmallInteger { :self |
+		self.abs <= (2n ^ 53 - 1)
+	}
+
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
 	}

@@ -41,7 +41,6 @@ Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 >>> 30.factorial
 2.652528598121911E32
 
-
 >>> 47n.factorial
 (
 	[

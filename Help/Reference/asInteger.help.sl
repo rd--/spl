@@ -7,6 +7,9 @@ In the `Integer` case answer `identity`:
 ```
 >>> 23.asInteger
 23
+
+>>> 23n.asInteger
+23n
 ```
 
 In the `Number` case,
@@ -19,6 +22,9 @@ answer `truncated`:
 
 >>> 22/7.asInteger
 3
+
+>>> 22/7.asInteger.isLargeInteger
+true
 ```
 
 To convert a `Boolean` to an integer use `asBit` or `boole`:

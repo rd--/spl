@@ -42,11 +42,21 @@ Adapts left and right operands to `LargeIntegers`:
 2.088E31
 ```
 
-Division by an integer answers a `Fraction`:
+Division by an integer answers either a `LargeInteger` or a `Fraction`:
 
 ```
+>>> 32n / 4
+8n
+
 >>> 23n / 5
 23/5
+```
+
+Division by `zero` signals an `error`:
+
+```
+>>> { 23n / 0 }.ifError { true }
+true
 ```
 
 Math with a `Fraction` answers a `Fraction`:

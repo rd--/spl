@@ -9,7 +9,7 @@ A variant of `atAll` that discards invalid indices:
 [1 3 5]
 
 >>> 1:5.atAllValid([-1 5 9])
-5
+[5]
 
 >>> 1:5.atAllValid([-1 9])
 []

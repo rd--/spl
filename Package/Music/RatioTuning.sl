@@ -106,7 +106,11 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 	RatioTuning { :self :description :ratiosOrIntegers :octave |
 		let ratios = ratiosOrIntegers;
-		ratios.allSatisfy(isSmallInteger:/1).ifTrue {
+		ratios.allSatisfy { :each |
+			each.isSmallFloat & {
+				each.isSmallInteger
+			}
+		}.ifTrue {
 			ratios := ratios.collect { :each |
 				Fraction(each, ratios.first)
 			}

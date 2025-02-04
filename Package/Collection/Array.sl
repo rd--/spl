@@ -1,6 +1,8 @@
+/*
 Array : [Object] { | shape strides elementType contents |
 
 }
+*/
 
 +List {
 
