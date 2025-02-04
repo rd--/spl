@@ -13,6 +13,8 @@ See also: <=, >, >=, <=>, betweenAnd, boole, clamp, min, max
 
 References:
 _Smalltalk_
-5.6.1
+5.6.1,
+_Swift_
+[1](https://developer.apple.com/documentation/swift/comparable)
 
 Categories: Comparison, Trait

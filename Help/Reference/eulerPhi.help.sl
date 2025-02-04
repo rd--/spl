@@ -69,6 +69,52 @@ Plot the cumulative `sum` of `eulerPhi`:
 
 ![](sw/spl/Help/Image/eulerPhi-B.svg)
 
+Plot the first few terms of [A018804](https://oeis.org/A018804),
+Pillais arithmetical function:
+
+~~~spl svg=C
+{ :n |
+	(n < 1).if {
+		 0
+	} {
+		n.divisors.collect { :d |
+			d.eulerPhi / d
+		}.sum * n
+	}
+}.table(1:99).discretePlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-C.svg)
+
+Plot [A046644](https://oeis.org/A046644):
+
+~~~
+let a = { :n |
+	n.divisors.collect { :d |
+		n * d.eulerPhi / d
+	}.sum
+};
+let d = { :n |
+	n.divisors.allButFirstAndLast
+};
+let f = { :n |
+	(n = 1).if {
+		1
+	} {
+		1/2 * (
+			a(n) - d(n).collect { :d |
+				f(d) * f(n / d)
+			}.sum
+		)
+	}
+};
+1:99.collect { :n |
+	f(n).denominator
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-D.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod
@@ -81,5 +127,6 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/EulerPhi.html),
 _OEIS_
 [1](https://oeis.org/A002088)
+[2](https://oeis.org/A018804)
 
 Categories: Math

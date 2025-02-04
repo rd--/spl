@@ -151,6 +151,10 @@ A logarithmic plot of the intervals between consecutive divisors:
 
 ![](sw/spl/Help/Image/divisors-C.svg)
 
+b[1] = 1; b[n_] := b[n] = (dn = Divisors[n]; c = 1;
+Do[c = c - b[dn[[i]]]*b[n/dn[[i]]], {i, 2, Length[dn] - 1}]; c/2); a[n_] := Denominator[b[n]]; a /@ Range[78] (* Jean-François Alcover, Apr 04 2011, after Maple code in A046643 *)
+
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

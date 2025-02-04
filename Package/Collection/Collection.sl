@@ -280,6 +280,10 @@
 		self.nub
 	}
 
+	deleteMissing { :self |
+		self.reject(isMissing:/1)
+	}
+
 	depth { :self |
 		1 + self.collect(depth:/1).max
 	}
@@ -864,10 +868,14 @@
 		}
 	}
 
-	union { :self :aCollection |
-		let answer = self.asIdentitySet;
+	unionBy { :self :aCollection :aBlock:/2 |
+		let answer = self.asSet(aBlock:/2);
 		answer.includeAll(aCollection);
 		answer
+	}
+
+	union { :self :aCollection |
+		self.unionBy(aCollection, =)
 	}
 
 	variance { :self |

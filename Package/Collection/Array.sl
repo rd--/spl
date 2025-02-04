@@ -1,3 +1,7 @@
+Array : [Object] { | shape strides elementType contents |
+
+}
+
 +List {
 
 	isArray { :self |

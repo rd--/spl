@@ -135,6 +135,17 @@ Use a non-integer step:
 ```
 >>> Range(0, 10, 1.pi).asList
 [0 3.14159 6.28319 9.42478]
+
+>>> Range(0, 2.pi, 0.5.pi).collect { :x |
+>>> 	[x, x.radiansToDegrees.floor]
+>>> }
+[
+	0       0;
+	1/2.pi  90;
+	1.pi   180;
+	3/2.pi 270;
+	2.pi   360
+]
 ```
 
 `Range` of `LargeInteger`:

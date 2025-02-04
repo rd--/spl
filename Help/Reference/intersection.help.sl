@@ -4,33 +4,39 @@
 
 Answer the set theoretic intersection of two collections.
 
+At `Set`:
+
 ```
->>> let s1 = [1 1 2 3].asIdentitySet;
->>> let s2 = [3 1 4].asIdentitySet;
->>> let s3 = [4 1 3 3].asIdentitySet;
+>>> let s1 = [1 1 2 3].asSet(=);
+>>> let s2 = [3 1 4].asSet(=);
+>>> let s3 = [4 1 3 3].asSet(=);
 >>> s1.intersection(s2).intersection(s3)
-[1 3].asIdentitySet
+[1 3].asSet(=)
 ```
 
-Find divisors common to 45 and 78:
+At `List`,
+find divisors common to 45 and 78:
 
 ```
 >>> 45.divisors.intersection(78.divisors)
 [1 3]
 ```
 
-If there is no intersection, the result is []:
+At `Range`,
+if there is no `intersection`, the result is []:
 
 ```
 >>> 1:5.intersection(6:9)
 []
 ```
 
-Comparison is by equality:
+At `List`, comparison is by equality:
 
 ```
 >>> [1 2; 3 4; 5 6]
->>> .intersection([5 6; 7 8; 9 10])
+>>> .intersection(
+>>> 	[5 6; 7 8; 9 10]
+>>> )
 [[5 6]]
 ```
 

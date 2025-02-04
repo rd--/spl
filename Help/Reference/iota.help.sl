@@ -27,6 +27,8 @@ In the vector case answer an array of indices with the indicated shape:
 
 >>> 6.iota.reshape([3 2])
 [1 2; 3 4; 5 6]
+
+>>> [2 3 4].iota.shape
 ```
 
 The ternary case specifies the _start_ and _step_ values:

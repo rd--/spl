@@ -1,19 +1,19 @@
 # union
 
-- _union(aCollection, anotherCollection)_
+- _union(α, β)_ => _unionBy(α, β, =)_
 
-Answer a `IdentitySet` holding the set theoretic union of two collections,
-equality is decided by `==`.
+Answer a `Set` holding the set theoretic union of two collections,
+equality is decided by `=`.
 
 ```
 >>> [1 2 3].union([2 3 4])
-1:4.asIdentitySet
+1:4.asSet(=)
 
 >>> ['a' 'b' 'c'].union(['b' 'c' 'd'])
-['a' 'b' 'c' 'd'].asIdentitySet
+['a' 'b' 'c' 'd'].asSet(=)
 
 >>> [1 1 2 2 3 3].union([2 2 3 3 4 4])
-1:4.asIdentitySet
+1:4.asSet(=)
 ```
 
 Find divisors that occur in any of 10, 12, and 20:
@@ -24,14 +24,14 @@ Find divisors that occur in any of 10, 12, and 20:
 >>> 		20.divisors
 >>> 	)
 >>> )
-[1 2 3 4 5 6 10 12 20].asIdentitySet
+[1 2 3 4 5 6 10 12 20].asSet(=)
 ```
 
 Where supported `union` is displayed as ∪.
 
 * * *
 
-See also: ++, difference, IdentitySet, intersection, Set
+See also: ++, difference, IdentitySet, intersection, Set, unionBy
 
 References:
 _Haskell_

@@ -108,6 +108,30 @@ The largest prime factor of an integer:
 6857
 ```
 
+`min` of `primeFactors` is called the _least prime factor_.
+Plot the first few entries of [A020639](https://oeis.org/A020639),
+excluding the first:
+
+~~~spl svg=A
+{ :n |
+	n.primeFactors.min
+}.table(2:43).discretePlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-A.svg)
+
+Plot the first few entries of [A020639](https://oeis.org/A020639),
+excluding the first,
+on a log scale:
+
+~~~spl svg=B
+{ :n |
+	n.primeFactors.min
+}.table(2:300).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-B.svg)
+
 * * *
 
 See also: factorInteger, isPrime, primeLimit, product
@@ -120,6 +144,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factor.html),
+_OEIS_
+[1](https://oeis.org/A020639),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-factors)
 

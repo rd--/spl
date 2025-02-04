@@ -101,6 +101,12 @@
 		self[index] := self[index] + value
 	}
 
+	atMissing { :self :index |
+		self.atIfAbsent(index) {
+			Missing('NotAvailable', index)
+		}
+	}
+
 	atModify { :self :index :aBlock:/1 |
 		self[index] := aBlock(self[index])
 	}

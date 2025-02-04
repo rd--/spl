@@ -66,6 +66,7 @@
 	'Collection-Unordered'
 	'Collection-WeakMap'
 	'Exception-Error'
+	'Exception-Missing'
 	'Geometry-Angle'
 	'Geometry-AxonometricProjection'
 	'Geometry-BezierCurve'

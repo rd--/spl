@@ -32,6 +32,9 @@
 	'Graph' /* Tuple */
 	'ResidueSet' /* BitSet Set */
 
+	/* Exception */
+	'Missing'
+
 	/* Number */
 	'Complex'
 	'Interval'
