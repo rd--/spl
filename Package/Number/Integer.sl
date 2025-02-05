@@ -1078,6 +1078,26 @@
 		}
 	}
 
+	printString { :self :radix |
+		(radix = 10).if {
+			self.basicPrintString(10)
+		} {
+			let unsignedAnswer = [
+				radix.basicPrintString(10),
+				self.abs.basicPrintString(radix)
+			].join('r');
+			self.isNegative.if {
+				'-' ++ unsignedAnswer
+			} {
+				unsignedAnswer
+			}
+		}
+	}
+
+	printString { :self |
+		self.printString(10)
+	}
+
 	printStringHex { :self |
 		self.printString(16)
 	}
@@ -1353,6 +1373,14 @@
 			};
 			z
 		}
+	}
+
+}
+
++@Object {
+
+	isInteger { :unused |
+		false
 	}
 
 }

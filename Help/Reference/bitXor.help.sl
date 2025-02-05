@@ -82,6 +82,13 @@ also the binary 4-tuples combined by `bitXor`:
 ]
 ```
 
+At `LargeInteger`:
+
+```
+>>> 2166136261n.bitXor(70)
+2166136195n
+```
+
 Scatter plot of OEIS [A003188](https://oeis.org/A003188):
 
 ~~~spl svg=A

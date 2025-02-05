@@ -2,14 +2,35 @@
 
 - _asInteger(aNumber)_
 
-In the `Integer` case answer `identity`:
+Answer the integer value nearest to _aNumber_,
+rounding towards zero if required.
+
+If the `Integer` case this will answer a value that is equal to _aNumber_,
+however it may change the type of the value:
 
 ```
->>> 23.asInteger
-23
+>>> let x = 23n;
+>>> let y = x.asInteger;
+>>> (y, x = y)
+(23, true)
 
->>> 23n.asInteger
-23n
+>>> let x = 23/1;
+>>> let y = x.asInteger;
+>>> (y, x = y)
+(23, true)
+```
+
+At `LargeInteger`,
+answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
+
+```
+>>> let x = 23n.asInteger;
+>>> (x, x.isLargeInteger)
+(23, false)
+
+>>> let x = (2n ^ 54).asInteger;
+>>> (x, x.isLargeInteger)
+(18014398509481984n, true)
 ```
 
 In the `Number` case,
@@ -22,9 +43,6 @@ answer `truncated`:
 
 >>> 22/7.asInteger
 3
-
->>> 22/7.asInteger.isLargeInteger
-true
 ```
 
 To convert a `Boolean` to an integer use `asBit` or `boole`:

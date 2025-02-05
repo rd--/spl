@@ -29,6 +29,12 @@ In the ternary case,
 apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
 
 ```
+>>> { :x | (1 + x) ^ 2 }.iterate(1, 3)
+676
+
+>>> sqrt:/1.iterate(100, 4)
+1.33352
+
 >>> { :x | x ^ 2 }.iterate(2, 3)
 256
 
@@ -44,6 +50,69 @@ apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
 
 >>> cos:/1.iterate(1, 9)
 0.731404
+```
+
+The iteration function can operate on a list:
+
+```
+>>> let e = 0.2;
+>>> let z = (1 - e) # 2;
+>>> { :each |
+>>> 	[e 0] + (each * z)
+>>> }.iterate([1 1], 5)
+[1 0.32768]
+```
+
+Use `valueWithReturn` to exit an iteration:
+
+```
+>>> squared:/1.iterate(2n, 6)
+18446744073709551616n
+
+>>> { :return:/1 |
+>>> 	{ :x |
+>>> 		(x > 1E6).if {
+>>> 			x.return
+>>> 		} {
+>>> 			x ^ 2
+>>> 		}
+>>> 	}.iterate(2n, 6)
+>>> }.valueWithReturn
+4294967296
+```
+
+To iterate a function of more than one argument,
+the arguments can be put into a list:
+
+```
+>>> { :each |
+>>> 	let [i, j] = each;
+>>> 	[(i + j) / 2, (i * j).sqrt]
+>>> }.iterate([0.5 1], 10)
+[0.728396 0.728396]
+```
+
+Growth of annually compounded capital in 10 years:
+
+```
+>>> { :x | x * 1.05 }.iterate(1000, 10)
+1628.89
+```
+
+Newton iterations for _2.sqrt_:
+
+```
+>>> { :x | x + (2 / x) / 2 }.iterate(1, 5)
+1.41421
+```
+
+Consecutive pairs of Fibonacci numbers:
+
+```
+>>> { :x |
+>>> 	[1 1; 1 0].dot(x)
+>>> }.iterate([0 1], 10)
+[55 34]
 ```
 
 Derive the seven tone Pythagorean scale:
@@ -105,7 +174,8 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/NestList.html),
+[1](https://reference.wolfram.com/language/ref/Nest.html),
+[2](https://reference.wolfram.com/language/ref/NestList.html),
 _OEIS_
 [1](https://oeis.org/A014707)
 

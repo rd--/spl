@@ -60,6 +60,13 @@ At `Complex`:
 0J0.3
 ```
 
+At `Decimal`:
+
+```
+>>> 3.1416D.fractionPart
+0.1416D
+```
+
 Threads element-wise over lists:
 
 ```

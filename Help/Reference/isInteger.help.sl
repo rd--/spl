@@ -17,7 +17,9 @@ false
 false
 ```
 
-Note that a fractional number where the fractional part is zero answers `true`:
+Note that number written using the floating point literal notation,
+where the fractional part is zero,
+answers `true`:
 
 ```
 >>> 23.0.isInteger
@@ -44,6 +46,23 @@ true
 true
 ```
 
+At `Decimal`:
+
+```
+>>> 3.141D.isInteger
+false
+
+>>> 3.000D.isInteger
+true
+```
+
+At `Residue`:
+
+```
+>>> 5Z12.isInteger
+true
+```
+
 At `Complex` answers `false`, see `isGaussianInteger`:
 
 ```
@@ -67,8 +86,30 @@ false
 false
 ```
 
+Test whether an array consists of all integers:
+
+```
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ].deepAllSatisfy(isInteger:/1)
+true
+```
+
+_Rationale_:
+Note that this is not a `Type` predicate.
+`Fraction`, `SmallFloat` and `Decimal` values may each possibly represent an integer.
+The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteger`.
+
 * * *
 
-See also: Integer, isNumber, isGaussianInteger, isSmallInteger, isLargeInteger, Number, parseInteger
+See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseInteger
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/IntegerQ.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Integer)
 
 Categories: Testing, Math

@@ -18,12 +18,15 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
 	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
 		aCollection.collect { :each |
-			each.aBlock(self)
+			aBlock(each, self)
 		}
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
-		Residue(anInteger, self.modulus).aBlock(self)
+		aBlock(
+			Residue(anInteger, self.modulus),
+			self
+		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
@@ -43,7 +46,13 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 	binaryOperator { :self :aNumber :aBlock:/2 |
 		aNumber.isResidue.if {
 			self.assertIsCompatibleResidue(aNumber);
-			Residue(self.commonResidue.aBlock(aNumber.commonResidue), self.modulus)
+			Residue(
+				aBlock(
+					self.commonResidue,
+					aNumber.commonResidue
+				),
+				self.modulus
+			)
 		} {
 			aNumber.adaptToResidueAndApply(self, aBlock:/2)
 		}
@@ -55,6 +64,14 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
 	isCloseTo { :self :anObject |
 		self = anObject
+	}
+
+	isExact { :unused |
+		true
+	}
+
+	isInteger { :unused |
+		true
 	}
 
 	positiveResidue { :self |
@@ -96,7 +113,7 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
 	adaptToResidueAndApply { :self :aResidue :aBlock:/2 |
 		self.collect { :each |
-			aResidue.aBlock(each)
+			aBlock(aResidue, each)
 		}
 	}
 

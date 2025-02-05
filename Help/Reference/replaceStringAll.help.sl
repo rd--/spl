@@ -1,6 +1,6 @@
 # replaceStringAll
 
-- _replaceStringAll(aString, anotherString)_
+- _replaceStringAll(aString, searchString, replaceString)_
 
 Replace all occurences of one string with another:
 
@@ -45,6 +45,10 @@ See also: replaceString
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/StringReplace.html)
+[1](https://reference.wolfram.com/language/ref/StringReplace.html),
+_Mozilla_
+[1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.replaceall)
 
 Categories: Replacing

@@ -60,19 +60,28 @@ Decimal : [Object] { | fraction scale |
 		operand.isDecimal.if {
 			self.fraction <= operand.fraction
 		} {
-			operand.adaptToDecimalAndApply(self, =)
+			operand.adaptToDecimalAndApply(self, <=)
 		}
 	}
 
 	= { :self :operand |
-		operand.isNumber.if {
-			operand.isDecimal.if {
-				self.fraction = operand.fraction
-			} {
-				operand.adaptToDecimalAndApply(self, =)
+		operand.isDecimal.if {
+			(self.scale = operand.scale) & {
+				let m = 10 ^ self.scale;
+				(self.asFloat * m).rounded = (operand.asFloat * m).rounded
 			}
 		} {
 			false
+		}
+	}
+
+	~ { :self :operand |
+		self = operand | {
+			operand.isNumber.if {
+				self.asFloat ~ operand.asFloat
+			} {
+				false
+			}
 		}
 	}
 
@@ -89,6 +98,14 @@ Decimal : [Object] { | fraction scale |
 			self.fraction >= operand.fraction
 		} {
 			operand.adaptToDecimalAndApply(self, >=)
+		}
+	}
+
+	^ { :self :aNumber |
+		aNumber.isInteger.if {
+			self.raisedToInteger(aNumber)
+		} {
+			self.error('^: not implemented for non-integer exponents')
 		}
 	}
 
@@ -109,7 +126,7 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	asDecimal { :self :scale |
-		Decimal(self.fraction, self.scale)
+		Decimal(self.fraction, scale)
 	}
 
 	denominator { :self |
@@ -124,6 +141,22 @@ Decimal : [Object] { | fraction scale |
 		Decimal(self.fraction.integerPart, self.scale)
 	}
 
+	isExact { :unused |
+		true
+	}
+
+	isInteger { :self |
+		self.fraction.isInteger
+	}
+
+	isNegative { :self |
+		self.fraction.isNegative
+	}
+
+	isNumber { :unused |
+		true
+	}
+
 	isPowerOfTwo { :self |
 		self.fraction.isPowerOfTwo
 	}
@@ -134,14 +167,6 @@ Decimal : [Object] { | fraction scale |
 
 	negated { :self |
 		Decimal(self.fraction.negated, self.scale)
-	}
-
-	isNegative { :self |
-		self.fraction.isNegative
-	}
-
-	isNumber { :self |
-		true
 	}
 
 	numerator { :self |
@@ -205,16 +230,13 @@ Decimal : [Object] { | fraction scale |
 		self.isInteger.if {
 			Decimal(Fraction(self, 1), scale)
 		} {
-			self.error('SmallFloat>>asDecimal')
+			let n = 10 ^ scale;
+			Fraction((self * n).rounded, n).asDecimal(scale)
 		}
 	}
 
 	asDecimal { :self |
-		self.isInteger.if {
-			self.asDecimal(0)
-		} {
-			self.error('SmallFloat>>asDecimal')
-		}
+		self.asDecimal(0)
 	}
 
 }

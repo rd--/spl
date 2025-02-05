@@ -151,14 +151,6 @@ a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
 The `Fraction` constructor constructs fractions with `LargeInteger` components.
 
 ```
->>> let x = ReducedFraction(2 ^ 55, 2);
->>> (x, x - 1, x = (x - 1))
-(
-	36028797018963970/2,
-	36028797018963970/2,
-	true
-)
-
 >>> let x = Fraction(2n ^ 55n, 2);
 >>> (x, x - 1, x = (x - 1))
 (

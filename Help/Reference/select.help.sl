@@ -80,6 +80,15 @@ Retain items that are integers:
 [1 2 3 9]
 ```
 
+At `Sfc32`, which implements `Stream`:
+
+```
+>>> Sfc32(188311).collect { :x |
+>>> 	(x * 23).roundTo(1)
+>>> }.select(isOdd:/1).next(5)
+[15 21 5 13 1]
+```
+
 * * *
 
 See also: collect, detect, reject
@@ -89,6 +98,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Predicate.html)
 [2](https://reference.wolfram.com/language/ref/Select.html)
 [3](https://reference.wolfram.com/language/ref/Cases.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#filter),
 _Smalltalk_
 5.7.1.22
 

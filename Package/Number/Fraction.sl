@@ -38,7 +38,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	+ { :self :aNumber |
 		aNumber.isInteger.if {
 			ReducedFraction(
-				self.numerator + (self.denominator * aNumber.asInteger),
+				self.numerator + (self.denominator * aNumber.asLargeInteger),
 				self.denominator
 			)
 		} {
@@ -66,7 +66,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	- { :self :aNumber |
 		aNumber.isInteger.if {
 			ReducedFraction(
-				self.numerator - (self.denominator * aNumber.asInteger),
+				self.numerator - (self.denominator * aNumber.asLargeInteger),
 				self.denominator
 			)
 		} {
@@ -80,7 +80,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	/ { :self :aNumber |
 		aNumber.isInteger.if {
-			self * ReducedFraction(1, aNumber.asInteger)
+			self * ReducedFraction(1, aNumber.asLargeInteger)
 		} {
 			aNumber.isFraction.if {
 				self * aNumber.reciprocal
@@ -92,10 +92,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	^ { :self :aNumber |
 		aNumber.isInteger.if {
-			self.raisedToInteger(aNumber)
+			self.raisedToInteger(aNumber.asInteger)
 		} {
 			aNumber.isFraction.if {
-				self.asFloat ^ aNumber.asFloat
+				self.raisedToFraction(aNumber)
 			} {
 				aNumber.adaptToFractionAndApply(self, ^)
 			}
@@ -125,14 +125,17 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
-		ReducedFraction(anInteger, 1n).aBlock(self)
+		aBlock(
+			ReducedFraction(anInteger, 1n),
+			self
+		)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		aNumber.isInteger.if {
-			aNumber.asFraction.aBlock(self)
+			aBlock(aNumber.asFraction, self)
 		} {
-			aNumber.aBlock(self.asFloat)
+			aBlock(aNumber, self.asFloat)
 		}
 	}
 
@@ -142,6 +145,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFraction { :self |
 		self
+	}
+
+	asInteger { :self |
+		self.asFloat.asInteger
 	}
 
 	asSmallFloat { :self |
@@ -183,6 +190,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	isCloseToBy { :self :aNumber :epsilon |
 		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
+	}
+
+	isExact { :unused |
+		true
 	}
 
 	isFareyPair { :self :aFraction |
@@ -344,6 +355,17 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		].join('/')
 	}
 
+	raisedToFraction { :self :aFraction |
+		let rootNumerator = self.numerator.nthRoot(aFraction.denominator).truncated;
+		let rootDenominator = self.denominator.nthRoot(aFraction.denominator).truncated;
+		let root = Fraction(rootNumerator, rootDenominator);
+		(root.raisedToInteger(aFraction.denominator) = self).if {
+			root.raisedToInteger(aFraction.numerator)
+		} {
+			self.asFloat ^ aFraction.asFloat
+		}
+	}
+
 	raisedToInteger { :self :anInteger |
 		anInteger.isZero.if {
 			self.one
@@ -351,10 +373,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			(anInteger < 0).if {
 				self.reciprocal.raisedToInteger(anInteger.negated)
 			} {
-				let n = anInteger.asInteger;
 				ReducedFraction(
-					self.numerator.raisedToInteger(n),
-					self.denominator.raisedToInteger(n)
+					self.numerator.raisedToInteger(anInteger),
+					self.denominator.raisedToInteger(anInteger)
 				)
 			}
 		}
@@ -463,7 +484,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +@Integer {
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
-		aFraction.aBlock(Fraction(self, self.one))
+		aBlock(aFraction, Fraction(self, self.one))
 	}
 
 	ReducedFraction { :numerator :denominator |
@@ -472,8 +493,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				'@Integer>>ReducedFraction: zeroDenominatorError'.error
 			} {
 				newFraction().initializeSlots(
-					numerator.asInteger,
-					denominator.asInteger
+					numerator.asLargeInteger,
+					denominator.asLargeInteger
 				)
 			}
 		} {
@@ -502,7 +523,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
 		self.collect { :each |
-			aFraction.aBlock(each)
+			aBlock(aFraction, each)
 		}
 	}
 
@@ -524,9 +545,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
 		self.isInteger.if {
-			aFraction.aBlock(Fraction(self, self.one))
+			aBlock(aFraction, Fraction(self, self.one))
 		} {
-			aFraction.asSmallFloat.aBlock(self)
+			aBlock(aFraction.asSmallFloat, self)
 		}
 	}
 

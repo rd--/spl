@@ -76,7 +76,6 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 }
 
-
 +@Stream {
 
 	* { :lhs :rhs |
@@ -169,6 +168,23 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
+	enumerate { :input |
+		let nextIndex = 1;
+		BlockStream {
+			let item = input.next;
+			item.isNil.if {
+				nil
+			} {
+				let index = nextIndex;
+				nextIndex := nextIndex + 1;
+				[index, item]
+			}
+		} {
+			input.reset;
+			nextIndex := 1
+		}
+	}
+
 	reject { :self :aBlock:/1 |
 		self.select { :each |
 			aBlock(each).not
@@ -203,6 +219,14 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 			self.reset;
 			repeat := 1
 		}
+	}
+
+	roundTo { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, roundTo:/2)
+	}
+
+	rounded { :self :a|
+		self.roundTo(1)
 	}
 
 	scan { :input :aBlock:/2 |
@@ -316,6 +340,14 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		aStream.collect { :each |
 			aBlock(each, self)
 		}
+	}
+
+}
+
++@Sequence {
+
+	enumerate { :self |
+		self.asStream.enumerate
 	}
 
 }

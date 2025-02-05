@@ -51,8 +51,11 @@ Signed bases:
 >>> (-7 ^ 0.5).isFinite
 false
 
->>> -7J0 ^ 0.5
-0J2.646
+>>> (-7J0 ^ 0.5, 7.sqrt)
+(0J2.6457, 2.6457)
+
+>>> -9J0 ^ 0.5
+0J3
 ```
 
 At `Complex`:
@@ -215,6 +218,9 @@ Negating the exponent gives the `reciprocal` of the answer:
 ```
 >>> 2 ^ -4
 (2 ^ 4)./
+
+>>> 10 ^ -2
+0.01
 ```
 
 If the exponent is the `reciprocal` of some number _n_, the result is the _n_-th root of the base,

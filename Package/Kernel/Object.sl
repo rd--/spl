@@ -156,15 +156,7 @@
 		false
 	}
 
-	isByte { :self |
-		false
-	}
-
 	isImmediate { :self |
-		false
-	}
-
-	isInteger { :self |
 		false
 	}
 
@@ -173,10 +165,6 @@
 	}
 
 	isLiteral { :self |
-		false
-	}
-
-	isNumber { :self |
 		false
 	}
 

@@ -18,10 +18,12 @@ true
 
 * * *
 
-See also: allSatisfy, anySatisfy, noneSatisfy
+See also: allSatisfy, anySatisfy, anyTrue, noneSatisfy
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AllTrue.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#all)
 
 Categories: Testing

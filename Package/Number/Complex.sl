@@ -292,8 +292,10 @@ Complex : [Object, Number] { | real imaginary |
 		self.isCloseToBy(anObject, 0.0001)
 	}
 
-	isComplex { :self |
-		true
+	isExact { :self |
+		self.real.isExact & {
+			self.imaginary.isExact
+		}
 	}
 
 	isGaussianInteger { :self |

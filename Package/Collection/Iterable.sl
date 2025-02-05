@@ -50,6 +50,10 @@
 		}
 	}
 
+	anyTrue { :self |
+		self.anySatisfy(identity:/1)
+	}
+
 	contents { :self |
 		let answer = [];
 		self.do { :each |

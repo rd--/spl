@@ -1591,7 +1591,7 @@ let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorte
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.ifError { true } /* the fraction module does not modify asNumber to parse fractions */
-let x = ReducedFraction(2 ^ 55, 2); x ~= (x - 1) = false /* fractions of large small floats behave strangely */
+let x = Fraction(2 ^ 55, 2); x ~= (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
 let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) /* fractions of large large integers behave ordinarily */
 2/3 ~= 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
@@ -1743,13 +1743,13 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences
 512:1023.collect { :each | each.digitAt(2) }.asIdentityBag.sortedElements = [2 -> 256, 3 -> 256]
 [1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
 (2 ^ 128n - 1).digitLength = 16
-123456n.fnv1aHash = 2230130162n
+[64 226 1].asByteArray.fnv1aHash = 2230130162n
 (1 << 30) == 1073741824 /* equal integers are identical */
 6.take(3) = 20 /* n choose k */
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
 3.take(6) = 0 /* if k is greater than n answer is zero */
-58909.printStringHex = 'E61D' /* hexadecimal representation */
-58909.printString(16) = 'E61D' /* hexadecimal representation */
+58909.printStringHex = '16rE61D' /* hexadecimal representation */
+58909.printString(16) = '16rE61D' /* hexadecimal representation */
 let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
 let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
 let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
@@ -2051,7 +2051,7 @@ let x = (2n ^ 54n); x ~= (x - 1) /* large integers behave ordinarily */
 let n = 2n; n.copy == n /* copy is identity */
 23n.asSmallFloat = 23 /* large integer to small float */
 let a = [9 .. 1]; { a[5n] }.ifError { true } /* large integers are not valid indices */
-58909n.printStringHex = 'E61D' /* hexadecimal representation */
+58909n.printStringHex = '16rE61D' /* hexadecimal representation */
 20n.factorial = 2432902008176640000n /* large integer factorial */
 7n << 23 = 58720256n /* left shift large integer */
 7n << 71 = 16528282690043758247936n /* left shift large integer */
@@ -3183,7 +3183,7 @@ system.includesPackage('SmallFloat') /* package */
 1 >= 0 = true
 5.isByte = true
 -1.isByte = false
-'x'.isByte = false
+{ 'x'.isByte = false }.ifError { true }
 3.isInteger /* three is an integer */
 -1.isInteger = true /* negative integers are integers */
 'x'.isInteger = false /* a string is not an integer */
@@ -3268,7 +3268,7 @@ let x = (2 ^ 54); x ~= (x - 1) = false /* large numbers behave strangely */
 let x = (2.0 ^ 54.0); x ~= (x - 1.0) = false /* large numbers behave strangely */
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
 Infinity.asString = 'Infinity' /* Infinity prints as Infinity */
-(0 - Infinity).asString = '(0 - Infinity)'
+(0 - Infinity).asString = '-Infinity'
 1.pi.printString = '3.141592653589793'
 1.pi.storeString = '3.141592653589793'
 23.isInteger /* is a small float an integer */

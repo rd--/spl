@@ -74,6 +74,17 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		crc
 	}
 
+	fnv1aHash { :self |
+		let fnvPrime = 16777619n;
+		let fnvOffsetBasis = 2166136261n;
+		let hash = fnvOffsetBasis;
+		self.do { :each |
+			hash := hash.bitXor(each) * fnvPrime;
+			hash := 16rFFFFFFFF.bitAnd(hash)
+		};
+		hash
+	}
+
 	hexString { :self |
 		let map = '0123456789ABCDEF'.asciiByteArray;
 		let array = ByteArray(self.size * 2);

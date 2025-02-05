@@ -7,8 +7,10 @@ Convert a `SmallFloat` or a `ByteArray` into a `LargeInteger`.
 At `SmallFloat`:
 
 ```
->>> (2 ^ 23).asLargeInteger
-8388608n
+>>> let i = 2 ^ 23;
+>>> let j = i.asLargeInteger;
+>>> (i, j, i = j, i == j, j.isLargeInteger)
+(8388608, 8388608n, true, false, true)
 ```
 
 At `LargeInteger`:

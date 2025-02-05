@@ -18,7 +18,7 @@ At `ByteArray` of the Ascii encoding of a `String`:
 '737472696E67'
 ```
 
-At `Colour` answer _Rgb_ hexadecimal string of _aColour_:
+At `Colour` answer the _Rgb_ hexadecimal string of _aColour_:
 
 ```
 >>> RgbColour([0.2 0.5 0.7], 1).hexString

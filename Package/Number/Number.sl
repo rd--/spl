@@ -108,6 +108,10 @@
 		self.truncated
 	}
 
+	asLargeInteger { :self |
+		self.asInteger.asLargeInteger
+	}
+
 	asNumber { :self |
 		self
 	}
@@ -948,6 +952,14 @@
 
 	zero { :self |
 		0
+	}
+
+}
+
++@Object {
+
+	isNumber { :self |
+		false
 	}
 
 }

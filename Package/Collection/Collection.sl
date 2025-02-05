@@ -261,6 +261,17 @@
 		self.collect(cubeRoot:/1)
 	}
 
+	deepAllSatisfy { :self :aBlock:/1 |
+		let type = self.typeOf;
+		self.allSatisfy { :each |
+			(each.typeOf = type).if {
+				each.deepAllSatisfy(aBlock:/1)
+			} {
+				aBlock(each)
+			}
+		}
+	}
+
 	deepCollect { :self :aBlock:/1 |
 		let type = self.typeOf;
 		self.collect { :each |

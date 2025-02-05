@@ -16,14 +16,17 @@ At `SmallFloat` with radix argument:
 
 ```
 >>> 254.printString(16)
-'FE'
+'16rFE'
+
+>>> -42.printString(16)
+'-16r2A'
 ```
 
 At `LargeInteger` with radix argument:
 
 ```
 >>> 254n.printString(16)
-'FE'
+'16rFE'
 ```
 
 Negative zero is printed as it is typed:
@@ -31,6 +34,19 @@ Negative zero is printed as it is typed:
 ```
 >>> -0.printString
 '-0'
+```
+
+Infinities and non-numbers:
+
+```
+>>> Infinity.printString
+'Infinity'
+
+>>> -Infinity.printString
+'-Infinity'
+
+>>> NaN.printString
+'NaN'
 ```
 
 At `SmallFloat`:

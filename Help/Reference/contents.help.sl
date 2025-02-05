@@ -21,7 +21,7 @@ At `Tree`:
 [nil 1 nil 2 nil 3 4 5]
 ```
 
-The `contents` of a `Stream` is a `Sequence` of all of the items in the stream.
+The `contents` of a `CollectionStream` is a `Sequence` of all of the items in the stream.
 
 The `contents` of a `Collection` is the collection itself.
 

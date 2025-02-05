@@ -12,6 +12,19 @@ Answer the denominator of a _Fraction_ or itself for an _Integer_.
 2
 ```
 
+At negative fractions the `numerator` is negative:
+
+```
+>>> -3/4.numerator
+-3
+
+>>> -3/4.denominator
+4
+
+>>> Fraction(3, -4).numerator
+-3
+```
+
 Threads over lists:
 
 ```

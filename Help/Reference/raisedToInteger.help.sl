@@ -4,7 +4,7 @@
 
 Special case of _^_ where the exponent is an integer.
 
-An exponent of zero answers one of correct type:
+An exponent of `zero` answers one of the correct type:
 
 ```
 >>> system.nextRandomFloat ^ 0
@@ -15,6 +15,9 @@ An exponent of zero answers one of correct type:
 
 >>> 7J9 ^ 0
 1J0
+
+>>> 3.141D ^ 0
+1.000D
 ```
 
 An exponent of one answers _aNumber_:
@@ -54,6 +57,13 @@ Negative exponents:
 >>> 	3 ^ each
 >>> }
 1 / [3 9 27 81 243 729 2187 6561 19683]
+```
+
+At `LargeInteger`:
+
+```
+>>> (2n ^ 54) ^ 2
+324518553658426726783156020576256n
 ```
 
 * * *

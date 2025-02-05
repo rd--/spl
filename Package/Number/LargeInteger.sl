@@ -144,6 +144,14 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.asSmallFloat
 	}
 
+	asInteger { :self |
+		self.isSmallInteger.if {
+			self.asSmallFloat
+		} {
+			self
+		}
+	}
+
 	asLargeInteger { :self |
 		self
 	}
@@ -154,6 +162,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	atRandom { :self :shape :rng |
 		rng.randomInteger(1, self.asSmallFloat, shape)
+	}
+
+	basicPrintString { :self :radix |
+		<primitive: return _self.toString(_radix).toUpperCase();>
 	}
 
 	bitAnd { :self :anObject |
@@ -217,6 +229,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		(self % 2n) = 0n
 	}
 
+	isExact { :unused |
+		true
+	}
+
 	isInteger { :unused |
 		true
 	}
@@ -245,6 +261,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self = 0n
 	}
 
+	nthRoot { :self :aNumber |
+		self.asSmallFloat.nthRoot(aNumber.asSmallFloat)
+	}
+
 	log { :self |
 		self.asFloat.log
 	}
@@ -259,14 +279,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	one { :unused |
 		1n
-	}
-
-	printString { :self :radix |
-		<primitive: return _self.toString(_radix).toUpperCase();>
-	}
-
-	printString { :self |
-		<primitive: return _self.toString();>
 	}
 
 	storeString { :self |
@@ -343,23 +355,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	parseLargeInteger { :self |
 		<primitive: return BigInt(_self);>
-	}
-
-}
-
-+LargeInteger {
-
-	fnv1aHash { :self |
-		let fnvPrime = 16777619;
-		let hash = self.isNegative.if {
-			3490449840
-		} {
-			2166136261
-		};
-		1.to(self.digitLength).do { :index |
-			hash := 16rFFFFFFFF.bitAnd(hash.bitXor(self.digitAt(index)) * fnvPrime)
-		};
-		hash
 	}
 
 }

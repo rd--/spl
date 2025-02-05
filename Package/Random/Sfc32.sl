@@ -1,4 +1,4 @@
-/* Requires: RandomNumberGenerator Iterator Steram */
+/* Requires: RandomNumberGenerator Iterator Stream */
 
 Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 

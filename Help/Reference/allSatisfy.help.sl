@@ -24,9 +24,20 @@ The empty list always answers `true`:
 true
 ```
 
+Does not traverse tree structures, see `deepAllSatisfy`:
+
+```
+>>> let m = [3 3].iota;
+>>> (
+>>> 	m.allSatisfy(isList:/1),
+>>> 	m.deepAllSatisfy(isInteger:/1)
+>>> )
+(true, true)
+```
+
 * * *
 
-See also: anySatisfy, noneSatisfy
+See also: anySatisfy, deepAllSatisfy, noneSatisfy
 
 References:
 _Haskell_

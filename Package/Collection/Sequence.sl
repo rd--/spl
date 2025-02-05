@@ -2057,7 +2057,6 @@
 		self.sortedWithIndices(aBlock:/2).collect(value:/1)
 	}
 
-
 	orderedSubstrings { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]

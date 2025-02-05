@@ -27,6 +27,9 @@ Fractions:
 ```
 >>> 19/3 // 5/2
 2
+
+>>> 19/3.quotient(5/2)
+2
 ```
 
 Inexact numbers:

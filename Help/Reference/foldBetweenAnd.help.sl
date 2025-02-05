@@ -11,7 +11,7 @@ Fold an integer between two indices:
 [5 4 3 4 5 6 7 6 5]
 ```
 
-Fold a float between two values:
+Fold a floating point number between two values:
 
 ```
 >>> (0.2, 0.3 .. 0.8).collect { :each |
@@ -19,6 +19,16 @@ Fold a float between two values:
 >>> }.rounded
 [4 3 4 5 6 7 6]
 ```
+
+Plot a triangle wave formed by folding a line:
+
+~~~spl svg=A
+(0 -- 1).functionPlot { :x |
+	(x * 4).foldBetweenAnd(-1, 1)
+}
+~~~
+
+![](sw/spl/Help/Image/foldBetweenAnd-A.svg)
 
 * * *
 

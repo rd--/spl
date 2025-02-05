@@ -159,10 +159,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.truncated
 	}
 
-	asLargeInteger { :self |
-		<primitive: return BigInt(_self);>
-	}
-
 	asSmallFloat { :self |
 		self
 	}
@@ -175,6 +171,18 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	atRandom { :self :shape :rng |
 		rng.randomReal(0, self, shape)
+	}
+
+	basicPrintString { :self :radix |
+		<primitive:
+		if(Object.is(_self, -0)) {
+			return "-0"
+		};
+		if(Number.isFinite(_self)) {
+			return _self.toString(_radix).toUpperCase();
+		};
+		return _self.toString();
+		>
 	}
 
 	basicSqrt { :self |
@@ -232,7 +240,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			let hexString = self.printString(16);
+			let hexString = self.basicPrintString(16);
 			(self < 16).if {
 				'0' ++ hexString
 			} {
@@ -368,6 +376,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return _self % 2 === 0;>
 	}
 
+	isExact { :self |
+		self.isSmallInteger
+	}
+
 	isFinite { :self |
 		<primitive: return Number.isFinite(_self);>
 	}
@@ -486,26 +498,21 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	nthRoot { :self :aPositiveInteger |
-		(aPositiveInteger = 2).if {
-			self.sqrt
-		} {
-			(aPositiveInteger.isInteger.not | {
-				aPositiveInteger.isNegative
-			}).ifTrue {
-				'nthRoot: only defined for positive integers'.error
-			};
-			self.isNegative.if {
-				aPositiveInteger.isOdd.if {
-					(self.negated ^ (1 / aPositiveInteger)).negated
-				} {
-					'nthRoot: negative numbers do not have even roots.'.error
-				}
+		(aPositiveInteger.isInteger.not | {
+			aPositiveInteger.isNegative
+		}).ifTrue {
+			'nthRoot: only defined for positive integers'.error
+		};
+		self.isNegative.if {
+			aPositiveInteger.isOdd.if {
+				(self.negated ^ (1 / aPositiveInteger)).negated
 			} {
-				self ^ (1 / aPositiveInteger)
+				'nthRoot: negative numbers do not have even roots.'.error
 			}
+		} {
+			self ^ (1 / aPositiveInteger)
 		}
 	}
-
 
 	Number { :self |
 		self
@@ -513,22 +520,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	one { :self |
 		1
-	}
-
-	printString { :self :radix |
-		<primitive:
-		if(Object.is(_self, -0)) {
-			return "-0"
-		};
-		if(Number.isFinite(_self)) {
-			return _self.toString(_radix).toUpperCase();
-		}
-		>
-		self.isPositive.if {
-			'Infinity'
-		} {
-			'(0 - Infinity)'
-		}
 	}
 
 	printStringToAtMostPlaces { :self :anInteger |
