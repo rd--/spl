@@ -48,4 +48,8 @@ The quaternary form is _map(α, β, γ, δ) ⇒ withWithCollect(γ, α, β, δ)_
 
 See also: collect, swap, withCollect
 
+References:
+_Python_
+[1](https://docs.python.org/3/library/functions.html#map)
+
 Categories: Enumerating

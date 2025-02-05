@@ -38,4 +38,10 @@ true
 
 See also: ordering, sort, sortBy, sortOn, sortOnBy
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Sort.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#sorted)
+
 Categories: Sorting

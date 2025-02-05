@@ -2,7 +2,7 @@
 
 - _codePoint(aString | aCharacter)_
 
-Answer the Unicode code point of _aCharacter_.
+Answer the Unicode code point of a character.
 
 ```
 >>> ' '.codePoint
@@ -13,13 +13,28 @@ Answer the Unicode code point of _aCharacter_.
 
 >>> 'π'.codePoint
 16r03c0
+
+>>> 'a'.codePoint
+97
+
+>>> '€'.codePoint
+8364
+```
+
+The inverse is `asCharacter`:
+
+```
+>>> 8364.asCharacter
+'€'
 ```
 
 * * *
 
-See also: asciiValue, Character, String
+See also: asCharacter, asciiValue, Character, String
 
 References:
+_Python_
+[1](https://docs.python.org/3/library/functions.html#ord),
 _Smalltalk_
 5.3.4.5,
 _Unicode_

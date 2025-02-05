@@ -12,7 +12,8 @@ At `Integer`:
 '23'
 ```
 
-At `SmallFloat` with radix argument:
+At `SmallFloat` with radix argument,
+the answer is a valid Spl expression:
 
 ```
 >>> 254.printString(16)
@@ -20,6 +21,9 @@ At `SmallFloat` with radix argument:
 
 >>> -42.printString(16)
 '-16r2A'
+
+>>> system.evaluate('-16r2A')
+-42
 ```
 
 At `LargeInteger` with radix argument:

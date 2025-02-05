@@ -74,6 +74,8 @@ _Apl_
 [1](https://aplwiki.com/wiki/Reverse),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#reversed),
 _Smalltalk_
 5.7.8.26
 

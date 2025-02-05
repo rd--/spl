@@ -81,7 +81,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Total.html),
 [2](https://mathworld.wolfram.com/Sum.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/sum.html)
+[1](https://mathworks.com/help/matlab/ref/sum.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#sum)
 
 Unicode: U+03A3 Σ Greek Capital Letter Sigma
 

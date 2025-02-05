@@ -100,6 +100,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Length.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#len)
 _Smalltalk_
 5.7.1.23
 

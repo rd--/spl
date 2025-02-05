@@ -86,6 +86,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Max.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/max.html),
+_Python_
+[1](https://docs.python.org/3/library/functions.html#max),
 _Smalltalk_
 5.6.1.6
 

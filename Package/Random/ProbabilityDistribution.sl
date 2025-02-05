@@ -2,18 +2,40 @@
 
 +@Number {
 
-	normalDistributionCdf { :mu :sigma :x |
+	normalDistributionCdf { :x :mu :sigma |
 		0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
 	}
 
-	normalDistributionPdf { :mu :sigma :x |
+	normalDistributionPdf { :x :mu :sigma |
 		let n = (-0.5 * ((x - mu) / sigma).squared).exp;
 		let d = sigma * 2.pi.sqrt;
 		n / d
 	}
 
-	poissonDistributionPdf { :lambda :x |
+	poissonDistributionPdf { :x :lambda |
 		(x * lambda.log - lambda - (x + 1).logGamma).exp
+	}
+
+}
+
++List {
+
+	normalDistributionCdf { :self :mu :sigma |
+		self.collect { :x |
+			x.normalDistributionCdf(mu, sigma)
+		}
+	}
+
+	normalDistributionPdf { :self :mu :sigma |
+		self.collect { :x |
+			x.normalDistributionPdf(mu, sigma)
+		}
+	}
+
+	poissonDistributionPdf { :x :lambda |
+		self.collect { :x |
+			x.poissonDistributionPdf(lambda)
+		}
 	}
 
 }
@@ -139,7 +161,7 @@ CauchyDistribution : [Object] { | x0 gamma |
 NormalDistribution : [Object] { | mu sigma |
 
 	cdf { :self :x |
-		normalDistributionCdf(self.mu, self.sigma, x)
+		x.normalDistributionCdf(self.mu, self.sigma)
 	}
 
 	mean { :self |
@@ -147,7 +169,7 @@ NormalDistribution : [Object] { | mu sigma |
 	}
 
 	pdf { :self :x |
-		normalDistributionPdf(self.mu, self.sigma, x)
+		x.normalDistributionPdf(self.mu, self.sigma)
 	}
 
 	randomVariate { :self :rng :shape |

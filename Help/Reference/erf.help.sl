@@ -29,6 +29,9 @@ Threads elementwise over lists:
 
 >>> [1 / 2, 1.41, 2.sqrt].erf
 [0.5205 0.9538 0.9545]
+
+>>> [0 1 2 1.96].erf
+[0 0.8427 0.9953 0.9944]
 ```
 
 Plot over a subset of the reals:
@@ -44,6 +47,8 @@ Plot over a subset of the reals:
 See also: erfc, inverseErf
 
 References:
+_J_
+[1](https://code.jsoftware.com/wiki/Essays/Normal_CDF),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Erf.html),
 _Mathworks_

@@ -19,6 +19,8 @@ If the stream ends before _anInteger_ items are read it is an `error`, see `next
 See also: atEnd, contents, nextOrUpToEnd, nextPut, nextSatisfy, nextUntil, nextWhile, reset, Stream
 
 References:
+_Python_
+[1](https://docs.python.org/3/library/functions.html#next),
 _Smalltalk_
 5.9.2.3
 5.9.2.4

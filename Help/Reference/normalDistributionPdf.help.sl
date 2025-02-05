@@ -1,6 +1,6 @@
 # normalDistributionPdf
 
-- _normalDistributionPdf(mu, sigma, x)_
+- _normalDistributionPdf(x, mu, sigma)_
 
 Answer the probability density function for the normal distribution.
 
@@ -8,7 +8,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-3 -- 3).functionPlot { :x |
-	normalDistributionPdf(0, 1, x)
+	x.normalDistributionPdf(0, 1)
 }
 ~~~
 
