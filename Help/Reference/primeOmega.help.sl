@@ -15,7 +15,7 @@ Answer the number of prime factors counting multiplicities in _anInteger_.
 Compute for large integers:
 
 ```
->>> 30n.!.primeOmega
+>>> 30L.!.primeOmega
 59
 ```
 

@@ -92,15 +92,11 @@
 	}
 
 	max { :self |
-		self.contents.indices.injectInto(self.contents.indices.anyOne) { :max :each |
-			max.max(each)
-		}
+		self.contents.indices.reduce(max:/2)
 	}
 
 	min { :self |
-		self.contents.indices.injectInto(self.contents.indices.anyOne) { :min :each |
-			min.min(each)
-		}
+		self.contents.indices.reduce(min:/2)
 	}
 
 	occurrencesOf { :self :anObject |

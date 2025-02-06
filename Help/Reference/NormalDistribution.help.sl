@@ -32,6 +32,17 @@ d.randomVariate(r, 99).linePlot
 
 ![](sw/spl/Help/Image/NormalDistribution-C.svg)
 
+Two dimensional Gaussian noise:
+
+~~~spl png=D
+let r = Sfc32(180513);
+NormalDistribution(0, 1)
+.randomVariate(r, [100 100])
+.asGraymap
+~~~
+
+![](sw/spl/Help/Image/NormalDistribution-D.png)
+
 * * *
 
 See also: CauchyDistribution, cdf, mean, pdf, randomVariate, standardDeviation, UniformDistribution

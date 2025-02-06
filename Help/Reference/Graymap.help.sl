@@ -70,7 +70,7 @@ let julia = { :c |
 };
 let m = julia(-0.786J0.147);
 m
-.rescale(m.min.min, m.max.max, 1, 0)
+.rescale(m.deepMin, m.deepMax, 1, 0)
 .Graymap
 ~~~
 
@@ -78,6 +78,6 @@ m
 
 * * *
 
-See also: Bitmap, matrixPlot, Svg
+See also: asGraymap, Bitmap, Image, matrixPlot, Svg
 
 Categories: Graphics

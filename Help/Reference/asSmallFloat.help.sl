@@ -12,13 +12,13 @@ In the `Fraction` case, answer the nearest `SmallFloat`:
 In the `LargeInteger` case:
 
 ```
->>> 23n.asSmallFloat
+>>> 23L.asSmallFloat
 23
 
->>> (2n ^ 54).asSmallFloat
+>>> (2L ^ 54).asSmallFloat
 18014398509481984
 
->>> (2n ^ 99).asSmallFloat
+>>> (2L ^ 99).asSmallFloat
 6.33825E29
 ```
 

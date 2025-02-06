@@ -56,9 +56,20 @@ d.randomVariate(r, 99).linePlot
 
 ![](sw/spl/Help/Image/UniformDistribution-C.svg)
 
+Two dimensional Uniform noise:
+
+~~~spl png=D
+let r = Sfc32(180513);
+UniformDistribution(0, 1)
+.randomVariate(r, [100 100])
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/UniformDistribution-D.png)
+
 * * *
 
-See also: cdf, mean, pdf, randomVariate, standardDeviation
+See also: CauchyDistribution, cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation
 
 References:
 _Mathematica_

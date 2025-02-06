@@ -9,7 +9,7 @@ If the `Integer` case this will answer a value that is equal to _aNumber_,
 however it may change the type of the value:
 
 ```
->>> let x = 23n;
+>>> let x = 23L;
 >>> let y = x.asInteger;
 >>> (y, x = y)
 (23, true)
@@ -24,13 +24,13 @@ At `LargeInteger`,
 answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 
 ```
->>> let x = 23n.asInteger;
+>>> let x = 23L.asInteger;
 >>> (x, x.isLargeInteger)
 (23, false)
 
->>> let x = (2n ^ 54).asInteger;
+>>> let x = (2L ^ 54).asInteger;
 >>> (x, x.isLargeInteger)
-(18014398509481984n, true)
+(18014398509481984L, true)
 ```
 
 In the `Number` case,

@@ -67,10 +67,10 @@ false
 At `LargeInteger`:
 
 ```
->>> (10n ^ 3000 + 1).divisible(16001n)
+>>> (10L ^ 3000 + 1).divisible(16001L)
 true
 
->>> (10n ^ 3000 + 1) % 16001n = 0n
+>>> (10L ^ 3000 + 1) % 16001L = 0L
 true
 ```
 

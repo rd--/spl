@@ -16,8 +16,8 @@ Answers the bitwise or of the integers _aNumber_ and _anotherNumber_.
 At `LargeInteger`:
 
 ```
->>> (3n ^ 40).bitOr(5n ^ 40)
-9094947020656640004005559649n
+>>> (3L ^ 40).bitOr(5L ^ 40)
+9094947020656640004005559649L
 ```
 
 Use negative numbers:

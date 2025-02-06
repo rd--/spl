@@ -39,7 +39,7 @@ Divide is applied sequentially:
 At `LargeInteger` answers a `Fraction`:
 
 ```
->>> let r = 2n / 3n;
+>>> let r = 2L / 3L;
 >>> (r, r.isFraction)
 (2/3, true)
 ```

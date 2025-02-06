@@ -63,8 +63,8 @@ Gcd threads elementwise over lists:
 Compute for large integers:
 
 ```
->>> [20n.factorial, 10n ^ 100 + 3].gcd
-7n
+>>> [20L.factorial, 10L ^ 100 + 3].gcd
+7L
 ```
 
 In a divisibility network, two numbers are connected if they share a common divisor:

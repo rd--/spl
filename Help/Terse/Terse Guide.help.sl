@@ -1210,7 +1210,7 @@ Infinity.isNumber /* Infinity constant */
 1.pi.asFloat = 1.pi /* small float as float is identity */
 3/4.asFloat = 0.75 /* fraction as float */
 23.asFloat = 23.0 /* integer as float */
-23n.asFloat = 23.0 /* large integer as float */
+23L.asFloat = 23.0 /* large integer as float */
 { '23'.asFloat }.ifError { true } /* asFloat is not a parser */
 1.pi.asSmallFloat = 1.pi /* identity */
 3/4.asSmallFloat = 0.75 /* fraction to small float */
@@ -1268,7 +1268,7 @@ let c = 'x'.asCharacter; c.asCharacter == c /* character to character */
 ```
 let b = true; b.copy == b /* copy boolean, identity */
 let n = 3.141; n.copy == n /* copy small float, identity */
-let n = 23n; n.copy == n /* copy large integer, identity */
+let n = 23L; n.copy == n /* copy large integer, identity */
 let s = 'string'; s.copy == s /* copy string, identity */
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } /* copy association */
 let t = (0, 0); let c = t.copy; c[1] := 1; c ~= t & { c = (1, 0) } /* copy two tuple */
@@ -1592,7 +1592,7 @@ let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorte
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.ifError { true } /* the fraction module does not modify asNumber to parse fractions */
 let x = Fraction(2 ^ 55, 2); x ~= (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
-let x = Fraction(2n ^ 55n, 2); x ~= (x - 1) /* fractions of large large integers behave ordinarily */
+let x = Fraction(2L ^ 55L, 2); x ~= (x - 1) /* fractions of large large integers behave ordinarily */
 2/3 ~= 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
 2/3 ~~ 2/3 /* non-identical fractions */
@@ -1712,7 +1712,7 @@ let h = 1:4.asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
 ```
 nil == nil /* nil identity */
 true == true & { false == false } /* boolean identity */
-3.141 == 3.141 & { 23 == 23 } & { 5n == 5n } /* number identity */
+3.141 == 3.141 & { 23 == 23 } & { 5L == 5L } /* number identity */
 'str' == 'str' /* string identity */
 (x: 1) ~~ (x: 1) /* record non-identity */
 [1] ~~ [1] /* array non-identity */
@@ -1741,9 +1741,9 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences
 256:511.collect { :each | each.digitAt(1) } = [0 .. 255]
 256:511.collect { :each | each.digitAt(2) }.allSatisfy { :each | each = 1 }
 512:1023.collect { :each | each.digitAt(2) }.asIdentityBag.sortedElements = [2 -> 256, 3 -> 256]
-[1, 8, 16, 24, 32n, 40n, 48n, 56n, 64n].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
-(2 ^ 128n - 1).digitLength = 16
-[64 226 1].asByteArray.fnv1aHash = 2230130162n
+[1, 8, 16, 24, 32L, 40L, 48L, 56L, 64L].collect { :each | (2 ^ each).digitLength } = [1 .. 9]
+(2 ^ 128L - 1).digitLength = 16
+[64 226 1].asByteArray.fnv1aHash = 2230130162L
 (1 << 30) == 1073741824 /* equal integers are identical */
 6.take(3) = 20 /* n choose k */
 6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
@@ -2021,43 +2021,43 @@ let a = []; 1:9.selectThenDo(isEven:/1) { :each | a.add(each * 3) }; a = [6, 12,
 ## LargeInteger -- numeric type
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
-23n.typeOf = 'LargeInteger' /* syntax for large integer literals */
+23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
 (2 ^ 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
-(2 ^ 37).asLargeInteger.squared.storeString = '18889465931478580854784n'
+(2 ^ 37).asLargeInteger.squared.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.asLargeInteger.isPrime = true
-23n.factorial = 25852016738884976640000n /* factorial of LargeInteger */
-100n.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000n /* factorial of LargeInteger */
-170n.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000n /* factorial of LargeInteger */
-[-1n, 0n, 1n].collect(sign:/1) = [-1n, 0n, 1n]
-6n / 8n = Fraction(3n, 4n)
-2 / 3n = Fraction(2n, 3n)
-4n / 2n = 2n /* reduced */
-let x = (2n ^ 54n); x ~= (x - 1) /* large integers behave ordinarily */
-5n % 3n = 2n /* modulo */
-[10n % 5n, -4n % 3n, 4n % -3n, -4n % -3n] = [0n, 2n, -2n, -1n] /* modulo, negative operands */
-13n % 7n % 4n = 2n /* left assocative */
-13n + 1n % 7n = 0n /* equal precedence */
-(2n ^ 170 - 1).isPowerOfTwo = false /* LargeInteger power of two test */
-324518553658426726783156020576256n.isEven = true /* is large integer even */
-324518553658426726783156020576257n.isOdd = true /* is large integer odd */
-100n.factorial / 99n.factorial = 100n /* large integer factorial, c.f. small float */
-1000n.factorial / 999n.factorial = 1000n /* large integer factorial */
-8589298611n.primeFactors.last = 2863099537n
-5n == 5n /* large integer identity */
-(1n << 100n) == 1267650600228229401496703205376n /* equal large integers are identical */
-92233720368n * 100000000n + 54775807n = 9223372036854775807n /* reader for large integer literals */
-2n ^ 100n = 1267650600228229401496703205376n /* raised to */
-let n = 2n; n.copy == n /* copy is identity */
-23n.asSmallFloat = 23 /* large integer to small float */
-let a = [9 .. 1]; { a[5n] }.ifError { true } /* large integers are not valid indices */
-58909n.printStringHex = '16rE61D' /* hexadecimal representation */
-20n.factorial = 2432902008176640000n /* large integer factorial */
-7n << 23 = 58720256n /* left shift large integer */
-7n << 71 = 16528282690043758247936n /* left shift large integer */
-16n >> 3 = 2n /* right shift large integer */
-4n // 2n = 2n /* quotient */
-4n.quotient(2n) = 2n /* quotient */
+23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
+100L.factorial = 93326215443944152681699238856266700490715968264381621468592963895217599993229915608941463976156518286253697920827223758251185210916864000000000000000000000000L /* factorial of LargeInteger */
+170L.factorial = 7257415615307998967396728211129263114716991681296451376543577798900561843401706157852350749242617459511490991237838520776666022565442753025328900773207510902400430280058295603966612599658257104398558294257568966313439612262571094946806711205568880457193340212661452800000000000000000000000000000000000000000L /* factorial of LargeInteger */
+[-1L, 0L, 1L].collect(sign:/1) = [-1L, 0L, 1L]
+6L / 8L = Fraction(3L, 4L)
+2 / 3L = Fraction(2L, 3L)
+4L / 2L = 2L /* reduced */
+let x = (2L ^ 54L); x ~= (x - 1) /* large integers behave ordinarily */
+5L % 3L = 2L /* modulo */
+[10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
+13L % 7L % 4L = 2L /* left assocative */
+13L + 1L % 7L = 0L /* equal precedence */
+(2L ^ 170 - 1).isPowerOfTwo = false /* LargeInteger power of two test */
+324518553658426726783156020576256L.isEven = true /* is large integer even */
+324518553658426726783156020576257L.isOdd = true /* is large integer odd */
+100L.factorial / 99L.factorial = 100L /* large integer factorial, c.f. small float */
+1000L.factorial / 999L.factorial = 1000L /* large integer factorial */
+8589298611L.primeFactors.last = 2863099537L
+5L == 5L /* large integer identity */
+(1L << 100L) == 1267650600228229401496703205376L /* equal large integers are identical */
+92233720368L * 100000000L + 54775807L = 9223372036854775807L /* reader for large integer literals */
+2L ^ 100L = 1267650600228229401496703205376L /* raised to */
+let n = 2L; n.copy == n /* copy is identity */
+23L.asSmallFloat = 23 /* large integer to small float */
+let a = [9 .. 1]; { a[5L] }.ifError { true } /* large integers are not valid indices */
+58909L.printStringHex = '16rE61D' /* hexadecimal representation */
+20L.factorial = 2432902008176640000L /* large integer factorial */
+7L << 23 = 58720256L /* left shift large integer */
+7L << 71 = 16528282690043758247936L /* left shift large integer */
+16L >> 3 = 2L /* right shift large integer */
+4L // 2L = 2L /* quotient */
+4L.quotient(2L) = 2L /* quotient */
 ```
 
 ## Length -- geometry type
@@ -3861,7 +3861,7 @@ let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenO
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
 system.methodSignatures('add').includes('Map>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
-system.methodLookupAtType('sum', 1, 'List').sourceCode = '{ :self |\n\t\tself.injectInto(0, +)\n\t}'
+system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self |\n\t\tself.reduce(min:/2)\n\t}'
 system.methodTypes('last:/1').includes('String') = true
 system.multipleArityMethodList.includes('atRandom') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
@@ -3902,7 +3902,7 @@ system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
 system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Number']) = true
-system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Iterable', 'Bag']
+system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Bag']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true

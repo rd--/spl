@@ -26,8 +26,8 @@ Shift 7 places to the left:
 `bitShiftLeft` works with numbers of any size:
 
 ```
->>> (2n ^ 100 - 1).bitShiftLeft(7)
-162259276829213363391578010288000n
+>>> (2L ^ 100 - 1).bitShiftLeft(7)
+162259276829213363391578010288000L
 ```
 
 `bitShiftLeft` automatically threads itself over lists:

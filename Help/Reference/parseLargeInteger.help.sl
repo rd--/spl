@@ -10,7 +10,7 @@ Answer the `LargeInteger` value of the decimal integer held in _aString_.
 
 >>> '20880467999847912034355032910567'
 >>> .parseLargeInteger
-23n ^ 23
+23L ^ 23
 ```
 
 An `error` is signalled if the parse fails:

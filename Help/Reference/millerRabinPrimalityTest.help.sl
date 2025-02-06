@@ -17,7 +17,7 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> (1n .. 131n).select { :each |
+>>> (1L .. 131L).select { :each |
 >>> 	each.millerRabinPrimalityTest(10)
 >>> }
 [
@@ -27,7 +27,7 @@ At `LargeInteger`:
 	127 131
 ]
 
->>> (827n .. 999n).select { :each |
+>>> (827L .. 999L).select { :each |
 >>> 	each.millerRabinPrimalityTest(10)
 >>> }
 [
@@ -40,10 +40,10 @@ At `LargeInteger`:
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimalityTest:
 
 ```
->>> let n = (2n ^ (2 ^ 7) + 1);
+>>> let n = (2L ^ (2 ^ 7) + 1);
 >>> (n, n.millerRabinPrimalityTest(10))
 (
-	340282366920938463463374607431768211457n,
+	340282366920938463463374607431768211457L,
 	false
 )
 ```

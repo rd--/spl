@@ -15,7 +15,7 @@ Answer the number of distinct prime factors of _anInteger_.
 Compute for large integers:
 
 ```
->>> 50n.!.primeNu
+>>> 50L.!.primeNu
 15
 ```
 

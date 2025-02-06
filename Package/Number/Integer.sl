@@ -127,7 +127,7 @@
 		let a = List(k + 1);
 		let b = List(k + 1);
 		0:k.do { :n |
-			a[n + 1] := Fraction(1n, n + 1);
+			a[n + 1] := Fraction(1L, n + 1);
 			n.toByDo(1, -1) { :j |
 				a[j] := j * (a[j] - a[j + 1])
 			};
@@ -1046,11 +1046,11 @@
 
 	partitionFunctionP { :n |
 		let a = List(n + 1);
-		a[1] := 1n;
+		a[1] := 1L;
 		1.toDo(n) { :i |
 			let k = 1;
 			let s = 1;
-			a[i + 1] := 0n;
+			a[i + 1] := 0L;
 			{
 				s <= i
 			}.whileTrue {

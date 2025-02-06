@@ -21,7 +21,7 @@ At `SmallFloat` only 31-bit integer values answer `true`:
 >>> 2166136261.isBinary
 false
 
->>> 2166136261n.isBinary
+>>> 2166136261L.isBinary
 true
 ```
 

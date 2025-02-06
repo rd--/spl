@@ -19,7 +19,7 @@ or, equivalently, the number of partitions into parts of which the largest is ex
 2056148051
 
 >>> 666.partitionFunctionP
-11956824258286445517629485n
+11956824258286445517629485L
 ```
 
 `partitionFunctionP` gives the length of `integerPartitions`:

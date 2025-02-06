@@ -6,8 +6,8 @@
 The binary form answers _aNumber_ raised to the power of _anotherNumber_.
 
 ```
->>> 2n ^ 100n
-1267650600228229401496703205376n
+>>> 2L ^ 100L
+1267650600228229401496703205376L
 
 >>> 0 ^ 0
 1
@@ -138,8 +138,8 @@ Five-percent compound interest:
 At `LargeInteger`:
 
 ```
->>> 23n ^ 23
-20880467999847912034355032910567n
+>>> 23L ^ 23
+20880467999847912034355032910567L
 ```
 
 The unary form is `exp`:

@@ -35,8 +35,8 @@ At `Complex`:
 At `LargeInteger`:
 
 ```
->>> 81n.sqrt
-9n
+>>> 81L.sqrt
+9L
 ```
 
 Threads elementwise over lists and matrices:

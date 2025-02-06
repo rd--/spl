@@ -74,7 +74,7 @@ Number of primes up to ten-thousand:
 Test for large integers:
 
 ```
->>> (10n ^ 3000 + 1).isPrime
+>>> (10L ^ 3000 + 1).isPrime
 false
 ```
 
@@ -105,7 +105,7 @@ true
 The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimalityTest_:
 
 ```
->>> let n = (2n ^ (2 ^ 7) + 1);
+>>> let n = (2L ^ (2 ^ 7) + 1);
 >>> n.millerRabinPrimalityTest(10)
 false
 ```
@@ -118,8 +118,8 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) -
 >>> 		(2 ^ (n - 1) - 1) % (n ^ 2) = 0
 >>> 	}
 >>> };
->>> (1n .. 9999n).select(f:/1)
-[1093n, 3511n]
+>>> (1L .. 9999L).select(f:/1)
+[1093L, 3511L]
 ```
 
 Find twin primes:

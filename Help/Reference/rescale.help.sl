@@ -2,25 +2,28 @@
 
 - _rescale(aNumber | aCollection, min, max, yMin, yMax)_
 - _rescale(alpha, beta, gamma)_ ⟹ _rescale(alpha, beta, gamma, 0, 1)_
-- _rescale(alpha)_ ⟹ _rescale(alpha, alpha.min, alpha.max, 0, 1)_
+- _rescale(alpha)_ ⟹ _rescale(alpha, alpha.deepMin, alpha.deepMax, 0, 1)_
 
-Answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _max_.
+In the quinternary case,
+answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _max_.
+In the ternary case _yMin_ and _yMax_ are set to `zero` and `one`.
+In the unary case _min_ and _max_ are set to the (deep) minima and maxima of _aCollection_.
 
 ```
->>> 2.5.rescale(-10, 10)
+>>> 2.5.rescale(-10, 10, 0, 1)
 0.625
 
->>> 12.5.rescale(-10, 10)
+>>> 12.5.rescale(-10, 10, 0, 1)
 1.125
 
->>> [-10, 0, 10].rescale(-10, 10)
+>>> [-10 0 10].rescale(-10, 10, 0, 1)
 [0 0.5 1]
 ```
 
 At `Fraction`:
 
 ```
->>> -3/2.rescale(-2, 2)
+>>> -3/2.rescale(-2, 2, 0, 1)
 1/8
 ```
 
@@ -33,10 +36,10 @@ At `SmallFloat`:
 >>> 3.rescale(-9, 7, 11, 28)
 (95 / 4)
 
->>> (1 / 11).rescale(1 / 7, 5)
+>>> (1 / 11).rescale(1 / 7, 5, 0, 1)
 -0.010695
 
->>> 8.rescale(-9, 7.11111)
+>>> 8.rescale(-9, 7.11111, 0, 1)
 1.05517
 ```
 
@@ -56,7 +59,7 @@ Rescale so that all the `List` elements run from 0 to 1:
 Specify the maximum and minimum values:
 
 ```
->>> [-2 0 2].rescale(-5, 5)
+>>> [-2 0 2].rescale(-5, 5, 0, 1)
 [0.3 0.5 0.7]
 
 >>> [-2 0 2].rescale(-5, 5, -1, 1)
@@ -107,6 +110,22 @@ At a 3×3 matrix:
 	-0.25 +0.00 +0.25;
 	+0.50 +0.75 +1.00
 ]
+```
+
+In the array case the minima and maxima are _deep_,
+so that the answer retains the same shape as the input:
+
+```
+>>> [3 3].iota.rescale
+[
+	0.000 0.125 0.250;
+	0.375 0.500 0.625;
+	0.750 0.875 1.000
+]
+
+>>> let m = [3 3].iota;
+>>> m.rescale(m.min, m.max, 0, 1).shape
+[3 3 3]
 ```
 
 Plot over a subset of the reals:

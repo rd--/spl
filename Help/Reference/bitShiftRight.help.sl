@@ -26,8 +26,8 @@ Shift 7 places to the right, leaving no nonzero bits:
 `bitShiftRight` works with numbers of any size:
 
 ```
->>> (2n ^ 111 - 1).bitShiftRight(7)
-20282409603651670423947251286015n
+>>> (2L ^ 111 - 1).bitShiftRight(7)
+20282409603651670423947251286015L
 ```
 
 `bitShiftRight` automatically threads itself over lists:

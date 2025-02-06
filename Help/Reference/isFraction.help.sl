@@ -14,7 +14,7 @@ true
 At `LargeInteger`:
 
 ```
->>> 23n.isFraction
+>>> 23L.isFraction
 false
 ```
 

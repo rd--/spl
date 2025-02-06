@@ -4,14 +4,16 @@ Convert from _Lchuv_ colourspace to _Luv_ colourspace.
 This is equalivalent to both `jchToJab` and `lchToLab`.
 
 ```
->>> [41.52788 59.12426 27.08849].lchToLuv
+>>> [41.52788 59.12426 27.08849]
+>>> .lchToLuv
 [41.52788 52.63858 26.92318]
 ```
 
 The inverse is `luvToLch`:
 
 ```
->>> [41.52788 52.63858 26.92318].luvToLch
+>>> [41.52788 52.63858 26.92318]
+>>> .luvToLch
 [41.52788 59.12426 27.08849]
 ```
 

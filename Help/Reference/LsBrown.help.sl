@@ -6,7 +6,8 @@ Brownian motion between _low_ and _high_ with maximum step size _step_.
 Steps have uniform distribution.
 
 ~~~spl svg=A
-LsBrown(-1, 1, 1 / 100, 99, Sfc32(318402))
+let r = Sfc32(318402);
+LsBrown(-1, 1, 1 / 100, 99, r)
 .upToEnd
 .linePlot
 ~~~

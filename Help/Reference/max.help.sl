@@ -58,8 +58,11 @@ Largest `Complex` element of vector:
 Largest element in each matrix column:
 
 ```
->>> [2 8 4; 7 3 9].max
-[7 8 9]
+>>> [8 1 6; 3 5 7; 4 9 2].max
+[8 9 7]
+
+>>> [8 1 6].max([3 5 7]).max([4 9 2])
+[8 9 7]
 ```
 
 Largest element in each matrix row:
@@ -69,9 +72,16 @@ Largest element in each matrix row:
 [1.7 1.99]
 ```
 
+See also `deepMax`:
+
+```
+>>> [8 1 6; 3 5 7; 4 9 2].deepMax
+9
+```
+
 * * *
 
-See also: ceiling, maxBy, min
+See also: ceiling, deepMax, maxBy, min
 
 References:
 _Apl_

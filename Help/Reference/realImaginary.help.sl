@@ -21,8 +21,8 @@ Threads over lists:
 At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 ```
->>> [3.141 23n 5/7].realImaginary
-[3.141 0; 23n 0; 5/7 0]
+>>> [3.141 23L 5/7].realImaginary
+[3.141 0; 23L 0; 5/7 0]
 ```
 
 * * *

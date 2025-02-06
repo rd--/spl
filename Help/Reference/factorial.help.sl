@@ -18,8 +18,8 @@ The `product` of `one` up to _anInteger_.
 >>> 18.factorial
 6402373705728000
 
->>> 23n.factorial
-25852016738884976640000n
+>>> 23L.factorial
+25852016738884976640000L
 ```
 
 Number of permutations of 6 elements:
@@ -35,20 +35,20 @@ Number of permutations of 6 elements:
 Exact `LargeInteger` and inexact `SmallFloat` results for 30! and 47!:
 
 ```
->>> 30n.factorial
-265252859812191058636308480000000n
+>>> 30L.factorial
+265252859812191058636308480000000L
 
 >>> 30.factorial
 2.652528598121911E32
 
->>> 47n.factorial
+>>> 47L.factorial
 (
 	[
-		258623241511168n
-		180642964355153n
-		611979969197632n
-		389120000000000n
-	] * (10n ^ [45 30 15 0])
+		258623241511168L
+		180642964355153L
+		611979969197632L
+		389120000000000L
+	] * (10L ^ [45 30 15 0])
 ).sum
 
 >>> 47.factorial
@@ -79,8 +79,8 @@ At `SmallFloat` factorial is accurate to 15 digits:
 >>> 23.factorial
 258520167388849E8
 
->>> 23n.factorial
-25852016738884976640000n
+>>> 23L.factorial
+25852016738884976640000L
 ```
 
 Factorial of matrix elements:

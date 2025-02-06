@@ -1,7 +1,7 @@
 # ! (exclamationMark)
 
 - _aNumber.!_
-- _anObject ! shape_
+- _anObject ! integerOrShape_
 
 `!` is both an operator and a syntax token.
 
@@ -15,8 +15,8 @@ At integral `SmallFloat` and `LargeInteger`:
 >>> 9.!
 362880
 
->>> 25n.!
-15511210043330985984000000n
+>>> 25L.!
+15511210043330985984000000L
 ```
 
 At `Range`:
@@ -69,9 +69,12 @@ evaluate _value(anObject)_ _anInteger_ times and collect the results into a `Lis
 ```
 
 In the `Sequence` case,
-evaluate _value(anObject)_ to fill an array of the indicated shape:
+evaluate _value(anObject)_ to fill an array of the indicated size or shape:
 
 ```
+>>> { 1 } ! 3
+[1 1 1]
+
 >>> { 1 } ! [2 3]
 [
 	1 1 1;
@@ -101,11 +104,15 @@ Create a 3×2×3 constant array:
 ]
 ```
 
-An empty shape answers a scalar value:
+An empty shape answers a scalar value,
+which is distinct from a size value of `one`:
 
 ```
 >>> { 'x' } ! []
 'x'
+
+>>> { 'x' } ! 1
+['x']
 ```
 
 With external state:

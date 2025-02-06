@@ -20,7 +20,7 @@ true
 >>> ['a' 'b'; 'c' 'd'].isMatrixOf('String')
 true
 
->>> [1n 2n; 3n 4n].isMatrixOf('LargeInteger')
+>>> [1L 2L; 3L 4L].isMatrixOf('LargeInteger')
 true
 ```
 

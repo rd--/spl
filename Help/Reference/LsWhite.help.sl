@@ -4,10 +4,11 @@
 
 Random values that follow a uniform distribution.
 
-Reset does not reset seed:
+Reset does not reset random number generator:
 
 ```
->>> let l = LsWhite(-1, 1, Infinity, Sfc32(189314));
+>>> let r = Sfc32(189314);
+>>> let l = LsWhite(-1, 1, Infinity, r);
 >>> let a = l.next(99);
 >>> l.reset;
 >>> l.next(99) ~= a

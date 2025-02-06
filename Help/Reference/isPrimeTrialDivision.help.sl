@@ -7,7 +7,7 @@ Answer `true` if _anInteger_ is a prime number, according to the trial division 
 Select the prime numbers up to one hundred:
 
 ```
->>> (1n .. 99n).select(isPrimeTrialDivision:/1)
+>>> (1L .. 99L).select(isPrimeTrialDivision:/1)
 [
 	2 3 5 7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71

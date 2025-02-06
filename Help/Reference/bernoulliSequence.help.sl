@@ -12,9 +12,9 @@ Answer the first _anInteger_ Bernoulli numbers.
 ]
 
 >>> 60.bernoulliSequence.last
--1215233140483755572040304994079820246041491n
+-1215233140483755572040304994079820246041491L
 /
-56786730n
+56786730L
 ```
 
 Plot numerator:

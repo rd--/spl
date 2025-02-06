@@ -89,7 +89,7 @@
 	randomLargeInteger { :self :max |
 		let k = max.digitLength;
 		let h = max.highBitOfMagnitude;
-		let m = (2n ^ h) - 1;
+		let m = (2L ^ h) - 1;
 		let answer = nil;
 		{
 			let bytes = self.randomByteArray(k);

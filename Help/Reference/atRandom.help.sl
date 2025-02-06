@@ -83,7 +83,7 @@ At `LargeInteger`, select between `one` and five at random:
 
 ```
 >>> let r = Sfc32(52137);
->>> 5n.atRandom([3 3], r)
+>>> 5L.atRandom([3 3], r)
 [
 	4 1 1;
 	2 4 5;

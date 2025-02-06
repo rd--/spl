@@ -22,8 +22,8 @@ which always answer `SmallFloat` values,
 the SI prefix methods can answer `LargeInteger` values:
 
 ```
->>> [1n.kilo 1n.mega 1n.giga 1n.terra]
-[1000n 1000000n 1000000000n 1000000000000n]
+>>> [1L.kilo 1L.mega 1L.giga 1L.terra]
+[1000L 1000000L 1000000000L 1000000000000L]
 ```
 
 * * *

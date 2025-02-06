@@ -226,7 +226,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	isEven { :self |
-		(self % 2n) = 0n
+		(self % 2L) = 0L
 	}
 
 	isExact { :unused |
@@ -242,7 +242,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	isOdd { :self |
-		(self % 2n) = 1n
+		(self % 2L) = 1L
 	}
 
 	isRational { :unused |
@@ -250,7 +250,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	isSmallInteger { :self |
-		self.abs <= (2n ^ 53 - 1)
+		self.abs <= (2L ^ 53 - 1)
 	}
 
 	isVeryCloseTo { :self :aNumber |
@@ -258,7 +258,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	isZero { :self |
-		self = 0n
+		self = 0L
 	}
 
 	nthRoot { :self :aNumber |
@@ -278,11 +278,11 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	one { :unused |
-		1n
+		1L
 	}
 
 	storeString { :self |
-		self.printString ++ 'n'
+		self.printString ++ 'L'
 	}
 
 	quotient { :self :anInteger |
@@ -334,11 +334,11 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	unit { :unused |
-		1n
+		1L
 	}
 
 	zero { :unused |
-		0n
+		0L
 	}
 
 }
@@ -362,9 +362,9 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 +ByteArray {
 
 	asLargeInteger { :self |
-		let answer = 0n;
+		let answer = 0L;
 		self.withIndexDo { :each :i |
-			answer := answer + (each << (i - 1n * 8))
+			answer := answer + (each << (i - 1L * 8))
 		};
 		answer
 	}

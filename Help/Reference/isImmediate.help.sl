@@ -21,7 +21,7 @@ as for use as keys in `Map` (the identity dictionary).
 
 ```
 >>> [
->>> 	23n,
+>>> 	23L,
 >>> 	'x'.asCharacter,
 >>> 	2J3,
 >>> 	2/3,
@@ -47,13 +47,13 @@ _Rationale_:
 `LargeInteger` is not considered immediate because of the subtle behaviour regarding `=` and `==` with `SmallFloat`:
 
 ```
->>> 1 == 1n
+>>> 1 == 1L
 false
 
->>> 1 = 1n & { 1n = 1n & { 1 = 1 } }
+>>> 1 = 1L & { 1L = 1L & { 1 = 1 } }
 true
 
->>> 1n == 1n & { 1 == 1 }
+>>> 1L == 1L & { 1 == 1 }
 true
 ```
 

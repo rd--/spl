@@ -1,12 +1,20 @@
 # deepIndicesOf
 
-- _deepIndicesOf(aCollection, aBlock:/2)_
+- _deepIndicesOf(aCollection, anObject)_
 
 Answer a `List`, possibly empty, of all the deep indices of _anObject_ in _aCollection_.
 
 ```
->>> [1 2 3; 2 3 4; 3 4 5].deepIndicesOf(3)
-[1 3; 2 2; 3 1]
+>>> [
+>>> 	1 2 3;
+>>> 	2 3 4;
+>>> 	3 4 5
+>>> ].deepIndicesOf(3)
+[
+	1 3;
+	2 2;
+	3 1
+]
 ```
 
 * * *

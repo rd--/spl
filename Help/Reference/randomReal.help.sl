@@ -67,7 +67,7 @@ Sfc32(329149)
 
 ![](sw/spl/Help/Image/randomReal-C.svg)
 
-A `Greymap` of a random 50×90 _(0, 1)_ matrix:
+A `Graymap` of a random 50×90 _(0, 1)_ matrix:
 
 ~~~spl png=D
 Sfc32(814789)

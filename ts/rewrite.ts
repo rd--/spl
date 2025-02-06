@@ -725,7 +725,7 @@ const asJs: ohm.ActionDict<string> = {
 			${m.sourceString}
 		)`;
 	},
-	largeIntegerLiteral(s, i, _n) {
+	largeIntegerLiteral(s, i, _l) {
 		return `${s.sourceString}${i.sourceString}n`;
 	},
 	radixIntegerLiteral(s, b, _r, i) {

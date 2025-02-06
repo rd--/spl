@@ -376,7 +376,7 @@ The Hilbert matrix is a simple function on the addition table.
 The reciprocal determinant of the Hilbert matrix of order _n_, has prime factors that are the primes less than _2 * n_.
 
 ```
->>> let n = 5n;
+>>> let n = 5L;
 >>> let h = 1 r: (1:n +.outer (1:n - 1));
 >>> (1 / h.determinant).primeFactors.nub
 [2 3 5 7]

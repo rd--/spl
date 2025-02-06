@@ -66,8 +66,8 @@ The iteration function can operate on a list:
 Use `valueWithReturn` to exit an iteration:
 
 ```
->>> squared:/1.iterate(2n, 6)
-18446744073709551616n
+>>> squared:/1.iterate(2L, 6)
+18446744073709551616L
 
 >>> { :return:/1 |
 >>> 	{ :x |
@@ -76,7 +76,7 @@ Use `valueWithReturn` to exit an iteration:
 >>> 		} {
 >>> 			x ^ 2
 >>> 		}
->>> 	}.iterate(2n, 6)
+>>> 	}.iterate(2L, 6)
 >>> }.valueWithReturn
 4294967296
 ```

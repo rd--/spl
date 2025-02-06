@@ -181,7 +181,7 @@ Sl {
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
-	largeIntegerLiteral = plusOrMinus? digit+ "n"
+	largeIntegerLiteral = plusOrMinus? digit+ "L" // "n"?
 	radixIntegerLiteral = plusOrMinus? digit+ "r" letterOrDigit+
     infinityLiteral = plusOrMinus? "Infinity"
 	constantNumberLiteral = infinityLiteral | "NaN" | "Pi"

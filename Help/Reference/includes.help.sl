@@ -35,7 +35,7 @@ true
 At `Dictionary`:
 
 ```
->>> [1n -> 'A', 2n -> 'B'].asDictionary.includes('A')
+>>> [1L -> 'A', 2L -> 'B'].asDictionary.includes('A')
 true
 ```
 

@@ -85,8 +85,8 @@ also the binary 4-tuples combined by `bitXor`:
 At `LargeInteger`:
 
 ```
->>> 2166136261n.bitXor(70)
-2166136195n
+>>> 2166136261L.bitXor(70)
+2166136195L
 ```
 
 Scatter plot of OEIS [A003188](https://oeis.org/A003188):

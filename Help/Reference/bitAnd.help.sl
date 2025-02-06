@@ -20,8 +20,8 @@ Answers the bitwise and of the integers _aNumber_ and _anotherNumber_.
 At `LargeInteger`:
 
 ```
->>> (3n ^ 100).bitAnd(5n ^ 100)
-503913279078601980753385379100266097026814443729n
+>>> (3L ^ 100).bitAnd(5L ^ 100)
+503913279078601980753385379100266097026814443729L
 ```
 
 Use negative numbers:

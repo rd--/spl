@@ -38,8 +38,8 @@ true
 At `LargeInteger`:
 
 ```
->>> 23n.isNumber & {
->>> 	23n.isLargeInteger
+>>> 23L.isNumber & {
+>>> 	23L.isLargeInteger
 >>> }
 true
 ```

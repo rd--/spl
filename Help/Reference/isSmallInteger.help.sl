@@ -34,7 +34,7 @@ false
 _2 ^ 54_ is accurately represented:
 
 ```
->>> (2 ^ 54) = (2n ^ 54)
+>>> (2 ^ 54) = (2L ^ 54)
 true
 ```
 
@@ -44,17 +44,17 @@ _2 ^ 54_ is not uniquely represented:
 >>> (2 ^ 54) = (2 ^ 54 - 1)
 true
 
->>> (2n ^ 54) = (2n ^ 54 - 1)
+>>> (2L ^ 54) = (2L ^ 54 - 1)
 false
 ```
 
 At `LargeInteger` and `Fraction` answers `true` is the value is an integer and if that integer is a safe integer:
 
 ```
->>> 23n.isSmallInteger
+>>> 23L.isSmallInteger
 true
 
->>> let x = (2n ^ 54);
+>>> let x = (2L ^ 54);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
 
@@ -65,7 +65,7 @@ true
 >>> (x.isInteger, x.isSmallInteger)
 (false, false)
 
->>> let x = Fraction(2n ^ 54, 1);
+>>> let x = Fraction(2L ^ 54, 1);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
 ```

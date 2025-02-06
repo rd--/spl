@@ -18,7 +18,7 @@ true
 >>> ['a' 'b' 'c'].isVectorOf('String')
 true
 
->>> [1n 2n].isVectorOf('LargeInteger')
+>>> [1L 2L].isVectorOf('LargeInteger')
 true
 ```
 

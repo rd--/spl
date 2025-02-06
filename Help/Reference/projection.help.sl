@@ -130,7 +130,13 @@ Find an orthonormal basis for the column space of an integer matrix,
 and use that basis to find a QR factorization:
 
 ```
->>> let a = [1 3 7; -1 2 -3; -1 2 -9; 1 -4 7; 1 2 1];
+>>> let a = [
+>>> 	+1 +3 +7;
+>>> 	-1 +2 -3;
+>>> 	-1 +2 -9;
+>>> 	+1 -4 +7;
+>>> 	+1 +2 +1
+>>> ];
 >>> let [m, n] = a.shape;
 >>> let x = a.transposed;
 >>> let v:/1 = { :k |

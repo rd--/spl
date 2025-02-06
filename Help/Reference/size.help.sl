@@ -68,7 +68,7 @@ Find the length of each sublist:
 Find the number of digits in 1000!:
 
 ```
->>> 1000n.factorial.asString.size
+>>> 1000L.factorial.asString.size
 2568
 ```
 

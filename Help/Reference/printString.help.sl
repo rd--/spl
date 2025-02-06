@@ -29,7 +29,7 @@ the answer is a valid Spl expression:
 At `LargeInteger` with radix argument:
 
 ```
->>> 254n.printString(16)
+>>> 254L.printString(16)
 '16rFE'
 ```
 

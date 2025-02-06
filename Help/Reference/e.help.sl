@@ -1,8 +1,12 @@
 # e
 
 - _e(aNumber)_
+- _e(aNumber, anotherNumber)_
 
-The number `e`, also known as Euler’s number or Napier’s constant, is a mathematical constant approximately equal to 2.71828.
+In the unary case,
+the number `e`,
+also known as Euler’s number or Napier’s constant,
+is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.
 
 Answer _aNumber_ times e.
@@ -25,14 +29,32 @@ Answer _aNumber_ times e.
 [1.35914, 4.07742]
 ```
 
-_e_ is also a part of the _E Notation_ for `Number Literals`,
+In the binary case,
+answer the scientific notation:
+
+```
+>>> 1.e(6)
+1E6
+
+>>> 1.e(-6)
+1E-6
+```
+
+The binary form likewise threads over lists:
+
+```
+>>> [0 0.1 0.2 0.3 0.4 0.5 0.75 1.0].e(2)
+[0 10 20 30 40 50 75 100]
+```
+
+_e_ is also a part of the `Scientific Notation` for `Number Literals`,
 however in that context an upper case _E_ is ordinary.
 
 * * *
 
 See also: exp, log, pi
 
-Guides: Mathematical Constants, Number Literals
+Guides: Mathematical Constants, Number Literals, Scientific Notation
 
 References:
 _Mathematica_

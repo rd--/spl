@@ -29,7 +29,7 @@ true
 At `LargeInteger`:
 
 ```
->>> 23n.isInteger
+>>> 23L.isInteger
 true
 ```
 

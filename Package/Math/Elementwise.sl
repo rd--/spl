@@ -148,6 +148,10 @@
 		self.collect(e:/1)
 	}
 
+	e { :self :aNumber |
+		self * (10 ^ aNumber)
+	}
+
 	erf { :self |
 		self.collect(erf:/1)
 	}

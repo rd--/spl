@@ -9,7 +9,7 @@ answer `true` if the number is either an `Integer` or a `Fraction`.
 >>> 23.isRational
 true
 
->>> 23n.isRational
+>>> 23L.isRational
 true
 
 >>> 1/2.isRational

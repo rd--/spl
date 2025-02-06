@@ -126,7 +126,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
 		aBlock(
-			ReducedFraction(anInteger, 1n),
+			ReducedFraction(anInteger, 1L),
 			self
 		)
 	}
@@ -341,7 +341,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	one { :self |
-		ReducedFraction(1n, 1n)
+		ReducedFraction(1L, 1L)
 	}
 
 	parts { :self |
@@ -441,7 +441,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	zero { :self |
-		ReducedFraction(0n, 1n)
+		ReducedFraction(0L, 1L)
 	}
 
 }
@@ -555,7 +555,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFraction { :self :epsilon |
 		self.isInteger.if {
-			ReducedFraction(self, 1n)
+			ReducedFraction(self, 1L)
 		} {
 			self.rationalize(epsilon)
 		}
@@ -580,7 +580,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 +LargeInteger {
 
 	asFraction { :self |
-		Fraction(self, 1n)
+		Fraction(self, 1L)
 	}
 
 }
@@ -599,7 +599,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 				self.error('parseFraction: parse failed')
 			}
 		} {
-			ReducedFraction(self.parseLargeInteger, 1n)
+			ReducedFraction(self.parseLargeInteger, 1L)
 		}
 	}
 
@@ -617,7 +617,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asFractionOver { :self :denominator |
 		self.isInteger.if {
-			ReducedFraction(self, 1n)
+			ReducedFraction(self, 1L)
 		} {
 			Fraction(
 				(self * denominator).rounded,

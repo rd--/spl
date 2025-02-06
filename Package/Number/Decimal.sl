@@ -306,7 +306,7 @@ Decimal : [Object] { | fraction scale |
 +LargeInteger {
 
 	asDecimal { :self :scale |
-		UnsimplifiedDecimal(Fraction(self, 1n), scale)
+		UnsimplifiedDecimal(Fraction(self, 1L), scale)
 	}
 
 	asDecimal { :self |

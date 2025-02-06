@@ -747,7 +747,7 @@
 	}
 
 	rescale { :self |
-		self.rescale(self.min, self.max, 0, 1)
+		self.rescale(self.deepMin, self.deepMax, 0, 1)
 	}
 
 	rootMeanSquare { :self |
@@ -830,6 +830,14 @@
 			}
 		};
 		answer
+	}
+
+	sum { :self |
+		self.isEmpty.if {
+			0
+		} {
+			self.reduce(+)
+		}
 	}
 
 	standardDeviation { :self |

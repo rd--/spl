@@ -20,7 +20,7 @@ Integer square root of the first few integers:
 Integer square root of the first few odd powers of seven:
 
 ```
->>> (7n ^ 1:2:21).integerSquareRoot
+>>> (7L ^ 1:2:21).integerSquareRoot
 [
 	2
 	18
@@ -39,11 +39,11 @@ Integer square root of the first few odd powers of seven:
 Integer square root of a large integer:
 
 ```
->>> (7n ^ 73).integerSquareRoot
-7015820362023593956150476655802n
+>>> (7L ^ 73).integerSquareRoot
+7015820362023593956150476655802L
 
->>> (7n ^ 73).sqrt
-7015820362023593956150476655802n
+>>> (7L ^ 73).sqrt
+7015820362023593956150476655802L
 ```
 
 Show that the expression _f_ below answers non-square numbers:

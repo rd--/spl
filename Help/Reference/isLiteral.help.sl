@@ -15,7 +15,7 @@ The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boole
 `SmallFloat` and `LargeInteger` values are literals:
 
 ```
->>> [3.141 23n].collect(isLiteral:/1)
+>>> [3.141 23L].collect(isLiteral:/1)
 [true true]
 ```
 
@@ -39,7 +39,7 @@ A `List` is a literal if all of the items it holds are literal:
 >>> [
 >>> 	nil
 >>> 	true false
->>> 	3.14 23n 3/4 3J4
+>>> 	3.14 23L 3/4 3J4
 >>> 	'x'
 >>> ].isLiteral
 true
@@ -48,7 +48,7 @@ true
 A `Record` is a literal if all of the items it holds are literal:
 
 ```
->>> (x: 3.141, y: 23n, z: 3/4).isLiteral
+>>> (x: 3.141, y: 23L, z: 3/4).isLiteral
 true
 ```
 

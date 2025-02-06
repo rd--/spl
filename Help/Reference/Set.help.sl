@@ -12,7 +12,7 @@ however `==` has some subtle behaviours:
 >>> 1/1 == 1/1
 false
 
->>> 1 == 1n
+>>> 1 == 1L
 false
 ```
 

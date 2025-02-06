@@ -81,7 +81,7 @@ Plot the sequence, varying the modulus:
 Binomial coefficients modulo two:
 
 ~~~spl png=C
-let k = (0n .. 64n);
+let k = (0L .. 64L);
 { :i :j |
 	(i >= j).if {
 		i.binomial(j) % 2

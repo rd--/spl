@@ -61,13 +61,13 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> (2n ^ 54 - 1).asDecimal
+>>> (2L ^ 54 - 1).asDecimal
 18014398509481983D
 
->>> (23n ^ 23).asDecimal
+>>> (23L ^ 23).asDecimal
 20880467999847912034355032910567D
 
->>> 23n.asDecimal(23)
+>>> 23L.asDecimal(23)
 23.00000000000000000000000D
 ```
 

@@ -104,7 +104,7 @@ Note that `Fraction` and `Integer` represent together the set of Rational number
 `LargeInteger` defines `/` to answer a `Fraction`:
 
 ```
->>> 2n / 3n
+>>> 2L / 3L
 2/3
 ```
 
@@ -151,7 +151,7 @@ a `Fraction` whose elements are of type `LargeInteger` will behave ordinarily.
 The `Fraction` constructor constructs fractions with `LargeInteger` components.
 
 ```
->>> let x = Fraction(2n ^ 55n, 2);
+>>> let x = Fraction(2L ^ 55L, 2);
 >>> (x, x - 1, x = (x - 1))
 (
 	18014398509481984/1,
@@ -195,20 +195,20 @@ The letter `r` abbreviates `Fraction` (`r` for _rational_), in the same manner t
 Written using `Infix Method Syntax` this provides a concise notation for writing Fractions with `LargeInteger` parts:
 
 ```
->>> (2n r: 3n).asTuple
-(2n, 3n)
+>>> (2L r: 3L).asTuple
+(2L, 3L)
 ```
 
 Enter a rational number with very big integers in the numerator and denominator:
 
 ```
->>> let n = 1237918739182739817238917127398123n;
->>> let d = 12809812308120812038038101n;
+>>> let n = 1237918739182739817238917127398123L;
+>>> let d = 12809812308120812038038101L;
 >>> let r = Fraction(n, d);
 >>> (r.numerator, r.denominator)
 (
-	1237918739182739817238917127398123n,
-	12809812308120812038038101n
+	1237918739182739817238917127398123L,
+	12809812308120812038038101L
 )
 ```
 
@@ -242,7 +242,7 @@ This is a close approximation to 2.sqrt:
 >>> };
 >>> (
 >>> 	f:/1.iterate(3/2, 4),
->>> 	f:/1.iterate(3n r: 2n, 5)
+>>> 	f:/1.iterate(3L r: 2L, 5)
 >>> )
 (
 	Fraction(
@@ -250,8 +250,8 @@ This is a close approximation to 2.sqrt:
 		627013566048
 	),
 	Fraction(
-		1572584048032918633353217n,
-		1111984844349868137938112n
+		1572584048032918633353217L,
+		1111984844349868137938112L
 	)
 )
 

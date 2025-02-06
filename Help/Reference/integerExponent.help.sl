@@ -21,7 +21,7 @@ The highest power of 2:
 Number of trailing zeros in factorials:
 
 ```
->>> (1n .. 40n).collect { :n |
+>>> (1L .. 40L).collect { :n |
 >>> 	n.factorial.integerExponent(10)
 >>> }
 [
@@ -49,7 +49,7 @@ Powers of 2 in successive integers:
 A formula for digitCount:
 
 ```
->>> (1n .. 30n).collect { :n |
+>>> (1L .. 30L).collect { :n |
 >>> 	n - n.factorial.integerExponent(2)
 >>> }
 [

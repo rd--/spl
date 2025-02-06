@@ -29,9 +29,9 @@ Memoized Fibonacci will answer immediately for large _k_:
 >>> 		fib(n - 1) + fib(n - 2)
 >>> 	}
 >>> }.memoize;
->>> let k = 200n;
+>>> let k = 200L;
 >>> fib(k)
-280571172992510140037611932413038677189525n
+280571172992510140037611932413038677189525L
 ```
 
 * * *

@@ -57,8 +57,8 @@ Lcm threads elementwise over lists:
 Lcm of first one hundred integers:
 
 ```
->>> (1n .. 100n).lcm
-69720375229712477164533808935312303556800n
+>>> (1L .. 100L).lcm
+69720375229712477164533808935312303556800L
 ```
 
 Cumulative least common multiples:

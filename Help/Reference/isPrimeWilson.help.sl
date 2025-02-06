@@ -12,7 +12,7 @@ the product of all the positive integers less than _n_ is one less than a multip
 Using `LargeInteger` since the `factorial` quickly exceeds the precision of `SmallFloat`:
 
 ```
->>> (1n .. 99n).select(isPrimeWilson:/1)
+>>> (1L .. 99L).select(isPrimeWilson:/1)
 [
 	 2  3  5  7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71

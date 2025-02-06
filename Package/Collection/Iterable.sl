@@ -89,6 +89,18 @@
 		}
 	}
 
+	deepMax { :self |
+		self.deepReduce(max:/2)
+	}
+
+	deepMin { :self |
+		self.deepReduce(min:/2)
+	}
+
+	deepReduce { :self :aBlock:/2 |
+		self.reduceBy(aBlock:/2, deepDo:/2)
+	}
+
 	detect { :self :aBlock:/1 |
 		self.detectIfNone(aBlock:/1) {
 			self.error('@Iterable>>detect: not found')
@@ -248,26 +260,22 @@
 	}
 
 	max { :self |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.max(each)
-		}
+		self.reduce(max:/2)
 	}
 
 	maxBy { :self :aBlock:/1 |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.maxBy(each, aBlock:/1)
+		self.reduce { :i :j |
+			i.maxBy(j, aBlock:/1)
 		}
 	}
 
 	min { :self |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.min(each)
-		}
+		self.reduce(min:/2)
 	}
 
 	minBy { :self :aBlock:/1 |
-		self.injectInto(self.anyOne) { :answer :each |
-			answer.minBy(each, aBlock:/1)
+		self.reduce { :i :j |
+			i.minBy(j, aBlock:/1)
 		}
 	}
 
@@ -333,10 +341,10 @@
 		self.max - self.min
 	}
 
-	reduce { :self :aBlock:/2 |
+	reduceBy { :self :aBlock:/2 :iterationBlock:/2 |
 		let isFirst = true;
 		let nextValue = nil;
-		self.do { :each |
+		self.iterationBlock { :each |
 			isFirst.if {
 				nextValue := each;
 				isFirst := false
@@ -345,9 +353,13 @@
 			}
 		};
 		isFirst.ifTrue {
-			self.error('@Iterable>>reduce: empty collection')
+			self.error('@Iterable>>reduceBy: empty collection')
 		};
 		nextValue
+	}
+
+	reduce { :self :aBlock:/2 |
+		self.reduceBy(aBlock:/2, do:/2)
 	}
 
 	rejectThenDo { :self :rejectBlock:/1 :doBlock:/1 |
@@ -375,7 +387,7 @@
 	}
 
 	sum { :self |
-		self.injectInto(0, +)
+		self.reduce(+)
 	}
 
 	sumOfSquares { :self |

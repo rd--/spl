@@ -39,8 +39,8 @@ Value at `zero`:
 At `LargeInteger`:
 
 ```
->>> 27n.doubleFactorial
-213458046676875n
+>>> 27L.doubleFactorial
+213458046676875L
 ```
 
 * * *

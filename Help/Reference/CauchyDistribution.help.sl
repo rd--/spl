@@ -49,9 +49,21 @@ d.randomVariate(r, 99).clip(-1, 1).linePlot
 
 ![](sw/spl/Help/Image/CauchyDistribution-D.svg)
 
+Two dimensional Cauchy noise:
+
+~~~spl png=E
+let r = Sfc32(189040);
+CauchyDistribution(0, 0.025)
+.randomVariate(r, [100 100])
+.clip(-1, 1)
+.asGraymap
+~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-E.png)
+
 * * *
 
-See also: cdf, mean, pdf, randomVariate, standardDeviation
+See also: cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, UniformDistribution
 
 References:
 _Mathematica_

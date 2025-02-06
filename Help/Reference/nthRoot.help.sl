@@ -32,10 +32,10 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> 27n.nthRoot(3)
+>>> 27L.nthRoot(3)
 3
 
->>> 3n.nthRoot(3)
+>>> 3L.nthRoot(3)
 1.44225
 ```
 

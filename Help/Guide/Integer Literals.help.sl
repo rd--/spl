@@ -10,14 +10,14 @@ Integer literals evaluate to the type `SmallFloat`.
 There is a `LargeInteger` type, written with an `n` suffix:
 
 ```
->>> 23n.isLargeInteger
+>>> 23L.isLargeInteger
 true
 ```
 
 and an `Integer` trait:
 
 ```
->>> [23, 23n].collect(isInteger:/1)
+>>> [23, 23L].collect(isInteger:/1)
 [true true]
 ```
 

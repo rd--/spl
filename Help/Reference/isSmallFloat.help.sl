@@ -35,7 +35,7 @@ Complex literals:
 Large integer literals:
 
 ```
->>> (23n.isSmallFloat, 23n.isLargeInteger)
+>>> (23L.isSmallFloat, 23L.isLargeInteger)
 (false, true)
 ```
 

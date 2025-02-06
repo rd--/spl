@@ -88,8 +88,8 @@ At `zero`:
 At `LargeInteger`:
 
 ```
->>> 333n.binomial(33n)
-3888653852803216535842634400242612716809201918n
+>>> 333L.binomial(33L)
+3888653852803216535842634400242612716809201918L
 ```
 
 If _k_ is greater than _n_ the answer is zero:

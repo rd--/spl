@@ -3,7 +3,8 @@
 - _min(aCollection)_
 - _min(aMagnitude, anotherMagnitude)_
 
-The unary form answers the minimum value in the collection.
+The unary form answers `reduce` of `min`,
+the minimum value in the collection.
 The collection must be non-empty and contain compatible Magnitudes.
 
 ```
@@ -14,10 +15,33 @@ The collection must be non-empty and contain compatible Magnitudes.
 true
 ```
 
+At a 3×3 matrix answers the column minima:
+
+```
+>>> [8 1 6; 3 5 7; 4 9 2].min
+[3 1 2]
+
+>>> [8 1 6].min([3 5 7]).min([4 9 2])
+[3 1 2]
+```
+
+See also `deepMin`:
+
+```
+>>> [8 1 6; 3 5 7; 4 9 2].deepMin
+1
+```
+
 The binary form answer the receiver or the argument, whichever has the least magnitude.
 
 ```
 >>> [4 3 2 3 1 5 7].reduce(min:/2)
+1
+
+>>> [3 3].iota.reduce(min:/2)
+[1 2 3]
+
+>>> [3 3].iota.deepReduce(min:/2)
 1
 
 >>> 2.4.min(1.9)
@@ -55,9 +79,16 @@ Smallest element in each matrix row:
 [1.2 1.3]
 ```
 
+At `Bag`:
+
+```
+>>> [3 5 2 4 5 3 4 2].asBag.min
+2
+```
+
 * * *
 
-See also: floor, max, minBy
+See also: deepMin, floor, max, minBy
 
 References:
 _Apl_

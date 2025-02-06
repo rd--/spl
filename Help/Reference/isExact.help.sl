@@ -34,7 +34,7 @@ false
 All `LargeInteger`, `Fraction`, `Decimal` and `Residue` values are exact:
 
 ```
->>> 23n.isExact
+>>> 23L.isExact
 true
 
 >>> 2/3.isExact

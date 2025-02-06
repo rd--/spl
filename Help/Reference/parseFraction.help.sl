@@ -24,7 +24,7 @@ Parse large fractions:
 
 ```
 >>> '18014398509481983/23'.parseFraction
-2n ^ 54 - 1 / 23
+2L ^ 54 - 1 / 23
 ```
 
 Signal an `error` if _aString_ is not a fraction:

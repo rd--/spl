@@ -17,7 +17,7 @@ with and without fractional part:
 
 >>> '20880467999847910614749358850048D'
 >>> .parseDecimal
-23n ^ 23
+23L ^ 23
 ```
 
 Literal syntax,

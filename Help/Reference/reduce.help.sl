@@ -77,7 +77,7 @@ true
 
 * * *
 
-See also: injectInto, scan
+See also: deepReduce, injectInto, reduceBy, scan
 
 References:
 _Apl_
