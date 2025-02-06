@@ -1225,8 +1225,8 @@ false.boole = 0 /* boolean as integer, asBit */
 22/7.asInteger = 3 /* fraction as integer, c.f. truncated */
 -22/7.asInteger = -3 /* fraction is truncated */
 7/8.asInteger = 0 /* fraction is truncated */
-'23'.parseInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
-{ '3.141'.parseInteger(10) }.ifError { true } /* floating point strings are not decimal integers */
+'23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
+{ '3.141'.parseSmallInteger(10) }.ifError { true } /* floating point strings are not decimal integers */
 { '3x'.parseDecimalInteger }.ifError { true } /* large radix strings are not decimal integers */
 false.asBit = 0 /* asBit */
 true.asBit = 1 /* asBit */
@@ -1530,7 +1530,7 @@ Fraction(3, 1) = 3/1
 3/2.floor = 1
 -3/2.floor = -2
 353/359.printString = '353/359' /* Fraction print string */
-59/61.storeString = 'Fraction(59n, 61n)' /* Fraction store string */
+59/61.storeString = '59/61' /* Fraction store string */
 4 / (2/3) = 6
 4 / (-2/3) = -6
 -4 / (-2/3) = 6
@@ -3217,14 +3217,14 @@ let r = nil; 1.toDo(5) { :each | r := each }; r = 5
 let r = nil; 1.to(0).do { :each | r := each }; r = nil
 1.toDo(0) { :each | 'toDo'.error }; true /* end less than start */
 '3.141'.parseNumber = 3.141
-'23'.parseInteger(10) = 23 /* 20 + 3 */
-'-23'.parseInteger(10) = -23 /* can parse negative integers */
-'1001'.parseInteger(2) = 9 /* 8 + 0 + 0 + 1 */
-'10101'.parseInteger(2) = 21 /* 16 + 0 + 4 + 0 + 1 */
-'11'.parseInteger(16) = 17 /* 16 + 1 */
-'FF'.parseInteger(16) = 255 /* 240 + 15 */
-{ 'X'.parseInteger(16) }.ifError { true } /* signal an error if the parse fails */
-{ '3.141'.parseInteger(10) }.ifError { true } /* error if string is not an integer */
+'23'.parseSmallInteger(10) = 23 /* 20 + 3 */
+'-23'.parseSmallInteger(10) = -23 /* can parse negative integers */
+'1001'.parseSmallInteger(2) = 9 /* 8 + 0 + 0 + 1 */
+'10101'.parseSmallInteger(2) = 21 /* 16 + 0 + 4 + 0 + 1 */
+'11'.parseSmallInteger(16) = 17 /* 16 + 1 */
+'FF'.parseSmallInteger(16) = 255 /* 240 + 15 */
+{ 'X'.parseSmallInteger(16) }.ifError { true } /* signal an error if the parse fails */
+{ '3.141'.parseSmallInteger(10) }.ifError { true } /* error if string is not an integer */
 '23'.parseDecimalInteger = 23 /* parse decimal integer */
 { 'FF'.parseDecimalInteger }.ifError { true } /* error if string is not a decimal integer */
 -1.5.ceiling = -1

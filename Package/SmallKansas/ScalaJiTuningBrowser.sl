@@ -63,7 +63,7 @@
 				},
 				1 -> {
 					browser.setStatus('Size = ' ++ path[1]);
-					selectedSize := path[1].parseInteger(10);
+					selectedSize := path[1].parseSmallInteger(10);
 					jiTunings.select { :each |
 						each.size = selectedSize
 					}.collect { :each |
@@ -77,7 +77,7 @@
 							'Limit = ', path[2]
 						].stringJoin
 					);
-					selectedLimit := path[2].parseInteger(10);
+					selectedLimit := path[2].parseSmallInteger(10);
 					jiTunings.select { :each |
 						each.size = selectedSize & {
 							each.limit = selectedLimit

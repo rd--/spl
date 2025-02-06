@@ -148,7 +148,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asInteger { :self |
-		self.asFloat.asInteger
+		self.truncated.asInteger
+	}
+
+	asLargeInteger { :self |
+		self.truncated
 	}
 
 	asSmallFloat { :self |
@@ -348,13 +352,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.weightedMediant(aFraction, 1, 1.goldenRatio)
 	}
 
-	printString { :self |
-		[
-			self.numerator.printString,
-			self.denominator.printString
-		].join('/')
-	}
-
 	raisedToFraction { :self :aFraction |
 		let rootNumerator = self.numerator.nthRoot(aFraction.denominator).truncated;
 		let rootDenominator = self.denominator.nthRoot(aFraction.denominator).truncated;
@@ -418,12 +415,9 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	storeString { :self |
 		[
-			'Fraction(',
-			self.numerator.storeString,
-			', ',
-			self.denominator.storeString,
-			')'
-		].join('')
+			self.numerator.printString,
+			self.denominator.printString
+		].join('/')
 	}
 
 	truncated { :self |
@@ -555,17 +549,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.rationalize(epsilon)
 	}
 
-	asFractionOver { :self :denominator |
-		self.isInteger.if {
-			ReducedFraction(self, 1n)
-		} {
-			Fraction(
-				(self * denominator).rounded,
-				denominator
-			)
-		}
-	}
-
 	asFraction { :self |
 		self.asFraction(1E-5)
 	}
@@ -609,19 +592,38 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			let parts = self.splitBy(separator);
 			(parts.size = 2).if {
 				Fraction(
-					parts[1].parseInteger(10),
-					parts[2].parseInteger(10)
+					parts[1].parseLargeInteger,
+					parts[2].parseLargeInteger
 				)
 			} {
 				self.error('parseFraction: parse failed')
 			}
 		} {
-			ReducedFraction(self.parseInteger(10), 1n)
+			ReducedFraction(self.parseLargeInteger, 1n)
 		}
 	}
 
 	parseFraction { :self |
 		self.parseFraction('/')
+	}
+
+}
+
++[Fraction, SmallFloat] {
+
+	asDecimalFraction { :self :places |
+		self.asFractionOver(10 ^ places)
+	}
+
+	asFractionOver { :self :denominator |
+		self.isInteger.if {
+			ReducedFraction(self, 1n)
+		} {
+			Fraction(
+				(self * denominator).rounded,
+				denominator
+			)
+		}
 	}
 
 }

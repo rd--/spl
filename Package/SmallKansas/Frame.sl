@@ -151,7 +151,7 @@ Frame : [Object, UserEventTarget] {
 	}
 
 	zIndex { :self |
-		self.framePane.style.getPropertyValue('z-index').parseInteger(10)
+		self.framePane.style.getPropertyValue('z-index').parseSmallInteger(10)
 	}
 
 	zIndex { :self :anInteger |

@@ -102,8 +102,24 @@ true
 23n
 ```
 
+Print `String`:
+
+```
+>>> (23n ^ 23).printString
+'20880467999847912034355032910567'
+
+>>> (23n ^ 23).asString
+'20880467999847912034355032910567'
+```
+
 * * *
 
 See also: asLargeInteger, Binary, Integer, Magnitude, Number, SmallFloat
+
+References:
+_Mozilla_
+[1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-bigint-objects)
 
 Categories: Math, Type

@@ -108,10 +108,6 @@
 		self.truncated
 	}
 
-	asLargeInteger { :self |
-		self.asInteger.asLargeInteger
-	}
-
 	asNumber { :self |
 		self
 	}
@@ -424,6 +420,10 @@
 
 	isNegative { :self |
 		self < self.zero
+	}
+
+	isNegativeZero { :self |
+		false
 	}
 
 	isNonNegative { :self |

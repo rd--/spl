@@ -219,11 +219,11 @@ Rational numbers are represented with the smallest possible positive denominator
 1/7
 ```
 
-The store string of a Fraction is the constructor notation:
+The store string of a Fraction is the literal notation:
 
 ```
 >>> 22/7.storeString
-'Fraction(22n, 7n)'
+'22/7'
 ```
 
 The reciprocal of a `Fraction` is a `Fraction`:
@@ -313,6 +313,17 @@ Convert degrees/minutes/seconds to precise rational representation:
 ```
 >>> 57 + 45/60 + 17/3600
 207917/3600
+```
+
+Print `String`:
+
+```
+>>> 23/17.asString
+'23/17'
+
+>>> 20880467999847912034355032910567/1
+>>> .printString
+'20880467999847912034355032910567/1'
 ```
 
 * * *

@@ -2,7 +2,7 @@ Decimal : [Object] { | fraction scale |
 
 	* { :self :operand |
 		operand.isDecimal.if {
-			Decimal(
+			UnsimplifiedDecimal(
 				self.fraction * operand.fraction,
 				self.scale + operand.scale
 			)
@@ -13,7 +13,7 @@ Decimal : [Object] { | fraction scale |
 
 	+ { :self :operand |
 		operand.isDecimal.if {
-			Decimal(
+			UnsimplifiedDecimal(
 				self.fraction + operand.fraction,
 				self.scale.max(operand.scale)
 			)
@@ -24,7 +24,7 @@ Decimal : [Object] { | fraction scale |
 
 	- { :self :operand |
 		operand.isDecimal.if {
-			Decimal(
+			UnsimplifiedDecimal(
 				self.fraction - operand.fraction,
 				self.scale.max(operand.scale)
 			)
@@ -38,7 +38,7 @@ Decimal : [Object] { | fraction scale |
 			self.error('Decimal>>/: zero divide')
 		} {
 			operand.isDecimal.if {
-				Decimal(
+				UnsimplifiedDecimal(
 					self.fraction / operand.fraction,
 					self.scale.max(operand.scale)
 				)
@@ -109,12 +109,28 @@ Decimal : [Object] { | fraction scale |
 		}
 	}
 
+	abs { :self |
+		UnsimplifiedDecimal(self.fraction.abs, self.scale)
+	}
+
 	adaptToFractionAndApply { :self :receiver :aBlock:/2 |
 		aBlock(receiver.asDecimal(self.scale), self)
 	}
 
 	adaptToIntegerAndApply { :self :receiver :aBlock:/2 |
 		aBlock(receiver.asDecimal(0), self)
+	}
+
+	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
+		receiver.isInteger.if {
+			aBlock(receiver.asDecimal(0), self)
+		} {
+			self.error('Decimal>>adaptToNumberAndApply: not integer')
+		}
+	}
+
+	asDecimal { :self :scale |
+		self.fraction.asDecimal(scale)
 	}
 
 	asFloat { :self |
@@ -125,8 +141,12 @@ Decimal : [Object] { | fraction scale |
 		self.fraction
 	}
 
-	asDecimal { :self :scale |
-		Decimal(self.fraction, scale)
+	asInteger { :self |
+		self.fraction.asInteger
+	}
+
+	asLargeInteger { :self |
+		self.fraction.asLargeInteger
 	}
 
 	denominator { :self |
@@ -134,11 +154,17 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	fractionPart { :self |
-		Decimal(self.fraction.fractionPart, self.scale)
+		UnsimplifiedDecimal(
+			self.fraction.fractionPart,
+			self.scale
+		)
 	}
 
 	integerPart { :self |
-		Decimal(self.fraction.integerPart, self.scale)
+		UnsimplifiedDecimal(
+			self.fraction.integerPart.asFraction,
+			self.scale
+		)
 	}
 
 	isExact { :unused |
@@ -166,7 +192,7 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	negated { :self |
-		Decimal(self.fraction.negated, self.scale)
+		UnsimplifiedDecimal(self.fraction.negated, self.scale)
 	}
 
 	numerator { :self |
@@ -174,27 +200,50 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	printString { :self |
-		self.fraction.printStringShowingDecimalPlaces(self.scale) ++ 'D'
+		self.isInteger.if {
+			'%D'.format([self.integerPart.asLargeInteger])
+		} {
+			'%%.%D'.format(
+				[
+					self.fraction.isNegative.if { '-' } { '' },
+					self.integerPart.asLargeInteger.abs,
+					(self.fractionPart.fraction.abs * (10 ^ self.scale)).rounded
+				]
+			)
+		}
+
 	}
 
 	raisedToInteger { :self :aNumber |
-		Decimal(self.fraction.raisedToInteger(aNumber), self.scale)
+		UnsimplifiedDecimal(
+			self.fraction.raisedToInteger(aNumber),
+			self.scale
+		)
 	}
 
 	reciprocal { :self |
 		self.isZero.if {
 			self.error('Decimal>>reciprocal: zero divide')
 		} {
-			Decimal(self.fraction.reciprocal, self.scale)
+			UnsimplifiedDecimal(
+				self.fraction.reciprocal,
+				self.scale
+			)
 		}
 	}
 
 	squared { :self |
-		Decimal(self.fraction.squared, self.scale)
+		UnsimplifiedDecimal(
+			self.fraction.squared,
+			self.scale
+		)
 	}
 
 	storeString { :self |
-		'Decimal(' ++ self.fraction ++ ', ' ++ self.scale ++ ')'
+		'%.asDecimal(%)'.format(
+			[self.fraction.storeString, self.scale]
+		)
+
 	}
 
 	truncated { :self |
@@ -202,15 +251,29 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	zero { :self |
-		Decimal(0, 0)
+		UnsimplifiedDecimal(0/1, 0)
 	}
 
 }
 
 +Fraction {
 
-	Decimal { :fraction :scale |
-		newDecimal().initializeSlots(fraction, scale)
+	adaptToDecimalAndApply { :self :receiver :aBlock:/2 |
+		aBlock(receiver, self.asDecimal(receiver.scale))
+	}
+
+	asDecimal { :self :scale |
+		UnsimplifiedDecimal(
+			self.asDecimalFraction(scale),
+			scale
+		)
+	}
+
+	UnsimplifiedDecimal { :fraction :scale |
+		newDecimal().initializeSlots(
+			fraction,
+			scale
+		)
 	}
 
 }
@@ -228,10 +291,9 @@ Decimal : [Object] { | fraction scale |
 
 	asDecimal { :self :scale |
 		self.isInteger.if {
-			Decimal(Fraction(self, 1), scale)
+			UnsimplifiedDecimal(Fraction(self, 1), scale)
 		} {
-			let n = 10 ^ scale;
-			Fraction((self * n).rounded, n).asDecimal(scale)
+			self.asDecimalFraction(scale).asDecimal(scale)
 		}
 	}
 
@@ -241,34 +303,49 @@ Decimal : [Object] { | fraction scale |
 
 }
 
-+Fraction {
-
-	adaptToDecimalAndApply { :self :receiver :aBlock:/2 |
-		aBlock(receiver, self.asDecimal(receiver.scale))
-	}
++LargeInteger {
 
 	asDecimal { :self :scale |
-		Decimal(self, scale)
+		UnsimplifiedDecimal(Fraction(self, 1n), scale)
+	}
+
+	asDecimal { :self |
+		self.asDecimal(0)
 	}
 
 }
 
 +String {
 
-	parseDecimal { :self |
-		let p = self.splitBy('.');
-		p.size.caseOfOtherwise([
+	basicParseDecimal { :self |
+		let parts = self.splitBy('.');
+		parts.size.caseOfOtherwise([
 			{ 1 } -> {
-				Decimal(p.first.parseInteger(10).asFraction, 0)
+				UnsimplifiedDecimal(
+					parts[1].parseLargeInteger.asFraction,
+					0
+				)
 			},
 			{ 2 } -> {
-				let i = p.first.parseInteger(10);
-				let f = i.copySignTo(p.second.parseInteger(10));
-				let k = p.second.size;
-				Decimal(i + Fraction(f, 10 ^ k), k)
+				let sign = self.beginsWith('-').if { -1 } { 1 };
+				let i = parts[1].parseLargeInteger;
+				let f = sign.copySignTo(parts[2].parseLargeInteger);
+				let k = parts[2].size;
+				UnsimplifiedDecimal(
+					i + Fraction(f, 10 ^ k),
+					k
+				)
 			}
 		]) {
-			self.error('String>>asDecimal')
+			self.error('String>>basicParseDecimal')
+		}
+	}
+
+	parseDecimal { :self |
+		self.endsWith('D').if {
+			self.allButLast.basicParseDecimal
+		} {
+			self.error('String>>parseDecimal')
 		}
 	}
 

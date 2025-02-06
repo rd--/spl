@@ -236,6 +236,7 @@ Reference/anyAs.help.sl
 Reference/any.help.sl
 Reference/anyOne.help.sl
 Reference/anySatisfy.help.sl
+Reference/anyTrue.help.sl
 Reference/apostrophe.help.sl
 Reference/apply.help.sl
 Reference/arcCos.help.sl
@@ -268,6 +269,7 @@ Reference/asAssociation.help.sl
 Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
 Reference/asAxonometricProjection.help.sl
+Reference/asBag.help.sl
 Reference/asBit.help.sl
 Reference/asBitSet.help.sl
 Reference/asBlob.help.sl
@@ -288,6 +290,8 @@ Reference/asColour.help.sl
 Reference/asColourSvg.help.sl
 Reference/asComplex.help.sl
 Reference/asDate.help.sl
+Reference/asDecimalFraction.help.sl
+Reference/asDecimal.help.sl
 Reference/asDocumentationTest.help.sl
 Reference/asDot.help.sl
 Reference/asEdge.help.sl
@@ -349,12 +353,12 @@ Reference/assertIsOfSize.help.sl
 Reference/assertIsSmallInteger.help.sl
 Reference/assertIsString.help.sl
 Reference/assertIsValidIndex.help.sl
+Reference/asSet.help.sl
 Reference/asSmallerPowerOfTwo.help.sl
 Reference/asSmallFloat.help.sl
 Reference/associationAt.help.sl
 Reference/associationAtIfAbsent.help.sl
 Reference/Association.help.sl
-Reference/AssociationList.help.sl
 Reference/associationsDo.help.sl
 Reference/associations.help.sl
 Reference/associationsRemove.help.sl
@@ -379,6 +383,7 @@ Reference/atAll.help.sl
 Reference/atAllPin.help.sl
 Reference/atAllPutAll.help.sl
 Reference/atAllPut.help.sl
+Reference/atAllValid.help.sl
 Reference/atAllWrap.help.sl
 Reference/atBlend.help.sl
 Reference/atEnd.help.sl
@@ -402,6 +407,7 @@ Reference/AudioIn.help.sl
 Reference/AxonometricProjection.help.sl
 Reference/azimuth.help.sl
 Reference/BacktickQuotedString.help.sl
+Reference/Bag.help.sl
 Reference/Balance2.help.sl
 Reference/barlowBasicIndispensability.help.sl
 Reference/barlowDisharmonicity.help.sl
@@ -826,6 +832,7 @@ Reference/endIndex.help.sl
 Reference/endsWithAnyOf.help.sl
 Reference/endsWith.help.sl
 Reference/ensure.help.sl
+Reference/enumerate.help.sl
 Reference/EnvBreakPoint.help.sl
 Reference/EnvGen.help.sl
 Reference/environmentVariable.help.sl
@@ -918,6 +925,7 @@ Reference/Float64Array.help.sl
 Reference/floor.help.sl
 Reference/Floor.help.sl
 Reference/floorLog.help.sl
+Reference/fnv1aHash.help.sl
 Reference/Fold2.help.sl
 Reference/foldBetweenAnd.help.sl
 Reference/Fold.help.sl
@@ -1103,6 +1111,7 @@ Reference/includeAll.help.sl
 Reference/include.help.sl
 Reference/includesAllOf.help.sl
 Reference/includesAnyOf.help.sl
+Reference/includesBy.help.sl
 Reference/includesEdge.help.sl
 Reference/includes.help.sl
 Reference/includesIndex.help.sl
@@ -1210,6 +1219,7 @@ Reference/isDuplicateFree.help.sl
 Reference/isEdge.help.sl
 Reference/isEmpty.help.sl
 Reference/isEven.help.sl
+Reference/isExact.help.sl
 Reference/isFareyPair.help.sl
 Reference/isFinite.help.sl
 Reference/isFloatString.help.sl
@@ -1598,6 +1608,7 @@ Reference/Minus.help.sl
 Reference/minute.help.sl
 Reference/minutes.help.sl
 Reference/mirror.help.sl
+Reference/Missing.help.sl
 Reference/mixedFractionParts.help.sl
 Reference/mixedRadixEncode.help.sl
 Reference/Mix.help.sl
@@ -1777,12 +1788,13 @@ Reference/parseHexColour.help.sl
 Reference/parseHexString.help.sl
 Reference/parseHexTriplet.help.sl
 Reference/parseHtml.help.sl
-Reference/parseInteger.help.sl
 Reference/parseJson.help.sl
+Reference/parseLargeInteger.help.sl
 Reference/parseMethodSignature.help.sl
 Reference/parseNumber.help.sl
 Reference/parseRgbColour.help.sl
 Reference/parseRgbTriplet.help.sl
+Reference/parseSmallInteger.help.sl
 Reference/parseSvg.help.sl
 Reference/partitionDo.help.sl
 Reference/partitionFunctionP.help.sl
@@ -1971,6 +1983,7 @@ Reference/radians.help.sl
 Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
 Reference/radius.help.sl
+Reference/raisedToFraction.help.sl
 Reference/raisedToInteger.help.sl
 Reference/ramerDouglasPeuckerAlgorithm.help.sl
 Reference/Rand0.help.sl
@@ -2181,6 +2194,7 @@ Reference/septimalComma.help.sl
 Reference/Sequence.help.sl
 Reference/Sequencer.help.sl
 Reference/setBitAt.help.sl
+Reference/Set.help.sl
 Reference/SetResetFf.help.sl
 Reference/setToEnd.help.sl
 Reference/SfAcquire.help.sl
@@ -2455,6 +2469,7 @@ Reference/undirectedGraph.help.sl
 Reference/unicodeCharacterDatabase.help.sl
 Reference/unicode.help.sl
 Reference/UniformDistribution.help.sl
+Reference/unionBy.help.sl
 Reference/union.help.sl
 Reference/uniqueElements.help.sl
 Reference/unique.help.sl

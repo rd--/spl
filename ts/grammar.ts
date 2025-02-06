@@ -174,7 +174,9 @@ Sl {
 	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
-	decimalLiteral = plusOrMinus? digit+ "." digit+ "D" // ("d" | "D")
+	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral
+	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" // ("d" | "D")
+	integerDecimalLiteral = plusOrMinus? digit+ "D" // ("d" | "D")
 	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")

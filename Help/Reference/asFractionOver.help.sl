@@ -1,10 +1,18 @@
 # asFractionOver
 
-- _asFractionOver(aSmallFloat, anInteger)_
+- _asFractionOver(aNumber, anInteger)_
 
 Derive a `Fraction` where _anInteger_ is the unreduced denominator.
 
+At `SmallFloat`:
+
 ```
+>>> 1.pi.asFractionOver(1E2)
+157/50
+
+>>> 1.pi.asFractionOver(1E5)
+314159/100000
+
 >>> 1.pi.asFractionOver(1E11)
 314159265359/100000000000
 
@@ -15,8 +23,18 @@ Derive a `Fraction` where _anInteger_ is the unreduced denominator.
 23/1
 ```
 
+At `Fraction`:
+
+```
+>>> 355/113.asFractionOver(1E2)
+157/50
+
+>>> 1/3.asFractionOver(1E3)
+333/1000
+```
+
 * * *
 
-See also: asFraction, limitDenominator, rationalize
+See also: asDecimalFraction, asFraction, Decimal, limitDenominator, rationalize
 
 Categories: Converting, Math

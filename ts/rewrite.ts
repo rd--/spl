@@ -695,8 +695,11 @@ const asJs: ohm.ActionDict<string> = {
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
-	decimalLiteral(s, i, _, f, _d) {
-		return `_parseDecimal_1('${s.sourceString}${i.sourceString}.${f.sourceString}')`;
+	floatDecimalLiteral(s, i, _, f, _d) {
+		return `_basicParseDecimal_1('${s.sourceString}${i.sourceString}.${f.sourceString}')`;
+	},
+	integerDecimalLiteral(s, i, _d) {
+		return `_basicParseDecimal_1('${s.sourceString}${i.sourceString}')`;
 	},
 	scientificLiteral(base, _e, exponent) {
 		return `${base.sourceString}e${exponent.sourceString}`;
@@ -704,8 +707,8 @@ const asJs: ohm.ActionDict<string> = {
 	fractionLiteral(sign, numerator, _divisor, denominator) {
 		// console.debug('fractionLiteral', sign.sourceString, numerator.sourceString, denominator.sourceString);
 		return `_Fraction_2(
-			${sign.sourceString}${numerator.sourceString},
-			${denominator.sourceString}
+			${sign.sourceString}${numerator.sourceString}n,
+			${denominator.sourceString}n
 		)`;
 	},
 	complexLiteral(real, _j, imaginary) {

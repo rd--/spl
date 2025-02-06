@@ -74,8 +74,8 @@ Complex(3, 4)
 `Decimal` literals:
 
 ```
->>> 3.1416D.fraction
-Decimal(3927/1250, 4)
+>>> 3.1416D
+3.1416D
 ```
 
 `LargeInteger` literals:

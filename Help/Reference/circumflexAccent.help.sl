@@ -167,6 +167,9 @@ At `Fraction` answers a fraction if the exponent is an integer:
 
 >>> -5/2 ^ 15
 -30517578125/32768
+
+>>> 23/1 ^ 23
+20880467999847912034355032910567/1
 ```
 
 and a `SmallFloat` if not:

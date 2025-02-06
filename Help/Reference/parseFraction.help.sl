@@ -20,6 +20,13 @@ The unary form sets the separator to '/':
 9/8
 ```
 
+Parse large fractions:
+
+```
+>>> '18014398509481983/23'.parseFraction
+2n ^ 54 - 1 / 23
+```
+
 Signal an `error` if _aString_ is not a fraction:
 
 ```
@@ -31,6 +38,6 @@ true
 
 * * *
 
-See also: parseInteger, parseNumber
+See also: parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
-Categories: Converting
+Categories: Converting, Parsing

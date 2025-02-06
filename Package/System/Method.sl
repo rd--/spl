@@ -122,7 +122,7 @@ Method! : [Object] {
 	parseQualifiedMethodName { :self |
 		let parts = self.splitBy(':/');
 		(parts.size = 2).if {
-			[parts[1], parts[2].parseInteger(10)]
+			[parts[1], parts[2].parseSmallInteger(10)]
 		} {
 			self.error('parseQualifiedMethodName')
 		}

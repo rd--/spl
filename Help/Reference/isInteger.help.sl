@@ -104,7 +104,7 @@ The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteg
 
 * * *
 
-See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseInteger
+See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseLargeInteger, parseSmallInteger
 
 References:
 _Mathematica_

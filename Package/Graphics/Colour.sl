@@ -723,7 +723,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 			let g = self.copyFromTo(4, 5);
 			let b = self.copyFromTo(6, 7);
 			[r, g, b].collect { :each |
-				each.parseInteger(16) / 255
+				each.parseSmallInteger(16) / 255
 			}
 		} {
 			self.error('parseHexTriplet')
@@ -738,7 +738,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		self.beginsWith('rgb(').if {
 			let [r, g, b] = self.copyFromTo(5, self.size - 1).splitBy(',');
 			[r, g, b].collect { :each |
-				each.parseInteger(10) / 255
+				each.parseSmallInteger(10) / 255
 			}
 		} {
 			self.error('parseRgbTriplet')

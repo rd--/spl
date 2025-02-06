@@ -502,7 +502,9 @@
 
 ## Parsing Numbers
 
-- `parseDecimalInteger`, `parseInteger`, `parseNumber`
+- `parseLargeInteger`, `parseSmallInteger`
+- `parseComplex`, `parseDecimal`, `parseFraction`
+- `parseDecimalInteger`
 
 ## Partial Application
 

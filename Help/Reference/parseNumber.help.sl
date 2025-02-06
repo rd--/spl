@@ -75,6 +75,6 @@ true
 
 * * *
 
-See also: parseDecimalInteger, parseFraction, parseInteger, printString, storeString
+See also: parseDecimalInteger, parseFraction, parseLargeInteger, parseSmallInteger, printString, storeString
 
 Categories: Parsing

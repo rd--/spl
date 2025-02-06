@@ -635,7 +635,7 @@ export function addMethod(
 	return addMethodFor(typeName, method, slOptions.requireTypeExists);
 }
 
-// Allows methods to be added to 'pre-installed' types before the type is added, CF. load &etc. (& parseInteger ...).
+// Allows methods to be added to 'pre-installed' types before the type is added, CF. load &etc. (& parseSmallInteger ...).
 // It'd be possible to only allow this for the 'pre-installed' methods, which might be saner.
 // Run for built-in types, which may have traits.  Assumes non-kernel types have at least one slot.
 export function addType(

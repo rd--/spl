@@ -17,6 +17,15 @@ A metric prefix is a unit prefix that precedes a basic unit of measure to indica
 ]
 ```
 
+Unlike scientific literals,
+which always answer `SmallFloat` values,
+the SI prefix methods can answer `LargeInteger` values:
+
+```
+>>> [1n.kilo 1n.mega 1n.giga 1n.terra]
+[1000n 1000000n 1000000000n 1000000000000n]
+```
+
 * * *
 
 See also: centi, deci, deca, hecto, giga, kilo, mega, micro, milli, nano, pico, terra

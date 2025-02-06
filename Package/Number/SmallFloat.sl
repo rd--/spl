@@ -711,7 +711,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	parseInteger { :self :radix |
+	parseNumber { :self |
+		self.assert {
+			self.matchesRegExp('^[0-9eE.+-]+$')
+		};
+		self.basicParseNumber
+	}
+
+	parseSmallInteger { :self :radix |
 		radix.assertIsSmallInteger;
 		self.assert {
 			radix > 1 & {
@@ -721,13 +728,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			}
 		};
 		self.basicParseInteger(radix).assertIsSmallInteger
-	}
-
-	parseNumber { :self |
-		self.assert {
-			self.matchesRegExp('^[0-9eE.+-]+$')
-		};
-		self.basicParseNumber
 	}
 
 }

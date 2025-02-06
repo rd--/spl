@@ -1,0 +1,41 @@
+# parseDecimal
+
+- _parseDecimal(aString)_
+
+Parse _aString_ as a `Decimal` value,
+
+Without fractional part:
+
+```
+>>> '23D'.parseDecimal
+23D
+```
+
+With fractional part:
+
+```
+>>> '3.1416D'.parseDecimal
+3.1416D
+```
+
+With negative sign:
+
+```
+>>> '-0.85D'.parseDecimal
+-0.85D
+
+>>> '-3.14159D'.parseDecimal
+-3.14159D
+```
+
+With large integer:
+
+```
+>>> '20880467999847912034355032910567D'
+>>> .parseDecimal
+23n ^ 23
+```
+
+* * *
+
+See also: parseDecimalInteger, parseLargeInteger, parseNumber, parseSmallInteger

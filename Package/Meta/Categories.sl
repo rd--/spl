@@ -1064,7 +1064,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'parseFraction'
 		'parseHexColour'
 		'parseHexString'
-		'parseInteger'
+		'parseSmallInteger'
 		'parseJson'
 		'parseLargeInteger'
 		'parseMethodSignature'
