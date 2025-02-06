@@ -37,3 +37,7 @@ Memoized Fibonacci will answer immediately for large _k_:
 * * *
 
 See also: Block, cached, fibonacci
+
+References:
+_Python_
+[1](https://docs.python.org/3/library/functools.html#functools.cache)

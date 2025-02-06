@@ -127,10 +127,35 @@ Only split when there is a change from positive to negative (or non-positive) si
 Run-length encoding:
 
 ```
->>> [1 1 1 2 2 1 1 3 3 3].split(=).collect { :each |
+>>> [1 1 1 2 2 1 1 3 3 3]
+>>> .split(=)
+>>> .collect { :each |
 >>> 	[each.first, each.size]
 >>> }
 [1 3; 2 2; 1 2; 3 3]
+```
+
+Iterated run-length encoding,
+this is the _look and say_ sequence
+[A005150](https://oeis.org/A005150):
+
+```
+>>> { :n |
+>>> 	n.split(=).collect { :x |
+>>> 		[x.size, x.first]
+>>> 	}.flatten
+>>> }.nestList([1], 8)
+[
+	1;
+	1 1;
+	2 1;
+	1 2 1 1;
+	1 1 1 2 2 1;
+	3 1 2 2 1 1;
+	1 3 1 1 2 2 2 1;
+	1 1 1 3 2 1 3 2 1 1;
+	3 1 1 3 1 2 1 1 1 3 1 2 2 1
+]
 ```
 
 `flatten` acts an inverse of `split`:
@@ -144,7 +169,9 @@ l
 Find runs of numbers in base 10 that contain the same number of 1s:
 
 ```
->>> 1:50.collect { :n | n.digitCount(10, 1) }.split(=)
+>>> 1:50.collect { :n |
+>>> 	n.digitCount(10, 1)
+>>> }.split(=)
 [
 	1;
 	0 0 0 0 0 0 0 0;

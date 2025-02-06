@@ -764,6 +764,23 @@
 		}
 	}
 
+	inventorySequence { :terms |
+		let number = 0;
+		let answer = [0];
+		let inventory = [0].asIdentityBag;
+		(2 .. terms).do { :n |
+			let count = inventory.occurrencesOf(number);
+			number := (count = 0).if {
+				0
+			} {
+				number + 1
+			};
+			answer.add(count);
+			inventory.add(count)
+		};
+		answer
+	}
+
 	isByte { :self |
 		self.isInteger & {
 			self.betweenAnd(0, 255)
@@ -952,6 +969,21 @@
 			answer.add(answer[i - 1] + answer[i - 3])
 		};
 		answer
+	}
+
+	noergaardInfinitySequence { :self |
+		let f:/1 = { :n |
+			(n = 0).if {
+				0
+			} {
+				(n % 2 = 1).if {
+					f((n - 1) // 2) + 1
+				} {
+					f(n // 2).-
+				}
+			}
+		}.memoize;
+		(0 .. self - 1).collect(f:/1)
 	}
 
 	numberOfCompositions { :n :k |
