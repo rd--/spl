@@ -1,6 +1,6 @@
 # Spl
 
-Simple programming language:
+Simple Programming Language (Sᴘʟ):
 a notation for working with a minimal procedural language.
 
 The language consists of lexically scoped closures with mutable environments, product types, and a non-local return mechanism.

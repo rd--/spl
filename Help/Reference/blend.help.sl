@@ -1,7 +1,12 @@
 # blend
 
-- _blend(y1, y2, mu)_
 - _blend(y1, y2, mu, aBlock:/3)_
+- _blend(y1, y2, mu)_
+
+In the quaternary case,
+apply the interpolation function _aBlock_ to interpolate between _y1_ and _y2_ at _mu_,
+which should be in _(0, 1)_.
+In the ternary case a linear interpolation function is used.
 
 At `SmallFloat`:
 

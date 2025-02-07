@@ -245,12 +245,12 @@
 		2.0 ^ (self * (1 / 12))
 	}
 
-	Minus { :self |
-		0 - self
-	}
-
 	MulAdd { :self :mul :add |
 		self * mul + add
+	}
+
+	Negated { :self |
+		0 - self
 	}
 
 	nextPowerOfTwo { :self |

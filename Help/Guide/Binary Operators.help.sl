@@ -26,6 +26,7 @@ Two-character binary operators,
 in alphabetical order:
 
 - `ampersandAmpersand`: &&
+- `asteriskPlusSign`: *+
 - `commercialAtAsterisk`: @*
 - `commercialAtGreaterThanSign`: @>
 - `equalsSignEqualsSign`: ==

@@ -2,7 +2,7 @@
 
 - _bilinearInterpolation(q11, q21, q12, q22, mu1, mu2)_
 
-Calculate an intepolated point that lies between the four points _q11_, _q21_, _q12_ and _q22_ at _(mu1,mu2)_.
+Calculate an interpolated point that lies between the four points _q11_, _q21_, _q12_ and _q22_ at _(mu1,mu2)_.
 
 ```
 >>> bilinearInterpolation(

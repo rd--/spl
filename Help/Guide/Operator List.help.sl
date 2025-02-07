@@ -9,6 +9,7 @@ Math operators:
 - `^`: raise to (ˆ)
 - `%`: modulo
 - `//`: quotient (⫽)
+- `*+`: multiply add
 
 Comparison operators:
 

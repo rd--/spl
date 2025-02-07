@@ -117,9 +117,11 @@ Negation is its own inverse:
 
 The name of this operator is `hyphenMinus`.
 
+Where supported `-` is displayed as −.
+
 * * *
 
-See also: +, *, /, ^, Minus
+See also: +, *, /, ^, Minus, negated
 
 References:
 _Apl_

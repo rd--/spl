@@ -2,6 +2,8 @@
 
 - _matrixResample(aMatrix, shape)_
 
+Answer a matrix that is the bilinear resampling of _aMatrix_ to have the specified _shape_.
+
 Resample a 3×3 matrix to a 6×6 matrix:
 
 ```
@@ -20,6 +22,7 @@ Resample a 3×3 matrix to a 6×6 matrix:
 ]
 ```
 
+The answer matrix need to have the same proportions as the initial matrix.
 Resample a 2×3 matrix to a 4×7 matrix:
 
 ```

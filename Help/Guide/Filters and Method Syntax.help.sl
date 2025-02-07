@@ -1,6 +1,6 @@
 # Filters and Method Syntax
 
-In the program below randomly spaced impulses (`Dust`) are scaled (`Mul`),
+In the program below randomly spaced impulses (`Dust`) are scaled (`Times`),
 trigger an envelope (`Decay`),
 which shapes a noise generator (`PinkNoise`),
 which is then filtered (`Bpf`) and

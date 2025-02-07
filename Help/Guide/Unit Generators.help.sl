@@ -172,9 +172,10 @@
 - `Log2`: base 2 logarithm
 - `Max`: maximum
 - `Min`: minimum
-- `Minus`: subtraction and negation
+- `Minus`: subtraction
 - `ModDif`: minimum difference of two values in modulo arithmetics
 - `MulAdd`: multiply and add
+- `Negated`: negation
 - `Plus`: addition
 - `Power`: raised to
 - `Quotient`: quotient

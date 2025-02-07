@@ -315,6 +315,12 @@
 		self.collect(pi:/1)
 	}
 
+	powerMod { :self :exponent :modulo |
+		self.collect { :each |
+			each.powerMod(exponent, modulo)
+		}
+	}
+
 	primeFactors { :self |
 		self.collect(primeFactors:/1)
 	}
@@ -475,6 +481,10 @@
 
 	% { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, %)
+	}
+
+	*+ { :self :mul :add |
+		self * mul + add
 	}
 
 	absArg { :self |

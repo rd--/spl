@@ -23,6 +23,7 @@
 - `Let Syntax`
 - `List Assignment Syntax`
 - `Method Syntax`
+- `Operator Syntax`
 - `Range Syntax`
 - `Trailing Block Syntax`
 - `Trailing Dictionary Syntax`

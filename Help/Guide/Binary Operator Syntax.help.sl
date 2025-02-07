@@ -93,7 +93,7 @@ When compiling the operators are likewise given text names, again because of rul
 
 See also: operatorNameTable, punctuationCharacterNameTable
 
-Guides: Binary Operators, Operator List, Operator Names, Syntax Tokens, Unary Operator Syntax
+Guides: Binary Operators, Operator List, Operator Syntax, Operator Names, Syntax Tokens, Unary Operator Syntax
 
 Further Reading: Unicode Consortium 1992
 

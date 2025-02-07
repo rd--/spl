@@ -56,6 +56,10 @@
 		}
 	}
 
+	*+ { :self :mul :add |
+		self * mul + add
+	}
+
 	abs { :self |
 		self.isNegative.if {
 			self.negated

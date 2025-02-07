@@ -2,7 +2,7 @@
 
 - _powerMod(a, b, m)_
 
-Answers _a ^ b % m_.
+Answers _(a ^ b) % m_.
 
 ```
 >>> 2.powerMod(10, 3)
@@ -10,6 +10,16 @@ Answers _a ^ b % m_.
 
 >>> 3.powerMod(2, 7)
 2
+
+>>> 3.powerMod(5, 7)
+5
+```
+
+Threads over first argument:
+
+```
+>>> 1:4.powerMod(4, 5)
+[1 1 1 1]
 ```
 
 Use `powerMod` to generate all coprime integers modulo 9:
@@ -59,3 +69,5 @@ See also: ^, %
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PowerMod.html)
+_Mathworks_
+[1](https://mathworks.com/help/symbolic/sym.powermod.html)

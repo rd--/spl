@@ -30,7 +30,7 @@ Draw the entry for the 9th cyclically 4-connected non-Hamiltonian graph of 46 ve
 
 ~~~spl svg=B
 system
-.planarNonHamiltonianGraphCatalogue
+.planarGraphCatalogue
 .at('nonham46c4.8')
 .asLineDrawing
 ~~~
@@ -42,7 +42,7 @@ the set of quadrangulations of seventeen vertices:
 
 ~~~spl svg=C
 system
-.planarQuadrangulationsCatalogue
+.planarGraphCatalogue
 .at('quadrangulations_17.137')
 .asLineDrawing
 ~~~
@@ -54,7 +54,7 @@ the set of five regular graphs of 26 vertices and 41 faces:
 
 ~~~spl svg=D
 system
-.planarRegularGraphCatalogue
+.planarGraphCatalogue
 .at('5reg_26-41.470')
 .asLineDrawing
 ~~~

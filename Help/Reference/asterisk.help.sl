@@ -89,7 +89,7 @@ The name of this operator is `asterisk`.
 
 * * *
 
-See also: +, -, /, ^, cross, dot, product, sign, Times
+See also: +, -, /, ^, *+, cross, dot, product, sign, Times
 
 References:
 _Apl_

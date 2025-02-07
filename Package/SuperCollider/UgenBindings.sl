@@ -319,7 +319,7 @@
 
 /* Auto-generated */
 +[List, Ugen] {
-	Minus { :self | <primitive: return sc.Neg(_self);> }
+	Negated { :self | <primitive: return sc.Neg(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
 	Cubed { :self | <primitive: return sc.Cubed(_self);> }
 	Reciprocal { :self | <primitive: return sc.Recip(_self);> }
@@ -435,7 +435,7 @@
 		(self * 100).MidiCps
 	}
 
-	- { :self | Minus(self) }
+	- { :self | Negated(self) }
 
 	^ { :self :anObject | Power(self, anObject) }
 	+ { :self :anObject | Plus(self, anObject) }

@@ -4,7 +4,7 @@
 
 Answer _aNumber_ raised to the power _anotherNumber_,
 with the same meaning as `symmetricPower`,
-which is the meaning of the `Power` operator unit generator of SuperCollider.
+which is the meaning of the `Power` operator unit generator of the SuperCollider synthesiser.
 
 ```
 >>> Power(2, 3)

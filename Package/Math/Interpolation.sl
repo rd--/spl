@@ -49,6 +49,20 @@
 		(a0 * mu3) + (a1 * mu2) + (a2 * mu) + a3
 	}
 
+	hermiteInterpolation { :y0 :y1 :y2 :y3 :mu |
+		let c0 = y1;
+		let c1 = 0.5 * (y2 - y0);
+		let c3 = (1.5 * (y1 - y2)) + (0.5 * (y3 - y0));
+		let c2 = y0 - y1 + c1 - c3;
+		((c3 * mu + c2) * mu + c1) * mu + c0
+	}
+
+	hermiteInterpolation { :tension :bias |
+		{ :y0 :y1 :y2 :y3 :mu |
+			hermiteInterpolation(y0, y1, y2, y3, mu, tension, bias)
+		}
+	}
+
 	hermiteInterpolation { :y0 :y1 :y2 :y3 :mu :tension :bias |
 		let mu2 = mu * mu;
 		let mu3 = mu2 * mu;

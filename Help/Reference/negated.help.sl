@@ -53,6 +53,11 @@ At a `Colour`, inverts the value of the colour channels:
 
 The unary operator form is `-`.
 
+_Rationale_:
+This operator is spelled `negated` as in Smalltalk,
+in which notation unary messages are written postfix,
+hence _1 negated_ and and not _negate 1_.
+
 * * *
 
 See also: -, abs, sign

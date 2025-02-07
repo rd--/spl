@@ -48,6 +48,8 @@ Plot over the complex numbers in _(0,1)J0_ with _a=2_ and _m=100_:
 
 See also: blancmangeFunction
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WeierstrassFunction.html),

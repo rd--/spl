@@ -62,7 +62,7 @@ The name of this operator is `plusSign`.
 
 * * *
 
-See also: -, *, /, conjugated, Plus, sum
+See also: -, *, *+, /, conjugated, Plus, sum
 
 Guides: Defining Methods
 

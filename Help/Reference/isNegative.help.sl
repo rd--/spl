@@ -21,7 +21,9 @@ Negative one is negative:
 true
 ```
 
-Negative zero is not negative, because zero and negative zero compare as equal, however it `isNegativeZero`:
+Negative zero is not negative,
+because zero and negative zero compare as equal,
+however it `isNegativeZero`:
 
 ```
 >>> -0.isNegative

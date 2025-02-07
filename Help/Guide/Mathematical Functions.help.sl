@@ -202,6 +202,17 @@
 - `partitionsP`: number of partitions of an integer
 - `partitionsQ`: number of partitions of an integer
 
+## Interpolation Functions
+
+- `bilinearInterpolation`
+- `catmullRomInterpolation`
+- `cosineInterpolation`
+- `cubicInterpolation`
+- `hermiteInterpolation
+- `linearInterpolation`
+- `listInterpolation`
+- `matrixInterpolation`
+
 ## Numerical Functions
 
 - `boole`: 1 for true, 0 for false
@@ -319,6 +330,14 @@
 
 - `denominator`: denominator of a fraction
 - `numerator`: numerator of a fraction
+
+## Resampling Functions
+
+- `downsample`
+- `downsampleSteinarsson`
+- `matrixResample`
+- `resample`
+- `upsample`
 
 ## Set Functions
 

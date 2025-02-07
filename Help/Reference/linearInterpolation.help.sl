@@ -2,7 +2,7 @@
 
 - _linearInterpolation(y1, y2, mu)_
 
-Calculate an intepolated point that lies between _y1_ and _y2_ at _mu_,
+Calculate an interpolated point that lies between _y1_ and _y2_ at _mu_,
 where _mu_ of `zero` answers _y1_,
 and _mu_ of `one` answers _y2_.
 
@@ -32,7 +32,7 @@ In the `List` case _mu_ may be a list:
 [1.4 6]
 ```
 
-Plot the line that intepolates from _1_ to _3_:
+Plot the line that interpolates from _1_ to _3_:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot { :x |
@@ -42,7 +42,7 @@ Plot the line that intepolates from _1_ to _3_:
 
 ![](sw/spl/Help/Image/linearInterpolation-A.svg)
 
-Plot the line that intepolates from _(1,3)_ to _(3,-1)_:
+Plot the line that interpolates from _(1,3)_ to _(3,-1)_:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot { :x |
