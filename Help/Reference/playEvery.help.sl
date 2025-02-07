@@ -12,7 +12,7 @@ In the two-argument form scheduling is on _system.clock_.
 In the example below the next delay time is used to calculate the duration of the current sound,
 so that is does not overlap by very much with the next sound:
 
-~~~spl scheduler scsynth
+~~~spl scheduler
 { :nextDelay |
 	let attack = (0 -- 1).atRandom;
 	let decay = (2 -- 3).atRandom;

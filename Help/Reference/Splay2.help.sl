@@ -42,7 +42,7 @@ Texture graph:
 
 Texture program:
 
-~~~spl textureProgram=A
+~~~spl texture
 {
 	let k = 7;
 	let o = SinOsc(

@@ -34,8 +34,11 @@ true
 Request all library items be fetched,
 unless the contents are already stored:
 
-~~~spl effect=cache
-system.library.collect(request:/1)
+~~~spl async
+system
+.library
+.collect(request:/1)
+.allFulfilled
 ~~~
 
 * * *

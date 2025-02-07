@@ -7,7 +7,7 @@ fetch the terse guide at _aUrl_,
 run all of the terse examples,
 and print a summary of each section and of the guide altogether.
 
-~~~spl program=Text
+~~~spl console
 system
 .splFile('Help/Terse/Terse Guide.help.sl')
 .asFileUrl
@@ -18,7 +18,7 @@ At `String`,
 run all of the terse examples in _aString_,
 and print a summary of each section and of the guide altogether.
 
-~~~spl program=Text
+~~~spl console
 system
 .splFile('Help/Terse/Terse Guide to SuperCollider.help.sl')
 .readTextFile

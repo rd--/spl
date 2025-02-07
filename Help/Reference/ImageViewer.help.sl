@@ -20,13 +20,11 @@ system.smallKansas.ImageViewer(
 
 Fetch a Png file, and display by creating an object Url:
 
-~~~spl smallKansas
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchBlob.thenElse { :answer |
+~~~spl ui
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchBlob
+.thenElse { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
 		'Smalltalk Balloon',
@@ -42,18 +40,19 @@ url.fetchBlob.thenElse { :answer |
 Fetch an Svg file, and display by creating an object Url:
 
 ~~~spl smallKansas
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/svg/'
-	'smalltalk-balloon.svg'
-].join('');
-url.fetchBlob.thenElse { :answer |
+system
+.splUrl('svg/ScProgramBrowser.3.svg')
+.fetchBlob
+.thenElse { :answer |
 	let url = answer.createObjectUrl;
-	system.smallKansas.ImageViewer(
-		'Smalltalk Balloon',
+	system
+	.smallKansas
+	.ImageViewer(
+		'SuperCollider Program Browser',
 		url
 	).onClose { :unused |
-		url.revokeObjectUrl
+		url
+		.revokeObjectUrl
 	}
 } { :reason |
 	reason.postLine
@@ -64,12 +63,8 @@ Using a remote Url may not work due to _Cross-Origin Resource Policy_:
 
 ~~~spl smallKansas
 system.smallKansas.ImageViewer(
-	'Smalltalk Balloon',
-	[
-		'https://rohandrape.net/'
-		'sw/stsc3/lib/png/'
-		'smalltalk-balloon.png'
-	].join('')
+	'SuperCollider Program Browser',
+	system.splUrl('svg/ScProgramBrowser.3.svg')
 )
 ~~~
 

@@ -46,9 +46,10 @@ Delete an entry:
 (1.pi.asString, false)
 ```
 
-Remove all entries:
+Remove all entries,
+this can be useful to force re-fetching:
 
-~~~spl effect=cache
+~~~spl cache
 system.localStorage.removeAll
 ~~~
 

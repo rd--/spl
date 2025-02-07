@@ -26,7 +26,7 @@ It may be useful if you want to simulate feedback Fm synths.
 
 Non-graph variant:
 
-~~~spl textureProgram=A
+~~~spl texture
 {
 	let x = MouseX(0.15, 0.85, 0, 0.2);
 	let f0 = [110 220 440].atRandom;

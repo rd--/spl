@@ -24,7 +24,8 @@ if known,
 else the empty string.
 
 ~~~spl async
-[65 .. 69].asByteArray
+[65 .. 69]
+.asByteArray
 .asBlob
 .text
 ~~~

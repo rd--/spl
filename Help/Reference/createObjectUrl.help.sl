@@ -4,14 +4,12 @@
 
 Answer a `String` holding a `Url` that represents the data at _aFile_ or _aBlob_.
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchBlob.then { :answer |
-	answer.createObjectUrl
+~~~spl async
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchBlob.then { :answer |
+	answer
+	.createObjectUrl
 }
 ~~~
 

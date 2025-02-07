@@ -12,7 +12,7 @@ or `nil` to halt.
 
 The expression below schedules random sine tones of random durations at random intervals:
 
-~~~spl scheduler scsynth
+~~~spl scheduler
 { :currentTime |
 	Release(
 		Pan2(

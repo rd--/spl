@@ -7,7 +7,7 @@ In a console this will wait for a line of text to be entered.
 In a windowing system this will wait until a modal dialog with a text field is filled in.
 Answers a `String` holding the text provided.
 
-~~~spl program=Interactive
+~~~spl ui
 system.window.prompt('Prompt', '')
 ~~~
 

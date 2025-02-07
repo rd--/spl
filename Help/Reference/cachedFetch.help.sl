@@ -7,15 +7,14 @@ Runs `fetch` unless _aUrl_ is not located in _cacheName_ at `caches`.
 
 Fetch a text file:
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/spl/README.md'
-].join('').asUrl;
-url.cachedFetch(
+~~~spl async
+system
+.splUrl('README.md')
+.cachedFetch(
 	'*scratch*'
 ).then { :response |
-	response.text
+	response
+	.text
 }
 ~~~
 

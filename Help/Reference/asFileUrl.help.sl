@@ -27,7 +27,7 @@ Unix password file `Url`:
 
 Fetch text from password file Url:
 
-~~~spl async=String
+~~~spl async
 '/etc/passwd'
 .asFileUrl
 .fetchText

@@ -8,20 +8,28 @@ a `Record` with the fields _exitCode_, _outputText_ and _errorText_.
 Test that a file exists:
 
 ~~~spl async
-system.systemCommand(
+system
+.systemCommand(
 	'test',
-	['-f', '/etc/passwd']
+	[
+		'-f',
+		'/etc/passwd'
+	]
 ).then { :result |
-	(result['exitCode'] = 0)
+	result['exitCode'] = 0
 }
 ~~~
 
 Count the words in a file:
 
 ~~~spl async
-system.systemCommand(
+system
+.systemCommand(
 	'wc',
-	['-w', '/etc/passwd']
+	[
+		'-w',
+		'/etc/passwd'
+	]
 ).then { :result |
 	result['outputText']
 }
@@ -35,7 +43,9 @@ If the system command does not exist an `error` is signaled:
 >>> 		'/CommandDoesNotExist',
 >>> 		[]
 >>> 	)
->>> }.ifError { true }
+>>> }.ifError {
+>>> 	true
+>>> }
 true
 ```
 

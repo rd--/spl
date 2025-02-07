@@ -23,7 +23,10 @@ At `Float64Array` encloses data as a byte array:
 Fetch text from `Blob`:
 
 ~~~spl async
-[65 .. 69].asByteArray.asBlob.text
+[65 .. 69]
+.asByteArray
+.asBlob
+.text
 ~~~
 
 * * *

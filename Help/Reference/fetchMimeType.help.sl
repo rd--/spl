@@ -11,41 +11,33 @@ according to the value of _aMimeType_, which should be either:
 
 Fetch Utf-8 encoded text:
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/spl/README.md'
-].join('');
+~~~spl async
 let mimeType = 'text/plain';
-url.fetchMimeType(
+system
+.splUrl('README.md')
+.fetchMimeType(
 	mimeType
 )
 ~~~
 
 Fetch and decode `Json`:
 
-~~~spl async=Dictionary
-let url = [
-	'https://rohandrape.net/'
-	'sw/spl/config/'
-	'preferences.json'
-].join('');
+~~~spl async
 let mimeType = 'application/json';
-url.fetchMimeType(
+system
+.splUrl('config/preferences.json')
+.fetchMimeType(
 	mimeType
 )
 ~~~
 
 Fetch binary data:
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
+~~~spl async
 let mimeType = 'application/octet-stream';
-url.fetchMimeType(
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchMimeType(
 	mimeType
 ).then { :aByteArray |
 	aByteArray

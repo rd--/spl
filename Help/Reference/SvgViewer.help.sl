@@ -9,15 +9,16 @@ Add a window displaying an Svg image.
 The expression below fetches an Svg file from a Url and displays it when it arrives.
 
 ~~~spl smallKansas
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/svg/'
-	'smalltalk-balloon.svg'
-].join('');
-url.fetchText.then { :answer |
-	system.smallKansas.SvgViewer(
-		'Smalltalk Balloon',
-		answer.parseSvg,
+system
+.splUrl('svg/ScProgramBrowser.3.svg')
+.fetchText
+.then { :answer |
+	system
+	.smallKansas
+	.SvgViewer(
+		'SuperCollider ProgramBrowser',
+		answer
+		.parseSvg,
 		nil
 	)
 }

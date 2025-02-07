@@ -7,13 +7,11 @@ Runs `fetchMimeType` unless _aUrl_ is not located in _cacheName_ at `caches`.
 
 Fetch Utf-8 encoded text:
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/spl/README.md'
-].join('').asUrl;
+~~~spl async
 let mimeType = 'text/plain';
-url.cachedFetchMimeType(
+system
+.splUrl('README.md')
+.cachedFetchMimeType(
 	'*scratch*',
 	mimeType
 )

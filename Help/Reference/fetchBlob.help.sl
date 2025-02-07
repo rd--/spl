@@ -4,15 +4,14 @@
 
 Answer a `Promise` that will resolve to a `Blob` having the contents of _aUrl_.
 
-~~~spl async=String
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchBlob.then { :aBlob |
-	aBlob.type.postLine;
-	aBlob.arrayBuffer.then { :anArrayBuffer |
+~~~spl async
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchBlob
+.then { :aBlob |
+	aBlob
+	.arrayBuffer
+	.then { :anArrayBuffer |
 		anArrayBuffer
 		.asByteArray
 		.base64Encoded

@@ -22,9 +22,9 @@ Accessors to read the parts of the file are:
 - `categories`: list of categories
 
 ~~~spl async
-let url = system
-.splFile('Help/Reference/add.help.sl')
-.asFileUrl;
+let url = system.splFile(
+	'Help/Reference/add.help.sl'
+).asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);
 	(
@@ -42,8 +42,8 @@ url.fetchText.then { :aString |
 		help.references,
 		help.unicode,
 		help.categories,
-		help.codeBlocksWithKey('png'),
-		help.codeBlocksWithKey('svg'),
+		help.codeBlocksWithAttribute('png'),
+		help.codeBlocksWithAttribute('svg'),
 		help.unspecifiedCodeBlocks
 	)
 }

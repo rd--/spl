@@ -4,7 +4,7 @@ Texture programs generate sound by scheduling overlapping instances of a synthes
 
 This program generates random panning three note chords.
 
-~~~spl textureProgram=A
+~~~spl texture
 let dur = 12;
 {
 	{

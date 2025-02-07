@@ -256,6 +256,10 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		].join('/')
 	}
 
+	splUrl { :self :aString |
+		('https://rohandrape.net/sw/spl/' ++ aString).asUrl
+	}
+
 	traitDictionary { :self |
 		<primitive: return _self.traitDictionary;>
 	}

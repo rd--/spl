@@ -22,9 +22,10 @@ and values are `Response` objects.
 ~~~spl async
 system
 .caches
-.atIfPresent('SplLibrary') { :cache |
-	cache.isCache
-}
+.atIfPresent(
+	'SplLibrary',
+	isCache:/1
+)
 ~~~
 
 This cache is not an ordinary dictionary type,
@@ -38,12 +39,16 @@ however it does implement:
 
 Remove an item from the 'SplLibrary' cache:
 
-~~~spl async effect=cache
+~~~spl async
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
-	cache.removeKeyIfAbsent(
-		system.library['McClurePolyhedraCatalogue'].url.asUrl
+	cache
+	.removeKeyIfAbsent(
+		system
+		.library['McClurePolyhedraCatalogue']
+		.url
+		.asUrl
 	) {
 		'Not present'
 	}

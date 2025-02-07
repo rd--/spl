@@ -11,14 +11,12 @@ The expression below fetches a Png file from a Url,
 and displays it when it arrives:
 
 ~~~spl smallKansas
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchBlob.then { :answer |
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchBlob
+.then { :answer |
 	system.smallKansas.PngViewer(
-		'Smalltalk Balloon',
+		'Emacs Editor',
 		answer
 	)
 }

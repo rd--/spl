@@ -33,7 +33,7 @@ There is also an asychronous variant that answers a `Promise`,
 that will either resolve to a `List` of the entries in the specified directory,
 or reject with an `Error` value.
 
-~~~spl async=List
+~~~spl async
 '/etc'
 .readDirectoryAsync
 .then { :answer |

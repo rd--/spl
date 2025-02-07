@@ -22,7 +22,8 @@ which will either resolve to a `List` of the files in the specified directory,
 or reject with an `Error` value.
 
 ~~~spl async
-'/etc'.readDirectoryFileNamesAsync
+'/etc'
+.readDirectoryFileNamesAsync
 ~~~
 
 * * *

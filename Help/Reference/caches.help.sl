@@ -11,7 +11,7 @@ true
 
 `LibraryItem` entries are cached at 'SplLibrary':
 
-~~~spl async=Boolean
+~~~spl async
 system
 .caches
 .includesKey('SplLibrary')

@@ -15,10 +15,12 @@ true
 This uses a different primitive to `fetch` and is synchronous,
 however it should answer equivalently:
 
-~~~spl async=String
-let url = '/etc/passwd'.asFileUrl;
-url.fetchByteArray.then { :answer |
-	answer.base64Encoded
+~~~spl async
+'/etc/passwd'
+.asFileUrl
+.fetchByteArray.then { :answer |
+	answer
+	.base64Encoded
 }
 ~~~
 

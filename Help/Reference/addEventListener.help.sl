@@ -4,7 +4,7 @@
 
 Request that _aBlock_ be evaluated whenever the event specified by _aString_ is delivered to the _anEventTarget_.
 
-~~~spl kansasProgram=A
+~~~spl ui
 system
 .window
 .addEventListener('mousemove') { :event |

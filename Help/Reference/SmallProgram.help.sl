@@ -14,7 +14,7 @@ _Shift-UpArrow_ and _Shift-DownArrow_ allow retrieving previous programs.
 
 A small program may optionally have a _description_ and an _expected answer_.
 
-~~~spl kansas
+~~~spl ui
 let description = [
 	'# A Description'
 	''
@@ -35,7 +35,11 @@ smallKansas.addFrame(
 ~~~
 
 If an answer is a `Promise`,
-then `SmallProgram` will add a listener to the `Promise` object and update the answer cell when the promise resolves:
+then `SmallProgram` will add a listener to the `Promise` object and update the answer cell when the promise resolves.
+
+Answer a `Promise` that will resolve,
+with the `String` 'Answer',
+after ten seconds:
 
 ~~~spl async
 { :resolve:/1 :unused |
@@ -45,13 +49,13 @@ then `SmallProgram` will add a listener to the `Promise` object and update the a
 }.Promise
 ~~~
 
+Answer a `Promise` with a `Blob` when the `fetch` request completes:
+
 ~~~spl async
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchBlob
+system
+.splUrl('svg/ScProgramBrowser.3.svg')
+.fetchBlob
+.thenElse(identity:/1, identity:/1)
 ~~~
 
 * * *

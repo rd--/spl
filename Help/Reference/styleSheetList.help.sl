@@ -4,7 +4,7 @@
 
 Answer the `List` of style sheets associated with _aDocument_.
 
-~~~spl requires=document
+~~~spl document
 system
 .window
 .document

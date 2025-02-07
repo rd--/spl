@@ -4,13 +4,11 @@
 
 Answer a `Promise` that will resolve to a `ByteArray` having the contents of _aUrl_.
 
-~~~spl async effect=network
-let url = [
-	'https://rohandrape.net/'
-	'sw/stsc3/lib/png/'
-	'smalltalk-balloon.png'
-].join('');
-url.fetchByteArray.thenElse { :aByteArray |
+~~~spl async
+system
+.splUrl('png/Emacs Editor.3.png')
+.fetchByteArray
+.thenElse { :aByteArray |
 	aByteArray
 	.base64Encoded
 } { :reason |

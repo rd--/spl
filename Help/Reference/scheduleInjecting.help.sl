@@ -10,7 +10,7 @@ When evaluated the answer is a _[delay, nextValue]_ pair to continue, or _nil_ t
 Play ascending chromatic scale from C2 to C5,
 with random inter-offset delays, durations and pan locations:
 
-~~~spl program=Scheduler
+~~~spl scheduler
 { :currentTime :midiNoteNumber |
 	let n = midiNoteNumber;
 	Release(
