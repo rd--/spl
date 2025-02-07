@@ -7,8 +7,8 @@ Answer _anotherSequence_.
 
 ```
 >>> let l = [1 2 3];
->>> l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] }
-true
+>>> (l.addAllLast([4 5]), l)
+([4 5], [1 2 3 4 5])
 ```
 
 * * *

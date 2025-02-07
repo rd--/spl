@@ -147,4 +147,3 @@ _SEP_
 _W_
 [1](https://en.wikipedia.org/wiki/Elementary_cellular_automaton)
 [2](https://en.wikipedia.org/wiki/Rule_110)
-

@@ -12,7 +12,9 @@ Identity if _aCollection_ is, in fact, a collection, else signal an error.
 A `String` is not a `Collection`:
 
 ```
->>> { '1 to 4'.assertIsCollection }.ifError { true }
+>>> {
+>>> 	'1 to 4'.assertIsCollection
+>>> }.ifError { true }
 true
 ```
 

@@ -8,7 +8,8 @@ At `Record`:
 
 ```
 >>> let answer = [];
->>> (x: 1, y: 2, z: 3).keysAndValuesDo { :key :value |
+>>> (x: 1, y: 2, z: 3)
+>>> .keysAndValuesDo { :key :value |
 >>> 	answer.addAll([key, value])
 >>> };
 >>> answer
@@ -19,7 +20,8 @@ At `List`:
 
 ```
 >>> let answer = [];
->>> ['x' 'y' 'z'].keysAndValuesDo { :key :value |
+>>> ['x' 'y' 'z']
+>>> .keysAndValuesDo { :key :value |
 >>> 	answer.addAll([key, value])
 >>> };
 >>> answer
@@ -30,7 +32,8 @@ Iterate over keys and values:
 
 ```
 >>> let n = 0;
->>> (x: 1, y: 2, z: 3).keysAndValuesDo { :unusedKey :value |
+>>> (x: 1, y: 2, z: 3)
+>>> .keysAndValuesDo { :unusedKey :value |
 >>> 	n := n + value
 >>> };
 >>> n

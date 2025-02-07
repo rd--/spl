@@ -13,7 +13,9 @@ the number obtained by adding the reciprocals of the odd twin primes.
 The sequence converges extremely slowly:
 
 ```
->>> 1:999.select(isLesserTwinPrime:/1).collect { :each |
+>>> 1:999
+>>> .select(isLesserTwinPrime:/1)
+>>> .collect { :each |
 >>> 	(1 / each) + (1 / (each + 2))
 >>> }.sum
 1.51803

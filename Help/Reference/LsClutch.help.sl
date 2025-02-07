@@ -10,7 +10,10 @@ If _latch_ is initially false then _initialValue_ is consulted.
 ```
 >>> LsClutch(
 >>> 	LsSeries(1, 3, 5),
->>> 	LsSeq([true false true true false], Infinity),
+>>> 	LsSeq(
+>>> 		[true false true true false],
+>>> 		Infinity
+>>> 	),
 >>> 	-1
 >>> ).upToEnd
 [1 1 4 7 7 10 10 13]

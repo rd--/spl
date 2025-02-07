@@ -36,7 +36,8 @@ Reduce size of region:
 Expand size of region:
 
 ```
->>> [1 2 3 4 5].copyReplaceFromToWith(2, 4, [-1 -2 -3 -4])
+>>> [1 2 3 4 5]
+>>> .copyReplaceFromToWith(2, 4, [-1 -2 -3 -4])
 [1 -1 -2 -3 -4 5]
 ```
 

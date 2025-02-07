@@ -182,7 +182,8 @@ The `asList` method answers a `List` of these:
 [22 7]
 ```
 
-The letter `r` abbreviates `Fraction` (`r` for _rational_), in the same manner that `j` abbreviates `Complex`.
+The letter `r` abbreviates `Fraction` (`r` for _rational_),
+in the same manner that `j` abbreviates `Complex`.
 
 ```
 >>> 3.r(7)
@@ -192,22 +193,22 @@ The letter `r` abbreviates `Fraction` (`r` for _rational_), in the same manner t
 3J7
 ```
 
-Written using `Infix Method Syntax` this provides a concise notation for writing Fractions with `LargeInteger` parts:
+Written using `Infix Method Syntax`:
 
 ```
 >>> (2L r: 3L).asTuple
 (2L, 3L)
 ```
 
-Enter a rational number with very big integers in the numerator and denominator:
+Enter a rational number with large integers in the numerator and denominator:
 
 ```
->>> let n = 1237918739182739817238917127398123L;
+>>> let n = 12379187391827398172389171L;
 >>> let d = 12809812308120812038038101L;
 >>> let r = Fraction(n, d);
 >>> (r.numerator, r.denominator)
 (
-	1237918739182739817238917127398123L,
+	12379187391827398172389171L,
 	12809812308120812038038101L
 )
 ```

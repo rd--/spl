@@ -52,11 +52,17 @@ The Walsh matrix can be used to implement the Walsh-Hadamard transform:
 >>> [1 1 1 1 1 0 0 0].dot(8.walshMatrix) / 8
 [0.625 0.375 -0.125 0.125 0.125 -0.125 -0.125 0.125]
 
->>> [19 -1 11 -9 -7 13 -15 5].dot(8.walshMatrix) / 8
+>>> [19 -1 11 -9 -7 13 -15 5]
+>>> .dot(8.walshMatrix) / 8
 [2 3 0 4 0 0 10 0]
 
 >>> let h = 8.walshMatrix;
->>> let x = (8 * h[1]) + (12 * h[3]) + (18 * h[5]) + (10 * h[8]);
+>>> let x = [
+>>> 	8 * h[1],
+>>> 	12 * h[3],
+>>> 	18 * h[5],
+>>> 	10 * h[8]
+>>> ].sum;
 >>> x.dot(h) / 8
 [8 0 12 0 18 0 0 10]
 ```

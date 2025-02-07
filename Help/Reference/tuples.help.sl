@@ -112,7 +112,10 @@ digits of successive base-two numbers:
 [0 0; 0 1; 1 0; 1 1]
 
 >>> [0 1].tuples(3)
-[0 0 0; 0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
+[
+	0 0 0; 0 0 1; 0 1 0; 0 1 1;
+	1 0 0; 1 0 1; 1 1 0; 1 1 1
+]
 ```
 
 The first nine three-tuples of the base-three counting system:

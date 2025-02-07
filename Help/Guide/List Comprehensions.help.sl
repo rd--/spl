@@ -2,19 +2,19 @@
 
 The Haskell list comprehension:
 
-~~~
+~~~hs
 [ x * x | x <- [1, 2, 7, 12], even x ]
 ~~~
 
 is rewritten in Haskell _do_ notation as:
 
-~~~
+~~~hs
 do x <- [1, 2, 7, 12]; guard (even x); return (x * x)
 ~~~
 
 and in plain Haskell notation as:
 
-~~~
+~~~hs
 [1, 2, 7, 12] >>= \x -> guard (even x) >> return (x * x)
 ~~~
 
@@ -33,7 +33,7 @@ In Sᴘʟ this program might be written:
 
 The Haskell list comprehension:
 
-~~~
+~~~hs
 [ (x, y) |
   x <- [1 .. 5],
   y <- [1 .. x],

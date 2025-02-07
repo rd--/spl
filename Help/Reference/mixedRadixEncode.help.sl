@@ -24,7 +24,12 @@ Mixed radix counting systems are common in calendrical calculations.
 >>> 12345.mixedRadixEncode([7 24 60])
 [1 1 13 45]
 
->>> (1 * 7 * 24 * 60) + (1 * 24 * 60) + (13 * 60) + 45
+>>> [
+>>> 	1 * 7 * 24 * 60,
+>>> 	1 * 24 * 60,
+>>> 	13 * 60,
+>>> 	45
+>>> ].sum
 12345
 ```
 
@@ -35,7 +40,12 @@ For example, given that 1 day = 24 hours, 1 hour = 60 minutes, and 1 minute = 60
 >>> 210859.mixedRadixEncode([24 60 60])
 [2 10 34 19]
 
->>> (2 * 24 * 60 * 60) + (10 * 60 * 60) + (34 * 60) + 19
+>>> [
+>>> 	2 * 24 * 60 * 60,
+>>> 	10 * 60 * 60,
+>>> 	34 * 60,
+>>> 	19
+>>> ].sum
 210859
 ```
 
@@ -55,7 +65,9 @@ The inverse is `mixedRadixDecode`.
 A primorial number system uses a mixed radix of primes:
 
 ```
->>> (10 ^ 6).mixedRadixEncode([19 17 13 11 7 5 3 2])
+>>> (10 ^ 6).mixedRadixEncode(
+>>> 	[19 17 13 11 7 5 3 2]
+>>> )
 [1 16 3 9 6 1 2 0]
 ```
 
@@ -76,10 +88,18 @@ There is a natural mapping between permutations in lexicographical order and int
 >>> 	each.mixedRadixEncode([4 3 2 1])
 >>> }
 [
-	0 0 0 0; 0 0 1 0; 0 1 0 0; 0 1 1 0; 0 2 0 0; 0 2 1 0;
-	1 0 0 0; 1 0 1 0; 1 1 0 0; 1 1 1 0; 1 2 0 0; 1 2 1 0;
-	2 0 0 0; 2 0 1 0; 2 1 0 0; 2 1 1 0; 2 2 0 0; 2 2 1 0;
-	3 0 0 0; 3 0 1 0; 3 1 0 0; 3 1 1 0; 3 2 0 0; 3 2 1 0
+	0 0 0 0; 0 0 1 0;
+	0 1 0 0; 0 1 1 0;
+	0 2 0 0; 0 2 1 0;
+	1 0 0 0; 1 0 1 0;
+	1 1 0 0; 1 1 1 0;
+	1 2 0 0; 1 2 1 0;
+	2 0 0 0; 2 0 1 0;
+	2 1 0 0; 2 1 1 0;
+	2 2 0 0; 2 2 1 0;
+	3 0 0 0; 3 0 1 0;
+	3 1 0 0; 3 1 1 0;
+	3 2 0 0; 3 2 1 0
 ]
 ```
 
@@ -150,13 +170,18 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 >>> let total = 1505;
 >>> let factors = total // prices + 1;
 >>> let entries = (0 .. factors.product - 1);
->>> let encode = { :z | z.mixedRadixEncode(factors) };
+>>> let encode = { :z |
+>>> 	z.mixedRadixEncode(factors)
+>>> };
 >>> entries.select { :each |
 >>> 	(each.encode * prices).sum = 1505
 >>> }.collect { :each |
 >>> 	each.encode
 >>> }
-[1 0 0 2 0 1; 7 0 0 0 0 0]
+[
+	1 0 0 2 0 1;
+	7 0 0 0 0 0
+]
 ```
 
 See also: mixedRadixDecode

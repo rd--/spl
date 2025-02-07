@@ -40,3 +40,4 @@ References:
 _Python_
 [1](https://docs.python.org/3/library/functions.html#enumerate)
 
+Categories: Enumerating

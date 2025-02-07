@@ -17,7 +17,8 @@ Begin the search at element _anIndex_ of _aSequence_.
 At `String`:
 
 ```
->>> 'abcabcdabcde'.indexOfSubstringStartingAt('bc', 6)
+>>> 'abcabcdabcde'
+>>> .indexOfSubstringStartingAt('bc', 6)
 9
 ```
 

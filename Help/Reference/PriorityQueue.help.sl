@@ -29,7 +29,9 @@ the items are read from an association list:
 
 ```
 >>> let p = PriorityQueue();
->>> p.pushAllWithPriority(['c' -> 3, 'b' -> 2, 'a' -> 1]);
+>>> p.pushAllWithPriority(
+>>> 	['c' -> 3, 'b' -> 2, 'a' -> 1]
+>>> );
 >>> (p.pop, p.pop, p.pop)
 ('a', 'b', 'c')
 ```
@@ -47,7 +49,9 @@ The queue can be cleared using `removeAll`:
 
 ```
 >>> let p = PriorityQueue();
->>> p.pushAllWithPriority(['c' -> 3, 'b' -> 2, 'a' -> 1]);
+>>> p.pushAllWithPriority(
+>>> 	['c' -> 3, 'b' -> 2, 'a' -> 1]
+>>> );
 >>> p.removeAll;
 >>> (p.isEmpty, p.size)
 (true, 0)

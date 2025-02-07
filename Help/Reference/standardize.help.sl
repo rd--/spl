@@ -12,7 +12,7 @@ Compute standard scores for data:
 
 ```
 >>> [6.5 3.8 6.6 5.7 6.0 6.4 5.3].standardize
-[0.7571, -1.9945, 0.859, -0.05823, 0.2475,  0.6551,  -0.4659]
+[0.7571 -1.9945 0.859 -0.05823 0.2475 0.6551 -0.4659]
 
 >>> let r = [6.5 3.8 6.6 5.7 6.0 6.4 5.3].standardize;
 >>> (r.mean, r.variance)
@@ -22,10 +22,10 @@ Compute standard scores for data:
 Shift to have mean zero without scaling:
 
 ```
->>> 1:10.standardize(mean:/1, { :unused | 1 })
+>>> 1:10.standardize(mean:/1, 1.constant)
 [-4.5 -3.5 -2.5 -1.5 -0.5 0.5 1.5 2.5 3.5 4.5]
 
->>> let r = 1:10.standardize(mean:/1, { :unused | 1 });
+>>> let r = 1:10.standardize(mean:/1, 1.constant);
 >>> (r.mean, r.variance)
 (0, 9.1667)
 ```

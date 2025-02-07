@@ -28,10 +28,12 @@ At `SmallFloat`:
 Compute results using other parametrizations:
 
 ```
->>> [-1 5 10 4 25 2 1].interquartileRange
+>>> [-1 5 10 4 25 2 1]
+>>> .interquartileRange
 15/2
 
->>> [-1 5 10 4 25 2 1].interquartileRange(0, 0, 1, 0)
+>>> [-1 5 10 4 25 2 1]
+>>> .interquartileRange(0, 0, 1, 0)
 9
 ```
 

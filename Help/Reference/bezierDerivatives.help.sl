@@ -31,64 +31,69 @@ Calculate a specific point at the first derivative of a cubic Bézier curve:
 )
 ```
 
-Draw a cubic Bézier curve and the first (quadratic) derivative:
+Draw a cubic Bézier curve and the first (quadratic) derivative (rescaled):
 
 ~~~spl svg=A
 let p = [0 0; 0 1; 1 1; 1 0];
 let d = p.bezierDerivatives;
+let d1 = d[1] * 0.2;
 [
 	p.Line,
 	p.BezierCurve(3),
-	d[1].Line,
-	d[1].BezierCurve(2)
+	d1.Line,
+	d1.BezierCurve(2)
 ].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierDerivatives-A.svg)
 
-Draw a quintic Bézier curve and the first (cubic) and second (quadratic) derivatives:
+Draw a quintic Bézier curve and the first (cubic) and second (quadratic) derivatives (rescaled):
 
 ~~~spl svg=B
 let p = [0 0; 0 2; 3 2; 3 0; 1 0];
 let d = p.bezierDerivatives;
+let d1 = d[1] * 0.2;
+let d2 = d[2] * 0.2 * 0.2;
 let l = (0, 0.01 .. 1).collect { :x |
 	p.deCasteljausAlgorithm(x)
 };
 [
 	p.Line,
 	l.Line,
-	d[1].Line,
-	d[1].BezierCurve(3),
-	d[2].Line,
-	d[2].BezierCurve(2)
+	d1.Line,
+	d1.BezierCurve(3),
+	d2.Line,
+	d2.BezierCurve(2)
 ].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierDerivatives-B.svg)
 
-Zero curvature:
+Zero curvature (rescaled):
 
 ~~~spl svg=C
 let p = [0 0; 0 2; 1 0; 2 1; 2 0];
 let d = p.bezierDerivatives;
+let d1 = d[1] * 0.2;
 let l = (0, 0.01 .. 1).collect { :x |
 	p.deCasteljausAlgorithm(x)
 };
 [
 	p.Line,
 	l.Line,
-	d[1].Line,
-	d[1].BezierCurve(3)
+	d1.Line,
+	d1.BezierCurve(3)
 ].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierDerivatives-C.svg)
 
-Inflection:
+Inflection (rescaled):
 
 ~~~spl svg=D
 let p = [0 0; 0.1 1.5; 1 0.5; 2 -1; 2.9 1.5; 3 0];
 let d = p.bezierDerivatives;
+let d1 = d[1] * 0.2;
 let f = { :l |
 	(0, 0.01 .. 1).collect { :x |
 		l.deCasteljausAlgorithm(x)
@@ -97,8 +102,8 @@ let f = { :l |
 [
 	p.Line,
 	f(p).Line,
-	d[1].Line,
-	f(d[1]).Line
+	d1.Line,
+	f(d1).Line
 ].LineDrawing
 ~~~
 

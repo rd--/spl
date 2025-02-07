@@ -5,7 +5,8 @@
 Sum four signals. Primitive Ugen to efficiently sum four signals. Should be used via Sum.
 
 ```
-let [a, b, c, d] = SinOsc([111, 333, 555, 777], 0) * 0.1;
+let o = SinOsc([111, 333, 555, 777], 0);
+let [a, b, c, d] = o * 0.1;
 Sum4(a, b, c, d)
 ```
 

@@ -39,6 +39,7 @@ Threads elementwise over lists:
 >>> [1/7 5/4 7/3 5/2].rounded
 [0 1 2 3]
 ```
+
 Value at Infinity:
 
 ```

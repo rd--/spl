@@ -66,7 +66,9 @@ true
 It is an error if there are too many arguments:
 
 ```
->>> { { :x | 0 - x }.value(3, 4) = -3 }.ifError { true }
+>>> {
+>>> 	{ :x | 0 - x }.value(3, 4) = -3
+>>> }.ifError { true }
 true
 ```
 

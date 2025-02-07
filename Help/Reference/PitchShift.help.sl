@@ -10,7 +10,9 @@ Grains have a triangular amplitude envelope and an overlap of 4:1.
 - windowSize: the size of the grain window in seconds. This value cannot be modulated.
 - pitchRatio: the ratio of the pitch shift. Must be from 0 to 4.
 - pitchDispersion: the maximum random deviation of the pitch from the pitchRatio.
-- timeDispersion: a random offset of from zero to timeDispersion seconds is added to the delay of each grain. Use of some dispersion can alleviate a hard comb filter effect due to uniform grain placement. It can also be an effect in itself. timeDispersion can be no larger than windowSize.
+- timeDispersion: a random offset of from zero to timeDispersion seconds is added to the delay of each grain.
+  Use of some dispersion can alleviate comb filter effects due to uniform grain placement.
+  timeDispersion can be no larger than windowSize.
 
 Modulate pitch ratio:
 

@@ -6,10 +6,16 @@ Answer the key that is the external name for the argument _value_ in _aDictionar
 If there is none, evaluate and answer _aBlock_.
 
 ```
->>> (x: 1, y: 2, z: 3).keyAtValueIfAbsent(3) { nil }
+>>> (x: 1, y: 2, z: 3)
+>>> .keyAtValueIfAbsent(3) {
+>>> 	nil
+>>> }
 'z'
 
->>> (x: 1, y: 2).keyAtValueIfAbsent(3) { nil }
+>>> (x: 1, y: 2)
+>>> .keyAtValueIfAbsent(3) {
+>>> 	nil
+>>> }
 nil
 ```
 

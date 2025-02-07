@@ -9,13 +9,16 @@ and is panned between two channels of multiple outputs.
 
 - numChannels: number of output channels.
 - trigger: at each trigger, subsequent arguments are sampled (or demanded) and used as the arguments of a new grain.
-- bufnum: the index of the buffer to use. It must be a one channel (mono) buffer.
-- rate: 1 is normal, 2 is one octave up, 0.5 is one octave down -1 is backwards normal rate ... etc. Unlike PlayBuf, the rate is multiplied by BufRate, so you need not do that yourself.
+- bufnum: the index of the buffer to use,
+  which must be a one channel buffer.
+- rate: 1 is normal, 2 is one octave up, 0.5 is one octave down -1 is backwards normal rate.
+  Unlike `PlayBuf`, the rate is multiplied by `BufRate`.
 - centerPos: the position in the buffer in seconds at which the grain envelope will reach maximum amplitude.
 - dur: duration of the grain in seconds.
 - pan: a value from -1 to 1. Determines where to pan the output in the same manner as PanAz.
 - amp: amplitude of the grain
-- interp: 1,2,or 4. Determines whether the grain uses (1) no interpolation, (2) linear interpolation, or (4) cubic interpolation.
+- interp: 1, 2, or 4.
+  Determines whether the grain uses (1) no interpolation, (2) linear interpolation, or (4) cubic interpolation.
 
 If the trigger is audio rate then the grains will start with sample accuracy.
 
@@ -26,8 +29,11 @@ let numChannels = 8;
 let triggerRate = MouseY(2, 200, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
-let rate = Dseq(Infinity, [10, 1, 1, 0.5, 0.5, 0.2, 0.1]);
-let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
+let rate = Dseq(
+	Infinity,
+	[10 1 1 0.5 0.5 0.2 0.1]
+);
+let center = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 4 / triggerRate;
 let pan = Dseq(Infinity, [-1, -0.9 .. 1]);
 let amp = 1 / 4;
@@ -37,7 +43,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -45,7 +51,7 @@ TGrains(
 ).Splay
 ```
 
-Uniform unary rate, perturb _centerPos_ at clock rate
+Uniform unary rate, perturb _center_ at clock rate
 
 ```spl SfAcquire
 let numChannels = 8;
@@ -53,8 +59,10 @@ let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
-let centerPos = centerPos0 + TRand(0, 0.01, trigger);
+let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center = center0 + TRand(
+	0, 0.01, trigger
+);
 let dur = 12 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
@@ -64,7 +72,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -80,8 +88,10 @@ let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Dust(triggerRate);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
-let centerPos = centerPos0 + TRand(0, 0.01, trigger);
+let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center = center0 + TRand(
+	0, 0.01, trigger
+);
 let dur = 4 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
@@ -91,7 +101,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -99,7 +109,7 @@ TGrains(
 ).Splay
 ```
 
-Mouse control of _centerPos_ and _dur_:
+Mouse control of _center_ and _dur_:
 
 ```spl SfAcquire
 let numChannels = 8;
@@ -107,9 +117,13 @@ let triggerRate = 12;
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let centerPos0 = MouseX(0, SfDur(sf), 0, 0.2);
-let centerPos = centerPos0 + TRand(0, 0.01, trigger);
-let dur = MouseY(0.2, 24, 1, 0.2) / triggerRate;
+let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center = center0 + TRand(
+	0, 0.01, trigger
+);
+let dur = MouseY(
+	0.2, 24, 1, 0.2
+) / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
 let interp = 4;
@@ -118,7 +132,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -126,7 +140,7 @@ TGrains(
 ).Splay
 ```
 
-Stochastic _centerPos_, no external control:
+Stochastic _center_, no external control:
 
 ```spl SfAcquire
 let numChannels = 8;
@@ -134,7 +148,7 @@ let triggerRate = 100;
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let centerPos = Integrator(
+let center = Integrator(
 	BrownNoise().kr * 0.001,
 	1
 );
@@ -147,7 +161,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -163,7 +177,7 @@ let triggerRate = MouseY(1, 400, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 2 ^ TRand(-2, 2, trigger);
-let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
+let center = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 8 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
@@ -173,7 +187,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,
@@ -188,7 +202,7 @@ let numChannels = 8;
 let trigger = Impulse(440, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1.2 ^ TiRand(-3, 3, trigger);
-let centerPos = MouseX(0, SfDur(sf), 0, 0.2);
+let center = MouseX(0, SfDur(sf), 0, 0.2);
 let dur = 1.2 / MouseY(2, 120, 1, 0.2);
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
@@ -198,7 +212,7 @@ TGrains(
 	trigger,
 	sf,
 	rate,
-	centerPos,
+	center,
 	dur,
 	pan,
 	amp,

@@ -8,7 +8,12 @@ valid whenever the system has a unique solution.
 Use Cramer’s rule to solve a system of linear equations with as many equations as unknowns:
 
 ```
->>> let m = [2 -1 5 1; 3 2 2 -6; 1 3 3 -1; 5 -2 -3 3];
+>>> let m = [
+>>> 	2 -1  5  1;
+>>> 	3  2  2 -6;
+>>> 	1  3  3 -1;
+>>> 	5 -2 -3  3
+>>> ];
 >>> let b = [-3 -32 -47 49];
 >>> m.cramersRule(b)
 [2 -12 -4 1]
@@ -38,7 +43,10 @@ Solve _2x + 3y = 4_ and _x - 2y = -5_:
 Solve _0.82x - 0.03y = 26.53_ and _-0.21x + 0.96y = 36.06_:
 
 ```
->>> [0.82 -0.03; -0.21 0.96].cramersRule([26.53 36.06])
+>>> [
+>>> 	+0.82 -0.03;
+>>> 	-0.21 +0.96
+>>> ].cramersRule([26.53 36.06])
 [34 45]
 ```
 

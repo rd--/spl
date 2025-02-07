@@ -129,7 +129,12 @@ note that corresponding rows and columns in _Q_ and _R_ can flip their signs,
 since this does not affect the value of the expression _A = Q*R_:
 
 ```
->>> let m = [16 5 9 4; 3 10 6 15; 2 11 7 14; 13 8 12 1];
+>>> let m = [
+>>> 	16 05 09 04;
+>>> 	03 10 06 15;
+>>> 	02 11 07 14;
+>>> 	13 08 12 01
+>>> ];
 >>> let [q, r] = m.qrDecomposition;
 >>> (q.roundTo(1E-3), r.roundTo(1E-2), q.dot(r) ~ m)
 (

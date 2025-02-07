@@ -9,7 +9,9 @@ Random odd integers:
 
 ```
 >>> let r = Sfc32(37194);
->>> r.randomIntegerExcluding(1, 23, isEven:/1, [5 5])
+>>> r.randomIntegerExcluding(
+>>> 	1, 23, isEven:/1, [5 5]
+>>> )
 [
 	15  7  1 17  1;
 	17  5 15 17 13;
@@ -23,7 +25,9 @@ Random non-zero integers:
 
 ```
 >>> let r = Sfc32(37194);
->>> r.randomIntegerExcluding(-23, 23, isZero:/1, [5 5])
+>>> r.randomIntegerExcluding(
+>>> 	-23, 23, isZero:/1, [5 5]
+>>> )
 [
 	  6  20 -11 -22   9;
 	-22  10  -4   8 -14;

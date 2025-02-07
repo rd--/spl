@@ -32,7 +32,14 @@ A 4×7 block diagonal matrix of 1×1, 2×2 and 1×4 submatrices:
 A 5×5 block diagonal matrix of 3×3 and 2×2 submatrices:
 
 ```
->>> let d = [1 1/3 -2; 1/2 2 6; 1 8 -1:; 8/7 -1/3; -1/2 6/5];
+>>> let d = [
+>>> 	1   1/3 -2;
+>>> 	1/2 2    6;
+>>> 	1   8   -1
+>>> 	:;
+>>> 	+8/7 -1/3;
+>>> 	-1/2 +6/5
+>>> ];
 >>> d.blockDiagonalMatrix
 [
 	1    1/3 -2    0    0;
@@ -46,7 +53,15 @@ A 5×5 block diagonal matrix of 3×3 and 2×2 submatrices:
 A 5×5 block diagonal matrix of two 2×2 and one 1×1 submatrices:
 
 ```
->>> [3 -1; 1 0:; 2:; -2 3; 3 0].blockDiagonalMatrix
+>>> [
+>>> 	3 -1;
+>>> 	1 0
+>>> 	:;
+>>> 	2
+>>> 	:;
+>>> 	-2 3;
+>>> 	3 0
+>>> ].blockDiagonalMatrix
 [
 	3 -1  0  0  0;
 	1  0  0  0  0;
@@ -59,7 +74,17 @@ A 5×5 block diagonal matrix of two 2×2 and one 1×1 submatrices:
 A 7×7 block diagonal matrix of 2×2, 3×2 and 2×3 submatrices:
 
 ```
->>> let d = [1 1; 1 1:; 2 2; 2 2; 2 2:; 3 3 3; 3 3 3];
+>>> let d = [
+>>> 	1 1;
+>>> 	1 1
+>>> 	:;
+>>> 	2 2;
+>>> 	2 2;
+>>> 	2 2
+>>> 	:;
+>>> 	3 3 3;
+>>> 	3 3 3
+>>> ];
 >>> d.blockDiagonalMatrix
 [
 	1 1 0 0 0 0 0;

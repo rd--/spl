@@ -6,7 +6,8 @@
 An alias for `nub` and `nubBy`.
 
 ```
->>> [1 3 5 3 5 9 5 2 3 5 7 3 5 7 3].deleteDuplicates
+>>> [1 3 5 3 5 9 5 2 3 5 7 3 5 7 3]
+>>> .deleteDuplicates
 [1 3 5 9 2 7]
 
 >>> [1 7 8 4 3 4 1 9 9 2].deleteDuplicates
@@ -16,21 +17,24 @@ An alias for `nub` and `nubBy`.
 At `Record`, delete elements whose values duplicate those seen earlier:
 
 ```
->>> (a: 1, b: 2, c: 1, d: 3, e: 2).deleteDuplicates
+>>> (a: 1, b: 2, c: 1, d: 3, e: 2)
+>>> .deleteDuplicates
 (a: 1, b: 2, d: 3)
 ```
 
 Delete elements that are preceded by at least one larger element:
 
 ```
->>> [1 7 8 4 3 4 1 9 8 9 2].deleteDuplicates(>)
+>>> [1 7 8 4 3 4 1 9 8 9 2]
+>>> .deleteDuplicates(>)
 [1 7 8 9 9]
 ```
 
 Treat numbers as equal if they differ by 0.01 or less:
 
 ```
->>> [3 3.1 3.11 3.5 3.51].deleteDuplicates { :i :j |
+>>> [3 3.1 3.11 3.5 3.51]
+>>> .deleteDuplicates { :i :j |
 >>> 	(i - j).abs <= 0.01
 >>> }
 [3 3.1 3.5]
@@ -39,7 +43,10 @@ Treat numbers as equal if they differ by 0.01 or less:
 Similar to `union` with an empty set:
 
 ```
->>> let x = [9 0 0 3 2 3 6 2 9 8 4 9 0 2 6 5 7 4 9 8];
+>>> let x = [
+>>> 	9 0 0 3 2 3 6 2 9 8
+>>> 	4 9 0 2 6 5 7 4 9 8
+>>> ];
 >>> (
 >>> 	x.deleteDuplicates,
 >>> 	x.union([])

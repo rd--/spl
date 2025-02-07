@@ -30,14 +30,18 @@ At `Record`:
 At `IdentityBag`:
 
 ```
->>> [2, 6 .. 14].asIdentityBag.collect { :x | x * x }
+>>> [2, 6 .. 14]
+>>> .asIdentityBag
+>>> .collect(squared:/1)
 [4 36 100 196].asIdentityBag
 ```
 
 At `IdentitySet`:
 
 ```
->>> [2, 6 .. 14].asIdentitySet.collect { :x | x * x }
+>>> [2, 6 .. 14]
+>>> .asIdentitySet
+>>> .collect(squared:/1)
 [4 36 100 196].asIdentitySet
 ```
 

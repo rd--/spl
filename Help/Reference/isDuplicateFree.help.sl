@@ -14,21 +14,32 @@ false
 Use `asIdentityBag` to reveal duplicate elements:
 
 ```
->>> [1 7 8 4 3 4 1 9 9 2].asIdentityBag.sortedElements
-[1 -> 2, 2 -> 1, 3 -> 1, 4 -> 2, 7 -> 1, 8 -> 1, 9 -> 2]
+>>> [1 7 8 4 3 4 1 9 9 2]
+>>> .asIdentityBag
+>>> .sortedElements
+[
+	1 -> 2,
+	2 -> 1,
+	3 -> 1,
+	4 -> 2,
+	7 -> 1,
+	8 -> 1,
+	9 -> 2
+]
 ```
 
 Determine whether or not the sublists have the same total:
 
 ```
->>> let m = [
+>>> [
 >>> 	0 0 0 1 0;
 >>> 	1 0 1 0 1;
 >>> 	1 1 1 0 0;
 >>> 	0 0 0 0 1;
 >>> 	1 1 1 0 1
->>> ];
->>> m.isDuplicateFree { :p :q | p.sum = q.sum }
+>>> ].isDuplicateFree { :p :q |
+>>> 	p.sum = q.sum
+>>> }
 false
 ```
 

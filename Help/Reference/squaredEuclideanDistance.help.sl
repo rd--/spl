@@ -9,10 +9,16 @@ Equivalent to _(u - v).norm ^ 2_.
 Squared Euclidean distance between numeric vectors:
 
 ```
->>> [1 2 3].squaredEuclideanDistance([2 4 6])
+>>> [1 2 3]
+>>> .squaredEuclideanDistance(
+>>> 	[2 4 6]
+>>> )
 14
 
->>> [1 5 2 3 10].squaredEuclideanDistance([4 15 20 5 5])
+>>> [1 5 2 3 10]
+>>> .squaredEuclideanDistance(
+>>> 	[4 15 20 5 5]
+>>> )
 462
 ```
 

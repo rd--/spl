@@ -9,7 +9,8 @@ At `List`:
 ```
 >>> let list = 1:9.collect(printString:/1);
 >>> let answer = [];
->>> list.fromToKeysAndValuesDo(3, 7) { :key :value |
+>>> list
+>>> .fromToKeysAndValuesDo(3, 7) { :key :value |
 >>> 	answer.add([key.negated, value])
 >>> };
 >>> answer

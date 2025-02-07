@@ -5,10 +5,20 @@
 Reduce from left to right.
 
 ```
->>> [1 .. 9].foldLeft(-)
--43
+>>> [1 .. 7].foldLeft(-)
+-26
 
->>> ((((((((1 - 2) - 3) - 4) - 5) - 6) - 7) - 8) - 9)
+>>> (
+>>> 	(
+>>> 		(
+>>> 			(
+>>> 				(
+>>> 					1 - 2
+>>> 				) - 3
+>>> 			) - 4
+>>> 		) - 5
+>>> 	) - 6
+>>> ) - 7
 -43
 
 >>> [1 2 3 4 5].foldLeft(/)
@@ -17,16 +27,20 @@ Reduce from left to right.
 >>> [1 .. 4].foldLeft(+)
 10
 
->>> { [].foldLeft(+) }.ifError { true }
+>>> {
+>>> 	[].foldLeft(+)
+>>> }.ifError { true }
 true
 
 >>> [1 .. 4].foldLeft(-)
 -8
 
->>> [true false true true].foldLeft(&&)
+>>> [true false true true]
+>>> .foldLeft(&&)
 false
 
->>> [false false true true].foldLeft(||)
+>>> [false false true true]
+>>> .foldLeft(||)
 true
 ```
 

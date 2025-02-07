@@ -42,7 +42,9 @@ Parse hexadecimal integers:
 Signal `error` on failure:
 
 ```
->>> { 'three'.parseSmallInteger(10) }.ifError { true }
+>>> {
+>>> 	'three'.parseSmallInteger(10)
+>>> }.ifError { true }
 true
 ```
 

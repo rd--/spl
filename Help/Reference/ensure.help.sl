@@ -8,12 +8,16 @@ Assign to _x_ in the case of an error:
 
 ```
 >>> let x = nil;
->>> { { ''.error }.ensure { x := true } }.ifError { };
+>>> {
+>>> 	{ ''.error }.ensure {
+>>> 		x := true
+>>> 	}
+>>> }.ifError { };
 >>> x
 true
 ```
 
-Assign to _x_ in the case of no error:
+Assign to _x_ in the case of no `error`:
 
 ```
 >>> let x = nil;

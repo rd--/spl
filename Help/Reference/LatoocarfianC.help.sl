@@ -9,12 +9,19 @@ Latoocarfian chaotic generator.
 - xi: initial value of x
 - yi: initial value of y
 
-A cubic-interpolating sound generator based on a function given in the Clifford Pickover book _Chaos In Wonderland_ on page 26. The function is:
+A cubic-interpolating sound generator based on a function given by Clifford Pickover.
+The function is:
 
 > 1. _x(n+1) = sin(b * yn) + c * sin(b * xn)_
 > 2. _y(n+1) = sin(a * yn) + d * sin(a * xn)_
 
-According to Pickover, parameters a and b should be in the range from -3 to +3, and parameters c and d should be in the range from 0.5 to 1.5. The function can, depending on the parameters given, give continuous chaotic output, converge to a single value (silence) or oscillate in a cycle (tone).
+According to Pickover, parameters a and b should be in the range from -3 to +3,
+and parameters c and d should be in the range from 0.5 to 1.5.
+The function can,
+depending on the parameters given,
+give continuous chaotic output,
+converge to a single value (silence),
+or oscillate in a cycle (tone).
 
 Default initial parameters, mouse control of frequency:
 

@@ -15,7 +15,8 @@ Calculate the area of a pentagon:
 Manipulations of a polygon:
 
 ```
->>> let [p1, p2, p3, p4, p5] = [3 1; 7 2; 4 4; 8 6; 1 7];
+>>> let p = [3 1; 7 2; 4 4; 8 6; 1 7];
+>>> let [p1, p2, p3, p4, p5] = p;
 >>> let q = [4 3];
 >>> [
 >>> 	p1 p2 p3 p4 p5;

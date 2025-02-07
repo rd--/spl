@@ -8,7 +8,10 @@ Use copyReplaceFromToWith for insertion or deletion that may alter the size of t
 
 ```
 >>> let list = [1 .. 7];
->>> list.replaceFromToWithStartingAt(3, 5, [-3 -4 -5], 1);
+>>> list
+>>> .replaceFromToWithStartingAt(
+>>> 	3, 5, [-3 -4 -5], 1
+>>> );
 >>> list
 [1 2 -3 -4 -5 6 7]
 ```

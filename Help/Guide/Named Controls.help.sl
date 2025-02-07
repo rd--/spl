@@ -8,7 +8,10 @@ The named controls are collected altogether, sorted by name, and assigned indexe
 In simple cases the indices can be readily inferred, below _amp_ will have index zero and _freq_ index one.
 
 ```
-SinOsc(NamedControl('freq', 440), 0) * NamedControl('amp', 0.1)
+SinOsc(
+	NamedControl('freq', 440),
+	0
+) * NamedControl('amp', 0.1)
 ```
 
 However as a rule if controls are specified using `NamedControl` they should be set by name, not index.

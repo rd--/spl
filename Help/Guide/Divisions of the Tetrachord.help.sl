@@ -6,9 +6,21 @@ Frog Peak Music, NH, 1993.
 
 ## 1. The tetrachord in experimental music
 
-The tetrachord is the interval of a _perfect fourth_, the _diatessaron_ of the Greeks, divided into three subintervals by the interposition of two additional notes.
-The four notes, or strings, of the tetrachord were named _hypate_, _parhypate_, _lichanos_, and _mese_ in ascending order from I/I to 4/3 in the first tetrachord ofthe central octave of the Greater Perfect System, the region of the scale of most concern to theorists.
-Ascending through the second tetrachord, they were called _paramese_, _trite_, _paranete_, and _nete_. [p.4]
+The tetrachord is the interval of a _perfect fourth_,
+the _diatessaron_ of the Greeks,
+divided into three subintervals by the interposition of two additional notes.
+The four notes,
+or strings,
+of the tetrachord were named _hypate_,
+_parhypate_,
+_lichanos_,
+and _mese_ in ascending order from I/I to 4/3 in the first tetrachord ofthe central octave of the Greater Perfect System,
+the region of the scale of most concern to theorists.
+Ascending through the second tetrachord,
+they were called _paramese_,
+_trite_,
+_paranete_,
+and _nete_. [p.4]
 
 Harry Partch used the pentatonic form of the enharmonic (16/15 5/4 9/8 16/15 5/4)
 in the first of his _Two Studies on Ancient Greek Scales_ (1946) [p.5]:
@@ -283,7 +295,12 @@ Surprisingly, I have been unable to trace the apparently missing reduplicated ge
 
 ## 3. Aristoxenos and the geometrization of musical space
 
-Aristoxenos described his genera in units of twelfths of a tone (Macran 1902), but later theorists, notably Cleonides, translated these units into a cipher consisting of 30 parts (_moria_) to the fourth (Barbera 1978) ... These two medieval Islamic tetrachords are Aristoxenian approximations to Ptolemy’s equable diatonic ...  The intonation of the liturgical music of the Byzantine and Slavonic Orthodox churches is a complex problem ... [p.18-22]:
+Aristoxenos described his genera in units of twelfths of a tone (Macran 1902),
+but later theorists,
+notably Cleonides,
+translated these units into a cipher consisting of 30 parts (_moria_) to the fourth (Barbera 1978)...
+These two medieval Islamic tetrachords are Aristoxenian approximations to Ptolemy’s equable diatonic...
+The intonation of the liturgical music of the Byzantine and Slavonic Orthodox churches is a complex problem ... [p.18-22]:
 
 ```
 >>> [

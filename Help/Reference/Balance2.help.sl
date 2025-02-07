@@ -2,17 +2,16 @@
 
 - _Balance2(left, right, pos=0, level=1)_
 
-`Balance2` is a stereo signal balancer.
-Equal power panning balances two channels.
-By panning from left (_pos = -1_) to right (_pos = 1_) you are decrementing the level of the left channel from 1 to 0 taking the square root of the linear scaling factor,
-while at the same time incrementing the level of the right channel from 0 to 1 using the same curve.
-In the center position (pos=0) this results in a level for both channels of 0.5.sqrt (~=0.707 or -3dB).
+`Balance2` is a stereo signal balancer,
+it applies equal power rules to balance two channels.
+`Balance2` places the left input in the left channel,
+the right input in the right channel,
+and applies independent multipliers to each channel.
 The output of `Balance2` remains a stereo signal.
 
-Balance2 places the left input in the left channel and the right input in the right channel and applies independent multipliers to each channel.
-When _pos_ is -1 only the left channel is heard, the multipliers are 1 and 0, i.e. × ⟦1, 0⟧
-When _pos_ is +1 only the right channel is heard, the multipliers are 0 and 1, i.e. × ⟦0, 1⟧
-When _pos_ is 0 the two channels are balanced and both multipliers are √½ (≈ 0.7), i.e. × ⟦√½, √½⟧
+When _pos_ is -1 the multipliers are ⟦1, 0⟧,
+when _pos_ is +1 the multipliers are ⟦0, 1⟧,
+when _pos_ is 0 the multipliers are ⟦√½, √½⟧.
 
 Pan sweep from left to right:
 

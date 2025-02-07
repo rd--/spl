@@ -6,7 +6,10 @@ Evaluate _aBlock_ with each key of _aDictionary_ as the argument.
 
 ```
 >>> let list = [];
->>> (x: 1, y: 2, z: 3).keysDo { :each | list.add(each) };
+>>> (x: 1, y: 2, z: 3)
+>>> .keysDo { :each |
+>>> 	list.add(each)
+>>> };
 >>> list
 ['x' 'y' 'z']
 ```

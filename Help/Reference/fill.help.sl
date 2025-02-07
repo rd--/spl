@@ -36,7 +36,10 @@ Constant list:
 A 3×3 matrix, each place holding its column index minus its row index:
 
 ```
->>> [3 3].fill { :index | let [i, j] = index; j - i }
+>>> [3 3].fill { :index |
+>>> 	let [i, j] = index;
+>>> 	j - i
+>>> }
 [
 	 0  1 2;
 	-1  0 1;
@@ -47,14 +50,18 @@ A 3×3 matrix, each place holding its column index minus its row index:
 A 3×2 matrix, each place holding the square of its two place _(i,j)_ index:
 
 ```
->>> [3 2].fill { :i | i * i }
+>>> [3 2].fill { :i |
+>>> 	i * i
+>>> }
 [
 	1 1;
-	1 4:;
-		4 1;
-		4 4:;
-			9 1;
-			9 4
+	1 4
+	:;
+	4 1;
+	4 4
+	:;
+	9 1;
+	9 4
 ]
 ```
 
@@ -72,7 +79,9 @@ A constant 3×3 matrix:
 If the shape is empty answer a scalar of _aBlock_ applied to `zero`:
 
 ```
->>> [].fill { :i | i }
+>>> [].fill { :i |
+>>> 	i
+>>> }
 0
 ```
 

@@ -12,7 +12,7 @@ A `Ugen`:
 SinOsc(440, 0) * 0.1
 ```
 
-A `List of `Ugen`:
+A `List` of `Ugen`:
 
 ```
 [
