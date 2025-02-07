@@ -1,5 +1,11 @@
 Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
+	asDictionary { :self |
+		let answer = Dictionary();
+		answer.addAll(self);
+		answer
+	}
+
 	asRecord { :self |
 		self
 	}

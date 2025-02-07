@@ -4,7 +4,7 @@
 
 Convert a collection type to a `Record`.
 
-At a `List` of `Association`s:
+At a `List` of `Association` values:
 
 ```
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3].asRecord
@@ -21,6 +21,21 @@ At a `List` holding a 2-column _matrix_:
 (x: 1, y: 2, z: 3)
 ```
 
+It is an `error` if the matrix does not have `String` items in the first column,
+or does not have two columns:
+
+```
+>>> {
+>>> 	[1 2; 3 4; 5 6].asRecord
+>>> }.ifError { true }
+true
+
+>>> {
+>>> 	['x' 1 2; 'y' 3 4; 'z' 5 6].asRecord
+>>> }.ifError { true }
+true
+```
+
 At a `Map`:
 
 ```
@@ -30,6 +45,6 @@ At a `Map`:
 
 * * *
 
-See also: asList, Association, List, Map, Record
+See also: asDictionary, asList, asMap, Association, Dictionary, List, Map, Record
 
 Categories: Converting

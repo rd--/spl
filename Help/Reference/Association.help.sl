@@ -46,14 +46,14 @@ false
 ```
 
 The print string is given using the `->` operator,
-the store string using the `Association` function:
+the store string is similar but adds parentheses:
 
 ```
 >>> (0 -> 1).printString
 '0 -> 1'
 
 >>> (0 -> 1).storeString
-'Association(0, 1)'
+'(0 -> 1)'
 ```
 
 _Note_:

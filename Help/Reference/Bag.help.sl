@@ -11,7 +11,6 @@ To convert a collection to a `Bag` use `asBag`,
 to convert a `Bag` to a `Set` use `asSet`,
 to convert a `Bag` to a `List` use `asList`:
 
-
 ```
 >>> let list = [1 1 1 3 3 5];
 >>> let bag = list.asBag;
@@ -85,7 +84,7 @@ To remove an element from a `Bag` use `remove`:
 
 * * *
 
-See also: add, addWithOccurrences, asIdentityBag, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: add, addWithOccurrences, asIdentityBag, Dictionary, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
 
 References:
 _Mathematica_

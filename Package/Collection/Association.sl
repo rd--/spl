@@ -66,13 +66,12 @@ Association : [Object] { | key value |
 	}
 
 	storeString { :self |
-		[
-			'Association(',
-			self.key.storeString,
-			', ',
-			self.value.storeString,
-			')'
-		].join('')
+		'(% -> %)'.format(
+			[
+				self.key.storeString,
+				self.value.storeString
+			]
+		)
 	}
 
 }

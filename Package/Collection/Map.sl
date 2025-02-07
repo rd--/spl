@@ -57,6 +57,12 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 		>
 	}
 
+	asDictionary { :self |
+		let answer = Dictionary();
+		answer.addAll(self);
+		answer
+	}
+
 	asJson { :self |
 		self.asJson(nil, '')
 	}
@@ -171,7 +177,11 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	}
 
 	asMap { :self |
-		self.collect(asList:/1).mapFromTwoElementLists
+		self.collect { :each |
+			let association = each.asList;
+			association
+			.assertIsOfSize(2)
+		}.mapFromTwoElementLists
 	}
 
 }

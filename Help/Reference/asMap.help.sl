@@ -4,7 +4,7 @@
 
 Construct a `Map` from _aCollection_.
 
-At `Association` `List`:
+At a `List` of `Association` values:
 
 ```
 >>> ['x' -> 1, 'y' -> 2].asMap.isMap
@@ -14,8 +14,8 @@ true
 At `Record`:
 
 ```
->>> (x: 1, y: 2).asMap.isMap
-true
+>>> (x: 1, y: 2).asMap
+['x' -> 1, 'y' -> 2].asMap
 ```
 
 At `IdentityBag`:
@@ -32,8 +32,17 @@ At a 3×2 matrix:
 [1 -> 2, 3 -> 4, 5 -> 6].asMap
 ```
 
+It is an `error` if there are not two columns:
+
+```
+>>> {
+>>> 	[1 2 3; 4 5 6].asMap
+>>> }.ifError { true }
+true
+```
+
 * * *
 
-See also: ->, Association, IdentityBag, List, Map, Record
+See also: ->, asDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
 
 Categories: Converting

@@ -362,7 +362,7 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 	}
 
 	includesKey { :self :key |
-		self.keys.inclues(key)
+		self.keys.includes(key)
 	}
 
 	indices { :self |
