@@ -48,7 +48,7 @@ The following table gives the first few values of _Q(n,k)_:
 
 * * *
 
-See also: integerPartitions, partitionFunctionP
+See also: integerPartitions, partitionFunctionP, partitionsQ
 
 References:
 _Mathematica_

@@ -62,7 +62,7 @@ Plot the number of unrestricted partitions:
 
 * * *
 
-See also: integerPartitions, partitionFunctionQ
+See also: integerPartitions, partitionFunctionQ, partitionsP
 
 References:
 _Mathematica_

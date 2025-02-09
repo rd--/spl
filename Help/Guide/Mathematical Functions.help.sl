@@ -58,7 +58,10 @@
 - `factorial`: factorial function (total arrangements of n objects)
 - `hyperfactorial`: hyperfactorial function
 - `multinomial`: multinomial coefficients
-- `partitionFunctionP`: number of partitions of an integer
+- `partitionFunctionP`: unrestricted partitions
+- `partitionFunctionQ`: restricted partitions
+- `partitionsP`: unrestricted partition count
+- `partitionsQ`: restricted partition count
 - `polygonalNumber`: triangular and other polygonal numbers
 - `subfactorial`: number of derangements of  objects, leaving none unchanged
 
@@ -199,8 +202,10 @@
 ## Integer Partitions
 
 - `integerPartitions`: find partitions of integers
-- `partitionsP`: number of partitions of an integer
-- `partitionsQ`: number of partitions of an integer
+- `partitionFunctionP`: unrestricted partitions
+- `partitionFunctionQ`: restricted partitions
+- `partitionsP`: count unrestricted partitions
+- `partitionsQ`: count restricted partitions
 
 ## Interpolation Functions
 

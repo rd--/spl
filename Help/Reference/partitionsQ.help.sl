@@ -2,7 +2,7 @@
 
 - _partitionsQ(anInteger)_
 
-Answer the number partitions of _anInteger_ into distinct parts.
+Answer the number of restricted partitions of _anInteger_ into distinct parts.
 
 ```
 >>> [2 4 6].collect(partitionsQ:/1)
@@ -19,7 +19,7 @@ Threads over lists:
 `partitionsQ` gives the length of `integerPartitions` with nonrepeating parts:
 
 ```
->>> 5.integerPartition
+>>> 5.integerPartitions
 [5; 4 1; 3 2; 3 1 1; 2 2 1; 2 1 1 1; 1 1 1 1 1]
 
 >>> 5.partitionsQ
@@ -60,4 +60,6 @@ let n = 47;
 
 * * *
 
-See also: partitionFunctionQ
+See also: partitionFunctionQ, partitionsP
+
+Guides: Mathematical Functions

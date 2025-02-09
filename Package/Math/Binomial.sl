@@ -67,6 +67,22 @@
 		partitionFunctionP(n - binomial(k, 2), k)
 	}
 
+	partitionsP { :n |
+		(n = 0).if {
+			1
+		} {
+			let answer = 1;
+			let k = 2;
+			{
+				let i = n.partitionFunctionP(k);
+				answer := answer + i;
+				k := k + 1;
+				i > 0
+			}.whileTrue;
+			answer
+		}
+	}
+
 	partitionsQ { :n |
 		(n = 0).if {
 			1

@@ -311,6 +311,10 @@
 		self.collect(numerator:/1)
 	}
 
+	partitionsP { :self |
+		self.collect(partitionsP:/1)
+	}
+
 	partitionsQ { :self |
 		self.collect(partitionsQ:/1)
 	}
