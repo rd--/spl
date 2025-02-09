@@ -19,7 +19,7 @@ export function evaluateFile(
 export function rewriteFile(fileName: string): Promise<string> {
 	// console.debug(`rewriteFile: ${fileName}`);
 	return host.readTextFileAsync(fileName).then(
-		rewrite.rewriteString,
+		rewrite.rewriteSlToJs,
 	);
 }
 

@@ -20,7 +20,7 @@ function genArityCheck(k: number, a: string): string {
 }`;
 }
 
-function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
+function genDictionaryAssignmentSlots(rhsDictionaryName: string, keyVarNamesArray: string[]) {
 	// console.debug('genDictionaryAssignmentSlots', rhsDictionaryName, keyVarNamesArray);
 	const slots = keyVarNamesArray.map(
 		function (keyVarNames) {
@@ -38,7 +38,7 @@ function genDictionaryAssignmentSlots(rhsDictionaryName, keyVarNamesArray) {
 function genDotTrailing(
 	lhs: ohm.Node,
 	name: ohm.Node,
-	args: ohm.Node,
+	args: ohm.Node | null,
 	trailing: ohm.Node,
 ) {
 	const numArgs = args ? args.arityOf : 0;
@@ -50,7 +50,7 @@ function genDotTrailing(
 	})`;
 }
 
-function genApplyTrailing(name: ohm.Node, args: ohm.Node, trailing: ohm.Node) {
+function genApplyTrailing(name: ohm.Node, args: ohm.Node | null, trailing: ohm.Node) {
 	const numArgs = (args ? args.arityOf : 0) + trailing.children.length;
 	const qualifiedName = `${genName(name.asJs, numArgs)}`;
 	return `${qualifiedName}(${
@@ -298,7 +298,7 @@ const asJs: ohm.ActionDict<string> = {
 		rhs,
 	) {
 		const rhsDictionaryName = genSym();
-		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
+		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.parametersOf);
 		const slots = genDictionaryAssignmentSlots(
 			rhsDictionaryName,
 			keyVarNamesArray,
@@ -350,7 +350,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const rhsDictionaryName = genSym();
-		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.asJs);
+		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.parametersOf);
 		const slots = genDictionaryAssignmentSlots(
 			rhsDictionaryName,
 			keyVarNamesArray,
@@ -363,7 +363,7 @@ const asJs: ohm.ActionDict<string> = {
 	AssignmentOperatorSyntax(lhs, op, rhs) {
 		const text =
 			`${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
-		return rewriteString(text);
+		return rewriteSlToJs(text);
 	},
 	infixMethod(name, _colon) {
 		return `_${genName(name.sourceString, 2)}`;
@@ -560,10 +560,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `Object.fromEntries([${commaList(dict.asIteration().children)}])`;
 	},
 	KeyVarNameAssociation(lhs, _colon, rhs) {
-		return [
-			lhs.sourceString,
-			rhs.sourceString,
-		];
+		throw new Error('KeyVarNameAssociation: see parametersOf');
 	},
 	NameAssociation(lhs, _colon, rhs) {
 		return `['${lhs.sourceString}', ${rhs.asJs}]`;
@@ -773,6 +770,81 @@ const asJs: ohm.ActionDict<string> = {
 
 slSemantics.addAttribute('asJs', asJs);
 
+const asSl: ohm.ActionDict<string> = {
+	BinaryExpression(lhs, ops, rhs) {
+		let left = lhs.asSl;
+		const opsArray = ops.children.map((c) => c.asSl);
+		const rhsArray = rhs.children.map((c) => c.asSl);
+		while (opsArray.length > 0) {
+			const op = opsArray.shift();
+			const right = rhsArray.shift();
+			left = `${op}(${left}, ${right})`;
+		}
+		return left;
+	},
+	DotExpression(lhs, _dot, names, args) {
+		let rcv = lhs.asSl;
+		const namesArray = names.children.map((c) => c.asSl);
+		const argsArray = args.children.map((c) => c.asSl);
+		while (namesArray.length > 0) {
+			const name = namesArray.shift();
+			const arg = argsArray.shift();
+			if (arg.length === 0) {
+				rcv = `${name}(${rcv})`;
+			} else {
+				rcv = `${name}(${[rcv].concat([arg])})`;
+			}
+		}
+		return rcv;
+	},
+	EmptyListOf() {
+		return '';
+	},
+	NonemptyListOf(first, _sep, rest) {
+		return `${first.asSl}; ${rest.children.map((c) => c.asSl)}`;
+	},
+	NonEmptyParameterList(_leftParen, sq, _rightParen) {
+		return commaList(sq.asIteration().children);
+	},
+	ParenthesisedExpression(_leftParen, e, _rightParen) {
+		return '(' + e.asSl + ')'
+	},
+	Program(tmp, stm) {
+		return tmp.asSl + stm.asSl;
+	},
+
+	floatLiteral(s, i, _dot, f) {
+		return s.sourceString + i.sourceString + '.' + f.sourceString;
+	},
+	infixMethod(name, _colon) {
+		return name.sourceString;
+	},
+	integerLiteral(s, i) {
+		return s.sourceString + i.sourceString;
+	},
+	operator(op) {
+		return op.sourceString;
+	},
+	rangeFromByToLiteral(start, _colon, step, _anotherColon, end) {
+		return `toBy(${start.asSl}, ${end.asSl}, ${step.asSl})`;
+	},
+	rangeFromToLiteral(start, _colon, end) {
+		return `to(${start.asSl}, ${end.asSl})`;
+	},
+	unqualifiedIdentifier(c1, cN) {
+		return c1.sourceString + cN.sourceString;
+	},
+
+	_iter(...children) {
+		return children.map((c) => c.asSl).join('');
+	},
+	_terminal() {
+		return this.sourceString;
+	},
+};
+
+slSemantics.addAttribute('asSl', asSl);
+
 const arityOf: ohm.ActionDict<number> = {
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length;
@@ -807,6 +879,12 @@ const parametersOf: ohm.ActionDict<string[]> = {
 	},
 	Arguments(names, _) {
 		return names.children.map((each) => each.sourceString.substring(1));
+	},
+	KeyVarNameAssociation(lhs, _colon, rhs) {
+		return [
+			lhs.sourceString,
+			rhs.sourceString,
+		];
 	},
 	_iter(...children) {
 		if (children.length == 0) {
@@ -883,10 +961,16 @@ function slFirstLineComment(slText: string): string | null {
 	}
 }
 
+export function rewriteSlToCore(slText: string): string {
+	const slCoreText = slParse(slText).asSl;
+	// console.debug(`rewriteSlToCore: ${slText} => ${slCoreText}`);
+	return slCoreText;
+}
+
 // Preserve first line comment for Requires information in .cache
-export function rewriteString(slText: string): string {
+export function rewriteSlToJs(slText: string): string {
 	const jsText = slParse(slText).asJs;
-	// console.debug(`rewriteString: ${slText} => ${jsText}`);
+	// console.debug(`rewriteSlToJs: ${slText} => ${jsText}`);
 	const slComment = slFirstLineComment(slText);
 	if (slComment) {
 		return `/* ${slComment} */\n\n` + jsText;
@@ -895,16 +979,16 @@ export function rewriteString(slText: string): string {
 	}
 }
 
-export function rewriteStringFor(packageName: string, slText: string): string {
+export function rewriteSlToJsFor(packageName: string, slText: string): string {
 	let jsText: string;
 	context.packageName = packageName;
 	try {
-		jsText = rewriteString(slText);
+		jsText = rewriteSlToJs(slText);
 		context.packageName = '*UnknownPackage*';
 		return jsText;
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
-		// console.debug('rewriteStringFor', packageName, slText, err);
+		// console.debug('rewriteSlToJsFor', packageName, slText, err);
 		throw new Error('Rewrite failed', { cause: err });
 	}
 }

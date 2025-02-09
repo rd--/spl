@@ -122,7 +122,7 @@ function cacheRewriteFile(slFileName: string): void {
 	if (jsMtime < slMtime) {
 		const slText = host.readTextFileSync(slFileName);
 		console.debug('cacheRewriteFile', slFileName, packageName, jsFileName);
-		const jsText = rewrite.rewriteStringFor(packageName, slText);
+		const jsText = rewrite.rewriteSlToJsFor(packageName, slText);
 		host.writeTextFileSync(jsFileName, jsText);
 	}
 }

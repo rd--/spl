@@ -16,7 +16,7 @@ export function evaluateForSignalling(
 	if (onlyBlanks(slText)) {
 		throw new Error('Empty string');
 	} else {
-		const jsText = rewrite.rewriteStringFor(packageName, slText);
+		const jsText = rewrite.rewriteSlToJsFor(packageName, slText);
 		if (onlyBlanks(jsText)) {
 			throw new Error('Empty string after rewrite');
 		} else {
