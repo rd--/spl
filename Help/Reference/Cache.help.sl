@@ -40,13 +40,14 @@ however it does implement:
 Remove an item from the 'SplLibrary' cache:
 
 ~~~spl async
+let key ='McClurePolyhedraCatalogue';
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
 	cache
 	.removeKeyIfAbsent(
 		system
-		.library['McClurePolyhedraCatalogue']
+		.library[key]
 		.url
 		.asUrl
 	) {

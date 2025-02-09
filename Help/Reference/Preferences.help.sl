@@ -8,10 +8,10 @@ To read a preference, providing a default value in case it does not exist, use `
 
 ```
 >>> system.preference(
->>> 	'ScSynth/Outputs/Main/NumberOfChannels',
->>> 	2
+>>> 	'ScSynth/Protocol',
+>>> 	'Udp'
 >>> )
-2
+'Udp'
 ```
 
 or `preferencesReadPath`:
@@ -32,22 +32,24 @@ or `preferencesReadPath`:
 Preferences can be assigned to:
 
 ```
->>> system.preferences['Configuration'] := '1×2+1×8+2×4';
->>> system.preferences['Configuration']
+>>> let p = system.preferences;
+>>> p['Configuration'] := '1×2+1×8+2×4';
+>>> p['Configuration']
 '1×2+1×8+2×4'
 ```
 
 The default configuration is _Default_:
 
 ```
->>> system.preferences['Configuration'] := 'Default';
->>> system.preferences['Configuration']
+>>> let p = system.preferences;
+>>> p['Configuration'] := 'Default';
+>>> p['Configuration']
 'Default'
 ```
 
 By convention preferences are named using _PascalCase_.
 The path separator is the _/_ character,
-for instance _ScSynth/Outputs/Main/NumberOfChannels_.
+for instance _ScSynth/Protocol_.
 
 * * *
 
