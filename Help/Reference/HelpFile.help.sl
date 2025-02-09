@@ -22,7 +22,7 @@ Accessors to read the parts of the file are:
 - `categories`: list of categories
 
 ~~~spl async
-let url = system.splFile(
+let url = system.splFileName(
 	'Help/Reference/add.help.sl'
 ).asFileUrl;
 url.fetchText.then { :aString |

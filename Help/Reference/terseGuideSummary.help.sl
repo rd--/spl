@@ -9,7 +9,7 @@ and print a summary of each section and of the guide altogether.
 
 ~~~spl console
 system
-.splFile('Help/Terse/Terse Guide.help.sl')
+.splFileName('Help/Terse/Terse Guide.help.sl')
 .asFileUrl
 .terseGuideSummary
 ~~~
@@ -20,7 +20,7 @@ and print a summary of each section and of the guide altogether.
 
 ~~~spl console
 system
-.splFile('Help/Terse/Terse Guide to SuperCollider.help.sl')
+.splFileName('Help/Terse/Terse Guide to SuperCollider.help.sl')
 .readTextFile
 .terseGuideSummary
 ~~~

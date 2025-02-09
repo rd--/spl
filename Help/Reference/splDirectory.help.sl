@@ -10,8 +10,8 @@ This reads the 'SPL_DIR' environment variable.
 '/home/rohan/sw/spl'
 ```
 
-`splFile` locates files relative to this directory.
+`splFileName` locates files relative to this directory.
 
 * * *
 
-See also: environmentVariable, splFile
+See also: environmentVariable, splFileName

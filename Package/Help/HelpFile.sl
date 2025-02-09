@@ -45,7 +45,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	codeBlockImageFileName { :self :codeBlock :imageType |
 		let imageIdentifier = codeBlock['attributes'][imageType];
-		system.splFile(
+		system.splFileName(
 			'Help/Image/%-%.%'.format(
 				[
 					self.originName,
@@ -335,7 +335,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	helpFilesDo { :self :kind :aBlock:/1 |
 		self
-		.splFile('Help/' ++ kind)
+		.splFileName('Help/' ++ kind)
 		.readDirectoryFileNames
 		.select { :each |
 			each.endsWith('.help.sl')

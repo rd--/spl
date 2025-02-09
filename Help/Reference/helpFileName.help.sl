@@ -11,7 +11,7 @@ Topics that have no white space are reference files:
 'Help/Reference/SinOsc.help.sl'
 ```
 
-Topics that include white are guide files:
+Topics that include white space are guide files:
 
 ```
 >>> 'Help Files'.helpFileName
@@ -20,6 +20,6 @@ Topics that include white are guide files:
 
 * * *
 
-See also: HelpFile, splDirectory, splFile
+See also: HelpFile, splDirectory, splFileName
 
 Guides: Help Files

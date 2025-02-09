@@ -3966,10 +3966,10 @@ system.includesPackage('Url') /* package */
 
 ## System -- fetch
 ```
-system.splFile('README.md').asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
-system.splFile('DoesNotExist').asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
+system.splFileName('README.md').asFileUrl.fetchText.then { :text | { text.size > 0 }.assert }; true /* fetch text from file */
+system.splFileName('DoesNotExist').asFileUrl.fetchText.onRejection { :unused | nil }; true /* file does not exist */
 system.splUrl('README.md').fetchText.thenElse { :text | { text.size > 0 }.assert } { :err | true }; true /* fetch text from url (remote, allow for no network connection) */
-system.splFile('Package/SmallKansas/PackageBrowser.sl').asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
+system.splFileName('Package/SmallKansas/PackageBrowser.sl').asFileUrl.fetchText.then { :text | { text.parsePackageHeader.includesIndex('Requires') }.assert }; true
 ```
 
 ## System -- UrlQueryParameters

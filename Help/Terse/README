@@ -1,11 +1,11 @@
-system.splFile('Help/Terse/Terse Guide.help.sl').asFileUrl.terseGuideSummary
+system.splFileName('Help/Terse/Terse Guide.help.sl').asFileUrl.terseGuideSummary
 
 Total => 3699
 
-system.splFile('Help/Terse/Terse Guide to Sound.help.sl').asFileUrl.terseGuideSummary
+system.splFileName('Help/Terse/Terse Guide to Sound.help.sl').asFileUrl.terseGuideSummary
 
 Total => 196
 
-system.splFile('Help/Terse/Terse Guide to SuperCollider.help.sl').asFileUrl.terseGuideSummary
+system.splFileName('Help/Terse/Terse Guide to SuperCollider.help.sl').asFileUrl.terseGuideSummary
 
 Total => 122

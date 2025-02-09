@@ -17,4 +17,4 @@ nil
 
 * * *
 
-See also: HelpFile, splDirectory, splFile
+See also: HelpFile, splDirectory, splFileName

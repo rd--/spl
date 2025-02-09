@@ -10,7 +10,7 @@ Only ordinary files are listed, not sub-directories.
 
 ```
 >>> system
->>> .splFile('Help')
+>>> .splFileName('Help')
 >>> .readDirectoryFileNames
 [
 	'/home/rohan/sw/spl/Help/Index.text'

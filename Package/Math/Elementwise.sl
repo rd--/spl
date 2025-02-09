@@ -311,6 +311,10 @@
 		self.collect(numerator:/1)
 	}
 
+	partitionsQ { :self |
+		self.collect(partitionsQ:/1)
+	}
+
 	pi { :self |
 		self.collect(pi:/1)
 	}

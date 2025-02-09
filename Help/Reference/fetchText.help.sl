@@ -23,7 +23,7 @@ A file protocol `Url`:
 
 ~~~spl async
 system
-.splFile('Help/Reference/Url.help.sl')
+.splFileName('Help/Reference/Url.help.sl')
 .asFileUrl
 .fetchText
 ~~~

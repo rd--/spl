@@ -67,6 +67,22 @@
 		partitionFunctionP(n - binomial(k, 2), k)
 	}
 
+	partitionsQ { :n |
+		(n = 0).if {
+			1
+		} {
+			let answer = 1;
+			let k = 2;
+			{
+				let i = n.partitionFunctionQ(k);
+				answer := answer + i;
+				k := k + 1;
+				i > 0
+			}.whileTrue;
+			answer
+		}
+	}
+
 	polygonalNumber { :n |
 		binomial(n + 1, 2)
 	}

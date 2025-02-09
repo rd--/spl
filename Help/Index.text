@@ -2281,7 +2281,7 @@ Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
 Reference/splDirectory.help.sl
-Reference/splFile.help.sl
+Reference/splFileName.help.sl
 Reference/splitBy.help.sl
 Reference/splitByLimitedTo.help.sl
 Reference/splitByRegExp.help.sl

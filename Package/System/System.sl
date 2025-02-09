@@ -249,7 +249,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		}
 	}
 
-	splFile { :self :aString |
+	splFileName { :self :aString |
 		[
 			self.splDirectory,
 			aString

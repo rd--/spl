@@ -1,4 +1,4 @@
-system.splFile('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
+system.splFileName('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
 Total => 7994
 
@@ -18,7 +18,7 @@ nil
 'ls ~/sw/spl/Help/Image/* | wc -l' => 808
 
 ~~~
-system.splFile('Help/Reference').terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
+system.splFileName('Help/Reference').terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
 ~~~
 
 Total => 566

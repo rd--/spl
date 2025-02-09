@@ -12,7 +12,7 @@ Print only the names of sub-directories:
 
 ~~~
 >>> system
->>> .splFile('Help')
+>>> .splFileName('Help')
 >>> .readDirectory
 >>> .select { :each |
 >>> 	each['isDirectory']

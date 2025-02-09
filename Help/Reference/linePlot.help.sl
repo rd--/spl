@@ -164,6 +164,8 @@ Plot list of column vectors:
 
 See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, stepPlot, surfacePlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ListLinePlot.html),

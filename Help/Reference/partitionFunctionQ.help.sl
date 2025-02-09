@@ -13,9 +13,11 @@ since there are four partitions of 10 into three distinct parts:
 >>> 10.partitionFunctionQ(3)
 4
 
->>> let p = 10.integerPartitions(3);
+>>> let n = 10;
+>>> let k = 3;
+>>> let p = n.integerPartitions(k);
 >>> p.collect(nub:/1).select { :each |
->>> 	each.size = 3
+>>> 	each.size = k
 >>> }
 [7 2 1; 6 3 1; 5 4 1; 5 3 2]
 ```
@@ -24,7 +26,7 @@ The following table gives the first few values of _Q(n,k)_:
 
 ```
 >>> 1:10.collect { :n |
->>> 	1:4.collect { :k |
+>>> 	1:n.collect { :k |
 >>> 		n.partitionFunctionQ(k)
 >>> 	}.select { :i |
 >>> 		i > 0

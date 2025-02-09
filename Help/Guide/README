@@ -1,4 +1,4 @@
-system.splFile('Help/Guide').terseReferenceSummary(verbose: false, pattern: '.*')
+system.splFileName('Help/Guide').terseReferenceSummary(verbose: false, pattern: '.*')
 
 Total => 427
 

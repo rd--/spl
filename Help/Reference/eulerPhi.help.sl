@@ -26,8 +26,8 @@ Negative numbers:
 Threads over lists:
 
 ```
->>> [2 4 6].eulerPhi
-[1 2 2]
+>>> [2 4 5 6 7 35].eulerPhi
+[1 2 4 2 6 24]
 ```
 
 Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`,
@@ -125,6 +125,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/TotientFunction.html)
 [2](https://reference.wolfram.com/language/ref/EulerPhi.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/symbolic/eulerphi.html),
 _OEIS_
 [1](https://oeis.org/A002088)
 [2](https://oeis.org/A018804)

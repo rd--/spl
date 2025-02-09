@@ -7,7 +7,7 @@ If the file does not exists signal an `Error`.
 
 ~~~
 >>> system
->>> .splFile('README.md')
+>>> .splFileName('README.md')
 >>> .readTextFile
 >>> .lines
 >>> .size
@@ -19,7 +19,7 @@ however it should answer equivalently:
 
 ~~~spl async
 system
-.splFile('README.md')
+.splFileName('README.md')
 .asFileUrl
 .fetchText
 ~~~

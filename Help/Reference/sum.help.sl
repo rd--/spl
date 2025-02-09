@@ -12,14 +12,28 @@ Answer the sum of all the elements in _aCollection_.
 25.8599
 ```
 
-At `Range`:
+At `Range`,
+the `sum` is calculated directly using a closed form:
 
 ```
 >>> 1:9.sum
 45
 
+>>> 9 * (9 + 1) / 2
+45
+
 >>> 1:9.reduce(+)
 45
+
+>>> 3:2:27.sum
+195
+
+>>> let k = 27 - 3 / 2 + 1;
+>>> k * ((k - 1) * 2 + (3 * 2)) / 2
+195
+
+>>> (23L, 37L .. 26781361428314L).sum
+25615761426939509660643648L
 ```
 
 Row-wise sums of a matrix:
