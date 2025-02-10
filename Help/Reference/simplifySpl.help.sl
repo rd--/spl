@@ -47,7 +47,6 @@ l
 'f(x, { :i | i })'
 ```
 
-
 `Dictionary Syntax` is rewritten:
 
 ```

@@ -42,7 +42,6 @@ Hermite impulse response, tension of positive three:
 
 ![](sw/spl/Help/Image/hermiteInterpolation-B.svg)
 
-
 Hermite impulse response, tension of negative one and bias of two-thirds:
 
 ~~~spl svg=C
@@ -64,4 +63,3 @@ References:
 _W_
 [1](https://en.wikipedia.org/wiki/Hermite_interpolation)
 [2](https://en.wikipedia.org/wiki/Cubic_Hermite_spline)
-

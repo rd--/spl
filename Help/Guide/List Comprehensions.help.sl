@@ -9,13 +9,18 @@ The Haskell list comprehension:
 is rewritten in Haskell _do_ notation as:
 
 ~~~hs
-do x <- [1, 2, 7, 12]; guard (even x); return (x * x)
+do
+ x <- [1, 2, 7, 12];
+ guard (even x);
+ return (x * x)
 ~~~
 
 and in plain Haskell notation as:
 
 ~~~hs
-[1, 2, 7, 12] >>= \x -> guard (even x) >> return (x * x)
+[1, 2, 7, 12]
+ >>= \x -> guard (even x)
+ >> return (x * x)
 ~~~
 
 In Sᴘʟ this program might be written:

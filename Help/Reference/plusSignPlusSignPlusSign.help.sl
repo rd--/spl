@@ -1,4 +1,4 @@
-# +++
+# +++ (plusSignPlusSignPlusSign)
 
 - _aSequence_ +++ _anotherSequence_
 
@@ -56,6 +56,8 @@ Wraps around at right hand side if required:
 	5  6  7  8
 ]
 ```
+
+The name of this operator is `plusSignPlusSignPlusSign`.
 
 * * *
 

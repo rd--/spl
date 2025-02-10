@@ -53,9 +53,9 @@ in alphabetical order:
 Three-character binary operators,
 in alphabetical order:
 
-- `greaterThanSignGreaterThanSignGreaterThanSign`: >>>
-- `lessThanSignEqualsSignGreaterThanSign`: <=>
-- `plusSignPlusSignPlusSign`: +++
+- `>>>`: greaterThanSign...
+- `<=>`: lessThanSignEqualsSign...
+- `+++`: plusSign...
 
 * * *
 

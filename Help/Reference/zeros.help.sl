@@ -1,6 +1,6 @@
 # zeros
 
-- _zeroes(shape)
+- _zeros(shape)_
 
 Create array of all zeros with specified _shape_.
 

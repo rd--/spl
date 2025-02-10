@@ -1,4 +1,4 @@
-# >>> (greaterThanSignGreaterThanSignGreaterThanSign)
+# >>> (greaterThanSign...)
 
 - _α >>> β_ ⟹ _bitShiftRightUnsigned(α, β)_
 
@@ -18,10 +18,16 @@ Compare with `>>`:
 >>> -5 >>> 2
 1073741822
 
->>> -5.encodeInt32(true).asBitSet.asString
+>>> -5
+>>> .encodeInt32(true)
+>>> .asBitSet
+>>> .asString
 '11011111111111111111111111111111'
 
->>> 1073741822.encodeInt32(true).asBitSet.asString
+>>> 1073741822
+>>> .encodeInt32(true)
+>>> .asBitSet
+>>> .asString
 '01111111111111111111111111111100'
 
 >>> 9 >>> 2
@@ -36,7 +42,7 @@ It is only such a token when it appears at the start of a line,
 within a fenced code block,
 in a _.help.sl_ file.
 
-The name of this operator is `greaterThanSignGreaterThanSignGreaterThanSign`.
+The name of this operator is _greaterThanSign..._.
 
 Where supported `>>>` is displayed as ⋙.
 

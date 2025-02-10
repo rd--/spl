@@ -30,7 +30,7 @@ RingzBank(
 	nil,
 	nil
 )
-2```
+```
 
 With noise input:
 
