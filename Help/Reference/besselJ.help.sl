@@ -72,6 +72,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html)
 [2](https://reference.wolfram.com/language/ref/BesselJ.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/besselj.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Bessel_function)
 

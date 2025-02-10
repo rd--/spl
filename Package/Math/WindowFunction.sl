@@ -82,6 +82,14 @@
 		self.hannWindow(0.5)
 	}
 
+	kaiserWindow { :x :a |
+		(x.abs <= 0.5).if {
+			0.besselI((1 - (2 * x)).sqrt * (1 + (2 * x)).sqrt * a) / 0.besselI(a)
+		} {
+			0
+		}
+	}
+
 	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0

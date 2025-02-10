@@ -22,6 +22,48 @@
 
 +@Number {
 
+	besselI { :n :x |
+		<primitive:
+		/* https://git.sheetjs.com/SheetJS/bessel */
+		let horner = function(arr, v) { let z = 0; for(let i = 0; i < arr.length; ++i) z = v * z + arr[i]; return z; }
+		let b0_a = [1.0, 3.5156229, 3.0899424, 1.2067492, 0.2659732, 0.360768e-1, 0.45813e-2].reverse();
+		let b0_b = [0.39894228, 0.1328592e-1, 0.225319e-2, -0.157565e-2, 0.916281e-2, -0.2057706e-1, 0.2635537e-1, -0.1647633e-1, 0.392377e-2].reverse();
+		let bessel0 = function(x) {
+			if(x <= 3.75) return horner(b0_a, x*x/(3.75*3.75));
+			return Math.exp(Math.abs(x))/Math.sqrt(Math.abs(x))*horner(b0_b, 3.75/Math.abs(x));
+		}
+		let b1_a = [0.5, 0.87890594, 0.51498869, 0.15084934, 0.2658733e-1, 0.301532e-2, 0.32411e-3].reverse();
+		let b1_b = [0.39894228, -0.3988024e-1, -0.362018e-2, 0.163801e-2, -0.1031555e-1, 0.2282967e-1, -0.2895312e-1, 0.1787654e-1, -0.420059e-2].reverse();
+		let bessel1 = function(x) {
+			if(x < 3.75) return x * horner(b1_a, x*x/(3.75*3.75));
+			return (x < 0 ? -1 : 1) * Math.exp(Math.abs(x))/Math.sqrt(Math.abs(x))*horner(b1_b, 3.75/Math.abs(x));
+		}
+		let besseli = function(x, n) {
+			n = Math.round(n);
+			if(n === 0) return bessel0(x);
+			if(n === 1) return bessel1(x);
+			if(n < 0) return NaN;
+			if(Math.abs(x) === 0) return 0;
+			if(x == Infinity) return Infinity;
+			let ret = 0.0, j, tox = 2 / Math.abs(x), bip = 0.0, bi=1.0, bim=0.0;
+			let m=2*Math.round((n+Math.round(Math.sqrt(40*n)))/2);
+			for (j=m;j>0;j--) {
+				bim=j*tox*bi + bip;
+				bip=bi; bi=bim;
+				if (Math.abs(bi) > 1E10) {
+					bi *= 1E-10;
+					bip *= 1E-10;
+					ret *= 1E-10;
+				}
+				if(j == n) ret = bip;
+			}
+			ret *= besseli(x, 0) / bi;
+			return x < 0 && (n%2) ? -ret : ret;
+		};
+		return besseli(_x, _n);
+		>
+	}
+
 	besselJ0 { :x |
 		x := x.abs;
 		(x > 8).if {
