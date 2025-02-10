@@ -6,10 +6,17 @@ Answer the outer product of two sequences.
 
 ```
 >>> [1 2 3].outerProduct([4 5])
-[4 5; 8 10; 12 15]
+[
+	 4  5;
+	 8 10;
+	12 15
+]
 
 >>> [1 2].outerProduct([3 4 5])
-[3 4 5; 6 8 10]
+[
+	3  4  5;
+	6  8 10
+]
 ```
 
 `outerProduct` of two four vectors:
@@ -52,4 +59,4 @@ A multiplication table:
 
 * * *
 
-See also: dot, inner, outer
+See also: *, dot, inner, outer

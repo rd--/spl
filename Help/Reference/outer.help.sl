@@ -57,8 +57,7 @@ Compare elements with each other using equal:
 A multiplication table:
 
 ```
->>> let x = [1 .. 5];
->>> x *.outer x
+>>> 1:5 *.outer 1:5
 [
 	1  2  3  4  5;
 	2  4  6  8 10;
@@ -84,31 +83,51 @@ Lower-triangular matrix:
 Apply a function on a tensor product grid:
 
 ```
->>> let x = [0, 0.1, 0.25, 0.5, 1];
->>> let y = [-1, -0.5, 0, 1 / 3, 2 / 3, 1];
+>>> let x = [0 0.1 0.25 0.5 1];
+>>> let y = [-1 -0.5 0 1/3 2/3 1];
 >>> let m = { :x :y |
 >>> 	((x ^ 2) * y).pi.sin
 >>> }.outer(x, y).first(3);
 >>> (m * 1E4).rounded
 [
-	   -0   -0 0   0    0    0;
-	 -314 -157 0 105  209  314;
-	-1951 -980 0 654 1305 1951
+	   -0   -0   0   0    0    0;
+	 -314 -157   0 105  209  314;
+	-1951 -980   0 654 1305 1951
 ]
 ```
 
 Outer product of matrices:
 
 ```
->>> *.outer([3 5; 7 9], [1 2 3; 4 5 6; 7 8 9])
+>>> *.outer(
+>>> 	[
+>>> 		3 5;
+>>> 		7 9
+>>> 	],
+>>> 	[
+>>> 		1 2 3;
+>>> 		4 5 6;
+>>> 		7 8 9
+>>> 	]
+>>> )
 [
 	[
-		[ 3 6  9; 12 15 18; 21 24 27],
-		[5 10 15; 20 25 30; 35 40 45]
+		 3  6  9;
+		12 15 18;
+		21 24 27
+		:;
+		 5 10 15;
+		20 25 30;
+		35 40 45
 	],
 	[
-		[7 14 21; 28 35 42; 49 56 63],
-		[9 18 27; 36 45 54; 63 72 81]
+		 7 14 21;
+		28 35 42;
+		49 56 63
+		:;
+		 9 18 27;
+		36 45 54;
+		63 72 81
 	]
 ]
 ```
@@ -118,15 +137,20 @@ Outer product of a three-vector and a two-square matrix:
 ```
 >>> *.outer([1 2 3], [4 5; 6 7])
 [
-	 4  5;  6  7:;
-	 8 10; 12 14:;
-	12 15; 18 21
+	 4  5;
+	 6  7
+	:;
+	 8 10;
+	12 14
+	:;
+	12 15;
+	18 21
 ]
 ```
 
 * * *
 
-See also: inner, outerProduct
+See also: inner, map, outerProduct, table
 
 References:
 _Apl_

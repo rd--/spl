@@ -32,7 +32,7 @@ Sl {
 	TemporaryDictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
 	TemporaryListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" TemporaryInitializer ";"
-	LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
+	// LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
@@ -40,7 +40,7 @@ Sl {
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
-	AssignmentOperatorSyntax = Primary operatorAssignment Expression
+	// AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = Expression ((operatorWithAdverb | operator | infixMethod) Primary)+
 
 	Primary
@@ -133,13 +133,12 @@ Sl {
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
 	VectorSyntaxUnarySend = (literal | varName) "." selectorName
-	VectorSyntaxRange = integerLiteral ".." integerLiteral // ?
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
-	TreeSyntax = "[" TreeSyntaxItem+ "]"
-	TreeSyntaxItem = VectorSyntaxItem | TreeSyntax
+	// TreeSyntax = "[" TreeSyntaxItem+ "]"
+	// TreeSyntaxItem = VectorSyntaxItem | TreeSyntax
 
 	unqualifiedIdentifier = letter letterOrDigit*
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
@@ -182,7 +181,8 @@ Sl {
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
 	largeIntegerLiteral = plusOrMinus? digit+ "L" // "n"?
-	radixIntegerLiteral = plusOrMinus? digit+ "r" letterOrDigit+
+    radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
+	radixIntegerLiteral = plusOrMinus? digit+ "r" radixDigit+
     infinityLiteral = plusOrMinus? "Infinity"
 	constantNumberLiteral = infinityLiteral | "NaN" | "Pi"
 	integerLiteral = plusOrMinus? digit+

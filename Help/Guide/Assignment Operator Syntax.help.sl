@@ -1,6 +1,6 @@
 # Assignment Operator Syntax
 
-Rewrite rule:
+Experimental rewrite rule:
 
 - _p +:= q_ ⟹ _p := p + (q)_
 - _p -:= q_ ⟹ _p := p - (q)_

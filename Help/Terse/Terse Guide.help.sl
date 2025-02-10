@@ -3694,11 +3694,10 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 [2r10111, 8r27, 10r23, 16r17] = [23, 23, 23, 23] /* twenty three */
 [-2r10111, -8r27, -10r23, -16r17] = [-23, -23, -23, -23] /* negative twenty three */
 9r55 = 50 /* radices other than 2, 8 10 and 16 may raise errors */
-[2r11111111, 8r377, 10r255, 16rff] = [255, 255, 255, 255] /* letters may be lower case */
+[2r11111111, 8r377, 10r255, 16rFF] = [255, 255, 255, 255] /* letters must be upper case */
 16rABCDEF = 10r11259375 /* letters may be uppercase */
-36rZZ = 1295 /* the maximum radix is 36, since each places is either a digit (10) or a letter (26) */
+16rFF = 255 /* the maximum radix is 16, since only A-F is recognized */
 [2r101011001, 8r531, 10r345, 16r159] = [345, 345, 345, 345]
-{ 2r2 }.ifError { true } /* it is an error if the post-radix text includes out of range characters */
 2r1111111111111111 = (2 ^ 16 - 1) /* 16 bits */
 2r111111111111111111111111 = (2 ^ 24 - 1) /* 24 bits */
 2r11111111111111111111111111111111 = (2 ^ 32 - 1) /* 32 bits */

@@ -338,7 +338,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			return Math.hypot(_self, _anObject);
 		}
 		>
-		anObject.adaptToNumberAndApply(self, hypot:/2)
+		anObject.adaptToNumberAndApply(self, hypotenuse:/2)
 	}
 
 	isBinary { :self |

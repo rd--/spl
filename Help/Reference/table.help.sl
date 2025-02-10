@@ -5,7 +5,8 @@
 - _table(aBlock:/2, iSequence, jSequence)_
 - _table(aBlock:/3, iSequence, jSequence, kSequence)_
 
-The binary form answers a _vector_,
+The unary form answers a `Block`,
+the binary form a `List`,
 the ternary form a _matrix_,
 the quaternary form a _volume_.
 The list associated with i is outermost.

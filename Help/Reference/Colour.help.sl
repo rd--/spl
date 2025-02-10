@@ -13,7 +13,7 @@ Parse colour from hash-prefixed hexadecimal string:
 >>> (c.rgb, c.alpha)
 (
 	[
-		16rf9 / 255,
+		16rF9 / 255,
 		16r73 / 255,
 		16r06 / 255
 	],
@@ -32,7 +32,7 @@ Colour values can be drawn as swatches:
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> RgbColour([16rf9 16r73 16r06] / 255, 1)
+>>> RgbColour([16rF9 16r73 16r06] / 255, 1)
 >>> .hexString
 '#F97306'
 ```

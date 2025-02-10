@@ -24,7 +24,7 @@ and an `Integer` trait:
 There is a `Radix Syntax` for specifying non-decimal integers:
 
 ```
->>> [2r1010 8r12 10r10 16ra]
+>>> [2r1010 8r12 10r10 16rA]
 [10 10 10 10]
 ```
 
@@ -33,6 +33,13 @@ Leading zeros are allowed:
 ```
 >>> [00 01 02 03 04 05 06 07 08 09]
 [0 1 2 3 4 5 6 7 8 9]
+```
+
+Leading signs, both negative and positive, are allowed:
+
+```
+>>> -1 * +1
+-1
 ```
 
 * * *

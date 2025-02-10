@@ -107,10 +107,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 
 +List {
 
-	basicAsRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
-	}
-
 	asRecord { :self |
 		let matrix = self.collect(asList:/1);
 		(
@@ -129,6 +125,24 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 			matrix.basicAsRecord
 		} {
 			self.error('List>>asRecord: not of correct shape or invalid keys')
+		}
+	}
+
+	basicAsRecord { :self |
+		<primitive: return Object.fromEntries(_self);>
+	}
+
+	Record { :self |
+		self.allSatisfy { :each |
+			each.isList & {
+				each.size = 2 & {
+					each[1].isString
+				}
+			}
+		}.if {
+			self.basicAsRecord
+		} {
+			self.error('List>>Record: not two column matrix or keys not uniformly String values')
 		}
 	}
 

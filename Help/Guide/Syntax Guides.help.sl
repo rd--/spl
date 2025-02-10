@@ -25,6 +25,7 @@
 - `Method Syntax`
 - `Operator Syntax`
 - `Range Syntax`
+- `Slot Assignment Syntax`
 - `Trailing Block Syntax`
 - `Trailing Dictionary Syntax`
 - `Unary Operator Syntax`
@@ -39,8 +40,9 @@
 ## Collection Notation Syntax
 
 - `List Syntax`
-- `Vector Syntax`
 - `Matrix Syntax`
+- `Tuple Syntax`
+- `Vector Syntax`
 - `Volume Syntax`
 
 ## Syntax Summaries

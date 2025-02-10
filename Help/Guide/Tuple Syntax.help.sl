@@ -18,6 +18,7 @@ A three tuple of expressions:
 ```
 
 There is no syntax for writing either the empty tuple or the one-tuple.
+_()_ answers the empty `Record` and _(x)_ answers the parenthesised value _x_:
 
 ```
 >>> ().isRecord
@@ -30,3 +31,5 @@ true
 * * *
 
 See also: List Syntax, Vector Syntax
+
+Guides: Syntax Guides

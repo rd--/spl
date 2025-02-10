@@ -1,12 +1,22 @@
 # Record
 
+- _Record(aMatrix)_
+
 A `Record` is a `Dictionary` type where all the keys are strings.
+Answer a `Record` where the keys and values are specified in a two-column matrix.
 
 There is a literal syntax for records.
 
 ```
 >>> (x: 3.141, y: 23).isRecord
 true
+```
+
+Construct a `Record` from a two-column matrix:
+
+```
+>>> Record(['x' 1; 'y' 2; 'z' 3])
+(x: 1, y: 2, z: 3)
 ```
 
 There is a conversion method,

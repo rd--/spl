@@ -20,8 +20,7 @@ Thus an operator can be a unary selector in `Method Syntax`:
 or in a prefix name in `Apply Syntax`:
 
 ```
->>> let x = 9;
->>> -(sqrt(x))
+>>> -(sqrt(9))
 -3
 ```
 

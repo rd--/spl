@@ -12,7 +12,7 @@ Answer the Unicode code point of a character.
 16r0020
 
 >>> 'π'.codePoint
-16r03c0
+16r03C0
 
 >>> 'a'.codePoint
 97

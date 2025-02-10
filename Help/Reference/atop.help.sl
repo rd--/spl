@@ -7,12 +7,12 @@ Answer a Block that applies _anotherBlock_ to post-processes the result of _aBlo
 The negation of the pointwise maximum of two lists:
 
 ```
->>> max:/2.atop(negated:/1) . ([3 1 2], [4 6 5])
+>>> max:/2.atop(negated:/1) . (
+>>> 	[3 1 2], [4 6 5]
+>>> )
 [-4 -6 -5]
 
->>> let x = [3 1 2];
->>> let y = [4 6 5];
->>> (x.max(y)).negated
+>>> [3 1 2].max([4 6 5]).-
 [-4 -6 -5]
 ```
 
@@ -22,9 +22,7 @@ The maximum of the pointwise difference of two lists:
 >>> -.atop(max:/1) . ([3 1 2], [4 6 5])
 -1
 
->>> let x = [3 1 2];
->>> let y = [4 6 5];
->>> (x - y).max
+>>> ([3 1 2] - [4 6 5]).max
 -1
 ```
 

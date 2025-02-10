@@ -2,7 +2,7 @@
 
 - _withCollect(aSequence, anotherSequence, aBlock:/2)_
 
-Collect and answer the result of evaluating _aBlock_ with corresponding elements from _aSequence_ and _anotherSequence_.
+Collect and answer the result of evaluating _aBlock_ with corresponding elements from each `Sequence`:
 
 ```
 >>> 9:-1:1.withCollect(1:9) { :p :q |
@@ -54,7 +54,7 @@ true
 
 * * *
 
-See also: collect, map, withCollectEqual, withCollectFolding, withCollectTruncating, withCollectWrapping, withIndexCollect, withReplace
+See also: collect, map, withCollectEqual, withCollectFolding, withCollectTruncating, withCollectWrapping, withIndexCollect, withReplace, withWithCollect
 
 References:
 _Haskell_
