@@ -804,6 +804,9 @@ const asJs: ohm.ActionDict<string> = {
 slSemantics.addAttribute('asJs', asJs);
 
 const asSl: ohm.ActionDict<string> = {
+	ApplySyntax(rcv, arg) {
+		return `${rcv.sourceString}(${arg.asSl})`;
+	},
 	ApplyWithTrailingClosuresSyntax(name, args, trailing) {
 		return `${name.sourceString}(${commaListSl(args.children.concat(trailing.children))})`;
 	},
@@ -878,8 +881,14 @@ const asSl: ohm.ActionDict<string> = {
 	DotExpressionWithTrailingDictionarySyntax(lhs, _dot, name, trailing) {
 		return `${name.sourceString}(${commaListSl([lhs].concat(trailing.children))})`;
 	},
+	EmptyListSyntax(_l, _r) {
+		return '[]';
+	},
 	FinalExpression(e) {
 		return e.asSl;
+	},
+	LetTemporary(_l, tmp, _s) {
+		return `let ${tmp.asSl}; `;
 	},
 	ListExpression(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -903,7 +912,10 @@ const asSl: ohm.ActionDict<string> = {
 		return commaListSl(sq.asIteration().children);
 	},
 	NonFinalExpression(e, _s, stm) {
-		return `${e.asSl}; ${stm.asSl};`;
+		return `${e.asSl}; ${stm.asSl}`;
+	},
+	ParameterList(_l, sq, _r) {
+		return commaListSl(sq.asIteration().children);
 	},
 	ParenthesisedExpression(_left, e, _right) {
 		return '(' + e.asSl + ')'
@@ -923,8 +935,17 @@ const asSl: ohm.ActionDict<string> = {
 	RangeThenSyntax(_left, start, _comma, then, _dots, end, _right) {
 		return `thenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
 	},
+	ScalarAssignment(lhs, _e, rhs) {
+		return `${lhs.asSl} := ${rhs.asSl}`;
+	},
+	TemporaryExpressionInitializer(name, _e, exp) {
+		return `${name.sourceString} = ${exp.asSl}`;
+	},
 	TupleExpression(_l, items, _r) {
 		return `asTuple([${commaListSl(items.asIteration().children)}])`;
+	},
+	ValueApply(p, _d, a) {
+		return `${p.asSl} . (${a.asSl})`;
 	},
 	VectorSyntax(_l, items, _r) {
 		return `[${commaListSl(items.children)}]`;
@@ -959,6 +980,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	integerLiteral(s, i) {
 		return s.sourceString + i.sourceString;
+	},
+	largeIntegerLiteral(s, i, _l) {
+		return s.sourceString + i.sourceString + 'L';
 	},
 	lowercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;

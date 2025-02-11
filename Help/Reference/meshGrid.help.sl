@@ -2,7 +2,9 @@
 
 - _meshGrid(x, y)_
 
-Answer grid coordinates with x-coordinates defined by the vector _x_ and y-coordinates defined by the vector _y_.
+Answer grid coordinates,
+with x-coordinates defined by the vector _x_,
+and y-coordinates defined by the vector _y_.
 
 ```
 >>> let [x, y] = 1:3.meshGrid(1:5);

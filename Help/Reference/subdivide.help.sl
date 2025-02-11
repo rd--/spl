@@ -1,9 +1,9 @@
 # subdivide
 
-- _subdivide(anInteger)_
 - _subdivide(anInterval, anInteger)_
+- _subdivide(anInteger)_
 
-Answer the `Range` that subdivides either _(0 -- 1)_ or _anInterval_ into _anInteger_ parts,
+Answer the `Range` that subdivides either _(0 -- 1)_ or _anInterval_ into _anInteger_ equally linearly spaced parts,
 therefore having size _anInteger + 1_.
 
 Subdivide the unit interval into 10 equal parts:
@@ -84,7 +84,7 @@ The last value is treated especially to avoid range errors:
 
 * * *
 
-See also: --, discretize, Interval, Range
+See also: --, discretize, Interval, linspace, Range
 
 References:
 _Mathematica_

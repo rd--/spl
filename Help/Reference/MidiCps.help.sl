@@ -23,7 +23,9 @@ Threads over lists and fractional values are allowed:
 Oscillator frequency sweep specified in midi note numbers:
 
 ```
-Saw(Line(24, 108, 10).MidiCps) * 0.1
+Saw(
+	Line(24, 108, 10).MidiCps
+) * 0.1
 ```
 
 The inverse is `CpsMidi`:
