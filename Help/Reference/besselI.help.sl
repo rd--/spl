@@ -32,7 +32,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: besselJ
+See also: besselJ, besselY
 
 References:
 _Mathematica_
