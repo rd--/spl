@@ -1,7 +1,7 @@
 # WhiteNoise
 
 - _WhiteNoise()_
-- _WhiteNoise(mul, add)_ ⟹ _{ WhiteNoise() } ! mul.size * mul + add_
+- _WhiteNoise(mul=1, add=0)_ ⟹ _{ WhiteNoise() } ! mul.shape * mul + add_
 
 Generates noise whose spectrum has equal power at all frequencies.
 
@@ -29,7 +29,8 @@ See also: BrownNoise, ClipNoise, GrayNoise, PinkNoise, Rand, TRand
 
 References:
 _Csound_
-[1](https://csound.com/docs/manual/noise.html),
+[1](https://csound.com/docs/manual/noise.html)
+[2](https://csound.com/docs/manual/rand.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WhiteNoiseProcess.html),
 _SuperCollider_

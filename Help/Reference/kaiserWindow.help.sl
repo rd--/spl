@@ -1,6 +1,6 @@
 # kaiserWindow
 
-- _kaiserWindow(aNumber, alpha)_
+- _kaiserWindow(aNumber, alpha=3)_
 
 Answer the _Kaiser_ window function at _aNumber_.
 

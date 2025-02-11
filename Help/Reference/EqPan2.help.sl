@@ -7,10 +7,13 @@ Two channel equal power panner.
 - in: input signal
 - pos: pan position, -1 is left, +1 is right
 
-Pan noise:
+Pan `PinkNoise` using `SinOsc` control signal:
 
 ```
-EqPan2(PinkNoise(), SinOsc(2, 0)) * 0.1
+EqPan2(
+	PinkNoise(0.1, 0),
+	SinOsc(0.2, 0)
+)
 ```
 
 * * *

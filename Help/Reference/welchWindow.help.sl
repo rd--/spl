@@ -1,8 +1,10 @@
 # welchWindow
 
-- _welchWindow(aNumber, alpha)_
+- _welchWindow(aNumber, alpha=1)_
 
-Answer the _Welch_ window function at _aNumber_.
+Answer the _Welch_ window function at _aNumber_ given the parameter α.
+
+Evaluate numerically:
 
 ```
 >>> 0.1.welchWindow(1)
@@ -12,7 +14,7 @@ Answer the _Welch_ window function at _aNumber_.
 Plot:
 
 ~~~spl svg=A
-(-0.5 -- 0.5).functionPlot(welchWindow:/1)
+(-1 -- 1).functionPlot(welchWindow:/1)
 ~~~
 
 ![](sw/spl/Help/Image/welchWindow-A.svg)
@@ -40,7 +42,7 @@ Discrete _Welch_ window of length 15:
 
 * * *
 
-See also: gaussianWindow, hammingWindow, welchTable
+See also: gaussianWindow, hammingWindow, kaiserWindow, welchTable
 
 Guides: Window Functions
 

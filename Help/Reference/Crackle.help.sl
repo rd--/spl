@@ -1,22 +1,35 @@
 # Crackle
 
-- _Crackle(param)_
+- _Crackle(chaosParameter=1.5)_
 
 Chaotic noise function.
 A noise generator based on a chaotic function.
 
-- param: useful values are from just below 1 to just above 2, towards 2 the sound crackles.
+- chaosParameter: useful values are from just below 1 to just above 2, towards 2 the sound crackles.
 
-Fixed _param_:
+Fixed chaos parameter:
 
 ```
 Crackle(1.95) * 0.1
 ```
 
-Modulate _param_:
+Modulate chaos parameter:
 
 ```
-Crackle(Line(1, 2, 10)) * 0.1
+Crackle(
+	Line(1, 2, 10)
+) * 0.1
+```
+
+Mouse control of chaos parameter:
+
+```
+Crackle(
+	[
+		MouseX(1, 2, 0, 0.2),
+		MouseY(1, 2, 0, 0.2)
+	]
+) * 0.1
 ```
 
 * * *

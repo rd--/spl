@@ -1,7 +1,7 @@
 # GrayNoise
 
 - _GrayNoise()_
-- _GrayNoise(mul, add) ≡ { GrayNoise() } ! mul.size * mul + add_
+- _GrayNoise(mul=1, add=0) ⟹ { GrayNoise() } ! mul.shape * mul + add_
 
 Noise generator.
 Generates noise which results from flipping random bits in a word.
@@ -9,7 +9,13 @@ This type of noise has a high RMS level relative to its peak to peak level.
 The spectrum is emphasized towards lower frequencies.
 
 ```
-GrayNoise() * 0.125
+GrayNoise(0.125 # 2, 0)
+```
+
+High pass filtered:
+
+```
+GrayNoise(0.125 # 2, 0).Hpz1
 ```
 
 * * *

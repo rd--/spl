@@ -41,6 +41,18 @@
 		}
 	}
 
+	cosineWindow { :self :alpha |
+		(self.abs > 0.5).if {
+			0
+		}  {
+			self.pi.cos ^ alpha
+		}
+	}
+
+	cosineWindow { :self |
+		self.cosineWindow(1)
+	}
+
 	dirichletWindow { :self |
 		(self.abs > 0.5).if {
 			0
@@ -90,6 +102,10 @@
 		}
 	}
 
+	kaiserWindow { :x |
+		x.kaiserWindow(3)
+	}
+
 	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
@@ -116,6 +132,12 @@
 
 	blackmanHarrisWindow { :self |
 		self.collect(blackmanHarrisWindow:/1)
+	}
+
+	cosineWindow { :self :alpha |
+		self.collect { :each |
+			each.cosineWindow(alpha)
+		}
 	}
 
 	dirichletWindow { :self |
@@ -160,16 +182,24 @@
 
 +@Integer {
 
-	hammingTable { :self |
+	hammingWindowTable { :self |
 		Interval(-0.5, 0.5).discretize(self, hammingWindow:/1)
 	}
 
-	hannTable { :self |
+	hannWindowTable { :self |
 		Interval(-0.5, 0.5).discretize(self, hannWindow:/1)
 	}
 
-	welchTable { :self |
-		Interval(-0.5, 0.5).discretize(self, welchWindow:/1)
+	kaiserWindowTable { :self :alpha |
+		Interval(-0.5, 0.5).discretize(self) { :x |
+			x.kaiserWindow(alpha)
+		}
+	}
+
+	welchWindowTable { :self :alpha |
+		Interval(-0.5, 0.5).discretize(self) { :x |
+			x.welchWindow(alpha)
+		}
 	}
 
 }

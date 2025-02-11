@@ -1,0 +1,53 @@
+# cosineWindow
+
+- _cosineWindow(aNumber, alpha=1)_
+
+Answer the _Cosine_ window function at _aNumber_ given the parameter α.
+
+Evaluate numerically:
+
+```
+>>> 0.1.cosineWindow(1)
+0.9511
+```
+
+Plot:
+
+~~~spl svg=A
+(-1 -- 1).functionPlot(cosineWindow:/1)
+~~~
+
+![](sw/spl/Help/Image/cosineWindow-A.svg)
+
+Shape of a _Cosine_ window using a specified parameter:
+
+~~~spl svg=B
+(-1 -- 1).functionPlot { :x |
+	x.cosineWindow(3)
+}
+~~~
+
+![](sw/spl/Help/Image/cosineWindow-B.svg)
+
+Discrete _Cosine_ window of length 15:
+
+~~~spl svg=C
+(-0.5 -- 0.5).discretize(
+	15,
+	cosineWindow:/1
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/cosineWindow-C.svg)
+
+* * *
+
+See also: gaussianWindow, hammingWindow, hannWindow, kaiserWindow, welchWindow
+
+Guides: Window Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/CosineWindow.html)
+
+Categories: Windowing

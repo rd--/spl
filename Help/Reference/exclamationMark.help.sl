@@ -69,12 +69,25 @@ evaluate _value(anObject)_ _anInteger_ times and collect the results into a `Lis
 ```
 
 In the `Sequence` case,
-evaluate _value(anObject)_ to fill an array of the indicated size or shape:
+evaluate _value(anObject)_ to fill an array of the indicated size or shape.
+
+Scalar value:
 
 ```
->>> { 1 } ! 3
-[1 1 1]
+>>> { 1 } ! []
+1
+```
 
+Vector value:
+
+```
+>>> { 1 } ! [3]
+[1 1 1]
+```
+
+Matrix value:
+
+```
 >>> { 1 } ! [2 3]
 [
 	1 1 1;
@@ -155,7 +168,7 @@ Ordinarily _anObject_ is a no-argument _Block_ and each element of the answer is
 }.OverlapTexture(4, 4, 2).Mix
 ```
 
-This can be more written more simply using the _!^_ operator as:
+This can be written more simply using the _!^_ operator as:
 
 ```
 { :tr |

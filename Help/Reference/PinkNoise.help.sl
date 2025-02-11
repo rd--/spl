@@ -1,7 +1,7 @@
 # PinkNoise
 
 - _PinkNoise()_
-- _PinkNoise(mul, add) ≡ { PinkNoise() } ! mul.size * mul + add_
+- _PinkNoise(mul=1, add=0) ⟹ { PinkNoise() } ! mul.shape * mul + add_
 
 Noise generator.
 Generates noise whose spectrum falls off in power by 3 dB per octave.
@@ -27,8 +27,14 @@ Compare to `WhiteNoise`:
 
 ```
 [
-	PinkNoise() * 0.1,
-	WhiteNoise() * MouseX(0.01, 0.05, 0, 0.2)
+	PinkNoise(
+		0.1,
+		0
+	),
+	WhiteNoise(
+		MouseX(0.01, 0.05, 0, 0.2),
+		0
+	)
 ]
 ```
 

@@ -1,17 +1,21 @@
 # Pan2
 
-- _Pan2(in, pos, level)_
+- _Pan2(in, pos=0, level=1)_
 
 Two channel equal power panner.
 
 - in: input signal
 - pos: pan position, -1 is left, +1 is right
-- level: a control rate level input.
+- level: a control rate level input
 
-Pan noise:
+Pan `PinkNoise` according to `SinOsc`:
 
 ```
-Pan2(PinkNoise(), FSinOsc(2, 0), 0.1)
+Pan2(
+	PinkNoise(),
+	SinOsc(0.2, 0),
+	0.1
+)
 ```
 
 * * *

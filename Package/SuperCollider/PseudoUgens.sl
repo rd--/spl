@@ -1,21 +1,25 @@
 /* Requires: Ugen */
 
-+List {
++[List, Ugen, SmallFloat] {
 
 	BrownNoise { :mul :add |
-		{ BrownNoise() } ! mul.size * mul + add
+		{ BrownNoise() } ! mul.shape * mul + add
+	}
+
+	ClipNoise { :mul :add |
+		{ ClipNoise() } ! mul.shape * mul + add
 	}
 
 	GrayNoise { :mul :add |
-		{ GrayNoise() } ! mul.size * mul + add
+		{ GrayNoise() } ! mul.shape * mul + add
 	}
 
 	PinkNoise { :mul :add |
-		{ PinkNoise() } ! mul.size * mul + add
+		{ PinkNoise() } ! mul.shape * mul + add
 	}
 
 	WhiteNoise { :mul :add |
-		{ WhiteNoise() } ! mul.size * mul + add
+		{ WhiteNoise() } ! mul.shape * mul + add
 	}
 
 }

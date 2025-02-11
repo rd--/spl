@@ -1,6 +1,6 @@
 # union
 
-- _union(α, β)_ => _unionBy(α, β, =)_
+- _union(α, β)_ ⟹ _unionBy(α, β, =)_
 
 Answer a `Set` holding the set theoretic union of two collections,
 equality is decided by `=`.

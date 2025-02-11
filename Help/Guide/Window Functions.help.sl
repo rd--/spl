@@ -7,15 +7,24 @@
 > discrete Fourier transform, but the suppression is at the expense of
 > widening the lines, resulting in a decrease in the resolution. (Weisstein, E.)
 
-- `bartlettHannWindow`: Bartlett-Hann apodization function
-- `bartlettWindow`: Bartlett apodization function
-- `blackmanWindow`: Blackman apodization function
-- `blackmanHarrisWindow`: Blackman-Harris apodization function
-- `dirichletWindow`: Dirichlet apodization function
-- `gaussianWindow`: Gaussian apodization function
-- `hammingWindow`: Hamming apodization function
-- `hannWindow`: Hann apodization function
-- `welchWindow`: Welch  apodization function
+- `bartlettHannWindow`: Bartlett-Hann
+- `bartlettWindow`: Bartlett
+- `blackmanWindow`: Blackman
+- `blackmanHarrisWindow`: Blackman-Harris
+- `cosineWindow`: Cosine
+- `dirichletWindow`: Dirichlet
+- `gaussianWindow`: Gaussian
+- `hammingWindow`: Hamming
+- `hannWindow`: Hann
+- `kaiserWindow`: Kaiser
+- `welchWindow`: Welch
+
+## Window Table Functions
+
+- `hammingWindowTable`: Hamming
+- `hannWindowTable`: Hann
+- `kaiserWindowTable`: Kaiser
+- `welchWindowTable`: Welch
 
 * * *
 
