@@ -1,21 +1,18 @@
 # OverlapTexture
 
-- _OverlapTexture(newEventFunc, sustainTime, transitionTime, overlap)_
+- _OverlapTexture(newEventBlock:/1, sustainTime, transitionTime, overlap)_
 
 Overlap events.
 Creates a series of overlapped sounds from a user function.
 The user function should return a graph of unit generators that produce a continuous sound.
 `OverlapTexture` will apply an envelope to the sound to cross fade different invocations of the user function.
 
-- newEventFunc: You supply a function that returns a graph of unit generators.
-   If it returns nil, then no event is spawned this time.
-   This function is passed one argument, a trigger that is reset for each new event.
-- sustainTime: the sustain time (in beats) of the envelope.
-- transitionTime: the transition time (in beats) of the envelope.
-  The envelope transition is a welch envelope segment giving it a -3dB midpoint.
-- overlap: number of overlapping events.
+- newEventBlock: Answers a graph of unit generators given a trigger signal indicating each event
+- sustainTime: the sustain time of the envelope
+- transitionTime: the transition time of the envelope
+- overlap: number of overlapping events
 
-Texture of overlapping stereo sine tones:
+Texture of three overlapping stereo sine tones:
 
 ```
 { :tr |
@@ -36,7 +33,7 @@ let n = 24;
 }.OverlapTexture(3, 3, 3).Mix
 ```
 
-There are many examples of OverlapTexture in the examples files:
+There are many examples of `OverlapTexture` in the examples files:
 
 ```
 let lfoFreq = 6;

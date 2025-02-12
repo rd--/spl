@@ -523,10 +523,7 @@ const asJs: ohm.ActionDict<string> = {
 		return rcv;
 	},
 
-	Block(_leftBrace, blockBody, _rightBrace) {
-		return blockBody.asJs;
-	},
-	BlockBody(arg, tmp, prm, stm) {
+	Block(_l, arg, tmp, prm, stm, _r) {
 		const tmpJs = tmp.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
@@ -761,21 +758,26 @@ const asJs: ohm.ActionDict<string> = {
 		}
 		return r.toString(10);
 	},
+	infinityLiteral(s, i) {
+		return s.sourceString + i.sourceString;
+	},
 	integerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
 		return `${s.sourceString + parseInt(i.sourceString)}`;
 	},
+	/*
 	constantNumberLiteral(k) {
 		const text = k.sourceString;
 		//console.debug('constantNumberLiteral: ', text);
 		if(text === "Pi") {
 			return "3.1415926535897932384626433";
 		}
-		/*if(text === "inf") {
+		if(text === "inf") {
 			return "Infinity";
-		}*/
-		return text;
+		}
+		throw new Error('constantNumberLiteral');
 	},
+	*/
 	singleQuotedStringLiteral(_l, s, _r) {
 		// console.debug(`singleQuotedStringLiteral: ${s.sourceString}`);
 		return `'${quoteNewLines(s.sourceString)}'`;
@@ -814,7 +816,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `${name.sourceString}(${commaListSl(trailing.children)})`;
 	},
 	Arguments(a, _p) {
-		return commaListSl(a.children);
+		return a.children.map((x) => x.asSl).join(' ');
 	},
 	ArgumentName(_c, name) {
 		return ':' + name.sourceString;
@@ -845,11 +847,10 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return left;
 	},
-	Block(_l, b, _r) {
-		return `{ ${b.asSl} }`;
-	},
-	BlockBody(arg, tmp, prm, stm) {
-		return `${arg.asSl} | ${tmp.asSl}${prm.asSl}${stm.asSl}`;
+	Block(_l, arg, tmp, prm, stm, _r) {
+		const argSl = arg.asSl;
+		const vBar = (argSl === '') ? '' : ' | ';
+		return `{ ${argSl}${vBar}${tmp.asSl}${prm.asSl}${stm.asSl} }`;
 	},
 	DictionaryExpression(_l, d, _r) {
 		return `Record([${commaListSl(d.asIteration().children)}])`;
@@ -975,6 +976,9 @@ const asSl: ohm.ActionDict<string> = {
 	fractionLiteral(s, n, _s, d) {
 		return `Fraction(${validateSign(s.sourceString)}${n.sourceString}L, ${d.sourceString}L)`;
 	},
+	infinityLiteral(s, i) {
+		return s.sourceString + i.sourceString;
+	},
 	infixMethod(name, _colon) {
 		return name.sourceString;
 	},
@@ -986,6 +990,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	lowercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
+	},
+	nanLiteral(x) {
+		return x.sourceString;
 	},
 	operator(op) {
 		return op.sourceString;
@@ -1000,7 +1007,6 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return r.toString(10);
 	},
-
 	rangeFromByToLiteral(start, _colon, step, _anotherColon, end) {
 		return `toBy(${start.asSl}, ${end.asSl}, ${step.asSl})`;
 	},
@@ -1041,6 +1047,146 @@ const asSl: ohm.ActionDict<string> = {
 
 slSemantics.addAttribute('asSl', asSl);
 
+export type SlAst = any;
+
+const asAst: ohm.ActionDict<SlAst> = {
+	ApplySyntax(rcv, arg) {
+		return ['Apply', [rcv.asAst].concat(arg.asAst)];
+	},
+	Arguments(a, _p) {
+		return ['ArgumentList', a.children.map((x) => x.asAst)];
+	},
+	ArgumentName(_c, name) {
+		return name.sourceString;
+	},
+	Primitive(_l, s, _r) {
+		return '<primitive: ' + s.sourceString + '>';
+	},
+	Block(_l, arg, tmp, prm, stm, _r) {
+		return [
+			'Block',
+			[arg.asAst].concat(
+				tmp.asAst,
+				prm.asAst,
+				stm.asAst
+			).flat(1)
+		];
+	},
+	EmptyListSyntax(_l, _r) {
+		return ['List', []];
+	},
+	FinalExpression(e) {
+		return [e.asAst];
+	},
+	LetTemporary(_l, tmp, _s) {
+		return ['Let', tmp.asAst];
+	},
+	ListExpression(_l, items, _r) {
+		return ['List', items.children.map((x) => x.asAst).flat(1)];
+	},
+	NonEmptyParameterList(_l, sq, _r) {
+		return sq.children.map((x) => x.asAst);
+	},
+	NonFinalExpression(e, _s, stm) {
+		return [e.asAst].concat(stm.asAst);
+	},
+	ParameterList(_l, sq, _r) {
+		return sq.children.map((x) => x.asAst);
+	},
+	ParenthesisedExpression(_left, e, _right) {
+		return e.asAst;
+	},
+	Program(tmp, stm) {
+		return [
+			'Program',
+			tmp.asAst.concat(
+				[stm.asAst]
+			).flat(1)
+		];
+	},
+	ScalarAssignment(lhs, _e, rhs) {
+		return ['Assignment', [lhs.asAst, rhs.asAst]];
+	},
+	TemporaryExpressionInitializer(name, _e, exp) {
+		return [name.asAst, exp.asAst];
+	},
+	ValueApply(p, _d, a) {
+		return `${p.asAst} . (${a.asAst})`;
+	},
+
+	boundOperator(op) {
+		return ['Operator', op.sourceString];
+	},
+	floatLiteral(s, i, _dot, f) {
+		return [
+			'SmallFloat',
+			Number.parseFloat(s.sourceString + i.sourceString + '.' + f.sourceString)
+		];
+	},
+	infinityLiteral(s, i) {
+		return [
+			'SmallFloat',
+			Number.parseFloat(s.sourceString + i.sourceString)
+		];
+	},
+	integerLiteral(s, i) {
+		return [
+			'SmallInteger',
+			Number.parseInt(s.sourceString + i.sourceString)
+		];
+	},
+	largeIntegerLiteral(s, i, _l) {
+		return [
+			'LargeInteger',
+			BigInt(s.sourceString + i.sourceString)
+		];
+	},
+	lowercaseIdentifier(c1, cN) {
+		return ['Identifier', c1.sourceString + cN.sourceString];
+	},
+	nanLiteral(_n) {
+		return [
+			'SmallFloat',
+			Number.parseFloat('NaN')
+		];
+	},
+	operator(op) {
+		return ['Operator', op.sourceString];
+	},
+	reservedIdentifier(x) {
+		return ['ReservedIdentifier', x.sourceString];
+	},
+	singleQuotedStringLiteral(_l, s, _r) {
+		return ['String', s.sourceString];
+	},
+	unqualifiedIdentifier(c1, cN) {
+		return ['Identifier', c1.sourceString + cN.sourceString];
+	},
+	uppercaseIdentifier(c1, cN) {
+		return ['Identifier', c1.sourceString + cN.sourceString];
+	},
+
+	EmptyListOf() {
+		return [];
+	},
+	NonemptyListOf(p, _s, q) {
+		const rest = q.children;
+		if (rest.length === 0) {
+			return [p.asAst];
+		}
+		return [p.asAst].concat(rest.map((c) => c.asAst));
+	},
+
+	_iter(...children) {
+		return children.map((c) => c.asAst);
+	},
+	_terminal() {
+		return this.sourceString;
+	},
+};
+
+slSemantics.addAttribute('asAst', asAst);
+
 const arityOf: ohm.ActionDict<number> = {
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length;
@@ -1048,14 +1194,6 @@ const arityOf: ohm.ActionDict<number> = {
 	ParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length;
 	},
-	/*
-	Block(_l, blk, _r) {
-		return blk.arityOf;
-	},
-	BlockBody(arg, tmp, prm, stm) {
-		return arg.arityOf;
-	},
-	*/
 	Arguments(names, _) {
 		return names.children.length;
 	},
@@ -1070,11 +1208,13 @@ const parametersOf: ohm.ActionDict<string[]> = {
 	Block(_l, blk, _r) {
 		return blk.parametersOf;
 	},
-	BlockBody(arg, _tmp, _prm, _stm) {
+	Block(_l, arg, _tmp, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	Arguments(names, _) {
-		return names.children.map((each) => each.sourceString.substring(1));
+		return names.children.map(
+			(each) => each.sourceString.substring(1)
+		);
 	},
 	KeyVarNameAssociation(lhs, _colon, rhs) {
 		return [
@@ -1169,6 +1309,13 @@ export function rewriteSlToCore(slText: string): string {
 	const slCoreText = slParse(slText).asSl;
 	// console.debug(`rewriteSlToCore: ${slText} => ${slCoreText}`);
 	return slCoreText;
+}
+
+export function rewriteSlToAst(slText) {
+	const slCoreText = slParse(slText).asSl;
+	const slAst = slParse(slCoreText).asAst;
+	// console.debug(`rewriteSlToAst: ${slText} => ${slCoreText} => ${slAst}`);
+	return slAst;
 }
 
 // Preserve first line comment for Requires information in .cache

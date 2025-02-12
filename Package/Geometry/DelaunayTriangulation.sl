@@ -31,7 +31,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		};
 		return answer;
 		>
-        }
+	}
 
 	basicHalfEdges { :self |
 		<primitive: return Array.from(_self.triangulation.halfedges);>
@@ -54,7 +54,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 		};
 		return answer;
 		>
-        }
+	}
 
 	convexHull { :self |
 		self.vertexCoordinates.atAll(self.convexHullIndices)
@@ -73,7 +73,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 
 	edgeList { :self |
 		self.basicEdgeList + 1
-        }
+	}
 
 	faceCount { :self |
 		<primitive: return (_self.triangulation.triangles.length / 3);>
@@ -113,7 +113,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 
 	voronoiEdgeList { :self |
 		self.basicVoronoiEdgeList + 1
-        }
+	}
 
 
 	voronoiVertexCoordinates { :self |

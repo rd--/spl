@@ -123,7 +123,7 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 	printString { :self |
 		'(% %)'.format(
 			[
-				self.operator,
+				self.operator.printString,
 				self.operands.collect(printString:/1).join(' ')
 			]
 		)
@@ -131,10 +131,18 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 
 }
 
-+String {
++[SymbolicExpression, Symbol] {
 
 	SymbolicExpression { :self :aList |
 		newSymbolicExpression().initializeSlots(self, aList)
+	}
+
+}
+
++String {
+
+	SymbolicExpression { :self :aList |
+		SymbolicExpression(self.Symbol, aList)
 	}
 
 }

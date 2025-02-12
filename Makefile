@@ -8,6 +8,9 @@ push-all:
 	r.gitlab-push.sh spl
 	r.github-push.sh spl
 
+push-rd:
+	git push ssh://rd@rohandrape.net/~rd/sw/spl main
+
 remote-update:
 	ssh rd@rohandrape.net "(cd rohandrape.net/pub/spl ; git pull)"
 

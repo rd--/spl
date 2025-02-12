@@ -15,6 +15,7 @@
 	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
+	'Graph'
 	'Heap'
 	'LinkedList'
 	'PriorityQueue'
@@ -29,7 +30,6 @@
 	'UndirectedEdge'
 	'WeakMap'
 	'BitSet' /* ByteArray */
-	'Graph' /* Tuple */
 	'ResidueSet' /* BitSet Set */
 
 	/* Exception */

@@ -159,6 +159,34 @@ Fractions are, of course, exact:
 1/1
 ```
 
+A complete binary tree:
+
+```
+>>> { :x | [x x] }.iterate('x', 4)
+[
+	[
+		[
+			['x', 'x'],
+			['x', 'x']
+		],
+		[
+			['x', 'x'],
+			['x', 'x']
+		]
+	],
+	[
+		[
+			['x', 'x'],
+			['x', 'x']
+		],
+		[
+			['x', 'x'],
+			['x', 'x']
+		]
+	]
+]
+```
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

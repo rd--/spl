@@ -34,11 +34,13 @@ If the symbol names are elided the letters of the greek alphabet are used:
 '(sqrt (+ (* α α) (* β β)))'
 ```
 
+A function that is `one` if either _x_ or _y_ are close to `zero`:
+
 ```
 >>> { :x :y |
 >>> 	(
->>> 		(x.abs < 0.01) | {
->>> 			y.abs < 0.01
+>>> 		(x ~ 0) | {
+>>> 			y.abs ~ 0
 >>> 		}
 >>> 	).if {
 >>> 		1
@@ -46,7 +48,7 @@ If the symbol names are elided the letters of the greek alphabet are used:
 >>> 		0
 >>> 	}
 >>> }.asSymbolicExpression.printString
-'(if (or (< (abs α) 0.01) (< (abs β) 0.01)) 1 0)'
+'(if (or (~ α 0) (~ β 0)) 1 0)'
 ```
 
 * * *

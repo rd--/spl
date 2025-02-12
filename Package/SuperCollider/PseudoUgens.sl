@@ -1,6 +1,6 @@
 /* Requires: Ugen */
 
-+[List, Ugen, SmallFloat] {
++[List, SmallFloat, Ugen] {
 
 	BrownNoise { :mul :add |
 		{ BrownNoise() } ! mul.shape * mul + add
@@ -197,6 +197,14 @@
 
 	LinRange { :self :lo :hi |
 		LinLin(self, -1, 1, lo, hi)
+	}
+
+	MouseX { :minval :maxval |
+		MouseX(minval, maxval, 0, 0.2)
+	}
+
+	MouseY { :minval :maxval |
+		MouseY(minval, maxval, 0, 0.2)
 	}
 
 	PulseDpw { :freq :width |

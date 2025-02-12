@@ -75,7 +75,7 @@ Pillais arithmetical function:
 ~~~spl svg=C
 { :n |
 	(n < 1).if {
-		 0
+		0
 	} {
 		n.divisors.collect { :d |
 			d.eulerPhi / d

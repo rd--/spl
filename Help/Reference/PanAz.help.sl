@@ -7,15 +7,17 @@ Two channel equal power panner.
 
 - numChans: number of output channels
 - in: input signal
-- pos: pan position.
-  Channels are evenly spaced over a cyclic period of two.
-  All channels will be cyclically panned through by a sawtooth wave in _(-1, 1)_.
-- level: a control rate level input.
-- width: The width of the panning envelope.
-  A value of two pans between pairs of adjacent speakers.
-  Width values greater than two will spread the pan over greater numbers of speakers.
-  Width values less than one will leave silent gaps between speakers.
-- orientation: specify speaker orientation
+- pos: pan position
+- level: control rate level input
+- width: width of panning envelope
+- orientation: specifies speaker orientation
+
+Channels are evenly spaced over a cyclic period of two.
+All channels will be cyclically panned through if _pos_ is a sawtooth signal in _(-1, 1)_.
+
+A _width_ value of two pans between pairs of adjacent speakers.
+Width values greater than two will spread the pan over greater numbers of speakers.
+Width values less than one will leave silent gaps between speakers.
 
 _orientation_ should be zero if the front is a vertex of the polygon,
 the first speaker will be directly in front,
@@ -40,7 +42,10 @@ mouse controls freqency (of position oscillator) and width parameters.
 
 ```
 let k = 8;
-let i = SinOsc({ Rand(333, 555) } ! k, 0) * 0.1;
+let i = SinOsc(
+	{ Rand(333, 555) } ! k,
+	0
+) * 0.1;
 let g = PanAz(
 	k,
 	Dc(1),
@@ -56,7 +61,10 @@ Three signals Az panned across distinct rings (horizontal),
 then balanced by a further Az panner (vertical):
 
 ```
-let i = Hpf(PinkNoise(), [1111, 333, 55]) * 0.1;
+let i = Hpf(
+	PinkNoise(),
+	[1111, 333, 55]
+) * 0.1;
 let p = PanAz(
 	[8, 4, 4],
 	i,

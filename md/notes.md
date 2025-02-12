@@ -158,7 +158,7 @@ User defined types, such as for Cartesian points, are encoded as records of the 
 # Smalltalk
 
 - Control structures are implemented as procedures (no reserved words, no macro system)
-- Notation to make writing arguments to control procedures concise, i.e. _(lamda () ...)_ is written _{...}_
+- Notation to make writing arguments to control procedures concise, i.e. _(lambda () ...)_ is written _{...}_
 - Trailing closure notation for control structure notation, i.e. _if(p) { q } { r }_
 - Method return must be delimited, i.e. _withReturn { ... return(...) }_
 

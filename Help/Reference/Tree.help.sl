@@ -163,10 +163,47 @@ and hence `contents` answers all of the subTrees.
 The values of a tree in each traversal order:
 
 ```
->>> let t = Tree(1, [
->>> 	Tree(2, [Tree(4, [Tree(7, [])]),Tree(5, [])]),
->>> 	Tree(3, [Tree(6, [Tree(8, []), Tree(9, [])])])
->>> ]);
+>>> let t = Tree(
+>>> 	1,
+>>> 	[
+>>> 		Tree(
+>>> 			2,
+>>> 			[
+>>> 				Tree(
+>>> 					4,
+>>> 					[
+>>> 						Tree(
+>>> 							7,
+>>> 							[]
+>>> 						)
+>>> 					]
+>>> 				),
+>>> 				Tree(
+>>> 					5,
+>>> 					[]
+>>> 				)
+>>> 			]
+>>> 		),
+>>> 		Tree(
+>>> 			3,
+>>> 			[
+>>> 				Tree(
+>>> 					6,
+>>> 					[
+>>> 						Tree(
+>>> 							8,
+>>> 							[]
+>>> 						),
+>>> 						Tree(
+>>> 							9,
+>>> 							[]
+>>> 						)
+>>> 					]
+>>> 				)
+>>> 			]
+>>> 		)
+>>> 	]
+>>> );
 >>> [
 >>> 	t.values,
 >>> 	t.postOrderValues,
@@ -182,7 +219,27 @@ The values of a tree in each traversal order:
 `reverseDo` visit each subTree in turn and then visits the tree:
 
 ```
->>> let t = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree;
+>>> let t = [
+>>> 	1,
+>>> 	[
+>>> 		2,
+>>> 		[
+>>> 			4,
+>>> 			[
+>>> 				7
+>>> 			],
+>>> 			5
+>>> 		],
+>>> 		3,
+>>> 		[
+>>> 			6,
+>>> 			[
+>>> 				8,
+>>> 				9
+>>> 			]
+>>> 		]
+>>> 	]
+>>> ].asTree;
 >>> let l = [];
 >>> t.reverseDo { :each |
 >>> 	l.add(each.value)
@@ -261,7 +318,8 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 `atPath` finds the value at a _deep index_:
 
 ```
->>> let t = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]].asTree;
+>>> let l = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]];
+>>> let t = l.asTree;
 >>> let i = t.deepIndices;
 >>> i.collect { :each |
 >>> 	t.atPath(each).value
@@ -360,6 +418,54 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 >>> )
 (true, [6 2 1 3 nil 4 nil 5 8 7 9])
 ```
+
+A complete binary tree:
+
+~~~spl svg=A
+{ :x | [x x] }
+.iterate('x', 4)
+.asTree
+.asGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/Tree-A.svg)
+
+A complete ternary tree:
+
+~~~spl svg=B
+{ :x | [x x x] }
+.iterate('x', 3)
+.asTree
+.asGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/Tree-B.svg)
+
+A symmetric tree:
+
+~~~spl svg=C
+{ :x | [x, [x], x] }
+.iterate('x', 3)
+.asTree
+.asGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/Tree-C.svg)
+
+An asymmetric tree:
+
+~~~spl svg=D
+{ :x | [[x], x, x] }
+.iterate('x', 3)
+.asTree
+.asGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/Tree-D.svg)
 
 * * *
 

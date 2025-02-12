@@ -81,7 +81,8 @@ References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:map)
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Map.html),
+[1](https://reference.wolfram.com/language/ref/Map.html)
+[2](https://reference.wolfram.com/language/ref/TreeMap.html),
 _Smalltalk_
 5.7.1.10
 

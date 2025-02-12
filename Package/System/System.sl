@@ -417,4 +417,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.punctuationTokenName(system.punctuationCharacterNameTable)
 	}
 
+	splParseTree { :self |
+		<primitive: return sl.rewriteSlToAst(_self);>
+	}
+
+	splSimplify { :self |
+		<primitive: return sl.rewriteSlToCore(_self);>
+	}
+
 }

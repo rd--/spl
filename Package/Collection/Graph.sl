@@ -41,7 +41,8 @@
 	asDot { :self |
 		let isMixed = self.isMixed;
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
-		let begin = '% {\ngraph [layout="neato"];'.format([graphType]);
+		let layoutRule = self.isUndirected.if { 'neato' } { 'dot' };
+		let begin = '% {\ngraph [layout="%"];'.format([graphType, layoutRule]);
 		let attributeText = [
 			'graph [size="1.214,0.75",bgcolor="transparent"];',
 			'node [shape="point"];',

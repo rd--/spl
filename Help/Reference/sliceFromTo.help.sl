@@ -12,7 +12,7 @@ inclusive of each index.
 (3, [2 4 6])
 ```
 
-The `average` and `median`, `min`, `max` amd `sum` of a `slice`:
+The `average` and `median`, `min`, `max` and `sum` of a `slice`:
 
 ```
 >>> let s = [1 3 2 4 6 5].sliceFromTo(3, 5);

@@ -4,9 +4,10 @@
 
 Cursor unit generator.
 
-- minval, maxval: range between left and right end of screen
-- warp: mapping curve. 0 is linear, 1 is exponential (for freq or times e.g)
-- lag: lag factor to dezipper cursor movement. (Default 0.2)
+- minval: value at left of screen
+- maxval: value at right of screen
+- warp: curve, 0=linear, 1=exponential
+- lag: lag factor to smooth cursor movement
 
 Mouse control of frequency:
 

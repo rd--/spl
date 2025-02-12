@@ -16,6 +16,29 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	asGraph { :self |
+		let nodeId = 1;
+		let unusedLabels = [];
+		let labeledTree = self.collect { :each |
+			let answer = nodeId -> each;
+			nodeId := nodeId + 1;
+			unusedLabels.add(each);
+			answer
+		};
+		let edgeList = [];
+		labeledTree.do { :i |
+			i.subTrees.collect { :j |
+				edgeList.add(
+					DirectedEdge(
+						i.value.key,
+						j.value.key
+					)
+				)
+			}
+		};
+		edgeList.asGraph
+	}
+
 	asList { :self |
 		self.subTrees.collect { :each |
 			each.isLeaf.if {
@@ -290,6 +313,36 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	sternBrocotTree { :n |
 		n.sternBrocotTree(1/1)
+	}
+
+}
+
++Block {
+
+	nestTree { :aBlock:/1 :aTree :depth |
+		(depth = 0).if {
+			aTree
+		} {
+			aTree.isLeaf.if {
+				Tree(
+					aTree.value,
+					aBlock(aTree.value).collect { :each |
+						Tree(each, [])
+					}
+				)
+			} {
+				nestTree(
+					aBlock:/1,
+					Tree(
+						aTree.value,
+						aTree.subTrees.collect { :each |
+							nestTree(aBlock:/1, each, 1)
+						}
+					),
+					depth - 1
+				)
+			}
+		}
 	}
 
 }

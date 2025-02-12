@@ -9,8 +9,12 @@ The `printString` of a symbolic expression is an _S-expression_.
 
 ```
 >>> let e = 'x'.Symbol = 'y'.Symbol;
->>> (e.isSymbolicExpression, e.printString)
-(true, '(= x y)')
+>>> (
+>>> 	e.isSymbolicExpression,
+>>> 	e.operator.name,
+>>> 	e.printString
+>>> )
+(true, '=', '(= x y)')
 ```
 
 `isEqualSymbolicExpression` tests if two `SymbolicExpression` values are the same:
@@ -44,7 +48,7 @@ Symbolic expressions implement `Number`.
 
 ```
 >>> let x = 'x'.Symbol;
->>> (23 - 'x'.Symbol).squared
+>>> (23 - x).squared
 >>> .printString
 '(* (- 23 x) (- 23 x))'
 ```
@@ -56,6 +60,22 @@ Symbolic expressions implement `Number`.
 >>> let y = 'y'.Symbol;
 >>> x.Hypotenuse(y).printString
 '(sqrt (+ (* x x) (* y y)))'
+```
+
+The operator need not be a `Symbol`,
+is may also be a `SymbolicExpression`:
+
+```
+>>> let x = 'x'.Symbol;
+>>> let y = 'y'.Symbol;
+>>> SymbolicExpression(
+>>> 	SymbolicExpression(
+>>> 		'f',
+>>> 		[x]
+>>> 	),
+>>> 	[y]
+>>> ).printString
+'((f x) y)'
 ```
 
 * * *

@@ -104,8 +104,7 @@ Sl {
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
-	Block = "{" BlockBody "}"
-	BlockBody = Arguments? Temporaries? Primitive? Statements?
+	Block = "{" Arguments? Temporaries? Primitive? Statements? "}"
 	Arguments = ArgumentName+ "|"
 	ArgumentName = ":" varNameOrUnused
 	Primitive = "<primitive:" primitiveCharacter* ">"
@@ -168,7 +167,7 @@ Sl {
 	plusOrMinus = "+" | "-"
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
-	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | constantNumberLiteral
+	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | infinityLiteral | nanLiteral
 	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
 	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
@@ -184,7 +183,8 @@ Sl {
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
 	radixIntegerLiteral = plusOrMinus? digit+ "r" radixDigit+
     infinityLiteral = plusOrMinus? "Infinity"
-	constantNumberLiteral = infinityLiteral | "NaN" | "Pi"
+	nanLiteral = "NaN"
+	// constantNumberLiteral = "Pi"
 	integerLiteral = plusOrMinus? digit+
     integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"

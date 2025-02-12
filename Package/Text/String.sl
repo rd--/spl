@@ -802,10 +802,6 @@ String! : [Object, Json, Iterable, Character] {
 		self
 	}
 
-	simplifySpl { :self |
-		<primitive: return sl.rewriteSlToCore(_self);>
-	}
-
 	size { :self |
 		self.countUtf16CodeUnits
 	}

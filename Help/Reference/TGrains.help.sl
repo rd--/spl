@@ -7,18 +7,17 @@ Triggers generate grains from a buffer.
 Each grain has a Hanning envelope (_sin^2(x)_ for x from `zero` to `pi`),
 and is panned between two channels of multiple outputs.
 
-- numChannels: number of output channels.
-- trigger: at each trigger, subsequent arguments are sampled (or demanded) and used as the arguments of a new grain.
-- bufnum: the index of the buffer to use,
-  which must be a one channel buffer.
-- rate: 1 is normal, 2 is one octave up, 0.5 is one octave down -1 is backwards normal rate.
-  Unlike `PlayBuf`, the rate is multiplied by `BufRate`.
-- centerPos: the position in the buffer in seconds at which the grain envelope will reach maximum amplitude.
-- dur: duration of the grain in seconds.
-- pan: a value from -1 to 1. Determines where to pan the output in the same manner as PanAz.
+- numChannels: number of output channels
+- trigger: at each trigger subsequent arguments are read and used as the arguments of a new grain
+- bufnum: the index of the one-channel buffer to use
+- rate: playback rate, 1=unchanged, 2=octave up, 0.5=octave down, -1=backwards
+- centerPos: the position in the buffer (in seconds) at which the grain envelope will reach maximum amplitude
+- dur: duration of the grain (in seconds)
+- pan: location in  _(-1, 1)_, same meaing as at `PanAz`
 - amp: amplitude of the grain
-- interp: 1, 2, or 4.
-  Determines whether the grain uses (1) no interpolation, (2) linear interpolation, or (4) cubic interpolation.
+- interp: interpolation method, 1=none, 2=linear, or 4=cubic
+
+Note that, unlike `PlayBuf`, the rate argument is is multiplied by `BufRate`.
 
 If the trigger is audio rate then the grains will start with sample accuracy.
 

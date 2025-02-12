@@ -16,7 +16,8 @@ Symbols implement the `Number` trait,
 answering `SymbolicExpression` values:
 
 ```
->>> ('x'.Symbol + 23).isSymbolicExpression
+>>> ('x'.Symbol + 23)
+>>> .isSymbolicExpression
 true
 ```
 
@@ -33,6 +34,25 @@ true
 >>> .at('x')
 >>> .isSymbol
 true
+```
+
+However `=` is defined symbolically:
+
+```
+>>> let x = Symbol('x');
+>>> let e = x = x;
+>>> (e.isSymbolicExpression, e.printString)
+(true, '(= x x)')
+```
+
+The `printString` of a `Symbol` is its name:
+
+```
+>>> Symbol('x').printString
+'x'
+
+>>> Symbol('x').asString
+'x'
 ```
 
 * * *
