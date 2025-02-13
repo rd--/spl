@@ -3,10 +3,11 @@
 - _parseLargeInteger(aString)_
 
 Answer the `LargeInteger` value of the decimal integer held in _aString_.
+The parse allows, but does not require, a trailing upper case letter "L".
 
 ```
->>> '23'.parseLargeInteger
-23
+>>> '23L'.parseLargeInteger
+23L
 
 >>> '20880467999847912034355032910567'
 >>> .parseLargeInteger

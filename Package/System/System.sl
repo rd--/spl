@@ -417,6 +417,65 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		self.punctuationTokenName(system.punctuationCharacterNameTable)
 	}
 
+	splParseExpression { :self |
+		let tree = self.splParseTree;
+		let f = { :e |
+			let [o, p] = e;
+			o.caseOfOtherwise(
+				[
+					'Apply' -> {
+						SymbolicExpression(f(p[1]), p[2].collect(f:/1))
+					},
+					'Arguments' -> {
+						SymbolicExpression('𝓐', p.collect(f:/1))
+					},
+					'Assignment' -> {
+						SymbolicExpression('←', p.collect(f:/1))
+					},
+					'Block' -> {
+						SymbolicExpression('𝜆', p.collect(f:/1))
+					},
+					'Identifier' -> {
+						Symbol(p[1])
+					},
+					'LargeInteger' -> {
+						p[1].allButLast.parseLargeInteger
+					},
+					'Let' -> {
+						SymbolicExpression('≔', p.collect(f:/1))
+					},
+					'List' -> {
+						SymbolicExpression('𝓛', p.collect(f:/1))
+					},
+					'Operator' -> {
+						Symbol(p[1])
+					},
+					'Program' -> {
+						SymbolicExpression('𝒫', p.collect(f:/1))
+					},
+					'ReservedIdentifier' -> {
+						p[1].caseOf(
+							[
+								'false' -> { false },
+								'nil' -> { nil },
+								'true' -> { true }
+							]
+						)
+					},
+					'SmallFloat' -> {
+						p[1].parseNumber
+					},
+					'SmallInteger' -> {
+						p[1].parseSmallInteger(10)
+					}
+				]
+			) {
+				self.error('String>>splParseExpression: ' ++ o)
+			}
+		};
+		f(tree)
+	}
+
 	splParseTree { :self |
 		<primitive: return sl.rewriteSlToAst(_self);>
 	}

@@ -281,8 +281,8 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		1L
 	}
 
-	storeString { :self |
-		self.printString ++ 'L'
+	printString { :self |
+		self.storeString
 	}
 
 	quotient { :self :anInteger |
@@ -329,6 +329,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		>
 	}
 
+	storeString { :self |
+		self.basicPrintString(10) ++ 'L'
+	}
+
 	toNumber { :self :precision |
 		<primitive: BigInt.asIntN(_precision, _self);>
 	}
@@ -353,8 +357,16 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 +String {
 
-	parseLargeInteger { :self |
+	basicParseLargeInteger { :self |
 		<primitive: return BigInt(_self);>
+	}
+
+	parseLargeInteger { :self |
+		self.endsWith('L').if {
+			self.allButLast.basicParseLargeInteger
+		} {
+			self.basicParseLargeInteger
+		}
 	}
 
 }

@@ -6,9 +6,8 @@ Sl {
 
 	TopLevel = LibraryExpression+ | Program
 	LibraryExpression = TypeExpression | TraitExpression | LibraryItem
-	TypeExpression = TypeExtension | TypeTypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
+	TypeExpression = TypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
 	TypeExtension = "+" typeName "{" (methodName Block)* "}"
-	TypeTypeExtension = "+" typeName "^" "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<typeName, ","> "]" "{" (methodName Block)* "}"
 	HostTypeDefinition = typeName "!" TraitList? "{" SlotNames? (methodName Block)* "}"
 	TypeDefinition = typeName TraitList "{" SlotNames? (methodName Block)* "}"

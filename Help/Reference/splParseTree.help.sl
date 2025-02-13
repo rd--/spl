@@ -105,14 +105,34 @@ and the parse tree of the assigned expression:
 [
 	'Assignment',
 	[
-		['Identifier', ['x']],
+		[
+			'Identifier',
+			[
+				'x'
+			]
+		],
 		[
 			'Apply',
 			[
-				['Operator', ['+']],
 				[
-					['Identifier', ['x']],
-					['SmallInteger', ['1']]
+					'Operator',
+					[
+						'+'
+					]
+				],
+				[
+					[
+						'Identifier',
+						[
+							'x'
+						]
+					],
+					[
+						'SmallInteger',
+						[
+							'1'
+						]
+					]
 				]
 			]
 		]
@@ -125,6 +145,27 @@ the value is a two-`List` of the identifier that is being applied,
 and a `List` of the values it is applied to:
 
 ```
+>>> 'f(x)'.splParseTree[2, 1]
+[
+	'Apply',
+	[
+		[
+			'Identifier',
+			[
+				'f'
+			]
+		],
+		[
+			[
+				'Identifier',
+				[
+					'x'
+				]
+			]
+		]
+	]
+]
+
 >>> 'f(x, y)'.splParseTree[2, 1]
 [
 	'Apply',
@@ -249,21 +290,19 @@ If the expression is an _block_ expression,
 the value is a `List` of,
 in sequence,
 any arguments,
+any primitives,
 any local variables, and
 any statements:
 
 ```
 >>> '{ }'.splParseTree[2, 1]
-[
-	'Block',
-	[]
-]
+['Block', []]
 
 >>> '{ :x | x }'.splParseTree[2, 1]
 [
 	'Block',
 	[
-		['ArgumentList', ['x']],
+		['Arguments', [['Identifier', ['x']]]],
 		['Identifier', ['x']]
 	]
 ]
@@ -272,8 +311,15 @@ any statements:
 [
 	'Block',
 	[
-		['ArgumentList', ['x', 'y']],
-		['Apply',
+		[
+			'Arguments',
+			[
+				['Identifier', ['x']],
+				['Identifier', ['y']]
+			]
+		],
+		[
+			'Apply',
 			[
 				['Operator', ['*']],
 				[
@@ -298,15 +344,11 @@ Control strucures are ordinary applications with block arguments:
 			['Identifier', ['x']],
 			[
 				'Block',
-				[
-					['SmallInteger', ['1']]
-				]
+				[['SmallInteger', ['1']]]
 			],
 			[
 				'Block',
-				[
-					['SmallInteger', ['0']]
-				]
+				[['SmallInteger', ['0']]]
 			]
 		]
 	]
@@ -315,4 +357,4 @@ Control strucures are ordinary applications with block arguments:
 
 * * *
 
-See also: splSimplify
+See also: splParseExpression, splSimplify

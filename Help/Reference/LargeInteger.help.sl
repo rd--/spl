@@ -106,10 +106,10 @@ Print & store `String`:
 
 ```
 >>> (23L ^ 23).printString
-'20880467999847912034355032910567'
+'20880467999847912034355032910567L'
 
 >>> (23L ^ 23).asString
-'20880467999847912034355032910567'
+'20880467999847912034355032910567L'
 
 >>> (23L ^ 23).storeString
 '20880467999847912034355032910567L'
@@ -117,7 +117,7 @@ Print & store `String`:
 
 * * *
 
-See also: asLargeInteger, Binary, Integer, Magnitude, Number, SmallFloat
+See also: asLargeInteger, Binary, Integer, Magnitude, Number, parseLargeInteger, SmallFloat
 
 References:
 _Mozilla_

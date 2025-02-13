@@ -121,12 +121,16 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 	}
 
 	printString { :self |
-		'(% %)'.format(
-			[
-				self.operator.printString,
-				self.operands.collect(printString:/1).join(' ')
-			]
-		)
+		self.operands.isEmpty.if {
+			'(%)'.format([self.operator.printString])
+		} {
+			'(% %)'.format(
+				[
+					self.operator.printString,
+					self.operands.collect(printString:/1).join(' ')
+				]
+			)
+		}
 	}
 
 }

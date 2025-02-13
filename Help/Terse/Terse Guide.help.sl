@@ -2548,8 +2548,9 @@ let f = { :c | Promise { :t:/1 :f | { t(c) }.valueAfter((0 -- 0.05).atRandom) } 
 false.isBoolean /* constant */
 false.isBoolean /* constant */
 nil.isNil /* constant */
-Pi.isNumber /* constant */
 Infinity.isNumber /* constant (infinity) */
+-Infinity.isNumber /* constant (negative infinity) */
+NaN.isNumber /* constant (not a number) */
 ```
 
 ## RandomNumberGenerator -- trait and system random number generator
@@ -3251,7 +3252,7 @@ system.smallFloatEpsilon > (10 ^ -16)
 Infinity.isFinite = false /* Infinity is not finite */
 NaN.isFinite = false /* NaN is not finite */
 Infinity.isFinite = false /* Infinity is not finite */
-Pi.isFinite = true /* 1.pi is finite */
+1.pi.isFinite = true /* 1.pi is finite */
 { nil.isFinite }.ifError { true } /* nil is not a number, so we cannot ask if it is finite */
 5.isCloseTo(5) = true
 5.isCloseTo('5') = false

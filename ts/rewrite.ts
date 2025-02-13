@@ -41,9 +41,7 @@ function genDictionaryAssignmentSlots(rhsDictionaryName: string, keyVarNamesArra
 		function (keyVarNames) {
 			const keyName = keyVarNames[0];
 			const varName = keyVarNames[1];
-			return `_${varName} = _${
-				genName('at', 2)
-			}(${rhsDictionaryName}, '${keyName}')`;
+			return `_${varName} = _at_2(${rhsDictionaryName}, '${keyName}')`;
 		},
 	).join(', ');
 	// console.debug('genDictionaryAssignmentSlots', slots);
@@ -118,12 +116,12 @@ sl.copyTraitToType(
 
 function genRange(start: ohm.Node, end: ohm.Node): string {
 	// console.debug('genRange');
-	return `_${genName('upOrDownTo', 2)}(${start.asJs}, ${end.asJs})`;
+	return `_upOrDownTo_2(${start.asJs}, ${end.asJs})`;
 }
 
 function genListRange(start: ohm.Node, end: ohm.Node): string {
 	// console.debug('genListRange');
-	return `_${genName('asList', 1)}(${genRange(start, end)})`;
+	return `_asList_1(${genRange(start, end)})`;
 }
 
 const asJs: ohm.ActionDict<string> = {
@@ -244,23 +242,6 @@ const asJs: ohm.ActionDict<string> = {
 			methodBlock.children,
 		);
 	},
-	TypeTypeExtension(
-		_plus,
-		typeName,
-		_caret,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		// console.debug(`TypeTypeExtension: ${typeName.sourceString}`);
-		return makeMethodList(
-			'addMethod',
-			[typeName.sourceString + '^'],
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
-	},
 	TraitDefinition(
 		_at,
 		traitName,
@@ -336,7 +317,7 @@ const asJs: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
 		const rhsName = genSym();
 		const slots = namesArray.map((name, index) =>
-			`${name} = _${genName('at', 2)}(${rhsName}, ${index + 1})`
+			`${name} = _at_2(${rhsName}, ${index + 1})`
 		).join(', ');
 		// console.debug('TemporaryListInitializer', namesArray, rhsName);
 		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
@@ -363,7 +344,7 @@ const asJs: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
 		const rhsListName = genSym();
 		const slots = namesArray.map((name, index) =>
-			`${name} = _${genName('at', 2)}(${rhsListName}, ${index + 1})`
+			`${name} = _at_2(${rhsListName}, ${index + 1})`
 		).join(';\n');
 		// console.debug('ListAssignment', namesArray, rhsListName);
 		return `/* List Assignment */ (function() {
@@ -440,10 +421,10 @@ const asJs: ohm.ActionDict<string> = {
 		}, ${v.asJs})`;
 	},
 	QuotedAtSyntax(c, _colonColon, k) {
-		return `_${genName('at', 2)}(${c.asJs}, '${k.sourceString}')`;
+		return `_at_2(${c.asJs}, '${k.sourceString}')`;
 	},
 	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
-		return `_${genName('atPut', 3)}(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
+		return `_atPut_3(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		const elem = k.asIteration().children;
@@ -610,9 +591,7 @@ const asJs: ohm.ActionDict<string> = {
 		end,
 		_rightBracket,
 	) {
-		return `_${genName('asList', 1)}(_${
-			genName('thenTo', 3)
-		}(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
+		return `_asList_1(_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
 	},
 	RangeSyntax(_leftParen, start, _dotDot, end, _rightParen) {
 		return genRange(start, end);
@@ -626,7 +605,7 @@ const asJs: ohm.ActionDict<string> = {
 		end,
 		_rightParen,
 	) {
-		return `_${genName('thenTo', 3)}(${start.asJs}, ${then.asJs}, ${end.asJs})`;
+		return `_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs})`;
 	},
 	EmptyListSyntax(_leftBracket, _rightBracket) {
 		// console.debug('EmptyListSyntax');
@@ -710,10 +689,10 @@ const asJs: ohm.ActionDict<string> = {
 		return op.sourceString;
 	},
 	rangeFromByToLiteral(start, _colon, step, _anotherColon, end) {
-		return `_${genName('toBy', 3)}(${start.asJs}, ${end.asJs}, ${step.asJs})`;
+		return `_toBy_3(${start.asJs}, ${end.asJs}, ${step.asJs})`;
 	},
 	rangeFromToLiteral(start, _colon, end) {
-		return `_${genName('to', 2)}(${start.asJs}, ${end.asJs})`;
+		return `_to_2(${start.asJs}, ${end.asJs})`;
 	},
 	floatLiteral(s, i, _, f) {
 		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
@@ -783,10 +762,10 @@ const asJs: ohm.ActionDict<string> = {
 		return `'${quoteNewLines(s.sourceString)}'`;
 	},
 	doubleQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('DoubleQuotedString', 1)}("${s.sourceString}")`;
+		return `_DoubleQuotedString_1("${s.sourceString}")`;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
-		return `_${genName('BacktickQuotedString', 1)}(\`${s.sourceString}\`)`;
+		return `_BacktickQuotedString_1(\`${s.sourceString}\`)`;
 	},
 
 	NonemptyListOf(first, _sep, rest) {
@@ -1050,20 +1029,28 @@ const asSl: ohm.ActionDict<string> = {
 
 slSemantics.addAttribute('asSl', asSl);
 
-export type SlAst = any;
+export type SlAst = (string | SlAst)[];
 
 const asAst: ohm.ActionDict<SlAst> = {
 	ApplySyntax(rcv, arg) {
 		return ['Apply', [rcv.asAst].concat(arg.asAst)];
 	},
 	Arguments(a, _p) {
-		return ['ArgumentList', a.children.map((x) => x.asAst)];
+		return ['Arguments', a.children.map((x) => x.asAst)];
 	},
 	ArgumentName(_c, name) {
-		return name.sourceString;
+		return [
+			'Identifier',
+			[name.sourceString]
+		];
 	},
 	Primitive(_l, s, _r) {
-		return '<primitive: ' + s.sourceString + '>';
+		return [
+			'Primitive'
+			[
+				s.sourceString
+			]
+		];
 	},
 	Block(_l, arg, tmp, prm, stm, _r) {
 		return [
