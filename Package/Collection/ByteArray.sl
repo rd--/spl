@@ -4,6 +4,18 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
 
+	asHexString { :self |
+		let map = '0123456789ABCDEF'.asciiByteArray;
+		let array = ByteArray(self.size * 2);
+		let index = 1;
+		self.do { :each |
+			array[index] := map[each.bitShiftRight(4) + 1];
+			array[index + 1] := map[each.bitAnd(15) + 1];
+			index := index + 2
+		};
+		array.asciiString
+	}
+
 	atPut { :self :anInteger :aByte |
 		<primitive:
 		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
@@ -83,18 +95,6 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 			hash := 16rFFFFFFFF.bitAnd(hash)
 		};
 		hash
-	}
-
-	hexString { :self |
-		let map = '0123456789ABCDEF'.asciiByteArray;
-		let array = ByteArray(self.size * 2);
-		let index = 1;
-		self.do { :each |
-			array[index] := map[each.bitShiftRight(4) + 1];
-			array[index + 1] := map[each.bitAnd(15) + 1];
-			index := index + 2
-		};
-		array.asciiString
 	}
 
 	shallowCopy { :self |

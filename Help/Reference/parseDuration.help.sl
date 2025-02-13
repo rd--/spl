@@ -4,6 +4,8 @@
 
 Parse an ISO-8601 duration string.
 
+Three days and four hours:
+
 ```
 >>> 'P3DT4H'.parseDuration
 (3.days + 4.hours)
@@ -13,7 +15,12 @@ Four days, twelve hours, thirty minutes, and five seconds:
 
 ```
 >>> 'P4DT12H30M5S'.parseDuration
-4.days + 12.hours + 30.minutes + 5.seconds
+[
+	4.days,
+	12.hours,
+	30.minutes,
+	5.seconds
+].sum
 ```
 
 It is an error if the year or month fields are non-zero,

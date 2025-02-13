@@ -38,7 +38,7 @@ that is _e ^ n_.
 >>> [1 2].exp
 [2.71828 7.38906]
 
->>> [0 1.5 Pi.i Infinity].exp
+>>> [0, 1.5, 1.pi.i, Infinity].exp
 [1 4.48169 -1J0 Infinity]
 ```
 

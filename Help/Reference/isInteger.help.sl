@@ -17,7 +17,7 @@ false
 false
 ```
 
-Note that number written using the floating point literal notation,
+Note that numbers written using floating point literal notation,
 where the fractional part is zero,
 answers `true`:
 

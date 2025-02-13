@@ -11,6 +11,6 @@ Answer an `AsciiString` value holding a byte-string encoding of _aString_.
 
 * * *
 
-See also: AsciiString, asciiByteArray, asHex, isAscii, removeDiacritics
+See also: AsciiString, asciiByteArray, asHexString, isAscii, removeDiacritics
 
 Categories: Converting

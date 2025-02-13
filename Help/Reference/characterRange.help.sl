@@ -54,7 +54,7 @@ The character between Ρ and Σ is reserved and presently unused by the Unicode 
 ```
 
 Printable Ascii characters are those in the range 32 (' ') to 126 ('~').
-Select thos that are not letters or numbers or the apostrophe or reverse solidus character:
+Select those that are not letters or numbers or the apostrophe or reverse solidus character:
 
 ```
 >>> ' '.characterRange('~').reject { :x |
@@ -90,7 +90,9 @@ At `Integer`:
 At `Character`:
 
 ```
->>> 'a'.asCharacter.characterRange('c'.asCharacter)
+>>> let c1 = 'a'.asCharacter;
+>>> let c2 = 'c'.asCharacter;
+>>> c1.characterRange(c2)
 [
 	Character('a', 97),
 	Character('b', 99),

@@ -22,7 +22,9 @@ Does not parse radix notation,
 signals `error` on failure:
 
 ```
->>> { '10r9'.parseDecimalInteger }.ifError { true }
+>>> {
+>>> 	'10r9'.parseDecimalInteger
+>>> }.ifError { true }
 true
 
 >>> 10r9

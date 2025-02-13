@@ -11,9 +11,9 @@ Sl {
 	TypeTypeExtension = "+" typeName "^" "{" (methodName Block)* "}"
 	TypeListExtension = "+" "[" NonemptyListOf<typeName, ","> "]" "{" (methodName Block)* "}"
 	HostTypeDefinition = typeName "!" TraitList? "{" SlotNames? (methodName Block)* "}"
-	TypeDefinition = typeName TraitList? "{" SlotNames? (methodName Block)* "}"
+	TypeDefinition = typeName TraitList "{" SlotNames? (methodName Block)* "}"
 	SlotNames = "|" slotName+ "|"
-	TraitList = ":" "[" NonemptyListOf<traitName, ","> "]"
+	TraitList = ":" "[" ListOf<traitName, ","> "]"
 	TraitExpression = TraitExtension | TraitListExtension | TraitDefinition
 	TraitExtension = "+" "@" traitName "{" (methodName Block)* "}"
 	TraitListExtension = "+" "@" "[" NonemptyListOf<traitName, ","> "]" "{" (methodName Block)* "}"

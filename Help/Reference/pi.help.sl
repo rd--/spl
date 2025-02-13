@@ -38,12 +38,7 @@ which can be confusing if one is not aware of the distinction between _x / y_ an
 0.15915
 ```
 
-`pi` is also defined as a constant, like `Infinity` and `NaN`:
-
-```
->>> Pi * 2
-2.pi
-```
+`pi` is not defined as a constant, unlike `Infinity` and `NaN`.
 
 Where supported `pi` is displayed as π.
 

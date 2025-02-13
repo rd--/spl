@@ -3,6 +3,7 @@
 - _adjugate(aMatrix)_
 
 Answer the adjugate of _aMatrix_, which must be square.
+The adjugate is also known as the classical adjoint or the adjunct matrix.
 
 Compute the adjugate of a 2×2 matrix:
 
@@ -15,14 +16,15 @@ Compute the adjugate for a 3×3 matrix:
 
 ```
 >>> let m = [15 3 4; 3 15 11; -2 1 7];
+>>> let i = m.size.identityMatrix;
 >>> let a = m.adjugate;
->>> let d = m.determinant * m.size.identityMatrix;
+>>> let d = m.determinant * i;
 >>> (a, a.dot(m) ~ d)
 (
 	[
-		94 -17 -27;
-		-43 113 -153;
-		33 -21 216
+		 94  -17  -27;
+		-43  113 -153;
+		 33  -21  216
 	],
 	true
 )

@@ -7,7 +7,9 @@ Answer a `List` of the `Character` elements of _aString_.
 The `elementType` of the answer is `Character`:
 
 ```
->>> 'characters'.characterList.elementType
+>>> 'characters'
+>>> .characterList
+>>> .elementType
 'Character'
 ```
 
@@ -21,7 +23,9 @@ The elements of the answer are characters:
 Code points of characters of a string:
 
 ```
->>> 'characters'.characterList.collect(codePoint:/1)
+>>> 'characters'
+>>> .characterList
+>>> .collect(codePoint:/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```
 
@@ -29,7 +33,9 @@ Since `codePoint` is also defined for single character strings,
 the above is equivalent to:
 
 ```
->>> 'characters'.stringList.collect(codePoint:/1)
+>>> 'characters'
+>>> .stringList
+>>> .collect(codePoint:/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```
 
@@ -89,7 +95,11 @@ Unicode strings:
 
 ```
 >>> 'αβγ'.characterList
-['α'.asCharacter, 'β'.asCharacter, 'γ'.asCharacter]
+[
+	'α'.asCharacter,
+	'β'.asCharacter,
+	'γ'.asCharacter
+]
 ```
 
 * * *

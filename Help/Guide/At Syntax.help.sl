@@ -58,6 +58,18 @@ It is not a syntax for the `atAll` protocol, see `AtAll Syntax`.
 [3; 8; 13; 18; 23]
 ```
 
+_Note:_
+At present whitespace is allowed before the left bracket,
+however this is confusing and should be disallowed:
+
+```
+>>> [1 2 3] [3]
+3
+
+>>> [[1 2 3] [3]]
+[3]
+```
+
 * * *
 
 See also: @, at, atAll, List, Range, Record

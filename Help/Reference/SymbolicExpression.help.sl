@@ -5,26 +5,36 @@
 A `Type` representing a symbolic expression.
 The `printString` of a symbolic expression is an _S-expression_.
 
-`SymbolicExpression` implements `=` symbolically:
+`SymbolicExpression` implements `=` and `~` symbolically:
 
 ```
->>> let e = 'x'.Symbol = 'y'.Symbol;
+>>> let x = 'x'.Symbol;
+>>> let y = 'y'.Symbol;
 >>> (
->>> 	e.isSymbolicExpression,
->>> 	e.operator.name,
->>> 	e.printString
+>>> 	(x = y).isSymbolicExpression,
+>>> 	(x = y).operator.name,
+>>> 	(x = y).printString,
+>>> 	(x ~ y).printString,
+>>> 	(x / 2 ~ 0).printString
 >>> )
-(true, '=', '(= x y)')
+(
+	true,
+	'=',
+	'(= x y)',
+	'(~ x y)',
+	'(~ (/ x 2) 0)'
+)
 ```
 
 `isEqualSymbolicExpression` tests if two `SymbolicExpression` values are the same:
 
 ```
->>> ('x'.Symbol + 3.141)
->>> .isEqualSymbolicExpression(
->>> 	('y'.Symbol * 1.618)
->>> )
-false
+>>> let a = ('x'.Symbol + 3.141);
+>>> let b = ('y'.Symbol * 1.618);
+>>> { :i :j |
+>>> 	i.isEqualSymbolicExpression(j)
+>>> }.table([a, b], [a, b])
+[true false; false true]
 ```
 
 Symbolic expressions implement `adaptToNumberAndApply`:

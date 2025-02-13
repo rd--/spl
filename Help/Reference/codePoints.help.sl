@@ -47,4 +47,4 @@ if the code points in range:
 
 * * *
 
-See also: Character, characters, String, utf8ByteArray, utf16List
+See also: Character, characterList, String, utf8ByteArray, utf16List

@@ -66,7 +66,9 @@ Does not parse radix notation,
 signals `error` on failure:
 
 ```
->>> { '2r1001'.parseNumber }.ifError { true }
+>>> {
+>>> 	'2r1001'.parseNumber
+>>> }.ifError { true }
 true
 
 >>> 2r1001

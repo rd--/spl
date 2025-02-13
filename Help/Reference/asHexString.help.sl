@@ -1,8 +1,23 @@
 # asHexString
 
-- _asHexString(aString)_
+- _asHexString(aByteArray | aString)_
 
-Answer the two character per byte hexadecimal  encoding of the Ascii encoding of _aString_.
+Answer the two character per byte hexadecimal encoding of _aByteArray_,
+or of the Ascii encoding of _aString_.
+
+At `ByteArray`:
+
+```
+>>> 9:15.asByteArray.asHexString
+'090A0B0C0D0E0F'
+```
+
+At `ByteArray` of the Ascii encoding of a `String`:
+
+```
+>>> 'string'.asciiByteArray.asHexString
+'737472696E67'
+```
 
 At `String`:
 
@@ -30,6 +45,6 @@ At `AsciiString`:
 
 * * *
 
-See also: asciiByteArray, AsciiString, base64Encoded, hexString, parseHexString, String
+See also: asciiByteArray, AsciiString, base64Encoded, parseHexString, String
 
 Categories: Converting

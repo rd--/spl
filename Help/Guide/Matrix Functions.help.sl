@@ -53,12 +53,14 @@
 
 ## General
 
+- `adjugate`: adjugate or adjoint
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition
 - `conjugateTranspose`: conjugate transpose (Hermitian conjugate)
 - `determinant`: determinant
 - `dot`: outer product
+- `gramSchmidtProcess`: Gram-Schmidt
 - `inner`: outer product
 - `inverse`: inverse of a square matrix
 - `luDecomposition`: the LU decomposition
@@ -74,6 +76,7 @@
 - `reducedRowEchelonForm`: in place row reduce
 - `rowReduce`: simplified matrix obtained by making linear combinations of rows
 - `shape`: list the dimensions of a matrix
+- `singularValueDecomposition`
 - `trace`: trace
 - `transposed`: transposition
 

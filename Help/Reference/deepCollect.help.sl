@@ -11,9 +11,9 @@ The answer has the same structure as _aCollection_.
 At `List`:
 
 ```
->>> ['a' ['b' ['c' ['d']]]]
+>>> ['a', ['b', ['c', ['d']]]]
 >>> .deepCollect(asUpperCase:/1)
-['A' ['B' ['C' ['D']]]]
+['A', ['B', ['C', ['D']]]]
 ```
 
 At `Tuple`:

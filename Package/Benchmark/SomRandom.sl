@@ -6,7 +6,7 @@ SomRandom : [Object] { | seed |
 
 }
 
-Void {
++Void {
 
 	SomRandom {
 		newSomRandom().initializeSlots(74755)

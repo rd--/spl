@@ -57,8 +57,8 @@ but it is similar to such:
 ```
 
 _Note:_
-Strings in Spl are not Lists of Characters.
-Except where necessary Characters and Character lists are not recommended.
+A `String` in Spl is not a `List` of `Character` values.
+Except where necessary the of `Character` and `Character` `List` values are not recommended.
 
 * * *
 

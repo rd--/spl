@@ -15,16 +15,22 @@ Answer a `List` of the letters in the named alphabet.
 The answer has only lower case letters:
 
 ```
->>> 'english'.alphabet.join('').asUpperCase
+>>> 'english'
+>>> .alphabet
+>>> .join('')
+>>> .asUpperCase
 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
->>> 'greek'.alphabet.join('').asUpperCase
+>>> 'greek'
+>>> .alphabet
+>>> .join('')
+>>> .asUpperCase
 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
 ```
 
 * * *
 
-See also: Character, String
+See also: characterRange, Character, String
 
 References:
 _Mathematica_

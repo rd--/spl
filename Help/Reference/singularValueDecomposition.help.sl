@@ -85,6 +85,26 @@ At 3×3 real matrix:
 [1.49805 0.99772 0.49661]
 ```
 
+The Golub-Reinsch form:
+
+```
+>>> [1 2; 1 2].singularValueDecompositionGolubReinsch
+[
+	[
+		[ 1 / 2.sqrt, -1 / 2.sqrt],
+		[-1 / 2.sqrt, -1 / 2.sqrt]
+	],
+	[
+		0,
+		10.sqrt
+	],
+	[
+		[ 2 / 5.sqrt, -1 / 5.sqrt],
+		[-1 / 5.sqrt, -2 / 5.sqrt]
+	]
+]
+```
+
 * * *
 
 References:

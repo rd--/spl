@@ -8,7 +8,9 @@ String! : [Object, Json, Iterable, Character] {
 
 	~ { :self :anObject |
 		self.isCharacter.if {
-			self.asCharacter = anObject.asCharacter
+			anObject.isCharacter & {
+				self.asCharacter = anObject.asCharacter
+			}
 		} {
 			self == anObject
 		}
@@ -136,7 +138,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	asHexString { :self |
-		self.asciiByteArray.hexString
+		self.asciiByteArray.asHexString
 	}
 
 	asList { :self |
@@ -177,15 +179,19 @@ String! : [Object, Json, Iterable, Character] {
 
 	at { :self :index |
 		/* Note: index is in Utf-16 code units, not characters */
-		let codePoint = self.codePointAt(index);
-		codePoint.ifNil {
-			self.error('String>>at: invalid index')
-		} {
-			codePoint.isUtf16SurrogateCodePoint.if {
-				self.error('String>>at: code point is lone surrogate')
+		self.includesIndex(index).if {
+			let codePoint = self.codePointAt(index);
+			codePoint.ifNil {
+				self.error('String>>at: invalid index')
 			} {
-				codePoint.asCharacter
+				codePoint.isUtf16SurrogateCodePoint.if {
+					self.error('String>>at: code point is lone surrogate')
+				} {
+					codePoint.asCharacter
+				}
 			}
+		} {
+			self.error('String>>at: invalid index')
 		}
 	}
 
@@ -478,7 +484,9 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	includesIndex { :self :index |
-		index.betweenAnd(1, self.size)
+		index.isInteger & {
+			index.betweenAnd(1, self.size)
+		}
 	}
 
 	includesSubsequence { :self :aString |

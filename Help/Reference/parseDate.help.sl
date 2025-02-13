@@ -8,6 +8,9 @@ A string parser that recognizes subsets of the ISO 8601 specification, _YYYY-MM-
 ```
 >>> '2023-05-11'.parseDate.iso8601
 '2023-05-11T00:00:00.000Z'
+
+>>> '2023-05-11T09:30Z'.parseDate.iso8601
+'2023-05-11T09:30:00.000Z'
 ```
 
 * * *

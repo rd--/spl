@@ -7,7 +7,7 @@ Answer a ByteArray of _anInteger_ places, each randomly initialized.
 ```
 >>> let r = Sfc32(37941);
 >>> let b = r.randomByteArray(16);
->>> (b.isByteArray, b.size, b.hexString.size, b)
+>>> (b.isByteArray, b.size, b.asHexString.size, b)
 (	true,
 	16,
 	32,

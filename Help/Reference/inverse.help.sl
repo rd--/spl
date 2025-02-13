@@ -171,7 +171,7 @@ Inverse of a matrix of rational numbers:
 
 * * *
 
-See also: matrixRank, rowReduce
+See also: matrixRank, pseudoInverse, rowReduce
 
 References:
 _Mathematica_

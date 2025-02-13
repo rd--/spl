@@ -51,6 +51,15 @@ At `String`:
 ```
 >>> 'text' ~ 'text'
 true
+
+>>> ['x', 'x'] ~ ['x', ['x']]
+false
+
+>>> 'text' ~ ['t' 'e' 'x' 't']
+false
+
+>>> ['t' 'e' 'x' 't'] ~ 'text'
+false
 ```
 
 At `Character`,

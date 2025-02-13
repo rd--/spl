@@ -21,7 +21,7 @@ expr
 `String` literals are not rewritten:
 
 ```
->>> let expr = '[23, 3.141, 23L, \'23\']';
+>>> let expr = '[23, 3.141, 23L, 2.3E1, \'23\']';
 >>> expr.splSimplify
 expr
 ```

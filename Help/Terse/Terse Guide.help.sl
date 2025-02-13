@@ -841,12 +841,12 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.reversed = 9:-1:1.asByteArray
 1:3.asByteArray.printString = '[1, 2, 3].asByteArray'
 1:3.asByteArray.storeString = '[1, 2, 3].asByteArray'
-ByteArray(4).hexString = '00000000'
+ByteArray(4).asHexString = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4); b[1] := 15; b[3] := 240; b.hexString = '0F00F000'
-let b = ByteArray(4); b[2] := 15; b[4] := 240; b.hexString = '000F00F0'
-1:4.asByteArray.hexString = '01020304'
-let b = ByteArray(4); b.atAllPut(15); b.hexString = '0F0F0F0F'
+let b = ByteArray(4); b[1] := 15; b[3] := 240; b.asHexString = '0F00F000'
+let b = ByteArray(4); b[2] := 15; b[4] := 240; b.asHexString = '000F00F0'
+1:4.asByteArray.asHexString = '01020304'
+let b = ByteArray(4); b.atAllPut(15); b.asHexString = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } /* ByteArrays are not Extensible */
 1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */
@@ -3545,8 +3545,8 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.stringJoin = '
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
 'string'.asHexString = '737472696E67' /* hex string of ascii codes of string */
-let s = 'string'; (s.size * 2) = s.asHexString.size /* asHex, hex string is twice as long */
-{ 'Mačiūnas'.asHexString }.ifError { true } /* asHex, non-ascii strings raise an error */
+let s = 'string'; (s.size * 2) = s.asHexString.size /* hex string is twice as long */
+{ 'Mačiūnas'.asHexString }.ifError { true } /* non-ascii strings raise an error */
 '"'.asCharacter.codePoint = 34 /* double quote */
 '\''.asCharacter.codePoint = 39 /* single quote (') */
 '\\'.asCharacter.codePoint = 92 /* backslash (escape) */

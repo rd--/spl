@@ -40,7 +40,7 @@ A function that is `one` if either _x_ or _y_ are close to `zero`:
 >>> { :x :y |
 >>> 	(
 >>> 		(x ~ 0) | {
->>> 			y.abs ~ 0
+>>> 			y ~ 0
 >>> 		}
 >>> 	).if {
 >>> 		1

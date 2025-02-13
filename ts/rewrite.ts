@@ -725,7 +725,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_basicParseDecimal_1('${s.sourceString}${i.sourceString}')`;
 	},
 	scientificLiteral(base, _e, exponent) {
-		return `${base.sourceString}e${exponent.sourceString}`;
+		return `${base.sourceString}E${exponent.sourceString}`;
 	},
 	fractionLiteral(sign, numerator, _divisor, denominator) {
 		// console.debug('fractionLiteral', sign.sourceString, numerator.sourceString, denominator.sourceString);
@@ -977,7 +977,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `Fraction(${validateSign(s.sourceString)}${n.sourceString}L, ${d.sourceString}L)`;
 	},
 	infinityLiteral(s, i) {
-		return s.sourceString + i.sourceString;
+		return validateSign(s.sourceString) + i.sourceString;
 	},
 	infixMethod(name, _colon) {
 		return name.sourceString;
@@ -1016,8 +1016,11 @@ const asSl: ohm.ActionDict<string> = {
 	residueLiteral(i, _z, m) {
 		return `Residue(${i.sourceString}, ${m.sourceString})`;
 	},
+	scientificLiteral(b, _e, e) {
+		return b.sourceString + 'E' + e.sourceString;
+	},
 	singleQuotedStringLiteral(_l, s, _r) {
-		return `'${s.sourceString}'`;
+		return "'" + s.sourceString + "'";
 	},
 	unqualifiedIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
@@ -1115,55 +1118,82 @@ const asAst: ohm.ActionDict<SlAst> = {
 	},
 
 	boundOperator(op) {
-		return ['Operator', op.sourceString];
+		return [
+			'Operator',
+			[op.sourceString]
+		];
 	},
 	floatLiteral(s, i, _dot, f) {
 		return [
 			'SmallFloat',
-			Number.parseFloat(s.sourceString + i.sourceString + '.' + f.sourceString)
+			[s.sourceString + i.sourceString + '.' + f.sourceString] // Number.parseFloat
 		];
 	},
 	infinityLiteral(s, i) {
 		return [
 			'SmallFloat',
-			Number.parseFloat(s.sourceString + i.sourceString)
+			[s.sourceString + i.sourceString] // Number.parseFloat
 		];
 	},
 	integerLiteral(s, i) {
 		return [
 			'SmallInteger',
-			Number.parseInt(s.sourceString + i.sourceString)
+			[s.sourceString + i.sourceString] // Number.parseInt
 		];
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return [
 			'LargeInteger',
-			BigInt(s.sourceString + i.sourceString)
+			[s.sourceString + i.sourceString + 'L'] // BigInt
 		];
 	},
 	lowercaseIdentifier(c1, cN) {
-		return ['Identifier', c1.sourceString + cN.sourceString];
+		return [
+			'Identifier',
+			[c1.sourceString + cN.sourceString]
+		];
 	},
 	nanLiteral(_n) {
 		return [
 			'SmallFloat',
-			Number.parseFloat('NaN')
+			['NaN'] // Number.parseFloat
 		];
 	},
 	operator(op) {
-		return ['Operator', op.sourceString];
+		return [
+			'Operator',
+			[op.sourceString]
+		];
 	},
 	reservedIdentifier(x) {
-		return ['ReservedIdentifier', x.sourceString];
+		return [
+			'ReservedIdentifier',
+			[x.sourceString]
+		];
+	},
+	scientificLiteral(b, _e, e) {
+		return [
+			'SmallFloat',
+			[b.sourceString + 'E' + e.sourceString]
+		];
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
-		return ['String', s.sourceString];
+		return [
+			'String',
+			[s.sourceString]
+		];
 	},
 	unqualifiedIdentifier(c1, cN) {
-		return ['Identifier', c1.sourceString + cN.sourceString];
+		return [
+			'Identifier',
+			[c1.sourceString + cN.sourceString]
+		];
 	},
 	uppercaseIdentifier(c1, cN) {
-		return ['Identifier', c1.sourceString + cN.sourceString];
+		return [
+			'Identifier',
+			[c1.sourceString + cN.sourceString]
+		];
 	},
 
 	EmptyListOf() {

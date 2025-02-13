@@ -2,8 +2,7 @@
 
 - _asHexDigit(anInteger)_
 
-Answer the Character representing given hexadecimal digit,
-or raise an error if out of bounds.
+Answer the Character representing given hexadecimal digit.
 
 ```
 >>> 15.asHexDigit
@@ -13,8 +12,15 @@ or raise an error if out of bounds.
 '0123456789ABCDEF'
 ```
 
+Signal an `error` if out of bounds:
+
+```
+>>> { -1.asHexDigit }.ifError { true }
+true
+```
+
 * * *
 
-See also: Integer
+See also: Character, Integer
 
 Categories: Converting

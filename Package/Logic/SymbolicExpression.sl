@@ -1,9 +1,5 @@
 @SymbolicObject {
 
-	isEqualSymbolicExpression { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	= { :self :anObject |
 		SymbolicExpression('=', [self, anObject])
 	}
@@ -96,6 +92,10 @@
 
 Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
+	isEqualSymbolicExpression { :self :anObject |
+		self == anObject
+	}
+
 	printString { :self |
 		self.name
 	}
@@ -116,8 +116,8 @@ Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, Sy
 
 SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | operator operands |
 
-	~ { :self :aSymbolicExpression |
-		self = aSymbolicExpression
+	isEqualSymbolicExpression { :self :anObject |
+		self.hasEqualSlotsBy(anObject, isEqualSymbolicExpression:/2)
 	}
 
 	printString { :self |
@@ -161,6 +161,18 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 		self.asSymbolicExpression(
 			'greek'.alphabet.take(self.numArgs)
 		)
+	}
+
+}
+
++@Object {
+
+	isEqualSymbolicExpression { :self :anObject |
+		anObject.isSymbolicExpression.if {
+			false
+		} {
+			self = anObject
+		}
 	}
 
 }

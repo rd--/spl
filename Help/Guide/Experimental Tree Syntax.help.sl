@@ -8,6 +8,18 @@ Tree syntax is the recursive form of `Vector Syntax`.
 
 Allows writing trees of literals or identifiers without comma separators.
 
+This syntax interacts poorly with `At Syntax`,
+particularly as presently implemented with regards white space.
+The expression below, which would need to be parsed as a tree, instead parses already:
+
+```
+>>> [[1 2] [2]]
+[2]
+
+>>> [1 2] [2]
+2
+```
+
 Literals:
 
 ~~~

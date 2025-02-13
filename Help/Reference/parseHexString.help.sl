@@ -21,4 +21,4 @@ Decode a hexadecimal encoding of an Ascii encoding of a `String`:
 
 * * *
 
-See also: asByteArray, asciiString, asHexString, base64Decoded, hexString
+See also: asByteArray, asciiString, asHexString, base64Decoded

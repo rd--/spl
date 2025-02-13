@@ -4,55 +4,60 @@
 
 Answer a parse tree of the Spl expression at _aString_.
 
-All expressions have the form _[Type, Value]_.
+All expressions have the form _[type, value]_,
+where _type_ is a `String` identifying the type of the expression,
+and value is a `List`.
 
 If the expression is an _identifier_,
 type _type_ specifies the kind of identifier,
-and the _value_ is a `String`:
+and the _value_ is an enclosed `String`:
 
 ```
 >>> 'nil'.splParseTree[2, 1]
-['ReservedIdentifier', 'nil']
+['ReservedIdentifier', ['nil']]
 
 >>> 'true'.splParseTree[2, 1]
-['ReservedIdentifier', 'true']
+['ReservedIdentifier', ['true']]
 
 >>> 'false'.splParseTree[2, 1]
-['ReservedIdentifier', 'false']
+['ReservedIdentifier', ['false']]
 
 >>> '+'.splParseTree[2, 1]
-['Operator', '+']
+['Operator', ['+']]
 
 >>> 'x'.splParseTree[2, 1]
-['Identifier', 'x']
+['Identifier', ['x']]
 
 >>> 'X'.splParseTree[2, 1]
-['Identifier', 'X']
+['Identifier', ['X']]
 ```
 
 If the expression is a _string_,
-the _value_ is a `String`:
+the _value_ is an enclosed `String`:
 
 ```
 >>> '\'x\''.splParseTree[2, 1]
-['String', 'x']
+['String', ['x']]
 ```
 
 If the expression is a _number_,
-the _value_ is either a `SmallFloat` or `LargeInteger`:
+the _value_ an enclosed `String`:
 
 ```
 >>> '23'.splParseTree[2, 1]
-['SmallInteger', 23]
+['SmallInteger', ['23']]
 
 >>> '-Infinity'.splParseTree[2, 1]
-['SmallFloat', -Infinity]
+['SmallFloat', ['-Infinity']]
 
 >>> '3.141'.splParseTree[2, 1]
-['SmallFloat', 3.141]
+['SmallFloat', ['3.141']]
 
 >>> '23L'.splParseTree[2, 1]
-['LargeInteger', 23]
+['LargeInteger', ['23L']]
+
+>>> '2.3E1'.splParseTree[2, 1]
+['SmallFloat', ['2.3E1']]
 ```
 
 If the expression is a _list_,
@@ -63,9 +68,9 @@ the value is a `List` of the parse trees of the items:
 [
 	'List',
 	[
-		['SmallInteger', 1],
-		['SmallInteger', 2],
-		['SmallInteger', 3]
+		['SmallInteger', ['1']],
+		['SmallInteger', ['2']],
+		['SmallInteger', ['3']]
 	]
 ]
 
@@ -76,15 +81,15 @@ the value is a `List` of the parse trees of the items:
 		[
 			'List',
 			[
-				['SmallInteger', 1],
-				['SmallInteger', 2]
+				['SmallInteger', ['1']],
+				['SmallInteger', ['2']]
 			]
 		],
 		[
 			'List',
 			[
-				['SmallInteger', 3],
-				['SmallInteger', 4]
+				['SmallInteger', ['3']],
+				['SmallInteger', ['4']]
 			]
 		]
 	]
@@ -100,14 +105,14 @@ and the parse tree of the assigned expression:
 [
 	'Assignment',
 	[
-		['Identifier', 'x'],
+		['Identifier', ['x']],
 		[
 			'Apply',
 			[
-				['Operator', '+'],
+				['Operator', ['+']],
 				[
-					['Identifier', 'x'],
-					['SmallInteger', 1]
+					['Identifier', ['x']],
+					['SmallInteger', ['1']]
 				]
 			]
 		]
@@ -124,10 +129,10 @@ and a `List` of the values it is applied to:
 [
 	'Apply',
 	[
-		['Identifier', 'f'],
+		['Identifier', ['f']],
 		[
-			['Identifier', 'x'],
-			['Identifier', 'y']
+			['Identifier', ['x']],
+			['Identifier', ['y']]
 		]
 	]
 ]
@@ -136,10 +141,10 @@ and a `List` of the values it is applied to:
 [
 	'Apply',
 	[
-		['Operator', '+'],
+		['Operator', ['+']],
 		[
-			['Identifier', 'x'],
-			['Identifier', 'y']
+			['Identifier', ['x']],
+			['Identifier', ['y']]
 		]
 	]
 ]
@@ -152,10 +157,10 @@ Infix application is not recorded especially:
 [
 	'Apply',
 	[
-		['Operator', '+'],
+		['Operator', ['+']],
 		[
-			['Identifier', 'x'],
-			['Identifier', 'y']
+			['Identifier', ['x']],
+			['Identifier', ['y']]
 		]
 	]
 ]
@@ -168,10 +173,10 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	[
-		['Identifier', 'f'],
+		['Identifier', ['f']],
 		[
-			['Identifier', 'x'],
-			['Identifier', 'y']
+			['Identifier', ['x']],
+			['Identifier', ['y']]
 		]
 	]
 ]
@@ -184,10 +189,10 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	[
-		['Identifier', 'Fraction'],
+		['Identifier', ['Fraction']],
 		[
-			['LargeInteger', 3],
-			['LargeInteger', 4]
+			['LargeInteger', ['3L']],
+			['LargeInteger', ['4L']]
 		]
 	]
 ]
@@ -196,10 +201,10 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	[
-		['Identifier', 'Complex'],
+		['Identifier', ['Complex']],
 		[
-			['SmallInteger', 3],
-			['SmallInteger', 4]
+			['SmallInteger', ['3']],
+			['SmallInteger', ['4']]
 		]
 	]
 ]
@@ -208,10 +213,10 @@ Dot application is not recorded especially:
 [
 	'Apply',
 	[
-		['Identifier', 'Residue'],
+		['Identifier', ['Residue']],
 		[
-			['SmallInteger', 3],
-			['SmallInteger', 4]
+			['SmallInteger', ['3']],
+			['SmallInteger', ['4']]
 		]
 	]
 ]
@@ -226,13 +231,13 @@ and the parse tree of the expression it is assigned to:
 [
 	'Let',
 	[
-		['Identifier', 'x'],
+		['Identifier', ['x']],
 		[
 			'Apply',
 			[
-				['Identifier', 'pi'],
+				['Identifier', ['pi']],
 				[
-					['SmallInteger', 2]
+					['SmallInteger', ['2']]
 				]
 			]
 		]
@@ -259,7 +264,7 @@ any statements:
 	'Block',
 	[
 		['ArgumentList', ['x']],
-		['Identifier', 'x']
+		['Identifier', ['x']]
 	]
 ]
 
@@ -270,10 +275,10 @@ any statements:
 		['ArgumentList', ['x', 'y']],
 		['Apply',
 			[
-				['Operator', '*'],
+				['Operator', ['*']],
 				[
-					['Identifier', 'x'],
-					['Identifier', 'y']
+					['Identifier', ['x']],
+					['Identifier', ['y']]
 				]
 			]
 		]
@@ -288,19 +293,19 @@ Control strucures are ordinary applications with block arguments:
 [
 	'Apply',
 	[
-		['Identifier', 'if'],
+		['Identifier', ['if']],
 		[
-			['Identifier', 'x'],
+			['Identifier', ['x']],
 			[
 				'Block',
 				[
-					['SmallInteger', 1]
+					['SmallInteger', ['1']]
 				]
 			],
 			[
 				'Block',
 				[
-					['SmallInteger', 0]
+					['SmallInteger', ['0']]
 				]
 			]
 		]

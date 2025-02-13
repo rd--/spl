@@ -4,12 +4,25 @@
 
 Answer a `Character` given a single character `String` or an `Integer` code point.
 
+At `String`:
+
 ```
 >>> 'c'.asCharacter
 99.asCharacter
+```
 
+At `Integer`:
+
+```
 >>> 99.asCharacter
 'c'.asCharacter
+```
+
+At `Character`:
+
+```
+>>> 120.asCharacter.asCharacter
+'x'
 ```
 
 * * *
