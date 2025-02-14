@@ -23,19 +23,22 @@ function genArityCheck(k: number, a: string): string {
 // Spl allows both + and - as prefixes to number literals.
 // This functions removes +, retains -, and reports errors.
 function validateSign(x: string): string {
-	if(x === '+') {
+	if (x === '+') {
 		return '';
-	};
-	if(x === '-') {
+	}
+	if (x === '-') {
 		return x;
 	}
-	if(x === '') {
+	if (x === '') {
 		return x;
 	}
 	throw new Error('validateSign: invalid sign: ' + x);
 }
 
-function genDictionaryAssignmentSlots(rhsDictionaryName: string, keyVarNamesArray: string[]) {
+function genDictionaryAssignmentSlots(
+	rhsDictionaryName: string,
+	keyVarNamesArray: string[],
+) {
 	// console.debug('genDictionaryAssignmentSlots', rhsDictionaryName, keyVarNamesArray);
 	const slots = keyVarNamesArray.map(
 		function (keyVarNames) {
@@ -53,7 +56,7 @@ function genDotTrailing(
 	name: ohm.Node,
 	args: ohm.Node | null,
 	trailing: ohm.Node,
-	fn: (x: ohm.Node) => string
+	fn: (x: ohm.Node) => string,
 ) {
 	const numArgs = args ? args.arityOf : 0;
 	const qualifiedName = `${
@@ -68,7 +71,7 @@ function genApplyTrailing(
 	name: ohm.Node,
 	args: ohm.Node | null,
 	trailing: ohm.Node,
-	fn: (x: ohm.Node) => string
+	fn: (x: ohm.Node) => string,
 ) {
 	const numArgs = (args ? args.arityOf : 0) + trailing.children.length;
 	const qualifiedName = `${genName(fn(name), numArgs)}`;
@@ -300,7 +303,9 @@ const asJs: ohm.ActionDict<string> = {
 		rhs,
 	) {
 		const rhsDictionaryName = genSym();
-		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.parametersOf);
+		const keyVarNamesArray = lhs.asIteration().children.map((c) =>
+			c.parametersOf
+		);
 		const slots = genDictionaryAssignmentSlots(
 			rhsDictionaryName,
 			keyVarNamesArray,
@@ -354,7 +359,9 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
 		const rhsDictionaryName = genSym();
-		const keyVarNamesArray = lhs.asIteration().children.map((c) => c.parametersOf);
+		const keyVarNamesArray = lhs.asIteration().children.map((c) =>
+			c.parametersOf
+		);
 		const slots = genDictionaryAssignmentSlots(
 			rhsDictionaryName,
 			keyVarNamesArray,
@@ -428,11 +435,15 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	AtSyntax(c, _leftBracket, k, _rightBracket) {
 		const elem = k.asIteration().children;
-		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${commaListJs(elem)})`;
+		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${
+			commaListJs(elem)
+		})`;
 	},
 	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
 		const elem = k.asIteration().children;
-		return `_${genName('atAll', 1 + elem.length)}(${c.asJs}, ${commaListJs(elem)})`;
+		return `_${genName('atAll', 1 + elem.length)}(${c.asJs}, ${
+			commaListJs(elem)
+		})`;
 	},
 	/*
 	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
@@ -731,8 +742,11 @@ const asJs: ohm.ActionDict<string> = {
 		return `${s.sourceString}${i.sourceString}n`;
 	},
 	radixIntegerLiteral(s, b, _r, i) {
-		const r = Number.parseInt(s.sourceString + i.sourceString, Number.parseInt(b.sourceString, 10));
-		if(Number.isNaN(r)) {
+		const r = Number.parseInt(
+			s.sourceString + i.sourceString,
+			Number.parseInt(b.sourceString, 10),
+		);
+		if (Number.isNaN(r)) {
 			throw new Error('radixIntegerLiteral: invalid literal');
 		}
 		return r.toString(10);
@@ -789,7 +803,9 @@ const asSl: ohm.ActionDict<string> = {
 		return `${rcv.sourceString}(${arg.asSl})`;
 	},
 	ApplyWithTrailingClosuresSyntax(name, args, trailing) {
-		return `${name.sourceString}(${commaListSl(args.children.concat(trailing.children))})`;
+		return `${name.sourceString}(${
+			commaListSl(args.children.concat(trailing.children))
+		})`;
 	},
 	ApplyWithTrailingDictionarySyntax(name, trailing) {
 		return `${name.sourceString}(${commaListSl(trailing.children)})`;
@@ -856,10 +872,14 @@ const asSl: ohm.ActionDict<string> = {
 		return `${name.asSl}(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
-		return `${name.sourceString}(${commaListSl([lhs].concat(args.children, trailing.children))})`;
+		return `${name.sourceString}(${
+			commaListSl([lhs].concat(args.children, trailing.children))
+		})`;
 	},
 	DotExpressionWithTrailingDictionarySyntax(lhs, _dot, name, trailing) {
-		return `${name.sourceString}(${commaListSl([lhs].concat(trailing.children))})`;
+		return `${name.sourceString}(${
+			commaListSl([lhs].concat(trailing.children))
+		})`;
 	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
@@ -898,7 +918,7 @@ const asSl: ohm.ActionDict<string> = {
 		return commaListSl(sq.asIteration().children);
 	},
 	ParenthesisedExpression(_left, e, _right) {
-		return '(' + e.asSl + ')'
+		return '(' + e.asSl + ')';
 	},
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
@@ -953,7 +973,9 @@ const asSl: ohm.ActionDict<string> = {
 		return s.sourceString + i.sourceString + '.' + f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {
-		return `Fraction(${validateSign(s.sourceString)}${n.sourceString}L, ${d.sourceString}L)`;
+		return `Fraction(${
+			validateSign(s.sourceString)
+		}${n.sourceString}L, ${d.sourceString}L)`;
 	},
 	infinityLiteral(s, i) {
 		return validateSign(s.sourceString) + i.sourceString;
@@ -980,8 +1002,11 @@ const asSl: ohm.ActionDict<string> = {
 		return `${adverb.sourceString}(${op.sourceString})`;
 	},
 	radixIntegerLiteral(s, b, _r, i) {
-		const r = Number.parseInt(s.sourceString + i.sourceString, Number.parseInt(b.sourceString, 10));
-		if(Number.isNaN(r)) {
+		const r = Number.parseInt(
+			s.sourceString + i.sourceString,
+			Number.parseInt(b.sourceString, 10),
+		);
+		if (Number.isNaN(r)) {
 			throw new Error('radixIntegerLiteral: invalid literal');
 		}
 		return r.toString(10);
@@ -1033,23 +1058,27 @@ export type SlAst = (string | SlAst)[];
 
 const asAst: ohm.ActionDict<SlAst> = {
 	ApplySyntax(rcv, arg) {
-		return ['Apply', [rcv.asAst].concat(arg.asAst)];
+		return [
+			'Apply',
+			[rcv.asAst].concat(arg.asAst),
+		];
 	},
 	Arguments(a, _p) {
-		return ['Arguments', a.children.map((x) => x.asAst)];
+		return [
+			'Arguments',
+			a.children.map((x) => x.asAst),
+		];
 	},
 	ArgumentName(_c, name) {
 		return [
 			'Identifier',
-			[name.sourceString]
+			[name.sourceString],
 		];
 	},
 	Primitive(_l, s, _r) {
 		return [
-			'Primitive'
-			[
-				s.sourceString
-			]
+			'Primitive',
+			[s.sourceString],
 		];
 	},
 	Block(_l, arg, tmp, prm, stm, _r) {
@@ -1058,8 +1087,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 			[arg.asAst].concat(
 				tmp.asAst,
 				prm.asAst,
-				stm.asAst
-			).flat(1)
+				stm.asAst,
+			).flat(1),
 		];
 	},
 	EmptyListSyntax(_l, _r) {
@@ -1069,10 +1098,16 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [e.asAst];
 	},
 	LetTemporary(_l, tmp, _s) {
-		return ['Let', tmp.asAst];
+		return [
+			'Let',
+			tmp.asAst,
+		];
 	},
 	ListExpression(_l, items, _r) {
-		return ['List', items.children.map((x) => x.asAst).flat(1)];
+		return [
+			'List',
+			items.children.map((x) => x.asAst).flat(1),
+		];
 	},
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.children.map((x) => x.asAst);
@@ -1090,8 +1125,8 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [
 			'Program',
 			tmp.asAst.concat(
-				[stm.asAst]
-			).flat(1)
+				[stm.asAst],
+			).flat(1),
 		];
 	},
 	ScalarAssignment(lhs, _e, rhs) {
@@ -1101,85 +1136,90 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [name.asAst, exp.asAst];
 	},
 	ValueApply(p, _d, a) {
-		return `${p.asAst} . (${a.asAst})`;
+		return [
+			'Apply',
+			[p.asAst].concat(
+				a.asAst,
+			),
+		];
 	},
 
 	boundOperator(op) {
 		return [
 			'Operator',
-			[op.sourceString]
+			[op.sourceString],
 		];
 	},
 	floatLiteral(s, i, _dot, f) {
 		return [
 			'SmallFloat',
-			[s.sourceString + i.sourceString + '.' + f.sourceString] // Number.parseFloat
+			[s.sourceString + i.sourceString + '.' + f.sourceString], // Number.parseFloat
 		];
 	},
 	infinityLiteral(s, i) {
 		return [
 			'SmallFloat',
-			[s.sourceString + i.sourceString] // Number.parseFloat
+			[s.sourceString + i.sourceString], // Number.parseFloat
 		];
 	},
 	integerLiteral(s, i) {
 		return [
 			'SmallInteger',
-			[s.sourceString + i.sourceString] // Number.parseInt
+			[s.sourceString + i.sourceString], // Number.parseInt
 		];
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return [
 			'LargeInteger',
-			[s.sourceString + i.sourceString + 'L'] // BigInt
+			[s.sourceString + i.sourceString + 'L'], // BigInt
 		];
 	},
 	lowercaseIdentifier(c1, cN) {
 		return [
 			'Identifier',
-			[c1.sourceString + cN.sourceString]
+			[c1.sourceString + cN.sourceString],
 		];
 	},
 	nanLiteral(_n) {
 		return [
 			'SmallFloat',
-			['NaN'] // Number.parseFloat
+			['NaN'], // Number.parseFloat
 		];
 	},
 	operator(op) {
 		return [
 			'Operator',
-			[op.sourceString]
+			[op.sourceString],
 		];
 	},
 	reservedIdentifier(x) {
 		return [
 			'ReservedIdentifier',
-			[x.sourceString]
+			[x.sourceString],
 		];
 	},
 	scientificLiteral(b, _e, e) {
 		return [
 			'SmallFloat',
-			[b.sourceString + 'E' + e.sourceString]
+			[b.sourceString + 'E' + e.sourceString],
 		];
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return [
 			'String',
-			[s.sourceString]
+			[s.sourceString],
 		];
 	},
 	unqualifiedIdentifier(c1, cN) {
 		return [
 			'Identifier',
-			[c1.sourceString + cN.sourceString]
+			[c1.sourceString + cN.sourceString],
 		];
 	},
 	uppercaseIdentifier(c1, cN) {
 		return [
 			'Identifier',
-			[c1.sourceString + cN.sourceString]
+			[c1.sourceString + cN.sourceString],
 		];
 	},
 
@@ -1198,7 +1238,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return children.map((c) => c.asAst);
 	},
 	_terminal() {
-		return this.sourceString;
+		return this.asAst;
 	},
 };
 
@@ -1222,15 +1262,12 @@ const arityOf: ohm.ActionDict<number> = {
 slSemantics.addAttribute('arityOf', arityOf);
 
 const parametersOf: ohm.ActionDict<string[]> = {
-	Block(_l, blk, _r) {
-		return blk.parametersOf;
-	},
 	Block(_l, arg, _tmp, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
 	Arguments(names, _) {
 		return names.children.map(
-			(each) => each.sourceString.substring(1)
+			(each) => each.sourceString.substring(1),
 		);
 	},
 	KeyVarNameAssociation(lhs, _colon, rhs) {
@@ -1252,7 +1289,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 
 slSemantics.addAttribute('parametersOf', parametersOf);
 
-function commaList(nodeArray: ohm.Node[], fn: ((x: ohm.Node) => string)): string {
+function commaList(nodeArray: ohm.Node[], fn: (x: ohm.Node) => string): string {
 	return nodeArray.map(fn).join(', ');
 }
 
@@ -1328,7 +1365,7 @@ export function rewriteSlToCore(slText: string): string {
 	return slCoreText;
 }
 
-export function rewriteSlToAst(slText) {
+export function rewriteSlToAst(slText: string): SlAst {
 	const slCoreText = slParse(slText).asSl;
 	const slAst = slParse(slCoreText).asAst;
 	// console.debug(`rewriteSlToAst: ${slText} => ${slCoreText} => ${slAst}`);

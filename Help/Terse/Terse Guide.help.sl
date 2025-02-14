@@ -2022,7 +2022,7 @@ let a = []; 1:9.selectThenDo(isEven:/1) { :each | a.add(each * 3) }; a = [6, 12,
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
 23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
-(2 ^ 54).asLargeInteger.squared.printString = '324518553658426726783156020576256'
+(2 ^ 54).asLargeInteger.squared.printString = '324518553658426726783156020576256L'
 (2 ^ 37).asLargeInteger.squared.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.asLargeInteger.isPrime = true

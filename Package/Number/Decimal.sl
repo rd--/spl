@@ -146,7 +146,7 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	asLargeInteger { :self |
-		self.fraction.asLargeInteger
+		self.fraction.truncated
 	}
 
 	denominator { :self |
@@ -200,14 +200,14 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	printString { :self |
-		self.isInteger.if {
-			'%D'.format([self.integerPart.asLargeInteger])
+		(self.scale = 0).if {
+			self.integerPart.asLargeInteger.basicPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
 					self.fraction.isNegative.if { '-' } { '' },
-					self.integerPart.asLargeInteger.abs,
-					(self.fractionPart.fraction.abs * (10 ^ self.scale)).rounded
+					self.integerPart.asLargeInteger.abs.basicPrintString(10),
+					(self.fractionPart.fraction.abs * (10 ^ self.scale)).rounded.basicPrintString(10)
 				]
 			)
 		}

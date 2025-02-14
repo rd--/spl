@@ -350,15 +350,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.diagonal(0)
 	}
 
-	diagonalMatrix { :self :k |
-		let n = self.size + k.abs;
+	diagonalMatrix { :self :k :shape |
+		let [m, n] = shape;
 		let r = k.min(0).abs;
 		let c = k.max(0);
-		let answer = n.zeroMatrix(n);
+		let answer = m.zeroMatrix(n);
 		1.toDo(self.size) { :each |
 			answer[each + r][each + c] := self[each]
 		};
 		answer
+	}
+
+	diagonalMatrix { :self :k |
+		let n = self.size + k.abs;
+		self.diagonalMatrix(k, [n n])
 	}
 
 	diagonalMatrix { :self |
@@ -871,12 +876,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	pseudoInverse { :self |
-		let [m, n] = self.shape;
-		(m < n).if {
-			self.gramMatrix.inverse.dot(self.transposed)
-		} {
-			self.transposed.dot(self.gramMatrix.inverse)
-		}
+		let [u, s, v] = self.singularValueDecomposition;
+		let i = s.deepCollect { :x | x.isZero.if { 0 } { 1 / x } };
+		v.dot(i).dot(u.transposed)
 	}
 
 	qrDecomposition { :self |
@@ -1039,7 +1041,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		[u, s, v]
 	}
 
-	singularValueDecomposition { :a |
+	/*
+	singularValueDecomposition { :self |
+		let a = self;
 		let tol = 1E-4;
 		let [n, m] = a.shape;
 		let u = a.conjugateTranspose;
@@ -1075,17 +1079,18 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			u[j] := u[j] / s[j]
 		};
 		s := s.sorted(>).diagonalMatrix;
-		u := u.conjugateTranspose; /* not sorted! */
-		v := v.conjugateTranspose; /* not sorted! */
+		u := u.conjugateTranspose;
+		v := v.conjugateTranspose;
 		[u, s, v]
 	}
+	*/
 
 	singularValueDecompositionGolubReinsch { :self |
 		<primitive:
 		let a = _self
 		/* https://github.com/danilosalvati/svd-js */
 		// Define default parameters
-		let withu = true
+		let withu = true // 'f'
 		let withv = true
 		let eps = Math.pow(2, -52)
 		let tol = 1e-64 / eps
@@ -1354,10 +1359,20 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		>
 	}
 
+	singularValueDecomposition { :self |
+		let [u, q, v] = self.singularValueDecompositionGolubReinsch;
+		let s = q.diagonalMatrix(0, self.shape);
+		[u, s, v]
+	}
+
 	submatrix { :self :r :c |
 		{ :i :j |
 			self[i][j]
 		}.table(r, c)
+	}
+
+	svd { :self |
+		self.singularValueDecomposition
 	}
 
 	sylvesterMatrix { :p :q |

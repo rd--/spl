@@ -46,13 +46,16 @@ true
 true
 ```
 
-At `Decimal`:
+At `Decimal` maye be `true` even if `scale` is non-`zero`:
 
 ```
 >>> 3.141D.isInteger
 false
 
 >>> 3.000D.isInteger
+true
+
+>>> 3D.isInteger
 true
 ```
 

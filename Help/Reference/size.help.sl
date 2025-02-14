@@ -68,11 +68,11 @@ Find the length of each sublist:
 Find the number of digits in 1000!:
 
 ```
->>> 1000L.factorial.asString.size
+>>> 1000L.factorial.asString.size - 1
 2568
 ```
 
-_size_ gives the maximum index that can be used in a `Sequence`:
+`size` gives the maximum index that can be used in a `Sequence`:
 
 ```
 >>> 1:5.size
@@ -82,7 +82,7 @@ _size_ gives the maximum index that can be used in a `Sequence`:
 5
 ```
 
-At `Tree` size is the number of sub-trees, see also _leafCount_:
+At `Tree` size is the number of sub-trees, see also `leafCount`:
 
 ```
 >>> [1, [2, 3, 4], 5].asTree.size

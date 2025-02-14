@@ -9,8 +9,8 @@ Items in _aSequence_ are formatted using `asString`.
 >>> 'pi=% & e=%'.format([1.pi, 1.e])
 'pi=3.141592653589793 & e=2.718281828459045'
 
->>> '23^23=%'.format([23L ^ 23])
-'23^23=20880467999847912034355032910567'
+>>> '23L^23=%'.format([23L ^ 23])
+'23L^23=20880467999847912034355032910567L'
 ```
 
 There are no directives to modify item formatting,

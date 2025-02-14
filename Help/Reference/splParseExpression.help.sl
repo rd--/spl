@@ -8,10 +8,10 @@ A program expression is indicated by 𝒫,
 an identifier by a `Symbol`:
 
 ```
->>> 'x'
+>>> 'x; y'
 >>> .splParseExpression
 >>> .asString
-'(𝒫 x)'
+'(𝒫 x y)'
 ```
 
 A list expression is indicated by 𝓛.

@@ -415,8 +415,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	storeString { :self |
 		[
-			self.numerator.printString,
-			self.denominator.printString
+			self.numerator.basicPrintString(10),
+			self.denominator.basicPrintString(10)
 		].join('/')
 	}
 

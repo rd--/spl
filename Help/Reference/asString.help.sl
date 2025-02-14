@@ -29,6 +29,33 @@ At `Fraction`:
 '2/3'
 ```
 
+At `Complex`:
+
+```
+>>> 2J3.asString
+'2J3'
+```
+
+At `Decimal`:
+
+```
+>>> -2.3D.asString
+'-2.3D'
+
+>>> -2.0D.asString
+'-2.0D'
+
+>>> -2D.asString
+'-2D'
+```
+
+At `Residue`:
+
+```
+>>> 5Z12.asString
+'5Z12'
+```
+
 At `Boolean`:
 
 ```

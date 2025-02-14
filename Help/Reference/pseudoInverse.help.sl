@@ -2,7 +2,8 @@
 
 - _pseudoInverse(aMatrix)_
 
-Answer the pseudoinverse of a rectangular matrix.
+Answer the pseudoinverse of a rectangular matrix,
+calculated in terms of the `singularValueDecomposition`.
 
 Find the pseudoinverse of an invertible 2×2 integer matrix:
 
@@ -16,6 +17,17 @@ The pseudoinverse is merely the inverse:
 ```
 >>> [1 2; 3 4].inverse
 [-2 1; 1.5 -0.5]
+```
+
+Find the pseudoinverse of a singular matrix:
+
+```
+>>> [1 2 3; 4 5 6; 7 8 9].pseudoInverse
+[
+	[-23  -6  11] / 36,
+	[ -1   0   1] / 18,
+	[ 19   6  -7] / 36
+]
 ```
 
 Find the pseudoinverse of an invertible 3×3 integer matrix:

@@ -12,7 +12,10 @@ Answer the number that, multiplied with itself, is _aNumber_.
 2.64575
 
 >>> 200.sqrt
-(10 * 2.sqrt)
+10 * 2.sqrt
+
+>>> 0.5.sqrt
+2.sqrt / 2
 ```
 
 Negative numbers have imaginary square roots:
