@@ -1,4 +1,4 @@
-/* Why supercollider? (Jmcc) #0 */
+/* Jmcc - Why supercollider? ; #0 */
 let s = {
 	Resonz(
 		Dust(0.2) * 50,
