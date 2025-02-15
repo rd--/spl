@@ -168,7 +168,7 @@ Sl {
 	operatorWithUnaryAdverb = (operator | lowercaseIdentifier) "." selectorName
 	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
-	operatorAssignment = operatorChar ":" "="
+	// operatorAssignment = operatorChar ":" "="
 	plusOrMinus = "+" | "-"
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral

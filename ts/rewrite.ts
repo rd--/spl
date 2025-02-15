@@ -13,11 +13,13 @@ function genName(name: string, arity: number): string {
 }
 
 function genArityCheck(k: number, a: string): string {
-	return `if(arguments.length !== ${k}) {
-	const errorMessage = 'Arity: expected ${k}, ${a}';
-	/* console.error(errorMessage); */
-	throw new Error(errorMessage);
-}`;
+	return [
+		'/* ArityCheck */',
+		`if(arguments.length !== ${k}) {`,
+		`	const errorMessage = 'Arity: expected ${k}, ${a}';`,
+		'	throw new Error(errorMessage);',
+		'}'
+	].join('\n');
 }
 
 function rewriteMethodList(n: ohm.Node, b: ohm.Node): string[] {
@@ -53,22 +55,6 @@ function validateSign(x: string): string {
 	throw new Error('validateSign: invalid sign: ' + x);
 }
 
-/*
-function genDictionaryAssignmentSlotsJs(
-	rhsDictionaryName: string,
-	keyVarNamesArray: string[],
-) {
-	const slots = keyVarNamesArray.map(
-		function (keyVarNames) {
-			const keyName = keyVarNames[0];
-			const varName = keyVarNames[1];
-			return `_${varName} = _at_2(${rhsDictionaryName}, '${keyName}')`;
-		},
-	).join(', ');
-	return slots;
-}
-*/
-
 function genDictionaryAssignmentSlots(
 	withLet: boolean,
 	rhsDictionaryName: string,
@@ -84,35 +70,6 @@ function genDictionaryAssignmentSlots(
 		},
 	).join('; ');
 	return slots;
-}
-
-function genDotTrailing(
-	lhs: ohm.Node,
-	name: ohm.Node,
-	args: ohm.Node | null,
-	trailing: ohm.Node,
-	fn: (x: ohm.Node) => string,
-) {
-	const numArgs = args ? args.arityOf : 0;
-	const qualifiedName = `${
-		genName(fn(name), 1 + numArgs + trailing.children.length)
-	}`;
-	return `${qualifiedName}(${
-		commaList([lhs].concat(args ? args.children : [], trailing.children), fn)
-	})`;
-}
-
-function genApplyTrailing(
-	name: ohm.Node,
-	args: ohm.Node | null,
-	trailing: ohm.Node,
-	fn: (x: ohm.Node) => string,
-) {
-	const numArgs = (args ? args.arityOf : 0) + trailing.children.length;
-	const qualifiedName = `${genName(fn(name), numArgs)}`;
-	return `${qualifiedName}(${
-		commaList((args ? args.children : []).concat(trailing.children), fn)
-	})`;
 }
 
 function quoteNewLines(input: string): string {
@@ -152,425 +109,23 @@ sl.copyTraitMethodsToType(
 	return `${addType}\n\n${copyTraits}\n\n${addMethods}\n`;
 }
 
-/*
-function genRange(start: ohm.Node, end: ohm.Node): string {
-	// console.debug('genRange');
-	return `_upOrDownTo_2(${start.asJs}, ${end.asJs})`;
-}
-
-function genListRange(start: ohm.Node, end: ohm.Node): string {
-	// console.debug('genListRange');
-	return `_asList_1(${genRange(start, end)})`;
-}
-*/
-
 const asJs: ohm.ActionDict<string> = {
-	/*TypeExtension(
-		_plus,
-		typeName,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		return makeMethodList(
-			'addMethodToExistingType',
-			[typeName.sourceString],
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
+	ApplySyntax(rcv, arg) {
+		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
-	*/
-	MethodDefinitions(
-		_plus,
-		_leftBracket,
-		typeOrTraitNameList,
-		_rightBracket,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		// console.debug(`TypeListExtension: ${typeOrTraitNameList.sourceString}`);
-		return makeMethodList(
-			'extendTypeOrTraitWithMethod',
-			typeOrTraitNameList.asIteration().children.map(
-				(c) => c.sourceString
-			),
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
+	ArgumentName(_c, name) {
+		return name.asJs;
 	},
-	TypeDefinition(
-		typeName,
-		hostType,
-		traits,
-		_leftBrace,
-		instanceVariables,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		// console.debug('TypeDefinition', typeName.sourceString, hostType.sourceString);
-		return makeTypeDefinition(
-			hostType.sourceString === '!',
-			typeName.sourceString,
-			traits.asJs,
-			instanceVariables.asJs,
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
+	Arguments(arg, _vb) {
+		return commaListJs(arg.children);
 	},
-	/*
-	HostTypeDefinition(
-		typeName,
-		_isHostType,
-		trait,
-		_leftBrace,
-		instanceVariables,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		return makeTypeDefinition(
-			true,
-			typeName.sourceString,
-			trait.asJs,
-			instanceVariables.asJs,
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
-	},
-	*/
-	TraitList(_colon, _leftBracket, names, _rightBracket) {
-		return names.asIteration().children.map((c) => `'${c.sourceString}'`).join(
-			', ',
-		);
-	},
-	/*TraitExtension(
-		_plus,
-		qualifiedTraitName,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		const unqualifiedTraitName = qualifiedTraitName.sourceString.substring(1);
-		// console.debug(`TraitExtension: ${traitName.sourceString}`);
-		return makeMethodList(
-			'extendTraitWithMethod',
-			[unqualifiedTraitName],
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
-	},*/
-	/*
-	TraitListExtension(
-		_plus,
-		_at,
-		_leftBracket,
-		traitNameList,
-		_rightBracket,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		const traitNameArray = traitNameList.asIteration().children.map((c) =>
-			c.sourceString
-		);
-		// console.debug(`TraitListExtension: [${traitNameArray}].size = ${traitNameArray.length}`);
-		return makeMethodList(
-			'extendTraitWithMethod',
-			traitNameArray,
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
-	},
-	*/
-	TraitDefinition(
-		qualifiedTraitName,
-		_leftBrace,
-		methodName,
-		methodBlock,
-		_rightBrace,
-	) {
-		const unqualifiedTraitName = qualifiedTraitName.sourceString.substring(1);
-		const trait =
-			`sl.addTrait('${unqualifiedTraitName}', '${context.packageName}');\n`;
-		const mth = makeMethodList(
-			'addMethodToExistingTrait',
-			[unqualifiedTraitName],
-			methodName.children.map((c) => c.sourceString),
-			methodBlock.children,
-		);
-		return `${trait}\n${mth}\n`;
-	},
-	/*ConstantDefinition(_constant, _dot_, name, _equals, value) {
-		return `globalThis._${name.sourceString} = ${value.asJs};\n`;
-	},*/
-	LibraryItemExpression(_libraryItem, aRecord) {
-		return `_addLibraryItem_2(_system, _asLibraryItem_1(${aRecord.asJs}));\n`;
-	},
-	Program(tmp, stm) {
-		return tmp.asJs + stm.asJs;
-	},
-	/*	TemporariesWithInitializers(
-		_leftVerticalBar,
-		tmp,
-		_semiColon,
-		_rightVerticalBar,
-	) {
-		return `let ${commaListJs(tmp.asIteration().children)};\n`;
-	},*/
-	BlockLiteralInitializer(name, _equals, blk) {
-		const unqualifiedName = name.asJs;
-		const qualifiedName = `${
-			genName(unqualifiedName, blk.parametersOf.length)
-		}`; // blk.arityOf
-		const binding = `${qualifiedName} = ${blk.asJs}`;
-		/*
-		const reBinding = slOptions.multipleNamesForLocalBlocks
-			? `, ${unqualifiedName} = ${qualifiedName}`
-			: '';
-		*/
-		// console.debug(`BlockLiteralInitializer: ${reBinding}`);
-		return binding; // `${binding}${reBinding}`
-	},
-	ExpressionInitializer(name, _equals, exp) {
-		return `${name.asJs} = ${exp.asJs}`;
-	},
-	/*DictionaryInitializer(
-		_leftParen,
-		lhs,
-		_rightParen,
-		_equals,
-		rhs,
-	) {
-		const rhsDictionaryName = genSym('__genSym');
-		const keyVarNamesArray = lhs.asIteration().children.map((c) =>
-			c.parametersOf
-		);
-		const slots = genDictionaryAssignmentSlotsJs(
-			rhsDictionaryName,
-			keyVarNamesArray,
-		);
-		return `${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length}), ${slots}`;
-	},
-	ListInitializer(
-		_leftBracket,
-		lhs,
-		_rightBracket,
-		_equals,
-		rhs,
-	) {
-		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
-		const rhsName = genSym('__genSym');
-		const slots = namesArray.map((name, index) =>
-			`${name} = _at_2(${rhsName}, ${index + 1})`
-		).join(', ');
-		// console.debug('ListInitializer', namesArray, rhsName);
-		return `${rhsName} = _assertIsOfSize_2(${rhs.asJs}, ${namesArray.length}), ${slots}`;
-	},*/
-	SlotNames(_leftVerticalBar, slots, _rightVerticalBar) {
-		// Space separated list of quoted names for internal use only, see makeTypeDefinition
-		return slots.children.map((e) => `'${e.sourceString}'`).join(' ');
-	},
-	VarTemporaries(_var, tmp, _semicolon) {
-		return `let ${commaListJs(tmp.asIteration().children)};`;
-	},
-	LetTemporary(_let, tmp, _semicolon) {
-		return `let ${tmp.asJs};`;
-	},
-	/*
-	LetTemporaries(_var, tmp, _semicolon) {
-		return `let ${commaListJs(tmp.asIteration().children)};`;
-	},
-	*/
-	ScalarAssignment(lhs, _colonEquals, rhs) {
-		return `${lhs.asJs} = ${rhs.asJs}`;
-	},
-	/*ListAssignment(_leftBracket, lhs, _rightBracket, _colonEquals, rhs) {
-		const namesArray = lhs.asIteration().children.map((c) => c.asJs);
-		const rhsListName = genSym('__genSym');
-		const slots = namesArray.map((name, index) =>
-			`${name} = _at_2(${rhsListName}, ${index + 1})`
-		).join(';\n');
-		// console.debug('ListAssignment', namesArray, rhsListName);
-		return `/ List Assignment / (function() {
-	const ${rhsListName} = ${rhs.asJs};
-	${slots};
-})()`;
-	},
-	DictionaryAssignment(_leftParen, lhs, _rightParen, _colonEquals, rhs) {
-		const rhsDictionaryName = genSym('__genSym');
-		const keyVarNamesArray = lhs.asIteration().children.map((c) =>
-			c.parametersOf
-		);
-		const slots = genDictionaryAssignmentSlotsJs(
-			rhsDictionaryName,
-			keyVarNamesArray,
-		);
-		return `/ DictionaryAssignment / (function() {
-	const ${rhsDictionaryName} = _assertIsOfSize_2(${rhs.asJs}, ${keyVarNamesArray.length});
-	${slots};
-})()`;
-	},*/
-	/*
-	AssignmentOperatorSyntax(lhs, op, rhs) {
-		const text =
-			`${lhs.sourceString} := ${lhs.sourceString} ${op.asJs} (${rhs.sourceString})`;
-		return rewriteSlToJs(text);
-	},
-	*/
-	infixMethod(name, _colon) {
-		return `_${genName(name.sourceString, 2)}`;
-	},
-	operator(op) {
-		return `_${genName(op.sourceString, 2)}`;
-	},
-	boundOperator(op) {
-		const name = `_${resolveMethodName(op.sourceString)}`;
-		// console.debug('boundOperator', name);
-		return name;
-	},
-	/*operatorWithUnaryAdverb(op, _dot, adverb) {
-		// console.debug(`operatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
-		return `_${genName(adverb.sourceString, 1)}(_${
-			genName(op.sourceString, 2)
-		})`;
-	},
-	operatorWithBinaryAdverb(
-		op,
-		_dot,
-		adverb,
-		_openParen,
-		parameter,
-		_closeParen,
-	) {
-		// console.debug(`operatorWithAdverb: ${op.sourceString} ${adverb.sourceString}`);
-		return `_${genName(adverb.sourceString, 2)}(
-			_${genName(op.sourceString, 2)},
-			${parameter.asJs}
-		)`;
-	},
-	BinaryOperatorExpression(lhs, ops, rhs) {
-		let left = lhs.asJs;
-		const opsArray = ops.children.map((c) => c.asJs);
-		const rhsArray = rhs.children.map((c) => c.asJs);
-		while (opsArray.length > 0) {
-			const op = opsArray.shift();
-			const right = rhsArray.shift();
-			left = `${op}(${left}, ${right})`;
-		}
-		return left;
-	},*/
-
-	/*AtPutSyntax(c, _leftBracket, k, _rightBracket, _equals, v) {
-		const elem = k.asIteration().children;
-		return `_${genName('atPut', 2 + elem.length)}(${c.asJs}, ${
-			commaListJs(elem)
-		}, ${v.asJs})`;
-	},
-	QuotedAtSyntax(c, _colonColon, k) {
-		return `_at_2(${c.asJs}, '${k.sourceString}')`;
-	},
-	QuotedAtPutSyntax(c, _colonColon, k, _colonEquals, v) {
-		return `_atPut_3(${c.asJs}, '${k.sourceString}', ${v.asJs})`;
-	},
-	AtSyntax(c, _leftBracket, k, _rightBracket) {
-		const elem = k.asIteration().children;
-		return `_${genName('at', 1 + elem.length)}(${c.asJs}, ${
-			commaListJs(elem)
-		})`;
-	},
-	AtAllSyntax(c, _leftBracket, k, _rightBracket) {
-		const elem = k.asIteration().children;
-		return `_${genName('atAll', 1 + elem.length)}(${c.asJs}, ${
-			commaListJs(elem)
-		})`;
-	},*/
-	/*
-	AtPutDelegateSyntax(c, _colonDot, k, _colonEquals, v) {
-		return `_${
-			genName('atPutDelegateTo', 4)
-		}(${c.asJs}, '${k.sourceString}', ${v.asJs}, 'parent')`;
-	},
-	AtIfAbsentSyntax(c, _leftBracket, k, _rightBracket, _colonQuery, a) {
-		return `_${genName('atIfAbsent', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
-	},
-	AtIfAbsentPutSyntax(c, _leftBracket, k, _rightBracket, _colonQueryEquals, a) {
-		return `_${genName('atIfAbsentPut', 3)}(${c.asJs}, ${k.asJs}, ${a.asJs})`;
-	},
-	QuotedAtIfAbsentSyntax(c, _colonColon, k, _colonQuery, a) {
-		return `_${
-			genName('atIfAbsent', 3)
-		}(${c.asJs}, '${k.sourceString}', ${a.asJs})`;
-	},
-	QuotedAtIfAbsentPutSyntax(c, _colonColon, k, _colonQueryEquals, a) {
-		return `_${
-			genName('atIfAbsentPut', 3)
-		}(${c.asJs}, '${k.sourceString}', ${a.asJs})`;
-	},
-	ReadSlotSyntax(c, _colonArrow, k) {
-		return `${c.asJs}['${k.sourceString}']`;
-	},
-	WriteSlotSyntax(c, _colonArrow, k, _colonEquals, v) {
-		return `${c.asJs}['${k.sourceString}'] = ${v.asJs}`;
-	},
-	MessageSendSyntax(d, _colonDot, k, a) {
-		return `_${
-			genName('messageSend', 4)
-		}(${d.asJs}, '${k.sourceString}', 'parent', [${
-			a.children.map((c) => c.asJs)
-		}])`;
-	},
-	*/
-	ValueApply(p, _dot, a) {
-		return `${p.asJs}(${a.asJs})`;
-	},
-	NonEmptyParameterList(_leftParen, sq, _rightParen) {
-		return commaListJs(sq.asIteration().children);
-	},
-
-	/*DotExpressionWithTrailingClosuresSyntax(lhs, _dot, name, args, trailing) {
-		return genDotTrailing(lhs, name, args, trailing, (x) => x.asJs);
-	},
-	DotExpressionWithTrailingDictionarySyntax(lhs, _dot, name, trailing) {
-		return genDotTrailing(lhs, name, null, trailing, (x) => x.asJs);
-	},
-	DotExpressionWithAssignmentSyntax(lhs, _dot, name, _colonEquals, rhs) {
-		return `${genName(name.asJs, 2)}(${lhs.asJs}, ${rhs.asJs})`;
-	},
-	DotExpression(lhs, _dot, names, args) {
-		let rcv = lhs.asJs;
-		const namesArray = names.children.map((c) => c.asJs);
-		const argsArray = args.children.map((c) => c.asJs);
-		const arityArray = args.children.map((c) => c.arityOf);
-		while (namesArray.length > 0) {
-			const name = namesArray.shift();
-			const arg = argsArray.shift();
-			const arity = arityArray.shift();
-			if (arg.length === 0) {
-				rcv = `${genName(name, 1)}(${rcv})`;
-			} else {
-				rcv = `${genName(name, 1 + arity)}(${[rcv].concat([arg])})`;
-			}
-		}
-		return rcv;
-	},*/
-
 	Block(_l, arg, tmp, prm, stm, _r) {
 		const tmpJs = tmp.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
 		let arityCheck = '';
 		if (slOptions.insertArityCheck) {
-			/* console.error(${JSON.stringify(stm.sourceString)});  */
-			arityCheck = [
-				'/* ArityCheck */',
-				genArityCheck(arg.arityOf, arg.asJs),
-			].join('\n');
+			arityCheck = genArityCheck(arg.arityOf, arg.asJs);
 		}
 		return [
 			`(function(${arg.asJs}) {\n`,
@@ -581,159 +136,130 @@ const asJs: ohm.ActionDict<string> = {
 			'})',
 		].join('');
 	},
-	Arguments(arg, _verticalBar) {
-		return commaListJs(arg.children);
+	BlockLiteralInitializer(name, _eq, blk) {
+		return `${genName(name.asJs, blk.parametersOf.length)} = ${blk.asJs}`;
 	},
-	ArgumentName(_colon, name) {
-		return name.asJs;
+	EmptyListSyntax(_l, _r) {
+		return '[]';
 	},
-	Primitive(_beginPrimitive, s, _endPrimitive) {
-		return s.sourceString;
-	},
-	NonFinalExpression(e, _semicolon, stm) {
-		return `${e.asJs}; ${stm.asJs};`;
+	ExpressionInitializer(name, _e, exp) {
+		return `${name.asJs} = ${exp.asJs}`;
 	},
 	FinalExpression(e) {
 		return `return ${e.asJs};`;
 	},
-
-	/*ApplyWithTrailingClosuresSyntax(name, args, trailing) {
-		return genApplyTrailing(name, args, trailing, (x) => x.asJs);
+	LetTemporary(_let, tmp, _sc) {
+		return `let ${tmp.asJs};`;
 	},
-	ApplyWithTrailingDictionarySyntax(name, trailing) {
-		return genApplyTrailing(name, null, trailing, (x) => x.asJs);
-	},*/
-	ApplySyntax(rcv, arg) {
-		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
+	LibraryItemExpression(_libraryItem, aRecord) {
+		return `_addLibraryItem_2(_system, _asLibraryItem_1(${aRecord.asJs}));\n`;
+	},
+	MethodDefinitions(_p, _l, n, _r, _lc, mn, mb, _rc) {
+		return makeMethodList(
+			'extendTypeOrTraitWithMethod',
+			n.asIteration().children.map(
+				(c) => c.sourceString
+			),
+			mn.children.map((c) => c.sourceString),
+			mb.children,
+		);
+	},
+	NonEmptyParameterList(_l, sq, _r) {
+		return commaListJs(sq.asIteration().children);
+	},
+	NonFinalExpression(e, _semicolon, stm) {
+		return `${e.asJs}; ${stm.asJs};`;
+	},
+	NameAssociation(lhs, _colon, rhs) {
+		return `['${lhs.sourceString}', ${rhs.asJs}]`;
+	},
+	ListExpression(_leftBracket, items, _rightBracket) {
+		return `[${commaListJs(items.asIteration().children)}]`;
 	},
 	ParameterList(_leftParen, sq, _rightParen) {
 		return commaListJs(sq.asIteration().children);
 	},
 	ParenthesisedExpression(_leftParen, e, _rightParen) {
 		return `(${e.asJs})`;
-	},/*
-	DictionaryExpression(_leftParen, dict, _rightParen) {
-		return `Object.fromEntries([${commaListJs(dict.asIteration().children)}])`;
 	},
-	NonEmptyDictionaryExpression(_leftParen, dict, _rightParen) {
-		return `Object.fromEntries([${commaListJs(dict.asIteration().children)}])`;
-	},*/
-	KeyVarNameAssociation(lhs, _colon, rhs) {
-		throw new Error('KeyVarNameAssociation: see parametersOf');
+	Primitive(_l, s, _r) {
+		return s.sourceString;
 	},
-	NameAssociation(lhs, _colon, rhs) {
-		return `['${lhs.sourceString}', ${rhs.asJs}]`;
+	Program(tmp, stm) {
+		return tmp.asJs + stm.asJs;
 	},
-	StringAssociation(lhs, _colon, rhs) {
+	ScalarAssignment(lhs, _ce, rhs) {
+		return `${lhs.asJs} = ${rhs.asJs}`;
+	},
+	SlotNames(_l, slots, _r) {
+		// Space separated list of quoted names for internal use only, see makeTypeDefinition
+		return slots.children.map(
+			(e) => `'${e.sourceString}'`
+		).join(' ');
+	},
+	StringAssociation(lhs, _c, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asJs}]`;
 	},
-	ListExpression(_leftBracket, items, _rightBracket) {
-		return `[${commaListJs(items.asIteration().children)}]`;
-	},/*
-	TupleExpression(_leftBracket, items, _rightBracket) {
-		const elem = items.asIteration().children;
-		// console.debug('TupleExpression', elem.length);
-		return `_asTuple_1([${commaListJs(elem)}])`;
+	TraitDefinition(nm, _l, mn, mb, _r) {
+		const unqualifiedTraitName = nm.sourceString.substring(1);
+		const trait = `sl.addTrait('${unqualifiedTraitName}', '${context.packageName}');\n`;
+		const mth = makeMethodList(
+			'addMethodToExistingTrait',
+			[unqualifiedTraitName],
+			mn.children.map((c) => c.sourceString),
+			mb.children,
+		);
+		return `${trait}\n${mth}\n`;
 	},
-	ListRangeSyntax(_leftBracket, start, _dotDot, end, _rightBracket) {
-		return genListRange(start, end);
+	TraitList(_c, _l, names, _r) {
+		return names.asIteration().children.map(
+			(c) => `'${c.sourceString}'`).join(', ');
 	},
-	ListRangeThenSyntax(
-		_leftBracket,
-		start,
-		_comma_,
-		then,
-		_dotDot,
-		end,
-		_rightBracket,
-	) {
-		return `_asList_1(_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs}))`;
+	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
+		return makeTypeDefinition(
+			h.sourceString === '!',
+			n.sourceString,
+			t.asJs,
+			v.asJs,
+			mn.children.map((c) => c.sourceString),
+			mb.children,
+		);
 	},
-	RangeSyntax(_leftParen, start, _dotDot, end, _rightParen) {
-		return genRange(start, end);
+	ValueApply(p, _d, a) {
+		return `${p.asJs}(${a.asJs})`;
 	},
-	RangeThenSyntax(
-		_leftParen,
-		start,
-		_comma_,
-		then,
-		_dotDot,
-		end,
-		_rightParen,
-	) {
-		return `_thenTo_3(${start.asJs}, ${then.asJs}, ${end.asJs})`;
-	},*/
-	EmptyListSyntax(_leftBracket, _rightBracket) {
-		// console.debug('EmptyListSyntax');
-		return '[]';
+	VarTemporaries(_var, tmp, _sc) {
+		return `let ${commaListJs(tmp.asIteration().children)};`;
 	},
-	/*UnaryListSyntax(_leftBracket, item, _rightBracket) {
-		return '[' + item.asJs + ']';
-	},*/
-	VectorSyntax(_leftBracket, items, _rightBracket) {
-		// console.debug('VectorSyntax', items.sourceString);
-		return `[${commaListJs(items.children)}]`;
-	},/*
-	VectorSyntaxUnarySend(lhs, _dot_, rhs) {
-		return `${genName(rhs.asJs, 1)}(${lhs.asJs})`;
-	},*/
-	/*
-	VectorSyntaxRange(start, _dotDot_, end) {
-		return `_${genName('asList', 1)}(_${
-			genName('upTo', 2)
-		}(${start.asJs}, ${end.asJs}))`;
-	},
-	*/ /*
-	MatrixSyntax(_leftBracket, items, _rightBracket) {
-		// console.debug('MatrixSyntax', items.sourceString);
-		return `[${commaListJs(items.asIteration().children)}]`;
-	},
-	MatrixSyntaxItems(items) {
+	VectorSyntax(_l, items, _r) {
 		return `[${commaListJs(items.children)}]`;
 	},
-	VolumeSyntax(_leftBracket, items, _rightBracket) {
-		// console.debug('VolumeSyntax', items.sourceString);
-		return `[${commaListJs(items.asIteration().children)}]`;
-	},
-	VolumeSyntaxItems(items) {
-		return `[${commaListJs(items.asIteration().children)}]`;
-	},*/
-	/*
-	TreeSyntax(_leftBracket, items, _rightBracket) {
-		// console.debug('TreeSyntax', items.sourceString);
-		return `[${commaListJs(items.children)}]`;
-	},
-	*/
 
-	unusedVariableIdentifier(_underscore) {
-		const identifier = genSym('__genSym');
-		// console.debug('unusedVariableIdentifier', identifier);
-		return identifier;
+	arityQualifiedIdentifier(c1, cN, _s, a) {
+		return `_${c1.sourceString}${cN.sourceString}_${a.sourceString}`;
 	},
-	systemVariableIdentifier(p, k) {
-		// console.debug('systemVariableIdentifier', k.sourceString);
-		return p.sourceString + k.sourceString;
+	boundOperator(op) {
+		const name = `_${resolveMethodName(op.sourceString)}`;
+		return name;
 	},
-	unqualifiedIdentifier(c1, cN) {
-		const identifier = `_${c1.sourceString}${cN.sourceString}`;
-		// console.debug('unqualifiedIdentifier', identifier);
-		return identifier;
+	floatLiteral(s, i, _, f) {
+		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
 	},
-	arityQualifiedIdentifier(c1, cN, _aritySeparator, a) {
-		const arityPart = `_${a.sourceString}`;
-		const identifier = `_${c1.sourceString}${cN.sourceString}${arityPart}`;
-		// console.debug('arityQualifiedIdentifier', identifier);
-		return identifier;
+	infinityLiteral(s, i) {
+		return s.sourceString + i.sourceString;
 	},
-	uppercaseIdentifier(c1, cN) {
-		const identifier = `_${c1.sourceString}${cN.sourceString}`;
-		// console.debug('uppercaseIdentifier', identifier);
-		return identifier;
+	integerLiteral(s, i) {
+		// Allow 03 for 3 and -03 for -3
+		return `${s.sourceString + parseInt(i.sourceString)}`;
+	},
+	largeIntegerLiteral(s, i, _l) {
+		return `${s.sourceString}${i.sourceString}n`;
 	},
 	lowercaseIdentifier(c1, cN) {
-		const identifier = `_${c1.sourceString}${cN.sourceString}`;
-		// console.debug('lowercaseIdentifier', identifier);
-		return identifier;
+		return `_${c1.sourceString}${cN.sourceString}`;
+	},
+	operator(op) {
+		return `_${genName(op.sourceString, 2)}`;
 	},
 	reservedIdentifier(id) {
 		switch (id.sourceString) {
@@ -747,99 +273,32 @@ const asJs: ohm.ActionDict<string> = {
 				throw new Error('rewrite: reservedIdentifier?');
 		}
 	},
-
-	operatorAssignment(op, _colon, _equals) {
-		return op.sourceString;
-	},
-	rangeFromByToLiteral(start, _colon, step, _anotherColon, end) {
-		return `_toBy_3(${start.asJs}, ${end.asJs}, ${step.asJs})`;
-	},
-	rangeFromToLiteral(start, _colon, end) {
-		return `_to_2(${start.asJs}, ${end.asJs})`;
-	},
-	floatLiteral(s, i, _, f) {
-		return `${s.sourceString}${i.sourceString}.${f.sourceString}`;
-	},
-	/*floatDecimalLiteral(s, i, _, f, _d) {
-		return `_basicParseDecimal_1('${s.sourceString}${i.sourceString}.${f.sourceString}')`;
-	},
-	integerDecimalLiteral(s, i, _d) {
-		return `_basicParseDecimal_1('${s.sourceString}${i.sourceString}')`;
-	},*/
 	scientificLiteral(base, _e, exponent) {
 		return `${base.sourceString}E${exponent.sourceString}`;
-	},/*
-	fractionLiteral(sign, numerator, _divisor, denominator) {
-		// console.debug('fractionLiteral', sign.sourceString, numerator.sourceString, denominator.sourceString);
-		return `_Fraction_2(
-			${validateSign(sign.sourceString)}${numerator.sourceString}n,
-			${denominator.sourceString}n
-		)`;
 	},
-	complexLiteral(real, _j, imaginary) {
-		// console.debug('complexLiteral', real.sourceString, imaginary.sourceString);
-		return `_Complex_2(
-			${real.sourceString},
-			${imaginary.sourceString}
-		)`;
-	},
-	residueLiteral(i, _z, m) {
-		// console.debug('residueLiteral', i.sourceString, m.sourceString);
-		return `_Residue_2(
-			${i.sourceString},
-			${m.sourceString}
-		)`;
-	},*/
-	largeIntegerLiteral(s, i, _l) {
-		return `${s.sourceString}${i.sourceString}n`;
-	},/*
-	radixIntegerLiteral(s, b, _r, i) {
-		const r = Number.parseInt(
-			s.sourceString + i.sourceString,
-			Number.parseInt(b.sourceString, 10),
-		);
-		if (Number.isNaN(r)) {
-			throw new Error('radixIntegerLiteral: invalid literal');
-		}
-		return r.toString(10);
-	},*/
-	infinityLiteral(s, i) {
-		return s.sourceString + i.sourceString;
-	},
-	integerLiteral(s, i) {
-		// Allow 03 for 3 and -03 for -3
-		return `${s.sourceString + parseInt(i.sourceString)}`;
-	},
-	/*
-	constantNumberLiteral(k) {
-		const text = k.sourceString;
-		//console.debug('constantNumberLiteral: ', text);
-		if(text === "Pi") {
-			return "3.1415926535897932384626433";
-		}
-		if(text === "inf") {
-			return "Infinity";
-		}
-		throw new Error('constantNumberLiteral');
-	},
-	*/
 	singleQuotedStringLiteral(_l, s, _r) {
-		// console.debug(`singleQuotedStringLiteral: ${s.sourceString}`);
 		return `'${quoteNewLines(s.sourceString)}'`;
-	},/*
-	doubleQuotedStringLiteral(_l, s, _r) {
-		return `_DoubleQuotedString_1("${s.sourceString}")`;
 	},
-	backtickQuotedStringLiteral(_l, s, _r) {
-		return `_BacktickQuotedString_1(\`${s.sourceString}\`)`;
-	},*/
+	systemVariableIdentifier(p, k) {
+		return p.sourceString + k.sourceString;
+	},
+	unqualifiedIdentifier(c1, cN) {
+		return `_${c1.sourceString}${cN.sourceString}`;
+	},
+	unusedVariableIdentifier(_underscore) {
+		return genSym('__genSym');
+	},
+	uppercaseIdentifier(c1, cN) {
+		return `_${c1.sourceString}${cN.sourceString}`;
+	},
 
-	NonemptyListOf(first, _sep, rest) {
-		return `${first.asJs}; ${rest.children.map((c) => c.asJs).join('; ')}`;
-	},
 	EmptyListOf() {
 		return '';
 	},
+	NonemptyListOf(first, _sep, rest) {
+		return `${first.asJs}; ${rest.children.map((c) => c.asJs).join('; ')}`;
+	},
+
 	_iter(...children) {
 		return children.map((c) => c.asJs).join('');
 	},
@@ -1080,9 +539,6 @@ const asSl: ohm.ActionDict<string> = {
 	TypeExtension(_p, t, _l, n, b, _r) {
 		return rewriteTypeOrTraitExtension(t, n, b);
 	},
-	/*UnaryListSyntax(_l, e, _r) {
-		return '[' + e.asSl + ']';
-	},*/
 	ValueApply(p, _d, a) {
 		return `${p.asSl} . (${a.asSl})`;
 	},
@@ -1127,9 +583,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	infinityLiteral(s, i) {
 		return validateSign(s.sourceString) + i.sourceString;
-	},
-	infixMethod(name, _colon) {
-		return name.sourceString;
 	},
 	integerDecimalLiteral(s, i, _d) {
 		return `parseDecimal('${s.sourceString}${i.sourceString}D')`;
@@ -1289,9 +742,6 @@ const asAst: ohm.ActionDict<SlAst> = {
 	ScalarAssignment(lhs, _e, rhs) {
 		return ['Assignment', [lhs.asAst, rhs.asAst]];
 	},
-	/*UnaryListSyntax(_l, e, _r) {
-		return ['List', [e.asAst]];
-	},*/
 	ValueApply(p, _d, a) {
 		return [
 			'Apply',
@@ -1310,25 +760,25 @@ const asAst: ohm.ActionDict<SlAst> = {
 	floatLiteral(s, i, _dot, f) {
 		return [
 			'SmallFloat',
-			[s.sourceString + i.sourceString + '.' + f.sourceString], // Number.parseFloat
+			[s.sourceString + i.sourceString + '.' + f.sourceString],
 		];
 	},
 	infinityLiteral(s, i) {
 		return [
 			'SmallFloat',
-			[s.sourceString + i.sourceString], // Number.parseFloat
+			[s.sourceString + i.sourceString],
 		];
 	},
 	integerLiteral(s, i) {
 		return [
 			'SmallInteger',
-			[s.sourceString + i.sourceString], // Number.parseInt
+			[s.sourceString + i.sourceString],
 		];
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return [
 			'LargeInteger',
-			[s.sourceString + i.sourceString + 'L'], // BigInt
+			[s.sourceString + i.sourceString + 'L'],
 		];
 	},
 	lowercaseIdentifier(c1, cN) {
@@ -1340,7 +790,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	nanLiteral(_n) {
 		return [
 			'SmallFloat',
-			['NaN'], // Number.parseFloat
+			['NaN'],
 		];
 	},
 	operator(op) {
@@ -1402,15 +852,16 @@ const asAst: ohm.ActionDict<SlAst> = {
 slSemantics.addAttribute('asAst', asAst);
 
 const arityOf: ohm.ActionDict<number> = {
+	Arguments(names, _) {
+		return names.children.length;
+	},
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length;
 	},
 	ParameterList(_l, sq, _r) {
 		return sq.asIteration().children.length;
 	},
-	Arguments(names, _) {
-		return names.children.length;
-	},
+
 	_iter(...children) {
 		return arraySum(children.map((c) => c.arityOf));
 	},
@@ -1419,13 +870,13 @@ const arityOf: ohm.ActionDict<number> = {
 slSemantics.addAttribute('arityOf', arityOf);
 
 const parametersOf: ohm.ActionDict<string[]> = {
-	Block(_l, arg, _tmp, _prm, _stm, _r) {
-		return arg.parametersOf;
-	},
 	Arguments(names, _) {
 		return names.children.map(
 			(each) => each.sourceString.substring(1),
 		);
+	},
+	Block(_l, arg, _tmp, _prm, _stm, _r) {
+		return arg.parametersOf;
 	},
 	KeyVarNameAssociation(lhs, _colon, rhs) {
 		return [
@@ -1433,6 +884,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 			rhs.sourceString,
 		];
 	},
+
 	_iter(...children) {
 		if (children.length == 0) {
 			return [];
@@ -1531,9 +983,7 @@ export function rewriteSlToAst(slText: string): SlAst {
 
 // Preserve first line comment for Requires information in .cache
 export function rewriteSlToJs(slText: string): string {
-	// console.debug(`rewriteSlToJs: ${slText}`);
-	const slCoreText = slParse(slText).asSl;
-	// console.debug(`rewriteSlToJs: ${slCoreText}`);
+	const slCoreText = rewriteSlToCore(slText);
 	const jsText = slParse(slCoreText).asJs;
 	// console.debug(`rewriteSlToJs: ${slText} => ${slCoreText} => ${jsText}`);
 	const slComment = slFirstLineComment(slText);
