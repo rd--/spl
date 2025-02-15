@@ -8,7 +8,7 @@ Construct a `Range` by counting from _start_ up to _stop_ by `one`.
 >>> 1.to(5).asList
 [1 2 3 4 5]
 
->>> (6 to: 10).asList
+>>> to(6, 10).asList
 [6 7 8 9 10]
 ```
 
@@ -19,7 +19,7 @@ If _stop_ is less than _start_ the `Range` is empty:
 >>> (r.isEmpty, r.size, r.asList)
 (true, 0, [])
 
->>> (42 to: 1).asList
+>>> 42.to(1).asList
 []
 ```
 

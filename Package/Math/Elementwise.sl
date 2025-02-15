@@ -503,6 +503,10 @@
 		self.collect(arg:/1)
 	}
 
+	arithmeticGeometricMean { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, arithmeticGeometricMean:/2)
+	}
+
 	beta { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, beta:/2)
 	}

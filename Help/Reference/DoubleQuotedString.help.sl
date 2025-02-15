@@ -12,10 +12,10 @@ DoubleQuotedString(
 )
 ```
 
-Double quotes allow quoting single quote:
+Double quotes do not allow quoting single quote:
 
 ```
->>> "'x'"
+>>> "\'x\'"
 DoubleQuotedString('\'x\'')
 ```
 

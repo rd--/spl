@@ -64,8 +64,11 @@ true
 Map over matrix:
 
 ```
->>> 1:9.reshape([3 3]) includes.each [3 6 9]
+>>> includes:/2.map(1:9.reshape([3 3]), [3 6 9])
 [true true true]
+
+>>> includes:/2.table(1:9.reshape([3 3]), [3 6 9])
+[true false false; false true false; false false true]
 ```
 
 Where supported `includes` is displayed as ∋.

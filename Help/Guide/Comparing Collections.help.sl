@@ -15,7 +15,7 @@ The first is another collection giving the answers to comparisons of the respect
 The second is a comparison of the collections take altogether:
 
 ```
->>> [1, 2, 3] precedes: [4, 5, 6]
+>>> [1, 2, 3].precedes([4, 5, 6])
 true
 
 >>> [1, 3, 5] = [-1, 2, 5]

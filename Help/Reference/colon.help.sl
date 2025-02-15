@@ -28,12 +28,7 @@ An infix colon defines a `Range` in `Range Syntax`:
 
 An infix colon declares a type in `Type Definition Syntax`.
 
-A colon suffix in `Infix Method Syntax` allows two argument methods to be written infix:
-
-```
->>> 3 min: 4
-3
-```
+A colon suffix in `Experimental Infix Method Syntax` allows two argument methods to be written infix:
 
 The name of this syntax token is `colon`.
 

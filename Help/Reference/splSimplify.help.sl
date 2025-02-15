@@ -48,6 +48,30 @@ expr
 expr
 ```
 
+`List Assignment Syntax` is rewritten as `Let Syntax` and `Assignment Syntax`:
+
+```
+>>> let expr = 'let [x] = y; x';
+>>> expr.splSimplify ~= expr
+true
+
+>>> let expr = '[x] := y';
+>>> expr.splSimplify ~= expr
+true
+```
+
+`Dictionary Assignment Syntax` is rewritten:
+
+```
+>>> let expr = 'let (x: x) = d; x';
+>>> expr.splSimplify ~= expr
+true
+
+>>> let expr = '(x: x) := d';
+>>> expr.splSimplify ~= expr
+true
+```
+
 `Complex`,
 `Fraction` and
 `Residue` literals are rewritten as `Apply Syntax`:
@@ -184,13 +208,6 @@ List range expressions:
 'x(q(p), b(a))'
 ```
 
-`Infix Method Syntax` is rewritten as `Apply Syntax`:
-
-```
->>> '-1 min: 1'.splSimplify
-'min(-1, 1)'
-```
-
 `At Syntax` is rewritten as `Apply Syntax`:
 
 ```
@@ -256,6 +273,16 @@ Simplify `hypotenuse` function:
 >>> '{ :x :y | ((x * x) + (y * y)).sqrt }'
 >>> .splSimplify
 '{ :x :y | sqrt((+((*(x, x)), (*(y, y))))) }'
+```
+
+_Type Extension_ and _Trait Extension_ expressions are rewritten as a _Method Definitions_ expressions:
+
+```
+>>> '+X {\n\tx { y }\n}\n'.splSimplify
+'+[X] {\n\tx { y }\n}\n'
+
+>>> '+@X {\n\tx { y }\n}\n'.splSimplify
+'+[@X] {\n\tx { y }\n}\n'
 ```
 
 * * *

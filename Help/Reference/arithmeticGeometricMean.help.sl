@@ -17,7 +17,7 @@ Answer the arithmetic-geometric mean.
 >>> 52.arithmeticGeometricMean(5)
 21.87248362674175
 
->>> [16 8] arithmeticGeometricMean.table [4 10]
+>>> arithmeticGeometricMean:/2.table([16 8], [4 10])
 [8.97211 12.824; 5.82716 8.97211]
 ```
 
@@ -48,7 +48,7 @@ Plot over a subset of the reals:
 Special values: OEIS A068521, A084895, A084896 & A084897:
 
 ```
->>> [1] arithmeticGeometricMean.each [2 3 4 5]
+>>> 1.arithmeticGeometricMean([2 3 4 5])
 [
 	1.4567910310469068
 	1.8636167832449777

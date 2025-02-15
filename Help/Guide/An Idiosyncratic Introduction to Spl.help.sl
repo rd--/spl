@@ -305,7 +305,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 	1 1 1 1 1 1 1 1 0
 ]
 
->>> 0:8 max.outer 0:8
+>>> max:/2.outer(0:8, 0:8)
 [
 	0 1 2 3 4 5 6 7 8;
 	1 1 2 3 4 5 6 7 8;
@@ -318,7 +318,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 	8 8 8 8 8 8 8 8 8
 ]
 
->>> 0:8 min.outer 0:8
+>>> min:/2.outer(0:8, 0:8)
 [
 	0 0 0 0 0 0 0 0 0;
 	0 1 1 1 1 1 1 1 1;
@@ -331,7 +331,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 	0 1 2 3 4 5 6 7 8
 ]
 
->>> 0:8 gcd.outer 0:8
+>>> gcd:/2.outer(0:8, 0:8)
 [
 	0 1 2 3 4 5 6 7 8;
 	1 1 1 1 1 1 1 1 1;
@@ -344,7 +344,7 @@ Function tables are a good way to organize systematic experimentation on unfamil
 	8 1 2 1 4 1 2 1 8
 ]
 
->>> 0:8 lcm.outer 0:8
+>>> lcm:/2.outer(0:8, 0:8)
 [
 	00 00 00 00 00 00 00 00 00;
 	00 01 02 03 04 05 06 07 08;
@@ -390,7 +390,7 @@ is that one can then apply matrix operations to it, such as matrix inverse.
 
 ```
 >>> let x = 0:4;
->>> x binomial.table x
+>>> binomial:/2.table(x, x)
 [
 	1 0 0 0 0;
 	1 1 0 0 0;

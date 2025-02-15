@@ -12,10 +12,10 @@ BacktickQuotedString(
 )
 ```
 
-Backtick quotes allow single quotes:
+Backtick quotes do not allow unquoted single quotes:
 
 ```
->>> `'x'`
+>>> `\'x\'`
 BacktickQuotedString('\'x\'')
 ```
 
@@ -26,10 +26,10 @@ Backtick quotes allow double quotes:
 BacktickQuotedString('"x"')
 ```
 
-Backtick quotes allow both single and double quotes:
+Backtick quoted single and double quotes:
 
 ```
->>> `x'""'y`
+>>> `x\'""\'y`
 BacktickQuotedString('x\'""\'y')
 ```
 

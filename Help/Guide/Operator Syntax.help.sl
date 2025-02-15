@@ -17,9 +17,6 @@ allowing them to be written in an _infix_ form in addition to the usual method a
 Written using the operator name:
 
 ```
->>> 3 plusSign: 4
-7
-
 >>> plusSign(3, 4)
 7
 

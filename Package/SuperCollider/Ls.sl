@@ -450,7 +450,7 @@
 
 }
 
-+@[Number, Stream] {
++[@Number, @Stream] {
 
 	LsBeta { :low :high :p1 :p2 :length :randomNumberGenerator |
 		low := LsConstant(low);

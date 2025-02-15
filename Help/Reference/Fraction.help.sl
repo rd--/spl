@@ -193,13 +193,6 @@ in the same manner that `j` abbreviates `Complex`.
 3J7
 ```
 
-Written using `Infix Method Syntax`:
-
-```
->>> (2L r: 3L).asTuple
-(2L, 3L)
-```
-
 Enter a rational number with large integers in the numerator and denominator:
 
 ```
@@ -243,7 +236,7 @@ This is a close approximation to 2.sqrt:
 >>> };
 >>> (
 >>> 	f:/1.iterate(3/2, 4),
->>> 	f:/1.iterate(3L r: 2L, 5)
+>>> 	f:/1.iterate(3/2, 5)
 >>> )
 (
 	Fraction(

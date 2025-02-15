@@ -55,7 +55,7 @@ export async function primitiveReadLocalPackages(
 }
 
 export function addLoadFileMethods(): void {
-	kernel.addMethod(
+	kernel.addMethodToExistingType(
 		'List',
 		'Kernel',
 		'primitiveReadLocalPackages',
@@ -63,7 +63,7 @@ export function addLoadFileMethods(): void {
 		primitiveReadLocalPackages,
 		'<primitive: package reader>',
 	);
-	kernel.addMethod(
+	kernel.addMethodToExistingType(
 		'List',
 		'Kernel',
 		'primitiveLoadPackageSequence',
@@ -71,7 +71,7 @@ export function addLoadFileMethods(): void {
 		kernel.primitiveLoadPackageSequence,
 		'<primitive: package loader>',
 	);
-	kernel.addMethod(
+	kernel.addMethodToExistingType(
 		'String',
 		'Kernel',
 		'primitiveReadLocalBinaryFile',

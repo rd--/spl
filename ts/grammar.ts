@@ -5,33 +5,31 @@ export const slGrammarDefinition: string = String.raw`
 Sl {
 
 	TopLevel = LibraryExpression+ | Program
-	LibraryExpression = TypeExpression | TraitExpression | LibraryItem
-	TypeExpression = TypeExtension | TypeListExtension | HostTypeDefinition | TypeDefinition
+	LibraryExpression = TypeDefinition | TraitDefinition | MethodDefinitions | LibraryItem | TypeExtension | TraitExtension
+	TypeDefinition = typeName "!"? TraitList "{" SlotNames? (methodName Block)* "}"
 	TypeExtension = "+" typeName "{" (methodName Block)* "}"
-	TypeListExtension = "+" "[" NonemptyListOf<typeName, ","> "]" "{" (methodName Block)* "}"
-	HostTypeDefinition = typeName "!" TraitList? "{" SlotNames? (methodName Block)* "}"
-	TypeDefinition = typeName TraitList "{" SlotNames? (methodName Block)* "}"
+	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (methodName Block)* "}"
 	SlotNames = "|" slotName+ "|"
-	TraitList = ":" "[" ListOf<traitName, ","> "]"
-	TraitExpression = TraitExtension | TraitListExtension | TraitDefinition
-	TraitExtension = "+" "@" traitName "{" (methodName Block)* "}"
-	TraitListExtension = "+" "@" "[" NonemptyListOf<traitName, ","> "]" "{" (methodName Block)* "}"
-	TraitDefinition = "@" traitName "{" (methodName Block)* "}"
-	LibraryItem = "LibraryItem" DictionaryExpression
+	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
+	TraitExtension = "+" qualifiedTraitName "{" (methodName Block)* "}"
+	TraitDefinition = qualifiedTraitName "{" (methodName Block)* "}"
+	LibraryItem = LibraryItemLiteral | LibraryItemExpression
+	LibraryItemLiteral = "LibraryItem" DictionaryExpression
+	LibraryItemExpression = "LibraryItem" ApplySyntax
 	// ConstantDefinition = "Constant" "." constantName "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
-	TemporaryInitializer =
-		TemporaryBlockLiteralInitializer |
-		TemporaryExpressionInitializer |
-		TemporaryDictionaryInitializer |
-		TemporaryListInitializer
-	TemporaryBlockLiteralInitializer = varName "=" Block ~("." | operator)
-	TemporaryExpressionInitializer = varNameOrUnused "=" Expression
-	TemporaryDictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
-	TemporaryListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
-	LetTemporary = "let" TemporaryInitializer ";"
-	// LetTemporaries = "let" NonemptyListOf<TemporaryInitializer, ","> ";"
+	Initializer =
+		BlockLiteralInitializer |
+		ExpressionInitializer |
+		DictionaryInitializer |
+		ListInitializer
+	BlockLiteralInitializer = varName "=" Block ~("." | operator)
+	ExpressionInitializer = varNameOrUnused "=" Expression
+	DictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
+	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
+	LetTemporary = "let" Initializer ";"
+	// LetTemporaries = "let" NonemptyListOf<Initializer, ","> ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
@@ -40,7 +38,9 @@ Sl {
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
 	// AssignmentOperatorSyntax = Primary operatorAssignment Expression
-	BinaryExpression = Expression ((operatorWithAdverb | operator | infixMethod) Primary)+
+	BinaryExpression = BinaryOperatorExpression | BinaryAdverbExpression
+	BinaryOperatorExpression = Expression (operator Primary)+
+	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
 
 	Primary
 		= AtPutSyntax
@@ -68,8 +68,10 @@ Sl {
 		| reservedIdentifier
 		| literal
 		| identifier
+        | systemVariableIdentifier // ?
 		| operator
 		| VectorSyntax
+		// | UnaryListSyntax // MUST FOLLOW VECTOR SYNTAX, CANNOT!
 		| MatrixSyntax
 		| VolumeSyntax
 		| ListExpression
@@ -128,6 +130,7 @@ Sl {
 	RangeSyntax = "(" Expression ".." Expression ")"
 	RangeThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	EmptyListSyntax = "[" "]"
+    // UnaryListSyntax = "[" Expression "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
 	VectorSyntaxUnarySend = (literal | varName) "." selectorName
@@ -144,11 +147,14 @@ Sl {
 	methodName = unqualifiedIdentifier | operator
 	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
+	systemVariableIdentifier = "__SPL" digit+
     uppercaseIdentifier = upper letterOrDigit*
 	typeName = uppercaseIdentifier
-	traitName = uppercaseIdentifier
+	unqualifiedTraitName = uppercaseIdentifier
+	qualifiedTraitName = "@" uppercaseIdentifier
+    typeOrTraitName = typeName | qualifiedTraitName
     lowercaseIdentifier = lower letterOrDigit*
-	varName = arityQualifiedIdentifier | lowercaseIdentifier // arity branch should be lowercase
+	varName = arityQualifiedIdentifier | lowercaseIdentifier | systemVariableIdentifier // arity branch should be lowercase
 	varNameOrUnused = (varName | unusedVariableIdentifier)
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier

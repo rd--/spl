@@ -18,7 +18,7 @@ The number of multisets of length _k_ on _n_ symbols.
 	1 6 21 56 126
 ]
 
->>> 1:5 multichoose.table 1:5
+>>> multichoose:/2.table(1:5, 1:5)
 [
 	1  1  1  1   1;
 	2  3  4  5   6;

@@ -9,6 +9,7 @@ export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaun
 
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
+import { isSmallFloatInteger } from './predicates.ts';
 
 export { slGrammar, slParse, slSemantics } from './grammar.ts';
 
@@ -16,6 +17,7 @@ type Arity = number;
 type PackageName = string;
 type TypeName = string;
 type TraitName = string;
+type TypeOrTraitName = string;
 type MethodName = string;
 type ParameterNames = string[];
 type QualifiedMethodName = string; // i.e. MethodName:/Arity
@@ -33,7 +35,6 @@ type ByArityMethodDictionary = Map<Arity, ByTypeMethodDictionary>;
 type MethodDictionary = Map<MethodName, ByArityMethodDictionary>;
 
 function isRecord(anObject: SplObject): boolean {
-	// console.debug(`isRecord: ${anObject}`);
 	const c = anObject.constructor;
 	return c === undefined || c.name === 'Object';
 }
@@ -44,7 +45,7 @@ function objectNameByConstructor(anObject: SplObject): TypeName {
 		? 'DocumentRange'
 		: (name == 'bound Storage'
 			? 'Storage'
-			: name); /* deno 2.3.1, delete when fixed */
+			: name); /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
 }
 
 function splObjectTypeOf(anObject: SplObject): TypeName {
@@ -113,48 +114,6 @@ export function splTypeOf(anObject: unknown): TypeName {
 		default:
 			throw new Error(`splTypeOf: unknown type: "${anObject}"`);
 	}
-}
-
-export function isArray<T>(anObject: unknown): anObject is Array<T> {
-	return Array.isArray(anObject);
-}
-
-export function isByteArray(anObject: unknown): anObject is Uint8Array {
-	return anObject instanceof Uint8Array;
-}
-
-export function isFunction(anObject: unknown): anObject is Function {
-	return anObject instanceof Function;
-}
-
-export function isSmallFloat(anObject: unknown): anObject is number {
-	return typeof anObject === 'number';
-}
-
-export function isLargeInteger(anObject: unknown): anObject is bigint {
-	return typeof anObject === 'bigint';
-}
-
-export function isSet<T>(anObject: unknown): anObject is Set<T> {
-	return anObject instanceof Set;
-}
-
-export function isString(anObject: unknown): anObject is string {
-	return typeof anObject === 'string';
-}
-
-export function isSmallFloatInteger(anObject: unknown): anObject is number {
-	return isSmallFloat(anObject) && Number.isInteger(anObject);
-}
-
-export function isByte(anObject: unknown): boolean {
-	return isSmallFloatInteger(anObject) && anObject >= 0 && anObject < 256;
-}
-
-// Unsigned 32-bit? 2^31=2147483648 2^32=4294967296
-export function isBitwise(anObject: unknown): boolean {
-	return isSmallFloatInteger(anObject) && (anObject >= -2147483648) &&
-		(anObject <= 2147483647);
 }
 
 export class MethodInformation {
@@ -345,7 +304,7 @@ function methodExists(methodName: MethodName): boolean {
 }
 
 // CF. rewrite/makeMethodList
-export function addTraitMethod(
+export function addMethodToExistingTrait(
 	traitName: TraitName,
 	packageName: PackageName,
 	methodName: MethodName,
@@ -353,10 +312,10 @@ export function addTraitMethod(
 	block: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
-	// console.debug(`addTraitMethod: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
+	// console.debug(`addMethodToExistingTrait: ${traitName}, ${packageName}, ${methodName}, ${parameterNames}`);
 	if (!traitExists(traitName)) {
 		throw new Error(
-			`addTraitMethod: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`,
+			`addMethodToExistingTrait: trait does not exist: ${traitName}, ${methodName}, ${parameterNames.length}`,
 		);
 	}
 	const trait = getTrait(traitName);
@@ -374,26 +333,26 @@ export function addTraitMethod(
 	return method;
 }
 
-// Copy trait methods into type.  addMethodFor decides if the trait method is copied or not.
-export function copyTraitToType(
+// addMethodFor decides if the trait method is copied or not.
+export function copyTraitMethodsToType(
 	traitName: TraitName,
 	typeName: TypeName,
 ): void {
 	if (!traitExists(traitName) || !typeExists(typeName)) {
 		throw new Error(
-			`copyTraitToType: trait or type does not exist: ${traitName}, ${typeName}`,
+			`copyTraitMethodsToType: trait or type does not exist: ${traitName}, ${typeName}`,
 		);
 	}
 	const trait = getTrait(traitName);
 	const methodDictionary = trait.methodDictionary;
 	for (const [_unusedName, method] of methodDictionary) {
-		// console.debug(`copyTraitToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
+		// console.debug(`copyTraitMethodsToType: ${traitName}, ${typeName}, ${name}, ${method.information.arity}`);
 		addMethodFor(typeName, method, true);
 	}
 }
 
-// Get names of types that implement named trait.
-export function traitTypeArray(traitName: TraitName): TypeName[] {
+// List of names of types that implement named trait.
+export function typesImplementingTrait(traitName: TraitName): TypeName[] {
 	const answer = [];
 	for (const [typeName, typeValue] of system.typeDictionary) {
 		if (typeValue.traitNameArray.includes(traitName)) {
@@ -412,12 +371,7 @@ export function extendTraitWithMethod(
 	block: Function,
 	sourceCode: MethodSourceCode,
 ): Method {
-	if (!traitExists(traitName)) {
-		throw new Error(
-			`extendTraitWithMethod: trait does not exist: ${traitName}, ${name}`,
-		);
-	}
-	const method = addTraitMethod(
+	const method = addMethodToExistingTrait(
 		traitName,
 		packageName,
 		name,
@@ -425,12 +379,43 @@ export function extendTraitWithMethod(
 		block,
 		sourceCode,
 	);
-	traitTypeArray(traitName).forEach(
+	typesImplementingTrait(traitName).forEach(
 		function (typeName) {
 			addMethodFor(typeName, method, true);
 		},
 	);
 	return method;
+}
+
+// CF. rewrite/makeMethodList
+export function extendTypeOrTraitWithMethod(
+	typeOrTraitName: TypeOrTraitName,
+	packageName: PackageName,
+	name: MethodName,
+	parameterNames: ParameterNames,
+	block: Function,
+	sourceCode: MethodSourceCode,
+): Method {
+	const isTraitName = typeOrTraitName.startsWith('@');
+	if (isTraitName) {
+		return extendTraitWithMethod(
+			typeOrTraitName.substring(1),
+			packageName,
+			name,
+			parameterNames,
+			block,
+			sourceCode,
+		);
+	}
+	return addMethodToExistingType(
+		typeOrTraitName,
+		packageName,
+		name,
+		parameterNames,
+		block,
+		sourceCode,
+	);
+
 }
 
 // Only for Ugen>>adaptToNumberAndApply.
@@ -607,7 +592,7 @@ export function addMethodFor(
 }
 
 // CF. rewrite/makeMethodList
-export function addMethod(
+export function addMethodToExistingType(
 	typeName: TypeName,
 	packageName: PackageName,
 	methodName: MethodName,
@@ -632,7 +617,7 @@ export function addMethod(
 			typeValue,
 		),
 	);
-	return addMethodFor(typeName, method, slOptions.requireTypeExists);
+	return addMethodFor(typeName, method, true);
 }
 
 // Allows methods to be added to 'pre-installed' types before the type is added, CF. load &etc. (& parseSmallInteger ...).
@@ -656,10 +641,10 @@ export function addType(
 	const nilSlots = slotNames.map((each) => `${each}: null`).join(', ');
 	const defNewType = isHostType
 		? ''
-		: `sl.addMethod('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
+		: `sl.addMethodToExistingType('Void', '${packageName}', 'new${typeName}', [], function() { return {_type: '${typeName}', ${nilSlots} }; }, '<primitive: constructor>')`;
 	const defInitializeSlots = isHostType
 		? ''
-		: `sl.addMethod('${typeName}', '${packageName}', 'initializeSlots', ${
+		: `sl.addMethodToExistingType('${typeName}', '${packageName}', 'initializeSlots', ${
 			JSON.stringify(['self'].concat(slotNames))
 		}, function(anInstance, ${
 			slotNames.join(', ')
@@ -667,14 +652,14 @@ export function addType(
 	const defPredicateFalse =
 		`sl.extendTraitWithMethod('Object', '${packageName}', 'is${typeName}', ['self'], function(anObject) { return false; }, '<primitive: predicate>')`;
 	const defPredicateTrue =
-		`sl.addMethod('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
+		`sl.addMethodToExistingType('${typeName}', '${packageName}', 'is${typeName}', ['self'], function(anInstance) { return true; }, '<primitive: predicate>')`;
 	const defSlotAccess = slotNames.map(
 		(each) =>
-			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
+			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self'], function(anInstance) { return anInstance.${each} }, '<primitive: accessor>');`,
 	).join('; ');
 	const defSlotMutate = slotNames.map(
 		(each) =>
-			`sl.addMethod('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
+			`sl.addMethodToExistingType('${typeName}', '${packageName}', '${each}', ['self', 'anObject'], function(anInstance, anObject) { anInstance.${each} = anObject; return anObject; }, '<primitive: mutator>');`,
 	).join('; ');
 	// console.debug(`addType: ${typeName}, ${packageName}, ${slotNames}`);
 	const methodDictionary = typeExists(typeName)

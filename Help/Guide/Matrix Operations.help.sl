@@ -70,29 +70,29 @@ Matrix multiplication:
 >>> )
 [3 2340; 0 1000]
 
->>> [3 1; 4 1] dot: [1 2 3; 4 5 6]
+>>> [3 1; 4 1].dot([1 2 3; 4 5 6])
 [7 11 15; 8 13 18]
 ```
 
 Matrix multiplication is not commutative:
 
 ```
->>> [1 2; 3 4] dot: [0 1; 0 0]
+>>> [1 2; 3 4].dot([0 1; 0 0])
 [0 1; 0 3]
 
->>> [0 1; 0 0] dot: [1 2; 3 4]
+>>> [0 1; 0 0].dot([1 2; 3 4])
 [3 4; 0 0]
 ```
 
 Vector and matrix multiplication:
 
 ```
->>> [1 2 3; 4 5 6] dot: [1 1 1]
+>>> [1 2 3; 4 5 6].dot([1 1 1])
 [6 15]
 
 >>> let v = [1 1 -4];
 >>> let m = [1 2 3; 3 2 1; 1 1 1];
->>> (v dot: m, m dot: v)
+>>> (v.dot(m), m.dot(v))
 ([0 0 0], [-9 1 -2])
 ```
 
