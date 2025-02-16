@@ -29,8 +29,8 @@ Point : [Object] { | coordinates |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
-		let scaleFactor = options::scaleFactor;
+		let precision = options['precision'];
+		let scaleFactor = options['scaleFactor'];
 		self.isPlanar.if {
 			'<circle cx="%" cy="%" r="%" />'.format([
 				self.coordinates[1].printStringToFixed(precision),

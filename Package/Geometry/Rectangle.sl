@@ -105,7 +105,7 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
+		let precision = options['precision'];
 		'<rect x="%" y="%" width="%" height="%" />'.format([
 			self.x.printStringToFixed(precision),
 			self.y.printStringToFixed(precision),

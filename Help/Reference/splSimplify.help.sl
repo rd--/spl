@@ -253,19 +253,6 @@ List range expressions:
 '[x, sqrt(y), z]'
 ```
 
-Certain one-element cases are re-written as `enclose`,
-which avoids having any `Vector Syntax` expressions in the rewritten text,
-where _[0]_ parses as a vector in order to resolves the ambiguity of _[0 -1]_,
-which arises because spaces around operators are not checked:
-
-```
->>> '[x]'.splSimplify
-'enclose(x)'
-
->>> '[3 + 4]'.splSimplify
-'[+(3, 4)]'
-```
-
 `Matrix Syntax` is rewritten as `List Syntax`:
 
 ```

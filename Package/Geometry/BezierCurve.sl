@@ -20,7 +20,7 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 		(n = 1).if {
 			self.controlPoints.Line.forSvg(options)
 		} {
-			let precision = options::precision;
+			let precision = options['precision'];
 			let p = self.controlPoints;
 			let z = (n = 2).if {
 				'Q '

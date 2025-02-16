@@ -8,7 +8,7 @@ Writing : [Object] { | contents lowerLeft |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
+		let precision = options['precision'];
 		let [x, y] = self.lowerLeft;
 		[
 			'<g x="%" y="%" transform="translate(%, %) scale(1, -1)">'.format([

@@ -44,7 +44,7 @@ Circle : [Object] { | center radius |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
+		let precision = options['precision'];
 		'<circle cx="%" cy="%" r="%" />'.format([
 			self.center[1].printStringToFixed(precision),
 			self.center[2].printStringToFixed(precision),
@@ -123,7 +123,7 @@ Ellipse : [Object] { | center radii |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
+		let precision = options['precision'];
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
 		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
@@ -171,7 +171,7 @@ Arc : [Object] { | center radii angles |
 	}
 
 	forSvg { :self :options |
-		let precision = options::precision;
+		let precision = options['precision'];
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
 		let [startAngle, endAngle] = self.angles;

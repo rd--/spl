@@ -31,9 +31,8 @@ Sl {
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment | WorkspaceAssignment
+	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment
 	ScalarAssignment = varName ":=" Expression
-	WorkspaceAssignment = workspaceVar ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
 	BinaryExpression = BinaryOperatorExpression | BinaryAdverbExpression
@@ -57,7 +56,6 @@ Sl {
 		| ApplySyntax
 		| EmptyListSyntax
 		| reservedIdentifier
-        | workspaceVar
 		| literal
 		| identifier
         | systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
@@ -121,7 +119,6 @@ Sl {
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
 
 	argumentName = ":" varNameOrUnused
-	workspaceVar = "Workspace:" lowercaseIdentifier
 	unqualifiedIdentifier = letter letterOrDigit*
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
 	identifier = arityQualifiedIdentifier | unqualifiedIdentifier

@@ -227,10 +227,14 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	VarTemporaries(_var, tmp, _sc) {
 		return `let ${commaListJs(tmp.asIteration().children)};`;
-	},/*
-	VectorSyntax(_l, items, _r) { // Required for unit case, unless rewritten as enclose?
-		return `[${commaListJs(items.children)}]`;
-	},*/
+	},
+	VectorSyntax(_l, items, _r) { // Required for unit case. CF Help File
+		let c = items.children;
+		if(c.length === 1) {
+			return `[${c[0].asJs}]`;
+		}
+		throw new Error('VectorSyntax: ?');
+	},
 
 	argumentName(_c, name) {
 		return name.asJs;
@@ -546,11 +550,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `var ${t.sourceString};`;
 	},
 	VectorSyntax(_l, i, _r) {
-		let c = i.children;
-		if(c.length === 1) {
-		return `enclose(${c[0].asSl})`;
-		}
-		return `[${commaListSl(c)}]`;
+		return `[${commaListSl(i.children)}]`;
 	},
 	VectorSyntaxUnarySend(lhs, _d, rhs) {
 		return `${rhs.asSl}(${lhs.asSl})`;
@@ -560,9 +560,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	VolumeSyntaxItems(items) {
 		return `[${commaListSl(items.asIteration().children)}]`;
-	},
-	WorkspaceAssignment(lhs, _e, rhs) {
-		return `atPut(workspace(system), '${lhs.sourceString.substring(10)}', ${rhs.asSl})`;
 	},
 
 	argumentName(_c, name) {
@@ -651,9 +648,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	uppercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
-	},
-	workspaceVar(_w, n) {
-		return `at(workspace(system), '${n.sourceString}')`;
 	},
 
 	EmptyListOf() {

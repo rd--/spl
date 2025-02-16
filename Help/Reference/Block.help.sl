@@ -12,9 +12,6 @@ true
 
 >>> { :x | x * x } . (9)
 81
-
->>> { { : x | x * x } . () }.ifError { true }
-true
 ```
 
 Implementations of the recursive `fibonacci` and `factorial` functions using Haskell Curry’s _Y_ combinator:
