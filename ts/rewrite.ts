@@ -113,9 +113,6 @@ const asJs: ohm.ActionDict<string> = {
 	ApplySyntax(rcv, arg) {
 		return `${genName(rcv.asJs, arg.arityOf)}(${arg.asJs})`;
 	},
-	ArgumentName(_c, name) {
-		return name.asJs;
-	},
 	Arguments(arg, _vb) {
 		return commaListJs(arg.children);
 	},
@@ -170,8 +167,8 @@ const asJs: ohm.ActionDict<string> = {
 	NonFinalExpression(e, _semicolon, stm) {
 		return `${e.asJs}; ${stm.asJs};`;
 	},
-	NameAssociation(lhs, _colon, rhs) {
-		return `['${lhs.sourceString}', ${rhs.asJs}]`;
+	NameAssociation(lhs, rhs) {
+		return `['${lhs.asJs}', ${rhs.asJs}]`;
 	},
 	ListExpression(_leftBracket, items, _rightBracket) {
 		return `[${commaListJs(items.asIteration().children)}]`;
@@ -230,11 +227,14 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	VarTemporaries(_var, tmp, _sc) {
 		return `let ${commaListJs(tmp.asIteration().children)};`;
-	},
-	VectorSyntax(_l, items, _r) {
+	},/*
+	VectorSyntax(_l, items, _r) { // Required for unit case, unless rewritten as enclose?
 		return `[${commaListJs(items.children)}]`;
-	},
+	},*/
 
+	argumentName(_c, name) {
+		return name.asJs;
+	},
 	arityQualifiedIdentifier(c1, cN, _s, a) {
 		return `_${c1.sourceString}${cN.sourceString}_${a.sourceString}`;
 	},
@@ -251,6 +251,9 @@ const asJs: ohm.ActionDict<string> = {
 	integerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
 		return `${s.sourceString + parseInt(i.sourceString)}`;
+	},
+	keyNameToken(n, _c) {
+		return n.sourceString;
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return `${s.sourceString}${i.sourceString}n`;
@@ -323,9 +326,6 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	Arguments(a, _p) {
 		return a.children.map((x) => x.asSl).join(' ');
-	},
-	ArgumentName(_c, name) {
-		return ':' + name.sourceString;
 	},
 	AtAllSyntax(c, _l, k, _r) {
 		const elem = k.asIteration().children;
@@ -479,8 +479,8 @@ const asSl: ohm.ActionDict<string> = {
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
-	NameAssociation(lhs, _c, rhs) {
-		return `['${lhs.sourceString}', ${rhs.asSl}]`;
+	NameAssociation(lhs, rhs) {
+		return `['${lhs.asSl}', ${rhs.asSl}]`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
@@ -546,7 +546,11 @@ const asSl: ohm.ActionDict<string> = {
 		return `var ${t.sourceString};`;
 	},
 	VectorSyntax(_l, i, _r) {
-		return `[${commaListSl(i.children)}]`;
+		let c = i.children;
+		if(c.length === 1) {
+		return `enclose(${c[0].asSl})`;
+		}
+		return `[${commaListSl(c)}]`;
 	},
 	VectorSyntaxUnarySend(lhs, _d, rhs) {
 		return `${rhs.asSl}(${lhs.asSl})`;
@@ -557,7 +561,13 @@ const asSl: ohm.ActionDict<string> = {
 	VolumeSyntaxItems(items) {
 		return `[${commaListSl(items.asIteration().children)}]`;
 	},
+	WorkspaceAssignment(lhs, _e, rhs) {
+		return `atPut(workspace(system), '${lhs.sourceString.substring(10)}', ${rhs.asSl})`;
+	},
 
+	argumentName(_c, name) {
+		return ':' + name.sourceString;
+	},
 	arityQualifiedIdentifier(c1, cN, _s, a) {
 		return c1.sourceString + cN.sourceString + ':/' + a.sourceString;
 	},
@@ -589,6 +599,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	integerLiteral(s, i) {
 		return s.sourceString + i.sourceString;
+	},
+	keyNameToken(n, _c) {
+		return n.sourceString;
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return s.sourceString + i.sourceString + 'L';
@@ -639,6 +652,9 @@ const asSl: ohm.ActionDict<string> = {
 	uppercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
 	},
+	workspaceVar(_w, n) {
+		return `at(workspace(system), '${n.sourceString}')`;
+	},
 
 	EmptyListOf() {
 		return '';
@@ -674,12 +690,6 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [
 			'Arguments',
 			a.children.map((x) => x.asAst),
-		];
-	},
-	ArgumentName(_c, name) {
-		return [
-			'Identifier',
-			[name.sourceString],
 		];
 	},
 	Primitive(_l, s, _r) {
@@ -751,6 +761,12 @@ const asAst: ohm.ActionDict<SlAst> = {
 		];
 	},
 
+	argumentName(_c, name) {
+		return [
+			'Identifier',
+			[name.sourceString],
+		];
+	},
 	boundOperator(op) {
 		return [
 			'Operator',
@@ -878,9 +894,9 @@ const parametersOf: ohm.ActionDict<string[]> = {
 	Block(_l, arg, _tmp, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
-	KeyVarNameAssociation(lhs, _colon, rhs) {
+	KeyVarNameAssociation(lhs, rhs) {
 		return [
-			lhs.sourceString,
+			lhs.sourceString.substring(0, lhs.sourceString.length - 1),
 			rhs.sourceString,
 		];
 	},
@@ -1004,6 +1020,6 @@ export function rewriteSlToJsFor(packageName: string, slText: string): string {
 	} catch (err) {
 		context.packageName = '*UnknownPackage*';
 		// console.debug('rewriteSlToJsFor', packageName, slText, err);
-		throw new Error('rewriteSlToJsFor: Rewrite failed: ' + err, { cause: err });
+		throw new Error('rewriteSlToJsFor: Rewrite failed: ', { cause: err });
 	}
 }

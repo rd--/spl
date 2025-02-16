@@ -43,9 +43,19 @@ system.window.getSelectedText
 
 ## Navigator -- midi
 ```
-system.window.navigator.requestMidiAccess.thenElse { :midiAccess | workspace::midi := midiAccess } { :message | ('no midi: ' + message).postLine }
-workspace::midi.inputs.do { :each | each.postLine; each.onmidimessage { :event | event.data.postLine } }
-workspace::midi.sysexEnabled
+system.window.navigator.requestMidiAccess.thenElse { :midiAccess |
+	system.workspace::midi := midiAccess
+} {
+	:message | ('no midi: ' + message).postLine
+}
+
+system.workspace::midi.inputs.do { :each |
+	each.postLine; each.onmidimessage { :event |
+		event.data.postLine
+	}
+}
+
+system.workspace::midi.sysexEnabled
 ```
 
 ## TextButton

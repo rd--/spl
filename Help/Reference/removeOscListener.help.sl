@@ -5,7 +5,7 @@
 Remove a listener for Osc messages from an Osc source, for instance _ScSynth_.
 
 ```
->>> workspace.includesKey('onDone').if {
+>>> system.workspace.includesKey('onDone').if {
 >>> 	system
 >>> 	.scSynth
 >>> 	.removeOscListener(

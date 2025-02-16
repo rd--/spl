@@ -16,7 +16,6 @@ Sl {
 	LibraryItem = LibraryItemLiteral | LibraryItemExpression
 	LibraryItemLiteral = "LibraryItem" DictionaryExpression
 	LibraryItemExpression = "LibraryItem" ApplySyntax
-	// ConstantDefinition = "Constant" "." constantName "=" literal
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
 	Initializer =
@@ -29,15 +28,14 @@ Sl {
 	DictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
 	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" Initializer ";"
-	// LetTemporaries = "let" NonemptyListOf<Initializer, ","> ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment // | AssignmentOperatorSyntax
+	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment | WorkspaceAssignment
 	ScalarAssignment = varName ":=" Expression
+	WorkspaceAssignment = workspaceVar ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
 	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
-	// AssignmentOperatorSyntax = Primary operatorAssignment Expression
 	BinaryExpression = BinaryOperatorExpression | BinaryAdverbExpression
 	BinaryOperatorExpression = Expression (operator Primary)+
 	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
@@ -45,15 +43,9 @@ Sl {
 	Primary
 		= AtPutSyntax
 		| QuotedAtPutSyntax
-		// | AtPutDelegateSyntax
-		// | WriteSlotSyntax
-		// | AtIfAbsentSyntax
 		| AtAllSyntax
 		| AtSyntax
-		// | QuotedAtIfAbsentSyntax
-		// | QuotedAtIfAbsentPutSyntax
 		| QuotedAtSyntax
-		// | ReadSlotSyntax
 		| ValueApply
 		| DotExpressionWithTrailingDictionarySyntax
 		| DotExpressionWithTrailingClosuresSyntax
@@ -63,15 +55,14 @@ Sl {
 		| ApplyWithTrailingDictionarySyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
-		// | MessageSendSyntax
 		| EmptyListSyntax
 		| reservedIdentifier
+        | workspaceVar
 		| literal
 		| identifier
-        | systemVariableIdentifier // ?
+        | systemVariableIdentifier // This is only required in two places, and should be localised (it cannot be written IN Spl though...)
 		| operator
 		| VectorSyntax
-		// | UnaryListSyntax // MUST FOLLOW VECTOR SYNTAX, CANNOT!
 		| MatrixSyntax
 		| VolumeSyntax
 		| ListExpression
@@ -87,15 +78,7 @@ Sl {
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllSyntax = Primary "[" NonemptyListOf<(rangeLiteral | ListExpression), ","> "]"
-	// AtIfAbsentSyntax = Primary "[" Expression "]" ":?" Block
-	// AtIfAbsentPutSyntax = Primary "[" Expression "]" ":?=" Block
 	QuotedAtSyntax = Primary "::" keyName
-	// QuotedAtIfAbsentSyntax = Primary "::" keyName ":?" Block
-	// QuotedAtIfAbsentPutSyntax = Primary "::" keyName ":?=" Block
-	// AtPutDelegateSyntax = Primary ":." keyName ":=" Expression
-	// MessageSendSyntax = Primary ":." keyName NonEmptyParameterList?
-	// ReadSlotSyntax = Primary ":@" slotName
-	// WriteSlotSyntax = Primary ":@" slotName ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
@@ -106,8 +89,7 @@ Sl {
 	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
 	Block = "{" Arguments? Temporaries? Primitive? Statements? "}"
-	Arguments = ArgumentName+ "|"
-	ArgumentName = ":" varNameOrUnused
+	Arguments = argumentName+ "|"
 	Primitive = "<primitive:" primitiveCharacter* ">"
 	Statements = NonFinalExpression | FinalExpression
 	NonFinalExpression = Expression ";" Statements
@@ -120,8 +102,8 @@ Sl {
 	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
 	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
 	AssociationExpression = NameAssociation | StringAssociation
-	NameAssociation = keyName ":" Expression
-	KeyVarNameAssociation = keyName ":" varName
+	NameAssociation = keyNameToken Expression
+	KeyVarNameAssociation = keyNameToken varName
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"
@@ -130,7 +112,6 @@ Sl {
 	RangeSyntax = "(" Expression ".." Expression ")"
 	RangeThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	EmptyListSyntax = "[" "]"
-    // UnaryListSyntax = "[" Expression "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
 	VectorSyntaxUnarySend = (literal | varName) "." selectorName
@@ -138,9 +119,9 @@ Sl {
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
 	VolumeSyntaxItems = NonemptyListOf<MatrixSyntaxItems, ";">
-	// TreeSyntax = "[" TreeSyntaxItem+ "]"
-	// TreeSyntaxItem = VectorSyntaxItem | TreeSyntax
 
+	argumentName = ":" varNameOrUnused
+	workspaceVar = "Workspace:" lowercaseIdentifier
 	unqualifiedIdentifier = letter letterOrDigit*
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
 	identifier = arityQualifiedIdentifier | unqualifiedIdentifier
@@ -159,16 +140,16 @@ Sl {
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier
 	keyName = lowercaseIdentifier | uppercaseIdentifier
+	keyNameToken = keyName ":"
 	letterOrDigit = letter | digit
 	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
 	infixMethod = lowercaseIdentifier ":"
 	operator = operatorChar+
 	boundOperator = operatorChar+
 	operatorWithAdverb = operatorWithBinaryAdverb | operatorWithUnaryAdverb
-	operatorWithUnaryAdverb = (operator | lowercaseIdentifier) "." selectorName
-	operatorWithBinaryAdverb = (operator | lowercaseIdentifier) "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
+	operatorWithUnaryAdverb = operator "." selectorName
+	operatorWithBinaryAdverb = operator "." selectorName "(" (operator | arityQualifiedIdentifier | numberLiteral) ")"
 	operatorChar = "!" | "%" | "&" | "*" | "+" | "/" | "<" | "=" | ">" | "?" | "@" | "~" | "|" | "-" | "^" | "#" | "$" | "\\"
-	// operatorAssignment = operatorChar ":" "="
 	plusOrMinus = "+" | "-"
 
 	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral
@@ -184,12 +165,11 @@ Sl {
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
-	largeIntegerLiteral = plusOrMinus? digit+ "L" // "n"?
+	largeIntegerLiteral = plusOrMinus? digit+ "L"
     radixDigit = digit | "A" | "B" | "C" | "D" | "E" | "F"
 	radixIntegerLiteral = plusOrMinus? digit+ "r" radixDigit+
     infinityLiteral = plusOrMinus? "Infinity"
 	nanLiteral = "NaN"
-	// constantNumberLiteral = "Pi"
 	integerLiteral = plusOrMinus? digit+
     integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
@@ -201,11 +181,7 @@ Sl {
 	primitiveCharacter = ~(">\n" | "> }") sourceCharacter
 
 	comment = multiLineCComment
-	// multiLineMlComment = "(*" (~"*)" sourceCharacter)* "*)"
-	// singleLineMlComment = "(*)" (~lineTerminator sourceCharacter)*
-	// multiLineHsComment = "{-" (~"-}" sourceCharacter)* "-}"
 	multiLineCComment = "/*" (~"*/" sourceCharacter)* "*/"
-	// singleLineHsComment = "--" (~lineTerminator sourceCharacter)*
 	lineTerminator = "\n" | "\r"
 	space += comment
 

@@ -739,12 +739,10 @@ export async function primitiveLoadPackageSequence(
 
 declare global {
 	var _system: System;
-	var _workspace: Map<string, unknown>;
 }
 
 export function assignGlobals() {
 	globalThis._system = system;
-	globalThis._workspace = new Map();
 }
 
 /* https://regex101.com/r/Awcj1k/1 */

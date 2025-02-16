@@ -22,7 +22,7 @@ Cons([1 .. 9]).length = 9
 
 ## SmallHours
 ```
-workspace::smallHours.helpFind('Collection')
+system.workspace::smallHours.helpFind('Collection')
 ```
 
 ## Cli

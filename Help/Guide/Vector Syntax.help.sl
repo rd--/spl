@@ -48,6 +48,10 @@ Sᴘʟ parses it as the latter:
 [-1, -2, -3]
 ```
 
+The ambiguity should be resolved by requiring whitespace around infix operators,
+however at present one-element vectors are rewritten as `enclose`,
+which is therefore required to be a primitive.
+
 * * *
 
 See also: List

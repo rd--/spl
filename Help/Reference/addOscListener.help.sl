@@ -7,7 +7,7 @@ When an Osc message is received with the specified _address_,
 _aBlock_ is applied to the message.
 
 ```
->>> workspace::onDone := (
+>>> system.workspace::onDone := (
 >>> 	system
 >>> 	.scSynth
 >>> 	.addOscListener(
@@ -17,7 +17,7 @@ _aBlock_ is applied to the message.
 >>> 		}
 >>> 	)
 >>> );
->>> workspace::onDone.isBlock
+>>> system.workspace::onDone.isBlock
 true
 ```
 

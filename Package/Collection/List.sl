@@ -284,7 +284,8 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	enclose { :self |
-		[self]
+		/* NB Vector Syntax */
+		<primitive: return [_self];>
 	}
 
 	nest { :self |
