@@ -227,6 +227,10 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		].join('')
 	}
 
+	treePlot { :self |
+		self.asGraph.graphPlot
+	}
+
 	values { :self |
 		let answer = [];
 		self.do { :each |
@@ -301,20 +305,6 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 +@Integer {
 
-	unfoldTree { :anInteger :anObject :aBlock:/1 |
-		(anInteger <= 1).if {
-			Tree(anObject, [])
-		} {
-			let children = aBlock(anObject);
-			Tree(
-				anObject,
-				children.collect { :each |
-					(anInteger - 1).unfoldTree(each, aBlock:/1)
-				}
-			)
-		}
-	}
-
 	calkinWilfTree { :n :r |
 		n.unfoldTree(r) { :each |
 			let [a, b] = [each.numerator, each.denominator];
@@ -324,6 +314,39 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	calkinWilfTree { :n |
 		n.calkinWilfTree(1/1)
+	}
+
+	completeKaryTree { :n :k |
+		let f = { :n :k |
+			(n <= 2).if {
+				nil # k
+			} {
+				{ f(n - 1, k) } ! k
+			}
+		};
+		f(n, k).expressionTree(nil)
+	}
+
+	karyTree { :n :k |
+		let t = Tree(nil, []);
+		let f = { :l :i |
+			t.level(l).do { :each |
+				(
+					(i > 0) & {
+						each.isLeaf
+					}
+				).ifTrue {
+					let j = i.min(k);
+					each.subTrees := { Tree(nil, []) } ! j;
+					i := i - j
+				}
+			};
+			(i > 0).ifTrue {
+				f(l + 1, i)
+			}
+		};
+		f(0, n - 1);
+		t
 	}
 
 	keplerTree { :depth |
@@ -354,6 +377,20 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		n.sternBrocotTree(1/1)
 	}
 
+	unfoldTree { :anInteger :anObject :aBlock:/1 |
+		(anInteger <= 1).if {
+			Tree(anObject, [])
+		} {
+			let children = aBlock(anObject);
+			Tree(
+				anObject,
+				children.collect { :each |
+					(anInteger - 1).unfoldTree(each, aBlock:/1)
+				}
+			)
+		}
+	}
+
 }
 
 +Block {
@@ -382,6 +419,29 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 				)
 			}
 		}
+	}
+
+}
+
++@RandomNumberGenerator {
+
+	randomTree { :r :n |
+		let p = n.iota.fisherYatesShuffle(r);
+		let t = Tree(p.removeFirst, []);
+		let f = { :l :i |
+			t.level(l).do { :each |
+				(i > 0).ifTrue {
+					let j = r.randomInteger(1, i, []);
+					each.subTrees := p.removeFirst(j).collect { :m | Tree(m, []) };
+					i := i - j
+				}
+			};
+			(i > 0).ifTrue {
+				f(l + 1, i)
+			}
+		};
+		f(0, n - 1);
+		t
 	}
 
 }

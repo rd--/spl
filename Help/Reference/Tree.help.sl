@@ -437,8 +437,7 @@ A complete binary tree:
 { :x | [x x] }
 .iterate(nil, 4)
 .expressionTree(nil)
-.asGraph
-.graphPlot
+.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/Tree-A.svg)
@@ -449,8 +448,7 @@ A complete ternary tree:
 { :x | [x x x] }
 .iterate(nil, 3)
 .expressionTree(nil)
-.asGraph
-.graphPlot
+.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/Tree-B.svg)
@@ -461,8 +459,7 @@ A symmetric tree:
 { :x | [x, [x], x] }
 .iterate(nil, 3)
 .expressionTree(nil)
-.asGraph
-.graphPlot
+.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/Tree-C.svg)
@@ -473,8 +470,7 @@ An asymmetric tree:
 { :x | [[x], x, x] }
 .iterate(nil, 3)
 .expressionTree(nil)
-.asGraph
-.graphPlot
+.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/Tree-D.svg)

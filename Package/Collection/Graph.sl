@@ -51,7 +51,7 @@
 		let attributeText = [
 			'graph [size="1.214,0.75",bgcolor="transparent"];',
 			'node [shape="%"];'.format(
-				[self.hasVertexLabels.if { 'rectangle' } { 'point' }]
+				[self.hasVertexLabels.if { 'box' } { 'point' }]
 			),
 			'edge [penwidth="0.75",arrowsize="0.5"];'
 		].unlines;
@@ -61,7 +61,7 @@
 				label.ifNil {
 					'% [shape="point"];'.format([each])
 				} {
-					'% [label="%",shape="rectangle"];'.format(
+					'% [label="%",shape="box",width="0",height="0"];'.format(
 						[each, label.ifNil { '' } { label }]
 					)
 				}

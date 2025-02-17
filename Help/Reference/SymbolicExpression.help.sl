@@ -94,7 +94,7 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 let x = 'x'.Symbol;
 let y = 'y'.Symbol;
 let e = x.Hypotenuse(y);
-e.asTree.asGraph.graphPlot
+e.asTree.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/SymbolicExpression-A.svg)
