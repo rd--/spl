@@ -116,6 +116,19 @@ Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, Sy
 
 SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | operator operands |
 
+	asTree { :self |
+		Tree(
+			self.operator,
+			self.operands.collect { :each |
+				each.isSymbolicExpression.if {
+					each.asTree
+				} {
+					Tree(each, [])
+				}
+			}
+		)
+	}
+
 	isEqualSymbolicExpression { :self :anObject |
 		self.hasEqualSlotsBy(anObject, isEqualSymbolicExpression:/2)
 	}

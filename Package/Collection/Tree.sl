@@ -18,11 +18,11 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 	asGraph { :self |
 		let nodeId = 1;
-		let unusedLabels = [];
+		let vertexLabels = [];
 		let labeledTree = self.collect { :each |
 			let answer = nodeId -> each;
 			nodeId := nodeId + 1;
-			unusedLabels.add(each);
+			vertexLabels.add(each);
 			answer
 		};
 		let edgeList = [];
@@ -36,20 +36,23 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 				)
 			}
 		};
-		edgeList.asGraph
+		edgeList.asGraph.also { :graph |
+			graph.vertexLabels := vertexLabels
+		}
 	}
 
 	asList { :self |
-		self.subTrees.collect { :each |
+		let subLists = self.subTrees.collect { :each |
 			each.isLeaf.if {
 				each.value
 			} {
-				each.value.ifNil {
-					each.asList
-				} {
-					'Tree>>asList: non nil entry at non-leaf Tree'.error
-				}
+				each.asList
 			}
+		};
+		self.value.ifNil {
+			subLists
+		} {
+			[self.value] ++ subLists
 		}
 	}
 
@@ -244,13 +247,49 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 +@Sequence {
 
-	asTree { :self |
-		let type = self.typeOf;
+}
+
++List {
+
+	expressionTree { :self :anObject |
 		Tree(
-			nil,
+			anObject,
 			self.collect { :each |
-				(each.typeOf = type).if {
-					each.asTree
+				each.isList.if {
+					each.expressionTree(anObject)
+				} {
+					Tree(each, [])
+				}
+			}
+		)
+	}
+
+	expressionTree { :self |
+		self[1].isList.ifTrue {
+			self.error('List>>expressionTree: invalid initial item')
+		};
+		Tree(
+			self[1],
+			self.allButFirst.collect { :each |
+				each.isList.if {
+					each.expressionTree
+				} {
+					Tree(each, [])
+				}
+			}
+		)
+	}
+
+}
+
++Association {
+
+	rulesTree { :self |
+		Tree(
+			self.key,
+			self.value.collect { :each |
+				each.isAssociation.if {
+					each.rulesTree
 				} {
 					Tree(each, [])
 				}

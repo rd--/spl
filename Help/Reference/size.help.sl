@@ -85,7 +85,9 @@ Find the number of digits in 1000!:
 At `Tree` size is the number of sub-trees, see also `leafCount`:
 
 ```
->>> [1, [2, 3, 4], 5].asTree.size
+>>> [1, [2, 3, 4], 5]
+>>> .expressionTree(nil)
+>>> .size
 3
 ```
 

@@ -28,6 +28,8 @@ true
 See also: ?, ??, ~?, nil, ifNil, ifNotNil, Void
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Null.html),
 _Smalltalk_
 5.3.2
 

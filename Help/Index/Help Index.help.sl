@@ -775,7 +775,8 @@
 
 ## Tree Operations
 
-- `asTree`, `depth`, `leafCount`, `size`
+- `asTree`, `expressionTree`
+- `depth`, `leafCount`, `size`
 - `deepCollect`, `deepDo`, `deepIndices`
 
 ## Trigonometric Functions

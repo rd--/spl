@@ -1,8 +1,10 @@
 # concatenation
 
-- _concatenation(aCollection)_
+- _concatenation(aCollection, isStrict=false)_
 
 Flattens the collection by one level into a `List`.
+If _isStrict_ is `true`,
+each of the items in _aCollection_ must be of the same type as the container.
 
 ```
 >>> [1 2 3; 4 5; 6].concatenation
@@ -40,11 +42,23 @@ see `dictionaryJoin` for a _merge_ function:
 [1 2 3]
 ```
 
+At `List` of `String`:
+
+```
+>>> ['abc' 'pqr' 'xyz'].concatenation
+['a' 'b' 'c' 'p' 'q' 'r' 'x' 'y' 'z']
+
+>>> {
+>>> 	['x' 'y' 'z'].concatenation(true)
+>>> }.ifError { true }
+true
+```
+
 Where supported `concatenation` is displayed as ⧻.
 
 * * *
 
-See also: ++, dictionaryJoin
+See also: ++, +++, dictionaryJoin, flatten
 
 Unicode: U+29FB ⧻ Triple Plus
 

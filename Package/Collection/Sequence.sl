@@ -479,8 +479,17 @@
 		}
 	}
 
-	concatenation { :self |
+	concatenation { :self :isChecked |
+		isChecked.ifTrue {
+			(self.elementType = self.typeOf).ifFalse {
+				self.error('@Sequence>>concatenation: invalid element type')
+			}
+		};
 		self.concatenationSeparatedBy([])
+	}
+
+	concatenation { :self |
+		self.concatenation(false)
 	}
 
 	constantArray { :self :anObject |

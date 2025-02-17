@@ -24,6 +24,20 @@ The unary form answers all but the first element.
 'ext'
 ```
 
+If the sequence has as many places as are discared answer the empty sequence:
+
+```
+>>> [1].allButFirst
+[]
+```
+
+If there are too few items an `error` is signalled:
+
+```
+>>> { [].allButFirst }.ifError { true }
+true
+```
+
 * * *
 
 See also: allButLast

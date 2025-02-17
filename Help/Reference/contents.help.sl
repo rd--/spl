@@ -15,7 +15,7 @@ At `Tree`:
 
 ```
 >>> [1, [2, [3], 4], 5]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .contents
 >>> .collect(value:/1)
 [nil 1 nil 2 nil 3 4 5]

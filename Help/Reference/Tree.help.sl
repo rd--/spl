@@ -6,11 +6,11 @@ A `Tree` is a recursive `Type`.
 A Tree has a `value` and a possibly empty `List` of `subTrees`.
 Each subTree of a Tree is a Tree.
 
-The `asTree` method constructs a Tree from a `Sequence`:
+The `expressionTree` method constructs a `Tree` from a `List`:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .isTree
 true
 ```
@@ -21,7 +21,7 @@ Trees that have non-nil values at non-leaf sub-trees cannot be so converted.
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .asList
 [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 ```
@@ -29,14 +29,18 @@ Trees that have non-nil values at non-leaf sub-trees cannot be so converted.
 The `size` of a tree is the number of `subTrees`.
 
 ```
->>> [1 2 3 4 5].asTree.size
+>>> [1 2 3 4 5]
+>>> .expressionTree(nil)
+>>> .size
 5
 
->>> [1, [2, 3, 4], 5].asTree.size
+>>> [1, [2, 3, 4], 5]
+>>> .expressionTree(nil)
+>>> .size
 3
 
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .size
 2
 ```
@@ -61,11 +65,11 @@ A `Tree` is a _leaf_ if its size is `zero`:
 true
 ```
 
-The `leafCount` of a Tree is the number of its leaves:
+The `leafCount` of a `Tree` is the number of its leaves:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .leafCount
 9
 ```
@@ -82,17 +86,23 @@ The `depth` of a `Tree` is one more than the `size` of the longest path to any l
 An empty `Tree` has `depth` of `one`.
 
 ```
->>> [].asTree.depth
+>>> []
+>>> .expressionTree(nil)
+>>> .depth
 1
 
->>> [1, 2, 3, 4, 5].asTree.depth
+>>> [1, 2, 3, 4, 5]
+>>> .expressionTree(nil)
+>>> .depth
 2
 
->>> [1, [2, 3, 4], 5].asTree.depth
+>>> [1, [2, 3, 4], 5]
+>>> .expressionTree(nil)
+>>> .depth
 3
 
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .depth
 5
 ```
@@ -111,7 +121,7 @@ and hence `contents` answers all of the subTrees.
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .values
 [nil 1 nil 2 nil 4 nil 7 5 3 nil 6 nil 8 9]
 ```
@@ -128,7 +138,7 @@ and hence `contents` answers all of the subTrees.
 >>> 		3,
 >>> 		[6, [8, 9]]
 >>> 	]
->>> ].asTree.postOrderValues
+>>> ].expressionTree(nil).postOrderValues
 [1 2 4 7 nil 5 nil 3 6 8 9 nil nil nil nil]
 ```
 
@@ -156,7 +166,7 @@ and hence `contents` answers all of the subTrees.
 >>> 			]
 >>> 		]
 >>> 	]
->>> ].asTree.levelOrderValues
+>>> ].expressionTree(nil).levelOrderValues
 [nil 1 nil 2 nil 3 nil 4 nil 5 6 nil 7 8 9]
 ```
 
@@ -239,7 +249,7 @@ The values of a tree in each traversal order:
 >>> 			]
 >>> 		]
 >>> 	]
->>> ].asTree;
+>>> ].expressionTree(nil);
 >>> let l = [];
 >>> t.reverseDo { :each |
 >>> 	l.add(each.value)
@@ -253,7 +263,7 @@ The values of a tree in each traversal order:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .leaves
 [1 2 4 7 5 3 6 8 9]
 ```
@@ -262,7 +272,7 @@ The values of a tree in each traversal order:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .flatten
 [1 2 4 7 5 3 6 8 9]
 ```
@@ -273,7 +283,9 @@ and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nest
 ```
 >>> let l = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]];
 >>> let e = [];
->>> l.deepDo { :each | e.add(each) };
+>>> l.deepDo { :each |
+>>> 	e.add(each)
+>>> };
 >>> e
 [1 2 4 7 5 3 6 8 9]
 
@@ -287,7 +299,7 @@ and the `flatten` of a `Tree` is the same as the `flatten` of an equivalent nest
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .indices
 1:2
 ```
@@ -304,7 +316,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .deepIndices
 [
 	1; 2;
@@ -319,7 +331,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 
 ```
 >>> let l = [1, [2, [4, [7], 5], 3, [6, [8, 9]]]];
->>> let t = l.asTree;
+>>> let t = l.expressionTree(nil);
 >>> let i = t.deepIndices;
 >>> i.collect { :each |
 >>> 	t.atPath(each).value
@@ -331,7 +343,7 @@ The `indices` of a `Tree` are the same as the indices` of an equivalent nested `
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .leafIndices
 [
 	1;
@@ -361,7 +373,7 @@ Sub-trees at level two:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .level(2)
 [
 	Tree(2, []),
@@ -382,7 +394,7 @@ Sub-trees at level three:
 
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
->>> .asTree
+>>> .expressionTree(nil)
 >>> .level(3)
 [
 	Tree(4, []),
@@ -423,8 +435,8 @@ A complete binary tree:
 
 ~~~spl svg=A
 { :x | [x x] }
-.iterate('x', 4)
-.asTree
+.iterate(nil, 4)
+.expressionTree(nil)
 .asGraph
 .graphPlot
 ~~~
@@ -435,8 +447,8 @@ A complete ternary tree:
 
 ~~~spl svg=B
 { :x | [x x x] }
-.iterate('x', 3)
-.asTree
+.iterate(nil, 3)
+.expressionTree(nil)
 .asGraph
 .graphPlot
 ~~~
@@ -447,8 +459,8 @@ A symmetric tree:
 
 ~~~spl svg=C
 { :x | [x, [x], x] }
-.iterate('x', 3)
-.asTree
+.iterate(nil, 3)
+.expressionTree(nil)
 .asGraph
 .graphPlot
 ~~~
@@ -459,8 +471,8 @@ An asymmetric tree:
 
 ~~~spl svg=D
 { :x | [[x], x, x] }
-.iterate('x', 3)
-.asTree
+.iterate(nil, 3)
+.expressionTree(nil)
 .asGraph
 .graphPlot
 ~~~
@@ -469,10 +481,14 @@ An asymmetric tree:
 
 * * *
 
-See also: asTree, List
+See also: expressionTree, List
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/containers/docs/Data-Tree.html)
+[1](https://hackage.haskell.org/package/containers/docs/Data-Tree.html),
+_Mathematica_
+[1](https://mathworld.wolfram.com/Tree.html)
+[2](https://reference.wolfram.com/language/ref/Tree.html)
+
 
 Categories: Type, Collection, Tree

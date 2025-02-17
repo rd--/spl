@@ -2,7 +2,9 @@
 
 - _flatten(aCollection, anInteger=Infinity)_
 
-Similar to `concatenation` but removes all nesting.
+Similar to `concatenation`,
+however also allows non-collection items,
+and removes a specified number of layers of nesting.
 
 ```
 >>> [1, [2, [3, [4, [5], 6], 7], 8], 9]
@@ -62,7 +64,9 @@ As an inverse of `clump`:
 At `Tree`:
 
 ```
->>> [1, [2, [3], 4], 5].asTree.flatten
+>>> [1, [2, [3], 4], 5]
+>>> .expressionTree(nil)
+>>> .flatten
 [1 2 3 4 5]
 ```
 

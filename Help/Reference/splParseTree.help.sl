@@ -4,94 +4,112 @@
 
 Answer a parse tree of the Spl expression at _aString_.
 
-All expressions have the form _[type, value]_,
-where _type_ is a `String` identifying the type of the expression,
-and value is a `List`.
+All expressions are represented by a `List`,
+where the first entry is a `String` identifying the type of the expression,
+and the remaining entries are the parts of the expression.
 
 If the expression is an _identifier_,
-type _type_ specifies the kind of identifier,
-and the _value_ is an enclosed `String`:
+the _type_ specifies the kind of identifier,
+and there is one `String` part to the expression.
+
+At program:
 
 ```
->>> 'nil'.splParseTree[2, 1]
-['ReservedIdentifier', ['nil']]
-
->>> 'true'.splParseTree[2, 1]
-['ReservedIdentifier', ['true']]
-
->>> 'false'.splParseTree[2, 1]
-['ReservedIdentifier', ['false']]
-
->>> '+'.splParseTree[2, 1]
-['Operator', ['+']]
-
->>> 'x'.splParseTree[2, 1]
-['Identifier', ['x']]
-
->>> 'X'.splParseTree[2, 1]
-['Identifier', ['X']]
+>>> 'x + y; z'.splParseTree
+[
+	'Program',
+	[
+		'Apply',
+		['Operator', '+'],
+		['Identifier', 'x'],
+		['Identifier', 'y']
+	],
+	['Identifier', 'z']
+]
 ```
 
-If the expression is a _string_,
-the _value_ is an enclosed `String`:
+Reserved identifiers:
 
 ```
->>> '\'x\''.splParseTree[2, 1]
-['String', ['x']]
+>>> 'nil'.splParseTree[2]
+['ReservedIdentifier', 'nil']
+
+>>> 'true'.splParseTree[2]
+['ReservedIdentifier', 'true']
+
+>>> 'false'.splParseTree[2]
+['ReservedIdentifier', 'false']
 ```
 
-If the expression is a _number_,
-the _value_ an enclosed `String`:
+Operators:
 
 ```
->>> '23'.splParseTree[2, 1]
-['SmallInteger', ['23']]
+>>> '+'.splParseTree[2]
+['Operator', '+']
 
->>> '-Infinity'.splParseTree[2, 1]
-['SmallFloat', ['-Infinity']]
-
->>> '3.141'.splParseTree[2, 1]
-['SmallFloat', ['3.141']]
-
->>> '23L'.splParseTree[2, 1]
-['LargeInteger', ['23L']]
-
->>> '2.3E1'.splParseTree[2, 1]
-['SmallFloat', ['2.3E1']]
+>>> '<=>'.splParseTree[2]
+['Operator', '<=>']
 ```
 
-If the expression is a _list_,
-the value is a `List` of the parse trees of the items:
+Lower-case and upper-case initial identifiers:
 
 ```
->>> '[1, 2, 3]'.splParseTree[2, 1]
+>>> 'x'.splParseTree[2]
+['Identifier', 'x']
+
+>>> 'X'.splParseTree[2]
+['Identifier', 'X']
+```
+
+At a `String` constant:
+
+```
+>>> '\'x\''.splParseTree[2]
+['String', 'x']
+```
+
+At a `Number` constant:
+
+```
+>>> '23'.splParseTree[2]
+['SmallInteger', '23']
+
+>>> '-Infinity'.splParseTree[2]
+['SmallFloat', '-Infinity']
+
+>>> '3.141'.splParseTree[2]
+['SmallFloat', '3.141']
+
+>>> '23L'.splParseTree[2]
+['LargeInteger', '23L']
+
+>>> '2.3E1'.splParseTree[2]
+['SmallFloat', '2.3E1']
+```
+
+At a `List` expression:
+
+```
+>>> '[1, 2, 3]'.splParseTree[2]
 [
 	'List',
-	[
-		['SmallInteger', ['1']],
-		['SmallInteger', ['2']],
-		['SmallInteger', ['3']]
-	]
+	['SmallInteger', '1'],
+	['SmallInteger', '2'],
+	['SmallInteger', '3']
 ]
 
->>> '[[1, 2], [3, 4]]'.splParseTree[2, 1]
+>>> '[[1, 2], [3, 4]]'.splParseTree[2]
 [
 	'List',
 	[
-		[
-			'List',
-			[
-				['SmallInteger', ['1']],
-				['SmallInteger', ['2']]
-			]
-		],
-		[
-			'List',
-			[
-				['SmallInteger', ['3']],
-				['SmallInteger', ['4']]
-			]
-		]
+		'List',
+		['SmallInteger', '1'],
+		['SmallInteger', '2']
+	],
+	[
+		'List',
+		['SmallInteger', '3'],
+		['SmallInteger', '4']
 	]
 ]
 ```
@@ -101,41 +119,15 @@ the value is a two-`List` of the identifier that is assigned to,
 and the parse tree of the assigned expression:
 
 ```
->>> 'x := x + 1'.splParseTree[2, 1]
+>>> 'x := x + 1'.splParseTree[2]
 [
 	'Assignment',
+	['Identifier', 'x'],
 	[
-		[
-			'Identifier',
-			[
-				'x'
-			]
-		],
-		[
-			'Apply',
-			[
-				[
-					'Operator',
-					[
-						'+'
-					]
-				],
-				[
-					[
-						'Identifier',
-						[
-							'x'
-						]
-					],
-					[
-						'SmallInteger',
-						[
-							'1'
-						]
-					]
-				]
-			]
-		]
+		'Apply',
+		['Operator', '+'],
+		['Identifier', 'x'],
+		['SmallInteger', '1']
 	]
 ]
 ```
@@ -145,121 +137,64 @@ the value is a two-`List` of the identifier that is being applied,
 and a `List` of the values it is applied to:
 
 ```
->>> 'f(x)'.splParseTree[2, 1]
+>>> 'f(x, y)'.splParseTree[2]
 [
 	'Apply',
-	[
-		[
-			'Identifier',
-			[
-				'f'
-			]
-		],
-		[
-			[
-				'Identifier',
-				[
-					'x'
-				]
-			]
-		]
-	]
-]
-
->>> 'f(x, y)'.splParseTree[2, 1]
-[
-	'Apply',
-	[
-		['Identifier', ['f']],
-		[
-			['Identifier', ['x']],
-			['Identifier', ['y']]
-		]
-	]
-]
-
->>> '+(x, y)'.splParseTree[2, 1]
-[
-	'Apply',
-	[
-		['Operator', ['+']],
-		[
-			['Identifier', ['x']],
-			['Identifier', ['y']]
-		]
-	]
+	['Identifier', 'f'],
+	['Identifier', 'x'],
+	['Identifier', 'y']
 ]
 ```
 
 Infix application is not recorded especially:
 
 ```
->>> 'x + y'.splParseTree[2, 1]
+>>> 'x + y'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Operator', ['+']],
-		[
-			['Identifier', ['x']],
-			['Identifier', ['y']]
-		]
-	]
+	['Operator', '+'],
+	['Identifier', 'x'],
+	['Identifier', 'y']
 ]
 ```
 
 Dot application is not recorded especially:
 
 ```
->>> 'x.f(y)'.splParseTree[2, 1]
+>>> 'x.f(y)'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Identifier', ['f']],
-		[
-			['Identifier', ['x']],
-			['Identifier', ['y']]
-		]
-	]
+	['Identifier', 'f'],
+	['Identifier', 'x'],
+	['Identifier', 'y']
 ]
 ```
 
 `Fraction` and `Complex` and `Residue` values are applications:
 
 ```
->>> '3/4'.splParseTree[2, 1]
+>>> '3/4'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Identifier', ['Fraction']],
-		[
-			['LargeInteger', ['3L']],
-			['LargeInteger', ['4L']]
-		]
-	]
+	['Identifier', 'Fraction'],
+	['LargeInteger', '3L'],
+	['LargeInteger', '4L']
 ]
 
->>> '3J4'.splParseTree[2, 1]
+>>> '3J4'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Identifier', ['Complex']],
-		[
-			['SmallInteger', ['3']],
-			['SmallInteger', ['4']]
-		]
-	]
+	['Identifier', 'Complex'],
+	['SmallInteger', '3'],
+	['SmallInteger', '4']
 ]
 
->>> '3Z4'.splParseTree[2, 1]
+>>> '3Z4'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Identifier', ['Residue']],
-		[
-			['SmallInteger', ['3']],
-			['SmallInteger', ['4']]
-		]
-	]
+	['Identifier', 'Residue'],
+	['SmallInteger', '3'],
+	['SmallInteger', '4']
 ]
 ```
 
@@ -268,20 +203,14 @@ the value is a two-`List` of the identifier that is being defined,
 and the parse tree of the expression it is assigned to:
 
 ```
->>> 'let x = 2.pi; x'.splParseTree[2, 1]
+>>> 'let x = 2.pi; x; y'.splParseTree[2]
 [
 	'Let',
+	['Identifier', 'x'],
 	[
-		['Identifier', ['x']],
-		[
-			'Apply',
-			[
-				['Identifier', ['pi']],
-				[
-					['SmallInteger', ['2']]
-				]
-			]
-		]
+		'Apply',
+		['Identifier', 'pi'],
+		['SmallInteger', '2']
 	]
 ]
 ```
@@ -295,63 +224,48 @@ any local variables, and
 any statements:
 
 ```
->>> '{ }'.splParseTree[2, 1]
-['Block', []]
+>>> '{ }'.splParseTree[2]
+['Block']
 
->>> '{ :x | x }'.splParseTree[2, 1]
+>>> '{ :x | x }'.splParseTree[2]
 [
 	'Block',
-	[
-		['Arguments', [['Identifier', ['x']]]],
-		['Identifier', ['x']]
-	]
+	['Arguments', ['Identifier', 'x']],
+	['Identifier', 'x']
 ]
 
->>> '{ :x :y | x * y}'.splParseTree[2, 1]
+>>> '{ :x :y | let z = x * y; z}'.splParseTree[2]
 [
 	'Block',
 	[
-		[
-			'Arguments',
-			[
-				['Identifier', ['x']],
-				['Identifier', ['y']]
-			]
-		],
+		'Arguments',
+		['Identifier', 'x'],
+		['Identifier', 'y']
+	],
+	[
+		'Let',
+		['Identifier', 'z'],
 		[
 			'Apply',
-			[
-				['Operator', ['*']],
-				[
-					['Identifier', ['x']],
-					['Identifier', ['y']]
-				]
-			]
+			['Operator', '*'],
+			['Identifier', 'x'],
+			['Identifier', 'y']
 		]
-	]
+	],
+	['Identifier', 'z']
 ]
 ```
 
 Control strucures are ordinary applications with block arguments:
 
 ```
->>> 'x.if { 1 } { 0 }'.splParseTree[2, 1]
+>>> 'x.if { 1 } { 0 }'.splParseTree[2]
 [
 	'Apply',
-	[
-		['Identifier', ['if']],
-		[
-			['Identifier', ['x']],
-			[
-				'Block',
-				[['SmallInteger', ['1']]]
-			],
-			[
-				'Block',
-				[['SmallInteger', ['0']]]
-			]
-		]
-	]
+	['Identifier', 'if'],
+	['Identifier', 'x'],
+	['Block', ['SmallInteger', '1']],
+	['Block', ['SmallInteger', '0']]
 ]
 ```
 

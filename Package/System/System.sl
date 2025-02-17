@@ -432,11 +432,12 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 	splParseExpression { :self |
 		let tree = self.splParseTree;
 		let f = { :e |
-			let [o, p] = e;
+			let o = e.first;
+			let p = e.allButFirst;
 			o.caseOfOtherwise(
 				[
 					'Apply' -> {
-						SymbolicExpression(f(p[1]), p[2].collect(f:/1))
+						SymbolicExpression(f(p[1]), p.allButFirst.collect(f:/1))
 					},
 					'Arguments' -> {
 						SymbolicExpression('𝓐', p.collect(f:/1))

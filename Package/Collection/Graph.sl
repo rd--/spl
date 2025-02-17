@@ -43,11 +43,32 @@
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
 		let layoutRule = self.isUndirected.if { 'neato' } { 'dot' };
 		let begin = '% {\ngraph [layout="%"];'.format([graphType, layoutRule]);
+		let vertexLabels = self.hasVertexLabels.if {
+			self.vertexLabels
+		} {
+			nil
+		};
 		let attributeText = [
 			'graph [size="1.214,0.75",bgcolor="transparent"];',
-			'node [shape="point"];',
+			'node [shape="%"];'.format(
+				[self.hasVertexLabels.if { 'rectangle' } { 'point' }]
+			),
 			'edge [penwidth="0.75",arrowsize="0.5"];'
 		].unlines;
+		let nodeText = self.hasVertexLabels.if {
+			self.vertexList.collect { :each |
+				let label = vertexLabels[each];
+				label.ifNil {
+					'% [shape="point"];'.format([each])
+				} {
+					'% [label="%",shape="rectangle"];'.format(
+						[each, label.ifNil { '' } { label }]
+					)
+				}
+			}.unlines
+		} {
+			'/* implicit nodes */'
+		};
 		let edgeText = self.edgeList.collect { :each |
 			each.forDot(isMixed)
 		}.unlines;
@@ -55,6 +76,7 @@
 		[
 			begin,
 			attributeText,
+			nodeText,
 			edgeText,
 			end
 		].unlines
@@ -430,6 +452,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	edgeLabels { :self :aList |
 		self.properties['edgeLabels'] := aList;
 		self
+	}
+
+	hasVertexLabels { :self |
+		self.properties.includesKey('vertexLabels')
 	}
 
 	includeEdge { :self :edge |

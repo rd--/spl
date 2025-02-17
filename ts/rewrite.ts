@@ -675,35 +675,28 @@ export type SlAst = (string | SlAst)[];
 
 const asAst: ohm.ActionDict<SlAst> = {
 	ApplySyntax(rcv, arg) {
-		return [
-			'Apply',
-			[rcv.asAst].concat(arg.asAst),
-		];
+		return ['Apply', rcv.asAst].concat(arg.asAst.flat(1));
 	},
 	Arguments(a, _p) {
-		return [
-			'Arguments',
-			a.children.map((x) => x.asAst),
-		];
+		return ['Arguments'].concat(
+			a.children.map((x) => x.asAst)
+		);
 	},
 	Primitive(_l, s, _r) {
-		return [
-			'Primitive',
-			[s.sourceString],
-		];
+		return ['Primitive', s.sourceString];
 	},
 	Block(_l, arg, tmp, prm, stm, _r) {
-		return [
-			'Block',
-			[arg.asAst].concat(
-				tmp.asAst,
+		return ['Block'].concat(
+			[
+				arg.asAst,
+				tmp.asAst.flat(1),
 				prm.asAst,
-				stm.asAst,
-			).flat(1),
-		];
+				stm.asAst.flat(1),
+			].flat(1),
+		);
 	},
 	EmptyListSyntax(_l, _r) {
-		return ['List', []];
+		return ['List'];
 	},
 	ExpressionInitializer(name, _e, exp) {
 		return [name.asAst, exp.asAst];
@@ -712,16 +705,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [e.asAst];
 	},
 	LetTemporary(_l, tmp, _s) {
-		return [
-			'Let',
-			tmp.asAst,
-		];
+		return ['Let', tmp.asAst].flat(1)
 	},
 	ListExpression(_l, items, _r) {
-		return [
-			'List',
-			items.children.map((x) => x.asAst).flat(1),
-		];
+		return ['List'].concat(items.children.map((x) => x.asAst).flat(1));
 	},
 	NonEmptyParameterList(_l, sq, _r) {
 		return sq.children.map((x) => x.asAst);
@@ -736,15 +723,10 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return e.asAst;
 	},
 	Program(tmp, stm) {
-		return [
-			'Program',
-			tmp.asAst.concat(
-				[stm.asAst],
-			).flat(1),
-		];
+		return ['Program', tmp.asAst.flat(1), stm.asAst].flat(1);
 	},
 	ScalarAssignment(lhs, _e, rhs) {
-		return ['Assignment', [lhs.asAst, rhs.asAst]];
+		return ['Assignment', [lhs.asAst], [rhs.asAst]].flat(1);
 	},
 	ValueApply(p, _d, a) {
 		return [
@@ -755,89 +737,48 @@ const asAst: ohm.ActionDict<SlAst> = {
 		];
 	},
 
-	argumentName(_c, name) {
-		return [
-			'Identifier',
-			[name.sourceString],
-		];
+	argumentName(_, x) {
+		return ['Identifier', x.sourceString];
 	},
-	boundOperator(op) {
-		return [
-			'Operator',
-			[op.sourceString],
-		];
+	boundOperator(x) {
+		return ['Operator', x.sourceString];
 	},
-	floatLiteral(s, i, _dot, f) {
-		return [
-			'SmallFloat',
-			[s.sourceString + i.sourceString + '.' + f.sourceString],
-		];
+	floatLiteral(s, i, _, f) {
+		const x = s.sourceString + i.sourceString + '.' + f.sourceString;
+		return ['SmallFloat', x];
 	},
 	infinityLiteral(s, i) {
-		return [
-			'SmallFloat',
-			[s.sourceString + i.sourceString],
-		];
+		return ['SmallFloat', s.sourceString + i.sourceString];
 	},
 	integerLiteral(s, i) {
-		return [
-			'SmallInteger',
-			[s.sourceString + i.sourceString],
-		];
+		return ['SmallInteger', s.sourceString + i.sourceString];
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return [
-			'LargeInteger',
-			[s.sourceString + i.sourceString + 'L'],
-		];
+		return ['LargeInteger',	s.sourceString + i.sourceString + 'L'];
 	},
 	lowercaseIdentifier(c1, cN) {
-		return [
-			'Identifier',
-			[c1.sourceString + cN.sourceString],
-		];
+		return ['Identifier', c1.sourceString + cN.sourceString];
 	},
 	nanLiteral(_n) {
-		return [
-			'SmallFloat',
-			['NaN'],
-		];
+		return ['SmallFloat', 'NaN'];
 	},
 	operator(op) {
-		return [
-			'Operator',
-			[op.sourceString],
-		];
+		return ['Operator', op.sourceString];
 	},
 	reservedIdentifier(x) {
-		return [
-			'ReservedIdentifier',
-			[x.sourceString],
-		];
+		return ['ReservedIdentifier', x.sourceString];
 	},
 	scientificLiteral(b, _e, e) {
-		return [
-			'SmallFloat',
-			[b.sourceString + 'E' + e.sourceString],
-		];
+		return ['SmallFloat', b.sourceString + 'E' + e.sourceString];
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
-		return [
-			'String',
-			[s.sourceString],
-		];
+		return ['String', s.sourceString];
 	},
 	unqualifiedIdentifier(c1, cN) {
-		return [
-			'Identifier',
-			[c1.sourceString + cN.sourceString],
-		];
+		return ['Identifier', c1.sourceString + cN.sourceString];
 	},
 	uppercaseIdentifier(c1, cN) {
-		return [
-			'Identifier',
-			[c1.sourceString + cN.sourceString],
-		];
+		return ['Identifier', c1.sourceString + cN.sourceString];
 	},
 
 	EmptyListOf() {

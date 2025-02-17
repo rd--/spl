@@ -42,24 +42,26 @@ Only the deepest part of the expression affects the depth:
 At deeply nested `List`:
 
 ```
->>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]].depth
-10
+>>> [1, [3, [5, [7, [9]]]]].depth
+6
 
->>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9].depth
-10
+>>> [[[[[1], 3], 5], 7], 9].depth
+6
 ```
 
 At deeply nested `Tuple`:
 
 ```
->>> (1, (2, (3, (4, (5, (6, (7, (8, 9)))))))).depth
-9
+>>> (1, (3, (5, (7, 9)))).depth
+5
 ```
 
 At `Tree`:
 
 ```
->>> [1, [2, [3], 4], 5].asTree.depth
+>>> [1, [2, [3], 4], 5]
+>>> .expressionTree(nil)
+>>> .depth
 4
 ```
 
