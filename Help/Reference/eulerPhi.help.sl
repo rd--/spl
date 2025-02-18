@@ -88,7 +88,7 @@ Pillais arithmetical function:
 
 Plot [A046644](https://oeis.org/A046644):
 
-~~~
+~~~spl svg=D
 let a = { :n |
 	n.divisors.collect { :d |
 		n * d.eulerPhi / d

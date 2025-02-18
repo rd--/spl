@@ -9,7 +9,7 @@ Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)
 HsvColour([1 / 3, 1 / 4, 1], 1)
 ~~~
 
-![](sw/spl/Help/Image/Hsv-A.svg)
+![](sw/spl/Help/Image/HsvColour-A.svg)
 
 Value of `zero` is black:
 

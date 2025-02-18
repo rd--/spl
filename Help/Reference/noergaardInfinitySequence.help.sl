@@ -34,7 +34,7 @@ Scatter plot of first few terms:
 This is distinct from Per Nørgårds rhythmic infinity system,
 which is given at A073334 and is plotted as:
 
-~~~
+~~~spl svg=C
 1:99.collect { :n |
 	(n.integerDigits(2).split(=).size + 4)
 	.fibonacci

@@ -34,7 +34,7 @@ Discrete plot of first few terms:
 
 Log scale scatter plot of first few terms:
 
-~~~spl svg=A
+~~~spl svg=B
 333
 .inventorySequence
 .logScale

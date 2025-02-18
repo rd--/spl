@@ -20,7 +20,7 @@ Plot over a subset of the reals:
 ~~~spl svg=A
 (-0.5 -- 3.5).functionPlot(
 	1:4.collect { :k |
-		{ : each |
+		{ :each |
 			each.factorialPower(k)
 		}
 	}

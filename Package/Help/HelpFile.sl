@@ -333,12 +333,14 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 +System {
 
-	helpFilesDo { :self :kind :aBlock:/1 |
+	helpFilesDo { :self :kind :pattern :aBlock:/1 |
 		self
 		.splFileName('Help/' ++ kind)
 		.readDirectoryFileNames
 		.select { :each |
-			each.endsWith('.help.sl')
+			each.endsWith('.help.sl') & {
+				each.pathBasename.matchesRegExp(pattern)
+			}
 		}.do { :each |
 			let text = each.readTextFile;
 			let help = HelpFile(
@@ -349,8 +351,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 		}
 	}
 
-	referenceHelpFilesDo { :self :aBlock:/1 |
-		self.helpFilesDo('Reference', aBlock:/1)
+	referenceHelpFilesDo { :self :pattern :aBlock:/1 |
+		self.helpFilesDo('Reference', pattern, aBlock:/1)
 	}
 
 }

@@ -89,7 +89,7 @@ let r = Sfc32(789147);
 let p = r.randomReal(-1, 1, [17, 2]);
 let d = DelaunayTriangulation(p);
 let v = d.voronoiVertexCoordinates;
-let e = d.voronoiEdgeList.collect { : each |
+let e = d.voronoiEdgeList.collect { :each |
 	v.atAll(each)
 };
 [

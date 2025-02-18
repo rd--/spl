@@ -48,7 +48,7 @@ A circulant graph with seventeen vertices:
 
 The adjacency matrix of a circulant graph of ninety-nine edges:
 
-~~~spl svg=F
+~~~spl png=F
 33.circulantGraph([1 2 3])
 .adjacencyMatrix
 .Bitmap

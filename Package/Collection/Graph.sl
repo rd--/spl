@@ -550,7 +550,6 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	dotDrawing { :self :options |
 		let layoutEngine = options['method'];
-		['dotDrawing', layoutEngine].postLine;
 		self.asDot(options).dotLayout('svg', layoutEngine).then { :answer |
 			answer.Svg
 		}

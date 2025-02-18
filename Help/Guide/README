@@ -5,6 +5,5 @@ Total => 433
 Write image files:
 
 ~~~
-system.helpFilesDo('Guide', writeImageFiles:/1);
-nil
+system.helpFilesDo('Guide', '.*', writeImageFiles:/1); nil
 ~~~

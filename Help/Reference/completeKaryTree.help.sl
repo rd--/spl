@@ -14,7 +14,7 @@ completeKaryTree(4, 2).treePlot
 
 A complete ternary tree with three levels:
 
-~~~spl svg=A
+~~~spl svg=B
 completeKaryTree(3, 3).treePlot
 ~~~
 
