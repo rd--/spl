@@ -2,7 +2,7 @@
 
 - _leaves(aTree)_
 
-Answer a List of the _value_ of each of the leaf trees:
+Answer a List of the _value_ of each of the leaf subtrees:
 
 ```
 >>> [1, [2, [3], 4], 5]
@@ -25,6 +25,10 @@ Count the even numbers in a Tree:
 ```
 
 * * *
+
+See also: leafCount, Tree
+
+Guides: Tree Functions
 
 References:
 _Mathematica_

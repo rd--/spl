@@ -25,6 +25,8 @@ It is possible for two topologically distinct graphs to have the same degree seq
 
 See also: vertexDegree
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DegreeSequence.html)

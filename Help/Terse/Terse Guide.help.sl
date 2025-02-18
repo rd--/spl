@@ -3654,7 +3654,7 @@ let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] := -1; d = (w: (x: (y: (z: 
 ```
 'text'[3] = 'x'.asCharacter /* [At Syntax] */
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [AtPut Syntax] */
-(x : 1.pi) :: x = 1.pi /* quoted at syntax */
+(x: 1.pi) :: x = 1.pi /* quoted at syntax */
 let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
 let d = (x: 1, y: 2); d::x < d::y /* [Quoted At Syntax] */
 let d = (w: (x: (y: (z: 1)))); d::w::x::y::z = 1 /* [Quoted At Syntax] */
@@ -3834,15 +3834,15 @@ system.evaluateNotifying('a syntax error') { :unused | true } /* syntax errors l
 system.evaluateNotifying('') { :err | true } /* empty input likewise */
 ```
 
-## System -- globalDictionary
+## System -- workspace
 ```
-system.isIndexable /* system is indexable */
-system.globalDictionary.isDictionary /* the system global dicitionary is a dictionary */
-system.globalDictionary.isRecord /* specifically, it is a record */
-{ system['undefined'] }.ifError { true } /* system implements the indexable trait, unknown indices (keys) raise errors */
-system['TwoPi'] := 2.pi; system['TwoPi'] / 2 = 1.pi /* declare and then access a global variable */
-system.indices.includes('TwoPi') /* system is indexable */
-system.indexOf(2.pi) = 'TwoPi' /* system is indexable */
+system.isIndexable = false /* system is not indexable */
+system.workspace.isDictionary /* the system workspace is a dictionary */
+system.workspace.isRecord /* specifically, it is a record */
+{ system.workspace['undefined'] }.ifError { true } /* workspace implements the indexable trait, unknown indices (keys) raise errors */
+system.workspace['TwoPi'] := 2.pi; system.workspace['TwoPi'] / 2 = 1.pi /* declare and then access a workspace variable */
+system.workspace.indices.includes('TwoPi') /* workspace is indexable */
+system.workspace.indexOf(2.pi) = 'TwoPi' /* worskapce is indexable */
 ```
 
 ## System -- methodDictionary

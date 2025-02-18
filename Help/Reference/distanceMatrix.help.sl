@@ -81,7 +81,7 @@ Distance matrix of cartesian coordinates for lattice using `manhattanDistance` m
 
 * * *
 
-See also: adjacencyMatrix, norm, outer
+See also: adjacencyMatrix, graphDistanceMatrix, norm, outer
 
 References:
 _Mathematica_

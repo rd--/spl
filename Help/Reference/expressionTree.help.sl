@@ -85,6 +85,8 @@ In both cases,
 
 See also: asList, rulesTree, Tree
 
+Guides: Tree Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ExpressionTree.html)

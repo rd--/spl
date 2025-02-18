@@ -104,3 +104,11 @@ let e = d.voronoiEdgeList.collect { : each |
 * * *
 
 See also: circumcircle, convexHull, convexHullIndices, delaunayMesh, edgeList, faceIndices, Graph, graph, polygonMesh, PolygonMesh, vertexCount, voronoiVertexCoordinates
+
+Guides: Graph Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/DelaunayTriangulation.html)
+[2](https://mathworld.wolfram.com/VoronoiDiagram.html)
+[3](https://reference.wolfram.com/language/ref/DelaunayMesh.html)

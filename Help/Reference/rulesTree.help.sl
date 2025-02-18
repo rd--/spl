@@ -2,6 +2,8 @@
 
 - _rulesTree(anAssociation)_
 
+Answer a `Tree` defined by an `Association` between the value of the tree and a `List` of its subtrees,
+which may be leaves or further trees.
 
 Construct a `Tree` with three leaves:
 
@@ -71,7 +73,9 @@ Construct a tree of the House of Atreus:
 
 * * *
 
-See also: Tree
+See also: expressionTree, Tree
+
+Guides: Tree Functions
 
 References:
 _Mathematica_

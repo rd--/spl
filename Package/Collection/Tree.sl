@@ -114,6 +114,10 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		self.leaves
 	}
 
+	graphPlot { :self |
+		self.asGraph.graphPlot
+	}
+
 	indices { :self |
 		(1 .. self.size)
 	}
@@ -228,7 +232,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	}
 
 	treePlot { :self |
-		self.asGraph.graphPlot
+		self.asGraph.treePlot
 	}
 
 	values { :self |

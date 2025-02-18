@@ -1,6 +1,6 @@
 /* Requires: Interval */
 
-Plot : [Object] { | pages format |
+Plot : [Object] { | pages format options |
 
 	asLineDrawing { :self |
 		let columnCount = self.columnCount;
@@ -103,7 +103,7 @@ Plot : [Object] { | pages format |
 
 	cliGraphDraw { :self |
 		let [graph] = self.pages;
-		graph.dotDrawing.draw
+		graph.dotDrawing(self.options).draw
 	}
 
 	cliListDraw { :self |
@@ -177,7 +177,7 @@ Plot : [Object] { | pages format |
 			},
 			'graph' -> {
 				let [graph] = self.pages;
-				graph.dotDrawing.draw
+				graph.dotDrawing(self.options).draw
 			},
 			'matrix' -> {
 				let [contents] = self.pages;
@@ -200,7 +200,7 @@ Plot : [Object] { | pages format |
 			},
 			'graph' -> {
 				let [graph] = self.pages;
-				graph.dotDrawing.writeSvg(fileName)
+				graph.dotDrawing(self.options).writeSvg(fileName)
 			},
 			'matrix' -> {
 				let [contents] = self.pages;
@@ -224,7 +224,7 @@ Plot : [Object] { | pages format |
 	}
 
 	graphPlot { :self |
-		self.nest.Plot('graph')
+		self.nest.Plot('graph', (method: 'neato'))
 	}
 
 	linePlot { :self |
@@ -330,8 +330,12 @@ Plot : [Object] { | pages format |
 
 +[List, Graph] {
 
+	Plot { :self :format :options |
+		newPlot().initializeSlots(self, format, options)
+	}
+
 	Plot { :self :format |
-		newPlot().initializeSlots(self, format)
+		self.Plot(format, ())
 	}
 
 }

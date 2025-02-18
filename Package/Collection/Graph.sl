@@ -38,11 +38,15 @@
 		}.table(v, v)
 	}
 
-	asDot { :self |
+	asDot { :self :options |
 		let isMixed = self.isMixed;
 		let graphType = self.isUndirected.if { 'graph' } { 'digraph' };
-		let layoutRule = self.isUndirected.if { 'neato' } { 'dot' };
-		let begin = '% {\ngraph [layout="%"];'.format([graphType, layoutRule]);
+		let begin = '% {\ngraph [layout="%"];'.format(
+			[
+				graphType,
+				options['method']
+			]
+		);
 		let vertexLabels = self.hasVertexLabels.if {
 			self.vertexLabels
 		} {
@@ -80,6 +84,12 @@
 			edgeText,
 			end
 		].unlines
+	}
+
+	asDot { :self |
+		self.asDot(
+			method: self.isUndirected.if { 'neato' } { 'dot' }
+		)
 	}
 
 	asGeometryCollection { :self |
@@ -153,6 +163,10 @@
 		[d, p]
 	}
 
+	dijkstrasAlgorithm { :g :s |
+		g.dijkstrasAlgorithm(s, nil)
+	}
+
 	edgeCount { :self |
 		self.edgeList.size
 	}
@@ -185,14 +199,14 @@
 		let n = g.vertexCount;
 		let m = [];
 		1.toDo(n) { :i |
-			let [d, p] = g.dijkstrasAlgorithm(i, nil);
+			let [d, p] = g.dijkstrasAlgorithm(i);
 			m.add(d)
 		};
 		m
 	}
 
 	graphPlot { :self |
-		Plot([self], 'graph')
+		[self].Plot('graph', (method: 'neato'))
 	}
 
 	hasValidEdgeList { :self |
@@ -422,6 +436,10 @@
 		}
 	}
 
+	treePlot { :self |
+		Plot([self], 'graph', (method: 'dot'))
+	}
+
 	undirectedGraph { :self |
 		Graph(
 			self.vertexList,
@@ -530,9 +548,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.edgeList.add(edge)
 	}
 
-	dotDrawing { :self |
-		let layoutEngine = self.isDirected.if { 'dot' } { 'neato' };
-		self.asDot.dotLayout('svg', layoutEngine).then { :answer |
+	dotDrawing { :self :options |
+		let layoutEngine = options['method'];
+		['dotDrawing', layoutEngine].postLine;
+		self.asDot(options).dotLayout('svg', layoutEngine).then { :answer |
 			answer.Svg
 		}
 	}

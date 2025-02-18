@@ -110,6 +110,8 @@ Depth of a nested `Record`:
 
 See also: leafCount, rank
 
+Guides: Tree Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Depth.html)

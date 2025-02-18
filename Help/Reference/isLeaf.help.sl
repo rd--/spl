@@ -2,7 +2,7 @@
 
 - _isLeaf(aTree)_
 
-A `Tree` is a _leaf_ if its size is zero:
+A `Tree` is a _leaf_ if its `size` is `zero`:
 
 ```
 >>> Tree(1, []).isLeaf
@@ -14,7 +14,9 @@ false
 
 * * *
 
-See also: isTree, Tree
+See also: isTree, size, Tree, zero
+
+Guides: Tree Functions
 
 References:
 _Mathematica_

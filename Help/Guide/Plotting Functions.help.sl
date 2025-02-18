@@ -13,3 +13,4 @@
 - `stemLeafPlot`
 - `stepPlot`
 - `surfacePlot`
+- `treePlot`

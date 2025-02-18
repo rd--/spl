@@ -41,6 +41,8 @@ Draw graph:
 
 See also: Graph, Permutation, permutationInversions
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationGraph.html),

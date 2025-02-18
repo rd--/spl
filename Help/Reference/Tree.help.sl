@@ -479,12 +479,13 @@ An asymmetric tree:
 
 See also: expressionTree, List
 
+Guides: Tree Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/containers/docs/Data-Tree.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tree.html)
 [2](https://reference.wolfram.com/language/ref/Tree.html)
-
 
 Categories: Type, Collection, Tree

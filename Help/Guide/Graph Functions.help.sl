@@ -1,21 +1,28 @@
 # Graph Functions
 
-## Constructor Functions
+## Traits and Types
 
+- `DelaunayTriangulation`
 - `DirectedEdge`: directed edge
 - `Graph`: graph
 - `UndirectedEdge`: undirected edge
+
+## Constructor Functions
+
 - `adjacencyGraph`: adjacency graph
+- `circulantGraph`: circulant graph
 - `complementGraph`: complement
 - `completeBipartiteGraph`: bipartite
 - `completeGraph`: complete graph
 - `cubeGraph`: cube graph
 - `cycleGraph`: cycle graph
 - `gridGraph`: grid graph
+- `hararyGraph`: Harary graph
 - `incidenceGraph`: incidence graph
 - `lineGraph`: line graph
 - `neighbourhoodGraph`: neighbourhood
 - `pathGraph`: path graph
+- `permutationGraph`: permutation graph
 - `relationGraph`: relation graph
 - `starGraph`: star graph
 - `subgraph`: subgraph
@@ -33,9 +40,13 @@
 - `adjacencyMatrix`: adjacency matrix
 - `connectionMatrix`: connection matrix
 - `degreeSequence`: degree sequence
+- `dijkstrasAlgorithm`: Dijkstras algorithm
 - `edgeCount`: edge count
 - `edgeLabels`: edge labels
 - `edgeList`: edge list
+- `findShortestPath`: shortest path
+- `graphDistance`: distance
+- `graphDistanceMatrix`: distance matrix
 - `incidenceList`: incidence list
 - `incidenceMatrix`: incidence matrix
 - `labeledVertexList`: labeled vertex list
@@ -82,3 +93,14 @@
 - `completeGraphDrawing`
 - `dotLayout`
 - `graphPlot`
+- `treePlot`
+
+## Catalogs
+
+- `sageSmallGraphCatalogue`
+
+* * *
+
+See also: Graph
+
+Guides: Tree Functions

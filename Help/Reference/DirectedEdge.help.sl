@@ -34,8 +34,10 @@ A graph with directed edges:
 
 See also: ->, ---, asEdge, Graph, UndirectedEdge
 
-Unicode: U+027F6 ⟶ Long Rightwards Arrow
+Guides: Graph Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DirectedEdge.html)
+
+Unicode: U+027F6 ⟶ Long Rightwards Arrow

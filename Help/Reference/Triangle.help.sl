@@ -90,6 +90,7 @@ See also: Circle, equilateralTriangle, Line, Polygon, Rectangle
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Triangle.html)
+[1](https://mathworld.wolfram.com/Triangle.html)
+[2](https://reference.wolfram.com/language/ref/Triangle.html)
 
 Categories: Geometry

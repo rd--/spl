@@ -25,8 +25,20 @@ false
 true
 ```
 
+At `Tree` answers if the tree is a binary tree:
+
+```
+>>> { :x | [x x] }
+>>> .iterate(nil, 4)
+>>> .expressionTree(nil)
+>>> .isBinary
+true
+```
+
 * * *
 
-See also: Binary
+See also: Binary, Tree
+
+Guides: Tree Functions
 
 Categories: Testing

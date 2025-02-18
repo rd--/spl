@@ -64,6 +64,8 @@ The `depth` of an array is one greater than its `rank`:
 
 See also: depth, isArray, isMatrix, isVector, matrixRank, reshape, Sequence, shape
 
+Guides: Matrix Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Rank)

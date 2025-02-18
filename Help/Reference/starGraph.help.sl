@@ -39,7 +39,9 @@ The `vertexList` and `edgeList` of a star graph:
 The line graph of the star graph _S(n)_ is a complete graph _K(n - 1)_:
 
 ```
->>> 5.starGraph.lineGraph.adjacencyMatrix
+>>> 5.starGraph
+>>> .lineGraph
+>>> .adjacencyMatrix
 [
 	0 1 1 1;
 	1 0 1 1;

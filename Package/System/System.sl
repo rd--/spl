@@ -1,18 +1,8 @@
-System! : [Object, Cache, Indexable, RandomNumberGenerator] {
+System! : [Object, Cache, RandomNumberGenerator] {
 
 	= { :self :anObject |
 		self == anObject
 	}
-
-	/*
-	at { :self :index |
-		self.globalDictionary[index]
-	}
-
-	atPut { :self :key :anObject |
-		self.globalDictionary[key] := anObject
-	}
-	*/
 
 	basicNextRandomFloat { :self |
 		<primitive: return Math.random();>
@@ -80,25 +70,11 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 		}
 	}
 
-	/*
-	globalDictionary { :self |
-		self.cached('globalDictionary') {
-			()
-		}
-	}
-	*/
-
 	homeDirectory { :self |
 		self.environmentVariable('HOME').ifNil {
 			self.error('homeDirectory: not set')
 		}
 	}
-
-	/*
-	indices { :self |
-		self.globalDictionary.indices
-	}
-	*/
 
 	isBigEndian { :unused |
 		1.unsigned32BitWordList[1] = 16r3FF00000
@@ -304,7 +280,7 @@ System! : [Object, Cache, Indexable, RandomNumberGenerator] {
 
 	workspace { :self |
 		self.cached('workspace') {
-			Map()
+			Record()
 		}
 	}
 

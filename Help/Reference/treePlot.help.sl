@@ -44,7 +44,9 @@ A tree with only `nil` data:
 
 * * *
 
-See also: Tree
+See also: graphPlot, Tree
+
+Guides: Graph Functions, Plotting Functions, Tree Functions
 
 References:
 _Mathematica_

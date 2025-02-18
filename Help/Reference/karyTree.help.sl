@@ -20,7 +20,6 @@ karyTree(15, 3).treePlot
 
 ![](sw/spl/Help/Image/karyTree-B.svg)
 
-
 Generate a quaternary tree with eight vertices:
 
 ~~~spl svg=C

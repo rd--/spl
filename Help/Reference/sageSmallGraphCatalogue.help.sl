@@ -123,6 +123,8 @@ The `sageSmallGraphCatalogue` method is `requireLibraryItem` of 'SageSmallGraphC
 
 See also: Graph
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ParapluieGraph.html)
