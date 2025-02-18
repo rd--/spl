@@ -114,7 +114,7 @@ Construct a graph from its adjacency matrix:
 ```
 >>> let m = [0 1 0; 0 0 1; 1 0 0];
 >>> let g = { :i :j |
->>> 	m[i,j] = 1
+>>> 	m[i, j] = 1
 >>> }.relationGraph(true, [1 2 3]);
 >>> (g.edgeList, g.adjacencyMatrix)
 (

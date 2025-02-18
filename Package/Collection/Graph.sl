@@ -121,8 +121,74 @@
 		self.vertexDegree.sortBy(>)
 	}
 
+	dijkstrasAlgorithm { :g :s :t |
+		let k = g.vertexCount;
+		let w = g.edgeWeights;
+		let e = g.edgeList;
+		let q = PriorityQueue();
+		let d = List(k, Infinity);
+		let p = List(k);
+		d[s] := 0;
+		p[s] := nil;
+		q.pushWithPriority(s, 0);
+		{ q.isEmpty }.whileFalse {
+			let u = q.pop;
+			(u = t).if {
+				q.removeAll
+			} {
+				g.vertexOutNeighbours(u).do { :v |
+					let uv = u --> v;
+					let i = e.detectIndex { :each |
+						each.matchesEdge(uv)
+					};
+					let a = d[u] + w[i];
+					(a < d[v]).ifTrue {
+						p[v] := u;
+						d[v] := a;
+						q.pushWithPriority(v, a)
+					}
+				}
+			}
+		};
+		[d, p]
+	}
+
 	edgeCount { :self |
 		self.edgeList.size
+	}
+
+	edgeIndex { :self :edge |
+		self.edgeList.detectIndex { :each |
+			each.matchesEdge(edge)
+		}
+	}
+
+	findShortestPath { :g :s :t |
+		let answer = [];
+		let [d, p] = g.dijkstrasAlgorithm(s, t);
+		let u = t;
+		( p[u] ~= nil | { u = s } ).ifTrue {
+			{ u ~= nil }.whileTrue {
+				answer.addFirst(u);
+				u := p[u]
+			}
+		};
+		answer
+	}
+
+	graphDistance { :g :s :t |
+		let [d, p] = g.dijkstrasAlgorithm(s, t);
+		d[t]
+	}
+
+	graphDistanceMatrix { :g |
+		let n = g.vertexCount;
+		let m = [];
+		1.toDo(n) { :i |
+			let [d, p] = g.dijkstrasAlgorithm(i, nil);
+			m.add(d)
+		};
+		m
 	}
 
 	graphPlot { :self |
@@ -248,6 +314,21 @@
 		self.hasValidEdgeList
 	}
 
+	kirchhoffMatrix { :self |
+		let v = self.vertexList;
+		{ :i :j |
+			(i = j).if {
+				self.vertexDegree(i)
+			} {
+				self.includesEdge(i --> j).if {
+					-1
+				} {
+					0
+				}
+			}
+		}.table(v, v)
+	}
+
 	labeledVertexList { :self |
 		self.vertexList.collect { :each |
 			each -> self.vertexLabel(each)
@@ -312,6 +393,17 @@
 				}
 			}
 		}
+	}
+
+	simpleGraph { :self |
+		let v = self.vertexList;
+		let e = Set(matchesEdge:/2);
+		self.edgeList.do { :each |
+			(each[1] ~= each[2]).ifTrue {
+				e.include(each)
+			}
+		};
+		Graph(v, e.contents)
 	}
 
 	subgraph { :self :vertexList |
@@ -454,6 +546,21 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self
 	}
 
+	edgeWeights { :self |
+		self.properties.atIfAbsent('edgeWeights') {
+			1 # self.edgeCount
+		}
+	}
+
+	edgeWeights { :self :aList |
+		self.properties['edgeWeights'] := aList;
+		self
+	}
+
+	hasEdgeLabels { :self |
+		self.properties.includesKey('edgeLabels')
+	}
+
 	hasVertexLabels { :self |
 		self.properties.includesKey('vertexLabels')
 	}
@@ -462,6 +569,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		self.includesEdge(edge).ifFalse {
 			self.addEdge(edge)
 		}
+	}
+
+	isEdgeWeightedGraph { :self |
+		self.properties.includesKey('edgeWeights')
 	}
 
 	printString { :self |
@@ -489,6 +600,17 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 }
 
 +@Integer {
+
+	circulantGraph { :self :aList |
+		let e = [];
+		1.toDo(self) { :i |
+			aList.do { :j |
+				e.add([i, (i - j).mod(self, 1)]);
+				e.add([i, (i + j).mod(self, 1)])
+			}
+		};
+		e.asGraph.simpleGraph
+	}
 
 	completeBipartiteGraph { :self :anInteger |
 		let u = 1:self;
@@ -546,6 +668,41 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		1:self.collect { :each |
 			[each, each % self + 1]
 		}.asGraph
+	}
+
+	hararyGraphEdgeList { :k :n |
+		k.isEven.if {
+			let m = k / 2;
+			let e = [];
+			1.toDo(n) { :i |
+				1.to(m).do { :j |
+					let z = (i + j).mod(n, 1);
+					e.add([i, z])
+				}
+			};
+			e
+		} {
+			(k.isOdd & { n.isEven }).if {
+				let e = hararyGraphEdgeList(k - 1, n);
+				let m = n / 2;
+				1.toDo(m) { :i |
+					e.add([i, i + m])
+				};
+				e
+			} {
+				let e = hararyGraphEdgeList(k - 1, n);
+				let m = k // 2;
+				1.toDo((n - 1) / 2 + 1) { :i |
+					let z = (i + (n + 1 / 2)).mod(n, 1);
+					e.add([i, z])
+				};
+				e
+			}
+		}
+	}
+
+	hararyGraph { :k :n |
+		hararyGraphEdgeList(k, n).asGraph
 	}
 
 	pathGraph { :self |
@@ -690,6 +847,19 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			edgeList.collect(asEdge:/1),
 			()
 		)
+	}
+
+	weightedAdjacencyGraph { :self |
+		let m = self.deepCollect { :each |
+			(each = Infinity).if { 0 } { 1 }
+		};
+		let g = m.adjacencyGraph;
+		let w = g.edgeList.collect { :each |
+			let [i, j] = each;
+			self[i, j]
+		};
+		g.edgeWeights := w;
+		g
 	}
 
 }

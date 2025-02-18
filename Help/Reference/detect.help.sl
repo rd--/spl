@@ -9,10 +9,14 @@ If there is no such element, raise an error.
 Find the first element matching a predicate:
 
 ```
->>> (5 .. 1).detect { :each | each % 2 = 0 }
+>>> (5 .. 1).detect { :each |
+>>> 	each % 2 = 0
+>>> }
 4
 
->>> (5 .. 1).detect { :each | each * 2 <= 4 }
+>>> (5 .. 1).detect { :each |
+>>> 	each * 2 <= 4
+>>> }
 2
 ```
 
@@ -27,7 +31,7 @@ It is an error if no element is detected:
 true
 ```
 
-Detect the firs prime number in a `Range`:
+Detect the first prime number in a `Range`:
 
 ```
 >>> 99:111.detect(isPrime:/1)
@@ -36,7 +40,7 @@ Detect the firs prime number in a `Range`:
 
 * * *
 
-See also: detectIfFoundIfNone, detectIfNone, findFirst, reject, select
+See also: detectIfFoundIfNone, detectIfNone, detectIndex, findFirst, reject, select
 
 References:
 _Smalltalk_

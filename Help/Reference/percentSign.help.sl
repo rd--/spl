@@ -54,12 +54,86 @@ Real numbers:
 [1.5 3 0]
 ```
 
-For integers _a % m_ answers the _common residue_ of _a_ modulo _m_,
+For integers,
+_a % m_ answers the _common residue_ of _a_ modulo _m_,
 i.e. non-negative and smaller than _m_:
 
 ```
 >>> [-2 -1 12 13] % 12
 [10 11 0 1]
+```
+
+Fermats little theorem:
+
+```
+>>> 7.gcd(11)
+1
+
+>>> 7 ^ (11 - 1) % 12
+1
+```
+
+Eulers theorem:
+
+```
+>>> 7.gcd(12)
+1
+
+>>> 7 ^ 12.eulerPhi % 12
+1
+```
+
+`%` is transitive:
+
+```
+>>> (5 % 3) = (2 % 3)
+true
+
+>>> (2 % 3) = (8 % 3)
+true
+
+>>> (8 % 3) = (5 % 3)
+true
+```
+
+If _n_ divides _m_ then _m % n = 0_:
+
+```
+>>> 8.divisible(2)
+true
+
+>>> 8 % 2
+0
+```
+
+The second part of the `quotientRemainder` is the same as `%`:
+
+```
+>>> 17.quotientRemainder(6)
+[2 5]
+
+>>> 17 % 6
+5
+```
+
+The answers have the same sign as the modulus:
+
+```
+>>> [5 -5] % 3
+[2 1]
+
+>>> [5 -5] % -3
+[-1 -2]
+```
+
+For a positive real number _x_, _x % 1_ gives the fractional part of _x_:
+
+```
+>>> 3.141 % 1
+0.141
+
+>>> 3.141.fractionPart
+0.141
 ```
 
 Plot the sequence with fixed modulus:
@@ -96,7 +170,8 @@ let k = (0L .. 64L);
 Plot of an Ulam spiral where numbers are colored based on their congruence:
 
 ~~~spl png=D
-(109.ulamSpiralMatrix % 109 / 109).Graymap
+(109.ulamSpiralMatrix % 109 / 109)
+.Graymap
 ~~~
 
 ![](sw/spl/Help/Image/percentSign-D.png)
@@ -123,11 +198,21 @@ let n = 2;
 
 ![](sw/spl/Help/Image/percentSign-F.svg)
 
+Simulate a particle bouncing in a noncommensurate box:
+
+~~~spl svg=G
+(0, 0.01 .. 15).collect { :t |
+	t % [2.sqrt 1]
+}.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/percentSign-G.svg)
+
 The name of this operator is `percentSign`.
 
 * * *
 
-See also: /, //, \\, divisible, minimalResidue, quotient, remainder
+See also: /, //, \\, divisible, minimalResidue, mod, quotient, remainder
 
 References:
 _Apl_

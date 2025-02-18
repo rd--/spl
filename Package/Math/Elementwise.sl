@@ -566,12 +566,22 @@
 		)
 	}
 
+	max { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, max:/2)
+	}
+
 	min { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, min:/2)
 	}
 
-	max { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, max:/2)
+	mod { :m :n |
+		n.adaptToCollectionAndApply(m, mod:/2)
+	}
+
+	mod { :m :n :d |
+		n.adaptToCollectionAndApply(m) { :i :j |
+			i.mod(j, d)
+		}
 	}
 
 	nthRoot { :self :anObject |

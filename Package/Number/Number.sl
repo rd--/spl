@@ -516,6 +516,14 @@
 		[i, self - i]
 	}
 
+	mod { :m :n |
+		m - (n * m.quotient(n))
+	}
+
+	mod { :m :n :d |
+		m - (n * ((m - d) / n).floor)
+	}
+
 	negated { :self |
 		self * -1
 	}

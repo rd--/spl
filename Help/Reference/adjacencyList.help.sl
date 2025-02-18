@@ -13,8 +13,15 @@ A list of vertices adjacent to vertices one through five of an undirected graph:
 
 ```
 >>> let g = [
->>> 	1 3; 1 4; 1 6; 2 4; 2 5; 2 7; 3 5; 3 8;
->>> 	4 9; 5 10; 6 7; 6 10; 7 8; 8 9; 9 10
+>>> 	1 3; 1 4; 1 6;
+>>> 	2 4; 2 5; 2 7;
+>>> 	3 5; 3 8;
+>>> 	4 9;
+>>> 	5 10;
+>>> 	6 7; 6 10;
+>>> 	7 8;
+>>> 	8 9;
+>>> 	9 10
 >>> ].asGraph;
 >>> 1:5.collect { :each |
 >>> 	g.adjacencyList(each)
@@ -55,13 +62,16 @@ Relation to `incidenceList`:
 >>> 	5 6; 6 7; 7 8; 8 1;
 >>> 	1 5; 2 6; 3 7; 4 8
 >>> ].asGraph;
->>> (g.adjacencyList(2), g.incidenceList(2))
+>>> (
+>>> 	g.adjacencyList(2),
+>>> 	g.incidenceList(2)
+>>> )
 ([1 3 6], [1 2; 2 3; 2 6].asEdgeList)
 ```
 
 * * *
 
-See also: adjacencyGraph, adjacencyMatrix, incidenceList
+See also: adjacencyGraph, adjacencyMatrix, incidenceList, neighbours, neighbourhoodGraph, vertexInNeighbours, vertexOutNeighbours
 
 Guides: Graph Functions
 
