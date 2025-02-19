@@ -4,10 +4,18 @@
 
 Parse a subset of the _Css_ and _Html_ format hexadecimal colour notation,
 answering a `List` of _(0,1)_ values.
+The triplet must have a leading number sign.
 
 ```
 >>> '#98ECE8'.parseHexTriplet
 [0.59608 0.92549 0.90980]
+```
+
+The triplet can, in fact, have four places, indicating an _alpha_ channel:
+
+```
+>>> '#98ECE87F'.parseHexTriplet
+[0.59608 0.92549 0.90980 0.49804]
 ```
 
 Draw parsed colour:
@@ -20,7 +28,7 @@ Draw parsed colour:
 
 * * *
 
-See also: Colour, hexString, parseHexColour, parseRgbColour, RgbColour, rgbString
+See also: Colour, hexTriplet, parseHexColour, parseRgbColour, RgbColour, rgbString
 
 Guides: Colour Functions
 

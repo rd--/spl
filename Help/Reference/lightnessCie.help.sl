@@ -13,6 +13,8 @@ Return the Lightness _L*_ of given luminance _y_ using given reference white lum
 
 See also: Colour
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/latest/generated/colour.colorimetry.lightness_CIE1976.html)

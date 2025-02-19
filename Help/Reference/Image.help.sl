@@ -2,7 +2,7 @@
 
 - _Image(anArray)_
 
-An `Image` is a discrete image where each cell is an _(r,g,b)_ triple of real numbers between `zero` and `one`.
+An `Image` is a discrete image where each cell is an _(r, g, b)_ triple of real numbers between `zero` and `one`.
 
 `Image` in portable pixel map format:
 

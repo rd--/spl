@@ -428,3 +428,20 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++Block {
+
+	densityPlot { :self:/2 :xInterval :yInterval |
+		let k = 100;
+		let colourFunction = { :z |
+			[z, 0.75, 0.75].hslToRgb
+		};
+		{ :x :y |
+			self(x, y).colourFunction
+		}.table(
+			xInterval.discretize(k),
+			yInterval.discretize(k)
+		).Image
+	}
+
+}

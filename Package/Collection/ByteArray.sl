@@ -150,14 +150,19 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		self.utf8ByteArray.crc16
 	}
 
-	parseHexString { :self |
+	parseHexStringInto { :self :where |
 		<primitive:
-		const bytes = new Uint8Array(_self.length / 2);
-		for(let i = 0; i < _self.length; i ++) {
-			bytes[i] = parseInt(_self.substr(i * 2, 2), 16);
-		}
-		return bytes;
+		for(let i = 0; i < _self.length; i++) {
+			_where[i] = parseInt(_self.substr(i * 2, 2), 16);
+		};
+		return _where;
 		>
+	}
+
+	parseHexString { :self |
+		self.parseHexStringInto(
+			ByteArray(self.size / 2)
+		)
 	}
 
 }

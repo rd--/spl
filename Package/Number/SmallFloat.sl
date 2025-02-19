@@ -240,14 +240,9 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			let hexString = self.basicPrintString(16);
-			(self < 16).if {
-				'0' ++ hexString
-			} {
-				hexString
-			}
+			self.basicPrintString(16).padLeft(2, '0')
 		} {
-			self.error('byteHexString: not a byte')
+			self.error('SmallFloat>>byteHexString: not a byte')
 		}
 	}
 

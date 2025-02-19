@@ -1,9 +1,9 @@
 # asColour
 
-- _asColour(aNumber | aSequence)_
+- _asColour(aNumber | aSequence | aColour)_
 
 Answer an `RgbColour` value specified as either the greyscale level _aNumber_,
-or as _(r,g,b)_ parameters in _aSequence_.
+or as _(r, g, b)_ parameters in _aSequence_.
 
 Opaque grey:
 
@@ -46,7 +46,7 @@ A light grey colour patch:
 
 * * *
 
-See also: Colour, RgbColour
+See also: Colour, parseHexColour, RgbColour
 
 Guides: Colour Functions
 

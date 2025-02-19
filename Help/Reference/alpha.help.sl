@@ -12,4 +12,6 @@ Where supported `alpha` is displayed as α.
 
 See also: blue, Colour, green, red
 
+Guides: Colour Functions
+
 Unicode: U+03B1 α Greek Small Letter Alpha

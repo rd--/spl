@@ -23,4 +23,12 @@ RgbColour([1 0 0], 0.65)
 
 See also: alpha, blue, Colour, green, RgbColour
 
+Guides: Colour Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Red.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Red)
+
 Categories: Colour

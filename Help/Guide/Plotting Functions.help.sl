@@ -1,6 +1,7 @@
 # Plotting Functions
 
 - `arrayPlot`
+- `densityPlot`
 - `discretePlot`
 - `functionPlot`
 - `graphPlot`

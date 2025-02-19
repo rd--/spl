@@ -27,7 +27,7 @@ Guides: Colour Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Blue.html.en),
+[1](https://reference.wolfram.com/language/ref/Blue.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Blue)
 

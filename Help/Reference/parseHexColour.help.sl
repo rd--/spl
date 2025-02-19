@@ -7,7 +7,7 @@ answering an `RgbColour` value in _Srgb_ colour space.
 
 ```
 >>> let c = '#98ECE8'.parseHexColour;
->>> (c, c.hexString, c.rgbString)
+>>> (c, c.hexTriplet, c.rgbString)
 (
 	RgbColour([152 236 232] / 255, 1),
 	'#98ECE8',
@@ -25,7 +25,7 @@ Draw parsed colour:
 
 * * *
 
-See also: Colour, hexString, parseHexTriplet, parseRgbColour, rgbString, RgbColour
+See also: Colour, hexTriplet, parseHexTriplet, parseRgbColour, rgbString, RgbColour
 
 Guides: Colour Functions
 

@@ -32,8 +32,11 @@ Colour values can be drawn as swatches:
 Colour as hash-prefixed hexadecimal string:
 
 ```
->>> RgbColour([16rF9 16r73 16r06] / 255, 1)
->>> .hexString
+>>> RgbColour(
+>>> 	[16rF9 16r73 16r06] / 255,
+>>> 	1
+>>> )
+>>> .hexTriplet
 '#F97306'
 ```
 
@@ -56,7 +59,8 @@ true
 Is colour grey with particular value:
 
 ```
->>> RgbColour([0.5, 0.5, 0.5], 1).isGreyOf(0.5)
+>>> RgbColour([0.5, 0.5, 0.5], 1)
+>>> .isGreyOf(0.5)
 true
 ```
 

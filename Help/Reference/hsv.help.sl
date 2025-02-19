@@ -19,7 +19,9 @@ Threads over lists:
 
 * * *
 
-See also: Colour, Hsv, hsvToRgb, hue, RgbColour
+See also: Colour, HsvColour, hsvToRgb, hue, RgbColour
+
+Guides: Colour Functions
 
 References:
 _W_

@@ -45,6 +45,6 @@ At `AsciiString`:
 
 * * *
 
-See also: asciiByteArray, AsciiString, base64Encoded, parseHexString, String
+See also: asciiByteArray, AsciiString, asHexDigit, base64Encoded, parseHexString, String
 
 Categories: Converting

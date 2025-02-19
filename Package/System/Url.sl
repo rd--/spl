@@ -207,8 +207,10 @@ URL! : [Object, Url] {
 	}
 
 	cachedFetchMimeType { :self :cacheName :mimeType |
-		self.cachedFetch(cacheName).then { :response |
+		self.cachedFetch(cacheName).thenElse { :response |
 			response.asMimeType(mimeType)
+		} { :reason |
+			self.error('Url>>cachedFetchMimeType: ' ++ reason)
 		}
 	}
 

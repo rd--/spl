@@ -4,16 +4,24 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 
 	cachedFetch { :self |
 		self.url.asUrl.cachedFetchMimeType('SplLibraryItems', self.mimeType).thenElse { :answer |
+			(self.name = 'ColourPalette').ifTrue {
+				answer.postLine
+			};
 			self.contents := self.parse(answer);
 			system.cache[self.name] := self.contents;
 			self.contents
 		} { :reason |
-			self.error(reason)
+			[self, reason].postLine;
+			self.error('LibraryItem>>cachedFetch: ' ++ reason)
 		}
 	}
 
 	parse { :self :aString |
 		self.parser.value(aString)
+	}
+
+	printString { :self |
+		'LibraryItem(%, %, %, %)'.format([self.name, self.category, self.url, self.mimeType])
 	}
 
 	request { :self |
@@ -74,16 +82,20 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 	}
 
 	awaitLibraryItem { :self :name :aBlock:/0 |
-		self.requestLibraryItem(name).then { :unused |
+		self.requestLibraryItem(name).thenElse { :unused |
 			aBlock()
+		} { :reason |
+			self.error('awaitLibraryItem: failure: ' ++ reason)
 		}
 	}
 
 	awaitLibraryItems { :self :names :aBlock:/0 |
 		names.collect { :each |
 			self.requestLibraryItem(each)
-		}.allFulfilled.then { :unused |
+		}.allFulfilled.thenElse { :unused |
 			aBlock()
+		} { :reason |
+			self.error('awaitLibraryItems: failure: ' ++ reason)
 		}
 	}
 

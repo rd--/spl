@@ -44,7 +44,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 	}
 
 	colour { :self :aColour |
-		self.container.style.setProperty('background-color', aColour.hexString, '')
+		self.container.style.setProperty('background-color', aColour.hexTriplet, '')
 	}
 
 	dialog { :self :subject :event |

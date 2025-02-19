@@ -184,6 +184,8 @@
 
 ].primitiveLoadPackageSequence.then { :unused |
 	'config/preferences.json'.primitiveReadLocalBinaryFile
-}.then { :byteArray |
+}.thenElse { :byteArray |
 	system.cache['preferences'] := byteArray.utf8String.parseJson
+} { :reason |
+	system.error('Failed to load preferences?')
 }

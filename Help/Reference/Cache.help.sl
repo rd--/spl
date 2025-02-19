@@ -40,7 +40,7 @@ however it does implement:
 Remove an item from the 'SplLibrary' cache:
 
 ~~~spl async
-let key ='McClurePolyhedraCatalogue';
+let key ='ColourPalettes';
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |

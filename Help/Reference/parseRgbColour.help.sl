@@ -10,7 +10,7 @@ The inverse is `rgbString`.
 ```
 >>> let s = 'rgb(152,236,232)';
 >>> let c = s.parseRgbColour;
->>> (c, c.rgbString, c.hexString)
+>>> (c, c.rgbString, c.hexTriplet)
 (
 	RgbColour([152 236 232] / 255, 1),
 	'rgb(152,236,232)',

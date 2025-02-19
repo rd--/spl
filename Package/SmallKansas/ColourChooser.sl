@@ -2,7 +2,7 @@
 
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
-	hexString { :self |
+	hexTriplet { :self |
 		self.colourInput.getAttribute('value')
 	}
 
@@ -13,7 +13,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 		self.colourInput := 'input'.createElement(
 			class: 'colourInput',
 			type: 'color',
-			value: initialColour.hexString
+			value: initialColour.hexTriplet
 		);
 		self.colourChooserPane.appendChild(self.colourInput);
 		self.colourInput.addEventListener('input') { :event |
@@ -51,9 +51,14 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 +SmallKansas {
 
 	colourChooserOn { :self :subject :event |
-		self.addFrame(ColourChooser({ :aColour |
-			subject.colour(aColour)
-		}), event)
+		self.addFrame(
+			ColourChooser(
+				{ :aColour |
+					subject.colour(aColour)
+				}
+			),
+			event
+		)
 	}
 
 }

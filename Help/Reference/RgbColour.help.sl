@@ -10,6 +10,8 @@ with an `alpha` channel.
 
 See also: asColour, Colour, HsvColour, srgbEncode
 
+Guides: Colour Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RGBColor.html),

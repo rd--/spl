@@ -1443,7 +1443,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'red'
 	],
 	'converting-colour': [
-		'hexString'
+		'hexTriplet'
 		'hsvToRgb'
 		'rgbString'
 		'rgbToHsv'

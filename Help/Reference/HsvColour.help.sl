@@ -6,7 +6,7 @@ Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)
 `HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` color model.
 
 ~~~spl svg=A
-HsvColour([1 / 3, 1 / 4, 1], 1)
+HsvColour([1/3 1/4 1], 1)
 ~~~
 
 ![](sw/spl/Help/Image/HsvColour-A.svg)
@@ -56,35 +56,40 @@ true
 Colour predicates (_s=1_ & _v=1_):
 
 ```
->>> HsvColour([0 / 360, 1, 1], 1).isRed
+>>> HsvColour([0/360 1 1], 1).isRed
 true
 
->>> HsvColour([120 / 360, 1, 1], 1).isGreen
+>>> HsvColour([120/360 1 1], 1).isGreen
 true
 
->>> HsvColour([240 / 360, 1, 1], 1).isBlue
+>>> HsvColour([240/360 1 1], 1).isBlue
 true
 
->>> HsvColour([60 / 360, 1, 1], 1).isYellow
+>>> HsvColour([60/360 1 1], 1).isYellow
 true
 
->>> HsvColour([180 / 360, 1, 1], 1).isCyan
+>>> HsvColour([180/360 1 1], 1).isCyan
 true
 
->>> HsvColour([300 / 360, 1, 1], 1).isMagenta
+>>> HsvColour([300/360 1 1], 1).isMagenta
 true
 ```
 
 At specific values:
 
 ```
->>> HsvColour([251.5 / 360, 0.887, 0.918], 1)
+>>> HsvColour(
+>>> 	[251.5 / 360, 0.887, 0.918],
+>>> 	1
+>>> )
 RgbColour([0.25980, 0.10374, 0.918], 1)
 ```
 
 * * *
 
-See also: Colour, hsvToRgb
+See also: Colour, hsv, hsvToRgb
+
+Guides: Colour Functions
 
 References:
 _Mathematica_

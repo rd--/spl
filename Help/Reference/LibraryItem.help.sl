@@ -38,6 +38,7 @@ unless the contents are already stored:
 system
 .library
 .collect(request:/1)
+.values
 .allFulfilled
 ~~~
 

@@ -1,13 +1,13 @@
 # Colour Functions
 
-## Traits
+## Traits and Types
 
 - `Colour`
+- `RgbColour`
 
 ## Constructors
 
 - `HsvColour`
-- `RgbColour`
 
 ## Accessing
 
@@ -59,10 +59,12 @@
 - `srgbDecode`
 - `srgbEncode`
 
-## Parsers
+## Parsers and Printers
 
 - `parseHexColour`
+- `parseHexTriplet`
 - `parseRgbColour`
+- `parseRgbTriplet`
 
 ## Physics
 

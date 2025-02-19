@@ -12,7 +12,7 @@ Frame : [Object, UserEventTarget] {
 	}
 
 	colour { :self :aColour |
-		self.framePane.style.setProperty('background-color', aColour.hexString, '')
+		self.framePane.style.setProperty('background-color', aColour.hexTriplet, '')
 	}
 
 	createElements { :self |

@@ -2,7 +2,7 @@
 
 - _asHexDigit(anInteger)_
 
-Answer the Character representing given hexadecimal digit.
+Answer the `Character` representing given hexadecimal digit.
 
 ```
 >>> 15.asHexDigit
@@ -21,6 +21,6 @@ true
 
 * * *
 
-See also: Character, Integer
+See also: asHexString, Character, Integer
 
 Categories: Converting

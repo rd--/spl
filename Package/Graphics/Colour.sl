@@ -16,7 +16,7 @@
 		[
 			'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">',
 			'<rect x="0" y="0" width="100" height="100" fill="%"/>'.format([
-				self.hexString
+				self.hexTriplet
 			]),
 			'</svg>'
 		].unlines.Svg
@@ -34,8 +34,9 @@
 		self.rgb.second
 	}
 
-	hexString { :self |
-		'#' ++ self.rgb.collect { :each |
+	hexTriplet { :self |
+		let c = (self.alpha = 1).if { self.rgb } { self.rgba };
+		'#' ++ c.collect { :each |
 			(each * 255).rounded.byteHexString
 		}.join('')
 	}
@@ -209,6 +210,10 @@ RgbColour : [Object, Colour] { | rgb alpha |
 
 }
 
+ColourGradient : [Object] { | colourList positionList |
+
+}
+
 +List {
 
 	asColour { :self |
@@ -220,9 +225,18 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		}
 	}
 
+	asColourGradient { :self |
+		let [c, p] = self;
+		ColourGradient(c, p)
+	}
+
+	ColourGradient { :self :aList |
+		newColourGradient().initializeSlots(self, aList)
+	}
+
 	HsvColour { :self :alpha |
 		RgbColour(
-			self.hsvToRgb,
+			self.asFloat.hsvToRgb,
 			alpha
 		)
 	}
@@ -710,20 +724,43 @@ RgbColour : [Object, Colour] { | rgb alpha |
 
 +String {
 
+	isHexTriplet { :self |
+		self.beginsWith('#') & {
+			self.size = 7 | {
+				self.size = 9
+			}
+		}
+	}
+
+	isRgbTriplet { :self |
+		self.beginsWith('rgb(') & {
+			self.endsWith(')')
+		}
+	}
+
 	parseHexColour { :self |
-		RgbColour(
-			self.parseHexTriplet,
-			1
-		)
+		self.parseHexTriplet.asColour
 	}
 
 	parseHexTriplet { :self |
-		(self.size = 7).if {
+		let k = self.size;
+		self.isHexTriplet.ifFalse {
+			self.error('String>>parseHexTriplet: not hex triplet')
+		};
+		(k = 7 | { k = 9 }).if {
 			let r = self.copyFromTo(2, 3);
 			let g = self.copyFromTo(4, 5);
 			let b = self.copyFromTo(6, 7);
-			[r, g, b].collect { :each |
-				each.parseSmallInteger(16) / 255
+			let f = { :x |
+				x.collect { :each |
+					each.parseSmallInteger(16) / 255
+				}
+			};
+			(k = 9).if {
+				let a = (k = 9).if { self.copyFromTo(8, 9) } { 'FF' };
+				f([r, g, b, a])
+			} {
+				f([r, g, b])
 			}
 		} {
 			self.error('parseHexTriplet')
@@ -735,13 +772,17 @@ RgbColour : [Object, Colour] { | rgb alpha |
 	}
 
 	parseRgbTriplet { :self |
-		self.beginsWith('rgb(').if {
-			let [r, g, b] = self.copyFromTo(5, self.size - 1).splitBy(',');
-			[r, g, b].collect { :each |
-				each.parseSmallInteger(10) / 255
+		self.isRgbTriplet.if {
+			let c = self.copyFromTo(5, self.size - 1).splitBy(',');
+			c.size.betweenAnd(3, 4).if {
+				c.collect { :each |
+					each.parseSmallInteger(10) / 255
+				}
+			} {
+				self.error('String>>parseRgbTriplet: invalid triplet')
 			}
 		} {
-			self.error('parseRgbTriplet')
+			self.error('String>>parseRgbTriplet: not Rgb triplet')
 		}
 	}
 
@@ -752,6 +793,18 @@ RgbColour : [Object, Colour] { | rgb alpha |
 	colourCheckerChart { :self |
 		self.requireLibraryItem(
 			'ColourCheckerChart'
+		)
+	}
+
+	colourGradients { :self |
+		self.requireLibraryItem(
+			'ColourGradients'
+		)
+	}
+
+	colourPalettes { :self |
+		self.requireLibraryItem(
+			'ColourPalettes'
 		)
 	}
 
@@ -783,6 +836,50 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			each.parseHexTriplet
+		}
+	}
+)
+
+LibraryItem(
+	name: 'ColourPalettes',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ColourPalettes.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :i |
+			i.collect { :j |
+				j.collect { :k |
+					k.parseHexString.asList / 255
+				}
+			}
+		}
+	}
+)
+
+LibraryItem(
+	name: 'ColourGradients',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ColourGradients.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :i |
+			i.collect { :j |
+				j.isList.if {
+					[
+						j.collect { :k |
+							k.parseHexString.asList / 255
+						},
+						(0 -- 1).discretize(j.size)
+					]
+				} {
+					[
+						j['c'].collect { :k |
+							k.parseHexString.asList / 255
+						},
+						j['p']
+					]
+				}
+			}
 		}
 	}
 )
