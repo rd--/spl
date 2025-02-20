@@ -14,6 +14,16 @@ The value of the function at each of the input _x_ values equals the correspondi
 y
 ```
 
+Interpolate a two-column matrix:
+
+```
+>>> let x = [0 0.5 1];
+>>> let y = [0 1; 0.25 0.25; 1 1];
+>>> let f:/1 = x.linearInterpolator(y);
+>>> (0, 0.25 .. 1).collect(f:/1)
+[0 1; 0.125 0.625; 0.25 0.25; 0.625 0.625; 1 1]
+```
+
 Plot an interpolation over the specified _x_ range:
 
 ~~~spl svg=A

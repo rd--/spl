@@ -212,6 +212,54 @@ RgbColour : [Object, Colour] { | rgb alpha |
 
 ColourGradient : [Object] { | colourList positionList |
 
+	asBlock { :self |
+		self.positionList.linearInterpolator(
+			self.colourList
+		)
+	}
+
+	asSvg { :self |
+		let w = 300;
+		let h = 50;
+		let pre = [
+			'<svg',
+			'	width="%" height="%"'.format([w, h]),
+			'	viewBox="0 0 % %"'.format([w, h]),
+			'	xmlns="http://www.w3.org/2000/svg"',
+			'	xmlns:xlink="http://www.w3.org/1999/xlink"',
+			'>',
+			'<defs>',
+			'	<linearGradient id="gradient">'
+		];
+		let stops = { :c :p |
+			'		<stop offset="%" stop-color="%" />'.format(
+				[
+					p.printStringToFixed(3),
+					c.asColour.rgbString
+				]
+			)
+		}.map(self.colourList, self.positionList);
+		let post = [
+			'	</linearGradient>',
+			'</defs>',
+			'<rect width="%" height="%" fill="url(#gradient)" />'.format([w, h]),
+			'</svg>'
+		];
+		[pre, stops, post].concatenation.unlines.Svg
+	}
+
+	draw { :self |
+		self.asSvg.draw
+	}
+
+	resample { :self :anInteger |
+		let p = (0 -- 1).discretize(anInteger).asList;
+		ColourGradient(
+			p.collect(self.asBlock),
+			p
+		)
+	}
+
 }
 
 +List {

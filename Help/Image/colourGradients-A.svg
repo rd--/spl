@@ -1,7 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="162" height="54" viewBox="0 0 162 54">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="54" height="54" fill="rgb(244,168,48)"/>
-<rect x="54" y="0" width="54" height="54" fill="rgb(230,78,92)"/>
-<rect x="108" y="0" width="54" height="54" fill="rgb(173,54,228)"/>
-</g>
+<svg
+	width="375" height="50"
+	viewBox="0 0 375 50"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<defs>
+	<linearGradient id="gradient">
+		<stop offset="0" stop-color="rgb(244,168,48)" />
+		<stop offset="0.46" stop-color="rgb(230,78,92)" />
+		<stop offset="1" stop-color="rgb(173,54,228)" />
+	</linearGradient>
+</defs>
+<rect width="375" height="50" fill="url(#gradient)" />
 </svg>

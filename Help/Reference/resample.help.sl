@@ -27,6 +27,13 @@ Downsample an array:
 [1 3 5 7 9]
 ```
 
+Upsample a two-column matrix:
+
+```
+>>> [0 0; 1 1].resample(3)
+[0 0; 0.5 0.5; 1 1]
+```
+
 Downsample a sine function from 512 to 64 places:
 
 ~~~spl svg=A
