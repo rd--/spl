@@ -45,6 +45,13 @@ Very close to zero but not zero:
 (false, true)
 ```
 
+Threads over lists:
+
+```
+>>> [0 0 0].isZero
+true
+```
+
 * * *
 
 See also: isEven, isNegative, isOdd, isOne, isPositive, zero

@@ -520,6 +520,10 @@
 		false
 	}
 
+	isZero { :self |
+		self.allSatisfy(isZero:/1)
+	}
+
 	kroneckerDelta { :self |
 		self.allEqual.boole
 	}

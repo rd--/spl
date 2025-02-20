@@ -220,6 +220,28 @@
 		}
 	}
 
+	interpolation { :data :method |
+		let f:/2 = method.caseOfOtherwise([
+			'Akima' -> { akimaInterpolator:/2 },
+			'Linear' -> { linearInterpolator:/2 },
+			'Spline' -> { cubicSplineInterpolator:/2 }
+		]) {
+			data.error('interpolation: unknown method')
+		};
+		data.isVector.if {
+			let y = data;
+			let x = [1 .. y.size];
+			f(x, y)
+		} {
+			let [x, y] = data.transposed;
+			f(x, y)
+		}
+	}
+
+	interpolation { :self |
+		self.interpolation('Spline')
+	}
+
 	linearInterpolatorCoefficientList { :x :y |
 		let n = x.size - 1;
 		assertIsValidInterpolatorData(x, y, 2);
