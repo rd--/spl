@@ -1,23 +1,28 @@
 /* Requires: CacheStorage, Url */
 
-LibraryItem : [Object] { | name category url mimeType parser contents |
+LibraryItem : [Object] { | name category url mimeType parser unparsedContents parsedContents |
 
 	cachedFetch { :self |
 		self.url.asUrl.cachedFetchMimeType('SplLibraryItems', self.mimeType).thenElse { :answer |
-			(self.name = 'ColourPalette').ifTrue {
-				answer.postLine
-			};
-			self.contents := self.parse(answer);
+			self.unparsedContents := answer;
+			/* self.contents := self.parse(answer);
 			system.cache[self.name] := self.contents;
-			self.contents
+			self.contents */
+			self
 		} { :reason |
 			[self, reason].postLine;
 			self.error('LibraryItem>>cachedFetch: ' ++ reason)
 		}
 	}
 
-	parse { :self :aString |
-		self.parser.value(aString)
+	contents { :self |
+		self.unparsedContents.ifNil {
+			self.error('contents: not acquired')
+		};
+		self.parsedContents.ifNil {
+			self.parsedContents := self.parser.value(self.unparsedContents)
+		};
+		self.parsedContents
 	}
 
 	printString { :self |
@@ -26,7 +31,7 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 
 	request { :self |
 		Promise { :resolve:/1 :reject:/1 |
-			self.contents.ifNotNil { :answer |
+			self.unparsedContents.ifNotNil { :answer |
 				resolve(answer)
 			} {
 				self.cachedFetch.thenElse { :answer |
@@ -39,9 +44,11 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 	}
 
 	require { :self |
-		self.contents.ifNil {
+		self.unparsedContents.ifNil {
 			self.request;
 			self.error('require: item not on shelf, requested')
+		} {
+			self.contents
 		}
 	}
 
@@ -50,7 +57,7 @@ LibraryItem : [Object] { | name category url mimeType parser contents |
 +String {
 
 	LibraryItem { :name :category :url :mimeType :parser |
-		newLibraryItem().initializeSlots(name, category, url, mimeType, parser, nil)
+		newLibraryItem().initializeSlots(name, category, url, mimeType, parser, nil, nil)
 	}
 
 }

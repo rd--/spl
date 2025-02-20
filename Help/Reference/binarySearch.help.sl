@@ -8,7 +8,8 @@ If _anObject_ is not in _aSequence_ answer `zero`.
 Find an integer in a sorted list of integers:
 
 ```
->>> [1 3 6 10 15 21 28 36 45 55].binarySearch(6)
+>>> [1 3 6 10 15 21 28 36 45 55]
+>>> .binarySearch(6)
 3
 ```
 

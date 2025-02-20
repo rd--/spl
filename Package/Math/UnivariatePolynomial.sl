@@ -1,22 +1,16 @@
-UnivariatePolynomial : [Object] { | coefficients |
+UnivariatePolynomial : [Object] { | coefficientList |
 
 	+ { :self :anObject |
-		let c1 = self.coefficients;
-		let c2 = anObject.coefficients;
+		let c1 = self.coefficientList;
+		let c2 = anObject.coefficientList;
 		let n = c1.size.max(c2.size);
 		UnivariatePolynomial(
-			c1.padLeft(n, 0) + c2.padLeft(n, 0)
+			c1.padRight(n, 0) + c2.padRight(n, 0)
 		)
 	}
 
 	at { :self :x |
-		let answer = 0;
-		let exponent = self.degree;
-		self.coefficients.do { :each |
-			answer := answer + (each * (x ^ exponent));
-			exponent := exponent - 1
-		};
-		answer
+		self.coefficientList.evaluateUnivariatePolynomial(x)
 	}
 
 	atAll { :self :aCollection |
@@ -26,12 +20,29 @@ UnivariatePolynomial : [Object] { | coefficients |
 	}
 
 	degree { :self |
-		self.coefficients.size - 1
+		self.coefficientList.size - 1
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }
 
 +List {
+
+	evaluateUnivariatePolynomial { :coefficientList :x |
+		let n = coefficientList.size;
+		(n = 0).if {
+			0
+		} {
+			let answer = coefficientList[n];
+			(n - 1).downToDo(1) { :i |
+				answer := x * answer + coefficientList[i]
+			};
+			answer
+		}
+	}
 
 	UnivariatePolynomial { :self |
 		newUnivariatePolynomial().initializeSlots(self)
@@ -59,7 +70,7 @@ UnivariatePolynomial : [Object] { | coefficients |
 		]) {
 			self.error('chebyshevT: not implemented')
 		};
-		UnivariatePolynomial(c)
+		UnivariatePolynomial(c.reverse)
 	}
 
 	chebyshevU { :self |
@@ -79,7 +90,7 @@ UnivariatePolynomial : [Object] { | coefficients |
 		]) {
 			self.error('chebyshevU: not implemented')
 		};
-		UnivariatePolynomial(c)
+		UnivariatePolynomial(c.reverse)
 	}
 
 }

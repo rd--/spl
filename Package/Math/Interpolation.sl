@@ -83,6 +83,162 @@
 
 +List {
 
+	akimaInterpolatorCoefficientList { :x :y |
+		/* https://github.com/chdh/commons-math-interpolation */
+		let n = x.size - 1;
+		let differences = List(n);
+		let weights = List(n);
+		let firstDerivative = List(n + 1);
+		let epsilon = 1.smallFloatEpsilon;
+		let differentiateThreePoint = { :i :j1 :j2 :j3 |
+			let x0 = y[j1];
+			let x1 = y[j2];
+			let x2 = y[j3];
+			let t = x[i] - x[j1];
+			let t1 = x[j2] - x[j1];
+			let t2 = x[j3] - x[j1];
+			let a = (x2 - x0 - (t2 / t1 * (x1 - x0))) / ((t2 * t2) - (t1 * t2));
+			let b = (x1 - x0 - (a * t1 * t1)) / t1;
+			(2 * a * t) + b
+		};
+		assertIsValidInterpolatorData(x, y, 5);
+		1.toDo(n) { :i |
+			differences[i] := (y[i + 1] - y[i]) / (x[i + 1] - x[i])
+		};
+		2.toDo(n) { :i |
+			weights[i] := abs(differences[i] - differences[i - 1])
+		};
+		3.toDo(n - 1) { :i |
+			let wP = weights[i + 1];
+			let wM = weights[i - 1];
+			(abs(wP) < epsilon & { abs(wM) < epsilon }).if {
+				let xv = x[i];
+				let xvP = x[i + 1];
+				let xvM = x[i - 1];
+				firstDerivative[i] := (((xvP - xv) * differences[i - 1]) + (((xv - xvM) * differences[i])) / (xvP - xvM))
+			} {
+				firstDerivative[i] := ((wP * differences[i - 1]) + (wM * differences[i])) / (wP + wM)
+			}
+		};
+		firstDerivative[1] := differentiateThreePoint(1, 1, 2, 3);
+		firstDerivative[2] := differentiateThreePoint(2, 1, 2, 3);
+		firstDerivative[n] := differentiateThreePoint(n, n - 1, n, n + 1);
+		firstDerivative[n + 1] := differentiateThreePoint(n + 1, n - 1, n, n + 1);
+		hermiteInterpolatorCoefficientList(x, y, firstDerivative)
+	}
+
+	akimaInterpolator { :x :y |
+		let c = x.akimaInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
+		}
+	}
+
+	assertIsValidInterpolatorData { :x :y :n |
+		(x.size ~= y.size).ifTrue {
+			x.error('Interpolator: dimension mismatch')
+		};
+		(x.size < n).ifTrue {
+			x.error('Interpolator: number of points is too small')
+		};
+		x.isStrictlyIncreasing.ifFalse {
+			x.error('Interpolator: x not strictly increasing')
+		}
+	}
+
+	cubicSplineInterpolatorCoefficientList { :x :y |
+		/* https://github.com/chdh/commons-math-interpolation */
+		let n = x.size - 1;
+		let h = List(n);
+		let mu = List(n);
+		let z = List(n + 1);
+		let b = List(n);
+		let c = List(n + 1);
+		let d = List(n);
+		assertIsValidInterpolatorData(x, y, 3);
+		1.toDo(n) { :i |
+			h[i] := x[i + 1] - x[i]
+		};
+		mu[1] := 0;
+		z[1] := 0;
+		2.toDo(n) { :i |
+			let g = (2 * (x[i + 1] - x[i - 1])) - (h[i - 1] * mu[i - 1]);
+			mu[i] := h[i] / g;
+			z[i] := (3 * ((y[i + 1] * h[i - 1]) - (y[i] * (x[i + 1] - x[i - 1])) + (y[i - 1] * h[i])) / (h[i - 1] * h[i]) - (h[i - 1] * z[i - 1])) / g
+		};
+		z[n + 1] := 0;
+		c[n + 1] := 0;
+		n.downToDo(1) { :i |
+			let dx = h[i];
+			let dy = y[i + 1] - y[i];
+			c[i] := z[i] - (mu[i] * c[i + 1]);
+			b[i] := (dy / dx) - (dx * (c[i + 1] + (2 * c[i])) / 3);
+			d[i] := (c[i + 1] - c[i]) / (3 * dx)
+		};
+		(1 .. n).collect { :i |
+			[y[i], b[i], c[i], d[i]].withoutTrailingZeros
+		}
+	}
+
+	cubicSplineInterpolator { :x :y |
+		let c = x.cubicSplineInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
+		}
+	}
+
+	evaluateInterpolatorSegment { :x :c :mu |
+		let k = x.size;
+		let i = k.binaryDetectIndex { :each |
+			x[each] >= mu
+		} - 1;
+		i := 1.max(i.min(c.size));
+		c[i].evaluateUnivariatePolynomial(mu - x[i])
+	}
+
+	hermiteInterpolatorCoefficientList { :x :y :firstDerivative |
+		let n = x.size - 1;
+		assertIsValidInterpolatorData(x, y, 2);
+		(x.size ~= firstDerivative.size).ifTrue {
+			x.error('hermiteInterpolatorCoefficientList: firstDerivative list invalid')
+		};
+		(1 .. n).collect { :i |
+			let w = x[i + 1] - x[i];
+			let w2 = w * w;
+			let yv = y[i];
+			let yvP = y[i + 1];
+			let fd = firstDerivative[i];
+			let fdP = firstDerivative[i + 1];
+			[
+				yv,
+				firstDerivative[i],
+				(3 * (yvP - yv) / w - (2 * fd) - fdP) / w,
+				(2 * (yv - yvP) / w + fd + fdP) / w2
+			].withoutTrailingZeros
+		}
+	}
+
+	linearInterpolatorCoefficientList { :x :y |
+		let n = x.size - 1;
+		assertIsValidInterpolatorData(x, y, 2);
+		(1 .. n).collect { :i |
+			let dx = x[i + 1] - x[i];
+			let dy = y[i + 1] - y[i];
+			let m = dy / dx;
+			[y[i], m].withoutTrailingZeros
+		}
+	}
+
+	linearInterpolator { :x :y |
+		let c = x.linearInterpolatorCoefficientList(y);
+		let xCopy = x.copy;
+		{ :mu |
+			xCopy.evaluateInterpolatorSegment(c, mu)
+		}
+	}
+
 	listInterpolation { :self :aBlock |
 		let k = self.size;
 		aBlock.numArgs.caseOfOtherwise([
@@ -136,6 +292,43 @@
 				x.fractionPart,
 				y.fractionPart
 			)
+		}
+	}
+
+	nearestNeighborInterpolator { :x :y |
+		let xCopy = x.copy;
+		let yCopy = y.copy;
+		let n = x.size;
+		assertIsValidInterpolatorData(x, y, 1);
+		(n = 1).if {
+			{ :mu |
+				yCopy[1]
+			}
+		} {
+			{ :mu |
+				let i = n.binaryDetectIndex { :each |
+					xCopy[each] >= mu
+				};
+				(i <= n & { xCopy[i] = mu }).if {
+					yCopy[i]
+				} {
+					(i = 1).if {
+						yCopy[1]
+					} {
+						(i >= n).if {
+							yCopy[n]
+						} {
+							let d = mu - xCopy[i - 1];
+							let w = xCopy[i] - xCopy[i - 1];
+							(d + d < w).if {
+								yCopy[i - 1]
+							} {
+								yCopy[i]
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

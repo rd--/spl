@@ -3,7 +3,8 @@
 - _hermiteInterpolation(y0, y1, y2, y3, mu, tension=0, bias=0)_
 - _hermiteInterpolation(tension, bias)_
 
-The full form interpolates at _mu_ between _y1_ and _y2_ using the specified _tension_ and _bias_ parameters.
+The full form interpolates at _mu_ between _y1_ and _y2_ using the specified _tension_ and _bias_ parameters,
+assuming equally spaced _y_.
 With tension and bias values of `zero` the answer is equal to `catmullRomInterpolation`.
 
 ```

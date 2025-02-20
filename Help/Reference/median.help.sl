@@ -23,10 +23,24 @@ Even length sequence:
 (4.5, 4.5, 4.5)
 ```
 
-Unsorted sequence:
+Find the `median` for the heights of children in a class:
+
+```
+>>> [
+>>> 	134 143 131 140 145 136 131 136 143
+>>> 	136 133 145 147 150 150 146 137 143
+>>> 	132 142 145 136 144 135 141
+>>> ].median
+141
+```
+
+Note that `median` sorts the input sequence:
 
 ```
 >>> [1 7 6 2 3 5 4].median
+4
+
+>>> [1 2 3 4 5 6 7].median
 4
 ```
 

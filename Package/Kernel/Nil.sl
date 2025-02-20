@@ -28,15 +28,15 @@ Nil! : [Object, Json] {
 		whenNil()
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil |
+	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
 		whenNil()
 	}
 
-	ifNotNil { :self :whenNotNil |
+	ifNotNil { :self :whenNotNil:/1 |
 		nil
 	}
 
-	ifNotNil { :self :whenNotNil :whenNil:/0 |
+	ifNotNil { :self :whenNotNil:/1 :whenNil:/0 |
 		whenNil()
 	}
 
@@ -68,16 +68,16 @@ Nil! : [Object, Json] {
 		self
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil |
-		whenNotNil.cull(self)
+	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
+		whenNotNil:/1.cull(self)
 	}
 
-	ifNotNil { :self :whenNotNil |
-		whenNotNil.cull(self)
+	ifNotNil { :self :whenNotNil:/1 |
+		whenNotNil:/1.cull(self)
 	}
 
-	ifNotNil { :self :whenNotNil :whenNil:/0 |
-		whenNotNil.cull(self)
+	ifNotNil { :self :whenNotNil:/1 :whenNil:/0 |
+		whenNotNil:/1.cull(self)
 	}
 
 	isNil { :self |

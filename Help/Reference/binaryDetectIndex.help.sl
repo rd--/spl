@@ -22,7 +22,9 @@ The approach is the same as searching a list in ascending order, but with the co
 
 ```
 >>> let l = [55 45 36 28 21 15 10 6 3 1];
->>> l.size.binaryDetectIndex { :i | l[i] <= 6 }
+>>> l.size.binaryDetectIndex { :i |
+>>> 	l[i] <= 6
+>>> }
 8
 ```
 
@@ -30,7 +32,9 @@ No such index:
 
 ```
 >>> let l = [1 3 5 7 9];
->>> l.size.binaryDetectIndex { :i | l[i] >= 11 }
+>>> l.size.binaryDetectIndex { :i |
+>>> 	l[i] >= 11
+>>> }
 6
 ```
 

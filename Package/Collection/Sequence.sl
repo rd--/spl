@@ -1473,6 +1473,12 @@
 		}
 	}
 
+	isMonotonicallyIncreasing { :self |
+		self.isFinite & {
+			self.isSortedBy(<=)
+		}
+	}
+
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -1512,6 +1518,12 @@
 				};
 				true
 			}
+		}
+	}
+
+	isStrictlyIncreasing { :self |
+		self.isFinite & {
+			self.isSortedBy(<)
 		}
 	}
 
@@ -3074,6 +3086,22 @@
 	withIndexDo { :self :elementAndIndexBlock:/2 |
 		self.indicesDo { :index |
 			elementAndIndexBlock(self[index], index)
+		}
+	}
+
+	withoutTrailingZeros { :self |
+		let n = self.size;
+		{
+			n >= 2 & {
+				self[n].isZero
+			}
+		}.whileTrue {
+			n := n - 1
+		};
+		(n = self.size).if {
+			self
+		} {
+			self.copyFromTo(1, n)
 		}
 	}
 
