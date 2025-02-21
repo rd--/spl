@@ -7,11 +7,11 @@ arranged to be a discrete gradient of the colour palette at _aList_,
 with equally spaced positions.
 
 Plot the discrete gradient of the the nine colour _Set1_ palette,
-from the _RColorBrewer_ collection of `colourPalettes`:
+from the _ColorBrewer_ collection of `colourPalettes`:
 
 ~~~spl svg=A
 system
-.colourPalettes['RColorBrewer', 'Set1']
+.colourPalettes['ColorBrewer', 'Set1']
 .asDiscreteColourGradient
 ~~~
 

@@ -81,8 +81,8 @@
 		true
 	}
 
-	isArithmeticSeriesBy { :self :anInteger |
-		self.step = anInteger
+	isArithmeticSeriesBy { :self :aNumber :aBlock:/2 |
+		aBlock(self.step, aNumber)
 	}
 
 	isEmpty { :self |

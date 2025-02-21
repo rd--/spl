@@ -9,19 +9,18 @@ The binary form is a direct lookup:
 Lookup the _Summer_ gradient in the _ggthemes_ collection:
 
 ~~~spl svg=A
-'mpl'
-.namedColourGradient('plasma')
+'Viridis'.namedColourGradient('Plasma')
 .resample(24)
 ~~~
 
 ![](sw/spl/Help/Image/namedColourGradient-A.svg)
 
-The unary form answers a gradients that areuniquely named across all collections.
-Lookup the _isol_ gradient,
-which is in the _pals_ collection:
+The unary form answers a gradients that are uniquely named across all collections.
+Lookup the _Isol_ gradient,
+which is in the _Niccoli_ collection:
 
 ~~~spl svg=B
-'isol'.namedColourGradient.resample(24)
+'Isol'.namedColourGradient.resample(24)
 ~~~
 
 ![](sw/spl/Help/Image/namedColourGradient-B.svg)
@@ -29,7 +28,7 @@ which is in the _pals_ collection:
 The unary form allows specifying the collection and gradient names separated by a forward slash:
 
 ~~~spl svg=C
-'mathematica/light-temperature-map'
+'Mathematica/LightTemperatureMap'
 .namedColourGradient
 .resample(24)
 ~~~

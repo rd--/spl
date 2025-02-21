@@ -11,7 +11,7 @@ Count collections:
 
 ```
 >>> system.colourPalettes.size
-250
+6
 ```
 
 Count palettes:
@@ -21,15 +21,15 @@ Count palettes:
 >>> .colourPalettes
 >>> .collect(size:/1)
 >>> .sum
-6371
+173
 ```
 
-Plot the nine colour _Set1_ palette from the _RColorBrewer_ collection using `arrayPlot`:
+Plot the nine colour _Set1_ palette from the _ColorBrewer_ collection using `arrayPlot`:
 
 ~~~spl svg=A
 system
 .colourPalettes[
-	'RColorBrewer',
+	'ColorBrewer',
 	'Set1'
 ]
 .enclose
@@ -38,12 +38,12 @@ system
 
 ![](sw/spl/Help/Image/colourPalettes-A.svg)
 
-Plot the six colour _Charmonix_ palette from the _NatParksPalettes_ collection:
+Plot the six colour _Charmonix_ palette from the _NationalParks_ collection:
 
 ~~~spl svg=B
 system
 .colourPalettes[
-	'NatParksPalettes',
+	'NationalParks',
 	'Charmonix'
 ]
 .enclose
@@ -52,22 +52,22 @@ system
 
 ![](sw/spl/Help/Image/colourPalettes-B.svg)
 
-Plot the four colour _fernande_ palette from the _ltc_ collection:
+Plot the four colour _Fernande_ palette from the _Ltc_ collection:
 
 ~~~spl svg=C
 system
-.colourPalettes['ltc', 'fernande']
+.colourPalettes['Ltc', 'Fernande']
 .enclose
 .arrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/colourPalettes-C.svg)
 
-Plot the five colour _cw1-013_ palette from the _cw\_1_ collection:
+Plot the nine colour _Jewel Bright_ palette from the _Tableau_ collection:
 
 ~~~spl svg=D
 system
-.colourPalettes['cw_1', 'cw1-013']
+.colourPalettes['Tableau', 'Jewel Bright']
 .enclose
 .arrayPlot
 ~~~
@@ -76,11 +76,11 @@ system
 
 `asDiscreteColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to have discrete sections.
-Plot the discrete gradient of the four colour _fernande_ palette from the _ltc_ collection:
+Plot the discrete gradient of the four colour _Fernande_ palette from the _Ltc_ collection:
 
 ~~~spl svg=E
 system
-.colourPalettes['ltc', 'fernande']
+.colourPalettes['Ltc', 'Fernande']
 .asDiscreteColourGradient
 ~~~
 
@@ -88,11 +88,11 @@ system
 
 `asContinuousColourGradient` translates a _colour palette_ to a `ColourGradient`,
 arranged to be a continous gradient with equally spaced positions.
-Plot the continuous gradient of the four colour _fernande_ palette from the _ltc_ collection:
+Plot the continuous gradient of the four colour _Fernande_ palette from the _Ltc_ collection:
 
 ~~~spl svg=F
 system
-.colourPalettes['ltc', 'fernande']
+.colourPalettes['Ltc', 'Fernande']
 .asContinuousColourGradient
 ~~~
 

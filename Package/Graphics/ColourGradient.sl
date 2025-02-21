@@ -1,4 +1,4 @@
-ColourGradient : [Object] { | colourList positionList |
+ColourGradient : [Object] { | colourList positionListOrNil |
 
 	asBlock { :self |
 		self.positionList.linearInterpolator(
@@ -40,17 +40,33 @@ ColourGradient : [Object] { | colourList positionList |
 		self.asSvg.draw
 	}
 
+	isEquallySpaced { :self |
+		self.positionListOrNil.isNil | {
+			let p = self.positionList;
+			p.isArithmeticSeriesBy(p[2] - p[1], ~)
+		}
+	}
+
 	isValid { :self |
 		let [m, n] = self.colourList.shape;
-		let k = self.positionList.size;
-		(m = k) & { n = 3 }
+		(n = 3) & {
+			self.positionListOrNil.ifNotNil { :p |
+				p.size = m
+			}
+		}
+	}
+
+	positionList { :self |
+		self.positionListOrNil.ifNil {
+			(0 -- 1).discretize(self.colourList.size)
+		}
 	}
 
 	resample { :self :anInteger |
-		let p = (0 -- 1).discretize(anInteger).asList;
+		let p = (0 -- 1).discretize(anInteger);
 		ColourGradient(
 			p.collect(self.asBlock),
-			p
+			nil
 		)
 	}
 
@@ -58,7 +74,7 @@ ColourGradient : [Object] { | colourList positionList |
 		self.isValid.if {
 			self.colourList.size
 		} {
-			self.error('invalid')
+			self.error('size: invalid')
 		}
 	}
 
@@ -91,7 +107,7 @@ ColourGradient : [Object] { | colourList positionList |
 			c.add(self[i]);
 			p.add(x);
 			c.add(self[i]);
-			p.add(x + z);
+			p.add((x + z).min(1));
 			x := x + z
 		};
 		ColourGradient(c, p)
@@ -173,7 +189,7 @@ LibraryItem(
 						j.collect { :k |
 							k.parseHexString.asList / 255
 						},
-						(0 -- 1).discretize(j.size)
+						nil
 					]
 				} {
 					[

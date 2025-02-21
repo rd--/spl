@@ -4,7 +4,7 @@
 
 Answer a `ColourGradient` having the specified colour and position lists.
 
-Answer a yellow, magenta, blue gradient with the magenta positioned at two-thirds:
+Answer a yellow-magenta-blue gradient with the magenta positioned at two-thirds:
 
 ~~~spl svg=A
 [

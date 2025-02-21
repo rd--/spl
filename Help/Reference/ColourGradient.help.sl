@@ -1,9 +1,10 @@
 # ColourGradient
 
-- _ColourGradient(colourList, positionList)_
+- _ColourGradient(colourList, positionListOrNil)_
 
 A `Type` holding a colour gradient.
 A colour gradient is a list of colours and a corresponding list of positions in the range _(0, 1)_.
+If the position list is `nil` it is understood to an equally spaced gradient.
 
 The `size` of a colour gradient is the number of colours,
 or equally the numer of positions.
@@ -14,8 +15,8 @@ resampled to thirty-two places:
 
 ~~~spl svg=A
 system.colourGradients[
-	'mathematica',
-	'pastel'
+	'Mathematica',
+	'Pastel'
 ].asColourGradient
 .resample(32)
 ~~~
@@ -25,7 +26,7 @@ system.colourGradients[
 The `namedColourGradient` answers a `ColourGradient` value:
 
 ~~~spl svg=B
-'kovesi.linear_bmy_10_95_c78'
+'Kovesi/Linear-Bmy-10-95-C78'
 .namedColourGradient
 .resample(24)
 ~~~

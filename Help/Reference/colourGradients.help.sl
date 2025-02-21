@@ -12,7 +12,7 @@ Count collections:
 
 ```
 >>> system.colourGradients.size
-199
+4
 ```
 
 Count gradients:
@@ -22,7 +22,7 @@ Count gradients:
 >>> .colourGradients
 >>> .collect(size:/1)
 >>> .sum
-4888
+126
 ```
 
 Select collections by prefix:
@@ -32,19 +32,9 @@ Select collections by prefix:
 >>> .colourGradients
 >>> .keys
 >>> .select { :each |
->>> 	each.beginsWith('esri')
+>>> 	each.beginsWith('Mat')
 >>> }
-[
-	'esri_effects'
-	'esri_events'
-	'esri_hillshade'
-	'esri_hypsometry_bath'
-	'esri_hypsometry_ca'
-	'esri_hypsometry_eu'
-	'esri_hypsometry_na'
-	'esri_hypsometry_planet'
-	'esri_hypsometry_sa'
-]
+['Mathematica']
 ```
 
 Plot the three colour _bhw1\_01_ gradient from the _bhw\_bhw1_ collection:
@@ -76,8 +66,8 @@ resampled to sixteen colours:
 ~~~spl svg=C
 system
 .colourGradients[
-	'viridis',
-	'plasma'
+	'Viridis',
+	'Plasma'
 ]
 .asColourGradient
 .resample(16)
@@ -91,8 +81,8 @@ resampled to twenty-four colours:
 ~~~spl svg=D
 system
 .colourGradients[
-	'mathematica',
-	'rainbow-m'
+	'Mathematica',
+	'Rainbow'
 ]
 .asColourGradient
 .resample(24)
@@ -119,8 +109,8 @@ Use a resampled form of the _pastel_ gradient from the _mathematica_ collection 
 ~~~spl png=F
 let i = (-2 -- 2).discretize(100);
 let f:/1 = system.colourGradients[
-	'mathematica',
-	'pastel'
+	'Mathematica',
+	'Pastel'
 ].asColourGradient
 .resample(16)
 .asBlock;
@@ -136,8 +126,8 @@ Resample and plot the _ocean.deep_ gradient from the _pals_ collection:
 ~~~spl svg=G
 system
 .colourGradients[
-	'pals',
-	'ocean.deep'
+	'Ocean',
+	'Deep'
 ]
 .asColourGradient
 .resample(32)
@@ -151,8 +141,8 @@ Resample and plot the _kovesi.isoluminant_cgo_80_c38_ gradient from the _pals_ c
 ~~~spl svg=H
 system
 .colourGradients[
-	'pals',
-	'kovesi.isoluminant_cgo_80_c38'
+	'Kovesi',
+	'Isoluminant-Cgo-80-C38'
 ]
 .asColourGradient
 .resample(32)

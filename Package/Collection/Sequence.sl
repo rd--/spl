@@ -1213,7 +1213,7 @@
 	includesScatteredSubsequence { :self :aSequence |
 		valueWithReturn { :return:/1 |
 			1.to(self.size).powerSetDo { :each |
-				each.isArithmeticSeriesBy(1).ifFalse {
+				each.isArithmeticSeriesBy(1, =).ifFalse {
 					(self @* each = aSequence).ifTrue {
 						true.return
 					}
@@ -1427,17 +1427,17 @@
 		(self.size <= 1).if {
 			true
 		} {
-			self.isArithmeticSeriesBy(self.second - self.first)
+			self.isArithmeticSeriesBy(self.second - self.first, =)
 		}
 	}
 
-	isArithmeticSeriesBy { :self :aNumber |
+	isArithmeticSeriesBy { :self :aNumber :aBlock:/2 |
 		(self.size <= 1).if {
 			true
 		} {
 			valueWithReturn { :return:/1 |
 				self.adjacentPairsDo { :a :b |
-					(b - a ~= aNumber).ifTrue {
+					aBlock(b - a, aNumber).ifFalse {
 						false.return
 					}
 				};
@@ -1454,17 +1454,17 @@
 		(self.size <= 1).if {
 			true
 		} {
-			self.isGeometricSeriesBy(self.second / self.first)
+			self.isGeometricSeriesBy(self.second / self.first, =)
 		}
 	}
 
-	isGeometricSeriesBy { :self :aNumber |
+	isGeometricSeriesBy { :self :aNumber :aBlock:/2 |
 		(self.size <= 1).if {
 			true
 		} {
 			valueWithReturn { :return:/1 |
 				self.adjacentPairsDo { :a :b |
-					(b / a ~= aNumber).ifTrue {
+					aBlock(b / a, aNumber).ifFalse {
 						false.return
 					}
 				};
