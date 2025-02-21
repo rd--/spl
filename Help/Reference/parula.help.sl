@@ -18,6 +18,8 @@ Plot the _parula_ colour gradient sampled at sixteen steps:
 
 See also: asContinuousColourGradient, ColourGradient, colourGradients
 
+Guides: Colour Guides
+
 References:
 _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/parula.html)

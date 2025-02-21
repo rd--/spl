@@ -208,6 +208,14 @@
 		true
 	}
 
+	keysAndValuesCollect { :self :aBlock:/2 |
+		let answer = self.species.new;
+		self.keysAndValuesDo { :key :value |
+			answer.add(key -> aBlock(key, value))
+		};
+		answer
+	}
+
 	keysAndValuesRemove { :self :keyValueBlock:/2 |
 		self.associationsRemove { :each |
 			keyValueBlock(each.key, each.value)
@@ -229,14 +237,6 @@
 		self.keyAtValueIfAbsent(value) {
 			self.errorValueNotFound
 		}
-	}
-
-	keysAndValuesCollect { :self :aBlock:/2 |
-		let answer = self.species.new;
-		self.keysAndValuesDo { :key :value |
-			answer.add(key -> aBlock(key, value))
-		};
-		answer
 	}
 
 	keysDo { :self :aBlock:/1 |

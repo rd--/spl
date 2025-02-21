@@ -103,6 +103,41 @@ ColourGradient : [Object] { | colourList positionList |
 
 }
 
++String {
+
+	namedColourGradient { :collectionName :paletteName |
+		system
+		.colourGradients
+		.at(collectionName)
+		.at(paletteName)
+		.asColourGradient
+	}
+
+	namedColourGradient { :self |
+		self.includes('/').if {
+			let [collectionName, gradientName] = self.splitBy('/');
+			collectionName.namedColourGradient(gradientName)
+		} {
+			let answer = [];
+			system.colourGradients.do { :each |
+				each.keysAndValuesDo { :key :value |
+					(key = self).ifTrue {
+						answer.add(value)
+					}
+				}
+			};
+			answer.size.caseOfOtherwise([
+				0 -> { self.error('namedColourGradient: unknown colour gradient') },
+				1 -> { answer[1].asColourGradient }
+			]) {
+				self.error('namedColourGradient: multiple matches')
+			}
+		}
+	}
+
+}
+
+
 +SmallFloat {
 
 	parula { :self |

@@ -24,11 +24,14 @@ Count palettes:
 6371
 ```
 
-Plot the nine colour _Set1_ palette from the _RColorBrewer_ collection:
+Plot the nine colour _Set1_ palette from the _RColorBrewer_ collection using `arrayPlot`:
 
 ~~~spl svg=A
 system
-.colourPalettes['RColorBrewer', 'Set1']
+.colourPalettes[
+	'RColorBrewer',
+	'Set1'
+]
 .enclose
 .arrayPlot
 ~~~
@@ -94,6 +97,10 @@ system
 ~~~
 
 ![](sw/spl/Help/Image/colourPalettes-F.svg)
+
+_Note:_
+The colour palettes catalogue is a `LibraryItem`,
+and this function requires the item be in the interpreter cache.
 
 * * *
 

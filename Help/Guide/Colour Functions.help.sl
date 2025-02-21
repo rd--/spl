@@ -68,6 +68,8 @@
 - `colourGradients`
 - `colourPalettes`
 - `cubeHelix`
+- `namedColourGradient`
+- `namedColourPalette`
 - `parula`
 - `quilezGradient`
 

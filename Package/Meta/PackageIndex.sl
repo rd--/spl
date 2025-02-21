@@ -101,6 +101,7 @@
 	'Graphics-Bitmap'
 	'Graphics-Colour'
 	'Graphics-ColourGradient'
+	'Graphics-ColourPalette'
 	'Graphics-Graymap'
 	'Graphics-Image'
 	'Graphics-LineDrawing'

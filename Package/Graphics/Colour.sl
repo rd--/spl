@@ -805,12 +805,6 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		)
 	}
 
-	colourPalettes { :self |
-		self.requireLibraryItem(
-			'ColourPalettes'
-		)
-	}
-
 	svgColourCatalogue { :self |
 		self.requireLibraryItem(
 			'SvgColourCatalogue'
@@ -839,22 +833,6 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			each.parseHexTriplet
-		}
-	}
-)
-
-LibraryItem(
-	name: 'ColourPalettes',
-	category: 'Graphics/Colour',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ColourPalettes.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :i |
-			i.collect { :j |
-				j.collect { :k |
-					k.parseHexString.asList / 255
-				}
-			}
 		}
 	}
 )

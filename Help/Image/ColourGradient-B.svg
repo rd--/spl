@@ -1,0 +1,36 @@
+<svg
+	width="300" height="50"
+	viewBox="0 0 300 50"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<defs>
+	<linearGradient id="gradient">
+		<stop offset="0.000" stop-color="rgb(0,12,125)" />
+		<stop offset="0.043" stop-color="rgb(0,16,142)" />
+		<stop offset="0.087" stop-color="rgb(4,20,157)" />
+		<stop offset="0.130" stop-color="rgb(24,20,165)" />
+		<stop offset="0.174" stop-color="rgb(56,18,165)" />
+		<stop offset="0.217" stop-color="rgb(99,12,156)" />
+		<stop offset="0.261" stop-color="rgb(129,7,148)" />
+		<stop offset="0.304" stop-color="rgb(153,2,142)" />
+		<stop offset="0.348" stop-color="rgb(175,0,137)" />
+		<stop offset="0.391" stop-color="rgb(195,0,131)" />
+		<stop offset="0.435" stop-color="rgb(214,1,126)" />
+		<stop offset="0.478" stop-color="rgb(231,12,120)" />
+		<stop offset="0.522" stop-color="rgb(246,34,112)" />
+		<stop offset="0.565" stop-color="rgb(253,58,104)" />
+		<stop offset="0.609" stop-color="rgb(254,81,96)" />
+		<stop offset="0.652" stop-color="rgb(255,104,85)" />
+		<stop offset="0.696" stop-color="rgb(255,127,73)" />
+		<stop offset="0.739" stop-color="rgb(255,146,58)" />
+		<stop offset="0.783" stop-color="rgb(255,164,45)" />
+		<stop offset="0.826" stop-color="rgb(255,180,36)" />
+		<stop offset="0.870" stop-color="rgb(255,196,31)" />
+		<stop offset="0.913" stop-color="rgb(255,211,29)" />
+		<stop offset="0.957" stop-color="rgb(255,226,31)" />
+		<stop offset="1.000" stop-color="rgb(255,241,35)" />
+	</linearGradient>
+</defs>
+<rect width="300" height="50" fill="url(#gradient)" />
+</svg>

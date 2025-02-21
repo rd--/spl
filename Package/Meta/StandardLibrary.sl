@@ -86,6 +86,7 @@
 	'Bitmap'
 	'Colour'
 	'ColourGradient'
+	'ColourPalette'
 	'Graymap'
 	'Image'
 	'Svg'

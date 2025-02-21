@@ -167,6 +167,10 @@ Sources include:
 - [NASA Ocean Colour](https://oceancolor.gsfc.nasa.gov/)
 - [School of Ocean and Earth Science and Technology](https://www.soest.hawaii.edu/soestwp/)
 
+_Note:_
+The colour palettes catalogue is a `LibraryItem`,
+and this function requires the item be in the interpreter cache.
+
 * * *
 
 See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, parula, RgbColour
