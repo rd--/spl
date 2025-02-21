@@ -1,0 +1,16 @@
+<svg
+	width="300" height="50"
+	viewBox="0 0 300 50"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<defs>
+	<linearGradient id="gradient">
+		<stop offset="0.000" stop-color="rgb(211,186,104)" />
+		<stop offset="0.333" stop-color="rgb(213,105,93)" />
+		<stop offset="0.667" stop-color="rgb(93,140,168)" />
+		<stop offset="1.000" stop-color="rgb(101,164,121)" />
+	</linearGradient>
+</defs>
+<rect width="300" height="50" fill="url(#gradient)" />
+</svg>

@@ -29,6 +29,16 @@ Answer _aNumber_ times e.
 [1.35914, 4.07742]
 ```
 
+_e_ raised to _iπ_ plus `one` is `zero`:
+
+```
+>>> 1.e ^ (1.pi * 0J1) + 1
+0
+
+>>> 1.pi.cos + (1.i * 1.pi.sin) + 1
+0
+```
+
 In the binary case,
 answer the scientific notation:
 

@@ -12,7 +12,7 @@ Match entire string:
 'caddar'
 ```
 
-Match interiour string:
+Match interior string:
 
 ```
 >>> RegExp('c(a|d)+r').match('-caddar-')

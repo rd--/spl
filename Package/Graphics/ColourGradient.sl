@@ -1,0 +1,154 @@
+ColourGradient : [Object] { | colourList positionList |
+
+	asBlock { :self |
+		self.positionList.linearInterpolator(
+			self.colourList
+		)
+	}
+
+	asSvg { :self |
+		let w = 300;
+		let h = 50;
+		let pre = [
+			'<svg',
+			'	width="%" height="%"'.format([w, h]),
+			'	viewBox="0 0 % %"'.format([w, h]),
+			'	xmlns="http://www.w3.org/2000/svg"',
+			'	xmlns:xlink="http://www.w3.org/1999/xlink"',
+			'>',
+			'<defs>',
+			'	<linearGradient id="gradient">'
+		];
+		let stops = { :c :p |
+			'		<stop offset="%" stop-color="%" />'.format(
+				[
+					p.printStringToFixed(3),
+					c.asColour.rgbString
+				]
+			)
+		}.map(self.colourList, self.positionList);
+		let post = [
+			'	</linearGradient>',
+			'</defs>',
+			'<rect width="%" height="%" fill="url(#gradient)" />'.format([w, h]),
+			'</svg>'
+		];
+		[pre, stops, post].concatenation.unlines.Svg
+	}
+
+	draw { :self |
+		self.asSvg.draw
+	}
+
+	isValid { :self |
+		let [m, n] = self.colourList.shape;
+		let k = self.positionList.size;
+		(m = k) & { n = 3 }
+	}
+
+	resample { :self :anInteger |
+		let p = (0 -- 1).discretize(anInteger).asList;
+		ColourGradient(
+			p.collect(self.asBlock),
+			p
+		)
+	}
+
+	size { :self |
+		self.isValid.if {
+			self.colourList.size
+		} {
+			self.error('invalid')
+		}
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++List {
+
+	asColourGradient { :self |
+		let [c, p] = self;
+		ColourGradient(c, p)
+	}
+
+	asContinuousColourGradient { :self |
+		ColourGradient(
+			self,
+			(0 -- 1).discretize(self.size).asList
+		)
+	}
+
+	asDiscreteColourGradient { :self |
+		let c = [];
+		let p = [];
+		let x = 0;
+		let z = 1 / self.size;
+		1.toDo(self.size) { :i |
+			c.add(self[i]);
+			p.add(x);
+			c.add(self[i]);
+			p.add(x + z);
+			x := x + z
+		};
+		ColourGradient(c, p)
+	}
+
+	ColourGradient { :self :aList |
+		newColourGradient().initializeSlots(self, aList)
+	}
+
+}
+
++SmallFloat {
+
+	parula { :self |
+		system
+		.colourGradients['pals', 'parula']
+		.asColourGradient
+		.resample(self)
+		.colourList
+	}
+
+}
+
++System {
+
+	colourGradients { :self |
+		self.requireLibraryItem(
+			'ColourGradients'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'ColourGradients',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ColourGradients.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :i |
+			i.collect { :j |
+				j.isList.if {
+					[
+						j.collect { :k |
+							k.parseHexString.asList / 255
+						},
+						(0 -- 1).discretize(j.size)
+					]
+				} {
+					[
+						j['c'].collect { :k |
+							k.parseHexString.asList / 255
+						},
+						j['p']
+					]
+				}
+			}
+		}
+	}
+)

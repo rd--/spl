@@ -100,6 +100,7 @@
 	'Geometry-Triangle'
 	'Graphics-Bitmap'
 	'Graphics-Colour'
+	'Graphics-ColourGradient'
 	'Graphics-Graymap'
 	'Graphics-Image'
 	'Graphics-LineDrawing'

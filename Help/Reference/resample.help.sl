@@ -1,6 +1,6 @@
 # resample
 
-- _resample(aSequence, anInteger)_
+- _resample(aSequence | aColourGradient, anInteger)_
 
 Resample _aSequence_ to have _anInteger_ places.
 
@@ -46,9 +46,23 @@ Downsample a sine function from 512 to 64 places:
 
 ![](sw/spl/Help/Image/resample-A.svg)
 
+At `ColourGradient`, resamples the gradient to have the specified number of equally spaced positions.
+
+~~~
+system
+.colourGradients[
+	'mathematica',
+	'cmyk-colors'
+]
+.asColourGradient
+.resample(48)
+~~~
+
+![](sw/spl/Help/Image/resample-B.svg)
+
 * * *
 
-See also: atBlend, blend, downsample, linearInterpolation, listInterpolation, upsample
+See also: atBlend, blend, ColourGradient, downsample, linearInterpolation, listInterpolation, upsample
 
 Guides: Interpolation Functions
 

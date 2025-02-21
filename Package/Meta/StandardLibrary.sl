@@ -85,6 +85,7 @@
 	/* Graphics */
 	'Bitmap'
 	'Colour'
+	'ColourGradient'
 	'Graymap'
 	'Image'
 	'Svg'

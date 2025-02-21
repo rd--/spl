@@ -210,57 +210,6 @@ RgbColour : [Object, Colour] { | rgb alpha |
 
 }
 
-ColourGradient : [Object] { | colourList positionList |
-
-	asBlock { :self |
-		self.positionList.linearInterpolator(
-			self.colourList
-		)
-	}
-
-	asSvg { :self |
-		let w = 300;
-		let h = 50;
-		let pre = [
-			'<svg',
-			'	width="%" height="%"'.format([w, h]),
-			'	viewBox="0 0 % %"'.format([w, h]),
-			'	xmlns="http://www.w3.org/2000/svg"',
-			'	xmlns:xlink="http://www.w3.org/1999/xlink"',
-			'>',
-			'<defs>',
-			'	<linearGradient id="gradient">'
-		];
-		let stops = { :c :p |
-			'		<stop offset="%" stop-color="%" />'.format(
-				[
-					p.printStringToFixed(3),
-					c.asColour.rgbString
-				]
-			)
-		}.map(self.colourList, self.positionList);
-		let post = [
-			'	</linearGradient>',
-			'</defs>',
-			'<rect width="%" height="%" fill="url(#gradient)" />'.format([w, h]),
-			'</svg>'
-		];
-		[pre, stops, post].concatenation.unlines.Svg
-	}
-
-	draw { :self |
-		self.asSvg.draw
-	}
-
-	resample { :self :anInteger |
-		let p = (0 -- 1).discretize(anInteger).asList;
-		ColourGradient(
-			p.collect(self.asBlock),
-			p
-		)
-	}
-
-}
 
 +List {
 
@@ -271,15 +220,6 @@ ColourGradient : [Object] { | colourList positionList |
 		]) {
 			self.error('asColour')
 		}
-	}
-
-	asColourGradient { :self |
-		let [c, p] = self;
-		ColourGradient(c, p)
-	}
-
-	ColourGradient { :self :aList |
-		newColourGradient().initializeSlots(self, aList)
 	}
 
 	HsvColour { :self :alpha |
@@ -329,6 +269,20 @@ ColourGradient : [Object] { | colourList positionList |
 		RgbColour([0 0 1], alpha)
 	}
 
+	cubeHelix { :start :rotations :hue :gamma |
+		{ :lambda |
+			lambda.betweenAnd(0, 1).if {
+				let phi = 2.pi * ((start / 3) + (rotations * lambda));
+				let e = lambda ^ gamma;
+				let alpha = hue * e * (1 - e) / 2;
+				let m = [-0.14861 1.78277; -0.29227 -0.90649; 1.97294 0];
+				e + (alpha * m.dot([phi.cos phi.sin]))
+			} {
+				lambda.error('cubeHelix: invalid input')
+			}
+		}
+	}
+
 	green { :alpha |
 		RgbColour([0 1 0], alpha)
 	}
@@ -341,10 +295,6 @@ ColourGradient : [Object] { | colourList positionList |
 		level.greyLevel(1)
 	}
 
-	red { :alpha |
-		RgbColour([1 0 0], alpha)
-	}
-
 	lightnessCie { :y :yn |
 		let f = { :y :yn |
 			let yyn = y / yn;
@@ -355,6 +305,10 @@ ColourGradient : [Object] { | colourList positionList |
 			}
 		};
 		116 * f(y * 100, yn * 100) - 16
+	}
+
+	red { :alpha |
+		RgbColour([1 0 0], alpha)
 	}
 
 	srgbDecode { :self |
@@ -614,6 +568,13 @@ ColourGradient : [Object] { | colourList positionList |
 		lmsToXyz.dot(lms.cubed)
 	}
 
+	quilezGradient { :self |
+		let [a, b, c, d] = self;
+		{ :t |
+			a + (b * (2.pi * ((c * t) + d)).cos)
+		}
+	}
+
 	xyzToOklab { :self |
 		let xyzToLms = [
 			[0.8189330101,  0.3618667424, -0.1288597137],
@@ -844,12 +805,6 @@ ColourGradient : [Object] { | colourList positionList |
 		)
 	}
 
-	colourGradients { :self |
-		self.requireLibraryItem(
-			'ColourGradients'
-		)
-	}
-
 	colourPalettes { :self |
 		self.requireLibraryItem(
 			'ColourPalettes'
@@ -898,34 +853,6 @@ LibraryItem(
 			i.collect { :j |
 				j.collect { :k |
 					k.parseHexString.asList / 255
-				}
-			}
-		}
-	}
-)
-
-LibraryItem(
-	name: 'ColourGradients',
-	category: 'Graphics/Colour',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ColourGradients.json',
-	mimeType: 'application/json',
-	parser: { :libraryItem |
-		libraryItem.collect { :i |
-			i.collect { :j |
-				j.isList.if {
-					[
-						j.collect { :k |
-							k.parseHexString.asList / 255
-						},
-						(0 -- 1).discretize(j.size)
-					]
-				} {
-					[
-						j['c'].collect { :k |
-							k.parseHexString.asList / 255
-						},
-						j['p']
-					]
 				}
 			}
 		}

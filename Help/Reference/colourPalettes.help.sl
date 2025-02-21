@@ -49,7 +49,6 @@ system
 
 ![](sw/spl/Help/Image/colourPalettes-B.svg)
 
-
 Plot the four colour _fernande_ palette from the _ltc_ collection:
 
 ~~~spl svg=C
@@ -72,8 +71,32 @@ system
 
 ![](sw/spl/Help/Image/colourPalettes-D.svg)
 
+`asDiscreteColourGradient` translates a _colour palette_ to a `ColourGradient`,
+arranged to have discrete sections.
+Plot the discrete gradient of the four colour _fernande_ palette from the _ltc_ collection:
+
+~~~spl svg=E
+system
+.colourPalettes['ltc', 'fernande']
+.asDiscreteColourGradient
+~~~
+
+![](sw/spl/Help/Image/colourPalettes-E.svg)
+
+`asContinuousColourGradient` translates a _colour palette_ to a `ColourGradient`,
+arranged to be a continous gradient with equally spaced positions.
+Plot the continuous gradient of the four colour _fernande_ palette from the _ltc_ collection:
+
+~~~spl svg=F
+system
+.colourPalettes['ltc', 'fernande']
+.asContinuousColourGradient
+~~~
+
+![](sw/spl/Help/Image/colourPalettes-F.svg)
+
 * * *
 
-See also: colourGradients, Colour, RgbColour
+See also: asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, ColourGradient, RgbColour
 
 Guides: Colour Functions

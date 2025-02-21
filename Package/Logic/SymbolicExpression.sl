@@ -84,8 +84,20 @@
 		)
 	}
 
+	cos { :self |
+		SymbolicExpression('cos', [self])
+	}
+
+	sin { :self |
+		SymbolicExpression('sin', [self])
+	}
+
 	sqrt { :self |
 		SymbolicExpression('sqrt', [self])
+	}
+
+	tan { :self |
+		SymbolicExpression('tan', [self])
 	}
 
 }
@@ -140,7 +152,13 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 			'(% %)'.format(
 				[
 					self.operator.printString,
-					self.operands.collect(printString:/1).join(' ')
+					self.operands.collect { :each |
+						each.isSmallFloat.if {
+							each.recogniseSymbolicExpression
+						} {
+							each
+						}.printString
+					}.join(' ')
 				]
 			)
 		}
@@ -189,6 +207,20 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 			false
 		} {
 			self = anObject
+		}
+	}
+
+}
+
++SmallFloat {
+
+	recogniseSymbolicExpression { :self |
+		['recogniseSymbolicExpression', self].postLine;
+		self.caseOfOtherwise([
+			1.pi -> { Symbol('π') },
+			2.pi -> { 2 * Symbol('π') }
+		]) {
+			self
 		}
 	}
 

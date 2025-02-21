@@ -5,7 +5,8 @@
 Answer a collection of colour gradients collated from a variety of sources.
 The collection is keyed firstly by the collection name,
 and secondly by the palette name.
-Items are _(colourList, positionList)_ pairs.
+Items are _(colourList, positionList)_ pairs,
+which can be converted into a `ColourGradient` value using `asColourGradient`.
 
 Count collections:
 
@@ -22,6 +23,28 @@ Count gradients:
 >>> .collect(size:/1)
 >>> .sum
 4888
+```
+
+Select collections by prefix:
+
+```
+>>> system
+>>> .colourGradients
+>>> .keys
+>>> .select { :each |
+>>> 	each.beginsWith('esri')
+>>> }
+[
+	'esri_effects'
+	'esri_events'
+	'esri_hillshade'
+	'esri_hypsometry_bath'
+	'esri_hypsometry_ca'
+	'esri_hypsometry_eu'
+	'esri_hypsometry_na'
+	'esri_hypsometry_planet'
+	'esri_hypsometry_sa'
+]
 ```
 
 Plot the three colour _bhw1\_01_ gradient from the _bhw\_bhw1_ collection:
@@ -108,8 +131,44 @@ let f:/1 = system.colourGradients[
 
 ![](sw/spl/Help/Image/colourGradients-F.png)
 
+Resample and plot the _ocean.deep_ gradient from the _pals_ collection:
+
+~~~spl svg=G
+system
+.colourGradients[
+	'pals',
+	'ocean.deep'
+]
+.asColourGradient
+.resample(32)
+~~~
+
+![](sw/spl/Help/Image/colourGradients-G.svg)
+
+
+Resample and plot the _kovesi.isoluminant_cgo_80_c38_ gradient from the _pals_ collection:
+
+~~~spl svg=H
+system
+.colourGradients[
+	'pals',
+	'kovesi.isoluminant_cgo_80_c38'
+]
+.asColourGradient
+.resample(32)
+~~~
+
+![](sw/spl/Help/Image/colourGradients-H.svg)
+
+Sources include:
+
+- [Environmental Systems Research Institute](https://www.esri.com/)
+- [GRID-Arendal](https://www.grida.no/)
+- [NASA Ocean Colour](https://oceancolor.gsfc.nasa.gov/)
+- [School of Ocean and Earth Science and Technology](https://www.soest.hawaii.edu/soestwp/)
+
 * * *
 
-See also: asColourGradient, colourPalettes, Colour, ColourGradient, RgbColour
+See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, parula, RgbColour
 
 Guides: Colour Functions

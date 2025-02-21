@@ -53,6 +53,14 @@ Symbolic expressions implement `adaptToNumberAndApply`:
 ]
 ```
 
+When printing symbolic expressions,
+certain constant numbers are recognised as symbolic expressions:
+
+```
+>>> ('x'.Symbol * 2.pi).printString
+'(* x (* 2 π))'
+```
+
 Symbolic expressions implement `Number`.
 `squared` multiplies a number by itself:
 
@@ -101,6 +109,6 @@ e.asTree.treePlot
 
 * * *
 
-See also: asSymbolicExpression, name, printString, Symbol
+See also: asSymbolicExpression, name, printString, recogniseSymbolicExpression, Symbol
 
 Categories: Logic, Type

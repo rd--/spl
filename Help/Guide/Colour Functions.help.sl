@@ -3,6 +3,7 @@
 ## Traits and Types
 
 - `Colour`
+- `ColourGradient`
 - `RgbColour`
 
 ## Constructors
@@ -58,6 +59,17 @@
 - `adobeRgbEncode`
 - `srgbDecode`
 - `srgbEncode`
+
+## Gradients and Palettes
+
+- `asColourGradient`
+- `asContinuousColourGradient`
+- `asDiscreteColourGradient`
+- `colourGradients`
+- `colourPalettes`
+- `cubeHelix`
+- `parula`
+- `quilezGradient`
 
 ## Parsers and Printers
 

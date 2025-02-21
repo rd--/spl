@@ -1,0 +1,44 @@
+<svg
+	width="300" height="50"
+	viewBox="0 0 300 50"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<defs>
+	<linearGradient id="gradient">
+		<stop offset="0.000" stop-color="rgb(195,120,240)" />
+		<stop offset="0.032" stop-color="rgb(199,130,241)" />
+		<stop offset="0.065" stop-color="rgb(203,139,242)" />
+		<stop offset="0.097" stop-color="rgb(207,149,244)" />
+		<stop offset="0.129" stop-color="rgb(213,156,224)" />
+		<stop offset="0.161" stop-color="rgb(218,161,208)" />
+		<stop offset="0.194" stop-color="rgb(222,166,194)" />
+		<stop offset="0.226" stop-color="rgb(226,171,182)" />
+		<stop offset="0.258" stop-color="rgb(231,177,170)" />
+		<stop offset="0.290" stop-color="rgb(234,182,163)" />
+		<stop offset="0.323" stop-color="rgb(236,187,159)" />
+		<stop offset="0.355" stop-color="rgb(238,193,155)" />
+		<stop offset="0.387" stop-color="rgb(241,201,152)" />
+		<stop offset="0.419" stop-color="rgb(242,208,151)" />
+		<stop offset="0.452" stop-color="rgb(244,214,150)" />
+		<stop offset="0.484" stop-color="rgb(244,221,150)" />
+		<stop offset="0.516" stop-color="rgb(245,227,151)" />
+		<stop offset="0.548" stop-color="rgb(246,234,152)" />
+		<stop offset="0.581" stop-color="rgb(244,237,155)" />
+		<stop offset="0.613" stop-color="rgb(243,241,159)" />
+		<stop offset="0.645" stop-color="rgb(240,243,165)" />
+		<stop offset="0.677" stop-color="rgb(235,242,173)" />
+		<stop offset="0.710" stop-color="rgb(230,242,181)" />
+		<stop offset="0.742" stop-color="rgb(223,239,191)" />
+		<stop offset="0.774" stop-color="rgb(211,233,203)" />
+		<stop offset="0.806" stop-color="rgb(200,228,215)" />
+		<stop offset="0.839" stop-color="rgb(186,221,225)" />
+		<stop offset="0.871" stop-color="rgb(171,214,233)" />
+		<stop offset="0.903" stop-color="rgb(151,204,244)" />
+		<stop offset="0.935" stop-color="rgb(137,197,242)" />
+		<stop offset="0.968" stop-color="rgb(124,189,239)" />
+		<stop offset="1.000" stop-color="rgb(110,181,237)" />
+	</linearGradient>
+</defs>
+<rect width="300" height="50" fill="url(#gradient)" />
+</svg>
