@@ -22,7 +22,7 @@ A colour palette specifed in _Hex-Triplet_ notation:
 The `namedColourPalette` method answers a `ColourPalette` value:
 
 ~~~spl svg=B
-'Superfishel_Stone'.namedColourPalette
+'Superfishel Stone'.namedColourPalette
 ~~~
 
 ![](sw/spl/Help/Image/ColourPalette-B.svg)

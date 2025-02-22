@@ -28,6 +28,10 @@ ColourPalette : [Object] { | colourList |
 		self.storeStringAsInitializeSlots
 	}
 
+	writeSvg { :self :fileName |
+		self.asSvg.writeSvg(fileName)
+	}
+
 }
 
 +String {

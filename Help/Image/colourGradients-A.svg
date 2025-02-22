@@ -1,15 +1,14 @@
 <svg
-	width="375" height="50"
-	viewBox="0 0 375 50"
+	width="300" height="50"
+	viewBox="0 0 300 50"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
 >
 <defs>
 	<linearGradient id="gradient">
-		<stop offset="0" stop-color="rgb(244,168,48)" />
-		<stop offset="0.46" stop-color="rgb(230,78,92)" />
-		<stop offset="1" stop-color="rgb(173,54,228)" />
+		<stop offset="0.000" stop-color="rgb(0,0,255)" />
+		<stop offset="1.000" stop-color="rgb(0,255,127)" />
 	</linearGradient>
 </defs>
-<rect width="375" height="50" fill="url(#gradient)" />
+<rect width="300" height="50" fill="url(#gradient)" />
 </svg>

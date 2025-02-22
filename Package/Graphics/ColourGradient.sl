@@ -84,6 +84,10 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 		self.storeStringAsInitializeSlots
 	}
 
+	writeSvg { :self :fileName |
+		self.asSvg.writeSvg(fileName)
+	}
+
 }
 
 +List {

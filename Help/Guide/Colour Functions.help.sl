@@ -4,6 +4,7 @@
 
 - `Colour`
 - `ColourGradient`
+- `ColourPalette`
 - `RgbColour`
 
 ## Constructors

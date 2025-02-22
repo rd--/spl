@@ -48,7 +48,7 @@ Downsample a sine function from 512 to 64 places:
 
 At `ColourGradient`, resamples the gradient to have the specified number of equally spaced positions.
 
-~~~
+~~~spl svg=B
 system
 .colourGradients[
 	'Mathematica',
