@@ -12,7 +12,7 @@ Count collections:
 
 ```
 >>> system.colourGradients.size
-4
+6
 ```
 
 Count gradients:
@@ -22,7 +22,7 @@ Count gradients:
 >>> .colourGradients
 >>> .collect(size:/1)
 >>> .sum
-126
+146
 ```
 
 Select collections by prefix:
@@ -34,33 +34,33 @@ Select collections by prefix:
 >>> .select { :each |
 >>> 	each.beginsWith('Mat')
 >>> }
-['Mathematica']
+['Mathematica' 'Mathworks']
 ```
 
-Plot the three colour _bhw1\_01_ gradient from the _bhw\_bhw1_ collection:
+Plot the two colour _Winter_ gradient from the _Mathworks_ collection:
 
 ~~~spl svg=A
 system
-.colourGradients['bhw_bhw1', 'bhw1_01']
+.colourGradients['Mathworks', 'Winter']
 .asColourGradient
 ~~~
 
 ![](sw/spl/Help/Image/colourGradients-A.svg)
 
-Plot the four colour _bhw1\_sunset1_ gradient from the _bhw\_bhw1_ collection:
+Plot the sixteen colour _Spring_ gradient from the _Mathworks_ collection:
 
 ~~~spl svg=B
 system
 .colourGradients[
-	'bhw_bhw1',
-	'bhw1_sunset1'
+	'Mathworks',
+	'Spring'
 ]
 .asColourGradient
 ~~~
 
 ![](sw/spl/Help/Image/colourGradients-B.svg)
 
-Plot the one-hundred and twenty-eight colour _plasma_ gradient from the _viridis_ collection,
+Plot the one-hundred and twenty-eight colour _Plasma_ gradient from the _Viridis_ collection,
 resampled to sixteen colours:
 
 ~~~spl svg=C
@@ -75,7 +75,7 @@ system
 
 ![](sw/spl/Help/Image/colourGradients-C.svg)
 
-Plot the two-hundred and sixty colour _rainbow-m_ gradient from the _mathematica_ collection,
+Plot the two-hundred and sixty colour _Rainbow_ gradient from the _Mathematica_ collection,
 resampled to twenty-four colours:
 
 ~~~spl svg=D
@@ -90,21 +90,22 @@ system
 
 ![](sw/spl/Help/Image/colourGradients-D.svg)
 
-Plot the ten colour _cbcYlGnBu_ gradient from the _jjg\_cbcont\_seq_ collection:
+Plot the one-hundred twenty-eight colour _Isol_ gradient from the _Niccoli_ collection:
 
 ~~~spl svg=E
 system
 .colourGradients[
-	'jjg_cbcont_seq',
-	'cbcYlGnBu'
+	'Niccoli',
+	'Isol'
 ]
 .asColourGradient
+.resample(32)
 ~~~
 
 ![](sw/spl/Help/Image/colourGradients-E.svg)
 
 The `asBlock` method of `ColourGradient` answers a one argument `Block` that reads the gradient at the indicated position.
-Use a resampled form of the _pastel_ gradient from the _mathematica_ collection to colour a plot of a sine function:
+Use a resampled form of the _Pastel_ gradient from the _Mathematica_ collection to colour a plot of a sine function:
 
 ~~~spl png=F
 let i = (-2 -- 2).discretize(100);
@@ -136,7 +137,7 @@ system
 ![](sw/spl/Help/Image/colourGradients-G.svg)
 
 
-Resample and plot the _kovesi.isoluminant_cgo_80_c38_ gradient from the _pals_ collection:
+Resample and plot the _Isoluminant-Cgo-80-C38_ gradient from the _Kovesi_ collection:
 
 ~~~spl svg=H
 system
@@ -150,12 +151,13 @@ system
 
 ![](sw/spl/Help/Image/colourGradients-H.svg)
 
-Sources include:
-
-- [Environmental Systems Research Institute](https://www.esri.com/)
-- [GRID-Arendal](https://www.grida.no/)
-- [NASA Ocean Colour](https://oceancolor.gsfc.nasa.gov/)
-- [School of Ocean and Earth Science and Technology](https://www.soest.hawaii.edu/soestwp/)
+Sources for each collection:
+_Kovesi_: [1](https://github.com/peterkovesi/PerceptualColourMaps.jl) [2](https://colorcet.com/download/index.html),
+_Mathematica_: [1](https://reference.wolfram.com/language/ref/ColorData.html),
+_Mathworks_: [1](https://au.mathworks.com/help/matlab/ref/colormap.html),
+_Niccoli_: [1](https://www.mathworks.com/matlabcentral/fileexchange/28982-perceptually-improved-colormaps) [2](https://kwstat.github.io/pals/reference/niccoli.html),
+_Ocean_: [1](https://github.com/matplotlib/cmocean),
+_Viridis_: [1](https://github.com/sjmgarnier/viridis)
 
 _Note:_
 The colour palettes catalogue is a `LibraryItem`,

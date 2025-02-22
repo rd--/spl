@@ -37,21 +37,23 @@ however it does implement:
 - `atPut`
 - `removeKeyIfAbsent`
 
-Remove an item from the 'SplLibrary' cache:
+Remove items from the 'SplLibrary' cache:
 
 ~~~spl async
-let key ='ColourGradients';
+let keys = ['ColourGradients', 'ColourPalettes'];
 system
 .caches
 .atIfPresent('SplLibraryItems') { :cache |
-	cache
-	.removeKeyIfAbsent(
-		system
-		.library[key]
-		.url
-		.asUrl
-	) {
-		'Not present'
+	keys.collect { :key |
+		cache
+		.removeKeyIfAbsent(
+			system
+			.library[key]
+			.url
+			.asUrl
+		) {
+			'Not present'
+		}
 	}
 }
 ~~~

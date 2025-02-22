@@ -6,7 +6,7 @@
 Answer a `ColourGradient` by looking up the `colourGradients` library.
 The binary form is a direct lookup:
 
-Lookup the _Summer_ gradient in the _ggthemes_ collection:
+Lookup the _Plasma_ gradient in the _Viridis_ collection:
 
 ~~~spl svg=A
 'Viridis'.namedColourGradient('Plasma')

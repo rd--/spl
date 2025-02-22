@@ -51,8 +51,8 @@ At `ColourGradient`, resamples the gradient to have the specified number of equa
 ~~~
 system
 .colourGradients[
-	'mathematica',
-	'cmyk-colors'
+	'Mathematica',
+	'CMYKColors'
 ]
 .asColourGradient
 .resample(48)

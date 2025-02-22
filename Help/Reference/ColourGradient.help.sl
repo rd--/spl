@@ -9,8 +9,8 @@ If the position list is `nil` it is understood to an equally spaced gradient.
 The `size` of a colour gradient is the number of colours,
 or equally the numer of positions.
 
-Plot the _pastel_ gradient,
-from the _mathematica_ collection of the `colourGradients` library,
+Plot the _Pastel_ gradient,
+from the _Mathematica_ collection of the `colourGradients` library,
 resampled to thirty-two places:
 
 ~~~spl svg=A

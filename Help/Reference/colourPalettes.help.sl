@@ -11,7 +11,7 @@ Count collections:
 
 ```
 >>> system.colourPalettes.size
-6
+13
 ```
 
 Count palettes:
@@ -21,7 +21,7 @@ Count palettes:
 >>> .colourPalettes
 >>> .collect(size:/1)
 >>> .sum
-173
+294
 ```
 
 Plot the nine colour _Set1_ palette from the _ColorBrewer_ collection using `arrayPlot`:
@@ -97,6 +97,21 @@ system
 ~~~
 
 ![](sw/spl/Help/Image/colourPalettes-F.svg)
+
+Sources for each collection:
+_Carto_: [1](https://github.com/Nowosad/rcartocolor),
+_ColorBrewer_: [1](https://colorbrewer2.org) [2](https://cran.r-project.org/web/packages/RColorBrewer/),
+_Crameri_: [1](https://www.fabiocrameri.ch/colourmaps),
+_Excel_: [1](https://jrnold.github.io/ggthemes/reference/excel_new_pal.html),
+_LaCroix_: [1](https://github.com/johannesbjork/LaCroixColoR),
+_Ltc_: [1](https://github.com/loukesio/ltc-color-palettes),
+_NationalParks_: [1](https://github.com/kevinsblake/NatParksPalettes),
+_OkabeIto_: [1](https://jfly.uni-koeln.de/color/),
+_Pals_: [1](https://github.com/kwstat/pals/),
+_Tableau_: [1](https://jrnold.github.io/ggthemes/reference/tableau_color_pal.html),
+_Tol_: [1](https://personal.sron.nl/~pault/data/colourschemes.pdf),
+_WallStreetJournal_: [1](https://jrnold.github.io/ggthemes/reference/wsj_pal.html),
+_Wehrwein_: [1](https://github.com/awhstin/awtools)
 
 _Note:_
 The colour palettes catalogue is a `LibraryItem`,

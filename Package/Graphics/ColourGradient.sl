@@ -50,7 +50,9 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 	isValid { :self |
 		let [m, n] = self.colourList.shape;
 		(n = 3) & {
-			self.positionListOrNil.ifNotNil { :p |
+			self.positionListOrNil.ifNil {
+				true
+			} { :p |
 				p.size = m
 			}
 		}
@@ -158,7 +160,7 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 
 	parula { :self |
 		system
-		.colourGradients['pals', 'parula']
+		.colourGradients['Mathworks', 'Parula']
 		.asColourGradient
 		.resample(self)
 		.colourList
