@@ -1,0 +1,44 @@
+<svg
+	width="300" height="50"
+	viewBox="0 0 300 50"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+<defs>
+	<linearGradient id="gradient">
+		<stop offset="0.000" stop-color="rgb(35,23,27)" />
+		<stop offset="0.032" stop-color="rgb(62,43,116)" />
+		<stop offset="0.065" stop-color="rgb(74,64,178)" />
+		<stop offset="0.097" stop-color="rgb(74,86,218)" />
+		<stop offset="0.129" stop-color="rgb(67,109,240)" />
+		<stop offset="0.161" stop-color="rgb(58,131,249)" />
+		<stop offset="0.194" stop-color="rgb(49,153,246)" />
+		<stop offset="0.226" stop-color="rgb(41,174,236)" />
+		<stop offset="0.258" stop-color="rgb(37,193,220)" />
+		<stop offset="0.290" stop-color="rgb(38,211,201)" />
+		<stop offset="0.323" stop-color="rgb(44,225,180)" />
+		<stop offset="0.355" stop-color="rgb(55,237,159)" />
+		<stop offset="0.387" stop-color="rgb(70,246,138)" />
+		<stop offset="0.419" stop-color="rgb(90,251,119)" />
+		<stop offset="0.452" stop-color="rgb(113,254,102)" />
+		<stop offset="0.484" stop-color="rgb(137,252,87)" />
+		<stop offset="0.516" stop-color="rgb(163,248,74)" />
+		<stop offset="0.548" stop-color="rgb(188,239,63)" />
+		<stop offset="0.581" stop-color="rgb(211,228,54)" />
+		<stop offset="0.613" stop-color="rgb(231,214,47)" />
+		<stop offset="0.645" stop-color="rgb(247,197,42)" />
+		<stop offset="0.677" stop-color="rgb(255,177,37)" />
+		<stop offset="0.710" stop-color="rgb(255,156,34)" />
+		<stop offset="0.742" stop-color="rgb(255,134,30)" />
+		<stop offset="0.774" stop-color="rgb(254,111,26)" />
+		<stop offset="0.806" stop-color="rgb(241,88,22)" />
+		<stop offset="0.839" stop-color="rgb(224,66,18)" />
+		<stop offset="0.871" stop-color="rgb(203,47,13)" />
+		<stop offset="0.903" stop-color="rgb(182,30,7)" />
+		<stop offset="0.935" stop-color="rgb(162,18,2)" />
+		<stop offset="0.968" stop-color="rgb(148,12,0)" />
+		<stop offset="1.000" stop-color="rgb(144,13,0)" />
+	</linearGradient>
+</defs>
+<rect width="300" height="50" fill="url(#gradient)" />
+</svg>

@@ -4,6 +4,7 @@
 
 `cubeHelix` is a color mapping that degrades gracefully to grayscale without losing information,
 making it useful for continuous color scales in scientific drawings that may be printed in grayscale.
+Answers a one argument `Block` that implements the specified gradient function.
 
 ~~~spl svg=A
 (0 -- 1).discretize(48).collect(

@@ -107,7 +107,7 @@ A yellow, magenta, cyan gradient:
 
 * * *
 
-See also: asContinuousColourGradient, Colour, ColourGradient, cubeHelix, RgbColour
+See also: asContinuousColourGradient, Colour, ColourGradient, cubeHelix, RgbColour, turboGradient
 
 References:
 _IQ_
