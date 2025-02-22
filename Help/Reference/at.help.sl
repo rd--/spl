@@ -119,7 +119,8 @@ Guides: AtPut Syntax, At Syntax, Quoted At Syntax
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Part.html),
+[1](https://reference.wolfram.com/language/ref/Part.html)
+[2](https://reference.wolfram.com/language/ref/Lookup.html),
 _Smalltalk_
 5.7.2.2
 5.7.8.4

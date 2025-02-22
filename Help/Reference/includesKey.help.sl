@@ -19,6 +19,8 @@ and `keys` is another name for `indices`.
 See also: at, Dictionary, includesIndex, Indexable, keys
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/KeyExistsQ.html)
 _Smalltalk_
 5.7.2.7
 

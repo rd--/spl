@@ -245,6 +245,18 @@
 		}
 	}
 
+	lookup { :self :key :defaultAnswer |
+		key.isList.if {
+			key.collect { :each |
+				self.lookup(each, defaultAnswer)
+			}
+		} {
+			self.atIfAbsent(key) {
+				defaultAnswer.value
+			}
+		}
+	}
+
 	remove { :self :anAssociation |
 		self.removeAssociation(anAssociation)
 	}
@@ -412,6 +424,12 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 			)
 		} {
 			self.error('List>>asDictionary: not list of associations')
+		}
+	}
+
+	lookup { :self :key :defaultValue |
+		self.collect { :each |
+			each.lookup(key, defaultValue)
 		}
 	}
 

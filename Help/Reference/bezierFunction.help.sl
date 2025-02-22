@@ -29,7 +29,7 @@ A symmetric cubic Bézier curve:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunctionAt
+See also: bernsteinBasis, BezierCurve, bezierFunctionAt, cubicBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 

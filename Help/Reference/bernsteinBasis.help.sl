@@ -37,6 +37,8 @@ Plot:
 
 See also: ^, BezierCurve, binomial, Piecewise
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernsteinPolynomial.html)

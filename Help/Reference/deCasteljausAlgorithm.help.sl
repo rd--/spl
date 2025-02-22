@@ -45,6 +45,8 @@ Draw the same cubic Bézier curve using only a small number of divisions:
 
 See also: BezierCurve, cubicBezierFunctionAt, quadraticBezierFunctionAt
 
+Guides: Geometry Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm)

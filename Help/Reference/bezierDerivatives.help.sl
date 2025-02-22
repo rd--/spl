@@ -113,4 +113,6 @@ let f = { :l |
 
 See also: BezierCurve
 
+Guides: Geometry Functions
+
 Further Reading: Riesenfeld 1973

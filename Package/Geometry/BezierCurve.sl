@@ -1,4 +1,4 @@
-BezierCurve : [Object] { | controlPoints splineDegree |
+BezierCurve : [Object] { | controlPoints splineDegree cache |
 
 	boundingBox { :self |
 		self.controlPoints.coordinateBoundingBox
@@ -73,7 +73,7 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 				BezierCurve(each, degree)
 			}
 		} {
-			newBezierCurve().initializeSlots(self, degree)
+			newBezierCurve().initializeSlots(self, degree, ())
 		}
 	}
 
@@ -90,6 +90,12 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 			p := q
 		};
 		answer
+	}
+
+	bezierFlatten { :self :size |
+		(0 -- 1).discretize(size).collect(
+			self.bezierFunction
+		)
 	}
 
 	/*
@@ -110,17 +116,25 @@ BezierCurve : [Object] { | controlPoints splineDegree |
 	*/
 
 	bezierFunction { :self |
-		{ :index |
-			self.bezierFunctionAt(index)
+		self.size.caseOfOtherwise([
+			3 -> { { :x | self.quadraticBezierFunctionAt(x) } },
+			4 -> { { :x | self.cubicBezierFunctionAt(x) } }
+		]) {
+			{ :x | self.bezierFunctionAt(x) }
 		}
 	}
 
 	bezierFunctionAt { :self :x |
-		let n = self.size - 1;
-		let b = [0 .. n].collect { :d |
-			n.bernsteinBasis(d, x)
-		};
-		(b * self).sum
+		self.size.caseOfOtherwise([
+			3 -> { self.quadraticBezierFunctionAt(x) },
+			4 -> { self.cubicBezierFunctionAt(x) }
+		]) {
+			let n = self.size - 1;
+			let b = [0 .. n].collect { :d |
+				n.bernsteinBasis(d, x)
+			};
+			(b * self).sum
+		}
 	}
 
 	bezierSplitAt { :self :x |

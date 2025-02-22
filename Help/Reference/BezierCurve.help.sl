@@ -14,17 +14,20 @@ and _simple_ if it is equal to `one`.
 A simple quadratic Bézier curve:
 
 ```
->>> BezierCurve([0 0; 1 1; 2 0], 2)
->>> .isSimple
-true
+>>> let c = BezierCurve([0 0; 1 1; 2 0], 2);
+>>> (c.isSimple, c.splineDegree)
+(true, 2)
 ```
 
 A simple cubic Bézier curve:
 
 ```
->>> BezierCurve([0 0; 0 1; 2 1; 2 0], 3)
->>> .isSimple
-true
+>>> let c = BezierCurve(
+>>> 	[0 0; 0 1; 2 1; 2 0],
+>>> 	3
+>>> );
+>>> (c.isSimple, c.splineDegree)
+(true, 3)
 ```
 
 The `componentCoordinates` of a composite cubic Bézier curve are the coordinates of simple curves,
@@ -37,12 +40,16 @@ the `componentCount` is the number of components:
 >>> 	7 3
 >>> ].BezierCurve(3);
 >>> (
+>>> 	c.isSimple,
 >>> 	c.isComposite,
+>>> 	c.splineDegree,
 >>> 	c.componentCount,
 >>> 	c.componentCoordinates
 >>> )
 (
+	false,
 	true,
+	3,
 	2,
 	[
 		0 0; 1 1; 2 -1; 3 0:;
@@ -163,9 +170,37 @@ l.adjacentPairsCollect(
 
 ![](sw/spl/Help/Image/BezierCurve-I.svg)
 
+A single cubic Bézier curve:
+
+~~~spl svg=J
+let p = [0 0; 1 2; 2 2; 3 0];
+[
+	p.BezierCurve(3),
+	p.Line,
+	p.PointCloud
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/BezierCurve-J.svg)
+
+A composite Bézier curve:
+
+~~~spl svg=K
+let p = [0 0; 1 3; 2 3; 3 0; 4 3; 5 0; 6 3];
+[
+	p.BezierCurve(3),
+	p.Line,
+	p.PointCloud
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/BezierCurve-K.svg)
+
 * * *
 
-See also: bernsteinBasis, bezierDerivatives, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
+See also: bernsteinBasis, bezierDerivatives, bezierFunction, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_
