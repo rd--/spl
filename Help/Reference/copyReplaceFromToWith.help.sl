@@ -41,8 +41,32 @@ Expand size of region:
 [1 -1 -2 -3 -4 5]
 ```
 
+If _stopIndex_ is one less than _startIndex_,
+insert collection at _startIndex_:
+
+```
+>>> [1 2 3 4 5].copyReplaceFromToWith(
+>>> 	3, 2, [0 0 0 0]
+>>> )
+[1 2 0 0 0 0 3 4 5]
+```
+
+If _stopIndex_ is the end index and _startIndex_ is one past the end,
+append collection:
+
+```
+>>> [1 2 3 4 5].copyReplaceFromToWith(
+>>> 	6, 5, [0 0 0 0]
+>>> )
+[1 2 3 4 5 0 0 0 0]
+```
+
 * * *
 
-See also: copy, copyFromTo, insertAt
+See also: copy, copyFromTo, copyReplaceFromToWithObject, insertAt
+
+References:
+_Smalltalk_
+5.7.8.9
 
 Categories: Copying

@@ -43,6 +43,17 @@ In each case,
 the index answered is a valid insertion point for `addBeforeIndex`,
 such that inserting the searched for item maintains sortedness.
 
+Assign values to ranges,
+does not distinguish out of range values at left or right:
+
+```
+>>> let l = [0 2.5 5 7.5 10];
+>>> -1:11.collect { :each |
+>>> 	l.binarySearchRightmost(each)
+>>> }
+[1 1 2 2 3 3 3 4 4 5 5 6 6]
+```
+
 * * *
 
 See also: binaryDetectIndex, binarySearch, binarySearchLeftmost, detectIndex, indexOf

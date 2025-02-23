@@ -93,6 +93,15 @@ Quartiles gives linearly interpolated quantile values for a list:
 )
 ```
 
+At `SortedList`:
+
+```
+>>> [5 10 4 25 2 1]
+>>> .asSortedList
+>>> .quantile(1 / 5, 1 / 2, 0, 0, 1)
+1.7
+```
+
 * * *
 
 See also: median, quartiles, variance, sort

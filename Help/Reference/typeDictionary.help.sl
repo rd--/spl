@@ -36,7 +36,7 @@ Find the types that have a slot named _cache_:
 >>> system.typeDictionary.select { :each |
 >>> 	each.slotNameList.includes('cache')
 >>> }.keys
-['Markdown' 'HelpFile' 'RatioTuning']
+['BezierCurve' 'Markdown' 'HelpFile' 'RatioTuning']
 ```
 
 * * *

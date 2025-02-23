@@ -394,7 +394,6 @@
 				l := m + 1
 			}
 		};
-		r.postLine;
 		(r = 0).if {
 			1
 		} {
@@ -618,6 +617,10 @@
 			answer.replaceFromToWithStartingAt(end + 1, newSize, self, stop + 1)
 		};
 		answer
+	}
+
+	copyReplaceFromToWithObject { :self :start :stop :anObject |
+		self.copyReplaceFromToWith(start, stop, anObject # (stop - start + 1).max(1))
 	}
 
 	copyUpThrough { :self :anElement |

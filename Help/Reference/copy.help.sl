@@ -22,7 +22,7 @@ Copy is defined in terms of `shallowCopy` and `postCopy`.
 
 * * *
 
-See also: copyFromTo, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
+See also: copyFromTo, copyReplaceFromToWith, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
 
 References:
 _Smalltalk_

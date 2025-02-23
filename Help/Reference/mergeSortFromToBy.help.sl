@@ -10,7 +10,7 @@ Sort the middle of a sequence:
 ```
 >>> [3 2 1 3 2 1 3 2 1]
 >>> .mergeSortFromToBy(4, 6, <)
-[3, 2, 1, 1, 2, 3, 3, 2, 1]
+[3 2 1 1 2 3 3 2 1]
 ```
 
 Sort a first half of a random sequence of integers:
@@ -24,7 +24,6 @@ Sort a first half of a random sequence of integers:
 >>> 		1, 10, <
 >>> 	)
 >>> ]
-
 [
 	11 17 16 5 7 10 14 13 22 1
 	6 2 17 2 20 4 3 3 17 6

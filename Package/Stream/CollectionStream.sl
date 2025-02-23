@@ -57,7 +57,7 @@ CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection
 
 	upTo { :self :anObject |
 		let start = self.position + 1;
-		let end = self.collection.indexOfStartingAt(anObject, start);
+		let end = self.collection.indexOfStartingAtBy(anObject, start, =);
 		(end = 0 | {
 			end > self.readLimit
 		}).if {

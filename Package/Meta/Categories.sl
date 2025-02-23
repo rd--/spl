@@ -319,7 +319,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'in'
 		'indexOf'
 		'indexOfIfAbsent'
-		'indexOfStartingAt'
+		'indexOfStartingAtBy'
 		'indexOfSubstring'
 		'indexOfSubstringStartingAt'
 		'indexOfSubstringStartingAtIfAbsent'
