@@ -87,6 +87,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Grade),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Order.html)
+[1](https://reference.wolfram.com/language/ref/Order.html),
+_NumPy_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html)
 
 Categories: Sorting

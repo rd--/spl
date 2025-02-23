@@ -22,6 +22,13 @@ Out of range indices answer end points:
 6
 ```
 
+At matrix:
+
+```
+>>> [0 0 0; 0 0.5 1.5].atBlend(1.75)
+[0 0.375 0.125]
+```
+
 Resample sequence:
 
 ~~~svg=A

@@ -15,7 +15,7 @@ Answer _newObject_.
 
 * * *
 
-See also: add, addAfter
+See also: add, addAfter, addBeforeIndex
 
 References:
 _Smalltalk_

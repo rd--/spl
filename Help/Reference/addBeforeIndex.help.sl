@@ -14,7 +14,8 @@ Answer _newObject_.
 [0 1 2 3 4 5 6]
 ```
 
-Add before first and after last:
+Add before the first index,
+and then after the last index:
 
 ```
 >>> let l = ['x' 'y'];

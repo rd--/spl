@@ -13,6 +13,20 @@ Answer _newObject_.
 ('y', ['w' 'x' 'y' 'z'])
 ```
 
+To add to the start of a `List` specify the index to be `zero`:
+
+```
+>>> let l = [2 3 4];
+>>> (l.addAfterIndex(1, 0), l)
+(1, [1 2 3 4])
+* * *
+
+To add to the end of a `List` specify the index to be the `size` of the list:
+
+```
+>>> let l = [1 2 3];
+>>> (l.addAfterIndex(4, 3), l)
+(4, [1 2 3 4])
 * * *
 
 See also: add, addAfter, addBefore, insertAt

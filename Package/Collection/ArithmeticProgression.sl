@@ -77,6 +77,16 @@
 		self.step
 	}
 
+	indexOf { :self :aNumber |
+		let i = (aNumber - self.start) / self.step + 1;
+		i.postLine;
+		self.includesIndex(i).if {
+			i
+		} {
+			0
+		}
+	}
+
 	isArithmeticSeries { :self |
 		true
 	}

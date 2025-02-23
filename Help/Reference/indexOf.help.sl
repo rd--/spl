@@ -33,9 +33,44 @@ Answers zero if the item is not in the sequence:
 0
 ```
 
+At `Range` there is a closed form:
+
+```
+>>> (99, 101 .. 999).indexOf(433)
+168
+
+>>> (433 - 99) / 2 + 1
+168
+
+>>> (1, 7 .. 99999999).indexOf(89014735)
+14835790
+
+>>> (1, 7 .. 99999999).at(14835790)
+89014735
+```
+
+`indexOf` is subject to floating point error:
+
+```
+>>> (1, 1.1 .. 9).indexOf(3.1)
+0
+
+>>> (1, 1.1 .. 9).at(22)
+3.1
+
+>>> (3.1 - 1) / (1.1 - 1) + 1
+22
+
+>>> [1, 1.1 .. 9].indexOf(3.1)
+0
+
+>>> [1, 1.1 .. 9].at(22)
+3.1
+```
+
 * * *
 
-See also: detect, detectIndex, indexOfIfAbsent, lastIndexOf
+See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, lastIndexOf
 
 References:
 _Smalltalk_

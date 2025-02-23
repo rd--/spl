@@ -90,10 +90,12 @@ Interval : [Object, Magnitude, Number] { | min max |
 	}
 
 	findDivisions { :self :n |
-		let range = (self.max - self.min).niceNumberAbove;
+		let min = self.min;
+		let max = self.max;
+		let range = (max - min).niceNumberAbove;
 		let step = (range / n).niceNumberNear;
-		let start = (self.min / step).floor * step;
-		let end = (self.max / step).ceiling * step;
+		let start = (min / step).floor * step;
+		let end = (max / step).ceiling * step;
 		Range(start, end, step)
 	}
 

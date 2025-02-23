@@ -352,9 +352,9 @@
 		} {
 			self.resample(size)
 		};
-		a := a.integrate.normalizeRange(1, size);
+		let b = a.integrate.normalizeRange(1, size);
 		1:size.collect { :index |
-			a.indexOfInBetween(index) - 1 / size
+			b.indexOfInBetween(index) - 1 / size
 		}
 	}
 
@@ -449,18 +449,14 @@
 		self.multiChannelExpand
 	}
 
-	indexOfGreaterThan { :self :aMagnitude |
-		self.detectIndex { :each |
-			each > aMagnitude
-		}
-	}
-
 	indexOfInBetween { :self :aNumber |
 		self.isEmpty.if {
 			nil
 		} {
-			let i = self.indexOfGreaterThan(aNumber);
-			i.ifNil {
+			let i = self.binaryDetectIndex { :each |
+				each > aNumber
+			};
+			(i > self.size).if {
 				self.size
 			} {
 				(i = 1).if {

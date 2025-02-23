@@ -30,6 +30,13 @@ Finds the first index if the sequence contains multiple copies:
 2
 ```
 
+To find the rightmost of multiple entries see `binarySearchRightmost`:
+
+```
+>>> [1 2 2 2 2 2 3].binarySearchRightmost(2)
+6
+```
+
 Answers `zero` if no item is found:
 
 ```
@@ -39,7 +46,7 @@ Answers `zero` if no item is found:
 
 * * *
 
-See also: binaryDetectIndex, detectIndex, indexOf
+See also: binaryDetectIndex, binarySearchLeftmost, binarySearchRightmost, detectIndex, indexOf
 
 References:
 _Mathematica_

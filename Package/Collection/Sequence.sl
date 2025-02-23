@@ -341,6 +341,12 @@
 		}
 	}
 
+	binaryDetectIndex { :self :aBlock:/1 |
+		self.size.binaryDetectIndex { :i |
+			aBlock(self[i])
+		}
+	}
+
 	binaryDistance { :u :v |
 		(u = v).boole
 	}
@@ -354,6 +360,53 @@
 			i
 		} {
 			0
+		}
+	}
+
+	binarySearchLeftmost { :self :item |
+		let n = self.size;
+		let l = 0;
+		let r = n;
+		{ l < r }.whileTrue {
+			let m = floor((l + r) / 2);
+			(self[m + 1] < item).if {
+				l := m + 1
+			} {
+				r := m
+			}
+		};
+		(l < n & { self[l + 1] = item }).if {
+			l + 1
+		} {
+			l
+		}
+	}
+
+	binarySearchRightmost { :self :item |
+		let n = self.size;
+		let l = 0;
+		let r = n;
+		{ l < r }.whileTrue {
+			let m = floor((l + r) / 2);
+			(self[m + 1] > item).if {
+				r := m
+			} {
+				l := m + 1
+			}
+		};
+		r.postLine;
+		(r = 0).if {
+			1
+		} {
+			(r = n).if {
+				n + 1
+			} {
+				(self[r] = item).if {
+					r
+				} {
+					r + 1
+				}
+			}
 		}
 	}
 
@@ -682,6 +735,10 @@
 		} {
 			nil
 		}
+	}
+
+	detectIndexIfFound { :self :predicate:/1 :ifFound:/1 |
+		self.detectIndexIfFoundIfNone(predicate:/1, ifFound:/1, { })
 	}
 
 	detectIndexIfFoundIfNone { :self :predicate:/1 :ifFound:/1 :ifNone:/0 |
@@ -1227,7 +1284,7 @@
 		valueWithReturn { :return:/1 |
 			let i = 1;
 			aSequence.do { :each |
-				i := self.indexOfStartingAt(each, i);
+				i := self.indexOfStartingAtBy(each, i, =);
 				(i = 0).ifTrue {
 					false.return
 				}
@@ -1275,11 +1332,11 @@
 	}
 
 	indexOf { :self :anElement |
-		self.indexOfStartingAt(anElement, 1)
+		self.indexOfStartingAtBy(anElement, 1, =)
 	}
 
 	indexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
-		let index = self.indexOfStartingAt(anElement, 1);
+		let index = self.indexOfStartingAtBy(anElement, 1, =);
 		(index = 0).if {
 			exceptionBlock()
 		} {
@@ -1287,10 +1344,10 @@
 		}
 	}
 
-	indexOfStartingAt { :self :anElement :start |
+	indexOfStartingAtBy { :self :anElement :start :aBlock:/2 |
 		valueWithReturn { :return:/1 |
 			start.toDo(self.size) { :index |
-				(self[index] = anElement).ifTrue {
+				aBlock(self[index], anElement).ifTrue {
 					index.return
 				}
 			};
@@ -2373,7 +2430,7 @@
 	replaceAllWith { :self :oldObject :newObject |
 		let index = 0;
 		{
-			index := self.indexOfStartingAt(oldObject, index + 1);
+			index := self.indexOfStartingAtBy(oldObject, index + 1, =);
 			index = 0
 		}.whileFalse {
 			self[index] := newObject
