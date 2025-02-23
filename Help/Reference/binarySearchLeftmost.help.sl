@@ -67,4 +67,4 @@ distinguishes out of range values at left but not right:
 
 * * *
 
-See also: binaryDetectIndex, binarySearch, binarySearchRightmost, detectIndex, indexOf
+See also: binaryDetectIndex, binarySearch, binarySearchRightmost, detectIndex, indexForInserting, indexOf

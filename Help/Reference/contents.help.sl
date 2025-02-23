@@ -64,9 +64,20 @@ The `contents` of quoted strings are the quoted `String` values:
 'Backtick Quoted String'
 ```
 
+At `SortedList` answers the stored list,
+use `asList` to get a copy:
+
+```
+>>> [1 3 5 4 2 0].asSortedList.contents
+[0 1 2 3 4 5]
+
+>>> [1 3 5 4 2 0].asSortedList.asList
+[0 1 2 3 4 5]
+```
+
 * * *
 
-See also: BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy, stringList
+See also: asList, BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy, stringList
 
 References:
 _Smalltalk_

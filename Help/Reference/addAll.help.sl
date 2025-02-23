@@ -52,6 +52,15 @@ Adding no items to a `List`:
 [1 2 3]
 ```
 
+At `SortedList`:
+
+```
+>>> let l = [7, 5 .. 1].asSortedList;
+>>> l.addAll([8, 6 .. 2]);
+>>> l.contents
+[1 .. 8]
+```
+
 * * *
 
 See also: add, Extensible, include, includeAll, Iterable, remove, removeAll

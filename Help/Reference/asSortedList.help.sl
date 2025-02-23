@@ -11,7 +11,11 @@ At `List`:
 ```
 >>> [1 9 3 7 5].asSortedList.contents
 [1 3 5 7 9]
+```
 
+Specifiy the sort block, here to maintain a list in reverse order:
+
+```
 >>> [1 9 3 7 5].asSortedList(>).contents
 [9 7 5 3 1]
 ```
@@ -23,6 +27,14 @@ At `IdentitySet`:
 >>> s.includeAll([1 9 3 7 5]);
 >>> s.asSortedList.contents
 [1 3 5 7 9]
+```
+
+At `Range`:
+
+```
+>>> let l = (10, 9 .. 1).asSortedList;
+>>> (l.contents, l.isVector)
+([1 2 3 4 5 6 7 8 9 10], true)
 ```
 
 * * *

@@ -3333,14 +3333,11 @@ SortedList().species = SortedList:/0 /* species is sorted array */
 SortedList().size = 0 /* query size */
 let a = SortedList(); a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] /* add inserts items into sequence */
 let a = [3, 1].asSortedList; a.add(2); a.contents = [1 .. 3] /* sorted array from array */
-let a = [7, 5 .. 1].asSortedList; a.addAll([8, 6 .. 2]); a.contents = [1 .. 8] /* add all elements of collection into sequence */
 let a = [9 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /* collect into ordered collection */
 let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] /* sorted array with specified sort block */
 let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
-let a = SortedList(); a.add('truite'); a.add('porcinet'); a.add('carpe'); a.middle = 'porcinet'
 [5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
 'hello'.contents.asSortedList.asList = 'ehllo'.contents
-10:1.asSortedList.isVector
 ```
 
 ## Stack -- collection type
