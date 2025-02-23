@@ -61,21 +61,23 @@ Histogram of numbers between `zero` and `one`:
 >>> (0, 0.02 .. 1).histogramList
 [
 	0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1;
-	5 6 5 4 5 5 5 5 5 5
+	5 6 5 4 5 5 5 5 5 6
 ]
 
 >>> (0, 0.02 .. 1).histogramList([0 1 0.25])
-[0 0.25 0.5 0.75 1; 13 12 13 12]
+[0 0.25 0.5 0.75 1; 13 12 13 13]
 ```
 
 Histogram of a small list of small integers,
-note that the last item is not counted since it is at the right edge of the last bin:
+note that the last item is counted,
+despite being at the right edge of the last bin,
+since the last bin is treated especially:
 
 ```
 >>> [1 3 2 1 4 5 6 2].histogramList
 [
 	1 2 3 4 5 6;
-	2 2 1 1 1
+	2 2 1 1 2
 ]
 
 >>> [1 3 2 1 4 5 6 2].histogramList([0 10 2])

@@ -165,7 +165,7 @@
 		let c = { [] } ! (n - 1);
 		self.do { :e |
 			(e >= b[1] & { e <= b[n] }).ifTrue {
-				let i = b.binarySearchLeftmost(e);
+				let i = b.binarySearchLeftmost(e).min(n - 1);
 				c[i].add(e)
 			}
 		};
@@ -178,8 +178,8 @@
 		self.do { :e |
 			let [e1, e2] = e;
 			(e1 >= b1[1] & { e1 <= b1[m] & { e2 >= b2[1] & { e2 <= b2[n] } } }).ifTrue {
-				let i = b1.binarySearchLeftmost(e1);
-				let j = b2.binarySearchLeftmost(e2);
+				let i = b1.binarySearchLeftmost(e1).min(m - 1);
+				let j = b2.binarySearchLeftmost(e2).min(n - 1);
 				c[i][j].add(e)
 			}
 		};
@@ -466,21 +466,11 @@
 	}
 
 	histogramListFor { :self :b |
-		let n = b.size;
-		let c = List(n - 1, 0);
-		self.do { :e |
-			2:n.detectIndexIfFoundIfNone { :i |
-				e >= b[i - 1] & { e < b[i] }
-			} { :i |
-				c[i] := c[i] + 1
-			} {
-			}
-		};
-		[b, c]
+		[b, self.binListsFor(b).collect(size:/1)]
 	}
 
-	histogramList { :self :startStopStep |
-		let [start, stop, step] = startStopStep;
+	histogramList { :self :b |
+		let [start, stop, step] = b;
 		self.histogramListFor(
 			Range(start, stop, step).asList
 		)
