@@ -22,7 +22,7 @@ Resample a 3×3 matrix to a 6×6 matrix:
 ]
 ```
 
-The answer matrix need to have the same proportions as the initial matrix.
+The answer matrix need not have the same proportions as the initial matrix.
 Resample a 2×3 matrix to a 4×7 matrix:
 
 ```
@@ -60,7 +60,7 @@ Resample a 2×2 matrix to a 100×100 matrix and draw image:
 
 * * *
 
-See also: bilinearInterpolation, matrixInterpolation, resample
+See also: bilinearInterpolation, matrixInterpolation, resample, volumeResample
 
 Guides: Interpolation Functions
 

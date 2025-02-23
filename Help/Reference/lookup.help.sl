@@ -76,10 +76,11 @@ Where `at` and `atIfAbsent` are defined at `List` as indexing methods,
 `lookup` is defined only at `Dictionary`,
 and can therefore thread over `List` values,
 both of dictionaries and keys.
+Unlike `atAll`, the answer gives only the values, in sequence.
 
 * * *
 
-See also: at, atIfAbsent, Dictionary, includesKey, Map, Record
+See also: at, atAll, atIfAbsent, Dictionary, includesKey, Map, Record
 
 References:
 _Mathematica_

@@ -8,6 +8,14 @@
 		)
 	}
 
+	trilinearInterpolation { :c000 :c100 :c010 :c110 :c001 :c101 :c011 :c111 :mu1 :mu2 :mu3 |
+		linearInterpolation(
+			bilinearInterpolation(c000, c100, c010, c110, mu1, mu2),
+			bilinearInterpolation(c001, c101, c011, c111, mu1, mu2),
+			mu3
+		)
+	}
+
 	blend { :y1 :y2 :mu |
 		y1.blend(y2, mu) { :y1 :y2 :mu |
 			y1 + (mu * (y2 - y1))
@@ -354,6 +362,31 @@
 		}
 	}
 
+	volumeInterpolation { :self :aBlock:/11 |
+		let [m, n, o] = self.shape;
+		{ :x :y :z |
+			let i1 = x.integerPart;
+			let j1 = y.integerPart;
+			let k1 = z.integerPart;
+			let i2 = m.min(i1 + 1);
+			let j2 = n.min(j1 + 1);
+			let k2 = o.min(k1 + 1);
+			aBlock(
+				self[i1][j1][k1],
+				self[i2][j1][k1],
+				self[i1][j2][k1],
+				self[i2][j2][k1],
+				self[i1][j1][k2],
+				self[i2][j1][k2],
+				self[i1][j2][k2],
+				self[i2][j2][k2],
+				x.fractionPart,
+				y.fractionPart,
+				z.fractionPart
+			)
+		}
+	}
+
 }
 
 +@Sequence {
@@ -399,6 +432,17 @@
 			answer[(each * anInteger) + 1] := self[each + 1]
 		};
 		answer
+	}
+
+	volumeResample { :self :shape |
+		let [m, n, o] = self.shape;
+		let [p, q, r] = shape;
+		let i = (1 -- m).discretize(p);
+		let j = (1 -- n).discretize(q);
+		let k = (1 -- o).discretize(r);
+		self.volumeInterpolation(
+			trilinearInterpolation:/11
+		).table(i, j, k)
 	}
 
 }

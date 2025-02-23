@@ -15,7 +15,7 @@ Calculate an interpolated point that lies between the four points _q11_, _q21_, 
 
 * * *
 
-See also: catmullRomInterpolation, cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, matrixInterpolation, matrixResample
+See also: catmullRomInterpolation, cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, matrixInterpolation, matrixResample, trilinearInterpolation
 
 Guides: Interpolation Functions
 
