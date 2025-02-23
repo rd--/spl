@@ -55,6 +55,6 @@ Sort a random sequence of integers:
 
 * * *
 
-See also: isSorted, mergeSortBy, mergeSortByFromTo, sort
+See also: isSorted, mergeSortBy, mergeSortFromToBy, sort
 
 Categories: Sorting

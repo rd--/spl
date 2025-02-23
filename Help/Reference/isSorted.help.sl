@@ -80,7 +80,9 @@ Plot indices of sorted tuples:
 
 * * *
 
-See also: isSortedBy, sort, sorted
+See also: isSortedBetweenAnd, isSortedBy, sort, sorted
+
+Guides: Sort Functions
 
 References:
 _Mathematica_

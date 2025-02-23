@@ -45,8 +45,10 @@ Sort a descending sequence:
 Sort a random sequence of integers:
 
 ```
->>> Sfc32(24015).randomInteger(1, 23, [17]).quickSort
-[1 3 3 6 7 8 9 10 10 12 13 15 17 18 21 22 23]
+>>> Sfc32(24015)
+>>> .randomInteger(1, 23, [16])
+>>> .quickSort
+[1 3 3 6 7 8 9 10 10 12 13 15 17 18 21 23]
 ```
 
 * * *

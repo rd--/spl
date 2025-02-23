@@ -1937,12 +1937,12 @@
 		}
 	}
 
-	mergeSort { :self :aSortBlock:/2 |
+	mergeSortBy { :self :aSortBlock:/2 |
 		self.mergeSortFromToBy(1, self.size, aSortBlock:/2)
 	}
 
 	mergeSort { :self |
-		self.mergeSortFromToBy(1, self.size, <=)
+		self.mergeSortBy(<=)
 	}
 
 	meshGrid { :x :y |
@@ -2350,12 +2350,12 @@
 		}
 	}
 
-	quickSort { :self :sortBlock:/2 |
+	quickSortBy { :self :sortBlock:/2 |
 		self.quickSortFromToBy(1, self.size, sortBlock:/2)
 	}
 
 	quickSort { :self |
-		self.quickSort(<=)
+		self.quickSortBy(<=)
 	}
 
 	ratios { :self |

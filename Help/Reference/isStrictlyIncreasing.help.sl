@@ -21,4 +21,4 @@ false
 
 * * *
 
-See also: <, isFinite, isSortedBy
+See also: <, isFinite, isMonotonicallyIncreasing, isSortedBy

@@ -21,7 +21,7 @@ Sort a random permutation:
 
 * * *
 
-See also: longestIncreasingSubsequence
+See also: longestIncreasingSubsequence, mergeSort, quickSort, sort
 
 References:
 _W_
