@@ -132,4 +132,4 @@ See also: UnivariatePolynomial
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Cubic_equation#Cardano's_formula)
+[1](https://en.wikipedia.org/wiki/Cubic_equation)

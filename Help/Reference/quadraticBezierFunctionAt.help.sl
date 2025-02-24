@@ -3,7 +3,7 @@
 - _quadraticBezierFunctionAt(aList, aNumber)_
 
 Answers the quadratic Bézier curve at _aNumber_ given the three row matrix _aList_.
-This is a special case of the more general `bezierFunctionAt`.
+This is the method utilised by `bezierFunction` for quadratic Bézier curves.
 
 A quadratic Bézier curve:
 
@@ -29,12 +29,8 @@ A symmetric quadratic Bézier curve (an arc):
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction, bezierFunctionAt, cubicBezierFunctionAt
+See also: BezierCurve, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt
 
 Guides: Geometry Functions
-
-References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/BezierFunction.html)
 
 Categories: Geometry

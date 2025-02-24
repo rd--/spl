@@ -71,7 +71,8 @@ the `componentCount` is the number of components:
 Calculate approximate arc length of simple quadratic Bézier curve:
 
 ```
->>> BezierCurve([70 250; 20 110; 220 60], 2)
+>>> [70 250; 20 110; 220 60]
+>>> .BezierCurve(2)
 >>> .arcLength
 281.95
 ```
@@ -79,7 +80,8 @@ Calculate approximate arc length of simple quadratic Bézier curve:
 Calculate approximate arc length of simple cubic Bézier curve:
 
 ```
->>> BezierCurve([110 150; 25 190; 210 250; 210 30], 3)
+>>> [110 150; 25 190; 210 250; 210 30]
+>>> .BezierCurve(3)
 >>> .arcLength
 272.87
 ```
@@ -263,7 +265,7 @@ A downsampled approximation of a composite cubic Bézier curve:
 
 * * *
 
-See also: bernsteinBasis, bezierDerivatives, bezierFunction, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
+See also: bernsteinBasis, bezierDerivatives, bezierDistanceTable, bezierFunction, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
 
 Guides: Geometry Functions
 

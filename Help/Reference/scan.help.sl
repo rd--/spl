@@ -62,15 +62,6 @@ Compute running minimum or maximum:
 [3 4 6 6 6 9 9 9 9 9]
 ```
 
-Amortize a 5% loan of 1000 with 10 annual payments of 90:
-
-```
->>> ([1000] ++ (90 # 10)).scan { :balance :payment |
->>> 	(balance * 1.05).rounded - payment
->>> }
-[1000 960 918 874 828 779 728 674 618 559 497]
-```
-
 * * *
 
 See also: accumulate, foldLeft, foldList, foldRight, reduce, scanLeft, scanRight

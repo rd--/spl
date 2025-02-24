@@ -8,13 +8,16 @@
 
 ## Bezier Functions
 
+- `bezierApproximation`
 - `bernsteinBasis`
 - `BezierCurve`
 - `bezierDerivatives`
+- `bezierDistanceTable`
 - `bezierFunction`
 - `bezierFunctionAt`
 - `bezierHull`
 - `bezierSplitAt`
+- `bezierTrace`
 - `cubicBezierFunctionAt`
 - `deCasteljausAlgorithm`
 - `linearBezierFunctionAt`

@@ -136,6 +136,32 @@ Compute the minimum number of coins of different value needed to make up an amou
 [6 1 0 3]
 ```
 
+Amortize a 5% loan of 1000 with 10 annual payments of 90:
+
+```
+>>> (90 # 10).foldList(1000) { :x :i |
+>>> 	(x * 1.05).rounded - i
+>>> }
+[
+	1000 960 918 874 828
+	779 728 674 618 559
+	497
+]
+```
+
+Calculate the accumulated distance at each point along a straight line path:
+
+```
+>>> let h = 2.sqrt;
+>>> [0 0; 1 1; 1 0; 2 1; 2 0]
+>>> .adjacentPairsCollect(
+>>> 	euclideanDistance:/2
+>>> ).foldList(0, +)
+[0, h, h + 1, 2 * h + 1, 2 * h + 2]
+```
+
+* * *
+
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios
 
 References:

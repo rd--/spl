@@ -7,6 +7,11 @@ In common cases _aList_ will be a either
 a 3×2 matrix specifying a quadratic Bézier curve,
 or a 4×2 matrix specifying a cubic Bézier curve.
 
+For linear Bézier curves utilises `linearBezierFunctionAt`,
+for quadratic Bézier curves utilises `quadraticBezierFunctionAt`,
+for cubic Bézier curves utilises `cubicBezierFunctionAt`,
+for quartic and higher degree Bézier curves utilises `deCasteljausAlgorithm`.
+
 Construct a Bézier curve using a list of control points and apply the function to find a point on the curve:
 
 ```
@@ -53,15 +58,27 @@ A cubic Bézier curve in one dimension:
 
 ~~~spl svg=D
 (0 -- 1).discretize(64).collect(
-	[0 0.15 0.85 1].bezierFunction
+	[0 0.25 1.75 2].bezierFunction
 ).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bezierFunction-D.svg)
 
+Plot the same one dimensional cubic Bézier curve in one dimension:
+
+~~~spl svg=E
+let f:/1 = [0 0.25 1.75 2].bezierFunction;
+(0 -- 1).discretize(64).collect { :mu |
+	let x = f(mu);
+	[x 0; x 1]
+}.Line.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/bezierFunction-E.svg)
+
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunctionAt, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
+See also: bernsteinBasis, bezierApproximation, BezierCurve, bezierFunctionAt, bezierTrace, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 

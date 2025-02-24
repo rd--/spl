@@ -40,12 +40,8 @@ An arc:
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction, bezierFunctionAt, deCasteljausAlgorithm, quadraticBezierFunctionAt
+See also: BezierCurve, bezierFunction, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
-
-References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/BezierFunction.html)
 
 Categories: Geometry

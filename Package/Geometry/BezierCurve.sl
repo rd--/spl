@@ -57,9 +57,9 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 	componentDistanceList { :self |
 		self.cached('componentDistanceList') {
 			self.componentApproximationList.collect { :each |
-				let d = each.adjacentPairsCollect(euclideanDistance:/2);
-				d.addFirst(0);
-				d.prefixSum
+				each
+				.adjacentPairsCollect(euclideanDistance:/2)
+				.foldList(0, +)
 			}
 		}
 	}
@@ -159,6 +159,17 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 		answer
 	}
 
+	bezierDistanceTable { :self :size |
+		let muList = (0 -- 1).discretize(size);
+		[
+			muList,
+			muList
+			.collect(self.bezierFunction)
+			.adjacentPairsCollect(euclideanDistance:/2)
+			.foldList(0, +)
+		]
+	}
+
 	/*
 	bezierFunction { :self |
 		let [m, n] = self.shape;
@@ -237,6 +248,16 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 		};
 		deCasteljaus(self, x);
 		(left, right)
+	}
+
+	bezierTrace { :self :size |
+		let [muList, d] = self.bezierDistanceTable(size);
+		let arcLength = d.last;
+		(0 -- arcLength).discretize(size).collect(
+			self.bezierFunction.composeLeft(
+				d.linearInterpolator(muList)
+			)
+		)
 	}
 
 	cubicBezierFunctionAt { :self :x |

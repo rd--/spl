@@ -43,7 +43,7 @@ Draw the same cubic Bézier curve using only a small number of divisions:
 
 * * *
 
-See also: BezierCurve, cubicBezierFunctionAt, quadraticBezierFunctionAt
+See also: BezierCurve, cubicBezierFunctionAt, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 
