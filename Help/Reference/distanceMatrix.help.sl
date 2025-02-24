@@ -79,12 +79,37 @@ Distance matrix of cartesian coordinates for lattice using `manhattanDistance` m
 ]
 ```
 
+Distance matrix of two 2×2 matrices:
+
+```
+>>> [0 0; 0 1].distanceMatrix([1 0; 1 1])
+[1 1.41421; 1.41421 1]
+```
+
+Distance matrix of a 3×2 matrix:
+
+```
+>>> [
+>>> 	0.8444 0.2589;
+>>> 	0.7580 0.5113;
+>>> 	0.4206 0.4049
+>>> ].distanceMatrix
+[
+	0        0.26678  0.44824;
+	0.26678  0        0.35378;
+	0.44824  0.35378  0
+]
+```
+
 * * *
 
 See also: adjacencyMatrix, graphDistanceMatrix, norm, outer
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DistanceMatrix.html)
+[1](https://reference.wolfram.com/language/ref/DistanceMatrix.html),
+_Matlab_
+[1](https://au.mathworks.com/help/stats/pdist.html)
+[2](https://au.mathworks.com/help/stats/pdist2.html)
 
 Categories: Math, Matrix

@@ -49,6 +49,16 @@ An arc:
 
 ![](sw/spl/Help/Image/bezierFunction-C.svg)
 
+A cubic Bézier curve in one dimension:
+
+~~~spl svg=D
+(0 -- 1).discretize(64).collect(
+	[0 0.15 0.85 1].bezierFunction
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/bezierFunction-D.svg)
+
 * * *
 
 See also: bernsteinBasis, BezierCurve, bezierFunctionAt, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
