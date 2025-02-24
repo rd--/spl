@@ -26,8 +26,8 @@ Calculate a specific point at the first derivative of a cubic Bézier curve:
 >>> 	d[1].quadraticBezierFunctionAt(x)
 >>> )
 (
-	[1.13867, 0.28906],
-	[0.65625, 1.6875]
+	[1.04297 0.28906],
+	[0.65625 1.68750]
 )
 ```
 

@@ -40,7 +40,7 @@ A simple cubic Bézier curve:
 (true, 3, 192, 2.7893)
 ```
 
-The `componentCoordinates` of a composite cubic Bézier curve are the coordinates of simple curves,
+The `componentCoordinatesList` of a composite cubic Bézier curve are the coordinates of simple curves,
 the `componentCount` is the number of components:
 
 ```
@@ -54,7 +54,7 @@ the `componentCount` is the number of components:
 >>> 	c.isComposite,
 >>> 	c.splineDegree,
 >>> 	c.componentCount,
->>> 	c.componentCoordinates
+>>> 	c.componentCoordinatesList
 >>> )
 (
 	false,
