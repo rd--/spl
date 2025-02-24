@@ -3,43 +3,31 @@
 - _bezierFunctionAt(aList, aNumber)_
 
 Answers the Bézier curve specified in _aList_ at _aNumber_.
+This method runs `bezierFunction` to generate the function,
+and then immediately applies it,
+discarding the generated function.
+Ordinarily one would use the function directly,
+or use one of the more specific methods
+`linearBezierFunctionAt`,
+`quadraticBezierFunctionAt`,
+`cubicBezierFunctionAt`
+or `deCasteljausAlgorithm`.
 
-A two-dimensional cubic Bézier curve:
+Construct a Bézier curve using a list of control points and apply the function to find a point on the curve:
 
-~~~spl svg=A
-let c = [0 0; 1 1; 2 0; 3 2];
-(0 -- 1).functionPlot { :x |
-	c.bezierFunctionAt(x)
-}
-~~~
+```
+>>> [0 0; 1 1; 2 0; 3 2]
+>>> .bezierFunctionAt(0.5)
+[1.5, 0.625]
 
-![](sw/spl/Help/Image/bezierFunctionAt-A.svg)
-
-A symmetric cubic Bézier curve:
-
-~~~spl svg=B
-let c = [0 0; 1 1; 2 -1; 3 0];
-(0 -- 1).functionPlot { :x |
-	c.bezierFunctionAt(x)
-}
-~~~
-
-![](sw/spl/Help/Image/bezierFunctionAt-B.svg)
-
-An arc:
-
-~~~spl svg=C
-let c = [0 0; 1 1; 2 1; 3 0];
-(0 -- 1).functionPlot { :x |
-	c.bezierFunctionAt(x)
-}
-~~~
-
-![](sw/spl/Help/Image/bezierFunctionAt-C.svg)
+>>> [0 0; 1 1; 2 0; 3 2]
+>>> .cubicBezierFunctionAt(0.5)
+[1.5, 0.625]
+```
 
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunction, cubicBezierFunctionAt, quadraticBezierFunctionAt
+See also: bernsteinBasis, BezierCurve, bezierFunction, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 

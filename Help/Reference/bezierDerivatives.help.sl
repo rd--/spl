@@ -91,7 +91,14 @@ let l = (0, 0.01 .. 1).collect { :x |
 Inflection (rescaled):
 
 ~~~spl svg=D
-let p = [0 0; 0.1 1.5; 1 0.5; 2 -1; 2.9 1.5; 3 0];
+let p = [
+	0 0;
+	0.1 1.5;
+	1 0.5;
+	2 -1;
+	2.9 1.5;
+	3 0
+];
 let d = p.bezierDerivatives;
 let d1 = d[1] * 0.2;
 let f = { :l |

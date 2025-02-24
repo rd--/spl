@@ -13,9 +13,11 @@
 - `bezierDerivatives`
 - `bezierFunction`
 - `bezierFunctionAt`
+- `bezierHull`
 - `bezierSplitAt`
 - `cubicBezierFunctionAt`
 - `deCasteljausAlgorithm`
+- `linearBezierFunctionAt`
 - `quadraticBezierFunctionAt`
 - `quadraticBezierToCubicBezier`
 

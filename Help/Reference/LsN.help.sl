@@ -23,6 +23,8 @@ See also: LsForever, LsSeries
 Guides: Patterns and Streams
 
 References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.repeat),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pn.html)
 

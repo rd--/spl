@@ -33,6 +33,17 @@ and `reshape`:
 [1 2 3; 4 5 6; 7 8 1]
 ```
 
+If is equivalent to `chunksOf`:
+
+```
+>>> [1 .. 8].chunksOf(3)
+[1 2 3; 4 5 6; 7 8]
+```
+
 * * *
 
-See also: partition, reshape
+See also: chunksOf, partition, reshape
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SequenceableCollection.html#-clump)

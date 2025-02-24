@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-5.000 -5.000 110.000 110.000">
+<g fill="none" stroke="black" stroke-width="0.0050%" transform="translate(0, 100.0000) scale(100.0000, -100.0000)">
+<path d="M 0.000,0.000 Q 0.000,1.000 1.000,1.000" />
+<circle cx="0.000" cy="0.000" r="0.005" />
+<circle cx="0.000" cy="1.000" r="0.005" />
+<circle cx="1.000" cy="1.000" r="0.005" />
+<circle cx="0.000" cy="0.000" r="0.005" />
+<circle cx="0.000" cy="1.000" r="0.005" />
+<circle cx="1.000" cy="1.000" r="0.005" />
+<circle cx="0.000" cy="0.500" r="0.005" />
+<circle cx="0.500" cy="1.000" r="0.005" />
+<circle cx="0.250" cy="0.750" r="0.005" />
+<polyline points="0.000,0.000 0.000,1.000 1.000,1.000" />
+<line x1="0.000" y1="0.500" x2="0.500" y2="1.000" />
+</g>
+</svg>

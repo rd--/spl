@@ -380,8 +380,10 @@
 		answer
 	}
 
-	atExtending { :self :index |
-		self.atWrap(index)
+	atAllBlend { :self :indices |
+		indices.collect { :each |
+			self.atBlend(each)
+		}
 	}
 
 	atBlend { :self :index |
@@ -392,10 +394,8 @@
 		)
 	}
 
-	atAllBlend { :self :indices |
-		indices.collect { :each |
-			self.atBlend(each)
-		}
+	atExtending { :self :index |
+		self.atWrap(index)
 	}
 
 	clump { :self :groupSize |

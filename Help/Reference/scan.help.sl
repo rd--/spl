@@ -45,8 +45,30 @@ The last entry of a `scan` is the answer to `reduce`:
 >>> 1:5.scan(+).last
 1:5.reduce(+)
 
+>>> 1:5.scan(*)
+[1 2 6 24 120]
+
 >>> 1:5.scan(*).last
 1 * 2 * 3 * 4 * 5
+```
+
+Compute running minimum or maximum:
+
+```
+>>> [3 4 6 2 1 9 0 7 5 8].scan(min:/2)
+[3 3 3 2 1 1 0 0 0 0]
+
+>>> [3 4 6 2 1 9 0 7 5 8].scan(max:/2)
+[3 4 6 6 6 9 9 9 9 9]
+```
+
+Amortize a 5% loan of 1000 with 10 annual payments of 90:
+
+```
+>>> ([1000] ++ (90 # 10)).scan { :balance :payment |
+>>> 	(balance * 1.05).rounded - payment
+>>> }
+[1000 960 918 874 828 779 728 674 618 559 497]
 ```
 
 * * *
@@ -62,6 +84,8 @@ _Haskell_
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=reduce),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FoldList.html)
+[1](https://reference.wolfram.com/language/ref/FoldList.html),
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.accumulate)
 
 Categories: Enumerating

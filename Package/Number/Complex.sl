@@ -316,6 +316,10 @@ Complex : [Object, Number] { | real imaginary |
 		false
 	}
 
+	isReal { :self |
+		self.imaginary.isZero
+	}
+
 	isVeryCloseTo { :self :anObject |
 		self.isCloseToBy(anObject, 0.000000000001)
 	}
@@ -481,6 +485,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	i { :self |
 		Complex(self.zero, self)
+	}
+
+	isReal { :self |
+		true
 	}
 
 	j { :real :imaginary |

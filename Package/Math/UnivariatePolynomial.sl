@@ -52,6 +52,60 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 +SmallFloat {
 
+	cardanosAlgorithm { :a :b :c :d |
+		<primitive:
+		/* https://www.mosismath.com/Cardano/Cardano.html */
+		function xroot(a, x) {
+			const i = (a < 0) ? -1 : 1;
+			return (i * Math.exp(Math.log(a * i) / x));
+		}
+		function splComplex(r, i) {
+			return _Complex_2(r, i);
+		}
+		if (_a === 0) {
+			throw new Error("cardanosAlgorithm: a=0");
+		}
+		const a = _b / _a;
+		const b = _c / _a;
+		const c = _d / _a;
+		const p = -(a * a / 3) + b;
+		const q = (2 / 27 * a * a * a) - (a * b / 3) + c;
+		const pi = Math.PI;
+		let d = q * q / 4 + p * p * p / 27;
+		if (Math.abs(d) < Math.pow(10, -11)) {
+			d = 0;
+		}
+		if (d > 1e-20) {
+			const u = xroot(-q / 2 + Math.sqrt(d), 3);
+			const v = xroot(-q / 2 - Math.sqrt(d), 3);
+			const x1 = u + v - a / 3;
+			const x2r = -(u + v) / 2 - a / 3;
+			const x2i = Math.sqrt(3) / 2 * (u - v);
+			const x3r = x2r;
+			const x3i = -x2i;
+			return [x1, splComplex(x2r, x2i), splComplex(x3r, x3i)];
+		}
+		if (Math.abs(d) <= 1e-20) {
+			const u = xroot(-q / 2, 3);
+			const v = xroot(-q / 2, 3);
+			const x1 = u + v - a / 3;
+			const x2 = -(u + v) / 2 - a / 3;
+			return [x1, x2];
+		}
+		if (d < -1e-20) {
+			const r = Math.sqrt(-p * p * p / 27);
+			let alpha = Math.atan(Math.sqrt(-d) / -q * 2);
+			if (q > 0) {
+				alpha = pi + alpha;
+			}
+			const x1 = xroot(r, 3) * (Math.cos((6 * pi - alpha) / 3) + Math.cos(alpha / 3)) - a / 3;
+			const x2 = xroot(r, 3) * (Math.cos((2 * pi + alpha) / 3) + Math.cos((4 * pi - alpha) / 3)) - a / 3;
+			const x3 = xroot(r, 3) * (Math.cos((4 * pi + alpha) / 3) + Math.cos((2 * pi - alpha) / 3)) - a / 3;
+			return [x1, x2, x3];
+		}
+		>
+	}
+
 	chebyshevT { :self |
 		let c = self.caseOfOtherwise([
 			0 -> [1],

@@ -1,18 +1,79 @@
-BezierCurve : [Object] { | controlPoints splineDegree cache |
+BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
+
+	approximation { :self |
+		self.cached('approximation') {
+			self.componentApproximationList.concatenation
+		}
+	}
+
+	arcLength { :self |
+		self.cached('arcLength') {
+			self.componentArcLengthList.sum
+		}
+	}
 
 	boundingBox { :self |
 		self.controlPoints.coordinateBoundingBox
 	}
 
-	componentCoordinates { :self |
-		self.controlPoints.partition(
-			self.splineDegree + 1,
-			self.splineDegree
-		)
+	componentArcLengthList { :self |
+		self.cached('componentArcLengthList') {
+			self.componentDistanceList.collect(last:/1)
+		}
+	}
+
+	componentApproximationList { :self |
+		self.cached('componentApproximationList') {
+			let n = self.componentApproximationSize;
+			self.componentCoordinatesList.collect { :each |
+				each.bezierApproximation(n)
+			}
+		}
+	}
+
+	componentApproximationSize { :self |
+		self.splineDegree * 64
+	}
+
+	componentCoordinatesList { :self |
+		self.cached('componentCoordinatesList') {
+			self.controlPoints.partition(
+				self.splineDegree + 1,
+				self.splineDegree
+			)
+		}
 	}
 
 	componentCount { :self |
 		(self.controlPoints.size - 1) / self.splineDegree
+	}
+
+	componentDerivativesList { :self |
+		self.cached('componentDerivativesList') {
+			self.componentCoordinatesList.bezierDerivatives
+		}
+	}
+
+	componentDistanceList { :self |
+		self.cached('componentDistanceList') {
+			self.componentApproximationList.collect { :each |
+				let d = each.adjacentPairsCollect(euclideanDistance:/2);
+				d.addFirst(0);
+				d.prefixSum
+			}
+		}
+	}
+
+	distance { :self |
+		self.cached('distance') {
+			let answer = [];
+			let sum = 0;
+			self.componentDistanceList.collect { :each |
+				answer.addAllLast(each + sum);
+				sum := answer.last
+			};
+			answer
+		}
 	}
 
 	forSvg { :self :options |
@@ -77,6 +138,12 @@ BezierCurve : [Object] { | controlPoints splineDegree cache |
 		}
 	}
 
+	bezierApproximation { :self :size |
+		(0 -- 1).discretize(size).collect(
+			self.bezierFunction
+		)
+	}
+
 	bezierDerivatives { :self |
 		let answer = [];
 		let p = self;
@@ -90,12 +157,6 @@ BezierCurve : [Object] { | controlPoints splineDegree cache |
 			p := q
 		};
 		answer
-	}
-
-	bezierFlatten { :self :size |
-		(0 -- 1).discretize(size).collect(
-			self.bezierFunction
-		)
 	}
 
 	/*
@@ -117,24 +178,41 @@ BezierCurve : [Object] { | controlPoints splineDegree cache |
 
 	bezierFunction { :self |
 		self.size.caseOfOtherwise([
+			2 -> { { :x | self.linearBezierFunctionAt(x) } },
 			3 -> { { :x | self.quadraticBezierFunctionAt(x) } },
 			4 -> { { :x | self.cubicBezierFunctionAt(x) } }
 		]) {
-			{ :x | self.bezierFunctionAt(x) }
+			{ :x | self.deCasteljausAlgorithm(x) }
 		}
 	}
 
 	bezierFunctionAt { :self :x |
-		self.size.caseOfOtherwise([
-			3 -> { self.quadraticBezierFunctionAt(x) },
-			4 -> { self.cubicBezierFunctionAt(x) }
-		]) {
-			let n = self.size - 1;
-			let b = [0 .. n].collect { :d |
-				n.bernsteinBasis(d, x)
+		self.bezierFunction.value(x)
+	}
+
+	bezierFunctionAtBernsteinBasis { :self :x |
+		let n = self.size - 1;
+		let b = [0 .. n].collect { :d |
+			n.bernsteinBasis(d, x)
+		};
+		(b * self).sum
+	}
+
+	bezierHull { :self :x |
+		let p = self;
+		let q = p.copy;
+		let i = p.size + 1;
+		{ p.size > 1 }.whileTrue {
+			let r = [];
+			let l = p.size - 1;
+			1.toDo(p.size - 1) { :j |
+				let z = linearInterpolation(p[j], p[j + 1], x);
+				q.addLast(z);
+				r.addLast(z)
 			};
-			(b * self).sum
-		}
+			p := r
+		};
+		q
 	}
 
 	bezierSplitAt { :self :x |
@@ -168,7 +246,7 @@ BezierCurve : [Object] { | controlPoints splineDegree cache |
 		let x3 = x2 * x;
 		let u2 = u * u;
 		let u3 = u2 * u;
-		(p1 * u2) + (p2 * (3 * u2 * x)) + (p3 * (3 * u * x2)) + (p4 * x3)
+		(p1 * u3) + (p2 * (3 * u2 * x)) + (p3 * (3 * u * x2)) + (p4 * x3)
 	}
 
 	deCasteljausAlgorithm { :self :x |
@@ -179,6 +257,12 @@ BezierCurve : [Object] { | controlPoints splineDegree cache |
 				((1 - x) * self[i]) + (x * self[i + 1])
 			}.deCasteljausAlgorithm(x)
 		}
+	}
+
+	linearBezierFunctionAt { :self :x |
+		let [p1, p2] = self;
+		let u = 1 - x;
+		(p1 * u) + (p2 * x)
 	}
 
 	quadraticBezierFunctionAt { :self :x |

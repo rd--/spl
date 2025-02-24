@@ -2,13 +2,18 @@
 
 - _accumulate(aSequence)_
 
-Answer a List of the successive accumulated totals of elements in _aSequence_.
+Answer a `List` of the successive accumulated totals of elements in _aSequence_.
+The answer is the same `size` as _aSequence_,
+and has the same first item.
 This operation is also called `prefixSum`, and is equivalent to _scan(aSequence, +)_.
 
 Triangular numbers:
 
 ```
 >>> 1:10.accumulate
+[1 3 6 10 15 21 28 36 45 55]
+
+>>> 1:10.prefixSum
 [1 3 6 10 15 21 28 36 45 55]
 
 >>> 1:10.scan(+)
@@ -48,7 +53,9 @@ See also: +, differences, foldList, prefixSum, scan, sum
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CumulativeSum.html)
-[2](https://reference.wolfram.com/language/ref/Accumulate.html)
+[2](https://reference.wolfram.com/language/ref/Accumulate.html),
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.accumulate),
 _W_
 [1](https://en.wikipedia.org/wiki/Prefix_sum)
 

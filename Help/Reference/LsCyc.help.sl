@@ -15,4 +15,8 @@ See also: LsGeom, LsSeq
 
 Guides: Patterns and Streams
 
+References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.cycle)
+
 Categories: Stream

@@ -168,6 +168,29 @@ The `asComplex` method is defined at `List` and `Tuple`:
 1J2
 ```
 
+The `isReal` predicate answers `false` if the imaginary part is not `zero`,
+or if the number is not a `Complex` number:
+
+```
+>>> 0J1.isReal
+false
+
+>>> 1J0.isReal
+true
+
+>>> 1.isReal
+true
+
+>>> 1/3.isReal
+true
+
+>>> 1.pi.isReal
+true
+
+>>> 23L.isReal
+true
+```
+
 * * *
 
 See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat

@@ -37,6 +37,33 @@ At the `alphabet`:
 ]
 ```
 
+Segment list of words:
+
+```
+>>> let l = [
+>>> 	'roses' 'red'
+>>> 	'violets' 'blue'
+>>> 	'sugar' 'sweet'
+>>> ];
+>>> let a = l.chunksOf(2);
+>>> let b = l.partition(2, 2);
+>>> let c = l.clump(2);
+>>> (a, a = b, a = c)
+(
+	[
+		'roses' 'red';
+		'violets' 'blue';
+		'sugar' 'sweet'
+	],
+	true,
+	true
+)
+```
+
 * * *
 
-See also: chunksOfFrom, clump, copyFromTo
+See also: chunksOfFrom, clump, copyFromTo, partition
+
+References:
+_Haskell_
+[1](https://hackage.haskell.org/package/split/docs/Data-List-Split.html#v:chunksOf)

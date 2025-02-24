@@ -26,6 +26,8 @@ The _size_ value may be a stream:
 See also: chunksOf, clump
 
 References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.batched),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pclump.html)
 

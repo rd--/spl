@@ -48,6 +48,8 @@ See also: LsGeom, LsUnfold
 Guides: Patterns and Streams
 
 References:
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.count),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Pseries.html)
 

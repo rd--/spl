@@ -39,4 +39,6 @@ See also: doWhileTrue, dropWhile, take
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:takeWhile)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:takeWhile),
+_Python_
+[1](https://docs.python.org/3/library/itertools.html#itertools.takewhile)

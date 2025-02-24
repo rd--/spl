@@ -5,7 +5,8 @@
 Answer `true` if _aSequence_ is a geometic series.
 
 ```
->>> [1 3 9 27 81 243 729].isGeometricSeries
+>>> [1 3 9 27 81 243 729]
+>>> .isGeometricSeries
 true
 ```
 

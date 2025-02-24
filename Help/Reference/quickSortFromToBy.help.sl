@@ -24,7 +24,6 @@ Sort a first half of a random sequence of integers:
 >>> 		1, 5, <
 >>> 	)
 >>> ]
-
 [
 	11 17 16 5 7 10 14 13 22 1;
 	5 7 11 16 17 10 14 13 22 1

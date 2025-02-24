@@ -12,6 +12,9 @@ Euclidean distance between numeric vectors:
 >>> [1 2 3].euclideanDistance([2 4 6])
 14.sqrt
 
+>>> [2 4 6].euclideanDistance([1 2 3])
+14.sqrt
+
 >>> ([1 2 3] - [2 4 6]).norm
 14.sqrt
 
@@ -35,6 +38,9 @@ The Euclidean distance in two dimensions is the straight line distance:
 
 ```
 >>> [0 0].euclideanDistance([1 1])
+2.sqrt
+
+>>> [1 1].euclideanDistance([0 0])
 2.sqrt
 
 >>> [0 1].euclideanDistance([1 0])

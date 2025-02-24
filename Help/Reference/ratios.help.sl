@@ -14,9 +14,8 @@ Ratios of a `Range`:
 Ratios are constant for a geometric sequence:
 
 ```
->>> let l = 0:9.collect { :each | 2 ^ each };
->>> let r = l.ratios;
->>> (l, r)
+>>> let l = 2 ^ 0:9;
+>>> (l, l.ratios)
 (
 	[1 2 4 8 16 32 64 128 256 512],
 	[2 2 2 2 2 2 2 2 2]

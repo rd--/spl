@@ -7,11 +7,21 @@ In common cases _aList_ will be a either
 a 3×2 matrix specifying a quadratic Bézier curve,
 or a 4×2 matrix specifying a cubic Bézier curve.
 
+Construct a Bézier curve using a list of control points and apply the function to find a point on the curve:
+
+```
+>>> let p = [0 0; 1 1; 2 0; 3 2];
+>>> let f:/1 = p.bezierFunction;
+>>> f(0.5)
+[1.5, 0.625]
+```
+
 A cubic Bézier curve:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	[0 0; 1 1; 2 0; 3 2].bezierFunction
+	[0 0; 1 1; 2 0; 3 2]
+	.bezierFunction
 )
 ~~~
 
@@ -21,15 +31,27 @@ A symmetric cubic Bézier curve:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot(
-	[0 0; 1 1; 2 -1; 3 0].bezierFunction
+	[0 0; 1 1; 2 -1; 3 0]
+	.bezierFunction
 )
 ~~~
 
 ![](sw/spl/Help/Image/bezierFunction-B.svg)
 
+An arc:
+
+~~~spl svg=C
+(0 -- 1).functionPlot(
+	[0 0; 1 1; 2 1; 3 0]
+	.bezierFunction
+)
+~~~
+
+![](sw/spl/Help/Image/bezierFunction-C.svg)
+
 * * *
 
-See also: bernsteinBasis, BezierCurve, bezierFunctionAt, cubicBezierFunctionAt, quadraticBezierFunctionAt
+See also: bernsteinBasis, BezierCurve, bezierFunctionAt, cubicBezierFunctionAt, deCasteljausAlgorithm, linearBezierFunctionAt, quadraticBezierFunctionAt
 
 Guides: Geometry Functions
 
