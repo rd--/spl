@@ -1,11 +1,11 @@
 @SymbolicObject {
 
 	= { :self :anObject |
-		SymbolicExpression('=', [self, anObject])
+		'='.symbolicPrimitive([self, anObject])
 	}
 
 	~ { :self :anObject |
-		SymbolicExpression('~', [self, anObject])
+		'~'.symbolicPrimitive([self, anObject])
 	}
 
 }
@@ -13,19 +13,19 @@
 @SymbolicBoolean {
 
 	& { :self :aBlock:/0 |
-		SymbolicExpression('and', [self, aBlock()])
+		'and'.symbolicPrimitive([self, aBlock()])
 	}
 
 	| { :self :aBlock:/0 |
-		SymbolicExpression('or', [self, aBlock()])
+		'or'.symbolicPrimitive([self, aBlock()])
 	}
 
 	if { :self :whenTrue:/0 :whenFalse:/0 |
-		SymbolicExpression('if', [self, whenTrue(), whenFalse()])
+		'if'.symbolicPrimitive([self, whenTrue(), whenFalse()])
 	}
 
 	not { :self |
-		SymbolicExpression('not', [self])
+		'not'.symbolicPrimitive([self])
 	}
 
 }
@@ -33,19 +33,19 @@
 @SymbolicMagnitude {
 
 	< { :self :aMagnitude |
-		SymbolicExpression('<', [self, aMagnitude])
+		'<'.symbolicPrimitive([self, aMagnitude])
 	}
 
 	<= { :self :aMagnitude |
-		SymbolicExpression('<=', [self, aMagnitude])
+		'<='.symbolicPrimitive([self, aMagnitude])
 	}
 
 	> { :self :aMagnitude |
-		SymbolicExpression('>', [self, aMagnitude])
+		'>'.symbolicPrimitive([self, aMagnitude])
 	}
 
 	>= { :self :aMagnitude |
-		SymbolicExpression('>=', [self, aMagnitude])
+		'>='.symbolicPrimitive([self, aMagnitude])
 	}
 
 }
@@ -53,27 +53,27 @@
 @SymbolicNumber {
 
 	+ { :self :operand |
-		SymbolicExpression('+', [self, operand])
+		'+'.symbolicPrimitive([self, operand])
 	}
 
 	- { :self :operand |
-		SymbolicExpression('-', [self, operand])
+		'-'.symbolicPrimitive([self, operand])
 	}
 
 	* { :self :operand |
-		SymbolicExpression('*', [self, operand])
+		'*'.symbolicPrimitive([self, operand])
 	}
 
 	/ { :self :operand |
-		SymbolicExpression('/', [self, operand])
+		'/'.symbolicPrimitive([self, operand])
 	}
 
 	^ { :self :operand |
-		SymbolicExpression('^', [self, operand])
+		'^'.symbolicPrimitive([self, operand])
 	}
 
 	abs { :self |
-		SymbolicExpression('abs', [self])
+		'abs'.symbolicPrimitive([self])
 	}
 
 	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
@@ -85,19 +85,19 @@
 	}
 
 	cos { :self |
-		SymbolicExpression('cos', [self])
+		'cos'.symbolicPrimitive([self])
 	}
 
 	sin { :self |
-		SymbolicExpression('sin', [self])
+		'sin'.symbolicPrimitive([self])
 	}
 
 	sqrt { :self |
-		SymbolicExpression('sqrt', [self])
+		'sqrt'.symbolicPrimitive([self])
 	}
 
 	tan { :self |
-		SymbolicExpression('tan', [self])
+		'tan'.symbolicPrimitive([self])
 	}
 
 }
@@ -178,6 +178,16 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 
 	SymbolicExpression { :self :aList |
 		SymbolicExpression(self.Symbol, aList)
+	}
+
+	symbolicPrimitive { :self :operands |
+		operands.anySatisfy(isList:/1).if {
+			operands.multiChannelExpand.collect { :each |
+				SymbolicExpression(self, each)
+			}
+		} {
+			SymbolicExpression(self, operands)
+		}
 	}
 
 }

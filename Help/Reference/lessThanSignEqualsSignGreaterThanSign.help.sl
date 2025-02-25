@@ -95,6 +95,7 @@ Find which tuples are in order:
 >>> 	let [i, j] = each;
 >>> 	i <=> j
 >>> }
+[0 -1 -1 1 0 -1 1 1 0]
 ```
 
 The name of this operator is `lessThanSignEqualsSignGreaterThanSign`.

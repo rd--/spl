@@ -53,6 +53,17 @@ Symbolic expressions implement `adaptToNumberAndApply`:
 ]
 ```
 
+Symbolic primitives thread over lists:
+
+```
+>>> let x = Symbol('x');
+>>> (x * [2 3] + [4 5]).collect(printString:/1)
+[
+	'(+ (* x 2) 4)'
+	'(+ (* x 3) 5)'
+]
+```
+
 When printing symbolic expressions,
 certain constant numbers are recognised as symbolic expressions:
 

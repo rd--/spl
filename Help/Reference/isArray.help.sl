@@ -52,7 +52,7 @@ true
 
 * * *
 
-See also: isMatrix, isSequence, isVector, rank, shape
+See also: elementType, isMatrix, isSequence, isVector, rank, shape
 
 References:
 _Mathematica_
