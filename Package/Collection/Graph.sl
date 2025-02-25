@@ -758,7 +758,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	canonicalEdgeList { :self |
-		let vertexList = self.collect(vertexList:/1).concatenation.nub.sort;
+		let vertexList = self.gather(vertexList:/1).nub.sort;
 		let renameTable = vertexList.collect { :vertex |
 			vertex -> vertexList.indexOf(vertex)
 		}.asMap;

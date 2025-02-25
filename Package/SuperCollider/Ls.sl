@@ -380,9 +380,9 @@
 			} {
 				let dur = next['dur'];
 				let events = next.multiChannelExpand;
-				let packets = events.collect { :each |
+				let packets = events.gather { :each |
 					each.asPatternEventMessages(currentTime + timeDifference)
-				}.concatenation;
+				};
 				packets.do { :each |
 					system.scSynth.sendOsc(each)
 				};
@@ -408,12 +408,12 @@
 				synthId,
 				addAction,
 				targetNode
-			] ++ self.associations.collect { :each |
+			] ++ self.associations.gather { :each |
 				[
 					each.key,
 					each.value
 				]
-			}.concatenation
+			}
 		);
 		let sNewBundle = OscBundle(currentTime + latency, [sNewMessage]);
 		self.includesKey('gate').if {

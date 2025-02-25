@@ -1324,9 +1324,9 @@
 					} ++ increasing(done, remaining.allButFirst)
 				}
 			};
-			(1 .. self.size).collect { :i |
+			(1 .. self.size).gather { :i |
 				increasing(self.first(i).last(1), self.drop(i))
-			}.concatenation
+			}
 		}
 	}
 

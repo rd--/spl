@@ -42,7 +42,6 @@ Solve cubic equations having two integer answers:
 [-6 2]
 ```
 
-
 Solve cubic equations having one integer answers:
 
 ```

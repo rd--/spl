@@ -136,7 +136,6 @@ system
 
 ![](sw/spl/Help/Image/colourGradients-G.svg)
 
-
 Resample and plot the _Isoluminant-Cgo-80-C38_ gradient from the _Kovesi_ collection:
 
 ~~~spl svg=H

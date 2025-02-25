@@ -436,6 +436,14 @@
 		self.fillFromWith(aCollection, identity:/1)
 	}
 
+	gather { :self :aBlock:/1 |
+		let answer = self.species.new;
+		self.do { :each |
+			answer.addAll(aBlock(each))
+		};
+		answer
+	}
+
 	gcd { :self |
 		self.reduce(gcd:/2)
 	}

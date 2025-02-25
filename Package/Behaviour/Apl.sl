@@ -23,14 +23,14 @@
 	expand { :self :counts |
 		let index = 0;
 		let zero = self.first.zero;
-		counts.collect { :each |
+		counts.gather { :each |
 			(each > 0).if {
 				index := index + 1;
 				self[index] # each
 			} {
 				zero # each.abs.max(1)
 			}
-		}.concatenation
+		}
 	}
 
 	factorial { :self |

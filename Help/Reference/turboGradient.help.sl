@@ -22,4 +22,3 @@ ColourGradient(
 See also: ColourGradient, colourGradients, cubeHelix, quilezGradient
 
 Guides: Colour Functions
-

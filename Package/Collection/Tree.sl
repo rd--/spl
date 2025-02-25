@@ -172,9 +172,9 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		(count <= 0).if {
 			[self]
 		} {
-			self.subTrees.collect { :each |
+			self.subTrees.gather { :each |
 				each.level(count - 1)
-			}.concatenation
+			}
 		}
 	}
 

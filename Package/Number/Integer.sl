@@ -734,9 +734,9 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		1:n.collect { :k |
+		1:n.gather { :k |
 			n.integerPartitions(k)
-		}.concatenation
+		}
 	}
 
 	integerSquareRoot { :self |

@@ -8,9 +8,9 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categoriesOf { :self :entry |
-		self.domains.collect { :each |
+		self.domains.gather { :each |
 			self.categoriesOf(each, entry)
-		}.concatenation
+		}
 	}
 
 	categorize { :self :domain :category :entry |

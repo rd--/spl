@@ -122,7 +122,7 @@ Package! : [Object] {
 
 	parsePackageHeader { :self |
 		let fields = self.firstPliComment.splitBy(',');
-		fields.collect { :each |
+		fields.gather { :each |
 			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOfOtherwise([
 				'Package' -> {
@@ -135,7 +135,7 @@ Package! : [Object] {
 			]) {
 				self.error('parsePackageHeader: unknown field: ' ++ key)
 			}
-		}.concatenation.asRecord
+		}.asRecord
 	}
 
 	parseQualifiedPackageName { :self |

@@ -220,13 +220,13 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		1.toDo(n) { :i |
 			1.toDo(d[i].size) { :j |
 				answer.add(
-					1:n.collect { :k |
+					1:n.gather { :k |
 						(i = k).if {
 							d[i][j]
 						} {
-							(0 # s[k][2])
+							0 # s[k][2]
 						}
-					}.concatenation
+					}
 				)
 			}
 		};

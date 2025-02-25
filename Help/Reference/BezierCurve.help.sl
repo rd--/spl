@@ -265,7 +265,7 @@ A downsampled approximation of a composite cubic Bézier curve:
 
 * * *
 
-See also: bernsteinBasis, bezierDerivatives, bezierDistanceTable, bezierFunction, bezierSplitAt, Circle, cubicBezierFunctionAt, deCasteljausAlgorithm, Line, LineDrawing, Point, PointCloud, Polygon, quadraticBezierFunctionAt, quadraticBezierToCubicBezier, Rectangle, Triangle
+See also: bernsteinBasis, bezierDerivatives, bezierDistanceTable, bezierFunction, bezierSplitAt, cubicBezierFunctionAt, deCasteljausAlgorithm, quadraticBezierFunctionAt, quadraticBezierToCubicBezier
 
 Guides: Geometry Functions
 
