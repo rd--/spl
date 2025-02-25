@@ -2270,9 +2270,20 @@
 		self.patienceSortPiles.mergeInPlace(max:/1, addFirst:/2)
 	}
 
-	projection { :u :v |
-		let w = v.conjugated;
-		u.dot(w) / v.dot(w) * v
+	pick { :self :aList :anObject |
+		(self.depth > 2).if {
+			self.withCollect(aList) { :i :j |
+				i.pick(j, anObject)
+			}
+		} {
+			let answer = [];
+			self.withDo(aList) { :i :j |
+				(j = anObject).ifTrue {
+					answer.add(i)
+				}
+			};
+			answer
+		}
 	}
 
 	pinnedIndex { :self :index |
@@ -2327,6 +2338,11 @@
 
 	prefixSum { :self |
 		self.scan(+)
+	}
+
+	projection { :u :v |
+		let w = v.conjugated;
+		u.dot(w) / v.dot(w) * v
 	}
 
 	quickSortFromToBy { :self :from :to :sortBlock:/2 |

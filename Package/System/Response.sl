@@ -6,13 +6,13 @@ Response! : [Object] {
 
 	asMimeType { :self :mimeType :onError |
 		mimeType.caseOfOtherwise([
-			'application/json' -> {
+			{ 'application/json' } -> {
 				self.json
 			},
-			'application/octet-stream' -> {
+			{ 'application/octet-stream' } -> {
 				self.byteArray
 			},
-			'text/plain' -> {
+			{ 'text/plain' } -> {
 				self.text
 			}
 		]) {

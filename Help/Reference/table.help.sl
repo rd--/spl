@@ -227,7 +227,7 @@ nthPrime:/1.table(1:50).linePlot
 
 * * *
 
-See also: collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
+See also: array, collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
 
 References:
 _J_

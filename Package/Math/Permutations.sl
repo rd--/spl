@@ -860,6 +860,14 @@ Permutation : [Object] { | cycles degree |
 		self.rightInversionCountToPermutationList.asPermutation
 	}
 
+	signature { :self |
+		self.isPermutationList.if {
+			self.asPermutation.signature
+		} {
+			0
+		}
+	}
+
 	stackSort { :self |
 		let stack = Stack();
 		let answer = [];

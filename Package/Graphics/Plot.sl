@@ -20,17 +20,17 @@ Plot : [Object] { | pages format options |
 			};
 			let items = [];
 			let gen:/1 = self.format.caseOf([
-				'line' -> {
+				{ 'line' } -> {
 					{ :p |
 						[p.Line]
 					}
 				},
-				'scatter' -> {
+				{ 'scatter' } -> {
 					{ :p |
 						[p.PointCloud]
 					}
 				},
-				'discrete' -> {
+				{ 'discrete' } -> {
 					{ :p |
 						p.collect { :each |
 							let [x, y] = each;

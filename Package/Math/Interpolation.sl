@@ -230,9 +230,9 @@
 
 	interpolation { :data :method |
 		let f:/2 = method.caseOfOtherwise([
-			'Akima' -> { akimaInterpolator:/2 },
-			'Linear' -> { linearInterpolator:/2 },
-			'Spline' -> { cubicSplineInterpolator:/2 }
+			{ 'Akima' } -> { akimaInterpolator:/2 },
+			{ 'Linear' } -> { linearInterpolator:/2 },
+			{ 'Spline' } -> { cubicSplineInterpolator:/2 }
 		]) {
 			data.error('interpolation: unknown method')
 		};
@@ -272,7 +272,7 @@
 	listInterpolation { :self :aBlock |
 		let k = self.size;
 		aBlock.numArgs.caseOfOtherwise([
-			3 -> {
+			{ 3 } -> {
 				{ :x |
 					let i = x.integerPart;
 					(i = k).if {
@@ -286,7 +286,7 @@
 					}
 				}
 			},
-			5 -> {
+			{ 5 } -> {
 				{ :x |
 					let i = x.integerPart;
 					(i = k).if {

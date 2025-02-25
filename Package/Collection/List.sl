@@ -67,10 +67,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			each.typeOf = separatorType
 		}.if {
 			separatorType.caseOfOtherwise([
-				'List' -> {
+				{ 'List' } -> {
 					self.concatenationSeparatedBy(separator)
 				},
-				'String' -> {
+				{ 'String' } -> {
 					self.basicStringJoin(separator)
 				}
 			]) {

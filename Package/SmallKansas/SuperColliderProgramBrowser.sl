@@ -13,16 +13,16 @@
 			nil,
 			{ :browser :path |
 				path.size.caseOf([
-					0 -> {
+					{ 0 } -> {
 						index.categories
 					},
-					1 -> {
+					{ 1 } -> {
 						index.authors(path[1])
 					},
-					2 -> {
+					{ 2 } -> {
 						index.names(path[1], path[2])
 					},
-					3 -> {
+					{ 3 } -> {
 						let [category, author, name] = path @* [1, 2, 3];
 						let url = [
 							'./lib/spl/Program/SuperCollider/',

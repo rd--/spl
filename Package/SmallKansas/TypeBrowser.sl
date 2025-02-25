@@ -17,15 +17,15 @@ TypeBrowser : [Object, SmallKansan] {
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				0 -> {
+				{ 0 } -> {
 					browser.setStatus('');
 					typeNames
 				},
-				1 -> {
+				{ 1 } -> {
 					browser.setStatus(system.typeTraits(path[1]).join(', '));
 					system.typeDictionary[path[1]].methodDictionary.indicesSorted
 				},
-				2 -> {
+				{ 2 } -> {
 					selectedMethod := system.typeDictionary[path[1]].methodDictionary[path[2]];
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition

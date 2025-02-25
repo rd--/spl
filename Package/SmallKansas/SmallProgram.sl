@@ -78,18 +78,18 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 			event.shiftKey.ifTrue {
 				let where = system.window.caretBoundingBox;
 				event.key.caseOfOtherwise([
-					'Enter' -> {
+					{ 'Enter' } -> {
 						let result = self.smallKansas.evaluate(self.program.value, where);
 						event.preventDefault;
 						self.addToAnswer(self.program.value, result);
 						self.onEvaluate;
 						self.historyCursor := nil
 					},
-					'ArrowUp' -> {
+					{ 'ArrowUp' } -> {
 						event.preventDefault;
 						self.readHistory(-1)
 					},
-					'ArrowDown' -> {
+					{ 'ArrowDown' } -> {
 						event.preventDefault;
 						self.readHistory(1)
 					}

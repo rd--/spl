@@ -45,6 +45,19 @@ Plot `hannFunction`:
 
 ![](sw/spl/Help/Image/discretize-B.svg)
 
+Sample a function uniformly on an interval:
+
+~~~spl svg=C
+(0 -- 2.pi)
+.discretize(48)
+.collect { :i |
+	(2 * i).sin - (3 * i).cos
+}
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/discretize-C.svg)
+
 * * *
 
 See also: --, Interval, Range, subdivide

@@ -50,11 +50,14 @@ Descending:
 1
 ```
 
-Mixed numeric types, ascending:
+Mixed numeric types, ascending and descending:
 
 ```
 >>> 1 <=> 3/2
 -1
+
+>>> 3/2 <=> 1
+1
 ```
 
 Mixed numeric types, equal to:
@@ -83,6 +86,15 @@ Comparison of strings with equal base letters and different marks:
 ```
 >>> 'réservé' <=> 'reserve'
 1
+```
+
+Find which tuples are in order:
+
+```
+>>> [0 1 2].tuples(2).collect { :each |
+>>> 	let [i, j] = each;
+>>> 	i <=> j
+>>> }
 ```
 
 The name of this operator is `lessThanSignEqualsSignGreaterThanSign`.

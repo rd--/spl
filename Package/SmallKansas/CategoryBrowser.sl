@@ -22,17 +22,17 @@ CategoryBrowser : [Object, SmallKansan] {
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				0 -> {
+				{ 0 } -> {
 					browser.setStatus('');
 					typeCategoryNames
 				},
-				1 -> {
+				{ 1 } -> {
 					browser.setStatus('');
 					typeCategoryDictionary[path[1]].select { :each |
 						system.isTypeName(each)
 					}.sorted
 				},
-				2 -> {
+				{ 2 } -> {
 					browser.setStatus(system.typeTraits(path[2]).join(', '));
 					completeMethodSet := system.typeMethodDictionary(path[2]).values.select { :each |
 						each.origin.name ~= 'Object'
@@ -41,14 +41,14 @@ CategoryBrowser : [Object, SmallKansan] {
 						system.categoryDictionary.categoryOf('method', each.name)
 					}.copyWithoutIdenticalElements.sort
 				},
-				3 -> {
+				{ 3 } -> {
 					browser.setStatus('');
 					methodSet := completeMethodSet.select { :each |
 						system.categoryDictionary.categoryOf('method', each.name) = path[3]
 					};
 					methodSet.collect(qualifiedName:/1).asList.sorted
 				},
-				4 -> {
+				{ 4 } -> {
 					selectedMethod := methodSet.detect { :each |
 						each.qualifiedName = path[4]
 					};

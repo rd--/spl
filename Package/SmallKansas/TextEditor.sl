@@ -79,13 +79,13 @@ TextEditor : [Object, UserEventTarget, View] {
 
 	setEditorText { :self :aString |
 		self.mimeType.caseOfOtherwise([
-			'text/html' -> {
+			{ 'text/html' } -> {
 				self.editorText.innerHtml := aString
 			},
-			'text/markdown' -> {
+			{ 'text/markdown' } -> {
 				self.editorText.innerHtml := aString.markdownToHtml
 			},
-			'text/plain' -> {
+			{ 'text/plain' } -> {
 				self.editorText.textContent := aString
 			}
 		]) {

@@ -59,8 +59,8 @@ ColourPalette : [Object] { | colourList |
 				}
 			};
 			answer.size.caseOfOtherwise([
-				0 -> { self.error('namedColourPalette: unknown colour palette') },
-				1 -> { ColourPalette(answer[1]) }
+				{ 0 } -> { self.error('namedColourPalette: unknown colour palette') },
+				{ 1 } -> { ColourPalette(answer[1]) }
 			]) {
 				self.error('namedColourPalette: multiple matches')
 			}

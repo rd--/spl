@@ -41,11 +41,11 @@ CategoryDictionary : [Object] { | domainDictionary |
 	categoryOf { :self :domain :entry |
 		let all = self.categoriesOf(domain, entry);
 		all.size.caseOfOtherwise([
-			0 -> {
+			{ 0 } -> {
 				self.categorize(domain, '*Uncategorized*', entry);
 				'*Uncategorized*'
 			},
-			1 -> {
+			{ 1 } -> {
 				all[1]
 			}
 		]) {

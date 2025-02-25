@@ -149,8 +149,8 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 				}
 			};
 			answer.size.caseOfOtherwise([
-				0 -> { self.error('namedColourGradient: unknown colour gradient') },
-				1 -> { answer[1].asColourGradient }
+				{ 0 } -> { self.error('namedColourGradient: unknown colour gradient') },
+				{ 1 } -> { answer[1].asColourGradient }
 			]) {
 				self.error('namedColourGradient: multiple matches')
 			}

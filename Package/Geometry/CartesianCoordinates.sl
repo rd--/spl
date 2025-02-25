@@ -14,9 +14,9 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 	at { :self :index |
 		index.caseOfOtherwise([
-			1 -> { self.x },
-			2 -> { self.y },
-			3 -> { self.z }
+			{ 1 } -> { self.x },
+			{ 2 } -> { self.y },
+			{ 3 } -> { self.z }
 		]) {
 			self.error('CartesianCoordinate>>at: index out of range')
 		}
@@ -24,9 +24,9 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 	atPut { :self :index :value |
 		index.caseOfOtherwise([
-			1 -> { self.x := value },
-			2 -> { self.y := value },
-			3 -> { self.z := value }
+			{ 1 } -> { self.x := value },
+			{ 2 } -> { self.y := value },
+			{ 3 } -> { self.z := value }
 		]) {
 			self.error('CartesianCoordinate>>atPut: index out of range')
 		}

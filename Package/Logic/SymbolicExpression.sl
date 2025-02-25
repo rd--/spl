@@ -216,8 +216,8 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 
 	recogniseSymbolicExpression { :self |
 		self.caseOfOtherwise([
-			1.pi -> { Symbol('π') },
-			2.pi -> { 2 * Symbol('π') }
+			{ 1.pi } -> { Symbol('π') },
+			{ 2.pi } -> { 2 * Symbol('π') }
 		]) {
 			self
 		}

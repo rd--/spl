@@ -58,7 +58,7 @@ Where supported `concatenation` is displayed as ⧻.
 
 * * *
 
-See also: ++, +++, dictionaryJoin, flatten
+See also: ++, +++, dictionaryJoin, flatten, gather
 
 Unicode: U+29FB ⧻ Triple Plus
 

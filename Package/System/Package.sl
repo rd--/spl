@@ -125,11 +125,11 @@ Package! : [Object] {
 		fields.gather { :each |
 			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOfOtherwise([
-				'Package' -> {
+				{ 'Package' } -> {
 					let [category, name] = value.withBlanksTrimmed.parseQualifiedPackageName;
 					['Category' -> category, 'Name' -> name]
 				},
-				'Requires' -> {
+				{ 'Requires' } -> {
 					[key -> value.withBlanksTrimmed.words]
 				}
 			]) {

@@ -29,6 +29,32 @@ At `List` of `String`:
 ['cat' 'Cat' 'catfish' 'fish']
 ```
 
+Sort subsets lexicographically:
+
+```
+>>> ['a' 'b' 'c' 'd']
+>>> .subsets(true.constant)
+>>> .sort(precedes:/2)
+[
+	[],
+	['a'],
+	['a', 'b'],
+	['a', 'b', 'c'],
+	['a', 'b', 'c', 'd'],
+	['a', 'b', 'd'],
+	['a', 'c'],
+	['a', 'c', 'd'],
+	['a', 'd'],
+	['b'],
+	['b', 'c'],
+	['b', 'c', 'd'],
+	['b', 'd'],
+	['c'],
+	['c', 'd'],
+	['d']
+]
+```
+
 * * *
 
 See also: isSorted, mergeSort, ordering, sortBy, sorted, sortOn, sortOnBy

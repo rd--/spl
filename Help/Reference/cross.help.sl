@@ -2,6 +2,8 @@
 
 - _cross(aVector, anotherVector)_
 
+Answer the vector cross product of _aVector_ and _anotherVector_.
+
 The cross product of two vectors in three dimensions:
 
 ```

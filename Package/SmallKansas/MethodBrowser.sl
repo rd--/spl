@@ -9,13 +9,13 @@
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				0 -> {
+				{ 0 } -> {
 					methodNames
 				},
-				1 -> {
+				{ 1 } -> {
 					system.methodTraits(path[1]) ++ system.methodTypes(path[1])
 				},
-				2 -> {
+				{ 2 } -> {
 					browser.setStatus(
 						system.isTypeName(path[2]).if {
 							'Type'

@@ -106,6 +106,13 @@ Depth of a nested `Record`:
 (2, 1)
 ```
 
+At `Range`:
+
+```
+>>> 1:9.depth
+2
+```
+
 * * *
 
 See also: leafCount, rank

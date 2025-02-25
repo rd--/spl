@@ -38,8 +38,10 @@ true
 Sort power-set lexicographically:
 
 ```
->>> let l = ['a' 'b' 'c' 'd'].powerSet;
->>> l.sortBy(precedes:/2).collect(stringJoin:/1)
+>>> ['a' 'b' 'c' 'd']
+>>> .powerSet
+>>> .sortBy(precedes:/2)
+>>> .collect(stringJoin:/1)
 [
 	''
 	'a' 'ab' 'abc' 'abcd' 'abd' 'ac' 'acd' 'ad'

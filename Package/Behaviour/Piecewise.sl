@@ -3,8 +3,8 @@ Piecewise : [Object] { | pieces defaultValue |
 	value { :self :x |
 		valueWithReturn { :return:/1 |
 			self.pieces.do { :each |
-				each[2].value(x).ifTrue {
-					each[1].value(x).return
+				each.key.value(x).ifTrue {
+					each.value.value(x).return
 				}
 			};
 			self.defaultValue.value(x)
@@ -15,8 +15,8 @@ Piecewise : [Object] { | pieces defaultValue |
 
 +@Sequence {
 
-	Piecewise { :pieces :defaultValue |
-		newPiecewise().initializeSlots(pieces, defaultValue)
+	Piecewise { :pieces :defaultValue:/1 |
+		newPiecewise().initializeSlots(pieces, defaultValue:/1)
 	}
 
 	Piecewise { :pieces |

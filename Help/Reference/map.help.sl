@@ -78,7 +78,7 @@ The quaternary form is a variant of `withWithCollect`:
 
 * * *
 
-See also: collect, each, swap, table, withCollect, withWithCollect
+See also: array, collect, each, swap, table, withCollect, withWithCollect
 
 References:
 _Python_

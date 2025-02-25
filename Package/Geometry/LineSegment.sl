@@ -6,8 +6,8 @@ LineSegment : [Object] { | u v |
 
 	at { :self :index |
 		index.caseOf([
-			1 -> { self.u },
-			2 -> { self.v }
+			{ 1 } -> { self.u },
+			{ 2 } -> { self.v }
 		])
 	}
 

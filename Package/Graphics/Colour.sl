@@ -215,8 +215,8 @@ RgbColour : [Object, Colour] { | rgb alpha |
 
 	asColour { :self |
 		self.size.caseOfOtherwise([
-			3 -> { RgbColour(self, 1) },
-			4 -> { RgbColour(self.take(3), self[4]) }
+			{ 3 } -> { RgbColour(self, 1) },
+			{ 4 } -> { RgbColour(self.take(3), self[4]) }
 		]) {
 			self.error('asColour')
 		}

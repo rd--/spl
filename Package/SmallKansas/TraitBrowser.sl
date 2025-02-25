@@ -9,15 +9,15 @@
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				0 -> {
+				{ 0 } -> {
 					browser.setStatus('');
 					traitNames
 				},
-				1 -> {
+				{ 1 } -> {
 					browser.setStatus(system.traitTypes(path[1]).join(', '));
 					system.traitDictionary[path[1]].methodDictionary.indicesSorted
 				},
-				2 -> {
+				{ 2 } -> {
 					selectedMethod := system.traitDictionary[path[1]].methodDictionary[path[2]];
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition

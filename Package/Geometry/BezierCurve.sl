@@ -189,9 +189,9 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 
 	bezierFunction { :self |
 		self.size.caseOfOtherwise([
-			2 -> { { :x | self.linearBezierFunctionAt(x) } },
-			3 -> { { :x | self.quadraticBezierFunctionAt(x) } },
-			4 -> { { :x | self.cubicBezierFunctionAt(x) } }
+			{ 2 } -> { { :x | self.linearBezierFunctionAt(x) } },
+			{ 3 } -> { { :x | self.quadraticBezierFunctionAt(x) } },
+			{ 4 } -> { { :x | self.cubicBezierFunctionAt(x) } }
 		]) {
 			{ :x | self.deCasteljausAlgorithm(x) }
 		}

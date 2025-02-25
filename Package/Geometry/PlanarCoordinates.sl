@@ -82,8 +82,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	at { :self :index |
 		index.caseOfOtherwise([
-			1 -> { self.x },
-			2 -> { self.y }
+			{ 1 } -> { self.x },
+			{ 2 } -> { self.y }
 		]) {
 			self.error('PlanarCoordinates>>at: index out of range')
 		}
@@ -91,8 +91,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 	atPut { :self :index :value |
 		index.caseOfOtherwise([
-			1 -> { self.x := value },
-			2 -> { self.y := value }
+			{ 1 } -> { self.x := value },
+			{ 2 } -> { self.y := value }
 		]) {
 			self.error('PlanarCoordinates>>atPut: index out of range')
 		}

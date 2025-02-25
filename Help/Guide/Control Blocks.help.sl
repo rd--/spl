@@ -13,6 +13,6 @@ and _{ p }.whileTrue { q }_.
 
 * * *
 
-See also: do, if, timesRepeat, whileTrue
+See also: do, caseOf, if, timesRepeat, which, whileTrue
 
 Guides: Trailing Block Syntax
