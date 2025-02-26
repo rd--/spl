@@ -436,7 +436,7 @@
 	}
 
 	cartesianIndex { :shape :anInteger |
-		(anInteger - 1).mixedRadixEncode(shape).reverse + 1
+		(anInteger - 1).mixedRadixEncode(shape) + 1
 	}
 
 	centerArray { :aList :anInteger :anObject |
@@ -1731,7 +1731,7 @@
 	}
 
 	linearIndex { :shape :aSequence |
-		(aSequence - 1).reverse.mixedRadixDecode(shape) + 1
+		(aSequence - 1).mixedRadixDecode(shape) + 1
 	}
 
 	linearRecurrence { :kernel :init :n |
@@ -2296,18 +2296,6 @@
 				index
 			}
 		}
-	}
-
-	positionIndex { :self |
-		let answer = Map();
-		self.withIndexDo { :each :index |
-			answer.includesKey(each).if {
-				answer.at(each).add(index)
-			} {
-				answer.atPut(each, [index])
-			}
-		};
-		answer
 	}
 
 	precedes { :self :aSequence |

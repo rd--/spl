@@ -157,11 +157,12 @@ the answer will too:
 Different algorithms answer the same permutations in different sequences:
 
 ```
+>>> let l = [1 .. 4];
 >>> let a = [
->>> 	[1 .. 4].permutations,
->>> 	[1 .. 4].minimumChangePermutations,
->>> 	[1 .. 4].lexicographicPermutations,
->>> 	[1 .. 4].plainChanges
+>>> 	l.permutations,
+>>> 	l.minimumChangePermutations,
+>>> 	l.lexicographicPermutations,
+>>> 	l.plainChanges
 >>> ];
 >>> { :p :q | p ~= q }.table(a, a).boole
 [

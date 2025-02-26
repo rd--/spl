@@ -1,3 +1,7 @@
+@Matrix {
+
+}
+
 Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	= { :self :anObject |
@@ -61,8 +65,8 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.numberOfRows = self.numberOfColumns
 	}
 
-	linearIndex { :self :i :j |
-		(i - 1) * self.numberOfRows + j
+	linearIndex { :self :cartesianIndex |
+		self.shape.linearIndex(cartesianIndex)
 	}
 
 	permanent { :self |
@@ -167,15 +171,15 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	arrayRules { :self :zero |
-		let [m, n] = self.shape;
+		let shape = self.shape;
 		let answer = [];
-		1.toDo(m) { :i |
-			1.toDo(n) { :j |
-				let e = self[i][j];
-				(e = zero).ifFalse {
-					answer.add([i, j] -> e)
-				}
+		self.withDeepIndexDo { :each :index |
+			(each = zero).ifFalse {
+				answer.add(index -> each)
 			}
+		};
+		(self.atPath(shape) = zero).ifTrue {
+			answer.add(shape -> zero)
 		};
 		answer
 	}
@@ -342,7 +346,10 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let m = self.assertIsMatrix('@Sequence>>diagonal');
 		let l = m.shape.min - k.abs;
 		1:l.collect { :i |
-			m[i - k.min(0)][i + k.max(0)]
+			m.at(
+				i - k.min(0),
+				i + k.max(0)
+			)
 		}
 	}
 
@@ -444,7 +451,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	frobeniusNorm { :self |
-		self.flatten.collect(squared:/1).sum.sqrt
+		self.ravel.collect(squared:/1).sum.sqrt
 	}
 
 	gaussJordanInverse { :self |
@@ -1479,9 +1486,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}.table(1:m, 1:n)
 	}
 
-	identityMatrix { :n :m |
-		let answer = n.zeroMatrix(m);
-		1.toDo(m.min(n)) { :each |
+	identityMatrix { :m :n |
+		let answer = m.zeroMatrix(n);
+		1.toDo(n.min(m)) { :each |
 			answer[each][each] := 1
 		};
 		answer
@@ -1505,9 +1512,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		h @* p
 	}
 
-	zeroMatrix { :self :other |
-		1:self.collect { :unused |
-			List(other, 0)
+	zeroMatrix { :numberOfRows :numberOfColumns |
+		1:numberOfRows.collect { :unused |
+			List(numberOfColumns, 0)
 		}
 	}
 

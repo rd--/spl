@@ -48,10 +48,12 @@ Directed edges with different directions convert to one undirected edge:
 
 * * *
 
-Categories: Converting
+See also: Graph
 
 Guides: Graph Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/UndirectedGraph.html)
+
+Categories: Converting

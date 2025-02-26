@@ -5,6 +5,13 @@
 Answer a `List`, possibly empty, of all the deep indices of _anObject_ in _aCollection_.
 
 ```
+>>> [1 2 1 1 2 3 2].deepIndicesOf(2)
+[2; 5; 7]
+
+>>> [1 1 2; 2 1 1; 1 2 1]
+>>> .deepIndicesOf(2)
+[1 3; 2 1; 3 2]
+
 >>> [
 >>> 	1 2 3;
 >>> 	2 3 4;

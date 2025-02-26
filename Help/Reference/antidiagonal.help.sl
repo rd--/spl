@@ -8,17 +8,35 @@ or on the _anInteger-th_ antidiagonal,
 of _aMatrix_.
 `antidiagonal` works even if _aMatrix_ is not a square matrix.
 
-```
->>> [3 3].iota.antidiagonal
-[3 5 7]
+The antidiagonal runs from the top right corner to the bottom left corner:
 
+```
+>>> let m = [3 3].iota;
+>>> (m, m.antidiagonal)
+(
+	[
+		1 2 3;
+		4 5 6;
+		7 8 9
+	],
+	[3 5 7]
+)
+```
+
+Antidiagonal of real matrix:
+
+```
 >>> [
 >>> 	1.1 12.2  3.23;
 >>> 	2.3 42.2 35.3;
 >>> 	1.2  3.1  2.3
 >>> ].antidiagonal
 [3.23 42.2 1.2]
+```
 
+Antidiagonal of integer matrix:
+
+```
 >>> [
 >>> 	2 3 1;
 >>> 	2 2 1;

@@ -143,9 +143,11 @@ An `identityMatrix` always has unit permanent:
 The permanent of the transpose of _m_ equals the permanent of _m_:
 
 ```
->>> let m = system.randomReal(0, 1, [3 3]);
->>> m.transposed.permanent
-m.permanent
+>>> let r = Sfc32(789141);
+>>> let m = r.randomReal(0, 1, [3 3]);
+>>> let p = m.permanent;
+>>> (p, m.transposed.permanent)
+(0.89478, p)
 ```
 
 * * *

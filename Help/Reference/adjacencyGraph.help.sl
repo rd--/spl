@@ -69,9 +69,23 @@ m.adjacencyGraph.graphPlot
 
 ![](sw/spl/Help/Image/adjacencyGraph-D.svg)
 
+Represent a network with an adjacency matrix:
+
+~~~spl svg=E
+{ :i :j |
+	(((2 * i + j) % 7) = 1).boole
+}.table(1:20, 1:20)
+.adjacencyGraph
+.undirectedGraph
+.simpleGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/adjacencyGraph-E.svg)
+
 * * *
 
-See also: adjacencyList, adjacencyMatrix
+See also: adjacencyList, adjacencyMatrix, Graph
 
 References:
 _Mathematica_

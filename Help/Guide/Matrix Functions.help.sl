@@ -61,6 +61,7 @@
 - `determinant`: determinant
 - `dot`: outer product
 - `gramSchmidtProcess`: Gram-Schmidt
+- `gaussJordanInverse`: inverse
 - `inner`: outer product
 - `inverse`: inverse of a square matrix
 - `luDecomposition`: the LU decomposition
@@ -73,6 +74,7 @@
 - `outer`: outer product
 - `permanent`: permanent of a square matrix
 - `qrDecomposition`: the QR decomposition
+- `ravel`: ravel order list
 - `reducedRowEchelonForm`: in place row reduce
 - `rowReduce`: simplified matrix obtained by making linear combinations of rows
 - `shape`: list the dimensions of a matrix

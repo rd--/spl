@@ -171,7 +171,9 @@ Inverse of a matrix of rational numbers:
 
 * * *
 
-See also: matrixRank, pseudoInverse, rowReduce
+See also: gaussJordanInverse, matrixRank, pseudoInverse, rowReduce
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

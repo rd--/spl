@@ -11,6 +11,14 @@ First 10 Bernoulli numbers:
 [1/1 1/2 1/6 0 -1/30 0 1/42 0 -1/30 0 5/66]
 ```
 
+The 20th Bernoulli number:
+
+```
+>>> let n = 20.bernoulli;
+>>> (n, n.asFloat)
+(-174611/330, -529.12424)
+```
+
 The 60th Bernoulli number:
 
 ```

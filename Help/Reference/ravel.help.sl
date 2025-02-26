@@ -32,7 +32,9 @@ At `Matrix`:
 
 * * *
 
-See also: flatten
+See also: concatenation, flatten
+
+Guides: Matrix Functions
 
 References:
 _Apl_

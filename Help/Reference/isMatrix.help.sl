@@ -1,20 +1,24 @@
 # isMatrix
 
-- _isMatrix(aSequence | aMatrix)_
+- _isMatrix(aMatrix | anArray)_
 
-A `Sequence` is a _matrix_ if each of the elements is a _vector_ of equal size.
+A `List` is a _matrix_ if each of the elements is a _vector_ of equal size.
+Specifically if `arrayDepth` is `>=` two.
 
 At `List`:
 
 ```
->>> [1 2 3 4 5 6].isMatrix
-false
+>>> let l = [1 2 3 4 5 6];
+>>> (l.isMatrix, l.dimensions(2))
+(false, [6])
 
->>> [1 2 3; 4 5 6].isMatrix
-true
+>>> let l = [1 2 3; 4 5 6];
+>>> (l.isMatrix, l.dimensions(2))
+(true, [2 3])
 
->>> [1 2; 3 4 5].isMatrix
-false
+>>> let l = [1 2; 3 4 5];
+>>> (l.isMatrix, l.dimensions(2))
+(false, [2])
 ```
 
 At `Tuple` always answer `false`:
@@ -32,7 +36,7 @@ false
 
 * * *
 
-See also: isColumnVector, isMatrixOf, isRowVector, isSequence, isVector, isVectorOf
+See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isSequence, isVector, isVectorOf
 
 References:
 _Mathematica_

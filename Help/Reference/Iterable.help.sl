@@ -15,6 +15,8 @@ true
 true
 ```
 
+Methods for accessing: `anyOne`
+
 * * *
 
 See also: Collection, do, size, Trait

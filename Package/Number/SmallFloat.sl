@@ -509,9 +509,9 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	Number { :self |
+	/*Number { :self |
 		self
-	}
+	}*/
 
 	one { :self |
 		1
@@ -550,6 +550,18 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 		>
 		'SmallFloat>>raisedToSmallFloat: not SmallFloat'.error
+	}
+
+	realDigits { :self :base :size |
+		(base ~= 10).if {
+			self.error('SmallFloat>>realDigits: not implemented unless base=10')
+		} {
+			let exponent = (self.log10 + 1).rounded;
+			[
+				(self * (10 ^ (size - exponent))).rounded.integerDigits(10, size),
+				exponent
+			]
+		}
 	}
 
 	reduce { :self |

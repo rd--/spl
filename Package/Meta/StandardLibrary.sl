@@ -22,6 +22,7 @@
 	'RunArray'
 	'Set'
 	'Slice'
+	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'
 	'TimeSeries'

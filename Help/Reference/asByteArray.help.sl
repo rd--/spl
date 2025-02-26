@@ -13,7 +13,7 @@ Convert _aCollection_ to a `ByteArray`.
 
 * * *
 
-See also: ByteArray
+See also: asList, ByteArray
 
 References:
 _Smalltalk_

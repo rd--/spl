@@ -8,6 +8,9 @@ Answer a `ByteArray` of the Utf-8 encoding of _aString_.
 >>> '€'.utf8ByteArray
 [226 130 172].asByteArray
 
+>>> 'aAα'.utf8ByteArray
+[97 65 206 177].asByteArray
+
 >>> 'abcABCΑΒΓαβγ'.utf8ByteArray
 [
 	97 98 99
@@ -50,5 +53,6 @@ See also: asciiByteArray, ByteArray, String, utf8String, utf16List
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToCharacterCode.html)
+[2](https://reference.wolframcloud.com/language/ref/StringToByteArray.html)
 
 Categories: String, Encoding

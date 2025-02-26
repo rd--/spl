@@ -2,7 +2,7 @@
 
 - _depth(aCollection | anObject)_
 
-Answer the maximum number of indices needed to specify any part of _aCollection_.
+Answer the maximum number of indices needed to specify any part of _aCollection_, plus `one`.
 Objects that are not collections have _depth_ of one.
 
 A `String` has depth one:
@@ -102,8 +102,9 @@ Depth of a nested `Record`:
 
 ```
 >>> let v = [1 2 3];
->>> (v.depth, v.rank)
-(2, 1)
+>>> let m = [1 2; 3 4];
+>>> (v.depth, v.rank, m.depth, m.rank)
+(2, 1, 3, 2)
 ```
 
 At `Range`:
@@ -115,7 +116,7 @@ At `Range`:
 
 * * *
 
-See also: leafCount, rank
+See also: arrayDepth, leafCount, rank
 
 Guides: Tree Functions
 

@@ -8,7 +8,24 @@ Find positions of items in a `List`:
 
 ```
 >>> 'abcaca'.contents.positionIndex
-['a' -> [1 4 6], 'b' -> [2], 'c' -> [3 5]].asMap
+[
+	'a' -> [1 4 6],
+	'b' -> [2],
+	'c' -> [3 5]
+].asMap
+```
+
+Find positions of elements in an association:
+
+```
+>>> (a: 1, b: 2, c: 3, d: 4, e: 3, f: 1)
+>>> .positionIndex
+[
+	(1 -> ['a', 'f']),
+	(2 -> ['b']),
+	(3 -> ['c', 'e']),
+	(4 -> ['d'])
+].asMap
 ```
 
 * * *

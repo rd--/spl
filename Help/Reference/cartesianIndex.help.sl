@@ -2,7 +2,8 @@
 
 - _cartesianIndex(shape, linearIndex)_
 
-Answer the cartesian index of _linearIndex_ given an array _shape_.
+Answer the cartesian index of `linearIndex` given an array _shape_.
+The indices are counted such that the rightmost index increments first.
 
 At vector:
 
@@ -21,13 +22,20 @@ At matrix:
 >>> (1 .. 2 * 4).collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
-[1 1; 2 1; 3 1; 4 1; 1 2; 2 2; 3 2; 4 2]
+[
+	1 1; 1 2; 1 3; 1 4;
+	2 1; 2 2; 2 3; 2 4
+]
 
 >>> let shape = [3 3];
 >>> (1 .. 3 * 3).collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
-[1 1; 2 1; 3 1; 1 2; 2 2; 3 2; 1 3; 2 3; 3 3]
+[
+	1 1; 1 2; 1 3;
+	2 1; 2 2; 2 3;
+	3 1; 3 2; 3 3
+]
 ```
 
 At volume:
@@ -39,19 +47,19 @@ At volume:
 >>> }
 [
 	1 1 1;
-	2 1 1;
-	1 2 1;
-	2 2 1;
 	1 1 2;
-	2 1 2;
+	1 2 1;
 	1 2 2;
+	2 1 1;
+	2 1 2;
+	2 2 1;
 	2 2 2
 ]
 ```
 
 * * *
 
-See also: linearIndex
+See also: deepIndices, linearIndex, shapeIndices
 
 References:
 _Julia_

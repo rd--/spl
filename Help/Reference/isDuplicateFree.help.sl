@@ -45,7 +45,7 @@ false
 
 * * *
 
-See also: counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree
+See also: countDistinct, counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree
 
 References:
 _Mathematica_

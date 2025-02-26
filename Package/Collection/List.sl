@@ -28,6 +28,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		>
 	}
 
+	arrayDepth { :self |
+		self.dimensions.size
+	}
+
 	asList { :self |
 		self
 	}
@@ -37,6 +41,28 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		_self.fill(_anObject);
 		return _anObject;
 		>
+	}
+
+	dimensions { :self :anInteger |
+		(anInteger < 1).if {
+			[]
+		} {
+			let answer = [];
+			answer.add(self.size);
+			self.allSatisfy(isList:/1).ifTrue {
+				let k = self.anyOne.size;
+				self.allSatisfy { :each |
+					each.size = k
+				}.ifTrue {
+					answer.addAll(self.anyOne.dimensions(anInteger - 1))
+				}
+			};
+			answer
+		}
+	}
+
+	dimensions { :self |
+		self.dimensions(Infinity)
 	}
 
 	isAssociationList { :self |
@@ -52,9 +78,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	isMatrix { :self |
-		self.allSatisfy { :each | each.isList & { each.isVector } } & {
-			self.collect(size:/1).asIdentitySet.size = 1
-		}
+		self.dimensions(2).size = 2
 	}
 
 	isVector { :self |

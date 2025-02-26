@@ -40,6 +40,16 @@ At `String`:
 'abrcd'
 ```
 
+Take the two smallest numbers in a list:
+
+```
+>>> [1.e ^ 1.pi, 7.pi, 1.pi ^ 1.e, 23]
+>>> .nub
+>>> .sort
+>>> .take(2)
+[7.pi, 1.pi ^ 1.e]
+```
+
 * * *
 
 See also: =, ==, asIdentitySet, copyWithoutIdenticalElements, deleteDuplicates, nubBy, nubSieve, Set

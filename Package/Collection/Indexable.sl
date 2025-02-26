@@ -101,6 +101,10 @@
 		self[index] := self[index] + value
 	}
 
+	atLinear { :self :index |
+		self.atPath(self.shape.cartesianIndex(index))
+	}
+
 	atMissing { :self :index |
 		self.atIfAbsent(index) {
 			Missing('NotAvailable', index)
@@ -265,6 +269,18 @@
 
 	isIndexable { :self |
 		true
+	}
+
+	positionIndex { :self |
+		let answer = Map();
+		self.withIndexDo { :each :index |
+			answer.includesKey(each).if {
+				answer.at(each).add(index)
+			} {
+				answer.atPut(each, [index])
+			}
+		};
+		answer
 	}
 
 	withDeepIndexDo { :self :elementAndIndexBlock:/2 |

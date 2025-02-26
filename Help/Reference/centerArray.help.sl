@@ -2,7 +2,7 @@
 
 - _centerArray(aList, anInteger, anObject)_
 
-Answer a `List` of length _anInteger` with the elements of _aList_ at the center and _anObject_ elsewhere.
+Answer a `List` of length _anInteger_ with the elements of _aList_ at the center and _anObject_ elsewhere.
 
 A one and four zeroes:
 
