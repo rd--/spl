@@ -8,30 +8,25 @@ else _false_.
 At `List`:
 
 ```
->>> [1 2 3; 4 5 6].isMatrixOf('SmallFloat')
+>>> [1 2 3; 4 5 6]
+>>> .isMatrixOf('SmallFloat')
 true
 
->>> [1/2 3/4; 5/6 7/6].isMatrixOf('Fraction')
+>>> [1/2 3/4; 5/6 7/6]
+>>> .isMatrixOf('Fraction')
 true
 
->>> [1J2 3J4; 5J6 7J6].isMatrixOf('Complex')
+>>> [1J2 3J4; 5J6 7J6]
+>>> .isMatrixOf('Complex')
 true
 
->>> ['a' 'b'; 'c' 'd'].isMatrixOf('String')
+>>> ['a' 'b'; 'c' 'd']
+>>> .isMatrixOf('String')
 true
 
->>> [1L 2L; 3L 4L].isMatrixOf('LargeInteger')
+>>> [1L 2L; 3L 4L]
+>>> .isMatrixOf('LargeInteger')
 true
-```
-
-At `Matrix`:
-
-```
->>> [1 2 3; 4 5 6].asMatrix.isMatrixOf('SmallFloat')
-true
-
->>> [1 2 3; 4 5 6].asMatrix.elementType
-'SmallFloat'
 ```
 
 * * *

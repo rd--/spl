@@ -1,6 +1,6 @@
 # isVector
 
-- _isVector(aSequence)_
+- _isVector(aList)_
 
 A `Sequence` is a vector if none of the elements in the sequence has the type of the sequence.
 It is equivalent to asking if the `rank` is `one`.
@@ -23,16 +23,6 @@ A `List` of `Tuple`s is a vector:
 ```
 >>> [(1, 2, 3), (4, 5, 6)].isVector
 true
-```
-
-At `Tuple`:
-
-```
->>> (1, 2, 3, 4, 5, 6).isVector
-true
-
->>> ((1, 2, 3), (4, 5, 6)).isVector
-false
 ```
 
 The elements need not be of the same type:

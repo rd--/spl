@@ -22,12 +22,8 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 		Float64Array:/1
 	}
 
-}
-
-+[List, Range] {
-
-	asFloat64Array { :self |
-		Float64Array(self.size).fillFrom(self)
+	storageType { :self |
+		'Float64'
 	}
 
 }
@@ -36,6 +32,30 @@ Float64Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 
 	Float64Array { :self |
 		<primitive: return new Float64Array(_self);>
+	}
+
+}
+
++List {
+
+	basicAsFloat64Array { :self |
+		<primitive: return new Float64Array(_self);>
+	}
+
+	asFloat64Array { :self |
+		self.isSmallFloatVector.if {
+			self.basicAsFloat64Array
+		} {
+			self.error('List>>asFloat64Array: invalid')
+		}
+	}
+
+}
+
++Range {
+
+	asFloat64Array { :self |
+		self.asList.basicAsFloat64Array
 	}
 
 }

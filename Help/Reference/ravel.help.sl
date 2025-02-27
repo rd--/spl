@@ -4,7 +4,10 @@
 
 Answer a `List` containing all the atoms in _anArray_,
 in the order in which they appear when displayed,
+which is called _ravel order_,
 i.e. _row_ order for a matrix.
+
+The `ravel` of a 2×3×4 array:
 
 ```
 >>> let a = [2 3 4].iota;
@@ -23,16 +26,16 @@ i.e. _row_ order for a matrix.
 )
 ```
 
-At `Matrix`:
+At `NumericArray`:
 
 ```
->>> [3 3].iota.asMatrix.ravel
+>>> [3 3].iota.asNumericArray.ravel
 [1 2 3 4 5 6 7 8 9]
 ```
 
 * * *
 
-See also: concatenation, flatten
+See also: concatenation, flatten, rank, shape
 
 Guides: Matrix Functions
 

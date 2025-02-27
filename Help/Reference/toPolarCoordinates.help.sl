@@ -9,12 +9,8 @@ At `List`:
 ```
 >>> [1 1].toPolarCoordinates
 [2.sqrt 0.25.pi]
-```
 
-At `Tuple`:
-
-```
->>> (-1, -1).toPolarCoordinates
+>>> [-1 -1].toPolarCoordinates
 [2.sqrt -0.75.pi]
 ```
 

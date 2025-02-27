@@ -1,61 +1,10 @@
 # Matrix
 
-`Matrix` is a `Type` holding a rectangular array arranged in rows and columns.
-
-```
->>> let m = [
->>> 	1 2 3;
->>> 	4 5 6;
->>> 	7 8 9
->>> ].asMatrix;
->>> (
->>> 	m.numberOfRows,
->>> 	m.numberOfColumns,
->>> 	m.shape,
->>> 	m.elementType,
->>> 	m.isSquareMatrix
->>> )
-(3, 3, [3 3], 'SmallFloat', true)
-```
-
-Calculate `determinant`:
-
-```
->>> [1 2 3; 4 5 6; 7 8 9]
->>> .asMatrix
->>> .determinant
-0
-```
-
-Inverse of a 2×2 matrix:
-
-```
->>> [1.4 2; 3 -6.7].asMatrix.inverse
-[
-	0.43563 0.13004;
-	0.19506 -0.09103
-].asMatrix
-
->>> [-1 1; 1.5 -1].asMatrix.inverse
-[
-	2 2;
-	3 2
-].asMatrix
-```
-
-`printString` of `Matrix`:
-
-```
->> [1.4 2; 3 -6.7].asMatrix.inverse
-2×2
-   
-    0.4356    0.1300
-    0.1951   -0.0910
-```
+`Matrix` is a `Trait` collecting behviours applicable to matrices.
 
 * * *
 
-See also: asMatrix, determinant, elementType, inverse, isSquareMatrix, List, numberOfColumns, numberOfRows, Sequence, shape
+See also: Array, List, NumericArray
 
 Guides: Matrix Operations
 

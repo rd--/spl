@@ -11,13 +11,6 @@ At `List`:
 [1 1]
 ```
 
-At `Tuple`:
-
-```
->>> (2.sqrt, -0.75.pi).fromPolarCoordinates
-[-1 -1]
-```
-
 Collects over lists:
 
 ```

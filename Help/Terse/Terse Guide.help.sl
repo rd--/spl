@@ -4146,15 +4146,13 @@ system.includesPackage('PlanarCoordinates') /* package */
 PlanarCoordinates(0, 0).typeOf = 'PlanarCoordinates' /* type of */
 PlanarCoordinates(-1, 1).isPlanarCoordinates = true
 [1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* from list */
-(1, 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* from tuple */
 (x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* from record */
 PlanarCoordinates(-1, 1).isPlanarCoordinates = true /* point constructor */
 [1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* list as point */
-(1, 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* tuple as point */
 (x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* record as point */
-[3, 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
-([-1, 1]).asPlanarCoordinates.x = -1
-([-1, 1]).asPlanarCoordinates.y = 1
+[3 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
+[-1 1].asPlanarCoordinates.x = -1
+[-1 1].asPlanarCoordinates.y = 1
 PlanarCoordinates(-1, 1).x = -1
 PlanarCoordinates(-1, 1).y = 1
 PlanarCoordinates(-1, 1).x(-3) = -3
@@ -4192,8 +4190,8 @@ let v = PlanarCoordinates(3, 4); v.swapInPlace; v[1] = 4 /* swap fields in place
 PlanarCoordinates(3, 4).swapped = PlanarCoordinates(4, 3) /* answer swapped vector */
 let v = PlanarCoordinates(0, 0); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates(1, 0) } /* copy two vector */
 PlanarCoordinates(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) /* radius and angle, r and theta */
-[0, 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
-(0, 0).asPlanarCoordinates.isZero /* are x and y both zero */
+[0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
+[0 0].asPlanarCoordinates.isZero /* are x and y both zero */
 [1, 1].norm = 2.sqrt /* magnitude, distance to origin */
 [1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
 [1, 1].normalize.norm ~ 1

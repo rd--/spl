@@ -105,16 +105,12 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 		ByteArray:/1
 	}
 
-	utf8String { :self |
-		<primitive: return new TextDecoder('utf8').decode(_self).normalize('NFC');>
+	storageType { :self |
+		'Byte'
 	}
 
-}
-
-+[List, Range] {
-
-	asByteArray { :self |
-		ByteArray(self.size).fillFrom(self)
+	utf8String { :self |
+		<primitive: return new TextDecoder('utf8').decode(_self).normalize('NFC');>
 	}
 
 }
@@ -131,6 +127,38 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequen
 
 	ByteArray { :self |
 		<primitive: return new Uint8Array(_self);>
+	}
+
+}
+
++List {
+
+	basicAsByteArray { :self |
+		<primitive: return new Uint8Array(_self);>
+	}
+
+	asByteArray { :self |
+		self.isEmpty.if {
+			ByteArray(0)
+		} {
+			(
+				self.isSmallFloatVector & {
+					self.allSatisfy(isByte:/1)
+				}
+			).if {
+				self.basicAsByteArray
+			} {
+				self.error('List>>asByteArray: invalid')
+			}
+		}
+	}
+
+}
+
++Range {
+
+	asByteArray { :self |
+		self.asList.asByteArray
 	}
 
 }

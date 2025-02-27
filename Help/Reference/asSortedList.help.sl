@@ -32,9 +32,8 @@ At `IdentitySet`:
 At `Range`:
 
 ```
->>> let l = (10, 9 .. 1).asSortedList;
->>> (l.contents, l.isVector)
-([1 2 3 4 5 6 7 8 9 10], true)
+>>> (10, 9 .. 1).asSortedList.contents
+[1 2 3 4 5 6 7 8 9 10]
 ```
 
 * * *

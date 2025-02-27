@@ -1473,16 +1473,6 @@
 		answer
 	}
 
-	iota { :shape :start :step |
-		let count = shape.product;
-		let end = start + (count - 1 * step);
-		Range(start, end, step).reshape(shape)
-	}
-
-	iota { :shape |
-		(1 .. shape.product).reshape(shape)
-	}
-
 	isArithmeticSeries { :self |
 		(self.size <= 1).if {
 			true
@@ -1587,12 +1577,12 @@
 		}
 	}
 
-	isVector { :self |
+	/*isVector { :self |
 		let type = self.typeOf;
 		self.noneSatisfy { :each |
 			each.typeOf = type
 		}
-	}
+	}*/
 
 	isVectorOf { :self :elementType |
 		self.isVector & {
@@ -3259,15 +3249,6 @@
 			};
 			low
 		}
-	}
-
-	iota { :count :start :step |
-		let end = start + (count - 1 * step);
-		Range(start, end, step).asList
-	}
-
-	iota { :count |
-		Range(1, count, 1).asList
 	}
 
 	calkinWilfSequence { :self |

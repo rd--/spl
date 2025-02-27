@@ -569,6 +569,7 @@ const asSl: ohm.ActionDict<string> = {
 		return c1.sourceString + cN.sourceString + ':/' + a.sourceString;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
+		/* return `Symbol('${s.sourceString}')`; */
 		return `BacktickQuotedString('${s.sourceString}')`;
 	},
 	complexLiteral(r, _j, i) {

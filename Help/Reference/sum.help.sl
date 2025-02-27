@@ -10,6 +10,9 @@ Answer the sum of all the elements in _aCollection_.
 
 >>> [1.pi 1 4 1.e 7 8].sum
 25.8599
+
+>>> (1:10 ^ 2).sum
+385
 ```
 
 At `Range`,
@@ -39,7 +42,13 @@ the `sum` is calculated directly using a closed form:
 Row-wise sums of a matrix:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].collect(sum:/1)
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .collect(sum:/1)
+[6 15 24]
+
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .transposed
+>>> .sum
 [6 15 24]
 ```
 
@@ -84,11 +93,21 @@ Difference between a sum squared, and the sum of squares:
 25502500 - 338350
 ```
 
+Evaluate symbolically:
+
+```
+>>> ['x' 'y' 'z']
+>>> .collect(Symbol:/1)
+>>> .sum
+>>> .printString
+'(+ (+ x y) z)'
+```
+
 Where supported `sum` is displayed as Σ.
 
 * * *
 
-See also: +, product, injectInto, neumaierSum, pairwiseSum, reduce
+See also: +, accumulate, injectInto, neumaierSum, pairwiseSum, prefixSum, product, reduce
 
 References:
 _Mathematica_

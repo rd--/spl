@@ -627,7 +627,6 @@
 		}
 	}
 
-
 	level { :self :anInteger |
 		self.levelBy { :level |
 			level = anInteger

@@ -1,8 +1,15 @@
 # dimensions
 
-- _dimensions(aCollection, anInteger=Infinity)_
+- _dimensions(anObject, anInteger=Infinity)_
 
 Answer the list of the dimensions of _anObject_ down to level _anInteger_.
+
+Find the dimensions of a vector:
+
+```
+>>> [1 2 3 4 5].dimensions
+[5]
+```
 
 Find the dimensions of a matrix:
 
@@ -39,9 +46,13 @@ Works with special array types, including `SparseArray` objects:
 [1 1 2]
 ```
 
-`dimensions` always returns a list:
+`dimensions` always returns a list,
+at scalar values answers the empty list:
 
 ```
+>>> 2.dimensions
+[]
+
 >>> [1 2].dimensions
 [2]
 
@@ -57,9 +68,17 @@ The `size` of `dimensions` equals `arrayDepth`:
 (2, 2)
 ```
 
+At full arrays, `dimensions` and `shape` answer the same value:
+
+```
+>>> let a = [1 2; 3 4:; 5 6; 7 8];
+>>> (a.dimensions, a.shape)
+([2 2 2], [2 2 2])
+```
+
 * * *
 
-See also: arrayDepth, deepIndices, shape
+See also: arrayDepth, deepIndices, depth, rank, shape
 
 References:
 _Mathematica_

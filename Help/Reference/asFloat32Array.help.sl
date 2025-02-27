@@ -8,9 +8,13 @@ which must have element type `SmallFloat`.
 ```
 >>> let l = [1 2 3 4 5];
 >>> let a = l.asFloat32Array;
->>> (l, l.elementType, a.isFloat32Array, a.size, a.asList)
+>>> (
+>>> 	l.elementType,
+>>> 	a.isFloat32Array,
+>>> 	a.size,
+>>> 	a.asList
+>>> )
 (
-	[1 2 3 4 5],
 	'SmallFloat',
 	true,
 	5,

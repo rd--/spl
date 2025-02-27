@@ -8,8 +8,7 @@ A `Float64Array` is an array whose elements are IEEE 64-bit floating point value
 Unlike a `List`, a `Float64Array` is of fixed size.
 
 ```
->>> let a = Float64Array(5);
->>> a
+>>> Float64Array(5)
 [0 0 0 0 0].asFloat64Array
 ```
 

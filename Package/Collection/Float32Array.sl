@@ -26,12 +26,8 @@ Float32Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 		Float32Array:/1
 	}
 
-}
-
-+[List, Range] {
-
-	asFloat32Array { :self |
-		Float32Array(self.size).fillFrom(self)
+	storageType { :self |
+		'Float32'
 	}
 
 }
@@ -48,6 +44,30 @@ Float32Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSeq
 
 	Float32Array { :self :byteOffset :size |
 		<primitive: return new Float32Array(_self, _byteOffset, _size);>
+	}
+
+}
+
++List {
+
+	basicAsFloat32Array { :self |
+		<primitive: return new Float32Array(_self);>
+	}
+
+	asFloat32Array { :self |
+		self.isSmallFloatVector.if {
+			self.basicAsFloat32Array
+		} {
+			self.error('List>>asFloat32Array: invalid')
+		}
+	}
+
+}
+
++Range {
+
+	asFloat32Array { :self |
+		self.asList.basicAsFloat32Array
 	}
 
 }

@@ -96,6 +96,13 @@ SparseArray : [Object, Iterable, Indexable, Collection, Sequence] { | contents s
 		self.shape.size
 	}
 
+	ravel { :self |
+		let n = self.shape.product;
+		(1 .. n).collect { :i |
+			self.atLinear(i)
+		}
+	}
+
 	size { :self |
 		self.shape.first
 	}

@@ -18,6 +18,9 @@ Triangular numbers:
 
 >>> 1:10.scan(+)
 [1 3 6 10 15 21 28 36 45 55]
+
+>>> 1:10.collect { :n | 1:n.sum }
+[1 3 6 10 15 21 28 36 45 55]
 ```
 
 Diagonals of Pascal’s triangle:

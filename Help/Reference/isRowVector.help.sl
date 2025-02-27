@@ -1,6 +1,6 @@
 # isRowVector
 
-- _isRowVector(aSequence | aMatrix)_
+- _isRowVector(aMatrix)_
 
 A _row vector_ is a _matrix_ with a single row, ie. a _1×n_ matrix.
 
@@ -17,13 +17,6 @@ A 1×4 matrix is a row vector:
 >>> let m = [[1 2 3 4]];
 >>> (m.shape, m.isRowVector)
 ([1 4], true)
-```
-
-At `Matrix`:
-
-```
->>> [[1 2 3]].asMatrix.isRowVector
-true
 ```
 
 A _vector_ is not a _row vector_:

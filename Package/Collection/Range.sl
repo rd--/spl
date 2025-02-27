@@ -58,6 +58,14 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 		}
 	}
 
+	isMatrix { :self |
+		false
+	}
+
+	isVector { :self |
+		true
+	}
+
 	negated { :self |
 		Range(self.start.negated, self.stop.negated, self.step.negated)
 	}

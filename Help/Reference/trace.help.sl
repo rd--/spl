@@ -4,13 +4,16 @@
 - _trace(alpha)_ ⟹ _trace(alpha, +)_
 
 Answer the trace of the matrix or tensor list.
+Properly, a trace is only defined for square matrices.
+
+At a matrix answers the sum of the diagonal elements:
 
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].trace
-(1 + 5 + 9)
+[1 5 9].sum
 
->>> [1 2 3; 4 5 6; 7 8 9].asMatrix.trace
-15
+>>> [5 7].iota.trace
+[1 9 17 25 33].sum
 ```
 
 For a vector `trace` gives the sum of the elements:
@@ -55,6 +58,9 @@ See also: diagonal, transposed
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Tr.html)
+[1](https://mathworld.wolfram.com/MatrixTrace.html)
+[2](https://reference.wolfram.com/language/ref/Tr.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Trace_(linear_algebra))
 
 Categories: Math, Matrix

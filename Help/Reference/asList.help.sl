@@ -37,10 +37,10 @@ At `String`:
 ['s' 't' 'r' 'i' 'n' 'g']
 ```
 
-At `Matrix`:
+At `NumericArray` answers the `normal` `List` array:
 
 ```
->>> [1 2; 3 4; 5 6].asMatrix.asList
+>>> [1 2; 3 4; 5 6].asNumericArray.asList
 [1 2; 3 4; 5 6]
 ```
 

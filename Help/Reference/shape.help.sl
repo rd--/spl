@@ -2,7 +2,8 @@
 
 - _shape(anArray | anObject)_
 
-Answer the shape of the argument, a vector of lengths of the array along each axis.
+Answer the shape of the argument,
+a vector of lengths of the array along each axis.
 
 The shape of a _scalar_ is the empty list:
 
@@ -11,7 +12,8 @@ The shape of a _scalar_ is the empty list:
 []
 ```
 
-The shape of a _vector_ is a one element list:
+The shape of a _vector_ is a one element list,
+telling the `size` or length of the list:
 
 ```
 >>> [1 2 3 4 5].shape
@@ -48,7 +50,9 @@ A 1×1 matrix:
 [1 1]
 ```
 
-The shape of a _volume_ is a three element list.
+The shape of a _volume_,
+or _box_,
+is a three element list.
 A 2×2×2 array:
 
 ```
@@ -112,7 +116,9 @@ A 1×1×1 array:
 [1 1 1]
 ```
 
-Irregular arrays do not have a shape:
+Irregular arrays do not have a shape,
+and answer `false` to `isArray`,
+however they do have `dimensions`:
 
 ```
 >>> { [1; 2 3].shape }.ifError { true }
@@ -120,9 +126,12 @@ true
 
 >>> [1; 2 3].isArray
 false
+
+>>> [1; 2 3].dimensions
+[2]
 ```
 
-Find the dimensions of a matrix:
+Find the shape of a matrix:
 
 ```
 >>> [1 2 3; 4 5 6].shape
@@ -161,7 +170,7 @@ Where supported `shape` is displayed as ⍴.
 
 * * *
 
-See also: iota, isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape, shapeIndices
+See also: arrayDepth, dimensions, iota, isArray, isMatrix, isSequence, isVector, numberOfRows, numberOfColumns, rank, reshape, shapeIndices
 
 References:
 _Apl_

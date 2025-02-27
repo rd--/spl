@@ -30,9 +30,9 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequence] { | contents |
 		self.contents.indices
 	}
 
-	isVector { :self |
+	/*isVector { :self |
 		self.noneSatisfy(isTuple:/1)
-	}
+	}*/
 
 	printString { :self |
 		'(' ++ self.contents.collect(printString:/1).join(', ') ++ ')'

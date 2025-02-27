@@ -244,7 +244,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 }
 
-+[List, Tuple] {
++List {
 
 	asPlanarCoordinates { :self |
 		self.isMatrix.if {

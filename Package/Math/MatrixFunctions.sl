@@ -1,173 +1,7 @@
-@Matrix {
-
-}
-
-Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
-
-	= { :self :anObject |
-		anObject.isMatrix & {
-			self.contents = anObject.contents
-		}
-	}
-
-	~ { :self :anObject |
-		anObject.isMatrix & {
-			self.contents ~ anObject.contents
-		}
-	}
-
-	asList { :self |
-		self.contents
-	}
-
-	at { :self :i :j |
-		self.contents[i, j]
-	}
-
-	determinant { :self |
-		self.contents.determinant
-	}
-
-	diagonal { :self :k |
-		let l = self.shape.min - k.abs;
-		1:l.collect { :i |
-			self[i - k.min(0), i + k.max(0)]
-		}
-	}
-
-	diagonal { :self |
-		self.diagonal(0)
-	}
-
-	inverse { :self |
-		self.contents.inverse.asMatrix
-	}
-
-	isColumnVector { :self |
-		self.numberOfColumns = 1
-	}
-
-	isIntegerMatrix { :self |
-		self.elementType = 'LargeInteger' | {
-			self.contents.isIntegerMatrix
-		}
-	}
-
-	isMatrixOf { :self :elementType |
-		self.elementType = elementType
-	}
-
-	isRowVector { :self |
-		self.numberOfRows = 1
-	}
-
-	isSquareMatrix { :self |
-		self.numberOfRows = self.numberOfColumns
-	}
-
-	linearIndex { :self :cartesianIndex |
-		self.shape.linearIndex(cartesianIndex)
-	}
-
-	permanent { :self |
-		self.isSquareMatrix.if {
-			let size = self.numberOfRows;
-			let array = self.contents;
-			let answer = 0;
-			[1 .. size].plainChangesDo { :p |
-				let sign = p.permutationSymbol;
-				let entries = p.withIndexCollect { :i :j |
-					array[i][j]
-				};
-				answer := answer + entries.product
-			};
-			answer
-		} {
-			self.error('Matrix>>permanent: not defined at non-square matrices')
-		}
-	}
-
-	printString { :self |
-		self.contents.matrixPrintString
-	}
-
-	ravel { :self |
-		self.contents.ravel
-	}
-
-	shape { :self |
-		[self.numberOfRows, self.numberOfColumns]
-	}
-
-	trace { :self :aBlock:/1 |
-		let limit = self.shape.min;
-		aBlock(
-			1:limit.collect { :each |
-				self.at(each, each)
-			}
-		)
-	}
-
-	trace { :self |
-		self.trace(sum:/1)
-	}
-
-}
-
 +List {
 
 	adjugate { :self |
 		self.inverse * self.determinant
-	}
-
-	antidiagonal { :self :k |
-		let m = self.assertIsMatrix('@Sequence>>antidiagonal');
-		let l = m.shape.min - k.abs;
-		(l .. 1).collect { :i |
-			let r = l - i + 1 - k.min(0);
-			let c = i - k.min(0);
-			m[r][c]
-		}
-	}
-
-	antidiagonal { :self |
-		self.antidiagonal(0)
-	}
-
-	antidiagonalMatrix { :self |
-		let k = self.size;
-		let answer = k.zeroMatrix(k);
-		1.toDo(k) { :each |
-			answer[k - each + 1][each] := self[k - each + 1]
-		};
-		answer
-	}
-
-	arrayFlatten { :self |
-		self.isArray.if {
-			let [r, c, i, j] = self.shape.take(4);
-			let n = r * i;
-			let m = c * j;
-			let p = 1;
-			let answer = List(n);
-			1.toDo(r) { :w |
-				1.toDo(i) { :x |
-					let row = List(m);
-					let q = 1;
-					answer[p] := row;
-					p := p + 1;
-					1.toDo(c) { :y |
-						1.toDo(j) { :z |
-							row[q] := self[w][y][x][z];
-							q := q + 1
-						}
-					}
-				}
-			};
-			answer
-		} {
-			self.error('@Sequence>>arrayFlatten: not array')
-		}
 	}
 
 	arrayRules { :self :zero |
@@ -180,59 +14,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		};
 		(self.atPath(shape) = zero).ifTrue {
 			answer.add(shape -> zero)
-		};
-		answer
-	}
-
-	assertIsMatrix { :self :context |
-		self.assert(context) {
-			self.isMatrix
-		}
-	}
-
-	assertIsSquareMatrix { :self :context |
-		self.assert(context) {
-			self.isSquareMatrix
-		}
-	}
-
-	asMatrix { :self :aBlock:/1 |
-		self.isMatrix.if {
-			let numberOfRows = self.size;
-			let numberOfColumns = self.anyOne.size;
-			let elementType = self.anyOne.elementType;
-			self.allSatisfy { :each |
-				each.elementType = elementType
-			}.if {
-				newMatrix().initializeSlots(numberOfRows, numberOfColumns, elementType, aBlock(self))
-			} {
-				self.error('@Sequence>>asMatrix: non-uniform elementType')
-			}
-		} {
-			self.error('@Sequence>>asMatrix: not a matrix')
-		}
-	}
-
-	asMatrix { :self |
-		self.asMatrix(deepCopy:/1)
-	}
-
-	blockDiagonalMatrix { :d |
-		let n = d.size;
-		let s = d.collect(shape:/1);
-		let answer = [];
-		1.toDo(n) { :i |
-			1.toDo(d[i].size) { :j |
-				answer.add(
-					1:n.gather { :k |
-						(i = k).if {
-							d[i][j]
-						} {
-							0 # s[k][2]
-						}
-					}
-				)
-			}
 		};
 		answer
 	}
@@ -260,12 +41,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.choleskyBanachiewiczAlgorithm
 	}
 
-	circulantMatrix { :self |
-		(1 .. self.size).collect { :i |
-			self.rotatedRight(i)
-		}
-	}
-
 	conjugateGradientMethod { :a :b :x :epsilon :n |
 		valueWithReturn { :return:/1 |
 			let r = b - a.dot(x);
@@ -288,13 +63,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 
 	conjugateTranspose { :self |
 		self.transposed.conjugated
-	}
-
-	columnsCollect { :self :aBlock:/1 |
-		let [m, n] = self.shape;
-		1:n.collect { :i |
-			aBlock(self.matrixColumn(i))
-		}
 	}
 
 	cramersRule { :m :d |
@@ -338,55 +106,8 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				}
 			}
 		} {
-			self.error('@Sequence>>determinant: not defined at non-square matrices')
+			self.error('List>>determinant: not defined at non-square matrices')
 		}
-	}
-
-	diagonal { :self :k |
-		let m = self.assertIsMatrix('@Sequence>>diagonal');
-		let l = m.shape.min - k.abs;
-		1:l.collect { :i |
-			m.at(
-				i - k.min(0),
-				i + k.max(0)
-			)
-		}
-	}
-
-	diagonal { :self |
-		self.diagonal(0)
-	}
-
-	diagonalMatrix { :self :k :shape |
-		let [m, n] = shape;
-		let r = k.min(0).abs;
-		let c = k.max(0);
-		let answer = m.zeroMatrix(n);
-		1.toDo(self.size) { :each |
-			answer[each + r][each + c] := self[each]
-		};
-		answer
-	}
-
-	diagonalMatrix { :self :k |
-		let n = self.size + k.abs;
-		self.diagonalMatrix(k, [n n])
-	}
-
-	diagonalMatrix { :self |
-		self.diagonalMatrix(0)
-	}
-
-	distanceMatrix { :u :v :aBlock:/2 |
-		aBlock:/2.table(u, v)
-	}
-
-	distanceMatrix { :u :v |
-		distanceMatrix(u, v, euclideanDistance:/2)
-	}
-
-	distanceMatrix { :u |
-		distanceMatrix(u, u)
 	}
 
 	dotProduct { :self :aSequence |
@@ -394,7 +115,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			(aSequence.isVector | { aSequence.isMatrix }).if {
 				(self *.e aSequence).sum
 			} {
-				self.error('@Sequence>>dotProduct: argument not vector or matrix')
+				self.error('List>>dotProduct: argument not vector or matrix')
 			}
 		} {
 			self.isMatrix.if {
@@ -408,11 +129,11 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 							each.dot(aSequence)
 						}
 					} {
-						self.error('@Sequence>>dotProduct: argument not vector or matrix')
+						self.error('List>>dotProduct: argument not vector or matrix')
 					}
 				}
 			} {
-				self.error('@Sequence>>dotProduct: self not vector or matrix')
+				self.error('List>>dotProduct: self not vector or matrix')
 			}
 		}
 	}
@@ -459,7 +180,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let a = m.zeroMatrix(m * 2);
 		let r = m.zeroMatrix(n);
 		(m ~= n).ifTrue {
-			self.error('@Sequence>>gaussJordanInverse: matrix is not square')
+			self.error('List>>gaussJordanInverse: matrix is not square')
 		};
 		1.toDo(m) { :i |
 			a[i].replaceFromToWith(1, m, self[i]);
@@ -469,7 +190,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		1.toDo(n) { :i |
 			1.toDo(n) { :j |
 				(a[i][j] ~= (i = j).boole).if {
-					self.error('@Sequence>>gaussJordanInverse: matrix is singular')
+					self.error('List>>gaussJordanInverse: matrix is singular')
 				} {
 					r[i][j] := a[i][m + j]
 				}
@@ -533,20 +254,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}
 	}
 
-	isColumnVector { :self |
-		self.isMatrix & {
-			self.anyOne.size = 1
-		}
-	}
-
-	isIntegerMatrix { :self |
-		self.isMatrix & {
-			self.allSatisfy { :row |
-				row.allSatisfy(isInteger:/1)
-			}
-		}
-	}
-
 	isLowerTriangularMatrix { :self :k |
 		self.isMatrix & {
 			let [r, c] = self.shape;
@@ -562,49 +269,12 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		self.isLowerTriangularMatrix(0)
 	}
 
-	isMatrix { :self |
-		let type = self.typeOf;
-		self.allSatisfy { :each |
-			each.typeOf = type & {
-				each.isVector
-			}
-		} & {
-			self.collect(size:/1).asIdentitySet.size = 1
-		}
-	}
-
-	isMatrixOf { :self :elementType |
-		self.isMatrix & {
-			self.allSatisfy { :each |
-				each.elementType = elementType
-			}
-		}
-	}
-
 	isOrthogonalMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
 			self.transposed.dot(self).isVeryCloseTo(q.identityMatrix)
 		} {
 			self.dot(self.transposed).isVeryCloseTo(p.identityMatrix)
-		}
-	}
-
-	isRowVector { :self |
-		self.isMatrix & {
-			self.size = 1
-		}
-	}
-
-	isSquareMatrix { :self |
-		self.isMatrix & {
-			self.size = self.anyOne.size
-		}
-	}
-
-	isSymmetricMatrix { :self |
-		self.isSquareMatrix & {
-			self = self.transposed
 		}
 	}
 
@@ -653,7 +323,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	lowerTriangularize { :self :k |
-		let m = self.assertIsMatrix('@Sequence>>lowerTriangularize');
+		let m = self.assertIsMatrix('List>>lowerTriangularize');
 		let [r, c] = m.shape;
 		1.to(r - k).do { :i |
 			(i + 1 + k).to(c).do { :j |
@@ -688,7 +358,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	luDecomposition { :self |
-		let m = self.assertIsSquareMatrix('@Sequence>>luDecomposition');
+		let m = self.assertIsSquareMatrix('List>>luDecomposition');
 		let n = self.size;
 		let p = m.luDecompositionPivotMatrix;
 		let m2 = p.dot(m);
@@ -713,32 +383,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		[l, u, p]
 	}
 
-	matrixColumn { :self :anInteger |
-		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, n).if {
-			(1 .. m).collect { :i |
-				self[i][anInteger]
-			}
-		} {
-			self.error('@Sequence>>matrixColumn: illegal index')
-		}
-	}
-
-	matrixColumns { :self :aList |
-		let [m, n] = self.shape;
-		aList.allSatisfy { :each |
-			each.betweenAnd(1, n)
-		}.if {
-			(1 .. m).collect { :i |
-				aList.collect { :j |
-					self[i][j]
-				}
-			}
-		} {
-			self.error('@Sequence>>matrixColumns: illegal index')
-		}
-	}
-
 	matrixCorrelation { :a :b |
 		a.covariance(b) / *.outer(a.standardDeviation, b.standardDeviation)
 	}
@@ -749,42 +393,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		let l = List(n, 1);
 		{ n = m }.assert;
 		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugated)
-	}
-
-	matrixRow { :self :anInteger |
-		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, m).if {
-			self[anInteger]
-		} {
-			self.error('@Sequence>>matrixRow: illegal index')
-		}
-	}
-
-	matrixPrintString { :self |
-		self.matrixPrintString(4)
-	}
-
-	matrixPrintString { :self :decimalPlaces |
-		let [m, n] = self.shape;
-		let print:/1 = self.isIntegerMatrix.if {
-			printString:/1
-		} {
-			{ :n |
-				n.printStringShowingDecimalPlaces(decimalPlaces)
-			}
-		};
-		let table = self.deepCollect(print:/1);
-		let columnWidth = table.flatten.collect(size:/1).max;
-		let text = table.collect { :row |
-			'   ' ++ row.collect { :each |
-				each.padLeft(columnWidth, ' ')
-			}.stringJoin('   ')
-		};
-		[
-			[m, '×', n].stringJoin,
-			'   ',
-			text.unlines
-		].unlines
 	}
 
 	matrixPower { :m :p |
@@ -818,7 +426,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			};
 			r
 		} {
-			m.error('@Sequence>>matrixPower: invalid matrix')
+			m.error('List>>matrixPower: invalid matrix')
 		}
 	}
 
@@ -828,20 +436,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 				item.isVeryCloseTo(0)
 			}.not
 		}
-	}
-
-	matrixRotate { :self :k |
-		k.caseOfOtherwise([
-			1 -> { self.collect(reversed:/1).transposed },
-			2 -> { self.collect(reversed:/1).reversed },
-			3 -> { self.transposed.collect(reversed:/1) }
-		]) {
-			self.error('@Sequence>>matrixRotate: k not 1,2,3')
-		}
-	}
-
-	matrixRotate { :self |
-		self.matrixRotate(1)
 	}
 
 	minor { :self :i :j |
@@ -858,28 +452,26 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}.table(1:m, 1:n)
 	}
 
-	numberOfRows { :self |
-		self.isArray.if {
-			self.size
-		} {
-			self.error('@Sequence>>numberOfRows: not an array')
-		}
-	}
-
-	numberOfColumns { :self |
-		self.isArray.if {
-			self.anyOne.size
-		} {
-			self.error('@Sequence>>numberOfColumns: not an array')
-		}
-	}
-
 	orthogonalize { :self |
 		self.gramSchmidtProcess
 	}
 
 	permanent { :self |
-		self.asMatrix.permanent
+		self.isSquareMatrix.if {
+			let size = self.numberOfRows;
+			let array = self.contents;
+			let answer = 0;
+			[1 .. size].plainChangesDo { :p |
+				let sign = p.permutationSymbol;
+				let entries = p.withIndexCollect { :i :j |
+					array[i][j]
+				};
+				answer := answer + entries.product
+			};
+			answer
+		} {
+			self.error('List>>permanent: not defined at non-square matrices')
+		}
 	}
 
 	pseudoInverse { :self |
@@ -1372,12 +964,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		[u, s, v]
 	}
 
-	submatrix { :self :r :c |
-		{ :i :j |
-			self[i][j]
-		}.table(r, c)
-	}
-
 	svd { :self |
 		self.singularValueDecomposition
 	}
@@ -1419,7 +1005,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 					}
 				)
 			} {
-				self.error('@Sequence>>trace: not an Array')
+				self.error('List>>trace: not an Array')
 			}
 		}
 	}
@@ -1429,7 +1015,7 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 	}
 
 	upperTriangularize { :self :k |
-		let m = self.assertIsMatrix('@Sequence>>upperTriangularize');
+		let m = self.assertIsMatrix('List>>upperTriangularize');
 		let [r, c] = m.shape;
 		(2 - k).toDo(r) { :i |
 			1.toDo(i - 1 + k) { :j |
@@ -1486,25 +1072,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		}.table(1:m, 1:n)
 	}
 
-	identityMatrix { :m :n |
-		let answer = m.zeroMatrix(n);
-		1.toDo(n.min(m)) { :each |
-			answer[each][each] := 1
-		};
-		answer
-	}
-
-	identityMatrix { :self |
-		self.identityMatrix(self)
-	}
-
-	vedicSquare { :self |
-		let l = [1 .. self];
-		{ :i :j |
-			(i * j).positiveResidue(self)
-		}.table(l, l)
-	}
-
 	walshMatrix { :n |
 		let h = n.hadamardMatrix;
 		let z = h.collect(zeroCrossingCount:/1);
@@ -1512,50 +1079,9 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 		h @* p
 	}
 
-	zeroMatrix { :numberOfRows :numberOfColumns |
-		1:numberOfRows.collect { :unused |
-			List(numberOfColumns, 0)
-		}
-	}
-
 }
 
 +@Number {
-
-	boxMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		{ :i :j | 1 }.table(1:n, 1:n)
-	}
-
-	crossMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		{ :i :j |
-			([i - 1, j - 1].editDistance(c) <= 1).boole
-		}.table(1:n, 1:n)
-	}
-
-	diamondMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		let l = (self + 0.5).abs;
-		{ :i :j |
-			([i - 1, j - 1].manhattanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
-	}
-
-	diskMatrix { :self |
-		let r = self.ceiling;
-		let n = r * 2 + 1;
-		let c = [r, r];
-		let l = (self + 0.5).abs;
-		{ :i :j |
-			([i - 1, j - 1].euclideanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
-	}
 
 	reflectionMatrix { :self |
 		let n = 2 * self;
@@ -1598,56 +1124,6 @@ Matrix : [Object] { | numberOfRows numberOfColumns elementType contents |
 			[self.cos, self.sin.negated],
 			[self.sin, self.cos]
 		]
-	}
-
-	spiralMatrix { :n |
-		let [dx, dy] = [1, 0];
-		let [x, y] = [1, 1];
-		let answer = { nil ! n } ! n;
-		1.toDo(n ^ 2) { :i |
-			let [nx, ny] = [x + dx, y + dy];
-			answer[x][y] := i;
-			[
-				{ 1 <= nx },
-				{ nx <= n },
-				{ 1 <= ny },
-				{ ny <= n },
-				{ answer[nx][ny] = nil }
-			].&.if {
-				[x, y] := [nx, ny]
-			} {
-				[dx, dy] := [dy.-, dx];
-				[x, y] := [x + dx, y + dy]
-			}
-		};
-		answer
-	}
-
-	ulamSpiralMatrix { :n |
-		[1 .. n ^ 2].permute(
-			[
-				[n ^ 2 + 1] / 2,
-				{ :j :i |
-					-1 ^ j * i # j
-				}.table(1:n, [-1, n])
-			].flatten.take(n ^ 2).accumulate
-		).partition(n)
-	}
-
-}
-
-+Block {
-
-	arrayReduce { :self:/1 :anArray :anInteger |
-		(anInteger = 1).if {
-			anArray.collect(self:/1)
-		} {
-			(anInteger = 2).if {
-				anArray.columnsCollect(self:/1)
-			} {
-				self.error('Block>>arrayReduce: not implemented')
-			}
-		}
 	}
 
 }

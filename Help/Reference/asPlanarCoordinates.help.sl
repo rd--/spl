@@ -1,6 +1,6 @@
 # asPlanarCoordinates
 
-- _asPlanarCoordinates(aList | aRecord | aTuple)_
+- _asPlanarCoordinates(aList | aRecord)_
 
 Answer a `PlanarCoordinates`.
 
@@ -8,13 +8,6 @@ Answer a `PlanarCoordinates`.
 
 ```
 >>> [1, 2].asPlanarCoordinates
-PlanarCoordinates(1, 2)
-```
-
-`Tuple` case:
-
-```
->>> (1, 2).asPlanarCoordinates
 PlanarCoordinates(1, 2)
 ```
 

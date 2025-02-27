@@ -11,12 +11,8 @@ At `List`:
 ```
 >>> [1 1 1].toSphericalCoordinates
 [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
-```
 
-At `Tuple`:
-
-```
->>> (-1, -1, -1).toSphericalCoordinates
+>>> [-1 -1 -1].toSphericalCoordinates
 [3.sqrt, -0.75.pi, -1.arcTan(2.sqrt)]
 ```
 
@@ -27,8 +23,8 @@ Equations are:
 >>> let r = (x.squared + y.squared + z.squared).sqrt;
 >>> let theta = x.arcTan(y);
 >>> let phi = z.arcTan((x.squared + y.squared).sqrt);
->>> (x, y, z).toSphericalCoordinates
-[r, theta, phi]
+>>> [x y z].toSphericalCoordinates
+[r theta phi]
 ```
 
 Note that this notation extends the usual polar coordinates notation,

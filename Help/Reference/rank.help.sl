@@ -28,7 +28,8 @@ A rank two array is called a _matrix_:
 2
 ```
 
-Spl calls a rank three array a _volume_:
+Sᴘʟ calls a rank three array a _volume_,
+in some other contexts it is called a _box_:
 
 ```
 >>> [1 2; 3 4:; 5 6; 7 8].rank
@@ -45,11 +46,18 @@ and therefore do not have a rank:
 true
 ```
 
-Such structures do have a `depth`:
+Such structures do have a `depth`,
+an `arrayDepth` and a `dimensions`:
 
 ```
 >>> [1; 2 3].depth
 3
+
+>>> [1; 2 3].arrayDepth
+1
+
+>>> [1; 2 3].dimensions
+[2]
 ```
 
 The `depth` of an array is one greater than its `rank`:
@@ -62,7 +70,7 @@ The `depth` of an array is one greater than its `rank`:
 
 * * *
 
-See also: depth, isArray, isMatrix, isVector, matrixRank, reshape, Sequence, shape
+See also: arrayDepth, depth, dimensions, isArray, isMatrix, isVector, matrixRank, reshape, Sequence, shape
 
 Guides: Matrix Functions
 

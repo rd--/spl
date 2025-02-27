@@ -1,6 +1,6 @@
 # isMatrix
 
-- _isMatrix(aMatrix | anArray)_
+- _isMatrix(aList)_
 
 A `List` is a _matrix_ if each of the elements is a _vector_ of equal size.
 Specifically if `arrayDepth` is `>=` two.
@@ -19,19 +19,6 @@ At `List`:
 >>> let l = [1 2; 3 4 5];
 >>> (l.isMatrix, l.dimensions(2))
 (false, [2])
-```
-
-At `Tuple` always answer `false`:
-
-```
->>> (1, 2, 3, 4, 5, 6).isMatrix
-false
-
->>> ((1, 2, 3), (4, 5, 6)).isMatrix
-false
-
->>> ((1, 2), (3, 4, 5)).isMatrix
-false
 ```
 
 * * *

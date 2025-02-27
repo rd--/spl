@@ -4,6 +4,7 @@
 
 Answer the depth to which _aCollection_ is a full array,
 with all the parts at a particular level having the same length.
+Unlike `rank`, `arrayDepth` always answers an integer.
 
 Find the depth to which an array is full:
 
@@ -22,8 +23,23 @@ Counts only dimensions at which an object is not _ragged_:
 Works with special array types, including `SparseArray`:
 
 ```
->>> [[[1, 2]]].asSparseArray(0).arrayDepth
+>>> [[[0, 1]]].asSparseArray(0).arrayDepth
 3
+```
+
+The `arrayDepth` of a scalar value is `zero`:
+
+```
+>>> 2.arrayDepth
+0
+```
+
+At full arrays, `arrayDepth` and `rank` answer the same value:
+
+```
+>>> let a = [1 2; 3 4:; 5 6; 7 8];
+>>> (a.arrayDepth, a.rank)
+(3, 3)
 ```
 
 * * *

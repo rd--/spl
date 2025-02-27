@@ -47,7 +47,7 @@ Where supported `iota` is displayed as ⍳.
 
 * * *
 
-See also: reshape, rank, shape
+See also: rank, reshape, shape
 
 References:
 _Apl_

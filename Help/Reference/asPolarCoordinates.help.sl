@@ -1,20 +1,13 @@
 # asPolarCoordinates
 
-- _asPolarCoordinates(aSequence | aDictionary)_
+- _asPolarCoordinates(aList | aDictionary)_
 
 Answer an instance of `PolarCoordinates`.
 
 `List` case:
 
 ```
->>> [1, 2].asPolarCoordinates
-PolarCoordinates(1, 2)
-```
-
-`Tuple` case:
-
-```
->>> (1, 2).asPolarCoordinates
+>>> [1 2].asPolarCoordinates
 PolarCoordinates(1, 2)
 ```
 

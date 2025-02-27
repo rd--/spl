@@ -2,6 +2,14 @@
 
 BacktickQuotedString : [Object] { | contents |
 
+	asString { :self |
+		self.contents
+	}
+
+	printString { :self |
+		'`%`'.format([self.contents])
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -9,6 +17,14 @@ BacktickQuotedString : [Object] { | contents |
 }
 
 DoubleQuotedString : [Object] { | contents |
+
+	asString { :self |
+		self.contents
+	}
+
+	printString { :self |
+		'"%"'.format([self.contents])
+	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots

@@ -68,7 +68,7 @@ PolarCoordinates : [Object] { | r theta |
 
 }
 
-+[List, Tuple] {
++List {
 
 	asPolarCoordinates { :self |
 		let [r, theta] = self;
