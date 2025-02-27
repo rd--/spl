@@ -11,6 +11,13 @@ Convert from _Cmy_ colourspace to _Rgb_ colourspace.
 ([0.4562 0.0308 0.0409], true)
 ```
 
+Evaluate symbolically:
+
+```
+>> [𝒄 𝒎 𝒚].cmyToRgb
+[(- 1 c), (- 1 m), (- 1 y)]
+```
+
 Cyan, magenta and yellow are the negations of red, green and blue.
 
 ```

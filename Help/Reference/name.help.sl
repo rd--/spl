@@ -24,7 +24,10 @@ The name of an anonymous block is the empty `String`:
 At `Symbol`:
 
 ```
->>> 'x'.Symbol.name
+>>> `x`.name
+'x'
+
+>>> 𝒙.name
 'x'
 ```
 

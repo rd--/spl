@@ -250,8 +250,14 @@ If the string begins with a doctest, also delete all non doctest lines."
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
    '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face)
+   ;'("`[a-zA-Z]*`" . 'font-lock-constant-face)
    '("primitive:" . 'font-lock-warning-face))
   "Spl font-lock rules.")
+
+;(defun spl-font-lock-syntactic-face (state)
+;  (cond ((eq (nth 3 state) ?') 'font-lock-string-face)
+;	((nth 3 state) 'font-lock-constant-face)
+;	((nth 4 state) 'font-lock-comment-face)))
 
 (defun spl-fill-syntax-table (st)
   "Modify the syntax table ST for Spl."
@@ -267,8 +273,8 @@ If the string begins with a doctest, also delete all non doctest lines."
   (modify-syntax-entry ?/ ". 14b" st) ; punctuation & comment
   ;; (modify-syntax-entry ?\n ">" st) ; comment end
   (modify-syntax-entry ?\' "\"" st) ; string quote
-  (modify-syntax-entry ?\" "\"" st) ; string quote
-  ;; (modify-syntax-entry ?\` "\"" st) ; string quote
+  ;; (modify-syntax-entry ?\" "\"" st) ; string quote
+  ;; (modify-syntax-entry ?\` "\"" st) ; string (symbol) quote (interacts badly with code fences)
   (modify-syntax-entry ?\\ "\\" st) ; escape
   (mapc (lambda (x)
           (modify-syntax-entry x "." st)) ; punctuation only
@@ -495,6 +501,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   (set (make-local-variable 'indent-line-function) 'sclang-indent-line)
   (set (make-local-variable 'comment-start) "/* ")
   (set (make-local-variable 'comment-end) " */")
+  ;(set (make-local-variable 'font-lock-syntactic-face-function) 'spl-font-lock-syntactic-face)
   (set (make-local-variable 'font-lock-defaults) '(spl-font-lock-keywords))
   (setq-local imenu-sort-function 'imenu--sort-by-name)
   (setq-local imenu-generic-expression spl-imenu-generic-expression))

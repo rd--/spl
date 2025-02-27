@@ -1,6 +1,6 @@
 # SymbolicExpression
 
-- _SymbolicExpression(operand, operators)_
+- _SymbolicExpression(operator, operands)_
 
 A `Type` representing a symbolic expression.
 The `printString` of a symbolic expression is an _S-expression_.
@@ -8,29 +8,44 @@ The `printString` of a symbolic expression is an _S-expression_.
 `SymbolicExpression` implements `=` and `~` symbolically:
 
 ```
->>> let x = 'x'.Symbol;
->>> let y = 'y'.Symbol;
->>> (
->>> 	(x = y).isSymbolicExpression,
->>> 	(x = y).operator.name,
->>> 	(x = y).printString,
->>> 	(x ~ y).printString,
->>> 	(x / 2 ~ 0).printString
->>> )
-(
-	true,
-	'=',
-	'(= x y)',
-	'(~ x y)',
-	'(~ (/ x 2) 0)'
-)
+>>> (𝒙 = 𝒚).isSymbolicExpression
+true
+
+>>> (𝒙 = 𝒚).isSymbolicExpression
+true
+```
+
+`operator` answers the operator of the expression:
+
+```
+>>> (𝒙 = 𝒚).operator.isSymbol
+true
+
+>>> (𝒙 = 𝒚).operator.name
+'='
+```
+
+Symbolic predicates:
+
+```
+>> 𝒙 = 𝒚
+(= x y)
+
+>> 𝒙 ~ 𝒚
+(~ x y)
+
+>> 𝒙 / 2 ~ 0
+(~ (/ x 2) 0)
+
+>> 3 / 𝒙
+(/ 3 x)
 ```
 
 `isEqualSymbolicExpression` tests if two `SymbolicExpression` values are the same:
 
 ```
->>> let a = ('x'.Symbol + 3.141);
->>> let b = ('y'.Symbol * 1.618);
+>>> let a = 𝒙 + 3.141;
+>>> let b = 𝒚 * 1.618;
 >>> { :i :j |
 >>> 	i.isEqualSymbolicExpression(j)
 >>> }.table([a, b], [a, b])
@@ -40,71 +55,58 @@ The `printString` of a symbolic expression is an _S-expression_.
 Symbolic expressions implement `adaptToNumberAndApply`:
 
 ```
->>> let x = 'x'.Symbol;
->>> [
->>> 	x + 23,
->>> 	3.141 / x,
->>> 	(x ^ 2) + (x ^ 3)
->>> ].collect(printString:/1)
-[
-	'(+ x 23)'
-	'(/ 3.141 x)'
-	'(+ (^ x 2) (^ x 3))'
-]
+>> 𝒙 + 23
+(+ x 23)
+
+>> 3.141 / 𝒙
+(/ 3.141 x)
+
+>> (𝒙 ^ 2) + (𝒙 ^ 3)
+(+ (^ x 2) (^ x 3))
 ```
 
 Symbolic primitives thread over lists:
 
 ```
->>> let x = Symbol('x');
->>> (x * [2 3] + [4 5]).collect(printString:/1)
-[
-	'(+ (* x 2) 4)'
-	'(+ (* x 3) 5)'
-]
+>> (𝒙 * [2 3] + [4 5])
+[(+ (* x 2) 4), (+ (* x 3) 5)]
 ```
 
 When printing symbolic expressions,
 certain constant numbers are recognised as symbolic expressions:
 
 ```
->>> ('x'.Symbol * 2.pi).printString
-'(* x (* 2 π))'
+>> 𝒙 * 2.pi
+(* x (* 2 π))
 ```
 
 Symbolic expressions implement `Number`.
 `squared` multiplies a number by itself:
 
 ```
->>> let x = 'x'.Symbol;
->>> (23 - x).squared
->>> .printString
-'(* (- 23 x) (- 23 x))'
+>> (23 - 𝒙).squared
+(* (- 23 x) (- 23 x))
 ```
 
 `Hypotenuse` is the `sqrt` of the sum of the squares:
 
 ```
->>> let x = 'x'.Symbol;
->>> let y = 'y'.Symbol;
->>> x.Hypotenuse(y).printString
-'(sqrt (+ (* x x) (* y y)))'
+>> 𝒙.Hypotenuse(𝒚)
+(sqrt (+ (* x x) (* y y)))
 ```
 
 The operator need not be a `Symbol`,
 is may also be a `SymbolicExpression`:
 
 ```
->>> let x = 'x'.Symbol;
->>> let y = 'y'.Symbol;
->>> SymbolicExpression(
->>> 	SymbolicExpression(
->>> 		'f',
->>> 		[x]
->>> 	),
->>> 	[y]
->>> ).printString
-'((f x) y)'
+>> SymbolicExpression(
+>> 	SymbolicExpression(
+>> 		'f',
+>> 		[𝒙]
+>> 	),
+>> 	[𝒚]
+>> )
+((f x) y)
 ```
 
 Evaluate `inner` using symbolic primitives:
@@ -144,10 +146,7 @@ Evaluate `inner` using symbolic primitives:
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
-let x = 'x'.Symbol;
-let y = 'y'.Symbol;
-let e = x.Hypotenuse(y);
-e.asTree.treePlot
+𝒙.Hypotenuse(𝒚).asTree.treePlot
 ~~~
 
 ![](sw/spl/Help/Image/SymbolicExpression-A.svg)

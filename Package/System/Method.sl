@@ -66,7 +66,7 @@ Method! : [Object] {
 
 	operatorTokenOrQualifiedName { :self |
 		(self.arity = 2).if {
-			self.name.operatorNameToken ? self.qualifiedName
+			self.name.operatorNameToken ? { self.qualifiedName }
 		} {
 			self.qualifiedName
 		}

@@ -2,40 +2,17 @@
 
 - _BacktickQuotedString(aString)_
 
-The `Type` of literal strings written using backtick (or _grave accent_) quotes.
+A `Type` representing a string written using backtick (or _grave accent_) quotes.
 The `contents` method answers the quoted string.
 
 ```
->>> `Backtick Quoted String`
-BacktickQuotedString(
-	'Backtick Quoted String'
-)
-```
-
-Backtick quotes do not allow unquoted single quotes:
-
-```
->>> `\'x\'`
-BacktickQuotedString('\'x\'')
-```
-
-Backtick quotes allow double quotes:
-
-```
->>> `"x"`
-BacktickQuotedString('"x"')
-```
-
-Backtick quoted single and double quotes:
-
-```
->>> `x\'""\'y`
-BacktickQuotedString('x\'""\'y')
+>>> BacktickQuotedString('x').contents
+'x'
 ```
 
 * * *
 
-See also: DoubleQuotedString, graveAccent, String
+See also: DoubleQuotedString, graveAccent, String, Symbol
 
 Guides: String Syntax
 

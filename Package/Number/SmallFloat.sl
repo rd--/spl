@@ -431,7 +431,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	min { :self :anObject |
-		<primitive: if(sl.isSmallFloat(_anObject)) { return Math.min(_self, _anObject); }>
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.min(_self, _anObject);
+		}
+		>
 		anObject.adaptToNumberAndApply(self, min:/2)
 	}
 

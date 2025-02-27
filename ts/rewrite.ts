@@ -569,8 +569,8 @@ const asSl: ohm.ActionDict<string> = {
 		return c1.sourceString + cN.sourceString + ':/' + a.sourceString;
 	},
 	backtickQuotedStringLiteral(_l, s, _r) {
-		/* return `Symbol('${s.sourceString}')`; */
-		return `BacktickQuotedString('${s.sourceString}')`;
+		return `Symbol('${s.sourceString}')`;
+		/* return `BacktickQuotedString('${s.sourceString}')`; */
 	},
 	complexLiteral(r, _j, i) {
 		return `Complex(${r.sourceString}, ${i.sourceString})`;
@@ -643,6 +643,11 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	singleQuotedStringLiteral(_l, s, _r) {
 		return "'" + s.sourceString + "'";
+	},
+	symbolicCharacterLiteral(c) {
+		let i = c.sourceString.codePointAt(0);
+		let a = String.fromCodePoint(i - 119841);
+		return "Symbol('" + a + "')";
 	},
 	unqualifiedIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;

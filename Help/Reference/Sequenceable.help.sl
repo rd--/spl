@@ -2,10 +2,10 @@
 
 `Sequenceable` is collection `Trait` for collections that have a well-defined order associated with their elements.
 
-Implementing this trait does not imply that the type is, in any ordinary sense, a sequence.
+Implementing this trait does not necessarily mean that the type is, in any ordinary sense, a sequence.
 For instance trees, matrices and arrays are all sequenceable, without being sequences.
 
-The `Sequenceable` trait is particularly important for elementwise operations over collections,
+The `Sequenceable` trait is particularly important for binary elementwise operations over collections,
 the key methods for which are `withCollect` and `adaptToCollectionAndApply`.
 
 ```

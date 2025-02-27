@@ -15,6 +15,13 @@ The collection must be non-empty and contain compatible Magnitudes.
 true
 ```
 
+Evaluate symbolically:
+
+```
+>> [𝒙 𝒚 𝒛].min
+(min (min x y) z)
+```
+
 At a 3×3 matrix answers the column minima:
 
 ```
@@ -84,6 +91,13 @@ At `Bag`:
 ```
 >>> [3 5 2 4 5 3 4 2].asBag.min
 2
+```
+
+At `Symbol`:
+
+```
+>> 𝒙.min(𝒚)
+(min x y)
 ```
 
 * * *

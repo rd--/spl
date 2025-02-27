@@ -137,4 +137,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Array.html)
 
 Categories: Enumerating
-

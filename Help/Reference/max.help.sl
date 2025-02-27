@@ -27,6 +27,13 @@ It is an error if the collection is empty:
 true
 ```
 
+Evaluate symbolically:
+
+```
+>> [𝒙 𝒚 𝒛].max
+(max (max x y) z)
+```
+
 The binary form answers whichever argument has the greater magnitude:
 
 ```

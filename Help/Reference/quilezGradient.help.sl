@@ -14,12 +14,8 @@ The result is scaled and biased by _a_ and _b_ to meet the desired contrast and 
 Evaluate symbolically:
 
 ```
->>> ['a' 'b' 'c' 'd']
->>> .collect(Symbol:/1)
->>> .quilezGradient
->>> .value('mu'.Symbol)
->>> .printString
-'(+ a (* b (cos (* (* 2 π) (+ (* c mu) d)))))'
+>> [𝒂 𝒃 𝒄 𝒅].quilezGradient.value(𝒙)
+(+ a (* b (cos (* (* 2 π) (+ (* c x) d)))))
 ```
 
 _a_ and _b_ of _1/2_ scales the _(-1, 1)_ answer of `cos` to _(0, 1)_.

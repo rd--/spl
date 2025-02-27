@@ -67,38 +67,28 @@ Generalized inner product of:
 Evaluate symbolically:
 
 ```
->>> let [
->>> 	a, b, c, d,
->>> 	s, t, u, v, w, x, y
->>> ] = [
->>> 	'a' 'b' 'c' 'd'
->>> 	's' 't' 'u' 'v' 'w' 'x' 'y'
->>> ].collect(Symbol:/1);
->>> [
->>> 	*.inner([a b], [x y], +),
->>> 	*.inner([a b; c d], [s t], +),
->>> 	*.inner([x y], [a b; c d], +),
->>> 	*.inner([a b; c d], [u v; w x], +)
->>> ].deepCollect(printString:/1)
+>> *.inner([𝒂 𝒃], [𝒙 𝒚], +)
+(+ (* a x) (* b y))
+
+>> *.inner([𝒂 𝒃; 𝒄 𝒅], [𝒔 𝒕], +)
+[(+ (* a s) (* b t)), (+ (* c s) (* d t))]
+
+>> *.inner([𝒙 𝒚], [𝒂 𝒃; 𝒄 𝒅], +)
+[(+ (* x a) (* y c)), (+ (* x b) (* y d))]
+
+>>> *.inner(
+>>> 	[𝒂 𝒃; 𝒄 𝒅],
+>>> 	[𝒖 𝒗; 𝒘 𝒙],
+>>> 	+
+>>> ).deepCollect(printString:/1)
 [
-	'(+ (* a x) (* b y))',
 	[
-		'(+ (* a s) (* b t))',
-		'(+ (* c s) (* d t))'
+		'(+ (* a u) (* b w))',
+		'(+ (* a v) (* b x))'
 	],
 	[
-		'(+ (* x a) (* y c))',
-		'(+ (* x b) (* y d))'
-	],
-	[
-		[
-			'(+ (* a u) (* b w))',
-			'(+ (* a v) (* b x))'
-		],
-		[
-			'(+ (* c u) (* d w))',
-			'(+ (* c v) (* d x))'
-		]
+		'(+ (* c u) (* d w))',
+		'(+ (* c v) (* d x))'
 	]
 ]
 ```

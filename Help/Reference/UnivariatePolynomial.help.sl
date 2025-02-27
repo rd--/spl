@@ -40,10 +40,8 @@ Evaluate numerically:
 Evaluate symbolically:
 
 ```
->>> UnivariatePolynomial([1 2 3])
->>> .at(Symbol('x'))
->>> .printString
-'(+ (* x (+ (* x 3) 2)) 1)'
+>> UnivariatePolynomial([1 2 3]).at(𝒙)
+(+ (* x (+ (* x 3) 2)) 1)
 ```
 
 Polynomial of degree two, a parabola:

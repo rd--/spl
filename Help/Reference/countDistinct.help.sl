@@ -22,7 +22,8 @@ Count distinct values in a `Record`:
 Treat numbers as equal if they differ by 0.01 or less:
 
 ```
->>> [3.0 3.1 3.11 3.5 3.51].countDistinct { :i :j |
+>>> [3.0 3.1 3.11 3.5 3.51]
+>>> .countDistinct { :i :j |
 >>> 	(i - j).abs <= 0.01
 >>> }
 3
@@ -31,7 +32,10 @@ Treat numbers as equal if they differ by 0.01 or less:
 Count the number of distinct characters that occur in a string:
 
 ```
->>> 'It was the best of times, it was the worst of times'
+>>> [
+>>> 	'It was the best of times,'
+>>> 	'it was the worst of times'
+>>> ].join('')
 >>> .contents
 >>> .countDistinct(=)
 15
@@ -39,7 +43,7 @@ Count the number of distinct characters that occur in a string:
 
 * * *
 
-See also: CountDistinctBy Count DeleteDuplicates Counts DuplicateFreeQ Length
+See also: count, counts, deleteDuplicates, isDuplicateFree, size
 
 References:
 _Mathematica_

@@ -12,12 +12,28 @@ Symbols have a predicate and a name:
 (true, 'x')
 ```
 
+There is a literal notation for symbols:
+
+```
+>>> `x`.isSymbol
+true
+```
+
+The set of mathematical lower case bold italic roman letters are symbol literals for the ordinary characters they represent:
+
+```
+>>> 𝒙.isSymbol
+true
+
+>>> 𝒙.name
+'x'
+```
+
 Symbols implement the `Number` trait,
 answering `SymbolicExpression` values:
 
 ```
->>> ('x'.Symbol + 23)
->>> .isSymbolicExpression
+>>> (𝒙 + 23).isSymbolicExpression
 true
 ```
 
@@ -25,12 +41,15 @@ Symbols are cached on construction,
 so that equal symbols compare identically:
 
 ```
->>> Symbol('x') == Symbol('x')
+>>> 𝒙 == 𝒙
 true
+```
 
+The cache is stored at the `System` `symbolDictionary`:
+
+```
 >>> system
->>> .cache
->>> .at('symbolDictionary')
+>>> .symbolDictionary
 >>> .at('x')
 >>> .isSymbol
 true
@@ -39,10 +58,15 @@ true
 However `=` is defined symbolically:
 
 ```
->>> let x = Symbol('x');
->>> let e = x = x;
->>> (e.isSymbolicExpression, e.printString)
-(true, '(= x x)')
+>> 𝒙 = 𝒙
+(= x x)
+```
+
+The `storeString` of a `Symbol` uses the constructor notation:
+
+```
+>> 𝒙.storeString
+Symbol('x')
 ```
 
 The `printString` of a `Symbol` is its name:
@@ -53,10 +77,17 @@ The `printString` of a `Symbol` is its name:
 
 >>> Symbol('x').asString
 'x'
+
+>> 𝒙.printString
+x
 ```
 
 * * *
 
 See also: name, String, SymbolicExpression
+
+Guides: String Syntax
+
+Unicode: U+00060 Grave Accent
 
 Categories: Logic, Type

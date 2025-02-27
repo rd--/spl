@@ -70,7 +70,6 @@ Scalar math at `NumericArray`:
 
 Elementwise math at `NumericArray`:
 
-
 ```spl svg=A
 let a = [7 23].iota.asNumericArray;
 ((a * 7).sin - (a * 13).cos).matrixPlot

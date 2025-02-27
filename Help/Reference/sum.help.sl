@@ -96,11 +96,8 @@ Difference between a sum squared, and the sum of squares:
 Evaluate symbolically:
 
 ```
->>> ['x' 'y' 'z']
->>> .collect(Symbol:/1)
->>> .sum
->>> .printString
-'(+ (+ x y) z)'
+>> [𝒙 𝒚 𝒛].sum
+(+ (+ x y) z)
 ```
 
 Where supported `sum` is displayed as Σ.

@@ -34,7 +34,7 @@ Unicode characters are allowed:
 ```
 
 Double quoted and back tick quoted strings answer as simple types,
-`DoubleQuotedString` and `BacktickQuotedString` respectively,
+`DoubleQuotedString` and `Symbol` respectively,
 holding the quoted string.
 
 A double quoted string:
@@ -50,7 +50,7 @@ A backtick quoted string:
 
 ```
 >>> `Backtick Quoted String`
-BacktickQuotedString(
+Symbol(
 	'Backtick Quoted String'
 )
 ```
@@ -80,7 +80,7 @@ At `DoubleQuotedString` and `BacktickQuotedString` the `contents` method answers
 
 * * *
 
-See also: apostrophe, BacktickQuotedString, DoubleQuotedString, graveAccent, quotationMark, String
+See also: apostrophe, BacktickQuotedString, DoubleQuotedString, graveAccent, quotationMark, String, Symbol
 
 Guides: Literals Syntax
 

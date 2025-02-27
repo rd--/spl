@@ -32,6 +32,13 @@ true
 
 where there is one.
 
+At `Symbol`:
+
+```
+>> (𝒙 < 𝒚).if { 𝒂 } { 𝒃 }
+(if (< x y) a b)
+```
+
 _Rationale:_
 Spl follows Smalltalk in having no special purpose conditional evaluation mechanisms.
 Conditional expressions are implemented as ordinary blocks.

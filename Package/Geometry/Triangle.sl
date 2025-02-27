@@ -127,7 +127,7 @@ Triangle : [Object] { | vertexCoordinates |
 
 }
 
-+SmallFloat {
++@Number {
 
 	aasTriangle { :alpha :beta :a |
 		let x2 = a * alpha.cosecant * (alpha + beta).sin;

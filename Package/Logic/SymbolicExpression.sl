@@ -48,6 +48,14 @@
 		'>='.symbolicPrimitive([self, aMagnitude])
 	}
 
+	max { :self :aMagnitude |
+		'max'.symbolicPrimitive([self, aMagnitude])
+	}
+
+	min { :self :aMagnitude |
+		'min'.symbolicPrimitive([self, aMagnitude])
+	}
+
 }
 
 @SymbolicNumber {
@@ -68,6 +76,10 @@
 		'/'.symbolicPrimitive([self, operand])
 	}
 
+	% { :self :operand |
+		'%'.symbolicPrimitive([self, operand])
+	}
+
 	^ { :self :operand |
 		'^'.symbolicPrimitive([self, operand])
 	}
@@ -79,13 +91,21 @@
 	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
 		let name = aBlock:/2.unqualifiedName;
 		SymbolicExpression(
-			name.operatorNameToken ? name,
+			name.operatorNameToken ? { name },
 			[receiver, self]
 		)
 	}
 
 	cos { :self |
 		'cos'.symbolicPrimitive([self])
+	}
+
+	cosecant { :self |
+		'cosecant'.symbolicPrimitive([self])
+	}
+
+	cotangent { :self |
+		'cotangent'.symbolicPrimitive([self])
 	}
 
 	sin { :self |
@@ -100,9 +120,13 @@
 		'tan'.symbolicPrimitive([self])
 	}
 
+	truncated { :self |
+		'truncated'.symbolicPrimitive([self])
+	}
+
 }
 
-Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
+Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -112,14 +136,26 @@ Symbol : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, Sy
 		self.name
 	}
 
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++System {
+
+	symbolDictionary { :self |
+		self.cached('symbolDictionary') {
+			()
+		}
+	}
+
 }
 
 +String {
 
 	Symbol { :self |
-		system.cache.atIfAbsentPut('symbolDictionary') {
-			()
-		}.atIfAbsentPut(self) {
+		system.symbolDictionary.atIfAbsentPut(self) {
 			newSymbol().initializeSlots(self)
 		}
 	}

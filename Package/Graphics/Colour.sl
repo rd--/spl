@@ -452,7 +452,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 	}
 
 	hslToRgb { :self |
-		let [hUnit, s, l] = self.asFloat;
+		let [hUnit, s, l] = self;
 		let h = hUnit * 360;
 		let a = s * l.min(1 - l);
 		[0 8 4].collect { :n |
