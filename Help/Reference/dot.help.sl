@@ -330,6 +330,15 @@ also show the diagonal and antidiagonal sums and the matrix rank:
 (34, [34 34 34 34], [34 34 34 34], 34, 34, 3)
 ```
 
+The matrix product of a 4×3 and a 3×3 matrix is a 4×3 matrix:
+
+```
+>>> let a = [1 0 1; 2 1 1; 0 1 1; 1 1 2];
+>>> let b = [1 2 1; 2 3 1; 4 2 2];
+>>> a.dot(b)
+[5 4 3; 8 9 5; 6 5 3; 11 9 6]
+```
+
 * * *
 
 See also: +, *, inner, outer
@@ -342,6 +351,9 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/MatrixMultiplication.html)
 [3](https://reference.wolfram.com/language/ref/Dot.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/mtimes.html)
+[1](https://mathworks.com/help/matlab/ref/mtimes.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Matrix_multiplication)
+[2](https://en.wikipedia.org/wiki/Dot_product)
 
 Categories: Math

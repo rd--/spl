@@ -344,7 +344,7 @@
 
 }
 
-+@Sequence {
++List {
 
 	asRandomTable { :self :size |
 		let a = (size = self.size).if {

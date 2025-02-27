@@ -47,7 +47,7 @@ C.f. `keys`:
 At `Slice`:
 
 ```
->>> 1:9.sliceFromTo(3, 7).indices
+>>> [1 .. 9].sliceFromTo(3, 7).indices
 1:5
 ```
 
@@ -58,7 +58,7 @@ The `size` of a collection is equal to the size of its `indices`:
 >>> (c.size, c.indices.size)
 (9, 9)
 
->>> let c = 1:9.sliceFromTo(3, 7);
+>>> let c = [1 .. 9].sliceFromTo(3, 7);
 >>> (c.size, c.indices.size)
 (5, 5)
 ```

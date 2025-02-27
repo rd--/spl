@@ -389,7 +389,7 @@
 
 }
 
-+@Sequence {
++List {
 
 	basicDownsampleSteinarsson { :self :threshold |
 		<primitive: return sc.downsampleSteinarsson(_self, _threshold);>

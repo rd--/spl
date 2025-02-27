@@ -24,10 +24,6 @@ PolarCoordinates : [Object] { | r theta |
 		PlanarCoordinates(self.x, self.y)
 	}
 
-	asTuple { :self |
-		(self.r, self.theta)
-	}
-
 	phi { :self |
 		self.theta
 	}
@@ -84,7 +80,7 @@ PolarCoordinates : [Object] { | r theta |
 	}
 
 	PolarCoordinates { :radius :theta |
-		theta.adaptToCollectionAndApply(radius, PolarCoordinates:/2)
+		radius.withCollect(theta, PolarCoordinates:/2)
 	}
 
 	toPolarCoordinates { :self |

@@ -43,7 +43,7 @@ At volume:
 
 * * *
 
-See also: cartesianIndex
+See also: cartesianIndex, deepIndices, mixedRadixDecode, shapeIndices
 
 References:
 _MathWorks_

@@ -187,10 +187,12 @@
 
 	'Apl'
 
-].primitiveLoadPackageSequence.then { :unused |
+].primitiveLoadPackageSequence.thenElse { :unused |
 	'config/preferences.json'.primitiveReadLocalBinaryFile
+} { :reason |
+	system.error('Failed to load package sequence?: ' ++ reason)
 }.thenElse { :byteArray |
 	system.cache['preferences'] := byteArray.utf8String.parseJson
 } { :reason |
-	system.error('Failed to load preferences?')
+	system.error('Failed to load preferences?: ' ++ reason)
 }

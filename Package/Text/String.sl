@@ -957,7 +957,7 @@ String! : [Object, Json, Iterable, Character] {
 
 }
 
-+@Sequence {
++List {
 
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)
@@ -967,7 +967,7 @@ String! : [Object, Json, Iterable, Character] {
 		(self.allSatisfy(isString:/1) && aString.isString).if {
 			self.basicStringJoin(aString)
 		} {
-			self.error('@Sequence>>stringConcatenation: non-string arguments')
+			self.error('List>>stringConcatenation: non-string arguments')
 		}
 	}
 

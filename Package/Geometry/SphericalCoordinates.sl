@@ -29,10 +29,6 @@
 		(radius: self.r, theta: self.theta, phi: self.phi)
 	}
 
-	asTuple { :self |
-		(self.r, self.theta, self.phi)
-	}
-
 	azimuth { :self |
 		self.theta
 	}

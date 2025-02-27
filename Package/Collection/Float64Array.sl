@@ -1,4 +1,4 @@
-Float64Array! : [Object, Iterable, Indexable, Collection, Sequence, PrimitiveSequence] {
+Float64Array! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSequence] {
 
 	atPut { :self :index :aFloat |
 		<primitive:

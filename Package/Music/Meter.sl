@@ -21,7 +21,7 @@
 
 }
 
-+@Sequence {
++List {
 
 	barlowIndispensabilities { :p |
 		(1 .. p.product).collect { :each |
@@ -53,7 +53,7 @@
 				e * d
 			}.sum
 		} {
-			p.error('@Sequence>>barlowIndispensability')
+			p.error('List>>barlowIndispensability')
 		}
 	}
 

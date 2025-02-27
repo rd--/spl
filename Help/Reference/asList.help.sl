@@ -51,6 +51,27 @@ At `Fraction`:
 [1 3]
 ```
 
+At `Complex`:
+
+```
+>>> 1J3.asList
+[1 3]
+```
+
+At `CartesianCoordinates`:
+
+```
+>>> CartesianCoordinates(1, 3, 5).asList
+[1 3 5]
+```
+
+At `SphericalCoordinates`:
+
+```
+>>> SphericalCoordinates(1, 3, 5).asList
+[1 3 5]
+```
+
 This should not be defined for scalar values, see _asCollection_.
 
 * * *

@@ -82,7 +82,7 @@ InfinitePlane : [Object] { | a b c d |
 				let [p1, p2, p3] = self;
 				InfinitePlane(p1, p2, p2)
 			} {
-				self.error('@Sequence>>asInfinitePlane')
+				self.error('List>>asInfinitePlane')
 			}
 		}
 	}

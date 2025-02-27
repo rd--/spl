@@ -371,7 +371,7 @@ Permutation : [Object] { | cycles degree |
 
 }
 
-+@Sequence {
++List {
 
 	asPermutation { :self |
 		self.isPermutationCycles.if {
@@ -383,7 +383,7 @@ Permutation : [Object] { | cycles degree |
 					self.max
 				)
 			} {
-				self.error('@Sequence>>asPermutation: not permutation')
+				self.error('List>>asPermutation: not permutation')
 			}
 		}
 	}
@@ -399,7 +399,7 @@ Permutation : [Object] { | cycles degree |
 				self.permutationDegree
 			)
 		} {
-			self.error('@Sequence>>cycles: not permutation cycles')
+			self.error('List>>cycles: not permutation cycles')
 		}
 	}
 
@@ -667,7 +667,7 @@ Permutation : [Object] { | cycles degree |
 			self.isPermutationList.if {
 				self.max
 			} {
-				self.error('@Sequence>>permutationDegree: not a permutation')
+				self.error('List>>permutationDegree: not a permutation')
 			}
 		}
 	}

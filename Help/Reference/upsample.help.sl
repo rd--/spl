@@ -7,7 +7,7 @@ Answer an upsampled copy of _aSequence_ by inserting _anInteger - 1_ zeros after
 Upsample a `Range` by a factor of three:
 
 ```
->>> 1:3.upsample(3)
+>>> [1 .. 3].upsample(3)
 [1 0 0 2 0 0 3 0 0]
 ```
 

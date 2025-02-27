@@ -83,7 +83,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 
 }
 
-+@Sequence {
++List {
 
 	Cons { :self |
 		let answer = nil;

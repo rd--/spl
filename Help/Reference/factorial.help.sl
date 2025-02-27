@@ -25,7 +25,7 @@ The `product` of `one` up to _anInteger_.
 Number of permutations of 6 elements:
 
 ```
->>> 1:6.permutations.size
+>>> [1 .. 6].permutations.size
 720
 
 >>> 6.factorial

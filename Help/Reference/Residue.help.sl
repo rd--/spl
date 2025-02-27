@@ -21,7 +21,7 @@ Residue(3, 5)
 `asResidue` at a two-element `Sequence` answers a `Residue`:
 
 ```
->>> (3, 5).asResidue
+>>> [3 5].asResidue
 3Z5
 ```
 

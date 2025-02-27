@@ -1,10 +1,10 @@
 # putOn
 
-- _putOn(anObject | aSequence, aStream)_
+- _putOn(anObject | aList, aStream)_
 
-In the `Object` case equal to `swap` of `nextPut`.
+In the `Object` case, equivalent to `swap` of `nextPut`.
 
-In the `Sequence` case equivalent to `swap` of `nextPutAll`.
+In the `List` case, equivalent to `swap` of `nextPutAll`.
 
 * * *
 

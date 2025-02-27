@@ -4,13 +4,13 @@
 
 Answer a downsampled copy of _aSequence_ by sampling every _anInteger_-th element.
 
-Downsample a `Range` by a factor of two:
+Downsample a `List` by a factor of two:
 
 ```
->>> 1:9.downsample(2)
+>>> [1 .. 9].downsample(2)
 [1 3 5 7 9]
 
->>> 1:10.downsample(2)
+>>> [1 .. 10].downsample(2)
 [1 3 5 7 9]
 ```
 

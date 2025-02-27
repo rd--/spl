@@ -11,13 +11,6 @@ At `List`:
 'x' -> 1
 ```
 
-At `Tuple`:
-
-```
->>> ('x', 1).asAssociation
-'x' -> 1
-```
-
 At `Association`:
 
 ```

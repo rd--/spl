@@ -18,7 +18,7 @@
 
 }
 
-+@Sequence {
++List {
 
 	expand { :self :counts |
 		let index = 0;
@@ -31,10 +31,6 @@
 				zero # each.abs.max(1)
 			}
 		}
-	}
-
-	factorial { :self |
-		self.collect(factorial:/1)
 	}
 
 	find { :haystack :needle |
@@ -89,10 +85,6 @@
 			answer.add(self.copyFromTo(start, self.size))
 		};
 		answer
-	}
-
-	reciprocal { :self |
-		self.collect(reciprocal:/1)
 	}
 
 	windowedReduce { :self :windowSize :aBlock:/2 |

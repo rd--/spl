@@ -16,7 +16,7 @@ which a type must implement if it to implement the trait.
 We can ask the system which traits a given type implements:
 
 ```
->>> system.typeTraits('List').includes('Sequence')
+>>> system.typeTraits('List').includes('Sequenceable')
 true
 ```
 

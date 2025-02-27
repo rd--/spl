@@ -35,6 +35,15 @@ If the shape is empty answer a scalar:
 1
 ```
 
+With external state:
+
+```
+>>> let i = 0;
+>>> { i := i + 1; i }
+>>> .duplicateShape([3 3])
+[1 2 3; 4 5 6; 7 8 9]
+```
+
 * * *
 
 See also: #, !, duplicateInteger, List, value

@@ -27,7 +27,7 @@
 			};
 			answer
 		} {
-			self.error('@Sequence>>arrayFlatten: not array')
+			self.error('List>>arrayFlatten: not array')
 		}
 	}
 

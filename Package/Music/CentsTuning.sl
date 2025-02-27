@@ -56,7 +56,7 @@ CentsTuning : [Object, Tuning] { | name description asCents octave |
 
 }
 
-+@Sequence {
++List {
 
 	asCentsTuning { :self |
 		CentsTuning('Unnamed tuning', 'Undescribed tuning', self, 2)

@@ -1,4 +1,4 @@
-+@Sequence {
++List {
 
 	addCosine { :self :harmonicNumber :amplitude :initialPhase :offset |
 		self.addSine(harmonicNumber, amplitude, initialPhase + 0.5.pi, offset)
@@ -53,12 +53,12 @@
 		}
 	}
 
-	gen05 { :self :aSequence |
+	gen05 { :self :aList |
 		let answer = [];
-		let y1 = aSequence[1];
-		2.toByDo(aSequence.size, 2) { :i |
-			let n = aSequence[i];
-			let y2 = aSequence[i + 1];
+		let y1 = aList[1];
+		2.toByDo(aList.size, 2) { :i |
+			let n = aList[i];
+			let y2 = aList[i + 1];
 			let z = (y2 / y1) ^ (1 / n);
 			n.timesRepeat {
 				answer.add(y1);
@@ -70,12 +70,12 @@
 		answer
 	}
 
-	gen07 { :self :aSequence |
+	gen07 { :self :aList |
 		let answer = [];
-		let y1 = aSequence[1];
-		2.toByDo(aSequence.size, 2) { :i |
-			let n = aSequence[i];
-			let y2 = aSequence[i + 1];
+		let y1 = aList[1];
+		2.toByDo(aList.size, 2) { :i |
+			let n = aList[i];
+			let y2 = aList[i + 1];
 			let z = (y2 - y1) / n;
 			n.timesRepeat {
 				answer.add(y1);
@@ -142,13 +142,13 @@
 	}
 
 
-	gen16 { :self :aSequence |
+	gen16 { :self :aList |
 		let answer = [];
-		let y1 = aSequence[1];
-		2.toByDo(aSequence.size, 3) { :i |
-			let n = aSequence[i];
-			let alpha = aSequence[i + 1];
-			let y2 = aSequence[i + 2];
+		let y1 = aList[1];
+		2.toByDo(aList.size, 3) { :i |
+			let n = aList[i];
+			let alpha = aList[i + 1];
+			let y2 = aList[i + 2];
 			(alpha = 0).if {
 				let z = (y2 - y1) / n;
 				n.timesRepeat {

@@ -104,12 +104,6 @@ Complex : [Object, Number] { | real imaginary |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :each |
-			each.aBlock(self)
-		}
-	}
-
 	adaptToFractionAndApply { :self :aFraction :aBlock:/2 |
 		aFraction.asComplex.aBlock(self)
 	}
@@ -213,10 +207,6 @@ Complex : [Object, Number] { | real imaginary |
 
 	asList { :self |
 		[self.real, self.imaginary]
-	}
-
-	asTuple { :self |
-		(self.real, self.imaginary)
 	}
 
 	atRandom { :self :shape :rng |
@@ -507,7 +497,7 @@ Complex : [Object, Number] { | real imaginary |
 
 }
 
-+@Sequence {
++List {
 
 	asComplex { :self |
 		let [a, b] = self;

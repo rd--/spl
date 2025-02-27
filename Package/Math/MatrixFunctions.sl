@@ -110,32 +110,8 @@
 		}
 	}
 
-	dotProduct { :self :aSequence |
-		self.isVector.if {
-			(aSequence.isVector | { aSequence.isMatrix }).if {
-				(self *.e aSequence).sum
-			} {
-				self.error('List>>dotProduct: argument not vector or matrix')
-			}
-		} {
-			self.isMatrix.if {
-				aSequence.isVector.if {
-					self.collect { :each |
-						(each *.e aSequence).sum
-					}
-				} {
-					aSequence.isMatrix.if {
-						self.collect { :each |
-							each.dot(aSequence)
-						}
-					} {
-						self.error('List>>dotProduct: argument not vector or matrix')
-					}
-				}
-			} {
-				self.error('List>>dotProduct: self not vector or matrix')
-			}
-		}
+	dot { :self :aList |
+		*.inner(self, aList, +)
 	}
 
 	eigenvalues { :m :epsilon :n |
@@ -222,6 +198,14 @@
 			}
 		};
 		a
+	}
+
+	hadamardProduct { :aMatrix :anotherMatrix |
+		(aMatrix.shape = anotherMatrix.shape).if {
+			aMatrix * anotherMatrix
+		} {
+			self.error('List>>hadamardProduct: unequal shapes')
+		}
 	}
 
 	homogeneousTranslationMatrix { :self |

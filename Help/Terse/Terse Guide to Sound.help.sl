@@ -89,13 +89,13 @@ let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/6
 
 ## SuperCollider-Lang
 ```
-1:5.keep(3) = 1:3 /* keep first count items, alias for first: */
-1:5.drop(2) = 3:5 /* discard first count items */
-1:9.drop(3) = 4:9
-1:9.dropLast(3) = 1:6
-1:9.drop(-3) = 1:6 /* negative count drops from end */
-1:9.keep(3) = 1:3
-1:9.keepLast(3) = 6:9
+[1 .. 5].keep(3) = [1 .. 3] /* keep first count items, alias for first: */
+[1 .. 5].drop(2) = [3 .. 5] /* discard first count items */
+[1 .. 9].drop(3) = [4 .. 9]
+[1 .. 9].dropLast(3) = [1 .. 6]
+[1 .. 9].drop(-3) = [1 .. 6] /* negative count drops from end */
+[1 .. 9].keep(3) = [1 .. 3]
+[1 .. 9].keepLast(3) = [6 .. 9]
 [3, 5, 4].normalizeRange(0, 1) = [0, 1, 1 / 2] /* linLin with calculated min and max */
 [3, -5, 4].normalizeRange(0, 1) = [8 / 9, 0, 1]
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 /* function composition, right to left */
@@ -103,15 +103,15 @@ let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/6
 '/usr' +/+ 'local' = '/usr/local' /* file path catenation */
 let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 7].collect { :x | x.asBinaryDigits(3) } = [0 0 1; 0 1 0; 0 1 1; 1 0 0; 1 0 1; 1 1 0; 1 1 1]
-1:9.atRandom.inclusivelyBetweenAnd(1, 9)
-1:9.atRandom.exclusivelyBetweenAnd(0, 10)
+[1 .. 9].atRandom.inclusivelyBetweenAnd(1, 9)
+[1 .. 9].atRandom.exclusivelyBetweenAnd(0, 10)
 [3, 4, 1, 1].integrate = [3, 7, 8, 9]
 [3, 4, 1, 1].differentiate = [3, 1, -3, 0]
 [0, 3, 1].differentiate = [0, 3, -2]
 [1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] /* separate using predicate block */
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
-1:5.duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
+[1 .. 5].duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
 [1 .. 4].similarity([1 .. 4]) = 1 /* similarity based on Levenshtein distance (1 = equal) */
 [1 .. 4].similarity([5 .. 8]) = 0 /* similarity based on Levenshtein distance (0 = unequal) */
 [1 .. 4].similarity([1 3 2 4]) = 0.5 /* similarity based on Levenshtein distance */
@@ -119,9 +119,9 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 9].normalizeRange(10, 90) = [10, 20 .. 90] /* normalise between minima and maxima */
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) /* extend list cyclically */
 [1 .. 5].wrapExtend(3) = [1 .. 3] /* truncate is required */
-1:9.clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] /* chunks of n places */
-1:7.clump(3) = [[1 .. 3], [4 .. 6], [7]] /* chunks of n places, last segment may have less places */
-'string'.asciiByteArray.clump(2).collect { :each | each.asByteArray.asciiString } = ['st', 'ri', 'ng']
+[1 .. 9].clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] /* chunks of n places */
+[1 .. 7].clump(3) = [[1 .. 3], [4 .. 6], [7]] /* chunks of n places, last segment may have less places */
+'string'.contents.clump(2).collect { :each | each.join('') } = ['st', 'ri', 'ng']
 5.geom(3, 2) = [3, 6, 12, 24, 48] /* geometric series (size from by) */
 [2, 3, 5, 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2, 3, 5, 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
@@ -165,14 +165,14 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 69.MidiCps = 440 /* midi note number to hertz */
 0.MidiCps.rounded = 8 /* midi note zero */
 1.CpsMidi.rounded = -36 /* one hertz */
-1:5.slide(3, 1) = [1 2 3 2 3 4 3 4 5] /* adjacent elements given windowLength and stepSize */
-1:7.slide(3, 2) = [1 2 3 3 4 5 5 6 7] /* 1-3, 3-5, 5-7 */
-1:6.slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] /* 1-4, 2-5, 3-6 */
-1:5.partition(3, 1) = [1 2 3; 2 3 4; 3 4 5] /* 1-3, 2-4, 3-5 */
-1:7.partition(3, 2) = [1 2 3; 3 4 5; 5 6 7] /* 1-3, 3-5, 5-7 */
-1:6.partition(4, 1) = [1 2 3 4; 2 3 4 5; 3 4 5 6] /* 1-4, 2-5, 3-6 */
-1:6.shift(3, 0) = [0 0 0 1 2 3] /* shift right with fill value */
-1:6.shift(-3, 0) = [4 5 6 0 0 0] /* shift left with fill value */
+[1 .. 5].slide(3, 1) = [1 2 3 2 3 4 3 4 5] /* adjacent elements given windowLength and stepSize */
+[1 .. 7].slide(3, 2) = [1 2 3 3 4 5 5 6 7] /* 1-3, 3-5, 5-7 */
+[1 .. 6].slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] /* 1-4, 2-5, 3-6 */
+[1 .. 5].partition(3, 1) = [1 2 3; 2 3 4; 3 4 5] /* 1-3, 2-4, 3-5 */
+[1 .. 7].partition(3, 2) = [1 2 3; 3 4 5; 5 6 7] /* 1-3, 3-5, 5-7 */
+[1 .. 6].partition(4, 1) = [1 2 3 4; 2 3 4 5; 3 4 5 6] /* 1-4, 2-5, 3-6 */
+[1 .. 6].shift(3, 0) = [0 0 0 1 2 3] /* shift right with fill value */
+[1 .. 6].shift(-3, 0) = [4 5 6 0 0 0] /* shift left with fill value */
 [1 .. 4].powerSet.size = (2 ^ 4) /* powerset size */
 [1 .. 5].powerSet.size = (2 ^ 5) /* powerset size */
 ```

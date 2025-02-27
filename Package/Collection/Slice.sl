@@ -1,4 +1,4 @@
-Slice : [Object, Iterable, Indexable, Collection, Sequence] { | contents startIndex size |
+Slice : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents startIndex size |
 
 	asList { :self |
 		self.contents.copyFromTo(self.startIndex, self.endIndex).asList
@@ -45,7 +45,7 @@ Slice : [Object, Iterable, Indexable, Collection, Sequence] { | contents startIn
 
 }
 
-+@Sequence {
++[List, Slice] {
 
 	Slice { :self :startIndex :size |
 		newSlice().initializeSlots(self, startIndex, size)

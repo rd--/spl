@@ -6,15 +6,15 @@ Answer the normalized form of _aFraction_.
 
 ```
 >>> let n = ReducedFraction(2, 4);
->>> (n.asTuple, n.normalized.asTuple)
-((2, 4), (1, 2))
+>>> (n.asList, n.normalized.asList)
+([2 4], [1 2])
 ```
 
 Fractions are ordinarily normalized by construction.
 
 ```
->>> (Fraction(2, 4).asTuple, 2/4.asTuple)
-((1, 2), (1, 2))
+>>> (Fraction(2, 4).asList, 2/4.asList)
+([1 2], [1 2])
 ```
 
 * * *

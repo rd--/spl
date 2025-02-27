@@ -12,7 +12,7 @@ AliasMethod : [Object, Iterator] { | alias probability random |
 
 }
 
-+@Sequence {
++List {
 
 	AliasMethod { :self :random |
 		let probabilities = self.copy;

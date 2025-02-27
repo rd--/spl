@@ -55,7 +55,7 @@
 	'Collection-Removable'
 	'Collection-ResidueSet'
 	'Collection-RunArray'
-	'Collection-Sequence'
+	'Collection-Sequenceable'
 	'Collection-Set'
 	'Collection-SparseArray'
 	'Collection-Slice'

@@ -12,7 +12,7 @@ File! : [Object, Blob] {
 
 }
 
-+@Sequence {
++List {
 
 	File { :fileBits :fileName :options |
 		<primitive: return new File(_fileBits, _fileName, _options);>

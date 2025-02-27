@@ -76,10 +76,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		self
 	}
 
-	asTuple { :self |
-		(self.x, self.y)
-	}
-
 	at { :self :index |
 		index.caseOfOtherwise([
 			{ 1 } -> { self.x },
@@ -256,7 +252,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	PlanarCoordinates { :x :y |
-		y.adaptToCollectionAndApply(x, PlanarCoordinates:/2)
+		x.withCollect(y, PlanarCoordinates:/2)
 	}
 
 }

@@ -13,7 +13,7 @@ Piecewise : [Object] { | pieces defaultValue |
 
 }
 
-+@Sequence {
++List {
 
 	Piecewise { :pieces :defaultValue:/1 |
 		newPiecewise().initializeSlots(pieces, defaultValue:/1)

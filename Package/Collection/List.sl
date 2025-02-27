@@ -1,4 +1,4 @@
-List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequence, PrimitiveSequence, Ordered] {
+List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveSequence, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -37,6 +37,18 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		_self.fill(_anObject);
 		return _anObject;
 		>
+	}
+
+	fill { :shape :aBlock:/1 |
+		shape.isEmpty.if {
+			aBlock(0)
+		} {
+			let answer = shape.iota;
+			shape.shapeIndicesDo { :index |
+				answer.atPathPut(index, aBlock(index))
+			};
+			answer
+		}
 	}
 
 	isAssociationList { :self |
@@ -227,7 +239,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 }
 
-+@Sequence {
++@Sequenceable {
 
 	asList { :self |
 		let answer = List(self.size);
@@ -235,18 +247,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			answer[index] := self[index]
 		};
 		answer
-	}
-
-	fill { :shape :aBlock:/1 |
-		shape.isEmpty.if {
-			aBlock(0)
-		} {
-			let answer = shape.iota;
-			shape.shapeIndicesDo { :index |
-				answer.atPathPut(index, aBlock(index))
-			};
-			answer
-		}
 	}
 
 }

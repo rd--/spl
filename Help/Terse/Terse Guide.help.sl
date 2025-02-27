@@ -568,7 +568,6 @@ system.includesPackage('Association') /* association package */
 Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 ('x' -> 1).asList = ['x', 1] /* two element [key, value] array */
-('x' -> 1).asTuple = ('x', 1) /* two element [key, value] array */
 ['x' -> 1, 'y' -> 2].collect(asList:/1) = ['x' 1; 'y' 2]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = '(23 -> 3.141)'
@@ -2646,7 +2645,7 @@ let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end
 let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
 let r = 9:-1:1.asIterator; [r.upTo(3), r.upToEnd] = [9:-1:4, 2:-1:1] /* matching element is consumed */
 [].asIterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.asciiByteArray.asIterator; let a = ByteArray(5); r.next(5); r.nextInto(a); a.asciiString = 'ascii'
+let r = '.....ascii'.contents.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.join('') = 'ascii'
 1:9.asIterator.nextSatisfy { :each | each >= 5 } = 5 /* read until element satisfies predicate */
 1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
 let r = 1:9.asIterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
@@ -2913,9 +2912,9 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.join('') = 'abbbccccc' /* from runs 
 'abbbccccc'.asList.asRunArray.runs = [1 3 5]
 ```
 
-## Sequence -- collection trait
+## Sequenceable -- collection trait
 ```
-system.includesPackage('Sequence') /* package */
+system.includesPackage('Sequenceable') /* package */
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] /* append sequences */
 [1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
@@ -2945,11 +2944,10 @@ let i = 1:9; i.last = i[9] /* intervals are one-indexed sequences */
 [1, 3, 5, 7, 9].middle = 5 /* middle element of */
 [1 .. 4].beginsWith([1, 2]) = true /* is prefix of */
 [1 .. 4].beginsWith([]) = true /* empty prefix answers true */
-let n = 0; let i = 1:4; i.permutationsDo { :each | n := n + 1 }; n = 24 /* interval permutations do */
 let n = 0; let a = [1 .. 4]; a.permutationsDo { :each | n := n + 1 }; n = 24 & { a = [1 .. 4] } /* array permutations do */
 let a = [1 .. 3].permutations; a = [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 2, 1], [3, 1, 2]] /* permutations */
-let i = (4, 7 .. 13); let p = i.permutations; p.size = i.size.factorial & { p.nub.size = p.size }
-let i = (4, 7 .. 13); i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
+let i = [4, 7 .. 13]; let p = i.permutations; p.size = i.size.factorial & { p.nub.size = p.size }
+let i = [4, 7 .. 13]; i.permutations.allSatisfy { :e | e.sorted.hasEqualElements(i) }
 let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll as permutation */
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll as permutation */
 [1, 9, 2, 8, 3, 7, 4, 6].pairsCollect { :i :j | i + j } = [10, 10, 10, 10]
@@ -4044,9 +4042,8 @@ let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
 (1, 2, 3).isSequence = true /* sequenceable trait */
 Tuple(0).isEmpty = true /* the empty tuple */
 [1 .. 5].asTuple.first = 1 /* from list */
-1:5.asTuple.second = 2 /* from interval */
-1:5.asTuple.asList = [1 .. 5] /* as list */
-1:5.asTuple.reversed.first = 5 /* reversed */
+[1 .. 5].asTuple.asList = [1 .. 5] /* as list */
+[1 .. 5].asTuple.reversed.first = 5 /* reversed */
 let t = (1, 2, 3); t[3] = 3 /* at protocol */
 let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* atPut protocol */
 let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 /* copy */
@@ -4203,7 +4200,6 @@ PlanarCoordinates(1, 1).normalized.norm ~ 1
 ## CartesianCoordinates -- geometry type
 ```
 [1, 2, 3].asCartesianCoordinates = CartesianCoordinates(1, 2, 3) /* from list */
-(1, 2, 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) /* from tuple */
 (x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) /* from record */
 let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.asList = [1, 2, 3] /* point as array */
 CartesianCoordinates(0, 0, 0).isZero /* are x, y and z all zero */
@@ -4236,10 +4232,8 @@ CartesianCoordinates(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 
 ## FourVector -- geometry type
 ```
 [1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) /* from list */
-(1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) /* from tuple */
 (w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) /* from record */
 [1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) /* array as point */
-(1, 2, 3, 4).asFourVector = FourVector(1, 2, 3, 4) /* tuple as point */
 (w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) /* record as point */
 let a = [1 2 3 4]; let v = a.asFourVector; v.asList = [1 2 3 4] /* to list */
 FourVector(0, 0, 0, 0).isZero /* are w, x, y and z all zero */
@@ -4280,5 +4274,5 @@ let w = Utf8Stream(); [3.141, nil].do { :each | each.printOn(w) }; w.utf8Content
 let w = AsciiStream(); 'ascii'.encodeOn(w); w.contents.asciiString = 'ascii'
 let w = AsciiStream(); 'ascii'.encodeOn(w); w.asciiContents = 'ascii'
 let w = AsciiStream(); [3.141, nil].do { :each | each.printOn(w) }; w.asciiContents = '3.141nil'
-{ :stream | 'ascii'.asciiByteArray.putOn(stream) }.asciiStringStreamContents = 'ascii'
+{ :stream | 'ascii'.encodeOn(stream) }.asciiStringStreamContents = 'ascii'
 ```

@@ -1,4 +1,4 @@
-Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgression] { | start stop step |
+Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	= { :self :operand |
 		operand.isRange & {
@@ -197,7 +197,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequence, ArithmeticProgressio
 
 }
 
-+@Sequence {
++[List, Range] {
 
 	to { :self :stop |
 		stop.adaptToCollectionAndApply(self, to:/2)

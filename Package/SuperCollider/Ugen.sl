@@ -10,12 +10,6 @@ Ugen! : [Object, Number] {
 		>
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :each |
-			aBlock(each, self)
-		}
-	}
-
 	/* Copy, c.f. Interpolation */
 	blend { :y1 :y2 :mu |
 		y1 + (mu * (y2 - y1))

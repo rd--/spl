@@ -40,10 +40,6 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 		(x: self.x, y: self.y, z: self.z)
 	}
 
-	asTuple { :self |
-		(self.x, self.y, self.z)
-	}
-
 	compareBy { :self :anObject :aBlock:/2 |
 		aBlock(self.x, anObject.x) & {
 			aBlock(self.y, anObject.y) & {
@@ -138,7 +134,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 }
 
-+@Sequence {
++List {
 
 	asCartesianCoordinates { :self |
 		let [x, y, z] = self;
@@ -155,7 +151,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 }
 
-+@Sequence {
++List {
 
 	linePlaneIntersection { :p0 :n :l0 :l |
 		let ln = l.dot(n);

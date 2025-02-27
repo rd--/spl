@@ -69,7 +69,7 @@ Sphere : [Object] { | center radius |
 
 }
 
-+@Sequence {
++List {
 
 	Sphere { :center :radius |
 		newSphere().initializeSlots(center, radius)

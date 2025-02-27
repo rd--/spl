@@ -8,7 +8,7 @@ Answer a `List` of the permutations containing at most _anInteger_ elements of _
 The six length three permutations of three elements:
 
 ```
->>> 1:3.permutations
+>>> [1 .. 3].permutations
 [
 	1 2 3;
 	1 3 2;
@@ -22,7 +22,7 @@ The six length three permutations of three elements:
 The six length-two permutations of three elements:
 
 ```
->>> 1:3.permutations(2)
+>>> [1 .. 3].permutations(2)
 [
 	1 2;
 	2 1;
@@ -36,7 +36,7 @@ The six length-two permutations of three elements:
 Calculate the same sequence as the permutations of the two element subsets:
 
 ```
->>> 1:3.subsets { :each |
+>>> [1 .. 3].subsets { :each |
 >>> 	each.size = 2
 >>> }.collect(permutations:/1).++
 [
@@ -52,7 +52,7 @@ Calculate the same sequence as the permutations of the two element subsets:
 The number of length-_n_ permutations of a length-_n_ list of distinct elements is _n!_:
 
 ```
->>> 1:5.permutations.size
+>>> [1 .. 5].permutations.size
 120
 
 >>> 5.!
@@ -62,7 +62,7 @@ The number of length-_n_ permutations of a length-_n_ list of distinct elements 
 A permutation that leaves no element invariant is called a derangement:
 
 ```
->>> 1:5.permutations.select { :each |
+>>> [1 .. 5].permutations.select { :each |
 >>> 	(each =.map each.sorted)
 >>> 	.noneSatisfy(identity:/1)
 >>> }.size
@@ -79,7 +79,7 @@ The number of derangements of _n_ distinct elements is _n.subfactorial_:
 Length-two permutations of four elements:
 
 ```
->>> 1:4.permutations(2)
+>>> [1 .. 4].permutations(2)
 [
 	1 2;
 	2 1;
@@ -99,7 +99,7 @@ Length-two permutations of four elements:
 The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n)_:
 
 ```
->>> 1:5.permutations(3).size
+>>> 5.iota.permutations(3).size
 60
 
 >>> 5.stope(-1, 3)

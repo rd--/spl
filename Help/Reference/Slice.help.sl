@@ -28,7 +28,7 @@ and continuning for _size_ places.
 A `Slice` is a sequence, hence one can take a `Slice` of a `Slice`:
 
 ```
->>> let p = 111:999;
+>>> let p = [111 .. 999];
 >>> let q = p.sliceFromTo(333, 777);
 >>> let r = q.sliceFromTo(222, 444);
 >>> (

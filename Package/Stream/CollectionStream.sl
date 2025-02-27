@@ -80,7 +80,7 @@ CollectionStream : [Object, Iterator, Stream, PositionableStream] { | collection
 
 }
 
-+@Sequence {
++[List, Range] {
 
 	asIterator { :self |
 		self.asStream

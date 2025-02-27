@@ -39,20 +39,20 @@ Adjacent ratios with swapped operator,
 c.f. `ratios`:
 
 ```
->>> 1:5.windowedReduce(2, /.swap)
+>>> [1 .. 5].windowedReduce(2, /.swap)
 [2/1 3/2 4/3 5/4]
 ```
 
 Adjacent triples collected into a `List`:
 
 ```
->>> 1:5.windowedReduce(
+>>> [1 .. 5].windowedReduce(
 >>> 	3,
 >>> 	++.over(nest:/1)
 >>> )
 [1 2 3; 2 3 4; 3 4 5]
 
->>> 1:5.windowedReduce(3) { :p :q |
+>>> [1 .. 5].windowedReduce(3) { :p :q |
 >>> 	p.nest ++ q.nest
 >>> }
 [1 2 3; 2 3 4; 3 4 5]

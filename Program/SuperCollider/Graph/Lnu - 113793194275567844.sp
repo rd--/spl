@@ -1,7 +1,7 @@
 /* https://sonomu.club/@lukiss/113793194275567844 (Lnu) */
 let f = 443;
 let s = [0 2 4 6 7 9 11];
-let m = (-14, -12 .. 14).degreeToKey(s, 12);
+let m = [-14, -12 .. 14].degreeToKey(s, 12);
 let p = m.MidiRatio;
 Splay2(
 	SinOsc(

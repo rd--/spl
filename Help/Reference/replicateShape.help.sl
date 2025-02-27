@@ -56,6 +56,6 @@ An empty shape answers a scalar:
 
 * * *
 
-See also: #, !, replicateEach, replicateInteger, reshape, shape
+See also: #, !, duplicateShape, replicateEach, replicateInteger, reshape, shape
 
 Categories: Copying

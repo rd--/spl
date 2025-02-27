@@ -36,7 +36,7 @@ Cyclic form of a permutation list of length 10:
 Identity permutation list, written with unary cycles:
 
 ```
->>> 1:5
+>>> [1 .. 5]
 >>> .permutationListToPermutationCycles(false)
 [1; 2; 3; 4; 5]
 ```
@@ -44,7 +44,7 @@ Identity permutation list, written with unary cycles:
 When applied to a `Permutation` object the answer has unary cycles removed:
 
 ```
->>> let p = 1:5.asPermutation;
+>>> let p = [1 .. 5].asPermutation;
 >>> p.cycles
 []
 ```
@@ -70,7 +70,7 @@ Permutation cycles with unary cycles deleted can be considered a sparse represen
 A histogram of the cycle count for the permutations of the symmetric group _S6_:
 
 ```
->>> let p = 1:6.permutations;
+>>> let p = [1 .. 6].permutations;
 >>> let k = p.collect { :each |
 >>> 	each
 >>> 	.permutationListToPermutationCycles(

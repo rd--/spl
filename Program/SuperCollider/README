@@ -1,19 +1,19 @@
-system.splFile('Program/SuperCollider/Graph').terseProgramSummary(isOutputSignal:/1)
+system.splFileName('Program/SuperCollider/Graph').terseProgramSummary(isOutputSignal:/1)
 
 => 391
 
-system.splFile('Program/SuperCollider/Graph Collection').terseProgramSummary(isOutputSignal:/1)
+system.splFileName('Program/SuperCollider/Graph Collection').terseProgramSummary(isOutputSignal:/1)
 
 => 351
 
-system.splFile('Program/SuperCollider/Ugen').terseProgramSummary(isOutputSignal:/1)
+system.splFileName('Program/SuperCollider/Ugen').terseProgramSummary(isOutputSignal:/1)
 
 => 503
 
-system.splFile('Program/SuperCollider/Texture').terseProgramSummary(isTextureProgram:/1)
+system.splFileName('Program/SuperCollider/Texture').terseProgramSummary(isTextureProgram:/1)
 
 => 70
 
-system.splFile('Program/SuperCollider/Texture Collection').terseProgramSummary(isTextureProgram:/1)
+system.splFileName('Program/SuperCollider/Texture Collection').terseProgramSummary(isTextureProgram:/1)
 
 => 17

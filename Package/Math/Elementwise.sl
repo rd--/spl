@@ -1,4 +1,4 @@
-/* Requires: Collection Sequence */
+/* Requires: Collection, Sequenceable */
 
 +@Collection {
 
@@ -353,6 +353,10 @@
 		self.collect(realImaginary:/1)
 	}
 
+	reciprocal { :self |
+		self.collect(reciprocal:/1)
+	}
+
 	rounded { :self |
 		self.collect(rounded:/1)
 	}
@@ -433,7 +437,7 @@
 
 }
 
-+@Sequence {
++@Sequenceable {
 
 	+ { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, +)

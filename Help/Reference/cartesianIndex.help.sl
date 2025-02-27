@@ -59,7 +59,7 @@ At volume:
 
 * * *
 
-See also: deepIndices, linearIndex, shapeIndices
+See also: deepIndices, linearIndex, mixedRadixEncode, shapeIndices
 
 References:
 _Julia_

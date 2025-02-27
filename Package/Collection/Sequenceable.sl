@@ -1,6 +1,6 @@
 /* Require: SmallFloat */
 
-@Sequence {
+@Sequenceable {
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -10,11 +10,11 @@
 		self.equalBy(anObject, ~)
 	}
 
-	++ { :self :aSequence |
+	++ { :self :aList |
 		self.copyReplaceFromToWith(
 			self.size + 1,
 			self.size,
-			aSequence
+			aList
 		)
 	}
 
@@ -22,8 +22,8 @@
 		self.concatenation
 	}
 
-	+++ { :self :aSequence |
-		self ++.each aSequence
+	+++ { :self :aList |
+		self ++.each aList
 	}
 
 	# { :self :anObject |
@@ -46,13 +46,11 @@
 		self.scan(+)
 	}
 
-	adaptToCollectionAndApply { :self :rcvr :aBlock:/2 |
-		rcvr.isSequence.if {
-			rcvr.withCollect(self) { :rcvrItem :selfItem |
-				aBlock(rcvrItem, selfItem)
-			}
+	adaptToCollectionAndApply { :self :anObject :aBlock:/2 |
+		anObject.isSequence.if {
+			anObject.withCollect(self, aBlock:/2)
 		} {
-			self.error('@Sequence: only sequenceable collections may be combined arithmetically')
+			self.error('@Sequenceable: only sequenceable collections may be processed elementwise')
 		}
 	}
 
@@ -159,7 +157,7 @@
 				self.isArithmeticSeries.if {
 					Range(self.first, self.last, self.second - self.first)
 				} {
-					self.error('@Sequence>>asRange: not an arithmetic series')
+					self.error('@Sequenceable>>asRange: not an arithmetic series')
 				}
 			}
 		}
@@ -317,21 +315,21 @@
 		}
 	}
 
-	beginsWith { :self :aSequence |
-		aSequence.isSequence.if {
+	beginsWith { :self :aList |
+		aList.isSequence.if {
 			valueWithReturn { :return:/1 |
-				(self.size < aSequence.size).ifTrue {
+				(self.size < aList.size).ifTrue {
 					false.return
 				};
-				aSequence.indicesDo { :index |
-					(aSequence[index] = self[index]).ifFalse {
+				aList.indicesDo { :index |
+					(aList[index] = self[index]).ifFalse {
 						false.return
 					}
 				};
 				true
 			}
 		} {
-			self.error('@Sequencable>>beginsWith: not a sequence')
+			self.error('@Sequenceable>>beginsWith: not a sequence')
 		}
 	}
 
@@ -427,12 +425,12 @@
 		)
 	}
 
-	brayCurtisDistance { :self :aSequence |
-		(self - aSequence).abs.sum / (self + aSequence).abs.sum
+	brayCurtisDistance { :self :aList |
+		(self - aList).abs.sum / (self + aList).abs.sum
 	}
 
-	canberraDistance { :self :aSequence |
-		((self - aSequence).abs / (self.abs + aSequence.abs)).sum
+	canberraDistance { :self :aList |
+		((self - aList).abs / (self.abs + aList.abs)).sum
 	}
 
 	cartesianIndex { :shape :anInteger |
@@ -449,8 +447,8 @@
 		}
 	}
 
-	chessboardDistance { :self :aSequence |
-		(self - aSequence).abs.max
+	chessboardDistance { :self :aList |
+		(self - aList).abs.max
 	}
 
 	chineseRemainder { :r :m |
@@ -493,12 +491,12 @@
 		answer
 	}
 
-	compare { :self :aSequence |
+	compare { :self :aList |
 		let n = self.size;
-		let m = aSequence.size;
+		let m = aList.size;
 		valueWithReturn { :return:/1 |
 			1.toDo(n.min(m)) { :i |
-				let c = self[i] <=> aSequence[i];
+				let c = self[i] <=> aList[i];
 				(c ~= 0).ifTrue {
 					c.return
 				}
@@ -507,13 +505,13 @@
 		}
 	}
 
-	concatenationSeparatedBy { :self :aSequence |
+	concatenationSeparatedBy { :self :aList |
 		self.ifEmpty {
 			self.copy
 		} {
 			let answerSize = self.injectInto(0) { :sum :each |
 				sum + each.size
-			} + (self.size - 1 * aSequence.size);
+			} + (self.size - 1 * aList.size);
 			let answer = self.species.ofSize(answerSize);
 			let index = 1;
 			let put = { :items |
@@ -524,7 +522,7 @@
 			};
 			self.allButLastDo { :each |
 				put(each);
-				put(aSequence)
+				put(aList)
 			};
 			put(self.last);
 			answer
@@ -534,7 +532,7 @@
 	concatenation { :self :isChecked |
 		isChecked.ifTrue {
 			(self.elementType = self.typeOf).ifFalse {
-				self.error('@Sequence>>concatenation: invalid element type')
+				self.error('@Sequenceable>>concatenation: invalid element type')
 			}
 		};
 		self.concatenationSeparatedBy([])
@@ -558,9 +556,9 @@
 		}
 	}
 
-	copyFromToInto { :self :start :stop :aSequence |
+	copyFromToInto { :self :start :stop :aList |
 		1.toDo(stop - start + 1) { :index |
-			aSequence[index] := self[index + start - 1]
+			aList[index] := self[index + start - 1]
 		}
 	}
 
@@ -683,7 +681,7 @@
 			(n = m).if {
 				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugated)
 			} {
-				[v, w].error('@Sequence>>covariance: vectors must be equal')
+				[v, w].error('@Sequenceable>>covariance: vectors must be equal')
 			}
 		}
 	}
@@ -703,8 +701,8 @@
 		]
 	}
 
-	crossedMultiply { :self :aSequence |
-		self.withCollectCrossed(aSequence, *)
+	crossedMultiply { :self :aList |
+		self.withCollectCrossed(aList, *)
 	}
 
 	deBruijnSequence { :self :anInteger |
@@ -759,7 +757,7 @@
 		self.detectStartingAtIfFoundIfNone(predicate:/1, startIndex) { :item |
 			item
 		} {
-			self.error('@Sequence>>detectStartingAt: no such item')
+			self.error('@Sequenceable>>detectStartingAt: no such item')
 		}
 	}
 
@@ -795,10 +793,6 @@
 			};
 			elementBlock(self[index])
 		}
-	}
-
-	dot { :self :aSequence |
-		basicTimes:/2.inner(self, aSequence, basicPlus:/2)
 	}
 
 	doWithout { :self :aBlock:/1 :anItem |
@@ -850,23 +844,23 @@
 		self.levenshteinDistance(other)
 	}
 
-	endsWith { :self :aSequence |
-		aSequence.isSequence.if {
-			let sequenceSize = aSequence.size;
+	endsWith { :self :aList |
+		aList.isSequence.if {
+			let sequenceSize = aList.size;
 			let offset = self.size - sequenceSize;
 			valueWithReturn { :return:/1 |
 				(offset < 0).ifTrue {
 					false.return
 				};
 				1.toDo(sequenceSize) { :index |
-					(aSequence[index] = self[index + offset]).ifFalse {
+					(aList[index] = self[index + offset]).ifFalse {
 						false.return
 					}
 				};
 				true
 			}
 		} {
-			self.error('@Sequencable>>endsWith: not a sequence')
+			self.error('@Sequenceable>>endsWith: not a sequence')
 		}
 	}
 
@@ -884,8 +878,8 @@
 		}
 	}
 
-	euclideanDistance { :self :aSequence |
-		(self - aSequence).norm
+	euclideanDistance { :self :aList |
+		(self - aList).norm
 	}
 
 	eulerMatrix { :self |
@@ -944,7 +938,7 @@
 		self.findBinaryDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequence>>findBinary: not found')
+			self.error('@Sequenceable>>findBinary: not found')
 		}
 	}
 
@@ -967,7 +961,7 @@
 		self.findBinaryIndexDoIfNone(aBlock:/1) { :found |
 			found
 		} {
-			self.error('@Sequence>>findBinaryIndex: not found')
+			self.error('@Sequenceable>>findBinaryIndex: not found')
 		}
 	}
 
@@ -1270,11 +1264,11 @@
 		}
 	}
 
-	includesScatteredSubsequence { :self :aSequence |
+	includesScatteredSubsequence { :self :aList |
 		valueWithReturn { :return:/1 |
 			1.to(self.size).powerSetDo { :each |
 				each.isArithmeticSeriesBy(1, =).ifFalse {
-					(self @* each = aSequence).ifTrue {
+					(self @* each = aList).ifTrue {
 						true.return
 					}
 				}
@@ -1283,10 +1277,10 @@
 		}
 	}
 
-	includesSubsequence { :self :aSequence |
+	includesSubsequence { :self :aList |
 		valueWithReturn { :return:/1 |
 			let i = 1;
-			aSequence.do { :each |
+			aList.do { :each |
 				i := self.indexOfStartingAtBy(each, i, =);
 				(i = 0).ifTrue {
 					false.return
@@ -1296,12 +1290,12 @@
 		}
 	}
 
-	includesSubstring { :self :aSequence |
-		let k = aSequence.size;
-		let c = aSequence.first;
+	includesSubstring { :self :aList |
+		let k = aList.size;
+		let c = aList.first;
 		self.indicesOf(c).anySatisfy { :i |
 			(1 .. k).allSatisfy { :j |
-				self[i + j - 1] = aSequence[j]
+				self[i + j - 1] = aList[j]
 			}
 		}
 	}
@@ -1358,23 +1352,23 @@
 		}
 	}
 
-	indexOfSubstring { :self :aSequence |
-		self.indexOfSubstringStartingAt(aSequence, 1)
+	indexOfSubstring { :self :aList |
+		self.indexOfSubstringStartingAt(aList, 1)
 	}
 
-	indexOfSubstringStartingAt { :self :aSequence :start |
-		let k = aSequence.size;
+	indexOfSubstringStartingAt { :self :aList :start |
+		let k = aList.size;
 		(k = 0).if {
 			0
 		} {
-			let first = aSequence[1];
+			let first = aList[1];
 			valueWithReturn { :return:/1 |
 				start.max(1).toDo(self.size - k + 1) { :startIndex |
 					(self[startIndex] = first).ifTrue {
 						let index = 2;
 						{
 							index <= k & {
-								self[startIndex + index - 1] = aSequence[index]
+								self[startIndex + index - 1] = aList[index]
 							}
 						}.whileTrue {
 							index := index + 1
@@ -1409,25 +1403,25 @@
 		1.toDo(self.size, aBlock:/1)
 	}
 
-	indicesOfSubsequence { :self :aSequence |
+	indicesOfSubsequence { :self :aList |
 		let answer = [];
 		1.to(self.size).powerSetDo { :each |
-			(self @* each = aSequence).ifTrue {
+			(self @* each = aList).ifTrue {
 				answer.add(each)
 			}
 		};
 		answer
 	}
 
-	indicesOfSubstring { :self :aSequence |
-		self.indicesOfSubstringStartingAt(aSequence, 1)
+	indicesOfSubstring { :self :aList |
+		self.indicesOfSubstringStartingAt(aList, 1)
 	}
 
-	indicesOfSubstringStartingAt { :self :aSequence :initialIndex |
+	indicesOfSubstringStartingAt { :self :aList :initialIndex |
 		let answer = [];
 		let index = initialIndex - 1;
 		{
-			index := self.indexOfSubstringStartingAt(aSequence, index + 1);
+			index := self.indexOfSubstringStartingAt(aList, index + 1);
 			index = 0
 		}.whileFalse {
 			answer.add(index)
@@ -1453,12 +1447,12 @@
 		answer
 	}
 
-	interleave { :self :aSequence |
+	interleave { :self :aList |
 		let answer = [];
-		let k = self.size.max(aSequence.size);
+		let k = self.size.max(aList.size);
 		1.toDo(k) { :i |
 			answer.add(self.atWrap(i));
-			answer.add(aSequence.atWrap(i))
+			answer.add(aList.atWrap(i))
 		};
 		answer
 	}
@@ -1720,8 +1714,8 @@
 		}
 	}
 
-	linearIndex { :shape :aSequence |
-		(aSequence - 1).mixedRadixDecode(shape) + 1
+	linearIndex { :shape :aList |
+		(aList - 1).mixedRadixDecode(shape) + 1
 	}
 
 	linearRecurrence { :kernel :init :n |
@@ -1763,7 +1757,7 @@
 					n := n - 1
 				} {
 					(a[m - 1] = b[n - 1]).ifFalse {
-						'@Sequence>>longestCommonSubsequence: error?'.error
+						'@Sequenceable>>longestCommonSubsequence: error?'.error
 					};
 					answer.addFirst(a[m - 1]);
 					m := m - 1;
@@ -1774,11 +1768,11 @@
 		answer
 	}
 
-	longestCommonSubstringList { :self :aSequence |
+	longestCommonSubstringList { :self :aList |
 		let find = { :k |
-			self.partition(k, 1).intersection(aSequence.partition(k, 1))
+			self.partition(k, 1).intersection(aList.partition(k, 1))
 		};
-		let n = self.size.min(aSequence.size);
+		let n = self.size.min(aList.size);
 		valueWithReturn { :return:/1 |
 			n.toByDo(1, -1) { :k |
 				let common = find(k);
@@ -1790,8 +1784,8 @@
 		}
 	}
 
-	longestCommonSubstring { :self :aSequence |
-		let common = self.longestCommonSubstringList(aSequence);
+	longestCommonSubstring { :self :aList |
+		let common = self.longestCommonSubstringList(aList);
 		common.isEmpty.if {
 			[]
 		} {
@@ -1886,8 +1880,8 @@
 		answer
 	}
 
-	manhattanDistance { :self :aSequence |
-		(self - aSequence).abs.sum
+	manhattanDistance { :self :aList |
+		(self - aList).abs.sum
 	}
 
 	median { :self |
@@ -2025,7 +2019,7 @@
 		let k = factors.size.min(self.size);
 		let prefix = self.size - factors.size;
 		(prefix > 1).ifTrue {
-			self.error('@Sequence>>mixedRadixDecode: sequence too long')
+			self.error('@Sequenceable>>mixedRadixDecode: sequence too long')
 		};
 		(k .. 1).do { :index |
 			answer := answer + (self[index + prefix] * base);
@@ -2153,8 +2147,8 @@
 		self.orderedSubstrings(<)
 	}
 
-	outerProduct { :self :aSequence |
-		self *.outer aSequence
+	outerProduct { :self :aList |
+		self *.outer aList
 	}
 
 	padLeft { :self :anInteger :anObject |
@@ -2288,12 +2282,12 @@
 		}
 	}
 
-	precedes { :self :aSequence |
-		self.compare(aSequence) = -1
+	precedes { :self :aList |
+		self.compare(aList) = -1
 	}
 
-	precedesOrEqualTo { :self :aSequence |
-		self.compare(aSequence) ~= 1
+	precedesOrEqualTo { :self :aList |
+		self.compare(aList) ~= 1
 	}
 
 	prefixesDo { :self :aBlock:/1 |
@@ -2439,7 +2433,7 @@
 		(replacement.size = (stop - start + 1)).if {
 			self.replaceFromToWithStartingAt(start, stop, replacement, 1)
 		} {
-			self.error('@Sequence>> replaceFromToWith: size of replacement does not match')
+			self.error('@Sequenceable>> replaceFromToWith: size of replacement does not match')
 		}
 	}
 
@@ -2457,7 +2451,7 @@
 
 	replicateEachApplying { :self :counts :aBlock:/1 |
 		(self.size ~= counts.size).if {
-			self.error('@Sequence>>replicateEachApplying: counts not of correct size')
+			self.error('@Sequenceable>>replicateEachApplying: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
 			let answer = self.species.ofSize(answerSize);
@@ -2496,12 +2490,12 @@
 		}
 	}
 
-	reverseWithDo { :self :aSequence :aBlock:/2 |
-		(self.size ~= aSequence.size).if {
-			self.error('@Sequence>> reverseWithDo: unequal size')
+	reverseWithDo { :self :aList :aBlock:/2 |
+		(self.size ~= aList.size).if {
+			self.error('@Sequenceable>> reverseWithDo: unequal size')
 		} {
 			self.size.toByDo(1, -1) { :index |
-				aBlock(self[index], aSequence[index])
+				aBlock(self[index], aList[index])
 			}
 		}
 	}
@@ -2578,8 +2572,8 @@
 		self.sattoloShuffle(system)
 	}
 
-	scalarProduct { :self :aSequence |
-		(self *.e aSequence).sum
+	scalarProduct { :self :aList |
+		(self *.e aList).sum
 	}
 
 	scan { :self :aBlock:/2 |
@@ -2670,8 +2664,8 @@
 		answer
 	}
 
-	squaredEuclideanDistance { :self :aSequence |
-		(self - aSequence).norm.squared
+	squaredEuclideanDistance { :self :aList |
+		(self - aList).norm.squared
 	}
 
 	standardDeviation { :self |
@@ -2687,7 +2681,7 @@
 	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
 		let deviation = deviationBlock(self);
 		(deviation = 0).if {
-			self.error('@Sequence>>standardize: deviation = 0?')
+			self.error('@Sequenceable>>standardize: deviation = 0?')
 		} {
 			(self - meanBlock(self)) / deviation
 		}
@@ -2880,8 +2874,8 @@
 		self.substrings(true.constant)
 	}
 
-	substringsInCommon { :self :aSequence :k |
-		self.partition(k, 1).intersection(aSequence.partition(k, 1))
+	substringsInCommon { :self :aList :k |
+		self.partition(k, 1).intersection(aList.partition(k, 1))
 	}
 
 	swapWith { :self :oneIndex :anotherIndex |
@@ -2914,10 +2908,10 @@
 		}
 	}
 
-	takeList { :self :aSequence |
+	takeList { :self :aList |
 		let answer = [];
 		let startIndex = 1;
-		aSequence.do { :each |
+		aList.do { :each |
 			let endIndex = startIndex + each - 1;
 			answer.add(self.copyFromTo(startIndex, endIndex));
 			startIndex := endIndex + 1
@@ -2957,7 +2951,7 @@
 				self @> fromIndex
 			}
 		} {
-			self.error('@Sequence>>transposed: not permutation')
+			self.error('@Sequenceable>>transposed: not permutation')
 		}
 	}
 
@@ -3031,7 +3025,7 @@
 		(u.isVector & { v.isVector }).if {
 			(u.dot(v) / (u.norm * v.norm)).arcCos
 		} {
-			self.error('@Sequence>>vectorAngle: not vectors')
+			self.error('@Sequenceable>>vectorAngle: not vectors')
 		}
 	}
 
@@ -3050,15 +3044,15 @@
 		}
 	}
 
-	withCollect { :self :aSequence :aBlock:/2 |
-		self.withCollectWrapping(aSequence, aBlock:/2)
+	withCollect { :self :aList :aBlock:/2 |
+		self.withCollectWrapping(aList, aBlock:/2)
 	}
 
-	withCollectCrossed { :self :aSequence :aBlock:/2 |
-		let answer = self.species.new(self.size * aSequence.size);
+	withCollectCrossed { :self :aList :aBlock:/2 |
+		let answer = self.species.new(self.size * aList.size);
 		let nextIndex = 1;
 		self.do { :leftItem |
-			aSequence.do { :rightItem |
+			aList.do { :rightItem |
 				answer[nextIndex] := aBlock(leftItem, rightItem);
 				nextIndex := nextIndex + 1
 			}
@@ -3066,10 +3060,10 @@
 		answer
 	}
 
-	withCollectEqual { :self :aSequence :aBlock:/2 |
-		self.isOfSameSizeCheck(aSequence);
+	withCollectEqual { :self :aList :aBlock:/2 |
+		self.isOfSameSizeCheck(aList);
 		1.toAsCollect(self.size, self.species) { :index |
-			aBlock(self[index], aSequence[index])
+			aBlock(self[index], aList[index])
 		}
 	}
 
@@ -3090,28 +3084,28 @@
 		}
 	}
 
-	withCollectOuter { :self :aSequence :aBlock:/2 |
-		aBlock:/2.outer(self, aSequence)
+	withCollectOuter { :self :aList :aBlock:/2 |
+		aBlock:/2.outer(self, aList)
 	}
 
-	withCollectTable { :self :aSequence :aBlock:/2 |
+	withCollectTable { :self :aList :aBlock:/2 |
 		self.collect { :each |
-			aBlock(each, aSequence)
+			aBlock(each, aList)
 		}
 	}
 
-	withCollectTruncating { :self :aSequence :aBlock:/2 |
-		(self.size < aSequence.size).if {
-			self.withCollect(aSequence.take(self.size), aBlock:/2)
+	withCollectTruncating { :self :aList :aBlock:/2 |
+		(self.size < aList.size).if {
+			self.withCollect(aList.take(self.size), aBlock:/2)
 		} {
-			self.take(aSequence.size).withCollect(aSequence, aBlock:/2)
+			self.take(aList.size).withCollect(aList, aBlock:/2)
 		}
 	}
 
-	withCollectWrapping { :self :aSequence :aBlock:/2 |
-		let maximumSize = self.size.max(aSequence.size);
+	withCollectWrapping { :self :aList :aBlock:/2 |
+		let maximumSize = self.size.max(aList.size);
 		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index))
+			aBlock(self.atWrap(index), aList.atWrap(index))
 		}
 	}
 
@@ -3165,18 +3159,18 @@
 		}
 	}
 
-	withWithCollect { :self :aSequence :anotherSequence :aBlock:/3 |
-		let maximumSize = [self, aSequence, anotherSequence].collect(size:/1).max;
+	withWithCollect { :self :aList :anotherList :aBlock:/3 |
+		let maximumSize = [self, aList, anotherList].collect(size:/1).max;
 		1.toAsCollect(maximumSize, self.species) { :index |
-			aBlock(self.atWrap(index), aSequence.atWrap(index), anotherSequence.atWrap(index))
+			aBlock(self.atWrap(index), aList.atWrap(index), anotherList.atWrap(index))
 		}
 	}
 
-	withWithDo { :self :aSequence :anotherSequence :aBlock:/3 |
-		self.isOfSameSizeCheck(aSequence);
-		self.isOfSameSizeCheck(anotherSequence);
+	withWithDo { :self :aList :anotherList :aBlock:/3 |
+		self.isOfSameSizeCheck(aList);
+		self.isOfSameSizeCheck(anotherList);
 		self.indicesDo { :index |
-			aBlock(self[index], aSequence[index], anotherSequence[index])
+			aBlock(self[index], aList[index], anotherList[index])
 		}
 	}
 
@@ -3201,7 +3195,7 @@
 
 }
 
-+@Sequence {
++@Sequenceable {
 
 	applyBinaryMathOperatorInPlace { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {

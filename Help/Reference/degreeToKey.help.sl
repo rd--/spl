@@ -124,14 +124,14 @@ and degrees are _zero-indexed_:
 Threads over lists:
 
 ```
->>> 0:7.degreeToKey([0 2 4 5 7 9 11], 12)
+>>> [0 .. 7].degreeToKey([0 2 4 5 7 9 11], 12)
 [0 2 4 5 7 9 11 12]
 ```
 
 Indices wrap around the table and shift octaves as they do:
 
 ```
->>> 1:15.degreeToKey([0 1 5 9 11], 12)
+>>> [1 .. 15].degreeToKey([0 1 5 9 11], 12)
 [
 	01 05 09 11 12
 	13 17 21 23 24
@@ -145,7 +145,7 @@ Negative degrees:
 >>> -12.degreeToKey([0 2 4 6 7 9 11], 12)
 -20
 
->>> (-14, -12 .. 14)
+>>> [-14, -12 .. 14]
 >>> .degreeToKey([0, 2, 4, 6, 7, 9, 11], 12)
 [
 	-24 -20 -17 -13

@@ -37,7 +37,7 @@ At `List`:
 As square root of sum of squares:
 
 ```
->>> let v = 1:5;
+>>> let v = [1 .. 5];
 >>> v.norm
 (v ^ 2).sum.sqrt
 ```
@@ -45,7 +45,7 @@ As square root of sum of squares:
 As square root of `dot` with `conjugated`:
 
 ```
->>> let v = 1:5;
+>>> let v = [1 .. 5];
 >>> v.norm
 v.dot(v.conjugated).sqrt
 ```

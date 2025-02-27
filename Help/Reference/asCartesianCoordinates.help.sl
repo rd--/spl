@@ -11,13 +11,6 @@ Answer a `CartesianCoordinates`.
 CartesianCoordinates(1, 2, 3)
 ```
 
-`Tuple` case:
-
-```
->>> (1, 2, 3).asCartesianCoordinates
-CartesianCoordinates(1, 2, 3)
-```
-
 `Record` case:
 
 ```

@@ -54,7 +54,7 @@ true
 
 * * *
 
-See also: collect, map, withCollectEqual, withCollectFolding, withCollectTruncating, withCollectWrapping, withIndexCollect, withReplace, withWithCollect
+See also: adaptToCollectionAndApply, collect, map, withCollectEqual, withCollectFolding, withCollectTruncating, withCollectWrapping, withIndexCollect, withReplace, withWithCollect
 
 References:
 _Haskell_

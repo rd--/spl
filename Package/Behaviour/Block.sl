@@ -221,12 +221,12 @@ Block! : [Object] {
 		aCollection.collect(self:/1)
 	}
 
-	map { :self:/2 :aSequence :anotherSequence |
-		aSequence.withCollect(anotherSequence, self:/2)
+	map { :self:/2 :aList :anotherList |
+		aList.withCollect(anotherList, self:/2)
 	}
 
-	map { :self:/3 :aSequence :anotherSequence :aThirdSequence |
-		aSequence.withWithCollect(anotherSequence, aThirdSequence, self:/3)
+	map { :self:/3 :aList :anotherList :aThirdList |
+		aList.withWithCollect(anotherList, aThirdList, self:/3)
 	}
 
 	memoize { :self:/1 |
@@ -297,8 +297,8 @@ Block! : [Object] {
 		self.cull(aNumber).ofSize(aNumber)
 	}
 
-	outer { :self :aSequence :anotherSequence |
-		(self.outer).value(aSequence, anotherSequence)
+	outer { :self :aList :anotherList |
+		(self.outer).value(aList, anotherList)
 	}
 
 	parameterNames { :self |
@@ -334,27 +334,27 @@ Block! : [Object] {
 	}
 
 	table { :self:/2 |
-		{ :aSequence :anotherSequence |
-			self:/2.table(aSequence, anotherSequence)
+		{ :aList :anotherList |
+			self:/2.table(aList, anotherList)
 		}
 	}
 
-	table { :self:/1 :aSequence |
-		aSequence.collect(self:/1)
+	table { :self:/1 :aList |
+		aList.collect(self:/1)
 	}
 
-	table { :self:/2 :aSequence :anotherSequence |
-		aSequence.collect { :i |
-			anotherSequence.collect { :j |
+	table { :self:/2 :aList :anotherList |
+		aList.collect { :i |
+			anotherList.collect { :j |
 				self(i, j)
 			}
 		}
 	}
 
-	table { :self:/3 :aSequence :aSecondSequence :aThirdSequence |
-		aSequence.collect { :i |
-			aSecondSequence.collect { :j |
-				aThirdSequence.collect { :k |
+	table { :self:/3 :aList :aSecondList :aThirdList |
+		aList.collect { :i |
+			aSecondList.collect { :j |
+				aThirdList.collect { :k |
 					self(i, j, k)
 				}
 			}

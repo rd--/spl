@@ -56,6 +56,13 @@ Matrix times matrix:
 [-1 2; 3 -4; -5 6]
 ```
 
+For the matrix product see `dot`:
+
+```
+>>> [1 2; 3 4].dot([1 0; 3 2])
+[7 4; 15 8]
+```
+
 As argument to `reduce`:
 
 ```
@@ -102,7 +109,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Times.html)
 [2](https://reference.wolfram.com/language/ref/Times.html),
 _Smalltalk_
-5.6.2.1
+5.6.2.1,
+_W_
+[1](https://en.wikipedia.org/wiki/Hadamard_product_(matrices))
 
 Unicode: U+00D7 × Multiplication Sign
 

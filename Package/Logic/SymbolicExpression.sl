@@ -180,6 +180,12 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 		SymbolicExpression(self.Symbol, aList)
 	}
 
+	symbolicBinaryPrimitive { :self |
+		{ :i :j |
+			self.symbolicPrimitive([i, j])
+		}
+	}
+
 	symbolicPrimitive { :self :operands |
 		operands.anySatisfy(isList:/1).if {
 			operands.multiChannelExpand.collect { :each |
@@ -187,6 +193,12 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 			}
 		} {
 			SymbolicExpression(self, operands)
+		}
+	}
+
+	symbolicUnaryPrimitive { :self |
+		{ :i |
+			self.symbolicPrimitive([i])
 		}
 	}
 

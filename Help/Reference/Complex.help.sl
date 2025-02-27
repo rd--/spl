@@ -151,20 +151,17 @@ Use `real` and `imaginary` to extract parts of `Complex` numbers:
 (1, 2)
 ```
 
-The `asTuple` method answers a two tuple of the real and imaginary components:
+The `asList` method answers a two `List` of the real and imaginary components:
 
 ```
->>> 1J2.asTuple
-(1, 2)
+>>> 1J2.asList
+[1 2]
 ```
 
-The `asComplex` method is defined at `List` and `Tuple`:
+The `asComplex` method is defined at `List`:
 
 ```
->>> [1, 2].asComplex
-1J2
-
->>> (1, 2).asComplex
+>>> [1 2].asComplex
 1J2
 ```
 

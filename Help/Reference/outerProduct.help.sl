@@ -60,3 +60,7 @@ A multiplication table:
 * * *
 
 See also: *, dot, inner, outer
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Outer_product)

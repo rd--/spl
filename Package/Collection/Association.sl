@@ -44,10 +44,6 @@ Association : [Object] { | key value |
 		[self.key, self.value]
 	}
 
-	asTuple { :self |
-		(self.key, self.value)
-	}
-
 	keyValue { :self :key :value |
 		self.key := key;
 		self.value := value;
@@ -92,13 +88,13 @@ Association : [Object] { | key value |
 
 }
 
-+@Sequence {
++List {
 
 	asAssociation { :self |
 		(self.size = 2).if {
 			self.first -> self.second
 		} {
-			self.error('@Sequence>>asAssociation: not two-element sequence')
+			self.error('List>>asAssociation: not two-element sequence')
 		}
 	}
 

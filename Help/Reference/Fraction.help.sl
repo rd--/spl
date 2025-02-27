@@ -54,7 +54,7 @@ The `Fraction` method reduces fractions on construction:
 The unary `Fraction` requires a two-element sequence:
 
 ```
->>> (2, 4).Fraction
+>>> [2 4].Fraction
 1/2
 
 >>> [7 21].Fraction
@@ -65,8 +65,8 @@ The `ReducedFraction` method does not,
 it assumes the fraction being specified is in reduced form:
 
 ```
->>> ReducedFraction(2, 4).asTuple
-(2, 4)
+>>> ReducedFraction(2, 4).asList
+[2 4]
 ```
 
 Literal fractions are `normalized` and have the following invariants:
@@ -168,13 +168,6 @@ There are accessor methods for the `numerator` and `denominator`:
 (22, 7)
 ```
 
-The `asTuple` method answers a `Tuple` of these:
-
-```
->>> 22/7.asTuple
-(22, 7)
-```
-
 The `asList` method answers a `List` of these:
 
 ```
@@ -231,7 +224,7 @@ This is a close approximation to 2.sqrt:
 
 ```
 >>> let f = { :r |
->>> 	let [x, y] = r.asTuple;
+>>> 	let [x, y] = r.asList;
 >>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
 >>> };
 >>> (

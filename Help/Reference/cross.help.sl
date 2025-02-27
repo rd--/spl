@@ -16,10 +16,10 @@ The cross product of two vectors in three dimensions:
 [-3 6 -3]
 ```
 
-The cross product of a single vector in two dimensions:
+The cross product of a single vector in two dimensions _(x, y)_ is the perpendicular vector _(-y, x)_:
 
 ```
->>> [1 3.sqrt].cross
+>>> [1, 3.sqrt].cross
 [3.sqrt.-, 1]
 ```
 

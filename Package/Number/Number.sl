@@ -77,6 +77,12 @@
 		abs * abs
 	}
 
+	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
+		aCollection.collect { :each |
+			aBlock(each, self)
+		}
+	}
+
 	arcMinute { :self |
 		self * 0.0002908882086657216
 	}
@@ -132,7 +138,7 @@
 		aNumber.isNumber.if {
 			self + aNumber
 		} {
-			('Number>>basicPlus: operand not number' ++ aNumber).error
+			('Number>>basicPlus: operand not a number' ++ aNumber).error
 		}
 	}
 
@@ -140,7 +146,7 @@
 		aNumber.isNumber.if {
 			self * aNumber
 		} {
-			('Number>>basicTimes: operand not number: ' ++ aNumber).error
+			('Number>>basicTimes: operand not a number: ' ++ aNumber).error
 		}
 	}
 

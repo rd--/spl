@@ -11,10 +11,10 @@ The product of two 2×2 matrices:
 >>> 	[1 2; 3 4]
 >>> )
 [
-	0 0 1 2;
-	0 0 3 4;
-	-1 -2 0 0;
-	-3 -4 0 0
+	 0  0  1  2;
+	 0  0  3  4;
+	-1 -2  0  0;
+	-3 -4  0  0
 ]
 ```
 
@@ -25,11 +25,21 @@ The product of two 2×2 matrices:
 >>> 	[0 5; 6 7]
 >>> )
 [
-	0 5 0 10;
-	6 7 12 14;
-	0 15 0 20;
+	 0  5  0 10;
+	 6  7 12 14;
+	 0 15  0 20;
 	18 21 24 28
 ]
+```
+
+The product of 3×1 and 2×1 column matrices:
+
+```
+>>> [1; 2; 3].kroneckerProduct([4; 5])
+[4; 5; 8; 10; 12; 15]
+
+>>> [1 2 3].outerProduct([4 5])
+[4 5; 8 10; 12 15]
 ```
 
 The product of 3×3 and 3×4 matrices:
@@ -109,4 +119,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KroneckerProduct),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/kron.html)
+[1](https://mathworks.com/help/matlab/ref/kron.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Kronecker_product)

@@ -40,7 +40,7 @@
 	}
 
 	keesSemiHeight { :self |
-		let [n, d] = self.withoutFactorsOfTwo.asTuple;
+		let [n, d] = self.withoutFactorsOfTwo.asList;
 		n.max(d)
 	}
 

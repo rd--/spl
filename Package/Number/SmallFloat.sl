@@ -121,12 +121,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :each |
-			aBlock(each, self)
-		}
-	}
-
 	arcCos { :self |
 		<primitive: return Math.acos(_self)>
 	}

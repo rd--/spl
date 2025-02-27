@@ -37,7 +37,7 @@
 
 }
 
-+@Sequence {
++List {
 
 	bubble { :self :depth :levels |
 		(depth <= 0).if {

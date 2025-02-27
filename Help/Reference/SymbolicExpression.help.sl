@@ -107,6 +107,40 @@ is may also be a `SymbolicExpression`:
 '((f x) y)'
 ```
 
+Evaluate `inner` using symbolic primitives:
+
+```
+>>> let f = '*'.symbolicBinaryPrimitive;
+>>> let g = '+'.symbolicBinaryPrimitive;
+>>> [
+>>> 	f.inner([1 2], [3 4], g),
+>>> 	f.inner([1 2; 3 4], [8 9], g),
+>>> 	f.inner([9 8], [1 2; 3 4], g),
+>>> 	f.inner([1 2; 3 4], [6 7; 8 9], g)
+>>> ].deepCollect(printString:/1)
+[
+	'(+ (* 1 3) (* 2 4))',
+	 [
+		 '(+ (* 1 8) (* 2 9))',
+		 '(+ (* 3 8) (* 4 9))'
+	 ],
+	 [
+		 '(+ (* 9 1) (* 8 3))',
+		 '(+ (* 9 2) (* 8 4))'
+	 ],
+	 [
+		 [
+			 '(+ (* 1 6) (* 2 8))',
+			 '(+ (* 1 7) (* 2 9))'
+		 ],
+		 [
+			 '(+ (* 3 6) (* 4 8))',
+			 '(+ (* 3 7) (* 4 9))'
+		 ]
+	 ]
+]
+```
+
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A

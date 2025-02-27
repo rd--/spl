@@ -118,12 +118,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :each |
-			aBlock(each, self)
-		}
-	}
-
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
 		aBlock(
 			ReducedFraction(anInteger, 1L),
@@ -163,10 +157,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		[self.numerator, self.denominator]
 	}
 
-	asTuple { :self |
-		(self.numerator, self.denominator)
-	}
-
 	dividesImmediately { :self :aNumber |
 		let r = self / aNumber;
 		r.denominator = 1 & {
@@ -201,8 +191,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	isFareyPair { :self :aFraction |
-		let [a, b] = self.asTuple;
-		let [c, d] = aFraction.asTuple;
+		let [a, b] = self.asList;
+		let [c, d] = aFraction.asList;
 		(b * c) - (a * d) = 1
 	}
 
@@ -523,13 +513,13 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 }
 
-+@Sequence {
++List {
 
 	Fraction { :self |
 		(self.size = 2).if {
 			Fraction(self[1], self[2])
 		} {
-			self.error('@Sequence>>Fraction: invalid size')
+			self.error('List>>Fraction: invalid size')
 		}
 	}
 

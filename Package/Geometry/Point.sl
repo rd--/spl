@@ -301,7 +301,7 @@ Point : [Object] { | coordinates |
 		self.size.betweenAnd(2, 3).if {
 			self[1]
 		} {
-			self.error('@Sequence>>x: not two- three-vector')
+			self.error('List>>x: not two- three-vector')
 		}
 	}
 
@@ -309,7 +309,7 @@ Point : [Object] { | coordinates |
 		self.size.betweenAnd(2, 3).if {
 			self[2]
 		} {
-			self.error('@Sequence>>y: not two- three-vector')
+			self.error('List>>y: not two- three-vector')
 		}
 	}
 
@@ -317,7 +317,7 @@ Point : [Object] { | coordinates |
 		(self.size = 3).if {
 			self[3]
 		} {
-			self.error('@Sequence>>z: not three-vector')
+			self.error('List>>z: not three-vector')
 		}
 	}
 	*/

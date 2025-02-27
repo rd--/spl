@@ -8,7 +8,7 @@ Cyclic permutation of three elements in a list:
 
 ```
 >>> let p = [[1 3 2]].asPermutation;
->>> 1:5.permute(p)
+>>> [1 .. 5].permute(p)
 [2 3 1 4 5]
 ```
 
@@ -16,7 +16,7 @@ Equivalent action with a permutation list:
 
 ```
 >>> let p = [3 1 2].asPermutation;
->>> 1:5.permute(p)
+>>> [1 .. 5].permute(p)
 [2 3 1 4 5]
 ```
 
@@ -43,14 +43,14 @@ The permutation may be given as a `List`,
 either of cycles:
 
 ```
->>> 1:5.permute([1 3; 2 4])
+>>> [1 .. 5].permute([1 3; 2 4])
 [3 4 1 2 5]
 ```
 
 or a list:
 
 ```
->>> 1:5.permute([3 4 1 2])
+>>> [1 .. 5].permute([3 4 1 2])
 [3 4 1 2 5]
 ```
 

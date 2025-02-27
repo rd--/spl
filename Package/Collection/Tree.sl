@@ -253,10 +253,6 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 
 }
 
-+@Sequence {
-
-}
-
 +List {
 
 	expressionTree { :self :anObject |

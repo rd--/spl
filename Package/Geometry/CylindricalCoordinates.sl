@@ -14,10 +14,6 @@ CylindricalCoordinates : [Object] { | rho phi z |
 		(rho: self.rho, phi: self.phi, z: self.z)
 	}
 
-	asTuple { :self |
-		(self.rho, self.phi, self.z)
-	}
-
 	radius { :self |
 		self.rho
 	}

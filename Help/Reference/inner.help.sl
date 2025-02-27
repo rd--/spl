@@ -64,6 +64,45 @@ Generalized inner product of:
 )
 ```
 
+Evaluate symbolically:
+
+```
+>>> let [
+>>> 	a, b, c, d,
+>>> 	s, t, u, v, w, x, y
+>>> ] = [
+>>> 	'a' 'b' 'c' 'd'
+>>> 	's' 't' 'u' 'v' 'w' 'x' 'y'
+>>> ].collect(Symbol:/1);
+>>> [
+>>> 	*.inner([a b], [x y], +),
+>>> 	*.inner([a b; c d], [s t], +),
+>>> 	*.inner([x y], [a b; c d], +),
+>>> 	*.inner([a b; c d], [u v; w x], +)
+>>> ].deepCollect(printString:/1)
+[
+	'(+ (* a x) (* b y))',
+	[
+		'(+ (* a s) (* b t))',
+		'(+ (* c s) (* d t))'
+	],
+	[
+		'(+ (* x a) (* y c))',
+		'(+ (* x b) (* y d))'
+	],
+	[
+		[
+			'(+ (* a u) (* b w))',
+			'(+ (* a v) (* b x))'
+		],
+		[
+			'(+ (* c u) (* d w))',
+			'(+ (* c v) (* d x))'
+		]
+	]
+]
+```
+
 The binary form is _adverbial_, it answers a `Block` that will perform _inner(f, α, β, g)_.
 
 ```

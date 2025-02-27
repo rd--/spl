@@ -16,12 +16,6 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 		self * aNumber.inverse
 	}
 
-	adaptToCollectionAndApply { :self :aCollection :aBlock:/2 |
-		aCollection.collect { :each |
-			aBlock(each, self)
-		}
-	}
-
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
 		aBlock(
 			Residue(anInteger, self.modulus),
@@ -97,13 +91,13 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 
 }
 
-+@Sequence {
++List {
 
 	asResidue { :self |
 		(self.size = 2).if {
 			Residue(self[1], self[2])
 		} {
-			self.error('@Sequence>>asResidue: size not two')
+			self.error('List>>asResidue: size not two')
 		}
 	}
 

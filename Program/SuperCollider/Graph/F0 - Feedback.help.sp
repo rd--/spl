@@ -1,5 +1,5 @@
 /* http://www.fredrikolofsson.com/f0blog/?q=node/619 ; texture */
-{ : tr |
+{ :tr |
 	let ch = { :aList |
 		Choose(tr, aList)
 	};

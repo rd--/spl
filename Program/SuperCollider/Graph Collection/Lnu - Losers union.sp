@@ -214,7 +214,7 @@ let o = SinOsc(
 Splay(o, 3 / 4)
 
 /* Phase Modulation Washer ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/111071167369230347 */
-let p = (1, 3 .. 64);
+let p = [1, 3 .. 64];
 let n = 110;
 let f = p / 1.pi * p.degreesToRadians * n;
 Splay(
@@ -361,7 +361,7 @@ let d = {
 		Demand(
 			Impulse(1 / 30:53.atRandom, 0),
 			0,
-			Dxrand(Infinity, 7:53.degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
+			Dxrand(Infinity, [7 .. 53].degreeToKey([0 1 4 5 7 9 10], 12).MidiCps)
 		)
 	} ! n
 };
@@ -651,7 +651,7 @@ let tab = [
 let x = LorenzL(24, 10, 28, 2.667, 0.05, 0.1, 0, 0).Sin.LinLin(-1, 1, 1, 4) / Diwhite(Infinity, 2, 10);
 let dur = Duty(x, 0, x);
 let trg = TDuty(dur, 0, 1);
-let mel = 26:42.degreeToKey([0 2 4 5 7 9 11], 12);
+let mel = [26 .. 42].degreeToKey([0 2 4 5 7 9 11], 12);
 let mnn = Demand(
 	trg,
 	0,

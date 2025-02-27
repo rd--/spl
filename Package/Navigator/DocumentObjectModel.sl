@@ -845,7 +845,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+@Sequence {
++List {
 
 	asHtmlRow { :self :toString:/1 |
 		let tr = 'tr'.createElement;
