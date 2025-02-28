@@ -45,6 +45,8 @@ There are twenty six letters and each has two cases:
 See also: Character, isDigit, isLowerCase, isUpperCase
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/LetterQ.html),
 _Smalltalk_
 5.3.4.8
 

@@ -14,6 +14,6 @@ To implement `Iterator` a type must implement `next`.
 
 * * *
 
-See also: asIterator, do, next, Stream
+See also: asIterator, do, Iterable, next, Stream
 
 Categories: Collection, Trait

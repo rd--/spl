@@ -20,6 +20,12 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		answer
 	}
 
+	asAssociationList { :self |
+		self.runsAndValuesCollect { :run :value |
+			value -> run
+		}
+	}
+
 	asIdentityBag { :self |
 		let answer = IdentityBag();
 		self.runsAndValuesDo { :run :value |

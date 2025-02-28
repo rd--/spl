@@ -121,6 +121,10 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
+	asciiList { :self |
+		self.asciiByteArray.asList
+	}
+
 	asciiValue { :self |
 		(self.size = 1).if {
 			self.asciiByteArray.first
@@ -142,7 +146,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	asList { :self |
-		self.contents
+		self.characters
 	}
 
 	asLowerCase { :self |
@@ -162,11 +166,11 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	asIdentitySet { :self |
-		self.contents.asIdentitySet
+		self.characters.asIdentitySet
 	}
 
 	asSet { :self :aBlock:/2 |
-		self.contents.asSet(aBlock:/2)
+		self.characters.asSet(aBlock:/2)
 	}
 
 	asString { :self |
@@ -196,7 +200,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	atAll { :self :indices |
-		self.contents.atAll(indices).join('')
+		self.characters.atAll(indices).join('')
 	}
 
 	basicAppendString { :self :aString |
@@ -292,7 +296,7 @@ String! : [Object, Json, Iterable, Character] {
 		self <=> anObject
 	}
 
-	contents { :self |
+	characters { :self |
 		self.primitiveCollectInto(identity:/1, [])
 	}
 
@@ -352,7 +356,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	deBruijnSequence { :self :anInteger |
-		self.contents.deBruijnSequence(anInteger).join('')
+		self.characters.deBruijnSequence(anInteger).join('')
 	}
 
 	do { :self :aBlock:/1 |
@@ -370,7 +374,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	editDistance { :self :aString |
-		self.contents.editDistance(aString.contents)
+		self.characters.editDistance(aString.characters)
 	}
 
 	endsWith { :self :aString |
@@ -472,7 +476,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	hammingDistance { :self :aString |
-		self.contents.hammingDistance(aString.contents)
+		self.characters.hammingDistance(aString.characters)
 	}
 
 	includes { :self :aCharacter |
@@ -490,7 +494,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	includesSubsequence { :self :aString |
-		self.contents.includesSubsequence(aString.contents)
+		self.characters.includesSubsequence(aString.characters)
 	}
 
 	includesSubstring { :self :aString |
@@ -583,6 +587,16 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
+	isAscii { :self |
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+	}
+
+	isPrintableAscii { :self |
+		self.utf8ByteArray.allSatisfy { :each |
+			each.betweenAnd(32, 126)
+		}
+	}
+
 	isSameAs { :self :aString |
 		(self = aString).if {
 			true
@@ -611,6 +625,12 @@ String! : [Object, Json, Iterable, Character] {
 		self.copyFromTo(self.size - count + 1, self.size)
 	}
 
+	letterNumber { :self :aString |
+		aString.alphabet.indexOf(
+			self.asLowerCase
+		)
+	}
+
 	lineCount { :self |
 		self.isEmpty.if {
 			1
@@ -636,21 +656,27 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	longestCommonSubsequence { :self :aString |
-		self.contents.longestCommonSubsequence(aString.contents).join('')
+		self
+		.characters
+		.longestCommonSubsequence(aString.characters)
+		.join('')
 	}
 
 	longestCommonSubstringList { :self :aString |
-		self.contents.longestCommonSubstringList(aString.contents).collect { :each |
+		self
+		.characters
+		.longestCommonSubstringList(aString.characters)
+		.collect { :each |
 			each.join('')
 		}
 	}
 
 	longestCommonSubstring { :self :aString |
-		self.contents.longestCommonSubstring(aString.contents).join('')
+		self.characters.longestCommonSubstring(aString.characters).join('')
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.contents.longestIncreasingSubsequence.join('')
+		self.characters.longestIncreasingSubsequence.join('')
 	}
 
 	notEmpty { :self |
@@ -665,7 +691,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	nubSieve { :self |
-		self.asList.nubSieve
+		self.characters.nubSieve
 	}
 
 	occurrencesOf { :self :aString |
@@ -689,7 +715,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	onCharacters { :self :aBlock:/1 |
-		self.asList.aBlock.join('')
+		self.characters.aBlock.join('')
 	}
 
 	padLeft { :self :anInteger :aString |
@@ -826,12 +852,20 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return `'${_self}'`;>
 	}
 
-	stringList { :self |
-		self.contents
+	stringReverse { :self |
+		self.reversed
 	}
 
 	take { :self :anInteger |
 		self.copyFromTo(1, anInteger.min(self.size))
+	}
+
+	toCharacterCode { :self :encoding |
+		encoding.caseOf([
+			{ 'Ascii' } -> { self.asciiList },
+			{ 'Utf8' } -> { self.utf8List },
+			{ 'Utf16' } -> { self.utf16List }
+		])
 	}
 
 	trim { :self |
@@ -944,7 +978,11 @@ String! : [Object, Json, Iterable, Character] {
 
 }
 
-+@Integer {
++SmallFloat {
+
+	fromCharacterCode { :self :encoding |
+		[self].fromCharacterCode(encoding)
+	}
 
 	isAsciiCodePoint { :self |
 		self.betweenAnd(0, 127)
@@ -959,8 +997,36 @@ String! : [Object, Json, Iterable, Character] {
 
 +List {
 
+	basicStringJoin { :self :aString |
+		<primitive: return _self.join(_aString);>
+	}
+
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)
+	}
+
+	fromCharacterCode { :self :encoding |
+		self.isVector.if {
+			encoding.caseOf([
+				{ 'Ascii' } -> { self.asciiString },
+				{ 'Utf8' } -> { self.utf8String },
+				{ 'Utf16' } -> { self.utf16String }
+			])
+		} {
+			self.collect { :each |
+				each.fromCharacterCode(encoding)
+			}
+		}
+	}
+
+	isPrintableAscii { :self |
+		self.collect(isPrintableAscii:/1)
+	}
+
+	letterNumber { :self :aString |
+		self.collect { :each |
+			each.letterNumber(aString)
+		}
 	}
 
 	stringConcatenation { :self :aString |
@@ -979,6 +1045,10 @@ String! : [Object, Json, Iterable, Character] {
 		self.stringJoin('')
 	}
 
+	stringReverse { :self |
+		self.collect(stringReverse:/1)
+	}
+
 	joinCharacters { :self |
 		self.collect(characterString:/1).join('')
 	}
@@ -987,20 +1057,22 @@ String! : [Object, Json, Iterable, Character] {
 		self.collect(capitalized:/1)
 	}
 
+	removeDiacritics { :self |
+		self.collect(removeDiacritics:/1)
+	}
+
+	toCharacterCode { :self :encoding |
+		self.collect { :each |
+			each.toCharacterCode(encoding)
+		}
+	}
+
 	unlines { :self |
 		self.join('\n')
 	}
 
 	unwords { :self |
 		self.join(' ')
-	}
-
-}
-
-+List {
-
-	basicStringJoin { :self :aString |
-		<primitive: return _self.join(_aString);>
 	}
 
 }

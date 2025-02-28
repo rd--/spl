@@ -46,19 +46,20 @@ DoubleQuotedString(
 )
 ```
 
-A backtick quoted string:
+A backtick quoted string is a `Symbol`:
 
 ```
->>> `Backtick Quoted String`
-Symbol(
-	'Backtick Quoted String'
-)
+>>> `x`.isSymbol
+true
+
+>>> Symbol('x').isSymbol
+true
 ```
 
-At `String` the `contents` method answers single character strings that make up the quoted string:
+At `String` the `characters` method answers single character strings that make up the quoted string:
 
 ```
->>> 'Single Quoted String'.contents
+>>> 'Single Quoted String'.characters
 [
 	'S' 'i' 'n' 'g' 'l' 'e'
 	' '
@@ -68,13 +69,17 @@ At `String` the `contents` method answers single character strings that make up 
 ]
 ```
 
-At `DoubleQuotedString` and `BacktickQuotedString` the `contents` method answers the quoted string:
+At `DoubleQuotedString` the `contents` method answers the quoted string:
 
 ```
 >>> "Double Quoted String".contents
 'Double Quoted String'
+```
 
->>> `Backtick Quoted String`.contents
+At `Symbol` the `name` method answers the quoted string:
+
+```
+>>> `Backtick Quoted String`.name
 'Backtick Quoted String'
 ```
 

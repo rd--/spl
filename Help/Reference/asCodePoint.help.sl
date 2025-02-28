@@ -19,8 +19,4 @@ Answer an `Integer` of the Unicode code point given a `Character`, a `String` or
 
 See also: asCharacter, asString
 
-References:
-_Smalltalk_
-5.3.5.1
-
 Categories: Converting

@@ -5,13 +5,10 @@
 It is part of `String Syntax`.
 
 ```
->>> `Backtick Quoted String`
-BacktickQuotedString(
-	'Backtick Quoted String'
-)
+>>> `x`.isSymbol
+true
 
->>> `Backtick Quoted String`
->>> .isBacktickQuotedString
+>>> `x` == Symbol('x')
 true
 ```
 
@@ -19,7 +16,7 @@ The name of this syntax token is `graveAccent`.
 
 * * *
 
-See also: apostrophe, BacktickQuotedString, quotationMark
+See also: apostrophe, quotationMark, Symbol
 
 Guides: String Syntax
 

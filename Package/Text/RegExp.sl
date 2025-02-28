@@ -219,7 +219,7 @@ RegExp! : [Object] {
 
 	wordsBy { :self :separators |
 		self.splitByRegExp(
-			separators.contents.join('|')
+			separators.characters.join('|')
 		).reject(isEmpty:/1)
 	}
 

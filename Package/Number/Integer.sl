@@ -454,10 +454,6 @@
 		self.foldBetweenAnd(1, size)
 	}
 
-	fromCharacterCode { :self |
-		self.asCharacter.characterString
-	}
-
 	gcd { :self :anInteger |
 		anInteger.isInteger.if {
 			let a = self.abs;

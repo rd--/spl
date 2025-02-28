@@ -12,6 +12,6 @@ Answer a `CollectionStream` on _aCollection_.
 
 * * *
 
-See also: CollectionStream, Iterator, next, Stream
+See also: CollectionStream, do, Iterator, Iterable, next, Stream
 
 Categories: Converting

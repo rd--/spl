@@ -47,4 +47,8 @@ if the code points in range:
 
 * * *
 
-See also: Character, characterList, String, utf8ByteArray, utf16List
+See also: Character, characterList, codePoint, String, utf8ByteArray, utf16List
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ToCharacterCode.html)

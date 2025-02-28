@@ -110,7 +110,11 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 	}
 
 	utf8String { :self |
-		<primitive: return new TextDecoder('utf8').decode(_self).normalize('NFC');>
+		<primitive: return new TextDecoder('utf-8').decode(_self).normalize('NFC');>
+	}
+
+	utf16String { :self |
+		<primitive: return new TextDecoder('utf-16').decode(_self).normalize('NFC');>
 	}
 
 }
@@ -119,6 +123,14 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 
 	asciiString { :self |
 		self.asByteArray.asciiString
+	}
+
+	utf8String { :self |
+		self.asByteArray.utf8String
+	}
+
+	utf16String { :self |
+		<primitive: return String.fromCodePoint(..._self);>
 	}
 
 }

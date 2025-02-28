@@ -19,6 +19,6 @@ Methods for accessing: `anyOne`
 
 * * *
 
-See also: Collection, do, size, Trait
+See also: Collection, do, Iterator, size, Trait
 
 Categories: Trait

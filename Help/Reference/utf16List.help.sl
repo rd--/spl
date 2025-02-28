@@ -12,6 +12,17 @@ Answer a `List` of the Utf-16 code points of _aString_.
 [913 914 915 945 946 947]
 ```
 
+The inverse is `utf16String`:
+
+
+```
+>>> [8364].utf16String
+'€'
+
+>>> [913 914 915 945 946 947].utf16String
+'ΑΒΓαβγ'
+```
+
 * * *
 
-See also: String, utf8ByteArray
+See also: String, utf8ByteArray, utf16String

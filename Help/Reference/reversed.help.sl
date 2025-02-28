@@ -63,6 +63,21 @@ Column-reversed matrix:
 ]
 ```
 
+Iteratively join a string to its reverse:
+
+```
+>>> { :x |
+>>> 	x ++ x.reversed
+>>> }.nestList('.|', 4)
+[
+	'.|'
+	'.||.'
+	'.||..||.'
+	'.||..||..||..||.'
+	'.||..||..||..||..||..||..||..||.'
+]
+```
+
 Where supported `reversed` is displayed as ᴙ.
 
 * * *
@@ -74,6 +89,9 @@ _Apl_
 [1](https://aplwiki.com/wiki/Reverse),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Reverse.html)
+[1](https://reference.wolfram.com/language/ref/StringReverse.html),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#reversed),
 _Smalltalk_

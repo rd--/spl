@@ -34,7 +34,7 @@ the above is equivalent to:
 
 ```
 >>> 'characters'
->>> .stringList
+>>> .characters
 >>> .collect(codePoint:/1)
 [99 104 97 114 97 99 116 101 114 115]
 ```
@@ -105,9 +105,5 @@ Unicode strings:
 * * *
 
 See also: Character, codePoints, String
-
-References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/Characters.html)
 
 Categories: Converting

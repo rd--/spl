@@ -4,7 +4,7 @@
 
 Answer `true` if _aString_ has only one place.
 
-A one element `String` is no a `Character`
+A one element `String` is both a `Character`
 (in that it implements the `Character` `Trait`)
 and a `String`:
 

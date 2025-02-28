@@ -100,14 +100,14 @@ true
 '-63'
 ```
 
-`DoubleQuotedString` and `BacktickQuotedString` literals are rewritten as `Apply Syntax` and `String` literals:
+`DoubleQuotedString` and `Symbol` literals are rewritten as `Apply Syntax` and `String` literals:
 
 ```
->>> '"q"'.splSimplify
-'DoubleQuotedString(\'q\')'
+>> '"q"'.splSimplify
+DoubleQuotedString('q')
 
->>> '`q`'.splSimplify
-'BacktickQuotedString(\'q\')'
+>> '`q`'.splSimplify
+Symbol('q')
 ```
 
 `Dictionary Syntax` is rewritten as `Apply Syntax` and `List Syntax`:

@@ -7,7 +7,9 @@ Answer the Morse code for _aCharacter_ as a `String` of dots ('.') and dashes ('
 Vowels:
 
 ```
->>> 'eaiou'.asList.collect(morseCode:/1)
+>>> 'eaiou'
+>>> .characters
+>>> .collect(morseCode:/1)
 [
 	'.',
 	'.-', '..',
@@ -21,16 +23,22 @@ Consonants, grouped by code length:
 >>> 't'.morseCode
 '-'
 
->>> 'mn'.asList.collect(morseCode:/1)
+>>> 'mn'
+>>> .characters
+>>> .collect(morseCode:/1)
 ['--' '-.']
 
->>> 'dgkrsw'.asList.collect(morseCode:/1)
+>>> 'dgkrsw'
+>>> .characters
+>>> .collect(morseCode:/1)
 [
 	'-..', '--.', '-.-',
 	'.-.', '...', '.--'
 ]
 
->>> 'bcfhjlpqvxyz'.asList.collect(morseCode:/1)
+>>> 'bcfhjlpqvxyz'
+>>> .characters
+>>> .collect(morseCode:/1)
 [
 	'-...', '-.-.', '..-.', '....',
 	'.---', '.-..', '.--.', '--.-',
@@ -41,7 +49,9 @@ Consonants, grouped by code length:
 Numbers:
 
 ```
->>> '1234567890'.asList.collect(morseCode:/1)
+>>> '1234567890'
+>>> .characters
+>>> .collect(morseCode:/1)
 [
 	'.----', '..---', '...--', '....-', '.....',
 	'-....', '--...', '---..', '----.', '-----'
@@ -50,7 +60,7 @@ Numbers:
 
 * * *
 
-See also: Character
+See also: characters
 
 References:
 _ITU_

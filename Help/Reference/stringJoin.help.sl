@@ -40,10 +40,10 @@ With separator:
 'p/q/r'
 ```
 
-The unary form will undo `contents`:
+The unary form will undo `characters`:
 
 ```
->>> 'xyz'.contents.stringJoin
+>>> 'xyz'.characters.stringJoin
 'xyz'
 ```
 
@@ -61,9 +61,18 @@ At the empty list:
 ''
 ```
 
+Join a list of words, after inserting spaces in between:
+
+```
+>>> ['dog' 'cat' 'sheep' 'cow']
+>>> .riffle([' '])
+>>> .stringJoin
+'dog cat sheep cow'
+```
+
 * * *
 
-See also: join, splitBy, stringConcatenation
+See also: ++, join, splitBy, stringConcatenation
 
 References:
 _Mathematica_

@@ -1,6 +1,6 @@
 # contents
 
-- _contents(aBox | anIterable | aStream | aCollection | aString | aQuotedString)_
+- _contents(aBox | anIterable | aStream)_
 
 At `Box`:
 
@@ -23,45 +23,11 @@ At `Tree`:
 
 The `contents` of a `CollectionStream` is a `Sequence` of all of the items in the stream.
 
-The `contents` of a `Collection` is the collection itself.
-
-At `Record`:
-
-```
->>> let r = (x: 1, y: 2);
->>> r.contents == r
-true
-```
-
-The `contents` of a `String` is a `List` of single character `String`s,
-this behaviour is also called `stringList`:
-
-```
->>> 'abc'.contents
-['a' 'b' 'c']
-
->>> 'abc'.stringList
-['a' 'b' 'c']
-```
-
-Inverse are `join` and `stringJoin`:
-
-```
->>> 'mississippi'.contents.join('')
-'mississippi'
-
->>> 'mississippi'.contents.stringJoin
-'mississippi'
-```
-
-The `contents` of quoted strings are the quoted `String` values:
+At `DoubleQuotedString` answers the quoted string:
 
 ```
 >>> "Double Quoted String".contents
 'Double Quoted String'
-
->>> `Backtick Quoted String`.contents
-'Backtick Quoted String'
 ```
 
 At `SortedList` answers the stored list,
@@ -77,7 +43,7 @@ use `asList` to get a copy:
 
 * * *
 
-See also: asList, BacktickQuotedString, DoubleQuotedString, join, next, reset, splitBy, stringList
+See also: asList, DoubleQuotedString, join, next, reset, splitBy, stringList
 
 References:
 _Smalltalk_

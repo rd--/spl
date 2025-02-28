@@ -48,7 +48,7 @@ Plot Utf-8 code points of a String:
 
 * * *
 
-See also: asciiByteArray, ByteArray, String, utf8String, utf16List
+See also: asciiByteArray, ByteArray, String, Utf8Stream, utf8String, utf16List
 
 References:
 _Mathematica_

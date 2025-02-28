@@ -59,12 +59,6 @@
 		anObject
 	}
 
-	/*
-	contents { :self |
-		self.typeResponsibility('@Bag>>contents')
-	}
-	*/
-
 	cumulativeCounts { :self |
 		let s = self.size / 100.0;
 		let n = 0;

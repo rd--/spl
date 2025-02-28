@@ -265,10 +265,6 @@
 		self.squared.sum / self.sum
 	}
 
-	contents { :self |
-		self
-	}
-
 	copyWith { :self :newElement |
 		let answer = self.copy;
 		answer.add(newElement);

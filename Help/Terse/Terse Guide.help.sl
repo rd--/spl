@@ -597,7 +597,7 @@ let b = IdentityBag(); b.add('x'); b.add('x'); b.size = 2 /* number of objects i
 let b = IdentityBag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 /* add element to bag */
 let b = IdentityBag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 /* add all elements of argument to bag */
 let c = 'xyyzzz'.ascii; let r = IdentityBag(); r.addAll(c); r.size = 6 /* add all ascii code points of a String to a Bag */
-let c = 'xyyzzz'.contents; let r = IdentityBag(); r.addAll(c); r.size = 6 /* add all one element strings of a String to a Bag */
+let c = 'xyyzzz'.characters; let r = IdentityBag(); r.addAll(c); r.size = 6 /* add all one element strings of a String to a Bag */
 [2, 3, 3, 5, 5, 5, 7, 7, 7, 7].asIdentityBag.size = 10
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asIdentityBag.sortedCounts = [4 -> 7, 3 -> 5, 2 -> 3, 1 -> 2]
 [2, 3, 5, 7, 3, 5, 7, 5, 7, 7].asIdentityBag.sortedElements = [2 -> 1, 3 -> 2, 5 -> 3, 7 -> 4]
@@ -991,7 +991,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
-let a = [1 .. 5]; a.contents == a /* contents at is identity */
+let a = [1 .. 5]; a.contents = a & { a.contents ~~ a } /* contents at list is equal but not identitical */
 (1:9 / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
@@ -2645,7 +2645,7 @@ let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end
 let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
 let r = 9:-1:1.asIterator; [r.upTo(3), r.upToEnd] = [9:-1:4, 2:-1:1] /* matching element is consumed */
 [].asIterator.next = nil /* next at an empty read iterator answers nil */
-let r = '.....ascii'.contents.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.join('') = 'ascii'
+let r = '.....ascii'.characters.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.join('') = 'ascii'
 1:9.asIterator.nextSatisfy { :each | each >= 5 } = 5 /* read until element satisfies predicate */
 1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
 let r = 1:9.asIterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
@@ -3136,7 +3136,7 @@ let s = 1:10.asIdentitySet; let t = s.copyWithout(3); s.select { :each | t.inclu
 let s = 1:5.asIdentitySet; let n = 0; s.do { :each | n := n + each }; n = 15
 let s = [].asIdentitySet; s.addAll(['x', 'y', 'z']); s.size = 3 /* add all elements of a List to a Set */
 let s = [].asIdentitySet; s.includeAll(['x', 'y', 'y', 'z', 'z', 'z']); s.size = 3 /* include all elements of a List to a Set */
-let c = 'xyyzzz'.contents; let r = IdentitySet(); r.includeAll(c); r.size = 3 /* include all single character strings of a String to a Set */
+let c = 'xyyzzz'.characters; let r = IdentitySet(); r.includeAll(c); r.size = 3 /* include all single character strings of a String to a Set */
 let c = 'xyyzzz'.ascii; let r = IdentitySet(); r.includeAll(c); r.size = 3 /* include all ascii code points of a String to a Set */
 let s = [].asIdentitySet; s.addAll([1 .. 99]); s.size = 99 /* add all from array */
 let s = ['x', 5].asIdentitySet; ['x', 5, 3].collect { :each | s.includes(each) } = [true, true, false]
@@ -3153,8 +3153,8 @@ let s = 1:4.asIdentitySet; let t = 5:9; let u = s.union(t); u.size = (s.size + t
 let s = IdentitySet(); s.includeAll([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
 [1, 2, 3, 1, 4].asIdentitySet = [1, 2, 3, 4, 3, 2, 1].asIdentitySet = true
 1:6.union(4:10) = 1:10.asIdentitySet /* set union */
-'hello'.contents.intersection('there'.contents) = 'he'.contents /* set intersection */
-'Smalltalk'.contents.includes('k') = true
+'hello'.characters.intersection('there'.characters) = 'he'.contents /* set intersection */
+'Smalltalk'.characters.includes('k') = true
 [1, 2, 3, 1, 4].asIdentitySet.isIndexable = false /* sets are not indexable */
 [1, 2, 3, 1, 4].asIdentitySet.indices = nil /* sets are not indexable */
 [1, 2, 2, 3, 3, 3].asIdentitySet.occurrencesOf(3) = 1 /* number of occurrences of element in set (zero or one) */
@@ -3335,7 +3335,7 @@ let a = [9 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /
 let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] /* sorted array with specified sort block */
 let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
 [5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
-'hello'.contents.asSortedList.asList = 'ehllo'.contents
+'hello'.characters.asSortedList.asList = 'ehllo'.characters
 ```
 
 ## Stack -- collection type
@@ -3387,7 +3387,7 @@ system.includesPackage('String') /* package */
 'string'.splitBy('absent') = ['string']
 'string'.splitBy('') = ['s', 't', 'r', 'i', 'n', 'g']
 'Set-Of-Three-Words'.splitByLimitedTo('-', 3) = ['Set', 'Of', 'Three'] /* limited to count number of elements */
-'mississippi'.contents.join('') = 'mississippi' /* List>>join is the inverse of String>>contents */
+'mississippi'.characters.join('') = 'mississippi' /* List>>join is the inverse of String>>characters */
 'mississippi'.splitBy('i').join('i') = 'mississippi' /* join is an inverse of splitBy */
 '/usr/local/bin'.splitBy('/') = ['', 'usr', 'local', 'bin']
 'Terse Guide.help.sl'.splitBy('.') = ['Terse Guide', 'help', 'sl']
@@ -3444,9 +3444,9 @@ system.includesPackage('String') /* package */
 'sum:/1'.splitBy(':/') = ['sum', '1']
 'ascii'.asUpperCase = 'ASCII'
 'ASCII'.asLowerCase = 'ascii'
-`\'x\'` = BacktickQuotedString('\'x\'') /* backtick quotes do not quote single quote */
-`"x"` = BacktickQuotedString('"x"') /* backtick quotes quoting double quote */
-`x\'""\'y` = BacktickQuotedString('x\'""\'y')
+`\'x\'`.name = '\'x\'' /* backtick quotes do not quote single quote */
+`"x"`.name = '"x"' /* backtick quotes quoting double quote */
+`x\'""\'y`.name = 'x\'""\'y'
 "\'x\'" = DoubleQuotedString('\'x\'') /* double quotes do not quote single quote */
 "`x`" = DoubleQuotedString('`x`') /* double quotes quoting backtick quote */
 '"'.first.codePoint = 34 /* double quote code point */
@@ -3456,7 +3456,7 @@ system.includesPackage('String') /* package */
 "\'quoted\'".contents.withoutQuoting = 'quoted' /* remove single quotes */
 '`quoted`'.withoutQuoting = 'quoted' /* remove backtick quotes */
 "x" = DoubleQuotedString('x') /* double quoted string */
-`x` = BacktickQuotedString('x') /* backtick quoted string */
+`x`.isSymbol /* backtick quoted string */
 'string'[3] = 'r'.asCharacter /* string indexing */
 { 'string'[3] := nil }.ifError { true } /* strings are immutable */
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
@@ -3501,7 +3501,7 @@ let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' /* string subscripting *
 ' x '.withoutLeadingBlanks = 'x '
 ' x '.withoutTrailingBlanks = ' x'
 let a = []; 'string'.do { :each | a.add(each) }; a.stringJoin = 'string'
-'string'.contents.join('') = 'string'
+'string'.characters.join('') = 'string'
 let a = 'string'.characterList; a.joinCharacters = 'string' & { a.stringJoin = 'string' }
 '𠮷'.countCharacters = 1
 '𠮷'.countUtf16CodeUnits = 2
@@ -3524,7 +3524,7 @@ let a = 'string'.characterList; a.joinCharacters = 'string' & { a.stringJoin = '
 'x'.asciiValue = 120 /* ascii code point of string */
 { 'xy'.asciiValue }.ifError { true } /* it is an error is the string is not a single character */
 { '𠮷'.asciiValue }.ifError { true } /* it is an error is the character is not ascii */
-'string'.contents = ['s' 't' 'r' 'i' 'n' 'g'] /* the contents of a string is a list of one element strings */
+'string'.characters = ['s' 't' 'r' 'i' 'n' 'g'] /* the contents of a string is a list of one element strings */
 'string'.characterList = [115, 116, 114, 105, 110, 103].collect(asCharacter:/1)
 'Gnu/Linux'.findString('Linux') = 5
 'Gnu/Linux'.findStringStartingAt('Linux', 1) = 5
@@ -4254,25 +4254,6 @@ system.cache['onceCache'].isWeakMap
 ## MutableCollectionStream -- collection type
 ```
 system.includesPackage('MutableCollectionStream') /* MutableCollectionStream package */
-let w = [].asWriteStream; w.nextPut(1); w.contents = [1]
-let w = [].asWriteStream; w.nextPut(1); w.nextPutAll([2 .. 8]); w.nextPut(9); w.contents = [1 .. 9]
-let w = [].asWriteStream; 1.putOn(w); w.contents = [1]
-let w = [].asWriteStream; 1.putOn(w); [2 .. 8].putOn(w); 9.putOn(w); w.contents = [1 .. 9]
 let w = [].asByteArray.asWriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].asByteArray
 let w = [nil, nil].asWriteStream; w.nextPut('a'); w.nextPut('b'); w.contents.join('') = 'ab'
-```
-
-### Utf8Stream -- collection type
-```
-let w = Utf8Stream(); 'bodlɛʁ'.encodeOn(w); w.contents.utf8String = 'bodlɛʁ'
-let w = Utf8Stream(); 'bodlɛʁ'.encodeOn(w); w.utf8Contents = 'bodlɛʁ'
-let w = Utf8Stream(); [3.141, nil].do { :each | each.printOn(w) }; w.utf8Contents = '3.141nil'
-```
-
-### AsciiStream -- collection type
-```
-let w = AsciiStream(); 'ascii'.encodeOn(w); w.contents.asciiString = 'ascii'
-let w = AsciiStream(); 'ascii'.encodeOn(w); w.asciiContents = 'ascii'
-let w = AsciiStream(); [3.141, nil].do { :each | each.printOn(w) }; w.asciiContents = '3.141nil'
-{ :stream | 'ascii'.encodeOn(stream) }.asciiStringStreamContents = 'ascii'
 ```

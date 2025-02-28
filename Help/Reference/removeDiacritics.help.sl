@@ -10,6 +10,25 @@ Answer a `String` with diacritic marks removed, and the characters they mark ret
 
 >>> 'Creme Brulée'.removeDiacritics
 'Creme Brulee'
+
+>>> 'naïve'.removeDiacritics
+'naive'
+
+>>> 'háček'.removeDiacritics
+'hacek'
+```
+
+Threads over lists:
+
+```
+>>> [
+>>> 	'daïs' 'reëlect' 'hôtel' 'cañón'
+>>> 	'doppelgänger' 'Brontë'
+>>> ].removeDiacritics
+[
+	'dais' 'reelect' 'hotel' 'canon'
+	'doppelganger' 'Bronte'
+]
 ```
 
 This method also simplifies some, but not all, ligatures:
@@ -42,5 +61,10 @@ Identity at string without diacritics:
 * * *
 
 See also: String
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RemoveDiacritics.html)
+
 
 Categories: Converting

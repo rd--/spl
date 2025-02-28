@@ -30,6 +30,8 @@ At `Character`:
 See also: asCodePoint, asString, Character
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FromCharacterCode.html),
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint),
 _Python_

@@ -35,6 +35,16 @@ At `Tree` answers if the tree is a binary tree:
 true
 ```
 
+At `Stream` tells if the underlying collection is a `ByteArray`:
+
+```
+>>> List(100).asWriteStream.isBinary
+false
+
+>>> ByteArray(100).asWriteStream.isBinary
+true
+```
+
 * * *
 
 See also: Binary, Tree
