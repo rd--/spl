@@ -13,6 +13,9 @@ Scalar product of vectors in two dimensions:
 
 >>> [1 1].dot([-1; 1])
 [0]
+
+>>> [1 1].dot([2 3])
+5
 ```
 
 Vectors are perpendicular if their inner product is zero:
@@ -41,8 +44,14 @@ Scalar product of vectors in three dimensions:
 Dot product of exact vectors:
 
 ```
+>>> (2 # 5).dot(3 # 5)
+30
+
 >>> [1 2 3 4 5].dot([1 8 9 0 -1])
 39
+
+>>> [1 .. 5].dot([2 .. 6])
+70
 ```
 
 Dot allows complex inputs, but does not conjugate any of them:
@@ -79,6 +88,13 @@ Compute the `norm` of a vector using the Hermitian inner product:
 		4 4 0 0
 	]
 )
+```
+
+`dot` of two 2×2 matrices is a 2×2 matrix:
+
+```
+>>> [1 0; 0 1].dot([4 1; 2 2])
+[4 1; 2 2]
 ```
 
 `dot` of 2×3 and a 3×3 matrices is a 2×3 matrix:
@@ -339,11 +355,25 @@ The matrix product of a 4×3 and a 3×3 matrix is a 4×3 matrix:
 [5 4 3; 8 9 5; 6 5 3; 11 9 6]
 ```
 
+Evaluate symbolically:
+
+```
+>>> [`a` `b`; `c` `d`]
+>>> .dot([`w` `x`; `y` `z`])
+>>> .collect(printString:/1)
+[
+	'[(+ (* a w) (* b y)), (+ (* a x) (* b z))]',
+	'[(+ (* c w) (* d y)), (+ (* c x) (* d z))]'
+]
+```
+
 * * *
 
 See also: +, *, inner, outer
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.dot),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=VectorCalculus/DotProduct),
 _Mathematica_
@@ -352,6 +382,8 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/Dot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/mtimes.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.dot.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Matrix_multiplication)
 [2](https://en.wikipedia.org/wiki/Dot_product)

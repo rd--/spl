@@ -14,6 +14,15 @@ The cross product of two vectors in three dimensions:
 
 >>> [1 2 3].cross([4 5 6])
 [-3 6 -3]
+
+>>> [0 1 0].cross([0 0 1])
+[1 0 0]
+
+>>> [1 2 0].cross([4 5 6])
+[12 -6 -3]
+
+>>> [1 2 0].cross([4 5 0])
+[0 0 -3]
 ```
 
 The cross product of a single vector in two dimensions _(x, y)_ is the perpendicular vector _(-y, x)_:
@@ -91,6 +100,12 @@ The cross product of two _n×3_ matrices:
 	-228 -30  234;
 	-181  55  175
 ]
+
+>>> [1 2 3; 4 5 6].withCollect(
+>>> 	[4 5 6; 1 2 3],
+>>> 	cross:/2
+>>> )
+[-3 6 -3; 3 -6 3]
 ```
 
 Find the area of the parallelogram defined by two vectors:
@@ -123,12 +138,16 @@ If _u_ and _v_ are linearly dependent, _u × v_ is zero:
 See also: dot, kroneckerProduct, outer, permutationSymbol, vectorAngle
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/stdlib/LinearAlgebra/#LinearAlgebra.cross),
 _Mathematica_
 [1](https://mathworld.wolfram.com/CrossProduct.html)
 [2](https://mathworld.wolfram.com/PerpendicularVector.html)
 [3](https://reference.wolfram.com/language/ref/Cross.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/cross.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.cross.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cross_product)
 
