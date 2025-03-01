@@ -19,6 +19,9 @@ For the vector case see also `#` and `!`:
 
 >>> 3 ! 5
 [3 3 3 3 3]
+
+>>> { 3 } ! 5
+[3 3 3 3 3]
 ```
 
 A 3×4 array of fives:

@@ -31,6 +31,17 @@
 		}
 	}
 
+	coordinateBoundsArray { :rangeList :stepList :offset |
+		(rangeList +.each offset).withCollect(stepList) { :range :step |
+			let [l, r] = range;
+			[l, l + step .. r]
+		}.tuples
+	}
+
+	coordinateBoundsArray { :rangeList :stepList |
+		coordinateBoundsArray(rangeList, stepList, [0])
+	}
+
 	dimensions { :self :anInteger |
 		(anInteger < 1).if {
 			[]
