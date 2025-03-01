@@ -19,7 +19,7 @@ The `elementType` of the answer is `String`:
 Inverse are `join` and `stringJoin`:
 
 ```
->>> 'mississippi'.characters.join('')
+>>> 'mississippi'.characters.stringCatenate
 'mississippi'
 
 >>> 'mississippi'.characters.stringJoin

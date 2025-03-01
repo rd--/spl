@@ -105,7 +105,7 @@
 	}
 
 	expand { :self :counts |
-		self.asList.expand(counts).join('')
+		self.asList.expand(counts).stringCatenate
 	}
 
 	find { :haystack :needle |
@@ -126,7 +126,7 @@
 
 	partitionApl { :self :aSequence |
 		self.asList.partitionApl(aSequence).collect { :each |
-			each.join('')
+			each.stringCatenate
 		}
 	}
 
@@ -135,7 +135,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asList.replicateEach(counts).join('')
+		self.asList.replicateEach(counts).stringCatenate
 	}
 
 	shape { :self |

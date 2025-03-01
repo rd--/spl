@@ -114,6 +114,20 @@
 		}
 	}
 
+	magicSquareSummary { :self |
+		let n = self.size;
+		let mu = n * (n * n + 1) / 2;
+		let v = 1 # n;
+		(
+			sum: mu,
+			rowSums: self.dot(v),
+			columnSums: v.dot(self),
+			diagonalSum: self.diagonal.sum,
+			anitdiagonalSum: self.antidiagonal.sum,
+			rank: self.matrixRank
+		)
+	}
+
 	matrixColumn { :self :anInteger |
 		let [m, n] = self.shape;
 		anInteger.betweenAnd(1, n).if {
@@ -349,6 +363,60 @@
 		{ :i :j |
 			([i - 1, j - 1].euclideanDistance(c) <= l).boole
 		}.table(1:n, 1:n)
+	}
+
+	magicSquare { :self |
+		(self < 3).if {
+			self.error ('magicSquare: n < 3')
+		} {
+			let n = self;
+			let symmetricSwap = { :m :l |
+				let i = l.tuples(2);
+				let k = i.size // 2;
+				let j = [
+					i.take(k),
+					i.reversed.take(k)
+				].transposed;
+				m.swapAllWith(j)
+			};
+			let columnSwaps = { :m :i :j :c |
+				i.withDo(j) { :p :q |
+					m.swapPathWith([p c], [q c])
+				}
+			};
+			[
+				{ n % 2 = 1 } -> {
+					let z = [1 .. n * n];
+					let shift = (z - 1 / n).floor;
+					let c = (z - shift + ((n - 3) / 2)) % n;
+					let r = (z.reversed + (2 * shift)) % n;
+					let m = (c * n + r + 1).ordering;
+					m.reshape([n n]).transposed
+				},
+				{ n % 4 = 0 } -> {
+					let z = [1 .. n * n];
+					let m = z.reshape([n n]);
+					m.symmetricSwap([1, 5 .. n] ++ [4, 8  .. n]);
+					m.symmetricSwap([2, 6 .. n] ++ [3, 7  .. n]);
+					m
+				},
+				{ n % 4 = 2 } -> {
+					let l = n // 2; /* m */
+					let z = l.magicSquare;
+					let m = [[z, z + (2 * l * l)], [z + (3 * l * l), z + (l * l)]].arrayFlatten;
+					let k = (l - 1) // 2;
+					let i = [1 .. k] ++ [k + 2 .. l];
+					(k > 1).ifTrue {
+						let p = [1 .. l];
+						let q = [2 .. k] ++ [n - k + 2 .. n];
+						m.replaceSubarray([p ++ (p + l), q], m.submatrix((p + l) ++ p, q))
+					};
+					m.columnSwaps(i, i + l, 1);
+					m.columnSwaps([k + 1], [k + 1 + l], k + 1);
+					m
+				}
+			].which
+		}
 	}
 
 	spiralMatrix { :n |

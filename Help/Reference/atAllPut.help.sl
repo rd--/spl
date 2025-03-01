@@ -29,7 +29,7 @@ This method imlpements both _atAllPut:_ and _atAll:put:_.
 
 * * *
 
-See also: at, atAll, atPut
+See also: at, atAll, atAllPutAll, atPut
 
 References:
 _Smalltalk_

@@ -232,10 +232,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splFileName { :self :aString |
-		[
+		'%/%'.format([
 			self.splDirectory,
 			aString
-		].join('/')
+		])
 	}
 
 	splUrl { :self :aString |
@@ -398,7 +398,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	punctuationTokenName { :self :table |
 		self.contents.collect { :letter |
 			table[letter]
-		}.camelCase.join('')
+		}.camelCase.stringCatenate
 	}
 
 	punctuationTokenName { :self |

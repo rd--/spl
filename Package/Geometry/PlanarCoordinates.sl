@@ -198,13 +198,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	storeString { :self |
-		[
-			'PlanarCoordinates(',
-			self.x.storeString,
-			', ',
-			self.y.storeString,
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	swapInPlace { :self |

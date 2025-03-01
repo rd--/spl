@@ -5,10 +5,10 @@
 Answer a `List` of the letters in the named alphabet.
 
 ```
->>> 'english'.alphabet.join('')
+>>> 'english'.alphabet.stringCatenate
 'abcdefghijklmnopqrstuvwxyz'
 
->>> 'greek'.alphabet.join('')
+>>> 'greek'.alphabet.stringCatenate
 'αβγδεζηθικλμνξοπρστυφχψω'
 ```
 
@@ -17,13 +17,13 @@ The answer has only lower case letters:
 ```
 >>> 'english'
 >>> .alphabet
->>> .join('')
+>>> .stringCatenate
 >>> .asUpperCase
 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 >>> 'greek'
 >>> .alphabet
->>> .join('')
+>>> .stringCatenate
 >>> .asUpperCase
 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'
 ```

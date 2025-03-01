@@ -51,10 +51,10 @@ Association : [Object] { | key value |
 	}
 
 	printString { :self |
-		[
+		'% -> %'.format([
 			self.key.printString,
 			self.value.printString
-		].join(' -> ')
+		])
 	}
 
 	second { :self |

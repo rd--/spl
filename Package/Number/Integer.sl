@@ -978,7 +978,7 @@
 					f(n // 2).-
 				}
 			}
-		}.memoize;
+		}.memoize(true);
 		(0 .. self - 1).collect(f:/1)
 	}
 
@@ -1110,10 +1110,10 @@
 		(radix = 10).if {
 			self.basicPrintString(10)
 		} {
-			let unsignedAnswer = [
+			let unsignedAnswer = '%r%'.format([
 				radix.basicPrintString(10),
 				self.abs.basicPrintString(radix)
-			].join('r');
+			]);
 			self.isNegative.if {
 				'-' ++ unsignedAnswer
 			} {

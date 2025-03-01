@@ -15,7 +15,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 	}
 
 	concisePrintString { :self |
-		'(' ++ self.contents.collect(concisePrintString:/1).join(', ') ++ ')'
+		'(' ++ self.contents.collect(concisePrintString:/1).commaSeparated ++ ')'
 	}
 
 	copy { :self |
@@ -35,7 +35,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 	}*/
 
 	printString { :self |
-		'(' ++ self.contents.collect(printString:/1).join(', ') ++ ')'
+		'(' ++ self.contents.collect(printString:/1).commaSeparated ++ ')'
 	}
 
 	size { :self |
@@ -47,7 +47,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 	}
 
 	storeString { :self |
-		'(' ++ self.contents.collect(storeString:/1).join(', ') ++ ')'
+		'(' ++ self.contents.collect(storeString:/1).commaSeparated ++ ')'
 	}
 
 }

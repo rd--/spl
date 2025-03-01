@@ -37,7 +37,7 @@ Format `String`:
 
 * * *
 
-See also: riffle, stringConcatenation, splitBy, String
+See also: riffle, stringCatenate, splitBy, String
 
 References:
 _Common Lisp_

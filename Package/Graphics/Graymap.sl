@@ -14,7 +14,7 @@ Graymap : [Object] { | contents |
 				} {
 					self.error('asPgm: not (0,1) matrix')
 				}
-			}.join(' ')
+			}.unwords
 		};
 		(header ++ rows ++ ['']).unlines
 	}

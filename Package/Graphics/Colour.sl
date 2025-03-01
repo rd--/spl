@@ -38,7 +38,7 @@
 		let c = (self.alpha = 1).if { self.rgb } { self.rgba };
 		'#' ++ c.collect { :each |
 			(each * 255).rounded.byteHexString
-		}.join('')
+		}.stringCatenate
 	}
 
 	hsv { :self |

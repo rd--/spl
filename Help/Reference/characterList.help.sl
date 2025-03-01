@@ -66,12 +66,9 @@ Break a string into a list of characters:
 ('Character', ['A' ' ' 's' 't' 'r' 'i' 'n' 'g'])
 ```
 
-`joinCharacters` and `stringJoin` will reassemble the string:
+`stringJoin` will reassemble the string:
 
 ```
->>> 'text'.characterList.joinCharacters
-'text'
-
 >>> 'text'.characterList.stringJoin
 'text'
 ```

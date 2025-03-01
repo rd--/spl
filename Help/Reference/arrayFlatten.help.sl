@@ -1,6 +1,6 @@
 # arrayFlatten
 
-- _arrayFlatten(aMatix)_
+- _arrayFlatten(aMatrix)_
 
 Create a block matrix by flattening out a matrix of matrices:
 
@@ -77,7 +77,7 @@ Iterate a two-dimensional substitution system:
 
 * * *
 
-See also: ++, arrayReduce, concatenation, flatten, isArray, join, kroneckerProduct
+See also: ++, arrayReduce, catenate, flatten, isArray, join, kroneckerProduct
 
 References:
 _Mathematica_

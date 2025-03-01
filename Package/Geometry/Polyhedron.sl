@@ -210,7 +210,7 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
-			Polyhedron(each['vertex'], each['face'].concatenation + 1)
+			Polyhedron(each['vertex'], each['face'].catenate + 1)
 		}
 	}
 )

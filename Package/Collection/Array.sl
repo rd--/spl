@@ -85,6 +85,19 @@
 		self.flatten
 	}
 
+	replaceSubarray { :self :indices :subarray |
+		let shape = subarray.shape;
+		(shape = indices.collect(size:/1)).if {
+			let i = indices.tuples;
+			let j = shape.collect { :n | [1 .. n] }.tuples;
+			i.withDo(j) { :p :q |
+				self.atPathPut(p, subarray.atPath(q))
+			}
+		} {
+			self.error('List>>replaceSubarray: index mismatch')
+		}
+	}
+
 	shapeOrNil { :self |
 		(self.size = 0).if {
 			[0]

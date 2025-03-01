@@ -194,7 +194,7 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 						} {
 							each
 						}.printString
-					}.join(' ')
+					}.unwords
 				]
 			)
 		}

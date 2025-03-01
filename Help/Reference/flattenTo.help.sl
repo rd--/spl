@@ -67,7 +67,7 @@ All flattenings:
 
 * * *
 
-See also: ++, concatenation, flatten
+See also: ++, catenate, flatten
 
 References:
 _Apl_

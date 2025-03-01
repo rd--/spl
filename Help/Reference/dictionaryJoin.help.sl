@@ -18,4 +18,4 @@ Keys visited later in the traversal replace existing entries:
 
 * * *
 
-See also: ++, concatenation, join, stringJoin
+See also: ++, catenate, join, stringJoin

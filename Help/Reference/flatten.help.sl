@@ -2,7 +2,7 @@
 
 - _flatten(aCollection, anInteger=Infinity)_
 
-Similar to `concatenation`,
+Similar to `catenate`,
 however also allows non-collection items,
 and removes a specified number of layers of nesting.
 
@@ -74,7 +74,7 @@ At `Tree`:
 
 * * *
 
-See also: ++, concatenation, deepDo, flattenTo
+See also: ++, catenate, deepDo, flattenTo
 
 References:
 _Apl_

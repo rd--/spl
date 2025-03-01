@@ -76,7 +76,7 @@ Svg : [Object] { | contents |
 				x.printStringToFixed(precision),
 				y.printStringToFixed(precision)
 			])
-		}.join(' ')
+		}.unwords
 	}
 
 }

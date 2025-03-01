@@ -97,15 +97,11 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 	}
 
 	storeString { :self |
-		[
-			'CartesianCoordinates(',
+		'CartesianCoordinates(%, %, %)'.format([
 			self.x.storeString,
-			', ',
 			self.y.storeString,
-			', ',
-			self.z.storeString,
-			')'
-		].join('')
+			self.z.storeString
+		])
 	}
 
 	third { :self |

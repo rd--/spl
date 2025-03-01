@@ -386,7 +386,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
      ("complement" . ?∁) ; U+2201 ∁ Complement
      ("compose" . ?∘) ;  U+2218 ∘ Ring Operator
-     ("concatenation" . ?⧻) ; U+29FB ⧻ Triple Plus
+     ("catenate" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("conjugated" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
      ("degree" . ?°) ; U+00b0 ° Degree Sign

@@ -31,7 +31,7 @@ let d = [3 6 13 11 223 191 111 207];
 				s.add(c)
 			}
 		};
-		s.join('').postLine
+		s.stringCatenate.postLine
 	}
 }
 ~~~

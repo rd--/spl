@@ -39,7 +39,7 @@ The numbers of binary Lyndon words of each length:
 The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the lexicographically smallest de Bruijn sequence:
 
 ```
->>> ['a' 'b' 'c'].lyndonWords(2).concatenation
+>>> ['a' 'b' 'c'].lyndonWords(2).catenate
 ['a' 'a' 'b' 'a' 'c' 'b' 'b' 'c' 'c']
 
 >>> ['a' 'b' 'c'].deBruijnSequence(2)

@@ -11,15 +11,16 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 
 	format { :self |
 		(self.prefix = '>>>').if {
-			self.program.unwords ++ ' ~ (' ++ self.expectedAnswer.unwords ++ ')'
+			'% ~ (%)'.format([
+				self.program.unwords,
+				self.expectedAnswer.unwords
+			])
 		} {
 			(self.prefix = '>>').if {
-				[
-					'(',
+				'(%).asString.utf8ByteArray = %'.format([
 					self.program.unwords,
-					').asString.utf8ByteArray = ',
 					self.expectedAnswer.unlines.utf8ByteArray.storeString
-				].join('')
+				])
 			} {
 				self.error('format: unknown prefix: ' ++ self.prefix)
 			}

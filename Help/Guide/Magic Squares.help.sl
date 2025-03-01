@@ -1,28 +1,5 @@
 # Magic Squares
 
-Define a method to summarise the properties of a magic square.
-The matrix-vector product sums the rows,
-the vector-matrix product sums the columns,
-also show the diagonal and antidiagonal sums and the matrix rank:
-
-~~~spl define=Method
-+List {
-	magicSquareSummary { :m |
-		let n = m.size;
-		let mu = n * (n * n + 1) / 2;
-		let v = 1 # n;
-		(
-			mu,
-			m.dot(v),
-			v.dot(m),
-			m.diagonal.sum,
-			m.antidiagonal.sum,
-			m.matrixRank
-		)
-	}
-}
-~~~
-
 The only 3×3 magic square,
 c.f. OEIS [A033812](https://oeis.org/A033812):
 
@@ -32,7 +9,14 @@ c.f. OEIS [A033812](https://oeis.org/A033812):
 >>> 	3 5 7;
 >>> 	4 9 2
 >>> ].magicSquareSummary
-(15, [15 15 15], [15 15 15], 15, 15, 3)
+(
+	sum: 15,
+	rowSums: [15 15 15],
+	columnSums: [15 15 15],
+	diagonalSum: 15,
+	anitdiagonalSum: 15,
+	rank: 3
+)
 ```
 
 A 5×5 magic square,
@@ -45,7 +29,7 @@ c.f. OEIS [A127907](https://oeis.org/A127907):
 >>> 	04  6 13 20 22;
 >>> 	10 12 19 21  3;
 >>> 	11 18 25  2  9
->>> ].magicSquareSummary
+>>> ].magicSquareSummary.values
 (65, 65 # 5, 65 # 5, 65, 65, 5)
 ```
 
@@ -61,7 +45,7 @@ c.f. OEIS [A126651](https://oeis.org/A126651):
 >>> 	48 42 22 54 39 75  7;
 >>> 	33 53 15 68 16 44 58;
 >>> 	49 29 67 14 66 24 38
->>> ].magicSquareSummary
+>>> ].magicSquareSummary.values
 (175, 287 # 7, 287 # 7, 287, 322, 7)
 ```
 
@@ -79,7 +63,7 @@ c.f. OEIS [A126650](https://oeis.org/A126650):
 >>> 	49 29 67 14 66 24 38 59 23;
 >>> 	76  4 70 73  8 37 36 30 35;
 >>> 	06  78 12  9 74 45 46 47 52
->>> ].magicSquareSummary
+>>> ].magicSquareSummary.values
 (369, 369 # 9, 369 # 9, 369, 369, 9)
 ```
 
@@ -108,26 +92,40 @@ A 4×4×4 magic cube:
 >>> 	25  4 53 48
 >>> ];
 >>> let column = { :m :c |
->>> 	(1 .. m.size).collect { :r | m[r][c] }
+>>> 	(1 .. m.size).collect { :r |
+>>> 		m[r][c]
+g>>> 	}
 >>> };
->>> let s = (34, 130 # 4, 130 # 4, 130, 130, 4);
+>>> let f = { :m |
+>>> 	m.magicSquareSummary.values
+>>> };
+>>> let s = (
+>>> 	34,
+>>> 	130 # 4,
+>>> 	130 # 4,
+>>> 	130,
+>>> 	130,
+>>> 	4
+>>> );
 >>> (
->>> 	c.collect(magicSquareSummary:/1),
+>>> 	c.collect(f:/1),
 >>> 	1:4.collect { :i |
 >>> 		c.collect { :m |
 >>> 			m[i]
->>> 		}.magicSquareSummary
+>>> 		}.f
 >>> 	},
 >>> 	1:4.collect { :i |
 >>> 		c.collect { :m |
 >>> 			column(m, i)
->>> 		}.magicSquareSummary
+>>> 		}.f
 >>> 	}
 >>> )
 ([s s s s], [s s s s], [s s s s])
 ```
 
 * * *
+
+See also: magicSquare, magicSquareSummary
 
 Guides: Integer Sequences
 

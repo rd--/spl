@@ -8,7 +8,7 @@ Regular expressions:
 >>> [
 >>> 	'A tree, an apple, four pears.'
 >>> 	'And more: two sacks'
->>> ].join(' ').splitByRegExp('\\W+')
+>>> ].unwords.splitByRegExp('\\W+')
 [
 	'A' 'tree' 'an' 'apple' 'four' 'pears'
 	'And' 'more' 'two' 'sacks'

@@ -14,7 +14,7 @@ Answer a `String` made by joining together the items of _aSequence_ with separat
 
 * * *
 
-See also: words
+See also: stringIntercalate, unlines, words
 
 References:
 _Haskell_

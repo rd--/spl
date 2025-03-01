@@ -33,7 +33,7 @@ The `format` method prints the equivalence predicate:
 	'(3 + 4).asString.utf8ByteArray'
 	' = '
 	'[55].asByteArray'
-].join('')
+].stringCatenate
 
 >>> DocumentationTest(
 >>> 	'>>>',
@@ -58,7 +58,7 @@ The `format` method prints the equivalence predicate:
 	'.asString.utf8ByteArray'
 	' = '
 	'[52, 57].asByteArray'
-].join('')
+].stringCatenate
 ```
 
 The `evaluate` method evaluates the test:

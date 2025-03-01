@@ -61,6 +61,6 @@ The name of this operator is `plusSignPlusSignPlusSign`.
 
 * * *
 
-See also: ++, concatenation, flatten, join
+See also: ++, catenate, flatten, join
 
 Categories: Rearranging

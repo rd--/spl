@@ -35,8 +35,9 @@ Count the number of distinct characters that occur in a string:
 >>> [
 >>> 	'It was the best of times,'
 >>> 	'it was the worst of times'
->>> ].join('')
->>> .contents
+>>> ]
+>>> .stringCatenate
+>>> .characters
 >>> .countDistinct(=)
 15
 ```

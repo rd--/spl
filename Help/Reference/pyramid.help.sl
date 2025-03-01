@@ -5,7 +5,7 @@
 Return a new sequence whose elements are those of _aSequence_ reordered using a "counting" algorithm.
 _patternType_ is an integer and selects the counting algorithm.
 
-The `concatenation` of `prefixes`:
+The `catenate` of `prefixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(1)
@@ -27,7 +27,7 @@ The `concatenation` of `prefixes`:
 ]
 ```
 
-The `concatenation` of the `reverse` of the `suffixes`:
+The `catenate` of the `reverse` of the `suffixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(2)
@@ -49,7 +49,7 @@ The `concatenation` of the `reverse` of the `suffixes`:
 ]
 ```
 
-The `concatenation` of the `reverse` of the `prefixes`:
+The `catenate` of the `reverse` of the `prefixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(3)
@@ -62,7 +62,7 @@ The `concatenation` of the `reverse` of the `prefixes`:
 ]
 ```
 
-The `concatenation` of the `suffixes`:
+The `catenate` of the `suffixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(4)
@@ -128,7 +128,7 @@ Pyramids _3_ and _1_:
 
 * * *
 
-See also: ++, concatenation, mirror, Permutation, prefixes, suffixes
+See also: ++, catenate, mirror, Permutation, prefixes, suffixes
 
 References:
 _SuperCollider_

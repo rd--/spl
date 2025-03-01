@@ -9,7 +9,7 @@ Bitmap : [Object] { | contents |
 		let rows = self.contents.collect { :each |
 			each.collect { :item |
 				item.asBit.printString
-			}.join(' ')
+			}.unwords
 		};
 		(header ++ rows ++ ['']).unlines
 	}

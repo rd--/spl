@@ -47,6 +47,19 @@ At `Tree`:
 5
 ```
 
+The `leafCount` of a regular array is the product of its `shape`:
+
+```
+>>> [7].iota.leafCount
+7
+
+>>> [5 7].iota.leafCount
+5 * 7
+
+>>> [3 5 7].iota.leafCount
+3 * 5 * 7
+```
+
 * * *
 
 See also: depth, size, Tree
@@ -55,4 +68,6 @@ Guides: Tree Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LeafCount.html)
+[1](https://reference.wolfram.com/language/ref/LeafCount.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/double.numel.html)

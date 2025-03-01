@@ -4,7 +4,7 @@
 
 Include _newObject_ as one of the elements of _aCollection_.
 After adding an entry, the `size` of the collection increases by one.
-Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, add may fail.
+Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, `add` may fail.
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
 Answers _newObject_.
 
@@ -31,7 +31,11 @@ At `Map`:
 ```
 >>> let m = Map();
 >>> m.add('x' -> 1);
->>> (m.add('y' -> 2), m.size, m.asRecord)
+>>> (
+>>> 	m.add('y' -> 2),
+>>> 	m.size,
+>>> 	m.asRecord
+>>> )
 ('y' -> 2, 2, (x: 1, y: 2))
 ```
 
@@ -44,7 +48,17 @@ At `Record`:
 ('y' -> 2, 2, (x: 1, y: 2))
 ```
 
-At `IdentitySet`, add will include _newObject_ as one of the set elements only if not already present:
+It is an `error` if the key exists:
+
+```
+>>> {
+>>> 	(x: 1).add('x' -> 2)
+>>> }.ifError { true }
+true
+```
+
+At `IdentitySet`,
+`add` will include _newObject_ as one of the set elements only if not already present:
 
 ```
 >>> let s = IdentitySet();
@@ -79,6 +93,8 @@ true
 See also: addAll, addFirst, addLast, Extensible, include, remove
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/AppendTo.html),
 _Smalltalk_
 5.7.5.1
 

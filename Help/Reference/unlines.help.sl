@@ -14,7 +14,7 @@ answer a `String` that joins together all of the input strings separated by line
 
 * * *
 
-See also: join, lines, unwords
+See also: lines, stringIntercalate, unwords
 
 References:
 _Haskell_

@@ -1,6 +1,6 @@
 # reversed
 
-- _reversed(aSequence)_
+- _reversed(aSequence | aDictionary, anInteger=1)_
 
 Answer a copy of _aSequence_ in the reverse order.
 The answer is a new value of the same `species` as _aSequence_.
@@ -55,12 +55,33 @@ Row-reversed matrix:
 Column-reversed matrix:
 
 ```
->>> [1 2 3].diagonalMatrix.collect(reversed:/1)
+>>> [1 2 3].diagonalMatrix.reversed(2)
 [
 	0 0 1;
 	0 2 0;
 	3 0 0
 ]
+
+>>> [1 2 3].diagonalMatrix.collect(reversed:/1)
+[0 0 1; 0 2 0; 3 0 0]
+```
+
+Reverse is its own inverse:
+
+```
+>>> [1 2 3 4].reversed.reversed
+[1 2 3 4]
+```
+
+At `Map`,
+`reversed` swaps keys and values,
+requiring that each value be both unique,
+so that it can act as a key,
+and also _immediate_:
+
+```
+>>> (x: 1, y: 2, z: 3).asMap.reversed
+[(1 -> 'x'), (2 -> 'y'), (3 -> 'z')].asMap
 ```
 
 Iteratively join a string to its reverse:

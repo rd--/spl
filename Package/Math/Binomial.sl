@@ -117,7 +117,7 @@
 				((3 * (2 * n - 3) * f(n - 1)) - ((n - 3) * f(n - 2))) / n
 			}
 		};
-		f:/1.memoize.value(self)
+		f:/1.memoize(true).value(self)
 	}
 
 	take { :n :k |

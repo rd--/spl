@@ -104,7 +104,7 @@ String! : [Object, Json, Iterable, Character] {
 		}).if {
 			self.error('String>>asBracketedComment: includes comment brackets')
 		} {
-			[open, self, close].join(' ')
+			[open, self, close].unwords
 		}
 	}
 
@@ -200,7 +200,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	atAll { :self :indices |
-		self.characters.atAll(indices).join('')
+		self.characters.atAll(indices).stringCatenate
 	}
 
 	basicAppendString { :self :aString |
@@ -340,7 +340,7 @@ String! : [Object, Json, Iterable, Character] {
 			self.copyFromTo(1, start - 1),
 			replacement,
 			self.copyFromTo(stop + 1, self.size)
-		].join('')
+		].stringCatenate
 	}
 
 	countCharacters { :self |
@@ -356,7 +356,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	deBruijnSequence { :self :anInteger |
-		self.characters.deBruijnSequence(anInteger).join('')
+		self.characters.deBruijnSequence(anInteger).stringCatenate
 	}
 
 	do { :self :aBlock:/1 |
@@ -469,7 +469,7 @@ String! : [Object, Json, Iterable, Character] {
 	format { :self :arguments |
 		let parts = self.splitBy('%');
 		(arguments.size + 1 = parts.size).if {
-			parts.riffle(arguments.collect(asString:/1)).stringConcatenation('')
+			parts.riffle(arguments.collect(asString:/1)).stringCatenate
 		} {
 			self.error('format: incorrect number of arguments')
 		}
@@ -659,7 +659,7 @@ String! : [Object, Json, Iterable, Character] {
 		self
 		.characters
 		.longestCommonSubsequence(aString.characters)
-		.join('')
+		.stringCatenate
 	}
 
 	longestCommonSubstringList { :self :aString |
@@ -667,16 +667,16 @@ String! : [Object, Json, Iterable, Character] {
 		.characters
 		.longestCommonSubstringList(aString.characters)
 		.collect { :each |
-			each.join('')
+			each.stringCatenate
 		}
 	}
 
 	longestCommonSubstring { :self :aString |
-		self.characters.longestCommonSubstring(aString.characters).join('')
+		self.characters.longestCommonSubstring(aString.characters).stringCatenate
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.characters.longestIncreasingSubsequence.join('')
+		self.characters.longestIncreasingSubsequence.stringCatenate
 	}
 
 	notEmpty { :self |
@@ -715,7 +715,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	onCharacters { :self :aBlock:/1 |
-		self.characters.aBlock.join('')
+		self.characters.aBlock.stringCatenate
 	}
 
 	padLeft { :self :anInteger :aString |
@@ -825,7 +825,7 @@ String! : [Object, Json, Iterable, Character] {
 				list.add(each)
 			}
 		};
-		list.join('')
+		list.stringCatenate
 	}
 
 	sentences { :self |
@@ -927,7 +927,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	withIndefiniteArticle { :self |
-		[self.indefiniteArticle, self].join(' ')
+		[self.indefiniteArticle, self].unwords
 	}
 
 	withoutLeadingBlanks { :self |
@@ -997,12 +997,16 @@ String! : [Object, Json, Iterable, Character] {
 
 +List {
 
-	basicStringJoin { :self :aString |
+	basicStringIntercalate { :self :aString |
 		<primitive: return _self.join(_aString);>
 	}
 
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalized:/1)
+	}
+
+	commaSeparated { :self |
+		self.stringIntercalate(', ')
 	}
 
 	fromCharacterCode { :self :encoding |
@@ -1029,16 +1033,20 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
-	stringConcatenation { :self :aString |
+	stringCatenate { :self |
+		self.stringIntercalate('')
+	}
+
+	stringIntercalate { :self :aString |
 		(self.allSatisfy(isString:/1) && aString.isString).if {
-			self.basicStringJoin(aString)
+			self.basicStringIntercalate(aString)
 		} {
-			self.error('List>>stringConcatenation: non-string arguments')
+			self.error('List>>stringIntercalate: non-string arguments')
 		}
 	}
 
 	stringJoin { :self :aString |
-		self.flatten.collect(asString:/1).basicStringJoin(aString.asString)
+		self.flatten.collect(asString:/1).basicStringIntercalate(aString.asString)
 	}
 
 	stringJoin { :self |
@@ -1047,10 +1055,6 @@ String! : [Object, Json, Iterable, Character] {
 
 	stringReverse { :self |
 		self.collect(stringReverse:/1)
-	}
-
-	joinCharacters { :self |
-		self.collect(characterString:/1).join('')
 	}
 
 	pascalCase { :self |
@@ -1068,11 +1072,11 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	unlines { :self |
-		self.join('\n')
+		self.stringIntercalate('\n')
 	}
 
 	unwords { :self |
-		self.join(' ')
+		self.stringIntercalate(' ')
 	}
 
 }

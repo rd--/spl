@@ -134,7 +134,7 @@
 	}
 
 	Fm7Matrix { :ctlMatrix :modMatrix |
-		Fm7(ctlMatrix.concatenation, modMatrix.concatenation)
+		Fm7(ctlMatrix.catenate, modMatrix.catenate)
 	}
 
 	HoldSequence { :inList :dur |

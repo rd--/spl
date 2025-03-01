@@ -359,7 +359,7 @@ Permutation : [Object] { | cycles degree |
 	}
 
 	support { :self |
-		self.cycles.concatenation.sort
+		self.cycles.catenate.sort
 	}
 
 	twoLineNotation { :self |
@@ -443,7 +443,7 @@ Permutation : [Object] { | cycles degree |
 	isPermutationCycles { :self |
 		self.isEmpty | {
 			(self.depth = 3) & {
-				let entries = self.concatenation;
+				let entries = self.catenate;
 				entries.allSatisfy { :each |
 					each.isInteger & {
 						each.isPositive
@@ -661,7 +661,7 @@ Permutation : [Object] { | cycles degree |
 			self.isEmpty.if {
 				0
 			} {
-				self.concatenation.max
+				self.catenate.max
 			}
 		} {
 			self.isPermutationList.if {

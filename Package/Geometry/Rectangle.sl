@@ -31,13 +31,10 @@ Rectangle : [Object] { | lowerLeft upperRight |
 	}
 
 	asString { :self :aBlock:/1 |
-		[
-			'Rectangle(',
+		'Rectangle(%, %)'.format([
 			aBlock(self.lowerLeft),
-			', ',
-			aBlock(self.upperRight),
-			')'
-		].join('')
+			aBlock(self.upperRight)
+		])
 	}
 
 	boundingBox { :self |

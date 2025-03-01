@@ -21,7 +21,7 @@ If the _stepSize_ is greater than the _windowSize_ there will be gaps:
 [1 2 3; 5 6 7]
 ```
 
-If the _stepSize_ is equal to the _windowSize_ the concatenation of the answer will be the original sequence:
+If the _stepSize_ is equal to the _windowSize_ the catenate of the answer will be the original sequence:
 
 ```
 >>> [1 .. 9].partition(3, 3)
@@ -80,7 +80,7 @@ Find successive ratios in a list:
 [1/2 2/3 3/4 4/5]
 ```
 
-In some cases `++` (or `concatenation`) is an inverse of `partition`:
+In some cases `++` (or `catenate`) is an inverse of `partition`:
 
 ```
 >>> let l = [1 .. 6];

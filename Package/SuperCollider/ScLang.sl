@@ -627,7 +627,7 @@
 	}
 
 	slide { :self :windowSize :stepSize |
-		self.partition(windowSize, stepSize).concatenation
+		self.partition(windowSize, stepSize).catenate
 	}
 
 	stutter { :self :repeatCount |

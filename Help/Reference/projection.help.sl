@@ -144,7 +144,7 @@ and use that basis to find a QR factorization:
 >>> 		x[k].projection(v(j))
 >>> 	}.sum;
 >>> 	r.normalize
->>> }.memoize;
+>>> }.memoize(true);
 >>> let q = 1:n.collect(v:/1).transposed;
 >>> let r = q.transposed.dot(a);
 >>> (q, r)

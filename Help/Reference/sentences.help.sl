@@ -34,7 +34,7 @@ Including common Markdown cases:
 >>> 	'*F*, g.'
 >>> 	'![H](i).'
 >>> 	'`I` j...'
->>> ].join(' ').sentences
+>>> ].unwords.sentences
 [
 	'_A_ b *c* [d](http://x.y/z) e.',
 	' *F*, g.',

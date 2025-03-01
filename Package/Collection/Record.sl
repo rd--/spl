@@ -90,13 +90,14 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 	}
 
 	storeString { :self |
-		[
-			'(',
+		'(%)'.format([
 			self.associations.collect { :each |
-				each.key ++ ': ' ++ each.value.storeString
-			}.join(', '),
-			')'
-		].join('')
+				'%: %'.format([
+					each.key,
+					each.value.storeString
+				])
+			}.commaSeparated
+		])
 	}
 
 	values { :self |

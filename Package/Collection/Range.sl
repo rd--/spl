@@ -78,11 +78,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		).if {
 			self.start.printString ++ ':' ++ self.stop.printString
 		} {
-			[
+			'%:%:%'.format([
 				self.start.printString,
 				self.step.printString,
 				self.stop.printString
-			].join(':')
+			])
 		}
 	}
 
@@ -144,15 +144,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 	}
 
 	storeString { :self |
-		[
-			'Range(',
-			self.start.storeString,
-			', ',
-			self.stop.storeString,
-			', ',
-			self.step.storeString,
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 }

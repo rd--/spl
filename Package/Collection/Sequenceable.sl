@@ -19,7 +19,7 @@
 	}
 
 	++ { :self |
-		self.concatenation
+		self.catenate
 	}
 
 	+++ { :self :aList |
@@ -505,7 +505,7 @@
 		}
 	}
 
-	concatenationSeparatedBy { :self :aList |
+	catenateSeparatedBy { :self :aList |
 		self.ifEmpty {
 			self.copy
 		} {
@@ -529,17 +529,17 @@
 		}
 	}
 
-	concatenation { :self :isChecked |
+	catenate { :self :isChecked |
 		isChecked.ifTrue {
 			(self.elementType = self.typeOf).ifFalse {
-				self.error('@Sequenceable>>concatenation: invalid element type')
+				self.error('@Sequenceable>>catenate: invalid element type')
 			}
 		};
-		self.concatenationSeparatedBy([])
+		self.catenateSeparatedBy([])
 	}
 
-	concatenation { :self |
-		self.concatenation(false)
+	catenate { :self |
+		self.catenate(false)
 	}
 
 	constantArray { :self :anObject |
@@ -596,7 +596,7 @@
 					i := j + k
 				};
 				answer.add(self.copyFromTo(i, self.size));
-				answer.concatenation
+				answer.catenate
 			}
 		}
 	}
@@ -709,7 +709,7 @@
 		self.lyndonWords(anInteger).select { :each |
 			let k = each.size;
 			k = 1 | { k.divisible(anInteger) }
-		}.concatenation
+		}.catenate
 	}
 
 	deleteAdjacentDuplicates { :self :aBlock:/2 |
@@ -1839,7 +1839,7 @@
 	lyndonWordsDo { :alphabet :n :aBlock:/1 |
 		let nextWord = { :w |
 			let k = (n // w.size) + 1;
-			let x = ({ w } ! k).concatenation.first(n);
+			let x = ({ w } ! k).catenate.first(n);
 			{
 				x.size > 0 & {
 					x.last = alphabet.last
@@ -2466,14 +2466,24 @@
 		self.replicateEachApplying(counts, identity:/1)
 	}
 
+	reversed { :self :level |
+		(level <= 1).if {
+			let answer = self.species.ofSize(self.size);
+			let fromIndex = self.size + 1;
+			self.indicesDo { :toIndex |
+				answer[toIndex] := self[fromIndex - 1];
+				fromIndex := fromIndex - 1
+			};
+			answer
+		} {
+			self.collect { :each |
+				each.reversed(level - 1)
+			}
+		}
+	}
+
 	reversed { :self |
-		let answer = self.species.ofSize(self.size);
-		let fromIndex = self.size + 1;
-		self.indicesDo { :toIndex |
-			answer[toIndex] := self[fromIndex - 1];
-			fromIndex := fromIndex - 1
-		};
-		answer
+		self.reversed(1)
 	}
 
 	reverseDo { :self :aBlock:/1 |
@@ -2870,10 +2880,37 @@
 		self.partition(k, 1).intersection(aList.partition(k, 1))
 	}
 
-	swapWith { :self :oneIndex :anotherIndex |
-		let element = self[oneIndex];
-		self[oneIndex] := self[anotherIndex];
-		self[anotherIndex] := element
+	swapAllWith { :self :indices |
+		indices.rank.caseOf([
+			{ 2 } -> {
+				indices.do { :each |
+					let [i, j] = each;
+					let x = self[i];
+					self[i] := self[j];
+					self[j] := x
+				}
+			},
+			{ 3 } -> {
+				indices.do { :each |
+					let [i, j] = each;
+					let x = self.atPath(i);
+					self.atPathPut(i, self.atPath(j));
+					self.atPathPut(j, x)
+				}
+			}
+		])
+	}
+
+	swapPathWith { :self :i :j |
+		let x = self.atPath(i);
+		self.atPathPut(i, self.atPath(j));
+		self.atPathPut(j, x)
+	}
+
+	swapWith { :self :i :j |
+		let x = self[i];
+		self[i] := self[j];
+		self[j] := x
 	}
 
 	take { :self :count :fill |

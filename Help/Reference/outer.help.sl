@@ -6,7 +6,7 @@
 Answer the generalized outer product of two sequences,
 passing all combinations of the elements in each to _aBlock_.
 
-Concatenate strings:
+Catenate strings:
 
 ```
 >>> ['a' 'b'] ++.outer ['x' 'y' 'z']

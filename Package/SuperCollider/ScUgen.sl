@@ -29,12 +29,10 @@ ScUgen! : [Object] {
 	}
 
 	printString { :self |
-		[
+		'%(%)'.format([
 			self.name,
-			'(',
-			self.inputList.collect(printString:/1).join(', ')
-			,')'
-		].join('')
+			self.inputList.collect(printString:/1).commaSeparated
+		])
 	}
 
 	pseudoSlotNameList { :self |

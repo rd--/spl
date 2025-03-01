@@ -2,7 +2,7 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 
 	approximation { :self |
 		self.cached('approximation') {
-			self.componentApproximationList.concatenation
+			self.componentApproximationList.catenate
 		}
 	}
 

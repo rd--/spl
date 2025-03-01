@@ -41,7 +41,7 @@ according to the specified probabilities.
 >>> 	'ACGT'.contents,
 >>> 	[0.15 0.35 0.35 0.15],
 >>> 	24
->>> ).join('')
+>>> ).stringCatenate
 'CTTGTAGGGTCCCGGAGGTCGCGG'
 ```
 

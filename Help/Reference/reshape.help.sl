@@ -31,7 +31,7 @@ recycling elements as required:
 ```
 
 Create a 2×2 matrix from a nine-vector,
-discaring excess elements:
+discarding excess elements:
 
 ```
 >>> 9.iota.reshape([2 2])
@@ -84,7 +84,7 @@ discarding excess elements:
 [1 2 3]
 ```
 
-Create a 3×3 matrix from a 2×2 matrix,
+Create a 2×4 matrix from a 2×2 matrix,
 recycling elements as required:
 
 ```
@@ -120,13 +120,19 @@ Create a 2×3 matrix from a `Range` value:
 ]
 ```
 
-Create a 2×3 matrix from the `contents` of a `String` value:
+Create a 2×3 matrix from the `characters` of a `String` value:
 
 ```
->>> 'abcdef'.contents.reshape([2 3])
+>>> 'abcdef'.characters.reshape([2 3])
 [
 	'a' 'b' 'c';
 	'd' 'e' 'f'
+]
+
+>>> 'greek'.alphabet.reshape([2 7])
+[
+	'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η';
+	'θ' 'ι' 'κ' 'λ' 'μ' 'ν' 'ξ'
 ]
 ```
 
@@ -187,10 +193,10 @@ Reshape a 4×3 matrix into a 2×2×3 array.
 >>> 	10 11 12
 >>> ].reshape([2 2 3])
 [
-	1 2 3;
-	4 5 6
+	 1  2  3;
+	 4  5  6
 	:;
-	7 8 9;
+	 7  8  9;
 	10 11 12
 ]
 ```

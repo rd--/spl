@@ -186,7 +186,7 @@ SVGTransformList! : [Object] {
 					bbox.height + (2 * bbox.lowerLeft[2])
 				]),
 				'scale(1, -1)'
-			].join(' ')
+			].unwords
 		);
 		group.appendChildren(dots);
 		group.appendChildren(lines);

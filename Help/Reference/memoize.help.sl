@@ -1,8 +1,10 @@
 # memoize
 
-- _memoize(aBlock:/1)_
+- _memoize(aBlock:/1, requireImmediate)_
 
-Answer a one argument `Block` that memoizes _aBlock_ using a `Map`.
+Answer a one argument `Block` that memoizes _aBlock_,
+using a `Map` if _requireImmediate_ is `true`,
+else a `Dictionary`.
 
 Un-memoized Fibonacci may take several seconds to evaluate for _k > 30_:
 
@@ -28,7 +30,7 @@ Memoized Fibonacci will answer immediately for large _k_:
 >>> 	} {
 >>> 		fib(n - 1) + fib(n - 2)
 >>> 	}
->>> }.memoize;
+>>> }.memoize(false);
 >>> let k = 200L;
 >>> fib(k)
 280571172992510140037611932413038677189525L

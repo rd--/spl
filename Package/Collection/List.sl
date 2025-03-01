@@ -63,28 +63,22 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.allSatisfy(isLiteral:/1)
 	}
 
-	join { :self :separator |
-		let separatorType = separator.typeOf;
-		self.allSatisfy { :each |
-			each.typeOf = separatorType
-		}.if {
-			separatorType.caseOfOtherwise([
-				{ 'List' } -> {
-					self.concatenationSeparatedBy(separator)
-				},
-				{ 'String' } -> {
-					self.basicStringJoin(separator)
-				}
-			]) {
-				self.error('List>>join: element type not List or String: ' ++ elementType)
-			}
+	join { :self :level |
+		(level <= 1).if {
+			self.catenate
 		} {
-			self.error('List>>join: heterogenous list: ' ++ self.elementTypes)
+			1.toAsCollect(self.first.size, self.first.species) { :index |
+				self.collect { :row |
+					row[index]
+				}.join(level - 1)
+			}
 		}
 	}
 
 	printString { :self :toString:/1 |
-		'[' ++ self.collect(toString:/1).join(', ') ++ ']'
+		'[%]'.format([
+			self.collect(toString:/1).commaSeparated
+		])
 	}
 
 	printString { :self |

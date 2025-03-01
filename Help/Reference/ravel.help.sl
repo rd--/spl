@@ -35,7 +35,7 @@ At `NumericArray`:
 
 * * *
 
-See also: concatenation, flatten, rank, shape
+See also: catenate, flatten, rank, shape
 
 Guides: Matrix Functions
 

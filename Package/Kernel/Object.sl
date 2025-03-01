@@ -99,11 +99,11 @@
 	}
 
 	errorMessage { :self :message |
-		[
-			self.typeOf, ': ',
+		'%: %: (%)'.format([
+			self.typeOf,
 			message,
-			': (', self.printStringLimitedTo(16), ')'
-		].join('')
+			self.printStringLimitedTo(16)
+		])
 	}
 
 	error { :self :message |
@@ -149,7 +149,7 @@
 			} {
 				[]
 			}
-		].concatenation
+		].catenate
 	}
 
 	isBinary { :self |
@@ -173,11 +173,11 @@
 	}
 
 	notificationMessage { :self :message |
-		[
-			self.typeOf, ': ',
+		'%: %: (%)'.format([
+			self.typeOf,
 			message,
-			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join('')
+			self.printStringLimitedTo(16)
+		])
 	}
 
 	notify { :self :message |
@@ -269,12 +269,10 @@
 	}
 
 	storeStringAsInitializeSlots { :self |
-		[
+		'%(%)'.format([
 			self.typeOf,
-			'(',
-			self.slotValueList.collect(storeString:/1).join(', '),
-			')'
-		].join('')
+			self.slotValueList.collect(storeString:/1).commaSeparated
+		])
 	}
 
 	storeString { :self |
@@ -298,12 +296,11 @@
 	}
 
 	warningMessage { :self :message |
-		[
-			'Warning: ',
-			self.typeOf, ': ',
+		'Warning: %: %: (%)'.format([
+			self.typeOf,
 			message,
-			': (' ++ self.printStringLimitedTo(16) ++ ')'
-		].join('')
+			self.printStringLimitedTo(16)
+		])
 	}
 
 	warning { :self :message |

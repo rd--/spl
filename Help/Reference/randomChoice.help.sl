@@ -33,7 +33,7 @@ Generate a random string:
 ```
 >>> Sfc32(37914)
 >>> .randomChoice(['A' 'C' 'G' 'T'], 25)
->>> .join('')
+>>> .stringCatenate
 'TTCGGAGGGCCCCGCAGATCTAAGT'
 ```
 

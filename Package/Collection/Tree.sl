@@ -222,13 +222,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	}
 
 	storeString { :self |
-		[
-			'Tree(',
-			self.value.storeString,
-			', ',
-			self.subTrees.storeString,
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	treePlot { :self |

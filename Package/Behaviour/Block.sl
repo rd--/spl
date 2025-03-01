@@ -229,8 +229,8 @@ Block! : [Object] {
 		aList.withWithCollect(anotherList, aThirdList, self:/3)
 	}
 
-	memoize { :self:/1 |
-		let table = Map();
+	memoize { :self:/1 :requireImmediate |
+		let table = requireImmediate.if { Map() } { Dictionary() };
 		{ :input |
 			table.atIfAbsent(input) {
 				let answer = self(input);

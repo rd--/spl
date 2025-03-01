@@ -208,7 +208,7 @@
 				'for:', for,
 				'index.typeOf:', index.typeOf,
 				'self.size:', self.size.asString
-			].join(' ')
+			].unwords
 		)
 	}
 

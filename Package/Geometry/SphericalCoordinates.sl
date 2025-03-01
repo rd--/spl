@@ -49,18 +49,6 @@
 		self.radius
 	}
 
-	storeString { :self |
-		[
-			'SphericalCoordinates(',
-			self.r.storeString,
-			', ',
-			self.theta.storeString,
-			', ',
-			self.phi.storeString,
-			')'
-		].join('')
-	}
-
 	x { :self |
 		self.r * self.theta.cos * self.phi.sin
 	}
@@ -76,6 +64,10 @@
 }
 
 SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
 
 }
 

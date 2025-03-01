@@ -66,7 +66,7 @@ let r = Sfc32(918041);
 	NormalDistribution(5, 2)
 	.randomVariate(r, [1000])
 ]
-.concatenation
+.catenate
 .binCounts([-3 11 0.2])
 .discretePlot
 ~~~

@@ -72,7 +72,7 @@ Join a list of words, after inserting spaces in between:
 
 * * *
 
-See also: ++, join, splitBy, stringConcatenation
+See also: ++, join, splitBy, stringCatenate
 
 References:
 _Mathematica_

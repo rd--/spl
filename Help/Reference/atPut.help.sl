@@ -47,7 +47,7 @@ There is `AtPut Syntax` for mutating indexed values:
 
 * * *
 
-See also: at, size
+See also: at, atPathPut, size
 
 Guides: AtPut Syntax, Quoted AtPut Syntax
 

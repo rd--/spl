@@ -10,7 +10,7 @@
 		self.keys.allSatisfy(isString:/1).if {
 			self.basicAsRecord
 		} {
-			self.error('asRecord: not all keys are strings')
+			self.error('@PrimitiveMap>>asRecord: not all keys are strings')
 		}
 	}
 
@@ -20,10 +20,10 @@
 			return _self.get(_key);
 		}
 		>
-		self.error('at: unknown key: ' ++ key)
+		self.error('@PrimitiveMap>>at: unknown key: ' ++ key)
 	}
 
-	atPut { :self :key :value |
+	basicAtPut { :self :key :value |
 		<primitive:
 		_self.set(_key, _value);
 		return _value;
@@ -50,13 +50,6 @@
 
 Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
 
-	add { :self :anAssociation |
-		<primitive:
-		_self.set(_anAssociation.key, _anAssociation.value);
-		return _anAssociation;
-		>
-	}
-
 	asDictionary { :self |
 		let answer = Dictionary();
 		answer.addAll(self);
@@ -69,6 +62,13 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 	asJson { :self :replacer :space |
 		self.asRecord.asJson(replacer, space)
+	}
+
+	atPut { :self :key :value |
+		key.isImmediate.ifFalse {
+			self.error('Map>>atPut: non-immediate key')
+		};
+		self.basicAtPut(key, value)
 	}
 
 	basicAsRecord { :self |
@@ -95,6 +95,14 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	removeAll { :self |
 		<primitive: _self.clear();>
 		self
+	}
+
+	reversed { :self |
+		let answer = Map();
+		self.keysAndValuesDo { :key :value |
+			answer.add(value -> key)
+		};
+		answer
 	}
 
 	shallowCopy { :self |
@@ -143,7 +151,7 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 			answer.last.do { :each |
 				next.add(self[each])
 			};
-			answer.add(next.join(''))
+			answer.add(next.stringCatenate)
 		};
 		answer
 	}

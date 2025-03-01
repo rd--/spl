@@ -2,56 +2,143 @@
 
 - _join(aList, separator)_
 
++List{
+}
+
 Join _aList_ (which must be a list of lists or strings) into a list or a string, intercalating _separator_ between each.
 The list must be of uniform element type.
 
 Join a matrix into a vector:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].join([])
+>>> [1 2 3; 4 5 6; 7 8 9].join(1)
 [1 2 3 4 5 6 7 8 9]
 ```
 
-With a non-empty separator vector:
+Join two matrices to make longer columns:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].join([0 0])
-[1 2 3 0 0 4 5 6 0 0 7 8 9]
+>>> [1 2; 3 4:; 5 6; 7 8].join(1)
+[
+	1 2;
+	3 4;
+	5 6;
+	7 8
+]
 ```
 
-Join a list of strings into a string, this form is equal to `stringConcatenation`:
+Join columns of two matrices to make longer rows:
 
 ```
->>> ['x' 'y' 'z'].join('')
-'xyz'
+>>> [1 2; 3 4:; 5 6; 7 8].join(2)
+[
+	1 2 5 6;
+	3 4 7 8
+]
 ```
 
-With a non-empty separator string:
+With ragged arrays, successive elements are effectively concatenated:
 
 ```
->>> ['x' 'y' 'z'].join(', ')
-'x, y, z'
+>>> [1; 5 6:; 2 3; 7:; 4; 8].join(2)
+[
+	1 2 3 4;
+	5 6 7 8
+]
 ```
 
-At the empty list the answer type is decided by the separator type,
-which is why the separator cannot be elided:
+The second row comes from the concatenation of nothing with _3, 4_:
 
 ```
->>> [].join(', ')
-''
+>>> [0; :; 1 2; 3 4].join(2)
+[0 1 2; 3 4]
+```
 
->>> [].join([])
+Join depth three arrays at different levels:
+
+```
+>>> let a = [2 2 2].iota;
+>>> let b = a.negated;
+>>> (
+>>> 	[a b].join(1),
+>>> 	[a b].join(2),
+>>> 	[a b].join(3)
+>>> )
+(
+	[
+		1 2; 3 4:;
+		5 6; 7 8:;
+		-1 -2; -3 -4:;
+		-5 -6; -7 -8
+	],
+	[
+		1 2; 3 4; -1 -2; -3 -4:;
+		5 6; 7 8; -5 -6; -7 -8
+	],
+	[
+		1 2 -1 -2; 3 4 -3 -4:;
+		5 6 -5 -6; 7 8 -7 -8
+	]
+)
+```
+
+Augment a matrix by adding a row:
+
+```
+>>> [3.identityMatrix, [[1 2 3]]].join(1)
+[
+	1 0 0;
+	0 1 0;
+	0 0 1;
+	1 2 3
+]
+```
+
+Augment by a column:
+
+```
+>>> [3.identityMatrix, [1; 2; 3]].join(2)
+[
+	1 0 0 1;
+	0 1 0 2;
+	0 0 1 3
+]
+```
+
+Make a block matrix:
+
+```
+>>> let a = [3 3].iota;
+>>> [
+>>> 	[a, a + 3].join(2),
+>>> 	[a + 9, a + 12].join(2)
+>>> ].join(1)
+[
+	 1  2  3  4  5  6;
+	 4  5  6  7  8  9;
+	 7  8  9 10 11 12;
+	10 11 12 13 14 15;
+	13 14 15 16 17 18;
+	16 17 18 19 20 21
+]
+```
+
+At the empty list:
+
+```
+>>> [].join(1)
 []
+
+>>> { [].join(2) }.ifError { true }
+true
 ```
 
 * * *
 
-See also: ++, +++, concatenation, flatten, splitBy, stringConcatenation, stringJoin
+See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, splitBy, stringCatenate, stringJoin
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Join.html),
-_Tc39_
-[1](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.join)
+[1](https://mathworld.wolfram.com/Join.html)
 
 Categories: String

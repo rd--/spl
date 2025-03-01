@@ -123,15 +123,11 @@
 		let answer = [];
 		self.methodImplementations(methodName).do { :method |
 			answer.add(
-				[
-					'+ ',
+				'+ %{\n\t% %\n}'.format([
 					method.origin.qualifiedName,
-					' {\n\t',
 					method.name,
-					' ',
-					method.sourceCode,
-					'\n}'
-				].join('')
+					method.sourceCode
+				])
 			)
 		};
 		answer

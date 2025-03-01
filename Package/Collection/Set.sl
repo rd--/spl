@@ -11,11 +11,10 @@
 	}
 
 	add { :self :anObject |
-		self.includes(anObject).if {
-			self.error('set includes item')
-		} {
-			self.include(anObject)
-		}
+		self.includes(anObject).ifTrue {
+			self.error('@Set>>add: includes item')
+		};
+		self.include(anObject)
 	}
 
 	collect { :self :aBlock:/1 |
@@ -40,7 +39,7 @@
 
 	remove { :self :anObject |
 		self.removeIfAbsent(anObject) {
-			self.error('remove: item does not exist')
+			self.error('@Set>>remove: item does not exist')
 		}
 	}
 

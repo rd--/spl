@@ -27,7 +27,7 @@
 					let traits = system.packageTraits(path[2]);
 					let types = system.packageTypes(path[2]);
 					let implements = (traits ++ types).collect(qualifiedName:/1);
-					browser.setStatus(implements.join(', '));
+					browser.setStatus(implements.commaSeparated);
 					methods := system.packageMethods(path[2]);
 					methods.collect { :each |
 						each.origin.qualifiedName
@@ -35,7 +35,7 @@
 				},
 				{ 3 } -> {
 					system.isTypeName(path[3]).if {
-						browser.setStatus(system.typeTraits(path[3]).join(', '))
+						browser.setStatus(system.typeTraits(path[3]).commaSeparated)
 					} {
 						browser.setStatus('')
 					};

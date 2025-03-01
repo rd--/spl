@@ -52,7 +52,7 @@ Method! : [Object] {
 				'{ ',
 				aString,
 				' }'
-			].join('')
+			].stringCatenate
 		)
 	}
 
@@ -85,10 +85,10 @@ Method! : [Object] {
 	}
 
 	provenance { :self |
-		[
+		'%:%'.format([
 			self.packageName,
 			self.origin.name
-		].join(':')
+		])
 	}
 
 	pseudoSlotNameList { :self |

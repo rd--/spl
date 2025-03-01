@@ -103,7 +103,7 @@
 						[1 2],
 						[2 10] +.x 8.iota,
 						2 + [1 5]
-					].concatenation,
+					].catenate,
 					1 # 20
 				].transposed,
 				'11×2→1×2+1×8+2×4': [
@@ -112,7 +112,7 @@
 						[1 2],
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7]
-					].concatenation,
+					].catenate,
 					1 # 22
 				].transposed,
 				'12×2→1×2+1×8+2×4': [
@@ -121,7 +121,7 @@
 						[1 2],
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7 4 8]
-					].concatenation,
+					].catenate,
 					1 # 24
 				].transposed,
 				'13×2→1×2+1×8+2×4': [
@@ -130,7 +130,7 @@
 						[1 2],
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7 4 8 2 6]
-					].concatenation,
+					].catenate,
 					1 # 26
 				].transposed,
 				'1×8+2×4→1×8+2×4': [
@@ -143,7 +143,7 @@
 					[
 						[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
 						[8 12] +.x [1 2 2 4 4 3 3 1]
-					].concatenation,
+					].catenate,
 					1 # 32
 				].transposed
 			)
@@ -158,7 +158,7 @@
 		let ruleTable = system.preference('ScSynth/Outputs/Mixer/RuleTable', [['1×2', [1, 2]]]);
 		let runList = self.collect(size:/1).asRunArray;
 		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
-			[run.asString, value.asString].join('×')
+			[run.asString, value.asString].stringIntercalate('×')
 		}.join('+') ++ '→';
 		/* ['Mix', ruleTable, derivedPrefix].postLine; */
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
@@ -171,7 +171,7 @@
 				let [name, busesByIndex] = each;
 				/* ['mixByAvailableNamedRule', each, prefix].postLine; */
 				sparseMatrixTable.atIfPresent(prefix ++ name) { :entries |
-					let inputs = self.concatenation;
+					let inputs = self.catenate;
 					let reindexedEntries = entries.collect { :entry |
 						[
 							entry.first,
@@ -183,7 +183,7 @@
 					/* ['mixByAvailableNamedRule', channelCount, self.shape, reindexedEntries].postLine; */
 					SparseMatrixMixer(
 						channelCount,
-						self.concatenation,
+						self.catenate,
 						reindexedEntries ++ self.lowFrequencySendsSparseMatrix
 					).return
 				}

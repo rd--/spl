@@ -88,16 +88,12 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 	}
 
 	storeString { :self |
-		[
-			'RatioTuning(',
-			[
-				self.name,
-				self.description,
-				self.ratios,
-				self.octave
-			].collect(storeString:/1).join(', '),
-			')'
-		].join('')
+		'RatioTuning(%, %, %, %)'.format([
+			self.name.storeString,
+			self.description.storeString,
+			self.ratios.storeString,
+			self.octave.storeString
+		])
 	}
 
 }

@@ -16,17 +16,17 @@ and add each item in each answer to the answer.
 
 This is equivalent to,
 but more efficient than,
-the `concatenation` of `collect`:
+the `catenate` of `collect`:
 
 ```
 >>> [3 5 7].collect { :each |
 >>> 	(1 .. each)
->>> }.concatenation
+>>> }.catenate
 [1 2 3 1 2 3 4 5 1 2 3 4 5 6 7]
 ```
 
 * * *
 
-See also: collect, concatenation
+See also: collect, catenate
 
 Categories: Enumerating

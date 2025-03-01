@@ -33,7 +33,7 @@
 		).if {
 			self.latticeVector(primes).collect { :each |
 				each.asString.padLeft(2, ' ')
-			}.join(' ')
+			}.unwords
 		} {
 			'*'
 		}

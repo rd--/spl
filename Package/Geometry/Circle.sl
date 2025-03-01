@@ -64,13 +64,10 @@ Circle : [Object] { | center radius |
 	}
 
 	storeString { :self |
-		[
-			'Circle(',
+		'Circle(%, %)'.format([
 			self.center.storeString,
-			', ',
-			self.radius.storeString,
-			')'
-		].join('')
+			self.radius.storeString
+		])
 	}
 
 	translateBy { :self :factor |

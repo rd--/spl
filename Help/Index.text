@@ -2228,7 +2228,7 @@ Reference/roundTo.help.sl
 Reference/RoundTo.help.sl
 Reference/roundToTowardsZero.help.sl
 Reference/roundUpTo.help.sl
-Reference/rowConcatenation.help.sl
+Reference/rowCatenate.help.sl
 Reference/rowReduce.help.sl
 Reference/rulesTree.help.sl
 Reference/RunArray.help.sl
@@ -2419,7 +2419,7 @@ Reference/Storage.help.sl
 Reference/storeStringAsInitializeSlots.help.sl
 Reference/storeString.help.sl
 Reference/Stream.help.sl
-Reference/stringConcatenation.help.sl
+Reference/stringCatenate.help.sl
 Reference/String.help.sl
 Reference/stringJoin.help.sl
 Reference/stringList.help.sl

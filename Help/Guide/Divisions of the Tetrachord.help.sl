@@ -392,8 +392,8 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 >>> 				].sort
 >>> 			]
 >>> 		}
->>> 	}.concatenation
->>> }.concatenation
+>>> 	}.catenate
+>>> }.catenate
 [
 	16 15 14 12; 16/15 15/14 7/6:;
 	16 15 13 12; 16/15 13/12 15/13:;

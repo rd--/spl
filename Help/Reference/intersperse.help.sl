@@ -18,7 +18,7 @@ Insert zeroes between successive integers:
 
 * * *
 
-See also: intercalate, interleave, stringConcatenation, stringJoin, transposed
+See also: intercalate, interleave, stringCatenate, stringJoin, transposed
 
 References:
 _Haskell_

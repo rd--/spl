@@ -221,7 +221,7 @@
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;
 			(n = 2).if {
-				let [a, b, c, d] = self.contents.concatenation;
+				let [a, b, c, d] = self.contents.catenate;
 				let r = 1 / ((a * d) - (b * c));
 				let m = [[d, b.-], [c.-, a]];
 				r * m
@@ -563,7 +563,7 @@
 		}
 	}
 
-	rowConcatenation { :self |
+	rowCatenate { :self |
 		let n = self.size;
 		let k = self.first.size;
 		let answer = [];
@@ -601,7 +601,7 @@
 			u := u.dot(q);
 			[q, s] := qrDecomposition(s.conjugateTranspose);
 			v := v.dot(q);
-			e := s.deepCopy.upperTriangularize(1).concatenation.norm;
+			e := s.deepCopy.upperTriangularize(1).catenate.norm;
 			f := s.diagonal.norm;
 			err := (f = 0 || (f = 1)).if {
 				0
@@ -963,7 +963,7 @@
 		[
 			0:x.collect { :i | a.rotatedRight(i) },
 			0:y.collect { :i | b.rotatedRight(i) }
-		].concatenation
+		].catenate
 	}
 
 	toeplitzMatrix { :c :r |

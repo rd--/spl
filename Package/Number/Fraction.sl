@@ -407,7 +407,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		[
 			self.numerator.basicPrintString(10),
 			self.denominator.basicPrintString(10)
-		].join('/')
+		].stringIntercalate('/')
 	}
 
 	truncated { :self |

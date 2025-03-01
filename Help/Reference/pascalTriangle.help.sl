@@ -29,7 +29,7 @@ c.f. OEIS [A007318](https://oeis.org/A007318):
 
 ~~~spl svg=A
 20.pascalTriangle
-.concatenation
+.catenate
 .logScale
 .scatterPlot
 ~~~

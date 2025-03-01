@@ -37,13 +37,7 @@ PolarCoordinates : [Object] { | r theta |
 	}
 
 	storeString { :self |
-		[
-			'PolarCoordinates(',
-			self.r.storeString,
-			', ',
-			self.theta.storeString,
-			')'
-		].join('')
+		self.storeStringAsInitializeSlots
 	}
 
 	x { :self |

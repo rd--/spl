@@ -43,7 +43,7 @@ Filter out vowels using `reject` and `isVowel`:
 'txt'.asAsciiString
 ```
 
-Concatenate using `++`:
+Catenate using `++`:
 
 ```
 >>> 'te'.asAsciiString ++ 'xt'.asAsciiString

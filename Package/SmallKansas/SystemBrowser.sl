@@ -15,7 +15,7 @@
 					typeNames
 				},
 				{ 1 } -> {
-					browser.setStatus(system.typeTraits(path[1]).join(', '));
+					browser.setStatus(system.typeTraits(path[1]).commaSeparated);
 					methodSet := system.typeMethodDictionary(path[1]).values.select { :each |
 						each.origin.name ~= 'Object'
 					};

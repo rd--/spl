@@ -5,7 +5,7 @@ Plot : [Object] { | pages format options |
 	asLineDrawing { :self |
 		let columnCount = self.columnCount;
 		(columnCount = 2).if {
-			let r = self.pages.concatenation.coordinateBoundingBox.asRectangle;
+			let r = self.pages.catenate.coordinateBoundingBox.asRectangle;
 			let w = r.width;
 			let h = r.height;
 			let dataRatio = (w / h);

@@ -67,6 +67,18 @@ With empty string:
 'xyz'
 ```
 
+Join two matrices to make longer columns:
+
+```
+>>> [1 2; 3 4] ++ [5 6; 7 8]
+[
+	1 2;
+	3 4;
+	5 6;
+	7 8
+]
+```
+
 The unary form flattens the collection by one level into a `List`:
 
 ```
@@ -86,7 +98,7 @@ _Note:_ In Smalltalk the binary form is the comma operator.
 
 * * *
 
-See also: +++, concatenation, flatten, join
+See also: +++, catenate, flatten, join
 
 Unicode: U+29FA ⧺ Double plus
 
@@ -96,7 +108,8 @@ _Common Lisp_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:-43--43-)
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Catenate.html),
+[1](https://reference.wolfram.com/language/ref/Catenate.html)
+[1](https://reference.wolfram.com/language/ref/Join.html),
 _Smalltalk_
 5.7.8.1
 

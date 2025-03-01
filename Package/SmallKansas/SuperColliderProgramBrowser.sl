@@ -24,15 +24,11 @@
 					},
 					{ 3 } -> {
 						let [category, author, name] = path @* [1, 2, 3];
-						let url = [
-							'./lib/spl/Program/SuperCollider/',
+						let url = './lib/spl/Program/SuperCollider/%/% - %.sp'.format([
 							category,
-							'/',
 							author,
-							' - ',
-							name,
-							'.sp'
-						].join('');
+							name
+						]);
 						url.fetchTextWithDefault('*Fetch failed*')
 					}
 				])

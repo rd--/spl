@@ -16,7 +16,7 @@
 >>> 	'- L2'
 >>> 	''
 >>> 	'P2'
->>> ].join('\n');
+>>> ].unlines;
 >>> let markdown = Markdown(string);
 >>> (
 >>> 	markdown.asMarkdown = string,
@@ -33,7 +33,7 @@
 		'</ul>'
 		'<p>P2</p>'
 		''
-	].join('\n')
+	].unlines
 )
 ```
 
@@ -53,7 +53,7 @@ and `contents` collects these nodes into a list:
 >>> 		'- L **b**'
 >>> 		''
 >>> 		'P ![_e_](g)'
->>> 	].join('\n')
+>>> 	].unlines
 >>> );
 >>> m.contents.collect { :each |
 >>> 	let p = each.includesKey('sourcePosition');
@@ -93,7 +93,7 @@ The `asTree` method answers a `Tree` of the parse tree:
 >>> 		'- L **b**'
 >>> 		''
 >>> 		'P ![_e_](g)'
->>> 	].join('\n')
+>>> 	].unlines
 >>> );
 >>> m.asTree.leafIndices
 [
@@ -124,7 +124,7 @@ which are stored as a `Record`:
 >>> 		'c'
 >>> 		'~~~'
 >>> 		''
->>> 	].join('\n')
+>>> 	].unlines
 >>> );
 >>> m.codeBlocks
 [

@@ -138,7 +138,7 @@ LineDrawing : [Object] { | contents metadata |
 		let places = [
 			[innerCircle],
 			self
-		].concatenation.collect(prefixSum:/1);
+		].catenate.collect(prefixSum:/1);
 		let angles = places.collect { :p |
 			p.collect { :q |
 				((q / period).negated * 2.pi + 0.5.pi) % 2.pi

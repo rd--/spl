@@ -29,7 +29,10 @@ At the empty `List`:
 At the `alphabet`:
 
 ```
->>> 'english'.alphabet.join('').chunksOf(3)
+>>> 'english'
+>>> .alphabet
+>>> .stringJoin
+>>> .chunksOf(3)
 [
 	'abc' 'def' 'ghi'
 	'jkl' 'mno' 'pqr'
