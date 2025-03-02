@@ -6,7 +6,7 @@
 - _map(α, β, γ, δ)_ ⇒ _withWithCollect(δ, α, β, γ)_
 
 The unary form answers a `Block` that will apply _aBlock_ element wise to two sequences.
-If the sequences are not of equal size the shorter will be cycled.
+If the sequences are not of equal size the shorter will be recycled.
 This form is equivalent to `each`.
 
 ```
@@ -74,6 +74,32 @@ The quaternary form is a variant of `withWithCollect`:
 >>> 	p * q ^ r
 >>> }
 [59049 65536 9261 576 25 1 0.04762]
+```
+
+Reverse all sublists:
+
+```
+>>> reverse:/1.map([1 2; 3 4; 5 6])
+[2 1; 4 3; 6 5]
+```
+
+Add the same vector to every vector in a list:
+
+```
+>>> { :x | x + [4 5] }.map([1 2; 3 4; 5 6])
+[5 7; 7 9; 9 11]
+```
+
+Negate integers that are prime:
+
+```
+>>> { :x |
+>>> 	x.isPrime.if { x.- } { x }
+>>> }.map(1:20)
+[
+	  1 -2   -3  4  -5   6   -7  8    9 10
+	-11 12  -13 14  15  16  -17 18  -19 20
+]
 ```
 
 * * *

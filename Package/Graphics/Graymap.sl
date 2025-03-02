@@ -26,11 +26,11 @@ Graymap : [Object] { | contents |
 	}
 
 	height { :self |
-		self.contents.size
+		self.contents.numberOfRows
 	}
 
 	width { :self |
-		self.contents.first.size
+		self.contents.numberOfColumns
 	}
 
 	writePgm { :self :fileName |

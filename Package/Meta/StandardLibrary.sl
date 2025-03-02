@@ -18,7 +18,6 @@
 	'Graph'
 	'Heap'
 	'LinkedList'
-	'Matrix'
 	'NumericArray'
 	'PriorityQueue'
 	'RunArray'
@@ -33,6 +32,7 @@
 	'UndirectedEdge'
 	'WeakMap'
 	'BitSet' /* ByteArray */
+	'Matrix' /* NumericArray */
 	'ResidueSet' /* BitSet Set */
 
 	/* Exception */

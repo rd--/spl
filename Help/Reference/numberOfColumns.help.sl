@@ -26,6 +26,14 @@ A 3×2 matrix:
 2
 ```
 
+At `NumericArray`:
+
+```
+>>> [3 4].iota.asNumericArray
+>>> .numberOfColumns
+4
+```
+
 * * *
 
 See also: isArray, isMatrix, isVolume, List, Matrix, numberOfRows, shape

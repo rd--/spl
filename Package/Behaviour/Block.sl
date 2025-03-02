@@ -23,6 +23,14 @@ Block! : [Object] {
 		self.error('apply: argument is not a list or not of required size')
 	}
 
+	argumentCount { :self |
+		self.numArgs
+	}
+
+	argumentNames { :self |
+		<primitive: return _self.argumentNames;>
+	}
+
 	array { :aBlock :shape |
 		shape.size.caseOfOtherwise(
 			[
@@ -338,6 +346,10 @@ Block! : [Object] {
 			self();
 			true
 		}.whileTrue
+	}
+
+	sourceCode { :self |
+		<primitive: return _self.sourceCode;>
 	}
 
 	rungeKuttaMethod { :self:/2 :y0 :x0 :x1 :h |

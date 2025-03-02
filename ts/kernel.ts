@@ -25,6 +25,7 @@ type MethodSourceCode = string;
 type MethodOrigin = Trait | Type;
 
 type SplObject = object & { _type: TypeName };
+type SplBlock = (...args: never) => unknown;
 
 type QualifiedMethodDictionary = Map<QualifiedMethodName, Method>;
 type TraitDictionary = Map<TraitName, Trait>;
@@ -360,6 +361,11 @@ export function typesImplementingTrait(traitName: TraitName): TypeName[] {
 		}
 	}
 	return answer;
+}
+
+export function annotateFunction(aBlock: SplBlock, argumentNames: string[]): SplBlock {
+	aBlock.argumentNames = argumentNames;
+	return aBlock;
 }
 
 // CF. rewrite/makeMethodList

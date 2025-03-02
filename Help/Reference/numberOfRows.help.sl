@@ -1,6 +1,6 @@
 # numberOfRows
 
-- _numberOfRows(aSequence | aMatrix)_
+- _numberOfRows(aMatrix)_
 
 Answer the number of rows in an array.
 This is the first element of `shape`.
@@ -23,6 +23,14 @@ A 3×2 matrix:
 >>> 	3 4;
 >>> 	5 6
 >>> ].numberOfRows
+3
+```
+
+At `NumericArray`:
+
+```
+>>> [3 4].iota.asNumericArray
+>>> .numberOfRows
 3
 ```
 

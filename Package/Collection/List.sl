@@ -75,6 +75,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
+	normal { :self |
+		self
+	}
+
 	printString { :self :toString:/1 |
 		'[%]'.format([
 			self.collect(toString:/1).commaSeparated

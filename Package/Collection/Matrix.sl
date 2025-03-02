@@ -1,3 +1,38 @@
+/* Requires: NumericArray */
+
++[List, NumericArray] {
+
+	isColumnVector { :self |
+		self.isMatrix & {
+			self.numberOfColumns = 1
+		}
+	}
+
+	isRowVector { :self |
+		self.isMatrix & {
+			self.numberOfRows = 1
+		}
+	}
+
+	isSquareMatrix { :self |
+		self.isMatrix & {
+			let [m, n] = self.shape;
+			m = n
+		}
+	}
+
+	numberOfRows { :self |
+		let [m, _] = self.shape;
+		m
+	}
+
+	numberOfColumns { :self |
+		let [_, n] = self.shape;
+		n
+	}
+
+}
+
 +List {
 
 	antidiagonal { :self :k |
@@ -41,12 +76,6 @@
 		self.diagonal(0)
 	}
 
-	isColumnVector { :self |
-		self.isMatrix & {
-			self.anyOne.size = 1
-		}
-	}
-
 	isDiagonalMatrix { :self :k |
 		(self.rank = 2) & {
 			self.deepIndices.allSatisfy { :index |
@@ -86,18 +115,6 @@
 			self.allSatisfy { :each |
 				each.elementType = elementType
 			}
-		}
-	}
-
-	isRowVector { :self |
-		self.isMatrix & {
-			self.size = 1
-		}
-	}
-
-	isSquareMatrix { :self |
-		self.isMatrix & {
-			self.size = self.anyOne.size
 		}
 	}
 
@@ -202,22 +219,6 @@
 
 	matrixRotate { :self |
 		self.matrixRotate(1)
-	}
-
-	numberOfRows { :self |
-		self.isArray.if {
-			self.size
-		} {
-			self.error('List>>numberOfRows: not an array')
-		}
-	}
-
-	numberOfColumns { :self |
-		self.isArray.if {
-			self.anyOne.size
-		} {
-			self.error('List>>numberOfColumns: not an array')
-		}
 	}
 
 	submatrix { :self :r :c |

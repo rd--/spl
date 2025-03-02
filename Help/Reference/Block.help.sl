@@ -73,6 +73,14 @@ The arity is given by `numArgs`:
 1
 ```
 
+The names of the arguments can be retrieved using `argumentNames`:
+
+```
+>>> { :x :y | (x * x) + (y * y) }
+>>> .argumentNames
+['x' 'y']
+```
+
 _Rationale_:
 The name _block_ is from Smalltalk.
 It is used in Sᴘʟ in preference to _procedure_ or _function_.

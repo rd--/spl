@@ -117,6 +117,7 @@ const asJs: ohm.ActionDict<string> = {
 		return commaListJs(arg.children);
 	},
 	Block(_l, arg, tmp, prm, stm, _r) {
+		const argJs = arg.asJs;
 		const tmpJs = tmp.asJs;
 		const prmJs = prm.asJs;
 		const stmJs = stm.asJs;
@@ -125,12 +126,12 @@ const asJs: ohm.ActionDict<string> = {
 			arityCheck = genArityCheck(arg.arityOf, arg.asJs);
 		}
 		return [
-			`(function(${arg.asJs}) {\n`,
+			`sl.annotateFunction(function(${argJs}) {\n`,
 			arityCheck,
 			(tmpJs.length > 0) ? ('/* Temporaries */\n' + tmpJs + '\n') : '',
 			(prmJs.length > 0) ? ('/* Primitive */\n' + prmJs + '\n') : '',
 			(stmJs.length > 0) ? ('/* Statements */\n' + stmJs + '\n') : '',
-			'})',
+			`}, ${JSON.stringify(arg.parametersOf)})`,
 		].join('');
 	},
 	BlockLiteralInitializer(name, _eq, blk) {
@@ -645,7 +646,7 @@ const asSl: ohm.ActionDict<string> = {
 		return "'" + s.sourceString + "'";
 	},
 	symbolicCharacterLiteral(c) {
-		let i = c.sourceString.codePointAt(0);
+		let i = c.sourceString.codePointAt(0)!;
 		let a = String.fromCodePoint(i - 119841);
 		return "Symbol('" + a + "')";
 	},

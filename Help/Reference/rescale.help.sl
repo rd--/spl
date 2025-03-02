@@ -9,15 +9,14 @@ answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _
 In the ternary case _yMin_ and _yMax_ are set to `zero` and `one`.
 In the unary case _min_ and _max_ are set to the (deep) minima and maxima of _aCollection_.
 
+At `SmallFloat`:
+
 ```
 >>> 2.5.rescale(-10, 10, 0, 1)
 0.625
 
 >>> 12.5.rescale(-10, 10, 0, 1)
 1.125
-
->>> [-10 0 10].rescale(-10, 10, 0, 1)
-[0 0.5 1]
 ```
 
 At `Fraction`:
@@ -41,6 +40,13 @@ At `SmallFloat`:
 
 >>> 8.rescale(-9, 7.11111, 0, 1)
 1.05517
+```
+
+At `List`:
+
+```
+>>> [-10 0 10].rescale(-10, 10, 0, 1)
+[0 0.5 1]
 ```
 
 Rescale so that all the `List` elements run from 0 to 1:

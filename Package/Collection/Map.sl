@@ -66,7 +66,7 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 	atPut { :self :key :value |
 		key.isImmediate.ifFalse {
-			self.error('Map>>atPut: non-immediate key')
+			self.error('Map>>atPut: non-immediate key: ' ++ key)
 		};
 		self.basicAtPut(key, value)
 	}

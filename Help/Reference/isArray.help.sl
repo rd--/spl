@@ -1,8 +1,8 @@
 # isArray
 
-- _isArray(aSequence)_
+- _isArray(anObject)_
 
-A `Sequence` is an _array_ if it is has a `shape`.
+A `List` is an _array_ if it is has a `shape`.
 
 Vectors are arrays:
 

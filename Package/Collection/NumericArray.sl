@@ -61,8 +61,12 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 		self.contents.do(aBlock:/1)
 	}
 
-	elementType { :self |
+	elementType { :unused |
 		'SmallFloat'
+	}
+
+	isArray { :unused |
+		true
 	}
 
 	isCommensurate { :self :other |

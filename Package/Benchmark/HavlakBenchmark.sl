@@ -26,6 +26,10 @@ BasicBlock : [Object] { | inEdges outEdges name |
 		self
 	}
 
+	isImmediate { :unused |
+		true
+	}
+
 	numPred { :self |
 		self.inEdges.size
 	}
