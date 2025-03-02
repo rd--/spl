@@ -18,6 +18,18 @@ and that row is made by recycling a single value:
 ]
 ```
 
+Recycle to make a regular 4×3 matrix,
+
+```
+>>> [1; 2 3; 4].recycle([4 3])
+[
+	1 1 1;
+	2 3 2;
+	4 4 4;
+	1 1 1
+]
+```
+
 Recycle to make a regular 2×3×2 volume:
 
 ```
@@ -26,6 +38,13 @@ Recycle to make a regular 2×3×2 volume:
 	1 1; 2 2; 1 1:;
 	3 4; 3 4; 3 4
 ]
+```
+
+Recycle to make a regular 3×2 matrix,
+
+```
+>>> [1; 2 3; 4].recycle
+[1 1; 2 3; 4 4]
 ```
 
 Recycle to make a regular 3×3 matrix:
