@@ -714,13 +714,13 @@ String! : [Object, Json, Iterable, Character] {
 		self.characters.aBlock.stringCatenate
 	}
 
-	padLeft { :self :anInteger :aString |
-		<primitive: return _self.padStart(_anInteger, _aString);>
+	padLeft { :self :aList :aString |
+		<primitive: return _self.padStart(_aList[0], _aString);>
 	}
 
 
-	padRight { :self :anInteger :aString |
-		<primitive: return _self.padEnd(_anInteger, _aString);>
+	padRight { :self :aList :aString |
+		<primitive: return _self.padEnd(_aList[0], _aString);>
 	}
 
 	paragraphAtIndex { :self :index |

@@ -180,7 +180,7 @@
 		let columnWidth = table.flatten.collect(size:/1).max;
 		let text = table.collect { :row |
 			'   ' ++ row.collect { :each |
-				each.padLeft(columnWidth, ' ')
+				each.padLeft([columnWidth], ' ')
 			}.stringJoin('   ')
 		};
 		[

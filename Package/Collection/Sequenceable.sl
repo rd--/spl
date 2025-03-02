@@ -2143,15 +2143,6 @@
 		self *.outer aList
 	}
 
-	padLeft { :self :anInteger :anObject |
-		(self.size >= anInteger).if {
-			self
-		} {
-			let prefix = anObject # (anInteger - self.size);
-			prefix ++ self
-		}
-	}
-
 	padLeftAndRight { :self :anInteger :anObject |
 		(self.size >= anInteger).if {
 			self
@@ -2160,15 +2151,6 @@
 			let j = i // 2;
 			let k = i - j;
 			(anObject # j) ++ self ++ (anObject # k)
-		}
-	}
-
-	padRight { :self :anInteger :anObject |
-		(self.size >= anInteger).if {
-			self
-		} {
-			let suffix = anObject # (anInteger - self.size);
-			self ++ suffix
 		}
 	}
 

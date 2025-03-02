@@ -234,7 +234,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			self.basicPrintString(16).padLeft(2, '0')
+			self.basicPrintString(16).padLeft([2], '0')
 		} {
 			self.error('SmallFloat>>byteHexString: not a byte')
 		}

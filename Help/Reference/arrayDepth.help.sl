@@ -52,6 +52,8 @@ Answers the size of `dimensions`:
 >>> let m = [1 2 3; 4 5 6];
 >>> (m.arrayDepth, m.dimensions, m.dimensions.size)
 (2, [2 3], 2)
+```
+
 * * *
 
 See also: arrayFlatten, depth, dimensions, isArray, isMatrix, isVector, rank, shape, size

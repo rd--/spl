@@ -939,8 +939,8 @@ system.includesPackage('Collection') /* collection package */
 [9, 4, 5, 7, 8, 6].size = 6 /* size of collection */
 [9, 4, 5, 7, 8, 6].max = 9 /* maximum item in collection */
 [9, 4, 5, 7, 8, 6].min = 4 /* minimum item in collection */
-[9, 4, 5, 7, 8, 6].maxBy(negated:/1) = 4 /* comparison of translated values */
-[9, 4, 5, 7, 8, 6].minBy(negated:/1) = 9 /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].maximalBy(negated:/1) = [4] /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].minimalBy(negated:/1) = [9] /* comparison of translated values */
 [9, 4, 5, 7, 8, 6].sum = 39 /* sum of collection */
 [9, 4, 5, 7, 8, 6].mean = 6.5 /* sum of collection divided by size */
 1:9.mean = 5 /* sum of collection divided by size */
@@ -3854,7 +3854,7 @@ system.allMethods.collect { :each | each.signature }.includes('@Iterable>>do:/2'
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
-system.methodSignatures('add').includes('Map>>add:/2') = true
+system.methodSignatures('add').includes('@Dictionary>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self | reduce(self,min:/2) }'
 system.methodTypes('last:/1').includes('String') = true

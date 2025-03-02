@@ -30,7 +30,7 @@ Prune an `Record` to its maximal values:
 
 ```
 >>> (a: [4 1], b: [2 3], c: [4 2], d: [1 3]).maximalBy(last:/1)
-(a: [2 3], d: [1 3])
+(b: [2 3], d: [1 3])
 ```
 
 * * *

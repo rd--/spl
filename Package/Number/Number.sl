@@ -679,7 +679,7 @@
 				prefix,
 				rounded.abs.integerPart.truncated.printString,
 				'.',
-				roundedFractionPart.printString.padLeft(placesDesired, '0')
+				roundedFractionPart.printString.padLeft([placesDesired], '0')
 			].stringCatenate
 		}
 	}

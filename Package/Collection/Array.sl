@@ -64,6 +64,22 @@
 		self.dimensions(Infinity)
 	}
 
+	impliedShape { :self |
+		self.isVector.if {
+			self
+		} {
+			let answer = [self.size];
+			1.toDo(self.depth - 2) { :i |
+				answer.add(
+					self.level([i]).collect { :each |
+						each.nest.size
+					}.max
+				)
+			};
+			answer
+		}
+	}
+
 	isArray { :self |
 		self.shapeOrNil.notNil
 	}
@@ -86,6 +102,31 @@
 
 	isVector { :self |
 		self.noneSatisfy(isList:/1)
+	}
+
+	padLeft { :self :aList :anObject |
+		self.padRight(aList.negated, anObject)
+	}
+
+	padLeft { :self |
+		self.padLeft(self.impliedShape, 0)
+	}
+
+	padRight { :self :shape :anObject |
+		let affix = anObject # (shape[1].abs - self.size);
+		let next = shape[1].isNegative.if { affix ++ self } { self ++ affix };
+		(shape.size = 1).if {
+			next
+		} {
+			let nextShape = shape.allButFirst;
+			next.collect { :each |
+				padRight(each.nest, nextShape, anObject)
+			}
+		}
+	}
+
+	padRight { :self |
+		self.padRight(self.impliedShape, 0)
 	}
 
 	rank { :self |

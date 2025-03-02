@@ -39,7 +39,7 @@ Successive differences of `partitionsP` modulo two:
 ~~~spl svg=B
 let n = 31;
 ({ :x |
-	x.differences.padRight(n, 0)
+	x.differences.padRight([n], 0)
 }.nestList(1:n.partitionsP, n) % 2).matrixPlot
 ~~~
 

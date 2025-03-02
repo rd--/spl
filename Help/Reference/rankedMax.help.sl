@@ -39,7 +39,7 @@ The fourth smallest of five numbers:
 
 ```
 >>> [2.5 1.e 12 15 485].rankedMax(-4)
-1.e
+15
 ```
 
 * * *

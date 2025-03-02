@@ -30,7 +30,7 @@ c.f. OEIS [A127907](https://oeis.org/A127907):
 >>> 	10 12 19 21  3;
 >>> 	11 18 25  2  9
 >>> ].magicSquareSummary.values
-(65, 65 # 5, 65 # 5, 65, 65, 5)
+[65, 65 # 5, 65 # 5, 65, 65, 5]
 ```
 
 A 7×7 magic square,
@@ -46,7 +46,7 @@ c.f. OEIS [A126651](https://oeis.org/A126651):
 >>> 	33 53 15 68 16 44 58;
 >>> 	49 29 67 14 66 24 38
 >>> ].magicSquareSummary.values
-(175, 287 # 7, 287 # 7, 287, 322, 7)
+[175, 287 # 7, 287 # 7, 287, 322, 7]
 ```
 
 A 9×9 magic square,
@@ -64,7 +64,7 @@ c.f. OEIS [A126650](https://oeis.org/A126650):
 >>> 	76  4 70 73  8 37 36 30 35;
 >>> 	06  78 12  9 74 45 46 47 52
 >>> ].magicSquareSummary.values
-(369, 369 # 9, 369 # 9, 369, 369, 9)
+[369, 369 # 9, 369 # 9, 369, 369, 9]
 ```
 
 A 4×4×4 magic cube:
@@ -94,19 +94,19 @@ A 4×4×4 magic cube:
 >>> let column = { :m :c |
 >>> 	(1 .. m.size).collect { :r |
 >>> 		m[r][c]
-g>>> 	}
+>>> 	}
 >>> };
 >>> let f = { :m |
 >>> 	m.magicSquareSummary.values
 >>> };
->>> let s = (
+>>> let s = [
 >>> 	34,
 >>> 	130 # 4,
 >>> 	130 # 4,
 >>> 	130,
 >>> 	130,
 >>> 	4
->>> );
+>>> ];
 >>> (
 >>> 	c.collect(f:/1),
 >>> 	1:4.collect { :i |

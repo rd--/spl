@@ -5,7 +5,7 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		let c2 = anObject.coefficientList;
 		let n = c1.size.max(c2.size);
 		UnivariatePolynomial(
-			c1.padRight(n, 0) + c2.padRight(n, 0)
+			c1.padRight([n], 0) + c2.padRight([n], 0)
 		)
 	}
 

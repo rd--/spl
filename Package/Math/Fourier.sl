@@ -48,8 +48,8 @@
 	fftConvolve { :u :v |
 		let n = u.size + v.size - 1;
 		let m = n.nextPowerOfTwo;
-		let a = u.padRight(m, 0);
-		let b = v.padRight(m, 0);
+		let a = u.padRight([m], 0);
+		let b = v.padRight([m], 0);
 		ifft(a.fft * b.fft).first(n).real
 	}
 

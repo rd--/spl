@@ -32,7 +32,7 @@
 			self.latticePrimes(primes.includes(2))
 		).if {
 			self.latticeVector(primes).collect { :each |
-				each.asString.padLeft(2, ' ')
+				each.asString.padLeft([2], ' ')
 			}.unwords
 		} {
 			'*'

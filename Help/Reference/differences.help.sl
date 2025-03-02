@@ -76,7 +76,7 @@ let m = differences:/1.nestList(
 	k.primesList - 1 / 2,
 	k
 ).collect { :each |
-	each.padLeft(k, 0)
+	each.padLeft([k], 0)
 };
 (m % 2).matrixPlot
 ~~~

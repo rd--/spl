@@ -668,7 +668,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let k = 2 ^ self;
 		let m = (k - 1).integerLength(2);
 		let n = (0 .. (k - 1)).collect { :each |
-			each.integerDigits(2).padLeft(m, 0)
+			each.integerDigits(2).padLeft([m], 0)
 		};
 		let e = [];
 		1.toDo(k) { :i |
