@@ -24,6 +24,10 @@ Association : [Object] { | key value |
 		self.key >= anAssociation.key
 	}
 
+	depth { :self |
+		1 + self.value.depth
+	}
+
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isAssociation & {
 			self.key = anObject.key & {

@@ -65,41 +65,47 @@ true
 At `Decimal`:
 
 ```
->>> 3.141D.isNumber
+>>> 3.141D.isNumber & {
+>>> 	3.141D.isDecimal
+>>> }
 true
 ```
 
 At `Residue`:
 
 ```
->>> 5Z12.isNumber
+>>> 5Z12.isNumber & {
+>>> 	5Z12.isResidue
+>>> }
 true
 ```
 
 A `String` is not a number:
 
 ```
->>> '23'.isNumber
-false
+>>> ('23'.isNumber, '23'.isString)
+(false, true)
 ```
 
 A `List` is not a number:
 
 ```
->>> [1, 2, 3].isNumber
-false
+>>> ([1 2 3].isNumber, [1 2 3].isList)
+(false, true)
 ```
 
 A `Ugen` is a kind of number:
 
 ```
->>> SinOsc(440, 0).isNumber
+>>> SinOsc(440, 0).isNumber & {
+>>> 	SinOsc(440, 0).isUgen
+>>> }
 true
 ```
 
 * * *
 
-See also: isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
+See also: isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
 
 References:
 _Mathematica_

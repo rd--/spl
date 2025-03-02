@@ -344,7 +344,11 @@
 	}
 
 	depth { :self |
-		1 + self.collect(depth:/1).max
+		self.isEmpty.if {
+			2
+		} {
+			1 + self.collect(depth:/1).max
+		}
 	}
 
 	difference { :self :aCollection |
@@ -553,6 +557,10 @@
 		q3 - q1
 	}
 
+	isAtom { :self |
+		false
+	}
+
 	isCollection { :self |
 		true
 	}
@@ -571,10 +579,6 @@
 		(otherCollection.size = self.size).ifFalse {
 			self.error('@Collection>>isOfSameSizeCheck')
 		}
-	}
-
-	isSequence { :self |
-		false
 	}
 
 	isZero { :self |
@@ -605,28 +609,6 @@
 				1
 			}
 		}.sum
-	}
-
-	levelBy { :self :aBlock:/1 |
-		let answer = [];
-		self.withLevelDo { :each :level |
-			aBlock(level).ifTrue {
-				answer.add(each)
-			}
-		};
-		answer
-	}
-
-	levelEach { :self :aCollection |
-		self.levelBy { :level |
-			aCollection.includes(level)
-		}
-	}
-
-	level { :self :anInteger |
-		self.levelBy { :level |
-			level = anInteger
-		}
 	}
 
 	maxIfEmpty { :self :aBlock:/0 |
@@ -788,6 +770,23 @@
 
 	quartiles { :self |
 		self.quartiles(1 / 2, 0, 0, 1)
+	}
+
+	rankedMax { :self :n |
+		(n < 0).if {
+			self.rankedMin(n.negated)
+		} {
+			let m = self.size;
+			self.quantile((m - n + 1) / m)
+		}
+	}
+
+	rankedMin { :self :n |
+		(n < 0).if {
+			self.rankedMax(n.negated)
+		} {
+			self.quantile(n / self.size)
+		}
 	}
 
 	reject { :self :aBlock:/1 |
@@ -976,23 +975,6 @@
 		aBlock(self.withLevelCollect(aBlock:/2, 1), 0)
 	}
 
-	withLevelDo { :self :aBlock:/2 :level |
-		let type = self.typeOf;
-		self.do { :each |
-			(each.typeOf = type).if {
-				each.withLevelDo(aBlock:/2, level + 1);
-				aBlock(each, level)
-			} {
-				aBlock(each, level)
-			}
-		}
-	}
-
-	withLevelDo { :self :aBlock:/2 |
-		self.withLevelDo(aBlock:/2, 1);
-		aBlock(self, 0)
-	}
-
 	zero { :self |
 		self.collect { :each |
 			each.zero
@@ -1009,6 +991,10 @@
 
 	depth { :self |
 		1
+	}
+
+	isAtom { :self |
+		true
 	}
 
 	isCollection { :self |

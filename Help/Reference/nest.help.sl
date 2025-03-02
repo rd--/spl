@@ -14,6 +14,9 @@ Answers either a `List` of one place, holding _anObject_, or _anObject_.
 
 >>> [1 2 3] + [4 5 6].nest
 [5 7 9]
+
+>>> 'x'.nest
+['x']
 ```
 
 * * *

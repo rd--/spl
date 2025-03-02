@@ -89,7 +89,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		let answer = nil;
 		self.do { :each |
 			answer := Cons(
-				each.isSequence.if {
+				each.isSequenceable.if {
 					Cons(each)
 				} {
 					each

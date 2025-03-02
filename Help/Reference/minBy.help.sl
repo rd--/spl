@@ -1,9 +1,8 @@
 # minBy
 
 - _minBy(p, q, aBlock:/1)_
-- _minBy(aCollection, aBlock:/1)_
 
-The ternary form answers which of _p_ or _q_ answers as `min` according to _aBlock_,
+Answers which of _p_ or _q_ answers as `min` according to _aBlock_,
 that is the `min` accoring to the transformed _p_ and _q_,
 answering either _p_ or _q_.
 
@@ -25,16 +24,6 @@ Note this is not the `min` of the transformed values:
 2
 ```
 
-The binary form reduces over a collection:
-
-```
->>> [-2J2 4J1].minBy(abs:/1)
--2J2
-
->>> [1 2 3; 4 5].minBy(size:/1)
-[4 5]
-```
-
 * * *
 
-See also: <, maxBy, max, min, reduce
+See also: <, maxBy, max, min, minimalBy, reduce

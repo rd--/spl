@@ -2,13 +2,13 @@
 
 - _depth(aCollection | anObject)_
 
-Answer the maximum number of indices needed to specify any part of _aCollection_, plus `one`.
+Answer the maximum number of indices needed to specify any part of _aCollection_,
+plus `one`.
+
 Objects that are not collections have _depth_ of one.
 
-A `String` has depth one:
-
 ```
->>> 'x'.depth
+>>> 1.depth
 1
 ```
 
@@ -19,14 +19,23 @@ A _vector_ has depth two:
 2
 ```
 
+The empty list has `depth` two:
+
+```
+>>> [].depth
+2
+```
+
 A _matrix_, regular and irregular, has depth three:
 
 ```
->>> [1 2; 3 4; 5 6].depth
-3
+>>> let m = [1 2; 3 4; 5 6];
+>>> (m.depth, m.dimensions)
+(3, [3 2])
 
->>> [1 2; 3 4 5].depth
-3
+>>> let m = [1 2; 3 4 5];
+>>> (m.depth, m.dimensions)
+(3, [2])
 ```
 
 Only the deepest part of the expression affects the depth:
@@ -63,6 +72,13 @@ At `Tree`:
 >>> .expressionTree(nil)
 >>> .depth
 4
+```
+
+A `String` has depth one:
+
+```
+>>> 'x'.depth
+1
 ```
 
 A `Number` has depth one:
@@ -114,9 +130,40 @@ At `Range`:
 2
 ```
 
+`depth` returns a depth one greater than that returned by `arrayDepth`:
+
+```
+>>> (1.depth, 1.arrayDepth)
+(1, 0)
+
+>>> ([1 2 3].depth, [1 2 3].arrayDepth)
+(2, 1)
+````
+
+`depth` counts a `Record` as a single level,
+it counts the corresponding list of `Assocation`s as two:
+
+```
+>>> (a: 1, b: 2, c: 3).depth
+2
+
+>>> ['a' -> 1, 'b' -> 2, 'c' -> 3].depth
+3
+```
+
+An `Association` has a `depth` of `one` plus the depth of the value:
+
+```
+>>> ('a' -> 1).depth
+2
+
+>>> ('a' -> [1]).depth
+3
+```
+
 * * *
 
-See also: arrayDepth, leafCount, rank
+See also: arrayDepth, dimensions, leafCount, rank
 
 Guides: Tree Functions
 

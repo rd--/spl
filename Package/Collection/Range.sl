@@ -164,7 +164,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 	}
 
 	to { :self :stop |
-		stop.isSequence.if {
+		stop.isSequenceable.if {
 			[self].to(stop)
 		} {
 			Range(self, stop, 1)

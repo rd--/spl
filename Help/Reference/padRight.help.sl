@@ -27,6 +27,31 @@ At `String`:
 'xyz      '
 ```
 
++List{
+	padRight { :self |
+		self.isVector.if {
+			self
+		} {
+			let k = self.depth;
+			let s = [self.size];
+			1.toDo(k - 2) { :i |
+				s.add(
+					self.level([i]).collect { :each |
+						each.nest.size
+					}.max
+				)
+			};
+			s
+		}
+	}
+}
+
+
+```
+>>> let l = [1; ; 2 3:; 4; 5 6 7; ];
+>>> (l.depth, l.dimensions, l.level([1]), l.padRight)
+
+
 * * *
 
 See also: #, ++, padLeft, padLeftAndRight, size

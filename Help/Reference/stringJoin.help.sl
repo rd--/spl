@@ -20,6 +20,13 @@ At `List` of `Integer`:
 '123'
 ```
 
+At a heterogenous list:
+
+```
+>>> ['f' 1 'x' 2].stringJoin
+'f1x2'
+```
+
 At a tree flattens list structure:
 
 ```

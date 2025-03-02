@@ -23,7 +23,7 @@ At `List`:
 
 * * *
 
-See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isSequence, isVector, isVectorOf
+See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isVector, isVectorOf
 
 References:
 _Mathematica_

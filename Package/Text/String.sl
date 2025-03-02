@@ -605,10 +605,6 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
-	isSequence { :self |
-		true
-	}
-
 	isUpperCase { :self |
 		<primitive: return /^[A-Z]+$/.test(_self);>
 	}

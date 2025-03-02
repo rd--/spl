@@ -258,7 +258,7 @@ system.includesPackage('List') /* list package */
 [].isList = true /* the empty List is a List */
 [].isCollection = true /* arrays are collections */
 [].isIndexable = true /* arrays are indexable */
-[].isSequence = true /* arrays are sequenceable */
+[].isSequenceable = true /* arrays are sequenceable */
 [].isEmpty = true /* the empty array is empty */
 [].copy = [] /* copy empty array */
 List() = [] /* Void constructor makes the empty List */
@@ -592,7 +592,7 @@ IdentityBag().isBag = true
 IdentityBag().typeOf = 'IdentityBag'
 IdentityBag().isCollection
 IdentityBag().isIndexable = false
-IdentityBag().isSequence = false
+IdentityBag().isSequenceable = false
 let b = IdentityBag(); b.add('x'); b.add('x'); b.size = 2 /* number of objects in bag */
 let b = IdentityBag(); b.add('x'); b.add('y'); b.add('x'); b.size = 3 /* add element to bag */
 let b = IdentityBag(); b.addAll(['x', 'y', 'y', 'z', 'z', 'z']); b.size = 6 /* add all elements of argument to bag */
@@ -828,7 +828,7 @@ ByteArray(0).species = ByteArray:/1 /* byte array species */
 ByteArray(0).isList = false /* byte arrays are arrays */
 ByteArray(0).isByteArray /* byte array predicate */
 ByteArray(0).isIndexable /* byte arrays are indexable */
-ByteArray(0).isSequence /* byte arrays are sequenceable */
+ByteArray(0).isSequenceable /* byte arrays are sequenceable */
 ByteArray(0).size = 0 /* size of byte array (number of elements) */
 ByteArray(8).size = 8
 ByteArray(8).at(1) = 0 /* lookup element at index */
@@ -4039,7 +4039,7 @@ let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
 (1, 2, 3).species = Tuple:/1 /* species */
 (1, 2, 3).isCollection = true /* collection trait */
 (1, 2, 3).isIndexable = true /* indexable trait */
-(1, 2, 3).isSequence = true /* sequenceable trait */
+(1, 2, 3).isSequenceable = true /* sequenceable trait */
 Tuple(0).isEmpty = true /* the empty tuple */
 [1 .. 5].asTuple.first = 1 /* from list */
 [1 .. 5].asTuple.asList = [1 .. 5] /* as list */

@@ -374,7 +374,7 @@ Sub-trees at level two:
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 >>> .expressionTree(nil)
->>> .level(2)
+>>> .level([2])
 [
 	Tree(2, []),
 	Tree(nil, [
@@ -395,7 +395,7 @@ Sub-trees at level three:
 ```
 >>> [1, [2, [4, [7], 5], 3, [6, [8, 9]]]]
 >>> .expressionTree(nil)
->>> .level(3)
+>>> .level([3])
 [
 	Tree(4, []),
 	Tree(nil, [Tree(7, [])]),

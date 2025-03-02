@@ -168,16 +168,6 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
-	level { :self :count |
-		(count <= 0).if {
-			[self]
-		} {
-			self.subTrees.gather { :each |
-				each.level(count - 1)
-			}
-		}
-	}
-
 	levelOrderDo { :self :aBlock:/1 |
 		self.subTrees.do { :each |
 			aBlock(each)
@@ -190,7 +180,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	levelOrderValues { :self |
 		let answer = [];
 		0.to(self.depth - 1).collect { :each |
-			answer.addAll(self.level(each).collect(value:/1))
+			answer.addAll(self.level([each]).collect(value:/1))
 		};
 		answer
 	}
@@ -235,6 +225,18 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 			answer.add(each.value)
 		};
 		answer
+	}
+
+	withLevelDo { :self :aBlock:/2 :level |
+		self.subTrees.do { :each |
+			each.withLevelDo(aBlock:/2, level + 1);
+			aBlock(each, level)
+		}
+	}
+
+	withLevelDo { :self :aBlock:/2 |
+		self.withLevelDo(aBlock:/2, 1);
+		aBlock(self, 0)
 	}
 
 }

@@ -3,7 +3,7 @@
 - _aCollection ++ anotherCollection_
 - _aCollection.++_
 
-The binary form answer a new collection comprising _aCollection_ concatenated with _anotherCollection_.
+The binary form answer a new collection comprising _aCollection_ catenated with _anotherCollection_.
 If the collections are sequences, the answer is a sequence.
 
 At `List`:
@@ -43,7 +43,8 @@ With empty record:
 ()
 ```
 
-Biases right, keys that are given in both records will retain the value from the right hand side record:
+Biases right,
+keys that are given in both records will retain the value from the right hand side record:
 
 ```
 >>> (x: 1, y: 2) ++ (y: 3, z: 4)
@@ -88,8 +89,8 @@ The unary form flattens the collection by one level into a `List`:
 >>> [1 2 3; 4 5; 6].++
 [1 2 3 4 5 6]
 
->>> [[1, 2], [], [3, 4, 5]].++
-[1, 2, 3, 4, 5]
+>>> [1 2; ; 3 4 5].++
+[1 2 3 4 5]
 ```
 
 Where supported `++` is displayed as ⧺.

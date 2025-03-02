@@ -18,6 +18,6 @@ true
 
 * * *
 
-See also: =, ~, epsilon, isCloseTo, isCloseToBy
+See also: =, ~, epsilon, isCloseTo, isCloseToBy, threshold
 
 Categories: Comparing

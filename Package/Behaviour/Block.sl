@@ -125,6 +125,34 @@ Block! : [Object] {
 		answer
 	}
 
+	elementwise { :self:/1 :x |
+		x.isAtom {
+			self(x)
+		} {
+			x.collect(self:/1)
+		}
+	}
+
+	elementwise { :self:/2 :x :y |
+		(x.isAtom & { y.isAtom }).if {
+			self(x, y)
+		} {
+			x.nest.withCollect(y.nest) { :i :j |
+				self:/2.elementwise(i, j)
+			}
+		}
+	}
+
+	elementwise { :self:/3 :x :y :z |
+		(x.isAtom & { y.isAtom & { z.isAtom }}).if {
+			self(x, y, z)
+		} {
+			x.nest.withWithCollect(y.nest, z.nest) { :i :j :k |
+				self:/3.elementwise(i, j, k)
+			}
+		}
+	}
+
 	ensure { :self :aBlock:/0 |
 		<primitive:
 		let returnValue;

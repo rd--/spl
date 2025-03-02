@@ -1352,7 +1352,7 @@ Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
 Reference/isSeparator.help.sl
-Reference/isSequence.help.sl
+Reference/isSequenceable.help.sl
 Reference/isSingleton.help.sl
 Reference/isSmallFloat.help.sl
 Reference/isSmallInteger.help.sl
@@ -1461,7 +1461,6 @@ Reference/lessThanSignLessThanSign.help.sl
 Reference/lessThanSignTilde.help.sl
 Reference/let.help.sl
 Reference/levelBy.help.sl
-Reference/levelEach.help.sl
 Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
 Reference/levskayaPolyhedraCatalogue.help.sl

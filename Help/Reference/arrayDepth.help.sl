@@ -20,10 +20,14 @@ Counts only dimensions at which an object is not _ragged_:
 1
 ```
 
-Works with special array types, including `SparseArray`:
+Works with special array types,
+including `SparseArray` and `NumericArray`:
 
 ```
->>> [[[0, 1]]].asSparseArray(0).arrayDepth
+>>> [[[0 1]]].asSparseArray(0).arrayDepth
+3
+
+>>> [2 3].iota.asNumericArray.depth
 3
 ```
 
@@ -42,6 +46,12 @@ At full arrays, `arrayDepth` and `rank` answer the same value:
 (3, 3)
 ```
 
+Answers the size of `dimensions`:
+
+```
+>>> let m = [1 2 3; 4 5 6];
+>>> (m.arrayDepth, m.dimensions, m.dimensions.size)
+(2, [2 3], 2)
 * * *
 
 See also: arrayFlatten, depth, dimensions, isArray, isMatrix, isVector, rank, shape, size

@@ -23,7 +23,7 @@
 	}
 
 	blend { :y1 :y2 :mu :aBlock:/3 |
-		mu.isSequence.if {
+		mu.isList.if {
 			mu.collect { :each |
 				y1.blend(y2, each, aBlock:/3)
 			}

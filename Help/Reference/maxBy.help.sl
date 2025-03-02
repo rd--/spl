@@ -14,4 +14,4 @@ Answer which of _p_ or _q_ answers as `max` according to _aBlock_.
 
 * * *
 
-See also: <, minBy, max, min
+See also: <, max, maximalBy, minBy, min

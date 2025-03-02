@@ -267,24 +267,38 @@
 		aCollection.includesAllOf(self)
 	}
 
+	levelBy { :self :aBlock:/1 |
+		let answer = [];
+		self.withLevelDo { :each :level |
+			aBlock(level).ifTrue {
+				answer.add(each)
+			}
+		};
+		answer
+	}
+
+	level { :self :aList |
+		self.levelBy { :level |
+			aList.includes(level)
+		}
+	}
+
 	max { :self |
 		self.reduce(max:/2)
 	}
 
-	maxBy { :self :aBlock:/1 |
-		self.reduce { :i :j |
-			i.maxBy(j, aBlock:/1)
-		}
+	maximalBy { :self :aBlock:/1 |
+		let z = self.collect(aBlock:/1);
+		self.atAll(z.indicesOf(z.max))
 	}
 
 	min { :self |
 		self.reduce(min:/2)
 	}
 
-	minBy { :self :aBlock:/1 |
-		self.reduce { :i :j |
-			i.minBy(j, aBlock:/1)
-		}
+	minimalBy { :self :aBlock:/1 |
+		let z = self.collect(aBlock:/1);
+		self.atAll(z.indicesOf(z.min))
 	}
 
 	minMax { :self |
@@ -402,6 +416,23 @@
 		self.injectInto(0) { :i :j |
 			i + j.squared
 		}
+	}
+
+	withLevelDo { :self :aBlock:/2 :level |
+		let type = self.typeOf;
+		self.do { :each |
+			(each.typeOf = type).if {
+				each.withLevelDo(aBlock:/2, level + 1);
+				aBlock(each, level)
+			} {
+				aBlock(each, level)
+			}
+		}
+	}
+
+	withLevelDo { :self :aBlock:/2 |
+		self.withLevelDo(aBlock:/2, 1);
+		aBlock(self, 0)
 	}
 
 }

@@ -102,6 +102,16 @@ At `SortedList`:
 1.7
 ```
 
+Ranked minimum:
+
+```
+>>> [12 13 11].quantile(2 / 3)
+12
+
+>>> [12 13 11].rankedMin(2)
+12
+```
+
 * * *
 
 See also: median, quartiles, variance, sort

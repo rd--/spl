@@ -62,7 +62,7 @@ The `leafCount` of a regular array is the product of its `shape`:
 
 * * *
 
-See also: depth, size, Tree
+See also: isAtom, depth, size, Tree
 
 Guides: Tree Functions
 

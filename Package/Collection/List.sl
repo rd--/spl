@@ -268,12 +268,11 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 	}
 
 	enclose { :self |
-		/* NB Vector Syntax */
-		<primitive: return [_self];>
+		[self]
 	}
 
 	nest { :self |
-		self.isSequence.if {
+		self.isList.if {
 			self
 		} {
 			[self]

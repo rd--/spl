@@ -47,7 +47,7 @@
 	}
 
 	adaptToCollectionAndApply { :self :anObject :aBlock:/2 |
-		anObject.isSequence.if {
+		anObject.isSequenceable.if {
 			anObject.withCollect(self, aBlock:/2)
 		} {
 			self.error('@Sequenceable: only sequenceable collections may be processed elementwise')
@@ -316,7 +316,7 @@
 	}
 
 	beginsWith { :self :aList |
-		aList.isSequence.if {
+		aList.isSequenceable.if {
 			valueWithReturn { :return:/1 |
 				(self.size < aList.size).ifTrue {
 					false.return
@@ -845,7 +845,7 @@
 	}
 
 	endsWith { :self :aList |
-		aList.isSequence.if {
+		aList.isSequenceable.if {
 			let sequenceSize = aList.size;
 			let offset = self.size - sequenceSize;
 			valueWithReturn { :return:/1 |
@@ -1224,7 +1224,7 @@
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
-		(otherCollection.isSequence & {
+		(otherCollection.isSequenceable & {
 			self.size = otherCollection.size
 		}).if {
 			valueWithReturn { :return:/1 |
@@ -1523,7 +1523,7 @@
 		}
 	}
 
-	isSequence { :self |
+	isSequenceable { :self |
 		true
 	}
 
@@ -2506,7 +2506,7 @@
 		self.isEmpty.if {
 			[]
 		} {
-			anObject.isSequence.if {
+			anObject.isSequenceable.if {
 				let k = self.size;
 				(anObject.size >= k).if {
 					self.error('riffle: too many items to insert')
@@ -3105,7 +3105,7 @@
 
 	withCollectOrAdaptTo { :self :anObject :aBlock:/2 |
 		(anObject.isCollection & {
-			anObject.isSequence
+			anObject.isSequenceable
 		}).if {
 			self.withCollect(anObject, aBlock:/2)
 		} {
@@ -3330,7 +3330,7 @@
 
 +@Object {
 
-	isSequence { :self |
+	isSequenceable { :self |
 		false
 	}
 

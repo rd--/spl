@@ -347,7 +347,7 @@ Plot : [Object] { | pages format options |
 		blockList.collect { :aBlock:/1 |
 			domain.collect { :x |
 				let y = aBlock(x);
-				y.isSequence.if {
+				y.isList.if {
 					y
 				} {
 					y.isComplex.if {
