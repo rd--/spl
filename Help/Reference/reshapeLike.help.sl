@@ -40,4 +40,4 @@ Reverse complex nested structure:
 
 * * *
 
-See also: deepCollect, flatten, rank, ravel, reshape, shape
+See also: deepCollect, flatten, rank, ravel, recycle, reshape, shape

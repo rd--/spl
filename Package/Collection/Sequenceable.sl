@@ -235,6 +235,10 @@
 		self.atAllUsing(indexList, atPin:/2)
 	}
 
+	atAllPath { :self :indexList |
+		self.atAllUsing(indexList, atPath:/2)
+	}
+
 	atAllPut { :self :anObject |
 		let size = self.size;
 		(size > 50).if {

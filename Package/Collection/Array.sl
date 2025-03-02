@@ -137,6 +137,24 @@
 		self.flatten
 	}
 
+	recycle { :self :shape |
+		let next = 1.to(shape[1]).collect { :i |
+			self.atWrap(i)
+		};
+		(shape.size = 1).if {
+			next
+		} {
+			let nextShape = shape.allButFirst;
+			next.collect { :each |
+				recycle(each.nest, nextShape)
+			}
+		}
+	}
+
+	recycle { :self |
+		self.recycle(self.impliedShape)
+	}
+
 	replaceSubarray { :self :indices :subarray |
 		let shape = subarray.shape;
 		(shape = indices.collect(size:/1)).if {

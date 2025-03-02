@@ -170,7 +170,7 @@ Where supported `shape` is displayed as ⍴.
 
 * * *
 
-See also: arrayDepth, dimensions, iota, isArray, isMatrix, isVector, numberOfRows, numberOfColumns, rank, reshape, shapeIndices
+See also: arrayDepth, dimensions, impliedShape, iota, isArray, isMatrix, isVector, numberOfRows, numberOfColumns, rank, recycle, reshape, shapeIndices
 
 References:
 _Apl_

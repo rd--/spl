@@ -285,7 +285,7 @@ Where supported `reshape` is displayed as ⍴.
 
 * * *
 
-See also: iota, rank, reshapeLike, shape
+See also: iota, rank, recycle, reshapeLike, shape
 
 References:
 _Apl_

@@ -80,7 +80,7 @@ At `String`:
 
 * * *
 
-See also: #, ++, padLeftAndRight, padRight, size
+See also: #, ++, padLeftAndRight, padRight, reshape, recycle, shape, size
 
 References:
 _Mathematica_
