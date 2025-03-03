@@ -137,6 +137,20 @@ Elastic:
 
 ![](sw/spl/Help/Image/easingFunction-J.svg)
 
+ArcTan:
+
+~~~spl svg=K
+(0 -- 1).functionPlot([
+	'InArcTan'.easingFunction,
+	'OutArcTan'.easingFunction,
+	'InOutArcTan'.easingFunction
+])
+~~~
+
+![](sw/spl/Help/Image/easingFunction-K.svg)
+
 * * *
 
-See also: cubicBezierFunctionAt
+See also: cubicBezierFunctionAt, hermiteInterpolation, smoothstep
+
+Guides: Interpolation Functions

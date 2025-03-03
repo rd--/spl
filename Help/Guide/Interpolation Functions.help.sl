@@ -6,8 +6,9 @@
 - `catmullRomInterpolation`
 - `cosineInterpolation`
 - `cubicInterpolation`
-- `downsample`
 - `downsampleSteinarsson`
+- `downsample`
+- `easingFunction`
 - `hermiteInterpolation`
 - `indexOfInBetween`
 - `linearInterpolation`
@@ -15,4 +16,7 @@
 - `matrixInterpolation`
 - `matrixResample`
 - `resample`
+- `smootherstep`
+- `smoothstepFunction`
+- `smoothstep`
 - `upsample`

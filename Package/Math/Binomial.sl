@@ -32,6 +32,14 @@
 		}
 	}
 
+	binomialPascal { :a :b |
+		let answer = 1;
+		0.toDo(b - 1) { :i |
+			answer := answer * (a - i) / (i + 1)
+		};
+		answer
+	}
+
 }
 
 +@Integer {

@@ -446,3 +446,32 @@
 	}
 
 }
+
++SmallFloat {
+
+	inverseSmoothstep { :x |
+		0.5 - ((1 - (2 * x)).arcSin / 3).sin
+	}
+
+	smoothstepFunction { :n |
+		{ :x |
+			let answer = 0;
+			0.toDo(n) { :i |
+				let p = binomialPascal(n.negated - 1, i);
+				let q = binomialPascal(2 * n + 1, n - i);
+				let r = x ^ (n + i + 1);
+				answer := answer + (p * q * r)
+			};
+			answer
+		}
+	}
+
+	smoothstep { :x |
+		x * x * (3 - (2 * x))
+	}
+
+	smootherstep { :x |
+		x * x * x * (x * (6 * x - 15) + 10)
+	}
+
+}
