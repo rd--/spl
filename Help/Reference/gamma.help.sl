@@ -61,12 +61,23 @@ For integers, _n.gamma = (n - 1).!_:
 Plot the Euler gamma function:
 
 ~~~spl svg=A
-(-4 -- 4).functionPlot { :x |
-	x.gamma.clip(-10, 10)
+(-4 -- 4).functionPlot { :z |
+	z.gamma.clip(-10, 10)
 }
 ~~~
 
 ![](sw/spl/Help/Image/gamma-A.svg)
+
+Plot γ with _γ + sin_, note intersection at positive integers:
+
+~~~spl svg=B
+(-4 -- 4).functionPlot([
+	{ :z | z.gamma.clip(-1, 5) },
+	{ :z | (z.gamma + z.pi.sin).clip(-1, 5) }
+])
+~~~
+
+![](sw/spl/Help/Image/gamma-B.svg)
 
 * * *
 
@@ -81,4 +92,8 @@ _Mathematica_
 [1](http://mathworld.wolfram.com/GammaFunction.html)
 [2](https://reference.wolfram.com/language/ref/Gamma.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/gamma.html)
+[1](https://mathworks.com/help/matlab/ref/gamma.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Gamma_function)
+
+Unicode: U+03B3 γ Greek Small Letter Gamma; U+1D6FE 𝛾 Mathematical Italic Small Gamma

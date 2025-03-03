@@ -124,6 +124,7 @@
 	'Math-Binomial'
 	'Math-Elementwise'
 	'Math-Fourier'
+	'Math-Fractal'
 	'Math-Gamma'
 	'Math-Interpolation'
 	'Math-MatrixFunctions'

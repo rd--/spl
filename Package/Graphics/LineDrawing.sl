@@ -100,7 +100,7 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-+[BezierCurve, Circle, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Triangle, Writing] {
++[BezierCurve, Circle, Ellipse, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, Rectangle, Superellipse, Triangle, Writing] {
 
 	asLineDrawing { :self |
 		[self].LineDrawing

@@ -105,6 +105,7 @@
 	'Binomial'
 	'Elementwise'
 	'Fourier'
+	'Fractal'
 	'Gamma'
 	'Interpolation'
 	'MatrixFunctions'
