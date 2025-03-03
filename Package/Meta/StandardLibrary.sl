@@ -103,6 +103,7 @@
 	/* Math */
 	'Bessel'
 	'Binomial'
+	'EasingFunctions'
 	'Elementwise'
 	'Fourier'
 	'Fractal'

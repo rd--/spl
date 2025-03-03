@@ -122,6 +122,7 @@
 	'Logic-SymbolicExpression'
 	'Math-Bessel'
 	'Math-Binomial'
+	'Math-EasingFunctions'
 	'Math-Elementwise'
 	'Math-Fourier'
 	'Math-Fractal'
