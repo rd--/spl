@@ -27,10 +27,6 @@
 		self
 	}
 
-	asDictionary { :self |
-		self.contents
-	}
-
 	asList { :self |
 		let answer = [];
 		self.do { :each |
@@ -217,7 +213,7 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 +Void {
 
 	Bag {
-		newBag().initializeSlots(Dictionary())
+		newBag().initializeSlots(Dictionary(=))
 	}
 
 	IdentityBag {

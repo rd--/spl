@@ -266,7 +266,7 @@ Block! : [Object] {
 	}
 
 	memoize { :self:/1 :requireImmediate |
-		let table = requireImmediate.if { Map() } { Dictionary() };
+		let table = requireImmediate.if { Map() } { Dictionary(=) };
 		{ :input |
 			table.atIfAbsent(input) {
 				let answer = self(input);

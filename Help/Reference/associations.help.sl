@@ -2,7 +2,7 @@
 
 - _associations(aDictionary)_
 
-Answer a `List` of the associations of _aDictionary_.
+Answer a `List` of the `Association` values held by _aDictionary_.
 
 ```
 >>> (x: 1, y: 2, z: 3).associations

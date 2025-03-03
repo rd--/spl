@@ -3289,7 +3289,7 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 0 ^ [5, 0] = [0, 1] /* zero raised to array */
 [2.5, 1.5] ^ [2, 4] = [6.25, 5.0625] /* array raised to array */
 10 ^ [-1, -2] = [0.1, 0.01] /* raised to negative numbers */
-2 ^ [1.5, 2.4, 2.9, -2.2] = [2.82842712474619, 5.278031643091577, 7.464263932294459, 0.217637640824031] /* non integer exponents */
+2 ^ [1.5, 2.4, 2.9, -2.2] ~ [2.82843 5.27803 7.46426 0.21764] /* non integer exponents */
 2 ^ 100 = 1267650600228229401496703205376 /* ieee precision */
 (1 / 2).asString = '0.5' /* division prints as floating point */
 1.0 = 1 /* there is no distinct integer type */

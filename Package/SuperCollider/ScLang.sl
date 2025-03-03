@@ -664,7 +664,7 @@
 
 }
 
-+@Dictionary {
++Record {
 
 	kr { :self |
 		self.collect(kr:/1)

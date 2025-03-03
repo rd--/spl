@@ -101,6 +101,9 @@ Threads elementwise over lists and matrices:
 
 >>> 2 ^ -1:5
 [0.5 1 2 4 8 16 32]
+
+>>> 2 ^ [1.5, 2.4, 2.9, -2.2]
+[2.82843 5.27803 7.46426 0.21764]
 ```
 
 Choose sign based on a `List` of `boole`:

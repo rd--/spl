@@ -1,3 +1,5 @@
+/* Requires: List, Object */
+
 Association : [Object] { | key value |
 
 	= { :self :anObject |

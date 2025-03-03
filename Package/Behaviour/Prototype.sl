@@ -1,4 +1,4 @@
-+@Dictionary {
++Record {
 
 	atDelegateToIfAbsent { :self :key :delegateKey :aBlock:/0 |
 		self.atIfAbsent(key) {
@@ -16,7 +16,7 @@
 
 	atDelegateTo { :self :key :delegateKey |
 		self.atDelegateToIfAbsent(key, delegateKey) {
-			self.error('@Dictionary>>atDelegate: unknown key: ' ++ key)
+			self.error('Record>>atDelegate: unknown key: ' ++ key)
 		}
 	}
 

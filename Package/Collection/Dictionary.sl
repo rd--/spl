@@ -327,10 +327,6 @@
 		answer
 	}
 
-	storeString { :self |
-		self.associations.storeString ++ '.as' ++ self.typeOf
-	}
-
 	valuesDo { :self :aBlock:/1 |
 		self.associationsDo { :association |
 			aBlock(association.value)
@@ -345,10 +341,10 @@
 
 }
 
-Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values |
+DictionaryBy : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
 
 	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		let index = self.keys.indexOf(key);
+		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
 		} {
@@ -363,7 +359,7 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 	}
 
 	atPut { :self :key :value |
-		let index = self.keys.indexOf(key);
+		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			self.keys.add(key);
 			self.values.add(value)
@@ -374,7 +370,7 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 	}
 
 	includesKey { :self :key |
-		self.keys.includes(key)
+		self.keys.includesBy(key, self.comparator)
 	}
 
 	indices { :self |
@@ -391,7 +387,7 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 	}
 
 	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
-		let index = self.keys.indexOf(key);
+		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
 		} {
@@ -404,26 +400,32 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 		self.keys.size
 	}
 
-}
-
-+Void {
-
-	Dictionary {
-		newDictionary().initializeSlots([], [])
+	storeString { :self |
+		'%.asDictionary(%)'.format(
+			[
+				self.associations.storeString,
+				self.comparator.name
+			]
+		)
 	}
 
 }
 
 +List {
 
-	asDictionary { :self |
-		self.allSatisfy(isAssociation:/1).if {
-			newDictionary().initializeSlots(
-				self.collect(key:/1),
-				self.collect(value:/1)
-			)
+	asDictionary { :self :aBlock:/2 |
+		(aBlock:/2 == ==).if {
+			self.asMap
 		} {
-			self.error('List>>asDictionary: not list of associations')
+			self.isAssociationList.if {
+				newDictionaryBy().initializeSlots(
+					self.collect(key:/1),
+					self.collect(value:/1),
+					aBlock:/2
+				)
+			} {
+				self.error('List>>asDictionary: not association list')
+			}
 		}
 	}
 

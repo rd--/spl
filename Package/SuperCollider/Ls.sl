@@ -393,7 +393,7 @@
 
 }
 
-+@Dictionary {
++Record {
 
 	asPatternEventMessages { :self :currentTime |
 		let latency = 0.2; /* Preferences */

@@ -1,19 +1,17 @@
-# asDictionary
+# asAssociationList
 
-- _asDictionary(aList)_
+- _asAssociationList(aRunArray)_
 
-Answer an `Dictionary`.
+Answer an `Association` `List`.
 
 ```
->>> [
->>> 	-1.sqrt -> -1,
->>> 	-3.sqrt -> 3
->>> ].asDictionary.keys
-[0J1, 0J1.7321]
+>>> RunArray([1, 3, 5], ['a', 'b', 'c'])
+>>> .asAssociationList
+['a' -> 1, 'b' -> 3, 'c' -> 5]
 ```
 
 * * *
 
-See also: Dictionary
+See also: associations, Association, RunAray
 
 Categories: Converting, Collection

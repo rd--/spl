@@ -29,7 +29,7 @@
 	}
 
 	isPowerfulNumber { :self |
-		self.primeFactorization.asDictionary.values.allSatisfy { :each |
+		self.primeFactorization.valuesAndCounts.allSatisfy { :each |
 			each > 1
 		}
 	}
@@ -161,11 +161,11 @@
 	}
 
 	primeDivisors { :self |
-		self.primeFactorization.asDictionary.keys
+		self.primeFactorization.valuesAndCounts.keys
 	}
 
 	primeExponents { :self |
-		let dictionary = self.primeFactorization.asDictionary;
+		let dictionary = self.primeFactorization.valuesAndCounts;
 		dictionary.keys.max.primesUpTo.collect { :each |
 			dictionary.atIfAbsent(each) {
 				0
@@ -235,7 +235,7 @@
 	}
 
 	primeNu { :self |
-		self.primeFactorization.asDictionary.size
+		self.primeFactorization.valuesAndCounts.size
 	}
 
 	primeOmega { :self |

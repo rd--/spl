@@ -16,7 +16,7 @@ At `Record`
 At `Dictionary`
 
 ```
->>> let d = ['x' -> 1, 2L -> 'y'].asDictionary;
+>>> let d = ['x' -> 1, 2L -> 'y'].asDictionary(=);
 >>> (d.removeKey('x'), d.at(2))
 (1, 'y')
 ```

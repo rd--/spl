@@ -881,7 +881,7 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 }
 
-+@Dictionary {
++Record {
 
 	asHtmlTable { :self :toString:/1 |
 		self.associations.asHtmlTable(toString:/1)

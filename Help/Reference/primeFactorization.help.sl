@@ -43,7 +43,7 @@ The keys are the prime divisors:
 ```
 >>> 2434500
 >>> .primeFactorization
->>> .asDictionary
+>>> .valuesAndCounts
 >>> .keys
 [2 3 5 541]
 

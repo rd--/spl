@@ -50,8 +50,8 @@
 
 Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
 
-	asDictionary { :self |
-		let answer = Dictionary();
+	asDictionary { :self :aBlock:/2 |
+		let answer = Dictionary(=);
 		answer.addAll(self);
 		answer
 	}
@@ -185,11 +185,16 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	}
 
 	asMap { :self |
-		self.collect { :each |
-			let association = each.asList;
-			association
-			.assertIsOfSize(2)
-		}.mapFromTwoElementLists
+		self.isAssociationList.if {
+			self.collect(asList:/1).mapFromTwoElementLists
+		} {
+			let [_, n] = self.shape;
+			(n = 2).if {
+				self.mapFromTwoElementLists
+			} {
+				self.error('List>>asMap: not association list or two column matrix')
+			}
+		}
 	}
 
 }
@@ -206,6 +211,18 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 	asMap { :self |
 		<primitive: return new Map(Object.entries(_self));>
+	}
+
+}
+
++Block {
+
+	Dictionary { :aBlock:/2 |
+		(aBlock:/2 == ==).if {
+			Map()
+		} {
+			newDictionaryBy().initializeSlots([], [], aBlock:/2)
+		}
 	}
 
 }

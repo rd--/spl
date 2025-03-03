@@ -1,7 +1,7 @@
 Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
-	asDictionary { :self |
-		let answer = Dictionary();
+	asDictionary { :self :aBlock:/2 |
+		let answer = Dictionary(aBlock:/2);
 		answer.addAll(self);
 		answer
 	}

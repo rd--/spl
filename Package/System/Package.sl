@@ -81,7 +81,7 @@ Package! : [Object] {
 
 }
 
-+@Dictionary {
++Record {
 
 	derivePackageUrl { :self |
 		[

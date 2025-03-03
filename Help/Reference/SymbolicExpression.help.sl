@@ -13,9 +13,13 @@ true
 
 >>> (𝒙 = 𝒚).isSymbolicExpression
 true
+
+>>> (𝒙 + 𝒚).typeOf
+'SymbolicExpression'
 ```
 
-`operator` answers the operator of the expression:
+`operator` answers the operator of the expression.
+The `operator` is retained as the `unqualifiedName` of the `Block`:
 
 ```
 >>> (𝒙 = 𝒚).operator.isSymbol
@@ -23,6 +27,9 @@ true
 
 >>> (𝒙 = 𝒚).operator.name
 '='
+
+>>> min(𝒙, 𝒚).operator.name
+'min'
 ```
 
 Symbolic predicates:
@@ -143,6 +150,22 @@ Evaluate `inner` using symbolic primitives:
 ]
 ```
 
+`SymbolicExpression` implements `Iterable`,
+`contents` answers the expression and each of its parts in a left-biased pre-order traversal:
+
+```
+>> (𝒙 * 𝒚 + 𝒛).contents
+[(+ (* x y) z), +, (* x y), *, x, y, z]
+```
+
+List common subexpressions:
+
+```
+>> let a = 𝒙 * 𝒙;
+>> (a * a).commonSubexpressions(==)
+[(* x x)]
+```
+
 Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 ~~~spl svg=A
@@ -153,6 +176,6 @@ Plot the `Graph` of the `Tree` of a `SymbolicExpression`:
 
 * * *
 
-See also: asSymbolicExpression, name, printString, recogniseSymbolicExpression, Symbol
+See also: asSymbolicExpression, isEqualSymbolicExpression, commonSubexpressions, name, printString, recogniseSymbolicExpression, Symbol
 
 Categories: Logic, Type

@@ -129,6 +129,7 @@
 Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
 	isEqualSymbolicExpression { :self :anObject |
+		['SYM>isEq', self, anObject].postLine;
 		self == anObject
 	}
 
@@ -162,7 +163,7 @@ Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagn
 
 }
 
-SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | operator operands |
+SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber, Iterable] { | operator operands |
 
 	asTree { :self |
 		Tree(
@@ -177,8 +178,54 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 		)
 	}
 
+	commonSubexpressions { :self :aBlock:/2 |
+		let all = Set(aBlock:/2);
+		let common = Set(aBlock:/2);
+		self.do { :each |
+			each.isSymbolicExpression.ifTrue {
+				['CS',each].postLine;
+				['CS-ALL',all,all.includes(each)].postLine;
+				all.includes(each).if {
+					common.basicInclude(each)
+				} {
+					all.basicInclude(each)
+				}
+			}
+		};
+		common.asList
+	}
+
+	do { :self :aBlock:/1 |
+		aBlock(self);
+		self.operator.isSymbolicExpression.if {
+			self.operator.do(aBlock:/1)
+		} {
+			aBlock(self.operator)
+		};
+		self.operands.do { :each |
+			each.isSymbolicExpression.if {
+				each.do(aBlock:/1)
+			} {
+				aBlock(each)
+			}
+		}
+	}
+
 	isEqualSymbolicExpression { :self :anObject |
-		self.hasEqualSlotsBy(anObject, isEqualSymbolicExpression:/2)
+		['SE>isEq', self, anObject].postLine;
+		anObject.isSymbolicExpression & {
+			self.operator.isEqualSymbolicExpression(anObject.operator) & {
+				let m = self.operands.size;
+				let n = anObject.operands.size;
+				m = n & {
+					(1 .. m).allSatisfy { :i |
+						let p = self.operands[i];
+						let q = anObject.operands[i];
+						p.isEqualSymbolicExpression(q)
+					}
+				}
+			}
+		}
 	}
 
 	printString { :self |
@@ -198,6 +245,10 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 				]
 			)
 		}
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -258,14 +309,11 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 
 }
 
-+@Object {
++[SmallFloat] {
 
 	isEqualSymbolicExpression { :self :anObject |
-		anObject.isSymbolicExpression.if {
-			false
-		} {
-			self = anObject
-		}
+		['OBJ>isEq', self, anObject].postLine;
+		self == anObject
 	}
 
 }

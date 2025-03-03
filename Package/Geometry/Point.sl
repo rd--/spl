@@ -248,7 +248,7 @@ Point : [Object] { | coordinates |
 
 }
 
-+@Dictionary {
++Record {
 
 	asPoint { :self |
 		self.includesAllIndices(['x','y','z']).if {
@@ -257,7 +257,7 @@ Point : [Object] { | coordinates |
 			self.includesAllIndices(['x','y']).if {
 				Point([self['x'], self['y']])
 			} {
-				self.error('@Dictionary>>asPoint: invalid dictionary')
+				self.error('Record>>asPoint: invalid dictionary')
 			}
 		}
 	}
@@ -267,7 +267,7 @@ Point : [Object] { | coordinates |
 		self.includesAllIndices(['x' 'y']).if {
 			self['x']
 		} {
-			self.error('@Dictionary>>x: incorrect keys')
+			self.error('Record>>x: incorrect keys')
 		}
 	}
 
@@ -275,7 +275,7 @@ Point : [Object] { | coordinates |
 		self.includesAllIndices(['x' 'y']).if {
 			self['y']
 		} {
-			self.error('@Dictionary>>y: incorrect keys')
+			self.error('Record>>y: incorrect keys')
 		}
 	}
 
@@ -283,7 +283,7 @@ Point : [Object] { | coordinates |
 		self.includesAllIndices(['x' 'y' 'z']).if {
 			self['z']
 		} {
-			self.error('@Dictionary>>z: incorrect keys')
+			self.error('Record>>z: incorrect keys')
 		}
 	}
 	*/

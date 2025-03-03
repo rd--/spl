@@ -35,7 +35,6 @@
 	'Character'
 	'String' /* Character */
 	'System'
-	'Package' /* System */
 
 	/* Collection Types */
 	'Association'
@@ -43,6 +42,8 @@
 	'Range'
 	'Record'
 	'Map' /* Record */
+
+	'Package' /* System, Record */
 
 	'ArrayBuffer'
 	'ByteArray'

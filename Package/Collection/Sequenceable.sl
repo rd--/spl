@@ -1328,6 +1328,10 @@
 		self.indexOfStartingAtBy(anElement, 1, =)
 	}
 
+	indexOfBy { :self :anElement :aBlock:/2 |
+		self.indexOfStartingAtBy(anElement, 1, aBlock:/2)
+	}
+
 	indexOfIfAbsent { :self :anElement :exceptionBlock:/0 |
 		let index = self.indexOfStartingAtBy(anElement, 1, =);
 		(index = 0).if {

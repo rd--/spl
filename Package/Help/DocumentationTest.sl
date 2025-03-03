@@ -17,7 +17,7 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 			])
 		} {
 			(self.prefix = '>>').if {
-				'(%).asString.utf8ByteArray = %'.format([
+				'{ % }.value.asString.utf8ByteArray = %'.format([
 					self.program.unwords,
 					self.expectedAnswer.unlines.utf8ByteArray.storeString
 				])

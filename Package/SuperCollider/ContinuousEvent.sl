@@ -55,7 +55,7 @@ ContinuousEvent : [Object] { | contents |
 
 }
 
-+@Dictionary {
++Record {
 
 	asContinuousEvent { :self |
 		[
