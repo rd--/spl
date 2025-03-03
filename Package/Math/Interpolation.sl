@@ -475,3 +475,32 @@
 	}
 
 }
+
++List {
+
+	simpleLinearRegression { :self |
+		let n = self.size;
+		let [x, y] = self.transposed;
+		let sx = x.sum;
+		let sy = y.sum;
+		let sxx = (x * x).sum;
+		let syy = (y * y).sum;
+		let sxy = (x * y).sum;
+		let xx = sxx - (sx * sx / n);
+		let yy = syy - (sy * sy / n);
+		let xy = sxy - (sx * sy / n);
+		(n < 2 | { xx.abs = 0 }).if {
+			self.error('List>>simpleLinearRegression: too few points or infinite slope')
+		} {
+			let b = xy / xx;
+			let a = (sy / n) - (b * sx / n);
+			let r = (yy.abs = 0).if {
+				1
+			} {
+				xy / (xx * yy).sqrt
+			};
+			[a, b, r]
+		}
+	}
+
+}

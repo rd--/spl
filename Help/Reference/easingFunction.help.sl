@@ -6,6 +6,7 @@ Select an easing function by name.
 Answers a one argument `Block`,
 the parameter of which is in _(0, 1)_.
 Easing functions specify the rate of change of a parameter over time.
+From equations by Robert Penner.
 
 Quadratic:
 
