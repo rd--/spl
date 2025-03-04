@@ -68,10 +68,11 @@ Solve with timestep of 0.1 and downsample to show results at time steps of one:
 Solve van der Pol equation, a second-order ODE, with mu = 1, plot phase diagram:
 
 ~~~spl svg=D
-{ :x :y |
+{ :t :v |
+	let [x, y] = v;
 	[
-		y[2],
-		(1 - (y[1] ^ 2)) * y[2] - y[1]
+		y,
+		(1 - (x ^ 2)) * y - x
 	]
 }.rungeKuttaMethod([2 0], 0, 20, 0.1)
 .second
