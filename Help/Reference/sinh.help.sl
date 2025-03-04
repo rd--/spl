@@ -39,9 +39,20 @@ Draw a hyperbola:
 
 ![](sw/spl/Help/Image/sinh-B.svg)
 
+Plot `sinh` alongside a Padé approximation:
+
+~~~spl svg=C
+(-1.pi -- 1.pi).functionPlot([
+	sinh:/1,
+	sinhApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/sinh-C.svg)
+
 * * *
 
-See also: arcSinh, cosh, csch
+See also: arcSinh, cosh, csch, sin
 
 References:
 _Mathematica_

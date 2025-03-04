@@ -96,9 +96,20 @@ Draw the `sin` function at integer points:
 
 ![](sw/spl/Help/Image/sin-C.png)
 
+Plot `sin` alongside a Padé approximation:
+
+~~~spl svg=D
+(-1.pi -- 1.pi).functionPlot([
+	sin:/1,
+	sinApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/sin-D.svg)
+
 * * *
 
-See also: arcSin, cos, cosecant, haversine, tan
+See also: arcSin, cos, cosecant, haversine, sinh, tan
 
 References:
 _Mathematica_

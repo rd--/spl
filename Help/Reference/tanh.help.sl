@@ -69,6 +69,17 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/tanh-A.svg)
 
+Plot `tanh` alongside a Padé approximation:
+
+~~~spl svg=B
+(-1.pi -- 1.pi).functionPlot([
+	tanh:/1,
+	tanhApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/tanh-B.svg)
+
 * * *
 
 See also: arcTanh, sinh, coth, tan

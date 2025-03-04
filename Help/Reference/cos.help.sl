@@ -78,6 +78,17 @@ Spiral:
 
 ![](sw/spl/Help/Image/cos-D.svg)
 
+Plot `cos` alongside a Padé approximation:
+
+~~~spl svg=E
+(-1.pi -- 1.pi).functionPlot([
+	cos:/1,
+	cosApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/cos-E.svg)
+
 * * *
 
 See also: arcCos, arcCosh, cosh, sin, tan

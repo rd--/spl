@@ -36,6 +36,17 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/tan-A.svg)
 
+Plot `tan` alongside a Padé approximation:
+
+~~~spl svg=B
+(-0.5.pi -- 0.5.pi).functionPlot([
+	{ :x | x.tan.clip(-3, 3) },
+	{ :x | x.tanApproximation.clip(-3, 3) }
+])
+~~~
+
+![](sw/spl/Help/Image/tan-B.svg)
+
 * * *
 
 See also: arcTan, cos, sin, tanh

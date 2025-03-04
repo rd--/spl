@@ -45,6 +45,17 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/cosh-A.svg)
 
+Plot `cosh` alongside a Padé approximation:
+
+~~~spl svg=B
+(-1.pi -- 1.pi).functionPlot([
+	cosh:/1,
+	coshApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/cosh-B.svg)
+
 * * *
 
 See also: arcCosh, cos, sin, sech, sinh

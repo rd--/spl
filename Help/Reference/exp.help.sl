@@ -70,6 +70,17 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/exp-A.svg)
 
+Plot `exp` alongside a Padé approximation:
+
+~~~spl svg=B
+(-1 -- 1).functionPlot([
+	exp:/1,
+	expApproximation:/1
+])
+~~~
+
+![](sw/spl/Help/Image/exp-B.svg)
+
 * * *
 
 See also: ^, log
