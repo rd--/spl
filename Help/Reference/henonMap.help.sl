@@ -6,20 +6,20 @@ A two-dimensional dissipative quadratic map by Michel Hénon.
 
 ~~~spl svg=A
 henonMap(1.4, 0.3)
-.iterate([0 0])
-.next(99)
-.PointCloud
-.asLineDrawing
+.nestList([0 0], 99)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/henonMap-A.svg)
 
 * * *
 
-See also: deJongAttractor, henonAreaPreservingMap, martinMap
+See also: deJongMap, henonAreaPreservingMap, martinMap
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/HenonMap.html)
+[1](https://mathworld.wolfram.com/HenonMap.html),
+_W_
+[1](https://en.wikipedia.org/wiki/H%C3%A9non_map)
 
 Further Reading: Hénon 1976

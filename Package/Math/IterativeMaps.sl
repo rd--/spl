@@ -1,11 +1,21 @@
 +SmallFloat{
 
-	deJongAttractor { :a :b :c :d |
+	deJongMap { :a :b :c :d |
 		{ :v |
 			let [x, y] = v;
 			[
 				(a * y).sin - (b * x).cos,
 				(c * x).sin - (d * y).cos
+			]
+		}
+	}
+
+	duffingMap { :a :b |
+		{ :v |
+			let [x, y] = v;
+			[
+				y,
+				(a * y) - (b * x) - (y * y * y)
 			]
 		}
 	}
@@ -30,6 +40,12 @@
 				y + 1 - (a * x * x),
 				b * x
 			]
+		}
+	}
+
+	logisticMap { :r |
+		{ :x |
+			r * x * (1 - x)
 		}
 	}
 

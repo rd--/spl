@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-78.779 -100.331 110.000 110.000">
 <g fill="none" stroke="black" stroke-width="0.0145%" transform="translate(0, -90.6625) scale(34.5550, -34.5550)">
+<circle cx="-2.135" cy="0.000" r="0.014" />
+<circle cx="0.000" cy="0.135" r="0.014" />
 <circle cx="0.000" cy="0.000" r="0.014" />
 <circle cx="0.000" cy="-2.000" r="0.014" />
 <circle cx="-2.000" cy="-2.000" r="0.014" />
@@ -99,5 +101,6 @@
 <circle cx="-1.721" cy="-0.631" r="0.014" />
 <circle cx="0.116" cy="-0.279" r="0.014" />
 <circle cx="-0.499" cy="-2.116" r="0.014" />
+<circle cx="-1.723" cy="-1.501" r="0.014" />
 </g>
 </svg>

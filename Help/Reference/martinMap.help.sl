@@ -6,34 +6,30 @@ A function by Barry Martin.
 
 ~~~spl svg=A
 martinMap(0.4, 1, 0)
-.iterate([0 0])
-.next(99)
-.PointCloud
-.asLineDrawing
+.nestList([0 0], 99)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/martinMap-A.svg)
 
 ~~~spl svg=B
 martinMap(-2, -0.33, 0.01)
-.iterate([0 0])
-.next(99)
-.PointCloud
-.asLineDrawing
+.nestList([0 0], 99)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/martinMap-B.svg)
 
 ~~~spl svg=C
 martinMap(6, -1, 3)
-.iterate([0 0])
-.next(99)
-.PointCloud
-.asLineDrawing
+.nestList([0 0], 99)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/martinMap-C.svg)
 
 * * *
 
-See also: deJongAttractor, henonAreaPreservingMap, henonMap
+See also: deJongMap, henonAreaPreservingMap, henonMap
+
+Further Reading: Martin 1986

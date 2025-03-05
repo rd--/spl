@@ -65,21 +65,31 @@ Solve with timestep of 0.1 and downsample to show results at time steps of one:
 ]
 ```
 
-Solve van der Pol equation, a second-order ODE, with mu = 1, plot phase diagram:
+Solve the van der Pol equation,
+a second-order ordinary differential equation,
+with μ = 1,
+and plot phase diagram:
 
 ~~~spl svg=D
-{ :t :v |
-	let [x, y] = v;
-	[
-		y,
-		(1 - (x ^ 2)) * y - x
-	]
-}.rungeKuttaMethod([2 0], 0, 20, 0.1)
-.second
-.linePlot
+vanDerPolEquation(1)
+.rungeKuttaMethod([2 0], 0, 20, 0.1)
+.second.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-D.svg)
+
+Solve the Duffing equation,
+a non-linear second-order ordinary differential equation,
+with γ = 0.3 and δ = 0.25 and ω = 1,
+and plot phase diagram:
+
+~~~spl svg=E
+duffingEquation(0.3, 0.25, 1)
+.rungeKuttaMethod([0 0], 0, 23, 0.1)
+.second.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rungeKuttaMethod-E.svg)
 
 * * *
 

@@ -1,8 +1,8 @@
 # henonAreaPreservingMap
 
-- _henonMap(a, b)_
+- _henonAreaPreservingMap(a)_
 
-An area-preserving quardatic map by Michel Hénon.
+An area-preserving quadratic map by Michel Hénon.
 
 ~~~spl png=A
 let f:/1 = henonAreaPreservingMap(-10);
@@ -25,7 +25,7 @@ Sfc32(789341)
 
 * * *
 
-See also: deJongAttractor, henonMap, martinMap
+See also: deJongMap, henonMap, martinMap
 
 References:
 _Mathematica_
