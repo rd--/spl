@@ -26,6 +26,7 @@
 	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'
+	'TemporalData'
 	'TimeSeries'
 	'Tree'
 	'Tuple' /* List */
@@ -132,6 +133,7 @@
 	'LinearCongruential'
 	'MersenneTwister'
 	'ProbabilityDistribution'
+	'RandomProcess'
 	'Sfc32' /* Stream */
 	'SplitMix'
 

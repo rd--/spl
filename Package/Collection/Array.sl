@@ -91,7 +91,7 @@
 	}
 
 	isMatrix { :self |
-		self.dimensions(2).size = 2
+		self.dimensions.size = 2
 	}
 
 	isSmallFloatVector { :self |

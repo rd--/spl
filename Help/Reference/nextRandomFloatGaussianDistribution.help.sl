@@ -1,11 +1,9 @@
 # nextRandomFloatGaussianDistribution
 
-Generates a bell-shaped curve centered around mean.
-Good for simulating life-like behavior and mutations.
-Also known as _Normal Distribution_.
+- _nextRandomFloatGaussianDistribution(mu, sigma)_
 
-- mean: mean value
-- deviation: determines the spread of values above and below mean
+Generates a bell-shaped curve with mean _mu_ and deviation _sigma_.
+Also known as _Normal Distribution_.
 
 Mean at zero, small deviation:
 
@@ -40,5 +38,7 @@ See also: nextRandomFloat
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NormalDistribution.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Normal_distribution)

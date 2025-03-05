@@ -3,7 +3,7 @@
 - _isMatrix(aList)_
 
 A `List` is a _matrix_ if each of the elements is a _vector_ of equal size.
-Specifically if `arrayDepth` is `>=` two.
+Specifically if `arrayDepth` is equal to two.
 
 At `List`:
 
