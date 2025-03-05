@@ -1,5 +1,9 @@
 TemporalData : [Object] { | pathList |
 
+	discretePlot { :self |
+		self.pathList.discretePlot
+	}
+
 	linePlot { :self |
 		self.pathList.linePlot
 	}

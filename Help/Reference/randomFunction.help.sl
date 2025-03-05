@@ -5,7 +5,8 @@
 Answer a `TemporalData` value representing a pseudorandom function in
 _n_ dimensions
 from the process _p_
-over time period _t_
+over time period _t_,
+specified as _(min, max, step)_,
 utilising the random number generatror _r_.
 
 Simulate an ensemble of twenty-three Wiener processes:

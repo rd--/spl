@@ -1,3 +1,15 @@
+BernoulliProcess : [Object] { | p |
+
+	reset { :self |
+		self
+	}
+
+	nextRandom { :self :randomNumberGenerator |
+		(randomNumberGenerator.nextRandomFloat < self.p).boole
+	}
+
+}
+
 WienerProcess : [Object] { | mu sigma x |
 
 	reset { :self |
@@ -13,6 +25,10 @@ WienerProcess : [Object] { | mu sigma x |
 }
 
 +SmallFloat {
+
+	BernoulliProcess { :p |
+		newBernoulliProcess().initializeSlots(p)
+	}
 
 	WienerProcess { :mu :sigma |
 		newWienerProcess().initializeSlots(mu, sigma, mu)

@@ -48,6 +48,7 @@ See also: randomFunction
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/WienerProcess.html),
+[1](https://mathworld.wolfram.com/WienerProcess.html)
+[2](https://reference.wolfram.com/language/ref/WienerProcess.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Wiener_process)
