@@ -63,7 +63,7 @@ CauchyDistribution(0, 0.025)
 
 * * *
 
-See also: cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, UniformDistribution
+See also: cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, UniformDistribution, WeibullDistribution
 
 References:
 _Mathematica_

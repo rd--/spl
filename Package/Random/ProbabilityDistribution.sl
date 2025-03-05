@@ -16,6 +16,30 @@
 		(x * lambda.log - lambda - (x + 1).logGamma).exp
 	}
 
+	weibullDistributionCdf { :x :gamma :alpha :mu |
+		(x >= 0).if {
+			1 - (((x - mu) / alpha) ^ gamma).negated.exp
+		} {
+			0
+		}
+	}
+
+	weibullDistributionCdf { :x :gamma |
+		x.weibullDistributionCdf(gamma, 1, 0)
+	}
+
+	weibullDistributionPdf { :x :gamma :alpha :mu |
+		(x >= mu).if {
+			(gamma / alpha) * (((x - mu) / alpha) ^ (gamma - 1)) * (((x - mu) / alpha) ^ gamma).negated.exp
+		} {
+			0
+		}
+	}
+
+	weibullDistributionPdf { :x :gamma |
+		x.weibullDistributionPdf(gamma, 1, 0)
+	}
+
 }
 
 +List {
@@ -101,14 +125,14 @@
 		k
 	}
 
-	nextRandomFloatWeibullDistribution { :self :location :spread :shape |
+	nextRandomFloatWeibullDistribution { :self :alpha :beta :mu |
 		let r = 1;
 		{
 			r = 1
 		}.whileTrue {
 			r := self.nextRandomFloat
 		};
-		spread * (r.log.negated ^ (1 / shape)) + location
+		beta * (r.log.negated ^ (1 / alpha)) + mu
 	}
 
 }
@@ -246,6 +270,33 @@ UniformDistribution : [Object] { | min max |
 
 }
 
+WeibullDistribution : [Object] { | alpha beta mu |
+
+	cdf { :self :x |
+		x.weibullDistributionCdf(self.alpha, self.beta, self.mu)
+	}
+
+	mean { :self |
+		self.beta * (1 + (1 / self.alpha)).gamma + self.mu
+	}
+
+	median { :self |
+		self.beta * (2.log ^ (1 / self.alpha)) + self.mu
+	}
+
+	pdf { :self :x |
+		x.weibullDistributionPdf(self.alpha, self.beta, self.mu)
+	}
+
+	randomVariate { :self :rng :shape |
+		let [alpha, beta, mu] = [self.alpha, self.beta, self.mu];
+		{
+			rng.nextRandomFloatWeibullDistribution(alpha, beta, mu)
+		} ! shape
+	}
+
+}
+
 +@Number {
 
 	CauchyDistribution { :x0 :gamma |
@@ -258,6 +309,10 @@ UniformDistribution : [Object] { | min max |
 
 	UniformDistribution { :min :max |
 		newUniformDistribution().initializeSlots(min, max)
+	}
+
+	WeibullDistribution { :alpha :beta :mu |
+		newWeibullDistribution().initializeSlots(alpha, beta, mu)
 	}
 
 }

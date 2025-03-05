@@ -1,38 +1,39 @@
 # nextRandomFloatWeibullDistribution
 
-- _nextRandomFloatWeibullDistribution(location, spread, shape)_
+- _nextRandomFloatWeibullDistribution(alpha, beta, mu)_
 
-- location: offset
-- spread: distribution range scaling factor
-- shape: curve shaping parameter
+Answer represents a Weibull distribution with
+a shape parameter α (also called γ or _k_),
+a scale parameter β (also called α or λ),
+and a location parameter μ.
 
 This is a complex, yet powerful, distribution relying on 3 parameters.
 These are known as the location, spread, and shape parameters.
 The _location_ and _spread_ parameters are used interchangeably to set the mean.
 The _shape_ parameter alters the curve of the distribution.
 
-Effects of _shape_:
+Effects of α:
 
-- 0 < _shape_ <= 1: occurance of values near _location_ increases as _shape_ -> 0
-- _shape_ = 1: same as exponential distribution
+- 0 < α <= 1: occurance of values near _μ_ increases as α -> 0
+- α = 1: same as exponential distribution
 
 ~~~spl svg=A
 let rng = Sfc32(391437);
-(
-	{
-		rng.nextRandomFloatWeibullDistribution(
-			0,
-			1,
-			3 / 4
-		)
-	} ! 99
-).linePlot
+let f = {
+	rng
+	.nextRandomFloatWeibullDistribution(
+		3 / 4,
+		1,
+		0
+	)
+};
+(f:/0 ! 99).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/nextRandomFloatWeibullDistribution-A.svg)
 
 * * *
 
-See also: nextRandomFloat, nextRandomFloatEulerianBetaDistribution
+See also: nextRandomFloat, nextRandomFloatEulerianBetaDistribution, WeibullDistribution, weibullDistributionPdf
 
 Categories: Random

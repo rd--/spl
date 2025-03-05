@@ -69,7 +69,7 @@ UniformDistribution(0, 1)
 
 * * *
 
-See also: CauchyDistribution, cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation
+See also: CauchyDistribution, cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, WeibullDistribution
 
 References:
 _Mathematica_

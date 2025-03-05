@@ -45,7 +45,7 @@ NormalDistribution(0, 1)
 
 * * *
 
-See also: CauchyDistribution, cdf, mean, pdf, randomVariate, standardDeviation, UniformDistribution
+See also: CauchyDistribution, cdf, mean, pdf, randomVariate, standardDeviation, UniformDistribution, WeibullDistribution
 
 References:
 _Mathematica_
