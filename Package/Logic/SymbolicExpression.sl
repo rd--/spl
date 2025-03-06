@@ -129,7 +129,6 @@
 Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
 	isEqualSymbolicExpression { :self :anObject |
-		['SYM>isEq', self, anObject].postLine;
 		self == anObject
 	}
 
@@ -183,8 +182,6 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 		let common = Set(aBlock:/2);
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
-				['CS',each].postLine;
-				['CS-ALL',all,all.includes(each)].postLine;
 				all.includes(each).if {
 					common.basicInclude(each)
 				} {
@@ -212,7 +209,6 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 	}
 
 	isEqualSymbolicExpression { :self :anObject |
-		['SE>isEq', self, anObject].postLine;
 		anObject.isSymbolicExpression & {
 			self.operator.isEqualSymbolicExpression(anObject.operator) & {
 				let m = self.operands.size;
@@ -312,7 +308,6 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 +[SmallFloat] {
 
 	isEqualSymbolicExpression { :self :anObject |
-		['OBJ>isEq', self, anObject].postLine;
 		self == anObject
 	}
 

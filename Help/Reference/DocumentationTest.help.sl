@@ -30,7 +30,7 @@ The `format` method prints the equivalence predicate:
 >>> 	['7']
 >>> ).format
 [
-	'(3 + 4).asString.utf8ByteArray'
+	'{ 3 + 4 }.value.asString.utf8ByteArray'
 	' = '
 	'[55].asByteArray'
 ].stringCatenate
@@ -54,7 +54,7 @@ The `format` method prints the equivalence predicate:
 >>> 	['49']
 >>> ).format
 [
-	'(let x = 3 + 4; x * x)'
+	'{ let x = 3 + 4; x * x }.value'
 	'.asString.utf8ByteArray'
 	' = '
 	'[52, 57].asByteArray'

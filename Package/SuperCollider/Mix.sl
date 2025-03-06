@@ -159,7 +159,7 @@
 		let runList = self.collect(size:/1).asRunArray;
 		let derivedPrefix = runList.runsAndValuesCollect { :run :value |
 			[run.asString, value.asString].stringIntercalate('×')
-		}.join('+') ++ '→';
+		}.stringIntercalate('+') ++ '→';
 		/* ['Mix', ruleTable, derivedPrefix].postLine; */
 		self.mixByAvailableNamedRule(derivedPrefix, ruleTable)
 	}

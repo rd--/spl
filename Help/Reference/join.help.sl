@@ -1,12 +1,8 @@
 # join
 
-- _join(aList, separator)_
+- _join(aList, anInteger)_
 
-+List{
-}
-
-Join _aList_ (which must be a list of lists or strings) into a list or a string, intercalating _separator_ between each.
-The list must be of uniform element type.
+Joins the objects at level _anInteger_ in each of the `List` items at _aList_.
 
 Join a matrix into a vector:
 
@@ -123,6 +119,36 @@ Make a block matrix:
 ]
 ```
 
+Successively double a list by joining to itself:
+
+```
+>>> { :x | [x x].join(1) }.nestList([0], 4)
+[
+	0;
+	0 0;
+	0 0 0 0;
+	0 0 0 0 0 0 0 0;
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+]
+```
+
+The Thue–Morse sequence:
+
+```
+>>> { :x |
+>>> 	[x, 1- x].join(1)
+>>> }.nestList([1], 5)
+[
+	1;
+	1 0;
+	1 0 0 1;
+	1 0 0 1 0 1 1 0;
+	1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1;
+	1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1
+	0 1 1 0 1 0 0 1 1 0 0 1 0 1 1 0
+]
+```
+
 At the empty list:
 
 ```
@@ -139,6 +165,6 @@ See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, splitBy, string
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Join.html)
+[1](https://reference.wolfram.com/language/ref/Join.html)
 
 Categories: String
