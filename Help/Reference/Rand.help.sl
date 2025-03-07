@@ -20,4 +20,10 @@ See also: Rand0, Rand2, TRand, WhiteNoise
 
 Guides: Random Number Generators
 
+References:
+_Csound_
+[1](http://www.csounds.com/manual/html/random.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Rand.html)
+
 Categories: Ugen
