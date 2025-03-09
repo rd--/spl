@@ -437,6 +437,12 @@
 		[l, u, p]
 	}
 
+	matchPairs { :self |
+		let [_, i] = self.kuhnMunkresAlgorithm;
+		let k = i.size;
+		[i, 1:k].transposed.select { :each | each[1] ~= 0 }
+	}
+
 	matrixCorrelation { :a :b |
 		a.covariance(b) / *.outer(a.standardDeviation, b.standardDeviation)
 	}

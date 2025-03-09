@@ -29,6 +29,13 @@ Compute a distance matrix from two lists of integers:
 	2 3 4;
 	1 2 3
 ]
+
+>>> [60 64 67].distanceMatrix([62 65 69])
+[
+	2 5 9;
+	2 1 5;
+	5 2 2
+]
 ```
 
 Compute a distance matrix from real-valued numerical vectors:
