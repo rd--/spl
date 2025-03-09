@@ -49,6 +49,21 @@ Resonz(
 )
 ```
 
+Modulate both frequency and band-width:
+
+```
+let x = {
+	WhiteNoise() * 0.1
+} ! 2;
+{
+	Resonz(
+		x,
+		LfNoise2(0.33) * 333 + 777,
+		LfNoise2(0.77) * 0.07 + 0.09
+	)
+} !+ 10
+```
+
 * * *
 
 See also: Formlet, Rhpf, Rlpf, Ringz

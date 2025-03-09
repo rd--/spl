@@ -32,7 +32,7 @@ let rate = Dseq(
 	Infinity,
 	[10 1 1 0.5 0.5 0.2 0.1]
 );
-let center = MouseX(0, SfDur(sf), 0, 0.2);
+let center = MouseX(0, SfDuration(sf), 0, 0.2);
 let dur = 4 / triggerRate;
 let pan = Dseq(Infinity, [-1, -0.9 .. 1]);
 let amp = 1 / 4;
@@ -58,7 +58,7 @@ let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center0 = MouseX(0, SfDuration(sf), 0, 0.2);
 let center = center0 + TRand(
 	0, 0.01, trigger
 );
@@ -87,7 +87,7 @@ let triggerRate = MouseY(8, 120, 1, 0.2);
 let trigger = Dust(triggerRate);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center0 = MouseX(0, SfDuration(sf), 0, 0.2);
 let center = center0 + TRand(
 	0, 0.01, trigger
 );
@@ -116,7 +116,7 @@ let triggerRate = 12;
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1;
-let center0 = MouseX(0, SfDur(sf), 0, 0.2);
+let center0 = MouseX(0, SfDuration(sf), 0, 0.2);
 let center = center0 + TRand(
 	0, 0.01, trigger
 );
@@ -176,7 +176,7 @@ let triggerRate = MouseY(1, 400, 1, 0.2);
 let trigger = Impulse(triggerRate, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 2 ^ TRand(-2, 2, trigger);
-let center = MouseX(0, SfDur(sf), 0, 0.2);
+let center = MouseX(0, SfDuration(sf), 0, 0.2);
 let dur = 8 / triggerRate;
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;
@@ -201,7 +201,7 @@ let numChannels = 8;
 let trigger = Impulse(440, 0);
 let sf = SfAcquireMono('Floating');
 let rate = 1.2 ^ TiRand(-3, 3, trigger);
-let center = MouseX(0, SfDur(sf), 0, 0.2);
+let center = MouseX(0, SfDuration(sf), 0, 0.2);
 let dur = 1.2 / MouseY(2, 120, 1, 0.2);
 let pan = TRand(-1, 1, trigger) * 0.6;
 let amp = 1 / 4;

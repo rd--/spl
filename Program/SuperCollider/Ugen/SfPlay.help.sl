@@ -4,7 +4,7 @@ SfPlay(sf, 1, 1, 0, 1)
 
 /* SfPlay ; normal playback at same speed of recording ; no loop, retrigger */
 let sf = SfAcquireMono('Floating');
-SfPlay(sf, 1, Impulse(1 / SfDur(sf), 0), 0, 0)
+SfPlay(sf, 1, Impulse(1 / SfDuration(sf), 0), 0, 0)
 
 /* SfPlay ; mouse controls playback rate and re-trigger interval ; loop */
 let sf = SfAcquireMono('Floating');
@@ -14,7 +14,7 @@ SfPlay(sf, rateMultiplier, 1, 0, 1)
 /* SfPlay ; mouse controls playback rate and re-trigger interval ; no loop, retrigger */
 let sf = SfAcquireMono('Floating');
 let rateMultiplier = MouseX(0.25, 4, 1, 0.2);
-SfPlay(sf, rateMultiplier, Impulse(rateMultiplier / SfDur(sf), 0), 0, 0)
+SfPlay(sf, rateMultiplier, Impulse(rateMultiplier / SfDuration(sf), 0), 0, 0)
 
 /* SfPlay ; recursive scrubbing (adc) ; https://www.listarc.cal.bham.ac.uk/lists/sc-users-2002/msg00736.html */
 let sf = SfAcquireMono('Floating');

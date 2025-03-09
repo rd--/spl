@@ -67,7 +67,7 @@ SfRead(
 		1,
 		SfRateScale(b),
 		0,
-		SfFrames(b),
+		SfFrameCount(b),
 		0
 	),
 	1,
@@ -82,7 +82,7 @@ _MouseX_ controls trigger frequency and _MouseY_ controls resetPos of the second
 let b = SfAcquire('CrotaleD6', 1, [1]);
 let rate = MouseX(0.1, 100, 1, 0.2);
 let trig = Impulse(rate, 0);
-let bFrames = SfFrames(b);
+let bFrames = SfFrameCount(b);
 let resetPos = [
 	0,
 	MouseY(0, bFrames, 0, 0.2)

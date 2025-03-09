@@ -44,7 +44,7 @@ Pointer is `Phasor`, playback slows from unit to a quarter over twenty seconds:
 let sf = SfAcquireMono('Floating');
 let pointer = Phasor(
 	0,
-	SampleDur() / SfDur(sf) * XLine(1, 0.25, 20),
+	SampleDur() / SfDuration(sf) * XLine(1, 0.25, 20),
 	0,
 	1,
 	0

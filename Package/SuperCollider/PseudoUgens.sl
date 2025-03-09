@@ -350,8 +350,8 @@
 	RingzBank { :input :freq :amp :time | <primitive: return sc.RingzBank(_input, _freq, _amp, _time);> }
 	Select2 { :predicate :ifTrue :ifFalse | <primitive: return sc.Select2(_predicate, _ifTrue, _ifFalse);> }
 	SelectX { :which :array | <primitive: return sc.SelectX(_which, _array);> }
-	SfDur { :sfBufferList |<primitive: return sc.SfDur(_sfBufferList);> }
-	SfFrames { :sfBufferList |<primitive: return sc.SfFrames(_sfBufferList);> }
+	SfDuration { :sfBufferList |<primitive: return sc.SfDur(_sfBufferList);> }
+	SfFrameCount { :sfBufferList |<primitive: return sc.SfFrames(_sfBufferList);> }
 	SfPlay { :sfBufferList :rate :trigger :startPos :loop |<primitive: return sc.SfPlay(_sfBufferList, _rate, _trigger, _startPos, _loop);> }
 	SfRateScale { :sfBufferList |<primitive: return sc.SfRateScale(_sfBufferList);> }
 	SfRead { :sfBufferList :phase :loop :interpolation |<primitive: return sc.SfRead(_sfBufferList, _phase, _loop, _interpolation);> }

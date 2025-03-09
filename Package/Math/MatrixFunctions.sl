@@ -286,6 +286,76 @@
 		self.isUpperTriangularMatrix(0)
 	}
 
+	kuhnMunkresAlgorithm { :self |
+		<primitive:
+		const C = _self;
+		const J = C.length;
+		if (J === 0) {
+			throw new Error('kuhnMunkresAlgorithm: empty list');
+		}
+		const W = C[0].length;
+		if (J > W) {
+			throw new Error('kuhnMunkresAlgorithm: invalid matrix');
+		}
+		function arrayOf(k, z) {
+			const a = Array(k);
+			for(let i = 0; i < k; i++) {
+				a[i] = z;
+			};
+			return a;
+		}
+		const job = arrayOf(W + 1, -1);
+		const ys = arrayOf(J, null);
+		const yt = arrayOf(W + 1, null);
+		const answers = [];
+		const inf = Infinity;
+		for (let j_cur = 0; j_cur < J; j_cur++) {
+			let w_cur = W;
+			job[w_cur] = j_cur;
+			const min_to = arrayOf(W + 1, inf);
+			const prv = arrayOf(W + 1, -1);
+			const in_Z = Array(W + 1);
+			while (job[w_cur] !== -1) {
+				in_Z[w_cur] = true;
+				const j = job[w_cur];
+				let delta = inf;
+				let w_next = null;
+				for (let w = 0; w < W; w++) {
+					if (!in_Z[w]) {
+						const b = C[j][w] - ys[j] - yt[w];
+						if (b < min_to[w]) {
+							min_to[w] = b;
+							prv[w] = w_cur;
+						}
+						if (min_to[w] < delta) {
+							delta = min_to[w];
+							w_next = w;
+						}
+					}
+				}
+				for (let w = 0; w <= W; w++) {
+					if (in_Z[w]) {
+						ys[job[w]] += delta;
+						yt[w] -= delta;
+					} else {
+						min_to[w] -= delta;
+					}
+				}
+				w_cur = w_next;
+			}
+			for (let w = null; w_cur != W; w_cur = w) {
+				w = prv[w_cur];
+				job[w_cur] = job[w];
+			}
+			answers.push(-yt[W]);
+		}
+		for (let i = 0; i < W; i++) {
+			job[i] += 1;
+		}
+		return [answers, job.slice(0, W)];
+		>
+	}
+
 	kroneckerProduct { :a :b |
 		let m = a.size;
 		let n = a[1].size;

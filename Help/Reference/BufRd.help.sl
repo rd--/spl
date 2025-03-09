@@ -21,15 +21,15 @@ Zig zag around sound:
 let sf = SfAcquire('Floating', 1, [1]).first;
 let mx = MouseX(2, 20, 1, 0.2);
 let phase = LfNoise2(mx);
-BufRd(1, sf, phase * SfFrames(sf), 1, 2)
+BufRd(1, sf, phase * SfFrameCount(sf), 1, 2)
 ```
 
 Ordinary playback, phase courtesy `LfSaw`:
 
 ```spl SfAcquire
 let sf = SfAcquire('Floating', 1, [1]).first;
-let sw = LfSaw(1 / SfDur(sf), 0);
-let ph = sw.LinLin(-1, 1, 0, SfFrames(sf));
+let sw = LfSaw(1 / SfDuration(sf), 0);
+let ph = sw.LinLin(-1, 1, 0, SfFrameCount(sf));
 BufRd(1, sf, ph, 1, 2)
 ```
 
@@ -41,7 +41,7 @@ let ph = Phasor(
 	0,
 	SfRateScale(sf),
 	0,
-	SfFrames(sf),
+	SfFrameCount(sf),
 	0
 );
 BufRd(1, sf, ph, 1, 2)
