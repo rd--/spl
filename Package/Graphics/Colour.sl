@@ -358,7 +358,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 			dot(v4, kRedVec4) + dot(v2, kRedVec2),
 			dot(v4, kGreenVec4) + dot(v2, kGreenVec2),
 			dot(v4, kBlueVec4) + dot(v2, kBlueVec2)
-		].concatenation.saturate
+		].catenate.saturate
 	}
 
 }

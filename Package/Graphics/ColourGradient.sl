@@ -33,7 +33,7 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 			'<rect width="%" height="%" fill="url(#gradient)" />'.format([w, h]),
 			'</svg>'
 		];
-		[pre, stops, post].concatenation.unlines.Svg
+		[pre, stops, post].catenate.unlines.Svg
 	}
 
 	draw { :self |
