@@ -1,8 +1,12 @@
-AliasMethod : [Object, Iterator] { | alias probability random |
+AliasMethod : [Object, Iterator] { | alias probability |
 
 	next { :self |
-		let column = self.random.nextRandomInteger(1, self.probability.size);
-		let coinToss = self.random.nextRandomFloat < self.probability[column];
+		self.nextRandom(system)
+	}
+
+	nextRandom { :self :randomNumberGenerator |
+		let column = randomNumberGenerator.nextRandomInteger(1, self.probability.size);
+		let coinToss = randomNumberGenerator.nextRandomFloat < self.probability[column];
 		coinToss.if {
 			column
 		} {
@@ -14,7 +18,7 @@ AliasMethod : [Object, Iterator] { | alias probability random |
 
 +List {
 
-	AliasMethod { :self :random |
+	AliasMethod { :self |
 		let probabilities = self.copy;
 		let count = probabilities.size;
 		let probability = List(count);
@@ -49,11 +53,7 @@ AliasMethod : [Object, Iterator] { | alias probability random |
 		{ large.isEmpty }.whileFalse {
 			probability[large.removeLast] := 1
 		};
-		newAliasMethod().initializeSlots(alias, probability, random)
-	}
-
-	AliasMethod { :self |
-		AliasMethod(self, system)
+		newAliasMethod().initializeSlots(alias, probability)
 	}
 
 }

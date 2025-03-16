@@ -170,8 +170,8 @@
 	randomWeightedChoice { :self :e :w :n |
 		let k = w.sum;
 		let x = (k = 1).if { w } { w / k };
-		let m = AliasMethod(x, self);
-		{ e[m.next] } ! n
+		let m = AliasMethod(x);
+		{ e[m.nextRandom(self)] } ! n
 	}
 
 	randomWeightedIndex { :self :aSequence |

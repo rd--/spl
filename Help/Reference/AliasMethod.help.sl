@@ -1,16 +1,17 @@
 # AliasMethod
 
-- _AliasMethod(aSeqence, aRandom)_
+- _AliasMethod(aList)_
 
 A `Type` that implements the alias method of sampling from a discrete probability distribution.
 The distribution is given as a sequence of probability values that `sum` to `one`.
 
 ```
->>> let d = [0.25 0.3 0.1 0.2 0.15];
->>> let m = AliasMethod(d, Sfc32(1372));
->>> let r = { m.next } ! 1000;
->>> let a = r.asIdentityBag.sortedElements;
->>> (->.map(1:5, d * 1000), a)
+>>> let w = [0.25 0.3 0.1 0.2 0.15];
+>>> let m = AliasMethod(w);
+>>> let r = Sfc32(1372);
+>>> let d = { m.nextRandom(r) } ! 1000;
+>>> let a = d.asIdentityBag.sortedElements;
+>>> (->.map(1:5, w * 1000), a)
 (
 	[
 		1 -> 250,
@@ -31,7 +32,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 
 * * *
 
-See also: Random, Sfc32
+See also: Random, randomWeightedChoice, Sfc32
 
 References:
 _W_

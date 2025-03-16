@@ -68,7 +68,7 @@ Sfc32(28974)
 
 * * *
 
-See also: anyOne, atRandom, randomInteger, RandomNumberGenerator, randomSample
+See also: anyOne, atRandom, randomInteger, RandomNumberGenerator, randomSample, randomWeightedChoice
 
 References:
 _Julia_

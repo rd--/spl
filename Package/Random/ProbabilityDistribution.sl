@@ -247,17 +247,118 @@ CauchyDistribution : [Object] { | x0 gamma |
 
 }
 
-NormalDistribution : [Object] { | mu sigma |
+ExponentialDistribution : [Object] { | lambda |
 
 	cdf { :self :x |
-		x.normalDistributionCdf(self.mu, self.sigma)
+		let lambda = self.lambda;
+		(x >= 0).if {
+			1 - (-1 * x * lambda).exp
+		} {
+			0
+		}
+	}
+
+	kurtosis { :unused |
+		9
 	}
 
 	mean { :self |
-		self.mu
+		1 / self.lambda
+	}
+
+	median { :self |
+		2.log / self.lambda
 	}
 
 	pdf { :self :x |
+		let lambda = self.lambda;
+		(x >= 0).if {
+			(-1 * x * lambda).exp * lambda
+		} {
+			0
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let lambda = self.lambda;
+		let negativeLambda = lambda.-;
+		{
+			let u = rng.nextRandomFloat;
+			(1 - u).log / negativeLambda
+		} ! shape
+	}
+
+	skewness { :unused |
+		2
+	}
+
+	variance { :self |
+		1 / self.lambda.squared
+	}
+
+}
+
+GeometricDistribution : [Object] { | p |
+
+	cdf { :self :x |
+		let p = self.p;
+		(x >= 0).if {
+			1 - ((1 - p) ^ (1 + x.floor))
+		} {
+			0
+		}
+	}
+
+	mean { :self |
+		let p = self.p;
+		-1 + (1 / p)
+	}
+
+	pdf { :self :x |
+		let p = self.p;
+		(x >= 0).if {
+			((1 - p) ^ x) * p
+		} {
+			0
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let p = self.p;
+		{
+			let i = 0;
+			{
+				rng.nextRandomFloat(0, 1) <= p
+			}.whileFalse {
+				i := i + 1
+			};
+			i
+		} ! shape
+	}
+
+	skewness { :self |
+		let p = self.p;
+		(2 - p) / (1 - p).sqrt
+	}
+
+	variance { :self |
+		let p = self.p;
+		(1 - p) / p.squared
+	}
+
+}
+
+NormalDistribution : [Object] { | mu sigma |
+
+        cdf { :self :x |
+		x.normalDistributionCdf(self.mu, self.sigma)
+	}
+
+        mean { :self |
+		self.mu
+	}
+
+        pdf { :self :x |
 		x.normalDistributionPdf(self.mu, self.sigma)
 	}
 
@@ -370,6 +471,14 @@ WeibullDistribution : [Object] { | alpha beta mu |
 
 	CauchyDistribution { :x0 :gamma |
 		newCauchyDistribution().initializeSlots(x0, gamma)
+	}
+
+	ExponentialDistribution { :lambda |
+		newExponentialDistribution().initializeSlots(lambda)
+	}
+
+	GeometricDistribution { :p |
+		newGeometricDistribution().initializeSlots(p)
 	}
 
 	NormalDistribution { :mu :sigma |

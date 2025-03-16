@@ -40,6 +40,9 @@ that is _e ^ n_.
 
 >>> [0, 1.5, 1.pi.i, Infinity].exp
 [1 4.48169 -1J0 Infinity]
+
+>>> [-1 0 1].exp
+[0.367879 1 2.71828]
 ```
 
 The values at `zero`, `one` & `Infinity`:
