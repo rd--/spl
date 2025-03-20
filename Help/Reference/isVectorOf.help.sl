@@ -1,8 +1,8 @@
 # isVectorOf
 
-- _isVectorOf(aSequence, elementType)_
+- _isVectorOf(aList, elementType)_
 
-Answers `true` if _aSequence_ is a vector with the indicated _elementType_,
+Answers `true` if _aList_ is a vector with the indicated _elementType_,
 else `false`.
 
 ```
@@ -19,6 +19,14 @@ true
 true
 
 >>> [1L 2L].isVectorOf('LargeInteger')
+true
+```
+
+At `Range`:
+
+
+```
+>>> 1:9.isVectorOf('SmallFloat')
 true
 ```
 

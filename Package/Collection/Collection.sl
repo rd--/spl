@@ -309,17 +309,6 @@
 		self.collect(cubeRoot:/1)
 	}
 
-	deepAllSatisfy { :self :aBlock:/1 |
-		let type = self.typeOf;
-		self.allSatisfy { :each |
-			(each.typeOf = type).if {
-				each.deepAllSatisfy(aBlock:/1)
-			} {
-				aBlock(each)
-			}
-		}
-	}
-
 	deepCollect { :self :aBlock:/1 |
 		let type = self.typeOf;
 		self.collect { :each |
@@ -384,11 +373,17 @@
 	}
 
 	elementTypeIfAbsent { :self :aBlock:/0 |
-		let types = self.elementTypes;
-		(types.size = 1).if {
-			types.anyOne
-		} {
+		self.isEmpty.if {
 			aBlock()
+		} {
+			let answer = self.anyOne.typeOf;
+			self.allSatisfy { :each |
+				each.typeOf = answer
+			}.if {
+				answer
+			} {
+				aBlock()
+			}
 		}
 	}
 

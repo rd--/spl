@@ -18,22 +18,30 @@ true
 `traitLookup` answers the named trait:
 
 ```
->>> system.traitLookup('Collection').isTrait
+>>> system
+>>> .traitLookup('Collection')
+>>> .isTrait
 true
 
->>> system.traitLookup('Collection').name
+>>> system
+>>> .traitLookup('Collection')
+>>> .name
 'Collection'
 ```
 
 The `methodDictionary` of a `Trait` holds `Method` values:
 
 ```
->>> let t = system.traitLookup('Iterable');
->>> t.methodDictionary.includesKey('sum:/1')
+>>> system
+>>> .traitLookup('Iterable')
+>>> .methodDictionary
+>>> .includesKey('sum:/1')
 true
 
->>> let t = system.traitLookup('Iterable');
->>> t.methodDictionary['sum:/1'].isMethod
+>>> system
+>>> .traitLookup('Iterable')
+>>> .methodDictionary['sum:/1']
+>>> .isMethod
 true
 ```
 

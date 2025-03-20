@@ -46,12 +46,17 @@ Reassemble a string from character codes:
 'asbABCαβγ'
 ```
 
-Find the code points of several strings:
+Find the code points of several strings,
+threads over lists:
 
 ```
 >>> ['abc' 'def' 'ghi']
 >>> .toCharacterCode('Ascii')
-[97 98 99; 100 101 102; 103 104 105]
+[
+	 97  98  99;
+	100 101 102;
+	103 104 105
+]
 ```
 
 Some ISO Latin-1 letters:

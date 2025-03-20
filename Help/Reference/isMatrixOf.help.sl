@@ -1,9 +1,9 @@
 # isMatrixOf
 
-- _isMatrixOf(aSequence | aMatrix, aString)_
+- _isMatrixOf(aList, aString)_
 
-Answers _true_ if _aSequence_ is a matrix with the indicated _elementType_,
-else _false_.
+Answers `true` if _aList_ is a matrix with the indicated _elementType_,
+else `false`.
 
 At `List`:
 

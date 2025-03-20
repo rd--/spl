@@ -32,11 +32,20 @@ Works with arrays of any depth:
 [1 1 1 2]
 ```
 
-Answer dimensions only down to level two:
+Answer dimensions only down to,
+at most,
+level two:
 
 ```
 >>> [[[[1, 2]]]].dimensions(2)
 [1 1]
+
+>>> [1 2 3 4 5].dimensions(2)
+[5]
+
+>>> let x = [1 2; 3 4:; 5 6; 7 8];
+>>> (x.dimensions, x.dimensions(2))
+([2 2 2], [2 2])
 ```
 
 Works with special array types, including `SparseArray` objects:

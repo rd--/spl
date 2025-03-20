@@ -1,8 +1,8 @@
 # arrayDepth
 
-- _arrayDepth(aCollection)_
+- _arrayDepth(aList)_
 
-Answer the depth to which _aCollection_ is a full array,
+Answer the depth to which _aList_ is a full array,
 with all the parts at a particular level having the same length.
 Unlike `rank`, `arrayDepth` always answers an integer.
 
@@ -50,7 +50,11 @@ Answers the size of `dimensions`:
 
 ```
 >>> let m = [1 2 3; 4 5 6];
->>> (m.arrayDepth, m.dimensions, m.dimensions.size)
+>>> (
+>>> 	m.arrayDepth,
+>>> 	m.dimensions,
+>>> 	m.dimensions.size
+>>> )
 (2, [2 3], 2)
 ```
 

@@ -14,6 +14,14 @@ true
 >>> [1 2 3 4 5 6].rank = 1
 true
 
+>>> [1 2 3 4 5 6].arrayDepth = 1
+true
+```
+
+Note that in this interpretation,
+a _matrix_ (and array of dimensions two) is _not_ a vector:
+
+```
 >>> [1 2 3; 4 5 6].isVector
 false
 ```
@@ -34,7 +42,7 @@ true
 
 * * *
 
-See also: elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
+See also: arrayDepth, dimensions, elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
 
 References:
 _Mathematica_

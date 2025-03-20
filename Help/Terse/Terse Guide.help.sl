@@ -2225,25 +2225,6 @@ Infinity.isNumber /* constant positive infinity (is a number) */
 let n = 10 ^ 6; n ~ (n + 1) & { 1 !~ 2 } /* a million is close to a million and one, but one is not close to two */
 ```
 
-## Matrix22 -- geometry type
-```
-system.includesPackage('Matrix22') /* two by two matrix package */
-Matrix22(1, 0, 0, 1).typeOf = 'Matrix22' /* two square matrix type */
-Matrix22(1, 0, 0, 1).isMatrix22 /* matrix predicate */
-Matrix22(1, 4, -1, 9).determinant = 13 /* determinant */
-Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) /* inverse, answers new matrix */
-let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) /* inverse, in place */
-Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).isCloseTo(PlanarCoordinates(1, 0))
-Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) /* transpose, answers new matrix */
-let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) /* transpose, in place */
-```
-
-## Matrix33 -- geometry type
-```
-system.includesPackage('Matrix33')
-Matrix33(1, 1, 1, 1, 0, 0, 0, 1, 0).inverse = Matrix33(0, 1, 0, 0, 0, 1, 1, -1, -1)
-```
-
 ## Method
 ```
 system.includesPackage('Method') /* method package */

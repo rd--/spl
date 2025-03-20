@@ -3,7 +3,9 @@
 - _allSatisfy(aCollection, aBlock:/1)_
 
 Evaluate _aBlock_ with the elements of _aCollection_.
-If _aBlock_ returns `false` for any element return `false`, otherwise return `true`.
+If _aBlock_ answers `false` for any element,
+answers `false`,
+otherwise answers `true`.
 Only tests elements until one answers `false`.
 
 ```

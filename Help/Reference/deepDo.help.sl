@@ -42,6 +42,6 @@ At `Record`:
 
 * * *
 
-See also: deepCollect, deepIndices, do
+See also: deepAllSatisfy, deepCollect, deepIndices, do
 
 Categories: Enumerating

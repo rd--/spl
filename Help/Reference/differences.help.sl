@@ -1,8 +1,8 @@
 # differences
 
-- _differences(aSequence)_
+- _differences(aList)_
 
-Answer the successive differences of elements in list.
+Answer the successive differences of elements in _aList_.
 
 Differences of a `Range`:
 

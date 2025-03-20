@@ -8,6 +8,9 @@ The number of paths can be retrieved using `pathCount`,
 the path values can be retrieved using `pathList`,
 the value sequences can be retrieved using `valueList`,
 and the time sequences using `timeList`.
+`minimumIncrement` tells the least time difference across all paths,
+`isRegular` tells if all paths are uniformly spaced with the same increment,
+`dataPointCount` tells the total number of data points.
 
 ```
 >>> let t = TemporalData(
@@ -16,11 +19,21 @@ and the time sequences using `timeList`.
 >>> 		0 0; 0.5 1; 1 0
 >>> 	]
 >>> );
->>> (t.pathCount, t.valueList, t.timeList)
+>>> (
+>>> 	t.pathCount,
+>>> 	t.valueList,
+>>> 	t.timeList,
+>>> 	t.minimumIncrement,
+>>> 	t.isRegular,
+>>> 	t.dataPointCount
+>>> )
 (
 	2,
 	[0 0.75 0 0; 0 1 0],
-	[0 0.25 0.75 1; 0 0.5 1]
+	[0 0.25 0.75 1; 0 0.5 1],
+	0.25,
+	false,
+	7
 )
 ```
 

@@ -21,6 +21,17 @@ At `List`:
 (false, [2])
 ```
 
+Note that in this interpretation,
+a _volume_ (or _box_ or array of dimensions three) is _not_ a matrix:
+
+```
+>>> [
+>>> 	1 2; 3 4:;
+>>> 	5 6; 7 8
+>>> ].isMatrix
+false
+```
+
 * * *
 
 See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isVector, isVectorOf

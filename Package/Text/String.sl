@@ -1006,7 +1006,7 @@ String! : [Object, Json, Iterable, Character] {
 	}
 
 	fromCharacterCode { :self :encoding |
-		self.isVector.if {
+		self.allSatisfy(isSmallFloat:/1).if {
 			encoding.caseOf([
 				{ 'Ascii' } -> { self.asciiString },
 				{ 'Utf8' } -> { self.utf8String },

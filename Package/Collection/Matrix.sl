@@ -93,20 +93,7 @@
 
 	isIntegerMatrix { :self |
 		self.isMatrix & {
-			self.allSatisfy { :row |
-				row.allSatisfy(isInteger:/1)
-			}
-		}
-	}
-
-	isMatrix { :self |
-		let type = self.typeOf;
-		self.allSatisfy { :each |
-			each.typeOf = type & {
-				each.isVector
-			}
-		} & {
-			self.collect(size:/1).asIdentitySet.size = 1
+			self.deepAllSatisfy(isInteger:/1)
 		}
 	}
 

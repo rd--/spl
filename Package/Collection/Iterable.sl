@@ -86,6 +86,17 @@
 		set.size
 	}
 
+	deepAllSatisfy { :self :aBlock:/1 |
+		valueWithReturn { :return:/1 |
+			self.deepDo { :each |
+				each.aBlock.ifFalse {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
 	deepDo { :self :aBlock:/1 |
 		let type = self.typeOf;
 		self.do { :each |

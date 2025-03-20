@@ -21,7 +21,8 @@ Sfc32(673814)
 ![](sw/spl/Help/Image/DiscreteMarkovProcess-A.svg)
 
 Define a discrete Markov process,
-begin at state three:
+begin at state three,
+simulate five processes to twenty places:
 
 ~~~spl svg=B
 let p = DiscreteMarkovProcess(
@@ -34,8 +35,8 @@ let p = DiscreteMarkovProcess(
 	]
 );
 Sfc32(791479)
-.randomFunction(p, [0 20 1], 1)
-.discretePlot
+.randomFunction(p, [0 12 1], 5)
+.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/DiscreteMarkovProcess-B.svg)

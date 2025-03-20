@@ -5,6 +5,8 @@
 
 Answer a new matrix that is like _aMatrix_ but with the rows and columns transposed.
 
+At `List`:
+
 ```
 >>> [
 >>> 	1 2 3;
@@ -15,9 +17,21 @@ Answer a new matrix that is like _aMatrix_ but with the rows and columns transpo
 	2 5;
 	3 6
 ]
+```
 
->>> Matrix22(1, 2, 3, 4).transposed
-Matrix22(1, 3, 2, 4)
+At `NumericArray`:
+
+```
+>>> [1 2; 3 4].asNumericArray.transposed
+[1 3; 2 4].asNumericArray
+
+>>> [3 4].iota.asNumericArray.transposed
+[
+	1  5  9;
+	2  6 10;
+	3  7 11;
+	4  8 12
+].asNumericArray
 ```
 
 Transpose a 3×3 numerical matrix:

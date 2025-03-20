@@ -94,10 +94,14 @@
 		self.dimensions.size = 2
 	}
 
-	isSmallFloatVector { :self |
-		self.isVector & {
-			self.elementType = 'SmallFloat'
+	isSmallFloatMatrix { :self |
+		self.arrayDepth = 2 & {
+			self.deepAllSatisfy(isSmallFloat:/1)
 		}
+	}
+
+	isSmallFloatVector { :self |
+		self.allSatisfy(isSmallFloat:/1)
 	}
 
 	isVector { :self |
@@ -217,6 +221,12 @@
 
 	iota { :shape |
 		(1 .. shape.product).reshape(shape)
+	}
+
+	isVectorOf { :self :elementType |
+		self.isVector & {
+			self.elementType = elementType
+		}
 	}
 
 	reshape { :self :shape |

@@ -16,7 +16,8 @@ Construct a `NumericArray` from a `List`:
 >>> 	a.elementType,
 >>> 	a.storageType,
 >>> 	a.normal,
->>> 	a.ravel
+>>> 	a.ravel,
+>>> 	a[2, 3]
 >>> )
 (
 	[2 3],
@@ -24,7 +25,8 @@ Construct a `NumericArray` from a `List`:
 	'SmallFloat',
 	'Float64',
 	[1 2 3; 4 5 6],
-	[1 2 3 4 5 6]
+	[1 2 3 4 5 6],
+	6
 )
 ```
 

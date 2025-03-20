@@ -21,7 +21,9 @@ At `Tuple`:
 At `IdentityBag`:
 
 ```
->>> [1 1 2 1 2 3].asIdentityBag.asIdentitySet
+>>> [1 1 2 1 2 3]
+>>> .asIdentityBag
+>>> .asIdentitySet
 [1 2 3].asIdentitySet
 ```
 
@@ -38,7 +40,9 @@ Lists that compare `=` do not compare `==`, that is they are not `isImmediate`:
 >>> [1 1; 1 1].basicAsIdentitySet.size
 2
 
->>> { [1 1; 1 1].asIdentitySet }.ifError { true }
+>>> {
+>>> 	[1 1; 1 1].asIdentitySet
+>>> }.ifError { true }
 true
 ```
 

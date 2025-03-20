@@ -59,6 +59,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.allSatisfy(isJson:/1)
 	}
 
+	isListOf { :self :elementType |
+		self.elementType = elementType
+	}
+
 	isLiteral { :self |
 		self.allSatisfy(isLiteral:/1)
 	}

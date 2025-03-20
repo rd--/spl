@@ -1,11 +1,27 @@
 TemporalData : [Object] { | pathList |
 
+	dataPointCount { :self |
+		self.pathList.collect(size:/1).sum
+	}
+
 	discretePlot { :self |
 		self.pathList.discretePlot
 	}
 
+	isRegular { :self |
+		self.timeList.allSatisfy { :each |
+			each.differences.allEqual
+		}
+	}
+
 	linePlot { :self |
 		self.pathList.linePlot
+	}
+
+	minimumIncrement { :self |
+		self.timeList.collect { :each |
+			each.differences.min
+		}.min
 	}
 
 	pathCount { :self |

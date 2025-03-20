@@ -4,7 +4,7 @@
 
 Plot values in steps.
 
-At vector:
+At integer vector:
 
 ~~~spl svg=A
 [1 1 2 3 5 8 13 21].stepPlot
@@ -30,6 +30,16 @@ let rng = Sfc32(12783);
 ~~~
 
 ![](sw/spl/Help/Image/stepPlot-C.svg)
+
+At heterogenous vector,
+with `Fraction` entries:
+
+~~~spl svg=D
+[0 1 1/2 2/3 3/2 5/4 8/7].stepPlot
+~~~
+
+![](sw/spl/Help/Image/stepPlot-D.svg)
+
 
 * * *
 

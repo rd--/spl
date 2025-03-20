@@ -68,8 +68,6 @@
 	'Plane'
 	'PolarCoordinates'
 	'PlanarCoordinates'
-	'Matrix22' /* PlanarCoordinates */
-	'Matrix33' /* CartesianCoordinates */
 	'Point'
 	'PointCloud'
 	'Polygon'

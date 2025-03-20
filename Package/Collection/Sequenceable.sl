@@ -1571,19 +1571,6 @@
 		}
 	}
 
-	/*isVector { :self |
-		let type = self.typeOf;
-		self.noneSatisfy { :each |
-			each.typeOf = type
-		}
-	}*/
-
-	isVectorOf { :self :elementType |
-		self.isVector & {
-			self.elementType = elementType
-		}
-	}
-
 	keysAndValuesDo { :self :aBlock:/2 |
 		self.withIndexDo { :each :index |
 			aBlock(index, each)

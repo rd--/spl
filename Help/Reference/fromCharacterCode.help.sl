@@ -2,7 +2,7 @@
 
 - _fromCharacterCode(aList, encoding)_
 
-Answer a `String` gives a consisting of the sequence of characters with codes in _aList_,
+Answer a `String` consisting of the sequence of characters with codes in _aList_,
 using the specified character _encoding_.
 
 Space character:

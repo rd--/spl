@@ -2,7 +2,7 @@
 
 - _elementTypes(aCollection)_
 
-Answer a `IdentitySet` of answers of `typeOf` for each element of _aCollection_.
+Answer an `IdentitySet` of answers of `typeOf` for each element of _aCollection_.
 
 At a heterogeneous `List`:
 
@@ -29,6 +29,15 @@ At a _matrix_:
 ```
 >>> [1 2 3; 4 5 6; 7 8 9].elementTypes
 ['List'].asIdentitySet
+```
+
+At `NumericArray`:
+
+```
+>>> [2 3].iota
+>>> .asNumericArray
+>>> .elementTypes
+['SmallFloat'].asIdentitySet
 ```
 
 * * *
