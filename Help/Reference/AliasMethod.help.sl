@@ -3,6 +3,7 @@
 - _AliasMethod(aList)_
 
 A `Type` that implements the alias method of sampling from a discrete probability distribution.
+Implements the `RandomProcess` trait.
 The distribution is given as a sequence of probability values that `sum` to `one`.
 
 ```

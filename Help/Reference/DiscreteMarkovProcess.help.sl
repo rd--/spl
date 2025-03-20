@@ -59,7 +59,7 @@ Sfc32(789132)
 
 * * *
 
-See also: Graph, randomFunction
+See also: Graph, HiddenMarkovProcess, randomFunction
 
 References:
 _Mathematica_
