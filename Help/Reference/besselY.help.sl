@@ -33,4 +33,4 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BesselFunctionoftheSecondKind.html)
 [2](https://reference.wolfram.com/language/ref/BesselY.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/bessely.html)
+[1](https://mathworks.com/help/matlab/ref/bessely.html)

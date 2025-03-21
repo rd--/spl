@@ -107,4 +107,4 @@ Guides: Magic Squares
 
 References:
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/magic.html)
+[1](https://mathworks.com/help/matlab/ref/magic.html)

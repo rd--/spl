@@ -16,6 +16,24 @@ Answer the inverse "error function" obtained as the solution for _z_ in _s = erf
 
 >>> 0.301332.erf
 0.33
+
+>>> 0.25.inverseErf
+0.2253
+
+>>> 0.2253.erf
+0.25
+
+>>> 0.7.inverseErf
+0.732869
+
+>>> 0.732869.erf
+0.7
+
+>>> 0.9.inverseErf
+1.1631
+
+>>> 1.1631.erf
+0.9
 ```
 
 Threads over lists:
@@ -26,6 +44,12 @@ Threads over lists:
 
 >>> [0.47694 0.30457 0.22531 0.17914].erf
 (1 / [2 3 4 5])
+
+>>> [0 -0.5; 0.9 -0.2].inverseErf
+[
+	0       -0.47694;
+	1.16309 -0.17914
+]
 ```
 
 At `one` and `zero` and negative `one`:
@@ -48,8 +72,10 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: erf, erfc
+See also: erf, erfc, inverseErfc
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/InverseErf.html)
+[1](https://reference.wolfram.com/language/ref/InverseErf.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/erfinv.html)

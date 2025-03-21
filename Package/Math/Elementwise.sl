@@ -246,6 +246,10 @@
 		self.collect(inverseErf:/1)
 	}
 
+	inverseErfc { :self |
+		self.collect(inverseErfc:/1)
+	}
+
 	isGaussianPrime { :self |
 		self.collect(isGaussianPrime:/1)
 	}

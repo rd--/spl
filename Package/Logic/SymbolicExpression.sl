@@ -108,6 +108,10 @@
 		'cotangent'.symbolicPrimitive([self])
 	}
 
+	exp { :self |
+		'exp'.symbolicPrimitive([self])
+	}
+
 	sin { :self |
 		'sin'.symbolicPrimitive([self])
 	}

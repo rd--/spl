@@ -62,6 +62,6 @@ References:
 _Fortress_
 [1](https://doi.org/10.1007/978-0-387-09766-4_190),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html)
+[1](https://mathworks.com/help/matlab/learn_matlab/matrices-and-arrays.html)
 
 Categories: Syntax

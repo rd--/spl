@@ -281,7 +281,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HungarianMaximumMatchingAlgorithm.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/matlab/ref/matchpairs.html),
+[1](https://mathworks.com/help/matlab/ref/matchpairs.html),
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html),
 _W_

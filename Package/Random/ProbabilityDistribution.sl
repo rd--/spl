@@ -6,6 +6,92 @@
 		0.5 * ((mu - x) / (2.sqrt * sigma)).erfc
 	}
 
+	normalDistributionInverseCdf { :self :sigma |
+		let ratEval = { :a :b :x |
+			let u = a.last;
+			let v = b.last;
+			(a.size - 1).downToDo(1) { :i |
+				u := (x * u) + a[i]
+			};
+			(b.size - 1).downToDo(1) { :i |
+				v := (x * v) + b[i]
+			};
+			u / v
+		};
+		let small = { :q |
+			let a = [
+				3.387132872796366608, 133.14166789178437745,
+				1971.5909503065514427, 13731.693765509461125,
+				45921.953931549871457, 67265.770927008700853,
+				33430.575583588128105, 2509.0809287301226727
+			];
+			let b = [
+				1.0, 42.313330701600911252,
+				687.1870074920579083, 5394.1960214247511077,
+				21213.794301586595867, 39307.89580009271061,
+				28729.085735721942674, 5226.495278852854561
+			];
+			let r = 0.180625 - (q * q);
+			let x = q * ratEval(a, b, r);
+			x
+		};
+		let intermediate = { :r |
+			let a = [
+				1.42343711074968357734, 4.6303378461565452959,
+				5.7694972214606914055, 3.64784832476320460504,
+				1.27045825245236838258, 0.24178072517745061177,
+				0.0227238449892691845833, 7.7454501427834140764E-4
+			];
+			let b = [ 1.0, 2.05319162663775882187,
+				1.6763848301838038494, 0.68976733498510000455,
+				0.14810397642748007459, 0.0151986665636164571966,
+				5.475938084995344946E-4, 1.05075007164441684324E-9
+			];
+			let x = ratEval(a, b, r - 1.6);
+			x
+		};
+		let tail = { :r |
+			let a = [ 6.6579046435011037772, 5.4637849111641143699,
+				1.7848265399172913358, 0.29656057182850489123,
+				0.026532189526576123093, 0.0012426609473880784386,
+				2.71155556874348757815E-5, 2.01033439929228813265E-7
+			];
+			let b = [ 1.0, 0.59983220655588793769,
+				0.13692988092273580531, 0.0148753612908506148525,
+				7.868691311456132591E-4, 1.8463183175100546818E-5,
+				1.4215117583164458887E-7, 2.04426310338993978564E-15
+			];
+			let x = ratEval(a, b, r - 5.0);
+			x
+		};
+		let p = self;
+		let dP = p - 0.5;
+		(p = 1).if {
+			Infinity
+		} {
+			(p = 0).if {
+				-Infinity
+			} {
+				(dP.abs <= 0.425).if {
+					small(dP) * sigma
+				} {
+					let pp = (p < 0.5).if { p } { 1 - p };
+					let r = pp.log.-.sqrt;
+					let x = (r <= 5.0).if {
+						intermediate(r)
+					} {
+						tail(r)
+					};
+					(p < 0.5).if {
+						x.-
+					} {
+						x
+					} * sigma
+				}
+			}
+		}
+	}
+
 	normalDistributionPdf { :x :mu :sigma |
 		let n = (-0.5 * ((x - mu) / sigma).squared).exp;
 		let d = sigma * 2.pi.sqrt;
@@ -137,7 +223,15 @@
 
 }
 
-BernoulliDistribution : [Object] { | p |
+@ProbabilityDistribution {
+
+	survivalFunction { :self :x |
+		1 - self.cdf(x)
+	}
+
+}
+
+BernoulliDistribution : [Object, ProbabilityDistribution] { | p |
 
 	cdf { :self :x |
 		(x < 0).if {
@@ -202,7 +296,39 @@ BernoulliDistribution : [Object] { | p |
 
 }
 
-CauchyDistribution : [Object] { | x0 gamma |
+BinomialDistribution : [Object, ProbabilityDistribution] { | n p |
+
+	cdf { :self :k |
+		let n = self.n;
+		let p = self.p;
+		(0 .. k).collect { :i |
+			n.binomial(i) * (p ^ i) * ((1 - p) ^ (n - i))
+		}.sum
+	}
+
+	mean { :self |
+		self.n * self.p
+	}
+
+	pdf { :self :k |
+		let n = self.n;
+		let p = self.p;
+		n.binomial(k) * (p ^ k) * ((1 - p) ^ (n - x))
+	}
+
+	skewness { :self |
+		let n = self.n;
+		let p = self.p;
+		(1 - (2 * p)) / (n * (1 - p) * p).sqrt
+	}
+
+	standardDeviation { :self |
+		(self.n * self.p * (1 - self.p)).sqrt
+	}
+
+}
+
+CauchyDistribution : [Object, ProbabilityDistribution] { | x0 gamma |
 
 	cdf { :self :x |
 		let [x0, gamma] = [self.x0, self.gamma];
@@ -247,7 +373,7 @@ CauchyDistribution : [Object] { | x0 gamma |
 
 }
 
-ExponentialDistribution : [Object] { | lambda |
+ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
 
 	cdf { :self :x |
 		let lambda = self.lambda;
@@ -258,12 +384,44 @@ ExponentialDistribution : [Object] { | lambda |
 		}
 	}
 
+	beta { :self |
+		1 / self.lambda
+	}
+
+	hazardFunction { :self :x |
+		(x >= 0).if {
+			self.lambda
+		} {
+			0
+		}
+	}
+
+	inverseCdf { :self :p |
+		(p < 1 & { p >= 0 }).if {
+			-1 * (1 - p).log / self.lambda
+		} {
+			Infinity
+		}
+	}
+
+	inverseSurvivalFunction { :self :p |
+		(p <= 1 & { p >= 0 }).if {
+			-1 * (p.log / self.lambda)
+		} {
+			(p <= 0).if {
+				Infinity
+			} {
+				0
+			}
+		}
+	}
+
 	kurtosis { :unused |
 		9
 	}
 
 	mean { :self |
-		1 / self.lambda
+		self.beta
 	}
 
 	median { :self |
@@ -292,13 +450,25 @@ ExponentialDistribution : [Object] { | lambda |
 		2
 	}
 
+	standardDeviation { :self |
+		self.beta
+	}
+
+	survivalFunction { :self :x |
+		(x >= 0).if {
+			(-1 * x * self.lambda).exp
+		} {
+			1
+		}
+	}
+
 	variance { :self |
 		1 / self.lambda.squared
 	}
 
 }
 
-GeometricDistribution : [Object] { | p |
+GeometricDistribution : [Object, ProbabilityDistribution] { | p |
 
 	cdf { :self :x |
 		let p = self.p;
@@ -348,10 +518,31 @@ GeometricDistribution : [Object] { | p |
 
 }
 
-NormalDistribution : [Object] { | mu sigma |
+NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
         cdf { :self :x |
 		x.normalDistributionCdf(self.mu, self.sigma)
+	}
+
+	inverseCdf { :self :p |
+		(p >= 0 & { p <= 1 }).if {
+			/* self.mu - (2.sqrt * self.sigma * (2 * p).inverseErfc) */
+			self.mu + normalDistributionInverseCdf(p, self.sigma)
+		} {
+			self.error('inverseCdf')
+		}
+	}
+
+	inverseSurvivalFunction { :self :p |
+		(p > 0 & { p < 1 }).if {
+			self.mu + (2.sqrt * self.sigma * (2 * p).inverseErfc)
+		} {
+			(p <= 0).if {
+				Infinity
+			} {
+				-Infinity
+			}
+		}
 	}
 
         mean { :self |
@@ -369,6 +560,10 @@ NormalDistribution : [Object] { | mu sigma |
 		} ! shape
 	}
 
+	survivalFunction { :self :x |
+		0.5 * ((x - self.mu) / (2.sqrt * self.sigma)).erfc
+	}
+
 	standardDeviation { :self |
 		self.sigma
 	}
@@ -379,7 +574,7 @@ NormalDistribution : [Object] { | mu sigma |
 
 }
 
-UniformDistribution : [Object] { | min max |
+UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 
 	cdf { :self :x |
 		let [min, max] = [self.min, self.max];
@@ -436,10 +631,30 @@ UniformDistribution : [Object] { | min max |
 
 }
 
-WeibullDistribution : [Object] { | alpha beta mu |
+WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	cdf { :self :x |
 		x.weibullDistributionCdf(self.alpha, self.beta, self.mu)
+	}
+
+	hazardFunction { :self :x |
+		(x > self.mu).if {
+			(self.alpha * (((self.mu.- + x) / self.beta) ^ (-1 + self.alpha))) / self.beta
+		} {
+			0
+		}
+	}
+
+	inverseCdf { :self :p |
+		(p > 0 & { p < 1 }).if {
+			self.mu + (self.beta * ((1 - p).log.- ^ (1 / self.alpha)))
+		} {
+			(p <= 0).if {
+				self.mu
+			} {
+				Infinity
+			}
+		}
 	}
 
 	mean { :self |
@@ -467,6 +682,10 @@ WeibullDistribution : [Object] { | alpha beta mu |
 
 	BernoulliDistribution { :p |
 		newBernoulliDistribution().initializeSlots(p)
+	}
+
+	BinomialDistribution { :n :p |
+		newBinomialDistribution().initializeSlots(n, p)
 	}
 
 	CauchyDistribution { :x0 :gamma |

@@ -116,7 +116,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DistanceMatrix.html),
 _Matlab_
-[1](https://au.mathworks.com/help/stats/pdist.html)
-[2](https://au.mathworks.com/help/stats/pdist2.html)
+[1](https://mathworks.com/help/stats/pdist.html)
+[2](https://mathworks.com/help/stats/pdist2.html)
 
 Categories: Math, Matrix

@@ -3,9 +3,10 @@
 - _ExponentialDistribution(lambda)_
 
 A `Type` that represents an exponential distribution with scale inversely proportional to parameter λ.
-the distribution of the number of failures in a sequence of trials with success probability _p_ before a success occurs.
+The scale is given by the method `beta`, which answers the `reciprocal` of λ.
 
-Probability mass function:
+Probability mass function,
+monotonically decreasing:
 
 ~~~spl svg=A
 let d = ExponentialDistribution(2);
@@ -39,30 +40,66 @@ ExponentialDistribution(3.5)
 
 ![](sw/spl/Help/Image/ExponentialDistribution-C.svg)
 
+The `inverseCdf`, or percent point function:
+
+~~~spl svg=D
+let d = ExponentialDistribution(2);
+(0 -- 0.99).functionPlot { :x |
+	d.inverseCdf(x)
+}
+~~~
+
+![](sw/spl/Help/Image/ExponentialDistribution-D.svg)
+
+The `inverseSurvivalFunction`:
+
+~~~spl svg=E
+let d = ExponentialDistribution(2);
+(0.01 -- 1).functionPlot { :x |
+	d.inverseSurvivalFunction(x)
+}
+~~~
+
+![](sw/spl/Help/Image/ExponentialDistribution-E.svg)
+
 Compute cdf:
 
 ```
->>> ExponentialDistribution(1 / 3000).cdf(2500)
+>>> ExponentialDistribution(1 / 3000)
+>>> .cdf(2500)
 0.565402
 ```
 
 Evaluate symbolically:
 
 ```
->> ExponentialDistribution(`lambda`).mean
+>> ExponentialDistribution(`lambda`)
+>> .mean
 (/ 1 lambda)
 
->> ExponentialDistribution(`lambda`).variance
+>> ExponentialDistribution(`lambda`)
+>> .variance
 (/ 1 (* lambda lambda))
 
->> ExponentialDistribution(`lambda`).median
+>> ExponentialDistribution(`lambda`)
+>> .median
 (/ 0.6931471805599453 lambda)
 
->> ExponentialDistribution(`lambda`).skewness
+>> ExponentialDistribution(`lambda`)
+>> .skewness
 2
 
->> ExponentialDistribution(`lambda`).kurtosis
+>> ExponentialDistribution(`lambda`)
+>> .kurtosis
 9
+
+>> ExponentialDistribution(`lambda`)
+>> .hazardFunction(`x`)
+(if (>= x 0) lambda 0)
+
+>> ExponentialDistribution(`lambda`)
+>> .survivalFunction(`x`)
+(if (>= x 0) (exp (* (* -1 x) lambda)) 1)
 ```
 
 * * *
@@ -73,6 +110,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ExponentialDistribution.html),
 _Mathworks_
-[2](https://au.mathworks.com/help/stats/exprnd.html),
+[1](https://mathworks.com/help/stats/exponential-distribution.html)
+[2](https://mathworks.com/help/stats/exprnd.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Exponential_distribution)

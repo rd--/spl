@@ -153,7 +153,7 @@ system
 Sources for each collection:
 _Kovesi_: [1](https://github.com/peterkovesi/PerceptualColourMaps.jl) [2](https://colorcet.com/download/index.html),
 _Mathematica_: [1](https://reference.wolfram.com/language/ref/ColorData.html),
-_Mathworks_: [1](https://au.mathworks.com/help/matlab/ref/colormap.html),
+_Mathworks_: [1](https://mathworks.com/help/matlab/ref/colormap.html),
 _Niccoli_: [1](https://www.mathworks.com/matlabcentral/fileexchange/28982-perceptually-improved-colormaps) [2](https://kwstat.github.io/pals/reference/niccoli.html),
 _Ocean_: [1](https://github.com/matplotlib/cmocean),
 _Viridis_: [1](https://github.com/sjmgarnier/viridis)

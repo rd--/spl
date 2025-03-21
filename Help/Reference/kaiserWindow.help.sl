@@ -64,6 +64,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KaiserWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/kaiser.html)
+[1](https://mathworks.com/help/signal/ref/kaiser.html)
 
 Categories: Windowing

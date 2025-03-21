@@ -125,7 +125,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GeometricDistribution.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/stats/geometric-distribution.html)
-[2](https://au.mathworks.com/help/stats/geornd.html),
+[1](https://mathworks.com/help/stats/geometric-distribution.html)
+[2](https://mathworks.com/help/stats/geornd.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Geometric_distribution)

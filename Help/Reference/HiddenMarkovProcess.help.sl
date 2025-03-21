@@ -2,10 +2,10 @@
 
 - _HiddenMarkovProcess(p0, m, e)_
 
-A `Type` that represents represents a discrete-time finite-state Markov process,
-with transition matrix _m_,
+A `Type` that represents represents a discrete-time,
+finite-state hidden Markov process with transition matrix _m_,
 emission matrix _e_,
-and initial state probability vector _p0_.
+and initial hidden state probability vector _p0_.
 
 Define a hidden Markov process:
 
@@ -22,17 +22,17 @@ Sfc32(317696)
 
 ![](sw/spl/Help/Image/HiddenMarkovProcess-A.svg)
 
-Use `viterbiDecoding` to find the most probable sequence:
+Use `viterbiDecoding` to find the most likely hidden state sequence from the given emissions:
 
 ```
 >>> HiddenMarkovProcess(
->>> 	[0.4 0.3 0.3],
->>> 	[0 0.5 0.5; 0.4 0 0.6; 0.55 0.45 0],
->>> 	[0.7 0.2 0.1; 0.2 0.6 0.2; 0 0.3 0.7]
+>>> 	[0.5 0.5],
+>>> 	[0.7 0.3; 0.25 0.75],
+>>> 	[0.2 0.6 0.2; 0.4 0.2 0.4]
 >>> ).viterbiDecoding(
->>> 	[1 3 2 3 3 2 2 3 2 1 2 2 3 1 2 2]
+>>> 	[1 1 1 1 1 2 3 3 1 2 2]
 >>> )
-[1 3 2 3 2 3 2 3 2 1 3 2 3 1 2 3]
+[2 2 2 2 2 2 2 2 2 1 1]
 ```
 
 * * *
