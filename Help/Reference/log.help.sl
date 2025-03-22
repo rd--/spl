@@ -56,6 +56,9 @@ Complex arguments:
 ```
 >>> 2.5J1.log
 0.990501J0.380506
+
+>>> 0J1.log
+0J1.5708
 ```
 
 Show that the natural logarithm of -1 is iπ:

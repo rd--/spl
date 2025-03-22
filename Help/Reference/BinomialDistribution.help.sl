@@ -29,19 +29,38 @@ let d = BinomialDistribution(40, 0.5);
 Skewness:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot { :p |
-	BinomialDistribution(5, p)
-	.skewness
-	.clip(-4, 4)
-}
+(0 -- 1).functionPlot(
+	[1 2 5 20].collect { :n |
+		{ :p |
+			BinomialDistribution(n, p)
+			.skewness
+			.clip(-4, 4)
+		}
+	}
+)
 ~~~
 
 ![](sw/spl/Help/Image/BinomialDistribution-C.svg)
 
+Kurtosis:
+
+~~~spl svg=D
+(0 -- 1).functionPlot(
+	[1 2 5 20].collect { :n |
+		{ :p |
+			BinomialDistribution(n, p)
+			.kurtosis
+			.clip(-1, 9)
+		}
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/BinomialDistribution-D.svg)
 
 * * *
 
-See also:
+See also: BernoulliDistribution, binomial, GeometricDistribution, NormalDistribution, PoissonDistribution
 
 References:
 _Mathematica_

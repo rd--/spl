@@ -81,7 +81,7 @@ Plot γ with _γ + sin_, note intersection at positive integers:
 
 * * *
 
-See also: factorial, logGamma
+See also: factorial, logGamma, lowerIncompleteGamma, upperIncompleteGamma
 
 References:
 _Dlmf_
