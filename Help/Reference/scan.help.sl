@@ -52,6 +52,13 @@ The last entry of a `scan` is the answer to `reduce`:
 1 * 2 * 3 * 4 * 5
 ```
 
+Compute the cummulative product:
+
+```
+>>> 1:9.scan(*)
+[1 2 6 24 120 720 5040 40320 362880]
+```
+
 Compute running minimum or maximum:
 
 ```
@@ -60,6 +67,12 @@ Compute running minimum or maximum:
 
 >>> [3 4 6 2 1 9 0 7 5 8].scan(max:/2)
 [3 4 6 6 6 9 9 9 9 9]
+
+>>> [3 2 1 2 1 0 4 3 2].scan(min:/2)
+[3 2 1 1 1 0 0 0 0]
+
+>>> [3 2 1 2 1 0 4 3 2].scan(max:/2)
+[3 3 3 3 3 3 4 4 4]
 ```
 
 * * *

@@ -20,6 +20,7 @@ It is also equivalent to `sum` of each of the `prefixes`:
 ```
 
 This is similar to the operation called _integrate_ in SuperCollider.
+It is equal to the _cumsum_ function in R.
 
 * * *
 

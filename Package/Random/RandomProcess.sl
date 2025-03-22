@@ -18,6 +18,47 @@ BernoulliProcess : [Object] { | p |
 
 }
 
+ContinuousMarkovProcess : [Object] { | p0 q |
+
+	initialProbabilities { :self |
+		self.p0
+	}
+
+	holdingTimeMean { :self |
+		1 / self.transitionRateVector
+	}
+
+	transitionMatrix { :self |
+		let q = self.q;
+		let [m, n] = q.shape;
+		let t = zeroMatrix(m, n);
+		1:m.do { :i |
+			let h = q[i][i].abs;
+			let r = (h = 0).if { 0 } { 1 / h };
+			1:n.do { :j |
+				(i ~= j).ifTrue {
+					t[i][j] := q[i][j] * r
+				}
+			};
+			t[i][i] := (1 - t[i].sum).abs
+		};
+		t
+	}
+
+	transitionRateVector { :self |
+		self.q.diagonal.abs
+	}
+
+}
+
++List {
+
+	ContinuousMarkovProcess { :p0 :q |
+		newContinuousMarkovProcess().initializeSlots(p0, q)
+	}
+
+}
+
 DiscreteMarkovProcess : [Object] { | p0 m x |
 
 	nextRandom { :self :shape :randomNumberGenerator |
@@ -44,6 +85,22 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 
 	DiscreteMarkovProcess { :p0 :m |
 		newDiscreteMarkovProcess().initializeSlots(p0, m, nil)
+	}
+
+}
+
+GeometricBrownianMotionProcess : [Object] { | mu sigma x0 x |
+
+	reset { :self |
+		self.x := self.x0
+	}
+
+}
+
++SmallFloat {
+
+	GeometricBrownianMotionProcess { :mu :sigma :x0 |
+		newGeometricBrownianMotionProcess().initializeSlots(mu, sigma, x0, nil)
 	}
 
 }
@@ -106,6 +163,44 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 
 	HiddenMarkovProcess { :p0 :m :e |
 		newHiddenMarkovProcess().initializeSlots(p0, m, e, nil)
+	}
+
+}
+
+OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
+
+	simulate { :self :t :n :rng |
+		let dW = { :dt |
+			rng.nextRandomFloatGaussianDistribution(0, dt.sqrt)
+		};
+		let a = { :y :t |
+			self.theta * (self.mu - y)
+		};
+		let b = { :y :t |
+			self.sigma
+		};
+		TemporalData(
+			{
+				let x0 = self.x0;
+				x0.ifNil {
+					'x0=Nil'.postLine;
+					x0 := rng.nextRandomFloatGaussianDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
+				};
+				eulerMaruyamaMethod(dW:/1, a:/2, b:/2, t, x0).transposed
+			} ! n
+		)
+	}
+
+}
+
++SmallFloat {
+
+	OrnsteinUhlenbeckProcess { :mu :sigma :theta |
+		newOrnsteinUhlenbeckProcess().initializeSlots(mu, sigma, theta, nil)
+	}
+
+	OrnsteinUhlenbeckProcess { :mu :sigma :theta :x0 |
+		newOrnsteinUhlenbeckProcess().initializeSlots(mu, sigma, theta, x0)
 	}
 
 }
@@ -181,6 +276,24 @@ WienerProcess : [Object] { | mu sigma x |
 				].transposed
 			}
 		)
+	}
+
+}
+
++Block {
+
+	eulerMaruyamaMethod { :dW:/1 :a:/2 :b:/2 :t :y0 |
+		let [tMin, tMax, dt] = t;
+		let ts = [tMin, tMin + dt .. tMax];
+		let n = ts.size;
+		let ys = List(n, 0);
+		ys[1] := y0;
+		2.toDo(n) { :i |
+			let t = ts[i - 1];
+			let y = ys[i - 1];
+			ys[i] := y + (a(y, t) * dt) + (b(y, t) * dW(dt))
+		};
+		[ts, ys]
 	}
 
 }

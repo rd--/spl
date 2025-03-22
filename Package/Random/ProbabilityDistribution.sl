@@ -186,6 +186,10 @@
 		spread * r.pi.tan + mean
 	}
 
+	nextRandomFloatExponentialDistribution { :self :lambda |
+		(1 - self.nextRandomFloat).log / lambda.-
+	}
+
 	nextRandomFloatGaussianDistribution { :self :mu :sigma |
 		(((-2 * self.nextRandomFloat.log).sqrt * (2.pi * self.nextRandomFloat).sin) * sigma) + mu
 	}
@@ -204,8 +208,9 @@
 		(u / (1 - u)).log * spread + mean
 	}
 
-	nextRandomFloatParetoDistribution { :self :shape |
-		(self.nextRandomFloat ^ (-1 / shape)) * self
+	nextRandomFloatParetoDistribution { :self :k :alpha |
+		let u = self.nextRandomFloat;
+		k * (u ^ (-1 / alpha))
 	}
 
 	nextRandomIntegerPoissonDistribution { :self :n |
@@ -618,6 +623,32 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
 }
 
+ParetoDistribution : [Object, ProbabilityDistribution] { | k alpha |
+
+	cdf { :self :x |
+		let k = self.k;
+		let alpha = self.alpha;
+		1 - ((k / x) ^ alpha)
+	}
+
+	pdf { :self :x |
+		let k = self.k;
+		let alpha = self.alpha;
+		(alpha * (k ^ alpha)) / (x ^ (alpha + 1))
+	}
+
+	randomVariate { :self :rng :shape |
+		let k = self.k;
+		let alpha = self.alpha;
+		let e = -1 / alpha;
+		{
+			let u = rng.nextRandomFloat;
+			k * (u ^ e)
+		} ! shape
+	}
+
+}
+
 PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 
         cdf { :self :x |
@@ -774,6 +805,10 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	GeometricDistribution { :p |
 		newGeometricDistribution().initializeSlots(p)
+	}
+
+	ParetoDistribution { :k :alpha |
+		newParetoDistribution().initializeSlots(k, alpha)
 	}
 
 	PoissonDistribution { :mu |
