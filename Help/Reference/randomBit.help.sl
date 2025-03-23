@@ -1,8 +1,11 @@
 # randomBit
 
-- _randomBit(r, p, shape)_
+- _randomBit(r, p, ⍴)_
 
-Answer either `zero` or `one` at random, with probablity _p_, in array of indicated _shape_.
+Answer either `zero` or `one` at random,
+with probablity _p_,
+in array of shape ⍴,
+utilising the random number generator _r_.
 
 A random 3×9 matrix of bits, with equal probablity of being `zero` or `one`:
 
@@ -53,5 +56,7 @@ Sfc32(701459)
 * * *
 
 See also: atRandom, randomBoolean, randomComplex, randomInteger, randomReal, seedRandom
+
+Guides: Random Number Generators
 
 Categories: Random

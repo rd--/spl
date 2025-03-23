@@ -746,6 +746,76 @@ PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 
 }
 
+StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
+
+	cdf { :self |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		let nu = self.nu;
+		{ :x |
+			let a = sigma.squared * nu;
+			let b = (x - mu).squared;
+			let t = a / (a + b);
+			let r = (1 / 2) * t.betaRegularized(nu / 2, 1 / 2);
+			(x <= mu).if {
+				r
+			} {
+				1 - r
+			}
+		}
+	}
+
+	mean { :self |
+		(self.nu > 1).if {
+			self.mu
+		} {
+			NaN
+		}
+	}
+
+	median { :self |
+		self.mu
+	}
+
+	mode { :self |
+		self.mu
+	}
+
+	pdf { :self |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		let nu = self.nu;
+		{ :x |
+			let d = (x - mu).squared / sigma.squared;
+			((nu / (d + nu)) ^ ((nu + 1) / 2))
+			/
+			(sigma * nu.sqrt * (nu / 2).beta(1 / 2))
+		}
+	}
+
+	skewness { :self |
+		(self.nu > 3).if {
+			0
+		} {
+			NaN
+		}
+	}
+
+	variance { :self |
+		let nu = self.nu;
+		(nu > 2).if {
+			nu / (nu - 2)
+		} {
+			(nu > 1).if {
+				Infinity
+			} {
+				NaN
+			}
+		}
+	}
+
+}
+
 UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 
 	cdf { :self |
@@ -926,6 +996,10 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	PoissonDistribution { :mu |
 		newPoissonDistribution().initializeSlots(mu)
+	}
+
+	StudentTDistribution { :mu :sigma :nu |
+		newStudentTDistribution().initializeSlots(mu, sigma, nu)
 	}
 
 	UniformDistribution { :min :max |

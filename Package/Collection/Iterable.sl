@@ -120,6 +120,10 @@
 		self.reduceBy(aBlock:/2, deepDo:/2)
 	}
 
+	deepSum { :self |
+		self.deepReduce(+)
+	}
+
 	detect { :self :aBlock:/1 |
 		self.detectIfNone(aBlock:/1) {
 			self.error('@Iterable>>detect: not found')

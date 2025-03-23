@@ -36,3 +36,5 @@ false
 * * *
 
 See also: e, inf, NaN, pi
+
+Unicode: U+221E ∞ Infinity

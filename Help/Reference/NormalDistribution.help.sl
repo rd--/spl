@@ -61,7 +61,7 @@ NormalDistribution(0, 1)
 
 * * *
 
-See also: CauchyDistribution, cdf, mean, pdf, randomVariate, standardDeviation, UniformDistribution, WeibullDistribution
+See also: cdf, erf, pdf, randomVariate, StudentTDistribution
 
 References:
 _J_

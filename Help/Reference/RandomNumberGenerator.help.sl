@@ -7,6 +7,8 @@ which must provide the next random number in the half-open range zero to one.
 
 The provided methods are:
 
+- `randomBit`: bit
+- `randomBoolean`: boolean
 - `randomByteArray`: byte array
 - `randomChoice`: choice
 - `randomComplex`: complex number

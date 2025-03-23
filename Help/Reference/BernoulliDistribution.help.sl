@@ -2,7 +2,8 @@
 
 - _BernoulliDistribution(p)_
 
-Answer a `Type` that represents a represents a Bernoulli distribution with probability parameter _p_.
+Answer a `Type` that represents a Bernoulli distribution with probability parameter _p_.
+The Bernoulli distribution is a special case of the Binomial distribution, where _n_ is `one`.
 
 Mean and variance:
 
@@ -85,7 +86,7 @@ let b = d.randomVariate(r, 100);
 
 * * *
 
-See also: BernoulliProcess, CauchyDistribution, UniformDistribution, WeibullDistribution
+See also: BernoulliProcess, BinomialDistribution, CauchyDistribution, UniformDistribution, WeibullDistribution
 
 References:
 _Mathematica_

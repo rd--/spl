@@ -285,6 +285,15 @@
 		distanceMatrix(u, u)
 	}
 
+	gaussianMatrix { :r :sigma |
+		let [r1, r2] = r;
+		let [sigma1, sigma2] = sigma;
+		let p = (-0.5 * [r1.- ..  r1].squared / sigma1.squared).exp;
+		let q = (-0.5 * [r2.- ..  r2].squared / sigma2.squared).exp;
+		let k = p.outerProduct(q);
+		k / k.deepSum
+	}
+
 }
 
 +@Integer {
@@ -316,7 +325,7 @@
 
 }
 
-+@Number {
++SmallFloat {
 
 	boxMatrix { :self |
 		let r = self.ceiling;
@@ -351,6 +360,19 @@
 		{ :i :j |
 			([i - 1, j - 1].euclideanDistance(c) <= l).boole
 		}.table(1:n, 1:n)
+	}
+
+	gaussianMatrix { :r :sigma |
+		[r r].gaussianMatrix([sigma sigma])
+	}
+
+	gaussianMatrix { :r |
+		r.gaussianMatrix(r / 2)
+	}
+
+	gaussianVector { :r :sigma |
+		let k = (-0.5 * [r.- ..  r].squared / sigma.squared).exp;
+		k / k.sum
 	}
 
 	magicSquare { :self |

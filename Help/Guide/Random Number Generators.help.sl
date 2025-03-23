@@ -18,6 +18,8 @@ Pseudo random number generators:
 
 `RandomNumberGenerator` methods:
 
+- `randomBit`: bit
+- `randomBoolean`: boolean
 - `randomByteArray`: byte array
 - `randomChoice`: choice
 - `randomComplex`: complex number
@@ -66,6 +68,7 @@ Probablity distributions:
 - `NormalDistribution`
 - `ParetoDistribution`
 - `PoissonDistribution`
+- `StudentTDistribution`
 - `UniformDistribution`
 - `WeibullDistribution`
 
