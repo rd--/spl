@@ -31,4 +31,3 @@ according to `==` and `isEqualSymbolicExpression`:
 * * *
 
 See also: ==, isEqualSymbolicExpression, SymbolicExpression
-

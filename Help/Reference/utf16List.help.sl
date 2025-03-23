@@ -14,7 +14,6 @@ Answer a `List` of the Utf-16 code points of _aString_.
 
 The inverse is `utf16String`:
 
-
 ```
 >>> [8364].utf16String
 '€'

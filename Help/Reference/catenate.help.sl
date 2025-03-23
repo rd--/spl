@@ -71,7 +71,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Catenate.html.en)
 
-
 Unicode: U+29FB ⧻ Triple Plus
 
 Categories: Converting

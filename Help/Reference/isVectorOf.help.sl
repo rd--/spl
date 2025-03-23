@@ -24,7 +24,6 @@ true
 
 At `Range`:
 
-
 ```
 >>> 1:9.isVectorOf('SmallFloat')
 true

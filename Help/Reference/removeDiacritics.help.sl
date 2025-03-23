@@ -66,5 +66,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RemoveDiacritics.html)
 
-
 Categories: Converting

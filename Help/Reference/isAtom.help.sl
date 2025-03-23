@@ -14,6 +14,7 @@ true
 
 At `Boolean`:
 
+```
 >>> false.isAtom
 true
 ```
@@ -104,6 +105,7 @@ false
 
 At `Tuple`:
 
+```
 >>> (1, 2, 3).isAtom
 false
 ```

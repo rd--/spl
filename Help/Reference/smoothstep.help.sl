@@ -93,7 +93,6 @@ Approximate `smoothstep` using `cos`:
 
 ![](sw/spl/Help/Image/smoothstep-H.svg)
 
-
 * * *
 
 See also: easingFunction, hermiteInterpolation, smootherstep, smoothstepFunction

@@ -40,7 +40,6 @@ with `Fraction` entries:
 
 ![](sw/spl/Help/Image/stepPlot-D.svg)
 
-
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
