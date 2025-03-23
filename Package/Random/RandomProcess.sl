@@ -75,6 +75,11 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 		} ! shape
 	}
 
+	randomFunction { :self :t :n :rng |
+		let [tMin, tMax] = t;
+		rng.randomFunction(self, [tMin, tMax, 1], n)
+	}
+
 	reset { :self |
 		self.x := nil
 	}
@@ -91,7 +96,7 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 
 GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 
-	simulate { :self :t :n :rng |
+	randomFunction { :self :t :n :rng |
 		let a = { :y | self.mu * y };
 		let b = { :y | self.sigma * y };
 		let c = { :y | (self.sigma.squared / 2) * y };
@@ -120,13 +125,18 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 		let e = self.e.collect(AliasMethod:/1);
 		{
 			let c = self.x.ifNil {
-				self.p0
+				p0
 			} {
-				self.m[self.x]
+				m[self.x]
 			};
 			self.x := c.nextRandom(randomNumberGenerator);
-			self.e[self.x].nextRandom(randomNumberGenerator)
+			e[self.x].nextRandom(randomNumberGenerator)
 		} ! shape
+	}
+
+	randomFunction { :self :t :n :rng |
+		let [tMin, tMax] = t;
+		rng.randomFunction(self, [tMin, tMax, 1], n)
 	}
 
 	reset { :self |
@@ -176,7 +186,7 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 
 OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 
-	simulate { :self :t :n :rng |
+	randomFunction { :self :t :n :rng |
 		let a = { :y :t |
 			self.theta * (self.mu - y)
 		};
@@ -205,6 +215,42 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 
 	OrnsteinUhlenbeckProcess { :mu :sigma :theta :x0 |
 		newOrnsteinUhlenbeckProcess().initializeSlots(mu, sigma, theta, x0)
+	}
+
+}
+
+PoissonProcess : [Object] { | mu |
+
+	randomFunction { :self :t :n :rng |
+		let [tMin, tMax] = t;
+		let mu = self.mu;
+		TemporalData(
+			{
+				let t = tMin;
+				let k = 0;
+				let l = [[t, k]];
+				{
+					let i = rng.nextRandomFloatExponentialDistribution(mu);
+					t := t + i;
+					(t <= tMax).if {
+						k := k + 1;
+						l.add([t, k]);
+						true
+					} {
+						false
+					}
+				}.whileTrue;
+				l
+			} ! n
+		)
+	}
+
+}
+
++SmallFloat {
+
+	PoissonProcess { :mu |
+		newPoissonProcess().initializeSlots(mu)
 	}
 
 }
@@ -242,18 +288,18 @@ RandomWalkProcess : [Object] { | p q x |
 
 }
 
-WienerProcess : [Object] { | mu sigma x |
+WienerProcess : [Object] { | mu sigma |
 
-	nextRandom { :self :shape :randomNumberGenerator |
-		{
-			let u = randomNumberGenerator.nextRandomFloatGaussianDistribution(self.mu, self.sigma);
-			self.x := self.x + u;
-			self.x
-		} ! shape
-	}
-
-	reset { :self |
-		self.x := self.mu
+	randomFunction { :self :t :n :rng |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		let a = { :y :t | mu };
+		let b = { :y :t | sigma };
+		TemporalData(
+			{
+				rng.eulerMaruyamaMethod(a:/2, b:/2, t, 0).transposed
+			} ! n
+		)
 	}
 
 }
@@ -261,7 +307,7 @@ WienerProcess : [Object] { | mu sigma x |
 +SmallFloat {
 
 	WienerProcess { :mu :sigma |
-		newWienerProcess().initializeSlots(mu, sigma, mu)
+		newWienerProcess().initializeSlots(mu, sigma)
 	}
 
 }

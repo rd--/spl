@@ -69,20 +69,38 @@ Probablity distributions:
 - `UniformDistribution`
 - `WeibullDistribution`
 
-Pdf and Cdf:
-
-- `normalDistributionCdf`
-- `normalDistributionPdf`
-- `poissonDistributionPdf`
-
 Methods at `ProbablityDistribution`:
 
+- `cdf`
+- `hazardFunction`
+- `inverseCdf`
+- `inverseSurvivalFunction`
+- `quantile`
+- `pdf`
 - `randomVariate`
+- `survivalFunction`
 
 Random number functions:
 
 - `atRandom`
 - `randomSample`
+
+Random Processes
+
+- `BernoulliProcess`
+- `ContinuousMarkovProcess`
+- `DiscreteMarkovProcess`
+- `GeometricBrownianMotionProcess`
+- `HiddenMarkovProcess`
+- `OrnsteinUhlenbeckProcess`
+- `PoissonProcess`
+- `RandomWalkProcess`
+- `WienerProcess`
+
+Simulation methods:
+
+- `eulerMaruyamaMethod`
+- `milsteinMethod`
 
 SuperCollider has distinct unit generators for:
 

@@ -9,12 +9,10 @@ and initial state probability vector _p0_.
 Define a discrete Markov process:
 
 ~~~spl svg=A
-let p = DiscreteMarkovProcess(
+DiscreteMarkovProcess(
 	[1 0 0],
 	[0 0.5 0.5; 0.5 0 0.5; 0.5 0.5 0]
-);
-Sfc32(673814)
-.randomFunction(p, [0 10 1], 1)
+).randomFunction([0 10], 1, Sfc32(673814))
 .discretePlot
 ~~~
 
@@ -25,7 +23,7 @@ begin at state three,
 simulate five processes to twenty places:
 
 ~~~spl svg=B
-let p = DiscreteMarkovProcess(
+DiscreteMarkovProcess(
 	[0 0 1 0],
 	[
 		0.5 0.5 0 0;
@@ -33,9 +31,7 @@ let p = DiscreteMarkovProcess(
 		0.25 0.25 0.25 0.25;
 		0 0 0 1
 	]
-);
-Sfc32(791479)
-.randomFunction(p, [0 12 1], 5)
+).randomFunction([0 12], 5, Sfc32(791479))
 .linePlot
 ~~~
 
@@ -46,12 +42,10 @@ using a discrete Markov process where the probability of getting heads is 0.6 an
 and simulate 50 coin tosses:
 
 ~~~spl svg=C
-let p = DiscreteMarkovProcess(
+DiscreteMarkovProcess(
 	[1 0],
 	[0.6 0.4; 0.4 0.6]
-);
-Sfc32(789132)
-.randomFunction(p, [0 49 1], 1)
+).randomFunction([0 49], 1, Sfc32(789132))
 .discretePlot
 ~~~
 

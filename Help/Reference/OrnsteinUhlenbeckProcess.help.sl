@@ -11,17 +11,25 @@ Simulate an Ornstein–Uhlenbeck process:
 
 ~~~spl svg=A
 OrnsteinUhlenbeckProcess(0, 0.1, 0.3, 1)
-.simulate([0 20 0.1], 1, Sfc32(631784))
+.randomFunction(
+	[0 20 0.1],
+	1,
+	Sfc32(631784)
+)
 .linePlot
 ~~~
 
 ![](sw/spl/Help/Image/OrnsteinUhlenbeckProcess-A.svg)
 
-Simulate an ensemble of paths:
+RandomFunction an ensemble of paths:
 
 ~~~spl svg=B
 OrnsteinUhlenbeckProcess(0.3, 0.5, 0.4)
-.simulate([0 1 0.01], 4, Sfc32(735923))
+.randomFunction(
+	[0 1 0.01],
+	4,
+	Sfc32(735923)
+)
 .linePlot
 ~~~
 

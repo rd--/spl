@@ -28,6 +28,10 @@ TemporalData : [Object] { | pathList |
 		self.pathList.size
 	}
 
+	stepPlot { :self |
+		self.pathList.stepPlot
+	}
+
 	timeList { :self |
 		self.pathList.collect { :each |
 			each.transposed.first

@@ -23,7 +23,8 @@ Answer `Block` and collect over a list:
 
 ```
 >>> [0.1 0.25 0.5 0.75 0.9].collect(
->>> 	NormalDistribution(1, 5).inverseCdf
+>>> 	NormalDistribution(1, 5)
+>>> 	.inverseCdf
 >>> )
 [-5.4078 -2.3724 1.0000 4.3724 7.4078]
 ```
@@ -33,7 +34,8 @@ by computing the upper and lower 2.5% values:
 
 ```
 >>> [0.025 0.975].collect(
->>> 	NormalDistribution(0, 1).inverseCdf
+>>> 	NormalDistribution(0, 1)
+>>> 	.inverseCdf
 >>> )
 [-1.96 1.96]
 ```

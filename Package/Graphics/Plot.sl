@@ -254,29 +254,33 @@ Plot : [Object] { | pages format options |
 		self.typedPlot('scatter')
 	}
 
-	stepPlot { :self |
+	stepPlotLineData { :self |
 		self.isVector.if {
-			let l = [];
+			let answer = [];
 			self.withIndexDo { :each :index |
-				l.add([index, each]);
-				l.add([index + 1, each])
+				answer.add([index, each]);
+				answer.add([index + 1, each])
 			};
-			l.linePlot
+			answer
 		} {
 			self.isMatrix.if {
 				let x1 = self[1][1];
-				let l = [];
+				let answer = [];
 				self.do { :each |
 					let [x2, y] = each;
-					l.add([x1, y]);
-					l.add([x2, y]);
+					answer.add([x1, y]);
+					answer.add([x2, y]);
 					x1 := x2
 				};
-				l.linePlot
+				answer
 			} {
-				self.error('stepPlot')
+				self.collect(stepPlotLineData:/1)
 			}
 		}
+	}
+
+	stepPlot { :self |
+		self.stepPlotLineData.linePlot
 	}
 
 	surfacePlot { :self |
