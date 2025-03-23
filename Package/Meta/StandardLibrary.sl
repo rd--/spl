@@ -100,6 +100,7 @@
 	'HelpIndex' /* LibraryItem */
 
 	/* Math */
+	'ApproximateMathFunctions'
 	'Bessel'
 	'Binomial'
 	'DifferentialEquations'

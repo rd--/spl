@@ -10,11 +10,12 @@ and initial hidden state probability vector _p0_.
 Define a hidden Markov process:
 
 ~~~spl svg=A
+let r = Sfc32(317696);
 HiddenMarkovProcess(
 	[0.5 0.5],
 	[0.7 0.3; 0.25 0.75],
 	[0.2 0.6 0.2; 0.4 0.2 0.4]
-).randomFunction([0 20], 1, Sfc32(317696))
+).randomFunction(r, [0 20], 1)
 .discretePlot
 ~~~
 

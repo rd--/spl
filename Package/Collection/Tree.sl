@@ -326,7 +326,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 	karyTree { :n :k |
 		let t = Tree(nil, []);
 		let f = { :l :i |
-			t.level(l).do { :each |
+			t.level([l]).do { :each |
 				(
 					(i > 0) & {
 						each.isLeaf
@@ -425,7 +425,7 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		let p = n.iota.fisherYatesShuffle(r);
 		let t = Tree(p.removeFirst, []);
 		let f = { :l :i |
-			t.level(l).do { :each |
+			t.level([l]).do { :each |
 				(i > 0).ifTrue {
 					let j = r.randomInteger(1, i, []);
 					each.subTrees := p.removeFirst(j).collect { :m | Tree(m, []) };

@@ -10,26 +10,20 @@ and initial condition x0.
 Simulate an Ornstein–Uhlenbeck process:
 
 ~~~spl svg=A
+let r = Sfc32(631784);
 OrnsteinUhlenbeckProcess(0, 0.1, 0.3, 1)
-.randomFunction(
-	[0 20 0.1],
-	1,
-	Sfc32(631784)
-)
+.randomFunction(r, [0 20 0.1], 1)
 .linePlot
 ~~~
 
 ![](sw/spl/Help/Image/OrnsteinUhlenbeckProcess-A.svg)
 
-RandomFunction an ensemble of paths:
+Simulate an ensemble of paths:
 
 ~~~spl svg=B
+let r = Sfc32(735923);
 OrnsteinUhlenbeckProcess(0.3, 0.5, 0.4)
-.randomFunction(
-	[0 1 0.01],
-	4,
-	Sfc32(735923)
-)
+.randomFunction(r, [0 1 0.01], 4)
 .linePlot
 ~~~
 

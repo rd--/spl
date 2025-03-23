@@ -4,7 +4,7 @@
 
 Answer a plot that gives a visual representation of the elements in _anArray_.
 
-A 3×3 matrix:
+A 3×3×3 matrix:
 
 ~~~spl svg=A
 [
@@ -15,7 +15,7 @@ A 3×3 matrix:
 
 ![](sw/spl/Help/Image/arrayPlot-A.svg)
 
-A 5×7 matrix:
+A 5×7×3 matrix:
 
 ~~~spl svg=B
 Sfc32(821343)
@@ -25,7 +25,7 @@ Sfc32(821343)
 
 ![](sw/spl/Help/Image/arrayPlot-B.svg)
 
-Plot a color map:
+Plot a 1×6×3 color map:
 
 ~~~spl svg=C
 (0, 0.2 .. 1).collect { :h |
@@ -35,7 +35,8 @@ Plot a color map:
 
 ![](sw/spl/Help/Image/arrayPlot-C.svg)
 
-Interpolate between a list of _Rgb_ triples:
+Interpolate between a list of _Rgb_ triples,
+plotting a 12×36×3 matrix:
 
 ~~~spl svg=D
 let c = [

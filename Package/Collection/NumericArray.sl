@@ -78,6 +78,10 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 		self.shape
 	}
 
+	dimensions { :self :anInteger |
+		self.shape.take(anInteger)
+	}
+
 	do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1)
 	}

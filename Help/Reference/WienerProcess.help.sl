@@ -9,12 +9,9 @@ the next value can be retrieved using `nextRandom`.
 Simulate a Wiener process:
 
 ~~~spl svg=A
+let r = Sfc32(693718);
 WienerProcess(0, 0.5)
-.randomFunction(
-	[0 1 0.01],
-	1,
-	Sfc32(693718)
-)
+.randomFunction(r, [0 1 0.01], 1)
 .linePlot
 ~~~
 
@@ -23,12 +20,9 @@ WienerProcess(0, 0.5)
 Simulate an ensemble of paths:
 
 ~~~spl svg=B
+let r = Sfc32(990914);
 WienerProcess(0, 0.5)
-.randomFunction(
-	[0 1 0.01],
-	4,
-	Sfc32(990914)
-)
+.randomFunction(r, [0 1 0.01], 4)
 .linePlot
 ~~~
 
@@ -37,12 +31,9 @@ WienerProcess(0, 0.5)
 Simulate a Wiener process in three dimensions:
 
 ~~~spl svg=C
+let r = Sfc32(990914);
 WienerProcess(0, 1)
-.randomFunction(
-	[0 1 0.005],
-	3,
-	Sfc32(990914)
-)
+.randomFunction(r, [0 1 0.005], 3)
 .valueList
 .transposed
 .linePlot
@@ -52,7 +43,7 @@ WienerProcess(0, 1)
 
 * * *
 
-See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, RandomWalkProcess, simulate
+See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, randomFunction, RandomWalkProcess
 
 References:
 _Mathematica_

@@ -46,8 +46,9 @@ Probability density function, varying _mu_:
 Generate a sample of pseudorandom numbers from a Weibull distribution and plot the histogram:
 
 ~~~spl svg=D
+let r = Sfc32(371513);
 WeibullDistribution(3.5, 2, 0)
-.randomVariate(Sfc32(371513), [1E4])
+.randomVariate(r, [1E4])
 .histogramList
 .second
 .discretePlot

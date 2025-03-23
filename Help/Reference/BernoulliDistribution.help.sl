@@ -46,7 +46,7 @@ Skewness:
 
 Kurtosis:
 
-~~~spl svg=C
+~~~spl svg=D
 (0.025 -- 0.975).functionPlot { :p |
 	BernoulliDistribution(p).kurtosis
 }
@@ -57,16 +57,18 @@ Kurtosis:
 Simulate a sequence of fair coin tosses:
 
 ```
+>>> let r = Sfc32(839712);
 >>> BernoulliDistribution(1 / 2)
->>> .randomVariate(Sfc32(839712), 20)
+>>> .randomVariate(r, 20)
 [0 0 0 1 1 1 1 1 0 0 0 1 1 0 1 0 0 0 1 0]
 ```
 
 Simulate throwing a die, if you are only interested in sixes:
 
 ```
+>>> let r = Sfc32(739812);
 >>> BernoulliDistribution(1 / 6)
->>> .randomVariate(Sfc32(739812), 20)
+>>> .randomVariate(r, 20)
 [0 0 0 1 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0]
 ```
 

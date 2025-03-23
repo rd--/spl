@@ -64,7 +64,7 @@ Plot the second-largest function over a subset of the reals:
 
 Plot the second-largest function over a subset of the reals:
 
-~~~spl svg=A
+~~~spl svg=C
 (0 -- 2.pi).functionPlot { :x |
 	[x.sin, x.cotangent, x.tan]
 	.rankedMin(2)

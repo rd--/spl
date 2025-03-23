@@ -90,8 +90,9 @@ since the last bin is treated especially:
 Plot histogram of random numbers with normal distribution:
 
 ~~~spl svg=A
+let r = Sfc32(890141);
 NormalDistribution(0, 1)
-.randomVariate(Sfc32(890141), 500)
+.randomVariate(r, 500)
 .histogramList
 .second
 .discretePlot

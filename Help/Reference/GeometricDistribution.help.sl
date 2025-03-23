@@ -38,8 +38,9 @@ Skewness:
 Generate a sample of pseudorandom numbers from a geometric distribution:
 
 ~~~spl svg=D
+let r = Sfc32(794185);
 GeometricDistribution(0.1)
-.randomVariate(Sfc32(794185), 10 ^ 4)
+.randomVariate(r, 10 ^ 4)
 .histogramList
 .second
 .discretePlot
@@ -50,16 +51,18 @@ GeometricDistribution(0.1)
 A coin-tossing experiment consists of tossing a fair coin repeatedly until a tail results. Simulate the process:
 
 ```
+>>> let r = Sfc32(830140);
 >>> GeometricDistribution(0.5)
->>> .randomVariate(Sfc32(830140), 10)
+>>> .randomVariate(r, 10)
 [0 1 0 0 2 1 0 1 0 0]
 ```
 
 Plot simulated coin tosses:
 
 ~~~spl svg=E
+let r = Sfc32(893147);
 GeometricDistribution(0.5)
-.randomVariate(Sfc32(893147), 100)
+.randomVariate(r, 100)
 .discretePlot
 ~~~
 
@@ -100,8 +103,9 @@ As more samples are taken the probablity that the measured mean will be distant 
 Generate a 1×5 array of random numbers from a geometric distribution with probability parameter _p_ equal to 0.01:
 
 ```
+>>> let r = Sfc32(376384);
 >>> GeometricDistribution(0.01)
->>> .randomVariate(Sfc32(376384), 5)
+>>> .randomVariate(r, 5)
 [180 199 23 192 6]
 ```
 

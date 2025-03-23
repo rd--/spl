@@ -24,6 +24,8 @@ Plot:
 )
 ~~~
 
+![](sw/spl/Help/Image/hazardFunction-A.svg)
+
 * * *
 
 See also: cdf, pdf, survivalFunction

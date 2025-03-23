@@ -86,6 +86,13 @@ At `Tree`:
 ]
 ```
 
+At empty `Tree`:
+
+```
+>>> Tree(nil, []).level([0])
+[Tree(nil, [])]
+```
+
 `depth` answers the smallest value for which `level` returns an empty list:
 
 ```

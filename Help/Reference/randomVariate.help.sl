@@ -2,7 +2,7 @@
 
 - _randomVariate(d, r, shape)_
 
-Answer _shape_ pseudorandom variates from the `ProbablityDistribution` _d_,
+Answer _shape_ pseudo-random variates from the probablity distribution _d_,
 drawn using the random number generator _r_.
 
 Plot `randomVariate` of `CauchyDistribution`:

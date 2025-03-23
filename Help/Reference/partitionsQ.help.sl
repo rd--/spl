@@ -38,9 +38,11 @@ Successive differences of `partitionsQ` modulo two:
 
 ~~~spl svg=B
 let n = 47;
-({ :x |
-	x.differences.padRight(n, 0)
-}.nestList(1:n.partitionsQ, n) % 2).matrixPlot
+(
+	{ :x |
+		x.differences.padRight([n], 0)
+	}.nestList(1:n.partitionsQ, n) % 2
+).matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/partitionsQ-B.svg)

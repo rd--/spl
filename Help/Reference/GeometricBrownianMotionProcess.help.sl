@@ -9,18 +9,20 @@ and initial value x0.
 Simulate a geometric Brownian motion process:
 
 ~~~spl svg=A
+let r = Sfc32(483152);
 GeometricBrownianMotionProcess(0, 0.1, 2)
-.randomFunction([0 10 0.1], 1, Sfc32(483152))
+.randomFunction(r, [0 10 0.1], 1)
 .linePlot
 ~~~
 
 ![](sw/spl/Help/Image/GeometricBrownianMotionProcess-A.svg)
 
-RandomFunction an ensemble of paths:
+Simulate an ensemble of paths:
 
 ~~~spl svg=B
+let r = Sfc32(379582);
 GeometricBrownianMotionProcess(0.3, 1, 1)
-.randomFunction([0 1 0.01], 4, Sfc32(379582))
+.randomFunction(r, [0 1 0.01], 4)
 .linePlot
 ~~~
 
@@ -35,7 +37,7 @@ let r = Sfc32(675932);
 		1,
 		sigma,
 		23
-	).randomFunction([0 1 0.01], 1, r)
+	).randomFunction(r, [0 1 0.01], 1)
 	.pathList
 	.first
 }.linePlot

@@ -22,12 +22,12 @@
 	}
 
 	numberOfRows { :self |
-		let [m, _] = self.shape;
+		let [m, _] = self.dimensions(2);
 		m
 	}
 
 	numberOfColumns { :self |
-		let [_, n] = self.shape;
+		let [_, n] = self.dimensions(2);
 		n
 	}
 

@@ -333,10 +333,11 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 +System {
 
-	helpFilesDo { :self :kind :pattern :aBlock:/1 |
+	helpFilesDo { :self :kind :pattern :verbose :aBlock:/1 |
 		self
 		.splFileName('Help/' ++ kind)
 		.readDirectoryFileNames
+		.sort
 		.select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegExp(pattern)
@@ -347,6 +348,9 @@ HelpFile : [Object, Cache] { | origin source cache |
 				each.asFileUrl,
 				text
 			);
+			verbose.ifTrue {
+				each.postLine
+			};
 			aBlock(help)
 		}
 	}

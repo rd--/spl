@@ -121,6 +121,7 @@
 	'Kernel-Object'
 	'Logic-Boolean'
 	'Logic-SymbolicExpression'
+	'Math-ApproximateMathFunctions'
 	'Math-Bessel'
 	'Math-Binomial'
 	'Math-DifferentialEquations'

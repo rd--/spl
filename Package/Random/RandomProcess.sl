@@ -4,6 +4,11 @@ BernoulliProcess : [Object] { | p |
 		{ (randomNumberGenerator.nextRandomFloat < self.p).boole } ! shape
 	}
 
+	randomFunction { :self :r :t :n |
+		let [tMin, tMax] = t;
+		r.randomFunction(self, [tMin, tMax, 1], n)
+	}
+
 	reset { :self |
 		self
 	}
@@ -75,9 +80,9 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 		} ! shape
 	}
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		rng.randomFunction(self, [tMin, tMax, 1], n)
+		r.randomFunction(self, [tMin, tMax, 1], n)
 	}
 
 	reset { :self |
@@ -96,13 +101,13 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 
 GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let a = { :y | self.mu * y };
 		let b = { :y | self.sigma * y };
 		let c = { :y | (self.sigma.squared / 2) * y };
 		TemporalData(
 			{
-				rng.milsteinMethod(a:/1, b:/1, c:/1, t, self.x0).transposed
+				r.milsteinMethod(a:/1, b:/1, c:/1, t, self.x0).transposed
 			} ! n
 		)
 	}
@@ -134,9 +139,9 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 		} ! shape
 	}
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		rng.randomFunction(self, [tMin, tMax, 1], n)
+		r.randomFunction(self, [tMin, tMax, 1], n)
 	}
 
 	reset { :self |
@@ -186,7 +191,7 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 
 OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let a = { :y :t |
 			self.theta * (self.mu - y)
 		};
@@ -198,9 +203,9 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 				let x0 = self.x0;
 				x0.ifNil {
 					'x0=Nil'.postLine;
-					x0 := rng.nextRandomFloatGaussianDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
+					x0 := r.nextRandomFloatGaussianDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
 				};
-				rng.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
+				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
 			} ! n
 		)
 	}
@@ -221,7 +226,7 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 
 PoissonProcess : [Object] { | mu |
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
 		let mu = self.mu;
 		TemporalData(
@@ -230,7 +235,7 @@ PoissonProcess : [Object] { | mu |
 				let k = 0;
 				let l = [[t, k]];
 				{
-					let i = rng.nextRandomFloatExponentialDistribution(mu);
+					let i = r.nextRandomFloatExponentialDistribution(mu);
 					t := t + i;
 					(t <= tMax).if {
 						k := k + 1;
@@ -290,14 +295,14 @@ RandomWalkProcess : [Object] { | p q x |
 
 WienerProcess : [Object] { | mu sigma |
 
-	randomFunction { :self :t :n :rng |
+	randomFunction { :self :r :t :n |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		let a = { :y :t | mu };
 		let b = { :y :t | sigma };
 		TemporalData(
 			{
-				rng.eulerMaruyamaMethod(a:/2, b:/2, t, 0).transposed
+				r.eulerMaruyamaMethod(a:/2, b:/2, t, 0).transposed
 			} ! n
 		)
 	}

@@ -194,8 +194,15 @@
 		self.quantile.value(x)
 	}
 
+	survivalFunction { :self |
+		let f:/1 = self.cdf;
+		{ :x |
+			1 - f(x)
+		}
+	}
+
 	survivalFunction { :self :x |
-		1 - self.cdf(x)
+		self.survivalFunction.value(x)
 	}
 
 }

@@ -9,9 +9,9 @@ Answer the probability density function for the distribution _d_ evaluated at _x
 Plot `pdf` for a standard normal distribution:
 
 ~~~spl svg=A
-(-5 -- 5).functionPlot { :x |
+(-5 -- 5).functionPlot(
 	NormalDistribution(0, 1).pdf
-}
+)
 ~~~
 
 ![](sw/spl/Help/Image/pdf-A.svg)

@@ -29,8 +29,9 @@ Cumulative distribution function:
 Generate a sample of pseudorandom numbers from a geometric distribution:
 
 ~~~spl svg=C
+let r = Sfc32(789142);
 ExponentialDistribution(3.5)
-.randomVariate(Sfc32(789142), 10 ^ 4)
+.randomVariate(r, 10 ^ 4)
 .histogramList
 .second
 .discretePlot

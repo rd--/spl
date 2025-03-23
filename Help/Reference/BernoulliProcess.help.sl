@@ -7,11 +7,10 @@ A `Type` that represents a Bernoulli process with event probability _p_.
 Simulate a Bernoulli process:
 
 ~~~spl svg=A
-Sfc32(890143).randomFunction(
-	BernoulliProcess(1 / 3),
-	[0 30 1],
-	1
-).discretePlot
+let r = Sfc32(890143);
+BernoulliProcess(1 / 3)
+.randomFunction(r, [0 30], 1)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/BernoulliProcess-A.svg)

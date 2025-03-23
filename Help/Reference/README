@@ -11,7 +11,7 @@ system.library.collect(request:/1)
 Write image files:
 
 ~~~
-system.helpFilesDo('Reference', '.*', writeImageFiles:/1); nil
+system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
 'ls ~/sw/spl/Help/Image/* | wc -l' => 808
