@@ -1,8 +1,9 @@
 # clip
 
-- _clip(x, min, max, vMin, vMax)_
-- _clip(alpha, beta, gamma)_ ⟹ _clip(alpha, beta, gamma, beta, gamma)_
-- _clip(alpha)_ ⟹ _clip(alpha, -1, 1, -1, 1)_
+- _clip(x, ⌊, ⌈, v⌊, v⌈)_
+- _clip(α, β, γ)_ ⟹ _clip(α, β, γ, β, γ)_
+- _clip(α)_ ⟹ _clip(α, -1, 1, -1, 1)_
+- _clip(α₁, β, γ)_ ⟹ _{ :x | α₁(x).clip(β, γ) }_
 
 Answers _x_ for _min ≤ x ≤ max_, _vMin_ for _x < min_ and _vMax_ for _x > max_.
 
@@ -62,9 +63,9 @@ Plot the unit clip function over a subset of the reals:
 Plot the composition of clip with a periodic function:
 
 ~~~spl svg=B
-(0 -- 2.pi).functionPlot { :x |
-	x.sin.clip(-0.5, 1)
-}
+(0 -- 2.pi).functionPlot(
+	sin:/1.clip(-0.5, 1)
+)
 ~~~
 
 ![](sw/spl/Help/Image/clip-B.svg)

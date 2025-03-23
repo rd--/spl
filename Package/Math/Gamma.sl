@@ -10,6 +10,62 @@
 		}
 	}
 
+	betaRegularized { :x :a :b |
+		/* https://codeplea.com/incomplete-beta-function-c */
+		let stop = 1E-8;
+		let tiny = 1E-30;
+		(x < 0 | { x > 1 }).if {
+			Infinity
+		} {
+			(x > ((a + 1) / (a + b + 2))).if {
+				1 - betaRegularized(1 - x, b, a)
+			} {
+				let lbetaAb = logGamma(a) + logGamma(b) - logGamma(a + b);
+				let front = ((x.log * a) + ((1 - x).log * b) - lbetaAb).exp / a;
+				let f = 1;
+				let c = 1;
+				let d = 0;
+				let cd = c * d;
+				let i = 0;
+				let converged = false;
+				{
+					let m = i // 2;
+					let numerator = (i = 0).if {
+						1
+					} {
+						(i % 2 = 0).if {
+							(m * (b - m) * x) / ((a + (2 * m) - 1) * (a + (2 * m)))
+						} {
+							((a + m) * (a + b + m) * x).- / ((a + (2 * m)) * (a + (2 * m) + 1))
+						}
+					};
+					d := 1 + (numerator * d);
+					(d.abs < tiny).ifTrue {
+						d := tiny
+					};
+					d := 1 / d;
+					c := 1 + (numerator / c);
+					(c.abs < tiny).ifTrue {
+						c := tiny
+					};
+					cd := c * d;
+					f := f * cd;
+					converged := (1 - cd).abs < stop;
+					i := i + 1
+				}.doWhileTrue {
+					i <= 200 & {
+						converged.not
+					}
+				};
+				converged.if {
+					front * (f - 1)
+				} {
+					Infinity
+				}
+			}
+		}
+	}
+
 	gammaLanczosFormulaLeadingFactor { :self |
 		let z = self + 5.5;
 		z.log * (self + 0.5) - z
@@ -49,6 +105,18 @@
 			} {
 				(self + 1).gammaLanczosFormula / self
 			}
+		}
+	}
+
+	gammaRegularized { :a :z |
+		1 - incompleteGamma(z, a).last
+	}
+
+	gammaRegularized { :a :b :z |
+		(b = 0).if {
+			incompleteGamma(z, a).last
+		} {
+			'gammaRegularized: b non-zero'.error
 		}
 	}
 

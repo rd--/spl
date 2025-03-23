@@ -9,14 +9,26 @@ regularized unless _r_ is set to `false`.
 >>> 1.5.upperIncompleteGamma(1)
 0.22313
 
+>>> 1.gammaRegularized(1.5)
+0.22313
+
 >>> 1.5.upperIncompleteGamma(2)
-0.5578
+0.557825
+
+>>> 2.gammaRegularized(1.5)
+0.557825
 
 >>> 3.3.upperIncompleteGamma(2)
-0.1586
+0.158598
+
+>>> 2.gammaRegularized(3.3)
+0.158598
 
 >>> 0.22.upperIncompleteGamma(2 / 5)
-0.42124
+0.421245
+
+>>> (2 / 5).gammaRegularized(0.22)
+0.421245
 ```
 
 The regularized upper incomplete gamma function is the `survivalFunction` of the gamma distribution,

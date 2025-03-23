@@ -1,16 +1,15 @@
 # PoissonDistribution
 
-- _PoissonDistribution(n, p)_
+- _PoissonDistribution(μ)_
 
-A `Type` representing a binomial distribution with _n_ trials and success probability _p_.
+A `Type` representing a Poisson distribution with mean μ.
 
 Probability mass function:
 
 ~~~spl svg=A
-let d = PoissonDistribution(10);
-0:30.collect { :k |
-	d.pdf(k)
-}.discretePlot
+0:30.collect(
+	PoissonDistribution(10).pdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/PoissonDistribution-A.svg)
@@ -18,10 +17,9 @@ let d = PoissonDistribution(10);
 Cumulative distribution function:
 
 ~~~spl svg=B
-let d = PoissonDistribution(10);
-0:30.collect { :k |
-	d.cdf(k)
-}.discretePlot
+0:30.collect(
+	PoissonDistribution(10).cdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/PoissonDistribution-B.svg)

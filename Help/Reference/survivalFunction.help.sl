@@ -18,10 +18,10 @@ Calculate at specific value:
 A survival function for a continuous univariate distribution:
 
 ~~~spl svg=A
-let d = NormalDistribution(0, 1);
-(-3 -- 3).functionPlot { :x |
-	d.survivalFunction(x)
-}
+(-3 -- 3).functionPlot(
+	NormalDistribution(0, 1)
+	.survivalFunction
+)
 ~~~
 
 ![](sw/spl/Help/Image/survivalFunction-A.svg)
@@ -29,15 +29,13 @@ let d = NormalDistribution(0, 1);
 A survival function for a discrete univariate distribution:
 
 ~~~spl svg=B
-let d = GeometricDistribution(1 / 3);
-(-1 .. 10).collect { :x |
-	d.survivalFunction(x)
-}.discretePlot
+(-1 .. 10).collect(
+	GeometricDistribution(1 / 3)
+	.survivalFunction
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/survivalFunction-B.svg)
-
-
 
 * * *
 
@@ -45,4 +43,6 @@ See also: cdf, hazardFunction, inverseSurvivalFunction, pdf, quantile
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/SurvivalFunction.html)
+[1](https://reference.wolfram.com/language/ref/SurvivalFunction.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Survival_function)

@@ -55,9 +55,19 @@ Distribution generator functions:
 
 Probablity distributions:
 
+- `BetaDistribution`
+- `BernoulliDistribution`
+- `BinomialDistribution`
 - `CauchyDistribution`
+- `ExponentialDistribution`
+- `GammaDistribution`
+- `GeometricDistribution`
+- `LogNormalDistribution`
 - `NormalDistribution`
+- `ParetoDistribution`
+- `PoissonDistribution`
 - `UniformDistribution`
+- `WeibullDistribution`
 
 Pdf and Cdf:
 

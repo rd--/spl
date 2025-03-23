@@ -7,10 +7,9 @@ A `Type` representing a binomial distribution with _n_ trials and success probab
 Probability mass function:
 
 ~~~spl svg=A
-let d = BinomialDistribution(40, 0.5);
-1:36.collect { :k |
-	d.pdf(k)
-}.discretePlot
+1:36.collect(
+	BinomialDistribution(40, 0.5).pdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/BinomialDistribution-A.svg)
@@ -18,10 +17,9 @@ let d = BinomialDistribution(40, 0.5);
 Cumulative distribution function:
 
 ~~~spl svg=B
-let d = BinomialDistribution(40, 0.5);
-1:36.collect { :k |
-	d.cdf(k)
-}.discretePlot
+1:36.collect(
+	BinomialDistribution(40, 0.5).cdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/BinomialDistribution-B.svg)

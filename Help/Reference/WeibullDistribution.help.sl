@@ -10,14 +10,9 @@ and a location parameter μ.
 Probability density function, varying _alpha_:
 
 ~~~spl svg=A
-let d = [0.5 2 4].collect { :alpha |
-	WeibullDistribution(alpha, 1, 0)
-};
 (0.05 -- 3).functionPlot(
-	d.collect { :each |
-		{ :x |
-			each.pdf(x)
-		}
+	[0.5 2 4].collect { :alpha |
+		WeibullDistribution(alpha, 1, 0).pdf
 	}
 )
 ~~~
@@ -27,14 +22,9 @@ let d = [0.5 2 4].collect { :alpha |
 Probability density function, varying _beta_:
 
 ~~~spl svg=B
-let d = [1 2 4].collect { :beta |
-	WeibullDistribution(2, beta, 0)
-};
 (0.05 -- 3).functionPlot(
-	d.collect { :each |
-		{ :x |
-			each.pdf(x)
-		}
+	[1 2 4].collect { :beta |
+		WeibullDistribution(2, beta, 0).pdf
 	}
 )
 ~~~
@@ -44,14 +34,9 @@ let d = [1 2 4].collect { :beta |
 Probability density function, varying _mu_:
 
 ~~~spl svg=C
-let d = [-1.5 1 2].collect { :mu |
-	WeibullDistribution(3, 2, mu)
-};
 (0 -- 6).functionPlot(
-	d.collect { :each |
-		{ :x |
-			each.pdf(x)
-		}
+	[-1.5 1 2].collect { :mu |
+		WeibullDistribution(3, 2, mu).pdf
 	}
 )
 ~~~

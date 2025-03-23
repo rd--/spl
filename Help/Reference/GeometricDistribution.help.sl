@@ -8,10 +8,9 @@ the distribution of the number of failures in a sequence of trials with success 
 Probability mass function:
 
 ~~~spl svg=A
-let d = GeometricDistribution(0.2);
-1:15.collect { :x |
-	d.pdf(x)
-}.discretePlot
+1:15.collect(
+	GeometricDistribution(0.2).pdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/GeometricDistribution-A.svg)
@@ -19,10 +18,9 @@ let d = GeometricDistribution(0.2);
 Cumulative distribution function:
 
 ~~~spl svg=B
-let d = GeometricDistribution(0.2);
-1:15.collect { :x |
-	d.cdf(x)
-}.discretePlot
+1:15.collect(
+	GeometricDistribution(0.2).cdf
+).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/GeometricDistribution-B.svg)

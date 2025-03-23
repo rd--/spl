@@ -89,10 +89,17 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 
 }
 
-GeometricBrownianMotionProcess : [Object] { | mu sigma x0 x |
+GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 
-	reset { :self |
-		self.x := self.x0
+	simulate { :self :t :n :rng |
+		let a = { :y | self.mu * y };
+		let b = { :y | self.sigma * y };
+		let c = { :y | (self.sigma.squared / 2) * y };
+		TemporalData(
+			{
+				rng.milsteinMethod(a:/1, b:/1, c:/1, t, self.x0).transposed
+			} ! n
+		)
 	}
 
 }
@@ -100,7 +107,7 @@ GeometricBrownianMotionProcess : [Object] { | mu sigma x0 x |
 +SmallFloat {
 
 	GeometricBrownianMotionProcess { :mu :sigma :x0 |
-		newGeometricBrownianMotionProcess().initializeSlots(mu, sigma, x0, nil)
+		newGeometricBrownianMotionProcess().initializeSlots(mu, sigma, x0)
 	}
 
 }
@@ -170,9 +177,6 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 
 	simulate { :self :t :n :rng |
-		let dW = { :dt |
-			rng.nextRandomFloatGaussianDistribution(0, dt.sqrt)
-		};
 		let a = { :y :t |
 			self.theta * (self.mu - y)
 		};
@@ -186,7 +190,7 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 					'x0=Nil'.postLine;
 					x0 := rng.nextRandomFloatGaussianDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
 				};
-				eulerMaruyamaMethod(dW:/1, a:/2, b:/2, t, x0).transposed
+				rng.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
 			} ! n
 		)
 	}
@@ -264,6 +268,40 @@ WienerProcess : [Object] { | mu sigma x |
 
 +@RandomNumberGenerator {
 
+	eulerMaruyamaMethod { :self :a:/2 :b:/2 :t :y0 |
+		let [tMin, tMax, dt] = t;
+		let ts = [tMin, tMin + dt .. tMax];
+		let n = ts.size;
+		let ys = List(n, 0);
+		let dW = { :dt |
+			self.nextRandomFloatGaussianDistribution(0, dt.sqrt)
+		};
+		ys[1] := y0;
+		2.toDo(n) { :i |
+			let t = ts[i - 1];
+			let y = ys[i - 1];
+			ys[i] := y + (a(y, t) * dt) + (b(y, t) * dW(dt))
+		};
+		[ts, ys]
+	}
+
+	milsteinMethod { :self :a:/1 :b:/1 :c:/1 :t :y0 |
+		let [tMin, tMax, dt] = t;
+		let ts = [tMin, tMin + dt .. tMax];
+		let n = ts.size;
+		let ys = List(n, 0);
+		let dW = { :dt |
+			self.nextRandomFloatGaussianDistribution(0, dt.sqrt)
+		};
+		ys[1] := y0;
+		2.toDo(n) { :i |
+			let y = ys[i - 1];
+			let dw = dW(dt);
+			ys[i] := y + (a(y) * dt) + (b(y) * dw) + (0.5 * c(y) * (dw.squared - dt))
+		};
+		[ts, ys]
+	}
+
 	randomFunction { :self :process :timeSpecification :count |
 		let [tMin, tMax, tStep] = timeSpecification;
 		let timeList = [tMin, tMin + tStep .. tMax];
@@ -276,24 +314,6 @@ WienerProcess : [Object] { | mu sigma x |
 				].transposed
 			}
 		)
-	}
-
-}
-
-+Block {
-
-	eulerMaruyamaMethod { :dW:/1 :a:/2 :b:/2 :t :y0 |
-		let [tMin, tMax, dt] = t;
-		let ts = [tMin, tMin + dt .. tMax];
-		let n = ts.size;
-		let ys = List(n, 0);
-		ys[1] := y0;
-		2.toDo(n) { :i |
-			let t = ts[i - 1];
-			let y = ys[i - 1];
-			ys[i] := y + (a(y, t) * dt) + (b(y, t) * dW(dt))
-		};
-		[ts, ys]
 	}
 
 }

@@ -91,6 +91,12 @@ Block! : [Object] {
 		answer
 	}
 
+	clip { :aBlock:/1 :min :max |
+		{ :x |
+			aBlock(x).clip(min, max, min, max)
+		}
+	}
+
 	cull { :self :firstArg |
 		(self.numArgs >= 1).if {
 			self.value(firstArg)

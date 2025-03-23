@@ -1,25 +1,26 @@
 # cdf
 
+- _cdf(d)_
 - _cdf(d, x)_
 
-Answer the cumulative distribution function for the distribution _d_ evaluated at _x_.
+Answer the cumulative distribution function for the distribution _d_,
+evaluated at _x_.
 
 `cdf` of _x_ gives the probability that an observed value will be less than or equal to _x_.
 
 Plot `cdf` for a standard normal distribution:
 
 ~~~spl svg=A
-let d = NormalDistribution(0, 1);
-(-3 -- 3).functionPlot { :x |
-	d.cdf(x)
-}
+(-3 -- 3).functionPlot(
+	NormalDistribution(0, 1).cdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/cdf-A.svg)
 
 * * *
 
-See also: pdf
+See also: inverseCdf, pdf, sum, survivalFunction
 
 References:
 _Mathematica_

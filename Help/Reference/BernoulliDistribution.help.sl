@@ -17,8 +17,9 @@ p
 Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
-let d = BernoulliDistribution(1 / 3);
-(0 -- 1).functionPlot { :x | d.pdf(x) }
+(0 -- 1).functionPlot(
+	BernoulliDistribution(1 / 3).pdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/BernoulliDistribution-A.svg)
@@ -26,8 +27,9 @@ let d = BernoulliDistribution(1 / 3);
 Plot `cdf` over a subset of the reals:
 
 ~~~spl svg=B
-let d = BernoulliDistribution(1 / 3);
-(-1 -- 1).functionPlot { :x | d.cdf(x) }
+(-1 -- 1).functionPlot(
+	BernoulliDistribution(1 / 3).cdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/BernoulliDistribution-B.svg)

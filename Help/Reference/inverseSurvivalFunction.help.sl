@@ -2,7 +2,8 @@
 
 - _inverseSurvivalFunction(d, q)_
 
-Answer the inverse of the survival function for the distribution _d_ as a function of the variable _q_.
+Answer the inverse of the survival function for the distribution _d_,
+as a function of the variable _q_.
 
 At specific value:
 
@@ -19,10 +20,11 @@ At specific value:
 Plot the inverse survival function for a standard normal distribution:
 
 ~~~spl svg=A
-let d = NormalDistribution(0, 1);
-(0 -- 1).functionPlot { :x |
-	d.inverseSurvivalFunction(x).clip(-3, 3)
-}
+(0 -- 1).functionPlot(
+	NormalDistribution(0, 1)
+	.inverseSurvivalFunction
+	.clip(-3, 3)
+)
 ~~~
 
 ![](sw/spl/Help/Image/inverseSurvivalFunction-A.svg)

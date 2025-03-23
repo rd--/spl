@@ -9,10 +9,9 @@ Probability mass function,
 monotonically decreasing:
 
 ~~~spl svg=A
-let d = ExponentialDistribution(2);
-(0 -- 3).functionPlot { :x |
-	d.pdf(x)
-}
+(0 -- 3).functionPlot(
+	ExponentialDistribution(2).pdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/ExponentialDistribution-A.svg)
@@ -20,10 +19,9 @@ let d = ExponentialDistribution(2);
 Cumulative distribution function:
 
 ~~~spl svg=B
-let d = ExponentialDistribution(2);
-(0 -- 4).functionPlot { :x |
-	d.cdf(x)
-}
+(0 -- 4).functionPlot(
+	ExponentialDistribution(2).cdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/ExponentialDistribution-B.svg)
@@ -43,10 +41,10 @@ ExponentialDistribution(3.5)
 The `inverseCdf`, or percent point function:
 
 ~~~spl svg=D
-let d = ExponentialDistribution(2);
-(0 -- 0.99).functionPlot { :x |
-	d.inverseCdf(x)
-}
+(0 -- 0.99).functionPlot(
+	ExponentialDistribution(2)
+	.inverseCdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/ExponentialDistribution-D.svg)
@@ -54,15 +52,15 @@ let d = ExponentialDistribution(2);
 The `inverseSurvivalFunction`:
 
 ~~~spl svg=E
-let d = ExponentialDistribution(2);
-(0.01 -- 1).functionPlot { :x |
-	d.inverseSurvivalFunction(x)
-}
+(0.01 -- 1).functionPlot(
+	ExponentialDistribution(2)
+	.inverseSurvivalFunction
+)
 ~~~
 
 ![](sw/spl/Help/Image/ExponentialDistribution-E.svg)
 
-Compute cdf:
+Compute `cdf` at specific value:
 
 ```
 >>> ExponentialDistribution(1 / 3000)

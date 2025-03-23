@@ -33,7 +33,7 @@ let r = Sfc32(789146);
 
 * * *
 
-See also: nextRandomFloat
+See also: nextRandomFloat, NormalDistribution
 
 References:
 _Mathematica_

@@ -4,18 +4,15 @@
 
 A `Type` representing a gamma distribution with shape parameter α and scale parameter β.
 
-Probability mass function:
+Probability density function of a gamma distribution:
 
 ~~~spl svg=A
 (0 -- 20).functionPlot(
 	[1 4 6].collect { :alpha |
-		let d = GammaDistribution(
+		GammaDistribution(
 			alpha,
 			2
-		);
-		{ :x |
-			d.pdf(x).clip(0, 0.2)
-		}
+		).pdf.clip(0, 0.2)
 	}
 )
 ~~~
@@ -27,13 +24,10 @@ Cumulative distribution function:
 ~~~spl svg=B
 (0 -- 20).functionPlot(
 	[1 4 6].collect { :alpha |
-		let d = GammaDistribution(
+		GammaDistribution(
 			alpha,
 			2
-		);
-		{ :x |
-			d.cdf(x)
-		}
+		).cdf
 	}
 )
 ~~~
@@ -52,7 +46,7 @@ Mean and variance:
 
 * * *
 
-See also: ExponentialDistribution, gamma, incompleteGamma
+See also: BetaDistribution, ExponentialDistribution, gamma, incompleteGamma
 
 References:
 _Mathematica_
