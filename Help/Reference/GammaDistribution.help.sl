@@ -55,13 +55,21 @@ Mean and variance:
 (* α (* β β))
 ```
 
+_Note_: There are two equivalent parameterizations in common use,
+in one,
+followed here,
+ _beta_ is a scale parameter (often written θ),
+in the other it is a rate parameter ⁠(often written λ).
+λ = 1/θ.
+
 * * *
 
 See also: BetaDistribution, ExponentialDistribution, gamma, gammaRegularized
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/GammaDistribution.html),
+[1](https://mathworld.wolfram.com/GammaDistribution.html)
+[2](https://reference.wolfram.com/language/ref/GammaDistribution.html),
 _Mathworks_
 [1](https://au.mathworks.com/help/stats/gamrnd.html),
 _NIST_

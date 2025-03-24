@@ -40,6 +40,17 @@ Cumulative distribution function:
 
 ![](sw/spl/Help/Image/ParetoDistribution-B.svg)
 
+Generate a sample of pseudorandom numbers from a Pareto distribution:
+
+~~~spl svg=C
+let r = Sfc32(891314);
+ParetoDistribution(2, 5)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot([2 6 0.2])
+~~~
+
+![](sw/spl/Help/Image/ParetoDistribution-C.svg)
+
 * * *
 
 See also: cdf, pdf

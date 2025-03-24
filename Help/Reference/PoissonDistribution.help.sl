@@ -24,6 +24,39 @@ Cumulative distribution function:
 
 ![](sw/spl/Help/Image/PoissonDistribution-B.svg)
 
+Generate a sample of pseudorandom numbers from a Poisson distribution:
+
+~~~spl svg=C
+let r = Sfc32(891314);
+PoissonDistribution(3)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/PoissonDistribution-C.svg)
+
+Step plot with small mean and variance:
+
+~~~spl svg=D
+let r = Sfc32(36814);
+PoissonDistribution(1 / 9)
+.randomVariate(r, [99])
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/PoissonDistribution-D.svg)
+
+Step plot with less small mean and variance:
+
+~~~spl svg=E
+let r = Sfc32(980141);
+PoissonDistribution(9)
+.randomVariate(r, [99])
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/PoissonDistribution-E.svg)
+
 Mean and variance:
 
 ```

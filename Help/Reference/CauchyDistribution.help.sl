@@ -38,7 +38,7 @@ Plot `quantile` over a subset of the reals:
 
 ![](sw/spl/Help/Image/CauchyDistribution-C.svg)
 
-Plot `randomVariate`:
+Plot `randomVariate`, clamped to _(-1, 1)_:
 
 ~~~spl svg=D
 let r = Sfc32(14232);
@@ -72,6 +72,17 @@ CauchyDistribution(3, 2.5)
 ~~~
 
 ![](sw/spl/Help/Image/CauchyDistribution-F.svg)
+
+Plot unclamped random variate:
+
+~~~spl svg=G
+let r = Sfc32(789413);
+CauchyDistribution(0, 1 / 9)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-G.svg)
 
 * * *
 

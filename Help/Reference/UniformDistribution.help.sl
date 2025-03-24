@@ -70,13 +70,25 @@ UniformDistribution(0, 1)
 
 ![](sw/spl/Help/Image/UniformDistribution-D.png)
 
+Generate a sample of pseudorandom numbers from a uniform distribution:
+
+~~~spl svg=E
+let r = Sfc32(318420);
+UniformDistribution(1, 3)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/UniformDistribution-E.svg)
+
 * * *
 
 See also: CauchyDistribution, cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, WeibullDistribution
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/UniformDistribution.html),
+[1](https://mathworld.wolfram.com/UniformDistribution.html)
+[2](https://reference.wolfram.com/language/ref/UniformDistribution.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3662.htm)
 _W_

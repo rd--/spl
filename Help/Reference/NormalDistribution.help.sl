@@ -70,6 +70,29 @@ NormalDistribution(1, 3)
 
 ![](sw/spl/Help/Image/NormalDistribution-E.svg)
 
+PLot with mean at zero and small deviation:
+
+~~~spl svg=F
+let r = Sfc32(378914);
+NormalDistribution(0, 1 / 9)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/NormalDistribution-F.svg)
+
+Plot sorted random list:
+
+~~~spl svg=G
+let r = Sfc32(789146);
+NormalDistribution(0, 1)
+.randomVariate(r, [500])
+.sort
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/NormalDistribution-G.svg)
+
 * * *
 
 See also: cdf, erf, gaussianMatrix, pdf, randomVariate, StudentTDistribution

@@ -188,11 +188,47 @@
 		]
 	}
 
+	noncentralBetaDistribution { :self :alpha :beta :delta |
+		(delta = 0).if {
+			self.betaDistribution(alpha, beta)
+		} {
+			let x = self.noncentralChiSquareDistribution(2 * alpha, delta);
+			x / (x + self.gammaDistribution(beta, 2))
+		}
+	}
+
+	noncentralChiSquareDistribution { :self :nu :lambda |
+		(lambda = 0).if {
+			(nu = 0).if {
+				0
+			} {
+				self.gammaDistribution(nu / 2, 2)
+			}
+		} {
+			let r = self.poissonDistribution(lambda / 2);
+			(r > 0).ifTrue {
+				r := self.gammaDistribution(r, 2)
+			};
+			(nu > 0).ifTrue {
+				r := r + self.gammaDistribution(nu / 2, 2)
+			};
+			r
+		}
+	}
+
 	normalDistribution { :self :mu :sigma |
 		let u = self.nextRandomFloat;
 		let v = self.nextRandomFloat;
 		let x = (-2 * u.log).sqrt * (2.pi * v).sin;
 		(x * sigma) + mu
+	}
+
+	studentTDistribution { :self :mu :sigma :nu |
+		let gamma = self.gammaDistribution(0.5 * nu, 0.5);
+		self.normalDistribution(
+			mu,
+			sigma * (nu / gamma).sqrt
+		)
 	}
 
 	triangularDistribution { :self :min :max :c |
@@ -356,6 +392,12 @@ BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 		{ :x |
 			x.betaRegularized(alpha, beta)
 		}
+	}
+
+	mean { :self |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		alpha / (alpha + beta)
 	}
 
 	pdf { :self |
@@ -807,6 +849,31 @@ LogNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
 }
 
+NoncentralBetaDistribution : [Object, ProbabilityDistribution] { | alpha beta delta |
+
+	randomVariate { :self :rng :shape |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		let delta = self.delta;
+		{
+			rng.noncentralBetaDistribution(alpha, beta, delta)
+		} ! shape
+	}
+
+}
+
+NoncentralChiSquareDistribution : [Object, ProbabilityDistribution] { | nu lambda |
+
+	randomVariate { :self :rng :shape |
+		let nu = self.nu;
+		let lambda = self.lambda;
+		{
+			rng.noncentralChiSquareDistribution(nu, lambda)
+		} ! shape
+	}
+
+}
+
 NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
         cdf { :self |
@@ -818,10 +885,12 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 	}
 
 	inverseCdf { :self |
+		let mu = self.mu;
+		let sigma = self.sigma;
 		{ :p |
 			(p >= 0 & { p <= 1 }).if {
-				/* self.mu - (2.sqrt * self.sigma * (2 * p).inverseErfc) */
-				self.mu + (p.standardNormalDistributionInverseCdf * self.sigma)
+				/* mu - (2.sqrt * sigma * (2 * p).inverseErfc) */
+				mu + (p.standardNormalDistributionInverseCdf * sigma)
 			} {
 				self.error('inverseCdf')
 			}
@@ -1001,6 +1070,15 @@ StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
 			/
 			(sigma * nu.sqrt * (nu / 2).beta(1 / 2))
 		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		let nu = self.nu;
+		{
+			rng.studentTDistribution(mu, sigma, nu)
+		} ! shape
 	}
 
 	skewness { :self |
@@ -1231,6 +1309,10 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		newCauchyDistribution().initializeSlots(x0, gamma)
 	}
 
+	ChiSquareDistribution { :nu |
+		newGammaDistribution().initializeSlots(nu / 2, 2)
+	}
+
 	ExponentialDistribution { :lambda |
 		newExponentialDistribution().initializeSlots(lambda)
 	}
@@ -1253,6 +1335,14 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	LogNormalDistribution { :mu :sigma |
 		newLogNormalDistribution().initializeSlots(mu, sigma)
+	}
+
+	NoncentralBetaDistribution { :alpha :beta :delta |
+		newNoncentralBetaDistribution().initializeSlots(alpha, beta, delta)
+	}
+
+	NoncentralChiSquareDistribution { :nu :lambda |
+		newNoncentralChiSquareDistribution().initializeSlots(nu, lambda)
 	}
 
 	NormalDistribution { :mu :sigma |

@@ -42,6 +42,17 @@ TriangularDistribution(-1 -- 2, 1)
 
 ![](sw/spl/Help/Image/TriangularDistribution-C.svg)
 
+Plot random variate:
+
+~~~spl svg=D
+let r = Sfc32(378141);
+TriangularDistribution(-1 -- 1, 0)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/TriangularDistribution-D.svg)
+
 * * *
 
 See also: Piecewise, UniformDistribution

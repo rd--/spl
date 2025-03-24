@@ -61,12 +61,24 @@ Cumulative distribution function of a generalized Student _t_ distribution:
 
 ![](sw/spl/Help/Image/StudentTDistribution-D.svg)
 
+Generate a sample of pseudorandom numbers from a Student _t_ distribution:
+
+~~~spl svg=E
+let r = Sfc32(401039);
+StudentTDistribution(0, 1, 10)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/StudentTDistribution-E.svg)
+
 * * *
 
 See also: beta, betaRegularized, CauchyDistribution, NormalDistribution
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/StudentTDistribution.html),
+[1](https://mathworld.wolfram.com/Studentst-Distribution.html)
+[2](https://reference.wolfram.com/language/ref/StudentTDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Student%27s_t-distribution)

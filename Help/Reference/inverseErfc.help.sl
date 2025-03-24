@@ -66,9 +66,19 @@ Sfc32(789141)
 
 ![](sw/spl/Help/Image/inverseErfc-B.svg)
 
+Avoid round-off errors using inverse complementary error function:
+
+```
+>>> (1 - 1E-100).inverseErf
+Infinity
+
+>>> 1E-100.inverseErfc
+15.0656
+```
+
 * * *
 
-See also: erf, erfc, inverseErf
+See also: erf, erfc, inverseCdf, inverseErf, NormalDistribution
 
 References:
 _Mathematica_

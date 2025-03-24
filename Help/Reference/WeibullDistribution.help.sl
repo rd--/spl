@@ -2,7 +2,7 @@
 
 - _WeibullDistribution(alpha, beta, mu)_
 
-Represents a Weibull distribution with
+A `Type` representing a Weibull distribution with
 a shape parameter α (also called γ or _k_),
 a scale parameter β (also called α or λ),
 and a location parameter μ.
@@ -12,7 +12,8 @@ Probability density function, varying _alpha_:
 ~~~spl svg=A
 (0.05 -- 3).functionPlot(
 	[0.5 2 4].collect { :alpha |
-		WeibullDistribution(alpha, 1, 0).pdf
+		WeibullDistribution(alpha, 1, 0)
+		.pdf
 	}
 )
 ~~~
@@ -24,7 +25,8 @@ Probability density function, varying _beta_:
 ~~~spl svg=B
 (0.05 -- 3).functionPlot(
 	[1 2 4].collect { :beta |
-		WeibullDistribution(2, beta, 0).pdf
+		WeibullDistribution(2, beta, 0)
+		.pdf
 	}
 )
 ~~~
@@ -36,7 +38,8 @@ Probability density function, varying _mu_:
 ~~~spl svg=C
 (0 -- 6).functionPlot(
 	[-1.5 1 2].collect { :mu |
-		WeibullDistribution(3, 2, mu).pdf
+		WeibullDistribution(3, 2, mu)
+		.pdf
 	}
 )
 ~~~
@@ -48,10 +51,8 @@ Generate a sample of pseudorandom numbers from a Weibull distribution and plot t
 ~~~spl svg=D
 let r = Sfc32(371513);
 WeibullDistribution(3.5, 2, 0)
-.randomVariate(r, [1E4])
-.histogramList
-.second
-.discretePlot
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
 ~~~
 
 ![](sw/spl/Help/Image/WeibullDistribution-D.svg)
@@ -66,6 +67,17 @@ WeibullDistribution(2.5, 1, 0)
 ~~~
 
 ![](sw/spl/Help/Image/WeibullDistribution-E.png)
+
+Plot random variate:
+
+~~~spl svg=F
+let r = Sfc32(391437);
+WeibullDistribution(3 / 4, 1, 0)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/WeibullDistribution-F.svg)
 
 * * *
 

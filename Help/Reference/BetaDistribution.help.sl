@@ -66,7 +66,8 @@ See also: BinomialDistribution, beta, betaRegularized, GammaDistribution
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BetaDistribution.html),
+[1](https://mathworld.wolfram.com/BetaDistribution.html)
+[2](https://reference.wolfram.com/language/ref/BetaDistribution.html),
 _Mathworks_
 [1](https://au.mathworks.com/help/stats/betarnd.html),
 _NIST_

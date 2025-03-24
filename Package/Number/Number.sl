@@ -426,7 +426,7 @@
 	}
 
 	inverseErfc { :self |
-		(self - 1).-.inverseErf
+		(self / 2).standardNormalDistributionInverseCdf.- / 2.sqrt
 	}
 
 	inverseErfWinitzki { :x |

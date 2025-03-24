@@ -52,9 +52,24 @@ Plot `inverseCdf` of `NormalDistribution`:
 
 ![](sw/spl/Help/Image/inverseCdf-A.svg)
 
+Generate random data for a distribution:
+
+~~~spl svg=B
+let r = Sfc32(789432);
+UniformDistribution(0, 1)
+.randomVariate(r, [10 ^ 4])
+.collect(
+	NormalDistribution(3, 1)
+	.inverseCdf
+)
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/inverseCdf-B.svg)
+
 * * *
 
-See also: cdf, inverseSurvivalFunction, pdf
+See also: cdf, inverseErfc, inverseSurvivalFunction, pdf
 
 References:
 _Mathematica_

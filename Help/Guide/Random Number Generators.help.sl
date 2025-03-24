@@ -47,27 +47,21 @@ Shuffling:
 - `shuffle`: shuffle
 - `shuffled`: shuffle
 
-Distribution generator functions:
-
-- `cauchyDistribution`
-- `eulerianBetaDistribution`
-- `normalDistribution`
-- `traingularDistribution`
-- `weibullDistribution`
-- `poissonDistribution`
-
 Probablity distributions:
 
 - `BernoulliDistribution`
 - `BetaDistribution`
 - `BinomialDistribution`
 - `CauchyDistribution`
+- `ChiSquareDistribution`
 - `ExponentialDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
 - `LaplaceDistribution`
 - `LogisticDistribution`
 - `LogNormalDistribution`
+- `NoncentralBetaDistribution`
+- `NoncentralChiSquareDistribution`
 - `NormalDistribution`
 - `ParetoDistribution`
 - `PoissonDistribution`
