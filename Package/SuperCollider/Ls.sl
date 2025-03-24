@@ -458,7 +458,7 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			randomNumberGenerator.nextRandomFloatEulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			randomNumberGenerator.eulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
 		} {
 			low.reset;
 			high.reset;
@@ -496,7 +496,7 @@
 		mean.withCollect(
 			spread,
 			{ :p :q |
-				randomNumberGenerator.nextRandomFloatCauchyDistribution(p, q)
+				randomNumberGenerator.cauchyDistribution(p, q)
 			}
 		).take(length)
 	}

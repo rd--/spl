@@ -59,15 +59,29 @@ NormalDistribution(0, 1)
 
 ![](sw/spl/Help/Image/NormalDistribution-D.png)
 
+Generate a sample of pseudorandom numbers from a normal distribution:
+
+~~~spl svg=E
+let r = Sfc32(370841);
+NormalDistribution(1, 3)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/NormalDistribution-E.svg)
+
 * * *
 
-See also: cdf, erf, pdf, randomVariate, StudentTDistribution
+See also: cdf, erf, gaussianMatrix, pdf, randomVariate, StudentTDistribution
 
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Essays/Normal_CDF),
 _Mathematica_
 [1](https://mathworld.wolfram.com/NormalDistribution.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/randn.html)
+[2](https://au.mathworks.com/help/stats/normrnd.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm),
 _W_

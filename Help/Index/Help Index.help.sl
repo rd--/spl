@@ -585,15 +585,13 @@
 
 ## Random Number Distributions
 
+- `BetaDistribution`
 - `CauchyDistribution`
 - `NormalDistribution`
+- `PoissonDistribution`
+- `TriangularDistribution`
 - `UniformDistribution`
-- `nextRandomFloatCauchyDistribution`
-- `nextRandomFloatEulerianBetaDistribution`
-- `nextRandomFloatGaussianDistribution`
-- `nextRandomFloatLinearDistribution`
-- `nextRandomFloatWeibullDistribution`
-- `nextRandomIntegerPoissonDistribution`
+- `WeibullDistribution`
 
 ## Rearranging & Restructuring Lists
 

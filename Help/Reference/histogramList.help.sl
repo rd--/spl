@@ -1,9 +1,12 @@
 # histogramList
 
-- _histogramList(aCollection)_
+- _histogramList(x, b)_
+- _histogramList(x)_
 
-Answer a list of bins boundaries and histogram heights of the values in _aCollection_.
-The number of bins is derived from the square root of the number of data points.
+Answer a list of bins boundaries and histogram heights of the values in _x_,
+given the bin specification _b_.
+If _b_ is elided,
+the number of bins is derived from the square root of the number of data points.
 Bins include the left endpoint, but not the right.
 
 Histogram of the first thirteen integers:
@@ -16,7 +19,7 @@ Histogram of the first thirteen integers:
 ]
 ```
 
-Specify bins:
+Specify bins as _(left, right, step)_:
 
 ```
 >>> 1:13.histogramList([0 14 2])

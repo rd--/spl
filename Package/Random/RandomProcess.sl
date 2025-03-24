@@ -202,8 +202,7 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 			{
 				let x0 = self.x0;
 				x0.ifNil {
-					'x0=Nil'.postLine;
-					x0 := r.nextRandomFloatGaussianDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
+					x0 := r.normalDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
 				};
 				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
 			} ! n
@@ -235,7 +234,7 @@ PoissonProcess : [Object] { | mu |
 				let k = 0;
 				let l = [[t, k]];
 				{
-					let i = r.nextRandomFloatExponentialDistribution(mu);
+					let i = r.exponentialDistribution(mu);
 					t := t + i;
 					(t <= tMax).if {
 						k := k + 1;
@@ -325,7 +324,7 @@ WienerProcess : [Object] { | mu sigma |
 		let n = ts.size;
 		let ys = List(n, 0);
 		let dW = { :dt |
-			self.nextRandomFloatGaussianDistribution(0, dt.sqrt)
+			self.normalDistribution(0, dt.sqrt)
 		};
 		ys[1] := y0;
 		2.toDo(n) { :i |
@@ -342,7 +341,7 @@ WienerProcess : [Object] { | mu sigma |
 		let n = ts.size;
 		let ys = List(n, 0);
 		let dW = { :dt |
-			self.nextRandomFloatGaussianDistribution(0, dt.sqrt)
+			self.normalDistribution(0, dt.sqrt)
 		};
 		ys[1] := y0;
 		2.toDo(n) { :i |

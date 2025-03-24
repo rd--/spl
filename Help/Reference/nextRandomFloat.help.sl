@@ -57,6 +57,6 @@ let rng = Sfc32(698412);
 
 * * *
 
-See also: nextRandomFloatGaussianDistribution, nextRandomFloatLinearDistribution, nextRandomFloatWeibullDistribution, nextRandomInteger, RandomNumberGenerator, randomReal
+See also: nextRandomInteger, RandomNumberGenerator, randomReal
 
 Categories: Random

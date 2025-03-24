@@ -5,6 +5,9 @@
 A `Type` that represents an exponential distribution with scale inversely proportional to parameter λ.
 The scale is given by the method `beta`, which answers the `reciprocal` of λ.
 
+The exponential distribution is a particular case of the gamma distribution,
+and is the continuous analogue of the geometric distribution.
+
 Probability mass function,
 monotonically decreasing:
 
@@ -103,7 +106,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: cdf, mean, pdf, randomVariate, variance
+See also: cdf, GammaDistribution, LaplaceDistribution, pdf, randomVariate
 
 References:
 _Mathematica_

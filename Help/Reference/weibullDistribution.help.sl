@@ -1,6 +1,6 @@
-# nextRandomFloatWeibullDistribution
+# weibullDistribution
 
-- _nextRandomFloatWeibullDistribution(alpha, beta, mu)_
+- _weibullDistribution(r, alpha, beta, mu)_
 
 Answer represents a Weibull distribution with
 a shape parameter α (also called γ or _k_),
@@ -21,7 +21,7 @@ Effects of α:
 let rng = Sfc32(391437);
 let f = {
 	rng
-	.nextRandomFloatWeibullDistribution(
+	.weibullDistribution(
 		3 / 4,
 		1,
 		0
@@ -30,10 +30,10 @@ let f = {
 (f:/0 ! 99).linePlot
 ~~~
 
-![](sw/spl/Help/Image/nextRandomFloatWeibullDistribution-A.svg)
+![](sw/spl/Help/Image/weibullDistribution-A.svg)
 
 * * *
 
-See also: nextRandomFloat, nextRandomFloatEulerianBetaDistribution, WeibullDistribution, weibullDistributionPdf
+See also: nextRandomFloat, eulerianBetaDistribution, WeibullDistribution
 
 Categories: Random

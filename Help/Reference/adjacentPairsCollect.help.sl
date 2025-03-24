@@ -23,6 +23,12 @@ At `List`:
 
 >>> [7 23 47].adjacentPairsCollect(*)
 [161 1081]
+
+>>> [0 0.5 1 1.5 2 2.5 3 3.5]
+>>> .adjacentPairsCollect { :i :j |
+>>> 	i + ((j - i) / 2)
+>>> }
+[0.25 0.75 1.25 1.75 2.25 2.75 3.25]
 ```
 
 Answer a matrix:

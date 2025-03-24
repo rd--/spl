@@ -1,6 +1,6 @@
-# nextRandomFloatEulerianBetaDistribution
+# eulerianBetaDistribution
 
-- _nextRandomFloatEulerianBetaDistribution(x1, x2, p1, p2)_
+- _eulerianBetaDistribution(x1, x2, p1, p2)_
 
 Parameters are:
 
@@ -34,7 +34,7 @@ Biased low:
 let rng = Sfc32(791741);
 (
 	{
-		rng.nextRandomFloatEulerianBetaDistribution(
+		rng.eulerianBetaDistribution(
 			0,
 			1,
 			1 / 3,
@@ -44,7 +44,7 @@ let rng = Sfc32(791741);
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/nextRandomFloatEulerianBetaDistribution-A.svg)
+![](sw/spl/Help/Image/eulerianBetaDistribution-A.svg)
 
 Biased high:
 
@@ -52,7 +52,7 @@ Biased high:
 let rng = Sfc32(231749);
 (
 	{
-		rng.nextRandomFloatEulerianBetaDistribution(
+		rng.eulerianBetaDistribution(
 			0,
 			1,
 			3,
@@ -62,7 +62,7 @@ let rng = Sfc32(231749);
 ).linePlot
 ~~~
 
-![](sw/spl/Help/Image/nextRandomFloatEulerianBetaDistribution-B.svg)
+![](sw/spl/Help/Image/eulerianBetaDistribution-B.svg)
 
 * * *
 

@@ -37,6 +37,8 @@ Pseudo random number generators:
 `Stream` methods:
 
 - `next`: next item
+- `nextRandomFloat`
+- `nextRandomInteger`
 
 Shuffling:
 
@@ -47,13 +49,12 @@ Shuffling:
 
 Distribution generator functions:
 
-- `nextRandomFloatCauchyDistribution`
-- `nextRandomFloatEulerianBetaDistribution`
-- `nextRandomFloatGaussianDistribution`
-- `nextRandomFloatLinearDistribution`
-- `nextRandomFloatWeibullDistribution`
-- `nextRandomInteger`
-- `nextRandomIntegerPoissonDistribution`
+- `cauchyDistribution`
+- `eulerianBetaDistribution`
+- `normalDistribution`
+- `traingularDistribution`
+- `weibullDistribution`
+- `poissonDistribution`
 
 Probablity distributions:
 
@@ -64,11 +65,14 @@ Probablity distributions:
 - `ExponentialDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
+- `LaplaceDistribution`
+- `LogisticDistribution`
 - `LogNormalDistribution`
 - `NormalDistribution`
 - `ParetoDistribution`
 - `PoissonDistribution`
 - `StudentTDistribution`
+- `TriangularDistribution`
 - `UniformDistribution`
 - `WeibullDistribution`
 

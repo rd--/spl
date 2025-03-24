@@ -454,7 +454,9 @@ Reference/bernsteinBasis.help.sl
 Reference/besselI.help.sl
 Reference/besselJ.help.sl
 Reference/besselY.help.sl
+Reference/BetaDistribution.help.sl
 Reference/beta.help.sl
+Reference/betaRegularized.help.sl
 Reference/betweenAnd.help.sl
 Reference/bezierApproximation.help.sl
 Reference/BezierCurve.help.sl
@@ -480,6 +482,7 @@ Reference/bindLeft.help.sl
 Reference/bindRight.help.sl
 Reference/binetsFormula.help.sl
 Reference/binLists.help.sl
+Reference/BinomialDistribution.help.sl
 Reference/binomial.help.sl
 Reference/binomialPascal.help.sl
 Reference/bisect.help.sl
@@ -563,6 +566,7 @@ Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
 Reference/catenate.help.sl
 Reference/catmullRomInterpolation.help.sl
+Reference/cauchyDistribution.help.sl
 Reference/CauchyDistribution.help.sl
 Reference/cdf.help.sl
 Reference/ceiling.help.sl
@@ -665,6 +669,7 @@ Reference/constantArray.help.sl
 Reference/constant.help.sl
 Reference/contents.help.sl
 Reference/continuedFraction.help.sl
+Reference/ContinuousMarkovProcess.help.sl
 Reference/contractTo.help.sl
 Reference/contraharmonicMean.help.sl
 Reference/ControlDur.help.sl
@@ -917,6 +922,7 @@ Reference/euclideanDistance.help.sl
 Reference/eulerFokkerGenus.help.sl
 Reference/eulerGamma.help.sl
 Reference/eulerGradusSuavitatis.help.sl
+Reference/eulerianBetaDistribution.help.sl
 Reference/eulerMatrix.help.sl
 Reference/eulerMethod.help.sl
 Reference/eulerPhi.help.sl
@@ -1033,10 +1039,14 @@ Reference/FSinOsc.help.sl
 Reference/fullStopFullStop.help.sl
 Reference/fullStop.help.sl
 Reference/functionPlot.help.sl
+Reference/GammaDistribution.help.sl
 Reference/gamma.help.sl
+Reference/gammaRegularized.help.sl
 Reference/Gate.help.sl
 Reference/gather.help.sl
 Reference/gaussianElimination.help.sl
+Reference/gaussianMatrix.help.sl
+Reference/gaussianVector.help.sl
 Reference/gaussianWindow.help.sl
 Reference/gaussJordanInverse.help.sl
 Reference/gcd.help.sl
@@ -1051,6 +1061,7 @@ Reference/gen13.help.sl
 Reference/gen16.help.sl
 Reference/gen19.help.sl
 Reference/Gendy1.help.sl
+Reference/GeometricBrownianMotionProcess.help.sl
 Reference/GeometricDistribution.help.sl
 Reference/geometricMean.help.sl
 Reference/geometricSeries.help.sl
@@ -1104,6 +1115,7 @@ Reference/hasEqualSlots.help.sl
 Reference/Hasher.help.sl
 Reference/hash.help.sl
 Reference/haversine.help.sl
+Reference/hazardFunction.help.sl
 Reference/Headers.help.sl
 Reference/Heap.help.sl
 Reference/HelpBrowser.help.sl
@@ -1120,6 +1132,7 @@ Reference/hermiteInterpolation.help.sl
 Reference/hertz.help.sl
 Reference/hessianNormalForm.help.sl
 Reference/hexTriplet.help.sl
+Reference/HiddenMarkovProcess.help.sl
 Reference/highBit.help.sl
 Reference/highBitOfByte.help.sl
 Reference/highBitOfMagnitude.help.sl
@@ -1128,6 +1141,7 @@ Reference/Hilbert.help.sl
 Reference/hilbertMatrix.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
+Reference/histogramPlot.help.sl
 Reference/holdersComma.help.sl
 Reference/holmesPolyhedraCatalogue.help.sl
 Reference/homogeneousTranslationMatrix.help.sl
@@ -1196,6 +1210,7 @@ Reference/includesKey.help.sl
 Reference/includesScatteredSubsequence.help.sl
 Reference/includesSubsequence.help.sl
 Reference/includesSubstring.help.sl
+Reference/incompleteGamma.help.sl
 Reference/increasingSubsequenceList.help.sl
 Reference/increment.help.sl
 Reference/indefiniteArticle.help.sl
@@ -1258,9 +1273,12 @@ Reference/intervalName.help.sl
 Reference/intervalsBy.help.sl
 Reference/intervals.help.sl
 Reference/inventorySequence.help.sl
+Reference/inverseCdf.help.sl
+Reference/inverseErfc.help.sl
 Reference/inverseErf.help.sl
 Reference/inverse.help.sl
 Reference/inversePermutation.help.sl
+Reference/inverseSurvivalFunction.help.sl
 Reference/inversionVector.help.sl
 Reference/iota.help.sl
 Reference/IRand.help.sl
@@ -1447,6 +1465,7 @@ Reference/labeledVertexList.help.sl
 Reference/labToXyz.help.sl
 Reference/Lag.help.sl
 Reference/LagUd.help.sl
+Reference/LaplaceDistribution.help.sl
 Reference/LargeInteger.help.sl
 Reference/lassalleNumber.help.sl
 Reference/last.help.sl
@@ -1563,6 +1582,8 @@ Reference/logarithmicPhi.help.sl
 Reference/logGamma.help.sl
 Reference/log.help.sl
 Reference/Log.help.sl
+Reference/LogisticDistribution.help.sl
+Reference/LogNormalDistribution.help.sl
 Reference/logScale.help.sl
 Reference/logspace.help.sl
 Reference/longestCommonSubsequence.help.sl
@@ -1574,6 +1595,7 @@ Reference/lookup.help.sl
 Reference/lorenzEquation.help.sl
 Reference/lowBit.help.sl
 Reference/lowBitPerByteTable.help.sl
+Reference/lowerIncompleteGamma.help.sl
 Reference/lowerTriangularize.help.sl
 Reference/lowLine.help.sl
 Reference/Lpf.help.sl
@@ -1778,14 +1800,8 @@ Reference/nextPowerOfTwo.help.sl
 Reference/nextPrime.help.sl
 Reference/nextPutAll.help.sl
 Reference/nextPut.help.sl
-Reference/nextRandomFloatCauchyDistribution.help.sl
-Reference/nextRandomFloatEulerianBetaDistribution.help.sl
-Reference/nextRandomFloatGaussianDistribution.help.sl
 Reference/nextRandomFloat.help.sl
-Reference/nextRandomFloatLinearDistribution.help.sl
-Reference/nextRandomFloatWeibullDistribution.help.sl
 Reference/nextRandomInteger.help.sl
-Reference/nextRandomIntegerPoissonDistribution.help.sl
 Reference/nextSatisfy.help.sl
 Reference/nextUntil.help.sl
 Reference/nextWhile.help.sl
@@ -1795,9 +1811,8 @@ Reference/nil.help.sl
 Reference/Nil.help.sl
 Reference/noergaardInfinitySequence.help.sl
 Reference/noneSatisfy.help.sl
-Reference/normalDistributionCdf.help.sl
+Reference/normalDistribution.help.sl
 Reference/NormalDistribution.help.sl
-Reference/normalDistributionPdf.help.sl
 Reference/normal.help.sl
 Reference/normalized.help.sl
 Reference/normalizedSquaredEuclideanDistance.help.sl
@@ -1860,6 +1875,7 @@ Reference/Ordered.help.sl
 Reference/orderedSubstrings.help.sl
 Reference/ordering.help.sl
 Reference/origin.help.sl
+Reference/OrnsteinUhlenbeckProcess.help.sl
 Reference/orthogonalize.help.sl
 Reference/Osc1.help.sl
 Reference/OscBundle.help.sl
@@ -1895,6 +1911,7 @@ Reference/paragraphs.help.sl
 Reference/Parallelogram.help.sl
 Reference/parameterNames.help.sl
 Reference/parametricPlot.help.sl
+Reference/ParetoDistribution.help.sl
 Reference/parseDate.help.sl
 Reference/parseDecimal.help.sl
 Reference/parseDecimalInteger.help.sl
@@ -2014,7 +2031,9 @@ Reference/pointLineDistance.help.sl
 Reference/pointLineNearest.help.sl
 Reference/pointLineSegmentNearest.help.sl
 Reference/pointPlaneDistance.help.sl
-Reference/poissonDistributionPdf.help.sl
+Reference/poissonDistribution.help.sl
+Reference/PoissonDistribution.help.sl
+Reference/PoissonProcess.help.sl
 Reference/PolarCoordinates.help.sl
 Reference/polarPlot.help.sl
 Reference/polygonalNumber.help.sl
@@ -2113,6 +2132,7 @@ Reference/Rand0.help.sl
 Reference/Rand2.help.sl
 Reference/Rand.help.sl
 Reference/randomBit.help.sl
+Reference/randomBoolean.help.sl
 Reference/randomByteArray.help.sl
 Reference/randomChoice.help.sl
 Reference/randomColour.help.sl
@@ -2467,6 +2487,7 @@ Reference/String.help.sl
 Reference/stringIntercalate.help.sl
 Reference/stringJoin.help.sl
 Reference/stringReverse.help.sl
+Reference/StudentTDistribution.help.sl
 Reference/styleSheetList.help.sl
 Reference/subdivide.help.sl
 Reference/subfactorial.help.sl
@@ -2496,6 +2517,7 @@ Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
 Reference/surfaceNormal.help.sl
 Reference/surfacePlot.help.sl
+Reference/survivalFunction.help.sl
 Reference/Svf.help.sl
 Reference/svgColourCatalogue.help.sl
 Reference/Svg.help.sl
@@ -2586,6 +2608,8 @@ Reference/transpose.help.sl
 Reference/Tree.help.sl
 Reference/treePlot.help.sl
 Reference/Triangle.help.sl
+Reference/triangularDistribution.help.sl
+Reference/TriangularDistribution.help.sl
 Reference/Trig1.help.sl
 Reference/TrigAllocator.help.sl
 Reference/Trig.help.sl
@@ -2647,6 +2671,7 @@ Reference/unrankPermutation.help.sl
 Reference/unsigned32BitWordList.help.sl
 Reference/unwords.help.sl
 Reference/upOrDownTo.help.sl
+Reference/upperIncompleteGamma.help.sl
 Reference/upperTriangularize.help.sl
 Reference/upsample.help.sl
 Reference/upToEnd.help.sl
@@ -2688,6 +2713,7 @@ Reference/vertexOutDegree.help.sl
 Reference/verticalLine.help.sl
 Reference/verticalLineVerticalLine.help.sl
 Reference/View.help.sl
+Reference/viterbiDecoding.help.sl
 Reference/Void.help.sl
 Reference/volumeResample.help.sl
 Reference/Vosim.help.sl
@@ -2697,9 +2723,8 @@ Reference/Warp1.help.sl
 Reference/WeakMap.help.sl
 Reference/WebSocket.help.sl
 Reference/weeks.help.sl
-Reference/weibullDistributionCdf.help.sl
+Reference/weibullDistribution.help.sl
 Reference/WeibullDistribution.help.sl
-Reference/weibullDistributionPdf.help.sl
 Reference/weierstrassFunction.help.sl
 Reference/weightedAdjacencyGraph.help.sl
 Reference/weightedMediant.help.sl

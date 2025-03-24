@@ -55,3 +55,5 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366b.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Gamma_distribution)
+
+Further Reading: Marsaglia 2000

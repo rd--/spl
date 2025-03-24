@@ -92,7 +92,18 @@
 
 +@RandomNumberGenerator {
 
-	nextRandomFloatEulerianBetaDistribution { :self :x1 :x2 :p1 :p2 |
+	boxMullerTransform { :self |
+		let u = self.nextRandomFloat;
+		let v = self.nextRandomFloat;
+		let r = (-2 * u.log).sqrt;
+		let z = 2.pi * v;
+		[
+			r * z.sin,
+			r * z.cos
+		]
+	}
+
+	eulerianBetaDistribution { :self :x1 :x2 :p1 :p2 |
 		let p1r = 1 / p1;
 		let p2r = 1 / p2;
 		let sum = 2;
@@ -106,47 +117,63 @@
 		((next / sum) * (x2 - x1)) + x1
 	}
 
-	nextRandomFloatCauchyDistribution { :self :mean :spread |
-		let r = 0.5;
+	cauchyDistribution { :self :x0 :gamma |
+		let u = self.nextRandomFloat;
+		x0 + (gamma * (u - 0.5).pi.tan)
+	}
+
+	exponentialDistribution { :self :lambda |
+		let u = self.nextRandomFloat;
+		(1 - u).log / lambda.-
+	}
+
+	marsagliaPolarMethod { :self |
+		let u = nil;
+		let v = nil;
+		let w = nil;
 		{
-			r = 0.5
-		}.whileTrue {
-			r := self.nextRandomFloat
-		};
-		spread * r.pi.tan + mean
+			u := self.nextRandomFloat * 2 - 1;
+			v := self.nextRandomFloat * 2 - 1;
+			w := (u * u) + (v * v);
+			w >= 1
+		}.whileTrue;
+		[
+			u * (-2 * w.log / w).sqrt,
+			v * (-2 * w.log / w).sqrt
+		]
 	}
 
-	nextRandomFloatExponentialDistribution { :self :lambda |
-		(1 - self.nextRandomFloat).log / lambda.-
-	}
-
-	nextRandomFloatGaussianDistribution { :self :mu :sigma |
-		(((-2 * self.nextRandomFloat.log).sqrt * (2.pi * self.nextRandomFloat).sin) * sigma) + mu
-	}
-
-	nextRandomFloatLinearDistribution { :self :x1 :x2 |
-		let r1 = self.nextRandomFloat;
-		let r2 = self.nextRandomFloat;
-		(r1 < r2).ifTrue {
-			r2 := r1
-		};
-		r2 * (x2 - x1) + x1
-	}
-
-	nextRandomFloatLogisticDistribution { :self :mean :spread |
+	normalDistribution { :self :mu :sigma |
 		let u = self.nextRandomFloat;
-		(u / (1 - u)).log * spread + mean
+		let v = self.nextRandomFloat;
+		let x = (-2 * u.log).sqrt * (2.pi * v).sin;
+		(x * sigma) + mu
 	}
 
-	nextRandomFloatParetoDistribution { :self :k :alpha |
+	triangularDistribution { :self :min :max :c |
 		let u = self.nextRandomFloat;
-		k * (u ^ (-1 / alpha))
+		(u < ((c - min) / (max - min))).if {
+			min + (u * (max - min) * (c - min)).sqrt
+		} {
+			max - ((1 - u) * (max - min) * (max - c)).sqrt
+		}
 	}
 
-	nextRandomIntegerPoissonDistribution { :self :n |
+	logisticDistribution { :self :mu :beta |
+		let u = self.nextRandomFloat;
+		(u / (1 - u)).log * beta + mu
+	}
+
+	paretoDistribution { :self :k :alpha |
+		let e = -1 / alpha;
+		let u = self.nextRandomFloat;
+		k * (u ^ e)
+	}
+
+	poissonDistribution { :self :mu |
 		let k = 0;
 		let r = self.nextRandomFloat;
-		let t = n.negated.exp;
+		let t = mu.negated.exp;
 		{
 			r > t
 		}.whileTrue {
@@ -156,7 +183,7 @@
 		k
 	}
 
-	nextRandomFloatWeibullDistribution { :self :alpha :beta :mu |
+	weibullDistribution { :self :alpha :beta :mu |
 		let r = 1;
 		{
 			r = 1
@@ -385,7 +412,7 @@ CauchyDistribution : [Object, ProbabilityDistribution] { | x0 gamma |
 		let x0 = self.x0;
 		let gamma = self.gamma;
 		{
-			rng.nextRandomFloatCauchyDistribution(x0, gamma)
+			rng.cauchyDistribution(x0, gamma)
 		} ! shape
 	}
 
@@ -474,10 +501,8 @@ ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
 
 	randomVariate { :self :rng :shape |
 		let lambda = self.lambda;
-		let negativeLambda = lambda.-;
 		{
-			let u = rng.nextRandomFloat;
-			(1 - u).log / negativeLambda
+			rng.exponentialDistribution(lambda)
 		} ! shape
 	}
 
@@ -592,13 +617,109 @@ GeometricDistribution : [Object, ProbabilityDistribution] { | p |
 
 }
 
+LaplaceDistribution : [Object, ProbabilityDistribution] { | mu beta |
+
+	cdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			let y = ((x - mu).abs.negated / beta).exp / 2;
+			(x >= mu).if {
+				1 - y
+			} {
+				y
+			}
+		}
+	}
+
+	entropy { :self |
+		(2 * self.beta).log + 1
+	}
+
+	mean { :self |
+		self.mu
+	}
+
+	median { :self |
+		self.mu
+	}
+
+	mode { :self |
+		self.mu
+	}
+
+	pdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			((x - mu).abs.negated / beta).exp / (2 * beta)
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let mu = self.mu;
+		let beta = self.beta;
+		{
+			let u = rng.nextRandomFloat - 0.5;
+			mu - (beta * u.sign * (1 - (2 * u.abs)).log)
+		} ! shape
+	}
+
+	skewness { :unused |
+		0
+	}
+
+	variance { :self |
+		2 * self.beta.squared
+	}
+
+}
+
+LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
+
+	cdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			let z = ((x - mu) / beta).-.exp;
+			1 / (1 + z)
+		}
+	}
+
+	mean { :self |
+		self.mu
+	}
+
+	median { :self |
+		self.mu
+	}
+
+	pdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			let z = ((x - mu) / beta).-.exp;
+			z / ((1 + z).squared * beta)
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let mu = self.mu;
+		let beta = self.beta;
+		{
+			rng.logisticDistribution(mu, beta)
+		} ! shape
+	}
+
+}
+
 LogNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
 	randomVariate { :self :rng :shape |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		{
-			rng.nextRandomFloatGaussianDistribution(mu, sigma).exp
+			rng.normalDistribution(mu, sigma).exp
 		} ! shape
 	}
 
@@ -658,7 +779,7 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		{
-			rng.nextRandomFloatGaussianDistribution(mu, sigma)
+			rng.normalDistribution(mu, sigma)
 		} ! shape
 	}
 
@@ -734,6 +855,13 @@ PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 		{ :x |
 			(x * mu.log - mu - (x + 1).logGamma).exp
 		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let mu = self.mu;
+		{
+			rng.poissonDistribution(mu)
+		} ! shape
 	}
 
 	skewness { :self |
@@ -812,6 +940,57 @@ StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
 				NaN
 			}
 		}
+	}
+
+}
+
+TriangularDistribution : [Object, ProbabilityDistribution] { | i c |
+
+	cdf { :self |
+		let a = self.i.min;
+		let b = self.i.max;
+		let c = self.c;
+		{ :x |
+			(x <= a).if {
+				0
+			} {
+				(x <= c).if {
+					(x - a) * (x - a) / ((b - a) * (c - a))
+				} {
+					(x < b).if {
+						1 - ((b - x) * (b - x) / ((b - a) * (b - c)))
+					} {
+						1
+					}
+				}
+			}
+		}
+	}
+
+	pdf { :self |
+		let a = self.i.min;
+		let b = self.i.max;
+		let c = self.c;
+		{ :x |
+			(a <= x & { x <= c }).if {
+				2 * (x - a) / ((b - a) * (c - a))
+			} {
+				(c < x & { x <= b }).if {
+					2 * (b - x) / ((b - a) * (b - c))
+				} {
+					0
+				}
+			}
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let a = self.i.min;
+		let b = self.i.max;
+		let c = self.c;
+		{
+			rng.triangularDistribution(a, b, c)
+		} ! shape
 	}
 
 }
@@ -946,7 +1125,7 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		let beta = self.beta;
 		let mu = self.mu;
 		{
-			rng.nextRandomFloatWeibullDistribution(alpha, beta, mu)
+			rng.weibullDistribution(alpha, beta, mu)
 		} ! shape
 	}
 
@@ -982,6 +1161,14 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		newGeometricDistribution().initializeSlots(p)
 	}
 
+	LaplaceDistribution { :mu :beta |
+		newLaplaceDistribution().initializeSlots(mu, beta)
+	}
+
+	LogisticDistribution { :mu :beta |
+		newLogisticDistribution().initializeSlots(mu, beta)
+	}
+
 	LogNormalDistribution { :mu :sigma |
 		newLogNormalDistribution().initializeSlots(mu, sigma)
 	}
@@ -1008,6 +1195,14 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	WeibullDistribution { :alpha :beta :mu |
 		newWeibullDistribution().initializeSlots(alpha, beta, mu)
+	}
+
+}
+
++Interval {
+
+	TriangularDistribution { :m :c |
+		newTriangularDistribution().initializeSlots(m, c)
 	}
 
 }

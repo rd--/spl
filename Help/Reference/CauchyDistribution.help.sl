@@ -2,7 +2,7 @@
 
 - _CauchyDistribution(x0, gamma)_
 
-Answer a `Type` that represents a Cauchy distribution.
+Answer a `Type` that represents a Cauchy distribution with  location parameter _x0_ and scale parameter _gamma_.
 The Cauchy distribution is the distribution of the _x_-intercept of a ray issuing from _(x0, gamma)_ with a uniformly distributed angle.
 It is also the distribution of the ratio of two independent normally distributed random variables with `mean` `zero`.
 
@@ -61,6 +61,17 @@ CauchyDistribution(0, 0.025)
 ~~~
 
 ![](sw/spl/Help/Image/CauchyDistribution-E.png)
+
+Generate a sample of pseudorandom numbers from a Cauchy distribution:
+
+~~~spl svg=F
+let r = Sfc32(387041);
+CauchyDistribution(3, 2.5)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot([-18 20 1])
+~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-F.svg)
 
 * * *
 

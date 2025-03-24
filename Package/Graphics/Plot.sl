@@ -227,6 +227,22 @@ Plot : [Object] { | pages format options |
 		self.nest.Plot('graph', (method: 'neato'))
 	}
 
+	histogramListPlot { :self |
+		let [b, y] = self;
+		let x = b.adjacentPairsCollect { :i :j |
+			i + ((j - i) / 2)
+		};
+		[x, y].transposed.discretePlot
+	}
+
+	histogramPlot { :self |
+		self.histogramList.histogramListPlot
+	}
+
+	histogramPlot { :self :binSpecification |
+		self.histogramList(binSpecification).histogramListPlot
+	}
+
 	linePlot { :self |
 		self.typedPlot('line')
 	}
