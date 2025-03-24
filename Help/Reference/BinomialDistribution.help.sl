@@ -56,6 +56,17 @@ Kurtosis:
 
 ![](sw/spl/Help/Image/BinomialDistribution-D.svg)
 
+Generate a sample of pseudo-random numbers from a binomial distribution:
+
+~~~spl svg=E
+let r = Sfc32(801894);
+BinomialDistribution(10, 0.4)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/BinomialDistribution-E.svg)
+
 * * *
 
 See also: BernoulliDistribution, binomial, GeometricDistribution, NormalDistribution, PoissonDistribution

@@ -49,6 +49,17 @@ Cumulative distribution function:
 
 ![](sw/spl/Help/Image/BetaDistribution-C.svg)
 
+Generate a sample of pseudo-random numbers from a beta distribution:
+
+~~~spl svg=D
+let r = Sfc32(395472);
+BetaDistribution(3, 2.5)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-D.svg)
+
 * * *
 
 See also: BinomialDistribution, beta, betaRegularized, GammaDistribution
@@ -56,6 +67,8 @@ See also: BinomialDistribution, beta, betaRegularized, GammaDistribution
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BetaDistribution.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/stats/betarnd.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366h.htm),
 _W_

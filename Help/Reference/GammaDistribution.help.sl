@@ -34,6 +34,17 @@ Cumulative distribution function:
 
 ![](sw/spl/Help/Image/GammaDistribution-B.svg)
 
+Generate a sample of pseudo-random numbers from a gamma distribution:
+
+~~~spl svg=C
+let r = Sfc32(731482);
+GammaDistribution(3.5, 2)
+.randomVariate(r, [10 ^ 4])
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/GammaDistribution-C.svg)
+
 Mean and variance:
 
 ```
@@ -46,11 +57,13 @@ Mean and variance:
 
 * * *
 
-See also: BetaDistribution, ExponentialDistribution, gamma, incompleteGamma
+See also: BetaDistribution, ExponentialDistribution, gamma, gammaRegularized
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GammaDistribution.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/stats/gamrnd.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366b.htm),
 _W_

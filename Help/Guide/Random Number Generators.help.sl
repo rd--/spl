@@ -58,8 +58,8 @@ Distribution generator functions:
 
 Probablity distributions:
 
-- `BetaDistribution`
 - `BernoulliDistribution`
+- `BetaDistribution`
 - `BinomialDistribution`
 - `CauchyDistribution`
 - `ExponentialDistribution`

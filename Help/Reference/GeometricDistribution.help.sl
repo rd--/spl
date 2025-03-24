@@ -41,9 +41,7 @@ Generate a sample of pseudorandom numbers from a geometric distribution:
 let r = Sfc32(794185);
 GeometricDistribution(0.1)
 .randomVariate(r, 10 ^ 4)
-.histogramList
-.second
-.discretePlot
+.histogramPlot
 ~~~
 
 ![](sw/spl/Help/Image/GeometricDistribution-D.svg)
@@ -94,8 +92,8 @@ As more samples are taken the probablity that the measured mean will be distant 
 ```
 >>> let d = GeometricDistribution(0.2);
 >>> let r = Sfc32(489081);
->>> (10 ^ 1:4).collect { :k
->>> 	| d.randomVariate(r, k).mean
+>>> (10 ^ 1:4).collect { :k |
+>>> 	d.randomVariate(r, k).mean
 >>> }
 [1.3 4.17 3.884 4.087]
 ```

@@ -101,7 +101,7 @@ Evaluate symbolically:
 
 >> ExponentialDistribution(`lambda`)
 >> .survivalFunction(`x`)
-(- 1 (if (>= x 0) (- 1 (exp (* (* -1 x) lambda))) 0))
+(if (>= x 0) (exp (* (* -1 x) lambda)) 1)
 ```
 
 * * *

@@ -92,6 +92,23 @@
 
 +@RandomNumberGenerator {
 
+	betaDistribution { :self :alpha :beta |
+		let x = self.gammaDistribution(alpha, 1);
+		let y = self.gammaDistribution(beta, 1);
+		x / (x + y)
+	}
+
+	binomialDistribution { :self :n :p |
+		let answer = 0;
+		n.timesRepeat {
+			let u = self.nextRandomFloat;
+			(u < p).ifTrue {
+				answer := answer + 1
+			}
+		};
+		answer
+	}
+
 	boxMullerTransform { :self |
 		let u = self.nextRandomFloat;
 		let v = self.nextRandomFloat;
@@ -121,11 +138,39 @@
 		let u = self.nextRandomFloat;
 		x0 + (gamma * (u - 0.5).pi.tan)
 	}
-
 	exponentialDistribution { :self :lambda |
 		let u = self.nextRandomFloat;
 		(1 - u).log / lambda.-
 	}
+
+	gammaDistribution { :self :alpha :beta |
+		var a, afix, c, d, u, v, x;
+		(alpha < 1).if {
+			a := alpha + 1;
+			afix := self.nextRandomFloat ^ (1 / alpha)
+		} {
+			a := alpha;
+			afix := 1
+		};
+		d := a - (1 / 3);
+		c := 1 / (9 * d).sqrt;
+		{
+			{
+				x := self.normalDistribution(0, 1);
+				v := 1 + (c * x)
+			}.doWhileTrue {
+				v <= 0
+			};
+			v := v * v * v;
+			x := x * x;
+			u := self.nextRandomFloat
+		}.doWhileTrue {
+			u >= (1 - (0.0331 * x * x)) | {
+				u.log >= ((0.5 * x) + (d * (1 - v + v.log)))
+			}
+		};
+		afix * d * v * beta
+        }
 
 	marsagliaPolarMethod { :self |
 		let u = nil;
@@ -322,6 +367,14 @@ BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 		}
 	}
 
+	randomVariate { :self :rng :shape |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{
+			rng.betaDistribution(alpha, beta)
+		} ! shape
+	}
+
 }
 
 BinomialDistribution : [Object, ProbabilityDistribution] { | n p |
@@ -347,11 +400,19 @@ BinomialDistribution : [Object, ProbabilityDistribution] { | n p |
 	}
 
 	pdf { :self |
+		let n = self.n;
+		let p = self.p;
 		{ :k |
-			let n = self.n;
-			let p = self.p;
 			n.binomial(k) * (p ^ k) * ((1 - p) ^ (n - k))
 		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let n = self.n;
+		let p = self.p;
+		{
+			rng.binomialDistribution(n, p)
+		} ! shape
 	}
 
 	skewness { :self |
@@ -553,6 +614,14 @@ GammaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 		}
 	}
 
+	randomVariate { :self :rng :shape |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{
+			rng.gammaDistribution(alpha, beta)
+		} ! shape
+	}
+
 	survivalFunction { :self :x |
 		(x / self.beta).upperIncompleteGamma(self.alpha)
 	}
@@ -714,6 +783,19 @@ LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
 }
 
 LogNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
+
+	pdf { :self |
+		let mu = self.mu;
+		let sigma = self.sigma;
+		{ :x |
+			(x > 0 & { x.isFinite }).if {
+				let d = (x.log - mu) / sigma;
+				(-0.5 * d * d).exp / (x * 2.pi.sqrt * sigma)
+			} {
+				0.0
+			}
+		}
+	}
 
 	randomVariate { :self :rng :shape |
 		let mu = self.mu;
