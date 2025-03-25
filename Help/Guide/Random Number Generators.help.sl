@@ -54,6 +54,7 @@ Probablity distributions:
 - `BinomialDistribution`
 - `CauchyDistribution`
 - `ChiSquareDistribution`
+- `EmpiricalDistribution`
 - `ExponentialDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`

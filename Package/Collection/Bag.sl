@@ -239,7 +239,9 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 	commonest { :self |
 		let byCount = self.asBag.sortedCounts;
 		let count = byCount.first.key;
-		byCount.select { :each | each.key = count }.collect(value:/1)
+		byCount.select { :each |
+			each.key = count
+		}.collect(value:/1)
 	}
 
 	counts { :self |

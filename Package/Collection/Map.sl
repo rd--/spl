@@ -23,6 +23,15 @@
 		self.error('@PrimitiveMap>>at: unknown key: ' ++ key)
 	}
 
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		<primitive:
+		if(_self.has(_key)) {
+			return _ifPresent_1(_self.get(_key))
+		};
+		return _ifAbsent_0();
+		>
+	}
+
 	basicAtPut { :self :key :value |
 		<primitive:
 		_self.set(_key, _value);
