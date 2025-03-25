@@ -10,9 +10,9 @@ and the probability of a zero step _1 - p - q_.
 Simulate a one-dimensional random walk:
 
 ~~~spl svg=A
-let p = RandomWalkProcess(0.5, 0.5);
-Sfc32(312789)
-.randomFunction(p, [0 30 1], 1)
+let r = Sfc32(312789);
+RandomWalkProcess(0.5, 0.5)
+.randomFunction(r, [0 30], 1)
 .discretePlot
 ~~~
 
@@ -21,17 +21,56 @@ Sfc32(312789)
 For a three-step random walk:
 
 ~~~spl svg=B
-let p = RandomWalkProcess(0.2, 0.3);
-Sfc32(839536)
-.randomFunction(p, [0 30 1], 1)
-.discretePlot
+let r = Sfc32(839536);
+RandomWalkProcess(0.2, 0.3)
+.randomFunction(r, [0 30], 1)
+.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/RandomWalkProcess-B.svg)
 
+Simulate an ensemble of random paths:
+
+~~~spl svg=C
+let r = Sfc32(673814);
+RandomWalkProcess(0.7, 0.3)
+.randomFunction(r, [0 25], 4)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/RandomWalkProcess-C.svg)
+
+A symmetric random walk in two-dimensions:
+
+~~~spl svg=D
+let r = Sfc32(768134);
+RandomWalkProcess(0.5, 0.5)
+.randomFunction(r, [0 1E3], 2)
+.valueList
+.transposed
+.Line
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/RandomWalkProcess-D.svg)
+
+A symmetric random walk in three-dimensions:
+
+~~~spl svg=E
+let r = Sfc32(791234);
+RandomWalkProcess(0.5, 0.5)
+.randomFunction(r, [0 1E3], 3)
+.valueList
+.transposed
+.Line
+.asPerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/RandomWalkProcess-E.svg)
+
 * * *
 
-See also: randomFunction, WienerProcess
+See also: BernoulliProcess, randomFunction, WienerProcess
 
 References:
 _Mathematica_

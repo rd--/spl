@@ -1,16 +1,12 @@
 BernoulliProcess : [Object] { | p |
 
-	nextRandom { :self :shape :randomNumberGenerator |
-		{ (randomNumberGenerator.nextRandomFloat < self.p).boole } ! shape
-	}
-
 	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		r.randomFunction(self, [tMin, tMax, 1], n)
-	}
-
-	reset { :self |
-		self
+		{ :timeList |
+			{
+				(r.nextRandomFloat < self.p).boole
+			} ! timeList.size
+		}.randomFunction([tMin, tMax, 1], n)
 	}
 
 }
@@ -64,29 +60,20 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 
 }
 
-DiscreteMarkovProcess : [Object] { | p0 m x |
-
-	nextRandom { :self :shape :randomNumberGenerator |
-		let p0 = AliasMethod(self.p0);
-		let m = self.m.collect(AliasMethod:/1);
-		{
-			let c = self.x.ifNil {
-				p0
-			} {
-				m[self.x]
-			};
-			self.x := c.nextRandom(randomNumberGenerator);
-			self.x
-		} ! shape
-	}
+DiscreteMarkovProcess : [Object] { | p0 m |
 
 	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		r.randomFunction(self, [tMin, tMax, 1], n)
-	}
-
-	reset { :self |
-		self.x := nil
+		let p0 = AliasMethod(self.p0);
+		let m = self.m.collect(AliasMethod:/1);
+		{ :timeList |
+			let x = p0.nextRandom(r);
+			{
+				let h = x;
+				x := m[x].nextRandom(r);
+				h
+			} ! timeList.size
+		}.randomFunction([tMin, tMax, 1], n)
 	}
 
 }
@@ -94,7 +81,7 @@ DiscreteMarkovProcess : [Object] { | p0 m x |
 +List {
 
 	DiscreteMarkovProcess { :p0 :m |
-		newDiscreteMarkovProcess().initializeSlots(p0, m, nil)
+		newDiscreteMarkovProcess().initializeSlots(p0, m)
 	}
 
 }
@@ -122,30 +109,21 @@ GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 
 }
 
-HiddenMarkovProcess : [Object] { | p0 m e x |
+HiddenMarkovProcess : [Object] { | p0 m e |
 
-	nextRandom { :self :shape :randomNumberGenerator |
+	randomFunction { :self :r :t :n |
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod:/1);
 		let e = self.e.collect(AliasMethod:/1);
-		{
-			let c = self.x.ifNil {
-				p0
-			} {
-				m[self.x]
-			};
-			self.x := c.nextRandom(randomNumberGenerator);
-			e[self.x].nextRandom(randomNumberGenerator)
-		} ! shape
-	}
-
-	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		r.randomFunction(self, [tMin, tMax, 1], n)
-	}
-
-	reset { :self |
-		self.x := nil
+		{ :timeList |
+			let x = p0.nextRandom(r);
+			{
+				let z = e[x].nextRandom(r);
+				x := m[x].nextRandom(r);
+				z
+			} ! timeList.size
+		}.randomFunction([tMin, tMax, 1], n)
 	}
 
 	viterbiDecoding { :self :aList |
@@ -184,7 +162,7 @@ HiddenMarkovProcess : [Object] { | p0 m e x |
 +List {
 
 	HiddenMarkovProcess { :p0 :m :e |
-		newHiddenMarkovProcess().initializeSlots(p0, m, e, nil)
+		newHiddenMarkovProcess().initializeSlots(p0, m, e)
 	}
 
 }
@@ -259,27 +237,26 @@ PoissonProcess : [Object] { | mu |
 
 }
 
-RandomWalkProcess : [Object] { | p q x |
+RandomWalkProcess : [Object] { | p q |
 
-	nextRandom { :self :shape :randomNumberGenerator |
-		let x = self.x;
+	randomFunction { :self :r :t :n |
 		let p = self.p;
 		let q = self.q;
-		{
-			let u = randomNumberGenerator.nextRandomFloat;
-			(u < p).if {
-				self.x := x + 1
-			} {
-				(u < (p + q)).ifTrue {
-					self.x := x - 1
-				}
-			};
-			self.x
-		} ! shape
-	}
-
-	reset { :self |
-		self.x := 0
+		let [tMin, tMax] = t;
+		{ :timeList |
+			let x = 0;
+			{
+				let u = r.nextRandomFloat;
+				(u < p).if {
+					x := x + 1
+				} {
+					(u < (p + q)).ifTrue {
+						x := x - 1
+					}
+				};
+				x
+			} ! timeList.size
+		}.randomFunction([tMin, tMax, 1], n)
 	}
 
 }
@@ -287,7 +264,7 @@ RandomWalkProcess : [Object] { | p q x |
 +SmallFloat {
 
 	RandomWalkProcess { :p :q |
-		newRandomWalkProcess().initializeSlots(p, q, 0)
+		newRandomWalkProcess().initializeSlots(p, q)
 	}
 
 }
@@ -352,15 +329,18 @@ WienerProcess : [Object] { | mu sigma |
 		[ts, ys]
 	}
 
-	randomFunction { :self :process :timeSpecification :count |
+}
+
++Block {
+
+	randomFunction { :aBlock:/1 :timeSpecification :count |
 		let [tMin, tMax, tStep] = timeSpecification;
 		let timeList = [tMin, tMin + tStep .. tMax];
 		TemporalData(
 			(1 .. count).collect { :unused |
-				process.reset;
 				[
 					timeList,
-					process.nextRandom(timeList.size, self)
+					aBlock(timeList)
 				].transposed
 			}
 		)

@@ -1,6 +1,6 @@
 # randomFunction
 
-- _randomFunction(p, t, n, r)_
+- _randomFunction(p, r, t, n)_
 
 Answer a `TemporalData` value representing a pseudo-random function in
 _n_ dimensions
