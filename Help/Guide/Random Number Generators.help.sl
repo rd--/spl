@@ -59,6 +59,7 @@ Probablity distributions:
 - `ExtremeValueDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
+- `HypergeometricDistribution`
 - `LaplaceDistribution`
 - `LogisticDistribution`
 - `LogNormalDistribution`

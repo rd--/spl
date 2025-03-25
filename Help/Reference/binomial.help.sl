@@ -83,6 +83,9 @@ At `zero`:
 
 >>> 0.binomial(1)
 0
+
+>>> 1.binomial(0)
+1
 ```
 
 At `LargeInteger`:
