@@ -1,12 +1,26 @@
++@Stream {
+
+	randomFunction { :self :t :n |
+		{ :timeList |
+			let answer = self.next(timeList.size);
+			self.reset;
+			answer
+		}.regularTemporalData(t ! n)
+	}
+
+}
+
 BernoulliProcess : [Object] { | p |
 
+	asStream { :self :r |
+		BlockStream {
+			(r.nextRandomFloat < self.p).boole
+		} {
+		}
+	}
+
 	randomFunction { :self :r :t :n |
-		let [tMin, tMax] = t;
-		{ :timeList |
-			{
-				(r.nextRandomFloat < self.p).boole
-			} ! timeList.size
-		}.randomFunction([tMin, tMax, 1], n)
+		self.asStream(r).randomFunction(t, n)
 	}
 
 }
@@ -62,18 +76,21 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 
 DiscreteMarkovProcess : [Object] { | p0 m |
 
-	randomFunction { :self :r :t :n |
-		let [tMin, tMax] = t;
+	asStream { :self :r |
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod:/1);
-		{ :timeList |
-			let x = p0.nextRandom(r);
-			{
-				let h = x;
-				x := m[x].nextRandom(r);
-				h
-			} ! timeList.size
-		}.randomFunction([tMin, tMax, 1], n)
+		let x = p0.nextRandom(r);
+		BlockStream {
+			let h = x;
+			x := m[x].nextRandom(r);
+			h
+		} {
+			x := p0.nextRandom(r)
+		}
+	}
+
+	randomFunction { :self :r :t :n |
+		self.asStream(r).randomFunction(t, n)
 	}
 
 }
@@ -111,19 +128,22 @@ GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 
 HiddenMarkovProcess : [Object] { | p0 m e |
 
-	randomFunction { :self :r :t :n |
+	asStream { :self :r |
 		let p0 = AliasMethod(self.p0);
 		let m = self.m.collect(AliasMethod:/1);
 		let e = self.e.collect(AliasMethod:/1);
-		let [tMin, tMax] = t;
-		{ :timeList |
-			let x = p0.nextRandom(r);
-			{
-				let z = e[x].nextRandom(r);
-				x := m[x].nextRandom(r);
-				z
-			} ! timeList.size
-		}.randomFunction([tMin, tMax, 1], n)
+		let x = p0.nextRandom(r);
+		BlockStream {
+			let answer = e[x].nextRandom(r);
+			x := m[x].nextRandom(r);
+			answer
+		} {
+			x := p0.nextRandom(r)
+		}
+	}
+
+	randomFunction { :self :r :t :n |
+		self.asStream(r).randomFunction(t, n)
 	}
 
 	viterbiDecoding { :self :aList |
@@ -239,24 +259,27 @@ PoissonProcess : [Object] { | mu |
 
 RandomWalkProcess : [Object] { | p q |
 
-	randomFunction { :self :r :t :n |
+	asStream { :self :r |
 		let p = self.p;
 		let q = self.q;
-		let [tMin, tMax] = t;
-		{ :timeList |
-			let x = 0;
-			{
-				let u = r.nextRandomFloat;
-				(u < p).if {
-					x := x + 1
-				} {
-					(u < (p + q)).ifTrue {
-						x := x - 1
-					}
-				};
-				x
-			} ! timeList.size
-		}.randomFunction([tMin, tMax, 1], n)
+		let x = 0;
+		BlockStream {
+			let u = r.nextRandomFloat;
+			(u < p).if {
+				x := x + 1
+			} {
+				(u < (p + q)).ifTrue {
+					x := x - 1
+				}
+			};
+			x
+		} {
+			x := 0
+		}
+	}
+
+	randomFunction { :self :r :t :n |
+		self.asStream(r).randomFunction(t, n)
 	}
 
 }
@@ -333,11 +356,15 @@ WienerProcess : [Object] { | mu sigma |
 
 +Block {
 
-	randomFunction { :aBlock:/1 :timeSpecification :count |
-		let [tMin, tMax, tStep] = timeSpecification;
-		let timeList = [tMin, tMin + tStep .. tMax];
+	regularTemporalData { :aBlock:/1 :timeSpecificationList |
 		TemporalData(
-			(1 .. count).collect { :unused |
+			timeSpecificationList.collect { :timeSpecification |
+				let [tMin, tMax, tStep] = (timeSpecification.size = 2).if {
+					timeSpecification ++ [1]
+				} {
+					timeSpecification
+				};
+				let timeList = [tMin, tMin + tStep .. tMax];
 				[
 					timeList,
 					aBlock(timeList)
