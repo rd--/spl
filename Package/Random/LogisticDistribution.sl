@@ -1,0 +1,45 @@
+LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
+
+	cdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			let z = ((x - mu) / beta).-.exp;
+			1 / (1 + z)
+		}
+	}
+
+	mean { :self |
+		self.mu
+	}
+
+	median { :self |
+		self.mu
+	}
+
+	pdf { :self |
+		let mu = self.mu;
+		let beta = self.beta;
+		{ :x |
+			let z = ((x - mu) / beta).-.exp;
+			z / ((1 + z).squared * beta)
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let mu = self.mu;
+		let beta = self.beta;
+		{
+			rng.logisticDistribution(mu, beta)
+		} ! shape
+	}
+
+}
+
++[SmallFloat, Symbol] {
+
+	LogisticDistribution { :mu :beta |
+		newLogisticDistribution().initializeSlots(mu, beta)
+	}
+
+}

@@ -136,6 +136,30 @@
 	'Sfc32' /* Stream */
 	'SplitMix'
 
+	/* Random - ProbabilityDistribution */
+	'BernoulliDistribution'
+	'BetaDistribution'
+	'BinomialDistribution'
+	'CauchyDistribution'
+	'EmpiricalDistribution'
+	'ExponentialDistribution'
+	'ExtremeValueDistribution'
+	'GammaDistribution'
+	'GeometricDistribution'
+	'HypergeometricDistribution'
+	'LaplaceDistribution'
+	'LogisticDistribution'
+	'LogNormalDistribution'
+	'NoncentralBetaDistribution'
+	'NoncentralChiSquareDistribution'
+	'NormalDistribution'
+	'ParetoDistribution'
+	'PoissonDistribution'
+	'StudentTDistribution'
+	'TriangularDistribution'
+	'UniformDistribution'
+	'WeibullDistribution'
+
 	/* System */
 	'Event'
 	'EventTarget'
