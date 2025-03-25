@@ -56,6 +56,7 @@ Probablity distributions:
 - `ChiSquareDistribution`
 - `EmpiricalDistribution`
 - `ExponentialDistribution`
+- `ExtremeValueDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
 - `LaplaceDistribution`

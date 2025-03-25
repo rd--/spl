@@ -12,6 +12,7 @@ let r = Sfc32(678132);
 	EmpiricalDistribution(
 		NormalDistribution(0, 1)
 		.randomVariate(r, [50])
+		.roundTo(1E-2)
 	).cdf
 )
 ~~~
@@ -26,6 +27,7 @@ let r = Sfc32(678132);
 	EmpiricalDistribution(
 		NormalDistribution(0, 1)
 		.randomVariate(r, [10 ^ 3])
+		.roundTo(1E-2)
 	).cdf
 )
 ~~~
@@ -39,8 +41,9 @@ let r = Sfc32(678132);
 EmpiricalDistribution(
 	NormalDistribution(0, 1)
 	.randomVariate(r, [10 ^ 3])
+	.roundTo(1E-3)
 )
-.randomVariate(r, [10 ^ 3])
+.randomVariate(r, [10 ^ 4])
 .histogramPlot
 ~~~
 
@@ -52,16 +55,36 @@ An empirical distribution from weighted input data:
 let r = Sfc32(371249);
 EmpiricalDistribution(
 	[
-		1 -> 1, 2 -> 2,
-		3 -> 3,
-		4 -> 2, 5 -> 1
+		1 -> 1, 2 -> 2, 3 -> 4,
+		4 -> 7,
+		5 -> 4, 6 -> 2, 7 -> 1
 	].asMap
 )
-.randomVariate(r, [2E3])
+.randomVariate(r, [10 ^ 4])
 .histogramPlot
 ~~~
 
 ![](sw/spl/Help/Image/EmpiricalDistribution-D.svg)
+
+Plot inverse cummulative distribution functions:
+
+~~~spl svg=E
+let r = Sfc32(678132);
+let n = NormalDistribution(0, 1);
+let e = EmpiricalDistribution(
+	n
+	.randomVariate(r, [10 ^ 3])
+	.roundTo(1E-2)
+);
+(0 -- 1).functionPlot(
+	[
+		n.inverseCdf.clip(-3, 3),
+		e.inverseCdf.clip(-3, 3)
+	]
+)
+~~~
+
+![](sw/spl/Help/Image/EmpiricalDistribution-E.svg)
 
 * * *
 

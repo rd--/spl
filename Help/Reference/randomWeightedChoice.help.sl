@@ -1,20 +1,20 @@
 # randomWeightedChoice
 
-- _randomWeightedChoice(r, e, w, n)_
+- _randomWeightedChoice(r, e, w, shape)_
 
-Select _n_ elements at random from _e_ using the random number generator _r_.
-If _w_ is given it sets the probablity distribution.
-If _r_ is ommitted it is set to _system_.
+Answer an array of `shape` items selected at random from _e_,
+according to the probablity distribution (or weights) at _w_,
+using the random number generator _r_.
 
 Choices weighted with probabilities,
-weights are automatically normalized:
+if the weights do not sum to `one` they are automatically normalized:
 
 ```
 >>> let r = Sfc32(19743);
 >>> let c = r.randomWeightedChoice(
 >>> 	[1 2 3 4],
 >>> 	[2 2 5 1],
->>> 	100
+>>> 	[100]
 >>> );
 >>> c.asIdentityBag.sortedElements
 [1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
@@ -27,7 +27,7 @@ Generate a weighted random string:
 >>> .randomWeightedChoice(
 >>> 	['.' '-'],
 >>> 	[2 1],
->>> 	50
+>>> 	[50]
 >>> ).stringJoin
 '---..-...--.....-........--.--...-.-....--.....--.'
 ```
@@ -40,23 +40,23 @@ according to the specified probabilities.
 >>> r.randomWeightedChoice(
 >>> 	'ACGT'.contents,
 >>> 	[0.15 0.35 0.35 0.15],
->>> 	24
+>>> 	[24]
 >>> ).stringCatenate
 'CTTGTAGGGTCCCGGAGGTCGCGG'
 ```
 
-Generate integers according to a _1 / n_ distribution:
+Generate a 3×10 matrix of integers according to a _1 / n_ distribution:
 
 ```
 >>> Sfc32(38014)
 >>> .randomWeightedChoice(
 >>> 	1:10,
 >>> 	1 / 1:10,
->>> 	30
+>>> 	[3 10]
 >>> )
 [
-	3  9 10  1  4  2  4  3  3  7
-	6  2  2  2  1  4  3  2  5  1
+	3  9 10  1  4  2  4  3  3  7;
+	6  2  2  2  1  4  3  2  5  1;
 	1  2  1  2  4  7  9  1 10  1
 ]
 ```

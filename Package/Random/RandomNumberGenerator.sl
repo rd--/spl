@@ -167,11 +167,13 @@
 		answer
 	}
 
-	randomWeightedChoice { :self :e :w :n |
+	randomWeightedChoice { :self :e :w :shape |
 		let k = w.sum;
 		let x = (k = 1).if { w } { w / k };
 		let m = AliasMethod(x);
-		{ e[m.nextRandom(self)] } ! n
+		{
+			e[m.nextRandom(self)]
+		} ! shape
 	}
 
 	randomWeightedIndex { :self :aSequence |

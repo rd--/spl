@@ -28,6 +28,20 @@ Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviatio
 )
 ```
 
+Probability density function at specific value:
+
+```
+>>> UniformDistribution(0, 1).pdf(0.5)
+1
+```
+
+Cumulative distribution function at specific value:
+
+```
+>>> UniformDistribution(0, 1).cdf(0.5)
+0.5
+```
+
 Plot `pdf` over a subset of the reals:
 
 ~~~spl svg=A
@@ -59,7 +73,7 @@ UniformDistribution(0, 1)
 
 ![](sw/spl/Help/Image/UniformDistribution-C.svg)
 
-Two dimensional Uniform noise:
+Two dimensional uniform noise:
 
 ~~~spl png=D
 let r = Sfc32(180513);

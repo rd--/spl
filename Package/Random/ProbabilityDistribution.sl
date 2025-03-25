@@ -170,7 +170,7 @@
 			}
 		};
 		afix * d * v * beta
-        }
+	}
 
 	marsagliaPolarMethod { :self |
 		let u = nil;
@@ -404,8 +404,12 @@ BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 		let alpha = self.alpha;
 		let beta = self.beta;
 		{ :x |
-			let b = (alpha.gamma * beta.gamma) / (alpha + beta).gamma;
-			((x ^ (alpha - 1)) * ((1 - x) ^ (beta - 1))) / b
+			x.betweenAnd(0, 1).if {
+				let b = (alpha.gamma * beta.gamma) / (alpha + beta).gamma;
+				((x ^ (alpha - 1)) * ((1 - x) ^ (beta - 1))) / b
+			} {
+				0
+			}
 		}
 	}
 
@@ -597,12 +601,21 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
 		self.m.keys.min
 	}
 
+	/*
 	randomVariate { :self :rng :shape |
 		let m = self.m;
 		let f:/1 = self.inverseCdf;
 		{
 			f(rng.nextRandomFloat)
 		} ! shape
+	}
+	*/
+
+	randomVariate { :self :rng :shape |
+		let m = self.m;
+		let e = m.keys;
+		let w = m.values;
+		rng.randomWeightedChoice(e, w, shape)
 	}
 
 }
@@ -712,6 +725,52 @@ ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
 
 	variance { :self |
 		1 / self.lambda.squared
+	}
+
+}
+
+ExtremeValueDistribution : [Object, ProbabilityDistribution] { | alpha beta |
+
+	cdf { :self |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{ :x |
+			((x - alpha).- / beta).exp.-.exp
+		}
+	}
+
+	inverseCdf { :self |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{ :p |
+			(p <= 0).if {
+				-Infinity
+			} {
+				(p >= 1).if {
+					Infinity
+				} {
+					alpha - (beta * p.log.-.log)
+				}
+			}
+		}
+	}
+
+	pdf { :self |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{ :x |
+			let z = (x - alpha) / beta;
+			(1 / beta)	* (z + z.-.exp).-.exp
+		}
+	}
+
+	randomVariate { :self :rng :shape |
+		let alpha = self.alpha;
+		let beta = self.beta;
+		{
+			let u = rng.nextRandomFloat;
+			alpha - (beta * u.log.-.log)
+		} ! shape
 	}
 
 }
@@ -958,7 +1017,7 @@ NoncentralChiSquareDistribution : [Object, ProbabilityDistribution] { | nu lambd
 
 NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
-        cdf { :self |
+	cdf { :self |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		{ :x |
@@ -995,11 +1054,11 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 		}
 	}
 
-        mean { :self |
+	mean { :self |
 		self.mu
 	}
 
-        pdf { :self |
+	pdf { :self |
 		let mu = self.mu;
 		let sigma = self.sigma;
 		let d = sigma * 2.pi.sqrt;
@@ -1066,7 +1125,7 @@ ParetoDistribution : [Object, ProbabilityDistribution] { | k alpha |
 
 PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 
-        cdf { :self |
+	cdf { :self |
 		let mu = self.mu;
 		{ :x |
 			(0 .. x).collect { :i |
@@ -1083,7 +1142,7 @@ PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 		self.mu
 	}
 
-        pdf { :self |
+	pdf { :self |
 		let mu = self.mu;
 		{ :x |
 			(x * mu.log - mu - (x + 1).logGamma).exp
@@ -1399,6 +1458,10 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		newExponentialDistribution().initializeSlots(lambda)
 	}
 
+	ExtremeValueDistribution { :alpha :beta |
+		newExtremeValueDistribution().initializeSlots(alpha, beta)
+	}
+
 	GammaDistribution { :alpha :beta |
 		newGammaDistribution().initializeSlots(alpha, beta)
 	}
@@ -1469,6 +1532,7 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 			let e = m.atIfAbsent(each) { 0 };
 			m[each] := e + 1
 		};
+		[m.size, d.size].postLine;
 		newEmpiricalDistribution().initializeSlots(m, d.size)
 	}
 
