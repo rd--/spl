@@ -1,3 +1,17 @@
++@RandomNumberGenerator {
+
+	weibullDistribution { :self :alpha :beta :mu |
+		let r = 1;
+		{
+			r = 1
+		}.whileTrue {
+			r := self.nextRandomFloat
+		};
+		beta * (r.log.negated ^ (1 / alpha)) + mu
+	}
+
+}
+
 WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 
 	cdf { :self |

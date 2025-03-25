@@ -1,3 +1,13 @@
++@RandomNumberGenerator {
+
+	paretoDistribution { :self :k :alpha |
+		let e = -1 / alpha;
+		let u = self.nextRandomFloat;
+		k * (u ^ e)
+	}
+
+}
+
 ParetoDistribution : [Object, ProbabilityDistribution] { | k alpha |
 
 	cdf { :self |

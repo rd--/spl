@@ -53,3 +53,24 @@ TemporalData : [Object] { | pathList |
 	}
 
 }
+
++Block {
+
+	regularTemporalData { :aBlock:/1 :timeSpecificationList |
+		TemporalData(
+			timeSpecificationList.collect { :timeSpecification |
+				let [tMin, tMax, tStep] = (timeSpecification.size = 2).if {
+					timeSpecification ++ [1]
+				} {
+					timeSpecification
+				};
+				let timeList = [tMin, tMin + tStep .. tMax];
+				[
+					timeList,
+					aBlock(timeList)
+				].transposed
+			}
+		)
+	}
+
+}

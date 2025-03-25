@@ -1,3 +1,12 @@
++@RandomNumberGenerator {
+
+	exponentialDistribution { :self :lambda |
+		let u = self.nextRandomFloat;
+		(1 - u).log / lambda.-
+	}
+
+}
+
 ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
 
 	cdf { :self |

@@ -160,6 +160,17 @@
 	'UniformDistribution'
 	'WeibullDistribution'
 
+	/* Random - RandomProcess */
+        'BernoulliProcess'
+        'ContinuousMarkovProcess'
+        'DiscreteMarkovProcess'
+        'GeometricBrownianMotionProcess'
+        'HiddenMarkovProcess'
+        'OrnsteinUhlenbeckProcess'
+        'PoissonProcess'
+        'RandomWalkProcess'
+        'WienerProcess'
+
 	/* System */
 	'Event'
 	'EventTarget'

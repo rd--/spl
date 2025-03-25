@@ -1,3 +1,12 @@
++@RandomNumberGenerator {
+
+	logisticDistribution { :self :mu :beta |
+		let u = self.nextRandomFloat;
+		(u / (1 - u)).log * beta + mu
+	}
+
+}
+
 LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
 
 	cdf { :self |

@@ -1,3 +1,11 @@
++@RandomNumberGenerator {
+
+	bernoulliDistribution { :self :p |
+		(self.nextRandomFloat < p).boole
+	}
+
+}
+
 BernoulliDistribution : [Object, ProbabilityDistribution] { | p |
 
 	cdf { :self |

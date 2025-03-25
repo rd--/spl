@@ -1,3 +1,16 @@
++@RandomNumberGenerator {
+
+	noncentralBetaDistribution { :self :alpha :beta :delta |
+		(delta = 0).if {
+			self.betaDistribution(alpha, beta)
+		} {
+			let x = self.noncentralChiSquareDistribution(2 * alpha, delta);
+			x / (x + self.gammaDistribution(beta, 2))
+		}
+	}
+
+}
+
 NoncentralBetaDistribution : [Object, ProbabilityDistribution] { | alpha beta delta |
 
 	randomVariate { :self :rng :shape |

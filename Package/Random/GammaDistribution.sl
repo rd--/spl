@@ -1,3 +1,36 @@
++@RandomNumberGenerator {
+
+	gammaDistribution { :self :alpha :beta |
+		var a, afix, c, d, u, v, x;
+		(alpha < 1).if {
+			a := alpha + 1;
+			afix := self.nextRandomFloat ^ (1 / alpha)
+		} {
+			a := alpha;
+			afix := 1
+		};
+		d := a - (1 / 3);
+		c := 1 / (9 * d).sqrt;
+		{
+			{
+				x := self.normalDistribution(0, 1);
+				v := 1 + (c * x)
+			}.doWhileTrue {
+				v <= 0
+			};
+			v := v * v * v;
+			x := x * x;
+			u := self.nextRandomFloat
+		}.doWhileTrue {
+			u >= (1 - (0.0331 * x * x)) | {
+				u.log >= ((0.5 * x) + (d * (1 - v + v.log)))
+			}
+		};
+		afix * d * v * beta
+	}
+
+}
+
 GammaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 
 	cdf { :self |

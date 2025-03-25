@@ -1,3 +1,12 @@
++@RandomNumberGenerator {
+
+	cauchyDistribution { :self :x0 :gamma |
+		let u = self.nextRandomFloat;
+		x0 + (gamma * (u - 0.5).pi.tan)
+	}
+
+}
+
 CauchyDistribution : [Object, ProbabilityDistribution] { | x0 gamma |
 
 	cdf { :self |

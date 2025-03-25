@@ -1,3 +1,11 @@
++@RandomNumberGenerator {
+
+	uniformDistribution { :self :min :max |
+		self.nextRandomFloat * (max - min) + min
+	}
+
+}
+
 UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 
 	cdf { :self |

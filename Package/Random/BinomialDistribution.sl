@@ -1,3 +1,18 @@
++@RandomNumberGenerator {
+
+	binomialDistribution { :self :n :p |
+		let answer = 0;
+		n.timesRepeat {
+			let u = self.nextRandomFloat;
+			(u < p).ifTrue {
+				answer := answer + 1
+			}
+		};
+		answer
+	}
+
+}
+
 BinomialDistribution : [Object, ProbabilityDistribution] { | n p |
 
 	cdf { :self |

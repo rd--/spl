@@ -1,3 +1,15 @@
++@RandomNumberGenerator {
+
+	studentTDistribution { :self :mu :sigma :nu |
+		let gamma = self.gammaDistribution(0.5 * nu, 0.5);
+		self.normalDistribution(
+			mu,
+			sigma * (nu / gamma).sqrt
+		)
+	}
+
+}
+
 StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
 
 	cdf { :self |

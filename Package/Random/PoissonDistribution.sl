@@ -1,3 +1,20 @@
++@RandomNumberGenerator {
+
+	poissonDistribution { :self :mu |
+		let k = 0;
+		let r = self.nextRandomFloat;
+		let t = mu.negated.exp;
+		{
+			r > t
+		}.whileTrue {
+			k := k + 1;
+			r := r * self.nextRandomFloat
+		};
+		k
+	}
+
+}
+
 PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
 
 	cdf { :self |

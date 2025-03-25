@@ -1,3 +1,13 @@
++@RandomNumberGenerator {
+
+	betaDistribution { :self :alpha :beta |
+		let x = self.gammaDistribution(alpha, 1);
+		let y = self.gammaDistribution(beta, 1);
+		x / (x + y)
+	}
+
+}
+
 BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 
 	cdf { :self |

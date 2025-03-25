@@ -1,3 +1,42 @@
++@RandomNumberGenerator {
+
+	boxMullerTransform { :self |
+		let u = self.nextRandomFloat;
+		let v = self.nextRandomFloat;
+		let r = (-2 * u.log).sqrt;
+		let z = 2.pi * v;
+		[
+			r * z.sin,
+			r * z.cos
+		]
+	}
+
+	marsagliaPolarMethod { :self |
+		let u = nil;
+		let v = nil;
+		let w = nil;
+		{
+			u := self.nextRandomFloat * 2 - 1;
+			v := self.nextRandomFloat * 2 - 1;
+			w := (u * u) + (v * v);
+			w >= 1
+		}.whileTrue;
+		[
+			u * (-2 * w.log / w).sqrt,
+			v * (-2 * w.log / w).sqrt
+		]
+	}
+
+	normalDistribution { :self :mu :sigma |
+		/* Box-Muller */
+		let u = self.nextRandomFloat;
+		let v = self.nextRandomFloat;
+		let x = (-2 * u.log).sqrt * (2.pi * v).sin;
+		(x * sigma) + mu
+	}
+
+}
+
 NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 
 	cdf { :self |

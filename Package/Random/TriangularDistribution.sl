@@ -1,3 +1,16 @@
++@RandomNumberGenerator {
+
+	triangularDistribution { :self :min :max :c |
+		let u = self.nextRandomFloat;
+		(u < ((c - min) / (max - min))).if {
+			min + (u * (max - min) * (c - min)).sqrt
+		} {
+			max - ((1 - u) * (max - min) * (max - c)).sqrt
+		}
+	}
+
+}
+
 TriangularDistribution : [Object, ProbabilityDistribution] { | i c |
 
 	cdf { :self |
