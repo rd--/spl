@@ -171,7 +171,9 @@
 	/* Random - RandomProcess */
         'BernoulliProcess'
 	'BinomialProcess'
+	'BrownianBridgeProcess'
         'ContinuousMarkovProcess'
+	'CoxIngersollRossProcess'
         'DiscreteMarkovProcess'
 	'FractionalBrownianMotionProcess'
         'GeometricBrownianMotionProcess'
