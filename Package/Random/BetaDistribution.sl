@@ -10,6 +10,10 @@
 
 BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 
+	= { :self :anObject |
+		self.hasEqualSlots(anObject)
+	}
+
 	cdf { :self |
 		let alpha = self.alpha;
 		let beta = self.beta;
@@ -43,6 +47,10 @@ BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 		{
 			rng.betaDistribution(alpha, beta)
 		} ! shape
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }

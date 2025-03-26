@@ -95,7 +95,7 @@ NormalDistribution(0, 1)
 
 * * *
 
-See also: cdf, erf, gaussianMatrix, pdf, randomVariate, StudentTDistribution
+See also: cdf, erf, gaussianMatrix, pdf, randomVariate, SkewNormalDistribution, StudentTDistribution
 
 References:
 _J_

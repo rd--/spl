@@ -10,15 +10,14 @@ Answer a `Sphere` with center at _aPoint_ and radius _aNumber_.
 >>> 	s.center,
 >>> 	s.radius,
 >>> 	s.diameter,
->>> 	s.surfaceArea,
->>> 	s.volume
+>>> 	s.area
 >>> )
-([0 0 0], 1, 2, 4.pi, 4/3.pi)
+([0 0 0], 1, 2, 4.pi)
 ```
 
 * * *
 
-See also: center, diameter, Circle, Ellipse, radius, randomSurfacePoint, spherePoints, surfaceArea, volume
+See also: area, Ball, center, diameter, Circle, Ellipse, radius, randomPoint, spherePoints
 
 References:
 _Mathematica_

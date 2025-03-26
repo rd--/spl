@@ -485,6 +485,7 @@ Reference/binLists.help.sl
 Reference/BinomialDistribution.help.sl
 Reference/binomial.help.sl
 Reference/binomialPascal.help.sl
+Reference/BinomialProcess.help.sl
 Reference/bisect.help.sl
 Reference/bitAnd.help.sl
 Reference/bitAt.help.sl
@@ -566,7 +567,6 @@ Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
 Reference/catenate.help.sl
 Reference/catmullRomInterpolation.help.sl
-Reference/cauchyDistribution.help.sl
 Reference/CauchyDistribution.help.sl
 Reference/cdf.help.sl
 Reference/ceiling.help.sl
@@ -587,6 +587,7 @@ Reference/chebyshevT.help.sl
 Reference/chebyshevU.help.sl
 Reference/chessboardDistance.help.sl
 Reference/chineseRemainder.help.sl
+Reference/ChiSquareDistribution.help.sl
 Reference/choleskyDecomposition.help.sl
 Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
@@ -887,6 +888,7 @@ Reference/elementTypes.help.sl
 Reference/elementwise.help.sl
 Reference/Ellipse.help.sl
 Reference/embeddingDimension.help.sl
+Reference/EmpiricalDistribution.help.sl
 Reference/enclose.help.sl
 Reference/encodeFloat32.help.sl
 Reference/encodeFloat64.help.sl
@@ -946,6 +948,7 @@ Reference/extendedEuclideanAlgorithm.help.sl
 Reference/extendedGcd.help.sl
 Reference/Extensible.help.sl
 Reference/extractDocumentationTests.help.sl
+Reference/ExtremeValueDistribution.help.sl
 Reference/faceCount.help.sl
 Reference/faceIndices.help.sl
 Reference/factorial.help.sl
@@ -1164,6 +1167,7 @@ Reference/hsvToRgb.help.sl
 Reference/Html.help.sl
 Reference/hue.help.sl
 Reference/hyperfactorial.help.sl
+Reference/HypergeometricDistribution.help.sl
 Reference/hyphenMinusGreaterThanSign.help.sl
 Reference/hyphenMinus.help.sl
 Reference/hyphenMinusHyphenMinusGreaterThanSign.help.sl
@@ -1810,8 +1814,9 @@ Reference/niceNumberNear.help.sl
 Reference/nil.help.sl
 Reference/Nil.help.sl
 Reference/noergaardInfinitySequence.help.sl
+Reference/NoncentralBetaDistribution.help.sl
+Reference/NoncentralChiSquareDistribution.help.sl
 Reference/noneSatisfy.help.sl
-Reference/normalDistribution.help.sl
 Reference/NormalDistribution.help.sl
 Reference/normal.help.sl
 Reference/normalized.help.sl
@@ -2031,7 +2036,6 @@ Reference/pointLineDistance.help.sl
 Reference/pointLineNearest.help.sl
 Reference/pointLineSegmentNearest.help.sl
 Reference/pointPlaneDistance.help.sl
-Reference/poissonDistribution.help.sl
 Reference/PoissonDistribution.help.sl
 Reference/PoissonProcess.help.sl
 Reference/PolarCoordinates.help.sl
@@ -2152,7 +2156,6 @@ Reference/randomReal.help.sl
 Reference/randomSample.help.sl
 Reference/randomStarConvexPolygon.help.sl
 Reference/randomSubsequence.help.sl
-Reference/randomSurfacePoint.help.sl
 Reference/randomTree.help.sl
 Reference/randomVariate.help.sl
 Reference/RandomWalkProcess.help.sl
@@ -2390,6 +2393,7 @@ Reference/SinOscFb.help.sl
 Reference/SinOsc.help.sl
 Reference/size.help.sl
 Reference/skewness.help.sl
+Reference/SkewNormalDistribution.help.sl
 Reference/skip.help.sl
 Reference/skipTo.help.sl
 Reference/Slew.help.sl
@@ -2608,7 +2612,6 @@ Reference/transpose.help.sl
 Reference/Tree.help.sl
 Reference/treePlot.help.sl
 Reference/Triangle.help.sl
-Reference/triangularDistribution.help.sl
 Reference/TriangularDistribution.help.sl
 Reference/Trig1.help.sl
 Reference/TrigAllocator.help.sl
@@ -2723,7 +2726,6 @@ Reference/Warp1.help.sl
 Reference/WeakMap.help.sl
 Reference/WebSocket.help.sl
 Reference/weeks.help.sl
-Reference/weibullDistribution.help.sl
 Reference/WeibullDistribution.help.sl
 Reference/weierstrassFunction.help.sl
 Reference/weightedAdjacencyGraph.help.sl

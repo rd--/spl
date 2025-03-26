@@ -2641,7 +2641,7 @@ Sphere([0 0 0], 1).isSphere /* predicate */
 Sphere([0 0 0], 1).center = [0 0 0] /* center */
 Sphere([0 0 0], 1).radius = 1 /* radius */
 Sphere([0 0 0], 1).diameter = 2 /* diameter */
-Sphere([0 0 0], 1).surfaceArea = 4.pi /* surface area */
+Sphere([0 0 0], 1).area = 4.pi /* surface area */
 Sphere([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ```
 

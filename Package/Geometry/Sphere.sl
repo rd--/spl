@@ -9,7 +9,7 @@ Sphere : [Object] { | center radius |
 	}
 
 	area { :self |
-		self.surfaceArea
+		(self.radius.squared * 4).pi
 	}
 
 	diameter { :self |
@@ -24,31 +24,17 @@ Sphere : [Object] { | center radius |
 		self.center.size
 	}
 
-	randomSurfacePoint { :self :aRandom |
+	randomPoint { :self :aRandom :shape |
 		let c = self.center;
 		let r = self.radius;
-		let z = aRandom.randomReal(r.negated, r, []);
-		let phi = aRandom.randomReal(0, 2.pi, []);
-		let m = (r.squared - z.squared).sqrt;
-		let x = m * phi.cos;
-		let y = m * phi.sin;
-		[x, y, z] + c
-	}
-
-	randomSurfacePoint { :self :aRandom :shape |
-		{ self.randomSurfacePoint(aRandom) } ! shape
+		let u = UnitSphere();
+		{
+			u.randomPoint(aRandom) * r + c
+		} ! shape
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
-	}
-
-	surfaceArea { :self |
-		(self.radius.squared * 4).pi
-	}
-
-	volume { :self |
-		(self.radius.cubed * 4 / 3).pi
 	}
 
 	translateBy { :self :factor |
@@ -73,6 +59,34 @@ Sphere : [Object] { | center radius |
 
 	Sphere { :center :radius |
 		newSphere().initializeSlots(center, radius)
+	}
+
+}
+
+UnitSphere : [Object] {
+
+	randomPoint { :self :r |
+		let x1 = r.nextRandomFloat * 2 - 1;
+		let x2 = r.nextRandomFloat * 2 - 1;
+		let sum = (x1 * x1) + (x2 * x2);
+		(sum >= 1).if {
+			self.randomPoint(r)
+		} {
+			let z = 2 * (1 - sum).sqrt;
+			[x1 * z, x2 * z, 1 - (2 * sum)]
+		}
+	}
+
+	randomPoint { :self :r :shape |
+		{ self.randomPoint(r) } ! shape
+	}
+
+}
+
++Void {
+
+	UnitSphere {
+		newUnitSphere()
 	}
 
 }

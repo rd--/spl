@@ -57,9 +57,11 @@ Circle : [Object] { | center radius |
 	}
 
 	randomPoint { :self :rng :shape |
+		let c = self.center;
+		let r = self.radius;
+		let u = UnitCircle();
 		{
-			let theta = rng.randomReal(0, 2.pi, []);
-			self.center + [self.radius, theta].fromPolarCoordinates
+			u.randomPoint(rng) * r + c
 		} ! shape
 	}
 
@@ -100,143 +102,34 @@ Circle : [Object] { | center radius |
 
 }
 
-Ellipse : [Object] { | center radii |
+UnitCircle : [Object] {
 
-	area { :self |
-		let [rx, ry] = self.radii;
-		(rx * ry).pi
-	}
-
-	boundingBox { :self |
+	randomPoint { :self :r |
+		var x1, x2, sum, z;
+		{
+			x1 := r.nextRandomFloat * 2 - 1;
+			x2 := r.nextRandomFloat * 2 - 1;
+			sum := (x1 * x1) + (x2 * x2)
+		}.doWhileTrue {
+			sum >= 1
+		};
+		z := (x1 * x1) - (x2 * x2);
 		[
-			self.center - self.radii,
-			self.center + self.radii
+			z / sum,
+			2 * x1 * x2 / sum
 		]
 	}
 
-	eccentricity { :self |
-		let [a, b] = self.radii;
-		(1 - (b / a).squared).sqrt
-	}
-
-	forSvg { :self :options |
-		let precision = options['precision'];
-		let [cx, cy] = self.center;
-		let [rx, ry] = self.radii;
-		'<ellipse cx="%" cy="%" rx="%" ry="%" />'.format([
-			cx.printStringToFixed(precision),
-			cy.printStringToFixed(precision),
-			rx.printStringToFixed(precision),
-			ry.printStringToFixed(precision)
-		])
-	}
-
-	linearEccentricity { :self |
-		let [a, b] = self.radii;
-		(a.squared - b.squared).sqrt
-	}
-
-	semiLatusRectum { :self |
-		let [a, b] = self.radii;
-		b.squared / a
-	}
-}
-
-+List {
-
-	Ellipse { :center :radii |
-		(center.rank > 1).if {
-			center.withCollect(radii, Ellipse:/2)
-		} {
-			(radii.size = 2).if {
-				newEllipse().initializeSlots(center, radii)
-			} {
-				'Sequence>>Ellipse: invalid radii'.error
-			}
-		}
+	randomPoint { :self :r :shape |
+		{ self.randomPoint(r) } ! shape
 	}
 
 }
 
-Arc : [Object] { | center radii angles |
++Void {
 
-	boundingBox { :self |
-		[
-			self.center - self.radii,
-			self.center + self.radii
-		]
-	}
-
-	forSvg { :self :options |
-		let precision = options['precision'];
-		let [cx, cy] = self.center;
-		let [rx, ry] = self.radii;
-		let [startAngle, endAngle] = self.angles;
-		let [x1, y1] = [cx, cy] + [rx * startAngle.cos, ry * startAngle.sin];
-		let [x2, y2] = [cx, cy] + [rx * endAngle.cos, ry * endAngle.sin];
-		let largeArcFlag = (((endAngle - startAngle) % 2.pi) > 1.pi).boole;
-		'<path d="M %,% A % % 0 % 1 %,%" />'.format([
-			x1.printStringToFixed(precision), y1.printStringToFixed(precision),
-			rx.printStringToFixed(precision), ry.printStringToFixed(precision),
-			largeArcFlag,
-			x2.printStringToFixed(precision), y2.printStringToFixed(precision)
-		])
-	}
-
-}
-
-+List {
-
-	Arc { :center :radii :angles |
-		newArc().initializeSlots(center, radii, angles)
-	}
-
-}
-
-Superellipse : [Object] { | center a b n |
-
-	area { :self |
-		4 * self.a * self.b * (((1 + (1 / self.n)).gamma ^ 2) / (1 + (2 / self.n)).gamma)
-	}
-
-	atAll { :self :tList |
-		tList.collect(
-			superellipseFunction(self.a, self.b, self.n)
-		) +.each self.center
-	}
-
-}
-
-+List {
-
-	Superellipse { :center :a :b :n |
-		newSuperellipse().initializeSlots(center, a, b, n)
-	}
-
-}
-
-+SmallFloat {
-
-	superellipseFunction { :a :b :n |
-		{ :t |
-			let m = 2 / n;
-			let c = t.cos;
-			let s = t.sin;
-			let x = (c.abs ^ m) * a * c.sign;
-			let y = (s.abs ^ m) * b * s.sign;
-			[x, y]
-		}
-	}
-
-	superformulaFunction { :a :b :m :n1 :n2 :n3 |
-		{ :u |
-			let p = ((m * u / 4).cos / a).abs ^ n2;
-			let q = ((m * u / 4).sin / b).abs ^ n3;
-			let r = (p + q) ^ (-1 / n1);
-			let x = r * u.cos;
-			let y = r * u.sin;
-			[x, y]
-		}
+	UnitCircle {
+		newUnitCircle()
 	}
 
 }

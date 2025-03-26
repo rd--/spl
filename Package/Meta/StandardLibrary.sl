@@ -52,10 +52,14 @@
 
 	/* Geometry */
 	'Angle'
+	'Arc'
+	'Ball'
 	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
 	'DelaunayTriangulation'
+	'Disk'
+	'Ellipse'
 	'GeometryCollection'
 	'HalfPlane'
 	'InfiniteLine'
@@ -75,9 +79,10 @@
 	'Polyhedron' /* PolygonMesh */
 	'AxonometricProjection'
 	'Rectangle'
+	'Sphere'
+	'Superellipse'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */
-	'Sphere' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */
 	'Triangle'
 
@@ -141,9 +146,11 @@
 	'BetaDistribution'
 	'BinomialDistribution'
 	'CauchyDistribution'
+	'DirichletDistribution'
 	'EmpiricalDistribution'
 	'ExponentialDistribution'
 	'ExtremeValueDistribution'
+	'FRatioDistribution'
 	'GammaDistribution'
 	'GeometricDistribution'
 	'HypergeometricDistribution'
@@ -155,6 +162,7 @@
 	'NormalDistribution'
 	'ParetoDistribution'
 	'PoissonDistribution'
+	'SkewNormalDistribution'
 	'StudentTDistribution'
 	'TriangularDistribution'
 	'UniformDistribution'
@@ -162,6 +170,7 @@
 
 	/* Random - RandomProcess */
         'BernoulliProcess'
+	'BinomialProcess'
         'ContinuousMarkovProcess'
         'DiscreteMarkovProcess'
         'GeometricBrownianMotionProcess'

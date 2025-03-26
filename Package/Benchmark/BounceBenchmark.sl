@@ -1,6 +1,6 @@
 /* Requires: Benchmark SomRandom */
 
-Ball : [Object] { | x y xVel yVel |
+BounceBall : [Object] { | x y xVel yVel |
 
 	bounce { :self |
 		let xLimit = 500;
@@ -35,8 +35,8 @@ Ball : [Object] { | x y xVel yVel |
 
 +SomRandom {
 
-	Ball { :self |
-		newBall().initializeSlots(
+	BounceBall { :self |
+		newBounceBall().initializeSlots(
 			self.next % 500,
 			self.next % 500,
 			(self.next % 300) - 150,
@@ -53,7 +53,7 @@ Ball : [Object] { | x y xVel yVel |
 			let random = SomRandom();
 			let bounces = 0;
 			let balls = ballCount.fill { :unusedIndex |
-				Ball(random)
+				BounceBall(random)
 			};
 			1.toDo(50) { :i |
 				balls.do { :ball |

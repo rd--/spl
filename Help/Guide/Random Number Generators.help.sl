@@ -54,9 +54,11 @@ Probablity distributions:
 - `BinomialDistribution`
 - `CauchyDistribution`
 - `ChiSquareDistribution`
+- `DirichletDistribution`
 - `EmpiricalDistribution`
 - `ExponentialDistribution`
 - `ExtremeValueDistribution`
+- `FRatioDistribution`
 - `GammaDistribution`
 - `GeometricDistribution`
 - `HypergeometricDistribution`
