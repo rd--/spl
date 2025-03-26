@@ -1,11 +1,22 @@
 +@Stream {
 
-	randomFunction { :self :t :n |
+	timeSeriesRandomFunction { :self :t :n |
+		let [tMin, tMax] = t;
+		TemporalData(
+			{
+				let answer = self.takeWhile { :each | each[1] < tMax }.upToEnd;
+				self.reset;
+				answer
+			} ! n
+		)
+	}
+
+	valueSeriesRandomFunction { :self :t :n |
 		{ :timeList |
 			let answer = self.next(timeList.size);
 			self.reset;
 			answer
-		}.regularTemporalData(t ! n)
+		}.regularTemporalData((t ++ [1]) ! n)
 	}
 
 }

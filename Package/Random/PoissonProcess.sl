@@ -1,27 +1,23 @@
 PoissonProcess : [Object] { | mu |
 
+	asStream { :self :r :t0 |
+		let mu = self.mu;
+		let t = t0;
+		let k = 0;
+		BlockStream {
+			let answer = [t, k];
+			t := t + r.exponentialDistribution(mu);
+			k := k + 1;
+			answer
+		} {
+			t := t0;
+			k := 0
+		}
+	}
+
 	randomFunction { :self :r :t :n |
 		let [tMin, tMax] = t;
-		let mu = self.mu;
-		TemporalData(
-			{
-				let t = tMin;
-				let k = 0;
-				let l = [[t, k]];
-				{
-					let i = r.exponentialDistribution(mu);
-					t := t + i;
-					(t <= tMax).if {
-						k := k + 1;
-						l.add([t, k]);
-						true
-					} {
-						false
-					}
-				}.whileTrue;
-				l
-			} ! n
-		)
+		self.asStream(r, tMin).timeSeriesRandomFunction(t, n)
 	}
 
 }

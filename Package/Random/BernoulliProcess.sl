@@ -9,7 +9,7 @@ BernoulliProcess : [Object] { | p |
 	}
 
 	randomFunction { :self :r :t :n |
-		self.asStream(r).randomFunction(t, n)
+		self.asStream(r).valueSeriesRandomFunction(t, n)
 	}
 
 }

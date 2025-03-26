@@ -33,6 +33,43 @@ A `Type` representing a continuous-time finite-state Markov process with transit
 )
 ```
 
+Simulate a continuous-time Markov process:
+
+~~~spl svg=A
+let r = Sfc32(793285);
+ContinuousMarkovProcess(
+	[1 0 0],
+	[-2 1 1; 1 -2 1; 1 1 -2]
+).randomFunction(r, [0 10], 1)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/ContinuousMarkovProcess-A.svg)
+
+Visualize a sample path:
+
+~~~spl svg=B
+let r = Sfc32(793285);
+ContinuousMarkovProcess(
+	[1 0 0 0 0 0 0 0 0 0],
+	[
+		-3 3 0 0 0 0 0 0 0 0;
+		2 -5 3 0 0 0 0 0 0 0;
+		0 2 -5 3 0 0 0 0 0 0;
+		0 0 2 -5 3 0 0 0 0 0;
+		0 0 0 2 -5 3 0 0 0 0;
+		0 0 0 0 2 -5 3 0 0 0;
+		0 0 0 0 0 2 -5 3 0 0;
+		0 0 0 0 0 0 2 -5 3 0;
+		0 0 0 0 0 0 0 2 -5 3;
+		0 0 0 0 0 0 0 0 2 -2
+	]
+).randomFunction(r, [0 17], 1)
+.stepPlot
+~~~
+
+![](sw/spl/Help/Image/ContinuousMarkovProcess-B.svg)
+
 * * *
 
 See also: DiscreteMarkovProcess, HiddenMarkovProcess

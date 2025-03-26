@@ -2,8 +2,9 @@
 
 - _ExponentialDistribution(lambda)_
 
-A `Type` that represents an exponential distribution with scale inversely proportional to parameter λ.
-The scale is given by the method `beta`, which answers the `reciprocal` of λ.
+A `Type` that represents an exponential distribution with rate parameter λ,
+and scale inversely proportional to λ.
+The scale is answered by the method `beta`, which answers the `reciprocal` of λ.
 
 The exponential distribution is a particular case of the gamma distribution,
 and is the continuous analogue of the geometric distribution.
