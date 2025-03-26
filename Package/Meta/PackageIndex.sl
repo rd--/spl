@@ -185,6 +185,7 @@
 	'Random-EmpiricalDistribution'
 	'Random-ExponentialDistribution'
 	'Random-ExtremeValueDistribution'
+	'Random-FractionalBrownianMotionProcess'
 	'Random-FRatioDistribution'
 	'Random-GammaDistribution'
 	'Random-GeometricBrownianMotionProcess'

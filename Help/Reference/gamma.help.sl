@@ -4,17 +4,17 @@
 
 Answer the Euler gamma function.
 
-Positive integer values:
+Positive integer values, threads over lists:
 
 ```
->>> 1:10.collect(gamma:/1)
+>>> 1:10.gamma
 [1 1 2 6 24 120 720 5040 40320 362880]
 ```
 
-Half-integer values:
+Half-integer values, threads over lists:
 
 ```
->>> (1.5 .. 5.5).collect(gamma:/1)
+>>> (1.5 .. 5.5).gamma
 [
 	1.pi.sqrt / 2,
 	(3 * 1.pi.sqrt) / 4,

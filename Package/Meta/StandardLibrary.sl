@@ -173,6 +173,7 @@
 	'BinomialProcess'
         'ContinuousMarkovProcess'
         'DiscreteMarkovProcess'
+	'FractionalBrownianMotionProcess'
         'GeometricBrownianMotionProcess'
         'HiddenMarkovProcess'
         'OrnsteinUhlenbeckProcess'
