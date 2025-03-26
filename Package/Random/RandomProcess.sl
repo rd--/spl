@@ -4,7 +4,13 @@
 		let [tMin, tMax] = t;
 		TemporalData(
 			{
-				let answer = self.takeWhile { :each | each[1] < tMax }.upToEnd;
+				let answer = [];
+				{
+					let [t, x] = self.next;
+					t := t.min(tMax);
+					answer.add([t, x]);
+					t < tMax
+				}.whileTrue;
 				self.reset;
 				answer
 			} ! n

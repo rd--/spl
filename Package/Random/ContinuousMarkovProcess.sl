@@ -59,4 +59,16 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 		newContinuousMarkovProcess().initializeSlots(p0, q)
 	}
 
+	ContinuousMarkovProcess { :p0 :m :mu |
+		let n = m.size;
+		let q = { :i :j |
+			(i = j).if {
+				mu[i].-
+			} {
+				m[i][j] * mu[i]
+			}
+		}.table(1:n, 1:n);
+		ContinuousMarkovProcess(p0, q)
+	}
+
 }
