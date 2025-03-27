@@ -59,12 +59,6 @@
 
 Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary, PrimitiveMap] {
 
-	asDictionary { :self :aBlock:/2 |
-		let answer = Dictionary(=);
-		answer.addAll(self);
-		answer
-	}
-
 	asJson { :self |
 		self.asJson(nil, '')
 	}
@@ -82,6 +76,10 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 	basicAsRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
+	}
+
+	comparator { :self |
+		==
 	}
 
 	indices { :self |
@@ -220,18 +218,6 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 	asMap { :self |
 		<primitive: return new Map(Object.entries(_self));>
-	}
-
-}
-
-+Block {
-
-	Dictionary { :aBlock:/2 |
-		(aBlock:/2 == ==).if {
-			Map()
-		} {
-			newDictionaryBy().initializeSlots([], [], aBlock:/2)
-		}
 	}
 
 }

@@ -588,7 +588,7 @@ let a = 'x' -> 1; a.keyValue('y', 2); a = ('y' -> 2) /* set key and value */
 ## Bag -- collection type
 ```
 system.includesPackage('Bag') /* bag package */
-IdentityBag().isBag = true
+IdentityBag().isIdentityBag = true
 IdentityBag().typeOf = 'IdentityBag'
 IdentityBag().isCollection
 IdentityBag().isIndexable = false
@@ -629,15 +629,15 @@ let a = [1, 1, 2, 1, 2, 3, 1, 1, 2, 3, 4]; a.sum = a.asIdentityBag.sum /* sum ma
 [1, 2, 3, 1, 3, 4].asIdentityBag.valuesAndCounts = [1 -> 2, 2 -> 1, 3 -> 2, 4 -> 1].asMap /* contents */
 [1, 1, 1, 1, 1, 2, 2, 2, 2, 3].asIdentityBag.cumulativeCounts = [50 -> 1, 90 -> 2, 100 -> 3]
 [1, 2, 2, 3, 3, 3].histogramOf { :each | each }.asList = [1, 2, 2, 3, 3, 3]
-[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asIdentityBag
-let c = [1, 2, 3, 1]; c.asIdentityBag = c.histogramOf(identity:/1)
-let c = [1, 2, 3, 1]; c.asIdentityBag = c.histogramOf { :each | each }
-[1, 2, 3, 1].asIdentityBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
-['x', 'y', 'y', 'z'].asIdentityBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
-(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].asIdentityBag
-(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].asIdentityBag
-(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].asIdentityBag
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asIdentityBag
+[1, 2, 2, 3, 3, 3].histogramOf { :each | each } = [1, 2, 2, 3, 3, 3].asBag
+let c = [1, 2, 3, 1]; c.asBag = c.histogramOf(identity:/1)
+let c = [1, 2, 3, 1]; c.asBag = c.histogramOf { :each | each }
+[1, 2, 3, 1].asBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.value }
+['x', 'y', 'y', 'z'].asBag = ['x' -> 1, 'y' -> 2, 'y' -> 3, 'z' -> 1].histogramOf { :each | each.key }
+(x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].asBag
+(x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].asBag
+(x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].asBag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
 [1, 3, 5].asIdentityBag.select { :x | x > 1 } = [3, 5].asIdentityBag
 let b = [1, 2, 3, 2, 1].asIdentityBag; b.removeAll([1, 2, 3]); b = [2, 1].asIdentityBag /* only remove first instance */
 ```
@@ -2478,7 +2478,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { '3' } ! 3 = ['3', '3', '3'] /* operator notation */
 ({ system.nextRandomFloat } ! 9).size = 9 /* the size of the answer is as requested */
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
-atAll:/2.parameterNames = ['self', 'keys'] /* answer names of method parameters */
+atAll:/2.parameterNames = ['self', 'indices'] /* answer names of method parameters */
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
 randomReal:/4.parameterNames = ['self', 'min', 'max', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
@@ -2642,7 +2642,7 @@ Sphere([0 0 0], 1).center = [0 0 0] /* center */
 Sphere([0 0 0], 1).radius = 1 /* radius */
 Sphere([0 0 0], 1).diameter = 2 /* diameter */
 Sphere([0 0 0], 1).area = 4.pi /* surface area */
-Sphere([0 0 0], 1).volume = (4.pi / 3) /* volume */
+Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ```
 
 ## Stream -- collection trait

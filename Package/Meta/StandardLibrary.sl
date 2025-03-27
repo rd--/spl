@@ -15,6 +15,7 @@
 	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
+	'EqualityDictionary'
 	'Graph'
 	'Heap'
 	'LinkedList'
@@ -28,6 +29,7 @@
 	'SortedList'
 	'TemporalData'
 	'TimeSeries'
+	'TolerantDictionary'
 	'Tree'
 	'Tuple' /* List */
 	'UndirectedEdge'

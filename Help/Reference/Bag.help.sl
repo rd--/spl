@@ -42,7 +42,7 @@ To get the elements as a `Dictionary` use `valuesAndCounts`:
 
 ```
 >>> [1 1 1 3 3 5].asBag.valuesAndCounts
-[1 -> 3, 3 -> 2, 5 -> 1].asDictionary(=)
+[1 -> 3, 3 -> 2, 5 -> 1].asEqualityDictionary
 ```
 
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
@@ -84,7 +84,7 @@ To remove an element from a `Bag` use `remove`:
 
 * * *
 
-See also: add, addWithOccurrences, asIdentityBag, Dictionary, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
+See also: add, addWithOccurrences, asIdentityBag, Dictionary, IdentityBag, IdentitySet, isImmediate, remove, sortedCounts, sortedElements, Set, valuesAndCounts
 
 References:
 _Mathematica_
@@ -93,7 +93,5 @@ _Smalltalk_
 5.7.6,
 _W_
 [1](https://en.wikipedia.org/wiki/Multiset)
-
-Smalltalk: IdentityBag
 
 Categories: Collection, Type

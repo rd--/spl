@@ -22,6 +22,13 @@ At `List`, sort into ascending order:
 [1, 3 .. 9]
 ```
 
+At an `Association` list, sort by descending key:
+
+```
+>>> [3 -> 'a', 1 -> 'b', 2 -> 'c'].sortBy(>=)
+[3 -> 'a', 2 -> 'c', 1 -> 'b']
+```
+
 * * *
 
 See also: sort, sorted, sortOn, sortOnBy

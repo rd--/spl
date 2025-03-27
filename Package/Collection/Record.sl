@@ -1,11 +1,5 @@
 Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
-	asDictionary { :self :aBlock:/2 |
-		let answer = Dictionary(aBlock:/2);
-		answer.addAll(self);
-		answer
-	}
-
 	asRecord { :self |
 		self
 	}
@@ -38,6 +32,10 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		_self[_key] = _value;
 		return _value;
 		>
+	}
+
+	comparator { :self |
+		==
 	}
 
 	includesKey { :self :key |

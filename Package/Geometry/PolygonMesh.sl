@@ -49,7 +49,7 @@
 	}
 
 	faceDegreeCounts { :self |
-		self.faceIndices.collect(size:/1).sortedElements
+		self.faceIndices.collect(size:/1).counts
 	}
 
 	graph { :self |

@@ -13,10 +13,10 @@ At `Record`
 (2, (x: 1, z: 3))
 ```
 
-At `Dictionary`
+At `EqualityDictionary`
 
 ```
->>> let d = ['x' -> 1, 2L -> 'y'].asDictionary(=);
+>>> let d = ['x' -> 1, 2L -> 'y'].asEqualityDictionary;
 >>> (d.removeKey('x'), d.at(2))
 (1, 'y')
 ```

@@ -1,6 +1,6 @@
 # commonest
 
-- _commonest(aCollection)_
+- _commonest(aList)_
 
 Answer a `List` of the elements that are the most common in _aCollection_.
 
@@ -16,9 +16,11 @@ Find the _mode_ for the heights of the children in a class:
 
 ```
 >>> [
->>> 	134 143 131 140 145 136 131 136 143
->>> 	136 133 145 147 150 150 146 137 143
->>> 	132 142 145 136 144 135 141
+>>> 	134 143 131 140 145
+>>> 	136 131 136 143 136
+>>> 	133 145 147 150 150
+>>> 	146 137 143 132 142
+>>> 	145 136 144 135 141
 >>> ].commonest
 [136]
 ```

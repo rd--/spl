@@ -16,7 +16,9 @@ Answer all distinct elements of _aCollection_ together with their multiplicities
 Count the instances of randomly generated integers:
 
 ```
->>> Sfc32(41805).randomInteger(1, 9, 23).tally(=)
+>>> Sfc32(41805)
+>>> .randomInteger(1, 9, 23)
+>>> .tally(=)
 [
 	9 -> 2,
 	7 -> 3,

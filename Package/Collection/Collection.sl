@@ -850,14 +850,6 @@
 		self.asList.sortBy(sortBlock:/2)
 	}
 
-	sortedCounts { :self |
-		self.asIdentityBag.sortedCounts
-	}
-
-	sortedElements { :self |
-		self.asIdentityBag.sortedElements
-	}
-
 	stemLeafPlot { :self |
 		let negative = Map();
 		let positive = Map();

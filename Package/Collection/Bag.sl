@@ -1,7 +1,7 @@
 @Bag {
 
 	= { :self :aBag |
-		aBag.isBag & {
+		(self.typeOf = aBag.typeOf) & {
 			self.size = aBag.size & {
 				valueWithReturn { :return:/1 |
 					self.contents.associationsDo { :assoc |
@@ -77,10 +77,6 @@
 		self.contents.includesIndex(anObject)
 	}
 
-	isBag { :unused |
-		true
-	}
-
 	max { :self |
 		self.contents.indices.reduce(max:/2)
 	}
@@ -142,7 +138,7 @@
 	}
 
 	storeString { :self |
-		self.contents.storeString ++ '.as' ++ self.typeOf
+		self.contents.storeString ++ '.' ++ self.typeOf
 	}
 
 	sum { :self |
@@ -159,14 +155,6 @@
 
 	valuesAndCounts { :self |
 		self.contents
-	}
-
-}
-
-+@Object {
-
-	isBag { :unused |
-		false
 	}
 
 }
@@ -213,11 +201,23 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 +Void {
 
 	Bag {
-		newBag().initializeSlots(Dictionary(=))
+		newBag().initializeSlots(
+			[].asEqualityDictionary
+		)
 	}
 
 	IdentityBag {
-		newIdentityBag().initializeSlots(Map())
+		IdentityBag(
+			Map()
+		)
+	}
+
+}
+
++Map {
+
+	IdentityBag { :self |
+		newIdentityBag().initializeSlots(self)
 	}
 
 }
@@ -236,6 +236,16 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 		answer
 	}
 
+	histogramOf { :self :aBlock:/1 |
+		let answer = Bag();
+		self.collectInto(aBlock:/1, answer);
+		answer
+	}
+
+}
+
++List {
+
 	commonest { :self |
 		let byCount = self.asBag.sortedCounts;
 		let count = byCount.first.key;
@@ -246,12 +256,6 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 
 	counts { :self |
 		self.asBag.sortedElements
-	}
-
-	histogramOf { :self :aBlock:/1 |
-		let answer = Bag();
-		self.collectInto(aBlock:/1, answer);
-		answer
 	}
 
 }

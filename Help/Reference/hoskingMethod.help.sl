@@ -37,7 +37,7 @@ the predicted value is `zero`:
 >>> Sfc32(378219)
 >>> .hoskingMethod(1, 8, 0.5, false)
 >>> .mean
-~-0.0015106
+-0.0015106
 ```
 
 * * *

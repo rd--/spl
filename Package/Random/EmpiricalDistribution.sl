@@ -1,9 +1,8 @@
-EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
+EmpiricalDistribution : [Object, ProbabilityDistribution] { | contents k |
 
 	cdf { :self |
-		let m = self.m;
 		let k = self.k;
-		let a = m.associations.sortOn(key:/1);
+		let a = self.contents.sortedElements;
 		let n = a.size;
 		{ :x |
 			let i = 1;
@@ -21,7 +20,6 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
 	}
 
 	inverseCdf { :self |
-		let m = self.m;
 		let max = self.max;
 		let min = self.min;
 		let f:/1 = self.cdf;
@@ -63,16 +61,15 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
 	}
 
 	max { :self |
-		self.m.keys.max
+		self.contents.max
 	}
 
 	min { :self |
-		self.m.keys.min
+		self.contents.min
 	}
 
 	/*
 	randomVariate { :self :rng :shape |
-		let m = self.m;
 		let f:/1 = self.inverseCdf;
 		{
 			f(rng.nextRandomFloat)
@@ -80,11 +77,8 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
 	}
 	*/
 
-	randomVariate { :self :rng :shape |
-		let m = self.m;
-		let e = m.keys;
-		let w = m.values;
-		rng.randomWeightedChoice(e, w, shape)
+	randomVariate { :self :r :shape |
+		self.contents.atRandom(shape, r)
 	}
 
 }
@@ -93,21 +87,15 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | m k |
 +List {
 
 	EmpiricalDistribution { :d |
-		let m = Map();
-		d.do { :each |
-			let e = m.atIfAbsent(each) { 0 };
-			m[each] := e + 1
-		};
-		[m.size, d.size].postLine;
-		newEmpiricalDistribution().initializeSlots(m, d.size)
+		newEmpiricalDistribution().initializeSlots(d.asIdentityBag, d.size)
 	}
 
 }
 
-+Map {
++IdentityBag {
 
 	EmpiricalDistribution { :self |
-		newEmpiricalDistribution().initializeSlots(self, self.values.sum)
+		newEmpiricalDistribution().initializeSlots(self, self.sum)
 	}
 
 }

@@ -1,8 +1,8 @@
 # asIdentityBag
 
-- _asIdentityBag(aCollection)_
+- _asIdentityBag(aList)_
 
-Convert _aCollection_ to a `IdentityBag`.
+Convert _aList_ to a `IdentityBag`.
 
 ```
 >>> [1 1 1 3 3 5].asIdentityBag.sortedElements
@@ -28,7 +28,7 @@ Count occurrences of characters in a string:
 
 * * *
 
-See also: Bag, sortedCounts, sortedElements
+See also: IdentityBag, sortedCounts, sortedElements
 
 References:
 _Mathematica_

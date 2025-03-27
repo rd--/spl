@@ -1,6 +1,6 @@
 # counts
 
-- _counts(aCollection)_
+- _counts(aList)_
 
 Answer an `Association` `List` whose keys are the distinct elements of _aCollection_,
 and whose values give the number of times those elements appear.

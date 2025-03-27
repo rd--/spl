@@ -1,8 +1,10 @@
 # asBag
 
-- _asBag(aCollection)_
+- _asBag(aList)_
 
-Convert _aCollection_ to a `Bag`.
+Convert _aList_ to a `Bag`.
+
+At a `List` on integers:
 
 ```
 >>> [1 1 1 3 3 5].asBag.sortedElements

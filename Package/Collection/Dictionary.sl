@@ -99,10 +99,36 @@
 		answer
 	}
 
+	at { :self :key |
+		self.atIfPresentIfAbsent(key, identity:/1) {
+			self.error('@Dictionary>>at: unknown key: ' ++ key)
+		}
+	}
+
+	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			ifAbsent()
+		} {
+			ifPresent(self.values[index])
+		}
+	}
+
 	atAll { :self :keys |
 		self.associationsSelect { :each |
-			keys.includes(each.key)
+			keys.includesBy(each.key, self.comparator)
 		}
+	}
+
+	atPut { :self :key :value |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			self.keys.add(key);
+			self.values.add(value)
+		} {
+			self.values[index] := value
+		};
+		value
 	}
 
 	collect { :self :aBlock:/1 |
@@ -111,6 +137,10 @@
 			answer.add(key -> aBlock(value))
 		};
 		answer
+	}
+
+	comparator { :self |
+		self.typeResponsibility('@Dictionary>>comparator')
 	}
 
 	declareFrom { :self :key :aDictionary |
@@ -201,7 +231,11 @@
 	}
 
 	includesKey { :self :key |
-		self.keys.includes(key)
+		self.keys.includesBy(key, self.comparator)
+	}
+
+	indices { :self |
+		self.keys
 	}
 
 	isDictionary { :self |
@@ -214,6 +248,15 @@
 			answer.add(key -> aBlock(key, value))
 		};
 		answer
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		let keys = self.keys;
+		let values = self.values;
+		1.toDo(keys.size) { :index |
+			aBlock(keys[index], values[index])
+		};
+		nil
 	}
 
 	keysAndValuesRemove { :self :keyValueBlock:/2 |
@@ -307,6 +350,16 @@
 		}
 	}
 
+	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			ifAbsent()
+		} {
+			self.keys.removeAt(index);
+			self.values.removeAt(index)
+		}
+	}
+
 	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
 		self.shouldNotImplement('@Dictionary>>removeIfAbsent')
 	}
@@ -327,6 +380,19 @@
 		answer
 	}
 
+	size { :self |
+		self.keys.size
+	}
+
+	storeString { :self |
+		'%.as%'.format(
+			[
+				self.associations.storeString,
+				self.typeOf
+			]
+		)
+	}
+
 	valuesDo { :self :aBlock:/1 |
 		self.associationsDo { :association |
 			aBlock(association.value)
@@ -341,93 +407,7 @@
 
 }
 
-DictionaryBy : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
-
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			ifAbsent()
-		} {
-			ifPresent(self.values[index])
-		}
-	}
-
-	at { :self :key |
-		self.atIfPresentIfAbsent(key, identity:/1) {
-			self.error('at: unknown key: ' ++ key)
-		}
-	}
-
-	atPut { :self :key :value |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			self.keys.add(key);
-			self.values.add(value)
-		} {
-			self.values[index] := value
-		};
-		value
-	}
-
-	includesKey { :self :key |
-		self.keys.includesBy(key, self.comparator)
-	}
-
-	indices { :self |
-		self.keys
-	}
-
-	keysAndValuesDo { :self :aBlock:/2 |
-		let keys = self.keys;
-		let values = self.values;
-		1.toDo(keys.size) { :index |
-			aBlock(keys[index], values[index])
-		};
-		nil
-	}
-
-	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			ifAbsent()
-		} {
-			self.keys.removeAt(index);
-			self.values.removeAt(index)
-		}
-	}
-
-	size { :self |
-		self.keys.size
-	}
-
-	storeString { :self |
-		'%.asDictionary(%)'.format(
-			[
-				self.associations.storeString,
-				self.comparator.name
-			]
-		)
-	}
-
-}
-
 +List {
-
-	asDictionary { :self :aBlock:/2 |
-		(aBlock:/2 == ==).if {
-			self.asMap
-		} {
-			self.isAssociationList.if {
-				newDictionaryBy().initializeSlots(
-					self.collect(key:/1),
-					self.collect(value:/1),
-					aBlock:/2
-				)
-			} {
-				self.error('List>>asDictionary: not association list')
-			}
-		}
-	}
 
 	lookup { :self :key :defaultValue |
 		self.collect { :each |
