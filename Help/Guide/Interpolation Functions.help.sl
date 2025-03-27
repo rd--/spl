@@ -1,5 +1,14 @@
 # Interpolation Functions
 
+## Interpolators
+
+- `linearInterpolator`
+- `akimaInterpolator`
+- `cubicSplineInterpolator`
+- `nearestNeighborInterpolator`
+
+## Interpolation Functions
+
 - `atBlend`
 - `bilinearInterpolation`
 - `blend`
