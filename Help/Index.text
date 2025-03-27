@@ -427,6 +427,7 @@ Reference/azimuth.help.sl
 Reference/BacktickQuotedString.help.sl
 Reference/Bag.help.sl
 Reference/Balance2.help.sl
+Reference/Ball.help.sl
 Reference/barlowBasicIndispensability.help.sl
 Reference/barlowDisharmonicity.help.sl
 Reference/barlowHarmonicity.help.sl
@@ -528,6 +529,7 @@ Reference/Bpz2.help.sl
 Reference/brayCurtisDistance.help.sl
 Reference/bresenhamLineAlgorithm.help.sl
 Reference/Brf.help.sl
+Reference/BrownianBridgeProcess.help.sl
 Reference/BrownNoise.help.sl
 Reference/brunsConstant.help.sl
 Reference/Brz2.help.sl
@@ -709,6 +711,7 @@ Reference/countDistinct.help.sl
 Reference/count.help.sl
 Reference/counts.help.sl
 Reference/covariance.help.sl
+Reference/CoxIngersollRossProcess.help.sl
 Reference/CpsMidi.help.sl
 Reference/CpsOct.help.sl
 Reference/Crackle.help.sl
@@ -822,11 +825,13 @@ Reference/dimension.help.sl
 Reference/dimensions.help.sl
 Reference/diracDelta.help.sl
 Reference/DirectedEdge.help.sl
+Reference/DirichletDistribution.help.sl
 Reference/dirichletWindow.help.sl
 Reference/discreteDelta.help.sl
 Reference/DiscreteMarkovProcess.help.sl
 Reference/discretePlot.help.sl
 Reference/discretize.help.sl
+Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
 Reference/distance.help.sl
 Reference/distanceMatrix.help.sl
@@ -924,7 +929,7 @@ Reference/euclideanDistance.help.sl
 Reference/eulerFokkerGenus.help.sl
 Reference/eulerGamma.help.sl
 Reference/eulerGradusSuavitatis.help.sl
-Reference/eulerianBetaDistribution.help.sl
+Reference/eulerMaruyamaMethod.help.sl
 Reference/eulerMatrix.help.sl
 Reference/eulerMethod.help.sl
 Reference/eulerPhi.help.sl
@@ -1017,12 +1022,15 @@ Reference/Formlet.help.sl
 Reference/Fos.help.sl
 Reference/fourierMatrix.help.sl
 Reference/fourth.help.sl
+Reference/FractionalBrownianMotionProcess.help.sl
+Reference/FractionalGaussianNoiseProcess.help.sl
 Reference/Fraction.help.sl
 Reference/fractionPart.help.sl
 Reference/FractionPart.help.sl
 Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
 Reference/Frame.help.sl
+Reference/FRatioDistribution.help.sl
 Reference/FreeVerb.help.sl
 Reference/FreqShift.help.sl
 Reference/Frequency.help.sl
@@ -1150,6 +1158,7 @@ Reference/holmesPolyhedraCatalogue.help.sl
 Reference/homogeneousTranslationMatrix.help.sl
 Reference/horogramDrawing.help.sl
 Reference/horogramTable.help.sl
+Reference/hoskingMethod.help.sl
 Reference/host.help.sl
 Reference/hostName.help.sl
 Reference/hour.help.sl
@@ -1724,6 +1733,7 @@ Reference/millerRabinPrimalityTest.help.sl
 Reference/millisecond.help.sl
 Reference/milliseconds.help.sl
 Reference/millisecondsToRun.help.sl
+Reference/milsteinMethod.help.sl
 Reference/minBy.help.sl
 Reference/min.help.sl
 Reference/Min.help.sl

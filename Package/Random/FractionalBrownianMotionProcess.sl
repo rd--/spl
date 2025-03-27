@@ -1,19 +1,7 @@
 FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 
 	randomFunction { :self :r :t :n |
-		let h = self.h;
-		let [tMin, tMax, dt] = t;
-		let timeList = [tMin, tMin + dt .. tMax];
-		let k = timeList.size;
-		let m = k.nextPowerOfTwo.log(2);
-		TemporalData(
-			{
-				[
-					timeList,
-					r.hoskingMethod(tMax - tMin, m, h, true).take(k)
-				].transposed
-			} ! n
-		)
+		r.hoskingMethodRandomFunction(self.h, true, t, n)
 	}
 
 }
@@ -35,7 +23,7 @@ FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 			if (i == 0) {
 				return 1;
 			}
-			return (Math.pow(i - 1, 2 * h) - 2 * Math.pow(i, 2 * h) + Math.pow(i + 1, 2 * h)) / 2;
+			return (Math.pow(i - 1, 2 * h) - (2 * Math.pow(i, 2 * h)) + Math.pow(i + 1, 2 * h)) / 2;
 		};
 		const n = _n;
 		const h = _h;
@@ -61,9 +49,9 @@ FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 			}
 			phi[i - 1] /= v;
 			for (let j = 0; j < i - 1; j++) {
-				phi[j] = psi[j] - phi[i - 1] * psi[i - j - 2];
+				phi[j] = psi[j] - (phi[i - 1] * psi[i - j - 2]);
 			}
-			v *= (1 - phi[i - 1] * phi[i - 1]);
+			v *= 1 - (phi[i - 1] * phi[i - 1]);
 			output[i] = 0;
 			for (let j = 0; j < i; j++) {
 				output[i] += phi[j] * output[i - j - 1];
@@ -87,6 +75,21 @@ FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 
 	hoskingMethod { :self :t :m :h :k |
 		m.basicHoskingMethod(h, t, k.boole, { self.normalDistribution(0, 1) })
+	}
+
+	hoskingMethodRandomFunction { :self :h :k :t :n |
+		let [tMin, tMax, dt] = t;
+		let timeList = [tMin, tMin + dt .. tMax];
+		let l = timeList.size;
+		let m = l.nextPowerOfTwo.log(2);
+		TemporalData(
+			{
+				[
+					timeList,
+					self.hoskingMethod(tMax - tMin, m, h, k).take(l)
+				].transposed
+			} ! n
+		)
 	}
 
 }

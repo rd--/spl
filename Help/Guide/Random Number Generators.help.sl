@@ -70,6 +70,7 @@ Probablity distributions:
 - `NormalDistribution`
 - `ParetoDistribution`
 - `PoissonDistribution`
+- `SkewNormalDistribution`
 - `StudentTDistribution`
 - `TriangularDistribution`
 - `UniformDistribution`
@@ -94,8 +95,11 @@ Random number functions:
 Random Processes
 
 - `BernoulliProcess`
+- `BrownianBridgeProcess`
+- `CoxIngersollRossProcess`
 - `ContinuousMarkovProcess`
 - `DiscreteMarkovProcess`
+- `FractionalBrownianMotionProcess`
 - `GeometricBrownianMotionProcess`
 - `HiddenMarkovProcess`
 - `OrnsteinUhlenbeckProcess`
@@ -106,6 +110,7 @@ Random Processes
 Simulation methods:
 
 - `eulerMaruyamaMethod`
+- `hoskingMethod`
 - `milsteinMethod`
 
 SuperCollider has distinct unit generators for:

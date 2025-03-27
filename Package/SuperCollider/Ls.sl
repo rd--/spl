@@ -458,7 +458,9 @@
 		p1 := LsConstant(p1);
 		p2 := LsConstant(p2);
 		BlockStream {
-			randomNumberGenerator.eulerianBetaDistribution(low.next, high.next, p1.next, p2.next)
+			let lhs = low.next;
+			let rhs = high.next;
+			randomNumberGenerator.betaDistribution(p1.next, p2.next) * (rhs - lhs) + lhs
 		} {
 			low.reset;
 			high.reset;

@@ -6,6 +6,22 @@
 		x / (x + y)
 	}
 
+	/*
+	betaDistribution { :self :alpha :beta |
+		let p = 1 / alpha;
+		let q = 1 / beta;
+		let sum = 2;
+		let next = nil;
+		{
+			sum > 1
+		}.whileTrue {
+			next := self.nextRandomFloat ^ p;
+			sum := next + (self.nextRandomFloat ^ q)
+		};
+		next / sum
+	}
+	*/
+
 }
 
 BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |

@@ -176,6 +176,7 @@
 	'CoxIngersollRossProcess'
         'DiscreteMarkovProcess'
 	'FractionalBrownianMotionProcess'
+	'FractionalGaussianNoiseProcess'
         'GeometricBrownianMotionProcess'
         'HiddenMarkovProcess'
         'OrnsteinUhlenbeckProcess'

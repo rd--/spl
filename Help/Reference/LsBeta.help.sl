@@ -2,7 +2,7 @@
 
 - _LsBeta(low, high, p1, p2, length, randomNumberGenerator)_
 
-Random values that follow an Eulerian Beta distribution.
+Random values that follow a Beta distribution.
 
 Biased low, line plot:
 
@@ -19,9 +19,7 @@ Biased low, histogram plot:
 ~~~spl svg=B
 LsBeta(0, 1, 1 / 3, 3, 999, Sfc32(681423))
 .upToEnd
-.histogramList
-.second
-.discretePlot
+.histogramPlot
 ~~~
 
 ![](sw/spl/Help/Image/LsBeta-B.svg)
@@ -38,7 +36,7 @@ LsBeta(0, 1, 3, 1 / 3, 99, Sfc32(678142))
 
 * * *
 
-See also: LsBrown, LsCauchy, LsRand, LsWhite
+See also: BetaDistribution, LsBrown, LsCauchy, LsRand, LsWhite
 
 Guides: Patterns and Streams
 

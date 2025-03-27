@@ -60,6 +60,80 @@ BetaDistribution(3, 2.5)
 
 ![](sw/spl/Help/Image/BetaDistribution-D.svg)
 
+When α and β are both less than one,
+the probability density is greatest near `zero` and `one`,
+the case where α=β=1/2 is equal to the standard arcsine distribution:
+
+~~~spl svg=E
+(0 -- 1).functionPlot(
+	BetaDistribution(0.5, 0.5)
+	.pdf.clip(0, 4)
+)
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-E.svg)
+
+When α and β are both equal to one the probability density function is uniformly `one`:
+
+~~~spl svg=F
+(-1 -- 2).functionPlot(
+	BetaDistribution(1, 1)
+	.pdf
+)
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-F.svg)
+
+When α=1 and β=2,
+and vice-versa,
+the probability density function is linear:
+
+~~~spl svg=G
+(0 -- 1).functionPlot(
+	BetaDistribution(1, 2).pdf
+)
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-G.svg)
+
+When α and β are both greater than `one` the probability density function is Gaussian,
+the mean is the midpoint if α=β,
+else it is skewed toward the lower values boundary:
+
+~~~spl svg=H
+(0 -- 1).functionPlot(
+	[2 2; 3 4; 6 5; 7 7].collect { :each |
+		let [alpha, beta] = each;
+		BetaDistribution(alpha, beta)
+		.pdf
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-H.svg)
+
+Biased low:
+
+~~~spl svg=I
+let r = Sfc32(791741);
+BetaDistribution(1 / 3, 3)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-I.svg)
+
+Biased high:
+
+~~~spl svg=J
+let r = Sfc32(231749);
+BetaDistribution(3, 1 / 3)
+.randomVariate(r, [99])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/BetaDistribution-J.svg)
+
 * * *
 
 See also: BinomialDistribution, beta, betaRegularized, GammaDistribution

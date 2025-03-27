@@ -188,6 +188,7 @@
 	'Random-ExponentialDistribution'
 	'Random-ExtremeValueDistribution'
 	'Random-FractionalBrownianMotionProcess'
+	'Random-FractionalGaussianNoiseProcess'
 	'Random-FRatioDistribution'
 	'Random-GammaDistribution'
 	'Random-GeometricBrownianMotionProcess'

@@ -30,7 +30,18 @@ Sfc32(278193)
 
 ![](sw/spl/Help/Image/hoskingMethod-B.svg)
 
+Mean of sample of fractional Gaussian noise,
+the predicted value is `zero`:
+
+```
+>>> Sfc32(378219)
+>>> .hoskingMethod(1, 8, 0.5, false)
+>>> .mean
+~-0.0015106
+```
+
 * * *
 
-See also: FractionalBrownianMotionProcess
+See also: FractionalBrownianMotionProcess, FractionalGaussianNoiseProcess
 
+Further Reading: Hosking 1984
