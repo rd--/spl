@@ -21,7 +21,7 @@ Probability density function, varying α:
 
 Probability density function, varying β:
 
-~~~spl svg=A
+~~~spl svg=B
 (-5 -- 10).functionPlot(
 	[1.5 2 3].collect { :beta |
 		ExtremeValueDistribution(

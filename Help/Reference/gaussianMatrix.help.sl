@@ -34,10 +34,10 @@ The matrix is symmetrical, print upper left quadrant:
 
 The matrix sums to `one`:
 
-~~~spl svg=A
+```
 >>> 2.gaussianMatrix(1).deepSum
 1
-~~~
+```
 
 Compute and plot a Gaussian vector:
 

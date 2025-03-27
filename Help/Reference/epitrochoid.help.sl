@@ -15,7 +15,7 @@ _h_ is the distance from _P_ to the center of the circle _C_.
 
 With five cusps and _P_ outside of _C_:
 
-~~~spl svg=A
+~~~spl svg=B
 (0 -- 2.pi).functionPlot(
 	epitrochoid(1, 5, 7)
 )

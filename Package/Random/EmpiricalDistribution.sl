@@ -92,10 +92,14 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | contents k |
 
 }
 
-+IdentityBag {
++Map {
 
 	EmpiricalDistribution { :self |
-		newEmpiricalDistribution().initializeSlots(self, self.sum)
+		let b = IdentityBag(self);
+		newEmpiricalDistribution().initializeSlots(
+			b,
+			b.sum
+		)
 	}
 
 }

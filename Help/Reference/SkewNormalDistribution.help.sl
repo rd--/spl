@@ -21,7 +21,7 @@ Probability density function, varying alpha:
 
 Generate a sample of pseudorandom numbers from a skew normal distribution:
 
-~~~
+~~~spl svg=B
 let r = Sfc32(678123);
 SkewNormalDistribution(0, 2, 3)
 .randomVariate(r, 10^4)
