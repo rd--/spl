@@ -1,17 +1,18 @@
 # findDivisions
 
 - _findDivisions(anInterval, anInteger)_
+- _findDivisions(anInterval, aNumber, anInteger)_
 
 Answer a list of about _anInteger_ "nice" numbers that divide the interval around _anInterval_ into equally spaced parts.
 
-Find five divisions of the interval _(0,1)_:
+Find five divisions of the interval _(0, 1)_:
 
 ```
 >>> (0 -- 1).findDivisions(5).asList
 [0 1/5 2/5 3/5 4/5 1]
 ```
 
-Find five divisions of the interval _(7,95)_:
+Find five divisions of the interval _(7, 95)_:
 
 ```
 >>> (7 -- 95).findDivisions(5).asList

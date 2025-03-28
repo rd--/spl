@@ -1,8 +1,8 @@
 # betweenAnd
 
-- _betweenAnd(aMagnitude, min, max)_
+- _betweenAnd(x, min, max)_
 
-Answer `true` if _aMagnitude_ is between (inclusively) _min_ and _max_, else `false`.
+Answer `true` if _x_ is between (inclusively) _min_ and _max_, else `false`.
 
 Check that a number is included in an interval:
 

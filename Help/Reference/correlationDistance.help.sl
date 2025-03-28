@@ -31,4 +31,4 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CorrelationDistance.html),
 
-Categories: Distance
+Categories: Distance, Statistics

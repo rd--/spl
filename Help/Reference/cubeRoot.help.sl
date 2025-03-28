@@ -67,3 +67,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/CubeRoot.html),
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.cbrt)
+
+Categories: Math

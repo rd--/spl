@@ -38,3 +38,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicMean.html),
 _Mathworks_
 [1](https://mathworks.com/help/stats/harmmean.html)
+
+Categories: Statistics

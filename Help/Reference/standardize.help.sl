@@ -27,10 +27,19 @@ Compute standard scores for data:
 Shift to have mean zero without scaling:
 
 ```
->>> 1:10.standardize(mean:/1, 1.constant)
-[-4.5 -3.5 -2.5 -1.5 -0.5 0.5 1.5 2.5 3.5 4.5]
+>>> 1:10.standardize(
+>>> 	mean:/1,
+>>> 	1.constant
+>>> )
+[
+	-4.5 -3.5 -2.5 -1.5 -0.5
+	0.5 1.5 2.5 3.5 4.5
+]
 
->>> let r = 1:10.standardize(mean:/1, 1.constant);
+>>> let r = 1:10.standardize(
+>>> 	mean:/1,
+>>> 	1.constant
+>>> );
 >>> (r.mean, r.variance, 1:10.variance)
 (0, 9.1667, 9.1667)
 ```
@@ -55,15 +64,14 @@ let q = p.standardize;
 [p.sort, q.sort].lineSetPlot
 ~~~
 
-[p.sort.transposed
-
+![](sw/spl/Help/Image/standardize-A.svg)
 
 * * *
 
-See also: median, NormalDistribution, normalize, rescale, standardDeviation DeleteAnomalies
+See also: median, NormalDistribution, normalize, rescale, standardDeviation
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Standardize.html)
 
-Categories: Math, Vector
+Categories: Math, Statistics, Vector

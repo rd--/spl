@@ -19,3 +19,5 @@ See also: harmonicMean, mean, median
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ContraharmonicMean.html)
+
+Categories: Statistics

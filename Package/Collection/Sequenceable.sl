@@ -423,12 +423,6 @@
 		self.bisect(anObject, <)
 	}
 
-	blomqvistBeta { :v :w |
-		(v - v.median).sign.correlation(
-			(w - w.median).sign
-		)
-	}
-
 	brayCurtisDistance { :self :aList |
 		(self - aList).abs.sum / (self + aList).abs.sum
 	}
@@ -658,36 +652,8 @@
 		answer
 	}
 
-	correlation { :v :w |
-		v.isMatrix.if {
-			v.matrixCorrelation(w)
-		} {
-			v.covariance(w) / (v.standardDeviation * w.standardDeviation)
-		}
-	}
-
-	correlationDistance { :u :v |
-		let uu = (u - u.mean);
-		let vv = (v - v.mean);
-		1 - ((u - u.mean).dot(v - v.mean) / (uu.norm * vv.norm))
-	}
-
 	cosineDistance { :u :v |
 		1 - (u.dot(v) / (u.norm * v.norm))
-	}
-
-	covariance { :v :w |
-		v.isMatrix.if {
-			v.matrixCovariance(w)
-		} {
-			let n = v.size;
-			let m = w.size;
-			(n = m).if {
-				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugated)
-			} {
-				[v, w].error('@Sequenceable>>covariance: vectors must be equal')
-			}
-		}
 	}
 
 	cross { :u |
@@ -1871,10 +1837,6 @@
 		(self - aList).abs.sum
 	}
 
-	median { :self |
-		self.asSortedList.median
-	}
-
 	mergeInPlace { :self :select:/1 :insert:/2 |
 		let answer = [];
 		{
@@ -2647,33 +2609,6 @@
 		(self - aList).norm.squared
 	}
 
-	standardDeviation { :self |
-		self.isMatrix.if {
-			self.transposed.collect { :each |
-				each.variance.sqrt
-			}
-		} {
-			self.variance.sqrt
-		}
-	}
-
-	standardize { :self :meanBlock:/1 :deviationBlock:/1 |
-		let deviation = deviationBlock(self);
-		(deviation = 0).if {
-			self.error('@Sequenceable>>standardize: deviation = 0?')
-		} {
-			(self - meanBlock(self)) / deviation
-		}
-	}
-
-	standardize { :self :meanBlock:/1 |
-		self.standardize(meanBlock:/1, standardDeviation:/1)
-	}
-
-	standardize { :self |
-		self.standardize(mean:/1, standardDeviation:/1)
-	}
-
 	suffixesDo { :self :aBlock:/1 |
 		let size = self.size;
 		1.toDo(size) { :each |
@@ -3016,14 +2951,6 @@
 				}
 			};
 			p.difference(seen).nubBy(aBlock:/2)
-		}
-	}
-
-	variance { :self |
-		self.isMatrix.if {
-			self.transposed.collect(variance:/1)
-		} {
-			((self - self.mean) ^ 2).sum / (self.size - 1)
 		}
 	}
 

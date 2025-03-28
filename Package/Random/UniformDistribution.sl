@@ -1,31 +1,44 @@
 +@RandomNumberGenerator {
 
-	uniformDistribution { :self :min :max |
-		self.nextRandomFloat * (max - min) + min
+	uniformDistribution { :self :a :b |
+		let u = a.isList.if {
+			{ self.nextRandomFloat } ! a.size
+		} {
+			self.nextRandomFloat
+		};
+		u * (b - a) + a
 	}
 
 }
 
-UniformDistribution : [Object, ProbabilityDistribution] { | min max |
+UniformDistribution : [Object, ProbabilityDistribution] { | a b |
 
 	cdf { :self |
-		let min = self.min;
-		let max = self.max;
+		let a = self.a;
+		let b = self.b;
 		{ :x |
-			(x < min).if {
+			(x < a).if {
 				0
 			} {
-				(x > max).if {
+				(x > b).if {
 					1
 				} {
-					(x - min) / (max - min)
+					(x - a) / (b - a)
 				}
 			}
 		}
 	}
 
+	dimensions { :self |
+		self.a.size
+	}
+
 	entropy { :self |
-		(self.max - self.min).log
+		(self.b - self.a).log
+	}
+
+	excessKurtosis { :self |
+		6/5
 	}
 
 	kurtosis { :self |
@@ -33,16 +46,16 @@ UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 	}
 
 	mean { :self |
-		(self.min + self.max) / 2
+		(self.a + self.b) / 2
 	}
 
 	median { :self |
-		(self.min + self.max) / 2
+		(self.a + self.b) / 2
 	}
 
 	pdf { :self |
 		{ :x |
-			x.betweenAnd(self.min, self.max).if {
+			x.betweenAnd(self.a, self.b).if {
 				1
 			} {
 				0
@@ -50,8 +63,10 @@ UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 		}
 	}
 
-	randomVariate { :self :rng :shape |
-		rng.randomReal(self.min, self.max, shape)
+	randomVariate { :self :r :shape |
+		{
+			r.uniformDistribution(self.a, self.b)
+		} ! shape
 	}
 
 	skewness { :self |
@@ -63,15 +78,20 @@ UniformDistribution : [Object, ProbabilityDistribution] { | min max |
 	}
 
 	variance { :self |
-		(self.max - self.min).squared / 12
+		(self.b - self.a).squared / 12
 	}
 
 }
 
-+[SmallFloat, Symbol] {
++List {
 
-	UniformDistribution { :min :max |
-		newUniformDistribution().initializeSlots(min, max)
+	UniformDistribution { :self |
+		let [a, b] = self.isVector.if {
+			self
+		} {
+			self.transposed
+		};
+		newUniformDistribution().initializeSlots(a, b)
 	}
 
 }

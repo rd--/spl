@@ -82,10 +82,6 @@
 		}
 	}
 
-	arithmeticMean { :self |
-		self.sum / self.size
-	}
-
 	asList { :self |
 		let array = List(self.size);
 		let index = 0;
@@ -146,62 +142,6 @@
 		self.atRandom([], system)
 	}
 
-	average { :self |
-		self.mean
-	}
-
-	binCounts { :self :b |
-		self.binLists(b).collect(size:/1)
-	}
-
-	binCounts { :self :b1 :b2 |
-		self.binLists(b1, b2).collect { :each |
-			each.collect(size:/1)
-		}
-	}
-
-	binListsFor { :self :b |
-		let n = b.size;
-		let c = { [] } ! (n - 1);
-		self.do { :e |
-			(e >= b[1] & { e <= b[n] }).ifTrue {
-				let i = b.binarySearchLeftmost(e).min(n - 1);
-				c[i].add(e)
-			}
-		};
-		c
-	}
-
-	binListsFor { :self :b1 :b2 |
-		let [m, n] = [b1.size, b2.size];
-		let c = { [] } ! [m - 1, n - 1];
-		self.do { :e |
-			let [e1, e2] = e;
-			(e1 >= b1[1] & { e1 <= b1[m] & { e2 >= b2[1] & { e2 <= b2[n] } } }).ifTrue {
-				let i = b1.binarySearchLeftmost(e1).min(m - 1);
-				let j = b2.binarySearchLeftmost(e2).min(n - 1);
-				c[i][j].add(e)
-			}
-		};
-		c
-	}
-
-	binLists { :self :b |
-		let [start, stop, step] = b;
-		self.binListsFor(
-			Range(start, stop, step).asList
-		)
-	}
-
-	binLists { :self :b1 :b2 |
-		let [start1, stop1, step1] = b1;
-		let [start2, stop2, step2] = b2;
-		self.binListsFor(
-			Range(start1, stop1, step1).asList,
-			Range(start2, stop2, step2).asList
-		)
-	}
-
 	capacity { :self |
 		self.size
 	}
@@ -220,11 +160,6 @@
 			answer.add([i, j])
 		};
 		answer
-	}
-
-	centralMoment { :self :r |
-		let mean = self.mean;
-		(1 / self.size) * ((self - mean) ^ r).sum
 	}
 
 	collect { :self :aBlock:/1 |
@@ -259,10 +194,6 @@
 			self.typeOf.withIndefiniteArticle,
 			self.size
 		])
-	}
-
-	contraharmonicMean { :self |
-		self.squared.sum / self.sum
 	}
 
 	copyWith { :self :newElement |
@@ -443,10 +374,6 @@
 		self.reduce(gcd:/2)
 	}
 
-	geometricMean { :self |
-		self.product ^ (1 / self.size)
-	}
-
 	groupBy { :self :keyBlock:/1 |
 		let result = Map();
 		self.do { :each |
@@ -456,34 +383,6 @@
 			}.add(each)
 		};
 		result
-	}
-
-	harmonicMean { :self |
-		self.size / self.reciprocal.sum
-	}
-
-	histogramOf { :self |
-		self.histogramOf { :each |
-			each
-		}
-	}
-
-	histogramListFor { :self :b |
-		[b, self.binListsFor(b).collect(size:/1)]
-	}
-
-	histogramList { :self :b |
-		let [start, stop, step] = b;
-		self.histogramListFor(
-			Range(start, stop, step).asList
-		)
-	}
-
-	histogramList { :self |
-		let k = self.size.sqrt.ceiling + 1;
-		let [min, max] = self.minMax;
-		let b = (min -- max).findDivisions(k);
-		self.histogramListFor(b.asList)
 	}
 
 	include { :self :anObject |
@@ -542,16 +441,6 @@
 		}
 	}
 
-	interquartileRange { :self :a :b :c :d |
-		let [q1, q2, q3] = self.quartiles(a, b, c, d);
-		q3 - q1
-	}
-
-	interquartileRange { :self |
-		let [q1, q2, q3] = self.quartiles;
-		q3 - q1
-	}
-
 	isAtom { :self |
 		false
 	}
@@ -584,18 +473,6 @@
 		self.allEqual.boole
 	}
 
-	kurtosis { :self |
-		self.isVector.if {
-			self.centralMoment(4) / (self.centralMoment(2) ^ 2)
-		} {
-			self.isMatrix.if {
-				self.transposed.collect(kurtosis:/1)
-			} {
-				'@Collection>>kurtosis: not vector or matrix'.error
-			}
-		}
-	}
-
 	leafCount { :self |
 		self.collect { :each |
 			each.isCollection.if {
@@ -620,18 +497,6 @@
 		} {
 			self.min
 		}
-	}
-
-	mean { :self |
-		self.sum / self.size
-	}
-
-	meanDeviation { :self |
-		(self - self.mean).abs.sum / self.size
-	}
-
-	moment { :self :r |
-		(1 / self.size) * (self ^ r).sum
 	}
 
 	nearest { :self :anObject :aBlock:/2 |
@@ -741,32 +606,6 @@
 		['size']
 	}
 
-	quantile { :self :p :a :b :c :d |
-		self.isVector.if {
-			self.asSortedList.quantile(p, a, b, c, d)
-		} {
-			self.isMatrix.if {
-				self.transposed.collect { :each |
-					each.asSortedList.quantile(p, a, b, c, d)
-				}
-			} {
-				'Collection>>quantile: not vector or matrix'
-			}
-		}
-	}
-
-	quantile { :self :p |
-		self.quantile(p, 0, 0, 1, 0)
-	}
-
-	quartiles { :self :a :b :c :d |
-		self.quantile([1 2 3] / 4, a, b, c, d)
-	}
-
-	quartiles { :self |
-		self.quartiles(1 / 2, 0, 0, 1)
-	}
-
 	rankedMax { :self :n |
 		(n < 0).if {
 			self.rankedMin(n.negated)
@@ -808,10 +647,6 @@
 		self.squared.sum.sqrt / 2
 	}
 
-	sampleStandardDeviation { :self |
-		(self - self.mean).squared.mean.sqrt
-	}
-
 	select { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |
@@ -828,18 +663,6 @@
 			answer.add(collectBlock(each))
 		};
 		answer
-	}
-
-	skewness { :self |
-		self.isVector.if {
-			self.centralMoment(3) / (self.centralMoment(2) ^ (3 / 2))
-		} {
-			self.isMatrix.if {
-				self.transposed.collect(skewness:/1)
-			} {
-				'@Collection>>skewness: not vector or matrix'.error
-			}
-		}
 	}
 
 	sorted { :self |
@@ -884,14 +707,6 @@
 		} {
 			self.reduce(+)
 		}
-	}
-
-	standardDeviation { :self |
-		self.variance.sqrt
-	}
-
-	standardizedMoment { :self :r |
-		self.centralMoment(r) / (self.sampleStandardDeviation ^ r)
 	}
 
 	symmetricDifference { :self :aCollection |
@@ -941,10 +756,6 @@
 
 	union { :self :aCollection |
 		self.unionBy(aCollection, =)
-	}
-
-	variance { :self |
-		((self - self.mean) ^ 2).sum / (self.size - 1)
 	}
 
 	withLevelCollect { :self :aBlock:/2 :level |

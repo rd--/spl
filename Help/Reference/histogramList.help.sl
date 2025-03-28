@@ -3,7 +3,7 @@
 - _histogramList(x, b)_
 - _histogramList(x)_
 
-Answer a list of bins boundaries and histogram heights of the values in _x_,
+Answer a list of bin boundaries and histogram heights of the values in _x_,
 given the bin specification _b_.
 If _b_ is elided,
 the number of bins is derived from the square root of the number of data points.

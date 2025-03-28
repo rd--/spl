@@ -18,6 +18,7 @@
 	'EqualityDictionary'
 	'Graph'
 	'Heap'
+	'Histogram'
 	'LinkedList'
 	'NumericArray'
 	'PriorityQueue'
@@ -120,6 +121,7 @@
 	'MatrixFunctions'
 	'Permutations'
 	'Primes'
+	'Statistics'
 	'UnivariatePolynomial'
 	'WindowFunction'
 

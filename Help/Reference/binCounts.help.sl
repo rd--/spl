@@ -1,10 +1,10 @@
 # binCounts
 
 - _binCounts(data, bins)_
-- _binCounts(data, bins, bins)_
+- _binCounts(data, bins₁, bins₂)_
 
 Answer a `List` of lists of the elements of _data_ whose values lie in successive specified _bins_.
-_bins_ are given as a _(min, max, width)_ triples.
+_bins_ are given as _(min, max, width)_ triples.
 If data is two-dimensional, two _bins_ values are required.
 
 Count elements in specified bins:
@@ -60,13 +60,11 @@ Bin count of two peak random data with two thousand points:
 
 ~~~spl svg=C
 let r = Sfc32(918041);
-[
-	NormalDistribution(0, 1)
-	.randomVariate(r, [1000]),
-	NormalDistribution(5, 2)
-	.randomVariate(r, [1000])
-]
-.catenate
+let p = NormalDistribution(0, 1);
+let q = NormalDistribution(5, 2);
+let a = p.randomVariate(r, [1000]);
+let b = q.randomVariate(r, [1000]);
+(a ++ b)
 .binCounts([-3 11 0.2])
 .discretePlot
 ~~~

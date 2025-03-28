@@ -2,7 +2,8 @@
 
 - _correlation(v, w)_
 
-Answer the correlation between the vectors _v_ and _w_.
+Answer the correlation between the vectors _v_ and _w_,
+or the cross-correlation matrix for the matrices _v_ and _w_.
 
 Correlation between two fractional vectors:
 
@@ -15,7 +16,9 @@ Correlation between two irrational vectors:
 
 ```
 >>> correlation([1 1.pi 2], [2 2 1])
-(-3 + 1.pi) / (2 * (3 - 3.pi + 1.pi.squared).sqrt)
+(-3 + 1.pi)
+/
+(2 * (3 - 3.pi + 1.pi.squared).sqrt)
 ```
 
 Correlation between two real vectors:
@@ -35,7 +38,12 @@ Correlation between two integer vectors:
 Correlation between a Toeplitz matrix and itself:
 
 ```
->>> let m = [1 2 3 4; 2 1 2 3; 3 2 1 2; 4 3 2 1];
+>>> let m = [
+>>> 	1 2 3 4;
+>>> 	2 1 2 3;
+>>> 	3 2 1 2;
+>>> 	4 3 2 1
+>>> ];
 >>> let x = 2/5.sqrt;
 >>> correlation(m, m)
 [
@@ -64,6 +72,8 @@ See also: centralMoment, covariance, variance
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Correlation.html)
-[2](https://reference.wolfram.com/language/ref/Correlation.html)
+[2](https://reference.wolfram.com/language/ref/Correlation.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Correlation)
 
 Categories: Statistics
