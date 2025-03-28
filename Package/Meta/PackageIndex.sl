@@ -202,6 +202,7 @@
 	'Random-LogNormalDistribution'
 	'Random-LogisticDistribution'
 	'Random-MersenneTwister'
+	'Random-MultinormalDistribution'
 	'Random-NoncentralBetaDistribution'
 	'Random-NoncentralChiSquareDistribution'
 	'Random-NormalDistribution'

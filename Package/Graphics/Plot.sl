@@ -247,6 +247,12 @@ Plot : [Object] { | pages format options |
 		self.typedPlot('line')
 	}
 
+	lineSetPlot { :self |
+		self.collect { :each |
+			each.collect(enclose:/1)
+		}.linePlot
+	}
+
 	matrixPlot { :self |
 		[self.asFloat].Plot('matrix')
 	}

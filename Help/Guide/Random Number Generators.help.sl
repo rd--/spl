@@ -52,6 +52,7 @@ Probablity distributions:
 - `BernoulliDistribution`
 - `BetaDistribution`
 - `BinomialDistribution`
+- `BinormalDistribution`
 - `CauchyDistribution`
 - `ChiSquareDistribution`
 - `DirichletDistribution`
@@ -65,6 +66,7 @@ Probablity distributions:
 - `LaplaceDistribution`
 - `LogisticDistribution`
 - `LogNormalDistribution`
+- `MultinormalDistribution`
 - `NoncentralBetaDistribution`
 - `NoncentralChiSquareDistribution`
 - `NormalDistribution`

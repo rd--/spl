@@ -12,7 +12,7 @@ Plot seven integers:
 
 ![](sw/spl/Help/Image/scatterPlot-A.svg)
 
-Plot the cocatenation of three Ranges:
+Plot the catenation of three `Range` values:
 
 ~~~spl svg=B
 (1:20 ++ 20:-1:1 ++ 1:30).scatterPlot

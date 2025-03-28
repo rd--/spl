@@ -159,6 +159,7 @@
 	'LaplaceDistribution'
 	'LogisticDistribution'
 	'LogNormalDistribution'
+	'MultinormalDistribution'
 	'NoncentralBetaDistribution'
 	'NoncentralChiSquareDistribution'
 	'NormalDistribution'

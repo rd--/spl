@@ -11,10 +11,15 @@ for non-zero deviation.
 Compute standard scores for data:
 
 ```
->>> [6.5 3.8 6.6 5.7 6.0 6.4 5.3].standardize
-[0.7571 -1.9945 0.859 -0.05823 0.2475 0.6551 -0.4659]
+>>> [6.5 3.8 6.6 5.7 6.0 6.4 5.3]
+>>> .standardize
+[
+	0.7571 -1.9945  0.8590 -0.05823
+	0.2475  0.6551 -0.4659
+]
 
->>> let r = [6.5 3.8 6.6 5.7 6.0 6.4 5.3].standardize;
+>>> let d = [6.5 3.8 6.6 5.7 6.0 6.4 5.3];
+>>> let r = d.standardize;
 >>> (r.mean, r.variance)
 (0, 1)
 ```
@@ -26,20 +31,36 @@ Shift to have mean zero without scaling:
 [-4.5 -3.5 -2.5 -1.5 -0.5 0.5 1.5 2.5 3.5 4.5]
 
 >>> let r = 1:10.standardize(mean:/1, 1.constant);
->>> (r.mean, r.variance)
-(0, 9.1667)
+>>> (r.mean, r.variance, 1:10.variance)
+(0, 9.1667, 9.1667)
 ```
 
-Shift by the Median and scale by the InterquartileRange:
+Shift by the `median` and scale by the `interquartileRange`:
 
 ```
->>> 1:10.standardize(median:/1, interquartileRange:/1)
+>>> 1:10.standardize(
+>>> 	median:/1,
+>>> 	interquartileRange:/1
+>>> )
 [-0.9 -0.7 -0.5 -0.3 -0.1 0.1 0.3 0.5 0.7 0.9]
 ```
 
+Shift normally distributed values to a standard normal:
+
+~~~spl svg=A
+let r = Sfc32(672134);
+let d = NormalDistribution(5, 2);
+let p = d.randomVariate(r, [1000]);
+let q = p.standardize;
+[p.sort, q.sort].lineSetPlot
+~~~
+
+[p.sort.transposed
+
+
 * * *
 
-See also: rescale
+See also: median, NormalDistribution, normalize, rescale, standardDeviation DeleteAnomalies
 
 References:
 _Mathematica_
