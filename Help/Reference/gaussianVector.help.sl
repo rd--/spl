@@ -21,4 +21,4 @@ The vector sums to `one`:
 
 * * *
 
-See also: gaussianMatrix
+See also: gaussianMatrix, gaussianWindow

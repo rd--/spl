@@ -195,3 +195,15 @@
 	}
 
 }
+
++List {
+
+	nadarayaWatsonEstimator { :i :x :y :h :k:/1 |
+		let kx = x.collect { :each |
+			((i - each) / h).collect(k:/1) / h
+		}.transposed;
+		let w = kx / kx.collect(sum:/1);
+		w.dot(y)
+	}
+
+}

@@ -1,0 +1,38 @@
+# nadarayaWatsonEstimator
+
+- _nadarayaWatsonEstimator(i, x, y, h, k:/1)_
+
+The Nadaraya-Watson estimator.
+
+~~~spl svg=A
+let r = Sfc32(738164);
+let i = [0, 0.25 .. 4.pi];
+let n = i.size;
+let d = NormalDistribution(0, 1);
+let p = d.randomVariate(r, [n]) * 0.5;
+let q = d.randomVariate(r, [n]);
+let m = { :x | x.cos };
+let x = i + p;
+let y = x.collect(m:/1) + q;
+let j = [0, 0.01 .. 4.pi];
+let gaussianKernel = { :u |
+	(-0.5 * u.squared).exp / 2.pi.sqrt
+};
+let e = j.nadarayaWatsonEstimator(
+	x,
+	y,
+	0.6,
+	gaussianKernel:/1
+);
+[
+	[x, y].transposed.PointCloud,
+	[i, i.collect(m:/1)].transposed.Line,
+	[j, e].transposed.Line
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/nadarayaWatsonEstimator-A.svg)
+
+* * *
+
+See also: NormalDistribution

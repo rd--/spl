@@ -4,6 +4,19 @@
 
 Answer a `Type` that represents a normal (Gaussian) distribution with mean `μ` and standard deviation `σ`.
 
+Probability density function at specific values:
+
+```
+>>> [0 1 1].collect(
+>>> 	NormalDistribution(0, 1).pdf
+>>> )
+[
+	1 / 2.pi.sqrt,
+	-0.5.exp / 2.pi.sqrt,
+	1 / (2.pi * 1.exp).sqrt
+]
+```
+
 Cumulative distribution function:
 
 ```

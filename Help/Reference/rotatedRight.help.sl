@@ -20,6 +20,24 @@ Rotate left by four places:
 [5 6 7 1 2 3 4]
 ```
 
+Rotating evenly and oddly sized vectors left and right by half of the size:
+
+```
+>>> 1:6.rotatedRight(6 // 2)
+[4 5 6 1 2 3]
+
+>>> 1:6.rotatedLeft(6 // 2)
+[4 5 6 1 2 3]
+
+>>> 1:7.rotatedRight(7 // 2)
+[5 6 7 1 2 3 4]
+
+>>> 1:7.rotatedLeft(7 // 2)
+[4 5 6 7 1 2 3]
+```
+
+```
+
 * * *
 
 See also: atWrap, rotatedLeft

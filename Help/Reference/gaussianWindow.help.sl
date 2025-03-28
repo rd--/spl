@@ -1,11 +1,11 @@
 # gaussianWindow
 
-- _gaussianWindow(aNumber, sigma)_
+- _gaussianWindow(aNumber, sigma=0.3)_
 
 Answer the _Gaussian_ window function at _aNumber_.
 
 ```
->>> 0.1.gaussianWindow
+>>> 0.1.gaussianWindow(0.3)
 0.945959
 ```
 
@@ -39,6 +39,22 @@ Discrete _Gaussian_ window of length 15:
 
 ![](sw/spl/Help/Image/gaussianWindow-C.svg)
 
+The `fft` of the Gaussian window is Gaussian:
+
+~~~spl svg=D
+let n = 64;
+(-0.5 -- 1.5)
+.discretize(n) { :x |
+	x.gaussianWindow(3 / n)
+}
+.fft
+.rotatedRight(n // 2)
+.abs
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/gaussianWindow-D.svg)
+
 * * *
 
 See also: bartlettWindow, blackmanWindow, dirichletWindow, hammingWindow, hannWindow, welchWindow
@@ -48,6 +64,8 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianFunction.html)
-[2](https://reference.wolfram.com/language/ref/GaussianWindow.html)
+[2](https://reference.wolfram.com/language/ref/GaussianWindow.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/signal/ref/gausswin.html)
 
 Categories: Windowing
