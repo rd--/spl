@@ -36,3 +36,9 @@ let e = j.nadarayaWatsonEstimator(
 * * *
 
 See also: NormalDistribution
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Kernel_regression)
+
+Further Reading: Nadaraya 1964, Watson 1964

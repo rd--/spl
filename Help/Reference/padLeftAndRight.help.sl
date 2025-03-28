@@ -30,4 +30,4 @@ See also: #, ++, padLeft, padRight, size
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PadLeft.html)
+[1](https://reference.wolfram.com/language/ref/ArrayPad.html)

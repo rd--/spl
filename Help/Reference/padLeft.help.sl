@@ -2,7 +2,7 @@
 
 - _padLeft(anArray, aList, anObject)_
 
-Answer an array of shape _aLength_ by prefixing _anArray_ with copies of _anObject_.
+Answer an array of shape _aList_ by prefixing _anArray_ with copies of _anObject_.
 
 Pad a `List` to make a longer list:
 
@@ -78,9 +78,21 @@ At `String`:
 '      xyz'
 ```
 
+Prepend three rows to a row-vector:
+
+```
+>>> [[1 2 3 4]].padLeft([4 4], 9)
+[
+	9 9 9 9;
+	9 9 9 9;
+	9 9 9 9;
+	1 2 3 4
+]
+```
+
 * * *
 
-See also: #, ++, padLeftAndRight, padRight, reshape, recycle, shape, size
+See also: #, ++, arrayPad, padLeftAndRight, padRight, reshape, recycle, shape, size
 
 References:
 _Mathematica_
