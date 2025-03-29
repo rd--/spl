@@ -71,6 +71,7 @@
 	'Collection-Tuple'
 	'Collection-UndirectedEdge'
 	'Collection-Unordered'
+	'Collection-WeightedData'
 	'Collection-WeakMap'
 	'Exception-Error'
 	'Exception-Missing'

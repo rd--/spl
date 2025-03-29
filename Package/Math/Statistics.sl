@@ -149,6 +149,20 @@
 		1 - ((u - u.mean).dot(v - v.mean) / (uu.norm * vv.norm))
 	}
 
+	correlationFunction { :x :hList |
+		let n = x.size;
+		let z = x.mean;
+		hList.collect { :h |
+			let a = (1 .. n - h).collect { :i |
+				(x[i] - z) * (x[i + h] - z)
+			}.sum;
+			let b = (1 .. n).collect { :i |
+				(x[i] - z).squared
+			}.sum;
+			a / b
+		}
+	}
+
 	covariance { :v :w |
 		v.isMatrix.if {
 			v.matrixCovariance(w)

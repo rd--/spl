@@ -35,6 +35,7 @@
 	'Tuple' /* List */
 	'UndirectedEdge'
 	'WeakMap'
+	'WeightedData'
 	'BitSet' /* ByteArray */
 	'Matrix' /* NumericArray */
 	'ResidueSet' /* BitSet Set */
