@@ -47,6 +47,9 @@ At `List`:
 ```
 >>> [-10 0 10].rescale(-10, 10, 0, 1)
 [0 0.5 1]
+
+>>> [-10 0 10].rescale(-10, 10)
+[0 0.5 1]
 ```
 
 Rescale so that all the `List` elements run from 0 to 1:

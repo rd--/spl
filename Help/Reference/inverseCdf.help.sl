@@ -56,7 +56,7 @@ Generate random data for a distribution:
 
 ~~~spl svg=B
 let r = Sfc32(789432);
-UniformDistribution(0, 1)
+UniformDistribution([0 1])
 .randomVariate(r, [10 ^ 4])
 .collect(
 	NormalDistribution(3, 1)

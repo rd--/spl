@@ -69,7 +69,7 @@ Mean of complex numbers:
 Mean of a probability distribution:
 
 ```
->>> UniformDistribution(-1, 1).mean
+>>> UniformDistribution([-1 1]).mean
 0
 
 >>> NormalDistribution(0, 1).mean

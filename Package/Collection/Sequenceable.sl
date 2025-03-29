@@ -701,20 +701,24 @@
 	}
 
 	detectIndex { :self :predicate:/1 |
-		self.detectIndexIfFoundIfNone(predicate:/1) { :each |
-			each
-		} {
-			nil
-		}
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, identity:/1, { })
 	}
 
 	detectIndexIfFound { :self :predicate:/1 :ifFound:/1 |
-		self.detectIndexIfFoundIfNone(predicate:/1, ifFound:/1, { })
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, ifFound:/1, { })
 	}
 
 	detectIndexIfFoundIfNone { :self :predicate:/1 :ifFound:/1 :ifNone:/0 |
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, ifFound:/1, ifNone:/0)
+	}
+
+	detectIndexStartingAt { :self :predicate:/1 :startIndex |
+		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, startIndex, identity:/1, { })
+	}
+
+	detectIndexStartingAtIfFoundIfNone { :self :predicate:/1 :startIndex :ifFound:/1 :ifNone:/0 |
 		valueWithReturn { :return:/1 |
-			1.toDo(self.size) { :index |
+			startIndex.toDo(self.size) { :index |
 				predicate(self[index]).ifTrue {
 					ifFound(index).return
 				}
@@ -744,7 +748,7 @@
 	}
 
 	differences { :self |
-		self.partition(2, 1).collect { :each |
+		self.partitionCollect(2, 1) { :each |
 			each[2] - each[1]
 		}
 	}
@@ -1497,6 +1501,18 @@
 		}
 	}
 
+	isRegularlySpaced { :self |
+		let k = self.size;
+		(k <= 2).if {
+			true
+		} {
+			let z = self[2] - self[1];
+			(3 .. k).allSatisfy { :i |
+				(self[i] - self[i - 1]) = z
+			}
+		}
+	}
+
 	isSequenceable { :self |
 		true
 	}
@@ -1956,6 +1972,18 @@
 
 	middle { :self |
 		self[self.size // 2 + 1]
+	}
+
+	minimumDifferenceBy { :self :aBlock:/1 |
+		let answer = Infinity;
+		self.adjacentPairsDo { :p :q |
+			answer := answer.min(aBlock(q) - aBlock(p))
+		};
+		answer
+	}
+
+	minimumDifference { :self |
+		self.minimumDifferenceBy(identity:/1)
 	}
 
 	mirror { :self :m :n |

@@ -63,7 +63,7 @@ true
 
 _Rationale_:
 Not implemented at `Fraction` since the usual notation is for the exponent to be negative for factors of the denominator,
-and a `IdentityBag` cannot have negative counts.
+and an `IdentityBag` cannot have negative counts.
 
 * * *
 

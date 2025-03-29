@@ -16,6 +16,9 @@ At `List`:
 ```
 >>> [3 4 1 1].differences
 [1 -3 0]
+
+>>> [1 1 2 3 5 8 13 21].differences
+[0 1 1 2 3 5 8]
 ```
 
 First differences are constant for a linear function:
@@ -68,6 +71,37 @@ The differences of a `prefixSum`:
 [2 3 4 5 6 7 8 9 10]
 ```
 
+Create a 3-by-3 matrix, then compute the first difference between the rows:
+
+```
+>>> [1 1 1; 5 5 5; 25 25 25].differences
+[4 4 4; 20 20 20]
+```
+
+Compute the second-order difference between the elements of a vector:
+
+```
+>>> [0 5 15 30 50 75 105]
+>>> .differences
+>>> .differences
+[5 5 5 5 5]
+```
+
+Compute the first-order difference between the columns of a 3×3 matrix:
+
+```
+>>> [
+>>> 	1   3  5;
+>>> 	7  11 13;
+>>> 	17 19 23
+>>> ].transposed.differences.transposed
+[
+	2 2;
+	4 2;
+	2 4
+]
+```
+
 Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A
@@ -91,6 +125,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CommonDifference.html)
 [2](https://reference.wolfram.com/language/ref/Differences.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.diff.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SequenceableCollection.html#-differentiate)
 

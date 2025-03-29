@@ -1,98 +1,105 @@
-TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
+TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 
 	associations { :self |
-		self.contents.collect { :each |
-			each[1] -> each[2]
-		}
+		let answer = [];
+		self.associationsDo { :each |
+			answer.add(each)
+		};
+		answer
 	}
 
 	associationsDo { :self :aBlock:/1 |
-		self.contents.do { :each |
-			aBlock(each[1] -> each[2])
+		self.keysAndValuesDo { :t :v |
+			aBlock(t -> v)
 		}
 	}
 
 	at { :self :time |
-		self.contents.detectIfFoundIfNone { :each |
-			each[1] = time
-		} { :entry |
-			entry[2]
-		} {
+		let i = self.times.indexOfIfAbsent(time) { :each |
 			self.error('at: invalid index')
-		}
+		};
+		self.values[i]
 	}
 
 	atPut { :self :time :item |
+		let values = self.values;
+		let times = self.times;
 		valueWithReturn { :return:/1 |
-			let data = self.contents;
-			1.toDo(data.size) { :i |
-				(time < data[i][1]).ifTrue {
-					data.insertAt(i, [time, item]);
+			1.toDo(self.size) { :i |
+				(time < times[i]).ifTrue {
+					times.insertAt(i, time);
+					values.insertAt(i, item);
 					item.return
 				};
-				(time = data[i][1]).ifTrue {
-					data[i][2] := item;
+				(time = times[i]).ifTrue {
+					values[i] := item;
 					item.return
 				}
 			};
-			data.addLast([time, item]);
+			times.addLast(time);
+			values.addLast(item);
 			item
 		}
 	}
 
+	collect { :self :aBlock:/1 |
+		TimeSeries(
+			self.values.collect(aBlock:/1),
+			self.times
+		)
+	}
+
 	discretePlot { :self |
-		self.contents.discretePlot
+		self.path.discretePlot
 	}
 
 	do { :self :aBlock:/1 |
-		self.contents.do { :each |
-			aBlock(each[2])
-		}
+		self.values.do(aBlock:/1)
 	}
 
-	endTime { :self |
-		self.contents.last[1]
+	firstTime { :self |
+		self.times.first
+	}
+
+	firstValue { :self |
+		self.values.first
 	}
 
 	indices { :self |
-		self.contents.collect(first:/1)
+		self.times
 	}
 
 	isRegularlySampled { :self |
-		let data = self.contents;
-		(data.size <= 2).if {
-			true
-		} {
-			let z = data[2][1] - data[1][1];
-			(3 .. data.size).allSatisfy { :i |
-				data[i][1] - data[i - 1][1] = z
-			}
-		}
+		self.times.isRegularlySpaced
 	}
 
 	keys { :self |
-		self.indices
+		self.times
 	}
 
 	keysDo { :self :aBlock:/1 |
-		self.contents.do { :each |
-			aBlock(each[1])
-		}
+		self.times.do(aBlock:/1)
 	}
 
 	keysAndValuesDo { :self :aBlock:/2 |
-		self.contents.do { :each |
-			aBlock(each[1], each[2])
-		}
+		self.times.withDo(self.values, aBlock:/2)
+	}
+
+	lastTime { :self |
+		self.times.last
+	}
+
+	lastValue { :self |
+		self.values.last
 	}
 
 	linePlot { :self |
-		self.contents.linePlot
+		self.path.linePlot
 	}
 
 	merge { :self :aTimeSeries :resolveConflict:/2 |
-		let lhs = self.contents;
-		let rhs = aTimeSeries.contents;
+		let lhs = self.path;
+		let rhs = aTimeSeries.path;
 		let i2 = 1;
 		let t2 = rhs[1][1];
 		let k2 = rhs.size;
@@ -134,35 +141,76 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 	}
 
 	minimumTimeIncrement { :self |
-		self.keys.differences.min
+		self.times.minimumDifference
+	}
+
+	path { :self |
+		[self.times, self.values].transposed
+	}
+
+	pathLength { :self |
+		self.size
+	}
+
+	resample { :self :t |
+		let x = self.times;
+		let y = self.values;
+		TimeSeries(
+			t.collect(linearInterpolator(x, y)),
+			t
+		)
+	}
+
+	resample { :self |
+		let t1 = self.firstTime;
+		let t2 = self.lastTime;
+		let dt = self.minimumTimeIncrement;
+		self.resample([t1, t1 + dt .. t2])
+	}
+
+	rescale { :self :t1 :t2 |
+		let t = self.times;
+		TimeSeries(
+			self.values,
+			t.rescale(t.first, t.last, t1, t2)
+		)
+	}
+
+	scatterPlot { :self |
+		self.path.scatterPlot
+	}
+
+	shift { :self :x |
+		TimeSeries(
+			self.values,
+			self.times + x
+		)
 	}
 
 	size { :self |
-		self.contents.size
-	}
-
-	startTime { :self |
-		self.contents.first[1]
+		self.values.size
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
-	values { :self |
-		self.contents.collect(second:/1)
+	valueDimensions { :self |
+		self.values.anyOne.size
 	}
 
 	valuesDo { :self :aBlock:/1 |
-		self.do(aBlock:/1)
+		self.values.do(aBlock:/1)
 	}
 
 	window { :self :startTime :endTime |
-		self.contents.select { :each |
-			each[1] >= startTime & {
-				each[1] <= endTime
-			}
-		}.TimeSeries
+		let t = self.times;
+		let i = t.detectIndex { :each | each >= startTime };
+		let j = t.detectIndexStartingAt( { :each | each >= endTime }, i);
+		TimeSeries(
+			t.copyFromTo(i, j),
+			self.values.copyFromTo(i, j)
+		)
 	}
 
 }
@@ -170,15 +218,62 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | contents |
 +List {
 
 	TimeSeries { :self |
-		newTimeSeries().initializeSlots(self)
+		let [m, n] = self.shape;
+		(n = 2).if {
+			let [t, v] = self.transposed;
+			TimeSeries(v, t)
+		} {
+			self.error('TimeSeries: not two-column matrix')
+		}
+	}
+
+	TimeSeries { :values :times |
+		newTimeSeries().initializeSlots(values, times)
 	}
 
 }
 
-+[List, Range] {
++List {
 
-	asTimeSeries { :values :times |
-		TimeSeries([times, values].transposed)
+	isRegularlySampled { :self |
+		self.isVector.if {
+			true
+		} {
+			self.isMatrix.if {
+				let [m, n] = self.shape;
+				(n = 2).if {
+					(m <= 2).if {
+						true
+					} {
+						let z = self[2][1] - self[1][1];
+						(3 .. m).allSatisfy { :i |
+							self[i][1] - self[i - 1][1] = z
+						}
+					}
+				} {
+					self.error('isRegularlySampled: not two column matrix')
+				}
+			} {
+				self.error('isRegularlySampled: not vector or two-column matrix')
+			}
+		}
+	}
+
+	minimumTimeIncrement { :self |
+		self.isVector.if {
+			1
+		} {
+			self.isMatrix.if {
+				let [m, n] = self.shape;
+				(n = 2).if {
+					self.minimumDifferenceBy(first:/1)
+				} {
+					self.error('minimumTimeIncrement: not two-column matrix')
+				}
+			} {
+				self.error('minimumTimeIncrement: not vector or two-column matrix')
+			}
+		}
 	}
 
 }

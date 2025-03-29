@@ -1,10 +1,10 @@
 # resample
 
-- _resample(aSequence | aColourGradient, anInteger)_
+- _resample(aSequence | aColourGradient | aTimeSeries, anInteger)_
 
 Resample _aSequence_ to have _anInteger_ places.
 
-Subsample a list:
+Subsample a `List`:
 
 ```
 >>> [1 .. 5].resample(9)
@@ -17,7 +17,7 @@ Subsample a list:
 [1 1.6 2.2 2.8 3.4 4]
 ```
 
-Downsample an array:
+Downsample a `List`:
 
 ```
 >>> [1 .. 5].resample(3)
@@ -59,6 +59,16 @@ system
 ~~~
 
 ![](sw/spl/Help/Image/resample-B.svg)
+
+Subsample a `TimeSeries`:
+
+~~~spl svg=C
+TimeSeries([4 1 3 2 5], [1 .. 5])
+.resample([1, 1.5 .. 5])
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/resample-C.svg)
 
 * * *
 
