@@ -245,7 +245,17 @@ Make a vector of 10 places:
 ('x' # 10)
 ```
 
-Make a 3×4 array:
+Make a 3×2 matrix:
+
+```
+>>> [1].reshape([3 2])
+[
+	1 1;
+	1 1;
+	1 1]
+```
+
+Make a 3×4 matrix:
 
 ```
 >>> ['x'].reshape([3 4])

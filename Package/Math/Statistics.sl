@@ -59,6 +59,14 @@
 		(1 / self.size) * (self ^ r).sum
 	}
 
+	stochasticVector { :self :k |
+		let v = 0 # k;
+		self.do { :i |
+			v[i] := v[i] + 1
+		};
+		v / v.sum
+	}
+
 	quantile { :self :p :a :b :c :d |
 		self.isVector.if {
 			self.asSortedList.quantile(p, a, b, c, d)

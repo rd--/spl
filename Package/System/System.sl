@@ -225,6 +225,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return Number.EPSILON;>
 	}
 
+	smallFloatMax { :unused |
+		<primitive: return Number.MAX_VALUE;>
+	}
+
 	splDirectory { :self |
 		self.environmentVariable('SPL_DIR').ifNil {
 			self.error('splDirectory: not set')

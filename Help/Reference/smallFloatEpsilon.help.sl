@@ -19,7 +19,7 @@ true
 
 * * *
 
-See also: epsilon, one, SmallFloat
+See also: epsilon, one, smallFloatMax, SmallFloat
 
 Guides: Numerical Precision
 

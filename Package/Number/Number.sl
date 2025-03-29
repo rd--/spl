@@ -852,6 +852,10 @@
 		self * system.smallFloatEpsilon
 	}
 
+	smallFloatMax { :self |
+		self * system.smallFloatMax
+	}
+
 	speedOfLight { :self |
 		self * 299792458
 	}

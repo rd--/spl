@@ -7,7 +7,11 @@ Joins the objects at level _anInteger_ in each of the `List` items at _aList_.
 Join a matrix into a vector:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].join(1)
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ].join(1)
 [1 2 3 4 5 6 7 8 9]
 ```
 
@@ -161,7 +165,7 @@ true
 
 * * *
 
-See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, splitBy, stringCatenate, stringJoin
+See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, repeatMatrix, splitBy, stringCatenate, stringJoin
 
 References:
 _Mathematica_

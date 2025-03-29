@@ -208,6 +208,15 @@
 		self.matrixRotate(1)
 	}
 
+	repeatMatrix { :self :d |
+		let k = d.size;
+		let m = self;
+		1.toDo(k) { :i |
+			m := (m ! d[i]).join(i)
+		};
+		m
+	}
+
 	submatrix { :self :r :c |
 		{ :i :j |
 			self[i][j]

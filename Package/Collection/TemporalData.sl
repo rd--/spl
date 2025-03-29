@@ -1,5 +1,22 @@
 TemporalData : [Object] { | valueList timeList |
 
+	asTimeSeries { :self |
+		let v = self.valueList;
+		let t = self.timeList;
+		(t.size = 1).if {
+			TimeSeries(v[1], t[1])
+		} {
+			t.allEqual.if {
+				TimeSeries(
+					self.valueList.transposed,
+					self.timeList.anyOne
+				)
+			} {
+				self.error('asTimeSeries: non-uniform timeList')
+			}
+		}
+	}
+
 	dataPointCount { :self |
 		self.valueList.collect(size:/1).sum
 	}

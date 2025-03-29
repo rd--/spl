@@ -26,3 +26,36 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 	}
 
 }
+
++List {
+
+	stochasticMatrix { :self |
+		let stateList = self.catenate.nub.sort;
+		let k = stateList.size;
+		(stateList = [1 .. k]).if {
+			let m = zeroMatrix(k, k);
+			self.do { :each |
+				each.adjacentPairsDo { :i :j |
+					m[i][j] := m[i][j] + 1
+				}
+			};
+			m / m.collect(sum:/1)
+		} {
+			self.error('stochasticMatrix: invalid observations')
+		}
+	}
+
+}
+
++TemporalData {
+
+	estimatedDiscreteMarkovProcess { :self |
+		let v = self.valueList;
+		let m = v.stochasticMatrix;
+		let k = m.size;
+		let i = v.collect(first:/1);
+		let p0 = i.stochasticVector(k);
+		DiscreteMarkovProcess(p0, m)
+	}
+
+}
