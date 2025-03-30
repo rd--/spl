@@ -12,6 +12,21 @@ DirichletDistribution : [Object] { | alpha |
 		}
 	}
 
+	pdf { :self |
+		let alpha = self.alpha;
+		let k = alpha.size;
+		let b = alpha.gamma.product / alpha.sum.gamma;
+		{ :x |
+			(x.sum > 1).if {
+				0
+			} {
+				(1 .. k - 1).collect { :i |
+					x[i] ^ (alpha[i] - 1)
+				}.product * ((1 - x.sum) ^ (alpha[k] - 1)) / b
+			}
+		}
+	}
+
 	randomVariate { :self :r :shape |
 		let b = self.betaDistributions;
 		let k = b.size;

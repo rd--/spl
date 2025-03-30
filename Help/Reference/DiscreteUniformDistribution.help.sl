@@ -35,6 +35,20 @@ DiscreteUniformDistribution(
 
 ![](sw/spl/Help/Image/DiscreteUniformDistribution-B.svg)
 
+Multi-variate discrete uniform noise,
+plot as _(r,g,b)_ array:
+
+~~~spl svg=C
+let r = Sfc32(317942);
+let c = DiscreteUniformDistribution(
+	[0 4; 1 3; 1 4]
+)
+.randomVariate(r, [5 15]);
+(c / 5).arrayPlot
+~~~
+
+![](sw/spl/Help/Image/DiscreteUniformDistribution-C.svg)
+
 * * *
 
 See also: UniformDistribution

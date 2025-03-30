@@ -27,6 +27,30 @@ The beta distributions from which the variate process draws:
 ]
 ```
 
+Surface plot of `pdf`:
+
+~~~spl svg=B
+let f:/1 = DirichletDistribution([3 3 2]).pdf;
+(0 -- 1).surfacePlot{ :x :y |
+	f([x y])
+}
+~~~
+
+![](sw/spl/Help/Image/DirichletDistribution-B.svg)
+
+Matrix plot of `pdf`:
+
+~~~spl png=C
+let f:/1 = DirichletDistribution([5 5 5]).pdf;
+let i = (0 -- 1).discretize(100);
+let m = { :x :y |
+	f([x y])
+}.table(i, i).rescale;
+(1 - m).Graymap
+~~~
+
+![](sw/spl/Help/Image/DirichletDistribution-C.png)
+
 * * *
 
 See also: BetaDistribution, GammaDistribution
