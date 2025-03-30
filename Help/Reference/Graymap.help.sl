@@ -25,7 +25,7 @@ Plot a table of values of five sine waves in random directions:
 
 ~~~spl png=A
 let r = Sfc32(31684);
-let n = r.randomReal(0, 10, [5 2]);
+let n = r.randomReal([0 10], [5 2]);
 let k = 99;
 let i = (0 -- 5).subdivide(k);
 (

@@ -17,7 +17,7 @@ Sort a first half of a random sequence of integers:
 
 ```
 >>> let r = Sfc32(178942);
->>> let l = r.randomInteger(1, 23, [20]);
+>>> let l = r.randomInteger([1 23], [20]);
 >>> [
 >>> 	l,
 >>> 	l.copy.mergeSortFromToBy(

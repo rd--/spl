@@ -144,7 +144,7 @@ The permanent of the transpose of _m_ equals the permanent of _m_:
 
 ```
 >>> let r = Sfc32(789141);
->>> let m = r.randomReal(0, 1, [3 3]);
+>>> let m = r.randomReal([0 1], [3 3]);
 >>> let p = m.permanent;
 >>> (p, m.transposed.permanent)
 (0.89478, p)

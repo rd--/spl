@@ -19,7 +19,7 @@ A 5×7×3 matrix:
 
 ~~~spl svg=B
 Sfc32(821343)
-.randomReal(0.15, 1, [5 7 3])
+.randomReal([0.15 1], [5 7 3])
 .arrayPlot
 ~~~
 

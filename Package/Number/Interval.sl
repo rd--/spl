@@ -56,7 +56,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 	}
 
 	atRandom { :self :shape :r |
-		r.randomReal(self.min, self.max, shape)
+		r.randomReal(self, shape)
 	}
 
 	discretize { :self :size :aBlock:/1 |

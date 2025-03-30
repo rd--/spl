@@ -45,7 +45,7 @@ Sort a random sequence of integers:
 
 ```
 >>> Sfc32(24015).
->>> randomInteger(1, 23, [17]).
+>>> randomInteger([1 23], [17]).
 >>> mergeSort
 [
 	1 3 3 6 7 8 9 10 10 12

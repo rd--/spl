@@ -35,6 +35,9 @@ Probability density function at specific value:
 ```
 >>> [0 1].UniformDistribution.pdf(0.5)
 1
+
+>>> [-1 1].UniformDistribution.pdf(0.5)
+1/2
 ```
 
 Cumulative distribution function at specific value:
@@ -127,7 +130,7 @@ UniformDistribution(
 
 * * *
 
-See also: CauchyDistribution, cdf, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, standardDeviation, WeibullDistribution
+See also: CauchyDistribution, cdf, DiscreteUniformDistribution, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, standardDeviation, WeibullDistribution
 
 References:
 _Mathematica_

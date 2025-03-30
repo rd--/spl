@@ -128,7 +128,7 @@ fundamentals.collect { :freq |
 
 /* http://earslap.com/article/recreating-the-thx-deep-note.html ; adding random wobbling to freqs, sorting randoms, lowpassing ; fundamentals are sorted, so higher frequencies drift more */
 let numVoices = 30;
-let fundamentals = system.randomReal(200, 400, [numVoices]).sorted;
+let fundamentals = system.randomReal([200 400], [numVoices]).sorted;
 fundamentals.withIndexCollect { :freq0 :index |
 	let freq = freq0 + (LfNoise2(0.5) * 3 * index);
 	EqPan(
@@ -139,7 +139,7 @@ fundamentals.withIndexCollect { :freq0 :index |
 
 /* http://earslap.com/article/recreating-the-thx-deep-note.html ; inverting init sort, louder bass, final volume envelope, some little tweaks ; requires=CurveGen */
 let numVoices = 30;
-let fundamentals = system.randomReal(200, 400, [numVoices]).sorted.reversed;
+let fundamentals = system.randomReal([200 400], [numVoices]).sorted.reversed;
 let finalPitches = (1:numVoices.collect { :each |
 	(each / (numVoices / 6)).RoundTo(1) * 12
 } + 14.5).MidiCps;

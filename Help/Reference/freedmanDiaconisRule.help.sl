@@ -7,7 +7,7 @@ Answer the Freedman-Diaconis rule to select the bin-width for a histogram.
 ```
 >>> let r = Sfc32(687423);
 >>> [99 1111 3333].collect { :n |
->>> 	r.randomReal(0, 1, [n])
+>>> 	r.randomReal([0 1], [n])
 >>> 	.freedmanDiaconisRule
 >>> }
 [0.20378 0.10199 0.06616]

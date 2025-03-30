@@ -101,10 +101,10 @@ A collection of random regular polygons:
 ~~~spl svg=G
 let rng = Sfc32(329843);
 let p = {
-	let n = rng.randomInteger(3, 7, []);
-	let c = rng.randomReal(0, 9, [2]);
-	let r = rng.randomReal(0, 1, []);
-	let t = rng.randomReal(0, 1.pi, []);
+	let n = rng.randomInteger([3 7], []);
+	let c = rng.randomReal([0 9], [2]);
+	let r = rng.randomReal([0 1], []);
+	let t = rng.randomReal([0 1.pi], []);
 	n.regularPolygon(c, r, t)
 } ! 23;
 p.LineDrawing

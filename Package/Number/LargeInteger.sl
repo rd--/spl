@@ -161,7 +161,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	atRandom { :self :shape :rng |
-		rng.randomInteger(1, self.asSmallFloat, shape)
+		rng.randomInteger([1, self.asSmallFloat], shape)
 	}
 
 	basicPrintString { :self :radix |

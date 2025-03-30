@@ -56,7 +56,7 @@ Plot a table of values of five sine waves in random directions (see also _k = 10
 
 ~~~spl svg=D
 let r = Sfc32(31684);
-let n = r.randomReal(0, 10, [5 2]);
+let n = r.randomReal([0 10], [5 2]);
 let k = 20;
 let i = (0 -- 2).subdivide(k);
 { :x :y |
@@ -83,7 +83,7 @@ Plot a random 50×10 matrix:
 
 ~~~spl svg=F
 Sfc32(17492)
-.randomReal(0, 1, [50 10])
+.randomReal([0 1], [50 10])
 .matrixPlot
 ~~~
 

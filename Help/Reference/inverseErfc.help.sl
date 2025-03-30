@@ -59,7 +59,7 @@ Generate Gaussian-distributed random numbers:
 
 ~~~spl svg=B
 Sfc32(789141)
-.randomReal(0, 2, 67)
+.randomReal([0 2], [67])
 .inverseErfc
 .discretePlot
 ~~~

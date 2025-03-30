@@ -54,7 +54,7 @@ Make a random walk where successive steps change direction by at most 20°:
 
 ~~~spl svg=E
 Sfc32(57951)
-.randomReal(-20, 20, 1000)
+.randomReal([-20 20], [1000])
 .degree
 .anglePath
 .asLineDrawing

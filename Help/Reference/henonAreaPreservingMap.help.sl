@@ -7,7 +7,7 @@ An area-preserving quadratic map by Michel Hénon.
 ~~~spl png=A
 let f:/1 = henonAreaPreservingMap(-10);
 Sfc32(789341)
-.randomReal(0, 1, [43 2])
+.randomReal([0 1], [43 2])
 .collect { :v |
 	f:/1
 	.iterate(v)

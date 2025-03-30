@@ -25,7 +25,7 @@ A random walk of three-hundred places:
 
 ~~~spl svg=A
 Sfc32(289714)
-.randomReal(-1, 1, 300)
+.randomReal([-1 1], [300])
 .accumulate
 .linePlot
 ~~~
@@ -36,7 +36,7 @@ Downsample to one-hundred places:
 
 ~~~spl svg=B
 Sfc32(289714)
-.randomReal(-3, 3, 300)
+.randomReal([-3 3], 300)
 .accumulate
 .downsample(3)
 .linePlot

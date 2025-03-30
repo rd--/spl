@@ -40,7 +40,7 @@ At `PointCloud`:
 
 ~~~spl svg=E
 Sfc32(156732)
-.randomInteger(0, 27, [23, 2])
+.randomInteger([0 27], [23, 2])
 .PointCloud
 .asLineDrawing
 ~~~

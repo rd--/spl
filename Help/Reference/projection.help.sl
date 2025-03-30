@@ -200,7 +200,7 @@ The projection of _u_ onto _v_ is in the direction of _v_:
 
 ```
 >>> let r = Sfc32(17931);
->>> let [u, v] = r.randomReal(0, 1, [2 6]);
+>>> let [u, v] = r.randomReal([0 1], [2 6]);
 >>> vectorAngle(projection(u, v), v)
 0
 ```
@@ -209,7 +209,7 @@ The projection of _v_ onto itself is _v_:
 
 ```
 >>> let r = Sfc32(80145);
->>> let v = r.randomReal(0, 1, [6]);
+>>> let v = r.randomReal([0 1], [6]);
 >>> projection(v, v) = v
 true
 ```

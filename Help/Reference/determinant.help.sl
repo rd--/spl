@@ -164,7 +164,8 @@ Determine whether the following basis for _R ^3_ is right-handed:
 The determinant of the transpose of _m_ equals the determinant of _m_:
 
 ```
->>> let m = system.randomReal(0, 1, [3 3]);
+>>> let r = Sfc32(356721);
+>>> let m = r.randomReal([0 1], [3 3]);
 >>> m.transposed.determinant
 m.determinant
 ```
@@ -174,7 +175,7 @@ ie. the determinant of a matrix product equals the product of their determinants
 
 ```
 >>> let r = Sfc32(323914);
->>> let [a, b] = r.randomReal(0, 1, [2 3 3]);
+>>> let [a, b] = r.randomReal([0 1], [2 3 3]);
 >>> let d = a.dot(b).determinant;
 >>> (d, a.determinant * b.determinant)
 (0.014956, d)

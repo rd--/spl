@@ -8,7 +8,7 @@ A drawing of twenty-three randomly displaced points:
 
 ~~~spl svg=A
 Sfc32(376814)
-.randomInteger(1, 200, [23 2])
+.randomInteger([1 200], [23 2])
 .PointCloud
 .asLineDrawing
 ~~~

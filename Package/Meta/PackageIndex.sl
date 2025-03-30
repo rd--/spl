@@ -189,6 +189,7 @@
 	'Random-CoxIngersollRossProcess'
 	'Random-DirichletDistribution'
 	'Random-DiscreteMarkovProcess'
+	'Random-DiscreteUniformDistribution'
 	'Random-EmpiricalDistribution'
 	'Random-ExponentialDistribution'
 	'Random-ExtremeValueDistribution'

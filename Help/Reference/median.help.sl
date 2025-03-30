@@ -53,6 +53,10 @@ See also: asSortedList, isEven, isOdd, mean, middle
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Median.html)
-[2](https://reference.wolfram.com/language/ref/Median.html)
+[2](https://mathworld.wolfram.com/StatisticalMedian.html)
+[3](https://reference.wolfram.com/language/ref/Median.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Median)
+[2](https://en.wikipedia.org/wiki/Weighted_median)
 
 Categories: Statistics

@@ -40,7 +40,7 @@ The Delaunay triangulation of a random set of seventeen points:
 
 ~~~spl svg=C
 Sfc32(323193)
-.randomReal(-1, 1, [17 2])
+.randomReal([-1 1], [17 2])
 .delaunayMesh
 .asLineDrawing
 ~~~

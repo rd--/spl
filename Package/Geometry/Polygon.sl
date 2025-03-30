@@ -154,9 +154,9 @@ Polygon : [Object] { | vertexCoordinates |
 
 	randomStarConvexPolygon { :self :k :minRadius :maxRadius |
 		let d = 2;
-		let r = self.randomReal(minRadius, maxRadius, [k]);
+		let r = self.randomReal([minRadius, maxRadius], [k]);
 		(d = 2).if {
-			let theta = self.randomReal(0, 2.pi, [k]).sort;
+			let theta = self.randomReal([0, 2.pi], [k]).sort;
 			r.withCollect(theta) { :i :j |
 				[i j].fromPolarCoordinates
 			}.Polygon

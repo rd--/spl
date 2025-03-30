@@ -58,7 +58,7 @@ A random matrix is typically non-diagonal:
 
 ```
 >>> Sfc32(671841)
->>> .randomReal(0, 5, [3 3])
+>>> .randomReal([0 5], [3 3])
 >>> .isDiagonalMatrix
 false
 ```

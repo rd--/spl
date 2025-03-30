@@ -121,7 +121,7 @@
 
 	atRandom { :self :shape :r |
 		{
-			let randomIndex = r.randomInteger(1, self.size, []);
+			let randomIndex = r.randomInteger([1, self.size], []);
 			let index = 1;
 			valueWithReturn { :return:/1 |
 				self.do { :each |

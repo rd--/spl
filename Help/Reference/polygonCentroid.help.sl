@@ -12,7 +12,7 @@ and the centroid of the hull:
 
 ~~~spl svg=A
 let r = Sfc32(178432);
-let p = r.randomReal(-1, 1, [13 2]);
+let p = r.randomReal([-1 1], [13 2]);
 let h = p.convexHull;
 [
 	h.Polygon,

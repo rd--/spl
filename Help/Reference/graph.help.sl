@@ -8,7 +8,7 @@ Draw the graph of a Delaunay triangulation of a random set of seventeen points:
 
 ~~~spl svg=A
 Sfc32(323193)
-.randomReal(-1, 1, [17 2])
+.randomReal([-1 1], [17 2])
 .DelaunayTriangulation
 .graph
 .graphPlot

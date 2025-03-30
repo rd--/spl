@@ -24,7 +24,7 @@ let l = 'greek'.alphabet.contents;
 let w = l.collect { :each |
 	Writing(
 		each,
-		r.randomInteger(-70, 70, [2])
+		r.randomInteger([-70 70], [2])
 	)
 };
 [c, w].LineDrawing

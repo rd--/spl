@@ -503,7 +503,7 @@
 	randomPrime { :self :iMin :iMax :shape |
 		let list = iMin.primesBetweenAnd(iMax);
 		{
-			let index = self.randomInteger(1, list.size, []);
+			let index = self.randomInteger([1, list.size], []);
 			list[index]
 		} ! shape
 	}

@@ -77,7 +77,7 @@ A dozen random triangles:
 
 ~~~spl svg=C
 Sfc32(147982)
-.randomReal(1, 100, [12 3 2])
+.randomReal([1 100], [12 3 2])
 .Polygon
 .LineDrawing
 ~~~

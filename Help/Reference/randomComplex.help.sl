@@ -1,6 +1,6 @@
 # randomComplex
 
-- _randomComplex(r, min, max, shape)_
+- _randomComplex(r, [min max], shape)_
 
 Answer an array of the indicated _shape_ containing pseudo-random `Complex` numbers
 that lie inside the rectangle with corners given by _min_ and _max_.
@@ -10,8 +10,7 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_
 ```
 >>> Sfc32(2166136261)
 >>> .randomComplex(
->>> 	10J10,
->>> 	100J100,
+>>> 	[10J10 100J100],
 >>> 	[3 4]
 >>> )
 [
@@ -30,7 +29,7 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_
 
 ```
 >>> Sfc32(2166136261)
->>> .randomComplex(0J0, 1J1, [1000])
+>>> .randomComplex([0J0 1J1], [1000])
 >>> .mean
 0.52112J0.49406
 ```

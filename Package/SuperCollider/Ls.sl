@@ -469,15 +469,15 @@
 		}.take(length)
 	}
 
-	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock:/4 |
+	LsBrownUsing { :low :high :step :randomNumberGenerator :aBlock:/3 |
 		let next = nil;
 		low := LsConstant(low);
 		high := LsConstant(high);
 		step := LsConstant(step);
-		next := aBlock(randomNumberGenerator, low.next, high.next, []);
+		next := aBlock(randomNumberGenerator, [low.next, high.next], []);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
-			next := (next + aBlock(randomNumberGenerator, step.negated, step, [])).foldBetweenAnd(low, high);
+			next := (next + aBlock(randomNumberGenerator, [step.negated, step], [])).foldBetweenAnd(low, high);
 			answer
 		}
 	}
@@ -488,7 +488,7 @@
 			high,
 			step,
 			randomNumberGenerator,
-			randomReal:/4
+			randomReal:/3
 		).take(length)
 	}
 
@@ -509,13 +509,13 @@
 			high,
 			step,
 			randomNumberGenerator,
-			randomIntegerExcludingZero:/4
+			randomIntegerExcludingZero:/3
 		).take(length)
 	}
 
 	LsWhite { :low :high :length :randomNumberGenerator |
 		LsConstant(low).withCollect(LsConstant(high)) { :min :max |
-			randomNumberGenerator.randomReal(min, max, [])
+			randomNumberGenerator.randomReal([min, max], [])
 		}.take(length)
 	}
 

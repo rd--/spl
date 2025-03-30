@@ -164,7 +164,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	atRandom { :self :shape :rng |
-		rng.randomReal(0, self, shape)
+		rng.randomReal([0, self], shape)
 	}
 
 	basicPrintString { :self :radix |

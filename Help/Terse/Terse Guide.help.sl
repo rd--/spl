@@ -376,8 +376,8 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } /* answer shuffled copy */
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
 5.fill(negated:/1) = [-1 .. -5] /* fill array with answers of a block applied to each index */
-let r = Sfc32(12345); r.randomInteger(1, 9, 5) = [8, 5, 9, 9, 4] /* duplicate block */
-let r = Sfc32(12345); { r.randomInteger(1, 9, []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
+let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
+let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
 List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
@@ -1380,7 +1380,7 @@ system.includesPackage('Duration') /* duration package */
 2.weeks - 12.days = 48.hours /* subtraction of durations */
 0.25.seconds + 500.milliseconds = 750.milliseconds
 500.milliseconds + 0.25.seconds = 0.75.seconds
-let f = { :t0 | let t1 = system.randomReal(0, 2, []).seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
+let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 2.minutes < 2.hours /* durations are magnitudes */
 2.hours > 2.minutes /* durations are magnitudes */
 60.seconds.milliseconds = 60000 /* convert duration to milliseconds */
@@ -2537,15 +2537,15 @@ NaN.isNumber /* constant (not a number) */
 ```
 system.includesPackage('RandomNumberGenerator') /* package */
 let r = Sfc32(); r.isStream = true
-let r = Sfc32(); r.randomInteger(1, 9, []).isInteger /* random integer between 1 and 9 inclusive */
-system.randomInteger(1, 9, []).isInteger /* random integers (1 to self) */
+let r = Sfc32(); r.randomInteger([1 9], []).isInteger /* random integer between 1 and 9 inclusive */
+system.randomInteger([1 9], []).isInteger /* random integers (1 to self) */
 let s = IdentitySet(); 729.timesRepeat { s.include(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
 let s = IdentitySet(); 729.timesRepeat { s.include(1:9.atRandom) }; s = 1:9.asIdentitySet /* check distribution */
-let s = IdentitySet(); 729.timesRepeat { s.include(system.randomInteger(-3, 3, [])) }; s = -3:3.asIdentitySet /* check distribution */
-system.randomReal(0, 9, []).isNumber /* random floating point number (0 to self) */
-let s = IdentitySet(); 729.timesRepeat { s.include(system.randomReal(0, 9, []).rounded) }; s.minMax = [0, 9] /* check distribution */
-system.randomInteger(3, 9, []).isInteger /* random integer in range */
-system.randomReal(3, 9, []).isNumber /* random float in range */
+let s = IdentitySet(); 729.timesRepeat { s.include(system.randomInteger([-3 3], [])) }; s = -3:3.asIdentitySet /* check distribution */
+system.randomReal([0 9], []).isNumber /* random floating point number (0 to self) */
+let s = IdentitySet(); 729.timesRepeat { s.include(system.randomReal([0 9], []).rounded) }; s.minMax = [0, 9] /* check distribution */
+system.randomInteger([3 9], []).isInteger /* random integer in range */
+system.randomReal([3 9], []).isNumber /* random float in range */
 let b = IdentityBag(); 5000.timesRepeat { b.add(1:5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
 { [].atRandom = nil }.ifError { true } /* random element of empty collection (nil if unsafe indexing is allowed) */
 [1].atRandom = 1 /* random element of one-element collection */
@@ -2562,11 +2562,11 @@ let r = Sfc32(98765); r.isRandomNumberGenerator /* predicate */
 let r = Sfc32(98765); r.nextRandomFloat = 0.49556130869314075 /* random number in [0, 1) */
 let r = Sfc32(98765); r.nextRandomFloat * 10 = 4.9556130869314075 /* random number in [0, 10) */
 let r = Sfc32(98765); r.nextRandomFloat * 100 = 49.556130869314075 /* random number in [0, 100) */
-let r = Sfc32(98765); r.randomInteger(1, 1000, []) = 496 /* random integer in [1, 1000] */
-let r = Sfc32(98765); r.randomInteger(1, 10000, []) = 4956 /* random integer in [1, 10000] */
+let r = Sfc32(98765); r.randomInteger([1 1000], []) = 496 /* random integer in [1, 1000] */
+let r = Sfc32(98765); r.randomInteger([1 10000], []) = 4956 /* random integer in [1, 10000] */
 let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } /* seed from system clock */
-let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger(1, 9, [])) }; s.minMax = [1, 9] /* check distribution */
-let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger(1, 9, [])) }; s.asList.sorted = [1 .. 9] /* check distribution */
+let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
+let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger([1 9], [])) }; s.asList.sorted = [1 .. 9] /* check distribution */
 let r = Sfc32(98765); r.isStream /* stream predicate */
 let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
@@ -2580,12 +2580,12 @@ let m = MersenneTwister(98765); m.isRandomNumberGenerator /* predicate */
 let m = MersenneTwister(98765); m.nextRandomFloat = 0.088898599949636 /* random number in [0, 1) */
 let m = MersenneTwister(98765); m.nextRandomFloat * 10 = 0.88898599949636 /* random number in [0, 10) */
 let m = MersenneTwister(98765); m.nextRandomFloat * 100 = 8.8898599949636 /* random number in [0, 100) */
-let m = MersenneTwister(98765); m.randomInteger(1, 1000, []) = 89 /* random integer in [1, 1000] */
-let m = MersenneTwister(98765); m.randomInteger(1, 10000, []) = 889 /* random integer in [1, 10000] */
+let m = MersenneTwister(98765); m.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
+let m = MersenneTwister(98765); m.randomInteger([1 10000], []) = 889 /* random integer in [1, 10000] */
 let m = MersenneTwister(); let r = m.nextRandomFloat; r >= 0 & { r < 1 } /* seed from system clock */
 MersenneTwister(123456).nextRandomFloat = 0.12696983303810094 /* test from standard tests */
-let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include(m.randomInteger(1, 9, [])) }; s.minMax = [1, 9] /* check distribution */
-let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include(m.randomInteger(1, 9, [])) }; s.asList.sorted = [1 .. 9] /* check distribution */
+let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include(m.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
+let m = MersenneTwister(); let s = IdentitySet(); 729.timesRepeat { s.include(m.randomInteger([1 9], [])) }; s.asList.sorted = [1 .. 9] /* check distribution */
 let m = MersenneTwister(98765); m.isStream /* stream predicate */
 let m = MersenneTwister(98765); let a = m.next(9); m.reset; m.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
@@ -2597,10 +2597,10 @@ let r = SplitMix(98765); r.typeOf = 'SplitMix' /* type of */
 let r = SplitMix(98765); r.isSplitMix /* predicate */
 let r = SplitMix(98765); r.isRandomNumberGenerator /* predicate */
 let r = SplitMix(98765); r.nextRandomFloat = 0.08824091404676437 /* random number in [0, 1) */
-let r = SplitMix(98765); r.randomReal(0, 10, []) = 0.8824091404676437 /* random number in [0, 10) */
-let r = SplitMix(98765); r.randomReal(0, 100, []) = 8.824091404676437 /* random number in [0, 100) */
-let r = SplitMix(98765); r.randomInteger(1, 1000, []) = 89 /* random integer in [1, 1000] */
-let r = SplitMix(98765); r.randomInteger(1, 10000, []) = 883 /* random integer in [1, 10000] */
+let r = SplitMix(98765); r.randomReal([0 10], []) = 0.8824091404676437 /* random number in [0, 10) */
+let r = SplitMix(98765); r.randomReal([0 100], []) = 8.824091404676437 /* random number in [0, 100) */
+let r = SplitMix(98765); r.randomInteger([1 1000], []) = 89 /* random integer in [1, 1000] */
+let r = SplitMix(98765); r.randomInteger([1 10000], []) = 883 /* random integer in [1, 10000] */
 let r = SplitMix(98765); r.isStream /* stream predicate */
 let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
@@ -3188,9 +3188,9 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 13.betweenAnd(11, 14) = true /* is number between two numbers, inclusive */
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
 1:9.atRandom.isInteger = true /* random number between 1 and 9 */
-system.randomInteger(1, 9, []).isInteger = true
-system.randomReal(0, 9, []).isInteger = false /* possible it could be an integer, but very unlikely */
-system.randomReal(0, 1.pi, []).isInteger = false
+system.randomInteger([1 9], []).isInteger = true
+system.randomReal([0 9], []).isInteger = false /* possible it could be an integer, but very unlikely */
+system.randomReal([0 1.pi], []).isInteger = false
 [3.141.asJson, 23.asJson] = ['3.141', '23'] /* numbers have json encodings */
 ['3.141', '23'].collect(parseJson:/1) = [3.141, 23] /* parse json numbers */
 let r = nil; 1.toDo(5) { :each | r := each }; r = 5

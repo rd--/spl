@@ -8,11 +8,11 @@ Answer a `List` of `String` items giving the names of the parameters of _aMethod
 >>> size:/1.parameterNames
 ['self']
 
+>>> atRandom:/2.parameterNames
+['self' 'shape']
+
 >>> asJson:/3.parameterNames
 ['self' 'replacer' 'space']
-
->>> randomReal:/4.parameterNames
-['self' 'min' 'max' 'shape']
 ```
 
 Note that literal `Block` values do not store their parameter names:

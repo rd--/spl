@@ -98,7 +98,7 @@ Plot a random walk in one dimension:
 
 ~~~spl svg=I
 Sfc32(31804)
-.randomReal(-1, 1, 99)
+.randomReal([-1 1], 99)
 .accumulate
 .linePlot
 ~~~
@@ -109,7 +109,7 @@ Plot a random walk in two dimensions:
 
 ~~~spl svg=J
 Sfc32(41975)
-.randomReal(-1, 1, [99 2])
+.randomReal([-1 1], [99 2])
 .accumulate
 .linePlot
 ~~~

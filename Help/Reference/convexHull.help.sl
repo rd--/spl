@@ -9,7 +9,7 @@ The convex hull of a random set of seventeen points:
 
 ~~~spl svg=A
 let r = Sfc32(323193);
-let p = r.randomReal(-1, 1, [17 2]);
+let p = r.randomReal([-1 1], [17 2]);
 let h = p.convexHull;
 [
 	p.PointCloud,

@@ -20,7 +20,7 @@ A 5×11 matrix:
 
 ~~~spl svg=B
 Sfc32(731894)
-.randomReal(0, 1, [5 11 3])
+.randomReal([0 1], [5 11 3])
 .asColourSvg
 ~~~
 

@@ -42,7 +42,7 @@ Plot a random walk:
 
 ~~~spl svg=A
 Sfc32(89714)
-.randomReal(-1, 1, 99)
+.randomReal([-1 1], [99])
 .accumulate
 .linePlot
 ~~~

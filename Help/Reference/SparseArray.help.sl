@@ -87,7 +87,7 @@ Make a sparse diagonal matrix:
 ```
 >>> let k = 100;
 >>> let r = Sfc32(367814);
->>> let d = r.randomReal(0, 1, [k]);
+>>> let d = r.randomReal([0 1], [k]);
 >>> let l = 1:k.collect { :i | [i i] -> d[i] };
 >>> let s = SparseArray(l);
 >>> (
@@ -141,7 +141,7 @@ Make a rank-4 sparse tensor with values at random positions:
 ```
 >>> let r = Sfc32(367114);
 >>> let l = 1:10.collect { :i |
->>> 	r.randomInteger(1, 2, [4]) -> i
+>>> 	r.randomInteger([1 2], [4]) -> i
 >>> };
 >>> let s = SparseArray(l);
 >>> (

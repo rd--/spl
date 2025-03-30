@@ -31,13 +31,13 @@
 	}
 
 	randomByteArray { :self :n |
-		self.randomInteger(0, 255, n).asByteArray
+		self.randomInteger([0, 255], n).asByteArray
 	}
 
 	randomChoice { :self :aSequence :shape |
 		let k = aSequence.size;
 		{
-			let i = self.randomInteger(1, k, []);
+			let i = self.randomInteger([1, k], []);
 			aSequence[i]
 		} ! shape
 	}
@@ -45,20 +45,18 @@
 	randomColour { :self :shape |
 		{
 			RgbColour(
-				[
-					self.randomReal(0, 1, []),
-					self.randomReal(0, 1, []),
-					self.randomReal(0, 1, [])
-				],
-				self.randomReal(0, 1, [])
+				self.randomReal([0, 1], [3]),
+				self.randomReal([0, 1], [])
 			)
 		} ! shape
 	}
 
-	randomComplex { :self :min :max :shape |
+	randomComplex { :self :range :shape |
+		let min = range.min;
+		let max = range.max;
 		Complex(
-			self.randomReal(min.real, max.real, shape),
-			self.randomReal(min.imaginary, max.imaginary, shape)
+			self.randomReal([min.real, max.real], shape),
+			self.randomReal([min.imaginary, max.imaginary], shape)
 		)
 	}
 
@@ -66,11 +64,15 @@
 		anInteger.iota.sattoloShuffle(self).asPermutation
 	}
 
-	randomInteger { :self :min :max :shape |
-		self.randomReal(min, max + 1, shape).floor
+	randomInteger { :self :range :shape |
+		let min = range.min;
+		let max = range.max;
+		self.randomReal([min, max + 1], shape).floor
 	}
 
-	randomIntegerExcluding { :self :min :max :aBlock:/1 :shape |
+	randomIntegerExcluding { :self :range :aBlock:/1 :shape |
+		let min = range.min;
+		let max = range.max;
 		{
 			var x;
 			{
@@ -82,8 +84,8 @@
 		} ! shape
 	}
 
-	randomIntegerExcludingZero { :self :min :max :shape |
-		self.randomIntegerExcluding(min, max, isZero:/1, shape)
+	randomIntegerExcludingZero { :self :range :shape |
+		self.randomIntegerExcluding(range, isZero:/1, shape)
 	}
 
 	randomLargeInteger { :self :max |
@@ -113,7 +115,9 @@
 		} ! shape
 	}
 
-	randomReal { :self :min :max :shape |
+	randomReal { :self :range :shape |
+		let min = range.min;
+		let max = range.max;
 		{
 			self.nextRandomFloat * (max - min) + min
 		} ! shape
@@ -205,19 +209,19 @@
 +SmallFloat {
 
 	randomIntegerBipolar { :max |
-		system.randomInteger(max.negated, max, [])
+		system.randomInteger([max.negated, max], [])
 	}
 
 	randomReal { :max :shape |
-		system.randomReal(0, max, shape)
+		system.randomReal([0, max], shape)
 	}
 
 	randomReal { :max |
-		system.randomReal(0, max, [])
+		system.randomReal([0, max], [])
 	}
 
 	randomRealBipolar { :max |
-		system.randomReal(max.negated, max, [])
+		system.randomReal([max.negated, max], [])
 	}
 
 }

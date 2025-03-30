@@ -15,7 +15,7 @@ Estimate the correlation function for at τ=9:
 
 ```
 >>> [1 .. 10].correlationFunction([9])
--27/110
+[-27/110]
 ```
 
 Obtain empirical estimates of the correlation function up to τ=9:
@@ -40,7 +40,7 @@ The sum of the sample correlation function is constant:
 ```
 >>> let n = 100;
 >>> Sfc32(2678123)
->>> .randomInteger(1, n, [n])
+>>> .randomInteger([1 n], [n])
 >>> .correlationFunction([1 .. n - 1])
 >>> .sum
 -0.5

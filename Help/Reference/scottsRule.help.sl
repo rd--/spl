@@ -7,7 +7,7 @@ Answer the Scott rule to select the bin-width for a histogram.
 ```
 >>> let r = Sfc32(687423);
 >>> [99 1111 3333].collect { :n |
->>> 	r.randomReal(0, 1, [n])
+>>> 	r.randomReal([0 1], [n])
 >>> 	.scottsRule
 >>> }
 [0.21782 0.09998 0.06733]

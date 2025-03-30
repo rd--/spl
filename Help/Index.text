@@ -270,6 +270,7 @@ Reference/arrayDepth.help.sl
 Reference/arrayFilter.help.sl
 Reference/arrayFlatten.help.sl
 Reference/array.help.sl
+Reference/arrayPad.help.sl
 Reference/arrayPlot.help.sl
 Reference/arrayReduce.help.sl
 Reference/arrayRules.help.sl
@@ -487,6 +488,7 @@ Reference/BinomialDistribution.help.sl
 Reference/binomial.help.sl
 Reference/binomialPascal.help.sl
 Reference/BinomialProcess.help.sl
+Reference/BinormalDistribution.help.sl
 Reference/bisect.help.sl
 Reference/bitAnd.help.sl
 Reference/bitAt.help.sl
@@ -696,6 +698,7 @@ Reference/copyWithoutAll.help.sl
 Reference/copyWithout.help.sl
 Reference/copyWithoutIdenticalElements.help.sl
 Reference/correlationDistance.help.sl
+Reference/correlationFunction.help.sl
 Reference/correlation.help.sl
 Reference/cosecant.help.sl
 Reference/cos.help.sl
@@ -830,6 +833,7 @@ Reference/dirichletWindow.help.sl
 Reference/discreteDelta.help.sl
 Reference/DiscreteMarkovProcess.help.sl
 Reference/discretePlot.help.sl
+Reference/DiscreteUniformDistribution.help.sl
 Reference/discretize.help.sl
 Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
@@ -912,10 +916,12 @@ Reference/EnvGen.help.sl
 Reference/environmentVariable.help.sl
 Reference/environmentVariables.help.sl
 Reference/EnvTrapezoid.help.sl
+Reference/epitrochoid.help.sl
 Reference/epsilon.help.sl
 Reference/EqPan2.help.sl
 Reference/EqPan.help.sl
 Reference/equalByAtNamedSlots.help.sl
+Reference/EqualityDictionary.help.sl
 Reference/equalsSignEqualsSign.help.sl
 Reference/equalsSign.help.sl
 Reference/equalTemperamentTuning.help.sl
@@ -1031,6 +1037,7 @@ Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
 Reference/Frame.help.sl
 Reference/FRatioDistribution.help.sl
+Reference/freedmanDiaconisRule.help.sl
 Reference/FreeVerb.help.sl
 Reference/FreqShift.help.sl
 Reference/Frequency.help.sl
@@ -1405,6 +1412,8 @@ Reference/isPunctuationToken.help.sl
 Reference/isPythagorean.help.sl
 Reference/isRational.help.sl
 Reference/isRegular.help.sl
+Reference/isRegularlySampled.help.sl
+Reference/isRegularlySpaced.help.sl
 Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
@@ -1740,6 +1749,7 @@ Reference/Min.help.sl
 Reference/minimalBy.help.sl
 Reference/minimalResidue.help.sl
 Reference/minimumChangePermutations.help.sl
+Reference/minimumTimeIncrement.help.sl
 Reference/minkowskiDistance.help.sl
 Reference/minkowskiQuestionMark.help.sl
 Reference/minkowskiQuestionMarkInverse.help.sl
@@ -1774,10 +1784,12 @@ Reference/movingMedian.help.sl
 Reference/MulAdd.help.sl
 Reference/multichoose.help.sl
 Reference/multinomial.help.sl
+Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MutableCollectionStream.help.sl
+Reference/nadarayaWatsonEstimator.help.sl
 Reference/namedAxonometricProjection.help.sl
 Reference/namedColourGradient.help.sl
 Reference/namedColourPalette.help.sl
@@ -2236,6 +2248,7 @@ Reference/removeLast.help.sl
 Reference/removeOscListener.help.sl
 Reference/repeatEvery.help.sl
 Reference/repeat.help.sl
+Reference/repeatMatrix.help.sl
 Reference/replaceAllWith.help.sl
 Reference/replaceFromToWith.help.sl
 Reference/replaceFromToWithStartingAt.help.sl
@@ -2337,6 +2350,7 @@ Reference/schareinMinimalLinkCatalogue.help.sl
 Reference/schedule.help.sl
 Reference/scheduleInjecting.help.sl
 Reference/Schmidt.help.sl
+Reference/scottsRule.help.sl
 Reference/ScSynth.help.sl
 Reference/ScUgen.help.sl
 Reference/search.help.sl
@@ -2489,6 +2503,8 @@ Reference/stepPlot.help.sl
 Reference/sternBrocotNumber.help.sl
 Reference/sternBrocotSequence.help.sl
 Reference/sternBrocotTree.help.sl
+Reference/stochasticMatrix.help.sl
+Reference/stochasticVector.help.sl
 Reference/stolarskyArray.help.sl
 Reference/stolarskyHarborthConstant.help.sl
 Reference/stope.help.sl
@@ -2502,6 +2518,7 @@ Reference/stringIntercalate.help.sl
 Reference/stringJoin.help.sl
 Reference/stringReverse.help.sl
 Reference/StudentTDistribution.help.sl
+Reference/sturgesRule.help.sl
 Reference/styleSheetList.help.sl
 Reference/subdivide.help.sl
 Reference/subfactorial.help.sl
@@ -2606,6 +2623,7 @@ Reference/toDo.help.sl
 Reference/toeplitzMatrix.help.sl
 Reference/ToggleFf.help.sl
 Reference/to.help.sl
+Reference/TolerantDictionary.help.sl
 Reference/tonalityDiamond.help.sl
 Reference/toPolarCoordinates.help.sl
 Reference/toSphericalCoordinates.help.sl
@@ -2739,6 +2757,7 @@ Reference/weeks.help.sl
 Reference/WeibullDistribution.help.sl
 Reference/weierstrassFunction.help.sl
 Reference/weightedAdjacencyGraph.help.sl
+Reference/WeightedData.help.sl
 Reference/weightedMediant.help.sl
 Reference/weilHeight.help.sl
 Reference/welchWindow.help.sl

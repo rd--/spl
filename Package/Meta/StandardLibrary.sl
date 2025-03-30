@@ -152,6 +152,7 @@
 	'BinomialDistribution'
 	'CauchyDistribution'
 	'DirichletDistribution'
+	'DiscreteUniformDistribution'
 	'EmpiricalDistribution'
 	'ExponentialDistribution'
 	'ExtremeValueDistribution'

@@ -47,7 +47,7 @@ Random cuboid collection:
 ~~~spl svg=D
 let rng = Sfc32(397371);
 let c = {
-	let p = rng.randomReal(0, 7, [3]);
+	let p = rng.randomReal([0 7], [3]);
 	Cuboid(p, p + 1)
 } ! 13;
 c.PerspectiveDrawing

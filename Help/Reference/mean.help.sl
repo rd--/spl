@@ -83,6 +83,9 @@ See also: arithmeticMean, geometricMean, median
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mean.html)
-[2](https://reference.wolfram.com/language/ref/Mean.html)
+[2](https://mathworld.wolfram.com/WeightedMean.html)
+[3](https://reference.wolfram.com/language/ref/Mean.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Mean)
 
 Categories: Statistics

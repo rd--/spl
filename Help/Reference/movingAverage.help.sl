@@ -43,6 +43,29 @@ Moving averages of matrices are matrices:
 ]
 ```
 
+Smooth noisy data:
+
+~~~spl svg=A
+let r = Sfc32(613724);
+let x = [1 .. 20];
+let p = x + r.randomReal([-2 2], [20]);
+let q = p.movingAverage(3);
+[x, p, q].lineSetPlot
+~~~
+
+![](sw/spl/Help/Image/movingAverage-A.svg)
+
+Average with long window:
+
+~~~spl svg=B
+Sfc32(367214)
+.randomReal([0.9 1.1], 200)
+.movingAverage(100)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/movingAverage-B.svg)
+
 * * *
 
 See also: median, exponentialMovingAverage, movingMap, movingMedian, partition

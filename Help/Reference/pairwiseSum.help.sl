@@ -6,7 +6,7 @@ Answer the `sum` of _aSequence_ calculated using the _pairwise summation_ algori
 
 ```
 >>> let r = Sfc32(289013);
->>> let l = r.randomReal(0, 1E10, [1E4]);
+>>> let l = r.randomReal([0 1E10], [1E4]);
 >>> (l.sum, l.pairwiseSum, l.neumaierSum)
 (
 	49800261849623.41,

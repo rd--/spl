@@ -60,7 +60,7 @@ _c_:
 
 ~~~spl svg=D
 let r = Sfc32(273214);
-let p = r.randomReal(-1, 1, [5, 2]);
+let p = r.randomReal([-1 1], [5, 2]);
 let d = DelaunayTriangulation(p);
 let h = d.convexHull;
 let v = d.voronoiVertexCoordinates;
@@ -86,7 +86,7 @@ _e_:
 
 ~~~spl svg=E
 let r = Sfc32(789147);
-let p = r.randomReal(-1, 1, [17, 2]);
+let p = r.randomReal([-1 1], [17, 2]);
 let d = DelaunayTriangulation(p);
 let v = d.voronoiVertexCoordinates;
 let e = d.voronoiEdgeList.collect { :each |

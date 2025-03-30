@@ -6,6 +6,19 @@ WeightedData : [Object] { | inputData weights |
 		(x * w).sum / w.sum
 	}
 
+	median { :self |
+		let x = self.inputData;
+		let w = self.weights;
+		let k = x.size;
+		let wH = w.sum / 2;
+		let o = x.ordering(<=);
+		let xO = x.atAll(o);
+		let wO = w.atAll(o);
+		let z = wO.prefixSum;
+		let i = z.detectIndex { :each | each >= wH };
+		xO[i] /* no interpolation */
+	}
+
 	sampleVariance { :self |
 		let x = self.inputData;
 		let w = self.weights;
@@ -32,7 +45,12 @@ WeightedData : [Object] { | inputData weights |
 
 +List {
 
-	WeightedData { :x :w |
+	WeightedData { :x :wSpecifier |
+		let w = wSpecifier.isBlock.if {
+			x.collect(wSpecifier)
+		} {
+			wSpecifier
+		};
 		newWeightedData().initializeSlots(x, w)
 	}
 

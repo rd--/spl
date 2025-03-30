@@ -17,7 +17,7 @@ Count the instances of randomly generated integers:
 
 ```
 >>> Sfc32(41805)
->>> .randomInteger(1, 9, 23)
+>>> .randomInteger([1 9], 23)
 >>> .tally(=)
 [
 	9 -> 2,

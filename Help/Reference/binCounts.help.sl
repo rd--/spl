@@ -37,7 +37,7 @@ Visualize the density of two-dimensional uniform noise data in bins:
 
 ~~~spl svg=A
 Sfc32(3678124)
-.randomReal(-5, 5, [1000 2])
+.randomReal([-5 5], [1000 2])
 .binCounts([-5 5 1], [-5 5 1])
 .matrixPlot
 ~~~

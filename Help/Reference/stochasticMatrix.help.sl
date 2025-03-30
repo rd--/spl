@@ -11,7 +11,7 @@ The stochastic matrix of two sequences of uniformly distributed random integers:
 
 ```
 >>> let r = Sfc32(167821);
->>> let o = r.randomInteger(1, 5, [2 10]);
+>>> let o = r.randomInteger([1 5], [2 10]);
 >>> (o, o.stochasticMatrix)
 (
 	[

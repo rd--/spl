@@ -45,7 +45,7 @@ Positions of `one` in an integer 2×2×2 array with the default taken to be `zer
 
 ```
 >>> let r = Sfc32(276313);
->>> let a = r.randomInteger(0, 1, [2 2 2]);
+>>> let a = r.randomInteger([0 1], [2 2 2]);
 >>> (a, a.arrayRules(0))
 (
 	[

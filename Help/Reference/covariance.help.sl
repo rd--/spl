@@ -60,7 +60,7 @@ The diagonal of a covariance matrix is the variance:
 
 ```
 >>> let r = Sfc32(278914);
->>> let x = r.randomReal(0, 5, [20 5]);
+>>> let x = r.randomReal([0 5], [20 5]);
 >>> let y = x.covariance(x).diagonal;
 >>> (y, y = x.variance)
 ([1.2237 2.3543 2.3290 2.2087 1.6632], true)
@@ -77,9 +77,9 @@ let m = gcd:/2.table(1:100, 1:100);
 
 The covariance tends to be large only on the diagonal of a random matrix:
 
-~~~
+~~~spl png=B
 let r = Sfc32(278914);
-let m = r.randomReal(-1, 1, [100 100]);
+let m = r.randomReal([-1 1], [100 100]);
 (1 - m.covariance(m).rescale).Graymap
 ~~~
 

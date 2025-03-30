@@ -54,9 +54,11 @@ UniformDistribution : [Object, ProbabilityDistribution] { | a b |
 	}
 
 	pdf { :self |
+		let a = self.a;
+		let b = self.b;
 		{ :x |
-			x.betweenAnd(self.a, self.b).if {
-				1
+			x.betweenAnd(a, b).if {
+				1 / (b - a)
 			} {
 				0
 			}

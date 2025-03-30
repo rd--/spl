@@ -128,7 +128,7 @@ Rule 184 from a random initial state:
 ~~~spl png=H
 184.elementaryCellularAutomaton(
 	Sfc32(378452)
-	.randomInteger(0, 1, [101]),
+	.randomInteger([0 1], [101]),
 	101
 ).Bitmap
 ~~~
