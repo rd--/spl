@@ -66,6 +66,10 @@
 		self.collect(bellNumber:/1)
 	}
 
+	between { :self :interval |
+		self.collect(interval.between)
+	}
+
 	betweenAnd { :self :min :max |
 		self.collect { :each |
 			each.betweenAnd(min, max)

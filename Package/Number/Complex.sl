@@ -390,6 +390,10 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	secant { :self |
+		1 / self.cos
+	}
+
 	sign { :self |
 		self / self.abs
 	}

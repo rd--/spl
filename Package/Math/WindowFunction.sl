@@ -106,6 +106,15 @@
 		x.kaiserWindow(3)
 	}
 
+	lanczosWindow { :x |
+		(x.abs <= 0.5).if {
+			let z = 2.pi * x;
+			z.sin / z
+		} {
+			0
+		}
+	}
+
 	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0

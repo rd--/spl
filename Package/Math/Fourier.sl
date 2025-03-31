@@ -75,3 +75,56 @@
 	}
 
 }
+
++SmallFloat {
+
+	dirichletKernel { :n |
+		{ :x |
+			((n + 0.5) * x).sin / (x * 0.5).sin
+		}
+	}
+
+	fejerKernel { :n |
+		{ :x |
+			x.isVeryCloseTo(0).if {
+				n
+			} {
+				((1 - (n * x).cos) / (1 - x.cos)) / n
+			}
+		}
+	}
+
+	fejerKernelDirichlet { :n |
+		let d = (0 .. n - 1).collect(dirichletKernel:/1);
+		{ :x |
+			d.collect { :each:/1 |
+				each(x)
+			}.sum
+		}
+	}
+
+	lanczosKernel { :a |
+		{ :x |
+			x.betweenAnd(a.-, a).if {
+				x.sincNormalized * (x / a).sincNormalized
+			} {
+				0
+			}
+		}
+	}
+
+	lanczosKernelSin { :a |
+		{ :x |
+			(x = 0).if {
+				1
+			} {
+				x.betweenAnd(a.-, a).if {
+					(a * x.pi.sin * (x.pi / a).sin) / (1.pi.squared * x.squared)
+				} {
+					0
+				}
+			}
+		}
+	}
+
+}

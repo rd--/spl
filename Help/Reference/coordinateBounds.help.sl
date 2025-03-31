@@ -40,7 +40,7 @@ The `minMax` of the `transposed` matrix:
 
 * * *
 
-See also: coordinateBoundingBox, minMax, transposed
+See also: between, coordinateBoundingBox, minMax, transposed
 
 References:
 _Mathematica_

@@ -59,6 +59,16 @@ Interval : [Object, Magnitude, Number] { | min max |
 		r.randomReal(self, shape)
 	}
 
+	between { :self |
+		let min = self.min;
+		let max = self.max;
+		{ :x |
+			min <= x & {
+				x <= max
+			}
+		}
+	}
+
 	discretize { :self :size :aBlock:/1 |
 		self.discretize(size).collect(aBlock:/1)
 	}

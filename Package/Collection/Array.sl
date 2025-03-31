@@ -320,6 +320,18 @@
 
 }
 
++Range {
+
+	rank { :self |
+		1
+	}
+
+	shape { :self |
+		[self.size]
+	}
+
+}
+
 +@Object {
 
 	arrayDepth { :self |

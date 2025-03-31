@@ -1,10 +1,10 @@
 # fromPolarCoordinates
 
-- _fromPolarCoordinates(aSequence)_
+- _fromPolarCoordinates(aList)_
 
 Answer the _(x, y)_ Cartesian coordinates corresponding to the polar coordinates _(r, θ)_.
 
-At `List`:
+Convert from polar to rectangular coordinates:
 
 ```
 >>> [2.sqrt, 0.25.pi].fromPolarCoordinates

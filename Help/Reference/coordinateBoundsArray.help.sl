@@ -65,3 +65,7 @@ let f = { :o |
 * * *
 
 See also: array, coordinateBounds, outer, Range, subdivide, table
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/CoordinateBoundsArray.html),

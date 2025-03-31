@@ -25,10 +25,39 @@ Threads elementwise over lists and matrices:
 [2.7597 14.1368 -4.4014]
 ```
 
+Evaluate for complex arguments:
+
+```
+>>> 2.5J1.secant
+-0.6111J0.3477
+```
+
+Plot over a subset of the reals:
+
+~~~spl svg=A
+(0 -- 2.pi).functionPlot(
+	secant:/1.clip(-4, 4)
+)
+~~~
+
+![](sw/spl/Help/Image/secant-A.svg)
+
+Plot over a subset of the complex numbers:
+
+~~~spl png=B
+let i = (-1.pi -- 1.pi).subdivide(100);
+{ :y :x |
+	Complex(x, y).secant.abs.clip(0, 1)
+}.table(i, i).Graymap
+~~~
+
+![](sw/spl/Help/Image/secant-B.png)
+
 * * *
 
-See also: cosecant, sin
+See also: cos, cosecant, sin
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Sec.html)
+[1](https://mathworld.wolfram.com/Secant.html)
+[2](https://reference.wolfram.com/language/ref/Sec.html),

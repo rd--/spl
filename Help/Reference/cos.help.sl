@@ -91,12 +91,14 @@ Plot `cos` alongside a Padé approximation:
 
 * * *
 
-See also: arcCos, arcCosh, cosh, sin, tan
+See also: arcCos, arcCosh, cosh, secant, sin, tan
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Cosine.html)
 [2](https://reference.wolfram.com/language/ref/Cos.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.cos.html),
 _Smalltalk_
 5.6.7.5
 

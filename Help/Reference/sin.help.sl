@@ -27,6 +27,11 @@ Prefix notation:
 ```
 >>> 2.5J1.sin
 0.923491J-0.941505
+
+>>> let a = 2.5;
+>>> let b = 1;
+>>> (a.sin * b.cosh) + (a.cos * b.sinh).i
+2.5J1.sin
 ```
 
 Threads elementwise over lists and matrices:

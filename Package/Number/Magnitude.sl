@@ -30,6 +30,12 @@
 		}
 	}
 
+	between { :self :interval |
+		interval.min <= self & {
+			self <= interval.max
+		}
+	}
+
 	betweenAnd { :self :min :max |
 		min <= self & {
 			self <= max
