@@ -12,11 +12,14 @@ true
 true
 ```
 
-Element-wise at `Sequence`:
+Element-wise at `List`:
 
 ```
 >>> [1 3 5 7 9] > [3 4 5 6 7]
 [false false false true true]
+
+>>> [1 .. 9] > [1 3 5 1 5 9 1 7 13]
+[false false false true false false true true false]
 ```
 
 When the arguments to `>` are `boole`, it is the material non-implication `Boolean` function:

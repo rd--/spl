@@ -110,7 +110,7 @@ Distance matrix of a 3×2 matrix:
 
 * * *
 
-See also: adjacencyMatrix, graphDistanceMatrix, norm, outer
+See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer
 
 References:
 _Mathematica_

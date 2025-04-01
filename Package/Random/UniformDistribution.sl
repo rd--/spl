@@ -66,8 +66,10 @@ UniformDistribution : [Object, ProbabilityDistribution] { | a b |
 	}
 
 	randomVariate { :self :r :shape |
+		let a = self.a;
+		let b = self.b;
 		{
-			r.uniformDistribution(self.a, self.b)
+			r.uniformDistribution(a, b)
 		} ! shape
 	}
 

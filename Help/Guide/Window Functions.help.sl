@@ -17,6 +17,7 @@
 - `hammingWindow`: Hamming
 - `hannWindow`: Hann
 - `kaiserWindow`: Kaiser
+- `lanczosWindow`: Lanczos
 - `welchWindow`: Welch
 
 ## Window Table Functions

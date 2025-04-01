@@ -142,6 +142,7 @@
 	'LinearCongruential'
 	'MersenneTwister'
 	'ProbabilityDistribution'
+	'RandomFixedSum'
 	'RandomProcess'
 	'Sfc32' /* Stream */
 	'SplitMix'
@@ -160,6 +161,7 @@
 	'GammaDistribution'
 	'GeometricDistribution'
 	'HypergeometricDistribution'
+	'InverseGaussianDistribution'
 	'LaplaceDistribution'
 	'LogisticDistribution'
 	'LogNormalDistribution'
@@ -169,6 +171,7 @@
 	'NormalDistribution'
 	'ParetoDistribution'
 	'PoissonDistribution'
+	'ReciprocalDistribution'
 	'SkewNormalDistribution'
 	'StudentTDistribution'
 	'TriangularDistribution'

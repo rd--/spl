@@ -94,6 +94,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/repelem.html)
+[1](https://mathworks.com/help/matlab/ref/repelem.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.repeat.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Array.html#-dupEach)

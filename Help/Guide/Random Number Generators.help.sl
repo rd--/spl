@@ -56,6 +56,7 @@ Probablity distributions:
 - `CauchyDistribution`
 - `ChiSquareDistribution`
 - `DirichletDistribution`
+- `DiscreteUniformDistribution`
 - `EmpiricalDistribution`
 - `ExponentialDistribution`
 - `ExtremeValueDistribution`
@@ -63,6 +64,7 @@ Probablity distributions:
 - `GammaDistribution`
 - `GeometricDistribution`
 - `HypergeometricDistribution`
+- `InverseGaussianDistribution`
 - `LaplaceDistribution`
 - `LogisticDistribution`
 - `LogNormalDistribution`
@@ -72,6 +74,7 @@ Probablity distributions:
 - `NormalDistribution`
 - `ParetoDistribution`
 - `PoissonDistribution`
+- `ReciprocalDistribution`
 - `SkewNormalDistribution`
 - `StudentTDistribution`
 - `TriangularDistribution`

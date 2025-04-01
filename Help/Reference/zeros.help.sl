@@ -55,8 +55,10 @@ Use `zero` to copy element type of existing array:
 
 * * *
 
-See also: ones, reshape, zero
+See also: ones, reshape, zero, zeroMatrix
 
 Rererences:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/zeros.html)
+[1](https://mathworks.com/help/matlab/ref/zeros.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html)

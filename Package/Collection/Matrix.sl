@@ -61,6 +61,21 @@
 		}
 	}
 
+	cayleyMengerDeterminant { :self |
+		let n = self.size - 1;
+		let z = (-1 ^ (n + 1)) / (n.factorial.squared * (2 ^ n));
+		(z * self.cayleyMengerMatrix.determinant).abs.sqrt
+	}
+
+	cayleyMengerMatrix { :self |
+		let m = self.distanceMatrix(
+			self,
+			squaredEuclideanDistance:/2
+		).arrayPad([1 0; 1 0], 1);
+		m[1][1] := 0;
+		m
+	}
+
 	diagonal { :self :k |
 		let m = self.assertIsMatrix('List>>diagonal');
 		let l = m.shape.min - k.abs;
@@ -260,6 +275,17 @@
 		(1 .. self.size).collect { :i |
 			self.rotatedRight(i)
 		}
+	}
+
+	condensedDistanceMatrix { :self :aBlock:/2 |
+		let k = self.size;
+		let answer = [];
+		1.toDo(k) { :i |
+			(i + 1).toDo(k) { :j |
+				answer.add(aBlock(self[i], self[j]))
+			}
+		};
+		answer
 	}
 
 	diagonalMatrix { :self :k :shape |

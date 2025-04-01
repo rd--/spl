@@ -209,6 +209,13 @@
 		}
 	}
 
+	reshapeList { :self :shape |
+		shape.allButFirst.reverseDo { :n |
+			self := self.clump(n)
+		};
+		self
+	}
+
 	shapeOrNil { :self |
 		(self.size = 0).if {
 			[0]
@@ -270,12 +277,10 @@
 		shape.ifEmpty {
 			self.error('reshape: empty shape?')
 		} {
-			let size = shape.product;
-			let answer = self.flatten.wrapExtend(size);
-			shape.allButFirst.reverseDo { :n |
-				answer := answer.clump(n)
-			};
-			answer
+			self
+			.flatten
+			.wrapExtend(shape.product)
+			.reshapeList(shape)
 		}
 	}
 

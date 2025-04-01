@@ -130,14 +130,16 @@ UniformDistribution(
 
 * * *
 
-See also: CauchyDistribution, cdf, DiscreteUniformDistribution, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, standardDeviation, WeibullDistribution
+See also: CauchyDistribution, cdf, DiscreteUniformDistribution, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, ReciprocalDistribution, standardDeviation, WeibullDistribution
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UniformDistribution.html)
 [2](https://reference.wolfram.com/language/ref/UniformDistribution.html),
 _NIST_
-[1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3662.htm)
+[1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3662.htm),
+_Python_
+[1](https://numpy.org/doc/2.2/reference/random/generated/numpy.random.uniform.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Continuous_uniform_distribution)
 

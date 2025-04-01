@@ -35,12 +35,24 @@ A 3×2 matrix:
 ]
 ```
 
+This can also be written using either `!` or `reshape`:
+
+```
+>>> 0 ! [2 3]
+[0 0 0; 0 0 0]
+
+>>> [0].reshape([2 3])
+[0 0 0; 0 0 0]
+```
+
 * * *
 
 See also: identityMatrix, reshape
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/zeros.html)
+[1](https://mathworks.com/help/matlab/ref/zeros.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html)
 
 Categories: Math, Matrix
