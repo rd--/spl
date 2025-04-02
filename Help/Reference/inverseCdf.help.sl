@@ -71,6 +71,8 @@ UniformDistribution([0 1])
 
 See also: cdf, inverseErfc, inverseSurvivalFunction, pdf
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/InverseCDF.html),

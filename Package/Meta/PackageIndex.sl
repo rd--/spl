@@ -2,6 +2,7 @@
 	'Behaviour-Adverb'
 	'Behaviour-Apl'
 	'Behaviour-Block'
+	'Behaviour-HashFunction'
 	'Behaviour-Piecewise'
 	'Behaviour-Prototype'
 	'Benchmark-Benchmark'

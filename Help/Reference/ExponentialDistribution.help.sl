@@ -1,6 +1,6 @@
 # ExponentialDistribution
 
-- _ExponentialDistribution(lambda)_
+- _ExponentialDistribution(λ)_
 
 A `Type` that represents an exponential distribution with rate parameter λ,
 and scale inversely proportional to λ.

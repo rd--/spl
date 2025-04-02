@@ -41,6 +41,8 @@ A survival function for a discrete univariate distribution:
 
 See also: cdf, hazardFunction, inverseSurvivalFunction, pdf, quantile
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SurvivalFunction.html),

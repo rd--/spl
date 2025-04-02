@@ -77,32 +77,6 @@ Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 		self.asSfc32State(2166136261)
 	}
 
-	hash { :self |
-		self.murmurHashGenerator(2166136261).value
-	}
-
-	murmurHashGenerator { :self :seed |
-		<primitive:
-		let h = _seed >>> 0; /* h = 2166136261 >>> 0 */
-		for (let k, i = 0; i < _self.length; i++) {
-			k = Math.imul(_self.charCodeAt(i), 3432918353);
-			k = k << 15 | k >>> 17; /* 0xcc9e2d51 */
-			h ^= Math.imul(k, 461845907);
-			h = h << 13 | h >>> 19; /* 0x1b873593 */
-			h = Math.imul(h, 5) + 3864292196 | 0; /* 0xe6546b64 */
-		}
-		h ^= _self.length;
-		return function () {
-			h ^= h >>> 16;
-			h = Math.imul(h, 2246822507); /* 0x85ebcab6 */
-			h ^= h >>> 13;
-			h = Math.imul(h, 3266489909); /* 0xc2b2ae35 */
-			h ^= h >>> 16;
-			return h >>> 0;
-		};
-		>
-	}
-
 	Sfc32 { :self |
 		Sfc32(self.asSfc32State(2166136261))
 	}

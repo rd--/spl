@@ -31,6 +31,25 @@ SplitMix(98765).next(99).linePlot
 
 ![](sw/spl/Help/Image/SplitMix-A.svg)
 
+Plot histogram:
+
+~~~spl svg=B
+SplitMix(387912)
+.next(10 ^ 4)
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/SplitMix-B.svg)
+
+Difference between empirical and expected mean and standard deviation:
+
+```
+>>> let r = SplitMix(387912);
+>>> let n = r.next(10 ^ 4);
+>>> (0.5 - n.mean, 1/12.sqrt - n.standardDeviation)
+(-0.0019250, -0.0011305)
+```
+
 * * *
 
 See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, Sfc32, Stream

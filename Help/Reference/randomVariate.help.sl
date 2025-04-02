@@ -19,6 +19,8 @@ d.randomVariate(r, 99).clip(-1, 1).linePlot
 
 See also: CauchyDistribution, NormalDistribution, ProbabilityDistribution, UniformDistribution
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomVariate.html)

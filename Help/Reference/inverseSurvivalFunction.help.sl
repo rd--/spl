@@ -33,6 +33,8 @@ Plot the inverse survival function for a standard normal distribution:
 
 See also: cdf, inverseCdf, quantile, survivalFunction
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/InverseSurvivalFunction.html)

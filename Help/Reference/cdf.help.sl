@@ -22,6 +22,8 @@ Plot `cdf` for a standard normal distribution:
 
 See also: inverseCdf, pdf, sum, survivalFunction
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DistributionFunction.html)

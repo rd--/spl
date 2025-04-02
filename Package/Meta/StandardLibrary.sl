@@ -6,6 +6,7 @@
 	'LibraryItem' /* CacheStorage, Url */
 
 	/* Behaviour */
+	'HashFunction'
 	'Piecewise'
 	'Prototype'
 

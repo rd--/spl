@@ -20,6 +20,8 @@ Plot `pdf` for a standard normal distribution:
 
 See also: cdf, hazardFunction, mean, quantile, survivalFunction
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ProbabilityDensityFunction.html)

@@ -1,13 +1,13 @@
 # Random Number Generators
 
-Random number generator traits:
+Traits:
 
-- `RandomNumberGenerator`: trait
-- `Stream`: trait
+- `RandomNumberGenerator`
+- `Stream`
 
-Pseudo random number generators:
+Pseudo-random number generators:
 
-- `Sfc32`: Small Fast Counter
+- `Sfc32`: Doty-Humphrey 2018
 - `LinearCongruential`: Thomson 1958
 - `MersenneTwister`: Matsumoto 1989
 - `SplitMix`: Steele 2014
@@ -22,6 +22,7 @@ Pseudo random number generators:
 - `randomBoolean`: boolean
 - `randomByteArray`: byte array
 - `randomChoice`: choice
+- `randomColour`: colour
 - `randomComplex`: complex number
 - `randomCycle`: cycle
 - `randomInteger`: small integer
@@ -31,14 +32,18 @@ Pseudo random number generators:
 - `randomPoint`: point
 - `randomPrime`: prime
 - `randomReal`: real number
+- `randomRealFixedSum`: real vector
+- `randomStarConvexPolygon`: polygon
 - `randomSubsequence`: subsequence
+- `randomTree`: tree
 - `randomWeightedChoice`: biased choice
+- `randomWeightedIndex`: biased choice
 
 `Stream` methods:
 
 - `next`: next item
-- `nextRandomFloat`
-- `nextRandomInteger`
+- `nextRandomFloat`: next float
+- `nextRandomInteger`: next integer
 
 Shuffling:
 
@@ -47,131 +52,11 @@ Shuffling:
 - `shuffle`: shuffle
 - `shuffled`: shuffle
 
-Probablity distributions:
-
-- `BernoulliDistribution`
-- `BetaDistribution`
-- `BinomialDistribution`
-- `BinormalDistribution`
-- `CauchyDistribution`
-- `ChiSquareDistribution`
-- `DirichletDistribution`
-- `DiscreteUniformDistribution`
-- `EmpiricalDistribution`
-- `ExponentialDistribution`
-- `ExtremeValueDistribution`
-- `FRatioDistribution`
-- `GammaDistribution`
-- `GeometricDistribution`
-- `HypergeometricDistribution`
-- `InverseGaussianDistribution`
-- `LaplaceDistribution`
-- `LogisticDistribution`
-- `LogNormalDistribution`
-- `MultinormalDistribution`
-- `NoncentralBetaDistribution`
-- `NoncentralChiSquareDistribution`
-- `NormalDistribution`
-- `ParetoDistribution`
-- `PoissonDistribution`
-- `ReciprocalDistribution`
-- `SkewNormalDistribution`
-- `StudentTDistribution`
-- `TriangularDistribution`
-- `UniformDistribution`
-- `WeibullDistribution`
-
-Methods at `ProbablityDistribution`:
-
-- `cdf`
-- `hazardFunction`
-- `inverseCdf`
-- `inverseSurvivalFunction`
-- `quantile`
-- `pdf`
-- `randomVariate`
-- `survivalFunction`
-
 Random number functions:
 
 - `atRandom`
 - `randomSample`
 
-Random Processes
+* * *
 
-- `BernoulliProcess`
-- `BrownianBridgeProcess`
-- `CoxIngersollRossProcess`
-- `ContinuousMarkovProcess`
-- `DiscreteMarkovProcess`
-- `FractionalBrownianMotionProcess`
-- `GeometricBrownianMotionProcess`
-- `HiddenMarkovProcess`
-- `OrnsteinUhlenbeckProcess`
-- `PoissonProcess`
-- `RandomWalkProcess`
-- `WienerProcess`
-
-Simulation methods:
-
-- `eulerMaruyamaMethod`
-- `hoskingMethod`
-- `milsteinMethod`
-
-SuperCollider has distinct unit generators for:
-
-- continuous random numbers
-- triggered random numbers
-- singleton random numbers
-- demand rate random numbers
-
-Random signal generators:
-
-- `BrownNoise`
-- `ClipNoise`
-- `Crackle`
-- `Dust2`
-- `Dust`
-- `GrayNoise`
-- `LfClipNoise`
-- `LfNoise0`
-- `LfNoise1`
-- `LfNoise2`
-- `LfdClipNoise`
-- `LfdNoise0`
-- `LfdNoise1`
-- `LfdNoise3`
-- `PinkNoise`
-- `TwChoose`
-- `WhiteNoise`
-
-Unary or binary random method producing a random value for each frame,
-which can be used to implement tendency masks:
-
-- `BiLinRand`
-- `ExpRandRange`
-- `LinRand`
-- `RandRange`
-- `Sum3Rand`
-
-Unit generators that generate random numbers once:
-
-- `ExpRand`
-- `IRand`
-- `LinRand`
-- `NRand`
-- `Rand`
-
-Unit generators that generate random numbers when triggered:
-
-- `CoinGate`
-- `TExpRand`
-- `TRand`
-- `TiRand`
-- `TwIndex`
-
-Demand rate random number unit generators:
-
-- `Dbrown`
-- `Diwhite`
-- `Dwhite`
+Guides: Probability Distributions, Random Processes

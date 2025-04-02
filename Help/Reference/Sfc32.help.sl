@@ -33,6 +33,25 @@ Sfc32(98765).next(99).linePlot
 
 ![](sw/spl/Help/Image/Sfc32-A.svg)
 
+Plot histogram:
+
+~~~spl svg=B
+Sfc32(387912)
+.next(10 ^ 4)
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/Sfc32-B.svg)
+
+Difference between empirical and expected mean and standard deviation:
+
+```
+>>> let r = Sfc32(387912);
+>>> let n = r.next(10 ^ 4);
+>>> (0.5 - n.mean, 1/12.sqrt - n.standardDeviation)
+(0.0022756, 0.0011151)
+```
+
 * * *
 
 See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream
