@@ -84,6 +84,17 @@ Triangle([0 0], [1 3], [2 0]).asLineDrawing
 
 ![](sw/spl/Help/Image/Triangle-A.svg)
 
+Draw a triangle in three dimensional space:
+
+~~~spl svg=B
+[
+	Cuboid([0 0 0], [1 1 1]),
+	Triangle([0 0 0], [1 0 1], [0 1 1])
+].PerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/Triangle-B.svg)
+
 * * *
 
 See also: Circle, equilateralTriangle, Line, Polygon, Rectangle
@@ -91,6 +102,8 @@ See also: Circle, equilateralTriangle, Line, Polygon, Rectangle
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Triangle.html)
-[2](https://reference.wolfram.com/language/ref/Triangle.html)
+[2](https://reference.wolfram.com/language/ref/Triangle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Triangle)
 
 Categories: Geometry

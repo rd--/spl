@@ -2,14 +2,18 @@
 
 - _shoelaceFormula(vertices)_
 
-Answer the area of a simple polygon whose _vertices_ are described by their Cartesian coordinates in the plane
+Answer the signed area of a simple polygon whose _vertices_ are described by their Cartesian coordinates in the plane,
 according to the shoelace formula.
 
-Calculate the area of a pentagon:
+Calculate the signed area of a pentagon:
 
 ```
->>> [1 6; 3 1; 7 2; 4 4; 8 5].shoelaceFormula
-16.5
+>>> let p = [1 6; 3 1; 7 2; 4 4; 8 5];
+>>> (
+>>> 	p.shoelaceFormula,
+>>> 	p.reversed.shoelaceFormula
+>>> )
+(16.5, -16.5)
 ```
 
 Manipulations of a polygon:
@@ -34,7 +38,8 @@ See also: area, Polygon
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Shoelace_formula)
+[1](https://en.wikipedia.org/wiki/Shoelace_formula),
+[2](https://en.wikipedia.org/wiki/Signed_area)
 
 Further Reading: Meister 1769
 

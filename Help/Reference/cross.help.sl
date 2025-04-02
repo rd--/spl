@@ -1,10 +1,12 @@
 # cross
 
-- _cross(aVector, anotherVector)_
+- _cross([x₁ y₁ z₁], [x₂ y₂ z₂])_
+- _cross([x₁ y₁], [x₂ y₂])_
+- _cross([x y])_
 
-Answer the vector cross product of _aVector_ and _anotherVector_.
+Answer the vector cross product of _u_ and _v_.
 
-The cross product of two vectors in three dimensions:
+The cross product of two vectors in three dimensions answers a vector which is perpendicular to the plane containing the two vectors:
 
 ```
 >>> let u = [1 2 -1];
@@ -28,8 +30,25 @@ The cross product of two vectors in three dimensions:
 The cross product of a single vector in two dimensions _(x, y)_ is the perpendicular vector _(-y, x)_:
 
 ```
->>> [1, 3.sqrt].cross
+>>> [1 3.sqrt].cross
 [3.sqrt.-, 1]
+
+>>> [1 3.sqrt 0].cross([0 0 -1])
+[3.sqrt.-, 1, 0]
+```
+
+The cross product of two vectors in two dimensions answer the signed magnitude of the cross product:
+
+```
+>>> let u = [1 2];
+>>> let v = [3 4];
+>>> (u.cross(v), v.cross(u))
+(-2, 2)
+
+>>> let u = [1 2 0];
+>>> let v = [3 4 0];
+>>> (u.cross(v), v.cross(u))
+([0 0 -2], [0 0 2])
 ```
 
 The cross product of complex vectors:

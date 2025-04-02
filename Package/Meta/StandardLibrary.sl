@@ -59,6 +59,7 @@
 	'Angle'
 	'Arc'
 	'Ball'
+	'BarycentricCoordinates'
 	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
@@ -86,6 +87,7 @@
 	'Rectangle'
 	'Sphere'
 	'Superellipse'
+	'Tetrahedron'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */

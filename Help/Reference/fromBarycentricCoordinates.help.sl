@@ -3,7 +3,8 @@
 - _fromBarycentricCoordinates(t)_
 - _fromBarycentricCoordinates(t, λ)_
 
-Given a `Triangle` _t_ answer the Cartesian coordinates of the barycentric coordinates λ.
+Given a `Triangle` or `Tetrahedron` _t_,
+answer the Cartesian coordinates of the barycentric coordinates λ.
 Barycentric coordinates were introduced by August Möbius in 1827.
 
 Plot specific points:
@@ -16,12 +17,17 @@ let c = [
 	1/2 1/4 1/4; 1/4 1/2 1/4; 1/4 1/4 1/2;
 	1/3 1/3 1/3
 ].asFloat;
-c.collect(
-	t.fromBarycentricCoordinates
-).PointCloud.asLineDrawing
+[
+	t,
+	c.collect(
+		t.fromBarycentricCoordinates
+	).PointCloud
+].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/fromBarycentricCoordinates-A.svg)
+
+Plot grid of points:
 
 ~~~spl svg=B
 let t = sssTriangle(1, 1, 1);
@@ -29,13 +35,38 @@ let f:/1 = t.fromBarycentricCoordinates;
 let c = [0, 0.1 .. 1].tuples(2).select { :each |
 	each.sum <= 1
 };
-c.collect { :each |
-	let [p, q] = each;
-	f([p, q, 1 - (p + q)])
-}.PointCloud.asLineDrawing
+[
+	t,
+	c.collect { :each |
+		let [p, q] = each;
+		f([p, q, 1 - (p + q)])
+	}.PointCloud
+].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/fromBarycentricCoordinates-B.svg)
+
+Plot grid of points on a triangle embedded in three-dimensional space:
+
+~~~spl svg=C
+let t = Triangle([0 0 0], [1 0 1], [0 1 1]);
+let f:/1 = t.fromBarycentricCoordinates;
+let c = [0, 0.1 .. 1].tuples(2).select { :each |
+	each.sum <= 1
+};
+[
+	Cuboid([0 0 0], [1 1 1]),
+	t,
+	PointCloud(
+		c.collect { :each |
+			let [p, q] = each;
+			f([p, q, 1 - (p + q)])
+		}
+	)
+].PerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/fromBarycentricCoordinates-C.svg)
 
 The inverse is `toBarycentricCoordinates`.
 

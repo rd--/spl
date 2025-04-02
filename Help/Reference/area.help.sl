@@ -16,6 +16,10 @@ Find the area of a `Triangle`:
 ```
 >>> Triangle([0 0], [1 0], [0 1]).area
 1/2
+
+>>> let t = Triangle([0 1], [1 0], [0 0]);
+>>> (t.area, t.signedArea)
+(1/2, -1/2)
 ```
 
 Find the area of a `Rectangle`:
@@ -34,7 +38,7 @@ Find the area of a `Polygon`:
 
 * * *
 
-See also: arcLength, Circle, Polygon, Rectangle, Triangle
+See also: arcLength, Circle, cross, Polygon, Rectangle, shoelaceFormula, Triangle
 
 References:
 _Mathematica_

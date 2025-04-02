@@ -1,8 +1,8 @@
 # Cuboid
 
-- _Cuboid(min, max)_
+- _Cuboid(p⌊, p⌈)_
 
-Answer a `Polyhedron` of an axis-aligned cuboid with lower corner _min_ and upper corner _max_.
+Answer a `Polyhedron` of an axis-aligned cuboid with lower corner _p⌊_ and upper corner _p⌈_.
 
 A unit cuboid:
 
@@ -32,9 +32,9 @@ The same geometry with indicated projection:
 	Cuboid([2 1 1], [4 2 3])
 ].PerspectiveDrawing(
 	projection: [
-		-1/6.pi 1;
-		1/4.pi 1;
-		1/2.pi 1
+		1 -1/6.pi;
+		1 1/4.pi;
+		1 1/2.pi
 	].asAxonometricProjection,
 	height: 100
 )
@@ -61,4 +61,6 @@ See also: Polyhedron, unitCube
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Cuboid.html)
+[1](https://reference.wolfram.com/language/ref/Cuboid.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cuboid)
