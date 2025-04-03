@@ -68,7 +68,7 @@ At `CartesianCoordinates`:
 At `SphericalCoordinates`:
 
 ```
->>> SphericalCoordinates(1, 3, 5).asList
+>>> SphericalCoordinates([1 3 5]).asList
 [1 3 5]
 ```
 

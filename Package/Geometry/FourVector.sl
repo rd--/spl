@@ -31,11 +31,11 @@ FourVector : [Object] { | w x y z |
 	}
 
 	xy { :self |
-		PlanarCoordinates(self.x, self.y)
+		PlanarCoordinates([self.x, self.y])
 	}
 
 	xyz { :self |
-		CartesianCoordinates(self.x, self.y, self.z)
+		CartesianCoordinates([self.x, self.y, self.z])
 	}
 
 }

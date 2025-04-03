@@ -1,6 +1,6 @@
 # BarycentricCoordinates
 
-- _BarycentricCoordinates(aList)_
+- _BarycentricCoordinates([λ₁, λ₂ …])_
 
 A `Type` representing a point in a barycentric coordinate system.
 

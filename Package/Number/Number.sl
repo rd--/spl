@@ -513,6 +513,10 @@
 		}
 	}
 
+	logisticSigmoid { :z |
+		1 / (1 + z.-.exp)
+	}
+
 	metallicMean { :n |
 		(n + (n.squared + 4).sqrt) / 2
 	}

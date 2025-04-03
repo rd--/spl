@@ -1,21 +1,32 @@
 /* Requires: CartesianCoordinates */
 
-CylindricalCoordinates : [Object] { | rho phi z |
+CylindricalCoordinates : [Object] { | coordinates |
 
 	asList { :self |
-		[self.rho, self.phi, self.z]
+		self.coordinates.copy
 	}
 
 	asCartesianCoordinates { :self |
-		CartesianCoordinates([self.x, self.y, self.z])
+		CartesianCoordinates(
+			self.coordinates.fromCylindricalCoordinates
+		)
 	}
 
 	asRecord { :self |
-		(rho: self.rho, phi: self.phi, z: self.z)
+		let [rho, phi, z] = self.coordinates;
+		(rho: rho, phi: phi, z: z)
 	}
 
 	radius { :self |
 		self.rho
+	}
+
+	rho { :self |
+		self.coordinates[1]
+	}
+
+	phi { :self |
+		self.coordinates[2]
 	}
 
 	theta { :self |
@@ -30,35 +41,39 @@ CylindricalCoordinates : [Object] { | rho phi z |
 		self.rho * self.phi.sin
 	}
 
-}
-
-+@Number {
-
-	CylindricalCoordinates { :rho :phi :z |
-		newCylindricalCoordinates().initializeSlots(rho, phi, z)
+	z { :self |
+		self.coordinates[3]
 	}
 
 }
 
-+[List, Tuple] {
++List {
 
 	asCylindricalCoordinates { :self |
 		let [rho, phi, z] = self;
-		CylindricalCoordinates(rho, phi, z)
+		newCylindricalCoordinates().initializeSlots([rho, phi, z])
 	}
 
 	fromCylindricalCoordinates { :self |
-		let [rho, phi, z] = self;
-		let x = rho * phi.cos;
-		let y = rho * phi.sin;
-		[x y z]
+		self.isVector.if {
+			let [rho, phi, z] = self;
+			let x = rho * phi.cos;
+			let y = rho * phi.sin;
+			[x y z]
+		} {
+			self.collect(fromCylindricalCoordinates:/1)
+		}
 	}
 
 	toCylindricalCoordinates { :self |
-		let [x, y, z] = self;
-		let rho = (x.squared + y.squared).sqrt;
-		let phi = y.atan2(x);
-		[rho phi z]
+		self.isVector.if {
+			let [x, y, z] = self;
+			let rho = (x.squared + y.squared).sqrt;
+			let phi = y.atan2(x);
+			[rho phi z]
+		} {
+			self.collect(toCylindricalCoordinates:/1)
+		}
 	}
 
 }
@@ -67,26 +82,21 @@ CylindricalCoordinates : [Object] { | rho phi z |
 
 	asCylindricalCoordinates { :self |
 		CylindricalCoordinates(
-			self['rho'],
-			self['phi'],
-			self['z']
+			[
+				self['rho'],
+				self['phi'],
+				self['z']
+			]
 		)
 	}
-
-
 
 }
 
 +CartesianCoordinates {
 
 	asCylindricalCoordinates { :self |
-		let x = self.x;
-		let y = self.y;
-		let z = self.z;
 		CylindricalCoordinates(
-			(x.squared + y.squared).sqrt,
-			y.atan2(x),
-			z
+			self.coordinates.toCylindricalCoordinates
 		)
 	}
 

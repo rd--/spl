@@ -28,7 +28,7 @@ At `Record`:
 Two-dimensional case:
 
 ```
->>> PlanarCoordinates(1, 2).x
+>>> PlanarCoordinates([1 2]).x
 1
 
 >>> (x: 1, y: 2).asPlanarCoordinates.x
@@ -38,7 +38,7 @@ Two-dimensional case:
 `PolarCoordinates` implements `x`:
 
 ```
->>> PolarCoordinates(1, 1.pi).x
+>>> PolarCoordinates([1 1.pi]).x
 -1
 ```
 
@@ -55,7 +55,7 @@ Three-dimensional case:
 `SphericalCoordinates` implements `x`:
 
 ```
->>> SphericalCoordinates(1, 1.pi, 1.pi / 2).x
+>>> SphericalCoordinates([1 1.pi 0.5.pi]).x
 -1
 ```
 

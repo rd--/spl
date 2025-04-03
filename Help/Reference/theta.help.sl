@@ -7,21 +7,21 @@ Answer the `theta` field of _aPoint_.
 The two-dimensional case:
 
 ```
->>> PolarCoordinates(0, 1.pi).theta
+>>> PolarCoordinates([0 1.pi]).theta
 1.pi
 ```
 
 `PlanarCoordinates` implements `theta`:
 
 ```
->>> PlanarCoordinates(1, 1).theta
+>>> PlanarCoordinates([1 1]).theta
 1/4.pi
 ```
 
 The three-dimensional case, also called `azimuth`:
 
 ```
->>> let p = SphericalCoordinates(1, 1.pi, 0);
+>>> let p = SphericalCoordinates([1 1.pi 0]);
 >>> (p.theta, p.azimuth)
 (1.pi, 1.pi)
 ```

@@ -38,7 +38,7 @@ At `CartesianCoordinates`:
 `SphericalCoordinates` implements `z`:
 
 ```
->>> SphericalCoordinates(1, 0, 1.pi).z
+>>> SphericalCoordinates([1 0 1.pi]).z
 -1
 ```
 

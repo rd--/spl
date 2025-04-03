@@ -164,6 +164,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	exp { :self |
+		self.asFloat.exp
+	}
+
 	gcd { :self :aFraction |
 		aFraction.isFraction.if {
 			let d = self.denominator.gcd(aFraction.denominator);

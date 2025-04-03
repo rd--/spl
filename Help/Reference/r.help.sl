@@ -12,14 +12,14 @@ answer the `Fraction` with the indicated numerator and denominator.
 At `PolarCoordinates`:
 
 ```
->>> PolarCoordinates(1, 0).r
+>>> PolarCoordinates([1 0]).r
 1
 ```
 
 At `SphericalCoordinates`:
 
 ```
->>> SphericalCoordinates(1, 0, 0).r
+>>> SphericalCoordinates([1 0 0]).r
 1
 ```
 

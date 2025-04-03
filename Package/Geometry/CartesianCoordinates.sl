@@ -1,23 +1,89 @@
 @CartesianCoordinates {
 
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	< { :self :anObject |
+		self.compare(anObject) = -1
+	}
+
+	<= { :self :anObject |
+		self.compare(anObject) <= 0
+	}
+
 	asList { :self |
 		self.coordinates.copy
+	}
+
+	assertIsCompatibleOperand { :self :operand |
+		(
+			(self.typeOf = operand.typeOf) & {
+				self.size = operand.size
+			}
+		).if {
+			operand
+		} {
+			self.error('assertIsCompatibleOperand: not of equal type or size')
+		}
 	}
 
 	at { :self :index |
 		self.coordinates.at(index)
 	}
 
+	atPut { :self :index :value |
+		self.coordinates.atPut(index, value)
+	}
+
+	compare { :self :anObject |
+		self.coordinates.compare(
+			self.assertIsCompatibleOperand(anObject).coordinates
+		)
+	}
+
 	dimension { :self |
 		0
+	}
+
+	distance { :self :other |
+		self.coordinates.euclideanDistance(
+			self.assertIsCompatibleOperand(other).coordinates
+		)
+	}
+
+	dotProduct { :self :anObject |
+		(
+			self.coordinates * self.assertIsCompatibleOperand(anObject).coordinates
+		).sum
 	}
 
 	embeddingDimension { :self |
 		self.coordinates.size
 	}
 
+	first { :self |
+		self.coordinates.first
+	}
+
 	isPlanar { :self |
 		self.coordinates.size = 2
+	}
+
+	isZero { :self |
+		self.coordinates.allSatisfy(isZero:/1)
+	}
+
+	negate { :self |
+		self.coordinates := self.coordinates.negated
+	}
+
+	norm { :self |
+		self.coordinates.squared.sum.sqrt
+	}
+
+	second { :self |
+		self.coordinates.second
 	}
 
 	size { :self |
@@ -50,38 +116,8 @@
 
 CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
 
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	< { :self :anObject |
-		self.compare(anObject) = -1
-	}
-
 	asCartesianCoordinates { :self |
 		self
-	}
-
-	assertIsCompatibleOperand { :self :operand |
-		(
-			operand.isCartesianCoordinates & {
-				self.size = operand.size
-			}
-		).if {
-			operand
-		} {
-			self.error('assertIsCompatibleOperand: not CartesianCoordinates or not of equal size')
-		}
-	}
-
-	atPut { :self :index :value |
-		self.coordinates.atPut(index, value)
-	}
-
-	compare { :self :anObject |
-		self.coordinates.compare(
-			self.assertIsCompatibleOperand(anObject).coordinates
-		)
 	}
 
 	cross { :u :v |
@@ -90,18 +126,6 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 				u.assertIsCompatibleOperand(v).coordinates
 			)
 		)
-	}
-
-	distance { :self :other |
-		self.coordinates.euclideanDistance(
-			self.assertIsCompatibleOperand(other).coordinates
-		)
-	}
-
-	dotProduct { :self :anObject |
-		(
-			self.coordinates * self.assertIsCompatibleOperand(anObject).coordinates
-		).sum
 	}
 
 	first { :self |
@@ -125,15 +149,15 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 	}
 
 	xy { :self |
-		PlanarCoordinates(self.x, self.y)
+		PlanarCoordinates([self.x, self.y])
 	}
 
 	xz { :self |
-		PlanarCoordinates(self.x, self.z)
+		PlanarCoordinates([self.x, self.z])
 	}
 
 	yz { :self |
-		PlanarCoordinates(self.y, self.z)
+		PlanarCoordinates([self.y, self.z])
 	}
 
 }

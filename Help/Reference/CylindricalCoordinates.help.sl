@@ -1,6 +1,6 @@
 # CylindricalCoordinates
 
-- _CylindricalCoordinates(ρ, φ, z)_
+- _CylindricalCoordinates([ρ, φ, z])_
 
 The three components of `CylindricalCoordinates` are:
 

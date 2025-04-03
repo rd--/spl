@@ -1,6 +1,6 @@
 # SphericalCoordinates
 
-- _SphericalCoordinates(r, theta, phi)_
+- _SphericalCoordinates([r, theta, phi])_
 
 Answer a `SphericalCoordinates` instance following the convention:
 
@@ -26,19 +26,25 @@ ie. from the reference plane upward (towards to the positive _z_-axis) to the ra
 The depression angle is the negative of the elevation angle.
 
 ```
->>> SphericalCoordinates(
+>>> let u = [
 >>> 	2.sqrt,
 >>> 	1.pi / 4,
 >>> 	1.pi / 2
->>> ).asCartesianCoordinates
-CartesianCoordinates([1 1 0])
+>>> ];
+>>> let v = [1 1 0];
+>>> SphericalCoordinates(u)
+>>> .asCartesianCoordinates
+CartesianCoordinates(v)
 
->>> SphericalCoordinates(
+>>> let u = [
 >>> 	3.sqrt,
 >>> 	0.25.pi,
 >>> 	2.sqrt.arcTan
->>> ).asCartesianCoordinates
-CartesianCoordinates([1 1 1])
+>>> ];
+>>> let v = [1 1 1];
+>>> SphericalCoordinates(u)
+>>> .asCartesianCoordinates
+CartesianCoordinates(v)
 ```
 
 Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.

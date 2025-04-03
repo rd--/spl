@@ -1,15 +1,11 @@
-PolarCoordinates : [Object] { | r theta |
+PolarCoordinates : [Object] { | coordinates |
 
 	= { :self :anObject |
-		anObject.isPolarCoordinates & {
-			self.r = anObject.r & {
-				self.theta = anObject.theta
-			}
-		}
+		self.hasEqualSlots(anObject)
 	}
 
 	asList { :self |
-		[self.r, self.theta]
+		self.coordinates.copy
 	}
 
 	asPolarCoordinates { :self |
@@ -21,39 +17,54 @@ PolarCoordinates : [Object] { | r theta |
 	}
 
 	asPlanarCoordinates { :self |
-		PlanarCoordinates(self.x, self.y)
+		PlanarCoordinates([self.x, self.y])
 	}
 
 	phi { :self |
 		self.theta
 	}
 
+	r { :self |
+		self.coordinates[1]
+	}
+
 	radius { :self |
-		self.r
+		self.coordinates[1]
 	}
 
 	rho { :self |
-		self.r
+		self.coordinates[1]
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
+	theta { :self |
+		self.coordinates[2]
+	}
+
 	x { :self |
-		self.r * self.theta.cos
+		let [r, theta] = self.coordinates;
+		r * theta.cos
 	}
 
 	y { :self |
-		self.r * self.theta.sin
+		let [r, theta] = self.coordinates;
+		r * theta.sin
 	}
 
 }
 
-+@Number {
++List {
 
-	PolarCoordinates { :r :theta |
-		newPolarCoordinates().initializeSlots(r, theta)
+	PolarCoordinates { :self |
+		self.isVector.if {
+			let [r, theta] = self;
+			newPolarCoordinates().initializeSlots([r, theta])
+		} {
+			self.collect(PolarCoordinates:/1)
+		}
 	}
 
 }
@@ -61,25 +72,22 @@ PolarCoordinates : [Object] { | r theta |
 +List {
 
 	asPolarCoordinates { :self |
-		let [r, theta] = self;
-		PolarCoordinates(r, theta)
+		PolarCoordinates(self)
 	}
 
 	fromPolarCoordinates { :self |
 		self.isVector.if {
-			self.asPolarCoordinates.asPlanarCoordinates.asList
+			let [r, theta] = self;
+			[r * theta.cos, r * theta.sin]
 		} {
 			self.collect(fromPolarCoordinates:/1)
 		}
 	}
 
-	PolarCoordinates { :radius :theta |
-		radius.withCollect(theta, PolarCoordinates:/2)
-	}
-
 	toPolarCoordinates { :self |
 		self.isVector.if {
-			self.asPlanarCoordinates.asPolarCoordinates.asList
+			let [x, y] = self;
+			[(x.squared + y.squared).sqrt, atan2(y, x)]
 		} {
 			self.collect(toPolarCoordinates:/1)
 		}
@@ -91,8 +99,10 @@ PolarCoordinates : [Object] { | r theta |
 
 	asPolarCoordinates { :self |
 		PolarCoordinates(
-			self['r'],
-			self['theta']
+			[
+				self['r'],
+				self['theta']
+			]
 		)
 	}
 

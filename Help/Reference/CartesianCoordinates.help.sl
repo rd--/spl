@@ -1,6 +1,6 @@
 # CartesianCoordinates
 
-- _CartesianCoordinates(aList)_
+- _CartesianCoordinates([x, y, …])_
 
 A `Type` representing a point in _n_-dimensional Cartesian space.
 
@@ -46,13 +46,16 @@ meaning behind, below and to the left of:
 Converting from `Record`:
 
 ```
->>> (x: 1, y: 2).asCartesianCoordinates
+>>> (x: 1, y: 2)
+>>> .asCartesianCoordinates
 CartesianCoordinates([1 2])
 
->>> (x: 1, y: 2, z: 3).asCartesianCoordinates
+>>> (x: 1, y: 2, z: 3)
+>>> .asCartesianCoordinates
 CartesianCoordinates([1 2 3])
 
->>> (x: 1, y: 2, z: 3, w: 4).asCartesianCoordinates
+>>> (x: 1, y: 2, z: 3, w: 4)
+>>> .asCartesianCoordinates
 CartesianCoordinates([1 2 3 4])
 ```
 

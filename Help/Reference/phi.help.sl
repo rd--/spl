@@ -7,7 +7,7 @@ Answer the `phi` (inclination) field of _aPoint_.
 At `SphericalCoordinates`, also called `inclination`:
 
 ```
->>> let p = SphericalCoordinates(1, 0, 1.pi);
+>>> let p = SphericalCoordinates([1 0 1.pi]);
 >>> (p.phi, p.inclination)
 (1.pi, 1.pi)
 ```

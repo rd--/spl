@@ -5,7 +5,7 @@
 Another name for `r`:
 
 ```
->>> PolarCoordinates(1, 0).rho
+>>> PolarCoordinates([1 0]).rho
 1
 ```
 

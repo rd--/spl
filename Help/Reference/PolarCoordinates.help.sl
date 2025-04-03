@@ -1,6 +1,6 @@
 # PolarCoordinates
 
-- _PolarCoordinates(r, theta)_
+- _PolarCoordinates([r, theta])_
 
 `PolarCoordinates` is a `Type` that represents a point in a polar coordinate system,
 where each point on a plane is determined by a distance from a reference point and an angle in radians from a reference direction.
@@ -12,7 +12,7 @@ Theta, or phi, is the angle of counter-clockwise rotation from the positive _x_ 
 with _0 <= theta < 2.pi_.
 
 ```
->>> let p = PolarCoordinates(2.sqrt, 0.25.pi);
+>>> let p = PolarCoordinates([2.sqrt, 0.25.pi]);
 >>> (
 >>> 	p.r, p.theta,
 >>> 	p.rho, p.phi,
@@ -23,18 +23,18 @@ with _0 <= theta < 2.pi_.
 	2.sqrt, 0.25.pi,
 	2.sqrt, 0.25.pi,
 	1, 1,
-	PlanarCoordinates(1, 1)
+	PlanarCoordinates([1 1])
 )
 ```
 
 Threads over lists:
 
 ```
->>> [1 2 3].PolarCoordinates(1.pi / [1 2 3])
+>>> PolarCoordinates([1 1.pi; 2 1/2.pi; 3 1/3.pi])
 [
-	PolarCoordinates(1, 1.pi),
-	PolarCoordinates(2, 1/2.pi),
-	PolarCoordinates(3, 1/3.pi)
+	PolarCoordinates([1 1.pi]),
+	PolarCoordinates([2 1/2.pi]),
+	PolarCoordinates([3 1/3.pi])
 ]
 ```
 

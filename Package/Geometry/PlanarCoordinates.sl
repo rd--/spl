@@ -1,16 +1,6 @@
-PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
+/* CartesianCoordinates */
 
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	< { :self :anObject |
-		self.compareBy(anObject, <)
-	}
-
-	<= { :self :anObject |
-		self.compareBy(anObject, <=)
-	}
+PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
 
 	+ { :self :anObject |
 		self.applyBinaryOperator(anObject, +)
@@ -37,35 +27,36 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 	}
 
 	abs { :self |
-		PlanarCoordinates(self.x.abs, self.y.abs)
+		PlanarCoordinates(self.coordinates.abs)
 	}
 
 	abscissa { :self |
-		self.x
+		self.coordinates.at(1)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(PlanarCoordinates(aNumber, aNumber), self)
+		aBlock(PlanarCoordinates([aNumber, aNumber]), self)
 	}
 
 	applyUnaryOperator { :self :aBlock:/1 |
-		PlanarCoordinates(self.x.aBlock, self.y.aBlock)
+		PlanarCoordinates(self.coordinates.collect(aBlock:/1))
 	}
 
 	applyBinaryOperator { :self :anObject :aBlock:/2 |
 		anObject.isPlanarCoordinates.if {
-			PlanarCoordinates(aBlock(self.x, anObject.x), aBlock(self.y, anObject.y))
+			PlanarCoordinates(
+				self.coordinates.withCollect(
+					anObject.coordinates,
+					aBlock:/2
+				)
+			)
 		} {
 			anObject.adaptToPlanarCoordinatesAndApply(self, aBlock:/2)
 		}
 	}
 
-	asList { :self |
-		[self.x, self.y]
-	}
-
 	asPolarCoordinates { :self |
-		PolarCoordinates(self.radius, self.theta)
+		PolarCoordinates([self.radius, self.theta])
 	}
 
 	asRecord { :self |
@@ -76,52 +67,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		self
 	}
 
-	at { :self :index |
-		index.caseOfOtherwise([
-			{ 1 } -> { self.x },
-			{ 2 } -> { self.y }
-		]) {
-			self.error('PlanarCoordinates>>at: index out of range')
-		}
-	}
-
-	atPut { :self :index :value |
-		index.caseOfOtherwise([
-			{ 1 } -> { self.x := value },
-			{ 2 } -> { self.y := value }
-		]) {
-			self.error('PlanarCoordinates>>atPut: index out of range')
-		}
-	}
-
-	compareBy { :self :anObject :aBlock:/2 |
-		aBlock(self.x, anObject.x) & {
-			aBlock(self.y, anObject.y)
-		}
-	}
-
-	dimension { :self |
-		0
-	}
-
-	distance { :self :anObject |
-		let dx = anObject.x - self.x;
-		let dy = anObject.y - self.y;
-		((dx * dx) + (dy * dy)).sqrt
-	}
-
-	dotProduct { :self :anObject |
-		(self.x * anObject.x) + (self.y * anObject.y)
-	}
-
-	embeddingDimension { :self |
-		2
-	}
-
-	first { :self |
-		self.x
-	}
-
 	inverse { :self :inversionCenter :inversionRadius |
 		let x = self.x;
 		let y = self.y;
@@ -129,23 +74,11 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		let y0 = inversionCenter.y;
 		let k = inversionRadius;
 		PlanarCoordinates(
-			x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
-			y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
+			[
+				x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
+				y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
+			]
 		)
-	}
-
-	isCloseTo { :self :anObject |
-		self.compareBy(anObject, isCloseTo:/2)
-	}
-
-	isPlanarCoordinates { :self |
-		true
-	}
-
-	isZero { :self |
-		self.x.isZero & {
-			self.y.isZero
-		}
 	}
 
 	max { :self :anObject |
@@ -156,17 +89,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		self.applyBinaryOperator(anObject, min:/2)
 	}
 
-	negate { :self |
-		self.x := self.x.negated;
-		self.y := self.x.negated
-	}
-
 	negated { :self |
 		self.applyUnaryOperator(negated:/1)
-	}
-
-	norm { :self |
-		(self.x.squared + self.y.squared).sqrt
 	}
 
 	normalized { :self |
@@ -189,34 +113,27 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 		self.radius
 	}
 
-	second { :self |
-		self.y
-	}
-
-	size { :self |
-		2
-	}
-
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
 	swapInPlace { :self |
-		let x = self.x;
-		let y = self.y;
-		self.x := y;
-		self.y := x
+		let c = self.coordinates;
+		let x = c[1];
+		let y = c[2];
+		c[1] := y;
+		c[2] := x
 	}
 
 	swapped { :self |
-		PlanarCoordinates(self.y, self.x)
+		PlanarCoordinates(self.coordinates.reversed)
 	}
 
 	theta { :self |
 		atan2(self.y, self.x)
 	}
 
-	translateBy { :self :delta |
+	translated { :self :delta |
 		self + delta
 	}
 
@@ -224,12 +141,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 
 +@Number {
 
-	adaptToPlanarCoordinatesAndApply { :self :aPlanarCoordinates :aBlock:/2 |
-		aBlock(aPlanarCoordinates, PlanarCoordinates(self, self))
-	}
-
-	PlanarCoordinates { :x :y |
-		newPlanarCoordinates().initializeSlots(x, y)
+	adaptToPlanarCoordinatesAndApply { :self :operand :aBlock:/2 |
+		aBlock(operand, PlanarCoordinates([self, self]))
 	}
 
 }
@@ -237,16 +150,16 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 +List {
 
 	asPlanarCoordinates { :self |
-		self.isMatrix.if {
-			self.collect(asPlanarCoordinates:/1)
-		} {
-			let [x, y] = self;
-			PlanarCoordinates(x, y)
-		}
+		PlanarCoordinates(self)
 	}
 
-	PlanarCoordinates { :x :y |
-		x.withCollect(y, PlanarCoordinates:/2)
+	PlanarCoordinates { :self |
+		self.isMatrix.if {
+			self.collect(PlanarCoordinates:/1)
+		} {
+			let [x, y] = self;
+			newPlanarCoordinates().initializeSlots([x, y])
+		}
 	}
 
 }
@@ -254,61 +167,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable] { | x y |
 +Record {
 
 	asPlanarCoordinates { :self |
-		PlanarCoordinates(self['x'], self['y'])
-	}
-
-}
-
-+@Integer {
-
-	circlePoints { :n :o :r :theta |
-		let m = 2.pi / n;
-		0.to(n - 1).collect { :i |
-			o + [r, theta + (i * m)].fromPolarCoordinates
-		}
-	}
-
-	circlePoints { :n :r |
-		let theta = (1 / n).pi - (1 / 2).pi;
-		n.circlePoints([0 0], r, theta)
-	}
-
-	spherePoints { :n :r |
-		let a = (4.pi * r.squared) / n;
-		let d = a.sqrt;
-		let mTheta = (1.pi / d).rounded;
-		let dTheta = 1.pi / mTheta;
-		let dPhi = a / dTheta;
-		let answer = [];
-		(0 .. mTheta - 1).do { :m |
-			let theta = (m + 0.5).pi / mTheta;
-			let mPhi = (2.pi * theta.sin / dPhi).rounded;
-			(0 .. mPhi - 1).do { :n |
-				let phi = (2.pi * n) / mPhi;
-				answer.add(
-					[
-						theta.sin * phi.cos,
-						theta.sin * phi.sin,
-						theta.cos
-					] * r
-				)
-			}
-		};
-		answer
-	}
-
-	spherePointsFibonacci { :n |
-		let answer = [];
-		let phi = (5.sqrt - 1).pi;
-		0.toDo(n - 1) { :i |
-			let y = 1 - ((i / (n - 1)) * 2);
-			let radius = (1 - (y * y)).sqrt;
-			let theta = phi * i;
-			let x = theta.cos * radius;
-			let z = theta.sin * radius;
-			answer.add([x, y, z])
-		};
-		answer
+		PlanarCoordinates([self['x'], self['y']])
 	}
 
 }

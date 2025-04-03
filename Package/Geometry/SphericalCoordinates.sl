@@ -1,6 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-@SphericalCoordinates {
+SphericalCoordinates : [Object] { | coordinates |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)
@@ -11,24 +11,18 @@
 	}
 
 	asCartesianCoordinates { :self |
-		let r = self.r;
-		let theta = self.theta;
-		let phi = self.phi;
 		CartesianCoordinates(
-			[
-				r * theta.cos * phi.sin,
-				r * theta.sin * phi.sin,
-				r * phi.cos
-			]
+			self.coordinates.fromSphericalCoordinates
 		)
 	}
 
 	asList { :self |
-		[self.r, self.theta, self.phi]
+		self.coordinates.copy
 	}
 
 	asRecord { :self |
-		(radius: self.r, theta: self.theta, phi: self.phi)
+		let [r, theta, phi] = self.coordinates;
+		(radius: r, theta: theta, phi: phi)
 	}
 
 	azimuth { :self |
@@ -43,6 +37,14 @@
 		self.phi
 	}
 
+	phi { :self |
+		self.coordinates[3]
+	}
+
+	r { :self |
+		self.coordinates[1]
+	}
+
 	radius { :self |
 		self.r
 	}
@@ -51,50 +53,59 @@
 		self.radius
 	}
 
-	x { :self |
-		self.r * self.theta.cos * self.phi.sin
+	theta { :self |
+		self.coordinates[2]
 	}
-
-	y { :self |
-		self.r * self.theta.sin * self.phi.sin
-	}
-
-	z { :self |
-		self.r * self.phi.cos
-	}
-
-}
-
-SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
-}
-
-+@Number {
-
-	IsoSphericalCoordinates { :r :theta :phi |
-		newSphericalCoordinates().initializeSlots(r, phi, theta)
+	x { :self |
+		let [r, theta, phi] = self.coordinates;
+		r * theta.cos * phi.sin
 	}
 
-	SphericalCoordinates { :r :theta :phi |
-		newSphericalCoordinates().initializeSlots(r, theta, phi)
+	y { :self |
+		let [r, theta, phi] = self.coordinates;
+		r * theta.sin * phi.sin
+	}
+
+	z { :self |
+		let [r, theta, phi] = self.coordinates;
+		r * phi.cos
 	}
 
 }
 
-+[List, Tuple] {
++List {
+
+	IsoSphericalCoordinates { :self |
+		let [r, theta, phi] = self;
+		SphericalCoordinates([r, phi, theta])
+	}
+
+	SphericalCoordinates { :self |
+		let [r, theta, phi] = self;
+		newSphericalCoordinates().initializeSlots([r, theta, phi])
+	}
+
+}
+
++List {
 
 	asSphericalCoordinates { :self |
-		let [r, theta, phi] = self;
-		SphericalCoordinates(r, theta, phi)
+		SphericalCoordinates(self.asList)
 	}
 
 	fromSphericalCoordinates { :self |
 		self.isVector.if {
-			self.asSphericalCoordinates.asCartesianCoordinates.asList
+			let [r, theta, phi] = self;
+			[
+				r * theta.cos * phi.sin,
+				r * theta.sin * phi.sin,
+				r * phi.cos
+			]
 		} {
 			self.collect(fromSphericalCoordinates:/1)
 		}
@@ -102,7 +113,12 @@ SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 
 	toSphericalCoordinates { :self |
 		self.isVector.if {
-			self.asCartesianCoordinates.asSphericalCoordinates.asList
+			let [x, y, z] = self;
+			[
+				(x.squared + y.squared + z.squared).sqrt,
+				y.atan2(x),
+				(x.squared + y.squared).sqrt.atan2(z)
+			]
 		} {
 			self.collect(toSphericalCoordinates:/1)
 		}
@@ -113,11 +129,11 @@ SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 +Record {
 
 	asSphericalCoordinates { :self |
-		SphericalCoordinates(
+		SphericalCoordinates([
 			self['r'],
 			self['theta'],
 			self['phi']
-		)
+		])
 	}
 
 }
@@ -125,13 +141,8 @@ SphericalCoordinates : [Object, SphericalCoordinates] { | r theta phi |
 +CartesianCoordinates {
 
 	asSphericalCoordinates { :self |
-		let x = self.x;
-		let y = self.y;
-		let z = self.z;
 		SphericalCoordinates(
-			(x.squared + y.squared + z.squared).sqrt,
-			y.atan2(x),
-			(x.squared + y.squared).sqrt.atan2(z)
+			self.coordinates.toSphericalCoordinates
 		)
 	}
 

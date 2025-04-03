@@ -228,32 +228,6 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		self.asCartesianCoordinates.asPoint
 	}
 
-	/*
-	x { :self |
-		self.includesAllIndices(['x' 'y']).if {
-			self['x']
-		} {
-			self.error('Record>>x: incorrect keys')
-		}
-	}
-
-	y { :self |
-		self.includesAllIndices(['x' 'y']).if {
-			self['y']
-		} {
-			self.error('Record>>y: incorrect keys')
-		}
-	}
-
-	z { :self |
-		self.includesAllIndices(['x' 'y' 'z']).if {
-			self['z']
-		} {
-			self.error('Record>>z: incorrect keys')
-		}
-	}
-	*/
-
 }
 
 +[List, Tuple] {
@@ -262,30 +236,58 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		Point(self.asList)
 	}
 
-	/*
-	x { :self |
-		self.size.betweenAnd(2, 3).if {
-			self[1]
-		} {
-			self.error('List>>x: not two- three-vector')
+}
+
++@Integer {
+
+	circlePoints { :n :o :r :theta |
+		let m = 2.pi / n;
+		0.to(n - 1).collect { :i |
+			o + [r, theta + (i * m)].fromPolarCoordinates
 		}
 	}
 
-	y { :self |
-		self.size.betweenAnd(2, 3).if {
-			self[2]
-		} {
-			self.error('List>>y: not two- three-vector')
-		}
+	circlePoints { :n :r |
+		let theta = (1 / n).pi - (1 / 2).pi;
+		n.circlePoints([0 0], r, theta)
 	}
 
-	z { :self |
-		(self.size = 3).if {
-			self[3]
-		} {
-			self.error('List>>z: not three-vector')
-		}
+	spherePoints { :n :r |
+		let a = (4.pi * r.squared) / n;
+		let d = a.sqrt;
+		let mTheta = (1.pi / d).rounded;
+		let dTheta = 1.pi / mTheta;
+		let dPhi = a / dTheta;
+		let answer = [];
+		(0 .. mTheta - 1).do { :m |
+			let theta = (m + 0.5).pi / mTheta;
+			let mPhi = (2.pi * theta.sin / dPhi).rounded;
+			(0 .. mPhi - 1).do { :n |
+				let phi = (2.pi * n) / mPhi;
+				answer.add(
+					[
+						theta.sin * phi.cos,
+						theta.sin * phi.sin,
+						theta.cos
+					] * r
+				)
+			}
+		};
+		answer
 	}
-	*/
+
+	spherePointsFibonacci { :n |
+		let answer = [];
+		let phi = (5.sqrt - 1).pi;
+		0.toDo(n - 1) { :i |
+			let y = 1 - ((i / (n - 1)) * 2);
+			let radius = (1 - (y * y)).sqrt;
+			let theta = phi * i;
+			let x = theta.cos * radius;
+			let z = theta.sin * radius;
+			answer.add([x, y, z])
+		};
+		answer
+	}
 
 }

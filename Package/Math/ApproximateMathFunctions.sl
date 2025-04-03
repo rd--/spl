@@ -1,5 +1,15 @@
 +SmallFloat {
 
+	blinnWyvillRaisedInvertedCosine { :x |
+		let x2 = x * x;
+		let x4 = x2 * x2;
+		let x6 = x4 * x2;
+		let fa = 4 / 9;
+		let fb = 17 / 9;
+		let fc = 22 / 9;
+		(fa * x6) - (fb * x4) + (fc * x2)
+	}
+
 	cosApproximation { :x |
 		let x2 = x * x;
 		let numerator = (-39251520 + (x2 * (18471600 + (x2 * (-1075032 + (14615 * x2)))))).-;
