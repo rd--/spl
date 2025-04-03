@@ -1,11 +1,11 @@
 # circumradius
 
-- _circumradius(aMatrix | aTriangle)_
+- _circumradius(aGeometry)_
 
 The `circumradius` is the `radius` of the `circumcircle`.
 
 ```
->>> let t = [0 0; 0 1; 1 0].asTriangle;
+>>> let t = Triangle([0 0; 0 1; 1 0]);
 >>> let c = t.circumcircle;
 >>> (c.radius, t.circumradius)
 (2.sqrt / 2, 2.sqrt / 2)

@@ -29,7 +29,7 @@ The three-dimensional case, also called `azimuth`:
 `CartesianCoordinates` implements `theta`:
 
 ```
->>> let p = CartesianCoordinates(1, 1, 0);
+>>> let p = CartesianCoordinates([1 1 0]);
 >>> (p.theta, p.azimuth)
 (1/4.pi, 1/4.pi)
 ```

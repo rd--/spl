@@ -73,24 +73,63 @@ Triangle : [Object] { | vertexCoordinates |
 		self.fromBarycentricCoordinates.value(lambda)
 	}
 
+	heronsFormula { :self |
+		let [a, b, c] = self.sideLengths;
+		let s = (a + b + c) * 0.5;
+		(s * (s - a) * (s - b) * (s - c)).sqrt
+	}
+
+	incenter { :self |
+		let v = self.vertexCoordinates;
+		let l = self.sideLengths.rotatedRight(3);
+		(v * l).sum / l.sum
+	}
+
+	incircle { :self |
+		Circle(self.incenter, self.inradius)
+	}
+
+	inradius { :self |
+		let [a, b, c] = self.sideLengths;
+		let s = (a + b + c) * 0.5;
+		(((s - a) * (s - b) * (s - c)) / s).sqrt
+	}
+
 	interiorAngles { :self |
 		self.vertexCoordinates.polygonInteriorAngles
+	}
+
+	perimeter { :self |
+		self.sideLengths.sum
 	}
 
 	project { :self :projection |
 		self
 		.vertexCoordinates
 		.collect(projection.asUnaryBlock)
-		.asTriangle
+		.Triangle
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
+	semiperimeter { :self |
+		self.perimeter * 0.5
+	}
+
+	sideLengths { :self |
+		let [a, b, c] = self.vertexCoordinates;
+		[
+			b.euclideanDistance(c),
+			c.euclideanDistance(a),
+			a.euclideanDistance(b)
+		]
 	}
 
 	signedArea { :self |
 		let [a, b, c] = self.vertexCoordinates;
 		(b - a).cross(c - b) * 0.5
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 	surfaceNormal { :self |
@@ -121,11 +160,6 @@ Triangle : [Object] { | vertexCoordinates |
 
 +List {
 
-	asTriangle { :self |
-		let [a, b, c] = self;
-		Triangle(a, b, c)
-	}
-
 	circumcircle { :self |
 		let [a, b, c] = self;
 		let [ax, ay] = a;
@@ -150,11 +184,23 @@ Triangle : [Object] { | vertexCoordinates |
 				angle + (2.pi * n / 3)
 			].fromPolarCoordinates
 		};
-		Triangle(0.f, 1.f, 2.f)
+		Triangle([0.f 1.f 2.f])
 	}
 
-	Triangle { :p1 :p2 :p3 |
-		newTriangle().initializeSlots([p1, p2, p3])
+	Triangle { :self |
+		(
+			self.size = 3 & {
+				self.isMatrix
+			}
+		).if {
+			newTriangle().initializeSlots(self)
+		} {
+			self.error('Triangle: invalid matrix')
+		}
+	}
+
+	Triangle { :a :b :c |
+		Triangle([a b c])
 	}
 
 }
@@ -165,7 +211,7 @@ Triangle : [Object] { | vertexCoordinates |
 		let x2 = a * alpha.cosecant * (alpha + beta).sin;
 		let x3 = a * alpha.cotangent * beta.sin;
 		let y3 = a * beta.sin;
-		Triangle([0 0], [x2, 0], [x3, y3])
+		Triangle([0 0; x2 0; x3 y3])
 	}
 
 	asaTriangle { :alpha :c :beta |
@@ -178,7 +224,7 @@ Triangle : [Object] { | vertexCoordinates |
 		let x = ((a ^ 2) + (b ^ 2) - (2 * a * b * gamma.cos)).sqrt;
 		let y = ((b ^ 2) - (a * b * gamma.cos)) / x;
 		let z = (a * b * gamma.sin) / x;
-		Triangle([0 0], [x 0], [y z])
+		Triangle([0 0; x 0; y z])
 	}
 
 	sssTriangle { :a :b :c |

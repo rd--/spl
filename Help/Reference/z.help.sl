@@ -28,7 +28,7 @@ At `Record`:
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates(1, 2, 3).z
+>>> CartesianCoordinates([1 2 3]).z
 3
 
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinates.z

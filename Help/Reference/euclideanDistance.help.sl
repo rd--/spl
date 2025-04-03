@@ -25,6 +25,12 @@ Euclidean distance between numeric vectors:
 >>> 	[4 15 20 5 5]
 >>> )
 462.sqrt
+
+>>> [0 0].euclideanDistance([1/2 1/2])
+1/2.sqrt
+
+>>> [0 0 0].euclideanDistance([1/2 1/2 1/2])
+1/3.pi.sin
 ```
 
 The Euclidean distance in one dimension is the absolute value of the difference:

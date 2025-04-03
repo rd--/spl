@@ -8,20 +8,20 @@ Answer a `CartesianCoordinates`.
 
 ```
 >>> [1 2 3].asCartesianCoordinates
-CartesianCoordinates(1, 2, 3)
+CartesianCoordinates([1 2 3])
 ```
 
 `Record` case:
 
 ```
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinates
-CartesianCoordinates(1, 2, 3)
+CartesianCoordinates([1 2 3])
 ```
 
 In the `CartesianCoordinates` cases answer `identity`:
 
 ```
->>> let p = CartesianCoordinates(1, 2, 3);
+>>> let p = CartesianCoordinates([1 2 3]);
 >>> p.asCartesianCoordinates
 p
 ```

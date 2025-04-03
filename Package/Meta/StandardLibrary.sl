@@ -85,6 +85,7 @@
 	'Polyhedron' /* PolygonMesh */
 	'AxonometricProjection'
 	'Rectangle'
+	'Simplex'
 	'Sphere'
 	'Superellipse'
 	'Tetrahedron'

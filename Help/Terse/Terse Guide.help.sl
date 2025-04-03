@@ -4180,34 +4180,34 @@ PlanarCoordinates(1, 1).normalized.norm ~ 1
 
 ## CartesianCoordinates -- geometry type
 ```
-[1, 2, 3].asCartesianCoordinates = CartesianCoordinates(1, 2, 3) /* from list */
-(x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates(1, 2, 3) /* from record */
+[1, 2, 3].asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
+(x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
 let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.asList = [1, 2, 3] /* point as array */
-CartesianCoordinates(0, 0, 0).isZero /* are x, y and z all zero */
-let v = CartesianCoordinates(1, 2, 3); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
-let v = CartesianCoordinates(3, 4, 5); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
-let v = CartesianCoordinates(3, 4, 5); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] /* implements atPut */
-let v = CartesianCoordinates(3, 4, 5); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
-CartesianCoordinates(0, 0, 1).asSphericalCoordinates = SphericalCoordinates(1, 0, 0)
-SphericalCoordinates(1, 0, 0).asCartesianCoordinates = CartesianCoordinates(0, 0, 1)
+CartesianCoordinates([0, 0, 0]).isZero /* are x, y and z all zero */
+let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
+let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
+let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] /* implements atPut */
+let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
+CartesianCoordinates([0, 0, 1]).asSphericalCoordinates = SphericalCoordinates(1, 0, 0)
+SphericalCoordinates(1, 0, 0).asCartesianCoordinates = CartesianCoordinates([0, 0, 1])
 CartesianCoordinates(1, 1, 0).asSphericalCoordinates = SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2)
-SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates ~ CartesianCoordinates(1, 1, 0)
-IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinates ~ CartesianCoordinates(1, 1, 1)
-CartesianCoordinates(1, 1, 1).asSphericalCoordinates ~ IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
-CartesianCoordinates(0, 0, 0).distance(CartesianCoordinates(1, 1, 1)) = 3.sqrt
-CartesianCoordinates(0, 0, 0).distance(CartesianCoordinates(1, 1, 0)) = 2.sqrt
-CartesianCoordinates(1, 2, 3).distance(CartesianCoordinates(6, 5, 4)) = 35.sqrt
-CartesianCoordinates(0, 0, 0).isCartesianCoordinates = true /* is Cartesian coordinate */
-CartesianCoordinates(0, 0, 0).isZero = true /* is zero */
+SphericalCoordinates(2.sqrt, 1.pi / 4, 1.pi / 2).asCartesianCoordinates ~ CartesianCoordinates([1, 1, 0])
+IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi).asCartesianCoordinates ~ CartesianCoordinates([1, 1, 1])
+CartesianCoordinates([1, 1, 1]).asSphericalCoordinates ~ IsoSphericalCoordinates(3.sqrt, 2.sqrt.arcTan, 0.25.pi)
+CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 1])) = 3.sqrt
+CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sqrt
+CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
+CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
+CartesianCoordinates([0, 0, 0]).isZero = true /* is zero */
 let v = CartesianCoordinates(0, 0, 0); v.asCartesianCoordinates == v /* identity */
 CartesianCoordinates(1, 3, 5).asList = [1 3 5] /* point as array */
-[1 3 5].asCartesianCoordinates = CartesianCoordinates(1, 3, 5) /* array as point */
-CartesianCoordinates(1, 3, 5).asRecord = (x: 1, y: 3, z: 5)
-(x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates(1, 3, 5) /* record as point */
+[1 3 5].asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
+CartesianCoordinates([1, 3, 5]).asRecord = (x: 1, y: 3, z: 5)
+(x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
 SphericalCoordinates(1, 2, 3).asRecord = (radius: 1, theta: 2, phi: 3)
 (r: 1, theta: 2, phi: 3).asSphericalCoordinates = SphericalCoordinates(1, 2, 3)
 CylindricalCoordinates(1, 1, 1).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
-CartesianCoordinates(1.cos, 1.sin, 1).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
+CartesianCoordinates([1.cos, 1.sin, 1]).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
 ```
 
 ## FourVector -- geometry type

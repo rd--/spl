@@ -7,7 +7,7 @@ CylindricalCoordinates : [Object] { | rho phi z |
 	}
 
 	asCartesianCoordinates { :self |
-		CartesianCoordinates(self.x, self.y, self.z)
+		CartesianCoordinates([self.x, self.y, self.z])
 	}
 
 	asRecord { :self |

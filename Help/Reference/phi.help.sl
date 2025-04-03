@@ -15,7 +15,7 @@ At `SphericalCoordinates`, also called `inclination`:
 `CartesianCoordinates` implements `phi`:
 
 ```
->>> let p = CartesianCoordinates(1, 0, 1);
+>>> let p = CartesianCoordinates([1 0 1]);
 >>> (p.phi, p.inclination)
 (1/4.pi, 1/4.pi)
 ```

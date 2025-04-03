@@ -83,6 +83,13 @@ Polygon : [Object] { | vertexCoordinates |
 		}.Polygon
 	}
 
+	sideLengths { :self |
+		let v = self.vertexCoordinates;
+		(2 .. v.size + 1).collect { :i |
+			v.atWrap(i).euclideanDistance(v.atWrap(i + 1))
+		}
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}

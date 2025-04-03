@@ -4,7 +4,7 @@
 
 Answer the _y_ coordinate of a two or three dimensional point.
 
-At `List`:
+At `Point`:
 
 ```
 >>> ([1 2].asPoint.y, [3 4 5].asPoint.y)
@@ -45,7 +45,7 @@ Two-dimensional case:
 Three-dimensional case:
 
 ```
->>> CartesianCoordinates(1, 2, 3).y
+>>> CartesianCoordinates([1 2 3]).y
 2
 
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinates.y

@@ -61,7 +61,7 @@ At `Complex`:
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates(1, 3, 5).asList
+>>> CartesianCoordinates([1 3 5]).asList
 [1 3 5]
 ```
 

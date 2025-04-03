@@ -15,9 +15,11 @@
 		let theta = self.theta;
 		let phi = self.phi;
 		CartesianCoordinates(
-			r * theta.cos * phi.sin,
-			r * theta.sin * phi.sin,
-			r * phi.cos
+			[
+				r * theta.cos * phi.sin,
+				r * theta.sin * phi.sin,
+				r * phi.cos
+			]
 		)
 	}
 

@@ -45,7 +45,7 @@ Two-dimensional case:
 Three-dimensional case:
 
 ```
->>> CartesianCoordinates(1, 2, 3).x
+>>> CartesianCoordinates([1 2 3]).x
 1
 
 >>> (x: 1, y: 2, z: 3).asCartesianCoordinates.x

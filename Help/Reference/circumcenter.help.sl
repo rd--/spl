@@ -1,14 +1,25 @@
 # circumcenter
 
-- _circumcenter(aMatrix | aTriangle)_
+- _circumcenter(aGeometry)_
 
-The `circumcenter` is the `center` of the `circumcircle`.
+The `circumcenter` is the `center` of the `circumcircle` or `circumsphere`.
+
+At `Triangle`:
 
 ```
->>> let t = [0 0; 0 1; 1 0].asTriangle;
+>>> let t = Triangle([0 0; 0 1; 1 0]);
 >>> let c = t.circumcircle;
 >>> (c.center, t.circumcenter)
 ([0.5 0.5], [0.5 0.5])
+```
+
+At `Tetrahedron`:
+
+```
+>>> let t = Tetrahedron([0 0 0; 1 0 0; 0 1 0; 0 0 1]);
+>>> let c = t.circumsphere;
+>>> (c.center, t.circumcenter)
+([0.5 0.5 0.5], [0.5 0.5 0.5])
 ```
 
 * * *

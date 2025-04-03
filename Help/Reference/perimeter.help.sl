@@ -1,8 +1,8 @@
 # perimeter
 
-- _perimeter(anObject)_
+- _perimeter(aGeometry)_
 
-Answer the perimeter of the two-dimensional _anObject_.
+Answer the perimeter of the two-dimensional _aGeometry_.
 
 At `Circle`:
 

@@ -1,111 +1,127 @@
-CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
+@CartesianCoordinates {
 
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	< { :self :anObject |
-		self.compareBy(anObject, <)
-	}
-
-	asCartesianCoordinates { :self |
-		self
+	asList { :self |
+		self.coordinates.copy
 	}
 
 	at { :self :index |
-		index.caseOfOtherwise([
-			{ 1 } -> { self.x },
-			{ 2 } -> { self.y },
-			{ 3 } -> { self.z }
-		]) {
-			self.error('CartesianCoordinate>>at: index out of range')
-		}
-	}
-
-	atPut { :self :index :value |
-		index.caseOfOtherwise([
-			{ 1 } -> { self.x := value },
-			{ 2 } -> { self.y := value },
-			{ 3 } -> { self.z := value }
-		]) {
-			self.error('CartesianCoordinate>>atPut: index out of range')
-		}
-	}
-
-	asList { :self |
-		[self.x, self.y, self.z]
-	}
-
-	asRecord { :self |
-		(x: self.x, y: self.y, z: self.z)
-	}
-
-	compareBy { :self :anObject :aBlock:/2 |
-		aBlock(self.x, anObject.x) & {
-			aBlock(self.y, anObject.y) & {
-				aBlock(self.z, anObject.z)
-			}
-		}
-	}
-
-	cross { :u :v |
-		CartesianCoordinates(
-			(u.y * v.z) - (u.z * v.y),
-			(u.z * v.x) - (u.x * v.z),
-			(u.x * v.y) - (u.y * v.x)
-		)
+		self.coordinates.at(index)
 	}
 
 	dimension { :self |
 		0
 	}
 
-	distance { :self :other |
-		(
-			(other.x - self.x).squared +
-			(other.y - self.y).squared +
-			(other.z - self.z).squared
-		).sqrt
-	}
-
-	dotProduct { :self :anObject |
-		(self.x * anObject.x) + (self.y * anObject.y) + (self.z * anObject.z)
-	}
-
 	embeddingDimension { :self |
-		3
+		self.coordinates.size
 	}
 
-	first { :self |
-		self.x
-	}
-
-	isZero { :self |
-		self.x.isZero & {
-			self.y.isZero & {
-				self.z.isZero
-			}
-		}
-	}
-
-	second { :self |
-		self.y
+	isPlanar { :self |
+		self.coordinates.size = 2
 	}
 
 	size { :self |
-		3
+		self.coordinates.size
+	}
+
+	x { :self |
+		self.coordinates[1]
+	}
+
+	y { :self |
+		let v = self.coordinates;
+		(v.size < 2).if {
+			self.error('@CartesianCoordinates>>y: no y')
+		} {
+			v[2]
+		}
+	}
+
+	z { :self |
+		let v = self.coordinates;
+		(v.size < 3).if {
+			self.error('@CartesianCoordinates>>z: no z')
+		} {
+			v[3]
+		}
+	}
+
+}
+
+CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
+
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
+	}
+
+	< { :self :anObject |
+		self.compare(anObject) = -1
+	}
+
+	asCartesianCoordinates { :self |
+		self
+	}
+
+	assertIsCompatibleOperand { :self :operand |
+		(
+			operand.isCartesianCoordinates & {
+				self.size = operand.size
+			}
+		).if {
+			operand
+		} {
+			self.error('assertIsCompatibleOperand: not CartesianCoordinates or not of equal size')
+		}
+	}
+
+	atPut { :self :index :value |
+		self.coordinates.atPut(index, value)
+	}
+
+	compare { :self :anObject |
+		self.coordinates.compare(
+			self.assertIsCompatibleOperand(anObject).coordinates
+		)
+	}
+
+	cross { :u :v |
+		CartesianCoordinates(
+			u.coordinates.cross(
+				u.assertIsCompatibleOperand(v).coordinates
+			)
+		)
+	}
+
+	distance { :self :other |
+		self.coordinates.euclideanDistance(
+			self.assertIsCompatibleOperand(other).coordinates
+		)
+	}
+
+	dotProduct { :self :anObject |
+		(
+			self.coordinates * self.assertIsCompatibleOperand(anObject).coordinates
+		).sum
+	}
+
+	first { :self |
+		self.at(1)
+	}
+
+	isZero { :self |
+		self.coordinates.allSatisfy(isZero:/1)
+	}
+
+	second { :self |
+		self.at(2)
 	}
 
 	storeString { :self |
-		'CartesianCoordinates(%, %, %)'.format([
-			self.x.storeString,
-			self.y.storeString,
-			self.z.storeString
-		])
+		self.storeStringAsInitializeSlots
 	}
 
 	third { :self |
-		self.z
+		self.at(3)
 	}
 
 	xy { :self |
@@ -122,19 +138,14 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 
 }
 
-+@Number {
-
-	CartesianCoordinates { :x :y :z |
-		newCartesianCoordinates().initializeSlots(x, y, z)
-	}
-
-}
-
 +List {
 
 	asCartesianCoordinates { :self |
-		let [x, y, z] = self;
-		CartesianCoordinates(x, y, z)
+		CartesianCoordinates(self)
+	}
+
+	CartesianCoordinates { :self |
+		newCartesianCoordinates().initializeSlots(self)
 	}
 
 }
@@ -142,20 +153,21 @@ CartesianCoordinates : [Object, Magnitude, Indexable] { | x y z |
 +Record {
 
 	asCartesianCoordinates { :self |
-		CartesianCoordinates(self['x'], self['y'], self['z'])
-	}
-
-}
-
-+List {
-
-	linePlaneIntersection { :p0 :n :l0 :l |
-		let ln = l.dot(n);
-		ln.isVeryCloseTo(0).if {
-			nil
-		} {
-			let d = (p0 - l0).dot(n) / ln;
-			l0 + (l * d)
+		self.size.caseOfOtherwise([
+			2 -> {
+				let (x: x, y: y) = self;
+				CartesianCoordinates([x y])
+			},
+			3 -> {
+				let (x: x, y: y, z: z) = self;
+				CartesianCoordinates([x y z])
+			},
+			4 -> {
+				let (x: x, y: y, z: z, w: w) = self;
+				CartesianCoordinates([x y z w])
+			}
+		]) {
+			self.error('asCartesianCoordinates: not x,y or x,y,z')
 		}
 	}
 

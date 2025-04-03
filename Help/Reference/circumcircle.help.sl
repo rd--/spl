@@ -1,11 +1,11 @@
 # circumcircle
 
-- _circumcircle(aMatrix | aTriangle)_
+- _circumcircle(aGeometry)_
 
 The `circumcircle` of an isosceles right triangle:
 
 ~~~spl svg=A
-let t = [0 0; 0 1; 1 0].asTriangle;
+let t = Triangle([0 0; 0 1; 1 0]);
 [t, t.circumcircle].LineDrawing
 ~~~
 

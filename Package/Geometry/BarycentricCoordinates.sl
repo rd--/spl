@@ -1,4 +1,18 @@
+BarycentricCoordinates : [Object] { | coordinates |
+
+	asCartesianCoordinates { :self :aSimplex |
+		CartesianCoordinates(
+			(self.coordinates * aSimplex.coordinates).sum
+		)
+	}
+
+}
+
 +List {
+
+	BarycentricCoordinates { :self |
+		newBarycentricCoordinates().initializeSlots(self)
+	}
 
 	fromBarycentricCoordinates { :a :b :c |
 		let v = [a, b, c];

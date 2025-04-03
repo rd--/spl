@@ -1,8 +1,8 @@
 # Triangle
 
-- _Triangle(p1, p2, p3)_
+- _Triangle([p₁ p₂ p₃])_
 
-A `Type` representing a triangle with corner points _p1_, _p2_, and _p3_.
+A `Type` representing a triangle with corner points _(p₁, p₂, p₃)_.
 
 Find the area,
 centroid,
@@ -12,7 +12,7 @@ and embedding dimension of a `Triangle`
 (the dimension is in all cases two):
 
 ```
->>> let t = Triangle([0 0], [1 0], [0 1]);
+>>> let t = Triangle([0 0; 1 0; 0 1]);
 >>> (
 >>> 	t.area,
 >>> 	t.centroid,
@@ -34,7 +34,7 @@ and embedding dimension of a `Triangle`
 Area, centroid and arc length of an equilateral triangle:
 
 ```
->>> let t = Triangle([0 0], [2 0], [1 3.sqrt]);
+>>> let t = Triangle([0 0; 2 0; 1 3.sqrt]);
 >>> (
 >>> 	t.area,
 >>> 	t.centroid,
@@ -70,7 +70,7 @@ Area, centroid and arc length of an isosceles triangle:
 The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
 
 ```
->>> let t = Triangle([0 0], [1 0], [0 1]);
+>>> let t = Triangle([0 0; 1 0; 0 1]);
 >>> let p = t.asPolygon;
 >>> t.forSvg(precision: 0)
 p.forSvg(precision: 0)
@@ -79,7 +79,7 @@ p.forSvg(precision: 0)
 Draw a triangle in planar (two dimensional) space:
 
 ~~~spl svg=A
-Triangle([0 0], [1 3], [2 0]).asLineDrawing
+Triangle([0 0; 1 3; 2 0]).asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Triangle-A.svg)
@@ -89,7 +89,7 @@ Draw a triangle in three dimensional space:
 ~~~spl svg=B
 [
 	Cuboid([0 0 0], [1 1 1]),
-	Triangle([0 0 0], [1 0 1], [0 1 1])
+	Triangle([0 0 0; 1 0 1; 0 1 1])
 ].PerspectiveDrawing
 ~~~
 
@@ -97,7 +97,7 @@ Draw a triangle in three dimensional space:
 
 * * *
 
-See also: Circle, equilateralTriangle, Line, Polygon, Rectangle
+See also: Circle, equilateralTriangle, Line, Polygon, Rectangle, Simplex
 
 References:
 _Mathematica_

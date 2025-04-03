@@ -9,6 +9,17 @@ Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 		)
 	}
 
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+	translated { :self :v |
+		Polyhedron(
+			self.vertexCoordinates.collect { :each | each + v },
+			self.faceIndices
+		)
+	}
+
 }
 
 +List {
@@ -157,12 +168,21 @@ Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
 	}
 
 	unitTetrahedron { :center |
+		let a = 1;
+		let halfA = a / 2;
+		let negativeHalfA = 0 - halfA;
+		let x = 1/3 * 3.sqrt * a;
+		let r = 1/12 * 6.sqrt * a;
+		let negativeR = 0 - r;
+		let capitalR = 1/4 * 6.sqrt * a;
+		let d = 1/6 * 3.sqrt * a;
+		let negativeD = 0 - d;
 		Polyhedron(
 			[
-				0 0 0.612372;
-				-0.288675 -0.5 -0.204124;
-				-0.288675 0.5 -0.204124;
-				0.57735 0 -0.204124
+				0 0 capitalR;
+				negativeD negativeHalfA negativeR;
+				negativeD halfA negativeR;
+				x 0 negativeR
 			] + center,
 			[
 				2 3 4;

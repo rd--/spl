@@ -14,7 +14,7 @@ At `PlanarCoordinates`:
 At `CartesianCoordinates`:
 
 ```
->>> CartesianCoordinates(1, 0, 1).radius
+>>> CartesianCoordinates([1 0 1]).radius
 2.sqrt
 ```
 

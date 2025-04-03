@@ -1,19 +1,9 @@
-Point : [Object] { | coordinates |
+/* Requires: CartesianCoordinates */
 
-	asList { :self |
-		self.coordinates
-	}
-
-	at { :self :index |
-		self.coordinates[index]
-	}
+Point : [Object, CartesianCoordinates] { | coordinates |
 
 	boundingBox { :self |
 		self.coordinates ! 2
-	}
-
-	dimension { :self |
-		0
 	}
 
 	edgeCount { :self |
@@ -22,10 +12,6 @@ Point : [Object] { | coordinates |
 
 	edgeList { :self |
 		[]
-	}
-
-	embeddingDimension { :self |
-		self.coordinates.size
 	}
 
 	forSvg { :self :options |
@@ -42,10 +28,6 @@ Point : [Object] { | coordinates |
 		}
 	}
 
-	isPlanar { :self |
-		self.coordinates.size = 2
-	}
-
 	midpoint { :self :aPoint |
 		Point(self.coordinates.midpoint(aPoint.coordinates))
 	}
@@ -56,38 +38,12 @@ Point : [Object] { | coordinates |
 		)
 	}
 
-	size { :self |
-		self.coordinates.size
-	}
-
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
 
 	vertexCoordinates { :self |
 		[self.coordinates]
-	}
-
-	x { :self |
-		self.coordinates[1]
-	}
-
-	y { :self |
-		let v = self.coordinates;
-		(v.size < 2).if {
-			self.error('Point>>y: no y')
-		} {
-			v[2]
-		}
-	}
-
-	z { :self |
-		let v = self.coordinates;
-		(v.size < 3).if {
-			self.error('Point>>z: no z')
-		} {
-			v[3]
-		}
 	}
 
 }
@@ -158,6 +114,16 @@ Point : [Object] { | coordinates |
 			((b2 * c1) - (b1 * c2)) / delta,
 			((a1 * c2) - (a2 * c1)) / delta
 		]
+	}
+
+	linePlaneIntersection { :p0 :n :l0 :l |
+		let ln = l.dot(n);
+		ln.isVeryCloseTo(0).if {
+			nil
+		} {
+			let d = (p0 - l0).dot(n) / ln;
+			l0 + (l * d)
+		}
 	}
 
 	midpoint { :u :v |
@@ -248,18 +214,18 @@ Point : [Object] { | coordinates |
 
 }
 
++CartesianCoordinates {
+
+	asPoint { :self |
+		Point(self.coordinates)
+	}
+
+}
+
 +Record {
 
 	asPoint { :self |
-		self.includesAllIndices(['x','y','z']).if {
-			Point([self['x'], self['y'], self['z']])
-		} {
-			self.includesAllIndices(['x','y']).if {
-				Point([self['x'], self['y']])
-			} {
-				self.error('Record>>asPoint: invalid dictionary')
-			}
-		}
+		self.asCartesianCoordinates.asPoint
 	}
 
 	/*

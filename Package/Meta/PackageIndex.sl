@@ -109,6 +109,7 @@
 	'Geometry-PolygonMesh'
 	'Geometry-Polyhedron'
 	'Geometry-Rectangle'
+	'Geometry-Simplex'
 	'Geometry-Sphere'
 	'Geometry-SphericalCoordinates'
 	'Geometry-Superellipse'
