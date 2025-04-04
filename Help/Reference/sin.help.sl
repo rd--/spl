@@ -112,6 +112,49 @@ Plot `sin` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/sin-D.svg)
 
+Lissajous figure:
+
+~~~spl svg=E
+(0 -- 2.pi).parametricPlot(
+	sin:/1,
+	{ :x | (x * 2).sin }
+)
+~~~
+
+![](sw/spl/Help/Image/sin-E.svg)
+
+Approximate the almost nowhere differentiable Riemann–Weierstrass function:
+
+~~~spl svg=F
+(0 -- 2.pi).functionPlot { :x |
+	(1 .. 12).collect { :j |
+		(j ^ 2 * x).sin / (j ^ 2)
+	}.sum
+}
+~~~
+
+![](sw/spl/Help/Image/sin-F.svg)
+
+Intensity of the Fraunhofer diffraction pattern of a circular aperture versus diffraction angle:
+
+~~~spl svg=G
+(0.01 -- 1/2.pi).functionPlot { :theta |
+	let a = 2.besselJ(10 * theta.sin);
+	let b = 10 * theta.sin;
+	2 * (a / b).squared
+}
+~~~
+
+![](sw/spl/Help/Image/sin-G.svg)
+
+Plot over a subset of the complexes:
+
+~~~spl png=H
+[-4J-2 4J2].complexPlot(sin:/1)
+~~~
+
+![](sw/spl/Help/Image/sin-H.png)
+
 * * *
 
 See also: arcSin, cos, cosecant, haversine, sinh, tan

@@ -232,7 +232,7 @@ Plot : [Object] { | pages format options |
 		{ :x :y |
 			let z = Complex(y, x);
 			colourFunction(aBlock(z).arg / 2.pi + 0.5)
-		}.table(r, i).reversed.Image
+		}.table(i, r).reversed.Image
 	}
 
 	discretePlot { :self |

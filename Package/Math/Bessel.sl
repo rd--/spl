@@ -12,7 +12,15 @@
 				(n = 1).if {
 					besselJ1(x)
 				} {
-					n.error('@Integer>>besselJ: only defined for n=0 and n=1')
+					(n = 2).if {
+						(x = 0).if {
+							0
+						} {
+							2 * besselJ1(x) / x - besselJ0(x)
+						}
+					} {
+						n.error('@Integer>>besselJ: only defined for n=0, n=1 and n=2')
+					}
 				}
 			}
 		}

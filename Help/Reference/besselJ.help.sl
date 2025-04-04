@@ -12,6 +12,9 @@ Evaluate at specific real values:
 
 >>> 0.besselJ(4)
 -0.39715
+
+>>> 2.besselJ(2)
+0.3528
 ```
 
 The first three zeros of _J0(x)_:
@@ -58,7 +61,7 @@ Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture 
 
 ~~~spl svg=D
 (0.15 -- 1/3.pi).functionPlot { :theta |
-	let a = besselJ1(20 * theta.sin);
+	let a = 1.besselJ(20 * theta.sin);
 	let b = 20 * theta.sin;
 	2 * ((a / b) ^ 2)
 }
