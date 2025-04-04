@@ -150,6 +150,22 @@ system
 
 ![](sw/spl/Help/Image/colourGradients-H.svg)
 
+A cyclic colour gradient,
+_Cyclic-Mygbm-30-95-C78S25_,
+from the _Kovesi_ collection:
+
+~~~spl svg=I
+system
+.colourGradients[
+	'Kovesi',
+	'Cyclic-Mygbm-30-95-C78S25'
+]
+.asColourGradient
+.resample(32)
+~~~
+
+![](sw/spl/Help/Image/colourGradients-I.svg)
+
 Sources for each collection:
 _Kovesi_: [1](https://github.com/peterkovesi/PerceptualColourMaps.jl) [2](https://colorcet.com/download/index.html),
 _Mathematica_: [1](https://reference.wolfram.com/language/ref/ColorData.html),

@@ -219,6 +219,22 @@ Plot : [Object] { | pages format options |
 		[self.asFloat].Plot('array')
 	}
 
+	complexPlot { :self :aBlock:/1 |
+		let [min, max] = self;
+		let colourFunction:/1 = system
+		.colourGradients[
+			'Kovesi',
+			'Cyclic-Mygbm-30-95-C78S25'
+		].asColourGradient.asBlock;
+		let k = 100;
+		let r = (min.real -- max.real).subdivide(k);
+		let i = (min.imaginary -- max.imaginary).subdivide(k);
+		{ :x :y |
+			let z = Complex(y, x);
+			colourFunction(aBlock(z).arg / 2.pi + 0.5)
+		}.table(r, i).reversed.Image
+	}
+
 	discretePlot { :self |
 		self.typedPlot('discrete')
 	}

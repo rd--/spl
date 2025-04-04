@@ -295,6 +295,10 @@
 		self.collect(logisticSigmoid:/1)
 	}
 
+	logit { :self |
+		self.collect(logit:/1)
+	}
+
 	logScale { :self |
 		self.collect(logScale:/1)
 	}

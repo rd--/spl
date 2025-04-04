@@ -97,7 +97,7 @@ Approximate `smoothstep` using `cos`:
 
 See also: easingFunction, hermiteInterpolation, smootherstep, smoothstepFunction
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Sigmoid Functions
 
 References:
 _W_

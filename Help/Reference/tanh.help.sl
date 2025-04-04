@@ -84,6 +84,8 @@ Plot `tanh` alongside a Padé approximation:
 
 See also: arcTanh, sinh, coth, tan
 
+Guides: Sigmoid Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tanh.html)

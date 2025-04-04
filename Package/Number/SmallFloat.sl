@@ -490,6 +490,25 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		y + (lo[1] / lo[2])
 	}
 
+	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f:/1 :fPrime:/1 |
+		valueWithReturn { :return:/1 |
+			iterationCount.timesRepeat {
+				let y = f(x0);
+				let yPrime = fPrime(x0);
+				let x1 = (yPrime.abs > epsilon).if {
+					x0 - (y / yPrime)
+				} {
+					'newtonRaphsonMethod: y < ε'.error
+				};
+				((x1 - x0).abs <= tolerance).ifTrue {
+					x1.return
+				};
+				x0 := x1
+			};
+			'newtonRaphsonMethod: failed to converge'.error
+		}
+	}
+
 	nthRoot { :self :aPositiveInteger |
 		(aPositiveInteger.isInteger.not | {
 			aPositiveInteger.isNegative

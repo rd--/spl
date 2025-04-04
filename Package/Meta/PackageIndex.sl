@@ -195,6 +195,7 @@
 	'Random-DiscreteMarkovProcess'
 	'Random-DiscreteUniformDistribution'
 	'Random-EmpiricalDistribution'
+	'Random-EpanechnikovDistribution'
 	'Random-ExponentialDistribution'
 	'Random-ExtremeValueDistribution'
 	'Random-FractionalBrownianMotionProcess'

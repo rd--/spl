@@ -1,5 +1,6 @@
 # logisticSigmoid
 
+- _logisticSigmoid(l=1, k=1, x0=0)_
 - _logisticSigmoid(z)_
 
 Answer the logistic sigmoid function.
@@ -46,15 +47,43 @@ At specific values:
 Polar plot with phi:
 
 ~~~spl svg=B
-(-2.pi -- 8.pi).polarPlot(logisticSigmoid:/1)
+(-2.pi -- 3.pi).polarPlot(logisticSigmoid:/1)
 ~~~
 
 ![](sw/spl/Help/Image/logisticSigmoid-B.svg)
 
+Plot varying _k_:
+
+~~~spl svg=C
+(-4 -- 4).functionPlot(
+	[0.5 0.75 1 1.25 1.5].collect { :k |
+		logisticSigmoid(1, k, 0)
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/logisticSigmoid-C.svg)
+
+Plot over a subset of the complexes:
+
+~~~spl png=D
+[-2J-2 2J2].complexPlot(
+	logisticSigmoid:/1
+)
+~~~
+
+![](sw/spl/Help/Image/logisticSigmoid-D.png)
+
 * * *
 
-See also: exp, LogisticDistribution, unitStep
+See also: exp, LogisticDistribution, logit, unitStep
+
+Guides: Sigmoid Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LogisticSigmoid.html)
+[1](https://mathworld.wolfram.com/SigmoidFunction.html)
+[2](https://reference.wolfram.com/language/ref/LogisticSigmoid.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Logistic_function)
+[2](https://en.wikipedia.org/wiki/Sigmoid_function)

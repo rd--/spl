@@ -15,6 +15,7 @@ Types:
 - `DirichletDistribution`
 - `DiscreteUniformDistribution`
 - `EmpiricalDistribution`
+- `EpanechnikovDistribution`
 - `ExponentialDistribution`
 - `ExtremeValueDistribution`
 - `FRatioDistribution`

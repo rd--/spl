@@ -134,6 +134,17 @@
 		self.atRandom([], system)
 	}
 
+	barronCurve { :s :t |
+		let epsilon = 1.smallFloatEpsilon;
+		{ :x |
+			(x < t).if {
+				(t * x) / (x + (s * (t - x)) + epsilon)
+			} {
+				((1 - t) * (x - 1)) / (1 - x - (s * (t - x)) + epsilon) + 1
+			}
+		}
+	}
+
 	basicPlus { :self :aNumber |
 		aNumber.isNumber.if {
 			self + aNumber
@@ -278,6 +289,10 @@
 		self * (10 ^ aNumber)
 	}
 
+	epanechnikovKernel { :u |
+		0.75 * (1 - (u * u))
+	}
+
 	epsilon { :self |
 		self * 0.000000000000001
 	}
@@ -374,6 +389,10 @@
 		self * phi
 	}
 
+	gudermannian { :z |
+		z.sinh.arcTan
+	}
+
 	halved { :self |
 		self / 2
 	}
@@ -434,6 +453,10 @@
 		let b = (2 / a.pi);
 		let c = (1 - x.squared).log;
 		(((b + (c / 2)).squared - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
+	}
+
+	inverseGudermannian { :z |
+		((z * 0.5) + 0.25.pi).tan.log
 	}
 
 	isNegative { :self |
@@ -513,8 +536,18 @@
 		}
 	}
 
+	logisticSigmoid { :l :k :x0 |
+		{ :z |
+			l / (1 + (k.- * (z - x0)).exp)
+		}
+	}
+
 	logisticSigmoid { :z |
 		1 / (1 + z.-.exp)
+	}
+
+	logit { :x |
+		(x / (1 - x)).log
 	}
 
 	metallicMean { :n |
@@ -600,6 +633,33 @@
 				}
 			};
 			answer
+		}
+	}
+
+	perlinBiasFunction { :b :x |
+		b.perlinBiasFunction.value(x)
+	}
+
+	perlinBiasFunction { :b |
+		let p = b.log / 0.5.log;
+		{ :x |
+			 x ^ p
+		}
+	}
+
+	perlinGainFunction { :g :x |
+		g.perlinGainFunction.value(x)
+	}
+
+	perlinGainFunction { :g |
+		let p = (1 / (1 - g)) - 2;
+		{ :x |
+			let q = 1 - (2 * x);
+			(x < 0.5).if {
+				x / ((p * q) + 1)
+			} {
+				1 - ((2 - (2 * x)) / (2 * ((p * q.-) + 1)))
+			}
 		}
 	}
 
@@ -820,6 +880,33 @@
 
 	roundUpTo { :self :aNumber |
 		(self / aNumber).ceiling * aNumber
+	}
+
+	schlickBiasFunction { :b :x |
+		b.schlickBiasFunction.value(x)
+	}
+
+	schlickBiasFunction { :b |
+		let p = (1 / b) - 2;
+		{ :x |
+			x / ((p * (1 - x)) + 1)
+		}
+	}
+
+	schlickGainFunction { :g :x |
+		g.schlickGainFunction.value(x)
+	}
+
+	schlickGainFunction { :g |
+		let p = (1 / g) - 2;
+		{ :x |
+			let q = 1 - (2 * x);
+			(x < 0.5).if {
+				x / ((p * q) + 1)
+			} {
+				((p * q) - x) / ((p * q) - 1)
+			}
+		}
 	}
 
 	sign { :self |
