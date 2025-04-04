@@ -15,14 +15,11 @@ let m = { :x | x.cos };
 let x = i + p;
 let y = x.collect(m:/1) + q;
 let j = [0, 0.01 .. 4.pi];
-let gaussianKernel = { :u |
-	(-0.5 * u.squared).exp / 2.pi.sqrt
-};
 let e = j.nadarayaWatsonEstimator(
 	x,
 	y,
 	0.6,
-	gaussianKernel:/1
+	1.gaussianKernel
 );
 [
 	[x, y].transposed.PointCloud,

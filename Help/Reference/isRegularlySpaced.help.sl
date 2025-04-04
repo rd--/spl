@@ -1,10 +1,10 @@
 # isRegularlySpaced
 
-- _isRegularlySpaced(aList)_
+- _isRegularlySpaced(x)_
 
-Answer `true` if _aList_ is a regular spaced, and `false` otherwise.
+Answer `true` if _x_ is regularly spaced, and `false` otherwise.
 
-An irregularly spaced list:
+An irregularly spaced `List`:
 
 ```
 >>> [1 -1 3 -3 5 -5].isRegularlySpaced
@@ -14,7 +14,7 @@ false
 [-2 4 -6 8 -10]
 ```
 
-A regularly spaced list:
+A regularly spaced `List`:
 
 ```
 >>> [1 3 5 7 9].isRegularlySpaced
@@ -24,6 +24,16 @@ true
 [2 2 2 2]
 ```
 
+All `Range` values are regularly spaced:
+
+```
+>>> 1:9.isRegularlySpaced
+true
+
+>>> (9, 8 .. 1).isRegularlySpaced
+true
+```
+
 * * *
 
-See also: isRegularlySampled
+See also: isMonotonicallyIncreasing, isRegularlySampled

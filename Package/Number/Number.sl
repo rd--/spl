@@ -380,6 +380,14 @@
 		self - self.integerPart
 	}
 
+	gaussianKernel { :sigma |
+		let m = 1 / (2.pi.sqrt * sigma);
+		let sigmaSquared = sigma * sigma;
+		{ :u |
+			m * (u.squared / (2 * sigmaSquared)).negated.exp
+		}
+	}
+
 	goldenAngle { :self |
 		self.pi * (3 - 5.sqrt)
 	}
@@ -399,6 +407,18 @@
 
 	haversine { :self |
 		0.5 * (1 - self.cos)
+	}
+
+	heavisideTheta { :self |
+		(self < 0).if {
+			0
+		} {
+			(self > 0).if {
+				1
+			} {
+				0.5
+			}
+		}
 	}
 
 	imaginary { :self |

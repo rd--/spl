@@ -58,11 +58,15 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		}
 	}
 
-	isMatrix { :self |
+	isMatrix { :unused |
 		false
 	}
 
-	isVector { :self |
+	isRegularlySpaced { :unused |
+		true
+	}
+
+	isVector { :unused |
 		true
 	}
 

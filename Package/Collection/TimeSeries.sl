@@ -24,22 +24,14 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 	atPut { :self :time :item |
 		let values = self.values;
 		let times = self.times;
-		valueWithReturn { :return:/1 |
-			1.toDo(self.size) { :i |
-				(time < times[i]).ifTrue {
-					times.insertAt(i, time);
-					values.insertAt(i, item);
-					item.return
-				};
-				(time = times[i]).ifTrue {
-					values[i] := item;
-					item.return
-				}
-			};
-			times.addLast(time);
-			values.addLast(item);
-			item
-		}
+		let index = times.binarySearchRightmost(time);
+		(index <= times.size & { times[index] = time }).if {
+			values[index] := item
+		} {
+			values.addBeforeIndex(item, index);
+			times.addBeforeIndex(time, index)
+		};
+		item
 	}
 
 	collect { :self :aBlock:/1 |

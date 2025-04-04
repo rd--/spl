@@ -33,7 +33,8 @@ Finds the first index if the sequence contains multiple copies:
 To find the rightmost of multiple entries see `binarySearchRightmost`:
 
 ```
->>> [1 2 2 2 2 2 3].binarySearchRightmost(2)
+>>> [1 2 2 2 2 2 3]
+>>> .binarySearchRightmost(2)
 6
 ```
 

@@ -1,6 +1,6 @@
 # interpolation
 
-- _interpolation([y...] | [[x,y]...])_
+- _interpolation([y...] | [[x, y]...])_
 
 Answer an interpolation of the specified data set using a spline interpolator.
 

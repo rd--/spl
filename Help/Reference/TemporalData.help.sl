@@ -1,7 +1,6 @@
 # TemporalData
 
 - _TemporalData([[t₁ v₁; t₂ v₂ …]…])_
-- _TimeSeries(v, t)_
 
 A `Type` that represents a temporal data collection given as lists of time-value pairs.
 

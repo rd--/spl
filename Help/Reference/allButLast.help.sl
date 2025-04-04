@@ -65,4 +65,8 @@ true
 
 See also: allButFirst, copyFromTo, first, last
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Most.html)
+
 Categories: Accessing

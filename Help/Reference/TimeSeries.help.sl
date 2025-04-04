@@ -186,6 +186,22 @@ Find the `mean` of a time series:
 6.1667
 ```
 
+Insert a value into a time series at time _2.5_:
+
+```
+>>> let ts = TimeSeries([3 5 7], [1 2 3]);
+>>> (ts[2.5] := 6, ts.path)
+(6, [1 3; 2 5; 2.5 6; 3 7])
+```
+
+Replace the value at time _2_:
+
+```
+>>> let ts = TimeSeries([3 5 7], [1 2 3]);
+>>> (ts[2] := -5, ts.path)
+(-5, [1 3; 2 -5; 3 7])
+```
+
 * * *
 
 See also: isRegularlySampled, minimumTimeIncrement, resample, TemporalData

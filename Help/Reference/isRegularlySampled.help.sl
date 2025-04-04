@@ -1,8 +1,8 @@
 # isRegularlySampled
 
-- _isRegularlySampled(aTimeSeries)_
+- _isRegularlySampled(x)_
 
-Answers `true` if _timeSeries_ is a regular time series, and `false` otherwise.
+Answers `true` if _x_ is a regular time series, and `false` otherwise.
 
 A vector is always regular:
 

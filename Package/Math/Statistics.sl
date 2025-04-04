@@ -129,6 +129,15 @@
 
 +@Sequenceable {
 
+	absoluteCorrelationFunction { :x :hList |
+		let n = x.size;
+		hList.collect { :h |
+			(1 .. n - h).collect { :i |
+				x[i] * x[i + h]
+			}.sum / n
+		}
+	}
+
 	blomqvistBeta { :v :w |
 		(v - v.median).sign.correlation(
 			(w - w.median).sign
@@ -151,13 +160,13 @@
 
 	correlationFunction { :x :hList |
 		let n = x.size;
-		let z = x.mean;
+		let mu = x.mean;
 		hList.collect { :h |
 			let a = (1 .. n - h).collect { :i |
-				(x[i] - z) * (x[i + h] - z)
+				(x[i] - mu) * (x[i + h] - mu)
 			}.sum;
 			let b = (1 .. n).collect { :i |
-				(x[i] - z).squared
+				(x[i] - mu).squared
 			}.sum;
 			a / b
 		}
@@ -174,6 +183,16 @@
 			} {
 				[v, w].error('@Sequenceable>>covariance: vectors must be equal')
 			}
+		}
+	}
+
+	covarianceFunction { :x :hList |
+		let n = x.size;
+		let mu = x.mean;
+		hList.collect { :h |
+			(1 / n) * (1 .. n - h).collect { :i |
+				(x[i + h] - mu) * (x[i] - mu)
+			}.sum
 		}
 	}
 

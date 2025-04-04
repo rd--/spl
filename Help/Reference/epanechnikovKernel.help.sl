@@ -16,7 +16,7 @@ Plot over _(-1, 1)_:
 
 * * *
 
-See also: EpanechnikovDistribution
+See also: EpanechnikovDistribution, gaussianKernel
 
 References:
 _W_

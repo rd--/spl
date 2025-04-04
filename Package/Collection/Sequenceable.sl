@@ -1520,7 +1520,7 @@
 		}
 	}
 
-	isSequenceable { :self |
+	isSequenceable { :unused |
 		true
 	}
 
@@ -2015,14 +2015,16 @@
 		answer
 	}
 
-	movingAverage { :self :windowSize |
+	movingAverage { :x :rOrW |
 		let answer = [];
-		1.toDo(self.size - windowSize + 1) { :i |
+		let [r, w] = rOrW.isList.if { [rOrW.size, rOrW] } { [rOrW, 1 # rOrW] };
+		let wSum = w.sum;
+		1.toDo(x.size - r + 1) { :i |
 			let n = 0;
-			i.toDo(i + windowSize - 1) { :j |
-				n := n + self[j]
+			1.toDo(r) { :j |
+				n := n + (x[i + j - 1] * w[j])
 			};
-			answer.add(n / windowSize)
+			answer.add(n / wSum)
 		};
 		answer
 	}

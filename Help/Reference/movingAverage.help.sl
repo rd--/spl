@@ -1,9 +1,10 @@
 # movingAverage
 
-- _movingAverage(aSequence, anInteger)_
+- _movingAverage(x, r | w)_
 
-Answer the moving average of _aSequence_, computed by averaging runs of _anInteger_ elements.
-The `size` of the answer is _aSequence.size - anInteger + 1_.
+Answer the moving average of the `List` _x_,
+computed by averaging runs of _r_ elements.
+The `size` of the answer is _x.size - r + 1_.
 
 Lists of integers yield rational numbers, although not `Fraction` values:
 
@@ -22,6 +23,13 @@ Lists of approximate numbers yield approximate numbers:
 >>> [1.2 5.2 3.4 4.5 2.3 4.5]
 >>> .movingAverage(3)
 [3.2666 4.3666 3.4 3.7666]
+```
+
+Compute weighted moving averages:
+
+```
+>>> [1 5 7 3 6 2].movingAverage([1 2 3])
+[16/3 14/3 31/6 7/2]
 ```
 
 Moving averages of matrices are matrices:

@@ -9,6 +9,9 @@ At `List`:
 ```
 >>> [5 4 3 2 1].drop(3)
 [2 1]
+
+>>> [1 .. 6].drop(2)
+[3 .. 6]
 ```
 
 Dropping zero items is the `identity`:
@@ -64,3 +67,5 @@ _Apl_
 [1](http://aplwiki.com/wiki/Drop),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:drop)
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Drop.html)
