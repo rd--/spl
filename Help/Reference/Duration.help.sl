@@ -1,71 +1,44 @@
 # Duration
 
+- _Duration(s)_
+
 A `Type` to represent an interval of time.
 The base unit of time in the International System of Units (SI) is the second.
 
-Durations are constructed from `Number` values using the methods `milliseconds`, `centiseconds`, `seconds`, `minutes`, `hours`, `days`, `weeks`:
-
 ```
->>> 3.centiseconds
-30.milliseconds
-
->>> 3.seconds
-300.centiseconds
-
->>> 3.minutes
-180.seconds
-
->>> 3.hours
-180.minutes
-
->>> 3.days
-72.hours
-
->>> 3.weeks
-21.days
+>>> Duration(90)
+1.5.minutes.asDuration
 ```
 
-There are also calendrical units `siderealMonths`, `synodicMonths` and `julianYears`:
+Query Duration values:
 
 ```
->>> 1.siderealMonths
-27.3217.days
-
->>> 1.synodicMonths
-29.5306.days
-
->>> 1.julianYears
-365.25.days
-```
-
-Durations are queried using the same methods:
-
-```
->>> 3.minutes.seconds
+>>> 3.minutes.asDuration.seconds
 180
 
->>> 3.hours.minutes
+>>> 3.hours.asDuration.minutes
 180
 
->>> 3.days.hours
+>>> 3.days.asDuration.hours
 72
 
->>> 3.weeks.days
+>>> 3.weeks.asDuration.days
 21
 ```
 
-Durations can be summed:
+Durations can be summed,
+either with durations or temporal `Quantity` values:
 
 ```
->>> 3.weeks + 4.days
-25.days
+>>> 3.weeks.asDuration + 4.days
+25.days.asDuration
 ```
 
 A `Duration` can be parsed from a `String` in ISO-8601 format using `parseDuration`:
 
 ```
 >>> 'P3W4D'.parseDuration
-3.weeks + 4.days
+(3.weeks + 4.days).asDuration
 ```
 
 * * *

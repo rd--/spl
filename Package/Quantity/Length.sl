@@ -16,12 +16,8 @@ Length : [Object, Magnitude] { | metres |
 		self.metres / (1.495978707 * (10 ^ 11))
 	}
 
-	millimetres { :self |
-		self.metres * 1000
-	}
-
 	centimetres { :self |
-		self.metres * 100
+		self.metres * 1E2
 	}
 
 	feet { :self |
@@ -33,15 +29,27 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	kilometres { :self |
-		self.metres / 1000
+		self.metres / 1E3
 	}
 
 	lightYears { :self |
 		self.metres / (9.4607 * (10 ^ 15))
 	}
 
+	micrometres { :self |
+		self.metres * 1E-6
+	}
+
 	miles { :self |
 		self.metres / 1609.344
+	}
+
+	millimetres { :self |
+		self.metres * 1E3
+	}
+
+	nanometres { :self |
+		self.metres * 1E9
 	}
 
 	nauticalMiles { :self |
@@ -57,7 +65,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	picometres { :self |
-		self.metres * 1000000000
+		self.metres * 1E12
 	}
 
 	point { :self |
@@ -74,6 +82,14 @@ Length : [Object, Magnitude] { | metres |
 
 }
 
++SmallFloat {
+
+	Length { :self |
+		newLength().initializeSlots(self)
+	}
+
+}
+
 +@Number {
 
 	asMetres { :self |
@@ -85,11 +101,11 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	millimetres { :self |
-		(self / 1000).metres
+		(self * 1E-3).metres
 	}
 
 	centimetres { :self |
-		(self / 100).metres
+		(self * 1E-2).metres
 	}
 
 	feet { :self |
@@ -101,7 +117,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	kilometres { :self |
-		(self * 1000).metres
+		(self * 1E3).metres
 	}
 
 	lightYears { :self |
@@ -109,11 +125,15 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	metres { :self |
-		newLength().initializeSlots(self)
+		Quantity(self, 'metres')
 	}
 
 	miles { :self |
 		(self * 1609.344).metres
+	}
+
+	nanometres { :self |
+		(self * 1E-9).metres
 	}
 
 	nauticalMiles { :self |
@@ -125,7 +145,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	picometres { :self |
-		(self * 0.000000001).metres
+		(self * 1E-12).metres
 	}
 
 	picas { :self |

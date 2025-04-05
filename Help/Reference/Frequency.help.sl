@@ -14,13 +14,17 @@ Frequencies are constructed from `Number` values using the methods `hertz`, `kil
 Frequencies are queried using the same methods:
 
 ```
->>> 3000.hertz.kilohertz
+>>> Frequency(3000)
+>>> .kilohertz
 3
 ```
 
 The `asHertz` method is `hertz` at `Frequency` and `identity` at `Number`:
 
 ```
+>>> Frequency(440).asHertz
+440
+
 >>> 440.asHertz
 440
 ```
@@ -31,13 +35,13 @@ and _hertz_ is a _derived unit_ in the _International System of Units_.
 A `Frequency` can be converted into a `Duration`, which gives the length of time of one cycle:
 
 ```
->>> 440.hertz.asDuration
-(1 / 440).seconds
+>>> Frequency(440).asDuration
+Duration(1 / 440)
 ```
 
 * * *
 
-See also: asHertz, Duration, hertz
+See also: asHertz, Duration, hertz, Quantity
 
 References:
 _W_

@@ -29,10 +29,10 @@ _arcTan_ is the inverse tangent function.
 Answers are in radians:
 
 ```
->>> 1.arcTan.radians.degrees
+>>> 1.arcTan.radiansToDegrees
 45
 
->>> 1.arcTan.radiansToDegrees
+>>> Angle(1.arcTan).degrees
 45
 ```
 

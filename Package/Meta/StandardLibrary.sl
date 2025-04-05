@@ -70,7 +70,6 @@
 	'HalfPlane'
 	'InfiniteLine'
 	'InfinitePlane'
-	'Length'
 	'Line'
 	'LineSegment'
 	'Parallelogram'
@@ -140,6 +139,14 @@
 	'MutableCollectionStream'
 	'AsciiStream'
 	'Utf8Stream'
+
+	/* Quantity */
+	'Frequency'
+	'Length'
+	'Mass'
+	'Quantity'
+	'SiUnit'
+	'Time'
 
 	/* Random */
 	'AliasMethod'
@@ -233,12 +240,7 @@
 	'Clock'
 	'Date'
 	'Duration'
-	'Frequency'
 	'TimeStamp'
-
-	/* Unit */
-	'Mass'
-	'SiUnit'
 
 	/* Meta */
 	'Categories'

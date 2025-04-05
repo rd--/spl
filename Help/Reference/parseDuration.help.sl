@@ -8,7 +8,7 @@ Three days and four hours:
 
 ```
 >>> 'P3DT4H'.parseDuration
-(3.days + 4.hours)
+(3.days + 4.hours).asDuration
 ```
 
 Four days, twelve hours, thirty minutes, and five seconds:
@@ -20,7 +20,7 @@ Four days, twelve hours, thirty minutes, and five seconds:
 	12.hours,
 	30.minutes,
 	5.seconds
-].sum
+].sum.asDuration
 ```
 
 It is an error if the year or month fields are non-zero,

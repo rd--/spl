@@ -1,15 +1,12 @@
 # degrees
 
-- _degrees(aNumber)_
+- _degrees(x)_
 
-Answer an `Angle` representing _aNumber_ degrees.
+At `Angle` answer the value of `Angle` in degrees:
 
 ```
->>> 90.degrees
-0.5.pi.radians
-
->>> 30.degrees
-(1 / 6).pi.radians
+>>> Angle(0.5.pi).degrees
+90
 ```
 
 See also `degree`, which answers the angle in radians directly:
@@ -17,6 +14,16 @@ See also `degree`, which answers the angle in radians directly:
 ```
 >>> 90.degree
 0.5.pi
+
+>>> 30.degree
+(1 / 6).pi
+```
+
+See also `degreesToRadians`:
+
+```
+>>> 30.degreesToRadians
+(1 / 6).pi
 
 >>> 30.degree
 (1 / 6).pi

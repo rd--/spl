@@ -1,15 +1,22 @@
 # metres
 
-- _metres(aNumber)_
+- _metres(x)_
 
-Answer a `Length` representing _aNumber_ metres.
+At `SmallFloat`,
+answer a `Quantity` representing _x_ metres,
+not English spelling.
 
 ```
->>> 3.metres.isLength
-true
+>>> 3.metres
+Quantity(3, 'metres')
+```
 
->>> 3.metres.centimetres
-300
+At `Length`,
+answer value in metres:
+
+```
+>>> 300.centimetres.asLength.metres
+3
 ```
 
 * * *

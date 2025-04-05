@@ -1,14 +1,25 @@
 # minutes
 
-- _minutes(aDuration)_
+- _minutes(t)_
 
-Answer the number of complete minutes in the _aDuration_.
+At `SmallFloat`:
 
 ```
->>> 3.hours.minutes
+>>> 5.minutes
+Quantity(5 * 60, 'seconds')
+
+>>> 9.minutes
+Quantity(540, 'seconds')
+```
+
+At `Duration`,
+answer the number of complete minutes:
+
+```
+>>> 3.hours.asDuration.minutes
 180
 
->>> 2.days.minutes
+>>> 2.days.asDuration.minutes
 (2 * 24 * 60)
 ```
 

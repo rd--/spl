@@ -1,14 +1,25 @@
 # hours
 
-- _hours(aDuration)_
+- _hours(t)_
 
-Answer the number of complete hours in the _aDuration_.
+At `SmallFloat` answer a `Quantity` value:
 
 ```
->>> 180.minutes.hours
+>>> 3.hours
+Quantity(3 * 60 * 60, 'seconds')
+
+>>> 3.hours
+180.minutes
+```
+
+At `Duration`,
+answer the number of complete hours:
+
+```
+>>> 180.minutes.asDuration.hours
 3
 
->>> 3.days.hours
+>>> 3.days.asDuration.hours
 72
 ```
 

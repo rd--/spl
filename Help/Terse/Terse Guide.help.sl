@@ -3,13 +3,13 @@
 ## Angle -- geometry type
 ```
 system.includesPackage('Angle') /* angle package */
-1.pi.radians.typeOf = 'Angle' /* type of angle */
-1.pi.radians.isAngle /* angle predicate */
-1.radians.degrees ~ 57.296 /* radians to degrees */
-1.pi.radians.degrees = 180 /* pi radians is 180 degrees */
-180.degrees.radians = 1.pi /* 180 degrees is pi radians */
-1.pi.radians < 360.degrees /* angles are magnitudes */
-1.pi.radians.asRadians = 1.pi.asRadians /* radians of angle, or identity of number */
+Angle(1.pi).typeOf = 'Angle' /* type of angle */
+Angle(1.pi).isAngle /* angle predicate */
+Angle(1).degrees ~ 57.296 /* radians to degrees */
+Angle(1.pi).degrees = 180 /* pi radians is 180 degrees */
+Angle(180.degree).radians = 1.pi /* 180 degrees is pi radians */
+Angle(1.pi) < Angle(360.degree) /* angles are magnitudes */
+Angle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of number */
 ```
 
 ## Arithmetic -- addition
@@ -1371,11 +1371,11 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'pare
 ## Duration -- temporal type
 ```
 system.includesPackage('Duration') /* duration package */
-2.seconds.typeOf = 'Duration' /* make duration from number of seconds */
-5.hours.isDuration = true /* make duration from number of hours */
+2.seconds.asDuration.typeOf = 'Duration' /* make duration from number of seconds */
+5.hours.asDuration.isDuration = true /* make duration from number of hours */
 0.25.seconds = 250.milliseconds /* make duration from number of milliseconds, durations are comparable */
-3.hours.seconds = 10800 /* convert duration to seconds */
-1.5.seconds.milliseconds = 1500 /* convert duration to milliseconds */
+3.hours.asDuration.seconds = 10800 /* convert duration to seconds */
+1.5.seconds.asDuration.milliseconds = 1500 /* convert duration to milliseconds */
 0.5.seconds + 750.milliseconds = 1.25.seconds /* addition of durations */
 2.weeks - 12.days = 48.hours /* subtraction of durations */
 0.25.seconds + 500.milliseconds = 750.milliseconds
@@ -1383,27 +1383,27 @@ system.includesPackage('Duration') /* duration package */
 let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 2.minutes < 2.hours /* durations are magnitudes */
 2.hours > 2.minutes /* durations are magnitudes */
-60.seconds.milliseconds = 60000 /* convert duration to milliseconds */
-60.seconds.seconds = 60 /* convert duration to seconds */
-60.seconds.minutes = 1 /* convert duration to minutes */
-3.days.hours = 72 /* convert duration to hours */
-3.weeks.days = 21 /* convert duration to days */
+60.seconds.asDuration.milliseconds = 60000 /* convert duration to milliseconds */
+60.seconds.asDuration.seconds = 60 /* convert duration to seconds */
+60.seconds.asDuration.minutes = 1 /* convert duration to minutes */
+3.days.asDuration.hours = 72 /* convert duration to hours */
+3.weeks.asDuration.days = 21 /* convert duration to days */
 'P1W1DT1H1M1S'.parseDuration.seconds = 694861 /* parse ISO-8601 duration string */
 'P2DT2H2M2S'.parseDuration.seconds = 180122 /* parse ISO-8601 duration string */
-'P3DT4H'.parseDuration = (3.days + 4.hours)
-(2.days + 2.hours + 2.minutes + 2.seconds).seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
+'P3DT4H'.parseDuration = (3.days + 4.hours).asDuration
+(2.days + 2.hours + 2.minutes + 2.seconds).asDuration.seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
 let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } /* copy duration */
 1.siderealMonths = 27.321661.days /* as defined with respect to the celestial sphere */
 1.synodicMonths = 29.53059.days /* as define with respect to the line joining the sun and earth */
-(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).abs ~ 76.milliseconds
+(29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).asDuration.abs ~ 76.milliseconds.asDuration
 27.days + 7.hours + 43.minutes + 11.6.seconds - 1.siderealMonths < 1.seconds
 1.julianYears = 365.25.days
-3.minutes * 3 = 9.minutes /* multiply duration by number */
-9.minutes / 3 = 3.minutes /* divide duration by number */
--3.seconds.abs = 3.seconds /* absolute value */
-(3.minutes - 2.hours).abs = (1.hours + 57.minutes) /* absolute value */
-7/8.milliseconds.seconds = 7/8000 /* fraction as duration */
-2.minutes.asSeconds = 120.asSeconds /* seconds of duration, or identity of number */
+3.minutes.asDuration * 3 = 9.minutes /* multiply duration by number */
+9.minutes.asDuration / 3 = 3.minutes /* divide duration by number */
+-3.seconds.asDuration.abs = 3.seconds.asDuration /* absolute value */
+(3.minutes - 2.hours).asDuration.abs = (1.hours + 57.minutes).asDuration /* absolute value */
+7/8.milliseconds.asDuration.seconds = 7/8000 /* fraction as duration */
+2.minutes.asDuration.asSeconds = 120.asSeconds /* seconds of duration, or identity of number */
 ```
 
 ## Error -- exception type
@@ -1655,15 +1655,15 @@ Fraction(-4, -12).normalized = 1/3
 ## Frequency -- temporal type
 ```
 system.includesPackage('Frequency') /* frequency package */
-1.hertz.typeOf = 'Frequency' /* frequency from hertz (cyles per second) */
-1.hertz.isFrequency /* frequency predicate */
-1.hertz.printString = '1.hertz' /* frequency print string */
-10.hertz.asDuration = (1 / 10).seconds /* duration is the reciprocal of frequency */
+1.hertz.asFrequency.typeOf = 'Frequency' /* frequency from hertz (cyles per second) */
+1.hertz.asFrequency.isFrequency /* frequency predicate */
+1.hertz.asFrequency.printString = 'Frequency(1)' /* frequency print string */
+10.hertz = (1 / 10).seconds /* duration is the reciprocal of frequency */
 (1 / 10).seconds.asFrequency = 10.hertz /* frequency is the reciprocal of duration */
 44.1.kilohertz = 44100.hertz /* frequencies are eq, kilohertz (thousands of cycles per second) */
 1.kilohertz.asDuration = 1.milliseconds /* the period of 1kHz is 1ms */
 44.1.hertz < 44.1.kilohertz /* frequencies are magnitudes */
-1.kilohertz.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
+1.kilohertz.asFrequency.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
 ```
 
 ## Graph -- collection type
@@ -4121,61 +4121,61 @@ system.includesPackage('Unordered') /* package */
 ## PlanarCoordinates -- geometry type
 ```
 system.includesPackage('PlanarCoordinates') /* package */
-PlanarCoordinates(0, 0).typeOf = 'PlanarCoordinates' /* type of */
-PlanarCoordinates(-1, 1).isPlanarCoordinates = true
+PlanarCoordinates([0, 0]).typeOf = 'PlanarCoordinates' /* type of */
+PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
 [1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* from list */
 (x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* from record */
-PlanarCoordinates(-1, 1).isPlanarCoordinates = true /* point constructor */
+PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
 [1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* list as point */
 (x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* record as point */
 [3 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
 [-1 1].asPlanarCoordinates.x = -1
 [-1 1].asPlanarCoordinates.y = 1
-PlanarCoordinates(-1, 1).x = -1
-PlanarCoordinates(-1, 1).y = 1
-PlanarCoordinates(-1, 1).x(-3) = -3
-PlanarCoordinates(-1, 1).y(3) = 3
+PlanarCoordinates([-1, 1]).x = -1
+PlanarCoordinates([-1, 1]).y = 1
+PlanarCoordinates([-1, 1]).x(-3) = -3
+PlanarCoordinates([-1, 1]).y(3) = 3
 [-1, 1] * 9 = [-9, 9]
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
-PlanarCoordinates(-1, 1).asString = 'PlanarCoordinates(-1, 1)'
+PlanarCoordinates([-1, 1]).asString = 'PlanarCoordinates([-1, 1])'
 [1, 1].negated = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
-let p = PlanarCoordinates(-1, 1); p.x := -3; p.y := 3; p = PlanarCoordinates(-3, 3) = true
-let p = PlanarCoordinates(-1, 3); let a = [p]; a.first.x := -3; p = PlanarCoordinates(-3, 3) = true
-let x = 3.141; let y = 23; let p = PlanarCoordinates(x, y); p.x = x & { p.y = y }
+let p = PlanarCoordinates([-1, 1]); p.x := -3; p.y := 3; p = PlanarCoordinates([-3, 3]) = true
+let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x := -3; p = PlanarCoordinates([-3, 3]) = true
+let x = 3.141; let y = 23; let p = PlanarCoordinates([x, y]); p.x = x & { p.y = y }
 [1 0; 1 1; 0 1; -1 1; -1 0; 0 -1].asPlanarCoordinates.collect(theta:/1) = (1.pi * [0, 1 / 4, 1 / 2, 3 / 4, 1, -1 / 2]) /* theta = angle from (1,0) */
-(PlanarCoordinates(200, 100)).x = 200 /* x coordinate */
-(PlanarCoordinates(200, 100)).y = 100 /* y coordinate */
-0 - (PlanarCoordinates(200, 100)) = PlanarCoordinates(-200, -100) /* negates x and y */
-(0 - (PlanarCoordinates(200, 100))).abs = (PlanarCoordinates(200, 100)) /* absolute value of x and y */
-PlanarCoordinates(200, 100) + 1 = PlanarCoordinates(201, 101) /* add scale to both x and y */
-PlanarCoordinates(200, 100) - 1 = PlanarCoordinates(199, 99) /* subtract scale from both x and y */
-PlanarCoordinates(200, 100) * 2 = PlanarCoordinates(400, 200) /* multiply x and y by scale */
-PlanarCoordinates(200, 100) / 2 = PlanarCoordinates(100, 50) /* divide x and y by scale */
-(PlanarCoordinates(200, 100)) // 2 = PlanarCoordinates(100, 50) /* divide x and y by scale */
-PlanarCoordinates(200, 100) % 3 = PlanarCoordinates(2, 1) /* modulo of x and y by scale */
-PlanarCoordinates(200, 100) + PlanarCoordinates(50, 25) = PlanarCoordinates(250, 125) /* add points */
-PlanarCoordinates(200, 100) - PlanarCoordinates(50, 25) = PlanarCoordinates(150, 75) /* subtract points */
-PlanarCoordinates(200, 100) * PlanarCoordinates(3, 4) = PlanarCoordinates(600, 400) /* multiply points */
-PlanarCoordinates(1800, 100) / PlanarCoordinates(3, 4) = PlanarCoordinates(600, 25) /* divide points */
-(PlanarCoordinates(200, 100)).asList = [200, 100] /* array of x and y */
-let v = PlanarCoordinates(3, 4); v.first = 3 & { v.second = 4 } /* implements first and second */
-let v = PlanarCoordinates(3, 4); v[1] = 3 & { v[2] = 4 } /* implements at */
-let v = PlanarCoordinates(3, 4); v[1] := 7; v.first = 7 /* implements atPut */
-PlanarCoordinates(3, 4).size = 2 /* implements size */
-let v = PlanarCoordinates(3, 4); v.swapInPlace; v[1] = 4 /* swap fields in place */
-PlanarCoordinates(3, 4).swapped = PlanarCoordinates(4, 3) /* answer swapped vector */
-let v = PlanarCoordinates(0, 0); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates(1, 0) } /* copy two vector */
-PlanarCoordinates(1, 1).asPolarCoordinates = PolarCoordinates(2.sqrt, 0.25.pi) /* radius and angle, r and theta */
+PlanarCoordinates([200, 100]).x = 200 /* x coordinate */
+PlanarCoordinates([200 100]).y = 100 /* y coordinate */
+0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
+(0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
+PlanarCoordinates(200, 100) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
+PlanarCoordinates(200, 100) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
+PlanarCoordinates(200, 100) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
+PlanarCoordinates(200, 100) / 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
+PlanarCoordinates([200 100]) // 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
+PlanarCoordinates(200, 100) % 3 = PlanarCoordinates([2, 1]) /* modulo of x and y by scale */
+PlanarCoordinates(200, 100) + PlanarCoordinates([50, 25) = PlanarCoordinates([250, 125]) /* add points */
+PlanarCoordinates(200, 100) - PlanarCoordinates([50, 25) = PlanarCoordinates([150, 75]) /* subtract points */
+PlanarCoordinates(200, 100) * PlanarCoordinates([3, 4) = PlanarCoordinates([600, 400]) /* multiply points */
+PlanarCoordinates(1800, 100) / PlanarCoordinates([3, 4) = PlanarCoordinates([600, 25]) /* divide points */
+PlanarCoordinates([200 100]).asList = [200, 100] /* array of x and y */
+let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements first and second */
+let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
+let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements atPut */
+PlanarCoordinates([3, 4]).size = 2 /* implements size */
+let v = PlanarCoordinates([3 4]); v.swapInPlace; v[1] = 4 /* swap fields in place */
+PlanarCoordinates([3 4]).swapped = PlanarCoordinates([4, 3]) /* answer swapped vector */
+let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
+PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
 [0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
 [0 0].asPlanarCoordinates.isZero /* are x and y both zero */
 [1, 1].norm = 2.sqrt /* magnitude, distance to origin */
 [1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
 [1, 1].normalize.norm ~ 1
-PlanarCoordinates(1, 1).norm = 2.sqrt /* magnitude, distance to origin */
-PlanarCoordinates(1, 1).normalized = (PlanarCoordinates(1, 1) / 2.sqrt) /* normalized to have unit magnitude */
-PlanarCoordinates(1, 1).normalized.norm ~ 1
+PlanarCoordinates([1, 1]).norm = 2.sqrt /* magnitude, distance to origin */
+PlanarCoordinates([1, 1]).normalized = (PlanarCoordinates([1, 1]) / 2.sqrt) /* normalized to have unit magnitude */
+PlanarCoordinates([1, 1]).normalized.norm ~ 1
 ```
 
 ## CartesianCoordinates -- geometry type

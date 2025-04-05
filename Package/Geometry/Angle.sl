@@ -42,6 +42,14 @@ Angle : [Object, Magnitude] { | radians |
 
 }
 
++SmallFloat {
+
+	Angle { :self |
+		newAngle().initializeSlots(self)
+	}
+
+}
+
 +@Number {
 
 	asRadians { :self |
@@ -54,10 +62,6 @@ Angle : [Object, Magnitude] { | radians |
 
 	gradians { :self |
 		(self * 400).radians
-	}
-
-	radians { :self |
-		newAngle().initializeSlots(self)
 	}
 
 }

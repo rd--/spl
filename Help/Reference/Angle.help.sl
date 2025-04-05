@@ -1,35 +1,31 @@
 # Angle
 
-A type representing a unit of measure for angles.
+- _Angle(x)_
 
-- _degrees(aNumber | anAngle)_
-- _radians(aNumber | anAngle)_
+A `Type` representing an angle measured in radians.
 
-An angle is constructed by the _degrees_ and _radians_ methods at _Number_.
+Make an angle:
 
 ```
->>> 360.degrees.isAngle
-true
-
->>> 2.pi.radians.isAngle
+>>> Angle(2.pi).isAngle
 true
 ```
 
-There are _degrees_ and _radians_ accessors.
+There are `degrees` and `radians` accessors:
 
 ```
->>> 2.pi.radians.degrees
+>>> Angle(2.pi).degrees
 360
 
->>> 360.degrees.radians
+>>> Angle(360.degree).radians
 2.pi
 ```
 
 The circular (trigonometric) functions are implemented:
 
 ```
->>> 30.degrees.cos
-(3.sqrt / 2)
+>>> Angle(30.degree).cos
+3.sqrt / 2
 ```
 
 * * *

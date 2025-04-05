@@ -2,14 +2,14 @@
 
 - _hertz(aNumber)_
 
-Answer a `Frequency` representing _aNumber_ in hertz.
+Answer a `Quantity` representing _aNumber_ in hertz.
 
 ```
 >>> let f = 440.hertz;
->>> (f.isFrequency, f.asHertz)
+>>> (f.isQuantity, f.magnitude)
 (true, 440)
 ```
 
 * * *
 
-See also: asHertz, Frequency
+See also: asHertz, Frequency, Quantity

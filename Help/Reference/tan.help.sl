@@ -6,10 +6,10 @@ Answers the tangent of _aNumber_.
 
 ```
 >>> 1/6.pi.tan
-(1 / 3.sqrt)
+1 / 3.sqrt
 
->>> 30.degrees.tan
-(1 / 3.sqrt)
+>>> 30.degree.tan
+1 / 3.sqrt
 ```
 
 `tan` can take `Complex` number inputs:

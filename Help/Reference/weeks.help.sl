@@ -1,21 +1,24 @@
 # weeks
 
-- _weeks(aDuration | aNumber)_
+- _weeks(x)_
 
-Answer the number of complete weeks in _aDuration_,
-or construct a `Duration` value holding _aNumber_ weeks.
+At `SmallFloat`, answer a `Quantity` value:
 
 ```
+>>> 2.weeks
+Quantity(1209600, 'seconds')
+
 >>> 5.weeks
 50400.minutes
 
->>> 3.weeks.hours
-(3 * 7 * 24)
+>>> 3.weeks
+(3 * 7 * 24).hours
 
 >>> 7.weeks
 49.days
 ```
 
+Answer the number of complete weeks in _aDuration_,
 * * *
 
 See also: asSeconds, Duration, hours, seconds, minutes, weeks

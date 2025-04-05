@@ -1,19 +1,19 @@
-Mass : [Object, Magnitude] { | grams |
+Mass : [Object, Magnitude] { | kilograms |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	< { :self :aMass |
-		self.grams < aMass.grams
+		self.kilograms < aMass.kilograms
 	}
 
-	asGrams { :self |
-		self.grams
+	asKilograms { :self |
+		self.kilograms
 	}
 
-	kilograms { :self |
-		self.grams / 1000
+	grams { :self |
+		self.kilograms * 1000
 	}
 
 	ounces { :self |
@@ -25,23 +25,31 @@ Mass : [Object, Magnitude] { | grams |
 	}
 
 	storeString { :self |
-		self.grams.storeString ++ '.grams'
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++SmallFloat {
+
+	Mass { :self |
+		newMass().initializeSlots(self)
 	}
 
 }
 
 +@Number {
 
-	asGrams { :self |
+	asKilograms { :self |
 		self
 	}
 
 	grams { :self |
-		newMass().initializeSlots(self)
+		(self * 1000).kilograms
 	}
 
 	kilograms { :self |
-		(self * 1000).grams
+		Quantity(self, 'kilograms')
 	}
 
 	ounces { :self |

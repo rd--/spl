@@ -1,18 +1,18 @@
 # asSeconds
 
-- _asSeconds(aDuration | aNumber)_
+- _asSeconds(anObject)_
 
 Answer a duration in seconds, either directly from a number, or from a `Duration`.
 
 ```
->>> 5.seconds.asSeconds
-5.seconds.seconds
+>>> Duration(5).asSeconds
+5
 
 >>> 5.asSeconds
 5
 
->>> 5.seconds.isDuration
-true
+>>> 5.seconds
+Quantity(5, 'seconds')
 ```
 
 _Rationale_:
@@ -25,7 +25,7 @@ There are equivalent methods for `Angle` (`asRadians`) and `Frequency` (`asHertz
 
 * * *
 
-See also: asHertz, asMeters, asRadians, Duration, Frequency, seconds
+See also: asHertz, asRadians, Duration, Frequency, seconds
 
 References:
 _Smalltalk_

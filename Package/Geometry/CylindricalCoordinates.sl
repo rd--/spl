@@ -50,8 +50,12 @@ CylindricalCoordinates : [Object] { | coordinates |
 +List {
 
 	asCylindricalCoordinates { :self |
+		CylindricalCoordinates(self)
+	}
+
+	CylindricalCoordinates { :self |
 		let [rho, phi, z] = self;
-		newCylindricalCoordinates().initializeSlots([rho, phi, z])
+		newCylindricalCoordinates().initializeSlots(self)
 	}
 
 	fromCylindricalCoordinates { :self |

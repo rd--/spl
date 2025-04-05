@@ -1,5 +1,3 @@
-/* Requires: Duration */
-
 Frequency : [Object, Magnitude] { | hertz |
 
 	~ { :self :anObject |
@@ -11,7 +9,7 @@ Frequency : [Object, Magnitude] { | hertz |
 	}
 
 	asDuration { :self |
-		self.hertz.reciprocal.seconds
+		Duration(1 / self.hertz)
 	}
 
 	asHertz { :self |
@@ -35,7 +33,19 @@ Frequency : [Object, Magnitude] { | hertz |
 	}
 
 	storeString { :self |
-		self.hertz.storeString ++ '.hertz'
+		self.storeStringAsInitializeSlots
+	}
+
+}
+
++SmallFloat {
+
+	hertz { :self |
+		Quantity(self, 'hertz') /* Hz */
+	}
+
+	Frequency { :self |
+		newFrequency().initializeSlots(self)
 	}
 
 }
@@ -44,10 +54,6 @@ Frequency : [Object, Magnitude] { | hertz |
 
 	asHertz { :self |
 		self
-	}
-
-	hertz { :self |
-		newFrequency().initializeSlots(self)
 	}
 
 	kilohertz { :self |
@@ -60,6 +66,7 @@ Frequency : [Object, Magnitude] { | hertz |
 
 }
 
+/*
 +Duration {
 
 	asFrequency { :self |
@@ -67,3 +74,4 @@ Frequency : [Object, Magnitude] { | hertz |
 	}
 
 }
+*/

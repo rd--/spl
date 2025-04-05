@@ -1,19 +1,26 @@
 # seconds
 
-- _seconds(aDuration | aNumber)_
+- _seconds(t)_
 
-Answer the number of complete seconds in _aDuration_,
-or construct a `Duration` value holding _aNumber_ seconds.
+At `SmallFloat` answer a `Quantity` value holding _t_ seconds:
 
 ```
->>> 5.minutes.seconds
-300
-
->>> 3.hours.seconds
-(3 * 60 * 60)
+>>> 3.seconds
+Quantity(3, 'seconds')
 
 >>> 180.seconds
 3.minutes
+```
+
+At `Duration`,
+answer the number of second:
+
+```
+>>> 3.hours.asDuration.seconds
+10800
+
+>>> Duration(5).seconds
+5
 ```
 
 * * *

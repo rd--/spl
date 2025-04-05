@@ -1,12 +1,12 @@
 # radians
 
-- _radians(aNumber)_
+- _radians(x)_
 
-Answer an `Angle` representing _aNumber_ radians.
+At `Angle`, answer the value in radians:
 
 ```
->>> 0.5.pi.radians
-90.degrees
+>>> Angle(90.degree).radians
+1/2.pi
 ```
 
 * * *

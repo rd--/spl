@@ -6,13 +6,13 @@ Answers the cosine of _aNumber_.
 
 ```
 >>> 1/6.pi.cos
-(3.sqrt / 2)
+3.sqrt / 2
 
 >>> 1/5.pi.cos
 (1 + 5.sqrt) / 4
 
->>> 30.degrees.cos
-(3.sqrt / 2)
+>>> 30.degree.cos
+3.sqrt / 2
 
 >>> 1.2.cos
 0.362358

@@ -37,7 +37,7 @@ Equal answer given degrees:
 C.f. `vector` at `Angle`:
 
 ```
->>> 60.degrees.vector
+>>> Angle(60.degree).vector
 [1/2, 3.sqrt / 2]
 ```
 

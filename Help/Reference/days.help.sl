@@ -1,19 +1,29 @@
 # days
 
-- _days(aDuration | aNumber)_
+- _days(x)_
 
-Answer the number of complete days in _aDuration_,
-or construct a `Duration` value holding _aNumber_ days.
+At `SmallFloat` answer a `Quantity` value:
 
 ```
->>> 5.days.minutes
-7200
+>>> 2.days
+Quantity(172800, 'seconds')
 
->>> 3.days.hours
-(3 * 24)
+>>> 5.days
+7200.minutes
 
->>> 7.days.weeks
-1
+>>> 3.days
+(3 * 24).hours
+
+>>> 21.days
+3.weeks
+```
+
+At `Duration`.
+answer the number of complete days:
+
+```
+>>> 3.weeks.asDuration.days
+21
 ```
 
 * * *

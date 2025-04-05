@@ -9,23 +9,23 @@ Duration : [Object, Magnitude] { | seconds |
 	}
 
 	* { :self :aNumber |
-		(self.seconds * aNumber).seconds
+		Duration(self.seconds * aNumber)
 	}
 
 	/ { :self :aNumber |
-		(self.seconds / aNumber).seconds
+		Duration(self.seconds / aNumber)
 	}
 
 	+ { :self :aDuration |
-		(self.seconds + aDuration.asDuration.seconds).seconds
+		Duration(self.seconds + aDuration.asDuration.seconds)
 	}
 
 	- { :self :aDuration |
-		(self.seconds - aDuration.asDuration.seconds).seconds
+		Duration(self.seconds - aDuration.asDuration.seconds)
 	}
 
 	abs { :self |
-		self.seconds.abs.seconds
+		Duration(self.seconds.abs)
 	}
 
 	asDuration { :self |
@@ -61,7 +61,7 @@ Duration : [Object, Magnitude] { | seconds |
 	}
 
 	storeString { :self |
-		self.seconds.storeString ++ '.seconds'
+		self.storeStringAsInitializeSlots
 	}
 
 	weeks { :self |
@@ -70,15 +70,15 @@ Duration : [Object, Magnitude] { | seconds |
 
 }
 
++SmallFloat {
+
+	Duration { :self |
+		newDuration().initializeSlots(self)
+	}
+
+}
+
 +@Number {
-
-	anomalisticMonths { :self |
-		(self * 27.554551).days
-	}
-
-	anomalisticYears { :self |
-		(self * 365.259636).days
-	}
 
 	asDuration { :self |
 		self.error('Duration: no units specified')
@@ -86,58 +86,6 @@ Duration : [Object, Magnitude] { | seconds |
 
 	asSeconds { :self |
 		self
-	}
-
-	centiseconds { :self |
-		(self * 10).milliseconds
-	}
-
-	days { :self |
-		(self * 24).hours
-	}
-
-	hours { :self |
-		(self * 60).minutes
-	}
-
-	julianYears { :self |
-		(self * 365.25).days
-	}
-
-	milliseconds { :self |
-		(self / 1000).seconds
-	}
-
-	minutes { :self |
-		(self * 60).seconds
-	}
-
-	seconds { :self |
-		newDuration().initializeSlots(self)
-	}
-
-	siderealMonths { :self |
-		(self * 27.321661).days
-	}
-
-	siderealYears { :self |
-		(self * 365.256363004).days
-	}
-
-	solarMonths { :self |
-		(self * 27.321582).days
-	}
-
-	solarYears { :self |
-		(self * 365.24219).days
-	}
-
-	synodicMonths { :self |
-		(self * 29.53059).days
-	}
-
-	weeks { :self |
-		(self * 7).days
 	}
 
 }
@@ -178,7 +126,7 @@ Duration : [Object, Magnitude] { | seconds |
 		(years + months > 0).if {
 			self.error('String>>asDuration: includes non-zero year or month fields')
 		} {
-			weeks.weeks + days.days + hours.hours + minutes.minutes + seconds.seconds
+			weeks.weeks.asDuration + days.days + hours.hours + minutes.minutes + seconds.seconds
 		}
 	}
 
@@ -187,7 +135,10 @@ Duration : [Object, Magnitude] { | seconds |
 +System {
 
 	localTimeZoneOffset { :self |
-		self.localTimeZoneOffsetInMinutes.minutes
+		self
+		.localTimeZoneOffsetInMinutes
+		.minutes
+		.asDuration
 	}
 
 }

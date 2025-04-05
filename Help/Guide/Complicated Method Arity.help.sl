@@ -65,7 +65,7 @@ Here the method _x:/1_ is not shadowed by a local variable _x_:
 ```
 >>> let x = 3.141;
 >>> let y = 23;
->>> let p = PlanarCoordinates(x, y);
+>>> let p = PlanarCoordinates([x y]);
 >>> p.x = x & { p.y = y }
 true
 ```
