@@ -1,6 +1,6 @@
 # asPlanarCoordinates
 
-- _asPlanarCoordinates(aList | aRecord)_
+- _asPlanarCoordinates(aCollection)_
 
 Answer a `PlanarCoordinates`.
 

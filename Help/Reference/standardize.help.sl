@@ -61,7 +61,7 @@ let r = Sfc32(672134);
 let d = NormalDistribution(5, 2);
 let p = d.randomVariate(r, [1000]);
 let q = p.standardize;
-[p.sort, q.sort].lineSetPlot
+[p.sort, q.sort].linePlot
 ~~~
 
 ![](sw/spl/Help/Image/standardize-A.svg)

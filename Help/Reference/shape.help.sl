@@ -1,8 +1,8 @@
 # shape
 
-- _shape(anArray | anObject)_
+- _shape(anObject)_
 
-Answer the shape of the argument,
+Answer the shape of _anObject_,
 a vector of lengths of the array along each axis.
 
 The shape of a _scalar_ is the empty list:

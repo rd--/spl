@@ -1,5 +1,6 @@
 # pdf
 
+- _pdf(d)_
 - _pdf(d, x)_
 
 Answer the probability density function for the distribution _d_ evaluated at _x_.

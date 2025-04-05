@@ -31,14 +31,18 @@ At `CartesianCoordinates`:
 >>> CartesianCoordinates([1 2 3]).z
 3
 
->>> (x: 1, y: 2, z: 3).asCartesianCoordinates.z
+>>> (x: 1, y: 2, z: 3)
+>>> .asCartesianCoordinates
+>>> .z
 3
 ```
 
 `SphericalCoordinates` implements `z`:
 
 ```
->>> SphericalCoordinates([1 0 1.pi]).z
+>>> SphericalCoordinates(
+>>> 	[1 0 1.pi]
+>>> ).z
 -1
 ```
 

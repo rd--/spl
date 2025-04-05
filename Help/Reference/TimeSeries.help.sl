@@ -8,10 +8,12 @@ specified either as a two-column matrix of _(time, value)_ pairs,
 or as a pair of _value_ and _time_ vectors.
 
 `pathLength` tells the number of entries,
+`valueDimensions` tells the `dimensions` of each value,
 `firstTime` tells the time of the first entry and `lastTime` that of the last,
 `min` tells the least value and `max` the greatest,
 `minimumTimeIncrement` tells the least time difference,
-and `isRegularlySampled` tells if the items are equally spaced in time:
+`isRegularlySampled` tells if the items are equally spaced in time:
+and `isMultivariate` tells if the values are not scalar or single column:
 
 ```
 >>> let ts = TimeSeries(
@@ -19,14 +21,16 @@ and `isRegularlySampled` tells if the items are equally spaced in time:
 >>> );
 >>> (
 >>> 	ts.pathLength,
+>>> 	ts.valueDimensions,
 >>> 	ts.firstTime,
 >>> 	ts.lastTime,
 >>> 	ts.min,
 >>> 	ts.max,
 >>> 	ts.minimumTimeIncrement,
->>> 	ts.isRegularlySampled
+>>> 	ts.isRegularlySampled,
+>>> 	ts.isMultivariate
 >>> )
-(6, 1, 15, 1, 7, 1, false)
+(6, 1, 1, 15, 1, 7, 1, false, false)
 ```
 
 Accessors includes `times` (or equivalently `keys` or `indices`),
@@ -177,6 +181,15 @@ Square the values in a time series:
 TimeSeries([9 4 16 49], [1 .. 4])
 ```
 
+Find the sums of the components of a vector-valued time series:
+
+```
+>>> TimeSeries([1 2; 3 4; 5 6], [1 2 3])
+>>> .collect(sum:/1)
+>>> .path
+[1 3; 2 7; 3 11]
+```
+
 Find the `mean` of a time series:
 
 ```
@@ -201,6 +214,32 @@ Replace the value at time _2_:
 >>> (ts[2] := -5, ts.path)
 (-5, [1 3; 2 -5; 3 7])
 ```
+
+Extract components of vector-valued collection:
+
+```
+>>> TimeSeries([1 2; 3 4; 5 6], [1 2 3])
+>>> .pathComponents
+[
+	TimeSeries([1 3 5], [1 2 3]),
+	TimeSeries([2 4 6], [1 2 3])
+]
+```
+
+Resample and plot one component of a multi-variate time series:
+
+~~~spl svg=B
+TimeSeries(
+	Sfc32(536721)
+	.randomReal([0 1], [200 3]),
+	1:200
+)
+.pathComponents[3]
+.resample([1, 7 .. 193])
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/TimeSeries-B.svg)
 
 * * *
 

@@ -1,6 +1,6 @@
 # asSphericalCoordinates
 
-- _asSphericalCoordinates(aList | aRecord | aTuple)_
+- _asSphericalCoordinates(aCollection)_
 
 Answer a `SphericalCoordinates`.
 

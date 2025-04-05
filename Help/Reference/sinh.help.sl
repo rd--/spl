@@ -50,6 +50,15 @@ Plot `sinh` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/sinh-C.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=D
+[-0.25.pi.j(-2.5), 0.25.pi.j(2.5)]
+.complexPlot(sinh:/1)
+~~~
+
+![](sw/spl/Help/Image/sinh-D.png)
+
 * * *
 
 See also: arcSinh, cosh, csch, sin

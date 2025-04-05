@@ -48,14 +48,18 @@ Three-dimensional case:
 >>> CartesianCoordinates([1 2 3]).x
 1
 
->>> (x: 1, y: 2, z: 3).asCartesianCoordinates.x
+>>> (x: 1, y: 2, z: 3)
+>>> .asCartesianCoordinates
+>>> .x
 1
 ```
 
 `SphericalCoordinates` implements `x`:
 
 ```
->>> SphericalCoordinates([1 1.pi 0.5.pi]).x
+>>> SphericalCoordinates(
+>>> 	[1 1.pi 0.5.pi]
+>>> ).x
 -1
 ```
 

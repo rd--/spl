@@ -61,6 +61,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		self.times
 	}
 
+	isMultivariate { :self |
+		self.valueDimensions > 1
+	}
+
 	isRegularlySampled { :self |
 		self.times.isRegularlySpaced
 	}
@@ -140,6 +144,19 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		[self.times, self.values].transposed
 	}
 
+	pathComponents { :self |
+		let k = self.valueDimensions;
+		(k = 1).if {
+			self.error('pathComponents: not multivariate')
+		} {
+			let t = self.times;
+			let v = self.values.transposed;
+			(1 .. k).collect { :i |
+				TimeSeries(v[i], t)
+			}
+		}
+	}
+
 	pathLength { :self |
 		self.size
 	}
@@ -188,7 +205,12 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 	}
 
 	valueDimensions { :self |
-		self.values.anyOne.size
+		let v = self.values.anyOne;
+		v.isList.if {
+			v.size
+		} {
+			1
+		}
 	}
 
 	valuesDo { :self :aBlock:/1 |

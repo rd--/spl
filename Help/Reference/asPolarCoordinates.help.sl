@@ -1,6 +1,6 @@
 # asPolarCoordinates
 
-- _asPolarCoordinates(aList | aDictionary)_
+- _asPolarCoordinates(aCollection)_
 
 Answer an instance of `PolarCoordinates`.
 

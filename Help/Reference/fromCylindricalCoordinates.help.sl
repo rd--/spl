@@ -3,7 +3,7 @@
 - _fromCylindricalCoordinates(aVector)_
 
 Answers the _(x,y,z)_ Cartesian coordinates corresponding to the cylindrical coordinates _(ρ,φ,z)_,
-where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesian _z_-coordinate.
+where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is the Cartesian _z_-coordinate.
 
 ```
 >>> [4, 2/3.pi, -2]
@@ -22,5 +22,7 @@ where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is Cartesian 
 * * *
 
 See also: CylindricalCoordinates, toCylindricalCoordinates
+
+Guides: Coordinate Systems
 
 Categories: Converting, Geometry

@@ -5,7 +5,8 @@
 Another name for `phi`:
 
 ```
->>> SphericalCoordinates([1 0 1.pi]).inclination
+>>> SphericalCoordinates([1 0 1.pi])
+>>> .inclination
 1.pi
 ```
 

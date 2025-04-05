@@ -46,6 +46,15 @@ The inverse is `cos`:
 n
 ```
 
+Find the angle between two vectors:
+
+```
+>>> [1 1].normalize
+>>> .dot([-1 1].normalize)
+>>> .arcCos
+0.5.pi
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -53,6 +62,28 @@ Plot over a subset of the reals:
 ~~~
 
 ![](sw/spl/Help/Image/arcCos-A.svg)
+
+Plot over a subset of the complexes:
+
+~~~spl png=B
+[-4J-2 2J2].complexPlot(arcCos:/1)
+~~~
+
+![](sw/spl/Help/Image/arcCos-B.png)
+
+Phyllotaxis pattern:
+
+~~~spl svg=C
+1:1000.collect { :i |
+	[
+		1,
+		i.goldenAngle.mod(2.pi, -1.pi),
+		(1 - (i / 1000)).arcCos
+	].fromSphericalCoordinates.Point
+}.PerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/arcCos-C.svg)
 
 * * *
 

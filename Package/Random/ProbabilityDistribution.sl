@@ -1,5 +1,3 @@
-/* Requires: RandomNumberGenerator */
-
 @ProbabilityDistribution {
 
 	cdf { :self :x |

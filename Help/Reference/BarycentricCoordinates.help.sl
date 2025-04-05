@@ -6,6 +6,8 @@ A `Type` representing a point in a barycentric coordinate system.
 
 * * *
 
+Guides: Coordinate Systems, Geometry Types
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BarycentricCoordinates.html),

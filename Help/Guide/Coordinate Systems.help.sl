@@ -2,13 +2,43 @@
 
 Types:
 
-- `BarycentricCoordinates`
-- `CartesianCoordinates`
-- `CylindricalCoordinates`
-- `PlanarCoordinates`
-- `PolarCoordinates`
-- `SphericalCoordinates`
+- `BarycentricCoordinates`: _(λ₁, λ₂ …)_
+- `CartesianCoordinates`: _(x, y, z …)_
+- `CylindricalCoordinates`: _(ρ, φ, z)_
+- `IsoSphericalCoordinates`: _(r, θ, φ)_
+- `PlanarCoordinates`: _(x, y)_
+- `PolarCoordinates`: _(r, θ)_
+- `SphericalCoordinates`: _(r, θ, φ)_
 
-Notes:
+Converting:
 
+- `asBarycentricCoordinates`
+- `asCartesianCoordinates`
+- `asCylindricalCoordinates`
+- `asPlanarCoordinates`
+- `asPolarCoordinates`
+- `asSphericalCoordinates`
+
+Translating:
+
+- `fromBarycentricCoordinates`
+- `fromCylindricalCoordinates`
+- `fromPolarCoordinates`
+- `fromSphericalCoordinates`
+- `toBarycentricCoordinates`
+- `toCylindricalCoordinates`
+- `toPolarCoordinates`
+- `toSphericalCoordinates`
+
+Accessing:
+
+- `x`, `y`, `z`
+- `r`, `theta`, `phi`
+- `azimuth`, `inclination`, `radius`, `rho`
+
+_Note_:
 Lattice coordinates are coordinates where each entry is an integer.
+
+* * *
+
+Guides: Geometry Types

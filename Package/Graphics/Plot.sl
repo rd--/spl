@@ -263,12 +263,6 @@ Plot : [Object] { | pages format options |
 		self.typedPlot('line')
 	}
 
-	lineSetPlot { :self |
-		self.collect { :each |
-			each.collect(enclose:/1)
-		}.linePlot
-	}
-
 	matrixPlot { :self |
 		[self.asFloat].Plot('matrix')
 	}
@@ -359,10 +353,24 @@ Plot : [Object] { | pages format options |
 					}
 				].Plot(format)
 			} {
+				let listPlotPerPage = {
+					self.collect { :each |
+						[[1 .. each.size], each].transposed
+					}.Plot(format)
+				};
 				self.isMatrix.if {
-					[self].Plot(format)
+					let [m, n] = self.shape;
+					(n <= 3).if {
+						[self].Plot(format)
+					} {
+						listPlotPerPage()
+					}
 				} {
-					self.Plot(format)
+					(self.arrayDepth = 3).if {
+						self.Plot(format)
+					} {
+						listPlotPerPage()
+					}
 				}
 			}
 		}

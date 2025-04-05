@@ -155,6 +155,16 @@ Plot over a subset of the complexes:
 
 ![](sw/spl/Help/Image/sin-H.png)
 
+Plot of complex `sin` function:
+
+~~~spl png=I
+[-5J-5 5J5].complexPlot { :z |
+	(z.sin ^ 3) / ((z + 1) ^ 4)
+}
+~~~
+
+![](sw/spl/Help/Image/sin-I.png)
+
 * * *
 
 See also: arcSin, cos, cosecant, haversine, sinh, tan

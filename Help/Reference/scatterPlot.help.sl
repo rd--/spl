@@ -57,13 +57,44 @@ let f = { :a :b :c :d :p |
 
 ![](sw/spl/Help/Image/scatterPlot-E.svg)
 
+Plot a list of _y_ values:
+
+~~~spl svg=F
+1:25.nthPrime.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/scatterPlot-F.svg)
+
+Plot a list of _(x, y)_  pairs:
+
+~~~spl svg=G
+let r = Sfc32(567314);
+BinormalDistribution([4 4], [1 1], 0.5)
+.randomVariate(r, [150])
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/scatterPlot-G.svg)
+
+Plot several data sets:
+
+~~~spl svg=H
+[
+	1:40.sqrt,
+	40:90.log
+].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/scatterPlot-H.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, surfacePlot
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/ScatterDiagram.html),
+[1](https://mathworld.wolfram.com/ScatterDiagram.html)
+[2](https://reference.wolfram.com/language/ref/ListPlot.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Scatter_plot)
 

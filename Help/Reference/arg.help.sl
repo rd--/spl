@@ -2,7 +2,8 @@
 
 - _arg(z)_
 
-Answers the argument of _z_, the phase angle in radians between -pi and +pi.
+Answers the argument of _z_,
+the phase angle in radians between -pi and +pi.
 
 The answer is given in radians:
 
@@ -65,7 +66,9 @@ Plot over a subset of the reals:
 Plot _arg(x + i)_ on the reals:
 
 ~~~spl svg=B
-(-3 -- 3).functionPlot { :x | (x + 1.i).arg }
+(-3 -- 3).functionPlot { :x |
+	(x + 1.i).arg
+}
 ~~~
 
 ![](sw/spl/Help/Image/arg-B.svg)

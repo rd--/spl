@@ -12,6 +12,8 @@ The three components of `CylindricalCoordinates` are:
 
 See also: CartesianCoordinates, fromCylindricalCoordinates, SphericalCoordinates, toCylindricalCoordinates
 
+Guides: Coordinate Systems
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CylindricalCoordinates.html),

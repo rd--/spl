@@ -1,8 +1,8 @@
-# Probablity Distributions
+# Probability Distributions
 
 Traits
 
-- `ProbablityDistribution`
+- `ProbabilityDistribution`
 
 Types:
 

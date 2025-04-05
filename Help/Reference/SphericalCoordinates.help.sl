@@ -1,6 +1,6 @@
 # SphericalCoordinates
 
-- _SphericalCoordinates([r, theta, phi])_
+- _SphericalCoordinates([r, θ, φ])_
 
 Answer a `SphericalCoordinates` instance following the convention:
 
@@ -53,7 +53,7 @@ Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` 
 
 See also: asCartesianCoordinates, CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
 
-Guides: Geometry Types
+Guides: Guides: Coordinate Systems, Geometry Types
 
 References:
 _Mathematica_

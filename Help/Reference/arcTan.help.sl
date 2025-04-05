@@ -109,6 +109,16 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcTan-A.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=B
+[-0.5J-1 0.5J1].complexPlot { :z |
+	z.squared.arcTan
+}
+~~~
+
+![](sw/spl/Help/Image/arcTan-B.png)
+
 Note:
 The two argument form reverses the argument order to _arcTan:_ in Smalltalk.
 The method _atan2_ is the two argument _arcTan_ with arguments reversed.

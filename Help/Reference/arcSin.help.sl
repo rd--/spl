@@ -54,6 +54,24 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcSin-A.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=B
+[-4J-2 2J2].complexPlot(arcSin:/1)
+~~~
+
+![](sw/spl/Help/Image/arcSin-B.png)
+
+Plot `arcSin` at integer points:
+
+~~~spl svg=C
+{ :x :y |
+	(x * y).j(0).arcSin.abs.fractionPart
+}.table(-20:20, -20:20).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/arcSin-C.svg)
+
 * * *
 
 See also: arcCos, cos, sin, tan

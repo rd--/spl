@@ -58,7 +58,7 @@ let r = Sfc32(613724);
 let x = [1 .. 20];
 let p = x + r.randomReal([-2 2], [20]);
 let q = p.movingAverage(3);
-[x, p, q].lineSetPlot
+[x, p, q].linePlot
 ~~~
 
 ![](sw/spl/Help/Image/movingAverage-A.svg)

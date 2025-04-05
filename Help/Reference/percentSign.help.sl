@@ -212,7 +212,7 @@ The name of this operator is `percentSign`.
 
 * * *
 
-See also: /, //, \\, divisible, minimalResidue, mod, quotient, remainder
+See also: /, //, \\, divisible, minimalResidue, mod, quotient, quotientRemainder, remainder
 
 References:
 _Apl_
@@ -221,6 +221,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Mod.html)
 [2](https://mathworld.wolfram.com/Congruence.html)
 [3](https://mathworld.wolfram.com/CommonResidue.html)
-[4](https://reference.wolfram.com/language/ref/Mod.html)
+[4](https://reference.wolfram.com/language/ref/Mod.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Modulo)
 
 Categories: Math, Operator

@@ -83,6 +83,32 @@ The 2-norm of a vector, the Euclidean distance from the origin:
 2.8284
 ```
 
+Plot randomly sample vectors in _(-1, 1)_,
+selected to have a _1-norm_ of less than `one`:
+
+~~~spl svg=A
+Sfc32(567131)
+.randomReal([-1 1], [300 2])
+.select { :x |
+	x.norm(1) < 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/norm-A.svg)
+
+Plot randomly sample vectors in _(-1, 1)_,
+selected to have a _2-norm_ of less than `one`:
+
+~~~spl svg=B
+Sfc32(567131)
+.randomReal([-1 1], [200 2])
+.select { :x |
+	x.norm(2) < 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/norm-B.svg)
+
 * * *
 
 See also: abs, dot, hypot, rootMeanSquare

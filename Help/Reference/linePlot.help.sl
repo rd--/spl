@@ -7,7 +7,8 @@ Plot data from a collection _c_.
 If the ratio of the input data is not close to `one`,
 plots are adjusted to have an aspect ratio of _1.618:1_.
 
-If _c_ is a vector, plot as list of _y_ values.
+If _c_ is a vector,
+plot as a list of _y_ values.
 Plot a six-vector:
 
 ~~~spl svg=A
@@ -16,7 +17,8 @@ Plot a six-vector:
 
 ![](sw/spl/Help/Image/linePlot-A.svg)
 
-If _c_ is a matrix of one column, plot as list of _y_ values.
+If _c_ is a matrix of one column,
+plot as a list of _y_ values.
 Plot a 5×1 matrix:
 
 ~~~spl svg=B
@@ -25,7 +27,8 @@ Plot a 5×1 matrix:
 
 ![](sw/spl/Help/Image/linePlot-B.svg)
 
-If _c_ is a matrix of two columns, plot a list of _x,y_ pairs.
+If _c_ is a matrix of two columns,
+plot as a list of _(x, y)_ pairs.
 Plot a 5×2 matrix:
 
 ~~~spl svg=C
@@ -40,7 +43,8 @@ let n = 5;
 
 ![](sw/spl/Help/Image/linePlot-C.svg)
 
-If _c_ is a matrix of three columns, plot a list of _x,y,z_ triples.
+If _c_ is a matrix of three columns,
+plot as a list of _(x, y, z)_ triples.
 Plot an 8×3 matrix:
 
 ~~~spl svg=D
@@ -127,6 +131,8 @@ Sfc32(80415)
 
 ![](sw/spl/Help/Image/linePlot-K.svg)
 
+If _c_ is an _n×m×2_ array,
+plot as a set of _(x, y)_ lines.
 Plot two lines:
 
 ~~~spl svg=L
@@ -138,6 +144,8 @@ Plot two lines:
 
 ![](sw/spl/Help/Image/linePlot-L.svg)
 
+If _c_ is a `List` of two column matrices,
+plot as a set of _(x, y)_ lines.
 Plot two lines with different numbers of points:
 
 ~~~spl svg=M
@@ -149,6 +157,8 @@ Plot two lines with different numbers of points:
 
 ![](sw/spl/Help/Image/linePlot-M.svg)
 
+If _c_ is an _n×m×1_ array,
+plot as a set of _y_ values.
 Plot list of column vectors:
 
 ~~~spl svg=N
@@ -159,6 +169,31 @@ Plot list of column vectors:
 ~~~
 
 ![](sw/spl/Help/Image/linePlot-N.svg)
+
+If _c_ is a list of vectors,
+and is not a one, two or three column matrix,
+plot as a set of _y_ data vectors.
+Plot multiple sets of _y_ data:
+
+~~~spl svg=O
+[
+	1 2 3 5  8 13 21;
+	1 2 4 8 16 32 64
+].linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-O.svg)
+
+Compare the n^(th) prime to an estimate:
+
+~~~spl svg=P
+[
+	1:80.collect(nthPrime:/1),
+	1:80.collect { :n | n * n.log }
+].linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-P.svg)
 
 * * *
 
