@@ -81,13 +81,3 @@ Frequency : [Object, Magnitude] { | hertz |
 	}
 
 }
-
-/*
-+Duration {
-
-	asFrequency { :self |
-		self.seconds.reciprocal.hertz
-	}
-
-}
-*/

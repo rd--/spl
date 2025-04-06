@@ -13,23 +13,34 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		}
 	}
 
-	+ { :self :anObject |
-		self.binaryOperator(anObject, +)
-	}
-
-	- { :self :anObject |
-		self.binaryOperator(anObject, -)
-	}
-
-	binaryOperator { :self :anObject :aBlock:/2 |
-		self.isCommensurate(anObject).if {
+	* { :self :anObject |
+		anObject.isNumber.if {
 			Quantity(
-				aBlock(self.magnitude, anObject.magnitude),
+				self.magnitude * anObject,
 				self.unit
 			)
 		} {
-			self.error('binaryOperator: invalid operand')
+			self.error('*: invalid operand')
 		}
+	}
+
+	/ { :self :anObject |
+		self * anObject.reciprocal
+	}
+
+	+ { :self :anObject |
+		self.isCommensurate(anObject).if {
+			Quantity(
+				self.magnitude + anObject.magnitude,
+				self.unit
+			)
+		} {
+			self.error('+: invalid operand')
+		}
+	}
+
+	- { :self :anObject |
+		self + anObject.negated
 	}
 
 	isCommensurate { :self :anObject |
@@ -56,6 +67,10 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 
 	isTime { :self |
 		self.unit = 'seconds'
+	}
+
+	negated { :self |
+		Quantity(self.magnitude.negated, self.unit)
 	}
 
 	storeString { :self |

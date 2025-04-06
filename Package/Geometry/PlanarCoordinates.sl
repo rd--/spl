@@ -67,6 +67,10 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		self
 	}
 
+	copy { :self |
+		PlanarCoordinates(self.coordinates.copy)
+	}
+
 	inverse { :self :inversionCenter :inversionRadius |
 		let x = self.x;
 		let y = self.y;

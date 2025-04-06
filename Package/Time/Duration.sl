@@ -32,6 +32,10 @@ Duration : [Object, Magnitude] { | seconds |
 		self
 	}
 
+	asFrequency { :self |
+		Frequency(self.seconds.reciprocal)
+	}
+
 	asSeconds { :self |
 		self.seconds
 	}

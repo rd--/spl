@@ -15,6 +15,20 @@ Quantity(8, 'metres')
 Quantity(30, 'kilograms')
 ```
 
+Quantities can be tested for equality:
+
+```
+>>> 1.5.miles = 7920.feet
+true
+```
+
+Make a quantity from number of milliseconds:
+
+```
+>>> 250.milliseconds
+Quantity(0.25, 'seconds')
+```
+
 Predicates:
 
 ```
@@ -72,11 +86,28 @@ Calendrical time units:
 365.25.days
 ```
 
+A month as defined with respect to the celestial sphere:
+
+```
+>>> 1.siderealMonths
+27.3217.days
+```
+
+A mmonth as defined with respect to the line joining the sun and earth:
+
+```
+>>> 1.synodicMonths
+29.5306.days
+```
+
 Frequencies are constructed from `Number` values using the methods `hertz`, `kilohertz` and `megaherz`:
 
 ```
 >>> 3000.hertz
 3.kilohertz
+
+>>> 44.1.kilohertz
+44100.hertz
 ```
 
 Length quantity constructors:
@@ -102,6 +133,73 @@ Quantity(0.9144, 'metres')
 0.9144.metres
 ```
 
+There are approximately twelve inches in a foot:
+
+```
+>>> 12.inches
+1.feet
+```
+
+A nautical mile is defined in terms of metres:
+
+```
+>>> 1.nauticalMiles
+1852.metres
+```
+
+A point is approximately four millimetres:
+
+```
+>>> 12.point
+4.2336.millimetres
+```
+
+Twelve point is approximately a pica:
+
+```
+>>> 12.point
+1.picas
+```
+
+Length equivalences:
+
+```
+>>> 1.astronomicalUnits
+149597871.kilometres
+
+>>> 1.astronomicalUnits
+92955807.miles
+
+>>> 1.lightYears
+9460700000000.kilometres
+
+>>> 1.lightYears
+63241.astronomicalUnits
+
+>>> 1.parsecs
+3.2615.lightYears
+
+>>> 1.parsecs
+206266.astronomicalUnits
+
+>>> 3000.picometres
+3.nanometres
+```
+
+A point is approximately 1/72 of an inch:
+
+```
+>>> 12.point
+(12 / 72).inches
+```
+
+There are three feet in a yard:
+
+```
+>>> 1.yards
+3.feet
+```
+
 Mass quantity constructors:
 
 ```
@@ -120,6 +218,94 @@ Non-SI mass constructors:
 
 >>> 2.pounds
 0.9072.kilograms
+```
+
+Comparing masses.
+A kilogram is a thousand grams:
+
+```
+>>> 23.kilograms
+23000.grams
+```
+
+Two and one-fifth pounds is approximately a kilogram:
+
+```
+>>> 2.2.pounds
+997.9.grams
+```
+
+Thirty-six ounces are approximately a kilogram:
+
+```
+>>> 36.ounces
+1020.58.grams
+```
+
+An ounce is 1/16 of a pound:
+
+```
+>>> (1 / 16).pounds
+1.ounces
+```
+
+Multiplication of a quantity by a number:
+
+```
+>>> 3.minutes * 3
+9.minutes
+```
+
+Division of a quantity by a number:
+
+```
+>>> 9.minutes / 3
+3.minutes
+```
+
+Addition of commensurable quantities:
+
+```
+>>> 0.5.seconds + 750.milliseconds
+1.25.seconds
+
+>>> 0.25.seconds + 500.milliseconds
+750.milliseconds
+
+>>> 500.milliseconds + 0.25.seconds
+0.75.seconds
+```
+
+Subtraction of commensurable quantities:
+
+```
+>>> 2.weeks - 12.days
+48.hours
+```
+
+Comparison of commensurable quantities:
+
+```
+>>> 2.minutes < 2.hours
+true
+
+>>> 2.hours > 2.minutes
+true
+
+>>> 48000.hertz < 96.kilohertz
+true
+```
+
+Addition, subtraction and comparison:
+
+```
+>>> [
+>>> 	27.days,
+>>> 	7.hours,
+>>> 	43.minutes,
+>>> 	11.6.seconds
+>>> ].sum - 1.siderealMonths < 1.seconds
+true
 ```
 
 * * *

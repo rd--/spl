@@ -94,6 +94,10 @@
 		self.coordinates[1]
 	}
 
+	x { :self :anObject |
+		self.coordinates[1] := anObject
+	}
+
 	y { :self |
 		let v = self.coordinates;
 		(v.size < 2).if {
@@ -101,6 +105,10 @@
 		} {
 			v[2]
 		}
+	}
+
+	y { :self :anObject |
+		self.coordinates[2] := anObject
 	}
 
 	z { :self |
@@ -112,12 +120,30 @@
 		}
 	}
 
+	z { :self :anObject |
+		self.coordinates[3] := anObject
+	}
+
 }
 
 CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
 
 	asCartesianCoordinates { :self |
 		self
+	}
+
+	asRecord { :self |
+		self.size.caseOfOtherwise([
+			2 -> { (x: self.x, y: self.y) },
+			3 -> { (x: self.x, y: self.y, z: self.z) },
+			4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
+		]) {
+			self.error('asRecord: not x,y or x,y,z or x,z,y,w')
+		}
+	}
+
+	copy { :self |
+		CartesianCoordinates(self.coordinates.copy)
 	}
 
 	cross { :u :v |
@@ -149,15 +175,15 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 	}
 
 	xy { :self |
-		PlanarCoordinates([self.x, self.y])
+		CartesianCoordinates([self.x, self.y])
 	}
 
 	xz { :self |
-		PlanarCoordinates([self.x, self.z])
+		CartesianCoordinates([self.x, self.z])
 	}
 
 	yz { :self |
-		PlanarCoordinates([self.y, self.z])
+		CartesianCoordinates([self.y, self.z])
 	}
 
 }

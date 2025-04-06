@@ -77,7 +77,7 @@ Length : [Object, Magnitude] { | metres |
 	}
 
 	storeString { :self |
-		self.metres.storeString ++ '.metres'
+		self.storeStringAsInitializeSlots
 	}
 
 	yards { :self |

@@ -1,15 +1,15 @@
 # Terse Guide
 
-## Angle -- geometry type
+## PlaneAngle -- geometry type
 ```
-system.includesPackage('Angle') /* angle package */
-Angle(1.pi).typeOf = 'Angle' /* type of angle */
-Angle(1.pi).isAngle /* angle predicate */
-Angle(1).degrees ~ 57.296 /* radians to degrees */
-Angle(1.pi).degrees = 180 /* pi radians is 180 degrees */
-Angle(180.degree).radians = 1.pi /* 180 degrees is pi radians */
-Angle(1.pi) < Angle(360.degree) /* angles are magnitudes */
-Angle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of number */
+system.includesPackage('PlaneAngle') /* angle package */
+PlaneAngle(1.pi).typeOf = 'PlaneAngle' /* type of angle */
+PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
+PlaneAngle(1).degrees ~ 57.296 /* radians to degrees */
+PlaneAngle(1.pi).degrees = 180 /* pi radians is 180 degrees */
+PlaneAngle(180.degree).radians = 1.pi /* 180 degrees is pi radians */
+PlaneAngle(1.pi) < PlaneAngle(360.degree) /* angles are magnitudes */
+PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of number */
 ```
 
 ## Arithmetic -- addition
@@ -1372,17 +1372,10 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'pare
 ```
 system.includesPackage('Duration') /* duration package */
 2.seconds.asDuration.typeOf = 'Duration' /* make duration from number of seconds */
-5.hours.asDuration.isDuration = true /* make duration from number of hours */
-0.25.seconds = 250.milliseconds /* make duration from number of milliseconds, durations are comparable */
 3.hours.asDuration.seconds = 10800 /* convert duration to seconds */
+5.hours.asDuration.isDuration = true /* make duration from number of hours */
 1.5.seconds.asDuration.milliseconds = 1500 /* convert duration to milliseconds */
-0.5.seconds + 750.milliseconds = 1.25.seconds /* addition of durations */
-2.weeks - 12.days = 48.hours /* subtraction of durations */
-0.25.seconds + 500.milliseconds = 750.milliseconds
-500.milliseconds + 0.25.seconds = 0.75.seconds
-let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
-2.minutes < 2.hours /* durations are magnitudes */
-2.hours > 2.minutes /* durations are magnitudes */
+let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds.asDuration; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
 60.seconds.asDuration.milliseconds = 60000 /* convert duration to milliseconds */
 60.seconds.asDuration.seconds = 60 /* convert duration to seconds */
 60.seconds.asDuration.minutes = 1 /* convert duration to minutes */
@@ -1392,18 +1385,16 @@ let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds; f:/1.valueAfterWi
 'P2DT2H2M2S'.parseDuration.seconds = 180122 /* parse ISO-8601 duration string */
 'P3DT4H'.parseDuration = (3.days + 4.hours).asDuration
 (2.days + 2.hours + 2.minutes + 2.seconds).asDuration.seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
-let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } /* copy duration */
-1.siderealMonths = 27.321661.days /* as defined with respect to the celestial sphere */
-1.synodicMonths = 29.53059.days /* as define with respect to the line joining the sun and earth */
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).asDuration.abs ~ 76.milliseconds.asDuration
-27.days + 7.hours + 43.minutes + 11.6.seconds - 1.siderealMonths < 1.seconds
-1.julianYears = 365.25.days
-3.minutes.asDuration * 3 = 9.minutes /* multiply duration by number */
-9.minutes.asDuration / 3 = 3.minutes /* divide duration by number */
 -3.seconds.asDuration.abs = 3.seconds.asDuration /* absolute value */
 (3.minutes - 2.hours).asDuration.abs = (1.hours + 57.minutes).asDuration /* absolute value */
-7/8.milliseconds.asDuration.seconds = 7/8000 /* fraction as duration */
+(7 / 8).milliseconds.asDuration.seconds = 7/8000 /* fractional duration */
 2.minutes.asDuration.asSeconds = 120.asSeconds /* seconds of duration, or identity of number */
+```
+
+## Quantity
+```
+let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } /* copy quantity */
 ```
 
 ## Error -- exception type
@@ -1658,11 +1649,9 @@ system.includesPackage('Frequency') /* frequency package */
 1.hertz.asFrequency.typeOf = 'Frequency' /* frequency from hertz (cyles per second) */
 1.hertz.asFrequency.isFrequency /* frequency predicate */
 1.hertz.asFrequency.printString = 'Frequency(1)' /* frequency print string */
-10.hertz = (1 / 10).seconds /* duration is the reciprocal of frequency */
-(1 / 10).seconds.asFrequency = 10.hertz /* frequency is the reciprocal of duration */
-44.1.kilohertz = 44100.hertz /* frequencies are eq, kilohertz (thousands of cycles per second) */
-1.kilohertz.asDuration = 1.milliseconds /* the period of 1kHz is 1ms */
-44.1.hertz < 44.1.kilohertz /* frequencies are magnitudes */
+10.hertz.asFrequency = (1 / 10).seconds.asDuration.asFrequency /* duration is the reciprocal of frequency */
+(1 / 10).seconds.asDuration.asFrequency = 10.hertz.asFrequency /* frequency is the reciprocal of duration */
+1.kilohertz.asFrequency.asDuration = 1.milliseconds.asDuration /* the period of 1kHz is 1ms */
 1.kilohertz.asFrequency.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
 ```
 
@@ -2062,24 +2051,10 @@ let a = [9 .. 1]; { a[5L] }.ifError { true } /* large integers are not valid ind
 ## Length -- geometry type
 ```
 system.includesPackage('Length') /* Length package */
-1.metres.typeOf = 'Length' /* metre constructor, type of */
+1.metres.asLength.typeOf = 'Length' /* metre constructor, type of */
 1.metres.isLength /* length predicate */
-10.centimetres.printString = '0.1.metres'
-12.inches ~ 1.feet /* there are approximately twelve inches in a foot */
-1.yards.feet = 3 /* there are three feet in a yard */
-1.miles = 5280.feet /* lengths can be tested for equality */
-1.nauticalMiles = 1852.metres /* a nautical mile is defined in terms of metres */
-1.astronomicalUnits.kilometres.rounded = 149597871 /* 149,597,871 */
-1.astronomicalUnits.miles.rounded = 92955807 /* 92,955,807 */
-1.lightYears.kilometres.rounded = 9460700000000 /* 9,460,700,000,000 */
-1.lightYears.astronomicalUnits.rounded = 63241 /* 63,241 */
-1.parsecs.lightYears ~ 3.2615
-1.parsecs.astronomicalUnits.rounded = 206266
-1.picometres.picometres = 1
-12.point = 4.2336.millimetres /* a point is approximately four millimetres */
-12.point.inches ~ (12 / 72) /* a point is approximately 1/72 of an inch */
-12.point ~ 1.picas /* twelve point is approximately a pica */
-10.centimetres.asMetres = 0.1.asMetres /* metres of length, or identity of number */
+10.centimetres.asLength.printString = 'Length(0.1)'
+10.centimetres.asLength.asMetres = 0.1.asMetres /* metres of length, or identity of number */
 ```
 
 ## LinkedList -- collection type
@@ -2480,7 +2455,7 @@ let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 ({ system.nextRandomFloat } ! 3).allSatisfy(isNumber:/1) = true
 atAll:/2.parameterNames = ['self', 'indices'] /* answer names of method parameters */
 asJson:/3.parameterNames = ['self', 'replacer', 'space'] /* answer names of method parameters */
-randomReal:/4.parameterNames = ['self', 'min', 'max', 'shape'] /* answer names of method parameters */
+randomReal:/3.parameterNames = ['self', 'range', 'shape'] /* answer names of method parameters */
 system.methodDictionary['at'][2]['Map'].information.parameterNames = ['self', 'key']
 let c = []; let a = []; 1:3.do { :i | c.add { a.add(i) } }; c.do(value:/1); a = [1, 2, 3]
 let x = [1]; let f = { :n | x[1] := n }; f(3); x = [3] /* closure */
@@ -3984,11 +3959,11 @@ system.includesPackage('TimeStamp') /* timestamp package */
 1676784053576.asTimeStamp.iso8601 = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
 system.now.isTimeStamp = true /* get current time at system */
 system.now.iso8601.size = 24
-1676784053576.asTimeStamp.roundTo(24.hours).iso8601 = '2023-02-19T00:00:00.000Z' /* round to duration */
-let t = system.now; t - 0.seconds = t /* offset TimeStamp by Duration */
-{ system.now.postLine }.valueAfter(0.5.seconds).cancel = nil
-{ system.now.postLine }.valueAt(system.now + 0.5.seconds).cancel = nil
-{ system.now.postLine }.valueEvery(3.seconds).cancel = nil
+1676784053576.asTimeStamp.roundTo(24.hours.asDuration).iso8601 = '2023-02-19T00:00:00.000Z' /* round to duration */
+let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
+{ system.now.postLine }.valueAfter(Duration(0.5)).cancel = nil
+{ system.now.postLine }.valueAt(system.now + Duration(0.5)).cancel = nil
+{ system.now.postLine }.valueEvery(Duration(3)).cancel = nil
 let t = 1676784053576.asTimeStamp; let c = t.copy; c ~~ t & { c = t }
 ```
 
@@ -4091,14 +4066,10 @@ true.not = false
 
 ## Unit/Mass -- physics unit type
 ```
-23.grams.typeOf = 'Mass' /* gram constructor, type of */
+23.grams.asMass.typeOf = 'Mass' /* gram constructor, type of */
 23.grams.isMass /* mass predicate */
-23.grams.printString = '23.grams'
-23.kilograms = 23000.grams /* a kilogram is a thousand grams */
-2.2.pounds ~ 997.9.grams /* two and on fifth pounds is approximately a kilogram */
-36.ounces ~ 1020.58.grams /* thirty-six ounces are approximately a kilogram */
-(1 / 16).pounds = 1.ounces /* an ounce is 1/16 of a pound */
-1.kilograms.asGrams = 1000.asGrams /* grams of mass, or identity of number */
+23.grams.asMass.printString = 'Mass(0.023)'
+1.kilograms.asMass.asKilograms = 1.asKilograms /* grams of mass, or identity of number */
 ```
 
 ## Unit/SiUnit -- units type
@@ -4123,11 +4094,11 @@ system.includesPackage('Unordered') /* package */
 system.includesPackage('PlanarCoordinates') /* package */
 PlanarCoordinates([0, 0]).typeOf = 'PlanarCoordinates' /* type of */
 PlanarCoordinates([-1, 1]).isPlanarCoordinates = true
-[1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* from list */
-(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* from record */
+[1, 2].asPlanarCoordinates = PlanarCoordinates([1, 2]) /* from list */
+(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates([1, 2]) /* from record */
 PlanarCoordinates([-1, 1]).isPlanarCoordinates = true /* point constructor */
-[1, 2].asPlanarCoordinates = PlanarCoordinates(1, 2) /* list as point */
-(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates(1, 2) /* record as point */
+[1, 2].asPlanarCoordinates = PlanarCoordinates([1, 2]) /* list as point */
+(x: 1, y: 2).asPlanarCoordinates = PlanarCoordinates([1, 2]) /* record as point */
 [3 4].asPlanarCoordinates.isPlanarCoordinates & { true } = true
 [-1 1].asPlanarCoordinates.x = -1
 [-1 1].asPlanarCoordinates.y = 1
@@ -4149,16 +4120,16 @@ PlanarCoordinates([200, 100]).x = 200 /* x coordinate */
 PlanarCoordinates([200 100]).y = 100 /* y coordinate */
 0 - PlanarCoordinates([200 100]) = PlanarCoordinates([-200, -100]) /* negates x and y */
 (0 - PlanarCoordinates([200 100])).abs = PlanarCoordinates([200 100]) /* absolute value of x and y */
-PlanarCoordinates(200, 100) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
-PlanarCoordinates(200, 100) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
-PlanarCoordinates(200, 100) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
-PlanarCoordinates(200, 100) / 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
+PlanarCoordinates([200, 100]) + 1 = PlanarCoordinates([201, 101]) /* add scale to both x and y */
+PlanarCoordinates([200, 100]) - 1 = PlanarCoordinates([199, 99]) /* subtract scale from both x and y */
+PlanarCoordinates([200, 100]) * 2 = PlanarCoordinates([400, 200]) /* multiply x and y by scale */
+PlanarCoordinates([200, 100]) / 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
 PlanarCoordinates([200 100]) // 2 = PlanarCoordinates([100, 50]) /* divide x and y by scale */
-PlanarCoordinates(200, 100) % 3 = PlanarCoordinates([2, 1]) /* modulo of x and y by scale */
-PlanarCoordinates(200, 100) + PlanarCoordinates([50, 25) = PlanarCoordinates([250, 125]) /* add points */
-PlanarCoordinates(200, 100) - PlanarCoordinates([50, 25) = PlanarCoordinates([150, 75]) /* subtract points */
-PlanarCoordinates(200, 100) * PlanarCoordinates([3, 4) = PlanarCoordinates([600, 400]) /* multiply points */
-PlanarCoordinates(1800, 100) / PlanarCoordinates([3, 4) = PlanarCoordinates([600, 25]) /* divide points */
+PlanarCoordinates([200, 100]) % 3 = PlanarCoordinates([2, 1]) /* modulo of x and y by scale */
+PlanarCoordinates([200, 100]) + PlanarCoordinates([50, 25]) = PlanarCoordinates([250, 125]) /* add points */
+PlanarCoordinates([200, 100]) - PlanarCoordinates([50, 25]) = PlanarCoordinates([150, 75]) /* subtract points */
+PlanarCoordinates([200, 100]) * PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 400]) /* multiply points */
+PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 25]) /* divide points */
 PlanarCoordinates([200 100]).asList = [200, 100] /* array of x and y */
 let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements first and second */
 let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
@@ -4199,13 +4170,13 @@ CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sq
 CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
 CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
 CartesianCoordinates([0, 0, 0]).isZero = true /* is zero */
-let v = CartesianCoordinates(0, 0, 0); v.asCartesianCoordinates == v /* identity */
-CartesianCoordinates(1, 3, 5).asList = [1 3 5] /* point as array */
+let v = CartesianCoordinates([0, 0, 0]); v.asCartesianCoordinates == v /* identity */
+CartesianCoordinates([1, 3, 5]).asList = [1 3 5] /* point as array */
 [1 3 5].asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
-CartesianCoordinates([1, 3, 5]).asRecord = (x: 1, y: 3, z: 5)
 (x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
 SphericalCoordinates([1, 2, 3]).asRecord = (radius: 1, theta: 2, phi: 3)
 (r: 1, theta: 2, phi: 3).asSphericalCoordinates = SphericalCoordinates([1, 2, 3])
+CartesianCoordinates([1, 3, 5]).asRecord = (x: 1, y: 3, z: 5)
 CylindricalCoordinates([1, 1, 1]).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
 CartesianCoordinates([1.cos, 1.sin, 1]).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
 ```
