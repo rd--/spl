@@ -1372,19 +1372,12 @@ let d = (x: 1, parent: (y: 2, parent: (z: 3))); d.atPutDelegateTo('z', -3, 'pare
 ```
 system.includesPackage('Duration') /* duration package */
 2.seconds.asDuration.typeOf = 'Duration' /* make duration from number of seconds */
-3.hours.asDuration.seconds = 10800 /* convert duration to seconds */
 5.hours.asDuration.isDuration = true /* make duration from number of hours */
-1.5.seconds.asDuration.milliseconds = 1500 /* convert duration to milliseconds */
 let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds.asDuration; f:/1.valueAfterWith(t1, t1) }; f(2.seconds).cancel = nil
-60.seconds.asDuration.milliseconds = 60000 /* convert duration to milliseconds */
 60.seconds.asDuration.seconds = 60 /* convert duration to seconds */
-60.seconds.asDuration.minutes = 1 /* convert duration to minutes */
-3.days.asDuration.hours = 72 /* convert duration to hours */
-3.weeks.asDuration.days = 21 /* convert duration to days */
 'P1W1DT1H1M1S'.parseDuration.seconds = 694861 /* parse ISO-8601 duration string */
 'P2DT2H2M2S'.parseDuration.seconds = 180122 /* parse ISO-8601 duration string */
 'P3DT4H'.parseDuration = (3.days + 4.hours).asDuration
-(2.days + 2.hours + 2.minutes + 2.seconds).asDuration.seconds = ((2 * 24 * 60 * 60) + (2 * 60 * 60) + (2 * 60) + 2)
 (29.days + 12.hours + 44.minutes + 2.9.seconds - 1.synodicMonths).asDuration.abs ~ 76.milliseconds.asDuration
 -3.seconds.asDuration.abs = 3.seconds.asDuration /* absolute value */
 (3.minutes - 2.hours).asDuration.abs = (1.hours + 57.minutes).asDuration /* absolute value */

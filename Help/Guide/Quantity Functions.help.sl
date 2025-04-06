@@ -10,6 +10,11 @@ Types:
 - `SiUnit`
 - `Time`
 
+Quantity accessors:
+
+- `magnitude`
+- `unit`
+
 Time constructors:
 
 - `centiseconds`: cs
@@ -42,3 +47,7 @@ Mass constructors:
 
 - `grams`: g
 - `kilograms`: kg
+
+* * *
+
+Guides: Unit Prefixes

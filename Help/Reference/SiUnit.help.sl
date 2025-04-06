@@ -42,7 +42,7 @@ SiUnit('radian', 'rad', 'plane angle', nil)
 
 * * *
 
-See also: Frequency, Length, Mass, PlaneAngle, SiPrefix, Time
+See also: Frequency, Length, Mass, PlaneAngle, Quantity, SiPrefix, Time
 
 References:
 _NIST_

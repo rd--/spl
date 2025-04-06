@@ -22,7 +22,8 @@ Quantities can be tested for equality:
 true
 ```
 
-Make a quantity from number of milliseconds:
+Make a quantity from number of milliseconds,
+the quantity is converted to be in the _base unit_ of the quantity:
 
 ```
 >>> 250.milliseconds
@@ -48,17 +49,29 @@ true
 Time quantity constructors:
 
 ```
+>>> 1500.milliseconds
+1.5.seconds
+
 >>> 3.centiseconds
 30.milliseconds
 
+>>> 1.5.seconds
+1500.milliseconds
+
 >>> 3.seconds
 300.centiseconds
+
+>>> 60.seconds
+1.minutes
 
 >>> 3.minutes
 180.seconds
 
 >>> 3.hours
 180.minutes
+
+>>> 3.hours
+10800.seconds
 
 >>> 3.days
 72.hours
@@ -274,6 +287,19 @@ Addition of commensurable quantities:
 
 >>> 500.milliseconds + 0.25.seconds
 0.75.seconds
+
+>>> [
+>>> 	2.days
+>>> 	2.hours
+>>> 	2.minutes
+>>> 	2.seconds
+>>> ].sum
+[
+	2 * 24 * 60 * 60,
+	2 * 60 * 60,
+	2 * 60,
+	2
+].sum.seconds
 ```
 
 Subtraction of commensurable quantities:
