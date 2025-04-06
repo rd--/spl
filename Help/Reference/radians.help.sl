@@ -2,10 +2,10 @@
 
 - _radians(x)_
 
-At `Angle`, answer the value in radians:
+At `PlaneAngle`, answer the value in radians:
 
 ```
->>> Angle(90.degree).radians
+>>> PlaneAngle(90.degree).radians
 1/2.pi
 ```
 

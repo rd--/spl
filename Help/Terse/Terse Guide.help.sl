@@ -4105,8 +4105,8 @@ true.not = false
 ```
 'kg'.siUnit.typeOf = 'SiUnit' /* type of SiUnit */
 'm'.siUnit.isSiUnit /* lookup unit by symbol */
-'meter'.siUnit.isSiUnit /* lookup unit by name */
-'m'.siUnit == 'meter'.siUnit /* units are cached (identical) */
+'metre'.siUnit.isSiUnit /* lookup unit by name */
+'m'.siUnit == 'metre'.siUnit /* units are cached (identical) */
 'Hz'.siUnit.name = 'hertz' /* Hz is the symbol of the unit hertz */
 's'.siUnit.isBaseUnit & { 'Pa'.siUnit.isDerivedUnit } /* there are seven base units and twenty two named derived units */
 ```

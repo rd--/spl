@@ -132,6 +132,18 @@ Duration : [Object, Magnitude] { | seconds |
 
 }
 
++Quantity {
+
+	asDuration { :self |
+		(self.unit = 'seconds').if {
+			Duration(self.magnitude)
+		} {
+			self.error('asDuration: not time')
+		}
+	}
+
+}
+
 +System {
 
 	localTimeZoneOffset { :self |

@@ -21,30 +21,6 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		self.binaryOperator(anObject, -)
 	}
 
-	asDuration { :self |
-		(self.unit = 'seconds').if {
-			Duration(self.magnitude)
-		} {
-			self.error('asDuration: not time')
-		}
-	}
-
-	asDuration { :self |
-		(self.unit = 'seconds').if {
-			Duration(self.magnitude)
-		} {
-			self.error('asDuration: not time')
-		}
-	}
-
-	asFrequency { :self |
-		(self.unit = 'hertz').if {
-			Frequency(self.magnitude)
-		} {
-			self.error('asFrequency: not frequency')
-		}
-	}
-
 	binaryOperator { :self :anObject :aBlock:/2 |
 		self.isCommensurate(anObject).if {
 			Quantity(
@@ -62,6 +38,26 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		}
 	}
 
+	isAngle { :self |
+		self.unit = 'radians'
+	}
+
+	isFrequency { :self |
+		self.unit = 'hertz'
+	}
+
+	isLength { :self |
+		self.unit = 'metres'
+	}
+
+	isMass { :self |
+		self.unit = 'kilograms'
+	}
+
+	isTime { :self |
+		self.unit = 'seconds'
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -72,6 +68,30 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 
 	Quantity { :magnitude :unit |
 		newQuantity().initializeSlots(magnitude, unit)
+	}
+
+}
+
++SmallFloat {
+
+	hertz { :self |
+		Quantity(self, 'hertz') /* Hz */
+	}
+
+	kilograms { :self |
+		Quantity(self, 'kilograms') /* kg */
+	}
+
+	metres { :self |
+		Quantity(self, 'metres') /* m */
+	}
+
+	radians { :self |
+		Quantity(self, 'radians') /* rad */
+	}
+
+	seconds { :self |
+		Quantity(self, 'seconds') /* s */
 	}
 
 }

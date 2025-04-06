@@ -2,10 +2,10 @@
 
 - _degrees(x)_
 
-At `Angle` answer the value of `Angle` in degrees:
+At `PlaneAngle` answer the value in degrees:
 
 ```
->>> Angle(0.5.pi).degrees
+>>> PlaneAngle(0.5.pi).degrees
 90
 ```
 
@@ -31,7 +31,7 @@ See also `degreesToRadians`:
 
 * * *
 
-See also: Angle, degree, radians
+See also: degree, PlaneAngle, radians
 
 References:
 _Mathematica_

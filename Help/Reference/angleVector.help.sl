@@ -34,10 +34,10 @@ Equal answer given degrees:
 [1/2, 3.sqrt / 2]
 ```
 
-C.f. `vector` at `Angle`:
+C.f. `vector` at `PlaneAngle`:
 
 ```
->>> Angle(60.degree).vector
+>>> PlaneAngle(60.degree).vector
 [1/2, 3.sqrt / 2]
 ```
 

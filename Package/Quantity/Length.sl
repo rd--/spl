@@ -36,6 +36,10 @@ Length : [Object, Magnitude] { | metres |
 		self.metres / (9.4607 * (10 ^ 15))
 	}
 
+	magnitude { :self |
+		self.metres
+	}
+
 	micrometres { :self |
 		self.metres * 1E-6
 	}
@@ -80,12 +84,28 @@ Length : [Object, Magnitude] { | metres |
 		self.metres / 0.9144
 	}
 
+	unit { :unused |
+		'metres'
+	}
+
 }
 
 +SmallFloat {
 
 	Length { :self |
 		newLength().initializeSlots(self)
+	}
+
+}
+
++Quantity {
+
+	asLength { :self |
+		(self.unit = 'metres').if {
+			Length(self.magnitude)
+		} {
+			self.error('asLength: not length')
+		}
 	}
 
 }
@@ -122,10 +142,6 @@ Length : [Object, Magnitude] { | metres |
 
 	lightYears { :self |
 		(self * (9.4607 * (10 ^ 15))).metres
-	}
-
-	metres { :self |
-		Quantity(self, 'metres')
 	}
 
 	miles { :self |

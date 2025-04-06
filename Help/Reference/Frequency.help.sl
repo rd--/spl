@@ -1,17 +1,20 @@
 # Frequency
 
+- _Frequency(x)_
+
 A `Type` to represent the number of occurrences of a repeating event per unit of time.
 `Frequency` (_f_) is measured in `hertz` (_Hz_) which is equal to the number of events per second.
 The period (_T_) is the interval of time between events, the reciprocal of the frequency.
 
-Frequencies are constructed from `Number` values using the methods `hertz`, `kilohertz` and `megaherz`:
+Make a frequency:
 
 ```
->>> 3000.hertz
-3.kilohertz
+>>> let f = Frequency(1);
+>>> (f.isFrequency, f.unit, f.magnitude)
+(true, 'hertz', 1)
 ```
 
-Frequencies are queried using the same methods:
+Frequencies can be queried using prefixed unit names:
 
 ```
 >>> Frequency(3000)

@@ -28,7 +28,7 @@ Where supported `degree` is displayed as °.
 
 * * *
 
-See also: arcMinute, arcSecond, degrees, pi
+See also: angleVector, arcMinute, arcSecond, arcSin, degrees, fromDms, pi, sin
 
 Guides: Mathematical Constants
 

@@ -1,7 +1,15 @@
 Time : [Object] { | seconds |
 
+	magnitude { :self |
+		self.seconds
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	unit { :unused |
+		'seconds'
 	}
 
 }
@@ -46,10 +54,6 @@ Time : [Object] { | seconds |
 
 	minutes { :self |
 		(self * 60).seconds
-	}
-
-	seconds { :self |
-		Quantity(self, 'seconds')
 	}
 
 	siderealMonths { :self |

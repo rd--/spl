@@ -313,7 +313,7 @@
 - `PolarCoordinates`, `PlanarCoordinates`
 - `CartesianCoordinates`, `CylindricalCoordinates`, `SphericalCoordinates`
 - `Circle`, `Ellipse`, `Line`, `Polygon`, `Rectangle`, `Sphere`
-- `Angle`, `AxonometricProjection`
+- `AxonometricProjection`
 
 ## Geometry Functions
 
@@ -673,7 +673,7 @@
 
 ## Specifying Angles
 
-- `Angle`, `degrees`, `radians`
+- `PlaneAngle`, `degrees`, `radians`
 - `degree`, `fromDms`
 
 ## Splines
@@ -779,7 +779,7 @@
 
 ## Trigonometric Functions
 
-- `Angle`, `degrees`, `radians`
+- `degrees`, `radians`
 - `degreesToRadians`, `radiansToDegrees`
 - `cos`, `sin`, `tan`
 - `cosh`, `sinh`, `tanh`
@@ -801,7 +801,9 @@
 
 ## Units & Measures
 
-- `Angle`, `Distance`, `Frequency`, `Length`
+- `Quantity`
+- `Mass`, `Length`, `Time`
+- `Frequency`, `PlaneAngle`
 - `asHertz`, `hertz`, `kiloherz`
 - `metres`
 

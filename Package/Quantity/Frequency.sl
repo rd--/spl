@@ -28,6 +28,10 @@ Frequency : [Object, Magnitude] { | hertz |
 		self.hertz / 1000
 	}
 
+	magnitude { :self |
+		self.hertz
+	}
+
 	megaherz { :self |
 		self.hertz / 1000000
 	}
@@ -36,13 +40,13 @@ Frequency : [Object, Magnitude] { | hertz |
 		self.storeStringAsInitializeSlots
 	}
 
+	unit { :unused |
+		'hertz'
+	}
+
 }
 
 +SmallFloat {
-
-	hertz { :self |
-		Quantity(self, 'hertz') /* Hz */
-	}
 
 	Frequency { :self |
 		newFrequency().initializeSlots(self)
@@ -62,6 +66,18 @@ Frequency : [Object, Magnitude] { | hertz |
 
 	megaherz { :self |
 		(self * 1000000).hertz
+	}
+
+}
+
++Quantity {
+
+	asFrequency { :self |
+		(self.unit = 'hertz').if {
+			Frequency(self.magnitude)
+		} {
+			self.error('asFrequency: not frequency')
+		}
 	}
 
 }

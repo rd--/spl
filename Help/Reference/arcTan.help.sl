@@ -32,7 +32,7 @@ Answers are in radians:
 >>> 1.arcTan.radiansToDegrees
 45
 
->>> Angle(1.arcTan).degrees
+>>> PlaneAngle(1.arcTan).degrees
 45
 ```
 

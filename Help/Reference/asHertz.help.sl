@@ -17,7 +17,7 @@ Quantity(5, 'hertz')
 
 _Rationale_:
 `Frequency` has symmetrical constructors and accessors.
-There are equivalent methods for `Angle` (`asRadians`) and `Duration` (`asSeconds`) and `Length` (`asMetres`).
+There are equivalent methods for `PlaneAngle` (`asRadians`) and `Duration` (`asSeconds`) and `Length` (`asMetres`).
 
 * * *
 

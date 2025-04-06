@@ -52,11 +52,20 @@
 	'Fraction' /* LargeInteger */
 	'Decimal' /* Fraction */
 
+	/* Quantity */
+	'Quantity'
+	'Frequency'
+	'Length'
+	'Mass'
+	'PlaneAngle'
+	'SiPrefix'
+	'SiUnit'
+	'Time'
+
 	/* Logic */
 	'SymbolicExpression'
 
 	/* Geometry */
-	'Angle'
 	'Arc'
 	'Ball'
 	'BarycentricCoordinates'
@@ -139,14 +148,6 @@
 	'MutableCollectionStream'
 	'AsciiStream'
 	'Utf8Stream'
-
-	/* Quantity */
-	'Frequency'
-	'Length'
-	'Mass'
-	'Quantity'
-	'SiUnit'
-	'Time'
 
 	/* Random */
 	'AliasMethod'

@@ -1,6 +1,6 @@
 # fromDms
 
-- _fromDms(aSequence)_
+- _fromDms([d, m, s])_
 
 Answer angle in decimal degrees given a sequence of _degrees, minutes, seconds_.
 

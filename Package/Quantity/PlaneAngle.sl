@@ -1,4 +1,4 @@
-Angle : [Object, Magnitude] { | radians |
+PlaneAngle : [Object, Magnitude] { | radians |
 
 	= { :self :anAngle |
 		self.radians = anAngle.radians
@@ -24,16 +24,24 @@ Angle : [Object, Magnitude] { | radians |
 		self.radians / 1.pi * 180
 	}
 
+	magnitude { :self |
+		self.radians
+	}
+
 	sin { :self |
 		self.radians.sin
 	}
 
 	storeString { :self |
-		self.radians.storeString ++ '.radians'
+		self.storeStringAsInitializeSlots
 	}
 
 	tan { :self |
 		self.radians.tan
+	}
+
+	unit { :unused |
+		'radians'
 	}
 
 	vector { :self |
@@ -44,8 +52,8 @@ Angle : [Object, Magnitude] { | radians |
 
 +SmallFloat {
 
-	Angle { :self |
-		newAngle().initializeSlots(self)
+	PlaneAngle { :self |
+		newPlaneAngle().initializeSlots(self)
 	}
 
 }

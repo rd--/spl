@@ -13,7 +13,11 @@ Mass : [Object, Magnitude] { | kilograms |
 	}
 
 	grams { :self |
-		self.kilograms * 1000
+		self.kilograms * 1E3
+	}
+
+	magnitude { :self |
+		self.kilograms
 	}
 
 	ounces { :self |
@@ -28,12 +32,28 @@ Mass : [Object, Magnitude] { | kilograms |
 		self.storeStringAsInitializeSlots
 	}
 
+	unit { :unused |
+		'kilograms'
+	}
+
 }
 
 +SmallFloat {
 
 	Mass { :self |
 		newMass().initializeSlots(self)
+	}
+
+}
+
++Quantity {
+
+	asMass { :self |
+		(self.unit = 'kilograms').if {
+			Mass(self.magnitude)
+		} {
+			self.error('asMass: not mass')
+		}
 	}
 
 }
@@ -45,11 +65,7 @@ Mass : [Object, Magnitude] { | kilograms |
 	}
 
 	grams { :self |
-		(self * 1000).kilograms
-	}
-
-	kilograms { :self |
-		Quantity(self, 'kilograms')
+		(self * 1E-3).kilograms
 	}
 
 	ounces { :self |

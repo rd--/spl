@@ -1,59 +1,7 @@
-+@Number {
-
-	centi { :self |
-		self * 1E-2
-	}
-
-	deca { :self |
-		self * 1E1
-	}
-
-	deci { :self |
-		self * 1E-1
-	}
-
-	hecto { :self |
-		self * 1E2
-	}
-
-	giga { :self |
-		self * 1E9
-	}
-
-	mega { :self |
-		self * 1E6
-	}
-
-	kilo { :self |
-		self * 1E3
-	}
-
-	micro { :self |
-		self * 1E-6
-	}
-
-	milli { :self |
-		self * 1E-3
-	}
-
-	nano { :self |
-		self * 1E-9
-	}
-
-	pico { :self |
-		self * 1E-12
-	}
-
-	terra { :self |
-		self * 1E12
-	}
-
-}
-
 SiUnit : [Object] { | symbol name dimension quantity |
 
-	= { :self :anSiUnit |
-		self == anSiUnit
+	= { :self :anObject |
+		self.hasEqualSlotsBy(anObject, =)
 	}
 
 	isBaseUnit { :self |
@@ -68,6 +16,10 @@ SiUnit : [Object] { | symbol name dimension quantity |
 		self.symbol = symbolOrName | {
 			self.name = symbolOrName
 		}
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -103,13 +55,13 @@ SiUnit : [Object] { | symbol name dimension quantity |
 	siBaseUnitList { :self |
 		self.cache.atIfAbsentPut('siBaseUnitList') {
 			[
-				'm'.SiUnit('meter', 'L', 'length'),
-				's'.SiUnit('second', 'T', 'time'),
-				'mole'.SiUnit('mole', 'N', 'amount of substance'),
-				'A'.SiUnit('ampere', 'I', 'electric current'),
-				'K'.SiUnit('kelvin', 'Θ', 'thermodynamic temperature'),
-				'cd'.SiUnit('candela', 'J', 'luminous intensity'),
-				'kg'.SiUnit('kilogram', 'M', 'mass')
+				SiUnit('m', 'metre', 'L', 'length'),
+				SiUnit('s', 'second', 'T', 'time'),
+				SiUnit('mole', 'mole', 'N', 'amount of substance'),
+				SiUnit('A', 'ampere', 'I', 'electric current'),
+				SiUnit('K', 'kelvin', 'Θ', 'thermodynamic temperature'),
+				SiUnit('cd', 'candela', 'J', 'luminous intensity'),
+				SiUnit('kg', 'kilogram', 'M', 'mass')
 			]
 		}
 	}
@@ -117,16 +69,16 @@ SiUnit : [Object] { | symbol name dimension quantity |
 	siDerivedUnitList { :self |
 		self.cache.atIfAbsentPut('siDerivedUnitList') {
 			[
-				'Hz'.SiUnit('hertz', 'f', 'frequency'),
-				'rad'.SiUnit('radian', nil, 'angle'),
-				'sr'.SiUnit('steradian', 'Ω', 'solid angle'),
-				'N'.SiUnit('newton', ['F', 'W'], ['force', 'weight']),
-				'Pa'.SiUnit('pascal', ['p', 'σ'], ['pressure', 'stress']),
-				'J'.SiUnit('joule', ['E', 'W', 'Q'], ['energy', 'work', 'heat']),
-				'W'.SiUnit('watt', ['P', 'Φe'], ['power', 'radiant flux']),
-				'lm'.SiUnit('lumen', 'Φv', 'luminous flux'),
-				'lx'.SiUnit('lux', 'Ev', 'illuminance'),
-				'Bq'.SiUnit('becquerel', nil, 'radioactivity')
+				SiUnit('Hz', 'hertz', 'f', 'frequency'),
+				SiUnit('rad', 'radian', nil, 'plane angle'),
+				SiUnit('sr', 'steradian', 'Ω', 'solid angle'),
+				SiUnit('N', 'newton', ['F', 'W'], ['force', 'weight']),
+				SiUnit('Pa', 'pascal', ['p', 'σ'], ['pressure', 'stress']),
+				SiUnit('J', 'joule', ['E', 'W', 'Q'], ['energy', 'work', 'heat']),
+				SiUnit('W', 'watt', ['P', 'Φe'], ['power', 'radiant flux']),
+				SiUnit('lm', 'lumen', 'Φv', 'luminous flux'),
+				SiUnit('lx', 'lux', 'Ev', 'illuminance'),
+				SiUnit('Bq', 'becquerel', 'A', 'activity')
 			]
 		}
 	}
