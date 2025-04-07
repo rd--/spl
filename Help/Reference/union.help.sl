@@ -27,6 +27,13 @@ Find divisors that occur in any of 10, 12, and 20:
 [1 2 3 4 5 6 10 12 20].asSet(=)
 ```
 
+At `Interval`:
+
+```
+>>> (1 -- 3).union(3 -- 7)
+(1 -- 7)
+```
+
 Where supported `union` is displayed as ∪.
 
 * * *
@@ -38,6 +45,7 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:union),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Union.html)
+[2](https://reference.wolfram.com/language/ref/IntervalUnion.html)
 
 Unicode: U+222A ∪ Union
 

@@ -18,6 +18,7 @@ Converting:
 
 Accessors:
 
+- `absoluteTime`
 - `asList`
 - `centiseconds`
 - `dayOfMonth`
@@ -27,7 +28,6 @@ Accessors:
 - `minute`
 - `month`
 - `second`
-- `unixTimeInMilliseconds`
 - `year`
 
 Printing:
@@ -41,9 +41,11 @@ Parsing:
 
 System Clock:
 
+- `absoluteTime`
 - `currentDate`
 - `millisecondsToRun`
 - `now`
+- `sessionTime`
 
 Scheduling:
 

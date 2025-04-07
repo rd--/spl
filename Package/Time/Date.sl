@@ -2,12 +2,16 @@ Date! : [Object, Magnitude] {
 
 	= { :self :anObject |
 		anObject.isDate & {
-			self.unixTimeInMilliseconds = anObject.unixTimeInMilliseconds
+			self.absoluteTime = anObject.absoluteTime
 		}
 	}
 
 	< { :self :aDate |
-		self.unixTimeInMilliseconds < aDate.unixTimeInMilliseconds
+		self.absoluteTime < aDate.absoluteTime
+	}
+
+	absoluteTime { :self |
+		<primitive: return _self.getTime() / 1000;>
 	}
 
 	asDate { :self |
@@ -26,7 +30,7 @@ Date! : [Object, Magnitude] {
 	}
 
 	asTimeStamp { :self |
-		self.unixTimeInMilliseconds.asTimeStamp
+		self.absoluteTime.asTimeStamp
 	}
 
 	dayOfWeek { :self |
@@ -71,10 +75,6 @@ Date! : [Object, Magnitude] {
 
 	unixTimeInMilliseconds { :self |
 		<primitive: return _self.getTime();>
-	}
-
-	unixTimeInSeconds { :self |
-		self.unixTimeInMilliseconds / 1000
 	}
 
 	year { :self |

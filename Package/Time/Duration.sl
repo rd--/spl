@@ -97,15 +97,15 @@ Duration : [Object, Magnitude] { | seconds |
 +Block {
 
 	valueAfter { :self:/0 :delay |
-		self:/0.valueAfterMilliseconds(delay.asSeconds * 1000)
+		self:/0.basicValueAfter(delay.asSeconds)
 	}
 
 	valueAfterWith { :self:/1 :delay :anObject |
-		self:/1.valueAfterMillisecondsWith(delay.asSeconds * 1000, anObject)
+		self:/1.basicValueAfterWith(delay.asSeconds, anObject)
 	}
 
 	valueEvery { :self:/0 :delay |
-		self:/0.valueEveryMilliseconds(delay.asSeconds * 1000)
+		self:/0.basicValueEvery(delay.asSeconds)
 	}
 
 }

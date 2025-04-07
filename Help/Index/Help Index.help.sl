@@ -768,7 +768,7 @@
 
 ## Timing
 
-- `now`, `systemTimeInMilliseconds`, `unixTime`, `unixTimeInMilliseconds`
+- `currentDate, `now`, `absoluteTime`
 - `millisecondsToRun`
 
 ## Tree Operations

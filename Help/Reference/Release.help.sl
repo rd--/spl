@@ -40,7 +40,7 @@ Release(
 Scheduling process:
 
 ~~~spl scheduler
-let t = system.systemTimeInSeconds;
+let t = system.sessionTime;
 0:9.do { :x |
 	Release(
 		Pan2(

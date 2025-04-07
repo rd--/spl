@@ -5,7 +5,7 @@ TranscriptEntry : [Object] { | category message time |
 +String {
 
 	TranscriptEntry { :self :message |
-		newTranscriptEntry().initializeSlots(self, message, system.unixTimeInMilliseconds)
+		newTranscriptEntry().initializeSlots(self, message, system.absoluteTime)
 	}
 
 }

@@ -38,7 +38,7 @@ MersenneTwister : [Object, Iterator, RandomNumberGenerator, Stream] { | seed blo
 +Void {
 
 	MersenneTwister {
-		MersenneTwister(system.unixTimeInMilliseconds)
+		MersenneTwister(system.absoluteTime)
 	}
 
 }

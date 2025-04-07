@@ -48,7 +48,7 @@ SplitMix : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 +Void {
 
 	SplitMix {
-		SplitMix(system.unixTimeInMilliseconds)
+		SplitMix(system.absoluteTime)
 	}
 
 }

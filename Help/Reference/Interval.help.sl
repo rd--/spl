@@ -1,6 +1,6 @@
 # Interval
 
-- _Interval(min, max)_
+- _Interval([min, max])_
 
 An interval represents the range of values between _min_ and _max_.
 Intervals are closed, they includes both end points.

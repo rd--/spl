@@ -135,7 +135,7 @@ ScSynth! : [Object] {
 	}
 
 	play { :self |
-		self.playAt(system.systemTimeInSeconds)
+		self.playAt(system.sessionTime)
 	}
 
 	playAt { :self :systemTimeInSeconds |

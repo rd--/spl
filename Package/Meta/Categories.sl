@@ -480,11 +480,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'solarMonths'
 		'solarYears'
 		'synodicMonths'
-		'systemTimeInMilliseconds'
-		'systemTimeInSeconds'
-		'unixTime'
+		'sessionTimeInMilliseconds'
+		'absoluteTime'
 		'unixTimeInMilliseconds'
-		'unixTimeInSeconds'
+		'sessionTime'
 		'weeks'
 	],
 	'adding': [

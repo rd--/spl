@@ -1,30 +1,30 @@
 +Block {
 
-	valueAfterMilliseconds { :self:/0 :delayInMilliseconds |
+	basicValueAfter { :self:/0 :delay |
 		<primitive:
-		if(sl.isSmallFloat(_delayInMilliseconds)) {
-			return setTimeout(_self_0, _delayInMilliseconds);
+		if(sl.isSmallFloat(_delay)) {
+			return setTimeout(_self_0, _delay * 1000);
 		}
 		>
-		self.error('Block>>valueAfterMilliseconds: not a number')
+		self:/0.error('Block>>basicValueAfter: not a number')
 	}
 
-	valueAfterMillisecondsWith { :self:/1 :delayInMilliseconds :anObject |
+	basicValueAfterWith { :self:/1 :delay :anObject |
 		<primitive:
-		if(sl.isSmallFloat(_delayInMilliseconds)) {
-			return setTimeout(_self_1, _delayInMilliseconds, _anObject);
+		if(sl.isSmallFloat(_delay)) {
+			return setTimeout(_self_1, _delay * 1000, _anObject);
 		}
 		>
-		self.error('Block>>valueAfterMillisecondsWith: not a number')
+		self:/1.error('Block>>basicValueAfterWith: not a number')
 	}
 
-	valueEveryMilliseconds { :self:/0 :delayInMilliseconds |
+	basicValueEvery { :self:/0 :delay |
 		<primitive:
-		if(sl.isSmallFloat(_delayInMilliseconds)) {
-			return setInterval(_self_0, _delayInMilliseconds);
+		if(sl.isSmallFloat(_delay)) {
+			return setInterval(_self_0, _delay * 1000);
 		}
 		>
-		self.error('Block>>valueEveryMilliseconds: not a number')
+		self:/0.error('Block>>basicValueEvery: not a number')
 	}
 
 }

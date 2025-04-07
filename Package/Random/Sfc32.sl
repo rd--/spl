@@ -98,7 +98,7 @@ Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 +Void {
 
 	Sfc32 {
-		Sfc32(system.unixTimeInMilliseconds.asSfc32State)
+		Sfc32(system.absoluteTime.asSfc32State)
 	}
 
 }

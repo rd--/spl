@@ -3,6 +3,12 @@
 - _TimeStamp(t)_
 
 `TimeStamp` is a `Type` representing a zero duration point in time.
+The _epoch_ is the Unix-Epoch:
+
+```
+>>> TimeStamp(0).iso8601
+'1970-01-01T00:00:00.000Z'
+```
 
 The `System` method `now` gets the current time.
 
@@ -11,12 +17,12 @@ The `System` method `now` gets the current time.
 true
 ```
 
-The `SmallFloat` method `asTimeStamp` given a unix time in milliseconds,
+The `SmallFloat` method `asTimeStamp` given a Unix-Epoch time in milliseconds,
 i.e. the number of milliseconds since the Unix epoch (1970-01-01).
 
 ```
->>> 0.asTimeStamp.iso8601
-'1970-01-01T00:00:00.000Z'
+>>> 1.75E12.asTimeStamp.iso8601
+'2025-06-15T15:06:40.000Z'
 ```
 
 * * *

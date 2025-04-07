@@ -54,6 +54,13 @@ at `List` retains duplicates and order:
 [1 1 3]
 ```
 
+At `Interval`:
+
+```
+>>> (-2 -- 3).intersection(1 -- 4)
+(1 -- 3)
+```
+
 Where supported `intersection` is displayed as ∩.
 
 * * *
@@ -65,6 +72,7 @@ _Apl_
 [1](https://aplwiki.com/wiki/Intersection),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Intersection.html)
+[2](https://reference.wolfram.com/language/ref/IntervalIntersection.html)
 
 Unicode: U+2229 ∩ Intersection
 

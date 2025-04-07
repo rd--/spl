@@ -25,6 +25,27 @@ At `Interval`:
 true
 ```
 
+Test whether one interval lies within another:
+
+```
+>>> (2 -- 5).includes(3 -- 4)
+true
+
+>>> (2 -- 5).includes(4 -- 6)
+false
+
+Out[1]=	
+In[2]:=	
+IntervalMemberQ[Interval[{2, 5}], Interval[{4, 6}]]	https://wolfram.com/xid/0b0k0ws9oeb-dttol
+Out[2]=	
+In[3]:=	
+https://wolfram.com/xid/0b0k0ws9oeb-cejudx
+Out[3]=	
+In[4]:=	
+IntervalMemberQ[CenteredInterval[1 + I, 2 + 3 I], 
+ Interval[{0, 1}, {2, 3}]]	https://wolfram.com/xid/0b0k0ws9oeb-qqujn
+Out[4]=	
+
 At `Record`:
 
 ```
@@ -81,7 +102,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Membership),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/MemberQ.html),
+[1](https://reference.wolfram.com/language/ref/MemberQ.html)
+[2](https://reference.wolfram.com/language/ref/IntervalMemberQ.html),
 _Smalltalk_
 5.7.1.15
 

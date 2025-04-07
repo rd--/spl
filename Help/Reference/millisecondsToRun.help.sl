@@ -1,20 +1,20 @@
-# millisecondsToRun
+# secondsToRun
 
-- _millisecondsToRun(alpha)_ ⟹ _millisecondsToRun(system, alpha)_
-- _millisecondsToRun(aSystem, aBlock:/0)_
+- _secondsToRun(alpha)_ ⟹ _secondsToRun(system, alpha)_
+- _secondsToRun(aSystem, aBlock:/0)_
 
-Answers the number of milliseconds required to evaluate _aBlock:/0_.
+Answers the number of seconds required to evaluate _aBlock:/0_.
 
 ```
 >>> let t = {
 >>> 	3579.nthPrime
 >>> }.millisecondsToRun;
->>> t >= 0 & { t < 1250 }
+>>> t >= 0 & { t < 1.25 }
 true
 ```
 
 * * *
 
-See also: systemTimeInMilliseconds
+See also: sessionTime
 
 Categories: Timing

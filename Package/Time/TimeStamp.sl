@@ -1,27 +1,27 @@
-TimeStamp : [Object] { | unixTimeInMilliseconds |
+TimeStamp : [Object] { | absoluteTime |
 
 	= { :self :aTimeStamp |
 		aTimeStamp.isTimeStamp.if {
-			self.unixTimeInMilliseconds = aTimeStamp.unixTimeInMilliseconds
+			self.absoluteTime = aTimeStamp.absoluteTime
 		} {
 			false
 		}
 	}
 
 	< { :self :aTimeStamp |
-		self.unixTimeInMilliseconds < aTimeStamp.unixTimeInMilliseconds
+		self.absoluteTime < aTimeStamp.absoluteTime
 	}
 
 	+ { :self :aDuration |
-		(self.unixTimeInMilliseconds + aDuration.milliseconds).asTimeStamp
+		TimeStamp(self.absoluteTime + aDuration.seconds)
 	}
 
 	- { :self :aDuration |
-		(self.unixTimeInMilliseconds - aDuration.milliseconds).asTimeStamp
+		TimeStamp(self.absoluteTime - aDuration.seconds)
 	}
 
 	asDate { :self |
-		self.unixTimeInSeconds.asDate
+		self.absoluteTime.asDate
 	}
 
 	asTimeStamp { :self |
@@ -33,16 +33,12 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 	}
 
 	roundTo { :self :aDuration |
-		self.unixTimeInMilliseconds := self.unixTimeInMilliseconds.roundTo(aDuration.milliseconds);
+		self.absoluteTime := self.absoluteTime.roundTo(aDuration.seconds);
 		self
 	}
 
 	storeString { :self |
-		self.unixTimeInMilliseconds.storeString ++ '.asTimeStamp'
-	}
-
-	unixTimeInSeconds { :self |
-		self.unixTimeInMilliseconds / 1000
+		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -50,7 +46,7 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +System {
 
 	now { :self |
-		self.unixTimeInMilliseconds.asTimeStamp
+		TimeStamp(self.absoluteTime)
 	}
 
 }
@@ -58,10 +54,14 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +SmallFloat {
 
 	asTimeStamp { :self |
+		TimeStamp(self)
+	}
+
+	TimeStamp { :self |
 		newTimeStamp().initializeSlots(self)
 	}
 
-	unixTimeInMilliseconds { :self |
+	absoluteTime { :self |
 		self
 	}
 
@@ -70,13 +70,13 @@ TimeStamp : [Object] { | unixTimeInMilliseconds |
 +Block {
 
 	valueAt { :self :time |
-		let now = system.unixTimeInMilliseconds;
-		self.valueAfterMilliseconds(time.unixTimeInMilliseconds - now)
+		let now = system.absoluteTime;
+		self.valueAfter(time.absoluteTime - now)
 	}
 
 	valueAtWith { :self :time :anObject |
-		let now = system.unixTimeInMilliseconds;
-		self.valueAfterMillisecondsWith(time.unixTimeInMilliseconds - now, anObject)
+		let now = system.absoluteTime;
+		self.valueAfterWith(time.absoluteTime - now, anObject)
 	}
 
 }

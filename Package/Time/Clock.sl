@@ -37,7 +37,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	schedule { :self :deltaTime :aBlock:/1 |
-		let currentTime = system.systemTimeInSeconds;
+		let currentTime = system.sessionTime;
 		let scheduledTime = currentTime + deltaTime;
 		let wakeupTime = self.nextEntryTime;
 		self.priorityQueue.pushWithPriority(aBlock:/1, scheduledTime);
@@ -65,7 +65,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	}
 
 	wakeup { :self :scheduledTime |
-		let currentTime = system.systemTimeInSeconds;
+		let currentTime = system.sessionTime;
 		let queue = self.priorityQueue;
 		let frontOfQueueTime = self.nextEntryTime;
 		{

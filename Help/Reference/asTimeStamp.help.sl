@@ -1,8 +1,18 @@
 # asTimeStamp
 
-- _asTimeStamp(aNumber)_
+- _asTimeStamp(anObject)_
 
-Answer a `TimeStamp` holding the time given by taking `aNumber` as the number of milliseconds since the Unix epoch (1970-01-01).
+At `Date`:
+
+```
+>>> '2025-04-07T21:32'
+>>> .parseDate
+>>> .asTimeStamp
+TimeStamp(1744025520000)
+```
+
+At `Number`,
+answer a `TimeStamp` holding the time given by taking the number of milliseconds since the Unix epoch (1970-01-01):
 
 ```
 >>> 0.asTimeStamp.iso8601

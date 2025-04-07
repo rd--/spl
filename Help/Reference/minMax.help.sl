@@ -49,6 +49,13 @@ Minimum and maximum values of matrix columns and rows:
 )
 ```
 
+At `Interval`:
+
+```
+>>> (1 -- 9).minMax
+[1 9]
+```
+
 * * *
 
 See also: min, max

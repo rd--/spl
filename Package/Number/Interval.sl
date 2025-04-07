@@ -16,7 +16,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 
 	+ { :self :operand |
 		operand.isInterval.if {
-			Interval(self.min + operand.min, self.max + operand.max)
+			Interval(
+				self.min + operand.min,
+				self.max + operand.max
+			)
 		} {
 			operand.adaptToIntervalAndApply(self, +)
 		}
@@ -24,7 +27,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 
 	- { :self :operand |
 		operand.isInterval.if {
-			Interval(self.min - operand.min, self.max - operand.max)
+			Interval(
+				self.min - operand.min,
+				self.max - operand.max
+			)
 		} {
 			operand.adaptToIntervalAndApply(self, -)
 		}
@@ -69,6 +75,12 @@ Interval : [Object, Magnitude, Number] { | min max |
 		}
 	}
 
+	betweenAnd { :self :min :max |
+		min <= self.min & {
+			self.max <= max
+		}
+	}
+
 	discretize { :self :size :aBlock:/1 |
 		self.discretize(size).collect(aBlock:/1)
 	}
@@ -109,8 +121,8 @@ Interval : [Object, Magnitude, Number] { | min max |
 		Range(start, end, step)
 	}
 
-	includes { :self :aNumber |
-		aNumber.betweenAnd(self.min, self.max)
+	includes { :self :operand |
+		operand.betweenAnd(self.min, self.max)
 	}
 
 	intersection { :self :operand |
@@ -118,7 +130,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 			self.isDisjoint(operand).if {
 				'Interval>>intersection: disjoint Intervals'.error
 			} {
-				Interval(self.min.max(operand.min), self.max.min(operand.max))
+				Interval(
+					self.min.max(operand.min),
+					self.max.min(operand.max)
+				)
 			}
 		} {
 			operand.adaptToIntervalAndApply(self, intersection:/2)
@@ -129,6 +144,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		self.max < anInterval.min | {
 			anInterval.max < self.min
 		}
+	}
+
+	minMax { :self |
+		[self.min, self.max]
 	}
 
 	negated { :self |
@@ -156,7 +175,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 	}
 
 	storeString { :self |
-		'Interval(' ++ self.min ++ ', ' ++ self.max ++ ')'
+		self.storeStringAsInitializeSlots
 	}
 
 	union { :self :operand |
@@ -164,7 +183,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 			self.isDisjoint(operand).if {
 				'Interval>>union: disjoint Intervals'.error
 			} {
-				Interval(self.min.min(operand.min), self.max.max(operand.max))
+				Interval(
+					self.min.min(operand.min),
+					self.max.max(operand.max)
+				)
 			}
 		} {
 			operand.adaptToIntervalAndApply(self, union:/2)
@@ -180,7 +202,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 +@Number {
 
 	-- { :min :max |
-		Interval(min, max)
+		Interval([min, max])
 	}
 
 	adaptToIntervalAndApply { :self :anInterval :aBlock:/2 |
@@ -193,7 +215,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 
 	Interval { :min :max |
 		(min > max).if {
-			'@Number>>Interval: min > max'.error
+			[min, max].error('Interval: min > max')
 		} {
 			newInterval().initializeSlots(min, max)
 		}

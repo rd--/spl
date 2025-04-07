@@ -4,6 +4,10 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		self == anObject
 	}
 
+	absoluteTime { :unused |
+		<primitive: return Date.now() / 1000;>
+	}
+
 	basicNextRandomFloat { :self |
 		<primitive: return Math.random();>
 	}
@@ -107,12 +111,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.methodDictionary;>
 	}
 
-	millisecondsToRun { :self :aBlock:/0 |
-		let beginTime = self.systemTimeInMilliseconds;
-		aBlock();
-		self.systemTimeInMilliseconds - beginTime
-	}
-
 	operatorCharacters { :self |
 		self.cached('operatorCharacters') {
 			'&*^@$=!>-<#%+?\\/~|'.contents
@@ -209,8 +207,14 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	randomNumberGenerator { :self |
 		self.cached('randomNumberGenerator') {
-			Sfc32(self.unixTimeInMilliseconds)
+			Sfc32(self.absoluteTime)
 		}
+	}
+
+	secondsToRun { :self :aBlock:/0 |
+		let beginTime = self.sessionTime;
+		aBlock();
+		self.sessionTime - beginTime
 	}
 
 	seedRandom { :self :anInteger |
@@ -254,12 +258,12 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.typeDictionary;>
 	}
 
-	systemTimeInMilliseconds { :unused |
+	sessionTimeInMilliseconds { :unused |
 		<primitive: return performance.now();>
 	}
 
-	systemTimeInSeconds { :unused |
-		<primitive: return performance.now() * 0.001;>
+	sessionTime { :unused |
+		<primitive: return performance.now() / 1000;>
 	}
 
 	uniqueId { :self |
@@ -310,13 +314,13 @@ System! : [Object, Cache, RandomNumberGenerator] {
 +Block {
 
 	benchForMilliseconds { :self:/0 :interval |
-		let t0 = system.systemTimeInMilliseconds;
+		let t0 = system.sessionTimeInMilliseconds;
 		let t1 = nil;
 		let t2 = t0 + interval;
 		let count = 1;
 		self();
 		{
-			t1 := system.systemTimeInMilliseconds;
+			t1 := system.sessionTimeInMilliseconds;
 			t1 < t2
 		}.whileTrue {
 			self();
@@ -334,10 +338,8 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		].stringJoin
 	}
 
-	millisecondsToRun { :self:/0 |
-		let startTime = system.systemTimeInMilliseconds;
-		self();
-		system.systemTimeInMilliseconds - startTime
+	secondsToRun { :self:/0 |
+		system.secondsToRun(self:/0)
 	}
 
 }

@@ -7,9 +7,9 @@ which may be a `Duration`, or a `Quantity`, or a `Number` of seconds.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
 ~~~spl scheduler
-let t0 = system.unixTimeInMilliseconds;
+let t0 = system.absoluteTime;
 let k = {
-	let t = system.unixTimeInMilliseconds;
+	let t = system.absoluteTime;
 	(t - t0).postLine
 }.valueEvery(1.seconds);
 {

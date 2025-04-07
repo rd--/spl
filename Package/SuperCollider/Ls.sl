@@ -370,9 +370,9 @@
 	}
 
 	play { :self |
-		let unixTime = system.unixTimeInMilliseconds;
-		let systemTime = system.systemTimeInMilliseconds;
-		let timeDifference = (unixTime - systemTime) / 1000;
+		let absoluteTime = system.absoluteTime;
+		let sessionTime = system.sessionTime;
+		let timeDifference = absoluteTime - sessionTime;
 		{ :currentTime |
 			let next = self.next;
 			next.ifNil {

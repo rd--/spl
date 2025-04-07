@@ -266,10 +266,6 @@ Block! : [Object] {
 		}
 	}
 
-	millisecondsToRun { :self:/0 |
-		system.millisecondsToRun(self:/0)
-	}
-
 	movingMap { :self:/1 :sequence :windowSize |
 		let answer = [];
 		1.toDo(sequence.size - windowSize + 1) { :i |
@@ -336,6 +332,10 @@ Block! : [Object] {
 			self();
 			true
 		}.whileTrue
+	}
+
+	secondsToRun { :self:/0 |
+		system.secondsToRun(self:/0)
 	}
 
 	sourceCode { :self |
