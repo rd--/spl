@@ -2,9 +2,11 @@
 
 Converting:
 
-- `MidiCps`
+- `CpsCv`
 - `CpsMidi`
-- `MidiRatio`
-- `RatioMidi`
 - `CpsOct`
+- `CvCps`
+- `MidiCps`
+- `MidiRatio`
 - `OctCps`
+- `RatioMidi`

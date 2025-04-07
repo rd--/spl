@@ -112,6 +112,10 @@
 		'exp'.symbolicPrimitive([self])
 	}
 
+	isInteger { :unused |
+		false
+	}
+
 	log { :self |
 		'log'.symbolicPrimitive([self])
 	}

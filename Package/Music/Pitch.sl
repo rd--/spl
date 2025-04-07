@@ -18,6 +18,22 @@
 
 +@Number {
 
+	CpsCv { :f :f0 |
+		(f / f0).log2
+	}
+
+	CpsCv { :f |
+		(f / 261.6256).log2
+	}
+
+	CvCps { :v :f0 |
+		f0 * (2 ^ v)
+	}
+
+	CvCps { :v |
+		261.6256 * (2 ^ v)
+	}
+
 	linearOctave { :self |
 		(440 * (2 ^ (self - 4.75))).hertz
 	}
@@ -111,6 +127,30 @@
 
 	quarterToneSharp { :self |
 		self + 0.05
+	}
+
+}
+
++@Collection{
+
+	CpsCv { :self |
+		self.collect(CpsCv:/1)
+	}
+
+	CpsCv { :self :f0 |
+		self.collect { :f |
+			(f / f0).log2
+		}
+	}
+
+	CvCps { :self |
+		self.collect(CvCps:/1)
+	}
+
+	CvCps { :self :f0 |
+		self.collect { :v |
+			f0 * (2 ^ v)
+		}
 	}
 
 }

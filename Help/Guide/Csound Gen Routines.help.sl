@@ -1,22 +1,22 @@
 # Csound Gen Routines
 
-## Sine and Cosine Generators
+## Sine and Cosine
 
-- `gen09`: Composite waveforms made up of weighted sums of simple sinusoids.
-- `gen10`: Composite waveforms made up of weighted sums of simple sinusoids.
-- `gen11`: Additive set of cosine partials.
-- `gen19`: Composite waveforms made up of weighted sums of simple sinusoids.
+- `gen09`: weighted sums of sinusoids
+- `gen10`: weighted sums of sinusoids
+- `gen11`: additive set of cosine partials
+- `gen19`: weighted sums of sinusoids
 
-## Line and Exponential Segment Generators
+## Line and Exponential Segment
 
-- `gen05`: Constructs functions from segments of exponential curves.
-- `gen07`: Constructs functions from segments of straight lines.
-- `gen16`: Creates a table from a starting value to an ending value.
+- `gen05`: segments of exponential curves
+- `gen07`: segments of straight lines
+- `gen16`: starting value to ending value
 
-## Waveshaping Gen Routines
+## Waveshaping
 
-- `gen03`: Generates a stored function table by evaluating a polynomial.
-- `gen13`: Stores a polynomial whose coefficients derive from the Chebyshev polynomials of the first kind.
+- `gen03`: evaluate polynomial
+- `gen13`: evaluate Chebyshev polynomial
 
 * * *
 
