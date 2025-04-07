@@ -33,8 +33,17 @@ Splay(
 )
 ```
 
+Evaluate symbolically:
+
+```
+>> RatioMidi(`x`)
+(* 12 (log2 x))
+```
+
 * * *
 
 See also: CpsMidi, MidiCps, MidiRatio
+
+Guides: Pitch Functions
 
 Categories: Arithmetic

@@ -125,6 +125,7 @@
 	'Bessel'
 	'Binomial'
 	'DifferentialEquations'
+	'DistanceFunctions'
 	'EasingFunctions'
 	'Elementwise'
 	'Fourier'

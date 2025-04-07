@@ -8,15 +8,21 @@ The base two logarithm of _aNumber_.
 >>> (2 ^ 10).log2
 10
 
+>>> (2 ^ 1/2).log2
+1/2
+
 >>> 2.sqrt.log2
 1/2
+
+>>> (2 ^ -1).log2
+-1
 
 >>> let n = system.nextRandomFloat;
 >>> n.log2
 (n.log / 2.log)
 ```
 
-Log base two of the first primes:
+Log base two of the first few primes:
 
 ```
 >>> 10.primesList.log2

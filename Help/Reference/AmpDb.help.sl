@@ -37,6 +37,13 @@ SinOsc(
 ) * 0.1
 ```
 
+Evaluate symbolically:
+
+```
+>> AmpDb(`x`)
+(* (log10 x) 20)
+```
+
 * * *
 
 See also: DbAmp

@@ -14,8 +14,17 @@ Inverse of `RatioMidi`.
 1.5
 ```
 
+Evaluate symbolically:
+
+```
+>> MidiRatio(`x`)
+(^ 2 (/ x 12))
+```
+
 * * *
 
-See also: MidiCps, RatioMidi
+See also: CpsMidi, MidiCps, RatioMidi
+
+Guides: Pitch Functions
 
 Categories: Arithmetic

@@ -54,12 +54,23 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/MidiCps-A.svg)
 
+Evaluate symbolically:
+
+```
+>> MidiCps(`x`)
+(* 440 (^ 2 (/ (- x 69) 12)))
+```
+
 * * *
 
 See also: CpsMidi, MidiRatio
 
+Guides: Pitch Functions
+
 References:
 _Csound_
-[1](https://csound.com/docs/manual/mtof.html)
+[1](https://csound.com/docs/manual/mtof.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SimpleNumber.html#-midicps)
 
 Categories: Arithmetic

@@ -19,6 +19,12 @@ WeightedData : [Object] { | inputData weights |
 		xO[i] /* no interpolation */
 	}
 
+	rootMeanSquare { :self |
+		let x = self.inputData;
+		let w = self.weights;
+		((x.squared * w) / w.sum).sum.sqrt
+	}
+
 	sampleVariance { :self |
 		let x = self.inputData;
 		let w = self.weights;

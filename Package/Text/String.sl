@@ -373,10 +373,6 @@ String! : [Object, Json, Iterable, Character] {
 		}
 	}
 
-	editDistance { :self :aString |
-		self.characters.editDistance(aString.characters)
-	}
-
 	endsWith { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -473,10 +469,6 @@ String! : [Object, Json, Iterable, Character] {
 		} {
 			self.error('format: incorrect number of arguments')
 		}
-	}
-
-	hammingDistance { :self :aString |
-		self.characters.hammingDistance(aString.characters)
 	}
 
 	includes { :self :aCharacter |

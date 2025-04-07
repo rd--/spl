@@ -65,13 +65,24 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/CpsMidi-A.svg)
 
+Evaluate symbolically:
+
+```
+>> CpsMidi(`x`)
+(+ (* (log2 (/ x 440)) 12) 69)
+```
+
 * * *
 
-See also: CpsRatio, MidiCps
+See also: MidiCps, RatioMidi
+
+Guides: Pitch Functions
 
 References:
 _Csound_
-[1](https://csound.com/docs/manual/ftom.html)
+[1](https://csound.com/docs/manual/ftom.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/SimpleNumber.html#-cpsmidi),
 _W_
 [1](https://en.wikipedia.org/wiki/Scientific_pitch_notation)
 

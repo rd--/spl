@@ -37,6 +37,13 @@ let mul = Line(-12, -40, 10).DbAmp;
 SinOsc(800, 0) * mul
 ```
 
+Evaluate symbolically:
+
+```
+>> DbAmp(`x`)
+(^ 10 (* x 0.05))
+```
+
 * * *
 
 See also: AmpDb

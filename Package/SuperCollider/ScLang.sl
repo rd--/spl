@@ -78,11 +78,11 @@
 	}
 
 	CpsMidi { :self |
-		(self * (1 / 440)).log2 * 12 + 69
+		(self / 440).log2 * 12 + 69
 	}
 
 	CpsOct { :self |
-		(self * (1 / 440)).log2 + 4.75
+		(self / 440).log2 + 4.75
 	}
 
 	Cubed { :self |
@@ -241,11 +241,11 @@
 	}
 
 	MidiCps { :self |
-		440 * (2 ^ ((self - 69) * (1 / 12)))
+		440 * (2 ^ ((self - 69) / 12))
 	}
 
 	MidiRatio { :self |
-		2.0 ^ (self * (1 / 12))
+		2 ^ (self / 12)
 	}
 
 	MulAdd { :self :mul :add |

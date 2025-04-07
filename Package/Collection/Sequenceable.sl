@@ -349,10 +349,6 @@
 		}
 	}
 
-	binaryDistance { :u :v |
-		(u = v).boole
-	}
-
 	binarySearch { :self :item |
 		let n = self.size;
 		let i = n.binaryDetectIndex { :each |
@@ -423,14 +419,6 @@
 		self.bisect(anObject, <)
 	}
 
-	brayCurtisDistance { :self :aList |
-		(self - aList).abs.sum / (self + aList).abs.sum
-	}
-
-	canberraDistance { :self :aList |
-		((self - aList).abs / (self.abs + aList.abs)).sum
-	}
-
 	cartesianIndex { :shape :anInteger |
 		(anInteger - 1).mixedRadixEncode(shape) + 1
 	}
@@ -443,10 +431,6 @@
 			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
 			(anObject # prefixSize) ++ aList ++ (anObject # suffixSize)
 		}
-	}
-
-	chessboardDistance { :self :aList |
-		(self - aList).abs.max
 	}
 
 	chineseRemainder { :r :m |
@@ -652,10 +636,6 @@
 		answer
 	}
 
-	cosineDistance { :u :v |
-		1 - (u.dot(v) / (u.norm * v.norm))
-	}
-
 	cross { :u |
 		let [x, y] = u;
 		[y.-, x]
@@ -821,10 +801,6 @@
 		self.replicateEachApplying(counts, value:/1)
 	}
 
-	editDistance { :self :other |
-		self.levenshteinDistance(other)
-	}
-
 	endsWith { :self :aList |
 		aList.isSequenceable.if {
 			let sequenceSize = aList.size;
@@ -857,10 +833,6 @@
 				self.hasEqualElementsBy(anObject, aBlock:/2)
 			}
 		}
-	}
-
-	euclideanDistance { :self :aList |
-		(self - aList).norm
 	}
 
 	eulerMatrix { :self |
@@ -1191,17 +1163,6 @@
 	grownBy { :self :length |
 		let answer = self.species.ofSize(self.size + length);
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
-	}
-
-	hammingDistance { :self :other |
-		let size = self.size.min(other.size);
-		let count = (self.size - other.size).abs;
-		1.toDo(size) { :index |
-			(self[index] ~= other[index]).ifTrue {
-				count := count + 1
-			}
-		};
-		count
 	}
 
 	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
@@ -1662,34 +1623,6 @@
 		x.dot(cx).inverse.dot(x).dot(cy).transposed.first
 	}
 
-	levenshteinDistance { :self :other |
-		self.levenshteinDistance(other, =)
-	}
-
-	levenshteinDistance { :self :other :equalityBlock:/2 |
-		(self.isEmpty | {
-			other.isEmpty
-		}).if {
-			self.size
-		} {
-			let matrix = [0 .. other.size];
-			1.toDo(self.size) { :xIndex |
-				let corner = xIndex - 1;
-				matrix[1] := xIndex - 1;
-				1.toDo(other.size) { :yIndex |
-					let upper = matrix[yIndex + 1];
-					matrix[yIndex + 1] := equalityBlock(self[xIndex], other[yIndex]).if {
-						corner
-					} {
-						[upper, corner, matrix[yIndex]].min + 1
-					};
-					corner := upper
-				}
-			};
-			matrix[other.size + 1]
-		}
-	}
-
 	linearIndex { :shape :aList |
 		(aList - 1).mixedRadixDecode(shape) + 1
 	}
@@ -1854,10 +1787,6 @@
 			answer.add(each)
 		};
 		answer
-	}
-
-	manhattanDistance { :self :aList |
-		(self - aList).abs.sum
 	}
 
 	mergeInPlace { :self :select:/1 :insert:/2 |
@@ -2048,12 +1977,6 @@
 		} {
 			self / n
 		}
-	}
-
-	normalizedSquaredEuclideanDistance { :u :v |
-		let uu = (u - u.mean);
-		let vv = (v - v.mean);
-		0.5 * (uu - vv).norm.squared / (uu.norm.squared + vv.norm.squared)
 	}
 
 	nubCumulatively { :self :compareBlock:/2 |
@@ -2640,10 +2563,6 @@
 			answer.add(step())
 		};
 		answer
-	}
-
-	squaredEuclideanDistance { :self :aList |
-		(self - aList).norm.squared
 	}
 
 	suffixesDo { :self :aBlock:/1 |

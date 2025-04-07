@@ -329,10 +329,6 @@
 		1 - x.erf
 	}
 
-	euclideanDistance { :self :aNumber |
-		(aNumber - self).abs
-	}
-
 	eulerGamma { :self |
 		self * 0.577215664901532860606512090082402431042
 	}
@@ -572,10 +568,6 @@
 
 	metallicMean { :n |
 		(n + (n.squared + 4).sqrt) / 2
-	}
-
-	minkowskiDistance { :p :u :v |
-		((u - v).abs ^ p).sum ^ (1 / p)
 	}
 
 	mixedFractionParts { :self |

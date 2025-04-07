@@ -49,3 +49,5 @@ See also: quantile, rankedMin, sort
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RankedMax.html)
+
+Categories: Statistics

@@ -643,10 +643,6 @@
 		self.rescale(self.deepMin, self.deepMax, 0, 1)
 	}
 
-	rootMeanSquare { :self |
-		self.squared.sum.sqrt / 2
-	}
-
 	select { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |

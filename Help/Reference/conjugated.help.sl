@@ -12,7 +12,7 @@ The complex conjugate of a complex number _a + bi_ is defined to be _a - bi_.
 0.7J0
 ```
 
-Conjugate threads elementwise over lists and matrices:
+Threads elementwise over lists and matrices:
 
 ```
 >>> [1.2 2.5J1.5 0J-1.8].conjugated

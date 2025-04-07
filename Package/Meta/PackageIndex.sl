@@ -136,6 +136,7 @@
 	'Math-Bessel'
 	'Math-Binomial'
 	'Math-DifferentialEquations'
+	'Math-DistanceFunctions'
 	'Math-EasingFunctions'
 	'Math-Elementwise'
 	'Math-Fourier'

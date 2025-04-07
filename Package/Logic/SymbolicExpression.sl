@@ -112,6 +112,18 @@
 		'exp'.symbolicPrimitive([self])
 	}
 
+	log { :self |
+		'log'.symbolicPrimitive([self])
+	}
+
+	log2 { :self |
+		'log2'.symbolicPrimitive([self])
+	}
+
+	log10 { :self |
+		'log10'.symbolicPrimitive([self])
+	}
+
 	sin { :self |
 		'sin'.symbolicPrimitive([self])
 	}

@@ -8,6 +8,22 @@
 		self.mean
 	}
 
+	centralFeature { :self :aBlock:/2 |
+		let n = self.size;
+		let m = Infinity;
+		let k = 0;
+		1.toDo(n) { :i |
+			let d = (1 .. n).collect { :j |
+				aBlock(self[i], self[j])
+			}.sum;
+			(d < m).ifTrue {
+				m := d;
+				k := i
+			}
+		};
+		self[k]
+	}
+
 	centralMoment { :self :r |
 		let mean = self.mean;
 		(1 / self.size) * ((self - mean) ^ r).sum
@@ -59,14 +75,6 @@
 		(1 / self.size) * (self ^ r).sum
 	}
 
-	stochasticVector { :self :k |
-		let v = 0 # k;
-		self.do { :i |
-			v[i] := v[i] + 1
-		};
-		v / v.sum
-	}
-
 	quantile { :self :p :a :b :c :d |
 		self.isVector.if {
 			self.asSortedList.quantile(p, a, b, c, d)
@@ -91,6 +99,10 @@
 
 	quartiles { :self |
 		self.quartiles(1 / 2, 0, 0, 1)
+	}
+
+	rootMeanSquare { :self |
+		self.squared.mean.sqrt
 	}
 
 	sampleStandardDeviation { :self |
@@ -121,13 +133,47 @@
 		self.centralMoment(r) / (self.sampleStandardDeviation ^ r)
 	}
 
+	stochasticVector { :self :k |
+		let v = 0 # k;
+		self.do { :i |
+			v[i] := v[i] + 1
+		};
+		v / v.sum
+	}
+
+	trimmedMean { :self :f |
+		let [f1, f2] = f;
+		let n = self.size;
+		self.sorted.sliceFromTo(
+			1 + (f1 * n).floor,
+			n - (f2 * n).floor
+		).mean
+	}
+
 	variance { :self |
 		((self - self.mean) ^ 2).sum / (self.size - 1)
+	}
+
+	winsorizedMean { :self :f |
+		let [f1, f2] = f;
+		let n = self.size;
+		let z1 = self.rankedMin(1 + (f1 * n).floor);
+		let z2 = self.rankedMax(1 + (f2 * n).floor);
+		self.clip(z1, z2).mean
 	}
 
 }
 
 +@Sequenceable {
+
+	absoluteCorrelation { :u :v |
+		let n = u.size;
+		(v.size = n).if {
+			u.dot(v.conjugated) / n
+		} {
+			u.error('absoluteCorrelation: size mismatch')
+		}
+	}
 
 	absoluteCorrelationFunction { :x :hList |
 		let n = x.size;
