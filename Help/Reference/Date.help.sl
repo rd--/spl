@@ -32,8 +32,23 @@ i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, `millisecond` &e
 [1970 1 1]
 ```
 
+The first six of these are answered by `asList`:
+
+```
+>>> '2025-04-07T17:07:20'
+>>> .parseDate
+>>> .asList
+[2025 4 2 17 7 20]
+```
+
 * * *
 
 See also: asDate, dayOfMonth, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DateObject.html),
+_Smalltalk_
+5.8.1
 
 Categories: Time, Type

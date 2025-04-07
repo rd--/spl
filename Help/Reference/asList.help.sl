@@ -1,8 +1,9 @@
 # asList
 
-- _asList(aCollection)_
+- _asList(anObject)_
 
-Answer a `List` whose elements are the elements of _aCollection_.
+At a `Collection`,
+answer a `List` whose elements are the elements of _aCollection_.
 If the collection is a `List`, answer it directly.
 
 ```
@@ -72,6 +73,17 @@ At `SphericalCoordinates`:
 [1 3 5]
 ```
 
+At `Date`,
+answer _(year, month, day, hour, minute, second)_:
+
+```
+>>> '2025-04-07T17:07:20'
+>>> .parseDate
+>>> .asList
+[2025 4 2 17 7 20]
+```
+
+
 This should not be defined for scalar values, see _asCollection_.
 
 * * *
@@ -79,6 +91,8 @@ This should not be defined for scalar values, see _asCollection_.
 See also: List, asCollection
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DateList.html),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/xco#dyadic),
 _Smalltalk_

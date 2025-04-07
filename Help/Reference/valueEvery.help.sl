@@ -1,14 +1,16 @@
 # valueEvery
 
-- _valueEvery(aBlock:/0, aNumber | aDuration)_
+- _valueEvery(aBlock:/0, interval)_
 
-Schedule _aBlock_ to be evaluated repeatedly at an interval of _aNumber_ of seconds.
+Schedule _aBlock_ to be evaluated repeatedly at _interval_,
+which may be a `Duration`, or a `Quantity`, or a `Number` of seconds.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
 ~~~spl scheduler
-let t = system.unixTimeInMilliseconds;
+let t0 = system.unixTimeInMilliseconds;
 let k = {
-	(system.unixTimeInMilliseconds - t).postLine
+	let t = system.unixTimeInMilliseconds;
+	(t - t0).postLine
 }.valueEvery(1.seconds);
 {
 	k.cancel

@@ -1,11 +1,12 @@
 # unixTimeInMilliseconds
 
-- _unixTimeInMilliseconds(aSystem | aTimeStamp | aNumber)_
+- _unixTimeInMilliseconds(anObject)_
 
 At `System`, get the current time in milliseconds since the Unix epoch as a `SmallFloat`.
 
 ```
->>> system.unixTimeInMilliseconds > 1671935015392
+>>> let t = system.unixTimeInMilliseconds;
+>>> t > 1671935015392
 true
 
 >>> let t1 = system.unixTimeInMilliseconds;

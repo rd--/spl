@@ -1,5 +1,9 @@
 Time : [Object] { | seconds |
 
+	asSeconds { :self |
+		self.seconds
+	}
+
 	magnitude { :self |
 		self.seconds
 	}

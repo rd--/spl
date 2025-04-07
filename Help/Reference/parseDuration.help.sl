@@ -28,7 +28,7 @@ since the duration is ambiguous regarding the total number of days in a calendar
 
 * * *
 
-See also: Duration
+See also: Date, Duration, parseDate, TimeStamp
 
 References:
 _W_

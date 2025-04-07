@@ -14,6 +14,17 @@ Date! : [Object, Magnitude] {
 		self
 	}
 
+	asList { :self |
+		[
+			self.year,
+			self.month,
+			self.dayOfWeek,
+			self.hour,
+			self.minute,
+			self.second
+		]
+	}
+
 	asTimeStamp { :self |
 		self.unixTimeInMilliseconds.asTimeStamp
 	}
@@ -84,6 +95,14 @@ Date! : [Object, Magnitude] {
 
 	parseDate { :self |
 		<primitive: return new Date(_self);>
+	}
+
+}
+
++System {
+
+	currentDate { :unused |
+		<primitive: return new Date();>
 	}
 
 }

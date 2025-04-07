@@ -1,5 +1,7 @@
 # TimeStamp
 
+- _TimeStamp(t)_
+
 `TimeStamp` is a `Type` representing a zero duration point in time.
 
 The `System` method `now` gets the current time.

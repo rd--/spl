@@ -43,6 +43,14 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		self + anObject.negated
 	}
 
+	asSeconds { :self |
+		self.isTime.if {
+			self.magnitude
+		} {
+			self.error('asSeconds: not time')
+		}
+	}
+
 	isCommensurate { :self :anObject |
 		anObject.isQuantity & {
 			self.unit = anObject.unit

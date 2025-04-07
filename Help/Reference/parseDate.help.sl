@@ -17,4 +17,8 @@ A string parser that recognizes subsets of the ISO 8601 specification, _YYYY-MM-
 
 See also: Date, Duration, iso8601, TimeStamp
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FromDateString.html)
+
 Categories: Time, Parsing

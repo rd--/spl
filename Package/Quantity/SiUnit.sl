@@ -78,6 +78,7 @@ SiUnit : [Object] { | name symbol quantity dimension |
 				SiUnit('pascal', 'Pa', ['pressure', 'stress'], ['p', 'σ']),
 				SiUnit('radian', 'rad', 'plane angle', nil),
 				SiUnit('steradian', 'sr', 'solid angle', 'Ω'),
+				SiUnit('volt', 'V', 'electric potential difference', 'V'),
 				SiUnit('watt', 'W', ['power', 'radiant flux'], ['P', 'Φe'])
 			]
 		}

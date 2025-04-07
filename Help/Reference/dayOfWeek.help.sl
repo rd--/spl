@@ -15,7 +15,7 @@ Sunday is day one, Saturday is day seven.
 
 * * *
 
-See also: asDate, Date, minute, month, parseDate, year
+See also: asDate, Date, dayOfMonth, minute, month, parseDate, year
 
 References:
 _Smalltalk_
