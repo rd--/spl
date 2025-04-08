@@ -23,7 +23,7 @@ Four days, twelve hours, thirty minutes, and five seconds:
 ].sum.asDuration
 
 >>> 'P4DT12H30M5S'.parseDuration.asList
-[4 12 30 5]
+[0 4 12 30 5]
 ```
 
 Five minutes and seven and one half seconds:
@@ -33,7 +33,7 @@ Five minutes and seven and one half seconds:
 Duration((5 * 60) + 7.5)
 
 >>> 'PT5M7.5S'.parseDuration.asList
-[0 0 5 7.5]
+[0 0 0 5 7.5]
 ```
 
 Six weeks:
@@ -42,7 +42,7 @@ Six weeks:
 >>> 'P6W'.parseDuration
 Duration(6 * 7 * 24 * 60 * 60)
 
->>> 'P6W'.parseDuration.durationString
+>>> 'P6W'.parseDuration.asList
 [6 0 0 0 0]
 ```
 

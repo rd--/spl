@@ -24,7 +24,7 @@ Mixed radix counting systems are common in calendrical calculations.
 >>> 1084.mixedRadixEncode(b)
 [6 8 6]
 
->>> Let b = [7 24 60];
+>>> let b = [7 24 60];
 >>> 12345.mixedRadixEncode(b)
 [1 1 13 45]
 
@@ -62,7 +62,7 @@ The inverse is `mixedRadixDecode`.
 
 ```
 >>> let b = [12 9 6];
->>> [10 5 1].mixedRadixDecode()
+>>> [10 5 1].mixedRadixDecode(b)
 571
 
 >>> let b = [15 10 5];

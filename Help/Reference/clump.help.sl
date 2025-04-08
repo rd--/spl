@@ -33,7 +33,7 @@ and `reshape`:
 [1 2 3; 4 5 6; 7 8 1]
 ```
 
-If is equivalent to `chunksOf`:
+`clump` is equivalent to `chunksOf`:
 
 ```
 >>> [1 .. 8].chunksOf(3)

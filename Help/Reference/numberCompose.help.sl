@@ -79,8 +79,10 @@ the former is left padded with zeros:
 `mixedRadixDecode` performs a `numberCompose` operation:
 
 ```
->>> 1E4.mixedRadixDecode([24 60 60])
-[2 46 40]
+>>> let b = [24 60 60];
+>>> let e = [2 46 40];
+>>> e.mixedRadixDecode(b)
+1E4
 
 >>> let u = [60 * 60, 60, 1];
 >>> let c = [2 46 40];

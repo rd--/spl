@@ -72,8 +72,33 @@ PlaneAngle : [Object, Magnitude] { | radians |
 		(self.pi / 180).radians
 	}
 
+	dmsList { :self |
+		let b = [60 60];
+		(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
+	}
+
 	gradians { :self |
 		(self * 400).radians
+	}
+
+}
+
++List {
+
+	dmsList { :self |
+		self.fromDms.dmsList
+	}
+
+	fromDms { :self |
+		self.numberCompose([1, 1 / 60, 1 / 3600])
+	}
+
+}
+
++Quantity {
+
+	dmsList { :self |
+		self.degrees.dmsList
 	}
 
 }

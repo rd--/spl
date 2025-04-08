@@ -49,7 +49,7 @@ Use inexact numbers:
 Decompose a negative number:
 
 ```
->>> Let u = [10 5 2 1];
+>>> let u = [10 5 2 1];
 >>> -99.numberDecompose(u)
 [-9, -1, -2, 0]
 ```

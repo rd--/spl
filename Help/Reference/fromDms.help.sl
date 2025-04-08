@@ -27,7 +27,7 @@ A signed angle:
 
 * * *
 
-See also: degree, numberCompose
+See also: degree, dmsList, numberCompose, PlaneAngle
 
 References:
 _Mathematica_
