@@ -1,9 +1,21 @@
 # Interval
 
-- _Interval([min, max])_
+- _Interval(min, max)_
 
 An interval represents the range of values between _min_ and _max_.
 Intervals are closed, they includes both end points.
+
+```
+>>> let i = Interval(0, 1);
+>>> (
+>>> 	i.min,
+>>> 	i.max,
+>>> 	i.minMax,
+>>> 	i.includes(0),
+>>> 	i.includes(1)
+>>> )
+(0, 1, [0, 1], true, true)
+```
 
 Use `+` to add intervals, getting an interval representing the result:
 

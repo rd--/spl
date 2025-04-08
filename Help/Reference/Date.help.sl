@@ -46,7 +46,7 @@ i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, `millisecond` &e
 The first six of these fields are answered by `asList`:
 
 ```
->>> '2025-04-08T17:07:20Z'
+>>> '2025-04-08T17:07:20.000Z'
 >>> .parseDate
 >>> .asList
 [2025 04 08 17 07 20]

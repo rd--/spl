@@ -30,4 +30,8 @@ A `Type` that represents the interval between two time instants.
 
 * * *
 
-See also: Duration, Interval, TimeStamp
+See also: Duration, Interval, Time, TimeStamp
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DateInterval.html)

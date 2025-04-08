@@ -7,6 +7,7 @@ Types:
 - `Frequency`
 - `Quantity`
 - `Time`
+- `TimeInterval`
 - `TimeStamp`
 
 Converting:
@@ -46,6 +47,7 @@ System Clock:
 - `absoluteTime`
 - `currentDate`
 - `now`
+- `repeatedTiming`
 - `sessionTime`
 - `timing`
 

@@ -16,6 +16,9 @@ At `Time`,
 answer the number of complete hours:
 
 ```
+>>> Time(3 * 60 * 60).hours
+3
+
 >>> 180.minutes.asTime.hours
 3
 

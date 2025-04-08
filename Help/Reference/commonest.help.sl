@@ -32,6 +32,8 @@ See also: Bag, counts, mean, median, sortedElements
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mode.html)
-[2](https://reference.wolfram.com/language/ref/Commonest.html)
+[2](https://reference.wolfram.com/language/ref/Commonest.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Mode_(statistics))
 
 Categories: Statistics

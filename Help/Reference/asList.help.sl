@@ -77,10 +77,10 @@ At `Date`,
 answer _(year, month, day, hour, minute, second)_:
 
 ```
->>> '2025-04-07T17:07:20'
+>>> '2025-04-07T17:07:20.000Z'
 >>> .parseDate
 >>> .asList
-[2025 4 2 17 7 20]
+[2025 04 07 17 07 20]
 ```
 
 

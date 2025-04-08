@@ -1,11 +1,15 @@
 # hour
 
-- _hour(aDate)_
+- _hour(t)_
 
-Answer the hour of _aDate_.
+Answer the hour of the temporal object _t_.
+
+At `Date`:
 
 ```
->>> '2024-03-04T21:41'.parseDate.hour
+>>> '2024-03-04T21:41:00.000Z'
+>>> .parseDate
+>>> .hour
 21
 ```
 

@@ -3836,7 +3836,7 @@ system.sessionTime > 0 = true
 system.absoluteTime > 1671935015 = true
 let t1 = system.absoluteTime; let t2 = system.absoluteTime; t2 - t1 = 0
 let [t, r] = { 3579.nthPrime }.timing; t >= 0 & { t < 1 & { r = 33413 } }
-let [c, t] = { system.absoluteTime }.benchForSeconds(0.01); c > 1000 & { t >= 0.01 }
+let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1744087941 }
 ```
 
 ## System -- traitDictionary

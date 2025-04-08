@@ -2307,6 +2307,7 @@ Reference/removeKey.help.sl
 Reference/removeKeyIfAbsent.help.sl
 Reference/removeLast.help.sl
 Reference/removeOscListener.help.sl
+Reference/repeatedTiming.help.sl
 Reference/repeatEvery.help.sl
 Reference/repeat.help.sl
 Reference/repeatMatrix.help.sl

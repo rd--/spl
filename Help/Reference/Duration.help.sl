@@ -10,20 +10,11 @@ The base unit of time in the International System of Units (SI) is the second.
 1.5.minutes.asDuration
 ```
 
-Query Duration values:
+Query `Duration` values:
 
 ```
 >>> 3.minutes.asDuration.seconds
 180
-
->>> 3.hours.asDuration.minutes
-180
-
->>> 3.days.asDuration.hours
-72
-
->>> 3.weeks.asDuration.days
-21
 ```
 
 Durations can be summed,

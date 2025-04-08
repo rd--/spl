@@ -29,8 +29,12 @@ Date! : [Object, Magnitude] {
 		]
 	}
 
+	asTime { :self |
+		Time(self.absoluteTime)
+	}
+
 	asTimeStamp { :self |
-		self.absoluteTime.asTimeStamp
+		TimeStamp(self.absoluteTime)
 	}
 
 	dateString { :self |

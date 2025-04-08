@@ -6,7 +6,7 @@ At `Date`,
 converts to an equivalent `TimeStamp` value:
 
 ```
->>> '2025-04-07T21:32Z'
+>>> '2025-04-07T21:32:00.000Z'
 >>> .parseDate
 >>> .asTimeStamp
 TimeStamp(1744061520)

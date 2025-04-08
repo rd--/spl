@@ -12,7 +12,7 @@ Answer the second element of _aSequence_:
 or the second of _aDate_:
 
 ```
->>> '2024-03-04T21:41:07'.parseDate.second
+>>> '2024-03-04T21:41:07.000Z'.parseDate.second
 7
 ```
 

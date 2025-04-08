@@ -67,8 +67,12 @@
 		self.sum / self.size
 	}
 
+	meanDeviation { :self :aBlock:/1 |
+		(self - aBlock(self)).abs.sum / self.size
+	}
+
 	meanDeviation { :self |
-		(self - self.mean).abs.sum / self.size
+		self.meanDeviation(mean:/1)
 	}
 
 	moment { :self :r |

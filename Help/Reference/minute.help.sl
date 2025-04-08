@@ -5,7 +5,9 @@
 Answer the minute of _aDate_.
 
 ```
->>> '2024-03-04T21:41'.parseDate.minute
+>>> '2024-03-04T21:41:00.000Z'
+>>> .parseDate
+>>> .minute
 41
 ```
 

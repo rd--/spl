@@ -314,29 +314,23 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 +Block {
 
-	benchForSeconds { :self:/0 :interval |
-		let t0 = system.sessionTime;
-		let t1 = nil;
-		let t2 = t0 + interval;
-		let count = 1;
-		self();
+	repeatedTiming { :self:/0 :interval |
+		let timeList = [];
+		let currentTime = system.sessionTime;
+		let endTime = currentTime + interval;
+		let answer = self();
 		{
-			t1 := system.sessionTime;
-			t1 < t2
+			let previousTime = currentTime;
+			currentTime := system.sessionTime;
+			timeList.add(currentTime - previousTime);
+			currentTime < endTime
 		}.whileTrue {
-			self();
-			count := count + 1
+			self()
 		};
-		[count, t1 - t0]
-	}
-
-
-	benchFor { :self :interval |
-		let [count, elapsedTime] = self.benchForSeconds(interval.asSeconds);
 		[
-			(count / elapsedTime).roundTo(0.001), ' per second; ',
-			(elapsedTime / count).roundTo(0.001), ' per count'
-		].stringJoin
+			timeList.trimmedMean([0.25 0.25]),
+			answer
+		]
 	}
 
 	timing { :self:/0 |

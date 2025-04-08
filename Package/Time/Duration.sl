@@ -40,6 +40,10 @@ Duration : [Object, Magnitude] { | seconds |
 		self.seconds
 	}
 
+	asTime { :self |
+		Time(self.seconds)
+	}
+
 	isZero { :self |
 		self.seconds = 0
 	}

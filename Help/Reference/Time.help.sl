@@ -11,6 +11,22 @@ The second (_s_) is the SI unit of time.
 (true, 'seconds', 1)
 ```
 
+Query `Time` value:
+
+```
+>>> 3.hours.asTime.minutes
+180
+
+>>> 3.days.asTime.hours
+72
+
+>>> 3.weeks.asTime.days
+21
+
+>>> 1.siderealDays.asTime.hours
+23.9345
+```
+
 * * *
 
 See also: Angle, Frequency, Length, Mass, Quantity, SiUnit

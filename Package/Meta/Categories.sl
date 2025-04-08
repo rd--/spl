@@ -1335,8 +1335,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'timing'
 	],
 	'timing-benchmark': [
-		'benchFor'
-		'benchForMilliseconds'
+		'repeatedTiming'
 	],
 	'truncating and rounding': [
 		'asLargerPowerOfTwo'

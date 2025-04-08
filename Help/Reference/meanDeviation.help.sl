@@ -13,6 +13,22 @@ Answer the mean absolute deviation from the mean of the elements in _aCollection
 
 >>> [2 8 3 15].meanDeviation
 (9 / 2)
+
+>>> [2 2 3 4 14].meanDeviation
+3.6
+```
+
+Specify the measure of central tendency:
+
+```
+>>> [2 2 3 4 14].meanDeviation(median:/1)
+2.8
+
+>>> [2 2 3 4 14]
+>>> .meanDeviation { :x |
+>>> 	x.commonest.first
+>>> }
+3
 ```
 
 Calculation in terms of `-`, `mean`, `abs`, `sum`, `/` and `size`:
@@ -30,6 +46,8 @@ See also: mean, standardDeviation
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MeanDeviation.html)
-[2](https://reference.wolfram.com/language/ref/MeanDeviation.html)
+[2](https://reference.wolfram.com/language/ref/MeanDeviation.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Average_absolute_deviation)
 
 Categories: Statistics

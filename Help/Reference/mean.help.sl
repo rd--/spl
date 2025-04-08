@@ -87,5 +87,6 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/Mean.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Mean)
+[2](https://en.wikipedia.org/wiki/Arithmetic_mean)
 
 Categories: Statistics
