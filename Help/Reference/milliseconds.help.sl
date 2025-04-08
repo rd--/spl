@@ -2,10 +2,8 @@
 
 - _milliseconds(t)_
 
-Answer the number of complete milliseconds in _aDuration_,
-or construct a `Quantity` value holding _aNumber_ milliseconds.
-
-At `SmallFloat`:
+At `SmallFloat`,
+construct a `Quantity` value holding _t_ milliseconds:
 
 ```
 >>> 5.milliseconds
@@ -15,18 +13,19 @@ Quantity(0.005, 'seconds')
 3.minutes
 ```
 
-At `Duration`:
+At `Time`,
+answer the number of complete milliseconds in _t_:
 
 ```
->>> 5.minutes.asDuration.milliseconds
+>>> 5.minutes.asTime.milliseconds
 300000
 
->>> 3.hours.asDuration.milliseconds
+>>> 3.hours.asTime.milliseconds
 3 * 60 * 60 * 1000
 ```
 
 * * *
 
-See also: asSeconds, Duration, hours, seconds, minutes
+See also: asSeconds, hours, minutes, seconds, Time
 
 Categories: Time, Type

@@ -32,7 +32,9 @@ Accessors:
 
 Printing:
 
-- `iso8601`
+- `dateString`
+- `dateTimeString`
+- `ordinalDateString`
 
 Parsing:
 
@@ -43,9 +45,9 @@ System Clock:
 
 - `absoluteTime`
 - `currentDate`
-- `millisecondsToRun`
 - `now`
 - `sessionTime`
+- `timing`
 
 Scheduling:
 

@@ -2,30 +2,31 @@
 
 - _minutes(t)_
 
-At `SmallFloat`:
+At `SmallFloat`,
+answer a `Quantity` value:
 
 ```
->>> 5.minutes
-Quantity(5 * 60, 'seconds')
-
 >>> 9.minutes
 Quantity(540, 'seconds')
+
+>>> 5.minutes
+(5 * 60).seconds
 ```
 
-At `Duration`,
+At `Time`,
 answer the number of complete minutes:
 
 ```
->>> 3.hours.asDuration.minutes
+>>> 3.hours.asTime.minutes
 180
 
->>> 2.days.asDuration.minutes
+>>> 2.days.asTime.minutes
 (2 * 24 * 60)
 ```
 
 * * *
 
-See also: Duration, hours, milliseconds, seconds
+See also: hours, milliseconds, seconds, Time
 
 References:
 _Smalltalk_

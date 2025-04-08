@@ -72,12 +72,16 @@ Frequency : [Object, Magnitude] { | hertz |
 
 +Quantity {
 
-	asFrequency { :self |
+	asHertz { :self |
 		(self.unit = 'hertz').if {
-			Frequency(self.magnitude)
+			self.magnitude
 		} {
-			self.error('asFrequency: not frequency')
+			self.error('asHertz: not frequency')
 		}
+	}
+
+	asFrequency { :self |
+		Frequency(self.asHertz)
 	}
 
 }

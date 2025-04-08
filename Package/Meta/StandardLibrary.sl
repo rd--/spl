@@ -243,6 +243,7 @@
 	'Date'
 	'Duration'
 	'TimeStamp'
+	'TimeInterval' /* TimeStamp */
 
 	/* Meta */
 	'Categories'

@@ -17,6 +17,8 @@ Answer a `String` made up from _aString_ whose characters are all lower case.
 See also: asUpperCase, isLowerCase
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ToLowerCase.html),
 _Smalltalk_
 5.3.4.2
 

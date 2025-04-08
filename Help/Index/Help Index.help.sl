@@ -769,7 +769,7 @@
 ## Timing
 
 - `currentDate, `now`, `absoluteTime`
-- `millisecondsToRun`
+- `timing`
 
 ## Tree Operations
 

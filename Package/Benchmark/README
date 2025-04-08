@@ -1,20 +1,20 @@
 /* Are-we-fast-yet micro benchmarks */
-let b = BounceBenchmark(); b.run(100) /* 10-35 */
-{ listBenchmark().length = 10 }.millisecondsToRun /* 10-35 */
-{ PermuteBenchmark() = 8660 }.millisecondsToRun /* 15-40 */
-{ QueensBenchmark() }.millisecondsToRun /* 10-30 */
-{ 5000.sieveBenchmark = 669 }.millisecondsToRun /* 5-20 */
-{ StorageBenchark() = 5461 }.millisecondsToRun /* 10-30 */
-{ TowersBenchmark() = 8191 }.millisecondsToRun /* 20-50 */
+let b = BounceBenchmark(); b.run(100) /* 10-35ms */
+{ listBenchmark().length = 10 }.timing /* 10-35ms */
+{ PermuteBenchmark() = 8660 }.timing /* 15-40ms */
+{ QueensBenchmark() }.timing /* 10-30ms */
+{ 5000.sieveBenchmark = 669 }.timing /* 5-20ms */
+{ StorageBenchark() = 5461 }.timing /* 10-30ms */
+{ TowersBenchmark() = 8191 }.timing /* 20-50ms */
 
 /* Are-we-fast-yet benchmarks */
-{ let o = JsonBenchmark(); o.isObject & { o['head'].isObject & { o['operations'].isList & { o['operations'].size = 156 } } } }.millisecondsToRun /* 250-300 */
-let h = HavlakBenchmark(); [1, 15, 150, 1500, 15000].do { :each | h.run(each) } /* 4920 4800 5084 5336 7858 */
+{ let o = JsonBenchmark(); o.isObject & { o['head'].isObject & { o['operations'].isList & { o['operations'].size = 156 } } } }.timing /* 250-300ms */
+let h = HavlakBenchmark(); [1, 15, 150, 1500, 15000].do { :each | h.run(each) } /* 4920 4800 5084 5336 7858ms */
 let m = MandelbrotBenchmark(); [1, 500, 750].do { :each | m.run(each) } /* 0 5990 13606 */
 let n = NBodyBenchmark(); [1, 250000].do { :each | n.run(each) } /* 0 5386 */
 
 /* Squeak benchmarks */
-var r, t; t := { r := 26.squeakBenchFib }.millisecondsToRun; r = 392835 & { t < 500 }
-var r, t; t := { r := 10.squeakTinyBenchmarks }.millisecondsToRun; r = 1028 & { t < 500 } /* c.f tinyBenchmarks */
-let t = { 23.squeakBenchFib }.millisecondsToRun; t > 1 & { t < 1000 }
-let [c, t] = { 23.squeakBenchFib }.benchForMilliseconds(100); c >= 1 & { t >= 100 }
+let [t, r] = { 26.squeakBenchFib }.timing; r = 392835 & { t < 500 }
+let [t, r] = { 10.squeakTinyBenchmarks }.timing; r = 1028 & { t < 500 } /* c.f tinyBenchmarks */
+let [t, r] = { 23.squeakBenchFib }.timing; t > 1 & { t < 1000 }
+let [c, t] = { 23.squeakBenchFib }.benchForSeconds(0.1); c >= 1 & { t >= 0.1 }

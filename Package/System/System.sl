@@ -211,12 +211,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
-	secondsToRun { :self :aBlock:/0 |
-		let beginTime = self.sessionTime;
-		aBlock();
-		self.sessionTime - beginTime
-	}
-
 	seedRandom { :self :anInteger |
 		self.randomNumberGenerator.initialize(anInteger)
 	}
@@ -248,6 +242,13 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	splUrl { :self :aString |
 		('https://rohandrape.net/sw/spl/' ++ aString).asUrl
+	}
+
+	timing { :self :aBlock:/0 |
+		let beginTime = self.sessionTime;
+		let answer = aBlock();
+		let endTime = self.sessionTime;
+		[endTime - beginTime, answer]
 	}
 
 	traitDictionary { :self |
@@ -313,14 +314,14 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 +Block {
 
-	benchForMilliseconds { :self:/0 :interval |
-		let t0 = system.sessionTimeInMilliseconds;
+	benchForSeconds { :self:/0 :interval |
+		let t0 = system.sessionTime;
 		let t1 = nil;
 		let t2 = t0 + interval;
 		let count = 1;
 		self();
 		{
-			t1 := system.sessionTimeInMilliseconds;
+			t1 := system.sessionTime;
 			t1 < t2
 		}.whileTrue {
 			self();
@@ -330,16 +331,16 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 
-	benchFor { :self :aDuration |
-		let [count, elapsedTime] = self.benchForMilliseconds(aDuration.milliseconds);
+	benchFor { :self :interval |
+		let [count, elapsedTime] = self.benchForSeconds(interval.asSeconds);
 		[
-			(count / (elapsedTime / 1000)).roundTo(0.001), ' per second; ',
-			((elapsedTime / 1000) / count).roundTo(0.001), ' per count'
+			(count / elapsedTime).roundTo(0.001), ' per second; ',
+			(elapsedTime / count).roundTo(0.001), ' per count'
 		].stringJoin
 	}
 
-	secondsToRun { :self:/0 |
-		system.secondsToRun(self:/0)
+	timing { :self:/0 |
+		system.timing(self:/0)
 	}
 
 }

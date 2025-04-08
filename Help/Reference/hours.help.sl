@@ -12,20 +12,20 @@ Quantity(3 * 60 * 60, 'seconds')
 180.minutes
 ```
 
-At `Duration`,
+At `Time`,
 answer the number of complete hours:
 
 ```
->>> 180.minutes.asDuration.hours
+>>> 180.minutes.asTime.hours
 3
 
->>> 3.days.asDuration.hours
+>>> 3.days.asTime.hours
 72
 ```
 
 * * *
 
-See also: Duration, milliseconds, minutes, seconds
+See also: milliseconds, minutes, seconds, Time
 
 References:
 _Smalltalk_

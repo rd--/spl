@@ -12,12 +12,12 @@ TimeStamp : [Object] { | absoluteTime |
 		self.absoluteTime < aTimeStamp.absoluteTime
 	}
 
-	+ { :self :aDuration |
-		TimeStamp(self.absoluteTime + aDuration.seconds)
+	+ { :self :operand |
+		TimeStamp(self.absoluteTime + operand.asSeconds)
 	}
 
-	- { :self :aDuration |
-		TimeStamp(self.absoluteTime - aDuration.seconds)
+	- { :self :operand |
+		TimeStamp(self.absoluteTime - operand.asSeconds)
 	}
 
 	asDate { :self |
@@ -28,12 +28,12 @@ TimeStamp : [Object] { | absoluteTime |
 		self
 	}
 
-	iso8601 { :self |
-		self.asDate.iso8601
+	dateTimeString { :self |
+		self.asDate.dateTimeString
 	}
 
-	roundTo { :self :aDuration |
-		self.absoluteTime := self.absoluteTime.roundTo(aDuration.seconds);
+	roundTo { :self :operand |
+		self.absoluteTime := self.absoluteTime.roundTo(operand.asSeconds);
 		self
 	}
 
@@ -63,6 +63,18 @@ TimeStamp : [Object] { | absoluteTime |
 
 	absoluteTime { :self |
 		self
+	}
+
+}
+
++String {
+
+	parseTimeStamp { :self |
+		[24 29].includes(self.size).if {
+			self.basicParseDate.asTimeStamp
+		} {
+			self.error('parseTimeStamp: invalid size')
+		}
 	}
 
 }

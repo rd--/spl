@@ -355,5 +355,6 @@
 	'Time-Clock'
 	'Time-Date'
 	'Time-Duration'
+	'Time-TimeInterval'
 	'Time-TimeStamp'
 ].primitiveReadLocalPackages

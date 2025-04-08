@@ -6,7 +6,7 @@ designations of multiples and subdivision of any unit may be arrived at by combi
 Smaller quantities or sub units:
 
 ```
->>> (10.deci, 1E1.deci)1
+>>> (10.deci, 1E1.deci)
 (1, 1)
 
 >>> (100.centi, 1E2.centi)

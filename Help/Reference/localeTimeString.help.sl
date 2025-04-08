@@ -14,6 +14,6 @@ Answer a `String` with a language-sensitive representation of the time portion o
 
 * * *
 
-See also: asDate, Date, iso8601
+See also: asDate, Date, dateTimeString
 
 Categories: Printing, Time

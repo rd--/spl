@@ -22,7 +22,7 @@ Date! : [Object, Magnitude] {
 		[
 			self.year,
 			self.month,
-			self.dayOfWeek,
+			self.dayOfMonth,
 			self.hour,
 			self.minute,
 			self.second
@@ -33,20 +33,37 @@ Date! : [Object, Magnitude] {
 		self.absoluteTime.asTimeStamp
 	}
 
+	dateString { :self |
+		[
+			self.year.asString,
+			self.month.asString.padLeft([2], '0'),
+			self.dayOfMonth.asString.padLeft([2], '0')
+		].stringJoin('-')
+	}
+
+	dateTimeString { :self |
+		<primitive: return _self.toISOString();>
+	}
+
 	dayOfWeek { :self |
-		<primitive: return _self.getDay() + 1;>
+		<primitive: return _self.getUTCDay() + 1;>
 	}
 
 	dayOfMonth { :self |
-		<primitive: return _self.getDate();>
+		<primitive: return _self.getUTCDate();>
+	}
+
+	dayOfYear { :self |
+		let y = self.year;
+		let m = self.month;
+		let d = self.dayOfMonth;
+		let t1 = Date(y, m, d, 0, 0, 0).absoluteTime;
+		let t2 = Date(y, 1, 1, 0, 0, 0).absoluteTime;
+		(t1 - t2) / (24 * 60 * 60) + 1
 	}
 
 	hour { :self |
-		<primitive: return _self.getHours();>
-	}
-
-	iso8601 { :self |
-		<primitive: return _self.toISOString();>
+		<primitive: return _self.getUTCHours();>
 	}
 
 	localeTimeString { :self :localeName |
@@ -54,23 +71,30 @@ Date! : [Object, Magnitude] {
 	}
 
 	millisecond { :self |
-		<primitive: return _self.getMilliseconds();>
+		<primitive: return _self.getUTCMilliseconds();>
 	}
 
 	minute { :self |
-		<primitive: return _self.getMinutes();>
+		<primitive: return _self.getUTCMinutes();>
 	}
 
 	month { :self |
-		<primitive: return _self.getMonth() + 1;>
+		<primitive: return _self.getUTCMonth() + 1;>
 	}
 
 	offsetSeconds { :self |
 		<primitive: return Math.round(_self.getTimezoneOffset() * 60);>
 	}
 
+	ordinalDateString { :self |
+		[
+			self.year.asString,
+			self.dayOfYear.asString.padLeft([3], '0')
+		].stringJoin('-')
+	}
+
 	second { :self |
-		<primitive: return _self.getSeconds();>
+		<primitive: return _self.getUTCSeconds();>
 	}
 
 	unixTimeInMilliseconds { :self |
@@ -78,7 +102,7 @@ Date! : [Object, Magnitude] {
 	}
 
 	year { :self |
-		<primitive: return _self.getFullYear();>
+		<primitive: return _self.getUTCFullYear();>
 	}
 
 }
@@ -89,12 +113,45 @@ Date! : [Object, Magnitude] {
 		<primitive: return new Date(_self * 1000);>
 	}
 
+	Date { :year :month :dayOfMonth :hour :minute :second |
+		<primitive:
+		return new Date(
+			Date.UTC(
+				_year,
+				_month - 1,
+				_dayOfMonth,
+				_hour,
+				_minute,
+				_second,
+				0
+			)
+		);
+		>
+	}
+
+}
+
++List {
+
+	Date { :self |
+		let [year, month, dayOfMonth, hour, minute, second] = self;
+		Date(year, month, dayOfMonth, hour, minute, second)
+	}
+
 }
 
 +String {
 
-	parseDate { :self |
+	basicParseDate { :self |
 		<primitive: return new Date(_self);>
+	}
+
+	parseDate { :self |
+		[10 24 29].includes(self.size).if {
+			self.basicParseDate
+		} {
+			self.error('parseDate: invalid size')
+		}
 	}
 
 }

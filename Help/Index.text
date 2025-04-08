@@ -34,6 +34,7 @@ Guide/Control Blocks.help.sl
 Guide/Control Structures.help.sl
 Guide/Coordinate Systems.help.sl
 Guide/Csound Gen Routines.help.sl
+Guide/Date and Time.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Assignment Syntax.help.sl
@@ -107,6 +108,7 @@ Guide/Operator Syntax.help.sl
 Guide/Parts of Speech.help.sl
 Guide/Patterns and Streams.help.sl
 Guide/Perspective Drawings.help.sl
+Guide/Pitch Functions.help.sl
 Guide/Plotting Functions.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
@@ -114,6 +116,7 @@ Guide/Primitive Types.help.sl
 Guide/Probability Distributions.help.sl
 Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
+Guide/Quantity Functions.help.sl
 Guide/Quoted AtIfAbsentPut Syntax.help.sl
 Guide/Quoted AtIfAbsent Syntax.help.sl
 Guide/Quoted AtPut Syntax.help.sl
@@ -129,6 +132,7 @@ Guide/Regular Expressions.help.sl
 Guide/Scalars and Lists.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Scientific Notation.help.sl
+Guide/Sigmoid Functions.help.sl
 Guide/Simple Editor.help.sl
 Guide/Simple Programming Language.help.sl
 Guide/SI Units.help.sl
@@ -140,6 +144,7 @@ Guide/Smalltalk Arity.help.sl
 Guide/Smalltalk Perspective.help.sl
 Guide/Sort Functions.help.sl
 Guide/Specialised Constructors.help.sl
+Guide/Statistics Functions.help.sl
 Guide/String Functions.help.sl
 Guide/String Syntax.help.sl
 Guide/Subsequences and substrings.help.sl
@@ -160,6 +165,7 @@ Guide/Type Definition Syntax.help.sl
 Guide/Unary Operator Syntax.help.sl
 Guide/Unicode Symbols.help.sl
 Guide/Unit Generators.help.sl
+Guide/Unit Prefixes.help.sl
 Guide/Value Apply Syntax.help.sl
 Guide/Value Protocol.help.sl
 Guide/Var Syntax.help.sl
@@ -181,6 +187,9 @@ Reference/AbsDif.help.sl
 Reference/abs.help.sl
 Reference/Abs.help.sl
 Reference/absMax.help.sl
+Reference/absoluteCorrelationFunction.help.sl
+Reference/absoluteCorrelation.help.sl
+Reference/absoluteTime.help.sl
 Reference/absSquared.help.sl
 Reference/accumulate.help.sl
 Reference/adaptToCollectionAndApply.help.sl
@@ -240,7 +249,6 @@ Reference/ampersandAmpersand.help.sl
 Reference/ampersand.help.sl
 Reference/Amplitude.help.sl
 Reference/AnalogueClock.help.sl
-Reference/Angle.help.sl
 Reference/anglePath.help.sl
 Reference/angleVector.help.sl
 Reference/antidiagonal.help.sl
@@ -315,6 +323,7 @@ Reference/asDictionary.help.sl
 Reference/asDiscreteColourGradient.help.sl
 Reference/asDocumentationTest.help.sl
 Reference/asDot.help.sl
+Reference/asDuration.help.sl
 Reference/asEdge.help.sl
 Reference/asEdgeList.help.sl
 Reference/asFileUrl.help.sl
@@ -324,6 +333,7 @@ Reference/asFloat.help.sl
 Reference/asFraction.help.sl
 Reference/asFractionOver.help.sl
 Reference/asFractions.help.sl
+Reference/asFrequency.help.sl
 Reference/asGaussianInteger.help.sl
 Reference/asGeometryCollection.help.sl
 Reference/asGraph.help.sl
@@ -439,6 +449,7 @@ Reference/barlowHarmonicity.help.sl
 Reference/barlowIndigestibility.help.sl
 Reference/barlowIndispensabilities.help.sl
 Reference/barlowIndispensability.help.sl
+Reference/barronCurve.help.sl
 Reference/bartlettHannWindow.help.sl
 Reference/bartlettWindow.help.sl
 Reference/BarycentricCoordinates.help.sl
@@ -516,7 +527,7 @@ Reference/blackmanHarrisWindow.help.sl
 Reference/blackmanWindow.help.sl
 Reference/blancmangeFunction.help.sl
 Reference/blend.help.sl
-Reference/blinnWyvillRaisedInvertedCosineApproximation.help.sl
+Reference/blinnWyvillRaisedInvertedCosine.help.sl
 Reference/Blip.help.sl
 Reference/Blob.help.sl
 Reference/blockDiagonalMatrix.help.sl
@@ -586,6 +597,7 @@ Reference/ceiling.help.sl
 Reference/Ceiling.help.sl
 Reference/centerArray.help.sl
 Reference/centiseconds.help.sl
+Reference/centralFeature.help.sl
 Reference/centralMoment.help.sl
 Reference/centroid.help.sl
 Reference/centsToRatio.help.sl
@@ -672,6 +684,7 @@ Reference/completeGraphDrawing.help.sl
 Reference/completeGraph.help.sl
 Reference/completeKaryTree.help.sl
 Reference/Complex.help.sl
+Reference/complexPlot.help.sl
 Reference/composeLeft.help.sl
 Reference/composeRight.help.sl
 Reference/concisePrintString.help.sl
@@ -724,8 +737,10 @@ Reference/coth.help.sl
 Reference/countDistinct.help.sl
 Reference/count.help.sl
 Reference/counts.help.sl
+Reference/covarianceFunction.help.sl
 Reference/covariance.help.sl
 Reference/CoxIngersollRossProcess.help.sl
+Reference/CpsCv.help.sl
 Reference/CpsMidi.help.sl
 Reference/CpsOct.help.sl
 Reference/Crackle.help.sl
@@ -748,15 +763,20 @@ Reference/cubicInterpolation.help.sl
 Reference/cubicSplineInterpolator.help.sl
 Reference/Cuboid.help.sl
 Reference/cull.help.sl
+Reference/currentDate.help.sl
 Reference/currentWorkingDirectory.help.sl
 Reference/CuspL.help.sl
 Reference/Cutoff.help.sl
+Reference/CvCps.help.sl
 Reference/cycleGraph.help.sl
 Reference/cycles.help.sl
 Reference/CylindricalCoordinates.help.sl
 Reference/Date.help.sl
+Reference/dateString.help.sl
+Reference/dateTimeString.help.sl
 Reference/dayOfMonth.help.sl
 Reference/dayOfWeek.help.sl
+Reference/dayOfYear.help.sl
 Reference/days.help.sl
 Reference/DbAmp.help.sl
 Reference/Dbrown.help.sl
@@ -929,6 +949,8 @@ Reference/EnvGen.help.sl
 Reference/environmentVariable.help.sl
 Reference/environmentVariables.help.sl
 Reference/EnvTrapezoid.help.sl
+Reference/EpanechnikovDistribution.help.sl
+Reference/epanechnikovKernel.help.sl
 Reference/epitrochoid.help.sl
 Reference/epsilon.help.sl
 Reference/EqPan2.help.sl
@@ -1078,6 +1100,7 @@ Reference/gammaRegularized.help.sl
 Reference/Gate.help.sl
 Reference/gather.help.sl
 Reference/gaussianElimination.help.sl
+Reference/gaussianKernel.help.sl
 Reference/gaussianMatrix.help.sl
 Reference/gaussianVector.help.sl
 Reference/gaussianWindow.help.sl
@@ -1127,6 +1150,7 @@ Reference/green.help.sl
 Reference/greyLevel.help.sl
 Reference/gridGraph.help.sl
 Reference/groupBy.help.sl
+Reference/gudermannian.help.sl
 Reference/GVerb.help.sl
 Reference/hadamardMatrix.help.sl
 Reference/hadamardProduct.help.sl
@@ -1151,6 +1175,7 @@ Reference/haversine.help.sl
 Reference/hazardFunction.help.sl
 Reference/Headers.help.sl
 Reference/Heap.help.sl
+Reference/heavisideTheta.help.sl
 Reference/HelpBrowser.help.sl
 Reference/HelpFile.help.sl
 Reference/helpFileName.help.sl
@@ -1315,6 +1340,7 @@ Reference/inverseCdf.help.sl
 Reference/inverseErfc.help.sl
 Reference/inverseErf.help.sl
 Reference/InverseGaussianDistribution.help.sl
+Reference/inverseGudermannian.help.sl
 Reference/inverse.help.sl
 Reference/inversePermutation.help.sl
 Reference/inverseSurvivalFunction.help.sl
@@ -1402,7 +1428,6 @@ Reference/isNonNegative.help.sl
 Reference/isNonPositive.help.sl
 Reference/isNormal.help.sl
 Reference/isNumber.help.sl
-Reference/iso8601.help.sl
 Reference/isOdd.help.sl
 Reference/isOne.help.sl
 Reference/isOperatorToken.help.sl
@@ -1472,6 +1497,7 @@ Reference/isZero.help.sl
 Reference/Iterable.help.sl
 Reference/iterate.help.sl
 Reference/Iterator.help.sl
+Reference/jaccardDissimilarity.help.sl
 Reference/j.help.sl
 Reference/join.help.sl
 Reference/json.help.sl
@@ -1628,6 +1654,8 @@ Reference/logGamma.help.sl
 Reference/log.help.sl
 Reference/Log.help.sl
 Reference/LogisticDistribution.help.sl
+Reference/logisticSigmoid.help.sl
+Reference/logit.help.sl
 Reference/LogNormalDistribution.help.sl
 Reference/logScale.help.sl
 Reference/logspace.help.sl
@@ -1699,6 +1727,7 @@ Reference/luvToXyz.help.sl
 Reference/lyndonWords.help.sl
 Reference/magicSquare.help.sl
 Reference/magicSquareSummary.help.sl
+Reference/magnitude.help.sl
 Reference/Magnitude.help.sl
 Reference/makeDirectory.help.sl
 Reference/manhattanDistance.help.sl
@@ -1708,6 +1737,7 @@ Reference/Map.help.sl
 Reference/Markdown.help.sl
 Reference/markdownToHtml.help.sl
 Reference/martinMap.help.sl
+Reference/Mass.help.sl
 Reference/matchesEdge.help.sl
 Reference/matches.help.sl
 Reference/matchesRegExp.help.sl
@@ -1764,7 +1794,6 @@ Reference/midpoint.help.sl
 Reference/millerRabinPrimalityTest.help.sl
 Reference/millisecond.help.sl
 Reference/milliseconds.help.sl
-Reference/millisecondsToRun.help.sl
 Reference/milsteinMethod.help.sl
 Reference/minBy.help.sl
 Reference/min.help.sl
@@ -1839,6 +1868,7 @@ Reference/nestWhileList.help.sl
 Reference/neumaierSum.help.sl
 Reference/newFrom.help.sl
 Reference/new.help.sl
+Reference/newtonRaphsonMethod.help.sl
 Reference/next.help.sl
 Reference/nextMatchAll.help.sl
 Reference/nextMatchFor.help.sl
@@ -1924,6 +1954,7 @@ Reference/operatorTokenName.help.sl
 Reference/Ordered.help.sl
 Reference/orderedSubstrings.help.sl
 Reference/ordering.help.sl
+Reference/ordinalDateString.help.sl
 Reference/origin.help.sl
 Reference/OrnsteinUhlenbeckProcess.help.sl
 Reference/orthogonalize.help.sl
@@ -2010,6 +2041,8 @@ Reference/PenX.help.sl
 Reference/percentSign.help.sl
 Reference/perform.help.sl
 Reference/perimeter.help.sl
+Reference/perlinBiasFunction.help.sl
+Reference/perlinGainFunction.help.sl
 Reference/permanent.help.sl
 Reference/permutationCycles.help.sl
 Reference/permutationCyclesToPermutationList.help.sl
@@ -2064,6 +2097,7 @@ Reference/planarRegularGraphCatalogue.help.sl
 Reference/planckConstant.help.sl
 Reference/planckRadiationLaw.help.sl
 Reference/plancksRadiationFunction.help.sl
+Reference/PlaneAngle.help.sl
 Reference/plasticRatio.help.sl
 Reference/PlayBuf.help.sl
 Reference/playEvery.help.sl
@@ -2131,6 +2165,7 @@ Reference/printStringLimitedTo.help.sl
 Reference/printStringRoman.help.sl
 Reference/printStringShowingDecimalPlaces.help.sl
 Reference/PriorityQueue.help.sl
+Reference/ProbabilityDistribution.help.sl
 Reference/product.help.sl
 Reference/project.help.sl
 Reference/projection.help.sl
@@ -2156,6 +2191,7 @@ Reference/qrDecomposition.help.sl
 Reference/quadraticBezierFunctionAt.help.sl
 Reference/quadraticBezierToCubicBezier.help.sl
 Reference/quantile.help.sl
+Reference/Quantity.help.sl
 Reference/quarterToneFlat.help.sl
 Reference/quarterToneSharp.help.sl
 Reference/quartiles.help.sl
@@ -2374,6 +2410,8 @@ Reference/schareinMinimalKnotCatalogue.help.sl
 Reference/schareinMinimalLinkCatalogue.help.sl
 Reference/schedule.help.sl
 Reference/scheduleInjecting.help.sl
+Reference/schlickBiasFunction.help.sl
+Reference/schlickGainFunction.help.sl
 Reference/Schmidt.help.sl
 Reference/scottsRule.help.sl
 Reference/ScSynth.help.sl
@@ -2399,6 +2437,7 @@ Reference/sentences.help.sl
 Reference/septimalComma.help.sl
 Reference/Sequenceable.help.sl
 Reference/Sequencer.help.sl
+Reference/sessionTime.help.sl
 Reference/setBitAt.help.sl
 Reference/Set.help.sl
 Reference/SetResetFf.help.sl
@@ -2443,6 +2482,7 @@ Reference/Sinh.help.sl
 Reference/SinOscBank.help.sl
 Reference/SinOscFb.help.sl
 Reference/SinOsc.help.sl
+Reference/SiUnit.help.sl
 Reference/size.help.sl
 Reference/skewness.help.sl
 Reference/SkewNormalDistribution.help.sl
@@ -2639,11 +2679,14 @@ Reference/thueMorseSequence.help.sl
 Reference/tildeEqualsSign.help.sl
 Reference/tilde.help.sl
 Reference/tildeTilde.help.sl
+Reference/Time.help.sl
+Reference/TimeInterval.help.sl
 Reference/Timer.help.sl
 Reference/TimeSeries.help.sl
 Reference/Times.help.sl
 Reference/timesRepeat.help.sl
 Reference/TimeStamp.help.sl
+Reference/timing.help.sl
 Reference/TiRand.help.sl
 Reference/TLine.help.sl
 Reference/toBarycentricCoordinates.help.sl
@@ -2679,6 +2722,7 @@ Reference/Trig.help.sl
 Reference/TrigRoundRobin.help.sl
 Reference/trilinearInterpolation.help.sl
 Reference/trim.help.sl
+Reference/trimmedMean.help.sl
 Reference/true.help.sl
 Reference/truncated.help.sl
 Reference/truncateTo.help.sl
@@ -2719,6 +2763,7 @@ Reference/unitBox.help.sl
 Reference/unitCircle.help.sl
 Reference/unitCube.help.sl
 Reference/unitDodecahedron.help.sl
+Reference/unit.help.sl
 Reference/unitIcosahedron.help.sl
 Reference/unitize.help.sl
 Reference/unitNormal.help.sl
@@ -2728,7 +2773,6 @@ Reference/unitStep.help.sl
 Reference/unitTetrahedron.help.sl
 Reference/unitVector.help.sl
 Reference/UnivariatePolynomial.help.sl
-Reference/unixTimeInMilliseconds.help.sl
 Reference/unlines.help.sl
 Reference/unrankPermutation.help.sl
 Reference/unsigned32BitWordList.help.sl
@@ -2751,7 +2795,6 @@ Reference/utf8String.help.sl
 Reference/uUnifastAlgorithm.help.sl
 Reference/uUnifastDiscardAlgorithm.help.sl
 Reference/valueAfter.help.sl
-Reference/valueAfterMilliseconds.help.sl
 Reference/valueAfterWith.help.sl
 Reference/valueEvery.help.sl
 Reference/value.help.sl
@@ -2809,6 +2852,7 @@ Reference/wilsonLatticeCoordinates.help.sl
 Reference/windowedReduce.help.sl
 Reference/Window.help.sl
 Reference/WindowMenu.help.sl
+Reference/winsorizedMean.help.sl
 Reference/withBlanksTrimmed.help.sl
 Reference/withCollectCrossed.help.sl
 Reference/withCollectEqual.help.sl

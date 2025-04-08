@@ -2,7 +2,8 @@
 
 - _seconds(t)_
 
-At `SmallFloat` answer a `Quantity` value holding _t_ seconds:
+At `SmallFloat`,
+answer a `Quantity` value holding _t_ seconds:
 
 ```
 >>> 3.seconds
@@ -12,20 +13,20 @@ Quantity(3, 'seconds')
 3.minutes
 ```
 
-At `Duration`,
-answer the number of second:
+At `Time`,
+answer the number of seconds:
 
 ```
->>> 3.hours.asDuration.seconds
+>>> 3.hours.asTime.seconds
 10800
 
->>> Duration(5).seconds
+>>> Time(5).seconds
 5
 ```
 
 * * *
 
-See also: asSeconds, Duration, hours, milliseconds, minutes
+See also: asSeconds, hours, milliseconds, minutes, Time
 
 References:
 _Smalltalk_

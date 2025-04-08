@@ -16,7 +16,7 @@ true
 0
 ```
 
-At `Date` answer the signed distance, in seconds, from the Unix epoch:
+At `Date` answer the signed distance in seconds from 1 January, 1970:
 
 ```
 >>> '2025-04-07'.parseDate.absoluteTime
@@ -26,7 +26,7 @@ At `Date` answer the signed distance, in seconds, from the Unix epoch:
 -2208988800
 ```
 
-At `TimeStamp`, answer into the number of milliseconds since the Unix epoch.
+At `TimeStamp`, answer the signed distance in seconds from 1 January, 1970:
 
 ```
 >>> let t1 = system.absoluteTime;
@@ -35,7 +35,7 @@ At `TimeStamp`, answer into the number of milliseconds since the Unix epoch.
 0
 ```
 
-At `Number`, the identity function.
+At `Number`, answer the identity function:
 
 ```
 >>> 1671935015.absoluteTime

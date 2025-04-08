@@ -1,27 +1,37 @@
-# iso8601
+# dateTimeString
 
-- _iso8601(t)_
+- _dateTimeString(t)_
 
 Answers a `String` that formats the temporal object _t_ according to the ISO-8601 standard.
-
 
 At `Date`:
 
 ```
->>> 0.asDate.iso8601
+>>> Date([1970 01 01 00 00 00])
+>>> .dateTimeString
 '1970-01-01T00:00:00.000Z'
 ```
 
 At `TimeStamp`:
 
 ```
->>> 0.asTimeStamp.iso8601
+>>> TimeStamp(0)
+>>> .dateTimeString
 '1970-01-01T00:00:00.000Z'
+```
+
+The inverse is `parseDate`,
+answering a `Date` value:
+
+```
+>>> '1970-01-01T00:00:00.000Z'
+>>> .parseDate
+Date([1970 01 01 00 00 00])
 ```
 
 * * *
 
-See also: Date, parseDate, parseDuration, TimeStamp
+See also: Date, dateString, parseDate, parseDuration, TimeStamp
 
 References:
 _Mathematica_

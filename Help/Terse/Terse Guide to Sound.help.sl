@@ -42,19 +42,19 @@ let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/6
 69.midiNoteNumber = 440.hertz /* frequency from midi note number */
 4.75.linearOctave = 440.hertz /* frequency from linear octave */
 4.09.octavePitchClass ~ 440.hertz /* frequency from octave pitch class */
-440.hertz.linearOctave = 4.75 /* hertz (cycles per second) to linear octave */
-4.75.linearOctave.hertz = 440 /* linear octave to hertz */
-440.hertz.midiNoteNumber = 69 /* cycles per second (hertz) to midi note number */
-69.midiNoteNumber.hertz = 440 /* midi note number to cycles per second (hertz) */
-0.midiNoteNumber.hertz ~ 8.175
-69.midiNoteNumber.octavePitchClass = 4.09 /* midi note number to octave pitch class */
-440.hertz.octavePitchClass = 4.09 /* cycles per second (hertz) to octave pitch class */
-4.09.octavePitchClass.hertz ~ 440 /* octave pitch class to cycles per second */
-4.09.octavePitchClass.midiNoteNumber ~ 69 /* octave pitch class to midi note number */
-0.00.octavePitchClass.hertz ~ 16.35
-440.hertz.linearOctave = 4.75 /* frequency as linear octave */
-440.hertz.midiNoteNumber = 69 /* frequency as midi note number */
-440.hertz.octavePitchClass = 4.09 /* octave pitch class number */
+Frequency(440).linearOctave = 4.75 /* hertz (cycles per second) to linear octave */
+4.75.linearOctave.asHertz = 440 /* linear octave to hertz */
+Frequency(440).midiNoteNumber = 69 /* cycles per second (hertz) to midi note number */
+69.midiNoteNumber.asHertz = 440 /* midi note number to cycles per second (hertz) */
+0.midiNoteNumber.asHertz ~ 8.175
+69.midiNoteNumber.asFrequency.octavePitchClass = 4.09 /* midi note number to octave pitch class */
+Frequency(440).octavePitchClass = 4.09 /* cycles per second (hertz) to octave pitch class */
+4.09.octavePitchClass.asHertz ~ 440 /* octave pitch class to cycles per second */
+4.09.octavePitchClass.asFrequency.midiNoteNumber ~ 69 /* octave pitch class to midi note number */
+0.00.octavePitchClass.asHertz ~ 16.35
+Frequency(440).linearOctave = 4.75 /* frequency as linear octave */
+Frequency(440).midiNoteNumber = 69 /* frequency as midi note number */
+Frequency(440).octavePitchClass = 4.09 /* octave pitch class number */
 ```
 
 ## Music-Pitch -- csound
@@ -62,21 +62,21 @@ let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/6
 440.cps = 440.hertz /* cps = cycles per second */
 4.75.oct = 440.hertz /* oct = linear octave */
 4.09.pch ~ 440.hertz /* pch = octave pitch class */
-440.cps.oct = 4.75 /* cps to oct */
-4.75.oct.pch = 4.09 /* oct to pch */
-4.09.pch.cps ~ 440 /* pch to oct */
-440.cps.midi = 69 /* cps to midi */
-440.cps.oct = 4.75 /* cps to oct */
-440.cps.pch = 4.09 /* cps to pch */
-4.75.oct.cps = 440 /* oct to cps */
-4.75.oct.midi = 69 /* oct to midi */
-4.75.oct.pch = 4.09 /* oct to pch */
-4.09.pch.cps ~ 440 /* pch to cps */
-4.09.pch.midi ~ 69 /* pch to midi */
-4.09.pch.oct ~ 4.75 /* pch to oct */
-69.midi.cps = 440 /* midi to cps */
-69.midi.oct = 4.75 /* midi to oct */
-69.midi.pch = 4.09 /* midi to pch */
+440.cps.asFrequency.oct = 4.75 /* cps to oct */
+4.75.oct.asFrequency.pch = 4.09 /* oct to pch */
+4.09.pch.asFrequency.cps ~ 440 /* pch to oct */
+440.cps.asFrequency.midi = 69 /* cps to midi */
+440.cps.asFrequency.oct = 4.75 /* cps to oct */
+440.cps.asFrequency.pch = 4.09 /* cps to pch */
+4.75.oct.asFrequency.cps = 440 /* oct to cps */
+4.75.oct.asFrequency.midi = 69 /* oct to midi */
+4.75.oct.asFrequency.pch = 4.09 /* oct to pch */
+4.09.pch.asFrequency.cps ~ 440 /* pch to cps */
+4.09.pch.asFrequency.midi ~ 69 /* pch to midi */
+4.09.pch.asFrequency.oct ~ 4.75 /* pch to oct */
+69.midi.asFrequency.cps = 440 /* midi to cps */
+69.midi.asFrequency.oct = 4.75 /* midi to oct */
+69.midi.asFrequency.pch = 4.09 /* midi to pch */
 ```
 
 ## Music -- pitch

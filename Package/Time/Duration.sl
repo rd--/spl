@@ -40,36 +40,12 @@ Duration : [Object, Magnitude] { | seconds |
 		self.seconds
 	}
 
-	centiseconds { :self |
-		self.seconds * 10
-	}
-
-	days { :self |
-		self.hours / 24
-	}
-
-	hours { :self |
-		self.minutes / 60
-	}
-
 	isZero { :self |
 		self.seconds = 0
 	}
 
-	milliseconds { :self |
-		self.seconds * 1000
-	}
-
-	minutes { :self |
-		self.seconds / 60
-	}
-
 	storeString { :self |
 		self.storeStringAsInitializeSlots
-	}
-
-	weeks { :self |
-		self.days / 7
 	}
 
 }

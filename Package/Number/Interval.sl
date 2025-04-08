@@ -202,7 +202,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 +@Number {
 
 	-- { :min :max |
-		Interval([min, max])
+		Interval(min, max)
 	}
 
 	adaptToIntervalAndApply { :self :anInterval :aBlock:/2 |

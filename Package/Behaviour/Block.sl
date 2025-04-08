@@ -334,10 +334,6 @@ Block! : [Object] {
 		}.whileTrue
 	}
 
-	secondsToRun { :self:/0 |
-		system.secondsToRun(self:/0)
-	}
-
 	sourceCode { :self |
 		<primitive: return _self.sourceCode;>
 	}

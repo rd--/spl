@@ -671,7 +671,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'flatten'
 		'histogramOf'
 		'i'
-		'iso8601'
+		'dateTimeString'
+		'dateString'
 		'join'
 		'radiansToDegrees'
 		'reverse'
@@ -1331,7 +1332,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'containsPoint'
 	],
 	'timing': [
-		'millisecondsToRun'
+		'timing'
 	],
 	'timing-benchmark': [
 		'benchFor'
