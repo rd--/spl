@@ -1,12 +1,16 @@
 # TimeStamp
 
-- _TimeStamp(t)_
+- _TimeStamp(aNumber)_
 
-`TimeStamp` is a `Type` representing a zero duration point in time.
-The _epoch_ is the Unix-Epoch:
+`TimeStamp` is a `Type` representing a zero duration point in time,
+also called a time instant,
+represented as the signed number of seconds from 1 January, 1970.
+
+Make a time stamp:
 
 ```
->>> TimeStamp(0).dateTimeString
+>>> TimeStamp(0)
+>>> .dateTimeString
 '1970-01-01T00:00:00.000Z'
 ```
 
@@ -27,6 +31,6 @@ i.e. the number of milliseconds since the Unix epoch (1970-01-01).
 
 * * *
 
-See also: asTimeStamp, Date, Duration, now
+See also: asTimeStamp, dateTimeString, Date, Duration, Time, TimeInterval, now
 
 Categories: Time, Type

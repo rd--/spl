@@ -1,4 +1,4 @@
-TimeStamp : [Object] { | absoluteTime |
+TimeStamp : [Object, Magnitude] { | absoluteTime |
 
 	= { :self :aTimeStamp |
 		aTimeStamp.isTimeStamp.if {

@@ -2,17 +2,25 @@
 
 - _ordinalDateString(aDate)_
 
-Answer the ISO ordinal date string.
+Answer the ISO ordinal date string for _aDate_.
 
 ```
->>> Date(2025, 04, 08, 08, 11, 00)
->>> .ordinalDateString
-'2025-098'
+>>> let d = Date([2025 04 08 08 11 00]);
+>>> (
+>>> 	d.ordinalDateString,
+>>> 	d.dateString,
+>>> 	d.dateTimeString
+>>> )
+(
+	'2025-098',
+	'2025-04-08',
+	'2025-04-08T08:11:00.000Z'
+)
 ```
 
 * * *
 
-See also: Date, dateString, dateTimeString
+See also: Date, dateString, dateTimeString, durationString
 
 References:
 _W_

@@ -2,12 +2,11 @@
 
 - _localTimeZoneOffset(aSystem)_
 
-Answer a `Duration` giving the local time offset from _Greenwich Mean Time_.
+Answer a `Quantity` telling the local time offset from _Greenwich Mean Time_.
 
 ```
 >>> system
 >>> .localTimeZoneOffset
->>> .asTime
 >>> .hours
 >>> .betweenAnd(-24, 24)
 true
@@ -15,4 +14,4 @@ true
 
 * * *
 
-See also: Duration, System
+See also: Quantity, System

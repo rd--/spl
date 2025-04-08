@@ -11,14 +11,14 @@ not English spelling.
 Quantity(3, 'metres')
 ```
 
-At `Length`,
+At `Quantity`,
 answer value in metres:
 
 ```
->>> 300.centimetres.asLength.metres
+>>> 300.centimetres.metres
 3
 ```
 
 * * *
 
-See also: centimetres, Length
+See also: centimetres, Quantity

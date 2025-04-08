@@ -11,8 +11,9 @@ A Quantity represents a value associated with a specific unit:
 >>> 8.metres
 Quantity(8, 'metres')
 
->>> 30.kilograms
-Quantity(30, 'kilograms')
+>>> let q = 30.kilograms;
+>>> (q.magnitude, q.unit)
+(30, 'kilograms')
 ```
 
 Quantities can be tested for equality:
@@ -22,7 +23,7 @@ Quantities can be tested for equality:
 true
 ```
 
-Make a quantity from number of milliseconds,
+Make a _temporal_ quantity using `milliseconds`,
 the quantity is converted to be in the _base unit_ of the quantity:
 
 ```
@@ -30,7 +31,7 @@ the quantity is converted to be in the _base unit_ of the quantity:
 Quantity(0.25, 'seconds')
 ```
 
-Predicates:
+Unit predicates:
 
 ```
 >>> 3.centimetres.isLength
@@ -46,7 +47,7 @@ true
 true
 ```
 
-Time quantity constructors:
+Temporal quantity constructors:
 
 ```
 >>> 1500.milliseconds
@@ -106,11 +107,27 @@ A month as defined with respect to the celestial sphere:
 27.3217.days
 ```
 
-A mmonth as defined with respect to the line joining the sun and earth:
+A month as defined with respect to the line joining the sun and earth:
 
 ```
 >>> 1.synodicMonths
 29.5306.days
+```
+
+Query temporal `Quantity` values:
+
+```
+>>> 3.hours.minutes
+180
+
+>>> 3.days.hours
+72
+
+>>> 3.weeks.days
+21
+
+>>> 1.siderealDays.hours
+23.9345
 ```
 
 Frequencies are constructed from `Number` values using the methods `hertz`, `kilohertz` and `megaherz`:

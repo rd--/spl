@@ -12,19 +12,19 @@ Quantity(0.01, 'seconds')
 3.minutes
 ```
 
-At `Time`,
+At `Quantity`,
 answer the number of complete centiseconds:
 
 ```
->>> 5.minutes.asTime.centiseconds
+>>> 5.minutes.centiseconds
 3000
 
->>> 3.hours.asTime.centiseconds
+>>> 3.hours.centiseconds
 3 * 60 * 60 * 10
 ```
 
 * * *
 
-See also: asSeconds, hours, Time, seconds, minutes
+See also: asSeconds, hours, Quantity, seconds, minutes
 
 Categories: Time, Type

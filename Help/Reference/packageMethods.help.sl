@@ -13,7 +13,7 @@ Find the definitions of `asHert` in the _Frequency_ package:
 >>> }.collect { :each |
 >>> 	(each.origin.name, each.arity)
 >>> }
-[('Number', 1), ('Frequency', 1)]
+[('Number', 1), ('Quantity', 1), ('Frequency', 1)]
 ```
 
 * * *

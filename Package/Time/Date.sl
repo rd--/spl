@@ -101,6 +101,10 @@ Date! : [Object, Magnitude] {
 		<primitive: return _self.getUTCSeconds();>
 	}
 
+	storeString { :self |
+		'Date(%)'.format([self.asList])
+	}
+
 	unixTimeInMilliseconds { :self |
 		<primitive: return _self.getTime();>
 	}

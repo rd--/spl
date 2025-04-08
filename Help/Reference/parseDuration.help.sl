@@ -21,6 +21,29 @@ Four days, twelve hours, thirty minutes, and five seconds:
 	30.minutes,
 	5.seconds
 ].sum.asDuration
+
+>>> 'P4DT12H30M5S'.parseDuration.asList
+[4 12 30 5]
+```
+
+Five minutes and seven and one half seconds:
+
+```
+>>> 'PT5M7.5S'.parseDuration
+Duration((5 * 60) + 7.5)
+
+>>> 'PT5M7.5S'.parseDuration.asList
+[0 0 5 7.5]
+```
+
+Six weeks:
+
+```
+>>> 'P6W'.parseDuration
+Duration(6 * 7 * 24 * 60 * 60)
+
+>>> 'P6W'.parseDuration.durationString
+[6 0 0 0 0]
 ```
 
 It is an error if the year or month fields are non-zero,

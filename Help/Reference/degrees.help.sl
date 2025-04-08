@@ -2,9 +2,21 @@
 
 - _degrees(x)_
 
-At `PlaneAngle` answer the value in degrees:
+At `SmallFloat`,
+answer a `Quantity` value:
 
 ```
+>>> 90.degrees
+Quantity(1/2.pi, 'radians')
+```
+
+At `Quantity` and `PlaneAngle`,
+answer the value in degrees:
+
+```
+>>> 1.5.pi.radians.degrees
+270
+
 >>> PlaneAngle(0.5.pi).degrees
 90
 ```
@@ -31,7 +43,7 @@ See also `degreesToRadians`:
 
 * * *
 
-See also: degree, PlaneAngle, radians
+See also: degree, PlaneAngle, Quantity, radians
 
 References:
 _Mathematica_

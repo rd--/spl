@@ -36,12 +36,18 @@ Duration : [Object, Magnitude] { | seconds |
 		Frequency(self.seconds.reciprocal)
 	}
 
+	asList { :self |
+		let b = [7 24 60 60];
+		self.seconds.mixedRadixEncode(b).padLeft([5], 0)
+	}
+
 	asSeconds { :self |
 		self.seconds
 	}
 
-	asTime { :self |
-		Time(self.seconds)
+	durationString { :self |
+		let [w, d, h, m, s] = self.asList;
+		'P%W%DT%H%M%S'.format([w, d, h, m, s])
 	}
 
 	isZero { :self |
@@ -58,6 +64,16 @@ Duration : [Object, Magnitude] { | seconds |
 
 	Duration { :self |
 		newDuration().initializeSlots(self)
+	}
+
+}
+
++List {
+
+	Duration { :self |
+		let [w, d, h, m, s] = self;
+		let b = [7 24 60 60];
+		Duration(self.mixedRadixDecode(b))
 	}
 
 }
@@ -94,7 +110,7 @@ Duration : [Object, Magnitude] { | seconds |
 
 	parseIso8601DurationAsList { :self |
 		<primitive:
-		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?$/;
+		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(\.\d+)?)S)?)?$/;
 		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
 		return [years, months, weeks, days, hours, minutes, seconds].map(function(x) {
 			return x ? Number(x) : 0;
@@ -134,7 +150,6 @@ Duration : [Object, Magnitude] { | seconds |
 		self
 		.localTimeZoneOffsetInMinutes
 		.minutes
-		.asDuration
 	}
 
 }

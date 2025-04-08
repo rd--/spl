@@ -6,22 +6,26 @@ Given a list of _bases_ encode _anInteger_.
 Mixed radix counting systems are common in calendrical calculations.
 
 ```
->>> 571.mixedRadixEncode([12 9 6])
+>>> let b = [12 9 6];
+>>> 571.mixedRadixEncode(b)
 [10 5 1]
 
 >>> (10 * 9 * 6) + (5 * 6) + 1
 571
 
->>> 534.mixedRadixEncode([15 10 5])
+>>> let b = [15 10 5];
+>>> 534.mixedRadixEncode(b)
 [10 6 4]
 
 >>> (10 * 10 * 5) + (6 * 5) + 4
 534
 
->>> 1084.mixedRadixEncode([17 15 11])
+>>> let b = [17 15 11];
+>>> 1084.mixedRadixEncode(b)
 [6 8 6]
 
->>> 12345.mixedRadixEncode([7 24 60])
+>>> Let b = [7 24 60];
+>>> 12345.mixedRadixEncode(b)
 [1 1 13 45]
 
 >>> [
@@ -34,10 +38,15 @@ Mixed radix counting systems are common in calendrical calculations.
 ```
 
 Encode can be used to convert a measure given in the smallest unit to a hierarchy of units.
-For example, given that 1 day = 24 hours, 1 hour = 60 minutes, and 1 minute = 60 seconds, encode 210859 seconds:
+For example,
+given that 1 day = 24 hours,
+1 hour = 60 minutes,
+and 1 minute = 60 seconds,
+encode 210859 seconds:
 
 ```
->>> 210859.mixedRadixEncode([24 60 60])
+>>> let b = [24 60 60];
+>>> 210859.mixedRadixEncode(b)
 [2 10 34 19]
 
 >>> [
@@ -52,40 +61,46 @@ For example, given that 1 day = 24 hours, 1 hour = 60 minutes, and 1 minute = 60
 The inverse is `mixedRadixDecode`.
 
 ```
->>> [10 5 1].mixedRadixDecode([12 9 6])
+>>> let b = [12 9 6];
+>>> [10 5 1].mixedRadixDecode()
 571
 
->>> [10 6 4].mixedRadixDecode([15 10 5])
+>>> let b = [15 10 5];
+>>> [10 6 4].mixedRadixDecode(b)
 534
 
->>> [6 8 6].mixedRadixDecode([17 15 11])
+>>> let b = [17 15 11];
+>>> [6 8 6].mixedRadixDecode(b)
 1084
 ```
 
 A primorial number system uses a mixed radix of primes:
 
 ```
->>> (10 ^ 6).mixedRadixEncode(
->>> 	[19 17 13 11 7 5 3 2]
->>> )
+>>> let b = [19 17 13 11 7 5 3 2];
+>>> (10 ^ 6).mixedRadixEncode(b)
 [1 16 3 9 6 1 2 0]
 ```
 
-A factorial number system uses a range of integers as mixed radix. The last digit is always 0:
+A factorial number system uses a range of integers as mixed radix.
+The last digit is always 0:
 
 ```
->>> 437.mixedRadixEncode([6 5 4 3 2 1])
+>>> let b = [6 5 4 3 2 1];
+>>> 437.mixedRadixEncode(b)
 [3 3 0 2 1 0]
 
->>> 463.mixedRadixEncode([6 5 4 3 2 1])
+>>> let b = [6 5 4 3 2 1];
+>>> 463.mixedRadixEncode(b)
 [3 4 1 0 1 0]
 ```
 
 There is a natural mapping between permutations in lexicographical order and integers expressed in a factorial number system:
 
 ```
+>>> let b = [4 3 2 1];
 >>> (0 .. 4.! - 1).collect { :each |
->>> 	each.mixedRadixEncode([4 3 2 1])
+>>> 	each.mixedRadixEncode(b)
 >>> }
 [
 	0 0 0 0; 0 0 1 0;
@@ -109,10 +124,12 @@ Decompose a number of Roman soldiers in these tactical units:
 
 ```
 >>> let units = [
->>> 	'legion' 'cohort' 'century' 'contubernia' 'soldier'
+>>> 	'legion' 'cohort' 'century'
+>>> 	'contubernia' 'soldier'
 >>> ];
->>> let bases = [10 6 10 8];
->>> units ->.each 16894.mixedRadixEncode(bases)
+>>> let b = [10 6 10 8];
+>>> let e = 16894.mixedRadixEncode(b);
+>>> units ->.each e
 [
 	'legion' -> 3,
 	'cohort' -> 5,
@@ -125,21 +142,26 @@ Decompose a number of Roman soldiers in these tactical units:
 Conversely, the number of soldiers in a legion:
 
 ```
->>> [1 0 0 0 0].mixedRadixDecode([10 6 10 8])
+>>> let b = [10 6 10 8];
+>>> [1 0 0 0 0].mixedRadixDecode(b)
 4800
 ```
 
 The digit at a given position can be between 0 and the corresponding base minus one:
 
 ```
->>> (10 * 9 * 8 * 7 - 1).mixedRadixEncode([10 9 8 7])
+>>> let b = [10 9 8 7];
+>>> (10 * 9 * 8 * 7 - 1)
+>>> .mixedRadixEncode(b)
 [9 8 7 6]
 ```
 
 The next number will need one more digit:
 
 ```
->>> (10 * 9 * 8 * 7).mixedRadixEncode([10 9 8 7])
+>>> let b = [10 9 8 7];
+>>> (10 * 9 * 8 * 7)
+>>> .mixedRadixEncode(b)
 [1 0 0 0 0]
 ```
 
@@ -184,7 +206,9 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 ]
 ```
 
-See also: mixedRadixDecode
+* * *
+
+See also: mixedRadixDecode, numberDecompose
 
 References:
 _Apl_
@@ -193,4 +217,6 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/numberdot#dyadic),
 _Mathematica_
 [1](http://mathworld.wolfram.com/Base.html)
-[2](https://reference.wolfram.com/language/ref/MixedRadix.html)
+[2](https://reference.wolfram.com/language/ref/MixedRadix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Mixed_radix)

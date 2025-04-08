@@ -35,6 +35,7 @@ Printing:
 
 - `dateString`
 - `dateTimeString`
+- `durationString`
 - `ordinalDateString`
 
 Parsing:

@@ -8,20 +8,8 @@ PlaneAngle : [Object, Magnitude] { | radians |
 		self.radians < anAngle.radians
 	}
 
-	asGradians { :self |
-		self.radians / 400
-	}
-
-	asRadians { :self |
-		self.radians
-	}
-
 	cos { :self |
 		self.radians.cos
-	}
-
-	degrees { :self |
-		self.radians / 1.pi * 180
 	}
 
 	magnitude { :self |
@@ -54,6 +42,22 @@ PlaneAngle : [Object, Magnitude] { | radians |
 
 	PlaneAngle { :self |
 		newPlaneAngle().initializeSlots(self)
+	}
+
+}
+
++[PlaneAngle, Quantity] {
+
+	asRadians { :self |
+		self.radians
+	}
+
+	degrees { :self |
+		self.radians / 1.pi * 180
+	}
+
+	gradians { :self |
+		self.radians / 400
 	}
 
 }

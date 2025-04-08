@@ -13,20 +13,20 @@ Quantity(540, 'seconds')
 (5 * 60).seconds
 ```
 
-At `Time`,
+At `Quantity`,
 answer the number of complete minutes:
 
 ```
->>> 3.hours.asTime.minutes
+>>> 3.hours.minutes
 180
 
->>> 2.days.asTime.minutes
+>>> 2.days.minutes
 (2 * 24 * 60)
 ```
 
 * * *
 
-See also: hours, milliseconds, seconds, Time
+See also: hours, milliseconds, Quantity, seconds
 
 References:
 _Smalltalk_

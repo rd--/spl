@@ -12,10 +12,6 @@ Frequency : [Object, Magnitude] { | hertz |
 		Duration(1 / self.hertz)
 	}
 
-	asHertz { :self |
-		self.hertz
-	}
-
 	cyclesPerMinute { :self |
 		self.hertz * 60
 	}
@@ -24,16 +20,8 @@ Frequency : [Object, Magnitude] { | hertz |
 		self.hertz
 	}
 
-	kilohertz { :self |
-		self.hertz / 1000
-	}
-
 	magnitude { :self |
 		self.hertz
-	}
-
-	megaherz { :self |
-		self.hertz / 1000000
 	}
 
 	storeString { :self |
@@ -54,10 +42,34 @@ Frequency : [Object, Magnitude] { | hertz |
 
 }
 
++[Frequency, Quantity] {
+
+	asHertz { :self |
+		self.hertz
+	}
+
+	gigahertz { :self |
+		self.hertz / 1E9
+	}
+
+	kilohertz { :self |
+		self.hertz / 1E3
+	}
+
+	megaherz { :self |
+		self.hertz / 1E6
+	}
+
+}
+
 +@Number {
 
 	asHertz { :self |
 		self
+	}
+
+	gigahertz { :self |
+		(self * 1E9).hertz
 	}
 
 	kilohertz { :self |
@@ -72,16 +84,8 @@ Frequency : [Object, Magnitude] { | hertz |
 
 +Quantity {
 
-	asHertz { :self |
-		(self.unit = 'hertz').if {
-			self.magnitude
-		} {
-			self.error('asHertz: not frequency')
-		}
-	}
-
 	asFrequency { :self |
-		Frequency(self.asHertz)
+		Frequency(self.hertz)
 	}
 
 }

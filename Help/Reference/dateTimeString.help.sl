@@ -12,6 +12,15 @@ At `Date`:
 '1970-01-01T00:00:00.000Z'
 ```
 
+The inverse is `parseDate`,
+answering a `Date` value:
+
+```
+>>> '2025-04-08T19:45:00.000Z'
+>>> .parseDate
+Date([2025 04 08 19 45 00])
+```
+
 At `TimeStamp`:
 
 ```
@@ -20,13 +29,13 @@ At `TimeStamp`:
 '1970-01-01T00:00:00.000Z'
 ```
 
-The inverse is `parseDate`,
-answering a `Date` value:
+The inverse is `parseTimeStamp`,
+answering a `TimeStamp` value:
 
 ```
->>> '1970-01-01T00:00:00.000Z'
->>> .parseDate
-Date([1970 01 01 00 00 00])
+>>> '2025-04-08T19:45:00.000Z'
+>>> .parseTimeStamp
+TimeStamp(1744141500)
 ```
 
 * * *

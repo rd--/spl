@@ -22,7 +22,7 @@ which is required to specify the time zone:
 >>> '2025-04-08T10:41:00.000+10:00'
 >>> .parseDate
 >>> .dateTimeString
-'2025-04-08T20:41:00.000Z'
+'2025-04-08T00:41:00.000Z'
 ```
 
 A value of _Z_ indicates _UTC_:
@@ -31,7 +31,7 @@ A value of _Z_ indicates _UTC_:
 >>> '2023-05-11T09:30:00.000Z'
 >>> .parseDate
 >>> .dateTimeString
-'2023-05-11T09:30:00.00Z'
+'2023-05-11T09:30:00.000Z'
 ```
 
 * * *

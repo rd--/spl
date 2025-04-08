@@ -8,6 +8,30 @@ Length : [Object, Magnitude] { | metres |
 		self.metres < aLength.metres
 	}
 
+	magnitude { :self |
+		self.metres
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+	unit { :unused |
+		'metres'
+	}
+
+}
+
++SmallFloat {
+
+	Length { :self |
+		newLength().initializeSlots(self)
+	}
+
+}
+
++[Length, Quantity] {
+
 	asMetres { :self |
 		self.metres
 	}
@@ -34,10 +58,6 @@ Length : [Object, Magnitude] { | metres |
 
 	lightYears { :self |
 		self.metres / (9.4607 * (10 ^ 15))
-	}
-
-	magnitude { :self |
-		self.metres
 	}
 
 	micrometres { :self |
@@ -76,24 +96,8 @@ Length : [Object, Magnitude] { | metres |
 		self.millimetres / 0.3528
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 	yards { :self |
 		self.metres / 0.9144
-	}
-
-	unit { :unused |
-		'metres'
-	}
-
-}
-
-+SmallFloat {
-
-	Length { :self |
-		newLength().initializeSlots(self)
 	}
 
 }
@@ -101,11 +105,7 @@ Length : [Object, Magnitude] { | metres |
 +Quantity {
 
 	asLength { :self |
-		(self.unit = 'metres').if {
-			Length(self.magnitude)
-		} {
-			self.error('asLength: not length')
-		}
+		Length(self.metres)
 	}
 
 }

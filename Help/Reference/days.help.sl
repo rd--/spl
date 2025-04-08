@@ -18,16 +18,16 @@ Quantity(172800, 'seconds')
 3.weeks
 ```
 
-At `Time`.
+At `Quantity`,
 answer the number of complete days:
 
 ```
->>> 3.weeks.asTime.days
+>>> 3.weeks.days
 21
 ```
 
 * * *
 
-See also: asSeconds, hours, minutes, seconds, Time, weeks
+See also: asSeconds, hours, minutes, Quantity, seconds, Time, weeks
 
 Categories: Time, Type

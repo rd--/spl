@@ -54,7 +54,7 @@ The first six of these fields are answered by `asList`:
 
 * * *
 
-See also: asDate, dayOfMonth, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
+See also: absoluteTime, asDate, dayOfMonth, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
 
 References:
 _Mathematica_

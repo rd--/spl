@@ -43,11 +43,11 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		self + anObject.negated
 	}
 
-	asSeconds { :self |
-		self.isTime.if {
+	hertz { :self |
+		(self.unit = 'hertz').if {
 			self.magnitude
 		} {
-			self.error('asSeconds: not time')
+			self.error('hertz: not frequency')
 		}
 	}
 
@@ -77,8 +77,40 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		self.unit = 'seconds'
 	}
 
+	kilograms { :self |
+		(self.unit = 'kilograms').if {
+			self.magnitude
+		} {
+			self.error('kilograms: not mass')
+		}
+	}
+
+	metres { :self |
+		(self.unit = 'metres').if {
+			self.magnitude
+		} {
+			self.error('metres: not length')
+		}
+	}
+
 	negated { :self |
 		Quantity(self.magnitude.negated, self.unit)
+	}
+
+	radians { :self |
+		(self.unit = 'radians').if {
+			self.magnitude
+		} {
+			self.error('radians: not plane angle')
+		}
+	}
+
+	seconds { :self |
+		(self.unit = 'seconds').if {
+			self.magnitude
+		} {
+			self.error('seconds: not time')
+		}
 	}
 
 	storeString { :self |

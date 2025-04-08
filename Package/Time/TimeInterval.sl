@@ -19,6 +19,12 @@ TimeInterval : [Object] { | min max |
 		)
 	}
 
+	includes { :self :aTimeStamp |
+		aTimeStamp >= self.min & {
+			aTimeStamp < self.max
+		}
+	}
+
 	minMax { :self |
 		[self.min, self.max]
 	}

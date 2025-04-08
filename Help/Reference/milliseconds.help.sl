@@ -13,19 +13,19 @@ Quantity(0.005, 'seconds')
 3.minutes
 ```
 
-At `Time`,
+At `Quantity`,
 answer the number of complete milliseconds in _t_:
 
 ```
->>> 5.minutes.asTime.milliseconds
+>>> 5.minutes.milliseconds
 300000
 
->>> 3.hours.asTime.milliseconds
+>>> 3.hours.milliseconds
 3 * 60 * 60 * 1000
 ```
 
 * * *
 
-See also: asSeconds, hours, minutes, seconds, Time
+See also: asSeconds, hours, minutes, Quantity, seconds
 
 Categories: Time, Type

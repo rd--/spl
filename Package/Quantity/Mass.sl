@@ -8,24 +8,8 @@ Mass : [Object, Magnitude] { | kilograms |
 		self.kilograms < aMass.kilograms
 	}
 
-	asKilograms { :self |
-		self.kilograms
-	}
-
-	grams { :self |
-		self.kilograms * 1E3
-	}
-
 	magnitude { :self |
 		self.kilograms
-	}
-
-	ounces { :self |
-		self.grams * 28.349523125
-	}
-
-	pounds { :self |
-		self.kilograms * 0.45359237
 	}
 
 	storeString { :self |
@@ -46,14 +30,30 @@ Mass : [Object, Magnitude] { | kilograms |
 
 }
 
++[Mass, Quantity] {
+
+	asKilograms { :self |
+		self.kilograms
+	}
+
+	grams { :self |
+		self.kilograms * 1E3
+	}
+
+	ounces { :self |
+		self.grams * 28.349523125
+	}
+
+	pounds { :self |
+		self.kilograms * 0.45359237
+	}
+
+}
+
 +Quantity {
 
 	asMass { :self |
-		(self.unit = 'kilograms').if {
-			Mass(self.magnitude)
-		} {
-			self.error('asMass: not mass')
-		}
+		Mass(self.kilograms)
 	}
 
 }

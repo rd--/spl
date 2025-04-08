@@ -1,5 +1,21 @@
 Time : [Object] { | seconds |
 
+	magnitude { :self |
+		self.seconds
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+	unit { :unused |
+		'seconds'
+	}
+
+}
+
++[Time, Quantity] {
+
 	asSeconds { :self |
 		self.seconds
 	}
@@ -16,24 +32,12 @@ Time : [Object] { | seconds |
 		self.minutes / 60
 	}
 
-	magnitude { :self |
-		self.seconds
-	}
-
 	milliseconds { :self |
 		self.seconds * 1000
 	}
 
 	minutes { :self |
 		self.seconds / 60
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-	unit { :unused |
-		'seconds'
 	}
 
 	weeks { :self |
@@ -53,11 +57,7 @@ Time : [Object] { | seconds |
 +Quantity {
 
 	asTime { :self |
-		(self.unit = 'seconds').if {
-			Time(self.magnitude)
-		} {
-			self.error('asTime: not time')
-		}
+		Time(self.seconds)
 	}
 
 }

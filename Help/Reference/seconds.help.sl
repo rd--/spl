@@ -13,20 +13,20 @@ Quantity(3, 'seconds')
 3.minutes
 ```
 
-At `Time`,
+At `Quantity`,
 answer the number of seconds:
 
 ```
->>> 3.hours.asTime.seconds
+>>> 3.hours.seconds
 10800
 
->>> Time(5).seconds
-5
+>>> 3.minutes.seconds
+180
 ```
 
 * * *
 
-See also: asSeconds, hours, milliseconds, minutes, Time
+See also: asSeconds, hours, milliseconds, minutes, Quantity
 
 References:
 _Smalltalk_

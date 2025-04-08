@@ -2,7 +2,10 @@
 
 - _TimeInterval(t₁, t₂)_
 
-A `Type` that represents the interval between two time instants.
+A `Type` that represents the interval between two time instants,
+also called a time span.
+The interval is half-open,
+it includes _t₁_ and excludes _t₂_.
 
 ```
 >>> let s1 = '2025-04-07T21:21:00.000Z';
@@ -17,6 +20,8 @@ A `Type` that represents the interval between two time instants.
 >>> 	i1.max,
 >>> 	i1.duration,
 >>> 	i1.absoluteTime,
+>>> 	i1.includes(t1),
+>>> 	i1.includes(t2),
 >>> 	i1 = i2
 >>> )
 (
@@ -24,6 +29,8 @@ A `Type` that represents the interval between two time instants.
 	t2,
 	Duration(60),
 	(1744060860 -- 1744060920),
+	true,
+	false,
 	true
 )
 ```
