@@ -28,6 +28,10 @@ Count only dimensions at which an expression is not _ragged_:
 Works with arrays of any depth:
 
 ```
+>>> [1 2; 3 4:; 5 6; 7 8]
+>>> .dimensions
+[2 2 2]
+
 >>> [[[[1, 2]]]].dimensions
 [1 1 1 2]
 ```

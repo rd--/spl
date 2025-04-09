@@ -40,6 +40,17 @@ with `Fraction` entries:
 
 ![](sw/spl/Help/Image/stepPlot-D.svg)
 
+At list of vectors:
+
+~~~spl svg=E
+[
+	5  7 13 21;
+	1  3  5
+].stepPlot
+~~~
+
+![](sw/spl/Help/Image/stepPlot-E.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

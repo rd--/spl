@@ -27,6 +27,10 @@ true
 >>> [1L 2L; 3L 4L]
 >>> .isMatrixOf('LargeInteger')
 true
+
+>>> [1 2; 3 4:; 5 6; 7 8]
+>>> .isMatrixOf('List')
+true
 ```
 
 * * *

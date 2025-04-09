@@ -73,6 +73,10 @@ TemporalData : [Object] { | valueList timeList |
 		self.pathList.stepPlot
 	}
 
+	timelinePlot { :self |
+		self.timeList.timelinePlot
+	}
+
 }
 
 +List {

@@ -235,6 +235,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		self.storeStringAsInitializeSlots
 	}
 
+	timelinePlot { :self |
+		self.times.timelinePlot
+	}
+
 	valueDimensions { :self |
 		let v = self.values.anyOne;
 		v.isList.if {

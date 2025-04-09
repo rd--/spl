@@ -113,7 +113,7 @@
 	}
 
 	isMatrixOf { :self :elementType |
-		self.isMatrix & {
+		(self.arrayDepth >= 2) & {
 			self.allSatisfy { :each |
 				each.elementType = elementType
 			}

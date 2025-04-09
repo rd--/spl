@@ -296,15 +296,20 @@ Plot : [Object] { | pages format options |
 			answer
 		} {
 			self.isMatrix.if {
-				let x1 = self[1][1];
-				let answer = [];
-				self.do { :each |
-					let [x2, y] = each;
-					answer.add([x1, y]);
-					answer.add([x2, y]);
-					x1 := x2
-				};
-				answer
+				let [m, n] = self.shape;
+				(n = 2).if {
+					let x1 = self[1][1];
+					let answer = [];
+					self.do { :each |
+						let [x2, y] = each;
+						answer.add([x1, y]);
+						answer.add([x2, y]);
+						x1 := x2
+					};
+					answer
+				} {
+					self.collect(stepPlotLineData:/1)
+				}
 			} {
 				self.collect(stepPlotLineData:/1)
 			}
@@ -337,40 +342,49 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
+	timelinePlot { :self |
+		self.isVector.if {
+			[self].timelinePlot
+		} {
+			let x0 = self.deepMin;
+			let x1 = self.deepMax;
+			let k = self.size;
+			let y0 = ((x1 - x0) / 4).max(k);
+			let p = [[x0, k + 2]];
+			1.toDo(k) { :i |
+				self[i].do { :x |
+					p.add([x, i])
+				}
+			};
+			p.scatterPlot
+		}
+	}
+
+	typedVectorPlot { :self :format |
+		self.collect { :each |
+			each.withIndexCollect { :y :x |
+				[x, y]
+			}
+		}.Plot(format)
+	}
+
 	typedPlot { :self :format |
 		self := self.asFloat;
 		self.isVector.if {
-			[
-				self.withIndexCollect { :y :x |
-					[x, y]
-				}
-			].Plot(format)
+			[self].typedVectorPlot(format)
 		} {
 			self.isColumnVector.if {
-				[
-					self.withIndexCollect { :y :x |
-						[x, y.first]
-					}
-				].Plot(format)
+				[self.catenate].typedVectorPlot(format)
 			} {
-				let listPlotPerPage = {
-					self.collect { :each |
-						[[1 .. each.size], each].transposed
-					}.Plot(format)
-				};
-				self.isMatrix.if {
+				self.isSmallFloatMatrix.if {
 					let [m, n] = self.shape;
 					(n <= 3).if {
 						[self].Plot(format)
 					} {
-						listPlotPerPage()
+						self.typedVectorPlot(format)
 					}
 				} {
-					(self.arrayDepth = 3).if {
-						self.Plot(format)
-					} {
-						listPlotPerPage()
-					}
+					self.Plot(format)
 				}
 			}
 		}
