@@ -15,6 +15,8 @@ The value of the function at each of the input _x_ values equals the correspondi
 y
 ```
 
+Interpolated _x_ values read the _y_ value at the nearest specified _x_ value:
+
 ```
 >>> let x = [0 0.1 0.5 1 2];
 >>> let y = [0 0.3 0.6 -0.2 3];
@@ -22,6 +24,17 @@ y
 >>> 	x.nearestNeighborInterpolator(y)
 >>> )
 [0 0 0.3 0.3]
+```
+
+Resample a six-place vector to nine places using nearest-neighbour interpolation:
+
+```
+>>> let x = [1 2 3 4 5 6];
+>>> let y = [1 4 7 4 3 6];
+>>> (1 -- 6).discretize(9).collect(
+>>> 	x.nearestNeighborInterpolator(y)
+>>> )
+[1 4 4 7 4 4 3 6 6]
 ```
 
 Plot an interpolation over the specified _x_ range:
@@ -63,3 +76,9 @@ let y = [0 0 1 0 0];
 * * *
 
 See also: akimaInterpolator, catmullRomInterpolation, cubicSplineInterpolator, linearInterpolator
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/x.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation)

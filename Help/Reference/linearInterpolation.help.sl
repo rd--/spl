@@ -67,7 +67,7 @@ Linear impulse response:
 
 * * *
 
-See also: bilinearInterpolation, catmullRomInterpolation, cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, listInterpolation, trilinearInterpolation
+See also: bilinearInterpolation, catmullRomInterpolation, cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolator, listInterpolation, trilinearInterpolation
 
 Guides: Interpolation Functions
 

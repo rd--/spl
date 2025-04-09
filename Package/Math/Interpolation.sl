@@ -228,26 +228,20 @@
 		}
 	}
 
-	interpolation { :data :method |
-		let f:/2 = method.caseOfOtherwise([
-			{ 'Akima' } -> { akimaInterpolator:/2 },
-			{ 'Linear' } -> { linearInterpolator:/2 },
-			{ 'Spline' } -> { cubicSplineInterpolator:/2 }
-		]) {
-			data.error('interpolation: unknown method')
-		};
-		data.isVector.if {
-			let y = data;
+	interpolation { :self :method |
+		let f:/2 = method.namedInterpolatorFunction;
+		self.isVector.if {
+			let y = self;
 			let x = [1 .. y.size];
 			f(x, y)
 		} {
-			let [x, y] = data.transposed;
+			let [x, y] = self.transposed;
 			f(x, y)
 		}
 	}
 
 	interpolation { :self |
-		self.interpolation('Spline')
+		self.interpolation('CubicSpline')
 	}
 
 	linearInterpolatorCoefficientList { :x :y |
@@ -500,6 +494,21 @@
 				xy / (xx * yy).sqrt
 			};
 			[a, b, r]
+		}
+	}
+
+}
+
++String {
+
+	namedInterpolatorFunction { :self |
+		self.caseOfOtherwise([
+			{ 'Akima' } -> { akimaInterpolator:/2 },
+			{ 'CubicSpline' } -> { cubicSplineInterpolator:/2 },
+			{ 'Linear' } -> { linearInterpolator:/2 },
+			{ 'NearestNeighbor' } -> { nearestNeighborInterpolator:/2 }
+		]) {
+			self.error('interpolatorFunction: unknown method')
 		}
 	}
 

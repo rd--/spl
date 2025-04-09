@@ -467,11 +467,11 @@
 				} {
 					let a = self[i - 1];
 					let b = self[i];
-					let div = b - a;
-					(div = 0).if {
+					let c = b - a;
+					(c = 0).if {
 						i
 					} {
-						((aNumber - a) / div) + i - 1
+						((aNumber - a) / c) + i - 1
 					}
 				}
 			}

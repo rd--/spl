@@ -241,6 +241,58 @@ TimeSeries(
 
 ![](sw/spl/Help/Image/TimeSeries-B.svg)
 
+Plot linear interpolation function of time series:
+
+~~~spl svg=C
+(1 -- 15).functionPlot(
+	TimeSeries(
+		[2 1 6 5 7 4],
+		[1 2 5 10 12 15]
+	).interpolation('Linear')
+)
+~~~
+
+![](sw/spl/Help/Image/TimeSeries-C.svg)
+
+Plot nearest-neighbor interpolation function of time series:
+
+~~~spl svg=D
+(1 -- 15).functionPlot(
+	TimeSeries(
+		[2 1 6 5 7 4],
+		[1 2 5 10 12 15]
+	).interpolation('NearestNeighbor')
+)
+~~~
+
+![](sw/spl/Help/Image/TimeSeries-D.svg)
+
+Plot cubic-spline interpolation function of time series:
+
+~~~spl svg=E
+(1 -- 15).functionPlot(
+	TimeSeries(
+		[2 1 6 5 7 4],
+		[1 2 5 10 12 15]
+	).interpolation('CubicSpline')
+)
+~~~
+
+![](sw/spl/Help/Image/TimeSeries-E.svg)
+
+Plot Akima interpolation function of time series:
+
+~~~spl svg=F
+(1 -- 15).functionPlot(
+	TimeSeries(
+		[2 1 6 5 7 4],
+		[1 2 5 10 12 15]
+	).interpolation('Akima')
+)
+~~~
+
+![](sw/spl/Help/Image/TimeSeries-F.svg)
+
 * * *
 
 See also: isRegularlySampled, minimumTimeIncrement, resample, TemporalData

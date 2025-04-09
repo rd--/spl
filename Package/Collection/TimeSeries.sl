@@ -14,8 +14,14 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		}
 	}
 
+	akimaInterpolator { :self |
+		self.times.akimaInterpolator(
+			self.values
+		)
+	}
+
 	at { :self :time |
-		let i = self.times.indexOfIfAbsent(time) { :each |
+		let i = self.times.indexOfIfAbsent(time) {
 			self.error('at: invalid index')
 		};
 		self.values[i]
@@ -41,6 +47,12 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		)
 	}
 
+	cubicSplineInterpolator { :self |
+		self.times.cubicSplineInterpolator(
+			self.values
+		)
+	}
+
 	discretePlot { :self |
 		self.path.discretePlot
 	}
@@ -59,6 +71,13 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 
 	indices { :self |
 		self.times
+	}
+
+	interpolation { :self :method |
+		let f:/2 = method.namedInterpolatorFunction;
+		let x = self.times;
+		let y = self.values;
+		f(x, y)
 	}
 
 	isMultivariate { :self |
@@ -87,6 +106,12 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 
 	lastValue { :self |
 		self.values.last
+	}
+
+	linearInterpolator { :self |
+		self.times.linearInterpolator(
+			self.values
+		)
 	}
 
 	linePlot { :self |
@@ -138,6 +163,12 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 
 	minimumTimeIncrement { :self |
 		self.times.minimumDifference
+	}
+
+	nearestNeighborInterpolator { :self |
+		self.times.nearestNeighborInterpolator(
+			self.values
+		)
 	}
 
 	path { :self |

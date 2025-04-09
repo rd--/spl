@@ -1,8 +1,10 @@
 # interpolation
 
-- _interpolation([y...] | [[x, y]...])_
+- _interpolation([y₁ y₂ …])_
+- _interpolation([x₁ y₁ …; x₂ y₂ …; …])_
 
-Answer an interpolation of the specified data set using a spline interpolator.
+Answer an interpolation of the specified data set using the interpolator selected by a named method.
+A spline interpolator is selected if no method is specified.
 
 Interpolate a vector of _y_ values,
 _x_ is understood to be the integers from `one`:
@@ -45,7 +47,7 @@ Interpolate the sequence of primes:
 
 ~~~spl svg=D
 let y = 30.primesList;
-let f:/1 = y.interpolation;
+let f:/1 = y.interpolation('Akima');
 (2 -- 30).functionPlot { :n |
 	f(n) - f(n - 1)
 }
@@ -53,9 +55,20 @@ let f:/1 = y.interpolation;
 
 ![](sw/spl/Help/Image/interpolation-D.svg)
 
+Interpolate a `TimeSeries`:
+
+~~~spl svg=E
+(1 -- 5).functionPlot(
+	TimeSeries([4 1 3 2 5], [1 .. 5])
+	.interpolation('CubicSpline')
+)
+~~~
+
+![](sw/spl/Help/Image/interpolation-E.svg)
+
 * * *
 
-See also: akimaInterpolator, linearInterpolator, splineInterpolator
+See also: akimaInterpolator, cubicSplineInterpolator, linearInterpolator, nearestNeighborInterpolator
 
 References:
 _Mathematica_
