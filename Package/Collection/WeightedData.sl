@@ -19,6 +19,14 @@ WeightedData : [Object] { | inputData weights |
 		xO[i] /* no interpolation */
 	}
 
+	randomChoice { :self :r :shape |
+		r.randomWeightedChoice(
+			self.inputData,
+			self.weights,
+			shape
+		)
+	}
+
 	rootMeanSquare { :self |
 		let x = self.inputData;
 		let w = self.weights;

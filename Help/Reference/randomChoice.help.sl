@@ -131,6 +131,19 @@ At `IdentitySet`:
 ]
 ```
 
+At `WeightedData`:
+
+```
+>>> let r = Sfc32(19743);
+>>> WeightedData(
+>>> 	[1 2 3 4],
+>>> 	[2 2 5 1]
+>>> ).randomChoice(r, [100])
+>>> .asIdentityBag
+>>> .sortedElements
+[1 -> 18, 2 -> 17, 3 -> 50, 4 -> 15]
+```
+
 Plot a random walk with steps of unit length:
 
 ~~~spl svg=A
