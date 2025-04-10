@@ -267,6 +267,34 @@ Plot : [Object] { | pages format options |
 		[self.asFloat].Plot('matrix')
 	}
 
+	pianoRollPlot { :self |
+		let [m, n] = self.shape;
+		(n >= 3).if {
+			let tMax = self.injectInto(0) { :z :each |
+				z.max(each[1] + each[2])
+			};
+			let tScale = 100 / tMax.max(20);
+			let r = self.collect { :each |
+				let [t, d, p] = each;
+				Rectangle(
+					[t * tScale, p],
+					[(t + d) * tScale, (p + 1)]
+				)
+			};
+			[
+				[
+					[0, 32],
+					[0, 60],
+					[0, 84],
+					[tMax * tScale, 60]
+				].PointCloud,
+				r
+			].LineDrawing
+		} {
+			self.error('pianoRollPlot: not at least three-column matrix')
+		}
+	}
+
 	polarPlot { :self |
 		let k = self.rank;
 		(k = 2).if {

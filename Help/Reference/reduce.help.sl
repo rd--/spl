@@ -77,7 +77,7 @@ true
 
 * * *
 
-See also: deepReduce, injectInto, reduceBy, scan
+See also: deepReduce, foldLeft, foldRight, injectInto, reduceBy, scan
 
 References:
 _Apl_

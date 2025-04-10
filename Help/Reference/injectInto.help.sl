@@ -30,7 +30,7 @@ With a non-associative operator:
 -5
 ```
 
-The accumulator value is at the left of the operator:
+The accumulator value is at the left of the operand:
 
 ```
 >>> [5 6 7 8].injectInto(
