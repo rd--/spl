@@ -5,21 +5,6 @@
 Answer a list of the digits of _x_ in base _b_ multiplied by their corresponding powers of _b_.
 The least power is in all cases `zero`.
 
-+SmallFloat{
-	numberExpand { :self :base |
-		let i = self.abs.truncated;
-		let f = self.abs.fractionPart;
-		let d = i.integerDigits(base);
-		let k = d.size;
-		let m = (k .. 1).collect { :each | base ^ (each - 1) };
-		let l = (d * m);
-		(f = 0).ifFalse {
-			l[k] := l[k] + f
-		};
-		l * self.sign
-	}
-}
-
 Expand an integer number into a list of multiples of powers of 10:
 
 ```

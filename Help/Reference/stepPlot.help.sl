@@ -25,8 +25,10 @@ At matrix, specifying _x_ and _y_ coordinates:
 Plot boolean signal:
 
 ~~~spl svg=C
-let rng = Sfc32(12783);
-[0 1].atRandom([23], rng).stepPlot
+let r = Sfc32(12783);
+[0 1]
+.randomChoice(r, [23])
+.stepPlot
 ~~~
 
 ![](sw/spl/Help/Image/stepPlot-C.svg)

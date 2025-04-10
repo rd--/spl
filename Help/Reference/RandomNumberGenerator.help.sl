@@ -10,7 +10,6 @@ The provided methods are:
 - `randomBit`: bit
 - `randomBoolean`: boolean
 - `randomByteArray`: byte array
-- `randomChoice`: choice
 - `randomComplex`: complex number
 - `randomCycle`: cycle
 - `randomInteger`: small integer

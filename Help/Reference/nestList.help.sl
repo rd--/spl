@@ -91,7 +91,7 @@ Random walk:
 ```
 >>> let r = Sfc32(671431);
 >>> { :x |
->>> 	x + r.randomChoice([-1 1], [])
+>>> 	x + [-1 1].randomChoice(r, [])
 >>> }.nestList(0, 9)
 [0 -1 -2 -1 0 1 2 3 2 1]
 ```

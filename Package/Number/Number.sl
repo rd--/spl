@@ -126,14 +126,6 @@
 		<primitive: return _self.toLocaleString('en-US');>
 	}
 
-	atRandom { :self :shape |
-		self.atRandom(shape, system)
-	}
-
-	atRandom { :self |
-		self.atRandom([], system)
-	}
-
 	barronCurve { :s :t |
 		let epsilon = 1.smallFloatEpsilon;
 		{ :x |
@@ -610,7 +602,7 @@
 
 	niceNumberAbove { :self |
 		self.niceNumberBy { :l :n |
-			l[l.bisect(n, <=)]
+			l[l.bisect(n)]
 		}
 	}
 

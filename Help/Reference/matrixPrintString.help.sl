@@ -36,10 +36,8 @@ Of real matrix:
 Of `Complex` matrix:
 
 ```
->>> 10J10.atRandom(
->>> 	[3 2],
->>> 	Sfc32(69197)
->>> )
+>>> Sfc32(69197)
+>>> .randomComplex([0J0 10J10], [3 2])
 >>> .matrixPrintString
 [
 	'3×2',

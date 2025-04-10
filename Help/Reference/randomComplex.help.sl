@@ -5,6 +5,18 @@
 Answer an array of the indicated _shape_ containing pseudo-random `Complex` numbers
 that lie inside the rectangle with corners given by _min_ and _max_.
 
+A 3×2 matrix of random complex numbers in the rectangle with corners at _0J0_ and _10J10_:
+
+```
+>>> Sfc32(69197)
+>>> .randomComplex([0J0 10J10], [3 2])
+[
+	2.05088J6.28115 4.42597J6.82972;
+	2.96642J1.94917 0.75707J3.25880;
+	8.78787J0.40132 7.81907J3.01507
+]
+```
+
 A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_ and _100J100_:
 
 ```

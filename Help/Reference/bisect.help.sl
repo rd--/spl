@@ -1,24 +1,23 @@
 # bisect
 
-- _bisect(aSequence, anObject, aBlock:/2)_
+- _bisect(aSequence, anObject)_
 
-Answer the index of the first item in _aSequence_ for which the comparison predicate _aBlock_ answers `true`.
-In the binary case use `<` as comparison.
+Locate the insertion point for _anObject_ in _aSequence_ to maintain sorted order.
+This method is an alias for `binarySearchRightmost`.
 
-Find insertion point for _n_ in _l_ using predicates `<` and `<=`,
-showing equivalent use of `detectIndex`:
+Show equivalent use of `detectIndex` and `binarySearchRightmost`:
 
 ```
 >>> [8 9].collect { :n |
->>> 	let l = 1:2:15;
->>> 	let i = l.bisect(n, <);
->>> 	let j = l.bisect(n, <=);
->>> 	let k = l.detectIndex { :each | n < each };
->>> 	(i, l[i], j, l[j], k, l[k])
+>>> 	let x = 1:2:15;
+>>> 	let i = x.bisect(n);
+>>> 	let j = x.detectIndex { :each | n <= each };
+>>> 	let k = x.binarySearchRightmost(n);
+>>> 	(i, x[i], j, x[j], k, x[k])
 >>> }
 [
 	(5, 9, 5, 9, 5, 9),
-	(6, 11, 5, 9, 6, 11)
+	(5, 9, 5, 9, 5, 9)
 ]
 ```
 
@@ -33,7 +32,7 @@ Insertion can be performed using `addBeforeIndex`:
 
 * * *
 
-See also: <, <=, addBeforeIndex, detectIndex
+See also: <, <=, addBeforeIndex, binarySearchRightmost, detectIndex
 
 References:
 _Python_

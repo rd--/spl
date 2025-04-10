@@ -209,8 +209,8 @@ Complex : [Object, Number] { | real imaginary |
 		[self.real, self.imaginary]
 	}
 
-	atRandom { :self :shape :rng |
-		rng.randomComplex([0J0, self], shape)
+	atRandom { :self |
+		system.randomComplex([0J0, self], [])
 	}
 
 	conjugated { :self |

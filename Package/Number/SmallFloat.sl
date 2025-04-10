@@ -163,8 +163,8 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	atRandom { :self :shape :rng |
-		rng.randomReal([0, self], shape)
+	atRandom { :self |
+		system.nextRandomFloat(0, self)
 	}
 
 	basicPrintString { :self :radix |
@@ -526,9 +526,18 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	/*Number { :self |
-		self
-	}*/
+	numberExpand { :self :base |
+		let i = self.abs.truncated;
+		let f = self.abs.fractionPart;
+		let d = i.integerDigits(base);
+		let k = d.size;
+		let m = (k .. 1).collect { :each | base ^ (each - 1) };
+		let l = (d * m);
+		(f = 0).ifFalse {
+			l[k] := l[k] + f
+		};
+		l * self.sign
+	}
 
 	one { :self |
 		1

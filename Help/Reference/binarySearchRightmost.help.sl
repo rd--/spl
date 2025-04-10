@@ -6,26 +6,38 @@ Answer the index of _anObject_ in _aSequence_,
 which is known to be sorted.
 
 ```
->>> [1 3 6 10 15 21 28 36 45 55 57]
->>> .binarySearchRightmost(28)
-7
+>>> let x = [1 3 6 10 15 21 28 36 45 55 57];
+>>> (
+>>> 	x.binarySearch(28),
+>>> 	x.binarySearchLeftmost(28),
+>>> 	x.binarySearchRightmost(28)
+>>> )
+(7, 7, 7)
 ```
 
 If the item is not in the sequence
 answer the index of the first item in the sequence that is greater than _anObject_:
 
 ```
->>> [1 3 6 10 15 21 28 36 45 55 57]
->>> .binarySearchRightmost(13)
-5
+>>> let x = [1 3 6 10 15 21 28 36 45 55 57];
+>>> (
+>>> 	x.binarySearch(13),
+>>> 	x.binarySearchLeftmost(13),
+>>> 	x.binarySearchRightmost(13)
+>>> )
+(0, 4, 5)
 ```
 
 Finds the last index if the sequence contains multiple copies:
 
 ```
->>> [1 2 2 2 2 2 3]
->>> .binarySearchRightmost(2)
-6
+>>> let x = [1 2 2 2 2 2 3];
+>>> (
+>>> 	x.binarySearch(2),
+>>> 	x.binarySearchLeftmost(2),
+>>> 	x.binarySearchRightmost(2)
+>>> )
+(2, 2, 6)
 ```
 
 Answers `one` if the item is to the left of the first item,
@@ -56,4 +68,8 @@ does not distinguish out of range values at left or right:
 
 * * *
 
-See also: binaryDetectIndex, binarySearch, binarySearchLeftmost, detectIndex, indexOf
+See also: binaryDetectIndex, binarySearch, binarySearchLeftmost, bisect, detectIndex, indexOf
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Binary_search)

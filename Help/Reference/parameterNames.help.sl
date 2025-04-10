@@ -8,8 +8,8 @@ Answer a `List` of `String` items giving the names of the parameters of _aMethod
 >>> size:/1.parameterNames
 ['self']
 
->>> atRandom:/2.parameterNames
-['self' 'shape']
+>>> randomChoice:/3.parameterNames
+['self' 'r' 'shape']
 
 >>> asJson:/3.parameterNames
 ['self' 'replacer' 'space']

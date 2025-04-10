@@ -123,8 +123,8 @@ Sfc32(41975)
 Plot a random walk on a lattice:
 
 ~~~spl svg=K
-Sfc32(80415)
-.randomChoice([1 0; -1 0; 0 1; 0 -1], 99)
+let r = Sfc32(80415);
+[1 0; -1 0; 0 1; 0 -1].randomChoice(r, 99)
 .accumulate
 .linePlot
 ~~~

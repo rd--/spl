@@ -8,7 +8,11 @@ SinOscBank([800, 1000, 1200], 1, 0) * 0.3 * 0.4
 { SinOscBank({ 600.Rand(1000) } ! 8, 0.1, 0) } ! 2 * 0.1
 
 /* SinOscBank */
-SinOscBank((600 -- 1000).atRandom([8, 2]), 0.1, 0) * 0.1
+SinOscBank(
+	{ (600 -- 1000).atRandom } ! [8, 2],
+	0.1,
+	0
+) * 0.1
 
 /* SinOscBank */
 let f1 = [221 614 1145 1804 2577 3456 4419];

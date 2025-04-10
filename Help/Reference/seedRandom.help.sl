@@ -1,13 +1,13 @@
 # seedRandom
 
-- _seedRandom(anInteger | aString)_
+- _seedRandom(r, s)_
 
-Resets the system-wide pseudo-random number generator, using _anInteger_ as a seed.
+Resets the pseudo-random number generator _r_ using _s_ as a seed.
 
 Use `seedRandom` to make random numbers repeatable:
 
 ```
->>> 2166136261.seedRandom;
+>>> system.seedRandom(2166136261);
 >>> system.nextRandomFloat
 0.12549
 ```
@@ -15,7 +15,7 @@ Use `seedRandom` to make random numbers repeatable:
 The seed can be a `String`:
 
 ```
->>> 'seedString'.seedRandom;
+>>> system.seedRandom('seedString');
 >>> system.nextRandomFloat
 0.72733
 ```

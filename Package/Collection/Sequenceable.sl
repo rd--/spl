@@ -294,14 +294,8 @@
 		self[k]
 	}
 
-	atRandom { :self :shape :rng |
-		{
-			let index = rng.nextRandomInteger(
-				1,
-				self.size
-			);
-			self[index]
-		} ! shape
+	atRandom { :self |
+		self.randomChoice(system, [])
 	}
 
 	before { :self :target |
@@ -407,16 +401,8 @@
 		}
 	}
 
-	bisect { :self :anObject :aBlock:/2 |
-		let i = 1;
-		{ aBlock(anObject, self[i]) }.whileFalse {
-			i := i + 1
-		};
-		i
-	}
-
 	bisect { :self :anObject |
-		self.bisect(anObject, <)
+		self.binarySearchRightmost(anObject)
 	}
 
 	cartesianIndex { :shape :anInteger |
@@ -2291,6 +2277,14 @@
 
 	quickSort { :self |
 		self.quickSortBy(<=)
+	}
+
+	randomChoice { :self :r :shape |
+		let k = self.size;
+		{
+			let i = r.nextRandomInteger(1, k);
+			self[i]
+		} ! shape
 	}
 
 	ratios { :self |

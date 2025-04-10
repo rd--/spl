@@ -146,7 +146,7 @@ let k = RingzBank(
 	x,
 	12.arithmeticSeries(f, f),
 	12.geometricSeries(1, (0.7 -- 0.9).atRandom),
-	(1 -- 3).atRandom(12)
+	{ (1 -- 3).atRandom } ! 12
 );
 (k * 0.1).SoftClip
 

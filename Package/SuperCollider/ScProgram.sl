@@ -22,7 +22,7 @@ SuperColliderProgramIndex : [Object] { | contents |
 	}
 
 	atRandom { :self |
-		self.contents.atRandom
+		self.contents.randomChoice(system, [])
 	}
 
 	authors { :self :category |

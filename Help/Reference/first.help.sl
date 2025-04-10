@@ -52,6 +52,8 @@ See also: fourth, last, middle, second, third
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot#dyadic),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/First.html),
 _Smalltalk_
 5.7.8.17
 

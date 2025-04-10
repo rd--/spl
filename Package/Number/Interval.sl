@@ -61,8 +61,8 @@ Interval : [Object, Magnitude, Number] { | min max |
 		aBlock(aNumber.asInterval, self)
 	}
 
-	atRandom { :self :shape :r |
-		r.randomReal(self, shape)
+	atRandom { :self |
+		system.nextRandomFloat(self.min, self.max)
 	}
 
 	between { :self |

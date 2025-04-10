@@ -8,7 +8,7 @@ zero or more method definitions,
 and a closing brace (`}`).
 
 ~~~
-Foo : [Object] { |bar|
+Foo : [Object] { | bar |
 	randomMutation { :self |
 		self.bar := 1:99.atRandom
 	}

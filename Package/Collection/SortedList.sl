@@ -54,6 +54,19 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		low
 	}
 
+	indexOf { :self :anObject |
+		let i = self.indexForInserting(anObject);
+		(
+			i >= 2 & {
+				self[i - 1] = anObject
+			}
+		).if {
+			i - 1
+		} {
+			0
+		}
+	}
+
 	median { :self |
 		let n = self.size;
 		n.isOdd.if {
@@ -61,6 +74,21 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		} {
 			let i = n // 2;
 			(self[i] + self[i + 1]) / 2
+		}
+	}
+
+	occurrencesOf { :self :anObject |
+		let i = self.indexOf(anObject);
+		(i = 0).if {
+			0
+		} {
+			let j = i;
+			let c = self.contents;
+			{
+				j := j - 1;
+				j > 0 & { c[j] = anObject }
+			}.whileTrue;
+			i - j
 		}
 	}
 
@@ -80,12 +108,29 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		}
 	}
 
+	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
+		let i = self.indexOf(oldObject);
+		(i = 0).if {
+			anExceptionBlock()
+		} {
+			self.contents.removeAt(i)
+		}
+	}
+
 	size { :self |
 		self.contents.size
 	}
 
 	species { :self |
 		SortedList:/0
+	}
+
+	storeString { :self |
+		(self.sortBlock = <=).if {
+			'SortedList(%)'.format([self.contents])
+		} {
+			'SortedList(%, %)'.format([self.contents], self.sortBlock.name)
+		}
 	}
 
 }
@@ -101,11 +146,15 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 +List {
 
 	asSortedList { :self |
-		newSortedList().initializeSlots(self.sorted, <=)
+		SortedList(self.sorted)
 	}
 
-	asSortedList { :self :sortBlock:/2 |
-		newSortedList().initializeSlots(self.sorted(sortBlock:/2), sortBlock:/2)
+	SortedList { :self |
+		SortedList(self, sortBlock:/2)
+	}
+
+	SortedList { :self :sortBlock:/2 |
+		newSortedList().initializeSlots(self.sorted, <=)
 	}
 
 }

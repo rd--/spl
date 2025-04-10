@@ -39,12 +39,6 @@
 		self.contents.indices.asSet(aBlock:/2)
 	}
 
-	atRandom { :self :shape :r |
-		let e = self.contents.keys;
-		let w = self.contents.values;
-		r.randomWeightedChoice(e, w, shape)
-	}
-
 	basicAddWithOccurrences { :self :anObject :anInteger |
 		let dictionary = self.contents;
 		dictionary.includesIndex(anObject).if {
@@ -93,6 +87,12 @@
 
 	postCopy { :self |
 		self.contents := self.contents.copy
+	}
+
+	randomChoice { :self :r :shape |
+		let e = self.contents.keys;
+		let w = self.contents.values;
+		r.randomWeightedChoice(e, w, shape)
 	}
 
 	removeIfAbsent { :self :oldObject :whenAbsent:/0 |

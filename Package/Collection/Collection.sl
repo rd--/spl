@@ -119,27 +119,8 @@
 		}
 	}
 
-	atRandom { :self :shape :r |
-		{
-			let randomIndex = r.randomInteger([1, self.size], []);
-			let index = 1;
-			valueWithReturn { :return:/1 |
-				self.do { :each |
-					(index = randomIndex).ifTrue {
-						each.return
-					};
-					index := index + 1
-				}
-			}
-		} ! shape
-	}
-
-	atRandom { :self :shape |
-		self.atRandom(shape, system)
-	}
-
 	atRandom { :self |
-		self.atRandom([], system)
+		self.randomChoice(system, [])
 	}
 
 	capacity { :self |
@@ -604,6 +585,21 @@
 
 	pseudoSlotNameList { :self |
 		['size']
+	}
+
+	randomChoice { :self :r :shape |
+		{
+			let randomIndex = r.nextRandomInteger(1, self.size);
+			let index = 1;
+			valueWithReturn { :return:/1 |
+				self.do { :each |
+					(index = randomIndex).ifTrue {
+						each.return
+					};
+					index := index + 1
+				}
+			}
+		} ! shape
 	}
 
 	rankedMax { :self :n |

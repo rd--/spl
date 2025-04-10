@@ -78,7 +78,7 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | contents k |
 	*/
 
 	randomVariate { :self :r :shape |
-		self.contents.atRandom(shape, r)
+		self.contents.randomChoice(r, shape)
 	}
 
 }

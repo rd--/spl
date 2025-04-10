@@ -21,7 +21,6 @@ Pseudo-random number generators:
 - `randomBit`: bit
 - `randomBoolean`: boolean
 - `randomByteArray`: byte array
-- `randomChoice`: choice
 - `randomColour`: colour
 - `randomComplex`: complex number
 - `randomCycle`: cycle
@@ -55,7 +54,8 @@ Shuffling:
 Random number functions:
 
 - `atRandom`
-- `randomSample`
+- `randomChoice`: choice
+- `randomSample`: sample
 
 * * *
 

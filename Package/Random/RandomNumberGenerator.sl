@@ -34,14 +34,6 @@
 		self.randomInteger([0, 255], n).asByteArray
 	}
 
-	randomChoice { :self :aSequence :shape |
-		let k = aSequence.size;
-		{
-			let i = self.randomInteger([1, k], []);
-			aSequence[i]
-		} ! shape
-	}
-
 	randomColour { :self :shape |
 		{
 			RgbColour(
@@ -132,7 +124,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = self.randomChoice(pool, []);
+			let next = pool.randomChoice(self, []);
 			answer.add(next);
 			pool.remove(next);
 			count := count - 1
@@ -148,7 +140,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			let next = self.randomChoice(aCollection, []);
+			let next = aCollection.randomChoice(self, []);
 			answer.includes(next).ifFalse {
 				answer.add(next);
 				count := count - 1

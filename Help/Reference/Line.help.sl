@@ -85,7 +85,7 @@ A random walk on a regular lattice:
 ~~~spl svg=C
 let r = Sfc32(678215);
 let m = [-1 0; 1 0; 0 1; 0 -1];
-let p = m.atRandom(1000, r).accumulate;
+let p = m.randomChoice(r, [1000]).accumulate;
 p.Line.nest.LineDrawing
 ~~~
 

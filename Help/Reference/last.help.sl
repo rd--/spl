@@ -42,6 +42,8 @@ See also: drop, first, middle, take
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtdot#dyadic)
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Last.html),
 _Smalltalk_
 5.7.8.25
 

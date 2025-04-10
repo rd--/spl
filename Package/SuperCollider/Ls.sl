@@ -145,7 +145,7 @@
 
 	LsRand { :list :randomNumberGenerator |
 		BlockStream {
-			list.atRandom([], randomNumberGenerator)
+			list.randomChoice(randomNumberGenerator, [])
 		} {
 		}
 	}

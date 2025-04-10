@@ -81,6 +81,17 @@ At `Set`:
 true
 ```
 
+At `SortedList`:
+
+```
+>>> let l = [5 1 6 4].asSortedList;
+>>> l.add(2);
+>>> l.addAll([3 7]);
+>>> l.contents
+[1 2 3 4 5 6 7]
+```
+
+
 At `String`, which is not `Extensible`:
 
 ```
