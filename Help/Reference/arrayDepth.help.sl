@@ -24,10 +24,12 @@ Works with special array types,
 including `SparseArray` and `NumericArray`:
 
 ```
->>> [[[0 1]]].asSparseArray(0).arrayDepth
+>>> [[[0 1]]].asSparseArray(0)
+>>> .arrayDepth
 3
 
->>> [2 3].iota.asNumericArray.depth
+>>> NumericArray([2 3].iota)
+>>> .arrayDepth
 3
 ```
 

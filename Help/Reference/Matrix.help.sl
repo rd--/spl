@@ -4,7 +4,7 @@
 
 * * *
 
-See also: Array, List, NumericArray
+See also: Collection, List, NumericArray, Sequence
 
 Guides: Matrix Operations
 

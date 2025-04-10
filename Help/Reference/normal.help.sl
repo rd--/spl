@@ -14,8 +14,13 @@ At `SparseArray` answers a normal dense list:
 At `NumericArray` answers a normal dense list:
 
 ```
->>> [3 3].iota.asNumericArray.normal
-[1 2 3; 4 5 6; 7 8 9]
+>>> NumericArray([3 3].iota)
+>>> .normal
+[
+	1 2 3;
+	4 5 6;
+	7 8 9
+]
 ```
 
 At `List` is the identity function:

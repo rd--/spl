@@ -1,16 +1,27 @@
 # Float64Array
 
-- _Float64Array(anInteger)_
+- _Float64Array(n)_
+- _Float64Array([x, …])_
 
-Answer a `Float64Array` of _anInteger_ places, each initialized to `zero`.
-
-A `Float64Array` is an array whose elements are IEEE 64-bit floating point values.
-Unlike a `List`, a `Float64Array` is of fixed size.
+In the `Integer` case,
+answer a `Float64Array` of _n_ places, each initialized to `zero`.
 
 ```
 >>> Float64Array(5)
-[0 0 0 0 0].asFloat64Array
+Float64Array([0 0 0 0 0])
 ```
+
+In the `List` case,
+answer a `Float64Array` initialized to _[x, …]_:
+
+```
+>>> Float64Array([1 2 3 4 5])
+>>> .asList
+[1 2 3 4 5]
+```
+
+A `Float64Array` is an array whose elements are IEEE 64-bit floating point values.
+Unlike a `List`, a `Float64Array` is of fixed size.
 
 * * *
 

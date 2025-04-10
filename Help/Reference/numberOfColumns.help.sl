@@ -29,7 +29,7 @@ A 3×2 matrix:
 At `NumericArray`:
 
 ```
->>> [3 4].iota.asNumericArray
+>>> NumericArray([3 4].iota)
 >>> .numberOfColumns
 4
 ```

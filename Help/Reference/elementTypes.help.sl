@@ -34,8 +34,7 @@ At a _matrix_:
 At `NumericArray`:
 
 ```
->>> [2 3].iota
->>> .asNumericArray
+>>> NumericArray([2 3].iota)
 >>> .elementTypes
 ['SmallFloat'].asIdentitySet
 ```

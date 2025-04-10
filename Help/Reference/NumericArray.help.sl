@@ -1,7 +1,7 @@
 # NumericArray
 
-- _asNumericArray(aList, storageType='Float64')_
-- _asNumericArray(typedVector, shape)_
+- _NumericArray(aList, storageType='Float64')_
+- _NumericArray(typedVector, shape)_
 
 A `Type` holding an array of numbers.
 
@@ -9,7 +9,7 @@ Construct a `NumericArray` from a `List`:
 
 ```
 >>> let l = [2 3].iota;
->>> let a = l.asNumericArray;
+>>> let a = NumericArray(l);
 >>> (
 >>> 	a.shape,
 >>> 	a.rank,
@@ -34,7 +34,7 @@ The binary form allows specifying the storage type:
 
 ```
 >>> let l = 32.iota;
->>> let a = l.asNumericArray('Byte');
+>>> let a = NumericArray(l, 'Byte');
 >>> (
 >>> 	a.shape,
 >>> 	a.rank,
@@ -48,7 +48,7 @@ Convert a matrix of reals to a numeric array:
 
 ```
 >>> let l = [5 5].iota;
->>> let a = l.asNumericArray('Float32');
+>>> let a = NumericArray(l, 'Float32');
 >>> (
 >>> 	a.shape,
 >>> 	a.rank,
@@ -61,7 +61,7 @@ Convert a matrix of reals to a numeric array:
 Scalar math at `NumericArray`:
 
 ```
->>> let a = [3 3].iota.asNumericArray;
+>>> let a = NumericArray([3 3].iota);
 >>> (a ^ 2).normal
 [
 	 1   4 9;
@@ -72,10 +72,10 @@ Scalar math at `NumericArray`:
 
 Elementwise math at `NumericArray`:
 
-```spl svg=A
-let a = [7 23].iota.asNumericArray;
+~~~spl svg=A
+let a = NumericArray([7 23].iota);
 ((a * 7).sin - (a * 13).cos).matrixPlot
-```
+~~~
 
 ![](sw/spl/Help/Image/NumericArray-A.svg)
 

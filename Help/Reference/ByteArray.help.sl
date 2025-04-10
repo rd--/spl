@@ -1,6 +1,7 @@
 # ByteArray
 
-- _ByteArray(anInteger)_
+- _ByteArray(n)_
+- _ByteArray([x, …])_
 
 Answer a `ByteArray` of _anInteger_ places, each initialized to `zero`.
 

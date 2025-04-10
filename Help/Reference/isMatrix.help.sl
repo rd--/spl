@@ -21,6 +21,22 @@ At `List`:
 (false, [2])
 ```
 
+At `NumericArray`:
+
+```
+>>> NumericArray([3].iota)
+>>> .isMatrix
+false
+
+>>> NumericArray([2 3].iota)
+>>> .isMatrix
+true
+
+>>> NumericArray([3 2 3].iota)
+>>> .isMatrix
+false
+```
+
 Note that in this interpretation,
 a _volume_ (or _box_ or array of dimensions three) is _not_ a matrix:
 

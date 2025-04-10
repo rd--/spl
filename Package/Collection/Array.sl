@@ -128,7 +128,7 @@
 	}
 
 	isMatrix { :self |
-		self.dimensions.size = 2
+		self.arrayDepth = 2
 	}
 
 	isSmallFloatMatrix { :self |

@@ -141,7 +141,10 @@
 	}
 
 	storeString { :self |
-		self.asList.storeString ++ '.as' ++ self.typeOf
+		'%(%)'.format([
+			self.typeOf,
+			self.asList.storeString
+		])
 	}
 
 }

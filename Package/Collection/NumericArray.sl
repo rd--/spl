@@ -61,7 +61,8 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 	}
 
 	collect { :self :aBlock:/1 |
-		self.contents.collect(aBlock:/1).asNumericArray(
+		NumericArray(
+			self.contents.collect(aBlock:/1),
 			self.shape
 		)
 	}
@@ -136,7 +137,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 	}
 
 	storeString { :self |
-		'%.asNumericArray(%)'.format([
+		'NumericArray(%, %)'.format([
 			self.contents,
 			self.shape
 		])
@@ -197,7 +198,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 					k := k + 1
 				}
 			};
-			a.asNumericArray([n, m])
+			NumericArray(a, [n, m])
 		} {
 			self.error('NumericArray>>transposed: not matrix')
 		}
@@ -205,7 +206,8 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 
 	withCollect { :self :other :aBlock:/2 |
 		self.isCommensurate(other).if {
-			self.contents.withCollect(other.contents, aBlock:/2).asNumericArray(
+			NumericArray(
+				self.contents.withCollect(other.contents, aBlock:/2),
 				self.shape
 			)
 		} {
@@ -217,24 +219,28 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 
 +[List, Range] {
 
-	asNumericArray { :self :storageType |
+	asNumericArray { :self |
+		NumericArray(self, 'Float64')
+	}
+
+	NumericArray { :self :storageType |
 		let contents = storageType.caseOf([
 			'Byte' -> { self.ravel.asByteArray },
 			'Float32' -> { self.ravel.asFloat32Array },
 			'Float64' -> { self.ravel.asFloat64Array }
 		]);
-		asNumericArray(contents, self.shape)
+		NumericArray(contents, self.shape)
 	}
 
-	asNumericArray { :self |
-		self.asNumericArray('Float64')
+	NumericArray { :self |
+		NumericArray(self, 'Float64')
 	}
 
 }
 
 +[ByteArray, Float32Array, Float64Array] {
 
-	asNumericArray { :self :shape |
+	NumericArray { :self :shape |
 		newNumericArray().initializeSlots(
 			self,
 			shape,

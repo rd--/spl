@@ -29,7 +29,7 @@ The `ravel` of a 2×3×4 array:
 At `NumericArray`:
 
 ```
->>> [3 3].iota.asNumericArray.ravel
+>>> NumericArray([3 3].iota).ravel
 [1 2 3 4 5 6 7 8 9]
 ```
 

@@ -145,11 +145,15 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 
 +List {
 
-	basicAsByteArray { :self |
+	asByteArray { :self |
+		ByteArray(self)
+	}
+
+	basicByteArray { :self |
 		<primitive: return new Uint8Array(_self);>
 	}
 
-	asByteArray { :self |
+	ByteArray { :self |
 		self.isEmpty.if {
 			ByteArray(0)
 		} {
@@ -158,7 +162,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 					self.allSatisfy(isByte:/1)
 				}
 			).if {
-				self.basicAsByteArray
+				self.basicByteArray
 			} {
 				self.error('List>>asByteArray: invalid')
 			}
