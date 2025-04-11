@@ -14,7 +14,7 @@ At `Complex`:
 Threads over lists:
 
 ```
->>> -1:-1:-5.sqrt.realImaginary
+>>> (-1, -2 .. -5).sqrt.realImaginary
 [0 # 5, 1:5.sqrt].transposed
 ```
 

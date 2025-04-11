@@ -1,5 +1,5 @@
 /* Ostinoodles (Jmcc) #9 */
-let root = 81 + -6:6.atRandom;
+let root = 81 + [-6 .. 6].atRandom;
 let major = [0 2 4 5 7 9 11];
 {
 	let offset = -16:16.atRandom;

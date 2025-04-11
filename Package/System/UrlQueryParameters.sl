@@ -1,7 +1,7 @@
 @UrlQueryParameters {
 
 	asUrlQueryParameters { :self |
-		self.typeReponsibility('asUrlQueryParameters')
+		self.typeResponsibility('asUrlQueryParameters')
 	}
 
 }

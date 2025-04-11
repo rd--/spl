@@ -7,7 +7,7 @@
 	}
 
 	asUrl { :self |
-		self.typeReponsibility('asUrl')
+		self.typeResponsibility('asUrl')
 	}
 
 	fileName { :self |

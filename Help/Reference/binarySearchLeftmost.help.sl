@@ -59,7 +59,7 @@ distinguishes out of range values at left but not right:
 
 ```
 >>> let l = [0 2.5 5 7.5 10];
->>> -1:11.collect { :each |
+>>> (-1 .. 11).collect { :each |
 >>> 	l.binarySearchLeftmost(each)
 >>> }
 [0 1 1 1 2 2 3 3 3 4 4 5 5]

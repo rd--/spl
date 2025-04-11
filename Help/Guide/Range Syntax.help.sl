@@ -2,17 +2,17 @@
 
 There are thee forms of `Range` syntax.
 
-Range literal rewrite rules:
+`Range` literal rewrite rules:
 
 - _α:β_ => _Range(α, β, 1)_
 - _α:β:γ_ => _Range(α, γ, β)_
 
-Range expression rewrite rules:
+`Range` expression rewrite rules:
 
 - _(α .. β)_ ⇒ _Range(α, β, (β - α).sign)_
 - _(α, β .. γ)_ ⇒ _Range(α, γ, β - α)_
 
-List range expression rewrite rules:
+`List` range expression rewrite rules:
 
 - _[α .. β]_ ⇒ _(α .. β).asList_
 - _[α, β .. γ]_ ⇒ _(α, β .. γ).asList_
@@ -21,11 +21,15 @@ Answer ascending `Range` values:
 
 ```
 >>> 1:9
-Range(1, 9, (9 - 1).sign)
+Range(1, 9, 1)
 
 >>> 1:2:9
 Range(1, 9, 2)
+```
 
+Answer ascending `Range` values:
+
+```
 >>> (1 .. 9)
 Range(1, 9, (9 - 1).sign)
 
@@ -33,8 +37,7 @@ Range(1, 9, (9 - 1).sign)
 Range(1, 9, 3 - 1)
 ```
 
-Answer descending `Range` values,
-in the literal case the step size is `one` and the range is empty:
+Answer descending `Range` values:
 
 ```
 >>> 9:1
@@ -48,7 +51,11 @@ Range(9, 1, -1)
 
 >>> 9:-2:1
 Range(9, 1, -2)
+```
 
+Answer descending `Range` values:
+
+```
 >>> (9 .. 1)
 Range(9, 1, (1 - 9).sign)
 
@@ -69,7 +76,9 @@ Answer `List` values:
 [1 3 5 7 9]
 ```
 
-In the case where α is an integer literal, and β is an integer literal or an identifier, the interval can be written α:β.
+In the case where α is an integer literal,
+and β is an integer literal or an identifier,
+a `Range` can be written α:β.
 In the literal form,
 as with literal `Fraction` values,
 white space is significant,
@@ -89,7 +98,7 @@ Where supported the notation `..` i displayed as ….
 _Note_:
 In Smalltalk _α to: β_ is an empty `Range` if α <= β,
 as is _α:β_ in Matlab and Octave and Julia.
-The re-write rules here call `to` for the literal form _α:β_,
+The re-write rules here call `Range` for the literal form _α:β_,
 and `upOrDownTo` for the expression form _(α .. β)_.
 This allows the latter form to be used for writing descending intervals.
 Care must be taken not to use _(α .. β)_ where _α:β_ or _α.to(β)_ is required.

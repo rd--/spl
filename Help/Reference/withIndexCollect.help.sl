@@ -28,7 +28,7 @@ At `Record`, see also `keysAndValuesCollect`:
 At `Range`:
 
 ```
->>> 9:-1:1.withIndexCollect { :each :index |
+>>> (9 .. 1).withIndexCollect { :each :index |
 >>> 	each * 2 + index
 >>> }
 [19 .. 11]
@@ -39,7 +39,7 @@ except that the iteration index supplies the second argument to the block.
 An equivalent expression using `withCollect`:
 
 ```
->>> 9:-1:1.withCollect(1:9) { :each :index |
+>>> (9 .. 1).withCollect(1:9) { :each :index |
 >>> 	each * 2 + index
 >>> }
 [19 .. 11]

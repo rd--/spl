@@ -124,18 +124,19 @@ Symbol('q')
 'asTuple([1, 2, 3])'
 ```
 
-All of the forms of `Range Syntax` are rewritten  as `Apply Syntax`.
-Range literals:
+All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
+
+`` literals:
 
 ```
 >>> '1:9'.splSimplify
-'to(1, 9)'
+'Range(1, 9, 1)'
 
 >>> '1:2:9'.splSimplify
-'toBy(1, 9, 2)'
+'Range(1, 9, 2)'
 ```
 
-Range expressions:
+`Range` expressions:
 
 ```
 >>> '(1 .. 9)'.splSimplify
@@ -226,7 +227,7 @@ List range expressions:
 
 ```
 >>> 'c[1:9]'.splSimplify
-'atAll(c, to(1, 9))'
+'atAll(c, Range(1, 9, 1))'
 ```
 
 `Quoted At Syntax` is rewritten as `Apply Syntax`:

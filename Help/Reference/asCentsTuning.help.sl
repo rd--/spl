@@ -6,7 +6,7 @@ Answer a `CentsTuning` given either a `List` of intervals in _cents_,
 or a `Record` holding a Scala tuning description.
 
 ```
->>> let c = (0:11 * 100);
+>>> let c = [0 .. 11] * 100;
 >>> let t = c.asCentsTuning;
 >>> t.asRatios.collect { :each |
 >>> 	each.asFraction(1E-2)

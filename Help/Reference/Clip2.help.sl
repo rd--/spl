@@ -9,7 +9,9 @@ Clips _a_ to +/- _b_.
 At `SmallFloat`:
 
 ```
->>> -2:2.collect { :each | Clip2(each, 1) }
+>>> (-2 .. 2).collect { :each |
+>>> 	Clip2(each, 1)
+>>> }
 [-1 -1 0 1 1]
 ```
 

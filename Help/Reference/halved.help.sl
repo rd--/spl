@@ -30,7 +30,7 @@ At `Complex`:
 Threads over lists:
 
 ```
->>> 2:2:8.halved
+>>> [2 4 6 8].halved
 [1 2 3 4]
 ```
 

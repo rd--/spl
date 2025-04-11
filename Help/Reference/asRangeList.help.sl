@@ -15,17 +15,17 @@ At one element `List`:
 
 ```
 >>> [1].asRangeList
-[1:1]
+[Range(1, 1, 1)]
 ```
 
 Any two element numerical sequence is a `Range`:
 
 ```
 >>> [1 2].asRangeList
-[1:2]
+[Range(1, 2, 1)]
 
 >>> [1 0].asRangeList
-[1:-1:0]
+[Range(1, 0, -1)]
 
 >>> [1 3].asRangeList
 [Range(1, 3, 2)]
@@ -41,7 +41,7 @@ Reconstruct a `List` of `Range` items:
 >>> 	13:18 22:27 31:36
 >>> 	40:45 49:57 61:65
 >>> ];
->>> r.++.asRangeList
+>>> r.catenate.asRangeList
 r
 ```
 

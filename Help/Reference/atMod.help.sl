@@ -11,7 +11,7 @@ Cycle though a list three times:
 ```
 >>> let l = [1 2 3];
 >>> let n = l.size;
->>> -2:6.collect { :each |
+>>> [-2 .. 6].collect { :each |
 >>> 	[each, l.atMod(each, n)]
 >>> }
 [

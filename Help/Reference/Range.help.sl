@@ -60,19 +60,6 @@ false
 false
 ```
 
-There is two distinct `Range Syntax` forms for writing Ranges and interval lists.
-Range literals are written _i:j_,
-or _i:j:k_ where _j_ is the step size,
-and can only be used to specify integer ranges:
-
-```
->>> 1:4
-Range(1, 4, 1)
-
->>> 1:2:9
-Range(1, 9, 2)
-```
-
 Range expressions are written _(i .. j)_,
 or _(i, j .. k)_ where _j_ is the second term,
 and can specify arbitrary ranges:
@@ -88,7 +75,7 @@ Range(1, 9, 2)
 A `Range` is _proper_ if it is not empty and if the _stop_ value is the last value:
 
 ```
->>> 1:9.isProper
+>>> (1 .. 9).isProper
 true
 
 >>> (1, 1.5 .. 3.75).isProper
@@ -101,14 +88,14 @@ false
 A `Range` is _normal_ if it is _proper_ and if the _start_ value is less than or equal to the _stop_ value:
 
 ```
->>> 1:9.isNormal
+>>> (1 .. 9).isNormal
 true
 
->>> 7:-1:5.isNormal
+>>> (7, 6 .. 5).isNormal
 false
 ```
 
-While the _p:q_ and _(p .. q)_ notations cannot make empty or _improper_ `Range` values,
+While the _(p .. q)_ notation cannot make empty or _improper_ `Range` values,
 the _(p, q .. r)_ notation may:
 
 ```
@@ -165,7 +152,7 @@ Use a non-integer step:
 A `Range` may have only one place:
 
 ```
->>> 1:1.size
+>>> (1 .. 1).size
 1
 ```
 
@@ -190,7 +177,7 @@ Floating point ranges are subject to floating point errors:
 >>> (1.80, 1.85 .. 1.90).asList
 [1.8 1.85]
 
->>> 0:2 * 0.05 + 1.8
+>>> (0 .. 2) * 0.05 + 1.8
 [1.8 1.85 1.9]
 
 >>> 2 * 0.05 + 1.8 > 1.9
@@ -200,20 +187,32 @@ true
 The elements of a simple integer range are all integers:
 
 ```
->>> 1:999.allSatisfy(isInteger:/1)
+>>> (1 .. 999).allSatisfy(isInteger:/1)
 true
 ```
 
 Compute the first ten squares:
 
 ```
->>> 1:10 ^ 2
+>>> (1 .. 10) ^ 2
 [1 4 9 16 25 36 49 64 81 100]
+```
+
+In addition to the `Range Syntax` forms for writing `Range` and `List` values,
+there is a syntax for writing `Range` literals as either _i:j_,
+or _i:j:k_ where _j_ is the step size.
+
+```
+>>> 1:4
+Range(1, 4, 1)
+
+>>> 1:2:9
+Range(1, 9, 2)
 ```
 
 * * *
 
-See also: .., :, ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
+See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
 Guides: Range Syntax
 

@@ -66,7 +66,7 @@ _diagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <= k 
 >>> };
 >>> (
 >>> 	m,
->>> 	-3:3.collect { :k |
+>>> 	(-3 .. 3).collect { :k |
 >>> 		m.diagonal(k)
 >>> 	}
 >>> )

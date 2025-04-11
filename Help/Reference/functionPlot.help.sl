@@ -148,7 +148,7 @@ a spiral:
 At `Range`, a straight line:
 
 ~~~spl svg=N
--3:3.functionPlot { :x |
+(-3 .. 3).functionPlot { :x |
 	x + x.i
 }
 ~~~

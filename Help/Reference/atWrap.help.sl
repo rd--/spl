@@ -12,7 +12,7 @@ If _index_ is out of bounds, let it wrap around from the end to the beginning un
 >>> [1 .. 5].atWrap(9)
 4
 
->>> -1:9.collect { :i |
+>>> (-1 .. 9).collect { :i |
 >>> 	1:5.atWrap(i)
 >>> }
 [4 5 1 2 3 4 5 1 2 3 4]

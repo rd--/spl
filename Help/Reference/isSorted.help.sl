@@ -30,10 +30,26 @@ false
 At `Range`:
 
 ```
+>>> (1 .. 9).isSorted
+true
+
+>>> (9 .. 1).isSorted
+false
+
 >>> 1:9.isSorted
 true
 
 >>> 9:-1:1.isSorted
+false
+```
+
+At `Span`:
+
+```
+>>> Span(1, 9, 1).isSorted
+true
+
+>>> Span(9, 1, -1).isSorted
 false
 ```
 

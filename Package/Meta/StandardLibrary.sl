@@ -26,6 +26,7 @@
 	'RunArray'
 	'Set'
 	'Slice'
+	'Span'
 	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'

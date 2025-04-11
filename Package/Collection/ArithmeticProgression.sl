@@ -159,15 +159,15 @@
 	}
 
 	size { :self |
-		self.typeReponsibility('@ArithmeticProgression>>size')
+		self.typeResponsibility('@ArithmeticProgression>>size')
 	}
 
 	start { :self |
-		self.typeReponsibility('@ArithmeticProgression>>start')
+		self.typeResponsibility('@ArithmeticProgression>>start')
 	}
 
 	step { :self |
-		self.typeReponsibility('@ArithmeticProgression>>step')
+		self.typeResponsibility('@ArithmeticProgression>>step')
 	}
 
 	sum { :self |

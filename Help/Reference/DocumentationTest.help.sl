@@ -32,7 +32,7 @@ The `format` method prints the equivalence predicate:
 [
 	'{ 3 + 4 }.value.asString.utf8ByteArray'
 	' = '
-	'[55].asByteArray'
+	'ByteArray([55])'
 ].stringCatenate
 
 >>> DocumentationTest(
@@ -57,7 +57,7 @@ The `format` method prints the equivalence predicate:
 	'{ let x = 3 + 4; x * x }.value'
 	'.asString.utf8ByteArray'
 	' = '
-	'[52, 57].asByteArray'
+	'ByteArray([52, 57])'
 ].stringCatenate
 ```
 

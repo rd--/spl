@@ -1,5 +1,5 @@
 /* https://www.youtube.com/watch?v=mKbRuL41uR0 ; lnu */
-let f = 40 * 1:2:33;
+let f = 40 * [1, 3 .. 33];
 let c = LatoocarfianL(4, 1, 3, 0.5, 0.5, 0.5, 0.5).ExpRange(0.01, 1).HanWindow * 8;
 let t = 2 ^ (LatoocarfianL(c, 1, 3, 0.5, 0.5, 0.5, 0.5) * 2 + 1).Ceiling;
 let e = (LfSaw(-1 * t, 1) * 1 + 1 / 2 ^ t).Lag3(0.005);

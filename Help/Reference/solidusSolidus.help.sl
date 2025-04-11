@@ -27,7 +27,7 @@ Operator form of `quotient`.
 Threads over lists:
 
 ```
->>> -5:5 // 3
+>>> [-5 .. 5] // 3
 [-1 -1 -1 -0 -0 0 0 0 1 1 1]
 
 >>> [7 7 -7 -7] // [3 -3 3 -3]

@@ -89,7 +89,7 @@ _antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <
 >>> };
 >>> (
 >>> 	m,
->>> 	-3:3.collect { :k |
+>>> 	(-3 .. 3).collect { :k |
 >>> 		m.antidiagonal(k)
 >>> 	}
 >>> )
@@ -112,7 +112,7 @@ _antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <
 )
 
 >>> let m = 3.iota(0, 1).reshape([4 4]);
->>> 3:-1:-3.collect { :i |
+>>> (3 .. -3).collect { :i |
 >>> 	m.antidiagonal(i)
 >>> }
 [0; 1 1; 2 2 2; 0 0 0 0; 1 1 1; 2 2; 0]

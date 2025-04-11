@@ -24,7 +24,7 @@ At `CentsTuning`:
 
 ```
 >>> 12.equalTemperamentTuning.asCents
-0:11 * 100
+[0 .. 11] * 100
 ```
 
 * * *

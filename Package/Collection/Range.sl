@@ -34,8 +34,12 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		self
 	}
 
+	asSpan { :self |
+		Span(self.start, self.stop, self.step)
+	}
+
 	concisePrintString { :self |
-		self.printString
+		self.rangeSyntaxString
 	}
 
 	isIntegerRange { :self |
@@ -74,13 +78,16 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		Range(self.start.negated, self.stop.negated, self.step.negated)
 	}
 
-	printString { :self |
+	rangeSyntaxString { :self |
 		(
 			self.step = 1 & {
 				self.isEmpty.not
 			}
 		).if {
-			self.start.printString ++ ':' ++ self.stop.printString
+			'%:%'.format([
+				self.start,
+				self.stop
+			])
 		} {
 			'%:%:%'.format([
 				self.start.printString,
@@ -157,7 +164,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 
 	Range { :start :stop :step |
 		step.isZero.if {
-			start.error('Number>>Range: step is zero')
+			start.error('@Number>>Range: step is zero')
 		} {
 			newRange().initializeSlots(start, stop, step)
 		}

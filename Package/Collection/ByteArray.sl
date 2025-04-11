@@ -171,7 +171,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 
 }
 
-+Range {
++@ArithmeticProgression {
 
 	asByteArray { :self |
 		self.asList.asByteArray

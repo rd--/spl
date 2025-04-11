@@ -30,7 +30,7 @@ including `SparseArray` and `NumericArray`:
 
 >>> NumericArray([2 3].iota)
 >>> .arrayDepth
-3
+2
 ```
 
 The `arrayDepth` of a scalar value is `zero`:

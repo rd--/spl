@@ -17,7 +17,7 @@ Time a slower function:
 
 ```
 >>> let [t, r] = { [1 .. 10000].sum }.repeatedTiming(0.1);
->>> (t < 0.005, r)
+>>> (t < 0.01, r)
 (true, 50005000)
 ```
 

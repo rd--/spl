@@ -17,10 +17,10 @@ Voicer(1, 16) { :e |
 
 /* Pluck ; Event control */
 (
-	w: SinOsc(Rand(2:9 / 11, 1), 0),
-	x: LfNoise2(Rand(9:-1:2 / 13, 1)).LinLin(-1, 1, 0, 2:9 / 17),
-	y: LfNoise2(Rand(2:9 / 15, 2)).LinLin(-1, 1, 9:-1:2 / 19, 1),
-	z: LfNoise2(Rand(1, 9:-1:2 / 11)).LinLin(-1, 1, 0, 2:9 / 9)
+	w: SinOsc(Rand([2 .. 9] / 11, 1), 0),
+	x: LfNoise2(Rand([9 .. 2] / 13, 1)).LinLin(-1, 1, 0, 2:9 / 17),
+	y: LfNoise2(Rand([2 .. 9] / 15, 2)).LinLin(-1, 1, [9 .. 2] / 19, 1),
+	z: LfNoise2(Rand(1, [9 .. 2] / 11)).LinLin(-1, 1, 0, [2 .. 9] / 9)
 ).Voicer { :e |
 	let dm = 1 / 220;
 	let dl = (e.x.negated * 0.9 + 1) * dm;

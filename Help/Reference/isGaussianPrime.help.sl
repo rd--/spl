@@ -21,10 +21,10 @@ The primes up to 43 which are also Gaussian primes are:
 [3 7 11 19 23 31 43]
 ```
 
-The Guassian integers with components in _-5:-1_ that are prime:
+The Guassian integers with components in _(-5, -1)_ that are prime:
 
 ```
->>> -5:-1.tuples(2).select { :each |
+>>> (-5 .. -1).tuples(2).select { :each |
 >>> 	each.asComplex.isGaussianPrime
 >>> }
 [

@@ -38,7 +38,7 @@ Specify replacement values for clipping:
 Clip threads over lists and arrays:
 
 ```
->>> -3:3.clip(-2, 2)
+>>> (-3 .. 3).clip(-2, 2)
 [-2 -2 -1 0 1 2 2]
 
 >>> 1:7.clip(3, 6)
@@ -48,7 +48,7 @@ Clip threads over lists and arrays:
 To clip values only to an upper bound specify the lower bound as negative infinity:
 
 ```
->>> -6:6.clip(-1.inf, 0)
+>>> (-6 .. 6).clip(-1.inf, 0)
 [-6 -5 -4 -3 -2 -1 0 0 0 0 0 0 0]
 ```
 

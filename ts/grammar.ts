@@ -75,7 +75,7 @@ Sl {
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
-	AtAllSyntax = Primary "[" NonemptyListOf<(rangeLiteral | ListExpression), ","> "]"
+	AtAllSyntax = Primary "[" NonemptyListOf<(spanLiteral | ListExpression), ","> "]"
 	QuotedAtSyntax = Primary "::" keyName
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
@@ -150,11 +150,11 @@ Sl {
 	plusOrMinus = "+" | "-"
     symbolicCharacterLiteral = "𝒂" | "𝒃" | "𝒄" | "𝒅" | "𝒆" | "𝒇" | "𝒈" | "𝒉" | "𝒊" | "𝒋" | "𝒌" | "𝒍" | "𝒎" | "𝒏" | "𝒐" | "𝒑" | "𝒒" | "𝒓" | "𝒔" | "𝒕" | "𝒖" | "𝒗" | "𝒘" | "𝒙" | "𝒚" | "𝒛"
 
-	literal = rangeLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
+	literal = spanLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | infinityLiteral | nanLiteral
-	rangeLiteral = rangeFromByToLiteral | rangeFromToLiteral
-	rangeFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
-	rangeFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
+	spanLiteral = spanFromByToLiteral | spanFromToLiteral
+	spanFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
+	spanFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
 	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral
 	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" // ("d" | "D")

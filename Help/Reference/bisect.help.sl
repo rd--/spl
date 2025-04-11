@@ -9,7 +9,7 @@ Show equivalent use of `detectIndex` and `binarySearchRightmost`:
 
 ```
 >>> [8 9].collect { :n |
->>> 	let x = 1:2:15;
+>>> 	let x = [1, 3 .. 15];
 >>> 	let i = x.bisect(n);
 >>> 	let j = x.detectIndex { :each | n <= each };
 >>> 	let k = x.binarySearchRightmost(n);

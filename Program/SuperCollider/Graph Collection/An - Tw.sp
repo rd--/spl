@@ -18,7 +18,7 @@
 0:23.collect { :k |
 	0:7.collect { :i |
 		let ph = [
-			SinOsc({ i * k ^ i / (2 ^ -2:4).atRandom } ! 2, 0),
+			SinOsc({ i * k ^ i / (2 ^ [-2 .. 4].atRandom } ! 2, 0),
 			Decay(Dust(1 / 4 ^ i), SinOsc(0.1, 0) + k + i),
 			k * 999
 		].product;

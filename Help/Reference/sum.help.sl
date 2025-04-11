@@ -28,7 +28,7 @@ the `sum` is calculated directly using a closed form:
 >>> 1:9.reduce(+)
 45
 
->>> 3:2:27.sum
+>>> (3, 5 .. 27).sum
 195
 
 >>> let k = 27 - 3 / 2 + 1;

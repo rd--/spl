@@ -163,6 +163,10 @@
 		}
 	}
 
+	asSpan { :self |
+		self.asRange.asSpan
+	}
+
 	asRangeList { :self |
 		self.isEmpty.if {
 			[]
@@ -191,6 +195,10 @@
 				answer
 			}
 		}
+	}
+
+	asSpanList { :self |
+		self.asRangeList.collect(asSpan:/1)
 	}
 
 	assertShape { :self :shape |
@@ -1503,6 +1511,16 @@
 		}
 	}
 
+	kadanesAlgorithm { :self |
+		let answer = -Infinity;
+		let currentSum = 0;
+		self.do { :x |
+			currentSum := max(x, currentSum + x);
+			answer := max(answer, currentSum)
+		};
+		answer
+	}
+
 	keysAndValuesDo { :self :aBlock:/2 |
 		self.withIndexDo { :each :index |
 			aBlock(index, each)
@@ -1769,6 +1787,27 @@
 			answer.add(each)
 		};
 		answer
+	}
+
+	maximumSegmentSum { :self |
+		let answer = -Infinity;
+		let currentSum = 0;
+		let i = 1;
+		let j = 1;
+		let a = 1;
+		self.withIndexDo { :x :b |
+			(currentSum < 0).ifTrue {
+				currentSum := 0;
+				a := b
+			};
+			currentSum := currentSum + x;
+			(currentSum > answer).ifTrue {
+				answer := currentSum;
+				i := a;
+				j := b
+			}
+		};
+		[answer, i, j]
 	}
 
 	mergeInPlace { :self :select:/1 :insert:/2 |
