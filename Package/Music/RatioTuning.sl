@@ -83,6 +83,10 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 		self
 	}
 
+	ratiosWithOctave { :self |
+		self.ratios ++ [self.octave]
+	}
+
 	size { :self |
 		self.ratios.size
 	}

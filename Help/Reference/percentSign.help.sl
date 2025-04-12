@@ -136,6 +136,16 @@ For a positive real number _x_, _x % 1_ gives the fractional part of _x_:
 0.141
 ```
 
+Modulo of negative number with negative operand:
+
+```
+>>> [-5 -4 -3 -2 -1 0] % -5
+[0, -4, -3, -2, -1, 0]
+
+>>> [-5.1 -4.1 -3.1 -2.1 -1.1 -0.1] % -5
+[-0.1 -4.1 -3.1 -2.1 -1.1 -0.1]
+~~~
+
 Plot the sequence with fixed modulus:
 
 ~~~spl svg=A
