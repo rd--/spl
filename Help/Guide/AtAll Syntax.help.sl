@@ -12,26 +12,26 @@ Syntax for the `atAll` protocol.
 At `Range`:
 
 ```
->>> let aRange = 9.iota.reversed;
->>> (aRange[3:7], aRange[[7, 3]])
+>>> let c = (9 .. 1);
+>>> (c[3:7], c[[7, 3]])
 ([7 6 5 4 3], [3 7])
 ```
 
 At `List`:
 
 ```
->>> let aList = [9 .. 1];
->>> (aList[3:7], aList[[7, 3]])
+>>> let c = [9 8 7 6 5 4 3 2 1];
+>>> (c[3:7], c[[7, 3]])
 ([7 6 5 4 3], [3 7])
 ```
 
 At a `List` of lists:
 
 ```
->>> let aMatrix = [5 5].iota;
+>>> let c = [5 5].iota;
 >>> (
->>> 	aMatrix[1:2, 3:4],
->>> 	aMatrix[[2, 1], [4, 3]]
+>>> 	c[1:2, 3:4],
+>>> 	c[[2, 1], [4, 3]]
 >>> )
 ([3 4; 8 9], [9 8; 4 3])
 ```
@@ -39,16 +39,16 @@ At a `List` of lists:
 Select one column of a matrix:
 
 ```
->>> let aMatrix = [5 5].iota;
->>> aMatrix[1:5, 3:3]
+>>> let m = [5 5].iota;
+>>> m[1:5, 3:3]
 [3; 8; 13; 18; 23]
 ```
 
 The @* operator expresses this operation succinctly at vectors:
 
 ```
->>> let aList = [9 .. 1];
->>> aList @* 3:7
+>>> let c = [9 .. 1];
+>>> c @* 3:7
 [7 6 5 4 3]
 ```
 

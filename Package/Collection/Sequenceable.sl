@@ -259,6 +259,10 @@
 		anObject
 	}
 
+	atAllSymmetrical { :self :indexList |
+		self.atAllUsing(indexList, atSymmetrical:/2)
+	}
+
 	atAllValid { :self :indexList |
 		self.atAllMissing(indexList).deleteMissing
 	}
@@ -295,6 +299,17 @@
 	atPutWrap { :self :index :anObject |
 		let k = index.wrapBetweenAnd(1, self.size + 1);
 		self[k] := anObject
+	}
+
+	atSymmetrical { :self :index |
+		index.isInteger.ifFalse {
+			self.error('atSymmetrical: invalid index')
+		};
+		(index > 0).if {
+			self.at(index)
+		} {
+			self.at(self.size + index + 1)
+		}
 	}
 
 	atWrap { :self :index |
@@ -2116,6 +2131,28 @@
 		}
 	}
 
+	partIndex { :self :operand |
+		operand.atAllSymmetrical(self)
+	}
+
+	part { :self :indices |
+		let k = indices.size;
+		let i = indices[1];
+		let a = i.partIndex(self);
+		(k = 1).if {
+			a
+		} {
+			let j = indices.allButFirst;
+			i.isCollection.if {
+				a.collect { :each |
+					each.part(j)
+				}
+			} {
+				a.part(j)
+			}
+		}
+	}
+
 	partitionCollect { :self :windowSize :stepSize :aBlock:/1 |
 		let answer = [];
 		self.partitionDo(windowSize, stepSize) { :each |
@@ -3186,6 +3223,10 @@
 			i := i + 1
 		};
 		answer
+	}
+
+	partIndex { :self :operand |
+		operand.atSymmetrical(self)
 	}
 
 	toAsCollect { :self :stop :species :aBlock:/1 |

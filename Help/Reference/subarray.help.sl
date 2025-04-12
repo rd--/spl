@@ -4,6 +4,7 @@
 
 Answer a sub-array of the array _a_ given the sequence of indices _i_.
 A sub-array of an array is an array obtained by retaining any collection of entries at each dimension.
+The answer has the same `rank` as the initial array.
 
 A 2×2×2 sub-array of a 3×4×3 array,
 selecting the first and third _pages_,
@@ -63,7 +64,7 @@ The interior 2×3 sub-array of a 4×5 array:
 ]
 ```
 
-The third column of a 5×5 array:
+The third column (a 5×1 array) of a 5×5 array:
 
 ```
 >>> [5 5].iota.subarray([1:5, 3:3])
@@ -76,7 +77,7 @@ The third column of a 5×5 array:
 ]
 ```
 
-The middle two columns of a 4×4 array:
+The middle two columns (a 4×2 array) of a 4×4 array:
 
 ```
 >>> [4 4].iota.subarray([1:4, 2:3])
@@ -99,6 +100,28 @@ A 1×1 sub-array of a 3×3 array:
 ]
 ```
 
+It is an `error` for there to be no indices:
+
+```
+>>> {
+>>> 	[1 2; 3 4].subarray([])
+>>> }.ifError { true }
+true
+```
+
+It is an `error` for the indices to not be a list:
+
+```
+>>> {
+>>> 	[1 2; 3 4].subarray(0)
+>>> }.ifError { true }
+true
+```
+
+_Note:_
+For the answer to be a proper subarray _i_ should specify indices of each level at most once.
+For the answer to be a block subarray _i_ should contain only proper substrings of the indices of each level.
+
 * * *
 
-See also: at, atAll, Array, submatrix
+See also: at, atAll, Array, part, submatrix

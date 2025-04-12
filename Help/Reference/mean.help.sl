@@ -52,6 +52,13 @@ The mean is the `moment` of ordinal one:
 (140.04, 140.04)
 ```
 
+Compute the mean of every column of a matrix:
+
+```
+>>> [5 3].iota.mean
+[7 8 9]
+```
+
 Compute the mean of every row of a matrix:
 
 ```

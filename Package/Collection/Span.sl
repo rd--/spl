@@ -4,6 +4,10 @@ Span : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgres
 		self.hasEqualSlots(operand)
 	}
 
+	~ { :self :operand |
+		self = operand
+	}
+
 	asRange { :self |
 		self.isRelative.if {
 			self.error('asRange: relative span')
@@ -33,9 +37,16 @@ Span : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgres
 	}
 
 	isRelative { :self |
-		self.start < 0 | {
-			self.stop < 0
-		}
+		let start = self.start;
+		let stop = self.stop;
+		let step = self.step;
+		let relativeStart = start.isNegative & { stop.isPositive & { step.isNegative } };
+		let relativeStop = start.isPositive & { stop.isNegative & { step.isPositive } };
+		relativeStart || relativeStop
+	}
+
+	partIndex { :self :operand |
+		operand.atAll(self.asRange(operand.size))
 	}
 
 	size { :self |
@@ -58,15 +69,20 @@ Span : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgres
 
 +SmallFloat {
 
-	Span { :start :stop :step |
-		[start, stop, step].anySatisfy { :each |
-			each.isInteger.not | {
-				each.isZero
-			}
-		}.if {
-			start.error('SmallFloat>>Span: zero parameter?')
-		} {
+	basicSpan { :start :stop :step |
+		[start, stop, step].allSatisfy(isInteger:/1).if {
 			newSpan().initializeSlots(start, stop, step)
+		} {
+			start.error('SmallFloat>>Span: invalid operand?')
+		}
+	}
+
+	Span { :start :stop :step |
+		let span = basicSpan(start, stop, step);
+		span.isRelative.if {
+			span
+		} {
+			span.asRange
 		}
 	}
 

@@ -2,10 +2,10 @@
 
 There are thee forms of `Range` syntax.
 
-`Range` literal rewrite rules:
+`Span` literal rewrite rules:
 
-- _α:β_ => _Range(α, β, 1)_
-- _α:β:γ_ => _Range(α, γ, β)_
+- _α:β_ => _Span(α, β, 1)_
+- _α:β:γ_ => _Span(α, γ, β)_
 
 `Range` expression rewrite rules:
 
@@ -25,6 +25,21 @@ Range(1, 9, 1)
 
 >>> 1:2:9
 Range(1, 9, 2)
+```
+
+Answer relative `Span` values,
+the notation _1:-1_ indicates the span from the first to the last index,
+the notation _-1:-1:1_ indicates the span from the last to the first index:
+
+```
+>>> 1:-1
+Span(1, -1, 1)
+
+>>> -1:-1:1
+Span(-1, 1, -1)
+
+>>> [1 .. 9].part([1:-1])
+[1 2 3 4 5 6 7 8 9]
 ```
 
 Answer ascending `Range` values:

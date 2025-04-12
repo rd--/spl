@@ -251,18 +251,14 @@
 
 	subarray { :self :indices |
 		let k = indices.size;
-		(k = 0).if {
-			self
+		let i = indices[1];
+		let a = self.atAll(i);
+		(k = 1).if {
+			a
 		} {
-			let i = indices[1];
-			let a = self.atAll(i);
-			(k = 1).if {
-				a
-			} {
-				let j = indices.allButFirst;
-				a.collect { :each |
-					each.subarray(j)
-				}
+			let j = indices.allButFirst;
+			a.collect { :each |
+				each.subarray(j)
 			}
 		}
 	}

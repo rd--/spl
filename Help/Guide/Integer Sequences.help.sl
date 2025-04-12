@@ -3,10 +3,9 @@
 Scatter plot of OEIS [A063543](https://oeis.org/A063543):
 
 ~~~
-let k = 2000;
-{ :n |
+1:2000.collect { :n |
 	n - n.integerDigits.reject(isZero:/1).product
-}.map(1:k).scatterPlot
+}.scatterPlot
 ~~~
 
 OEIS [A117966](https://oeis.org/A117966):

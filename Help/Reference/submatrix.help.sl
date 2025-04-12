@@ -1,11 +1,11 @@
 # submatrix
 
-- _submatrix(aMatrix, rows, columns)_
+- _submatrix(m, r, c)_
 
-Answer a sub-matrix of _aMatrix_ given sequences of row and column indices.
+Answer a sub-matrix of a matrix _m_ given sequences of row indices _r_ and column indices _c_.
 A submatrix of a matrix is a matrix obtained by retaining any specified collection of rows and or columns.
 
-A 2×2 sub-matrix of a 3×3 matrix:
+A 2×2 block sub-matrix of a 3×3 matrix:
 
 ```
 >>> [3 3].iota.submatrix(1:2, 2:3)
@@ -105,9 +105,40 @@ A 1×1 sub-matrix of a 3×3 matrix:
 [[5]]
 ```
 
+Two submatrices of a 4×6 matrix obtained by deleting the first row and first column,
+and by deleting the second and third rows and the sixth column:
+
+```
+>>> let a = [
+>>> 	1 5 0 1 8 2;
+>>> 	6 8 4 9 3 3;
+>>> 	1 3 7 7 8 1;
+>>> 	3 9 2 9 3 7
+>>> ];
+>>> (
+>>> 	a.submatrix(2:4,2:6),
+>>> 	a.submatrix([1 4], 1:5)
+>>> )
+(
+	[
+		8 4 9 3 3;
+		3 7 7 8 1;
+		9 2 9 3 7
+	],
+	[
+		1 5 0 1 8;
+		3 9 2 9 3
+	]
+)
+```
+
+_Note:_
+For the answer to be a proper submatrix _r_ and _c_ should specify each row and column at most once.
+For the answer to be a block submatrix _r_ and _c_ should contain only proper substrings of the row and column indices.
+
 * * *
 
-See also: at, atAll, Matrix, subarray
+See also: at, atAll, Matrix, part, subarray
 
 References:
 _Maple_

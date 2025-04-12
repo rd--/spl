@@ -1,11 +1,11 @@
 # at
 
-- _at(aCollection, anIndex)_
+- _at(c, i)_
 - _at(c, i, j)_
 - _at(c, i, j, k)_
 
 In the binary case,
-answer the item associated with _anIndex_ in _aCollection_.
+answer the item associated with index _i_ in collection _c_.
 
 In the ternary case _c_ is a collection, _i_ the primary index, and _j_ a secondary index.
 In the quaternary case _k_ is a tertiary index.
@@ -17,7 +17,7 @@ report an _error_.
 All sequenceable collections, including `List`, are indexable:
 
 ```
->>> ['x', 'y'].at(1)
+>>> ['x' 'y'].at(1)
 'x'
 ```
 
@@ -111,9 +111,18 @@ The `Trait` definitions of the extended arity forms are:
 - _at(c,i,j,k)_ = _at(at(at(c,i),j),k)_
 Collections may implement extended arity forms as required.
 
+It is an error if the index is a collection:
+
+```
+>>> {
+>>> 	['1' '2' '3'].at([1 2])
+>>> }.ifError { true }
+true
+```
+
 * * *
 
-See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atPut, atWrap, Indexable, size
+See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atPut, atSymmetrical, atWrap, Indexable, size
 
 Guides: AtPut Syntax, At Syntax, Quoted At Syntax
 

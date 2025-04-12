@@ -377,7 +377,8 @@ The reciprocal determinant of the Hilbert matrix of order _n_, has prime factors
 
 ```
 >>> let n = 5L;
->>> let h = 1.r(1:n +.outer (1:n - 1));
+>>> let x = [1L .. n];
+>>> let h = 1.r(x +.outer (x - 1));
 >>> (1 / h.determinant).primeFactors.nub
 [2 3 5 7]
 ```

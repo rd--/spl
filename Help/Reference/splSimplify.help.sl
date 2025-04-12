@@ -130,10 +130,10 @@ All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
 
 ```
 >>> '1:9'.splSimplify
-'Range(1, 9, 1)'
+'Span(1, 9, 1)'
 
 >>> '1:2:9'.splSimplify
-'Range(1, 9, 2)'
+'Span(1, 9, 2)'
 ```
 
 `Range` expressions:
@@ -227,7 +227,7 @@ List range expressions:
 
 ```
 >>> 'c[1:9]'.splSimplify
-'atAll(c, Range(1, 9, 1))'
+'atAll(c, Span(1, 9, 1))'
 ```
 
 `Quoted At Syntax` is rewritten as `Apply Syntax`:

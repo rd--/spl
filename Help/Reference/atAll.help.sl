@@ -1,11 +1,11 @@
 # atAll
 
-- _atAll(aCollection, indices)_
+- _atAll(c, i)_
 - _atAll(c, i, j)_
 - _atAll(c, i, j, k)_
 
 In the binary case,
-answer a new collection like _aCollection_ containing all elements at _indices_.
+answer a new collection like the collection _c_ containing all elements at indices _i_.
 
 In the ternary case _c_ is a collection, _i_ the primary indices, and _j_ the secondary indices.
 In the quaternary case _k_ are tertiary indices.
@@ -93,9 +93,18 @@ The infix form of the binary `atAll` is `@*`:
 (x: 1, z: 3)
 ```
 
+It is an error if the index is not a collection:
+
+```
+>>> {
+>>> 	['1' '2' '3'].atAll(2)
+>>> }.ifError { true }
+true
+```
+
 * * *
 
-See also: at, atAllBlend, atAllPin, atAllPut, atPath
+See also: at, atAllBlend, atAllPin, atAllPut, atAllSymmetrical, atPath
 
 Guides: AtAll Syntax
 

@@ -838,8 +838,8 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 { [-1].asByteArray }.ifError { true } /* out of range element error */
 { ['1'].asByteArray }.ifError { true } /* not a number element error */
 1:9.asByteArray.reversed = 9:-1:1.asByteArray
-1:3.asByteArray.printString = '[1, 2, 3].asByteArray'
-1:3.asByteArray.storeString = '[1, 2, 3].asByteArray'
+1:3.asByteArray.printString = 'ByteArray([1, 2, 3])'
+1:3.asByteArray.storeString = 'ByteArray([1, 2, 3])'
 ByteArray(4).asHexString = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
 let b = ByteArray(4); b[1] := 15; b[3] := 240; b.asHexString = '0F00F000'
@@ -1289,7 +1289,7 @@ system.now.asDate.typeOf = 'Date' /* type of Date, system constructor gets curre
 (60 * 60 * 12).asDate.dateTimeString = '1970-01-01T12:00:00.000Z' /* translate Date to ISO-8601 string */
 '1970-01-01T00:00:01.000Z'.parseDate.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
-let d = 0.asDate; [d.hour + (d.offsetSeconds / 60 / 60), d.minute, d.second] = [0, 0, 0] /* hour is in local time */
+let d = 0.asDate; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in UTC */
 0.asDate = 0.asDate /* dates are comparable */
 0.asDate ~= system.now.asDate /* dates are comparable */
 0.asDate < system.now.asDate /* dates are magnitudes */
@@ -1424,8 +1424,8 @@ let a = 9:-1:1.asFloat64Array; a.sort; a = 1:9.asFloat64Array /* sort in place *
 { Float64Array(1).atPut(3, 'x') }.ifError { true } /* out of bounds error */
 let a = Float64Array(1); a.basicAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1); a.basicAtPut(3, 'x'); a.basicAt(3) = nil /* unsafe mutation does not extend array */
-1:3.asFloat64Array.printString = '[1, 2, 3].asFloat64Array'
-1:3.asFloat64Array.storeString = '[1, 2, 3].asFloat64Array'
+1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
+1:3.asFloat64Array.storeString = 'Float64Array([1, 2, 3])'
 let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asList = [3, 2, 3] } /* copy */
 ```
 
@@ -1887,7 +1887,7 @@ Range(-2, 2, 1).collect(isEven:/1) = [true, false, true, false, true]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
 let i = 1; 1.to(9).do { :each | i := i + each }; i = 46
-Range(-1, 1, 1).printString = '-1:1'
+Range(-1, 1, 1).printString = 'Range(-1, 1, 1)'
 Range(-1, 1, 1).storeString = 'Range(-1, 1, 1)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
@@ -1902,9 +1902,9 @@ let i = 1:9; i.first = i[1] /* one-indexed */
 let i = 1:9; i.last = i[9] /* one-indexed */
 1:6.sum = 21
 Range(-1, 1, 1).asList = [-1, 0, 1]
-1.to(99).asString = '1:99'
-1:99.asString = '1:99'
-toBy(1, -1, -1).asString = '1:-1:-1'
+1.to(99).asString = 'Range(1, 99, 1)'
+1:99.asString = 'Range(1, 99, 1)'
+toBy(1, -1, -1).asString = 'Range(1, -1, -1)'
 1.to(99).sum = 4950
 1.to(99).asList.sum = 4950
 1:9.size = 9
@@ -3807,7 +3807,7 @@ system.methodSignatures('add').includes('@Dictionary>>add:/2') = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self | reduce(self,min:/2) }'
 system.methodTypes('last:/1').includes('String') = true
-system.multipleArityMethodList.includes('atRandom') = true
+system.multipleArityMethodList.includes('at') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
 system.operatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
@@ -3845,7 +3845,7 @@ system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
-system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Number']) = true
+system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequenceable']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Bag']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
