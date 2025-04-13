@@ -1,9 +1,9 @@
 # atMod
 
-- _atMod(aSequence, anIndex, anInteger)_
-- _atMod(aSequence, anIndex)_
+- _atMod(s, i, m)_
+- _atMod(s, i)_
 
-Answer the item associated with the cyclical, or modular, index _anIndex_ in _aSequence_.
+Answer the item associated with the cyclical, or modular, index _i_ in the sequence _s_.
 In one-based indexing systems this operation is a little more involved than in zero-indexed systems.
 
 Cycle though a list three times:

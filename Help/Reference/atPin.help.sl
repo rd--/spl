@@ -1,9 +1,9 @@
 # atPin
 
-- _atPin(aSequence, index)_
+- _atPin(s, i)_
 
-Answer the element of _aSeqence_ at _index_ if possible.
-Answer the first or last element if _index_ is out of bounds.
+Answer the element of the seqence _s_ at the index _i_ if possible.
+Answer the first or last element if the index is out of bounds.
 
 ```
 >>> [1 .. 5].atPin(-1)

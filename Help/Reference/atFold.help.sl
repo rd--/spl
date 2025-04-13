@@ -1,9 +1,9 @@
 # atFold
 
-- _atFold(aSequence, index)_
+- _atFold(s, i)_
 
-Answer the element at _index_ in _aSequence_.
-If _index_ is out of bounds, let it fold back in on itself.
+Answer the element at the index _i_ in the sequence _s_.
+If the index is out of bounds, let it fold back in on itself.
 
 ```
 >>> [1 .. 5].atFold(-1)

@@ -1,11 +1,11 @@
 # atIfPresentIfAbsent
 
-- _atIfPresentIfAbsent(aCollection, aKey, ifPresentBlock:/1, ifAbsentBlock:/0)_
+- _atIfPresentIfAbsent(c, k, α:/1, β:/0)_
 
-Lookup the value associated with _aKey_ in _aCollection_.
+Lookup the value associated with the key _k_ in the collection _c_.
 If the key is present,
-answer the value of evaluating _ifPresentBlock_ with the value associated with the key.
-Otherwise, evaluate _ifAbsentBlock_.
+answer the value of evaluating the unary block _α_ with the value associated with the key.
+Otherwise, evaluate the no-argument block _β_.
 
 ```
 >>> ['x' 'y' 'z'].collect { :each |

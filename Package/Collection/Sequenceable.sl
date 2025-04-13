@@ -312,6 +312,18 @@
 		}
 	}
 
+	atUsing { :self :operand :aBlock:/1 |
+		operand.isCollection.if {
+			let answer = self.species.ofSize(operand.size);
+			operand.indicesDo { :each |
+				answer[each] := aBlock(operand.at(each))
+			};
+			answer
+		} {
+			aBlock(self, operand)
+		}
+	}
+
 	atWrap { :self :index |
 		let k = index.wrapBetweenAnd(1, self.size + 1);
 		self[k]

@@ -1,10 +1,10 @@
 # atIfPresent
 
-- _atIfPresent(aCollection, aKey, aBlock:/1)_
+- _atIfPresent(c, k, f:/1)_
 
-Lookup the value associated with _aKey_ in _aCollection_.
+Lookup the value associated with the key _k_ in the collection _c_.
 If the key is present,
-answer the value of evaluating the given block with the value associated with the key.
+answer the value of evaluating the unary block _f_ with the value associated with the key.
 Otherwise, answer nil.
 
 * * *
