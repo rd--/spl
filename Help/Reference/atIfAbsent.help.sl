@@ -13,9 +13,13 @@ If the key is absent, answer the result of evaluating the no argument block _f_.
 nil
 ```
 
+_Rationale_:
+This is the primitive collection access method.
+`at` is defined in relation to this method.
+
 * * *
 
-See also: at, atIfPresent, atIfPresentIfAbsent
+See also: at, atIfPresent, atIfPresentIfAbsent, atMissing, atNil
 
 References:
 _Smalltalk_

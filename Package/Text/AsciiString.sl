@@ -16,8 +16,8 @@ AsciiString : [Object, Iterable, Indexable, Collection, Sequenceable] { | conten
 		answer
 	}
 
-	at { :self :anInteger |
-		self.contents.at(anInteger).asCharacter
+	atIfAbsent { :self :anInteger :ifAbsent:/0 |
+		self.contents.atIfAbsent(anInteger, ifAbsent:/0).asCharacter
 	}
 
 	atPut { :self :anInteger :aCharacter |

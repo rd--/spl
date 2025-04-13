@@ -4,13 +4,13 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		self
 	}
 
-	at { :self :aString |
+	atIfAbsent { :self :aString :ifAbsent:/0 |
 		<primitive:
 		if(Object.hasOwn(_self, _aString)) {
 			return _self[_aString];
 		}
+		return _ifAbsent_0();
 		>
-		self.error('at: unknown key: ' ++ aString)
 	}
 
 	atPut { :self :aString :anObject |
@@ -21,17 +21,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		}
 		>
 		self.error('atPut key not a string: ' ++ aString.typeOf)
-	}
-
-	basicAt { :self :key |
-		<primitive: return _self[_key];>
-	}
-
-	basicAtPut { :self :key :value |
-		<primitive:
-		_self[_key] = _value;
-		return _value;
-		>
 	}
 
 	comparator { :self |
@@ -96,6 +85,17 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 				])
 			}.commaSeparated
 		])
+	}
+
+	uncheckedAt { :self :key |
+		<primitive: return _self[_key];>
+	}
+
+	uncheckedAtPut { :self :key :value |
+		<primitive:
+		_self[_key] = _value;
+		return _value;
+		>
 	}
 
 	values { :self |

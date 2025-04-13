@@ -19,7 +19,7 @@
 
 }
 
-LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable] { | firstLink lastLink |
+LinkedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)
@@ -56,8 +56,8 @@ LinkedList : [Object, Iterable, Collection, Extensible, Removable, Sequenceable]
 		answer
 	}
 
-	at { :self :index |
-		self.linkAt(index).value
+	atIfAbsent { :self :index :ifAbsent:/0 |
+		self.linkAtIfAbsent(index, ifAbsent:/0).value
 	}
 
 	atPut { :self :index :anObject |

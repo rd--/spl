@@ -22,10 +22,10 @@ CacheStorage : [Object] {
 		}
 	}
 
-	atIfPresent { :self :key :aBlock:/1 |
+	atIfPresent { :self :key :ifPresent:/1 |
 		let validKey = self.validateKey(key);
 		self.basicOpen(key).then { :cache |
-			aBlock(cache)
+			ifPresent(cache)
 		}
 	}
 

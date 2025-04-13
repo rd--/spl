@@ -19,11 +19,17 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 		anObject
 	}
 
-	at { :self :index |
+	atIfAbsent { :self :index :ifAbsent:/0 |
 		(index > self.size).if {
-			self.errorInvalidIndex('at', index)
+			ifAbsent()
 		} {
-			self.array[index]
+			self.array.at(index)
+		}
+	}
+
+	at { :self :index |
+		self.atIfAbsent(index) {
+			self.error('at: invalid index')
 		}
 	}
 

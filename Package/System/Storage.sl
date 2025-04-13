@@ -7,32 +7,13 @@ Storage! : [Object, Collection, Dictionary] {
 	at { :self :key |
 		key.assertIsString;
 		self.assertIsValidKey(key);
-		self.basicAt(key)
+		self.uncheckedAt(key)
 	}
 
 	atPut { :self :key :value |
 		key.assertIsString;
 		value.assertIsString;
-		self.basicAtPut(key, value)
-	}
-
-	basicAt { :self :key |
-		<primitive: return _self.getItem(_key);>
-	}
-
-	basicAtPut { :self :key :value |
-		<primitive:
-		_self.setItem(_key, _value);
-		return _value;
-		>
-	}
-
-	basicRemoveKey { :self :key |
-		<primitive:
-		const answer = _self.getItem(_key);
-		_self.removeItem(_key);
-		return answer;
-		>
+		self.uncheckedAtPut(key, value)
 	}
 
 	includesKey { :self :key |
@@ -57,7 +38,7 @@ Storage! : [Object, Collection, Dictionary] {
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |
 		self.includesKey(key).if {
-			self.basicRemoveKey(key)
+			self.uncheckedRemoveKey(key)
 		} {
 			aBlock()
 		}
@@ -76,6 +57,25 @@ Storage! : [Object, Collection, Dictionary] {
 
 	storeString { :self |
 		'a Storage'
+	}
+
+	uncheckedAt { :self :key |
+		<primitive: return _self.getItem(_key);>
+	}
+
+	uncheckedAtPut { :self :key :value |
+		<primitive:
+		_self.setItem(_key, _value);
+		return _value;
+		>
+	}
+
+	uncheckedRemoveKey { :self :key |
+		<primitive:
+		const answer = _self.getItem(_key);
+		_self.removeItem(_key);
+		return answer;
+		>
 	}
 
 }

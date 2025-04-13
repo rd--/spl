@@ -4,22 +4,12 @@
 		List(self.size).fillFrom(self)
 	}
 
-	at { :self :index |
+	atIfAbsent { :self :index :ifAbsent:/0 |
 		<primitive:
 		if(sl.arrayCheckIndex(_self, _index)) {
 			return _self[_index - 1];
 		}
-		>
-		self.errorInvalidIndex('at', index)
-	}
-
-	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
-		<primitive:
-		if(sl.arrayCheckIndex(_self, _index)) {
-			return _ifPresent_1(_self[_index - 1]);
-		} {
-			return _ifAbsent_0();
-		}
+		return _ifAbsent_0();
 		>
 	}
 
@@ -31,21 +21,6 @@
 		}
 		>
 		self.errorInvalidIndex('atPut', index)
-	}
-
-	basicAt { :self :index |
-		<primitive: return _self[_index - 1];>
-	}
-
-	basicAtPut { :self :index :value |
-		<primitive:
-		_self[_index - 1] = _value;
-		return _value;
-		>
-	}
-
-	basicRemoveAt { :self :index |
-		<primitive: return _self.splice(_index - 1, 1)[0];>
 	}
 
 	collect { :self :aBlock:/1 |
@@ -145,6 +120,21 @@
 			self.typeOf,
 			self.asList.storeString
 		])
+	}
+
+	uncheckedAt { :self :index |
+		<primitive: return _self[_index - 1];>
+	}
+
+	uncheckedAtPut { :self :index :value |
+		<primitive:
+		_self[_index - 1] = _value;
+		return _value;
+		>
+	}
+
+	uncheckedRemoveAt { :self :index |
+		<primitive: return _self.splice(_index - 1, 1)[0];>
 	}
 
 }

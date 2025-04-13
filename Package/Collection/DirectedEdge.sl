@@ -29,7 +29,7 @@ DirectedEdge : [Object, Indexable] { | vertexList |
 	}
 
 	at { :self :index |
-		self.vertexList[index]
+		self.vertexList.at(index)
 	}
 
 	forDot { :self :isMixed |

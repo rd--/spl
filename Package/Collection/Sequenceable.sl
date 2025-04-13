@@ -239,6 +239,10 @@
 		self.atAllUsing(indexList, atMissing:/2)
 	}
 
+	atAllNil { :self :indexList |
+		self.atAllUsing(indexList, atNil:/2)
+	}
+
 	atAllPin { :self :indexList |
 		self.atAllUsing(indexList, atPin:/2)
 	}
@@ -874,6 +878,12 @@
 			answer[i] := y + (alpha * (self[i] - y))
 		};
 		answer
+	}
+
+	extract { :self :positionList |
+		positionList.collect { :each |
+			self.part(each)
+		}
 	}
 
 	fastWalshHadamardTransform { :self |

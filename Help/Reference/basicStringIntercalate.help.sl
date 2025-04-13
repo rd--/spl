@@ -27,4 +27,4 @@ At real list with string separator:
 
 * * *
 
-See also: join, stringJoin, stringJoin
+See also: join, stringIntercalate, stringJoin

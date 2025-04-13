@@ -8,34 +8,18 @@
 
 	asRecord { :self |
 		self.keys.allSatisfy(isString:/1).if {
-			self.basicAsRecord
+			self.uncheckedAsRecord
 		} {
 			self.error('@PrimitiveMap>>asRecord: not all keys are strings')
 		}
 	}
 
-	at { :self :key |
+	atIfAbsent { :self :key :ifAbsent:/0 |
 		<primitive:
 		if(_self.has(_key)) {
 			return _self.get(_key);
-		}
-		>
-		self.error('@PrimitiveMap>>at: unknown key: ' ++ key)
-	}
-
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
-		<primitive:
-		if(_self.has(_key)) {
-			return _ifPresent_1(_self.get(_key))
 		};
 		return _ifAbsent_0();
-		>
-	}
-
-	basicAtPut { :self :key :value |
-		<primitive:
-		_self.set(_key, _value);
-		return _value;
 		>
 	}
 
@@ -71,11 +55,7 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 		key.isImmediate.ifFalse {
 			self.error('Map>>atPut: non-immediate key: ' ++ key)
 		};
-		self.basicAtPut(key, value)
-	}
-
-	basicAsRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
+		self.uncheckedAtPut(key, value)
 	}
 
 	comparator { :self |
@@ -177,6 +157,17 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 				}
 			}
 		}
+	}
+
+	uncheckedAsRecord { :self |
+		<primitive: return Object.fromEntries(_self);>
+	}
+
+	uncheckedAtPut { :self :key :value |
+		<primitive:
+		_self.set(_key, _value);
+		return _value;
+		>
 	}
 
 	values { :self |

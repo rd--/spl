@@ -133,9 +133,30 @@ Apply a permutation:
 [7 9 1 3 5]
 ```
 
+Extract the first element of the second through fourth rows:
+
+```
+>>> [5 5].iota.part([2 3 4; 1])
+[6; 11; 16]
+```
+
+Extract the first two elements from each list:
+
+```
+>>> [1 2; 3 4 5; 6 7].part([1:-1 1:2])
+[1 2; 3 4; 6 7]
+```
+
+Extract the first element from each list:
+
+```
+>>> [1 2; 3 4 5; 6; 7 8 9 10].part([1:-1 1])
+[1 3 6 7]
+```
+
 * * *
 
-See also: at, atAll, atAllSymmetrical, atSymmetrical, Range, Span
+See also: at, atAll, atAllSymmetrical, atSymmetrical, extract, Range, Span
 
 References:
 _Mathematica_

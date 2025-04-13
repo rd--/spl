@@ -14,16 +14,12 @@
 		self.collect(identity:/1)
 	}
 
-	at { :self :index |
+	atIfAbsent { :self :index :ifAbsent:/0 |
 		self.includesIndex(index).if {
 			self.step * (index - 1) + self.start
 		} {
-			self.errorInvalidIndex('at', index)
+			ifAbsent()
 		}
-	}
-
-	basicAt { :self :index |
-		self.step * (index - 1) + self.start
 	}
 
 	collect { :self :aBlock:/1 |
@@ -172,6 +168,10 @@
 
 	sum { :self |
 		self.size * ((self.size - 1) * self.step + (self.start * 2)) / 2
+	}
+
+	uncheckedAt { :self :index |
+		self.step * (index - 1) + self.start
 	}
 
 	withIndexDo { :self :aBlock:/2 |

@@ -146,10 +146,21 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 		}
 	}
 
-	size { :self | self.names.size }
-	isEmpty { :self | self.names.isEmpty }
-	isObject { :self | true }
-	asObject { :self | self }
+	size { :self |
+		self.names.size
+	}
+
+	isEmpty { :self |
+		self.names.isEmpty
+	}
+
+	isObject { :self |
+		true
+	}
+
+	asObject { :self |
+		self
+	}
 
 	indexOf { :self :name |
 		let index = self.table[name];

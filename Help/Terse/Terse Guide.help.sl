@@ -332,8 +332,6 @@ let i = 1:3; i[2] = i.at(2) /* [At Syntax] */
 let m = [1 2 3; 4 5 6; 7 8 9]; m[2, 2] = 5 & { m[3, 1] = 7 } /* [At Syntax] */
 let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] /* [AtPut Syntax] */
 1:5.includesIndex(3) /* is valid index */
-1:5.atIfPresent(3) { :x | x * x } = 9 /* clause if index is valid */
-1:5.atIfPresent(9) { :x | false } = nil /* ifAbsent clause answers nil */
 1:5.atIfAbsent(9) { true } /* exception clause if index is invalid */
 1:5.atIfPresentIfAbsent(9) { :x | false } { true } /* ifPresent and ifAbsent clauses */
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
@@ -402,10 +400,8 @@ let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 { let a = List(1); a.at(3) }.ifError { true } /* out of bound indexing is an error */
 { let a = [1]; a[3] }.ifError { true } /* out of bound indexing is an error */
 let a = List(1); a[1].isNil = true /* array slots are initialised to nil */
-let a = List(1); a.basicAt(3).isNil = true /* basic (unsafe) indexing, out of bounds indexes answer nil */
 { let a = List(1); a.atPut(3, 'x') }.ifError { true } /* out of bound mutation is an error */
 { let a = [1]; a[3] := 'x' }.ifError { true } /* out of bound mutation is an error */
-let a = List(1); a.basicAtPut(3, 'x') = 'x' & { a.size = 3 } /* basic (unsafe) mutation, out of bounds indices extend array */
 List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].count(isEven:/1) = 4
 [nil, true, false, 3.141, 23, 'str'].asJson = '[null,true,false,3.141,23,"str"]' /* json encodings */
@@ -543,8 +539,6 @@ let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
 ## PrimitiveSequence -- collection trait
 ```
 system.includesPackage('PrimitiveSequence') /* package */
-[3, 5, 7].basicAt(1) = 3 /* unchecked lookup */
-[3, 5, 7].basicAt(7) = nil /* unchecked lookup, nil on invalid index */
 let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
 [1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
 [1, 7, 3, 9, 5].sort = [1, 3 .. 9] /* sort using default comparison of <= */
@@ -1352,8 +1346,6 @@ let d = (x: 1, y: 2, z: 3); d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt('?') }.ifError { true }
 let d = (x: 1, y: 2); d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
-(x: 1, y: 2, z: 3).basicAt('x') = 1 /* unchecked lookup */
-(x: 1, y: 2, z: 3).basicAt('u') = nil /* unchecked lookup, nil on absent key */
 let a = List(9); a.indicesDo { :each | a[each] := 10 - each }; a = [9 .. 1] /* iterate indices */
 let d = (x: 1, y: 2); d.removeAssociation('x' -> 1); d = (y: 2) /* remove association */
 let d = (x: 1, y: 2); d.removeAssociationIfAbsent('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
@@ -1422,8 +1414,8 @@ let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 let a = [1 .. 9].asFloat64Array; a.reverse; a = 9:-1:1.asFloat64Array /* reverse in place */
 let a = 9:-1:1.asFloat64Array; a.sort; a = 1:9.asFloat64Array /* sort in place */
 { Float64Array(1).atPut(3, 'x') }.ifError { true } /* out of bounds error */
-let a = Float64Array(1); a.basicAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
-let a = Float64Array(1); a.basicAtPut(3, 'x'); a.basicAt(3) = nil /* unsafe mutation does not extend array */
+let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
+let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
 1:3.asFloat64Array.storeString = 'Float64Array([1, 2, 3])'
 let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asList = [3, 2, 3] } /* copy */

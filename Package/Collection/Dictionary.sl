@@ -100,17 +100,17 @@
 	}
 
 	at { :self :key |
-		self.atIfPresentIfAbsent(key, identity:/1) {
+		self.atIfAbsent(key) {
 			self.error('@Dictionary>>at: unknown key: ' ++ key)
 		}
 	}
 
-	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
+	atIfAbsent { :self :key :ifAbsent:/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
 		(index = 0).if {
 			ifAbsent()
 		} {
-			ifPresent(self.values[index])
+			self.values[index]
 		}
 	}
 

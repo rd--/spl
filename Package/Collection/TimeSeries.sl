@@ -20,11 +20,10 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		)
 	}
 
-	at { :self :time |
-		let i = self.times.indexOfIfAbsent(time) {
-			self.error('at: invalid index')
-		};
-		self.values[i]
+	atIfAbsent { :self :time :ifAbsent:/0 |
+		self.values.at(
+			self.times.indexOfIfAbsent(time, ifAbsent:/0)
+		)
 	}
 
 	atPut { :self :time :item |

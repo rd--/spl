@@ -7,11 +7,11 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 	}
 
 	at { :self :index |
-		self.contents[index]
+		self.contents.at(index)
 	}
 
 	atPut { :self :index :anObject |
-		self.contents[index] := anObject
+		self.contents.atPut(index, anObject)
 	}
 
 	concisePrintString { :self |

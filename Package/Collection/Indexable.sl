@@ -33,7 +33,9 @@
 	}
 
 	at { :self :index |
-		self.typeResponsibility('@Indexable>>at')
+		self.atIfAbsent(index) {
+			self.error('@Indexable>>at: invalid index')
+		}
 	}
 
 	at { :self :primaryIndex :secondaryIndex |
@@ -69,31 +71,34 @@
 		values
 	}
 
-	atIfAbsent { :self :index :aBlock:/0 |
-		self.includesIndex(index).if {
-			self[index]
-		} {
-			aBlock()
-		}
+	atIfAbsent { :self :index :ifAbsent:/0 |
+		self.typeResponsibility('@Indexable>>atIfPresentIfAbsent')
 	}
 
-	atIfAbsentPut { :self :index :aBlock:/0 |
+	atIfAbsentPut { :self :index :ifAbsent:/0 |
 		self.atIfAbsent(index) {
-			self[index] := aBlock()
+			self[index] := ifAbsent()
 		}
 	}
 
-	atIfPresent { :self :index :aBlock:/1 |
-		self.includesIndex(index).ifTrue {
-			aBlock(self[index])
-		}
+	atIfPresent { :self :index :ifPresent:/1 |
+		self.atIfPresentIfAbsent(
+			index,
+			ifPresent:/1,
+			{ nil }
+		)
 	}
 
 	atIfPresentIfAbsent { :self :index :ifPresent:/1 :ifAbsent:/0 |
-		self.includesIndex(index).if {
-			ifPresent(self[index])
-		} {
+		let isPresent = true;
+		let answer = self.atIfAbsent(index) {
+			isPresent := false;
 			ifAbsent()
+		};
+		isPresent.if {
+			ifPresent(answer)
+		} {
+			answer
 		}
 	}
 
@@ -113,6 +118,12 @@
 
 	atModify { :self :index :aBlock:/1 |
 		self[index] := aBlock(self[index])
+	}
+
+	atNil { :self :index |
+		self.atIfAbsent(index) {
+			nil
+		}
 	}
 
 	atPath { :self :indices |
@@ -154,14 +165,6 @@
 
 	atPut { :self :primaryIndex :secondaryIndex :tertiaryIndex :quaternaryIndex :anObject |
 		self.at(primaryIndex).at(secondaryIndex).at(tertiaryIndex).atPut(quaternaryIndex, anObject)
-	}
-
-	basicAt { :self :index |
-		self.typeResponsibility('@Indexable>>basicAt')
-	}
-
-	basicAtPut { :self :index :anObject |
-		self.typeResponsibility('@Indexable>>basicAtPut')
 	}
 
 	deepIndices { :self |

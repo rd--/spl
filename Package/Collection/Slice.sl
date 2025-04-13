@@ -4,11 +4,11 @@ Slice : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents sta
 		self.contents.copyFromTo(self.startIndex, self.endIndex).asList
 	}
 
-	at { :self :index |
+	atIfAbsent { :self :index :ifAbsent:/0 |
 		self.includesIndex(index).if {
 			self.contents[index + self.startIndex - 1]
 		} {
-			self.error('at: invalid index: ' ++ index)
+			ifAbsent()
 		}
 	}
 

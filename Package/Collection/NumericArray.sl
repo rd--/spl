@@ -22,9 +22,9 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 		self.normal
 	}
 
-	at { :self :i |
+	atifAbsent { :self :i :ifAbsent:/0 |
 		(self.rank = 1).if {
-			self.contents.at(i)
+			self.contents.atIfAbsent(i, ifAbsent:/0)
 		} {
 			self.error('NumericArray>>at')
 		}

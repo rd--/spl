@@ -1,8 +1,8 @@
 # includesIndex
 
-- _includesIndex(aCollection, index)_
+- _includesIndex(c, i)_
 
-Answer whether _aCollection_ has an index equal to _index_.
+Answer whether the collection _c_ has an index equal to _i_.
 
 At `Range`:
 
@@ -14,14 +14,16 @@ true
 At `Record`:
 
 ```
->>> (w: 1, x: 2, y: 3).includesIndex('x')
+>>> (w: 1, x: 2, y: 3)
+>>> .includesIndex('x')
 true
 ```
 
 At `BitSet`, which is notably _zero-indexed_:
 
 ```
->>> BitSet(11).includesIndex(0)
+>>> BitSet(11)
+>>> .includesIndex(0)
 true
 ```
 

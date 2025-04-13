@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Json, Iterable, Character] {
+String! : [Object, Json, Iterable, Indexable, Character] {
 
 	= { :self :anObject |
 		self == anObject
@@ -181,12 +181,12 @@ String! : [Object, Json, Iterable, Character] {
 		<primitive: return _self.toUpperCase(); >
 	}
 
-	at { :self :index |
+	atIfAbsent { :self :index :ifAbsent:/0 |
 		/* Note: index is in Utf-16 code units, not characters */
 		self.includesIndex(index).if {
 			let codePoint = self.codePointAt(index);
 			codePoint.ifNil {
-				self.error('String>>at: invalid index')
+				ifAbsent()
 			} {
 				codePoint.isUtf16SurrogateCodePoint.if {
 					self.error('String>>at: code point is lone surrogate')
@@ -195,7 +195,7 @@ String! : [Object, Json, Iterable, Character] {
 				}
 			}
 		} {
-			self.error('String>>at: invalid index')
+			ifAbsent()
 		}
 	}
 

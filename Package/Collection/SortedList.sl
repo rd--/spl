@@ -24,8 +24,8 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		self.contents.copy
 	}
 
-	at { :self :index |
-		self.contents[index]
+	atIfAbsent { :self :index :ifAbsent:/0 |
+		self.contents.atIfAbsent(index, ifAbsent:/0)
 	}
 
 	collect { :self :aBlock:/1 |

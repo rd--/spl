@@ -1,17 +1,7 @@
 # Writing Primitives
 
-Below is the implementation of _at_ from `PrimitiveSequence`:
-
-```
-at { :self :anInteger |
-	<primitive:
-	if(sl.arrayCheckIndex(_self, _anInteger)) {
-		return _self[_anInteger - 1];
-	}
-	>
-	self.errorInvalidIndex('at', anInteger)
-}
-```
+The primitive for accessing an item in a collection is `atIfAbsent`.
+For an example implementation see `PrimitiveSequence`.
 
 The primitive checks that the index is a valid integer for the collection,
 and if it is returns the appropriate element.

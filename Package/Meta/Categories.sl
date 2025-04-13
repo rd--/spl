@@ -1113,8 +1113,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'private': [
 		'basicAppendString'
 		'basicAsRecord'
-		'basicAt'
-		'basicAtPut'
+		'uncheckedAt'
+		'uncheckedAtPut'
 		'basicEncodeOscBundle'
 		'basicEncodeOscMessage'
 		'basicNext'

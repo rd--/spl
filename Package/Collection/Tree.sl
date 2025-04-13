@@ -56,8 +56,8 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
-	at { :self :index |
-		self.subTrees[index]
+	atIfAbsent { :self :index :ifAbsent:/0 |
+		self.subTrees.atIfAbsent(index, ifAbsent:/0)
 	}
 
 	collect { :self :aBlock:/1 |
