@@ -15,7 +15,7 @@ nil
 
 _Rationale_:
 This is the primitive collection access method.
-`at` is defined in relation to this method.
+`at` is defined in relation to this method by signalling an `error` in the if absent clause.
 
 * * *
 

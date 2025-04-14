@@ -20,6 +20,24 @@ At `Record`:
 (x: 1, z: 3)
 ```
 
+At a finite `Stream`:
+
+```
+>>> [1 .. 9].asStream
+>>> .reject(isEven:/1)
+>>> .upToEnd
+[1 3 5 7 9]
+```
+
+At a finite `Stream`:
+
+```
+>>> (1 .. Infinity).asStream
+>>> .reject(isEven:/1)
+>>> .next(5)
+[1 3 5 7 9]
+```
+
 Reject items that are integers:
 
 ```

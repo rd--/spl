@@ -21,7 +21,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 	reset { :self |
 		self.onReset.value;
 		self.nextItem := self.onNext.value;
-		self
+		0
 	}
 
 }

@@ -15,6 +15,6 @@ If _aCollection_ does not contain _anObject_, answer 0.
 
 * * *
 
-See also: indexOf
+See also: indexOf, indicesOf
 
 Categories: Accessing

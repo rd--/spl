@@ -514,7 +514,9 @@
 	}
 
 	LsWhite { :low :high :length :randomNumberGenerator |
-		LsConstant(low).withCollect(LsConstant(high)) { :min :max |
+		LsConstant(low).withCollect(
+			LsConstant(high)
+		) { :min :max |
 			randomNumberGenerator.randomReal([min, max], [])
 		}.take(length)
 	}

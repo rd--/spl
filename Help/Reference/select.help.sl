@@ -80,6 +80,24 @@ Retain items that are integers:
 [1 2 3 9]
 ```
 
+At a finite `Stream`:
+
+```
+>>> [1 .. 9].asStream
+>>> .select(isEven:/1)
+>>> .upToEnd
+[2 4 6 8]
+```
+
+At an infinte `Stream`:
+
+```
+>>> (1 .. Infinity).asStream
+>>> .select(isEven:/1)
+>>> .next(4)
+[2 4 6 8]
+```
+
 At `Sfc32`, which implements `Stream`:
 
 ```

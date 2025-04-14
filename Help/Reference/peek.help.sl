@@ -8,8 +8,8 @@ or `pop` at a `Stack` or `PriorityQueue`.
 If there is no item, answer nil.
 
 ```
->>> let stream = 1:5.asStream;
->>> (stream.peek, stream.next)
+>>> let s = [1 2 3 4 5].asStream;
+>>> (s.peek, s.next)
 (1, 1)
 ```
 

@@ -6,8 +6,8 @@ Set the position of _aStream_ to the beginning of the sequence of objects.
 Answer `zero`, which is what `position` would answer.
 
 ```
->>> let stream = 1:9.asStream;
->>> (stream.next, stream.reset, stream.position, stream.next)
+>>> let s = [1 .. 9].asStream;
+>>> (s.next, s.reset, s.position, s.next)
 (1, 0, 0, 1)
 ```
 

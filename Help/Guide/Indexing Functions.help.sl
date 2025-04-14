@@ -3,16 +3,25 @@
 Access an element at a specified index:
 
 - `at`
-- `atIfAbsent`
-- `atIfPresentIfAbsent`
-- `atIfPresent`
 
-Access an element at a specified index or at a modified index if the specified index is invalid:
+Access an element at a specified index,
+providing guard blocks:
+
+- `atIfAbsent`
+- `atIfPresent`
+- `atIfPresentIfAbsent`
+
+Access an element at a specified index,
+or answer a `Nil` or `Missing` value:
+
+- `atMissing`
+- `atNil`
+
+Access an element at a specified index,
+or at a modified index if the specified index is invalid:
 
 - `atFold`
-- `atMissing`
 - `atMod`
-- `atNil`
 - `atPin`
 - `atSymmetrical`
 - `atWrap`
@@ -30,22 +39,11 @@ Access an element using a positional index:
 
 - `atPath`
 
-Write a value to a slot at a specified index:
-
-- `atIfAbsentPut`
-- `atPut`
-
-Write a value, or a collection of values, to a specified sequence of indices:
-
-- `atAllPut`
-- `atAllPutAll`
-
 Locate index:
 
 - `detectIndex`
-- `indexForInserting`
-- `indexOfIfAbsent`
 - `indexOf`
+- `indexOfIfAbsent`
 - `indexOfStartingAtBy`
 - `lastIndexOf`
 
@@ -56,10 +54,13 @@ Binary search:
 - `binarySearchRightmost`
 - `binarySearch`
 - `bisect`
+- `indexForInserting`
 
 Locate indices:
 
+- `detectIndices`
 - `indicesOf`
+- `indicesOfSubstring`
 - `deepIndicesOf`
 
 Matrices and Arrays:
@@ -68,3 +69,17 @@ Matrices and Arrays:
 - `part`
 - `subarray`
 - `submatrix`
+
+Write a value to a slot at a specified index:
+
+- `atPut`
+- `atIfAbsentPut`
+
+Write a value, or a collection of values, to a specified sequence of indices:
+
+- `atAllPut`
+- `atAllPutAll`
+
+Mutate at deep index:
+
+- `atPathPut`

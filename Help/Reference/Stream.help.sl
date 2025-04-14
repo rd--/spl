@@ -13,4 +13,6 @@
 
 * * *
 
-See also: Iterator, PositionableStream, reset, WriteStream
+See also: BlockStream, Iterator, PositionableStream, reset, WriteStream
+
+Guides: Stream Functions

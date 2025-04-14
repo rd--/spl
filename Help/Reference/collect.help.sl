@@ -53,6 +53,15 @@ At `Tree`:
 Tree(2, [Tree(3, [Tree(4, [])])])
 ```
 
+At `Stream`:
+
+```
+>>> [1 .. 9].asStream
+>>> .collect(squared:/1)
+>>> .upToEnd
+[1 4 9 16 25 36 49 64 81]
+```
+
 Make a triangular array:
 
 ```

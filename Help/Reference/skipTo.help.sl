@@ -8,15 +8,15 @@ If _anObject_ is not found before the end of the stream is encountered, answers 
 Skip to an object:
 
 ```
->>> let stream = 1:9.asStream;
->>> stream.skipTo(7);
->>> stream.upToEnd
-8:9
+>>> let s = [1 3 5 7 9 11].asStream;
+>>> s.skipTo(7);
+>>> (s.position, s.upToEnd)
+(4, [9 11])
 ```
 
 * * *
 
-See also: skip
+See also: position, skip, upToEnd
 
 References:
 _Smalltalk_

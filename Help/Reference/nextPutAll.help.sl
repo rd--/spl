@@ -5,10 +5,10 @@
 Enumerates _aCollection_, adding each element to _aStream_.
 
 ```
->>> let stream = ByteArray(0).asWriteStream;
->>> stream.nextPutAll(0:255);
->>> stream.contents
-0:255.asByteArray
+>>> let s = ByteArray(0).asWriteStream;
+>>> s.nextPutAll([0 .. 255]);
+>>> s.contents
+[0 .. 255].asByteArray
 ```
 
 * * *

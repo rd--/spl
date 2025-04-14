@@ -2459,12 +2459,6 @@ let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
 ## BlockStream
 ```
 system.includesPackage('BlockStream') /* package */
-let n = 1; let s = BlockStream { let r = n; n := n + 1; r } { }; s.next(9) = [1 .. 9]
-1:9.asStream.collect(squared:/1).upToEnd = [1 4 9 16 25 36 49 64 81]
-1:9.asStream.select(isEven:/1).upToEnd = [2 4 6 8]
-1:9.asStream.reject(isEven:/1).upToEnd = [1 3 5 7 9]
-(1 .. Infinity).asStream.select(isEven:/1).next(4) = [2 4 6 8]
-(1 .. Infinity).asStream.reject(isEven:/1).next(5) = [1 3 5 7 9]
 not:/1.iterate(true).next(10) = [true false true false true false true false true false]
 { :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
 ```
@@ -2619,16 +2613,6 @@ system.includesPackage('PositionableStream') /* PositionableStream package */
 [].asStream.atEnd = true /* at end predicate */
 let r = 1:1000.asIterator; [r.next, r.next, r.atEnd] = [1, 2, false] /* at end predicate */
 [].asStream.position = 0 /* initially the position is zero */
-let r = 1:5.asStream; [r.peek, r.next] = [1, 1] /* peek at the next item */
-let r = 1:5.asStream; [r.peekFor(1), r.next] = [true, 2] /* peek or read next item */
-let r = 1:5.asStream; [r.peekFor(nil), r.next] = [false, 1] /* peek or read next item */
-let r = 1:5.asStream; r.position(3); r.next = 4 /* move to indicated position, which is the index before the next element */
-let r = 1:5.asStream; r.position(3); r.skip(-1); r.next = 3 /* relative re-positioning */
-let r = (1, 3 .. 9).asStream; r.skip(2); r.upToEnd = (5, 7 .. 9) /* skip to a position */
-let r = 1:9.asStream; r.skipTo(7); r.upToEnd = 8:9 /* skip to an object */
-{ [].asStream.position := -1 }.ifError { true } /* it is an error to move the position out of bounds */
-{ [].asStream.position := 1 }.ifError { true } /* it is an error to move the position out of bounds */
-let r = 9:-1:1.asStream; [r.upToPosition(3), r.upToEnd] = [9:-1:7, 6:-1:1] /* read from current up to indicated position */
 let r = 1:9.asStream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one element and return it (by peeking) */
 ```
 
@@ -4192,5 +4176,4 @@ system.cache['onceCache'].isWeakMap
 ```
 system.includesPackage('MutableCollectionStream') /* MutableCollectionStream package */
 let w = [].asByteArray.asWriteStream; w.nextPutAll(1:9); w.contents = [1 .. 9].asByteArray
-let w = [nil, nil].asWriteStream; w.nextPut('a'); w.nextPut('b'); w.contents.stringIntercalate('') = 'ab'
 ```

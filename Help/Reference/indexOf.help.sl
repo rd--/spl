@@ -70,7 +70,7 @@ At `Range` there is a closed form:
 
 * * *
 
-See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, lastIndexOf
+See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, lastIndexOf
 
 References:
 _Smalltalk_

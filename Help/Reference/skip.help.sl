@@ -9,25 +9,25 @@ A number of objects equal to the lesser of _amount_ and the number of remaining 
 Relative re-positioning:
 
 ```
->>> let stream = 1:5.asStream;
->>> stream.position(3);
->>> stream.skip(-1);
->>> stream.next
+>>> let s = [1 2 3 4 5].asStream;
+>>> s.position(3);
+>>> s.skip(-1);
+>>> s.next
 3
 ```
 
 Skip to a position:
 
 ```
->>> let stream = (1, 3 .. 9).asStream;
->>> stream.skip(2);
->>> stream.upToEnd
-(5, 7 .. 9)
+>>> let s = [1 3 5 7 9].asStream;
+>>> s.skip(2);
+>>> s.upToEnd
+[5 7 9]
 ```
 
 * * *
 
-See also: skipTo
+See also: asStream, position, next, skipTo
 
 References:
 _Smalltalk_

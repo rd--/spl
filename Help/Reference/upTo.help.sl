@@ -6,9 +6,9 @@ Answer a collection of all of the items in _aStream_ up to, but not including, t
 Sets the stream to read the object just after the next occurrence of _anObject_.
 
 ```
->>> let stream = 1:9.asStream;
->>> (stream.upTo(5), stream.upToEnd)
-(1:4, 6:9)
+>>> let s = [1 .. 9].asStream;
+>>> (s.upTo(5), s.upToEnd)
+([1 2 3 4], [6 7 8 9])
 ```
 
 If _anObject_ is not found and the end of the stream is encountered, the objects read are answered.
@@ -21,8 +21,9 @@ If _anObject_ is not found and the end of the stream is encountered, the objects
 At `BlockStream`:
 
 ```
->>> let stream = 1:11.asStream.reject(isEven:/1);
->>> (stream.upTo(7), stream.upToEnd)
+>>> let a = [1 .. 11].asStream;
+>>> let b = a.reject(isEven:/1);
+>>> (b.upTo(7), b.upToEnd)
 ([1 3 5], [9 11])
 ```
 

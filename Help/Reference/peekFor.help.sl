@@ -7,9 +7,15 @@ or if the receiver is at the end.
 Answer `true` and increment the position for accessing elements, if the next element is equal to `anObject`.
 
 ```
->>> let stream = 1:5.asStream;
->>> (stream.peekFor(1), stream.next)
-(true, 2)
+>>> let s = [1 2 3 4 5].asStream;
+>>> (
+>>> 	s.peekFor(1),
+>>> 	s.next,
+>>> 	s.peekFor(5),
+>>> 	s.peekFor(3),
+>>> 	s.next
+>>> )
+(true, 2, false, true, 4)
 ```
 
 * * *

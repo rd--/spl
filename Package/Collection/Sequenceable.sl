@@ -739,6 +739,16 @@
 		}
 	}
 
+	detectIndices { :self :predicate:/1 |
+		let answer = [];
+		1.toDo(self.size) { :i |
+			predicate(self.at(i)).ifTrue {
+				answer.add(i)
+			}
+		};
+		answer
+	}
+
 	detectStartingAt { :self :predicate:/1 :startIndex |
 		self.detectStartingAtIfFoundIfNone(predicate:/1, startIndex) { :item |
 			item
@@ -2632,6 +2642,13 @@
 				}
 			};
 			answer
+		}
+	}
+
+	sequencePosition { :self :subsequence |
+		let k = subsequence.size - 1;
+		self.indicesOfSubstring(subsequence).collect { :each |
+			[each, each + k]
 		}
 	}
 

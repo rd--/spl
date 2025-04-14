@@ -16,6 +16,16 @@ Answer the indices for each place that _anotherSequence_ occurs as a subsequence
 ]
 ```
 
+Find the positions of a sublist:
+
+```
+>>> [1 2 3 4 1 3].indicesOfSubsequence([1 3])
+[1 3; 1 6; 5 6]
+
+>>> [1 2 3 4 1 3].indicesOfSubsequence([1 3 4])
+[[1 3 4]]
+```
+
 * * *
 
 See also: indicesOfSubstring
