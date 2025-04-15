@@ -94,27 +94,6 @@
 		}
 	}
 
-	bellNumber { :self |
-		(self < 0).if {
-			self.error('@Integer>>bellNumber: n < 0')
-		} {
-			(self < 2).if {
-				1
-			} {
-				let list = List(self);
-				list[1] := 1;
-				2.toDo(self) { :i |
-					1.toDo(i - 2) { :j |
-						let k = i - j - 1;
-						list[k] := list[k] + list[i - j]
-					};
-					list[i] := list[1] + list[i - 1]
-				};
-				list[self]
-			}
-		}
-	}
-
 	berahaConstant { :n |
 		2 + (2 * (2.pi / n).cos)
 	}
@@ -288,18 +267,6 @@
 		}
 	}
 
-	doubleFactorial { :self |
-		self.isNegative.if {
-			self.error('@Integer>>doubleFactorial: not valid for negative integers')
-		} {
-			(self <= 3).if {
-				self.max(1)
-			} {
-				self * (self - 2).doubleFactorial
-			}
-		}
-	}
-
 	dyckWords { :n |
 		let f = { :x :i :n0 :n1 |
 			let d0 = { f(x ++ [0], i + 1, n0 + 1, n1) };
@@ -396,25 +363,6 @@
 		self.extendedEuclideanAlgorithm(anInteger)
 	}
 
-	factorial { :self |
-		self.isNegative.ifTrue {
-			'@Integer>>factorial: not valid for negative integers'.error
-		};
-		(self <= 1).if {
-			1
-		} {
-			let next = self;
-			let answer = self;
-			{
-				next > 1
-			}.whileTrue {
-				next := next - 1;
-				answer := answer * next
-			};
-			answer
-		}
-	}
-
 	fareySequence { :n |
 		let [a, b, c, d] = [0, 1, 1, n];
 		let answer = [Fraction(a, b)];
@@ -489,14 +437,6 @@
 
 	harmonicNumber { :self |
 		1:self.reciprocal.sum
-	}
-
-	hyperfactorial { :self |
-		self.isInteger.if {
-			(self.one .. self).collect { :k | k ^ k }.product
-		} {
-			'@Integer>>hyperfactorial: not implemented for non-integer'.error
-		}
 	}
 
 	integerCompositionsDo { :n :k :aBlock:/1 |
@@ -1091,10 +1031,6 @@
 
 	perrinSequence { :self |
 		self.padovanSequence([3 0 2])
-	}
-
-	polygonalNumber { :r :n |
-		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}
 
 	positiveResidue { :self :modulus |

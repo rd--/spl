@@ -4,11 +4,15 @@
 
 Answer the next element of _aStream_ that satisfies the predicate _aBlock_.
 
+Read stream until element satisfies predicate:
+
 ```
->>> 1:9.asIterator.nextSatisfy { :each |
+>>> let s = [1 3 5 7 9].asIterator;
+>>> let e = s.nextSatisfy { :each |
 >>> 	each >= 5
->>> } = 5
-true
+>>> };
+>>> (e, s.position)
+(5, 3)
 ```
 
 * * *

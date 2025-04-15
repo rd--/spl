@@ -125,6 +125,7 @@
 	'ApproximateMathFunctions'
 	'Bessel'
 	'Binomial'
+	'Combinatorics'
 	'DifferentialEquations'
 	'DistanceFunctions'
 	'EasingFunctions'

@@ -5,6 +5,9 @@
 The `product` of `one` up to _anInteger_.
 
 ```
+>>> 5.factorial
+[1 .. 5].product
+
 >>> 1:10.factorial
 [
 	1 2 6 24 120

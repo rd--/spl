@@ -136,6 +136,7 @@
 	'Math-ApproximateMathFunctions'
 	'Math-Bessel'
 	'Math-Binomial'
+	'Math-Combinatorics'
 	'Math-DifferentialEquations'
 	'Math-DistanceFunctions'
 	'Math-EasingFunctions'

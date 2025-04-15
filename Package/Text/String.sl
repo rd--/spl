@@ -355,10 +355,6 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		<primitive: return _self.length;>
 	}
 
-	deBruijnSequence { :self :anInteger |
-		self.characters.deBruijnSequence(anInteger).stringCatenate
-	}
-
 	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
 			aBlock(each)

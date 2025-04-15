@@ -2459,8 +2459,6 @@ let x = 2; 3.timesRepeat { x := x ^ 2}; x = 256 /* timesRepeat loop */
 ## BlockStream
 ```
 system.includesPackage('BlockStream') /* package */
-not:/1.iterate(true).next(10) = [true false true false true false true false true false]
-{ :each | each + 3 }.iterate(42).next(10) = [42 45 48 51 54 57 60 63 66 69]
 ```
 
 ## Promise -- scheduling type
@@ -2490,7 +2488,6 @@ NaN.isNumber /* constant (not a number) */
 ## RandomNumberGenerator -- trait and system random number generator
 ```
 system.includesPackage('RandomNumberGenerator') /* package */
-let r = Sfc32(); r.isStream = true
 let r = Sfc32(); r.randomInteger([1 9], []).isInteger /* random integer between 1 and 9 inclusive */
 system.randomInteger([1 9], []).isInteger /* random integers (1 to self) */
 let s = IdentitySet(); 729.timesRepeat { s.include(1:9.atRandom) }; s.minMax = [1, 9] /* check distribution */
@@ -2521,8 +2518,6 @@ let r = Sfc32(98765); r.randomInteger([1 10000], []) = 4956 /* random integer in
 let r = Sfc32(); let n = r.nextRandomFloat; n >= 0 & { n < 1 } /* seed from system clock */
 let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger([1 9], [])) }; s.minMax = [1, 9] /* check distribution */
 let r = Sfc32(); let s = IdentitySet(); 729.timesRepeat { s.include(r.randomInteger([1 9], [])) }; s.asList.sorted = [1 .. 9] /* check distribution */
-let r = Sfc32(98765); r.isStream /* stream predicate */
-let r = Sfc32(98765); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Random -- MersenneTwister
@@ -2572,7 +2567,6 @@ let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a /* str
 ```
 system.includesPackage('Iterator') /* Iterator package */
 [].asIterator.typeOf = 'CollectionStream' /* type of iterator */
-[].asIterator.isIterator /* iterator predicate */
 1:5.asIterator.upTo(3) = 1:2 /* read up to, but not including, an element, answer is of species of collection */
 1:5.asIterator.upTo(9) = 1:5 /* read up to end if element is not located */
 let r = [1 .. 5].asIterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
@@ -2581,7 +2575,6 @@ let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is c
 let r = 9:-1:1.asIterator; [r.upTo(3), r.upToEnd] = [9:-1:4, 2:-1:1] /* matching element is consumed */
 [].asIterator.next = nil /* next at an empty read iterator answers nil */
 let r = '.....ascii'.characters.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
-1:9.asIterator.nextSatisfy { :each | each >= 5 } = 5 /* read until element satisfies predicate */
 1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
 let r = 1:9.asIterator; [r.nextMatchFor(1), r.next] = [true, 2] /* predicate at consumed item */
 let r = 1:9.asIterator; [r.nextMatchAll([1, 2, 3]), r.next] = [true, 4] /* predicate at consumed items */
@@ -2603,7 +2596,6 @@ Ball([0 0 0], 1).volume = (4.pi / 3) /* volume */
 ```
 system.includesPackage('Stream') /* Stream package */
 [].asStream.typeOf = 'CollectionStream' /* type of stream */
-[].asStream.isStream /* stream predicate */
 let s = 1:9.asStream; let a = s.next(9); s.reset; s.next(9) = a /* reset stream */
 ```
 

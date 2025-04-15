@@ -5,8 +5,11 @@
 Answer the hyperfactorial of _anInteger_.
 
 ```
+>>> 5.hyperfactorial
+([1 .. 5] ^ [1 .. 5]).product
+
 >>> 10L.hyperfactorial
-215779412229418562091680268288000000000000000L
+215779412229418562091680268288L * 1E15
 
 >>> (0 .. 7).collect(hyperfactorial:/1)
 [

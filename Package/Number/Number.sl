@@ -333,10 +333,6 @@
 		}
 	}
 
-	factorialPower { :self :anInteger |
-		(self - 0.to(anInteger - 1)).product
-	}
-
 	floor { :self |
 		let truncation = self.truncated;
 		(self >= 0).if {

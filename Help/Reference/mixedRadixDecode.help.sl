@@ -36,4 +36,4 @@ Add amounts of days, hours, minutes, and seconds to return seconds:
 
 * * *
 
-See also: mixedRadixEncide, numberCompose
+See also: mixedRadixEncode, numberCompose

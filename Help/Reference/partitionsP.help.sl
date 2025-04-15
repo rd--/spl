@@ -20,7 +20,13 @@ Threads over lists:
 
 ```
 >>> 5.integerPartitions
-[5; 4 1; 3 2; 3 1 1; 2 2 1; 2 1 1 1; 1 1 1 1 1]
+[
+	5;
+	4 1;
+	3 2; 3 1 1;
+	2 2 1; 2 1 1 1;
+	1 1 1 1 1
+]
 
 >>> 5.partitionsP
 7
@@ -38,9 +44,16 @@ Successive differences of `partitionsP` modulo two:
 
 ~~~spl svg=B
 let n = 31;
-({ :x |
-	x.differences.padRight([n], 0)
-}.nestList(1:n.partitionsP, n) % 2).matrixPlot
+(
+	{ :x |
+		x
+		.differences
+		.padRight([n], 0)
+	}.nestList(
+		1:n.partitionsP,
+		n
+	) % 2
+).matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/partitionsP-B.svg)

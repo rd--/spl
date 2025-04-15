@@ -687,13 +687,6 @@
 		self.withCollectCrossed(aList, *)
 	}
 
-	deBruijnSequence { :self :anInteger |
-		self.lyndonWords(anInteger).select { :each |
-			let k = each.size;
-			k = 1 | { k.divisible(anInteger) }
-		}.catenate
-	}
-
 	deleteAdjacentDuplicates { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]
@@ -2827,6 +2820,18 @@
 
 	subsequences { :self |
 		self.subsequences(true.constant)
+	}
+
+	subsetPosition { :self :sublist |
+		let i = sublist.collect { :each |
+			self.indicesOf(each)
+		};
+		let b = i.collect(size:/1);
+		let k = [0 .. b.product - 1];
+		k.collect { :each |
+			let j = each.mixedRadixEncode(b) + 1;
+			i.withCollect(j, at:/2)
+		}
 	}
 
 	substringsDo { :self :aBlock:/1 |

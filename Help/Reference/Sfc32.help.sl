@@ -18,11 +18,25 @@ the algorithm is part of the _PractRand_ test suite, which it passes.
 (true, true, true)
 ```
 
-The first three random numbers given the seed _12345_:
+The first three random numbers given the seed _12345_,
+_next(k)_ answers next _k_ items:
 
 ```
 >>> Sfc32(12345).next(3)
 [0.8011 0.4735 0.9835]
+```
+
+Use `reset` to return to the initial state:
+
+```
+>>> let r = Sfc32(98765);
+>>> let l = r.next(3);
+>>> r.reset;
+>>> (l, r.next(3))
+(
+	[0.4956 0.40961 0.18187],
+	[0.4956 0.40961 0.18187]
+)
 ```
 
 Plot 99 random floating point numbers between `zero` and `one`:

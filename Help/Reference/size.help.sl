@@ -91,6 +91,15 @@ At `Tree` size is the number of sub-trees, see also `leafCount`:
 3
 ```
 
+At `Stream` answers the number of elements altogether,
+not the number of elements remaining:
+
+```
+>>> let s = [1 3 5 7 9].asStream;
+>>> (s.next(3), s.size)
+([1 3 5], 5)
+```
+
 * * *
 
 See also: at, atPut, depth, dimensions, do, indices, isEmpty, leafCount
