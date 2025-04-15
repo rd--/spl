@@ -11,6 +11,13 @@ Evaluate numerically:
 0.96
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].welchWindow(1)
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A

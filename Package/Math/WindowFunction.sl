@@ -34,10 +34,15 @@
 	}
 
 	blackmanHarrisWindow { :self |
-		(self.abs > 0.5).if {
+		let n = self;
+		(n.abs > 0.5).if {
 			0
 		}  {
-			((48829 * (2.pi * self).cos) + (14128 * (4.pi * self).cos) + (1168 * (6.pi * self).cos) + 35875) / 100000
+			let a0 = 0.35875;
+			let a1 = 0.48829;
+			let a2 = 0.14128;
+			let a3 = 0.01168;
+			a0 + (a1 * (2.pi * n).cos) + (a2 * (4.pi * n).cos) + (a3 * (6.pi * n).cos)
 		}
 	}
 
@@ -107,11 +112,15 @@
 	}
 
 	lanczosWindow { :x |
-		(x.abs <= 0.5).if {
-			let z = 2.pi * x;
-			z.sin / z
+		(x = 0).if {
+			1
 		} {
-			0
+			(x.abs <= 0.5).if {
+				let z = 2.pi * x;
+				z.sin / z
+			} {
+				0
+			}
 		}
 	}
 
@@ -133,6 +142,10 @@
 
 	bartlettWindow { :self |
 		self.collect(bartlettWindow:/1)
+	}
+
+	bartlettHannWindow { :self |
+		self.collect(bartlettHannWindow:/1)
 	}
 
 	blackmanWindow { :self |
@@ -175,6 +188,18 @@
 
 	hannWindow { :self |
 		self.hannWindow(0.5)
+	}
+
+	kaiserWindow { :self :a |
+		self.collect { :each |
+			each.kaiserWindow(a)
+		}
+	}
+
+	lanczosWindow { :self |
+		self.collect { :each |
+			each.lanczosWindow
+		}
 	}
 
 	welchWindow { :self :alpha |

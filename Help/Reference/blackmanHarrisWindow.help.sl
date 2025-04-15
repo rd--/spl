@@ -9,6 +9,13 @@ Answer the _Blackman-Harris window_ function at _aNumber_.
 0.793834
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].blackmanHarrisWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A
@@ -40,6 +47,12 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BlackmanHarrisFunction.html)
-[2](https://reference.wolfram.com/language/ref/BlackmanHarrisWindow.html)
+[2](https://reference.wolfram.com/language/ref/BlackmanHarrisWindow.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/signal/ref/blackmanharris.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Window_function#Blackman%E2%80%93Harris_window)
+
+Further Reading: Harris 1978
 
 Categories: Windowing

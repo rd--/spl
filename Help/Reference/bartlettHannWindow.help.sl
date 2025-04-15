@@ -10,6 +10,13 @@ The _Bartlett window_ is triangular.
 0.879426
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].bartlettHannWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A
@@ -41,6 +48,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BartlettHannWindow.html),
 _Matthworks_
-[1](https://mathworks.com/help/signal/ref/barthannwin.html)
+[1](https://mathworks.com/help/signal/ref/barthannwin.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Window_function#Bartlett%E2%80%93Hann_window)
 
 Categories: Windowing

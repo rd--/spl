@@ -27,3 +27,7 @@ Frobenius:
 - `bockerLiptakAlgorithm`
 - `frobeniusNumber`
 - `frobeniusSolve`
+
+* * *
+
+Guides: Mathematical Functions

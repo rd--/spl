@@ -431,15 +431,8 @@
 
 ## Window Functions
 
-- `bartlettWindow`: Bartlett apodization function
-- `blackmanWindow`: Blackman apodization function
-- `blackmanHarrisWindow`: Blackman-Harris apodization function
-- `dirichletWindow`: Dirichlet apodization function
-- `gaussianWindow`: Gaussian apodization function
-- `hammingWindow`: Hamming apodization function
-- `hannWindow`: Hann apodization function
-- `welchWindow`: Welch  apodization function
+- `Window Functions`
 
 * * *
 
-Guides: Geometry Functions, Mathematical Constants, Matrix Functions, Window Functions
+Guides: Combinatorial Functions, Geometry Functions, Mathematical Constants, Matrix Functions, Window Functions

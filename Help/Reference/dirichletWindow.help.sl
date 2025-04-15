@@ -10,6 +10,13 @@ The _Dirichlet window_ is rectangular.
 1
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].dirichletWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A
@@ -36,6 +43,8 @@ Guides: Window Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DirichletWindow.html)
+[1](https://reference.wolfram.com/language/ref/DirichletWindow.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/signal/ref/rectwin.html)
 
 Categories: Windowing

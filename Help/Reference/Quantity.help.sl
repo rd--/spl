@@ -23,6 +23,13 @@ Quantities can be tested for equality:
 true
 ```
 
+Quantities can be tested for approximate equality:
+
+```
+>>> 3.1416.miles ~ 5055.9.metres
+true
+```
+
 Make a _temporal_ quantity using `milliseconds`,
 the quantity is converted to be in the _base unit_ of the quantity:
 

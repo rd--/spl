@@ -9,6 +9,13 @@ Answer the _Gaussian_ window function at _aNumber_.
 0.945959
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].gaussianWindow(0.3)
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A

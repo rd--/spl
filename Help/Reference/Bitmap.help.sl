@@ -4,7 +4,9 @@
 
 A `Bitmap` is a discrete image where each cell is either `zero` or `one`.
 
-`Bitmap` in portable bitmap format:
+Show a `Bitmap` in the textual portable bitmap,
+or _pbm_,
+format:
 
 ```
 >>> [1 0 0; 0 1 0; 0 0 1]
@@ -47,5 +49,7 @@ let i = (-1 -- 1).subdivide(99);
 * * *
 
 See also: asPbm, Graymap, matrixPlot, Svg
+
+Guides: Image Functions
 
 Categories: Graphics

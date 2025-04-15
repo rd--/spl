@@ -9,6 +9,13 @@ Answer the _Blackman window_ function at _aNumber_.
 0.84923
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].blackmanWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A

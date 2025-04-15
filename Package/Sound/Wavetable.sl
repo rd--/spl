@@ -14,12 +14,12 @@
 		}
 	}
 
-	hammingWindow { :self |
+	hammingWindowFill { :self |
 		self.atAllPut(0.53836);
 		self.addSine(1, 0.46164, -0.5.pi, 0)
 	}
 
-	hannWindow { :self |
+	hannWindowFill { :self |
 		self.atAllPut(0.5);
 		self.addSine(1, 0.5, -0.5.pi, 0)
 	}
@@ -31,7 +31,7 @@
 		}
 	}
 
-	welchWindow { :self |
+	welchWindowFill { :self |
 		self.atAllPut(0);
 		self.addSine(0.5, 1, 0, 0)
 	}

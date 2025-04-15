@@ -7,7 +7,12 @@ Answer the unit of the specified quantity.
 ```
 >>> 3.millimetres
 Quantity(0.003, 'metres')
+```
 
+The specified unit is in all cases the base unit,
+the conversion is made by the constructor funtion:
+
+```
 >>> 3.millimetres.unit
 'metres'
 ```

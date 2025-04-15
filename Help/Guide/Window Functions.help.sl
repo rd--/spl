@@ -2,15 +2,12 @@
 
 > An apodization function (also called a tapering function or window
 > function) is a function used to smoothly bring a sampled signal down
-> to zero at the edges of the sampled region. This suppresses leakage
-> sidelobes which would otherwise be produced upon performing a
-> discrete Fourier transform, but the suppression is at the expense of
-> widening the lines, resulting in a decrease in the resolution. (Weisstein, E.)
+> to zero at the edges of the sampled region.
 
-- `bartlettHannWindow`: Bartlett-Hann
 - `bartlettWindow`: Bartlett
+- `bartlettHannWindow`: Bartlett-Hann
 - `blackmanWindow`: Blackman
-- `blackmanHarrisWindow`: Blackman-Harris
+- `blackmanHarrisWindow`: Harris
 - `cosineWindow`: Cosine
 - `dirichletWindow`: Dirichlet
 - `gaussianWindow`: Gaussian
@@ -20,12 +17,23 @@
 - `lanczosWindow`: Lanczos
 - `welchWindow`: Welch
 
+_Note:_ The Bartlett window is triangular,
+the Dirichlet window is rectangular.
+
 ## Window Table Functions
 
 - `hammingWindowTable`: Hamming
 - `hannWindowTable`: Hann
 - `kaiserWindowTable`: Kaiser
 - `welchWindowTable`: Welch
+
+## Kernel Functions
+
+- `dirichletKernel`: Dirichlet
+- `epanechnikovKernel`: Epanechnikov
+- `fejerKernel`: Fejér
+- `gaussianKernel`: Gaussian
+- `lanczosKernel`: Lanczos
 
 * * *
 

@@ -80,4 +80,6 @@ m
 
 See also: asGraymap, Bitmap, Image, matrixPlot, Svg
 
+Guides: Image Functions
+
 Categories: Graphics

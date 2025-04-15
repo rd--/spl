@@ -9,6 +9,13 @@ Answer the Hamming window function at _aNumber_.
 0.912812
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].hammingWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A

@@ -89,3 +89,7 @@
 ## Standards
 
 - `lightnessCie`
+
+* * *
+
+Guides: Image Functions

@@ -24,4 +24,6 @@ An `Image` is a discrete image where each cell is an _(r, g, b)_ triple of real 
 
 See also: arrayPlot, Bitmap, Graymap, Svg
 
+Guides: Image Functions
+
 Categories: Graphics

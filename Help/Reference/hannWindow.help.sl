@@ -9,6 +9,13 @@ Answer the _Hann_ window function at _aNumber_.
 0.904508
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].hannWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A

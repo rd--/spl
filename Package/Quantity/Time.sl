@@ -32,6 +32,10 @@ Time : [Object] { | seconds |
 		self.minutes / 60
 	}
 
+	julianYears { :self |
+		self.days / 365.25
+	}
+
 	milliseconds { :self |
 		self.seconds * 1000
 	}

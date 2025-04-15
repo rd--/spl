@@ -20,3 +20,8 @@ Plot kernels for _a_ of one, two and three:
 
 See also: lanczosWindow
 
+Guides: Window Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Lanczos_resampling)

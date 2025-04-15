@@ -11,6 +11,13 @@ Evaluate numerically:
 0.9355
 ```
 
+Threads over lists, zero at each end-point:
+
+```
+>>> [-1 0 1].lanczosWindow
+[0 1 0]
+```
+
 Plot:
 
 ~~~spl svg=A
