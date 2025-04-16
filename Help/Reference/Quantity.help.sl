@@ -360,7 +360,7 @@ true
 
 * * *
 
-See also: Frequency, Mass, PlaneAngle, Length, SiUnit, Time
+See also: Frequency, Mass, PlaneAngle, QuantityArray, Length, SiUnit, Time
 
 Guides: Quantity Functions
 

@@ -55,6 +55,7 @@
 
 	/* Quantity */
 	'Quantity'
+	'QuantityArray'
 	'Frequency'
 	'Length'
 	'Mass'

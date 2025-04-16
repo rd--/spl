@@ -4,7 +4,6 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
-
 	< { :self :anObject |
 		self.isCommensurate(anObject).if {
 			self.magnitude < anObject.magnitude

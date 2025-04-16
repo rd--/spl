@@ -1,14 +1,21 @@
 # Quantity Functions
 
-Types:
+Generic Quantity Types:
+
+- `Quantity`
+- `QuantityArray`
+
+Specific Quantity Types:
 
 - `Frequency`
 - `Length`
 - `Mass`
 - `PlaneAngle`
-- `Quantity`
-- `SiUnit`
 - `Time`
+
+Unit Types:
+
+- `SiUnit`
 
 Quantity accessors:
 

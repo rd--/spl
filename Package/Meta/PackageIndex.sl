@@ -187,6 +187,7 @@
 	'Quantity-Mass'
 	'Quantity-PlaneAngle'
 	'Quantity-Quantity'
+	'Quantity-QuantityArray'
 	'Quantity-SiPrefix'
 	'Quantity-SiUnit'
 	'Quantity-Time'
