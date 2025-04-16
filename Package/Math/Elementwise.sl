@@ -254,6 +254,10 @@
 		self.collect(inverseErfc:/1)
 	}
 
+	isComposite { :self |
+		self.collect(isComposite:/1)
+	}
+
 	isGaussianPrime { :self |
 		self.collect(isGaussianPrime:/1)
 	}

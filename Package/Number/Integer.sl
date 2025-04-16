@@ -325,6 +325,24 @@
 		a
 	}
 
+	eulerNumber { :self |
+		self.isOdd.if {
+			0
+		} {
+			let f:/1 = { :m |
+				let n = m / 2;
+				(n = 0).if {
+					1
+				} {
+					1:n.collect { :k |
+						binomial(2 * n, 2 * k) * f(2 * (n - k))
+					}.sum.negated
+				}
+			}.memoize(true);
+			f(self)
+		}
+	}
+
 	eulerPhi { :self |
 		self.isZero.if {
 			0

@@ -435,4 +435,4 @@
 
 * * *
 
-Guides: Combinatorial Functions, Geometry Functions, Mathematical Constants, Matrix Functions, Window Functions
+Guides: Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Window Functions

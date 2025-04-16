@@ -26,4 +26,6 @@ true
 
 See also: Character, isCarriageReturn, isFormFeed, isLineFeed, isSpace, isTab
 
+Guides: String Functions
+
 Categories: Testing

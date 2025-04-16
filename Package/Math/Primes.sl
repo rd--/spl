@@ -20,6 +20,10 @@
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
 
+	isComposite { :self |
+		self.isPrime.not
+	}
+
 	isCoprime { :self :anInteger |
 		self.gcd(anInteger) = 1
 	}
@@ -402,6 +406,10 @@
 }
 
 +Complex {
+
+	isComposite { :self |
+		self.isGaussianPrime.not
+	}
 
 	isGaussianPrime { :self |
 		let a = self.real;

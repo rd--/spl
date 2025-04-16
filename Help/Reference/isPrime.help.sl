@@ -155,7 +155,7 @@ Plot primes up to one-thousand:
 
 * * *
 
-See also: isGaussianPrime, isPrimePower, isPrimeTrialDivision, millerRabinPrimalityTest, nextPrime, nthPrime, primesList
+See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, millerRabinPrimalityTest, nextPrime, nthPrime, primesList
 
 References:
 _J_

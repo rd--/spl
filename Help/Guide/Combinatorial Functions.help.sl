@@ -30,4 +30,4 @@ Frobenius:
 
 * * *
 
-Guides: Mathematical Functions
+Guides: Integer Functions, Mathematical Functions

@@ -4,9 +4,11 @@
 
 - `AsciiString`
 - `BacktickQuotedString`
+- `ByteArray`
 - `DoubleQuotedString`
 - `Character`
 - `String`
+- `Symbol`
 
 ## Ascii
 
@@ -23,12 +25,14 @@
 - `asHexDigit`
 - `asHexString`
 - `asList`
+- `asLowerCase`
 - `asString`
+- `asUpperCase`
 - `characterList`
 - `codePoints`
+- `removeDiacritics`
 - `utf16List`
 - `utf8ByteArray`
-- `removeDiacritics`
 
 ## Decoding and Encoding
 
@@ -65,9 +69,25 @@
 
 ## Predicates
 
+- `isAlphaNumeric`
+- `isApostrophe`
 - `isAscii`
+- `isBlank`
+- `isBlankLine`
+- `isCarriageReturn`
+- `isDigit`
+- `isFormFeed`
+- `isLetter`
+- `isLineFeed`
+- `isLowerCase`
+- `isQuotationMark`
+- `isReverseSolidus`
+- `isSeparator`
+- `isSpace`
 - `isString`
+- `isTab`
 - `isUppercase`
+- `isVowel`
 
 ## Printing
 
