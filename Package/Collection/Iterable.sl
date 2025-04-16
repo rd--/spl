@@ -352,6 +352,10 @@
 		}
 	}
 
+	noneTrue { :self |
+		self.noneSatisfy(identity:/1)
+	}
+
 	occurrencesOf { :self :anObject |
 		let tally = 0;
 		self.do { :each |

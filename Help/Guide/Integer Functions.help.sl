@@ -42,18 +42,10 @@ Digit-Related Functions:
 - `digitCount`
 - `integerExponent`
 
-Bitwise Functions:
-
-- `bitAnd`
-- `bitOr`
-- `bitXor`
-- `bitLength`
-- `bitShiftLeft`
-
 Digit-Based Substitution System Functions:
 
 - `thueMorse`
 
 * * *
 
-Guides: Combinatorial Functions, Mathematical Functions
+Guides: Bitwise Functions, Combinatorial Functions, Mathematical Functions

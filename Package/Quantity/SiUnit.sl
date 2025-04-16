@@ -26,6 +26,14 @@ SiUnit : [Object] { | name symbol quantity dimension |
 
 +String {
 
+	isBaseUnit { :self |
+		self.siUnit.isBaseUnit
+	}
+
+	isDerivedUnit { :self |
+		self.siUnit.isDerivedUnit
+	}
+
 	SiUnit { :name :symbol :quantity :dimension |
 		newSiUnit().initializeSlots(name, symbol, quantity, dimension)
 	}
@@ -40,7 +48,7 @@ SiUnit : [Object] { | name symbol quantity dimension |
 
 	siUnit { :self |
 		self.siBaseUnitIfAbsent {
-			system.siDerivedUnitList.detectIfNone { :each |
+			system.siNamedDerivedUnitList.detectIfNone { :each |
 				each.namedBy(self)
 			} {
 				self.error('siUnit')
@@ -66,8 +74,8 @@ SiUnit : [Object] { | name symbol quantity dimension |
 		}
 	}
 
-	siDerivedUnitList { :self |
-		self.cached('siDerivedUnitList') {
+	siNamedDerivedUnitList { :self |
+		self.cached('siNamedDerivedUnitList') {
 			[
 				SiUnit('becquerel', 'Bq', 'activity', 'A'),
 				SiUnit('hertz', 'Hz', 'frequency', 'f'),

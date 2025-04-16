@@ -30,23 +30,9 @@
 - `mixedRadixDecode`: mixed radix decoding
 - `mixedRadixEncode`: mixed radix encoding
 
-## Bitwise Functions - Logic
+## Bitwise Functions
 
-- `bitAnd`: bitwise and
-- `bitNot`: bitwise not
-- `bitOr`: bitwise or
-- `bitXor`: bitwise exclusive or
-
-## Bitwise Functions - Single-Bit
-
-- `bitAt`: read bit
-- `bitAtPut`: write bit
-
-## Bitwise Functions - Structural
-
-- `bitShiftLeft`: bit shift right
-- `bitShiftRight`: bit shift left
-- `highBit`: bit length
+- `Bitwise Functions`
 
 ## Combinatorial Functions
 
@@ -435,4 +421,4 @@
 
 * * *
 
-Guides: Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Window Functions
