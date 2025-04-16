@@ -1,3 +1,25 @@
++String {
+
+	isSiPrefix { :self |
+		system.siPrefixList.includes(self)
+	}
+
+}
+
++System {
+
+	siPrefixList { :self |
+		self.cached('siPrefixList') {
+			[
+				'centi' 'deca' 'deci' 'hecto' 'giga'
+				'mega' 'kilo' 'micro' 'milli' 'nano'
+				'pico' 'terra'
+			]
+		}
+	}
+
+}
+
 +@Number {
 
 	centi { :self |

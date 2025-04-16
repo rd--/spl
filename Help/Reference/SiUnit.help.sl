@@ -11,8 +11,9 @@ The base unit of length is the _metre_:
 >>> 'm'.siUnit
 SiUnit('metre', 'm', 'length', 'L')
 
->>> 'metre'.siUnit
-SiUnit('metre', 'm', 'length', 'L')
+>>> let m = 'metre'.siUnit;
+>>> (m.name, m.symbol, m.quantity, m.dimension)
+('metre', 'm', 'length', 'L')
 
 >>> 'm'.isBaseUnit
 true
