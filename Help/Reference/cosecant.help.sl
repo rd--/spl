@@ -48,7 +48,7 @@ Draw cosecant at integer points:
 (
 	{ :x :y |
 		(x * y).cosecant.abs.arcTan
-	}.table(-20:20, -20:20).abs / 2
+	}.table(-50:50, -50:50).abs / 2
 ).Graymap
 ~~~
 
