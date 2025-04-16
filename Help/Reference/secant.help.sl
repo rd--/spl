@@ -53,6 +53,16 @@ let i = (-1.pi -- 1.pi).subdivide(100);
 
 ![](sw/spl/Help/Image/secant-B.png)
 
+Plot the sum of the `secant` and `tan` functions:
+
+~~~spl svg=C
+(0 -- 4.pi).functionPlot { :x |
+	(x.secant + x.tan).clip(-9, 9)
+}
+~~~
+
+![](sw/spl/Help/Image/secant-C.svg)
+
 * * *
 
 See also: cos, cosecant, sin

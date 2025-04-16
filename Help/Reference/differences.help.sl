@@ -9,6 +9,9 @@ Differences of a `Range`:
 ```
 >>> 1:5.differences
 [1 1 1 1]
+
+>>> [1 1 1 1].foldList(1, +)
+[1 2 3 4 5]
 ```
 
 At `List`:
@@ -17,8 +20,14 @@ At `List`:
 >>> [3 4 1 1].differences
 [1 -3 0]
 
+>>> [1 -3 0].foldList(3, +)
+[3 4 1 1]
+
 >>> [1 1 2 3 5 8 13 21].differences
 [0 1 1 2 3 5 8]
+
+>>> [0 1 1 2 3 5 8].foldList(1, +)
+[1 1 2 3 5 8 13 21]
 ```
 
 First differences are constant for a linear function:

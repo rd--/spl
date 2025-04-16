@@ -145,6 +145,23 @@ At `zero` and `one`:
 [false false]
 ```
 
+Eulers prime-generating polynomial (OEIS [A005846](https://oeis.org/A005846)):
+
+```
+>>> let e = 0:23.collect { :n |
+>>> 	(n ^ 2) + n + 41
+>>> };
+>>> (e.allSatisfy(isPrime:/1), e)
+(
+	true,
+	[
+		41  43  47  53  61  71  83  97 113 131
+		151 173 197 223 251 281 313 347	383 421
+		461 503 547 593
+	]
+)
+```
+
 Plot primes up to one-thousand:
 
 ~~~spl svg=A
@@ -166,6 +183,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Primes.html)
 [2](https://reference.wolfram.com/language/ref/PrimeQ.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/isprime.html)
+[1](https://mathworks.com/help/matlab/ref/isprime.html),
+_OEIS_
+[1](https://oeis.org/A005846)
 
 Categories: Arithmetic
