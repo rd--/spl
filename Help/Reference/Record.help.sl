@@ -45,16 +45,6 @@ At the ordinary `asRecord` constructor it is an error if any key is not a string
 true
 ```
 
-There is a `basicAsRecord` form that coerces keys to strings:
-
-```
->>> [1.pi -> 'pi']
->>> .asMap
->>> .basicAsRecord
->>> .keys
-['3.141592653589793']
-```
-
 Records are unordered collections,
 and have expected mathematical behavior in relation to scalars:
 

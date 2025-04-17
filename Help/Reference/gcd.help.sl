@@ -50,7 +50,9 @@ true
 Gcd threads elementwise over lists:
 
 ```
->>> [3 7 40].collect { :each | 12.gcd(each) }
+>>> [3 7 40].collect { :each |
+>>> 	12.gcd(each)
+>>> }
 [3 1 4]
 
 >>> [3 7 40].gcd(12)

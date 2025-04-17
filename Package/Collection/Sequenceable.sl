@@ -2467,7 +2467,7 @@
 	}
 
 	replicateEach { :self :counts |
-		counts.isInteger.ifTrue {
+		counts.isScalarInteger.ifTrue {
 			counts := counts # self.size
 		};
 		self.replicateEachApplying(counts, identity:/1)

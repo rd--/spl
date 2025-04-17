@@ -14,7 +14,7 @@
 >>> 	n := 1
 >>> };
 >>> (s.next(7), s.reset, s.next(2))
-([1 3 5 7 9 11 13], s, [1 3])
+([1 3 5 7 9 11 13], 0, [1 3])
 ```
 
 `BlockStream` provides a simple model for many kinds of streams,

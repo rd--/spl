@@ -765,7 +765,7 @@ false.printString = 'false' /* false print string */
 false.storeString = 'false' /* false store string */
 true.typeOf = 'Boolean' /* type of true is Boolean */
 false.typeOf = 'Boolean' /* type of false is Boolean */
-true.isInteger.not /* true is not an integer */
+true.isNumber.not /* true is not a number */
 true.isBoolean /* true is a Boolean */
 false.isBoolean /* false is a Boolean */
 true & { false } = false /* logical and (operator) */
@@ -3102,7 +3102,7 @@ system.includesPackage('SmallFloat') /* package */
 { 'x'.isByte = false }.ifError { true }
 3.isInteger /* three is an integer */
 -1.isInteger = true /* negative integers are integers */
-'x'.isInteger = false /* a string is not an integer */
+'x'.isNumber = false /* a string is not a number */
 3 + 4 = 7
 3 * 4 = 12
 3 * 4 + 9 = 21

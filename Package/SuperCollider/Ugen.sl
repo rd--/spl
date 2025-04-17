@@ -15,6 +15,10 @@ Ugen! : [Object, Number] {
 		y1 + (mu * (y2 - y1))
 	}
 
+	isScalar { :self |
+		false
+	}
+
 	port { :self |
 		<primitive: return _self.port>
 	}

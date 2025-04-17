@@ -421,7 +421,7 @@
 	}
 
 	gcd { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isScalarInteger.if {
 			let a = self.abs;
 			let b = anInteger.abs;
 			{
@@ -551,7 +551,7 @@
 
 	integerDigits { :self :base |
 		self.assertIsInteger('@Integer>>integerDigits');
-		base.isInteger.if {
+		base.isScalarInteger.if {
 			let numDigits = self.isZero.if {
 				1
 			} {
@@ -791,12 +791,14 @@
 	}
 
 	lcm { :self :anInteger |
-		anInteger.isInteger.if {
+		anInteger.isScalarInteger.if {
 			let a = self;
 			let b = anInteger;
-			(a = 0 | {
-				b = 0
-			}).if {
+			(
+				a = 0 | {
+					b = 0
+				}
+			).if {
 				0
 			} {
 				let ab = a * b;
@@ -1359,14 +1361,6 @@
 
 }
 
-+@Object {
-
-	isInteger { :unused |
-		false
-	}
-
-}
-
 +@Integer {
 
 	asLargerPowerOfTwo { :self |
@@ -1437,6 +1431,16 @@
 			length := length + 1
 		};
 		length
+	}
+
+}
+
++@Object {
+
+	isScalarInteger { :self |
+		self.isNumber & {
+			self.isInteger
+		}
 	}
 
 }

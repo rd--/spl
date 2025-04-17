@@ -262,6 +262,10 @@
 		self.collect(isGaussianPrime:/1)
 	}
 
+	isInteger { :self |
+		self.collect(isInteger:/1)
+	}
+
 	isNegative { :self |
 		self.collect(isNegative:/1)
 	}

@@ -122,14 +122,14 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	removeAt { :self :index |
 		let removed = self[index];
-		self.basicRemoveAt(index);
+		self.uncheckedRemoveAt(index);
 		removed
 	}
 
 	removeAtAll { :self :indices |
 		let removed = self.atAll(indices);
 		indices.do { :index |
-			self.basicRemoveAt(index)
+			self.uncheckedRemoveAt(index)
 		};
 		removed
 	}

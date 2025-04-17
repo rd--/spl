@@ -294,6 +294,10 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	isInteger { :self |
+		false
+	}
+
 	isLiteral { :self |
 		true
 	}

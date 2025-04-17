@@ -36,7 +36,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	+ { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isScalarInteger.if {
 			ReducedFraction(
 				self.numerator + (self.denominator * aNumber.asLargeInteger),
 				self.denominator
@@ -64,7 +64,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	- { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isScalarInteger.if {
 			ReducedFraction(
 				self.numerator - (self.denominator * aNumber.asLargeInteger),
 				self.denominator
@@ -79,7 +79,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	/ { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isScalarInteger.if {
 			self * ReducedFraction(1, aNumber.asLargeInteger)
 		} {
 			aNumber.isFraction.if {
@@ -91,7 +91,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	^ { :self :aNumber |
-		aNumber.isInteger.if {
+		aNumber.isScalarInteger.if {
 			self.raisedToInteger(aNumber.asInteger)
 		} {
 			aNumber.isFraction.if {
@@ -126,7 +126,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aNumber.isInteger.if {
+		aNumber.isScalarInteger.if {
 			aBlock(aNumber.asFraction, self)
 		} {
 			aBlock(aNumber, self.asFloat)
@@ -476,7 +476,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	ReducedFraction { :numerator :denominator |
-		denominator.isInteger.if {
+		denominator.isScalarInteger.if {
 			(denominator = 0).if {
 				'@Integer>>ReducedFraction: zeroDenominatorError'.error
 			} {
@@ -491,7 +491,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	Fraction { :numerator :denominator |
-		denominator.isInteger.if {
+		denominator.isScalarInteger.if {
 			ReducedFraction(
 				numerator.asLargeInteger,
 				denominator.asLargeInteger

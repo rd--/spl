@@ -501,6 +501,10 @@
 		self = 1
 	}
 
+	isScalar { :self |
+		true
+	}
+
 	isZero { :self |
 		self = 0
 	}

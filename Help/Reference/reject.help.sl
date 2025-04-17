@@ -41,7 +41,7 @@ At a finite `Stream`:
 Reject items that are integers:
 
 ```
->>> [1 'x' 2 3 'y' 9 'y'].reject(isInteger:/1)
+>>> [1 'x' 2 3 'y' 9 'y'].reject(isNumber:/1)
 ['x' 'y' 'y']
 ```
 

@@ -1112,7 +1112,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'private': [
 		'basicAppendString'
-		'basicAsRecord'
+		'uncheckedAsRecord'
 		'uncheckedAt'
 		'uncheckedAtPut'
 		'basicEncodeOscBundle'
@@ -1138,7 +1138,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'removing': [
 		'associationsRemove'
-		'basicRemoveAt'
+		'uncheckedRemoveAt'
 		'keysAndValuesRemove'
 		'pop'
 		'remove'

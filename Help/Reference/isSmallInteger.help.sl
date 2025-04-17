@@ -76,7 +76,7 @@ true
 >>> 2/1.isSmallInteger
 true
 
->>> let x = 3/2.isSmallInteger;
+>>> let x = 3/2;
 >>> (x.isInteger, x.isSmallInteger)
 (false, false)
 

@@ -172,7 +172,7 @@ SparseArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conten
 		let map = Map();
 		self.do { :each |
 			let index = each.key;
-			let linearIndex = index.isInteger.if { index } { shape.linearIndex(index) };
+			let linearIndex = index.isNumber.if { index } { shape.linearIndex(index) };
 			map.atPut(
 				linearIndex,
 				each.value

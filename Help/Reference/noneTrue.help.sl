@@ -9,7 +9,7 @@ Answer `true` if no items in _aCollection_ are `true`, else `false`.
 true
 
 >>> ([1 3 5 7 9] > [3 5 7 9 1]).noneTrue
-true
+false
 ```
 
 The empty list always answers `true`:

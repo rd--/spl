@@ -107,7 +107,7 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 	}
 
 	^ { :self :anObject |
-		anObject.isInteger.if {
+		anObject.isScalarInteger.if {
 			self.raisedToInteger(anObject)
 		} {
 			anObject.adaptToNumberAndApply(self, ^)

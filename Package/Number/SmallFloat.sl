@@ -78,14 +78,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	^ { :self :anObject |
-		anObject.isInteger.if {
-			self.raisedToInteger(anObject)
-		} {
-			anObject.isSmallFloat.if {
-				self.raisedToSmallFloat(anObject)
+		anObject.isSmallFloat.if {
+			anObject.isInteger.if {
+				self.raisedToInteger(anObject)
 			} {
-				anObject.adaptToNumberAndApply(self, ^)
+				self.raisedToSmallFloat(anObject)
 			}
+		} {
+			anObject.adaptToNumberAndApply(self, ^)
 		}
 	}
 

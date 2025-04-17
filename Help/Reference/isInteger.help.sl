@@ -1,8 +1,8 @@
 # isInteger
 
-- _isInteger(anObject)_
+- _isInteger(aNumber)_
 
-Answers `true` if _anObject_ is a `Number` and is an `Integer`, else `false`.
+Answers `true` if _aNumber is an `Integer`, else `false`.
 
 At `SmallFloat`:
 
@@ -19,7 +19,7 @@ false
 
 Note that numbers written using floating point literal notation,
 where the fractional part is zero,
-answers `true`:
+answer `true`:
 
 ```
 >>> 23.0.isInteger
@@ -73,20 +73,11 @@ At `Complex` answers `false`, see `isGaussianInteger`:
 false
 ```
 
-At non-number types answers `false`:
+Threads over lists:
 
 ```
->>> '23'.isInteger
-false
-
->>> nil.isInteger
-false
-
->>> false.isInteger
-false
-
->>> [1 2 3].isInteger
-false
+>>> [1 2 3 1.pi].isInteger
+[true true true false]
 ```
 
 Test whether an array consists of all integers:
@@ -101,13 +92,15 @@ true
 ```
 
 _Rationale_:
-Note that this is not a `Type` predicate.
+Note that this is not a `Type` predicate,
+and is only implemeted for numeric values.
+In this sense it is like `isEven` and `isOdd`.
 `Fraction`, `SmallFloat` and `Decimal` values may each possibly represent an integer.
 The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteger`.
 
 * * *
 
-See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseLargeInteger, parseSmallInteger
+See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isScalarInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseLargeInteger, parseSmallInteger
 
 References:
 _Mathematica_

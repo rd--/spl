@@ -76,7 +76,7 @@ Select characters from a `String`:
 Retain items that are integers:
 
 ```
->>> [1 'x' 2 3 'y' 9 'y'].select(isInteger:/1)
+>>> [1 'x' 2 3 'y' 9 'y'].select(isNumber:/1)
 [1 2 3 9]
 ```
 

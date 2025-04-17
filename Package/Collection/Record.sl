@@ -121,14 +121,10 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 				}
 			}
 		).if {
-			matrix.basicAsRecord
+			matrix.uncheckedAsRecord
 		} {
 			self.error('List>>asRecord: not of correct shape or invalid keys')
 		}
-	}
-
-	basicAsRecord { :self |
-		<primitive: return Object.fromEntries(_self);>
 	}
 
 	Record { :self |
@@ -139,10 +135,14 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 				}
 			}
 		}.if {
-			self.basicAsRecord
+			self.uncheckedAsRecord
 		} {
 			self.error('List>>Record: not two column matrix or keys not uniformly String values')
 		}
+	}
+
+	uncheckedAsRecord { :self |
+		<primitive: return Object.fromEntries(_self);>
 	}
 
 }
