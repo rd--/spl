@@ -372,6 +372,10 @@
 		}
 	}
 
+	gausssConstant { :self |
+		self * 0.83462684167407318628142973
+	}
+
 	goldenAngle { :self |
 		self.pi * (3 - 5.sqrt)
 	}
@@ -507,6 +511,10 @@
 		} {
 			0
 		}
+	}
+
+	lemniscateConstant { :self |
+		self * 2.62205755429211981046483959
 	}
 
 	log2 { :self |

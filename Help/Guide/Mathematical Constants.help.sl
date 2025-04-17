@@ -7,9 +7,11 @@
 - `e`: Euler’s number, base of natural logarithm
 - `epsilon`: epsilon
 - `eulerGamma`: Euler’s constant
+- `gausssConstant`: Gauss’s constant
 - `goldenAngle`: golden angle
 - `goldenRatio`: golden ratio
 - `i`: square root of negative one
+- `lemniscateConstant`: Lemniscate constant
 - `pi`: ratio of circle circumference to diameter
 - `plasticRatio`: limiting ratio of Padovan sequence
 - `silverRatio`: silver ratio
@@ -61,6 +63,19 @@ Pi:
 6.28319
 ```
 
+Lemniscate constant (ϖ):
+
+```
+>>> 1.lemniscateConstant
+2.62206
+
+>>> 1.lemniscateConstant / 1.pi
+1.gausssConstant
+
+>>> 1.gausssConstant
+0.83462
+```
+
 * * *
 
 See also: degree, e, eulerGamma, goldenRatio, pi
@@ -69,6 +84,11 @@ Guides: Mathematical Functions, Mathematical Sequences
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/guide/MathematicalConstants.html)
+[1](https://mathworld.wolfram.com/GausssConstant.html)
+[2](https://mathworld.wolfram.com/LemniscateConstant.html)
+[3](https://reference.wolfram.com/language/guide/MathematicalConstants.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Pi)
+[2](https://en.wikipedia.org/wiki/Lemniscate_constant)
 
 Categories: Math, Constant

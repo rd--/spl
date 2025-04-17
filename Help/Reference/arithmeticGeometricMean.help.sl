@@ -33,6 +33,9 @@ The `reciprocal` of the arithmetic–geometric mean of `one` and the square root
 ```
 >>> 1 / 1.arithmeticGeometricMean(2.sqrt)
 0.8346268
+
+>>> 1.gausssConstant
+0.8346268
 ```
 
 Plot over a subset of the reals:
@@ -64,6 +67,14 @@ See also: arithmeticMean, geometricMean, mean, median, moment
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Arithmetic-GeometricMean.html)
-[2](https://reference.wolfram.com/language/ref/ArithmeticGeometricMean.html)
+[2](https://mathworld.wolfram.com/GausssConstant.html)
+[3](https://reference.wolfram.com/language/ref/ArithmeticGeometricMean.html),
+_OEIS_
+[1](https://oeis.org/A068521)
+[2](https://oeis.org/A084895)
+[3](https://oeis.org/A084896)
+[4](https://oeis.org/A084897),
+_W_
+[1](https://en.wikipedia.org/wiki/Arithmetic%E2%80%93geometric_mean)
 
 Categories: Statistics

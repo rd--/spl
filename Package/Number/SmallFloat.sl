@@ -701,14 +701,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 }
 
-+@Object {
-
-	isSmallInteger { :self |
-		false
-	}
-
-}
-
 +@Collection {
 
 	isFinite { :self |

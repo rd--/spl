@@ -124,6 +124,9 @@ Examples of rational and irrational numbers:
 
 >>> (5 / 4).log2.reciprocal.continuedFraction(9)
 [3 9 2 2 4 6 2 1 1]
+
+>>> 1.gausssConstant.continuedFraction(16)
+[0 1 5 21 3 4 14 1 1 1 1 1 3 1 15 1].scatterPlot
 ```
 
 * * *

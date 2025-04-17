@@ -45,6 +45,13 @@ Answers `zero` if no item is found:
 0
 ```
 
+At `Range`:
+
+```
+>>> 23:21789.binarySearch(4673)
+4651
+```
+
 * * *
 
 See also: binaryDetectIndex, binarySearchLeftmost, binarySearchRightmost, detectIndex, indexOf

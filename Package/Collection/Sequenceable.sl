@@ -1435,6 +1435,23 @@
 		answer
 	}
 
+	isAlternating { :self :z |
+		let k = self.size;
+		(k < 2).if {
+			false
+		} {
+			[-1 1].includes(z).ifFalse {
+				self.error('isAlternating: invalid z')
+			};
+			(2 .. k).allSatisfy { :i |
+				let x = self[i - 1] <=> self[i];
+				let r = (0 - x) = z;
+				z := x;
+				r
+			}
+		}
+	}
+
 	isArithmeticSeries { :self |
 		(self.size <= 1).if {
 			true

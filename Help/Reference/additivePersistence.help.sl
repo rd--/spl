@@ -15,9 +15,21 @@ The number of additions required to obtain the `digitalRoot` of _x_ in base _b_.
 The additive persistences of the first few positive integers:
 
 ```
->>> 1:20.collect { :n | n.additivePersistence(10) }
+>>> 1:20.collect { :n |
+>>> 	n.additivePersistence(10)
+>>> }
 [0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 1]
 ```
+
+Scatter plot of first few terms:
+
+~~~spl svg=A
+1:200.collect { :n |
+	n.additivePersistence(10)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/additivePersistence-A.svg)
 
 * * *
 

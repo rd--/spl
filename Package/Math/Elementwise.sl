@@ -274,6 +274,10 @@
 		self.collect(isPrimePower:/1)
 	}
 
+	isSmallInteger { :self |
+		self.collect(isSmallInteger:/1)
+	}
+
 	lcm { :self |
 		self.reduce(lcm:/2)
 	}

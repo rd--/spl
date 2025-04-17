@@ -34,6 +34,17 @@ Undersampling:
 
 ![](sw/spl/Help/Image/parametricPlot-C.svg)
 
+Lemniscate of Bernoulli:
+
+~~~spl svg=D
+(0 -- 2.pi).parametricPlot(
+	{ :u | u.cos / (1 + u.sin.squared) },
+	{ :u | (u.sin * u.cos) / (1 + u.sin.squared) }
+)
+~~~
+
+![](sw/spl/Help/Image/parametricPlot-D.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, scatterPlot, surfacePlot

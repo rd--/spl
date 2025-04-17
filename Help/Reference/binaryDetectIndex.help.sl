@@ -52,6 +52,23 @@ No such index:
 6
 ```
 
+Detect first value that is not a small integer at `Range`:
+
+```
+>>> let x = 1E0;
+>>> let y = 1E19;
+>>> let i = (x .. y).binaryDetectIndex { :x |
+>>> 	x.isSmallInteger.not
+>>> };
+>>> (y - x, i, x + i, (2 ^ 53) - 1)
+(
+	10000000000000000000,
+	    9007199254740992,
+	    9007199254740992,
+	    9007199254740991
+)
+```
+
 * * *
 
 See also: binarySearch, detectIndex

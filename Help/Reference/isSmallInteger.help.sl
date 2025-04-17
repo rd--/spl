@@ -13,6 +13,21 @@ true
 false
 ```
 
+The largest small integer:
+
+```
+>>> (2L ^ 53L) - 1L
+9007199254740991L
+
+>>> let x = 9007199254740991;
+>>> let y = x + 1;
+>>> ([x, x + 1].isSmallInteger, y + 1 = y)
+(
+	[true false],
+	true
+)
+```
+
 A `SmallFloat` that is an integer,
 according to `isInteger`,
 need not be a small integer.
