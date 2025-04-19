@@ -362,6 +362,24 @@
 
 +SmallFloat {
 
+	antidiagonalIndicesDo { :k :aBlock:/2 |
+		let m = 1;
+		let n = 1;
+		{
+			k > 0
+		}.whileTrue {
+			aBlock(m, n);
+			k := k - 1;
+			(n = 1).if {
+				n := m + 1;
+				m := 1
+			} {
+				m := m + 1;
+				n := n - 1
+			}
+		}
+	}
+
 	boxMatrix { :self |
 		let r = self.ceiling;
 		let n = r * 2 + 1;

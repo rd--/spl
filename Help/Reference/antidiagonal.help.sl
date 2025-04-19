@@ -1,11 +1,10 @@
 # antidiagonal
 
-- _antidiagonal(aMatrix, anInteger)_
-- _antidiagonal(alpha)_ ⟹ _antidiagonal(alpha, 0)_
+- _antidiagonal(m, n=0)_
 
 Answer the list of elements on the antidiagonal,
-or on the _anInteger-th_ antidiagonal,
-of _aMatrix_.
+or on the _n-th_ antidiagonal,
+of the matrix _m_.
 `antidiagonal` works even if _aMatrix_ is not a square matrix.
 
 The antidiagonal runs from the top right corner to the bottom left corner:
@@ -77,7 +76,12 @@ The antidiagonal of a non-square matrix:
 >>> [3 4].iota.antidiagonal
 [3 6 9]
 
->>> [3 2 2; 2 3 -2; 4 2 1; 3 7 9].antidiagonal
+>>> [
+>>> 	3  2  2;
+>>> 	2  3 -2;
+>>> 	4  2  1;
+>>> 	3  7  9
+>>> ].antidiagonal
 [2 3 4]
 ```
 
@@ -121,6 +125,8 @@ _antidiagonal(m, k)_ for an _n × n_ matrix gives non-empty results for _1 - n <
 * * *
 
 See also: diagonal, trace
+
+Guides: Matrix Functions
 
 References:
 _J_

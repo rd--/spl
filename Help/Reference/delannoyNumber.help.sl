@@ -35,7 +35,7 @@ let i = (0L .. 80L);
 
 * * *
 
-See also: binomial, catalanNumber, delannoyNumber, dyckWords, narayanaSequence
+See also: binomial, catalanNumber, delannoySequence, dyckWords, narayanaSequence
 
 References:
 _Mathematica_

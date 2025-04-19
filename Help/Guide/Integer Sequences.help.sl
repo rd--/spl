@@ -72,6 +72,7 @@ The following help files include references to integer sequences:
 - `cantorStaircase`: A095844 A095845
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
+- `delannoySequence`: A008288
 - `digitCount`: A006046
 - `digitalRoot`: A010888
 - `divisorSigma`: A000005

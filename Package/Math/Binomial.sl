@@ -58,6 +58,14 @@
 		}.sum
 	}
 
+	delannoySequence { :k |
+		let answer = [];
+		k.antidiagonalIndicesDo { :m :n |
+			answer.add(delannoyNumber(m - 1, n - 1))
+		};
+		answer
+	}
+
 	eulerNumber { :self |
 		self.isOdd.if {
 			0

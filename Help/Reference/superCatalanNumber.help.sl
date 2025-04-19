@@ -28,4 +28,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SuperCatalanNumber.html),
 _OEIS_
 [1](https://oeis.org/A001003)
-[2](https://oeis.org/A006318)
+[2](https://oeis.org/A006318),
+_W_
+[1](https://en.wikipedia.org/wiki/Schr%C3%B6der%E2%80%93Hipparchus_number)
