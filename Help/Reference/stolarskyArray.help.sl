@@ -7,7 +7,9 @@ Answer the `Integer` at row _m_ and column _n_ of the infinite Stolarsky array.
 The first seven rows and columns of the Stolarsky array:
 
 ```
->>> { :m :n | m.stolarskyArray(n) }.table(1:7, 1:7)
+>>> { :m :n |
+>>> 	m.stolarskyArray(n)
+>>> }.table(1:7, 1:7)
 [
 	 1  2  3  5   8  13  21;
 	 4  6 10 16  26  42  68;

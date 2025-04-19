@@ -177,10 +177,6 @@
 		b
 	}
 
-	catalanTriangle { :n :k |
-		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
-	}
-
 	characterRange { :self :anInteger |
 		(self .. anInteger).collect(asCharacter:/1)
 	}
@@ -323,24 +319,6 @@
 			a := t
 		};
 		a
-	}
-
-	eulerNumber { :self |
-		self.isOdd.if {
-			0
-		} {
-			let f:/1 = { :m |
-				let n = m / 2;
-				(n = 0).if {
-					1
-				} {
-					1:n.collect { :k |
-						binomial(2 * n, 2 * k) * f(2 * (n - k))
-					}.sum.negated
-				}
-			}.memoize(true);
-			f(self)
-		}
 	}
 
 	eulerPhi { :self |
@@ -779,17 +757,6 @@
 		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
 	}
 
-	lassalleNumber { :m |
-		let a = List(m, m.one);
-		2.toDo(m) { :n |
-			let z = (1 .. (n - 1)).collect { :j |
-				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
-			}.sum;
-			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
-		};
-		a[m]
-	}
-
 	lcm { :self :anInteger |
 		anInteger.isScalarInteger.if {
 			let a = self;
@@ -813,14 +780,6 @@
 			}
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm:/2)
-		}
-	}
-
-	lobbNumber { :m :n |
-		m.betweenAnd(0, n).if {
-			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
-		} {
-			'@Integer>>lobbNumber: domain error'.error
 		}
 	}
 
@@ -909,14 +868,6 @@
 
 	multiplicativeOrder { :k :n |
 		k.multiplicativeOrder(n, [1])
-	}
-
-	narayanaNumber { :n :k |
-		k.betweenAnd(1, n).if {
-			n.binomial(k) * binomial(n, k - 1) // n
-		} {
-			'narayanaNumber: domain error'.error
-		}
 	}
 
 	narayanaSequence { :self |
@@ -1025,14 +976,6 @@
 			}
 		};
 		a[n + 1]
-	}
-
-	pascalTriangle { :self |
-		0:self.collect { :n |
-			0:n.collect { :k |
-				n.binomial(k)
-			}
-		}
 	}
 
 	pellNumber { :self |

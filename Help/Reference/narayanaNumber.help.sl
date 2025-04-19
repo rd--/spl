@@ -26,13 +26,14 @@ that occur in various counting problems.
 
 * * *
 
-See also: binomial, catalanNumber, dyckWords
+See also: binomial, catalanNumber, delannoyNumber, dyckWords, narayanaSequence
 
 Guides: Integer Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/NarayanaNumber.html),
+[1](https://mathworld.wolfram.com/NarayanaNumber.html)
+[2](https://mathworld.wolfram.com/NarayanaTriangle.html),
 _OEIS_
 [1](https://oeis.org/A001263),
 _W_

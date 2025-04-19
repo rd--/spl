@@ -32,8 +32,12 @@ Plot first few terms:
 
 * * *
 
-See also: supergoldenRatio
+See also: fibonacciSequence, narayanaNumber, padovanSequence, supergoldenRatio
 
 Guides: Integer Sequences, Mathematical Sequences
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NarayanaCowSequence.html)
 
 Categories: Math, Sequence

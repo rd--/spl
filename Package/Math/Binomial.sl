@@ -48,8 +48,71 @@
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
 
+	catalanTriangle { :n :k |
+		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
+	}
+
+	delannoyNumber { :m :n |
+		(0 .. m.min(n)).collect { :k |
+			(m + n - k).binomial(m) * m.binomial(k)
+		}.sum
+	}
+
+	eulerNumber { :self |
+		self.isOdd.if {
+			0
+		} {
+			let f:/1 = { :m |
+				let n = m / 2;
+				(n = 0).if {
+					1
+				} {
+					1:n.collect { :k |
+						binomial(2 * n, 2 * k) * f(2 * (n - k))
+					}.sum.negated
+				}
+			}.memoize(true);
+			f(self)
+		}
+	}
+
+	lassalleNumber { :m |
+		let a = List(m, m.one);
+		2.toDo(m) { :n |
+			let z = (1 .. (n - 1)).collect { :j |
+				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
+			}.sum;
+			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
+		};
+		a[m]
+	}
+
+	lobbNumber { :m :n |
+		m.betweenAnd(0, n).if {
+			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
+		} {
+			'@Integer>>lobbNumber: domain error'.error
+		}
+	}
+
 	multichoose { :n :k |
 		[n - 1, k].multinomial
+	}
+
+	narayanaNumber { :n :k |
+		k.betweenAnd(1, n).if {
+			n.binomial(k) * binomial(n, k - 1) // n
+		} {
+			'narayanaNumber: domain error'.error
+		}
+	}
+
+	pascalTriangle { :self |
+		0:self.collect { :n |
+			0:n.collect { :k |
+				n.binomial(k)
+			}
+		}
 	}
 
 	partitionFunctionP { :self :anInteger |
