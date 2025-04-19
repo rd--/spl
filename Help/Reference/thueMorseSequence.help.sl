@@ -30,7 +30,7 @@ Plot first few terms:
 
 See also: integerDigits, thueMorse
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

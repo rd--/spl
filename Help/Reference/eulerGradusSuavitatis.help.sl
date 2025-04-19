@@ -55,6 +55,8 @@ Plot:
 
 See also: Fraction, isCoprime, primeFactors
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A275314)

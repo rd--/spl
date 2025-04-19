@@ -42,7 +42,7 @@ Plot first few terms:
 
 See also: fareySequence, sternBrocotNumber, sternBrocotTree
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

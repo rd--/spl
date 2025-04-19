@@ -78,6 +78,8 @@ v.numerator.linePlot
 
 See also: fromDigits, integerDigits
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/vanderCorputSequence.html),

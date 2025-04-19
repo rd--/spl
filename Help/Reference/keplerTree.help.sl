@@ -39,6 +39,8 @@ c.f. OEIS A020651:
 
 See also: calkinWilfTree, minkowskiQuestionMark, sternBrocotTree
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A294442)

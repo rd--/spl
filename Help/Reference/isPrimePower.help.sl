@@ -82,6 +82,8 @@ Threads over lists:
 
 See also: isGaussianPrime, isPrime
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimePower.html)

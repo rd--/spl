@@ -46,6 +46,8 @@ true
 
 See also: plasticRatio
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A182097)

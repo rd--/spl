@@ -1,5 +1,8 @@
 # Bitwise Functions
 
+Types:
+
+- `BitSet`
 
 Logic:
 
@@ -20,10 +23,19 @@ Structural:
 - `bitShiftRight`: bit shift left
 - `highBit`: bit length
 
+Operators Forms:
+
+- `<<`
+- `>>`
+
 Counting:
 
 - `digitCount`
 - `integerExponent`
+
+Permuting:
+
+- `bitReversalPermutation`
 
 Converting:
 
@@ -32,4 +44,4 @@ Converting:
 
 * * *
 
-Guides: Mathematical Functions
+Guides: Logical Operators, Mathematical Functions

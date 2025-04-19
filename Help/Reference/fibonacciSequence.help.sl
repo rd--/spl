@@ -27,7 +27,10 @@ The Fibonacci Q-matrix:
 ```
 >>> let q = [1 1; 1 0];
 >>> q.matrixPower(23)
-[46368 28657; 28657 17711]
+[
+	46368 28657;
+	28657 17711
+]
 
 >>> (23 + 1).fibonacciSequence.drop(23 + 1 - 3)
 [17711 28657 46368]
@@ -37,7 +40,7 @@ The Fibonacci Q-matrix:
 
 See also: binetsFormula, fibonacci, goldenRatio, pellNumbers
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

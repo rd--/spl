@@ -72,6 +72,8 @@ Plot it:
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10
 
+Guides: Bitwise Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IntegerExponent.html)

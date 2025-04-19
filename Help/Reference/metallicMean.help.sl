@@ -62,6 +62,8 @@ The continued fractions of the first five metallic means:
 
 See also: continuedFraction, goldenRatio, silverRatio, supergoldenRatio
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SilverRatio.html),

@@ -28,6 +28,8 @@ Plot is a kind of staircase:
 
 See also: integerLength
 
+Guides: Bitwise Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitLength.html)

@@ -35,6 +35,8 @@ Scatter plot of first few terms:
 
 See also: digitalRoot
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AdditivePersistence.html),

@@ -29,6 +29,8 @@ Plot the Liouville lambda sequence for the first 20 numbers:
 
 See also: primeFactors, size
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LiouvilleFunction.html)

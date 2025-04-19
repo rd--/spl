@@ -38,6 +38,8 @@ There are infinitely many pairs of consecutive powerful numbers, OEIS A060355:
 
 See also: isSquareFree
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PowerfulNumber.html),

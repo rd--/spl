@@ -199,6 +199,8 @@ Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
 See also: digitCount, fromDigits
 
+Guides: Bitwise Functions, Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Digit.html)

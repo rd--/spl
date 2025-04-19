@@ -142,7 +142,7 @@ let f = 20.fareySequence;
 
 See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

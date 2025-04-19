@@ -42,7 +42,7 @@ The name of this operator is `greaterThanSignGreaterThanSign`.
 
 See also: >>>, bitShift, bitShiftLeft, bitShiftRight, DocumentationTest
 
-Guides: Documentation Tests
+Guides: Bitwise Functions, Documentation Tests
 
 Unicode: U+226B ≫ Much Greater-Than
 

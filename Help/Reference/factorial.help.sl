@@ -124,6 +124,8 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 
 See also: binomial, doubleFactorial, subfactorial
 
+Guides: Integer Sequences
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Factorial),

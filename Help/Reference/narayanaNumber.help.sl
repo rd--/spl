@@ -28,6 +28,8 @@ that occur in various counting problems.
 
 See also: binomial, catalanNumber, dyckWords
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NarayanaNumber.html),

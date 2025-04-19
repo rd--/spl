@@ -10,7 +10,7 @@ The digital root of a natural number in a given radix is the (single digit) valu
 
 >>> (
 >>> 	2035.digitalRoot(10),
->>> 	2 + 3 + 5,
+>>> 	2 + 0 + 3 + 5,
 >>> 	1 + 0
 >>> )
 (1, 10, 1)
@@ -46,6 +46,10 @@ Plot:
 ![](sw/spl/Help/Image/digitalRoot-A.svg)
 
 * * *
+
+See also: digitalRootSet
+
+Guides: Integer Sequences
 
 References:
 _Mathematica_

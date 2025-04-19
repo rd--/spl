@@ -120,7 +120,9 @@ Generate a Gray code sequence:
 
 * * *
 
-See also: bitAnd, bitOr
+See also: bitAnd, bitNot, bitOr
+
+Guides: Bitwise Functions, Integer Sequences
 
 References:
 _Mathematica_

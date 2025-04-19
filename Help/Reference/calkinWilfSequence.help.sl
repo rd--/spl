@@ -57,7 +57,7 @@ Plot first few terms:
 
 See also: calkinWilfTree
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _OEIS_

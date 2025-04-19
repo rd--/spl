@@ -1,52 +1,44 @@
 # Integer Sequences
 
-Scatter plot of OEIS [A063543](https://oeis.org/A063543):
+Scatter plot of every fourth item of the first few terms of OEIS [A063543](https://oeis.org/A063543):
 
-~~~
-1:2000.collect { :n |
-	n - n.integerDigits.reject(isZero:/1).product
+~~~spl svg=A
+1:4:1000.collect { :n |
+	let d = n.integerDigits;
+	n - d.reject(isZero:/1).product
 }.scatterPlot
 ~~~
 
-OEIS [A117966](https://oeis.org/A117966):
+![](<sw/spl/Help/Image/Integer Sequences-A.svg>)
 
-~~~
->>> { :i |
->>> 	i.integerDigits(3).collect { :n |
->>> 		(n = 2).if { -1 } { n }
->>> 	}.fromDigits(3)
->>> }.map(0:59)
-[
-	  0  1 -1  3   4   2  -3  -2  -4   9
-	 10  8 12 13  11   6   7   5  -9  -8
-	-10 -6 -5 -7 -12 -11 -13  27  28  26
-	 30 31 29 24  25  23  36  37  35  39
-	 40 38 33 34  32  18  19  17  21  22
-	 20 15 16 14 -27 -26 -28 -24 -23 -25
-]
+Scatter plot of the first few terms of OEIS [A117966](https://oeis.org/A117966):
+
+~~~spl svg=B
+0:123.collect { :i |
+	i.integerDigits(3).collect { :n |
+		(n = 2).if { -1 } { n }
+	}.fromDigits(3)
+}.scatterPlot
 ~~~
 
-OEIS [A265326](https://oeis.org/A265326):
+![](<sw/spl/Help/Image/Integer Sequences-B.svg>)
 
-```
->>> { :n |
->>> 	let m = n.nthPrime;
->>> 	m - m.integerDigits(2).reversed.fromDigits(2)
->>> }.map(1:60)
-[
-	  1   0   0   0  -2    2   0   -6  -6   6
-	  0  -4   4 -10 -14   10   4   14 -30 -42
-	  0 -42 -18  12  30   18 -12    0  18  42
-	  0 -62  -8 -70 -20  -82 -28  -34 -62  -8
-	-26   8 -62  62  34  -28   8  -28  28  62
-	 82  -8  98  28   0 -186 -84 -210 -60 -24
-]
-```
+Scatter plot of the first few terms of OEIS [A265326](https://oeis.org/A265326):
+
+~~~spl svg=C
+1:60.collect { :n |
+	let m = n.nthPrime;
+	let d = m.integerDigits(2);
+	m - d.reversed.fromDigits(2)
+}.scatterPlot
+~~~
+
+![](<sw/spl/Help/Image/Integer Sequences-C.svg>)
 
 Scatter plot of the first _k_ terms of OEIS [A342585](https://oeis.org/A342585):
 
-~~~
-let k = 1500;
+~~~spl svg=D
+let k = 200;
 let a = [];
 let c = 0;
 let n = 0;
@@ -59,8 +51,12 @@ let f = 1.toDo(k) { :i |
 		c := c + 1
 	}
 };
-a.collect { :n | n.isZero.if { 0 } { n.log } }.scatterPlot
+a.collect { :n |
+	n.isZero.if { 0 } { n.log }
+}.scatterPlot
 ~~~
+
+![](<sw/spl/Help/Image/Integer Sequences-D.svg>)
 
 The following help files include references to integer sequences:
 

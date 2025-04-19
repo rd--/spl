@@ -18,6 +18,8 @@ Answer the first _anInteger_ Lucas numbers.
 
 See also: fibbonaciSequence, lucasNumber, lucasPellNumbers, pellNumbers
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A000032)

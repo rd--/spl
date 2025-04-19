@@ -45,6 +45,8 @@ let n = 1:200;
 
 See also: binomial, digitCount, pascalTriangle
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Stolarsky-HarborthConstant.html),

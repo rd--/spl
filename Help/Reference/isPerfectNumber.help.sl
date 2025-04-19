@@ -43,6 +43,8 @@ true
 
 See also: isPerfectSquare
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PerfectNumberQ.html),

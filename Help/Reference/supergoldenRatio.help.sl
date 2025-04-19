@@ -55,7 +55,7 @@ The sum of the first eight subharmonics:
 
 See also: goldenRatio, narayanaSequence
 
-Guides: Mathematical Constants
+Guides: Integer Sequences, Mathematical Constants
 
 Unicode: U+003C8 ψ Greek Small Letter Psi
 

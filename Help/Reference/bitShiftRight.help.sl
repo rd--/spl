@@ -43,6 +43,8 @@ The operator form is `>>`.
 
 See also: >>, bitShift, bitShiftLeft
 
+Guides: Bitwise Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitShiftRight.html)

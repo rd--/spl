@@ -29,6 +29,8 @@ It is a generalization of the Catalan numbers.
 
 See also: catalanNumber
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CatalansTriangle.html),

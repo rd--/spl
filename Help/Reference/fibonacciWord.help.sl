@@ -40,6 +40,8 @@ at the seventh step thirty-four terms have been generated:
 
 See also: fibonacci, substitutionSystem
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RabbitSequence.html),

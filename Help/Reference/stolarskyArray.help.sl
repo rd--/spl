@@ -23,6 +23,8 @@ The first seven rows and columns of the Stolarsky array:
 
 See also: fibonacci, goldenRatio, wythoffArray
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StolarskyArray.html),

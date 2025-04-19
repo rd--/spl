@@ -20,6 +20,8 @@ The perfect squares (A000290 in OEIS) smaller than 200:
 
 See also: squared, sqrt
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PerfectSquare.html),

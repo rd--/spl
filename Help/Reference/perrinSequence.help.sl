@@ -28,7 +28,7 @@ C.f. `perrinFunction`:
 
 See also: padovanSequence, perrinFunction, plasticRatio
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

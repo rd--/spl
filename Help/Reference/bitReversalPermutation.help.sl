@@ -30,6 +30,8 @@ that is the bit reversal permutation is an involution:
 
 See also: fromDigits, integerDigits, permute, Permutation
 
+Guides: Bitwise Functions, Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A030109),

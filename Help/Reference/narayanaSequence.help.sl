@@ -34,6 +34,6 @@ Plot first few terms:
 
 See also: supergoldenRatio
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 Categories: Math, Sequence

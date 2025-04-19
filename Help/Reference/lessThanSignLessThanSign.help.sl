@@ -23,6 +23,8 @@ The name of this operator is `lessThanSignLessThanSign`.
 
 See also: >>, bitShift, bitShiftLeft, bitShiftRight
 
+Guides: Bitwise Functions
+
 Unicode: U+226A ≪ Much Less-Than
 
 Categories: Bits, Binary

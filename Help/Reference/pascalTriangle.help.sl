@@ -40,6 +40,8 @@ c.f. OEIS [A007318](https://oeis.org/A007318):
 
 See also: binomial, table
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/x.html),

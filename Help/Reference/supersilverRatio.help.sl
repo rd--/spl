@@ -31,7 +31,7 @@ The continued fraction:
 
 See also: silverRatio, supergoldenRatio
 
-Guides: Mathematical Constants
+Guides: Integer Sequences, Mathematical Constants
 
 Unicode: U+003C2 ς Greek Small Letter Final Sigma
 

@@ -58,6 +58,8 @@ Scatter plot of the gray encodings of the first few integers:
 
 See also: Binary, bitShiftRight, bitXor, grayDecode
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GrayCode.html)

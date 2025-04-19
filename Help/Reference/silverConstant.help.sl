@@ -16,6 +16,8 @@ The silver constant is the seventh Beraha constant:
 
 See also: berahaConstant
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SilverConstant.html),

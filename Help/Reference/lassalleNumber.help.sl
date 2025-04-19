@@ -17,6 +17,8 @@ Lassalle’s sequence connected with Catalan numbers and Narayana polynomials.
 
 See also: catalanNumber, narayanaNumber
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A180874)

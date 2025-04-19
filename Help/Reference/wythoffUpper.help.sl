@@ -17,6 +17,8 @@ c.f. OEIS A001950.
 
 See also: wythoffArray, wythoffLower, wythoffPair
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A001950)

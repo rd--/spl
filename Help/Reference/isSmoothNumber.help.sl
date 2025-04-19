@@ -73,6 +73,8 @@ Plot sequence of regular numbers:
 
 See also: primeFactors, primeLimit
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SmoothNumber.html),

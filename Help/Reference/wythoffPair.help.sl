@@ -45,6 +45,8 @@ c.f. OEIS A001950:
 
 See also: fibonacci, wythoffArray, wythoffLower, wythoffUpper
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A000201)

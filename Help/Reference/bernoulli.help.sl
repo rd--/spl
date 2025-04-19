@@ -32,6 +32,8 @@ The 60th Bernoulli number:
 
 See also: bernoulliSequence
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliNumber.html)

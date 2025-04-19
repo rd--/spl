@@ -33,6 +33,8 @@ Plot the Möbius sequence for the first 20 numbers:
 
 See also: isSquareFree, liouvilleLambda
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MoebiusFunction.html)

@@ -157,6 +157,8 @@ Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
 
 See also: divisible, divisors, divisorSum, eulerPhi
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DivisorFunction.html)

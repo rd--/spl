@@ -42,6 +42,8 @@ Plot first few terms:
 
 See also: bellNumber, binomial, catalanNumber, narayanNumber
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A039599),

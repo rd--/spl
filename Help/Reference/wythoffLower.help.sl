@@ -14,6 +14,8 @@ c.f. OEIS A000201:
 
 See also: wythoffArray, wythoffPair, wythoffUpper
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A000201)

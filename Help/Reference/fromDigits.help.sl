@@ -52,6 +52,8 @@ c.f. OEIS [A019518](https://oeis.org/A019518):
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize
 
+Guides: Bitwise Functions, Integer Sequences
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDigits.html)

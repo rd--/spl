@@ -38,9 +38,9 @@ Trees:
 
 Sequence generators:
 
-- `deBruijnSequence`: de Bruijn sequence of given order on given alphabet
-- `linearRecurrence`: linear recurrence of given length on given kernel
-- `shiftRegisterSequence`: Linear-feedback shift register
+- `deBruijnSequence`: de Bruijn sequence
+- `linearRecurrence`: linear recurrence
+- `shiftRegisterSequence`: shift register
 
 Arrays:
 

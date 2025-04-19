@@ -50,7 +50,9 @@ Show which bits have been set:
 
 * * *
 
-See also: bitAt, bitClear, BitSet, highBit, integerDigits, setBitAt
+See also: bitAt, BitSet, highBit, integerDigits, setBitAt
+
+Guides: Bitwise Functions
 
 References:
 _Mathematica_

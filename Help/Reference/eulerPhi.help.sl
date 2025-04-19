@@ -119,6 +119,8 @@ let f = { :n |
 
 See also: divisors, factorInteger, gcd, lcm, powerMod
 
+Guides: Integer Sequences
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),

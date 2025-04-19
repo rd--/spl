@@ -31,6 +31,8 @@ Get the bit corresponding to the coefficient at 2 ^ 3:
 
 See also: Binary, bitAtPut, bitClear, BitSet, highBit, integerDigits
 
+Guides: Bitwise Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitGet.html),

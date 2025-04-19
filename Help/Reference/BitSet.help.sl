@@ -192,4 +192,6 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 
 See also: add, asBitSet, at, atPut, bitAt, clearBitAt, includes, remove, setBitAt
 
+Guides: Bitwise Functions
+
 Categories: Collection, Type

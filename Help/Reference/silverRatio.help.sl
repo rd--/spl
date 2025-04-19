@@ -41,7 +41,7 @@ As a continued fraction:
 
 See also: e, metallicMean, pi, plasticRatio, supersilverRatio
 
-Guides: Mathematical Constants
+Guides: Integer Sequences, Mathematical Constants
 
 References:
 _Mathematica_

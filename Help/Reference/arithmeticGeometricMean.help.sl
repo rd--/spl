@@ -64,6 +64,8 @@ Special values: OEIS A068521, A084895, A084896 & A084897:
 
 See also: arithmeticMean, geometricMean, mean, median, moment
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Arithmetic-GeometricMean.html)

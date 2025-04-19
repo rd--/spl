@@ -52,6 +52,8 @@ Plot over a subset of the reals:
 
 See also: fibonacci, lucasNumber, perrinSequence
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PerrinSequence.html),

@@ -106,6 +106,8 @@ Log plot of positive and negative Fibonacci numbers:
 
 See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Fibonacci.html),

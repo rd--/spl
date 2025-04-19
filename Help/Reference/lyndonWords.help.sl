@@ -50,6 +50,8 @@ The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the
 
 See also: deBruijnSequence
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LyndonWord.html),

@@ -77,6 +77,8 @@ Plot over the unit interval:
 
 See also: integerDigits, minkowskiQuestionMark
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CantorFunction.html)

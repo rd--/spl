@@ -56,7 +56,9 @@ As `not` of `boole`:
 
 * * *
 
-See also: bitAnd, bitOr
+See also: bitAnd, bitOr, bitXor
+
+Guides: Bitwise Functions
 
 References:
 _Mathematica_

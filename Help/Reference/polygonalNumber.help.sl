@@ -60,6 +60,8 @@ Plot:
 
 See also: ^, binomial
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PolygonalNumber.html)

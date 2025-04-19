@@ -196,6 +196,8 @@ where a loop statement is not allowed.
 
 See also: nestList, timesRepeat
 
+Guides: Integer Sequences
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Power_(operator)),
