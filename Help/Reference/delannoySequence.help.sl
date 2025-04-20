@@ -33,6 +33,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DelannoyNumber.html),
 _OEIS_
-[1](https://oeis.org/A008288)
+[1](https://oeis.org/A008288),
 _W_
 [1](https://en.wikipedia.org/wiki/Delannoy_number)

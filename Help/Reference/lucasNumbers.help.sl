@@ -22,6 +22,8 @@ Guides: Integer Sequences
 
 References:
 _OEIS_
-[1](https://oeis.org/A000032)
+[1](https://oeis.org/A000032),
+_W_
+[1](https://en.wikipedia.org/wiki/Lucas_number)
 
 Categories: Math, Sequence

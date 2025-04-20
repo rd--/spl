@@ -73,7 +73,7 @@ The following help files include references to integer sequences:
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
 - `delannoySequence`: A008288
-- `digitCount`: A006046
+- `digitCount`: A000120 A006046
 - `digitalRoot`: A010888
 - `divisorSigma`: A000005
 - `doubleFactorial`: A000165
@@ -86,9 +86,12 @@ The following help files include references to integer sequences:
 - `fibonacciWord`: A003849
 - `fibonacci`: A000045
 - `fromDigits`: A019518
+- `gouldsNumber`: A001316
+- `gouldsSequence`: A001316
 - `grayEncode`: A014550 A003188
 - `harmonicNumber`: A002805 A001008
 - `integerDigits`: A062756 A364024 A007376 A265326 A117966
+- `inventorySequence`: A342585
 - `isAlmostPrime`: A000040 A001358 A046308 A069272
 - `isLesserTwinPrime`: A001359 A014574 A006512
 - `isPerfectNumber`: A000396
@@ -108,8 +111,10 @@ The following help files include references to integer sequences:
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
 - `moebiusMu`: A008683
+- `motzkinSequence`: A001006
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930
+- `noergaardInfinitySequence`: A004718 A073334
 - `nthPrimeGap`: A001223
 - `padovanSequence`: A000931 A001608 A182097
 - `pascalTriangle`: A007318
@@ -120,6 +125,7 @@ The following help files include references to integer sequences:
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
 - `recamanSequence`: A005132
+- `schroderSequence`: A006318
 - `silverConstant`: A116425
 - `silverRatio`: A014176
 - `sternBrocotNumber`: A002487

@@ -143,6 +143,7 @@
 	'Math-Elementwise'
 	'Math-Fourier'
 	'Math-Gamma'
+	'Math-IntegerSequence'
 	'Math-Interpolation'
 	'Math-IterativeMaps'
 	'Math-MatrixFunctions'

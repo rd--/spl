@@ -45,7 +45,9 @@ Thue–Morse sequence:
 ]
 ```
 
-Plot the number of 1s in the base-2 representation:
+Plot the number of 1s in the base-2 representation,
+called the Hamming weight or binary weight,
+OEIS [A000120](https://oeis.org/A000120):
 
 ~~~spl svg=A
 1:63.functionPlot { :each |
@@ -79,6 +81,7 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DigitCount),
 _OEIS_
-[1](https://oeis.org/A006046)
+[1](https://oeis.org/A000120)
+[2](https://oeis.org/A006046)
 
 Categories: Querying

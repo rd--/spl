@@ -216,3 +216,13 @@
 	}
 
 }
+
++LargeInteger {
+
+	gouldsNumber { :n |
+		(0L .. n).collect { :k |
+			binomial(n, k) % 2L
+		}.sum
+	}
+
+}

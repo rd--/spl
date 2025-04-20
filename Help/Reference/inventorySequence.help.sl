@@ -47,6 +47,8 @@ Log scale scatter plot of first few terms:
 
 See also: noergaardInfinitySequence
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A342585)

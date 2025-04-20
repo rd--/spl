@@ -133,6 +133,7 @@
 	'Elementwise'
 	'Fourier'
 	'Gamma'
+	'IntegerSequence'
 	'Interpolation'
 	'IterativeMaps'
 	'MatrixFunctions'
