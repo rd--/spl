@@ -51,6 +51,8 @@ Plot `tan` alongside a Padé approximation:
 
 See also: arcTan, cos, sin, tanh
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tangent.html)

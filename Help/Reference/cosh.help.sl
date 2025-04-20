@@ -60,6 +60,8 @@ Plot `cosh` alongside a Padé approximation:
 
 See also: arcCosh, cos, sin, sech, sinh
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)

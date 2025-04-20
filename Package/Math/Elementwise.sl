@@ -254,6 +254,10 @@
 		self.collect(inverseErfc:/1)
 	}
 
+	inverseHaversine { :self |
+		self.collect(inverseHaversine:/1)
+	}
+
 	isComposite { :self |
 		self.collect(isComposite:/1)
 	}

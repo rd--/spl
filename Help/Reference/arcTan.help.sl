@@ -7,7 +7,7 @@ Answer the arc tangent of the complex number _z_,
 or of _x/y_ taking into account which quadrant the point _(x, y)_ is in.
 Answers are given in radians.
 For real _z_, the results are always in the range _-pi/2_ to _pi/2_.
-_arcTan_ is the inverse tangent function.
+The arc tangent is the inverse tangent function.
 
 ```
 >>> 1.arcTan
@@ -131,6 +131,8 @@ atan2(2, 0.5)
 * * *
 
 See also: arcCos, arcSin, cos, sin, tan
+
+Guides: Trigonometric Functions
 
 References:
 _Maple_

@@ -41,7 +41,7 @@ _x_,
 is `zero` outside of the given time interval,
 and has been sampled at the Nyquist frequency:
 
-~~~
+~~~spl svg=B
 let r = Sfc32(367821);
 let t = [1 .. 10];
 let d = NormalDistribution(0, 1);
@@ -52,6 +52,8 @@ let tM = t ! ts.size;
 let y = (tsM - tM).sincNormalized.dot(x);
 [ts, y.collect(first:/1)].transposed.linePlot
 ~~~
+
+![](sw/spl/Help/Image/sincNormalized-B.svg)
 
 * * *
 

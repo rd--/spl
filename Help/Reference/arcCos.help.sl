@@ -3,6 +3,7 @@
 - _arcCos(z)_
 
 Answers the arc cosine of the complex number _z_.
+The arc cosine is the inverse cosine function.
 
 `SmallFloat` arguments:
 

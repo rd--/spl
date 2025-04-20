@@ -467,6 +467,10 @@
 		((z * 0.5) + 0.25.pi).tan.log
 	}
 
+	inverseHaversine { :self |
+		2 * self.sqrt.arcSin
+	}
+
 	isNegative { :self |
 		self < self.zero
 	}

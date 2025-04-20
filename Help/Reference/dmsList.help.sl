@@ -56,6 +56,11 @@ At `Quantity`:
 
 See also: degree, degrees, fromDms, numberDecompose
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DMSList.html)
+
+Categories: Converting
+

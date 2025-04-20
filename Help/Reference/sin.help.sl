@@ -169,6 +169,8 @@ Plot of complex `sin` function:
 
 See also: arcSin, cos, cosecant, haversine, sinh, tan
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)

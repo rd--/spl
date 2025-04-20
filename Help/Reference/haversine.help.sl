@@ -12,6 +12,21 @@ Answers the haversine of _z_.
 0.151647
 ```
 
+Relation to `sin`:
+
+```
+>>> 0.8.haversine
+(0.8 / 2).sin.squared
+```
+
+Relation to `cos`:
+
+
+```
+>>> 0.8.haversine
+(1 - 0.8.cos) / 2
+```
+
 `haverssine` can take `Complex` number inputs:
 
 ```
@@ -38,9 +53,13 @@ Plot over a subset of the reals:
 
 See also: cos, sin, tan
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Haversine.html)
-[2](https://reference.wolfram.com/language/ref/haversine.html)
+[2](https://reference.wolfram.com/language/ref/Haversine.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Haversine_formula)
 
 Categories: Math, Trigonometry

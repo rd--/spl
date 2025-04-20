@@ -58,6 +58,8 @@ Draw cosecant at integer points:
 
 See also: cotangent, secant, sin
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Csc.html)

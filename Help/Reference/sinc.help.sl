@@ -63,6 +63,8 @@ The unnormalized `sinc` function is also the zeroth spherical Bessel function.
 
 See also: dirichletKernel, sin, sincNormalized
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SincFunction.html)

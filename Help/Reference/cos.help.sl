@@ -93,6 +93,8 @@ Plot `cos` alongside a Padé approximation:
 
 See also: arcCos, arcCosh, cosh, secant, sin, tan
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Cosine.html)

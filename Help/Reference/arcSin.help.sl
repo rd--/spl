@@ -3,6 +3,7 @@
 - _arcSin(z)_
 
 Answers the arc sine of the complex number _z_.
+The arc sine is the inverse sine function.
 
 `SmallFloat` arguments:
 
@@ -75,6 +76,8 @@ Plot `arcSin` at integer points:
 * * *
 
 See also: arcCos, cos, sin, tan
+
+Guides: Trigonometric Functions
 
 References:
 _Mathematica_

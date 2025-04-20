@@ -29,6 +29,11 @@ A signed angle:
 
 See also: degree, dmsList, numberCompose, PlaneAngle
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDMS.html)
+
+Categories: Converting
+

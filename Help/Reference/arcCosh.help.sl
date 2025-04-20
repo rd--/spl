@@ -35,6 +35,8 @@ Plot over a subset of the reals:
 
 See also: arcCos, cos
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Tangent.html)

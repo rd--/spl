@@ -30,7 +30,7 @@ Where supported `degree` is displayed as °.
 
 See also: angleVector, arcMinute, arcSecond, arcSin, degrees, fromDms, pi, sin
 
-Guides: Mathematical Constants
+Guides: Mathematical Constants, Trigonometric Functions
 
 References:
 _Mathematica_

@@ -41,6 +41,8 @@ Plot over a subset of the reals:
 
 See also: cos, sin, tan
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Cot.html)

@@ -421,4 +421,4 @@
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Trigonometric Functions, Window Functions
