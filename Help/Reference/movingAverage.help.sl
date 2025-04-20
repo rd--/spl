@@ -6,7 +6,8 @@ Answer the moving average of the `List` _x_,
 computed by averaging runs of _r_ elements.
 The `size` of the answer is _x.size - r + 1_.
 
-Lists of integers yield rational numbers, although not `Fraction` values:
+Lists of integers yield rational numbers,
+although not `Fraction` values:
 
 ```
 >>> [1 5 7 3 6 2].movingAverage(3)

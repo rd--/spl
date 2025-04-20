@@ -245,6 +245,10 @@
 		answer
 	}
 
+	thueMorse { :index |
+		index.digitCount(2, 1) % 2
+	}
+
 	thueMorseSequence { :k |
 		(k <= 0).if {
 			[]
@@ -286,6 +290,32 @@
 
 	vanDerLaanSequence { :self |
 		self.padovanSequence([1 0 1])
+	}
+
+	wythoffArray { :m :n |
+		let phi = 1.goldenRatio;
+		(n = 1).if {
+			((m * phi).floor * phi).floor
+		} {
+			(n = 2).if {
+				((m * phi).floor * phi.squared).floor
+			} {
+				m.wythoffArray(n - 2) + m.wythoffArray(n - 1)
+			}
+		}
+	}
+
+	wythoffLower { :self |
+		(self * 1.goldenRatio).floor
+	}
+
+	wythoffPair { :self |
+		let phi = 1.goldenRatio;
+		[(self * phi).floor, (self * phi.squared).floor]
+	}
+
+	wythoffUpper { :self |
+		(self * 1.goldenRatio.squared).floor
 	}
 
 }

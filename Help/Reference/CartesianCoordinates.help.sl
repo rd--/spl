@@ -10,7 +10,7 @@ A `Type` representing a point in _n_-dimensional Cartesian space.
 > are chosen to be linear and mutually perpendicular.
 > Typically, the x-axis is thought of as the horizontal axis
 > while the y-axis is thought of as the vertical axis.
-
+>
 > The three-dimensional Cartesian coordinate system is an extension of
 > the two-dimensional system formed by the addition of a third axis
 > mutually perpendicular to the _x_- and _y_-axes, conventionally referred

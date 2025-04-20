@@ -27,10 +27,10 @@ MultinormalDistribution(
 
 See also: BinormalDistribution, NormalDistribution
 
+Guides: Probability Distributions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MultinormalDistribution.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)
-

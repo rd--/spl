@@ -10,7 +10,7 @@ and the _note number_.
 Piano-roll plot of a seven note phrase,
 notes may overlap and there may be gaps:
 
-~~~
+~~~spl svg=A
 [
 	1 2 60;
 	2 1 67;

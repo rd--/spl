@@ -21,7 +21,7 @@ Answer the first _k_ terms of Goulds sequence.
 
 Log scatter plot of first few terms:
 
-~~~
+~~~spl svg=A
 99.gouldsSequence
 .log
 .scatterPlot

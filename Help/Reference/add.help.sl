@@ -91,7 +91,6 @@ At `SortedList`:
 [1 2 3 4 5 6 7]
 ```
 
-
 At `String`, which is not `Extensible`:
 
 ```

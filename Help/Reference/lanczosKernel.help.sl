@@ -6,7 +6,7 @@ Answer the Lanczos kernel function for parameter _a_.
 
 Plot kernels for _a_ of one, two and three:
 
-~~~
+~~~spl svg=A
 (-1.pi -- 1.pi).functionPlot(
 	[1 2 3].collect(
 		lanczosKernel:/1

@@ -20,6 +20,7 @@ Plotting Functions:
 - `polarPlot`
 - `scatterPlot`
 - `soundPlot`
+- `stackedListPlot`
 - `stemLeafPlot`
 - `stepPlot`
 - `surfacePlot`

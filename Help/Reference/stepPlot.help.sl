@@ -59,7 +59,7 @@ See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametri
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ListLinePlot.html),
+[1](https://reference.wolfram.com/language/ref/ListStepPlot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/plot.html)
 

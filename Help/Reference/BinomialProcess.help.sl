@@ -16,7 +16,6 @@ BinomialProcess(1 / 3)
 
 ![](sw/spl/Help/Image/BinomialProcess-A.svg)
 
-
 Simulate an ensemble of paths:
 
 ~~~spl svg=B

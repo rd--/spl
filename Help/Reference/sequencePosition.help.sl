@@ -10,7 +10,8 @@ Find the positions of a sublist in a list:
 >>> ['a' 'b' 'c' 'd'].sequencePosition(['b' 'c'])
 [[2 3]]
 
->>> ['a' 'b' 'a' 'b' 'a' 'b'].sequencePosition(['a' 'b'])
+>>> ['a' 'b' 'a' 'b' 'a' 'b']
+>>> .sequencePosition(['a' 'b'])
 [1 2; 3 4; 5 6]
 ```
 

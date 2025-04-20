@@ -234,7 +234,7 @@ TimeSeries(
 	.randomReal([0 1], [200 3]),
 	1:200
 )
-.pathComponents[3]
+.pathComponents[1]
 .resample([1, 7 .. 193])
 .linePlot
 ~~~

@@ -4,7 +4,6 @@
 
 Answer the _n_-th Fejer kernel function of _x_.
 
-
 Plot kernels for _n_ of two, four and six:
 
 ~~~spl svg=A

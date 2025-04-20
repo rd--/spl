@@ -43,7 +43,7 @@ Plot denominator:
 
 See also: bernoulli
 
-Guides: Mathematical Sequences
+Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_

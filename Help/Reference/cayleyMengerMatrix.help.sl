@@ -41,7 +41,13 @@ The Cayley-Menger matrix of a tetrahedron:
 Compute the content of a four-dimensional simplex:
 
 ```
->>> let m = [0 0 0 0; 1 0 0 0; 1 1 0 0; 1 1 1 0; 1 1 1 1];
+>>> let m = [
+>>> 	0 0 0 0;
+>>> 	1 0 0 0;
+>>> 	1 1 0 0;
+>>> 	1 1 1 0;
+>>> 	1 1 1 1
+>>> ];
 >>> let d = m.size - 1;
 >>> let cm = m.cayleyMengerMatrix;
 >>> let z = d.factorial * (2 * d).doubleFactorial;

@@ -83,7 +83,6 @@ answer _(year, month, day, hour, minute, second)_:
 [2025 04 07 17 07 20]
 ```
 
-
 This should not be defined for scalar values, see _asCollection_.
 
 * * *

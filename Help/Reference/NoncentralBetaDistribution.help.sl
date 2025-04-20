@@ -25,4 +25,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NoncentralBetaDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Noncentral_beta_distribution)
-

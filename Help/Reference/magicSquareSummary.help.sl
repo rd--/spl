@@ -2,7 +2,7 @@
 
 - _magicSquareSummary(aMatrix)_
 
-Define a method to summarise the properties of a magic square.
+Summarise the properties of a magic square.
 A matrix-vector product sums the rows,
 a vector-matrix product sums the columns,
 also shows the diagonal and antidiagonal sums and the matrix rank:
@@ -40,3 +40,5 @@ A non-magic square:
 * * *
 
 See also: magicSquare
+
+Guides: Magic Squares

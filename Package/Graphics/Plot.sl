@@ -260,7 +260,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	linePlot { :self |
-		self.typedPlot('line')
+		self.typedSwitchingPlot('line')
 	}
 
 	matrixPlot { :self |
@@ -311,7 +311,17 @@ Plot : [Object] { | pages format options |
 	}
 
 	scatterPlot { :self |
-		self.typedPlot('scatter')
+		self.typedSwitchingPlot('scatter')
+	}
+
+	stackedListPlot { :self |
+		let level = self[1];
+		let data = [level.copy];
+		2.toDo(self.size) { :i |
+			level := level + self[i];
+			data.add(level.copy)
+		};
+		data.linePlot
 	}
 
 	stepPlotLineData { :self |
@@ -388,12 +398,28 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
-	typedVectorPlot { :self :format |
-		self.collect { :each |
-			each.withIndexCollect { :y :x |
-				[x, y]
+	typedSwitchingPlot { :self :format |
+		self.isArray.if {
+			self.typedPlot(format)
+		} {
+			self.allSatisfy(isVector:/1).if {
+				self.typedVectorPlot(format)
+			} {
+				self.typedPlot(format)
 			}
-		}.Plot(format)
+		}
+	}
+
+	typedVectorPlot { :self :format |
+		self.allSatisfy(isVector:/1).if {
+			self.collect { :each |
+				each.withIndexCollect { :y :x |
+					[x, y]
+				}
+			}.Plot(format)
+		} {
+			self.error('typedVectorPlot: invalid data')
+		}
 	}
 
 	typedPlot { :self :format |

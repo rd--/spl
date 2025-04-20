@@ -28,7 +28,9 @@ Obtain empirical estimates of the correlation function up to τ=9:
 Compute the absolute correlation function for τ=1-9 in steps of 2:
 
 ```
->>> [1 .. 10].absoluteCorrelationFunction([1, 3 .. 9])
+>>> [1 .. 10].absoluteCorrelationFunction(
+>>> 	[1, 3 .. 9]
+>>> )
 [33 112/5 13 28/5 1]
 ```
 

@@ -6,7 +6,7 @@ Answer the _n_-th Dirichlet kernel function of _x_.
 
 Plot kernels for _n_ of one, three and five:
 
-~~~
+~~~spl svg=A
 (-1.pi -- 1.pi).functionPlot(
 	[1 3 5].collect(
 		dirichletKernel:/1

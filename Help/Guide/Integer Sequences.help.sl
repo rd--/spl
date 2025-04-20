@@ -64,6 +64,7 @@ The following help files include references to integer sequences:
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
 - `bellNumber`: A000110
 - `bernoulli`: A000367 A002445
+- `bernoulliSequence`: A027641 A027642
 - `bitAnd`: A279125
 - `bitReversalPermutation`: A030109
 - `bitXor`: A003188
@@ -72,6 +73,7 @@ The following help files include references to integer sequences:
 - `cantorStaircase`: A095844 A095845
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
+- `collatzSequence`: A070165
 - `delannoySequence`: A008288
 - `digitCount`: A000120 A006046
 - `digitalRoot`: A010888
@@ -89,6 +91,7 @@ The following help files include references to integer sequences:
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A001316
 - `grayEncode`: A014550 A003188
+- `hammingWeight`: A000120
 - `harmonicNumber`: A002805 A001008
 - `integerDigits`: A062756 A364024 A007376 A265326 A117966
 - `inventorySequence`: A342585
