@@ -1,23 +1,23 @@
 # Matrix Functions
 
-## Types
+Types:
 
 - `List`: list type
 - `Matrix`: matrix type
 
-## Converting
+Converting:
 
 - `asList`: convert matrix to list of lists
 - `asMatrix`: convert list of lists to matrix
 
-## Querying
+Querying:
 
 - `elementType`: type of elements
 - `numberOfColumns`: number of columns
 - `numberOfRows`: number of rows
 - `shape`: number of rows and columns
 
-## Predicates
+Predicates:
 
 - `isIntegerMatrix`: is integer matrix
 - `isLowerTriangularMatrix`: is lower triangular matrix
@@ -28,7 +28,7 @@
 - `isUnitaryMatrix`: is unitary matrix
 - `isUpperTriangularMatrix`: is upper triangular matrix
 
-## Constructing
+Constructing:
 
 - `antidiagonalMatrix`: matrix with list items on antidiagonal
 - `blockDiagonalMatrix`: matrix with matrices on block diagonal
@@ -51,7 +51,7 @@
 - `walshMatrix`: Walsh matrix
 - `zeroMatrix`: zero matrix
 
-## General
+General:
 
 - `adjugate`: adjugate or adjoint
 - `arrayFlatten`: flatten a matrix of matrices
@@ -82,20 +82,20 @@
 - `trace`: trace
 - `transposed`: transposition
 
-## Graph
+Graph:
 
 - `adjacencyMatrix`: vertex–vertex adjacency matrix of a graph
 - `connectionMatrix`: vertex–vertex connection matrix of a graph
 - `incidenceMatrix`: vertex-edge incidence matrix of a graph
 
-## Geometry
+Geometry:
 
 - `eulerMatrix`: Euler rotation matrix
 - `reflectionMatrix`: reflection matrix
 - `rotationMatrix`: rotation matrix
 - `scalingMatrix`: scaling matrix
 
-## Tuning
+Tuning:
 
 - `intervalMatrix`: interval matrix
 

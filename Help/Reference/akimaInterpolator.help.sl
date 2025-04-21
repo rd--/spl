@@ -90,6 +90,8 @@ let y = cos(x);
 
 See also: cubicSplineInterpolator, linearInterpolator, nearestNeighborInterpolator
 
+Guides: Interpolation Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/makima.html),

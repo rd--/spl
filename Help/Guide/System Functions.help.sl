@@ -1,20 +1,20 @@
 # System Functions
 
-_Environment Variables_:
+Environment Variables:
 
 - `environmentVariable`
 - `environmentVariables`
 
-_Local Host_:
+Local Host:
 
 - `currentWorkingDirectory`
 - `hostName`
 - `instructionSetArchitecture`
 - `operatingSystem`
 
-_Subprocess_:
+Subprocess:
 
-- `systemCommand`: begin a subprocess
+- `systemCommand`
 
 * * *
 

@@ -8,7 +8,7 @@ Basic Boolean Operators:
 - `true`, `false`
 - `boole`
 
-Predicates on Lists:
+Predicates On Lists:
 
 - `allSatisy`
 - `allTrue`

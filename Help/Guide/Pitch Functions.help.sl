@@ -10,3 +10,7 @@ Converting:
 - `MidiRatio`
 - `OctCps`
 - `RatioMidi`
+
+* * *
+
+Guides: Tuning Functions

@@ -77,6 +77,8 @@ let y = [0 0 1 0 0];
 
 See also: akimaInterpolator, catmullRomInterpolation, cubicSplineInterpolator, linearInterpolator
 
+Guides: Interpolation Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/x.html)

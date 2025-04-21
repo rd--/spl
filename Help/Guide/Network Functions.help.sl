@@ -1,6 +1,6 @@
 # Network Functions
 
-_Accessing_:
+Accessing:
 
 - `fileName`: file name of Url
 - `fragment`: fragment, or hash, of Url
@@ -14,24 +14,24 @@ _Accessing_:
 - `queryParameters`: UrlQueryParameters
 - `userName`: user name of Url
 
-_Converting_:
+Converting:
 
 - `asUrl`: construct a Url
 - `asUrlQueryParameters`: converting
 
-_Encoding & Decoding_:
+Encoding & Decoding:
 
 - `decodeUri`: decode Uri
 - `encodeUri`: encode Uri
 
-_Fetching_:
+Fetching:
 
 - `fetch`: fetch resource from network
 - `fetchText`: fetch text resource
 - `fetchJson`: fetch Json resource
 - `fetchByteArray`: fetch binary resource
 
-_Types & Traits_:
+Types & Traits:
 
 - `Location`: location of an object
 - `Request`: resource request

@@ -72,6 +72,10 @@
 		self.codePoint = 12
 	}
 
+	isGraveAccent { :self |
+		self.codePoint = 96
+	}
+
 	isLetter { :self |
 		self.isLowerCase | {
 			self.isUpperCase

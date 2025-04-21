@@ -77,6 +77,8 @@ Sfc32(378916)
 
 See also: downsample, resample, upsample
 
+Guides: Interpolation Functions
+
 Further Reading: Steinarsson 2013
 
 Categories: Rearranging

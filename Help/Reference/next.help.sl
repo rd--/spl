@@ -9,11 +9,28 @@ If the stream is positioned at its end, or if the position is out of bounds in t
 In the binary case, answer the next _anInteger_ number of objects accessible by _aStream_.
 If the stream ends before _anInteger_ items are read it is an `error`, see `nextOrUpToEnd`.
 
+At an infinite stream:
+
 ```
 >>> (1 .. Infinity).asStream
 >>> .reject(isEven:/1)
 >>> .next(5)
 [1 3 5 7 9]
+```
+
+At a random number generator,
+which is likewise an infinite stream:
+
+```
+>>> Sfc32(367214)
+>>> .next(5)
+[
+	0.123869952745736
+	0.782355992356315
+	0.117176339263096
+	0.701100001111627
+	0.140467990655452
+]
 ```
 
 * * *

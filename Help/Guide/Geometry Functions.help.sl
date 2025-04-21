@@ -1,12 +1,12 @@
 # Geometry Functions
 
-## Angle Functions
+Angle Functions:
 
-- `angleVector`: unit vector at angle
-- `planarAngle`: planar angle
-- `vectorAngle`: vector angle
+- `angleVector`
+- `planarAngle`
+- `vectorAngle`
 
-## Bezier Functions
+Bezier Functions:
 
 - `bezierApproximation`
 - `bernsteinBasis`
@@ -24,7 +24,7 @@
 - `quadraticBezierFunctionAt`
 - `quadraticBezierToCubicBezier`
 
-## Catalogues
+Catalogues:
 
 - `fradinPolyhedraCatalogue`
 - `holmesPolyhedraCatalogue`
@@ -41,7 +41,7 @@
 - `schareinMinimalKnotCatalogue`
 - `schareinMinimalLinkCatalogue`
 
-## Coordinate Transformations
+Coordinate Transformations:
 
 - `fromCylindricalCoordinates`: _(ρ,φ,z)_ → _(x,y,z)_
 - `fromPolarCoordinates`: _(r,θ)_ → _(x,y)_
@@ -50,11 +50,11 @@
 - `toPolarCoordinates`: _(x,y)_ → _(r,θ)_
 - `toSphericalCoordinates`: _(x,y,z)_ → _(r,θ,ϕ)_
 
-## Constants
+Constants:
 
 - `degree`: radians per degree (0.0175)
 
-## Constructors
+Constructors:
 
 - `BezierCurve`: Bézier curve
 - `Circle`: circle
@@ -84,7 +84,7 @@
 - `unitSquare`: unit square
 - `unitTetrahedron`: unit tetrahedron
 
-## Converting Functions
+Converting Functions:
 
 - `asCartesianCoordinates`: as CartesianCoordinates
 - `asCylindricalCoordinates`: as CylindricalCoordinates
@@ -95,26 +95,26 @@
 - `hessianNormalForm`: Hesse normal form of a plane
 - `radiansToDegrees`: convert from radians to degrees
 
-## Distance Functions
+Distance Functions:
 
 - `cosineDistance`: angular cosine distance between vectors
 - `euclideanDistance`: Euclidean distance between vectors
 - `pointLineDistance`: distance from an infinite line to a point
 - `signedPointPlaneDistance`: signed distance from a point to a plane
 
-## Intersection Functions
+Intersection Functions:
 
 - `lineLineIntersection`: point at which two infinite lines intersect
 - `linePlaneIntersection`: point at which a line and a plane intesect
 
-## Matrix Functions
+Matrix Functions:
 
 - `eulerMatrix`: Euler matrix
 - `reflectionMatrix`: reflection matrix
 - `rotationMatrix`: rotation matrix
 - `scalingMatrix`: scaling matrix
 
-## Query Functions
+Query Functions:
 
 - `arcLength`: arc length
 - `area`: area
@@ -140,7 +140,7 @@
 - `vertexCount`: vertex count
 - `vertexList`: vertex list
 
-## Uncategorized
+Uncategorized:
 
 - `lineEquation`
 - `unitVector`

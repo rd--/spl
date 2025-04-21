@@ -1,6 +1,6 @@
 # String Functions
 
-## Traits and Types
+Traits and Types:
 
 - `AsciiString`
 - `BacktickQuotedString`
@@ -10,13 +10,13 @@
 - `String`
 - `Symbol`
 
-## Ascii
+Ascii:
 
 - `ascii`
 - `asciiByteArray`
 - `asciiString`
 
-## Converting
+Converting:
 
 - `asAsciiString`
 - `asByteArray`
@@ -34,12 +34,12 @@
 - `utf16List`
 - `utf8ByteArray`
 
-## Decoding and Encoding
+Decoding and Encoding:
 
 - `base64Decoded`
 - `base64Encoded`
 
-## Parsing
+Parsing:
 
 - `parseDecimal`
 - `parseDecimalInteger`
@@ -50,24 +50,24 @@
 - `parseNumber`
 - `parseSmallInteger`
 
-## Parse Colours
+Parse Colours:
 
 - `parseHexColour`
 - `parseHexTriplet`
 - `parseRgbColour`
 - `parseRgbTriplet`
 
-## Parse Durations and Times
+Parse Durations and Times:
 
 - `parseDate`
 - `parseDuration`
 
-## Parse Documents
+Parse Documents:
 
 - `parseHtml`
 - `parseSvg`
 
-## Predicates
+Predicates:
 
 - `isAlphaNumeric`
 - `isApostrophe`
@@ -77,6 +77,7 @@
 - `isCarriageReturn`
 - `isDigit`
 - `isFormFeed`
+- `isGraveAccent`
 - `isLetter`
 - `isLineFeed`
 - `isLowerCase`
@@ -89,19 +90,19 @@
 - `isUppercase`
 - `isVowel`
 
-## Printing
+Printing:
 
 - `asString`
 - `concisePrintString`
 - `printString`
 - `storeString`
 
-## Sets
+Sets:
 
 - `alphabet`
 - `characterRange`
 
-## Syntax
+Syntax:
 
 - `apostrophe`
 - `graveAccent`

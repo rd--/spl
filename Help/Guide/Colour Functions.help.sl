@@ -1,17 +1,17 @@
 # Colour Functions
 
-## Traits and Types
+Traits and Types:
 
 - `Colour`
 - `ColourGradient`
 - `ColourPalette`
 - `RgbColour`
 
-## Constructors
+Constructors:
 
 - `HsvColour`
 
-## Accessing
+Accessing:
 
 - `alpha`
 - `blue`
@@ -23,11 +23,11 @@
 - `rgba`
 - `srgb`
 
-## Catalogues
+Catalogues:
 
 - `svgColourCatalogue`
 
-## Converting
+Converting:
 
 - `asColour`: as Colour
 - `cmyToRgb`: Cmy to Rgb
@@ -48,20 +48,20 @@
 - `xyzToRgb`: Xyz to Rgb
 - `xyzToXyy`: Xyz to Xyy
 
-## Drawing
+Drawing:
 
 - `arrayPlot`
 - `asGreyscaleSvg`
 - `asColourSvg`
 
-## Encoding and Decoding
+Encoding and Decoding:
 
 - `adobeRgbDecode`
 - `adobeRgbEncode`
 - `srgbDecode`
 - `srgbEncode`
 
-## Gradients and Palettes
+Gradients and Palettes:
 
 - `asColourGradient`
 - `asContinuousColourGradient`
@@ -74,19 +74,19 @@
 - `parula`
 - `quilezGradient`
 
-## Parsers and Printers
+Parsers and Printers:
 
 - `parseHexColour`
 - `parseHexTriplet`
 - `parseRgbColour`
 - `parseRgbTriplet`
 
-## Physics
+Physics:
 
 - `planckRadiationLaw`
 - `plancksRadiationFunction`
 
-## Standards
+Standards:
 
 - `lightnessCie`
 

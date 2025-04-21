@@ -40,4 +40,6 @@ let r = Sfc32(901813);
 
 See also: nextRandomFloat, randomInteger, RandomNumberGenerator
 
+Guides: Random Number Generators
+
 Categories: Random

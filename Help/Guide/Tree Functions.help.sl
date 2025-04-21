@@ -1,10 +1,10 @@
 # Tree Functions
 
-## Traits and Types
+Traits and Types:
 
 - `Tree`
 
-## Enumerating
+Enumerating:
 
 - `collect`
 - `do`
@@ -16,13 +16,13 @@
 - `postOrderValues`
 - `reverseDo`
 
-## Predicates
+Predicates:
 
 - `isBinary`
 - `isLeaf`
 - `isTree`
 
-## Querying
+Querying:
 
 - `depth`
 - `leafCount`
@@ -30,14 +30,14 @@
 - `leaves`
 - `size`
 
-## Converting
+Converting:
 
 - `asGraph`
 - `asList`
 - `expressionTree`
 - `rulesTree`
 
-## Drawing Functions
+Drawing Functions:
 
 - `graphPlot`
 - `treePlot`

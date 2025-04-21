@@ -1,91 +1,91 @@
 # Graph Functions
 
-## Traits and Types
+Traits and Types:
 
 - `DelaunayTriangulation`
-- `DirectedEdge`: directed edge
-- `Graph`: graph
-- `UndirectedEdge`: undirected edge
+- `DirectedEdge`, `-->`
+- `Graph`
+- `UndirectedEdge`, `---`
 
-## Constructor Functions
+Constructor Functions:
 
-- `adjacencyGraph`: adjacency graph
-- `circulantGraph`: circulant graph
-- `complementGraph`: complement
-- `completeBipartiteGraph`: bipartite
-- `completeGraph`: complete graph
-- `cubeGraph`: cube graph
-- `cycleGraph`: cycle graph
-- `gridGraph`: grid graph
-- `hararyGraph`: Harary graph
-- `incidenceGraph`: incidence graph
-- `lineGraph`: line graph
-- `neighbourhoodGraph`: neighbourhood
-- `pathGraph`: path graph
-- `permutationGraph`: permutation graph
-- `relationGraph`: relation graph
-- `starGraph`: star graph
-- `subgraph`: subgraph
-- `sumGraph`: sum graph
-- `wheelGraph`: wheel graph
+- `adjacencyGraph`
+- `circulantGraph`
+- `complementGraph`
+- `completeBipartiteGraph`
+- `completeGraph`
+- `cubeGraph`
+- `cycleGraph`
+- `gridGraph`
+- `hararyGraph`
+- `incidenceGraph`
+- `lineGraph`
+- `neighbourhoodGraph`
+- `pathGraph`
+- `permutationGraph`
+- `relationGraph`
+- `starGraph`
+- `subgraph`
+- `sumGraph`
+- `wheelGraph`
 
-## Operators
+Operators:
 
-- `-->`: directed edge
-- `---`: undirected edge
+- `-->`
+- `---`
 
-## Accessing (Query) Functions
+Accessing (Query) Functions:
 
-- `adjacencyList`: adjacency list
-- `adjacencyMatrix`: adjacency matrix
-- `connectionMatrix`: connection matrix
-- `degreeSequence`: degree sequence
-- `dijkstrasAlgorithm`: Dijkstras algorithm
-- `edgeCount`: edge count
-- `edgeLabels`: edge labels
-- `edgeList`: edge list
-- `findShortestPath`: shortest path
-- `graphDistance`: distance
-- `graphDistanceMatrix`: distance matrix
-- `incidenceList`: incidence list
-- `incidenceMatrix`: incidence matrix
-- `labeledVertexList`: labeled vertex list
-- `neighbours`: neighbours
+- `adjacencyList`
+- `adjacencyMatrix`
+- `connectionMatrix`
+- `degreeSequence`
+- `dijkstrasAlgorithm`
+- `edgeCount`
+- `edgeLabels`
+- `edgeList`
+- `findShortestPath`
+- `graphDistance`
+- `graphDistanceMatrix`
+- `incidenceList`
+- `incidenceMatrix`
+- `labeledVertexList`
+- `neighbours`
 - `outEdgeListOf`
-- `vertexCoordinates`: vertex coordinates
-- `vertexCount`: vertex count
-- `vertexDegree`: vertex degree
-- `vertexInDegree`: vertex in degree
+- `vertexCoordinates`
+- `vertexCount`
+- `vertexDegree`
+- `vertexInDegree`
 - `vertexInNeighbours`
-- `vertexOutDegree`: vertex out degree
+- `vertexOutDegree`
 - `vertexOutNeighbours`
-- `vertexLabels`: vertex labels
-- `vertexList`: vertex list
+- `vertexLabels`
+- `vertexList`
 
-## Predicate (Query) Functions
+Predicate (Query) Functions:
 
-- `includesEdge`: includes edge
-- `isDirected`: is directed
-- `isDirectedEdge`: is directed edge
-- `isEmpty`: is empty
-- `isLoopFree`: is loop free
-- `isMixed`: is mixed
-- `isRegular`: is regular
-- `isSingleton`: is singleton
-- `isUndirected`: is undirected
-- `isUndirectedEdge`: is undirected edge
-- `isValid`: is valid
-- `matchesEdge`: matches edge
+- `includesEdge`
+- `isDirected`
+- `isDirectedEdge`
+- `isEmpty`
+- `isLoopFree`
+- `isMixed`
+- `isRegular`
+- `isSingleton`
+- `isUndirected`
+- `isUndirectedEdge`
+- `isValid`
+- `matchesEdge`
 
-## Converting Functions
+Converting Functions:
 
-- `asDot`: as dot
-- `asEdge`: as edge
-- `asEdgeList`: as edge list
-- `asGraph`: as graph
-- `undirectedGraph`: undirected graph
+- `asDot`
+- `asEdge`
+- `asEdgeList`
+- `asGraph`
+- `undirectedGraph`
 
-## Drawing Functions
+Drawing Functions:
 
 - `asGeometryCollection`
 - `asLineDrawing`
@@ -95,7 +95,7 @@
 - `graphPlot`
 - `treePlot`
 
-## Catalogs
+Catalogues:
 
 - `sageSmallGraphCatalogue`
 

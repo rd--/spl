@@ -1,6 +1,6 @@
 # File Functions
 
-_Files_:
+Files:
 
 - `readBinaryFile`: read binary file
 - `readTextFile`: read text file
@@ -8,19 +8,19 @@ _Files_:
 - `writeBinaryFile`: write binary file
 - `writeTextFile`: write text file
 
-_Directories_:
+Directories:
 
 - `makeDirectory`: make directory
 - `readDirectory`: read directory entries
 - `readDirectoryFileNames`: file entries
 - `removeDirectory`: remove directory
 
-_File Information_:
+File Information:
 
 - `fileInformation`: file information
 - `modificationTime`: modification time
 
-_File Paths_:
+File Paths:
 
 - `pathBasename`: basename of file path
 - `pathDirectory`: directory of file path

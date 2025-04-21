@@ -55,6 +55,8 @@ let y = [0 0 1 0 0];
 
 See also: akimaInterpolator, linearInterpolator, nearestNeighborInterpolator
 
+Guides: Interpolation Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Spline_interpolation)

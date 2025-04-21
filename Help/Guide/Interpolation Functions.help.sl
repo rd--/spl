@@ -1,13 +1,13 @@
 # Interpolation Functions
 
-## Interpolators
+Interpolators:
 
 - `linearInterpolator`
 - `akimaInterpolator`
 - `cubicSplineInterpolator`
 - `nearestNeighborInterpolator`
 
-## Interpolation Functions
+Interpolation Functions:
 
 - `atBlend`
 - `bilinearInterpolation`
@@ -15,17 +15,24 @@
 - `catmullRomInterpolation`
 - `cosineInterpolation`
 - `cubicInterpolation`
-- `downsampleSteinarsson`
-- `downsample`
 - `easingFunction`
 - `hermiteInterpolation`
 - `indexOfInBetween`
 - `linearInterpolation`
 - `listInterpolation`
 - `matrixInterpolation`
-- `matrixResample`
-- `resample`
 - `smootherstep`
 - `smoothstepFunction`
 - `smoothstep`
+
+Resampling Functions:
+
+- `downsampleSteinarsson`
+- `downsample`
+- `matrixResample`
+- `resample`
 - `upsample`
+
+* * *
+
+Guides: Mathematical Functions

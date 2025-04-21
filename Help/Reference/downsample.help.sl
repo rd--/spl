@@ -48,6 +48,8 @@ Sfc32(289714)
 
 See also: downsampleSteinarsson, resample, upsample
 
+Guides: Interpolation Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Downsample.html)

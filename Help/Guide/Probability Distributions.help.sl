@@ -52,4 +52,4 @@ Methods at `ProbablityDistribution`:
 
 * * *
 
-Guides: Random Number Generators, Random Processes
+Guides: Random Functions, Random Number Generators, Random Processes

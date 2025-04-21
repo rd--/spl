@@ -4,7 +4,7 @@
 
 Answer a voltage control level given the frequency _f_ and the reference frequency _f₀_.
 
-At `zero`, answer _f₀_:
+At _f₀_, answer `zero`:
 
 ```
 >>> CpsCv(256, 256)

@@ -24,6 +24,8 @@ The seed can be a `String`:
 
 See also: hash, randomChoice, randomComplex, randomInteger, randomPrime, randomReal, randomSample, randomSubsequence, randomVariate
 
+Guides: Random Number Generators
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SeedRandom.html)

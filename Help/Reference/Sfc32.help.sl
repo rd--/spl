@@ -62,13 +62,18 @@ Difference between empirical and expected mean and standard deviation:
 ```
 >>> let r = Sfc32(387912);
 >>> let n = r.next(10 ^ 4);
->>> (0.5 - n.mean, 1/12.sqrt - n.standardDeviation)
+>>> (
+>>> 	0.5 - n.mean,
+>>> 	1/12.sqrt - n.standardDeviation
+>>> )
 (0.0022756, 0.0011151)
 ```
 
 * * *
 
 See also: LinearCongruential, MersenneTwister, RandomNumberGenerator, SplitMix, Stream
+
+Guides: Random Number Generators
 
 References:
 _PractRand_

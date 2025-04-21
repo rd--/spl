@@ -1,6 +1,6 @@
 # Sort Functions
 
-## Sort
+Sort:
 
 - `mergeInPlace`
 - `mergeSortBy`
@@ -17,7 +17,7 @@
 - `sorted`
 - `sortedWithIndices`
 
-## Order
+Order:
 
 - `deepMax`
 - `deepMin`
@@ -27,7 +27,7 @@
 - `min`
 - `ordering`
 
-## Predicates
+Predicates:
 
 - `<=`: less than or equal to
 - `<`: less than
@@ -40,7 +40,11 @@
 - `isSorted`
 - `isStrictlyIncreasing`
 
-## Querying
+Querying:
 
 - `longestIncreasingSubsequence`
 - `longestIncreasingSubsequenceList`
+
+* * *
+
+See also: Comparison Functions, Statistics Functions
