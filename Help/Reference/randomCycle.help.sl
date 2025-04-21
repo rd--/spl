@@ -1,8 +1,8 @@
 # randomCycle
 
-- _randomCycle(anInteger, aRandomNumberGenerator)_
+- _randomCycle(r k)_
 
-Answer a pseudo-random single cycle permutation of the integers from `one` to _anInteger_,
+Answer a pseudo-random single cycle permutation of the integers from `one` to the integer _k_,
 using Sattolo’s algorithm.
 
 A random single cycle permutation of the symmetric group _S10_:
@@ -17,6 +17,8 @@ A random single cycle permutation of the symmetric group _S10_:
 * * *
 
 See also: cycles, randomPermutation, randomSample, sattoloShuffle
+
+Guides: Random Functions
 
 References:
 _Julia_

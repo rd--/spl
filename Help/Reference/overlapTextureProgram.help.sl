@@ -28,7 +28,7 @@ The two branches of the `if` clause are written as trailing blocks.
 {
 	{
 		let freq = IRand(48, 72).MidiCps;
-		(4 / 5).coin.if {
+		system.coin(4 / 5).if {
 			SinOsc(freq, 0) * Rand(0.05, 0.1)
 		} {
 			Saw(freq) * Rand(0.01, 0.05)

@@ -58,6 +58,8 @@ Plot over a subset of the reals:
 
 See also: binomial, factorial
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MultinomialCoefficient.html)

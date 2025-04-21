@@ -22,7 +22,7 @@ Plot `cdf` for a standard normal distribution:
 
 See also: inverseCdf, pdf, sum, survivalFunction
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Statistics Functions
 
 References:
 _Mathematica_

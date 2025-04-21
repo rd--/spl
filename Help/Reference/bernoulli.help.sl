@@ -32,7 +32,7 @@ The 60th Bernoulli number:
 
 See also: bernoulliSequence
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

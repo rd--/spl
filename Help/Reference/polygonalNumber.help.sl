@@ -60,7 +60,7 @@ Plot:
 
 See also: ^, binomial
 
-Guides: Integer Sequences
+Guides: Combinatorial Functions, Integer Sequences
 
 References:
 _Mathematica_

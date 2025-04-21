@@ -2,9 +2,9 @@
 
 - _sincNormalized(z)_
 
-The normalized `sinc` function.
+The normalized sinc function.
 
-_sincNormalized(z)_ is equivalent to _sinc(z * π)_,
+_sincNormalized(z)_ is equivalent to _sincHistorical(z * π)_,
 which is equivalent to _sin(z * π) / (z * π)_,
 except at zero where it is one.
 
@@ -12,7 +12,7 @@ except at zero where it is one.
 >>> 0.5.sincNormalized
 (2 / 1.pi)
 
->>> 1/2.pi.sinc
+>>> 1/2.pi.sincHistorical
 (2 / 1.pi)
 ```
 
@@ -57,7 +57,7 @@ let y = (tsM - tM).sincNormalized.dot(x);
 
 * * *
 
-See also: sin, sinc
+See also: sin, sincHistorical
 
 References:
 _Mathematica_

@@ -58,8 +58,10 @@ The distribution of Gaussian composite numbers:
 
 See also: isGaussianPrime, isPrime
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
-[2](https://reference.wolfram.com/language/ref/CompositeQ.html),
+[1](https://reference.wolfram.com/language/ref/CompositeQ.html),
 
 Categories: Arithmetic

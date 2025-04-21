@@ -50,7 +50,7 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_
 
 See also: Complex, randomInteger, randomLargeInteger, RandomNumberGenerator, randomReal, seedRandom
 
-Guides: Random Number Generators
+Guides: Random Functions
 
 References:
 _Mathematica_

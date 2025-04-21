@@ -29,6 +29,8 @@ Compute the quotient and remainder of two numbers:
 
 See also: //, \\, quotient, remainder
 
+Guides: Integer Functions
+
 References:
 _Haskell_:
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:quotRem),

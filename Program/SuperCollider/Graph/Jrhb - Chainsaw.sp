@@ -1,14 +1,14 @@
 /* Chainsaw (jrhb) */
 let f = { :saw |
 	let rate = ExpRand(0.1, 2) # 2;
-	let freq1 = 0.6.coin.if {
+	let freq1 = system.coin(0.6).if {
 		LfNoise1(rate).ExpRange(0.01, 10)
 	} {
 		LfNoise1(rate).ExpRange(10, 50)
 	};
 	let freq2 = saw.ExpRange(freq1, freq1 * LfNoise1(rate).ExpRange(2, 10));
 	let u1 = LfSaw(freq2, 0);
-	let u2 = 0.5.coin.if {
+	let u2 = system.coin(0.5).if {
 		u1 * [1 - saw, saw.reversed].atRandom
 	} {
 		u1 * (LfSaw(freq1 * 0.1, 0) * 0.1 + 1)

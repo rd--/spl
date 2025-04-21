@@ -640,7 +640,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.sin(_self)>
 	}
 
-	sinc { :self |
+	sincHistorical { :self |
 		self.isZero.if {
 			1
 		} {
@@ -649,7 +649,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	sincNormalized { :self |
-		self.pi.sinc
+		self.pi.sincHistorical
 	}
 
 	sinh { :self |

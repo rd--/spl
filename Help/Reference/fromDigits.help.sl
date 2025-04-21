@@ -52,7 +52,7 @@ c.f. OEIS [A019518](https://oeis.org/A019518):
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize
 
-Guides: Bitwise Functions, Integer Sequences
+Guides: Bitwise Functions, Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

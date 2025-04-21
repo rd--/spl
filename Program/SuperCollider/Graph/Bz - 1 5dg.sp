@@ -15,7 +15,7 @@ let ctl = (
 	tmVel: 70,
 	wdVel: 100
 ).localControls;
-let rGen = { :k :l :r | { system.exponentialDistribution(l, r) } ! k };
+let rGen = { :k :l :r | { system.expRand(l, r) } ! k };
 let master = (LfSaw(ctl::speed, 1.pi) * 0.5 + 0.5).LinCurve(0, 1, 0, 1, ctl::swing);
 let trig = (master % (1 / ctl::div)) * ctl::div;
 let kdEnv = (((trig[1].negated + 1).LinCurve(0, 1, 0, 1, ctl::kdDcy).cubed * 2) + 1).Lag(0.001);

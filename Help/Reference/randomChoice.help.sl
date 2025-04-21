@@ -8,7 +8,7 @@ A list of twenty random choices:
 
 ```
 >>> let r = Sfc32(10841);
->>> [1 2 3].randomChoice(r, 20)
+>>> [1 2 3].randomChoice(r, [20])
 [
 	2 3 3 2 3 1 3 3 1 2
 	3 1 1 1 3 1 3 3 2 1
@@ -233,6 +233,8 @@ let r = Sfc32(131939);
 * * *
 
 See also: anyOne, atRandom, randomInteger, RandomNumberGenerator, randomSample, randomWeightedChoice
+
+Guides: Random Functions
 
 References:
 _Julia_

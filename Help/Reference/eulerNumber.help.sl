@@ -33,7 +33,7 @@ The first ten non-zero Euler numbers:
 
 See also: bernoulli
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

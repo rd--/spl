@@ -1,12 +1,14 @@
 # shuffled
 
-- _shuffled(aSequence, aRandom)_
+- _shuffled(l, r)_
 
-Answer a copy of _aSequence_, randomly shuffled using the Fisher-Yates algorithm.
+Answer a copy of a sequence _l_,
+randomly shuffled using the Fisher-Yates algorithm.
 
 ```
+>>> let r = Sfc32(36814);
 >>> let l = [1 .. 9];
->>> (l.shuffled(Sfc32(36814)), l)
+>>> (l.shuffled(r), l)
 ([1 9 3 2 6 8 7 4 5], [1 .. 9])
 ```
 
@@ -17,5 +19,7 @@ See `sattoloShuffle` for a variant algorithm generating only single cycle permut
 * * *
 
 See also: fisherYatesShuffle, randomPermutation, sattoloShuffle, shuffle
+
+Guides: Random Functions
 
 Categories: Rearranging, Copying

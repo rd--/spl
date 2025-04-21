@@ -61,6 +61,8 @@ Ball([0 0 0], 1)
 
 See also: circlePoints, randomVariate, spherePoints, spherePointsFibonacci
 
+Guides: Random Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SpherePointPicking.html)

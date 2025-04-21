@@ -36,6 +36,8 @@ Absolute correlation between vectors of complexes:
 
 See also: absoluteCorrelationFunction, covariance, correlation, moment, standardize
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AbsoluteCorrelation.html)

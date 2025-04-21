@@ -32,24 +32,11 @@
 
 ## Bitwise Functions
 
-- `Bitwise Functions`
+- `Bitwise Functions`: Guide
 
 ## Combinatorial Functions
 
-- `binomial`: binomial coefficients
-- `catalanNumber`: Catalan numbers
-- `deBruijnSequence`: de Bruijn sequence
-- `doubleFactorial`: double factorial
-- `factorialPower`: factorial power
-- `factorial`: factorial function (total arrangements of n objects)
-- `hyperfactorial`: hyperfactorial function
-- `multinomial`: multinomial coefficients
-- `partitionFunctionP`: unrestricted partitions
-- `partitionFunctionQ`: restricted partitions
-- `partitionsP`: unrestricted partition count
-- `partitionsQ`: restricted partition count
-- `polygonalNumber`: triangular and other polygonal numbers
-- `subfactorial`: number of derangements of  objects, leaving none unchanged
+- `Combinatorial Functions`: Guide
 
 ## Comparison Functions
 
@@ -178,20 +165,9 @@
 - `minkowskiQuestionMarkInverse`: inverse Minkowski ? function
 - `weierstrassFunction`: Weierstrass function
 
-## Integer Decompositions
+## Integer Functions
 
-- `divisors`: list of integer divisors
-- `factorInteger`: list of prime factors
-- `fareySequence`: the Farey sequence
-- `integerDigits`: list of the digits in integer
-
-## Integer Partitions
-
-- `integerPartitions`: find partitions of integers
-- `partitionFunctionP`: unrestricted partitions
-- `partitionFunctionQ`: restricted partitions
-- `partitionsP`: count unrestricted partitions
-- `partitionsQ`: count restricted partitions
+- `Integer Functions`: Guide
 
 ## Interpolation Functions
 
@@ -215,59 +191,14 @@
 - `round`: round to nearest integer
 - `sign`: sign of
 
-## Order Statistics
-
-- `max`: maximun
-- `minMax`: minimum and maximun
-- `min`: minimum
-- `ordering`: grade
-- `quantile`: quantile estimate
-- `quartiles`: quartile estimate
-- `sort`: sort
-
 ## One-Dimensional Lists
 
 - `Range`: range of values in equal steps
 - `subdivide`: list of values from equal subdivisions
 
-## Permutations
+## Permutations Functions
 
-- `lexicographicPermutations`: permutations in lexicographic sequence
-- `minimumChangePermutations`: permutations in minimum change sequence (Heap’s algorithm)
-- `permutations`: permutations
-- `plainChanges`: permutations in plain changes sequence (Steinhaus-Johnson-Trotter)
-
-## Permutations - Lists
-
-- `ordering`: inverse of a permutation list
-- `randomSample`: random generation of permutation lists
-
-## Permutations - Operations
-
-- `findPermutation`: permutation linking two expressions
-- `inversePermutation`: inverse of permutation
-- `permutationPower`: _n_-th power of permutation
-- `permutationProduct`: product of permutations
-- `permutationReplace`: standard action of a permutation on other objects
-- `permutations`: all permutations of arguments of an expression
-- `permute`: permute arguments of an expression
-
-## Permutations - Properties
-
-- `permutationLength`: number of integers moved by permutation
-- `permutationMax`: largest integer moved by permutation
-- `permutationMin`: smallest integer moved by permutation
-- `permutationOrder`: order of a permutation
-- `permutationSupport`: integers that are not fixed by permutation
-
-## Permutations - Representation
-
-- `cycles`: cyclic permutation representation
-- `isPermutationCycles`: test validity
-- `isPermutationList`: test validity
-- `permutationCycles`: convert to cyclic representation
-- `permutationList`: convert to permutation list representation
-- `randomPermutation`: random generation of permutations
+- `Permutations Functions`: Guide
 
 ## Piecewise Functions
 
@@ -346,49 +277,51 @@
 
 ## Statistics Functions
 
-- `centralMoment`: order r central moment
-- `moment`: order r moment
-- `rootMeanSquare`: root mean square
+Guide:
 
-## Statistics Functions - Dispersion
+- `Statistics Functions`
 
-- `interquartileRange`: difference between the upper and lower quartiles
-- `meanDeviation`: mean absolute deviation
-- `standardDeviation`: standard deviation
-- `variance`: unbiased estimate of variance
+General:
 
-## Statistics Functions - Location
+- `moment`, `centralMoment`
+- `rootMeanSquare`
 
-- `commonest`: most common items
-- `contraharmonicMean`: contraharmonic mean
-- `geometricMean`: geometric mean
-- `harmonicMean`: harmonic mean
-- `mean`: mean of collection
-- `median`: median of sequence
+Dispersion:
 
-## Statistics Functions - Shape
+- `meanDeviation`, `standardDeviation`
+- `interquartileRange`, `variance`
 
-- `kurtosis`: coefficient of kurtosis
-- `skewness`: coefficient of skewness
+Location:
+
+- `mean`, `median`
+- `arithmeticMean`, `geometricMean`
+- `harmonicMean`, `contraharmonicMean`
+- `commonest`
+
+Order:
+
+- `min`, `max`, `minMax`
+- `rankedMin`, `rankedMax`
+- `quantile`, `quartiles`
+- `ordering`, `sort`
+
+Shape:
+
+- `kurtosis`, `skewness`
 
 ## Trigonometric Functions
 
-- `arcCos`: arc cosine
-- `arcSin`: arc sine
-- `arcTan`: arc tangent
-- `cos`: cosine
-- `sin`: sine
-- `sinc`: sinc
-- `tan`: tangent
+Guide:
 
-## Trigonometric Functions - Hyperbolic
+- `Trigonometric Functions`
 
-- `arcCosh`: arc hyperbolic cosine
-- `arcSinh`: arc hyperbolic sine
-- `arcTanh`: arc hyperbolic tangent
-- `cosh`: hyperbolic cosine
-- `sinh`: hyperbolic sine
-- `tanh`: hyperbolic tangent
+Function List:
+
+- `cos`, `sin`, `tan`
+- `cosh`, `sinh`, `tanh`
+- `arcCos`, `arcSin`, `arcTan`
+- `arcCosh`, `arcSinh`, `arcTanh`
+- `sincHistorical`, `sincNormalized`
 
 ## Type Predicates
 
@@ -417,8 +350,8 @@
 
 ## Window Functions
 
-- `Window Functions`
+- `Window Functions`: Guide
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Statistics Functions, Trigonometric Functions, Window Functions

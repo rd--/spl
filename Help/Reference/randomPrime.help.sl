@@ -27,7 +27,11 @@ If no prime exists in the specified range, an error is raised:
 true
 ```
 
+* * *
+
 See also: isPrime, nextPrime, randomInteger
+
+Guides: Random Functions
 
 References:
 _Mathematica_

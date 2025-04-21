@@ -24,4 +24,6 @@ Implements the round robin algorithm of Böcker and Lipták.
 
 See also: frobeniusNumber, frobeniusSolve
 
+Guides: Combinatorial Functions
+
 Further Reading: Böcker and Lipták 2004

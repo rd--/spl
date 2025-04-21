@@ -117,6 +117,8 @@ Decompose an amount of Bahamian dollars in the available banknote denominations:
 
 See also: numberCompose, quotientRemainder, integerPartitions, integerDigits, mixedRadixEncode
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NumberDecompose.html)

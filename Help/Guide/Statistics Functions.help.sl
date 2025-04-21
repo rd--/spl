@@ -2,6 +2,7 @@
 
 Location Statistics:
 
+- `arithmeticMean`
 - `centralFeature`
 - `commonest`
 - `contraharmonicMean`
@@ -66,3 +67,7 @@ Features of Distributions:
 Visualization:
 
 - `histogramPlot`
+
+* * *
+
+Guides: Mathematical Functions

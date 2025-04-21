@@ -64,6 +64,8 @@ Plot the number of unrestricted partitions:
 
 See also: integerPartitions, partitionFunctionQ, partitionsP
 
+Guides: Combinatorial Functions, Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionP.html)

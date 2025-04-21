@@ -6,7 +6,7 @@
 
 Sinc:
 
-- `sinc`: historical sinc
+- `sincHistorical`: historical sinc
 - `sincNormalized`: normalized sinc
 
 Reciprocal:

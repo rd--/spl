@@ -174,6 +174,8 @@ Plot primes up to one-thousand:
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, millerRabinPrimalityTest, nextPrime, nthPrime, primesList
 
+Guides: Integer Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),

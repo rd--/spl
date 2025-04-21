@@ -1,8 +1,8 @@
 # nextRandomInteger
 
-- _nextRandomInteger(aRandomNumberGenerator, min, max)_
+- _nextRandomInteger(r, min, max)_
 
-Answer the next random integer at _aRandomNumberGenerator_.
+Answer the next random integer at the random number generator _r_.
 The answer will be between _min_ (inclusive) and _max_ (inclusive).
 
 ```

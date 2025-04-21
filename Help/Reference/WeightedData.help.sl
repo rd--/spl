@@ -57,6 +57,8 @@ Weight uniformly distributed values using the normal probability density functio
 
 See also: List, mean, standardDeviation, variance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WeightedData.html),

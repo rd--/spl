@@ -64,6 +64,8 @@ Extract parts of a list cyclically:
 
 See also: %, /, //, \\, quotient, remainder
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Mod.html),

@@ -50,6 +50,8 @@ Note that `median` sorts the input sequence:
 
 See also: asSortedList, isEven, isOdd, mean, middle
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Median.html)

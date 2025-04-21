@@ -29,6 +29,8 @@ Find the _mode_ for the heights of the children in a class:
 
 See also: Bag, counts, mean, median, sortedElements
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mode.html)

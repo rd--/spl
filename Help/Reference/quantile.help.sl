@@ -116,7 +116,7 @@ Ranked minimum:
 
 See also: median, quartiles, variance, sort
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Statistics Functions
 
 References:
 _Mathematica_

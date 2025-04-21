@@ -22,6 +22,8 @@ First moment of three-vector:
 
 See also: centralMoment, mean
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Moment.html),

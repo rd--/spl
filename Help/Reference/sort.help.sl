@@ -59,6 +59,8 @@ Sort subsets lexicographically:
 
 See also: isSorted, mergeSort, ordering, sortBy, sorted, sortOn, sortOnBy
 
+Guides: Sort Functions, Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Sort.html)

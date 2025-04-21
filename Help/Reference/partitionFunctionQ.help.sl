@@ -50,6 +50,8 @@ The following table gives the first few values of _Q(n,k)_:
 
 See also: integerPartitions, partitionFunctionP, partitionsQ
 
+Guides: Combinatorial Functions, Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionQ.html)

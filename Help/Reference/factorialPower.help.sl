@@ -33,6 +33,8 @@ Plot over a subset of the reals:
 
 See also: ^, factorial, binomial, sum
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FallingFactorial.html)

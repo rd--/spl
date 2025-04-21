@@ -33,7 +33,7 @@ Splay(
 ) * Line(0, 1, 20)
 
 /* ChaosGen writes melodies ; https://github.com/lukiss/Losers-Union-SC-Research ; https://sonomu.club/@lukiss/110751954599483552 */
-let p = 0.5.coin.if {
+let p = system.coin(0.5).if {
 	GbmanN([8 4 6 2], 1.2, 2.1).LinLin(-1, 1, 8, 32).Ceiling
 } {
 	StandardN([8 4 6 2], 1, 0.5, 0).LinLin(-1, 1, 12, 48).Ceiling

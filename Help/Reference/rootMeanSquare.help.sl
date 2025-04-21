@@ -61,6 +61,8 @@ Find the root mean square value for the heights of children in a class:
 
 See also: mean, norm, standardDeviation, variance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Root-Mean-Square.html)

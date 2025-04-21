@@ -83,6 +83,8 @@ At `List` of `Character`:
 
 See also: max, min, sort, sortBy
 
+Guides: Permutation Functions, Statistics Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Grade),

@@ -126,6 +126,8 @@ Where supported `isCoprime` is displayed as ⟂.
 
 See also: %, eulerPhi, factorInteger, gcd, isPrime
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RelativelyPrime.html)

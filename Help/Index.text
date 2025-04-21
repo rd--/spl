@@ -115,6 +115,7 @@ Guide/Operator Precedence.help.sl
 Guide/Operator Syntax.help.sl
 Guide/Parts of Speech.help.sl
 Guide/Patterns and Streams.help.sl
+Guide/Permutation Functions.help.sl
 Guide/Perspective Drawings.help.sl
 Guide/Pitch Functions.help.sl
 Guide/Plotting Functions.help.sl
@@ -131,6 +132,7 @@ Guide/Quoted AtPut Syntax.help.sl
 Guide/Quoted At Syntax.help.sl
 Guide/Quoted Indexable Syntax.help.sl
 Guide/Radix Syntax.help.sl
+Guide/Random Functions.help.sl
 Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
@@ -168,6 +170,7 @@ Guide/Texture Programs.help.sl
 Guide/Trailing Block Syntax.help.sl
 Guide/Trailing Dictionary Syntax.help.sl
 Guide/Tree Functions.help.sl
+Guide/Trigonometric Functions.help.sl
 Guide/Tuning Functions.help.sl
 Guide/Tuple Syntax.help.sl
 Guide/Type Definition Syntax.help.sl
@@ -1011,6 +1014,7 @@ Reference/exp.help.sl
 Reference/Exp.help.sl
 Reference/ExponentialDistribution.help.sl
 Reference/exponentialMovingAverage.help.sl
+Reference/expRand.help.sl
 Reference/ExpRand.help.sl
 Reference/ExpRandRange.help.sl
 Reference/expressionTree.help.sl
@@ -1371,6 +1375,7 @@ Reference/inverseErfc.help.sl
 Reference/inverseErf.help.sl
 Reference/InverseGaussianDistribution.help.sl
 Reference/inverseGudermannian.help.sl
+Reference/inverseHaversine.help.sl
 Reference/inverse.help.sl
 Reference/inversePermutation.help.sl
 Reference/inverseSurvivalFunction.help.sl
@@ -2524,7 +2529,7 @@ Reference/simpleLinearRegression.help.sl
 Reference/Simplex.help.sl
 Reference/simplified.help.sl
 Reference/simplify.help.sl
-Reference/sinc.help.sl
+Reference/sincHistorical.help.sl
 Reference/sincNormalized.help.sl
 Reference/sineFill.help.sl
 Reference/sineTable.help.sl

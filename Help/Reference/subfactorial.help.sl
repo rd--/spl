@@ -32,6 +32,8 @@ Plot the values on a log scale over a subset of the reals:
 
 See also: doubleFactorial, factorial
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Subfactorial.html)

@@ -27,7 +27,7 @@ Plot over a subset of the integers:
 
 See also: harmonicMean
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

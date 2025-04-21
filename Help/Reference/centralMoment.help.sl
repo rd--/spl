@@ -39,6 +39,8 @@ Third-order central moment:
 
 See also: kurtosis, moment, skewness, variance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CentralMoment.html),

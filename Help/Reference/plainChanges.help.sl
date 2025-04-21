@@ -49,6 +49,8 @@ Show sequence of swaps, and since swaps are always adjacent show only first plac
 
 See also: lexicographicPermutations, minimumChangePermutations, permutations, plainChangesDo
 
+Guides: Permutation Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Steinhaus%E2%80%93Johnson%E2%80%93Trotter_algorithm)

@@ -74,3 +74,5 @@ let n = 37;
 * * *
 
 See also: partitionFunctionP, partitionsQ
+
+Guides: Combinatorial Functions, Integer Functions

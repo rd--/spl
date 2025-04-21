@@ -41,6 +41,8 @@ The arithmetic mean of 9/8 and 10/9 is 161/144:
 
 See also: geometricMean, median, size, sum
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mean.html)

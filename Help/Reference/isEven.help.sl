@@ -28,6 +28,8 @@ false
 
 See also: divisible, isInteger, isOdd
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/EvenQ.html),

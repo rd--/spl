@@ -17,7 +17,7 @@ The first 10 Catalan numbers:
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, lassalleNumber, superCatalanNumber
 
-Guides: Integer Sequences
+Guides: Combinatorial Functions, Integer Sequences
 
 References:
 _Mathematica_

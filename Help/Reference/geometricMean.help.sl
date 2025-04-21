@@ -96,6 +96,8 @@ Compute the geometric and arithmetic means of the columns of a matrix:
 
 See also: arithmeticMean, harmonicMean, mean, median
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GeometricMean.html)

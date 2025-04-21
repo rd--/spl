@@ -405,8 +405,8 @@
 		self.collect(sin:/1)
 	}
 
-	sinc { :self |
-		self.collect(sinc:/1)
+	sincHistorical { :self |
+		self.collect(sincHistorical:/1)
 	}
 
 	sincNormalized { :self |

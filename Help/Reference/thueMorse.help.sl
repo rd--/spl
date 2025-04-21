@@ -56,6 +56,8 @@ Threads over lists:
 
 See also: digitCount, integerDigits, thueMorseSequence
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Thue-MorseSequence.html)

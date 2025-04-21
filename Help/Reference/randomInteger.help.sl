@@ -44,6 +44,8 @@ A 3×4 matrix of random integers:
 
 See also: atRandom, randomByteArray, randomLargeInteger, RandomNumberGenerator, randomReal, randomSample
 
+Guides: Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomInteger.html)

@@ -33,6 +33,8 @@ Compute results using other parametrizations:
 
 See also: quantile
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Quartile.html)

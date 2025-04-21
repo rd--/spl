@@ -41,6 +41,8 @@ Compute results using other parametrizations:
 
 See also: quartiles
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InterquartileRange.html)

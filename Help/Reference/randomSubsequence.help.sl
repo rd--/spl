@@ -17,6 +17,8 @@ The binary form uses the system wide random number generator.
 
 See also: randomChoice, randomCycle, randomPermutation, randomSample
 
+Guides: Random Functions
+
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randsubseq),

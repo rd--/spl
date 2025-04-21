@@ -75,6 +75,8 @@ Extreme values have a large influence on the Mean:
 
 See also: distanceMatrix, mean, median, trimmedMean, spatialMedian, winsorizedMean
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CentralFeature.html)

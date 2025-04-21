@@ -26,6 +26,8 @@ At `LargeInteger`:
 
 See also: atRandom, randomByteArray, randomInteger, randomReal, randomSample
 
+Guides: Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomInteger.html)

@@ -89,6 +89,8 @@ let m = r.randomReal([-1 1], [100 100]);
 
 See also: centralMoment, correlation, variance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Covariance.html)

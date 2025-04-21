@@ -16,6 +16,8 @@ The sum of the squares of _aCollection_ divided by the sum of _aCollection_.
 
 See also: harmonicMean, mean, median
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ContraharmonicMean.html)

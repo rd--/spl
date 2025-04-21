@@ -64,4 +64,6 @@ let n = 47;
 
 See also: partitionFunctionQ, partitionsP
 
-Guides: Mathematical Functions
+Guides: Combinatorial Functions, Integer Functions
+
+Categories: Combinatorics, Math

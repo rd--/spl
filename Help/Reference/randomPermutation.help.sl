@@ -21,6 +21,8 @@ A random permutation in the symmetric group _S10_:
 
 See also: cycles, fisherYatesShuffle, randomCycle, randomPermutationList, randomSample, shuffle, shuffled
 
+Guides: Random Functions
+
 References:
 _Julia_
 [1](https://docs.julialang.org/en/v1/stdlib/Random/#Random.randperm),

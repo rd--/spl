@@ -1,6 +1,6 @@
 # Tuning Functions
 
-_Accessing_:
+Accessing:
 
 - `asCents`: intervals in cents
 - `asFractions`: intervals as fractions
@@ -11,7 +11,7 @@ _Accessing_:
 - `limit`: prime limit
 - `octave`: octave ratio
 
-_Alterations_:
+Alterations:
 
 - `cancelFlat`: cancel flat
 - `cancelSharp`: cancel sharp
@@ -20,7 +20,7 @@ _Alterations_:
 - `quarterToneFlat`: lower quarter-tone
 - `quarterToneSharp`: raise quarter-tone
 
-_Constants_:
+Constants:
 
 - `goldenAngle`: ~137.5°
 - `goldenRatio`: (√5 + 1) / 2
@@ -38,7 +38,7 @@ _Constants_:
 - `supersilverRatio`: ~75/34
 - `syntonicComma`: 81/80
 
-_Converting_:
+Converting:
 
 - `asFraction`: as fraction
 - `asCentsTuning`: as cents tuning
@@ -47,7 +47,7 @@ _Converting_:
 - `degreeToKey`: degree to key
 - `ratioToCents`: ratio to cents
 
-_Fraction Functions_:
+Fraction Functions:
 
 - `continuedFraction`: continued fraction
 - `convergents`: convergents
@@ -57,17 +57,17 @@ _Fraction Functions_:
 - `semiconvergents`: semiconvergents
 - `rationalize`: approximate fraction
 
-_Instance Creation_:
+Instance Creation:
 
 - `equalTemperamentTuning`: edo
 - `namedTuning`: archive lookup
 
-_Interval Functions_:
+Interval Functions:
 
 - `intervalName`: interval name
 - `namedInterval`: interval lookup
 
-_Interval complexity measures_:
+Interval Complexity Measures:
 
 - `benedettiHeight`: Benedetti height
 - `keesSemiHeight`: Kees semi-height
@@ -75,7 +75,7 @@ _Interval complexity measures_:
 - `weilHeight`: Weil height
 - `wilsonHeight`: Wilson height
 
-_Lattice Functions_:
+Lattice Functions:
 
 - `latticeDrawing`: drawing
 - `latticeEdges`: edges
@@ -87,13 +87,13 @@ _Lattice Functions_:
 - `manhattanDistance`: distance metric
 - `wilsonLatticeCoordinates`: unit vector
 
-_Library Items_:
+Library Items:
 
 - `categorizedTuningArchive`: archive
 - `scalaRationalTuningArchive`: archive
 - `scalaTuningArchive`: tuning archive
 
-_Metric Functions_:
+Metric Functions:
 
 - `barlowDisharmonicity`: disharmonicity
 - `barlowHarmonicity`: harmonicity
@@ -101,18 +101,18 @@ _Metric Functions_:
 - `barlowIndispensability`: indispensability
 - `kurenniemiMajorMinorIndex`: quality
 
-_Notation Functions_:
+Notation Functions:
 
 - `kurenniemiNotation`: draw chord
 
-_Prime Numbers_:
+Prime Numbers:
 
 - `factorInteger`: primes factors
 - `primeExponents`: primes exponents
 - `primeFactorization`: prime factors
 - `primeFactors`: prime factors
 
-_Scale Functions_:
+Scale Functions:
 
 - `asLineDrawing`: line drawing
 - `asScale`: intervals to scale
@@ -144,7 +144,7 @@ _Scale Functions_:
 - `tuningSize`: scale tuning size
 - `weightedMediant`: mediant
 
-_Testing_:
+Testing:
 
 - `isConstantStructure`: is CS
 - `isPythagorean`: is Pythagorean
@@ -152,10 +152,14 @@ _Testing_:
 - `isSuperparticular`: is superparticular
 - `isTuning`: is tuning
 
-_Types & Traits_:
+Types & Traits:
 
 - `CentsTuning`: cents tuning
 - `RatioTuning`: ratio tuning
 - `ScalaTuning`: Scala tuning
 - `Scale`: scale type
 - `Tuning`: tuning trait
+
+* * *
+
+Guides: Mathematical Functions

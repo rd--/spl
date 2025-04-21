@@ -38,6 +38,6 @@ biased towards `true` values:
 
 See also: atRandom, randomBit, randomComplex, randomInteger, randomReal, seedRandom
 
-Guides: Random Number Generators
+Guides: Random Functions
 
 Categories: Random

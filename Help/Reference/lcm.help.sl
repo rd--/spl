@@ -99,6 +99,8 @@ Plot the least common multiple for a number with 12:
 
 See also: &&, gcd, Gcd, Lcm
 
+Guides: Integer Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/LCM),

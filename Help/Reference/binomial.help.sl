@@ -143,6 +143,8 @@ Plot over a subset of the reals as a function of its second parameter:
 
 See also: factorial, multinomial
 
+Guides: Combinatorial Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Binomial),

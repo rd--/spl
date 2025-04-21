@@ -104,6 +104,8 @@ At `Symbol`:
 
 See also: deepMin, floor, max, minBy
 
+Guides: Statistics Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Minimum),

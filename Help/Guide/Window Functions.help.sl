@@ -1,8 +1,9 @@
 # Window Functions
 
-> An apodization function (also called a tapering function or window
-> function) is a function used to smoothly bring a sampled signal down
-> to zero at the edges of the sampled region.
+A window function,
+also called an apodization function or tapering function,
+is a function used to smoothly bring a sampled signal down
+to zero at the edges of the sampled region.
 
 - `bartlettWindow`: Bartlett
 - `bartlettHannWindow`: Bartlett-Hann

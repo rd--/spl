@@ -69,6 +69,8 @@ Correlation between an identity matrix and itself:
 
 See also: centralMoment, covariance, variance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Correlation.html)

@@ -1,10 +1,10 @@
 system.splFileName('Program/SuperCollider/Graph').terseProgramSummary(isOutputSignal:/1)
 
-=> 391
+=> 403
 
 system.splFileName('Program/SuperCollider/Graph Collection').terseProgramSummary(isOutputSignal:/1)
 
-=> 351
+=> 352
 
 system.splFileName('Program/SuperCollider/Ugen').terseProgramSummary(isOutputSignal:/1)
 

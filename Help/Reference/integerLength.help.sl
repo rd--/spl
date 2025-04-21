@@ -69,6 +69,8 @@ Plot for base 10 for factorials, minus pre-factorial value:
 
 See also: bitLength, digitCount, integerDigits, log, log2, log10, integerExponent, numberOfDigitsInBase
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IntegerLength.html)

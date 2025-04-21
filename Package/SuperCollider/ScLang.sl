@@ -69,10 +69,6 @@
 		self.log10 * 20
 	}
 
-	coin { :self |
-		system.nextRandomFloat < self
-	}
-
 	CentsRatio { :self |
 		(self / 100).MidiRatio
 	}
@@ -142,13 +138,6 @@
 				(self / inMin).log / (inMax / inMin).log * (outMax - outMin) + outMin
 			}
 		}
-	}
-
-	expRand { :self :upperBound |
-		system.randomReal(
-			[1, self.linExpFromTo(upperBound)],
-			[]
-		)
 	}
 
 	foldOnce { :self :lo :hi |
@@ -767,6 +756,19 @@
 
 	ascii { :self |
 		self.asciiByteArray.asList
+	}
+
+}
+
++@RandomNumberGenerator {
+
+	coin { :self :p |
+		self.nextRandomFloat < p
+	}
+
+	expRand { :self :a :b |
+		let u = self.nextRandomFloat;
+		a * ((b / a).log * u).exp
 	}
 
 }

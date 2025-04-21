@@ -92,6 +92,8 @@ The twenty-one solutions of the Frobenius equation _5x + 8y + 9z + 12t = 67_:
 
 See also: bockerLiptakAlgorithm, extendedGcd, frobeniusNumber, numberDecompose
 
+Guides: Combinatorial Functions, Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FrobeniusEquation.html)

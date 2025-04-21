@@ -90,6 +90,8 @@ See also `deepMax`:
 
 See also: ceiling, deepMax, maxBy, min
 
+Guides: Statistics Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Maximum),
@@ -108,4 +110,4 @@ _Python_
 _Smalltalk_
 5.6.1.6
 
-Categories: Testing
+Categories: Statistics, Testing

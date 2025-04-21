@@ -23,7 +23,7 @@ let revTime = 3; /* Global decay, time in seconds */
 let revBalance = 0.5; /* Dry/wet balance, ratio */
 let tapScale = revBalance / tapData.size; /* Tap amplitude scaling factor */
 let combScale = revBalance / combData.size; /* Comb amplitude scaling factor */
-let input = 0.5.coin.if { /* Audio input signal */
+let input = system.coin(0.5).if { /* Audio input signal */
 	Impulse(0.2, 2)
 } {
 	Decay2(Impulse(0.2, 2), 0.001, 0.2) * PinkNoise()

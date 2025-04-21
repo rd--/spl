@@ -75,6 +75,8 @@ let b = q.randomVariate(r, [1000]);
 
 See also: binLists, histogramList
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BinCounts.html),

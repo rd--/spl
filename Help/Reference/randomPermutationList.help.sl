@@ -27,4 +27,6 @@ Two random permutation in the symmetric group _S10_:
 
 See also: cycles, randomPermutation, randomSample
 
+Guides: Random Functions
+
 Categories: Permutations

@@ -3,7 +3,7 @@
 - _randomByteArray(r, n)_
 
 Answer a `ByteArray` of _n_ places,
-each randomly initialized using the `RandomNumberGenerator` _r_.
+each randomly initialized using the random number generator _r_.
 
 ```
 >>> let r = Sfc32(37941);
@@ -28,6 +28,6 @@ each randomly initialized using the `RandomNumberGenerator` _r_.
 
 See also: randomInteger, randomLargeInteger, randomReal
 
-Guides: Random Number Generators
+Guides: Random Functions, Random Number Generators
 
 Categories: Random

@@ -57,6 +57,8 @@ system.seedRandom(297142);
 
 See also: anyOne, randomChoice, randomInteger, randomReal, randomSample, randomVariate, randomWeightedChoice
 
+Guides: Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomChoice.html)

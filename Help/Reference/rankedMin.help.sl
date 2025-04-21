@@ -77,6 +77,8 @@ Plot the second-largest function over a subset of the reals:
 
 See also: quantile, rankedMax, sort
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RankedMin.html)

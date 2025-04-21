@@ -84,6 +84,8 @@ Plot the sequence of quotients:
 
 See also: //, quotientBy, remainder
 
+Guides: Integer Functions
+
 References:
 _Haskell_:
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:quot)

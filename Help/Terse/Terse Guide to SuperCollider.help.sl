@@ -10,13 +10,17 @@
 
 ## Number -- extensions
 ```
-1/3.coin.isBoolean /* probability may be a fraction */
-let c = 0.5.coin.if { 't' } { 'f' }; c = 't' | { c = 'f' }
 0:14.collect { :each | each.degreeToKey([0, 2, 4, 5, 7, 9, 11], 12) } = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24]
 -3:13.collect { :each | each.foldOnce(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
 -3:13.collect { :each | each.fold(1, 9) } = [5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 7, 8, 9, 8, 7, 6, 5]
 -3:13.collect { :each | each.foldOnce(4, 7) } = [11, 10, 9, 8, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 3, 2, 1]
 -3:13.collect { :each | each.fold(4, 7) } = [5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7, 6, 5, 4, 5, 6, 7]
+```
+
+## RandomNumberGenerator -- extensions
+```
+let c = system.coin(0.5).if { 't' } { 'f' }; c = 't' | { c = 'f' }
+system.coin(1/3).isBoolean /* probability may be a fraction */
 ```
 
 ## Sequence -- extensions

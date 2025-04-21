@@ -72,6 +72,8 @@ Guarantee that a set of random integers over a large range has no repetitions:
 
 See also: atRandom
 
+Guides: Permutation Functions, Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomSample.html)

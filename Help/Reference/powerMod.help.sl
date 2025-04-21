@@ -66,6 +66,8 @@ let n = 22.nthPrime;
 
 See also: ^, %
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PowerMod.html)

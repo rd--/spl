@@ -50,7 +50,7 @@ Plot over a subset of the reals:
 
 See also: fibonacci, lucasNumbers
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

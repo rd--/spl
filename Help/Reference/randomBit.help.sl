@@ -57,6 +57,6 @@ Sfc32(701459)
 
 See also: atRandom, randomBoolean, randomComplex, randomInteger, randomReal, seedRandom
 
-Guides: Random Number Generators
+Guides: Random Functions
 
 Categories: Random

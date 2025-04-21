@@ -28,6 +28,8 @@ Answer the hyperfactorial of _anInteger_.
 
 See also: factorial
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Hyperfactorial.html)

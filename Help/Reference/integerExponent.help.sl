@@ -72,7 +72,7 @@ Plot it:
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10
 
-Guides: Bitwise Functions
+Guides: Bitwise Functions, Integer Functions
 
 References:
 _Mathematica_

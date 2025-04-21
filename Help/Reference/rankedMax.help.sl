@@ -46,6 +46,8 @@ The fourth smallest of five numbers:
 
 See also: quantile, rankedMin, sort
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RankedMax.html)

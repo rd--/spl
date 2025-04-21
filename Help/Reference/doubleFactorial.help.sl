@@ -47,7 +47,7 @@ At `LargeInteger`:
 
 See also: factorial, subfactorial
 
-Guides: Integer Sequences
+Guides: Combinatorial Functions, Integer Sequences
 
 References:
 _Mathematica_

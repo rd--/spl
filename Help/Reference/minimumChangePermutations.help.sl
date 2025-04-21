@@ -52,6 +52,8 @@ Show sequence of swaps:
 
 See also: lexicographicPermutations, permutations, plainChanges
 
+Guides: Permutation Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Heap%27s_algorithm)

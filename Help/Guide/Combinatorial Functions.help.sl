@@ -16,13 +16,15 @@ Binomial Functions:
 - `polygonalNumber`
 - `deBruijnSequence`
 
-Partitions:
+Partition Functions:
 
+- `partitionFunctionP`
+- `partitionFunctionQ`
 - `partitionsP`
 - `partitionsQ`
 - `bellNumber`
 
-Frobenius:
+Frobenius Functions:
 
 - `bockerLiptakAlgorithm`
 - `frobeniusNumber`

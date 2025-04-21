@@ -177,6 +177,8 @@ Different algorithms answer the same permutations in different sequences:
 
 See also: !, lexicographicPermutations, minimumChangePermutations, permutationsDo, plainChanges, stope, subfactorial, subsets
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Permutations.html),

@@ -65,4 +65,6 @@ Generate a 3×10 matrix of integers according to a _1 / n_ distribution:
 
 See also: anyOne, atRandom, randomChoice, randomInteger, randomSample
 
+Guides: Random Functions
+
 Categories: Random

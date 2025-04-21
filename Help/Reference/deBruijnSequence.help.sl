@@ -86,6 +86,8 @@ The subsequences of length _n_ in a de Bruijn sequence form all possible _n_-tup
 
 See also: partition, tuples
 
+Guides: Combinatorial Functions, Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/deBruijnSequence.html)

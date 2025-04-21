@@ -60,10 +60,12 @@ At `Interval`:
 
 See also: min, max
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MinMax.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/bounds.html)
 
-Categories: Math
+Categories: Math, Statistics, Testing

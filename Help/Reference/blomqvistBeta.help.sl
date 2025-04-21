@@ -38,6 +38,8 @@ The absolute magnitude of β tends to 1 given strong linear dependence.
 
 See also: correlation
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BlomqvistBeta.html)

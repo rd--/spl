@@ -103,6 +103,8 @@ Plot the gcd for a number with 12:
 
 See also: ||, euclideanAlgorithm, extendedGcd, Gcd, lcm
 
+Guides: Integer Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/GCD),

@@ -1,24 +1,25 @@
-# sinc
+# sincHistorical
 
-- _sinc(z)_
+- _sincHistorical(z)_
 
-The historical unnormalized `sinc` function.
-_sinc(z)_ is equivalent to _sin(z) / z_, except at `zero` where it is `one`.
+The historical unnormalized sinc function.
+_sincHistorical(z)_ is equivalent to _sin(z) / z_,
+except at `zero` where it is `one`.
 
 The argument is given in radians:
 
 ```
->>> 1/2.pi.sinc
+>>> 1/2.pi.sincHistorical
 2 / 1.pi
 
->>> 3.5.sinc
+>>> 3.5.sincHistorical
 -0.10022
 ```
 
-Sinc threads elementwise over lists and matrices:
+Threads elementwise over lists and matrices:
 
 ```
->>> (1.pi / [2 3 4]).sinc
+>>> (1.pi / [2 3 4]).sincHistorical
 [
 	2 / 1.pi,
 	3 * 3.sqrt / 2.pi,
@@ -29,10 +30,10 @@ Sinc threads elementwise over lists and matrices:
 Plot:
 
 ~~~spl svg=A
-(-10, -9.9 .. 10).sinc.linePlot
+(-10, -9.9 .. 10).sincHistorical.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sinc-A.svg)
+![](sw/spl/Help/Image/sincHistorical-A.svg)
 
 Single-slit diffraction pattern for a 4λ slit:
 
@@ -42,22 +43,22 @@ Single-slit diffraction pattern for a 4λ slit:
 		(4.pi * x)
 		/
 		(1 + x.squared).sqrt
-	).sinc.squared
+	).sincHistorical.squared
 }
 ~~~
 
-![](sw/spl/Help/Image/sinc-B.svg)
+![](sw/spl/Help/Image/sincHistorical-B.svg)
 
 The normalilzed sinc function multiplies the input by π (`pi`):
 
 ~~~spl svg=C
 let z = (-10, -9.9 .. 10);
-z.pi.sinc.linePlot
+z.pi.sincHistorical.linePlot
 ~~~
 
-![](sw/spl/Help/Image/sinc-C.svg)
+![](sw/spl/Help/Image/sincHistorical-C.svg)
 
-The unnormalized `sinc` function is also the zeroth spherical Bessel function.
+The unnormalized sinc function is also the zeroth spherical Bessel function.
 
 * * *
 

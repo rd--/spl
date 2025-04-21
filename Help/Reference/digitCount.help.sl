@@ -75,7 +75,7 @@ let b = { :k | k.digitCount(2, 1) };
 
 See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
 
-Guides: Bitwise Functions, Integer Sequences
+Guides: Bitwise Functions, Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

@@ -87,6 +87,8 @@ Mean of a probability distribution:
 
 See also: arithmeticMean, geometricMean, median
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Mean.html)

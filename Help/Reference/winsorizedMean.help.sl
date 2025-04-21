@@ -48,6 +48,8 @@ Extreme values have a large influence on the `mean`:
 
 See also: biweightLocation, mean, meanShiftFilter, median, quantile, trimmedMean, trimmedVariance, winsorizedVariance
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/WinsorizedMean.html),

@@ -72,6 +72,8 @@ Some Frobenius numbers:
 
 See also: bockerLiptakAlgorithm, reduce, integerPartitions
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FrobeniusNumber.html)

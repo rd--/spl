@@ -46,6 +46,14 @@ Digit-Based Substitution System Functions:
 
 - `thueMorse`
 
+Partition Functions:
+
+- `integerPartitions`
+- `partitionFunctionP`
+- `partitionFunctionQ`
+- `partitionsP`
+- `partitionsQ`
+
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Mathematical Functions
+Guides: Bitwise Functions, Combinatorial Functions, Integer Sequences, Mathematical Functions

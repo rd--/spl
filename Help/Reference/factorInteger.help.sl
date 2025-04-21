@@ -182,6 +182,8 @@ Plot the number of distinct prime factors of the first 100 numbers:
 
 See also: ->, Association, divisors, isPrime, primeFactors, primeFactorization, product
 
+Guides: Integer Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),

@@ -128,6 +128,8 @@ Plot the sequence with a fixed modulus:
 
 See also: ^, eulerPhi, extendedEuclideanAlgorithm, isCoprime, mod, powerMod
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ModularInverse.html)

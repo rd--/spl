@@ -209,7 +209,7 @@
 - `sin`, `cos`, `tan`
 - `arcSin`, `arcCos`, `arcTan`
 - `sinh`, `cosh`, `tanh`
-- `sinc`
+- `sincHistorical`, `sincNormalized`
 - `haversine`
 
 ## Enumerating
@@ -783,7 +783,7 @@
 - `degreesToRadians`, `radiansToDegrees`
 - `cos`, `sin`, `tan`
 - `cosh`, `sinh`, `tanh`
-- `sinc`
+- `sincHistorical`, `sincNormalized`
 - `arcCos`, `arcSin`, `arcTan`
 - `arcCosh`, `arcSinh`, `arcTanh`
 - `haversine`

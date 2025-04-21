@@ -1,8 +1,8 @@
 # nextRandomFloat
 
-- _nextRandomFloat(aRandomNumberGenerator, min=0, max=1)_
+- _nextRandomFloat(r, min=0, max=1)_
 
-Answer the next random number at _aRandomNumberGenerator_.
+Answer the next random number at the random number generator _r_.
 The answer will be between _min_ (inclusive) and _max_ (exclusive).
 
 ```

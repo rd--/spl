@@ -99,6 +99,8 @@ The sum of the first few multiples of three or five:
 
 See also: %, divisors, even, gcd, mod, quotient, round
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Divisible.html)

@@ -41,6 +41,8 @@ The number of distinct permutations of a multiset is given by `multinomial`:
 
 See also: lexicographicPermutationsDo, minimumChangePermutations, multinomial, nextPermutationLexicographic, permutations, plainChanges
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Permutations.html)

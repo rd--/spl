@@ -155,6 +155,8 @@ A logarithmic plot of the intervals between consecutive divisors:
 
 See also: divisorSigma, divisorSum, gcd, remainder
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Divisor.html)

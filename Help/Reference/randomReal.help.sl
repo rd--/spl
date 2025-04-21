@@ -81,6 +81,8 @@ Sfc32(814789)
 
 See also: atRandom, nextRandomFloat, RandomNumberGenerator, randomChoice, randomComplex, randomInteger, randomPoint, randomVariate, System
 
+Guides: Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomReal.html)
