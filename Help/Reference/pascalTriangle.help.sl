@@ -19,8 +19,7 @@ The first eleven rows:
 	1 7 21 35 35 21 7 1;
 	1 8 28 56 70 56 28 8 1;
 	1 9 36 84 126 126 84 36 9 1;
-	1 10 45 120 210 252 210 120 45 10 1;
-	1 11 55 165 330 462 462 330 165 55 11 1
+	1 10 45 120 210 252 210 120 45 10 1
 ]
 ```
 
@@ -28,7 +27,7 @@ A `log` scaled scatter plot of the row-order sequence,
 c.f. OEIS [A007318](https://oeis.org/A007318):
 
 ~~~spl svg=A
-20.pascalTriangle
+21.pascalTriangle
 .catenate
 .logScale
 .scatterPlot
@@ -38,12 +37,14 @@ c.f. OEIS [A007318](https://oeis.org/A007318):
 
 * * *
 
-See also: binomial, table
+See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, table, triangularNumber
 
 Guides: Integer Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/x.html),
+[1](https://mathworld.wolfram.com/PascalsTriangle.html),
 _OEIS_
-[1](https://oeis.org/A007318)
+[1](https://oeis.org/A007318),
+_W_
+[1](https://en.wikipedia.org/wiki/Pascal%27s_triangle)

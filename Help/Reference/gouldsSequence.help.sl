@@ -3,6 +3,7 @@
 - _gouldsSequence(k)_
 
 Answer the first _k_ terms of Goulds sequence.
+The sequence counts how many odd numbers are in each row of Pascals triangle.
 
 ```
 >>> 88.gouldsSequence
@@ -31,7 +32,7 @@ Log scatter plot of first few terms:
 
 * * *
 
-See also: binomial, gouldsNumber
+See also: binomial, gouldsNumber, pascalTriangle
 
 Guides: Integer Sequences
 

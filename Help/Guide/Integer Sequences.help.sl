@@ -65,6 +65,7 @@ The following help files include references to integer sequences:
 - `bellNumber`: A000110
 - `bernoulli`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
+- `bernoulliTriangle`: A008949
 - `bitAnd`: A279125
 - `bitReversalPermutation`: A030109
 - `bitXor`: A003188
@@ -105,6 +106,7 @@ The following help files include references to integer sequences:
 - `iterate`: A014707
 - `keplerTree`: A294442 A020651
 - `lassalleNumber`: A180874
+- `leibnizHarmonicTriangle`: A003506
 - `linearRecurrence`: A000931 A000204 A000129 A002203 A001608
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599

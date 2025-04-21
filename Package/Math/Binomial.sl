@@ -44,6 +44,17 @@
 
 +@Integer {
 
+	bernoulliTriangle { :self |
+		let m = self - 1;
+		0:m.collect { :n |
+			0:n.collect { :k |
+				0:k.collect { :p |
+					n.binomial(p)
+				}.sum
+			}
+		}
+	}
+
 	catalanNumber { :self |
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
@@ -95,6 +106,14 @@
 		a[m]
 	}
 
+	leibnizHarmonicTriangle { :self |
+		1:self.collect { :n |
+			1:n.collect { :k |
+				Fraction(1, n.binomial(k) * k)
+			}
+		}
+	}
+
 	lobbNumber { :m :n |
 		m.betweenAnd(0, n).if {
 			((2 * n).binomial(m + n) * (2 * m + 1)) // (m + n + 1)
@@ -116,7 +135,8 @@
 	}
 
 	pascalTriangle { :self |
-		0:self.collect { :n |
+		let m = self - 1;
+		0:m.collect { :n |
 			0:n.collect { :k |
 				n.binomial(k)
 			}
@@ -205,6 +225,16 @@
 		} {
 			n.positiveIntegerBinomial(k)
 		}
+	}
+
+	tetrahedralNumber { :n |
+		1:n.collect { :k |
+			(k * (k + 1)) / 2
+		}.sum
+	}
+
+	triangularNumber { :n |
+		(n + 1).binomial(2)
 	}
 
 }
