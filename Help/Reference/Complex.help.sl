@@ -2,8 +2,14 @@
 
 - _Complex(real, imaginary)_
 
-A `Type` representing a complex number.
-Answer a `Complex` number with the indicated _real_ and _imaginary_ parts.
+A `Type` representing a complex number with the specified `real` and `imaginary` parts.
+
+Answer a `Complex` number:
+
+```
+>>> Complex(1, 5)
+1J5
+```
 
 Threads overs lists and arrays:
 
@@ -199,6 +205,8 @@ _Julia_
 [1](https://docs.julialang.org/en/v1/manual/complex-and-rational-numbers/),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ComplexNumber.html)
-[2](https://reference.wolfram.com/language/ref/Complex.html)
+[2](https://reference.wolfram.com/language/ref/Complex.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Complex_number)
 
 Categories: Math, Numeric, Type

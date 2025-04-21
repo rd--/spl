@@ -58,6 +58,23 @@ For integers, _n.gamma = (n - 1).!_:
 8:12.factorial
 ```
 
+At `Complex`:
+
+```
+>>> 10J0.gamma
+362880
+
+>>> 2.3J1.gamma
+0.719141J0.540614
+```
+
+At `zero`:
+
+```
+>>> [0 0J0].gamma
+[Infinity Infinity]
+```
+
 Plot the Euler gamma function:
 
 ~~~spl svg=A
@@ -78,6 +95,14 @@ Plot γ with _γ + sin_, note intersection at positive integers:
 ~~~
 
 ![](sw/spl/Help/Image/gamma-B.svg)
+
+Plot over a subset of the complexes:
+
+~~~spl png=C
+[-2J-2 2J2].complexPlot(gamma:/1)
+~~~
+
+![](sw/spl/Help/Image/gamma-C.png)
 
 * * *
 

@@ -36,3 +36,7 @@ Kinds Of Functions:
 
 - `Elementwise Functions`
 - `Generic Functions`
+
+* * *
+
+Guides: Guide Index

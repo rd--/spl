@@ -1,5 +1,14 @@
 # Numeric Types
 
+Types:
+
+- `Complex`
+- `Decimal`
+- `Fraction`
+- `LargeInteger`
+- `Residue`
+- `SmallFloat`
+
 The primitive numeric types are `SmallFloat`:
 
 ```
@@ -28,8 +37,22 @@ and `Fraction`:
 true
 ```
 
+and `Decimal`:
+
+```
+>>> 3.14D.isDecimal
+true
+```
+
+and `Residue`:
+
+```
+>>> 5Z12.isResidue
+true
+```
+
 * * *
 
-See also: Binary, Complex, Fraction, Integer, isImmediate, LargeInteger, Number, SmallFloat
+See also: Binary, Complex, Decimal, Fraction, Integer, isImmediate, LargeInteger, Number, Residue, SmallFloat
 
 Guides: Number Literals, Numerical Precision

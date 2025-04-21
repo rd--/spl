@@ -1,4 +1,4 @@
-+@Number {
++SmallFloat {
 
 	beta { :self :aNumber |
 		aNumber.isCollection.if {
@@ -88,16 +88,17 @@
 	}
 
 	gammaLanczosFormula { :self |
-		let sqrtTwoPi = 2.pi.sqrt;
 		let leadingFactor = self.gammaLanczosFormulaLeadingFactor;
 		let series = self.gammaLanczosFormulaSeries;
-		(leadingFactor.exp * series) * sqrtTwoPi / self
+		(leadingFactor.exp * series) * 2.pi.sqrt / self
 	}
 
 	gamma { :self |
-		(self.isInteger & {
-			(self >= 1)
-		}).if {
+		(
+			self.isInteger & {
+				(self >= 1)
+			}
+		).if {
 			(self - 1).factorial
 		} {
 			(self < 0).if {
@@ -282,4 +283,44 @@
 			}
 		}
 	}
+}
+
++Complex {
+
+	gamma { :z |
+		(z.imaginary = 0).if {
+			z.real.gamma
+		} {
+			(z.real < 0.5).if {
+				1.pi / z.pi.sin / (1 - z).gamma
+			} {
+				let n = z - 1;
+				let gammaG = 4.7421875;
+				let gammaP = [
+					0.99999999999999709182,
+					57.156235665862923517,
+					-59.597960355475491248,
+					14.136097974741747174,
+					-0.49191381609762019978,
+					0.33994649984811888699E-4,
+					0.46523628927048575665E-4,
+					-0.98374475304879564677E-4,
+					0.15808870322491248884E-3,
+					-0.21026444172410488319E-3,
+					0.21743961811521264320E-3,
+					-0.16431810653676389022E-3,
+					0.84418223983852743293E-4,
+					-0.26190838401581408670E-4,
+					0.36899182659531622704E-5
+				];
+				let t = n + gammaG + 0.5;
+				let x = Complex(gammaP[1], 0);
+				2.toDo(gammaP.size) { :i |
+					x := x + (gammaP[i] / (n + (i - 1)))
+				};
+				2.pi.sqrt * (t ^ (n + 0.5)) * (0 - t).exp * x
+			}
+		}
+	}
+
 }
