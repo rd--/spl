@@ -64,4 +64,6 @@ Guides: Colour Functions
 
 References:
 _Python_
-[1](https://colour.readthedocs.io/en/develop/generated/colour.Oklab_to_XYZ.html)
+[1](https://colour.readthedocs.io/en/develop/generated/colour.Oklab_to_XYZ.html),
+_W_
+[1]*https://en.wikipedia.org/wiki/Oklab_color_space)

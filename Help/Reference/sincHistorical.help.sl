@@ -14,6 +14,9 @@ The argument is given in radians:
 
 >>> 3.5.sincHistorical
 -0.10022
+
+>>> 3.5.sin / 3.5
+-0.10022
 ```
 
 Threads elementwise over lists and matrices:

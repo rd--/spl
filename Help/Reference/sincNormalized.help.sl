@@ -10,10 +10,13 @@ except at zero where it is one.
 
 ```
 >>> 0.5.sincNormalized
-(2 / 1.pi)
+2 / 1.pi
 
 >>> 1/2.pi.sincHistorical
-(2 / 1.pi)
+2 / 1.pi
+
+>>> 0.5.pi.sin / 0.5.pi
+2 / 1.pi
 ```
 
 Threads elementwise over lists and matrices:
