@@ -82,8 +82,13 @@ Plot the prime counting function:
 
 * * *
 
-See also: isPrime, primesList
+See also: isPrime, primesList, primePi
+
+Guides: Prime Number Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PrimePi.html)
+[1](https://mathworld.wolfram.com/SieveofEratosthenes.html)
+[2](https://reference.wolfram.com/language/ref/PrimePi.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)

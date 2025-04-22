@@ -10,7 +10,9 @@ Correlation distance between numeric vectors:
 >>> [1 2 3].correlationDistance([3 5 10])
 (1 - (7 / (2 * 13.sqrt)))
 
->>> [1 5 2 3 10].correlationDistance([4 15 20 5 5])
+>>> [1 5 2 3 10].correlationDistance(
+>>> 	[4 15 20 5 5]
+>>> )
 1.21066
 ```
 
@@ -19,13 +21,17 @@ Correlation distance between numeric vectors:
 ```
 >>> let u = [1 2 3];
 >>> let v = [3 5 10];
->>> (u - u.mean).cosineDistance(v - v.mean)
+>>> (u - u.mean).cosineDistance(
+>>> 	v - v.mean
+>>> )
 u.correlationDistance(v)
 ```
 
 * * *
 
 See also: cosineDistance
+
+Guides: Distance Functions
 
 References:
 _Mathematica_

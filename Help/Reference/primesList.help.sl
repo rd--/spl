@@ -28,4 +28,6 @@ Plot first few places:
 
 See also: cachedPrimesList, isPrime, nextPrime, nthPrime, primesBetweenAnd, sieveOfEratosthenes
 
+Guides: Prime Number Functions
+
 Categories: Primes

@@ -1,6 +1,6 @@
 # randomInteger
 
-- _randomInteger(r, min, max, shape)_
+- _randomInteger(r, [min max], shape)_
 
 Answer an array of the indicated _shape_ containing random integer between _min_ and _max_.
 

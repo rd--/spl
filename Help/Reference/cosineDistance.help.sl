@@ -20,6 +20,8 @@ Cosine distance between numeric vectors:
 
 See also: correlationDistance
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CosineDistance.html),

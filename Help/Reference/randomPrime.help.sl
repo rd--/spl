@@ -31,7 +31,7 @@ true
 
 See also: isPrime, nextPrime, randomInteger
 
-Guides: Random Functions
+Guides: Prime Number Functions, Random Functions
 
 References:
 _Mathematica_

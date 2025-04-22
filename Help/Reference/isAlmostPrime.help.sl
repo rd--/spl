@@ -51,7 +51,7 @@ true
 
 See also: primeFactors, size
 
-Guides: Integer Sequences
+Guides: Integer Sequences, Prime Number Functions
 
 References:
 _Mathematica_

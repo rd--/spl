@@ -37,4 +37,6 @@ Plot:
 
 See also: primeFactors
 
+Guides: Prime Number Functions
+
 Categories: Arithmetic, Primes

@@ -174,7 +174,7 @@ Plot primes up to one-thousand:
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, millerRabinPrimalityTest, nextPrime, nthPrime, primesList
 
-Guides: Integer Functions
+Guides: Integer Functions, Prime Number Functions
 
 References:
 _J_

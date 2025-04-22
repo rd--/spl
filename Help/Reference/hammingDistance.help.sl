@@ -78,6 +78,8 @@ If either side has fewer elements, includes the difference:
 
 See also: editDistance, manhattanDistance
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HammingDistance.html),

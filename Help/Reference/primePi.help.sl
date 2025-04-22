@@ -1,8 +1,8 @@
 # primePi
 
-- _primePi(anInteger)_
+- _primePi(n)_
 
-Answer the number of primes less than or equal to _anInteger_.
+Answer the number of primes less than or equal to the integer _n_.
 
 Compute the number of primes up to 15:
 
@@ -42,6 +42,8 @@ Plot the prime counting function:
 * * *
 
 See also: eulerPhi, nextPrime, primesList, primesUpTo, sieveOfEratosthenes
+
+Guides: Prime Number Functions
 
 References:
 _Mathematica_

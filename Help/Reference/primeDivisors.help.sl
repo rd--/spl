@@ -22,4 +22,6 @@ Answer the prime divisors of `anInteger`.
 
 See also: primeExponents, primeFactorization
 
+Guides: Prime Number Functions
+
 Categories: Math

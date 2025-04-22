@@ -68,6 +68,8 @@ Generate a path based on the prime sequence:
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo
 
+Guides: Prime Number Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco),

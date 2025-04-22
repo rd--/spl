@@ -37,6 +37,8 @@ Number of primes up to ten-thousand:
 
 See also: isPrime, primeFactorsTrialDivision
 
+Guides: Prime Number Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TrialDivision.html),

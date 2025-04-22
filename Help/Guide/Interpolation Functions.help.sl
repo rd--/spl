@@ -9,21 +9,14 @@ Interpolators:
 
 Interpolation Functions:
 
-- `atBlend`
 - `bilinearInterpolation`
-- `blend`
 - `catmullRomInterpolation`
 - `cosineInterpolation`
 - `cubicInterpolation`
-- `easingFunction`
 - `hermiteInterpolation`
-- `indexOfInBetween`
 - `linearInterpolation`
 - `listInterpolation`
 - `matrixInterpolation`
-- `smootherstep`
-- `smoothstepFunction`
-- `smoothstep`
 
 Resampling Functions:
 
@@ -32,6 +25,19 @@ Resampling Functions:
 - `matrixResample`
 - `resample`
 - `upsample`
+
+Step Functions:
+
+- `easingFunction`
+- `smootherstep`
+- `smoothstepFunction`
+- `smoothstep`
+
+SuperCollider Functions:
+
+- `atBlend`
+- `blend`
+- `indexOfInBetween`
 
 * * *
 

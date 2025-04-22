@@ -5,6 +5,7 @@
 - `Colour Functions`
 - `Combinatorial Functions`
 - `Comparison Functions`
+- `Distance Functions`
 - `Drawing Functions`
 - `File Functions`
 - `Geometry Functions`
@@ -19,9 +20,11 @@
 - `Permutation Functions`
 - `Pitch Functions`
 - `Plotting Functions`
+- `Prime Number Functions`
 - `Quantity Functions`
 - `Random Functions`
 - `Sigmoid Functions`
+- `Similarity Functions`
 - `Sort Functions`
 - `Statistics Functions`
 - `Stream Functions`

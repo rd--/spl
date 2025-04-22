@@ -44,6 +44,8 @@ Jaccard dissimilarity is bounded by 0 and 1:
 
 * * *
 
+See also: centralFeature, nearest
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/JaccardDissimilarity.html),

@@ -27,3 +27,5 @@ This is the upper right triangle of the equivalent `distanceMatrix`.
 * * *
 
 See also: distanceMatrix
+
+Guides: Distance Functions

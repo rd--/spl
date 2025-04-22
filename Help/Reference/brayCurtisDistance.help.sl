@@ -15,7 +15,9 @@ Bray–Curtis distance between two vectors:
 Bray–Curtis distance is a ratio of Manhattan distances:
 
 ```
->>> [1 3 5 7 9].brayCurtisDistance([1 2 3 4 5])
+>>> [1 3 5 7 9].brayCurtisDistance(
+>>> 	[1 2 3 4 5]
+>>> )
 (1 / 4)
 
 >>> let u = [1 3 5 7 9];
@@ -29,6 +31,8 @@ Bray–Curtis distance is a ratio of Manhattan distances:
 * * *
 
 See also: canberraDistance, chessboardDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+
+Guides: Distance Functions
 
 References:
 _Mathematica_

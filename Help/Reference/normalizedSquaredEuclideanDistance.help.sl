@@ -23,6 +23,8 @@ Normalized squared Euclidean distance between numeric vectors:
 
 See also: euclideanDistance, minkowskiDistance, norm, squaredEuclideanDistance
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NormalizedSquaredEuclideanDistance.html),

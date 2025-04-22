@@ -50,6 +50,8 @@ prime numbers _n_ such that _1J1^n - 1_ is a Gaussian prime.
 
 See also: isPrime
 
+Guides: Prime Number Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianPrime.html)

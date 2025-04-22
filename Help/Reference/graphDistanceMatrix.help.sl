@@ -67,6 +67,8 @@ Plot the distance matrix of a `gridGraph` of size _(5, 5)_:
 
 See also: graphDistance, Graph
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GraphDistanceMatrix.html)

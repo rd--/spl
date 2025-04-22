@@ -55,6 +55,8 @@ Compute distance between any strings of equal length:
 
 See also: editDistance, levenshteinDistance, manhattanDistance
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/EditDistance.html),

@@ -82,7 +82,7 @@ Threads over lists:
 
 See also: isGaussianPrime, isPrime
 
-Guides: Integer Sequences
+Guides: Integer Sequences, Prime Number Functions
 
 References:
 _Mathematica_

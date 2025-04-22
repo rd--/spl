@@ -40,7 +40,7 @@ Plot:
 
 See also: isPrime, nextPrime
 
-Guides: Integer Sequences
+Guides: Integer Sequences, Prime Number Functions
 
 References:
 _Mathematica_

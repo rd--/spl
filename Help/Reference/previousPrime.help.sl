@@ -27,3 +27,5 @@ If _anInteger_ is prime, answer the prime with index one less:
 * * *
 
 See also: isPrime, nextPrime
+
+Guides: Prime Number Functions

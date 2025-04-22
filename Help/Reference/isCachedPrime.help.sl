@@ -13,4 +13,6 @@ true
 
 See also: cachedPrimesList, primesList
 
+Guides: Prime Number Functions
+
 Categories: Testing

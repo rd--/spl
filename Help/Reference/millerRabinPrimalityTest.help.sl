@@ -52,6 +52,8 @@ The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimali
 
 See also: isPrime, isPrimeTrialDivision
 
+Guides: Prime Number Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rabin-MillerStrongPseudoprimeTest.html)

@@ -12,13 +12,17 @@ Chessboard distance between numeric vectors:
 >>> [1 2 3].chessboardDistance([2 4 6])
 3
 
->>> [1 5 2 3 10].chessboardDistance([4 15 20 5 5])
+>>> [1 5 2 3 10].chessboardDistance(
+>>> 	[4 15 20 5 5]
+>>> )
 18
 ```
 
 * * *
 
 See also: brayCurtisDistance, canberraDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+
+Guides: Distance Functions
 
 References:
 _Mathematica_

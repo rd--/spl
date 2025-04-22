@@ -126,7 +126,7 @@ Where supported `isCoprime` is displayed as ⟂.
 
 See also: %, eulerPhi, factorInteger, gcd, isPrime
 
-Guides: Integer Functions
+Guides: Integer Functions, Prime Number Functions
 
 References:
 _Mathematica_

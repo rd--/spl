@@ -54,6 +54,8 @@ Plot the sequence of primes:
 
 See also: isPrime, previousPrime
 
+Guides: Prime Number Functions
+
 References:
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=nextprime),

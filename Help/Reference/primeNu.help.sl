@@ -48,6 +48,8 @@ Plot the `primeNu` sequence for the first 100 numbers:
 
 See also: factorInteger, gcd, isPrime, isPrimePower, isSquareFree, primeOmega
 
+Guides: Prime Number Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PrimeNu.html)

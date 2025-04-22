@@ -23,6 +23,8 @@ Euclidean distance:
 
 See also: euclideanDistance, manhattanDistance
 
+Guides: Distance Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Minkowski_distance)

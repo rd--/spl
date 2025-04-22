@@ -2,7 +2,7 @@
 
 - _primesBetweenAnd(min, max)_
 
-Answer the `List` of prime numbers that lie between _iMin_ and _iMax_.
+Answer the `List` of prime numbers that lie between _min_ and _max_.
 
 ```
 >>> 1.primesBetweenAnd(100)
@@ -23,3 +23,5 @@ If there are no primes answer the empty list:
 * * *
 
 See also: primesList, primesUpTo
+
+Guides: Prime Number Functions

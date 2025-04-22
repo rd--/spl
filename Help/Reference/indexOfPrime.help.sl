@@ -1,9 +1,9 @@
 # indexOfPrime
 
-- _indexOfPrime(anInteger)_
+- _indexOfPrime(n)_
 
-Answer the one-index of _anInteger_ in the list of prime numbers.
-Also called `primePi`.
+Answer the one-index of the integer _n_ in the list of prime numbers,
+or `zero` if not _n_ is not prime.
 
 ```
 >>> 97.indexOfPrime
@@ -20,9 +20,34 @@ Inverse is `nthPrime`:
 97
 ```
 
+For prime numbers equal to `primePi`:
+
+```
+>>> 97.primePi
+25
+
+>>> 98.primePi
+25
+
+>>> 98.indexOfPrime
+0
+```
+
+Plot first few terms:
+
+~~~spl svg=A
+0:99.collect(
+	indexOfPrime:/1
+).discretePlot
+~~~
+
+![](sw/spl/Help/Image/indexOfPrime-A.svg)
+
 * * *
 
 See also: nthPrime, primePi, primesList
+
+Guides: Prime Number Functions
 
 References:
 _W_

@@ -88,20 +88,8 @@
 
 ## Distance and Similarity Measures
 
-- `binaryDistance`:  binary distance
-- `brayCurtisDistance`: Bray–Curtis distance
-- `canberraDistance`: Canberra or Lance-Williams distance
-- `chessboardDistance`: chessboard or Chebyshev or sup norm distance
-- `correlationDistance`: correlation distance
-- `cosineDistance`: angular cosine distance
-- `distanceMatrix`: distance matrix
-- `editDistance`: edit or Levenshtein distance
-- `euclideanDistance`: Euclidean distance
-- `hammingDistance`: Hamming distance
-- `manhattanDistance`: Manhattan or city block distance
-- `minkowskiDistance`: Minkowski distance
-- `normalizedSquaredEuclideanDistance`: nomralized squared Euclidean distance
-- `squaredEuclideanDistance`: square of the Euclidean distance
+- `Distance Functions`: Guide
+- `Similarity Functions`: Guide
 
 ## Divisibility Functions
 
@@ -171,14 +159,7 @@
 
 ## Interpolation Functions
 
-- `bilinearInterpolation`
-- `catmullRomInterpolation`
-- `cosineInterpolation`
-- `cubicInterpolation`
-- `hermiteInterpolation
-- `linearInterpolation`
-- `listInterpolation`
-- `matrixInterpolation`
+- `Interpolation Functions`: Guide
 
 ## Numerical Functions
 
@@ -207,46 +188,9 @@
 - `max`: maximum value
 - `min`: minimum value
 
-## Prime Numbers
+## Prime Number Functions
 
-- `indexOfPrime`: index of prime number in list of primes
-- `leastPrimeGreaterThanOrEqualTo`: next prime or identity
-- `nextPrime`: next prime
-- `nthPrimeGap`: the nth prime gap
-- `nthPrime`: the nth prime number
-- `previousPrime`: previous prime
-- `primeDivisors`: prime divisors
-- `primeExponents`: prime exponents
-- `primeFactorization`:  prime factors
-- `primeFactors`: prime factors
-- `primeLimit`: largest prime factor
-- `primeNu`: number of distinct prime factors
-- `primeOmega`: number of prime factors
-- `primePi`: number of primes less than or equal to
-- `primesBetweenAnd`: prime numbers in range
-- `primesList`: list of primes
-- `primesUpToDo`: iterate over primes
-- `primesUpTo`: list of primes
-- `randomPrime`: pick a random prime
-
-## Prime Numbers - Testing
-
-- `isAlmostPrime`: is _k_-almost prime
-- `isCoprime`: are coprime
-- `isGaussianPrime`: is Gaussian prime
-- `isLesserTwinPrime`: is lesser of twin primes
-- `isPrime`: is prime
-- `isPrimePower`: is integer power of a prime
-
-## Prime Numbers - Algorithms
-
-- `cachedPrimesList`: cached list of primes
-- `isCachedPrime`: is in cached list of primes
-- `isPrimeTrialDivision`: is prime by trial division
-- `isPrimeWilson`: is prime by Wilson
-- `millerRabinPrimalityTest`: is likely prime by Miller-Rabin
-- `primeFactorsTrialDivision`: prime factors by trial division
-- `primesListWheelSieve`: list of primes by wheel sieve
+- `Prime Number Functions`: Guide
 
 ## Rational Number Functions
 
@@ -354,4 +298,4 @@ Function List:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Statistics Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions

@@ -1,8 +1,8 @@
 # primesUpTo
 
-- _primesUpTo(anInteger)_
+- _primesUpTo(n)_
 
-Answer a `List` of the prime numbers less than or equal to _anInteger_.
+Answer a `List` of the prime numbers less than or equal to the integer _n_.
 
 ```
 >>> 25.primesUpTo
@@ -40,6 +40,8 @@ There is one prime up to two:
 * * *
 
 See also: primesList, primesUpToDo
+
+Guides: Prime Number Functions
 
 References:
 _Mathworks_

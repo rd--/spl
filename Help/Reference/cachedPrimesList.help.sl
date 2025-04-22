@@ -38,4 +38,6 @@ true
 
 See also: Cache, primesList
 
+Guides: Prime Number Functions
+
 Categories: Math, System

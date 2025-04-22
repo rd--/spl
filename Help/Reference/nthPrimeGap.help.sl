@@ -38,7 +38,7 @@ Plot:
 
 See also: isPrime, nextPrime, nthPrime
 
-Guides: Integer Sequences
+Guides: Prime Number Functions, Integer Sequences
 
 References:
 _OEIS_

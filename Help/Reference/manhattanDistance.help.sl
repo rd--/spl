@@ -28,6 +28,8 @@ The Manhattan distance is equivalent to _(u - v).abs.sum_.
 
 See also: editDistance, euclideanDistance, hammingDistance
 
+Guides: Distance Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TaxicabMetric.html)

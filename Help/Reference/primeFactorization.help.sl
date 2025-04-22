@@ -68,3 +68,5 @@ and an `IdentityBag` cannot have negative counts.
 * * *
 
 See also: factorInteger
+
+Guides: Prime Number Functions

@@ -1,6 +1,6 @@
 # canberraDistance
 
-- _canberraDistance(u,v)_
+- _canberraDistance(u, v)_
 
 Answer the Canberra distance between vectors _u_ and _v_.
 
@@ -15,13 +15,17 @@ Equivalent to _((u - v).abs / (u.abs + v.abs)).sum_.
 >>> ((u - v).abs / (u.abs + v.abs)).sum
 1
 
->>> [1 5 2 3 10].canberraDistance([4 15 20 5 5])
+>>> [1 5 2 3 10].canberraDistance(
+>>> 	[4 15 20 5 5]
+>>> )
 2.50151
 ```
 
 * * *
 
 See also: brayCurtisDistance, chessboardDistance, euclideanDistance, editDistance, hammingDistance, manhattanDistance
+
+Guides: Distance Functions
 
 References:
 _Mathematica_

@@ -35,6 +35,8 @@ Validate using `isPrime`:
 
 See also: isPrime
 
+Guides: Prime Number Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WilsonsTheorem.html),

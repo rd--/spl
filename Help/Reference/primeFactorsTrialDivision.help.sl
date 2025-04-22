@@ -31,6 +31,8 @@ Prime factors of specific values:
 
 See also: isPrime, primeFactors
 
+Guides: Prime Number Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Trial_division)
