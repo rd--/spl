@@ -43,6 +43,7 @@ Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Assignment Syntax.help.sl
 Guide/Dictionary Syntax.help.sl
+Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
 Guide/Drawing Functions.help.sl
@@ -58,12 +59,14 @@ Guide/File Extensions.help.sl
 Guide/File Functions.help.sl
 Guide/Filters and Method Syntax.help.sl
 Guide/Fraction Literals.help.sl
+Guide/Function Guides.help.sl
 Guide/Further Reading.help.sl
 Guide/Generic Functions.help.sl
 Guide/Geometry Functions.help.sl
 Guide/Geometry Types.help.sl
 Guide/Glossary of Terms.help.sl
 Guide/Graph Functions.help.sl
+Guide/Guide Index.help.sl
 Guide/Help Files.help.sl
 Guide/Image Functions.help.sl
 Guide/Implicit Dictionary.help.sl
@@ -119,6 +122,7 @@ Guide/Permutation Functions.help.sl
 Guide/Perspective Drawings.help.sl
 Guide/Pitch Functions.help.sl
 Guide/Plotting Functions.help.sl
+Guide/Prime Number Functions.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
 Guide/Primitive Types.help.sl
@@ -143,6 +147,7 @@ Guide/Scalars and Lists.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Scientific Notation.help.sl
 Guide/Sigmoid Functions.help.sl
+Guide/Similarity Functions.help.sl
 Guide/Simple Editor.help.sl
 Guide/Simple Programming Language.help.sl
 Guide/SI Units.help.sl
@@ -487,6 +492,7 @@ Reference/BernoulliDistribution.help.sl
 Reference/bernoulli.help.sl
 Reference/BernoulliProcess.help.sl
 Reference/bernoulliSequence.help.sl
+Reference/bernoulliTriangle.help.sl
 Reference/bernsteinBasis.help.sl
 Reference/besselI.help.sl
 Reference/besselJ.help.sl
@@ -1386,6 +1392,7 @@ Reference/isAllWhiteSpace.help.sl
 Reference/isAlmostPrime.help.sl
 Reference/isAlphaNumeric.help.sl
 Reference/isAlternating.help.sl
+Reference/isApostrophe.help.sl
 Reference/isArithmeticSeriesBy.help.sl
 Reference/isArithmeticSeries.help.sl
 Reference/isArray.help.sl
@@ -1433,6 +1440,7 @@ Reference/isFraction.help.sl
 Reference/isGaussianInteger.help.sl
 Reference/isGaussianPrime.help.sl
 Reference/isGeometricSeries.help.sl
+Reference/isGraveAccent.help.sl
 Reference/isIdentity.help.sl
 Reference/isImmediate.help.sl
 Reference/isImproper.help.sl
@@ -1492,6 +1500,7 @@ Reference/isProperSubsetOf.help.sl
 Reference/isPunctuationCharacter.help.sl
 Reference/isPunctuationToken.help.sl
 Reference/isPythagorean.help.sl
+Reference/isQuotationMark.help.sl
 Reference/isRational.help.sl
 Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
@@ -1609,6 +1618,7 @@ Reference/leftParenthesis.help.sl
 Reference/leftParenthesisRightParenthesis.help.sl
 Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
+Reference/leibnizHarmonicTriangle.help.sl
 Reference/leitnerCrystalStructureCatalogue.help.sl
 Reference/Length.help.sl
 Reference/LessThan.help.sl
@@ -1785,6 +1795,7 @@ Reference/matchesEdge.help.sl
 Reference/matches.help.sl
 Reference/matchesRegExp.help.sl
 Reference/match.help.sl
+Reference/matchingDissimilarity.help.sl
 Reference/matchPairs.help.sl
 Reference/matchRegExp.help.sl
 Reference/matlabPeaksFunction.help.sl
@@ -2725,6 +2736,7 @@ Reference/tenneyHeight.help.sl
 Reference/terseGuideSummary.help.sl
 Reference/terseReferenceEntry.help.sl
 Reference/terseReferenceSummary.help.sl
+Reference/tetrahedralNumber.help.sl
 Reference/Tetrahedron.help.sl
 Reference/TExpRand.help.sl
 Reference/textDrawing.help.sl
@@ -2780,6 +2792,7 @@ Reference/Tree.help.sl
 Reference/treePlot.help.sl
 Reference/Triangle.help.sl
 Reference/TriangularDistribution.help.sl
+Reference/triangularNumber.help.sl
 Reference/Trig1.help.sl
 Reference/TrigAllocator.help.sl
 Reference/Trig.help.sl

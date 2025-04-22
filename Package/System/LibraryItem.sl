@@ -3,11 +3,11 @@
 LibraryItem : [Object] { | name category url mimeType parser unparsedContents parsedContents |
 
 	cachedFetch { :self |
-		self.url.asUrl.cachedFetchMimeType('SplLibraryItems', self.mimeType).thenElse { :answer |
+		self.url.asUrl.cachedFetchMimeType(
+			'SplLibraryItems',
+			self.mimeType
+		).thenElse { :answer |
 			self.unparsedContents := answer;
-			/* self.contents := self.parse(answer);
-			system.cache[self.name] := self.contents;
-			self.contents */
 			self
 		} { :reason |
 			[self, reason].postLine;
@@ -31,11 +31,11 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 
 	request { :self |
 		Promise { :resolve:/1 :reject:/1 |
-			self.unparsedContents.ifNotNil { :answer |
-				resolve(answer)
+			self.unparsedContents.ifNotNil { :unused |
+				resolve(self.contents)
 			} {
-				self.cachedFetch.thenElse { :answer |
-					resolve(answer)
+				self.cachedFetch.thenElse { :unused |
+					resolve(self.contents)
 				} { :message |
 					reject(message)
 				}

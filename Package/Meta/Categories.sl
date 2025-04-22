@@ -1173,7 +1173,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'valueAt'
 		'valueAtWith'
 		'valueEvery'
-		'valueEveryMilliseconds'
 		'wakeup'
 		'schedule'
 		'scheduleInjecting'

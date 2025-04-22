@@ -1,4 +1,4 @@
-/* Requires: Colour SmallKansas */
+/* Requires: RgbColour SmallKansas */
 
 ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
@@ -32,7 +32,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 
 }
 
-+Colour {
++RgbColour {
 
 	ColourChooser { :self :onSelect:/1 |
 		newColourChooser().initialize(self, onSelect:/1)
@@ -43,7 +43,7 @@ ColourChooser : [Object, View] { | colourChooserPane colourInput |
 +Block {
 
 	ColourChooser { :self |
-		Colour(0.5, 0.5, 0.5, 0.5).ColourChooser(self)
+		RgbColour([0.5, 0.5, 0.5], 0.5).ColourChooser(self)
 	}
 
 }

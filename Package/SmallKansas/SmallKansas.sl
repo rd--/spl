@@ -11,7 +11,7 @@
 SmallKansas : [Object, Cache] { | container frameSet cache history where |
 
 	addFrameWithAnimator { :self :subject :event :delay :aBlock:/0 |
-		let timerId = aBlock:/0.valueEveryMilliseconds(delay.asSeconds * 1000);
+		let timerId = aBlock:/0.valueEvery(delay.asSeconds);
 		let frame = self.addFrame(subject, event);
 		frame.addEventListener('close') { :unusedEvent |
 			timerId.cancel

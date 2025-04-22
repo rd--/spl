@@ -10,7 +10,10 @@ a `name`,
 a `url`,
 a `mimeType`,
 a `parser` and
-its `contents`.
+its `contents`,
+which are stored both as
+`unparsedContents` and
+`parsedContents`.
 
 The categories of library items are of the form _Area/Subject_.
 Areas include _Text_, _Graphics_, _Geometry_, _Chemistry_, _Music_ and _System_.

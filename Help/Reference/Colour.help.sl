@@ -2,7 +2,7 @@
 
 A `Trait` representing colours.
 The required methods are `rgb`,
-which should answer a _(red,green,blue)_ triple in _(0,1)_,
+which should answer a _(red, green, blue)_ triple in _(0, 1)_,
 and `alpha`,
 which should answer a value indicating transparency (or opacity).
 
