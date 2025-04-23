@@ -25,6 +25,7 @@
 	'Collection-Array'
 	'Collection-ArrayBuffer'
 	'Collection-Association'
+	'Collection-AssociationList'
 	'Collection-Bag'
 	'Collection-BitSet'
 	'Collection-Box'

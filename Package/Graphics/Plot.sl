@@ -310,6 +310,14 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
+	runSequencePlot { :self |
+		self.isVector.if {
+			self.scatterPlot
+		} {
+			self.error('runSequencePlot: invalid data')
+		}
+	}
+
 	scatterPlot { :self |
 		self.typedSwitchingPlot('scatter')
 	}

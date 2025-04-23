@@ -19,6 +19,12 @@ NormalDistribution(0, 1)
 
 See also: binCounts, discretePlot, histogramList, pdf, tally
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Histogram.html)
+[1](https://reference.wolfram.com/language/ref/Histogram.html),
+_NIST_
+[1](https://www.itl.nist.gov/div898/handbook/eda/section3/histogra.htm),
+_W_
+[1](https://en.wikipedia.org/wiki/Histogram)

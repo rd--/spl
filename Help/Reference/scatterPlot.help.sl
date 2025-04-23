@@ -89,12 +89,16 @@ Plot several data sets:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, surfacePlot
+See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, runSequencePlot, surfacePlot
+
+Guides: Plotting Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ScatterDiagram.html)
 [2](https://reference.wolfram.com/language/ref/ListPlot.html),
+_NIST_
+[1](https://www.itl.nist.gov/div898/handbook/eda/section3/scatterp.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Scatter_plot)
 

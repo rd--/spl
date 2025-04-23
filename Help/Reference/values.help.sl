@@ -11,6 +11,22 @@ At `Record`:
 [1 2 3]
 ```
 
+At `Map`:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .asMap
+>>> .values
+[1 2 3]
+```
+
+At an `Association` `List`:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3].values
+[1 2 3]
+```
+
 At `TimeSeries`:
 
 ```

@@ -2,10 +2,28 @@
 
 - _keys(aDictionary)_
 
-Answer the keys of a Dictionary.
+Answer the keys of a `Dictionary`.
+
+At `Record`:
 
 ```
 >>> (x: 1, y: 2, z: 3).keys
+['x' 'y' 'z']
+```
+
+At `Map`:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .asMap
+>>> .keys
+['x' 'y' 'z']
+```
+
+At an `Association` `List`:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3].keys
 ['x' 'y' 'z']
 ```
 
