@@ -557,6 +557,21 @@ Plot : [Object] { | pages format options |
 
 +Block {
 
+	contourPlot { :self:/2 :xList :yList :zList |
+		let d = self:/2.table(xList, yList);
+		let l = List(zList.size, []);
+		bourkeContourAlgorithm(
+			d,
+			xList, yList,
+			zList
+		) { :x1 :y1 :x2 :y2 :z :k |
+			l[k + 1].add([[x1, y1], [x2, y2]])
+		};
+		l.collect { :each |
+			each.collect(Line:/1)
+		}.LineDrawing
+	}
+
 	densityPlot { :self:/2 :xInterval :yInterval |
 		let k = 100;
 		let colourFunction = { :z |

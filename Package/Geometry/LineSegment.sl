@@ -11,6 +11,10 @@ LineSegment : [Object] { | u v |
 		])
 	}
 
+	boundingBox { :self |
+		self.vertexCoordinates.minMax
+	}
+
 	centroid { :self |
 		self.midpoint
 	}
@@ -25,6 +29,10 @@ LineSegment : [Object] { | u v |
 
 	embeddingDimension { :self |
 		self.u.size
+	}
+
+	forSvg { :self :options |
+		Line([self.u, self.v]).forSvg(options)
 	}
 
 	includes { :self :aPoint |

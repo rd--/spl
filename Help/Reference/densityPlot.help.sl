@@ -14,6 +14,8 @@ Plot a function:
 
 ![](sw/spl/Help/Image/densityPlot-A.png)
 
+Plot a function:
+
 ~~~spl png=B
 { :x :y |
 	(x + y.squared).sin
@@ -21,6 +23,8 @@ Plot a function:
 ~~~
 
 ![](sw/spl/Help/Image/densityPlot-B.png)
+
+Plot a function:
 
 ~~~spl png=C
 { :x :y |
@@ -30,9 +34,19 @@ Plot a function:
 
 ![](sw/spl/Help/Image/densityPlot-C.png)
 
+Plot a function:
+
+~~~spl png=D
+{ :x :y |
+	x.cos + y.cos
+}.densityPlot(0 -- 4.pi, 0 -- 4.pi)
+~~~
+
+![](sw/spl/Help/Image/densityPlot-D.png)
+
 * * *
 
-See also: arrayPlot, Colour, Greymap, Image, matrixPlot
+See also: arrayPlot, Colour, contourPlot, Greymap, Image, matrixPlot
 
 Guides: Plotting Functions
 

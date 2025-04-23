@@ -85,6 +85,7 @@
 	'Geometry-BezierCurve'
 	'Geometry-CartesianCoordinates'
 	'Geometry-Circle'
+	'Geometry-Contour'
 	'Geometry-CylindricalCoordinates'
 	'Geometry-DelaunayTriangulation'
 	'Geometry-Disk'

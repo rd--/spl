@@ -8,6 +8,7 @@ Plotting Functions:
 
 - `arrayPlot`
 - `complexPlot`
+- `contourPlot`
 - `densityPlot`
 - `discretePlot`
 - `functionPlot`

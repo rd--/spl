@@ -5,7 +5,7 @@
 A line segment is a part of a straight line that is bounded by two distinct end points.
 It contains every point on the line that is between its endpoints.
 
-Compute the `arcLength` of a line:
+Compute the `arcLength` of a line segment:
 
 ```
 >>> LineSegment([0 0], [1 1]).arcLength

@@ -75,6 +75,7 @@
 	'BezierCurve'
 	'CartesianCoordinates'
 	'Circle'
+	'Contour'
 	'DelaunayTriangulation'
 	'Disk'
 	'Ellipse'
