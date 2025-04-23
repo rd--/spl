@@ -38,6 +38,6 @@ true
 
 * * *
 
-See also: isImmediate, Json, json
+See also: asJson, isImmediate, Json, json, parseJson
 
 Categories: Testing

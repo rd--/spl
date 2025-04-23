@@ -13,11 +13,10 @@ Literal Number Guides:
 
 Type Guides:
 
-- `Geometry Types`
+- `Defining Types`
 - `Numeric Types`
 - `Primitive Types`
 
 Syntax Guides:
 
 - `Syntax Guides`
-

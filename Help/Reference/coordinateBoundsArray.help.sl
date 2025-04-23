@@ -3,22 +3,29 @@
 - _coordinateBoundsArray(rangeList, stepList, offset=[0])_
 
 Answer an array of coordinates,
-with ranges in _rangeList_ and steps n _stepList_,
+with ranges in _rangeList_ and steps in _stepList_,
 in each specified dimension.
 
 A lattice of two-dimensional points:
 
 ```
 >>> [3 8; -1 2]
->>> .coordinateBoundsArray([1 1])
+>>> .coordinateBoundsArray([1 1], [0])
 [
-	3 -1; 3 0; 3 1; 3 2;
-	4 -1; 4 0; 4 1; 4 2;
-	5 -1; 5 0; 5 1; 5 2;
-	6 -1; 6 0; 6 1; 6 2;
-	7 -1; 7 0; 7 1; 7 2;
+	3 -1; 3 0; 3 1; 3 2:;
+	4 -1; 4 0; 4 1; 4 2:;
+	5 -1; 5 0; 5 1; 5 2:;
+	6 -1; 6 0; 6 1; 6 2:;
+	7 -1; 7 0; 7 1; 7 2:;
 	8 -1; 8 0; 8 1; 8 2
 ]
+```
+
+Answer an array of lists of coordinates, even in only one dimension:
+
+```
+>>> [[0, 10]].coordinateBoundsArray([2])
+[0; 2; 4; 6; 8; 10]
 ```
 
 Draw a lattice of two-dimensional points:
@@ -26,6 +33,7 @@ Draw a lattice of two-dimensional points:
 ~~~spl svg=A
 [3 8; -1 2]
 .coordinateBoundsArray([1 1])
+.flatten(1)
 .PointCloud
 .asLineDrawing
 ~~~
@@ -37,6 +45,7 @@ Draw an array of three-dimensionsal points with given discretization steps:
 ~~~spl svg=B
 [3 6; -1 2; 0 1.pi]
 .coordinateBoundsArray([0.7 1.5 0.5.pi])
+.flatten(2)
 .PointCloud
 .asPerspectiveDrawing
 ~~~
@@ -52,7 +61,7 @@ let f = { :o |
 	.coordinateBoundsArray(
 		[1 1],
 		o
-	)
+	).flatten(1)
 };
 [
 	f([0 0]).PointCloud,
@@ -64,7 +73,7 @@ let f = { :o |
 
 * * *
 
-See also: array, coordinateBounds, outer, Range, subdivide, table
+See also: array, coordinateBounds, coordinateBoundsList, outer, Range, subdivide, table
 
 References:
 _Mathematica_

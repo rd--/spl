@@ -30,6 +30,6 @@ p
 
 See also: asComplex, CartesianCoordinates, Point, PlanarCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categories: Converting

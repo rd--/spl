@@ -50,7 +50,7 @@ At `CartesianCoordinates`:
 
 See also: imaginary, real, x, y
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

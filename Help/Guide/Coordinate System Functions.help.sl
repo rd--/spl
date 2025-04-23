@@ -1,4 +1,4 @@
-# Coordinate Systems
+# Coordinate System Functions
 
 Types:
 
@@ -41,4 +41,10 @@ Lattice coordinates are coordinates where each entry is an integer.
 
 * * *
 
-Guides: Geometry Types
+Guides: Geometry Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/CartesianCoordinates.html)
+[2](https://mathworld.wolfram.com/PolarCoordinates.html)
+[3](https://mathworld.wolfram.com/SphericalCoordinates.html)

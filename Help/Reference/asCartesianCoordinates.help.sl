@@ -14,7 +14,8 @@ CartesianCoordinates([1 2 3])
 `Record` case:
 
 ```
->>> (x: 1, y: 2, z: 3).asCartesianCoordinates
+>>> (x: 1, y: 2, z: 3)
+>>> .asCartesianCoordinates
 CartesianCoordinates([1 2 3])
 ```
 
@@ -30,6 +31,6 @@ p
 
 See also: asComplex, asPoint, asPolarCoordinates, asPlanarCoordinates, asSphericalCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categories: Converting

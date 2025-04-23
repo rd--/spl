@@ -36,7 +36,7 @@ Where supported `r` is displayed as 𝑟.
 
 See also: phi, radius, rho, theta, x, y, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Unicode: U+1D45F 𝑟 Mathematical Italic Small R
 

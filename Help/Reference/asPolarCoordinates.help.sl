@@ -30,6 +30,6 @@ p
 
 See also: asCartesianCoordinates, asPoint, asPlanarCoordinates, PolarCoordinates, toPolarCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categories: Converting

@@ -74,7 +74,7 @@ The _x_-coordinate of the center of a `Circle`:
 
 See also: imaginary, real, y, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

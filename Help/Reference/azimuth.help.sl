@@ -14,4 +14,4 @@ Another name for `theta`:
 
 See also: theta
 
-Guides: Geometry Types
+Guides: Geometry Functions

@@ -44,6 +44,6 @@ At `Sphere`:
 
 See also: r, rho
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categories: Accessing, Geometry

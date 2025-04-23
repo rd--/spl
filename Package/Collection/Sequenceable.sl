@@ -3017,6 +3017,11 @@
 		(self ! count).tuples
 	}
 
+	tuplesArray { :self |
+		let shape = self.collect(size:/1) ++ [self.size];
+		self.tuples.reshape(shape)
+	}
+
 	uniqueElements { :self |
 		self.uniqueElements(=)
 	}

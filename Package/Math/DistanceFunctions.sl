@@ -86,6 +86,14 @@
 		}
 	}
 
+	matchingDissimilarity { :u :v |
+		(u.size = v.size).if {
+			u.withCollect(v, =).occurrencesOf(false) / u.size
+		} {
+			[u, v].error('matchingDissimilarity: invalid input')
+		}
+	}
+
 	manhattanDistance { :self :aList |
 		(self - aList).abs.sum
 	}

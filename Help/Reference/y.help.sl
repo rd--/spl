@@ -67,7 +67,7 @@ Three-dimensional case:
 
 See also: imaginary, real, x, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

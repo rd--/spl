@@ -9,7 +9,8 @@ and then by γ around the current _z_-axis.
 Rotate a vector:
 
 ```
->>> let m = [3/4.pi, 1/3.pi, 1/3.pi].eulerMatrix;
+>>> let u = [3/4.pi, 1/3.pi, 1/3.pi];
+>>> let m = u.eulerMatrix;
 >>> let v = [1 0 0];
 >>> m.dot(v)
 [

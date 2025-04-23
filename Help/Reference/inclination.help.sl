@@ -14,4 +14,4 @@ Another name for `phi`:
 
 See also: phi
 
-Guides: Geometry Types
+Guides: Geometry Functions

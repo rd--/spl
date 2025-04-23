@@ -63,7 +63,7 @@ CartesianCoordinates([1 2 3 4])
 
 See also: asPoint, Point, PolarCoordinates, PlanarCoordinates, SphericalCoordinates, x, y, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

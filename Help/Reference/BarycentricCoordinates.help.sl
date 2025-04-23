@@ -6,7 +6,7 @@ A `Type` representing a point in a barycentric coordinate system.
 
 * * *
 
-Guides: Coordinate Systems, Geometry Types
+Guides: Coordinate Systems, Geometry Functions
 
 References:
 _Mathematica_

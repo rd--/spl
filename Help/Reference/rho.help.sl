@@ -15,7 +15,7 @@ Where supported `rho` is displayed as ρ.
 
 See also: r, radius
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Unicode: U+03C1 ρ Greek Small Letter Rho
 

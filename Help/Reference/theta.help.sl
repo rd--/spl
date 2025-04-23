@@ -40,7 +40,7 @@ Where supported `theta` is displayed as θ.
 
 See also: azimuth, phi, theta, x, y, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Unicode: U+03B8 θ Greek Small Letter Theta
 

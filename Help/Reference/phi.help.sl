@@ -26,6 +26,6 @@ Where supported `phi` is displayed as φ.
 
 See also: inclination, phi, theta, x, y, z
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Unicode: U+03C6 φ Greek Small Letter Phi

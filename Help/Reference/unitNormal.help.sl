@@ -15,7 +15,11 @@ The unit normal of the _x/y_ infinite plane:
 The nearest point on a plane:
 
 ```
->>> let r = InfinitePlane([0 0 0], [1 0 0], [0 3 1]);
+>>> let r = InfinitePlane(
+>>> 	[0 0 0],
+>>> 	[1 0 0],
+>>> 	[0 3 1]
+>>> );
 >>> let p = [1 2 3];
 >>> p - (r.unitNormal * r.distance(p))
 [1 2.7 0.9]

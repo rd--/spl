@@ -1,0 +1,43 @@
+# List Functions
+
+Types:
+
+- `ByteArray`
+- `Float64Array`
+- `List`
+- `Range`
+- `Span`
+- `Tuple`
+
+Constructing:
+
+- `array`
+- `centerArray`
+- `constantArray`
+- `discretize`
+- `powerRange`
+- `subdivide`
+- `table`
+
+Iterative Construction:
+
+- `fixedPointList`
+- `foldList`
+- `nestList`
+- `nestWhileList`
+- `scan`
+- `scanLeft`
+- `scanRight`
+
+Multidimensional Arrays:
+
+- `coordinateBoundsArray`
+- `coordinateBoundingBoxArray`
+
+Converting:
+
+- `asList`
+
+Querying:
+
+- `size`

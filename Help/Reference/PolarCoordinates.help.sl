@@ -42,7 +42,7 @@ Threads over lists:
 
 See also: CartesianCoordinates, fromPolarCoordinates, Point, PlanarCoordinates, SphericalCoordinates, toPolarCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

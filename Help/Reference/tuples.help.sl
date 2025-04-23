@@ -171,7 +171,7 @@ All possible trigrams of A and B:
 
 * * *
 
-See also: cartesianProduct, powerSet, subsets, table, tuplesCollect, tuplesDo
+See also: cartesianProduct, powerSet, subsets, table, tuplesArray, tuplesCollect, tuplesDo
 
 References:
 _J_

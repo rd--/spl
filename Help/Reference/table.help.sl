@@ -14,7 +14,9 @@ The list associated with i is outermost.
 A table of the first 10 squares:
 
 ```
->>> { :i | i ^ 2 }.table(1:10)
+>>> { :i |
+>>> 	i ^ 2
+>>> }.table(1:10)
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
@@ -61,7 +63,9 @@ Make a 3×4 matrix:
 Make a 4×3 matrix:
 
 ```
->>> { :i :j | 10 * i + j }.table(1:4, 1:3)
+>>> { :i :j |
+>>> 	10 * i + j
+>>> }.table(1:4, 1:3)
 [
 	11 12 13;
 	21 22 23;
@@ -123,7 +127,9 @@ Iterate over an existing list:
 Make an array from existing lists:
 
 ```
->>> { :i :j | j ^ (1 / i) }.table([1 2 4], [1 4 9])
+>>> { :i :j |
+>>> 	j ^ (1 / i)
+>>> }.table([1 2 4], [1 4 9])
 [
 	1 4 9;
 	1 2 3;
@@ -134,14 +140,20 @@ Make an array from existing lists:
 The two argument form of table is _collect_ with reversed arguments:
 
 ```
->>> { :i | i * i }.table(1:9)
-1:9.collect { :i | i * i }
+>>> { :i |
+>>> 	i * i
+>>> }.table(1:9)
+1:9.collect { :i |
+	i * i
+}
 ```
 
 A `List` of the values of _i^2_, with _i_ from 1 to 6:
 
 ```
->>> { :i | i ^ 2 }.table(1:6)
+>>> { :i |
+>>> 	i ^ 2
+>>> }.table(1:6)
 [1 4 9 16 25 36]
 ```
 
@@ -207,7 +219,9 @@ At matrices answers a volume:
 A table of successively longer lists:
 
 ```
->>> { :n | [1 .. n] }.table(1:5)
+>>> { :n |
+>>> 	[1 .. n]
+>>> }.table(1:5)
 [
 	1;
 	1 2;

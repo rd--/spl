@@ -4,16 +4,6 @@
 
 Answer the matching dissimilarity between `Boolean` vectors _u_ and _v_.
 
-+List{
-	matchingDissimilarity { :u :v |
-		(u.size = v.size).if {
-			u.withCollect(v, =).occurrencesOf(false) / u.size
-		} {
-			[u, v].error('matchingDissimilarity: invalid input')
-		}
-	}
-}
-
 Matching dissimilarity between two Boolean vectors:
 
 ```

@@ -3,7 +3,7 @@
 - _array(aBlock, shape)_
 
 Answer an array with the specified _shape_ where each place is defined by _aBlock_,
-which must take as many arguments are the `rank` of the array constructed,
+which must take as many arguments as the `rank` of the array constructed,
 that is one for each index.
 
 Generate a 1×10 array:
@@ -11,7 +11,7 @@ Generate a 1×10 array:
 ```
 >>> { :x |
 >>> 	1 + (x ^ 2)
->>>  }.array([10])
+>>> }.array([10])
 [2 5 10 17 26 37 50 65 82 101]
 ```
 
@@ -20,7 +20,7 @@ Generate a 3×4 array:
 ```
 >>> { :i :j |
 >>> 	10 * i + j
->>>  }.array([3 4])
+>>> }.array([3 4])
 [
 	11 12 13 14;
 	21 22 23 24;
@@ -35,20 +35,44 @@ Generate a 3×4×2 array:
 >>> 	[i j k].fromDigits(10)
 >>> }.array([3 4 2])
 [
-	111 112; 121 122; 131 132; 141 142:;
-	211 212; 221 222; 231 232; 241 242:;
-	311 312; 321 322; 331 332; 341 342
+	111 112;
+	121 122;
+	131 132;
+	141 142
+	:;
+	211 212;
+	221 222;
+	231 232;
+	241 242
+	:;
+	311 312;
+	321 322;
+	331 332;
+	341 342
 ]
 ```
 
-Generate a 3×4×2 array by answers a `List` at each place:
+Generate a 3×4×2 array by answering a `List` at each place:
 
 ```
->>> { :i :j | [i j] }.array([3 4])
+>>> { :i :j |
+>>> 	[i j]
+>>> }.array([3 4])
 [
-	1 1; 1 2; 1 3; 1 4:;
-	2 1; 2 2; 2 3; 2 4:;
-	3 1; 3 2; 3 3; 3 4
+	1 1;
+	1 2;
+	1 3;
+	1 4
+	:;
+	2 1;
+	2 2;
+	2 3;
+	2 4
+	:;
+	3 1;
+	3 2;
+	3 3;
+	3 4
 ]
 ```
 
@@ -58,7 +82,11 @@ Create a Hilbert matrix:
 >>> { :i :j |
 >>> 	1 / (i + j - 1)
 >>> }.array([3 3])
-[1 1/2 1/3; 1/2 1/3 1/4; 1/3 1/4 1/5]
+[
+	1/1 1/2 1/3;
+	1/2 1/3 1/4;
+	1/3 1/4 1/5
+]
 ```
 
 Lower-triangular matrix:

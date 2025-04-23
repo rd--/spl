@@ -14,7 +14,8 @@ SphericalCoordinates([1 2 3])
 `Record` case:
 
 ```
->>> (r: 1, theta: 2, phi: 3).asSphericalCoordinates
+>>> (r: 1, theta: 2, phi: 3)
+>>> .asSphericalCoordinates
 SphericalCoordinates([1 2 3])
 ```
 
@@ -30,6 +31,6 @@ p
 
 See also: asComplex, asPoint, asPolarCoordinates, asPlanarCoordinates, asSphericalCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categories: Converting

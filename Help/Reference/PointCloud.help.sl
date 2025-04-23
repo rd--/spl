@@ -38,6 +38,6 @@ PointCloud(p).asLineDrawing
 
 See also: BezierCurve, Circle, Line, Point, Polygon, Rectangle, Triangle, vertexCoordinates
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 Categoriess: Geometry

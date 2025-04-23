@@ -55,6 +55,6 @@ true
 
 * * *
 
-See also: asJson, Json
+See also: asJson, isJson, Json
 
 Categories: Protocol

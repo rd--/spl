@@ -5,6 +5,7 @@
 - `Colour Functions`
 - `Combinatorial Functions`
 - `Comparison Functions`
+- `Coordinate System Functions`
 - `Distance Functions`
 - `Drawing Functions`
 - `File Functions`
@@ -14,6 +15,7 @@
 - `Indexing Functions`
 - `Integer Functions`
 - `Interpolation Functions`
+- `List Functions`
 - `Mathematical Functions`
 - `Matrix Functions`
 - `Network Functions`

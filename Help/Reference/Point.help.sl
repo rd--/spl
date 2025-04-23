@@ -69,7 +69,7 @@ p.PerspectiveDrawing
 
 See also: asPoint, Circle, dimension, embeddingDimension, LineDrawing, PointCloud
 
-Guides: Geometry Functions, Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_

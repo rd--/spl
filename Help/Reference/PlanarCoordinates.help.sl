@@ -40,7 +40,7 @@ Threads over lists:
 
 See also: asPoint, asPolarCoordinates, asPlanarCoordinates, CartesianCoordinates, Point, PolarCoordinates, x, y
 
-Guides: Geometry Types
+Guides: Geometry Functions
 
 References:
 _Mathematica_
