@@ -4,7 +4,16 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 		<primitive: return new TextDecoder('ascii').decode(_self);>
 	}
 
-	asHexString { :self |
+	atPut { :self :anInteger :aByte |
+		<primitive:
+		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
+			_self[_anInteger - 1] = _aByte;
+			return _aByte;
+		}>
+		self.error('atPut: index not an integer or value not a byte')
+	}
+
+	base16Encoded { :self |
 		let map = '0123456789ABCDEF'.asciiByteArray;
 		let array = ByteArray(self.size * 2);
 		let index = 1;
@@ -14,15 +23,6 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 			index := index + 2
 		};
 		array.asciiString
-	}
-
-	atPut { :self :anInteger :aByte |
-		<primitive:
-		if(Number.isInteger(_anInteger) && sl.isByte(_aByte)) {
-			_self[_anInteger - 1] = _aByte;
-			return _aByte;
-		}>
-		self.error('atPut: index not an integer or value not a byte')
 	}
 
 	base64Encoded { :self |
@@ -181,6 +181,10 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 
 +String {
 
+	base16Decoded { :self |
+		self.parseBase16
+	}
+
 	base64Decoded { :self |
 		<primitive:
 		const binaryString = atob(_self);
@@ -194,7 +198,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 		self.utf8ByteArray.crc16
 	}
 
-	parseHexStringInto { :self :where |
+	parseBase16Into { :self :where |
 		<primitive:
 		for(let i = 0; i < _self.length; i++) {
 			_where[i] = parseInt(_self.substr(i * 2, 2), 16);
@@ -203,8 +207,12 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 		>
 	}
 
-	parseHexString { :self |
-		self.parseHexStringInto(
+	parseBase64 { :self |
+		self.base64Decoded
+	}
+
+	parseBase16 { :self |
+		self.parseBase16Into(
 			ByteArray(self.size / 2)
 		)
 	}

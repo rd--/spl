@@ -30,6 +30,8 @@ true
 
 * * *
 
-See also: parseDecimal, parseFraction, parseNumber, parseSmallInteger
+See also: LargeInteger, parseDecimal, parseFraction, parseNumber, parseSmallInteger
+
+Guides: Parsing Functions
 
 Categories: Parsing

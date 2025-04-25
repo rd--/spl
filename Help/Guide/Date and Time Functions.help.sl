@@ -1,4 +1,4 @@
-# Date and Time
+# Date and Time Functions
 
 Types:
 

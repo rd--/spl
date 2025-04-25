@@ -55,6 +55,53 @@ LineSegment : [Object] { | u v |
 
 +List {
 
+	connectLineSegments { :self :eq:/2 |
+		let answer = [];
+		{
+			self.isEmpty.not
+		}.whileTrue {
+			let l = self[1];
+			let [p, q] = l;
+			let i = 1;
+			self.removeAt(1);
+			{
+				i <= self.size
+			}.whileTrue {
+				let [a, b] = self[i];
+				let matched = true;
+				eq(p, a).if {
+					l.addFirst(b);
+					p := b
+				} {
+					eq(p, b).if {
+						l.addFirst(a);
+						p := a
+					} {
+						eq(q, a).if {
+							l.addLast(b);
+							q := b
+						} {
+							eq(q, b).if {
+								l.addLast(a);
+								q := a
+							} {
+								matched := false
+						}
+					}
+					}
+				};
+				matched.if {
+					self.removeAt(i);
+					i := 1
+				} {
+					i := i + 1
+				}
+			};
+			answer.add(l)
+		};
+		answer
+	}
+
 	LineSegment { :u :v |
 		newLineSegment().initializeSlots(u, v)
 	}

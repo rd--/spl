@@ -834,12 +834,12 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.reversed = 9:-1:1.asByteArray
 1:3.asByteArray.printString = 'ByteArray([1, 2, 3])'
 1:3.asByteArray.storeString = 'ByteArray([1, 2, 3])'
-ByteArray(4).asHexString = '00000000'
+ByteArray(4).base16Encoded = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4); b[1] := 15; b[3] := 240; b.asHexString = '0F00F000'
-let b = ByteArray(4); b[2] := 15; b[4] := 240; b.asHexString = '000F00F0'
-1:4.asByteArray.asHexString = '01020304'
-let b = ByteArray(4); b.atAllPut(15); b.asHexString = '0F0F0F0F'
+let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encoded = '0F00F000'
+let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encoded = '000F00F0'
+1:4.asByteArray.base16Encoded = '01020304'
+let b = ByteArray(4); b.atAllPut(15); b.base16Encoded = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } /* ByteArrays are not Extensible */
 1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */

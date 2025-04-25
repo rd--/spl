@@ -38,6 +38,8 @@ true
 
 * * *
 
-See also: parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+See also: Fraction, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+
+Guides: Parsing Functions
 
 Categories: Converting, Parsing

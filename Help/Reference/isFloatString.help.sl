@@ -55,4 +55,6 @@ false
 
 See also: asNumber, isDecimalIntegerString, parseNumber, RegExp
 
+Guides: Parsing Functions
+
 Categories: Testing

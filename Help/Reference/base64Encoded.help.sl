@@ -2,7 +2,7 @@
 
 - _base64Encoded(aByteArray)_
 
-Answer _aByteArray_ encoded as a Base64 `String`.
+Answer _aByteArray_ encoded as a Base-64 `String`.
 
 Encode plain text:
 
@@ -27,7 +27,7 @@ Encode Json:
 
 * * *
 
-See also: base64Decoded
+See also: base16Encoded, base64Decoded
 
 References:
 _Mathematica_

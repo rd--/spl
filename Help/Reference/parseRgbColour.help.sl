@@ -30,7 +30,7 @@ Draw parsed colour:
 
 See also: Colour, parseHexColour, parseRgbTriplet, RgbColour, rgbString
 
-Guides: Colour Functions
+Guides: Colour Functions, Parsing Functions
 
 References:
 _W3_

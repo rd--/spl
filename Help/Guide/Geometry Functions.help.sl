@@ -143,6 +143,7 @@ Query Functions:
 
 Uncategorized:
 
+- `connectLineSegments`
 - `lineEquation`
 - `unitVector`
 

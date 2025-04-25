@@ -53,6 +53,8 @@ since the duration is ambiguous regarding the total number of days in a calendar
 
 See also: Date, Duration, parseDate, TimeStamp
 
+Guides: Date and Time Functions, Parsing Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/ISO_8601#Durations)

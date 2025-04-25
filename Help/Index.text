@@ -36,7 +36,7 @@ Guide/Complicated Method Arity.help.sl
 Guide/Constant Syntax.help.sl
 Guide/Control Blocks.help.sl
 Guide/Control Structures.help.sl
-Guide/Coordinate Systems.help.sl
+Guide/Coordinate System Functions.help.sl
 Guide/Csound Gen Routines.help.sl
 Guide/Date and Time.help.sl
 Guide/Defining Methods.help.sl
@@ -84,6 +84,7 @@ Guide/Lexical Scoping.help.sl
 Guide/Library Catalogue.help.sl
 Guide/List Assignment Syntax.help.sl
 Guide/List Comprehensions.help.sl
+Guide/List Functions.help.sl
 Guide/List Syntax.help.sl
 Guide/Literals Syntax.help.sl
 Guide/Loading Libraries.help.sl
@@ -116,6 +117,7 @@ Guide/Operator List.help.sl
 Guide/Operator Names.help.sl
 Guide/Operator Precedence.help.sl
 Guide/Operator Syntax.help.sl
+Guide/Parsing Functions.help.sl
 Guide/Parts of Speech.help.sl
 Guide/Patterns and Streams.help.sl
 Guide/Permutation Functions.help.sl
@@ -479,6 +481,8 @@ Reference/barronCurve.help.sl
 Reference/bartlettHannWindow.help.sl
 Reference/bartlettWindow.help.sl
 Reference/BarycentricCoordinates.help.sl
+Reference/base16Decoded.help.sl
+Reference/base16Encoded.help.sl
 Reference/base64Decoded.help.sl
 Reference/base64Encoded.help.sl
 Reference/basicStringIntercalate.help.sl
@@ -568,6 +572,7 @@ Reference/boltzmannConstant.help.sl
 Reference/Boolean.help.sl
 Reference/boole.help.sl
 Reference/boundingBox.help.sl
+Reference/bourkeContourAlgorithm.help.sl
 Reference/Box.help.sl
 Reference/boxMatrix.help.sl
 Reference/Bpf.help.sl
@@ -726,6 +731,7 @@ Reference/constant.help.sl
 Reference/contents.help.sl
 Reference/continuedFraction.help.sl
 Reference/ContinuousMarkovProcess.help.sl
+Reference/contourPlot.help.sl
 Reference/contractTo.help.sl
 Reference/contraharmonicMean.help.sl
 Reference/ControlDur.help.sl
@@ -734,6 +740,7 @@ Reference/ControlRate.help.sl
 Reference/convergents.help.sl
 Reference/convexHull.help.sl
 Reference/convolve.help.sl
+Reference/coordinateBoundingBoxArray.help.sl
 Reference/coordinateBoundingBox.help.sl
 Reference/coordinateBoundsArray.help.sl
 Reference/coordinateBounds.help.sl
@@ -1400,11 +1407,14 @@ Reference/isAsciiCodePoint.help.sl
 Reference/isAscii.help.sl
 Reference/isAssociationList.help.sl
 Reference/isAtom.help.sl
+Reference/isBase16String.help.sl
+Reference/isBase64String.help.sl
 Reference/isBigEndian.help.sl
 Reference/isBinary.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
 Reference/isBlock.help.sl
+Reference/isBooleanString.help.sl
 Reference/isByte.help.sl
 Reference/isCachedPrime.help.sl
 Reference/isCarriageReturn.help.sl
@@ -1418,6 +1428,7 @@ Reference/isComplex.help.sl
 Reference/isComposite.help.sl
 Reference/isConstantStructure.help.sl
 Reference/isCoprime.help.sl
+Reference/isDateString.help.sl
 Reference/isDecimalIntegerString.help.sl
 Reference/isDerangement.help.sl
 Reference/isDiagonalMatrix.help.sl
@@ -2053,6 +2064,10 @@ Reference/Parallelogram.help.sl
 Reference/parameterNames.help.sl
 Reference/parametricPlot.help.sl
 Reference/ParetoDistribution.help.sl
+Reference/parseBase16.help.sl
+Reference/parseBase64.help.sl
+Reference/parseBooleanString.help.sl
+Reference/parseDateAndTime.help.sl
 Reference/parseDate.help.sl
 Reference/parseDecimal.help.sl
 Reference/parseDecimalInteger.help.sl
@@ -2445,6 +2460,7 @@ Reference/rulesTree.help.sl
 Reference/RunArray.help.sl
 Reference/rungeKuttaMethod.help.sl
 Reference/RunningSum.help.sl
+Reference/runSequencePlot.help.sl
 Reference/sageSmallGraphCatalogue.help.sl
 Reference/SampleDur.help.sl
 Reference/SampleRate.help.sl
@@ -2806,6 +2822,7 @@ Reference/truncateTo.help.sl
 Reference/Tuning.help.sl
 Reference/tuningSize.help.sl
 Reference/Tuple.help.sl
+Reference/tuplesArray.help.sl
 Reference/tuplesDo.help.sl
 Reference/tuples.help.sl
 Reference/tuplesIndicesDo.help.sl

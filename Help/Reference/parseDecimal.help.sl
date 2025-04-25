@@ -36,6 +36,17 @@ With large integer:
 23L ^ 23
 ```
 
+The _D_ suffix is required:
+
+```
+>>> {
+>>> 	'23'.parseDecimal
+>>> }.ifError { true }
+true
+```
+
 * * *
 
-See also: parseDecimalInteger, parseLargeInteger, parseNumber, parseSmallInteger
+See also: Decimal, parseDecimalInteger, parseLargeInteger, parseNumber, parseSmallInteger
+
+Guides: Parsing Functions

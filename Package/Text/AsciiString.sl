@@ -5,7 +5,7 @@ AsciiString : [Object, Iterable, Indexable, Collection, Sequenceable] { | conten
 	}
 
 	asHexString { :self |
-		self.contents.asHexString.asAsciiString
+		self.contents.base16Encoded.asAsciiString
 	}
 
 	asList { :self |

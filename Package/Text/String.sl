@@ -142,7 +142,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	asHexString { :self |
-		self.asciiByteArray.asHexString
+		self.asciiByteArray.base16Encoded
 	}
 
 	asList { :self |

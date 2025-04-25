@@ -5,10 +5,14 @@ Parse Numbers:
 - `parseDecimalInteger`
 - `parseDecimal`
 - `parseFraction`
-- `parseHexString`
 - `parseLargeInteger`
 - `parseNumber`
 - `parseSmallInteger`
+
+Parse Binary Data:
+
+- `parseBase16`
+- `parseBase64`
 
 Parse Colours:
 
@@ -31,12 +35,13 @@ Parse Documents:
 
 Predicates:
 
+- `isBase16String`
+- `isBase64String`
 - `isBooleanString`
 - `isDateString`
 - `isDecimalIntegerString`
 - `isFloatString`
-- `isHexadecimalIntegerString`
 
 * * *
 
-Guides: String Functions
+Guides: Function Guides, String Functions

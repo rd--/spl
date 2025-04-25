@@ -50,6 +50,8 @@ true
 
 * * *
 
-See also: parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
+See also: parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber, SmallFloat
+
+Guides: Parsing Functions
 
 Categories: Parsing

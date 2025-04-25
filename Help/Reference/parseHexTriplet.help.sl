@@ -30,6 +30,6 @@ Draw parsed colour:
 
 See also: Colour, hexTriplet, parseHexColour, parseRgbColour, RgbColour, rgbString
 
-Guides: Colour Functions
+Guides: Colour Functions, Parsing Functions
 
 Categories: Colour, Parsing

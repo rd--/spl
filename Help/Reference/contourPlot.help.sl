@@ -7,7 +7,7 @@ Answer a contour plot of _f_ as a function of _x_ and _y_ at values in _z_.
 A contour plot of a sparsely sampled trigonometric function at one _z_ value:
 
 ~~~spl svg=A
-let i = (0 -- 4.pi).subdivide(10);
+let i = (0 -- 4.pi).subdivide(50);
 { :x :y |
 	x.cos + y.cos
 }.contourPlot(i, i, [0.5])
@@ -15,10 +15,10 @@ let i = (0 -- 4.pi).subdivide(10);
 
 ![](sw/spl/Help/Image/contourPlot-A.svg)
 
-A contour plot of a very sparsely sampled trigonometric function at three _z_ values:
+A contour plot of a sparsely sampled trigonometric function at three _z_ values:
 
 ~~~spl svg=B
-let i = (0 -- 4.pi).subdivide(5);
+let i = (0 -- 4.pi).subdivide(20);
 { :x :y |
 	x.cos + y.cos
 }.contourPlot(i, i, [-0.75 0 0.75])

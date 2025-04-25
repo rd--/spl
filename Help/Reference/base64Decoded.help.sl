@@ -2,8 +2,7 @@
 
 - _base64Decoded(aString)_
 
-Decode _aString_ from base 64.
-The answer is a `ByteArray`.
+Answer the `ByteArray` encoded in Base-64 notation at _aString_.
 
 Decode an encoded `ByteArray`:
 
@@ -75,7 +74,7 @@ true
 
 * * *
 
-See also: base64Encoded
+See also: base64Encoded, parseBase64
 
 References:
 _Mathematica_

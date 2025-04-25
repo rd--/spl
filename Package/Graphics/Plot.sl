@@ -560,6 +560,7 @@ Plot : [Object] { | pages format options |
 	contourPlot { :self:/2 :xList :yList :zList |
 		let d = self:/2.table(xList, yList);
 		let l = List(zList.size, []);
+		/* let f = { :p :q | p.euclideanDistance(q).abs < 0.01 }; */
 		bourkeContourAlgorithm(
 			d,
 			xList, yList,
@@ -568,7 +569,7 @@ Plot : [Object] { | pages format options |
 			l[k].add([[x1, y1], [x2, y2]])
 		};
 		l.collect { :each |
-			each.collect(Line:/1)
+			each.connectLineSegments(~).collect(Line:/1)
 		}.LineDrawing
 	}
 

@@ -27,6 +27,6 @@ Draw parsed colour:
 
 See also: Colour, hexTriplet, parseHexTriplet, parseRgbColour, rgbString, RgbColour
 
-Guides: Colour Functions
+Guides: Colour Functions, Parsing Functions
 
 Categories: Colour, Parsing

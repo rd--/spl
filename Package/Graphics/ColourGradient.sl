@@ -193,14 +193,14 @@ LibraryItem(
 				j.isList.if {
 					[
 						j.collect { :k |
-							k.parseHexString.asList / 255
+							k.parseBase16.asList / 255
 						},
 						nil
 					]
 				} {
 					[
 						j['c'].collect { :k |
-							k.parseHexString.asList / 255
+							k.parseBase16.asList / 255
 						},
 						j['p']
 					]

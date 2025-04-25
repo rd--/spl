@@ -27,6 +27,8 @@ To parse a date without time use `parseDate`.
 
 See also: Date, dateString, dateTimeString, Duration, ordinalDateString, parseDate, TimeStamp
 
+Guides: Parsing Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDateString.html),

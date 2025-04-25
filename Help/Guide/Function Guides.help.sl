@@ -6,6 +6,7 @@
 - `Combinatorial Functions`
 - `Comparison Functions`
 - `Coordinate System Functions`
+- `Date and Time Functions`
 - `Distance Functions`
 - `Drawing Functions`
 - `File Functions`

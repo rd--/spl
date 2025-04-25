@@ -35,4 +35,6 @@ true
 
 See also: asInteger, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
+Guides: Parsing Functions
+
 Categories: Parsing

@@ -21,6 +21,8 @@ To parse a date with time use `parseDateAndTime`.
 
 See also: Date, dateString, dateTimeString, Duration, ordinalDateString, parseDateAndTime, TimeStamp
 
+Guides: Date and Time Functions, Parsing Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDateString.html),

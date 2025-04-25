@@ -159,6 +159,14 @@ RegExp! : [Object] {
 		}
 	}
 
+	isBase16String { :self |
+		self.matchesRegExp('^[0-9A-F]+$')
+	}
+
+	isBase64String { :self |
+		self.matchesRegExp('^[0-9A-Za-z+/]+$')
+	}
+
 	isDateString { :self |
 		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]+$')
 	}
@@ -169,10 +177,6 @@ RegExp! : [Object] {
 
 	isFloatString { :self |
 		self.matchesRegExp('^[-]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
-	}
-
-	isHexadecimalIntegerString { :self |
-		self.matchesRegExp('^[0-9A-F]+$')
 	}
 
 	matchRegExp { :self :aRegExp |

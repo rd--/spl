@@ -21,3 +21,5 @@ false
 See also: isDecimalIntegerString, isFloatString
 
 Guides: Parsing Functions
+
+Categories: Testing
