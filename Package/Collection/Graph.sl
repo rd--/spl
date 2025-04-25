@@ -96,8 +96,12 @@
 		let vertexCoordinates = self.vertexCoordinates;
 		let contents = [PointCloud(vertexCoordinates)];
 		self.edgeList.do { :each |
+			let [i, j] = each;
 			contents.add(
-				Line(vertexCoordinates @* each)
+				LineSegment(
+					vertexCoordinates[i],
+					vertexCoordinates[j]
+				)
 			)
 		};
 		GeometryCollection(contents)

@@ -22,6 +22,20 @@ Decode an encoded Ascii `String`:
 'Hello World'
 ```
 
+White space is ignored:
+
+```
+>>> [
+>>> 	'TWFueSBoYW5kcyBtYWt'
+>>> 	' 	'
+>>> 	'lIGxpZ2h0IHdvcmsu'
+>>> ]
+>>> .stringCatenate
+>>> .base64Decoded
+>>> .asciiString
+'Many hands make light work.'
+```
+
 Decode `ByteArray` and Ascii `String`:
 
 ```
@@ -65,6 +79,10 @@ See also: base64Encoded
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BaseDecode.html)
+[1](https://reference.wolfram.com/language/ref/BaseDecode.html),
+_RFC_
+[1](https://www.rfc-editor.org/rfc/rfc4648),
+_W_
+[1](https://en.wikipedia.org/wiki/Base64)
 
 Categories: Converting

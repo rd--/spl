@@ -5,7 +5,7 @@
 Answer the ISO-8601 date string.
 
 ```
->>> Date(2025, 04, 08, 08, 19, 00)
+>>> Date(2025, 04, 08, 08, 19, 00, 000)
 >>> .dateString
 '2025-04-08'
 ```
@@ -14,7 +14,7 @@ This format is recognised by `parseDate`:
 
 ```
 >>> '2025-04-08'.parseDate.asList
-[2025 04 08 00 00 00]
+[2025 04 08 00 00 00 000]
 ```
 
 * * *

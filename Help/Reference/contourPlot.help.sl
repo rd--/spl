@@ -28,7 +28,7 @@ let i = (0 -- 4.pi).subdivide(5);
 
 * * *
 
-See also: densityPlot
+See also: bourkeContourAlgorithm, densityPlot
 
 Guides: Plotting Functions
 

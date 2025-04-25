@@ -2,7 +2,8 @@
 
 - _isNumber(anObject)_
 
-Answers `true` if _anObject_ is a `Number`, else `false`.
+Answers `true` if _anObject_ implements the trait `Number`,
+else `false`.
 
 At `SmallFloat`, where the value is a fraction:
 

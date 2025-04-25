@@ -156,5 +156,14 @@ Boolean! : [Object, Json] {
 		}
 	}
 
+}
+
++String {
+
+	isBooleanString { :self |
+		self = 'true' | {
+			self = 'false'
+		}
+	}
 
 }

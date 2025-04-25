@@ -1,6 +1,6 @@
 # Date
 
-- _Date([y, m, d, h, m, s])_
+- _Date([y, m, d, h, m, s, ms])_
 
 `Date` is `Type` representing a date and time.
 
@@ -8,7 +8,7 @@ Construct a _UTC_ date,
 the month and day of month fields are _one-indexed_:
 
 ```
->>> Date([2025 04 08 07 30 00])
+>>> Date([2025 04 08 07 30 00 000])
 >>> .dateTimeString
 '2025-04-08T07:30:00.000Z'
 ```
@@ -35,21 +35,21 @@ true
 ```
 
 There are methods to access the elements of the date,
-i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, `millisecond` &etc.
+i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, and `millisecond`.
 
 ```
->>> let d = Date([1970, 01, 01, 00, 00, 00]);
+>>> let d = Date([1970, 01, 01, 00, 00, 00, 000]);
 >>> [d.year, d.month, d.dayOfMonth]
 [1970 1 1]
 ```
 
-The first six of these fields are answered by `asList`:
+These fields are answered by `asList`:
 
 ```
->>> '2025-04-08T17:07:20.000Z'
->>> .parseDate
+>>> '2025-04-08T17:07:20.500Z'
+>>> .parseDateAndTime
 >>> .asList
-[2025 04 08 17 07 20]
+[2025 04 08 17 07 20 500]
 ```
 
 * * *

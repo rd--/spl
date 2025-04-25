@@ -4,7 +4,16 @@
 
 `Url` values are constructed using `asUrl`.
 
-`Url` implements the `fragment`, `host`, `hostName`, `href`, `origin`, `pathName`, `port`, `protocol` and `query` methods.
+`Url` implements the
+`fragment`,
+`host` (also called domain),
+`hostName`,
+`href`,
+`origin`,
+`pathName`,
+`port`,
+`protocol` (also called scheme)
+and `query` methods.
 
 ```
 >>> let url = 'A://B:0/C?D=E#F'.asUrl;
@@ -34,6 +43,8 @@ The type has the non-standard spelling _URL_, which is defined by the system.
 See also: asFileUrl, asUrl, fileName, fragment, href, host, hostName, Location, origin, pathName, protocol, query, UrlQueryParameters
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/URL.html),
 _RFC_
 [1](https://www.rfc-editor.org/rfc/rfc1738.txt),
 _Whatwg_

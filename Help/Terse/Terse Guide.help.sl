@@ -1281,7 +1281,7 @@ system.includesPackage('Date') /* date package */
 system.now.asDate.typeOf = 'Date' /* type of Date, system constructor gets current date and time */
 0.asDate.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
 (60 * 60 * 12).asDate.dateTimeString = '1970-01-01T12:00:00.000Z' /* translate Date to ISO-8601 string */
-'1970-01-01T00:00:01.000Z'.parseDate.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
+'1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
 let d = 0.asDate; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in UTC */
 0.asDate = 0.asDate /* dates are comparable */

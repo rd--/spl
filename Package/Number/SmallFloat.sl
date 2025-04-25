@@ -167,6 +167,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		system.nextRandomFloat(0, self)
 	}
 
+	atan2 { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.atan2(_self, _anObject);
+		}
+		>
+		anObject.adaptToNumberAndApply(self, atan2:/2)
+	}
+
 	basicPrintString { :self :radix |
 		<primitive:
 		if(Object.is(_self, -0)) {
@@ -177,19 +186,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		};
 		return _self.toString();
 		>
-	}
-
-	basicSqrt { :self |
-		<primitive: return Math.sqrt(_self)>
-	}
-
-	atan2 { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.atan2(_self, _anObject);
-		}
-		>
-		anObject.adaptToNumberAndApply(self, atan2:/2)
 	}
 
 	bitAnd { :self :anObject |
@@ -234,9 +230,13 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	byteHexString { :self |
 		self.isByte.if {
-			self.basicPrintString(16).padLeft([2], '0')
+			self
+			.basicPrintString(16)
+			.padLeft([2], '0')
 		} {
-			self.error('SmallFloat>>byteHexString: not a byte')
+			self.error(
+				'SmallFloat>>byteHexString: not a byte'
+			)
 		}
 	}
 
@@ -660,7 +660,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.isNegative.if {
 			Complex(self, 0).sqrt
 		} {
-			self.basicSqrt
+			self.uncheckedSqrt
 		}
 	}
 
@@ -678,6 +678,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	truncated { :self |
 		<primitive: return Math.trunc(_self)>
+	}
+
+	uncheckedSqrt { :self |
+		<primitive: return Math.sqrt(_self)>
 	}
 
 	unsigned32BitWordList { :self |
@@ -711,20 +715,8 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 +String {
 
-	basicParseDecimalInteger { :self |
-		<primitive: return Number(_self);>
-	}
-
-	basicParseInteger { :self :radix |
-		<primitive: return Number.parseInt(_self, _radix);>
-	}
-
-	basicParseNumber { :self |
-		<primitive: return Number.parseFloat(_self);>
-	}
-
 	parseDecimalInteger { :self |
-		let answer = self.basicParseDecimalInteger;
+		let answer = self.uncheckedParseDecimalInteger;
 		answer.isNaN.if {
 			self.error('parseDecimalInteger: not a number')
 		} {
@@ -740,7 +732,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.assert {
 			self.matchesRegExp('^[0-9eE.+-]+$')
 		};
-		self.basicParseNumber
+		self.uncheckedParseNumber
 	}
 
 	parseSmallInteger { :self :radix |
@@ -752,7 +744,19 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 				}
 			}
 		};
-		self.basicParseInteger(radix).assertIsSmallInteger
+		self.uncheckedParseInteger(radix).assertIsSmallInteger
+	}
+
+	uncheckedParseDecimalInteger { :self |
+		<primitive: return Number(_self);>
+	}
+
+	uncheckedParseInteger { :self :radix |
+		<primitive: return Number.parseInt(_self, _radix);>
+	}
+
+	uncheckedParseNumber { :self |
+		<primitive: return Number.parseFloat(_self);>
 	}
 
 }

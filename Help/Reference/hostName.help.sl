@@ -6,7 +6,8 @@ At `System`,
 answer the name of the local host.
 
 At `Url`,
-answer a `String` having the name of the `host` subcomponent of _aUrl_.
+answer a `String` having the name of the `host` subcomponent of _aUrl_,
+also called the domain:
 
 ```
 >>> 'http://cern.ch/'.asUrl.hostName

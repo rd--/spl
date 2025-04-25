@@ -32,6 +32,10 @@ Length : [Object, Magnitude] { | metres |
 
 +[Length, Quantity] {
 
+	angstroms { :self |
+		self.metres * 1E10
+	}
+
 	asMetres { :self |
 		self.metres
 	}
@@ -111,6 +115,10 @@ Length : [Object, Magnitude] { | metres |
 }
 
 +@Number {
+
+	angstroms { :self |
+		(self * 1E-10).metres
+	}
 
 	asMetres { :self |
 		self

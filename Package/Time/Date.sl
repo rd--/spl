@@ -25,7 +25,8 @@ Date! : [Object, Magnitude] {
 			self.dayOfMonth,
 			self.hour,
 			self.minute,
-			self.second
+			self.second,
+			self.millisecond
 		]
 	}
 
@@ -61,8 +62,8 @@ Date! : [Object, Magnitude] {
 		let y = self.year;
 		let m = self.month;
 		let d = self.dayOfMonth;
-		let t1 = Date(y, m, d, 0, 0, 0).absoluteTime;
-		let t2 = Date(y, 1, 1, 0, 0, 0).absoluteTime;
+		let t1 = Date(y, m, d, 0, 0, 0, 0).absoluteTime;
+		let t2 = Date(y, 1, 1, 0, 0, 0, 0).absoluteTime;
 		(t1 - t2) / (24 * 60 * 60) + 1
 	}
 
@@ -121,7 +122,7 @@ Date! : [Object, Magnitude] {
 		<primitive: return new Date(_self * 1000);>
 	}
 
-	Date { :year :month :dayOfMonth :hour :minute :second |
+	Date { :year :month :dayOfMonth :hour :minute :second :millisecond |
 		<primitive:
 		return new Date(
 			Date.UTC(
@@ -131,7 +132,7 @@ Date! : [Object, Magnitude] {
 				_hour,
 				_minute,
 				_second,
-				0
+				_millisecond
 			)
 		);
 		>
@@ -142,23 +143,31 @@ Date! : [Object, Magnitude] {
 +List {
 
 	Date { :self |
-		let [year, month, dayOfMonth, hour, minute, second] = self;
-		Date(year, month, dayOfMonth, hour, minute, second)
+		let [year, month, dayOfMonth, hour, minute, second, millisecond] = self;
+		Date(year, month, dayOfMonth, hour, minute, second, millisecond)
 	}
 
 }
 
 +String {
 
-	basicParseDate { :self |
+	uncheckedParseDate { :self |
 		<primitive: return new Date(_self);>
 	}
 
 	parseDate { :self |
-		[10 24 29].includes(self.size).if {
-			self.basicParseDate
+		(self.size = 10).if {
+			self.uncheckedParseDate
 		} {
 			self.error('parseDate: invalid size')
+		}
+	}
+
+	parseDateAndTime { :self |
+		[24 29].includes(self.size).if {
+			self.uncheckedParseDate
+		} {
+			self.error('parseDateAndTime: invalid size')
 		}
 	}
 

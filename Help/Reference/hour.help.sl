@@ -8,7 +8,7 @@ At `Date`:
 
 ```
 >>> '2024-03-04T21:41:00.000Z'
->>> .parseDate
+>>> .parseDateAndTime
 >>> .hour
 21
 ```

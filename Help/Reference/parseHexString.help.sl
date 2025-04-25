@@ -5,7 +5,7 @@
 Answer a `ByteArray` encoded in hexadecimal at _aString_.
 
 ```
->>> '0f00f010'
+>>> '0F00F010'
 >>> .parseHexString
 [15 0 240 16].asByteArray
 ```

@@ -159,12 +159,20 @@ RegExp! : [Object] {
 		}
 	}
 
+	isDateString { :self |
+		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]+$')
+	}
+
 	isDecimalIntegerString { :self |
 		self.matchesRegExp('^[0-9]+$')
 	}
 
 	isFloatString { :self |
 		self.matchesRegExp('^[-]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
+	}
+
+	isHexadecimalIntegerString { :self |
+		self.matchesRegExp('^[0-9A-F]+$')
 	}
 
 	matchRegExp { :self :aRegExp |

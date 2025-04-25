@@ -11,14 +11,23 @@ i.e. one must write _23_ not _23.0_.
 >>> '23'.isDecimalIntegerString
 true
 
+>>> '0123456789'
+>>> .isDecimalIntegerString
+true
+
 >>> '3.141'.isDecimalIntegerString
 false
 ```
 
-The input string must not be empty.
+The empty string answers `false`:
+
+```
+>>> ''.isDecimalIntegerString
+false
+```
 
 * * *
 
-See also: asNumber, isFloatString, parseDecimalInteger
+See also: asNumber, isBooleanString, isFloatString, parseDecimalInteger
 
 Categories: Testing

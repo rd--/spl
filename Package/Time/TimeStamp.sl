@@ -70,11 +70,7 @@ TimeStamp : [Object, Magnitude] { | absoluteTime |
 +String {
 
 	parseTimeStamp { :self |
-		[24 29].includes(self.size).if {
-			self.basicParseDate.asTimeStamp
-		} {
-			self.error('parseTimeStamp: invalid size')
-		}
+		self.parseDateAndTime.asTimeStamp
 	}
 
 }

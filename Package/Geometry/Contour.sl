@@ -154,7 +154,7 @@
 										default:
 										break;
 									}
-									drawContour(x1,y1,x2,y2,z[k],k);
+									drawContour(x1,y1,x2,y2,z[k],k + 1);
 								}
 							}
 						}

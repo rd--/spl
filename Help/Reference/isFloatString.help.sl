@@ -13,9 +13,43 @@ true
 
 >>> '3.141'.isFloatString
 true
+
+>>> '-23'.isFloatString
+true
 ```
 
-The input string must not be empty.
+Allows scientific notation:
+
+```
+>>> '3.141E23'.isFloatString
+true
+
+>>> '3.141E-23'.isFloatString
+true
+
+>>> '-3.141E23'.isFloatString
+true
+
+>>> '-3.141E-23'.isFloatString
+true
+```
+
+Inifities are not recognised:
+
+```
+>>> 'Infinity'.isFloatString
+false
+
+>>> '-Infinity'.isFloatString
+false
+```
+
+The empty string answers `false`:
+
+```
+>>> ''.isFloatString
+false
+```
 
 * * *
 

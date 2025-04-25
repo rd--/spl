@@ -19,6 +19,7 @@
 - `Mathematical Functions`
 - `Matrix Functions`
 - `Network Functions`
+- `Parsing Functions`
 - `Permutation Functions`
 - `Pitch Functions`
 - `Plotting Functions`

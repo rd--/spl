@@ -5,7 +5,7 @@
 Answer the ISO ordinal date string for _aDate_.
 
 ```
->>> let d = Date([2025 04 08 08 11 00]);
+>>> let d = Date([2025 04 08 08 11 00 000]);
 >>> (
 >>> 	d.ordinalDateString,
 >>> 	d.dateString,

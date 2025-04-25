@@ -565,7 +565,7 @@ Plot : [Object] { | pages format options |
 			xList, yList,
 			zList
 		) { :x1 :y1 :x2 :y2 :z :k |
-			l[k + 1].add([[x1, y1], [x2, y2]])
+			l[k].add([[x1, y1], [x2, y2]])
 		};
 		l.collect { :each |
 			each.collect(Line:/1)

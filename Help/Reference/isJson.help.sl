@@ -38,6 +38,6 @@ true
 
 * * *
 
-See also: asJson, isImmediate, Json, json, parseJson
+See also: asJson, Boolean, isImmediate, Json, json, List, Nil, parseJson, SmallFloat, String, Record
 
 Categories: Testing

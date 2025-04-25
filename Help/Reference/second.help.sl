@@ -12,13 +12,15 @@ Answer the second element of _aSequence_:
 or the second of _aDate_:
 
 ```
->>> '2024-03-04T21:41:07.000Z'.parseDate.second
+>>> '2024-03-04T21:41:07.500Z'
+>>> .parseDateAndTime
+>>> .second
 7
 ```
 
 * * *
 
-See also: Date, dayOfMonth, first, hour, minute, month, parseDate, Sequence, year
+See also: Date, dayOfMonth, first, hour, minute, month, parseDateAndTime, Sequence, year
 
 References:
 _Smalltalk_

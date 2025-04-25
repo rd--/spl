@@ -41,31 +41,7 @@ Decoding and Encoding:
 
 Parsing:
 
-- `parseDecimal`
-- `parseDecimalInteger`
-- `parseFraction`
-- `parseHexString`
-- `parseJson`
-- `parseLargeInteger`
-- `parseNumber`
-- `parseSmallInteger`
-
-Parse Colours:
-
-- `parseHexColour`
-- `parseHexTriplet`
-- `parseRgbColour`
-- `parseRgbTriplet`
-
-Parse Durations and Times:
-
-- `parseDate`
-- `parseDuration`
-
-Parse Documents:
-
-- `parseHtml`
-- `parseSvg`
+- `Parsing Functions`: Guide
 
 Predicates:
 
@@ -110,4 +86,4 @@ Syntax:
 
 * * *
 
-Guides: Literals Syntax, String Syntax
+Guides: Literals Syntax, Parsing Functions, String Syntax

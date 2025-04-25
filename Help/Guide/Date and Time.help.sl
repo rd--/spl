@@ -41,6 +41,7 @@ Printing:
 Parsing:
 
 - `parseDate`
+- `parseDateAndTime`
 - `parseDuration`
 
 System Clock:

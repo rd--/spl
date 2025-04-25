@@ -115,7 +115,7 @@ At a `List` expression:
 ```
 
 If the expression is an _assignment_,
-the value is a two-`List` of the identifier that is assigned to,
+the value is a `List` of the identifier that is assigned to,
 and the parse tree of the assigned expression:
 
 ```
@@ -133,8 +133,8 @@ and the parse tree of the assigned expression:
 ```
 
 If the expression is an _apply_ expression,
-the value is a two-`List` of the identifier that is being applied,
-and a `List` of the values it is applied to:
+the value is a `List` of the identifier that is being applied,
+followed by the values it is applied to:
 
 ```
 >>> 'f(x, y)'.splParseTree[2]
@@ -198,8 +198,8 @@ Dot application is not recorded especially:
 ]
 ```
 
-If the expression is an _let_ expression,
-the value is a two-`List` of the identifier that is being defined,
+If the expression is a _let_ expression,
+the value is a `List` of the identifier that is being defined,
 and the parse tree of the expression it is assigned to:
 
 ```

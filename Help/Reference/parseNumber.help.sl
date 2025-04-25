@@ -62,6 +62,15 @@ Parse scientific notation:
 -3.141E3
 ```
 
+Does not parse infinity:
+
+```
+>>> {
+>>> 	'Infinity'.parseNumber
+>>> }.ifError { true }
+true
+```
+
 Does not parse radix notation,
 signals `error` on failure:
 

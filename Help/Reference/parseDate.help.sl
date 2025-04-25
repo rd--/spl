@@ -15,28 +15,11 @@ which is set to _00:00_ UTC:
 '2023-05-11'
 ```
 
-Parse date with time,
-which is required to specify the time zone:
-
-```
->>> '2025-04-08T10:41:00.000+10:00'
->>> .parseDate
->>> .dateTimeString
-'2025-04-08T00:41:00.000Z'
-```
-
-A value of _Z_ indicates _UTC_:
-
-```
->>> '2023-05-11T09:30:00.000Z'
->>> .parseDate
->>> .dateTimeString
-'2023-05-11T09:30:00.000Z'
-```
+To parse a date with time use `parseDateAndTime`.
 
 * * *
 
-See also: Date, dateString, dateTimeString, Duration, ordinalDateString, TimeStamp
+See also: Date, dateString, dateTimeString, Duration, ordinalDateString, parseDateAndTime, TimeStamp
 
 References:
 _Mathematica_
