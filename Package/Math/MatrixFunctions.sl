@@ -18,6 +18,15 @@
 		answer
 	}
 
+	cauchyMatrix { :x :y |
+		{ :i :j |
+			(x[i] + y[j]) ^ -1
+		}.table(
+			(1 .. x.size),
+			(1 .. y.size)
+		)
+	}
+
 	choleskyBanachiewiczAlgorithm { :a |
 		let [m, n] = a.shape;
 		let l = m.zeroMatrix(n);
@@ -1087,6 +1096,18 @@
 
 	upperTriangularize { :self |
 		self.upperTriangularize(0)
+	}
+
+	vandermondeMatrix { :x :k |
+		let n = x.size;
+		let m = k - 1;
+		{ :i :j |
+			x[i] ^ j
+		}.table(1:n, 0:m)
+	}
+
+	vandermondeMatrix { :x |
+		x.vandermondeMatrix(x.size)
 	}
 
 }

@@ -513,3 +513,114 @@
 	}
 
 }
+
++List {
+
+	savitzkyGolayFilter { :y :m :w |
+		uncheckedSavitzkyGolayFilter(y, m, w).asList
+	}
+
+	uncheckedSavitzkyGolayFilter { :y :m :w |
+		/* https://github.com/mljs/savitzky-golay-generalized */
+		<primitive:
+		function getHs(h, center, half, derivative) {
+			let hs = 0;
+			let count = 0;
+			for (let i = center - half; i < center + half; i++) {
+				if (i >= 0 && i < h.length - 1) {
+					hs += h[i + 1] - h[i];
+					count++;
+				}
+			}
+			return (hs / count) ** derivative;
+		}
+		function gramPoly(i, m, k, s) {
+			let Grampoly = 0;
+			if (k > 0) {
+				Grampoly =
+				((4 * k - 2) / (k * (2 * m - k + 1))) *
+				(i * gramPoly(i, m, k - 1, s) + s * gramPoly(i, m, k - 1, s - 1)) -
+				(((k - 1) * (2 * m + k)) / (k * (2 * m - k + 1))) *
+				gramPoly(i, m, k - 2, s);
+			} else if (k === 0 && s === 0) {
+				Grampoly = 1;
+			} else {
+				Grampoly = 0;
+			}
+			return Grampoly;
+		}
+		function genFact(a, b) {
+			let gf = 1;
+			if (a >= b) {
+				for (let j = a - b + 1; j <= a; j++) {
+					gf *= j;
+				}
+			}
+			return gf;
+		}
+		function weight(i, t, m, n, s) {
+			let sum = 0;
+			for (let k = 0; k <= n; k++) {
+				sum +=
+				(2 * k + 1) *
+				(genFact(2 * m, k) / genFact(2 * m + k + 1, k + 1)) *
+				gramPoly(i, m, k, 0) *
+				gramPoly(t, m, k, s);
+			}
+			return sum;
+		}
+		function fullWeights(m, n, s) {
+			const weights = new Array(m);
+			const np = Math.floor(m / 2);
+			for (let t = -np; t <= np; t++) {
+				weights[t + np] = new Float64Array(m);
+				for (let j = -np; j <= np; j++) {
+					weights[t + np][j + np] = weight(j, t, np, n, s);
+				}
+			}
+			return weights;
+		}
+		let ys = _y;
+		let xs = 1;
+		let windowSize = _w;
+		let derivative = 0;
+		let polynomial = _m;
+		const half = Math.floor(windowSize / 2);
+		const np = ys.length;
+		const ans = new Float64Array(np);
+		const weights = fullWeights(windowSize, polynomial, derivative);
+		let hs = xs ** derivative;
+		let constantH = true;
+		for (let i = 0; i < half; i++) {
+			const wg1 = weights[half - i - 1];
+			const wg2 = weights[half + i + 1];
+			let d1 = 0;
+			let d2 = 0;
+			for (let l = 0; l < windowSize; l++) {
+				d1 += wg1[l] * ys[l];
+				d2 += wg2[l] * ys[np - windowSize + l];
+			}
+			if (constantH) {
+				ans[half - i - 1] = d1 / hs;
+				ans[np - half + i] = d2 / hs;
+			} else {
+				hs = getHs(xs, half - i - 1, half, derivative);
+				ans[half - i - 1] = d1 / hs;
+				hs = getHs(xs, np - half + i, half, derivative);
+				ans[np - half + i] = d2 / hs;
+			}
+		}
+		const wg = weights[half];
+		for (let i = windowSize; i <= np; i++) {
+			let d = 0;
+			for (let l = 0; l < windowSize; l++) d += wg[l] * ys[l + i - windowSize];
+			if (!constantH) {
+				hs = getHs(xs, i - half - 1, half, derivative);
+			}
+			ans[i - half - 1] = d / hs;
+		}
+		return ans
+		>
+	}
+
+}

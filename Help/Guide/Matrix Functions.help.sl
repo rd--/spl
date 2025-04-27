@@ -33,6 +33,7 @@ Constructing:
 - `antidiagonalMatrix`: matrix with list items on antidiagonal
 - `blockDiagonalMatrix`: matrix with matrices on block diagonal
 - `boxMatrix`: square matrix
+- `cauchyMatrix`: Cauchy matrix
 - `circulantMatrix`: circulant (rotational) matrix
 - `crossMatrix`: cross matrix
 - `diagonalMatrix`: matrix with list items on diagonal
@@ -48,6 +49,7 @@ Constructing:
 - `permutationMatrix`: permutation matrix
 - `sylvesterMatrix`: Sylvester matrix
 - `toeplitzMatrix`: Toeplitz matrix
+- `vandermondeMatrix`: Vandermonde matrix
 - `walshMatrix`: Walsh matrix
 - `zeroMatrix`: zero matrix
 
