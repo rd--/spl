@@ -5,6 +5,7 @@
 		{ x.size = m }.assert;
 		{ y.size = n }.assert;
 		{ z.size > 0 }.assert;
+		{ z.isMonotonicallyIncreasing }.assert;
 		{ drawContour.numArgs = 6 }.assert;
 		uncheckedBourkeContourAlgorithm(
 			d,

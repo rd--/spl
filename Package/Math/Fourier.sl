@@ -33,6 +33,20 @@
 		}
 	}
 
+	dft { :self |
+		let x = self;
+		let m = x.size;
+		let p = -2.pi * 1.i / m;
+		(0 .. m - 1).collect { :k |
+			let q = p * k;
+			let z = 0;
+			0.toDo(m - 1) { :n |
+				z := z + (x[n + 1] * (q * n).exp)
+			};
+			z
+		}
+	}
+
 	fft { :self |
 		self.size.isPowerOfTwo.if {
 			(self.elementType = 'SmallFloat').if {

@@ -1,9 +1,10 @@
 # correlation
 
 - _correlation(v, w)_
+- _correlation(a, b)_
 
 Answer the correlation between the vectors _v_ and _w_,
-or the cross-correlation matrix for the matrices _v_ and _w_.
+or the cross-correlation matrix for the matrices _a_ and _b_.
 
 Correlation between two fractional vectors:
 
@@ -67,7 +68,7 @@ Correlation between an identity matrix and itself:
 
 * * *
 
-See also: centralMoment, covariance, variance
+See also: centralMoment, correlationFunction, covariance, variance
 
 Guides: Statistics Functions
 

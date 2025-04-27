@@ -49,7 +49,8 @@ let p = (0 -- 2.pi).discretize(n);
 let x = p.collect { :x |
 	(x * [23 47]).sin.sum / 2
 };
-let y = Sfc32(378614).randomReal([-1 1], [n]);
+let r = Sfc32(378614);
+let y = r.randomReal([-1 1], [n]);
 ((x + y).fft.take(m) / n).abs.linePlot
 ~~~
 

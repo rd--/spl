@@ -1,8 +1,10 @@
 # covariance
 
 - _covariance(v, w)_
+- _covariance(a, b)_
 
-Answer the covariance between the vectors or matrices _v_ and _w_.
+Answer the covariance between the vectors _v_ and _w_,
+or the cross-covariance matrix between the matrices _a_ and _b_.
 
 Covariance between vectors of real numbers:
 
@@ -15,6 +17,9 @@ Covariance between vectors of real numbers:
 
 >>> [1 2 5 6].covariance([2 3 6 8])
 6.5
+
+>>> [3 6 4].covariance([7 12 -9])
+6.8333
 ```
 
 Covariance between vectors of complex numbers:
@@ -66,6 +71,19 @@ The diagonal of a covariance matrix is the variance:
 ([1.2237 2.3543 2.3290 2.2087 1.6632], true)
 ```
 
+Covariance of a 3×4 matrix:
+
+```
+>>> let m = [5 0 3 7; 1 -5 7 3; 4 9 8 10];
+>>> m.covariance(m)
+[
+	 4.3333  8.8333 -3.0000  5.6666;
+	 8.8333 50.3333  6.5000 24.1666;
+	-3.0000  6.5000  7.0000  1.0000;
+	 5.6666 24.1666  1.0000 12.3333
+]
+```
+
 Compute the covariance for a `gcd` array:
 
 ~~~spl png=A
@@ -93,6 +111,8 @@ Guides: Statistics Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Covariance.html)
+[1](https://reference.wolfram.com/language/ref/Covariance.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/cov.html)
 
 Categories: Statistics

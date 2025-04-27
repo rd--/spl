@@ -7,6 +7,7 @@ Plot Type:
 Plotting Functions:
 
 - `arrayPlot`
+- `autocorrelationPlot`
 - `complexPlot`
 - `contourPlot`
 - `densityPlot`
@@ -14,6 +15,7 @@ Plotting Functions:
 - `functionPlot`
 - `graphPlot`
 - `histogramPlot`
+- `lagPlot`
 - `linePlot`
 - `matrixPlot`
 - `parametricPlot`

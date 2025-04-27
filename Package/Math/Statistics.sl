@@ -224,7 +224,7 @@
 
 	covariance { :v :w |
 		v.isMatrix.if {
-			v.matrixCovariance(w)
+			v.crossCovarianceMatrix(w)
 		} {
 			let n = v.size;
 			let m = w.size;
@@ -298,3 +298,22 @@
 	}
 
 }
+
+
++System {
+
+	nistData { :self :name |
+		self
+		.requireLibraryItem('NistEngineeringStatisticsHandbookData')
+		.at(name)
+	}
+
+}
+
+LibraryItem(
+	name: 'NistEngineeringStatisticsHandbookData',
+	category: 'Math/Statistics',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/statistics/nist.json',
+	mimeType: 'application/json',
+	parser: identity:/1
+)

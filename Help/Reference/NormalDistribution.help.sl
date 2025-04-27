@@ -1,6 +1,6 @@
 # NormalDistribution
 
-- _NormalDistribution(mu, sigma)_
+- _NormalDistribution(mu=0, sigma=1)_
 
 Answer a `Type` that represents a normal (Gaussian) distribution with mean `μ` and standard deviation `σ`.
 

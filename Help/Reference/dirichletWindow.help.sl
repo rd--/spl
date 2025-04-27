@@ -37,7 +37,7 @@ Discrete _Dirichlet window_ of length 15:
 
 * * *
 
-See also: gaussianWindow
+See also: bartlettWindow, gaussianWindow
 
 Guides: Window Functions
 

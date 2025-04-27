@@ -97,6 +97,19 @@ Plot a row-order 4×4 linear image:
 
 ![](sw/spl/Help/Image/matrixPlot-G.svg)
 
+Noise modulated `sin` function:
+
+~~~spl svg=H
+let r = Sfc32(367281);
+let i = 1:2:18;
+{ :x :y |
+	let z = ((x + y) / 1.pi).sin;
+	z * r.nextRandomFloat
+}.table(i, i).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/matrixPlot-H.svg)
+
 * * *
 
 See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot

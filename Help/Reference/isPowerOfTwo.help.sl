@@ -21,6 +21,6 @@ At `Fraction`:
 
 * * *
 
-See also: asPowerOfTwo
+See also: asPowerOfTwo, nextPowerOfTwo
 
 Categories: Testing

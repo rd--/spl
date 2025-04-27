@@ -28,8 +28,10 @@ Shape Statistics:
 Dependency Statistics:
 
 - `absoluteCorrelation`
+- `absoluteCorrelationFunction`
 - `blomqvistBeta`
 - `correlation`
+- `correlationFunction`
 - `covariance`
 
 General Statistics:

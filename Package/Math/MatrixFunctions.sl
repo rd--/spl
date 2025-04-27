@@ -79,6 +79,14 @@
 		}
 	}
 
+	crossCovarianceMatrix { :a :b |
+		let [n, p] = a.shape;
+		let [m, q] = b.shape;
+		let l = List(n, 1);
+		{ n = m }.assert;
+		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugated)
+	}
+
 	determinant { :self |
 		self.isSquareMatrix.if {
 			let size = self.size;
@@ -445,14 +453,6 @@
 
 	matrixCorrelation { :a :b |
 		a.covariance(b) / *.outer(a.standardDeviation, b.standardDeviation)
-	}
-
-	matrixCovariance { :a :b |
-		let [n, p] = a.shape;
-		let [m, q] = b.shape;
-		let l = List(n, 1);
-		{ n = m }.assert;
-		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugated)
 	}
 
 	matrixPower { :m :p |

@@ -219,6 +219,15 @@ Plot : [Object] { | pages format options |
 		[self.asFloat].Plot('array')
 	}
 
+	autocorrelationPlot { :y :k |
+		y.correlationFunction([0 .. k]).discretePlot
+	}
+
+	autocorrelationPlot { :y |
+		let k = (y.size.log(10) * 10).floor.max(1);
+		y.autocorrelationPlot(k)
+	}
+
 	complexPlot { :self :aBlock:/1 |
 		let [min, max] = self;
 		let colourFunction:/1 = system
@@ -257,6 +266,15 @@ Plot : [Object] { | pages format options |
 
 	histogramPlot { :self :binSpecification |
 		self.histogramList(binSpecification).histogramListPlot
+	}
+
+	lagPlot { :self :d |
+		let k = self.size;
+		let n = k - d;
+		let y = self.copyFromTo(1, n);
+		let x = self.copyFromTo(1 + d, k);
+		[d, k, n, x.size, y.size].postLine;
+		[x, y].transposed.scatterPlot
 	}
 
 	linePlot { :self |
