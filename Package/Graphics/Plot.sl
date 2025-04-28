@@ -273,7 +273,6 @@ Plot : [Object] { | pages format options |
 		let n = k - d;
 		let y = self.copyFromTo(1, n);
 		let x = self.copyFromTo(1 + d, k);
-		[d, k, n, x.size, y.size].postLine;
 		[x, y].transposed.scatterPlot
 	}
 

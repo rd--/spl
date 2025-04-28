@@ -1,4 +1,4 @@
-# Function Guides:
+# Function Guides
 
 - `Bitwise Functions`
 - `Boolean Functions`

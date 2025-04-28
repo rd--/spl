@@ -59,6 +59,8 @@ if _k_ is not specified it is selected automatically:
 
 See also: correlationFunction, discretePlot
 
+Guides: Plotting Functions
+
 References:
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/autocopl.htm),

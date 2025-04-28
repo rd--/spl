@@ -74,4 +74,3 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/VandermondeMatrix.html)
 [2](https://reference.wolfram.com/language/ref/VandermondeMatrix.html),
-

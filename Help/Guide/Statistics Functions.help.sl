@@ -59,7 +59,6 @@ Data Models:
 - `TimeSeries`
 - `TemporalData`
 
-
 Features of Distributions:
 
 - `cdf`

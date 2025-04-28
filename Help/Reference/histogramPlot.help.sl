@@ -15,6 +15,25 @@ NormalDistribution(0, 1)
 
 ![](sw/spl/Help/Image/histogramPlot-A.svg)
 
+A histogram of empirical data following a normal distribution:
+
+~~~spl svg=B
+system.nistData('ZARR')
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-B.svg)
+
+
+A histogram of empirical data following a symmetric bimodal distribution:
+
+~~~spl svg=C
+system.nistData('LEW')
+.histogramPlot
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-C.svg)
+
 * * *
 
 See also: binCounts, discretePlot, histogramList, pdf, tally

@@ -25,4 +25,3 @@ See also: isBooleanString, parseDecimalInteger, parseFraction, parseLargeInteger
 Guides: Parsing Functions
 
 Categories: Parsing
-

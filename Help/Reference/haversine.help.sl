@@ -21,7 +21,6 @@ Relation to `sin`:
 
 Relation to `cos`:
 
-
 ```
 >>> 0.8.haversine
 (1 - 0.8.cos) / 2

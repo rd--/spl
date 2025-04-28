@@ -39,6 +39,8 @@ let x = [1].arrayPad([15 15], 0);
 
 See also: convolve, gaussianKernel
 
+Guides: Filter Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GaussianFilter.html),

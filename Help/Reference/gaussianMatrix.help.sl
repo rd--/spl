@@ -65,4 +65,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GaussianMatrix.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gaussian_blur)
-

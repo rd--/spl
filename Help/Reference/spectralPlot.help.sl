@@ -26,6 +26,8 @@ system.nistData('NORMAL')
 
 See also: gaussianFilter, fft
 
+Guides: Plotting Functions
+
 References:
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/spectrum.htm)

@@ -24,6 +24,7 @@ Plotting Functions:
 - `runSequencePlot`
 - `scatterPlot`
 - `soundPlot`
+- `spectralPlot`
 - `stackedListPlot`
 - `stemLeafPlot`
 - `stepPlot`

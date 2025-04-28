@@ -1,4 +1,4 @@
-CacheStorage : [Object] {
+CacheStorage! : [Object] {
 
 	basicDelete { :self :key |
 		<primitive: return _self.delete(_key);>

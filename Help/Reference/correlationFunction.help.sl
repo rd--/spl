@@ -8,7 +8,7 @@ Estimate the correlation function for at τ=2:
 
 ```
 >>> [2 3 4 3].correlationFunction([2])
-[-0.5]
+[-1/2]
 ```
 
 Estimate the correlation function for at τ=9:
@@ -46,34 +46,27 @@ The sum of the sample correlation function is constant:
 -0.5
 ```
 
+Plot correlation function of a perturbed sin function:
 
+~~~spl svg=A
 let r = Sfc32(126813);
-let y = (0 .. 600).collect { :x |
+let n = 600;
+let y = [0 .. n].collect { :x |
 	(2.pi * x / 100).sin
 };
-let n = r.randomReal([0 10], [601]);
-(y + n).scatterPlot
+(y + r.randomReal([0 10], [y.size]))
+.correlationFunction([0 .. n / 4])
+.scatterPlot
+~~~
 
-
-let r = Sfc32(126813);
-let y = (0 .. 600).collect { :x |
-	(2.pi * x / 100).sin
-};
-let n = r.randomReal([0 10], [601]);
-(y + n).correlationFunction([0 .. 600]).scatterPlot
-
-data = Table[Sin[2 \[Pi] x/100] + 10 Random[], {x, 0, 600}];
-ListPlot[data]
-
-let y = ;
-let k = y.size;
-y.correlationFunction([0 .. 250]).scatterPlot
-
+![](sw/spl/Help/Image/correlationFunction-A.svg)
 
 * * *
 
-See also: absoluteCorrelationFunction, correlation, covariance
+See also: absoluteCorrelationFunction, correlation, covariance, covarianceFunction
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/CorrelationFunction.html)
+[1](https://reference.wolfram.com/language/ref/CorrelationFunction.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Correlation_function)

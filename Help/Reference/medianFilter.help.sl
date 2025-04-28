@@ -35,6 +35,7 @@ Relation to `movingMap` and `median`:
 
 Relation to `arrayFilter` and `median`:
 
+```
 >>> [2 3 80 6 2 3].medianFilter(1)
 [5/2 3 6 6 3 5/2]
 
@@ -48,6 +49,8 @@ Relation to `arrayFilter` and `median`:
 * * *
 
 See also: euclideanDistance, meanFilter, median, trimmedMean
+
+Guides: Filter Functions
 
 References:
 _Mathematica_

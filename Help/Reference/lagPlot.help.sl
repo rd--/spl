@@ -22,7 +22,7 @@ exhibit no autocorrelation,
 amd contain no outliers:
 
 ~~~spl svg=B
-system.nistData('NORMAL')
+system.nistData('NORMAL2')
 .lagPlot(1)
 ~~~
 

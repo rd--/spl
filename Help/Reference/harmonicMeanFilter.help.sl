@@ -22,6 +22,8 @@ Apply a moving harmonic mean filter to a vector:
 
 See also: convolve, harmonicMean, meanFilter
 
+Guides: Filter Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HarmonicMeanFilter.html)

@@ -31,6 +31,8 @@ Relation to `convolve`:
 
 See also: convolve, geometricMeanFilter, mean, medianFilter
 
+Guides: Filter Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MeanFilter.html)

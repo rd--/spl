@@ -23,6 +23,8 @@ Mean-shift filtering of data:
 
 See also: euclideanDistance, meanFilter, meanShift, trimmedMean
 
+Guides: Filter Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MeanShiftFilter.html)

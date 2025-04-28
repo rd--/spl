@@ -28,6 +28,8 @@ Apply a moving geometric mean filter to a vector:
 
 See also: convolve, geometricMean, meanFilter
 
+Guides: Filter Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GeometricMeanFilter.html),

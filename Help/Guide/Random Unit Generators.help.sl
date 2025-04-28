@@ -57,4 +57,3 @@ Demand rate random number unit generators:
 - `Dbrown`
 - `Diwhite`
 - `Dwhite`
-
