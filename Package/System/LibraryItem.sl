@@ -15,6 +15,14 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 		}
 	}
 
+	clearCache { :self |
+		system.caches.atIfPresent('SplLibraryItems') { :cache |
+			cache.removeKeyIfAbsent(self.url.asUrl) {
+				self.error('clearCache: no such key')
+			}
+		}
+	}
+
 	contents { :self |
 		self.unparsedContents.ifNil {
 			self.error('contents: not acquired')

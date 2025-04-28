@@ -1,8 +1,9 @@
 # randomSample
 
-- _randomSample(aRandomNumberGenerator, aCollection, anInteger)_
+- _randomSample(r, c, n)_
 
-Answer a pseudo-random sample of _anInteger_ elements of _aCollection_.
+Answer a pseudo-random sample of _n_ (an integer) elements of the collection _c_,
+utilising the random number generator _r_.
 
 Do not sample any of _aCollection_ more than once.
 

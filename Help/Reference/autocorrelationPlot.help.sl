@@ -6,7 +6,7 @@ An autocorrelation plot of time series that is not random,
 but rather has a high degree of autocorrelation between adjacent and near-adjacent observations:
 
 ~~~spl svg=A
-system.nistData('FLICKER')
+system.nistData('FLICKER', [1])
 .autocorrelationPlot(250)
 ~~~
 
@@ -16,7 +16,7 @@ An autocorrelation plot of uniformly random data,
 there are no significant autocorrelations:
 
 ~~~spl svg=B
-system.nistData('RANDU')
+system.nistData('RANDU', [1])
 .autocorrelationPlot(250)
 ~~~
 
@@ -25,7 +25,7 @@ system.nistData('RANDU')
 An autocorrelation plot of data from an underlying autoregressive model with strong positive autocorrelation:
 
 ~~~spl svg=C
-system.nistData('RANDWALK')
+system.nistData('RANDWALK', [1])
 .autocorrelationPlot(125)
 ~~~
 
@@ -34,7 +34,7 @@ system.nistData('RANDWALK')
 An autocorrelation plot of data from an underlying sinusoidal model:
 
 ~~~spl svg=D
-system.nistData('LEW')
+system.nistData('LEW', [1])
 .autocorrelationPlot(50)
 ~~~
 

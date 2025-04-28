@@ -182,6 +182,17 @@
 		}
 	}
 
+	matrixRows { :self :aList |
+		let [m, n] = self.shape;
+		aList.allSatisfy { :each |
+			each.betweenAnd(1, m)
+		}.if {
+			self.atAll(aList)
+		} {
+			self.error('List>>matrixRows: illegal index')
+		}
+	}
+
 	matrixPrintString { :self |
 		self.matrixPrintString(4)
 	}

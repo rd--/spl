@@ -17,6 +17,14 @@ Querying:
 - `numberOfRows`: number of rows
 - `shape`: number of rows and columns
 
+Accessing:
+
+- `matrixColumn`
+- `matrixColumns`
+- `matrixRow`
+- `matrixRows`
+- `submatrix`
+
 Predicates:
 
 - `isIntegerMatrix`: is integer matrix

@@ -43,6 +43,8 @@ LaplaceDistribution(3, 3.5)
 
 See also: ExponentialDistribution
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/LaplaceDistribution.html),

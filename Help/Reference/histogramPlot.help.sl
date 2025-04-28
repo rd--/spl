@@ -18,21 +18,58 @@ NormalDistribution(0, 1)
 A histogram of empirical data following a normal distribution:
 
 ~~~spl svg=B
-system.nistData('ZARR')
-.histogramPlot
+system.nistData('ZARR13', [1])
+.histogramPlot([9.1 9.4 0.01])
 ~~~
 
 ![](sw/spl/Help/Image/histogramPlot-B.svg)
 
-
 A histogram of empirical data following a symmetric bimodal distribution:
 
 ~~~spl svg=C
-system.nistData('LEW')
-.histogramPlot
+system.nistData('LEW', [1])
+.histogramPlot([-2000 2000 50])
 ~~~
 
 ![](sw/spl/Help/Image/histogramPlot-C.svg)
+
+A histogram of empirical data following a bimodal distribution,
+due to a mixture of probability models:
+
+~~~spl svg=D
+system.nistData('ZARR14', [1])
+.histogramPlot([8.9 9.5 0.01])
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-D.svg)
+
+A histogram of empirical data with a non-normal right-skewed distribution:
+
+~~~spl svg=E
+system.nistData('SUNSPOT', [1])
+.histogramPlot([-200 300 10])
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-E.svg)
+
+A histogram of empirical data with a non-symmetric left-skewed distribution:
+
+~~~spl svg=F
+system.nistData('MORALES', [1])
+.histogramPlot([22.5 23.1 0.01])
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-F.svg)
+
+A histogram of a Tukey-Lambda random variate with shape parameter 1.1,
+having a symmetric non-normal short-tailed distribution:
+
+~~~spl svg=G
+system.nistData('TUKLAMB', [1])
+.histogramPlot([-4 4 0.1])
+~~~
+
+![](sw/spl/Help/Image/histogramPlot-G.svg)
 
 * * *
 

@@ -33,4 +33,8 @@ i.e. the number of milliseconds since the Unix epoch (1970-01-01).
 
 See also: asTimeStamp, dateTimeString, Date, Duration, Time, TimeInterval, now
 
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Timestamp)
+
 Categories: Time, Type

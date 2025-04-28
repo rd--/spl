@@ -7,7 +7,7 @@ Answer a plot of a smoothed Fourier transform of _x_.
 Plot data showing one dominant frequency:
 
 ~~~spl svg=A
-system.nistData('LEW')
+system.nistData('LEW', [1])
 .spectralPlot
 ~~~
 
@@ -16,7 +16,7 @@ system.nistData('LEW')
 Plot data with no dominant peaks and no identifiable pattern in the spectrum:
 
 ~~~spl svg=B
-system.nistData('NORMAL')
+system.nistData('NORMAL2', [1])
 .spectralPlot
 ~~~
 

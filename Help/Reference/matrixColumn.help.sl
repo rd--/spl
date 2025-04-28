@@ -1,8 +1,8 @@
 # matrixColumn
 
-- _matrixColumn(aMatrix, n)_
+- _matrixColumn(m, n)_
 
-Answer the _n_-th column of _aMatrix_ as a vector.
+Answer the _n_-th column of the matrix _m_ as a vector.
 
 The second column of a 3×3 matrix:
 
@@ -15,7 +15,11 @@ C.f. `matrixColumns` to answer a column vector:
 
 ```
 >>> [3 3].iota.matrixColumns(2:2)
-[2; 5; 8]
+[
+	2;
+	5;
+	8
+]
 ```
 
 C.f. `submatrix` to answer a column vector:
@@ -44,3 +48,5 @@ true
 * * *
 
 See also: at, List, matrixColumns, matrixRow, Matrix, submatrix, transposed
+
+Guides: Matrix Functions

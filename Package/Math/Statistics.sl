@@ -361,10 +361,30 @@
 
 +System {
 
-	nistData { :self :name |
+	nistData { :self |
 		self
-		.requireLibraryItem('NistEngineeringStatisticsHandbookData')
-		.at(name)
+		.requireLibraryItem(
+			'NistEngineeringStatisticsHandbookData'
+		)
+	}
+
+	nistData { :self :name :columns |
+		let d = self.nistData.at(name);
+		(d.isVector & { columns = [1] }).if {
+			d
+		} {
+			d.isMatrix.if {
+				let h = d[1];
+				let m = d.allButFirst;
+				(columns.size = 1).if {
+					m.matrixColumn(columns[1])
+				} {
+					m.matrixColumns(columns)
+				}
+			} {
+				self.error('nistData: invalid data')
+			}
+		}
 	}
 
 }

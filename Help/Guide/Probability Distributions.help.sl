@@ -50,6 +50,8 @@ Methods at `ProbablityDistribution`:
 - `randomVariate`
 - `survivalFunction`
 
+The `LaplaceDistribution` is also called the _Double Exponential Distribution_.
+
 * * *
 
 Guides: Random Functions, Random Number Generators, Random Processes

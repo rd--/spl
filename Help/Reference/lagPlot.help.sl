@@ -10,7 +10,7 @@ showing the data are non-random,
 and suggesting an autoregressive model:
 
 ~~~spl svg=A
-let d = system.nistData('MAVRO');
+let d = system.nistData('MAVRO', [1]);
 (d * 10).lagPlot(1)
 ~~~
 
@@ -22,7 +22,7 @@ exhibit no autocorrelation,
 amd contain no outliers:
 
 ~~~spl svg=B
-system.nistData('NORMAL2')
+system.nistData('NORMAL2', [1])
 .lagPlot(1)
 ~~~
 
@@ -31,7 +31,7 @@ system.nistData('NORMAL2')
 A circular pattern in a lag plot indicates that a sinusoidal model might be appropriate:
 
 ~~~spl svg=C
-system.nistData('LEW')
+system.nistData('LEW', [1])
 .lagPlot(1)
 ~~~
 
@@ -41,7 +41,7 @@ A lag plot of data from an underlying autoregressive model with moderate positiv
 the data contain no outliers:
 
 ~~~spl svg=D
-system.nistData('FLICKER')
+system.nistData('FLICKER', [1])
 .lagPlot(1)
 ~~~
 
@@ -51,7 +51,7 @@ A lag plot of data from an underlying autoregressive model with strong positive 
 the data contain no outliers:
 
 ~~~spl svg=E
-system.nistData('RANDWALK')
+system.nistData('RANDWALK', [1])
 .lagPlot(1)
 ~~~
 
