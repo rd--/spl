@@ -30,6 +30,15 @@ The matrix is symmetrical, print upper left quadrant:
 	0.013306 0.059634 0.098320;
 	0.021938 0.098320 0.162103
 ]
+
+>>> 3.gaussianMatrix(0.84089642)
+>>> .submatrix(1:4, 1:4)
+[
+	0.00000067 0.00002292 0.00019117 0.00038771;
+	0.00002292 0.00078633 0.00655965 0.01330373;
+	0.00019117 0.00655965 0.05472157 0.11098164;
+	0.00038771 0.01330373 0.11098164 0.22508352
+]
 ```
 
 The matrix sums to `one`:
@@ -53,4 +62,7 @@ See also: differences, diskMatrix, exp, gaussianVector, NormalDistribution
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/GaussianMatrix.html)
+[1](https://reference.wolfram.com/language/ref/GaussianMatrix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Gaussian_blur)
+

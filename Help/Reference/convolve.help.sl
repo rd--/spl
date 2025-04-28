@@ -19,6 +19,13 @@ Implemented using direct calculation.
 [1 2 2 1 0 1 2 2 1]
 ```
 
+Convolve with a single element:
+
+```
+>>> [1].convolve([1 2 3 4 5 6])
+[1 2 3 4 5 6]
+```
+
 A convolution typically smooths the function.
 Smooth box function (to a triangle function):
 
@@ -64,7 +71,7 @@ let v = u.reversed;
 
 * * *
 
-See also: fft, fftConvolve, ifft
+See also: accumulate, differences, fft, fftConvolve, ifft, inner, linearRecurrence, movingAverage, partition
 
 References:
 _Mathematica_

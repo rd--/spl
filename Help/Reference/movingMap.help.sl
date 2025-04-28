@@ -53,7 +53,7 @@ Can implement `differences`:
 
 * * *
 
-See also: accumulate, exponentialMovingAverage, mean, movingAverage, movingMedian, partition, windowedReduce
+See also: accumulate, blockMap, exponentialMovingAverage, mean, movingAverage, movingMedian, partition, windowedReduce
 
 References:
 _Mathematica_

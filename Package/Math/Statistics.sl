@@ -75,6 +75,23 @@
 		self.meanDeviation(mean:/1)
 	}
 
+	meanShift { :x :d |
+		x.collect { :a |
+			x.select { :b |
+				a.euclideanDistance(b) <= d
+			}.mean
+		}
+	}
+
+	meanShift { :x :d :m |
+		let y = x.meanShift(d);
+		(m <= 1 | { y = x }).if {
+			y
+		} {
+			y.meanShift(d, m - 1)
+		}
+	}
+
 	moment { :self :r |
 		(1 / self.size) * (self ^ r).sum
 	}
@@ -288,6 +305,48 @@
 }
 
 +List {
+
+	gaussianFilter { :x :r |
+		let sigma = r / 2;
+		let k = [r.negated .. r].collect(sigma.gaussianKernel);
+		let y = k.convolve(x);
+		y.removeFirst(r);
+		y.removeLast(r);
+		y
+	}
+
+	geometricMeanFilter { :x :r |
+		{ :y :i |
+			y.geometricMean
+		}.neighbourhoodMap(x, r)
+	}
+
+	harmonicMeanFilter { :x :r |
+		{ :y :i |
+			y.harmonicMean
+		}.neighbourhoodMap(x, r)
+	}
+
+	meanFilter { :x :r |
+		{ :y :i |
+			y.mean
+		}.neighbourhoodMap(x, r)
+	}
+
+	medianFilter { :x :r |
+		{ :y :i |
+			y.median
+		}.neighbourhoodMap(x, r)
+	}
+
+	meanShiftFilter { :self :r :d |
+		{ :each :i |
+			let a = self[i];
+			each.select { :b |
+				a.euclideanDistance(b) <= d
+			}.mean
+		}.neighbourhoodMap(self, r)
+	}
 
 	nadarayaWatsonEstimator { :i :x :y :h :k:/1 |
 		let kx = x.collect { :each |

@@ -280,6 +280,15 @@ Block! : [Object] {
 		<primitive: return _self.name;>
 	}
 
+	neighbourhoodMap { :aBlock:/2 :x :r |
+		let n = x.size;
+		(1 .. n).collect { :i |
+			let j = (i - r).max(1);
+			let k = (i + r).min(n);
+			aBlock(x.copyFromTo(j, k), i)
+		}
+	}
+
 	new { :self |
 		self.cull(0)
 	}

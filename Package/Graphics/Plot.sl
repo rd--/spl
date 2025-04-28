@@ -340,6 +340,16 @@ Plot : [Object] { | pages format options |
 		self.typedSwitchingPlot('scatter')
 	}
 
+	spectralPlot { :self |
+		let k = self.size;
+		let r = (0.025 * k).rounded;
+		let n = k.nextPowerOfTwo;
+		let d = self.padRight([n], 0);
+		let p = (d.fft / n).take(n / 2).squared.abs;
+		p[1] := 0;
+		(p * 10).gaussianFilter(r).linePlot
+	}
+
 	stackedListPlot { :self |
 		let level = self[1];
 		let data = [level.copy];

@@ -13,6 +13,9 @@ Answer the harmonic mean of the values in _aCollection_.
 
 >>> 1:4.harmonicMean
 48/25
+
+>>> [1 4 4].harmonicMean
+2
 ```
 
 Harmonic mean of columns of a matrix:
@@ -37,6 +40,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicMean.html),
 _Mathworks_
-[1](https://mathworks.com/help/stats/harmmean.html)
+[1](https://mathworks.com/help/stats/harmmean.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Harmonic_mean)
 
 Categories: Statistics

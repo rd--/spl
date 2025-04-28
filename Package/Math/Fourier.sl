@@ -12,13 +12,13 @@
 		(u.isEmpty | { v.isEmpty }).if {
 			'convolve: invalid vector'.error
 		} {
-			let n1 = u.size;
-			let n2 = v.size;
-			let answer = List(n1 + n2 - 1, 0);
-			1.toDo(n1 + n2 - 1) { :i |
-				1.toDo(n1) { :j |
+			let m = u.size;
+			let n = v.size;
+			let answer = List(m + n - 1, 0);
+			1.toDo(m + n - 1) { :i |
+				1.toDo(m) { :j |
 					let k = i - j + 1;
-					(k >= 1 & { k <= n2 }).ifTrue {
+					(k >= 1 & { k <= n }).ifTrue {
 						answer[i] := answer[i] + (v[k] * u[j])
 					}
 				}

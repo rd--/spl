@@ -1,6 +1,7 @@
 # movingAverage
 
-- _movingAverage(x, r | w)_
+- _movingAverage(x, r)_
+- _movingAverage(x, w)_
 
 Answer the moving average of the `List` _x_,
 computed by averaging runs of _r_ elements.
