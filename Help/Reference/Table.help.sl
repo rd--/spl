@@ -32,6 +32,26 @@ If the column labels are unspecified they are inferred:
 ['1' '2' '3']
 ```
 
+The `asHtml` method answers an Html table:
+
+~~~spl html=A
+Table(
+	[
+		4 9 2;
+		3 5 7;
+		8 1 6
+	],
+	['A' 'B' 'C']
+).asHtml
+~~~
+
+<table class="TableData">
+<tr><th></th><th scope="col">A</th><th scope="col">B</th><th scope="col">C</th></tr>
+<tr><th scope="row">1</th><td>4</td><td>9</td><td>2</td><tr>
+<tr><th scope="row">2</th><td>3</td><td>5</td><td>7</td><tr>
+<tr><th scope="row">3</th><td>8</td><td>1</td><td>6</td><tr>
+</table>
+
 * * *
 
 See also: List

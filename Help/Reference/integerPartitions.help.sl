@@ -125,7 +125,7 @@ Find partitions of 6 of even length only:
 
 * * *
 
-See also: partitionFunctionP, partitionFunctionQ
+See also: integerPartitionsTable, partitionFunctionP, partitionFunctionQ
 
 Guides: Integer Functions
 

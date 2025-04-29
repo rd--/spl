@@ -5,13 +5,13 @@ TableViewer : [Object, View] { | title tablePane |
 			class: 'tablePane'
 		);
 		self.tablePane.appendChild(
-			tableData.asHtmlTable
+			system.window.document.parseHtml(tableData.asHtml)
 		)
 	}
 
 	initialize { :self :title :tableData |
 		self.title := title;
-		self.createElements(tableData);
+		self.createElements(Table(tableData));
 		self
 	}
 

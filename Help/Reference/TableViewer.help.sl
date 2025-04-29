@@ -8,7 +8,11 @@ Add a window to _aSmallKansas_ with title _aString_ displaying a table of the ma
 ~~~spl smallKansas
 system.smallKansas.TableViewer(
 	'Luoshu',
-	[4 9 2; 3 5 7; 8 1 6]
+	[
+		4 9 2;
+		3 5 7;
+		8 1 6
+	]
 )
 ~~~
 

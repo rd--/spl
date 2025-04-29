@@ -49,7 +49,7 @@ Html : [Object] { | contents |
 			])
 		};
 		Html(
-			'<table style="%"><tbody>\n%\n</tbody></table>'.format([
+			'<table style="%">\n<tbody>\n%\n</tbody>\n</table>'.format([
 				'width: 100%; border: solid 1px black',
 				self.collect(row:/1).unlines
 			])

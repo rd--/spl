@@ -847,30 +847,6 @@ HTMLTableElement! : [Object, EventTarget, Node, Element, HtmlElement] {
 
 +List {
 
-	asHtmlRow { :self :toString:/1 |
-		let tr = 'tr'.createElement;
-		self.do { :cell |
-			let td = 'td'.createElement;
-			td.textContent(cell.toString);
-			tr.appendChild(td)
-		};
-		tr
-	}
-
-	asHtmlTable { :self :toString:/1 |
-		let table = 'table'.createElement;
-		self.do { :row |
-			table.appendChild(
-				row.asHtmlRow(toString:/1)
-			)
-		};
-		table
-	}
-
-	asHtmlTable { :self |
-		self.asHtmlTable(asString:/1)
-	}
-
 }
 
 +Association {
