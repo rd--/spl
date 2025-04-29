@@ -67,6 +67,7 @@
 	'Collection-Span'
 	'Collection-SparseArray'
 	'Collection-Stack'
+	'Collection-Table'
 	'Collection-TemporalData'
 	'Collection-TimeSeries'
 	'Collection-TolerantDictionary'

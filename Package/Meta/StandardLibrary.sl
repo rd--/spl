@@ -31,6 +31,7 @@
 	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'
+	'Table'
 	'TemporalData'
 	'TimeSeries'
 	'TolerantDictionary'

@@ -33,7 +33,7 @@ and `isMultivariate` tells if the values are not scalar or single column:
 (6, 1, 1, 15, 1, 7, 1, false, false)
 ```
 
-Accessors includes `times` (or equivalently `keys` or `indices`),
+Accessors include `times` (or equivalently `keys` or `indices`),
 `values`,
 `path`,
 and `associations`:
