@@ -22,7 +22,7 @@ system
 .schareinMinimalLinkCatalogue
 .at('6-2-1')
 .collect { :each |
-	each.matrixColumns([1 2]).closedLine
+	each.columns([1 2]).closedLine
 }
 .LineDrawing
 ~~~

@@ -12,7 +12,7 @@ or as a pair of _value_ and _time_ vectors.
 `firstTime` tells the time of the first entry and `lastTime` that of the last,
 `min` tells the least value and `max` the greatest,
 `minimumTimeIncrement` tells the least time difference,
-`isRegularlySampled` tells if the items are equally spaced in time:
+`isRegularlySampled` tells if the items are equally spaced in time,
 and `isMultivariate` tells if the values are not scalar or single column:
 
 ```

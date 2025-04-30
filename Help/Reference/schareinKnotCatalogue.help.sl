@@ -25,7 +25,7 @@ using an _xy_ projection:
 system
 .schareinKnotCatalogue
 .at('8-1')
-.matrixColumns(1:2)
+.columns(1:2)
 .asLineDrawing
 ~~~
 

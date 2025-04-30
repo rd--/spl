@@ -21,7 +21,7 @@ using an _xy_ projection:
 system
 .schareinMinimalKnotCatalogue
 .at('3-1')
-.matrixColumns(1:2)
+.columns(1:2)
 .closedLine
 .asLineDrawing
 ~~~

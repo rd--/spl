@@ -26,6 +26,9 @@ However the `step` value may specify a range that not include `stop`.
 ```
 >>> Range(1, 9, 3).asList
 [1 4 7]
+
+>>> Range(0, 10, 3).asList
+[0 3 6 9]
 ```
 
 Note in particular that with non-integer values _stop_ may not be in the list of values specified by the `Range`:

@@ -9,7 +9,7 @@ Three days and four hours:
 ```
 >>> Duration(273600)
 >>> .durationString
-'P0W3DT4H0M0S'
+'P3DT4H0M0S'
 ```
 
 Four days, twelve hours, thirty minutes, and five seconds:
@@ -17,7 +17,7 @@ Four days, twelve hours, thirty minutes, and five seconds:
 ```
 >>> Duration(390605)
 >>> .durationString
-'P0W4DT12H30M5S'
+'P4DT12H30M5S'
 ```
 
 Five minutes and seven and one half seconds:
@@ -25,7 +25,7 @@ Five minutes and seven and one half seconds:
 ```
 >>> Duration(307.5)
 >>> .durationString
-'P0W0DT0H5M7.5S'
+'P0DT0H5M7.5S'
 ```
 
 Six weeks:
@@ -33,21 +33,24 @@ Six weeks:
 ```
 >>> Duration(3628800)
 >>> .durationString
-'P6W0DT0H0M0S'
+'P42DT0H0M0S'
 ```
 
 Two weeks, three days, five hours, eleven minutes and seventeen seconds:
 
 ```
->>> Duration([2 3 5 11 17])
+>>> Duration([17 5 11 17])
 >>> .durationString
-'P2W3DT5H11M17S'
+'P17DT5H11M17S'
+
+>>> (2 * 7) + 3
+17
 ```
 
 This format is recognised by `parseDuration`:
 
 ```
->>> 'P0W4DT12H30M5S'.parseDuration
+>>> 'P4DT12H30M5S'.parseDuration
 Duration(390605)
 ```
 

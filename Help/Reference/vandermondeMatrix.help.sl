@@ -20,8 +20,6 @@ A rectangular Vandermonde matrix:
 ```
 >>> [0 1/4 1/3 1/2 2/3 3/4 1]
 >>> .vandermondeMatrix(11)
->>> .matrixPlot
-
 [
 	1 0 0 0 0 0 0 0 0 0 0
 	;

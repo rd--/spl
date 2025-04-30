@@ -37,8 +37,8 @@ Duration : [Object, Magnitude] { | seconds |
 	}
 
 	asList { :self |
-		let b = [7 24 60 60];
-		self.seconds.mixedRadixEncode(b).padLeft([5], 0)
+		let b = [24 60 60];
+		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
 	}
 
 	asSeconds { :self |
@@ -46,8 +46,8 @@ Duration : [Object, Magnitude] { | seconds |
 	}
 
 	durationString { :self |
-		let [w, d, h, m, s] = self.asList;
-		'P%W%DT%H%M%S'.format([w, d, h, m, s])
+		let [d, h, m, s] = self.asList;
+		'P%DT%H%M%S'.format([d, h, m, s])
 	}
 
 	isZero { :self |
@@ -71,8 +71,8 @@ Duration : [Object, Magnitude] { | seconds |
 +List {
 
 	Duration { :self |
-		let [w, d, h, m, s] = self;
-		let b = [7 24 60 60];
+		let [d, h, m, s] = self;
+		let b = [24 60 60];
 		Duration(self.mixedRadixDecode(b))
 	}
 

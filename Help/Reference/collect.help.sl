@@ -84,7 +84,7 @@ and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.
 
 * * *
 
-See also: deepCollect, do, gather, map, reject, replace, select, withCollect, withIndexCollect
+See also: deepCollect, do, gather, map, reject, replace, select, table, withCollect, withIndexCollect
 
 References:
 _Haskell_

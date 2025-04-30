@@ -11,35 +11,49 @@ At `List`:
 true
 ```
 
-At `IdentityBag`:
+At `Range` answers true:
+
+```
+>>> Range(0, 9, 1).isSequenceable
+true
+```
+
+At `Tuple`:
+
+```
+>>> (1, 2, 3).isSequenceable
+true
+```
+
+At `IdentityBag` answers false:
 
 ```
 >>> IdentityBag().isSequenceable
 false
 ```
 
-At `Map`:
+At `Map` answers false:
 
 ```
 >>> Map().isSequenceable
 false
 ```
 
-At `Record`:
+At `Record` answers false:
 
 ```
 >>> Record().isSequenceable
 false
 ```
 
-At `IdentitySet`:
+At `IdentitySet` answers false:
 
 ```
 >>> IdentitySet().isSequenceable
 false
 ```
 
-At `String`:
+At `String` answers false:
 
 ```
 >>> 'x'.isSequenceable

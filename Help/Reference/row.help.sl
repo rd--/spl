@@ -1,13 +1,13 @@
-# matrixRow
+# row
 
-- _matrixRow(m, n)_
+- _row(m, n)_
 
 Answer the _n_-th row of the matrix _m_ as a vector.
 
 The second row of a 3×3 matrix:
 
 ```
->>> [3 3].iota.matrixRow(2)
+>>> [3 3].iota.row(2)
 [4 5 6]
 ```
 
@@ -29,6 +29,6 @@ C.f. `at`, which does not require the input be a matrix:
 
 * * *
 
-See also: at, matrixColumn, matrixRows, submatrix
+See also: at, column, rows, submatrix
 
 Guides: Matrix Functions

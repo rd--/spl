@@ -60,6 +60,16 @@ Answers the size of `dimensions`:
 (2, [2 3], 2)
 ```
 
+At `Range`:
+
+```
+>>> 1:9.arrayDepth
+1
+
+>>> [1 2 3 4 5 6 7 8 9].arrayDepth
+1
+```
+
 * * *
 
 See also: arrayFlatten, depth, dimensions, isArray, isMatrix, isVector, rank, shape, size

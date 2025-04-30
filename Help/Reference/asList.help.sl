@@ -83,6 +83,14 @@ answer _(year, month, day, hour, minute, second)_:
 [2025 04 07 17 07 20 500]
 ```
 
+At `Duration`,
+answer _(days, hours, minutes, seconds)_:
+
+```
+>>> 'P4DT12H30M5S'.parseDuration.asList
+[4 12 30 5]
+```
+
 This should not be defined for scalar values, see _asCollection_.
 
 * * *

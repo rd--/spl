@@ -82,9 +82,13 @@ TemporalData : [Object] { | valueList timeList |
 +List {
 
 	TemporalData { :self |
-		let [t, v] = self.collect { :each |
-			each.transposed
-		}.transposed;
+		let t = [];
+		let v = [];
+		self.do { :each |
+			let [i, j] = each.transposed;
+			t.add(i);
+			v.add(j)
+		};
 		TemporalData(v, t)
 	}
 

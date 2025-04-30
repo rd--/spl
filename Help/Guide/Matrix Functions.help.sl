@@ -19,10 +19,10 @@ Querying:
 
 Accessing:
 
-- `matrixColumn`
-- `matrixColumns`
-- `matrixRow`
-- `matrixRows`
+- `column`
+- `columns`
+- `row`
+- `rows`
 - `submatrix`
 
 Predicates:

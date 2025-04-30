@@ -377,9 +377,9 @@
 				let h = d[1];
 				let m = d.allButFirst;
 				(columns.size = 1).if {
-					m.matrixColumn(columns[1])
+					m.column(columns[1])
 				} {
-					m.matrixColumns(columns)
+					m.columns(columns)
 				}
 			} {
 				self.error('nistData: invalid data')

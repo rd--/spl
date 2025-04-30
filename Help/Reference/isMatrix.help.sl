@@ -21,6 +21,13 @@ At `List`:
 (false, [2])
 ```
 
+At a `List` of `Range` values:
+
+```
+>>> [1:5, 3:7, 5:9].isMatrix
+true
+```
+
 At `NumericArray`:
 
 ```

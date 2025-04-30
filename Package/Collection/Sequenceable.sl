@@ -1435,6 +1435,15 @@
 		answer
 	}
 
+	irregularTransposition { :self |
+		let n = self.collect(size:/1).max;
+		1.toAsCollect(n, self.first.species) { :index |
+			self.collect { :row |
+				row.atWrap(index)
+			}
+		}
+	}
+
 	isAlternating { :self :z |
 		let k = self.size;
 		(k < 2).if {
@@ -2980,7 +2989,8 @@
 	}
 
 	transposed { :self |
-		1.toAsCollect(self.first.size, self.first.species) { :index |
+		let [m, n] = self.dimensions(2);
+		1.toAsCollect(n, self[1].species) { :index |
 			self.collect { :row |
 				row[index]
 			}

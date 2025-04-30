@@ -71,6 +71,9 @@ at scalar values answers the empty list:
 
 >>> [[1, 2]].dimensions
 [1 2]
+
+>>> [[[3]]].dimensions(0)
+[]
 ```
 
 The `size` of `dimensions` equals `arrayDepth`:
@@ -87,6 +90,16 @@ At full arrays, `dimensions` and `shape` answer the same value:
 >>> let a = [1 2; 3 4:; 5 6; 7 8];
 >>> (a.dimensions, a.shape)
 ([2 2 2], [2 2 2])
+```
+
+At `Range`:
+
+```
+>>> 1:9.dimensions
+[9]
+
+>>> [1 2 3 4 5 6 7 8 9].dimensions
+[9]
 ```
 
 * * *

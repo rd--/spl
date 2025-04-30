@@ -76,6 +76,32 @@
 		m
 	}
 
+	column { :self :anInteger |
+		let [m, n] = self.shape;
+		anInteger.betweenAnd(1, n).if {
+			(1 .. m).collect { :i |
+				self[i][anInteger]
+			}
+		} {
+			self.error('List>>column: illegal index')
+		}
+	}
+
+	columns { :self :aList |
+		let [m, n] = self.shape;
+		aList.allSatisfy { :each |
+			each.betweenAnd(1, n)
+		}.if {
+			(1 .. m).collect { :i |
+				aList.collect { :j |
+					self[i][j]
+				}
+			}
+		} {
+			self.error('List>>columns: illegal index')
+		}
+	}
+
 	diagonal { :self :k |
 		let m = self.assertIsMatrix('List>>diagonal');
 		let l = m.shape.min - k.abs;
@@ -129,7 +155,7 @@
 	columnsCollect { :self :aBlock:/1 |
 		let [m, n] = self.shape;
 		1:n.collect { :i |
-			aBlock(self.matrixColumn(i))
+			aBlock(self.column(i))
 		}
 	}
 
@@ -145,52 +171,6 @@
 			anitdiagonalSum: self.antidiagonal.sum,
 			rank: self.matrixRank
 		)
-	}
-
-	matrixColumn { :self :anInteger |
-		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, n).if {
-			(1 .. m).collect { :i |
-				self[i][anInteger]
-			}
-		} {
-			self.error('List>>matrixColumn: illegal index')
-		}
-	}
-
-	matrixColumns { :self :aList |
-		let [m, n] = self.shape;
-		aList.allSatisfy { :each |
-			each.betweenAnd(1, n)
-		}.if {
-			(1 .. m).collect { :i |
-				aList.collect { :j |
-					self[i][j]
-				}
-			}
-		} {
-			self.error('List>>matrixColumns: illegal index')
-		}
-	}
-
-	matrixRow { :self :anInteger |
-		let [m, n] = self.shape;
-		anInteger.betweenAnd(1, m).if {
-			self[anInteger]
-		} {
-			self.error('List>>matrixRow: illegal index')
-		}
-	}
-
-	matrixRows { :self :aList |
-		let [m, n] = self.shape;
-		aList.allSatisfy { :each |
-			each.betweenAnd(1, m)
-		}.if {
-			self.atAll(aList)
-		} {
-			self.error('List>>matrixRows: illegal index')
-		}
 	}
 
 	matrixPrintString { :self |
@@ -241,6 +221,26 @@
 			m := (m ! d[i]).join(i)
 		};
 		m
+	}
+
+	row { :self :anInteger |
+		let [m, n] = self.shape;
+		anInteger.betweenAnd(1, m).if {
+			self[anInteger]
+		} {
+			self.error('List>>row: illegal index')
+		}
+	}
+
+	rows { :self :aList |
+		let [m, n] = self.shape;
+		aList.allSatisfy { :each |
+			each.betweenAnd(1, m)
+		}.if {
+			self.atAll(aList)
+		} {
+			self.error('List>>rows: illegal index')
+		}
 	}
 
 	submatrix { :self :r :c |
@@ -450,8 +450,8 @@
 				let j = [
 					i.take(k),
 					i.reversed.take(k)
-				].transposed;
-				m.swapAllWith(j)
+				];
+				m.swapAllWith(j.transposed)
 			};
 			let columnSwaps = { :m :i :j :c |
 				i.withDo(j) { :p :q |

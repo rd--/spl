@@ -97,7 +97,7 @@
 		} {
 			let answer = [];
 			answer.add(self.size);
-			self.allSatisfy(isList:/1).ifTrue {
+			self.allSatisfy(isSequenceable:/1).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
@@ -352,6 +352,22 @@
 }
 
 +Range {
+
+	arrayDepth { :unused |
+		1
+	}
+
+	dimensions { :self :k |
+		(k = 0).if {
+			[]
+		} {
+			[self.size]
+		}
+	}
+
+	dimensions { :self |
+		[self.size]
+	}
 
 	rank { :self |
 		1
