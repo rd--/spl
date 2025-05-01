@@ -167,10 +167,6 @@ RegExp! : [Object] {
 		self.matchesRegExp('^[0-9A-Za-z+/]+$')
 	}
 
-	isDateString { :self |
-		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]+$')
-	}
-
 	isDecimalIntegerString { :self |
 		self.matchesRegExp('^[-]?[0-9]+$')
 	}

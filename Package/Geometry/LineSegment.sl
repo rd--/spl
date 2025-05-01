@@ -86,8 +86,8 @@ LineSegment : [Object] { | u v |
 								q := a
 							} {
 								matched := false
+							}
 						}
-					}
 					}
 				};
 				matched.if {

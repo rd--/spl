@@ -18,10 +18,15 @@ The current date and time can be read from the `System` as a `TimeStamp` using `
 and translated into a `DateAndTime` using `asDateAndTime`:
 
 ```
->>> system.currentDateAndTime.year >= 2024
+>>> system
+>>> .currentDateAndTime
+>>> .year >= 2024
 true
 
->>> system.now.asDateAndTime.year >= 2024
+>>> system
+>>> .now
+>>> .asDateAndTime
+>>> .year >= 2024
 true
 ```
 
@@ -29,8 +34,17 @@ There are methods to access the elements of the date,
 i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`:
 
 ```
->>> let d = DateAndTime([1970, 01, 01, 00, 00, 00.000]);
->>> [d.year, d.month, d.dayOfMonth, d.hour, d.minute, d.second]
+>>> let d = DateAndTime(
+>>> 	[1970, 01, 01, 00, 00, 00.000]
+>>> );
+>>> [
+>>> 	d.year,
+>>> 	d.month,
+>>> 	d.dayOfMonth,
+>>> 	d.hour,
+>>> 	d.minute,
+>>> 	d.second
+>>> ]
 [1970 01 01 00 00 00.000]
 ```
 

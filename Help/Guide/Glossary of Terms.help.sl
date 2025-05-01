@@ -134,6 +134,9 @@ An item in a _collection_.
 The type of all elements in a _homogeneous collection_.
 Cf: elementType
 
+- _Engineering notation_:
+A kind of scientific notation where the exponent _n_ is restricted to multiples of three.
+
 - _Equal_:
 A comparison that decides if two values are equal.
 Values may be equal without being _identical_.
@@ -318,6 +321,10 @@ A _matrix_ with a single row, the _transpose_ of a _column vector_.
 - _Scalar_:
 A scalar is any non-composite value.
 In particular used to distinguish values that are not _vectors_ or _matrices_ or _arrays_.
+
+- _Scientific notation_:
+In scientific notation, nonzero numbers are written in the form _m × (10 ^ n)_.
+Cf: Scientific Notation
 
 - _Sequence_:
 A _collection trait_ for collections that have an ordering.

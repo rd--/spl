@@ -19,8 +19,8 @@ Use `true` for an else clause that always matches:
 ```
 >>> [-2 0 3].collect { :x |
 >>> 	[
->>> 		x < 0 -> -1,
->>> 		x > 0 -> 1,
+>>> 		{ x < 0 } -> -1,
+>>> 		{ x > 0 } -> 1,
 >>> 		true -> 0
 >>> 	].which
 >>> }

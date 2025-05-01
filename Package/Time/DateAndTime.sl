@@ -154,6 +154,12 @@ DateAndTime : [Object, Magnitude] { | primitive |
 
 +String {
 
+	isDateAndTimeString { :self |
+		[24 29].includes(self.size) & {
+			self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?([-+][0-9][0-9]:[0-9][0-9]|Z)?$')
+		}
+	}
+
 	parsePrimitiveDateAndTime { :self |
 		<primitive: return new Date(_self);>
 	}

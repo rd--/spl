@@ -119,8 +119,8 @@ Date! : [Object, Magnitude] {
 
 +String {
 
-	uncheckedParseDate { :self |
-		<primitive: return new Date(_self);>
+	isDateString { :self |
+		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
 	}
 
 	parseDate { :self |
@@ -129,6 +129,10 @@ Date! : [Object, Magnitude] {
 		} {
 			self.error('parseDate: invalid size')
 		}
+	}
+
+	uncheckedParseDate { :self |
+		<primitive: return new Date(_self);>
 	}
 
 }

@@ -9,7 +9,9 @@ answer the `Date` that is the specified number of seconds after the January 1, 1
 >>> 0.asDate.dateString
 '1970-01-01'
 
->>> (3 * 365.4 * 24 * 60 * 60).asDate.dateString
+>>> (3 * 365.4 * 24 * 60 * 60)
+>>> .asDate
+>>> .dateString
 '1973-01-01'
 ```
 

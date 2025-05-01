@@ -659,7 +659,7 @@
 	perlinBiasFunction { :b |
 		let p = b.log / 0.5.log;
 		{ :x |
-			 x ^ p
+			x ^ p
 		}
 	}
 

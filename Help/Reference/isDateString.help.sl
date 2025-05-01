@@ -22,6 +22,6 @@ Date([2025 04 25])
 
 * * *
 
-See also: isBooleanString, isDecimalIntegerString, isFloatString, parseDate
+See also: Date, isBooleanString, isDateAndTimeString, isDecimalIntegerString, isFloatString, parseDate
 
 Guides: Parsing Functions

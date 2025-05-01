@@ -58,7 +58,7 @@ TemporalData : [Object] { | valueList timeList |
 						linearInterpolator(x[i], y[i])
 					)
 				},
-			t
+				t
 			)
 		} {
 			self.error('resample: size mismatch')

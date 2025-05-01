@@ -581,6 +581,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 +String {
 
+	isFractionString { :self |
+		self.matchesRegExp('^[-]?[0-9]+/[0-9]+$')
+	}
+
 	parseFraction { :self :separator |
 		self.includesSubstring(separator).if {
 			let parts = self.splitBy(separator);

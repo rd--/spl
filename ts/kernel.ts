@@ -363,7 +363,10 @@ export function typesImplementingTrait(traitName: TraitName): TypeName[] {
 	return answer;
 }
 
-export function annotateFunction(aBlock: SplBlock, argumentNames: string[]): SplBlock {
+export function annotateFunction(
+	aBlock: SplBlock,
+	argumentNames: string[],
+): SplBlock {
 	aBlock.argumentNames = argumentNames;
 	return aBlock;
 }
@@ -421,7 +424,6 @@ export function extendTypeOrTraitWithMethod(
 		block,
 		sourceCode,
 	);
-
 }
 
 // Only for Ugen>>adaptToNumberAndApply.

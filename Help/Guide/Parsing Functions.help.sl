@@ -38,14 +38,22 @@ Parse Documents:
 - `parseJson`
 - `parseSvg`
 
+Parse Schema:
+
+- `inferSchemaType`
+- `parseSchemaType`
+
 Predicates:
 
 - `isBase16String`
 - `isBase64String`
 - `isBooleanString`
+- `isComplexString`
 - `isDateString`
+- `isDateTimeString`
 - `isDecimalIntegerString`
 - `isFloatString`
+- `isFractionString`
 - `isTimeString`
 
 * * *

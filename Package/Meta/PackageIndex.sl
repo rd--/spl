@@ -186,6 +186,7 @@
 	'Number-SmallFloat'
 	'Protocol-Json'
 	'Protocol-OpenSoundControl'
+	'Protocol-Schema'
 	'Quantity-Frequency'
 	'Quantity-Length'
 	'Quantity-Mass'

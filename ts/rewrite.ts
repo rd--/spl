@@ -13,7 +13,7 @@ function genName(name: string, arity: number): string {
 }
 
 function clearLeadingZeroes(s: string): string {
-	return s.replace(/^0+(?!\.|$)/, '')
+	return s.replace(/^0+(?!\.|$)/, '');
 }
 
 function genArityCheck(k: number, a: string): string {
@@ -22,26 +22,30 @@ function genArityCheck(k: number, a: string): string {
 		`if(arguments.length !== ${k}) {`,
 		`	const errorMessage = 'Arity: expected ${k}, ${a}';`,
 		'	throw new Error(errorMessage);',
-		'}'
+		'}',
 	].join('\n');
 }
 
 function rewriteMethodList(n: ohm.Node, b: ohm.Node): string[] {
-		const nArray = n.children;
-		const bArray = b.children;
-		const k = nArray.length;
-		const answer = [];
-		for(let i = 0; i < k; i++) {
-			answer.push('\t' + nArray[i].sourceString + ' ' + bArray[i].asSl);
-		}
-		return answer;
+	const nArray = n.children;
+	const bArray = b.children;
+	const k = nArray.length;
+	const answer = [];
+	for (let i = 0; i < k; i++) {
+		answer.push('\t' + nArray[i].sourceString + ' ' + bArray[i].asSl);
+	}
+	return answer;
 }
 
-function rewriteTypeOrTraitExtension(t: ohm.Node, n: ohm.Node, b: ohm.Node): string {
-		const begin = `+[${t.sourceString}] {`;
-		const middle = rewriteMethodList(n, b);
-		const end = '}\n';
-		return [begin, middle, end].flat().join('\n');
+function rewriteTypeOrTraitExtension(
+	t: ohm.Node,
+	n: ohm.Node,
+	b: ohm.Node,
+): string {
+	const begin = `+[${t.sourceString}] {`;
+	const middle = rewriteMethodList(n, b);
+	const end = '}\n';
+	return [begin, middle, end].flat().join('\n');
 }
 
 // Spl allows both + and - as prefixes to number literals.
@@ -160,7 +164,7 @@ const asJs: ohm.ActionDict<string> = {
 		return makeMethodList(
 			'extendTypeOrTraitWithMethod',
 			n.asIteration().children.map(
-				(c) => c.sourceString
+				(c) => c.sourceString,
 			),
 			mn.children.map((c) => c.sourceString),
 			mb.children,
@@ -196,7 +200,7 @@ const asJs: ohm.ActionDict<string> = {
 	SlotNames(_l, slots, _r) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map(
-			(e) => `'${e.sourceString}'`
+			(e) => `'${e.sourceString}'`,
 		).join(' ');
 	},
 	StringAssociation(lhs, _c, rhs) {
@@ -204,7 +208,8 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	TraitDefinition(nm, _l, mn, mb, _r) {
 		const unqualifiedTraitName = nm.sourceString.substring(1);
-		const trait = `sl.addTrait('${unqualifiedTraitName}', '${context.packageName}');\n`;
+		const trait =
+			`sl.addTrait('${unqualifiedTraitName}', '${context.packageName}');\n`;
 		const mth = makeMethodList(
 			'addMethodToExistingTrait',
 			[unqualifiedTraitName],
@@ -215,7 +220,8 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	TraitList(_c, _l, names, _r) {
 		return names.asIteration().children.map(
-			(c) => `'${c.sourceString}'`).join(', ');
+			(c) => `'${c.sourceString}'`,
+		).join(', ');
 	},
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
 		return makeTypeDefinition(
@@ -235,7 +241,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	VectorSyntax(_l, items, _r) { // Required for unit case. CF Help File
 		let c = items.children;
-		if(c.length === 1) {
+		if (c.length === 1) {
 			return `[${c[0].asJs}]`;
 		}
 		throw new Error('VectorSyntax: ?');
@@ -381,7 +387,7 @@ const asSl: ohm.ActionDict<string> = {
 	DictionaryAssignment(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genSym('__SPL');
 		const keyVarNamesArray = lhs.asIteration().children.map(
-			(c) => c.parametersOf
+			(c) => c.parametersOf,
 		);
 		const slots = genDictionaryAssignmentSlots(
 			false,
@@ -396,7 +402,7 @@ const asSl: ohm.ActionDict<string> = {
 	DictionaryInitializer(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genSym('__SPL');
 		const keyVarNamesArray = lhs.asIteration().children.map(
-			(c) => c.parametersOf
+			(c) => c.parametersOf,
 		);
 		const slots = genDictionaryAssignmentSlots(
 			true,
@@ -455,7 +461,7 @@ const asSl: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsListName = genSym('__SPL');
 		const slots = namesArray.map(
-			(name, index) => `${name} := at(${rhsListName}, ${index + 1})`
+			(name, index) => `${name} := at(${rhsListName}, ${index + 1})`,
 		).join('; ');
 		return `({ let ${rhsListName} = ${rhs.asSl}; ${slots} } . ())`;
 	},
@@ -466,7 +472,7 @@ const asSl: ohm.ActionDict<string> = {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsName = genSym('__SPL');
 		const slots = namesArray.map(
-			(name, index) => `let ${name} = at(${rhsName}, ${index + 1})`
+			(name, index) => `let ${name} = at(${rhsName}, ${index + 1})`,
 		).join('; ');
 		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}); ${slots}`;
 	},
@@ -540,7 +546,8 @@ const asSl: ohm.ActionDict<string> = {
 		return `asTuple([${commaListSl(items.asIteration().children)}])`;
 	},
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
-		const begin = `${n.sourceString}${h.sourceString} ${t.sourceString} { ${v.sourceString}`;
+		const begin =
+			`${n.sourceString}${h.sourceString} ${t.sourceString} { ${v.sourceString}`;
 		const middle = rewriteMethodList(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
@@ -587,7 +594,8 @@ const asSl: ohm.ActionDict<string> = {
 		return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D')`;
 	},
 	floatLiteral(s, i, _dot, f) {
-		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' + f.sourceString;
+		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' +
+			f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {
 		return `Fraction(${
@@ -690,7 +698,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	},
 	Arguments(a, _p) {
 		return ['Arguments'].concat(
-			a.children.map((x) => x.asAst)
+			a.children.map((x) => x.asAst),
 		);
 	},
 	Primitive(_l, s, _r) {
@@ -716,7 +724,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return [e.asAst];
 	},
 	LetTemporary(_l, tmp, _s) {
-		return ['Let', tmp.asAst].flat(1)
+		return ['Let', tmp.asAst].flat(1);
 	},
 	ListExpression(_l, items, _r) {
 		return ['List'].concat(items.children.map((x) => x.asAst).flat(1));
@@ -765,7 +773,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 		return ['SmallInteger', s.sourceString + i.sourceString];
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return ['LargeInteger',	s.sourceString + i.sourceString + 'L'];
+		return ['LargeInteger', s.sourceString + i.sourceString + 'L'];
 	},
 	lowercaseIdentifier(c1, cN) {
 		return ['Identifier', c1.sourceString + cN.sourceString];

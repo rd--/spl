@@ -55,6 +55,9 @@
 	'Fraction' /* LargeInteger */
 	'Decimal' /* Fraction */
 
+	/* Protocol */
+	'Schema'
+
 	/* Quantity */
 	'Quantity'
 	'QuantityArray'
@@ -200,20 +203,20 @@
 	'WeibullDistribution'
 
 	/* Random - RandomProcess */
-        'BernoulliProcess'
+	'BernoulliProcess'
 	'BinomialProcess'
 	'BrownianBridgeProcess'
-        'ContinuousMarkovProcess'
+	'ContinuousMarkovProcess'
 	'CoxIngersollRossProcess'
-        'DiscreteMarkovProcess'
+	'DiscreteMarkovProcess'
 	'FractionalBrownianMotionProcess'
 	'FractionalGaussianNoiseProcess'
-        'GeometricBrownianMotionProcess'
-        'HiddenMarkovProcess'
-        'OrnsteinUhlenbeckProcess'
-        'PoissonProcess'
-        'RandomWalkProcess'
-        'WienerProcess'
+	'GeometricBrownianMotionProcess'
+	'HiddenMarkovProcess'
+	'OrnsteinUhlenbeckProcess'
+	'PoissonProcess'
+	'RandomWalkProcess'
+	'WienerProcess'
 
 	/* System */
 	'Event'

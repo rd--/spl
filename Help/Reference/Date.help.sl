@@ -2,9 +2,9 @@
 
 - _Date([y, m, d])_
 
-`Date` is `Type` representing a date.
+`Date` is `Type` representing a date in the Gregorian calendar.
 
-Construct a _UTC_ date,
+Construct a `Date` value from a `List`,
 the month and day of month fields are _one-indexed_:
 
 ```
@@ -13,7 +13,8 @@ the month and day of month fields are _one-indexed_:
 '2025-04-08'
 ```
 
-A `Date` can be read from a `String` using `parseDate`.
+A `Date` can be read from a `String` using `parseDate`,
+the components can be accessed using `year` and `month` and `dayOfMonth`:
 
 ```
 >>> let date = '2024-04-23'.parseDate;
@@ -37,7 +38,7 @@ true
 ```
 
 There are methods to access the elements of the date,
-i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, and `millisecond`.
+i.e. `year`, `month`, `dayOfMonth`:
 
 ```
 >>> let d = Date([1970, 01, 01]);
@@ -56,7 +57,7 @@ These fields are answered by `asList`:
 
 * * *
 
-See also: absoluteTime, asDate, dayOfMonth, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
+See also: absoluteTime, asDate, dayOfMonth, DateAndTime, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
 
 References:
 _Mathematica_

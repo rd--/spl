@@ -507,3 +507,24 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 }
+
++String {
+
+	isComplexString { :self |
+		let parts = self.splitBy('J');
+		parts.size = 2 & {
+			parts.allSatisfy(isFloatString:/1) & {
+				parts[2].beginsWith('-').not
+			}
+		}
+	}
+
+	parseComplex { :self |
+		let [real, imaginary] = self.splitBy('J');
+		Complex(
+			real.parseNumber,
+			imaginary.parseNumber
+		)
+	}
+
+}
