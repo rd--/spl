@@ -248,6 +248,7 @@
 	/* Time */
 	'Clock'
 	'Date'
+	'DateAndTime'
 	'Duration'
 	'TimeStamp'
 	'TimeInterval' /* TimeStamp */

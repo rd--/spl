@@ -807,7 +807,8 @@ Reference/cycles.help.sl
 Reference/CylindricalCoordinates.help.sl
 Reference/Date.help.sl
 Reference/dateString.help.sl
-Reference/dateTimeString.help.sl
+Reference/dateString.help.sl
+Reference/dateAndTimeString.help.sl
 Reference/dayOfMonth.help.sl
 Reference/dayOfWeek.help.sl
 Reference/dayOfYear.help.sl

@@ -716,15 +716,19 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 +String {
 
 	parseDecimalInteger { :self |
-		let answer = self.uncheckedParseDecimalInteger;
-		answer.isNaN.if {
-			self.error('parseDecimalInteger: not a number')
-		} {
-			answer.isSmallInteger.if {
-				answer
+		self.isDecimalIntegerString.if {
+			let answer = self.uncheckedParseDecimalInteger;
+			answer.isNaN.if {
+				self.error('parseDecimalInteger: not a number')
 			} {
-				self.error('parseDecimalInteger: not an integer')
+				answer.isSmallInteger.if {
+					answer
+				} {
+					self.error('parseDecimalInteger: not a small integer')
+				}
 			}
+		} {
+			self.error('parseDecimalInteger: invalid string')
 		}
 	}
 

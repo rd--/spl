@@ -1280,7 +1280,6 @@ let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /
 system.includesPackage('Date') /* date package */
 system.now.asDate.typeOf = 'Date' /* type of Date, system constructor gets current date and time */
 0.asDate.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
-(60 * 60 * 12).asDate.dateTimeString = '1970-01-01T12:00:00.000Z' /* translate Date to ISO-8601 string */
 '1970-01-01T00:00:01.000Z'.parseDateAndTime.absoluteTime = 1 /* parse ISO-8601 string & convert to unix time */
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
 let d = 0.asDate; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in UTC */
@@ -1288,7 +1287,7 @@ let d = 0.asDate; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in UTC */
 0.asDate ~= system.now.asDate /* dates are comparable */
 0.asDate < system.now.asDate /* dates are magnitudes */
 system.now.asDate > 0.asDate /* dates are magnitudes */
-'2023-05-11'.parseDate.dateTimeString = '2023-05-11T00:00:00.000Z' /* read date from partial ISO-8601 string */
+'2023-05-11'.parseDate.dateString = '2023-05-11' /* read date from partial ISO-8601 string */
 ```
 
 ## Dictionary -- collection trait
@@ -3917,10 +3916,10 @@ let x = 1; let y = 2; x < y /* initialisers are written as name = value */
 ```
 system.includesPackage('TimeStamp') /* timestamp package */
 1676784053576.asTimeStamp.printString = 'TimeStamp(1676784053576)' /* make TimeStamp from Number of seconds since unix epoch */
-1676784053.576.asTimeStamp.dateTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
+1676784053.576.asTimeStamp.dateAndTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
 system.now.isTimeStamp = true /* get current time at system */
-system.now.dateTimeString.size = 24
-1676784053.576.asTimeStamp.roundTo(24.hours).dateTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
+system.now.dateAndTimeString.size = 24
+1676784053.576.asTimeStamp.roundTo(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
 let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
 { system.now.postLine }.valueAfter(Duration(0.5)).cancel = nil
 { system.now.postLine }.valueAt(system.now + Duration(0.5)).cancel = nil

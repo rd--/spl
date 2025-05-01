@@ -11,6 +11,15 @@ If the string is not a decimal integer, signal an error.
 23
 ```
 
+Does not allow a zero fractional part:
+
+```
+>>> {
+>>> 	'23.0'.parseDecimalInteger
+>>> }.ifError { true }
+true
+```
+
 Parses negative numbers:
 
 ```
@@ -33,7 +42,7 @@ true
 
 * * *
 
-See also: asInteger, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
+See also: asInteger, isDecimalIntegerString, parseDecimal, parseLargeInteger, parseNumber, parseSmallInteger
 
 Guides: Parsing Functions
 

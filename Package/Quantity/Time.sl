@@ -8,8 +8,47 @@ Time : [Object] { | seconds |
 		self.storeStringAsInitializeSlots
 	}
 
+	timeString { :self |
+		let seconds = self.seconds;
+		(seconds >= 0 & { seconds < (24 * 60 * 60) }).if {
+			let [h, m, s] = seconds.mixedRadixEncode([60 60]);
+			'%:%:%.%'.format([
+				h.asString.padLeft([2], '0'),
+				m.asString.padLeft([2], '0'),
+				s.truncated.asString.padLeft([2], '0'),
+				(s.fractionPart * 1000).rounded.asString.padLeft([3], '0')
+			])
+		} {
+			self.error('timeString: invalid time')
+		}
+	}
+
 	unit { :unused |
 		'seconds'
+	}
+
+}
+
++String {
+
+	isTimeString { :self |
+		self.matchesRegExp('[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?Z?$')
+	}
+
+	parseTime { :self |
+		self.isTimeString.if {
+			let [h, m, s] = self.splitBy(':');
+			h := h.parseDecimalInteger;
+			m := m.parseDecimalInteger;
+			s := s.parseNumber;
+			(h < 24 | { m < 60 | { s < 60 } }).if {
+				Time((h * 60 * 60) + (m * 60) + s)
+			} {
+				self.error('parseTime: invalid time field')
+			}
+		} {
+			self.error('parseTime: invalid time')
+		}
 	}
 
 }

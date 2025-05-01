@@ -361,6 +361,7 @@
 	'Text-Unicode'
 	'Time-Clock'
 	'Time-Date'
+	'Time-DateAndTime'
 	'Time-Duration'
 	'Time-TimeInterval'
 	'Time-TimeStamp'

@@ -3,6 +3,7 @@
 Types:
 
 - `Date`
+- `DateAndTime`
 - `Duration`
 - `Frequency`
 - `Quantity`
@@ -33,8 +34,8 @@ Accessors:
 
 Printing:
 
+- `dateAndTimeString`
 - `dateString`
-- `dateTimeString`
 - `durationString`
 - `ordinalDateString`
 
@@ -43,6 +44,7 @@ Parsing:
 - `parseDate`
 - `parseDateAndTime`
 - `parseDuration`
+- `parseTime`
 
 System Clock:
 

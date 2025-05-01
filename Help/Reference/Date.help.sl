@@ -1,16 +1,16 @@
 # Date
 
-- _Date([y, m, d, h, m, s, ms])_
+- _Date([y, m, d])_
 
-`Date` is `Type` representing a date and time.
+`Date` is `Type` representing a date.
 
 Construct a _UTC_ date,
 the month and day of month fields are _one-indexed_:
 
 ```
->>> Date([2025 04 08 07 30 00 000])
->>> .dateTimeString
-'2025-04-08T07:30:00.000Z'
+>>> Date([2025 04 08])
+>>> .dateString
+'2025-04-08'
 ```
 
 A `Date` can be read from a `String` using `parseDate`.
@@ -25,12 +25,14 @@ A `Date` can be read from a `String` using `parseDate`.
 (2024, 04, 23)
 ```
 
-The current date and time can be read from the `System` as a `TimeStamp` using `now`,
+The current date can be read from the `System` as a `TimeStamp` using `now`,
 and translated into a `Date` using `asDate`:
 
 ```
->>> let date = system.now.asDate;
->>> date.year >= 2024
+>>> system.currentDate.year >= 2024
+true
+
+>>> system.now.asDate.year >= 2024
 true
 ```
 
@@ -38,7 +40,7 @@ There are methods to access the elements of the date,
 i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, and `millisecond`.
 
 ```
->>> let d = Date([1970, 01, 01, 00, 00, 00, 000]);
+>>> let d = Date([1970, 01, 01]);
 >>> [d.year, d.month, d.dayOfMonth]
 [1970 1 1]
 ```
@@ -46,10 +48,10 @@ i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`, and `millisecond
 These fields are answered by `asList`:
 
 ```
->>> '2025-04-08T17:07:20.500Z'
->>> .parseDateAndTime
+>>> '2025-04-08'
+>>> .parseDate
 >>> .asList
-[2025 04 08 17 07 20 500]
+[2025 04 08]
 ```
 
 * * *

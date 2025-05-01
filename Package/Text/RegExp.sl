@@ -172,7 +172,7 @@ RegExp! : [Object] {
 	}
 
 	isDecimalIntegerString { :self |
-		self.matchesRegExp('^[0-9]+$')
+		self.matchesRegExp('^[-]?[0-9]+$')
 	}
 
 	isFloatString { :self |

@@ -3,13 +3,14 @@
 - _asDate(anObject)_
 
 At `Number`,
-answer the `Date` that is the specified number of seconds after the Unix epoch:
+answer the `Date` that is the specified number of seconds after the January 1, 1970:
 
 ```
->>> (9 * 60 * 60)
->>> .asDate
->>> .dateTimeString
-'1970-01-01T09:00:00.000Z'
+>>> 0.asDate.dateString
+'1970-01-01'
+
+>>> (3 * 365.4 * 24 * 60 * 60).asDate.dateString
+'1973-01-01'
 ```
 
 At `TimeStamp` convert to an equivalent `Date` value:
@@ -17,22 +18,24 @@ At `TimeStamp` convert to an equivalent `Date` value:
 ```
 >>> TimeStamp(0)
 >>> .asDate
->>> .dateTimeString
-'1970-01-01T00:00:00.000Z'
+>>> .dateString
+'1970-01-01'
 ```
 
 At `Date` answer the identity:
 
 ```
->>> '1970-01-01T00:00:00.000Z'
->>> .parseDateAndTime
+>>> '1970-01-01'
+>>> .parseDate
 >>> .asDate
->>> .dateTimeString
-'1970-01-01T00:00:00.000Z'
+>>> .dateString
+'1970-01-01'
 ```
 
 * * *
 
-See also: Date, Duration, dateTimeString, TimeStamp
+See also: Date, DateAndTime, Duration, Time, TimeStamp
+
+Guides: Date and Time Functions
 
 Categories: Converting, Time

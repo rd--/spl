@@ -1,0 +1,185 @@
+DateAndTime : [Object, Magnitude] { | primitive |
+
+	= { :self :anObject |
+		anObject.isDateAndTime & {
+			self.absoluteTime = anObject.absoluteTime
+		}
+	}
+
+	~ { :self :anObject |
+		anObject.isDateAndTime & {
+			self.absoluteTime ~ anObject.absoluteTime
+		}
+	}
+
+	< { :self :aDate |
+		self.absoluteTime < aDate.absoluteTime
+	}
+
+	absoluteTime { :self |
+		<primitive: return _self.primitive.getTime() / 1000;>
+	}
+
+	asDate { :self |
+		Date([self.year, self.month, self.dayOfMonth])
+	}
+
+	asDateAndTime { :self |
+		self
+	}
+
+	asList { :self |
+		[
+			self.year,
+			self.month,
+			self.dayOfMonth,
+			self.hour,
+			self.minute,
+			self.second
+		]
+	}
+
+	asTime { :self |
+		Time(self.absoluteTime)
+	}
+
+	asTimeStamp { :self |
+		TimeStamp(self.absoluteTime)
+	}
+
+	dateAndTimeString { :self |
+		<primitive: return _self.primitive.toISOString();>
+	}
+
+	dayOfWeek { :self |
+		<primitive: return _self.primitive.getUTCDay() + 1;>
+	}
+
+	dayOfMonth { :self |
+		<primitive: return _self.primitive.getUTCDate();>
+	}
+
+	hour { :self |
+		<primitive: return _self.primitive.getUTCHours();>
+	}
+
+	localeTimeString { :self :localeName |
+		<primitive: return _self.primitive.toLocaleTimeString(_localeName);>
+	}
+
+	millisecond { :self |
+		<primitive: return _self.primitive.getUTCMilliseconds();>
+	}
+
+	minute { :self |
+		<primitive: return _self.primitive.getUTCMinutes();>
+	}
+
+	month { :self |
+		<primitive: return _self.primitive.getUTCMonth() + 1;>
+	}
+
+	offsetSeconds { :self |
+		<primitive: return Math.round(_self.primitive.getTimezoneOffset() * 60);>
+	}
+
+	second { :self |
+		self.wholeSecond + (self.millisecond / 1000)
+	}
+
+	storeString { :self |
+		'DateAndTime(%)'.format([self.asList])
+	}
+
+	unixTimeInMilliseconds { :self |
+		<primitive: return _self.primitive.getTime();>
+	}
+
+	wholeSecond { :self |
+		<primitive: return _self.primitive.getUTCSeconds();>
+	}
+
+	year { :self |
+		<primitive: return _self.primitive.getUTCFullYear();>
+	}
+
+}
+
++SmallFloat {
+
+	asDateAndTime { :self |
+		newDateAndTime().initializeSlots(
+			self.asPrimitiveDateAndTime
+		)
+	}
+
+	asPrimitiveDateAndTime { :self |
+		<primitive: return new Date(_self * 1000);>
+	}
+
+	DateAndTime { :year :month :dayOfMonth :hour :minute :second |
+		newDateAndTime().initializeSlots(
+			primitiveDateAndTime(year, month, dayOfMonth, hour, minute, second)
+		)
+	}
+
+	primitiveDateAndTime { :year :month :dayOfMonth :hour :minute :second |
+		<primitive:
+		const wholeSecond = Math.trunc(_second);
+		const millisecond = (_second - wholeSecond) * 1000;
+		return new Date(
+			Date.UTC(
+				_year,
+				_month - 1,
+				_dayOfMonth,
+				_hour,
+				_minute,
+				wholeSecond,
+				millisecond
+			)
+		);
+		>
+	}
+
+}
+
++List {
+
+	DateAndTime { :self |
+		let [year, month, dayOfMonth, hour, minute, second] = self;
+		DateAndTime(year, month, dayOfMonth, hour, minute, second)
+	}
+
+}
+
++String {
+
+	parsePrimitiveDateAndTime { :self |
+		<primitive: return new Date(_self);>
+	}
+
+	parseDateAndTime { :self |
+		[24 29].includes(self.size).if {
+			newDateAndTime().initializeSlots(
+				self.parsePrimitiveDateAndTime
+			)
+		} {
+			self.error('parseDateAndTime: invalid size')
+		}
+	}
+
+}
+
++System {
+
+	currentDateAndTime { :self |
+		newDateAndTime().initializeSlots(
+			self.currentPrimitiveDateAndTime
+		)
+	}
+
+	currentPrimitiveDateAndTime { :unused |
+		<primitive: return new Date();>
+	}
+
+}

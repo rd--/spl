@@ -2,7 +2,7 @@
 
 - _asTimeStamp(anObject)_
 
-At `Date`,
+At `DateAndTime`,
 converts to an equivalent `TimeStamp` value:
 
 ```
@@ -12,12 +12,12 @@ converts to an equivalent `TimeStamp` value:
 TimeStamp(1744061520)
 ```
 
-The inverse is `asDate`:
+The inverse is `asDateAndTime`:
 
 ```
 >>> TimeStamp(1744061520)
->>> .asDate
->>> .dateTimeString
+>>> .asDateAndTime
+>>> .dateAndTimeString
 '2025-04-07T21:32:00.000Z'
 ```
 
@@ -25,7 +25,7 @@ At `Number`,
 call `TimeStamp`:
 
 ```
->>> 0.asTimeStamp.dateTimeString
+>>> 0.asTimeStamp.dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 
 >>> 0.asTimeStamp
@@ -33,7 +33,7 @@ TimeStamp(0)
 
 >>> (50 * 365.24 * 24 * 60 * 60)
 >>> .asTimeStamp
->>> .dateTimeString
+>>> .dateAndTimeString
 '2020-01-01T00:00:00.000Z'
 ```
 
@@ -46,6 +46,6 @@ The inverse is `absoluteTime`:
 
 * * *
 
-See also: absoluteTime, Date, Duration, dateTimeString, now, TimeStamp
+See also: absoluteTime, Date, Duration, dateAndTimeString, now, TimeStamp
 
 Categories: Time, Type

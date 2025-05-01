@@ -5,22 +5,22 @@
 Answer the ISO ordinal date string for _aDate_.
 
 ```
->>> let d = Date([2025 04 08 08 11 00 000]);
+>>> let d = Date([2025 04 08]);
 >>> (
 >>> 	d.ordinalDateString,
->>> 	d.dateString,
->>> 	d.dateTimeString
+>>> 	d.dateString
 >>> )
 (
 	'2025-098',
-	'2025-04-08',
-	'2025-04-08T08:11:00.000Z'
+	'2025-04-08'
 )
 ```
 
 * * *
 
-See also: Date, dateString, dateTimeString, durationString
+See also: Date, dateString
+
+Guides: Date and Time Functions
 
 References:
 _W_

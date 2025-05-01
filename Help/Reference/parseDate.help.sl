@@ -3,10 +3,10 @@
 - _parseDate(aString)_
 
 Parse _aString_ as a `Date` value.
-A string parser that recognizes subsets of the ISO 8601 specification.
+A string parser that recognizes subsets of the ISO 8601 specification,
+specifically _YYYY-MM-DD_.
 
-Parse date without time,
-which is set to _00:00_ UTC:
+Parse date:
 
 ```
 >>> '2023-05-11'
@@ -15,11 +15,11 @@ which is set to _00:00_ UTC:
 '2023-05-11'
 ```
 
-To parse a date with time use `parseDateAndTime`.
+To parse a `DateAndTime` use `parseDateAndTime`.
 
 * * *
 
-See also: Date, dateString, dateTimeString, Duration, ordinalDateString, parseDateAndTime, TimeStamp
+See also: Date, dateString, dateAndTimeString, Duration, ordinalDateString, parseDateAndTime, TimeStamp
 
 Guides: Date and Time Functions, Parsing Functions
 

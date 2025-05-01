@@ -671,7 +671,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'flatten'
 		'histogramOf'
 		'i'
-		'dateTimeString'
+		'dateAndTimeString'
 		'dateString'
 		'join'
 		'radiansToDegrees'

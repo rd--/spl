@@ -24,12 +24,16 @@ TimeStamp : [Object, Magnitude] { | absoluteTime |
 		self.absoluteTime.asDate
 	}
 
+	asDateAndTime { :self |
+		self.absoluteTime.asDateAndTime
+	}
+
 	asTimeStamp { :self |
 		self
 	}
 
-	dateTimeString { :self |
-		self.asDate.dateTimeString
+	dateAndTimeString { :self |
+		self.asDateAndTime.dateAndTimeString
 	}
 
 	roundTo { :self :operand |

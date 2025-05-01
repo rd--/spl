@@ -56,7 +56,7 @@ Duration(390605)
 
 * * *
 
-See also: Date, dateString, dateTimeString, Duration, ordinalDateString
+See also: Date, dateString, dateAndTimeString, Duration, ordinalDateString
 
 References:
 _W_

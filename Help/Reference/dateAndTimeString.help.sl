@@ -1,35 +1,35 @@
-# dateTimeString
+# dateAndTimeString
 
-- _dateTimeString(t)_
+- _dateAndTimeString(t)_
 
 Answers a `String` that formats the temporal object _t_ according to the ISO-8601 standard.
 
-At `Date`:
+At `DateAndTime`:
 
 ```
->>> Date([1970 01 01 00 00 00 000])
->>> .dateTimeString
+>>> DateAndTime([1970 01 01 00 00 00.000])
+>>> .dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 ```
 
-The inverse is `parseDate`,
-answering a `Date` value:
+The inverse is `parseDateAndTime`,
+answering a `DateAndTime` value:
 
 ```
 >>> '2025-04-08T19:45:00.000Z'
 >>> .parseDateAndTime
-Date([2025 04 08 19 45 00 000])
+DateAndTime([2025 04 08 19 45 00.000])
 ```
 
 At `TimeStamp`:
 
 ```
 >>> TimeStamp(0)
->>> .dateTimeString
+>>> .dateAndTimeString
 '1970-01-01T00:00:00.000Z'
 ```
 
-The inverse is `parseTimeStamp`,
+The inverse at `TimeStamp` is `parseTimeStamp`,
 answering a `TimeStamp` value:
 
 ```

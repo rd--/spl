@@ -14,6 +14,10 @@ Parse Binary Data:
 - `parseBase16`
 - `parseBase64`
 
+Parse Logic:
+
+- `parseBoolean`
+
 Parse Colours:
 
 - `parseHexColour`
@@ -26,6 +30,7 @@ Parse Durations and Times:
 - `parseDate`
 - `parseDateAndTime`
 - `parseDuration`
+- `parseTime`
 
 Parse Documents:
 
@@ -41,6 +46,7 @@ Predicates:
 - `isDateString`
 - `isDecimalIntegerString`
 - `isFloatString`
+- `isTimeString`
 
 * * *
 

@@ -166,14 +166,14 @@ Boolean! : [Object, Json] {
 		}
 	}
 
-	parseBooleanString { :self |
+	parseBoolean { :self |
 		(self = 'true').if {
 			true
 		} {
 			(self = 'false').if {
 				false
 			} {
-				self.error('parseBooleanString')
+				self.error('parseBoolean')
 			}
 		}
 	}

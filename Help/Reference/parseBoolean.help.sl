@@ -1,19 +1,19 @@
-# parseBooleanString
+# parseBoolean
 
-- _parseBooleanString(aString)_
+- _parseBoolean(aString)_
 
 Answer the `Boolean` indicated by _aString_,
 else signal an `error`.
 
 ```
->>> 'true'.parseBooleanString
+>>> 'true'.parseBoolean
 true
 
->>> 'false'.parseBooleanString
+>>> 'false'.parseBoolean
 false
 
 >>> {
->>> 	'neither'.parseBooleanString
+>>> 	'neither'.parseBoolean
 >>> }.ifError { true }
 true
 ```

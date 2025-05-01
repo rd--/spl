@@ -12,6 +12,10 @@ function genName(name: string, arity: number): string {
 	return `${resolveMethodName(name)}_${arity}`;
 }
 
+function clearLeadingZeroes(s: string): string {
+	return s.replace(/^0+(?!\.|$)/, '')
+}
+
 function genArityCheck(k: number, a: string): string {
 	return [
 		'/* ArityCheck */',
@@ -583,7 +587,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D')`;
 	},
 	floatLiteral(s, i, _dot, f) {
-		return s.sourceString + i.sourceString + '.' + f.sourceString;
+		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' + f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {
 		return `Fraction(${
