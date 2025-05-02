@@ -1,8 +1,9 @@
 # || (verticalLineVerticalLine)
 
 - _aBoolean || anotherBoolean_
+- _aCollection.||_
 
-Evaluating conjunction.
+Evaluating disjunction.
 The evaluating form of `|`.
 The operand must be a `Boolean`.
 
@@ -17,7 +18,9 @@ true
 Collects over lists:
 
 ```
->>> [false false true true] || [false true false true]
+>>> let u = [false false true true];
+>>> let v = [false true false true];
+>>> u || v
 [false true true true]
 ```
 
@@ -59,7 +62,10 @@ false
 
 ```
 >>> ||.table([0 1], [0 1])
-[0 1; 1 1]
+[
+	0 1;
+	1 1
+]
 ```
 
 The name of this operator is `verticalLineVerticalLine`.
@@ -68,11 +74,15 @@ The name of this operator is `verticalLineVerticalLine`.
 
 See also: &, &&, |, gcd
 
+Guides: Boolean Functions, Logical Operators
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Or),
 _Smalltalk_
-5.3.3.2
+5.3.3.2,
+_W_
+[1](https://en.wikipedia.org/wiki/Logical_disjunction)
 
 Unicode: U+2228 ∨ Logical or
 

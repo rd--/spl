@@ -41,7 +41,9 @@ Parse Documents:
 Parse Schema:
 
 - `inferSchemaType`
+- `isSchemaType`
 - `parseSchemaType`
+- `schemaTypePredicate`
 
 Predicates:
 

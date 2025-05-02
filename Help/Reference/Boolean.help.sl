@@ -33,6 +33,8 @@ Methods are: &, &&, |, ||, not, xor
 
 See also: &, &&, |, ||, false, not, true, xor
 
+Guides: Boolean Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Bool),

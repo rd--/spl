@@ -54,6 +54,8 @@ See also: =, caseOfOtherwise, if, value, which
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Switch.html)
+[1](https://reference.wolfram.com/language/ref/Switch.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Object.html#-switch)
 
 Categories: Casing

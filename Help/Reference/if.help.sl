@@ -46,9 +46,13 @@ To delay evaluation of alternatives each must be written as a no argument block.
 
 * * *
 
-See also: ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue
+See also: boole, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, which
+
+Guides: Boolean Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/If.html),
 _Smalltalk_
 5.3.3.8
 

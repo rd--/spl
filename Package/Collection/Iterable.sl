@@ -1,18 +1,31 @@
 @Iterable {
 
 	& { :self |
-		self.allSatisfy(value:/1)
+		self.allSatisfy(blockValue:/1)
+	}
+
+	&& { :self |
+		self.allSatisfy(identity:/1)
 	}
 
 
 	| { :self |
-		self.anySatisfy(value:/1)
+		self.anySatisfy(blockValue:/1)
+	}
+
+
+	|| { :self |
+		self.anySatisfy(identity:/1)
 	}
 
 	absMax { :self |
 		self.injectInto(self.anyOne.abs) { :answer :each |
 			answer.max(each.abs)
 		}
+	}
+
+	allFalse { :self |
+		self.noneSatisfy(identity:/1)
 	}
 
 	allSatisfy { :self :aBlock:/1 |

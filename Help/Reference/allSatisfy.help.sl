@@ -41,6 +41,8 @@ Does not traverse tree structures, see `deepAllSatisfy`:
 
 See also: anySatisfy, deepAllSatisfy, noneSatisfy
 
+Guides: Boolean Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:all),

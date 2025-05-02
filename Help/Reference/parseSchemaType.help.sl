@@ -34,7 +34,8 @@ Parse a `Complex` number type:
 >>> '2J3'.parseSchemaType('Complex')
 2J3
 
->>> '1.618J3.141'.parseSchemaType('Complex')
+>>> '1.618J3.141'
+>>> .parseSchemaType('Complex')
 1.618J3.141
 ```
 
@@ -51,7 +52,8 @@ Parse a `Real` number type:
 Parse a `Date` type:
 
 ```
->>> '2025-05-01'.parseSchemaType('Date')
+>>> '2025-05-01'
+>>> .parseSchemaType('Date')
 Date([2025, 5, 1])
 ```
 

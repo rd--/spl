@@ -56,7 +56,7 @@ Note that `|` is not displayed as ∨ because it is part of the `Block Syntax`.
 
 See also: &, &&, ||, anySatisfy
 
-Guides: Logical Operators, Syntax Tokens
+Guides: Boolean Functions, Logical Operators, Syntax Tokens
 
 References:
 _Apl_

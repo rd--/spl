@@ -1,7 +1,7 @@
 # & (ampersand)
 
-- _aCollection.&_
 - _aBoolean & aBlock:/0_
+- _aCollection.&_
 
 Nonevaluating conjunction.
 `true` if _aBoolean_ is `true` and _aBlock_ evaluates to `true`, else `false`.
@@ -40,7 +40,7 @@ In Spl the names are _&_ and _&&_.
 
 See also: |, &&, allSatisfy, value
 
-Guides: Logical Operators
+Guides: Boolean Functions, Logical Operators
 
 References:
 _Apl_
@@ -49,7 +49,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/AND.html)
 [2](https://reference.wolfram.com/language/ref/And.html),
 _Smalltalk_
-5.3.3.3
+5.3.3.3,
+_W_
+[1](https://en.wikipedia.org/wiki/Logical_conjunction)
 
 Unicode: U+00026 & Ampersand, U+2227 ∧ Logical and
 

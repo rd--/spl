@@ -1,22 +1,52 @@
 # Boolean Functions
 
-Basic Boolean Operators:
+Types:
 
-- `and`, `&`, `&&`
-- `or`, `|`, `||`
+- `Boolean`
+
+Literals:
+
+- `true`
+- `false`
+
+Operators:
+
+- `&`, `&&`
+- `|`, `||`
+
+Functions:
+
 - `not`
-- `true`, `false`
+- `xor`
+
+Converting:
+
 - `boole`
 
-Predicates On Lists:
+Conditional Evaluation:
 
-- `allSatisy`
+- `if`
+- `ifFalse`
+- `ifTrue`
+
+Predicates:
+
+- `allFalse`
+- `allSatisfy`
 - `allTrue`
-- `anySatisy`
+- `anySatisfy`
 - `anyTrue`
+- `deepAllSatisfy`
 - `noneSatisfy`
 - `noneTrue`
 
+Bitwise Functions:
+
+- `bitAnd`
+- `bitNot`
+- `bitOr`
+- `bitXor`
+
 * * *
 
-Guides: Bitwise Functions
+Guides: Bitwise Functions, Logical Operators

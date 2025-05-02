@@ -32,6 +32,8 @@ true
 
 See also: allSatisfy, noneSatisfy
 
+Guides: Boolean Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:any)

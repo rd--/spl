@@ -10,6 +10,8 @@ Where supported `false` is displayed as ⊥.
 
 See also: Boolean, not, true
 
+Guides: Boolean Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/False.html)

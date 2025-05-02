@@ -44,4 +44,4 @@ Converting:
 
 * * *
 
-Guides: Logical Operators, Mathematical Functions
+Guides: Boolean Functions, Logical Operators, Mathematical Functions

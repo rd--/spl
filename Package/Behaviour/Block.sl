@@ -91,6 +91,10 @@ Block! : [Object] {
 		answer
 	}
 
+	blockValue { :self:/0 |
+		self()
+	}
+
 	clip { :aBlock:/1 :min :max |
 		{ :x |
 			aBlock(x).clip(min, max, min, max)

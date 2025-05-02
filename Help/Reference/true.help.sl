@@ -22,6 +22,14 @@ Where supported `true` is displayed as ⊤.
 
 See also: Boolean, false, not
 
+Guides: Boolean Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/True.html)
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/True.html)
+
 Unicode: U+22A4 ⊤ Down tack
 
 Categories: Boolean, Constant

@@ -3,12 +3,13 @@
 - _noneTrue(aCollection)_
 
 Answer `true` if no items in _aCollection_ are `true`, else `false`.
+This is another name for `allFalse`.
 
 ```
 >>> ([1 3 5] > [3 5 7]).noneTrue
 true
 
->>> ([1 3 5 7 9] > [3 5 7 9 1]).noneTrue
+>>> ([1 3 5 7 9] < [3 5 7 9 1]).noneTrue
 false
 ```
 
@@ -21,7 +22,9 @@ true
 
 * * *
 
-See also: allTrue, anyTrue, noneSatisfy
+See also: allFalse, allTrue, anyTrue, noneSatisfy
+
+Guides: Boolean Functions
 
 References:
 _Mathematica_

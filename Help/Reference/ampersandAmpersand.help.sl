@@ -1,6 +1,7 @@
 # && (ampersandAmpersand)
 
 - _aBoolean && anotherBoolean_
+- _aCollection.&&_
 
 Evaluating conjunction.
 The _evaluating_ form of `&`.
@@ -17,7 +18,9 @@ false
 Collects over lists:
 
 ```
->>> [false false true true] && [false true false true]
+>>> let u = [false false true true];
+>>> let v = [false true false true];
+>>> u && v
 [false false false true]
 ```
 
@@ -49,12 +52,16 @@ The name of this operator is `ampersandAmpersand`.
 
 * * *
 
-See also: &, |, ||, lcm
+See also: &, |, ||, allTrue, lcm
+
+Guides: Boolean Functions, Logical Operators
 
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/And),
 _Smalltalk_
-5.3.3.1
+5.3.3.1,
+_W_
+[1](https://en.wikipedia.org/wiki/Logical_conjunction)
 
 Categories: Logic, Operator

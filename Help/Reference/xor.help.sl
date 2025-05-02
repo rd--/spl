@@ -16,6 +16,8 @@ Truth table:
 
 See also: &, &&, |, ||
 
+Guides: Boolean Functions
+
 References:
 _Smalltalk_
 5.3.3.12

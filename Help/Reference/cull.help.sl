@@ -5,7 +5,7 @@
 
 Apply _aBlock_ with two or one or zero arguments.
 
-_cull_ calls _numArgs_ to ask how many arguments are required,
+`cull` calls `numArgs` to ask how many arguments are required,
 and passes only the required number of arguments.
 
 ```

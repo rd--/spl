@@ -3,9 +3,13 @@
 - _allTrue(aCollection)_
 
 Answer `true` if all items in _aCollection_ are `true`, else `false`.
+This is equal to the unary form of `&&`.
 
 ```
 >>> ([1 3 5 7 9] < [3 5 7 9 11]).allTrue
+true
+
+>>> ([1 3 5 7 9] < [3 5 7 9 11]).&&
 true
 ```
 
@@ -19,6 +23,8 @@ true
 * * *
 
 See also: allSatisfy, anySatisfy, anyTrue, noneSatisfy
+
+Guides: Boolean Functions
 
 References:
 _Mathematica_

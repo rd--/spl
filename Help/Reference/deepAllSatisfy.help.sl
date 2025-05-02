@@ -17,4 +17,6 @@ true
 
 See also: allSatisfy, deepDo
 
+Guides: Boolean Functions
+
 Categories: Testing

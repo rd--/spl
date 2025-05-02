@@ -59,7 +59,9 @@ The ternary and quaternary forms answer the result of _aBlock(anObject, ...)_.
 It is an error if there are too few arguments:
 
 ```
->>> { { :i | i = nil }.value }.ifError { true }
+>>> {
+>>> 	{ :i | false }.value
+>>> }.ifError { true }
 true
 ```
 
@@ -67,7 +69,7 @@ It is an error if there are too many arguments:
 
 ```
 >>> {
->>> 	{ :x | 0 - x }.value(3, 4) = -3
+>>> 	{ :x | false }.value(3, 4)
 >>> }.ifError { true }
 true
 ```
@@ -77,7 +79,7 @@ This mode is off by default.
 
 * * *
 
-See also: $, also, Association, Block, cull, identity, in, valueWithReturn, with
+See also: $, also, Association, Block, blockValue, cull, identity, in, valueWithReturn, with
 
 Guides: Value Protocol
 

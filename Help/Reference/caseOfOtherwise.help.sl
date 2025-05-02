@@ -37,4 +37,8 @@ If no match is found, answer the result of evaluating _otherwiseBlock(anObject)_
 
 See also: =, caseOf, if, value, which
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Switch.html)
+
 Categories: Casing
