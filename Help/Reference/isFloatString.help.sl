@@ -16,6 +16,9 @@ true
 
 >>> '-23'.isFloatString
 true
+
+>>> '+1.618'.isFloatString
+true
 ```
 
 Allows scientific notation:
@@ -34,13 +37,16 @@ true
 true
 ```
 
-Inifities are not recognised:
+Infinities and non-numbers are not recognised:
 
 ```
 >>> 'Infinity'.isFloatString
 false
 
 >>> '-Infinity'.isFloatString
+false
+
+>>> 'NaN'.isFloatString
 false
 ```
 

@@ -2,7 +2,8 @@
 
 - _isDecimalIntegerString(aString)_
 
-Answer true if _aString_ would be parsed as a floating point number by `parseDecimalInteger`.
+Answer `true` if _aString_ consists only of the decimal digits _0_ through _9_,
+perhaps prefixed by a negation sign.
 
 This does not allow a zero fractional part,
 i.e. one must write _23_ not _23.0_.
@@ -20,6 +21,16 @@ true
 
 >>> '3.141'.isDecimalIntegerString
 false
+```
+
+An initial sign is allowed:
+
+```
+>>> '-23'.isDecimalIntegerString
+true
+
+>>> '+23'.isDecimalIntegerString
+true
 ```
 
 The empty string answers `false`:

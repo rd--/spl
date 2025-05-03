@@ -738,8 +738,22 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	parseDecimalNumeral { :self :elseClause:/0 |
+		self.isDecimalNumeralString.if {
+			self.uncheckedParseNumber
+		} {
+			elseClause()
+		}
+	}
+
+	parseDecimalNumeral { :self |
+		self.parseDecimalNumeral {
+			self.error('parseDecimalNumeral: invalid input')
+		}
+	}
+
 	parseNumber { :self :elseClause:/0 |
-		self.matchesRegExp('^[0-9eE.+-]+$').if {
+		self.isFloatString.if {
 			self.uncheckedParseNumber
 		} {
 			elseClause()
@@ -749,6 +763,20 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	parseNumber { :self |
 		self.parseNumber {
 			self.error('parseNumber: invalid input')
+		}
+	}
+
+	parseScientificNotation { :self :elseClause:/0 |
+		self.isScientificNotationString.if {
+			self.uncheckedParseNumber
+		} {
+			elseClause()
+		}
+	}
+
+	parseScientificNotation { :self |
+		self.parseScientificNotation {
+			self.error('parseScientificNotation: invalid input')
 		}
 	}
 

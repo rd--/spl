@@ -21,9 +21,11 @@ The empty string answers `false`:
 false
 ```
 
+To convert a Base-16 string to a `ByteArray` see `parseBase16`.
+
 * * *
 
-See also: asNumber, isBase64String, isBooleanString, isFloatString, isDecimalIntegerString
+See also: asNumber, isBase64String, isBooleanString, isFloatString, isDecimalIntegerString, parseBase16
 
 Guides: Parsing Functions
 

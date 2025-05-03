@@ -3,7 +3,7 @@
 - _asDateAndTime(anObject)_
 
 At `Number`,
-answer the `DateAndTime` that is the specified number of seconds after January 1, 1970:
+answer the `DateAndTime` that is the specified number of seconds after 1 January, 1970:
 
 ```
 >>> (9 * 60 * 60)

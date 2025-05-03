@@ -135,7 +135,17 @@ The type of all elements in a _homogeneous collection_.
 Cf: elementType
 
 - _Engineering notation_:
-A kind of scientific notation where the exponent _n_ is restricted to multiples of three.
+A kind of scientific notation where the integer exponent _n_ is restricted to multiples of three.
+Cf: Scientific Notation
+
+- _E notation_:
+E notation writes the scientific notation _m × (10 ^ n)_ as _mEn_.
+Cf: Scientific Notation
+
+- _Epoch_:
+An epoch is a fixed date and time used as a reference,
+time is then represented as the number of seconds from the fixed reference,
+which may be negative.
 
 - _Equal_:
 A comparison that decides if two values are equal.

@@ -3,7 +3,7 @@
 - _asDate(anObject)_
 
 At `Number`,
-answer the `Date` that is the specified number of seconds after the January 1, 1970:
+answer the `Date` that is the specified number of seconds after 1 January, 1970:
 
 ```
 >>> 0.asDate.dateString

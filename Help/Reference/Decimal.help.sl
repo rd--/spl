@@ -191,6 +191,8 @@ See also: asDecimal, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat
 
 References:
 _Python_
-[1](https://docs.python.org/3/library/decimal.html)
+[1](https://docs.python.org/3/library/decimal.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Decimal)
 
 Categories: Math, Type

@@ -70,7 +70,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/FloorFunction.html)
 [2](https://reference.wolfram.com/language/ref/Floor.html),
 _Smalltalk_
-5.6.2.19
+5.6.2.19,
+_W_
+[1](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)
 
 Unicode: U+0230a ⌊ Left Floor
 

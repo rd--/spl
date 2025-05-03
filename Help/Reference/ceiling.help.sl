@@ -47,7 +47,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CeilingFunction.html)
 [2](https://reference.wolfram.com/language/ref/Ceiling.html),
 _Smalltalk_
-5.6.2.18
+5.6.2.18,
+_W_
+[1](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)
 
 Unicode: U+02308 ⌈ Left Ceiling
 

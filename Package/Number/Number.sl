@@ -126,6 +126,10 @@
 		<primitive: return _self.toLocaleString('en-US');>
 	}
 
+	avogadroConstant { :self |
+		self * 6.02214076E+23
+	}
+
 	barronCurve { :s :t |
 		let epsilon = 1.smallFloatEpsilon;
 		{ :x |

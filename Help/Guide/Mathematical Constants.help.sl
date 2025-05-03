@@ -2,6 +2,7 @@
 
 - `arcMinute`: one sixtieth of a degree
 - `arcSecond`: one sixtieth of an arc second
+- `avogadroConstant`: Avogadro constant
 - `berahaConstant`: Beraha constants
 - `degree`: one one-hundred and eightieth of pi
 - `e`: Euler’s number, base of natural logarithm

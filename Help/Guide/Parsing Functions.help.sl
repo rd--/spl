@@ -2,8 +2,9 @@
 
 Parse Numbers:
 
-- `parseDecimalInteger`
 - `parseDecimal`
+- `parseDecimalInteger`
+- `parseDecimalNumeral`
 - `parseFraction`
 - `parseLargeInteger`
 - `parseNumber`
@@ -11,8 +12,8 @@ Parse Numbers:
 
 Parse Binary Data:
 
-- `parseBase16`
-- `parseBase64`
+- `parseBase16`, `base16Decoded`
+- `parseBase64`, `base64Decoded`
 
 Parse Logic:
 
@@ -55,6 +56,7 @@ Predicates:
 - `isDateString`
 - `isDateTimeString`
 - `isDecimalIntegerString`
+- `isDecimalNumeralString`
 - `isFloatString`
 - `isFractionString`
 - `isTimeString`

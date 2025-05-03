@@ -63,4 +63,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerPart.html)
 [2](https://reference.wolfram.com/language/ref/IntegerPart.html),
 _Smalltalk_
-5.6.2.21
+5.6.2.21,
+_W_
+[1](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)

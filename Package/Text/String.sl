@@ -732,7 +732,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		let answer = null;
 		try {
 			answer = JSON.parse(_self);
-		} catch (unused) {
+		} catch (_unused) {
 			return _elseClause();
 		};
 		return answer;

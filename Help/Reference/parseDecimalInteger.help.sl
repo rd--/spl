@@ -20,11 +20,21 @@ Does not allow a zero fractional part:
 nil
 ```
 
-Parses negative numbers:
+Parses negative numbers, a positive sign is also allowed:
 
 ```
 >>> '-23'.parseDecimalInteger
 -23
+
+>>> '+23'.parseDecimalInteger
+23
+```
+
+Cannot parse the empty string:
+
+```
+>>> ''.parseDecimalInteger { nil }
+nil
 ```
 
 Does not parse radix notation,

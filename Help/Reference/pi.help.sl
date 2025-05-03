@@ -49,8 +49,14 @@ See also: e, Infinity, NaN
 Guides: Mathematical Constants
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Pi.html),
+OEIS
+[1](https://oeis.org/A000796),
 _Smalltalk_
-5.6.8.10
+5.6.8.10,
+_W_
+[1](https://en.wikipedia.org/wiki/Pi)
 
 Unicode: U+03C0 π Greek Small Letter Pi
 

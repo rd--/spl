@@ -159,6 +159,10 @@ RegExp! : [Object] {
 		}
 	}
 
+	isBase10String { :self |
+		self.matchesRegExp('^[0-9]+$')
+	}
+
 	isBase16String { :self |
 		self.matchesRegExp('^[0-9A-F]+$')
 	}
@@ -168,11 +172,19 @@ RegExp! : [Object] {
 	}
 
 	isDecimalIntegerString { :self |
-		self.matchesRegExp('^[-]?[0-9]+$')
+		self.matchesRegExp('^[-+]?[0-9]+$')
+	}
+
+	isDecimalNumeralString { :self |
+		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?$')
 	}
 
 	isFloatString { :self |
-		self.matchesRegExp('^[-]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
+		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
+	}
+
+	isScientificNotationString { :self |
+		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?[eE][+-]?[0-9]+$')
 	}
 
 	matchRegExp { :self :aRegExp |

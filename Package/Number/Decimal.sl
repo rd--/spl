@@ -322,14 +322,14 @@ Decimal : [Object] { | fraction scale |
 		parts.size.caseOfOtherwise([
 			{ 1 } -> {
 				UnsimplifiedDecimal(
-					parts[1].parseLargeInteger.asFraction,
+					parts[1].parseLargeInteger(elseClause:/0).asFraction,
 					0
 				)
 			},
 			{ 2 } -> {
 				let sign = self.beginsWith('-').if { -1 } { 1 };
-				let i = parts[1].parseLargeInteger;
-				let f = sign.copySignTo(parts[2].parseLargeInteger);
+				let i = parts[1].parseLargeInteger(elseClause:/0);
+				let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));
 				let k = parts[2].size;
 				UnsimplifiedDecimal(
 					i + Fraction(f, 10 ^ k),

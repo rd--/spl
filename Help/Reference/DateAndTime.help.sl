@@ -57,6 +57,15 @@ These fields are answered by `asList`:
 [2025 04 08 17 07 20.500]
 ```
 
+To convert a `DateAndTime` value to the number of seconds from 1 January, 1970 use `absoluteTime`:
+
+```
+>>> '2025-05-04T08:09:57.505+10:00'
+>>> .parseDateAndTime
+>>> .absoluteTime
+1746310197.505
+```
+
 * * *
 
 See also: absoluteTime, asDateAndTime, dayOfMonth, Date, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
