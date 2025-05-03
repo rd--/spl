@@ -585,24 +585,37 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.matchesRegExp('^[-]?[0-9]+/[0-9]+$')
 	}
 
-	parseFraction { :self :separator |
+	parseFractionSeparatedBy { :self :separator :elseClause:/0 |
 		self.includesSubstring(separator).if {
 			let parts = self.splitBy(separator);
 			(parts.size = 2).if {
 				Fraction(
-					parts[1].parseLargeInteger,
-					parts[2].parseLargeInteger
+					parts[1].parseLargeInteger(elseClause:/0),
+					parts[2].parseLargeInteger(elseClause:/0)
 				)
 			} {
-				self.error('parseFraction: parse failed')
+				elseClause()
 			}
 		} {
-			ReducedFraction(self.parseLargeInteger, 1L)
+			self.isDecimalIntegerString.if {
+				ReducedFraction(
+					self.parseLargeInteger,
+					1L
+				)
+			} {
+				elseClause()
+			}
 		}
 	}
 
+	parseFraction { :self :elseClause:/0 |
+		self.parseFractionSeparatedBy('/', elseClause:/0)
+	}
+
 	parseFraction { :self |
-		self.parseFraction('/')
+		self.parseFraction {
+			self.error('parseFraction: parse failed')
+		}
 	}
 
 }

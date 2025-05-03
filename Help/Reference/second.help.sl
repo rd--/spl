@@ -1,6 +1,6 @@
 # second
 
-- _second(aSequence | aDate)_
+- _second(aSequence | aDateAndTime)_
 
 Answer the second element of _aSequence_:
 
@@ -9,13 +9,13 @@ Answer the second element of _aSequence_:
 2
 ```
 
-or the second of _aDate_:
+or the second of `DateAndTime`:
 
 ```
->>> '2024-03-04T21:41:07.500Z'
->>> .parseDateAndTime
->>> .second
-7
+>>> let s = '2024-03-04T21:41:07.500Z';
+>>> let t = s.parseDateAndTime;
+>>> (t.second, t.wholeSecond, t.millisecond)
+(7.5, 7, 500)
 ```
 
 * * *

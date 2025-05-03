@@ -123,10 +123,16 @@ Date! : [Object, Magnitude] {
 		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
 	}
 
-	parseDate { :self |
-		(self.size = 10).if {
+	parseDate { :self :elseClause:/0 |
+		(self.size = 10 & { self.isDateString }).if {
 			self.uncheckedParseDate
 		} {
+			elseClause()
+		}
+	}
+
+	parseDate { :self |
+		self.parseDate {
 			self.error('parseDate: invalid size')
 		}
 	}

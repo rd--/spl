@@ -22,6 +22,7 @@ true
 true
 
 >>> '2J3.141'.isComplexString
+true
 ```
 
 The sign must be at the real part:

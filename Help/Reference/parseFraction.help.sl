@@ -1,23 +1,17 @@
 # parseFraction
 
-- _parseFraction(aString, separator='/')_
+- _parseFraction(aString)_
+- _parseFraction(aString, elseClause:/0)_
 
 Answer the `Fraction` represented by _aString_,
-using _separator_ to delimit the numerator and denominator,
-else signal an `error`.
+using a solidus to delimit the numerator and denominator,
+else evaluate _elseClause_ or signal an `error`.
 
-Parse fraction written with a _solidus_ as separator:
+Parse fraction:
 
 ```
->>> '3/4'.parseFraction('/')
+>>> '3/4'.parseFraction
 3/4
-```
-
-The unary form sets the separator to '/':
-
-```
->>> '9/8'.parseFraction
-9/8
 ```
 
 Parse large fractions:
@@ -30,8 +24,11 @@ Parse large fractions:
 Signal an `error` if _aString_ is not a fraction:
 
 ```
+>>> '3.141'.parseFraction { nil }
+nil
+
 >>> {
->>> 	'3.141'.parseFraction('/')
+>>> 	'3.141'.parseFraction
 >>> }.ifError { true }
 true
 ```

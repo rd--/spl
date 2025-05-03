@@ -1,6 +1,6 @@
 system.splFileName('Help/Guide').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 455
+Total => 460
 
 Write image files:
 

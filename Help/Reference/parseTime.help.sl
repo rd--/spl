@@ -1,6 +1,7 @@
 # parseTime
 
 - _parseTime(aString)_
+- _parseTime(aString, elseClause:/0)_
 
 Parse _aString_ as a `Time` value.
 A string parser that recognizes a subset of the ISO-8601 specification,
@@ -30,6 +31,18 @@ Time(28253)
 
 >>> Time(28253).timeString
 '07:50:53.000'
+```
+
+On parser failure:
+
+```
+>>> '09:46'.parseTime { nil }
+nil
+
+>>> {
+>>> 	'09:46'.parseTime
+>>> }.ifError { true }
+true
 ```
 
 _Rationale_:

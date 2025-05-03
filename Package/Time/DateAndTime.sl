@@ -160,18 +160,24 @@ DateAndTime : [Object, Magnitude] { | primitive |
 		}
 	}
 
-	parsePrimitiveDateAndTime { :self |
-		<primitive: return new Date(_self);>
+	parseDateAndTime { :self :elseClause:/0 |
+		self.isDateAndTimeString.if {
+			newDateAndTime().initializeSlots(
+				self.uncheckedParsePrimitiveDateAndTime
+			)
+		} {
+			elseClause()
+		}
 	}
 
 	parseDateAndTime { :self |
-		[24 29].includes(self.size).if {
-			newDateAndTime().initializeSlots(
-				self.parsePrimitiveDateAndTime
-			)
-		} {
-			self.error('parseDateAndTime: invalid size')
+		self.parseDateAndTime {
+			self.error('parseDateAndTime: invalid input')
 		}
+	}
+
+	uncheckedParsePrimitiveDateAndTime { :self |
+		<primitive: return new Date(_self);>
 	}
 
 }

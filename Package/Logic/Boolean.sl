@@ -166,15 +166,21 @@ Boolean! : [Object, Json] {
 		}
 	}
 
-	parseBoolean { :self |
+	parseBoolean { :self :elseClause:/0 |
 		(self = 'true').if {
 			true
 		} {
 			(self = 'false').if {
 				false
 			} {
-				self.error('parseBoolean')
+				elseClause()
 			}
+		}
+	}
+
+	parseBoolean { :self |
+		self.parseBoolean {
+			self.error('parseBoolean')
 		}
 	}
 

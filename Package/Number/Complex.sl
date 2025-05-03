@@ -519,12 +519,22 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	parseComplex { :self :elseClause:/0 |
+		self.isComplexString.if {
+			let [real, imaginary] = self.splitBy('J');
+			Complex(
+				real.parseNumber(elseClause:/0),
+				imaginary.parseNumber(elseClause:/0)
+			)
+		} {
+			elseClause()
+		}
+	}
+
 	parseComplex { :self |
-		let [real, imaginary] = self.splitBy('J');
-		Complex(
-			real.parseNumber,
-			imaginary.parseNumber
-		)
+		self.parseComplex {
+			self.error('parseComplex: invalid input')
+		}
 	}
 
 }

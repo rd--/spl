@@ -715,28 +715,41 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 +String {
 
-	parseDecimalInteger { :self |
+	parseDecimalInteger { :self :elseClause:/0 |
 		self.isDecimalIntegerString.if {
 			let answer = self.uncheckedParseDecimalInteger;
 			answer.isNaN.if {
-				self.error('parseDecimalInteger: not a number')
+				elseClause()
 			} {
 				answer.isSmallInteger.if {
 					answer
 				} {
-					self.error('parseDecimalInteger: not a small integer')
+					elseClause()
 				}
 			}
 		} {
-			self.error('parseDecimalInteger: invalid string')
+			elseClause()
+		}
+	}
+
+	parseDecimalInteger { :self |
+		self.parseDecimalInteger {
+			self.error('parseDecimalInteger: invalid input')
+		}
+	}
+
+	parseNumber { :self :elseClause:/0 |
+		self.matchesRegExp('^[0-9eE.+-]+$').if {
+			self.uncheckedParseNumber
+		} {
+			elseClause()
 		}
 	}
 
 	parseNumber { :self |
-		self.assert {
-			self.matchesRegExp('^[0-9eE.+-]+$')
-		};
-		self.uncheckedParseNumber
+		self.parseNumber {
+			self.error('parseNumber: invalid input')
+		}
 	}
 
 	parseSmallInteger { :self :radix |

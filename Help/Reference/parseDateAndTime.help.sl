@@ -1,6 +1,7 @@
 # parseDateAndTime
 
 - _parseDateAndTime(aString)_
+- _parseDateAndTime(aString, elseClause:/0)_
 
 Parse _aString_ as a `Date` value.
 A string parser that recognizes subsets of the ISO 8601 specification.
@@ -19,6 +20,20 @@ A value of _Z_ indicates _UTC_:
 >>> .parseDateAndTime
 >>> .dateAndTimeString
 '2023-05-11T09:30:00.000Z'
+```
+
+On parser failure:
+
+```
+>>> '2023-05-11T09:30'
+>>> .parseDateAndTime { nil }
+nil
+
+>>> {
+>>> 	'2023-05-11T09:30'
+>>> 	.parseDateAndTime
+>>> }.ifError { true }
+true
 ```
 
 To parse a date without time use `parseDate`.

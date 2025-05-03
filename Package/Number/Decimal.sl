@@ -317,7 +317,7 @@ Decimal : [Object] { | fraction scale |
 
 +String {
 
-	basicParseDecimal { :self |
+	basicParseDecimal { :self :elseClause:/0 |
 		let parts = self.splitBy('.');
 		parts.size.caseOfOtherwise([
 			{ 1 } -> {
@@ -337,13 +337,23 @@ Decimal : [Object] { | fraction scale |
 				)
 			}
 		]) {
-			self.error('String>>basicParseDecimal')
+			elseClause()
+		}
+	}
+
+	parseDecimal { :self :elseClause:/0 |
+		self.endsWith('D').if {
+			self.allButLast.basicParseDecimal(elseClause:/0)
+		} {
+			elseClause()
 		}
 	}
 
 	parseDecimal { :self |
 		self.endsWith('D').if {
-			self.allButLast.basicParseDecimal
+			self.allButLast.basicParseDecimal {
+				self.error('String>>parseDecimal: no D suffix')
+			}
 		} {
 			self.error('String>>parseDecimal')
 		}

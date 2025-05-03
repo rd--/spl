@@ -1,6 +1,7 @@
 # parseSchemaType
 
-- _parseSchemaType(aString)_
+- _parseSchemaType(aString, schemaType)_
+- _parseSchemaType(aString, schemaType, elseClause:/0)_
 
 Parse the Schema type of the value at _aString_.
 
@@ -12,6 +13,10 @@ true
 
 >>> 'false'.parseSchemaType('Boolean')
 false
+
+>>> 'neither'
+>>> .parseSchemaType('Boolean') { nil }
+nil
 ```
 
 Parse an `Integer` number type:

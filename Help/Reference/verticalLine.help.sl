@@ -26,14 +26,14 @@ false
 true
 ```
 
-The unary form of `|` is `anySatisfy` of `value`:
+The unary form of `|` is `anySatisfy` of `blockValue`:
 
 ```
->>> [1 < 0, { 2 < 1 }, { 3 < 2 }].|
+>>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|
 false
 ```
 
-Naturally, the first element may also be a `Block`:
+Operator syntax:
 
 ```
 >>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|

@@ -1,6 +1,7 @@
 # parseNumber
 
 - _parseNumber(aString)_
+- _parseNumber(aString, elseClause:/0)_
 
 Answer the `SmallFloat` represented by _aString_,
 else signal an `error`.
@@ -65,6 +66,9 @@ Parse scientific notation:
 Does not parse infinity:
 
 ```
+>>> 'Infinity'.parseNumber { nil }
+nil
+
 >>> {
 >>> 	'Infinity'.parseNumber
 >>> }.ifError { true }
@@ -75,6 +79,9 @@ Does not parse radix notation,
 signals `error` on failure:
 
 ```
+>>> '2r1001'.parseNumber { nil }
+nil
+
 >>> {
 >>> 	'2r1001'.parseNumber
 >>> }.ifError { true }

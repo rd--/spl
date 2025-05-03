@@ -35,7 +35,7 @@ Time : [Object] { | seconds |
 		self.matchesRegExp('[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?Z?$')
 	}
 
-	parseTime { :self |
+	parseTime { :self :elseClause:/0 |
 		self.isTimeString.if {
 			let [h, m, s] = self.splitBy(':');
 			h := h.parseDecimalInteger;
@@ -44,13 +44,18 @@ Time : [Object] { | seconds |
 			(h < 24 | { m < 60 | { s < 60 } }).if {
 				Time((h * 60 * 60) + (m * 60) + s)
 			} {
-				self.error('parseTime: invalid time field')
+				elseClause()
 			}
 		} {
-			self.error('parseTime: invalid time')
+			elseClause()
 		}
 	}
 
+	parseTime { :self |
+		self.parseTime {
+			self.error('parseTime: invalid input')
+		}
+	}
 }
 
 +[Time, Quantity] {

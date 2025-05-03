@@ -15,22 +15,28 @@
 		].which
 	}
 
-	parseSchemaType { :self :schemaType |
+	parseSchemaType { :self :schemaType :elseClause:/0 |
 		schemaType.caseOfOtherwise(
 			[
-				'Boolean' -> { self.parseBoolean },
-				'Integer' -> { self.parseDecimalInteger },
-				'Fraction' -> { self.parseFraction },
-				'Complex' -> { self.parseComplex },
-				'Real' -> { self.parseNumber },
-				'Date' -> { self.parseDate },
-				'DateAndTime' -> { self.parseDateAndTime },
-				'Duration' -> { self.parseDuration },
-				'Time' -> { self.parseTime },
+				'Boolean' -> { self.parseBoolean(elseClause:/0) },
+				'Integer' -> { self.parseDecimalInteger(elseClause:/0) },
+				'Fraction' -> { self.parseFraction(elseClause:/0) },
+				'Complex' -> { self.parseComplex(elseClause:/0) },
+				'Real' -> { self.parseNumber(elseClause:/0) },
+				'Date' -> { self.parseDate(elseClause:/0) },
+				'DateAndTime' -> { self.parseDateAndTime(elseClause:/0) },
+				'Duration' -> { self.parseDuration(elseClause:/0) },
+				'Time' -> { self.parseTime(elseClause:/0) },
 				'String' -> { self }
 			]
 		) {
-			self.error('parseSchemeType: unknown type')
+			elseClause()
+		}
+	}
+
+	parseSchemaType { :self :schemaType |
+		self.parseSchemaType(schemaType) {
+			self.error('parseSchemeType: unknown type or invalid input')
 		}
 	}
 

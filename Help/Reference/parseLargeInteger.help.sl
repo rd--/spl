@@ -1,6 +1,7 @@
 # parseLargeInteger
 
 - _parseLargeInteger(aString)_
+- _parseLargeInteger(aString, elseClause:/0)_
 
 Answer the `LargeInteger` value of the decimal integer held in _aString_.
 The parse allows, but does not require, a trailing upper case letter "L".
@@ -14,13 +15,12 @@ The parse allows, but does not require, a trailing upper case letter "L".
 23L ^ 23
 ```
 
-An `error` is signalled if the parse fails:
+If the parse fails evaluate _elseClause_,
+or signal an `error`:
 
 ```
->>> {
->>> 	'2.3'.parseLargeInteger
->>> }.ifError { true }
-true
+>>> '2.3'.parseLargeInteger { nil }
+nil
 
 >>> {
 >>> 	'23X'.parseLargeInteger

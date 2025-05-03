@@ -1,8 +1,10 @@
 # parseDecimal
 
 - _parseDecimal(aString)_
+- _parseDecimal(aString, elseClause:/0)_
 
 Parse _aString_ as a `Decimal` value,
+if the parse fails evaluate _elseClause_ or signal an `error`.
 
 Without fractional part:
 
@@ -39,6 +41,9 @@ With large integer:
 The _D_ suffix is required:
 
 ```
+>>> '23'.parseDecimal { nil }
+nil
+
 >>> {
 >>> 	'23'.parseDecimal
 >>> }.ifError { true }

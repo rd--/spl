@@ -11,7 +11,7 @@ Predicate for `Boolean` type:
 true
 
 >>> false.isSchemaType('Boolean')
-false
+true
 ```
 
 Predicate for `Integer` number type:

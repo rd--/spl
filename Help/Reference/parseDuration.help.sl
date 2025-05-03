@@ -1,6 +1,7 @@
 # parseDuration
 
 - _parseDuration(aString)_
+- _parseDuration(aString, elseClause:/0)_
 
 Parse an ISO-8601 duration string and answer a `Duration` value.
 
@@ -22,7 +23,9 @@ Four days, twelve hours, thirty minutes, and five seconds:
 	5.seconds
 ].sum.asDuration
 
->>> 'P4DT12H30M5S'.parseDuration.asList
+>>> 'P4DT12H30M5S'
+>>> .parseDuration
+>>> .asList
 [4 12 30 5]
 ```
 
@@ -45,6 +48,18 @@ Duration(6 * 7 * 24 * 60 * 60)
 
 >>> 'P6W'.parseDuration.asList
 [42 0 0 0]
+```
+
+On parse failure:
+
+```
+>>> '3D'.parseDuration { nil }
+nil
+
+>>> {
+>>> 	'3M'.parseDuration
+>>> }.ifError { true }
+true
 ```
 
 _Note_:

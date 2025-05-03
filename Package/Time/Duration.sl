@@ -112,7 +112,29 @@ Duration : [Object, Magnitude] { | seconds |
 		self.matchesRegExp('^P([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(.[0-9]+)S)?)?$')
 	}
 
-	parseIso8601DurationAsList { :self |
+	parseDuration { :self :elseClause:/0 |
+		self.isDurationString.if {
+			let [
+				years, months, weeks, days,
+				hours, minutes, seconds
+			] = self.uncheckedParseIso8601DurationAsList;
+			(years + months > 0).if {
+				elseClause()
+			} {
+				weeks.weeks.asDuration + days.days + hours.hours + minutes.minutes + seconds.seconds
+			}
+		} {
+			elseClause()
+		}
+	}
+
+	parseDuration { :self |
+		self.parseDuration {
+			self.error('String>>asDuration: invalid input')
+		}
+	}
+
+	uncheckedParseIso8601DurationAsList { :self |
 		<primitive:
 		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(\.\d+)?)S)?)?$/;
 		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
@@ -120,18 +142,6 @@ Duration : [Object, Magnitude] { | seconds |
 			return x ? Number(x) : 0;
 		});
 		>
-	}
-
-	parseDuration { :self |
-		let [
-			years, months, weeks, days,
-			hours, minutes, seconds
-		] = self.parseIso8601DurationAsList;
-		(years + months > 0).if {
-			self.error('String>>asDuration: includes non-zero year or month fields')
-		} {
-			weeks.weeks.asDuration + days.days + hours.hours + minutes.minutes + seconds.seconds
-		}
 	}
 
 }

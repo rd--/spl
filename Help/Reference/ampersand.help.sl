@@ -15,15 +15,14 @@ true
 false
 ```
 
-The unary form of & is _allSatisfy_ of _value_:
+The unary form of & is `allSatisfy` of `blockValue`:
 
 ```
->>> &([1 > 0, { 2 > 1 }, { 3 > 2 }])
+>>> &([ {1 > 0 }, { 2 > 1 }, { 3 > 2 }])
 true
 ```
 
-The first element may also be a Block,
-and the unary operator syntax may be used:
+Unary operator syntax may be used:
 
 ```
 >>> [{ 1 > 0 }, { 2 > 1 }, { 3 > 2 }].&

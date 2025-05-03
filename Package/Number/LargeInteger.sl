@@ -357,18 +357,26 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 +String {
 
-	basicParseLargeInteger { :self |
+	uncheckedParseLargeInteger { :self |
 		<primitive: return BigInt(_self);>
 	}
 
-	parseLargeInteger { :self |
-		self.endsWith('L').if {
-			self.allButLast.basicParseLargeInteger
+	parseLargeInteger { :self :elseClause:/0 |
+		self.endsWith('L').ifTrue {
+			self := self.allButLast
+		};
+		self.isDecimalIntegerString.if {
+			self.uncheckedParseLargeInteger
 		} {
-			self.basicParseLargeInteger
+			elseClause()
 		}
 	}
 
+	parseLargeInteger { :self |
+		self.parseLargeInteger {
+			self.error('parseLargeInteger: invalid input')
+		}
+	}
 }
 
 +ByteArray {

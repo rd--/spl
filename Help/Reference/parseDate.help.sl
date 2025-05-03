@@ -1,6 +1,7 @@
 # parseDate
 
 - _parseDate(aString)_
+- _parseDate(aString, elseClause:/0)_
 
 Parse _aString_ as a `Date` value.
 A string parser that recognizes subsets of the ISO 8601 specification,
@@ -13,6 +14,18 @@ Parse date:
 >>> .parseDate
 >>> .dateString
 '2023-05-11'
+```
+
+On parse failure:
+
+```
+>>> '2025-05'.parseDate { nil }
+nil
+
+>>> {
+>>> 	'2025-05'.parseDate
+>>> }.ifError { true }
+true
 ```
 
 To parse a `DateAndTime` use `parseDateAndTime`.
