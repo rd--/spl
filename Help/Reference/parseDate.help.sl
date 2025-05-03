@@ -22,6 +22,9 @@ On parse failure:
 >>> '2025-05'.parseDate { nil }
 nil
 
+>>> ''.parseDate { nil }
+nil
+
 >>> {
 >>> 	'2025-05'.parseDate
 >>> }.ifError { true }

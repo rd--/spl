@@ -15,28 +15,22 @@
 		].which
 	}
 
-	parseSchemaType { :self :schemaType :elseClause:/0 |
-		schemaType.caseOfOtherwise(
+	schemaTypeParser { :self |
+		self.caseOfOtherwise(
 			[
-				'Boolean' -> { self.parseBoolean(elseClause:/0) },
-				'Integer' -> { self.parseDecimalInteger(elseClause:/0) },
-				'Fraction' -> { self.parseFraction(elseClause:/0) },
-				'Complex' -> { self.parseComplex(elseClause:/0) },
-				'Real' -> { self.parseNumber(elseClause:/0) },
-				'Date' -> { self.parseDate(elseClause:/0) },
-				'DateAndTime' -> { self.parseDateAndTime(elseClause:/0) },
-				'Duration' -> { self.parseDuration(elseClause:/0) },
-				'Time' -> { self.parseTime(elseClause:/0) },
-				'String' -> { self }
+				'Boolean' -> { parseBoolean:/2 },
+				'Integer' -> { parseDecimalInteger:/2 },
+				'Fraction' -> { parseFraction:/2 },
+				'Complex' -> { parseComplex:/2 },
+				'Real' -> { parseNumber:/2 },
+				'Date' -> { parseDate:/2 },
+				'DateAndTime' -> { parseDateAndTime:/2 },
+				'Duration' -> { parseDuration:/2 },
+				'Time' -> { parseTime:/2 },
+				'String' -> { { :s :f:/0 | s } }
 			]
 		) {
-			elseClause()
-		}
-	}
-
-	parseSchemaType { :self :schemaType |
-		self.parseSchemaType(schemaType) {
-			self.error('parseSchemeType: unknown type or invalid input')
+			self.error('schemaTypeParser: unknown type')
 		}
 	}
 
@@ -65,6 +59,23 @@
 
 	isSchemaType { :self :schemaType |
 		schemaType.schemaTypePredicate.value(self)
+	}
+
+}
+
++List {
+
+	parseSchemaType { :self :schemaType :elseClause:/0 |
+		let parser:/2 = schemaType.schemaTypeParser;
+		self.collect { :each |
+			parser(each, elseClause:/0)
+		}
+	}
+
+	parseSchemaType { :self :schemaType |
+		self.parseSchemaType(schemaType) {
+			self.error('parseSchemeType: unknown type or invalid input')
+		}
 	}
 
 }
