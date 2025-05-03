@@ -727,6 +727,18 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		<primitive: return _self.split('\n\n');>
 	}
 
+	parseJson { :self :elseClause |
+		<primitive:
+		let answer = null;
+		try {
+			answer = JSON.parse(_self);
+		} catch (unused) {
+			return _elseClause();
+		};
+		return answer;
+		>
+	}
+
 	parseJson { :self |
 		<primitive: return JSON.parse(_self);>
 	}

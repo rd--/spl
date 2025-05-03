@@ -1,6 +1,7 @@
 # parseJson
 
 - _parseJson(aString)_
+- _parseJson(aString, elseClause:/0)_
 
 Answer the value represented by the `Json` encoded _aString_.
 
@@ -46,10 +47,17 @@ Parse `Record`:
 (x: 3.141, y: 23)
 ```
 
-An `Error` is signalled if the input is not a valid Json `String`:
+The _elseClause_ is evaluated,
+or and `Error` is signalled,
+if the input is not a valid Json `String`:
 
 ```
->>> { 'invalid'.parseJson }.ifError { true }
+>>> 'invalid'.parseJson { nil }
+nil
+
+>>> {
+>>> 	'invalid'.parseJson
+>>> }.ifError { true }
 true
 ```
 
