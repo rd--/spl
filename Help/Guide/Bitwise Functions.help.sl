@@ -39,6 +39,7 @@ Permuting:
 
 Converting:
 
+- `asBitSet`
 - `integerDigits`
 - `fromDigits`
 

@@ -2,6 +2,7 @@
 
 Types:
 
+- `CalendarDuration`
 - `Date`
 - `DateAndTime`
 - `Duration`
@@ -41,6 +42,7 @@ Printing:
 
 Parsing:
 
+- `parseCalendarDuration`
 - `parseDate`
 - `parseDateAndTime`
 - `parseDuration`

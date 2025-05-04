@@ -59,7 +59,7 @@ true
 
 * * *
 
-See also: Date, CalendarDuration, parseDate, TimeStamp
+See also: Date, CalendarDuration, parseDate, parseDuration, TimeStamp
 
 Guides: Date and Time Functions, Parsing Functions
 

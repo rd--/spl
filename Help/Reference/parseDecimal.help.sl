@@ -45,7 +45,7 @@ The _D_ suffix is required:
 nil
 
 >>> {
->>> 	'23'.parseDecimal
+>>> 	'3.141'.parseDecimal
 >>> }.ifError { true }
 true
 ```

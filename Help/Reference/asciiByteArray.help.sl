@@ -8,6 +8,9 @@ which must be an Ascii string.
 ```
 >>> 'ascii'.asciiByteArray
 [97 115 99 105 105].asByteArray
+
+>>> '09AZaz'.asciiByteArray
+[48 57 65 90 97 122].asByteArray
 ```
 
 The inverse is `asciiString`:

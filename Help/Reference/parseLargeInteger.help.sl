@@ -4,7 +4,7 @@
 - _parseLargeInteger(aString, elseClause:/0)_
 
 Answer the `LargeInteger` value of the decimal integer held in _aString_.
-The parse allows, but does not require, a trailing upper case letter "L".
+The parser allows, but does not require, a trailing upper case letter "L".
 
 ```
 >>> '23L'.parseLargeInteger

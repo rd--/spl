@@ -62,6 +62,8 @@ it only has an absolute duration in seconds in relation to a `Date` or `DateAndT
 
 See also: asSeconds, Date, Duration, Frequency, parseCalendarDuration, TimeStamp
 
+Guides: Date and Time Functions
+
 References:
 _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/calendarduration.html)

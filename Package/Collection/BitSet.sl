@@ -220,24 +220,42 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 
 +String {
 
-	asBitSet { :self :capacity |
-		let answer = BitSet(self.size);
-		let ascii = self.asciiByteArray;
-		let zeroCodePoint = '0'.codePoint;
-		let oneCodePoint = '1'.codePoint;
-		ascii.withIndexDo { :each :index |
-			(each = oneCodePoint).if {
-				answer.add(index - 1)
-			} {
-				(each ~= zeroCodePoint).ifTrue {
-					self.error('String>>asBitSet: not 0 or 1: ' ++ each)
+	asBitSet { :self :capacity :elseClause:/0 |
+		self.isBitString.if {
+			let answer = BitSet(self.size);
+			let ascii = self.asciiByteArray;
+			let zeroCodePoint = '0'.codePoint;
+			let oneCodePoint = '1'.codePoint;
+			ascii.withIndexDo { :each :index |
+				(each = oneCodePoint).if {
+					answer.add(index - 1)
+				} {
+					(each ~= zeroCodePoint).ifTrue {
+						self.error('asBitSet: not 0 or 1: ' ++ each)
+					}
 				}
-			}
-		};
-		answer
+			};
+			answer
+		} {
+			elseClause()
+		}
+	}
+
+	asBitSet { :self :capacity |
+		self.asBitSet(capacity) {
+			self.error('asBitSet: invalid string')
+		}
 	}
 
 	asBitSet { :self |
+		self.asBitSet(self.size)
+	}
+
+	parseBitSet { :self :elseClause:/0 |
+		self.asBitSet(self.size, elseClause:/0)
+	}
+
+	parseBitSet { :self |
 		self.asBitSet(self.size)
 	}
 

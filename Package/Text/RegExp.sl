@@ -159,16 +159,16 @@ RegExp! : [Object] {
 		}
 	}
 
-	isBase10String { :self |
-		self.matchesRegExp('^[0-9]+$')
-	}
-
 	isBase16String { :self |
 		self.matchesRegExp('^[0-9A-F]+$')
 	}
 
 	isBase64String { :self |
 		self.matchesRegExp('^[0-9A-Za-z+/]+$')
+	}
+
+	isBitString { :self |
+		self.matchesRegExp('^[01]+$')
 	}
 
 	isDecimalIntegerString { :self |
@@ -185,6 +185,10 @@ RegExp! : [Object] {
 
 	isScientificNotationString { :self |
 		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?[eE][+-]?[0-9]+$')
+	}
+
+	isUnsignedDecimalIntegerString { :self |
+		self.matchesRegExp('^[0-9]+$')
 	}
 
 	matchRegExp { :self :aRegExp |

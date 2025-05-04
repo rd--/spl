@@ -715,6 +715,38 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 +String {
 
+	isRadixIntegerString { :self :radix |
+		self.isEmpty.if {
+			false
+		} {
+			radix.caseOfOtherwise([
+				2 -> {
+					self.matchesRegExp('^[0-1+-]+$')
+				},
+				4 -> {
+					self.matchesRegExp('^[0-3+-]+$')
+				},
+				8 -> {
+					self.matchesRegExp('^[0-7+-]+$')
+				},
+				10 -> {
+					self.matchesRegExp('^[0-9+-]+$')
+				},
+				16 -> {
+					self.matchesRegExp('^[0-9A-Fa-f+-]+$')
+				}
+			]) {
+				let c = self.asList;
+				(c[1] = '-' | { c[1] = '+' }).ifTrue {
+					c.removeAt(1)
+				};
+				c.collect(digitValue:/1).allSatisfy { :each |
+					each >= 0 & { each < radix }
+				}
+			}
+		}
+	}
+
 	parseDecimalInteger { :self :elseClause:/0 |
 		self.isDecimalIntegerString.if {
 			let answer = self.uncheckedParseDecimalInteger;
@@ -780,16 +812,33 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	parseSmallInteger { :self :radix |
-		radix.assertIsSmallInteger;
-		self.assert {
-			radix > 1 & {
-				radix < 36 & {
-					self.matchesRegExp('^[0-9a-zA-Z-]+$')
+	parseSmallInteger { :self :radix :elseClause:/0 |
+		radix.isSmallInteger.if {
+			(
+				radix > 1 & {
+					radix < 36 & {
+						self.isRadixIntegerString(radix)
+					}
 				}
+			).if {
+				let answer = self.uncheckedParseInteger(radix);
+				answer.isSmallInteger.if {
+					answer
+				} {
+					elseClause()
+				}
+			} {
+				elseClause()
 			}
-		};
-		self.uncheckedParseInteger(radix).assertIsSmallInteger
+		} {
+			elseClause()
+		}
+	}
+
+	parseSmallInteger { :self :radix |
+		self.parseSmallInteger(radix) {
+			self.error('parseSmallInteger: invalid input')
+		}
 	}
 
 	uncheckedParseDecimalInteger { :self |

@@ -32,15 +32,19 @@ deriving the `capacity` and the `tally` from the size and contents of the array.
 Print the 32-bit twos-complement encodings of five and negative five:
 
 ```
->>> 5.encodeInt32(true).asBitSet.asString
+>>> 5.encodeInt32(true)
+>>> .asBitSet.asString
 '10100000000000000000000000000000'
 
->>> -5.encodeInt32(true).asBitSet.asString
+>>> -5.encodeInt32(true)
+>>> .asBitSet.asString
 '11011111111111111111111111111111'
 ```
 
 * * *
 
 See also: BitSet
+
+Guides: Bitwise Functions
 
 Categories: Converting

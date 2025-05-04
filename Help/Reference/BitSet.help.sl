@@ -1,8 +1,8 @@
 # BitSet
 
-- _BitSet(anInteger)_
+- _BitSet(capacity)_
 
-Answer a new empty `BitSet` with capacity of `anInteger`.
+Answer a new empty `BitSet` with the specified _capacity_.
 The capacity is fixed and need not be a multiple of eight.
 
 A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers between `zero` and _capacity - 1_.

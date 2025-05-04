@@ -28,6 +28,7 @@ Parse Colours:
 
 Parse Durations and Times:
 
+- `parseCalendarDuration`
 - `parseDate`
 - `parseDateAndTime`
 - `parseDuration`
@@ -59,7 +60,9 @@ Predicates:
 - `isDecimalNumeralString`
 - `isFloatString`
 - `isFractionString`
+- `isRadixIntegerString`
 - `isTimeString`
+- `isUnsignedDecimalIntegerString`
 
 * * *
 
