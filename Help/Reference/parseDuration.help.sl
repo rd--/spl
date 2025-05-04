@@ -63,13 +63,14 @@ true
 ```
 
 _Note_:
-In Sᴘʟ it is an `error` if the year or month fields are non-zero.
+At `parseDuration` it is an `error` if the year or month fields are non-zero.
 Such duration values would represent differing absolute time intervals depending on the start time,
 as the number of days in a calendar year and calendar month are variable.
+To work with such values see `CalendarDuration`.
 
 * * *
 
-See also: Date, Duration, parseDate, TimeStamp
+See also: CalendarDuration, Date, Duration, parseDate, TimeStamp
 
 Guides: Date and Time Functions, Parsing Functions
 

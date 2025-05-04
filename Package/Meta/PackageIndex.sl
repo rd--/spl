@@ -360,6 +360,7 @@
 	'Text-RegExp'
 	'Text-String'
 	'Text-Unicode'
+	'Time-CalendarDuration'
 	'Time-Clock'
 	'Time-Date'
 	'Time-DateAndTime'

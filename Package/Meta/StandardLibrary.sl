@@ -249,6 +249,7 @@
 	'Unicode'
 
 	/* Time */
+	'CalendarDuration'
 	'Clock'
 	'Date'
 	'DateAndTime'

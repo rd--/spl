@@ -108,20 +108,18 @@ Duration : [Object, Magnitude] { | seconds |
 
 +String {
 
-	isDurationString { :self |
-		self.matchesRegExp('^P([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(.[0-9]+)S)?)?$')
-	}
-
 	parseDuration { :self :elseClause:/0 |
-		self.isDurationString.if {
+		self.isIso8601DurationString.if {
 			let [
-				years, months, weeks, days,
+				years, months, days,
 				hours, minutes, seconds
-			] = self.uncheckedParseIso8601DurationAsList;
+			] = self.parseCalendarDuration.asList;
 			(years + months > 0).if {
 				elseClause()
 			} {
-				weeks.weeks.asDuration + days.days + hours.hours + minutes.minutes + seconds.seconds
+				Duration(
+					[days, hours, minutes, seconds].mixedRadixDecode([24 60 60])
+				)
 			}
 		} {
 			elseClause()
@@ -130,18 +128,8 @@ Duration : [Object, Magnitude] { | seconds |
 
 	parseDuration { :self |
 		self.parseDuration {
-			self.error('String>>asDuration: invalid input')
+			self.error('String>>parseDuration: invalid input')
 		}
-	}
-
-	uncheckedParseIso8601DurationAsList { :self |
-		<primitive:
-		const regex = /P(?:(\d+)Y)?(?:(\d+)M)?(?:(\d+)W)?(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+(\.\d+)?)S)?)?$/;
-		const [_unused, years, months, weeks, days, hours, minutes, seconds] = _self.match(regex);
-		return [years, months, weeks, days, hours, minutes, seconds].map(function(x) {
-			return x ? Number(x) : 0;
-		});
-		>
 	}
 
 }
