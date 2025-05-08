@@ -1,10 +1,10 @@
 # quantile
 
-- _quantile(aCollection, p, a, b, c, d)_
-- _quantile(α, β)_ ⟹ _quantile(α, β, 0, 0, 1, 0)_
+- _quantile(data, p, [a b; c d])_
 
-Answer the estimate of the _p-th_ quantile of _aCollection_,
+Answer the estimate of the _p-th_ quantile of the collection _data_,
 using the quantile definition specified by parameters _a_, _b_, _c_ and _d_.
+If the parameters are elided they are set to _[0 0; 1 0]_.
 
 Find the halfway value of a list:
 
@@ -43,7 +43,7 @@ Compute results using other parametrizations:
 >>> [5 10 4 25 2 1].quantile(1 / 5)
 2
 
->>> [5 10 4 25 2 1].quantile(1 / 5, 1 / 2, 0, 0, 1)
+>>> [5 10 4 25 2 1].quantile(1 / 5, [0.5 0; 0 1])
 17/10
 ```
 
@@ -85,7 +85,7 @@ Quartiles gives linearly interpolated quantile values for a list:
 >>> let list = [1 3 4 2 5 6];
 >>> (
 >>> 	list.quartiles,
->>> 	list.quantile([1 2 3] / 4, 1 / 2, 0, 0, 1)
+>>> 	list.quantile([1 2 3] / 4, [0.5 0; 0 1])
 >>> )
 (
 	[2 3.5 5],
@@ -98,7 +98,7 @@ At `SortedList`:
 ```
 >>> [5 10 4 25 2 1]
 >>> .asSortedList
->>> .quantile(1 / 5, 1 / 2, 0, 0, 1)
+>>> .quantile(1 / 5, [0.5 0; 0 1])
 1.7
 ```
 
@@ -112,9 +112,45 @@ Ranked minimum:
 12
 ```
 
+Common choices of parameters:
+
+```
+>>> let d = [
+>>> 	0.5377
+>>> 	1.8339
+>>> 	-2.2588
+>>> 	0.8622
+>>> 	0.3188
+>>> 	-1.3077
+>>> 	-0.4336
+>>> ];
+>>> [
+>>> 	0 0; 1 0:;
+>>> 	0 0; 0 1:;
+>>> 	0.5 0; 0 0:;
+>>> 	0.5 0; 0 1:;
+>>> 	0 1; 0 1:;
+>>> 	1 -1; 0 1:;
+>>> 	1/3 1/3; 0 1:;
+>>> 	3/8 1/4; 0 1
+>>> ].collect { :o |
+>>> 	d.quantile(0.42, o)
+>>> }
+[
+	-0.4336
+	-0.4860
+	-0.4336
+	-0.1025
+	-0.1627
+	-0.0424
+	-0.1226
+	-0.1176
+]
+```
+
 * * *
 
-See also: median, quartiles, variance, sort
+See also: median, percentile, quartiles, variance, sort
 
 Guides: Probability Distributions, Statistics Functions
 
@@ -122,5 +158,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Quantile.html)
 [2](https://reference.wolfram.com/language/ref/Quantile.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/prctile.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Quantile)
 
 Categories: Statistics

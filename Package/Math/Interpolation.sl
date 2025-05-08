@@ -472,9 +472,8 @@
 
 +List {
 
-	simpleLinearRegression { :self |
-		let n = self.size;
-		let [x, y] = self.transposed;
+	simpleLinearRegression { :x :y |
+		let n = x.size;
 		let sx = x.sum;
 		let sy = y.sum;
 		let sxx = (x * x).sum;
@@ -484,7 +483,7 @@
 		let yy = syy - (sy * sy / n);
 		let xy = sxy - (sx * sy / n);
 		(n < 2 | { xx.abs = 0 }).if {
-			self.error('List>>simpleLinearRegression: too few points or infinite slope')
+			x.error('List>>simpleLinearRegression: too few points or infinite slope')
 		} {
 			let b = xy / xx;
 			let a = (sy / n) - (b * sx / n);
@@ -494,6 +493,51 @@
 				xy / (xx * yy).sqrt
 			};
 			[a, b, r]
+		}
+	}
+
+	simpleLinearRegression { :self |
+		let [x, y] = self.transposed;
+		x.simpleLinearRegression(y)
+	}
+
+	theilSenEstimator { :x :y |
+		(x.size = y.size).if {
+			let k = x.size;
+			let slope = [];
+			let count = 0;
+			let m = nil;
+			1.toDo(k) { :i |
+				let x1 = x[i];
+				let y1 = y[i];
+				(i + 1).toDo(k) { :j |
+					let x2 = x[j];
+					let y2 = y[j];
+					(x1 ~= x2).ifTrue {
+						slope.add(
+							(y2 - y1) / (x2 - x1)
+						);
+						count := count + 1
+					}
+				}
+			};
+			m := slope.median;
+			count.postLine;
+			[
+				(1 .. k).collect { :i | y[i] - (m * x[i]) }.median,
+				m
+			]
+                } {
+			xList.error('theilSenEstimator: invalid input')
+		}
+	}
+
+	theilSenEstimator { :self |
+		self.isVector.if {
+			theilSenEstimator([1 .. self.size], self)
+		} {
+			let [x, y] = self.transposed;
+			theilSenEstimator(x, y)
 		}
 	}
 

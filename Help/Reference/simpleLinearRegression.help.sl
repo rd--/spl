@@ -1,6 +1,7 @@
 # simpleLinearRegression
 
-- _simpleLinearRegression(aMatrix)_
+- _simpleLinearRegression(x, y)_
+- _simpleLinearRegression(m)_
 
 Answers _(a, b, r)_ where
 _a_ is the _y_-intercept,
@@ -16,6 +17,11 @@ it is an `error`.
 Linear regression over four points:
 
 ```
+>>> let x = [1 2 3 4];
+>>> let y = [6 5 7 10];
+>>> x.simpleLinearRegression(y)
+[3.5 1.4 0.8367]
+
 >>> [1 6; 2 5; 3 7; 4 10]
 >>> .simpleLinearRegression
 [3.5 1.4 0.8367]
@@ -59,8 +65,9 @@ let p = [
 	 8.20829  8.76540;
 	 8.53994  9.58096
 ];
+let n = p.size;
 let [a, b, r] = p.simpleLinearRegression;
-let x = 10;
+let x = n;
 let y = (b * x) + a;
 [
 	p.PointCloud,
@@ -71,6 +78,8 @@ let y = (b * x) + a;
 ![](sw/spl/Help/Image/simpleLinearRegression-A.svg)
 
 * * *
+
+See also: theilSenEstimator
 
 References:
 _W_

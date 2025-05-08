@@ -10,6 +10,10 @@ Quartiles for a list of exact numbers:
 ```
 >>> [1 3 4 2 5 6].quartiles
 [2 3.5 5]
+
+>>> [3 6 7 8 8 9 10 13 15 16 20]
+>>> .quartiles
+[7.25 9 14.5]
 ```
 
 Exact input yields exact output:

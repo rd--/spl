@@ -92,12 +92,14 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 		}
 	}
 
-	quantile { :self :p :a :b :c :d |
+	quantile { :self :p :o |
 		p.isCollection.if {
 			p.collect { :each |
-				self.quantile(each, a, b, c, d)
+				self.quantile(each, o)
 			}
 		} {
+			let [a, b] = o[1];
+			let [c, d] = o[2];
 			let y = self;
 			let n = y.size;
 			let r = a + ((n + b) * p);

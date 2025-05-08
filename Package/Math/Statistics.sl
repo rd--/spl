@@ -96,13 +96,21 @@
 		(1 / self.size) * (self ^ r).sum
 	}
 
-	quantile { :self :p :a :b :c :d |
+	percentile { :self :p :o |
+		self.quantile(p / 100, o)
+	}
+
+	percentile { :self :p |
+		self.percentile(p, [0 1; 0 1])
+	}
+
+	quantile { :self :p :o |
 		self.isVector.if {
-			self.asSortedList.quantile(p, a, b, c, d)
+			self.asSortedList.quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transposed.collect { :each |
-					each.asSortedList.quantile(p, a, b, c, d)
+					each.asSortedList.quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -111,15 +119,15 @@
 	}
 
 	quantile { :self :p |
-		self.quantile(p, 0, 0, 1, 0)
+		self.quantile(p, [0 0; 1 0])
 	}
 
-	quartiles { :self :a :b :c :d |
-		self.quantile([1 2 3] / 4, a, b, c, d)
+	quartiles { :self :o |
+		self.quantile([1 2 3] / 4, o)
 	}
 
 	quartiles { :self |
-		self.quartiles(1 / 2, 0, 0, 1)
+		self.quartiles([0.5 0; 0 1])
 	}
 
 	rootMeanSquare { :self |
