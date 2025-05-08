@@ -36,6 +36,8 @@ and the parameters suggested by Hyndman and Fan.
 
 See also: quantile, quartiles
 
+Guides: Statistics Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Quantile.html),

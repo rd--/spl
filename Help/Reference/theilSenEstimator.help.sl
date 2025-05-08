@@ -62,16 +62,18 @@ let r = Sfc32(5617314);
 let n = 99;
 let x = [1 .. n];
 let y = x.collect { :y |
-	(r.nextRandomFloat < ((y / n) ^ 3)).if {
-		r.nextRandomFloat * n
+	let a = r.nextRandomFloat;
+	let b = r.nextRandomFloat;
+	(a < ((y / n) ^ 3)).if {
+		b * n
 	} {
-		y + ((r.nextRandomFloat - 0.5) * 10)
+		y + ((b - 0.5) * 10)
 	}
 };
 let l = Line([1 1; n n]);
 let p = [x y].transposed.PointCloud;
 let [y0, m] = y.theilSenEstimator;
-let [slrY0, slrM, _] = x.simpleLinearRegression(y);
+let [y0L, mL, _] = y.simpleLinearRegression;
 [
 	Line([1 1; n n]),
 	[x y].transposed.PointCloud,
@@ -84,8 +86,12 @@ let [slrY0, slrM, _] = x.simpleLinearRegression(y);
 
 * * *
 
-See also: simpleLinearRegression
+See also: nadarayaWatsonEstimator, simpleLinearRegression
+
+Guides: Statistics Functions
 
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Theil%E2%80%93Sen_estimator)
+
+Further Reading: Sen 1968, Theil 1950

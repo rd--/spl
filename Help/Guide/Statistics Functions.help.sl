@@ -47,6 +47,7 @@ Order Statistics:
 - `minMax`
 - `min`
 - `ordering`
+- `percentile`
 - `quantile`
 - `quartiles`
 - `rankedMax`
@@ -64,6 +65,12 @@ Features of Distributions:
 - `cdf`
 - `pdf`
 - `inverseCdf`
+
+Estimators:
+
+- `nadarayaWatsonEstimator`
+- `simpleLinearRegression`
+- `theilSenEstimator`
 
 Visualization:
 

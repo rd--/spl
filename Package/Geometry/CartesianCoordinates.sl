@@ -198,6 +198,14 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 		newCartesianCoordinates().initializeSlots(self)
 	}
 
+	fromHexagonalEfficientCoordinates { :self |
+		let [a, r, c] = self;
+		[
+			(a / 2) + c,
+			3.sqrt * ((a / 2) + r)
+		]
+	}
+
 }
 
 +Record {

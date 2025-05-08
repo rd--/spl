@@ -74,6 +74,8 @@ The inverse is `toBarycentricCoordinates`.
 
 See also: toBarycentricCoordinates, Triangle
 
+Guides: Coordinate System Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BarycentricCoordinates.html),

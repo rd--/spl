@@ -32,7 +32,9 @@ let e = j.nadarayaWatsonEstimator(
 
 * * *
 
-See also: NormalDistribution
+See also: NormalDistribution, simpleLinearRegression, theilSenEstimator
+
+Guides: Statistics Functions
 
 References:
 _W_

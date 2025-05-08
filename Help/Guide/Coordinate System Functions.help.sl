@@ -23,6 +23,7 @@ Translating:
 
 - `fromBarycentricCoordinates`
 - `fromCylindricalCoordinates`
+- `fromHexagonalEfficientCoordinates`
 - `fromPolarCoordinates`
 - `fromSphericalCoordinates`
 - `toBarycentricCoordinates`

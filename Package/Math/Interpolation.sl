@@ -497,8 +497,14 @@
 	}
 
 	simpleLinearRegression { :self |
-		let [x, y] = self.transposed;
-		x.simpleLinearRegression(y)
+		self.isVector.if {
+			let x = [1 .. self.size];
+			let y = self;
+			x.simpleLinearRegression(y)
+		} {
+			let [x, y] = self.transposed;
+			x.simpleLinearRegression(y)
+		}
 	}
 
 	theilSenEstimator { :x :y |

@@ -1,5 +1,6 @@
 # simpleLinearRegression
 
+- _simpleLinearRegression(y)_
 - _simpleLinearRegression(x, y)_
 - _simpleLinearRegression(m)_
 
@@ -17,6 +18,9 @@ it is an `error`.
 Linear regression over four points:
 
 ```
+>>> [6 5 7 10].simpleLinearRegression
+[3.5 1.4 0.8367]
+
 >>> let x = [1 2 3 4];
 >>> let y = [6 5 7 10];
 >>> x.simpleLinearRegression(y)
@@ -80,6 +84,8 @@ let y = (b * x) + a;
 * * *
 
 See also: theilSenEstimator
+
+Guides: Statistics Functions
 
 References:
 _W_
