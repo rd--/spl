@@ -2,7 +2,7 @@
 
 - _isInteger(aNumber)_
 
-Answers `true` if _aNumber is an `Integer`, else `false`.
+Answers `true` if _aNumber_ is an `Integer`, else `false`.
 
 At `SmallFloat`:
 
@@ -101,6 +101,8 @@ The type predicates are `isFraction`, `isSmallFloat`, `isDecimal`, `isLargeInteg
 * * *
 
 See also: asInteger, Integer, isFraction, isNumber, isGaussianInteger, isScalarInteger, isSmallFloat, isSmallInteger, isLargeInteger, Number, parseLargeInteger, parseSmallInteger
+
+Guides: Integer Functions
 
 References:
 _Mathematica_

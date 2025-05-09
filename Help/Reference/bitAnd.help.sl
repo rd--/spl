@@ -125,7 +125,7 @@ answer.scatterPlot
 
 See also: &, bitNot, bitOr, bitXor
 
-Guides: Bitwise Functions, Integer Sequences
+Guides: Bitwise Functions, Boolean Functions, Integer Sequences
 
 References:
 _Mathematica_

@@ -38,3 +38,5 @@ The `isInteger` predicate is only defined for numbers.
 * * *
 
 See also: isInteger, isNumber, isScalar, isSmallInteger
+
+Guides: Integer Functions

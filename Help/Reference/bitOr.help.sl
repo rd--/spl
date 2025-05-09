@@ -74,7 +74,7 @@ Plot bitOr with double and triple:
 
 See also: and, bitNot, bitOr, bitXor
 
-Guides: Bitwise Functions, Logical Operators
+Guides: Bitwise Functions, Boolean Functions, Logical Operators
 
 References:
 _Mathematica_

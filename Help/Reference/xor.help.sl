@@ -9,12 +9,15 @@ Truth table:
 
 ```
 >>> xor:/2.table([true false], [true false])
-[false true; true false]
+[
+	false true;
+	true false
+]
 ```
 
 * * *
 
-See also: &, &&, |, ||
+See also: &, &&, |, ||, bitXor
 
 Guides: Boolean Functions
 

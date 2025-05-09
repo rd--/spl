@@ -1,5 +1,15 @@
 # Integer Functions
 
+Types:
+
+- `SmallFloat`
+- `LargeInteger`
+
+Traits:
+
+- `Integer`
+- `Magnitude`
+
 Division-Related Functions:
 
 - `divisible`
@@ -53,6 +63,20 @@ Partition Functions:
 - `partitionFunctionQ`
 - `partitionsP`
 - `partitionsQ`
+
+Parsing Functions:
+
+- `parseLargeInteger`
+- `parseSmallInteger`
+
+Predicates:
+
+- `isGaussianInteger`
+- `isInteger`
+- `isLargeInteger`
+- `isNonNegativeInteger`
+- `isScalarInteger`
+- `isSmallInteger`
 
 * * *
 

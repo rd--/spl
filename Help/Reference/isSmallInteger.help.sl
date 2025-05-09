@@ -89,6 +89,8 @@ true
 
 See also: isGaussianInteger, isInteger, isLargeInteger, isNumber, isSmallFloat, SmallFloat
 
+Guides: Integer Functions
+
 References:
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger),
