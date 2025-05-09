@@ -141,6 +141,15 @@ Query Functions:
 - `vertexCount`
 - `vertexList`
 
+Fractal Curve Functions:
+
+- `gosperCurve`
+- `hilbertCurve`
+- `kochCurve`
+- `peanoCurve`
+- `sierpinskiCurve`
+- `zOrderCurve`
+
 Uncategorized:
 
 - `connectLineSegments`

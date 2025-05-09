@@ -1,8 +1,8 @@
 # take
 
-- _take(anInteger, anotherInteger)_ ⟹ _positiveIntegerBinomial(anInteger, anotherInteger)_
 - _take(aCollection, anInteger)_
 - _take(aSequence, anInteger, anObject)_
+- _take(anInteger, anotherInteger)_ ⟹ _positiveIntegerBinomial(anInteger, anotherInteger)_
 
 Answer a copy of _aCollection_ with only the first _anInteger_ places,
 or less if _aCollection_ is not large enough.

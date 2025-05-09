@@ -34,6 +34,14 @@ Multidimensional Arrays:
 - `coordinateBoundsArray`
 - `coordinateBoundingBoxArray`
 
+Partitioning:
+
+- `drop`
+- `take`
+- `takeDrop`
+- `takeList`
+- `partition`
+
 Converting:
 
 - `asList`

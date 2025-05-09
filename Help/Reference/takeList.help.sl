@@ -36,7 +36,7 @@ l
 
 * * *
 
-See also: drop, partition, take
+See also: drop, numberDecompose, partition, take
 
 References:
 _Mathematica_

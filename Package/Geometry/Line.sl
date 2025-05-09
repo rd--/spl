@@ -177,6 +177,29 @@ Line : [Object] { | vertexCoordinates |
 
 +@Integer {
 
+	gosperCurve { :self |
+		let angle = 0;
+		let answer = [[0 0]];
+		[
+			'A' -> 'A-B--B+A++AA+B-',
+			'B' -> '+A-BB--B-A++A+B',
+			'+' -> '+',
+			'-' -> '-'
+		]
+		.asMap
+		.substitutionSystem('A', self)
+		.last
+		.contents
+		.do { :each |
+			(each = 'A' | { each = 'B' }).if {
+				answer.add(answer.last + angle.angleVector)
+			} {
+				angle := angle + (each = '+').if { 1/3.pi } { -1/3.pi }
+			}
+		};
+		answer
+	}
+
 	hilbertCurve { :self |
 		let angle = 0;
 		let answer = [[0 0]];
@@ -273,6 +296,17 @@ Line : [Object] { | vertexCoordinates |
 			}
 		};
 		answer
+	}
+
+	zOrderCurve { :self |
+		(0 .. self - 1).collect { :n |
+			let b = n.integerDigits(2);
+			let k = b.size;
+			let [y, x] = b.padLeft([k + (k % 2)], 0).deinterleave(2);
+			[x, y].collect { :each |
+				each.fromDigits(2)
+			}
+		}
 	}
 
 }

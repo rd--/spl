@@ -16,7 +16,7 @@ If _anotherSequence_ has too few items it is recycled as required:
 [3 -1 4 -2 5 -1 6]
 ```
 
-It is an error if _anotherSequence_ has too many elements:
+It is an `error` if _anotherSequence_ has too many elements:
 
 ```
 >>> { [3 4 5].riffle([-1 -2 -3]) }.ifError { true }

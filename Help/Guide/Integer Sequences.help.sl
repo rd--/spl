@@ -116,6 +116,7 @@ The following help files include references to integer sequences:
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
 - `moebiusMu`: A008683
+- `moserDeBruijnSequence`: A000695
 - `motzkinSequence`: A001006
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930

@@ -1415,6 +1415,7 @@
 		answer
 	}
 
+	/*
 	interleave { :self :aList |
 		let answer = [];
 		let k = self.size.max(aList.size);
@@ -1424,6 +1425,7 @@
 		};
 		answer
 	}
+	*/
 
 	intersperse { :self :anObject |
 		let answer = [];
@@ -2519,8 +2521,8 @@
 	}
 
 	riffle { :self :anObject |
-		self.isEmpty.if {
-			[]
+		(self.size < 2).if {
+			self
 		} {
 			anObject.isSequenceable.if {
 				let k = self.size;
@@ -2923,6 +2925,10 @@
 		} {
 			self.takeFirst(count, fill)
 		}
+	}
+
+	takeDrop { :self :count |
+		[self.take(count), self.drop(count)]
 	}
 
 	takeFirst { :self :count :fill |

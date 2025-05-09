@@ -8,7 +8,11 @@ Split a `List` of nine places into three parts of three places:
 
 ```
 >>> [1 .. 9].chunksOf(3)
-[1 2 3; 4 5 6; 7 8 9]
+[
+	1 2 3;
+	4 5 6;
+	7 8 9
+]
 ```
 
 If there are too few places,
@@ -16,7 +20,11 @@ the last part will be briefer:
 
 ```
 >>> [1 .. 11].chunksOf(4)
-[1 2 3 4; 5 6 7 8; 9 10 11]
+[
+	1 2 3 4;
+	5 6 7 8;
+	9 10 11
+]
 ```
 
 At the empty `List`:

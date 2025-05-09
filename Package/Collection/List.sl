@@ -39,6 +39,24 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		>
 	}
 
+	deinterleave { :self :n |
+		/*
+		let k = self.size;
+		let numberOfChannels = n;
+		let numberOfFrames = k // numberOfChannels;
+		let channelsArray = {
+			List(numberOfFrames)
+		} ! numberOfChannels;
+		0.toDo(numberOfFrames - 1) { :i |
+			1.toDo(numberOfChannels) { :j |
+				channelsArray[j][i + 1] := self[(i * numberOfChannels) + j]
+			}
+		};
+		channelsArray
+		*/
+		self.partition(n, n).transposed
+	}
+
 	fill { :shape :aBlock:/1 |
 		shape.isEmpty.if {
 			aBlock(0)
@@ -49,6 +67,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			};
 			answer
 		}
+	}
+
+	interleave { :self |
+		self.irregularTransposition.flatten
 	}
 
 	isJson { :self |
