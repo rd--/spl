@@ -41,8 +41,8 @@
 		self.size / self.reciprocal.sum
 	}
 
-	interquartileRange { :self :a :b :c :d |
-		let [q1, q2, q3] = self.quartiles(a, b, c, d);
+	interquartileRange { :self :o |
+		let [q1, q2, q3] = self.quartiles(o);
 		q3 - q1
 	}
 

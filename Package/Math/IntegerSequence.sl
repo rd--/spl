@@ -106,6 +106,12 @@
 		[1 1].linearRecurrence([1 3], self)
 	}
 
+	moserDeBruijnSequence { :self |
+		(0 .. self - 1).collect { :n |
+			n.integerDigits(2).riffle([0]).fromDigits(2)
+		}
+	}
+
 	motzkinNumber { :k |
 		k.motzkinSequence.last
 	}

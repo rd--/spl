@@ -9,7 +9,7 @@
 			{ self.isFloatString } -> 'Real',
 			{ self.isDateString } -> 'Date',
 			{ self.isDateAndTimeString } -> 'DateAndTime',
-			{ self.isDurationString } -> 'Duration',
+			{ self.isIso8601DurationString } -> 'Duration',
 			{ self.isTimeString } -> 'Time',
 			true -> 'String'
 		].which

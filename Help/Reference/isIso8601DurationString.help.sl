@@ -1,6 +1,6 @@
-# isDurationString
+# isIso8601DurationString
 
-- _isDurationString(aString)_
+- _isIso8601DurationString(aString)_
 
 Answer `true` if _aString_ is an ISO-8601 duration string,
 else `false`.
@@ -8,21 +8,21 @@ else `false`.
 Three days and four hours:
 
 ```
->>> 'P3DT4H'.isDurationString
+>>> 'P3DT4H'.isIso8601DurationString
 true
 ```
 
 Four days, twelve hours, thirty minutes, and five seconds:
 
 ```
->>> 'P4DT12H30M5S'.isDurationString
+>>> 'P4DT12H30M5S'.isIso8601DurationString
 true
 ```
 
 Five minutes and seven and one half seconds:
 
 ```
->>> 'PT5M7.5S'.isDurationString
+>>> 'PT5M7.5S'.isIso8601DurationString
 true
 ```
 
@@ -30,7 +30,7 @@ Six weeks,
 weeks should not be combined with any other unit:
 
 ```
->>> 'P6W'.isDurationString
+>>> 'P6W'.isIso8601DurationString
 true
 ```
 

@@ -5,14 +5,6 @@
 Answer the first _n_ terms of the the Moser–de Bruijn sequence,
 an integer sequence consisting of the sums of distinct powers of four.
 
-+@Integer{
-	moserDeBruijnSequence { :self |
-		(0 .. self - 1).collect { :n |
-			n.integerDigits(2).riffle([0]).fromDigits(2)
-		}
-	}
-}
-
 ```
 >>> 51.moserDeBruijnSequence
 [
