@@ -34,6 +34,17 @@ and y-coordinates defined by the vector _y_.
 )
 ```
 
+Plot surface specified as a matrix of _z_ values:
+
+~~~spl svg=A
+let i = (-2, -1.75 .. 2);
+let [x, y] = i.meshGrid(i);
+let z = x * (0 - (x ^ 2) - (y ^ 2)).exp * 21;
+z.surfacePlot
+~~~
+
+![](sw/spl/Help/Image/meshGrid-A.svg)
+
 * * *
 
 See also: surfacePlot
