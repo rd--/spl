@@ -217,7 +217,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 				CartesianCoordinates([x y z w])
 			}
 		]) {
-			self.error('asCartesianCoordinates: not x,y or x,y,z')
+			self.error('asCartesianCoordinates: not x,y or x,y,z or x,y,z,w')
 		}
 	}
 

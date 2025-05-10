@@ -87,6 +87,8 @@ Convert to cyclindrical coordinates:
 
 See also: arcTan, norm, fromPolarCoordinates, SphericalCoordinates, toSphericalCoordinates
 
+Guides: Coordinate System Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromSphericalCoordinates.html)

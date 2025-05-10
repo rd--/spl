@@ -23,6 +23,6 @@ where _(rho, phi)_ is the polar coordinate on the _x/y_ plane and _z_ is the Car
 
 See also: CylindricalCoordinates, fromCylindricalCoordinates
 
-Guides: Coordinate Systems
+Guides: Coordinate System Functions
 
 Categories: Converting, Geometry

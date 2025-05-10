@@ -108,6 +108,10 @@ Intersection Functions:
 - `lineLineIntersection`
 - `linePlaneIntersection`
 
+Line Functions:
+
+- `bresenhamLineAlgorithm`
+
 Matrix Functions:
 
 - `eulerMatrix`

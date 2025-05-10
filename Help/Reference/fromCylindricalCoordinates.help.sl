@@ -23,6 +23,6 @@ where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is the Cartes
 
 See also: CylindricalCoordinates, toCylindricalCoordinates
 
-Guides: Coordinate Systems
+Guides: Coordinate System Functions
 
 Categories: Converting, Geometry

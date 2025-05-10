@@ -173,6 +173,60 @@ Line : [Object] { | vertexCoordinates |
 		answer
 	}
 
+	xiaolinWuLineAlgorithm { :self |
+		let [x0, y0] = self[1];
+		let [x1, y1] = self[2];
+		let isSteep = abs(y1 - y0) > abs(x1 - x0);
+		let answer = [];
+		isSteep.if {
+			[y0 x0; y1 x1].xiaolinWuLineAlgorithm
+		} {
+			(x0 > x1).if {
+				[x1 y1; x0 y0].xiaolinWuLineAlgorithm
+			} {
+				let dx = x1 - x0;
+				let dy = y1 - y0;
+				let gradient = dy / dx;
+				let xEnd0 = x0.rounded;
+				let yEnd0 = y0 + (gradient * (xEnd0 - x0));
+				let xGap0 = 1 - (x0 + 0.5).fractionPart;
+				let xPixel0 = xEnd0;
+				let yPixel0 = yEnd0.integerPart;
+				let interY = yEnd0 + gradient;
+				let xEnd1 = x1.rounded;
+				let yEnd1 = y1 + (gradient * (xEnd1 - x1));
+				let xGap1 = (x1 + 0.5).fractionPart;
+				let xPixel1 = xEnd1;
+				let yPixel1 = yEnd1.integerPart;
+				isSteep.if {
+					answer.add([yPixel0, xPixel0, (1 - yEnd0.fractionPart) * xGap0]);
+					answer.add([yPixel0 + 1, xPixel0, fractionPart(yEnd0) * xGap0])
+				} {
+					answer.add([xPixel0, yPixel0, (1 - fractionPart(yEnd0)) * xGap0]);
+					answer.add([xPixel0, yPixel0 + 1, fractionPart(yEnd0) * xGap0])
+				};
+				(xPixel0 + 1).toDo(xPixel1 - 1) { :x |
+					isSteep.if {
+						answer.add([integerPart(interY), x, 1 - fractionPart(interY)]);
+						answer.add([integerPart(interY) + 1, x, fractionPart(interY)])
+					} {
+						answer.add([x, integerPart(interY), 1 - fractionPart(interY)]);
+						answer.add([x, integerPart(interY) + 1, fractionPart(interY)])
+					};
+					interY := interY + gradient
+				};
+				isSteep.if {
+					answer.add([yPixel1, xPixel1, (1 - fractionPart(yEnd1)) * xGap1]);
+					answer.add([yPixel1 + 1, xPixel1, fractionPart(yEnd1) * xGap1])
+				} {
+					answer.add([xPixel1, yPixel1, (1 - fractionPart(yEnd1)) * xGap1]);
+					answer.add([xPixel1, yPixel1 + 1, fractionPart(yEnd1) * xGap1])
+				}
+			}
+		};
+		answer
+	}
+
 }
 
 +@Integer {

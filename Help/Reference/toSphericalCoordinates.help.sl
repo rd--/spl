@@ -49,6 +49,8 @@ Collects over lists:
 
 See also: arcTan, fromSphericalCoordinates, norm, toPolarCoordinates, SphericalCoordinates
 
+Guides: Coordinate System Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToSphericalCoordinates.html)

@@ -1,9 +1,8 @@
 # bresenhamLineAlgorithm
 
-- _bresenhamLineAlgorithm(aList)_
+- _bresenhamLineAlgorithm([x₁ y₁; x₂ y₂])_
 
-Bresenhams algorithm for drawing a line,
-_aList_ has the form _[[x1, y1], [x2, y2]]_.
+Bresenham’s algorithm for drawing a line.
 
 Quadrant one:
 
@@ -88,7 +87,9 @@ let l = [
 
 * * *
 
-See also: Line, LineSegment
+See also: Line, LineSegment, xiaolinWuLineAlgorithm
+
+Guides: Geometry Functions
 
 References:
 _W_
