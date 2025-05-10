@@ -197,10 +197,13 @@ const asJs: ohm.ActionDict<string> = {
 	ScalarAssignment(lhs, _ce, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
 	},
-	SlotNames(_l, slots, _r) {
+	SlotDefinitions(_l, slots, _r) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map(
-			(e) => `'${e.sourceString}'`,
+			function(e) {
+				let [nm, ty] = e.sourceString.split(':'); // ignore type
+				return `'${nm}'`;
+			}
 		).join(' ');
 	},
 	StringAssociation(lhs, _c, rhs) {

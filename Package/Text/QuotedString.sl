@@ -1,6 +1,6 @@
 /* Requires: String */
 
-BacktickQuotedString : [Object] { | contents |
+BacktickQuotedString : [Object] { | contents:<String> |
 
 	asString { :self |
 		self.contents
@@ -16,7 +16,7 @@ BacktickQuotedString : [Object] { | contents |
 
 }
 
-DoubleQuotedString : [Object] { | contents |
+DoubleQuotedString : [Object] { | contents:<String> |
 
 	asString { :self |
 		self.contents

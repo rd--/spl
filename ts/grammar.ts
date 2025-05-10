@@ -6,10 +6,12 @@ Sl {
 
 	TopLevel = LibraryExpression+ | Program
 	LibraryExpression = TypeDefinition | TraitDefinition | MethodDefinitions | LibraryItem | TypeExtension | TraitExtension
-	TypeDefinition = typeName "!"? TraitList "{" SlotNames? (methodName Block)* "}"
+	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (methodName Block)* "}"
 	TypeExtension = "+" typeName "{" (methodName Block)* "}"
 	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (methodName Block)* "}"
-	SlotNames = "|" slotName+ "|"
+	SlotDefinitions = "|" (TypedSlot | UntypedSlot)+ "|"
+	TypedSlot = slotName ":" "<" typeName ">"
+	UntypedSlot = slotName
 	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
 	TraitExtension = "+" qualifiedTraitName "{" (methodName Block)* "}"
 	TraitDefinition = qualifiedTraitName "{" (methodName Block)* "}"
@@ -134,6 +136,7 @@ Sl {
     lowercaseIdentifier = lower letterOrDigit*
 	varName = arityQualifiedIdentifier | lowercaseIdentifier | systemVariableIdentifier // arity branch should be lowercase
 	varNameOrUnused = (varName | unusedVariableIdentifier)
+	slotNameWithType = lowercaseIdentifier ":" "<" uppercaseIdentifier ">"
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier
 	keyName = lowercaseIdentifier | uppercaseIdentifier
