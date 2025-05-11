@@ -27,8 +27,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 		self.coordinates
 	}
 
-	diagonalNeighbors { :self |
-		let c = self.coordinates;
+	diagonalNeighborVectors { :unused |
 		[
 			+2 -1 -1;
 			+1 -2 +1;
@@ -36,13 +35,17 @@ HexagonalCoordinates : [Object] { | coordinates |
 			-2 +1 +1;
 			-1 +2 -1;
 			+1 +1 -2
-		].collect { :each |
+		]
+	}
+
+	diagonalNeighbors { :self |
+		let c = self.coordinates;
+		self.diagonalNeighborVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
 	}
 
-	nearestNeighbors { :self |
-		let c = self.coordinates;
+	nearestNeighborVectors { :unused |
 		[
 			+1 0 -1;
 			+1 -1 0;
@@ -50,7 +53,12 @@ HexagonalCoordinates : [Object] { | coordinates |
 			-1 0 +1;
 			-1 +1 0;
 			0 +1 -1
-		].collect { :each |
+		]
+	}
+
+	nearestNeighbors { :self |
+		let c = self.coordinates;
+		self.nearestNeighborVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
 	}
@@ -84,21 +92,20 @@ HexagonalCoordinates : [Object] { | coordinates |
 
 +List{
 
-	fromHexagonalCoordinates { :self :radius |
+	fromHexagonalCoordinates { :self :basisVectors |
 		[2 3].includes(self.size).if {
 			let q = self[1];
 			let r = self[2];
-			let m = 3.sqrt * radius;
-			let x = (m * q) + (m * 0.5 * r);
-			let y = 1.5 * r * radius;
-			[x, y]
+			(q * basisVectors[1]) + (r * basisVectors[2])
 		} {
 			self.error('fromHexagonalCoordinates: invalid coordinates')
 		}
 	}
 
 	fromHexagonalCoordinates { :self |
-		self.fromHexagonalCoordinates(1)
+		let m = 3.sqrt;
+		let halfM = m * 0.5;
+		self.fromHexagonalCoordinates([m 0; halfM 1.5])
 	}
 
 	roundedHexagonalCoordinates { :self |

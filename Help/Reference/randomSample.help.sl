@@ -71,7 +71,7 @@ Guarantee that a set of random integers over a large range has no repetitions:
 
 * * *
 
-See also: atRandom
+See also: atRandom, reservoirSampleAlgorithmL
 
 Guides: Permutation Functions, Random Functions
 

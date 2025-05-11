@@ -5,7 +5,8 @@
 Convert from a triple _(q,r,s)_ in the cubical hexagonal coordinate system,
 to a duple _(x,y)_ in the Cartesian coordinate system.
 
-Draw a 4×4 segment of a hexagonal grid:
+Draw a 4×4 segment of a hexagonal grid,
+eliding the _s_ coordinate which can be inferred:
 
 ~~~spl svg=A
 let p = [
@@ -25,7 +26,8 @@ let h = p.collect { :c |
 
 ![](sw/spl/Help/Image/fromHexagonalCoordinates-A.svg)
 
-Generate an 6×9 hexagonal grid:
+Generate a 6×9 hexagonal grid,
+eliding the _s_ coordinate which can be inferred:
 
 ~~~spl svg=B
 { :r :q |

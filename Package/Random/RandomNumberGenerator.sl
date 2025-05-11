@@ -188,6 +188,23 @@
 		}
 	}
 
+	reservoirSampleAlgorithmL { :self :s :k |
+		let n = s.size;
+		let r = s.copyFromTo(1, k);
+		let w = (self.nextRandomFloat.log / k).exp;
+		let i = k + 1;
+		{
+			i <= n
+		}.whileTrue {
+			i := i + (self.nextRandomFloat.log / (1 - w).log).floor + 1;
+			(i <= n).ifTrue {
+				r[self.nextRandomInteger(1, k)] := s[i];
+				w := w * (self.nextRandomFloat.log / k).exp
+			}
+		};
+		r
+	}
+
 }
 
 +@Object {
