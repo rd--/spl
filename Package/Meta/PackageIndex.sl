@@ -94,6 +94,7 @@
 	'Geometry-FourVector'
 	'Geometry-GeometryCollection'
 	'Geometry-HalfPlane'
+	'Geometry-HexagonalCoordinates'
 	'Geometry-HexagonalEfficientCoordinates'
 	'Geometry-InfiniteLine'
 	'Geometry-InfinitePlane'

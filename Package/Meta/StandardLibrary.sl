@@ -85,6 +85,7 @@
 	'Ellipse'
 	'GeometryCollection'
 	'HalfPlane'
+	'HexagonalCoordinates'
 	'HexagonalEfficientCoordinates'
 	'InfiniteLine'
 	'InfinitePlane'

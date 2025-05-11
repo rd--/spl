@@ -5,6 +5,7 @@ Types:
 - `BarycentricCoordinates`: _(λ₁, λ₂ …)_
 - `CartesianCoordinates`: _(x, y, z …)_
 - `CylindricalCoordinates`: _(ρ, φ, z)_
+- `HexagonalCoordinates`: _(q, r, s)_
 - `HexagonalEfficientCoordinates`: _(a, r, c)_
 - `IsoSphericalCoordinates`: _(r, θ, φ)_
 - `PlanarCoordinates`: _(x, y)_
@@ -24,11 +25,13 @@ Translating:
 
 - `fromBarycentricCoordinates`
 - `fromCylindricalCoordinates`
+- `fromHexagonalCoordinates`
 - `fromHexagonalEfficientCoordinates`
 - `fromPolarCoordinates`
 - `fromSphericalCoordinates`
 - `toBarycentricCoordinates`
 - `toCylindricalCoordinates`
+- `toHexagonalCoordinates`
 - `toPolarCoordinates`
 - `toSphericalCoordinates`
 
