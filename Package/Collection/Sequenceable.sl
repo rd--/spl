@@ -784,6 +784,10 @@
 		}
 	}
 
+	dotProduct { :self :aList |
+		(self *.e aList).sum
+	}
+
 	doWithout { :self :aBlock:/1 :anItem |
 		self.indicesDo { :index |
 			(anItem = self[index]).ifFalse {
@@ -2056,7 +2060,7 @@
 	}
 
 	norm { :self |
-		(self.scalarProduct(self.conjugated)).sqrt
+		(self.dotProduct(self.conjugated)).sqrt
 	}
 
 	normalize { :self |
@@ -2590,10 +2594,6 @@
 
 	sattoloShuffle { :self |
 		self.sattoloShuffle(system)
-	}
-
-	scalarProduct { :self :aList |
-		(self *.e aList).sum
 	}
 
 	scan { :self :aBlock:/2 |

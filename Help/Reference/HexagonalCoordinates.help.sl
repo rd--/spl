@@ -14,6 +14,18 @@ allowing the _s_ coordinate to be elided.
 [1 3 -4]
 ```
 
+Calculate Manhattan and Euclidean distances:
+
+```
+>>> let a = HexagonalCoordinates([0 0]);
+>>> let b = HexagonalCoordinates([3 7]);
+>>> (
+>>> 	a.manhattanDistance(b),
+>>> 	a.euclideanDistance(b)
+>>> )
+(10, 8.888)
+```
+
 The six nearest neighbors of the _(0,0,0)_ cell,
 in counter-clockwise order,
 beginning with the cell one column to the right:

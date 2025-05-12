@@ -16,6 +16,18 @@ HexagonalCoordinates : [Object] { | coordinates |
 		}
 	}
 
+	- { :self :operand |
+		operand.isHexagonalCoordinates.if {
+			HexagonalCoordinates(self.coordinates - operand.coordinates)
+		} {
+			self.error('HexagonalCoordinates>>-')
+		}
+	}
+
+	* { :self :aNumber |
+		HexagonalCoordinates(self.coordinates * aNumber)
+	}
+
 	asCartesianCoordinates { :self |
 		self
 		.coordinates
@@ -25,6 +37,12 @@ HexagonalCoordinates : [Object] { | coordinates |
 
 	asList { :self |
 		self.coordinates
+	}
+
+	euclideanDistance { :self :operand |
+		let [q1, r1, _] = self.coordinates;
+		let [q2, r2, _] = operand.coordinates;
+		((q2 - q1).squared + (r2 - r1).squared + ((q2 - q1) * (r2 - r1))).sqrt
 	}
 
 	diagonalNeighborVectors { :unused |
@@ -43,6 +61,10 @@ HexagonalCoordinates : [Object] { | coordinates |
 		self.diagonalNeighborVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
+	}
+
+	manhattanDistance { :self :operand |
+		(self - operand).coordinates.abs.max
 	}
 
 	nearestNeighborVectors { :unused |

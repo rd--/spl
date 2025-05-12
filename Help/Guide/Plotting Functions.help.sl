@@ -31,6 +31,7 @@ Plotting Functions:
 - `surfacePlot`
 - `timelinePlot`
 - `treePlot`
+- `vectorPlot`
 
 * * *
 

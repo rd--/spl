@@ -369,7 +369,7 @@ Evaluate symbolically:
 
 * * *
 
-See also: +, *, inner, outer
+See also: +, *, dotProduct, inner, outer
 
 References:
 _Julia_
@@ -387,5 +387,6 @@ _Python_
 _W_
 [1](https://en.wikipedia.org/wiki/Matrix_multiplication)
 [2](https://en.wikipedia.org/wiki/Dot_product)
+[3](https://en.wikipedia.org/wiki/Inner_product_space)
 
 Categories: Math
