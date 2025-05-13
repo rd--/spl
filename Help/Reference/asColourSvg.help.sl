@@ -3,7 +3,7 @@
 - _asColourSvg(aMatrix)_
 
 Answer a colour Svg image representing _aMatrix_.
-Each element should be an object that implements `asColour`.
+The elements should must implement `asColour`.
 
 A 3×3 matrix:
 

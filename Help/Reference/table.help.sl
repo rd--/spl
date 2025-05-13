@@ -20,6 +20,13 @@ A table of the first 10 squares:
 [1 4 9 16 25 36 49 64 81 100]
 ```
 
+This makes a table with values of _x_ running from 0 to 1 in steps of 0.25:
+
+```
+>>> sqrt:/1.table(Range(0, 1, 0.25))
+[0 0.5 0.707107 0.866025 1]
+```
+
 A table with _i_ running from 0 to 20 in steps of 2:
 
 ```
@@ -238,6 +245,19 @@ nthPrime:/1.table(1:50).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/table-A.svg)
+
+Plot Eisenstein integers,
+which form a triangular lattice in the complex plane:
+
+~~~spl svg=B
+let omega = (-1 + (0J1 * 3.sqrt)) / 2;
+{ :a :b |
+	let c = a + (b * omega);
+	c.asList
+}.table(-9:9, -9:9).flatten(1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/table-B.svg)
 
 * * *
 

@@ -46,9 +46,40 @@ prime numbers _n_ such that _1J1^n - 1_ is a Gaussian prime.
 [2 3 5 7 11 19 29]
 ```
 
+Plot Gaussian primes in the complex plane:
+
+~~~spl svg=A
+{ :a :b |
+	let c = Complex(a, b);
+	c.isGaussianPrime.if {
+		c.asList
+	} {
+		nil
+	}
+}.table(-11:11, -11:11)
+.flatten(1)
+.select(notNil:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isGaussianPrime-A.svg)
+
+Plot a 200×200 matrix of Gaussian primes in the complex plane:
+
+~~~spl png=B
+{ :a :b |
+	Complex(a, b)
+	.isGaussianPrime
+	.boole
+}.table(-99:99, -99:99)
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/isGaussianPrime-B.png)
+
 * * *
 
-See also: isPrime
+See also: isEisensteinPrime, isPrime
 
 Guides: Prime Number Functions
 

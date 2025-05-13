@@ -37,6 +37,8 @@ Where supported `squared` is displayed as ².
 See also: ^, *, cubed, sqrt
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/SquareNumber.html),
 _Smalltalk_
 5.6.2.35
 

@@ -178,6 +178,7 @@
 	'Number-Binary'
 	'Number-Complex'
 	'Number-Decimal'
+	'Number-EisensteinInteger'
 	'Number-Fraction'
 	'Number-Integer'
 	'Number-Interval'

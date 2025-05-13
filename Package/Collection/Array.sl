@@ -68,9 +68,13 @@
 		}
 	}
 
-	coordinateBoundingBoxArray { :bounds :steps |
+	coordinateBoundingBoxArray { :bounds :steps :offset |
 		let [m, n] = bounds.shape;
-		bounds.transposed.coordinateBoundsArray(steps)
+		bounds.transposed.coordinateBoundsArray(steps, offset)
+	}
+
+	coordinateBoundingBoxArray { :bounds :steps |
+		bounds.coordinateBoundingBoxArray(steps, [0])
 	}
 
 	coordinateBoundsArray { :rangeList :stepList :offset |

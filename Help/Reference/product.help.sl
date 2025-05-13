@@ -1,8 +1,9 @@
 # product
 
-- _product(aCollection)_ ⟹ _reduce(aCollection, *)_
+- _product(c)_
+- _product(c, f:/1)_
 
-Answer the product of all the elements in _aCollection_
+Answer the product of all the elements in the collection _c_.
 
 ```
 >>> [1 2 3 5 7 9].product
@@ -51,6 +52,13 @@ Collecting answers the products of the rows:
 
 >>> [1 4 7; 2 5 8; 3 6 9].product
 [6 120 504]
+```
+
+The binary form applies the block _f_ to each element before multiplying:
+
+```
+>>> 1:6.product(squared:/1)
+518400
 ```
 
 Plot the sequence of partial products:

@@ -11,7 +11,7 @@ true
 
 * * *
 
-See also: Complex, isInteger
+See also: Complex, isGaussianPrime, isInteger
 
 Guides: Integer Functions
 

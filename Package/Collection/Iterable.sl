@@ -383,6 +383,12 @@
 		self.count(aBlock:/1) = 1
 	}
 
+	product { :self :aBlock:/1 |
+		self.injectInto(1) { :i :j |
+			i * aBlock(j)
+		}
+	}
+
 	product { :self |
 		self.ifEmpty {
 			1
@@ -440,14 +446,18 @@
 		tally
 	}
 
+	sum { :self :aBlock:/1 |
+		self.injectInto(0) { :i :j |
+			i + aBlock(j)
+		}
+	}
+
 	sum { :self |
 		self.reduce(+)
 	}
 
 	sumOfSquares { :self |
-		self.injectInto(0) { :i :j |
-			i + j.squared
-		}
+		self.sum(squared:/1)
 	}
 
 	withLevelDo { :self :aBlock:/2 :level |

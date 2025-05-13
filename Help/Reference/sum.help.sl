@@ -1,8 +1,9 @@
 # sum
 
-- _sum(aCollection)_
+- _sum(c)_
+- _sum(c, f:/1)_
 
-Answer the sum of all the elements in _aCollection_.
+Answer the sum of all the elements in the collection _c_.
 
 ```
 >>> [1 2 3 5 7 9].sum
@@ -91,6 +92,13 @@ Difference between a sum squared, and the sum of squares:
 >>> let x = 1:100;
 >>> (x.sum ^ 2) - (x ^ 2).sum
 25502500 - 338350
+```
+
+The binary form applies the block _f_ to each element before summing:
+
+```
+>>> 1:10.sum(squared:/1)
+385
 ```
 
 Evaluate symbolically:

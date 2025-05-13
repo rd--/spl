@@ -19,6 +19,39 @@ A lattice of two-dimensional points with unit steps:
 ]
 ```
 
+Draw bounding box and coordinate array:
+
+~~~spl svg=A
+let b = [3 -1; 8 2];
+let c = b.coordinateBoundingBoxArray([1 1]);
+[
+	c.flatten(1).PointCloud,
+	b.asRectangle
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/coordinateBoundingBoxArray-A.svg)
+
+Draw bounding box and coordinate array with offsets placing coordinates at the center of each cell,
+and extending beyond the specified boundaries:
+
+~~~spl svg=B
+let b = [3 -1; 8 2];
+let c = b.coordinateBoundingBoxArray(
+	[1 1],
+	[0.5 0.5]
+).flatten(1);
+[
+	c.PointCloud,
+	c.collect { :each |
+		Circle(each, 0.5)
+	},
+	b.asRectangle
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/coordinateBoundingBoxArray-B.svg)
+
 An array of three-dimensional points with given discretization steps:
 
 ```
@@ -98,6 +131,8 @@ An array of three-dimensional points with given discretization steps:
 * * *
 
 See also: coordinateBoundsArray
+
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_

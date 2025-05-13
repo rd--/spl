@@ -2,7 +2,7 @@
 
 - _meshGrid(x, y)_
 
-Answer grid coordinates,
+Answer grid coordinates as matrices of _x_ and _y_ coordinates,
 with x-coordinates defined by the vector _x_,
 and y-coordinates defined by the vector _y_.
 
@@ -47,7 +47,7 @@ z.surfacePlot
 
 * * *
 
-See also: surfacePlot
+See also: coordinateBoundingBoxArray, coordinateBoundsArray, surfacePlot
 
 References:
 _Mathworks_

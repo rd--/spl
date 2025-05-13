@@ -63,6 +63,10 @@
 		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
 	}
 
+	centeredHexagonalNumber { :n |
+		(3 * n.squared) - (3 * n) + 1
+	}
+
 	delannoyNumber { :m :n |
 		(0 .. m.min(n)).collect { :k |
 			(m + n - k).binomial(m) * m.binomial(k)

@@ -31,11 +31,11 @@ Answer an array of lists of coordinates, even in only one dimension:
 Draw a lattice of two-dimensional points:
 
 ~~~spl svg=A
-[3 8; -1 2]
-.coordinateBoundsArray([1 1])
-.flatten(1)
-.PointCloud
-.asLineDrawing
+let b = [3 8; -1 2];
+let c = b.coordinateBoundsArray([1 1]);
+let p = c.flatten(1).PointCloud;
+let r = b.transposed.asRectangle;
+[p, r].asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/coordinateBoundsArray-A.svg)
@@ -53,19 +53,21 @@ Draw an array of three-dimensionsal points with given discretization steps:
 ![](sw/spl/Help/Image/coordinateBoundsArray-B.svg)
 
 Draw a lattice of two-dimensional points,
-and a copy with points offset by _(0.5, 0.25)_:
+and a copy with points offset by _(0.5, 0.25)_,
+which places some coordinates outside the specified bounds:
 
 ~~~spl svg=C
+let b = [3 8; -1 2];
 let f = { :o |
-	[3 8; -1 2]
-	.coordinateBoundsArray(
+	b.coordinateBoundsArray(
 		[1 1],
 		o
 	).flatten(1)
 };
 [
 	f([0 0]).PointCloud,
-	f([0.5 0.25]).PointCloud
+	f([0.5 0.25]).PointCloud,
+	b.transposed.asRectangle
 ].LineDrawing
 ~~~
 
@@ -73,7 +75,7 @@ let f = { :o |
 
 * * *
 
-See also: array, coordinateBounds, coordinateBoundsList, outer, Range, subdivide, table
+See also: array, coordinateBoundingBoxArray, coordinateBounds, coordinateBoundsList, outer, Range, subdivide, table
 
 References:
 _Mathematica_

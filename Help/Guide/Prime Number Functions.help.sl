@@ -44,6 +44,7 @@ Testing:
 
 - `isAlmostPrime`
 - `isCoprime`
+- `isEisensteinPrime`
 - `isGaussianPrime`
 - `isLesserTwinPrime`
 - `isPrime`

@@ -1,8 +1,8 @@
 # sumOfSquares
 
-- _sumOfSquares(anArray)_
+- _sumOfSquares(c)_
 
-Answer the sum of the squared elements of _anArray_.
+Answer the sum of the squared elements of the collection _c_.
 
 At a vector:
 

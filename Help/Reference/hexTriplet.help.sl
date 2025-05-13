@@ -27,3 +27,9 @@ If the _alpha_ channel is not `one` it is given:
 * * *
 
 See also: Colour, parseHexColour, parseHexTriplet, printString, RgbColour
+
+Guide: Colour Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Web_colors)

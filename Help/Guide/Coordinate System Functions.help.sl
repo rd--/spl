@@ -41,6 +41,14 @@ Accessing:
 - `r`, `theta`, `phi`
 - `azimuth`, `inclination`, `radius`, `rho`
 
+Arrays:
+
+- `coordinateBoundsArray`
+- `coordinateBoundingBoxArray`
+- `discretize`
+- `subdivide`
+- `table`
+
 _Note_:
 Lattice coordinates are coordinates where each entry is an integer.
 

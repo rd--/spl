@@ -49,6 +49,7 @@
 
 	/* Number */
 	'Complex'
+	'EisensteinInteger'
 	'Interval'
 	'LargeInteger' /* ByteArray */
 	'Residue'

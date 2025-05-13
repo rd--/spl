@@ -82,7 +82,10 @@ Smallest element in each matrix column:
 Smallest element in each matrix row:
 
 ```
->>> [1.7 1.2 1.5; 1.3 1.6 1.99].collect(min:/1)
+>>> [
+>>> 	1.7 1.2 1.5;
+>>> 	1.3 1.6 1.99
+>>> ].collect(min:/1)
 [1.2 1.3]
 ```
 

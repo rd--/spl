@@ -86,6 +86,8 @@ The last value is treated especially to avoid range errors:
 
 See also: --, discretize, Interval, linspace, Range
 
+Guides: Coordinate System Functions, List Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Subdivide.html)

@@ -1,9 +1,9 @@
 # discretize
 
-- _discretize(anInterval, anInteger)_
-- _discretize(alpha, beta, gamma)_ ⟹ _discretize(alpha, beta).collect(gamma)_
+- _discretize(i, n)_
+- _discretize(i, n, f:/1)_
 
-Answer a `Range` of _anInteger_ places having a linear interpolation of _anInterval_.
+Answer a `Range` of integer _n_ places having a linear interpolation of the `Interval` _i_.
 
 ```
 >>> (-0.5 -- 0.5).discretize(3)
@@ -61,3 +61,5 @@ Sample a function uniformly on an interval:
 * * *
 
 See also: --, Interval, Range, subdivide
+
+Guides: Coordinate System Functions, List Functions

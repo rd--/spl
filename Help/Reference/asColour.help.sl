@@ -10,7 +10,7 @@ Opaque grey:
 ```
 >>> let c = 0.5.asColour;
 >>> (c, c.isGrey)
-(RgbColour([0.5, 0.5, 0.5], 1), true)
+(RgbColour([0.5 0.5 0.5], 1), true)
 ```
 
 Opaque yellow:

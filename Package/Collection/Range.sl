@@ -12,7 +12,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 
 	+ { :self :operand |
 		operand.isSmallFloat.if {
-			Range(self.start + operand, self.stop + operand, self.step)
+			Range(
+				self.start + operand,
+				self.stop + operand,
+				self.step
+			)
 		} {
 			operand.adaptToCollectionAndApply(self, +)
 		}
@@ -24,7 +28,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 
 	- { :self :operand |
 		operand.isSmallFloat.if {
-			Range(self.start - operand, self.stop - operand, self.step)
+			Range(
+				self.start - operand,
+				self.stop - operand,
+				self.step
+			)
 		} {
 			operand.adaptToCollectionAndApply(self, -)
 		}
@@ -75,7 +83,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 	}
 
 	negated { :self |
-		Range(self.start.negated, self.stop.negated, self.step.negated)
+		Range(
+			self.start.negated,
+			self.stop.negated,
+			self.step.negated
+		)
 	}
 
 	rangeSyntaxString { :self |
@@ -119,9 +131,17 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 
 	reversed { :self |
 		self.isEmpty.if {
-			Range(self.stop, self.start, self.step.negated)
+			Range(
+				self.stop,
+				self.start,
+				self.step.negated
+			)
 		} {
-			Range(self.last, self.start, self.step.negated)
+			Range(
+				self.last,
+				self.start,
+				self.step.negated
+			)
 		}
 	}
 
@@ -196,6 +216,15 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 				-1
 			}
 		)
+	}
+
+}
+
++List {
+
+	Range { :self |
+		let [start, stop, step] = self;
+		Range(start, stop, step)
 	}
 
 }

@@ -34,7 +34,9 @@ LineDrawing : [Object] { | contents metadata |
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
 		let options = (precision: precision, scaleFactor: scaleFactor);
-		let items = self.contents.collect { :each | each.forSvg(options) };
+		let items = self.contents.collect { :each |
+			each.forSvg(options)
+		};
 		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
 		[

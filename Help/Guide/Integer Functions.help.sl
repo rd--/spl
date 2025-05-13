@@ -2,6 +2,7 @@
 
 Types:
 
+- `EisensteinInteger`
 - `SmallFloat`
 - `LargeInteger`
 
