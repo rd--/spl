@@ -100,6 +100,18 @@ The hexagonal packing of circles:
 
 ![](sw/spl/Help/Image/Circle-E.svg)
 
+Compare the hexagonal packing of circles above to a simple half-width offset schema:
+
+~~~spl svg=F
+{ :i :j |
+	let x = i + ((-1 ^ j + 1) / 4);
+	let y = j;
+	Circle([x, y], 0.5)
+}.table(1:7, 1:5).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-F.svg)
+
 * * *
 
 See also: arcLength, area, centroid, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y

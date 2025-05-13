@@ -1,6 +1,7 @@
 # vectorPlot
 
 - _vectorPlot(f:/2, x, y)_
+- _vectorPlot(f:/2, c)_
 
 Answer a vector plot of the vector field specicifed by the function _f_ of _x_ and _y_,
 specified as `Interval`s.
@@ -109,6 +110,19 @@ Plot the vector field _(sin(y),cos(x))_:
 ~~~
 
 ![](sw/spl/Help/Image/vectorPlot-J.svg)
+
+In the binary form,
+a list of points for showing field vectors is specified:
+
+~~~spl svg=K
+let r = Sfc32(3627184);
+let c = r.randomReal([-3 3], [300 2]);
+{ :x :y |
+	[-1 - (x ^ 2) + y, 1 + x - (y ^ 2)]
+}.vectorPlot(c)
+~~~
+
+![](sw/spl/Help/Image/vectorPlot-K.svg)
 
 * * *
 

@@ -613,24 +613,42 @@ Plot : [Object] { | pages format options |
 		).Image
 	}
 
-	vectorPlot { :self:/2 :xInterval :yInterval |
+	vectorPlot { :self :xInterval :yInterval |
 		let [x1, x2] = xInterval.minMax;
 		let [y1, y2] = yInterval.minMax;
 		let n = 16;
 		let xStep = (x2 - x1) / n;
 		let yStep = (y2 - y1) / n;
 		let minStep = xStep.min(yStep);
-		let scalar = minStep * 0.35;
-		{ :i :j |
+		let coordinateList = { :i :j |
 			let x = (x1 + (i * xStep)) + ((j % 2) * (xStep / 2));
 			let y = y1 + (j * yStep);
-			let xy = [x, y];
-			let uv = self(x, y).normalize * scalar;
+			[x, y]
+		}.table([0 .. n - 1], [0 .. n - 1]).flatten(1);
+		coordinateList.vectorPlot(self, minStep * 0.35)
+	}
+
+	vectorPlot { :self :coordinateList |
+		coordinateList.vectorPlot(
+			self,
+			coordinateList.minMax.range.max * (1/16 * 0.35)
+		)
+	}
+
+}
+
++List {
+
+	vectorPlot { :self :aBlock:/2 :scalar |
+		self.collect { :xy |
+			let [x, y] = xy;
+			let uv = aBlock(x, y).normalize * scalar;
 			[
 				Point(xy + uv),
 				Line([xy - uv, xy + uv])
 			]
-		}.table([0 .. n - 1], [0 .. n - 1]).LineDrawing
+		}.LineDrawing
 	}
+
 
 }
