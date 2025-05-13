@@ -1,8 +1,8 @@
 # hilbertCurve
 
-- _hilbertCurve(anInteger)_
+- _hilbertCurve(n)_
 
-Answer the line segments representing the _anInteger_-th step Hilbert curve.
+Answer the line segments representing the _n_-th step Hilbert curve.
 
 The 1st step of the Hilbert curve:
 
@@ -51,6 +51,8 @@ Drawing of the 5th step of the Hilbert curve:
 * * *
 
 See also: angleVector, peanoCurve, substitutionSystem
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

@@ -39,6 +39,19 @@ eliding the _s_ coordinate which can be inferred:
 
 ![](sw/spl/Help/Image/fromHexagonalCoordinates-B.svg)
 
+
+Generate a 5×5 hexagonal grid,
+without adjusting _q_ by _r_:
+
+~~~spl svg=C
+{ :r :q |
+	let c = [q, r].fromHexagonalCoordinates;
+	6.regularPolygon(c, 0.9, 0.5.pi)
+}.table(1:5, 1:5).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/fromHexagonalCoordinates-C.svg)
+
 * * *
 
 See also: HexagonalCoordinates, toHexagonalCoordinates

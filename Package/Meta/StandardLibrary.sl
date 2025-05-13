@@ -84,6 +84,7 @@
 	'DelaunayTriangulation'
 	'Disk'
 	'Ellipse'
+	'FractalCurve'
 	'GeometryCollection'
 	'HalfPlane'
 	'HexagonalCoordinates'

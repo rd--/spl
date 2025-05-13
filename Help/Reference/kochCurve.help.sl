@@ -33,6 +33,8 @@ Drawing of the 5th step of the Koch curve:
 
 See also: angleVector, peanoCurve, substitutionSystem
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KochCurve.html),

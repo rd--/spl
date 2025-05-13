@@ -92,6 +92,7 @@
 	'Geometry-Disk'
 	'Geometry-Ellipse'
 	'Geometry-FourVector'
+	'Geometry-FractalCurve'
 	'Geometry-GeometryCollection'
 	'Geometry-HalfPlane'
 	'Geometry-HexagonalCoordinates'

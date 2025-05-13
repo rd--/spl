@@ -51,6 +51,8 @@ The curve enumerates the tiles of a hexagonal grid:
 
 See also: angleVector, hilbertCurve, peanoCurve, substitutionSystem
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Peano-GosperCurve.html),

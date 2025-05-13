@@ -33,6 +33,8 @@ Drawing of the 3rd step of the Sierpiński curve:
 
 See also: angleVector, hilbertCurve, kochCurve, substitutionSystem
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SierpinskiCurve.html),

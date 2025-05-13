@@ -124,6 +124,17 @@ let c = r.randomReal([-3 3], [300 2]);
 
 ![](sw/spl/Help/Image/vectorPlot-K.svg)
 
+Plot the zero vector field to see the default grid,
+which is an offset square grid:
+
+~~~spl svg=L
+{ :x :y |
+	[0 0]
+}.vectorPlot(-1 -- 1, -1 -- 1)
+~~~
+
+![](sw/spl/Help/Image/vectorPlot-L.svg)
+
 * * *
 
 See also: contourPlot, densityPlot, parametricPlot

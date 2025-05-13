@@ -148,8 +148,11 @@ Query Functions:
 Fractal Curve Functions:
 
 - `gosperCurve`
+- `heighwayDragonCurve`
 - `hilbertCurve`
 - `kochCurve`
+- `levyCCurve`
+- `mooreCurve`
 - `peanoCurve`
 - `sierpinskiCurve`
 - `zOrderCurve`

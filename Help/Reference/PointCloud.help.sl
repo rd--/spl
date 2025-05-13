@@ -34,6 +34,10 @@ PointCloud(p).asLineDrawing
 
 ![](sw/spl/Help/Image/PointCloud-B.svg)
 
+_Rationale_:
+The type is not called _PointSet_ since it is not a _set_ in the usual sense,
+duplicate elements are allowed.
+
 * * *
 
 See also: BezierCurve, Circle, Line, Point, Polygon, Rectangle, Triangle, vertexCoordinates

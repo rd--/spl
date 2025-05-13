@@ -18,6 +18,10 @@ Draw the first few terms of the Z-order curve:
 
 * * *
 
+See also: deinterleave, fromDigits, integerDigits
+
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/x.html)
