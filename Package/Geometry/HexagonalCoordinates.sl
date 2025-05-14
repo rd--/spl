@@ -130,6 +130,38 @@ HexagonalCoordinates : [Object] { | coordinates |
 		self.fromHexagonalCoordinates([m 0; halfM 1.5])
 	}
 
+	polygonalHexagonalGrid { :self |
+		let p = Polygon(self);
+		let b = self.coordinateBoundingBox;
+		let answer = [];
+		let [x1, y1] = b[1];
+		let [x2, y2] = b[2];
+		let m = 1 / 3.sqrt;
+		let k = 3;
+		(y1 - k).toDo(y2 + k) { :r |
+			let rOffset = (r / 2).floor;
+			(x1 - rOffset - k).toDo(x2 - rOffset + k) { :q |
+				let s = 0 - q - r;
+				let c = [q, r, s].fromHexagonalCoordinates * 0.5;
+				let h = 6.regularPolygon(c, 0.5, 0.5.pi);
+				h.vertexCoordinates.anySatisfy { :each |
+					p.containsPoint(each)
+				}.ifTrue {
+					answer.add(h)
+				}
+			}
+		};
+		answer
+	}
+
+	rectangularHexagonalGrid { :self |
+		self
+		.asRectangle
+		.asPolygon
+		.vertexCoordinates
+		.polygonalHexagonalGrid
+	}
+
 	roundedHexagonalCoordinates { :self |
 		let [q, r, s] = self;
 		let qR = q.rounded;
@@ -144,7 +176,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 			(rD > sD).if {
 				rD := 0 - qD - sD
 			} {
-				sD := 0 - qS - rD
+				sD := 0 - qD - rD
 			}
 		};
 		[qR rR sR]

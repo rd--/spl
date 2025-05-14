@@ -49,6 +49,11 @@ Arrays:
 - `subdivide`
 - `table`
 
+Grids:
+
+- `polygonalHexagonalGrid`
+- `rectangularHexagonalGrid`
+
 _Note_:
 Lattice coordinates are coordinates where each entry is an integer.
 

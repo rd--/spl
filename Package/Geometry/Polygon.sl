@@ -29,6 +29,28 @@ Polygon : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonCentroid
 	}
 
+	containsPoint { :self :aPoint |
+		let v = self.vertexCoordinates;
+		v.includes(aPoint).if {
+			true
+		} {
+			let [x, y] = aPoint;
+			let answer = false;
+			1.toDo(self.vertexCount) { :i |
+				let [x1, y1] = self[i];
+				let [x2, y2] = self[i + 1];
+				(
+					(((y2 <= y) & { y < y1 }) | { (y1 <= y) & { y < y2 } })
+					&
+					{ x < ((x1 - x2) * (y - y2) / (y1 - y2) + x2) }
+				).ifTrue {
+					answer := answer.not
+				}
+			};
+			answer
+		}
+	}
+
 	dimension { :self |
 		2
 	}
@@ -100,6 +122,28 @@ Polygon : [Object] { | vertexCoordinates |
 
 	vertexList { :self |
 		[1 .. self.vertexCoordinates.size]
+	}
+
+	windingNumber { :self :aPoint |
+		let answer = 0;
+		let isLeft = { :x1 :y1 :x2 :y2 :x :y |
+			((x2 - x1) * (y - y1)) - ((x - x1) * (y2 - y1))
+		};
+		let [x, y] = aPoint;
+		1.toDo(self.vertexCount) { :i |
+			let [x1, y1] = self[i];
+			let [x2, y2] = self[i + 1];
+			(y1 <= y).if {
+				(y2 > y & { isLeft(x1, y1, x2, y2, x, y) > 0 }).ifTrue {
+					answer := answer + 1
+				}
+			} {
+				(y2 <= y & { isLeft(x1, y1, x2, y2, x, y) < 0 }).ifTrue {
+					answer := answer - 1
+				}
+			}
+		};
+		answer
 	}
 
 }

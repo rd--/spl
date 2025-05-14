@@ -4,7 +4,7 @@
 
 A Polygon is a `Type` representing a polygon with vertex coordinates given by _aSequence_.
 
-The `area` and `centroid` of two triangle:
+The `area` and `centroid` of two triangles:
 
 ```
 >>> let p = [1 0; 0 3.sqrt; -1 0].Polygon;

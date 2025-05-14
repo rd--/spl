@@ -54,6 +54,6 @@ without adjusting _q_ by _r_:
 
 * * *
 
-See also: HexagonalCoordinates, toHexagonalCoordinates
+See also: HexagonalCoordinates, polygonalHexgonalGrid, toHexagonalCoordinates
 
 Guides: Coordinate System Functions
