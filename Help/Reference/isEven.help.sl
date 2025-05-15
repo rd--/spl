@@ -17,6 +17,13 @@ false
 [false true false true false]
 ```
 
+At `zero`:
+
+```
+>>> 0.isEven
+true
+```
+
 Non-integers are never even:
 
 ```

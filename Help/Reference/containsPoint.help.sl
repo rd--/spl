@@ -49,7 +49,7 @@ At `Rectangle` and `Polygon`:
 >>> 		11 9;
 >>> 		9 11
 >>> 	].collect { :p |
->>> 		c.containsPoint(p).boole
+>>> 		c.containsPoint(p)
 >>> 	}
 >>> }
 [

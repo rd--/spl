@@ -1,6 +1,6 @@
 # BinormalDistribution
 
-- _BinormalDistribution(μ, σ)_
+- _BinormalDistribution(μ, σ, ρ)_
 
 Answers an instance of `MultinormalDistribution` representing a bivariate normal distribution,
 with mean μ and covariance matrix [σ₁² ρσ₁σ₂; ρσ₁σ₂ σ₂²].

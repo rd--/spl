@@ -66,8 +66,12 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
 +List {
 
+	Tuple { :self |
+		newTuple().initializeSlots(self)
+	}
+
 	asTuple { :self |
-		newTuple().initializeSlots(self.copy)
+		Tuple(self.copy)
 	}
 
 }

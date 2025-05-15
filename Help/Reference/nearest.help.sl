@@ -18,7 +18,7 @@ There may be elements that are equally near:
 [4 8]
 ```
 
-Plot the `nearest` of a list of:
+Plot the `nearest` of a list of numbers:
 
 ~~~spl svg=A
 (0 -- 10).functionPlot { :x |

@@ -70,6 +70,14 @@ Circle Functions:
 - `circumcircle`
 - `welzlAlgorithm`
 
+Computational Geometry:
+
+- `dijkstrasAlgorithm`
+- `findShortestPath`
+- `findShortestTour`
+- `heldKarpAlgorithm`
+- `nearest`
+
 Coordinate Transformations:
 
 - `Coordinate System Functions`: Guide
@@ -82,6 +90,7 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
+- `randomConvexHullPolygon`
 - `randomStarConvexPolygon`
 - `regularPolygon`
 - `unitCircle`
@@ -110,6 +119,18 @@ Distance Functions:
 - `pointLineDistance`
 - `signedPointPlaneDistance`
 
+Fractal Curve Functions:
+
+- `gosperCurve`
+- `heighwayDragonCurve`
+- `hilbertCurve`
+- `kochCurve`
+- `levyCCurve`
+- `mooreCurve`
+- `peanoCurve`
+- `sierpinskiCurve`
+- `zOrderCurve`
+
 Intersection Functions:
 
 - `lineLineIntersection`
@@ -126,6 +147,12 @@ Matrix Functions:
 - `rotationMatrix`
 - `scalingMatrix`
 
+Polygon Functions:
+
+- `crossingNumber`
+- `regularPolygon`
+- `windingNumber`
+
 Query Functions:
 
 - `arcLength`
@@ -135,6 +162,7 @@ Query Functions:
 - `circumcircle`
 - `circumradius`
 - `circumference`
+- `containsPoint`
 - `coordinateBoundingBox`
 - `coordinateBounds`
 - `diameter`
@@ -152,17 +180,12 @@ Query Functions:
 - `vertexCount`
 - `vertexList`
 
-Fractal Curve Functions:
+Triangle Functions:
 
-- `gosperCurve`
-- `heighwayDragonCurve`
-- `hilbertCurve`
-- `kochCurve`
-- `levyCCurve`
-- `mooreCurve`
-- `peanoCurve`
-- `sierpinskiCurve`
-- `zOrderCurve`
+- `aasTriangle`
+- `asaTriangle`
+- `sasTriangle`
+- `sssTriangle`
 
 Uncategorized:
 

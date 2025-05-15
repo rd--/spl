@@ -87,6 +87,12 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		self.coordinateBoundingBox.transposed
 	}
 
+	findShortestTour{ :self |
+		self
+		.distanceMatrix
+		.heldKarpAlgorithm
+	}
+
 	lineEquation { :p1 :p2 |
 		let [x1, y1] = p1;
 		let [x2, y2] = p2;

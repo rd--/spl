@@ -65,7 +65,7 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 
 * * *
 
-See also: Circle
+See also: Circle, circleThrough, circumcircle
 
 Guides: Geometry Functions
 
@@ -74,3 +74,5 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BoundingRegion.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Smallest-circle_problem)
+
+Further Reading: Welzl 1991

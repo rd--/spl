@@ -30,25 +30,7 @@ Polygon : [Object] { | vertexCoordinates |
 	}
 
 	containsPoint { :self :aPoint |
-		let v = self.vertexCoordinates;
-		v.includes(aPoint).if {
-			true
-		} {
-			let [x, y] = aPoint;
-			let answer = false;
-			1.toDo(self.vertexCount) { :i |
-				let [x1, y1] = self[i];
-				let [x2, y2] = self[i + 1];
-				(
-					(((y2 <= y) & { y < y1 }) | { (y1 <= y) & { y < y2 } })
-					&
-					{ x < ((x1 - x2) * (y - y2) / (y1 - y2) + x2) }
-				).ifTrue {
-					answer := answer.not
-				}
-			};
-			answer
-		}
+		self.vertexCoordinates.crossingNumber(aPoint).isEven
 	}
 
 	dimension { :self |
@@ -124,31 +106,30 @@ Polygon : [Object] { | vertexCoordinates |
 		[1 .. self.vertexCoordinates.size]
 	}
 
-	windingNumber { :self :aPoint |
-		let answer = 0;
-		let isLeft = { :x1 :y1 :x2 :y2 :x :y |
-			((x2 - x1) * (y - y1)) - ((x - x1) * (y2 - y1))
-		};
-		let [x, y] = aPoint;
-		1.toDo(self.vertexCount) { :i |
-			let [x1, y1] = self[i];
-			let [x2, y2] = self[i + 1];
-			(y1 <= y).if {
-				(y2 > y & { isLeft(x1, y1, x2, y2, x, y) > 0 }).ifTrue {
-					answer := answer + 1
-				}
-			} {
-				(y2 <= y & { isLeft(x1, y1, x2, y2, x, y) < 0 }).ifTrue {
-					answer := answer - 1
-				}
-			}
-		};
-		answer
-	}
-
 }
 
 +List {
+
+	crossingNumber { :self :aPoint |
+		self.includes(aPoint).if {
+			0
+		} {
+			let [x, y] = aPoint;
+			let answer = 0;
+			1.toDo(self.size) { :i |
+				let [x1, y1] = self.at(i);
+				let [x2, y2] = self.atWrap(i + 1);
+				(
+					(((y2 <= y) & { y < y1 }) | { (y1 <= y) & { y < y2 } })
+					&
+					{ x < ((x1 - x2) * (y - y2) / (y1 - y2) + x2) }
+				).ifTrue {
+					answer := answer + 1
+				}
+			};
+			answer
+		}
+	}
 
 	Polygon { :self |
 		(self.depth > 3).if {
@@ -189,6 +170,28 @@ Polygon : [Object] { | vertexCoordinates |
 		a
 	}
 
+	windingNumber { :self :aPoint |
+		let answer = 0;
+		let isLeft = { :x1 :y1 :x2 :y2 :x :y |
+			((x2 - x1) * (y - y1)) - ((x - x1) * (y2 - y1))
+		};
+		let [x, y] = aPoint;
+		1.toDo(self.size) { :i |
+			let [x1, y1] = self.at(i);
+			let [x2, y2] = self.atWrap(i + 1);
+			(y1 <= y).if {
+				(y2 > y & { isLeft(x1, y1, x2, y2, x, y) > 0 }).ifTrue {
+					answer := answer + 1
+				}
+			} {
+				(y2 <= y & { isLeft(x1, y1, x2, y2, x, y) < 0 }).ifTrue {
+					answer := answer - 1
+				}
+			}
+		};
+		answer
+	}
+
 }
 
 +SmallFloat {
@@ -202,6 +205,16 @@ Polygon : [Object] { | vertexCoordinates |
 }
 
 +@RandomNumberGenerator {
+
+	randomConvexHullPolygon { :r :d :n :shape |
+		{
+			r.randomConvexHullPolygon(d, n)
+		} ! shape
+	}
+
+	randomConvexHullPolygon { :r :d :n |
+		d.randomVariate(r, [n]).convexHull.Polygon
+	}
 
 	randomStarConvexPolygon { :self :k :minRadius :maxRadius |
 		let d = 2;

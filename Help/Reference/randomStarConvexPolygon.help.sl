@@ -41,7 +41,7 @@ let r = Sfc32(123123);
 
 * * *
 
-See also: fromPolarCoordinates, Polygon, RandomNumberGenerator, Sfc32
+See also: fromPolarCoordinates, Polygon, randomConvexHullPolygon, randomReal
 
 References:
 _Mathematica_

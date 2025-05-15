@@ -17,6 +17,13 @@ false
 [true false true false true]
 ```
 
+At `zero`:
+
+```
+>>> 0.isOdd
+false
+```
+
 Non-integers are never odd:
 
 ```

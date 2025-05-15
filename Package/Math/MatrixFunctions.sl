@@ -225,6 +225,61 @@
 		}
 	}
 
+	heldKarpAlgorithm { :self |
+		<primitive:
+		const dist = _self;
+		const n = dist.length;
+		const subsetCount = 1 << n;
+		const dp = Array.from({ length: subsetCount }, () => Array(n).fill(Infinity));
+		const parent = Array.from({ length: subsetCount }, () => Array(n).fill(-1));
+		dp[1][0] = 0;
+		for (let mask = 1; mask < subsetCount; mask++) {
+			if ((mask & 1) === 0) {
+				continue;
+			}
+			for (let j = 1; j < n; j++) {
+				if ((mask & (1 << j)) === 0) {
+					continue;
+				}
+				const prevMask = mask ^ (1 << j);
+				for (let k = 0; k < n; k++) {
+					if ((prevMask & (1 << k)) === 0) {
+						continue;
+					}
+					const cost = dp[prevMask][k] + dist[k][j];
+					if (cost < dp[mask][j]) {
+						dp[mask][j] = cost;
+						parent[mask][j] = k;
+					}
+				}
+			}
+		}
+		const fullMask = subsetCount - 1;
+		let minCost = Infinity;
+		let lastCity = 0;
+		for (let j = 1; j < n; j++) {
+			const cost = dp[fullMask][j] + dist[j][0];
+			if (cost < minCost) {
+				minCost = cost;
+				lastCity = j;
+			}
+		}
+		const tour = [];
+		let mask = fullMask;
+		let curr = lastCity;
+		while (curr !== 0) {
+			tour.push(curr + 1);
+			const p = parent[mask][curr];
+			mask ^= 1 << curr;
+			curr = p;
+		}
+		tour.push(1);
+		tour.reverse();
+		tour.push(1);
+		return _Tuple_1([minCost, tour]);
+		>
+	}
+
 	homogeneousTranslationMatrix { :self |
 		let k = self.size + 1;
 		let answer = k.identityMatrix;

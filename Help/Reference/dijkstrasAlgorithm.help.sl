@@ -11,7 +11,7 @@ in the binary case it continues until the distances to each vertex are calculate
 
 The binary form is useful for functions like `graphDistanceMatrix`.
 
-The ternary form is useful for functions like `graphDistance` and `findShortestPath.
+The ternary form is useful for functions like `graphDistance` and `findShortestPath`.
 
 ```
 >>> let g = [

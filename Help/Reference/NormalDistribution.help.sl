@@ -55,7 +55,7 @@ Plot `randomVariate`:
 ~~~spl svg=C
 let r = Sfc32(789134);
 NormalDistribution(0, 1)
-.randomVariate(r, 99)
+.randomVariate(r, [99])
 .linePlot
 ~~~
 

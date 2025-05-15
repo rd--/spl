@@ -546,7 +546,7 @@ const asSl: ohm.ActionDict<string> = {
 		return rewriteTypeOrTraitExtension(t, n, b);
 	},
 	TupleExpression(_l, items, _r) {
-		return `asTuple([${commaListSl(items.asIteration().children)}])`;
+		return `Tuple([${commaListSl(items.asIteration().children)}])`;
 	},
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
 		const begin =
