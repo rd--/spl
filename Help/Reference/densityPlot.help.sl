@@ -39,14 +39,24 @@ Plot a function:
 ~~~spl png=D
 { :x :y |
 	x.cos + y.cos
-}.densityPlot(0 -- 4.pi, 0 -- 4.pi)
+}.densityPlot(0 -- 2.pi, 0 -- 2.pi)
 ~~~
 
 ![](sw/spl/Help/Image/densityPlot-D.png)
 
+Plot a trigonometric function:
+
+~~~spl png=E
+{ :x :y |
+	x + ((x ^ 2) + (y ^ 2)).sin
+}.densityPlot(-4 -- 4, -4 -- 4)
+~~~
+
+![](sw/spl/Help/Image/densityPlot-E.png)
+
 * * *
 
-See also: arrayPlot, Colour, contourPlot, Greymap, Image, matrixPlot
+See also: arrayPlot, Colour, contourPlot, Greymap, Image, matrixPlot, reliefPlot
 
 Guides: Plotting Functions
 

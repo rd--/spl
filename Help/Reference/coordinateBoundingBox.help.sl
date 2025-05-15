@@ -46,12 +46,25 @@ The `transposed` `minMax` of the `transposed` matrix:
 [0 4; 0 2]
 ```
 
+Draw point set and bounding rectangle:
+
+~~~spl svg=A
+let p = [3 10; 6 3; 10 2; 2 8; 3 3];
+[
+	p.PointCloud,
+	p.coordinateBoundingBox.asRectangle
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/coordinateBoundingBox-A.svg)
+
 * * *
 
 See also: coordinateBounds, minMax, transposed
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/CoordinateBoundingBox.html)
+[1](https://reference.wolfram.com/language/ref/CoordinateBoundingBox.html),
+[2](https://reference.wolfram.com/language/ref/BoundingRegion.html)
 
 Categories: Array, Geometry

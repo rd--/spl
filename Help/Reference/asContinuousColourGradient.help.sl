@@ -30,6 +30,6 @@ retrieved using `namedColourPalette`:
 
 * * *
 
-See also: asColourGradient, asDiscreteColourGradient, Colour, ColourGradient, colourPalettes
+See also: asColourGradient, asDiscreteColourGradient, Colour, ColourGradient, colourPalettes, namedColourPalette
 
 Guides: Colour Functions

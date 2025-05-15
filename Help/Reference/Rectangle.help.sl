@@ -117,6 +117,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rectangle.html)
 [2](https://mathworld.wolfram.com/Square.html)
-[3](https://reference.wolfram.com/language/ref/Rectangle.html)
+[3](https://reference.wolfram.com/language/ref/Rectangle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Rectangle)
 
 Categories: Geometry

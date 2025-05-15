@@ -121,12 +121,24 @@
 		}
 	}
 
+	deepInjectInto { :self :initialValue :aBlock:/2 |
+		self.injectIntoBy(initialValue, aBlock:/2, deepDo:/2)
+	}
+
 	deepMax { :self |
 		self.deepReduce(max:/2)
 	}
 
 	deepMin { :self |
 		self.deepReduce(min:/2)
+	}
+
+	deepMinMax { :self |
+		self.deepInjectInto([Infinity, -Infinity]) { :m :x |
+			m[1] := m[1].min(x);
+			m[2] := m[2].max(x);
+			m
+		}
 	}
 
 	deepReduce { :self :aBlock:/2 |
@@ -264,12 +276,16 @@
 		}
 	}
 
-	injectInto { :self :initialValue :aBlock:/2 |
+	injectIntoBy { :self :initialValue :aBlock:/2 :doBlock:/2 |
 		let nextValue = initialValue;
-		self.do { :each |
+		doBlock(self) { :each |
 			nextValue := aBlock(nextValue, each)
 		};
 		nextValue
+	}
+
+	injectInto { :self :initialValue :aBlock:/2 |
+		self.injectIntoBy(initialValue, aBlock:/2, do:/2)
 	}
 
 	isDuplicateFree { :self :aBlock:/2 |

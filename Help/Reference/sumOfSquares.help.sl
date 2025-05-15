@@ -9,6 +9,9 @@ At a vector:
 ```
 >>> [3].iota.sumOfSquares
 14
+
+>>> (1 ^ 2) + (2 ^ 2) + (3 ^ 2)
+14
 ```
 
 At a matrix, answers a vector:

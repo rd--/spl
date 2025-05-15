@@ -14,7 +14,7 @@ Lookup the _Summer_ palette in the _Tableau_ collection:
 
 ![](sw/spl/Help/Image/namedColourPalette-A.svg)
 
-The unary form answers a palettes that are uniquely named across all collections.
+The unary form answers palettes that are uniquely named across all collections.
 Lookup the _Accent_ palette,
 which is in the _ColorBrewer_ collection:
 

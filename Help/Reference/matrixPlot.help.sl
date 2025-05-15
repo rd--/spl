@@ -114,6 +114,8 @@ let i = 1:2:18;
 
 See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MatrixPlot.html)

@@ -63,6 +63,13 @@ Catalogues:
 - `schareinMinimalKnotCatalogue`
 - `schareinMinimalLinkCatalogue`
 
+Circle Functions:
+
+- `circlePoints`
+- `circleThrough`
+- `circumcircle`
+- `welzlAlgorithm`
+
 Coordinate Transformations:
 
 - `Coordinate System Functions`: Guide

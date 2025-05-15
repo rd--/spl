@@ -93,70 +93,6 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
-	cliDraw { :self |
-		(self.format = 'graph').if {
-			self.cliGraphDraw
-		} {
-			self.cliListDraw
-		}
-	}
-
-	cliGraphDraw { :self |
-		let [graph] = self.pages;
-		graph.dotDrawing(self.options).draw
-	}
-
-	cliListDraw { :self |
-		let [contents] = self.pages;
-		let shape = contents.shape;
-		let d = shape.size;
-		let a = 'x';
-		let c = [0];
-		let plotData = ['array' 'matrix'].includes(self.format).if {
-			a := 'matrix';
-			c := [];
-			contents.reversed
-		} {
-			(d = 1).if {
-				[contents].transposed
-			} {
-				(d = 2).if {
-					let [m, n] = shape;
-					(n = 1).if {
-						contents
-					} {
-						(n = 2).if {
-							a := 'xy';
-							c := [0 1];
-							contents
-						} {
-							(n = 3).if {
-								a := 'xyz';
-								c := [0 1 2];
-								contents
-							} {
-								contents.error('cliDraw: matrix columns > 3')
-							}
-						}
-					}
-				} {
-					contents.error('cliPlot: array dimensions > 2')
-				}
-			}
-		};
-		let fileName = '/tmp/listPlot.json';
-		fileName.writeTextFile(plotData.asJson);
-		system.systemCommand(
-			'hsc3-plot',
-			[
-				'json',
-				a,
-				'--format=' ++ self.format,
-				fileName
-			] ++ c.collect(asString:/1)
-		)
-	}
-
 	columnCount { :self |
 		let counts = self.pages.collect { :each |
 			let [rowCount, columnCount] = each.shape;
@@ -325,6 +261,27 @@ Plot : [Object] { | pages format options |
 				self.error('polarPlot')
 			}
 		}
+	}
+
+	reliefPlot { :self :options |
+		let [m, n] = self.shape;
+		let [z0, z1] = self.deepMinMax;
+		let colourFunction = { :z |
+			[z, 0.75, 0.75].hslToRgb
+		};
+		let data = { :i :j |
+			self[i][j]
+			.rescale(z0, z1, 0, 1)
+			.colourFunction
+		}.table(1:m, 1:n);
+		options['dataReversed'].ifFalse {
+			data.reverse
+		};
+		data.Image
+	}
+
+	reliefPlot { :self |
+		self.reliefPlot(dataReversed: false)
 	}
 
 	runSequencePlot { :self |
@@ -602,15 +559,10 @@ Plot : [Object] { | pages format options |
 
 	densityPlot { :self:/2 :xInterval :yInterval |
 		let k = 100;
-		let colourFunction = { :z |
-			[z, 0.75, 0.75].hslToRgb
-		};
-		{ :x :y |
-			self(x, y).colourFunction
-		}.table(
+		self:/2.table(
 			xInterval.discretize(k),
 			yInterval.discretize(k)
-		).Image
+		).reliefPlot(dataReversed: true)
 	}
 
 	vectorPlot { :self :xInterval :yInterval |

@@ -1,11 +1,11 @@
 Circle : [Object] { | center radius |
 
 	= { :self :anObject |
-		anObject.isCircle & {
-			self.center = anObject.center & {
-				self.radius = anObject.radius
-			}
-		}
+		self.hasEqualSlots(anObject)
+	}
+
+	~ { :self :anObject |
+		self.hasEqualSlotsBy(anObject, ~)
 	}
 
 	arcLength { :self |
@@ -29,6 +29,10 @@ Circle : [Object] { | center radius |
 
 	circumference { :self |
 		(self.radius * 2).pi
+	}
+
+	containsPoint { :self :p |
+		p.euclideanDistance(self.center) <= self.radius
 	}
 
 	diameter { :self |
@@ -96,8 +100,55 @@ Circle : [Object] { | center radius |
 		}
 	}
 
+	circleThrough { :self |
+		let k = self.size;
+		(k < 2 | { k > 3 }).if {
+			self.error('circleThrough')
+		} {
+			k.caseOf([
+				2 -> {
+					let [a, b] = self;
+					let c = (a + b) / 2;
+					let r = a.euclideanDistance(b) / 2;
+					Circle(c, r)
+				},
+				3 -> {
+					let [z1, z2, z3] = self.collect(asComplex:/1);
+					let w = (z3 - z1) / (z2 - z1);
+					let c = (z2 - z1) * (w - (w.abs ^ 2)) / (0J2 * w.imaginary) + z1;
+					let r = (z1 - c).abs;
+					Circle(c.asList, r)
+				}
+			])
+		}
+	}
+
 	unitCircle { :center |
 		Circle(center, 1)
+	}
+
+	welzlAlgorithm { :p :r |
+		(p.isEmpty | { r.size = 3 }).if {
+			r.size.caseOfOtherwise([
+				0 -> { Circle([0 0], 0) },
+				1 -> { Circle(r[1], 0) }
+			]) {
+				r.circleThrough
+			}
+		} {
+			let x = p.first;
+			let c = welzlAlgorithm(p.allButFirst, r.copy);
+			c.containsPoint(x).if {
+				c
+			} {
+				welzlAlgorithm(p.allButFirst, r ++ [x])
+			}
+		}
+	}
+
+	welzlAlgorithm { :self |
+		let p = self.shuffled(system);
+		welzlAlgorithm(p, [])
 	}
 
 }

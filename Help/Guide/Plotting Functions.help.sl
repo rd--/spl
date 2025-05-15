@@ -21,6 +21,7 @@ Plotting Functions:
 - `parametricPlot`
 - `pianoRollPlot`
 - `polarPlot`
+- `reliefPlot`
 - `runSequencePlot`
 - `scatterPlot`
 - `soundPlot`

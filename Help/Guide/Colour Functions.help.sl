@@ -21,7 +21,6 @@ Accessing:
 - `red`
 - `rgb`
 - `rgba`
-- `srgb`
 
 Catalogues:
 

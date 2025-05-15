@@ -1,11 +1,12 @@
 # asColourSvg
 
-- _asColourSvg(aMatrix)_
+- _asColourSvg(m)_
 
-Answer a colour Svg image representing _aMatrix_.
-The elements should must implement `asColour`.
+Answer a colour Svg image representing the matrix _m_.
+The elements of _m_ must implement `asColour`.
 
-A 3×3 matrix:
+A 3×3×3 array,
+understood as a 3×3 or _(r,g,b)_ triples:
 
 ~~~spl svg=A
 [
@@ -16,7 +17,8 @@ A 3×3 matrix:
 
 ![](sw/spl/Help/Image/asColourSvg-A.svg)
 
-A 5×11 matrix:
+A 5×11×3 array,
+understood as a 5×11 matrix of _(r,g,b)_ triples:
 
 ~~~spl svg=B
 Sfc32(731894)

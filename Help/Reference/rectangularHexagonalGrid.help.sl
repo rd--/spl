@@ -1,8 +1,8 @@
 # rectangularHexagonalGrid
 
-- _rectangularHexagonalGrid(c)_
+- _rectangularHexagonalGrid([c₁, c₂])_
 
-Construct a hexagonal grid that covers the polygon given by the vertex coordinates _c_.
+Construct a hexagonal grid that covers the rectangle given by the lower left and upper right vertex coordinates _c₁_ and _c₂_.
 
 A square hexagonal grid:
 

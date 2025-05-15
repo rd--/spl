@@ -4,6 +4,26 @@
 
 Answer `true` if the geometry _g_ contains the point _p_.
 
+At `Circle`:
+
+```
+>>> let c = Circle([0 0], 1);
+>>> [0 0; 0.5 0.5; 1 1; 0 1].collect { :p |
+>>> 	c.containsPoint(p)
+>>> }
+[true true false true]
+```
+
+The `zero` radius circle contains the centre:
+
+```
+>>> let c = [3 7];
+>>> Circle(c, 0).containsPoint(c)
+true
+```
+
+At `Rectangle` and `Polygon`:
+
 ```
 >>> [
 >>> 	[0 0; 10 10].asRectangle,

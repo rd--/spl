@@ -1,6 +1,6 @@
 # asComplex
 
-- _asComplex(aComplex | aNumber)_
+- _asComplex(anObject)_
 
 In the `Complex` case answer `identity`.
 
@@ -14,6 +14,13 @@ In the `Number` case answer a `Complex` number with a real part of _aNumber_ and
 ```
 >>> 1.asComplex
 1J0
+```
+
+In the two-element `List` case:
+
+```
+>>> [2 3].asComplex
+2J3
 ```
 
 * * *

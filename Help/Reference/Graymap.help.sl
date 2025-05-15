@@ -76,6 +76,17 @@ m
 
 ![](sw/spl/Help/Image/Graymap-C.png)
 
+Draw trigonometric function, rescaling:
+
+~~~spl png=D
+let x = (-4 -- 4).discretize(100);
+{ :i :j |
+	i + ((i ^ 2) + (j ^ 2)).sin
+}.table(x, x).rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/Graymap-D.png)
+
 * * *
 
 See also: asGraymap, Bitmap, Image, matrixPlot, Svg

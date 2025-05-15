@@ -1,8 +1,8 @@
 # asGreyscaleSvg
 
-- _asGreyscaleSvg(aMatrix)_
+- _asGreyscaleSvg(m)_
 
-Answer a greyscale Svg image representing _aMatrix_.
+Answer a greyscale Svg image representing the matrix _m_.
 
 A 3×3 matrix:
 

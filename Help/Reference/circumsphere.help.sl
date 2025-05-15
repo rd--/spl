@@ -14,6 +14,8 @@ Sphere([1/2 1/2 1/2], 1/3.pi.sin)
 
 * * *
 
+See also: Circle, Polygon, Sphere, Triangle
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumsphere.html)

@@ -35,6 +35,6 @@ The `namedColourGradient` answers a `ColourGradient` value:
 
 * * *
 
-See also: asColourGradient, asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, namedColourGradient, resample
+See also: asColourGradient, asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, ColourPalette, namedColourGradient, resample
 
 Guides: Colour Functions
