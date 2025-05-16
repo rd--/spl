@@ -83,7 +83,7 @@ At `List` of `Character`:
 
 See also: max, min, sort, sortBy
 
-Guides: Permutation Functions, Statistics Functions
+Guides: Permutation Functions, Sort Functions, Statistics Functions
 
 References:
 _Apl_

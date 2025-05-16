@@ -121,7 +121,7 @@ Symbol('q')
 
 ```
 >>> '(1, 2, 3)'.splSimplify
-'asTuple([1, 2, 3])'
+'Tuple([1, 2, 3])'
 ```
 
 All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.

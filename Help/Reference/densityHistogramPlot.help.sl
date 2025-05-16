@@ -2,6 +2,10 @@
 
 - _densityHistogramPlot(m, b₁, b₂)_
 
+Plots a density histogram of the _(x,y)_ values at the matrix _m_,
+according to the bin specifications _b₁_ and _b₂_,
+which may be elided.
+
 Visualize the density of two-dimensional normal noise data,
 derive bins automatically:
 

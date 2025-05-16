@@ -63,6 +63,8 @@ Find the longest ascending sequence of elements in a list:
 
 See also: longestCommonSubsequence, longestIncreasingSubsequenceList, patienceSort
 
+Guides: Sort Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Essays/Longest_Increasing_Subsequence),

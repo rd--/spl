@@ -60,6 +60,8 @@ true
 
 See also: isSorted, sort, sorted
 
+Guides: Sort Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/OrderedQ.html),

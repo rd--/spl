@@ -53,3 +53,5 @@ If the sequence contains duplicate elements, the answer may also:
 * * *
 
 See also: longestIncreasingSubsequence
+
+Guides: Sort Functions

@@ -8,7 +8,7 @@
 >>> system
 >>> .methodDictionary
 >>> .size
-4743
+4775
 
 >>> system
 >>> .methodDictionary
@@ -38,7 +38,7 @@ true
 >>> system
 >>> .typeDictionary
 >>> .size
-233
+235
 
 >>> system
 >>> .typeDictionary

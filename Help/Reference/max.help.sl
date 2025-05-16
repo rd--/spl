@@ -90,7 +90,7 @@ See also `deepMax`:
 
 See also: ceiling, deepMax, maxBy, min
 
-Guides: Statistics Functions
+Guides: Sort Functions, Statistics Functions
 
 References:
 _Apl_

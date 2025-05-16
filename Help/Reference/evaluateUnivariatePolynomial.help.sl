@@ -27,3 +27,5 @@ let c = [
 * * *
 
 See also: UnivariatePolynomial
+
+Guides: Polynomial Functions

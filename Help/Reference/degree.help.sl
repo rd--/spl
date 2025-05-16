@@ -24,6 +24,15 @@ which are in turn divided into sixty _arc seconds_:
 (60 * 60).arcSecond
 ```
 
+At `UnivariatePolynomial`,
+answers the is the largest exponent of the polynomial:
+
+```
+>>> UnivariatePolynomial([1 2 3])
+>>> .degree
+2
+```
+
 Where supported `degree` is displayed as °.
 
 * * *

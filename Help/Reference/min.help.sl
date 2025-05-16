@@ -107,7 +107,7 @@ At `Symbol`:
 
 See also: deepMin, floor, max, minBy
 
-Guides: Statistics Functions
+Guides: Sort Functions, Statistics Functions
 
 References:
 _Apl_

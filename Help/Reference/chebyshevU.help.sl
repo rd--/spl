@@ -73,6 +73,8 @@ let p = 0:4.collect(chebyshevU:/1);
 
 See also: chebyshevT, UnivariatePolynomial
 
+Guides: Polynomial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ChebyshevPolynomialoftheSecondKind.html)

@@ -23,7 +23,9 @@ which is zero when the two polynomials have a common root.
 The `determinant` of the `sylvesterMatrix` of two polynomials is the `resultant` of the polynomials:
 
 ```
->>> let m = [7 -2 1].sylvesterMatrix([5 -1 0 1]);
+>>> let p = [7 -2 1];
+>>> let q = [5 -1 0 1];
+>>> let m = p.sylvesterMatrix(q);
 >>> (m.determinant, m)
 (
 	265,
@@ -41,22 +43,32 @@ Decide whether two polynomials have common roots,
 the `resultant` vanishes exactly when the polynomials have roots in common:
 
 ```
->>> [3 -7 -5 1].sylvesterMatrix([-11 9 -8 1]).determinant
+>>> let p = [3 -7 -5 1];
+>>> let q = [-11 9 -8 1];
+>>> p.sylvesterMatrix(q).determinant
 -10321
 
->>> [14 -7 -5 1].sylvesterMatrix([58 9 -8 1]).determinant
+>>> let p = [14 -7 -5 1];
+>>> let q = [58 9 -8 1];
+>>> p.sylvesterMatrix(q).determinant
 0
 
->>> [-1 0 0 1].sylvesterMatrix([-1 2 2 1]).determinant
+>>> let p = [-1 0 0 1];
+>>> let q = [-1 2 2 1];
+>>> p.sylvesterMatrix(q).determinant
 16
 
->>> [-1 0 0 1].sylvesterMatrix([1 2 2 1]).determinant
+>>> let p = [-1 0 0 1];
+>>> let q = [1 2 2 1];
+>>> p.sylvesterMatrix(q).determinant
 0
 ```
 
 * * *
 
 See also: rotatedRight, resultant
+
+Guides: Polynomial Functions
 
 References:
 _Mathematica_

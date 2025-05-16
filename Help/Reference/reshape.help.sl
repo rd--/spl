@@ -291,6 +291,13 @@ The ordering is _row_ not _column_:
 ]
 ```
 
+Truncate a list:
+
+```
+>>> [1 3 5 7 9].reshape([3])
+[1 3 5]
+```
+
 Where supported `reshape` is displayed as ⍴.
 
 * * *

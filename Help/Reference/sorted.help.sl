@@ -38,6 +38,8 @@ true
 
 See also: ordering, sort, sortBy, sortOn, sortOnBy
 
+Guides: Sort Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Sort.html),

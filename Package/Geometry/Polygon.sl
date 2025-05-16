@@ -30,7 +30,7 @@ Polygon : [Object] { | vertexCoordinates |
 	}
 
 	containsPoint { :self :aPoint |
-		self.vertexCoordinates.crossingNumber(aPoint).isEven
+		self.vertexCoordinates.crossingNumber(aPoint).isOdd
 	}
 
 	dimension { :self |

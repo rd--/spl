@@ -23,6 +23,8 @@ Sort a random permutation:
 
 See also: longestIncreasingSubsequence, mergeSort, quickSort, sort
 
+Guides: Sort Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Patience_sorting)

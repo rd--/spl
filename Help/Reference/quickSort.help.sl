@@ -55,4 +55,6 @@ Sort a random sequence of integers:
 
 See also: isSorted, quickSortBy, quickSortByFromTo, sort
 
+Guides: Sort Functions
+
 Categories: Sorting

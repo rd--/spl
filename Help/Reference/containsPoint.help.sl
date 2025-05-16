@@ -49,12 +49,12 @@ At `Rectangle` and `Polygon`:
 >>> 		11 9;
 >>> 		9 11
 >>> 	].collect { :p |
->>> 		c.containsPoint(p)
+>>> 		c.containsPoint(p).boole
 >>> 	}
 >>> }
 [
 	1 1 1 1 0 1 1 1 0 1 1 0 0 1 1 1 0 0;
-	1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 0 0
+	1 1 1 0 0 1 1 1 0 1 1 0 0 1 1 1 0 0
 ]
 ```
 

@@ -22,3 +22,5 @@ false
 * * *
 
 See also: <, isFinite, isMonotonicallyIncreasing, isSortedBy
+
+Guides: Sort Functions

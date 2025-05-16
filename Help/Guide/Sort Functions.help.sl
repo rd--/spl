@@ -1,5 +1,12 @@
 # Sort Functions
 
+Comparison Operators:
+
+- `<=`: less than or equal to
+- `<`: less than
+- `>=`: greater than or equal to
+- `>`: greater than
+
 Sort:
 
 - `mergeInPlace`
@@ -29,10 +36,6 @@ Order:
 
 Predicates:
 
-- `<=`: less than or equal to
-- `<`: less than
-- `>=`: greater than or equal to
-- `>`: greater than
 - `isMonotonicallyIncreasing`
 - `isSortedBetweenAnd`
 - `isSortedByBetweenAnd`

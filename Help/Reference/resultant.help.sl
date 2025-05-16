@@ -1,6 +1,8 @@
 # resultant
 
-The `resultant` of two polynomials:
+- _resultant(p, q)_
+
+Answer the `resultant` of two polynomials, represented as coefficient lists.
 
 ```
 >>> [7 -2 1].resultant([5 -1 0 1])
@@ -27,6 +29,8 @@ the `resultant` vanishes exactly when the polynomials have roots in common:
 * * *
 
 See also: sylvesterMatrix
+
+Guides: Polynomial Functions
 
 References:
 _Mathematica_

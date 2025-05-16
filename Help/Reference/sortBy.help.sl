@@ -33,4 +33,6 @@ At an `Association` list, sort by descending key:
 
 See also: sort, sorted, sortOn, sortOnBy
 
+Guides: Sort Functions
+
 Categories: Sorting
