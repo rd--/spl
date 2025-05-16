@@ -172,7 +172,9 @@ UnitCircle : [Object] {
 	}
 
 	randomPoint { :self :r :shape |
-		{ self.randomPoint(r) } ! shape
+		{
+			self.randomPoint(r)
+		} ! shape
 	}
 
 }

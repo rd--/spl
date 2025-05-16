@@ -20,6 +20,12 @@
 		1 - (u.dot(v) / (u.norm * v.norm))
 	}
 
+	cosineSimilarity { :u :v |
+		let p = u.norm;
+		let q = v.norm;
+		dotProduct(u, v) / (p * q)
+	}
+
 	editDistance { :self :other |
 		self.levenshteinDistance(other)
 	}

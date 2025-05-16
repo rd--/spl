@@ -4,13 +4,47 @@
 - _correlation(a, b)_
 
 Answer the correlation between the vectors _v_ and _w_,
+also called the Pearson correlation coefficient,
 or the cross-correlation matrix for the matrices _a_ and _b_.
 
 Correlation between two fractional vectors:
 
 ```
->>> correlation([5 3/4 1], [2 1/2 1])
-2 * (3 / 13).sqrt
+>>> let u = [5 3/4 1];
+>>> let v = [2 1/2 1];
+>>> let p = standardDeviation(u);
+>>> let q = standardDeviation(v);
+>>> (
+>>> 	correlation(u, v),
+>>> 	covariance(u, v) / (p * q)
+>>> )
+(
+	2 * (3 / 13).sqrt,
+	2 * (3 / 13).sqrt
+)
+```
+
+Perfectly correlated vectors,
+the uncentered correlation coefficient is given by `cosineSimilarity`:
+
+```
+>>> let u = [1 2 3 5 8];
+>>> let v = [0.11 0.12 0.13 0.15 0.18];
+>>> (
+>>> 	correlation(u, v),
+>>> 	cosineSimilarity(u, v)
+>>> )
+(1, 0.9208)
+
+>>> let u = [1 2 3 5 8];
+>>> let v = [0.11 0.12 0.13 0.15 0.18];
+>>> let p = u - mean(u);
+>>> let q = v - mean(v);
+>>> (
+>>> 	correlation(p, q),
+>>> 	cosineSimilarity(p, q)
+>>> )
+(1, 1)
 ```
 
 Correlation between two irrational vectors:
@@ -68,7 +102,7 @@ Correlation between an identity matrix and itself:
 
 * * *
 
-See also: centralMoment, correlationFunction, covariance, variance
+See also: centralMoment, cosineSimilarity, correlationFunction, covariance, mean, variance
 
 Guides: Statistics Functions
 
@@ -78,5 +112,6 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Correlation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Correlation)
+[2](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
 
 Categories: Statistics

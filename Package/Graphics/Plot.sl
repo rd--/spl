@@ -180,6 +180,22 @@ Plot : [Object] { | pages format options |
 		}.table(i, r).reversed.Image
 	}
 
+	densityHistogramPlot { :d :b1 :b2 |
+		d.binCounts(b1, b2).transposed.reversed.matrixPlot
+	}
+
+	densityHistogramPlot { :d |
+		let [p, q] = d.minMax;
+		let [x1, y1] = p;
+		let [x2, y2] = q;
+		let k = 11;
+		let x3 = (x2 - x1) / k;
+		let y3 = (y2 - y1) / k;
+		let b1 = [x1, x2 + x3, x3];
+		let b2 = [y1, y2 + y3, y3];
+		densityHistogramPlot(d, b1, b2)
+	}
+
 	discretePlot { :self |
 		self.typedPlot('discrete')
 	}

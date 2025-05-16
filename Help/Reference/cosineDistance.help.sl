@@ -4,7 +4,8 @@
 
 Answer the angular cosine distance between vectors _u_ and _v_.
 
-`cosineDistance` is equivalent to _1 - u.v / (u.norm * v.norm)_.
+`cosineDistance` is equivalent to _1 - u.v / (u.norm * v.norm)_,
+which is `one` minus the `cosineSimilarity`.
 
 Cosine distance between numeric vectors:
 
@@ -18,12 +19,14 @@ Cosine distance between numeric vectors:
 
 * * *
 
-See also: correlationDistance
+See also: correlationDistance, euclideanDistance, dot, norm, vectorAngle
 
 Guides: Distance Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CosineDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cosine_similarity)
 
 Categories: Distance, Geometry

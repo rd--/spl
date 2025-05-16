@@ -16,6 +16,15 @@
 - `normalizedSquaredEuclideanDistance`
 - `squaredEuclideanDistance`
 
+Similarity:
+
+- `cosineSimilarity`
+
+Dissimilarity:
+
+- `jaccardDissimilarity`
+- `matchingDissimilarity`
+
 Matrices:
 
 - `condensedDistanceMatrix`

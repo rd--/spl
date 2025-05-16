@@ -45,18 +45,15 @@
 	}
 
 	binLists { :self :b |
-		let [start, stop, step] = b;
 		self.binListsFor(
-			Range(start, stop, step).asList
+			Range(b).asList
 		)
 	}
 
 	binLists { :self :b1 :b2 |
-		let [start1, stop1, step1] = b1;
-		let [start2, stop2, step2] = b2;
 		self.binListsFor(
-			Range(start1, stop1, step1).asList,
-			Range(start2, stop2, step2).asList
+			Range(b1).asList,
+			Range(b2).asList
 		)
 	}
 

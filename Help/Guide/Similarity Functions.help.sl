@@ -1,5 +1,7 @@
 # Similarity Functions
 
+- `cosineDistance`
+- `cosineSimilarity`
 - `jaccardDissimilarity`
 - `matchingDissimilarity`
 

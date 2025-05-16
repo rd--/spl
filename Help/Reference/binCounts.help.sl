@@ -1,11 +1,11 @@
 # binCounts
 
-- _binCounts(data, bins)_
-- _binCounts(data, bins₁, bins₂)_
+- _binCounts(d, b)_
+- _binCounts(d, b₁, b₂)_
 
-Answer a `List` of lists of the elements of _data_ whose values lie in successive specified _bins_.
-_bins_ are given as _(min, max, width)_ triples.
-If data is two-dimensional, two _bins_ values are required.
+Answer a `List` of lists of the elements of the data list _d_ whose values lie in successive bins specified at _b_.
+Bins are given as _(min, max, width)_ triples.
+If data is two-dimensional, two bin specifications are required.
 
 Count elements in specified bins:
 
@@ -21,7 +21,7 @@ Count elements in bins of width 1 from 0 to 10:
 [0 2 2 1 1 1 1 0 0 0]
 ```
 
-Count squares mod 3 and 5 in two-dimensional unit bins:
+Count squares modulo three and five in two-dimensional unit bins:
 
 ```
 >>> 1:100.collect { :i |
@@ -30,6 +30,18 @@ Count squares mod 3 and 5 in two-dimensional unit bins:
 [
 	 6 14  0  0 13;
 	14 26  0  0 27
+]
+```
+
+Count two-dimensional uniform noise in two bins at the first dimension and four at the second:
+
+```
+>>> Sfc32(673814)
+>>> .randomReal([-1 1], [1000 2])
+>>> .binCounts([-2 2 2], [-1 1 0.5])
+[
+	123 129 125 119;
+	122 123 133 126
 ]
 ```
 
@@ -73,7 +85,7 @@ let b = q.randomVariate(r, [1000]);
 
 * * *
 
-See also: binLists, histogramList
+See also: binLists, densityHistogramPlot, histogramList, histogramPlot
 
 Guides: Statistics Functions
 

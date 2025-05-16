@@ -11,6 +11,7 @@ Plotting Functions:
 - `complexPlot`
 - `contourPlot`
 - `densityPlot`
+- `densityHistogramPlot`
 - `discretePlot`
 - `functionPlot`
 - `graphPlot`
