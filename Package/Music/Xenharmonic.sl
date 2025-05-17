@@ -1,5 +1,36 @@
 /* Requires: Fraction */
 
++SmallFloat {
+
+	plompLeveltDissonance { :f1 :f2 :u1 :u2 |
+		let a = -3.51;
+		let b = -5.75;
+		let dStar = 0.24;
+		let s1 = 0.0207;
+		let s2 = 18.96;
+		let c1 = 5;
+		let c2 = -5;
+		let s = dStar / ((s1 * min(f1, f2)) + s2);
+		let fDif = abs(f2 - f1);
+		let e1 = c1 * exp(a * s * fDif);
+		let e2 = c2 * exp(b * s * fDif);
+		u1 * u2 * (e1 + e2)
+	}
+
+}
+
++List{
+
+	setharesDissonance { :p :q |
+		{ :a :b |
+			let [f1, u1] = a;
+			let [f2, u2] = b;
+			plompLeveltDissonance(f1, f2, u1, u2)
+		}.table(p, q).sum.sum
+	}
+
+}
+
 +Fraction {
 
 	barlowDisharmonicity { :self |

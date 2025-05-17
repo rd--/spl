@@ -88,6 +88,29 @@
 		answer
 	}
 
+	periodogramArray { :self |
+		self.fft.absSquared / self.size
+	}
+
+	periodogramArray { :self :n |
+		self.partition(n).collect { :each |
+			each.fft.absSquared / n
+		}.average
+	}
+
+	periodogramArray { :self :n :d |
+		self.partition(n, d).collect { :each |
+			each.fft.absSquared / n
+		}.average
+	}
+
+	periodogramArray { :self :n :d :w |
+		let wN = w.normalize;
+		self.partition(n, d).collect { :each |
+			(each * wN).fft.absSquared
+		}.average
+	}
+
 }
 
 +SmallFloat {

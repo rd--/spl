@@ -76,6 +76,12 @@
 		answer
 	}
 
+	adjacentTriplesDo { :self :aBlock:/3 |
+		1.toDo(self.size - 2) { :i |
+			aBlock(self[i], self[i + 1], self[i + 2])
+		}
+	}
+
 	after { :self :target |
 		self.afterIfAbsent(target) {
 			self.errorNotFound(target)
@@ -3209,25 +3215,6 @@
 		self.indicesDo { :index |
 			aBlock(self[index], aList[index], anotherList[index])
 		}
-	}
-
-	zeroCrossingCount { :self |
-		self.zeroCrossingDetect.count(identity:/1)
-	}
-
-	zeroCrossingDetect { :self |
-		let answer = List(self.size, false);
-		let p = self[1].sign;
-		2.toDo(self.size) { :i |
-			let q = self[i].sign;
-			q.isZero.ifFalse {
-				(p + q).isZero.ifTrue {
-					answer[i] := true
-				};
-				p := q
-			}
-		};
-		answer
 	}
 
 }

@@ -20,6 +20,7 @@ Plotting Functions:
 - `linePlot`
 - `matrixPlot`
 - `parametricPlot`
+- `periodogramPlot`
 - `pianoRollPlot`
 - `polarPlot`
 - `reliefPlot`

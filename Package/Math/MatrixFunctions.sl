@@ -1092,6 +1092,21 @@
 		self.singularValueDecomposition
 	}
 
+	swapColumns { :self :i :j |
+		let [m, n] = self.shape;
+		1.toDo(m) { :k |
+			let x = self[k][i];
+			self[k][i] := self[k][j];
+			self[k][j] := x
+		};
+		self
+	}
+
+	swapRows { :self :i :j |
+		let [m, n] = self.shape;
+		self.swapWith(i, j)
+	}
+
 	sylvesterMatrix { :p :q |
 		let m = p.size - 1;
 		let n = q.size - 1;

@@ -236,6 +236,10 @@ Plot : [Object] { | pages format options |
 		[self.asFloat].Plot('matrix')
 	}
 
+	periodogramPlot { :self |
+		self.periodogramArray.take(self.size / 2).log.linePlot
+	}
+
 	pianoRollPlot { :self |
 		let [m, n] = self.shape;
 		(n >= 3).if {
@@ -317,7 +321,7 @@ Plot : [Object] { | pages format options |
 		let r = (0.025 * k).rounded;
 		let n = k.nextPowerOfTwo;
 		let d = self.padRight([n], 0);
-		let p = (d.fft / n).take(n / 2).squared.abs;
+		let p = (d.fft / n).take(n / 2).absSquared;
 		p[1] := 0;
 		(p * 10).gaussianFilter(r).linePlot
 	}

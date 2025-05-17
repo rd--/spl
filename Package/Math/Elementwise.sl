@@ -393,6 +393,10 @@
 		self.collect(rounded:/1)
 	}
 
+	roundTiesEven { :self |
+		self.collect(roundTiesEven:/1)
+	}
+
 	secant { :self |
 		self.collect(secant:/1)
 	}

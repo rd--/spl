@@ -39,7 +39,7 @@ Discrete Hamming window of length 15:
 
 * * *
 
-See also: hammingTable, hannWindow
+See also: hammingWindowTable, hannWindow
 
 Guides: Window Functions
 

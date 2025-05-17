@@ -141,6 +141,7 @@
 	'DistanceFunctions'
 	'EasingFunctions'
 	'Elementwise'
+	'FeatureDetection'
 	'Fourier'
 	'Gamma'
 	'IntegerSequence'

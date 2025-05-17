@@ -147,6 +147,7 @@
 	'Math-DistanceFunctions'
 	'Math-EasingFunctions'
 	'Math-Elementwise'
+	'Math-FeatureDetection'
 	'Math-Fourier'
 	'Math-Gamma'
 	'Math-IntegerSequence'

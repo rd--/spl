@@ -25,6 +25,11 @@ Accessing:
 - `rows`
 - `submatrix`
 
+Rearranging:
+
+- `swapColumns`
+- `swapRows`
+
 Predicates:
 
 - `isIntegerMatrix`: is integer matrix

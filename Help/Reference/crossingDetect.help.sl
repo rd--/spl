@@ -1,25 +1,23 @@
-# zeroCrossingDetect
+# crossingDetect
 
-- _zeroCrossingDetect(aSequence)_
+- _crossingDetect(data, delta=0)_
 
-Answer a boolean sequence in which `true` corresponds to zero crossings in _aSequence_.
+Answer a `SparseArray` in which `1` corresponds to zero crossings in _data_,
+according to _delta_.
 
 Zero crossings of a list:
 
 ```
 >>> [4 0 1 -2 1 -2 -3 -1 3]
->>> .zeroCrossingDetect
-[
-	false false false true true
-	true false false true
-]
+>>> .crossingDetect.normal
+[0 0 0 1 1 1 0 0 1]
 ```
 
 A zero-crossing occurs when the last non-zero `sign` is opposite to the current `sign`:
 
 ```
 >>> [0 -1 0 0 1 0]
->>> .zeroCrossingDetect.boole
+>>> .crossingDetect.normal
 [0 0 0 0 1 0]
 ```
 
@@ -27,13 +25,15 @@ Visiting zero is not a zero crossing:
 
 ```
 >>> [0 1 0 1 0 1 0 -1]
->>> .zeroCrossingDetect.boole
+>>> .crossingDetect.normal
 [0 0 0 0 0 0 0 1]
 ```
 
 * * *
 
-See also: boole, count, zeroCrossingCount
+See also: boole, contourDetect, count, threshold, unitize
+
+Guides: Feature Detection Functions
 
 References:
 _Mathematica_

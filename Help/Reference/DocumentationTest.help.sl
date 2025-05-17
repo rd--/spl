@@ -97,4 +97,10 @@ See also: asDocumentationTest, extractDocumentationTests
 
 Guides: Documentation Tests
 
+References:
+_Python_
+[1](https://docs.python.org/3/library/doctest.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Doctest)
+
 Categories: Tests, Type

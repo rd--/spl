@@ -43,4 +43,6 @@ Guides: Mathematical Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ApodizationFunction.html)
-[2](https://reference.wolfram.com/language/guide/WindowFunctions.html)
+[2](https://reference.wolfram.com/language/guide/WindowFunctions.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Window_function)

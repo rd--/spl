@@ -1,0 +1,142 @@
++List{
+
+	contourDetect { :self :delta |
+		let answer = [];
+		1.toDo(self.size) { :i |
+			let a = self.atPin(i - 1);
+			let b = self.at(i);
+			let c = self.atPin(i + 1);
+			(
+				(b.abs > delta).not | {
+					b > 0 & { a < 0 | { c < 0 } }
+				}
+			).ifTrue {
+				answer.add([i] -> 1)
+			}
+		};
+		SparseArray(answer, [self.size], 0)
+	}
+
+	contourDetect { :self |
+		self.contourDetect(0)
+	}
+
+	crossingDetect { :self :delta |
+		let answer = [];
+		let p = self[1].sign;
+		2.toDo(self.size) { :i |
+			let q = self[i].sign;
+			q.isZero.ifFalse {
+				((p + q).abs > delta).ifFalse {
+					answer.add([i] -> 1)
+				};
+				p := q
+			}
+		};
+		SparseArray(answer, [self.size], 0)
+	}
+
+	crossingDetect { :self |
+		self.crossingDetect(0)
+	}
+
+	findPeaks { :self |
+		let p = self.peakDetect;
+		let z = 0;
+		let answer = [];
+		(1 .. self.size).collect { :i |
+			let q = p[i];
+			(q = 1 & { z = 0 }).ifTrue {
+				answer.add([i, self[i]])
+			};
+			z := q
+		};
+		answer
+	}
+
+	findRepeatBy { :self :aBlock:/2 |
+		let k = self.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(k) { :i |
+				(i .. k).allSatisfy { :j |
+					aBlock(self[j], self[j.mod(i, 1)])
+				}.ifTrue {
+					self.copyFromTo(1, i).return
+				}
+			};
+			self
+		}
+	}
+
+	findRepeat { :self |
+		self.findRepeatBy(=)
+	}
+
+	isLocalMinimaBy { :self :i :delta :aBlock:/2 |
+		let n = self.size;
+		let y = self[i];
+		let y0 = y;
+		let y1 = y;
+		let j = i - 1;
+		let k = i + 1;
+		{
+			j >= 1 & { (y0 - y).abs <= delta }
+		}.whileTrue {
+			y0 := self[j];
+			j := j - 1
+		};
+		{
+			k <= n & { (y1 - y).abs <= delta }
+		}.whileTrue {
+			y1 := self[k];
+			k := k + 1
+		};
+		aBlock(y, y0) & { aBlock(y, y1) }
+	}
+
+	isLocalMinimaBy { :self :aBlock:/2 |
+		SparseArray(
+			self.localMinimaByIndices(aBlock:/2).collect { :i |
+				[i] -> true
+			},
+			[self.size],
+			false
+		).normal
+	}
+
+	maxDetect { :self |
+		(1 .. self.size).collect { :i |
+			self.isLocalMinimaBy(i, 0, >=)
+		}.boole
+	}
+
+	minDetect { :self |
+		(1 .. self.size).collect { :i |
+			self.isLocalMinimaBy(i, 0, <=)
+		}.boole
+	}
+
+	peakDetect { :self |
+		self.maxDetect
+	}
+
+	zeroCrossingCount { :self |
+		self.zeroCrossingDetect.count(identity:/1)
+	}
+
+	zeroCrossingDetect { :self |
+		let answer = List(self.size, false);
+		let p = self[1].sign;
+		2.toDo(self.size) { :i |
+			let q = self[i].sign;
+			q.isZero.ifFalse {
+				(p + q).isZero.ifTrue {
+					answer[i] := true
+				};
+				p := q
+			}
+		};
+		answer
+	}
+
+}

@@ -12,6 +12,9 @@ Round to integer:
 
 >>> 4.01.roundTo(1)
 4
+
+>>> 2.675.roundTo(0.01)
+2.68
 ```
 
 Rounds away from zero, c.f. `roundToTowardsZero`:

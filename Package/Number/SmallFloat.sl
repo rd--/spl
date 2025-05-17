@@ -611,6 +611,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.round(_self)>
 	}
 
+	roundTiesEven { :n |
+		(n.fractionPart = 0.5).if {
+			2 * (n / 2).rounded
+		} {
+			n.rounded
+		}
+	}
+
 	secant { :self |
 		1 / self.cos
 	}

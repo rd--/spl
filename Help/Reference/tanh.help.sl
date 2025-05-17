@@ -80,6 +80,16 @@ Plot `tanh` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/tanh-B.svg)
 
+Plot a nonlinear function:
+
+~~~spl svg=C
+(-1.pi -- 1.pi).functionPlot { :x |
+	tanh(x - (0.2 * tanh(5 * x)))
+}
+~~~
+
+![](sw/spl/Help/Image/tanh-C.svg)
+
 * * *
 
 See also: arcTanh, sinh, coth, tan

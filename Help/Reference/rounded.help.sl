@@ -84,13 +84,13 @@ Plot the function over a subset of the reals:
 
 * * *
 
-See also: ceiling, divisible, floor, integerPart, rescale
+See also: ceiling, divisible, floor, integerPart, rescale, roundTiesEven
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Round.html),
 _Python_
-[1](https://docs.python.org/3/library/functions.html#reversed),
+[1](https://docs.python.org/3/library/functions.html#round),
 _Smalltalk_
 5.6.2.31
 

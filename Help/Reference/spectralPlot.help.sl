@@ -26,7 +26,7 @@ system.nistData('NORMAL2', [1])
 
 See also: gaussianFilter, fft
 
-Guides: Plotting Functions
+Guides: Fourier Analysis Functions, Plotting Functions
 
 References:
 _NIST_
