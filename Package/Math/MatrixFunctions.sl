@@ -18,6 +18,37 @@
 		answer
 	}
 
+	bareissAlgorithm { :m |
+		valueWithReturn { :return:/1 |
+			let n = m.size;
+			let sign = 1;
+			let prev = 1;
+			1.toDo(n) { :i |
+				(m[i][i] = 0).ifTrue {
+					let swapTo = nil;
+					(i + 1).toDo(n) { :j |
+						(m[j][i] ~= 0).ifTrue {
+							swapTo := j
+						}
+					};
+					swapTo.ifNil {
+						0.return
+					} {
+						m.swapRows(i, swapTo);
+						sign := sign * -1
+					}
+				};
+				(i + 1).toDo(n) { :j |
+					(i + 1).toDo(n) { :k |
+						m[j][k] := ((m[j][k] * m[i][i]) - (m[j][i] * m[i][k])) // prev
+					}
+				};
+				prev := m[i][i]
+			};
+			sign * m[n][n]
+		}
+	}
+
 	cauchyMatrix { :x :y |
 		{ :i :j |
 			(x[i] + y[j]) ^ -1

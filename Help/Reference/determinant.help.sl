@@ -82,6 +82,16 @@ The determinant of a _5×5_ `Integer` matrix:
 0
 ```
 
+The determinant of a _7×7_ `Integer` matrix:
+
+```
+>>> { :i :j |
+>>> 	(i = j).if { -1 } { 1 }
+>>> }.table(1:7, 1:7)
+>>> .determinant
+320
+```
+
 The determinant of a _3×3_ `SmallFloat` matrix:
 
 ```
@@ -197,7 +207,7 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 
 * * *
 
-See also: isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace
+See also: bareissAlgorithm, isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace
 
 References:
 _Mathematica_
