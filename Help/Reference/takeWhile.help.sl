@@ -33,12 +33,41 @@ At `Stream`:
 [0.80111 0.47353 0.98349 0.92329]
 ```
 
+Take elements while they are all even:
+
+```
+>>> [2 4 6 1 2 3].takeWhile(isEven:/1)
+[2 4 6]
+```
+
+Take elements while they are all below ten:
+
+```
+>>> [1 1 2 3 5 8 13 21].takeWhile { :n |
+>>> 	n < 10
+>>> }
+[1 1 2 3 5 8]
+```
+
+Find the digits of π before the first occurrence of a seven:
+
+```
+>>> 1.pi.realDigits(10, 15)
+>>> .first
+>>> .takeWhile { :n |
+>>> 	n ~= 7
+>>> }
+[3 1 4 1 5 9 2 6 5 3 5 8 9]
+```
+
 * * *
 
-See also: doWhileTrue, dropWhile, take
+See also: doWhileTrue, dropWhile, select, take, while
 
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:takeWhile),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/TakeWhile.html),
 _Python_
 [1](https://docs.python.org/3/library/itertools.html#itertools.takewhile)

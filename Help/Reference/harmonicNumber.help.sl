@@ -13,6 +13,12 @@ The _n_-th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 	1 3/2 11/6 25/12 137/60 49/20
 	363/140 761/280 7129/2520
 ]
+
+>>> 4550.harmonicNumber
+9.0002080629311
+
+>>> 12367.harmonicNumber
+10.000043008276
 ```
 
 Plot over a subset of the integers:
