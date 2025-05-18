@@ -26,7 +26,7 @@ true
 
 * * *
 
-See also: limit, primeLimit, RatioTuning
+See also: primeLimit, RatioTuning
 
 References:
 _Xenharmonic_

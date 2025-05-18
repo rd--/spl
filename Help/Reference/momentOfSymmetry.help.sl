@@ -230,6 +230,8 @@ Requires that the scale have only integer step sizes.
 
 See also: bjorklundsAlgorithm, bresenhamLineAlgorithm, horogramDrawing, horogramTable, isMomentOfSymmetry, momentOfSymmetryPattern, nubCumulatively, prefixSum, rectangularHorogramDrawing, Scale
 
+Guides: Xenharmonic Functions
+
 References:
 _Anaphoria_
 [1](https://www.anaphoria.com/wilsonintroMOS.html)

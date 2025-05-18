@@ -15,6 +15,8 @@ true
 
 See also: Fraction, isSquareFree, isSuperparticular
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Square_superparticular)

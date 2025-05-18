@@ -124,7 +124,7 @@
 
 	latticeDerivedPrimesVector { :self :primes |
 		let upperLimit = primes.last;
-		(self.limit <= upperLimit).if {
+		(self.primeLimit <= upperLimit).if {
 			primes
 		} {
 			let tuningPrimes = self.latticePrimes(false);

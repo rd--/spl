@@ -1,9 +1,9 @@
 # oddLimit
 
-- _oddLimit(aFraction)_
+- _oddLimit(n/d)_
 
-Answer the odd limit of _aFraction_.
-If either the numerator or the denominator is even,
+Answer the odd limit of the fraction _n/d_.
+If either the numerator _n_ or the denominator _d_ is even,
 it is divided it by two until it is odd,
 and the larger of the two odd numbers is the odd limit.
 
@@ -28,7 +28,9 @@ The `oddLimitSet` is all of the fractions that are within the specified `oddLimi
 
 * * *
 
-See also: integerLimit, limit, oddLimitSet, primeLimit
+See also: integerLimit, oddLimitSet, primeLimit
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

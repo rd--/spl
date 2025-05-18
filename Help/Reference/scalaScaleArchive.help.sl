@@ -146,6 +146,8 @@ The archive is stored in the file _modename.par_ in the Scala distribution.
 
 See also: LibraryItem, namedScale, scalaTuningArchive, Scale
 
+Guides: Scale Functions, Tuning Functions
+
 References:
 _Scala_
 [1](https://www.huygens-fokker.org/scala/)

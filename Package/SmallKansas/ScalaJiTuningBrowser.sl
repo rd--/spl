@@ -7,7 +7,7 @@
 		div.appendChildren([
 			[
 				['Size', self.size.asString],
-				['Limit', self.limit.asString],
+				['Limit', self.primeLimit.asString],
 				['Description', self.description],
 				['Octave', self.octave.asString],
 				['Primes', self.latticePrimes(false).asString]
@@ -67,7 +67,7 @@
 					jiTunings.select { :each |
 						each.size = selectedSize
 					}.collect { :each |
-						each.limit
+						each.primeLimit
 					}.values.copyWithoutIdenticalElements.sort.collect(asString:/1)
 				},
 				{ 2 } -> {
@@ -80,7 +80,7 @@
 					selectedLimit := path[2].parseSmallInteger(10);
 					jiTunings.select { :each |
 						each.size = selectedSize & {
-							each.limit = selectedLimit
+							each.primeLimit = selectedLimit
 						}
 					}.indices
 				},

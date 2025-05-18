@@ -5,7 +5,8 @@
 Answer the interval class for the generic interval _anInteger_ of _aScale_.
 
 The interval class is the set of intervals in the answer of `intervalsBy`,
-that is set of specific intervals at a given generic interval:
+that is,
+a set of specific intervals at a given generic interval:
 
 ```
 >>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
@@ -18,6 +19,8 @@ that is set of specific intervals at a given generic interval:
 * * *
 
 See also: intervalClasses, intervals, intervalsBy, isProper, isStrictlyProper, Scale
+
+Guides: Scale Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_

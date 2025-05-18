@@ -1,6 +1,7 @@
 # discretePlot
 
-- _discretePlot(aSequence)_
+- _discretePlot(y)_
+- _discretePlot(x → y)_
 
 Plot discrete data.
 Also called _pin_ and _stem_ plots.

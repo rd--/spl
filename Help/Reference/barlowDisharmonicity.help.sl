@@ -1,8 +1,8 @@
 # barlowDisharmonicity
 
-- _barlowDisharmonicity(aFraction)_
+- _barlowDisharmonicity(n/d)_
 
-Compute the disharmonicity of the interval _aFraction_.
+Compute the disharmonicity of the interval given by the fraction _n/d_.
 The disharmonicity is the inverse of the harmonicity.
 
 ```
@@ -15,3 +15,5 @@ The disharmonicity is the inverse of the harmonicity.
 * * *
 
 See also: barlowHarmonicity, barlowIndigestibility
+
+Guides: Xenharmonic Functions

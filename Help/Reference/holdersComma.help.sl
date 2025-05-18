@@ -18,7 +18,9 @@ It is equal to one step of the 53-EDO tuning.
 
 * * *
 
-See also: holdersComma, mercatorsComma, pythagoreanComma, septimalComma, syntonicComma
+See also: mercatorsComma, pythagoreanComma, septimalComma, syntonicComma
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

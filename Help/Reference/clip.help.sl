@@ -6,6 +6,7 @@
 - _clip(α₁, β, γ)_ ⟹ _{ :x | α₁(x).clip(β, γ) }_
 
 Answers _x_ for _min ≤ x ≤ max_, _vMin_ for _x < min_ and _vMax_ for _x > max_.
+Also called clamp.
 
 Clip number to (-1, 1):
 

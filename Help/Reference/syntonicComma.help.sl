@@ -67,6 +67,8 @@ The schisma also is the difference between eight perfect fifths plus a major thi
 
 See also: pythagoreanComma, septimalComma
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/81/80)

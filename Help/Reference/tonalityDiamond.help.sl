@@ -94,6 +94,8 @@ The scale is symmetrical within the octave:
 
 See also: isSuperparticular, octaveReduced
 
+Guides: Xenharmonic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Tonality_diamond)

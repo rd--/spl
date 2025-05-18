@@ -17,7 +17,7 @@ Tuning specified using fractions:
 >>> );
 >>> (
 >>> 	r.size,
->>> 	r.limit,
+>>> 	r.primeLimit,
 >>> 	r.asCents.rounded,
 >>> 	r.asIntegers
 >>> )
@@ -43,7 +43,7 @@ Tuning specified as integers:
 >>> );
 >>> (
 >>> 	r.size,
->>> 	r.limit,
+>>> 	r.primeLimit,
 >>> 	r.asCents.rounded,
 >>> 	r.asRatios
 >>> )
@@ -62,7 +62,7 @@ Tuning specified as integers:
 ```
 
 _Rationale:_
-The type caches the value of _limit_ since it is used to construct a large dictionary of tunings.
+The type caches the value of `primeLimit` since it is used to construct a large dictionary of tunings.
 
 * * *
 

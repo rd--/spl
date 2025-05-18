@@ -39,4 +39,6 @@ Plot the indigestibility of the first one hundred integers:
 
 See also: barlowDisharmonicity, barlowHarmonicity, barlowIndispensability
 
+Guides: Xenharmonic Functions
+
 Further Reading: Barlow 1987

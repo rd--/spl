@@ -23,11 +23,11 @@ let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.l
 
 ## Music-RatioTuning
 ```
-let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.limit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
+let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.primeLimit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
 RatioTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 98 112], 2)
-let t = [63, 72, 84, 98, 112].asRatioTuning; [t.limit, t.size, t.octave] = [7, 5, 2]
+let t = [63, 72, 84, 98, 112].asRatioTuning; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
 let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]

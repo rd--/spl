@@ -10,7 +10,7 @@ The `size` of a tuning is a positive integer counting the number of intervals it
 
 A tuning `isRational` if all of the intervals, expressed as ratios, are rational numbers.
 
-The `limit` of a rational tuning is the largest prime factor of any interval.
+The `primeLimit` of a rational tuning is the largest prime factor of any interval.
 
 `asIntegers` of a rational tuning answers the ratios divided by their greatest common divisor.
 
@@ -22,8 +22,8 @@ A `CentsTuning` is a type where the intervals are stored as cents.
 
 * * *
 
-See also: asCents, asRatios, CentsTuning, intervalMatrix, isRational, limit, octave, RatioTuning, Scale, size
+See also: asCents, asRatios, CentsTuning, intervalMatrix, isRational, octave, primeLimit, RatioTuning, Scale, size
 
-Guides: Tuning Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 Categories: Music, Trait

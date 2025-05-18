@@ -1,9 +1,8 @@
 # continuedFraction
 
-- _continuedFraction(aNumber, anInteger)_
-- _continuedFraction(α)_ ⟹ _continuedFraction(α, 24)_
+- _continuedFraction(n, k=24)_
 
-Answer a list of at most the first _anInteger_ terms in the continued fraction representation of _aNumber_.
+Answer a list of at most the first _k_ terms in the continued fraction representation of the number _n_.
 
 Rational number as `SmallFloat`:
 
@@ -108,25 +107,72 @@ Examples of rational and irrational numbers:
 >>> }
 [123; 12 3 3; 1 4 2 1 6 1; 0 8 7 1 2 5]
 
->>> ((1 + 5.sqrt) / 2).continuedFraction(24)
-[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+>>> ((1 + 5.sqrt) / 2)
+>>> .continuedFraction(24)
+[
+	1 1 1 1 1 1 1 1 1 1
+	1 1 1 1 1 1 1 1 1 1
+	1 1 1 1
+]
 
 >>> [3.sqrt, 1 / 3.sqrt].collect { :n |
 >>> 	n.continuedFraction(11)
 >>> }
-[1 1 2 1 2 1 2 1 2 1 2; 0 1 1 2 1 2 1 2 1 2 1]
+[
+	1 1 2 1 2 1 2 1 2 1 2;
+	0 1 1 2 1 2 1 2 1 2 1
+]
 
 >>> 1.e.continuedFraction(21)
-[2 1 2 1 1 4 1 1 6 1 1 8 1 1 10 1 1 12 1 1 11]
+[
+	2 1 2 1 1 4 1 1 6 1
+	1 8 1 1 10 1 1 12 1 1
+	11
+]
 
 >>> 1.tan.continuedFraction(21)
-[1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15 1 16 1 17 1]
+[
+	1 1 1 3 1 5 1 7 1 9
+	1 11 1 13 1 15 1 16 1 17
+	1
+]
 
->>> (5 / 4).log2.reciprocal.continuedFraction(9)
+>>> (5 / 4).log2.reciprocal
+>>> .continuedFraction(9)
 [3 9 2 2 4 6 2 1 1]
 
->>> 1.gausssConstant.continuedFraction(16)
+>>> 1.gausssConstant
+>>> .continuedFraction(16)
 [0 1 5 21 3 4 14 1 1 1 1 1 3 1 15 1]
+```
+
+Threads over lists:
+
+```
+>>> [
+>>> 	1/2
+>>> 	3/1
+>>> 	23/8
+>>> 	13/11
+>>> 	22/7
+>>> 	-151/77
+>>> 	14142/10000
+>>> 	141421/100000
+>>> 	1414214/1000000
+>>> 	14142136/10000000
+>>> ].collect(continuedFraction:/1)
+[
+	0 2;
+	3;
+	2 1 7;
+	1 5 2;
+	3 7;
+	-2 25 1 2;
+	1 2 2 2 2 2 1 1 29;
+	1 2 2 2 2 2 2 3 1 1 3 1 7 2;
+	1 2 2 2 2 2 2 2 3 6 1 2 1 12;
+	1 2 2 2 2 2 2 2 2 2 6 1 2 4 1 1 2
+]
 ```
 
 * * *
@@ -139,3 +185,4 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/ContinuedFraction.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Continued_fraction)
+[2](https://en.wikipedia.org/wiki/Simple_continued_fraction)

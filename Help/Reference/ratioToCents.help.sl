@@ -52,6 +52,8 @@ Threads over lists:
 
 See also: centsToRatio, Tuning
 
+Guides: Xenharmonic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Cent_(music))

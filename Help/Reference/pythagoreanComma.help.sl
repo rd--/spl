@@ -85,7 +85,9 @@ and it is conventionally taken as 24 cents:
 
 * * *
 
-See also: mercatorsComma, octaveReduced, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduced, pythagoreanChroma, septimalComma, syntonicComma
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

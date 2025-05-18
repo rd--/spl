@@ -104,6 +104,10 @@
 		self.collect(conjugated:/1)
 	}
 
+	continuedFraction { :self |
+		self.collect(continuedFraction:/1)
+	}
+
 	cos { :self |
 		self.collect(cos:/1)
 	}

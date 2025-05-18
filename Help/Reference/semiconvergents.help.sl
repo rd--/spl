@@ -19,6 +19,14 @@ Stop when the current semiconvergent is within _epsilon_ of the last convergent.
 ]
 ```
 
+Approximations of `pi`:
+
+```
+>>> 1.pi.continuedFraction
+>>> .semiconvergents(1E-2)
+[2/1 3/1 13/4 16/5 19/6 22/7]
+```
+
 The best rational approximations to _(3 / 2).log2_ define equal divisions of the octave,
 that have especially good approximations to the just fifth:
 

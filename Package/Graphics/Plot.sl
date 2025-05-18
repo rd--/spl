@@ -624,3 +624,15 @@ Plot : [Object] { | pages format options |
 
 
 }
+
++Association {
+
+	discretePlot { :self |
+		[self.key, self.value].transposed.discretePlot
+	}
+
+	linePlot { :self |
+		[self.key, self.value].transposed.linePlot
+	}
+
+}

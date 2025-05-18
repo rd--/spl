@@ -17,8 +17,8 @@ _i % j_ is _i - n * j_, where _n_ is the quotient of _i / j_, rounded toward zer
 At negative numbers:
 
 ```
->>> (-5 % 3, -5 % 4)
-(1, 3)
+>>> (-5 % 3, -5 % 4, -1 % 3)
+(1, 3, 2)
 ```
 
 Rational numbers:

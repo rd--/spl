@@ -59,6 +59,8 @@ The ratio between two successive members of the Farey sequence is superparticula
 
 See also: fareySequence, Fraction, isSquareSuperparticular
 
+Guides: Xenharmonic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Superparticular_ratio),

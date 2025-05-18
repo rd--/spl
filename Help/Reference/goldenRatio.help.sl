@@ -159,7 +159,7 @@ Position of ones in a Fibonacci substitution system:
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
 
-Guides: Mathematical Constants
+Guides: Mathematical Constants, Xenharmonic Functions
 
 Unicode: U+03C6 φ Greek Small Letter Phi
 

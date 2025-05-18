@@ -30,4 +30,6 @@ For 12/6 and 15/8:
 
 See also: barlowBasicIndispensability, barlowIndigestibility, barlowIndispensability
 
+Guides: Xenharmonic Functions
+
 Further Reading: Barlow 1987

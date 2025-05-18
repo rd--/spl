@@ -7,9 +7,8 @@ Accessing:
 - `asIntegers`: intervals as integers
 - `asRatios`: intervals as ratios
 - `intervalMatrix`:  interval matrix
-- `primeLimit`: prime limit
-- `limit`: prime limit
 - `octave`: octave ratio
+- `primeLimit`: prime limit
 
 Alterations:
 
@@ -112,38 +111,6 @@ Prime Numbers:
 - `primeFactorization`: prime factors
 - `primeFactors`: prime factors
 
-Scale Functions:
-
-- `asLineDrawing`: line drawing
-- `asScale`: intervals to scale
-- `bjorklundsAlgorithm`: lattice divisions
-- `bresenhamLineAlgorithm`: lattice line
-- `combinationProductSet`: CPS
-- `degreeToKey`: degree to key
-- `eulerFokkerGenus`: Euler-Fokker genus
-- `horogramDrawing`: circular horogram
-- `horogramTable`: text horogram
-- `intervalClass`: interval class of
-- `intervalClasses`: interval classes
-- `intervalsBy`: intervals at step
-- `intervals`: intervals
-- `isImproper`: predicate
-- `isMomentOfSymmetry`: predicate
-- `isPhiWeightedMediantNoble`: predicate
-- `isProper`: predicate
-- `isStrictlyProper`: predicate
-- `mediant`: mediant
-- `momentOfSymmetry`: scale generator
-- `momentOfSymmetryPattern`: MOS
-- `phiWeightedMediant`: mediant
-- `rectangularHorogramDrawing`: drawing
-- `scalaScaleArchive`: scale archive
-- `stepArity`: step variety
-- `textDrawing`: text drawing
-- `tuningIndices`: scale indexing
-- `tuningSize`: scale tuning size
-- `weightedMediant`: mediant
-
 Testing:
 
 - `isConstantStructure`: is CS
@@ -152,7 +119,7 @@ Testing:
 - `isSuperparticular`: is superparticular
 - `isTuning`: is tuning
 
-Types & Traits:
+Traits & Types:
 
 - `CentsTuning`: cents tuning
 - `RatioTuning`: ratio tuning
@@ -162,4 +129,4 @@ Types & Traits:
 
 * * *
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Scale Functions, Xenharmonic Functions

@@ -31,6 +31,8 @@ true
 
 See also: convergents, mediant, phiWeightedMediant, weightedMediant
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Merciful_intonation)

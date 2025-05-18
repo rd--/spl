@@ -20,7 +20,7 @@ A proper, but not strictly proper, scale:
 [1 2; 3 4; 5 6; 6 7; 8 9; 10 11; 12]
 ```
 
-Of a ternary scale:
+Of a quaternary scale:
 
 ```
 >>> Scale(7, [3, 1, 1, 2], 'Slendro Alit')
@@ -31,6 +31,8 @@ Of a ternary scale:
 * * *
 
 See also: intervalClass, isProper, isStrictlyProper, Scale
+
+Guides: Scale Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_

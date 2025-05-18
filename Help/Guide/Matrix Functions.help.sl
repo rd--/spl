@@ -69,6 +69,7 @@ Constructing:
 General:
 
 - `adjugate`: adjugate or adjoint
+- `antitransposed`: antitransposition
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition

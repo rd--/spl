@@ -1,8 +1,8 @@
 # primeLimit
 
-- _primeLimit(aFraction | aTuning)_
+- _primeLimit(n/d)_
 
-Answer the largest prime number that is a factor of _aFraction_.
+Answer the largest prime number that is a factor of the fraction _n/d_.
 
 ```
 >>> 2:15.select { :each |
@@ -33,10 +33,19 @@ Plot:
 
 ![](sw/spl/Help/Image/primeLimit-A.svg)
 
+At `RatioTuning`:
+
+```
+>>> [1 8/7 4/3 14/9 16/9]
+>>> .asRatioTuning
+>>> .primeLimit
+7
+```
+
 * * *
 
-See also: primeFactors
+See also: primeFactors, RatioTuning
 
-Guides: Prime Number Functions
+Guides: Prime Number Functions, Tuning Functions
 
 Categories: Arithmetic, Primes

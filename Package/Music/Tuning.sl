@@ -20,10 +20,6 @@
 		true
 	}
 
-	limit { :self |
-		self.primeLimit
-	}
-
 	octave { :self |
 		self.typeResponsibility('@Tuning>>octave')
 	}

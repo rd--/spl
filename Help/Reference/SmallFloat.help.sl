@@ -10,6 +10,16 @@ A `Type` representing floating-point numbers like 23 or 3.141.
 'SmallFloat'
 ```
 
+There is no distinct integer type:
+
+```
+>>> 23 = 23.0
+true
+
+>>> 23 == 23.0
+true
+```
+
 The `encodeFloat32` method encodes the number as a 32-bit IEEE floating point value,
 the boolean parameter indicates if the encoding is in little (`true`) or big (`false`) endian form:
 

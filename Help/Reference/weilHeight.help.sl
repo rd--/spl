@@ -1,8 +1,8 @@
 # weilHeight
 
-- _weilHeight(aFraction)_
+- _weilHeight(n/d)_
 
-Answer twice `log2` of the maximum of `numerator` and `denominator`.
+Answer twice `log2` of the maximum of the `numerator` _n_ and `denominator` _d_ of the specified fraction.
 
 ```
 >>> 81/64.weilHeight
@@ -22,3 +22,5 @@ Threads over lists:
 * * *
 
 See also: tenneyHeight
+
+Guides: Xenharmonic Functions

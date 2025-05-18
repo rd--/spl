@@ -65,6 +65,10 @@ Scale : [Object] { | startIndex intervals description |
 		}
 	}
 
+	intervalVariety { :self :anInteger |
+		self.intervalClass(anInteger).size
+	}
+
 	isBinary { :self |
 		self.stepArity = 2
 	}

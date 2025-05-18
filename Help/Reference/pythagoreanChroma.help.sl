@@ -33,6 +33,8 @@ The Pythagorean minor second is narrower:
 
 See also: mercatorsComma, octaveReduced, pythagoreanComma, pythagoreanLimma, septimalComma, syntonicComma
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/2187/2048)

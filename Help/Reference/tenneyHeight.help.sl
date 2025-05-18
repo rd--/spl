@@ -1,15 +1,15 @@
 # tenneyHeight
 
-- _tenneyHeight(aFraction, base)_
-- _tenneyHeight(alpha)_ ⟹ _tenneyHeight(alpha, 2)_
+- _tenneyHeight(n/d, b=2)_
 
-Answer the Tenney harmonic distance for _aFraction_.
+Answer the Tenney harmonic distance for _aFraction_,
+also called the Tenney height or Tennery norm.
 
-The `log` in the indicated base (2 in the unary case) of the `benedettiHeight`:
+The `log` in the indicated base (two in the unary case) of the `benedettiHeight`:
 
 ```
 >>> 81/64.tenneyHeight
-12.340
+12.34
 
 >>> (81 * 64).log2
 12.34
@@ -56,10 +56,14 @@ Plot for a number of simple just ratios within the octave:
 
 * * *
 
-See also: benedettiHeight, eulerGradusSuavitatis, keesSemiHeight
+See also: benedettiHeight, eulerGradusSuavitatis, keesSemiHeight, wilsonHeight
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_
-[1](https://en.xen.wiki/w/Tenney_height)
+[1](https://en.xen.wiki/w/Tenney_norm)
+
+Further Reading: Tenney 1984
 
 Categories: Tuning

@@ -52,6 +52,8 @@ And so on indefinitely.
 
 See also: isMomentOfSymmetry, momentOfSymmetry, Scale
 
+Guides: Xenharmonic Functions
+
 References:
 _Anaphoria_
 [1](https://www.anaphoria.com/wilsonintroMOS.html),

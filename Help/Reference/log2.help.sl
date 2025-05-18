@@ -74,8 +74,13 @@ Plot over a subset of the reals:
 
 See also: log, log10
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Log2.html),
+[1](https://mathworld.wolfram.com/BinaryLogarithm.html)
+[2](https://reference.wolfram.com/language/ref/Log2.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Binary_logarithm),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Log2)

@@ -36,6 +36,8 @@ It has lattice coordinates _6 -2 0 -1_:
 
 See also: pythagoreanComma, syntonicComma
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/64/63)

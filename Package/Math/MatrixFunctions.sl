@@ -4,6 +4,19 @@
 		self.inverse * self.determinant
 	}
 
+	antitransposed { :self |
+		let [m, n] = self.shape;
+		let answer = [];
+		n.downToDo(1) { :i |
+			let row = [];
+			m.downToDo(1) { :j |
+				row.add(self[j][i])
+			};
+			answer.add(row)
+		};
+		answer
+	}
+
 	arrayRules { :self :zero |
 		let shape = self.shape;
 		let answer = [];
@@ -254,6 +267,25 @@
 		} {
 			self.error('List>>hadamardProduct: unequal shapes')
 		}
+	}
+
+	hankelMatrix { :c |
+		let m = c.size;
+		let r = [c.last] ++ (0 # (m - 1));
+		hankelMatrix(c, r)
+	}
+
+	hankelMatrix { :c :r |
+		let m = c.size;
+		let n = r.size;
+		{ :i :j |
+			let k = i + j - 1;
+			(k <= m).if {
+				c[k]
+			} {
+				r[k - m + 1]
+			}
+		}.table(1:m, 1:n)
 	}
 
 	heldKarpAlgorithm { :self |
@@ -1246,6 +1278,10 @@
 				}
 			}
 		}
+	}
+
+	hankelMatrix { :n |
+		[1 .. n].hankelMatrix
 	}
 
 	hilbertMatrix { :m :n |

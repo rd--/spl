@@ -1,10 +1,10 @@
 # weightedMediant
 
-- _weightedMediant(aFraction, anotherFraction, aNumber, anotherNumber)_
+- _weightedMediant(a/b, c/d, m, n)_
 
-Answer the weighted mediant of two fractions.
+Answer the weighted mediant of two fractions _a/b_ and _c/d_.
 Assign weight _m_ to the left fraction _a/b_,
-and weight _n_ to the right fraction _c/d,
+and weight _n_ to the right fraction _c/d_,
 the weighted mediant is _(ma + nc)/(mb + nd)_.
 
 ```
@@ -53,6 +53,8 @@ The noble (phi-weighted) mediant between 5/4 and 9/7:
 0.3820
 ```
 
+There is a predicate to determine if a φ-weighted mediant is noble:
+
 ```
 >>> isPhiWeightedMediantNoble(5/4, 9/7)
 true
@@ -61,6 +63,8 @@ true
 * * *
 
 See also: isPhiWeightedMediantNoble, mediant, phiWeightedMediant
+
+Guides: Xenharmonic Functions
 
 References:
 _Mathematica_

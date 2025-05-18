@@ -155,6 +155,8 @@ it is more usual to calculate the required primes vector.
 
 See also: asLineDrawing, asRatioTuning, gradyLatticeCoordinates, Graph, latticePrimes, wilsonLatticeCoordinates
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Harmonic_lattice_diagram),

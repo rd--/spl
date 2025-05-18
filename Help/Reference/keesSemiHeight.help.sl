@@ -1,9 +1,10 @@
 # keesSemiHeight
 
-- _keesSemiHeight(aFraction)_
+- _keesSemiHeight(n/d)_
 
 Kees semi-height function.
-The maximum of the `numerator` and `denominator` of _aFraction_ with any factors of two deleted.
+The maximum of the `numerator` _n_ and `denominator` _d_ of the specified fraction,
+with any factors of two deleted.
 
 ```
 >>> 15/14.keesSemiHeight
@@ -44,6 +45,8 @@ Threads over lists:
 * * *
 
 See also: benedettiHeight, tenneyHeight, withoutFactorsOfTwo
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

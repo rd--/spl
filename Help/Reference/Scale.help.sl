@@ -135,9 +135,10 @@ See also: asLineDrawing, asScale, degreeToKey, intervalClass, intervalClasses, i
 
 References:
 _Xenharmonic_
-[1](https://en.xen.wiki/w/Interval_class)
-[2](https://en.xen.wiki/w/Step_variety)
-[3](https://en.xen.wiki/w/MOS_scale)
+[1](https://en.xen.wiki/w/Scale)
+[2](https://en.xen.wiki/w/Interval_class)
+[3](https://en.xen.wiki/w/Step_variety)
+[4](https://en.xen.wiki/w/MOS_scale)
 
 Further Reading: Rothenberg 1977
 

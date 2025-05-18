@@ -31,7 +31,7 @@ A five-limit tuning specified as a `List` of `Fraction`s:
 >>> let r = [1/1 6/5 4/3 3/2 8/5];
 >>> let t = r.asRatioTuning;
 >>> (
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	t.octave,
 >>> 	t.asIntegers,
 >>> 	t.asCents.rounded
@@ -50,7 +50,7 @@ A seven-limit tuning specified as a `List` of integers:
 >>> let i = [63 72 84 98 112];
 >>> let t = i.asRatioTuning;
 >>> (
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	t.octave,
 >>> 	t.asRatios,
 >>> 	t.asCents.rounded
@@ -76,7 +76,7 @@ A seven-limit just intonation approximation of 13-tone equal temperament:
 >>> let c = [0, k .. 1108];
 >>> let j = t.asCents;
 >>> (
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	c.rounded,
 >>> 	j.rounded,
 >>> 	(j - c).rounded
@@ -105,7 +105,7 @@ An Erv Wilson scale (9 July 1967) specified as integers:
 >>> 	600 625 672 700 750 800
 >>> 	840 875 960 1000 1050 1120
 >>> ].asRatioTuning;
->>> (t.limit, t.asRatios)
+>>> (t.primeLimit, t.asRatios)
 (
 	7,
 	[

@@ -64,10 +64,6 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 		self.ratios.allSatisfy(isFraction:/1)
 	}
 
-	limit { :self |
-		self.primeLimit
-	}
-
 	primeLimit { :self |
 		self.cached('primeLimit') {
 			self.ratios.primeLimit.max
@@ -141,7 +137,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 			self.description,
 			self.asRatios,
 			self.octave,
-			self.limit
+			self.primeLimit
 		)
 	}
 

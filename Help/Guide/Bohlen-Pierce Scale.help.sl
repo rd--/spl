@@ -10,7 +10,7 @@ The Bohlen-Pierce scale divides the tritave into thirteen steps:
 >>> 	t.ratios,
 >>> 	t.size,
 >>> 	t.octave,
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	t.ratiosWithOctave.ratios
 >>> )
 (
@@ -42,7 +42,7 @@ A nine note subset of the thirteen note Bohlen-Pierce scale:
 >>> 	t.ratios,
 >>> 	t.size,
 >>> 	t.octave,
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	t.ratiosWithOctave.ratios
 >>> )
 (
@@ -72,7 +72,7 @@ A second nine note subset of the thirteen note Bohlen-Pierce scale:
 >>> 	t.ratios,
 >>> 	t.size,
 >>> 	t.octave,
->>> 	t.limit,
+>>> 	t.primeLimit,
 >>> 	t.ratiosWithOctave.ratios
 >>> )
 (

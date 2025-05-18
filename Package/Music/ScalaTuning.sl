@@ -29,10 +29,6 @@ ScalaTuning : [Object, Tuning] { | contents |
 		self.contents.includesKey('limit')
 	}
 
-	limit { :self |
-		self.contents['limit']
-	}
-
 	name { :self |
 		self.contents['name']
 	}
@@ -67,7 +63,7 @@ ScalaTuning : [Object, Tuning] { | contents |
 	}
 
 	primeLimit { :self |
-		self.limit
+		self.contents['limit']
 	}
 
 }

@@ -1,10 +1,10 @@
 # stepArity
 
-- _stepArity(aScale)_
+- _stepArity(scale)_
 
 Answer the step arity,
 also called step variety,
-of _aScale_.
+of _scale_.
 
 The step arity is the number of step sizes.
 Scales with a step arity of one are called unary scales,
@@ -38,3 +38,7 @@ A ternary scale:
 * * *
 
 See also: intervalClasses, scalaScaleArchive, Scale
+
+References:
+_Xenharmonic_
+[1](https://en.xen.wiki/w/Step_variety)

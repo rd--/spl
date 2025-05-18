@@ -1,9 +1,8 @@
 # octaveReduced
 
-- _octaveReduced(aFraction, aNumber)_
-- _octaveReduced(α)_ ⟹ _octaveReduced(α, 2)_
+- _octaveReduced(n/d, o=2)_
 
-Answer _aFraction_ reduced to lie within `one` and the octave specified by _aNumber_.
+Answer the `Fraction` _n/d_ reduced to lie within `one` and the octave specified by the number _o_.
 
 At `Fraction`:
 
@@ -41,6 +40,8 @@ true
 * * *
 
 See also: ^, log2
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_

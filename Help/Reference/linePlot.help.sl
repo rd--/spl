@@ -1,6 +1,9 @@
 # linePlot
 
-- _linePlot(c)_
+- _linePlot([y₁ y₂ …])_
+- _linePlot([x₁ y₁; x₂ y₂; …])_
+- _linePlot([x₁ y₁ z₁; x₂ y₂ z₂; …])_
+- _linePlot([x₁ x₂ …] → [y₁ y₂ …])_
 
 Plot data from a collection _c_.
 

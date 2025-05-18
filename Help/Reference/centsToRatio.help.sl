@@ -66,6 +66,8 @@ The inverse is `ratioToCents`:
 
 See also: asFraction, ratioToCents, Tuning
 
+Guides: Xenharmonic Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Cent_(music)),

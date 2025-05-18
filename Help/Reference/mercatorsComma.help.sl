@@ -43,6 +43,8 @@ It is also the amount by which a stack of eight apotomes exceeds a 27/16 major s
 
 See also: holdersComma, pythagoreanComma, septimalComma, syntonicComma
 
+Guides: Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Mercator%27s_comma)

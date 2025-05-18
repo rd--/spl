@@ -1,8 +1,8 @@
 # oddLimitSet
 
-- _oddLimitSet(anInteger)_
+- _oddLimitSet(n)_
 
-Answer the odd limit set of _anInteger_,
+Answer the odd limit set of the integer _n_,
 which is the set of all fractions with are within this odd-limit.
 
 The answer is given `octaveReduced` and `sorted`.
@@ -26,6 +26,8 @@ The answer is given `octaveReduced` and `sorted`.
 * * *
 
 See also: octaveReduced, oddLimit, sorted
+
+Guides: Xenharmonic Functions
 
 References:
 _Xenharmonic_
