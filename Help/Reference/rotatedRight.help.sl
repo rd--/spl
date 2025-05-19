@@ -36,8 +36,6 @@ Rotating evenly and oddly sized vectors left and right by half of the size:
 [4 5 6 7 1 2 3]
 ```
 
-```
-
 * * *
 
 See also: atWrap, rotatedLeft

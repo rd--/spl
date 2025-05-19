@@ -21,7 +21,7 @@ The last sublist does not need to be complete:
 Find the period of a continuous function,
 using `~` to compare items:
 
-~~~
+~~~spl svg=A
 [0, 1/6.pi .. 8.pi].cos
 .findRepeatBy(~)
 .discretePlot

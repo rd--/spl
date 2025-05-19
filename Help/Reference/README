@@ -14,10 +14,12 @@ Write image files:
 system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
-'ls ~/sw/spl/Help/Image/* | wc -l' => 1304
+'ls ~/sw/spl/Help/Image/* | wc -l' => 1422
 
 ~~~
 system.splFileName('Help/Reference').terseSuperColliderGraphSummary(verbose: false, pattern: '.*')
 ~~~
 
-Total => 566
+Total => 568
+
+Linting: 2921 file(s)

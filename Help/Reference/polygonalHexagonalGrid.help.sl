@@ -22,7 +22,7 @@ A triangular hexagonal grid:
 let c = [0 0; 10 0; 10 10];
 [
 	c.Polygon
-	c.polygonalHexgonalGrid
+	c.polygonalHexagonalGrid
 ].LineDrawing
 ~~~
 

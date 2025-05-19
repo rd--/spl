@@ -11,6 +11,7 @@ true
 
 This is equivalent to `noneSatisfy` of `identity`:
 
+```
 >>> ([1 3 5 7 9] > [3 5 7 9 11])
 >>> .noneSatisfy(identity:/1)
 true

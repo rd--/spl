@@ -4,7 +4,7 @@
 
 Answer a random number logarithmically distrbuted between _a_ and _b_.
 
-~~~
+~~~spl svg=A
 let r = Sfc32(678123);
 (
 	{

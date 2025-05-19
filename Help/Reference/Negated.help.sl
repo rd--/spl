@@ -16,18 +16,6 @@ At `SmallFloat`:
 -9
 ```
 
-At `Ugen`:
-
-```
-Times(
-	Negated(
-		SinOsc(220, 0),
-		Saw(110)
-	),
-	0.1
-)
-```
-
 * * *
 
 See also: -, +, *, /, Divide, Minus, Plus, Times

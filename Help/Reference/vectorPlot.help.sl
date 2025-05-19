@@ -100,7 +100,6 @@ Plot the vector field _(y,sin(-x))_:
 
 ![](sw/spl/Help/Image/vectorPlot-I.svg)
 
-
 Plot the vector field _(sin(y),cos(x))_:
 
 ~~~spl svg=J

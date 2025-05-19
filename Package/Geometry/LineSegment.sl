@@ -43,6 +43,14 @@ LineSegment : [Object] { | u v |
 		self.u.midpoint(self.v)
 	}
 
+	project { :self :projection |
+		let f:/1 = projection.asUnaryBlock;
+		LineSegment(
+			f(self.u),
+			f(self.v)
+		)
+	}
+
 	vertexCoordinates { :self |
 		[self.u, self.v]
 	}

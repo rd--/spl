@@ -46,7 +46,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: binomial, gamma, logGamma
+See also: betaRegularized, binomial, gamma, logGamma
 
 References:
 _Dlmf_

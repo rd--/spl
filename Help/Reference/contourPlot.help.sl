@@ -32,7 +32,7 @@ Display the contours of the Matlab peaks function at _z = 1_:
 let i = (-3 -- 3).subdivide(20);
 { :x :y |
 	x.matlabPeaksFunction(y)
-}.contourPlot(i, i, [-4 0 2])
+}.contourPlot(i, i, [1])
 ~~~
 
 ![](sw/spl/Help/Image/contourPlot-C.svg)

@@ -78,7 +78,7 @@ let [y0L, mL, _] = y.simpleLinearRegression;
 	Line([1 1; n n]),
 	[x y].transposed.PointCloud,
 	Line([[0, y0], [n, n * m]]),
-	Line([[0, slrY0], [n, n * slrM]])
+	Line([[0, y0L], [n, n * mL]])
 ].LineDrawing
 ~~~
 

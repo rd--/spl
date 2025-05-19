@@ -39,7 +39,6 @@ eliding the _s_ coordinate which can be inferred:
 
 ![](sw/spl/Help/Image/fromHexagonalCoordinates-B.svg)
 
-
 Generate a 5×5 hexagonal grid,
 without adjusting _q_ by _r_:
 

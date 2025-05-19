@@ -6,7 +6,7 @@ Answer a run sequence plot of the univariate numeric data at the list _y_.
 
 Plot data with a location shift for the last third of the data:
 
-~~~
+~~~spl svg=A
 [
 	180 170 180 190 180
 	170 150 140 150 150

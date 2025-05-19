@@ -22,7 +22,10 @@ Calculate the `mean` and `standardDeviation` for a sample of 300 items from the 
 
 ```
 >>> let r = Sfc32(812947);
->>> let x = r.reservoirSampleAlgorithmL([1 .. 999], 300);
+>>> let x = r.reservoirSampleAlgorithmL(
+>>> 	[1 .. 999],
+>>> 	300
+>>> );
 >>> (x.mean, x.standardDeviation)
 (496.69, 291.92)
 ```

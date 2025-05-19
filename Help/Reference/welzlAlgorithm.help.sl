@@ -21,7 +21,6 @@ Circle([1 1], 5)
 Circle([6.5, 6], 5.3151)
 ```
 
-
 With ten points:
 
 ```
@@ -48,7 +47,6 @@ let p = [
 
 ![](sw/spl/Help/Image/welzlAlgorithm-A.svg)
 
-
 Draw points and circle,
 the circle is inscribed on two points:
 
@@ -61,7 +59,6 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 ~~~
 
 ![](sw/spl/Help/Image/welzlAlgorithm-B.svg)
-
 
 * * *
 
