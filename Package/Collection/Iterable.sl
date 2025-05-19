@@ -340,6 +340,16 @@
 		self.reduce(min:/2)
 	}
 
+	minBy { :self :aBlock:/2 |
+		self.reduce { :p :q |
+			aBlock(p, q).if {
+				p
+			} {
+				q
+			}
+		}
+	}
+
 	minimalBy { :self :aBlock:/1 |
 		let z = self.collect(aBlock:/1);
 		self.atAll(z.indicesOf(z.min))

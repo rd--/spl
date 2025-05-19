@@ -137,6 +137,23 @@
 		}
 	}
 
+	allNearestSmallerValues { :self |
+		let n = self.size;
+		let p = List(n);
+		let r = List(n);
+		2.toDo(n) { :i |
+			let j = i - 1;
+			{
+				self[j] >= self[i]
+			}.whileTrue {
+				j := p[j]
+			};
+			p[i] := j;
+			r[i] := self[j]
+		};
+		[p, r]
+	}
+
 	asDigitsAtInDo { :self :anInteger :aCollection :aBlock:/1 |
 		self.do { :each |
 			aCollection[anInteger] := each;

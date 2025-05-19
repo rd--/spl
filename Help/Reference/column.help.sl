@@ -14,7 +14,7 @@ The second column of a 3×3 matrix:
 C.f. `columns` to answer a column vector:
 
 ```
->>> [3 3].iota.columns(2:2)
+>>> [3 3].iota.columns([2])
 [
 	2;
 	5;

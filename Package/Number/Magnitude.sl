@@ -106,7 +106,7 @@
 
 +@Object {
 
-	maxBy { :self :aMagnitude :aBlock:/1 |
+	maxOn { :self :aMagnitude :aBlock:/1 |
 		(self.aBlock > aMagnitude.aBlock).if {
 			self
 		} {
@@ -114,7 +114,7 @@
 		}
 	}
 
-	minBy { :self :aMagnitude :aBlock:/1 |
+	minOn { :self :aMagnitude :aBlock:/1 |
 		(self.aBlock < aMagnitude.aBlock).if {
 			self
 		} {

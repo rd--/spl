@@ -1,29 +1,14 @@
 # minBy
 
-- _minBy(p, q, aBlock:/1)_
+- _minBy(c, f:/2)_
 
-Answers which of _p_ or _q_ answers as `min` according to _aBlock_,
-that is the `min` accoring to the transformed _p_ and _q_,
-answering either _p_ or _q_.
+Answers which item of the collection _c_ is the least according to the comparator _f_.
 
 ```
->>> -2J2.minBy(4J1, abs:/1)
--2J2
-
->>> [1 2 3].minBy([4 5], size:/1)
-[4 5]
-```
-
-Note this is not the `min` of the transformed values:
-
-```
->>> -2J2.abs.min(4J1.abs)
-2.82843
-
->>> [1 2 3].size.min([4 5].size)
-2
+>>> [1 2; 3 4; 2 1; 1 0].minBy(precedes:/2)
+[1 0]
 ```
 
 * * *
 
-See also: <, maxBy, max, min, minimalBy, reduce
+See also: <, max, min, minOn, minimalBy, reduce, sortBy, sortOn

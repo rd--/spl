@@ -334,7 +334,7 @@ Complex : [Object, Number] { | real imaginary |
 
 	max { :self :anObject |
 		anObject.isComplex.if {
-			self.maxBy(anObject, abs:/1)
+			self.maxOn(anObject, abs:/1)
 		} {
 			anObject.adaptToComplexAndApply(self, max:/1)
 		}
@@ -342,7 +342,7 @@ Complex : [Object, Number] { | real imaginary |
 
 	min { :self :anObject |
 		anObject.isComplex.if {
-			self.minBy(anObject, abs:/1)
+			self.minOn(anObject, abs:/1)
 		} {
 			anObject.adaptToComplexAndApply(self, min:/1)
 		}
