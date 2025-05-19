@@ -26,4 +26,6 @@ A scale that is proper, but not strictly proper:
 
 See also: intervalClasses, isMomentOfSymmetry, isImproper, isProper, Scale
 
+Guides: Scale Functions
+
 Further Reading: Rothenberg 1977

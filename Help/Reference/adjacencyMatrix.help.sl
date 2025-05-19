@@ -180,7 +180,7 @@ The adjacency matrix of a grid graph:
 
 See also: adjacencyGraph, adjacencyList, Graph, incidenceList
 
-Guides: Graph Functions
+Guides: Graph Functions, Matrix Functions
 
 References:
 _Mathematica_

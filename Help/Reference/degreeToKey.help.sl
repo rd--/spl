@@ -159,6 +159,8 @@ Negative degrees:
 
 See also: cancelFlat, cancelSharp, DegreeToKey, flat, Scale, sharp
 
+Guides: Scale Functions
+
 References:
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SimpleNumber.html#-degreeToKey)

@@ -15,3 +15,5 @@ At `Scale`:
 * * *
 
 See also: asLineDrawing, Scale, String
+
+Guides: Scale Functions

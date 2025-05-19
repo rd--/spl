@@ -6,12 +6,6 @@
 At `String`,
 answer a string consisting of the string _s_ repeated _n_ times.
 
-+String{
-	repeat { :self :n |
-		(self # n).stringCatenate
-	}
-}
-
 A `String` of twenty-three copies of the letter _a_:
 
 ```

@@ -32,15 +32,23 @@ which is a rotation of:
 The two forms have the same least rotation:
 
 ```
->>> [2 1 2 2 1 2 2; 2 2 2 1 2 2 1].collect(
+>>> [
+>>> 	2 1 2 2 1 2 2;
+>>> 	2 2 2 1 2 2 1
+>>> ].collect(
 >>> 	lexicographicallyLeastRotation:/1
 >>> )
-[1 2 2 1 2 2 2; 1 2 2 1 2 2 2]
+[
+	1 2 2 1 2 2 2;
+	1 2 2 1 2 2 2
+]
 ```
 
 * * *
 
 See also: bjorklundsAlgorithmDo, bresenhamLineAlgorithm, euclideanAlgorithm, lexicographicallyLeastRotation
+
+Guides: Scale Functions
 
 Further Reading: Bjorklund 1989, Demaine 2005
 

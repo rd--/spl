@@ -27,6 +27,7 @@ Accessing:
 
 Rearranging:
 
+- `squareForm`
 - `swapColumns`
 - `swapRows`
 

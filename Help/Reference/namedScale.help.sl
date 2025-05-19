@@ -35,3 +35,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: LibraryItem, intervalName, namedScales, Scale
+
+Guides: Scale Functions

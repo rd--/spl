@@ -26,4 +26,6 @@ true
 
 See also: isMomentOfSymmetry, isProper, isStrictlyProper, Scale
 
+Guides: Scale Functions
+
 Further Reading: Rothenberg 1977

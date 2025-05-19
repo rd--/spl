@@ -25,6 +25,8 @@ Answer the cyclic intervals of _aScale_ at the specified distance _anInteger_.
 
 See also: intervalClass, intervalClasses, intervals, Scale
 
+Guides: Scale Functions, Xenharmonic Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Interval_class)

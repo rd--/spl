@@ -48,7 +48,7 @@ A drawing of the first eleven steps of an irrational moment of symmetry scale co
 
 See also: horogramDrawing, horogramTable, Line, LineDrawing, momentOfSymmetry, rectangularPartitionsDrawing
 
-Guides: Xenharmonic Functions
+Guides: Scale Functions, Xenharmonic Functions
 
 References:
 _Anaphoria_

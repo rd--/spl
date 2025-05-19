@@ -1151,6 +1151,25 @@
 		[u, s, v]
 	}
 
+	squareForm { :u |
+		let k = u.size;
+		let n = (1 + sqrt(1 + (8 * k))) / 2;
+		n.isInteger.if {
+			let p = u.takeList([n - 1 .. 0]);
+			let q = p.collect { :each |
+				each.padLeft([n], 0)
+			};
+			2.toDo(n) { :i |
+				1.toDo(i - 1) { :j |
+					q[i][j] := q[j][i]
+				}
+			};
+			q
+		} {
+			u.error('squareForm: invalid vector')
+		}
+	}
+
 	svd { :self |
 		self.singularValueDecomposition
 	}

@@ -1,8 +1,8 @@
 # isProper
 
-- _isProper(aRange | aScale)_
+- _isProper(x)_
 
-Answer `true` if _aRange_ or _aScale_ is proper, else `false`.
+Answer `true` if _x_ is proper, else `false`.
 
 A `Range` is proper if it is not empty,
 and if the `stop` value is the `last` value:
@@ -43,5 +43,7 @@ true
 * * *
 
 See also: intervalClasses, isMomentOfSymmetry, isImproper, isNormal, isStrictlyProper, Range, scalaScaleArchive, Scale
+
+Guides: Scale Functions
 
 Further Reading: Rothenberg 1977

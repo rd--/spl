@@ -14,3 +14,5 @@ Answer the intervals of _aScale_.
 * * *
 
 See also: intervalClass, intervalClasses, intervalsBy, Scale
+
+Guides: Scale Functions

@@ -126,6 +126,12 @@
 		((u - v).abs ^ p).sum ^ (1 / p)
 	}
 
+	minkowskiDistance { :p |
+		{ :u :v |
+			((u - v).abs ^ p).sum ^ (1 / p)
+		}
+	}
+
 }
 
 +String {
@@ -136,6 +142,70 @@
 
 	hammingDistance { :self :aString |
 		self.characters.hammingDistance(aString.characters)
+	}
+
+}
+
++List {
+
+	directedHausdorffMetric { :u :v :f:/2 |
+		let cMax  = 0;
+		let a = nil;
+		let b = nil;
+		u.withIndexDo { :x :i |
+			let cMin = Infinity;
+			let k = nil;
+			v.withIndexDo { :y :j |
+				let d = f(x, y);
+				(d < cMin).ifTrue {
+					cMin := d;
+					k := j
+				}
+			};
+			(cMin > cMax).ifTrue {
+				cMax := cMin;
+				a := i;
+				b := k
+			}
+		};
+		[cMax, a, b]
+	}
+
+	directedHausdorffMetric { :u :v |
+		directedHausdorffMetric(u, v, euclideanDistance:/2)
+	}
+
+	hausdorffDistance { :u :v :f:/2 |
+		hausdorffMetric(u, v, f:/2).at(1)
+	}
+
+	hausdorffDistance { :u :v |
+		hausdorffMetric(u, v).at(1)
+	}
+
+	hausdorffMetric { :u :v :f:/2 |
+		let a = directedHausdorffMetric(u, v, f:/2);
+		let b = directedHausdorffMetric(v, u, f:/2);
+		(a[1] > b[1]).if { a } { b }
+	}
+
+	hausdorffMetric { :u :v |
+		hausdorffMetric(u, v, euclideanDistance:/2)
+	}
+
+	pairwiseDistances { :u :f:/2 |
+		let k = u.size;
+		let answer = [];
+		1.toDo(k) { :i |
+			(i + 1).toDo(k) { :j |
+				answer.add(f(u[i], u[j]))
+			}
+		};
+		answer
+	}
+
+	pairwiseDistances { :u |
+		pairwiseDistances(u, euclideanDistance:/2)
 	}
 
 }

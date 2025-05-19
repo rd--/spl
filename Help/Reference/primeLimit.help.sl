@@ -46,6 +46,6 @@ At `RatioTuning`:
 
 See also: primeFactors, RatioTuning
 
-Guides: Prime Number Functions, Tuning Functions
+Guides: Prime Number Functions, Scale Functions, Tuning Functions
 
 Categories: Arithmetic, Primes

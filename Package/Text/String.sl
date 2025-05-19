@@ -781,6 +781,10 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		>
 	}
 
+	repeat { :self :n |
+		(self # n).stringCatenate
+	}
+
 	replaceString { :self :stringToFind :stringToReplaceWith |
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;

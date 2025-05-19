@@ -10,6 +10,7 @@
 - `euclideanDistance`
 - `graphDistance`
 - `hammingDistance`
+- `hausdorffDistance`
 - `levenshteinDistance`
 - `manhattanDistance`
 - `minkowskiDistance`
@@ -24,6 +25,10 @@ Dissimilarity:
 
 - `jaccardDissimilarity`
 - `matchingDissimilarity`
+
+Vectors:
+
+- `pairwiseDistances`
 
 Matrices:
 

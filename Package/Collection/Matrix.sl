@@ -291,10 +291,12 @@
 	condensedDistanceMatrix { :self :aBlock:/2 |
 		let k = self.size;
 		let answer = [];
-		1.toDo(k) { :i |
+		1.toDo(k - 1) { :i |
+			let row = [];
 			(i + 1).toDo(k) { :j |
-				answer.add(aBlock(self[i], self[j]))
-			}
+				row.add(aBlock(self[i], self[j]))
+			};
+			answer.add(row)
 		};
 		answer
 	}

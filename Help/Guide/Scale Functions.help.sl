@@ -6,6 +6,8 @@ Traits and Types:
 
 Accessing:
 
+- `description`
+- `intervals`
 - `primeLimit`
 - `stepArity`
 - `tuningIndices`
@@ -13,7 +15,8 @@ Accessing:
 
 Catalogues:
 
-- `scalaScaleArchive`: scale archive
+- `scalaScaleArchive`
+- `namedScale`
 
 Converting:
 

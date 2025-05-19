@@ -48,6 +48,16 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/haversine-A.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=B
+[-1.pi.j(-1), 1.pi.j(1)].complexPlot { :z |
+	z.haversine
+}
+~~~
+
+![](sw/spl/Help/Image/haversine-B.png)
+
 * * *
 
 See also: cos, sin, tan

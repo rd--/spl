@@ -24,7 +24,7 @@ Given first column and last row:
 >>> [1 2 3].hankelMatrix([3 4 5 6])
 [
 	1 2 3 4;
-	2 3 4 5
+	2 3 4 5;
 	3 4 5 6
 ]
 ```

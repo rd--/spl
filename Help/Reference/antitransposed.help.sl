@@ -50,8 +50,8 @@ The antitranspose of a Hankel matrix:
 ```
 >>> 3.hankelMatrix.antitransposed
 [
-	0 0 3
-	0 3 2
+	0 0 3;
+	0 3 2;
 	3 2 1
 ]
 ```

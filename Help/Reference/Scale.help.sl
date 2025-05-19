@@ -133,6 +133,8 @@ Scale(1, [2 2 1 2 2 2 1], 'Maj.')
 
 See also: asLineDrawing, asScale, degreeToKey, intervalClass, intervalClasses, intervals, intervalsBy, isImproper, isMomentOfSymmetry, isProper, isStrictlyProper, scalaScaleArchive, stepArity, textDrawing, Tuning
 
+Guides: Scale Functions, Tuning Functions
+
 References:
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Scale)

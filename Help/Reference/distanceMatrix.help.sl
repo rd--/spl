@@ -1,10 +1,10 @@
 # distanceMatrix
 
-- _distanceMatrix(aSequence, anotherSequence, aBlock:/1)_
-- _distanceMatrix(alpha, beta)_ ⟹ _distanceMatrix(alpha, beta, euclideanDistance:/2)_
-- _distanceMatrix(alpha)_ ⟹ _distanceMatrix(alpha, alpha)_
+- _distanceMatrix(u, v, f:/2)_
+- _distanceMatrix(u, v)_
+- _distanceMatrix(u)_
 
-Answer the matrix of distances between each pair of elements.
+Answer the matrix of distances between each pair of elements in the vectors _u_ and _v_.
 In the unary and binary cases the distance function is `euclideanDistance`.
 
 Compute a distance matrix from a list of integers:
@@ -110,7 +110,9 @@ Distance matrix of a 3×2 matrix:
 
 * * *
 
-See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer
+See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer, pairwiseDistances
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # isMomentOfSymmetry
 
-- _isMomentOfSymmetry(s)_
+- _isMomentOfSymmetry(aScale)_
 
-Answer `true` if the `Scale` _s_ is a moment of symmetry scale, else `false`.
+Answer `true` if the _aScale_ is a moment of symmetry `Scale`, else `false`.
 
 Tells if each `intervalClass`,
 with the exception of the _period_,
@@ -28,7 +28,7 @@ false
 
 See also: intervalClass, intervalClasses, isBinary, isProper, isStrictlyProper, momentOfSymmetry, Scale
 
-Guides: Xenharmonic Functions
+Guides: Scale Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_

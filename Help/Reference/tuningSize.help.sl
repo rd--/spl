@@ -34,3 +34,5 @@ which is the size of the `intervals`:
 * * *
 
 See also: intervals, Scale
+
+Guides: Scale Functions, Tuning Functions

@@ -46,5 +46,7 @@ A table of the _5/12_ moment of symmetry scale construction:
 
 See also: horogramDrawing, Html, integerPartitionsTable, momentOfSymmetry, rectangularHorogramDrawing
 
+Guides: Scale Functions, Xenharmonic Functions
+
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Horogram)
