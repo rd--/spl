@@ -87,6 +87,7 @@
 	'Geometry-CartesianCoordinates'
 	'Geometry-Circle'
 	'Geometry-Contour'
+	'Geometry-ConvexHull'
 	'Geometry-CylindricalCoordinates'
 	'Geometry-DelaunayTriangulation'
 	'Geometry-Disk'

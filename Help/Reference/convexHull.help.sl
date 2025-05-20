@@ -21,7 +21,7 @@ let h = p.convexHull;
 
 * * *
 
-See also: convexHullIndices, delaunayMesh, DelaunayTriangulation, Polygon
+See also: convexHullIndices, delaunayMesh, DelaunayTriangulation, grahamScan, Polygon
 
 References:
 _Mathematica_

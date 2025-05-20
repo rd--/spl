@@ -81,6 +81,7 @@
 	'CartesianCoordinates'
 	'Circle'
 	'Contour'
+	'ConvexHull'
 	'DelaunayTriangulation'
 	'Disk'
 	'Ellipse'

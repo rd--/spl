@@ -141,7 +141,7 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		let [u, v] = self;
 		let m = 0.5.pi.rotationMatrix;
 		InfiniteLine(
-			u.midpoint(v),
+			[u v].midpoint,
 			(v - u).dot(m)
 		)
 	}
