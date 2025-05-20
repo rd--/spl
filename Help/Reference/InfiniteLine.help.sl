@@ -1,8 +1,22 @@
 # InfiniteLine
 
-- _InfiniteLine(aPoint, aVector)_
+- _InfiniteLine([p1 p2])_
+- _InfiniteLine(p, v)_
 
-A `Type` to represent the infinite straight line passing through _aPoint_ in the direction _aVector_.
+A `Type` to represent and infinite straight line,
+defined either as passing through _p_ in the direction _v_,
+or as passing through the points _p1_ and _p2_.
+
+```
+>>> InfiniteLine([0 0], [1 1])
+InfiniteLine([0 0], [1 1])
+
+>>> InfiniteLine([2 0; 0 3])
+InfiniteLine([2, 0], [-0.5547, 0.8321])
+
+>>> InfiniteLine([1 2], [1 2/3])
+InfiniteLine([1 2], [1 2/3])
+```
 
 * * *
 

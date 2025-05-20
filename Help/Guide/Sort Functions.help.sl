@@ -28,10 +28,13 @@ Order:
 
 - `deepMax`
 - `deepMin`
-- `maxBy`
+- `maxOn`
 - `max`
+- `maximalBy`
 - `minBy`
+- `minOn`
 - `min`
+- `minimalBy`
 - `ordering`
 
 Predicates:

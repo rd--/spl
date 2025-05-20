@@ -1,6 +1,6 @@
 # planarAngle
 
-- _planarAngle([q1, p, q2])_
+- _planarAngle([q₁ p q₂])_
 
 Answer the angle subtended by the line segment _q1, q2_ from _p_.
 
@@ -86,7 +86,9 @@ Relation between `planarAngle` of _(q2, p, q1)_ and _(q1, p, q2)_:
 
 * * *
 
-See also: anglePath, dot, vectorAngle
+See also: angleBisector, anglePath, dot, vectorAngle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

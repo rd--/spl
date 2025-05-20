@@ -31,6 +31,8 @@ swapping _v_ & _w_:
 
 See also: HalfPlane
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DihedralAngle.html)

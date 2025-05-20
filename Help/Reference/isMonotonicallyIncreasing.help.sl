@@ -28,7 +28,8 @@ false
 The sequence must not contain infinities:
 
 ```
->>> [1 2 3 Infinity].isMonotonicallyIncreasing
+>>> [1 2 3 Infinity]
+>>> .isMonotonicallyIncreasing
 false
 ```
 

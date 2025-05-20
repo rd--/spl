@@ -73,6 +73,10 @@ Polygon : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
 
+	midpointPolygon { :self |
+		self.vertexCoordinates.midpointPolygon.Polygon
+	}
+
 	project { :self :projection |
 		Polygon(
 			self.vertexCoordinates.collect(projection.asUnaryBlock)
@@ -128,6 +132,12 @@ Polygon : [Object] { | vertexCoordinates |
 				}
 			};
 			answer
+		}
+	}
+
+	midpointPolygon { :self |
+		(1 .. self.size).collect { :i |
+			[self.at(i), self.atWrap(i + 1)].midpoint
 		}
 	}
 

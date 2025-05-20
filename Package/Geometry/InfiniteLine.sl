@@ -20,9 +20,13 @@ InfiniteLine : [Object] { | point vector |
 
 +List {
 
+	InfiniteLine { :self |
+		let [p1, p2] = self;
+		InfiniteLine(p1, (p2 - p1).normalize)
+	}
+
 	InfiniteLine { :aPoint :aVector |
 		newInfiniteLine().initializeSlots(aPoint, aVector)
 	}
 
 }
-

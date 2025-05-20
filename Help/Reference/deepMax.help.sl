@@ -13,6 +13,6 @@ At 3×3 matrix:
 
 * * *
 
-See also: ceiling, deepMin, deepReduce, maxBy, max, min
+See also: ceiling, deepMin, deepReduce, maxOn, max, min
 
 Categories: Testing

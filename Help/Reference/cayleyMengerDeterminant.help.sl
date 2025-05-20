@@ -30,7 +30,9 @@ Compute the content of a four-dimensional simplex:
 
 * * *
 
-See also: cayleyMengerMatrix
+See also: cayleyMengerMatrix, heronsFormula, shoelaceFormula
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

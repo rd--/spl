@@ -25,4 +25,6 @@ At `List`, sort into ascending order:
 
 See also: mergeSortBy, quickSort, sortBy
 
+Guides: Sort Functions
+
 Categories: Sorting

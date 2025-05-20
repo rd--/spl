@@ -43,6 +43,8 @@ At `Polygon`:
 
 See also: Circle, circumference, perimeter, Line, Polygon, Rectangle, regularPolygon
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArcLength.html)

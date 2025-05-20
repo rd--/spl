@@ -36,4 +36,6 @@ Sort a `List`:
 
 See also: sorted
 
+Guides: Sort Functions
+
 Categories: Sorting

@@ -95,6 +95,8 @@ let p = [
 
 See also: Circle, circlePoints, circumcircle, circumsphere, Disk
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CircleThrough.html)

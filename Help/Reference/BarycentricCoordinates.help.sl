@@ -4,7 +4,13 @@
 
 A `Type` representing a point in a barycentric coordinate system.
 
+_Note_:
+To constrain the barycentric coordinates of a point so that they are unique,
+they can be normalized to `sum` to `zero`.
+
 * * *
+
+See also: fromBarycentricCoordinates, toBarycentricCoordinates
 
 Guides: Coordinate Systems, Geometry Functions
 

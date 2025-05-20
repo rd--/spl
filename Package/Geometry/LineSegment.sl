@@ -40,7 +40,7 @@ LineSegment : [Object] { | u v |
 	}
 
 	midpoint { :self |
-		self.u.midpoint(self.v)
+		[self.u, self.v].midpoint
 	}
 
 	project { :self :projection |

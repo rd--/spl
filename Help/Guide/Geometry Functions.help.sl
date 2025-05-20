@@ -24,9 +24,20 @@ Types:
 
 Angle Functions:
 
+- `anglePath`
 - `angleVector`
+- `dihedralAngle`
 - `planarAngle`
 - `vectorAngle`
+
+Area Functions:
+
+- `area`
+- `cayleyMengerDeterminant`
+- `cayleyMengerMatrix`
+- `heronsForumula`
+- `shoelaceFormula`
+- `signedArea`
 
 Bezier Functions:
 
@@ -114,10 +125,7 @@ Converting Functions:
 
 Distance Functions:
 
-- `cosineDistance`
-- `euclideanDistance`
-- `pointLineDistance`
-- `signedPointPlaneDistance`
+- `Distance Functions`: Guide
 
 Fractal Curve Functions:
 
@@ -139,6 +147,8 @@ Intersection Functions:
 Line Functions:
 
 - `bresenhamLineAlgorithm`
+- `midpoint`
+- `perpendicularBisector`
 
 Matrix Functions:
 
@@ -195,4 +205,4 @@ Uncategorized:
 
 * * *
 
-Guides: Coordinate System Functions
+Guides: Coordinate System Functions, Distance Functions

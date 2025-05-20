@@ -22,6 +22,8 @@ At `Rectangle`:
 
 See also: arcLength, circumference, Circle, Rectangle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Perimeter.html)

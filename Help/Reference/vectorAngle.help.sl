@@ -49,6 +49,8 @@ The angle between a vector and another vector on the same line:
 
 See also: arcCos, cross, degree, dot, planarAngle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/VectorAngle.html)

@@ -15,27 +15,32 @@ Answer a `List` of the elements of _aCollection_ for which the value of _aBlock_
 Find the maximal element by its last part:
 
 ```
->>> ['x' 3; 'y' 2; 'z' 1; 'u' 1; 'v' 2].maximalBy(last:/1)
+>>> ['x' 3; 'y' 2; 'z' 1; 'u' 1; 'v' 2]
+>>> .maximalBy(last:/1)
 [['x' 3]]
 ```
 
 All maximal elements are returned, in order of appearance:
 
 ```
->>> ['x' 3; 'y' 3; 'z' 2; 'u' 3; 'v' 1].maximalBy(last:/1)
+>>> ['x' 3; 'y' 3; 'z' 2; 'u' 3; 'v' 1]
+>>> .maximalBy(last:/1)
 ['x' 3; 'y' 3; 'u' 3]
 ```
 
 Prune an `Record` to its maximal values:
 
 ```
->>> (a: [4 1], b: [2 3], c: [4 2], d: [1 3]).maximalBy(last:/1)
+>>> (a: [4 1], b: [2 3], c: [4 2], d: [1 3])
+>>> .maximalBy(last:/1)
 (b: [2 3], d: [1 3])
 ```
 
 * * *
 
-See also: <, maxBy, max, min, minimalBy
+See also: <, max, maxOn, min, minimalBy
+
+Guides: Sort Functions
 
 References:
 _Mathematica_

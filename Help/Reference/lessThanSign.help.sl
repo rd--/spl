@@ -93,6 +93,8 @@ The name of this operator is `lessThanSign`.
 
 See also: =, ~=, <=, >, >=, <=>, Magnitude
 
+Guides: Sort Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Less_than),

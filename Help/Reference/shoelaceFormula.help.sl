@@ -2,8 +2,12 @@
 
 - _shoelaceFormula(vertices)_
 
-Answer the signed area of a simple polygon whose _vertices_ are described by their Cartesian coordinates in the plane,
+Answer the signed area of a simple polygon,
+whose _vertices_ are described by their Cartesian coordinates in the plane,
 according to the shoelace formula.
+The signed area of counter-clockwise oriented points is positive,
+the signed area for clockwise oriented points is negative,
+the signed area for colinear points is `zero`.
 
 Calculate the signed area of a pentagon:
 
@@ -32,9 +36,18 @@ Manipulations of a polygon:
 [20.5 -7 -3.5 27.5 17]
 ```
 
+Colinear vertices:
+
+```
+>>> [0 0; 1 1; 2 2].shoelaceFormula
+0
+```
+
 * * *
 
-See also: area, Polygon
+See also: area, heronsFormula, Polygon, signedArea
+
+Guides: Geometry Functions
 
 References:
 _W_

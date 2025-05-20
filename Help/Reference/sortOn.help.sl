@@ -34,4 +34,6 @@ Sort according to `negated` value of each item:
 
 See also: sort, sortBy, sortOnBy
 
+Guides: Sort Functions
+
 Categories: Sorting

@@ -16,6 +16,8 @@ Calculate the area of a triangle:
 
 See also: area, shoelaceFormula, Triangle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HeronsFormula.html),

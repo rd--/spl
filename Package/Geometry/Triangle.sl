@@ -73,6 +73,18 @@ Triangle : [Object] { | vertexCoordinates |
 		self.fromBarycentricCoordinates.value(lambda)
 	}
 
+	fromTrilinearCoordinates { :self |
+		let l = self.sideLengths;
+		{ :c |
+			let b = (c * l).normalizeSum;
+			self.fromBarycentricCoordinates(b)
+		}
+	}
+
+	fromTrilinearCoordinates { :self :c |
+		self.fromTrilinearCoordinates.value(c)
+	}
+
 	heronsFormula { :self |
 		let [a, b, c] = self.sideLengths;
 		let s = (a + b + c) * 0.5;
@@ -97,6 +109,20 @@ Triangle : [Object] { | vertexCoordinates |
 
 	interiorAngles { :self |
 		self.vertexCoordinates.polygonInteriorAngles
+	}
+
+	medialTriangle { :self |
+		self.vertexCoordinates.medialTriangle.Triangle
+	}
+
+	ninePointCircle { :self |
+		self.vertexCoordinates.ninePointCircle
+	}
+
+	orthocenter { :self |
+		let a = self.interiorAngles;
+		let c = a.tan.normalizeSum;
+		self.fromBarycentricCoordinates(c)
 	}
 
 	perimeter { :self |
@@ -160,6 +186,12 @@ Triangle : [Object] { | vertexCoordinates |
 
 +List {
 
+	angleBisector { :self |
+		let [_, p, _] = self;
+		let a = self.planarAngle;
+		InfiniteLine(p, [1, a / 2].fromPolarCoordinates)
+	}
+
 	circumcircle { :self |
 		let [a, b, c] = self;
 		let [ax, ay] = a;
@@ -185,6 +217,19 @@ Triangle : [Object] { | vertexCoordinates |
 			].fromPolarCoordinates
 		};
 		Triangle([0.f 1.f 2.f])
+	}
+
+	medialTriangle { :self |
+		let [a, b, c] = self;
+		[
+			[a b].midpoint,
+			[a c].midpoint,
+			[b c].midpoint
+		]
+	}
+
+	ninePointCircle { :self |
+		self.medialTriangle.circleThrough
 	}
 
 	Triangle { :self |

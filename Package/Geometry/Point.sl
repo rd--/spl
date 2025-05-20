@@ -29,7 +29,7 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 	}
 
 	midpoint { :self :aPoint |
-		Point(self.coordinates.midpoint(aPoint.coordinates))
+		Point([self.coordinates, aPoint.coordinates].midpoint)
 	}
 
 	project { :self :projection |
@@ -132,11 +132,13 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		}
 	}
 
-	midpoint { :u :v |
+	midpoint { :self |
+		let [u, v] = self;
 		u + ((v - u) / 2)
 	}
 
-	perpendicularBisector { :u :v |
+	perpendicularBisector { :self |
+		let [u, v] = self;
 		let m = 0.5.pi.rotationMatrix;
 		InfiniteLine(
 			u.midpoint(v),

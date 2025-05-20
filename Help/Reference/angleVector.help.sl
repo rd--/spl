@@ -45,6 +45,8 @@ C.f. `vector` at `PlaneAngle`:
 
 See also: absArg, cos, degree, fromPolarCoordinates, sin, unitVector, vectorAngle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AngleVector.html)

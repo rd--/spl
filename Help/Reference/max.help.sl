@@ -88,7 +88,7 @@ See also `deepMax`:
 
 * * *
 
-See also: ceiling, deepMax, maxBy, min
+See also: ceiling, deepMax, maximalBy, maxOn, min
 
 Guides: Sort Functions, Statistics Functions
 

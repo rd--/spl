@@ -1,35 +1,34 @@
 # midpoint
 
-- _midpoint(aLine)_
-- _midpoint(aPoint, anotherPoint)_
+- _midpoint([p₁ p₂])_
 
 Answer the midpoint of the line segment connecting two points.
 
 Find the midpoint of two points:
 
 ```
->>> [1 1].midpoint([2 3])
+>>> [1 1; 2 3].midpoint
 [3/2 2]
 ```
 
 Midpoint in two dimensions:
 
 ```
->>> [1 1].midpoint([3 4])
+>>> [1 1; 3 4].midpoint
 [2 5/2]
 ```
 
-Midpoint in four dimensions:
+Midpoint in three dimensions:
 
 ```
->>> [1 2 3].midpoint([4 5 6])
+>>> [1 2 3; 4 5 6].midpoint
 [5/2 7/2 9/2]
 ```
 
 Midpoint in four dimensions:
 
 ```
->>> [1 2 -1 3].midpoint([4 2 -3 -2])
+>>> [1 2 -1 3; 4 2 -3 -2].midpoint
 [5/2 2 -2 1/2]
 ```
 
@@ -45,7 +44,7 @@ The midpoint is equidistant from the two points:
 ```
 >>> let p1 = [1 2];
 >>> let p2 = [3 4];
->>> let p3 = p1.midpoint(p2);
+>>> let p3 = [p1 p2].midpoint;
 >>> (
 >>> 	p1.euclideanDistance(p3),
 >>> 	p2.euclideanDistance(p3)
@@ -56,7 +55,7 @@ The midpoint is equidistant from the two points:
 For coordinates, `midpoint` gives the same result as `mean`:
 
 ```
->>> [1 2].midpoint([-3 5])
+>>> [1 2; -3 5].midpoint
 [1 2; -3 5].mean
 ```
 
@@ -69,7 +68,7 @@ let n = 7;
 { :last |
 	(1 .. k).collect { :i |
 		let j = i % k + 1;
-		last[i].midpoint(last[j])
+		[last[i], last[j]].midpoint
 	}
 }.nestList(
 	k.circlePoints([0 0], 1, 0),
@@ -84,6 +83,8 @@ let n = 7;
 * * *
 
 See also: Line, Point
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

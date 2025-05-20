@@ -1,5 +1,12 @@
 # Distance Functions
 
+Dissimilarity:
+
+- `jaccardDissimilarity`
+- `matchingDissimilarity`
+
+Distance:
+
 - `binaryDistance`
 - `brayCurtisDistance`
 - `canberraDistance`
@@ -17,25 +24,30 @@
 - `normalizedSquaredEuclideanDistance`
 - `squaredEuclideanDistance`
 
+Geometry:
+
+- `pointLineDistance`
+- `signedPointPlaneDistance`
+
+Matrices:
+
+- `cayleyMengerMatrix`
+- `condensedDistanceMatrix`
+- `distanceMatrix`
+- `graphDistanceMatrix`
+
 Similarity:
 
 - `cosineSimilarity`
-
-Dissimilarity:
-
-- `jaccardDissimilarity`
-- `matchingDissimilarity`
 
 Vectors:
 
 - `pairwiseDistances`
 
-Matrices:
-
-- `condensedDistanceMatrix`
-- `distanceMatrix`
-- `graphDistanceMatrix`
-
 * * *
 
 Guides: Function Guides, Mathematical Functions, Similarity Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Metric_space)

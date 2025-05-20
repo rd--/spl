@@ -72,7 +72,7 @@ The inverse is `toBarycentricCoordinates`.
 
 * * *
 
-See also: toBarycentricCoordinates, Triangle
+See also: fromTrilinearCoordinates, toBarycentricCoordinates, Triangle
 
 Guides: Coordinate System Functions
 

@@ -1,9 +1,9 @@
 # interiorAngles
 
-- _interiorAngles(anObject)_
+- _interiorAngles(aGeometry)_
 
-Answer the interior angles of _anObject_.
-The sum of interior angles in any n-gon is given by (n-2)pi radians.
+Answer the interior angles of _aGeometry_.
+The `sum` of interior angles in any _n_-gon is given by _(n-2)π_ radians.
 
 At `Polygon`:
 
@@ -17,9 +17,23 @@ At `Polygon`:
 )
 ```
 
+At `Triangle`:
+
+```
+>>> sssTriangle(1, 1, 1)
+>>> .interiorAngles
+[1/3.pi 1/3.pi 1/3.pi]
+
+>>> aasTriangle(1/6.pi, 1/3.pi, 1)
+>>> .interiorAngles
+[1/6.pi 1/3.pi 1/2.pi]
+```
+
 * * *
 
 See also: planarAngle, polygonInteriorAngles, vectorAngle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

@@ -190,6 +190,10 @@ Rectangle : [Object] { | lowerLeft upperRight |
 		)
 	}
 
+	midpointPolygon { :self |
+		self.vertexCoordinates.midpointPolygon.Polygon
+	}
+
 	perimeter { :self |
 		(self.width + self.height) * 2
 	}

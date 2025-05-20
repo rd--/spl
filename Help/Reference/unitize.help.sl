@@ -4,7 +4,7 @@
 - _unitize(x, dx)_
 
 Answer `zero` when _x_ is `zero`, and `one` when _x_ has any other numerical value.
-In the binary case _dx_, answer `zero` for any _x_ with magnitude less than _dx_.
+In the binary case, answer `zero` for any _x_ with magnitude less than _dx_.
 
 Convert numerical values to zero or one:
 

@@ -35,6 +35,8 @@ The name of this operator is `greaterThanSign`.
 
 See also: >=, <, <=, Magnitude
 
+Guides: Sort Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Greater_than),
