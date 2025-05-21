@@ -1,5 +1,9 @@
 +@RandomNumberGenerator {
 
+	chiSquareDistribution { :self :nu |
+		self.gammaDistribution(nu / 2, 2)
+	}
+
 	gammaDistribution { :self :alpha :beta |
 		var a, afix, c, d, u, v, x;
 		(alpha < 1).if {

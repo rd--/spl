@@ -31,6 +31,8 @@ Guides: Probability Distributions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/MultinormalDistribution.html)
+[1](https://reference.wolfram.com/language/ref/MultinormalDistribution.html),
+_NIST_
+[1](https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc542.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Multivariate_normal_distribution)

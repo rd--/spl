@@ -196,6 +196,7 @@
 	'LogisticDistribution'
 	'LogNormalDistribution'
 	'MultinormalDistribution'
+	'MultivariateTDistribution'
 	'NoncentralBetaDistribution'
 	'NoncentralChiSquareDistribution'
 	'NormalDistribution'

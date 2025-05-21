@@ -27,6 +27,9 @@ Divide threads element-wise over lists:
 
 >>> [3J1 2.5 4J5] / [2 1J1 0.2]
 [1.5J0.5 1.25J-1.25 20J25]
+
+>>> [2 4; 6 9] / [2 3]
+[1 2; 2 3]
 ```
 
 Divide is applied sequentially:

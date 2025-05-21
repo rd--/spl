@@ -78,7 +78,9 @@ Plot the `nearest` of a list of numbers:
 
 * * *
 
-See also: -, abs
+See also: -, abs, nearestNeighbourAlgorithm, nearestNeighbourGraph
+
+Guides: Distance Functions
 
 References:
 _Mathematica_

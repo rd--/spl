@@ -1,8 +1,8 @@
 # ChiSquareDistribution
 
-- _ChiSquareDistributionn(ν)_
+- _ChiSquareDistribution(ν)_
 
-Answer a `GammaDistribution` value representing a Χ² distribution with ν degrees of freedom.
+Answer a `GammaDistribution` value representing a Χ² distribution with _ν_ degrees of freedom.
 The Χ² distribution is a special case of the γ distribution.
 
 Probability density function:
