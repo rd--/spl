@@ -17,7 +17,7 @@ Calculate convex hull:
 >>> 	-1 -1; -10 11; -6 15; -6 -8; 15 -9;
 >>> 	7 -7; -2 -9; 6 -5; 0 14; 2 8
 >>> ].convexHullIndices
-[10 4 7 8 15 5]
+[10 4 7 8 14 5]
 ```
 
 The convex hull of a random set of seventeen points:
