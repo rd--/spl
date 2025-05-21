@@ -18,7 +18,6 @@
 	'Benchmark-SomRandom'
 	'Benchmark-SqueakBenchmark'
 	'Benchmark-StorageBenchmark'
-	'Benchmark-TinyBenchmark'
 	'Benchmark-TowersBenchmark'
 	'Chemistry-CrystalStructure'
 	'Collection-ArithmeticProgression'
