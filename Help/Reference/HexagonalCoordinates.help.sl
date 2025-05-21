@@ -26,13 +26,13 @@ Calculate Manhattan and Euclidean distances:
 (10, 8.888)
 ```
 
-The six nearest neighbors of the _(0,0,0)_ cell,
+The six nearest neighbours of the _(0,0,0)_ cell,
 in counter-clockwise order,
 beginning with the cell one column to the right:
 
 ```
 >>> HexagonalCoordinates([0 0 0])
->>> .nearestNeighbors
+>>> .nearestNeighbours
 >>> .collect(coordinates:/1)
 [
 	+1  0 -1;
@@ -44,11 +44,11 @@ beginning with the cell one column to the right:
 ]
 ```
 
-Draw the six nearest neighbors of the _(0, 0, 0)_ cell:
+Draw the six nearest neighbours of the _(0, 0, 0)_ cell:
 
 ~~~spl svg=A
 HexagonalCoordinates([0 0 0])
-.nearestNeighbors
+.nearestNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.asList;
 	let r = 0.9;
@@ -58,13 +58,13 @@ HexagonalCoordinates([0 0 0])
 
 ![](sw/spl/Help/Image/HexagonalCoordinates-A.svg)
 
-Draw the six diagonal neighbors of the _(0,0,0)_ cell,
+Draw the six diagonal neighbours of the _(0,0,0)_ cell,
 in counter-clockwise order,
 beginning with the least clockwise diagonal neighbour:
 
 ~~~spl svg=B
 HexagonalCoordinates([0 0 0])
-.diagonalNeighbors
+.diagonalNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.asList;
 	let r = 0.9;

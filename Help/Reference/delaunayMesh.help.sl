@@ -1,9 +1,9 @@
 # delaunayMesh
 
-- _delaunayMesh(aMatrix)_
+- _delaunayMesh([p₁ p₂ …])_
 
-Answer the Delaunay triangulation of _aMatrix_,
-which should be a two column matrix of _(x,y)_ coordinates,
+Answer the Delaunay triangulation of a two column matrix,
+specifying _(x,y)_ coordinates,
 as a `PolygonMesh` value.
 
 The Delaunay triangulation of the unit square,
@@ -50,6 +50,8 @@ Sfc32(323193)
 * * *
 
 See also: DelaunayTriangulation, PolygonMesh
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

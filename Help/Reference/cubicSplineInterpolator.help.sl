@@ -53,7 +53,7 @@ let y = [0 0 1 0 0];
 
 * * *
 
-See also: akimaInterpolator, linearInterpolator, nearestNeighborInterpolator
+See also: akimaInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
 Guides: Interpolation Functions
 

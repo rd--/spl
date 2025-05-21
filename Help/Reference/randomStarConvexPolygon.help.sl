@@ -1,8 +1,10 @@
 # randomStarConvexPolygon
 
-- _randomStarConvexPolygon(aRandomNumberGenerator, vertexCount, minRadius, maxRadius)_
+- _randomStarConvexPolygon(r, n, minRadius, maxRadius)_
 
-Answer a randomly generated star convex `Polygon` with specified `vertexCount`.
+Answer a randomly generated star convex `Polygon`,
+with a vertex count of _n_,
+drawn from the random number generator _r_.
 
 Draw a randomly generated star convex polygon with 13 vertices and minimal radius of 0.5:
 
@@ -41,7 +43,7 @@ let r = Sfc32(123123);
 
 * * *
 
-See also: fromPolarCoordinates, Polygon, randomConvexHullPolygon, randomReal
+See also: fromPolarCoordinates, Polygon, randomConvexHullPolygon, randomReal, randomSimplePolygon
 
 References:
 _Mathematica_

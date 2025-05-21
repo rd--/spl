@@ -68,6 +68,10 @@ Mass : [Object, Magnitude] { | kilograms |
 		(self * 1E-3).kilograms
 	}
 
+	milligrams { :self |
+		(self * 1E-6).kilograms
+	}
+
 	ounces { :self |
 		(self * 28.349523125).grams
 	}

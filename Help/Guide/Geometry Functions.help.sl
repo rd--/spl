@@ -22,6 +22,13 @@ Types:
 - `Tetrahedron`
 - `Triangle`
 
+Analysis Functions:
+
+- `convexHullIndices`
+- `convexHull`
+- `delaunayMesh`
+- `grahamScan`
+
 Angle Functions:
 
 - `anglePath`
@@ -101,8 +108,6 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
-- `randomConvexHullPolygon`
-- `randomStarConvexPolygon`
 - `regularPolygon`
 - `unitCircle`
 - `unitCube`
@@ -189,6 +194,12 @@ Query Functions:
 - `vertexCoordinates`
 - `vertexCount`
 - `vertexList`
+
+Random Functions:
+
+- `randomConvexHullPolygon`
+- `randomSimplePolygon`
+- `randomStarConvexPolygon`
 
 Triangle Functions:
 

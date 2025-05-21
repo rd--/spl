@@ -2,7 +2,7 @@
 
 - _medianFilter(x, r)_
 
-Filters _x_ by replacing every value by the median of the values in a range-_r_ neighborhood.
+Filters _x_ by replacing every value by the median of the values in a range-_r_ neighbourhood.
 The distance function is `euclideanDistance`.
 
 Median filter of a list:

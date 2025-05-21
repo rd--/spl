@@ -2,7 +2,7 @@
 
 - _meanShiftFilter(x, r, d)_
 
-Filters _x_ by replacing every value by the mean of the values in a range-_r_ neighborhood and whose value is within a distance _d_.
+Filters _x_ by replacing every value by the mean of the values in a range-_r_ neighbourhood and whose value is within a distance _d_.
 The distance function is `euclideanDistance`.
 
 Mean-shift filtering of a vector:

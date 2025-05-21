@@ -20,6 +20,7 @@ Constructor Functions:
 - `hararyGraph`
 - `incidenceGraph`
 - `lineGraph`
+- `nearestNeighbourGraph`
 - `neighbourhoodGraph`
 - `pathGraph`
 - `permutationGraph`

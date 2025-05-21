@@ -3,7 +3,7 @@
 - _contourDetect(data, delta=0)_
 
 Answer a `SparseArray` in which `1` corresponds to zero values,
-as well as positive values that have at least one negative neighbor,
+as well as positive values that have at least one negative neighbour,
 according to _delta_.
 
 Zeros and zero crossings of a list:

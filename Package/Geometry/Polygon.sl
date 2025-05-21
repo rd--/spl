@@ -226,6 +226,18 @@ Polygon : [Object] { | vertexCoordinates |
 		d.randomVariate(r, [n]).convexHull.Polygon
 	}
 
+	randomSimplePolygon { :r :n :shape |
+		{
+			r.randomSimplePolygon(n)
+		} ! shape
+	}
+
+	randomSimplePolygon { :r :n |
+		let p = r.randomReal([0 1], [n 2]);
+		let [_, i] = p.findShortestTour;
+		(p @* i).Polygon
+	}
+
 	randomStarConvexPolygon { :self :k :minRadius :maxRadius |
 		let d = 2;
 		let r = self.randomReal([minRadius, maxRadius], [k]);

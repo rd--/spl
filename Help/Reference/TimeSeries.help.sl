@@ -254,14 +254,14 @@ Plot linear interpolation function of time series:
 
 ![](sw/spl/Help/Image/TimeSeries-C.svg)
 
-Plot nearest-neighbor interpolation function of time series:
+Plot nearest-neighbour interpolation function of time series:
 
 ~~~spl svg=D
 (1 -- 15).functionPlot(
 	TimeSeries(
 		[2 1 6 5 7 4],
 		[1 2 5 10 12 15]
-	).interpolation('NearestNeighbor')
+	).interpolation('NearestNeighbour')
 )
 ~~~
 

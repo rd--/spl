@@ -90,6 +90,6 @@ let x = r.randomReal([0 2.pi], [64]).sort;
 
 * * *
 
-See also: akimaInterpolator, cubicSplineInterpolator, nearestNeighborInterpolator
+See also: akimaInterpolator, cubicSplineInterpolator, nearestNeighbourInterpolator
 
 Guides: Interpolation Functions

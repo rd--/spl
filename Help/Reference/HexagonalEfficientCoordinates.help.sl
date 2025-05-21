@@ -4,13 +4,13 @@
 
 A `Type` representing a point in _(a, r, c)_ in the Hexagonal Efficient coordinate system.
 
-The six nearest neighbors of the _(0, 0, 0)_ cell,
+The six nearest neighbours of the _(0, 0, 0)_ cell,
 in counter-clockwise order,
 beginning with cell one column to the right:
 
 ```
 >>> HexagonalEfficientCoordinates([0 0 0])
->>> .nearestNeighbors
+>>> .nearestNeighbours
 >>> .collect(coordinates:/1)
 [
 	0  0  1;
@@ -22,11 +22,11 @@ beginning with cell one column to the right:
 ]
 ```
 
-Draw the six nearest neighbors of the _(0, 0, 0)_ cell:
+Draw the six nearest neighbours of the _(0, 0, 0)_ cell:
 
 ~~~spl svg=A
 HexagonalEfficientCoordinates([0 0 0])
-.nearestNeighbors
+.nearestNeighbours
 .collect { :p |
 	let c = p.asCartesianCoordinates.asList;
 	let r = 3.sqrt / 3 * 0.9;

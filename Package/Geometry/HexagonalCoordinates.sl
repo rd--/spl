@@ -45,7 +45,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 		((q2 - q1).squared + (r2 - r1).squared + ((q2 - q1) * (r2 - r1))).sqrt
 	}
 
-	diagonalNeighborVectors { :unused |
+	diagonalNeighbourVectors { :unused |
 		[
 			+2 -1 -1;
 			+1 -2 +1;
@@ -56,9 +56,9 @@ HexagonalCoordinates : [Object] { | coordinates |
 		]
 	}
 
-	diagonalNeighbors { :self |
+	diagonalNeighbours { :self |
 		let c = self.coordinates;
-		self.diagonalNeighborVectors.collect { :each |
+		self.diagonalNeighbourVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
 	}
@@ -67,7 +67,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 		(self - operand).coordinates.abs.max
 	}
 
-	nearestNeighborVectors { :unused |
+	nearestNeighbourVectors { :unused |
 		[
 			+1 0 -1;
 			+1 -1 0;
@@ -78,9 +78,9 @@ HexagonalCoordinates : [Object] { | coordinates |
 		]
 	}
 
-	nearestNeighbors { :self |
+	nearestNeighbours { :self |
 		let c = self.coordinates;
-		self.nearestNeighborVectors.collect { :each |
+		self.nearestNeighbourVectors.collect { :each |
 			HexagonalCoordinates(c + each)
 		}
 	}

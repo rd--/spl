@@ -2981,6 +2981,10 @@
 		answer
 	}
 
+	takeSmallest { :self :anInteger |
+		self.sorted.first(anInteger)
+	}
+
 	takeWhile { :self :aBlock:/1 |
 		self.detectIndexIfFoundIfNone { :each |
 			each.aBlock.not

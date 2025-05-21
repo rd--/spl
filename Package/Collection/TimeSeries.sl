@@ -164,8 +164,8 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		self.times.minimumDifference
 	}
 
-	nearestNeighborInterpolator { :self |
-		self.times.nearestNeighborInterpolator(
+	nearestNeighbourInterpolator { :self |
+		self.times.nearestNeighbourInterpolator(
 			self.values
 		)
 	}

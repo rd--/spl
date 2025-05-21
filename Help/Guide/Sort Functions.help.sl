@@ -51,6 +51,10 @@ Querying:
 - `longestIncreasingSubsequence`
 - `longestIncreasingSubsequenceList`
 
+Selecting:
+
+- `takeSmallest`
+
 * * *
 
 See also: Comparison Functions, Statistics Functions

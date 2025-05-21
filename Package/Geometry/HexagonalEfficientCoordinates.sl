@@ -49,7 +49,7 @@ HexagonalEfficientCoordinates : [Object] { | coordinates |
 		)
 	}
 
-	nearestNeighbors { :self |
+	nearestNeighbours { :self |
 		let [a, c, r] = self.coordinates;
 		[
 			[a, r, c + 1],

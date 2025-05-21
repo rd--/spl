@@ -34,7 +34,7 @@ Compute successive differences of elements:
 ]
 ```
 
-Compute a moving average with runs of three elements using a range-one neighborhood:
+Compute a moving average with runs of three elements using a range-one neighbourhood:
 
 ```
 >>> mean:/1.arrayFilter([1 .. 5], 1)

@@ -632,7 +632,7 @@
 
 	niceNumberNear { :self |
 		self.niceNumberBy { :l :n |
-			l.nearest(n, -).first
+			l.nearest(n).first
 		}
 	}
 

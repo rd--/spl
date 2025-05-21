@@ -319,7 +319,7 @@
 		}
 	}
 
-	nearestNeighborInterpolator { :x :y |
+	nearestNeighbourInterpolator { :x :y |
 		let xCopy = x.copy;
 		let yCopy = y.copy;
 		let n = x.size;
@@ -556,7 +556,7 @@
 			{ 'Akima' } -> { akimaInterpolator:/2 },
 			{ 'CubicSpline' } -> { cubicSplineInterpolator:/2 },
 			{ 'Linear' } -> { linearInterpolator:/2 },
-			{ 'NearestNeighbor' } -> { nearestNeighborInterpolator:/2 }
+			{ 'NearestNeighbour' } -> { nearestNeighbourInterpolator:/2 }
 		]) {
 			self.error('interpolatorFunction: unknown method')
 		}

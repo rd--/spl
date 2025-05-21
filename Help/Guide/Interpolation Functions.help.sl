@@ -5,7 +5,7 @@ Interpolators:
 - `linearInterpolator`
 - `akimaInterpolator`
 - `cubicSplineInterpolator`
-- `nearestNeighborInterpolator`
+- `nearestNeighbourInterpolator`
 
 Interpolation Functions:
 

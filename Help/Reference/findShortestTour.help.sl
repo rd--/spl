@@ -2,7 +2,9 @@
 
 - _findShortestTour([v₁, v₂, …])_
 
-Answer an ordering of the vertices _v_ that minimizes the total distance on a tour that visits all vertices once.
+Answer an ordering of the vertices _v_
+that minimizes the total distance on a tour
+that visits all vertices once.
 
 Find the length and ordering of the shortest tour through points in the plane:
 
@@ -54,9 +56,23 @@ Calculate shortest tour:
 )
 ```
 
+Shortest tour of randomly generated coordinates:
+
+~~~spl svg=B
+let r = Sfc32(323193);
+let p = r.randomReal([-1 1], [17 2]);
+let [_, i] = p.findShortestTour;
+[
+	p.PointCloud,
+	(p @* i).Line
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/findShortestTour-B.svg)
+
 * * *
 
-See also: findShortestPath, heldKarpAlgorithm, nearest
+See also: findShortestPath, heldKarpAlgorithm, nearest, nearestNeighbourAlgorithm
 
 Guides: Geometry Functions
 

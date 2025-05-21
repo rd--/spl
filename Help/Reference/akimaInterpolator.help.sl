@@ -88,7 +88,7 @@ let y = cos(x);
 
 * * *
 
-See also: cubicSplineInterpolator, linearInterpolator, nearestNeighborInterpolator
+See also: cubicSplineInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
 Guides: Interpolation Functions
 

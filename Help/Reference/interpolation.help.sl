@@ -68,7 +68,7 @@ Interpolate a `TimeSeries`:
 
 * * *
 
-See also: akimaInterpolator, cubicSplineInterpolator, linearInterpolator, nearestNeighborInterpolator
+See also: akimaInterpolator, cubicSplineInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
 References:
 _Mathematica_

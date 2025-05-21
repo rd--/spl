@@ -2,7 +2,7 @@
 
 - _harmonicMeanFilter(x, r)_
 
-Filters _x_ by replacing every value by the harmonic mean value in its range-_r_ neighborhood.
+Filters _x_ by replacing every value by the harmonic mean value in its range-_r_ neighbourhood.
 
 Harmonic mean filtering of a list:
 

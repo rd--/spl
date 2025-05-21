@@ -2,7 +2,7 @@
 
 - _meanFilter(x, r)_
 
-Filters _x_ by replacing every value by the mean value in its range-_r_ neighborhood.
+Filters _x_ by replacing every value by the mean value in its range-_r_ neighbourhood.
 
 Mean filtering of a list:
 

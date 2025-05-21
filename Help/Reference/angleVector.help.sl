@@ -1,8 +1,8 @@
 # angleVector
 
-- _angleVector(aNumber)_
+- _angleVector(n)_
 
-Answer the `List` representing the two-dimensional unit vector at angle _aNumber_,
+Answer the `List` representing the two-dimensional unit vector at angle _n_,
 in radians,
 relative to the _x_-axis.
 

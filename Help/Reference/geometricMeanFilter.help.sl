@@ -2,7 +2,7 @@
 
 - _geometricMeanFilter(x, r)_
 
-Filters _x_ by replacing every value by the geometric mean value in its range-_r_ neighborhood.
+Filters _x_ by replacing every value by the geometric mean value in its range-_r_ neighbourhood.
 
 Geometric mean filtering of a list:
 

@@ -245,6 +245,12 @@ Mass quantity constructors:
 
 >>> 0.25.kilograms
 250.grams
+
+>>> 2.milligrams * 1E3
+2.grams
+
+>>> 2.grams * 1E3
+2.kilograms
 ```
 
 Non-SI mass constructors:

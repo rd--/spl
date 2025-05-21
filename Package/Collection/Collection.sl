@@ -480,15 +480,6 @@
 		}
 	}
 
-	nearest { :self :anObject :aBlock:/2 |
-		let leastDistance = self.collect { :each |
-			aBlock(each, anObject).abs
-		}.min;
-		self.select { :each |
-			aBlock(each, anObject).abs = leastDistance
-		}
-	}
-
 	normalizeRange { :self :minima :maxima |
 		self.rescale(self.min, self.max, minima, maxima)
 	}
