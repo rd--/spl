@@ -5,6 +5,7 @@ Types:
 - `BarycentricCoordinates`: _(λ₁, λ₂ …)_
 - `CartesianCoordinates`: _(x, y, z …)_
 - `CylindricalCoordinates`: _(ρ, φ, z)_
+- `GeodeticCoordinates`: _(λ, ϕ, h)_
 - `HexagonalCoordinates`: _(q, r, s)_
 - `HexagonalEfficientCoordinates`: _(a, r, c)_
 - `IsoSphericalCoordinates`: _(r, θ, φ)_

@@ -77,6 +77,10 @@ PlaneAngle : [Object, Magnitude] { | radians |
 		(self.abs * 60 * 60).mixedRadixEncode(b) * self.sign
 	}
 
+	dmsString { :self |
+		self.dmsList.dmsString
+	}
+
 	gradians { :self |
 		(self * 400).radians
 	}
@@ -87,6 +91,15 @@ PlaneAngle : [Object, Magnitude] { | radians |
 
 	dmsList { :self |
 		self.fromDms.dmsList
+	}
+
+	dmsString { :self |
+		let [d, m, s] = self.dmsList;
+		'%°%′%″'.format([
+			d.printString,
+			m.printString,
+			s.printStringToFixed(3)
+		])
 	}
 
 	fromDms { :self |

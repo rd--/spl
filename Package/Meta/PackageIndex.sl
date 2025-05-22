@@ -93,6 +93,7 @@
 	'Geometry-Ellipse'
 	'Geometry-FourVector'
 	'Geometry-FractalCurve'
+	'Geometry-GeodeticCoordinates'
 	'Geometry-GeometryCollection'
 	'Geometry-HalfPlane'
 	'Geometry-HexagonalCoordinates'

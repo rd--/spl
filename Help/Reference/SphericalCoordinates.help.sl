@@ -47,7 +47,7 @@ CartesianCoordinates(v)
 CartesianCoordinates(v)
 ```
 
-Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.
+Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi ` as φ.
 
 * * *
 
@@ -60,5 +60,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SphericalCoordinates.html)
 _W_
 [1](https://en.wikipedia.org/wiki/ISO/IEC_80000)
+
+Unicode: U+1D45F 𝑟 Mathematical Italic Small R, U+03C1 ρ Greek Small Letter Rho, U+03B8 θ Greek Small Letter Theta, U+03C6 φ Greek Small Letter Phi
 
 Categories: Geometry

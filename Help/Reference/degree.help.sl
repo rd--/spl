@@ -44,7 +44,9 @@ Guides: Mathematical Constants, Trigonometric Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Degree.html)
-[2](https://reference.wolfram.com/language/ref/Degree.html)
+[2](https://reference.wolfram.com/language/ref/Degree.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Degree_(angle))
 
 Unicode: U+00b0 ° Degree Sign
 

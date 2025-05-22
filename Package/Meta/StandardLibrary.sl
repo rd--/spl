@@ -86,6 +86,7 @@
 	'Disk'
 	'Ellipse'
 	'FractalCurve'
+	'GeodeticCoordinates'
 	'GeometryCollection'
 	'HalfPlane'
 	'HexagonalCoordinates'
