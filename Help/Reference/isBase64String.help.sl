@@ -52,7 +52,7 @@ See also: asNumber, isBooleanString, isFloatString, isDecimalIntegerString
 Guides: Parsing Functions
 
 References:
-_RFC_
+_Ietf_
 [1](https://datatracker.ietf.org/doc/html/rfc4648)
 
 Categories: Testing

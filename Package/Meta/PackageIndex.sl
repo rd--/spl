@@ -190,6 +190,7 @@
 	'Number-Number'
 	'Number-Residue'
 	'Number-SmallFloat'
+	'Protocol-GeoJson'
 	'Protocol-Json'
 	'Protocol-OpenSoundControl'
 	'Protocol-Schema'

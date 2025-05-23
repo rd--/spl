@@ -32,10 +32,10 @@ Radix notation of list:
 See also: asciiByteArray, AsciiString, asHexDigit, base16Decoded, base64Encoded, String
 
 References:
+_Ietf_
+[1](https://datatracker.ietf.org/doc/html/rfc4648),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BaseEncode.html),
-_RFC_
-[1](https://datatracker.ietf.org/doc/html/rfc4648),
 _W_
 [1](https://en.wikipedia.org/wiki/Hexadecimal)
 

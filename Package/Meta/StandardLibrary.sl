@@ -57,6 +57,7 @@
 	'Decimal' /* Fraction */
 
 	/* Protocol */
+	'GeoJson'
 	'Schema'
 
 	/* Quantity */

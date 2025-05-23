@@ -43,10 +43,10 @@ The type has the non-standard spelling _URL_, which is defined by the system.
 See also: asFileUrl, asUrl, fileName, fragment, href, host, hostName, Location, origin, pathName, protocol, query, UrlQueryParameters
 
 References:
+_Ietf_
+[1](https://www.rfc-editor.org/rfc/rfc1738.txt),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/URL.html),
-_RFC_
-[1](https://www.rfc-editor.org/rfc/rfc1738.txt),
 _Whatwg_
 [1](https://url.spec.whatwg.org/)
 

@@ -77,10 +77,10 @@ true
 See also: base64Encoded, parseBase64
 
 References:
+_Ietf_
+[1](https://www.rfc-editor.org/rfc/rfc4648),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BaseDecode.html),
-_RFC_
-[1](https://www.rfc-editor.org/rfc/rfc4648),
 _W_
 [1](https://en.wikipedia.org/wiki/Base64)
 
