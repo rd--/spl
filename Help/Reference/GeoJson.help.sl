@@ -4,17 +4,91 @@
 
 A `Type` holding a `Record` conforming to the GeoJson protocol.
 
+Each `GeoJson` object has a `type`,
+which will either 'Feature',
+or 'FeatureCollection',
+or 'GeometryCollection'.
+or one of six primitive geometry types.
+
+The primitive geometry types are:
+'Point', 'MultiPoint'
+'LineString', 'MultiLineString',
+'Polygon' and 'MultiPolygon'.
+
+A 'Feature' object has two fields.
+A `properties` field holds an arbitrary `Record`,
+which may be `nil`,
+and a `geometry` field that is either
+a primitive geometry object,
+or a geometry collection,
+and which may also be `nil`.
+
+Collect information about a `GeoJson` object:
+
+```
+>>> let c = sytem.continentOutlines(
+>>> 	'UniversityOfLatvia'
+>>> );
+>>> [
+>>> 	c.isGeoJson,
+>>> 	c.type,
+>>> 	c.isFeature,
+>>> 	c.isFeatureCollection,
+>>> 	c.isGeometryCollection,
+>>> 	c.isGeometry,
+>>> 	c.features.size,
+>>> 	c.geometries.size,
+>>> 	c.geometries('Polygon').size,
+>>> 	c.polygons.size,
+>>> 	c.simplePolygons.size,
+>>> 	c.simplePolygonCoordinates.size
+>>> ]
+[
+	true,
+	'FeatureCollection',
+	false, true, false, false,
+	153, 153, 153, 153, 153, 153, 153
+]
+```
+
+Draw the Gall-Peters projection of the Australian continent:
+
+~~~spl svg=A
+sytem.continentOutlines(
+	'UniversityOfLatvia'
+).features.select { :each |
+	each.property('Continent') = 'Australia'
+}.collect { :each |
+	Line(
+		each
+		.simplePolygonCoordinates
+		.degreesToRadians
+		.gallPetersProjection
+	)
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/GeoJson-A.svg)
+
 Accessors:
 
 - `features`
 - `geometries`
+- `geometry`
 - `polygons`
+- `properties`
+- `property`
+- `simplePolygons`
+- `type`
 
 Predicates:
 
 - `isFeature`
 - `isFeatureCollection`
 - `isGeometry`
+- `isGeometryCollection`
+- `isPolygon`
+- `isSimplePolygon`
 
 * * *
 
