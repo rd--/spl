@@ -32,10 +32,10 @@ Collect information about a `GeoJson` object:
 >>> [
 >>> 	c.isGeoJson,
 >>> 	c.type,
->>> 	c.isFeature,
 >>> 	c.isFeatureCollection,
->>> 	c.isGeometryCollection,
+>>> 	c.isFeature,
 >>> 	c.isGeometry,
+>>> 	c.isGeometryCollection,
 >>> 	c.features.size,
 >>> 	c.geometries.size,
 >>> 	c.geometries('Polygon').size,
@@ -46,24 +46,26 @@ Collect information about a `GeoJson` object:
 [
 	true,
 	'FeatureCollection',
-	false, true, false, false,
+	true, false, false, false,
 	153, 153, 153, 153, 153, 153, 153
 ]
 ```
 
-Draw the Gall-Peters projection of the Australian continent:
+Draw the Gall-Peters projection of the continents labeled 'Australia' and 'Africa':
 
 ~~~spl svg=A
 sytem.continentOutlines(
 	'UniversityOfLatvia'
 ).features.select { :each |
-	each.property('Continent') = 'Australia'
+	['Africa', 'Australia'].includes(
+		each.property('Continent')
+	)
 }.collect { :each |
 	Line(
 		each
-		.simplePolygonCoordinates
-		.degreesToRadians
-		.gallPetersProjection
+		.simplePolygonCoordinates(
+			gallPetersProjection:/1
+		)
 	)
 }.LineDrawing
 ~~~

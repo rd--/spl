@@ -116,6 +116,18 @@ GeoJson : [Object] { | contents |
 		}
 	}
 
+	simplePolygonCoordinates { :self :projectionFunction:/1 |
+		self.simplePolygons.collect { :each |
+			let [c] = each.coordinates;
+			c.collect { :each |
+				let [phi, lambda] = each.degreesToRadians;
+				projectionFunction(
+					[lambda, phi]
+				)
+			}
+		}
+	}
+
 	type { :self |
 		self.field('type')
 	}
@@ -130,16 +142,19 @@ GeoJson : [Object] { | contents |
 
 }
 
-
-+List{
++List {
 
 	gallPetersProjection { :self |
-		(self.arrayDepth >= 2).if {
-			self.collect(gallPetersProjection:/1)
-		} {
-			let [x, y] = self;
-			[x, 2 * y.sin]
-		}
+		let [lambda, phi] = self;
+		[phi, 2 * lambda.sin]
+ 	}
+
+	gallStereographicProjection { :self |
+		let [lambda, phi] = self;
+		[
+			phi / 2.sqrt,
+			(1 + (2.sqrt / 2)) * (lambda / 2).tan
+		]
 	}
 
 }
@@ -156,6 +171,7 @@ GeoJson : [Object] { | contents |
 
 }
 
+/*
 LibraryItem(
 	name: 'UniversityOfLatviaContinentOutlines',
 	category: 'Protocol/GeoJson',
@@ -163,3 +179,4 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: identity:/1
 )
+*/
