@@ -112,6 +112,10 @@
 		self.collect(cos:/1)
 	}
 
+	cosDegrees { :self |
+		self.collect(cosDegrees:/1)
+	}
+
 	cosecant { :self |
 		self.collect(cosecant:/1)
 	}
@@ -411,6 +415,10 @@
 
 	sin { :self |
 		self.collect(sin:/1)
+	}
+
+	sinDegrees { :self |
+		self.collect(sinDegrees:/1)
 	}
 
 	sincHistorical { :self |

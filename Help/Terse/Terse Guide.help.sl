@@ -156,8 +156,8 @@ NaN.isNaN /* literal for NaN */
 2.pi.cos = 1 /* pi as unary operator */
 (1.pi / 2).cos.isVeryCloseTo(0) /* cosine */
 0.0.tan = 0.0 /* tangent */
-[0, 45, 90, 180].collect(degreeSin:/1) = [0, 0.7071067811865475, 1, 0] /* sine given angle in degree */
-[0, 45, 90, 180].collect(degreeCos:/1) = [1, 0.7071067811865475, 0, -1] /* cosine given angle in degree */
+[0, 45, 90, 180].collect(sinDegrees:/1) = [0, 0.7071067811865475, 1, 0] /* sine given angle in degree */
+[0, 45, 90, 180].collect(cosDegrees:/1) = [1, 0.7071067811865475, 0, -1] /* cosine given angle in degree */
 2.sqrt / 2 = 0.7071067811865476
 2.sqrt / 2 = 0.5.sqrt
 10.max(20) = 20 /* get maximum of two numbers */

@@ -10,7 +10,7 @@ Methods for testing: `isEven`, `isOdd`, `isNegative`, `isNonNegative`, `isPositi
 
 Methods for truncating and rounding: `ceiling`, `floor`, `truncated`, `truncateTo`, `rounded`, `roundTo`, `roundUpTo`
 
-Methods for trigonometry: `sin`, `cos`, `tan`, `degreeSin`, `degreeCos`, `arcSin`, `arcCos`, `arcTan`, `degreesToRadians`, `radiansToDegrees`
+Methods for trigonometry: `sin`, `cos`, `tan`, `sinDegrees`, `cosDegrees`, `arcSin`, `arcCos`, `arcTan`, `degreesToRadians`, `radiansToDegrees`
 
 * * *
 

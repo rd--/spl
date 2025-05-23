@@ -167,7 +167,7 @@ Plot of complex `sin` function:
 
 * * *
 
-See also: arcSin, cos, cosecant, haversine, sinh, tan
+See also: arcSin, cos, cosecant, haversine, sinDegrees, sinh, tan
 
 Guides: Trigonometric Functions
 

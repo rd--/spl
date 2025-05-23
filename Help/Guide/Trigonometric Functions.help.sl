@@ -4,6 +4,11 @@
 - `sin`: sine
 - `tan`: tangent
 
+Degrees:
+
+- `cosDegrees`
+- `sinDegrees`
+
 Sinc:
 
 - `sincHistorical`: historical sinc

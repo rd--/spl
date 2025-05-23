@@ -217,6 +217,10 @@
 		}
 	}
 
+	cosDegrees { :self |
+		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
+	}
+
 	coth { :self |
 		self.cosh / self.sinh
 	}
@@ -231,14 +235,6 @@
 
 	degree { :self |
 		self * 0.017453292519943295
-	}
-
-	degreeCos { :self |
-		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
-	}
-
-	degreeSin { :self |
-		(90 - self).degreeCos
 	}
 
 	degreesToRadians { :self |
@@ -410,6 +406,17 @@
 			} {
 				0.5
 			}
+		}
+	}
+
+	hypotrochoid { :a :b :h |
+		let c = a - b;
+		let d = c / b;
+		{ :t |
+			[
+				(c * t.cos) + (h * (t * d).cos),
+				(c * t.sin) - (h * (t * d).sin)
+			]
 		}
 	}
 
@@ -957,6 +964,10 @@
 
 	silverRatio { :self |
 		self * (2.sqrt + 1)
+	}
+
+	sinDegrees { :self |
+		(90 - self).cosDegrees
 	}
 
 	smallFloatEpsilon { :self |
