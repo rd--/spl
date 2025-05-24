@@ -116,6 +116,8 @@ Compare the hexagonal packing of circles above to a simple half-width offset sch
 
 See also: arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circle.html)

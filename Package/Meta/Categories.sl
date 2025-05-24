@@ -591,7 +591,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'~?'
 		'always'
 		'caseOf'
-		'caseOfOtherwise'
 		'doWhileFalse'
 		'doWhileTrue'
 		'if'

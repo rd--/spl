@@ -1,38 +1,54 @@
 # caseOf
 
-- _caseOf(anObject, aCollection)_
+- _caseOf(x, [y₁ → f₁, y₂ → f₂, …], f)_
 
-The elements of _aCollection_ are `Association`s between `Block` values.
-Answer the evaluated `value` of the first association whose evaluated key equals _anObject_.
+Compare _x_ to each _y_ in turn,
+evaluating the corresponding `Block` _f_ associated with the first item that matches.
 
-With both `key` and `value` of each association as constants:
+that The elements of _aCollection_ are `Association`s.
+Answer the evaluated `blockValue` of the first association whose unevaluated key equals _anObject_.
+
+The keys of the associations are values that are to be compared with _anObject_ using `=`.
+The values of the associations are `Block` values to be evaluated when a case matches.
+
+Even if the answer values are constant they must be placed in blocks:
 
 ```
+>>> let x = 'b';
 >>> let c = [
->>> 	'a' -> 1,
->>> 	'b' -> 2,
->>> 	'c' -> 3
+>>> 	'a' -> { 1 },
+>>> 	'b' -> { 2 },
+>>> 	'c' -> { 3 }
 >>> ];
->>> 'b'.caseOf(c)
+>>> x.caseOf(c)
 2
 ```
 
 With both `key` and `value` of each association as `Block`s:
 
 ```
+>>> let x = 'b';
 >>> let c = [
->>> 	{ 'a' } -> { 1 * 1 },
->>> 	{ 'b' } -> { 2 * 2 },
->>> 	{ 'c' } -> { 3 * 3 }
+>>> 	'a' -> { 1 * 1 },
+>>> 	'b' -> { 2 * 2 },
+>>> 	'c' -> { 3 * 3 }
 >>> ];
->>> 'b'.caseOf(c)
+>>> x.caseOf(c)
 4
+```
+
+If no match is found, answer the result of evaluating the _otherwise_ clause:
+
+```
+>>> let c = ['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }];
+>>> 'd'.caseOf(c, identity:/1)
+'d'
 ```
 
 If no match is found, report an error:
 
 ```
->>> let c = ['a' -> 1, 'b' -> 2, 'c' -> 3];
+>>> let c = ['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }];
 >>> {
 >>> 	'd'.caseOf(c)
 >>> }.ifError { true }
@@ -50,7 +66,7 @@ true
 
 * * *
 
-See also: =, caseOfOtherwise, if, value, which
+See also: =, if, value, which
 
 References:
 _Mathematica_

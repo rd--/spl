@@ -113,15 +113,15 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	reflectionMatrix { :self |
 		self := self / self.norm;
-		self.size.caseOfOtherwise([
-			{ 2 } -> {
+		self.size.caseOf([
+			2 -> {
 				let [a, b] = self;
 				[
 					[a.squared - b.squared, 2 * a * b],
 					[2 * a * b, b.squared - a.squared]
 				]
 			},
-			{ 3 } -> {
+			3 -> {
 				let [a, b, c] = self;
 				[
 					[1 - (2 * a.squared), -2 * a * b, -2 * a * c],

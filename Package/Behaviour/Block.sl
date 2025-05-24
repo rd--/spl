@@ -32,11 +32,11 @@ Block! : [Object] {
 	}
 
 	array { :aBlock :shape |
-		shape.size.caseOfOtherwise(
+		shape.size.caseOf(
 			[
-				{ 1 } -> { aBlock.table((1 .. shape[1])) },
-				{ 2 } -> { aBlock.table((1 .. shape[1]), (1 .. shape[2])) },
-				{ 3 } -> { aBlock.table((1 .. shape[1]), (1 .. shape[2]), (1 .. shape[3])) }
+				1 -> { aBlock.table((1 .. shape[1])) },
+				2 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2])) },
+				3 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2]), (1 .. shape[3])) }
 			]
 		) {
 			aBlock.error('array: not vector or matrix or volume')

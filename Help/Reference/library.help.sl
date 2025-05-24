@@ -8,7 +8,7 @@ Count the entries in the library:
 
 ```
 >>> system.library.size
-27
+28
 ```
 
 Check if the library includes a particular entry:

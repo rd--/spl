@@ -70,26 +70,26 @@ SmallProgram : [Object, UserEventTarget, View, SmallKansan] {
 					each.keyBinding(event, where)
 				};
 				self.smallKansas.where := where;
-				event.key.caseOfOtherwise(
+				event.key.caseOf(
 					bindings,
 					{ :key | nil }
 				)
 			};
 			event.shiftKey.ifTrue {
 				let where = system.window.caretBoundingBox;
-				event.key.caseOfOtherwise([
-					{ 'Enter' } -> {
+				event.key.caseOf([
+					'Enter' -> {
 						let result = self.smallKansas.evaluate(self.program.value, where);
 						event.preventDefault;
 						self.addToAnswer(self.program.value, result);
 						self.onEvaluate;
 						self.historyCursor := nil
 					},
-					{ 'ArrowUp' } -> {
+					'ArrowUp' -> {
 						event.preventDefault;
 						self.readHistory(-1)
 					},
-					{ 'ArrowDown' } -> {
+					'ArrowDown' -> {
 						event.preventDefault;
 						self.readHistory(1)
 					}

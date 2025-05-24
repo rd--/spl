@@ -47,10 +47,10 @@
 			nil
 		) { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					structures.keys
 				},
-				{ 1 } -> {
+				1 -> {
 					let cls = structures.detect { :each |
 						each.name = path[1]
 					};

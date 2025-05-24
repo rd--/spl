@@ -20,17 +20,17 @@ Plot : [Object] { | pages format options |
 			};
 			let items = [];
 			let gen:/1 = self.format.caseOf([
-				{ 'line' } -> {
+				'line' -> {
 					{ :p |
 						[p.Line]
 					}
 				},
-				{ 'scatter' } -> {
+				'scatter' -> {
 					{ :p |
 						[p.PointCloud]
 					}
 				},
-				{ 'discrete' } -> {
+				'discrete' -> {
 					{ :p |
 						p.collect { :each |
 							let [x, y] = each;
@@ -106,7 +106,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	draw { :self |
-		self.format.caseOfOtherwise([
+		self.format.caseOf([
 			'array' -> {
 				let [contents] = self.pages;
 				contents.asColourSvg.draw
@@ -129,7 +129,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	writeSvg { :self :fileName |
-		self.format.caseOfOtherwise([
+		self.format.caseOf([
 			'array' -> {
 				let [contents] = self.pages;
 				contents.asColourSvg.writeSvg(fileName)

@@ -219,6 +219,10 @@
 		self.indices.includes(anObject)
 	}
 
+	includesIndidces { :self :aCollection |
+		self.indices.includesAllOf(aCollection)
+	}
+
 	indexOf { :self :anObject |
 		self.indexOfIfAbsent(anObject) {
 			self.error('@Indexable>>indexOf: no such element')

@@ -201,7 +201,7 @@
 	}
 
 	matrixRotate { :self :k |
-		k.caseOfOtherwise([
+		k.caseOf([
 			1 -> { self.collect(reversed:/1).transposed },
 			2 -> { self.collect(reversed:/1).reversed },
 			3 -> { self.transposed.collect(reversed:/1) }

@@ -29,7 +29,7 @@ The `area`, `centroid` and `interiorAngles` of a pentagon:
 (
 	33/2,
 	[35/9 11/3],
-	[1.0484 1.7063 0.833 0.833 0.3869],
+	[1.0484 1.7063 0.8330 5.4502 0.3869],
 	[1 1; 8 6]
 )
 ```
@@ -107,6 +107,8 @@ The outline of a glyph:
 * * *
 
 See also: area, centroid, BezierCurve, Circle, interiorAngles, Point, PointCloud, Rectangle, randomStarConvexPolygon, regularPolygon, rotated, Triangle, vertexCoordinates
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

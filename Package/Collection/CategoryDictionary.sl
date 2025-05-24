@@ -40,12 +40,12 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 	categoryOf { :self :domain :entry |
 		let all = self.categoriesOf(domain, entry);
-		all.size.caseOfOtherwise([
-			{ 0 } -> {
+		all.size.caseOf([
+			0 -> {
 				self.categorize(domain, '*Uncategorized*', entry);
 				'*Uncategorized*'
 			},
-			{ 1 } -> {
+			1 -> {
 				all[1]
 			}
 		]) {
@@ -55,9 +55,9 @@ CategoryDictionary : [Object] { | domainDictionary |
 
 	categoryOf { :self :entry |
 		let answer = self.categoriesOf(entry);
-		answer.size.caseOfOtherwise([
-			{ 0 } -> { '*Uncategorized*' },
-			{ 1 } -> { answer.first }
+		answer.size.caseOf([
+			0 -> { '*Uncategorized*' },
+			1 -> { answer.first }
 		]) {
 			self.error('categoryOf: multiple categories: ' ++ entry)
 		}

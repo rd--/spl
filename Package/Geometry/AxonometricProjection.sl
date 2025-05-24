@@ -68,18 +68,18 @@ AxonometricProjection : [Object] { | xRadius xTheta yRadius yTheta zRadius zThet
 +String {
 
 	namedAxonometricProjection { :self :alpha |
-		self.caseOfOtherwise([
-			{ 'CabinetOblique' } -> { AxonometricProjection(alpha, 0, 0, 1 / 2, 1, 1) }
+		self.caseOf([
+			'CabinetOblique' -> { AxonometricProjection(alpha, 0, 0, 1 / 2, 1, 1) }
 		]) {
 			self.error('namedAxonometricProjection: alpha')
 		}
 	}
 
 	namedAxonometricProjection { :self |
-		self.caseOfOtherwise([
-			{ 'CavalierOblique' } -> { AxonometricProjection(1/4.pi, 0, 0, 1, 1, 1) },
-			{ 'Isometric' } -> { AxonometricProjection(1/6.pi, 0, 1/6.pi, 1, 1, 1) },
-			{ 'Planometric' } -> { AxonometricProjection(1/5.pi, 0, 1/4.pi, 1, 1, 1) }
+		self.caseOf([
+			'CavalierOblique' -> { AxonometricProjection(1/4.pi, 0, 0, 1, 1, 1) },
+			'Isometric' -> { AxonometricProjection(1/6.pi, 0, 1/6.pi, 1, 1, 1) },
+			'Planometric' -> { AxonometricProjection(1/5.pi, 0, 1/4.pi, 1, 1, 1) }
 		]) {
 			self.error('namedAxonometricProjection')
 		}

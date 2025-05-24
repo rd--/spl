@@ -78,15 +78,15 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	alphabet { :self |
-		self.caseOfOtherwise([
-			{ 'english' } -> {
+		self.caseOf([
+			'english' -> {
 				[
 					'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
 					'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
 					'u' 'v' 'w' 'x' 'y' 'z'
 				]
 			},
-			{ 'greek' } -> {
+			'greek' -> {
 				[
 					'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
 					'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
@@ -862,9 +862,9 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	toCharacterCode { :self :encoding |
 		encoding.caseOf([
-			{ 'Ascii' } -> { self.asciiList },
-			{ 'Utf8' } -> { self.utf8List },
-			{ 'Utf16' } -> { self.utf16List }
+			'Ascii' -> { self.asciiList },
+			'Utf8' -> { self.utf8List },
+			'Utf16' -> { self.utf16List }
 		])
 	}
 
@@ -1012,9 +1012,9 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	fromCharacterCode { :self :encoding |
 		self.allSatisfy(isSmallFloat:/1).if {
 			encoding.caseOf([
-				{ 'Ascii' } -> { self.asciiString },
-				{ 'Utf8' } -> { self.utf8String },
-				{ 'Utf16' } -> { self.utf16String }
+				'Ascii' -> { self.asciiString },
+				'Utf8' -> { self.utf8String },
+				'Utf16' -> { self.utf16String }
 			])
 		} {
 			self.collect { :each |

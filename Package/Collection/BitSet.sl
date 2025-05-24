@@ -52,8 +52,8 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 
 	bitAtPut { :self :anInteger :aBit |
 		aBit.caseOf([
-			{ 0 } -> { self.clearBitAt(anInteger) },
-			{ 1 } -> { self.setBitAt(anInteger) }
+			0 -> { self.clearBitAt(anInteger) },
+			1 -> { self.setBitAt(anInteger) }
 		]);
 		aBit
 	}

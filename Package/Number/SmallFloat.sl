@@ -727,7 +727,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.isEmpty.if {
 			false
 		} {
-			radix.caseOfOtherwise([
+			radix.caseOf([
 				2 -> {
 					self.matchesRegExp('^[0-1+-]+$')
 				},

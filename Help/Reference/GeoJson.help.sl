@@ -72,6 +72,14 @@ system.continentOutlines(
 
 ![](sw/spl/Help/Image/GeoJson-A.svg)
 
+Construct an empty feature:
+
+```
+>>> (type: 'Feature', properties: nil, geometry: nil)
+>>> .GeoJson.isFeature
+true
+```
+
 Accessors:
 
 - `features`

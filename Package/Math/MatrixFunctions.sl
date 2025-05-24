@@ -586,8 +586,8 @@
 		let [a, b] = m.shape;
 		(a = b).if {
 			let r = b.zeroMatrix(a);
-			p.caseOfOtherwise([
-				{ 0 } -> {
+			p.caseOf([
+				0 -> {
 					1:b.do { :i |
 						1:a.do { :j |
 							(i = j).if {
@@ -598,7 +598,7 @@
 						}
 					}
 				},
-				{ 1 } -> {
+				1 -> {
 					1:b.do { :i |
 						1:a.do { :j |
 							r[i][j] := m[i][j]
@@ -1329,22 +1329,22 @@
 	}
 
 	rotationMatrix { :self :vector |
-		vector.caseOfOtherwise([
-			{ [1 0 0] } -> {
+		vector.caseOf([
+			[1 0 0] -> {
 				[
 					[1,0,0],
 					[0,self.cos,0 - self.sin],
 					[0,self.sin,self.cos]
 				]
 			},
-			{ [0 1 0] } -> {
+			[0 1 0] -> {
 				[
 					[self.cos,0,self.sin],
 					[0,1,0],
 					[0 - self.sin,0,self.cos]
 				]
 			},
-			{ [0 0 1] } -> {
+			[0 0 1] -> {
 				[
 					[self.cos,0 - self.sin,0],
 					[self.sin,self.cos,0],

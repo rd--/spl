@@ -9,7 +9,7 @@ Polygon : [Object] { | vertexCoordinates |
 	}
 
 	area { :self |
-		self.vertexCoordinates.shoelaceFormula
+		self.vertexCoordinates.shoelaceFormula.abs
 	}
 
 	at { :self :index |
@@ -104,8 +104,16 @@ Polygon : [Object] { | vertexCoordinates |
 		}
 	}
 
+	signedArea { :self |
+		self.vertexCoordinates.shoelaceFormula
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	vertexAngle { :self :i |
+		self.vertexCoordinates.polygonVertexAngle(i)
 	}
 
 	vertexCount { :self |
@@ -147,6 +155,11 @@ Polygon : [Object] { | vertexCoordinates |
 		}
 	}
 
+	parallelogram { :p :v |
+		let [v1, v2] = v;
+		Polygon([p, p + v1, p + v1 + v2, p + v2])
+	}
+
 	Polygon { :self |
 		(self.depth > 3).if {
 			self.collect(Polygon:/1)
@@ -177,14 +190,17 @@ Polygon : [Object] { | vertexCoordinates |
 	polygonInteriorAngles { :self |
 		let n = self.size;
 		let answer = [];
-		1.toDo(n) { :j |
-			let i = (j - 1).wrapIndex(n);
-			let k = (j + 1).wrapIndex(n);
-			let [q2, p, q1] = self @* [i, j, k];
-			let theta = (p -> [q1, q2]).planarAngle;
-			answer.add(theta)
-		};
-		answer
+		(1 .. self.size).collect { :i |
+			self.polygonVertexAngle(i)
+		}
+	}
+
+	polygonVertexAngle { :self :j |
+		let n = self.size;
+		let p = self.at(j);
+		let q1 = self.at((j + 1).wrapIndex(n));
+		let q2 = self.at((j - 1).wrapIndex(n));
+		(p -> [q1, q2]).planarAngle
 	}
 
 	windingNumber { :self :aPoint |

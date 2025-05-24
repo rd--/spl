@@ -133,7 +133,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 	}
 
 	asRecord { :self |
-		self.size.caseOfOtherwise([
+		self.size.caseOf([
 			2 -> { (x: self.x, y: self.y) },
 			3 -> { (x: self.x, y: self.y, z: self.z) },
 			4 -> { (x: self.x, y: self.y, z: self.z, w: self.w) }
@@ -203,7 +203,7 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 +Record {
 
 	asCartesianCoordinates { :self |
-		self.size.caseOfOtherwise([
+		self.size.caseOf([
 			2 -> {
 				let (x: x, y: y) = self;
 				CartesianCoordinates([x y])

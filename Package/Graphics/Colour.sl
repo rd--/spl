@@ -214,9 +214,9 @@ RgbColour : [Object, Colour] { | rgb alpha |
 +List {
 
 	asColour { :self |
-		self.size.caseOfOtherwise([
-			{ 3 } -> { RgbColour(self, 1) },
-			{ 4 } -> { RgbColour(self.take(3), self[4]) }
+		self.size.caseOf([
+			3 -> { RgbColour(self, 1) },
+			4 -> { RgbColour(self.take(3), self[4]) }
 		]) {
 			self.error('asColour')
 		}
@@ -392,13 +392,13 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		let p = (1 - s) * v;
 		let q = (1 - (s * f)) * v;
 		let t = (1 - (s * (1 - f))) * v;
-		i.caseOfOtherwise([
-			{ 0 } ->  { [v, t, p] },
-			{ 1 } ->  { [q, v, p] },
-			{ 2 } ->  { [p, v, t] },
-			{ 3 } ->  { [p, q, v] },
-			{ 4 } ->  { [t, p, v] },
-			{ 5 } ->  { [v, p, q] }
+		i.caseOf([
+			0 ->  { [v, t, p] },
+			1 ->  { [q, v, p] },
+			2 ->  { [p, v, t] },
+			3 ->  { [p, q, v] },
+			4 ->  { [t, p, v] },
+			5 ->  { [v, p, q] }
 		]) {
 			'hsvToRgb'.error('implementation error')
 		}

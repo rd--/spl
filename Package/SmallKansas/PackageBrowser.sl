@@ -11,11 +11,11 @@
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					browser.setStatus('');
 					packageCategories
 				},
-				{ 1 } -> {
+				1 -> {
 					browser.setStatus('');
 					packages.selectThenCollect { :each |
 						each.category = path[1]
@@ -23,7 +23,7 @@
 						each.name
 					}.sort
 				},
-				{ 2 } -> {
+				2 -> {
 					let traits = system.packageTraits(path[2]);
 					let types = system.packageTypes(path[2]);
 					let implements = (traits ++ types).collect(qualifiedName:/1);
@@ -33,7 +33,7 @@
 						each.origin.qualifiedName
 					}.copyWithoutIdenticalElements.sort
 				},
-				{ 3 } -> {
+				3 -> {
 					system.isTypeName(path[3]).if {
 						browser.setStatus(system.typeTraits(path[3]).commaSeparated)
 					} {
@@ -45,7 +45,7 @@
 						each.qualifiedName
 					}.sort
 				},
-				{ 4 } -> {
+				4 -> {
 					selectedMethod := methods.detect { :each |
 						each.origin.qualifiedName = path[3] & {
 							each.qualifiedName = path[4]

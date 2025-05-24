@@ -11,3 +11,9 @@ Regular polygons are convex:
 >>> .isConvex
 true
 ```
+
+* * *
+
+See also: interiorAngles
+
+Guides: Geometry Functions

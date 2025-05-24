@@ -129,7 +129,7 @@ Circle : [Object] { | center radius |
 
 	welzlAlgorithm { :p :r |
 		(p.isEmpty | { r.size = 3 }).if {
-			r.size.caseOfOtherwise([
+			r.size.caseOf([
 				0 -> { Circle([0 0], 0) },
 				1 -> { Circle(r[1], 0) }
 			]) {

@@ -2,21 +2,21 @@
 
 	inferSchemaType { :self |
 		[
-			{ self.isBooleanString } -> 'Boolean',
-			{ self.isDecimalIntegerString } -> 'Integer',
-			{ self.isFractionString } -> 'Fraction',
-			{ self.isComplexString } -> 'Complex',
-			{ self.isFloatString } -> 'Real',
-			{ self.isDateString } -> 'Date',
-			{ self.isDateAndTimeString } -> 'DateAndTime',
-			{ self.isIso8601DurationString } -> 'Duration',
-			{ self.isTimeString } -> 'Time',
+			{ self.isBooleanString } -> { 'Boolean' },
+			{ self.isDecimalIntegerString } -> { 'Integer' },
+			{ self.isFractionString } -> { 'Fraction' },
+			{ self.isComplexString } -> { 'Complex' },
+			{ self.isFloatString } -> { 'Real' },
+			{ self.isDateString } -> { 'Date' },
+			{ self.isDateAndTimeString } -> { 'DateAndTime' },
+			{ self.isIso8601DurationString } -> { 'Duration' },
+			{ self.isTimeString } -> { 'Time' },
 			true -> 'String'
 		].which
 	}
 
 	schemaTypeParser { :self |
-		self.caseOfOtherwise(
+		self.caseOf(
 			[
 				'Boolean' -> { parseBoolean:/2 },
 				'Integer' -> { parseDecimalInteger:/2 },
@@ -35,7 +35,7 @@
 	}
 
 	schemaTypePredicate { :self |
-		self.caseOfOtherwise(
+		self.caseOf(
 			[
 				'Boolean' -> { isBoolean:/1 },
 				'Integer' -> { isInteger:/1 },

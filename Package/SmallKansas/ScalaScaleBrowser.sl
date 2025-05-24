@@ -6,11 +6,11 @@
 		let selectedTuningSize = nil;
 		self.ColumnBrowser('Scala Scale Browser', 'text/plain', false, true, [1, 1, 4], nil, nil) { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					browser.setStatus('Size/TuningSize/Name');
 					sizes
 				},
-				{ 1 } -> {
+				1 -> {
 					browser.setStatus('Size = ' ++ path[1]);
 					selectedSize := path[1].parseSmallInteger(10);
 					scalaModenam.select { :each |
@@ -19,7 +19,7 @@
 						each.tuningSize
 					}.copyWithoutIdenticalElements.sort.collect(asString:/1)
 				},
-				{ 2 } -> {
+				2 -> {
 					browser.setStatus(
 						[
 							'Size = ', path[1], ', ',
@@ -33,7 +33,7 @@
 						}
 					}.collect(description:/1)
 				},
-				{ 3 } -> {
+				3 -> {
 					let modenam = scalaModenam.detect { :each |
 						each.description = path[3]
 					};

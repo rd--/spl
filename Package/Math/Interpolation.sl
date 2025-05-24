@@ -265,8 +265,8 @@
 
 	listInterpolation { :self :aBlock |
 		let k = self.size;
-		aBlock.numArgs.caseOfOtherwise([
-			{ 3 } -> {
+		aBlock.numArgs.caseOf([
+			3 -> {
 				{ :x |
 					let i = x.integerPart;
 					(i = k).if {
@@ -280,7 +280,7 @@
 					}
 				}
 			},
-			{ 5 } -> {
+			5 -> {
 				{ :x |
 					let i = x.integerPart;
 					(i = k).if {
@@ -552,7 +552,7 @@
 +String {
 
 	namedInterpolatorFunction { :self |
-		self.caseOfOtherwise([
+		self.caseOf([
 			{ 'Akima' } -> { akimaInterpolator:/2 },
 			{ 'CubicSpline' } -> { cubicSplineInterpolator:/2 },
 			{ 'Linear' } -> { linearInterpolator:/2 },

@@ -113,6 +113,8 @@ let f = { :n |
 
 See also: asLineDrawing, asPolygon, asRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Rectangle.html)

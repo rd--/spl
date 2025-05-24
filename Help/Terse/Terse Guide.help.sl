@@ -2269,8 +2269,8 @@ system.includesPackage('Object') /* package */
 (x: 1, y: 3, z: 5).species = Record:/0
 'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
 { 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { true }
-'b'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | false } = 2
-'d'.caseOfOtherwise(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
+'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | false } = 2
+'d'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
 let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
 { let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; 'c'.caseOf(z) }.ifError { true }
 3/2.perform('numerator') = 3 /* perform named unary method, name is not qualified */

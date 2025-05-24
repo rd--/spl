@@ -110,6 +110,7 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
+- `parallelogram`
 - `regularPolygon`
 - `unitCircle`
 - `unitCube`
@@ -169,6 +170,10 @@ Polygon Functions:
 - `crossingNumber`
 - `regularPolygon`
 - `windingNumber`
+
+Predicate Functions:
+
+- `isConvex`
 
 Query Functions:
 

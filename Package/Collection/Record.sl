@@ -31,6 +31,12 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
+	includesKeys { :self :aCollection |
+		aCollection.allSatisfy { :each |
+			self.includesKey(each)
+		}
+	}
+
 	indices { :self |
 		self.keys
 	}

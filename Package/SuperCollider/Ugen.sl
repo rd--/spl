@@ -67,11 +67,11 @@ Ugen! : [Object, Number] {
 
 	busOffset { :self |
 		/* ['busOffset', self.size].postLine; */
-		self.size.caseOfOtherwise([
-			{ 2 } -> {
+		self.size.caseOf([
+			2 -> {
 				system.preference('ScSynth/Outputs/Stereo/BusOffset', 0)
 			},
-			{ system.scSynth.mainOutputs } -> {
+			system.scSynth.mainOutputs -> {
 				system.preference('ScSynth/Outputs/Main/BusOffset', 0)
 			}
 		]) {

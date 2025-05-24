@@ -1199,10 +1199,10 @@
 
 	groupsDo { :self :aBlock |
 		let numArgs = aBlock.numArgs;
-		numArgs.caseOfOtherwise([
-			{ 0 } -> { self.error('groupsDo: At least one block argument expected') },
-			{ 1 } -> { self.do(aBlock) },
-			{ 2 } -> { self.pairsDo(aBlock) }
+		numArgs.caseOf([
+			0 -> { self.error('groupsDo: At least one block argument expected') },
+			1 -> { self.do(aBlock) },
+			2 -> { self.pairsDo(aBlock) }
 		]) {
 			let argumentList = List(numArgs);
 			let index = 1;
@@ -2911,7 +2911,7 @@
 
 	swapAllWith { :self :indices |
 		indices.rank.caseOf([
-			{ 2 } -> {
+			2 -> {
 				indices.do { :each |
 					let [i, j] = each;
 					let x = self[i];
@@ -2919,7 +2919,7 @@
 					self[j] := x
 				}
 			},
-			{ 3 } -> {
+			3 -> {
 				indices.do { :each |
 					let [i, j] = each;
 					let x = self.atPath(i);
@@ -3092,8 +3092,8 @@
 	which { :self |
 		valueWithReturn { :return:/1 |
 			self.do { :each |
-				each.key.value.ifTrue {
-					each.value.value.return
+				each.key.blockValue.ifTrue {
+					each.value.blockValue.return
 				}
 			};
 			nil

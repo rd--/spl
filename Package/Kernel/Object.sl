@@ -54,17 +54,17 @@
 		self.error('@Object>>caseError: case not found and no otherwise clause')
 	}
 
-	caseOf { :self :aBlockAssociationCollection |
-		self.caseOfOtherwise(aBlockAssociationCollection) { :case |
+	caseOf { :self :aCollection |
+		self.caseOf(aCollection) { :case |
 			self.caseError
 		}
 	}
 
-	caseOfOtherwise { :self :aBlockAssociationCollection :otherwise:/1 |
+	caseOf { :self :aCollection :otherwise:/1 |
 		valueWithReturn { :return:/1 |
-			aBlockAssociationCollection.associationsDo { :assoc |
-				(assoc.key.value = self).ifTrue {
-					assoc.value.value.return
+			aCollection.associationsDo { :each |
+				(each.key = self).ifTrue {
+					each.value.blockValue.return
 				}
 			};
 			otherwise:/1.cull(self)

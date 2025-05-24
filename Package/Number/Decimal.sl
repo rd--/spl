@@ -319,14 +319,14 @@ Decimal : [Object] { | fraction scale |
 
 	basicParseDecimal { :self :elseClause:/0 |
 		let parts = self.splitBy('.');
-		parts.size.caseOfOtherwise([
-			{ 1 } -> {
+		parts.size.caseOf([
+			1 -> {
 				UnsimplifiedDecimal(
 					parts[1].parseLargeInteger(elseClause:/0).asFraction,
 					0
 				)
 			},
-			{ 2 } -> {
+			2 -> {
 				let sign = self.beginsWith('-').if { -1 } { 1 };
 				let i = parts[1].parseLargeInteger(elseClause:/0);
 				let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));

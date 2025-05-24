@@ -411,51 +411,51 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		let f = { :e |
 			let o = e.first;
 			let p = e.allButFirst;
-			o.caseOfOtherwise(
+			o.caseOf(
 				[
-					{ 'Apply' } -> {
+					'Apply' -> {
 						SymbolicExpression(f(p[1]), p.allButFirst.collect(f:/1))
 					},
-					{ 'Arguments' } -> {
+					'Arguments' -> {
 						SymbolicExpression('𝓐', p.collect(f:/1))
 					},
-					{ 'Assignment' } -> {
+					'Assignment' -> {
 						SymbolicExpression('←', p.collect(f:/1))
 					},
-					{ 'Block' } -> {
+					'Block' -> {
 						SymbolicExpression('𝜆', p.collect(f:/1))
 					},
-					{ 'Identifier' } -> {
+					'Identifier' -> {
 						Symbol(p[1])
 					},
-					{ 'LargeInteger' } -> {
+					'LargeInteger' -> {
 						p[1].allButLast.parseLargeInteger
 					},
-					{ 'Let' } -> {
+					'Let' -> {
 						SymbolicExpression('≔', p.collect(f:/1))
 					},
-					{ 'List' } -> {
+					'List' -> {
 						SymbolicExpression('𝓛', p.collect(f:/1))
 					},
-					{ 'Operator' } -> {
+					'Operator' -> {
 						Symbol(p[1])
 					},
-					{ 'Program' } -> {
+					'Program' -> {
 						SymbolicExpression('𝒫', p.collect(f:/1))
 					},
-					{ 'ReservedIdentifier' } -> {
+					'ReservedIdentifier' -> {
 						p[1].caseOf(
 							[
-								{ 'false' } -> { false },
-								{ 'nil' } -> { nil },
-								{ 'true' } -> { true }
+								'false' -> { false },
+								'nil' -> { nil },
+								'true' -> { true }
 							]
 						)
 					},
-					{ 'SmallFloat' } -> {
+					'SmallFloat' -> {
 						p[1].parseNumber
 					},
-					{ 'SmallInteger' } -> {
+					'SmallInteger' -> {
 						p[1].parseSmallInteger(10)
 					}
 				]

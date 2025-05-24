@@ -7,11 +7,11 @@
 		let packageCategories = packages.collect(category:/1).copyWithoutIdenticalElements.sort;
 		self.ColumnBrowser('Package Index Browser', 'text/plain', false, true, [1, 3], nil, nil) { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					browser.setStatus('');
 					packageCategories
 				},
-				{ 1 } -> {
+				1 -> {
 					browser.setStatus('');
 					packages.selectThenCollect { :each |
 						each.category = path[1]

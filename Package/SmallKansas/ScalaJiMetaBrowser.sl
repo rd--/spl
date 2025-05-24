@@ -9,13 +9,13 @@
 			false, false, [1, 4], nil, nil
 		) { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					meta.keys
 				},
-				{ 1 } -> {
+				1 -> {
 					meta[path[1]].collect(description:/1)
 				},
-				{ 2 } -> {
+				2 -> {
 					meta[path[1]].detect { :each |
 						each.description = path[2]
 					}.htmlView.outerHtml

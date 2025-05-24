@@ -69,7 +69,7 @@ TextEditor : [Object, UserEventTarget, View] {
 					each.keyBinding(event, where)
 				};
 				self.smallKansas.where := where;
-				event.key.caseOfOtherwise(
+				event.key.caseOf(
 					bindings,
 					{ :key | nil }
 				)
@@ -78,14 +78,14 @@ TextEditor : [Object, UserEventTarget, View] {
 	}
 
 	setEditorText { :self :aString |
-		self.mimeType.caseOfOtherwise([
-			{ 'text/html' } -> {
+		self.mimeType.caseOf([
+			'text/html' -> {
 				self.editorText.innerHtml := aString
 			},
-			{ 'text/markdown' } -> {
+			'text/markdown' -> {
 				self.editorText.innerHtml := aString.markdownToHtml
 			},
-			{ 'text/plain' } -> {
+			'text/plain' -> {
 				self.editorText.textContent := aString
 			}
 		]) {

@@ -6,10 +6,10 @@
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					methods
 				},
-				{ 1 } -> {
+				1 -> {
 					selectedMethod := system.methodLookupAtSignature(path[1]);
 					browser.setStatus(selectedMethod.provenance);
 					selectedMethod.definition

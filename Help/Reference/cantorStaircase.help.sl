@@ -47,7 +47,7 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 
 ```
 >>> let f = { :n |
->>> 	n.caseOfOtherwise([
+>>> 	n.caseOf([
 >>> 		0 -> { 1 },
 >>> 		1 -> { 1/2 }
 >>> 	]) {

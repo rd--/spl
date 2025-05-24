@@ -9,7 +9,7 @@
 			selectedMethod.definition := accepted
 		} { :browser :path |
 			path.size.caseOf([
-				{ 0 } -> {
+				0 -> {
 					browser.setStatus('');
 					traitNames
 				},

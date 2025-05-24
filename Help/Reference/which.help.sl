@@ -8,8 +8,8 @@ If no clause answers `true`, answer `nil`.
 ```
 >>> let a = 2;
 >>> [
->>> 	a = 1 -> 'x',
->>> 	a = 2 -> 'b'
+>>> 	{ a = 1 } -> { 'x' },
+>>> 	{ a = 2 } -> { 'b' }
 >>> ].which
 'b'
 ```
@@ -19,9 +19,9 @@ Use `true` for an else clause that always matches:
 ```
 >>> [-2 0 3].collect { :x |
 >>> 	[
->>> 		{ x < 0 } -> -1,
->>> 		{ x > 0 } -> 1,
->>> 		true -> 0
+>>> 		{ x < 0 } -> { -1 },
+>>> 		{ x > 0 } -> { 1 },
+>>> 		{ true } -> { 0 }
 >>> 	].which
 >>> }
 [-1 0 1]
@@ -29,7 +29,7 @@ Use `true` for an else clause that always matches:
 
 * * *
 
-See also: caseOf, caseOfOtherwise, if
+See also: caseOf, if
 
 References:
 _Mathematica_

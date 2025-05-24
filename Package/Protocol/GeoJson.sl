@@ -13,7 +13,7 @@ GeoJson : [Object] { | contents |
 	}
 
 	features { :self |
-		self.type.caseOfOtherwise([
+		self.type.caseOf([
 			'Feature' -> {
 				[self]
 			},
@@ -55,8 +55,14 @@ GeoJson : [Object] { | contents |
 		}
 	}
 
+	hasField { :self :key |
+		self.contents.includesKey(key)
+	}
+
 	isFeature { :self |
-		self.type = 'Feature'
+		self.type = 'Feature' & {
+			self.contents.includesKeys(['geometry', 'properties'])
+		}
 	}
 
 	isFeatureCollection { :self |

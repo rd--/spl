@@ -12,7 +12,6 @@
 ## Branch Choice
 
 - `caseOf`
-- `caseOfOtherwise`
 - `which`
 
 ## Conditional Iteration

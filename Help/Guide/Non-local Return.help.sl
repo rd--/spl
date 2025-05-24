@@ -13,4 +13,4 @@ The scope of the `return` is indicated by the `valueWithReturn` method.
 
 * * *
 
-See also: caseOf, caseOfOtherwise, valueWithReturn
+See also: caseOf, valueWithReturn

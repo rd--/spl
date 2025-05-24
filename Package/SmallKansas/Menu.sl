@@ -17,7 +17,7 @@ MenuItem : [Object] { | name accessKey onSelect |
 	}
 
 	keyBinding { :self :event :where |
-		{ self.accessKey } -> {
+		self.accessKey -> {
 			event.preventDefault;
 			self.onSelect . (where)
 		}

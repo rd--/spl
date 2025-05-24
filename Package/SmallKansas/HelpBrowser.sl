@@ -13,13 +13,13 @@
 			nil,
 			{ :browser :path |
 				path.size.caseOf([
-					{ 0 } -> {
+					0 -> {
 						helpIndex.kind
 					},
-					{ 1 } -> {
+					1 -> {
 						helpIndex.names(path[1])
 					},
-					{ 2 } -> {
+					2 -> {
 						helpIndex.fetch(path)
 					}
 				])
