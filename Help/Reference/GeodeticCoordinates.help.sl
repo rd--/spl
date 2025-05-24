@@ -24,7 +24,7 @@ Access components using `latitude`, `longitude` and `elevation`:
 ```
 >>> let c = [40.11 -88.24 244.32];
 >>> let g = GeodeticCoordinates(c);
->>> (c.latitude, c.longitude, c.elevation)
+>>> (g.latitude, g.longitude, g.elevation)
 (40.11, -88.24, 244.32)
 ```
 

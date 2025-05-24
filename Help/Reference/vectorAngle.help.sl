@@ -45,9 +45,22 @@ The angle between a vector and another vector on the same line:
 0
 ```
 
+The answer is unsigned, see `signedVectorAngle`:
+
+```
+>>> [1 0].vectorAngle([0 1])
+1/2.pi
+
+>>> [0 1].vectorAngle([1 0])
+1/2.pi
+
+>>> [0 1].signedVectorAngle([1 0])
+-1/2.pi
+```
+
 * * *
 
-See also: arcCos, cross, degree, dot, planarAngle
+See also: arcCos, cross, degree, dot, planarAngle, signedVectorAngle
 
 Guides: Geometry Functions
 

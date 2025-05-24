@@ -73,6 +73,12 @@ Polygon : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
 
+	isConvex { :self |
+		self.interiorAngles.allSatisfy { :each |
+			each < 1.pi
+		}
+	}
+
 	midpointPolygon { :self |
 		self.vertexCoordinates.midpointPolygon.Polygon
 	}
@@ -170,14 +176,15 @@ Polygon : [Object] { | vertexCoordinates |
 
 	polygonInteriorAngles { :self |
 		let n = self.size;
-		let a = [];
+		let answer = [];
 		1.toDo(n) { :j |
 			let i = (j - 1).wrapIndex(n);
 			let k = (j + 1).wrapIndex(n);
-			let r = (self @* [i, j, k]).planarAngle;
-			a.add(r)
+			let [q2, p, q1] = self @* [i, j, k];
+			let theta = (p -> [q1, q2]).planarAngle;
+			answer.add(theta)
 		};
-		a
+		answer
 	}
 
 	windingNumber { :self :aPoint |

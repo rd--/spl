@@ -162,8 +162,8 @@ GeoJson : [Object] { | contents |
 +System {
 
 	continentOutlines { :self :dataSet |
-		(dataSet = 'UniversityOfLatvia').if {
-			self.requireLibraryItem('UniversityOfLatviaContinentOutlines')
+		(dataSet = 'LowResolution').if {
+			self.requireLibraryItem('ContinentOutlines/LowResolution')
 		} {
 			self.error('System>>continentOutlines: unknown data set')
 		}
@@ -171,12 +171,10 @@ GeoJson : [Object] { | contents |
 
 }
 
-/*
 LibraryItem(
-	name: 'UniversityOfLatviaContinentOutlines',
+	name: 'ContinentOutlines/LowResolution',
 	category: 'Protocol/GeoJson',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/cartography/lu-continents.json',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/cartography/ContinentOutlines-LowResolution.json',
 	mimeType: 'application/json',
-	parser: identity:/1
+	parser: GeoJson:/1
 )
-*/

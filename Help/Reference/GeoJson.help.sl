@@ -5,12 +5,12 @@
 A `Type` holding a `Record` conforming to the GeoJson protocol.
 
 Each `GeoJson` object has a `type`,
-which will either 'Feature',
-or 'FeatureCollection',
-or 'GeometryCollection'.
+either 'Feature',
+'FeatureCollection',
+'GeometryCollection'.
 or one of six primitive geometry types.
 
-The primitive geometry types are:
+The primitive geometry types are
 'Point', 'MultiPoint'
 'LineString', 'MultiLineString',
 'Polygon' and 'MultiPolygon'.
@@ -26,8 +26,8 @@ and which may also be `nil`.
 Collect information about a `GeoJson` object:
 
 ```
->>> let c = sytem.continentOutlines(
->>> 	'UniversityOfLatvia'
+>>> let c = system.continentOutlines(
+>>> 	'LowResolution'
 >>> );
 >>> [
 >>> 	c.isGeoJson,
@@ -47,15 +47,15 @@ Collect information about a `GeoJson` object:
 	true,
 	'FeatureCollection',
 	true, false, false, false,
-	153, 153, 153, 153, 153, 153, 153
+	153, 153, 153, 153, 153, 153
 ]
 ```
 
-Draw the Gall-Peters projection of the continents labeled 'Australia' and 'Africa':
+Draw the Gall-Peters projection of the continents labeled 'Africa' and 'Australia':
 
 ~~~spl svg=A
-sytem.continentOutlines(
-	'UniversityOfLatvia'
+system.continentOutlines(
+	'LowResolution'
 ).features.select { :each |
 	['Africa', 'Australia'].includes(
 		each.property('Continent')
@@ -93,6 +93,8 @@ Predicates:
 - `isSimplePolygon`
 
 * * *
+
+See also: continentOutlines, Json
 
 References:
 _Ietf_

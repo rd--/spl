@@ -33,8 +33,10 @@ Angle Functions:
 
 - `anglePath`
 - `angleVector`
+- `counterClockwiseVectorAngle`
 - `dihedralAngle`
 - `planarAngle`
+- `signedVectorAngle`
 - `vectorAngle`
 
 Area Functions:

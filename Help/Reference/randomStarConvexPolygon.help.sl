@@ -16,6 +16,16 @@ Sfc32(378941)
 
 ![](sw/spl/Help/Image/randomStarConvexPolygon-A.svg)
 
+A star-convex polygon is not necessarily convex,
+although all convex polygons are star-convex:
+
+```
+>>> Sfc32(378941)
+>>> .randomStarConvexPolygon(13, 0.5, 1)
+>>> .isConvex
+false
+```
+
 Draw a randomly generated star convex polygon with 33 vertices and minimal radius of 0.33:
 
 ~~~spl svg=B
@@ -48,4 +58,6 @@ See also: fromPolarCoordinates, Polygon, randomConvexHullPolygon, randomReal, ra
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StarConvex.html)
-[2](https://reference.wolfram.com/language/ref/RandomPolygon.html)
+[2](https://reference.wolfram.com/language/ref/RandomPolygon.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Star_domain)

@@ -3085,14 +3085,6 @@
 		}
 	}
 
-	vectorAngle { :u :v |
-		(u.isVector & { v.isVector }).if {
-			(u.dot(v) / (u.norm * v.norm)).arcCos
-		} {
-			self.error('@Sequenceable>>vectorAngle: not vectors')
-		}
-	}
-
 	isVeryCloseTo { :self :anObject |
 		self.equalBy(anObject, isVeryCloseTo:/2)
 	}

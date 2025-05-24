@@ -87,6 +87,15 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		self.coordinateBoundingBox.transposed
 	}
 
+	counterClockwiseVectorAngle { :u :v |
+		let theta = signedVectorAngle(u, v);
+		(theta < 0).if {
+			theta + 2.pi
+		} {
+			theta
+		}
+	}
+
 	findShortestTour{ :self |
 		self
 		.distanceMatrix
@@ -218,6 +227,33 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 			a := a + d
 		};
 		a / 2
+	}
+
+	signedVectorAngle { :u :v |
+		let [u1, u2] = u;
+		let [v1, v2] = v;
+		atan2(
+			(u1 * v2) - (u2 * v1),
+			(u1 * v1) + (u2 * v2)
+		)
+	}
+
+	vectorAngle { :u :v |
+		(u.isVector & { v.isVector }).if {
+			(u.dot(v) / (u.norm * v.norm)).arcCos
+		} {
+			self.error('List>>vectorAngle: not vectors')
+		}
+	}
+
+}
+
++Association {
+
+	planarAngle { :self |
+		let p = self.key;
+		let [q1, q2] = self.value;
+		counterClockwiseVectorAngle(q1 - p, q2 - p)
 	}
 
 }
