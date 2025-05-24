@@ -2,7 +2,7 @@
 
 - _GeometryCollection(aList)_
 
-A `Type` that holds a set of geometries.
+A `Type` that holds a collection of geometries.
 
 Draw a collection of objects with an `embeddingDimension` of two:
 

@@ -105,6 +105,7 @@
 	'PointCloud'
 	'Polygon'
 	'PolygonMesh'
+	'PolygonWithHoles'
 	'Polyhedron' /* PolygonMesh */
 	'AxonometricProjection'
 	'Rectangle'

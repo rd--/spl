@@ -1,5 +1,9 @@
 GeometryCollection : [Object] { | contents |
 
+	area { :self |
+		self.contents.collect(area:/1).sum
+	}
+
 	boundingBox { :self |
 		self.contents.collect(boundingBox:/1).boundingBoxMerging
 	}
@@ -27,6 +31,10 @@ GeometryCollection : [Object] { | contents |
 		newGeometryCollection().initializeSlots(
 			self.flatten
 		)
+	}
+
+	polygonCollection { :self |
+		self.collect(Polygon:/1).GeometryCollection
 	}
 
 }

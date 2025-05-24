@@ -3,7 +3,8 @@
 - _Line(aMatrix)_
 - _Line(start, end, dur)_
 
-A `Line` is a `Type` representing straight lines connecting a sequence of points.
+A `Line` is a `Type` representing straight lines connecting a sequence of points,
+also called a polygonal chain.
 
 Compute the `arcLength` of a line:
 

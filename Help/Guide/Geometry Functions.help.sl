@@ -15,8 +15,9 @@ Types:
 - `Parallelogram`
 - `PointCloud`
 - `Point`
-- `PolygonMesh`
 - `Polygon`
+- `PolygonMesh`
+- `PolygonWithHoles`
 - `Polyhedron`
 - `Rectangle`
 - `Tetrahedron`
@@ -111,6 +112,7 @@ Constructors:
 - `circlePoints`
 - `closedLine`
 - `parallelogram`
+- `polygonCollection`
 - `regularPolygon`
 - `unitCircle`
 - `unitCube`
@@ -182,8 +184,8 @@ Query Functions:
 - `boundingBox`
 - `circumcenter`
 - `circumcircle`
-- `circumradius`
 - `circumference`
+- `circumradius`
 - `containsPoint`
 - `coordinateBoundingBox`
 - `coordinateBounds`
@@ -195,6 +197,8 @@ Query Functions:
 - `embeddingDimension`
 - `faceCount`
 - `faceIndices`
+- `innerPolygons`
+- `outerPolygon`
 - `perimeter`
 - `radius`
 - `unitNormal`

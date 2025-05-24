@@ -229,6 +229,27 @@ Line : [Object] { | vertexCoordinates |
 
 }
 
++SmallFloat {
+
+	spirangle { :n :m :centre :radii :initialAngle |
+		let [radiusIncrement, initialRadial] = radii;
+		let thetaIncrement = 1.pi - ((n - 2).pi / n);
+		let r = initialRadial * radiusIncrement;
+		let theta = initialAngle;
+		let v = centre + [r, theta].fromPolarCoordinates;
+		let vertexCoordinates = [v];
+		(m * n).timesRepeat {
+			r := r + radiusIncrement;
+			theta := (theta + thetaIncrement) % 2.pi;
+			v := v + [r, theta].fromPolarCoordinates;
+			vertexCoordinates.add(v)
+		};
+		Line(vertexCoordinates)
+	}
+
+}
+
+
 +System {
 
 	schareinKnotCatalogue { :self |

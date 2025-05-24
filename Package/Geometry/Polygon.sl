@@ -69,6 +69,10 @@ Polygon : [Object] { | vertexCoordinates |
 		])
 	}
 
+	innerPolygons { :self |
+		[]
+	}
+
 	interiorAngles { :self |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
@@ -81,6 +85,10 @@ Polygon : [Object] { | vertexCoordinates |
 
 	midpointPolygon { :self |
 		self.vertexCoordinates.midpointPolygon.Polygon
+	}
+
+	outerPolygon { :self |
+		self
 	}
 
 	project { :self :projection |

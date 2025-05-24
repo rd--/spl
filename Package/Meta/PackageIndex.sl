@@ -113,6 +113,7 @@
 	'Geometry-PolarCoordinates'
 	'Geometry-Polygon'
 	'Geometry-PolygonMesh'
+	'Geometry-PolygonWithHoles'
 	'Geometry-Polyhedron'
 	'Geometry-Rectangle'
 	'Geometry-Simplex'

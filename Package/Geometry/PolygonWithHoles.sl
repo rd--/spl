@@ -1,0 +1,39 @@
+PolygonWithHoles : [Object] { | outerVertexCoordinates innerVertexCoordinatesList |
+
+	area { :self |
+		let o = self.outerVertexCoordinates.shoelaceFormula;
+		let i = self.innerVertexCoordinatesList.collect(shoelaceFormula:/1);
+		o + i.sum
+	}
+
+	boundingBox { :self |
+		self.outerVertexCoordinates.coordinateBoundingBox
+	}
+
+	forSvg { :self :options |
+		GeometryCollection(
+			self.vertexCoordinatesList.collect(Polygon:/1)
+		).forSvg(options)
+	}
+
+	innerPolygons { :self |
+		self.innerVertexCoordinatesList.collect(Polygon:/1)
+	}
+
+	outerPolygon { :self |
+		Polygon(self.outerVertexCoordinates)
+	}
+
+	vertexCoordinatesList { :self |
+		[self.outerVertexCoordinates] ++ self.innerVertexCoordinatesList
+	}
+
+}
+
++List {
+
+	PolygonWithHoles { :o :i |
+		newPolygonWithHoles().initializeSlots(o, i)
+	}
+
+}
