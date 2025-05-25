@@ -14,3 +14,6 @@ Projection Functions:
 - `gallPetersProjection`
 - `gallStereographicProjection`
 
+* * *
+
+Guides: Geometry Functions

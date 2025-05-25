@@ -74,6 +74,29 @@ system
 
 ![](sw/spl/Help/Image/GeoJson-A.svg)
 
+Draw the Gall stereographic projection of the country labeled 'Australia':
+
+~~~spl svg=B
+'ne_110m_admin_0_countries'
+.naturalEarthUrl
+.fetchJson
+.then { :data |
+	GeoJson(data)
+	.features
+	.select { :each |
+		each.property('NAME') = 'Australia'
+	}
+	.collect { :each |
+		each.geometryValues(
+			gallStereographicProjection:/1
+		)
+	}
+	.LineDrawing
+}
+~~~
+
+![](sw/spl/Help/Image/GeoJson-B.svg)
+
 Construct an empty feature:
 
 ```

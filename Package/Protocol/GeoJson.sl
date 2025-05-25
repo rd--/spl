@@ -218,6 +218,20 @@ GeoJson : [Object] { | contents |
 
 }
 
++String {
+
+	naturalEarthUrl { :self |
+		[
+			'https://raw.githubusercontent.com/'
+			'nvkelso/natural-earth-vector/'
+			'refs/heads/master/geojson/'
+			self
+			'.geojson'
+		].stringCatenate.asUrl
+	}
+
+}
+
 +System {
 
 	continentOutlines { :self :dataSet |
