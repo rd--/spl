@@ -8,6 +8,7 @@ Types:
 Archives and Catalogues:
 
 - `continentOutlines`
+- `naturalEarthUrl`
 
 Projection Functions:
 

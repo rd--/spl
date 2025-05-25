@@ -65,8 +65,8 @@ Guide/Fraction Literals.help.sl
 Guide/Function Guides.help.sl
 Guide/Further Reading.help.sl
 Guide/Generic Functions.help.sl
+Guide/Geodetic Functions.help.sl
 Guide/Geometry Functions.help.sl
-Guide/Geometry Types.help.sl
 Guide/Glossary of Terms.help.sl
 Guide/Graph Functions.help.sl
 Guide/Guide Index.help.sl
@@ -753,6 +753,7 @@ Reference/constantArray.help.sl
 Reference/constant.help.sl
 Reference/containsPoint.help.sl
 Reference/contents.help.sl
+Reference/continentOutlines.help.sl
 Reference/continuedFraction.help.sl
 Reference/ContinuousMarkovProcess.help.sl
 Reference/contourDetect.help.sl
@@ -784,6 +785,7 @@ Reference/copyWithoutIdenticalElements.help.sl
 Reference/correlationDistance.help.sl
 Reference/correlationFunction.help.sl
 Reference/correlation.help.sl
+Reference/cosDegrees.help.sl
 Reference/cosecant.help.sl
 Reference/cos.help.sl
 Reference/Cos.help.sl
@@ -796,6 +798,7 @@ Reference/cosineWindow.help.sl
 Reference/cotangent.help.sl
 Reference/coth.help.sl
 Reference/countDistinct.help.sl
+Reference/counterClockwiseVectorAngle.help.sl
 Reference/count.help.sl
 Reference/counts.help.sl
 Reference/covarianceFunction.help.sl
@@ -864,11 +867,9 @@ Reference/deepMax.help.sl
 Reference/deepMin.help.sl
 Reference/deepMinMax.help.sl
 Reference/deepReduce.help.sl
-Reference/degreeCos.help.sl
 Reference/degree.help.sl
 Reference/degreeSequence.help.sl
 Reference/degrees.help.sl
-Reference/degreeSin.help.sl
 Reference/degreesToRadians.help.sl
 Reference/degreeToKey.help.sl
 Reference/DegreeToKey.help.sl
@@ -952,6 +953,7 @@ Reference/divisorSigma.help.sl
 Reference/divisorSum.help.sl
 Reference/Diwhite.help.sl
 Reference/dmsList.help.sl
+Reference/dmsString.help.sl
 Reference/DocumentationTest.help.sl
 Reference/Document.help.sl
 Reference/DocumentRange.help.sl
@@ -1180,6 +1182,8 @@ Reference/FSinOsc.help.sl
 Reference/fullStopFullStop.help.sl
 Reference/fullStop.help.sl
 Reference/functionPlot.help.sl
+Reference/gallPetersProjection.help.sl
+Reference/gallStereographicProjection.help.sl
 Reference/GammaDistribution.help.sl
 Reference/gamma.help.sl
 Reference/gammaRegularized.help.sl
@@ -1204,6 +1208,8 @@ Reference/gen13.help.sl
 Reference/gen16.help.sl
 Reference/gen19.help.sl
 Reference/Gendy1.help.sl
+Reference/GeodeticCoordinates.help.sl
+Reference/GeoJson.help.sl
 Reference/GeometricBrownianMotionProcess.help.sl
 Reference/GeometricDistribution.help.sl
 Reference/geometricMeanFilter.help.sl
@@ -1298,7 +1304,6 @@ Reference/highBitOfMagnitude.help.sl
 Reference/hilbertCurve.help.sl
 Reference/Hilbert.help.sl
 Reference/hilbertMatrix.help.sl
-Reference/hintonPlot.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
 Reference/histogramPlot.help.sl
@@ -1334,6 +1339,7 @@ Reference/hyphenMinusHyphenMinusHyphenMinus.help.sl
 Reference/hyphenMinusRightCurlyBracket.help.sl
 Reference/hypotenuse.help.sl
 Reference/Hypotenuse.help.sl
+Reference/hypotrochoid.help.sl
 Reference/IdentityBag.help.sl
 Reference/identity.help.sl
 Reference/identityMatrix.help.sl
@@ -1405,6 +1411,7 @@ Reference/In.help.sl
 Reference/initializeSlots.help.sl
 Reference/injectInto.help.sl
 Reference/inner.help.sl
+Reference/innerPolygons.help.sl
 Reference/inradius.help.sl
 Reference/InRange.help.sl
 Reference/insertAt.help.sl
@@ -1485,6 +1492,7 @@ Reference/isComplex.help.sl
 Reference/isComplexString.help.sl
 Reference/isComposite.help.sl
 Reference/isConstantStructure.help.sl
+Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
 Reference/isDateAndTimeString.help.sl
 Reference/isDateString.help.sl
@@ -1747,6 +1755,7 @@ Reference/linearIndex.help.sl
 Reference/linearInterpolation.help.sl
 Reference/linearInterpolator.help.sl
 Reference/linearRecurrence.help.sl
+Reference/lineCollection.help.sl
 Reference/lineCount.help.sl
 Reference/LineDrawing.help.sl
 Reference/lineEquation.help.sl
@@ -1987,6 +1996,7 @@ Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/MultiTapDelay.help.sl
+Reference/MultivariateTDistribution.help.sl
 Reference/MutableCollectionStream.help.sl
 Reference/nadarayaWatsonEstimator.help.sl
 Reference/namedAxonometricProjection.help.sl
@@ -2119,6 +2129,7 @@ Reference/OscMessage.help.sl
 Reference/OscParameter.help.sl
 Reference/outerElement.help.sl
 Reference/outer.help.sl
+Reference/outerPolygon.help.sl
 Reference/outerProduct.help.sl
 Reference/Out.help.sl
 Reference/over.help.sl
@@ -2144,6 +2155,7 @@ Reference/PanB.help.sl
 Reference/paragraphAtCaret.help.sl
 Reference/paragraphAtIndex.help.sl
 Reference/paragraphs.help.sl
+Reference/parallelogram.help.sl
 Reference/Parallelogram.help.sl
 Reference/parameterNames.help.sl
 Reference/parametricPlot.help.sl
@@ -2296,9 +2308,11 @@ Reference/polarPlot.help.sl
 Reference/polygonalHexagonalGrid.help.sl
 Reference/polygonalNumber.help.sl
 Reference/polygonCentroid.help.sl
+Reference/polygonCollection.help.sl
 Reference/Polygon.help.sl
 Reference/polygonInteriorAngles.help.sl
 Reference/PolygonMesh.help.sl
+Reference/PolygonWithHoles.help.sl
 Reference/Polyhedron.help.sl
 Reference/pop.help.sl
 Reference/port.help.sl
@@ -2656,6 +2670,7 @@ Reference/signature.help.sl
 Reference/signBit.help.sl
 Reference/signedArea.help.sl
 Reference/signedPointPlaneDistance.help.sl
+Reference/signedVectorAngle.help.sl
 Reference/signExponentMantissa.help.sl
 Reference/sign.help.sl
 Reference/Silent.help.sl
@@ -2668,6 +2683,7 @@ Reference/simplified.help.sl
 Reference/simplify.help.sl
 Reference/sincHistorical.help.sl
 Reference/sincNormalized.help.sl
+Reference/sinDegrees.help.sl
 Reference/sineFill.help.sl
 Reference/sineTable.help.sl
 Reference/singularValueDecomposition.help.sl
@@ -2732,6 +2748,7 @@ Reference/spherePointsFibonacci.help.sl
 Reference/spherePoints.help.sl
 Reference/SphericalCoordinates.help.sl
 Reference/spiralMatrix.help.sl
+Reference/spirangle.help.sl
 Reference/Splay2.help.sl
 Reference/SplayAz.help.sl
 Reference/Splay.help.sl
