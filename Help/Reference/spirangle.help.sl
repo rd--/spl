@@ -11,8 +11,8 @@ and start angle _θ_.
 
 Draw a three-angle spirangle, or triangle spiral,
 with a radius increment of one,
-and initial radial of nine,
-and four iterations:
+an initial radial of nine,
+and iteration count of four:
 
 ~~~spl svg=A
 3.spirangle(4, [0 0], [1 9], 0)
@@ -42,6 +42,8 @@ Draw a seven-angle spirangle or heptagon spiral, of nine iterations:
 * * *
 
 See also: Line, LineDrawing
+
+Guides: Geometry Functions
 
 References:
 _W_

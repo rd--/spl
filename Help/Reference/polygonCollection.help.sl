@@ -1,6 +1,6 @@
 # polygonCollection
 
-- _polygonCollection([v₁ v₂ …])_
+- _polygonCollection([v₁ v₂ …; …])_
 
 Answer a `GeometryCollection` of `Polygon` values with vertices specified at _v_.
 
@@ -25,6 +25,10 @@ let c = [0 0; 1 0 ; 0 1];
 
 * * *
 
-See also: GeometryCollection, Polygon, PolygonWithHoles
+See also: GeometryCollection, lineCollection, Polygon, PolygonWithHoles
 
 Guides: Geometry Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Polygon.html)

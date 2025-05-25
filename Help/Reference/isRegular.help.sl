@@ -21,6 +21,8 @@ true
 
 See also: Graph, vertexDegree
 
+Guides: Graph Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RegularGraph.html)

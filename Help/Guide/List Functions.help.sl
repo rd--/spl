@@ -18,6 +18,7 @@ Constructing:
 - `powerRange`
 - `subdivide`
 - `table`
+- `tuples`
 
 Iterative Construction:
 

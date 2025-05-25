@@ -114,13 +114,16 @@ Depth of a nested `Record`:
 4
 ```
 
-`depth` returns a depth one greater than that returned by `rank`:
+`depth` returns a depth one greater than that returned by `rank` or `arrayDepth`:
 
 ```
 >>> let v = [1 2 3];
 >>> let m = [1 2; 3 4];
->>> (v.depth, v.rank, m.depth, m.rank)
-(2, 1, 3, 2)
+>>> (
+>>> 	v.depth, v.rank, v.arrayDepth,
+>>> 	m.depth, m.rank, m.arrayDepth
+>>> )
+(2, 1, 1, 3, 2, 2)
 ```
 
 At `Range`:

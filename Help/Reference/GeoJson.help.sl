@@ -40,8 +40,8 @@ Collect information about a `GeoJson` object:
 >>> 	c.geometries.size,
 >>> 	c.geometries('Polygon').size,
 >>> 	c.polygons.size,
->>> 	c.simplePolygons.size,
->>> 	c.simplePolygonCoordinates.size
+>>> 	c.simplyConnectedPolygons.size,
+>>> 	c.simplyConnectedPolygonCoordinates.size
 >>> ]
 [
 	true,
@@ -54,20 +54,22 @@ Collect information about a `GeoJson` object:
 Draw the Gall-Peters projection of the continents labeled 'Africa' and 'Australia':
 
 ~~~spl svg=A
-system.continentOutlines(
+system
+.continentOutlines(
 	'LowResolution'
-).features.select { :each |
+)
+.features
+.select { :each |
 	['Africa', 'Australia'].includes(
 		each.property('Continent')
 	)
-}.collect { :each |
-	Line(
-		each
-		.simplePolygonCoordinates(
-			gallPetersProjection:/1
-		)
+}
+.collect { :each |
+	each.geometryValues(
+		gallPetersProjection:/1
 	)
-}.LineDrawing
+}
+.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/GeoJson-A.svg)
@@ -85,10 +87,11 @@ Accessors:
 - `features`
 - `geometries`
 - `geometry`
+- `geometryValues`
 - `polygons`
 - `properties`
 - `property`
-- `simplePolygons`
+- `simplyConnectedPolygons`
 - `type`
 
 Predicates:
@@ -98,11 +101,13 @@ Predicates:
 - `isGeometry`
 - `isGeometryCollection`
 - `isPolygon`
-- `isSimplePolygon`
+- `isSimplyConnectedPolygon`
 
 * * *
 
 See also: continentOutlines, Json
+
+Guides: Geodetic Functions
 
 References:
 _Ietf_

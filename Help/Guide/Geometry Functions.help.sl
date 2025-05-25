@@ -114,6 +114,7 @@ Constructors:
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`
+- `spirangle`
 - `unitCircle`
 - `unitCube`
 - `unitDodecahedron`

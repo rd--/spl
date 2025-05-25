@@ -55,6 +55,55 @@ GeoJson : [Object] { | contents |
 		}
 	}
 
+	geometryValues { :self |
+		let polygonValue = { :c |
+			(c.size = 1).if {
+				Polygon(c[1])
+			} {
+				PolygonWithHoles(c[1], c.allButFirst)
+			}
+		};
+		self.geometries.collect { :each |
+			let c = each.coordinates;
+			each.type.caseOf([
+				'Point' -> {
+					Point(c)
+				},
+				'LineString' -> {
+					Line(c)
+				},
+				'Polygon' -> {
+					polygonValue(c)
+				},
+				'MultiPoint' -> {
+					PointCloud(c)
+				},
+				'MultiLineString' -> {
+					GeometryCollection(
+						c.collect(Line:/1)
+					)
+				},
+				'MultiPolygon' -> {
+					GeometryCollection(
+						c.collect(polygonValue:/1)
+					)
+				}
+			])
+		}
+	}
+
+	geometryValues { :self :projectionFunction:/1 |
+		let f = { :each |
+			let [phi, lambda] = each.degreesToRadians;
+			projectionFunction(
+				[lambda, phi]
+			)
+		};
+		self.geometryValues.collect { :each |
+			each.project(f:/1)
+		}
+	}
+
 	hasField { :self :key |
 		self.contents.includesKey(key)
 	}
@@ -85,7 +134,7 @@ GeoJson : [Object] { | contents |
 		self.type = 'Polygon'
 	}
 
-	isSimplePolygon { :self |
+	isSimplyConnectedPolygon { :self |
 		self.isPolygon & {
 			self.coordinates.size = 1
 		}
@@ -111,19 +160,19 @@ GeoJson : [Object] { | contents |
 		}
 	}
 
-	simplePolygons { :self |
-		self.geometries.select(isSimplePolygon:/1)
+	simplyConnectedPolygons { :self |
+		self.geometries.select(isSimplyConnectedPolygon:/1)
 	}
 
-	simplePolygonCoordinates { :self |
-		self.simplePolygons.collect { :each |
+	simplyConnectedPolygonCoordinates { :self |
+		self.simplyConnectedPolygons.collect { :each |
 			let [c] = each.coordinates;
 			c
 		}
 	}
 
-	simplePolygonCoordinates { :self :projectionFunction:/1 |
-		self.simplePolygons.collect { :each |
+	simplyConnectedPolygonCoordinates { :self :projectionFunction:/1 |
+		self.simplyConnectedPolygons.collect { :each |
 			let [c] = each.coordinates;
 			c.collect { :each |
 				let [phi, lambda] = each.degreesToRadians;
@@ -132,6 +181,10 @@ GeoJson : [Object] { | contents |
 				)
 			}
 		}
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 	type { :self |

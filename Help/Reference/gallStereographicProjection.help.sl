@@ -22,3 +22,11 @@ where _x_ is in _±π/√2_ and _y_ is in _±1+√2/2_.
 * * *
 
 See also: gallPetersProjection, GeodeticCoordinates
+
+Guides: Geodetic Functions
+
+References:
+_Mathworks_
+[1](https://mathworks.com/help/map/gstereo.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Gall_stereographic_projection)

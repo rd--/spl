@@ -12,6 +12,16 @@ true
 false
 ```
 
+The empty and unary lists answer `true`:
+
+```
+>>> [].allEqualBy(=)
+true
+
+>>> ['x'].allEqualBy(=)
+true
+```
+
 Do all items compare equal according to `~`:
 
 ```

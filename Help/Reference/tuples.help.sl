@@ -1,10 +1,14 @@
 # tuples
 
-- _tuples(aSequence)_
-- _tuples(α, β) ⇒ tuples(α # β)_
+- _tuples(l, n)_
+- _tuples([l₁ l₂ …])_
 
-Answer all of the possible _n_-tuples of each of the elements of _aSequence_,
+In the binary case,
+answer all of the possible _n_-tuples of each of the elements of the sequence _l_,
 which is an _n_-element sequence of any sized sequences.
+
+In the unary case,
+answer of all possible tuples whose _i_-th element is from _i_-th _l_.
 
 `tuples` of a 2×2 matrix is a 4×2 matrix:
 
@@ -56,8 +60,11 @@ Two-tuples are the cartesian product of a set with itself:
 
 ```
 >>> let x = [0 1 2];
->>> x.tuples(2)
-x.cartesianProduct(x)
+>>> let a = x.tuples(2);
+>>> let b = [x, x].tuples;
+>>> let c = x.cartesianProduct(x);
+>>> (a = b, b = c)
+(true, true)
 ```
 
 The Cartesian product of an empty list with any other list is the empty list:
@@ -172,6 +179,8 @@ All possible trigrams of A and B:
 * * *
 
 See also: cartesianProduct, powerSet, subsets, table, tuplesArray, tuplesCollect, tuplesDo
+
+Guides: List Functions
 
 References:
 _J_

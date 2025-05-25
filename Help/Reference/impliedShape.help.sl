@@ -2,7 +2,9 @@
 
 - _impliedShape(aList)_
 
-Answer the shape that an array would have to have to have positions to hold the, possibly irregular, array at _aList_.
+Answer the shape that an array would have to have if it were to hold the,
+possibly irregular,
+array at _aList_.
 
 The implied shape of a triangular matrix:
 

@@ -19,4 +19,4 @@ and this function requires the item be in the interpreter cache.
 
 See also: GeoJson
 
-Guides: Library Catalogue
+Guides: Geodetic Functions, Library Catalogue

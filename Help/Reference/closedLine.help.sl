@@ -1,8 +1,8 @@
 # closedLine
 
-- _closedLine(aMatrix)_
+- _closedLine([v₁ v₂ …])_
 
-Answer a `Line` where the last point at _aMatrix_ is connected to the first.
+Answer a `Line` where the last vertex in _v_ is connected to the first.
 
 Draw a diamond:
 
@@ -27,4 +27,4 @@ which is not closed:
 
 * * *
 
-See also: asLineDrawing, Line
+See also: asLineDrawing, Line, Polygon

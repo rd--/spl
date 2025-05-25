@@ -1,5 +1,9 @@
 GeometryCollection : [Object] { | contents |
 
+	arcLength { :self |
+		self.contents.collect(arcLength:/1).sum
+	}
+
 	area { :self |
 		self.contents.collect(area:/1).sum
 	}
@@ -31,6 +35,10 @@ GeometryCollection : [Object] { | contents |
 		newGeometryCollection().initializeSlots(
 			self.flatten
 		)
+	}
+
+	lineCollection { :self |
+		self.collect(Line:/1).GeometryCollection
 	}
 
 	polygonCollection { :self |

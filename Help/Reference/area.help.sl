@@ -1,8 +1,8 @@
 # area
 
-- _area(aGeometry)_
+- _area(g)_
 
-Answer the area of _aGeometry_.
+Answer the area of the geometry _g_.
 
 Find the area of a `Circle`:
 
@@ -43,6 +43,15 @@ Find the area of a `Polygon`:
 3.sqrt
 
 >>> Polygon([0 0; 2 -1; 1 0; 2 1]).area
+1
+```
+
+Find the area of a `GeometryCollection`,
+in this case of polygons:
+
+```
+>>> let c = [0 0; 1 0 ; 0 1];
+>>> [c, c + 1].polygonCollection.area
 1
 ```
 

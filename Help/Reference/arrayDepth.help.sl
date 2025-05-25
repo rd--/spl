@@ -9,14 +9,31 @@ Unlike `rank`, `arrayDepth` always answers an integer.
 Find the depth to which an array is full:
 
 ```
+>>> [1 2 3 4].arrayDepth
+1
+
 >>> [1 2; 3 4].arrayDepth
 2
+
+>>> [1 2; 3 4:; 5 6; 7 8].arrayDepth
+3
+```
+
+At the empty `List`:
+
+```
+>>> [].arrayDepth
+1
 ```
 
 Counts only dimensions at which an object is not _ragged_:
 
 ```
 >>> [1 2; 3].arrayDepth
+1
+
+>>> [1 2; 3 4:; 1 2; 3 4; 5 6]
+>>> .arrayDepth
 1
 ```
 

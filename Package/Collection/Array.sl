@@ -101,7 +101,7 @@
 		} {
 			let answer = [];
 			answer.add(self.size);
-			self.allSatisfy(isSequenceable:/1).ifTrue {
+			(self.notEmpty & { self.allSatisfy(isSequenceable:/1) }).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
@@ -190,6 +190,14 @@
 		self.shape.size
 	}
 
+	rankUnchecked { :self |
+		(self.isEmpty | { self[1].isList.not }).if {
+			1
+		} {
+			1 + self[1].rankUnchecked
+		}
+	}
+
 	ravel { :self |
 		self.flatten
 	}
@@ -262,6 +270,19 @@
 			self.error('shape: irregular arrays do not have shape')
 		} { :answer |
 			answer
+		}
+	}
+
+	shapeUnchecked { :self |
+		self.isEmpty.if {
+			[0]
+		} {
+			let leftmost = self[1];
+			leftmost.isList.if {
+				[self.size] ++ leftmost.shapeUnchecked
+			} {
+				[self.size]
+			}
 		}
 	}
 

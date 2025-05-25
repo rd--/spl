@@ -11,6 +11,13 @@ Find the dimensions of a vector:
 [5]
 ```
 
+At the empty `List`:
+
+```
+>>> [].dimensions
+[0]
+```
+
 Find the dimensions of a matrix:
 
 ```

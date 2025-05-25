@@ -1,10 +1,10 @@
 # Line
 
-- _Line(aMatrix)_
+- _Line([p₁ p₂ …])_
 - _Line(start, end, dur)_
 
-A `Line` is a `Type` representing straight lines connecting a sequence of points,
-also called a polygonal chain.
+A `Line` is a `Type` representing straight lines connecting a sequence of points _p_,
+also called a polyline or polygonal chain.
 
 Compute the `arcLength` of a line:
 
@@ -44,7 +44,7 @@ The `arcLength` of a `Line` in three-dimensions:
 (3.sqrt + 2)
 ```
 
-The Svg description of a straight line:
+The Svg description of a line segment:
 
 ```
 >>> Line([0 0; 1 1]).forSvg(precision: 0)
@@ -58,7 +58,8 @@ The Svg description of a polyline:
 '<polyline points="0,0 1,1 1,0" />'
 ```
 
-A line drawing of a complete graph with eleven vertices:
+Threads over lists,
+a line drawing of a complete graph with eleven vertices:
 
 ~~~spl svg=A
 [0, 2.pi / 11 .. 2.pi].collect { :t |
@@ -163,7 +164,7 @@ _Note_: This is the Sc _Line_ Ugen without the _doneAction_ input.
 
 * * *
 
-See also: closedLine, HalfLine, InfiniteLine, HalfPlane, InfinitePlane, Point, XLine
+See also: HalfLine, InfiniteLine, lineCollection, Point, XLine
 
 References:
 _Csound_
