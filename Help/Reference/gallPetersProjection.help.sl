@@ -27,5 +27,7 @@ Guides: Geodetic Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PetersProjection.html),
+_Proj_
+[1](https://proj.org/en/stable/operations/projections/cea.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gall%E2%80%93Peters_projection)

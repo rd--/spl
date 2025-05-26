@@ -46,6 +46,10 @@
 		self.collect(arcSin:/1)
 	}
 
+	arcSinh { :self |
+		self.collect(arcSinh:/1)
+	}
+
 	arcTan { :self |
 		self.collect(arcTan:/1)
 	}

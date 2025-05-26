@@ -160,6 +160,10 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	arcSinh { :z |
+		(z + ((z ^ 2) + 1).sqrt).log
+	}
+
 	arcTan { :self |
 		let r2 = self.squaredNorm;
 		Complex(

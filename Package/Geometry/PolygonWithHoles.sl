@@ -24,6 +24,16 @@ PolygonWithHoles : [Object] { | outerVertexCoordinates innerVertexCoordinatesLis
 		Polygon(self.outerVertexCoordinates)
 	}
 
+	project { :self :projection |
+		let f:/1 = projection.asUnaryBlock;
+		PolygonWithHoles(
+			self.outerVertexCoordinates.collect(f:/1),
+			self.innerVertexCoordinatesList.collect { :each |
+				each.collect(f:/1)
+			}
+		)
+	}
+
 	vertexCoordinatesList { :self |
 		[self.outerVertexCoordinates] ++ self.innerVertexCoordinatesList
 	}

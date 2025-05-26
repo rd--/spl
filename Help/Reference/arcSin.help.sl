@@ -83,6 +83,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseSine.html)
 [2](https://reference.wolfram.com/language/ref/ArcSin.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.asin.html),
 _Smalltalk_
 5.6.7.3
 

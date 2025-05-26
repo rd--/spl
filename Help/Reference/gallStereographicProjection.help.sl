@@ -27,6 +27,10 @@ Guides: Geodetic Functions
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/map/gstereo.html)
+[1](https://mathworks.com/help/map/gstereo.html),
+_Proj_
+[1](https://proj.org/en/stable/operations/projections/gall.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gall_stereographic_projection)
+
+Further Reading: Snyder 1993

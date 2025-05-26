@@ -80,6 +80,7 @@
 	'BarycentricCoordinates'
 	'BezierCurve'
 	'CartesianCoordinates'
+	'Cartography'
 	'Circle'
 	'Contour'
 	'ConvexHull'

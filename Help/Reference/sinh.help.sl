@@ -21,6 +21,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 1.5 1.8].sinh
 [1.50946 2.12928 2.94217]
+
+>>> [0 1 2 3].pi.sinh
+[0 11.549 267.745 6195.824]
 ```
 
 Plot over a subset of the reals:
@@ -66,6 +69,8 @@ See also: arcSinh, cosh, csch, sin
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicSine.html)
-[2](https://reference.wolfram.com/language/ref/Sinh.html)
+[2](https://reference.wolfram.com/language/ref/Sinh.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.sinh.html)
 
 Categories: Math, Trigonometry

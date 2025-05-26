@@ -27,6 +27,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 1.5 1.8].tan
 [2.57215 14.10142 -4.28626]
+
+>>> (0.5 - (10 ^ [-3 .. -6])).pi.tan
+318.31 * (10 ^ [0 .. 3])
 ```
 
 Plot over a subset of the reals:

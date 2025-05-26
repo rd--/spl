@@ -65,9 +65,7 @@ system
 	)
 }
 .collect { :each |
-	each.geometryValues(
-		gallPetersProjection:/1
-	)
+	each.geometryValues('Gall-Peters')
 }
 .LineDrawing
 ~~~
@@ -78,8 +76,7 @@ Draw the Gall stereographic projection of the country labeled 'Australia':
 
 ~~~spl svg=B
 'ne_110m_admin_0_countries'
-.naturalEarthUrl
-.fetchJson
+.naturalEarthData
 .then { :data |
 	GeoJson(data)
 	.features
@@ -87,15 +84,53 @@ Draw the Gall stereographic projection of the country labeled 'Australia':
 		each.property('NAME') = 'Australia'
 	}
 	.collect { :each |
-		each.geometryValues(
-			gallStereographicProjection:/1
-		)
+		each.geometryValues('Gall Stereographic')
 	}
 	.LineDrawing
 }
 ~~~
 
 ![](sw/spl/Help/Image/GeoJson-B.svg)
+
+Draw the Mercator projection of the sub-region labeled 'Australia and New Zealand':
+
+~~~spl svg=C
+'ne_110m_admin_0_sovereignty'
+.naturalEarthData
+.then { :data |
+	data
+	.features
+	.select { :each |
+		each.property('SUBREGION')
+		=
+		'Australia and New Zealand'
+	}
+	.collect { :each |
+		each.geometryValues('Mercator')
+	}.LineDrawing
+}
+~~~
+
+![](sw/spl/Help/Image/GeoJson-C.svg)
+
+Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 'New Zealand':
+
+~~~spl svg=D
+'ne_110m_geography_regions_polys'
+.naturalEarthData
+.then { :data |
+	data
+	.features
+	.select { :each |
+		['MICRONESIA' 'NEW ZEALAND']
+		.includes(each.property('NAME'))
+	}
+	.collect(geometryValues:/1)
+	.LineDrawing
+}
+~~~
+
+![](sw/spl/Help/Image/GeoJson-D.svg)
 
 Construct an empty feature:
 

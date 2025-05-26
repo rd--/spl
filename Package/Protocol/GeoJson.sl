@@ -92,7 +92,8 @@ GeoJson : [Object] { | contents |
 		}
 	}
 
-	geometryValues { :self :projectionFunction:/1 |
+	geometryValues { :self :projectionName |
+		let projectionFunction:/1 = projectionName.namedCartographicProjection;
 		let f = { :each |
 			let [phi, lambda] = each.degreesToRadians;
 			projectionFunction(
@@ -200,54 +201,3 @@ GeoJson : [Object] { | contents |
 	}
 
 }
-
-+List {
-
-	gallPetersProjection { :self |
-		let [lambda, phi] = self;
-		[phi, 2 * lambda.sin]
- 	}
-
-	gallStereographicProjection { :self |
-		let [lambda, phi] = self;
-		[
-			phi / 2.sqrt,
-			(1 + (2.sqrt / 2)) * (lambda / 2).tan
-		]
-	}
-
-}
-
-+String {
-
-	naturalEarthUrl { :self |
-		[
-			'https://raw.githubusercontent.com/'
-			'nvkelso/natural-earth-vector/'
-			'refs/heads/master/geojson/'
-			self
-			'.geojson'
-		].stringCatenate.asUrl
-	}
-
-}
-
-+System {
-
-	continentOutlines { :self :dataSet |
-		(dataSet = 'LowResolution').if {
-			self.requireLibraryItem('ContinentOutlines/LowResolution')
-		} {
-			self.error('System>>continentOutlines: unknown data set')
-		}
-	}
-
-}
-
-LibraryItem(
-	name: 'ContinentOutlines/LowResolution',
-	category: 'Protocol/GeoJson',
-	url: 'https://rohandrape.net/sw/hsc3-data/data/cartography/ContinentOutlines-LowResolution.json',
-	mimeType: 'application/json',
-	parser: GeoJson:/1
-)

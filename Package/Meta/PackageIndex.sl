@@ -84,6 +84,7 @@
 	'Geometry-BarycentricCoordinates'
 	'Geometry-BezierCurve'
 	'Geometry-CartesianCoordinates'
+	'Geometry-Cartography'
 	'Geometry-Circle'
 	'Geometry-Contour'
 	'Geometry-ConvexHull'
