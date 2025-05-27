@@ -145,6 +145,19 @@ GeoJson : [Object] { | contents |
 		self.geometries.select(isPolygon:/1)
 	}
 
+	polygonList { :self :projectionName |
+		let answer = [];
+		self.geometryValues(projectionName).collect { :each |
+			each.isPolygon.ifTrue {
+				answer.add(each)
+			};
+			each.isGeometryCollection.ifTrue {
+				answer.addAll(each.contents.select(isPolygon:/1))
+			}
+		};
+		answer
+	}
+
 	properties { :self |
 		self.isFeature.if {
 			self.field('properties')

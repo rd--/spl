@@ -8,8 +8,8 @@
 - `logisticSigmoid`
 - `perlinGainFunction`
 - `schlickGainFunction`
-- `smoothstep`
-- `smoothstepFunction`
+- `smoothStep`
+- `smoothStepFunction`
 - `tanh`
 
 * * *

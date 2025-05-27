@@ -443,11 +443,15 @@
 
 +SmallFloat {
 
-	inverseSmoothstep { :x |
+	inverseSmoothStep { :x |
 		0.5 - ((1 - (2 * x)).arcSin / 3).sin
 	}
 
-	smoothstepFunction { :n |
+}
+
++[SmallFloat, Fraction] {
+
+	smoothStepFunction { :n |
 		{ :x |
 			let answer = 0;
 			0.toDo(n) { :i |
@@ -460,11 +464,11 @@
 		}
 	}
 
-	smoothstep { :x |
+	smoothStep { :x |
 		x * x * (3 - (2 * x))
 	}
 
-	smootherstep { :x |
+	smootherStep { :x |
 		x * x * x * (x * (6 * x - 15) + 10)
 	}
 

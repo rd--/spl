@@ -12,6 +12,18 @@ GeometryCollection : [Object] { | contents |
 		self.contents.collect(boundingBox:/1).boundingBoxMerging
 	}
 
+	collect { :self :aBlock:/1 |
+		GeometryCollection(
+			self.contents.collect(aBlock:/1)
+		)
+	}
+
+	downsample { :self :anInteger |
+		self.collect { :each |
+			each.downsample(anInteger)
+		}
+	}
+
 	forSvg { :self :options |
 		self.contents.collect { :each |
 			each.forSvg(options)

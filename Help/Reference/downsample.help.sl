@@ -44,6 +44,18 @@ Sfc32(289714)
 
 ![](sw/spl/Help/Image/downsample-B.svg)
 
+Downsample a randomly generated star convex polygon:
+
+~~~spl svg=C
+let r = Sfc32(738941);
+let p = r.randomStarConvexPolygon(
+	23, 0.5, 1
+);
+[p, p.downsample(4)].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/downsample-C.svg)
+
 * * *
 
 See also: downsampleSteinarsson, resample, upsample

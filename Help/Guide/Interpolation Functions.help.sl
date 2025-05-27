@@ -29,9 +29,9 @@ Resampling Functions:
 Step Functions:
 
 - `easingFunction`
-- `smootherstep`
-- `smoothstepFunction`
-- `smoothstep`
+- `smootherStep`
+- `smoothStepFunction`
+- `smoothStep`
 
 SuperCollider Functions:
 

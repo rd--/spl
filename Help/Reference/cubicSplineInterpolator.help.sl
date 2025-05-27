@@ -51,6 +51,19 @@ let y = [0 0 1 0 0];
 
 ![](sw/spl/Help/Image/cubicSplineInterpolator-C.svg)
 
+Plot an interpolation between a sequence of _(x,y)_ coordinates,
+along with the set of interpolated points:
+
+~~~spl svg=D
+let p = [0 0; 1 2; -1 3; 0 1; 3 0];
+let k = p.size;
+let i = [1 .. k].cubicSplineInterpolator(p);
+let c = (1 -- k).subdivide(100).collect(i);
+[PointCloud(p), Line(c)].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/cubicSplineInterpolator-D.svg)
+
 * * *
 
 See also: akimaInterpolator, linearInterpolator, nearestNeighbourInterpolator

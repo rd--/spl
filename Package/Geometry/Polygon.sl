@@ -37,6 +37,17 @@ Polygon : [Object] { | vertexCoordinates |
 		2
 	}
 
+	downsample { :self :anInteger |
+		let c = self.vertexCoordinates;
+		((c.size // anInteger) < 3).if {
+			Point(c.polygonCentroid)
+		} {
+			Polygon(
+				c.downsample(anInteger)
+			)
+		}
+	}
+
 	edgeCount { :self |
 		self.vertexCount
 	}

@@ -51,23 +51,32 @@ Collect information about a `GeoJson` object:
 ]
 ```
 
-Draw the Gall-Peters projection of the continents labeled 'Africa' and 'Australia':
+Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and 'Australia':
 
 ~~~spl svg=A
-system
-.continentOutlines(
-	'LowResolution'
-)
-.features
-.select { :each |
-	['Africa', 'Australia'].includes(
-		each.property('Continent')
-	)
+'ne_110m_geography_regions_polys'
+.naturalEarthData
+.then { :data |
+	data
+	.features
+	.select { :each |
+		[
+			'AFRICA'
+			'AUSTRALIA'
+		].includes(
+			each.property('NAME')
+		)
+	}
+	.collect{ :each |
+		each
+		.polygonList('Gall-Peters')
+		.collect { :p |
+			p.downsample(16)
+		}
+		.select(isPolygon:/1)
+	}
+	.LineDrawing
 }
-.collect { :each |
-	each.geometryValues('Gall-Peters')
-}
-.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/GeoJson-A.svg)
@@ -78,13 +87,17 @@ Draw the Gall stereographic projection of the country labeled 'Australia':
 'ne_110m_admin_0_countries'
 .naturalEarthData
 .then { :data |
-	GeoJson(data)
+	data
 	.features
 	.select { :each |
-		each.property('NAME') = 'Australia'
+		each.property('NAME')
+		=
+		'Australia'
 	}
 	.collect { :each |
-		each.geometryValues('Gall Stereographic')
+		each.polygonList(
+			'Gall Stereographic'
+		)
 	}
 	.LineDrawing
 }
@@ -106,7 +119,7 @@ Draw the Mercator projection of the sub-region labeled 'Australia and New Zealan
 		'Australia and New Zealand'
 	}
 	.collect { :each |
-		each.geometryValues('Mercator')
+		each.polygonList('Mercator')
 	}.LineDrawing
 }
 ~~~
@@ -122,8 +135,12 @@ Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 
 	data
 	.features
 	.select { :each |
-		['MICRONESIA' 'NEW ZEALAND']
-		.includes(each.property('NAME'))
+		[
+			'MICRONESIA'
+			'NEW ZEALAND'
+		].includes(
+			each.property('NAME')
+		)
 	}
 	.collect(geometryValues:/1)
 	.LineDrawing
@@ -135,8 +152,11 @@ Draw the Plate Carrée projection of the island groups labeled 'Micronesia' and 
 Construct an empty feature:
 
 ```
->>> (type: 'Feature', properties: nil, geometry: nil)
->>> .GeoJson.isFeature
+>>> (
+>>> 	type: 'Feature',
+>>> 	properties: nil,
+>>> 	geometry: nil
+>>> ).GeoJson.isFeature
 true
 ```
 
