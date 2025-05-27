@@ -1,6 +1,6 @@
 # OnePole
 
-- _OnePole(in, coef)_
+- _OnePole(in, coef=0.5)_
 
 A one pole filter.
 
@@ -9,7 +9,7 @@ A one pole filter.
 
 Implements the formula:
 
-> _out(i) = ((1 - abs(coef)) * in(i)) + (coef * out(i-1))_.
+> _y[n] = (1 - |α|) x[n] + α x[n-1]_
 
 Low pass:
 
@@ -26,12 +26,15 @@ OnePole(WhiteNoise() * 0.2, -0.95)
 Modulate coeficient:
 
 ```
-OnePole(WhiteNoise() * 0.2, Line(0.95, -0.95, 10))
+OnePole(
+	WhiteNoise() * 0.2,
+	Line(0.95, -0.95, 10)
+)
 ```
 
 * * *
 
-See also: OneZero
+See also: OneZero, TwoPole
 
 References:
 _SuperCollider_

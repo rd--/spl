@@ -1,6 +1,6 @@
 # OneZero
 
-- _OneZero(in, coef)_
+- _OneZero(in, coef=0.5)_
 
 A one zero filter.
 
@@ -14,7 +14,7 @@ and of -1 makes an inverted single sample delay.
 
 Implements the formula:
 
-> _out(i) = ((1 - abs(coef)) * in(i)) + (coef * in(i-1))_
+> _y[n] = (1 - |α|) x[n] + α x[n-1]_
 
 Low pass:
 
@@ -31,12 +31,15 @@ OneZero(WhiteNoise() * 0.2, -0.5)
 Modulate coeficient:
 
 ```
-OneZero(WhiteNoise() * 0.2, Line(-0.5, 0.5, 10))
+OneZero(
+	WhiteNoise() * 0.2,
+	Line(-0.5, 0.5, 10)
+)
 ```
 
 * * *
 
-See also: OnePole
+See also: OnePole, TwoZero
 
 References:
 _SuperCollider_

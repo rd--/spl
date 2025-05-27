@@ -1085,6 +1085,18 @@
 		(self > 0).boole
 	}
 
+	unitTriangle { :self |
+		self.betweenAnd(-1, 0).if {
+			self + 1
+		} {
+			self.betweenAnd(0, 1).if {
+				1 - self
+			} {
+				0
+			}
+		}
+	}
+
 	unitVector { :n :k |
 		let answer = List(n, 0);
 		answer[k] := 1;
@@ -1124,6 +1136,10 @@
 
 	unitStep { :self |
 		self.collect(unitStep:/1).product
+	}
+
+	unitTriangle { :self |
+		self.collect(unitTriangle:/1).product
 	}
 
 }

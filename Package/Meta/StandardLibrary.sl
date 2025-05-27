@@ -153,6 +153,7 @@
 	'Interpolation'
 	'IterativeMaps'
 	'MatrixFunctions'
+	'NumericalFunctions'
 	'Permutations'
 	'Primes'
 	'Statistics'

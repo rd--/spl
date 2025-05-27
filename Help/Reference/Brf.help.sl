@@ -2,7 +2,7 @@
 
 - _Brf(in, freq, rq)_
 
-2nd order Butterworth band reject filter.
+2nd order Butterworth band-rejection, or band-stop, filter.
 A second order low pass filter.
 
 - in: input signal to be processed
@@ -30,6 +30,9 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/butterbr.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/BRF.html)
+[1](https://doc.sccode.org/Classes/BRF.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Butterworth_filter)
+[2](https://en.wikipedia.org/wiki/Band-stop_filter)
 
 Categories: Ugen, Filter

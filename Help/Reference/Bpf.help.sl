@@ -25,10 +25,15 @@ Bpf(
 
 See also: Brf, Hpf, Lpf
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/butterbp.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/BPF.html)
+[1](https://doc.sccode.org/Classes/BPF.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Butterworth_filter)
+[2](https://en.wikipedia.org/wiki/Band-pass_filter)
 
 Categories: Ugen, Filter

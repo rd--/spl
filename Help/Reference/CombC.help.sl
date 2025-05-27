@@ -53,6 +53,8 @@ See also: AllpassC, CombL
 
 References:
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/CombC.html)
+[1](https://doc.sccode.org/Classes/CombC.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Comb_filter)
 
 Categories: Ugen, Filter

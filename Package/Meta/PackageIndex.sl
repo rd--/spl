@@ -157,6 +157,7 @@
 	'Math-Interpolation'
 	'Math-IterativeMaps'
 	'Math-MatrixFunctions'
+	'Math-NumericalFunctions'
 	'Math-Permutations'
 	'Math-Primes'
 	'Math-Statistics'

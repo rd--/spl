@@ -1,6 +1,6 @@
 # TwoZero
 
-- _TwoZero(in, freq, radius)_
+- _TwoZero(in, freq=440, radius=0.8)_
 
 A two zero filter.
 

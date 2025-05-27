@@ -2,7 +2,7 @@
 
 - _unitStep(aNumber)_
 
-The unit box function is equal to 1 for values in `>` `zero` and 0 otherwise.
+The unit step function is equal to 1 for values in `>=` `zero` and 0 otherwise.
 
 ```
 >>> -1.unitStep

@@ -1,6 +1,6 @@
 # TwoPole
 
-- _TwoPole(in, freq, radius)_
+- _TwoPole(in, freq=440, radius=0.8)_
 
 A two pole filter.
 This provides lower level access to setting of pole location.
@@ -32,7 +32,7 @@ TwoPole(
 
 * * *
 
-See also: Resonz, TwoZero
+See also: OnePole, Resonz, TwoZero
 
 References:
 _SuperCollider_
