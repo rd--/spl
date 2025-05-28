@@ -14,6 +14,9 @@ The binary form answers _aNumber_ divided by _anotherNumber_.
 
 >>> 3J1 / 2
 1.5J0.5
+
+>>> 1 / 81
+0.01234567
 ```
 
 Divide threads element-wise over lists:

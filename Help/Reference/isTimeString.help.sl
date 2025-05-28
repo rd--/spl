@@ -18,10 +18,21 @@ The millisecond part may be elided:
 true
 ```
 
+The seconds part is required:
+
+```
+>>> '08:23'.isTimeString
+false
+```
+
 * * *
 
 See also: parseTime, Time, timeString
 
 Guides: Parsing Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/ISO_8601)
 
 Categories: Time

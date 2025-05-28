@@ -54,4 +54,6 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/BesselsCorrection.html)
 [3](https://reference.wolfram.com/language/ref/StandardDeviation.html)
 
+Unicode: U+03C3 σ Greek Small Letter Sigma
+
 Categories: Statistics

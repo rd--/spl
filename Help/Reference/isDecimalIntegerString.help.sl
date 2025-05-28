@@ -3,7 +3,7 @@
 - _isDecimalIntegerString(aString)_
 
 Answer `true` if _aString_ consists only of the decimal digits _0_ through _9_,
-perhaps prefixed by a negation sign.
+perhaps prefixed by a sign character, either _+_ or _-_.
 
 This does not allow a zero fractional part,
 i.e. one must write _23_ not _23.0_.
@@ -43,5 +43,9 @@ false
 * * *
 
 See also: asNumber, isBooleanString, isFloatString, parseDecimalInteger
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Decimal)
 
 Categories: Testing

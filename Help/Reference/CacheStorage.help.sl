@@ -14,6 +14,17 @@ system
 }
 ~~~
 
+Delete cache:
+
+~~~spl async
+system
+.caches
+.removeKeyIfAbsent('SplLibrary') {
+	'No such key'.postLine
+}
+~~~
+
+
 * * *
 
 See also: Cache, caches, system, System

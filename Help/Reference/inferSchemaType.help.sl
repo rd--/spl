@@ -46,6 +46,9 @@ Infer a `Real` number type:
 
 >>> '23.0'.inferSchemaType
 'Real'
+
+>>> '2E3'.inferSchemaType
+'Real'
 ```
 
 Infer a `Date` type:

@@ -63,6 +63,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DateObject.html),
 _Smalltalk_
-5.8.1
+5.8.1,
+_W_
+[1](https://en.wikipedia.org/wiki/Calendar_date)
 
 Categories: Time, Type

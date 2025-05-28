@@ -22,4 +22,8 @@ See also: isDecimalIntegerString, isFloatString
 
 Guides: Parsing Functions
 
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Boolean_data_type)
+
 Categories: Testing

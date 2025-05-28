@@ -2,11 +2,8 @@
 
 - _isRadixIntegerString(aString, radix)_
 
-Answer `true` if _aString_ consists only of the decimal digits _0_ through _9_,
-perhaps prefixed by a negation sign.
-
-This does not allow a zero fractional part,
-i.e. one must write _23_ not _23.0_.
+Answer `true` if _aString_ consists only of digits in the specified _radix_,
+allowing for an initial sign character.
 
 ```
 >>> '01'.isRadixIntegerString(2)
@@ -21,7 +18,11 @@ true
 >>> '0123456789'
 >>> .isRadixIntegerString(10)
 true
+```
 
+Allows both upper and lower case for radices above ten:
+
+```
 >>> '0123456789ABCDEFabcdef'
 >>> .isRadixIntegerString(16)
 true
@@ -58,6 +59,10 @@ false
 
 * * *
 
-See also: asNumber, isBooleanString, isFloatString, parseRadixInteger
+See also: asNumber, isBooleanString, isFloatString
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Radix)
 
 Categories: Testing

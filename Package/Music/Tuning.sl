@@ -158,3 +158,25 @@
 	}
 
 }
+
++System {
+
+	masinaConsonanceData { :self |
+		self.requireLibraryItem('MasinaConsonanceData')
+	}
+
+}
+
+LibraryItem(
+	name: 'MasinaConsonanceData',
+	category: 'Music/Tuning',
+	url: 'https://rohandrape.net/sw/hmt/data/json/masina-consonance-data.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			let [f2, f1, m, sd] = each;
+			[Fraction(f2, f1), m, sd]
+		}
+	}
+)
+

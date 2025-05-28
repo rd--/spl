@@ -26,6 +26,13 @@ true
 true
 ```
 
+Does not allow _E_-notation:
+
+```
+>>> '2E3'.isDecimalNumeralString
+false
+```
+
 The empty string answers `false`:
 
 ```

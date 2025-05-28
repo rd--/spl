@@ -43,6 +43,8 @@ _Mathematica_
 _Smalltalk_
 5.3.3,
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/Boolean.html)
+[1](https://doc.sccode.org/Classes/Boolean.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Boolean_data_type)
 
 Categories: Logic, Type

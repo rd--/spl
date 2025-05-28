@@ -1,4 +1,4 @@
-# caches
+2# caches
 
 - _caches(aSystem)_
 
@@ -15,6 +15,19 @@ true
 system
 .caches
 .includesKey('SplLibrary')
+~~~
+
+
+~~~spl async
+let url = 'https://rohandrape.net/sw/hmt/data/json/masina-consonance-data.json'.asUrl;
+system
+.caches
+.atIfPresent('SplLibraryItems') { :cache |
+	cache
+	.removeKeyIfAbsent(url) {
+		'Not present'
+	}
+}
 ~~~
 
 * * *

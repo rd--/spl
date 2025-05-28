@@ -116,6 +116,10 @@ ScalaTuning : [Object, Tuning] { | contents |
 		}
 	}
 
+	intervalNameList { :self |
+		self.intervalName.splitBy(', ')
+	}
+
 }
 
 +String {

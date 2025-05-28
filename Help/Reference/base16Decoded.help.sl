@@ -12,7 +12,7 @@ Answer the `ByteArray` encoded in Base16 at _aString_.
 
 * * *
 
-See also: base64Decoded, base16Encoded
+See also: base64Decoded, base16Encoded, isBase16String
 
 References:
 _Ietf_

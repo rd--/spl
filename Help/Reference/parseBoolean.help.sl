@@ -31,8 +31,12 @@ true
 
 * * *
 
-See also: isBooleanString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
+See also: Boolean, isBooleanString, parseDecimalInteger, parseFraction, parseLargeInteger, parseNumber
 
 Guides: Parsing Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Boolean_data_type)
 
 Categories: Parsing

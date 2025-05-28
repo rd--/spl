@@ -47,12 +47,14 @@ false
 
 * * *
 
-See also: asNumber, isBooleanString, isFloatString, isDecimalIntegerString
+See also: asNumber, base64Decoded, base64Encoded, isBooleanString, isFloatString, isDecimalIntegerString
 
 Guides: Parsing Functions
 
 References:
 _Ietf_
-[1](https://datatracker.ietf.org/doc/html/rfc4648)
+[1](https://datatracker.ietf.org/doc/html/rfc4648),
+_W_
+[1](https://en.wikipedia.org/wiki/Base64)
 
 Categories: Testing

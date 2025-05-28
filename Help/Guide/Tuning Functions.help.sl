@@ -89,6 +89,7 @@ Lattice Functions:
 Library Items:
 
 - `categorizedTuningArchive`: archive
+- `masinaConsonanceData`: data set
 - `scalaRationalTuningArchive`: archive
 - `scalaTuningArchive`: tuning archive
 

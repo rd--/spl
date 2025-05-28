@@ -21,7 +21,7 @@ true
 true
 ```
 
-Allows scientific notation:
+Allows _E_-notation for scientific numbers:
 
 ```
 >>> '3.141E23'.isFloatString
