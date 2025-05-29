@@ -42,6 +42,8 @@ x.linePlot
 
 See also: duffingMap, rungeKuttaMethod, vanDerPolEquation
 
+Guides: Chaotic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DuffingDifferentialEquation.html),

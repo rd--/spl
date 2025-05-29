@@ -27,6 +27,8 @@ Sfc32(789341)
 
 See also: deJongMap, henonMap, martinMap
 
+Guides: Chaotic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HenonMap.html)

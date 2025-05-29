@@ -32,4 +32,6 @@ martinMap(6, -1, 3)
 
 See also: deJongMap, henonAreaPreservingMap, henonMap
 
+Guides: Chaotic Functions
+
 Further Reading: Martin 1986

@@ -42,6 +42,8 @@ x.linePlot
 
 See also: duffingEquation, rungeKuttaMethod
 
+Guides: Chaotic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/vanderPolEquation.html),

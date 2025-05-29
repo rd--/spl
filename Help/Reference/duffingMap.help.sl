@@ -19,3 +19,9 @@ duffingMap(2.75, 0.15)
 * * *
 
 See also: henonMap, henonAreaPreservingMap, martinMap
+
+Guides: Chaotic Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Duffing_map)

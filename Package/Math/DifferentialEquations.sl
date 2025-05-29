@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	lorenzEquation { :rho :sigma :beta |
 		{ :t :v |

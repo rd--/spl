@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	deJongMap { :a :b :c :d |
 		{ :v |

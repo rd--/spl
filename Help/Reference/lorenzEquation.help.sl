@@ -22,6 +22,8 @@ let [x, y, z] = v.transposed;
 
 See also: duffingEquation, vanDerPolEquation
 
+Guides: Chaotic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LorenzEquations.html),

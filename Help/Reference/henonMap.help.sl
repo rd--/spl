@@ -16,6 +16,8 @@ henonMap(1.4, 0.3)
 
 See also: deJongMap, henonAreaPreservingMap, martinMap
 
+Guides: Chaotic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HenonMap.html),

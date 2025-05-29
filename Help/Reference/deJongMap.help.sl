@@ -28,4 +28,6 @@ deJongMap(-2.7, -0.09, -0.86, -2.2)
 
 See also: henonMap, henonAreaPreservingMap, martinMap
 
+Guides: Chaotic Functions
+
 Further Reading: Dewdney 1987
