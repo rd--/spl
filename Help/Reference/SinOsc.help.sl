@@ -49,7 +49,7 @@ SinOsc(
 
 * * *
 
-See also: FSinOsc, Osc, Pulse, Saw
+See also: FSinOsc, Klang, Osc, PmOsc, Pulse, Saw, SinOscFb
 
 References:
 _SuperCollider_

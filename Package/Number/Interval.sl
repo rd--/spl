@@ -81,6 +81,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		}
 	}
 
+	centre { :self |
+		(self.min + self.max) / 2
+	}
+
 	discretize { :self :size :aBlock:/1 |
 		self.discretize(size).collect(aBlock:/1)
 	}
@@ -140,6 +144,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 		}
 	}
 
+	isDegenerate { :self |
+		self.min = self.max
+	}
+
 	isDisjoint { :self :anInterval |
 		self.max < anInterval.min | {
 			anInterval.max < self.min
@@ -160,6 +168,10 @@ Interval : [Object, Magnitude, Number] { | min max |
 
 	printString { :self |
 		'(' ++ self.min ++ ' -- ' ++ self.max ++ ')'
+	}
+
+	radius { :self |
+		(self.max - self.min).abs / 2
 	}
 
 	squared { :self |

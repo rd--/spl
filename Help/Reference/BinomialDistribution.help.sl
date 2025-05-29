@@ -32,7 +32,7 @@ Skewness:
 		{ :p |
 			BinomialDistribution(n, p)
 			.skewness
-			.clip(-4, 4)
+			.clip([-4 4])
 		}
 	}
 )
@@ -48,7 +48,7 @@ Kurtosis:
 		{ :p |
 			BinomialDistribution(n, p)
 			.kurtosis
-			.clip(-1, 9)
+			.clip([-1 9])
 		}
 	}
 )

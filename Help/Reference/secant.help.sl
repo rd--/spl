@@ -36,7 +36,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
-	secant:/1.clip(-4, 4)
+	secant:/1.clip([-4 4])
 )
 ~~~
 
@@ -47,7 +47,7 @@ Plot over a subset of the complex numbers:
 ~~~spl png=B
 let i = (-1.pi -- 1.pi).subdivide(100);
 { :y :x |
-	Complex(x, y).secant.abs.clip(0, 1)
+	Complex(x, y).secant.abs.clip([0 1])
 }.table(i, i).Graymap
 ~~~
 
@@ -57,7 +57,7 @@ Plot the sum of the `secant` and `tan` functions:
 
 ~~~spl svg=C
 (0 -- 4.pi).functionPlot { :x |
-	(x.secant + x.tan).clip(-9, 9)
+	(x.secant + x.tan).clip([-9 9])
 }
 ~~~
 

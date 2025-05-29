@@ -46,7 +46,7 @@ Plot `inverseCdf` of `NormalDistribution`:
 (0 -- 1).functionPlot(
 	NormalDistribution(0, 1)
 	.inverseCdf
-	.clip(-3, 3)
+	.clip([-3 3])
 )
 ~~~
 

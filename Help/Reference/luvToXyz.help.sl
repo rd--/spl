@@ -32,7 +32,7 @@ let u = (-50 -- 50).discretize(n);
 	[50, i * 1.3, j]
 	.luvToXyz
 	.xyzToRgb
-	.clip(0, 1)
+	.clip([0 1])
 	.srgbEncode
 }
 .table(u, u)

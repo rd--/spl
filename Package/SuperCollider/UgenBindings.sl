@@ -37,7 +37,6 @@
 	Brf { :in :freq :rq | <primitive: return sc.Brf(_in, _freq, _rq);> }
 	Brz2 { :in | <primitive: return sc.Brz2(_in);> }
 	Balance2 { :left :right :pos :level | <primitive: return sc.Balance2(_left, _right, _pos, _level);> }
-	Clip { :in :lo :hi | <primitive: return sc.Clip(_in, _lo, _hi);> }
 	CombC { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.CombC(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	CombL { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.CombL(_in, _maxdelaytime, _delaytime, _decaytime);> }
 	CombN { :in :maxdelaytime :delaytime :decaytime | <primitive: return sc.CombN(_in, _maxdelaytime, _delaytime, _decaytime);> }
@@ -122,6 +121,11 @@
 	XFade2 { :inA :inB :pan :level | <primitive: return sc.XFade2(_inA, _inB, _pan, _level);> }
 	ZeroCrossing { :in | <primitive: return sc.ZeroCrossing(_in);> }
 	MulAdd { :in :mul :add | <primitive: return sc.MulAdd(_in, _mul, _add);> }
+}
+
+/* Auto-generated (Filters, Math) */
++[List, Ugen, SmallFloat] {
+	Clip { :in :lo :hi | <primitive: return sc.Clip(_in, _lo, _hi);> }
 }
 
 /* Auto-generated (Oscillators) */

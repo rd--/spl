@@ -36,6 +36,10 @@ the Dirichlet window is rectangular.
 - `gaussianKernel`: Gaussian
 - `lanczosKernel`: Lanczos
 
+## Impulse Response Functions
+
+- `raisedCosinePulse`: Raised-cosine
+
 * * *
 
 Guides: Mathematical Functions

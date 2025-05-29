@@ -207,14 +207,14 @@
 		}
 	}
 
-	clip { :self :min :max |
+	clip { :self :minMax |
 		self.collect { :each |
-			each.clip(min, max)
+			each.clip(minMax)
 		}
 	}
 
 	clip { :self |
-		self.clip(-1, 1)
+		self.clip([-1 1])
 	}
 
 	cubeRoot { :self |

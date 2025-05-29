@@ -1,4 +1,4 @@
-2# caches
+# caches
 
 - _caches(aSystem)_
 
@@ -17,6 +17,7 @@ system
 .includesKey('SplLibrary')
 ~~~
 
+Delete an item from the cache:
 
 ~~~spl async
 let url = 'https://rohandrape.net/sw/hmt/data/json/masina-consonance-data.json'.asUrl;

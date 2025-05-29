@@ -12,7 +12,7 @@ Probability density function:
 		BetaDistribution(
 			2,
 			beta
-		).pdf.clip(0, 3.5)
+		).pdf.clip([0 3.5])
 	}
 )
 ~~~
@@ -27,7 +27,7 @@ The distribution is symmetrical:
 		BetaDistribution(
 			alpha,
 			1.5
-		).pdf.clip(0, 3)
+		).pdf.clip([0 3])
 	}
 )
 ~~~
@@ -67,7 +67,7 @@ the case where α=β=1/2 is equal to the standard arcsine distribution:
 ~~~spl svg=E
 (0 -- 1).functionPlot(
 	BetaDistribution(0.5, 0.5)
-	.pdf.clip(0, 4)
+	.pdf.clip([0 4])
 )
 ~~~
 

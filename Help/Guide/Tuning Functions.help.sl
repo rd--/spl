@@ -64,6 +64,7 @@ Instance Creation:
 Interval Functions:
 
 - `intervalName`: interval name
+- `intervalNameList`: interval name
 - `namedInterval`: interval lookup
 
 Interval Complexity Measures:

@@ -5,8 +5,8 @@
 Answer a projection function for the named projection.
 
 ```
->>> 'Mercartor'.namedCartographicProjection
-mercartorProjection:/1
+>>> 'Mercator'.namedCartographicProjection
+mercatorProjection:/1
 ```
 
 * * *

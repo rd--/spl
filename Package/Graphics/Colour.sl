@@ -312,7 +312,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 	}
 
 	saturate { :self |
-		self.clip(0, 1)
+		self.clip([0 1])
 	}
 
 	srgbDecode { :self |
@@ -636,7 +636,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 	}
 
 	saturate { :self |
-		self.clip(0, 1)
+		self.clip([0 1])
 	}
 
 	srgbDecode { :self |

@@ -232,7 +232,7 @@ let out = 1:8.collect { :ix |
 		nil, /* amplitudes default to 1.0 */
 		{ Rand(0.3, 1.0) } ! n); /* ring times */
 	EqPan2(metal, ix * 0.2 - 0.5)
-}.Sum.Lpf( 12000).LeakDc(0.995);
+}.Sum.Lpf(12000).LeakDc(0.995);
 6.timesRepeat {
 	out := AllpassN(out, 0.1, [0.05.Rand0, 0.05.Rand0], 4)
 };

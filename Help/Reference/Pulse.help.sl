@@ -35,6 +35,8 @@ See also: LfPulse, SinOsc, Saw
 
 References:
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/Pulse.html)
+[1](https://doc.sccode.org/Classes/Pulse.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Pulse_wave)
 
 Categories: Ugen, Oscillator

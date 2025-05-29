@@ -11,7 +11,7 @@ SinOsc(PenX(1) * 555 + 333, 0) / 11
 Read from two pens, `PenX` controls frequency, `PenY` stereo location and `PenZ` amplitude:
 
 ```
-let k = [1, 2];
+let k = [1 2];
 Pan2(
 	SinOsc(PenX(k) * 555 + 333, 0),
 	PenY(k) * 2 - 1,

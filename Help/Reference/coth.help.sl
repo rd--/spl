@@ -18,7 +18,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot { :x |
-	x.coth.clip(-4, 4)
+	x.coth.clip([-4 4])
 }
 ~~~
 

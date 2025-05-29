@@ -14,7 +14,7 @@ Probability density function:
 			alpha
 		);
 		{ :x |
-			d.pdf(x).clip(0, 0.35)
+			d.pdf(x).clip([0 0.35])
 		}
 	}
 )

@@ -23,7 +23,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot(
-	logit:/1.clip(-6, 6)
+	logit:/1.clip([-6 6])
 )
 ~~~
 

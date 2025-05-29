@@ -389,6 +389,10 @@
 		self.collect(radiansToDegrees:/1)
 	}
 
+	ramp { :self |
+		self.collect(ramp:/1)
+	}
+
 	real { :self |
 		self.collect(real:/1)
 	}

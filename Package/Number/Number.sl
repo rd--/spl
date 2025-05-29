@@ -840,6 +840,15 @@
 		}
 	}
 
+	ramp { :self |
+		let zero = self.zero;
+		(self >= zero).if {
+			self
+		} {
+			zero
+		}
+	}
+
 	real { :self |
 		self
 	}

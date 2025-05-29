@@ -15,7 +15,7 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (0 -- 1).functionPlot { :z |
-	z.betaRegularized(3, 1).clip(-20, 20)
+	z.betaRegularized(3, 1).clip([-20 20])
 }
 ~~~
 

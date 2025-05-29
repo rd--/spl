@@ -23,7 +23,7 @@ Plot the inverse survival function for a standard normal distribution:
 (0 -- 1).functionPlot(
 	NormalDistribution(0, 1)
 	.inverseSurvivalFunction
-	.clip(-3, 3)
+	.clip([-3 3])
 )
 ~~~
 

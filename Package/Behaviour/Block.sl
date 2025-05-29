@@ -95,9 +95,9 @@ Block! : [Object] {
 		self()
 	}
 
-	clip { :aBlock:/1 :min :max |
+	clip { :aBlock:/1 :minMax |
 		{ :x |
-			aBlock(x).clip(min, max, min, max)
+			aBlock(x).clip(minMax)
 		}
 	}
 

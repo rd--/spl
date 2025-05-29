@@ -12,7 +12,7 @@ Probability density function of a gamma distribution:
 		GammaDistribution(
 			alpha,
 			2
-		).pdf.clip(0, 0.2)
+		).pdf.clip([0 0.2])
 	}
 )
 ~~~

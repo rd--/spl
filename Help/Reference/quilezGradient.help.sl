@@ -78,7 +78,7 @@ and are therefore clipped:
 		2.820 3.026 -0.273
 	].quilezGradient
 )
-.clip(0, 1)
+.clip([0 1])
 .asContinuousColourGradient
 ~~~
 
@@ -95,7 +95,7 @@ A yellow, magenta, cyan gradient:
 		0.80 1.00 0.33
 	].quilezGradient
 )
-.clip(0, 1)
+.clip([0 1])
 .asContinuousColourGradient
 ~~~
 

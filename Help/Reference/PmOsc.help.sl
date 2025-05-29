@@ -1,21 +1,21 @@
 # PmOsc
 
-- _PmOsc(carfreq, modfreq, index=0, modphase=0)_
+- _PmOsc(carFreq, modFreq, index=0, modPhase=0)_
 
 Phase modulation sine oscillator pair.
 
-- carfreq: carrier frequency in cycles per second.
-- modfreq: modulator frequency in cycles per second.
+- carFreq: carrier frequency in cycles per second.
+- modFreq: modulator frequency in cycles per second.
 - index: modulation index in radians.
-- modphase: a modulation input for the modulators phase in radians
+- modPhase: a modulation input for the modulators phase in radians
 
-Modulate carfreq:
+Modulate carrier frequency:
 
 ```
 PmOsc(Line(600, 900, 5), 600, 3, 0) * 0.1
 ```
 
-Modulate modfreq:
+Modulate modulator frequency:
 
 ```
 PmOsc(300, Line(600, 900, 5), 3, 0) * 0.1

@@ -54,7 +54,9 @@
 		self.min(highMagnitude)
 	}
 
-	clip { :self :min :max :vMin :vMax |
+	clip { :self :u :v |
+		let [min, max] = u;
+		let [vMin, vMax] = v;
 		(self < min).if {
 			vMin
 		} {
@@ -66,12 +68,12 @@
 		}
 	}
 
-	clip { :self :min :max |
-		self.clip(min, max, min, max)
+	clip { :self :minMax |
+		self.clip(minMax, minMax)
 	}
 
 	clip { :self |
-		self.clip(-1, 1, -1, 1)
+		self.clip([-1 1], [-1 1])
 	}
 
 	inRangeOfAnd { :self :first :second |

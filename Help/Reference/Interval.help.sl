@@ -128,6 +128,19 @@ or `subdivide`:
 1:10
 ```
 
+The `centre` and `radius` of an interval:
+
+```
+>>> let x = 3 -- 7;
+>>> (
+>>> 	x.centre,
+>>> 	(3 + 7) / 2,
+>>> 	x.radius,
+>>> 	(7 - 3) / 2
+>>> )
+(5, 5, 2, 2)
+```
+
 Sample a function uniformly on an interval:
 
 ~~~spl svg=A
@@ -147,6 +160,8 @@ Guides: Range Syntax
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Interval.html)
-[2](https://reference.wolfram.com/language/ref/Interval.html)
+[2](https://reference.wolfram.com/language/ref/Interval.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Interval_(mathematics))
 
 Categories: Collection, Number, Type

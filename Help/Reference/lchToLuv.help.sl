@@ -28,7 +28,7 @@ let u = (0 -- 1).discretize(n);
 	.lchToLuv
 	.luvToXyz
 	.xyzToRgb
-	.clip(0, 1)
+	.clip([0 1])
 	.srgbEncode
 }.table(u, u).arrayPlot
 ~~~

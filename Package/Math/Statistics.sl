@@ -188,7 +188,7 @@
 		let n = self.size;
 		let z1 = self.rankedMin(1 + (f1 * n).floor);
 		let z2 = self.rankedMax(1 + (f2 * n).floor);
-		self.clip(z1, z2).mean
+		self.clip([z1 z2]).mean
 	}
 
 }

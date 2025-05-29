@@ -78,8 +78,8 @@ let e = EmpiricalDistribution(
 );
 (0 -- 1).functionPlot(
 	[
-		n.inverseCdf.clip(-3, 3),
-		e.inverseCdf.clip(-3, 3)
+		n.inverseCdf.clip([-3 3]),
+		e.inverseCdf.clip([-3 3])
 	]
 )
 ~~~

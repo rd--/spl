@@ -49,7 +49,7 @@ Plot over range:
 
 ~~~spl svg=A
 (0 -- 2).functionPlot { :x |
-	x.inverseErfc.clip(-2, 2)
+	x.inverseErfc.clip([-2 2])
 }
 ~~~
 

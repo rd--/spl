@@ -42,7 +42,7 @@ Plot range selection:
 
 ~~~spl svg=D
 (-1 -- 1).functionPlot { :x |
-	(1 / x).clip(-10, 10)
+	(1 / x).clip([-10 10])
 }
 ~~~
 

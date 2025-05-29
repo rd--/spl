@@ -2,10 +2,9 @@ EpanechnikovDistribution : [Object] { | c |
 
 	cdf { :self |
 		let c = self.c;
-		let negativeC = 0 - c;
 		let m = 3 / (4 * c);
 		{ :x |
-			let y = x.clip(negativeC, c);
+			let y = x.clip([0 - c, c]);
 			0.5 + (m * y) - ((y ^ 3) / (4 * (c ^ 3)))
 		}
 	}

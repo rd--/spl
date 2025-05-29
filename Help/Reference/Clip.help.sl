@@ -9,15 +9,6 @@ Differs from `Clip2` in that it allows one to set both low and high thresholds.
 - lo: Low threshold of clipping, must be less then _hi_
 - hi: High threshold of clipping, must be greater then _lo_
 
-At `SmallFloat`:
-
-```
->>> (-2 .. 2).collect { :each |
->>> 	Clip(each, -1, 1)
->>> }
-[-1 -1 0 1 1]
-```
-
 Clip sine:
 
 ```

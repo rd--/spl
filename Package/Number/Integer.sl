@@ -99,7 +99,7 @@
 	}
 
 	bernsteinBasis { :d :n :x |
-		x := x.clip(0, 1);
+		x := x.clip([0 1]);
 		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
 	}
 

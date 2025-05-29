@@ -29,7 +29,7 @@ let u = (-0.125 -- 0.125).discretize(n);
 	[0.75, i, j]
 	.oklabToXyz
 	.xyzToRgb
-	.clip(0, 1)
+	.clip([0 1])
 	.srgbEncode
 }
 .table(u, u)

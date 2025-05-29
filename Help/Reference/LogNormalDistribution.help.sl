@@ -33,7 +33,7 @@ Probability density function, varying _mu_:
 	[-1 2 3].collect { :mu |
 		LogNormalDistribution(mu, 2)
 		.pdf
-		.clip(0, 0.4)
+		.clip([0 0.4])
 	}
 )
 ~~~

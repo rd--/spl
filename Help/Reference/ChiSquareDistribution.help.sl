@@ -12,7 +12,7 @@ Probability density function:
 	[0.5 3 5].collect { :nu |
 		ChiSquareDistribution(nu)
 		.pdf
-		.clip(0, 0.4)
+		.clip([0 0.4])
 	}
 )
 ~~~

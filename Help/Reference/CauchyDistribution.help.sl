@@ -32,7 +32,7 @@ Plot `quantile` over a subset of the reals:
 (0.05 -- 0.95).functionPlot(
 	CauchyDistribution(10, 3.5)
 	.quantile
-	.clip(-30, 50)
+	.clip([-30 50])
 )
 ~~~
 
@@ -44,7 +44,7 @@ Plot `randomVariate`, clamped to _(-1, 1)_:
 let r = Sfc32(14232);
 CauchyDistribution(0, 0.025)
 .randomVariate(r, 99)
-.clip(-1, 1)
+.clip
 .linePlot
 ~~~
 
@@ -56,7 +56,7 @@ Two dimensional Cauchy noise:
 let r = Sfc32(189040);
 CauchyDistribution(0, 0.025)
 .randomVariate(r, [100 100])
-.clip(-1, 1)
+.clip
 .asGraymap
 ~~~
 

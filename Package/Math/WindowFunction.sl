@@ -124,6 +124,12 @@
 		}
 	}
 
+	raisedCosinePulse { :alpha |
+		{ :x |
+			x.sincNormalized * ((alpha.pi * x).cos / (1 - ((2 * alpha * x) ^ 2)))
+		}
+	}
+
 	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
