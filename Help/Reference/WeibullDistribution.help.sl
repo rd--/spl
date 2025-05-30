@@ -84,6 +84,8 @@ WeibullDistribution(3 / 4, 1, 0)
 See also: CauchyDistribution, cdf, NormalDistribution, pdf, randomVariate, UniformDistribution
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/weibull.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/WeibullDistribution.html)
 [2](https://reference.wolfram.com/language/ref/WeibullDistribution.html),

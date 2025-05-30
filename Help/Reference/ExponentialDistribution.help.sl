@@ -110,6 +110,8 @@ Evaluate symbolically:
 See also: cdf, GammaDistribution, LaplaceDistribution, pdf, randomVariate
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/exprand.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ExponentialDistribution.html),
 _Mathworks_

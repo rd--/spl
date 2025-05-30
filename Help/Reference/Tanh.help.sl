@@ -25,6 +25,6 @@ let o = SinOsc(500, 0);
 
 * * *
 
-See also: ArcTan, Cosh, Sinh, Tan
+See also: ArcTan, Cosh, Distort, Sinh, SoftClip, Tan
 
 Categories: Math

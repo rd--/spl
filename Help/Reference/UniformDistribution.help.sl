@@ -133,6 +133,8 @@ UniformDistribution(
 See also: CauchyDistribution, cdf, DiscreteUniformDistribution, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, ReciprocalDistribution, standardDeviation, WeibullDistribution
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/unirand.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/UniformDistribution.html)
 [2](https://reference.wolfram.com/language/ref/UniformDistribution.html),

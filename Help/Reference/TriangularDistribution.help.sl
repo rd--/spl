@@ -58,6 +58,8 @@ TriangularDistribution(-1 -- 1, 0)
 See also: Piecewise, UniformDistribution
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/trirand.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TriangularDistribution.html),
 _W_

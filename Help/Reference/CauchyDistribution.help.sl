@@ -89,6 +89,9 @@ CauchyDistribution(0, 1 / 9)
 See also: cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, UniformDistribution, WeibullDistribution
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/cauchy.html)
+[2](https://csound.com/docs/manual/pcauchy.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/CauchyDistribution.html),
 _NIST_

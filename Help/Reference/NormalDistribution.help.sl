@@ -113,6 +113,8 @@ See also: erf, gaussianMatrix, MultinormalDistribution, ProbabilityDistribution,
 Guides: Probability Distributions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/gauss.html),
 _J_
 [1](https://code.jsoftware.com/wiki/Essays/Normal_CDF),
 _Mathematica_

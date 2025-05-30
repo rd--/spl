@@ -72,6 +72,8 @@ mu
 See also: BinomialDistribution, GammaDistribution
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/poisson.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PoissonDistribution.html),
 _NIST_

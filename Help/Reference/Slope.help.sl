@@ -34,10 +34,14 @@ For another example of `Slope` see `Hypotenuse`.
 
 * * *
 
-See also: Integrator
+See also: differences, Integrator
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Slope.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/Slope.html)
+[1](https://doc.sccode.org/Classes/Slope.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Slope)
 
 Categories: Ugen
