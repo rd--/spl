@@ -47,6 +47,8 @@ which is given at A073334 and is plotted as:
 
 See also: inventorySequence, memoize, noergaardInfinityTree
 
+Guides: Integer Sequences
+
 References:
 _OEIS_
 [1](https://oeis.org/A004718)

@@ -76,6 +76,17 @@
 		1:self.reciprocal.sum
 	}
 
+	hofstadterQSequence { :self |
+		let f:/1 = { :n |
+			(n <= 2).if {
+				1
+			} {
+				f(n - f(n - 1)) + f(n - f(n - 2))
+			}
+		}.memoize(true);
+		(1 .. self).collect(f:/1)
+	}
+
 	inventorySequence { :terms |
 		let number = 0;
 		let answer = [0];

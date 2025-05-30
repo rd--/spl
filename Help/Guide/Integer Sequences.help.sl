@@ -94,6 +94,7 @@ The following help files include references to integer sequences:
 - `grayEncode`: A014550 A003188
 - `hammingWeight`: A000120
 - `harmonicNumber`: A002805 A001008
+- `hofstadterQSequence`: A005185
 - `integerDigits`: A062756 A364024 A007376 A265326 A117966
 - `inventorySequence`: A342585
 - `isAlmostPrime`: A000040 A001358 A046308 A069272

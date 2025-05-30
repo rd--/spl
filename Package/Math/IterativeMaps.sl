@@ -1,5 +1,9 @@
 +SmallFloat {
 
+	cuspMap { :x |
+		1 - (2 * x.abs.sqrt)
+	}
+
 	deJongMap { :a :b :c :d |
 		{ :v |
 			let [x, y] = v;
@@ -56,6 +60,14 @@
 				y - (x.sign * (b * x - c).abs.sqrt),
 				a - x
 			]
+		}
+	}
+
+	standardMap { :k |
+		{ :v |
+			let [p, theta] = v;
+			let pPrime = (p + (k * theta.sin)) % 2.pi;
+			[pPrime, (theta + pPrime) % 2.pi]
 		}
 	}
 

@@ -52,14 +52,26 @@ Plot the `log` of the maximum value in each orbit for the first few integers:
 
 ![](sw/spl/Help/Image/collatzSequence-B.svg)
 
+Plot the orbit for twenty-seven, which has one-hundred and twelve places:
+
+~~~spl svg=C
+27.collatzSequence.linePlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-C.svg)
+
 * * *
 
 See also: isEven, isOdd
+
+Guides: Integer Sequences
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CollatzProblem.html),
 _OEIS_
-[1](https://oeis.org/A070165),
+[1](https://oeis.org/A070165)
+[2](https://oeis.org/A008884)
+[3](https://oeis.org/A006877),
 _W_
 [1](https://en.wikipedia.org/wiki/Collatz_conjecture)

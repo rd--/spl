@@ -2,6 +2,7 @@
 
 - `Bitwise Functions`
 - `Boolean Functions`
+- `Chaotic Functions`
 - `Colour Functions`
 - `Combinatorial Functions`
 - `Comparison Functions`

@@ -1,5 +1,15 @@
 +SmallFloat {
 
+	duffingEquation { :gamma :delta :omega |
+		{ :t :v |
+			let [x, y] = v;
+			[
+				y,
+				x - (x ^ 3) - (delta * y) + (gamma * cos(omega * t))
+			]
+		}
+	}
+
 	lorenzEquation { :rho :sigma :beta |
 		{ :t :v |
 			let [x, y, z] = v;
@@ -11,12 +21,13 @@
 		}
 	}
 
-	duffingEquation { :gamma :delta :omega |
+	rosslerEquation { :a :b :c |
 		{ :t :v |
-			let [x, y] = v;
+			let [x, y, z] = v;
 			[
-				y,
-				x - (x ^ 3) - (delta * y) + (gamma * cos(omega * t))
+				0 - y - z,
+				x + (a * y),
+				b + (z * (x - c))
 			]
 		}
 	}
