@@ -54,4 +54,11 @@ let b = c.asWavetable.asLocalBuf;
 
 See also: asLocalBuf, asWavetable, BufPlay, BufRd, Osc1, SinOsc
 
+References:
+_Csound_
+[1](https://csound.com/docs/manual/oscili.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Osc.html)
+
+
 Categories: Ugen

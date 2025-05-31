@@ -55,7 +55,7 @@ See also: Gate
 
 References:
 _Csound_
-[1](http://www.csounds.com/manual/html/samphold.html),
+[1](http://csound.com/docs/manual/samphold.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Latch.html)
 

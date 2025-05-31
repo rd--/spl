@@ -24,7 +24,7 @@ See also: Line, TLine, TxLine
 
 References:
 _Csound_
-[1](https://www.csounds.com/manual/html/expon.html),
+[1](https://csound.com/docs/manual/expon.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/XLine.html)
 

@@ -126,6 +126,8 @@ An overlapping texture program:
 See also: Gendy2, Gendy3
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/gendy.html)
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Gendy1.html)
 

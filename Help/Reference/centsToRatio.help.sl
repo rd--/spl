@@ -69,6 +69,8 @@ See also: asFraction, ratioToCents, Tuning
 Guides: Xenharmonic Functions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/cent.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cent_(music)),
 _Xenharmonic_

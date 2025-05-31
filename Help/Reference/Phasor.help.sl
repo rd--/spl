@@ -103,7 +103,8 @@ See also: Line
 
 References:
 _Csound_
-[1](https://csound.com/docs/manual/phasor.html),
+[1](https://csound.com/docs/manual/phasor.html)
+[2](https://csound.com/docs/manual/trigphasor.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Phasor.html)
 

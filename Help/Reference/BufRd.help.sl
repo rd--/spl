@@ -89,4 +89,11 @@ Plot window function:
 
 See also: BufFrames, PlayBuf
 
+References:
+_Csound_
+[1](https://csound.com/docs/manual/table.html)
+[2](https://csound.com/docs/manual/tablei.html),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/BufRd.html)
+
 Categories: Ugen, Buffer

@@ -168,7 +168,7 @@ See also: HalfLine, InfiniteLine, lineCollection, Point, XLine
 
 References:
 _Csound_
-[1](https://www.csounds.com/manual/html/line.html),
+[1](https://csound.com/docs/manual/line.html),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Line.html),
 _SuperCollider_

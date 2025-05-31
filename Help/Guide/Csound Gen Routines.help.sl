@@ -24,4 +24,4 @@ See also: Osc, Shaper
 
 References:
 _Csound_
-[1](https://www.csounds.com/manual/html/ScoreGenRef.html)
+[1](https://csound.com/docs/manual/ScoreGenRef.html)

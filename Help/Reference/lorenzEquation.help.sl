@@ -25,6 +25,8 @@ See also: duffingEquation, vanDerPolEquation
 Guides: Chaotic Functions
 
 References:
+_Csound_
+[1](https://csound.com/docs/manual/lorenz.html),
 _Mathematica_
 [1](https://mathworld.wolfram.com/LorenzEquations.html),
 _W_

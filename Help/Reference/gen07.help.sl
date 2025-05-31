@@ -37,4 +37,4 @@ Guides: Csound Gen Routines
 
 References:
 _Csound_
-[1](https://www.csounds.com/manual/html/GEN07.html)
+[1](https://csound.com/docs/manual/GEN07.html)
