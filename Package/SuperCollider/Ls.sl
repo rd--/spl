@@ -380,7 +380,7 @@
 			} {
 				let dur = next['dur'];
 				let events = next.multiChannelExpand;
-				let packets = events.gather { :each |
+				let packets = events.collectCatenate { :each |
 					each.asPatternEventMessages(currentTime + timeDifference)
 				};
 				packets.do { :each |
@@ -408,7 +408,7 @@
 				synthId,
 				addAction,
 				targetNode
-			] ++ self.associations.gather { :each |
+			] ++ self.associations.collectCatenate { :each |
 				[
 					each.key,
 					each.value

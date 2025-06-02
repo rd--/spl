@@ -16,7 +16,7 @@ Find the ordering that sorts a list:
 
 >>> [-20 -24 0 4 24 36 -12 -12 56 -14]
 >>> .ordering
-[2 1 10 8 7 3 4 5 6 9]
+[2 1 10 7 8 3 4 5 6 9]
 ```
 
 Apply the ordering:

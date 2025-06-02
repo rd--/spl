@@ -33,4 +33,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Lorenz_system)
 
 Further Reading: Lorenz 1963
-

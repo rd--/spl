@@ -47,7 +47,7 @@ CartesianCoordinates(v)
 CartesianCoordinates(v)
 ```
 
-Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi ` as φ.
+Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` as φ.
 
 * * *
 

@@ -602,7 +602,7 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		1:n.gather { :k |
+		1:n.collectCatenate { :k |
 			n.integerPartitions(k)
 		}
 	}

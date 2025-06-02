@@ -803,7 +803,7 @@ Permutation : [Object] { | cycles degree |
 	permutations { :self :size |
 		self.subsets { :each |
 			each.size = size
-		}.gather(permutations:/1)
+		}.collectCatenate(permutations:/1)
 	}
 
 	permutationsDo { :self :aBlock:/1 |

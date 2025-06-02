@@ -161,9 +161,9 @@ NaN.isNaN /* literal for NaN */
 2.sqrt / 2 = 0.7071067811865476
 2.sqrt / 2 = 0.5.sqrt
 10.max(20) = 20 /* get maximum of two numbers */
-10.maxBy(20, negated:/1) = 10 /* comparison of translated values */
+10.maxOn(20, negated:/1) = 10 /* comparison of translated values */
 10.min(20) = 10 /* get minimum of two numbers */
-10.minBy(20, negated:/1) = 20 /* comparison of translated values */
+10.minOn(20, negated:/1) = 20 /* comparison of translated values */
 1.pi.isVeryCloseTo(3.141592653589793) /* pi = 3.141592653589793 */
 1.exp.isVeryCloseTo(2.718281828459) /* e = 2.718281828459 */
 let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self-1) */
@@ -2267,12 +2267,12 @@ system.includesPackage('Object') /* package */
 [1, 3, 5].asIdentitySet.species = IdentitySet:/0
 [1, 3, 5].asIdentityBag.species = IdentityBag:/0
 (x: 1, y: 3, z: 5).species = Record:/0
-'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) = 2
-{ 'd'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) }.ifError { true }
-'b'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | false } = 2
-'d'.caseOf(['a' -> 1, 'b' -> 2, 'c' -> 3]) { :notFound | notFound = 'd' }
-let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 }, { 'c' } -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
-{ let z = [{ 'a' } -> { 1 + 1 }, { 'b' } -> { 2 + 2 } ]; 'c'.caseOf(z) }.ifError { true }
+'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) = 2
+{ 'd'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) }.ifError { true }
+'b'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | false } = 2
+'d'.caseOf(['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }]) { :notFound | notFound = 'd' }
+let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) = 4
+{ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 } ]; 'c'.caseOf(z) }.ifError { true }
 3/2.perform('numerator') = 3 /* perform named unary method, name is not qualified */
 (3 -> 2).perform('key') = 3
 3.perform('plusSign', 4) = 7 /* perform named binary method, name is not qualified */

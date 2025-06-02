@@ -23,7 +23,6 @@ Scatter plot of first few terms:
 
 ![](sw/spl/Help/Image/hofstadterQSequence-A.svg)
 
-
 Scatter plot of the terms in _(6000, 6200)_:
 
 ~~~spl svg=A

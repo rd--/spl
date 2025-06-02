@@ -1309,7 +1309,7 @@
 					} ++ increasing(done, remaining.allButFirst)
 				}
 			};
-			(1 .. self.size).gather { :i |
+			(1 .. self.size).collectCatenate { :i |
 				increasing(self.first(i).last(1), self.drop(i))
 			}
 		}

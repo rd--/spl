@@ -30,7 +30,6 @@ Access components using `latitude`, `longitude` and `elevation`:
 
 * * *
 
-
 See also: CartesianCoordinates, PlanarCoordinates, PolarCoordinates, SphericalCoordinates
 
 Guides: Coordinate System Functions, Geodetic Functions, Geometry Functions

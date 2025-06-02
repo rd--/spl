@@ -122,7 +122,7 @@ Package! : [Object] {
 
 	parsePackageHeader { :self |
 		let fields = self.firstPliComment.splitBy(',');
-		fields.gather { :each |
+		fields.collectCatenate { :each |
 			let [key, value] = each.withBlanksTrimmed.splitBy(': ');
 			key.caseOf([
 				'Package' -> {

@@ -133,7 +133,7 @@
 		let chordDegrees = self.ratioToCents / 100;
 		let upper = chordDegrees.max + 1;
 		let lineDegrees = [2 5 9 12 16 19 23];
-		let allLines = 0:3.gather { :each |
+		let allLines = 0:3.collectCatenate { :each |
 			each * 24 + lineDegrees
 		}.takeWhile { :each |
 			each <= upper

@@ -38,10 +38,10 @@ Answer the three nearest elements:
 
 ```
 >>> [1 2 4 8 16 32].nearest(20, 3)
-[16 32 8]
+[16 8 32]
 
 >>> [1 2 3 4 5 6 7 8 9 10].nearest(5, 3)
-[5 6 4]
+[5 4 6]
 ```
 
 Compare the answers given by specific distance functions:

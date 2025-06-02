@@ -8,7 +8,7 @@ CategoryDictionary : [Object] { | domainDictionary |
 	}
 
 	categoriesOf { :self :entry |
-		self.domains.gather { :each |
+		self.domains.collectCatenate { :each |
 			self.categoriesOf(each, entry)
 		}
 	}

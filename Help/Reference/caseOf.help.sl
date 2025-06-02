@@ -40,7 +40,11 @@ With both `key` and `value` of each association as `Block`s:
 If no match is found, answer the result of evaluating the _otherwise_ clause:
 
 ```
->>> let c = ['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }];
+>>> let c = [
+>>> 	'a' -> { 1 },
+>>> 	'b' -> { 2 },
+>>> 	'c' -> { 3 }
+>>> ];
 >>> 'd'.caseOf(c, identity:/1)
 'd'
 ```
@@ -48,7 +52,11 @@ If no match is found, answer the result of evaluating the _otherwise_ clause:
 If no match is found, report an error:
 
 ```
->>> let c = ['a' -> { 1 }, 'b' -> { 2 }, 'c' -> { 3 }];
+>>> let c = [
+>>> 	'a' -> { 1 },
+>>> 	'b' -> { 2 },
+>>> 	'c' -> { 3 }
+>>> ];
 >>> {
 >>> 	'd'.caseOf(c)
 >>> }.ifError { true }

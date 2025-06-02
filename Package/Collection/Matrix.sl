@@ -269,7 +269,7 @@
 		1.toDo(n) { :i |
 			1.toDo(d[i].size) { :j |
 				answer.add(
-					1:n.gather { :k |
+					1:n.collectCatenate { :k |
 						(i = k).if {
 							d[i][j]
 						} {

@@ -31,7 +31,6 @@ let c = p @* t;
 
 ![](sw/spl/Help/Image/nearestNeighbourAlgorithm-A.svg)
 
-
 Nearest neighbour tour of randomly generated coordinates:
 
 ~~~spl svg=B

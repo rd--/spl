@@ -23,4 +23,3 @@ See also: <
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/All_nearest_smaller_values)
-

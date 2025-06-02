@@ -47,7 +47,7 @@ true
 ```
 >>> let p = 'aabcbacb'.contents.ordering;
 >>> (p, p.isPermutationList)
-([6 2 1 8 5 3 7 4], true)
+([1 2 6 3 5 8 4 7], true)
 ```
 
 The integers up to 4321 whose decimal digits form permutation lists:
