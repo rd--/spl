@@ -151,6 +151,14 @@
 		answer
 	}
 
+	collectCatenate { :self :aBlock:/1 |
+		let answer = self.species.new;
+		self.do { :each |
+			answer.addAll(aBlock(each))
+		};
+		answer
+	}
+
 	collectInto { :self :aBlock :aCollection |
 		aCollection.fillFromWith(self, aBlock)
 	}
@@ -215,6 +223,10 @@
 
 	clip { :self |
 		self.clip([-1 1])
+	}
+
+	countsBy { :self :aBlock:/1 |
+		self.groupBy(aBlock:/1).collect(size:/1)
 	}
 
 	cubeRoot { :self |
@@ -341,14 +353,6 @@
 
 	fillFrom { :self :aCollection |
 		self.fillFromWith(aCollection, identity:/1)
-	}
-
-	gather { :self :aBlock:/1 |
-		let answer = self.species.new;
-		self.do { :each |
-			answer.addAll(aBlock(each))
-		};
-		answer
 	}
 
 	gcd { :self |
@@ -646,32 +650,6 @@
 			answer.add(collectBlock(each))
 		};
 		answer
-	}
-
-	sorted { :self |
-		self.asList.sort
-	}
-
-	sorted { :self :sortBlock:/2 |
-		self.asList.sortBy(sortBlock:/2)
-	}
-
-	stemLeafPlot { :self |
-		let negative = Map();
-		let positive = Map();
-		self.collect { :each |
-			let d = each.integerDigits;
-			let rhs = d.last;
-			let lhsList = (d.size > 1).if { d.allButLast } { [0] };
-			let lhs = each.copySignTo(lhsList.fromDigits(10));
-			let map = each.isNegative.if { negative } { positive };
-			map.atIfPresentIfAbsent(lhs) { :entry |
-				entry.add(rhs)
-			} {
-				map.atPut(lhs, [rhs])
-			}
-		};
-		negative.associations.sort ++ positive.associations.sort
 	}
 
 	subsets { :self :aBlock:/1 |

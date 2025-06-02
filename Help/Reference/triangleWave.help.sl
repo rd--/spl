@@ -31,7 +31,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: Piecewise, sawtoothWave, sin, squareWave, unitTriangle
+See also: heavisideLambda, Piecewise, sawtoothWave, sin, squareWave, unitTriangle
 
 References:
 _Mathematica_

@@ -41,5 +41,7 @@ See also: henonMap
 Guides: Chaotic Functions
 
 References:
+_Meier_
+[1](http://www.3d-meier.de/tut19/Seite156.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Logistic_map)

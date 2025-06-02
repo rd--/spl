@@ -33,6 +33,7 @@ Dependency Statistics:
 - `correlation`
 - `correlationFunction`
 - `covariance`
+- `spearmanRho`
 
 General Statistics:
 
@@ -52,6 +53,7 @@ Order Statistics:
 - `quartiles`
 - `rankedMax`
 - `rankedMin`
+- `ranking`
 - `sort`
 
 Data Models:

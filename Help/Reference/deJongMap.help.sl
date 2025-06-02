@@ -30,4 +30,8 @@ See also: henonMap, henonAreaPreservingMap, martinMap
 
 Guides: Chaotic Functions
 
+References:
+_Meier_
+[1](http://www.3d-meier.de/tut19/Seite144.html)
+
 Further Reading: Dewdney 1987

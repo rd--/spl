@@ -397,6 +397,22 @@
 		0.5 * (1 - self.cos)
 	}
 
+	heavisideLambda { :x |
+		(x.abs < 1).if {
+			(x > 0).if {
+				1 - x
+			} {
+				1 + x
+			}
+		} {
+			0
+		}
+	}
+
+	heavisidePi { :self |
+		(self.abs <= 0.5).boole
+	}
+
 	heavisideTheta { :self |
 		(self < 0).if {
 			0
@@ -522,6 +538,10 @@
 
 	isZero { :self |
 		self = 0
+	}
+
+	kroneckerDelta { :self |
+		(self = 0).boole
 	}
 
 	kroneckerDelta { :self :aNumber |

@@ -37,5 +37,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareWave.html)
 [2](https://reference.wolfram.com/language/ref/SquareWave.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.square.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Square_wave_(waveform))

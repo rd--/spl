@@ -36,6 +36,7 @@ Order:
 - `min`
 - `minimalBy`
 - `ordering`
+- `ranking`
 
 Predicates:
 

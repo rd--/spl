@@ -16,7 +16,7 @@ Plot in one dimension:
 
 * * *
 
-See Also: convolve, diracDelta, unitStep
+See also: convolve, diracDelta, heavisideLambda, unitStep
 
 References:
 _Mathematica_

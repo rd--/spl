@@ -1,11 +1,33 @@
 +SmallFloat {
 
+	arneodoEquation { :a :b :c |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				y,
+				z,
+				0 - (a * x) - (b * y) - z + (c * x.cubed)
+			]
+		}
+	}
+
+	coulletEquation { :a :b :c :d |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				y,
+				z,
+				(a * x) + (b * y) + (c * z) + (d * x.cubed)
+			]
+		}
+	}
+
 	duffingEquation { :gamma :delta :omega |
 		{ :t :v |
 			let [x, y] = v;
 			[
 				y,
-				x - (x ^ 3) - (delta * y) + (gamma * cos(omega * t))
+				x - (x ^ 3) - (delta * y) + (gamma * (omega * t).cos)
 			]
 		}
 	}

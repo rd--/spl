@@ -1,13 +1,20 @@
 # kroneckerDelta
 
-- _kroneckerDelta(aCollection)_
-- _kroneckerDelta(aNumber, anotherNumber)_
+- _kroneckerDelta(n)_
+- _kroneckerDelta(n₁, n₂)_
+- _kroneckerDelta([n₁ n₂ …])_
 
 Answer the Kronecker delta, equal to `one` if the numbers all are equal, and `zero` otherwise.
 
 Evaluate numerically:
 
 ```
+>>> 1.kroneckerDelta
+0
+
+>>> 0.kroneckerDelta
+1
+
 >>> 1.kroneckerDelta(0)
 0
 
@@ -71,12 +78,22 @@ Generate a banded matrix with two superdiagonals:
 Plot over a subset of the integers:
 
 ~~~spl svg=A
-(-2 .. 2).functionPlot { :each |
-	each.kroneckerDelta(0)
-}
+(-2 .. 2).collect { :each |
+	each.kroneckerDelta
+}.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/kroneckerDelta-A.svg)
+
+Pick out elements:
+
+~~~spl png=B
+{ :n :m |
+	kroneckerDelta(n, m.eulerPhi + 1)
+}.table(1:60, 1:60).Bitmap
+~~~
+
+![](sw/spl/Help/Image/kroneckerDelta-B.png)
 
 * * *
 
@@ -85,6 +102,6 @@ See also: =, boole, identityMatrix, if, unitVector
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/KroneckerDelta.html)
-[2](https://mathworld.wolfram.com/KroneckerDelta.html),
+[2](https://reference.wolfram.com/language/ref/KroneckerDelta.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Kronecker_delta)

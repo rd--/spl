@@ -412,6 +412,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("j" . ?𝑗) ; U+1D457 𝑗 Mathematical Italic Small J
      ("kappa" .?κ) ; U+003BA κ Greek Small Letter Kappa
      ("lambda" . ?λ) ; U+03BB λ Greek Small Letter Lamda
+     ("Lambda" . ?Λ) ; U+039B Λ Greek Capital Letter Lamda
      ("mu" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("micro" . ?μ) ; U+03BC μ Greek Small Letter Mu
      ("natural" . ?♮) ; U+266E ♮ Music Natural Sign

@@ -65,7 +65,7 @@ Where supported `catenate` is displayed as ⧻.
 
 * * *
 
-See also: ++, +++, dictionaryJoin, flatten, gather
+See also: ++, +++, collectCatenate, dictionaryJoin, flatten
 
 References:
 _Mathematica_

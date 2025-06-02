@@ -2,6 +2,7 @@
 
 Ordinary Differential Equations:
 
+- `coulletEquation`
 - `duffingEquation`
 - `lorenzEquation`
 - `rosslerEquation`

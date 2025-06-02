@@ -59,4 +59,7 @@ See also: isSorted, mergeSortBy, mergeSortFromToBy, sort
 
 Guides: Sort Functions
 
+References:
+[1](https://en.wikipedia.org/wiki/Merge_sort)
+
 Categories: Sorting

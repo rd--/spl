@@ -33,5 +33,7 @@ Guides: Chaotic Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StandardMap.html),
+_Meier_
+[1](http://www.3d-meier.de/tut19/Seite159.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Standard_map)

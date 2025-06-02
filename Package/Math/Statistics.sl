@@ -275,6 +275,14 @@
 		self.asSortedList.median
 	}
 
+
+	spearmanRho { :u :v |
+		correlation(
+			u.rankingFractional,
+			v.rankingFractional
+		)
+	}
+
 	standardDeviation { :self |
 		self.isMatrix.if {
 			self.transposed.collect { :each |

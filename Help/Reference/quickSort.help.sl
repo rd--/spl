@@ -57,4 +57,8 @@ See also: isSorted, quickSortBy, quickSortByFromTo, sort
 
 Guides: Sort Functions
 
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Quicksort)
+
 Categories: Sorting

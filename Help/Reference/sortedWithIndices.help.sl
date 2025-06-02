@@ -1,9 +1,8 @@
 # sortedWithIndices
 
-- _sortedWithIndices(aSequence, aBlock:/2)_
-- _sortedWithIndices(α)_ ⟹ _sortedWithIndices(α, <=)_
+- _sortedWithIndices(l, f:/2=<)_
 
-Sort items in _aSequence_ according to _aBlock_ and answer each associated with its initial index.
+Sort items in the sequence _l_ according to _f_ and answer each associated with its initial index.
 
 Sort `contents` of a `String`:
 
@@ -30,6 +29,13 @@ Sort a `List`:
 	4 -> 5,
 	5 -> 4
 ]
+```
+
+A list with equal elements:
+
+```
+>>> [0 2 3 2].sortedWithIndices(<)
+[0 -> 1, 2 -> 2, 2 -> 4, 3 -> 3]
 ```
 
 * * *

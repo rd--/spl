@@ -69,6 +69,21 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
+	gather { :self :aBlock:/2 |
+		let answer = [];
+		self.do { :x |
+			let i = answer.detectIndex { :y |
+				aBlock(x, y.anyOne)
+			};
+			i.ifNil {
+				answer.add([x])
+			} {
+				answer[i].add(x)
+			}
+		};
+		answer
+	}
+
 	interleave { :self |
 		self.irregularTransposition.flatten
 	}

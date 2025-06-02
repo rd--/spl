@@ -1,32 +1,51 @@
 # gather
 
-- _gather(aCollection, aBlock:/1)_
+- _gather(l, f:/2)_
 
-Apply _aBlock_,
-which should answer a collection,
-to each item in _aCollection_,
-and add each item in each answer to the answer.
+Gather the elements of the list _l_ into sublists of identical elements,
+according to _f_.
+
+Gather elements into sublists of equal elements:
 
 ```
->>> [3 5 7].gather { :each |
->>> 	(1 .. each)
+>>> ['a' 'b' 'a' 'd' 'b'].gather(=)
+['a' 'a'; 'b' 'b'; 'd']
+```
+
+Gather elements that have equal first parts:
+
+```
+>>> ['a' 1; 'b' 1; 'a' 2; 'd' 1; 'b' 3]
+>>> .gather { :i :j |
+>>> 	i[1] = j[1]
 >>> }
-[1 2 3 1 2 3 4 5 1 2 3 4 5 6 7]
+['a' 1; 'a' 2:;'b' 1; 'b' 3:; 'd' 1]
 ```
 
-This is equivalent to,
-but more efficient than,
-the `catenate` of `collect`:
+Gather elements that have equal integer parts:
 
 ```
->>> [3 5 7].collect { :each |
->>> 	(1 .. each)
->>> }.catenate
-[1 2 3 1 2 3 4 5 1 2 3 4 5 6 7]
+>>> [0, 1/3 .. 3].gather { :i :j |
+>>> 	i.floor = j.floor
+>>> }
+[0 1/3 2/3; 1/1 4/3 5/3; 2/1 7/3 8/3; 3/1]
+```
+
+Gather integers that have identical remainders:
+
+```
+>>> [1 .. 10].gather { :i :j |
+>>> 	(i % 3) = (j % 3)
+>>> }
+[1 4 7 10; 2 5 8; 3 6 9]
 ```
 
 * * *
 
-See also: collect, catenate
+See also: binLists, collect, counts, deleteDuplicates, groupBy, partition, select, split, sort, tally
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Gather.html)
 
 Categories: Enumerating

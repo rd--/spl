@@ -1390,10 +1390,6 @@
 		(1 .. self.size)
 	}
 
-	indicesSorted { :self |
-		self.indices
-	}
-
 	indicesDo { :self :aBlock:/1 |
 		1.toDo(self.size, aBlock:/1)
 	}
@@ -1540,12 +1536,6 @@
 		}
 	}
 
-	isMonotonicallyIncreasing { :self |
-		self.isFinite & {
-			self.isSortedBy(<=)
-		}
-	}
-
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -1568,42 +1558,6 @@
 
 	isSequenceable { :unused |
 		true
-	}
-
-	isSorted { :self |
-		self.isSortedBetweenAnd(1, self.size)
-	}
-
-	isSortedBetweenAnd { :self :startIndex :endIndex |
-		self.isSortedByBetweenAnd(<=, startIndex, endIndex)
-	}
-
-	isSortedBy { :self :aBlock:/2 |
-		self.isSortedByBetweenAnd(aBlock:/2, 1, self.size)
-	}
-
-	isSortedByBetweenAnd { :self :aBlock:/2 :startIndex :endIndex |
-		(endIndex <= startIndex).if {
-			true
-		} {
-			let previousElement = self[startIndex];
-			valueWithReturn { :return:/1 |
-				(startIndex + 1).toDo(endIndex) { :index |
-					let element = self[index];
-					aBlock(previousElement, element).ifFalse {
-						false.return
-					};
-					previousElement := element
-				};
-				true
-			}
-		}
-	}
-
-	isStrictlyIncreasing { :self |
-		self.isFinite & {
-			self.isSortedBy(<)
-		}
 	}
 
 	kadanesAlgorithm { :self |
@@ -1838,16 +1792,6 @@
 		}
 	}
 
-	longestIncreasingSubsequenceList { :self |
-		let a = self.increasingSubsequenceList.sort { :p :q |
-			q.size < p.size
-		};
-		let k = a.first.size;
-		a.takeWhile { :each |
-			each.size = k
-		}.reverse
-	}
-
 	lyndonWordsDo { :alphabet :n :aBlock:/1 |
 		let nextWord = { :w |
 			let k = (n // w.size) + 1;
@@ -1903,107 +1847,6 @@
 			}
 		};
 		[answer, i, j]
-	}
-
-	mergeInPlace { :self :select:/1 :insert:/2 |
-		let answer = [];
-		{
-			self.isEmpty
-		}.whileFalse {
-			let x = self.collect(first:/1);
-			let i = x.indexOf(x.select);
-			answer.insert(self[i].removeFirst);
-			self[i].isEmpty.ifTrue {
-				self.removeAt(i)
-			}
-		};
-		answer
-	}
-
-	mergeFirstMiddleLastIntoBy { :self :first :middle :last :destination :aBlock:/2 |
-		let i1 = first;
-		let i2 = middle + 1;
-		let val1 = self[i1];
-		let val2 = self[i2];
-		let out = first - 1;
-		{
-			i1 <= middle & {
-				i2 <= last
-			}
-		}.whileTrue {
-			aBlock(val1, val2).if {
-				out := out + 1;
-				i1 := i1 + 1;
-				destination[out] := val1;
-				val1 := self[i1]
-			} {
-				out := out + 1;
-				i2 := i2 + 1;
-				destination[out] := val2;
-				val2 := self.atWrap(i2)
-			}
-		};
-		(i1 <= middle).if {
-			destination.replaceFromToWithStartingAt(out + 1, last, self, i1)
-		} {
-			destination.replaceFromToWithStartingAt(out + 1, last, self, i2)
-		}
-	}
-
-	mergeSortFromToBy { :self :startIndex :stopIndex :aBlock:/2 |
-		let size = self.size;
-		(
-			size <= 1 | {
-				startIndex = stopIndex
-			}
-		).if {
-			self
-		} {
-			(1 <= startIndex).ifFalse {
-				self.errorSubscriptBounds(startIndex)
-			};
-			(stopIndex <= size).ifFalse {
-				self.errorSubscriptBounds(stopIndex)
-			};
-			(startIndex < stopIndex).ifFalse {
-				self.errorSubscriptBounds(startIndex)
-			};
-			self.shallowCopy.mergeSortFromToIntoBy(startIndex, stopIndex, self, aBlock:/2);
-			self
-		}
-	}
-
-	mergeSortFromToIntoBy { :self :firstIndex :lastIndex :destination :aBlock:/2 |
-		let n = lastIndex - firstIndex;
-		(n <= 1).if {
-			(n = 0).if {
-				self
-			} {
-				let firstObject = self[firstIndex];
-				let lastObject = self[lastIndex];
-				aBlock(firstObject, lastObject).if {
-					destination[lastIndex] := lastObject;
-					destination[firstIndex] := firstObject
-				} {
-					destination[lastIndex] := firstObject;
-					destination[firstIndex] := lastObject
-				};
-				self
-			}
-		} {
-			n := firstIndex + lastIndex // 2;
-			destination.mergeSortFromToIntoBy(firstIndex, n, self, aBlock:/2);
-			destination.mergeSortFromToIntoBy(n + 1, lastIndex, self, aBlock:/2);
-			self.mergeFirstMiddleLastIntoBy(firstIndex, n, lastIndex, destination, aBlock:/2)
-		}
-	}
-
-	mergeSortBy { :self :aSortBlock:/2 |
-		self.mergeSortFromToBy(1, self.size, aSortBlock:/2)
-	}
-
-	mergeSort { :self |
-		self.mergeSortBy(<=)
 	}
 
 	meshGrid { :x :y |
@@ -2139,14 +1982,6 @@
 		tally
 	}
 
-	ordering { :self |
-		self.sortedWithIndices.collect(value:/1)
-	}
-
-	ordering { :self :aBlock:/2|
-		self.sortedWithIndices(aBlock:/2).collect(value:/1)
-	}
-
 	orderedSubstrings { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]
@@ -2263,26 +2098,6 @@
 		self.partition(windowSize, windowSize)
 	}
 
-	patienceSortPiles { :self |
-		let piles = [];
-		let answer = [];
-		self.do { :card |
-			let index = piles.detectIndex { :each |
-				each.last >= card
-			};
-			index.ifNil {
-				piles.addLast([card])
-			} {
-				piles[index].addLast(card)
-			}
-		};
-		piles
-	}
-
-	patienceSort { :self |
-		self.patienceSortPiles.mergeInPlace(max:/1, addFirst:/2)
-	}
-
 	pick { :self :aList :anObject |
 		(self.depth > 2).if {
 			self.withCollect(aList) { :i :j |
@@ -2344,95 +2159,6 @@
 	projection { :u :v |
 		let w = v.conjugated;
 		u.dot(w) / v.dot(w) * v
-	}
-
-	quickSortFromToBy { :self :from :to :sortBlock:/2 |
-		valueWithReturn { :return:/1 |
-			var i, j, k, l, ij, di, dj, dij, n, tmp;
-			i := from;
-			j := to;
-			{
-				di := self[i];
-				dj := self[j];
-				sortBlock(di, dj).ifFalse {
-					self[i] := dj;
-					self[j] := di;
-					tmp := dj;
-					dj := di;
-					di := tmp
-				};
-				n := j + 1 - i;
-				(n <= 2).ifTrue {
-					self.return
-				};
-				ij := i + j // 2;
-				dij := self[ij];
-				sortBlock(di, dij).if {
-					sortBlock(dij, dj).ifFalse {
-						self[j] := dij;
-						self[ij] := dj;
-						dij := dj;
-						dj := nil
-					}
-				} {
-					self[i] := dij;
-					self[ij] := di;
-					dij := di;
-					di := nil
-				};
-				(n = 3).ifTrue {
-					self.return
-				};
-				k := i;
-				l := j;
-				{
-					{
-						l := l - 1;
-						k <= l & {
-							sortBlock(dij, self[l])
-						}
-					}.whileTrue;
-					{
-						k := k + 1;
-						k <= l & {
-							sortBlock(self[k], dij)
-						}
-					}.whileTrue;
-					k <= l
-				}.whileTrue {
-					tmp := self[k];
-					self[k] := self[l];
-					self[l] := tmp
-				};
-				(i < l).if {
-					(k < j).if {
-						(l - i < (j - k)).if {
-							self.quickSortFromToBy(i, l, sortBlock:/2);
-							i := k
-						} {
-							self.quickSortFromToBy(k, j, sortBlock:/2);
-							j := l
-						}
-					} {
-						j := l
-					}
-				} {
-					(k < j).if {
-						i := k
-					} {
-						self.return
-					}
-				}
-			}.repeat
-		}
-	}
-
-	quickSortBy { :self :sortBlock:/2 |
-		self.quickSortFromToBy(1, self.size, sortBlock:/2)
-	}
-
-	quickSort { :self |
-		self.quickSortBy(<=)
 	}
 
 	randomChoice { :self :r :shape |
@@ -2767,46 +2493,6 @@
 		self.copy.fisherYatesShuffle
 	}
 
-	sort { :self |
-		self.sortBy(<=)
-	}
-
-	sort { :self :aBlock:/2 |
-		aBlock:/2.ifNil {
-			self.sort
-		} {
-			self.sortBy(aBlock:/2)
-		}
-	}
-
-	sortOn { :self :keyBlock:/1 |
-		self.sortOnBy(keyBlock:/1, <=)
-	}
-
-	sorted { :self :aSortBlock:/2 |
-		self.copy.sortBy(aSortBlock:/2)
-	}
-
-	sorted { :self |
-		self.copy.sort
-	}
-
-	sortedWithIndices { :self |
-		self.sortedWithIndices(<=)
-	}
-
-	sortedWithIndices { :self :sortBlock:/2 |
-		self.ifEmpty {
-			[]
-		} {
-			self.withIndexCollect { :each :index |
-				each -> index
-			}.sorted { :p :q |
-				sortBlock(p.key, q.key)
-			}
-		}
-	}
-
 	split { :self :aBlock:/2 |
 		self.ifEmpty {
 			[]
@@ -2979,10 +2665,6 @@
 			startIndex := endIndex + 1
 		};
 		answer
-	}
-
-	takeSmallest { :self :anInteger |
-		self.sorted.first(anInteger)
 	}
 
 	takeWhile { :self :aBlock:/1 |
