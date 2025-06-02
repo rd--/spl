@@ -135,6 +135,16 @@ The first ten items in an integer sequence:
 ]
 ```
 
+Plot the first few terms of the `dyadicMap`:
+
+~~~spl svg=A
+{ :x |
+	(2 * x) % 1
+}.nestList(0.11111, 50).linePlot
+~~~
+
+![](sw/spl/Help/Image/nestList-A.svg)
+
 * * *
 
 See also: foldLeft, iterate, reduce, scan

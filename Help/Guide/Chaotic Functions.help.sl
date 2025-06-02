@@ -13,8 +13,10 @@ Map Functions:
 - `cuspMap`
 - `deJongMap`
 - `duffingMap`
+- `dyadicMap`
 - `henonAreaPreservingMap`
 - `henonMap`
 - `logisticMap`
 - `martinMap`
 - `standardMap`
+- `tentMap`

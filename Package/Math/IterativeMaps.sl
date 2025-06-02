@@ -24,6 +24,12 @@
 		}
 	}
 
+	dyadicMap { :beta |
+		{ :x |
+			(beta * x) % 1
+		}
+	}
+
 	henonAreaPreservingMap { :a |
 		let s = a.sin;
 		let c = a.cos;
@@ -68,6 +74,16 @@
 			let [p, theta] = v;
 			let pPrime = (p + (k * theta.sin)) % 2.pi;
 			[pPrime, (theta + pPrime) % 2.pi]
+		}
+	}
+
+	tentMap { :mu |
+		{ :x |
+			(x < 0.5).if {
+				mu * x
+			} {
+				mu * (1 - x)
+			}
 		}
 	}
 
