@@ -21,4 +21,24 @@
 		c.recurrenceFilter(x, 0 # k)
 	}
 
+	unwrap { :self :period |
+		let discontinuity = period / 2;
+		let high = period / 2;
+		let low = 0 - high;
+		let dd = self.differences;
+		let ph = dd.collect { :each |
+			(each.abs < discontinuity).if {
+				0
+			} {
+				let a = ((each - low) % period) + low;
+				(a = low & { each > 0 }).if {
+					high - each
+				} {
+					a - each
+				}
+			}
+		};
+		self + ([0] ++ ph.prefixSum)
+	}
+
 }

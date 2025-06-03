@@ -33,11 +33,9 @@ true
 
 * * *
 
-See also: <=, >=, exclusivelyBetweenAnd, inclusivelyBetweenAnd
+See also: <=, >=, between, exclusivelyBetweenAnd, inclusivelyBetweenAnd
 
 References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/Between.html),
 _Smalltalk_
 5.6.1.5
 

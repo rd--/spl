@@ -8,6 +8,9 @@ Inverse of `DbAmp`.
 ```
 >>> AmpDb(0.1)
 -20
+
+>>> AmpDb(4)
+12.0412
 ```
 
 Threads over lists:
@@ -55,6 +58,6 @@ _Mathworks_
 [1](https://mathworks.com/help/signal/ref/mag2db.html)
 [2](https://mathworks.com/help/signal/ref/pow2db.html),
 _Max_
-[1](https://docs.cycling74.com/max8/refpages/atodb)
+[1](https://docs.cycling74.com/reference/atodb/)
 
 Categories: Math, Ugen, Converting

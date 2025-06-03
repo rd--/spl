@@ -10,6 +10,9 @@ Wrap between two integer indices, note that the wrap occurs _before_ the high va
 ```
 >>> 1:9.wrapBetweenAnd(3, 7 + 1)
 [6 7 3 4 5 6 7 3 4]
+
+>>> 0:12.wrapBetweenAnd(0, 3)
+[0 1 2 0 1 2 0 1 2 0 1 2 0]
 ```
 
 Wrap a real number between two values:

@@ -14,7 +14,10 @@ Map oscillator to frequency:
 
 ```
 let mod = SinOsc(Line(1, 10, 10), 0);
-SinOsc(LinLin(mod, -1, 1, 100, 900), 0) * 0.1
+SinOsc(
+	LinLin(mod, -1, 1, 100, 900),
+	0
+) * 0.1
 ```
 
 Modulating destination values:
@@ -65,6 +68,16 @@ At `SmallFloat`:
 [3 6 9]
 ```
 
+Invert a bipolar sine signal and scale to be unipolar:
+
+~~~spl svg=A
+(0 -- 2.pi).functionPlot { :x |
+	x.sin.LinLin(-1, 1, 1, 0)
+}
+~~~
+
+![](sw/spl/Help/Image/LinLin-A.svg)
+
 * * *
 
 See also: LinExp, rescale
@@ -72,6 +85,8 @@ See also: LinExp, rescale
 References:
 _Csound_
 [1](https://csound.com/docs/manual/linlin.html),
+_Max_
+[1](https://docs.cycling74.com/reference/scale/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LinLin.html)
 

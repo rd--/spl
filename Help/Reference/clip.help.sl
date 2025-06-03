@@ -59,6 +59,13 @@ To clip values only to an upper bound specify the lower bound as negative infini
 [-6 -5 -4 -3 -2 -1 0 0 0 0 0 0 0]
 ```
 
+Boundaries are includes:
+
+```
+>>> [-1 1].clip([-1 1])
+[-1 1]
+```
+
 Plot the unit clip function over a subset of the reals:
 
 ~~~spl svg=A
@@ -86,6 +93,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Clip.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/clip.html),
+_Max_
+[1](https://docs.cycling74.com/reference/clip/),
 _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.clip.html),
 _W_

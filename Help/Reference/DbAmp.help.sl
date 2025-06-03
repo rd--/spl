@@ -7,6 +7,9 @@ Convert decibels to linear amplitude.
 ```
 >>> DbAmp(-20)
 0.1
+
+>>> DbAmp(12.0412)
+4
 ```
 
 Threads over lists:
@@ -52,6 +55,6 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/dbamp.html),
 _Max_
-[1](https://docs.cycling74.com/max8/refpages/dbtoa)
+[1](https://docs.cycling74.com/reference/dbtoa/)
 
 Categories: Math, Ugen

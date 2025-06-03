@@ -28,6 +28,9 @@ At `List`:
 
 >>> [0 1 1 2 3 5 8].foldList(1, +)
 [1 1 2 3 5 8 13 21]
+
+>>> [1 2 4 7 0].differences
+[1 2 3 -7]
 ```
 
 First differences are constant for a linear function:
@@ -80,7 +83,16 @@ The differences of a `prefixSum`:
 [2 3 4 5 6 7 8 9 10]
 ```
 
-Create a 3-by-3 matrix, then compute the first difference between the rows:
+At a 2×4 matrix answers a 1×4 matrix:
+
+```
+>>> [1 3 6 10; 0 5 6 8].differences
+[[-1 2 0 -2]]
+```
+
+Create a 3×3 matrix,
+then compute the first difference between the rows,
+a 2×3 matrix:
 
 ```
 >>> [1 1 1; 5 5 5; 25 25 25].differences
@@ -136,6 +148,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Differences.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.diff.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.diff.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SequenceableCollection.html#-differentiate)
 
