@@ -60,7 +60,7 @@ Removing more elements than the length of the sequence gives an empty result:
 
 * * *
 
-See also: dropFirst, dropLast, take
+See also: allButFirst, dropFirst, dropLast, take
 
 References:
 _Apl_

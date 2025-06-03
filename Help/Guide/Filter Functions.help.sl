@@ -6,3 +6,4 @@
 - `meanFilter`
 - `meanShiftFilter`
 - `medianFilter`
+- `recurrenceFilter`

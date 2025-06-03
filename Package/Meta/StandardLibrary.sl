@@ -160,6 +160,7 @@
 	'NumericalFunctions'
 	'Permutations'
 	'Primes'
+	'SignalProcessing'
 	'Statistics'
 	'UnivariatePolynomial'
 	'WindowFunction'

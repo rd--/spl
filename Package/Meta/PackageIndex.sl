@@ -164,6 +164,7 @@
 	'Math-NumericalFunctions'
 	'Math-Permutations'
 	'Math-Primes'
+	'Math-SignalProcessing'
 	'Math-Statistics'
 	'Math-UnivariatePolynomial'
 	'Math-WindowFunction'

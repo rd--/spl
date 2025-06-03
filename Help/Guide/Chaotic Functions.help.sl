@@ -4,6 +4,7 @@ Ordinary Differential Equations:
 
 - `coulletEquation`
 - `duffingEquation`
+- `henonHeilesEquation`
 - `lorenzEquation`
 - `rosslerEquation`
 - `vanDerPolEquation`
@@ -20,3 +21,11 @@ Map Functions:
 - `martinMap`
 - `standardMap`
 - `tentMap`
+
+* * *
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Chaos.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Chaos_theory)

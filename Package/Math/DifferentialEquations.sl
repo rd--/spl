@@ -32,6 +32,18 @@
 		}
 	}
 
+	henonHeilesEquation { :lambda |
+		{ :t :v |
+			let [x, y, px, py] = v;
+			[
+				px,
+				py,
+				0 - x - (lambda * 2 * x * y),
+				0 - y - (lambda * ((x * x) - (y * y)))
+			]
+		}
+	}
+
 	lorenzEquation { :rho :sigma :beta |
 		{ :t :v |
 			let [x, y, z] = v;
