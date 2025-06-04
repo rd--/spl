@@ -15,6 +15,13 @@
 
 - `unwrap`
 
+## Resampling Functions
+
+- `downsample`
+- `downsampleSteinarsson`
+- `resample`
+- `upsample`
+
 ## Unit Functions
 
 - `unitBox`
@@ -29,4 +36,4 @@
 
 * * *
 
-Guides: Filter Functions, Fourier Analysis Functions, Sigmoid Functions, Trigonometric Functions, Window Functions
+Guides: Filter Functions, Fourier Analysis Functions, Interpolation Functions, Sigmoid Functions, Trigonometric Functions, Unit Generators, Window Functions

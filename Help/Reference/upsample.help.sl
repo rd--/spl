@@ -22,10 +22,12 @@ Upsample a `List` by a factor of two:
 
 See also: downsample, resample
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Signal Processing Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Upsample.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Upsampling)
 
 Categories: Rearranging

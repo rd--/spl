@@ -101,10 +101,14 @@ SfRead(b, x, 1, 2)
 
 See also: Line
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/phasor.html)
 [2](https://csound.com/docs/manual/trigphasor.html),
+_Max_
+[1](https://docs.cycling74.com/reference/gen_dsp_phasor/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Phasor.html)
 

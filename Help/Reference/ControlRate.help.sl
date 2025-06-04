@@ -4,7 +4,7 @@
 
 Answer the control rate of the synthesiser.
 
-The control rate is the sample rate divided by the block size:
+The control rate is the `SampleRate` divided by the `BlockSize`:
 
 ```
 >>> 48000 / [64 48]
@@ -24,7 +24,7 @@ SinOsc(
 ).Splay * 0.1
 ~~~
 
-It is also the inverse of the control duration:
+It is also the `Reciprocal` of the `ControlDur`:
 
 ~~~
 SinOsc(

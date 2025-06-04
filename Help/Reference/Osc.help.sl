@@ -54,6 +54,8 @@ let b = c.asWavetable.asLocalBuf;
 
 See also: asLocalBuf, asWavetable, BufPlay, BufRd, Osc1, SinOsc
 
+Guides: Unit Generators
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/oscili.html),

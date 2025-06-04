@@ -2,9 +2,9 @@
 
 - _SampleDur()_
 
-Answer the duration, in seconds, of a sample at the synthesiser.
+Answer the sample duration, in seconds, of a sample at the synthesiser.
 
-The sample duration is the inverse of the sample rate,
+The sample duration is the `Reciprocal` of the `SampleRate`,
 ordinarily a very small number:
 
 ```
@@ -30,7 +30,9 @@ SinOsc(
 
 * * *
 
-See also: ControlDur, ControlRate, RadiansPerSample, SampleRate
+See also: ControlDur, ControlRate, RadiansPerSample, Reciprocal, SampleRate
+
+Guides: Unit Generators
 
 References:
 _SuperCollider_

@@ -20,7 +20,11 @@ SinOsc(
 
 See also: BlockSize, ControlRate, RadiansPerSample, SampleDur
 
+Guides: Unit Generators
+
 References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_dsp_samplerate/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SampleRate.html)
 

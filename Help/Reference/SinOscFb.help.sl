@@ -45,4 +45,6 @@ Non-graph variant:
 
 See also: SinOsc
 
+Guides: Unit Generators
+
 Categories: Ugen

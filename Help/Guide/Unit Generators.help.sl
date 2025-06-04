@@ -45,6 +45,14 @@
 - `LessThan`
 - `Unequal`
 
+## Constants
+
+- `BlockSize`
+- `ControlRate`
+- `RadiansPerSample`
+- `SampleDur`
+- `SampleRate`
+
 ## Control Signals
 
 - `Integrator`: leaky integrator

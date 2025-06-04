@@ -42,3 +42,7 @@ SuperCollider Functions:
 * * *
 
 Guides: Mathematical Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Interpolation)

@@ -28,7 +28,7 @@ If the _alpha_ channel is not `one` it is given:
 
 See also: Colour, parseHexColour, parseHexTriplet, printString, RgbColour
 
-Guide: Colour Functions
+Guides: Colour Functions
 
 References:
 _W_

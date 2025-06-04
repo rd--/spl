@@ -9,7 +9,7 @@ Measures the rate of change per second of a signal.
 
 Formula implemented is:
 
-> _out[i] = (in[i] - in[i-1]) * samplingRate_
+> _y[n] = (x[n] - x[n-1]) * fs_
 
 Noise and derivatives control frequency of sine oscillator.
 _a_ is quadratic noise,
@@ -36,12 +36,17 @@ For another example of `Slope` see `Hypotenuse`.
 
 See also: differences, Integrator
 
+Guides: Unit Generators
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Slope.html),
+_Max_
+[1](https://docs.cycling74.com/reference/gen_dsp_delta/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Slope.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Slope)
+[1](https://en.wikipedia.org/wiki/Differentiator)
+[2](https://en.wikipedia.org/wiki/Slope)
 
 Categories: Ugen

@@ -1,10 +1,10 @@
 # Saw
 
-- _Saw(kfreq)_
+- _Saw(freq=440)_
 
 Band limited sawtooth wave generator.
 
-- kfreq: frequency in Hertz
+- freq: frequency in Hertz
 
 Modulating the frequency:
 
@@ -25,5 +25,11 @@ Rlpf(
 * * *
 
 See also: LfSaw, Pulse, SyncSaw, VarSaw
+
+Guides: Unit Generators
+
+References:
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Saw.html)
 
 Categories: Ugen

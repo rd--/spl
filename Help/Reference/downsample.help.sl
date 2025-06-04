@@ -60,10 +60,12 @@ let p = r.randomStarConvexPolygon(
 
 See also: downsampleSteinarsson, resample, upsample
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Signal Processing Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Downsample.html)
+[1](https://reference.wolfram.com/language/ref/Downsample.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Downsampling_(signal_processing))
 
 Categories: Rearranging

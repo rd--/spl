@@ -1,9 +1,9 @@
 # discretize
 
-- _discretize(i, n)_
-- _discretize(i, n, f:/1)_
+- _discretize(i—j, n)_
+- _discretize(i—j, n, f:/1)_
 
-Answer a `Range` of integer _n_ places having a linear interpolation of the `Interval` _i_.
+Answer a `Range` of _n_ places having a linear interpolation of the `Interval` _(i,j)_.
 
 ```
 >>> (-0.5 -- 0.5).discretize(3)

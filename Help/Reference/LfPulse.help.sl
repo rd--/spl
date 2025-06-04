@@ -92,7 +92,11 @@ Texture:
 
 See also: Pulse, LfSaw
 
+Guides: Unit Generators
+
 References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_dsp_train/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LFPulse.html)
 

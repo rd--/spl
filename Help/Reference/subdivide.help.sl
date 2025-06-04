@@ -1,10 +1,10 @@
 # subdivide
 
-- _subdivide(anInterval, anInteger)_
-- _subdivide(anInteger)_
+- _subdivide(i—j, n)_
+- _subdivide(n)_
 
-Answer the `Range` that subdivides either _(0 -- 1)_ or _anInterval_ into _anInteger_ equally linearly spaced parts,
-therefore having size _anInteger + 1_.
+Answer the `Range` that subdivides either _(0,1)_ or the interval _(i,j)_ into _n_ equally linearly spaced parts,
+therefore having size _n+1_.
 
 Subdivide the unit interval into 10 equal parts:
 
@@ -81,6 +81,22 @@ The last value is treated especially to avoid range errors:
 >>> (l[100] > 4.96, l[101] > 5)
 (true, false)
 ```
+
+A cyclical sine table of _n_ places,
+made by discarding the last,
+or _n+1_-th entry,
+in order to avoid a duplicate `zero`:
+
+~~~spl svg=A
+let n = 256;
+(0 -- 2.pi)
+.subdivide(n)
+.allButLast
+.sin
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/subdivide-A.svg)
 
 * * *
 

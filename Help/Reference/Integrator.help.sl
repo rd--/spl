@@ -1,6 +1,6 @@
 # Integrator
 
-- _Integrator(in, leak)_
+- _Integrator(in, coef=1)_
 
 Leaky integrator.
 Integrates an input signal with a leak.
@@ -10,7 +10,7 @@ Integrates an input signal with a leak.
 
 The formula implemented is:
 
-> _out(0) = in(0) + (leak * out(-1))_
+> _y[n] = x[n] + (coef * x[n-1])_
 
 As filter:
 
@@ -34,8 +34,12 @@ Integrator(
 
 See also: Slope
 
+Guides: Unit Generators
+
 References:
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/Integrator.html)
+[1](https://doc.sccode.org/Classes/Integrator.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Integrator)
 
 Categories: Ugen, Math, Filter, Control

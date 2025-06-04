@@ -138,6 +138,17 @@ let m = differences:/1.nestList(
 
 ![](sw/spl/Help/Image/differences-A.svg)
 
+Differentiate a sampled sine signal:
+
+~~~spl svg=B
+let dx = 0.1;
+let x = [0, dx .. 4.pi];
+let y = x.sin;
+[y, y.differences / dx].linePlot
+~~~
+
+![](sw/spl/Help/Image/differences-B.svg)
+
 * * *
 
 See also: -, accumulate, foldList, prefixSum, ratios
@@ -151,6 +162,8 @@ _Mathworks_
 _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.diff.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/SequenceableCollection.html#-differentiate)
+[1](https://doc.sccode.org/Classes/SequenceableCollection.html#-differentiate),
+_W_
+[1](https://en.wikipedia.org/wiki/Differentiator)
 
 Categories: Math
