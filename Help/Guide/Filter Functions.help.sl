@@ -7,3 +7,7 @@
 - `meanShiftFilter`
 - `medianFilter`
 - `recurrenceFilter`
+
+* * *
+
+Guides: Signal Processing Functions

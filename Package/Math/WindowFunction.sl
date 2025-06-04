@@ -124,10 +124,57 @@
 		}
 	}
 
+	parzenWindow { :x |
+		[
+			{ x.abs > 0.5 } -> {
+				0
+			},
+			{ x.between(0.25 -- 0.5) } -> {
+				-2 * ((2 * x) - 1).cubed
+			},
+			{ x.between(-0.5 -- -0.25) } -> {
+				2 * ((2 * x) + 1).cubed
+			},
+			{ x.between(-0.25 -- 0) } -> {
+				0 - (48 * x.cubed) - (24 * x.squared) + 1
+			},
+			{ x.between(0 -- 0.25) } -> {
+				(48 * x.cubed) - (24 * x.squared) + 1
+			}
+		].which
+	}
+
 	raisedCosinePulse { :alpha |
 		{ :x |
 			x.sincNormalized * ((alpha.pi * x).cos / (1 - ((2 * alpha * x) ^ 2)))
 		}
+	}
+
+	tukeyWindow { :x :alpha |
+		[
+			{ x.abs > 0.5 } -> {
+				0
+			},
+			{ alpha <= 0 } -> {
+				1
+			},
+			{ alpha >= 1.0 } -> {
+				x.hannWindow
+			},
+			{ (alpha - (2 * x) - 1) > 0 & { x >= -0.5 } } -> {
+				0.5 * (((2.pi * (0 - (alpha / 2) + x + 0.5)) / alpha).cos + 1)
+			},
+			{ (alpha + (2 * x) - 1) > 0 & { x <= 0.5 } } -> {
+				0.5 * (((2.pi * ((alpha / 2) + x - 0.5)) / alpha).cos + 1)
+			},
+			{ true } -> {
+				1
+			}
+		].which
+	}
+
+	tukeyWindow { :x |
+		tukeyWindow(x, 2 / 3)
 	}
 
 	welchWindow { :self :alpha |
@@ -172,6 +219,19 @@
 		self.collect(dirichletWindow:/1)
 	}
 
+	flatTopWindow { :x |
+		(x.abs > 0.5).if {
+			0
+		} {
+			let a0 = 0.21557895;
+			let a1 = 0.41663158;
+			let a2 = 0.277263158;
+			let a3 = 0.083578947;
+			let a4 = 0.006947368;
+			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos) + (a4 * (8.pi * x).cos)
+		}
+	}
+
 	gaussianWindow { :self :sigma |
 		self.collect { :each |
 			each.gaussianWindow(sigma)
@@ -203,9 +263,21 @@
 	}
 
 	lanczosWindow { :self |
+		self.collect(lanczosWindow:/1)
+	}
+
+	parzenWindow { :self |
+		self.collect(parzenWindow:/1)
+	}
+
+	tukeyWindow { :self :alpha |
 		self.collect { :each |
-			each.lanczosWindow
+			each.tukeyWindow(alpha)
 		}
+	}
+
+	tukeyWindow { :self |
+		self.collect(tukeyWindow:/1)
 	}
 
 	welchWindow { :self :alpha |

@@ -41,6 +41,8 @@ Plot a function involving `heavisideLambda`:
 
 See also: convolve, diracDelta, heavisidePi, heavisideTheta, triangleWave, unitTriangle
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LambdaFunction.html)

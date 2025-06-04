@@ -33,6 +33,8 @@ Plot over a subset of the reals:
 
 See also: heavisideLambda, Piecewise, sawtoothWave, sin, squareWave, unitTriangle
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TriangleWave.html)

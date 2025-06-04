@@ -38,4 +38,4 @@ Plotting Functions:
 
 * * *
 
-See also: Colour Functions, Drawing Functions, Image Functions
+Guides: Colour Functions, Drawing Functions, Image Functions

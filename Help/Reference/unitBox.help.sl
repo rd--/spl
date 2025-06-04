@@ -1,8 +1,8 @@
 # unitBox
 
-- _unitBox(aNumber)_
+- _unitBox(x)_
 
-The unit box function is equal to 1 for values in _(-1/2, 1/2)_ and 0 otherwise.
+The unit box function is equal to `one` for values in _(-1/2, 1/2)_ and `zero` otherwise.
 
 ```
 >>> 0.8.unitBox
@@ -29,7 +29,9 @@ Plot in two dimensions:
 
 * * *
 
-See also: diracDelta, unitStep
+See also: diracDelta, unitStep, unitTriangle
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_

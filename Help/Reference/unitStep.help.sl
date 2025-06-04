@@ -1,8 +1,9 @@
 # unitStep
 
-- _unitStep(aNumber)_
+- _unitStep(x)_
 
-The unit step function is equal to 1 for values in `>=` `zero` and 0 otherwise.
+The unit step function is equal to `one` for values `>=` `zero`,
+and `zero` otherwise.
 
 ```
 >>> -1.unitStep
@@ -43,6 +44,8 @@ Generate a square wave:
 * * *
 
 See also: diracDelta, isPositive, unitBox, unitize
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_

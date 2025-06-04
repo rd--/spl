@@ -40,4 +40,6 @@ SinOsc(
 
 See also: Clip, Fold, Wrap2
 
+Guides: Unit Generators
+
 Categories: Ugen

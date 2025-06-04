@@ -99,6 +99,8 @@ Pick out elements:
 
 See also: =, boole, identityMatrix, if, unitVector
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/KroneckerDelta.html)

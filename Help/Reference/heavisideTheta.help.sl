@@ -18,6 +18,8 @@ Plot in one dimension:
 
 See also: convolve, diracDelta, heavisideLambda, unitStep
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HeavisideStepFunction.html)

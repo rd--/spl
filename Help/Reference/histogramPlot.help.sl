@@ -75,7 +75,7 @@ system.nistData('TUKLAMB', [1])
 
 See also: binCounts, discretePlot, histogramList, pdf, tally
 
-Guides: Plotting Functions
+Guides: Plotting Functions, Statistics Functions
 
 References:
 _Mathematica_

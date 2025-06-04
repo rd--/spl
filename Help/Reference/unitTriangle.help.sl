@@ -1,8 +1,8 @@
 # unitTriangle
 
-- _unitTriangle(aNumber)_
+- _unitTriangle(x)_
 
-Answer represents the unit triangle function on the interval _(-1,1)_.
+Answer the unit triangle function on the interval _(-1,1)_.
 
 ```
 >>> 0.8.unitTriangle
@@ -30,6 +30,8 @@ Plot in two dimensions:
 * * *
 
 See also: diracDelta, triangleWave, unitBox, unitStep
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_

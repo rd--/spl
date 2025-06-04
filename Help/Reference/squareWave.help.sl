@@ -33,6 +33,8 @@ Plot over a subset of the reals:
 
 See also: integerPart, Piecewise, sawtoothWave, sin, triangleWave, unitBox, unitStep
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareWave.html)

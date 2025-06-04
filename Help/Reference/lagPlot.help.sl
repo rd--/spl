@@ -61,7 +61,7 @@ system.nistData('RANDWALK', [1])
 
 See also: scatterPlot
 
-Guides: Plotting Functions
+Guides: Plotting Functions, Statistics Functions
 
 References:
 _NIST_

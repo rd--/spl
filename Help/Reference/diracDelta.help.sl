@@ -1,10 +1,9 @@
 # diracDelta
 
-- _diracDelta(x, z)_
-- _diracDelta(alpha)_ ⟹ _diracDelta(alpha, Infinity)_
+- _diracDelta(x, z=∞)_
 
 Answer the Dirac delta function _δ(x)_,
-which is _z_ at `zero`, and `z` elsewhere.
+which is _z_ at `zero`, and `zero` elsewhere.
 
 `diracDelta` vanishes for nonzero arguments:
 
@@ -26,6 +25,8 @@ Infinity
 * * *
 
 See also: kroneckerDelta
+
+Guides: Signal Processing Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,11 @@
 # hannWindow
 
-- _hannWindow(aNumber)_
+- _hannWindow(x)_
 
-Answer the _Hann_ window function at _aNumber_.
+Answer the _Hann_ window function at the number _x_,
+also known as the raised cosine window.
+
+At specific values:
 
 ```
 >>> 0.1.hannWindow(0.5)
@@ -46,6 +49,8 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HanningFunction.html)
-[2](https://reference.wolfram.com/language/ref/HannWindow.html)
+[2](https://reference.wolfram.com/language/ref/HannWindow.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Hann_function)
 
 Categories: Windowing

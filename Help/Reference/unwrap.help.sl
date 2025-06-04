@@ -28,7 +28,9 @@ replacing items having an absolute difference from their predecessor of more tha
 
 * * *
 
-See also: %, differences
+See also: %, differences, wrap
+
+Guides: Signal Processing Functions
 
 References:
 _Python_

@@ -21,6 +21,8 @@ Plot:
 
 See also: diracDelta, heavisideLambda, unitBox
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HeavisidePi.html),

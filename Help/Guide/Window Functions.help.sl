@@ -11,15 +11,19 @@ to zero at the edges of the sampled region.
 - `blackmanHarrisWindow`: Harris
 - `cosineWindow`: Cosine
 - `dirichletWindow`: Dirichlet
+- `flatTopWindow`: flat top
 - `gaussianWindow`: Gaussian
 - `hammingWindow`: Hamming
 - `hannWindow`: Hann
 - `kaiserWindow`: Kaiser
 - `lanczosWindow`: Lanczos
+- `parzenWindow`: Parzen
+- `tukeyWindow`: Tukey
 - `welchWindow`: Welch
 
 _Note:_ The Bartlett window is triangular,
-the Dirichlet window is rectangular.
+the Dirichlet window is rectangular,
+the Hann window is a raised cosine.
 
 ## Window Table Functions
 
@@ -40,9 +44,27 @@ the Dirichlet window is rectangular.
 
 - `raisedCosinePulse`: Raised-cosine
 
+## Window Function Types
+
+- B-spline windows
+  + `bartlettWindow`
+  + `parzenWindow`
+- Polynomial windows
+  + `welchWindow`
+- Raised-cosine windows
+  + `hannWindow`
+  + `hammingWindow`
+- Cosine-sum windows
+  + `blackmanHarrisWindow`
+  + `flatTopWindow`
+- Adjustable windows
+  + `gaussianWindow`
+  + `kaiserWindow`
+  + `tukeyWindow`
+
 * * *
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Plotting Functions
 
 References:
 _Mathematica_

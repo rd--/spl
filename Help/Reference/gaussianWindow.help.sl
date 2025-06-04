@@ -1,8 +1,8 @@
 # gaussianWindow
 
-- _gaussianWindow(aNumber, sigma=0.3)_
+- _gaussianWindow(x, σ=0.3)_
 
-Answer the _Gaussian_ window function at _aNumber_.
+Answer the _Gaussian_ window function at the number _x_.
 
 ```
 >>> 0.1.gaussianWindow(0.3)
@@ -16,7 +16,7 @@ Threads over lists, zero at each end-point:
 [0 1 0]
 ```
 
-Plot:
+Plot, the unary form sets σ to 0.3:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(

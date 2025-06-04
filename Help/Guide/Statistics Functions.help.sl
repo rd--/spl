@@ -76,7 +76,11 @@ Estimators:
 
 Visualization:
 
+- `autocorrelationPlot`
 - `histogramPlot`
+- `lagPlot`
+- `runSequencePlot`
+- `spectralPlot`
 
 * * *
 

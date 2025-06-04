@@ -2,6 +2,8 @@
 
 - _autocorrelationPlot(y, k)_
 
+Plot the correlation function of _y_ at distances _(0,k)_.
+
 An autocorrelation plot of time series that is not random,
 but rather has a high degree of autocorrelation between adjacent and near-adjacent observations:
 
@@ -59,10 +61,13 @@ if _k_ is not specified it is selected automatically:
 
 See also: correlationFunction, discretePlot
 
-Guides: Plotting Functions
+Guides: Plotting Functions, Statistics Functions
 
 References:
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/autocopl.htm),
 _R_
-[1](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/acf.html)
+[1](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/acf.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Autocorrelation)
+[2](https://en.wikipedia.org/wiki/Correlogram)

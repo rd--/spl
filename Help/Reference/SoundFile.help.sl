@@ -5,7 +5,7 @@
 
 A type representing a sound file.
 The methods `numberOfChannels`, `numberOfFrames` and `sampleRate` read the file meta data.
-The method `url` reads the Url the file was fetched from.
+The method `url` reads the `Url` the file was fetched from.
 The method `interleavedData` reads the indicated interleave channel data as a `Float32Array`.
 The method `channelData` reads the indicated one-indexed channel data as a `Float32Array`.
 

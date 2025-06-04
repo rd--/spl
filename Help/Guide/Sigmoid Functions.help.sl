@@ -14,6 +14,8 @@
 
 * * *
 
+Guides: Signal Processing Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SigmoidFunction.html),

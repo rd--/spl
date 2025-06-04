@@ -4,14 +4,14 @@
 
 Estimates the correlation function at distances _h_ from data _x_.
 
-Estimate the correlation function for at τ=2:
+Estimate the correlation function at τ=2:
 
 ```
 >>> [2 3 4 3].correlationFunction([2])
 [-1/2]
 ```
 
-Estimate the correlation function for at τ=9:
+Estimate the correlation function at τ=9:
 
 ```
 >>> [1 .. 10].correlationFunction([9])
@@ -46,7 +46,7 @@ The sum of the sample correlation function is constant:
 -0.5
 ```
 
-Plot correlation function of a perturbed sin function:
+Plot correlation function of a perturbed `sin` function:
 
 ~~~spl svg=A
 let r = Sfc32(126813);
@@ -63,7 +63,7 @@ let y = [0 .. n].collect { :x |
 
 * * *
 
-See also: absoluteCorrelationFunction, correlation, covariance, covarianceFunction
+See also: absoluteCorrelationFunction, autocorrelationPlot, correlation, covariance, covarianceFunction
 
 References:
 _Mathematica_
