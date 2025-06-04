@@ -71,3 +71,11 @@
 	}
 
 }
+
++System {
+
+	temporaryFileName { :unused :prefix :suffix |
+		<primitive: return host.makeTemporaryFileSync(_prefix, _suffix);>
+	}
+
+}

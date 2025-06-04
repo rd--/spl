@@ -14,7 +14,8 @@ If the file does not exists signal an `Error`.
 16
 ~~~
 
-This uses a different primitive to `fetch` and is asynchronous,
+This uses a different primitive to `fetch`,
+and is not asynchronous,
 however it should answer equivalently:
 
 ~~~spl async

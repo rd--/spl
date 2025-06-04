@@ -200,6 +200,10 @@ export function readTextFileArraySync(pathArray: string[]): string[] {
 	});
 }
 
+export function makeTemporaryFileSync(prefix: string, suffix: string): string {
+	return Deno.makeTempFileSync({prefix: prefix, suffix: suffix});
+}
+
 /*
 function getEnvOr(variableName: string, defaultValue: string) {
 	return getEnv(variableName) || defaultValue;

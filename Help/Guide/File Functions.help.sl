@@ -29,6 +29,10 @@ File Paths:
 - `pathJoin`: join list of file paths
 - `pathNormalize`: normalize file path
 
+Temporary Files:
+
+- `temporaryFileName`
+
 * * *
 
 Guides: Network Functions, System Functions
