@@ -1,9 +1,9 @@
 # ^ (circumflexAccent)
 
-- _aNumber ^ anotherNumber_
-- _aNumber.^_
+- _x ^ y_
+- _x.^_
 
-The binary form answers _aNumber_ raised to the power of _anotherNumber_.
+The binary form answers _x_ raised to the power of _y_.
 
 ```
 >>> 2L ^ 100L
@@ -154,7 +154,9 @@ The unary form is `exp`:
 >>> [1 2 1.e].^
 [2.71828 7.38906 15.15426]
 
->>> let antiLog = { :x | 10 ^ x };
+>>> let antiLog = { :x |
+>>> 	10 ^ x
+>>> };
 >>> [1 0.699 -1].antiLog
 [10 5 0.1]
 ```
@@ -256,10 +258,26 @@ for example a right argument of _1/2_ gives the square root:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 5).functionPlot(50) { :each | each ^ 3 }
+(0 -- 5).functionPlot { :each |
+	each ^ 3
+}
 ~~~
 
 ![](sw/spl/Help/Image/circumflexAccent-A.svg)
+
+Plot the `sin` function raised to the first three powers:
+
+~~~spl svg=B
+(0 -- 2.pi).functionPlot(
+	[1 2 3].collect { :n |
+		{ :x |
+			x.sin ^ n
+		}
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/circumflexAccent-B.svg)
 
 Where supported `^` is displayed as ˆ.
 
@@ -270,7 +288,7 @@ In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
 
 * * *
 
-See also: +, -, *, /, exp, log, sqrt, symmetricPower
+See also: +, -, *, /, exp, factorialPower, log, powerMod, powerRange, sqrt, symmetricPower
 
 References:
 _Apl_

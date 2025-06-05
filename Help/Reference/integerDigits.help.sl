@@ -1,8 +1,8 @@
 # integerDigits
 
-- _integerDigits(anInteger, base=10, numDigits=auto)_
+- _integerDigits(n, base=10, numDigits=auto)_
 
-Answer a `List` of the decimal digits in the integer _anInteger_.
+Answer a `List` of the decimal digits in the integer _n_.
 
 Find digits in base 10:
 
@@ -73,7 +73,8 @@ OEIS [A062756](https://oeis.org/A062756):
 
 ```
 >>> 0:23.collect { :i |
->>> 	i.integerDigits(3).count(isOne:/1)
+>>> 	i.integerDigits(3)
+>>> 	.count(isOne:/1)
 >>> }
 [
 	0 1 0 1 2 1 0 1 0 1
@@ -88,7 +89,8 @@ for the first few powers of three:
 
 ```
 >>> 0:29.collect { :i |
->>> 	(3 ^ i).integerDigits(2).count(isOne:/1)
+>>> 	(3 ^ i).integerDigits(2)
+>>> 	.count(isOne:/1)
 >>> }
 [
 	01 02 02 04 03 06 06 05 06 08
@@ -157,7 +159,9 @@ Create a Champernowne word, c.f. OEIS [A007376](https://oeis.org/A007376):
 It is an error if the operand is not an integer:
 
 ```
->>> { -3.141.integerDigits }.ifError { true }
+>>> {
+>>> 	-3.141.integerDigits
+>>> }.ifError { true }
 true
 ```
 
@@ -199,7 +203,7 @@ Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
 See also: digitCount, fromDigits
 
-Guides: Bitwise Functions, Integer Functions, Integer Sequences
+Guides: Bitwise Functions, Integer Functions, Integer Sequences, Mathematical Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # symmetricPower
 
-- _symmetricPower(aNumber, anotherNumber)_
+- _symmetricPower(x, y)_
 
-Answer _aNumber_ raised to the power _anotherNumber_.
+Answer _x_ raised to the power _y_.
 
 ```
 >>> 2.symmetricPower(3)
@@ -10,7 +10,9 @@ Answer _aNumber_ raised to the power _anotherNumber_.
 ```
 
 This method extends the usual definition of exponentiation,
-and for negative _i_ in _symmetricPower(i, j)_ answers _symmetricPower(i.-, j).-_.
+and for negative _x_ answers:
+
+> _-(-x^y)_
 
 This behavior allows exponentiation of negative signal values by non-integer exponents.
 
@@ -51,5 +53,7 @@ Plot:
 * * *
 
 See also: ^, exp, log, powerMod, powerRange, sqrt
+
+Guides: Mathematical Functions
 
 Categories: Math

@@ -36,6 +36,8 @@ It is equal to the _cumsum_ function in R.
 
 See also: +, accumulate, differences, prefixes, scan, sum
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CumulativeSum.html),

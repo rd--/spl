@@ -1,8 +1,8 @@
 # Power
 
-- _Power(aNumber, anotherNumber)_
+- _Power(x, y)_
 
-Answer _aNumber_ raised to the power _anotherNumber_,
+Answer _x_ raised to the power _y_,
 with the same meaning as `symmetricPower`,
 which is the meaning of the `Power` operator unit generator of the SuperCollider synthesiser.
 
@@ -12,10 +12,18 @@ which is the meaning of the `Power` operator unit generator of the SuperCollider
 
 >>> -0.25.Power(0.75)
 -0.353553
+
+>>> 0 - (0.25 ^ 0.75)
+-0.353553
+
+>>> -0.25J0 ^ 0.75
+-0.25J0.25
 ```
 
 * * *
 
-See also: ^, Exp, factorialPower, Log, powerMod, powerRange, Sqrt, symmetricPower
+See also: ^, Exp, Log, Sqrt, symmetricPower
 
-Categories: Math operator
+Guides: Unit Generators
+
+Categories: Math, Operator

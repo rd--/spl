@@ -26,8 +26,4 @@ For mismatches biases leftwards:
 
 * * *
 
-See also: #, ++, padLeft, padRight, size
-
-References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/ArrayPad.html)
+See also: #, ++, arrayPad, padLeft, padRight, size

@@ -33,6 +33,10 @@ Step Functions:
 - `smoothStepFunction`
 - `smoothStep`
 
+Polynomial Interpolation Functions:
+
+- `nevillesAlgorithm`
+
 SuperCollider Functions:
 
 - `atBlend`

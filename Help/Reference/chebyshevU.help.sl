@@ -1,8 +1,8 @@
 # chebyshevU
 
-- _chebyshevU(anInteger)_
+- _chebyshevU(n)_
 
-Answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the first kind of degree _anInteger_.
+Answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the second kind of degree _n_.
 
 Evaluate at specific _x_:
 
@@ -71,9 +71,9 @@ let p = 0:4.collect(chebyshevU:/1);
 
 * * *
 
-See also: chebyshevT, UnivariatePolynomial
+See also: bernsteinBasis, chebyshevT, UnivariatePolynomial
 
-Guides: Polynomial Functions
+Guides: Mathematical Functions, Polynomial Functions
 
 References:
 _Mathematica_

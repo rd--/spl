@@ -1,9 +1,9 @@
 # Exp
 
-- _Exp(aNumber)_
+- _Exp(x)_
 
 Exponential.
-Answer the value of `e` (the base of natural logarithms) raised to the power of _aNumber_.
+Answer the value of `e` (the base of natural logarithms) raised to the power of _x_.
 
 At `SmallFloat`:
 
@@ -14,7 +14,7 @@ At `SmallFloat`:
 
 * * *
 
-See also: ^, e, Log, Power
+See also: ^, e, exp, Log, Power
 
 References:
 _Csound_

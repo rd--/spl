@@ -2,21 +2,14 @@
 
 ## Arithmetic Functions
 
-- `accumulate`: cumulative sums in a list
-- `differences`: successive differences in a list
-- `mean`: mean of a list
-- `product`: product of elements in a list
-- `ratios`: successive ratios in a list
+- `accumulate`: cumulative sums
+- `differences`: successive differences
+- `mean`: mean
+- `prefixSum`: cf. accumulate
+- `product`: product
+- `ratios`: successive ratios
 - `sqrt`: square root
-- `sum`: sum of elements in a list
-
-## Arithmetic Functions - Binary Operators
-
-- `*`: multiplication
-- `+`: addition
-- `-`: subtraction
-- `/`: division
-- `^`: raised to
+- `sum`: sum
 
 ## Array Bounds
 
@@ -26,13 +19,26 @@
 
 ## Base-Like Representations
 
-- `integerDigits`: gives a list of the decimal digits in the integer n.
-- `mixedRadixDecode`: mixed radix decoding
-- `mixedRadixEncode`: mixed radix encoding
+- `integerDigits`
+- `mixedRadixDecode`
+- `mixedRadixEncode`
+
+## Binary Operators
+
+- `*`: multiplication
+- `+`: addition
+- `-`: subtraction
+- `/`: division
+- `^`: raised to
 
 ## Bitwise Functions
 
 - `Bitwise Functions`: Guide
+
+## Chebyshev Functions:
+
+- `chebyshevT`: first kind
+- `chebyshevU`: second kind
 
 ## Combinatorial Functions
 
@@ -135,6 +141,7 @@
 - `log`: logarithm
 - `nthRoot`: surd
 - `sqrt`: square root
+- `symmetricPower`
 
 ## Factoring
 
@@ -179,7 +186,7 @@
 
 ## Permutations Functions
 
-- `Permutations Functions`: Guide
+- `Permutation Functions`: Guide
 
 ## Piecewise Functions
 
@@ -187,6 +194,10 @@
 - `abs`: absolute value
 - `max`: maximum value
 - `min`: minimum value
+
+## Polynomial Functions
+
+- `Polynomial Functions`: Guide
 
 ## Prime Number Functions
 
@@ -298,4 +309,4 @@ Function List:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions

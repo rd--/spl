@@ -2,9 +2,9 @@
 
 - _raisedToInteger(aNumber, anInteger)_
 
-Special case of _^_ where the exponent is an integer.
+Special case of `^` where the exponent is an integer.
 
-An exponent of `zero` answers one of the correct type:
+An exponent of `zero` answers `one` of the correct type:
 
 ```
 >>> system.nextRandomFloat ^ 0
@@ -20,7 +20,7 @@ An exponent of `zero` answers one of the correct type:
 1.000D
 ```
 
-An exponent of one answers _aNumber_:
+An exponent of `one` answers _aNumber_:
 
 ```
 >>> let n = system.nextRandomFloat;

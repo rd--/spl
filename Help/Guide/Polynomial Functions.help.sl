@@ -14,3 +14,7 @@ Functions:
 - `evaluateUnivariatePolynomial`
 - `resultant`
 - `sylvesterMatrix`
+
+* * *
+
+Guides: Mathematical Functions

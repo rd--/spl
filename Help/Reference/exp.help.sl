@@ -1,9 +1,9 @@
 # exp
 
-- _exp(aNumber)_
+- _exp(x)_
 
-Answers the exponential of _aNumber_,
-that is _e ^ n_.
+Answers the exponential of _x_,
+that is _e^x_.
 
 ```
 >>> 1.5.exp
@@ -87,6 +87,8 @@ Plot `exp` alongside a Padé approximation:
 * * *
 
 See also: ^, log
+
+Guides: Mathematical Functions
 
 References:
 _Apl_

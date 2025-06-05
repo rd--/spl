@@ -27,7 +27,7 @@ Pad the edges of a matrix:
 ]
 ```
 
-Specify different padding on each side:
+Specify different amounts of padding on each side:
 
 ```
 >>> [1 2 3].arrayPad([2 4], 0)
@@ -82,7 +82,7 @@ Pad with extra columns:
 ]
 ```
 
-Specify different padding for each edge:
+Specify different amounts of padding for each edge:
 
 ```
 >>> [1 2; 3 4].arrayPad([-1 2; 1 3], 0)

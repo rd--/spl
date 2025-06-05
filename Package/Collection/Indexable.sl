@@ -34,7 +34,7 @@
 
 	at { :self :index |
 		self.atIfAbsent(index) {
-			self.error('@Indexable>>at: invalid index')
+			self.error('@Indexable>>at: invalid index: ' ++ index)
 		}
 	}
 

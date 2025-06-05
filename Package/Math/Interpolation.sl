@@ -443,8 +443,49 @@
 
 +SmallFloat {
 
+	dividedDifferences { :m |
+		let k = m.size;
+		let p = [m.collect(second:/1)];
+		let i = 1;
+		{
+			(k - i) > 0
+		}.whileTrue {
+			let e = p.size;
+			let z = [];
+			1.toDo(k - i) { :j |
+				let a = p[e][j + 1] - p[e][j];
+				let b = m[j + i][1] - m[j][1];
+				z.add(a / b)
+			};
+			p.add(z);
+			i := i + 1
+		};
+		p
+	}
+
 	inverseSmoothStep { :x |
 		0.5 - ((1 - (2 * x)).arcSin / 3).sin
+	}
+
+	nevillesAlgorithm { :x :m |
+		let k = m.size;
+		let p = [m.collect(second:/1)];
+		let i = 1;
+		{
+			(k - i) > 0
+		}.whileTrue {
+			let e = p.size;
+			let z = [];
+			1.toDo(k - i) { :j |
+				let a = (x - m[j][1]) * p[e][j + 1];
+				let b = (x - m[j + i][1]) * p[e][j];
+				let c = m[j + i][1] - m[j][1];
+				z.add((a - b) / c)
+			};
+			p.add(z);
+			i := i + 1
+		};
+		p
 	}
 
 }
