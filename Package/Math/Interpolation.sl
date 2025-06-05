@@ -804,3 +804,80 @@
 	}
 
 }
+
++List{
+
+	cubicHermiteFunctionPrimitive { :points :tangents :knots :t |
+		<primitive:
+		/* https://github.com/thibauts/cubic-hermite-spline */
+		let points = _points;
+		let tangents = _tangents;
+		let n = points.length;
+		let d = points[0].length;
+		let v = new Array(d);
+		let knots = _knots;
+		let derivative = false;
+		let t = _t;
+		let i0, i1, scale;
+		if(knots) {
+			for(var i=0; i<n-1; i++) {
+				if(t >= knots[i] && t <= knots[i+1]) {
+					break;
+				}
+			}
+			if(i === n-1) {
+				throw new Error('out of bounds');
+			}
+			i0 = i;
+			i1 = i + 1;
+			let k0 = knots[i0];
+			let k1 = knots[i1];
+			scale = k1 - k0;
+			t = (t - k0) / scale;
+		} else {
+			t = t * (n - 1);
+			i0 = t|0;
+			i1 = i0 + 1;
+			if(i0 > n-1) {
+				throw new Error('out of bounds');
+			}
+			if(i0 === n-1) {
+				i1 = i0;
+			}
+			scale = i1 - i0;
+			t = (t - i0) / scale;
+		}
+		let h00, h10, h01, h11;
+		if(derivative) {
+			let t2 = t * t;
+			h00 = 6 * t2 - 6 * t;
+			h10 = 3 * t2 - 4 * t + 1;
+			h01 = - 6 * t2 + 6 * t;
+			h11 = 3 * t2 - 2 * t;
+		} else {
+			let t2 = t * t;
+			let it = 1 - t;
+			let it2 = it * it;
+			let tt = 2 * t;
+			h00 = (1 + tt) * it2;
+			h10 = t * it2;
+			h01 = t2 * (3 - tt);
+			h11 = t2 * (t - 1);
+		}
+		for(let i=0; i<d; i++) {
+			v[i] = h00 * points[i0][i] +
+			h10 * tangents[i0][i] * scale +
+			h01 * points[i1][i] +
+			h11 * tangents[i1][i] * scale;
+		}
+		return v;
+		>
+	}
+
+	cubicHermiteFunction { :self :tangents |
+		{ :t |
+			self.cubicHermiteFunctionPrimitive(tangents, nil, t)
+		}
+	}
+
+}

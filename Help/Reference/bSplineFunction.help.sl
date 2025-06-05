@@ -50,7 +50,7 @@ let p = r.randomReal([0 1], [10 3]);
 
 * * *
 
-See also: bezierFunction
+See also: bezierFunction, cubicHermiteFunction
 
 Guides: Interpolation Functions
 
