@@ -35,6 +35,8 @@ Step Functions:
 
 Polynomial Interpolation Functions:
 
+- `bSplineFunction`
+- `bezierFunction`
 - `nevillesAlgorithm`
 
 SuperCollider Functions:

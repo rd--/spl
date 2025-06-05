@@ -719,3 +719,88 @@
 	}
 
 }
+
++List{
+
+	bSplineFunctionPrimitive { :p :d :k :w :t |
+		<primitive:
+		/* https://github.com/thibauts/b-spline/ */
+		let t = _t;
+		let degree = _d;
+		let points = _p;
+		let knots = _k
+		let weights = _w;
+		let n = points.length;
+		let d = points[0].length;
+		if(degree < 1) {
+			throw new Error('degree must be at least 1 (linear)');
+		}
+		if(degree > (n-1)) {
+			throw new Error('degree must be less than or equal to point count - 1');
+		}
+		if(!weights) {
+			weights = [];
+			for(let i=0; i<n; i++) {
+				weights[i] = 1;
+			}
+		}
+		if(!knots) {
+			knots = [];
+			for(let i=0; i<n+degree+1; i++) {
+				knots[i] = i;
+			}
+		} else {
+			if(knots.length !== n+degree+1) {
+				throw new Error('bad knot vector length');
+			}
+		}
+		let domain = [
+			degree,
+			knots.length-1 - degree
+		];
+		let low  = knots[domain[0]];
+		let high = knots[domain[1]];
+		t = t * (high - low) + low;
+		if(t < low || t > high) {
+			throw new Error('out of bounds');
+		}
+		let s = domain[0];
+		for(; s<domain[1]; s++) {
+			if(t >= knots[s] && t <= knots[s+1]) {
+				break;
+			}
+		}
+		let v = [];
+		for(let i=0; i<n; i++) {
+			v[i] = [];
+			for(let j=0; j<d; j++) {
+				v[i][j] = points[i][j] * weights[i];
+			}
+			v[i][d] = weights[i];
+		}
+		for(let l=1; l<=degree+1; l++) {
+			for(let i=s; i>s-degree-1+l; i--) {
+				let alpha = (t - knots[i]) / (knots[i+degree+1-l] - knots[i]);
+				for(let j=0; j<d+1; j++) {
+					v[i][j] = (1 - alpha) * v[i-1][j] + alpha * v[i][j];
+				}
+			}
+		}
+		let result = [];
+		for(let i=0; i<d; i++) {
+			result[i] = v[s][i] / v[s][d];
+		}
+		return result;
+		>
+	}
+
+	bSplineFunction { :self :d |
+		let n = self.size;
+		let m = n - d;
+		let k = (0 # d) ++ [0 .. m] ++ (m # d);
+		{ :t |
+			self.bSplineFunctionPrimitive(d, k, nil, t)
+		}
+	}
+
+}
