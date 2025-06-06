@@ -245,6 +245,44 @@
 		a.collect(last:/1)
 	}
 
+	gaussSeidelMethod { :a :b :x :epsilon :maximumIterations |
+		let n = a.size;
+		valueWithReturn { :return:/1 |
+			maximumIterations.timesRepeat {
+				let y = x.copy;
+				let p = 0;
+				let q = 0;
+				1.toDo(n) { :i |
+					let sum = 0;
+					1.toDo(n) { :j |
+						(j = i).ifFalse {
+							sum := sum + (a[i][j] * x[j])
+						}
+					};
+					x[i] := (b[i] - sum) / a[i][i]
+				};
+				1.toDo(n) { :i |
+					p := p + (x[i] - y[i]).abs;
+					q := q + y[i].abs
+				};
+				(q = 0).ifTrue {
+					q := 1
+				};
+				((p / q) < epsilon).ifTrue {
+					x.return
+				}
+			};
+			x
+		}
+	}
+
+	gaussSeidelMethod { :a :b |
+		let x = 0 # a.size;
+		let epsilon = 1E-9;
+		let maximumIterations = 100;
+		a.gaussSeidelMethod(b, x, epsilon, maximumIterations)
+	}
+
 	gramMatrix { :self |
 		self.dot(self.transposed)
 	}
@@ -371,6 +409,21 @@
 		} {
 			self.error('Sequence>>inverse: matrix not square')
 		}
+	}
+
+	isDiagonallyDominantMatrix { :self :aBlock:/2 |
+		let [m, n] = self.shape;
+		1:m.allSatisfy { :i |
+			let x = self[i][i].abs;
+			let z = 1:n.collect { :j |
+				(j = i).if { 0 } { self[i][j].abs }
+			}.sum;
+			aBlock(x, z)
+		}
+	}
+
+	isDiagonallyDominantMatrix { :self |
+		self.isDiagonallyDominantMatrix(>=)
 	}
 
 	isLowerTriangularMatrix { :self :k |

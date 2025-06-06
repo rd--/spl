@@ -16,6 +16,12 @@ Solve for 3×3 matrix and 3 vector:
 >>> let v = [8 -11 -3];
 >>> m.gaussianElimination(v)
 [2 3 -1]
+
+>>> let m = [11 2 11; 3 100 100; 36 36 122];
+>>> let v = [7 8 8];
+>>> let x = m.gaussianElimination(v);
+>>> m.dot(x) ~ v
+true
 ```
 
 Solve for 6×6 matrix and 6 vector:
@@ -31,12 +37,15 @@ Solve for 6×6 matrix and 6 vector:
 >>> ];
 >>> let v = [-0.01 0.61 0.91 0.99 0.60 0.02];
 >>> m.gaussianElimination(v)
-[-0.01 1.60279 -1.6132 1.24549 -0.49099 0.06576]
+[
+	-0.01000  1.60279 -1.61320
+	 1.24549 -0.49099  0.06576
+]
 ```
 
 * * *
 
-See also: inverse, rowReduce
+See also: gaussSeidelMethod, inverse, rowReduce
 
 References:
 _Mathematica_

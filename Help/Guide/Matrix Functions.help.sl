@@ -33,6 +33,8 @@ Rearranging:
 
 Predicates:
 
+- `isDiagonalMatrix`
+- `isDiagonallyDominantMatrix`
 - `isIntegerMatrix`: is integer matrix
 - `isLowerTriangularMatrix`: is lower triangular matrix
 - `isMatrix`: is matrix

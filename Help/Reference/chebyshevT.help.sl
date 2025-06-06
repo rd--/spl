@@ -1,12 +1,17 @@
 # chebyshevT
 
-- _chebyshevT(anInteger)_
+- _chebyshevT(n)_
+- _chebyshevT(n, x)_
 
-Answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the first kind of degree _anInteger_.
+In the unary case,
+answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the first kind of degree _n_.
 
 Evaluate at specific _x_:
 
 ```
+>>> 2.chebyshevT(3)
+17
+
 >>> 2.chebyshevT.atAll([3, 5])
 [17 49]
 
@@ -68,6 +73,16 @@ let p = 0:4.collect(chebyshevT:/1);
 ~~~
 
 ![](sw/spl/Help/Image/chebyshevT-C.svg)
+
+Evaluate symbolically:
+
+```
+>> 2.chebyshevT(`x`)
+(+ (* x (+ (* x 2) 0)) -1)
+
+>> 3.chebyshevT(`x`)
+(+ (* x (+ (* x (+ (* x 4) 0)) -3)) 0)
+```
 
 * * *
 

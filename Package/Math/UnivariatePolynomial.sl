@@ -127,6 +127,10 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		UnivariatePolynomial(c.reverse)
 	}
 
+	chebyshevT { :n :x |
+		n.chebyshevT.at(x)
+	}
+
 	chebyshevU { :self |
 		let c = self.caseOf([
 			0 -> { [1] },
