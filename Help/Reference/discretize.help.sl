@@ -27,8 +27,7 @@ Plot `exp` function from `zero` to `five`:
 
 ~~~spl svg=A
 (0 -- 5)
-.discretize(99)
-.exp
+.discretize(99, exp:/1)
 .linePlot
 ~~~
 
@@ -38,8 +37,7 @@ Plot `hannFunction`:
 
 ~~~spl svg=B
 (-0.5 -- 0.5)
-.discretize(99)
-.collect(hannWindow:/1)
+.discretize(99, hannWindow:/1)
 .linePlot
 ~~~
 
@@ -49,14 +47,21 @@ Sample a function uniformly on an interval:
 
 ~~~spl svg=C
 (0 -- 2.pi)
-.discretize(48)
-.collect { :i |
+.discretize(48) { :i |
 	(2 * i).sin - (3 * i).cos
 }
 .discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/discretize-C.svg)
+
+Plot the sine function:
+
+~~~spl svg=D
+(0 -- 4.pi).discretize(100, sin:/1).linePlot
+~~~
+
+![](sw/spl/Help/Image/discretize-D.svg)
 
 * * *
 

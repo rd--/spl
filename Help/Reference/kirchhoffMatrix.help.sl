@@ -2,7 +2,8 @@
 
 - _kirchhoffMatrix(aGraph)_
 
-Answer the Kirchhoff matrix of the graph _aGraph_.
+Answer the Kirchhoff matrix of the graph _aGraph_,
+also called the Laplacian matrix or admittance matrix.
 
 The Kirchhoff matrix of an undirected graph:
 
@@ -15,9 +16,21 @@ The Kirchhoff matrix of an undirected graph:
 	-1  2 -1;
 	-1 -1  2
 ]
+
+>>> [1 2; 1 5; 2 3; 2 5; 3 4; 4 5; 4 6]
+>>> .asGraph
+>>> .kirchhoffMatrix
+[
+	 2 -1  0  0 -1  0;
+	-1  3 -1  0 -1  0;
+	 0 -1  2 -1  0  0;
+	 0  0 -1  3 -1 -1;
+	-1 -1  0 -1  3  0;
+	 0  0  0 -1  0  1
+]
 ```
 
-The Kirchhoff matrix of an undirected graph:
+The Kirchhoff matrix of a directed graph:
 
 ```
 >>> [1 -> 2, 2 -> 3, 3 -> 1]
@@ -46,8 +59,13 @@ The Kirchhoff matrix of an undirected graph is symmetric:
 
 * * *
 
-See also: Graph
+See also: adjacencyMatrix, incidenceMatrix, Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/KirchhoffMatrix.html)
+[1](https://mathworld.wolfram.com/LaplacianMatrix.html)
+[2](https://reference.wolfram.com/language/ref/KirchhoffMatrix.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Laplacian_matrix)

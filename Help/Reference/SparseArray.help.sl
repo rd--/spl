@@ -230,6 +230,19 @@ Scalar multiplication of a sparse array:
 (172744589136, [[218904, 789134] -> 2])
 ```
 
+`nonZeroValues` answers the specified values,
+and `nonZeroPositions` answers the indices of the specified values:
+
+```
+>>> let m = [0 0 0 4; 1 0 0 0; 3 0 2 2];
+>>> let a = m.asSparseArray(0);
+>>> (a.nonZeroValues, a.nonZeroPositions)
+(
+	[4 1 3 2 2],
+	[1 4; 2 1; 3 1; 3 3; 3 4]
+)
+```
+
 Plot a list of rules:
 
 ~~~spl svg=A
@@ -242,4 +255,10 @@ SparseArray([[1] -> 2, [10] -> 7, [3] -> 2])
 
 * * *
 
-See also: arrayRules, Map, shape
+See also: arrayRules, List, Map, shape
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/SparseArray.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Sparse_matrix)

@@ -38,8 +38,6 @@ Operators:
 Accessing (Query) Functions:
 
 - `adjacencyList`
-- `adjacencyMatrix`
-- `connectionMatrix`
 - `degreeSequence`
 - `dijkstrasAlgorithm`
 - `edgeCount`
@@ -47,9 +45,7 @@ Accessing (Query) Functions:
 - `edgeList`
 - `findShortestPath`
 - `graphDistance`
-- `graphDistanceMatrix`
 - `incidenceList`
-- `incidenceMatrix`
 - `labeledVertexList`
 - `neighbours`
 - `outEdgeListOf`
@@ -62,6 +58,14 @@ Accessing (Query) Functions:
 - `vertexOutNeighbours`
 - `vertexLabels`
 - `vertexList`
+
+Matrix Functions:
+
+- `adjacencyMatrix`
+- `connectionMatrix`
+- `graphDistanceMatrix`
+- `incidenceMatrix`
+- `kirchhoffMatrix`
 
 Predicate (Query) Functions:
 

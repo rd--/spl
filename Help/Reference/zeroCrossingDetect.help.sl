@@ -39,4 +39,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CrossingDetect.html),
 _Mathworks_
-[1](https://mathworks.com/help/dsp/ref/dsp.zerocrossingdetector-system-object.html)
+[1](https://mathworks.com/help/dsp/ref/dsp.zerocrossingdetector-system-object.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Zero_crossing)

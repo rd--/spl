@@ -139,4 +139,13 @@
 		answer
 	}
 
+	zeroCrossingRate { :self |
+		let n = self.size;
+		let m = 1 / (n - 1);
+		let b = self.collect { :each |
+			(each >= 0).boole
+		};
+		b.differences.abs.sum * m
+	}
+
 }

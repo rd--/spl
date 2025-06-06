@@ -80,6 +80,17 @@ SparseArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conten
 		self.contents.keys
 	}
 
+	nonZeroPositions { :self |
+		let rho = self.shape;
+		self.contents.keys.collect { :each |
+			rho.cartesianIndex(each)
+		}
+	}
+
+	nonZeroValues { :self |
+		self.contents.values
+	}
+
 	normal { :self |
 		let map = self.contents;
 		let zero = self.unspecifiedValue;

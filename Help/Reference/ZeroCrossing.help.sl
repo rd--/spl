@@ -25,6 +25,9 @@ See also: Pitch
 
 References:
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/ZeroCrossing.html)
+[1](https://doc.sccode.org/Classes/ZeroCrossing.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Zero_crossing)
+[2](https://en.wikipedia.org/wiki/Zero-crossing_rate)
 
 Categories: Ugen

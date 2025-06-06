@@ -2,7 +2,7 @@
 
 - _zeroCrossingCount(aSequence)_
 
-Answer a boolean sequence in which `true` corresponds to zero crossings in _aSequence_.
+Answer the number of `true` items in the `zeroCrossingDetect` of _aSequence_.
 
 Zero crossings of a list:
 
