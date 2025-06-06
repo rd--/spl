@@ -7,3 +7,5 @@ Write image files:
 ~~~
 system.helpFilesDo('Guide', '.*', true, writeImageFiles:/1); nil
 ~~~
+
+Linting: 207 file(s)

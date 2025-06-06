@@ -12,7 +12,12 @@ The input and output lists are `Complex`:
 >>> let y = x.ifft;
 >>> (x.take(4), y)
 (
-	[8J0 -1.4142J-3.4142 0J0 1.4142J0.5858],
+	[
+		8J0
+		-1.4142J-3.4142
+		0J0
+		1.4142J0.5858
+	],
 	[1 1 2 2 1 1 0 0]
 )
 ```

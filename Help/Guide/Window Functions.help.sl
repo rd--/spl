@@ -47,20 +47,20 @@ the Hann window is a raised cosine.
 ## Window Function Types
 
 - B-spline windows
-  + `bartlettWindow`
-  + `parzenWindow`
+  - `bartlettWindow`
+  - `parzenWindow`
 - Polynomial windows
-  + `welchWindow`
+  - `welchWindow`
 - Raised-cosine windows
-  + `hannWindow`
-  + `hammingWindow`
+  - `hannWindow`
+  - `hammingWindow`
 - Cosine-sum windows
-  + `blackmanHarrisWindow`
-  + `flatTopWindow`
+  - `blackmanHarrisWindow`
+  - `flatTopWindow`
 - Adjustable windows
-  + `gaussianWindow`
-  + `kaiserWindow`
-  + `tukeyWindow`
+  - `gaussianWindow`
+  - `kaiserWindow`
+  - `tukeyWindow`
 
 * * *
 

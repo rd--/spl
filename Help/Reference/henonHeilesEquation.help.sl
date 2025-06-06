@@ -32,4 +32,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Henon-HeilesEquation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/H%C3%A9non%E2%80%93Heiles_system)
-

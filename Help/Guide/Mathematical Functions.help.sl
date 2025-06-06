@@ -35,7 +35,7 @@
 
 - `Bitwise Functions`: Guide
 
-## Chebyshev Functions:
+## Chebyshev Functions
 
 - `chebyshevT`: first kind
 - `chebyshevU`: second kind

@@ -197,6 +197,26 @@
 		}
 	}
 
+	dividedDifferences { :m |
+		let k = m.size;
+		let p = [m.collect(second:/1)];
+		let i = 1;
+		{
+			(k - i) > 0
+		}.whileTrue {
+			let e = p.size;
+			let z = [];
+			1.toDo(k - i) { :j |
+				let a = p[e][j + 1] - p[e][j];
+				let b = m[j + i][1] - m[j][1];
+				z.add(a / b)
+			};
+			p.add(z);
+			i := i + 1
+		};
+		p
+	}
+
 	evaluateInterpolatorSegment { :x :c :mu |
 		let k = x.size;
 		let i = k.binaryDetectIndex { :each |
@@ -442,26 +462,6 @@
 }
 
 +SmallFloat {
-
-	dividedDifferences { :m |
-		let k = m.size;
-		let p = [m.collect(second:/1)];
-		let i = 1;
-		{
-			(k - i) > 0
-		}.whileTrue {
-			let e = p.size;
-			let z = [];
-			1.toDo(k - i) { :j |
-				let a = p[e][j + 1] - p[e][j];
-				let b = m[j + i][1] - m[j][1];
-				z.add(a / b)
-			};
-			p.add(z);
-			i := i + 1
-		};
-		p
-	}
 
 	inverseSmoothStep { :x |
 		0.5 - ((1 - (2 * x)).arcSin / 3).sin

@@ -66,6 +66,19 @@
 		}
 	}
 
+	flatTopWindow { :x |
+		(x.abs > 0.5).if {
+			0
+		} {
+			let a0 = 0.21557895;
+			let a1 = 0.41663158;
+			let a2 = 0.277263158;
+			let a3 = 0.083578947;
+			let a4 = 0.006947368;
+			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos) + (a4 * (8.pi * x).cos)
+		}
+	}
+
 	gaussianWindow { :self :sigma |
 		(self.abs > 0.5).if {
 			0
@@ -217,19 +230,6 @@
 
 	dirichletWindow { :self |
 		self.collect(dirichletWindow:/1)
-	}
-
-	flatTopWindow { :x |
-		(x.abs > 0.5).if {
-			0
-		} {
-			let a0 = 0.21557895;
-			let a1 = 0.41663158;
-			let a2 = 0.277263158;
-			let a3 = 0.083578947;
-			let a4 = 0.006947368;
-			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos) + (a4 * (8.pi * x).cos)
-		}
 	}
 
 	gaussianWindow { :self :sigma |
