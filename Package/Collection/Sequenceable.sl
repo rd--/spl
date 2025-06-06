@@ -2875,11 +2875,11 @@
 		}
 	}
 
-	withoutTrailingZeros { :self |
+	withoutTrailing { :self :aBlock:/1 |
 		let n = self.size;
 		{
 			n >= 2 & {
-				self[n].isZero
+				aBlock(self[n])
 			}
 		}.whileTrue {
 			n := n - 1
@@ -2889,6 +2889,10 @@
 		} {
 			self.copyFromTo(1, n)
 		}
+	}
+
+	withoutTrailingZeros { :self |
+		self.withoutTrailing(isZero:/1)
 	}
 
 	withIndexReplace { :self :aBlock:/2 |

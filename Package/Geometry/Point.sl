@@ -28,6 +28,10 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		}
 	}
 
+	isOrigin { :self |
+		self.coordinates.isOrigin
+	}
+
 	midpoint { :self :aPoint |
 		Point([self.coordinates, aPoint.coordinates].midpoint)
 	}
@@ -100,6 +104,10 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 		self
 		.distanceMatrix
 		.heldKarpAlgorithm
+	}
+
+	isOrigin { :self |
+		self.allSatisfy(isZero:/1)
 	}
 
 	lineEquation { :p1 :p2 |
@@ -332,6 +340,14 @@ Point : [Object, CartesianCoordinates] { | coordinates |
 			answer.add([x, y, z])
 		};
 		answer
+	}
+
+}
+
++@Number {
+
+	isOrigin { :self |
+		self.isZero
 	}
 
 }

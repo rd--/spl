@@ -49,11 +49,18 @@ Threads over lists:
 
 ```
 >>> [0 0 0].isZero
+[true true true]
+```
+
+To decide if a list has only zeros use `allSatisfy` or `isOrigin`:
+
+```
+>>> [0 0 0].allSatisfy(isZero:/1)
 true
 ```
 
 * * *
 
-See also: isEven, isNegative, isOdd, isOne, isPositive, zero
+See also: isEven, isOrigin, isNegative, isOdd, isOne, isPositive, zero
 
 Categories: Testing, Math

@@ -298,6 +298,10 @@
 		self.collect(isSmallInteger:/1)
 	}
 
+	isZero { :self |
+		self.collect(isZero:/1)
+	}
+
 	lcm { :self |
 		self.reduce(lcm:/2)
 	}

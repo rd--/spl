@@ -663,7 +663,13 @@
 
 	pseudoInverse { :self |
 		let [u, s, v] = self.singularValueDecomposition;
-		let i = s.deepCollect { :x | x.isZero.if { 0 } { 1 / x } };
+		let i = s.deepCollect { :x |
+			x.isZero.if {
+				0
+			} {
+				1 / x
+			}
+		};
 		v.dot(i).dot(u.transposed)
 	}
 

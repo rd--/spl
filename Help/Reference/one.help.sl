@@ -28,6 +28,8 @@ See also: zero
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/1.html)
+[1](https://mathworld.wolfram.com/1.html),
+_W_
+[1](https://en.wikipedia.org/wiki/1)
 
 Categories: Instance Creation

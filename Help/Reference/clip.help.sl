@@ -12,6 +12,12 @@ Clip number to (-1, 1):
 ```
 >>> 8.5.clip
 1
+
+>>> Infinity.clip
+1
+
+>>> -Infinity.clip
+-1
 ```
 
 Clip number to indicated range:

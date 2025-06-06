@@ -177,6 +177,7 @@ Polygon Functions:
 Predicate Functions:
 
 - `isConvex`
+- `isOrigin`
 
 Query Functions:
 

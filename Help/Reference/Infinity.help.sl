@@ -33,6 +33,30 @@ true
 false
 ```
 
+_∞×0_ is not a number:
+
+```
+>>> (Infinity * 0).isNaN
+true
+```
+
+Neither is _∞-∞_:
+
+```
+>>> (Infinity - Infinity).isNaN
+true
+```
+
+_∞±n_ is ∞:
+
+```
+>>> Infinity + 1
+Infinity
+
+>>> Infinity - 1
+Infinity
+```
+
 * * *
 
 See also: e, inf, NaN, pi

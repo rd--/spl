@@ -26,9 +26,9 @@ A zero-crossing occurs when the last non-zero `sign` is opposite to the current 
 Visiting zero is not a zero crossing:
 
 ```
->>> [0 1 0 1 0 1 0 -1]
+>>> [0 1 0 1 0 -1 0 -1 0 -1 0]
 >>> .zeroCrossingDetect.boole
-[0 0 0 0 0 0 0 1]
+[0 0 0 0 0 1 0 0 0 0 0]
 ```
 
 * * *

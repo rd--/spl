@@ -35,6 +35,7 @@ Guides: Signal Processing Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/UnitBox.html),
+[1](https://mathworld.wolfram.com/RectangleFunction.html)
+[2](https://reference.wolfram.com/language/ref/UnitBox.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Rectangular_function)

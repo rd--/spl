@@ -137,6 +137,13 @@
 		self.shapeOrNil.notNil
 	}
 
+	isArray { :self :depth |
+		let rho = self.shapeOrNil;
+		rho.notNil & {
+			rho.size = depth
+		}
+	}
+
 	isCommensurate { :self :other |
 		self.shape = other.shape & {
 			self.elementType = other.elementType

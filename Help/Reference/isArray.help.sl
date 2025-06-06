@@ -1,13 +1,18 @@
 # isArray
 
-- _isArray(anObject)_
+- _isArray(e)_
+- _isArray(e, r)_
 
 A `List` is an _array_ if it is has a `shape`.
+In the binary case require in addition that the array have `rank` _r_.
 
 Vectors are arrays:
 
 ```
 >>> [1 2 3 4 5 6].isArray
+true
+
+>>> [1 2 3 4 5 6].isArray(1)
 true
 ```
 
@@ -16,12 +21,18 @@ Matrices are arrays:
 ```
 >>> [1 2 3; 4 5 6].isArray
 true
+
+>>> [1 2 3; 4 5 6].isArray(2)
+true
 ```
 
 Volumes, or boxes, are arrays:
 
 ```
 >>> [1 2; 3 4:; 5 6; 7 8].isArray
+true
+
+>>> [1 2; 3 4:; 5 6; 7 8].isArray(3)
 true
 ```
 

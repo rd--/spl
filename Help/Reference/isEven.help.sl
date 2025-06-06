@@ -15,6 +15,9 @@ false
 
 >>> 1:5.collect(isEven:/1)
 [false true false true false]
+
+>>> 1:5.allSatisfy(isEven:/1)
+false
 ```
 
 At `zero`:

@@ -8,15 +8,7 @@ FourVector : [Object] { | w x y z |
 		}
 	}
 
-	asList { :self |
-		[self.w, self.x, self.y, self.z]
-	}
-
-	asRecord { :self |
-		(w: self.w, x: self.x, y: self.y, z: self.z)
-	}
-
-	isZero { :self |
+	allZero { :self |
 		self.w = 0 & {
 			self.x = 0 & {
 				self.y = 0 & {
@@ -24,6 +16,14 @@ FourVector : [Object] { | w x y z |
 				}
 			}
 		}
+	}
+
+	asList { :self |
+		[self.w, self.x, self.y, self.z]
+	}
+
+	asRecord { :self |
+		(w: self.w, x: self.x, y: self.y, z: self.z)
 	}
 
 	size { :self |

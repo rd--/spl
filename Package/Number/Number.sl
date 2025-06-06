@@ -241,6 +241,18 @@
 		self * 0.01745329251994329547 /* 1/180.pi */
 	}
 
+	diracComb { :x :z |
+		x.isInteger.if {
+			z
+		} {
+			0
+		}
+	}
+
+	diracComb { :x |
+		x.diracComb(Infinity)
+	}
+
 	diracDelta { :self :aNumber |
 		self.isZero.if {
 			aNumber
@@ -518,6 +530,10 @@
 
 	isNonPositive { :self |
 		self <= self.zero
+	}
+
+	isNonZero { :self |
+		self ~= 0
 	}
 
 	isNumber { :self |

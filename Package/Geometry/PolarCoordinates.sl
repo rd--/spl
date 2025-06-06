@@ -20,6 +20,10 @@ PolarCoordinates : [Object] { | coordinates |
 		PlanarCoordinates([self.x, self.y])
 	}
 
+	isOrigin { :self |
+		self.r.isZero
+	}
+
 	phi { :self |
 		self.theta
 	}

@@ -185,7 +185,7 @@
 			d[i] := (c[i + 1] - c[i]) / (3 * dx)
 		};
 		(1 .. n).collect { :i |
-			[y[i], b[i], c[i], d[i]].withoutTrailingZeros
+			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin:/1)
 		}
 	}
 
@@ -244,7 +244,7 @@
 				firstDerivative[i],
 				(3 * (yvP - yv) / w - (2 * fd) - fdP) / w,
 				(2 * (yv - yvP) / w + fd + fdP) / w2
-			].withoutTrailingZeros
+			].withoutTrailing(isOrigin:/1)
 		}
 	}
 
@@ -271,7 +271,7 @@
 			let dx = x[i + 1] - x[i];
 			let dy = y[i + 1] - y[i];
 			let m = dy / dx;
-			[y[i], m].withoutTrailingZeros
+			[y[i], m].withoutTrailing(isOrigin:/1)
 		}
 	}
 

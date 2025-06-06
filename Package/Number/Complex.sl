@@ -306,6 +306,10 @@ Complex : [Object, Number] { | real imaginary |
 		true
 	}
 
+	isNegative { :self |
+		false
+	}
+
 	isNumber { :self |
 		true
 	}

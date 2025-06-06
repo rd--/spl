@@ -296,6 +296,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
      ("*.x" . ?⊗) ; U+2297 ⊗ Circled Times
      ("//" . ?⫽) ; U+02AFD ⫽ Double Solidus Operator
+     ("+-" . ?±) ; U+00B1 ± Plus-Minus Sign
      ("++" . ?⧺) ; U+29FA ⧺ Double plus
      ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("-" . ?−) ; U+2212 − Minus Sign
@@ -462,6 +463,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("~>" . ?⇝) ; U+21DD ⇝ Rightwards Squiggle Arrow
      ("~~" . ?≢) ; U+2262 ≢ Not Identical To
      (":;" . ?↲) ; U+21B2 ↲ Downwards Arrow With Tip Leftwards
+     ("Sha" . ?Ш); U+0428 Ш Cyrillic Capital Letter Sha
+     ("sha" . ?ш); U+0448 ш Cyrillic Small Letter Sha
 
      ;; ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡

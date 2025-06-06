@@ -33,10 +33,12 @@ At `List`, answers with a zeroed collection of the same `shape`:
 
 * * *
 
-See also: one
+See also: isNegative, isNonZero, isPositive, isZero, one
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Zero.html)
+[1](https://mathworld.wolfram.com/Zero.html),
+_W_
+[1](https://en.wikipedia.org/wiki/0)
 
 Categories: Instance Creation

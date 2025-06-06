@@ -16,6 +16,16 @@ Threads over lists, convert a list of truth values to integers:
 [1 0 1 1 0]
 ```
 
+Convert a table of boolean values for plotting:
+
+~~~spl svg=A
+{ :a :b |
+	((a ^ b) + 3).isPrime
+}.table(1:30, 1:10).boole.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/boole-A.svg)
+
 The inverse of `boole` is `asBoolean`:
 
 ```

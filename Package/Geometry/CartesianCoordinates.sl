@@ -66,12 +66,12 @@
 		self.coordinates.first
 	}
 
-	isPlanar { :self |
-		self.coordinates.size = 2
+	isOrigin { :self |
+		self.coordinates.allSatisfy(isZero:/1)
 	}
 
-	isZero { :self |
-		self.coordinates.allSatisfy(isZero:/1)
+	isPlanar { :self |
+		self.coordinates.size = 2
 	}
 
 	negate { :self |
@@ -156,10 +156,6 @@ CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | 
 
 	first { :self |
 		self.at(1)
-	}
-
-	isZero { :self |
-		self.coordinates.allSatisfy(isZero:/1)
 	}
 
 	second { :self |
