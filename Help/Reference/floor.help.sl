@@ -1,8 +1,8 @@
 # floor
 
-- _floor(aNumber)_
+- _floor(x)_
 
-Answer the integer nearest the receiver toward negative infinity.
+Answer the integer nearest _x_ toward negative infinity.
 
 At `Integer`:
 

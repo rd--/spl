@@ -1,11 +1,11 @@
 # min
 
-- _min(aCollection)_
-- _min(aMagnitude, anotherMagnitude)_
+- _min([x₁ x₂ …])_
+- _min(x₁, x₂)_
 
 The unary form answers `reduce` of `min`,
 the minimum value in the collection.
-The collection must be non-empty and contain compatible Magnitudes.
+The collection must be non-empty and contain compatible magnitudes.
 
 ```
 >>> 1:10.min
@@ -126,5 +126,7 @@ _Python_
 [1](https://docs.python.org/3/library/functions.html#min),
 _Smalltalk_
 5.6.1.7
+
+Unicode: U+230A ⌊ Left Floor
 
 Categories: Testing

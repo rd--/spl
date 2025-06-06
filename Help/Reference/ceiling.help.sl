@@ -1,8 +1,8 @@
 # ceiling
 
-- _ceiling(aNumber)_
+- _ceiling(x)_
 
-Answer the integer nearest the receiver toward infinity.
+Answer the integer nearest _x_ toward infinity.
 
 ```
 >>> 1.ceiling

@@ -1,13 +1,13 @@
 # Wrap
 
-- _Wrap(in, lo=0, hi=1)_
+- _Wrap(x, ⌊=0, ⌈=1)_
 
 Wrap a signal outside given thresholds.
 This differs from _Wrap2_ in that it allows one to set both low and high thresholds.
 
-- in: signal to be wrapped
-- lo: low threshold of wrapping
-- hi: high threshold of wrapping
+- x: signal to be wrapped
+- ⌊: low threshold of wrapping
+- ⌈: high threshold of wrapping
 
 Wrap a (-0.2, 0.2) sine tone to (-0.15, 0.15):
 
@@ -41,5 +41,11 @@ SinOsc(
 See also: Clip, Fold, Wrap2
 
 Guides: Unit Generators
+
+References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_wrap/),
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Wrap.html)
 
 Categories: Ugen

@@ -1,17 +1,18 @@
-# wrapBetweenAnd
+# wrapExclusive
 
-- _wrapBetweenAnd(aNumber, low, high)_
+- _wrapExclusive(x, ⌊, ⌈)_
 
-Wrap _aNumber_ so that it lies between _low_ and _high_.
+Wrap _x_ so that it lies between ⌊ and ⌈.
 Threads elementise over lists.
 
-Wrap between two integer indices, note that the wrap occurs _before_ the high value is reached:
+Wrap between two integer indices,
+note that the wrap occurs _before_ the high value is reached:
 
 ```
->>> 1:9.wrapBetweenAnd(3, 7 + 1)
+>>> 1:9.wrapExclusive(3, 7 + 1)
 [6 7 3 4 5 6 7 3 4]
 
->>> 0:12.wrapBetweenAnd(0, 3)
+>>> 0:12.wrapExclusive(0, 3)
 [0 1 2 0 1 2 0 1 2 0 1 2 0]
 ```
 
@@ -19,7 +20,7 @@ Wrap a real number between two values:
 
 ```
 >>> let r = (0.1, 0.2 .. 0.9);
->>> let w = r.wrapBetweenAnd(
+>>> let w = r.wrapExclusive(
 >>> 	0.3,
 >>> 	0.7 + 0.1
 >>> );
@@ -27,8 +28,18 @@ Wrap a real number between two values:
 [6 7 3 4 5 6 7 3 4]
 ```
 
+Plot a sawtooth wave formed by wrapping a line:
+
+~~~spl svg=A
+(0 -- 1).functionPlot { :x |
+	(x * 4).wrapExclusive(-1, 1)
+}
+~~~
+
+![](sw/spl/Help/Image/wrapExclusive-A.svg)
+
 * * *
 
-See also: atFold, atWrap, foldIndex, foldBetweenAnd, wrapIndex
+See also: atFold, atWrap, fold, foldIndex, wrapIndex
 
 Categories: Testing

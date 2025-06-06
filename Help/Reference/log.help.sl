@@ -1,9 +1,10 @@
 # log
 
-- _log(aNumber)_
-- _log(aNumber, base)_
+- _log(z)_
+- _log(z, b)_
 
-The unary form answers the natural logarithm of _aNumber_:
+The unary form answers the natural logarithm of _z_,
+the logarithm to base _e_:
 
 ```
 >>> 1000.log
@@ -26,7 +27,7 @@ At `zero` and `one`:
 0
 ```
 
-The binary form answers the _base_ logarithm of _aNumber_.
+The binary form answers the base _b_ logarithm of the number _z_.
 
 ```
 >>> 1000.log(10)
@@ -112,5 +113,7 @@ _Mathematica_
 _Smalltalk_
 5.6.7.9
 5.6.7.10
+
+Unicode: U+235F ⍟ Apl Functional Symbol Circle Star
 
 Categories: Math

@@ -1,7 +1,7 @@
 # max
 
-- _max(aCollection)_
-- _max(aMagnitude, anotherMagnitude)_
+- _max([x₁ x₂ …])_
+- _max(x₁, x₂)_
 
 The unary form answers the maximum value in the collection.
 The collection must be non-empty and contain compatible Magnitudes.
@@ -109,5 +109,7 @@ _Python_
 [1](https://docs.python.org/3/library/functions.html#max),
 _Smalltalk_
 5.6.1.6
+
+Unicode: U+2308 ⌈ Left Ceiling
 
 Categories: Statistics, Testing

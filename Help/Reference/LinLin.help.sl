@@ -86,7 +86,8 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/linlin.html),
 _Max_
-[1](https://docs.cycling74.com/reference/scale/),
+[1](https://docs.cycling74.com/reference/scale/)
+[2](https://docs.cycling74.com/reference/gen_common_scale/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/LinLin.html)
 

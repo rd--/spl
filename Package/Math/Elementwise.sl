@@ -192,24 +192,30 @@
 		self.collect(factorialOrGamma:/1)
 	}
 
-	floor { :self |
-		self.collect(floor:/1)
-	}
-
 	factorInteger { :self |
 		self.collect(factorInteger:/1)
+	}
+
+	fibonacci { :self |
+		self.collect(fibonacci:/1)
 	}
 
 	fibonacciWord { :self |
 		self.collect(fibonacciWord:/1)
 	}
 
-	fractionPart { :self |
-		self.collect(fractionPart:/1)
+	floor { :self |
+		self.collect(floor:/1)
 	}
 
-	fibonacci { :self |
-		self.collect(fibonacci:/1)
+	fold { :self :low :high |
+		self.collect { :each |
+			each.fold(low, high)
+		}
+	}
+
+	fractionPart { :self |
+		self.collect(fractionPart:/1)
 	}
 
 	gamma { :self |
@@ -483,9 +489,9 @@
 		}
 	}
 
-	wrapBetweenAnd { :self :lo :hi |
+	wrapExclusive { :self :lo :hi |
 		self.collect { :each |
-			each.wrapBetweenAnd(lo, hi)
+			each.wrapExclusive(lo, hi)
 		}
 	}
 

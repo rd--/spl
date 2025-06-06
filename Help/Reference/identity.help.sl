@@ -1,8 +1,8 @@
 # identity
 
-- _identity(anObject)_
+- _identity(x)_
 
-Answer _anObject_.
+Answer _x_.
 
 ```
 >>> 1.identity
@@ -12,12 +12,17 @@ Answer _anObject_.
 As argument block:
 
 ```
->>> [1 2 3 4 3 2 1].detectMax(identity:/1)
+>>> [1 2 3 4 3 2 1]
+>>> .detectMax(identity:/1)
 4
 
->>> [1 3 5 3 5 5].histogramOf(identity:/1).sortedCounts
+>>> [1 3 5 3 5 5]
+>>> .histogramOf(identity:/1)
+>>> .sortedCounts
 [3 -> 5, 2 -> 3, 1 -> 1]
 ```
+
+Where supported, `identity` is displayed as ⊣.
 
 * * *
 
@@ -33,5 +38,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Identity.html),
 _Smalltalk_
 5.3.1.20
+
+Unicode: U+22A3 ⊣ Left Tack
 
 Categories: Functions

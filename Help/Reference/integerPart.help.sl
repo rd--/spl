@@ -1,8 +1,8 @@
 # integerPart
 
-- _integerPart(aNumber)_
+- _integerPart(x)_
 
-Answers the integer part of _aNumber_.
+Answers the integer part of _x_.
 `integerPart` is equivalent to `truncated`.
 
 Find the integer part of a real number:

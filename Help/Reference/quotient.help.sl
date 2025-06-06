@@ -1,8 +1,9 @@
 # quotient
 
-- _quotient(aNumber, anotherNumber)_
+- _quotient(m, n)_
 
-Integer quotient defined by division with truncation toward zero.
+Answer the integer quotient of _m_ and _n_,
+defined by division with truncation toward zero.
 
 ```
 >>> -9.quotient(4)
@@ -22,7 +23,7 @@ The operator form is `//`:
 3
 ```
 
-Fractions:
+At `Fraction`:
 
 ```
 >>> 19/3 // 5/2
@@ -32,7 +33,7 @@ Fractions:
 2
 ```
 
-Inexact numbers:
+At `SmallFloat`, i.e. inexact numbers:
 
 ```
 >>> 4.56 // 2.5
@@ -73,10 +74,34 @@ true
 Plot the sequence of quotients:
 
 ~~~spl svg=A
-1:50.functionPlot { :n | n // 8 }
+1:50.functionPlot { :n |
+	n // 8
+}
 ~~~
 
 ![](sw/spl/Help/Image/quotient-A.svg)
+
+Plot the quotient of two integers:
+
+~~~spl svg=B
+{ :m :n |
+	m // n
+}.table(1:10, 1:10).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/quotient-B.svg)
+
+Plot the quotient of a function:
+
+~~~spl svg=C
+(0 -- 2).functionPlot { :x |
+	(x ^ 2)
+	.quotient(x - 1)
+	.clip([-9 9])
+}
+~~~
+
+![](sw/spl/Help/Image/quotient-C.svg)
 
 `remainder` answers the remainder from this division.
 

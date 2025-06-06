@@ -1,8 +1,8 @@
 # rounded
 
-- _rounded(aNumber)_
+- _rounded(x)_
 
-Answer the integer nearest _aNumber_.
+Answer the integer nearest _x_.
 
 ```
 >>> 0.9.rounded

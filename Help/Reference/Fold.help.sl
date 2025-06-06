@@ -1,6 +1,6 @@
 # Fold
 
-- _Fold(in, lo, hi)_
+- _Fold(x, ⌊=0, ⌈=1)_
 
 Fold a signal outside given thresholds.
 This differs from `Fold2` in that it allows one to set both low and high thresholds.
@@ -29,9 +29,11 @@ Fold(SinOsc(440, 0) * 0.2, -0.2, x)
 
 * * *
 
-See also: Clip, Clip2, Fold2, Wrap, Wrap2
+See also: Clip, Clip2, fold, Fold2, Wrap, Wrap2
 
 References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_fold/),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Fold.html)
 

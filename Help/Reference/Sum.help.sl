@@ -45,8 +45,12 @@ SinOsc(
 ).Sum / 27
 ```
 
+Where supported, `Sum` is displayed as ∑.
+
 * * *
 
 See also: Mix, sum, Sum4
+
+Unicode: U+2211 ∑ N-Ary Summation
 
 Categories: Ugen

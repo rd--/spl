@@ -331,7 +331,7 @@
 	}
 
 	foldIndex { :self :size |
-		self.foldBetweenAnd(1, size)
+		self.fold(1, size)
 	}
 
 	gcd { :self :anInteger |

@@ -1,8 +1,9 @@
 # foldIndex
 
-- _foldIndex(anInteger, size)_
+- _foldIndex(i, n)_
 
-Fold _anInteger_ between one and _size_, ie. for one-based indexing:
+Fold the integer _i_ between one and _n_,
+i.e. for one-based indexing:
 
 ```
 >>> (-2 .. 7).collect { :each |
@@ -11,13 +12,13 @@ Fold _anInteger_ between one and _size_, ie. for one-based indexing:
 [4 3 2 1 2 3 4 5 4 3]
 
 >>> (-2 .. 7).collect { :each |
->>> 	each.foldBetweenAnd(1, 5)
+>>> 	each.fold(1, 5)
 >>> }
 [4 3 2 1 2 3 4 5 4 3]
 ```
 
 * * *
 
-See also: atFold, atWrap, foldBetweenAnd, wrapIndex
+See also: atFold, atWrap, fold, wrapIndex
 
 Categories: Indexing

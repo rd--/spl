@@ -1,8 +1,8 @@
 # contractTo
 
-- _contractTo(aString, anInteger)_
+- _contractTo(s, n)_
 
-Answer _aString_ or a copy shortened by ellipsis to _anInteger_ places.
+Answer the string _s_ or a copy shortened by ellipsis to _n_ places.
 
 ```
 >>> 'A clear but rather long-winded summary'

@@ -1,16 +1,36 @@
 # % (percentSign)
 
-- _aNumber % anotherNumber_
+- _m % n_
 
-Answer the floating-point remainder of dividing _aNumber_ by _anotherNumber_.
-
-_i % j_ is _i - n * j_, where _n_ is the quotient of _i / j_, rounded toward zero to an integer.
+Answer the floating-point remainder of dividing _m_ by _n_.
 
 ```
 >>> 5 % 3
 2
 
 >>> 17 % 5
+2
+```
+
+A number modulo itself is `zero`:
+
+```
+>>> 5 % 5
+0
+```
+
+Zero modulo any number is `zero`:
+
+```
+>>> 0 % 5
+0
+```
+
+_m%n_ is _m-qn_, where _q_ is the quotient of _m/n_, rounded toward zero to an integer.
+
+```
+>>> let [m, n] = [5, 3];
+>>> m - ((m / n).floor * n)
 2
 ```
 
@@ -152,7 +172,8 @@ Modulo of negative number with negative operand:
 [-0.1 -4.1 -3.1 -2.1 -1.1 -0.1]
 ```
 
-Plot the sequence with fixed modulus:
+Plot an integer sequence modulo an integer,
+i.e. with a fixed modulus:
 
 ~~~spl svg=A
 (1:50 % 8).linePlot
@@ -160,7 +181,7 @@ Plot the sequence with fixed modulus:
 
 ![](sw/spl/Help/Image/percentSign-A.svg)
 
-Plot the sequence, varying the modulus:
+Plot an integer modulo an integer, i.e. varying the modulus:
 
 ~~~spl svg=B
 (100 % 1:50).linePlot

@@ -13,7 +13,7 @@
 
 ## Phase Functions
 
-- `unwrap`
+- `unwrapPhase`
 
 ## Resampling Functions
 

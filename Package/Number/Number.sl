@@ -362,7 +362,7 @@
 		self.log(radix).floor
 	}
 
-	foldBetweenAnd { :self :low :high |
+	fold { :self :low :high |
 		let range = high - low;
 		let twiceRange = range + range;
 		let z = (self - low) % twiceRange;
@@ -1153,7 +1153,7 @@
 		self.toByDo(end, step, aBlock:/1)
 	}
 
-	wrapBetweenAnd { :self :low :high |
+	wrapExclusive { :self :low :high |
 		let range = high - low;
 		let z = (self - low) % range;
 		low + z

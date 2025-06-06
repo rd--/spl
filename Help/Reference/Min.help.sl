@@ -1,8 +1,8 @@
 # Min
 
-- _Min(aNumber, anotherNumber)_
+- _Min(m, n)_
 
-Maximum value.
+Minimum value.
 
 ```
 >>> 9.Min(2)
@@ -18,6 +18,10 @@ z.Min(SinOsc(0.1, 0)) * 0.1
 
 * * *
 
-See also: Max
+See also: Max, min
+
+References:
+_Max_
+[1](https://docs.cycling74.com/reference/gen_common_min/)
 
 Categories: Ugen

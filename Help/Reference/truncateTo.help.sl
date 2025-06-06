@@ -1,10 +1,9 @@
 # truncateTo
 
-- _truncated(aNumber, anotherNumber)_
-- _truncated(aString, anInteger)_
+- _truncateTo(m, n)_
 
 At `Number`,
-answer the next multiple of _anotherNumber_ toward zero that is nearest the _aNumber_.
+answer the next multiple of _n_ toward `zero` that is nearest _n_.
 
 ```
 >>> 3.1479.truncateTo(0.01)
@@ -24,7 +23,7 @@ answer the next multiple of _anotherNumber_ toward zero that is nearest the _aNu
 ```
 
 At `String`,
-make a copy of the first _count_ places of _aString_:
+make a copy of the first _n_ places of the string _m_:
 
 ```
 >>> 'a short string'.truncateTo(7)

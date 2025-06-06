@@ -21,7 +21,7 @@
 		c.recurrenceFilter(x, 0 # k)
 	}
 
-	unwrap { :self :period |
+	unwrapPhase { :self :period |
 		let discontinuity = period / 2;
 		let high = period / 2;
 		let low = 0 - high;

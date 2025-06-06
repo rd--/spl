@@ -1,8 +1,8 @@
 # truncated
 
-- _truncated(aNumber)_
+- _truncated(x)_
 
-Answer the integer nearest _aNumber_ toward `zero`.
+Answer the integer nearest _x_ toward `zero`.
 
 ```
 >>> 1.25.truncated

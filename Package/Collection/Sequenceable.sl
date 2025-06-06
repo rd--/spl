@@ -324,7 +324,7 @@
 	}
 
 	atPutWrap { :self :index :anObject |
-		let k = index.wrapBetweenAnd(1, self.size + 1);
+		let k = index.wrapExclusive(1, self.size + 1);
 		self[k] := anObject
 	}
 
@@ -352,7 +352,7 @@
 	}
 
 	atWrap { :self :index |
-		let k = index.wrapBetweenAnd(1, self.size + 1);
+		let k = index.wrapExclusive(1, self.size + 1);
 		self[k]
 	}
 
@@ -1076,7 +1076,7 @@
 	}
 
 	foldedIndex { :self :index |
-		index.foldBetweenAnd(1, self.size)
+		index.fold(1, self.size)
 	}
 
 	foldLeftPrefix { :self :count :aBlock:/2 |

@@ -355,13 +355,13 @@ If the string begins with a doctest, also delete all non doctest lines."
      ;("foldRight" . ?/) ; Apl
      ("gradeDown" . ?⍒) ; Apl
      ("gradeUp" . ?⍋) ; Apl
-     ("identity" . ?⊣) ; Apl
+     ("identity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
      ("innerProduct" . ?‧) ; Apl ; U+2027 ‧ Hyphenation Point ; U+25AA ▪ Black Small Square
      ("iota" . ?⍳) ; Apl ; U+2373 ⍳ APL Functional Symbol Iota
      ("leftIdentity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
-     ("log" . ?⍟) ; Apl
-     ("max" . ?⌈) ; Apl
-     ("min" . ?⌊) ; Apl
+     ("log" . ?⍟) ; Apl ; U+235F ⍟ Apl Functional Symbol Circle Star
+     ("max" . ?⌈) ; Apl ; U+2308 ⌈ Left Ceiling
+     ("min" . ?⌊) ; Apl ; U+230A ⌊ Left Floor
      ("negated" . ?-) ; Apl
      ;("nest" . ?⊆) ; Apl
      ("nthRoot" . ?√) ; Apl

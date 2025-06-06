@@ -11,13 +11,13 @@ Wrap _anInteger_ between one and _size_, ie. for one-based indexing:
 [3 4 5 1 2 3 4 5 1 2]
 
 >>> (-2 .. 7).collect { :each |
->>> 	each.wrapBetweenAnd(1, 5 + 1)
+>>> 	each.wrapExclusive(1, 5 + 1)
 >>> }
 [3 4 5 1 2 3 4 5 1 2]
 ```
 
 * * *
 
-See also: foldIndex, wrapBetweenAnd
+See also: foldIndex, wrapExclusive
 
 Categories: Indexing
