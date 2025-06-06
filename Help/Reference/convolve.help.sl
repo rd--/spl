@@ -73,6 +73,8 @@ let v = u.reversed;
 
 See also: accumulate, differences, fft, fftConvolve, ifft, inner, linearRecurrence, movingAverage, partition
 
+Guides: Fourier Analysis Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ListConvolve.html)

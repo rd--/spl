@@ -21,6 +21,8 @@ The input and output lists are `Complex`:
 
 See also: fft, Complex
 
+Guides: Fourier Analysis Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/InverseFourier.html),

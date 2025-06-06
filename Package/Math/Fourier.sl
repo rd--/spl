@@ -67,6 +67,10 @@
 		ifft(a.fft * b.fft).first(n).real
 	}
 
+	fourier { :self |
+		self.size.fourierMatrix.dot(self)
+	}
+
 	ifft { :self |
 		self.size.isPowerOfTwo.if {
 			(self.elementType = 'Complex').if {
@@ -86,6 +90,12 @@
 			answer.add(each.imaginary)
 		};
 		answer
+	}
+
+	inverseFourier { :self |
+		let n = self.size;
+		let m = n.fourierMatrix([0 -1]);
+		m.dot(self)
 	}
 
 	periodogramArray { :self |
@@ -138,6 +148,22 @@
 				each(x)
 			}.sum
 		}
+	}
+
+	fourierMatrix { :n |
+		let m = 1 / n.sqrt;
+		let omega = 1.e ^ (2.pi * 0J1 / n);
+		let l = (0 .. n - 1);
+		{ :i :j |
+			m * (omega ^ (i * j))
+		}.table(l, l)
+	}
+
+	fourierMatrix { :n :p |
+		let [a, b] = p;
+		let m = 1 / (n ^ ((1 - a) / 2));
+		let v = [0 .. n - 1] * (2.pi.i * b) / n;
+		v.exp.vandermondeMatrix * m
 	}
 
 	lanczosKernel { :a |

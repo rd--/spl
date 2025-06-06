@@ -16,6 +16,18 @@ let t = [1 1; 0 1; 1 1];
 
 ![](sw/spl/Help/Image/cubicHermiteFunction-A.svg)
 
+Equal _p_ and _t_ except for central tangent:
+
+~~~spl svg=B
+let p = [-1 0; 0 0; 1 0];
+let t = [1 1; 1 -1; 1 1];
+(0 -- 1).functionPlot(
+	p.cubicHermiteFunction(t)
+)
+~~~
+
+![](sw/spl/Help/Image/cubicHermiteFunction-B.svg)
+
 * * *
 
 See also: bezierFunction, bSplineFunction

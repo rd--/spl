@@ -3,7 +3,14 @@
 Transforms:
 
 - `fft`
+- `fourier`
 - `ifft`
+- `inverseFourier`
+
+Matrices:
+
+- `fourierMatrix`
+- `vandermondeMatrix`
 
 Filtering:
 
@@ -21,4 +28,4 @@ Plotting:
 
 * * *
 
-Guides: Window Functions
+Guides: Mathematical Functions, Window Functions

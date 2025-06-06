@@ -60,6 +60,8 @@ let y = r.randomReal([-1 1], [n]);
 
 See also: convolve, fftConvolve, ifft, Complex
 
+Guides: Fourier Analysis Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Fourier.html),

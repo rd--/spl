@@ -150,8 +150,7 @@
 
 ## Fourier Analysis
 
-- `fft`: fast Fourier transform
-- `ifft`: inverse fast Fourier transform
+- `Fourier Analysis Functions`: Guide
 
 ## Fractal Functions
 
@@ -309,4 +308,4 @@ Function List:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Fourier Analysis Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions

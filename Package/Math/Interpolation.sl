@@ -820,7 +820,7 @@
 		let t = _t;
 		let i0, i1, scale;
 		if(knots) {
-			for(var i=0; i<n-1; i++) {
+			for(let i=0; i<n-1; i++) {
 				if(t >= knots[i] && t <= knots[i+1]) {
 					break;
 				}

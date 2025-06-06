@@ -57,6 +57,8 @@ u.fftConvolve(v).linePlot
 
 See also: convolve, fft, ifft
 
+Guides: Fourier Analysis Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Convolve.html),

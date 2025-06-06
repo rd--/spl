@@ -66,7 +66,7 @@ A rectangular Vandermonde matrix:
 
 See also: binomial, cauchyMatrix, interpolation, factorialPower, linearRecurrence, powerRange
 
-Guides: Matrix Functions
+Guides: Fourier Analysis Functions, Matrix Functions
 
 References:
 _Mathematica_
