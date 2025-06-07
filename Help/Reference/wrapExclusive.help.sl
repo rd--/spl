@@ -3,10 +3,18 @@
 - _wrapExclusive(x, ⌊, ⌈)_
 
 Wrap _x_ so that it lies between ⌊ and ⌈.
-Threads elementise over lists.
+Threads elementwise over lists.
+
+Within the boundaries equivalent to `identity`,
+note that the the upper bound is excluded:
+
+```
+>>> [-1 0 1].wrapExclusive(-1, 1)
+[-1 0 -1]
+```
 
 Wrap between two integer indices,
-note that the wrap occurs _before_ the high value is reached:
+note that the wrap occurs _before_ the upper boundary is reached:
 
 ```
 >>> 1:9.wrapExclusive(3, 7 + 1)
@@ -40,6 +48,6 @@ Plot a sawtooth wave formed by wrapping a line:
 
 * * *
 
-See also: atFold, atWrap, fold, foldIndex, wrapIndex
+See also: atFold, atWrap, fold, foldIndex, wrap, wrapIndex
 
 Categories: Testing

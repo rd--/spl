@@ -489,6 +489,12 @@
 		}
 	}
 
+	wrap { :self :lo :hi |
+		self.collect { :each |
+			each.wrap(lo, hi)
+		}
+	}
+
 	wrapExclusive { :self :lo :hi |
 		self.collect { :each |
 			each.wrapExclusive(lo, hi)

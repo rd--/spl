@@ -1153,6 +1153,13 @@
 		self.toByDo(end, step, aBlock:/1)
 	}
 
+	wrap { :self :low :high |
+		let range = high - low;
+		{ self < low }.whileTrue { self := self + range };
+		{ self > high }.whileTrue { self := self - range };
+		self
+	}
+
 	wrapExclusive { :self :low :high |
 		let range = high - low;
 		let z = (self - low) % range;
