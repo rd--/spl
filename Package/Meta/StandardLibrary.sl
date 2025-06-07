@@ -154,6 +154,7 @@
 	'Fourier'
 	'Gamma'
 	'IntegerSequence'
+	'Integrals'
 	'Interpolation'
 	'IterativeMaps'
 	'MatrixFunctions'

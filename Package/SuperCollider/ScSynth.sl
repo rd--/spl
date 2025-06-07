@@ -151,6 +151,28 @@ ScSynth! : [Object] {
 		<primitive: return sc.prettyPrintSyndefOf(_self);>
 	}
 
+	renderSoundFile { :self :fileName :duration |
+		let scSynDefFileName = '/tmp/renderSoundFile.scsyndef';
+		let numberOfChannels = self.isCollection.if {
+			self.size
+		} {
+			1
+		};
+		self.writeScSynDefFile(
+			'Anonymous',
+			scSynDefFileName
+		);
+		system.systemCommand(
+			'hsc3-plot',
+			[
+				'scsyndef',
+				scSynDefFileName,
+				numberOfChannels.asString,
+				duration.asString
+			]
+		)
+	}
+
 	soundPlot { :self :duration |
 		let scSynDefFileName = '/tmp/splPlot.scsyndef';
 		let numberOfChannels = self.isCollection.if {

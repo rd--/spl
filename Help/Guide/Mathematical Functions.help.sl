@@ -163,6 +163,10 @@
 
 - `Integer Functions`: Guide
 
+## Integrals
+
+- `adaptiveSimpsonsMethod`
+
 ## Interpolation Functions
 
 - `Interpolation Functions`: Guide

@@ -158,6 +158,7 @@
 	'Math-Fourier'
 	'Math-Gamma'
 	'Math-IntegerSequence'
+	'Math-Integrals'
 	'Math-Interpolation'
 	'Math-IterativeMaps'
 	'Math-MatrixFunctions'
