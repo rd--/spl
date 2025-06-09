@@ -1,11 +1,11 @@
 # accumulate
 
-- _accumulate(aSequence)_
+- _accumulate([x₁ x₂ …])_
 
-Answer a `List` of the successive accumulated totals of elements in _aSequence_.
-The answer is the same `size` as _aSequence_,
+Answer a `List` of the successive accumulated totals of elements in the sequence _x₁ x₂ …_.
+The answer is the same `size` as the sequence,
 and has the same first item.
-This operation is also called `prefixSum`, and is equivalent to _scan(aSequence, +)_.
+This operation is also called `prefixSum`, and is equivalent to `scan` of `+`.
 
 Triangular numbers:
 
@@ -38,6 +38,18 @@ Diagonals of Pascal’s triangle:
 ]
 ```
 
+Find the cumulative sum of the columns of a matix:
+
+```
+>>> [1 4 7; 2 5 8; 3 6 9]
+>>> .accumulate
+[
+	1     4     7;
+	3     9    15;
+	6    15    24
+]
+```
+
 Plot a random walk:
 
 ~~~spl svg=A
@@ -57,6 +69,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CumulativeSum.html)
 [2](https://reference.wolfram.com/language/ref/Accumulate.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.cumsum.html),
 _Python_
 [1](https://docs.python.org/3/library/itertools.html#itertools.accumulate),
 _W_

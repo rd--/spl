@@ -1,5 +1,6 @@
 # quantile
 
+- _quantile(data, p)_
 - _quantile(data, p, [a b; c d])_
 
 Answer the estimate of the _p-th_ quantile of the collection _data_,
@@ -25,6 +26,13 @@ Find the top percentile of a list:
 ```
 >>> 1:100.quantile(0.99)
 99
+```
+
+At `zero` and `one` equal to `minMax`:
+
+```
+>>> 1:7.quantile([0 1])
+[1 7]
 ```
 
 Quantile works with any real numeric quantities:

@@ -56,6 +56,30 @@ At `Interval`:
 [1 9]
 ```
 
+Relation to `quantile`:
+
+```
+>>> [3 1 2 5 4].minMax
+[1 5]
+
+>>> [3 1 2 5 4].quantile([0 1])
+[1 5]
+```
+
+Relation to `coordinateBounds`:
+
+```
+>>> let c = [4 3].iota;
+>>> (
+>>> 	c.coordinateBounds,
+>>> 	c.transposed.collect(minMax:/1)
+>>> )
+(
+	[1 10; 2 11; 3 12],
+	[1 10; 2 11; 3 12]
+)
+```
+
 * * *
 
 See also: min, max

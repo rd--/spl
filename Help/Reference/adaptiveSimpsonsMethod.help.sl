@@ -12,6 +12,11 @@ Implememt the adaptive Simpson’s method for calculating the integral of the un
 40.5
 
 >>> { :x |
+>>> 	1 / (x.cubed + 1)
+>>> }.adaptiveSimpsonsMethod([0 1])
+((2 * 3.sqrt.pi) + 64.log) / 18
+
+>>> { :x |
 >>> 	x.sin.sin
 >>> }.adaptiveSimpsonsMethod([0 2])
 1.24706
@@ -42,14 +47,27 @@ Implememt the adaptive Simpson’s method for calculating the integral of the un
 0.61371
 
 >>> { :x |
->>> 	1 / (x.cubed - (2 * x) - 5)
->>> }.adaptiveSimpsonsMethod([0 2])
--0.46050
-
->>> { :x |
 >>> 	0.besselJ(x) / (1 + x)
 >>> }.adaptiveSimpsonsMethod([0 1])
 0.646543
+```
+
+Integrate a cubic function:
+
+```
+>>> { :x |
+>>> 	1 / (x.cubed - (2 * x) - 5)
+>>> }.adaptiveSimpsonsMethod([0 2])
+-0.46050
+```
+
+Integrate an exponential function:
+
+```
+>>> { :x |
+>>> 	5 * x * (-2 * x).exp
+>>> }.adaptiveSimpsonsMethod([0.1 1.3])
+0.89387
 ```
 
 Compute the area between two curves as a one-dimensional integral of their difference:
@@ -74,6 +92,8 @@ true
 
 * * *
 
+See also: trapezoidalRule
+
 Guides: Mathematical Functions
 
 References:
@@ -83,3 +103,4 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/quad.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Adaptive_Simpson%27s_method)
+[2](https://en.wikipedia.org/wiki/Numerical_integration)

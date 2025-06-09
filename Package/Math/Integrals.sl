@@ -31,4 +31,16 @@
 		adaptiveSimpsonsMethod(f:/1, i, 1E-9)
 	}
 
+	trapezoidalRule { :f:/1 :interval :n |
+		let [a, b] = interval.minMax;
+		let stepSize = (b - a) / n;
+		let integral = (f(a) + f(b)) / 2;
+		let x = a + stepSize;
+		{ x < b }.whileTrue {
+			integral := integral + f(x);
+			x := x + stepSize
+		};
+		integral * stepSize
+	}
+
 }

@@ -598,10 +598,10 @@
 
 	namedInterpolatorFunction { :self |
 		self.caseOf([
-			{ 'Akima' } -> { akimaInterpolator:/2 },
-			{ 'CubicSpline' } -> { cubicSplineInterpolator:/2 },
-			{ 'Linear' } -> { linearInterpolator:/2 },
-			{ 'NearestNeighbour' } -> { nearestNeighbourInterpolator:/2 }
+			'Akima' -> { akimaInterpolator:/2 },
+			'CubicSpline' -> { cubicSplineInterpolator:/2 },
+			'Linear' -> { linearInterpolator:/2 },
+			'NearestNeighbour' -> { nearestNeighbourInterpolator:/2 }
 		]) {
 			self.error('interpolatorFunction: unknown method')
 		}

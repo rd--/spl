@@ -710,6 +710,14 @@
 		self.withCollectCrossed(aList, *)
 	}
 
+	cumulativeMax { :self |
+		self.scan(max:/2)
+	}
+
+	cumulativeMin { :self |
+		self.scan(min:/2)
+	}
+
 	deleteAdjacentDuplicates { :self :aBlock:/2 |
 		self.isEmpty.if {
 			[]
@@ -1919,6 +1927,10 @@
 
 	movingMedian { :self :windowSize |
 		median:/1.movingMap(self, windowSize)
+	}
+
+	movingSum { :self :windowSize |
+		sum:/1.movingMap(self, windowSize)
 	}
 
 	norm { :self :p |

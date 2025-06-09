@@ -98,15 +98,23 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 				self.quantile(each, o)
 			}
 		} {
-			let [a, b] = o[1];
-			let [c, d] = o[2];
 			let y = self;
 			let n = y.size;
-			let r = a + ((n + b) * p);
-			let f = r.fractionPart;
-			let i0 = r.floor.max(1);
-			let i1 = r.ceiling.min(n);
-			y[i0] + ((y[i1] - y[i0]) * (c + (d * f)))
+			(p = 0).if {
+				y[1]
+			} {
+				(p = 1).if {
+					y[n]
+				} {
+					let [a, b] = o[1];
+					let [c, d] = o[2];
+					let r = a + ((n + b) * p);
+					let f = r.fractionPart;
+					let i0 = r.floor.max(1);
+					let i1 = r.ceiling.min(n);
+					y[i0] + ((y[i1] - y[i0]) * (c + (d * f)))
+				}
+			}
 		}
 	}
 

@@ -1,6 +1,6 @@
 # interpolation
 
-- _interpolation([y₁ y₂ …])_
+- _interpolation([y₁ y₂ …], method='CubicSpline')_
 - _interpolation([x₁ y₁ …; x₂ y₂ …; …])_
 
 Answer an interpolation of the specified data set using the interpolator selected by a named method.

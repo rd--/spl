@@ -86,6 +86,14 @@ See also `deepMax`:
 9
 ```
 
+The cumulative maxima is the `scan` of `max`:
+
+```
+>>> [4 2 8 3 9 12 11 18 10]
+>>> .scan(max:/2)
+[4 4 8 8 9 12 12 18 18]
+```
+
 * * *
 
 See also: ceiling, deepMax, maximalBy, maxOn, min

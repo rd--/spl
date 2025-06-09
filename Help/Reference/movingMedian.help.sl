@@ -1,9 +1,9 @@
 # movingMedian
 
-- _movingMedian(aSequence, anInteger)_
+- _movingMedian([x₁ x₂ …], n)_
 
-Answer the moving median of _aSequence_, computed using spans of _anInteger_ elements.
-The `size` of the answer is _aSequence.size - anInteger + 1_.
+Answer the moving median of the sequence _x₁ x₂ …_, computed using spans of _n_ elements.
+The `size` of the answer is the size of the sequence minus _n_ plus `one`.
 
 Moving median of a vector:
 
@@ -11,7 +11,8 @@ Moving median of a vector:
 >>> [1 2 5 6 1 4 3].movingMedian(3)
 [2 5 5 4 3]
 
->>> [4 8 6 -1 -2 -3 -1 3 4 5].movingMedian(3)
+>>> [4 8 6 -1 -2 -3 -1 3 4 5]
+>>> .movingMedian(3)
 [6 6 -1 -2 -2 -1 3 4]
 ```
 

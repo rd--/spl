@@ -91,5 +91,6 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldList.html),
 _Python_
 [1](https://docs.python.org/3/library/itertools.html#itertools.accumulate)
+[2](https://numpy.org/doc/stable/reference/generated/numpy.ufunc.accumulate.html)
 
 Categories: Enumerating
