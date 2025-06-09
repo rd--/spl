@@ -55,6 +55,16 @@
 		}
 	}
 
+	lotkaVolterraEquations { :alpha :beta :gamma :delta |
+		{ :t :v |
+			let [x, y] = v;
+			[
+				(alpha * x) - (beta * x * y),
+				0 - (gamma * y) + (delta * x * y)
+			]
+		}
+	}
+
 	rosslerEquation { :a :b :c |
 		{ :t :v |
 			let [x, y, z] = v;

@@ -24,7 +24,7 @@ arneodoEquation(-5.5, 3.5, -1)
 
 * * *
 
-See also: coulletEquation, rungeKuttaMethod
+See also: coulletEquation, lotkaVolterraEquations, rungeKuttaMethod
 
 Guides: Chaotic Functions
 

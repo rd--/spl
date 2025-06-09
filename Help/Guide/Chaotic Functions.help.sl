@@ -6,6 +6,7 @@ Ordinary Differential Equations:
 - `duffingEquation`
 - `henonHeilesEquation`
 - `lorenzEquation`
+- `lotkaVolterraEquations`
 - `rosslerEquation`
 - `vanDerPolEquation`
 
