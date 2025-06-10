@@ -29,7 +29,7 @@ Plot:
 
 ![](sw/spl/Help/Image/hannWindow-A.svg)
 
-Discrete _Hann_ window of length 15:
+Discrete Hann window of length 15:
 
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
@@ -39,6 +39,16 @@ Discrete _Hann_ window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/hannWindow-B.svg)
+
+Frequency response of the Hann window:
+
+~~~spl svg=C
+51.windowTable { :x |
+	x.hannWindow
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/hannWindow-C.svg)
 
 * * *
 
@@ -50,6 +60,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HanningFunction.html)
 [2](https://reference.wolfram.com/language/ref/HannWindow.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.hann.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hann_function)
 

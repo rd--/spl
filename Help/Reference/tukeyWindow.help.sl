@@ -44,7 +44,7 @@ Shape of a Tukey window using specified parameters:
 
 ![](sw/spl/Help/Image/tukeyWindow-B.svg)
 
-Discrete _Tukey_ window of length 15:
+Discrete Tukey window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5)
@@ -53,6 +53,16 @@ Discrete _Tukey_ window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/tukeyWindow-C.svg)
+
+Frequency response of the Tukey window at α=1/2:
+
+~~~spl svg=D
+51.windowTable { :x |
+	x.tukeyWindow(1 / 2)
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/tukeyWindow-D.svg)
 
 * * *
 

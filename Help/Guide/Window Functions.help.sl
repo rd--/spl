@@ -7,6 +7,7 @@ to zero at the edges of the sampled region.
 
 - `bartlettWindow`: Bartlett
 - `bartlettHannWindow`: Bartlett-Hann
+- `blackmanNuttallWindow`: Blackman-Nuttall
 - `blackmanWindow`: Blackman
 - `blackmanHarrisWindow`: Harris
 - `cosineWindow`: Cosine
@@ -17,7 +18,9 @@ to zero at the edges of the sampled region.
 - `hannWindow`: Hann
 - `kaiserWindow`: Kaiser
 - `lanczosWindow`: Lanczos
+- `nuttallWindow`: Nuttall
 - `parzenWindow`: Parzen
+- `planckTaperWindow`: Planck-taper
 - `tukeyWindow`: Tukey
 - `welchWindow`: Welch
 

@@ -25,24 +25,31 @@
 		}
 	}
 
-	blackmanWindow { :self |
-		(self.abs > 0.5).if {
+	blackmanNuttallWindow { :x |
+		let a = [0.3635819 0.4891775 0.1365995 0.0106411];
+		generalCosineWindow(x, a)
+	}
+
+	blackmanWindow { :x |
+		let a0 = 0.42;
+		let a1 = 0.5;
+		let a2 = 0.08;
+		(x.abs > 0.5).if {
 			0
 		}  {
-			(1 / 50) * (25 * (2.pi * self).cos + (4 * (4.pi * self).cos) + 21)
+			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos)
 		}
 	}
 
-	blackmanHarrisWindow { :self |
-		let n = self;
-		(n.abs > 0.5).if {
+	blackmanHarrisWindow { :x |
+		(x.abs > 0.5).if {
 			0
 		}  {
 			let a0 = 0.35875;
 			let a1 = 0.48829;
 			let a2 = 0.14128;
 			let a3 = 0.01168;
-			a0 + (a1 * (2.pi * n).cos) + (a2 * (4.pi * n).cos) + (a3 * (6.pi * n).cos)
+			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos) + (a3 * (6.pi * x).cos)
 		}
 	}
 
@@ -91,6 +98,19 @@
 		self.gaussianWindow(3 / 10)
 	}
 
+	generalCosineWindow { :x :a |
+		(x.abs > 0.5).if {
+			0
+		}  {
+			let y = a[1];
+			2.toDo(a.size) { :k |
+				let n = (k - 1) * 2;
+				y := y + (a[k] * (n.pi * x).cos)
+			};
+			y
+		}
+	}
+
 	hammingWindow { :self |
 		(self.abs > 0.5).if {
 			0
@@ -137,6 +157,11 @@
 		}
 	}
 
+	nuttallWindow { :x |
+		let a = [0.355768, 0.487396, 0.144232, 0.012604];
+		generalCosineWindow(x, a)
+	}
+
 	parzenWindow { :x |
 		[
 			{ x.abs > 0.5 } -> {
@@ -154,6 +179,26 @@
 			{ x.between(0 -- 0.25) } -> {
 				(48 * x.cubed) - (24 * x.squared) + 1
 			}
+		].which
+	}
+
+	planckTaperWindow { :x :epsilon |
+		let x1 = -0.5;
+		let x2 = -0.5 * (1 - (2 * epsilon));
+		let x3 = 0.5 * (1 - (2 * epsilon));
+		let x4 = 0.5;
+		[
+			{ x <= x1 } -> { 0 },
+			{ x < x2 } -> {
+				let z = ((x2 - x1) / (x - x1)) + ((x2 - x1) / (x - x2));
+				1 / (z.exp + 1)
+			},
+			{ x <= x3 } -> { 1 },
+			{ x < x4 } -> {
+				let z = ((x3 - x4) / (x - x3)) + ((x3 - x4) / (x - x4));
+				1 / (z.exp + 1)
+			},
+			{ true } -> { 0 }
 		].which
 	}
 
@@ -222,6 +267,10 @@
 		self.collect(blackmanHarrisWindow:/1)
 	}
 
+	blackmanNuttallWindow { :self |
+		self.collect(blackmanNuttallWindow:/1)
+	}
+
 	cosineWindow { :self :alpha |
 		self.collect { :each |
 			each.cosineWindow(alpha)
@@ -266,8 +315,18 @@
 		self.collect(lanczosWindow:/1)
 	}
 
+	nuttallWindow { :self |
+		self.collect(nuttallWindow:/1)
+	}
+
 	parzenWindow { :self |
 		self.collect(parzenWindow:/1)
+	}
+
+	planckTaperWindow { :self :epsilon |
+		self.collect { :x |
+			x.planckTaperWindow(epsilon)
+		}
 	}
 
 	tukeyWindow { :self :alpha |
