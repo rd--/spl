@@ -47,6 +47,16 @@ Discrete _Cosine_ window of length 15:
 
 ![](sw/spl/Help/Image/cosineWindow-C.svg)
 
+Frequency response of the cosine window:
+
+~~~spl svg=D
+51.windowTable(
+	cosineWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/cosineWindow-D.svg)
+
 * * *
 
 See also: gaussianWindow, hammingWindow, hannWindow, kaiserWindow, welchWindow

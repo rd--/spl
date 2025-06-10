@@ -200,6 +200,17 @@ Plot : [Object] { | pages format options |
 		self.typedPlot('discrete')
 	}
 
+	fftPlot { :x :n |
+		let a = x.fft(n) / (x.size / 2);
+		let response = (a / a.abs.max).fftShift.abs;
+		let scaledResponse = 20 * (response.max(1E-6)).abs.log(10);
+		scaledResponse.linePlot
+	}
+
+	fftPlot { :x |
+		x.fftPlot(x.size.nextPowerOfTwo)
+	}
+
 	graphPlot { :self |
 		self.nest.Plot('graph', (method: 'neato'))
 	}

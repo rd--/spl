@@ -294,24 +294,28 @@
 
 +@Integer {
 
-	hammingWindowTable { :self |
-		Interval(-0.5, 0.5).discretize(self, hammingWindow:/1)
+	hammingWindowTable { :n |
+		n.windowTable(hammingWindow:/1)
 	}
 
-	hannWindowTable { :self |
-		Interval(-0.5, 0.5).discretize(self, hannWindow:/1)
+	hannWindowTable { :n |
+		n.windowTable(hannWindow:/1)
 	}
 
-	kaiserWindowTable { :self :alpha |
-		Interval(-0.5, 0.5).discretize(self) { :x |
+	kaiserWindowTable { :n :alpha |
+		n.windowTable { :x |
 			x.kaiserWindow(alpha)
 		}
 	}
 
-	welchWindowTable { :self :alpha |
-		Interval(-0.5, 0.5).discretize(self) { :x |
+	welchWindowTable { :n :alpha |
+		n.windowTable { :x |
 			x.welchWindow(alpha)
 		}
+	}
+
+	windowTable { :n :f:/1 |
+		Interval(-0.5, 0.5).discretize(n, f:/1)
 	}
 
 }

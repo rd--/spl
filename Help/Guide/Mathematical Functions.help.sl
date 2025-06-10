@@ -92,6 +92,11 @@
 - `rescale`: rescale between
 - `standardize`: zero mean and unit sample variance
 
+## Differential Equations
+
+- `eulerMethod`
+- `rungeKuttaMethod`
+
 ## Distance and Similarity Measures
 
 - `Distance Functions`: Guide

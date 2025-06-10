@@ -23,6 +23,9 @@ There is a literal syntax:
 ```
 >>> 1J5
 Complex(1, 5)
+
+>>> 0J1 * 0J1
+-1J0
 ```
 
 `Complex` implements `*`, `/`, `+`, `-` and `^`:

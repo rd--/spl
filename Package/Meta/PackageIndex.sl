@@ -163,6 +163,7 @@
 	'Math-IterativeMaps'
 	'Math-MatrixFunctions'
 	'Math-NumericalFunctions'
+	'Math-Optimization'
 	'Math-Permutations'
 	'Math-Primes'
 	'Math-SignalProcessing'

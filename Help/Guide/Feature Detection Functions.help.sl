@@ -1,5 +1,11 @@
 # Feature Detection Functions
 
+Contour Detection:
+
+- `contourDetect`
+- `crossingDetect`
+- `zeroCrossingDetect`
+
 Extrema Detection:
 
 - `findPeaks`
@@ -7,8 +13,8 @@ Extrema Detection:
 - `minDetect`
 - `peakDetect`
 
-Contour Detection:
+* * *
 
-- `contourDetect`
-- `crossingDetect`
-- `zeroCrossingDetect`
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/guide/FeatureDetection.html)

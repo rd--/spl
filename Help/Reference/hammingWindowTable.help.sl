@@ -1,6 +1,6 @@
 # hammingWindowTable
 
-- _hammingWindowTable(anInteger)_
+- _hammingWindowTable(n)_
 
 Answer a `List` describing a _Hamming window_ of the indicated size.
 

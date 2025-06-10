@@ -2,7 +2,7 @@
 
 - _flatTopWindow(x)_
 
-Answer the FlatTop window function of _x_.
+Answer the flat-top window function of _x_.
 
 Evaluate numerically:
 
@@ -11,7 +11,7 @@ Evaluate numerically:
 0.606872
 ```
 
-Plot FlatTop window:
+Plot flat-top window:
 
 ~~~spl svg=A
 (-1 -- 1).functionPlot(flatTopWindow:/1)
@@ -19,7 +19,7 @@ Plot FlatTop window:
 
 ![](sw/spl/Help/Image/flatTopWindow-A.svg)
 
-Translated and dilated FlatTop window:
+Translated and dilated flat-top window:
 
 ~~~spl svg=B
 (-1 -- 3).functionPlot { :x |
@@ -29,7 +29,7 @@ Translated and dilated FlatTop window:
 
 ![](sw/spl/Help/Image/flatTopWindow-B.svg)
 
-Discrete FlatTop window of length 15:
+Discrete flat-top window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
@@ -39,6 +39,16 @@ Discrete FlatTop window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/flatTopWindow-C.svg)
+
+Frequency response of the flat-top window:
+
+~~~spl svg=D
+51.windowTable(
+	flatTopWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/flatTopWindow-D.svg)
 
 * * *
 
@@ -50,4 +60,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FlatTopWindow.html),
 _Mathworks_
-[1](https://mathworks.com/help/signal/ref/flattopwin.html)
+[1](https://mathworks.com/help/signal/ref/flattopwin.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.flattop.html)

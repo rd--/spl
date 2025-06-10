@@ -1,6 +1,6 @@
 # kroneckerProduct
 
-- _kroneckerProduct(aMatrix, anotherMatrix)_
+- _kroneckerProduct(m₁, m₂)_
 
 Answer the Kronecker product of two matrices, which is a block matrix.
 
@@ -61,7 +61,8 @@ The product of 3×3 and 3×4 matrices:
 ]
 ```
 
-Create a block diagonal matrix:
+Create an 8×8 block diagonal matrix from a 4×4 identity matrix,
+and a 2×2 block to be repeated along the diagonal:
 
 ```
 >>> 4.identityMatrix.kroneckerProduct(

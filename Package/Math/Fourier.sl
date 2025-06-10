@@ -1,5 +1,9 @@
 +List {
 
+	basicComplexFft { :self |
+		<primitive: return sc.fft(_self);>
+	}
+
 	basicInverseFft { :self |
 		<primitive: return sc.inverseFft(_self);>
 	}
@@ -52,11 +56,19 @@
 			(self.elementType = 'SmallFloat').if {
 				self.basicRealFft.deinterleaveComplexData
 			} {
-				self.error('fft: not SmallFloat elements')
+				(self.elementType = 'Complex').if {
+					self.interleaveComplexData.basicComplexFft.deinterleaveComplexData
+				} {
+					self.error('fft: not SmallFloat or Complex elements')
+				}
 			}
 		} {
 			self.error('fft: size not power of two')
 		}
+	}
+
+	fft { :x :n |
+		x.padRight([n], 0).fft
 	}
 
 	fftConvolve { :u :v |
@@ -65,6 +77,12 @@
 		let a = u.padRight([m], 0);
 		let b = v.padRight([m], 0);
 		ifft(a.fft * b.fft).first(n).real
+	}
+
+	fftShift { :self |
+		let n = self.size;
+		let m = n // 2;
+		self.copyFromTo(m + 1, n) ++ self.copyFromTo(1, m)
 	}
 
 	fourier { :self |
@@ -147,6 +165,16 @@
 			d.collect { :each:/1 |
 				each(x)
 			}.sum
+		}
+	}
+
+	fftFrequencies { :n :d |
+		n.isEven.if {
+			let m = n // 2;
+			([0 .. m - 1] ++ [0 - m .. -1]) / (d * n)
+		} {
+			let m = (n - 1) // 2;
+			([0 .. m] ++ [0 - m .. -1]) / (d * n)
 		}
 	}
 

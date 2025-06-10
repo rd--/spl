@@ -62,6 +62,16 @@ let n = 64;
 
 ![](sw/spl/Help/Image/gaussianWindow-D.svg)
 
+Frequency response of the Gaussian window:
+
+~~~spl svg=E
+51.windowTable { :x |
+	x.gaussianWindow(0.135)
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/gaussianWindow-E.svg)
+
 * * *
 
 See also: bartlettWindow, blackmanWindow, dirichletWindow, hammingWindow, hannWindow, welchWindow
@@ -73,6 +83,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianFunction.html)
 [2](https://reference.wolfram.com/language/ref/GaussianWindow.html),
 _Mathworks_
-[1](https://au.mathworks.com/help/signal/ref/gausswin.html)
+[1](https://au.mathworks.com/help/signal/ref/gausswin.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.gaussian.html)
 
 Categories: Windowing

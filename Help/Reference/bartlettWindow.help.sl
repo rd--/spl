@@ -38,6 +38,16 @@ Discrete _Bartlett window_ of length 15:
 
 ![](sw/spl/Help/Image/bartlettWindow-B.svg)
 
+Frequency response of the Bartlett window:
+
+~~~spl svg=C
+51.windowTable(
+	bartlettWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/bartlettWindow-C.svg)
+
 * * *
 
 See also: bartlettHannWindow, blackmanWindow, welchWindow

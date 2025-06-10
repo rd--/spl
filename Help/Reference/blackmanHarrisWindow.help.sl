@@ -38,6 +38,16 @@ Discrete Blackman-Harris window of length 15:
 
 ![](sw/spl/Help/Image/blackmanHarrisWindow-B.svg)
 
+Frequency response of the Blackman-Harris window:
+
+~~~spl svg=C
+51.windowTable(
+	blackmanHarrisWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/blackmanHarrisWindow-C.svg)
+
 * * *
 
 See also: blackmanWindow
@@ -50,6 +60,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BlackmanHarrisWindow.html),
 _Mathworks_
 [1](https://au.mathworks.com/help/signal/ref/blackmanharris.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.blackmanharris.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Window_function#Blackman%E2%80%93Harris_window)
 

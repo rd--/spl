@@ -799,6 +799,25 @@
 		}
 	}
 
+	differences { :self :anInteger |
+		let next = self.differences;
+		(anInteger > 1).if {
+			next.differences(anInteger - 1)
+		} {
+			next
+		}
+	}
+
+	discreteLaplacian { :y :h |
+		let a = y.differences(2);
+		let n = a.size;
+		let lhs = a[1] + (a[1] - a[2]);
+		let rhs = a[n] + (a[n] - a[n - 1]);
+		a.addFirst(lhs);
+		a.addLast(rhs);
+		a / (4 * h.squared)
+	}
+
 	do { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			aBlock(self[index])
@@ -1203,6 +1222,21 @@
 			}
 		};
 		anObject
+	}
+
+	gradient { :y :h |
+		let n = y.size;
+		(1 .. n).collect { :i |
+			(i = 1).if {
+				y[2] - y[1]
+			} {
+				(i = n).if {
+					y[i] - y[i - 1]
+				} {
+					(y[i + 1] - y[i - 1]) / 2
+				}
+			}
+		} / h
 	}
 
 	groupsDo { :self :aBlock |

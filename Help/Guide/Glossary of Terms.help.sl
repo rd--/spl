@@ -57,6 +57,11 @@ Cf: Block, Method
 A _function_ of two _arguments_, such as _+_ or _min_.
 Cf: Operator Syntax
 
+- _Binary Signal_:
+A _signal_ consisting of only two values,
+ordinarily zero and one,
+also called a boolean signal.
+
 - _Binding_:
 The value that is associated with a name,
 or the expression that associates a value with a name.

@@ -1,8 +1,8 @@
 # isEven
 
-- _isEven(aNumber)_
+- _isEven(n)_
 
-Answer `true` if _aNumber_ is an even integer, else `false`.
+Answer `true` if the number _n_ is an even integer, else `false`.
 
 Test whether integers are even:
 

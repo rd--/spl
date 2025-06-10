@@ -1,8 +1,8 @@
 # bartlettHannWindow
 
-- _bartlettHannWindow(aNumber)_
+- _bartlettHannWindow(x)_
 
-Answer the _Bartlett window_ function at _aNumber_.
+Answer the _Bartlett window_ function at _x_.
 The _Bartlett window_ is triangular.
 
 ```
@@ -30,13 +30,22 @@ Plot:
 Discrete _Bartlett window_ of length 15:
 
 ~~~spl svg=B
-(-0.5 -- 0.5).discretize(
-	15,
+15.windowTable(
 	bartlettHannWindow:/1
 ).discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bartlettHannWindow-B.svg)
+
+Frequency response of the Bartlett-Hann window:
+
+~~~spl svg=C
+51.windowTable(
+	bartlettHannWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/bartlettHannWindow-C.svg)
 
 * * *
 
@@ -47,8 +56,10 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BartlettHannWindow.html),
-_Matthworks_
+_Mathworks_
 [1](https://mathworks.com/help/signal/ref/barthannwin.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.barthann.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Window_function#Bartlett%E2%80%93Hann_window)
 

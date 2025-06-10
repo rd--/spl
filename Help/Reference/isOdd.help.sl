@@ -1,8 +1,8 @@
 # isOdd
 
-- _isOdd(aNumber)_
+- _isOdd(n)_
 
-Answer `true` if _aNumber_ is an odd integer, else `false`.
+Answer `true` if the number _n_ is an odd integer, else `false`.
 
 Test whether integers are odd:
 

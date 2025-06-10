@@ -1,10 +1,11 @@
 # differences
 
-- _differences(aList)_
+- _differences([x₁ x₂ …], n=1)_
 
-Answer the successive differences of elements in _aList_.
+Answer the successive differences of elements in a sequence.
+The size of the answer is _n_ places less that the size of the sequence.
 
-Differences of a `Range`:
+First differences of a `Range`:
 
 ```
 >>> 1:5.differences
@@ -33,6 +34,16 @@ At `List`:
 [1 2 3 -7]
 ```
 
+Second differences:
+
+```
+>>> [1 3 6 10 16 18 29].differences(2)
+[1 1 2 -4 9]
+
+>>> [1 1 2 3 5 8 13 21].differences(2)
+[1 0 1 1 2 3]
+```
+
 First differences are constant for a linear function:
 
 ```
@@ -50,14 +61,15 @@ First differences are constant for a linear function:
 Second differences are constant for a quadratic function:
 
 ```
->>> let l = 0:10.collect { :i |
+>>> let a = 0:10.collect { :i |
 >>> 	3 * (i ^ 2) + 6
 >>> };
->>> let d = l.differences;
->>> (l, d, d.differences)
+>>> let b = a.differences(1);
+>>> let c = a.differences(2);
+>>> (a, b, c)
 (
 	[6 9 18 33 54 81 114 153 198 249 306],
-	[ 3 9 15 21 27 33 39 45 51 57],
+	[3 9 15 21 27 33 39 45 51 57],
 	[6 6 6 6 6 6 6 6 6]
 )
 ```
@@ -103,8 +115,7 @@ Compute the second-order difference between the elements of a vector:
 
 ```
 >>> [0 5 15 30 50 75 105]
->>> .differences
->>> .differences
+>>> .differences(2)
 [5 5 5 5 5]
 ```
 
@@ -120,6 +131,55 @@ Compute the first-order difference between the columns of a 3×3 matrix:
 	2 2;
 	4 2;
 	2 4
+]
+```
+
+Relation to `convolve`:
+
+```
+>>> [1 .. 9].differences
+[1 1 1 1 1 1 1 1]
+
+>>> [1 -1].convolve([1 .. 9])
+[1 1 1 1 1 1 1 1 1 -9]
+```
+
+Successive differences are progressively shorter:
+
+```
+>>> 1:9.collect { :n |
+>>> 	1:10.differences(n)
+>>> }
+[
+	1 1 1 1 1 1 1 1 1;
+	0 0 0 0 0 0 0 0;
+	0 0 0 0 0 0 0;
+	0 0 0 0 0 0;
+	0 0 0 0 0;
+	0 0 0 0;
+	0 0 0;
+	0 0;
+	0
+]
+```
+
+A pattern resembling Pascal’s triangle:
+
+```
+>>> let x = [1].arrayPad([9 9], 0);
+>>> differences:/1.nestList(x, 10)
+[
+	0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0;
+	0 0 0 0 0 0 0 0 1 -1 0 0 0 0 0 0 0 0;
+	0 0 0 0 0 0 0 1 -2 1 0 0 0 0 0 0 0;
+	0 0 0 0 0 0 1 -3 3 -1 0 0 0 0 0 0;
+	0 0 0 0 0 1 -4 6 -4 1 0 0 0 0 0;
+	0 0 0 0 1 -5 10 -10 5 -1 0 0 0 0;
+	0 0 0 1 -6 15 -20 15 -6 1 0 0 0;
+	0 0 1 -7 21 -35 35 -21 7 -1 0 0;
+	0 1 -8 28 -56 70 -56 28 -8 1 0;
+	1 -9 36 -84 126 -126 84 -36 9 -1;
+	-10 45 -120 210 -252 210 -120 45 -10
 ]
 ```
 
@@ -151,7 +211,7 @@ let y = x.sin;
 
 * * *
 
-See also: -, accumulate, foldList, prefixSum, ratios
+See also: -, accumulate, discreteLaplacian, foldList, gradient, prefixSum, ratios
 
 References:
 _Mathematica_

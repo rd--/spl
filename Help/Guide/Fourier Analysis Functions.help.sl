@@ -23,8 +23,14 @@ Analysis:
 
 Plotting:
 
+- `fftPlot`
 - `periodogramPlot`
 - `spectralPlot`
+
+Utilities
+
+- `fftFrequencies`
+- `fftShift`
 
 * * *
 

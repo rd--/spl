@@ -37,6 +37,16 @@ Discrete _Blackman window_ of length 15:
 
 ![](sw/spl/Help/Image/blackmanWindow-B.svg)
 
+Frequency response of the Blackman window:
+
+~~~spl svg=C
+51.windowTable(
+	blackmanWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/blackmanWindow-C.svg)
+
 * * *
 
 See also: bartlettWindow, welchWindow
@@ -46,6 +56,8 @@ Guides: Window Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BlackmanFunction.html)
-[2](https://reference.wolfram.com/language/ref/BlackmanWindow.html)
+[2](https://reference.wolfram.com/language/ref/BlackmanWindow.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.blackman.html#scipy.signal.windows.blackman)
 
 Categories: Windowing

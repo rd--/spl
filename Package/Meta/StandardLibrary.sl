@@ -159,6 +159,7 @@
 	'IterativeMaps'
 	'MatrixFunctions'
 	'NumericalFunctions'
+	'Optimization'
 	'Permutations'
 	'Primes'
 	'SignalProcessing'
