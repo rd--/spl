@@ -1,9 +1,9 @@
 # dirichletWindow
 
-- _dirichletWindow(aNumber)_
+- _dirichletWindow(x)_
 
-Answer the _Dirichlet window_ function at _aNumber_.
-The _Dirichlet window_ is rectangular.
+Answer the Dirichlet window function at _x_.
+The Dirichlet window is rectangular.
 
 ```
 >>> 0.1.dirichletWindow
@@ -25,7 +25,7 @@ Plot:
 
 ![](sw/spl/Help/Image/dirichletWindow-A.svg)
 
-Discrete _Dirichlet window_ of length 15:
+Discrete Dirichlet window of length 15:
 
 ```
 >>> (-0.5 -- 0.5).discretize(
@@ -34,6 +34,16 @@ Discrete _Dirichlet window_ of length 15:
 >>> )
 [1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
 ```
+
+Frequency response of the Dirichlet window:
+
+~~~spl svg=B
+51.windowTable(
+	dirichletWindow:/1
+).fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/dirichletWindow-B.svg)
 
 * * *
 

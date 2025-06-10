@@ -1,8 +1,8 @@
 # welchWindow
 
-- _welchWindow(aNumber, alpha=1)_
+- _welchWindow(x, alpha=1)_
 
-Answer the _Welch_ window function at _aNumber_ given the parameter α.
+Answer the Welch window function at _x_ given the parameter α.
 
 Evaluate numerically:
 
@@ -36,7 +36,7 @@ Shape of a _Welch_ window using a specified parameter:
 
 ![](sw/spl/Help/Image/welchWindow-B.svg)
 
-Discrete _Welch_ window of length 15:
+Discrete Welch window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(
@@ -46,6 +46,16 @@ Discrete _Welch_ window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/welchWindow-C.svg)
+
+Frequency response of the Welch window:
+
+~~~spl svg=D
+51.windowTable { :x |
+	x.welchWindow
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/welchWindow-D.svg)
 
 * * *
 

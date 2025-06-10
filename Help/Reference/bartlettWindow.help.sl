@@ -1,9 +1,9 @@
 # bartlettWindow
 
-- _bartlettWindow(aNumber)_
+- _bartlettWindow(x)_
 
-Answer the _Bartlett window_ function at _aNumber_.
-The _Bartlett window_ is triangular.
+Answer the Bartlett window function at _x_.
+The Bartlett window is triangular.
 
 ```
 >>> 0.1.bartlettWindow
@@ -27,7 +27,7 @@ Plot:
 
 ![](sw/spl/Help/Image/bartlettWindow-A.svg)
 
-Discrete _Bartlett window_ of length 15:
+Discrete Bartlett window of length 15:
 
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(

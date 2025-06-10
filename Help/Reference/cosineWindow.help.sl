@@ -1,8 +1,8 @@
 # cosineWindow
 
-- _cosineWindow(aNumber, alpha=1)_
+- _cosineWindow(x, alpha=1)_
 
-Answer the _Cosine_ window function at _aNumber_ given the parameter α.
+Answer the cosine window function at _x_ given the parameter α.
 
 Evaluate numerically:
 
@@ -26,7 +26,7 @@ Plot:
 
 ![](sw/spl/Help/Image/cosineWindow-A.svg)
 
-Shape of a _Cosine_ window using a specified parameter:
+Shape of a cosine window using a specified parameter:
 
 ~~~spl svg=B
 (-1 -- 1).functionPlot { :x |
@@ -36,7 +36,7 @@ Shape of a _Cosine_ window using a specified parameter:
 
 ![](sw/spl/Help/Image/cosineWindow-B.svg)
 
-Discrete _Cosine_ window of length 15:
+Discrete cosine window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5).discretize(

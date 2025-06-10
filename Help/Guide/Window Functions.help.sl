@@ -7,9 +7,9 @@ to zero at the edges of the sampled region.
 
 - `bartlettWindow`: Bartlett
 - `bartlettHannWindow`: Bartlett-Hann
-- `blackmanNuttallWindow`: Blackman-Nuttall
 - `blackmanWindow`: Blackman
 - `blackmanHarrisWindow`: Harris
+- `blackmanNuttallWindow`: Blackman-Nuttall
 - `cosineWindow`: Cosine
 - `dirichletWindow`: Dirichlet
 - `flatTopWindow`: flat top
@@ -58,8 +58,11 @@ the Hann window is a raised cosine.
   - `hannWindow`
   - `hammingWindow`
 - Cosine-sum windows
+  - `blackmanWindow`
   - `blackmanHarrisWindow`
+  - `blackmanNuttallWindow`
   - `flatTopWindow`
+  - `nuttallWindow`
 - Adjustable windows
   - `gaussianWindow`
   - `kaiserWindow`

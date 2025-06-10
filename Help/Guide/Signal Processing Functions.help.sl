@@ -37,3 +37,7 @@
 * * *
 
 Guides: Filter Functions, Fourier Analysis Functions, Interpolation Functions, Sigmoid Functions, Trigonometric Functions, Unit Generators, Window Functions
+
+References:
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/signal.html)

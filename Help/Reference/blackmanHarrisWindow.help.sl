@@ -1,8 +1,8 @@
 # blackmanHarrisWindow
 
-- _blackmanHarrisWindow(aNumber)_
+- _blackmanHarrisWindow(x)_
 
-Answer the _Blackman-Harris window_ function at _aNumber_.
+Answer the Blackman-Harris window function at _x_.
 
 ```
 >>> 0.1.blackmanHarrisWindow

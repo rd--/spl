@@ -1,8 +1,8 @@
 # blackmanWindow
 
-- _blackmanWindow(aNumber)_
+- _blackmanWindow(x)_
 
-Answer the _Blackman window_ function at _aNumber_.
+Answer the Blackman window function at _x_.
 
 ```
 >>> 0.1.blackmanWindow
@@ -26,7 +26,7 @@ Plot:
 
 ![](sw/spl/Help/Image/blackmanWindow-A.svg)
 
-Discrete _Blackman window_ of length 15:
+Discrete Blackman window of length 15:
 
 ~~~spl svg=B
 (-0.5 -- 0.5).discretize(
@@ -49,7 +49,7 @@ Frequency response of the Blackman window:
 
 * * *
 
-See also: bartlettWindow, welchWindow
+See also: bartlettWindow, blackmanHarrisWindow, welchWindow
 
 Guides: Window Functions
 

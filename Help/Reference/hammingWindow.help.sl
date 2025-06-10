@@ -1,8 +1,8 @@
 # hammingWindow
 
-- _hammingWindow(aNumber)_
+- _hammingWindow(x)_
 
-Answer the Hamming window function at _aNumber_.
+Answer the Hamming window function at _x_.
 
 ```
 >>> 0.1.hammingWindow
@@ -36,6 +36,16 @@ Discrete Hamming window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/hammingWindow-B.svg)
+
+Frequency response of the Hamming window:
+
+~~~spl svg=C
+51.windowTable { :x |
+	x.hammingWindow
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/hammingWindow-C.svg)
 
 * * *
 

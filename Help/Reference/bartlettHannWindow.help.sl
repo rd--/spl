@@ -2,8 +2,7 @@
 
 - _bartlettHannWindow(x)_
 
-Answer the _Bartlett window_ function at _x_.
-The _Bartlett window_ is triangular.
+Answer the Bartlett-Hann window function at _x_.
 
 ```
 >>> 0.1.bartlettHannWindow
@@ -27,7 +26,7 @@ Plot:
 
 ![](sw/spl/Help/Image/bartlettHannWindow-A.svg)
 
-Discrete _Bartlett window_ of length 15:
+Discrete Bartlett-Hann window of length 15:
 
 ~~~spl svg=B
 15.windowTable(

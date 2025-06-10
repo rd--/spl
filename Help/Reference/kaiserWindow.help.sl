@@ -1,8 +1,8 @@
 # kaiserWindow
 
-- _kaiserWindow(aNumber, alpha=3)_
+- _kaiserWindow(x, alpha=3)_
 
-Answer the _Kaiser_ window function at _aNumber_.
+Answer the Kaiser window function at _x_.
 
 ```
 >>> 0.1.kaiserWindow(3)
@@ -26,7 +26,7 @@ Plot:
 
 ![](sw/spl/Help/Image/kaiserWindow-A.svg)
 
-Shape of a _Kaiser_ window using a specified parameter:
+Shape of a Kaiser window using a specified parameter:
 
 ~~~spl svg=B
 (-1 -- 1).functionPlot { :x |
@@ -50,7 +50,7 @@ let k = 23;
 
 ![](sw/spl/Help/Image/kaiserWindow-C.svg)
 
-Discrete _Kaiser_ window of length 15:
+Discrete Kaiser window of length 15:
 
 ~~~spl svg=D
 (-0.5 -- 0.5).discretize(
@@ -60,6 +60,18 @@ Discrete _Kaiser_ window of length 15:
 ~~~
 
 ![](sw/spl/Help/Image/kaiserWindow-D.svg)
+
+Frequency response of the Kaiser window with
+
+~~~spl svg=E
+51.windowTable { :x |
+	x.kaiserWindow(2.55)
+}.fftPlot(512)
+~~~
+
+14 / 1.pi
+
+![](sw/spl/Help/Image/kaiserWindow-E.svg)
 
 * * *
 
@@ -71,6 +83,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KaiserWindow.html),
 _Mathworks_
-[1](https://mathworks.com/help/signal/ref/kaiser.html)
+[1](https://mathworks.com/help/signal/ref/kaiser.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Kaiser_window)
 
 Categories: Windowing

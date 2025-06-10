@@ -2,14 +2,21 @@
 
 - _Distort(x)_
 
-Nonlinear distortion. Implements _x/(1+|x|)_.
+Nonlinear distortion.
+Implements _x/(1+|x|)_.
+
+```
+>>> Distort(0.5)
+1/3
+
+>>> 0.5 / (1 + 0.5.abs)
+1/3
+```
 
 Plot over _(-1,1)_:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :x |
-	x / (1 + x.abs)
-}
+(-1 -- 1).functionPlot(Distort:/1)
 ~~~
 
 ![](sw/spl/Help/Image/Distort-A.svg)

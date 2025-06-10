@@ -2,7 +2,7 @@
 
 - _gaussianWindow(x, σ=0.3)_
 
-Answer the _Gaussian_ window function at the number _x_.
+Answer the Gaussian window function at the number _x_.
 
 ```
 >>> 0.1.gaussianWindow(0.3)
@@ -26,7 +26,7 @@ Plot, the unary form sets σ to 0.3:
 
 ![](sw/spl/Help/Image/gaussianWindow-A.svg)
 
-Shape of a _Gaussian_ window using a specified parameter:
+Shape of a Gaussian window using a specified parameter:
 
 ~~~spl svg=B
 (-1 -- 1).functionPlot { :x |
@@ -36,7 +36,7 @@ Shape of a _Gaussian_ window using a specified parameter:
 
 ![](sw/spl/Help/Image/gaussianWindow-B.svg)
 
-Discrete _Gaussian_ window of length 15:
+Discrete Gaussian window of length 15:
 
 ~~~spl svg=C
 (-0.5 -- 0.5)

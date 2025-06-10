@@ -21,10 +21,10 @@ Calculate the discrete Laplacian of a cosine vector,
 which is analytically negated signal:
 
 ~~~spl svg=A
->>> let x = (-2.pi -- 2.pi).discretize(100);
->>> let y = x.cos;
->>> let h = x[2] - x[1];
->>> [y, y.discreteLaplacian(h) * 4].linePlot
+let x = (-2.pi -- 2.pi).discretize(100);
+let y = x.cos;
+let h = x[2] - x[1];
+[y, y.discreteLaplacian(h) * 4].linePlot
 ~~~
 
 ![](sw/spl/Help/Image/discreteLaplacian-A.svg)
