@@ -36,10 +36,24 @@ Translated and dilated Lanczos window:
 
 ![](sw/spl/Help/Image/lanczosWindow-B.svg)
 
+Frequency response of the Lanczos window:
+
+~~~spl svg=C
+51.windowTable { :x |
+	x.lanczosWindow
+}.fftPlot(512)
+~~~
+
+![](sw/spl/Help/Image/lanczosWindow-C.svg)
+
 * * *
 
 See also: bartlettWindow, hannWindow, kaiserWindow, lanczosKernel
 
+Guides: Window Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LanczosWindow.html)
+[1](https://reference.wolfram.com/language/ref/LanczosWindow.html),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.lanczos.html)

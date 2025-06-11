@@ -10,6 +10,7 @@ to zero at the edges of the sampled region.
 - `blackmanWindow`: Blackman
 - `blackmanHarrisWindow`: Harris
 - `blackmanNuttallWindow`: Blackman-Nuttall
+- `bohmanWindow`: Bohman
 - `cosineWindow`: Cosine
 - `dirichletWindow`: Dirichlet
 - `flatTopWindow`: flat top

@@ -531,6 +531,19 @@ Plot : [Object] { | pages format options |
 		self.functionPlot(100, anObject)
 	}
 
+	logLinearPlot { :self :aBlock:/1 |
+		let k = 100;
+		let [a, b] = self.minMax.log;
+		let h = (b - a) / (k - 1);
+		let x = (0 .. k - 1).collect { :i |
+			(a + (i * h)).exp
+		};
+		let y = x.collect { :each |
+			aBlock(each)
+		};
+		y.linePlot
+	}
+
 	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
 		self.subdivide(divisions).parametricPlot(xBlock:/1, yBlock:/1)
 	}

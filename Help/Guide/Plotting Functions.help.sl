@@ -19,6 +19,7 @@ Plotting Functions:
 - `histogramPlot`
 - `lagPlot`
 - `linePlot`
+- `logLinearPlot`
 - `matrixPlot`
 - `parametricPlot`
 - `periodogramPlot`

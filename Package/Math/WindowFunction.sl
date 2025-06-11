@@ -53,6 +53,18 @@
 		}
 	}
 
+	bohmanWindow { :x |
+		(x.abs > 0.5).if {
+			0
+		} {
+			let m = x.sign;
+			let a = m * (2.pi * x).sin;
+			let b = m * 2.pi * x * (2.pi * x).cos;
+			let c = 1.pi * (2.pi * x).cos;
+			(a - b + c) / 1.pi
+		}
+	}
+
 	cosineWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
@@ -269,6 +281,10 @@
 
 	blackmanNuttallWindow { :self |
 		self.collect(blackmanNuttallWindow:/1)
+	}
+
+	bohmanWindow { :self |
+		self.collect(bohmanWindow:/1)
 	}
 
 	cosineWindow { :self :alpha |

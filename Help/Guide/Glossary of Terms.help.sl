@@ -1,5 +1,9 @@
 # Glossary of Terms
 
+- _Abscissa_:
+The first, or _x_, coordinate of a point in a Cartesian coordinate system.
+Cf: Ordinate
+
 - _Adverb_:
 An adverb is a _block_ that modifies the behaviour of another block.
 Cf: Operator Adverbs
@@ -273,6 +277,10 @@ also called an _argument_ or a _parameter_.
 - _Operator_:
 A _behaviour_ that is named using a distinct lexical rule so that it may be written _infix_.
 Cf: Operator Syntax
+
+- _Ordinate_:
+The second, or _y_, coordinate of a point in a Cartesian coordinate system.
+Cf: Abscissa
 
 - _Parsing_:
 The process of analyzing a string of symbols as a sentence according to a formal grammar.

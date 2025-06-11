@@ -51,7 +51,7 @@
 +@Number {
 
 	centsToRatio { :self |
-		2 ^ ((self / 100) * (1 / 12))
+		2 ^ (self / 1200)
 	}
 
 	ratioToCents { :self |

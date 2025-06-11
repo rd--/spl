@@ -34,6 +34,11 @@
 - `squareWave`
 - `triangleWave`
 
+## Weighting Curve Functions
+
+- `aWeightingCurve`
+- `bWeightingCurve`
+
 * * *
 
 Guides: Filter Functions, Fourier Analysis Functions, Interpolation Functions, Sigmoid Functions, Trigonometric Functions, Unit Generators, Window Functions
