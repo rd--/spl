@@ -59,7 +59,7 @@ Frequency response of the Tukey window at α=1/2:
 ~~~spl svg=D
 51.windowTable { :x |
 	x.tukeyWindow(1 / 2)
-}.fftPlot(512)
+}.fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/tukeyWindow-D.svg)

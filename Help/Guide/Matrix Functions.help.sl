@@ -27,6 +27,7 @@ Accessing:
 
 Rearranging:
 
+- `flipLeftRight`
 - `squareForm`
 - `swapColumns`
 - `swapRows`
@@ -113,6 +114,10 @@ Geometry:
 - `reflectionMatrix`: reflection matrix
 - `rotationMatrix`: rotation matrix
 - `scalingMatrix`: scaling matrix
+
+Linear Systems:
+
+- `leastSquares`
 
 Tuning:
 

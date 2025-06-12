@@ -45,7 +45,7 @@ Frequency response of the flat-top window:
 ~~~spl svg=D
 51.windowTable(
 	flatTopWindow:/1
-).fftPlot(512)
+).fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/flatTopWindow-D.svg)

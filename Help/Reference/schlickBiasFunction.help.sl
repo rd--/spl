@@ -2,7 +2,7 @@
 
 - _schlickBiasFunction(b)_
 
-Answer Schlick’s bias function for modeling smooth and monotonic curve-shaped over _(0, 1)_.
+Answer Schlick’s bias function for modelling a smooth and monotonic curve-shaped over _(0, 1)_.
 
 Plot with various bias parameters:
 

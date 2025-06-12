@@ -66,7 +66,7 @@ Frequency response of the Kaiser window with
 ~~~spl svg=E
 51.windowTable { :x |
 	x.kaiserWindow(2.55)
-}.fftPlot(512)
+}.fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
 
 14 / 1.pi

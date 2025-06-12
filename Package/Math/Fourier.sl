@@ -82,6 +82,9 @@
 	fftShift { :self |
 		let n = self.size;
 		let m = n // 2;
+		n.isOdd.ifTrue {
+			m := m + 1
+		};
 		self.copyFromTo(m + 1, n) ++ self.copyFromTo(1, m)
 	}
 

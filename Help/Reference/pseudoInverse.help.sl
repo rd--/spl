@@ -1,8 +1,8 @@
 # pseudoInverse
 
-- _pseudoInverse(aMatrix)_
+- _pseudoInverse(m)_
 
-Answer the pseudoinverse of a rectangular matrix,
+Answer the pseudoinverse of the rectangular matrix _m_,
 calculated in terms of the `singularValueDecomposition`.
 
 Find the pseudoinverse of an invertible 2×2 integer matrix:

@@ -1,5 +1,9 @@
 +[SmallFloat, Fraction] {
 
+	cosineWave { :x |
+		(x * 2.pi).cos
+	}
+
 	sawtoothWave { :x |
 		x % 1
 	}
@@ -29,6 +33,10 @@
 }
 
 +[List, Range] {
+
+	cosineWave { :self |
+		self.collect(cosineWave:/1)
+	}
 
 	sawtoothWave { :self |
 		self.collect(sawtoothWave:/1)

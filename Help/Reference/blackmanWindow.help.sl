@@ -42,7 +42,7 @@ Frequency response of the Blackman window:
 ~~~spl svg=C
 51.windowTable(
 	blackmanWindow:/1
-).fftPlot(512)
+).fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/blackmanWindow-C.svg)

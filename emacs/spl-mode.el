@@ -316,7 +316,10 @@ If the string begins with a doctest, also delete all non doctest lines."
      (":/3" . ?₃) ; U+2083 ₃ Subscript Three
      (":/4" . ?₄) ; U+2084 ₄ Subscript Four
      (":/5" . ?₅) ; U+2085 ₅ Subscript Five
-     (":/6" . ?₆) ; U+02086 ₆ Subscript Six
+     (":/6" . ?₆) ; U+2086 ₆ Subscript Six
+     (":/7" . ?₇) ; U+2087 ₇ Subscript Seven
+     (":/8" . ?₈) ; U+2088 ₈ Subscript Eight
+     (":/9" . ?₉) ; U+2089 ₉ Subscript Nine
      ("::" . ?·) ; U+00B7 · Middle Dot ; ∷
      (":=" . ?←) ; U+2190 ← Leftwards Arrow (U+2254 ≔ Colon Equals)
      (":?" . ?⍰) ; U+2370 ⍰ Apl Functional Symbol Quad Question ; U+291D ⤝ Leftwards arrow to black diamond

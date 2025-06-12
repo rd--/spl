@@ -1,6 +1,6 @@
 # hilbertMatrix
 
-- _hilbertMatrix(m,n)_
+- _hilbertMatrix(m, n)_
 
 Answer the _m×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
 

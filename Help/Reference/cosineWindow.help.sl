@@ -52,7 +52,7 @@ Frequency response of the cosine window:
 ~~~spl svg=D
 51.windowTable(
 	cosineWindow:/1
-).fftPlot(512)
+).fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/cosineWindow-D.svg)

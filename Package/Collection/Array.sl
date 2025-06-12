@@ -117,6 +117,18 @@
 		self.dimensions(Infinity)
 	}
 
+	flipLeftRight { :self |
+		self.isVector.if {
+			self.reversed
+		} {
+			self.isMatrix.if {
+				self.collect(reversed:/1)
+			} {
+				self.collect(flipLeftRight:/1)
+			}
+		}
+	}
+
 	impliedShape { :self |
 		self.isVector.if {
 			self

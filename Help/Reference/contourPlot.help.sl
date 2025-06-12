@@ -1,8 +1,8 @@
 # contourPlot
 
-- _contourPlot(f:/2, x, y, z)_
+- _contourPlot(f₂, x, y, z)_
 
-Answer a contour plot of _f_ as a function of _x_ and _y_ at values in _z_.
+Answer a contour plot of _f₂_ as a function of _x_ and _y_ at values in _z_.
 
 A contour plot of a sparsely sampled trigonometric function at one _z_ value:
 

@@ -65,10 +65,26 @@ let x = p.collect { :x |
 };
 let r = Sfc32(378614);
 let y = r.randomReal([-1 1], [n]);
-((x + y).fft.take(m) / n).abs.linePlot
+((x + y).fft.first(m) / n).abs.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/fft-B.svg)
+
+Plot 1/8 spectrum of five octaves of sine tones at increasing amplitudes:
+
+~~~spl svg=C
+let n = 512;
+let m = n // 8;
+let x = (0 -- 0.5).discretize(n);
+let y = x.collect { :t |
+	(1 .. 5).collect { :n |
+		n * (n * 10 * 2.pi * t).cos
+	}.sum
+};
+(y.fft.first(m) / n).abs.discretePlot
+~~~
+
+![](sw/spl/Help/Image/fft-C.svg)
 
 * * *
 

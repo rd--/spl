@@ -13,6 +13,22 @@ If _k_ is omitted it is set to _n_.
 	1 2 4 8;
 	1 4 16 64
 ]
+
+>>> [-1 2 3].vandermondeMatrix(5 + 1)
+[
+	1 -1 1 -1 1 -1;
+	1 2 4 8 16 32;
+	1 3 9 27 81 243
+]
+
+>>> [1, 1.5 .. 3].vandermondeMatrix
+[
+	1 1 1 1 1;
+	1 1.5 2.25 3.375 5.0625;
+	1 2 4 8 16;
+	1 2.5 6.25 15.625 39.0625;
+	1 3 9 27 81
+]
 ```
 
 A rectangular Vandermonde matrix:
@@ -72,3 +88,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/VandermondeMatrix.html)
 [2](https://reference.wolfram.com/language/ref/VandermondeMatrix.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/vander.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.polyvander.html)

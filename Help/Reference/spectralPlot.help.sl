@@ -1,8 +1,8 @@
 # spectralPlot
 
-- _spectralPlot(x)_
+- _spectralPlot(y)_
 
-Answer a plot of a smoothed Fourier transform of _x_.
+Answer a plot of a smoothed Fourier transform of the list _y_.
 
 Plot data showing one dominant frequency:
 

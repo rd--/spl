@@ -2,7 +2,7 @@
 
 - _schlickGainFunction(b)_
 
-Answer Schlick’s gain function for modeling smooth and monotonic curve-shaped over _(0, 1)_.
+Answer Schlick’s gain function for modelling a smooth and monotonic curve-shaped over _(0, 1)_.
 
 Plot with various gain parameters:
 
@@ -15,6 +15,15 @@ Plot with various gain parameters:
 ~~~
 
 ![](sw/spl/Help/Image/schlickGainFunction-A.svg)
+
+Can be evaluated symbolically:
+
+```
+>>> `b`.schlickGainFunction
+>>> .value(`x`)
+>>> .typeOf
+'SymbolicExpression'
+```
 
 * * *
 

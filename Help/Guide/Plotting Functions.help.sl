@@ -28,6 +28,7 @@ Plotting Functions:
 - `reliefPlot`
 - `runSequencePlot`
 - `scatterPlot`
+- `signalPlot`
 - `soundPlot`
 - `spectralPlot`
 - `stackedListPlot`

@@ -2,7 +2,7 @@
 
 - _leastSquares(m, b)_
 
-Answer a value _x_ that solves the linear least-squares problem for the matrix equation _m.x = b_.
+Answer a value _x_ that solves the linear least-squares problem for the matrix equation _m.x=b_.
 
 Solve a simple least-squares problem:
 
@@ -92,7 +92,9 @@ Solve for data set giving average heights and weights:
 
 * * *
 
-See also: dot, inverse, qrDecomposition
+See also: dot, inverse, pseudoInverse, qrDecomposition, singularValueDecomposition
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

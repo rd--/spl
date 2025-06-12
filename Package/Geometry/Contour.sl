@@ -1,6 +1,6 @@
 +List {
 
-	bourkeContourAlgorithm { :d :x :y :z :drawContour |
+	bourkeContourAlgorithm { :d :x :y :z :drawContour:/6 |
 		let [m, n] = d.shape;
 		{ x.size = m }.assert;
 		{ y.size = n }.assert;
@@ -14,7 +14,7 @@
 			x.asList,
 			y.asList,
 			z.size, z.asList,
-			drawContour
+			drawContour:/6
 		)
 	}
 

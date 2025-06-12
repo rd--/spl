@@ -1,8 +1,8 @@
 # periodogramPlot
 
-- _periodogramPlot(l)_
+- _periodogramPlot(y)_
 
-Plot the squared magnitude of the discrete Fourier transform (power spectrum) of the list _l_.
+Plot the squared magnitude of the discrete Fourier transform (power spectrum) of the list _y_.
 
 Power spectrum of a noisy dataset:
 
@@ -19,7 +19,7 @@ let s = 0:127.collect { :n |
 
 * * *
 
-See also: dirichletWindow, fft, periodogramArray
+See also: dirichletWindow, fft, fftPlot, periodogramArray, spectralPlot
 
 Guides: Fourier Analysis Functions, Plotting Functions
 

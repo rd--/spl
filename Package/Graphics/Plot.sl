@@ -200,11 +200,19 @@ Plot : [Object] { | pages format options |
 		self.typedPlot('discrete')
 	}
 
-	fftPlot { :x :n |
+	fftPlot { :x :n :m :s |
 		let a = x.fft(n) / (x.size / 2);
-		let response = (a / a.abs.max).fftShift.abs;
-		let scaledResponse = 20 * (response.max(1E-6)).abs.log(10);
-		scaledResponse.linePlot
+		let b = (a / a.abs.max).abs;
+		let c = m.caseOf([
+			'Half' -> { b.first(n // 2) },
+			'Centred' -> { b.fftShift }
+		]);
+		let d = c.max(1E-6).abs;
+		let e = s.caseOf([
+			'Linear' -> { d },
+			'Logarithmic' -> { 20 * d.log(10) }
+		]);
+		e.linePlot
 	}
 
 	fftPlot { :x |
@@ -325,6 +333,24 @@ Plot : [Object] { | pages format options |
 
 	scatterPlot { :self |
 		self.typedSwitchingPlot('scatter')
+	}
+
+	signalPlot { :y :i |
+		let [a, b] = i.minMax;
+		let c = b - a;
+		y.isVector.if {
+			y.linePlot
+		} {
+			let n = y.size;
+			let z = 1.15;
+			y.withIndexCollect { :each :i |
+				each + ((n - i) * c * z)
+			}.linePlot
+		}
+	}
+
+	signalPlot { :y |
+		y.signalPlot(-1 -- 1)
 	}
 
 	spectralPlot { :self |

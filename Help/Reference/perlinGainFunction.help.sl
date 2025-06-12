@@ -2,7 +2,7 @@
 
 - _perlinGainFunction(b)_
 
-Answer Perlin’s gain function for modeling smooth and monotonic curve-shaped over _(0, 1)_.
+Answer Perlin’s gain function for modelling a smooth and monotonic curve-shaped over _(0, 1)_.
 
 Plot with various gain parameters:
 

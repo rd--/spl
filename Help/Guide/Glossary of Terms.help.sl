@@ -2,7 +2,7 @@
 
 - _Abscissa_:
 The first, or _x_, coordinate of a point in a Cartesian coordinate system.
-Cf: Ordinate
+[[1](https://en.wikipedia.org/wiki/Abscissa)]
 
 - _Adverb_:
 An adverb is a _block_ that modifies the behaviour of another block.
@@ -12,17 +12,24 @@ Cf: Operator Adverbs
 The value produced by executing a _program_,
 also called the _result_.
 
+- _Arbitrary unit_:
+A unit of measurement relative to a predetermined reference measurement.
+Abbreviated as _arb. unit_ or _p.d.u._
+[[1](https://en.wikipedia.org/wiki/Arbitrary_unit)]
+
 - _Argument_:
 A value that is supplied to a _block_ when it is evaluated,
 also called a _parameter_ or an _input_.
 
 - _Arithmetic Progression_:
 A sequence of numbers such that the difference from each item to the preceding item is constant.
+[[1](https://en.wikipedia.org/wiki/Arithmetic_progression)]
 Cf: ArithmeticProgression
 
 - _Arity_:
 The number of arguments a _behaviour_ can accept,
 also called _valence_.
+[[1](https://en.wikipedia.org/wiki/Arity)]
 Cf: numArgs
 
 - _Array_:
@@ -280,7 +287,7 @@ Cf: Operator Syntax
 
 - _Ordinate_:
 The second, or _y_, coordinate of a point in a Cartesian coordinate system.
-Cf: Abscissa
+[[1](https://en.wikipedia.org/wiki/Ordinate)]
 
 - _Parsing_:
 The process of analyzing a string of symbols as a sentence according to a formal grammar.
