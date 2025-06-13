@@ -19,7 +19,7 @@ Plot a stacked list of  values:
 
 * * *
 
-See also: linePlot
+See also: linePlot, signalPlot
 
 Guides: Plotting Functions
 

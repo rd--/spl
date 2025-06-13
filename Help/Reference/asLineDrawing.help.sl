@@ -75,6 +75,16 @@ At `Graph`:
 
 ![](sw/spl/Help/Image/asLineDrawing-H.svg)
 
+Draw the cochleoid curve:
+
+~~~spl svg=I
+(-4.pi -- 4.pi).discretize(200) { :theta |
+	[theta.sin / theta, theta].fromPolarCoordinates
+}.Line.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/asLineDrawing-I.svg)
+
 * * *
 
 See also: asPerspectiveDrawing, Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle

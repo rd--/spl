@@ -437,17 +437,6 @@
 		}
 	}
 
-	hypotrochoid { :a :b :h |
-		let c = a - b;
-		let d = c / b;
-		{ :t |
-			[
-				(c * t.cos) + (h * (t * d).cos),
-				(c * t.sin) - (h * (t * d).sin)
-			]
-		}
-	}
-
 	imaginary { :self |
 		self.zero
 	}

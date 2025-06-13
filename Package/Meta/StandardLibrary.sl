@@ -160,6 +160,7 @@
 	'MatrixFunctions'
 	'NumericalFunctions'
 	'Optimization'
+	'ParametricEquations'
 	'Permutations'
 	'Primes'
 	'SignalProcessing'

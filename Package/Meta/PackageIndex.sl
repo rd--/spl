@@ -164,6 +164,7 @@
 	'Math-MatrixFunctions'
 	'Math-NumericalFunctions'
 	'Math-Optimization'
+	'Math-ParametricEquations'
 	'Math-Permutations'
 	'Math-Primes'
 	'Math-SignalProcessing'

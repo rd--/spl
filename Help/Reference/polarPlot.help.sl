@@ -90,6 +90,19 @@ let r = k.nthPrime;
 
 ![](sw/spl/Help/Image/polarPlot-H.svg)
 
+Plot the butterfly curve:
+
+~~~spl svg=I
+(0 -- 12.pi).polarPlot(500) { :theta |
+	let a = theta.sin.exp;
+	let b = 2 * (4 * theta).cos;
+	let c = (1/24 * (2 * theta - 1.pi)).sin ^ 5;
+	a - b + c
+}
+~~~
+
+![](sw/spl/Help/Image/polarPlot-I.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

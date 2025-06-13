@@ -58,6 +58,8 @@ Another hypocycloid, with non-integer _a_:
 
 * * *
 
+See also: butterflyCurve, lissajousCurve
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Hypotrochoid.html)
