@@ -58,7 +58,9 @@ Another hypocycloid, with non-integer _a_:
 
 * * *
 
-See also: butterflyCurve, lissajousCurve
+See also: botanicCurve, butterflyCurve, epitrochoid, lissajousCurve
+
+Guides: Algebraic Curve Functions
 
 References:
 _Mathematica_

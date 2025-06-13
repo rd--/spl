@@ -1,8 +1,8 @@
 # real
 
-- _real(aNumber)_
+- _real(n)_
 
-Answer the real part of _aNumber_.
+Answer the real part of the number _n_.
 
 At `Complex`:
 

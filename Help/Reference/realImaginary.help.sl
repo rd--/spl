@@ -1,8 +1,8 @@
 # realImaginary
 
-- _realImaginary(aNumber)_
+- _realImaginary(n)_
 
-Answer the real and imaginary part of _aNumber_.
+Answer the `real` and `imaginary` parts of the number _n_.
 
 At `Complex`:
 

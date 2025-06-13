@@ -186,18 +186,3 @@ UnitCircle : [Object] {
 	}
 
 }
-
-+SmallFloat {
-
-	epitrochoid { :b :a :h |
-		{ :theta |
-			let p = a + b;
-			let q = p / b;
-			[
-				(p * theta.cos) - (h * (q * theta).cos),
-				(p * theta.sin) - (h * (q * theta).sin)
-			]
-		}
-	}
-
-}

@@ -4,10 +4,14 @@ Superellipse : [Object] { | center a b n |
 		4 * self.a * self.b * (((1 + (1 / self.n)).gamma ^ 2) / (1 + (2 / self.n)).gamma)
 	}
 
-	atAll { :self :tList |
-		tList.collect(
+	at { :self :theta |
+		superellipseFunction(self.a, self.b, self.n).value(theta) + self.center
+	}
+
+	atAll { :self :theta |
+		theta.collect(
 			superellipseFunction(self.a, self.b, self.n)
-		) +.each self.center
+		) + [self.center]
 	}
 
 }

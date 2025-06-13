@@ -2,7 +2,8 @@
 
 - _epitrochoid(b, a, h)_
 
-The roulette traced by a point _P_ attached to a circle _C_ of radius _b_ rolling around the outside of a fixed circle of radius _a_.
+The roulette traced by a point _P_ attached to a circle _C_ of radius _b_,
+rolling around the outside of a fixed circle of radius _a_.
 _h_ is the distance from _P_ to the center of the circle _C_.
 
 ~~~spl svg=A
@@ -25,7 +26,9 @@ With five cusps and _P_ outside of _C_:
 
 * * *
 
-See also: Circle, cos, sin
+See also: Circle, cos, hypotrochoid, sin
+
+Guides: Algebraic Curve Functions
 
 References:
 _Mathematica_

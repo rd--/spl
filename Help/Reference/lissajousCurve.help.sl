@@ -85,7 +85,9 @@ Evaluate symbolically:
 
 * * *
 
-See also: butterflyCurve, hypotrochoid, sin
+See also: botanicCurve, butterflyCurve, hypotrochoid, sin
+
+Guides: Algebraic Curve Functions
 
 References:
 _Mathematica_

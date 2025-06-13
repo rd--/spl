@@ -1,8 +1,8 @@
 # imaginary
 
-- _imaginary(aNumber)_
+- _imaginary(n)_
 
-Answer the imaginary part of _aNumber_.
+Answer the imaginary part of the number _n_.
 
 At `Complex`:
 

@@ -59,3 +59,9 @@ A squircle:
 * * *
 
 See also: Superellipse, superformulaFunction
+
+Guides: Algebraic Curve Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Superellipse)
