@@ -29,4 +29,10 @@ Threads over lists:
 
 See also: Circle, LineDrawing, unitSquare
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/UnitCircle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Unit_circle)
+
 Categories: Geometry

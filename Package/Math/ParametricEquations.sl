@@ -36,6 +36,13 @@
 		}
 	}
 
+	foliumOfDescartes { :a |
+		{ :theta |
+			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cubed + theta.cos.cubed);
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	hippopede { :a :b |
 		{ :theta |
 			let r = 2 * (a - (b * (theta.sin ^ 2))).sqrt.real;
@@ -59,6 +66,22 @@
 			let x = ((a * t) + delta).sin;
 			let y = (b * t).sin;
 			[x, y]
+		}
+	}
+
+	serpentineCurve { :a :b |
+		{ :theta |
+			[
+				a * theta.cotangent,
+				b * theta.sin * theta.cos
+			]
+		}
+	}
+
+	trisectrixOfMaclaurin { :a |
+		{ :theta |
+			let r = (a / 2) * ((4 * theta.cos) - theta.secant);
+			[r, theta].fromPolarCoordinates
 		}
 	}
 

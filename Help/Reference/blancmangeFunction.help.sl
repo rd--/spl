@@ -1,6 +1,6 @@
 # blancmangeFunction
 
-- _blancmangeFunction(anInteger)_
+- _blancmangeFunction(n)_
 
 The Blancmange function, also called the Takagi fractal curve,
 is a pathological continuous function which is nowhere differentiable.
@@ -25,6 +25,24 @@ Plot ninth iteration:
 ~~~
 
 ![](sw/spl/Help/Image/blancmangeFunction-A.svg)
+
+Plot functional form:
+
+~~~spl svg=B
+let k = 9;
+(0 -- 0.5).functionPlot { :x |
+	let y = (1 .. k).collect { :n |
+		let s = { :a |
+			(a.rounded - a).abs
+		};
+		let m = 2 ^ n;
+		s(m * x) / m
+	}.sum;
+	[x, y]
+}
+~~~
+
+![](sw/spl/Help/Image/blancmangeFunction-B.svg)
 
 * * *
 

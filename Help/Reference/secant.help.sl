@@ -1,8 +1,8 @@
 # secant
 
-- _secant(aNumber)_
+- _secant(x)_
 
-Answer the secant of _aNumber_.
+Answer the secant of the number _x_.
 
 Equal to the reciprocal of `cos`:
 

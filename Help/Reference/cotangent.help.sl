@@ -4,17 +4,23 @@
 
 Answer the cotangent of _z_.
 
-The argument of _cotangent_ is assumed to be in radians:
+The argument of `cotangent` is assumed to be in radians:
 
 ```
 >>> 1/3.pi.cotangent
 1 / 3.sqrt
+
+>>> 0.cotangent
+Infinity
+
+>>> [-2.pi -1.pi 0 1.pi].cotangent.abs > 1E15
+true
 ```
 
 Relation to `tan`:
 
 ```
->>> let z = 1/2.pi;
+>>> let z = 1/7.pi;
 >>> 1 / z.tan
 z.cotangent
 ```
@@ -22,10 +28,17 @@ z.cotangent
 Relation to `cos` and `sin`:
 
 ```
->>> let z = 1/2.pi;
+>>> let z = 1/7.pi;
 >>> z.cos / z.sin
 z.cotangent
 ```
+
+Relation to `cosecant`:
+
+```
+>>> let z = 1/7.pi;
+>>> 1 + z.cotangent.squared
+z.cosecant.squared
 
 Plot over a subset of the reals:
 

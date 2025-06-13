@@ -4,11 +4,14 @@
 - `butterflyCurve`
 - `cochleoid`
 - `epitrochoid`
+- `foliumOfDescartes`
 - `hippopede`
 - `hypotrochoid`
 - `lissajousCurve`
+- `serpentineCurve`
 - `superellipseFunction`
 - `superformulaFunction`
+- `trisectrixOfMaclaurin`
 
 * * *
 

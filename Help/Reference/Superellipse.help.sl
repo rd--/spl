@@ -14,12 +14,11 @@ _a_, _b_ and _n_ are parameters that allow for various shapes between a rectangl
 3.70815
 ```
 
-Implements `at` and `atAll` to evaluate `superellipseFunction`:
+Implements `atAll` and `discretize` to evaluate `superellipseFunction`:
 
 ~~~spl svg=A
-let theta = (0 -- 2.pi).subdivide(100);
 Superellipse([0 0], 1, 1, 0.5)
-.atAll(theta)
+.discretize(99)
 .Line
 .asLineDrawing
 ~~~

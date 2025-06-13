@@ -14,6 +14,12 @@ Superellipse : [Object] { | center a b n |
 		) + [self.center]
 	}
 
+	discretize { :self :anInteger |
+		self.atAll(
+			(0 -- 2.pi).subdivide(anInteger)
+		)
+	}
+
 }
 
 +List {
