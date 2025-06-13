@@ -4,7 +4,7 @@
 
 A superellipse,
 also known as a Lamé curve,
-is a closed curve resembling defined by an equation that allows for various shapes between a rectangle and an ellipse.
+is a closed curve defined by an equation that allows for various shapes between a rectangle and an ellipse.
 
 A four-armed star with concave sides:
 

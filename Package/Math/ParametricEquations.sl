@@ -14,6 +14,17 @@
 		[t.sin, t.cos] * (a - b - c)
 	}
 
+	cochleoid { :a |
+		{ :theta |
+			(theta = 0).if {
+				[1, 0]
+			} {
+				let r = (a * theta.sin) / theta;
+				[r, theta].fromPolarCoordinates
+			}
+		}
+	}
+
 	epitrochoid { :b :a :h |
 		{ :theta |
 			let p = a + b;

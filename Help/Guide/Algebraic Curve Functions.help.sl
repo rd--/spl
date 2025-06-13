@@ -2,6 +2,7 @@
 
 - `botanicCurve`
 - `butterflyCurve`
+- `cochleoid`
 - `epitrochoid`
 - `hippopede`
 - `hypotrochoid`
