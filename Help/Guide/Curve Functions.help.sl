@@ -5,6 +5,7 @@ Algebraic Curve Functions:
 - `botanicCurve`
 - `butterflyCurve`
 - `catenaryCurve`
+- `cleliaCurve`
 - `cochleoid`
 - `epicycloid`
 - `epitrochoid`

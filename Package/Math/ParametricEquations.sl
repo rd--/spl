@@ -23,6 +23,16 @@
 		}
 	}
 
+	cleliaCurve { :r :c |
+		{ :theta |
+			[
+				r * theta.cos * (c * theta).cos,
+				r * theta.cos * (c * theta).sin,
+				r * theta.sin
+			]
+		}
+	}
+
 	cochleoid { :a |
 		{ :theta |
 			(theta = 0).if {
