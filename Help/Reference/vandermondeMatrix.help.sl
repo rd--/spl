@@ -29,6 +29,15 @@ If _k_ is omitted it is set to _n_.
 	1 2.5 6.25 15.625 39.0625;
 	1 3 9 27 81
 ]
+
+>>> [1 .. 5].vandermondeMatrix
+[
+	1   1   1   1   1;
+	1   2   4   8  16;
+	1   3   9  27  81;
+	1   4  16  64 256;
+	1   5  25 125 625
+]
 ```
 
 A rectangular Vandermonde matrix:

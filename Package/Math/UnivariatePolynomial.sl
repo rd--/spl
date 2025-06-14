@@ -150,4 +150,20 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		};
 		UnivariatePolynomial(c.reverse)
 	}
+
+	quadraticEquationRoots { :a :b :c |
+		let d = sqrt((b ^ 2) - (4 * a * c));
+		(0 < b).if {
+			[
+				(2 * c) / (0 - b - d),
+				(0 - b - d) / (2 * a)
+			]
+		} {
+			[
+				(0 - b + d) / (2 * a),
+				(2 * c) / (0 - b + d)
+			]
+		}
+	}
+
 }

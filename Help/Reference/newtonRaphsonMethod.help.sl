@@ -43,6 +43,8 @@ Find a non-zero solution of _x = 2 × sin(x)_:
 
 * * *
 
+See also: regulaFalsiMethod, secantMethod
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NewtonsMethod.html),

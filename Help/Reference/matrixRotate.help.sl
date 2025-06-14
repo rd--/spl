@@ -1,8 +1,8 @@
 # matrixRotate
 
-- _matrixRotate(aMatrix, k)_
+- _matrixRotate(m, k)_
 
-Rotate _aMatrix_ counter-clockwise by 90° _k_ times.
+Rotate the matrix _m_ counter-clockwise by 90° _k_ times.
 
 The three rotations of a 3×3 matrix:
 

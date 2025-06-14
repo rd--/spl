@@ -1,8 +1,9 @@
 # eigenvalues
 
-- _eigenvalues(aMatrix)_
+- _eigenvalues(m)_
 
-Answer a `List` of the eigenvalues of _aMatrix_, which must be square.
+Answer a `List` of the eigenvalues of the matrix _m_,
+which must be square.
 
 Eigenvalues of two 2×2 integer matrices:
 
@@ -14,7 +15,7 @@ Eigenvalues of two 2×2 integer matrices:
 [5 -4]
 ```
 
-Eigenvalues of two 3×3 integer matrices:
+Eigenvalues of 3×3 integer matrices:
 
 ```
 >>> [9 -7 3; 12 -10 3; 16 -16 1].eigenvalues
@@ -29,19 +30,43 @@ Eigenvalues of two 3×3 integer matrices:
 
 >>> [2 1 2; 2 3 3; 4 5 4].eigenvalues
 [8.8092 0.9262 -0.7354]
+
+>>> [1 -1 0; 0 1 1; 0 0 1].eigenvalues
+[1 1 1]
+
+>>> [-2 -4 2; -2 1 2; 4 2 5].eigenvalues
+[6 -5 3]
+
+>>> [1 -1 0; 0 1 -1; 0 0 1].eigenvalues
+[1 1 1]
+
+>>> [2 0 0; 0 -1 0; 0 0 -1].eigenvalues
+[2 -1 -1]
+
+>>> [2 0 0; 0 3 4; 0 4 9].eigenvalues
+[2 11 1]
+
+>>> [0 7 -6; 1 0 0; 0 1 0].eigenvalues
+[-3 2 1]
 ```
 
-Eigenvalues of a 3×3 real matrix:
+Eigenvalues of 3×3 real matrices:
 
 ```
->>> [1.1 2.2 3.25; 0.76 4.6 5; 0.1 0.1 6.1].eigenvalues
+>>> [1.1 2.2 3.25; 0.76 4.6 5; 0.1 0.1 6.1]
+>>> .eigenvalues
 [6.60674 4.52536 0.66790]
+
+>>> let r = 1 / 2.sqrt;
+>>> [1 0 0; 0 r r.negated; 0 r r].eigenvalues
+[1 r r]
 ```
 
 Eigenvalues of a 4×4 integer matrix:
 
 ```
->>> [-6 4 0 9; -3 0 1 6; -1 -2 1 0; -4 4 0 7].eigenvalues
+>>> [-6 4 0 9; -3 0 1 6; -1 -2 1 0; -4 4 0 7]
+>>> .eigenvalues
 [5 -2 -2 1]
 ```
 

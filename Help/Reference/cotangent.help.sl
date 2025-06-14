@@ -13,7 +13,11 @@ The argument of `cotangent` is assumed to be in radians:
 >>> 0.cotangent
 Infinity
 
->>> [-2.pi -1.pi 0 1.pi].cotangent.abs > 1E15
+>>> [-2.pi -1.pi 0 1.pi]
+>>> .cotangent
+>>> .allSatisfy { :x |
+>>> 	x.abs > 1E15
+>>> }
 true
 ```
 
