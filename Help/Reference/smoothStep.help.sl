@@ -43,12 +43,12 @@ SmoothStep function:
 
 ![](sw/spl/Help/Image/smoothStep-A.svg)
 
-SmoothStep and smootherstep functions:
+The `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot([
 	smoothStep:/1,
-	smootherstep:/1
+	smootherStep:/1
 ])
 ~~~
 
@@ -76,11 +76,11 @@ SmoothStep and inverse smoothStep functions:
 
 ![](sw/spl/Help/Image/smoothStep-D.svg)
 
-`smootherstep` is `smoothStepFunction` of two:
+`smootherStep` is `smoothStepFunction` of two:
 
 ~~~spl svg=E
 (0 -- 1).functionPlot([
-	smootherstep:/1,
+	smootherStep:/1,
 	smoothStepFunction(2)
 ])
 ~~~

@@ -18,7 +18,7 @@ Plot with _a=1,b=0.75_:
 
 Plot with varying _a_:
 
-~~~spl svg=A
+~~~spl svg=B
 (0 -- 2.pi).functionPlot(
 	[0.5 1 1.5 2].collect { :a |
 		hippopede(a, 1)
@@ -51,4 +51,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Hippopede.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hippopede)
-

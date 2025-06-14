@@ -39,7 +39,7 @@ Plot `smoothStep` and `smootherStep` functions:
 
 ~~~spl svg=B
 (0 -- 1).functionPlot([
-	smoothstep:/1,
+	smoothStep:/1,
 	smootherStep:/1
 ])
 ~~~

@@ -19,7 +19,7 @@ dyadicMap(2)
 
 Plot small iteration count where _β=2_ and _x₀=-3+π_:
 
-~~~spl svg=A
+~~~spl svg=B
 dyadicMap(2)
 .nestList(-3 + 1.pi, 50)
 .linePlot

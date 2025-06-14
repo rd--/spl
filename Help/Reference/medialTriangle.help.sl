@@ -22,7 +22,7 @@ let q = p.medialTriangle;
 
 At `Triangle`:
 
-~~~spl svg=A
+~~~spl svg=B
 let t = sssTriangle(1, 1, 1);
 [
 	t,

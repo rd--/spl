@@ -58,13 +58,13 @@ Plot over a subset of the reals:
 (-10 -- 10).functionPlot(arcSinh:/1)
 ~~~
 
-![](sw/spl/Help/Image/arcSin-A.svg)
+![](sw/spl/Help/Image/arcSinh-A.svg)
 
 * * *
 
 See also: arcSin, cos, sin, tan
 
-Guides: Trigonometric Functions
+Guides: Sigmoid Functions, Trigonometric Functions
 
 References:
 _Mathematica_

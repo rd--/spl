@@ -43,7 +43,6 @@ lotkaVolterraEquations(1, 1, 1, 1)
 
 ![](sw/spl/Help/Image/lotkaVolterraEquations-B.svg)
 
-
 Plot phase diagrams,
 varying initial _y_:
 

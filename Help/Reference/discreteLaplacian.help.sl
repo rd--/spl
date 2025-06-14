@@ -18,7 +18,7 @@ Calculate the acceleration of an object from a vector of position data:
 ```
 
 Calculate the discrete Laplacian of a cosine vector,
-which is analytically negated signal:
+which is analytically the negated signal:
 
 ~~~spl svg=A
 let x = (-2.pi -- 2.pi).discretize(100);

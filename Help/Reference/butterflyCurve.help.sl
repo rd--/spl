@@ -6,7 +6,7 @@ Implement the butterfly curve parametric equation.
 
 Plot the butterfly curve, _θ=(0,12π)_:
 
-~~~spl svg=V
+~~~spl svg=A
 (0 -- 12.pi).functionPlot(
 	500,
 	butterflyCurve:/1

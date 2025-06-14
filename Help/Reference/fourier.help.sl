@@ -64,7 +64,7 @@ Sfc32(235617)
 
 Show the logarithmic spectrum, including the first (zero-frequency) component:
 
-~~~spl svg=A
+~~~spl svg=B
 Sfc32(235617)
 .randomReal([0 1], 100)
 .fourier

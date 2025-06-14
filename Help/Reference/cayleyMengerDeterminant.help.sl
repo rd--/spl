@@ -23,8 +23,13 @@ Compute the volume of a tetrahedron:
 Compute the content of a four-dimensional simplex:
 
 ```
->>> [0 0 0 0; 1 0 0 0; 1 1 0 0; 1 1 1 0; 1 1 1 1]
->>> .cayleyMengerDeterminant
+>>> [
+>>> 	0 0 0 0;
+>>> 	1 0 0 0;
+>>> 	1 1 0 0;
+>>> 	1 1 1 0;
+>>> 	1 1 1 1
+>>> ].cayleyMengerDeterminant
 1/24
 ```
 

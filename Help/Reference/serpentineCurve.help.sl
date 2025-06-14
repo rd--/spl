@@ -14,7 +14,7 @@ An algebraic curve studied by L’Hôpital and Huygens, and named and classified
 
 Plot functional form:
 
-~~~spl svg=A
+~~~spl svg=B
 let a = 1;
 let b = 1;
 (-5 -- 5).functionPlot { :x |

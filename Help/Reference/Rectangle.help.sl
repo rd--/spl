@@ -94,10 +94,10 @@ let f = { :n |
 		let [a, b, c, d] = f(n - 1);
 		let x = phi ^ n.-;
 		(n % 4).caseOf([
-			0 -> [a, d, a + x, d - x],
-			1 -> [c, d + x, c + x, d],
-			2 -> [c - x, b + x, c, b],
-			3 -> [a - x, b, a, b - x]
+			0 -> { [a, d, a + x, d - x] },
+			1 -> { [c, d + x, c + x, d] },
+			2 -> { [c - x, b + x, c, b] },
+			3 -> { [a - x, b, a, b - x] }
 		])
 	}
 };

@@ -31,7 +31,7 @@ Complete graph with nine nodes:
 
 A vector field:
 
-~~~spl svg=A
+~~~spl svg=B
 { :x :y |
 	[
 		[x, y],

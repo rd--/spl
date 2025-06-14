@@ -66,4 +66,3 @@ With _a_ not equal to one:
 * * *
 
 See also: UnivariatePolynomial
-

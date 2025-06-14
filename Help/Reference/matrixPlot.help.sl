@@ -28,13 +28,13 @@ Plot a 10×10 matrix (see also _n = 100_):
 let n = 10;
 { :i :j |
 	[
-		(i = j) -> 2,
-		(
+		{ i = j } -> { 2 },
+		{
 			(i = (j + 1))
 			||
 			(i = (j - 1))
-		) -> -1,
-		true -> 0
+		} -> { -1 },
+		{ true } -> { 0 }
 	].which
 }.table(1:n, 1:n).inverse.matrixPlot
 ~~~

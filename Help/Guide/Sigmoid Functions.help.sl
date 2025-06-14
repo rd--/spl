@@ -1,5 +1,6 @@
 # Sigmoid Functions
 
+- `arcSinh`
 - `arcTan`
 - `barronCurve`
 - `easingFunction`

@@ -43,6 +43,7 @@ Relation to `cosecant`:
 >>> let z = 1/7.pi;
 >>> 1 + z.cotangent.squared
 z.cosecant.squared
+```
 
 Plot over a subset of the reals:
 

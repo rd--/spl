@@ -25,7 +25,7 @@ Scatter plot of first few terms:
 
 Scatter plot of the terms in _(6000, 6200)_:
 
-~~~spl svg=A
+~~~spl svg=B
 6200.hofstadterQSequence
 .last(200)
 .scatterPlot
