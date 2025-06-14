@@ -1,8 +1,8 @@
 # gosperCurve
 
-- _gosperCurve(anInteger)_
+- _gosperCurve(n)_
 
-Answer the line segments representing the _anInteger_-th step Gosper curve.
+Answer the line segments representing the _n_-th step Gosper curve.
 
 The 1st step of the Gosper curve:
 
@@ -51,7 +51,7 @@ The curve enumerates the tiles of a hexagonal grid:
 
 See also: angleVector, hilbertCurve, peanoCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

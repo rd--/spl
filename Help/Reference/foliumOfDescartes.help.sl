@@ -16,7 +16,7 @@ An algebraic curve studied by Descartes in 1638.
 
 See also: trisectrixOfMaclaurin
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

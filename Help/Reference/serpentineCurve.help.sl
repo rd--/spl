@@ -18,7 +18,8 @@ Plot functional form:
 let a = 1;
 let b = 1;
 (-5 -- 5).functionPlot { :x |
-	let y = (a * b * x) / (x.squared + a.squared);
+	let d = x.squared + a.squared;
+	let y = (a * b * x) / d;
 	[x, y]
 }
 ~~~
@@ -29,7 +30,7 @@ let b = 1;
 
 See also: foliumOfDescartes
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

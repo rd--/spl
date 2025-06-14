@@ -22,7 +22,7 @@ Line drawing:
 
 See also: epitrochoid, hippopede, hypotrochoid
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

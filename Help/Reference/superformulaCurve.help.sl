@@ -1,6 +1,6 @@
-# superformulaFunction
+# superformulaCurve
 
-- _superformulaFunction(a, b, m, n1, n2, n3)_
+- _superformulaCurve(a, b, m, n1, n2, n3)_
 
 The superformula is a generalization of the `Superellipse` proposed by Johan Gielis in 2003.
 
@@ -8,41 +8,41 @@ A sixteen pointed snowflake like curve:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
-	superformulaFunction(
+	superformulaCurve(
 		1, 1, 16, 0.5, 0.5, 16
 	)
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaFunction-A.svg)
+![](sw/spl/Help/Image/superformulaCurve-A.svg)
 
 A pinched rectangular curve:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
-	superformulaFunction(
+	superformulaCurve(
 		1, 1, 4, 0.5, 0.5, 4
 	)
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaFunction-B.svg)
+![](sw/spl/Help/Image/superformulaCurve-B.svg)
 
 A seven pointed blob:
 
 ~~~spl svg=C
 (0 -- 2.pi).functionPlot(
-	superformulaFunction(
+	superformulaCurve(
 		1, 1, 7, 3, 4, 17
 	)
 )
 ~~~
 
-![](sw/spl/Help/Image/superformulaFunction-C.svg)
+![](sw/spl/Help/Image/superformulaCurve-C.svg)
 
 * * *
 
-See also: superellipseFunction
+See also: superellipseCurve
 
 References:
 _W_

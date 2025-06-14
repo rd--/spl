@@ -14,6 +14,15 @@
 		[t.sin, t.cos] * (a - b - c)
 	}
 
+	catenaryCurve { :a |
+		{ :theta |
+			[
+				theta,
+				a * (theta / a).cosh
+			]
+		}
+	}
+
 	cochleoid { :a |
 		{ :theta |
 			(theta = 0).if {
@@ -25,7 +34,11 @@
 		}
 	}
 
-	epitrochoid { :b :a :h |
+	epicycloid { :a :b |
+		epitrochoid(a, b, b)
+	}
+
+	epitrochoid { :a :b :h |
 		{ :theta |
 			let p = a + b;
 			let q = p / b;
@@ -50,6 +63,10 @@
 		}
 	}
 
+	hypocycloid { :a :b |
+		hypotrochoid(a, b, b)
+	}
+
 	hypotrochoid { :a :b :h |
 		let c = a - b;
 		let d = c / b;
@@ -69,12 +86,41 @@
 		}
 	}
 
+	rhodonea { :a :n |
+		{ :theta |
+			let r = a * (n * theta).cos;
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	serpentineCurve { :a :b |
 		{ :theta |
 			[
 				a * theta.cotangent,
 				b * theta.sin * theta.cos
 			]
+		}
+	}
+
+	superellipseCurve { :a :b :n |
+		{ :t |
+			let m = 2 / n;
+			let c = t.cos;
+			let s = t.sin;
+			let x = (c.abs ^ m) * a * c.sign;
+			let y = (s.abs ^ m) * b * s.sign;
+			[x, y]
+		}
+	}
+
+	superformulaCurve { :a :b :m :n1 :n2 :n3 |
+		{ :u |
+			let p = ((m * u / 4).cos / a).abs ^ n2;
+			let q = ((m * u / 4).sin / b).abs ^ n3;
+			let r = (p + q) ^ (-1 / n1);
+			let x = r * u.cos;
+			let y = r * u.sin;
+			[x, y]
 		}
 	}
 

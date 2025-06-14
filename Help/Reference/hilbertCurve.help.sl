@@ -52,7 +52,7 @@ Drawing of the 5th step of the Hilbert curve:
 
 See also: angleVector, peanoCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

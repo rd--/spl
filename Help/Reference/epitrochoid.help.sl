@@ -1,6 +1,6 @@
 # epitrochoid
 
-- _epitrochoid(b, a, h)_
+- _epitrochoid(a, b, h)_
 
 The roulette traced by a point _P_ attached to a circle _C_ of radius _b_,
 rolling around the outside of a fixed circle of radius _a_.
@@ -8,7 +8,7 @@ _h_ is the distance from _P_ to the center of the circle _C_.
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
-	epitrochoid(1, 3, 1 / 2)
+	epitrochoid(3, 1, 1 / 2)
 )
 ~~~
 
@@ -18,21 +18,22 @@ With five cusps and _P_ outside of _C_:
 
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
-	epitrochoid(1, 5, 7)
+	epitrochoid(5, 1, 7)
 )
 ~~~
 
 ![](sw/spl/Help/Image/epitrochoid-B.svg)
 
+An `epicycloid` is a special case of an epitrochoid where _h=b_.
+
 * * *
 
-See also: Circle, cos, hypotrochoid, sin
+See also: Circle, cos, epicycloid, hypotrochoid, sin
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Epitrochoid.html)
-[2](https://mathworld.wolfram.com/Epicycloid.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Epitrochoid)

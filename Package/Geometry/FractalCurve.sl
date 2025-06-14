@@ -25,6 +25,22 @@
 
 +@Integer {
 
+	blancmangeCurve { :d |
+		let k = 2 ^ d;
+		let b = List(k + 1);
+		b[0 + 1] := 0;
+		b[k + 1] := 0;
+		d.toByDo(1, -1) { :n |
+			0.toByDo(k - 1, 2 ^ n) { :m |
+				let i = m + (2 ^ (n - 1)) + 1;
+				let j = m + 1;
+				let k = m + (2 ^ n) + 1;
+				b[i] := (2 ^ n) + (0.5 * (b[j] + b[k]))
+			}
+		};
+		b
+	}
+
 	gosperCurve { :self |
 		'AB'.simpleLindenmayerSystem(
 			[1/3.pi -1/3.pi],

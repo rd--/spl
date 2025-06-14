@@ -33,7 +33,7 @@ Drawing of the 4th step of the Moore curve:
 
 See also: angleVector, hilbertCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _W_

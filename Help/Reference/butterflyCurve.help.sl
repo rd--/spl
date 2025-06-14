@@ -19,7 +19,7 @@ Plot the butterfly curve, _θ=(0,12π)_:
 
 See also: hypotrochoid, lissajousCurve
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

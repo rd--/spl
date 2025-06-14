@@ -44,7 +44,7 @@ Plot with varying _b_:
 
 See also: epitrochoid, hypotrochoid
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

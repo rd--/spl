@@ -40,7 +40,7 @@ Drawing of the 3rd step of the Peano curve:
 
 See also: angleVector, hilbertCurve, sierpinskiCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

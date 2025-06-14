@@ -63,6 +63,17 @@ Plot the sum of the `secant` and `tan` functions:
 
 ![](sw/spl/Help/Image/secant-C.svg)
 
+Draw an epispiral:
+
+~~~spl svg=D
+let a = 7;
+(0 -- 2.pi).polarPlot { :theta |
+	(a * theta).secant.clip([0 1])
+}
+~~~
+
+![](sw/spl/Help/Image/secant-D.svg)
+
 * * *
 
 See also: cos, cosecant, sin

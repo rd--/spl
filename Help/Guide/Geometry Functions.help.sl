@@ -134,21 +134,13 @@ Converting Functions:
 - `hessianNormalForm`
 - `radiansToDegrees`
 
+Curve Functions:
+
+- `Curve Functions`: Guide
+
 Distance Functions:
 
 - `Distance Functions`: Guide
-
-Fractal Curve Functions:
-
-- `gosperCurve`
-- `heighwayDragonCurve`
-- `hilbertCurve`
-- `kochCurve`
-- `levyCCurve`
-- `mooreCurve`
-- `peanoCurve`
-- `sierpinskiCurve`
-- `zOrderCurve`
 
 Intersection Functions:
 
@@ -229,4 +221,4 @@ Uncategorized:
 
 * * *
 
-Guides: Coordinate System Functions, Distance Functions
+Guides: Coordinate System Functions, Curve Functions, Distance Functions

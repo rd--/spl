@@ -16,7 +16,7 @@ An algebraic curve investigated by Maclaurin in 1742.
 
 See also: foliumOfDescartes, serpentineCurve
 
-Guides: Algebraic Curve Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

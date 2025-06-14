@@ -47,7 +47,7 @@ Drawing of the 9th step of the Lévy C curve:
 
 See also: angleVector, peanoCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

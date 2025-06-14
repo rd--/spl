@@ -38,7 +38,7 @@ Logarithmic plot:
 
 See also: bWeightingCurve
 
-Guides: Signal Processing Functions
+Guides: Curve Functions, Signal Processing Functions
 
 References:
 _W_

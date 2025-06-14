@@ -1,8 +1,8 @@
 # kochCurve
 
-- _kochCurve(anInteger)_
+- _kochCurve(n)_
 
-Answer the line segments representing the _anInteger_-th step Koch curve.
+Answer the line segments representing the _n_-th step Koch curve.
 
 Lengths of successive approximations to the Koch curve:
 
@@ -33,7 +33,7 @@ Drawing of the 5th step of the Koch curve:
 
 See also: angleVector, peanoCurve, substitutionSystem
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_

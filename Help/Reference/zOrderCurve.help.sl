@@ -20,7 +20,7 @@ Draw the first few terms of the Z-order curve:
 
 See also: deinterleave, fromDigits, integerDigits
 
-Guides: Geometry Functions
+Guides: Curve Functions
 
 References:
 _Mathematica_
