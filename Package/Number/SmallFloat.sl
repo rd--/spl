@@ -627,6 +627,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		1 / self.cos
 	}
 
+	secanth { :self |
+		1 / self.cosh
+	}
+
 	shallowCopy { :self |
 		self
 	}

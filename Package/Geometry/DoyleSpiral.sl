@@ -2,6 +2,7 @@
 
 	doyleSpiralParameters { :p :q |
 		<primitive:
+		/* https://gist.github.com/robinhouston/6096950 */
 		let p = _p;
 		let q = _q;
 		let pow = Math.pow;
@@ -108,12 +109,12 @@
 		>
 	}
 
-	doyleSpiralArm { :r :p1 :delta :limit |
+	doyleSpiralArm { :r :z :delta :limit |
 		let recipDelta = 1 / delta;
 		let modDelta = delta.abs;
 		let modRecipDelta = 1 / modDelta;
 		let [minD, maxD] = limit;
-		let q = p1;
+		let q = z;
 		let modQ = q.abs;
 		let answer = [];
 		let count = 0;
@@ -123,7 +124,7 @@
 			modQ := modQ * modDelta;
 			count := count + 1
 		};
-		q := p1 * recipDelta;
+		q := z * recipDelta;
 		modQ := q.abs;
 		{ modQ > minD }.whileTrue {
 			answer.add(Circle(q.asList, modQ * r));
@@ -136,11 +137,11 @@
 
 	doyleSpiral { :p :q :l |
 		let [a, b, r] = doyleSpiralParameters(p, q);
-		let p1 = a;
+		let z = a;
 		let answer = [];
 		1.toDo(q) { :i |
-			answer.addAll(doyleSpiralArm(r, p1, a, l));
-			p1 := p1 * b
+			answer.addAll(doyleSpiralArm(r, z, a, l));
+			z := z * b
 		};
 		answer
 	}

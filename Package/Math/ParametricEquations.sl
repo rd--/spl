@@ -174,6 +174,22 @@
 		}
 	}
 
+	tractrix { :theta |
+		[
+			theta - theta.tanh,
+			1 / theta.cosh
+		]
+	}
+
+	tractrixSpiral { :a |
+		{ :t |
+			[
+				a * cos(t) * cos(t - tan(t)),
+				a * cos(t) * sin(t - tan(t))
+			]
+		}
+	}
+
 	trisectrixOfMaclaurin { :a |
 		{ :theta |
 			let r = (a / 2) * ((4 * theta.cos) - theta.secant);

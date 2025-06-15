@@ -23,6 +23,8 @@ Algebraic Curve Functions:
 - `sphericalTrochoid`
 - `superellipseCurve`
 - `superformulaCurve`
+- `tractrix`
+- `tractrixSpiral`
 - `trisectrixOfMaclaurin`
 - `trochoid`
 
