@@ -8,6 +8,7 @@ Types:
 
 - `BernoulliDistribution`
 - `BetaDistribution`
+- `BetaBinomialDistribution`
 - `BinomialDistribution`
 - `BinormalDistribution`
 - `CauchyDistribution`

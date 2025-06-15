@@ -71,6 +71,8 @@ mu
 
 See also: BinomialDistribution, GammaDistribution
 
+Guides: Probability Distributions
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/poisson.html),

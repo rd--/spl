@@ -106,5 +106,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BipolarCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Bipolar_coordinates)
+[2](https://en.wikipedia.org/wiki/Apollonian_circles)
 
 Categories: Converting, Geometry

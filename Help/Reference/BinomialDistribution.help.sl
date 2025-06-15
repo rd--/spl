@@ -71,6 +71,8 @@ BinomialDistribution(10, 0.4)
 
 See also: BernoulliDistribution, binomial, GeometricDistribution, NormalDistribution, PoissonDistribution
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BinomialDistribution.html),

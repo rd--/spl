@@ -1,13 +1,5 @@
 # Combinatorial Functions
 
-Factorial Functions:
-
-- `factorial`
-- `subfactorial`
-- `factorialPower`
-- `hyperfactorial`
-- `doubleFactorial`
-
 Binomial Functions:
 
 - `binomial`
@@ -16,6 +8,21 @@ Binomial Functions:
 - `polygonalNumber`
 - `deBruijnSequence`
 
+Factorial Functions:
+
+- `doubleFactorial`
+- `factorialPower`
+- `factorial`
+- `hyperfactorial`
+- `pochhammer`
+- `subfactorial`
+
+Frobenius Functions:
+
+- `bockerLiptakAlgorithm`
+- `frobeniusNumber`
+- `frobeniusSolve`
+
 Partition Functions:
 
 - `partitionFunctionP`
@@ -23,12 +30,6 @@ Partition Functions:
 - `partitionsP`
 - `partitionsQ`
 - `bellNumber`
-
-Frobenius Functions:
-
-- `bockerLiptakAlgorithm`
-- `frobeniusNumber`
-- `frobeniusSolve`
 
 * * *
 

@@ -138,6 +138,8 @@ BetaDistribution(3, 1 / 3)
 
 See also: BinomialDistribution, beta, betaRegularized, GammaDistribution
 
+Guides: Probability Distributions
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/betarand.html),

@@ -121,6 +121,8 @@ Evaluate mean and variance of a geometric distribution symbolically:
 
 See also: cdf, mean, pdf, randomVariate, variance
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GeometricDistribution.html),

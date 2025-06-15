@@ -23,8 +23,9 @@ Gamma and Related Functions:
 - `hyperfactorial`
 - `logGamma`
 - `lowerIncompleteGamma`
+- `pochhammer`
 - `upperIncompleteGamma`
 
 * * *
 
-Guides: Integer Sequences, Mathematical Functions
+Guides: Combinatorial Functions, Integer Sequences, Mathematical Functions

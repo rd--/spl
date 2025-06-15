@@ -324,3 +324,17 @@
 	}
 
 }
+
++[SmallFloat, Complex] {
+
+	pochhammer { :a :n |
+		(a.isInteger & { n.isInteger }).if {
+			(a + (0 .. n - 1)).product
+		} {
+			let p = gamma(a + n);
+			let q = gamma(a);
+			p / q
+		}
+	}
+
+}

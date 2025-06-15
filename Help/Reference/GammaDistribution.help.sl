@@ -66,6 +66,8 @@ in the other it is a rate parameter ⁠(often written λ).
 
 See also: BetaDistribution, ExponentialDistribution, gamma, gammaRegularized
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GammaDistribution.html)

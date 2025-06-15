@@ -195,6 +195,7 @@
 	/* Random - ProbabilityDistribution */
 	'BernoulliDistribution'
 	'BetaDistribution'
+	'BetaBinomialDistribution'
 	'BinomialDistribution'
 	'CauchyDistribution'
 	'DirichletDistribution'

@@ -11,6 +11,10 @@ Traits:
 - `Integer`
 - `Magnitude`
 
+Combinatorial Functions:
+
+- `Combinatorial Functions`: Guide
+
 Division-Related Functions:
 
 - `divisible`

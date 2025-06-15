@@ -109,6 +109,8 @@ Evaluate symbolically:
 
 See also: cdf, GammaDistribution, LaplaceDistribution, pdf, randomVariate
 
+Guides: Probability Distributions
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/exprand.html),

@@ -220,6 +220,7 @@
 	'Random-AliasMethod'
 	'Random-BernoulliDistribution'
 	'Random-BernoulliProcess'
+	'Random-BetaBinomialDistribution'
 	'Random-BetaDistribution'
 	'Random-BinomialDistribution'
 	'Random-BinomialProcess'

@@ -88,6 +88,8 @@ let b = d.randomVariate(r, 100);
 
 See also: BernoulliProcess, BinomialDistribution, CauchyDistribution, UniformDistribution, WeibullDistribution
 
+Guides: Probability Distributions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliDistribution.html)

@@ -521,9 +521,12 @@ Plot : [Object] { | pages format options |
 
 +@Collection {
 
-	functionPlot { :domain :anObject |
-		let blockList = anObject.nest;
-		blockList.collect { :aBlock:/1 |
+	discreteFunctionPlot { :domain :blockList |
+		domain.functionPlot(blockList, discretePlot:/1)
+	}
+
+	functionPlot { :domain :blockList :plotter:/1 |
+		blockList.nest.collect { :aBlock:/1 |
 			domain.collect { :x |
 				let y = aBlock(x);
 				y.isList.if {
@@ -536,7 +539,11 @@ Plot : [Object] { | pages format options |
 					}
 				}
 			}
-		}.linePlot
+		}.plotter
+	}
+
+	functionPlot { :domain :blockList |
+		domain.functionPlot(blockList, linePlot:/1)
 	}
 
 	parametricPlot { :domain :xBlock:/1 :yBlock:/1 |

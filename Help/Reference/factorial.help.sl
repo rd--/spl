@@ -1,8 +1,8 @@
 # factorial
 
-- _factorial(anInteger)_
+- _factorial(n)_
 
-The `product` of `one` up to _anInteger_.
+The `product` of the integers from `one` up to _n_.
 
 ```
 >>> 5.factorial
@@ -122,7 +122,7 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 
 * * *
 
-See also: binomial, doubleFactorial, subfactorial
+See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial
 
 Guides: Combinatorial Functions, Integer Sequences
 
