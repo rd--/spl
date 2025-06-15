@@ -1,12 +1,36 @@
 UnivariatePolynomial : [Object] { | coefficientList |
 
-	+ { :self :anObject |
+	~ { :self :operand |
+		operand.isUnivariatePolynomial & {
+			self.coefficientList ~ operand.coefficientList
+		}
+	}
+
+	+ { :self :operand |
 		let c1 = self.coefficientList;
-		let c2 = anObject.coefficientList;
+		let c2 = operand.coefficientList;
 		let n = c1.size.max(c2.size);
 		UnivariatePolynomial(
 			c1.padRight([n], 0) + c2.padRight([n], 0)
 		)
+	}
+
+	* { :self :operand |
+		let a = self.coefficientList;
+		operand.isUnivariatePolynomial.if {
+			let b = operand.coefficientList;
+			let m = a.size;
+			let n = b.size;
+			let c = List(m + n - 1, 0);
+			1.toDo(m) { :i |
+				1.toDo(n) { :j |
+					c[i + j - 1] := c[i + j - 1] + (a[i] * b[j])
+				}
+			};
+			UnivariatePolynomial(c)
+		} {
+			UnivariatePolynomial(a * operand)
+		}
 	}
 
 	at { :self :x |
@@ -42,6 +66,22 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			};
 			answer
 		}
+	}
+
+	lagrangeInterpolatingPolynomial { :c |
+		let n = c.size;
+		let [x, y] = c.transposed;
+		let p = List(n, UnivariatePolynomial([1]));
+		1.toDo(n) { :i |
+			1.toDo(n) { :j |
+				(i = j).ifFalse {
+					let q = UnivariatePolynomial([0 - x[j], 1]);
+					p[i] := p[i] * q
+				}
+			};
+			p[i] := p[i] * (1 / p[i].at(x[i]))
+		};
+		(p * y).sum
 	}
 
 	UnivariatePolynomial { :self |

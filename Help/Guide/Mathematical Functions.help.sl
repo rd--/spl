@@ -168,6 +168,10 @@
 
 - `Integer Functions`: Guide
 
+## Integer Sequences
+
+- `Integer Sequences`: Guide
+
 ## Integrals
 
 - `adaptiveSimpsonsMethod`
@@ -236,7 +240,7 @@
 
 ## Special Functions
 
-- `besselJ`: Bessel function of the first kind
+- `Special Functions`: Guide
 
 ## Statistics Functions
 
@@ -317,4 +321,4 @@ Function List:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Fourier Analysis Functions, Geometry Functions, Integer Functions, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, Statistics Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Fourier Analysis Functions, Geometry Functions, Integer Functions, Integer Sequences, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, SPecial Functions, Statistics Functions, Trigonometric Functions, Window Functions

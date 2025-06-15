@@ -30,6 +30,7 @@ Division-Related Functions:
 Recurrence and Sum Functions:
 
 - `bernoulli`
+- `binetsFormula`
 - `eulerNumber`
 - `fibonacci`
 - `harmonicNumber`

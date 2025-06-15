@@ -28,6 +28,8 @@ C.f. `fibonacci`:
 
 See also: fibonacci
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinetsFormula.html)

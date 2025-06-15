@@ -1,8 +1,8 @@
 # sternBrocotSequence
 
-- _sternBrocotSequence(anInteger)_
+- _sternBrocotSequence(n)_
 
-Answer at least the first _anInteger_ entries of Stern’s diatomic series (or Stern-Brocot sequence).
+Answer at least the first _n_ entries of Stern’s diatomic series (or Stern-Brocot sequence).
 
 ```
 >>> let list = 15.sternBrocotSequence;
@@ -30,13 +30,21 @@ Find the index where the number 100 first appears in the sequence:
 1179
 ```
 
-Plot first few terms:
+Discrete plot of first few terms:
 
 ~~~spl svg=A
 200.sternBrocotSequence.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/sternBrocotSequence-A.svg)
+
+Scatter plot of first few terms:
+
+~~~spl svg=B
+300.sternBrocotSequence.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sternBrocotSequence-B.svg)
 
 * * *
 

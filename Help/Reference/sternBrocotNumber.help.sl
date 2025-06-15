@@ -1,6 +1,6 @@
 # sternBrocotNumber
 
-- _sternBrocotNumber(anInteger)_
+- _sternBrocotNumber(n)_
 
 Answer the _n_-th entry in the Stern-Brocot sequence.
 Sometimes known as the _fusc_ function.

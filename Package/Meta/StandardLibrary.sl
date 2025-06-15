@@ -90,6 +90,7 @@
 	'ConvexHull'
 	'DelaunayTriangulation'
 	'Disk'
+	'DoyleSpiral'
 	'Ellipse'
 	'FractalCurve'
 	'GeodeticCoordinates'

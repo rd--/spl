@@ -38,6 +38,7 @@ Polynomial Interpolation Functions:
 - `bSplineFunction`
 - `bezierFunction`
 - `cubicHermiteFunction`
+- `lagrangeInterpolatingPolynomial`
 - `nevillesAlgorithm`
 
 SuperCollider Functions:

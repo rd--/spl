@@ -111,6 +111,7 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
+- `doyleSpiral`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`

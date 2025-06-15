@@ -1,11 +1,11 @@
 # UnivariatePolynomial
 
-- _UnivariatePolynomial(coefficientList)_
+- _UnivariatePolynomial(c)_
 
-A `Type` representing a univariate polynomial, specified as the sequence of ascending coefficients.
+A `Type` representing a univariate polynomial, specified as the sequence of ascending coefficients _c_.
 
 The `degree` of the polynomial is the largest exponent,
-the `coefficientList` is the list of ascending coefficients:
+`coefficientList` is the list of ascending coefficients:
 
 ```
 >>> let p = UnivariatePolynomial([1 2 3]);
@@ -26,6 +26,31 @@ UnivariatePolynomial(
 		0 -2816
 		0 1024
 	]
+)
+```
+
+The product of two univariate polynomials:
+
+```
+>>> let a = UnivariatePolynomial([3 2]);
+>>> let b = UnivariatePolynomial([-4 1]);
+>>> a * b
+UnivariatePolynomial([-12 -5 2])
+
+>>> let a = 7.chebyshevT;
+>>> let b = 11.chebyshevT;
+>>> let c = a * b;
+>>> let x = 0.75;
+>>> (a[x] * b[x], c[x])
+(-0.03261, -0.03261)
+```
+
+The product of a univariate polynomial and a constant:
+
+```
+>>> 7.chebyshevT * 2
+UnivariatePolynomial(
+	[0 -14 0 112 0 -224 0 128]
 )
 ```
 

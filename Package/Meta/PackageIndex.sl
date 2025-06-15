@@ -95,6 +95,7 @@
 	'Geometry-CylindricalCoordinates'
 	'Geometry-DelaunayTriangulation'
 	'Geometry-Disk'
+	'Geometry-DoyleSpiral'
 	'Geometry-Ellipse'
 	'Geometry-FourVector'
 	'Geometry-FractalCurve'

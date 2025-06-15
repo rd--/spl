@@ -15,7 +15,8 @@ Answer a number that is the absolute value (positive magnitude) of _aNumber_.
 20
 ```
 
-`abs` is defined at `Complex`:
+`abs` is defined at `Complex`,
+where it is also called the modulus:
 
 ```
 >>> 1J1.abs

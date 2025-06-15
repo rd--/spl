@@ -1,6 +1,16 @@
 # circumcircle
 
-- _circumcircle(aGeometry)_
+- _circumcircle(g)_
+
+Answer the circumcircle of the geometry _g_.
+
+At `Triangle`:
+
+```
+>>> let c = [10 10; 100 200; 200 10];
+>>> Triangle(c).circumcircle
+Circle([105 1545/19], 5 * 203762.sqrt / 19)
+```
 
 The `circumcircle` of an isosceles right triangle:
 
@@ -53,7 +63,7 @@ let t = sssTriangle(13, 17, 7);
 
 * * *
 
-See also: Circle, circumcenter, circumradius, Triangle
+See also: Circle, circumcenter, circumradius, circumsphere, Triangle
 
 References:
 _Mathematica_

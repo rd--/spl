@@ -14,7 +14,7 @@ Sphere([1/2 1/2 1/2], 1/3.pi.sin)
 
 * * *
 
-See also: Circle, Polygon, Sphere, Triangle
+See also: Circle, circumcircle, Polygon, Sphere, Triangle
 
 References:
 _Mathematica_

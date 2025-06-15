@@ -24,3 +24,7 @@ Gamma and Related Functions:
 - `logGamma`
 - `lowerIncompleteGamma`
 - `upperIncompleteGamma`
+
+* * *
+
+Guides: Integer Sequences, Mathematical Functions
