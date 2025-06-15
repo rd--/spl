@@ -87,6 +87,7 @@
 	'Geometry-Ball'
 	'Geometry-BarycentricCoordinates'
 	'Geometry-BezierCurve'
+	'Geometry-BipolarCoordinates'
 	'Geometry-CartesianCoordinates'
 	'Geometry-Cartography'
 	'Geometry-Circle'

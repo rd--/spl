@@ -407,6 +407,18 @@ Plot : [Object] { | pages format options |
 		self.stepPlotLineData.linePlot
 	}
 
+	surfacePlot { :self :k :aBlock:/2 |
+		let [u, v] = self;
+		let [m, n] = k;
+		let i = (u.min -- u.max).subdivide(m);
+		let j = (v.min -- v.max).subdivide(n);
+		table(aBlock:/2, i, j).surfacePlot
+	}
+
+	surfacePlot { :self :aBlock:/2 |
+		self.surfacePlot([15 15], aBlock:/2)
+	}
+
 	surfacePlot { :self |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
@@ -586,9 +598,10 @@ Plot : [Object] { | pages format options |
 		self.polarPlot(100, anObject)
 	}
 
-	surfacePlot { :self :divisions :aBlock:/2 |
-		let i = self.subdivide(divisions);
-		table(aBlock:/2, i, i).surfacePlot
+	surfacePlot { :self :k :aBlock:/2 |
+		let i = self.min;
+		let j = self.max;
+		[i j; i j].surfacePlot([k k], aBlock:/2)
 	}
 
 	surfacePlot { :self :aBlock:/2 |

@@ -25,6 +25,7 @@ Converting:
 Translating:
 
 - `fromBarycentricCoordinates`
+- `fromBipolarCoordinates`
 - `fromCylindricalCoordinates`
 - `fromHexagonalCoordinates`
 - `fromHexagonalEfficientCoordinates`

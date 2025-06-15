@@ -22,10 +22,14 @@
 	}
 
 	catenaryCurve { :a |
+		catenaryCurve(a, a)
+	}
+
+	catenaryCurve { :a :b |
 		{ :theta |
 			[
 				theta,
-				a * (theta / a).cosh
+				b * (theta / a).cosh
 			]
 		}
 	}

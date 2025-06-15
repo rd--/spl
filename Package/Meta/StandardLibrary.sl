@@ -83,6 +83,7 @@
 	'Ball'
 	'BarycentricCoordinates'
 	'BezierCurve'
+	'BipolarCoordinates'
 	'CartesianCoordinates'
 	'Cartography'
 	'Circle'

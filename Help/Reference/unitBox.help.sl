@@ -21,7 +21,7 @@ Plot in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |
-	[x y].unitBox
+	[x y].unitBox * 23
 }
 ~~~
 

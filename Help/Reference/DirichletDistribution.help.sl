@@ -32,7 +32,7 @@ Surface plot of `pdf`:
 ~~~spl svg=B
 let f:/1 = DirichletDistribution([3 3 2]).pdf;
 (0 -- 1).surfacePlot{ :x :y |
-	f([x y])
+	f([x y]) * 2
 }
 ~~~
 

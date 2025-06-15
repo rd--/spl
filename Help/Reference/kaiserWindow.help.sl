@@ -39,13 +39,9 @@ Shape of a Kaiser window using a specified parameter:
 Variation of the shape as a function of the parameter α:
 
 ~~~spl svg=C
-let k = 23;
-{ :x :a |
-	x.kaiserWindow(a) * 8
-}.table(
-	(-1 -- 1).subdivide(k),
-	(0 -- 5).subdivide(k)
-).surfacePlot
+[-1 1; 0 5].surfacePlot { :x :a |
+	x.kaiserWindow(a) * 17
+}
 ~~~
 
 ![](sw/spl/Help/Image/kaiserWindow-C.svg)

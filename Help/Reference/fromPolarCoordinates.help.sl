@@ -28,7 +28,7 @@ Collects over lists:
 
 * * *
 
-See also: PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
+See also: fromBipolarCoordinates, PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates
 
 Guides: Coordinate System Functions
 

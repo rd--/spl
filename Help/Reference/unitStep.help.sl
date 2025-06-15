@@ -25,7 +25,7 @@ Plot in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |
-	[x y].unitStep
+	[x y].unitStep * 23
 }
 ~~~
 
