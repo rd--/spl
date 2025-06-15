@@ -4,6 +4,7 @@ Guide/An Idiosyncratic Introduction to Spl.help.sl
 Guide/Apl Perspective.help.sl
 Guide/Apply Syntax.help.sl
 Guide/Arity Notation.help.sl
+Guide/Array Functions.help.sl
 Guide/Array Syntax.help.sl
 Guide/Assignment and Equality.help.sl
 Guide/Assignment Operator Syntax.help.sl
@@ -39,6 +40,7 @@ Guide/Control Blocks.help.sl
 Guide/Control Structures.help.sl
 Guide/Coordinate System Functions.help.sl
 Guide/Csound Gen Routines.help.sl
+Guide/Curve Functions.help.sl
 Guide/Date and Time Functions.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
@@ -485,6 +487,7 @@ Reference/atWrap.help.sl
 Reference/AudioIn.help.sl
 Reference/autocorrelationPlot.help.sl
 Reference/avogadroConstant.help.sl
+Reference/aWeightingCurve.help.sl
 Reference/AxonometricProjection.help.sl
 Reference/azimuth.help.sl
 Reference/BacktickQuotedString.help.sl
@@ -576,7 +579,7 @@ Reference/bjorklundsAlgorithm.help.sl
 Reference/blackmanHarrisWindow.help.sl
 Reference/blackmanNuttallWindow.help.sl
 Reference/blackmanWindow.help.sl
-Reference/blancmangeFunction.help.sl
+Reference/blancmangeCurve.help.sl
 Reference/blend.help.sl
 Reference/blinnWyvillRaisedInvertedCosine.help.sl
 Reference/Blip.help.sl
@@ -591,9 +594,11 @@ Reference/blomqvistBeta.help.sl
 Reference/BLowPass.help.sl
 Reference/blue.help.sl
 Reference/bockerLiptakAlgorithm.help.sl
+Reference/bohmanWindow.help.sl
 Reference/boltzmannConstant.help.sl
 Reference/Boolean.help.sl
 Reference/boole.help.sl
+Reference/botanicCurve.help.sl
 Reference/boundingBox.help.sl
 Reference/bourkeContourAlgorithm.help.sl
 Reference/Box.help.sl
@@ -610,6 +615,8 @@ Reference/Brz2.help.sl
 Reference/bSplineFunction.help.sl
 Reference/BufFrames.help.sl
 Reference/BufRd.help.sl
+Reference/butterflyCurve.help.sl
+Reference/bWeightingCurve.help.sl
 Reference/ByteArray.help.sl
 Reference/byteOrdering.help.sl
 Reference/cachedFetch.help.sl
@@ -642,6 +649,7 @@ Reference/catalanNumber.help.sl
 Reference/catalanTriangle.help.sl
 Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
+Reference/catenaryCurve.help.sl
 Reference/catenate.help.sl
 Reference/catmullRomInterpolation.help.sl
 Reference/CauchyDistribution.help.sl
@@ -686,6 +694,7 @@ Reference/circumference.help.sl
 Reference/circumflexAccent.help.sl
 Reference/circumradius.help.sl
 Reference/circumsphere.help.sl
+Reference/cleliaCurve.help.sl
 Reference/Clip2.help.sl
 Reference/clip.help.sl
 Reference/Clip.help.sl
@@ -694,6 +703,7 @@ Reference/Clock.help.sl
 Reference/closedLine.help.sl
 Reference/clump.help.sl
 Reference/cmyToRgb.help.sl
+Reference/cochleoid.help.sl
 Reference/codePoint.help.sl
 Reference/codePoints.help.sl
 Reference/CoinGate.help.sl
@@ -804,7 +814,7 @@ Reference/cosineInterpolation.help.sl
 Reference/cosineSimilarity.help.sl
 Reference/cosineWindow.help.sl
 Reference/cotangent.help.sl
-Reference/coth.help.sl
+Reference/cotangenth.help.sl
 Reference/coulletEquation.help.sl
 Reference/countDistinct.help.sl
 Reference/counterClockwiseVectorAngle.help.sl
@@ -1046,6 +1056,7 @@ Reference/environmentVariables.help.sl
 Reference/EnvTrapezoid.help.sl
 Reference/EpanechnikovDistribution.help.sl
 Reference/epanechnikovKernel.help.sl
+Reference/epicycloid.help.sl
 Reference/epitrochoid.help.sl
 Reference/epsilon.help.sl
 Reference/EqPan2.help.sl
@@ -1148,6 +1159,7 @@ Reference/flat.help.sl
 Reference/flatten.help.sl
 Reference/flattenTo.help.sl
 Reference/flatTopWindow.help.sl
+Reference/flipLeftRight.help.sl
 Reference/Float32Array.help.sl
 Reference/Float64Array.help.sl
 Reference/floor.help.sl
@@ -1161,6 +1173,7 @@ Reference/foldIndex.help.sl
 Reference/foldLeft.help.sl
 Reference/foldList.help.sl
 Reference/foldRight.help.sl
+Reference/foliumOfDescartes.help.sl
 Reference/FontMenu.help.sl
 Reference/FontSizeMenu.help.sl
 Reference/Formant.help.sl
@@ -1333,6 +1346,7 @@ Reference/highBitOfMagnitude.help.sl
 Reference/hilbertCurve.help.sl
 Reference/Hilbert.help.sl
 Reference/hilbertMatrix.help.sl
+Reference/hippopede.help.sl
 Reference/histogramList.help.sl
 Reference/histogramOf.help.sl
 Reference/histogramPlot.help.sl
@@ -1367,6 +1381,7 @@ Reference/hyphenMinusHyphenMinusGreaterThanSign.help.sl
 Reference/hyphenMinusHyphenMinus.help.sl
 Reference/hyphenMinusHyphenMinusHyphenMinus.help.sl
 Reference/hyphenMinusRightCurlyBracket.help.sl
+Reference/hypocycloid.help.sl
 Reference/hypotenuse.help.sl
 Reference/Hypotenuse.help.sl
 Reference/hypotrochoid.help.sl
@@ -1809,6 +1824,7 @@ Reference/LinRand.help.sl
 Reference/linspace.help.sl
 Reference/LinXFade2.help.sl
 Reference/liouvilleLambda.help.sl
+Reference/lissajousCurve.help.sl
 Reference/List.help.sl
 Reference/listInterpolation.help.sl
 Reference/lobbNumber.help.sl
@@ -1835,6 +1851,7 @@ Reference/LogisticDistribution.help.sl
 Reference/logisticMap.help.sl
 Reference/logisticSigmoid.help.sl
 Reference/logit.help.sl
+Reference/logLinearPlot.help.sl
 Reference/LogNormalDistribution.help.sl
 Reference/logScale.help.sl
 Reference/logspace.help.sl
@@ -2424,6 +2441,7 @@ Reference/pythagoreanLimma.help.sl
 Reference/qrDecomposition.help.sl
 Reference/quadraticBezierFunctionAt.help.sl
 Reference/quadraticBezierToCubicBezier.help.sl
+Reference/quadraticEquationRoots.help.sl
 Reference/quantile.help.sl
 Reference/QuantityArray.help.sl
 Reference/Quantity.help.sl
@@ -2594,6 +2612,7 @@ Reference/rgbToHsl.help.sl
 Reference/rgbToHsv.help.sl
 Reference/rgbToXyz.help.sl
 Reference/r.help.sl
+Reference/rhodonea.help.sl
 Reference/rho.help.sl
 Reference/Rhpf.help.sl
 Reference/riffle.help.sl
@@ -2696,6 +2715,7 @@ Reference/septimalComma.help.sl
 Reference/Sequenceable.help.sl
 Reference/sequencePosition.help.sl
 Reference/Sequencer.help.sl
+Reference/serpentineCurve.help.sl
 Reference/sessionTime.help.sl
 Reference/setBitAt.help.sl
 Reference/setharesDissonance.help.sl
@@ -2717,6 +2737,7 @@ Reference/siderealMonths.help.sl
 Reference/sierpinskiCurve.help.sl
 Reference/sieveOfEratosthenes.help.sl
 Reference/signal.help.sl
+Reference/signalPlot.help.sl
 Reference/signature.help.sl
 Reference/signBit.help.sl
 Reference/signedArea.help.sl
@@ -2884,9 +2905,9 @@ Reference/SuperColliderProgramBrowser.help.sl
 Reference/superColliderProgramIndex.help.sl
 Reference/SuperColliderProgramIndex.help.sl
 Reference/SuperColliderProgramOracle.help.sl
-Reference/superellipseFunction.help.sl
+Reference/superellipseCurve.help.sl
 Reference/Superellipse.help.sl
-Reference/superformulaFunction.help.sl
+Reference/superformulaCurve.help.sl
 Reference/supergoldenRatio.help.sl
 Reference/supersilverRatio.help.sl
 Reference/surfaceNormal.help.sl
@@ -3011,6 +3032,7 @@ Reference/TrigRoundRobin.help.sl
 Reference/trilinearInterpolation.help.sl
 Reference/trim.help.sl
 Reference/trimmedMean.help.sl
+Reference/trisectrixOfMaclaurin.help.sl
 Reference/true.help.sl
 Reference/truncated.help.sl
 Reference/truncateTo.help.sl

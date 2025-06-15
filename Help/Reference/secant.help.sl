@@ -2,7 +2,8 @@
 
 - _secant(x)_
 
-Answer the secant of the number _x_.
+Answer the secant of the number _x_,
+often abbreviated as _sec_.
 
 Equal to the reciprocal of `cos`:
 

@@ -71,6 +71,8 @@ Plot regularized upper incomplete gamma function:
 
 See also: gamma, lowerIncompleteGamma
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IncompleteGammaFunction.html)

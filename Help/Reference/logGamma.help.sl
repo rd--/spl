@@ -44,6 +44,8 @@ Plot over a subset of the reals:
 
 See also: factorial, gamma
 
+Guides: Special Functions
+
 References:
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=GAMMA),

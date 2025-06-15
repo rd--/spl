@@ -3,9 +3,11 @@
 - `arcSinh`
 - `arcTan`
 - `barronCurve`
+- `betaRegularized`
 - `easingFunction`
 - `erf`
 - `gudermannian`
+- `inverseErf`
 - `logisticSigmoid`
 - `perlinGainFunction`
 - `schlickGainFunction`

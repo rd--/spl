@@ -164,6 +164,7 @@
 	'Permutations'
 	'Primes'
 	'SignalProcessing'
+	'SpecialFunctions'
 	'Statistics'
 	'UnivariatePolynomial'
 	'WindowFunction'

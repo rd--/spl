@@ -28,6 +28,8 @@ Plot over a subset of the reals:
 
 See also: besselI, besselJ
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BesselFunctionoftheSecondKind.html)

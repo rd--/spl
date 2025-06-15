@@ -280,6 +280,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		1 / self.tan
 	}
 
+	cotangenth { :self |
+		self.cosh / self.sinh
+	}
+
 	cubeRoot { :self |
 		<primitive: return Math.cbrt(_self);>
 	}

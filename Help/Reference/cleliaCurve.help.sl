@@ -1,45 +1,55 @@
 # cleliaCurve
 
-- _cleliaCurve(c)_
+- _cleliaCurve(r, c)_
 
 A Clelia curve, or Clélie, is a curve on a sphere named by Luigi Guido Grandi after Clelia Borromeo.
 
-Perspective drawing with _c=1/4_ and period _9π_:
+Perspective drawing with _c=1/2_ and period _4π_:
 
 ~~~spl svg=A
-(0 -- 9.pi).discretize(200)
-.collect(cleliaCurve(1, 1 / 4))
-.Line
-.asPerspectiveDrawing
+(0 -- 4.pi).functionPlot(
+	cleliaCurve(1, 1 / 2)
+)
 ~~~
 
 ![](sw/spl/Help/Image/cleliaCurve-A.svg)
 
-Perspective drawing with _c=7/6_ and period _12π_:
+With _c=7/6_ and period _12π_:
 
 ~~~spl svg=B
-(0 -- 12.pi).discretize(300)
-.collect(cleliaCurve(1, 7 / 6))
-.Line
-.asPerspectiveDrawing
+(0 -- 12.pi).functionPlot(
+	300,
+	cleliaCurve(1, 7 / 6)
+)
 ~~~
 
 ![](sw/spl/Help/Image/cleliaCurve-B.svg)
 
-When _c=1_, and period _2π_, the trace is a Viviani’s curve:
+With _c=1_ and period _2π_ the trace is Viviani’s curve:
 
 ~~~spl svg=C
-(0 -- 2.pi).discretize(100)
-.collect(cleliaCurve(1, 1))
-.Line
-.asPerspectiveDrawing
+(0 -- 2.pi).functionPlot(
+	cleliaCurve(1, 1)
+)
 ~~~
 
 ![](sw/spl/Help/Image/cleliaCurve-C.svg)
 
+With _c=8_ and period _π_ the trace is a spherical spiral,
+analogous to an Archimedean spiral in the plane:
+
+~~~spl svg=D
+(-1/2.pi -- 1/2.pi).functionPlot(
+	200,
+	cleliaCurve(1, 8)
+)
+~~~
+
+![](sw/spl/Help/Image/cleliaCurve-D.svg)
+
 * * *
 
-See also: cos, sin, Sphere
+See also: satelliteCurve, sphericalTrochoid
 
 Guides: Curve Functions
 

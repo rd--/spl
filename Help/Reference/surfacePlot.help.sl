@@ -94,6 +94,8 @@ A half sphere:
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
 
+Guides: Plotting Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/surf.html)

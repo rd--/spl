@@ -1,8 +1,8 @@
 # cosh
 
-- _cosh(aNumber)_
+- _cosh(x)_
 
-Answer the hyperbolic cosine of _aNumber_.
+Answer the hyperbolic cosine of the number _x_.
 
 ```
 >>> 1.2.cosh
@@ -58,13 +58,15 @@ Plot `cosh` alongside a Padé approximation:
 
 * * *
 
-See also: arcCosh, cos, sin, sech, sinh
+See also: arcCosh, cos, sin, secanth, sinh
 
 Guides: Trigonometric Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)
-[2](https://reference.wolfram.com/language/ref/Cosh.html)
+[2](https://reference.wolfram.com/language/ref/Cosh.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Hyperbolic_functions)
 
 Categories: Trigonometry, Math

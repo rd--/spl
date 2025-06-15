@@ -1,8 +1,8 @@
 # tan
 
-- _tan(aNumber)_
+- _tan(x)_
 
-Answers the tangent of _aNumber_.
+Answers the tangent of the number _x_.
 
 ```
 >>> 1/6.pi.tan
@@ -30,6 +30,13 @@ Threads elementwise over lists and matrices:
 
 >>> (0.5 - (10 ^ [-3 .. -6])).pi.tan
 318.31 * (10 ^ [0 .. 3])
+```
+
+The inverse is `arcTan`:
+
+```
+>>> 1.tan.arcTan
+1
 ```
 
 Plot over a subset of the reals:

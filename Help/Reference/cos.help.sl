@@ -39,6 +39,13 @@ Fixed point:
 0.7390851332
 ```
 
+The inverse is `arcCos`:
+
+```
+>>> 1.cos.arcCos
+1
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

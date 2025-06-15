@@ -73,6 +73,13 @@ Fixed point:
 0
 ```
 
+The inverse is `arcSin`:
+
+```
+>>> 1.sin.arcSin
+1
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

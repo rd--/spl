@@ -46,6 +46,8 @@ Plot over a subset of the reals:
 
 See also: erfc, inverseErf
 
+Guides: Special Functions
+
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Essays/Normal_CDF),

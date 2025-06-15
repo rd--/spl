@@ -33,6 +33,8 @@ Plot over a subset of the reals:
 
 See also: erf, inverseErf
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Erfc.html)

@@ -2,6 +2,7 @@
 
 Algebraic Curve Functions:
 
+- `archimedeanSpiral`
 - `botanicCurve`
 - `butterflyCurve`
 - `catenaryCurve`
@@ -9,16 +10,21 @@ Algebraic Curve Functions:
 - `cochleoid`
 - `epicycloid`
 - `epitrochoid`
+- `eulerSpiral`
 - `foliumOfDescartes`
 - `hippopede`
 - `hypocycloid`
 - `hypotrochoid`
 - `lissajousCurve`
+- `logarithmicSpiral`
 - `rhodonea`
+- `satelliteCurve`
 - `serpentineCurve`
+- `sphericalTrochoid`
 - `superellipseCurve`
 - `superformulaCurve`
 - `trisectrixOfMaclaurin`
+- `trochoid`
 
 Fractal Curve Functions:
 
@@ -47,4 +53,4 @@ Signal Processing Curve Functions:
 
 Guides: Geometry Functions
 
-Further Reading: Lawrence 1972
+Further Reading: Coolidge 1959, Lawrence 1972

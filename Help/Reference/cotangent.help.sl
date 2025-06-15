@@ -2,7 +2,8 @@
 
 - _cotangent(z)_
 
-Answer the cotangent of _z_.
+Answer the cotangent of the number _z_,
+often abbreviated as _cot_.
 
 The argument of `cotangent` is assumed to be in radians:
 
@@ -57,7 +58,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: cos, sin, tan
+See also: cos, cotangent, sin, tan
 
 Guides: Trigonometric Functions
 

@@ -139,7 +139,7 @@ Draw the 76-node [Owens graph](https://mathworld.wolfram.com/OwensGraphs.html):
 
 See also: discretePlot, functionPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
-Guides: Graph Functions
+Guides: Graph Functions, Plotting Functions
 
 References:
 _Mathematica_

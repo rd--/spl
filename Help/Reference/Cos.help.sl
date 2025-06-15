@@ -1,8 +1,8 @@
 # Cos
 
-- _Cos(aNumber)_
+- _Cos(x)_
 
-Answers the cosine of _aNumber_.
+Answers the cosine of _x_.
 
 ```
 >>> 1/6.pi.Cos

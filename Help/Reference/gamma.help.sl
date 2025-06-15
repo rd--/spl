@@ -108,6 +108,8 @@ Plot over a subset of the complexes:
 
 See also: factorial, logGamma, lowerIncompleteGamma, upperIncompleteGamma
 
+Guides: Special Functions
+
 References:
 _Dlmf_
 [1](https://dlmf.nist.gov/5.2),

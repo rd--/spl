@@ -74,6 +74,8 @@ Plot over a subset of the reals:
 
 See also: erf, erfc, inverseErfc
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/InverseErf.html),

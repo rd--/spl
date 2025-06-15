@@ -38,6 +38,8 @@ A dense discrete plot of a cosine function:
 
 See also: functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiscretePlot.html),

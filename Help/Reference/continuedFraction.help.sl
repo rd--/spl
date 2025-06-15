@@ -95,7 +95,7 @@ The continued fractions of integer square roots:
 Objects showing regularity in their continued fractions:
 
 ```
->>> 1.coth.continuedFraction(8)
+>>> 1.cotangenth.continuedFraction(8)
 [1 3 5 7 9 11 13 15]
 ```
 

@@ -1,5 +1,12 @@
 +@Number {
 
+	archimedeanSpiral { :a :n |
+		{ :theta |
+			let r = a * (theta ^ (1 / n));
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	botanicCurve { :c :d |
 		{ :theta |
 			let r = 1 + (d * (c * theta).sin);
@@ -59,6 +66,10 @@
 		}
 	}
 
+	eulerSpiral { :theta |
+		[theta.fresnelC, theta.fresnelS]
+	}
+
 	foliumOfDescartes { :a |
 		{ :theta |
 			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cubed + theta.cos.cubed);
@@ -96,10 +107,26 @@
 		}
 	}
 
+	logarithmicSpiral { :a :b |
+		{ :theta |
+			let r = a * (b * theta).exp;
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	rhodonea { :a :n |
 		{ :theta |
 			let r = a * (n * theta).cos;
 			[r, theta].fromPolarCoordinates
+		}
+	}
+
+	satelliteCurve { :r :alpha :k |
+		{ :theta |
+			let x = r * ((alpha.cos * theta.cos * (k * theta).cos) - (theta.sin * (k * theta).sin));
+			let y = r * ((alpha.cos * theta.sin * (k * theta).cos) + (theta.cos * (k * theta).sin));
+			let z = r * alpha.sin * (k * theta).cos;
+			[x, y, z]
 		}
 	}
 
@@ -109,6 +136,19 @@
 				a * theta.cotangent,
 				b * theta.sin * theta.cos
 			]
+		}
+	}
+
+	sphericalTrochoid { :omega :a :b :d |
+		let q = a / b;
+		let i = omega.cos;
+		let j = omega.sin;
+		{ :theta |
+			let p = a - (b * i) + (d * i * (q * theta).cos);
+			let x = (p * theta.cos) + (d * theta.sin * (q * theta).sin);
+			let y = (p * theta.sin) - (d * theta.cos * (q * theta).sin);
+			let z = j * (b - (d * (q * theta).cos));
+			[x, y, z]
 		}
 	}
 

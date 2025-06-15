@@ -58,6 +58,8 @@ Plot regularized lower incomplete gamma function:
 
 See also: gamma, upperIncompleteGamma
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/x.html),

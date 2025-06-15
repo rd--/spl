@@ -168,6 +168,7 @@
 	'Math-Permutations'
 	'Math-Primes'
 	'Math-SignalProcessing'
+	'Math-SpecialFunctions'
 	'Math-Statistics'
 	'Math-UnivariatePolynomial'
 	'Math-WindowFunction'

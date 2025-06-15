@@ -1,8 +1,8 @@
 # tanh
 
-- tanh(aNumber)
+- tanh(x)
 
-Answer the hyperbolic tangent of _aNumber_.
+Answer the hyperbolic tangent of the number _x_.
 
 At `SmallFloat`:
 
@@ -92,7 +92,7 @@ Plot a nonlinear function:
 
 * * *
 
-See also: arcTanh, sinh, coth, tan
+See also: arcTanh, sinh, cotangenth, tan
 
 Guides: Sigmoid Functions
 

@@ -73,6 +73,8 @@ Plot the intensity of the Fraunhofer diffraction pattern of a circular aperture 
 
 See also: besselI, besselY
 
+Guides: Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BesselFunctionoftheFirstKind.html)

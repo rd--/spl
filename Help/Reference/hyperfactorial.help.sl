@@ -28,7 +28,7 @@ Answer the hyperfactorial of _anInteger_.
 
 See also: factorial
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Special Functions
 
 References:
 _Mathematica_

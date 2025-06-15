@@ -55,6 +55,8 @@ Lemniscate of Bernoulli:
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, scatterPlot, surfacePlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ParametricPlot.html.en)

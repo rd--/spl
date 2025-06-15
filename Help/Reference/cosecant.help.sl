@@ -1,8 +1,9 @@
 # cosecant
 
-- _cosecant(aNumber)_
+- _cosecant(x)_
 
-Answer the cosecant of _aNumber_.
+Answer the cosecant of the number _x_,
+often abbreviated as _csc_.
 
 Equal to the reciprocal of `sin`:
 

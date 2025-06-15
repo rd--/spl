@@ -1,13 +1,13 @@
-# coth
+# cotangenth
 
-- _coth(aNumber)_
+- _cotangenth(aNumber)_
 
 Answer the hyperbolic cotangent of _aNumber_.
 
 Evaluate numerically:
 
 ```
->>> 1.2.coth
+>>> 1.2.cotangenth
 1.19954
 
 >>> 1.2.cosh / 1.2.sinh
@@ -18,14 +18,14 @@ Plot over a subset of the reals:
 
 ~~~spl svg=A
 (-4 -- 4).functionPlot { :x |
-	x.coth.clip([-4 4])
+	x.cotangenth.clip([-4 4])
 }
 ~~~
 
-![](sw/spl/Help/Image/coth-A.svg)
+![](sw/spl/Help/Image/cotangenth-A.svg)
 
 * * *
 
-See also: cosh, sinh
+See also: cosh, cotangent, sinh
 
 Categories: Trigonometry, Math
