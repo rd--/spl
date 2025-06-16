@@ -13,6 +13,7 @@ Plotting Functions:
 - `densityPlot`
 - `densityHistogramPlot`
 - `discretePlot`
+- `discreteFunctionPlot`
 - `fftPlot`
 - `functionPlot`
 - `graphPlot`

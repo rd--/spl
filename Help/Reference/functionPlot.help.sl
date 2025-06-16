@@ -1,12 +1,12 @@
 # functionPlot
 
-- _functionPlot(domain, aBlock:/1 | aList)_
+- _functionPlot(x, f:/1)_
 
-Plot the unary function _aBlock_ over _domain_,
+Plot the unary function _f_ over the domain _x_,
 which may be discrete or continous.
-_aBlock_ may answer a `Number`, a `Complex` or a `Sequence`.
+_f_ may answer a `Number`, a `Complex` or a `List`.
 
-If a list of blocks are given,
+If a list of functions are given,
 plot each function atop the previous.
 
 `Interval` is a continuous domain, it is discretized by `functionPlot`.
@@ -238,7 +238,7 @@ Trace over a sphere:
 
 * * *
 
-See also: discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: discreteFunctionPlot, discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Plotting Functions
 

@@ -36,7 +36,7 @@ A dense discrete plot of a cosine function:
 
 * * *
 
-See also: functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: discreteFunctionPlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Plotting Functions
 

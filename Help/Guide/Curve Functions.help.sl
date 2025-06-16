@@ -27,6 +27,7 @@ Algebraic Curve Functions:
 - `tractrixSpiral`
 - `trisectrixOfMaclaurin`
 - `trochoid`
+- `witchOfAgnesi`
 
 Fractal Curve Functions:
 

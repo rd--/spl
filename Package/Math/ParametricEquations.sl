@@ -201,4 +201,12 @@
 		}
 	}
 
+	witchOfAgnesi { :a |
+		{ :theta |
+			let x = 2 * a * theta;
+			let y = (2 * a) / (1 + theta.squared);
+			[x, y]
+		}
+	}
+
 }

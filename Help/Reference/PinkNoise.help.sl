@@ -56,6 +56,8 @@ _Csound_
 [1](https://csound.com/docs/manual/pinkish.html)
 [2](https://csound.com/docs/manual/pinker.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/PinkNoise.html)
+[1](https://doc.sccode.org/Classes/PinkNoise.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Pink_noise)
 
 Categories: Ugen, Noise
