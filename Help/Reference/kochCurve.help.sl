@@ -38,5 +38,7 @@ Guides: Curve Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KochCurve.html),
+_Riddle_
+[1](https://larryriddle.agnesscott.org/ifs/kcurve/kcurve.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Koch_snowflake)

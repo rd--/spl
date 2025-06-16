@@ -1,8 +1,8 @@
 # sierpinskiCurve
 
-- _sierpinskiCurve(anInteger)_
+- _sierpinskiCurve(n)_
 
-Answer the line segments representing the _anInteger_-th step Sierpiński curve.
+Answer the line segments representing the _n_-th step Sierpiński curve.
 
 Lengths of successive approximations to the Sierpiński curve:
 

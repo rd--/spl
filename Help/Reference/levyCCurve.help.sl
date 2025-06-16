@@ -52,5 +52,7 @@ Guides: Curve Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LevyFractal.html),
+_Riddle_
+[1](https://larryriddle.agnesscott.org/ifs/levy/levy.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/L%C3%A9vy_C_curve)

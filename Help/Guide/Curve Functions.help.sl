@@ -37,8 +37,10 @@ Fractal Curve Functions:
 - `hilbertCurve`
 - `kochCurve`
 - `levyCCurve`
+- `mcWortersPentigree`
 - `mooreCurve`
 - `peanoCurve`
+- `pentadentriteCurve`
 - `sierpinskiCurve`
 - `zOrderCurve`
 

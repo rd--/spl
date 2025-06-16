@@ -101,6 +101,17 @@
 		)
 	}
 
+	mcWortersPentigree { :self |
+		'F'.simpleLindenmayerSystem(
+			[1/5.pi -1/5.pi],
+			[
+				'F' -> '+F++F----F--F++F++F-'
+			],
+			'F',
+			self
+		)
+	}
+
 	mooreCurve { :self |
 		'F'.simpleLindenmayerSystem(
 			[1/2.pi -1/2.pi],
@@ -123,6 +134,17 @@
 				'F' -> 'F'
 			],
 			'X',
+			self
+		)
+	}
+
+	pentadentriteCurve { :self |
+		'F'.simpleLindenmayerSystem(
+			[2/5.pi -2/5.pi],
+			[
+				'F' -> 'F+F-F--F+F+F'
+			],
+			'F',
 			self
 		)
 	}

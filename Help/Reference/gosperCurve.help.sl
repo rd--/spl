@@ -56,5 +56,7 @@ Guides: Curve Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Peano-GosperCurve.html),
+_Riddle_
+[1](https://larryriddle.agnesscott.org/ifs/ksnow/flowsnake.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Gosper_curve)

@@ -1,8 +1,8 @@
 # peanoCurve
 
-- _peanoCurve(anInteger)_
+- _peanoCurve(n)_
 
-Answer the line segments representing the _anInteger_-th step Peano curve.
+Answer the line segments representing the _n_-th step Peano curve.
 
 The 1st step of the Peano curve:
 
