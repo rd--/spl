@@ -1,6 +1,6 @@
 # minkowskiQuestionMark
 
-- _minkowskiQuestionMark(aNumber)_
+- _minkowskiQuestionMark(x)_
 
 Answer Minkowski’s question mark function.
 

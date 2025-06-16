@@ -174,3 +174,29 @@
 	}
 
 }
+
++SmallFloat {
+
+	takagiFunction { :x :n |
+		let s = { :x |
+			let d = x - floor(x);
+			min(d, 1 - d)
+		};
+		(0 .. n - 1).sum { :i |
+			s(x * (2 ^ i)) / (2 ^ i)
+		}
+	}
+
+	takagiFunction { :x |
+		takagiFunction(x, 100)
+	}
+
+}
+
++List {
+
+	takagiFunction { :self |
+		self.collect(takagiFunction:/1)
+	}
+
+}

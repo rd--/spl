@@ -1,12 +1,14 @@
 # cantorStaircase
 
-- _cantorStaircase(x, n)_
-- _cantorStaircase(alpha)_ ⟹ _cantorStaircase(alpha, 12)_
+- _cantorStaircase(x, n=12)_
 
 Answer the Cantor staircase function,
 a continuous but not absolutely continuous function on _[0,1]_.
 
 ```
+>>> (1 / 3).cantorStaircase
+1/2
+
 >>> 0.3.cantorStaircase(3)
 0.3875
 
@@ -85,6 +87,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/CantorStaircase.html),
 _OEIS_
 [1](https://oeis.org/A095844)
-[2](https://oeis.org/A095845)
+[2](https://oeis.org/A095845),
+_W_
+[1](https://en.wikipedia.org/wiki/Cantor_function)
 
 Categories: Math, Function

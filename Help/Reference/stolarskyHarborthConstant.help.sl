@@ -1,8 +1,8 @@
 # stolarskyHarborthConstant
 
-- _stolarskyHarborthConstant(aNumber)_
+- _stolarskyHarborthConstant(n)_
 
-Answer _aNumber_ times the Stolarsky-Harborth Constant.
+Answer _n_ times the Stolarsky-Harborth constant.
 
 ```
 >>> 1.stolarskyHarborthConstant

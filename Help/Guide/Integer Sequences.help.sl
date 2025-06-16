@@ -114,6 +114,7 @@ The following help files include references to integer sequences:
 - `lucasNumber`: A000032
 - `lucasNumbers`: A000032
 - `lyndonWords`: A001037
+- `mallowsSequence`: A005229
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
 - `moebiusMu`: A008683
@@ -132,6 +133,7 @@ The following help files include references to integer sequences:
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
 - `recamanSequence`: A005132
+- `rulerFunction`: A001511
 - `schroderSequence`: A006318
 - `silverConstant`: A116425
 - `silverRatio`: A014176

@@ -914,6 +914,10 @@
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
+	rulerFunction { :n |
+		(2 * n).integerExponent(2)
+	}
+
 	stolarskyArray { :m :n |
 		let phi = 1.goldenRatio;
 		let g = { :x | (x * phi + 0.5).floor };

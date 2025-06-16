@@ -117,6 +117,14 @@
 		[1 1].linearRecurrence([1 3], self)
 	}
 
+	mallowsSequence { :n |
+		let a = List(n, 1);
+		3.toDo(n) { :i |
+			a[i] := a[a[i - 2]] + a[i - a[i - 2]]
+		};
+		a
+	}
+
 	moserDeBruijnSequence { :self |
 		(0 .. self - 1).collect { :n |
 			n.integerDigits(2).riffle([0]).fromDigits(2)

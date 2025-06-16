@@ -54,7 +54,7 @@ The name is derived from the shape of the second iteration:
 
 * * *
 
-See also: weierstrassFunction
+See also: takagiFunction, weierstrassFunction
 
 Guides: Curve Functions
 
