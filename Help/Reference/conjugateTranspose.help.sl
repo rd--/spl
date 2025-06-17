@@ -1,15 +1,16 @@
 # conjugateTranspose
 
-- _conjugateTranspose(aMatrix)_
+- _conjugateTranspose(m)_
 
-Answer the conjugate transpose of _aMatrix_.
+Answer the conjugate transpose of the matrix _m_.
 Equivalent to _m.transposed.conjugated_.
 For real matrices, the conjugate transpose is just the transpose.
 
 Conjugate transpose of a real-valued matrix:
 
 ```
->>> [2 1; 9 7; 2 8; 3 5].conjugateTranspose
+>>> [2 1; 9 7; 2 8; 3 5]
+>>> .conjugateTranspose
 [
 	2 9 2 3;
 	1 7 8 5
@@ -19,17 +20,20 @@ Conjugate transpose of a real-valued matrix:
 Conjugate transpose of a complex-valued matrix:
 
 ```
->>> [0J-1 2J1; 4J2 0J-2].conjugateTranspose
+>>> [0J-1 2J1; 4J2 0J-2]
+>>> .conjugateTranspose
 [0J1 4J-2; 2J-1 0J2]
 
->>> [1 0J2 3; 3J4 5 0J1].conjugateTranspose
+>>> [1 0J2 3; 3J4 5 0J1]
+>>> .conjugateTranspose
 [1 3J-4; 0J-2 5; 3 0J-1]
 ```
 
 `conjugateTranspose` leaves the identity matrix unchanged:
 
 ```
->>> 3.identityMatrix.conjugateTranspose
+>>> 3.identityMatrix
+>>> .conjugateTranspose
 3.identityMatrix
 ```
 
@@ -52,6 +56,8 @@ h.negated
 * * *
 
 See also: conjugated, transposed
+
+Guides: Complex Numbers
 
 References:
 _Mathematica_

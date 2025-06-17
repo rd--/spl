@@ -1,23 +1,20 @@
 # replaceAllWith
 
-- _replaceAllWith(aSequemce, old, new)_
-- _replaceAllWith(aRegExp, aString, anotherString)_
+- _replaceAllWith(x, a, b)_
 
-In the `Sequence` case,
-answer a copy of _aSequence_ where all instances of _old_ are replaced with _new_.
-
-At `List`:
+At `List`,
+answer a copy of _x_ where all instances of _a_ are replaced with _b_:
 
 ```
 >>> [1 2 3 1 2 1].replaceAllWith(2, -2)
 [1 -2 3 1 -2 1]
 ```
 
-In the `RegExp` case,
-answer a new `String` in which all occurences of a string matching _aRegExp_ in _aString_ are replaced with _anotherString_:
+At `RegularExpression`,
+answer a new `String` in which all occurences of a string matching _x_ in _a_ are replaced with _b_:
 
 ```
->>> RegExp('x|z', 'g')
+>>> RegularExpression('x|z', 'g')
 >>> .replaceAllWith('x y z', '-')
 '- y -'
 ```
@@ -25,7 +22,7 @@ answer a new `String` in which all occurences of a string matching _aRegExp_ in 
 Replace every substring that has one or more occurrences of "ab" with "X":
 
 ```
->>> RegExp('(ab)+', 'g')
+>>> RegularExpression('(ab)+', 'g')
 >>> .replaceAllWith('ababbabbaaababa', 'X')
 'XbXbaaXa'
 ```

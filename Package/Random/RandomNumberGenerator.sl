@@ -44,8 +44,7 @@
 	}
 
 	randomComplex { :self :range :shape |
-		let min = range.min;
-		let max = range.max;
+		let [min, max] = range;
 		Complex(
 			self.randomReal([min.real, max.real], shape),
 			self.randomReal([min.imaginary, max.imaginary], shape)

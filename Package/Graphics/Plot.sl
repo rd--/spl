@@ -164,6 +164,10 @@ Plot : [Object] { | pages format options |
 		y.autocorrelationPlot(k)
 	}
 
+	complexListPlot { :self |
+		self.realImaginary.scatterPlot
+	}
+
 	complexPlot { :self :k :aBlock:/1 |
 		let [min, max] = self;
 		let colourFunction:/1 = system

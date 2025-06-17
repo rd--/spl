@@ -380,7 +380,7 @@
 	'Text-Html'
 	'Text-Markdown'
 	'Text-QuotedString' /* String */
-	'Text-RegExp'
+	'Text-RegularExpression'
 	'Text-String'
 	'Text-Unicode'
 	'Time-CalendarDuration'

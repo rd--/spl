@@ -1,14 +1,15 @@
 # sign
 
-- _sign(aNumber)_
-- _sign(aNumber, anotherNumber)_
+- _sign(x)_
+- _sign(a, b)_
 
 Sign function.
--1 when _aNumber < 0_.
-1 when _aNumber > 0_.
--0 when _aNumber = -0_.
-0 when _aNumber = 0_.
-The sign of a `Complex` number _z_ is defined as _z / abs(z)_.
+-1 when _x<0_.
+1 when _x>0_.
+-0 when _x=-0_.
+0 when _x=0_.
+The sign of a `Complex` number _z_ is defined as _z/|z|_,
+telling the normalized direction.
 
 Real numbers:
 
@@ -88,6 +89,8 @@ Plot the `imaginary` part of the `sign` function:
 * * *
 
 See also: *, abs, copySignTo, negated, signBit
+
+Guides: Complex Numbers, Mathematical Functions
 
 References:
 _Apl_

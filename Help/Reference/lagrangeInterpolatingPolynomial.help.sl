@@ -45,7 +45,6 @@ let p = c.lagrangeInterpolatingPolynomial;
 
 ![](sw/spl/Help/Image/lagrangeInterpolatingPolynomial-B.svg)
 
-
 Interpolation divergence for a set of Lagrange polynomials:
 
 ~~~spl svg=C

@@ -1,11 +1,12 @@
 # replaceWith
 
-- _replaceWith(aRegExp, aString, anotherString)_
+- _replaceWith(r, a, b)_
 
-Replace first occurence of a string matching _aRegExp_ in _aString_ with _anotherString_:
+Replace first occurence of a string matching the regular expression _r_ in the string _a_ with _b_:
 
 ```
->>> RegExp('x|z').replaceWith(
+>>> RegularExpression('x|z')
+>>> .replaceWith(
 >>> 	'x y z',
 >>> 	'-'
 >>> )

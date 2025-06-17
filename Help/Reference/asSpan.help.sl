@@ -27,6 +27,6 @@ Span(1, 9, 1)
 
 * * *
 
-See also: asRange, isArithmeticSeries, Span
+See also: asRange, isArithmeticProgression, Span
 
 Categories: Converting

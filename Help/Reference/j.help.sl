@@ -26,7 +26,7 @@ Threads over lists:
 
 See also: Complex, i, imaginary, real
 
-Guides: Complex Literals
+Guides: Complex Numbers
 
 References:
 _Apl_

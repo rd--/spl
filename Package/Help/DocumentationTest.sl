@@ -36,7 +36,7 @@ DocumentationTest : [Object] { | prefix program expectedAnswer |
 +List {
 
 	asDocumentationTest { :self |
-		let prefix = RegExp('>+').match(self[1]);
+		let prefix = RegularExpression('>+').match(self[1]);
 		let program = self.select { :each |
 			each.beginsWith(prefix)
 		}.collect { :each |

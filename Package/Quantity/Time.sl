@@ -32,7 +32,7 @@ Time : [Object] { | seconds |
 +String {
 
 	isTimeString { :self |
-		self.matchesRegExp('[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?Z?$')
+		self.matchesRegularExpression('[0-9][0-9]:[0-9][0-9]:[0-9][0-9](.[0-9]+)?Z?$')
 	}
 
 	parseTime { :self :elseClause:/0 |

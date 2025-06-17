@@ -1,9 +1,9 @@
 # sentences
 
-- _sentences(aString)_
+- _sentences(s)_
 
-Answer a `List` of sentences in _aString_.
-This is a simple `RegExp` based method and will not work for complex sentences.
+Answer a `List` of sentences in the string _s_.
+This is a simple `RegularExpression` based method and will not work for complex sentences.
 
 ```
 >>> 'A sentence. Another. A third.'

@@ -36,6 +36,8 @@ C.f. `i`:
 
 See also: Complex, i, real, realImaginary
 
+Guides: Complex Numbers
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Im.html)

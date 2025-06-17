@@ -34,7 +34,7 @@
 		let fileNameList = directoryName.readDirectoryFileNames;
 		let helpFileNameList = fileNameList.sort.select { :each |
 			each.endsWith('.help.sl') & {
-				each.pathBasename.matchesRegExp(options['pattern'])
+				each.pathBasename.matchesRegularExpression(options['pattern'])
 			}
 		};
 		let textList = helpFileNameList.readTextFileList;

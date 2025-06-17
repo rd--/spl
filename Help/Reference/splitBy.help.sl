@@ -40,7 +40,7 @@ Pick out substrings delimited by whitespace:
 >>> 'a bbb  cccc aa   d'.splitBy(' ')
 ['a' 'bbb' '' 'cccc' 'aa' '' '' 'd']
 
->>> 'a bbb  cccc aa   d'.splitByRegExp(' +')
+>>> 'a bbb  cccc aa   d'.splitByRegularExpression(' +')
 ['a' 'bbb' 'cccc' 'aa' 'd']
 ```
 
@@ -81,7 +81,7 @@ Simple attribute parser:
 
 * * *
 
-See also: join, split, splitByRegExp, stringJoin
+See also: join, split, splitByRegularExpression, stringJoin
 
 References:
 _Mathematica_

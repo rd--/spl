@@ -269,7 +269,7 @@
 	'Html'
 	'Markdown'
 	'QuotedString'
-	'RegExp'
+	'RegularExpression'
 	'Unicode'
 
 	/* Time */

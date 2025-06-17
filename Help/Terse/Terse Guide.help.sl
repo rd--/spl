@@ -3002,8 +3002,8 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:10.middle = 6 /* middle element */
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */
-[1 3 5 7 9].isArithmeticProgression = true /* is sequence an arithmetic series */
-[1 3 5 7 9].isArithmeticProgressionBy(2, =) = true /* is sequence an arithmetic series by step accoring to block */
+[1 3 5 7 9].isArithmeticProgression = true /* is arithmetic progression */
+[1 3 5 7 9].isArithmeticProgressionBy(2, =) = true /* is arithmetic progression by step according to block */
 ```
 
 ## Sequence arithmetic
@@ -4106,7 +4106,7 @@ PlanarCoordinates([3 4]).swapped = PlanarCoordinates([4, 3]) /* answer swapped v
 let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
 PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
 [0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
-[0 0].asPlanarCoordinates.isZero /* are x and y both zero */
+[0 0].asPlanarCoordinates.isOrigin /* are x and y both zero */
 [1, 1].norm = 2.sqrt /* magnitude, distance to origin */
 [1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
 [1, 1].normalize.norm ~ 1
@@ -4120,7 +4120,7 @@ PlanarCoordinates([1, 1]).normalized.norm ~ 1
 [1, 2, 3].asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
 (x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
 let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.asList = [1, 2, 3] /* point as array */
-CartesianCoordinates([0, 0, 0]).isZero /* are x, y and z all zero */
+CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
 let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
 let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
 let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] /* implements atPut */
@@ -4135,7 +4135,7 @@ CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 1])) = 3.sq
 CartesianCoordinates([0, 0, 0]).distance(CartesianCoordinates([1, 1, 0])) = 2.sqrt
 CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.sqrt
 CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
-CartesianCoordinates([0, 0, 0]).isZero = true /* is zero */
+CartesianCoordinates([0, 0, 0]).isOrigin = true /* is zero */
 let v = CartesianCoordinates([0, 0, 0]); v.asCartesianCoordinates == v /* identity */
 CartesianCoordinates([1, 3, 5]).asList = [1 3 5] /* point as array */
 [1 3 5].asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
@@ -4154,7 +4154,6 @@ CartesianCoordinates([1.cos, 1.sin, 1]).asCylindricalCoordinates.asRecord = (rho
 [1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) /* array as point */
 (w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) /* record as point */
 let a = [1 2 3 4]; let v = a.asFourVector; v.asList = [1 2 3 4] /* to list */
-FourVector(0, 0, 0, 0).isZero /* are w, x, y and z all zero */
 let v = FourVector(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] /* fields are w, x, y, z */
 ```
 

@@ -83,7 +83,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Text': [
 		'Character'
-		'RegExp'
+		'RegularExpression'
 		'Transcript'
 	],
 	'Time': [
@@ -652,7 +652,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asPoint'
 		'asPolarCoordinates'
 		'asRecord'
-		'asRegExp'
+		'asRegularExpression'
 		'asResidueSet'
 		'asSeconds'
 		'asIdentitySet'
@@ -901,7 +901,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Range'
 		'ReadStream'
 		'Record'
-		'RegExp'
+		'RegularExpression'
 		'Request'
 		'RunArray'
 		'Set'
@@ -1260,8 +1260,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'beginsWithAnyOf'
 		'endsWith'
 		'endsWithAnyOf'
-		'isArithmeticSeries'
-		'isArithmeticSeriesBy'
+		'isArithmeticProgression'
+		'isArithmeticProgressionBy'
 		'isOctetSequence'
 		'isSorted'
 		'isSortedBetweenAnd'
@@ -1391,7 +1391,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isRange'
 		'isReadStream'
 		'isRecord'
-		'isRegExp'
+		'isRegularExpression'
 		'isResponse'
 		'isRunArray'
 		'isSet'
@@ -1873,15 +1873,15 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'source'
 	],
 	'matching-regexp': [
-		'allRegExpMatches'
+		'allRegularExpressionMatches'
 		'match'
 		'matchAll'
-		'matchesRegExp'
+		'matchesRegularExpression'
 		'replaceAllModifying'
 		'replaceAllWith'
 		'replaceModifying'
 		'replaceWith'
-		'splitRegExp'
+		'splitRegularExpression'
 	],
 	'private-regexp': [
 		'basicExec'

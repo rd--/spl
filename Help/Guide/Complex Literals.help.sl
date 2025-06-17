@@ -39,7 +39,7 @@ however Spl writes _J_ consistently.
 
 See also: Complex, i, j
 
-Guides: Number Literals
+Guides: Complex Numbers, Number Literals
 
 References:
 _Apl_

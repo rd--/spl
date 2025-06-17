@@ -1,4 +1,4 @@
-/* Requires: RegExp String */
+/* Requires: RegularExpression String */
 
 SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
@@ -737,19 +737,19 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		} {
 			radix.caseOf([
 				2 -> {
-					self.matchesRegExp('^[0-1+-]+$')
+					self.matchesRegularExpression('^[0-1+-]+$')
 				},
 				4 -> {
-					self.matchesRegExp('^[0-3+-]+$')
+					self.matchesRegularExpression('^[0-3+-]+$')
 				},
 				8 -> {
-					self.matchesRegExp('^[0-7+-]+$')
+					self.matchesRegularExpression('^[0-7+-]+$')
 				},
 				10 -> {
-					self.matchesRegExp('^[0-9+-]+$')
+					self.matchesRegularExpression('^[0-9+-]+$')
 				},
 				16 -> {
-					self.matchesRegExp('^[0-9A-Fa-f+-]+$')
+					self.matchesRegularExpression('^[0-9A-Fa-f+-]+$')
 				}
 			]) {
 				let c = self.asList;

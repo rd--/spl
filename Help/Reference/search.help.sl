@@ -1,19 +1,21 @@
 # search
 
-- _search(aRegExp, aString)_
+- _search(r, s)_
 
-Answers true if _aString_ contains a match for a _aRegExp_, else false.
+Answers true if the string _s_ contains a match for a the regular expression _r_, else false.
 
 ```
->>> RegExp('c(a|d)+r').search('caddar')
+>>> RegularExpression('c(a|d)+r')
+>>> .search('caddar')
 true
 
->>> RegExp('c(a|d)+r').search('-caddar-')
+>>> RegularExpression('c(a|d)+r')
+>>> .search('-caddar-')
 true
 ```
 
 * * *
 
-See also: RegExp, searchRegExp
+See also: RegularExpression, searchRegularExpression
 
 Categories: Testing

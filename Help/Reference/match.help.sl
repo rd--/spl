@@ -1,47 +1,52 @@
 # match
 
-- _match(aRegExp, aString)_
+- _match(r, s)_
 
-Answer the part of _aString_ that matches _aRegExp_,
+Answer the part of the string _s_ that matches the regular expression _r_.
 else `nil` if there is no match.
 
 Match entire string:
 
 ```
->>> RegExp('c(a|d)+r').match('caddar')
+>>> RegularExpression('c(a|d)+r')
+>>> .match('caddar')
 'caddar'
 ```
 
 Match interior string:
 
 ```
->>> RegExp('c(a|d)+r').match('-caddar-')
+>>> RegularExpression('c(a|d)+r')
+>>> .match('-caddar-')
 'caddar'
 ```
 
 No match:
 
 ```
->>> RegExp('c(a|d)+r').match('xyz')
+>>> RegularExpression('c(a|d)+r')
+>>> .match('xyz')
 nil
 ```
 
 Match prefix:
 
 ```
->>> RegExp('(-|>)+').match('>>> ')
+>>> RegularExpression('(-|>)+')
+>>> .match('>>> ')
 '>>>'
 ```
 
 Match prefix:
 
 ```
->>> RegExp('(-|>)+').match('>- ')
+>>> RegularExpression('(-|>)+')
+>>> .match('>- ')
 '>-'
 ```
 
 * * *
 
-See also: matches, matchRegExp, RegExp, search
+See also: matches, matchRegularExpression, RegularExpression, search
 
 Categories: Testing

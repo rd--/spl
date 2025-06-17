@@ -4,7 +4,7 @@
 
 Plot the unary function _f_ over the domain _x_.
 
-Plot the `pochhammer` function over a `Range` of integer values: 
+Plot the `pochhammer` function over a `Range` of integer values:
 
 ~~~spl svg=A
 (-23 .. 23).discreteFunctionPlot { :a |

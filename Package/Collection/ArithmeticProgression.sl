@@ -82,11 +82,11 @@
 		}
 	}
 
-	isArithmeticSeries { :self |
+	isArithmeticProgression { :self |
 		true
 	}
 
-	isArithmeticSeriesBy { :self :aNumber :aBlock:/2 |
+	isArithmeticProgressionBy { :self :aNumber :aBlock:/2 |
 		aBlock(self.step, aNumber)
 	}
 

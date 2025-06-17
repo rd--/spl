@@ -1,8 +1,10 @@
 # abs
 
-- _abs(aNumber)_
+- _abs(z)_
 
-Answer a number that is the absolute value (positive magnitude) of _aNumber_.
+Answer a number that is the absolute value,
+or positive magnitude,
+of the number _z_.
 
 ```
 >>> -2.5.abs
@@ -75,6 +77,8 @@ Plot `abs` at Gaussian integers:
 * * *
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real
+
+Guides: Complex Numbers
 
 References:
 _Apl_

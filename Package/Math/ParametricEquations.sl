@@ -201,6 +201,14 @@
 		}
 	}
 
+	trochoid { :a :b |
+		{ :theta |
+			let x = (a * theta) - (b * theta.sin);
+			let y = a - (b * theta.cos);
+			[x, y]
+		}
+	}
+
 	witchOfAgnesi { :a |
 		{ :theta |
 			let x = 2 * a * theta;

@@ -1,8 +1,8 @@
 # conjugated
 
-- _conjugated(aComplexNumber)_
+- _conjugated(z)_
 
-The complex conjugate of a complex number _a + bi_ is defined to be _a - bi_.
+The complex conjugate of a complex number _a+bi_ is defined to be _a-bi_.
 
 ```
 >>> 1J1.conjugated
@@ -30,16 +30,16 @@ Value at real number is `identity`:
 
 ```
 >>> let n = system.nextRandomFloat;
->>> n.conjugated = n
-true
+>>> n.conjugated
+n
 ```
 
 Conjugate is an odd function:
 
 ```
 >>> let n = 1.j(system.nextRandomFloat);
->>> n.negated.conjugated = n.conjugated.negated
-true
+>>> n.negated.conjugated
+n.conjugated.negated
 ```
 
 Conjugate is involutive:
@@ -53,6 +53,8 @@ true
 * * *
 
 See also: +, Complex
+
+Guides: Complex Numbers
 
 References:
 _Apl_

@@ -201,6 +201,8 @@ true
 
 See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat
 
+Guides: Complex Numbers
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Complex_number),

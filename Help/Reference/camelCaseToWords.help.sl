@@ -11,4 +11,4 @@ Camel case names capitalize each word, excluding the first word.
 
 * * *
 
-See also: pascalCaseToWords, RegExp
+See also: pascalCaseToWords, RegularExpression

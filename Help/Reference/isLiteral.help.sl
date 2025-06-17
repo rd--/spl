@@ -26,7 +26,7 @@ The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boole
 [true true]
 ```
 
-`String` is a literal, `Character` and `RegExp` are not:
+`String` is a literal, `Character` and `RegularExpression` are not:
 
 ```
 >>> 'string'.isLiteral

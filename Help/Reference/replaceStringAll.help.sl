@@ -32,20 +32,18 @@ Replacement must be a string:
 true
 ```
 
-Replace every occurrence of _ab_ with _X_:
+Replace every occurrence of _ab_ with a period:
 
 ```
->>> 'abbaabbaa'.replaceStringAll('ab', 'X')
-'XbaXbaa'
+>>> 'abbaabbaa'.replaceStringAll('ab', '.')
+'.ba.baa'
 ```
 
 * * *
 
-See also: replaceString
+See also: replaceString, stringReplace
 
 References:
-_Mathematica_
-[1](https://reference.wolfram.com/language/ref/StringReplace.html),
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll),
 _Tc39_

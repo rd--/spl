@@ -1,6 +1,6 @@
-# splitByRegExp
+# splitByRegularExpression
 
-- _splitByRegExp(aString, aRegExpString)_
+- _splitByRegularExpression(s, r)_
 
 Regular expressions:
 
@@ -8,7 +8,7 @@ Regular expressions:
 >>> [
 >>> 	'A tree, an apple, four pears.'
 >>> 	'And more: two sacks'
->>> ].unwords.splitByRegExp('\\W+')
+>>> ].unwords.splitByRegularExpression('\\W+')
 [
 	'A' 'tree' 'an' 'apple' 'four' 'pears'
 	'And' 'more' 'two' 'sacks'
@@ -18,15 +18,15 @@ Regular expressions:
 Split into substrings separated by either delimiter:
 
 ```
->>> 'a-b:c-d:e-f-g'.splitByRegExp(':|-')
+>>> 'a-b:c-d:e-f-g'.splitByRegularExpression(':|-')
 ['a' 'b' 'c' 'd' 'e' 'f' 'g']
 
->>> 'abbccba'.splitByRegExp('a|b')
+>>> 'abbccba'.splitByRegularExpression('a|b')
 ['' '' '' 'cc' '' '']
 ```
 
 * * *
 
-See also: RegExp, splitBy
+See also: RegularExpression, splitBy
 
 Categories: Converting

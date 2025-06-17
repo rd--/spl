@@ -1,10 +1,10 @@
 # thueMorse
 
-- _thueMorse(anInteger)_
+- _thueMorse(n)_
 
-Answer the element at index _anInteger_ in the Thue-Morse sequence.
+Answer the _n_-th term of the Thue-Morse sequence.
 
-The fifth element of the Thue–Morse sequence:
+The fifth term of the Thue–Morse sequence:
 
 ```
 >>> 5.thueMorse

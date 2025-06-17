@@ -72,7 +72,7 @@ CalendarDuration : [Object, Magnitude] { | components |
 +String {
 
 	isIso8601DurationString { :self |
-		self.matchesRegExp('^P([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(.[0-9]+)S)?)?$')
+		self.matchesRegularExpression('^P([0-9]+Y)?([0-9]+M)?([0-9]+W)?([0-9]+D)?(T([0-9]+H)?([0-9]+M)?([0-9]+(.[0-9]+)S)?)?$')
 	}
 
 	parseCalendarDuration { :self :elseClause:/0 |

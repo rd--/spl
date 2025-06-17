@@ -1,6 +1,6 @@
-# RegExp
+# RegularExpression
 
-- _RegExp(source, flags)_
+- _RegularExpression(source, flags)_
 
 A `Type` holding a _regular expression_.
 
@@ -16,10 +16,12 @@ which is set when the expression is defined.
 
 * * *
 
-See also: asRegExp, flags, hasIndices, isGlobal, matches, source
+See also: asRegularExpression, flags, hasIndices, isGlobal, matches, source
 
 Guides: Regular Expressions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/RegularExpression.html),
 _Tc39_
 [1](https://tc39.es/ecma262/multipage/text-processing.html#sec-regexp-regular-expression-objects)

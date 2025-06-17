@@ -27,6 +27,6 @@ At `Range` is identity:
 
 * * *
 
-See also: isArithmeticSeries, Range
+See also: isArithmeticProgression, Range
 
 Categories: Converting

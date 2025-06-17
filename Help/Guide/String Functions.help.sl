@@ -73,6 +73,10 @@ Printing:
 - `printString`
 - `storeString`
 
+Rewriting:
+
+- `stringReplace`
+
 Sets:
 
 - `alphabet`

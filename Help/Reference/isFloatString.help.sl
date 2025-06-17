@@ -59,7 +59,7 @@ false
 
 * * *
 
-See also: asNumber, isDecimalIntegerString, parseNumber, RegExp
+See also: asNumber, isDecimalIntegerString, parseNumber, RegularExpression
 
 Guides: Parsing Functions
 

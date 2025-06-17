@@ -1,6 +1,6 @@
 RegExp! : [Object] {
 
-	asRegExp { :self |
+	asRegularExpression { :self |
 		self
 	}
 
@@ -68,6 +68,10 @@ RegExp! : [Object] {
 		<primitive: return _self.global;>
 	}
 
+	isRegularExpression { :unused |
+		true
+	}
+
 	lastIndex { :self |
 		<primitive: return _self.lastIndex;>
 	}
@@ -130,7 +134,7 @@ RegExp! : [Object] {
 	}
 
 	storeString { :self |
-		<primitive: return `RegExp('${_self.source}', '${_self.flags}')`;>
+		<primitive: return `RegularExpression('${_self.source}', '${_self.flags}')`;>
 	}
 
 	stringLiteral { :self |
@@ -141,90 +145,126 @@ RegExp! : [Object] {
 
 +String {
 
-	allRegExpMatches { :self :aRegExp |
-		aRegExp.asRegExp.matchAll(self)
+	allRegularExpressionMatches { :self :aRegularExpression |
+		aRegularExpression.asRegularExpression.matchAll(self)
 	}
 
-	asRegExp { :self |
-		RegExp(self)
+	asRegularExpression { :self |
+		RegularExpression(self)
 	}
 
 	camelCaseToWords { :self |
-		self.replaceRegExp(RegExp('([A-Z])', 'g'), ' $1')
+		self.replaceRegularExpression(RegularExpression('([A-Z])', 'g'), ' $1')
+	}
+
+	escapeForRegularExpression { :self |
+		<primitive: return RegExp.escape(self);>
 	}
 
 	isAllDigits { :self |
 		self.isEmpty | {
-			self.matchesRegExp('^[0-9]+$')
+			self.matchesRegularExpression('^[0-9]+$')
 		}
 	}
 
 	isBase16String { :self |
-		self.matchesRegExp('^[0-9A-F]+$')
+		self.matchesRegularExpression('^[0-9A-F]+$')
 	}
 
 	isBase64String { :self |
-		self.matchesRegExp('^[0-9A-Za-z+/]+$')
+		self.matchesRegularExpression('^[0-9A-Za-z+/]+$')
 	}
 
 	isBitString { :self |
-		self.matchesRegExp('^[01]+$')
+		self.matchesRegularExpression('^[01]+$')
 	}
 
 	isDecimalIntegerString { :self |
-		self.matchesRegExp('^[-+]?[0-9]+$')
+		self.matchesRegularExpression('^[-+]?[0-9]+$')
 	}
 
 	isDecimalNumeralString { :self |
-		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?$')
+		self.matchesRegularExpression('^[-+]?[0-9]+([.][0-9]+)?$')
 	}
 
 	isFloatString { :self |
-		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
+		self.matchesRegularExpression('^[-+]?[0-9]+([.][0-9]+)?([eE][+-]?[0-9]+)?$')
 	}
 
 	isScientificNotationString { :self |
-		self.matchesRegExp('^[-+]?[0-9]+([.][0-9]+)?[eE][+-]?[0-9]+$')
+		self.matchesRegularExpression('^[-+]?[0-9]+([.][0-9]+)?[eE][+-]?[0-9]+$')
 	}
 
 	isUnsignedDecimalIntegerString { :self |
-		self.matchesRegExp('^[0-9]+$')
+		self.matchesRegularExpression('^[0-9]+$')
 	}
 
-	matchRegExp { :self :aRegExp |
-		aRegExp.asRegExp.match(self)
+	matchRegularExpression { :self :aRegularExpression |
+		aRegularExpression.asRegularExpression.match(self)
 	}
 
-	matchesRegExp { :self :aRegExp |
-		aRegExp.asRegExp.matches(self)
+	matchesRegularExpression { :self :aRegularExpression |
+		aRegularExpression.asRegularExpression.matches(self)
 	}
 
 	pascalCaseToWords { :self |
 		self.camelCaseToWords.allButFirst
 	}
 
-	replaceRegExp { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegExp.replaceWith(self, stringToReplaceWith)
-	}
-
-	replaceAllRegExp { :self :regExpToFind :stringToReplaceWith |
-		regExpToFind.asRegExp.replaceAllWith(self, stringToReplaceWith)
-	}
-
-	searchRegExp { :self :aRegExp |
-		aRegExp.asRegExp.search(self)
-	}
-
-	splitByRegExp { :self :aRegExp |
-		aRegExp.asRegExp.splitBy(self)
-	}
-
-	RegExp { :self :flags |
+	RegularExpression { :self :flags |
 		<primitive: return new RegExp(_self, _flags);>
 	}
 
-	RegExp { :self |
+	RegularExpression { :self |
 		<primitive: return new RegExp(_self, 'd');>
+	}
+
+	replaceRegularExpression { :self :regExpToFind :stringToReplaceWith |
+		regExpToFind.asRegularExpression.replaceWith(self, stringToReplaceWith)
+	}
+
+	replaceAllRegularExpression { :self :regExpToFind :stringToReplaceWith |
+		regExpToFind.asRegularExpression.replaceAllWith(self, stringToReplaceWith)
+	}
+
+	replaceMultipleStrings { :aString :aRecord |
+		<primitive:
+		let k = Object.keys(_aRecord).map(x => RegExp.escape(x));
+		let r = new RegExp(k.join('|'), 'g');
+		return _aString.replace(r, function(matched) {
+			return _aRecord[matched];
+		});
+		>
+	}
+
+	searchRegularExpression { :self :aRegularExpression |
+		aRegularExpression.asRegularExpression.search(self)
+	}
+
+	splitByRegularExpression { :self :aRegularExpression |
+		aRegularExpression.asRegularExpression.splitBy(self)
+	}
+
+	stringDelete { :self :operand |
+		self.stringReplace(operand -> '')
+	}
+
+	stringReplace { :s :r |
+		r.isList.if {
+			s.replaceMultipleStrings(r.asRecord)
+		} {
+			let a = r.key;
+			let b = r.value;
+			a.isString.if {
+				s.replaceStringAll(r.key, r.value)
+			} {
+				a.isRegularExpression.if {
+					a.replaceAllWith(s, b)
+				} {
+					s.error('String>>stringReplace')
+				}
+			}
+		}
 	}
 
 	wordAtIndex { :self :index |
@@ -232,9 +272,9 @@ RegExp! : [Object] {
 			let before = (index = 1).if {
 				''
 			} {
-				self.copyFromTo(1, index - 1).matchRegExp('[a-zA-Z0-9-_]+$') ? { '' }
+				self.copyFromTo(1, index - 1).matchRegularExpression('[a-zA-Z0-9-_]+$') ? { '' }
 			};
-			let after = self.copyFromTo(index, self.size).matchRegExp('^[a-zA-Z0-9-_]+') ? { '' };
+			let after = self.copyFromTo(index, self.size).matchRegularExpression('^[a-zA-Z0-9-_]+') ? { '' };
 			before ++ after
 		} {
 			self.error('wordAtIndex: invalid index')
@@ -242,13 +282,23 @@ RegExp! : [Object] {
 	}
 
 	wordsBy { :self :separators |
-		self.splitByRegExp(
+		self.splitByRegularExpression(
 			separators.characters.stringIntercalate('|')
 		).reject(isEmpty:/1)
 	}
 
 	words { :self |
-		self.trim.splitByRegExp('\\s+')
+		self.trim.splitByRegularExpression('\\s+')
+	}
+
+}
+
++List{
+
+	stringReplace { :s :r |
+		s.collect { :each |
+			each.stringReplace(r)
+		}
 	}
 
 }

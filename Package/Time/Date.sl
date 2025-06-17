@@ -120,7 +120,7 @@ Date! : [Object, Magnitude] {
 +String {
 
 	isDateString { :self |
-		self.matchesRegExp('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
+		self.matchesRegularExpression('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
 	}
 
 	parseDate { :self :elseClause:/0 |

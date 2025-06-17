@@ -460,7 +460,7 @@ Permutation : [Object] { | cycles degree |
 			true
 		} {
 			let ascending = self.sorted;
-			ascending.isArithmeticSeries & {
+			ascending.isArithmeticProgression & {
 				ascending.first = 1 & {
 					ascending.last = self.size
 				}

@@ -46,6 +46,32 @@ A 3×4 matrix of random complex numbers in the rectangle with corners at _10J10_
 0.52112J0.49406
 ```
 
+Circles at random positions in the complex plane:
+
+~~~spl svg=A
+Circle(
+	Sfc32(378291)
+	.randomComplex([0J0 10J10], [40])
+	.realImaginary,
+	1
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/randomComplex-A.svg)
+
+Random walk in the complex plane:
+
+~~~spl svg=B
+Sfc32(184293)
+.randomComplex([-1J-1 1J1], [250])
+.accumulate
+.realImaginary
+.Line
+.asLineDrawing
+~~~
+
+![](sw/spl/Help/Image/randomComplex-B.svg)
+
 * * *
 
 See also: Complex, randomInteger, randomLargeInteger, RandomNumberGenerator, randomReal, seedRandom

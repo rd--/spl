@@ -4,16 +4,6 @@
 
 A trochoid is the locus of a point at a distance _b_ from the center of a circle of radius _a_ rolling on a fixed line.
 
-+SmallFloat{
-	trochoid { :a :b |
-		{ :theta |
-			let x = (a * theta) - (b * theta.sin);
-			let y = a - (b * theta.cos);
-			[x, y]
-		}
-	}
-}
-
 Where _a=b_, a cycloid:
 
 ~~~svg=A

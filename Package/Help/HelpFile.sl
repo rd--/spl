@@ -340,7 +340,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 		.sort
 		.select { :each |
 			each.endsWith('.help.sl') & {
-				each.pathBasename.matchesRegExp(pattern)
+				each.pathBasename.matchesRegularExpression(pattern)
 			}
 		}.do { :each |
 			let text = each.readTextFile;

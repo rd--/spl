@@ -1,8 +1,8 @@
 # i
 
-- _i(aNumber)_
+- _i(x)_
 
-Answer a _Complex_ number with a real part of `zero` and an imaginary part of _aNumber_.
+Answer a `Complex` number with a real part of `zero` and an imaginary part of _x_.
 `i` is the imaginary unit, defined as the square root of negative one.
 
 ```
@@ -16,7 +16,7 @@ Answer a _Complex_ number with a real part of `zero` and an imaginary part of _a
 3J1
 ```
 
-At `List`:
+Threads over lists:
 
 ```
 >>> [3 -4 6].i
@@ -27,7 +27,7 @@ At `List`:
 
 See also: Complex, imaginary, j, real
 
-Guides: Mathematical Constants
+Guides: Complex Numbers, Mathematical Constants
 
 References:
 _Apl_

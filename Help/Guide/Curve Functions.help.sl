@@ -32,13 +32,14 @@ Algebraic Curve Functions:
 Fractal Curve Functions:
 
 - `blancmangeCurve`
+- `cantorStaircase`
 - `gosperCurve`
 - `heighwayDragonCurve`
 - `hilbertCurve`
 - `kochCurve`
 - `levyCCurve`
 - `mcWortersPentigree`
-- `mooreCurve`
+- `minkowskiQuestionMark`
 - `peanoCurve`
 - `pentadentriteCurve`
 - `sierpinskiCurve`

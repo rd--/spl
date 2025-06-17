@@ -32,6 +32,8 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 See also: Complex, imaginary, real, realImaginary
 
+Guides: Complex Numbers
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Re.html)

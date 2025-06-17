@@ -1,19 +1,21 @@
 # matches
 
-- _matches(aRegExp, aString)_
+- _matches(r, s)_
 
-Answers `true` if _aString_ exactly matches _aRegExp_, else `false`.
+Answers `true` if the string _s_ exactly matches the regular expression _r_, else `false`.
 
 ```
->>> RegExp('c(a|d)+r').matches('caddar')
+>>> RegularExpression('c(a|d)+r')
+>>> .matches('caddar')
 true
 
->>> RegExp('c(a|d)+r').matches('-caddar-')
+>>> RegularExpression('c(a|d)+r')
+>>> .matches('-caddar-')
 false
 ```
 
 * * *
 
-See also: matchesRegExp, RegExp, search
+See also: matchesRegularExpression, RegularExpression, search
 
 Categories: Regular Expression, Testing
