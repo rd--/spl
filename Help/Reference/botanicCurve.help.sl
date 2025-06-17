@@ -41,7 +41,7 @@ With parameters _c=1/2,d=2_, called Freeth’s nephroid:
 (0 -- 4.pi).subdivide(100)
 .collect(
 	botanicCurve(1 / 2, 2)
-).Line.asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/botanicCurve-D.svg)
@@ -53,7 +53,7 @@ and with _d=2_ called the limaçon trisectrix:
 (0 -- 2.pi).subdivide(100)
 .collect(
 	botanicCurve(1, 2)
-).Line.asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/botanicCurve-E.svg)
@@ -64,7 +64,7 @@ With parameters _c=2,d=2_ called Ceva’s trisectrix:
 (0 -- 2.pi).subdivide(100)
 .collect(
 	botanicCurve(2, 2)
-).Line.asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/botanicCurve-F.svg)

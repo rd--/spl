@@ -12,7 +12,7 @@ Circle([0 0], 1)
 A drawing:
 
 ~~~spl svg=A
-[0 0].unitCircle.asLineDrawing
+[0 0].unitCircle
 ~~~
 
 ![](sw/spl/Help/Image/unitCircle-A.svg)

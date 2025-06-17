@@ -1,9 +1,10 @@
 # asColour
 
-- _asColour(aNumber | aSequence | aColour)_
+- _asColour(g)_
+- _asColour([r g b α=1])_
 
-Answer an `RgbColour` value specified as either the greyscale level _aNumber_,
-or as _(r, g, b)_ parameters in _aSequence_.
+Answer an `RgbColour` value specified as either the greyscale level _g_,
+or as _(r,g,b)_ parameters.
 
 Opaque grey:
 

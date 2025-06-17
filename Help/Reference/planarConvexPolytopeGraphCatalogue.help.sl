@@ -21,7 +21,6 @@ the set of convex polytopes of eight vertices:
 system
 .planarConvexPolytopeGraphCatalogue
 .at('convexpolytopes_8.188')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarConvexPolytopeGraphCatalogue-A.svg)

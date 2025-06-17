@@ -31,7 +31,7 @@ let r = Sfc32(673281);
 let c = r.randomReal([0 1], [50 2]);
 let g = c.nearestNeighbourGraph;
 g.vertexCoordinates := c;
-g.asLineDrawing
+g
 ~~~
 
 ![](sw/spl/Help/Image/nearestNeighbourGraph-A.svg)

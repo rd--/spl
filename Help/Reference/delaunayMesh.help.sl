@@ -21,7 +21,6 @@ Draw the mesh of the unit square:
 ~~~spl svg=A
 [0 0; 1 0; 0 1; 1 1]
 .delaunayMesh
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/delaunayMesh-A.svg)
@@ -29,9 +28,7 @@ Draw the mesh of the unit square:
 The Delaunay triangulation of a hexagon:
 
 ~~~spl svg=B
-6.circlePoints(1)
-.delaunayMesh
-.asLineDrawing
+6.circlePoints(1).delaunayMesh
 ~~~
 
 ![](sw/spl/Help/Image/delaunayMesh-B.svg)
@@ -42,7 +39,6 @@ The Delaunay triangulation of a random set of seventeen points:
 Sfc32(323193)
 .randomReal([-1 1], [17 2])
 .delaunayMesh
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/delaunayMesh-C.svg)

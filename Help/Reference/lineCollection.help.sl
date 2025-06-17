@@ -24,7 +24,6 @@ Complete graph with nine nodes:
 }
 .tuples(2)
 .lineCollection
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/lineCollection-A.svg)
@@ -39,7 +38,6 @@ A vector field:
 	]
 }.table(0:10, 0:10)
 .lineCollection
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/lineCollection-B.svg)
@@ -50,7 +48,6 @@ A random collection of lines in two-dimensions:
 Sfc32(3627814)
 .randomReal([0 1], [100 2 2])
 .lineCollection
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/lineCollection-C.svg)

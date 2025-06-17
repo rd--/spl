@@ -24,7 +24,7 @@ Draw the `polygonMesh` of the Delaunay triangulation of a hexagon:
 ~~~spl svg=A
 DelaunayTriangulation(
 	6.circlePoints(1)
-).polygonMesh.asLineDrawing
+).polygonMesh
 ~~~
 
 ![](sw/spl/Help/Image/DelaunayTriangulation-A.svg)

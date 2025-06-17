@@ -35,7 +35,7 @@ let b = [3 8; -1 2];
 let c = b.coordinateBoundsArray([1 1]);
 let p = c.flatten(1).PointCloud;
 let r = b.transposed.asRectangle;
-[p, r].asLineDrawing
+[p, r].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/coordinateBoundsArray-A.svg)

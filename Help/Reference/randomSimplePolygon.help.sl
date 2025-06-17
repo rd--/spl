@@ -11,7 +11,6 @@ Draw a simple polygon of four randomly generated vertices:
 ~~~spl svg=A
 Sfc32(371741)
 .randomSimplePolygon(4)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomSimplePolygon-A.svg)
@@ -21,7 +20,6 @@ Draw a simple polygon of seven randomly generated vertices:
 ~~~spl svg=B
 Sfc32(798431)
 .randomSimplePolygon(7)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomSimplePolygon-B.svg)
@@ -31,7 +29,6 @@ Draw a simple polygon of thirteen randomly generated vertices:
 ~~~spl svg=C
 Sfc32(793841)
 .randomSimplePolygon(13)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomSimplePolygon-C.svg)

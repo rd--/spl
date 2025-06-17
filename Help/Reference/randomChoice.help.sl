@@ -186,7 +186,6 @@ let r = Sfc32(789417);
 .randomChoice(r, [99 2])
 .accumulate
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomChoice-D.svg)
@@ -215,7 +214,6 @@ let r = Sfc32(379379);
 .randomChoice(r, [99])
 .accumulate
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomChoice-F.svg)

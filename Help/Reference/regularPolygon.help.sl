@@ -41,7 +41,7 @@ The `centroid` of a regular polygon is its center:
 Drawing of a pentagon:
 
 ~~~spl svg=A
-5.regularPolygon([0 0], 1, 0).asLineDrawing
+5.regularPolygon([0 0], 1, 0)
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-A.svg)
@@ -49,7 +49,7 @@ Drawing of a pentagon:
 Drawing of a hexagon:
 
 ~~~spl svg=B
-6.regularPolygon([0 0], 1, 0).asLineDrawing
+6.regularPolygon([0 0], 1, 0)
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-B.svg)
@@ -57,7 +57,7 @@ Drawing of a hexagon:
 Drawing of a diamond:
 
 ~~~spl svg=C
-4.regularPolygon([0 0], 1, 0).asLineDrawing
+4.regularPolygon([0 0], 1, 0)
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-C.svg)
@@ -65,9 +65,7 @@ Drawing of a diamond:
 Drawing of a square:
 
 ~~~spl svg=D
-4
-.regularPolygon([0 0], 1, 1.pi / 4)
-.asLineDrawing
+4.regularPolygon([0 0], 1, 1.pi / 4)
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-D.svg)
@@ -75,9 +73,7 @@ Drawing of a square:
 Drawing of an _X_-axis aligned pentagon:
 
 ~~~spl svg=E
-5
-.regularPolygon([0 0], 1, 1.pi / 10)
-.asLineDrawing
+5.regularPolygon([0 0], 1, 1.pi / 10)
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-E.svg)

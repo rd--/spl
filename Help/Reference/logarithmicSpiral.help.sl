@@ -11,7 +11,7 @@ A line drawing:
 (0 -- 8.pi).discretize(
 	200,
 	logarithmicSpiral(1, 1/7)
-).Line.asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/logarithmicSpiral-A.svg)
@@ -23,7 +23,7 @@ let b = 1.goldenRatio.log / 0.5.pi;
 (0 -- 8.pi).discretize(
 	200,
 	logarithmicSpiral(1, b)
-).Line.asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/logarithmicSpiral-B.svg)

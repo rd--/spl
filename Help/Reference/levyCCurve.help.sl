@@ -30,7 +30,7 @@ Lengths of successive approximations to the Lévy C curve:
 Drawing of the 6th step of the Lévy C curve:
 
 ~~~spl svg=A
-6.levyCCurve.asLineDrawing
+6.levyCCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/levyCCurve-A.svg)
@@ -38,7 +38,7 @@ Drawing of the 6th step of the Lévy C curve:
 Drawing of the 9th step of the Lévy C curve:
 
 ~~~spl svg=B
-9.levyCCurve.asLineDrawing
+9.levyCCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/levyCCurve-B.svg)

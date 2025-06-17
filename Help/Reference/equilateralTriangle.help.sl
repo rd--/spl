@@ -8,7 +8,6 @@ and with all three angles equal.
 
 ~~~spl svg=A
 [0 0].equilateralTriangle(1, 1/4.pi)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/equilateralTriangle-A.svg)

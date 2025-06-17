@@ -21,7 +21,6 @@ the set of quadrangulations of fourteen vertices:
 system
 .planarQuadrangulationsCatalogue
 .at('quadrangulations_14.10')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarQuadrangulationsCatalogue-A.svg)

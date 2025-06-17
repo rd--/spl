@@ -23,7 +23,6 @@ A square rotated by one eighth turn:
 [0 0].unitSquare
 .asPolygon
 .rotated(1/4.pi)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/rotated-A.svg)

@@ -42,7 +42,7 @@ Plot a Cornu, or Euler, spiral, also called a clothoid:
 ~~~spl svg=C
 (-4 -- 4).discretize(100) { :x |
 	[x.fresnelC, x.fresnelS]
-}.Line.asLineDrawing
+}.Line
 ~~~
 
 ![](sw/spl/Help/Image/fresnelC-C.svg)

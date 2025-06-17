@@ -12,7 +12,7 @@ Rectangle([-0.5 -0.5], [0.5 0.5])
 A drawing:
 
 ~~~spl svg=A
-[0 0].unitSquare.asLineDrawing
+[0 0].unitSquare
 ~~~
 
 ![](sw/spl/Help/Image/unitSquare-A.svg)

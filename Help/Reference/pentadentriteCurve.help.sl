@@ -7,7 +7,7 @@ Answer the line segments representing the _n_-th pentadentrite curve.
 Drawing of the 3rd step of the pentadentrite curve:
 
 ~~~spl svg=A
-3.pentadentriteCurve.asLineDrawing
+3.pentadentriteCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/pentadentriteCurve-A.svg)

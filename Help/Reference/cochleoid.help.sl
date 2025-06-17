@@ -13,7 +13,6 @@ Line drawing:
 .discretize(300)
 .collect(cochleoid(1))
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/cochleoid-A.svg)

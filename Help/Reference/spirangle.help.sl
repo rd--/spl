@@ -16,7 +16,6 @@ and iteration count of four:
 
 ~~~spl svg=A
 3.spirangle(4, [0 0], [1 9], 0)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/spirangle-A.svg)
@@ -25,7 +24,6 @@ Draw a four-angle spirangle, or square spiral, of six iterations
 
 ~~~spl svg=B
 4.spirangle(6, [0 0], [1 4], 0)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/spirangle-B.svg)
@@ -34,7 +32,6 @@ Draw a seven-angle spirangle or heptagon spiral, of nine iterations:
 
 ~~~spl svg=C
 7.spirangle(9, [0 0], [1 2], 0)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/spirangle-C.svg)

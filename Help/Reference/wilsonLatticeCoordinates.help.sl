@@ -40,7 +40,6 @@ Compare Wilson and Grady lattice templates using a 7-note 13-limit scale
 	[3 5 7 11 13],
 	1.wilsonLatticeCoordinates
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/wilsonLatticeCoordinates-A.svg)

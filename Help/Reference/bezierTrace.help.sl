@@ -14,7 +14,6 @@ indicating the uniform distances along the curve between equidistant sampling po
 [0 0; 1 4; 2 -4; 3 0]
 .bezierTrace(64)
 .PointCloud
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierTrace-A.svg)

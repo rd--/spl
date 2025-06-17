@@ -26,7 +26,7 @@ system
 .schareinKnotCatalogue
 .at('8-1')
 .columns(1:2)
-.asLineDrawing
+.Line
 ~~~
 
 ![](sw/spl/Help/Image/schareinKnotCatalogue-A.svg)
@@ -38,7 +38,6 @@ system
 .schareinKnotCatalogue
 .at('9-37')
 .Polygon
-.asPerspectiveDrawing
 ~~~
 
 ![](sw/spl/Help/Image/schareinKnotCatalogue-B.svg)

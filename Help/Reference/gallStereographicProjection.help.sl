@@ -14,7 +14,7 @@ where _x_ is in _±π/√2_ and _y_ is in _±1+√2/2_.
 }.table(
 	(-1/2.pi -- 1/2.pi).subdivide(8),
 	(-1.pi -- 1.pi).subdivide(16)
-).catenate.PointCloud.asLineDrawing
+).catenate.PointCloud
 ~~~
 
 ![](sw/spl/Help/Image/gallStereographicProjection-A.svg)

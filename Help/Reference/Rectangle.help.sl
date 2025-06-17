@@ -111,7 +111,7 @@ let f = { :n |
 
 * * *
 
-See also: asLineDrawing, asPolygon, asRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
+See also: asPolygon, asRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates
 
 Guides: Geometry Functions
 

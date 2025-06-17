@@ -1,8 +1,8 @@
 # embeddingDimension
 
-- _embeddingDimension(anObject)_
+- _embeddingDimension(g)_
 
-The dimension of the space in which _anObject_ is embedded.
+The dimension of the space in which the geometry _g_ is embedded.
 
 The `dimension` of a planar point is `zero`,
 the embedding dimension is two:

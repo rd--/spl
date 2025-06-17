@@ -76,6 +76,10 @@ BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
 		}
 	}
 
+	embeddingDimension { :unused |
+		2
+	}
+
 	forSvg { :self :options |
 		let n = self.splineDegree;
 		(n = 1).if {

@@ -59,7 +59,7 @@ Generate a path based on the prime sequence:
 ~~~spl svg=B
 1:500.collect { :n |
 	n.nthPrime
-}.anglePath.Line.asLineDrawing
+}.anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/nthPrime-B.svg)

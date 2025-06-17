@@ -13,7 +13,7 @@ where _x_ is in _(-π,π)_ and _y_ is in _(-2,2)_.
 }.table(
 	(-1/2.pi -- 1/2.pi).subdivide(8),
 	(-1.pi -- 1.pi).subdivide(16)
-).catenate.PointCloud.asLineDrawing
+).catenate.PointCloud
 ~~~
 
 ![](sw/spl/Help/Image/gallPetersProjection-A.svg)

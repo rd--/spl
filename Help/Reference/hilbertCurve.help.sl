@@ -35,7 +35,7 @@ Lengths of successive approximations to the Hilbert curve:
 Drawing of the 4th step of the Hilbert curve:
 
 ~~~spl svg=A
-4.hilbertCurve.asLineDrawing
+4.hilbertCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/hilbertCurve-A.svg)
@@ -43,7 +43,7 @@ Drawing of the 4th step of the Hilbert curve:
 Drawing of the 5th step of the Hilbert curve:
 
 ~~~spl svg=B
-5.hilbertCurve.asLineDrawing
+5.hilbertCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/hilbertCurve-B.svg)

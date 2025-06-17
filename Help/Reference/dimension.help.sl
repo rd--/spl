@@ -1,8 +1,8 @@
 # dimension
 
-- _dimension(aGeometry)_
+- _dimension(g)_
 
-Answer the geometric dimension of _aGeometry_.
+Answer the geometric dimension of the geometry _g_.
 
 At `Point`,
 the dimension of a planar point is `zero`,

@@ -49,7 +49,6 @@ RandomWalkProcess(0.5, 0.5)
 .valueList
 .transposed
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/RandomWalkProcess-D.svg)

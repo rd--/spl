@@ -1,4 +1,4 @@
-/* Requires: BezierCurve, Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, Polyhedron, Rectangle, Svg, Triangle, Writing */
+/* Requires: BezierCurve, Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, PolygonWithHoles Polyhedron, Rectangle, Svg, Triangle, Writing */
 
 LineDrawing : [Object] { | contents metadata |
 
@@ -106,6 +106,15 @@ LineDrawing : [Object] { | contents metadata |
 
 	asLineDrawing { :self |
 		[self].LineDrawing
+	}
+
+	draw { :self |
+		let d = self.embeddingDimension;
+		(d = 2).if {
+			self.asLineDrawing.draw
+		} {
+			self.asPerspectiveDrawing.draw
+		}
 	}
 
 }

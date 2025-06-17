@@ -119,7 +119,7 @@ let p = (0, 4 .. 156).collect { :k |
 	let x = (2.pi * k / 13);
 	[x.cos x.sin]
 };
-p.BezierCurve(3).asLineDrawing
+p.BezierCurve(3)
 ~~~
 
 ![](sw/spl/Help/Image/BezierCurve-C.svg)
@@ -167,7 +167,6 @@ A Bézier curve with spline degree 1 is equivalent to `Line`:
 ~~~spl svg=G
 [0 0; 2 2; 4 -2; 6 0]
 .BezierCurve(1)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/BezierCurve-G.svg)
@@ -245,7 +244,6 @@ indicating the non-uniform distances along the curve between equidistant samplin
 .approximation
 .downsample(4)
 .PointCloud
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/BezierCurve-M.svg)
@@ -258,7 +256,6 @@ A downsampled approximation of a composite cubic Bézier curve:
 .approximation
 .downsample(8)
 .PointCloud
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/BezierCurve-N.svg)

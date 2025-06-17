@@ -22,7 +22,7 @@ a 3-cusped hypocycloid, also called a tricuspoid:
 ~~~spl svg=B
 (0 -- 2.pi).subdivide(100).collect(
 	hypocycloid(3, 1)
-).asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/hypocycloid-B.svg)

@@ -42,8 +42,8 @@ C.f. `angleVector`:
 Draw a pentagon:
 
 ~~~spl svg=A
-let p = 5.circlePoints([0 0], 1, 1.pi / 10);
-p.Polygon.asLineDrawing
+5.circlePoints([0 0], 1, 1.pi / 10)
+.Polygon
 ~~~
 
 ![](sw/spl/Help/Image/circlePoints-A.svg)

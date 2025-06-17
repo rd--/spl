@@ -39,12 +39,16 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 Another right triangle:
 
 ```
->>> sssTriangle(1, 1.goldenRatio.sqrt, 1.goldenRatio)
+>>> let phi = 1.goldenRatio;
+>>> sssTriangle(
+>>> 	1, phi.sqrt, phi
+>>> )
 >>> .interiorAngles
 >>> .third
 0.5.pi
 
->>> (1, 1.goldenRatio.sqrt, 1.goldenRatio) * 3
+>>> let phi = 1.goldenRatio;
+>>> (1, phi.sqrt, phi) * 3
 (3, 3.8161, 4.8541)
 ```
 
@@ -61,7 +65,7 @@ Varying one side length:
 The _3,4,5_ triangle is the only right triangle with sides in an arithmetic series:
 
 ~~~spl svg=B
-sssTriangle(3, 4, 5).asLineDrawing
+sssTriangle(3, 4, 5)
 ~~~
 
 ![](sw/spl/Help/Image/sssTriangle-B.svg)
@@ -69,8 +73,8 @@ sssTriangle(3, 4, 5).asLineDrawing
 The _1,√φ,φ_ triangle is the only right triangle with sides in a geometric series:
 
 ~~~spl svg=C
-sssTriangle(1, 1.goldenRatio.sqrt, 1.goldenRatio)
-.asLineDrawing
+let phi = 1.goldenRatio;
+sssTriangle(1, phi.sqrt, phi)
 ~~~
 
 ![](sw/spl/Help/Image/sssTriangle-C.svg)

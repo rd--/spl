@@ -11,7 +11,7 @@ Draw the first few terms of the Z-order curve:
 256.zOrderCurve.collect { :each |
 	let [x, y] = each;
 	[x, 0 - y]
-}.asLineDrawing
+}.Line
 ~~~
 
 ![](sw/spl/Help/Image/zOrderCurve-A.svg)

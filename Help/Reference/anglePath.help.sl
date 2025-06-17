@@ -17,7 +17,7 @@ A polyline of three segments:
 let t = [90 130 -85].degree;
 let r = [1.2 2.1 0.7];
 let p = t.anglePath(r, [0 0]);
-p.asLineDrawing
+p.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-A.svg)
@@ -25,8 +25,7 @@ p.asLineDrawing
 Advance 20 steps, always turning 110° toward the left:
 
 ~~~spl svg=B
-let p = (110.degree # 20).anglePath;
-p.asLineDrawing
+(110.degree # 20).anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-B.svg)
@@ -34,7 +33,7 @@ p.asLineDrawing
 With unit step sizes:
 
 ~~~spl svg=C
-(1.pi / [2 3 -4]).anglePath.asLineDrawing
+(1.pi / [2 3 -4]).anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-C.svg)
@@ -45,7 +44,7 @@ With specified step sizes:
 (1.pi / [2 3 -4]).anglePath(
 	[0.7 2.3 3.5],
 	[0 0]
-).asLineDrawing
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-D.svg)
@@ -57,7 +56,7 @@ Sfc32(57951)
 .randomReal([-20 20], [1000])
 .degree
 .anglePath
-.asLineDrawing
+.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-E.svg)
@@ -69,7 +68,7 @@ let c = { :l |
 	l ++ [0] ++ (1 - l).reverse
 }.iterate([0], 9);
 let theta = [90 -90].degree @* (c + 1);
-theta.anglePath.asLineDrawing
+theta.anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-F.svg)
@@ -78,7 +77,7 @@ Generate a Koch snowflake curve:
 
 ~~~spl svg=G
 let t = 256.thueMorseSequence;
-(t * 2.pi / 3).anglePath.asLineDrawing
+(t * 2.pi / 3).anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-G.svg)
@@ -87,7 +86,7 @@ Another pattern based on the Thue-Morse sequence:
 
 ~~~spl svg=H
 let t = 256.thueMorseSequence;
-(t * 2.pi / 5).anglePath.asLineDrawing
+(t * 2.pi / 5).anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-H.svg)
@@ -97,7 +96,7 @@ Draw a line for which consecutive relative angles increase and are modulated by 
 ~~~spl svg=I
 (0, 0.01 .. 50).collect { :t |
 	t * t.sin
-}.anglePath.asLineDrawing
+}.anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-I.svg)

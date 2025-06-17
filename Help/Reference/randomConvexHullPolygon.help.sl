@@ -13,7 +13,7 @@ Sfc32(789341)
 		 [-1 1; -1 1]
 	 ),
 	13
-).asLineDrawing
+)
 ~~~
 
 ![](sw/spl/Help/Image/randomConvexHullPolygon-A.svg)
@@ -25,7 +25,7 @@ Sfc32(793841)
 .randomConvexHullPolygon(
 	BinormalDistribution([0 0], [1 1], 0.5),
 	13
-).asLineDrawing
+)
 ~~~
 
 ![](sw/spl/Help/Image/randomConvexHullPolygon-B.svg)

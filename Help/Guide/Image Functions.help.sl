@@ -16,6 +16,10 @@ Converting:
 - `asLineDrawing`
 - `asPerspectiveDrawing`
 
+Drawing:
+
+- `draw`
+
 * * *
 
 Guides: Colour Functions, Drawing Functions, Plotting Functions

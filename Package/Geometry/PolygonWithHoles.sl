@@ -10,6 +10,10 @@ PolygonWithHoles : [Object] { | outerVertexCoordinates innerVertexCoordinatesLis
 		self.outerVertexCoordinates.coordinateBoundingBox
 	}
 
+	embeddingDimension { :self |
+		self.outerVertexCoordinates.anyOne.size
+	}
+
 	forSvg { :self :options |
 		GeometryCollection(
 			self.vertexCoordinatesList.collect(Polygon:/1)

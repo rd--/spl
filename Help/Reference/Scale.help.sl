@@ -124,7 +124,6 @@ A line drawing of the interval structure:
 
 ~~~spl svg=A
 Scale(1, [2 2 1 2 2 2 1], 'Maj.')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Scale-A.svg)

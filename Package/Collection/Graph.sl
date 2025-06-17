@@ -171,6 +171,10 @@
 		g.dijkstrasAlgorithm(s, nil)
 	}
 
+	draw { :self |
+		self.asLineDrawing.draw
+	}
+
 	edgeCount { :self |
 		self.edgeList.size
 	}

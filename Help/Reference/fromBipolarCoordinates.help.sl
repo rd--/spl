@@ -23,7 +23,7 @@ note spacing of coordinates:
 ~~~spl svg=B
 (-7 -- 7).subdivide(100).collect { :tau |
 	fromBipolarCoordinates(1, [1, tau])
-}.PointCloud.asLineDrawing
+}.PointCloud
 ~~~
 
 ![](sw/spl/Help/Image/fromBipolarCoordinates-B.svg)

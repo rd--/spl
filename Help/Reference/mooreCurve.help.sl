@@ -16,7 +16,7 @@ Lengths of successive approximations to the Moore curve:
 Drawing of the 3rd step of the Moore curve:
 
 ~~~spl svg=A
-3.mooreCurve.asLineDrawing
+3.mooreCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/mooreCurve-A.svg)
@@ -24,7 +24,7 @@ Drawing of the 3rd step of the Moore curve:
 Drawing of the 4th step of the Moore curve:
 
 ~~~spl svg=B
-4.mooreCurve.asLineDrawing
+4.mooreCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/mooreCurve-B.svg)

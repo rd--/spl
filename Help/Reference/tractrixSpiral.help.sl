@@ -11,7 +11,7 @@ let f:/1 = tractrixSpiral(1);
 (0 -- 1.5275.log).subdivide(500)
 .collect { :t |
 	f(t.exp)
-}.Line.asLineDrawing
+}.Line
 ~~~
 
 ![](sw/spl/Help/Image/tractrixSpiral-A.svg)

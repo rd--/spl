@@ -8,7 +8,6 @@ Draw a parallelogram:
 
 ~~~spl svg=A
 [0 0].parallelogram([3 0; 1 4])
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/parallelogram-A.svg)
@@ -69,7 +68,6 @@ Draw a rectanglular parallelogram:
 
 ~~~spl svg=B
 [2 1].parallelogram([1 2; 4 -2])
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/parallelogram-B.svg)

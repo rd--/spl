@@ -21,7 +21,6 @@ the set of convex polytopes of eight vertices:
 system
 .planarGraphCatalogue
 .at('convexpolytopes_8.233')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarGraphCatalogue-A.svg)
@@ -32,7 +31,6 @@ Draw the entry for the 9th cyclically 4-connected non-Hamiltonian graph of 46 ve
 system
 .planarGraphCatalogue
 .at('nonham46c4.8')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarGraphCatalogue-B.svg)
@@ -44,7 +42,6 @@ the set of quadrangulations of seventeen vertices:
 system
 .planarGraphCatalogue
 .at('quadrangulations_17.137')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarGraphCatalogue-C.svg)
@@ -56,7 +53,6 @@ the set of five regular graphs of 26 vertices and 41 faces:
 system
 .planarGraphCatalogue
 .at('5reg_26-41.470')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarGraphCatalogue-D.svg)

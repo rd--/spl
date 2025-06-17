@@ -24,6 +24,11 @@ GeometryCollection : [Object] { | contents |
 		}
 	}
 
+	embeddingDimension { :self |
+		let [n] = self.contents.collect(embeddingDimension:/1).nub;
+		n
+	}
+
 	forSvg { :self :options |
 		self.contents.collect { :each |
 			each.forSvg(options)

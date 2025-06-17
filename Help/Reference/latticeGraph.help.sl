@@ -11,7 +11,7 @@ which should be of equal size,
 specify the unit lattice.
 
 The vertices of the graph are labelled with their coordinates,
-allowing the graph to be drawn using `asLineDrawing`.
+allowing the graph to be drawn using `draw`.
 
 A 7-note 7-limit tuning:
 
@@ -22,7 +22,6 @@ A 7-note 7-limit tuning:
 	[3 5 7],
 	[1 0; 0 1; 0.2 0.15]
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-A.svg)
@@ -42,7 +41,6 @@ A 22-note 11-limit tuning:
 	[3 5 7 11],
 	[1 0; 0 1; 0.2 0.15; -0.15 0.2]
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-B.svg)
@@ -58,7 +56,6 @@ where the _y_ axis indicates pitch in logarithmic space:
 	[2 3 5],
 	[-0.69 0.69; 0.00 1.10; 1.61 1.61]
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-C.svg)
@@ -74,7 +71,6 @@ A 7-note 19-limit tuning:
 [128 144 156 171 192 208 228]
 .asRatioTuning
 .latticeGraph
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-D.svg)
@@ -89,7 +85,6 @@ A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp
 	7/4 15/8 2/1
 ].asRatioTuning
 .latticeGraph
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-E.svg)
@@ -124,7 +119,6 @@ _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ lattice:
 	[3 7 11],
 	[1 0; 0 1; 0.2 0.15]
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-F.svg)
@@ -142,7 +136,6 @@ let n = [1 3 5 7 11 13];
 	[3 5 7 11 13],
 	v
 )
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/latticeGraph-G.svg)
@@ -153,7 +146,7 @@ it is more usual to calculate the required primes vector.
 
 * * *
 
-See also: asLineDrawing, asRatioTuning, gradyLatticeCoordinates, Graph, latticePrimes, wilsonLatticeCoordinates
+See also: asRatioTuning, draw, gradyLatticeCoordinates, Graph, latticePrimes, wilsonLatticeCoordinates
 
 Guides: Xenharmonic Functions
 

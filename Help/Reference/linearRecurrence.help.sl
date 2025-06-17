@@ -81,7 +81,7 @@ let k = [(1.pi.i / 2.sqrt).exp, 1.i] / 1.1;
 let i = [1, 1];
 linearRecurrence(k, i, 100)
 .collect(realImaginary:/1)
-.asLineDrawing
+.Line
 ~~~
 
 ![](sw/spl/Help/Image/linearRecurrence-A.svg)

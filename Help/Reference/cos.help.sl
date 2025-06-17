@@ -80,7 +80,7 @@ Spiral:
 		t / 1.pi * t.cos,
 		t / 1.pi * t.sin
 	]
-}.asLineDrawing
+}.Line
 ~~~
 
 ![](sw/spl/Help/Image/cos-D.svg)

@@ -13,7 +13,7 @@ where _x_ is in _(-π,π)_ and _y_ is in _~(-π,π)_ while ϕ is in _~(-85,85)°
 }.table(
 	(-85 -- 85).degree.subdivide(8),
 	(-90 -- 90).degree.subdivide(16)
-).catenate.PointCloud.asLineDrawing
+).catenate.PointCloud
 ~~~
 
 ![](sw/spl/Help/Image/mercatorProjection-A.svg)

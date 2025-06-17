@@ -10,7 +10,6 @@ A drawing of twenty-three randomly displaced points:
 Sfc32(376814)
 .randomInteger([1 200], [23 2])
 .PointCloud
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/PointCloud-A.svg)
@@ -21,15 +20,14 @@ Disperse a grid of points, _g_, about a focus point _c_:
 let g = (-1.5, -1.4 .. 1.5).tuples(2);
 let q = 1/11.pi;
 let c = [q.cos q.sin];
-let p = g.collect { :x |
+g.collect { :x |
 	let dx = [
 		3,
 		x - c,
 		2 ^ (-5 * (x - c).norm)
 	].product;
 	x + dx
-};
-PointCloud(p).asLineDrawing
+}.PointCloud
 ~~~
 
 ![](sw/spl/Help/Image/PointCloud-B.svg)

@@ -20,7 +20,6 @@ Implements `atAll` and `discretize` to evaluate `superellipseFunction`:
 Superellipse([0 0], 1, 1, 0.5)
 .discretize(99)
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Superellipse-A.svg)

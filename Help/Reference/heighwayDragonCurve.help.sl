@@ -30,7 +30,7 @@ Lengths of successive approximations to the Heighway dragon curve:
 Drawing of the 6th step of the Heighway dragon curve:
 
 ~~~spl svg=A
-6.heighwayDragonCurve.asLineDrawing
+6.heighwayDragonCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/heighwayDragonCurve-A.svg)
@@ -38,7 +38,7 @@ Drawing of the 6th step of the Heighway dragon curve:
 Drawing of the 9th step of the Heighway dragon curve:
 
 ~~~spl svg=B
-9.heighwayDragonCurve.asLineDrawing
+9.heighwayDragonCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/heighwayDragonCurve-B.svg)

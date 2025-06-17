@@ -240,7 +240,7 @@ Simulate a particle bouncing in a noncommensurate box:
 ~~~spl svg=G
 (0, 0.01 .. 15).collect { :t |
 	t % [2.sqrt 1]
-}.asLineDrawing
+}.Line
 ~~~
 
 ![](sw/spl/Help/Image/percentSign-G.svg)

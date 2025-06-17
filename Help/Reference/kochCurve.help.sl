@@ -16,7 +16,7 @@ Lengths of successive approximations to the Koch curve:
 Drawing of the 4th step of the Koch curve:
 
 ~~~spl svg=A
-4.kochCurve.asLineDrawing
+4.kochCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/kochCurve-A.svg)
@@ -24,7 +24,7 @@ Drawing of the 4th step of the Koch curve:
 Drawing of the 5th step of the Koch curve:
 
 ~~~spl svg=B
-5.kochCurve.asLineDrawing
+5.kochCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/kochCurve-B.svg)

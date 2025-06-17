@@ -21,7 +21,6 @@ the set of five regular graphs of 22 vertices and 35 faces:
 system
 .planarRegularGraphCatalogue
 .at('5reg_22-35.6')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarRegularGraphCatalogue-A.svg)

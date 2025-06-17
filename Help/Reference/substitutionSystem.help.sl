@@ -162,7 +162,7 @@ Generate a "C curve" fractal:
 	-1 ^ x * 1.pi / 2
 }
 .anglePath
-.asLineDrawing
+.Line
 ~~~
 
 ![](sw/spl/Help/Image/substitutionSystem-B.svg)

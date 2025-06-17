@@ -23,7 +23,6 @@ system
 .at('3-1')
 .columns(1:2)
 .closedLine
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/schareinMinimalKnotCatalogue-A.svg)

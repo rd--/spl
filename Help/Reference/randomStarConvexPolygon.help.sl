@@ -11,7 +11,6 @@ Draw a randomly generated star convex polygon with 13 vertices and minimal radiu
 ~~~spl svg=A
 Sfc32(378941)
 .randomStarConvexPolygon(13, 0.5, 1)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomStarConvexPolygon-A.svg)
@@ -31,7 +30,6 @@ Draw a randomly generated star convex polygon with 33 vertices and minimal radiu
 ~~~spl svg=B
 Sfc32(379148)
 .randomStarConvexPolygon(33, 0.33, 1)
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomStarConvexPolygon-B.svg)

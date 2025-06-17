@@ -67,7 +67,6 @@ Sfc32(184293)
 .accumulate
 .realImaginary
 .Line
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/randomComplex-B.svg)

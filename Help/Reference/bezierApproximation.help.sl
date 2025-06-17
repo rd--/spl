@@ -48,7 +48,6 @@ indicating the non-uniform distances along the curve between equidistant samplin
 [0 0; 1 4; 2 -4; 3 0]
 .bezierApproximation(64)
 .PointCloud
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierApproximation-A.svg)

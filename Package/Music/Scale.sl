@@ -22,6 +22,10 @@ Scale : [Object] { | startIndex intervals description |
 		}
 	}
 
+	draw { :self |
+		self.asLineDrawing.draw
+	}
+
 	fractionalDegreeToKey { :self :scaleDegree |
 		let accidental = (scaleDegree.fractionPart * 10).rounded;
 		(accidental > 5).ifTrue {

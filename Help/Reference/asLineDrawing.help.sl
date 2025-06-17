@@ -1,8 +1,8 @@
 # asLineDrawing
 
-- _asLineDrawing(anObject)_
+- _asLineDrawing(x)_
 
-Answer a `LineDrawing` of _anObject_.
+Answer a `LineDrawing` of the drawable object _x_.
 
 At `Circle`:
 

@@ -16,7 +16,7 @@ Lengths of successive approximations to the Sierpiński curve:
 Drawing of the 2nd step of the Sierpiński curve:
 
 ~~~spl svg=A
-2.sierpinskiCurve.asLineDrawing
+2.sierpinskiCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/sierpinskiCurve-A.svg)
@@ -24,7 +24,7 @@ Drawing of the 2nd step of the Sierpiński curve:
 Drawing of the 3rd step of the Sierpiński curve:
 
 ~~~spl svg=B
-3.sierpinskiCurve.asLineDrawing
+3.sierpinskiCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/sierpinskiCurve-B.svg)

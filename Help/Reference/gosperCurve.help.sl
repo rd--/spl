@@ -32,7 +32,7 @@ Lengths of successive iterations of the Gosper curve:
 Drawing of the third step of the Gosper curve:
 
 ~~~spl svg=A
-3.gosperCurve.asLineDrawing
+3.gosperCurve.Line
 ~~~
 
 ![](sw/spl/Help/Image/gosperCurve-A.svg)

@@ -16,6 +16,10 @@ PointCloud : [Object] { | vertexCoordinates |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
+	embeddingDimension { :self |
+		self.vertexCoordinates.anyOne.size
+	}
+
 	forSvg { :self :options |
 		self.vertexCoordinates.Point.collect { :each |
 			each.forSvg(options)

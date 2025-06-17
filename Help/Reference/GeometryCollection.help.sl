@@ -15,7 +15,7 @@ Draw a collection of objects with an `embeddingDimension` of two:
 	Rectangle([-1 -1], [1 1]),
 	regularPolygon(6, [0 0], 0.5, 0),
 	Triangle([-1 -0.75], [0 1], [1 -0.75])
-].GeometryCollection.asLineDrawing
+].GeometryCollection
 ~~~
 
 ![](sw/spl/Help/Image/GeometryCollection-A.svg)

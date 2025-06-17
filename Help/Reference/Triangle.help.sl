@@ -79,7 +79,7 @@ p.forSvg(precision: 0)
 Draw a triangle in planar (two dimensional) space:
 
 ~~~spl svg=A
-Triangle([0 0; 1 3; 2 0]).asLineDrawing
+Triangle([0 0; 1 3; 2 0])
 ~~~
 
 ![](sw/spl/Help/Image/Triangle-A.svg)

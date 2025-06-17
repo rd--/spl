@@ -7,7 +7,7 @@ Answer the line segments representing the _n_-th McWorter’s pentigree curve.
 Drawing of the 3rd step of the pentigree curve:
 
 ~~~spl svg=A
-3.mcWortersPentigree.asLineDrawing
+3.mcWortersPentigree.Line
 ~~~
 
 ![](sw/spl/Help/Image/mcWortersPentigree-A.svg)

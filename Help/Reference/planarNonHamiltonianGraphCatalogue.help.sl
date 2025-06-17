@@ -31,7 +31,6 @@ Draw the the above graph:
 system
 .planarNonHamiltonianGraphCatalogue
 .at('nonham52c5.5')
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/planarNonHamiltonianGraphCatalogue-A.svg)

@@ -13,7 +13,6 @@ Draw a polygon with one hole:
 let o = [0 0; 5 0; 2.5 4];
 let i = [2 1; 2 2; 3 2; 3 1];
 PolygonWithHoles(o, [i])
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/PolygonWithHoles-A.svg)

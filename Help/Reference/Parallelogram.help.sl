@@ -17,7 +17,6 @@ Draw a parallelogram:
 
 ~~~spl svg=A
 Parallelogram([0 0], [1 0; 1 1])
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Parallelogram-A.svg)
@@ -26,7 +25,6 @@ A parallelogram with sides that form right angles is a rectangle:
 
 ~~~spl svg=B
 Parallelogram([2 1], [1 2; 4 -2])
-.asLineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Parallelogram-B.svg)
@@ -46,7 +44,7 @@ A Parallelogram can tile the plane:
 
 * * *
 
-See also: asLineDrawing, Polygon, vertexCoordinates
+See also: LineDrawing, Polygon, vertexCoordinates
 
 Guides: Geometry Functions
 
