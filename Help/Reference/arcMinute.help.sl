@@ -1,15 +1,15 @@
 # arcMinute
 
-- _arcMinute(aNumber)_
+- _arcMinute(n)_
 
-Answer _aNumber_ times _arcMinute_, the constant representing one sixtieth of a `degree`.
+Answer _n_ times _arcMinute_, the constant representing one sixtieth of a `degree`.
 
 ```
 >>> 1.arcMinute
-(1.degree / 60)
+1/60.degree
 
->>> 1.arcMinute
-60.arcSecond
+>>> 3/2.arcMinute
+90.arcSecond
 ```
 
 * * *
@@ -20,6 +20,8 @@ Guides: Mathematical Constants
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/ArcMinute.html)
+[1](https://mathworld.wolfram.com/ArcMinute.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Minute_and_second_of_arc)
 
 Categories: Math, Constant

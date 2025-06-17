@@ -1,8 +1,8 @@
 # circumference
 
-- _circumference(aCircle)_
+- _circumference(c)_
 
-Answer the arc length of _aCircle_.
+Answer the arc length of the circle _c_.
 
 ```
 >>> Circle([0 0], 1).circumference
@@ -13,8 +13,12 @@ Answer the arc length of _aCircle_.
 
 See also: arcLength, Circle, perimeter
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Circumference.html)
+[1](https://mathworld.wolfram.com/Circumference.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Circumference)
 
 Categories: Geometry

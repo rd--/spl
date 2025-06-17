@@ -471,6 +471,10 @@
 		self.collect(thueMorse:/1)
 	}
 
+	triangularNumber { :self |
+		self.collect(triangularNumber:/1)
+	}
+
 	truncated { :self |
 		self.collect(truncated:/1)
 	}

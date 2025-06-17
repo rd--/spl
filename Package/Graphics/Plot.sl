@@ -164,20 +164,24 @@ Plot : [Object] { | pages format options |
 		y.autocorrelationPlot(k)
 	}
 
-	complexPlot { :self :aBlock:/1 |
+	complexPlot { :self :k :aBlock:/1 |
 		let [min, max] = self;
 		let colourFunction:/1 = system
 		.colourGradients[
 			'Kovesi',
 			'Cyclic-Mygbm-30-95-C78S25'
 		].asColourGradient.asBlock;
-		let k = 100;
 		let r = (min.real -- max.real).subdivide(k);
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
 			let z = Complex(y, x);
 			colourFunction(aBlock(z).arg / 2.pi + 0.5)
 		}.table(i, r).reversed.Image
+	}
+
+	complexPlot { :self :aBlock:/1 |
+		let k = 100;
+		complexPlot(self, k, aBlock:/1)
 	}
 
 	densityHistogramPlot { :d :b1 :b2 |

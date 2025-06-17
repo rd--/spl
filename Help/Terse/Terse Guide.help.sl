@@ -488,8 +488,8 @@ let a = [1 2 2 3 3 3]; a.removeAllEqualTo(3); a = [1 2 2] /* remove all elements
 let a = [1 .. 9]; let b = [1, 3 .. 9]; let c = [2, 4 .. 8]; a.removeAllFoundIn(b) == b & { a = c } /* remove elements found in a collection */
 let a = [1 2 2 3 3 3]; a.without(3) = [1 2 2] /* remove all elements equal to argument and answer self */
 let a = [1 2 2 3 3 3]; a.withoutAll([1, 3]) = [2 2] /* remove all elements equal to argument and answer self */
-5.arithmeticSeries(1, 2) = [1, 3 .. 9] /* arithmetic series (size from by) */
-5.geometricSeries(1, 2) = [1, 2, 4, 8, 16] /* geometric series (size from by) */
+5.arithmeticProgression(1, 2) = [1, 3 .. 9] /* arithmetic series (size from by) */
+5.geometricProgression(1, 2) = [1, 2, 4, 8, 16] /* geometric series (size from by) */
 List(3).size = 3
 List:/1.ofSize(3) = [nil, nil, nil]
 let l = [3]; l.addFirst(2); l.addFirst(1); l = [1 2 3] /* add item to start of array */
@@ -3002,8 +3002,8 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:10.middle = 6 /* middle element */
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */
-[1 3 5 7 9].isArithmeticSeries = true /* is sequence an arithmetic series */
-[1 3 5 7 9].isArithmeticSeriesBy(2, =) = true /* is sequence an arithmetic series by step accoring to block */
+[1 3 5 7 9].isArithmeticProgression = true /* is sequence an arithmetic series */
+[1 3 5 7 9].isArithmeticProgressionBy(2, =) = true /* is sequence an arithmetic series by step accoring to block */
 ```
 
 ## Sequence arithmetic

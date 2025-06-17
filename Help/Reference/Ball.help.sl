@@ -1,15 +1,17 @@
 # Ball
 
-- _Ball(aPoint, aNumber)_
+- _Ball(c, r)_
 
-Answer a `Ball` with center at _aPoint_ and radius _aNumber_.
+A `Type` representing a ball,
+also called a solid sphere,
+centered at point _c_ with radius _r_.
 
 ```
->>> let s = Ball([0 0 0], 1);
+>>> let b = Ball([0 0 0], 1);
 >>> (
->>> 	s.center,
->>> 	s.radius,
->>> 	s.volume
+>>> 	b.center,
+>>> 	b.radius,
+>>> 	b.volume
 >>> )
 ([0 0 0], 1, 4/3.pi)
 ```
@@ -22,5 +24,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Ball.html)
 [2](https://reference.wolfram.com/language/ref/Ball.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Ball_(mathematics))
 
 Categories: Geometry, Type

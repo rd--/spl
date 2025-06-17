@@ -1,8 +1,8 @@
 # convergents
 
-- _convergents(aList)_
+- _convergents(l)_
 
-Answer a `List` of the convergents corresponding to the continued fraction terms in _aList_.
+Answer a `List` of the convergents corresponding to the continued fraction terms in the list _l_.
 
 ```
 >>> [0 1 5 2 2].convergents

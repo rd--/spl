@@ -64,7 +64,7 @@ Descending:
 
 * * *
 
-See also: ^, arithmeticSeries, exp, geometricSeries, Range, ratios
+See also: ^, arithmeticProgression, exp, geometricProgression, Range, ratios
 
 References:
 _Mathematica_

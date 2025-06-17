@@ -8,8 +8,8 @@
 	let x = BrownNoise(0.007 # 2, 0) * e;
 	let k = DynRingzBank(
 		x,
-		12.arithmeticSeries(f, f),
-		12.geometricSeries(1, TRand(0.7, 0.9, tr)),
+		12.arithmeticProgression(f, f),
+		12.geometricProgression(1, TRand(0.7, 0.9, tr)),
 		{ TRand(1, 3, tr) } ! 12
 	);
 	EqPan2(k.SoftClip, TRand(-1, 1, tr)) / 10

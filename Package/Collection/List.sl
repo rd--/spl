@@ -203,7 +203,13 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 +@Integer {
 
-	arithmeticSeries { :self :start :step |
+	arithmeticoGeometricSequence { :n :a :d :b :r |
+		let i = arithmeticProgression(n, a, d);
+		let j = geometricProgression(n, b, r);
+		i * j
+	}
+
+	arithmeticProgression { :self :start :step |
 		1.to(self).collect { :each |
 			(step * (each - 1)) + start
 		}
@@ -217,7 +223,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		answer
 	}
 
-	geometricSeries { :self :start :grow |
+	geometricProgression { :self :start :grow |
 		let answer = [];
 		let next = start;
 		self.timesRepeat {
@@ -225,6 +231,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			next := next * grow
 		};
 		answer
+	}
+
+	harmonicProgression { :self :start :step |
+		1 / self.arithmeticProgression(start, step)
 	}
 
 	List { :size |

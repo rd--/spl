@@ -2,7 +2,7 @@
 let maxDt = 48000 * 0.03; /* Maximum delay time */
 let n = 5; /* Number of delay lines */
 let buf = { BufAlloc(1, maxDt).BufClear } ! n; /* Allocate buffers for delay lines */
-let tapTimes = n.arithmeticSeries(0.003, 0.0005); /* Tap times to determine string pitches */
+let tapTimes = n.arithmeticProgression(0.003, 0.0005); /* Tap times to determine string pitches */
 let exc = (1 .. n).collect { :i |
 	let excEnv = Env([0 1 0], [0.01 0.2], -2, nil, nil, 0);
 	let excTrig = Impulse(n, 0);

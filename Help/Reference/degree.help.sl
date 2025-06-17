@@ -1,13 +1,14 @@
 # degree
 
-- _degree(aNumber)_
+- _degree(x)_
 
-Answer _aNumber_ times _degree_, the constant representing the number of radians in one degree,
+At `Number`,
+answer _x_ times the constant representing the number of radians in one degree,
 approximately equal to _0.01745_.
 
 ```
 >>> 1.degree
-(2.pi / 360)
+1/180.pi
 
 >>> 360.degree
 2.pi

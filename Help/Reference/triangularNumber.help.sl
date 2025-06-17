@@ -5,7 +5,14 @@
 Answer the _n_-th triangular number.
 
 ```
->>> 0:23.collect(triangularNumber:/1)
+>>> 23.triangularNumber
+276
+```
+
+Threads over lists:
+
+```
+>>> 0:23.triangularNumber
 [
 	  0   1   3   6  10  15  21  28
 	 36  45  55  66  78  91 105 120
@@ -13,9 +20,19 @@ Answer the _n_-th triangular number.
 ]
 ```
 
+Calculate arithmetic series starting at `zero`:
+
+```
+>>> let r = (0, 3 .. 21);
+>>> r.sum
+(r.size - 1).triangularNumber * r.step
+```
+
 * * *
 
 See also: binomial, cubed, pascalTriangle, squared, tetrahedralNumber
+
+Guides: Integer Sequences
 
 References:
 _Mathematica_

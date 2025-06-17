@@ -13,7 +13,7 @@ Ellipse : [Object] { | center radii |
 	}
 
 	eccentricity { :self |
-		let [a, b] = self.radii;
+		let [b, a] = self.radii.sorted;
 		(1 - (b / a).squared).sqrt
 	}
 

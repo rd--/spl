@@ -1,6 +1,6 @@
 # harmonicNumber
 
-- _harmonicNumber(anInteger | aCollection)_
+- _harmonicNumber(n)_
 
 The _n_-th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 
@@ -8,17 +8,30 @@ The _n_-th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 >>> 11.harmonicNumber
 1:11.reciprocal.sum
 
->>> 1:9.harmonicNumber
-[
-	1 3/2 11/6 25/12 137/60 49/20
-	363/140 761/280 7129/2520
-]
-
 >>> 4550.harmonicNumber
 9.0002080629311
 
 >>> 12367.harmonicNumber
 10.000043008276
+```
+
+The value _H(n)−ln(n)_ decrease monotonically towards the limit γ:
+
+```
+>>> let n = 89014;
+>>> let h = n.harmonicNumber;
+>>> h - n.log
+1.eulerGamma
+```
+
+Threads over lists:
+
+```
+>>> 1:9.harmonicNumber
+[
+	1 3/2 11/6 25/12 137/60 49/20
+	363/140 761/280 7129/2520
+]
 ```
 
 Plot over a subset of the integers:
@@ -31,7 +44,7 @@ Plot over a subset of the integers:
 
 * * *
 
-See also: harmonicMean
+See also: harmonicMean, harmonicProgression
 
 Guides: Integer Functions, Integer Sequences
 
@@ -42,5 +55,7 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A002805)
 [2](https://oeis.org/A001008)
+_W_
+[1](https://en.wikipedia.org/wiki/Harmonic_number)
 
 Categories: Math, Sequence

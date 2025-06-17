@@ -120,8 +120,8 @@ Voicer(1, 16) { :e |
 	let f = (e.x * 24 + 48).MidiCps;
 	let k = DynRingzBank(
 		BrownNoise() * e.z * LagUd(e.w, e.y * 0.1, e.y * 4),
-		12.arithmeticSeries(f, f),
-		12.geometricSeries(1, Rand(0.7, 0.9)),
+		12.arithmeticProgression(f, f),
+		12.geometricProgression(1, Rand(0.7, 0.9)),
 		{ Rand(1, 3) } ! 12
 	);
 	(k * 0.1).SoftClip.EqPan2(e.i * 2 - 1)
@@ -133,7 +133,7 @@ let scale = [0 2 4 5 7 9 11] + root;
 let oct = [24 36 48 60 72 84];
 let f = (scale.atRandom + oct.atRandom).MidiCps;
 let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
-let k = RingzBank(x, 12.arithmeticSeries(f, f), 12.geometricSeries(1, Rand(0.7, 0.9)), { Rand(1, 3) } ! 12);
+let k = RingzBank(x, 12.arithmeticProgression(f, f), 12.geometricProgression(1, Rand(0.7, 0.9)), { Rand(1, 3) } ! 12);
 (k * 0.1).SoftClip
 
 /* Bowed string (Jmcc) */
@@ -144,8 +144,8 @@ let f = (scale.atRandom + oct.atRandom).MidiCps;
 let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 let k = RingzBank(
 	x,
-	12.arithmeticSeries(f, f),
-	12.geometricSeries(1, (0.7 -- 0.9).atRandom),
+	12.arithmeticProgression(f, f),
+	12.geometricProgression(1, (0.7 -- 0.9).atRandom),
 	{ (1 -- 3).atRandom } ! 12
 );
 (k * 0.1).SoftClip
@@ -157,8 +157,8 @@ let oct = [24 36 48 60 72 84];
 let f = (scale.atRandom + oct.atRandom).MidiCps;
 let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 let d = [
-	12.arithmeticSeries(f, f),
-	12.geometricSeries(1, Rand(0.7, 0.9)),
+	12.arithmeticProgression(f, f),
+	12.geometricProgression(1, Rand(0.7, 0.9)),
 	{ Rand(1, 3) } ! 12
 ].transposed.++;
 let k = Klank(x, 1, 0, 1, d);

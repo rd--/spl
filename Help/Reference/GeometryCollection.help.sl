@@ -1,6 +1,6 @@
 # GeometryCollection
 
-- _GeometryCollection(aCollection)_
+- _GeometryCollection(c)_
 
 A `Type` that holds a collection of geometries.
 

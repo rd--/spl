@@ -1,8 +1,8 @@
 # arcLength
 
-- _arcLength(aCurve)_
+- _arcLength(c)_
 
-Answer the length of _aCurve_.
+Answer the arc length of the curve _c_.
 
 At `Circle`:
 
@@ -35,7 +35,8 @@ At `Rectangle`:
 At `Polygon`:
 
 ```
->>> 5.regularPolygon([0 0], 1, 0).arcLength
+>>> 5.regularPolygon([0 0], 1, 0)
+>>> .arcLength
 5.8779
 ```
 
@@ -48,6 +49,8 @@ Guides: Geometry Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ArcLength.html)
-[2](https://reference.wolfram.com/language/ref/ArcLength.html)
+[2](https://reference.wolfram.com/language/ref/ArcLength.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Arc_length)
 
 Categories: Geometry

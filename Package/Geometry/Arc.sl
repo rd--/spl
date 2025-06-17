@@ -23,6 +23,28 @@ Arc : [Object] { | center radii angles |
 		])
 	}
 
+	radius { :self |
+		let [rx, ry] = self.radii;
+		(rx = ry).if {
+			rx
+		} {
+			self.error('Arc>>radius: unequal radii')
+		}
+	}
+
+	sectorArea { :self |
+		self.radius.squared * self.theta * 0.5
+	}
+
+	segmentArea { :self |
+		self.radius.squared * (self.theta - self.theta.sin) * 0.5
+	}
+
+	theta { :self |
+		let [a, b] = self.angles;
+		(b - a).abs
+	}
+
 }
 
 +List {

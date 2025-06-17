@@ -39,11 +39,15 @@ Circle : [Object] { | center radius |
 		self.radius * 2
 	}
 
-	dimension { :self |
+	dimension { :unused |
 		1
 	}
 
-	embeddingDimension { :self |
+	eccentricity { :unused |
+		0
+	}
+
+	embeddingDimension { :unused |
 		2
 	}
 

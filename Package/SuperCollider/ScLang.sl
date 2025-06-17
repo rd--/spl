@@ -711,7 +711,7 @@
 	}
 
 	geom { :self :start :grow |
-		self.geometricSeries(start, grow)
+		self.geometricProgression(start, grow)
 	}
 
 	SoftClip { :self |

@@ -1,12 +1,12 @@
 # Ellipse
 
-- _Ellipse(center, radius)_
+- _Ellipse(c, r)_
 
-A `Type` that represents an axis aligned ellipse of _radii_ at _center_.
+A `Type` that represents an axis aligned ellipse of radii _r_ at center coordinates _c_.
 
 ```
->>> let c = Ellipse([0 0], [2 1]);
->>> (c.isEllipse, c.center, c.radii)
+>>> let e = Ellipse([0 0], [2 1]);
+>>> (e.isEllipse, e.center, e.radii)
 (true, [0 0], [2 1])
 ```
 
@@ -38,6 +38,8 @@ Ellipse(
 * * *
 
 See also: Circle, Polygon, Rectangle, Triangle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

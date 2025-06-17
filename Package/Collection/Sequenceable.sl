@@ -177,7 +177,7 @@
 			(self.size = 1).if {
 				Range(self.first, self.first, 1)
 			} {
-				self.isArithmeticSeries.if {
+				self.isArithmeticProgression.if {
 					Range(self.first, self.last, self.second - self.first)
 				} {
 					self.error('@Sequenceable>>asRange: not an arithmetic series')
@@ -1300,7 +1300,7 @@
 	includesScatteredSubsequence { :self :aList |
 		valueWithReturn { :return:/1 |
 			1.to(self.size).powerSetDo { :each |
-				each.isArithmeticSeriesBy(1, =).ifFalse {
+				each.isArithmeticProgressionBy(1, =).ifFalse {
 					(self @* each = aList).ifTrue {
 						true.return
 					}
@@ -1528,15 +1528,15 @@
 		}
 	}
 
-	isArithmeticSeries { :self |
+	isArithmeticProgression { :self |
 		(self.size <= 1).if {
 			true
 		} {
-			self.isArithmeticSeriesBy(self.second - self.first, =)
+			self.isArithmeticProgressionBy(self.second - self.first, =)
 		}
 	}
 
-	isArithmeticSeriesBy { :self :aNumber :aBlock:/2 |
+	isArithmeticProgressionBy { :self :aNumber :aBlock:/2 |
 		(self.size <= 1).if {
 			true
 		} {
@@ -1555,15 +1555,15 @@
 		self.equalBy(anObject, isCloseTo:/2)
 	}
 
-	isGeometricSeries { :self |
+	isGeometricProgression { :self |
 		(self.size <= 1).if {
 			true
 		} {
-			self.isGeometricSeriesBy(self.second / self.first, =)
+			self.isGeometricProgressionBy(self.second / self.first, =)
 		}
 	}
 
-	isGeometricSeriesBy { :self :aNumber :aBlock:/2 |
+	isGeometricProgressionBy { :self :aNumber :aBlock:/2 |
 		(self.size <= 1).if {
 			true
 		} {

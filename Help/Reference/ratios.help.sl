@@ -34,7 +34,7 @@ Ratios are constant for a geometric sequence:
 
 * * *
 
-See also: /, differences, geometricSeries, isGeometricSeries, powerRange, scanLeft
+See also: /, differences, geometricProgression, isGeometricProgression, powerRange, scanLeft
 
 References:
 _Mathematica_

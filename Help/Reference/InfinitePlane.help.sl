@@ -4,7 +4,7 @@
 - _InfinitePlane(p, q, r)_
 
 The quaternary form answers an `InfinitePlane` given the four terms of the equation
-_(a * x) + (b * y) + (c * z) + d = 0_.
+_ax+by+cz+d=0_.
 The ternary form answers an `InfinitePlane` given three cartesian coordinates.
 
 The _x/y_ plane, with unit normal vector of _0 0 1_ and distance from origin of `zero`:
@@ -88,6 +88,8 @@ See also: HalfPlane, hessianNormalForm, unitNormal
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Plane.html)
-[1](https://reference.wolfram.com/language/ref/InfinitePlane.html)
+[1](https://reference.wolfram.com/language/ref/InfinitePlane.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Plane_(mathematics))
 
 Categories: Geometry

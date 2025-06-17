@@ -565,7 +565,7 @@
 ## Ranges
 
 - `ArithmeticProgression`, `Range`
-- `arithmeticSeries`, `isArithmeticSeries`, `isArithmeticSeriesBy`
+- `arithmeticProgression`, `isArithmeticProgression`, `isArithmeticProgressionBy`
 - `asRange`, `asRangeList`
 - `isIntegerRange`, `isNormal`, `isProper`, `isRange`
 - `differences`

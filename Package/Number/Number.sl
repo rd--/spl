@@ -509,6 +509,10 @@
 		self = 0
 	}
 
+	khinchinsConstant { :self |
+		self * 2.685452001065306445309714835
+	}
+
 	kroneckerDelta { :self |
 		(self = 0).boole
 	}
@@ -519,6 +523,10 @@
 		} {
 			0
 		}
+	}
+
+	levysConstant { :self |
+		self * 3.27582291872181115978768188
 	}
 
 	lemniscateConstant { :self |

@@ -1,8 +1,8 @@
 # densityPlot
 
-- _densityPlot(aBlock:/2, xInterval, yInterval)_
+- _densityPlot(f₂, x₁—x₂, y₁—y₂)_
 
-Answer a density plot of _aBlock_ as a function of _x_ and _y_ over their respective intervals.
+Answer a density plot of _f_ as a function of _x_ and _y_ over their respective intervals.
 
 Plot a function:
 

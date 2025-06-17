@@ -1,22 +1,23 @@
 # Mathematical Constants
 
-- `arcMinute`: one sixtieth of a degree
-- `arcSecond`: one sixtieth of an arc second
-- `avogadroConstant`: Avogadro constant
-- `berahaConstant`: Beraha constants
-- `degree`: one one-hundred and eightieth of pi
-- `e`: Euler’s number, base of natural logarithm
+- `arcMinute`: 1/60 of a degree
+- `arcSecond`: 1/60² of a degree
+- `avogadroConstant`: Avogadro _k_
+- `berahaConstant`: Beraha _k_
+- `degree`: 1/180 of pi
+- `e`: Euler’s number
 - `epsilon`: epsilon
-- `eulerGamma`: Euler’s constant
-- `gausssConstant`: Gauss’s constant
+- `eulerGamma`: Euler’s _k_
+- `gausssConstant`: Gauss’s _k_
 - `goldenAngle`: golden angle
 - `goldenRatio`: golden ratio
 - `i`: square root of negative one
-- `lemniscateConstant`: Lemniscate constant
-- `pi`: ratio of circle circumference to diameter
-- `plasticRatio`: limiting ratio of Padovan sequence
+- `lemniscateConstant`: Lemniscate _k_
+- `levysConstant`: Lévy’s _k_
+- `pi`: circumference diameter ratio
+- `plasticRatio`: plastic ratio
 - `silverRatio`: silver ratio
-- `smallFloatEpsilon`: the smallest interval above one
+- `smallFloatEpsilon`: `SmallFloat` ε
 - `supergoldenRatio`: supergolden ratio
 - `supersilverRatio`: supersilver ratio
 

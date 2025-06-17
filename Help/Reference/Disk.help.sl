@@ -1,12 +1,12 @@
 # Disk
 
-- _Disk(center, radius)_
+- _Disk(c, r)_
 
-A `Type` that represents a disk of _radius_ at _center_.
+A `Type` that represents a disk of radius _r_ and center _c_.
 
 ```
->>> let c = Disk([0 0], 1);
->>> (c.isDisk, c.center, c.radius)
+>>> let d = Disk([0 0], 1);
+>>> (d.isDisk, d.center, d.radius)
 (true, [0 0], 1)
 ```
 
@@ -25,9 +25,13 @@ Disk([0, 0], 1)
 
 See also: Ball, center, Circle, Polygon, radius, randomPoint, Sphere
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Disk.html)
-[2](https://reference.wolfram.com/language/ref/Disk.html)
+[2](https://reference.wolfram.com/language/ref/Disk.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Disk_(mathematics))
 
 Categories: Geometry

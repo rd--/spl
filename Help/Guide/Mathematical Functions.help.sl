@@ -228,6 +228,15 @@
 - `resample`
 - `upsample`
 
+## Sequence Functions
+
+- `arithmeticProgression`
+- `geometricProgression`
+- `isArithmeticProgression`
+- `isGeometricProgression`
+- `powerRange`
+- `Range`
+
 ## Set Functions
 
 - `complement`: find the complement with respect to a universal set

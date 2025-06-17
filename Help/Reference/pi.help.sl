@@ -1,8 +1,8 @@
 # pi
 
-- _pi(aNumber)_
+- _pi(n)_
 
-Answer _aNumber_ times `pi`,
+Answer _n_ times `pi`,
 the ratio of a circles circumference to its diameter,
 approximately equal to _3.14159_.
 

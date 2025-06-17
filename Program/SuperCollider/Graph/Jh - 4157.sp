@@ -7,6 +7,6 @@ let k = 160;
 let b = TRand(2, 2.25, tr);
 let n = TRand(0.002, 0.02, tr);
 let f0 = TRand(90, 180, tr);
-let fMul = b ^ k.arithmeticSeries(0, n);
+let fMul = b ^ k.arithmeticProgression(0, n);
 let e = Decay2(tr, 1, 10) * 0.1;
 sinOsc(f0 * fMul).Splay * e

@@ -1,6 +1,6 @@
 # arithmeticGeometricMean
 
-- _arithmeticGeometricMean(aNumber, anotherNumber)_
+- _arithmeticGeometricMean(a, b)_
 
 Answer the arithmetic-geometric mean.
 
@@ -17,8 +17,12 @@ Answer the arithmetic-geometric mean.
 >>> 52.arithmeticGeometricMean(5)
 21.87248362674175
 
->>> arithmeticGeometricMean:/2.table([16 8], [4 10])
+>>> arithmeticGeometricMean:/2
+>>> .table([16 8], [4 10])
 [8.97211 12.824; 5.82716 8.97211]
+
+>>> arithmeticGeometricMean(0, 0)
+0
 ```
 
 At `Complex`:
@@ -36,6 +40,9 @@ The `reciprocal` of the arithmetic–geometric mean of `one` and the square root
 
 >>> 1.gausssConstant
 0.8346268
+
+>>> beta(0.25, 0.5) / 2.pi
+0.8346268
 ```
 
 Plot over a subset of the reals:
@@ -47,6 +54,16 @@ Plot over a subset of the reals:
 ~~~
 
 ![](sw/spl/Help/Image/arithmeticGeometricMean-A.svg)
+
+Plot table of means:
+
+~~~spl svg=B
+let i = [0, 0.25 .. 2];
+arithmeticGeometricMean:/2
+.table(i, i).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/arithmeticGeometricMean-B.svg)
 
 Special values: OEIS A068521, A084895, A084896 & A084897:
 
@@ -62,7 +79,7 @@ Special values: OEIS A068521, A084895, A084896 & A084897:
 
 * * *
 
-See also: arithmeticMean, geometricMean, mean, median, moment
+See also: arithmeticMean, arithmeticoGeometricSequence, geometricMean, mean, median, moment
 
 Guides: Integer Sequences
 

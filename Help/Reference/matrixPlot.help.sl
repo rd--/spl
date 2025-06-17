@@ -1,8 +1,8 @@
 # matrixPlot
 
-- _matrixPlot(aMatrix)_
+- _matrixPlot(m)_
 
-Answer a plot that gives a visual representation of the elements in _aMatrix_.
+Answer a plot that gives a visual representation of the elements in the matrix _m_.
 
 `zero` is drawn as white,
 or as transparent if supported,

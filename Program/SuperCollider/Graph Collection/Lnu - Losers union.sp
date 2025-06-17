@@ -240,7 +240,7 @@ Splay(
 				a,
 				f(),
 				f() * 0.03,
-				4.arithmeticSeries(1 / 7, 1 / 7) * 0.12,
+				4.arithmeticProgression(1 / 7, 1 / 7) * 0.12,
 				-1,
 				4,
 				0,

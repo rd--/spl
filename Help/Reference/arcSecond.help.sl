@@ -1,12 +1,15 @@
 # arcSecond
 
-- _arcSecond(aNumber)_
+- _arcSecond(n)_
 
-Answer _aNumber_ times _arcSecond_, the constant representing one sixtieth of an `arcMinute`.
+Answer _n_ times _arcSecond_, the constant representing one sixtieth of an `arcMinute`.
 
 ```
 >>> 1.arcSecond
-(1.arcMinute / 60)
+1/60.arcMinute
+
+>>> 1.arcSecond
+(1/60 ^ 2).degree
 ```
 
 * * *

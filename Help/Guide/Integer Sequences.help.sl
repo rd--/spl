@@ -144,6 +144,7 @@ The following help files include references to integer sequences:
 - `supergoldenRatio`: A092526
 - `supersilverRatio`: A356035
 - `thueMorseSequence`: A010060
+- `triangularNumber`: A000217
 - `vanDerCorputNumber`: A030101 A030102
 - `vanDerLaanSequence`: A182097
 - `vedicSquare`: A125959 A180592 A180593 A180594

@@ -186,6 +186,7 @@ Query Functions:
 - `coordinateBounds`
 - `diameter`
 - `dimension`
+- `eccentricity`
 - `edgeCoordinates`
 - `edgeCount`
 - `edgeList`

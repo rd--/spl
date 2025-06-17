@@ -1,8 +1,8 @@
 # Circle
 
-- _Circle(center, radius)_
+- _Circle(c, r)_
 
-A `Type` that represents a circle of _radius_ at _center_.
+A `Type` that represents a circle of radius _r_ at center coordinates _c_.
 
 ```
 >>> let c = Circle([0 0], 1);
@@ -121,6 +121,8 @@ Guides: Geometry Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circle.html)
-[2](https://reference.wolfram.com/language/ref/Circle.html)
+[2](https://reference.wolfram.com/language/ref/Circle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Circle)
 
 Categories: Geometry
