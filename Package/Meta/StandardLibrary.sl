@@ -135,6 +135,7 @@
 	'ColourPalette'
 	'Graymap'
 	'Image'
+	'PerspectiveDrawing'
 	'Svg'
 	'Plot' /* Interval, LineDrawing */
 	'Writing'

@@ -61,3 +61,29 @@ Promise! : [Object] {
 	}
 
 }
+
++Promise {
+
+	drawing { :self |
+		self.then { :result |
+			result.drawing
+		}
+	}
+
+	show { :self |
+		self.thenElse { :result |
+			result.show
+		} { :err |
+			self.error('show: ' ++ err)
+		}
+	}
+
+	writeSvg { :self :fileName |
+		self.thenElse { :result |
+			result.writeSvg(fileName)
+		} { :err |
+			self.error('writeSvg: ' ++ err)
+		}
+	}
+
+}

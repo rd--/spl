@@ -8,16 +8,12 @@ ColourPalette : [Object] { | colourList |
 		self.colourList.asDiscreteColourGradient
 	}
 
-	asSvg { :self |
-		self.asDiscreteColourGradient.asSvg
-	}
-
 	at { :self :index |
 		self.colourList.at(index)
 	}
 
-	draw { :self |
-		self.asDiscreteColourGradient.draw
+	drawing { :self |
+		self.asDiscreteColourGradient.drawing
 	}
 
 	size { :self |
@@ -26,10 +22,6 @@ ColourPalette : [Object] { | colourList |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
-	}
-
-	writeSvg { :self :fileName |
-		self.asSvg.writeSvg(fileName)
 	}
 
 }

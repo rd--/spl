@@ -1,7 +1,8 @@
 # Bitmap
 
-- _Bitmap(aMatrix)_
+- _Bitmap(m)_
 
+Answer a `Bitmap` of the matrix _m_.
 A `Bitmap` is a discrete image where each cell is either `zero` or `one`.
 
 Show a `Bitmap` in the textual portable bitmap,

@@ -89,4 +89,6 @@ Draw the cochleoid curve:
 
 See also: asPerspectiveDrawing, Circle, LineDrawing, Plot, Polygon, Rectangle, Scale, textDrawing, Triangle
 
+Guides: Drawing Functions, Image Functions
+
 Categories: Converting

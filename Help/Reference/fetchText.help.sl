@@ -1,8 +1,8 @@
 # fetchText
 
-- _fetchText(aUrl)_
+- _fetchText(u)_
 
-Answer a `Promise` that will resolve to a `String` having the contents of _aUrl_.
+Answer a `Promise` that will resolve to a `String` having the contents of the `Url` _u_.
 
 ~~~spl async
 system

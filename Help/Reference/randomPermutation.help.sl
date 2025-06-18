@@ -21,7 +21,7 @@ A random permutation in the symmetric group _S10_:
 
 See also: cycles, fisherYatesShuffle, randomCycle, randomPermutationList, randomSample, shuffle, shuffled
 
-Guides: Random Functions
+Guides: Permutation Functions, Random Functions
 
 References:
 _Julia_
@@ -29,6 +29,8 @@ _Julia_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomPermutation.html),
 _Mathworks_
-[1](https://www.mathworks.com/help/matlab/ref/randperm.html)
+[1](https://www.mathworks.com/help/matlab/ref/randperm.html),
+_Python_
+[1](https://numpy.org/doc/stable/reference/random/generated/numpy.random.permutation.html)
 
 Categories: Random, Permutation

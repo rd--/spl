@@ -172,9 +172,9 @@ If the string begins with a doctest, also delete all non doctest lines."
   (spl-eval-string (format "{ %s }.value.play" (spl-get-paragraph))))
 
 (defun spl-draw-paragraph ()
-  "Draw Ugen graph of current paragraph."
+  "Draw current paragraph."
   (interactive)
-  (spl-eval-string (format "{ %s }.value.draw" (spl-get-paragraph))))
+  (spl-eval-string (format "{ %s }.value.drawing.show" (spl-get-paragraph))))
 
 (defun spl-print-promise ()
   "Print Promise of current paragraph when it resolves."

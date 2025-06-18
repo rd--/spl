@@ -6,7 +6,7 @@ A spiral,
 also known as the polar tractrix or complicated tractrix,
 studied by Huygens and Varignon in 1704.
 
-~~~
+~~~spl svg=A
 let f:/1 = tractrixSpiral(1);
 (0 -- 1.5275.log).subdivide(500)
 .collect { :t |

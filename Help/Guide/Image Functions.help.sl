@@ -18,7 +18,8 @@ Converting:
 
 Drawing:
 
-- `draw`
+- `drawing`
+- `show`
 
 * * *
 

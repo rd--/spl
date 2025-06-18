@@ -369,8 +369,12 @@ The sum of the `descents` is called the `majorIndex`:
 
 See also: inversePermutation, permutationCycle, permutationList, permutationProduct, permutationPower, permute
 
+Guide: Permutation Functions
+
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Permutation.html)
+[1](https://mathworld.wolfram.com/Permutation.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Permutation)
 
 Categories: Permutations, Type

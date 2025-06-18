@@ -2,7 +2,11 @@
 
 Svg : [Object] { | contents |
 
-	draw { :self |
+	drawing { :self |
+		self
+	}
+
+	show { :self |
 		let fileName = '/tmp/svgImage.svg';
 		self.writeSvg(fileName);
 		system.systemCommand('chromium', [fileName])

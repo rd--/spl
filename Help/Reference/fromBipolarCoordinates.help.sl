@@ -62,7 +62,7 @@ Plot varying σ:
 
 Draw Apollonian circles:
 
-~~~
+~~~spl svg=E
 let k = 50;
 let n = 4;
 let c = { :x |

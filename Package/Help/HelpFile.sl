@@ -302,7 +302,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 		self.codeBlocksWithAttribute('svg').do { :each |
 			let fileName = self.codeBlockImageFileName(each, 'svg');
 			fileName.postLine;
-			system.evaluate(each['contents']).writeSvg(fileName)
+			system.evaluate(each['contents']).drawing.writeSvg(fileName)
 		}
 	}
 

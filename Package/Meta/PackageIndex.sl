@@ -136,6 +136,7 @@
 	'Graphics-Graymap'
 	'Graphics-Image'
 	'Graphics-LineDrawing'
+	'Graphics-PerspectiveDrawing'
 	'Graphics-Plot'
 	'Graphics-Svg'
 	'Graphics-Writing'

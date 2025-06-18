@@ -19,14 +19,18 @@ Graymap : [Object] { | contents |
 		(header ++ rows ++ ['']).unlines
 	}
 
-	draw { :self |
-		let pngFileName = '/tmp/graymap.png';
-		self.writePng(pngFileName);
-		system.systemCommand('chromium', [pngFileName])
+	drawing { :self |
+		self
 	}
 
 	height { :self |
 		self.contents.numberOfRows
+	}
+
+	show { :self |
+		let pngFileName = '/tmp/graymap.png';
+		self.writePng(pngFileName);
+		system.systemCommand('chromium', [pngFileName])
 	}
 
 	width { :self |

@@ -1,8 +1,8 @@
 # asGraymap
 
-- _asGraymap(aMatrix)_
+- _asGraymap(m)_
 
-Answer `Graymap` of `rescale` of _aMatrix_.
+Answer `Graymap` of `rescale` of the matrix _m_.
 
 A gradient, rescaled from _(1,10000)_ to _(0,1)_:
 
@@ -15,5 +15,7 @@ A gradient, rescaled from _(1,10000)_ to _(0,1)_:
 * * *
 
 See also: Bitmap, Graymap, Image, matrixPlot, Svg
+
+Guides: Image Functions
 
 Categories: Graphics

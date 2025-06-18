@@ -16,4 +16,4 @@ At `Scale`:
 
 See also: LineDrawing, Scale, String
 
-Guides: Scale Functions
+Guides: Drawing Functions, Scale Functions

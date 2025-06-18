@@ -1,8 +1,8 @@
 # cycles
 
-- _cycles(aSequence)_
+- _cycles([c₁ c₂ …])_
 
-Answer the `Permutation` given by the permutation cycles at _aSequence_.
+Answer the `Permutation` given by the permutation cycles _c_.
 
 A permutation with two cycles:
 
@@ -38,7 +38,9 @@ The identity permutation contains no cycles in its canonical form:
 All integers must be distinct:
 
 ```
->>> { [1 2 3; 3 4 5].cycles }.ifError { true }
+>>> {
+>>> 	[1 2 3; 3 4 5].cycles
+>>> }.ifError { true }
 true
 ```
 

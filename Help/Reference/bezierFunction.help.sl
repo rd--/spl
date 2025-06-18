@@ -71,7 +71,7 @@ let f:/1 = [0 0.25 1.75 2].bezierFunction;
 (0 -- 1).discretize(64).collect { :mu |
 	let x = f(mu);
 	[x 0; x 1]
-}.Line
+}.Line.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/bezierFunction-E.svg)

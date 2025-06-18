@@ -22,8 +22,8 @@ Scale : [Object] { | startIndex intervals description |
 		}
 	}
 
-	draw { :self |
-		self.asLineDrawing.draw
+	drawing { :self |
+		self.asLineDrawing.drawing
 	}
 
 	fractionalDegreeToKey { :self :scaleDegree |

@@ -19,14 +19,18 @@ Image : [Object] { | contents |
 		(header ++ rows ++ ['']).unlines
 	}
 
-	draw { :self |
-		let pngFileName = '/tmp/image.png';
-		self.writePng(pngFileName);
-		system.systemCommand('chromium', [pngFileName])
+	drawing { :self |
+		self
 	}
 
 	height { :self |
 		self.contents.size
+	}
+
+	show { :self |
+		let pngFileName = '/tmp/image.png';
+		self.writePng(pngFileName);
+		system.systemCommand('chromium', [pngFileName])
 	}
 
 	width { :self |

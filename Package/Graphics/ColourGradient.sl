@@ -6,7 +6,7 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 		)
 	}
 
-	asSvg { :self |
+	drawing { :self |
 		let w = 300;
 		let h = 50;
 		let pre = [
@@ -34,10 +34,6 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 			'</svg>'
 		];
 		[pre, stops, post].catenate.unlines.Svg
-	}
-
-	draw { :self |
-		self.asSvg.draw
 	}
 
 	isEquallySpaced { :self |
@@ -82,10 +78,6 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
-	}
-
-	writeSvg { :self :fileName |
-		self.asSvg.writeSvg(fileName)
 	}
 
 }

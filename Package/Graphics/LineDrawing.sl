@@ -55,21 +55,15 @@ LineDrawing : [Object] { | contents metadata |
 			items,
 			'</g>',
 			'</svg>'
-		].flatten.unlines
+		].flatten.unlines.Svg
 	}
 
 	boundingBox { :self |
 		self.contents.collect(boundingBox:/1).boundingBoxMerging
 	}
 
-	draw { :self |
-		let fileName = '/tmp/LineDrawing.svg';
-		self.writeSvg(fileName);
-		system.systemCommand('chromium', [fileName])
-	}
-
-	writeSvg { :self :fileName |
-		fileName.writeTextFile(self.asSvg)
+	drawing { :self |
+		self.asSvg
 	}
 
 }
@@ -98,43 +92,6 @@ LineDrawing : [Object] { | contents metadata |
 
 	LineDrawing { :self |
 		self.LineDrawing(height: 100)
-	}
-
-}
-
-+[BezierCurve, Circle, Ellipse, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, PolygonWithHoles, Rectangle, Superellipse, Triangle, Writing] {
-
-	asLineDrawing { :self |
-		[self].LineDrawing
-	}
-
-	draw { :self |
-		let d = self.embeddingDimension;
-		(d = 2).if {
-			self.asLineDrawing.draw
-		} {
-			self.asPerspectiveDrawing.draw
-		}
-	}
-
-}
-
-+Promise {
-
-	draw { :self |
-		self.thenElse { :result |
-			result.draw
-		} { :err |
-			self.error('draw: ' ++ err)
-		}
-	}
-
-	writeSvg { :self :fileName |
-		self.thenElse { :result |
-			result.writeSvg(fileName)
-		} { :err |
-			self.error('writeSvg: ' ++ err)
-		}
 	}
 
 }
@@ -203,60 +160,30 @@ LineDrawing : [Object] { | contents metadata |
 
 }
 
-PerspectiveDrawing : [Object] { | contents metadata |
++[BezierCurve, Circle, Ellipse, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, PolygonWithHoles, Polyhedron, Rectangle, Superellipse, Triangle, Writing] {
 
 	asLineDrawing { :self |
-		let projection = self.metadata['projection'];
-		LineDrawing(
-			self.contents.collect { :each |
-				each.project(projection)
-			},
-			self.metadata
-		)
+		[self].LineDrawing
 	}
-
-	draw { :self |
-		self.asLineDrawing.draw
-	}
-
-	writeSvg { :self :fileName |
-		self.asLineDrawing.writeSvg(fileName)
-	}
-
-}
-
-+List {
-
-	PerspectiveDrawing { :self :options |
-		newPerspectiveDrawing().initializeSlots(
-			self.flatten,
-			options
-		)
-	}
-
-	PerspectiveDrawing { :self |
-		self.PerspectiveDrawing(
-			projection: AxonometricProjection(
-				1/6.pi, 0, 0,
-				0.5, 1, -1
-			),
-			height: 100
-		)
-	}
-
-}
-
-+[GeometryCollection, Line, PointCloud, Polygon, PolygonMesh, Polyhedron] {
 
 	asPerspectiveDrawing { :self :projection |
-		self.nest.PerspectiveDrawing(
+		[self].PerspectiveDrawing(
 			projection: projection,
 			height: 100
 		)
 	}
 
 	asPerspectiveDrawing { :self |
-		self.nest.PerspectiveDrawing
+		[self].PerspectiveDrawing
+	}
+
+	drawing { :self |
+		let d = self.embeddingDimension;
+		(d = 2).if {
+			self.asLineDrawing.drawing
+		} {
+			self.asPerspectiveDrawing.drawing
+		}
 	}
 
 }

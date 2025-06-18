@@ -3,6 +3,7 @@
 Types:
 
 - `LineDrawing`
+- `PerspectiveDrawing`
 
 Converting:
 

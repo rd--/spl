@@ -1,7 +1,8 @@
 # Graymap
 
-- _Graymap(aMatrix)_
+- _Graymap(m)_
 
+Answer a `Graymap` of the matrix _m_.
 A `Graymap` is a discrete image where each cell is a real number between `zero` and `one`.
 
 `Graymap` in portable graymap format:

@@ -6,6 +6,6 @@ A `Type` representing a data plot.
 
 * * *
 
-See also: asLineDrawing
+See also: Bitmap, Graph, Graymap, Image, LineDrawing, Svg
 
 Guides: Plotting Functions

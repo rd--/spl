@@ -1,5 +1,17 @@
 # Permutation Functions
 
+Types:
+
+- `Permutation`
+
+Constructors:
+
+- `cycles`
+
+Converting:
+
+- `asPermutation`
+
 General:
 
 - `lexicographicPermutations`: permutations in lexicographic sequence
@@ -10,7 +22,6 @@ General:
 Lists:
 
 - `ordering`: inverse of a permutation list
-- `randomSample`: random generation of permutation lists
 
 Operations:
 
@@ -22,6 +33,11 @@ Operations:
 - `permutations`: all permutations of arguments of an expression
 - `permute`: permute arguments of an expression
 
+Predicates:
+
+- `isPermutationCycles`
+- `isPermutationList`
+
 Properties:
 
 - `permutationLength`: number of integers moved by permutation
@@ -30,15 +46,23 @@ Properties:
 - `permutationOrder`: order of a permutation
 - `permutationSupport`: integers that are not fixed by permutation
 
+Random Functions:
+
+- `randomSample`
+- `randomPermutation`
+
 Representation:
 
 - `cycles`: cyclic permutation representation
-- `isPermutationCycles`: test validity
-- `isPermutationList`: test validity
 - `permutationCycles`: convert to cyclic representation
 - `permutationList`: convert to permutation list representation
-- `randomPermutation`: random generation of permutations
 
 * * *
 
 Guides: Mathematical Functions
+
+References:
+_Mathemtica_
+[1](https://mathworld.wolfram.com/Permutation.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Permutation)

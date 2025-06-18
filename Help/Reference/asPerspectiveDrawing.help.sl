@@ -31,4 +31,6 @@ The unary form provides a projection function:
 
 See also: asLineDrawing, CrystalStructure, LineDrawing, Polyhedron
 
+Guides: Drawing Functions, Image Functions
+
 Categories: Converting

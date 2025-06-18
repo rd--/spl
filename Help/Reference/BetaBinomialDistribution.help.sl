@@ -46,7 +46,7 @@ BetaBinomialDistribution(2, 3, 50)
 
 Compare to `pdf`:
 
-~~~spl svg=A
+~~~spl svg=D
 let d = BetaBinomialDistribution(2, 3, 50);
 (0 -- 50).functionPlot(d.pdf)
 ~~~

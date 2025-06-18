@@ -28,6 +28,6 @@ A 5×9 matrix:
 
 See also: asColourSvg, matrixPlot
 
-Guides: Colour Functions
+Guides: Colour Functions, Image Functions
 
 Categories: Graphics

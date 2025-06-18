@@ -5,7 +5,7 @@
 Answer a pseudo-random sample of _n_ (an integer) elements of the collection _c_,
 utilising the random number generator _r_.
 
-Do not sample any of _aCollection_ more than once.
+Do not sample any item of the collection _c_ more than once.
 
 Find a sample in which no elements ever occur more than once:
 

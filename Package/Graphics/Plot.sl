@@ -105,46 +105,27 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
-	draw { :self |
+	drawing { :self |
 		self.format.caseOf([
 			'array' -> {
 				let [contents] = self.pages;
-				contents.asColourSvg.draw
+				contents.asColourSvg
 			},
 			'graph' -> {
 				let [graph] = self.pages;
-				graph.dotDrawing(self.options).draw
+				graph.dotDrawing(self.options)
 			},
 			'matrix' -> {
 				let [contents] = self.pages;
-				contents.asGreyscaleSvg.draw
+				contents.asGreyscaleSvg
 			}
 		]) {
-			self.asLineDrawing.draw
+			self.asLineDrawing.drawing
 		}
 	}
 
 	pageCount { :self |
 		self.pages.size
-	}
-
-	writeSvg { :self :fileName |
-		self.format.caseOf([
-			'array' -> {
-				let [contents] = self.pages;
-				contents.asColourSvg.writeSvg(fileName)
-			},
-			'graph' -> {
-				let [graph] = self.pages;
-				graph.dotDrawing(self.options).writeSvg(fileName)
-			},
-			'matrix' -> {
-				let [contents] = self.pages;
-				contents.asGreyscaleSvg.writeSvg(fileName)
-			}
-		]) {
-			self.asLineDrawing.writeSvg(fileName)
-		}
 	}
 
 }

@@ -30,6 +30,8 @@ Sfc32(731894)
 
 * * *
 
-See also: arrayPlot, asGreyscaleSvg, matrixPlot
+See also: arrayPlot, asGreyscaleSvg, matrixPlot, Svg
+
+Guides: Image Functions
 
 Categories: Graphics

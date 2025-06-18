@@ -1,7 +1,8 @@
 # LineDrawing
 
-- _LineDrawing(aList)_
+- _LineDrawing([g₁ g₂ …])_
 
+Answer a `LineDrawing` of the geometries _g_.
 A `LineDrawing` is a `Type` representing a line drawing.
 The items in the drawing are geometric entities.
 
@@ -47,6 +48,8 @@ Compare first two Bessel functions:
 * * *
 
 See also: asLineDrawing, Circle, draw, Line, Point, Polygon, Rectangle
+
+Guides: Drawing Functions
 
 References:
 _Mathematica_
