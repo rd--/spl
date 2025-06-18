@@ -453,12 +453,6 @@ Complex : [Object, Number] { | real imaginary |
 		self.storeStringAsInitializeSlots
 	}
 
-	weierstrassFunction { :x :a :m |
-		1:m.collect { :k |
-			(0J1.pi * (k ^ a) * x).exp / (k ^ a).pi
-		}.sum
-	}
-
 	zero { :self |
 		0.asComplex
 	}

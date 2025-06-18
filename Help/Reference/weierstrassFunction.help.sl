@@ -1,54 +1,60 @@
 # weierstrassFunction
 
-- _weierstrassFunction(x, a, m)_
+- _weierstrassFunction(x, a, b, n=100)_
 
 A pathological function that is continuous but differentiable only on a set of points of measure zero published by Weierstrass.
 
-Plot over the reals in _(0,1)_ with _a=2_ and _m=100_:
+Plot over the reals in _(-1,1)_ with _a=0.634_ and _b=9_:
 
 ~~~spl svg=A
-(0 -- 1).functionPlot { :x |
-	weierstrassFunction(x, 2, 100)
+(-1 -- 1).functionPlot { :x |
+	weierstrassFunction(x, 0.634, 9, 100)
 }
 ~~~
 
 ![](sw/spl/Help/Image/weierstrassFunction-A.svg)
 
-Plot over the reals in _(0,1)_ with _a=3_ and _m=100_:
+Plot over with varying _a_ and _b_:
 
 ~~~spl svg=B
-(0 -- 1).functionPlot { :x |
-	weierstrassFunction(x, 3, 100)
-}
+let a = [0.816 0.380 0.248];
+let b = [7 15 23];
+(-1 -- 1).functionPlot(
+	[1 2 3].collect { :i |
+		{ :x |
+			weierstrassFunction(
+				x, a[i], b[i], 100
+			)
+		}
+	}
+)
 ~~~
 
 ![](sw/spl/Help/Image/weierstrassFunction-B.svg)
 
-Plot over the reals in _(0,1)_ with _a=4_ and _m=100_:
+Plot over with varying _a_ and _b_:
 
 ~~~spl svg=C
-(0 -- 1).functionPlot(500) { :x |
-	weierstrassFunction(x, 4, 100)
-}
+let a = [0.634 0.519 0.439 0.336 0.300];
+let b = [9 11 13 17 19];
+(-1 -- 1).functionPlot(
+	[1 .. 5].collect { :i |
+		{ :x |
+			weierstrassFunction(
+				x, a[i], b[i], 100
+			)
+		}
+	}
+)
 ~~~
 
 ![](sw/spl/Help/Image/weierstrassFunction-C.svg)
 
-Plot over the complex numbers in _(0,1)J0_ with _a=2_ and _m=100_:
-
-~~~spl svg=D
-(-0.5.pi -- 0.5.pi).functionPlot { :x |
-	weierstrassFunction(x.j(0), 2, 100)
-}
-~~~
-
-![](sw/spl/Help/Image/weierstrassFunction-D.svg)
-
 * * *
 
-See also: blancmangeFunction
+See also: blancmangeFunction, riemannFunction
 
-Guides: Mathematical Functions
+Guides: Curve Functions, Mathematical Functions
 
 References:
 _Mathematica_

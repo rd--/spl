@@ -177,6 +177,17 @@
 
 +SmallFloat {
 
+	riemannFunction { :x :a :n |
+		(1 .. n).sum { :i |
+			let j = i ^ a;
+			sin(j * x) / j
+		}
+	}
+
+	riemannFunction { :x |
+		x.riemannFunction(2, 100)
+	}
+
 	takagiFunction { :x :n |
 		let s = { :x |
 			let d = x - floor(x);
@@ -189,6 +200,26 @@
 
 	takagiFunction { :x |
 		takagiFunction(x, 100)
+	}
+
+	weierstrassFunction { :x :a :b :n |
+		(0 .. n).collect { :i |
+			(a ^ i) * ((b ^ i) * x.pi).cos
+		}.sum
+	}
+
+}
+
++Complex {
+
+	riemannFunction { :x :a :n |
+		(1 .. n).sum { :i |
+			(0J1.pi * (i ^ a) * x).exp / (i ^ a).pi
+		}
+	}
+
+	riemannFunction { :x |
+		x.riemannFunction(2, 100)
 	}
 
 }

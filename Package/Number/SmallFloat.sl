@@ -709,12 +709,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		>
 	}
 
-	weierstrassFunction { :x :a :m |
-		1:m.collect { :k |
-			((k ^ a).pi * x).sin / (k ^ a).pi
-		}.sum
-	}
-
 	zero { :self |
 		0
 	}

@@ -172,6 +172,11 @@ Plot of complex `sin` function:
 
 ![](sw/spl/Help/Image/sin-I.png)
 
+(1E-2 -- 1E-1).subdivide(1000)
+.collect { :x |
+	(1 / x).sin
+}.scatterPlot
+
 * * *
 
 See also: arcSin, cos, cosecant, haversine, sinDegrees, sinh, tan

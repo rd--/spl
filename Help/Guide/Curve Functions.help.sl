@@ -42,7 +42,9 @@ Fractal Curve Functions:
 - `minkowskiQuestionMark`
 - `peanoCurve`
 - `pentadentriteCurve`
+- `riemannFunction`
 - `sierpinskiCurve`
+- `weierstrassFunction`
 - `zOrderCurve`
 
 Piecewise Curve Functions:
