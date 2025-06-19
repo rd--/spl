@@ -1,8 +1,8 @@
 # fibonacciWord
 
-- _fibonacciWord(anInteger)_
+- _fibonacciWord(n)_
 
-Answer the _anInteger_-th letter in the infinite Fibonacci word.
+Answer the _n_-th letter in the infinite Fibonacci word.
 
 Calculate the first one hundred elements:
 
@@ -38,7 +38,7 @@ at the seventh step thirty-four terms have been generated:
 
 * * *
 
-See also: fibonacci, substitutionSystem
+See also: fibonacci, substitutionSystem, tribonacciWord
 
 Guides: Integer Sequences
 

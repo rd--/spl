@@ -914,6 +914,14 @@
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
 	}
 
+	rudinShapiro { :n |
+		let b = n.integerDigits(2);
+		let k = b.size;
+		-1 ^ 1.to(k - 1).sum { :i |
+			b[i] * b[i + 1]
+		}
+	}
+
 	rulerFunction { :n |
 		(2 * n).integerExponent(2)
 	}
@@ -996,6 +1004,27 @@
 			remaining := remaining - 1
 		};
 		self
+	}
+
+	tribonacciNumber { :n |
+		let a = (19 + (3 * 33.sqrt)).cubeRoot;
+		let b = (586 + (102 * 33.sqrt)).cubeRoot;
+		let c = (19 - (3 * 33.sqrt)).cubeRoot;
+		let d = ((1 / 3) * (a + c + 1)) ^ (n - 1);
+		let e = b.squared - (2 * b) + 4;
+		((3 * b) * (d / e)).rounded
+	}
+
+	tribonacciWords { :n |
+		let t = [1; 1 2; 1 2 1 3];
+		4.toDo(n) { :i |
+			t.add(t[i - 1] ++ t[i - 2] ++ t[i - 3])
+		};
+		t
+	}
+
+	tribonacciWord { :n |
+		(n + 1).tribonacciWords.at(n + 1)
 	}
 
 	truncated { :self |

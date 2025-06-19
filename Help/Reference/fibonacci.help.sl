@@ -102,6 +102,12 @@ Log plot of positive and negative Fibonacci numbers:
 
 ![](sw/spl/Help/Image/fibonacci-E.svg)
 
+Plot over a larger subset of the reals:
+
+~~~spl svg=F
+(-7.5 -- 7.5).functionPlot(fibonacci:/1)
+~~~
+
 * * *
 
 See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio

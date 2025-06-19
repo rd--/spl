@@ -1055,6 +1055,10 @@
 		self
 	}
 
+	tribonacciConstant { :n |
+		n * 1.83928675521416113255185
+	}
+
 	truncateTo { :self :aNumber |
 		self.quotient(aNumber) * aNumber
 	}

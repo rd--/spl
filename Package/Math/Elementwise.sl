@@ -423,6 +423,10 @@
 		self.collect(roundTiesEven:/1)
 	}
 
+	rudinShapiro { :self |
+		self.collect(rudinShapiro:/1)
+	}
+
 	secant { :self |
 		self.collect(secant:/1)
 	}
@@ -473,6 +477,10 @@
 
 	triangularNumber { :self |
 		self.collect(triangularNumber:/1)
+	}
+
+	tribonacciNumber { :self |
+		self.collect(tribonacciNumber:/1)
 	}
 
 	truncated { :self |

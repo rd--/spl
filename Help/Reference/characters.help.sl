@@ -1,8 +1,8 @@
 # characters
 
-- _characters(aString)_
+- _characters(s)_
 
-Answer a `List` of `String`s each holding one character of _aString_.
+Answer a `List` of `String`s each holding one character of the string _s_.
 
 ```
 >>> 'text'.characters

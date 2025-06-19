@@ -2461,6 +2461,10 @@
 		}
 	}
 
+	sequenceCount { :self :subsequence |
+		self.sequencePosition(subsequence).size
+	}
+
 	sequencePosition { :self :subsequence |
 		let k = subsequence.size - 1;
 		self.indicesOfSubstring(subsequence).collect { :each |

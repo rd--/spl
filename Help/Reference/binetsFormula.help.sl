@@ -1,6 +1,6 @@
 # binetsFormula
 
-- _binetsFormula(anInteger)_
+- _binetsFormula(n)_
 
 Answer the _n_-th Fibonacci number calculated using Binet’s formula.
 

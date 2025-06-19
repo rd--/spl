@@ -133,6 +133,7 @@ The following help files include references to integer sequences:
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
 - `recamanSequence`: A005132
+- `rudinShapiro`: A020985
 - `rulerFunction`: A001511
 - `schroderSequence`: A006318
 - `silverConstant`: A116425
@@ -145,6 +146,7 @@ The following help files include references to integer sequences:
 - `supersilverRatio`: A356035
 - `thueMorseSequence`: A010060
 - `triangularNumber`: A000217
+- `tribonacciWord`: A092782
 - `vanDerCorputNumber`: A030101 A030102
 - `vanDerLaanSequence`: A182097
 - `vedicSquare`: A125959 A180592 A180593 A180594
