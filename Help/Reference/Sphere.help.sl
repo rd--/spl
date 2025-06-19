@@ -1,8 +1,8 @@
 # Sphere
 
-- _Sphere(aPoint, aNumber)_
+- _Sphere(c, r)_
 
-Answer a `Sphere` with center at _aPoint_ and radius _aNumber_.
+Answer a `Sphere` with center at the point _c_ and radius _r_.
 
 ```
 >>> let s = Sphere([0 0 0], 1);

@@ -257,6 +257,7 @@
 	'Random-NormalDistribution'
 	'Random-OrnsteinUhlenbeckProcess'
 	'Random-ParetoDistribution'
+	'Ranomd-PoissonDiskSampling'
 	'Random-PoissonDistribution'
 	'Random-PoissonProcess'
 	'Random-ProbabilityDistribution'

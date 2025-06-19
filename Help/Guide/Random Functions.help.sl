@@ -10,6 +10,7 @@ Shuffling Functions:
 Random Number Functions:
 
 - `atRandom`
+- `poissonDiskSampling`
 - `randomBit`
 - `randomBoolean`
 - `randomByteArray`

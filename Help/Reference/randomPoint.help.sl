@@ -1,8 +1,9 @@
 # randomPoint
 
-- _randomPoint(aRegion, r, shape)_
+- _randomPoint(g, r, ρ)_
 
-Answer _shape_ random points on or in _aRegion_ drawn from the random number generator _r_.
+Answer _ρ_ random points on or in the region specified by the geometry _g_,
+drawn from the random number generator _r_.
 
 At `Circle` answers points _on_ the circle.
 A plot of one hundred random points on the unit circle:

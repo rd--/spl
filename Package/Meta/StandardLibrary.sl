@@ -187,6 +187,7 @@
 	'AliasMethod'
 	'LinearCongruential'
 	'MersenneTwister'
+	'PoissonDiskSampling'
 	'ProbabilityDistribution'
 	'RandomFixedSum'
 	'RandomProcess'

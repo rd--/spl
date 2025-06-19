@@ -1,8 +1,8 @@
 # thueMorseSequence
 
-- _thueMorseSequence(anInteger)_
+- _thueMorseSequence(n)_
 
-Answer the first _anInteger_ elements of the Thue-Morse sequence.
+Answer the first _n_ elements of the Thue-Morse sequence.
 
 ```
 >>> (2 ^ 0:5).collect { :k |

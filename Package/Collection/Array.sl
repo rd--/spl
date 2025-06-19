@@ -377,6 +377,49 @@
 		Range(1, count, 1).asList
 	}
 
+	mooreNeighborhood { :dimensions :range |
+		let size = range * 2 + 1;
+		let length = (size ^ dimensions) - 1;
+		let neighbors = [];
+		0.toDo(length - 1) { :i |
+			let neighbor = List(dimensions);
+			let index = (i < (length / 2)).if { i } { i + 1 };
+			neighbors.add(neighbor);
+			1.toDo(dimensions) { :d |
+				let value = index % (size ^ d);
+				neighbor[d] := value / (size ^ (d - 1)) - range;
+				index := index - value
+			}
+		};
+		neighbors
+	}
+
+	vonNeumannNeighborhood { :dimensions :range |
+		let size = range * 2 + 1;
+		let iterations = size ^ dimensions;
+		let center = (iterations - 1) / 2;
+		let neighbors = [];
+		0.toDo(iterations - 1) { :i |
+			(i = center).ifFalse {
+				let neighbor = List(dimensions);
+				let distance = 0;
+				let remaining = i;
+				0.toDo(dimensions - 1) { :d |
+					let remainder = remaining % (size ^ (d + 1));
+					let value = remainder / (size ^ d) - range;
+					d.postLine;
+					neighbor[d + 1] := value;
+					distance := distance + value.abs;
+					remaining :=  remaining - remainder
+				};
+				(distance <= range).ifTrue {
+					neighbors.add(neighbor)
+				}
+			}
+		};
+		neighbors
+	}
+
 }
 
 +Block {
