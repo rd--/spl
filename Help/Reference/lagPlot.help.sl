@@ -4,6 +4,7 @@
 
 Answer a lag plot of the univariate numeric data at the list _y_,
 with delay _k_.
+A lag plot is also called a `poincarePlot`.
 
 Plot data that exhibits a linear pattern,
 showing the data are non-random,
@@ -59,7 +60,7 @@ system.nistData('RANDWALK', [1])
 
 * * *
 
-See also: scatterPlot
+See also: poincarePlot, recurrenceMatrix, scatterPlot
 
 Guides: Plotting Functions, Statistics Functions
 

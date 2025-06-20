@@ -25,6 +25,7 @@ Plotting Functions:
 - `parametricPlot`
 - `periodogramPlot`
 - `pianoRollPlot`
+- `poincarePlot`
 - `polarPlot`
 - `reliefPlot`
 - `runSequencePlot`
