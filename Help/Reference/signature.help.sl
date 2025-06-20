@@ -1,8 +1,8 @@
 # signature
 
-- _signature(aPermutation | aList)_
+- _signature(p)_
 
-Answer the signature of _aPermutation_ needed to place the elements of in canonical order.
+Answer the signature of the permutation _p_ needed to place the elements of in canonical order.
 The signature of the permutation is _-1 ^ n_,
 where _n_ is the number of transpositions of pairs of elements that must be composed to build up the permutation.
 
@@ -11,6 +11,9 @@ where _n_ is the number of transpositions of pairs of elements that must be comp
 1
 
 >>> [1 3 2].signature
+-1
+
+>>> [3 4 5 2 1].signature
 -1
 ```
 
@@ -88,7 +91,13 @@ let m = signature:/1.map(
 
 See also: cross, minors, determinant, kroneckerDelta, order, isSorted, permutations
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/PermutationSymbol.html)
-[2](https://reference.wolfram.com/language/ref/Signature.html.en)
+[2](https://mathworld.wolfram.com/EvenPermutation.html)
+[3](https://mathworld.wolfram.com/OddPermutation.html)
+[4](https://reference.wolfram.com/language/ref/Signature.html.en),
+_W_
+[1](https://en.wikipedia.org/wiki/Parity_of_a_permutation)

@@ -4,6 +4,8 @@
 - `arcSecond`: 1/60² of a degree
 - `avogadroConstant`: Avogadro _k_
 - `berahaConstant`: Beraha _k_
+- `boltzmannConstant`: Boltzmann _k_
+- `brunsConstant`: Brun’s _k_
 - `degree`: 1/180 of pi
 - `e`: Euler’s number
 - `epsilon`: epsilon
@@ -12,12 +14,17 @@
 - `goldenAngle`: golden angle
 - `goldenRatio`: golden ratio
 - `i`: square root of negative one
+- `khinchinsConstant`: Khinchin’s _k_
 - `lemniscateConstant`: Lemniscate _k_
 - `levysConstant`: Lévy’s _k_
+- `logarithmicPhi`: _2^φ_
 - `pi`: circumference diameter ratio
+- `planckConstant`: Planck _k_
 - `plasticRatio`: plastic ratio
+- `silverConstant`: silver _k_
 - `silverRatio`: silver ratio
 - `smallFloatEpsilon`: `SmallFloat` ε
+- `stolarskyHarborthConstant`: Stolarsky-Harborth _k_
 - `supergoldenRatio`: supergolden ratio
 - `supersilverRatio`: supersilver ratio
 

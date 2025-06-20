@@ -1,9 +1,9 @@
 # epsilon
 
-- _epsilon(aNumber)_
+- _epsilon(n)_
 
 Mathematical constant.
-Answer _aNumber_ times epsilon.
+Answer _n_ times epsilon.
 
 ```
 >>> 1.epsilon

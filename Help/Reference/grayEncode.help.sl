@@ -1,9 +1,9 @@
 # grayEncode
 
-- _grayEncode(anInteger)_
+- _grayEncode(n)_
 
-Encode _anInteger_ using binary reflected Gray code.
-A Gray code is an encoding of numbers so that adjacent numbers have a single digit differing by 1.
+Encode the integer _n_ using binary reflected Gray code.
+A Gray code is an encoding of numbers so that adjacent numbers have a single digit differing by `one`.
 The inverse is `grayDecode`.
 
 ```
@@ -56,14 +56,13 @@ Scatter plot of the gray encodings of the first few integers:
 
 * * *
 
-See also: Binary, bitShiftRight, bitXor, grayDecode
+See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, shiftRegisterSequence
 
 Guides: Integer Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/GrayCode.html)
-[2](https://mathworld.wolfram.com/GrayCode.html),
+[1](https://mathworld.wolfram.com/GrayCode.html),
 _OEIS_
 [1](https://oeis.org/A014550)
 [2](https://oeis.org/A003188),

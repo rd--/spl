@@ -1,8 +1,8 @@
 # boltzmannConstant
 
-- _boltzmannConstant(aNumber)_
+- _boltzmannConstant(n)_
 
-Answer _aNumber_ times the Boltzmann constant.
+Answer _n_ times the Boltzmann constant.
 
 The Boltzmann constant (_k_) is the proportionality factor that relates the average relative thermal energy of particles in a gas with the thermodynamic temperature of the gas.
 

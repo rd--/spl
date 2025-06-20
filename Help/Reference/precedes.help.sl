@@ -9,6 +9,9 @@ At `List`:
 ```
 >>> [1 2 3].precedes([2 3 4])
 true
+
+>>> [1 2 3 4].precedes([3 4])
+true
 ```
 
 Not all items need precede their corresponding item:
@@ -55,6 +58,10 @@ Where supported `precedes` is displayed as ≺.
 
 * * *
 
-See also: =, <, >, <=>, compare, precedesOrEqualTo
+See also: =, <, >, <=>, compare, lexicographicSort, precedesOrEqualTo
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/LexicographicOrder.html)
 
 Unicode: U+227a ≺ Precedes

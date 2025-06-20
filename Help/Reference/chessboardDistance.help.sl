@@ -26,6 +26,8 @@ Guides: Distance Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ChessboardDistance.html)
+[1](https://reference.wolfram.com/language/ref/ChessboardDistance.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Chebyshev_distance)
 
 Categories: Distance

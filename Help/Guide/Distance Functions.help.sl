@@ -18,6 +18,7 @@ Distance:
 - `graphDistance`
 - `hammingDistance`
 - `hausdorffDistance`
+- `leeDistance`
 - `levenshteinDistance`
 - `manhattanDistance`
 - `minkowskiDistance`

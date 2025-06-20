@@ -5,7 +5,8 @@
 - _distanceMatrix(u)_
 
 Answer the matrix of distances between each pair of elements in the vectors _u_ and _v_.
-In the unary and binary cases the distance function is `euclideanDistance`.
+In the unary and binary cases the distance function is `euclideanDistance`,
+in the unary case _v_ is set to _u_.
 
 Compute a distance matrix from a list of integers:
 
@@ -108,11 +109,35 @@ Distance matrix of a 3×2 matrix:
 ]
 ```
 
+Recurrence plot of a trigonometric operation:
+
+~~~spl svg=A
+let m = { :x :y |
+	x.sin * y.cos
+}.table([-10 .. 10], [-10 .. 10]);
+(m.distanceMatrix < 1)
+.boole
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/distanceMatrix-A.svg)
+
+Cross-recurrence plot of two trigonometric functions:
+
+~~~spl png=B
+let x = (0 -- 25).discretize(100);
+(x.sin.distanceMatrix(x.tan) < 0.2)
+.boole
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/distanceMatrix-B.png)
+
 * * *
 
-See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer, pairwiseDistances
+See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer, pairwiseDistances, recurrenceMatrix
 
-Guides: Matrix Functions
+Guides: Matrix Functions, Plotting Functions
 
 References:
 _Mathematica_

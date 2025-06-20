@@ -1080,3 +1080,46 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 }
+
++List{
+
+	burrowsWheelerMatrix { :self |
+		(1 .. self.size).collect { :each |
+			self.rotatedLeft(each)
+		}
+		.lexicographicSort
+	}
+
+	burrowsWheelerTransform { :self |
+		self.burrowsWheelerMatrix.collect(last:/1)
+	}
+
+	inverseBurrowWheelerTransform { :self :eot |
+		let k = self.size;
+		let table = List(k, List());
+		k.timesRepeat {
+			(1 .. k).do { :i |
+				table[i] := [self[i]] ++ table[i]
+			};
+			table.lexicographicSort
+		};
+		table.detect { :each |
+			each.last = eot
+		}.copyFromTo(2, k - 1)
+	}
+
+}
+
++String {
+
+	burrowsWheelerTransform { :self :delimiters |
+		let [p, q] = delimiters;
+		let c = [p] ++ self.characters ++ [q];
+		c.burrowsWheelerTransform.stringJoin
+	}
+
+	inverseBurrowWheelerTransform { :self :eot |
+		self.characters.inverseBurrowWheelerTransform(eot).stringJoin
+	}
+
+}

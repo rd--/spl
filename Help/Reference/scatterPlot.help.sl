@@ -1,6 +1,6 @@
 # scatterPlot
 
-- _scatterPlot(aSequence)_
+- _scatterPlot(l)_
 
 Plot a sequence of numbers, each drawn as a point.
 

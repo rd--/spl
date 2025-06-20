@@ -40,6 +40,11 @@ Plotting Functions:
 - `treePlot`
 - `vectorPlot`
 
+Matrix Plots:
+
+- `distanceMatrix`
+- `recurrenceMatrix`
+
 * * *
 
 Guides: Colour Functions, Drawing Functions, Image Functions

@@ -1,10 +1,10 @@
 # powerSet
 
-- _powerSet(alpha)_
+- _powerSet([x₁ x₂ …])_
 
-Answer a `List` of the elements of the power set of _aCollection_.
+Answer a `List` of the elements of the power set of a collection.
 
-All subsets of the `List` _[1,2,3]_, including the empty set:
+All subsets of the `List` _{1,2,3}_, including the empty set:
 
 ```
 >>> [1 2 3].powerSet

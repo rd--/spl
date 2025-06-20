@@ -1,8 +1,8 @@
 # supergoldenRatio
 
-- _supergoldenRatio(aNumber)_
+- _supergoldenRatio(n)_
 
-Answer _aNumber_ times the supergolden ratio, written ψ.
+Answer _n_ times the supergolden ratio, written ψ.
 
 The supergolden ratio is a geometrical proportion close to 85/58:
 
@@ -14,7 +14,7 @@ The supergolden ratio is a geometrical proportion close to 85/58:
 (1.4656, 1.4655)
 ```
 
-Its true value is the real solution of the equation _x ^ 3 = x ^ 2 + 1_:
+Its true value is the real solution of the equation _x^3=x^2+1_:
 
 ```
 >>> let x = 1.supergoldenRatio;

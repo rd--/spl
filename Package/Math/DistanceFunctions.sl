@@ -1,7 +1,7 @@
 +@Sequenceable {
 
 	binaryDistance { :u :v |
-		(u = v).boole
+		(u ~= v).boole
 	}
 
 	brayCurtisDistance { :self :aList |
@@ -14,6 +14,10 @@
 
 	chessboardDistance { :self :aList |
 		(self - aList).abs.max
+	}
+
+	chebyshevDistance { :self :operand |
+		(self - operand).abs.max
 	}
 
 	cosineDistance { :u :v |
@@ -61,6 +65,14 @@
 			a / (k - b)
 		} {
 			u.error('jaccardDissimilarity: size mismatch')
+		}
+	}
+
+	leeDistance { :x :y :q |
+		let n = x.size;
+		(1 .. n).sum { :i |
+			let z = (x[i] - y[i]).abs;
+			min(z, q - z)
 		}
 	}
 
@@ -117,6 +129,10 @@
 }
 
 +@Number {
+
+	binaryDistance { :self :operand |
+		(self ~= operand).boole
+	}
 
 	euclideanDistance { :self :aNumber |
 		(aNumber - self).abs
@@ -278,3 +294,38 @@
 	}
 
 }
+
++List{
+
+	warpingDistance { :x :y :w :f:/2 |
+		let n = x.size;
+		let m = y.size;
+		let dtw = [Infinity].reshape([n + 1, m + 1]);
+		dtw[1][1] := 0;
+		w := w + 1;
+		2.toDo(n + 1) { :i |
+			let a = max(2, i - w);
+			let b = min(m + 1, i + w);
+			a.toDo(b) { :j |
+				let z = f(x[i - 1], y[j - 1]);
+				let h = [
+					dtw[i - 1][j],
+					dtw[i][j - 1],
+					dtw[i - 1][j - 1]
+				];
+				dtw[i][j] := z + h.min
+			}
+		};
+		dtw[n + 1][m + 1]
+	}
+
+	warpingDistance { :x :y :w |
+		warpingDistance(x, y, w, euclideanDistance:/2)
+	}
+
+	warpingDistance { :x :y |
+		warpingDistance(x, y, Infinity, euclideanDistance:/2)
+	}
+
+}
+

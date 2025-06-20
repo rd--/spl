@@ -1,10 +1,10 @@
 # narayanaSequence
 
-- _narayanaSequence(anInteger)_
+- _narayanaSequence(n)_
 
-Answer the first _anInteger_ elements of the Narayana sequence.
+Answer the first _n_ elements of the Narayana sequence.
 
-The first few elements, c.f. OEIS A000930:
+The first few elements:
 
 ```
 >>> 23.narayanaSequence
@@ -38,6 +38,8 @@ Guides: Integer Sequences, Mathematical Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/NarayanaCowSequence.html)
+[1](https://mathworld.wolfram.com/NarayanaCowSequence.html),
+_OEIS_
+[1](https://oeis.org/A000930)
 
 Categories: Math, Sequence

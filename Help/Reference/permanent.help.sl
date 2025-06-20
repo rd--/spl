@@ -1,8 +1,8 @@
 # permanent
 
-- _permanent(aMatrix)_
+- _permanent(m)_
 
-Answer the permanent of a square matrix.
+Answer the permanent of the square matrix _m_.
 
 The permanent of a _2×2_ `Integer` matrix:
 
@@ -160,5 +160,6 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Permanent.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Permanent_(mathematics))
+[2](https://en.wikipedia.org/wiki/Computing_the_permanent)
 
 Categories: Math, Matrix

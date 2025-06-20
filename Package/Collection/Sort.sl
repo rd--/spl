@@ -76,6 +76,10 @@
 		}
 	}
 
+	lexicographicSort { :self |
+		self.sort(precedes:/2)
+	}
+
 	longestIncreasingSubsequenceList { :self |
 		let a = self.increasingSubsequenceList.sort { :p :q |
 			q.size < p.size

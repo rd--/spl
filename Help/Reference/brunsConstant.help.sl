@@ -1,8 +1,8 @@
 # brunsConstant
 
-- _brunsConstant(aNumber)_
+- _brunsConstant(n)_
 
-Answer _aNumber_ times Brun’s constant,
+Answer _n_ times Brun’s constant,
 the number obtained by adding the reciprocals of the odd twin primes.
 
 ```

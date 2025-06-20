@@ -126,10 +126,6 @@
 		<primitive: return _self.toLocaleString('en-US');>
 	}
 
-	avogadroConstant { :self |
-		self * 6.02214076E+23
-	}
-
 	barronCurve { :s :t |
 		let epsilon = 1.smallFloatEpsilon;
 		{ :x |
@@ -155,14 +151,6 @@
 		} {
 			('Number>>basicTimes: operand not a number: ' ++ aNumber).error
 		}
-	}
-
-	boltzmannConstant { :self |
-		self * 1.380649E-23
-	}
-
-	brunsConstant { :self |
-		1.90216058 * self
 	}
 
 	ceiling { :self |
@@ -229,10 +217,6 @@
 		self - 1
 	}
 
-	degree { :self |
-		self * 0.017453292519943295
-	}
-
 	degreesToRadians { :self |
 		self * 0.01745329251994329547 /* 1/180.pi */
 	}
@@ -281,24 +265,12 @@
 		Range(self, anInteger, -1).do(aBlock:/1)
 	}
 
-	e { :self |
-		self * 2.71828182845904523536028747135266249775724709369995
-	}
-
 	e { :self :aNumber |
 		self * (10 ^ aNumber)
 	}
 
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
-	}
-
-	epsilon { :self |
-		self * 0.000000000000001
-	}
-
-	eulerGamma { :self |
-		self * 0.577215664901532860606512090082402431042
 	}
 
 	factorialOrGamma { :self |
@@ -346,19 +318,6 @@
 		{ :u |
 			m * (u.squared / (2 * sigmaSquared)).negated.exp
 		}
-	}
-
-	gausssConstant { :self |
-		self * 0.83462684167407318628142973
-	}
-
-	goldenAngle { :self |
-		self.pi * (3 - 5.sqrt)
-	}
-
-	goldenRatio { :self |
-		let phi = (5.sqrt + 1) / 2;
-		self * phi
 	}
 
 	gudermannian { :z |
@@ -509,10 +468,6 @@
 		self = 0
 	}
 
-	khinchinsConstant { :self |
-		self * 2.685452001065306445309714835
-	}
-
 	kroneckerDelta { :self |
 		(self = 0).boole
 	}
@@ -523,14 +478,6 @@
 		} {
 			0
 		}
-	}
-
-	levysConstant { :self |
-		self * 3.27582291872181115978768188
-	}
-
-	lemniscateConstant { :self |
-		self * 2.62205755429211981046483959
 	}
 
 	log2 { :self |
@@ -549,10 +496,6 @@
 
 	logarithmicIntegral { :self |
 		self.logarithmicIntegralRamanujan(9)
-	}
-
-	logarithmicPhi { :self |
-		self * (2 ^ 1.goldenRatio)
 	}
 
 	logScale { :self |
@@ -693,14 +636,6 @@
 		(rho ^ n) + (2 * (n * theta).cos * (rho ^ n.-).sqrt)
 	}
 
-	pi { :self |
-		self * 3.1415926535897932384626433
-	}
-
-	planckConstant { :self |
-		self * 6.62607015E-34
-	}
-
 	plancksRadiationFunction { :x |
 		(x <= 0).if {
 			0
@@ -729,10 +664,6 @@
 		} {
 			nuOrLambda.planckRadiationLawWavelength(t)
 		}
-	}
-
-	plasticRatio { :self |
-		self * 1.3247179572447460259609089
 	}
 
 	powerMod { :self :exponent :modulo |
@@ -964,14 +895,6 @@
 		}
 	}
 
-	silverConstant { :self |
-		self * (2 + (2 * (2 / 7).pi.cos))
-	}
-
-	silverRatio { :self |
-		self * (2.sqrt + 1)
-	}
-
 	sinDegrees { :self |
 		(90 - self).cosDegrees
 	}
@@ -992,24 +915,12 @@
 		self * self
 	}
 
-	stolarskyHarborthConstant { :self |
-		self * 0.81255655901600638769
-	}
-
 	stope { :x :p :y |
 		(x + (p * (1:y - 1))).reduce(*)
 	}
 
 	strictlyPositive { :self |
 		self > 0
-	}
-
-	supergoldenRatio { :self |
-		self * 1.465571231876768
-	}
-
-	supersilverRatio { :self |
-		self * 2.2055694304005903
 	}
 
 	symmetricPower { :self :aNumber |
@@ -1053,10 +964,6 @@
 			index := index + 1
 		};
 		self
-	}
-
-	tribonacciConstant { :n |
-		n * 1.83928675521416113255185
 	}
 
 	truncateTo { :self :aNumber |
@@ -1157,6 +1064,107 @@
 
 	unitTriangle { :self |
 		self.collect(unitTriangle:/1).product
+	}
+
+}
+
++@Number {
+
+	avogadroConstant { :self |
+		self * 6.02214076E+23
+	}
+
+	berahaConstant { :n |
+		2 + (2 * (2.pi / n).cos)
+	}
+
+	boltzmannConstant { :self |
+		self * 1.380649E-23
+	}
+
+	brunsConstant { :self |
+		1.90216058 * self
+	}
+
+	degree { :self |
+		self * 0.017453292519943295
+	}
+
+	e { :self |
+		self * 2.71828182845904523536028747135266249775724709369995
+	}
+
+	epsilon { :self |
+		self * 0.000000000000001
+	}
+
+	eulerGamma { :self |
+		self * 0.577215664901532860606512090082402431042
+	}
+
+	gausssConstant { :self |
+		self * 0.83462684167407318628142973
+	}
+
+	goldenAngle { :self |
+		self.pi * (3 - 5.sqrt)
+	}
+
+	goldenRatio { :self |
+		let phi = (5.sqrt + 1) / 2;
+		self * phi
+	}
+
+	khinchinsConstant { :self |
+		self * 2.685452001065306445309714835
+	}
+
+	lemniscateConstant { :self |
+		self * 2.62205755429211981046483959
+	}
+
+	levysConstant { :self |
+		self * 3.27582291872181115978768188
+	}
+
+	logarithmicPhi { :self |
+		self * (2 ^ 1.goldenRatio)
+	}
+
+	pi { :self |
+		self * 3.1415926535897932384626433
+	}
+
+	planckConstant { :self |
+		self * 6.62607015E-34
+	}
+
+	plasticRatio { :self |
+		self * 1.3247179572447460259609089
+	}
+
+	silverConstant { :self |
+		self * (2 + (2 * (2 / 7).pi.cos))
+	}
+
+	silverRatio { :self |
+		self * (2.sqrt + 1)
+	}
+
+	stolarskyHarborthConstant { :self |
+		self * 0.81255655901600638769
+	}
+
+	supergoldenRatio { :self |
+		self * 1.465571231876768
+	}
+
+	supersilverRatio { :self |
+		self * 2.2055694304005903
+	}
+
+	tribonacciConstant { :n |
+		n * 1.83928675521416113255185
 	}
 
 }

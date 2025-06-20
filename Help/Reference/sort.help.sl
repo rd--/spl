@@ -1,11 +1,10 @@
 # sort
 
-- _sort(aSequence, aBlock:/2)_
-- _sort(α)_ ⟹ _sort(α, <=)_
+- _sort([x₁ x₂ …], f:/2=≤)_
 
-Sort _aSequence_ in place using the comparator _aBlock_.
+Sort the sequence _x_ in place using the comparator _f_.
 If the sort block is omitted or is nil, sort by `<=`.
-Answers _aSequence_.
+Answers the sorted sequence.
 
 At `List` of numbers:
 
@@ -57,7 +56,7 @@ Sort subsets lexicographically:
 
 * * *
 
-See also: isSorted, mergeSort, ordering, sortBy, sorted, sortOn, sortOnBy
+See also: isSorted, lexicographicSort, mergeSort, ordering, sortBy, sorted, sortOn, sortOnBy
 
 Guides: Sort Functions, Statistics Functions
 

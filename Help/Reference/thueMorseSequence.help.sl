@@ -21,10 +21,42 @@ Answer the first _n_ elements of the Thue-Morse sequence.
 Plot first few terms:
 
 ~~~spl svg=A
-99.thueMorseSequence.discretePlot
+99.thueMorseSequence
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/thueMorseSequence-A.svg)
+
+The first differences of the Thue–Morse sequence form an infinite square-free word over an alphabet of size three:
+
+```
+>>> 24.thueMorseSequence.differences
+[
+	1  0 -1  1 -1  0  1  0 -1
+	0  1 -1  1  0 -1  1 -1  0
+	1 -1  1  0 -1
+]
+```
+
+Plot first few terms:
+
+~~~spl svg=B
+99.thueMorseSequence
+.differences
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-B.svg)
+
+Plot sequence as series of turns:
+
+~~~spl svg=C
+(67.thueMorseSequence * 1/3.pi)
+.anglePath
+.Line
+~~~
+
+![](sw/spl/Help/Image/thueMorseSequence-C.svg)
 
 * * *
 
@@ -36,8 +68,10 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Thue-MorseSequence.html),
 _OEIS_
-[1](http://oeis.org/A010060),
+[1](http://oeis.org/A010060)
+[2](https://oeis.org/A029883),
 _W_
 [1](https://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence)
+[2](https://en.wikipedia.org/wiki/Square-free_word)
 
 Categories: Math, Sequence

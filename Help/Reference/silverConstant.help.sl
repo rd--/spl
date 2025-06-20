@@ -1,7 +1,8 @@
 # silverConstant
 
-- _silverConstant(anInteger)_
+- _silverConstant(n)_
 
+Answer _n_ times the silver constant.
 The silver constant is the seventh Beraha constant:
 
 ```

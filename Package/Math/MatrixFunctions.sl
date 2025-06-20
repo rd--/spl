@@ -778,8 +778,28 @@
 		[q, r]
 	}
 
-	resultant { :p :q |
-		p.sylvesterMatrix(q).determinant
+	recurrenceMatrix { :data :dimension :delay :metric |
+		let n = data.size - ((dimension - 1) * delay);
+		let m = [0].reshape([n n]);
+		let [f, g] = metric.caseOf([
+			'Manhattan' -> { [abs:/1, sum:/1] },
+			'Euclidean' -> { [squared:/1, { :x | x.sum.sqrt }] },
+			'Supremum' -> { [abs:/1, max:/1] }
+		]);
+		1.toDo(n) { :i |
+			i.toDo(n) { :j |
+				let x = (0 .. dimension - 1).collect { :k |
+					f.value(data[i + (k * delay)] - data[j + (k * delay)])
+				};
+				m[i][j] := m[j][i] := g.value(x)
+			}
+		};
+		m
+	}
+
+	recurrenceMatrix { :data :dimension :delay :metric :theshold |
+		let m = data.recurrenceMatrix(dimension, delay, metric);
+		(m < theshold).boole
 	}
 
 	reducedRowEchelonForm { :self |
@@ -823,6 +843,10 @@
 			};
 			self
 		}
+	}
+
+	resultant { :p :q |
+		p.sylvesterMatrix(q).determinant
 	}
 
 	rowCatenate { :self |

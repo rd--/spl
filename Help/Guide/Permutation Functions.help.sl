@@ -45,6 +45,7 @@ Properties:
 - `permutationMin`: smallest integer moved by permutation
 - `permutationOrder`: order of a permutation
 - `permutationSupport`: integers that are not fixed by permutation
+- `signature`: parity or sign
 
 Random Functions:
 

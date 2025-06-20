@@ -1,8 +1,8 @@
 # supersilverRatio
 
-- _supersilverRatio(aNumber)_
+- _supersilverRatio(n)_
 
-Answer _aNumber_ times the supersilver ratio, written ς.
+Answer _n_ times the supersilver ratio, written ς.
 
 The supersilver ratio is a geometrical proportion close to 75/34:
 
@@ -11,7 +11,7 @@ The supersilver ratio is a geometrical proportion close to 75/34:
 (2.2056, 2.2059)
 ```
 
-Its true value is the real solution of the equation _x ^ 3 = 2 * (x ^ 2) + 1_:
+Its true value is the real solution of the equation _x^3=2*(x^2)+1_:
 
 ```
 >>> let x = 1.supersilverRatio;

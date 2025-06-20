@@ -34,6 +34,26 @@ logisticMap(3.9)
 
 ![](sw/spl/Help/Image/logisticMap-C.svg)
 
+Poincaré plot of first few terms at _r=3.99_:
+
+~~~spl svg=D
+logisticMap(3.99)
+.nestList(0.5, 99)
+.poincarePlot
+~~~
+
+![](sw/spl/Help/Image/logisticMap-D.svg)
+
+Plot laminar and burst behaviour within first few terms at _r=3.828327_:
+
+~~~spl svg=E
+logisticMap(3.828327)
+.nestList(0.5, 200)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/logisticMap-E.svg)
+
 * * *
 
 See also: henonMap

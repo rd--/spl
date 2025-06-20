@@ -1,8 +1,8 @@
 # deBruijnSequence
 
-- _deBruijnSequence(aList, anInteger)_
+- _deBruijnSequence([x₁ x₂ …], n)_
 
-Answer a de Bruijn sequence on the elements in _aList_ taken _anInteger_ at a time.
+Answer a de Bruijn sequence on the elements _x_ taken _n_ at a time.
 
 A de Bruijn sequence of order 2 on the list _0,1_:
 

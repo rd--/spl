@@ -291,6 +291,17 @@ Plot : [Object] { | pages format options |
 		}
 	}
 
+	poincarePlot { :x :n |
+		let m = x.size - n;
+		(1 .. m).collect { :i |
+			[x[i], x[i + n]]
+		}.scatterPlot
+	}
+
+	poincarePlot { :x |
+		x.poincarePlot(1)
+	}
+
 	reliefPlot { :self :options |
 		let [m, n] = self.shape;
 		let [z0, z1] = self.deepMinMax;

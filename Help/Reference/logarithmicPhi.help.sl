@@ -1,8 +1,8 @@
 # logarithmicPhi
 
-- logarithmicPhi(aNumber)_
+- logarithmicPhi(n)_
 
-Answer _aNumber_ times logarithmic phi.
+Answer _n_ times logarithmic phi.
 
 Logarithmic phi, octave-reduced, is 741.6¢:
 

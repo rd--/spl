@@ -64,6 +64,7 @@ Constructing:
 - `hilbertMatrix`: Hilbert matrix
 - `identityMatrix`: identity matrix
 - `permutationMatrix`: permutation matrix
+- `recurrenceMatrix`: recurrence matrix
 - `sylvesterMatrix`: Sylvester matrix
 - `toeplitzMatrix`: Toeplitz matrix
 - `vandermondeMatrix`: Vandermonde matrix
