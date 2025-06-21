@@ -1,9 +1,9 @@
 # longestCommonSubsequence
 
-- _longestCommonSubsequence(aSequence, anotherSequence)_
+- _longestCommonSubsequence(u, v)_
 
 Answer the longest sequence of contiguous or disjoint elements common to two sequences.
-If there are several common sequences of the same length, answer the one that begins earliest in _aSequence_.
+If there are several common sequences of the same length, answer the one that begins earliest in _u_.
 
 Find the longest noncontiguous sequence common to two strings:
 
@@ -40,6 +40,8 @@ Find the longest noncontiguous sequence common to two lists:
 * * *
 
 See also: levenshteinDistance, longestCommonSubstring
+
+Guides: Sequence Alignment Functions
 
 References:
 _Mathematica_

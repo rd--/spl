@@ -30,6 +30,43 @@
 		dotProduct(u, v) / (p * q)
 	}
 
+	damerauLevenshteinDistance { :u :v |
+		<primitive:
+		/* https://github.com/olegskl/levenshtein */
+		let a = _u;
+		let b = _v;
+		let matrix = [];
+		for (let i = 0; i <= a.length; i += 1) {
+			matrix[i] = [i];
+		}
+		for (let i = 1; i <= b.length; i += 1) {
+			matrix[0][i] = i;
+		}
+		for (let i = 1; i <= a.length; i += 1) {
+			for (let j = 1; j <= b.length; j += 1) {
+				let cost = (a[i - 1] === b[j - 1]) ? 0 : 1;
+				matrix[i][j] = (
+					(i > 1 && j > 1) &&
+					(a[i - 1] === b[j - 2]) &&
+					(a[i - 2] === b[j - 1])
+				) ?
+				Math.min(
+					matrix[i - 1][j] + 1,
+					matrix[i][j - 1] + 1,
+					matrix[i - 1][j - 1] + cost,
+					matrix[i - 2][j - 2] + cost
+				) :
+				Math.min(
+					matrix[i - 1][j] + 1,
+					matrix[i][j - 1] + 1,
+					matrix[i - 1][j - 1] + cost
+				);
+			}
+		}
+		return matrix[a.length][b.length];
+		>
+	}
+
 	editDistance { :self :other |
 		self.levenshteinDistance(other)
 	}
@@ -158,6 +195,14 @@
 
 	hammingDistance { :self :aString |
 		self.characters.hammingDistance(aString.characters)
+	}
+
+	levenshteinDistance { :self :aString |
+		self.characters.levenshteinDistance(aString.characters)
+	}
+
+	damerauLevenshteinDistance { :self :aString |
+		self.characters.damerauLevenshteinDistance(aString.characters)
 	}
 
 }
@@ -297,35 +342,6 @@
 
 +List{
 
-	warpingMatrices { :x :y :w :f:/2 |
-		let n = x.size;
-		let m = y.size;
-		let tracebackMatrix = [0].reshape([n, m]);
-		let costMatrix = [Infinity].reshape([n + 1, m + 1]);
-		costMatrix[1][1] := 0;
-		w := w + 1;
-		2.toDo(n + 1) { :i |
-			let a = max(2, i - w);
-			let b = min(m + 1, i + w);
-			a.toDo(b) { :j |
-				let z = f(x[i - 1], y[j - 1]);
-				let h = [
-					costMatrix[i - 1][j - 1],
-					costMatrix[i - 1][j],
-					costMatrix[i][j - 1]
-				];
-				let l = h.min;
-				costMatrix[i][j] := z + l;
-				tracebackMatrix[i - 1][j - 1] := h.indexOf(l)
-			}
-		};
-		costMatrix.removeFirst;
-		costMatrix.do { :each |
-			each.removeFirst
-		};
-		[tracebackMatrix, costMatrix]
-	}
-
 	warpingCorrespondence { :x :y :w :f:/2 |
 		let derivePath = { :tracebackMatrix |
 			let [n, m] = tracebackMatrix.shape;
@@ -374,6 +390,55 @@
 
 	warpingDistance { :x :y |
 		warpingDistance(x, y, Infinity, euclideanDistance:/2)
+	}
+
+	warpingMatrices { :x :y :w :f:/2 |
+		let n = x.size;
+		let m = y.size;
+		let tracebackMatrix = [0].reshape([n, m]);
+		let costMatrix = [Infinity].reshape([n + 1, m + 1]);
+		costMatrix[1][1] := 0;
+		w := w + 1;
+		2.toDo(n + 1) { :i |
+			let a = max(2, i - w);
+			let b = min(m + 1, i + w);
+			a.toDo(b) { :j |
+				let z = f(x[i - 1], y[j - 1]);
+				let h = [
+					costMatrix[i - 1][j - 1],
+					costMatrix[i - 1][j],
+					costMatrix[i][j - 1]
+				];
+				let l = h.min;
+				costMatrix[i][j] := z + l;
+				tracebackMatrix[i - 1][j - 1] := h.indexOf(l)
+			}
+		};
+		costMatrix.removeFirst;
+		costMatrix.do { :each |
+			each.removeFirst
+		};
+		[tracebackMatrix, costMatrix]
+	}
+
+	warpingMatrices { :x :y |
+		warpingMatrices(x, y, Infinity, euclideanDistance:/2)
+	}
+
+	warpingPlot { :x :y :c |
+		let [a, b] = c;
+		let o = (y.range - x.min) * 1.5;
+		let p = [[1 .. x.size], x + o].transposed;
+		let q = [[1 .. y.size], y].transposed;
+		let r = (1 .. a.size).collect { :i |
+			Line([p[a[i]], q[b[i]]])
+		};
+		[
+			(p ++ q).PointCloud,
+			p.Line,
+			q.Line,
+			r
+		].LineDrawing
 	}
 
 }

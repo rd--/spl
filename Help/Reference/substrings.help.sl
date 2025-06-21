@@ -1,9 +1,9 @@
 # substrings
 
-- _substrings(aSequence)_
-- _substrings(aSequence, aBlock:/1)_
+- _substrings([x₁ x₂ …], f:/1)_
 
-Answer a `List` of all possible contiguous subsequences (substrings) of _aSequence_,
+Answer a `List` of all possible contiguous subsequences (substrings) of the sequence _x_,
+for which _f_ answers `true`.
 including the empty sequence.
 
 The seven substrings of _123_:
@@ -74,7 +74,10 @@ C.f. `substringsInCommon`:
 Compare to `longestCommonSubsequence`:
 
 ```
->>> [1 2 3 5 4].longestCommonSubsequence([2 3 5 1 4])
+>>> [1 2 3 5 4]
+>>> .longestCommonSubsequence(
+>>> 	[2 3 5 1 4]
+>>> )
 [2 3 5 4]
 ```
 
@@ -89,13 +92,21 @@ Different occurrences of the same element are treated as distinct:
 
 ```
 >>> [1 2 2 2].substrings
-[; 1; 2; 2; 2; 1 2; 2 2; 2 2; 1 2 2; 2 2 2; 1 2 2 2]
+[
+	;
+	1; 2; 2; 2;
+	1 2; 2 2; 2 2;
+	1 2 2; 2 2 2;
+	1 2 2 2
+]
 ```
 
 Construct a 3×3 Hilbert matrix:
 
 ```
->>> (1 / 1:5).substrings { :each | each.size = 3 }
+>>> (1 / 1:5).substrings { :each |
+>>> 	each.size = 3
+>>> }
 [
 	1 1/2 1/3;
 	1/2 1/3 1/4;
@@ -130,7 +141,8 @@ since it contains as substrings each of the possible permutations of _123_:
 ```
 >>> let l = [1 2 3 1 2 1 3 2 1];
 >>> let s = l.substrings;
->>> [1 2 3].permutations.allSatisfy { :each |
+>>> [1 2 3].permutations
+>>> .allSatisfy { :each |
 >>> 	s.includes(each)
 >>> }
 true
@@ -146,7 +158,8 @@ Likewise _123412314231243121342132413214321_ is a four-superpermutation:
 >>> 	3 2 1
 >>> ];
 >>> let s = l.substrings;
->>> [1 2 3 4].permutations.allSatisfy { :each |
+>>> [1 2 3 4].permutations
+>>> .allSatisfy { :each |
 >>> 	s.includes(each)
 >>> }
 true
@@ -155,6 +168,8 @@ true
 * * *
 
 See also: partition, powerSet, longestCommonSubsequence, subsequences, subsets, tuples
+
+Guides: Sequence Alignment Functions
 
 References:
 _Mathematica_

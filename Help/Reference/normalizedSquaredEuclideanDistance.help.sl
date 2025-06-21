@@ -7,7 +7,8 @@ Answer the normalizedSquared Euclidean distance between vectors _u_ and _v_.
 Normalized squared Euclidean distance between numeric vectors:
 
 ```
->>> [1 2 3].normalizedSquaredEuclideanDistance(
+>>> [1 2 3]
+>>> .normalizedSquaredEuclideanDistance(
 >>> 	[3 5 10]
 >>> )
 1/4

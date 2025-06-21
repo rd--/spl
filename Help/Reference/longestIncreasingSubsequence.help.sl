@@ -1,8 +1,8 @@
 # longestIncreasingSubsequence
 
-- _longestIncreasingSubsequence(aSequence)_
+- _longestIncreasingSubsequence(u)_
 
-Answer the longest ascending sequence of contiguous or disjoint elements in _aSequence_.
+Answer the longest ascending sequence of contiguous or disjoint elements in the sequence _u_.
 
 Find the longest ordered substring, in this case formed by contiguous characters:
 
@@ -63,7 +63,7 @@ Find the longest ascending sequence of elements in a list:
 
 See also: longestCommonSubsequence, longestIncreasingSubsequenceList, patienceSort
 
-Guides: Sort Functions
+Guides: Sequence Alignment Functions, Sort Functions
 
 References:
 _J_

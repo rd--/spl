@@ -1,6 +1,6 @@
 # longestCommonSubstringList
 
-- _longestCommonSubstringList(aSequence, anotherSequence)_
+- _longestCommonSubstringList(u, v)_
 
 Answer a `List` of the longest contiguous substrings of elements common to two sequences.
 

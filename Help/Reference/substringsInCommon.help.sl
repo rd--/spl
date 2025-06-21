@@ -1,8 +1,8 @@
 # substringsInCommon
 
-- _substringsInCommon(aSequence, anotherSequence, anInteger)_
+- _substringsInCommon(u, v, n)_
 
-Answer the _anInteger_ length substrings of _aSequence_ that are also substrings of _anotherSequence_.
+Answer the _n_-length substrings of _u_ that are also substrings of _v_.
 
 ```
 >>> let p = [1 2 3 2 3 4 5];

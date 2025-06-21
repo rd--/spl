@@ -13,6 +13,7 @@ Distance:
 - `chessboardDistance`
 - `correlationDistance`
 - `cosineDistance`
+- `damerauLevenshteinDistance`
 - `editDistance`
 - `euclideanDistance`
 - `graphDistance`
@@ -24,6 +25,7 @@ Distance:
 - `minkowskiDistance`
 - `normalizedSquaredEuclideanDistance`
 - `squaredEuclideanDistance`
+- `warpingDistance`
 
 Geometry:
 
@@ -47,7 +49,7 @@ Vectors:
 
 * * *
 
-Guides: Function Guides, Mathematical Functions, Similarity Functions
+Guides: Function Guides, Mathematical Functions, Sequence Alignment Functions, Similarity Functions
 
 References:
 _W_

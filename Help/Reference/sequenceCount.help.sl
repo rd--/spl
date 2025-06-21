@@ -26,6 +26,8 @@ Count sequences of integers in a list:
 
 See also: count, sequencePosition
 
+Guides: Sequence Alignment Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SequenceCount.html)

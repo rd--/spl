@@ -40,6 +40,7 @@ Plotting Functions:
 - `timelinePlot`
 - `treePlot`
 - `vectorPlot`
+- `warpingPlot`
 
 Matrix Plots:
 

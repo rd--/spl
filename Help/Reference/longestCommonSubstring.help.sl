@@ -1,6 +1,6 @@
 # longestCommonSubstring
 
-- _longestCommonSubstring(aSequence, anotherSequence)_
+- _longestCommonSubstring(u, v)_
 
 Answer the longest contiguous subsequence of elements common to two sequences.
 If there are several common subsequences of the same length, answer the one that appears earliest.
@@ -47,6 +47,8 @@ C.f. `longestCommonSubsequence`:
 * * *
 
 See also: longestCommonSubsequence, longestCommonSubstringList, partition, subsequences, substringsInCommon
+
+Guides: Sequence Alignment Functions
 
 References:
 _Mathematica_

@@ -45,6 +45,11 @@ Deletion from interior:
 ```
 >>> [1 2 3].levenshteinDistance([1 3])
 1
+
+>>> 'uninformed'.levenshteinDistance(
+>>> 	'uniformed'
+>>> )
+1
 ```
 
 Substitutions:
@@ -54,11 +59,29 @@ Substitutions:
 2
 ```
 
+Compute distance between strings of unequal length:
+
+```
+>>> 'abcdef'.levenshteinDistance('cba')
+5
+```
+
+Levenshtein distance treats transposition as separate deletion and insertion operations:
+
+```
+>>> 'ac'.levenshteinDistance('ca')
+2
+```
+
 * * *
 
-See also: editDistance, hammingDistance, manhattanDistance
+See also: editDistance, hammingDistance, damerauLevenshteinDistance, manhattanDistance
+
+Guides: Distance Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/EditDistance.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Levenshtein_distance)
 
