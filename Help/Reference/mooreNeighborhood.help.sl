@@ -47,5 +47,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/MooreNeighborhood.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Moore_neighborhood)
-
-

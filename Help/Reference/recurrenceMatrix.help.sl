@@ -68,5 +68,4 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_plot)
 
-
 Further Reading: Eckmann 1987

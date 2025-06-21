@@ -140,7 +140,7 @@ The following help files include references to integer sequences:
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
-- `primesList`: A000040`
+- `primesList`: A000040
 - `recamanSequence`: A005132
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511

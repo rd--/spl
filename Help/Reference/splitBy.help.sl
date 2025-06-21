@@ -40,7 +40,8 @@ Pick out substrings delimited by whitespace:
 >>> 'a bbb  cccc aa   d'.splitBy(' ')
 ['a' 'bbb' '' 'cccc' 'aa' '' '' 'd']
 
->>> 'a bbb  cccc aa   d'.splitByRegularExpression(' +')
+>>> 'a bbb  cccc aa   d'
+>>> .splitByRegularExpression(' +')
 ['a' 'bbb' 'cccc' 'aa' 'd']
 ```
 

@@ -70,4 +70,3 @@ _OEIS_
 [1](http://oeis.org/A020985),
 _W_
 [1](https://en.wikipedia.org/wiki/Rudin%E2%80%93Shapiro_sequence)
-

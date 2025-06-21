@@ -1,13 +1,15 @@
 # asAssociationList
 
-- _asAssociationList(aRunArray)_
+- _asAssociationList(x)_
 
-Answer an `Association` `List`.
+Answer an association list form of the value _x_.
+
+At `RunArray`:
 
 ```
 >>> RunArray([1, 3, 5], ['a', 'b', 'c'])
 >>> .asAssociationList
-['a' -> 1, 'b' -> 3, 'c' -> 5]
+[1 -> 'a', 3 -> 'b', 5 -> 'c']
 ```
 
 * * *

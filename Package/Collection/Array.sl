@@ -407,7 +407,6 @@
 				0.toDo(dimensions - 1) { :d |
 					let remainder = remaining % (size ^ (d + 1));
 					let value = remainder / (size ^ d) - range;
-					d.postLine;
 					neighbor[d + 1] := value;
 					distance := distance + value.abs;
 					remaining :=  remaining - remainder

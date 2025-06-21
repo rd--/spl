@@ -40,7 +40,7 @@ Map over a character range:
 >>> .isPrintableAscii
 >>> .asRunArray
 >>> .asAssociationList
-[false -> 32, true -> 95, false -> 1]
+[32 -> false, 95 -> true, 1 -> false]
 ```
 
 At the empty string:

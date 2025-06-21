@@ -155,7 +155,7 @@
 			n.split(=).collect { :x |
 				[x.size, x.first]
 			}.flatten
-		}.nestList([1], m)
+		}.nestList([1], m - 1)
 	}
 
 	lucasNumber { :self |
