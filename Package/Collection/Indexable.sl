@@ -290,6 +290,18 @@
 		answer
 	}
 
+	positionSmallest { :self |
+		let x = self.min;
+		self.indicesOf(x)
+	}
+
+	positionSmallest { :self :n |
+		let x = self.sorted;
+		(1 .. n).collect { :y |
+			self.indicesOf(x[y])
+		}
+	}
+
 	withDeepIndexDo { :self :elementAndIndexBlock:/2 |
 		self.deepIndices.do { :index |
 			elementAndIndexBlock(self.atPath(index), index)

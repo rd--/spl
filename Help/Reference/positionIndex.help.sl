@@ -1,8 +1,8 @@
 # positionIndex
 
-- _positionIndex(aSequence)_
+- _positionIndex([x₁ x₂ …])_
 
-Answer a `Map` between unique (according to `==`) items in _aSequence_ and the positions at which they occur.
+Answer a `Map` between unique (according to `==`) items in _x_ and the positions at which they occur.
 
 Find positions of items in a `List`:
 

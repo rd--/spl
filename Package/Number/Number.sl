@@ -1123,6 +1123,10 @@
 		self * 2.685452001065306445309714835
 	}
 
+	komornikLoretiConstant { :self |
+		1.7872316501829659330132748903370084
+	}
+
 	lemniscateConstant { :self |
 		self * 2.62205755429211981046483959
 	}
@@ -1145,6 +1149,10 @@
 
 	plasticRatio { :self |
 		self * 1.3247179572447460259609089
+	}
+
+	prouhetThueMorseConstant { :self |
+		self * 0.4124540336401075977833614
 	}
 
 	silverConstant { :self |

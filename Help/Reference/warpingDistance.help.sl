@@ -107,7 +107,7 @@ Dynamic time warping is not translation invariant:
 
 * * *
 
-See also: euclideanDistance
+See also: euclideanDistance, levenshteinDistance, warpingCorrespondence
 
 Guides: Distance Functions
 

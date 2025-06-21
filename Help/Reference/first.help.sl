@@ -1,10 +1,10 @@
 # first
 
-- _first(aSequence)_
-- _first(aSequence, anInteger)_
-- _first(aSequence, anInteger, anObject)_
+- _first([x₁ x₂ …])_
+- _first([x₁ x₂ …], n)_
+- _first([x₁ x₂ …], n, z)_
 
-The unary form answers the first element of _aSequence_.
+The unary form answers _x₁_.
 
 ```
 >>> 1:6.first
@@ -14,7 +14,7 @@ The unary form answers the first element of _aSequence_.
 6
 ```
 
-The binary form answers the first _anInteger_ elements of _aSequence_:
+The binary form answers the first _n_ elements of _x_:
 
 ```
 >>> 1:99.first(23)

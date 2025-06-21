@@ -297,11 +297,12 @@
 
 +List{
 
-	warpingDistance { :x :y :w :f:/2 |
+	warpingMatrices { :x :y :w :f:/2 |
 		let n = x.size;
 		let m = y.size;
-		let dtw = [Infinity].reshape([n + 1, m + 1]);
-		dtw[1][1] := 0;
+		let tracebackMatrix = [0].reshape([n, m]);
+		let costMatrix = [Infinity].reshape([n + 1, m + 1]);
+		costMatrix[1][1] := 0;
 		w := w + 1;
 		2.toDo(n + 1) { :i |
 			let a = max(2, i - w);
@@ -309,14 +310,62 @@
 			a.toDo(b) { :j |
 				let z = f(x[i - 1], y[j - 1]);
 				let h = [
-					dtw[i - 1][j],
-					dtw[i][j - 1],
-					dtw[i - 1][j - 1]
+					costMatrix[i - 1][j - 1],
+					costMatrix[i - 1][j],
+					costMatrix[i][j - 1]
 				];
-				dtw[i][j] := z + h.min
+				let l = h.min;
+				costMatrix[i][j] := z + l;
+				tracebackMatrix[i - 1][j - 1] := h.indexOf(l)
 			}
 		};
-		dtw[n + 1][m + 1]
+		costMatrix.removeFirst;
+		costMatrix.do { :each |
+			each.removeFirst
+		};
+		[tracebackMatrix, costMatrix]
+	}
+
+	warpingCorrespondence { :x :y :w :f:/2 |
+		let derivePath = { :tracebackMatrix |
+			let [n, m] = tracebackMatrix.shape;
+			let i = n;
+			let j = m;
+			let path = [[i, j]];
+			{ i > 1 | { j > 1 } }.whileTrue {
+				tracebackMatrix[i][j].caseOf([
+					1 -> {
+						i := i - 1;
+						j := j - 1
+					},
+					2 -> {
+						i := (i - 1)
+					},
+					3 -> {
+						j := j - 1
+					}
+				]);
+				path.addLast([i, j])
+			};
+			path
+		};
+		let [tracebackMatrix, _] = warpingMatrices(x, y, w, f:/2);
+		tracebackMatrix.derivePath.transposed.collect(reverse:/1)
+	}
+
+	warpingCorrespondence { :x :y :w |
+		warpingCorrespondence(x, y, w, euclideanDistance:/2)
+	}
+
+	warpingCorrespondence { :x :y |
+		warpingCorrespondence(x, y, Infinity, euclideanDistance:/2)
+	}
+
+	warpingDistance { :x :y :w :f:/2 |
+		let i = x.size;
+		let j = y.size;
+		let [_, costMatrix] = warpingMatrices(x, y, w, f:/2);
+		costMatrix[i][j]
 	}
 
 	warpingDistance { :x :y :w |
