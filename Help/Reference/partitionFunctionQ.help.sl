@@ -46,6 +46,34 @@ The following table gives the first few values of _Q(n,k)_:
 ]
 ```
 
+Plot table:
+
+~~~spl svg=A
+1:43.collect { :n |
+	1:n.collect { :k |
+		n.partitionFunctionQ(k)
+	}.select { :i |
+		i > 0
+ 	}
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionQ-A.svg)
+
+Plot log scaled:
+
+~~~spl svg=B
+1:43.collect { :n |
+	1:n.collect { :k |
+		n.partitionFunctionQ(k)
+	}.select { :i |
+		i > 0
+ 	}
+}.catenate.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/partitionFunctionQ-B.svg)
+
 * * *
 
 See also: integerPartitions, partitionFunctionP, partitionsQ
@@ -55,6 +83,8 @@ Guides: Combinatorial Functions, Integer Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionQ.html)
-[2](https://reference.wolfram.com/language/ref/PartitionsQ.html)
+[2](https://reference.wolfram.com/language/ref/PartitionsQ.html),
+_OEIS_
+[1](https://oeis.org/A026820)
 
 Categories: Math, Combinatorics

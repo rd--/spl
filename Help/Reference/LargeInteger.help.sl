@@ -1,10 +1,15 @@
 # LargeInteger
 
+- _LargeInteger(x)_
+
 A `Type` representing an arbitrary precision integral number.
 
-Large integers have a distinct literal syntax indicated by an _n_ suffix.
+Large integers have a distinct literal syntax indicated by an _L_ suffix.
 
 ```
+>>> LargeInteger(23)
+23L
+
 >>> 23L.typeOf
 'LargeInteger'
 ```

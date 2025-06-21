@@ -82,13 +82,15 @@ The following help files include references to integer sequences:
 - `doubleFactorial`: A000165
 - `eulerGradusSuavitatis`: A275314
 - `eulerNumber`: A000111 A000364 A028296
-- `eulerPhi`: A002088
+- `eulerPhi`: A000010 A002088
 - `factorial`: A000435
 - `fareySequence`: A005728 A006842 A006843
 - `fibonacciSequence`: A000045
 - `fibonacciWord`: A003849
 - `fibonacci`: A000045
 - `fromDigits`: A019518
+- `gijswijtsSequence`: A090822
+- `golombsSequence`: A001462
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A001316
 - `grayEncode`: A014550 A003188
@@ -106,11 +108,13 @@ The following help files include references to integer sequences:
 - `isSmoothNumber`: A000079 A003586 A051037 A002473 A051038 A080197 A080681 A080682 A080683
 - `iterate`: A014707
 - `keplerTree`: A294442 A020651
+- `kolakoskiSequence`: A000002
 - `lassalleNumber`: A180874
 - `leibnizHarmonicTriangle`: A003506
 - `linearRecurrence`: A000931 A000204 A000129 A002203 A001608
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599
+- `lookAndSaySequence`: A005150 A005341
 - `lucasNumber`: A000032
 - `lucasNumbers`: A000032
 - `lyndonWords`: A001037
@@ -125,6 +129,10 @@ The following help files include references to integer sequences:
 - `noergaardInfinitySequence`: A004718 A073334
 - `nthPrimeGap`: A001223
 - `padovanSequence`: A000931 A001608 A182097
+- `partitionFunctionP`: A000041
+- `partitionFunctionQ`: A008289
+- `partitionsQ`: A000041
+- `partitionsQ`: A000009
 - `pascalTriangle`: A007318
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A096650
@@ -132,6 +140,7 @@ The following help files include references to integer sequences:
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
+- `primesList`: A000040`
 - `recamanSequence`: A005132
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511

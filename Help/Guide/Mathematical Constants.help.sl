@@ -6,6 +6,7 @@
 - `berahaConstant`: Beraha _k_
 - `boltzmannConstant`: Boltzmann _k_
 - `brunsConstant`: Brun’s _k_
+- `conwaysConstant`: Conways’s _k_
 - `degree`: 1/180 of pi
 - `e`: Euler’s number
 - `epsilon`: epsilon

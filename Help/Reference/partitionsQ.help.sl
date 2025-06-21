@@ -1,8 +1,8 @@
 # partitionsQ
 
-- _partitionsQ(anInteger)_
+- _partitionsQ(x)_
 
-Answer the number of restricted partitions of _anInteger_ into distinct parts.
+Answer the number of restricted partitions of _x_ into distinct parts.
 
 ```
 >>> [2 4 6].collect(partitionsQ:/1)
@@ -64,6 +64,13 @@ let n = 47;
 
 See also: partitionFunctionQ, partitionsP
 
-Guides: Combinatorial Functions, Integer Functions
+Guides: Combinatorial Functions, Integer Functions, Integer Sequences
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PartitionFunctionQ.html)
+[2](https://reference.wolfram.com/language/ref/PartitionsQ.html),
+_OEIS_
+[1](https://oeis.org/A000009)
 
 Categories: Combinatorics, Math

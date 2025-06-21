@@ -1,8 +1,8 @@
 # fromDigits
 
-- _fromDigits(aSequence, anInteger)_
+- _fromDigits([x₁ x₂ …], b)_
 
-Constructs an integer from _aSequence_ of digits in radix _anInteger_.
+Constructs an integer from the sequence _x_ of digits in radix _b_.
 
 Construct a number from its base-10 digits:
 

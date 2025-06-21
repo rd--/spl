@@ -349,6 +349,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 +SmallFloat {
 
+	LargeInteger { :self |
+		<primitive: return BigInt(_self);>
+	}
+
 	asLargeInteger { :self |
 		<primitive: return BigInt(_self);>
 	}

@@ -1188,6 +1188,10 @@
 		answer
 	}
 
+	fromDigits { :self |
+		self.fromDigits(10)
+	}
+
 	fromToDo { :self :start :stop :aBlock:/1 |
 		start.toDo(stop) { :index |
 			aBlock(self[index])

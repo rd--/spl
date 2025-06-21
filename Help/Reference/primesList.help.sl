@@ -1,8 +1,8 @@
 # primesList
 
-- _primesList(anInteger)_
+- _primesList(n)_
 
-Answer the first _anInteger_ elements of the prime number sequence.
+Answer the first _n_ elements of the prime number sequence.
 
 ```
 >>> 9.primesList
@@ -28,6 +28,10 @@ Plot first few places:
 
 See also: cachedPrimesList, isPrime, nextPrime, nthPrime, primesBetweenAnd, sieveOfEratosthenes
 
-Guides: Prime Number Functions
+Guides: Integer Sequences, Prime Number Functions
+
+References:
+_OEIS_
+[1](https://oeis.org/A000040)
 
 Categories: Primes

@@ -96,12 +96,24 @@ Plot the butterfly curve:
 (0 -- 12.pi).polarPlot(500) { :theta |
 	let a = theta.sin.exp;
 	let b = 2 * (4 * theta).cos;
-	let c = (1/24 * (2 * theta - 1.pi)).sin ^ 5;
-	a - b + c
+	let c = (1/24 * (2 * theta - 1.pi)).sin;
+	a - b + (c ^ 5)
 }
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-I.svg)
+
+Plot using negative radius values, reflected through the origin:
+
+~~~spl svg=J
+(0 -- 2.pi).discretize(100) { :theta |
+	let a = 2 * theta;
+	let rho = a.sin * a.cos;
+	[rho, theta]
+}.polarPlot
+~~~
+
+![](sw/spl/Help/Image/polarPlot-J.svg)
 
 * * *
 
@@ -109,6 +121,8 @@ See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametri
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PolarPlot.html)
+[1](https://reference.wolfram.com/language/ref/PolarPlot.html),
+_Mathworks_
+[1](https://www.mathworks.com/help/matlab/ref/polarplot.html)
 
 Categories: Plotting

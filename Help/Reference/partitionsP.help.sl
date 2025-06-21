@@ -1,8 +1,8 @@
 # partitionsP
 
-- _partitionsP(anInteger)_
+- _partitionsP(x)_
 
-Answer the number of partitions of _anInteger_ into distinct parts.
+Answer the number of partitions of _x_ into distinct parts.
 
 ```
 >>> [2 4 6].collect(partitionsP:/1)
@@ -75,4 +75,11 @@ let n = 37;
 
 See also: partitionFunctionP, partitionsQ
 
-Guides: Combinatorial Functions, Integer Functions
+Guides: Combinatorial Functions, Integer Functions, Integer Sequences
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PartitionFunctionP.html)
+[2](https://reference.wolfram.com/language/ref/PartitionsP.html),
+_OEIS_
+[1](https://oeis.org/A000041)

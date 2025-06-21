@@ -28,13 +28,22 @@ Threads over lists:
 ```
 >>> [2 4 5 6 7 35].eulerPhi
 [1 2 4 2 6 24]
+
+>>> 1:23.eulerPhi
+[
+	 1  1  2  2  4  2  6  4  6  4
+	10  4 12  6  8  8 16  6 18  8
+	12 10 22
+]
 ```
 
 Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`,
 c.f. OEIS [A002088](https://oeis.org/A002088):
 
 ```
->>> 1:15.collect { :k | 1:k.eulerPhi.sum + 1 }
+>>> 1:15.collect { :k |
+>>> 	1:k.eulerPhi.sum + 1
+>>> }
 [2 3 5 7 11 13 19 23 29 33 43 47 59 65 73]
 ```
 
@@ -130,7 +139,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/eulerphi.html),
 _OEIS_
-[1](https://oeis.org/A002088)
-[2](https://oeis.org/A018804)
+[1](https://oeis.org/A000010)
+[2](https://oeis.org/A002088)
+[3](https://oeis.org/A018804)
 
 Categories: Math

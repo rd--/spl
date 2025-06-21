@@ -15,11 +15,17 @@ or, equivalently, the number of partitions into parts of which the largest is ex
 	42 56 77 101 135 176
 ]
 
+>>> 100.partitionFunctionP
+190569292
+
 >>> 121.partitionFunctionP
 2056148051
 
 >>> 666.partitionFunctionP
 11956824258286445517629485L
+
+>>> 1000.partitionFunctionP
+24061467864032622473692149727991L
 ```
 
 `partitionFunctionP` gives the length of `integerPartitions`:
@@ -69,6 +75,10 @@ Guides: Combinatorial Functions, Integer Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionP.html)
-[2](https://reference.wolfram.com/language/ref/PartitionsP.html)
+[2](https://reference.wolfram.com/language/ref/PartitionsP.html),
+_OEIS_
+[1](https://oeis.org/A000041),
+_W_
+[1](https://en.wikipedia.org/wiki/Partition_function_(number_theory))
 
 Categories: Math, Combinatorics

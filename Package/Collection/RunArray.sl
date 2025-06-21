@@ -21,8 +21,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 	}
 
 	asAssociationList { :self |
-		self.runsAndValuesCollect { :run :value |
-			value -> run
+		self.runsAndValuesCollect { :key :value |
+			key -> value
 		}
 	}
 

@@ -64,6 +64,45 @@
 		answer
 	}
 
+	gijswijtsSequence { :n |
+		let k = { :s |
+			let z = 1;
+			valueWithReturn { :return:/1 |
+				1.toDo(s.size) { :m |
+					let i = 1;
+					let y = s.last(m);
+					let kk = s.size // m;
+					(kk <= z).ifTrue {
+						z.return
+					};
+					{
+						let k = s.size;
+						let a = k - ((i + 1) * m) + 1;
+						let b = k - (i * m);
+						(i * m < k) & { s.copyFromTo(a, b) = y }
+					}.whileTrue {
+						 i := i + 1
+					};
+					z := max(z, i)
+				};
+				nil
+			}
+		};
+		let answer = [1];
+		2.toDo(n) { :i |
+			answer.add(k(answer))
+		};
+		answer
+	}
+
+	golombsSequence { :n |
+		let a = List(n, 1);
+		2.toDo(n) { :i |
+			a[i] := 1 + a[i - a[a[i - 1]]]
+		};
+		a
+	}
+
 	gouldsNumber { :self |
 		2 ^ self.hammingWeight
 	}
@@ -102,6 +141,21 @@
 			inventory.add(count)
 		};
 		answer
+	}
+
+	kolakoskiSequence { :n |
+		let a = [1 2 2];
+		[3 .. n].injectInto(a) { :i :j |
+			i ++ List(i[j], mod(j, 2, 1))
+		}.take(n)
+	}
+
+	lookAndSaySequence { :m |
+		{ :n |
+			n.split(=).collect { :x |
+				[x.size, x.first]
+			}.flatten
+		}.nestList([1], m)
 	}
 
 	lucasNumber { :self |

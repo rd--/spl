@@ -1,8 +1,8 @@
 # primeNu
 
-- _primeNu(anInteger)_
+- _primeNu(x)_
 
-Answer the number of distinct prime factors of _anInteger_.
+Answer the number of distinct prime factors of _x_.
 
 ```
 >>> 24.primeNu

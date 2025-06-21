@@ -1,6 +1,6 @@
 # asLargeInteger
 
-- _asLargeInteger(aSmallFloat | aByteArray)_
+- _asLargeInteger(x)_
 
 Convert a `SmallFloat` or a `ByteArray` into a `LargeInteger`.
 
