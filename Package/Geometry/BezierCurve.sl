@@ -1,4 +1,4 @@
-BezierCurve : [Object, Cache] { | controlPoints splineDegree cache |
+BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 
 	approximation { :self |
 		self.cached('approximation') {

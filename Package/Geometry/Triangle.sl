@@ -1,6 +1,6 @@
 /* Requires: Polygon */
 
-Triangle : [Object] { | vertexCoordinates |
+Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)

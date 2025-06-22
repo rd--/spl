@@ -49,7 +49,7 @@ The following table gives the first few values of _Q(n,k)_:
 Plot table:
 
 ~~~spl svg=A
-1:43.collect { :n |
+1:21.collect { :n |
 	1:n.collect { :k |
 		n.partitionFunctionQ(k)
 	}.select { :i |

@@ -68,7 +68,7 @@
 
 }
 
-PolygonMesh : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
+PolygonMesh : [Object, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;

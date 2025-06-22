@@ -13,6 +13,7 @@ Find positions of the smallest value in a list:
 >>> [100 200 100 200 50 40 110]
 >>> .positionSmallest
 [6]
+```
 
 Get lists of positions for the three smallest values:
 

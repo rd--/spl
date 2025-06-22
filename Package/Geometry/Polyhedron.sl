@@ -1,6 +1,6 @@
 /* Requires: PolygonMesh */
 
-Polyhedron : [Object, PolygonMesh] { | vertexCoordinates faceIndices |
+Polyhedron : [Object, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
 
 	project { :self :projection |
 		PolygonMesh(

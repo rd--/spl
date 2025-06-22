@@ -79,6 +79,7 @@
 	'SymbolicExpression'
 
 	/* Geometry */
+	'Geometry' /* Trait */
 	'Arc'
 	'Ball'
 	'BarycentricCoordinates'

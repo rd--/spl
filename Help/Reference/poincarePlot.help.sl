@@ -10,7 +10,7 @@ Poincaré plot of a harmonic oscillation with two frequencies:
 ~~~spl svg=A
 (0 -- 4.pi).subdivide(200).collect { :x |
 	(x * 3).sin + (x * 7).sin
-}.lagPlot
+}.poincarePlot
 ~~~
 
 ![](sw/spl/Help/Image/poincarePlot-A.svg)

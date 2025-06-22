@@ -1,4 +1,4 @@
-Rectangle : [Object] { | lowerLeft upperRight |
+Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 
 	= { :self :anObject |
 		anObject.isRectangle & {

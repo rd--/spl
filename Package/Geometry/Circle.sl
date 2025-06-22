@@ -1,4 +1,4 @@
-Circle : [Object] { | center radius |
+Circle : [Object, Geometry] { | center radius |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)

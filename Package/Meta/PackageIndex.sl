@@ -101,6 +101,7 @@
 	'Geometry-FourVector'
 	'Geometry-FractalCurve'
 	'Geometry-GeodeticCoordinates'
+	'Geometry-Geometry'
 	'Geometry-GeometryCollection'
 	'Geometry-HalfPlane'
 	'Geometry-HexagonalCoordinates'

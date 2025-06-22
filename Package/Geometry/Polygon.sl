@@ -1,4 +1,4 @@
-Polygon : [Object] { | vertexCoordinates |
+Polygon : [Object, Geometry] { | vertexCoordinates |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)

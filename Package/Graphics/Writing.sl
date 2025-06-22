@@ -1,4 +1,4 @@
-Writing : [Object] { | contents lowerLeft |
+Writing : [Object, Geometry] { | contents lowerLeft |
 
 	boundingBox { :self |
 		[

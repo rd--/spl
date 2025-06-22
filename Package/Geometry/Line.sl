@@ -1,4 +1,4 @@
-Line : [Object] { | vertexCoordinates |
+Line : [Object, Geometry] { | vertexCoordinates |
 
 	arcLength { :self |
 		let answer = 0;

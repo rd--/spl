@@ -1,5 +1,3 @@
-/* Requires: BezierCurve, Circle, CrystalStructure, GeometryCollection, Line, Point, PointCloud, Polygon, PolygonMesh, PolygonWithHoles Polyhedron, Rectangle, Svg, Triangle, Writing */
-
 LineDrawing : [Object] { | contents metadata |
 
 	asImg { :self |
@@ -156,34 +154,6 @@ LineDrawing : [Object] { | contents metadata |
 			leftmostVerticalLine,
 			verticalLines
 		].LineDrawing
-	}
-
-}
-
-+[BezierCurve, Circle, Ellipse, GeometryCollection, Line, Parallelogram, Point, PointCloud, Polygon, PolygonMesh, PolygonWithHoles, Polyhedron, Rectangle, Superellipse, Triangle, Writing] {
-
-	asLineDrawing { :self |
-		[self].LineDrawing
-	}
-
-	asPerspectiveDrawing { :self :projection |
-		[self].PerspectiveDrawing(
-			projection: projection,
-			height: 100
-		)
-	}
-
-	asPerspectiveDrawing { :self |
-		[self].PerspectiveDrawing
-	}
-
-	drawing { :self |
-		let d = self.embeddingDimension;
-		(d = 2).if {
-			self.asLineDrawing.drawing
-		} {
-			self.asPerspectiveDrawing.drawing
-		}
 	}
 
 }
