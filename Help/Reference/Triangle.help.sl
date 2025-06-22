@@ -67,15 +67,6 @@ Area, centroid and arc length of an isosceles triangle:
 )
 ```
 
-The Svg description of a triangle is equivalent to `forSvg` of `asPolygon`:
-
-```
->>> let t = Triangle([0 0; 1 0; 0 1]);
->>> let p = t.asPolygon;
->>> t.forSvg(precision: 0)
-p.forSvg(precision: 0)
-```
-
 Draw a triangle in planar (two dimensional) space:
 
 ~~~spl svg=A

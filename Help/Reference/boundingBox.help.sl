@@ -1,8 +1,8 @@
 # boundingBox
 
-- _boundingBox(aGeometry)_
+- _boundingBox(g)_
 
-Answer a `List` of the lower left and upper right coordinates of the bounding box of _aGeometry_.
+Answer a `List` of the lower left and upper right coordinates of the bounding box of the geometry _g_.
 
 At `Point`:
 

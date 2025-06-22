@@ -58,8 +58,8 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		[[1 .. 3]]
 	}
 
-	forSvg { :self :options |
-		self.asPolygon.forSvg(options)
+	svgFragment { :self :options |
+		self.asPolygon.svgFragment(options)
 	}
 
 	fromBarycentricCoordinates { :self |

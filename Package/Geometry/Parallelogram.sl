@@ -26,8 +26,8 @@ Parallelogram : [Object, Geometry] { | origin vectors |
 		self.vectors[2][2] - self.origin[2]
 	}
 
-	forSvg { :self :options |
-		self.asPolygon.forSvg(options)
+	svgFragment { :self :options |
+		self.asPolygon.svgFragment(options)
 	}
 
 	vertexCoordinates { :self |

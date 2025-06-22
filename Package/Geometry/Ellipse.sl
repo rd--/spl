@@ -17,7 +17,7 @@ Ellipse : [Object, Geometry] { | center radii |
 		(1 - (b / a).squared).sqrt
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let precision = options['precision'];
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;

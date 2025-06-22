@@ -35,13 +35,6 @@ Calculate `arcLength`, `area`, `circumference`, `perimeter`, `centroid`, `diamet
 (2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1)
 ```
 
-The Svg description of a circle:
-
-```
->>> Circle([0 0], 1).forSvg(precision: 0)
-'<circle cx="0" cy="0" r="1" />'
-```
-
 Circles can be elements of `LineDrawing`s.
 Specify radii:
 

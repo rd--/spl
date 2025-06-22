@@ -1,5 +1,9 @@
 # Geometry Functions
 
+Traits:
+
+- `Geometry`
+
 Types:
 
 - `BezierCurve`

@@ -80,10 +80,10 @@ BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 		2
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let n = self.splineDegree;
 		(n = 1).if {
-			self.controlPoints.Line.forSvg(options)
+			self.controlPoints.Line.svgFragment(options)
 		} {
 			let precision = options['precision'];
 			let p = self.controlPoints;

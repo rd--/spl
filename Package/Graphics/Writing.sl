@@ -7,7 +7,7 @@ Writing : [Object, Geometry] { | contents lowerLeft |
 		]
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let precision = options['precision'];
 		let [x, y] = self.lowerLeft;
 		[

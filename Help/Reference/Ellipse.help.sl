@@ -17,13 +17,6 @@ The bounding box of an ellipse:
 [-2 -1; 2 1]
 ```
 
-The Svg description of an ellipse:
-
-```
->>> Ellipse([0 0], [2 1]).forSvg(precision: 0)
-'<ellipse cx="0" cy="0" rx="2" ry="1" />'
-```
-
 A drawing of two ellipses:
 
 ~~~spl svg=A

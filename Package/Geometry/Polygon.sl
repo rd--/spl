@@ -74,7 +74,7 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		[self.vertexList]
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		'<polygon points="%" />'.format([
 			self.vertexCoordinates.asSvgPointList(options)
 		])

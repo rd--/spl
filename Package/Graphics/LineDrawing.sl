@@ -32,8 +32,8 @@ LineDrawing : [Object] { | contents metadata |
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = boundingBox.scaleBy(scaleFactor);
 		let options = (precision: precision, scaleFactor: scaleFactor);
-		let items = self.contents.collect { :each |
-			each.forSvg(options)
+		let fragments = self.contents.collect { :each |
+			each.svgFragment(options)
 		};
 		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
@@ -50,7 +50,7 @@ LineDrawing : [Object] { | contents metadata |
 				scaleFactor.printStringToFixed(4),
 				scaleFactor.negated.printStringToFixed(4)
 			]),
-			items,
+			fragments,
 			'</g>',
 			'</svg>'
 		].flatten.unlines.Svg

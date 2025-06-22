@@ -7,7 +7,7 @@ Arc : [Object] { | center radii angles |
 		]
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let precision = options['precision'];
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;

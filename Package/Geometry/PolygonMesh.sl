@@ -85,7 +85,7 @@ PolygonMesh : [Object, Geometry, PolygonMesh] { | vertexCoordinates faceIndices 
 		)
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let vertexCoordinates = self.vertexCoordinates;
 		self.faceIndices.collect { :each |
 			'<polygon points="%" />'.format([

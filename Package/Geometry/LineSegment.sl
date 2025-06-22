@@ -31,8 +31,8 @@ LineSegment : [Object] { | u v |
 		self.u.size
 	}
 
-	forSvg { :self :options |
-		Line([self.u, self.v]).forSvg(options)
+	svgFragment { :self :options |
+		Line([self.u, self.v]).svgFragment(options)
 	}
 
 	includes { :self :aPoint |

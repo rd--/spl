@@ -1,8 +1,9 @@
 # BezierCurve
 
-- _BezierCurve(aList, anInteger)_
+- _BezierCurve([x₁ y₁; x₂ y₂ …], n)_
 
-A `Type` that represents a Bézier curve with control points _aList_ and spline degree _anInteger_.
+A `Type` that represents a Bézier curve with the specified control points,
+and spline degree _n_.
 A Bézier curve is a parametric curve defined by a sequence of control points.
 Curves with spline degree two are called _quadratic_,
 curves with spline degree three are called _cubic_.

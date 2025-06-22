@@ -40,7 +40,7 @@ Line : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		(self.vertexCount = 2).if {
 			let precision = options['precision'];
 			let [p1, p2] = self.vertexCoordinates;

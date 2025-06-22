@@ -26,6 +26,8 @@ the embedding dimension is three:
 
 See also: dimension, size
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RegionEmbeddingDimension.html)

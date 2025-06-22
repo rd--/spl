@@ -29,9 +29,9 @@ GeometryCollection : [Object, Geometry] { | contents |
 		n
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		self.contents.collect { :each |
-			each.forSvg(options)
+			each.svgFragment(options)
 		}.unlines
 	}
 

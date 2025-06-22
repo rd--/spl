@@ -44,20 +44,6 @@ The `arcLength` of a `Line` in three-dimensions:
 (3.sqrt + 2)
 ```
 
-The Svg description of a line segment:
-
-```
->>> Line([0 0; 1 1]).forSvg(precision: 0)
-'<line x1="0" y1="0" x2="1" y2="1" />'
-```
-
-The Svg description of a polyline:
-
-```
->>> Line([0 0; 1 1; 1 0]).forSvg(precision: 0)
-'<polyline points="0,0 1,1 1,0" />'
-```
-
 Threads over lists,
 a line drawing of a complete graph with eleven vertices:
 

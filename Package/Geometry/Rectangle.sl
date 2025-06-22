@@ -101,7 +101,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		[[1 .. 4]]
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		let precision = options['precision'];
 		'<rect x="%" y="%" width="%" height="%" />'.format([
 			self.x.printStringToFixed(precision),

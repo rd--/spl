@@ -20,16 +20,16 @@ PointCloud : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
-	forSvg { :self :options |
-		self.vertexCoordinates.Point.collect { :each |
-			each.forSvg(options)
-		}.unlines
-	}
-
 	project { :self :projection |
 		PointCloud(
 			self.vertexCoordinates.collect(projection.asUnaryBlock)
 		)
+	}
+
+	svgFragment { :self :options |
+		self.vertexCoordinates.Point.collect { :each |
+			each.svgFragment(options)
+		}.unlines
 	}
 
 }

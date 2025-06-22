@@ -70,6 +70,8 @@ The dimension of a `Polyhedron` is three:
 
 See also: embeddingDimension, Circle, Line, Point, Polygon, Polyhedron, Rectangle, Sphere, size
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RegionDimension.html)

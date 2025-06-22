@@ -14,20 +14,6 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		[]
 	}
 
-	forSvg { :self :options |
-		let precision = options['precision'];
-		let scaleFactor = options['scaleFactor'];
-		self.isPlanar.if {
-			'<circle cx="%" cy="%" r="%" />'.format([
-				self.coordinates[1].printStringToFixed(precision),
-				self.coordinates[2].printStringToFixed(precision),
-				(0.5 / scaleFactor).printStringToFixed(precision)
-			])
-		} {
-			self.error('forSvg: not planar')
-		}
-	}
-
 	isOrigin { :self |
 		self.coordinates.isOrigin
 	}
@@ -44,6 +30,20 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	svgFragment { :self :options |
+		let precision = options['precision'];
+		let scaleFactor = options['scaleFactor'];
+		self.isPlanar.if {
+			'<circle cx="%" cy="%" r="%" />'.format([
+				self.coordinates[1].printStringToFixed(precision),
+				self.coordinates[2].printStringToFixed(precision),
+				(0.5 / scaleFactor).printStringToFixed(precision)
+			])
+		} {
+			self.error('svgFragment: not planar')
+		}
 	}
 
 	vertexCoordinates { :self |

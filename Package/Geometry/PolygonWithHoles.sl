@@ -14,10 +14,10 @@ PolygonWithHoles : [Object, Geometry] { | outerVertexCoordinates innerVertexCoor
 		self.outerVertexCoordinates.anyOne.size
 	}
 
-	forSvg { :self :options |
+	svgFragment { :self :options |
 		GeometryCollection(
 			self.vertexCoordinatesList.collect(Polygon:/1)
-		).forSvg(options)
+		).svgFragment(options)
 	}
 
 	innerPolygons { :self |
