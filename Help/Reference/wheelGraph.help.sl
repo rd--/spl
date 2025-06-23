@@ -1,8 +1,8 @@
 # wheelGraph
 
-- _wheelGraph(anInteger)_
+- _wheelGraph(n)_
 
-Answer the wheel graph with _anInteger_ vertices.
+Answer the wheel graph with _n_ vertices.
 A wheel graph of order _n_ is a graph formed by connecting a single vertex to all the vertices of a cycle of order _n - 1_.
 
 The `adjacencyMatrix` of two small wheel graphs:

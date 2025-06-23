@@ -10,6 +10,7 @@ Plotting Functions:
 - `autocorrelationPlot`
 - `complexPlot`
 - `contourPlot`
+- `correspondancePlot`
 - `densityPlot`
 - `densityHistogramPlot`
 - `discretePlot`

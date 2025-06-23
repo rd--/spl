@@ -342,6 +342,26 @@
 
 +List{
 
+	correspondancePlot { :self |
+		let [a, b] = self;
+		let n = a.size;
+		let y = n / 1.goldenRatio;
+		let p = (1 .. n).collect { :i |
+			[b[i], 0]
+		};
+		let q = (1 .. n).collect { :i |
+			[a[i], y]
+		};
+		let r = (1 .. n).collect { :i |
+			Line([p[i], q[i]])
+		};
+		[
+			p.PointCloud,
+			q.PointCloud,
+			r
+		].LineDrawing
+	}
+
 	warpingCorrespondence { :x :y :w :f:/2 |
 		let derivePath = { :tracebackMatrix |
 			let [n, m] = tracebackMatrix.shape;

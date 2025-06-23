@@ -39,8 +39,21 @@ x.warpingPlot(y, c)
 
 ![](sw/spl/Help/Image/warpingPlot-C.svg)
 
+Warping plot of phase shifted and amplitude scaled Hann tables:
+
+~~~spl svg=D
+let h = 23.hannWindowTable * 17;
+let z = 0 # 11;
+let x = z ++ (h * 1.1);
+let y = h ++ z;
+let c = warpingCorrespondence(x, y);
+warpingPlot(x, y, c)
+~~~
+
+![](sw/spl/Help/Image/warpingPlot-D.svg)
+
 * * *
 
-See also: warpingCorrespondence, warpingDistance, warpingMatrices
+See also: correspondancePlot, warpingCorrespondence, warpingDistance, warpingMatrices
 
 Guides: Distance Functions, Plotting Functions, Sequence Alignment Functions
