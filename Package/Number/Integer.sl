@@ -957,6 +957,15 @@
 		Range(0, 1, Fraction(1, self))
 	}
 
+	theodorusSpiral { :n |
+		let theta = 0;
+		(1 .. n).collect { :i |
+			let p = [i.sqrt theta];
+			theta := theta + (1 / i.sqrt).arcTan;
+			p.fromPolarCoordinates
+		}
+	}
+
 	threeDigitName { :self |
 		let units = [
 			'one', 'two', 'three', 'four', 'five',

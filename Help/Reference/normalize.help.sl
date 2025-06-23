@@ -1,9 +1,9 @@
 # normalize
 
-- _normalize(aVector)_
+- _normalize(u)_
 
-Answer the normalized form of _aVector_.
-Equivalent to _v / v.norm_, except that zero vectors (or vectors with `norm` very close to zero) are answered unchanged.
+Answer the normalized form of the vector _u_.
+Equivalent to _u / u.norm_, except that zero vectors (or vectors with `norm` very close to zero) are answered unchanged.
 
 At `List` of `Integer`:
 

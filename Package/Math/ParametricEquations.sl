@@ -118,6 +118,14 @@
 		}
 	}
 
+	norwichSpiral { :a |
+		{ :t |
+			let rho = a / t.cos.squared;
+			let theta = t.tan - (2 * t);
+			[rho theta].fromPolarCoordinates
+		}
+	}
+
 	rhodonea { :a :n |
 		{ :theta |
 			let r = a * (n * theta).cos;

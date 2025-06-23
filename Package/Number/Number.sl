@@ -1119,6 +1119,10 @@
 		self * phi
 	}
 
+	hlawkasSchneckenkonstante { :self |
+		self * -2.15778299665944622092914278682957772350
+	}
+
 	khinchinsConstant { :self |
 		self * 2.685452001065306445309714835
 	}

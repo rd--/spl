@@ -1,8 +1,8 @@
 # goldenAngle
 
-- _goldenAngle(aNumber)_
+- _goldenAngle(n)_
 
-Answer _aNumber_ × the golden angle, _pi × (3 - 5.sqrt)_.
+Answer _n_ × the golden angle, _π(3-√5)_.
 
 ```
 >>> 1.goldenAngle
@@ -23,6 +23,9 @@ Expressions for `goldenAngle` in terms of `goldenRatio`:
 
 >>> 1.goldenAngle
 2.pi / (1 + 1.goldenRatio)
+
+>>> 1.goldenAngle
+2.pi * (2 - 1.goldenRatio)
 ```
 
 Scatter plot of a phyllotaxis pattern:
@@ -45,3 +48,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenAngle.html)
 [2](https://reference.wolfram.com/language/ref/GoldenAngle.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Golden_angle)

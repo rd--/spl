@@ -115,7 +115,6 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
-- `doyleSpiral`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`
@@ -211,6 +210,15 @@ Random Functions:
 - `randomConvexHullPolygon`
 - `randomSimplePolygon`
 - `randomStarConvexPolygon`
+
+Spiral Functions:
+
+- `archimedeanSpiral`
+- `doyleSpiral`
+- `eulerSpiral`
+- `logarithmicSpiral`
+- `theodorusSpiral`
+- `tractrixSpiral`
 
 Triangle Functions:
 

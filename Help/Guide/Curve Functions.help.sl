@@ -17,6 +17,7 @@ Algebraic Curve Functions:
 - `hypotrochoid`
 - `lissajousCurve`
 - `logarithmicSpiral`
+- `norwichSpiral`
 - `rhodonea`
 - `satelliteCurve`
 - `serpentineCurve`

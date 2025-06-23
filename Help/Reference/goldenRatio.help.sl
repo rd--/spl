@@ -1,8 +1,8 @@
 # goldenRatio
 
-- _goldenRatio(aNumber)_
+- _goldenRatio(n)_
 
-Answer _aNumber_ × the golden ratio,
+Answer _n_ × the golden ratio,
 _(√5 + 1) / 2_,
 usually written as Phi or phi, also as tau.
 
@@ -155,6 +155,19 @@ Position of ones in a Fibonacci substitution system:
 
 ![](sw/spl/Help/Image/goldenRatio-B.svg)
 
+Draw the golden rectangle:
+
+~~~spl svg=C
+let phi = 1.goldenRatio;
+let z = phi - 1;
+[
+	Rectangle([0 0], [1 phi]),
+	Line([0 z; 1 z])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-C.svg)
+
 * * *
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
@@ -166,7 +179,8 @@ Unicode: U+03C6 φ Greek Small Letter Phi
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
-[2](https://reference.wolfram.com/language/ref/GoldenRatio.html),
+[2](https://mathworld.wolfram.com/GoldenRectangle.html)
+[3](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio),
 _Xenharmonic_
