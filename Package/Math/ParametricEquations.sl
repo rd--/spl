@@ -202,6 +202,13 @@
 		}
 	}
 
+	strophoid { :a |
+		{ :theta |
+			let rho = a * ((2 * theta - a).sin / (theta - a).sin);
+			[rho theta].fromPolarCoordinates
+		}
+	}
+
 	superellipseCurve { :a :b :n |
 		{ :t |
 			let m = 2 / n;

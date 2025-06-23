@@ -27,6 +27,7 @@ Algebraic Curve Functions:
 - `serpentineCurve`
 - `sinusoidalSpiral`
 - `sphericalTrochoid`
+- `strophoid`
 - `superellipseCurve`
 - `superformulaCurve`
 - `tractrix`

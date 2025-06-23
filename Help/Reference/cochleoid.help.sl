@@ -9,10 +9,10 @@ given by the polar equation _r=asinθ/θ_.
 Line drawing:
 
 ~~~spl svg=A
-(-15 -- 15)
-.discretize(300)
-.collect(cochleoid(1))
-.Line
+(-15 -- 15).discretize(
+	300,
+	1.cochleoid
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/cochleoid-A.svg)
