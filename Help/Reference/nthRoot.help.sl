@@ -27,6 +27,12 @@ At `SmallFloat`:
 
 >>> 3.nthRoot(3)
 1.44225
+
+>>> 152.2756.nthRoot(2)
+12.34
+
+>>> 4192.nthRoot(3)
+16.124
 ```
 
 At `LargeInteger`:
@@ -50,6 +56,12 @@ Note that this is not the same as _x ^ (1 / n)_.
 
 >>> -1J0 ^ (1 / 3)
 0.5J0.866
+
+>>> -32.nthRoot(5)
+-2
+
+>>> -32J0 ^ (1 / 5)
+1.61803J1.17557
 ```
 
 Threads elementwise over lists and matrices:
@@ -58,8 +70,13 @@ Threads elementwise over lists and matrices:
 >>> [0 1.5 8 Infinity].nthRoot(3)
 [0 1.14471 2 Infinity]
 
->>> [2 3 6].collect { :n | 729.nthRoot(n) }
+>>> [2 3 6].collect { :n |
+>>> 	729.nthRoot(n)
+>>> }
 [27 9 3]
+
+>>> [-2 .. 2].nthRoot(3)
+[-1.2599 -1 0 1 1.2599]
 ```
 
 Unlike `sqrt`, does not answer `Complex` values:
@@ -82,9 +99,13 @@ true
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-1 -- 1).functionPlot { :x |
-	x.nthRoot(3)
-}
+(-1 -- 1).functionPlot(
+	[1 3 5 7].collect { :n |
+		{ :x |
+			x.nthRoot(n)
+		}
+	}
+)
 ~~~
 
 ![](sw/spl/Help/Image/nthRoot-A.svg)
@@ -100,6 +121,17 @@ Plot a composition of `nthRoot`:
 ~~~
 
 ![](sw/spl/Help/Image/nthRoot-B.svg)
+
+Polar plot:
+
+~~~spl svg=C
+(0 -- 6.pi).polarPlot { :theta |
+	theta.nthRoot(3)
+}
+~~~
+
+![](sw/spl/Help/Image/nthRoot-C.svg)
+
 
 Where supported `nthRoot` is displayed as √.
 
@@ -118,6 +150,8 @@ _Maple_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Surd.html)
 [2](https://mathworld.wolfram.com/nthRoot.html)
-[3](https://reference.wolfram.com/language/ref/Surd.html)
+[3](https://reference.wolfram.com/language/ref/Surd.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Nth_root)
 
 Unicode: U+221A √ Square Root

@@ -115,9 +115,21 @@ Plot using negative radius values, reflected through the origin:
 
 ![](sw/spl/Help/Image/polarPlot-J.svg)
 
+A quintic curve:
+
+~~~spl svg=K
+(-0.9.pi -- 0.9.pi).polarPlot { :t |
+	t.sin / (1 + (t.cos * (2 * t).cos))
+}
+~~~
+
+![](sw/spl/Help/Image/polarPlot-K.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+
+Guides: Plotting Functions
 
 References:
 _Mathematica_

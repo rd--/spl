@@ -1,6 +1,6 @@
 # norwichSpiral
 
-- _norwichSpiral(t)_
+- _norwichSpiral(a=1)_
 
 Parametric curve studied by Ricatti in 1712, Euler in 1781, Sturm in 1857, and Sylvester in 1868.
 
@@ -17,7 +17,7 @@ Line drawing:
 
 * * *
 
-See also: discretize
+See also: discretize, inverseNorwichSpiral
 
 Guides: Curve Functions
 

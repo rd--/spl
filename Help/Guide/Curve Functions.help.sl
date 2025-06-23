@@ -5,6 +5,7 @@ Algebraic Curve Functions:
 - `archimedeanSpiral`
 - `botanicCurve`
 - `butterflyCurve`
+- `cayleysSextic`
 - `catenaryCurve`
 - `cleliaCurve`
 - `cochleoid`
@@ -12,15 +13,19 @@ Algebraic Curve Functions:
 - `epitrochoid`
 - `eulerSpiral`
 - `foliumOfDescartes`
+- `galileanSpiral`
 - `hippopede`
 - `hypocycloid`
 - `hypotrochoid`
+- `inverseNorwichSpiral`
+- `lHospitalQuintic`
 - `lissajousCurve`
 - `logarithmicSpiral`
 - `norwichSpiral`
 - `rhodonea`
 - `satelliteCurve`
 - `serpentineCurve`
+- `sinusoidalSpiral`
 - `sphericalTrochoid`
 - `superellipseCurve`
 - `superformulaCurve`
@@ -28,6 +33,7 @@ Algebraic Curve Functions:
 - `tractrixSpiral`
 - `trisectrixOfMaclaurin`
 - `trochoid`
+- `tschirnhausenCubic`
 - `witchOfAgnesi`
 
 Fractal Curve Functions:

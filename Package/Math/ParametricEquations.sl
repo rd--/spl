@@ -34,6 +34,13 @@
 		}
 	}
 
+	cayleysSextic { :t |
+		let a = t.cos.cubed;
+		let x = a * (3 * t).cos;
+		let y = a * (3 * t).sin;
+		[x, y]
+	}
+
 	cleliaCurve { :r :c |
 		{ :theta |
 			[
@@ -81,6 +88,13 @@
 		}
 	}
 
+	galileanSpiral { :a :b |
+		{ :theta |
+			let rho = (b * theta.squared) - a;
+			[rho theta].fromPolarCoordinates
+		}
+	}
+
 	hippopede { :a :b |
 		{ :theta |
 			let r = 2 * (a - (b * (theta.sin ^ 2))).sqrt.real;
@@ -100,6 +114,23 @@
 				(c * t.cos) + (h * (t * d).cos),
 				(c * t.sin) - (h * (t * d).sin)
 			]
+		}
+	}
+
+	inverseNorwichSpiral { :a |
+		{ :t |
+			let rho = a * t.cos.squared;
+			let theta = (2 * t) - t.tan;
+			[rho theta].fromPolarCoordinates
+		}
+	}
+
+	lHospitalQuintic { :a |
+		{ :theta |
+			let u = (theta / 2).tan;
+			let x = (a / 2) * (u - ((u ^ 5) / 5));
+			let y = (a / 4) * (1 + u.squared).squared;
+			[x, y]
 		}
 	}
 
@@ -151,6 +182,13 @@
 		}
 	}
 
+	sinusoidalSpiral { :n :a |
+		{ :theta |
+			let r = (2 * (a ^ n) * (n * theta).cos).nthRoot(n);
+			[r theta].fromPolarCoordinates
+		}
+	}
+
 	sphericalTrochoid { :omega :a :b :d |
 		let q = a / b;
 		let i = omega.cos;
@@ -182,6 +220,14 @@
 			let r = (p + q) ^ (-1 / n1);
 			let x = r * u.cos;
 			let y = r * u.sin;
+			[x, y]
+		}
+	}
+
+	tschirnhausenCubic { :a |
+		{ :t |
+			let x = 9 * a * (1 - (3 * t * t));
+			let y = t * x;
 			[x, y]
 		}
 	}

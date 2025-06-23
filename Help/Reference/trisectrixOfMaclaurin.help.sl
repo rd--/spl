@@ -20,6 +20,6 @@ Guides: Curve Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/FoliumofDescartes.html)
+[1](https://mathworld.wolfram.com/MaclaurinTrisectrix.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Folium_of_Descartes)
+[1](https://en.wikipedia.org/wiki/Trisectrix_of_Maclaurin)
