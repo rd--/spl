@@ -907,6 +907,14 @@
 		self * system.smallFloatMax
 	}
 
+	softPlus { :x |
+		(1 + x.exp).log
+	}
+
+	softSign { :x |
+		x / (1 + x.abs)
+	}
+
 	speedOfLight { :self |
 		self * 299792458
 	}

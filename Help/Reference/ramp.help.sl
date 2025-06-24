@@ -44,7 +44,7 @@ Plot a function involving ramp:
 
 * * *
 
-See also: heavisideTheta, logisticSigmoid, smoothStep, unitStep
+See also: heavisideTheta, logisticSigmoid, smoothStep, softPlus, unitStep
 
 References:
 _Mathematica_

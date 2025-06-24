@@ -2547,6 +2547,22 @@
 		self.copy.fisherYatesShuffle
 	}
 
+
+	softMax { :z :beta |
+		z.isVector.if {
+			let a = (beta * z).exp;
+			a / a.sum
+		} {
+			z.collect { :each |
+				each.softMax(beta)
+			}
+		}
+	}
+
+	softMax { :z |
+		z.softMax(1)
+	}
+
 	split { :self :aBlock:/2 |
 		self.ifEmpty {
 			[]

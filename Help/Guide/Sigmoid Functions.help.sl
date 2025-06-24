@@ -13,6 +13,7 @@
 - `schlickGainFunction`
 - `smoothStep`
 - `smoothStepFunction`
+- `softSign`
 - `tanh`
 
 * * *

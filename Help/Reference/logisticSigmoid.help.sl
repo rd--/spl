@@ -76,7 +76,7 @@ Plot over a subset of the complexes:
 
 * * *
 
-See also: exp, LogisticDistribution, logit, unitStep
+See also: exp, heavisideTheta, LogisticDistribution, logit, unitStep
 
 Guides: Sigmoid Functions
 
