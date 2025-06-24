@@ -76,6 +76,12 @@ Rational powers:
 Threads elementwise over lists:
 
 ```
+>>> 0.divisorSigma(1:5)
+[1 2 2 3 2]
+
+>>> 1.divisorSigma(1:9)
+[1 3 4 7 6]
+
 >>> 2.divisorSigma(1:5)
 [1 5 10 21 26]
 ```
@@ -123,6 +129,18 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 [12 18 20 24 30]
 ```
 
+Calculate the divisor summatory function:
+
+```
+>>> 0.divisorSigma(1:39).foldList(0, +)
+[
+	  1   3   5   8  10  14  16  20  23  27
+	 29  35  37  41  45  50  52  58  60  66
+	 70  74  76  84  87  91  95 101 103 111
+	113 119 123 127 131 140 142 146 150
+]
+```
+
 Plot divisor function _σ₀(n)_ up to _n = 100_:
 
 ~~~spl svg=A
@@ -155,7 +173,7 @@ Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
 
 * * *
 
-See also: divisible, divisors, divisorSum, eulerPhi
+See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber
 
 Guides: Integer Sequences
 
@@ -164,6 +182,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/DivisorFunction.html)
 [2](https://reference.wolfram.com/language/ref/DivisorSigma.html),
 _OEIS_
-[1](https://oeis.org/A000005),
+[1](https://oeis.org/A000005)
+[2](https://oeis.org/A000203),
 _W_
 [1](https://en.wikipedia.org/wiki/Divisor_function)

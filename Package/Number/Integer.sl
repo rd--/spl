@@ -6,6 +6,10 @@
 		x.digitalRootSet(b).second.size - 1
 	}
 
+	aliquotSum { :n |
+		n.divisors.allButLast.sum
+	}
+
 	asBit { :self |
 		self.isZero.if {
 			0
@@ -205,6 +209,13 @@
 
 	divisorSum { :self :aBlock:/1 |
 		self.divisors.collect(aBlock:/1).sum
+	}
+
+	divisorSummatoryFunction { :x |
+		let u = x.sqrt.floor;
+		2 * (1 .. u).sum { :k |
+			(x / k).floor
+		} - u.squared
 	}
 
 	divisors { :self |
@@ -612,6 +623,18 @@
 				}
 			};
 			r
+		}
+	}
+
+	isAbundantNumber { :n |
+		n.divisors.sum > (2 * n)
+	}
+
+	isSuperabundantNumber { :n |
+		let x = n.divisors.sum / n;
+		1.to(n - 1).allSatisfy { :k |
+			let y = k.divisors.sum / k;
+			x > y
 		}
 	}
 

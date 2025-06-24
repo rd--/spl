@@ -1,5 +1,27 @@
 +@Integer {
 
+	aliquotSequence { :n :k |
+		let a = n;
+		let b = a.aliquotSum;
+		let r = [a];
+		let i = 1;
+		{
+			i < k & { b ~= n & { r.includes(b).not & { a > 1 } } }
+		}.whileTrue {
+			r.add(b);
+			i := i + 1;
+			a := b;
+			(a > 0).ifTrue {
+				b := a.aliquotSum
+			}
+		};
+		r
+	}
+
+	aliquotSequence { :n |
+		aliquotSequence(n, 21)
+	}
+
 	bernoulli { :k |
 		k.bernoulliSequence.last
 	}

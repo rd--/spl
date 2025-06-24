@@ -1,16 +1,15 @@
 # substitutionSystem
 
-- _substitutionSystem(rule, initialCondition, count)_
+- _substitutionSystem(r, i, n)_
 
-Answer a `List` representing the evolution of the substitution system with the specified rule,
-given as a `Map`,
-from _initialCondition_ for _count_ steps.
+Answer a `List` representing the evolution of the substitution system with the rule _r_,
+specified either as a `Map` or an association list,
+from initial condition _i_ for _n_ steps.
 
 Five steps of a `String` substitution system:
 
 ```
 >>> ['A' -> 'AB', 'B' -> 'A']
->>> .asMap
 >>> .substitutionSystem('A', 5)
 [
 	'A'
@@ -26,7 +25,6 @@ Five steps of a substitution system that generates the infinite Fibonacci word:
 
 ```
 >>> [0 -> [0 1], 1 -> [0]]
->>> .asMap
 >>> .substitutionSystem([0], 5)
 [
 	0;
@@ -49,7 +47,6 @@ Generate five steps in a Thue–Morse substitution system:
 
 ```
 >>> [0 -> [0 1], 1 -> [1 0]]
->>> .asMap
 >>> .substitutionSystem([0], 5)
 [
 	0;
@@ -76,7 +73,6 @@ The initial condition can be of any length:
 
 ```
 >>> [0 -> [0 1], 1 -> [1 0]]
->>> .asMap
 >>> .substitutionSystem([0 1 0], 3)
 [
 	0 1 0;
@@ -91,7 +87,6 @@ Rule with three tokens:
 
 ```
 >>> [0 -> [1 2], 1 -> [1 2], 2 -> [0 1]]
->>> .asMap
 >>> .substitutionSystem([0], 3)
 [
 	0;
@@ -107,7 +102,6 @@ Derived rule:
 >>> 1:3.collect { :n |
 >>> 	n -> [1 .. n]
 >>> }
->>> .asMap
 >>> .substitutionSystem([3], 3)
 [
 	3;
@@ -121,7 +115,6 @@ Steps in constructing a Cantor set:
 
 ```
 >>> [1 -> [1 0 1], 0 -> [0 0 0]]
->>> .asMap
 >>> .substitutionSystem([1], 3)
 [
 	1;
@@ -130,6 +123,48 @@ Steps in constructing a Cantor set:
 	1 0 1 0 0 0 1 0 1
 	0 0 0 0 0 0 0 0 0
 	1 0 1 0 0 0 1 0 1
+]
+```
+
+The rule for the _Symmetry_ movement from T. Johnson’s _Automatic Music_:
+
+```
+>>> [1 -> [1 2 1], 2 -> [2 2]]
+>>> .substitutionSystem([1], 3)
+[
+	1;
+	1 2 1;
+	1 2 1 2 2 1 2 1;
+	1 2 1 2 2 1 2 1 2 2 2 2 1 2 1 2 2 1 2 1
+]
+```
+
+The rule for the _Canon_ movement from T. Johnson’s _Automatic Music_:
+
+```
+>>> [1 -> [1 1 2], 2 -> [3 2], 3 -> [3 3]]
+>>> .substitutionSystem([1], 3)
+[
+	1;
+	1 1 2;
+	1 1 2 1 1 2 3 2;
+	1 1 2 1 1 2 3 2 1 1 2 1 1 2 3 2 3 3 3 2
+]
+```
+
+The rule for the _One-Line_ movement from T. Johnson’s _Automatic Music_:
+
+```
+>>> [1 -> [2], 2 -> [3 1], 3 -> [1]]
+>>> .substitutionSystem([2 3 1], 6)
+[
+	2 3 1;
+	3 1 1 2;
+	1 2 2 3 1;
+	2 3 1 3 1 1 2;
+	3 1 1 2 1 2 2 3 1;
+	1 2 2 3 1 2 3 1 3 1 1 2;
+	2 3 1 3 1 1 2 3 1 1 2 1 2 2 3 1
 ]
 ```
 

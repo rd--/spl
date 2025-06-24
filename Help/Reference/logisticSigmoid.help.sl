@@ -3,7 +3,8 @@
 - _logisticSigmoid(l=1, k=1, x0=0)_
 - _logisticSigmoid(z)_
 
-Answer the logistic sigmoid function.
+Answer the logistic sigmoid function,
+sometimes called the Verhulst model or logistic growth curve.
 
 Evaluate numerically:
 
@@ -83,7 +84,8 @@ Guides: Sigmoid Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SigmoidFunction.html)
-[2](https://reference.wolfram.com/language/ref/LogisticSigmoid.html)
+[2](https://mathworld.wolfram.com/LogisticEquation.html)
+[3](https://reference.wolfram.com/language/ref/LogisticSigmoid.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Logistic_function)
 [2](https://en.wikipedia.org/wiki/Sigmoid_function)

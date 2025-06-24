@@ -1,8 +1,8 @@
 # divisorSum
 
-- _divisorSum(anInteger, aBlock:/1)_
+- _divisorSum(n, f:/1)_
 
-The sum of _aBlock_ at all _i_ that divide _anInteger_.
+The sum of _f_ at all _i_ that divide the integer _n_.
 
 Find the sum of the divisors of thirty, c.f. `divisorSigma`:
 
@@ -26,7 +26,7 @@ Plot the sum of divisors for the first 50 numbers:
 
 * * *
 
-See also: divisors, divisorSigma, sum
+See also: aliquotSum, divisors, divisorSigma, sum
 
 References:
 _Mathematica_

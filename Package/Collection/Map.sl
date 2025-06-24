@@ -195,6 +195,10 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 		}
 	}
 
+	substitutionSystem { :self :initialCondition :anInteger |
+		self.asMap.substitutionSystem(initialCondition, anInteger)
+	}
+
 }
 
 +Void {
