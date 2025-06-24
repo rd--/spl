@@ -1,19 +1,25 @@
 # e
 
-- _e(aNumber)_
-- _e(aNumber, anotherNumber)_
+- _e(n)_
 
 In the unary case,
-the number `e`,
-also known as Euler’s number or Napier’s constant,
+answer _n_ times `e`.
+The number `e`,
+also known as Euler’s number or Napier’s constant
 is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.
 
-Answer _aNumber_ times e.
+Answer _n_ times `e`.
 
 ```
 >>> 1.e
 2.71828
+
+>>> 1.exp
+1.e
+
+>>> 1.e.log
+1
 
 >>> 2.e
 5.43656
@@ -40,7 +46,7 @@ _e_ raised to _iπ_ plus `one` is `zero`:
 ```
 
 In the binary case,
-answer the scientific notation:
+answer the scientific notation _m×10ⁿ_:
 
 ```
 >>> 1.e(6)

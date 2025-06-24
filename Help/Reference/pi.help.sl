@@ -10,6 +10,9 @@ approximately equal to _3.14159_.
 >>> 1.pi
 3.14159
 
+>>> 2 * 1.arcSin
+1.pi
+
 >>> 2.pi
 6.28319
 ```

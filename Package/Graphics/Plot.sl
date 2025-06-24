@@ -631,6 +631,18 @@ Plot : [Object] { | pages format options |
 
 +Block {
 
+	cobwebPlot { :f:/1 :a0 :n |
+		let a1 = f(a0);
+		let r = [];
+		n.timesRepeat {
+			let a2 = f(a1);
+			r.addAll([a0 a1; a1 a1; a1 a2]);
+			a0 := a1;
+			a1 := a2
+		};
+		r.linePlot
+	}
+
 	contourPlot { :self:/2 :xList :yList :zList |
 		let d = self:/2.table(xList, yList);
 		let l = List(zList.size, []);

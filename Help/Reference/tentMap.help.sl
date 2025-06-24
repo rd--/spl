@@ -27,7 +27,7 @@ let x = [x0] ++ y.allButLast;
 
 * * *
 
-See also: logisticMap
+See also: bakersMap, logisticMap
 
 Guides: Chaotic Functions
 

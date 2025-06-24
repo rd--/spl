@@ -151,6 +151,7 @@ The following help files include references to integer sequences:
 - `sternBrocotSequence`: A002487
 - `stolarskyArray`: A035506
 - `stolarskyHarborthConstant`: A006046 A077464
+- `sylvestersSequence`: A000058
 - `supergoldenRatio`: A092526
 - `supersilverRatio`: A356035
 - `thueMorseSequence`: A010060

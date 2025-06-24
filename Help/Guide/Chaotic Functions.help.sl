@@ -12,12 +12,14 @@ Ordinary Differential Equations:
 
 Map Functions:
 
+- `bakersMap`
 - `cuspMap`
 - `deJongMap`
 - `duffingMap`
 - `dyadicMap`
 - `henonAreaPreservingMap`
 - `henonMap`
+- `ikedaMap`
 - `logisticMap`
 - `martinMap`
 - `standardMap`

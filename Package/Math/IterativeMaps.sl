@@ -1,5 +1,22 @@
 +SmallFloat {
 
+	bakersMap { :a :b |
+		let alpha = 0.5;
+		let beta = 1 - alpha;
+		{ :v |
+			let [x, y] = v;
+			(y < alpha).if {
+				[a * x, y / alpha] % 1
+			} {
+				[(1 - b) + (b * x), (y - alpha) / beta] % 1
+			}
+		}
+	}
+
+	bakersMap { :c |
+		bakersMap(c, c)
+	}
+
 	cuspMap { :x |
 		1 - (2 * x.abs.sqrt)
 	}
@@ -53,6 +70,18 @@
 		}
 	}
 
+	ikedaMap { :u |
+		{ :v |
+			let [x, y] = v;
+			let t = 0.4 - (6 / (1 + x.squared + y.squared));
+			[
+				1 + (u * ((x * t.cos) - (y * t.sin))),
+				u * ((x * t.sin) + (y * t.cos))
+			]
+		}
+	}
+
+
 	logisticMap { :r |
 		{ :x |
 			r * x * (1 - x)
@@ -66,6 +95,12 @@
 				y - (x.sign * (b * x - c).abs.sqrt),
 				a - x
 			]
+		}
+	}
+
+	procacciaSchuster { :u |
+		{ :x |
+			(x + (u * x.squared)) % 1
 		}
 	}
 

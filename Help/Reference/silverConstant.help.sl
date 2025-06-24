@@ -24,5 +24,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SilverConstant.html),
 _OEIS_
 [1](https://oeis.org/A116425),
+_W_
+[1](https://en.wikipedia.org/wiki/Beraha_constants)
 
 Categories: Math, Constant

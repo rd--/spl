@@ -65,6 +65,30 @@
 		}
 	}
 
+	/*
+	noseHooverEquation { :alpha |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				y,
+				0 - x + (y * z),
+				alpha - (y * y)
+			]
+		}
+	}
+	*/
+
+	noseHooverEquation { :alpha |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				0 - y + (x * z),
+				x,
+				alpha * ((x * x) - 1)
+			]
+		}
+	}
+
 	rosslerEquation { :a :b :c |
 		{ :t :v |
 			let [x, y, z] = v;

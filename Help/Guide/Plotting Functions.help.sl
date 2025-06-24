@@ -8,6 +8,7 @@ Plotting Functions:
 
 - `arrayPlot`
 - `autocorrelationPlot`
+- `cobwebPlot`
 - `complexPlot`
 - `contourPlot`
 - `correspondancePlot`

@@ -1,11 +1,11 @@
 # collatzSequence
 
-- _collatzSequence(anInteger)_
+- _collatzSequence(n)_
 
-Answer the sequence of integers in which each term is obtained from the previous term as either
+Answer the sequence of integers, starting with _n_, in which each term is obtained from the previous term as either
 
-1. if a term is even, the next term is one half of it
-2. if a term is odd, the next term is three times the previous term plus one.
+1. _n_ is even, then _n/2_
+2. _n_ is odd, _n*3+1_
 
 The sequence starting at nine, which arrives at `one` after nineteen steps:
 

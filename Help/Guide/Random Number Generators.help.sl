@@ -26,6 +26,10 @@ Random Functions:
 - `nextRandomFloat`: next float
 - `nextRandomInteger`: next integer
 
+Deterministic Functions:
+
+- `procacciaSchuster`
+
 * * *
 
 Guides: Probability Distributions, Random Processes

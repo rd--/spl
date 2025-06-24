@@ -1,8 +1,8 @@
 # isSquareFree
 
-- _isSquareFree(anInteger)_
+- _isSquareFree(n)_
 
-Answer `true` if _anInteger_ is square free, else `false`.
+Answer `true` if the integer _n_ is square free, else `false`.
 An integer is square free if it is divisible by no perfect square other than `one`.
 
 Test whether a number is square free:

@@ -54,6 +54,36 @@ logisticMap(3.828327)
 
 ![](sw/spl/Help/Image/logisticMap-E.svg)
 
+The first few terms for _r=-2_ and _a₀=0.31_:
+
+~~~spl svg=F
+logisticMap(-2)
+.nestList(0.31, 50)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/logisticMap-F.svg)
+
+The first few terms for _r=-4_ and _a₀=0.42_,
+equivalent to the `tentMap` with _μ=1_:
+
+~~~spl svg=G
+logisticMap(4)
+.nestList(0.42, 50)
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/logisticMap-G.svg)
+
+Cobweb plot of first few terms with _r=3.741_ and _a₀=0.00079_:
+
+~~~spl svg=H
+logisticMap(3.741)
+.cobwebPlot(0.00079, 13)
+~~~
+
+![](sw/spl/Help/Image/logisticMap-H.svg)
+
 * * *
 
 See also: henonMap
@@ -61,6 +91,8 @@ See also: henonMap
 Guides: Chaotic Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/LogisticMap.html)
 _Meier_
 [1](http://www.3d-meier.de/tut19/Seite156.html),
 _W_

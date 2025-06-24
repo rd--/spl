@@ -3,7 +3,7 @@
 - _dyadicMap(β)_
 
 The dyadic map,
-also known as the dyadic transformation,
+also known as the dyadic transformation or Bernoulli map,
 is a special case of the beta transformation,
 where _β=2_.
 

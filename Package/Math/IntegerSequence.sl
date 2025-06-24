@@ -324,6 +324,12 @@
 		answer
 	}
 
+	sylvestersSequence { :n |
+		{ :x |
+			(x ^ 2) - x + 1
+		}.nestList(2L, n - 1)
+	}
+
 	thueMorse { :index |
 		index.digitCount(2, 1) % 2
 	}
