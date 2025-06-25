@@ -1,9 +1,9 @@
 # asList
 
-- _asList(anObject)_
+- _asList(x)_
 
 At a `Collection`,
-answer a `List` whose elements are the elements of _aCollection_.
+answer a `List` whose elements are the elements of _x_.
 If the collection is a `List`, answer it directly.
 
 ```

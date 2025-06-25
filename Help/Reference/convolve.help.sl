@@ -1,6 +1,6 @@
 # convolve
 
-- _convolve(aList, anotherList)_
+- _convolve(u, v)_
 
 Convolution, also known as Fourier convolution and polynomial multiplication.
 The answer size is the sum of the input sizes minus one.

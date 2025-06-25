@@ -1,8 +1,8 @@
 # split
 
-- _split(aSequence, aBlock:/2)_
+- _split([x₁ x₂ …], f:/2)_
 
-Split _aSequence_ into parts at points where _aBlock_,
+Split the sequence _x_ into parts at points where _f_,
 when applied to adjacent elements,
 answers `false`.
 

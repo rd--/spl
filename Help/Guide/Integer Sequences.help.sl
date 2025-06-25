@@ -127,7 +127,8 @@ The following help files include references to integer sequences:
 - `motzkinSequence`: A001006
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930
-- `noergaardInfinitySequence`: A004718 A073334
+- `noergaardInfinitySequence`: A004718
+- `noergaardRhythmicInfinitySystem`: A073334
 - `nthPrimeGap`: A001223
 - `padovanSequence`: A000931 A001608 A182097
 - `partitionFunctionP`: A000041

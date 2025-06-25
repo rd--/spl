@@ -1,8 +1,8 @@
 # catmullRomInterpolation
 
-- _catmullRomInterpolation(y0, y1, y2, y3, mu)_
+- _catmullRomInterpolation(y0, y1, y2, y3, μ)_
 
-Interpolate at _mu_ between _y1_ and _y2_,
+Interpolate at _μ_ between _y1_ and _y2_,
 assuming equally spaced _y_.
 
 ```
@@ -26,3 +26,9 @@ Catmull-Rom impulse response:
 * * *
 
 See also: cosineInterpolation, cubicInterpolation, hermiteInterpolation, linearInterpolation, listInterpolation
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Cubic_Hermite_spline)
+
+Further Reading: Catmull and Rom 1974

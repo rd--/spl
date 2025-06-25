@@ -1,8 +1,8 @@
 # beginsWith
 
-- _beginsWith(aSequence, anotherSequence)_
+- _beginsWith(u, v)_
 
-Answer `true` if _aSequence_ starts with _anotherSequence_, else `false`.
+Answer `true` if the sequence _u_ starts with, or has an initial prefix, the sequence _v_, else `false`.
 
 ```
 >>> [1 .. 5].beginsWith([1 .. 3])

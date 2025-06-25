@@ -245,6 +245,16 @@
 		(0 .. self - 1).collect(f:/1)
 	}
 
+	noergaardRhythmicInfinitySystem { :n |
+		let z = [3];
+		1.toDo(n - 1) { :i |
+			z.add(
+				(i.integerDigits(2).split(=).size + 4).fibonacci
+			)
+		};
+		z
+	}
+
 	padovanSequence { :self :initial |
 		let answer = initial.copy;
 		4.toDo(self) { :i |

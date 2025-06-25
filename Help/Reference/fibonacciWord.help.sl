@@ -36,9 +36,23 @@ at the seventh step thirty-four terms have been generated:
 ]
 ```
 
+It can also be specified as a locally catenative sequence:
+
+```
+>>> [0; 0 1]
+>>> .locallyCatenativeSequence([1 2], 6)
+>>> .last
+[
+	0 1 0 0 1 0 1 0 0 1
+	0 0 1 0 1 0 0 1 0 1
+	0 0 1 0 0 1 0 1 0 0
+	1 0 0 1
+]
+```
+
 * * *
 
-See also: fibonacci, substitutionSystem, tribonacciWord
+See also: fibonacci, locallyCatenativeSequence, substitutionSystem, tribonacciWord
 
 Guides: Integer Sequences
 

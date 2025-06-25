@@ -1,9 +1,9 @@
 # nest
 
-- _nest(anObject)_
+- _nest(x)_
 
-Enclose _anObject_ in a `List` only if it is not a list.
-Answers either a `List` of one place, holding _anObject_, or _anObject_.
+Enclose the object _x_ in a `List` only if it is not a list.
+Answers either a `List` of one place, holding _x_, or _x_.
 
 ```
 >>> 1.nest

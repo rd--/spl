@@ -24,7 +24,7 @@ Five steps of a `String` substitution system:
 Five steps of a substitution system that generates the infinite Fibonacci word:
 
 ```
->>> [0 -> [0 1], 1 -> [0]]
+>>> [0 -> [0 1], 1 -> 0]
 >>> .substitutionSystem([0], 5)
 [
 	0;
@@ -111,21 +111,6 @@ Derived rule:
 ]
 ```
 
-Steps in constructing a Cantor set:
-
-```
->>> [1 -> [1 0 1], 0 -> [0 0 0]]
->>> .substitutionSystem([1], 3)
-[
-	1;
-	1 0 1;
-	1 0 1 0 0 0 1 0 1;
-	1 0 1 0 0 0 1 0 1
-	0 0 0 0 0 0 0 0 0
-	1 0 1 0 0 0 1 0 1
-]
-```
-
 The rule for the _Symmetry_ movement from T. Johnson’s _Automatic Music_:
 
 ```
@@ -143,12 +128,15 @@ The rule for the _Canon_ movement from T. Johnson’s _Automatic Music_:
 
 ```
 >>> [1 -> [1 1 2], 2 -> [3 2], 3 -> [3 3]]
->>> .substitutionSystem([1], 3)
+>>> .substitutionSystem([1], 4)
 [
 	1;
 	1 1 2;
 	1 1 2 1 1 2 3 2;
+	1 1 2 1 1 2 3 2 1 1 2 1 1 2 3 2 3 3 3 2;
 	1 1 2 1 1 2 3 2 1 1 2 1 1 2 3 2 3 3 3 2
+	1 1 2 1 1 2 3 2 1 1 2 1 1 2 3 2 3 3 3 2
+	3 3 3 3 3 3 3 2
 ]
 ```
 
@@ -168,6 +156,68 @@ The rule for the _One-Line_ movement from T. Johnson’s _Automatic Music_:
 ]
 ```
 
+The rule for the _Hocket_ movement from T. Johnson’s _Automatic Music_:
+
+```
+>>> [[1 3] -> [1 3 3 2], [3 2] -> [3 2 1 3]]
+>>> .substitutionSystem([1 3], 4)
+[
+	1 3;
+	1 3 3 2;
+	1 3 3 2 3 2 1 3;
+	1 3 3 2 3 2 1 3 3 2 1 3 1 3 3 2;
+	1 3 3 2 3 2 1 3 3 2 1 3 1 3 3 2
+	3 2 1 3 1 3 3 2 1 3 3 2 3 2 1 3
+]
+```
+
+The rule for the _Loops_ movement from T. Johnson’s _Automatic Music_:
+
+```
+>>> [[1 2] -> [], 1 -> 2, 2 -> [3 2 1], 3 -> 1]
+>>> .substitutionSystem([2], 9)
+[
+	2;
+	3 2 1;
+	1 3 2 1 2;
+	2 1 3 2 1;
+	3 2 1 2 1 3 2 1 2;
+	1 3 2 1 2 1 3 2 1;
+	2 1 3 2 1 2 1 3 2 1 2;
+	3 2 1 2 1 3 2 1 2 1 3 2 1;
+	1 3 2 1 2 1 3 2 1 2 1 3 2 1 2;
+	2 1 3 2 1 2 1 3 2 1 2 1 3 2 1
+]
+```
+
+The rule for the first movement of T. Johnson’s _Formulas for String Quartet_:
+
+```
+>>> ['+' -> '+-+', '-' -> '--+']
+>>> .substitutionSystem('+', 3)
+[
+	'+'
+	'+-+'
+	'+-+--++-+'
+	'+-+--++-+--+--++-++-+--++-+'
+]
+```
+
+Steps in constructing a Cantor set:
+
+```
+>>> [1 -> [1 0 1], 0 -> [0 0 0]]
+>>> .substitutionSystem([1], 3)
+[
+	1;
+	1 0 1;
+	1 0 1 0 0 0 1 0 1;
+	1 0 1 0 0 0 1 0 1
+	0 0 0 0 0 0 0 0 0
+	1 0 1 0 0 0 1 0 1
+]
+```
+
 Create an analogous two-dimensional nested object:
 
 ~~~spl png=A
@@ -175,8 +225,7 @@ Create an analogous two-dimensional nested object:
 	1 -> [1 1 1; 1 0 1; 1 1 1],
 	0 -> [3 3].constantArray(0)
 ]
-.asMap
-.substitutionSystem([[1]], 5)
+.substitutionSystem([[1]], 4)
 .last
 .Bitmap
 ~~~
@@ -190,7 +239,6 @@ Generate a "C curve" fractal:
 	0 -> [0 0 1],
 	1 -> [1]
 ]
-.asMap
 .substitutionSystem([0], 10)
 .last
 .collect { :x |
@@ -202,9 +250,21 @@ Generate a "C curve" fractal:
 
 ![](sw/spl/Help/Image/substitutionSystem-B.svg)
 
+Approximate a Cantor staircase function:
+
+~~~spl svg=C
+[1 -> [1 0 1], 0 -> [0 0 0]]
+.substitutionSystem([1], 5)
+.last
+.accumulate
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-C.svg)
+
 * * *
 
-See also: Association, fibonacciWord, Map, thueMorse
+See also: Association, fibonacciWord, locallyCatenativeSequence, Map, thueMorse
 
 References:
 _Mathematica_

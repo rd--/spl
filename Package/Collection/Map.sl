@@ -109,13 +109,12 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	}
 
 	listSubstitutionSystem { :self :aList :anInteger |
+		let rules = self.associations;
 		let answer = [aList];
 		anInteger.timesRepeat {
-			let next = [];
-			answer.last.do { :each |
-				next.addAll(self[each])
-			};
-			answer.add(next)
+			answer.add(
+				sequenceReplace(answer.last, rules)
+			)
 		};
 		answer
 	}

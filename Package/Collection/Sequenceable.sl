@@ -910,8 +910,8 @@
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
-		self == anObject | {
-			self.typeOf = anObject.typeOf & {
+		(self == anObject) | {
+			(self.typeOf = anObject.typeOf) & {
 				self.hasEqualElementsBy(anObject, aBlock:/2)
 			}
 		}
@@ -1718,6 +1718,10 @@
 		x.dot(cx).inverse.dot(x).dot(cy).transposed.first
 	}
 
+	linearCombination { :v :c |
+		(c * v).sum
+	}
+
 	linearIndex { :shape :aList |
 		(aList - 1).mixedRadixDecode(shape) + 1
 	}
@@ -2474,6 +2478,48 @@
 		self.indicesOfSubstring(subsequence).collect { :each |
 			[each, each + k]
 		}
+	}
+
+	sequenceReplace { :list :rules :n |
+		let answer = [];
+		let i = 1;
+		let j = 0;
+		let k = list.size;
+		rules := rules.nest;
+		{ i <= k & { j < n } }.whileTrue {
+			let r = 1;
+			let m = false;
+			{ r <= rules.size & { m.not } }.whileTrue {
+				let u = rules[r].key.nest;
+				let e = i + u.size - 1;
+				(e > k).if {
+					r := r + 1
+				} {
+					let v = list.sliceFromTo(i, e);
+					u.hasEqualElements(v).if {
+						let w = rules[r].value.nest;
+						answer.addAll(w);
+						m := true;
+						i := i + u.size;
+						j := j + 1
+					} {
+						r := r + 1
+					}
+				}
+			};
+			m.ifFalse {
+				answer.add(list[i]);
+				i := i + 1
+			}
+		};
+		(i < k).ifTrue {
+			answer.addAll(list.sliceFromTo(i, k))
+		};
+		answer
+	}
+
+	sequenceReplace { :list :rules |
+		sequenceReplace(list, rules, Infinity)
 	}
 
 	shiftRegisterSequence { :initialState :taps :count |

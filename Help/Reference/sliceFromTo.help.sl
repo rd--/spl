@@ -1,8 +1,8 @@
 # sliceFromTo
 
-- _sliceFromTo(aSequence, startIndex, endIndex)_
+- _sliceFromTo(u, i, j)_
 
-Answer a `Slice` of _aSequence_ from _startIndex_ to _endIndex_,
+Answer a `Slice` of the sequence _u_ from start index _i_ to end index _j_,
 inclusive of each index.
 
 ```

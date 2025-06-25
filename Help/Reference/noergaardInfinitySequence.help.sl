@@ -1,8 +1,8 @@
 # noergaardInfinitySequence
 
-- _noergaardInfinitySequence(anInteger)_
+- _noergaardInfinitySequence(n)_
 
-Answer the first _anInteger_ terms of Per Nørgårds _infinity sequence_.
+Answer the first _n_ terms of Per Nørgårds _infinity sequence_.
 
 Calculate first few terms:
 
@@ -31,27 +31,14 @@ Scatter plot of first few terms:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-B.svg)
 
-This is distinct from Per Nørgårds rhythmic infinity system,
-which is given at A073334 and is plotted as:
-
-~~~spl svg=C
-1:99.collect { :n |
-	(n.integerDigits(2).split(=).size + 4)
-	.fibonacci
-}.discretePlot
-~~~
-
-![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
-
 * * *
 
-See also: inventorySequence, memoize, noergaardInfinityTree
+See also: inventorySequence, memoize, noergaardInfinityTree, noergaardRhythmicInfinitySystem
 
 Guides: Integer Sequences
 
 References:
 _OEIS_
 [1](https://oeis.org/A004718)
-[2](https://oeis.org/A073334)
 
 Further Reading: Allouche 2003, Kullberg 1996

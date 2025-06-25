@@ -49,6 +49,17 @@ A `Slice` is a sequence, hence one can take a `Slice` of a `Slice`:
 664:886
 ```
 
+`Slice` does not compare `=` to a `List`,
+use `hasEqualElements` to compare sequences regardless of type:
+
+```
+>>> let x = [1 2 3 4 5];
+>>> let y = Slice(x, 2, 2);
+>>> let z = [2 3];
+>>> (y = z, y.hasEqualElements(z))
+(false, true)
+```
+
 * * *
 
 See also: copyFromTo, Sequence, sliceFromTo

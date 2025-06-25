@@ -27,9 +27,18 @@ Plot in two dimensions:
 
 ![](sw/spl/Help/Image/unitBox-B.svg)
 
+The convolution of the rectangle function with itself is the triangle function:
+
+~~~spl svg=C
+let u = (-1 -- 1).discretize(50, unitBox:/1);
+convolve(u, u).linePlot
+~~~
+
+![](sw/spl/Help/Image/unitBox-C.svg)
+
 * * *
 
-See also: diracDelta, unitStep, unitTriangle
+See also: diracDelta, dirichletWindow, unitStep, unitTriangle
 
 Guides: Signal Processing Functions
 
