@@ -1,8 +1,8 @@
 # fibonacciSequence
 
-- _fibonacciSequence(anInteger)_
+- _fibonacciSequence(n)_
 
-Answer a `List` of the first _anInteger_ Fibonacci numbers:
+Answer a `List` of the first _n_ Fibonacci numbers:
 
 ```
 >>> 20.fibonacciSequence
@@ -36,6 +36,13 @@ The Fibonacci Q-matrix:
 [17711 28657 46368]
 ```
 
+The first few Fibonacci primes:
+
+```
+>>> 30.fibonacciSequence.select(isPrime:/1)
+[2 3 5 13 89 233 1597 28657 514229]
+```
+
 * * *
 
 See also: binetsFormula, fibonacci, goldenRatio, pellNumbers
@@ -48,5 +55,9 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/FibonacciQ-Matrix.html),
 _OEIS_
 [1](https://oeis.org/A000045)
+[2](https://oeis.org/A005478)
+[3](https://oeis.org/A001605),
+_W_
+[1](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 
 Categories: Math, Sequence

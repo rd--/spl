@@ -39,20 +39,16 @@
 		b
 	}
 
-	collatzSequence { :n |
-		let answer = [];
-		let i = n;
-		{
-			answer.add(i);
-			i ~= 1
-		}.whileTrue {
-			i.isEven.if {
-				i := i / 2
+	collatzSequence { :self |
+		{ :n |
+			n.isOdd.if {
+				3 * n + 1
 			} {
-				i := 3 * i + 1
+				n / 2
 			}
-		};
-		answer
+		}.nestWhileList(self) { :n |
+			n > 1
+		}
 	}
 
 	fareySequence { :n |
@@ -301,6 +297,15 @@
 			seen.include(next)
 		};
 		answer
+	}
+
+	regularPaperfoldingSequence { :self |
+		(0 .. self - 1).collect { :n |
+			let a = n + 1;
+			let b = 2 ^ integerExponent(a, 2);
+			let c = ((a / b) - 1) / 2;
+			c.isEven.boole
+		}
 	}
 
 	schroderNumber { :k |

@@ -13,6 +13,31 @@ Answers _(a ^ b) % m_.
 
 >>> 3.powerMod(5, 7)
 5
+
+>>> 5.powerMod(3, 13)
+8
+
+>>> 4.powerMod(13, 497)
+445
+```
+
+If _b_ is negative answer the multiplicative modular inverse of _a^|b|_ and _m_:
+
+```
+>>> 38.powerMod(-1, 97)
+23
+
+>>> (23 * 38) % 97
+1
+
+>>> 3.powerMod(-2, 7)
+4
+
+>>> 9.modularInverse(7)
+4
+
+>>> 2.powerMod(-1, 5)
+3
 ```
 
 Threads over first argument:
@@ -20,6 +45,11 @@ Threads over first argument:
 ```
 >>> 1:4.powerMod(4, 5)
 [1 1 1 1]
+
+>>> 10:14.collect { :b |
+>>> 	2.powerMod(b, 5)
+>>> }
+[4 3 1 2 4]
 ```
 
 Use `powerMod` to generate all coprime integers modulo 9:
@@ -29,6 +59,32 @@ Use `powerMod` to generate all coprime integers modulo 9:
 >>> 	2.powerMod(each, 9)
 >>> }.asIdentitySet.sorted
 [1 2 4 5 7 8]
+```
+
+Find all base two and five pseudoprimes below one thousand:
+
+```
+>>> [2 5].collect { :b |
+>>> 	2:1000.select { :n |
+>>> 		b.powerMod(n - 1, n) = 1 & {
+>>> 			n.isComposite
+>>> 		}
+>>> 	}
+>>> }
+[
+	341 561 645;
+	4 124 217 561 781
+]
+```
+
+The results have the same sign as the modulus:
+
+```
+>>> [5 -5].powerMod(2, 3)
+[1 1]
+
+>>> [5 -5].powerMod(2, -3)
+[-2 -2]
 ```
 
 Plot the sequence with fixed powers:
@@ -72,4 +128,6 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PowerMod.html)
 _Mathworks_
-[1](https://mathworks.com/help/symbolic/sym.powermod.html)
+[1](https://mathworks.com/help/symbolic/sym.powermod.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Modular_exponentiation)

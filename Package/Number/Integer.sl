@@ -682,6 +682,45 @@
 		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
 	}
 
+	jacobiSymbol { :a :n |
+		n.isOdd.if {
+			n.factorInteger.collect { :each |
+				a.legendreSymbol(each.key) ^ each.value
+			}.product
+		} {
+			[a, n].error('jacobiSymbol: even n?')
+		}
+	}
+
+	kroneckerSymbol { :a :b |
+		b.isPositive.if {
+			b.isOdd.if {
+				a.jacobiSymbol(b)
+			} {
+				a.isEven.if {
+					0
+				} {
+					let r = a % 8;
+					(r = 1 | { r = 7 }).if {
+						a.kroneckerSymbol(b // 2)
+					} {
+						0  - a.kroneckerSymbol(b // 2)
+					}
+				}
+			}
+		} {
+			b.isNegative.if {
+				a.isNegative.if {
+					0 - a.kroneckerSymbol(0 - b)
+				} {
+					a.kroneckerSymbol(0 - b)
+				}
+			} {
+				(a.abs = 1).boole
+			}
+		}
+	}
+
 	lcm { :self :anInteger |
 		anInteger.isScalarInteger.if {
 			let a = self;
@@ -706,6 +745,12 @@
 		} {
 			anInteger.adaptToNumberAndApply(self, lcm:/2)
 		}
+	}
+
+	legendreSymbol { :a :p |
+		let e = (p - 1) // 2;
+		let r = powerMod(a, e, p);
+		(r > 1).if { r - p } { r }
 	}
 
 	lowerChristoffelWord { :a :b |

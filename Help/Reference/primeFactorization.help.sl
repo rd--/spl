@@ -1,8 +1,8 @@
 # primeFactorization
 
-- _primeFactorization(anInteger)_
+- _primeFactorization(n)_
 
-Answer a `Bag` giving the prime factors of `anInteger` and their multiplicities (exponents).
+Answer a `Bag` giving the prime factors of the integer _n_ and their multiplicities (exponents).
 
 ```
 >>> 21.primeFactorization

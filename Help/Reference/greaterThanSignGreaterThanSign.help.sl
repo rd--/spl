@@ -1,6 +1,6 @@
 # >> (greaterThanSignGreaterThanSign)
 
-- _alpha >> beta_ ⟹ _bitShiftRight(alpha, beta)_
+- _i >> j_
 
 The operator form or `bitShiftRight`.
 
@@ -13,6 +13,22 @@ The operator form or `bitShiftRight`.
 
 >>> 48.bitShiftRight(4)
 3
+```
+
+Shift right by `one` is equivalent to `//` by two:
+
+```
+>>> (8 >> 1, 8 // 2)
+(4, 4)
+
+>>> (7 >> 1, 6 >> 1)
+(3, 3)
+
+>>> (2r111 >> 1, 2r110 >> 1)
+(2r11, 2r11)
+
+>>> (7 // 2, 6 // 2)
+(3, 3)
 ```
 
 Signed and unsigned shifts:

@@ -6,7 +6,7 @@ Answer the modular inverse of _k_ modulo _n_,
 the number _r_ such that the remainder of the division of _r_ _k_ by _n_ is equal to 1.
 If _k_ and _n_ are not coprime, no modular inverse exists.
 
-Compute the inverse of 3 modulo 5 and check the result:
+Compute using integers:
 
 ```
 >>> 3.modularInverse(5)
@@ -20,13 +20,6 @@ Compute the inverse of 3 modulo 5 and check the result:
 
 >>> 7.modularInverse(31)
 9
-```
-
-Compute using integers:
-
-```
->>> 3.modularInverse(7)
-5
 
 >>> -5.modularInverse(7)
 4
@@ -42,6 +35,16 @@ Compute using integers:
 
 >>> -486.modularInverse(217)
 121
+
+>>> 111.modularInverse(10)
+1
+
+>>> 38.modularInverse(97)
+23
+
+>>> 147198853397
+>>> .modularInverse(73599183960)
+43827926933
 ```
 
 `modularInverse` is a periodic function:

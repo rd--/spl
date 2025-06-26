@@ -16,6 +16,12 @@ Answer greatest common divisor and Bézout coefficients.
 
 >>> 3.extendedEuclideanAlgorithm(15)
 [3, [1, 0]]
+
+>>> 32.extendedEuclideanAlgorithm(10)
+[2, [1, -3]]
+
+>>> 111.extendedEuclideanAlgorithm(10)
+[1, [1, -11]]
 ```
 
 Illustrate coefficients:

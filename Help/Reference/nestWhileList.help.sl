@@ -1,10 +1,10 @@
 # nestWhileList
 
-- _nestWhileList(aBlock:/1, anObject, aPredicate:/1)_
+- _nestWhileList(f:/1, i, g:/1)_
 
-Answer a `List` of the results of applying _aBlock_ repeatedly,
-starting with _anObject_,
-and continuing until applying _aPredicate_ to the result no longer yields `true`.
+Answer a `List` of the results of applying the block _f_ repeatedly,
+starting with the value _i_,
+and continuing until applying the predicate block _g_ to the result no longer yields `true`.
 
 Keep dividing by 2 until the result is no longer an even number:
 
@@ -53,6 +53,24 @@ Find the multiplicative order of 2 modulo 19:
 >>> 	x ~= 1
 >>> }
 [2 4 8 16 13 7 14 9 18 17 15 11 3 6 12 5 10 1]
+```
+
+Evaluate the Collatz, or hailstone, sequence:
+
+```
+>>> { :n |
+>>> 	n.isOdd.if {
+>>> 		3 * n + 1
+>>> 	} {
+>>> 		n / 2
+>>> 	}
+>>> }.nestWhileList(9) { :n |
+>>> 	n > 1
+>>> }
+[
+	9 28 14 7 22 11 34 17 52 26
+	13 40 20 10 5 16 8 4 2 1
+]
 ```
 
 * * *

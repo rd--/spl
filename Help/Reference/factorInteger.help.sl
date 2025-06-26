@@ -1,8 +1,8 @@
 # factorInteger
 
-- _factorInteger(aFraction)_
+- _factorInteger(n)_
 
-Answer the `List` of prime factors of _aFraction_, each associated with its exponent.
+Answer the `List` of prime factors of _n_, each associated with its exponent.
 
 ```
 >>> 36.factorInteger

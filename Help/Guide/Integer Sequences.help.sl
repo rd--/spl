@@ -144,6 +144,7 @@ The following help files include references to integer sequences:
 - `polygonalNumber: A000217 A139610
 - `primesList`: A000040
 - `recamanSequence`: A005132
+- `regularPaperfoldingSequence`: A014577
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511
 - `schroderSequence`: A006318

@@ -1,8 +1,8 @@
 # isPositive
 
-- _isPositive(aNumber)_
+- _isPositive(x)_
 
-Answer `true` if _aNumber_ is greater than `zero`.
+Answer `true` if the number _x_ is greater than `zero`.
 
 Evaluate at different types of numbers:
 

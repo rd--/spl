@@ -1,8 +1,8 @@
 # primeFactors
 
-- _primeFactors(aFraction)_
+- _primeFactors(n)_
 
-Answer the `List` of prime factors the `product` of which is _aFraction_.
+Answer the `List` of prime factors the `product` of which is _n_.
 
 In the `Integer` case all factors will be integers:
 
@@ -134,7 +134,7 @@ on a log scale:
 
 * * *
 
-See also: factorInteger, isPrime, primeLimit, product
+See also: factorInteger, isPrime, primeFactorization, primeLimit, product
 
 Guides: Prime Number Functions
 

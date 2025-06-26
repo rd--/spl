@@ -1,9 +1,9 @@
 # bitAnd
 
-- _bitAnd(aCollection)_
-- _bitAnd(aNumber, anotherNumber)_
+- _bitAnd(i, j)_
+- _bitAnd([i j …])_
 
-Answers the bitwise and of the integers _aNumber_ and _anotherNumber_.
+Answers the bitwise and of the integers _i_ and _j_.
 
 ```
 >>> 61.bitAnd(15)
@@ -15,6 +15,16 @@ Answers the bitwise and of the integers _aNumber_ and _anotherNumber_.
 ```
 >>> 1:9.bitAnd(1)
 [1 0 1 0 1 0 1 0 1]
+
+>>> 1:9.collect(isOdd:/1).boole
+[1 0 1 0 1 0 1 0 1]
+```
+
+`bitAnd` of seven is equivalent to modulo eight:
+
+```
+>>> -3:18.bitAnd(7)
+-3:18 % 8
 ```
 
 At `LargeInteger`:

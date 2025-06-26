@@ -666,11 +666,26 @@
 		}
 	}
 
-	powerMod { :self :exponent :modulo |
+	powerMod { :base :exponent :modulo |
 		(exponent > 0).if {
-			(self ^ exponent) % modulo
+			(modulo = 1).if {
+				0
+			} {
+				let r = 1;
+				let b = base % modulo;
+				let e = exponent;
+				let m = modulo;
+				{ e > 0 }.whileTrue {
+					((e % 2) = 1).ifTrue {
+						r := (r * b) % m
+					};
+					b := (b * b) % m;
+					e := (e / 2).floor
+				};
+				r
+			}
 		} {
-			'Number>>powerMod: not implemented for negative exponents'
+			(base ^ exponent.abs).modularInverse(modulo)
 		}
 	}
 
@@ -1149,6 +1164,10 @@
 
 	logarithmicPhi { :self |
 		self * (2 ^ 1.goldenRatio)
+	}
+
+	paperFoldingConstant { :self |
+		self * 0.8507361882018672603677977
 	}
 
 	pi { :self |

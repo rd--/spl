@@ -111,6 +111,26 @@ Derived rule:
 ]
 ```
 
+The regular paper folding sequence:
+
+```
+>>> [
+>>> 	'a' -> 'ab',
+>>> 	'b' -> 'cb',
+>>> 	'c' -> 'ad',
+>>> 	'd' -> 'cd'
+>>> ].substitutionSystem('a', 5)
+>>> .last.characters.collect { :c |
+>>> 	['a' 'b'].includes(c).boole
+>>> }
+[
+	1 1 0 1 1 0 0 1 1 1
+	0 0 1 0 0 1 1 1 0 1
+	1 0 0 0 1 1 0 0 1 0
+	0 1
+]
+```
+
 The rule for the _Symmetry_ movement from T. Johnson’s _Automatic Music_:
 
 ```
@@ -187,6 +207,15 @@ The rule for the _Loops_ movement from T. Johnson’s _Automatic Music_:
 	3 2 1 2 1 3 2 1 2 1 3 2 1;
 	1 3 2 1 2 1 3 2 1 2 1 3 2 1 2;
 	2 1 3 2 1 2 1 3 2 1 2 1 3 2 1
+]
+
+>>> [[1 2] -> [], 1 -> 2, 2 -> [3 2 1], 3 -> 1]
+>>> .substitutionSystem([2], 27).last
+[
+	1 3 2 1 2 1 3 2 1 2
+	1 3 2 1 2 1 3 2 1 2
+	1 3 2 1 2 1 3 2 1 2
+	1 3 2 1 2 1 3 2 1
 ]
 ```
 

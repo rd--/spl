@@ -1,8 +1,8 @@
 # dividesImmediately
 
-- _dividesImmediately(aNumber, anotherNumber)_
+- _dividesImmediately(n, m)_
 
-Answer `true` if _aNumber_ is _anotherNumber_ times a prime number.
+Answer `true` if the number _n_ is _m_ times a prime number.
 
 Twelve divided by four is three, and three is a prime number:
 

@@ -50,6 +50,7 @@ Fractal Curve Functions:
 - `minkowskiQuestionMark`
 - `peanoCurve`
 - `pentadentriteCurve`
+- `regularPaperfoldingSequence`
 - `riemannFunction`
 - `sierpinskiCurve`
 - `weierstrassFunction`

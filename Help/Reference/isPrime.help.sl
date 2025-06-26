@@ -1,8 +1,8 @@
 # isPrime
 
-- _isPrime(anInteger)_
+- _isPrime(n)_
 
-Determine if _anInteger_ is prime.
+Determine if the integer _n_ is prime.
 
 ```
 >>> 23.isPrime
