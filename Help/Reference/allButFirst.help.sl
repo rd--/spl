@@ -1,9 +1,8 @@
 # allButFirst
 
-- _allButFirst(aSequence, anInteger)_
-- _allButFirst(α)_ ⇒ _allButFirst(α, 1)_
+- _allButFirst([x₁ x₂ …], n=1)_
 
-Answer a copy of _aSequence_ containing all but the first _anInteger_ elements.
+Answer a copy of the sequence _x_ containing all but the first _n_ elements.
 Signal an error if there are not enough elements.
 
 ```

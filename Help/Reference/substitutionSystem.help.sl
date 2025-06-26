@@ -21,7 +21,7 @@ Five steps of a `String` substitution system:
 ]
 ```
 
-Five steps of a substitution system that generates the infinite Fibonacci word:
+Five steps of a substitution system that generates the infinite Fibonacci word (A003849):
 
 ```
 >>> [0 -> [0 1], 1 -> 0]
@@ -43,7 +43,7 @@ C.f. `fibonacciWord`:
 [0 1 0 0 1 0 1 0 0 1 0 0 1]
 ```
 
-Generate five steps in a Thue–Morse substitution system:
+Generate five steps in a Thue–Morse substitution system (A010060):
 
 ```
 >>> [0 -> [0 1], 1 -> [1 0]]
@@ -111,7 +111,7 @@ Derived rule:
 ]
 ```
 
-The regular paper folding sequence:
+The regular paper folding sequence (A014577):
 
 ```
 >>> [
@@ -127,6 +127,40 @@ The regular paper folding sequence:
 	1 1 0 1 1 0 0 1 1 1
 	0 0 1 0 0 1 1 1 0 1
 	1 0 0 0 1 1 0 0 1 0
+	0 1
+]
+```
+
+The Rudin-Shapiro sequence (A020985):
+
+```
+>>> [
+>>> 	'a' -> 'ab',
+>>> 	'b' -> 'ac',
+>>> 	'c' -> 'db',
+>>> 	'd' -> 'dc'
+>>> ].substitutionSystem('a', 5)
+>>> .last.characters.collect { :c |
+>>> 	['a' 'b'].includes(c).if { 1 } { -1 }
+>>> }
+[
+	 1  1  1 -1  1  1 -1  1  1  1
+	 1 -1 -1 -1  1 -1  1  1  1 -1
+	 1  1 -1  1 -1 -1 -1  1  1  1
+	-1  1
+]
+```
+
+The period-doubling sequence (A096268):
+
+```
+>>> [0 -> [0 1], 1 -> [0 0]]
+>>> .substitutionSystem([0], 5)
+>>> .last
+[
+	0 1 0 0 0 1 0 1 0 1
+	0 0 0 1 0 0 0 1 0 0
+	0 1 0 1 0 1 0 0 0 1
 	0 1
 ]
 ```
@@ -298,8 +332,14 @@ Approximate a Cantor staircase function:
 
 * * *
 
-See also: Association, fibonacciWord, locallyCatenativeSequence, Map, thueMorse
+See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, thueMorse
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SubstitutionSystem.html)
+_OEIS_
+[1](https://oeis.org/A003849)
+[2](https://oeis.org/A010060)
+[3](https://oeis.org/A014577)
+[4](https://oeis.org/A020985)
+[5](https://oeis.org/A096268)

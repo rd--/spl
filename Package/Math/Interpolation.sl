@@ -573,7 +573,6 @@
 				}
 			};
 			m := slope.median;
-			count.postLine;
 			[
 				(1 .. k).collect { :i | y[i] - (m * x[i]) }.median,
 				m

@@ -32,11 +32,11 @@ Characters are cached on construction, and therefore equal characters are identi
 ```
 
 There is no literal syntax for characters,
-the `printString` for a `Character` is equal to the `printString` for a one place `String`:
+the `printString` for a `Character` is not however equal to the `printString` for a one place `String`:
 
 ```
->>> 'x'.printString
-'x'.asCharacter.printString
+>>> 'x'.asCharacter.printString
+'120.asCharacter'
 ```
 
 The `storeString` is distinguished:

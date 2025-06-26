@@ -172,10 +172,6 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 		}
 	}
 
-	printString { :self |
-		self.characterString.printString
-	}
-
 	storeString { :self |
 		self.codePoint.asString ++ '.asCharacter'
 	}
@@ -189,7 +185,7 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 +SmallFloat {
 
 	asCharacter { :self |
-		<primitive: return _Character_2(String.fromCodePoint(_self), _self);>
+		self.fromCodePoint.asCharacter
 	}
 
 	digitValue { :self |
@@ -209,6 +205,18 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 }
 
 +String {
+
+	Character { :self :codePoint |
+		self.isCharacter.if {
+			system.cache.atIfAbsentPut('characterDictionary') {
+				()
+			}.atIfAbsentPut(self) {
+				newCharacter().initializeSlots(self, codePoint)
+			}
+		} {
+			self.error('String>>Character: not character?')
+		}
+	}
 
 }
 

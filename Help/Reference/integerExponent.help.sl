@@ -58,6 +58,23 @@ A formula for digitCount:
 ]
 ```
 
+Moves for the _n_-disk pyramid puzzle:
+
+```
+>>> [3 4 5].collect { :n |
+>>> 	let m = (2 ^ n) - 1;
+>>> 	(1 .. m).collect { :each |
+>>> 		each.integerExponent(2) + 1
+>>> 	}
+>>> }
+[
+	1 2 1 3 1 2 1;
+	1 2 1 3 1 2 1 4 1 2 1 3 1 2 1;
+	1 2 1 3 1 2 1 4 1 2 1 3 1 2 1 5
+	1 2 1 3 1 2 1 4 1 2 1 3 1 2 1
+]
+```
+
 Plot it:
 
 ~~~spl svg=A
@@ -76,4 +93,6 @@ Guides: Bitwise Functions, Integer Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/IntegerExponent.html)
+[1](https://reference.wolfram.com/language/ref/IntegerExponent.html),
+_OEIS_
+[1](https://oeis.org/A001511)

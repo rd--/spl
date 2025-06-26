@@ -18,11 +18,16 @@ The number 6 has an odd number of 11 sequences in its binary form:
 [1 1 0]
 ```
 
-The first ten elements of the sequence:
+The first few elements of the sequence:
 
 ```
->>> 0:9.collect(rudinShapiro:/1)
-[1 1 1 -1 1 1 -1 1 1 1]
+>>> 0:31.collect(rudinShapiro:/1)
+[
+	 1  1  1 -1  1  1 -1  1  1  1
+	 1 -1 -1 -1  1 -1  1  1  1 -1
+	 1  1 -1  1 -1 -1 -1  1  1  1
+	-1  1
+]
 ```
 
 Threads over lists:

@@ -1,8 +1,8 @@
 # fromCharacterCode
 
-- _fromCharacterCode(aList, encoding)_
+- _fromCharacterCode([c₁ c₂ …], encoding)_
 
-Answer a `String` consisting of the sequence of characters with codes in _aList_,
+Answer a `String` consisting of the sequence of characters with codes in _c_,
 using the specified character _encoding_.
 
 Space character:
@@ -34,6 +34,9 @@ Non-Ascii characters:
 >>> [225 226 227]
 >>> .fromCharacterCode('Utf16')
 'áâã'
+
+>>> 227.fromCodePoint
+'ã'
 ```
 
 The inverse is `toCharacterCode`:

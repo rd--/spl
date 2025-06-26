@@ -191,7 +191,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 				codePoint.isUtf16SurrogateCodePoint.if {
 					self.error('String>>at: code point is lone surrogate')
 				} {
-					codePoint.asCharacter
+					codePoint.fromCodePoint
 				}
 			}
 		} {
@@ -212,7 +212,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	basicAt { :self :index |
-		self.codePointAt(index).asCharacter
+		self.codePointAt(index).fromCodePoint
 	}
 
 	basicReplaceString { :self :stringToFind :stringToReplaceWith |
@@ -240,18 +240,6 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	capitalized { :self |
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
-	}
-
-	Character { :self :codePoint |
-		self.isCharacter.if {
-			system.cache.atIfAbsentPut('characterDictionary') {
-				()
-			}.atIfAbsentPut(self) {
-				newCharacter().initializeSlots(self, codePoint)
-			}
-		} {
-			self.error('String>>Character: not character?')
-		}
 	}
 
 	characterRange { :self :aString |
@@ -982,6 +970,12 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	fromCharacterCode { :self :encoding |
 		[self].fromCharacterCode(encoding)
+	}
+
+	fromCodePoint { :self |
+		<primitive:
+		return String.fromCodePoint(_self);
+		>
 	}
 
 	isAsciiCodePoint { :self |

@@ -45,6 +45,13 @@ Convert a list to a fixed size:
 [3 1 4 0 0 0]
 ```
 
+At `String`:
+
+```
+>>> 'text'.first
+'t'
+```
+
 * * *
 
 See also: fourth, last, middle, second, third

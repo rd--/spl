@@ -463,3 +463,22 @@
 	}
 
 }
+
++SmallFloat {
+
+	tagSystem { :m :r :i :k |
+		let word = i.asList;
+		let answer = [word];
+		let rules = r.asMap;
+		let j = 2;
+		{ word.size >= m & { j <= k } }.whileTrue {
+			let initial = word.first;
+			let suffix = word.allButFirst(m);
+			word := suffix ++ rules.at(initial);
+			answer.add(word);
+			j := j + 1
+		};
+		answer
+	}
+
+}

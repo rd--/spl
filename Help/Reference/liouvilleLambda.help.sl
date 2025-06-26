@@ -1,9 +1,9 @@
 # liouvilleLambda
 
-- _liouvilleLambda(aNumber)_
+- _liouvilleLambda(n)_
 
-Answer the Liouville lambda function at _aNumber_.
-The answer is one whenever the number of prime factors counting multiplicity of _aNumber_ is even,
+Answer the Liouville lambda function at _n_.
+The answer is one whenever the number of prime factors counting multiplicity of _n_ is even,
 and negative one otherwise.
 
 Compute the Liouville function at 8 and 9:
@@ -14,6 +14,18 @@ Compute the Liouville function at 8 and 9:
 
 >>> 9.liouvilleLambda
 1
+```
+
+The first few terms:
+
+```
+>>> 1:34.collect(liouvilleLambda:/1)
+[
+	 1 -1 -1  1 -1  1 -1 -1  1  1
+	-1 -1 -1  1  1  1 -1 -1 -1 -1
+	 1  1 -1  1  1  1 -1 -1 -1 -1
+	-1 -1  1  1
+]
 ```
 
 Plot the Liouville lambda sequence for the first 20 numbers:

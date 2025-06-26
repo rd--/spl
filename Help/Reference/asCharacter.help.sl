@@ -1,6 +1,6 @@
 # asCharacter
 
-- _asCharacter(aCharacter | anInteger | aString)_
+- _asCharacter(x)_
 
 Answer a `Character` given a single character `String` or an `Integer` code point.
 
