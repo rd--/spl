@@ -2,6 +2,11 @@
 
 - _tagSystem(m, r, i, k)_
 
+Answer the successive words of the tag system with the rule _r_,
+where _m_ elements are removed from the beginning of the sequence,
+starting from initial condition _i_,
+for at most _k_ steps.
+
 First few steps in the evolution of a tag system:
 
 ```
@@ -20,11 +25,17 @@ First few steps in the evolution of a tag system:
 ]
 ```
 
+Run a tag system to completion:
+
 ```
 >>> 2.tagSystem(
->>> 	['a' -> 'bc', 'b' -> 'a', 'c' -> 'aaa'],
+>>> 	[
+>>> 		'a' -> 'bc',
+>>> 		'b' -> 'a',
+>>> 		'c' -> 'aaa'
+>>> 	],
 >>> 	'aaa',
->>> 	25
+>>> 	Infinity
 >>> ).collect(stringJoin:/1)
 [
 	'aaa'
