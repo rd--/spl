@@ -2,25 +2,6 @@
 
 - _locallyCatenativeSequence(w, i, n)_
 
-+List{
-	locallyCatenativeSequence { :w :i :n :f |
-		let u = w.copy;
-		let k = i.size;
-		n.timesRepeat {
-			let j = u.size;
-			u.add(
-				(1 .. k).collect { :m |
-					f[m].value(u[j - i[m] + 1])
-				}.catenate
-			)
-		};
-		u
-	}
-	locallyCatenativeSequence { :w :i :n |
-		locallyCatenativeSequence(w, i, n, List(w.size, identity:/1))
-	}
-}
-
 The Fibonacci word can be written as a locally catenative sequence,
 the _n_-th word being the catenation the words at _n-1_ and _n-2_:
 

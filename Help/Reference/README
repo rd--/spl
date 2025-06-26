@@ -1,6 +1,6 @@
 system.splFileName('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 10,750
+Total => 10,871
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 

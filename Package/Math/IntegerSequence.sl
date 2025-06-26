@@ -441,3 +441,25 @@
 	}
 
 }
+
++List {
+
+	locallyCatenativeSequence { :w :i :n :f |
+		let u = w.copy;
+		let k = i.size;
+		n.timesRepeat {
+			let j = u.size;
+			u.add(
+				(1 .. k).collect { :m |
+					f[m].value(u[j - i[m] + 1])
+				}.catenate
+			)
+		};
+		u
+	}
+
+	locallyCatenativeSequence { :w :i :n |
+		locallyCatenativeSequence(w, i, n, List(w.size, identity:/1))
+	}
+
+}
