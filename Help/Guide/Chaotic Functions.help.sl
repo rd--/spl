@@ -3,11 +3,13 @@
 Ordinary Differential Equations:
 
 - `coulletEquation`
+- `dequanLiEquation`
 - `duffingEquation`
 - `henonHeilesEquation`
 - `lorenzEquation`
 - `lotkaVolterraEquations`
 - `rosslerEquation`
+- `rucklidgeEquation`
 - `vanDerPolEquation`
 
 Map Functions:

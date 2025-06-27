@@ -1,6 +1,6 @@
 # DbAmp
 
-- _DbAmp(aNumber)_
+- _DbAmp(x)_
 
 Convert decibels to linear amplitude.
 
@@ -55,6 +55,8 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/dbamp.html),
 _Max_
-[1](https://docs.cycling74.com/reference/dbtoa/)
+[1](https://docs.cycling74.com/reference/dbtoa/),
+_W_
+[1](https://en.wikipedia.org/wiki/Decibel)
 
 Categories: Math, Ugen

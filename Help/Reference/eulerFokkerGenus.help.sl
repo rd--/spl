@@ -1,8 +1,8 @@
 # eulerFokkerGenus
 
-- _eulerFokkerGenus(aList)_
+- _eulerFokkerGenus([p₁ p₂ …])_
 
-Answer the Euler-Fokker genus of _aList_.
+Answer the Euler-Fokker genus of _p_.
 
 The Euler-Fokker genus is the combination of each possible `combinationProductSet`,
 or equally a combination product set is a slice of the genus.
@@ -62,6 +62,8 @@ Draw the _3 5 7 11 13_ genus:
 See also: combinationProductSet, latticeGraph, nub, product, octaveReduced, subsets
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Euler%E2%80%93Fokker_genus),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Euler-Fokker_genus)
 

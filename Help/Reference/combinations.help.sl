@@ -1,10 +1,11 @@
 # combinations
 
-- _combinations(aList | anInteger, count)_
+- _combinations([x₁ x₂ …], k)_
+- _combinations(n, k)_
 
-The combinations of _aList_,
-or of the set _(1 .. anInteger)_,
-taken _count_ at a time.
+The combinations of _x_,
+or of the set _1:n_,
+taken _k_ at a time.
 
 All combinations of four numbers taken three at a time:
 

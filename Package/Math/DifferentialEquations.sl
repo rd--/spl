@@ -1,5 +1,16 @@
 +SmallFloat {
 
+	aizawaEquation { :a :b :c :d :e :f |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				((z - b) * x) - (d * y),
+				(d * x) + ((z - b) * y),
+				c + (a * z) - (z.cubed / 3) - ((x.squared + y.squared) * (1 + (e * z))) + (f * z * x.cubed)
+			]
+		}
+	}
+
 	arneodoEquation { :a :b :c |
 		{ :t :v |
 			let [x, y, z] = v;
@@ -18,6 +29,17 @@
 				y,
 				z,
 				(a * x) + (b * y) + (c * z) + (d * x.cubed)
+			]
+		}
+	}
+
+	dequanLiEquation { :a :c :d :e :k :f |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				(a * (y - x)) + (d * x * z),
+				(k * x) + (f * y) - (x * z),
+				(c * z) + (x * y) - (e * x * x)
 			]
 		}
 	}
@@ -96,6 +118,17 @@
 				0 - y - z,
 				x + (a * y),
 				b + (z * (x - c))
+			]
+		}
+	}
+
+	rucklidgeEquation { :k :a |
+		{ :t :v |
+			let [x, y, z] = v;
+			[
+				0 - (k * x) + (a * y) - (y * z),
+				x,
+				0 - z + (y * y)
 			]
 		}
 	}

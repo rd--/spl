@@ -33,6 +33,9 @@ The binary form answers the base _b_ logarithm of the number _z_.
 >>> 1000.log(10)
 3
 
+>>> 10.log(10)
+1
+
 >>> 1.5.log(3)
 0.36907
 

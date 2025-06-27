@@ -44,6 +44,8 @@ See also: ^, log2
 Guides: Xenharmonic Functions
 
 References:
+_W_
+[1](https://en.wikipedia.org/wiki/Octave),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Octave_reduction)
 

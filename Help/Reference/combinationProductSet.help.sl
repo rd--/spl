@@ -1,8 +1,8 @@
 # combinationProductSet
 
-- _combinationProductSet(aList, anInteger)_
+- _combinationProductSet([x₁ x₂ …], n)_
 
-Answer the combination product set of the items in _aList_ taken _anInteger_ at a time.
+Answer the combination product set of the numbers _x_ taken _n_ at a time.
 
 The _2_ combination product set of _1 1 3 5_:
 

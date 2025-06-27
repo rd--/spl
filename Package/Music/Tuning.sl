@@ -54,8 +54,28 @@
 		2 ^ (self / 1200)
 	}
 
+	millioctavesToRatio { :n |
+		2 ^ (n / 1000)
+	}
+
+	ratioToMillioctaves { :n |
+		n.log(2) * 1000
+	}
+
 	ratioToCents { :self |
 		(12 * self.log2) * 100
+	}
+
+	ratioToSavarts { :n |
+		n.log(10) * 1000
+	}
+
+	savartsToCents { :n |
+		n * (1.2 / 2.log(10))
+	}
+
+	savartsToRatio { :n |
+		10 ^ (n / 1000)
 	}
 
 }
