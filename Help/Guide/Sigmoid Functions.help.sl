@@ -6,19 +6,22 @@
 - `betaRegularized`
 - `easingFunction`
 - `erf`
+- `gompertzFunction`
 - `gudermannian`
 - `inverseErf`
 - `logisticSigmoid`
 - `perlinGainFunction`
+- `richardsCurve`
 - `schlickGainFunction`
 - `smoothStep`
 - `smoothStepFunction`
+- `sobolevaModifiedTanh`
 - `softSign`
 - `tanh`
 
 * * *
 
-Guides: Signal Processing Functions
+Guides: Curve Functions, Signal Processing Functions
 
 References:
 _Mathematica_

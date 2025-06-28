@@ -92,10 +92,13 @@ Plot a nonlinear function:
 
 * * *
 
-See also: arcTanh, sinh, cotangenth, tan
+See also: arcTanh, sinh, cotangenth, sobolevaModifiedTanh, tan
 
 Guides: Sigmoid Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Tanh.html)
+[1](https://mathworld.wolfram.com/HyperbolicTangent.html)
+[2](http://reference.wolfram.com/language/ref/Tanh.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Hyperbolic_tangent)

@@ -14,6 +14,7 @@ Algebraic Curve Functions:
 - `eulerSpiral`
 - `foliumOfDescartes`
 - `galileanSpiral`
+- `gompertzFunction`
 - `hippopede`
 - `hypocycloid`
 - `hypotrochoid`
@@ -23,6 +24,7 @@ Algebraic Curve Functions:
 - `logarithmicSpiral`
 - `norwichSpiral`
 - `rhodonea`
+- `richardsCurve`
 - `satelliteCurve`
 - `serpentineCurve`
 - `sinusoidalSpiral`

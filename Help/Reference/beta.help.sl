@@ -56,3 +56,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Beta.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Beta_function)
+
+Unicode: U+03B2 β Greek Small Letter Beta

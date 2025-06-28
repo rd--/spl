@@ -320,6 +320,12 @@
 		}
 	}
 
+	gompertzFunction { :a :b :c |
+		{ :t |
+			a * ((c.negated * t).exp * b.negated).exp
+		}
+	}
+
 	gudermannian { :z |
 		z.sinh.arcTan
 	}
@@ -820,6 +826,12 @@
 		((self - min) / (max - min)) * (ymax - ymin) + ymin
 	}
 
+	richardsCurve { :a :k :b :nu :q :c |
+		{ :t |
+			a + ((k - a) / ((c + (q * (0 - (b * t)).exp)) ^ (1 / nu)))
+		}
+	}
+
 	roundDown { :self |
 		self.roundDownTo(1)
 	}
@@ -922,6 +934,12 @@
 		self * system.smallFloatMax
 	}
 
+	sobolevaModifiedTanh { :a :b :c :d |
+		{ :x |
+			((a * x).exp - (b.negated * x).exp) / ((c * x).exp + (d.negated * x).exp)
+		}
+	}
+
 	softPlus { :x |
 		(1 + x.exp).log
 	}
@@ -944,6 +962,12 @@
 
 	strictlyPositive { :self |
 		self > 0
+	}
+
+	swishFunction { :beta |
+		{ :x |
+			x / (1 + (beta.negated * x).exp)
+		}
 	}
 
 	symmetricPower { :self :aNumber |
