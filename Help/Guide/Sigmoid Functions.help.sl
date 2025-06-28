@@ -17,6 +17,7 @@
 - `smoothStepFunction`
 - `sobolevaModifiedTanh`
 - `softSign`
+- `swishFunction`
 - `tanh`
 
 * * *

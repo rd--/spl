@@ -3,7 +3,7 @@
 - _richardsCurve(a, k, b, ν, q, c)_
 
 Answer the generalized logistic function,
-also Richards’s curve.
+also called Richards’s curve.
 
 Plot over a subset of the reals:
 

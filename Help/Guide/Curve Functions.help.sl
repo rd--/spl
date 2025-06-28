@@ -32,6 +32,7 @@ Algebraic Curve Functions:
 - `strophoid`
 - `superellipseCurve`
 - `superformulaCurve`
+- `swishFunction`
 - `tractrix`
 - `tractrixSpiral`
 - `trisectrixOfMaclaurin`
