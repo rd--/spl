@@ -1,8 +1,8 @@
 # commonResidue
 
-- _commonResidue(anInteger, modulus)_
+- _commonResidue(n, m)_
 
-Answer the common residue of _anInteger_ (mod _modulus_).
+Answer the common residue of _n_ (modulo _m_).
 
 ```
 >>> (0, 5 .. 20).collect { :each |

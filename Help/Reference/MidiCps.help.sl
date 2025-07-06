@@ -1,6 +1,6 @@
 # MidiCps
 
-- _MidiCps(aNumber)_
+- _MidiCps(x)_
 
 Convert midi note number to cycles per second.
 
@@ -71,6 +71,8 @@ References:
 _Csound_
 [1](https://csound.com/docs/manual/mtof.html),
 _SuperCollider_
-[1](https://doc.sccode.org/Classes/SimpleNumber.html#-midicps)
+[1](https://doc.sccode.org/Classes/SimpleNumber.html#-midicps),
+_W_
+[1](https://en.wikipedia.org/wiki/Audio_frequency)
 
 Categories: Arithmetic

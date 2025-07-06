@@ -27,6 +27,15 @@ In the case of a tie, all nearest elements are returned in order:
 [5 1]
 ```
 
+Collect nearest elements:
+
+```
+>>> (-1 .. 8).collect { :x |
+>>> 	[0 3 7].nearest(x)
+>>> }
+[0; 0; 0; 3; 3; 3; 3 7; 7; 7; 7]
+```
+
 Find which element is nearest to _(2,3)_:
 
 ```

@@ -1,8 +1,8 @@
 # kurenniemiMajorMinorIndex
 
-- _kurenniemiMajorMinorIndex(aCollection)_
+- _kurenniemiMajorMinorIndex([r₁ r₂ …])_
 
-A measure of the major-ness or minor-ness of a rational chord or scale.
+A measure of the major-ness or minor-ness of a rational chord or scale given by the ratios _r_.
 Answers a number in the range (-1 … +1), where -1 indicates major, +1 minor and 0 neutral.
 
 Find indices for the

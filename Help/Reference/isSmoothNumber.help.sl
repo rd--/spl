@@ -1,8 +1,8 @@
 # isSmoothNumber
 
-- _isSmoothNumber(anInteger)_
+- _isSmoothNumber(n, k)_
 
-An integer is _k_-smooth if it has no prime factors _> k_.
+An integer _n_ is _k_-smooth if it has no prime factors _> k_.
 
 List the first few _k_-smooth numbers for small _k_:
 
