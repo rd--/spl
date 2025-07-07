@@ -39,7 +39,7 @@ Use `mixedRadixEncode` to generate an 8×12 hexagonal grid:
 
 * * *
 
-See also: fromBarycentricCoordinates, fromCylindricalCoordinates, fromPolarCoordinates, fromSphericalCoordinates, HexagonalEfficientCoordinates
+See also: fromBarycentricCoordinates, fromCylindricalCoordinates, fromHexagonalCoordinates, fromPolarCoordinates, fromSphericalCoordinates, HexagonalEfficientCoordinates
 
 Guides: Coordinate System Functions
 

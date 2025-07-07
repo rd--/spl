@@ -115,12 +115,16 @@ HexagonalCoordinates : [Object] { | coordinates |
 +List{
 
 	fromHexagonalCoordinates { :self :basisVectors |
-		[2 3].includes(self.size).if {
-			let q = self[1];
-			let r = self[2];
-			(q * basisVectors[1]) + (r * basisVectors[2])
+		self.isVector.if {
+			[2 3].includes(self.size).if {
+				let q = self[1];
+				let r = self[2];
+				(q * basisVectors[1]) + (r * basisVectors[2])
+			} {
+				self.error('fromHexagonalCoordinates: invalid coordinates')
+			}
 		} {
-			self.error('fromHexagonalCoordinates: invalid coordinates')
+			self.collect(fromHexagonalCoordinates:/1)
 		}
 	}
 
@@ -163,32 +167,40 @@ HexagonalCoordinates : [Object] { | coordinates |
 	}
 
 	roundedHexagonalCoordinates { :self |
-		let [q, r, s] = self;
-		let qR = q.rounded;
-		let rR = r.rounded;
-		let sR = s.rounded;
-		let qD = (qR - q).abs;
-		let rD = (rR - r).abs;
-		let sD = (sR - s).abs;
-		(qD > rD & { qD > sD }).if {
-			qD := 0 - rD - sD
-		} {
-			(rD > sD).if {
-				rD := 0 - qD - sD
+		self.isVector.if {
+			let [q, r, s] = self;
+			let qR = q.rounded;
+			let rR = r.rounded;
+			let sR = s.rounded;
+			let qD = (qR - q).abs;
+			let rD = (rR - r).abs;
+			let sD = (sR - s).abs;
+			(qD > rD & { qD > sD }).if {
+				qD := 0 - rD - sD
 			} {
-				sD := 0 - qD - rD
-			}
-		};
-		[qR rR sR]
+				(rD > sD).if {
+					rD := 0 - qD - sD
+				} {
+					sD := 0 - qD - rD
+				}
+			};
+			[qR rR sR]
+		} {
+			self.collect(roundedHexagonalCoordinates:/1)
+		}
 	}
 
 	toHexagonalCoordinates { :self |
-		let [x, y] = self;
-		let m = 3.sqrt;
-		let q = (m / 3 * x) - (1 / 3 * y);
-		let r = 2 / 3 * y;
-		let s = 0 - q - r;
-		[q, r, s]
+		self.isVector.if {
+			let [x, y] = self;
+			let m = 3.sqrt;
+			let q = (m / 3 * x) - (1 / 3 * y);
+			let r = 2 / 3 * y;
+			let s = 0 - q - r;
+			[q, r, s]
+		} {
+			self.collect(toHexagonalCoordinates:/1)
+		}
 	}
 
 }
