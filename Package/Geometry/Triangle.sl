@@ -290,4 +290,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.circumcircle.radius
 	}
 
+	sssTriangle { :self |
+		let [a, b, c] = self;
+		sssTriangle(a, b, c)
+	}
+
 }

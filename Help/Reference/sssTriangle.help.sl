@@ -1,14 +1,16 @@
 # sssTriangle
 
 - _sssTriangle(a, b, c)_
+- _sssTriangle([a b c])_
 
 Answer a `Triangle` with sides of lengths _a_, _b_, and _c_.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
-`coordinates`, `area` and `centroid` and `interiorAngles` of a _3,4,5_ triangle:
+`coordinates`, `area` and `centroid` and `interiorAngles` of a _3,4,5_ triangle,
+the archetypal Pythagorean triangle:
 
 ```
->>> let t = sssTriangle(3, 4, 5);
+>>> let t = [3 4 5].sssTriangle;
 >>> (
 >>> 	t.vertexCoordinates,
 >>> 	t.area,
@@ -36,13 +38,13 @@ Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axi
 )
 ```
 
-Another right triangle:
+Another right triangle,
+the Kepler triangle:
 
 ```
 >>> let phi = 1.goldenRatio;
->>> sssTriangle(
->>> 	1, phi.sqrt, phi
->>> )
+>>> [1 phi.sqrt phi]
+>>> .sssTriangle
 >>> .interiorAngles
 >>> .third
 0.5.pi
@@ -52,11 +54,30 @@ Another right triangle:
 (3, 3.8161, 4.8541)
 ```
 
+Pythagorean triples with equal area:
+
+```
+>>> [
+>>> 	20 21 29;
+>>> 	12 35 37
+>>> 	:;
+>>> 	4485 5852 7373;
+>>> 	3059 8580 9109;
+>>> 	1380 19019 19069
+>>> ].atLevelCollect(2) { :each |
+>>> 	each.sssTriangle.area
+>>> }
+[
+	210 210;
+	13123110 13123110 13123110
+]
+```
+
 Varying one side length:
 
 ~~~spl svg=A
 (5.1, 5.25 .. 5.9).collect { :c |
-	sssTriangle(3, 4, c)
+	[3 4 c].sssTriangle
 }.LineDrawing
 ~~~
 
@@ -65,7 +86,7 @@ Varying one side length:
 The _3,4,5_ triangle is the only right triangle with sides in an arithmetic series:
 
 ~~~spl svg=B
-sssTriangle(3, 4, 5)
+[3 4 5].sssTriangle
 ~~~
 
 ![](sw/spl/Help/Image/sssTriangle-B.svg)
@@ -74,10 +95,33 @@ The _1,√φ,φ_ triangle is the only right triangle with sides in a geometric s
 
 ~~~spl svg=C
 let phi = 1.goldenRatio;
-sssTriangle(1, phi.sqrt, phi)
+[1 phi.sqrt phi].sssTriangle
 ~~~
 
 ![](sw/spl/Help/Image/sssTriangle-C.svg)
+
+Draw pythagorean triples with equal area:
+
+~~~spl svg=D
+[21 29 20; 35 37 12]
+.collect(sssTriangle:/1)
+.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/sssTriangle-D.svg)
+
+Draw pythagorean triples with equal area:
+
+~~~spl svg=E
+[
+	5852 7373 4485;
+	8580 9109 3059;
+	19019 19069 1380
+].collect(sssTriangle:/1)
+.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/sssTriangle-E.svg)
 
 * * *
 
@@ -85,4 +129,8 @@ See also: asaTriangle, sasTriangle, Triangle
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/SSSTriangle.html)
+[1](https://mathworld.wolfram.com/PythagoreanTriple.html)
+[2](https://reference.wolfram.com/language/ref/SSSTriangle.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Pythagorean_triple)
+[2](https://en.wikipedia.org/wiki/Kepler_triangle)

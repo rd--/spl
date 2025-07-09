@@ -1,6 +1,6 @@
 # Point
 
-- _Point(aVector)_
+- _Point([x y …])_
 
 A `Type` representing a geometric point in _n_-dimensions.
 

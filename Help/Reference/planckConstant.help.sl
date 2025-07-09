@@ -16,7 +16,7 @@ is a fundamental physical constant.
 
 * * *
 
-See also: e, pi
+See also: e, fineStructureConstant, pi
 
 References:
 _W_

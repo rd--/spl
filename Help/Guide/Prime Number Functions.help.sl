@@ -43,12 +43,16 @@ Gap:
 Testing:
 
 - `isAlmostPrime`
+- `isChenPrime`
 - `isCoprime`
 - `isEisensteinPrime`
 - `isGaussianPrime`
 - `isLesserTwinPrime`
 - `isPrime`
 - `isPrimePower`
+- `isPythagoreanPrime`
+- `isSemiprime`
+- `isSternPrime`
 
 Random Numbers:
 

@@ -108,12 +108,15 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		)
 	}
 
-	rotated { :self :theta |
+	rotated { :self :theta :center |
 		let matrix = theta.rotationMatrix;
-		let center = self.centroid;
 		self.vertexCoordinates.collect { :each |
 			matrix.dot(each - center) + center
 		}.Polygon
+	}
+
+	rotated { :self :theta |
+		self.rotated(theta, self.centroid)
 	}
 
 	sideLengths { :self |

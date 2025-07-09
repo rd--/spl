@@ -48,7 +48,19 @@ l.LineDrawing
 
 ![](sw/spl/Help/Image/equilateralTriangle-C.svg)
 
+Answer an equilateral triangle is equivalent to a regular polygon:
+
+~~~spl svg=D
+3.regularPolygon([0 0], 1, 1/4.pi)
+~~~
+
+![](sw/spl/Help/Image/equilateralTriangle-D.svg)
+
 * * *
+
+See also: regularPolygon, Triangle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

@@ -20,6 +20,14 @@
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
 
+	isChenPrime { :self |
+		self.isPrime & {
+			(self + 2).isPrime | {
+				(self + 2).isSemiprime
+			}
+		}
+	}
+
 	isComposite { :self |
 		self.isPrime.not
 	}
@@ -69,9 +77,33 @@
 		}
 	}
 
+	isPythagoreanPrime { :self |
+		self.isPrime & {
+			((self - 1) % 4) = 0
+		}
+	}
+
 	isLesserTwinPrime { :self |
 		self.isPrime & {
 			self + 2 = self.nextPrime
+		}
+	}
+
+	isSemiprime { :n |
+		n.factorInteger.values.sum = 2
+	}
+
+	isSternPrime { :n |
+		n.isPrime & {
+			let k = (n / 2).sqrt.floor;
+			{
+				k > 0 & {
+					(n - (2 * k.squared)).isPrime.not
+				}
+			}.whileTrue {
+				k := k - 1
+			};
+			k.isZero
 		}
 	}
 

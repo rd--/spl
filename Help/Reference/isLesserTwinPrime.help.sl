@@ -1,11 +1,14 @@
 # isLesserTwinPrime
 
-- _isLesserTwinPrime(anInteger)_
+- _isLesserTwinPrime(n)_
 
-Answer `true` if _anInteger_ is the first (lesser) element of a twin prime pair.
+Answer `true` if _n_ is the first (lesser) element of a twin prime pair.
 Twin primes are pairs of primes of the form _(p, p + 2)_.
 
 ```
+>>> (137.isLesserTwinPrime, 139.isPrime)
+(true, true)
+
 >>> 3:1607.select(
 >>> 	isLesserTwinPrime:/1
 >>> ) + 1

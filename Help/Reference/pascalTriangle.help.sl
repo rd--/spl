@@ -1,8 +1,8 @@
 # pascalTriangle
 
-- _pascalTriangle(anInteger)_
+- _pascalTriangle(n)_
 
-Answer the first _anInteger_ rows of Pascal’s triangle.
+Answer the first _n_ rows of Pascal’s triangle.
 
 The first eleven rows:
 

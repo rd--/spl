@@ -13,6 +13,11 @@ Solve cubic equations having three integer answers:
 >>> cardanosAlgorithm(1, -6, 11, -6)
 [3 2 1]
 
+>>> [3 2 1].collect { :x |
+>>> 	(1 * x.cubed) + (-6 * x.squared) + (11 * x) - 6
+>>> }
+[0 0 0]
+
 >>> cardanosAlgorithm(1, -5, -2, 24)
 [4 -2 3]
 

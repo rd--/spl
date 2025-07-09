@@ -1,7 +1,7 @@
 # rotated
 
 - _rotated(aSequence, anInteger)_
-- _rotated(aGeometry, theta)_
+- _rotated(g, theta)_
 
 At _aSequence_,
 answer the rotation to the right by _anInteger_ places.
@@ -14,7 +14,7 @@ answer the rotation to the right by _anInteger_ places.
 [3 2 4 5 1]
 ```
 
-At _aGeometry_,
+At a `Geometry` value,
 answer the value rotated _theta_ radians counter-clockwise about its `centroid`.
 
 A square rotated by one eighth turn:
@@ -30,3 +30,7 @@ A square rotated by one eighth turn:
 * * *
 
 See also: centroid, Polygon, rotatedLeft, rotatedRight
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Rotate.html)

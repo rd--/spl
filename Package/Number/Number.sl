@@ -1153,6 +1153,10 @@
 		self * 0.577215664901532860606512090082402431042
 	}
 
+	fineStructureConstant { :self |
+		self * 0.0072973525643
+	}
+
 	gausssConstant { :self |
 		self * 0.83462684167407318628142973
 	}

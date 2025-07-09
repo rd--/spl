@@ -1,8 +1,8 @@
 # leibnizHarmonicTriangle
 
-- _leibnizHarmonicTriangle(anInteger)_
+- _leibnizHarmonicTriangle(n)_
 
-Answer the first _anInteger_ rows of Leibniz’s harmonic triangle.
+Answer the first _n_ rows of Leibniz’s harmonic triangle.
 
 The first seven rows:
 

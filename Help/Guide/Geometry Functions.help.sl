@@ -115,6 +115,7 @@ Constructors:
 
 - `circlePoints`
 - `closedLine`
+- `equilateralTriangle`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`

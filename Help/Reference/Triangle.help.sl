@@ -90,6 +90,8 @@ Draw a triangle in three dimensional space:
 
 See also: Circle, equilateralTriangle, Line, Polygon, Rectangle, Simplex
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Triangle.html)

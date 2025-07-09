@@ -7,6 +7,9 @@ A `Rectangle` with side lengths of `one` at _center_.
 ```
 >>> [0 0].unitSquare
 Rectangle([-0.5 -0.5], [0.5 0.5])
+
+>>> [1/2 1/2].unitSquare
+Rectangle([0 0], [1 1])
 ```
 
 A drawing:
@@ -43,6 +46,8 @@ See also: LineDrawing, Rectangle, regularPolygon, unitCircle, unitCube
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/UnitSquare.html)
+[1](https://mathworld.wolfram.com/UnitSquare.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Unit_square)
 
 Categories: Geometry

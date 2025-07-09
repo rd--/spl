@@ -225,6 +225,10 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.upperRight[1]
 	}
 
+	rotated { :self :theta :center |
+		self.asPolygon.rotated(theta, center)
+	}
+
 	scaleBy { :self :scale |
 		Rectangle(
 			self.lowerLeft * scale,
@@ -235,6 +239,13 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	swallow { :self :aRectangle |
 		self.lowerLeft := self.lowerLeft.min(aRectangle.lowerLeft);
 		self.upperRight := self.upperRight.max(aRectangle.upperRight)
+	}
+
+	translateBy { :self :factor |
+		Rectangle(
+			self.lowerLeft + factor,
+			self.upperRight + factor
+		)
 	}
 
 	upper { :self |
@@ -259,13 +270,6 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 
 	upperRightQuadrant { :self |
 		Rectangle(self.center, self.upperRight)
-	}
-
-	translateBy { :self :factor |
-		Rectangle(
-			self.lowerLeft + factor,
-			self.upperRight + factor
-		)
 	}
 
 	vertexCoordinates { :self |

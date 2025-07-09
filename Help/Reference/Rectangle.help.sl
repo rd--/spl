@@ -1,8 +1,10 @@
 # Rectangle
 
-- _Rectangle(lowerLeft, upperRight)_
+- _Rectangle([x₁ y₁ …], [x₂ y₂ …])_
 
-A `Type` that represents an axis-aligned rectangle from _lowerLeft_ to _upperRight_.
+A `Type` that represents an axis-aligned rectangle,
+from the lower left coordinate _(x₁,y₁,…)_
+to  the upper right coordinate _(x₂,y₂,…)_.
 
 ```
 >>> let r = [0 0; 1 1].asRectangle;

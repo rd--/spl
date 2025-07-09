@@ -1,6 +1,6 @@
 # PointCloud
 
-- _PointCloud(aMatrix)_
+- _PointCloud([x₁ y₁ …; x₂ y₂ …])_
 
 A `Type` representing a set of disconnected points.
 

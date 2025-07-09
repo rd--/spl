@@ -2,7 +2,7 @@
 
 - _asaTriangle(α, c, β)_
 
-Answer a `Triangle` with angles _α_ and _β_ and sides of length _c_, _c_ is adjacent to both angles.
+Answer a `Triangle` with angles _α_ and _β_ and a side of length _c_, _c_ is adjacent to both angles.
 Vertices are placed so that _A_ is at the origin, _B_ is on the positive _x_ axis, and _C_ in the half-plane _y > 0_.
 
 `coordinates`, `area`, `centroid` and `interiorAngles` of a _1, 1/2.pi, 2_ triangle:
