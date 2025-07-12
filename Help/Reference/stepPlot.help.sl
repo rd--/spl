@@ -16,7 +16,7 @@ At matrix, specifying _x_ and _y_ coordinates:
 
 ~~~spl svg=B
 1:50.collect { :n |
-	[n.nthPrime, n.eulerPhi]
+	[n.prime, n.eulerPhi]
 }.stepPlot
 ~~~
 

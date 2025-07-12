@@ -550,7 +550,7 @@
 - `factorInteger`, `integerExponent`
 - `isCoprime`, `isGaussianPrime`, `isPrime`, `isPrimePower`
 - `primesBetweenAnd`, `primesList`, `primesUpTo`, `primesUpToDo`
-- `indexOfPrime`, `nextPrime`, `nthPrime`
+- `indexOfPrime`, `nextPrime`, `prime`
 - `primeFactors`, `primeLimit`
 - `logIntegral`, `primePi`
 - `eulerPhi`

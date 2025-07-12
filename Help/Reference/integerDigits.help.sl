@@ -179,7 +179,7 @@ Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
 { :n |
-	let m = n.nthPrime;
+	let m = n.prime;
 	let r = m.integerDigits(2).reversed;
 	m - r.fromDigits(2)
 }.map(1:200).scatterPlot

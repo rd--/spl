@@ -23,7 +23,7 @@ define two numbers and their representation in the residue system,
 and demonstrate both multiplying & recovering and adding & recovering:
 
 ```
->>> let m = 100:103.nthPrime;
+>>> let m = 100:103.prime;
 >>> let n1 = 123456787;
 >>> let n2 = 123;
 >>> let n1r = n1 % m;

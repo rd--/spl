@@ -72,7 +72,7 @@ Prime numbers are relatively prime to each other:
 
 ```
 >>> [10 15 20 25]
->>> .collect(nthPrime:/1)
+>>> .collect(prime:/1)
 >>> .isCoprime
 true
 

@@ -1749,11 +1749,11 @@ let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
 ## Integer -- prime numbers
 ```
 9.primesList = [2, 3, 5, 7, 11, 13, 17, 19, 23] /* first elements of prime number sequence */
-9.nthPrime = 23 /* lookup prime by index in sequence */
+9.prime = 23 /* lookup prime by index in sequence */
 system.cache['primesList'][9] = 23 /* the primes list is cached (memoized) by the system */
-5.nthPrime = 11 /* the nth entry in the sequence of prime numbers */
-23.nthPrime = 83 /* the nth entry in the sequence of prime numbers */
-system.cache['primesList'][23] = 83 /* nthPrime extends the primesList cache as required */
+5.prime = 11 /* the nth entry in the sequence of prime numbers */
+23.prime = 83 /* the nth entry in the sequence of prime numbers */
+system.cache['primesList'][23] = 83 /* prime extends the primesList cache as required */
 23.primesList = system.cachedPrimesList.first(23) /* the k primesList is the first k elements of the cached array */
 2:20.select { :each | each.isPrime } = [2, 3, 5, 7, 11, 13, 17, 19]
 2:20.reject { :each | each.isPrime } = [4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]
@@ -1799,7 +1799,7 @@ system.cache['primesList'][23] = 83 /* nthPrime extends the primesList cache as 
 1173.isCoprime(1547).not
 17.isPrime = true /* is number prime */
 17.indexOfPrime = 7 & { 18.indexOfPrime = 0 } /* index of prime number in prime number sequence, or zero if not prime */
-1.nthPrime = 2 & { 7.nthPrime = 17 } /* index into the prime number sequence */
+1.prime = 2 & { 7.prime = 17 } /* index into the prime number sequence */
 18.nextPrime = 19 & { 19.nextPrime = 23 } /* next integer that is greater than self and is prime number */
 19.leastPrimeGreaterThanOrEqualTo = 19 /* next prime or self if prime */
 1000.previousPrime = 997 & { 997.previousPrime = 991 } /* previous prime */
@@ -3808,7 +3808,7 @@ system.packageMethods('Frequency').detect { :each | each.name = 'asHertz' }.arit
 system.sessionTime > 0 = true
 system.absoluteTime > 1671935015 = true
 let t1 = system.absoluteTime; let t2 = system.absoluteTime; t2 - t1 = 0
-let [t, r] = { 3579.nthPrime }.timing; t >= 0 & { t < 1 & { r = 33413 } }
+let [t, r] = { 3579.prime }.timing; t >= 0 & { t < 1 & { r = 33413 } }
 let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1744087941 }
 ```
 

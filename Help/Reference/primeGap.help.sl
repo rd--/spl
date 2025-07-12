@@ -1,20 +1,24 @@
-# nthPrimeGap
+# primeGap
 
-- _nthPrimeGap(anInteger)_
+- _primeGap(n)_
 
+Answer the _n_-th prime gap.
 A prime gap is the difference between two successive prime numbers.
-The _n_-th prime gap is the difference between the _(n + 1)_-st and the _n_-th prime numbers.
+The _n_-th prime gap is the difference between the _n+1_-th and the _n_-th prime numbers.
 
 ```
->>> 1:20.collect(nthPrimeGap:/1)
-[1 2 2 4 2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2]
+>>> 1:20.collect(primeGap:/1)
+[
+	1 2 2 4 2 4 2 4 6 2
+	6 4 2 4 6 6 2 6 4 2
+]
 ```
 
 Most frequent gaps in initial primes sequence:
 
 ```
 >>> 2:999
->>> .collect(nthPrimeGap:/1)
+>>> .collect(primeGap:/1)
 >>> .asIdentityBag
 >>> .sortedCounts
 >>> .take(4)
@@ -29,14 +33,14 @@ Most frequent gaps in initial primes sequence:
 Plot:
 
 ~~~spl svg=A
-1:99.functionPlot(nthPrimeGap:/1)
+1:99.functionPlot(primeGap:/1)
 ~~~
 
-![](sw/spl/Help/Image/nthPrimeGap-A.svg)
+![](sw/spl/Help/Image/primeGap-A.svg)
 
 * * *
 
-See also: isPrime, nextPrime, nthPrime
+See also: isPrime, nextPrime, prime
 
 Guides: Prime Number Functions, Integer Sequences
 

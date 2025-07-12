@@ -1,9 +1,9 @@
-/* Musikinformatik/clothesline/examples ; requires nthPrime */
+/* Musikinformatik/clothesline/examples ; requires prime */
 let n = 180;
 {
 	let primes = (2 .. n).collect { :index |
 		(1 .. index).collect { :each |
-			each.nthPrime
+			each.prime
 		}.scramble.keepAtMost(8)
 	}.++.asIdentitySet.asList;
 	let freq = primes.LinLin(primes.min, primes.max, 200, 10000) * (0.5 -- 1.5).atRandom;

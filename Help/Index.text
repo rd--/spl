@@ -2145,8 +2145,8 @@ Reference/notNil.help.sl
 Reference/now.help.sl
 Reference/NRand.help.sl
 Reference/nthLexicographicPermutation.help.sl
-Reference/nthPrimeGap.help.sl
-Reference/nthPrime.help.sl
+Reference/primeGap.help.sl
+Reference/prime.help.sl
 Reference/nthRoot.help.sl
 Reference/nubBy.help.sl
 Reference/nubCumulatively.help.sl

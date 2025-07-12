@@ -12,6 +12,7 @@ Iteration:
 
 Neighbours:
 
+- `interprime`
 - `leastPrimeGreaterThanOrEqualTo`
 - `nextPrime`
 - `previousPrime`
@@ -19,7 +20,7 @@ Neighbours:
 Indexing:
 
 - `indexOfPrime`
-- `nthPrime`
+- `prime`
 
 Factors:
 
@@ -38,21 +39,25 @@ Counting:
 
 Gap:
 
-- `nthPrimeGap`
+- `primeGap`
 
 Testing:
 
 - `isAlmostPrime`
+- `isBalancedPrime`
 - `isChenPrime`
 - `isCoprime`
 - `isEisensteinPrime`
 - `isGaussianPrime`
+- `isLesserCousinPrime`
 - `isLesserTwinPrime`
 - `isPrime`
 - `isPrimePower`
 - `isPythagoreanPrime`
 - `isSemiprime`
 - `isSternPrime`
+- `isStrongPrime`
+- `isWeakPrime`
 
 Random Numbers:
 

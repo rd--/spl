@@ -76,14 +76,14 @@ Spiral of primes:
 
 ~~~spl svg=H
 let k = 99;
-let r = k.nthPrime;
+let r = k.prime;
 [
 	1:k.collect { :each |
 		[r, 2.pi / k * each]
 	},
 	1:k.collect { :n |
 		let t = (0.5.pi - (n * 4.pi / k));
-		[n.nthPrime, t % 2.pi]
+		[n.prime, t % 2.pi]
 	}
 ].polarPlot
 ~~~

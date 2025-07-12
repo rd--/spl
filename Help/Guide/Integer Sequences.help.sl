@@ -27,7 +27,7 @@ Scatter plot of the first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=C
 1:60.collect { :n |
-	let m = n.nthPrime;
+	let m = n.prime;
 	let d = m.integerDigits(2);
 	m - d.reversed.fromDigits(2)
 }.scatterPlot
@@ -129,7 +129,6 @@ The following help files include references to integer sequences:
 - `narayanaSequence`: A000930
 - `noergaardInfinitySequence`: A004718
 - `noergaardRhythmicInfinitySystem`: A073334
-- `nthPrimeGap`: A001223
 - `padovanSequence`: A000931 A001608 A182097
 - `partitionFunctionP`: A000041
 - `partitionFunctionQ`: A008289
@@ -142,6 +141,7 @@ The following help files include references to integer sequences:
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006
 - `polygonalNumber: A000217 A139610
+- `primeGap`: A001223
 - `primesList`: A000040
 - `recamanSequence`: A005132
 - `regularPaperfoldingSequence`: A014577

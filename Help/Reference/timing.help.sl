@@ -25,7 +25,7 @@ Timing computing a prime number:
 
 ```
 >>> let [t, r] = {
->>> 	3579.nthPrime
+>>> 	3579.prime
 >>> }.timing;
 >>> (t >= 0, t < 1.25, r)
 (true, true, 33413)

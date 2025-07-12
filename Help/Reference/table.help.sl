@@ -241,7 +241,7 @@ A table of successively longer lists:
 Plot a table:
 
 ~~~spl svg=A
-nthPrime:/1.table(1:50).linePlot
+prime:/1.table(1:50).linePlot
 ~~~
 
 ![](sw/spl/Help/Image/table-A.svg)

@@ -1,20 +1,20 @@
-# nthPrime
+# prime
 
-- _nthPrime(anInteger)_
+- _prime(n)_
 
-Answer the prime at one-index _anInteger_ in the sequence of prime numbers.
+Answer the _n_--th prime number.  The first prime number is two.
 
 ```
->>> 5.nthPrime
+>>> 5.prime
 11
 
->>> 10.nthPrime
+>>> 10.prime
 29
 
->>> 2002.nthPrime
+>>> 2002.prime
 17401
 
->>> 3579.nthPrime
+>>> 3579.prime
 33413
 ```
 
@@ -28,10 +28,10 @@ The inverse is `primePi`:
 Threads over lists:
 
 ```
->>> 1:9.nthPrime
+>>> 1:9.prime
 [2 3 5 7 11 13 17 19 23]
 
->>> (10 ^ 1:3).nthPrime
+>>> (10 ^ 1:3).prime
 [29 541 7919]
 ```
 
@@ -42,27 +42,27 @@ so that subsequent accesses do not require recalculation:
 >>> system.cachedPrimesList[5]
 11
 
->>> 10001.nthPrime
+>>> 10001.prime
 104743
 ```
 
 Plot first fifty primes:
 
 ~~~spl svg=A
-1:50.functionPlot(nthPrime:/1)
+1:50.functionPlot(prime:/1)
 ~~~
 
-![](sw/spl/Help/Image/nthPrime-A.svg)
+![](sw/spl/Help/Image/prime-A.svg)
 
 Generate a path based on the prime sequence:
 
 ~~~spl svg=B
 1:500.collect { :n |
-	n.nthPrime
+	n.prime
 }.anglePath.Line
 ~~~
 
-![](sw/spl/Help/Image/nthPrime-B.svg)
+![](sw/spl/Help/Image/prime-B.svg)
 
 * * *
 

@@ -191,7 +191,7 @@ Compare the n^(th) prime to an estimate:
 
 ~~~spl svg=P
 [
-	1:80.collect(nthPrime:/1),
+	1:80.collect(prime:/1),
 	1:80.collect { :n | n * n.log }
 ].linePlot
 ~~~

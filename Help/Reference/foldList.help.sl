@@ -50,7 +50,7 @@ Compute successive factorials:
 Compute products of successive primes:
 
 ```
->>> 1:10.nthPrime.foldList(1, *)
+>>> 1:10.prime.foldList(1, *)
 [
 	1 2 6 30 210 2310 30030 510510
 	9699690 223092870 6469693230

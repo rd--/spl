@@ -13,10 +13,10 @@ or `zero` if not _n_ is not prime.
 97
 ```
 
-Inverse is `nthPrime`:
+Inverse is `prime`:
 
 ```
->>> 25.nthPrime
+>>> 25.prime
 97
 ```
 
@@ -45,7 +45,7 @@ Plot first few terms:
 
 * * *
 
-See also: nthPrime, primePi, primesList
+See also: prime, primePi, primesList
 
 Guides: Prime Number Functions
 

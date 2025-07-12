@@ -20,6 +20,14 @@
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
 
+	isBalancedPrime { :n |
+		(n >= 3) & {
+			n.isPrime & {
+				n.primeBalance = 0
+			}
+		}
+	}
+
 	isChenPrime { :self |
 		self.isPrime & {
 			(self + 2).isPrime | {
@@ -83,6 +91,12 @@
 		}
 	}
 
+	isLesserCousinPrime { :self |
+		self.isPrime & {
+			(self + 4).isPrime
+		}
+	}
+
 	isLesserTwinPrime { :self |
 		self.isPrime & {
 			self + 2 = self.nextPrime
@@ -104,6 +118,22 @@
 				k := k - 1
 			};
 			k.isZero
+		}
+	}
+
+	isStrongPrime { :n |
+		(n >= 3) & {
+			n.isPrime & {
+				n.primeBalance > 0
+			}
+		}
+	}
+
+	isWeakPrime { :n |
+		(n >= 3) & {
+			n.isPrime & {
+				n.primeBalance < 0
+			}
 		}
 	}
 
@@ -182,13 +212,20 @@
 		(self + 1).leastPrimeGreaterThanOrEqualTo
 	}
 
-	nthPrime { :self |
+	prime { :self |
 		let primesList = system.cachedPrimesListExtendedToIndex(self);
 		primesList[self]
 	}
 
-	nthPrimeGap { :self |
-		(self + 1).nthPrime - self.nthPrime
+	primeBalance { :n |
+		let k = n.primePi;
+		let a = (k - 1).prime;
+		let b = (k + 1).prime;
+		(n - a) <=> (b - n)
+	}
+
+	primeGap { :self |
+		(self + 1).prime - self.prime
 	}
 
 	previousPrime { :self |
@@ -223,7 +260,7 @@
 				let k = self;
 				let answer = [];
 				{
-					prime := index.nthPrime;
+					prime := index.prime;
 					{
 						k % prime = 0
 					}.whileTrue {
@@ -483,8 +520,8 @@
 		}
 	}
 
-	nthPrime { :self |
-		self.collect(nthPrime:/1)
+	prime { :self |
+		self.collect(prime:/1)
 	}
 
 	primeOmega { :self |

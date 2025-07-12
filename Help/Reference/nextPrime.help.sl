@@ -1,10 +1,13 @@
 # nextPrime
 
-- _nextPrime(anInteger)_
+- _nextPrime(n)_
 
-Answer the least integer that is greater than _anInteger_ and is prime.
+Answer the least integer that is greater than _n_ and is prime.
 
 ```
+>>> 3.nextPrime
+5
+
 >>> (2 ^ 6).nextPrime
 67
 

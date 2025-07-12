@@ -1083,7 +1083,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'prime numbers': [
 		'isCoprime'
 		'nextPrime'
-		'nthPrime'
+		'prime'
 		'primeFactorization'
 		'primeFactors'
 		'primeLimit'

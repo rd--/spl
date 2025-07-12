@@ -481,7 +481,7 @@ let o = SinOsc(440, 0);
 (0 .. 4).do { :n |
 	o := SinOsc(
 		SinOsc(o ^ n, o).LinExp(-1, 1, 0.01, 1) ^ n,
-		SinOsc(o + 1 ^ (n + 1).nthPrime, 0).pi
+		SinOsc(o + 1 ^ (n + 1).prime, 0).pi
 	)
 };
 o ! 2 / 3
@@ -508,7 +508,7 @@ Splay(
 )
 
 /* https://sonomu.club/@lukiss/113817432455425855 ; Jan 13, 2025, 08:09 AM */
-let p = (1 .. 14).nthPrime;
+let p = (1 .. 14).prime;
 let o = SinOsc(p, 0);
 let e = 1 / 8;
 let z = 0.1 * e;
@@ -544,7 +544,7 @@ Splay(
 				12 + Latch(
 					(
 						LfSaw(
-							(1 .. 4).nthPrime * (
+							(1 .. 4).prime * (
 								LfSaw(
 									(1 .. 3).degreesToRadians,
 									0

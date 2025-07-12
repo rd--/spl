@@ -60,7 +60,7 @@ let f = { :a :b :c :d :p |
 Plot a list of _y_ values:
 
 ~~~spl svg=F
-1:25.nthPrime.scatterPlot
+1:25.prime.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/scatterPlot-F.svg)
