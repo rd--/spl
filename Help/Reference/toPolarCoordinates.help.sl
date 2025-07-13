@@ -1,6 +1,6 @@
 # toPolarCoordinates
 
-- _toPolarCoordinates(aSequence)_
+- _toPolarCoordinates([x y])_
 
 Answers the _(r,θ)_ polar coordinates corresponding to the Cartesian coordinates _(x,y)_.
 The angle is give in radians in _(-π,π)_.
@@ -43,7 +43,7 @@ Collects over lists:
 
 * * *
 
-See also: absArg, arcTan, fromPolarCoordinates, norm, toSphericalCoordinates
+See also: absArg, arcTan, fromPolarCoordinates, norm, PolarCoordinates, toSphericalCoordinates
 
 Guides: Coordinate System Functions
 

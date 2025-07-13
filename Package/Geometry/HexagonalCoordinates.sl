@@ -114,24 +114,22 @@ HexagonalCoordinates : [Object] { | coordinates |
 
 +List{
 
-	fromHexagonalCoordinates { :self :basisVectors |
-		self.isVector.if {
-			[2 3].includes(self.size).if {
-				let q = self[1];
-				let r = self[2];
+	fromHexagonalCoordinates { :self :theta |
+		let m = 3.sqrt;
+		let basisVectors = [[m, theta], [m, theta + 60.degree]].fromPolarCoordinates;
+		self.atVectorOrElementwise { :v |
+			[2 3].includes(v.size).if {
+				let q = v[1];
+				let r = v[2];
 				(q * basisVectors[1]) + (r * basisVectors[2])
 			} {
 				self.error('fromHexagonalCoordinates: invalid coordinates')
 			}
-		} {
-			self.collect(fromHexagonalCoordinates:/1)
 		}
 	}
 
 	fromHexagonalCoordinates { :self |
-		let m = 3.sqrt;
-		let halfM = m * 0.5;
-		self.fromHexagonalCoordinates([m 0; halfM 1.5])
+		self.fromHexagonalCoordinates(0)
 	}
 
 	polygonalHexagonalGrid { :self |
@@ -191,15 +189,13 @@ HexagonalCoordinates : [Object] { | coordinates |
 	}
 
 	toHexagonalCoordinates { :self |
-		self.isVector.if {
-			let [x, y] = self;
+		self.atVectorOrElementwise { :v |
+			let [x, y] = v;
 			let m = 3.sqrt;
 			let q = (m / 3 * x) - (1 / 3 * y);
 			let r = 2 / 3 * y;
 			let s = 0 - q - r;
 			[q, r, s]
-		} {
-			self.collect(toHexagonalCoordinates:/1)
 		}
 	}
 

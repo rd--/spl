@@ -5,7 +5,7 @@
 Convert from a duple _(x,y)_ in the Cartesian coordinate system,
 to a triple _(q,r,s)_ in the cubical hexagonal coordinate system.
 
-Convert integeral Cartesian coordinates to real hexagonal coordinates:
+Convert integral Cartesian coordinates to real hexagonal coordinates:
 
 ```
 >>> [1 1].toHexagonalCoordinates
@@ -19,13 +19,14 @@ Convert Cartesian coordinates to integral hexagonal coordinates:
 [1 1 -2]
 ```
 
-The inverse is `fromHexagonalCoordinates`:
+Threads over lists,
+the inverse is `fromHexagonalCoordinates`:
 
 ```
->>> [1 1]
+>>> [1 1; 1 3; 3 1]
 >>> .toHexagonalCoordinates
 >>> .fromHexagonalCoordinates
-[1 1]
+[1 1; 1 3; 3 1]
 ```
 
 * * *
