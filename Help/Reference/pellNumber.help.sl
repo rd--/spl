@@ -1,8 +1,8 @@
 # pellNumber
 
-- _pellNumber(anInteger)_
+- _pellNumber(n)_
 
-Answer a _anInteger_-th Pell number, zero-indexed.
+Answer the _n_-th Pell number, zero-indexed.
 
 ```
 >>> 9.pellNumbers
@@ -27,5 +27,11 @@ Approximations of the square root of two:
 * * *
 
 See also: pellNumbers, pellLucasNumbers
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PellNumber.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Pell_number)
 
 Categories: Math

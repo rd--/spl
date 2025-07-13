@@ -1,8 +1,8 @@
 # pellNumbers
 
-- _pellNumbers(anInteger)_
+- _pellNumbers(n)_
 
-Answer a `List` of the first _anInteger_ Pell numbers:
+Answer a `List` of the first _n_ Pell numbers:
 
 ```
 >>> 16.pellNumbers

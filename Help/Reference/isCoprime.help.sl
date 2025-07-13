@@ -1,13 +1,13 @@
 # isCoprime
 
-- _isCoprime(anInteger, anotherInteger)_
-- _isCoprime(aCollection)_
+- _isCoprime(n₁, n₂)_
+- _isCoprime([n₁ n₂ …])_
 
 Is co-prime, also called relatively prime, predicate.
 
-In the binary form answer true if _anInteger_ and _anotherInteger_ are relatively prime, else false.
+In the binary form answer true if _n₁_ and _n₂_ are relatively prime, else false.
 
-In the unary form answer true if all possible pairs of _aCollection_ are relatively prime, else false.
+In the unary form answer true if all possible pairs of _n_ are relatively prime, else false.
 
 Test whether two numbers are relatively prime:
 
@@ -71,6 +71,9 @@ Find the fraction of pairs of the first 100 numbers that are relatively prime:
 Prime numbers are relatively prime to each other:
 
 ```
+>>> [3 5].isCoprime
+true
+
 >>> [10 15 20 25]
 >>> .collect(prime:/1)
 >>> .isCoprime

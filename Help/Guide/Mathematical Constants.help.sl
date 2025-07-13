@@ -1,5 +1,6 @@
 # Mathematical Constants
 
+- `aperysConstant`: Apéry
 - `arcMinute`: 1/60 of a degree
 - `arcSecond`: 1/60² of a degree
 - `avogadroConstant`: Avogadro _k_
@@ -22,6 +23,7 @@
 - `pi`: circumference diameter ratio
 - `planckConstant`: Planck _k_
 - `plasticRatio`: plastic ratio
+- `pythagorasConstant`: Pythagoras’ _k_
 - `silverConstant`: silver _k_
 - `silverRatio`: silver ratio
 - `smallFloatEpsilon`: `SmallFloat` ε

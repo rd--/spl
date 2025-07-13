@@ -1,8 +1,8 @@
 # calkinWilfSequence
 
-- _calkinWilfSequence(anInteger)_
+- _calkinWilfSequence(n)_
 
-Answer the first _anInteger_ terms of the Calkin-Wilf sequence of rational numbers.
+Answer the first _n_ terms of the Calkin-Wilf sequence of rational numbers.
 
 The first fifteen terms:
 
@@ -52,6 +52,17 @@ Plot first few terms:
 ~~~
 
 ![](sw/spl/Help/Image/calkinWilfSequence-A.svg)
+
+Scatter plot of first few terms with the numerator on the _x_-axis,
+and the denominator on the _y_-axis:
+
+~~~spl svg=B
+200.calkinWilfSequence
+.collect(asList:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/calkinWilfSequence-B.svg)
 
 * * *
 

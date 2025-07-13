@@ -180,6 +180,14 @@
 		self.noneSatisfy(isList:/1)
 	}
 
+	isVector { :self :aBlock:/1 |
+		self.allSatisfy { :each |
+			each.isList.not & {
+				aBlock(each)
+			}
+		}
+	}
+
 	padLeft { :self :aList :anObject |
 		self.padRight(aList.negated, anObject)
 	}

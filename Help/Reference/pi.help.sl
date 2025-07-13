@@ -4,7 +4,8 @@
 
 Answer _n_ times `pi`,
 the ratio of a circles circumference to its diameter,
-approximately equal to _3.14159_.
+also called Archimedes’ constant,
+and approximately equal to _3.14159_.
 
 ```
 >>> 1.pi

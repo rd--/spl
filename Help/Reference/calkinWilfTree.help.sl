@@ -1,8 +1,8 @@
 # calkinWilfTree
 
-- _calkinWilfTree(anInteger)_
+- _calkinWilfTree(n)_
 
-Answer the Calkin-Wilf `Tree` of depth _anInteger_.
+Answer the Calkin-Wilf `Tree` of depth _n_.
 
 ```
 >>> 1:4.collect { :n |

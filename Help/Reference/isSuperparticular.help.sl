@@ -1,8 +1,8 @@
 # isSuperparticular
 
-- _isSuperparticular(aFraction)_
+- _isSuperparticular(n/d)_
 
-Answer `true` if _aFraction_ is a superparticular ratio, else `false`.
+Answer `true` if the fraction _n/d_ is a superparticular ratio, else `false`.
 
 A superparticular ratio, or epimoric ratio, is the ratio of two consecutive integer numbers.
 For any _n_, _(n + 1) / n_, or equivalently _1 + (1 / n)_, is a superparticular ratio.

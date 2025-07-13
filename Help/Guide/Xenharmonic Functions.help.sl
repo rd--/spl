@@ -73,6 +73,7 @@ Predicates:
 
 - `isSquareSuperparticular`
 - `isSuperparticular`
+- `isSuperpartient`
 
 Scale Functions:
 

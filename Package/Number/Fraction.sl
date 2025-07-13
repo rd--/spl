@@ -242,6 +242,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		}
 	}
 
+	isSuperpartient { :self |
+		self > 1 & { self.isSuperparticular.not }
+	}
+
 	isSuperparticular { :self |
 		self.numerator - 1 = self.denominator
 	}

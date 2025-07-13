@@ -41,6 +41,10 @@ Gap:
 
 - `primeGap`
 
+Constants:
+
+- `brunsConstant`
+
 Testing:
 
 - `isAlmostPrime`

@@ -1117,6 +1117,10 @@
 
 +@Number {
 
+	aperysConstant { :self |
+		self * 1.2020569031595942853997381
+	}
+
 	avogadroConstant { :self |
 		self * 6.02214076E+23
 	}
@@ -1131,6 +1135,10 @@
 
 	brunsConstant { :self |
 		1.90216058 * self
+	}
+
+	catalansConstant { :self |
+		self * 0.9159655941772190150
 	}
 
 	conwaysConstant { :self |
@@ -1194,6 +1202,10 @@
 		self * (2 ^ 1.goldenRatio)
 	}
 
+	meisselMertensConstant { :self |
+		self * 0.2614972128476427837554268386086958590516
+	}
+
 	paperFoldingConstant { :self |
 		self * 0.8507361882018672603677977
 	}
@@ -1212,6 +1224,10 @@
 
 	prouhetThueMorseConstant { :self |
 		self * 0.4124540336401075977833614
+	}
+
+	pythagorasConstant { :self |
+		self * 1.4142135623730950488
 	}
 
 	silverConstant { :self |

@@ -282,6 +282,17 @@
 		a
 	}
 
+	euclidsFormula { :m :n :k |
+		let a = k * (m.squared - n.squared);
+		let b = k * 2 * m * n;
+		let c = k * (m.squared + n.squared);
+		[a, b, c]
+	}
+
+	euclidsFormula { :m :n |
+		euclidsFormula(m, n, 1)
+	}
+
 	eulerPhi { :self |
 		self.isZero.if {
 			0
@@ -666,6 +677,30 @@
 		self.isPositiveInteger & {
 			self % 2 = 1
 		}
+	}
+
+	isPrimitivePythagoreanTriple { :a :b :c |
+		[a, b, c].allSatisfy(isInteger:/1) & {
+			a.isCoprime(b) & {
+				[a, b].collect(isOdd:/1).boole.sum = 1 & {
+					(a.squared + b.squared) = c.squared
+				}
+			}
+		}
+	}
+
+	isPrimitivePythagoreanTriple { :a :b |
+		isPrimitivePythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
+	}
+
+	isPythagoreanTriple { :a :b :c |
+		[a, b, c].allSatisfy(isInteger:/1) & {
+			(a.squared + b.squared) = c.squared
+		}
+	}
+
+	isPythagoreanTriple { :a :b |
+		isPythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
 	}
 
 	isRoughNumber { :self :k |

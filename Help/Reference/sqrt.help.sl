@@ -1,8 +1,17 @@
 # sqrt
 
-- _sqrt(aNumber)_
+- _sqrt(n)_
 
-Answer the number that, multiplied with itself, is _aNumber_.
+Answer the number that, multiplied with itself, is _n_.
+
+Pythagoras’ constant:
+
+```
+>>> 2.sqrt
+1.41421
+```
+
+Particular values:
 
 ```
 >>> 3.sqrt
@@ -65,6 +74,33 @@ Values at `zero` and infinity:
 Infinity
 ```
 
+The representation of the square root of any non-square positive integer as a continued fraction is periodic:
+
+```
+>>> [2 .. 20].collect { :n | n.sqrt.continuedFraction(9) }
+[
+	1 2 2 2 2 2 2 2 2;
+	1 1 2 1 2 1 2 1 2;
+	2;
+	2 4 4 4 4 4 4 4 4;
+	2 2 4 2 4 2 4 2 4;
+	2 1 1 1 4 1 1 1 4;
+	2 1 4 1 4 1 4 1 4;
+	3;
+	3 6 6 6 6 6 6 6 6;
+	3 3 6 3 6 3 6 3 6;
+	3 2 6 2 6 2 6 2 6;
+	3 1 1 1 1 6 1 1 1;
+	3 1 2 1 6 1 2 1 6;
+	3 1 6 1 6 1 6 1 6;
+	4;
+	4 8 8 8 8 8 8 8 8;
+	4 4 8 4 8 4 8 4 8;
+	4 2 1 3 1 2 8 2 1;
+	4 2 8 2 8 2 8 2 8
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -84,7 +120,10 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SquareRoot.html)
 [2](https://reference.wolfram.com/language/ref/Sqrt.html),
 _Smalltalk_
-5.6.2.34
+5.6.2.34,
+_W_
+[1](https://en.wikipedia.org/wiki/Square_root)
+[2](https://en.wikipedia.org/wiki/Square_root_of_2)
 
 Unicode: U+221A √ Square Root
 
