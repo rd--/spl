@@ -1064,20 +1064,6 @@
 		}
 	}
 
-	fisherYatesShuffle { :self :rng |
-		self.size.toByDo(2, -1) { :each |
-			self.swapWith(
-				each,
-				rng.nextRandomInteger(1, each)
-			)
-		};
-		self
-	}
-
-	fisherYatesShuffle { :self |
-		self.fisherYatesShuffle(system)
-	}
-
 	flattenTo { :self :depth |
 		(depth <= 0).if {
 			self
@@ -2328,20 +2314,24 @@
 	}
 
 	riffle { :self :anObject |
-		(self.size < 2).if {
+		let m = self.size;
+		(m < 2).if {
 			self
 		} {
 			anObject.isSequenceable.if {
-				let k = self.size;
-				(anObject.size >= k).if {
+				let n = anObject.size;
+				(n > m).if {
 					self.error('riffle: too many items to insert')
 				} {
 					let answer = [];
-					1.toDo(k - 1) { :i |
+					1.toDo(m - 1) { :i |
 						answer.add(self[i]);
 						answer.add(anObject.atWrap(i))
 					};
-					answer.add(self.last);
+					answer.add(self[m]);
+					(n = m).ifTrue {
+						answer.add(anObject[n])
+					};
 					answer
 				}
 			} {
@@ -2381,22 +2371,6 @@
 			self[i - 1] := self[i]
 		};
 		self[n] := z
-	}
-
-	sattoloShuffle { :self :rng |
-		let i = self.size;
-		{
-			i > 1
-		}.whileTrue {
-			let j = rng.nextRandomInteger(1, i - 1);
-			self.swapWith(i, j);
-			i := i - 1
-		};
-		self
-	}
-
-	sattoloShuffle { :self |
-		self.sattoloShuffle(system)
 	}
 
 	scan { :self :aBlock:/2 |
@@ -2576,23 +2550,6 @@
 		};
 		self.species.newFrom(answer)
 	}
-
-	shuffle { :self :rng |
-		self.fisherYatesShuffle(rng)
-	}
-
-	shuffle { :self |
-		self.fisherYatesShuffle
-	}
-
-	shuffled { :self :rng |
-		self.copy.fisherYatesShuffle(rng)
-	}
-
-	shuffled { :self |
-		self.copy.fisherYatesShuffle
-	}
-
 
 	softMax { :z :beta |
 		z.isVector.if {

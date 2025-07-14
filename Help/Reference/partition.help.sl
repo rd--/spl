@@ -102,6 +102,13 @@ A sequence has one zero partition:
 [[]]
 ```
 
+Split a list into two equal halves:
+
+```
+>>> [1 .. 10].partition(5, 5)
+[1 2 3 4 5; 6 7 8 9 10]
+```
+
 * * *
 
 See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce

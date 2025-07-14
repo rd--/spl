@@ -32,3 +32,5 @@ An `EqualityDictionary` with lists for keys:
 * * *
 
 See also: Dictionary, Map, Record, TolerantDictionary
+
+Guides: Dictionary Functions

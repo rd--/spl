@@ -1,19 +1,23 @@
 # isAssociationList
 
-- _isAssociationList(aList)_
+- _isAssociationList(x)_
 
-Answer `true` if all items in _aList_ are instances of `Association`.
+Answer `true` if all items in the list _x_ are instances of `Association`.
 
 ```
->>> ['x' -> 1, 'y' -> [2 3]].isAssociationList
+>>> ['x' -> 1, 'y' -> [2 3]]
+>>> .isAssociationList
 true
 
->>> ['x' -> 1, 'y' -> [2 3]].asRecord
+>>> ['x' -> 1, 'y' -> [2 3]]
+>>> .asRecord
 (x: 1, y: [2 3])
 ```
 
 * * *
 
 See also: allSatisfy, Association, isAssociation, isList
+
+Guides: Dictionary Functions
 
 Categories: Testing

@@ -38,6 +38,8 @@ At `TimeSeries`:
 
 See also: associations, Dictionary, indices, keys
 
+Guides: Dictionary Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Values.html),

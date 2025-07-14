@@ -167,6 +167,7 @@
 	'ParametricEquations'
 	'Permutations'
 	'Primes'
+	'Shuffle'
 	'SignalProcessing'
 	'SpecialFunctions'
 	'Statistics'

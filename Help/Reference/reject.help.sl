@@ -1,9 +1,9 @@
 # reject
 
-- _reject(aCollection, aBlock:/1)_
+- _reject(c, f₁)_
 
-Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
-Collect into a new collection like the receiver only those elements for which _aBlock_ evaluates to _false_.
+Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
+Collect into a new collection like the receiver only those elements for which _f_ evaluates to `false`.
 Answer the new collection.
 
 At `Range`, answers `List`:

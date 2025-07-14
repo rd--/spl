@@ -1,8 +1,8 @@
 # asRecord
 
-- _asRecord(anAssociationList | aMatrix | aMap)_
+- _asRecord(c)_
 
-Convert a collection type to a `Record`.
+Convert the collection _c_ to a `Record`.
 
 At a `List` of `Association` values:
 
@@ -45,6 +45,8 @@ At a `Map`:
 
 * * *
 
-See also: asDictionary, asList, asMap, Association, Dictionary, List, Map, Record
+See also: asList, asMap, Association, Dictionary, List, Map, Record
+
+Guides: Dictionary Functions
 
 Categories: Converting

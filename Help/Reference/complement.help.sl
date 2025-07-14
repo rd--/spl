@@ -1,6 +1,8 @@
 # complement
 
-- _complement(anObject)_
+- _complement(c)_
+
+Answer the complement of the collection _c_.
 
 The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
 

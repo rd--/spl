@@ -1,8 +1,8 @@
 # isList
 
-- _isList(anObject)_
+- _isList(x)_
 
-Answer `true` if _anObject_ is a `List`.
+Answer `true` if the object _x_ is a `List`.
 
 ```
 >>> [1 2 3].isList

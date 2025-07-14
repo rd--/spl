@@ -63,4 +63,6 @@ In a `Dictionary` context there cannot be duplicate keys, hence considering only
 
 See also: ->, associations
 
+Guides: Dictionary Functions
+
 Categories: Collection, Type

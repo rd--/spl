@@ -1,8 +1,8 @@
 # removeAllSuchThat
 
-- _removeAllSuchThat(aCollection, aBlock:/1)_
+- _removeAllSuchThat(c, f:/1)_
 
-Evaluate _aBlock_ for each element of _aCollection_ and remove all elements that evaluate to `true`.
+Evaluate the block _f_ for each element of the collection _c_ and remove all elements that evaluate to `true`.
 Use a copy to enumerate collections whose order changes when an element is removed (i.e. sets).
 
 At `List`, answer a copy:

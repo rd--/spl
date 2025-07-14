@@ -1,12 +1,12 @@
 # insertAt
 
-- _insertAt(aSequence, anObject, anInteger)_
+- _insertAt(c, x, n)_
 
-Inserts _anObject_ at position _anInteger_ in _aSequence_,
+Inserts the object _x_ at integer index (position) _n_ in the sequential collection _c_,
 so that afterwards it is accessible at the specified index.
-Answer _anObject_.
+Answer _x_.
 
-At `List` of `String`:
+Insert _x_ to be at position three:
 
 ```
 >>> let l = 'abcde'.contents;
@@ -27,3 +27,7 @@ Equivalent to `addBeforeIndex`:
 * * *
 
 See also: addAfter, addAfterIndex, addBeforeIndex, at, copyReplaceFromToWith, removeAt
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Insert.html)

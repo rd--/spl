@@ -252,10 +252,6 @@
 		self.nub
 	}
 
-	deleteMissing { :self |
-		self.reject(isMissing:/1)
-	}
-
 	depth { :self |
 		self.isEmpty.if {
 			2

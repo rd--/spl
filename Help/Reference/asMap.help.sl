@@ -1,8 +1,8 @@
 # asMap
 
-- _asMap(aCollection)_
+- _asMap(c)_
 
-Construct a `Map` from _aCollection_.
+Construct a `Map` from the collection _c_.
 
 At a `List` of `Association` values:
 
@@ -43,6 +43,8 @@ true
 
 * * *
 
-See also: ->, asDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
+See also: ->, asEqualityDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
+
+Guides: Dictionary Functions
 
 Categories: Converting

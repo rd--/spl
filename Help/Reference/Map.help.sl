@@ -31,4 +31,6 @@ Note: `Map` is _IdentityDictionary_ in Smalltalk.
 
 See also: asMap, Dictionary, isImmediate, Record
 
+Guides: Dictionary Functions
+
 Categories: Collection, Type

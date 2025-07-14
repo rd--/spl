@@ -171,6 +171,7 @@
 	'Math-ParametricEquations'
 	'Math-Permutations'
 	'Math-Primes'
+	'Math-Shuffle'
 	'Math-SignalProcessing'
 	'Math-SpecialFunctions'
 	'Math-Statistics'

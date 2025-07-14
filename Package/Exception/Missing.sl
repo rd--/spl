@@ -17,3 +17,27 @@ Missing : [Object] { | reason value |
 	}
 
 }
+
++@Collection {
+
+	deleteMissing { :self |
+		self.reject(isMissing:/1)
+	}
+
+}
+
++[Missing, Nil] {
+
+	isMissingOrNil { :unused |
+		true
+	}
+
+}
+
++@Object {
+
+	isMissingOrNil { :unused |
+		false
+	}
+
+}

@@ -1,8 +1,8 @@
 # associations
 
-- _associations(aDictionary)_
+- _associations(d)_
 
-Answer a `List` of the `Association` values held by _aDictionary_.
+Answer a `List` of the `Association` values held by the dictionary _d_.
 
 ```
 >>> (x: 1, y: 2, z: 3).associations
@@ -15,5 +15,7 @@ Answer a `List` of the `Association` values held by _aDictionary_.
 * * *
 
 See also: ->, associationsDo, Association, Dictionary, indexValueAssociations, keys, values
+
+Guides: Dictionary Functions
 
 Categories: Accessing

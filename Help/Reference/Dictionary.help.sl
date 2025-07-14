@@ -31,6 +31,8 @@ Methods for enumerating: do, keysDo, valuesDo, keysAndValuesDo, associationsDo
 
 * * *
 
-See also: asDictionary, Association, Map, Record
+See also: Association, EqualityDictionary, Map, Record, TolerantDictionary
+
+Guides: Dictionary Functions
 
 Categories: Collection, Trait

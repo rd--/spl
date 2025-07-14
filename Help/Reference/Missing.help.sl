@@ -4,7 +4,7 @@
 
 `Missing` is a `Type` that represents data that is missing.
 _reason_ specifies a reason for the data being missing,
-_value_ associates a value with the missing data.
+_value_ associates a value with the reason for the missing data.
 
 `atMissing` answers `Missing` if the index is out of range:
 
