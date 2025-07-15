@@ -16,6 +16,7 @@
 - `goldenAngle`: golden angle
 - `goldenRatio`: golden ratio
 - `i`: square root of negative one
+- `keplerBouwkampConstant`
 - `khinchinsConstant`: Khinchin’s _k_
 - `lemniscateConstant`: Lemniscate _k_
 - `levysConstant`: Lévy’s _k_

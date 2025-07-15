@@ -49,6 +49,23 @@ An elliptical arc, and a circle:
 
 ![](sw/spl/Help/Image/Arc-B.svg)
 
+A geometric technique for finding twelve equally-spaced points around a circle:
+
+~~~spl svg=C
+let r = 1 / 1/4.pi.cos;
+[
+	Circle([0 0], 1),
+	regularPolygon(4, [0 0], r, 1/4.pi),
+	Arc([-1 0], [1 1], [-1/2.pi 1/2.pi]),
+	Arc([1 0], [1 1], [1/2.pi -1/2.pi]),
+	Arc([0 1], [1 1], [-1.pi 0]),
+	Arc([0 -1], [1 1], [0 1.pi]),
+	PointCloud(circlePoints(12, [0 0], 1, 0))
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Arc-C.svg)
+
 * * *
 
 See also: Circle, Ellipse, LineDrawing, Polygon, Rectangle, Triangle

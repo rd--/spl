@@ -70,6 +70,24 @@ Three concentric complete graph drawings:
 
 ![](sw/spl/Help/Image/circlePoints-C.svg)
 
+Connect every fifth point of twelve,
+place circles within outer polgons:
+
+~~~spl svg=D
+let p = 12.circlePoints([0 0], 1, 0);
+let i = [1 .. 12] * 5 % 12 + 1;
+let q = 12.circlePoints([0 0], 9 / 17, 0);
+[
+	Circle([0 0], 1),
+	Polygon(p @* i),
+	q.collect { :each |
+		Circle(each, 1 / 9)
+	}
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-D.svg)
+
 * * *
 
 See also: %, ^, angleVector, Circle, cos, Range, sin

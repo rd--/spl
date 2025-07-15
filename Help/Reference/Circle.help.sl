@@ -105,9 +105,21 @@ Compare the hexagonal packing of circles above to a simple half-width offset sch
 
 ![](sw/spl/Help/Image/Circle-F.svg)
 
+A geometric technique for finding twelve equally-spaced points around a circle:
+
+~~~spl svg=G
+[
+	Circle([0 0; -1 0; 1 0; 0 -1; 0 1], 1),
+	regularPolygon(4, [0 0], 1 / 1/4.pi.cos, 1/4.pi),
+	PointCloud(circlePoints(12, [0 0], 1, 0))
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-G.svg)
+
 * * *
 
-See also: arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
+See also: Arc, arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
 
 Guides: Geometry Functions
 
