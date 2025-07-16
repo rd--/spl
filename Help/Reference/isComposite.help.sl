@@ -1,10 +1,8 @@
 # isComposite
 
-- _isComposite(anInteger)_
+- _isComposite(n)_
 
-Determine if _anInteger_ is prime,
-and answer `true` it is not prime,
-else amswer `false`.
+Answer `true` if the integer _n_ is prime, else `false`.
 
 Test whether a number is composite:
 
@@ -58,10 +56,14 @@ The distribution of Gaussian composite numbers:
 
 See also: isGaussianPrime, isPrime
 
-Guides: Integer Functions
+Guides: Integer Functions, Prime Number Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CompositeQ.html),
+_OEIS_
+[1](https://oeis.org/A002808),
+_W_
+[1](https://en.wikipedia.org/wiki/Composite_number)
 
 Categories: Arithmetic

@@ -22,3 +22,9 @@ answer value in metres:
 * * *
 
 See also: centimetres, Quantity
+
+Guides: SI Units
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Metre)

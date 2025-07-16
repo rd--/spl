@@ -125,6 +125,17 @@
 		}
 	}
 
+	lemniscate { :a |
+		{ :theta |
+			/*let rho = a * (2 * theta).cos.sqrt;
+			[rho theta].fromPolarCoordinates*/
+			let u = 1 + theta.sin.squared;
+			let x = (a * theta.cos) / u;
+			let y = (a * theta.sin * theta.cos) / u;
+			[x, y]
+		}
+	}
+
 	lHospitalQuintic { :a |
 		{ :theta |
 			let u = (theta / 2).tan;

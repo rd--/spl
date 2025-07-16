@@ -1,8 +1,8 @@
 # speedOfLight
 
-- _speedOfLight(aNumber)_
+- _speedOfLight(n)_
 
-Answer _aNumber_ times the speed of light,
+Answer _n_ times the speed of light,
 given in metres per second (_m/s_).
 
 The speed of light,
@@ -17,6 +17,8 @@ is a fundamental physical constant.
 * * *
 
 See also: e, goldenRation, pi, planckConstant
+
+Guides: Mathematical Constants
 
 References:
 _W_

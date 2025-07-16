@@ -1,8 +1,8 @@
 # isPerfectNumber
 
-- _isPerfectNumber(anInteger)_
+- _isPerfectNumber(n)_
 
-Answer `true` if _anInteger_ is a perfect number, and `false` otherwise.
+Answer `true` if the integer _n_ is a perfect number, and `false` otherwise.
 A positive integer _n_ is a perfect number if the sum of all its divisors is _2 * n_.
 
 Six is a perfect number:
@@ -10,6 +10,9 @@ Six is a perfect number:
 ```
 >>> 6.isPerfectNumber
 true
+
+>>> 6.divisors.sum
+12
 ```
 
 Twelve is not a perfect number:
@@ -17,6 +20,9 @@ Twelve is not a perfect number:
 ```
 >>> 12.isPerfectNumber
 false
+
+>>> 12.divisors.sum
+28
 ```
 
 Select the first three perfect numbers (A000396 in OEIS):
@@ -37,17 +43,22 @@ Each Mersenne prime generates one even perfect number:
 
 ```
 >>> let p = 7;
->>> ((2 ^ (p - 1)) * (2 ^ p - 1)).isPerfectNumber
+>>> let a = 2 ^ (p - 1);
+>>> let b = (2 ^ p) - 1;
+>>> (a * b).isPerfectNumber
 true
 ```
 
-See also: isPerfectSquare
+* * *
 
-Guides: Integer Sequences
+See also: isPerfectPower, isPerfectSquare
+
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PerfectNumberQ.html),
+[1](https://mathworld.wolfram.com/PerfectNumber.html)
+[2](https://reference.wolfram.com/language/ref/PerfectNumberQ.html),
 _OEIS_
 [1](https://oeis.org/A000396),
 _W_

@@ -3041,31 +3041,6 @@
 		}
 	}
 
-	calkinWilfSequence { :self |
-		let answer = List(self);
-		answer[1] := 1/1;
-		2.toDo(self) { :i |
-			let p = answer[i - 1];
-			let t = p.floor * 2 - p + 1;
-			answer[i] := 1 / t
-		};
-		answer
-	}
-
-	fibonacciSequenceInto { :self :answer |
-		let a = 0;
-		let b = 1;
-		let i = 0;
-		{ i < self }.whileTrue {
-			let tmp = b;
-			answer.add(b);
-			b := b + a;
-			a := tmp;
-			i := i + 1
-		};
-		answer
-	}
-
 	partIndex { :self :operand |
 		operand.atSymmetrical(self)
 	}

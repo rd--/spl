@@ -130,6 +130,11 @@
 - `divisorSum`: sum of divisors
 - `divisors`: list of integers that divide
 
+## Elliptic Integrals
+
+- `arithmeticGeometricMean`
+- `ellipticK`
+
 ## Error Functions
 
 - `erf`: error function

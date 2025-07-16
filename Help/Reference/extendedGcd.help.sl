@@ -1,9 +1,11 @@
 # extendedGcd
 
-- _extendedGcd(aCollection)_
-- _extendedGcd(aNumber, anotherNumber)_
+- _extendedGcd(c)_
+- _extendedGcd(m, n)_
 
-Answer greatest common divisor and Bézout coefficients.
+Answer greatest common divisor and Bézout coefficients,
+either of the collection _c_,
+or of the two number _m_ and _n_.
 
 ```
 >>> 2.extendedGcd(3)

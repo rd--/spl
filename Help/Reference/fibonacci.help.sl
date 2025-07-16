@@ -37,15 +37,6 @@ Threads over lists:
 ]
 ```
 
-Indices of first few prime Fibonacci numbers:
-
-```
->>> 1:43.select { :i |
->>> 	i.fibonacci.rounded.isPrime
->>> }
-[3 4 5 7 11 13 17 23 29 43]
-```
-
 Fibonomial coefficients:
 
 ```

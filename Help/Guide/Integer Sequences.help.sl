@@ -62,6 +62,7 @@ The following help files include references to integer sequences:
 
 - `additivePersistence`: A031286
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
+- `aliquotSequence`: A044050
 - `aliquotSum`: A001065
 - `bellNumber`: A000110
 - `bernoulli`: A000367 A002445

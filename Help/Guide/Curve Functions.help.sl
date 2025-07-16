@@ -19,6 +19,7 @@ Algebraic Curve Functions:
 - `hypocycloid`
 - `hypotrochoid`
 - `inverseNorwichSpiral`
+- `lemniscate`
 - `lHospitalQuintic`
 - `lissajousCurve`
 - `logarithmicSpiral`

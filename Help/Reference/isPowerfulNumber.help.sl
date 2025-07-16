@@ -1,6 +1,6 @@
 # isPowerfulNumber
 
-- _isPowerfulNumber(anInteger)_
+- _isPowerfulNumber(n)_
 
 A powerful number is the product of a square and a cube.
 Powerful numbers are also known as squareful.
@@ -38,7 +38,7 @@ There are infinitely many pairs of consecutive powerful numbers, OEIS A060355:
 
 See also: isSquareFree
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

@@ -641,11 +641,20 @@
 		n.divisors.sum > (2 * n)
 	}
 
-	isSuperabundantNumber { :n |
-		let x = n.divisors.sum / n;
-		1.to(n - 1).allSatisfy { :k |
-			let y = k.divisors.sum / k;
-			x > y
+	isAmicablePair { :m :n |
+		m.divisors.allButLast.sum = n & {
+			n.divisors.allButLast.sum = m
+		}
+	}
+
+	isDeficientNumber { :n |
+		n.divisors.sum < (2 * n)
+	}
+
+	isHighlyAbundantNumber { :n |
+		let k = n.divisors.sum;
+		1.to(n - 1).allSatisfy { :i |
+			k > i.divisors.sum
 		}
 	}
 
@@ -655,12 +664,26 @@
 		}
 	}
 
+	isHighlyCompositeNumber { :self |
+		let n = self.divisors.size;
+		1.to(self - 1).allSatisfy { :each |
+			n > each.divisors.size
+		}
+	}
+
 	isInteger { :self |
 		self.typeResponsibility('@Integer>>isInteger')
 	}
 
 	isPerfectNumber { :self |
 		self.divisors.allButLast.sum = self
+	}
+
+	isPerfectPower { :self |
+		(self >= 4) & {
+			let alpha = self.factorInteger.values;
+			alpha.gcd > 1
+		}
 	}
 
 	isPerfectSquare { :self |
@@ -679,6 +702,12 @@
 		}
 	}
 
+	isPrimitiveAbundantNumber { :n |
+		n.isAbundantNumber & {
+			n.divisors.allButLast.allSatisfy(isDeficientNumber:/1)
+		}
+	}
+
 	isPrimitivePythagoreanTriple { :a :b :c |
 		[a, b, c].allSatisfy(isInteger:/1) & {
 			a.isCoprime(b) & {
@@ -691,6 +720,21 @@
 
 	isPrimitivePythagoreanTriple { :a :b |
 		isPrimitivePythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
+	}
+
+	isPronicNumber { :self |
+		let x = self.sqrt.floor;
+		self = (x * (x + 1))
+	}
+
+	isPseudoperfectNumber { :self |
+		self
+		.divisors
+		.allButLast
+		.powerSet
+		.anySatisfy { :each |
+			each.sum = self
+		}
 	}
 
 	isPythagoreanTriple { :a :b :c |
@@ -713,8 +757,28 @@
 		self.primeLimit <= k
 	}
 
+	isSphenicNumber { :self |
+		self.isSquareFree & {
+			self.isAlmostPrime(3)
+		}
+	}
+
 	isSquareFree { :self |
 		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
+	}
+
+	isSuperabundantNumber { :n |
+		let x = n.divisors.sum / n;
+		1.to(n - 1).allSatisfy { :k |
+			let y = k.divisors.sum / k;
+			x > y
+		}
+	}
+
+	isWeirdNumber { :self |
+		self.isAbundantNumber & {
+			self.isPseudoperfectNumber.not
+		}
 	}
 
 	jacobiSymbol { :a :n |
@@ -1244,6 +1308,15 @@
 		self.isNumber & {
 			self.isInteger
 		}
+	}
+
+}
+
++List {
+
+	isAmicablePair { :self |
+		let [m, n] = self;
+		isAmicablePair(m, n)
 	}
 
 }

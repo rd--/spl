@@ -48,3 +48,5 @@ See also: degree, PlaneAngle, Quantity, radians
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Degree.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Degree_(angle))

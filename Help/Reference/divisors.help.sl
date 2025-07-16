@@ -1,9 +1,9 @@
 # divisors
 
-- _divisors(anInteger)_
+- _divisors(n)_
 
-Answers the `List` of integers that are divisors of _anInteger_.
-For all positive integers, `divisors` includes `one` and _anInteger_ as the first and last entries.
+Answers the `List` of integers that are divisors of the integer _n_.
+For all positive integers, `divisors` includes `one` and _n_ as the first and last entries.
 
 Divisors of 30:
 

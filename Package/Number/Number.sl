@@ -269,6 +269,10 @@
 		self * (10 ^ aNumber)
 	}
 
+	ellipticK { :m |
+		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
+	}
+
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
 	}
@@ -948,10 +952,6 @@
 		x / (1 + x.abs)
 	}
 
-	speedOfLight { :self |
-		self * 299792458
-	}
-
 	squared { :self |
 		self * self
 	}
@@ -1153,6 +1153,14 @@
 		self * 2.71828182845904523536028747135266249775724709369995
 	}
 
+	electricConstant  { :self |
+		self * 8.8541878188E-12
+	}
+
+	elementaryCharge { :self |
+		self * 1.602176634E-19
+	}
+
 	epsilon { :self |
 		self * 0.000000000000001
 	}
@@ -1176,6 +1184,10 @@
 	goldenRatio { :self |
 		let phi = (5.sqrt + 1) / 2;
 		self * phi
+	}
+
+	gompertzConstant { :self |
+		self * 0.596347362323194074341078499369
 	}
 
 	hlawkasSchneckenkonstante { :self |
@@ -1242,6 +1254,10 @@
 		self * (2.sqrt + 1)
 	}
 
+	speedOfLight { :self |
+		self * 299792458
+	}
+
 	stolarskyHarborthConstant { :self |
 		self * 0.81255655901600638769
 	}
@@ -1256,6 +1272,10 @@
 
 	tribonacciConstant { :n |
 		n * 1.83928675521416113255185
+	}
+
+	vacuumPermittivity { :self |
+		self * 8.8541878188E-12
 	}
 
 }

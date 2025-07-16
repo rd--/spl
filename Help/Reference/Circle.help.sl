@@ -109,9 +109,19 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 
 ~~~spl svg=G
 [
-	Circle([0 0; -1 0; 1 0; 0 -1; 0 1], 1),
-	regularPolygon(4, [0 0], 1 / 1/4.pi.cos, 1/4.pi),
-	PointCloud(circlePoints(12, [0 0], 1, 0))
+	Circle(
+		[0 0; -1 0; 1 0; 0 -1; 0 1],
+		1
+	),
+	regularPolygon(
+		4,
+		[0 0],
+		1 / 1/4.pi.cos,
+		1/4.pi
+	),
+	PointCloud(
+		circlePoints(12, [0 0], 1, 0)
+	)
 ].LineDrawing
 ~~~
 

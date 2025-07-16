@@ -73,7 +73,7 @@ Plot sequence of regular numbers:
 
 See also: primeFactors, primeLimit
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

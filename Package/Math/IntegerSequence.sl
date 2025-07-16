@@ -6,7 +6,13 @@
 		let r = [a];
 		let i = 1;
 		{
-			i < k & { b ~= n & { r.includes(b).not & { a > 1 } } }
+			i < k & {
+				b ~= n & {
+					r.includes(b).not & {
+						a > 1
+					}
+				}
+			}
 		}.whileTrue {
 			r.add(b);
 			i := i + 1;
@@ -39,6 +45,17 @@
 		b
 	}
 
+	calkinWilfSequence { :self |
+		let answer = List(self);
+		answer[1] := 1/1;
+		2.toDo(self) { :i |
+			let p = answer[i - 1];
+			let t = p.floor * 2 - p + 1;
+			answer[i] := 1 / t
+		};
+		answer
+	}
+
 	collatzSequence { :self |
 		{ :n |
 			n.isOdd.if {
@@ -66,6 +83,20 @@
 
 	fibonacciSequence { :self |
 		self.fibonacciSequenceInto([])
+	}
+
+	fibonacciSequenceInto { :self :answer |
+		let a = 0L;
+		let b = 1L;
+		let i = 0;
+		{ i < self }.whileTrue {
+			let tmp = b;
+			answer.add(b);
+			b := b + a;
+			a := tmp;
+			i := i + 1
+		};
+		answer
 	}
 
 	fibonacciSequenceUpTo { :self |

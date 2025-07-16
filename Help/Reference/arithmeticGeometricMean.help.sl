@@ -79,9 +79,9 @@ Special values: OEIS A068521, A084895, A084896 & A084897:
 
 * * *
 
-See also: arithmeticMean, arithmeticoGeometricSequence, geometricMean, mean, median, moment
+See also: arithmeticMean, arithmeticoGeometricSequence, ellipticK, geometricMean, mean, median, moment
 
-Guides: Integer Sequences
+Guides: Integer Sequences, Mathematical Functions
 
 References:
 _Mathematica_

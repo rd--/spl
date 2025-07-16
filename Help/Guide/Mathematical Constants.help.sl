@@ -14,15 +14,15 @@
 - `eulerGamma`: Euler’s _k_
 - `gausssConstant`: Gauss’s _k_
 - `goldenAngle`: golden angle
-- `goldenRatio`: golden ratio
+- `goldenRatio`: φ
+- `gompertzConstant`: δ
 - `i`: square root of negative one
 - `keplerBouwkampConstant`
 - `khinchinsConstant`: Khinchin’s _k_
-- `lemniscateConstant`: Lemniscate _k_
+- `lemniscateConstant`: ϖ
 - `levysConstant`: Lévy’s _k_
 - `logarithmicPhi`: _2^φ_
 - `pi`: circumference diameter ratio
-- `planckConstant`: Planck _k_
 - `plasticRatio`: plastic ratio
 - `pythagorasConstant`: Pythagoras’ _k_
 - `silverConstant`: silver _k_
@@ -31,6 +31,16 @@
 - `stolarskyHarborthConstant`: Stolarsky-Harborth _k_
 - `supergoldenRatio`: supergolden ratio
 - `supersilverRatio`: supersilver ratio
+
+Pyhsical Constants:
+
+- `electricConstant`: ε0
+- `elementaryCharge`: _e_
+- `fineStructureConstant`: α
+- `planckConstant`: _h_
+- `reducedPlanckConstant`: ℏ
+- `speedOfLight`: _c_
+- `vacuumPermittivity`
 
 Degree:
 
@@ -93,7 +103,7 @@ Lemniscate constant (ϖ):
 
 See also: degree, e, eulerGamma, goldenRatio, pi
 
-Guides: Mathematical Functions, Mathematical Sequences
+Guides: Mathematical Functions, Mathematical Sequences, SI Units
 
 References:
 _Mathematica_

@@ -74,6 +74,8 @@ Plot the first few squareful numbers:
 
 See also: isPerfectSquare, isPowerfulNumber
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Squarefree.html)

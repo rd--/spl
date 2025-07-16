@@ -1,8 +1,8 @@
 # mean
 
-- _mean(aCollection)_
+- _mean(c)_
 
-Answer the `arithmeticMean` (the mean estimate) of _aCollection_.
+Answer the `arithmeticMean` (the mean estimate) of the collection _c_.
 
 ```
 >>> [1 .. 9].mean
@@ -85,7 +85,7 @@ Mean of a probability distribution:
 
 * * *
 
-See also: arithmeticMean, geometricMean, median
+See also: arithmeticMean, arithmeticGeometricMean, geometricMean, median
 
 Guides: Statistics Functions
 

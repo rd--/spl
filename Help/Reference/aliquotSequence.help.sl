@@ -32,6 +32,17 @@ Aspiring numbers are eventually periodic:
 [95 25 6]
 ```
 
+A sociable number has a periodic sequence,
+the only two sociable numbers below one million have periods five and twenty-eight:
+
+```
+>>> 12496.aliquotSequence
+[12496 14288 15472 14536 14264]
+
+>>> 14316.aliquotSequence(5)
+[14316 19116 31704 47616 83328]
+```
+
 The first few sequences:
 
 ```
@@ -73,13 +84,16 @@ The length of the first few sequences:
 ]
 ```
 
-It not known if the some aliquot sequences terminate:
+It not known if some aliquot sequences terminate:
 
 ```
 >>> 276.aliquotSequence(11)
 [
-	276 396 696 1104 1872 3770 3790 3050 2716 2772 5964
+	 276  396  696 1104 1872
+	3770 3790 3050 2716 2772
+	5964
 ]
+```
 
 * * *
 
@@ -89,6 +103,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AliquotSequence.html),
 _OEIS_
-[1](https://oeis.org/A044050),
+[1](https://oeis.org/A044050)
+[2](https://oeis.org/A072890)
+[3](https://oeis.org/A008892),
 _W_
 [1](https://en.wikipedia.org/wiki/Aliquot_sequence)
+[2](https://en.wikipedia.org/wiki/Sociable_number)

@@ -1,8 +1,8 @@
 # isAlmostPrime
 
-- _isAlmostPrime(anInteger, count)_
+- _isAlmostPrime(n, k)_
 
-A natural number is called _k_-almost prime if it has _k_ prime factors.
+A natural number _n_ is called _k_-almost prime if it has _k_ prime factors.
 
 [A000040](https://oeis.org/A000040) in OEIS:
 
@@ -49,9 +49,9 @@ true
 
 * * *
 
-See also: primeFactors, size
+See also: isComposite, isPrime, primeFactors, size
 
-Guides: Integer Sequences, Prime Number Functions
+Guides: Integer Functions, Integer Sequences, Prime Number Functions
 
 References:
 _Mathematica_

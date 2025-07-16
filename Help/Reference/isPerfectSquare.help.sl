@@ -1,8 +1,8 @@
 # isPerfectSquare
 
-- _isPerfectSquare(anInteger)_
+- _isPerfectSquare(n)_
 
-Answer `true` if _anInteger_ is a perfect square.
+Answer `true` if the integer _n_ is a perfect square.
 
 A perfect square is an `Integer` that is the square of an integer.
 
@@ -20,7 +20,7 @@ The perfect squares (A000290 in OEIS) smaller than 200:
 
 See also: squared, sqrt
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

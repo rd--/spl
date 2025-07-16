@@ -84,6 +84,28 @@ Predicates:
 - `isScalarInteger`
 - `isSmallInteger`
 
+Number Theory Predicates:
+
+- `isAbundantNumber`
+- `isAlmostPrime`
+- `isAmicablePair`
+- `isComposite`
+- `isDeficientNumber`
+- `isHighlyAbundantNumber`
+- `isHighlyCompositeNumber`
+- `isPerfectNumber`
+- `isPerfectPower`
+- `isPrime`
+- `isPrimitiveAbundantNumber`
+- `isPronicNumber`
+- `isPseudoperfectNumber`
+- `isRoughNumber`
+- `isSemiprime`
+- `isSmoothNumber`
+- `isSquareFree`
+- `isSuperabundantNumber`
+- `isWeirdNumber`
+
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Integer Sequences, Mathematical Functions
+Guides: Bitwise Functions, Combinatorial Functions, Integer Sequences, Mathematical Functions, Prime Number Functions

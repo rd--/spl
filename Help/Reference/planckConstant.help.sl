@@ -1,22 +1,29 @@
 # planckConstant
 
-- _planckConstant(aNumber)_
+- _planckConstant(n)_
 
-Answer _aNumber_ times the Planck constant,
+Answer _n_ times the Planck constant,
+a fundamental physical constant ordinarily written as _h_,
 given in joules per hertz (_J/Hz_).
-
-The Planck constant,
-denoted by _h_,
-is a fundamental physical constant.
 
 ```
 >>> 1.planckConstant
 6.62607015 * (10 ^ -34)
 ```
 
+The reduced Planck constant,
+denoted ℏ:
+
+```
+>>> 1.planckConstant / 2.pi
+1.054571E-34
+```
+
 * * *
 
 See also: e, fineStructureConstant, pi
+
+Guides: Mathematical Constants
 
 References:
 _W_

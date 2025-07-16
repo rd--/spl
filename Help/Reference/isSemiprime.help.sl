@@ -31,7 +31,7 @@ Semiprimes that are not square numbers are called discrete, distinct, or squaref
 
 * * *
 
-See also: isPrime
+See also: isComposite, isPrime
 
 Guides: Prime Number Functions
 

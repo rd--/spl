@@ -1,8 +1,8 @@
 # arithmeticMean
 
-- _arithmeticMean(aCollection)_
+- _arithmeticMean(c)_
 
-Answer the `sum` of the collection divided by the `size`.
+Answer the `sum` of the collection _c_ divided by the `size`.
 
 ```
 >>> [1 .. 9].arithmeticMean
@@ -39,7 +39,7 @@ The arithmetic mean of 9/8 and 10/9 is 161/144:
 
 * * *
 
-See also: geometricMean, median, size, sum
+See also: arithmeticGeometricMean, geometricMean, median, size, sum
 
 Guides: Statistics Functions
 

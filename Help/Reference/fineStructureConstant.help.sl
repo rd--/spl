@@ -3,6 +3,7 @@
 - _fineStructureConstant(n)_
 
 Answer _n_ times the fine-structure constant,
+usually written as α,
 also known as the Sommerfeld constant,
 a fundamental physical constant.
 
@@ -11,7 +12,21 @@ a fundamental physical constant.
 137.036
 ```
 
-A definition of the inverse fine-structure constant by Stanbury:
+Definition in terms of four other physical constants:
+
+```
+>>> 1.fineStructureConstant
+0.007297
+
+>>> let h = 1.planckConstant;
+>>> let e = 1.elementaryCharge;
+>>> let c = 1.speedOfLight;
+>>> let e0 = 1.electricConstant;
+>>> e.squared / (2 * e0 * h * c)
+0.007297
+```
+
+A definition of an approximation to the inverse fine-structure constant by Stanbury:
 
 ```
 >>> UnivariatePolynomial([0 1 1 4])
@@ -21,7 +36,9 @@ A definition of the inverse fine-structure constant by Stanbury:
 
 * * *
 
-See also: planckConstant
+See also: electricConstant, elementaryCharge, planckConstant, speedOfLight
+
+Guides: Mathematical Constants
 
 References:
 _W_

@@ -1,9 +1,11 @@
 # lcm
 
-- _lcm(aCollection)_
-- _lcm(aNumber, anotherNumber)_
+- _lcm(c)_
+- _lcm(m, n)_
 
-Least common multiple.
+Least common multiple,
+either of the collection _c_,
+or of the two number _m_ and _n_.
 
 ```
 >>> 0.lcm(9)
@@ -44,7 +46,9 @@ At `Collection`:
 Lcm threads elementwise over lists:
 
 ```
->>> [3 7 40].collect { :each | 12.lcm(each) }
+>>> [3 7 40].collect { :each |
+>>> 	12.lcm(each)
+>>> }
 [12 84 120]
 
 >>> [3 7 40].lcm(12)
@@ -95,9 +99,47 @@ Plot the least common multiple for a number with 12:
 
 ![](sw/spl/Help/Image/lcm-A.svg)
 
+Visualize the least common multiples of two integers:
+
+~~~spl png=B
+{ :m :n |
+	lcm(m, n)
+}.table(1:50, 1:50).rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/lcm-B.png)
+
+Fibonacci numbers:
+
+~~~spl png=C
+let f = 100.fibonacciSequence;
+let m = f[30];
+{ :i :j |
+	let a = f[i];
+	let b = f[j];
+	lcm(a, b) % m
+}.table(1:75, 1:75).rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/lcm-C.png)
+
+Form the least common multiples of `one` with rational numbers:
+
+~~~spl svg=D
+(1 .. 20).collect { :j |
+	(1 .. 2 * j).collect { :i |
+		Fraction(i, j)
+	}
+}.catenate.nub.sort.collect { :n |
+	lcm(1, n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/lcm-D.svg)
+
 * * *
 
-See also: &&, gcd, Gcd, Lcm
+See also: &&, extendedGcd, gcd, Gcd, Lcm
 
 Guides: Integer Functions
 
@@ -108,6 +150,8 @@ _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:lcm),
 _Mathematica_
 [1](https://mathworld.wolfram.com/LeastCommonMultiple.html)
-[2](https://mathworld.wolfram.com/LCM.html),
+[2](https://https://reference.wolfram.com/language/ref/LCM.html),
 _Smalltalk_
-5.6.5.14
+5.6.5.14,
+_W_
+[1](https://en.wikipedia.org/wiki/Least_common_multiple)
