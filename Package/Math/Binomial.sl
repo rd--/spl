@@ -99,6 +99,10 @@
 		}
 	}
 
+	generalizedPentagonalNumbers { :n |
+		linearRecurrence([1 2 -2 -1 1], [0 1 2 5 7], n)
+	}
+
 	hexagonalNumber { :n |
 		let m = 2 * n;
 		(m * (m - 1)) / 2

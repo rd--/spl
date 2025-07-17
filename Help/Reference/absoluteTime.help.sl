@@ -1,6 +1,6 @@
 # absoluteTime
 
-- _absoluteTime(anObject)_
+- _absoluteTime(x)_
 
 At `System`,
 answer the current time as the number of seconds since 1 January, 1970:

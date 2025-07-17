@@ -4,7 +4,6 @@
 
 The Galilean spiral describes the trajectory of a point uniformly accelerated along a line rotating about a point.
 
-
 Drawing with _b=-1_:
 
 ~~~spl svg=A

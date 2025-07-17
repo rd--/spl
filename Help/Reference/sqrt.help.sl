@@ -77,7 +77,9 @@ Infinity
 The representation of the square root of any non-square positive integer as a continued fraction is periodic:
 
 ```
->>> [2 .. 20].collect { :n | n.sqrt.continuedFraction(9) }
+>>> [2 .. 20].collect { :n |
+>>> 	n.sqrt.continuedFraction(9)
+>>> }
 [
 	1 2 2 2 2 2 2 2 2;
 	1 1 2 1 2 1 2 1 2;

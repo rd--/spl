@@ -1,11 +1,15 @@
 # isGeometricProgression
 
-- _isGeometricProgression(l)_
+- _isGeometricProgression(p)_
 
-Answer `true` if the sequence _l_ is a geometic series.
+Answer `true` if the sequence _p_ is a geometric series.
 
 ```
 >>> [1 3 9 27 81 243 729]
+>>> .isGeometricProgression
+true
+
+>>> [12 24 48 96]
 >>> .isGeometricProgression
 true
 ```

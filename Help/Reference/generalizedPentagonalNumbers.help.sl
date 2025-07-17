@@ -4,12 +4,6 @@
 
 Answer the first _n_ generalized pentagonal numbers.
 
-+SmallFloat{
-	generalizedPentagonalNumbers { :n |
-		linearRecurrence([1 2 -2 -1 1], [0 1 2 5 7], n)
-	}
-}
-
 The first few terms:
 
 ```
@@ -29,6 +23,10 @@ The first few terms:
 	1162 1190 1247 1276 1335
 ]
 ```
+
+* * *
+
+See also: pentagonalNumber
 
 References:
 _Mathematica_

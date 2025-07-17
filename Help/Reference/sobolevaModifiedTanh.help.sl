@@ -16,7 +16,6 @@ Effect of varying parameter _d_:
 
 ![](sw/spl/Help/Image/sobolevaModifiedTanh-A.svg)
 
-
 Effect of varying parameter _c_:
 
 ~~~spl svg=B
@@ -40,7 +39,6 @@ Effect of varying parameter _b=d_:
 ~~~
 
 ![](sw/spl/Help/Image/sobolevaModifiedTanh-C.svg)
-
 
 Effect of varying parameters _c_ and _d_:
 

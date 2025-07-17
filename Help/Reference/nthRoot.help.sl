@@ -132,7 +132,6 @@ Polar plot:
 
 ![](sw/spl/Help/Image/nthRoot-C.svg)
 
-
 Where supported `nthRoot` is displayed as √.
 
 * * *

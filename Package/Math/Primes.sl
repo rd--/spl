@@ -20,6 +20,12 @@
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
 
+	interprime { :n |
+		let a = (n + 1).prime;
+		let b = (n + 2).prime;
+		(a + b) / 2
+	}
+
 	isBalancedPrime { :n |
 		(n >= 3) & {
 			n.isPrime & {

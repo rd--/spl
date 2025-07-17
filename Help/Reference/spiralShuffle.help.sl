@@ -29,6 +29,7 @@ Shuffle sequences of increasing size:
 	6 10 2 8 4 11 9 7 5 3 1
 ]
 ```
+
 Permutation cycles:
 
 ```

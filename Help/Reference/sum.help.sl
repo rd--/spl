@@ -36,6 +36,9 @@ the `sum` is calculated directly using a closed form:
 >>> k * ((k - 1) * 2 + (3 * 2)) / 2
 195
 
+>>> (2 .. 1000).sum
+500499
+
 >>> (23L, 37L .. 26781361428314L).sum
 25615761426939509660643648L
 ```

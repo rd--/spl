@@ -77,4 +77,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Faro_shuffle)
 
 Futher Reading: Diaconis 1983
-

@@ -16,13 +16,21 @@ the _q_-axis is is aligned with the _x_-axis:
 [3.sqrt 0]
 
 >>> [-3 .. 3].collect { :q |
->>> 	[q 0].fromHexagonalCoordinates(0)
+>>> 	[q 0].fromHexagonalCoordinates
 >>> }.rounded
 [-5 0; -3 0; -2 0; 0 0; 2 0; 3 0; 5 0]
 
 >>> [-5 0; -3 0; -2 0; 0 0; 2 0; 3 0; 5 0]
 >>> .toHexagonalCoordinates.rounded
-[-3 0 3; -2 0 2; -1 0 1; 0 0 0; 1 0 -1; 2 0 -2; 3 0 -3]
+[
+	-3 0 3;
+	-2 0 2;
+	-1 0 1;
+	0 0 0;
+	1 0 -1;
+	2 0 -2;
+	3 0 -3
+]
 ```
 
 Given _θ=0_,
@@ -35,22 +43,34 @@ it is the rotation by 60° counter-clockwise of the _q_ axis:
 [3.sqrt 60.degree].fromPolarCoordinates
 
 >>> [-3 .. 3].collect { :r |
->>> 	[0 r].fromHexagonalCoordinates(0)
+>>> 	[0 r].fromHexagonalCoordinates
 >>> }.rounded
-[-3 -4; -2 -3; -1 -1; 0 0; 1 2; 2 3; 3 5]
+[-3 -4; -2 -3; -1 -1; 0 0; 1 1; 2 3; 3 4]
 
->>> [-3 -4; -2 -3; -1 -1; 0 0; 1 2; 2 3; 3 5]
+>>> [-3 -4; -2 -3; -1 -1; 0 0; 1 1; 2 3; 3 4]
 >>> .toHexagonalCoordinates.rounded
-[0 -3 3; 0 -2 2; 0 -1 1; 0 0 0; 0 1 -1; 0 2 -2; 0 3 -3]
+[
+	0 -3 3;
+	0 -2 2;
+	0 -1 1;
+	0 0 0;
+	0 1 -1;
+	0 2 -2;
+	0 3 -3
+]
 ```
 
 At _θ=-30°_:
 
 ```
->>> [0 1].fromHexagonalCoordinates(-30.degree)
+>>> [0 1].fromHexagonalCoordinates(
+>>> 	-30.degree
+>>> )
 [3 / 2, 3.sqrt / 2]
 
->>> [1 0].fromHexagonalCoordinates(-30.degree)
+>>> [1 0].fromHexagonalCoordinates(
+>>> 	-30.degree
+>>> )
 [3 / 2, 3.sqrt.- / 2]
 ```
 
@@ -82,7 +102,7 @@ eliding the _s_ coordinate which can be inferred:
 ~~~spl svg=B
 { :r :q |
 	let h = [q - (r // 2), r];
-	let c = h.fromHexagonalCoordinates(0);
+	let c = h.fromHexagonalCoordinates;
 	6.regularPolygon(c, 0.9, 0.5.pi)
 }.table(1:6, 1:9).LineDrawing
 ~~~
@@ -94,13 +114,13 @@ without adjusting _q_ by _r_:
 
 ~~~spl svg=C
 { :r :q |
-	let c = [q, r].fromHexagonalCoordinates(0);
+	let c = [q, r]
+	.fromHexagonalCoordinates;
 	6.regularPolygon(c, 0.9, 0.5.pi)
 }.table(1:5, 1:5).LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/fromHexagonalCoordinates-C.svg)
-
 
 Generate a 5×5 hexagonal grid,
 without adjusting _q_ by _r_,
@@ -111,7 +131,8 @@ and the hexagonal shape is also rotated:
 ~~~spl svg=D
 let theta = -30.degree;
 { :r :q |
-	let c = [q, r].fromHexagonalCoordinates(theta);
+	let c = [q, r]
+	.fromHexagonalCoordinates;
 	6.regularPolygon(c, 0.9, 1.pi)
 }.table(1:5, 1:5).LineDrawing
 ~~~

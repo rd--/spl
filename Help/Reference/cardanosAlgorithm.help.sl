@@ -14,7 +14,12 @@ Solve cubic equations having three integer answers:
 [3 2 1]
 
 >>> [3 2 1].collect { :x |
->>> 	(1 * x.cubed) + (-6 * x.squared) + (11 * x) - 6
+>>> 	[
+>>> 		1 * x.cubed,
+>>> 		-6 * x.squared,
+>>> 		11 * x,
+>>> 		-6
+>>> 	].sum
 >>> }
 [0 0 0]
 

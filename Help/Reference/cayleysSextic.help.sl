@@ -28,4 +28,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CayleysSextic.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cayley%27s_sextic)
-

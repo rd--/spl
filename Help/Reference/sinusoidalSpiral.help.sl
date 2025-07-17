@@ -40,4 +40,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/SinusoidalSpiral.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Sinusoidal_spiral)
-

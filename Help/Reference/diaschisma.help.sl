@@ -24,7 +24,7 @@ It is the size of a pythagorean comma minus two schismas:
 Relations to simple intervals:
 
 ```
->>> (3/2 ^ 4) * (5/4 ^ 2) / (2 ^ 3)
+>>> (2 ^ 3) / ((3/2 ^ 4) * (5/4 ^ 2))
 1.diaschisma
 
 >>> 16/9 / 225/128
