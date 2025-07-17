@@ -7,11 +7,17 @@ Shuffle the list _x_ using an _out_-Faro shuffle _n_ times.
 Shuffle a `Range` once, answering a `List`:
 
 ```
+>>> 1:12.outShuffle
+[1 7 2 8 3 9 4 10 5 11 6 12]
+
 >>> 1:10.outShuffle
 [1 6 2 7 3 8 4 9 5 10]
 
 >>> 1:9.outShuffle
 [1 6 2 7 3 8 4 9 5]
+
+>>> 1:8.outShuffle
+[1 5 2 6 3 7 4 8]
 ```
 
 Shuffle a list three times:
@@ -61,6 +67,8 @@ Visualize the recurring pattern when shuffling a list:
 * * *
 
 See also: fisherYatesShuffle, inShuffle, mongesShuffle, sattoloShuffle, shuffle
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

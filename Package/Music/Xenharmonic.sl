@@ -190,6 +190,14 @@
 
 +@Number {
 
+	diaschisma { :self |
+		2048/2025 ^ self
+	}
+
+	diesis { :self |
+		128/125 ^ self
+	}
+
 	holdersComma { :self |
 		2.nthRoot(53) ^ self
 	}
@@ -208,6 +216,10 @@
 
 	pythagoreanLimma { :self |
 		256/243 ^ self
+	}
+
+	schisma { :self |
+		32805/32768 ^ self
 	}
 
 	septimalComma { :self |

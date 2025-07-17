@@ -45,6 +45,8 @@ Visualize the recurring pattern when shuffling a list:
 
 See also: fisherYatesShuffle, inShuffle, outShuffle, sattoloShuffle, shuffle
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MongesShuffle.html),

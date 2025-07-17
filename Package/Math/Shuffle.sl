@@ -1,4 +1,4 @@
-+@Sequenceable{
++@Sequenceable {
 
 	fisherYatesShuffle { :self :rng |
 		self.size.toByDo(2, -1) { :each |
@@ -23,9 +23,34 @@
 	}
 
 	inShuffle { :self :n |
-		let x = self.inShuffle;
-		{ n > 1 }.whileTrue {
+		let x = self;
+		{ n > 0 }.whileTrue {
 			x := x.inShuffle;
+			n := n - 1
+		};
+		x
+	}
+
+	klondikeShuffle { :self |
+		let r = [];
+		let i = 1;
+		let j = self.size;
+		{ i < j }.whileTrue {
+			r.addFirst(self[j]);
+			r.addFirst(self[i]);
+			i := i + 1;
+			j := j - 1
+		};
+		(i = j).ifTrue {
+			r.addFirst(self[i])
+		};
+		r
+	}
+
+	klondikeShuffle { :self :n |
+		let x = self;
+		{ n > 0 }.whileTrue {
+			x := x.klondikeShuffle;
 			n := n - 1
 		};
 		x
@@ -46,8 +71,8 @@
 	}
 
 	mongesShuffle { :self :n |
-		let x = self.mongesShuffle;
-		{ n > 1 }.whileTrue {
+		let x = self;
+		{ n > 0 }.whileTrue {
 			x := x.mongesShuffle;
 			n := n - 1
 		};
@@ -63,8 +88,8 @@
 	}
 
 	outShuffle { :self :n |
-		let x = self.outShuffle;
-		{ n > 1 }.whileTrue {
+		let x = self;
+		{ n > 0 }.whileTrue {
 			x := x.outShuffle;
 			n := n - 1
 		};
@@ -101,6 +126,31 @@
 
 	shuffled { :self |
 		self.copy.fisherYatesShuffle
+	}
+
+	spiralShuffle { :self |
+		let a = self.copyList;
+		let b = [];
+		let c = true;
+		{ a.isEmpty }.whileFalse {
+			let x = a.removeFirst;
+			c.if {
+				b.addFirst(x)
+			} {
+				a.addLast(x)
+			};
+			c := c.not
+		};
+		b
+	}
+
+	spiralShuffle { :self :n |
+		let x = self;
+		{ n > 0 }.whileTrue {
+			x := x.spiralShuffle;
+			n := n - 1
+		};
+		x
 	}
 
 }

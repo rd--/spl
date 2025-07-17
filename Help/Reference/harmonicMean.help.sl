@@ -1,8 +1,8 @@
 # harmonicMean
 
-- _harmonicMean(aCollection)_
+- _harmonicMean(c)_
 
-Answer the harmonic mean of the values in _aCollection_.
+Answer the harmonic mean of the values in the collection _c_.
 
 ```
 >>> [1 5 5 4].harmonicMean
@@ -16,6 +16,9 @@ Answer the harmonic mean of the values in _aCollection_.
 
 >>> [1 4 4].harmonicMean
 2
+
+>>> [6 12].harmonicMean
+8
 ```
 
 Harmonic mean of columns of a matrix:

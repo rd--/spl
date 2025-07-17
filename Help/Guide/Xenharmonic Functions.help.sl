@@ -4,13 +4,16 @@ Catalogues:
 
 - `scalaIntervalArchive`
 
-Chromas, Commas amd Limmas:
+Chromas, Commas and Limmas:
 
+- `diaschisma`
+- `diesis`
 - `holdersComma`
 - `mercatorsComma`
 - `pythagoreanChroma`
 - `pythagoreanComma`
 - `pythagoreanLimma`
+- `schisma`
 - `septimalComma`
 - `syntonicComma`
 

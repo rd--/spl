@@ -1,8 +1,8 @@
 # permutationCycles
 
-- _permutationCycles(aPermutation)_
+- _permutationCycles(p)_
 
-Answer a disjoint cycle representation of _aPermutation_.
+Answer a disjoint cycle representation of the permutation _p_.
 
 Cyclic form of a permutation list of length 3:
 

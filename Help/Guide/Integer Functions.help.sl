@@ -106,6 +106,15 @@ Number Theory Predicates:
 - `isSuperabundantNumber`
 - `isWeirdNumber`
 
+Figurate Numbers:
+
+- `hexagonalNumber`
+- `pentagonalNumber`
+- `polygonalNumber`
+- `pyramidalNumber`
+- `tetrahedralNumber`
+- `triangularNumber`
+
 * * *
 
 Guides: Bitwise Functions, Combinatorial Functions, Integer Sequences, Mathematical Functions, Prime Number Functions

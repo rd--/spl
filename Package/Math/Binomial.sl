@@ -99,6 +99,11 @@
 		}
 	}
 
+	hexagonalNumber { :n |
+		let m = 2 * n;
+		(m * (m - 1)) / 2
+	}
+
 	lassalleNumber { :m |
 		let a = List(m, m.one);
 		2.toDo(m) { :n |
@@ -202,8 +207,27 @@
 		}
 	}
 
+	pentagonalNumber { :n |
+		(3 * n.squared - n) / 2
+	}
+
 	polygonalNumber { :n |
 		binomial(n + 1, 2)
+	}
+
+	pyramidalNumber { :r |
+		{ :n |
+			((3 * n.squared) + (n.cubed * (r - 2)) - (n * (r - 5))) / 6
+		}
+	}
+
+	pyramidalNumber { :r :n |
+		let f:/1 = r.pyramidalNumber;
+		n.isCollection.if {
+			n.collect(f:/1)
+		} {
+			f(n)
+		}
 	}
 
 	subfactorial { :self |

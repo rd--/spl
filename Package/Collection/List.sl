@@ -39,6 +39,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		>
 	}
 
+	copyList { :self |
+		self.copy
+	}
+
 	deinterleave { :self :n |
 		/*
 		let k = self.size;

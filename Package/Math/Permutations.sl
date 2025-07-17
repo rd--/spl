@@ -633,13 +633,20 @@ Permutation : [Object] { | cycles degree |
 		self.asPermutation.cycles
 	}
 
+	permutationCycles { :self :deleteUnaryCycles |
+		self.permutationListToPermutationCycles(deleteUnaryCycles)
+	}
+
 	permutationCyclesToCanonicalForm { :self :deleteUnaryCycles |
-		let list = self.permutationCyclesToPermutationList;
-		list.permutationListToPermutationCycles(deleteUnaryCycles)
+		self
+		.permutationCyclesToPermutationList
+		.permutationListToPermutationCycles(deleteUnaryCycles)
 	}
 
 	permutationCyclesToPermutationList { :self |
-		self.permutationCyclesToPermutationList(self.permutationDegree)
+		self.permutationCyclesToPermutationList(
+			self.permutationDegree
+		)
 	}
 
 	permutationCyclesToPermutationList { :self :anInteger |

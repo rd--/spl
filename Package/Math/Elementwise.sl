@@ -234,6 +234,10 @@
 		self.collect(haversine:/1)
 	}
 
+	hexagonalNumber { :self |
+		self.collect(hexagonalNumber:/1)
+	}
+
 	i { :self |
 		self.collect(i:/1)
 	}
@@ -375,6 +379,10 @@
 
 	pi { :self |
 		self.collect(pi:/1)
+	}
+
+	pentagonalNumber { :self |
+		self.collect(pentagonalNumber:/1)
 	}
 
 	powerMod { :self :exponent :modulo |

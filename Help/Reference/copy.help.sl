@@ -1,8 +1,8 @@
 # copy
 
-- _copy(anObject)_
+- _copy(x)_
 
-Answer another object just like _anObject_.
+Answer another object just like the object _x_.
 
 ```
 >>> [1 .. 5].copy

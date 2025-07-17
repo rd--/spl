@@ -16,6 +16,12 @@ The `product` of _aCollection_ raised to the `reciprocal` of its `size`.
 
 >>> 1:4.geometricMean
 2.21336
+
+>>> [1 4].geometricMean
+2
+
+>>> [1 9].geometricMean
+3
 ```
 
 Find the geometric mean for the heights of children in a class.

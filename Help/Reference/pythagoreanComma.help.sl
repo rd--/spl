@@ -1,8 +1,8 @@
 # pythagoreanComma
 
-- _pythagoreanComma(aNumber)_
+- _pythagoreanComma(n)_
 
-Answer the Pythagorean comma raised to _aNumber_.
+Answer the Pythagorean comma raised to _n_.
 
 The Pythagorean, or ditonic, comma is the interval with the ratio 531441/524288.
 

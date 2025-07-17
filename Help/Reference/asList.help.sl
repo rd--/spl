@@ -95,7 +95,7 @@ This should not be defined for scalar values, see _asCollection_.
 
 * * *
 
-See also: List, asCollection
+See also: copy, List, asCollection
 
 References:
 _Mathematica_

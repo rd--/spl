@@ -4,7 +4,7 @@
 
 Answer a `String` naming the interval _aFraction_ according to the Scala interval name database.
 
-Two commas:
+Three commas:
 
 ```
 >>> 81/80.intervalName
@@ -12,6 +12,12 @@ Two commas:
 
 >>> 531441/524288.intervalName
 'Pythagorean comma, ditonic comma'
+
+>>> 2048/2025.intervalName
+'diaschisma'
+
+>>> 32805/32768.intervalName
+'schisma'
 ```
 
 Two fourths:

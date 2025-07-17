@@ -58,6 +58,14 @@ Representation:
 - `permutationCycles`: convert to cyclic representation
 - `permutationList`: convert to permutation list representation
 
+Shuffle Functions:
+
+- `inShuffle`
+- `klondikeShuffle`
+- `mongesShuffle`
+- `outShuffle`
+- `spiralShuffle`
+
 * * *
 
 Guides: Mathematical Functions

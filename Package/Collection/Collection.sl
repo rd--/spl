@@ -185,6 +185,10 @@
 		])
 	}
 
+	copyList { :self |
+		self.asList
+	}
+
 	copyWith { :self :newElement |
 		let answer = self.copy;
 		answer.add(newElement);
