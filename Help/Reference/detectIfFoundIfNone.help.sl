@@ -1,10 +1,10 @@
 # detectIfFoundIfNone
 
-- _detectIfFoundIfNone(aCollection, predicateBlock:/1, foundBlock:/1, exceptionBlock:/0)_
+- _detectIfFoundIfNone(c, predicate:/1, ifFound:/1, ifNone:/0)_
 
-Evaluate _predicateBlock_ with each of the elements of _aCollection_ as the argument.
-Answer the value of _foundBlock_ at the first element for which _predicateBlock_ evaluates to true.
-If there is no such element, evaluate and answer _exceptionBlock_.
+Evaluate _predicate_ with each of the elements of the collection _c_ as the argument.
+Answer the value of _ifFound_ at the first element for which _predicate_ evaluates to `true`.
+If there is no such element, evaluate and answer _ifNone_ block.
 
 ```
 >>> 5:-1:1.detectIfFoundIfNone { :each |

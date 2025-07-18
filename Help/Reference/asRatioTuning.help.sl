@@ -1,6 +1,6 @@
 # asRatioTuning
 
-- _asRatioTuning(aList | aTuning)_
+- _asRatioTuning(x)_
 
 Answer a `RatioTuning` for either a `List` of interval values from a reference pitch,
 or a `ScalaTuning`.

@@ -1,8 +1,8 @@
 # cubeRoot
 
-- _cubeRoot(aNumber)_
+- _cubeRoot(n)_
 
-Answer the real-valued cube root of _aNumber_.
+Answer the real-valued cube root of the number _n_.
 
 `cubeRoot` gives a real root:
 

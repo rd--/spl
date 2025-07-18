@@ -1,8 +1,8 @@
 # asCents
 
-- _asCents(aTuning)_
+- _asCents(t)_
 
-Answer a `List` of the intervals of _aTuning_ in _cents_.
+Answer a `List` of the intervals of the tuning _t_ in _cents_.
 
 At `RatioTuning`:
 

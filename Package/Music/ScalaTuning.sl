@@ -144,6 +144,20 @@ ScalaTuning : [Object, Tuning] { | contents |
 		self.collect(intervalName:/1)
 	}
 
+	tuningName { :self |
+		self.isVector.if {
+			system.scalaRationalTuningArchive.detectIfFoundIfNone { :each |
+				each.asRatios ~ self
+			} { :each |
+				each.name
+			} {
+				'*unnamed tuning*'
+			}
+		} {
+			self.collect(tuningName:/1)
+		}
+	}
+
 }
 
 LibraryItem(

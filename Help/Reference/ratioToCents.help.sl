@@ -22,6 +22,19 @@ The octave is 1200 cents:
 1200
 ```
 
+The equal tempered major fourth,
+and hence tone and semitone:
+
+```
+>>> 2.cubeRoot.ratioToCents
+400
+
+>>> let a = [1 2.cubeRoot].geometricMean;
+>>> let b = [1 a].geometricMean;
+>>> [a b].ratioToCents
+[200 100]
+```
+
 One step in 16-EDO is 75¢:
 
 ```

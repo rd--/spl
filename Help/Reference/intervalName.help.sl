@@ -1,8 +1,8 @@
 # intervalName
 
-- _intervalName(aFraction)_
+- _intervalName(n/d)_
 
-Answer a `String` naming the interval _aFraction_ according to the Scala interval name database.
+Answer a `String` naming the interval ratio _n/d_ according to the Scala interval name database.
 
 Three commas:
 
