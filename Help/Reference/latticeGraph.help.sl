@@ -140,6 +140,20 @@ let n = [1 3 5 7 11 13];
 
 ![](sw/spl/Help/Image/latticeGraph-G.svg)
 
+Lattice graph of regular numbers within the octave double _(360,720)_:
+
+~~~svg=H
+let n = 6.!;
+(n / 2 .. n).select { :x |
+	x.isSmoothNumber(5)
+}.allButLast
+.Fraction(360)
+.asRatioTuning
+.latticeGraph
+~~~
+
+![](sw/spl/Help/Image/latticeGraph-H.svg)
+
 _Rationale_:
 While the unary case is useful for drawing simple examples,
 it is more usual to calculate the required primes vector.

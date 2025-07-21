@@ -8,6 +8,7 @@ Parse Numbers:
 - `parseFraction`
 - `parseLargeInteger`
 - `parseNumber`
+- `parseSexagesimal`
 - `parseSmallInteger`
 
 Parse Binary Data:

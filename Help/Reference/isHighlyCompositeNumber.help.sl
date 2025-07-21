@@ -4,13 +4,24 @@
 
 Determine if the integer _n_ is a highly composite number.
 
-Test whether a number is composite:
+The first few highly composite numbers:
 
 ```
->>> 1:180.select(
+>>> 1:240.select(
 >>> 	isHighlyCompositeNumber:/1
 >>> )
-[1 2 4 6 12 24 36 48 60 120 180]
+[
+	  1   2   4   6  12
+	 24  36  48  60 120
+	180 240
+]
+```
+
+Seven factorial is the nineteenth highly composite number:
+
+```
+>>> 5040.isHighlyCompositeNumber
+true
 ```
 
 * * *

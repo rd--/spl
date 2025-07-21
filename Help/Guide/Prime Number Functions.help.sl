@@ -36,6 +36,7 @@ Factors:
 Counting:
 
 - `primePi`
+- `primorial`
 
 Gap:
 

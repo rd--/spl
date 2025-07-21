@@ -25,6 +25,9 @@ which is also a `String`.
 
 >>> 'a///b'.splitBy('/')
 ['a' '' '' 'b']
+
+>>> ''.splitBy(',')
+['']
 ```
 
 The inverse is `stringJoin`:

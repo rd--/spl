@@ -1,8 +1,8 @@
 # primeExponents
 
-- _primeExponents(anInteger)_
+- _primeExponents(n)_
 
-Prime exponents in the factorization of `anInteger`.
+Prime exponents in the factorization of the integer _n_.
 
 An exponent of `zero` means that the corresponding prime is not a factor of `anInteger`.
 

@@ -1,12 +1,17 @@
 # synodicMonths
 
-- _synodicMonths(aNumber | aDuration)_
+- _synodicMonths(x)_
 
 The synodic month is the average period of the Moon’s orbit with respect to the line joining the Sun and Earth
+
+At `SmallFloat` answer a `Quantity`:
 
 ```
 >>> 1.synodicMonths
 29.days + 12.hours + 44.minutes + 2.9.seconds
+
+>>> 1.synodicMonths
+Quantity(2551442.976, 'seconds')
 ```
 
 * * *

@@ -1,6 +1,6 @@
 # parseSmallInteger
 
-- _parseSmallInteger(aString, radix)_
+- _parseSmallInteger(aString, radix=10)_
 - _parseSmallInteger(aString, radix, elseClause:/0)_
 
 Answer the `SmallFloat` of the integer indicated by _aString_ which must be in _radix_ notation.

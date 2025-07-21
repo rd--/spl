@@ -58,6 +58,9 @@ At `Integer`:
 Negative powers:
 
 ```
+>>> -1.divisorSigma(12)
+7/3
+
 >>> -2.divisorSigma(10)
 (13 / 10)
 ```

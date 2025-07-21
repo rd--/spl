@@ -255,7 +255,11 @@
 
 	divisorSigma { :k :n |
 		n.isNumber.if {
-			(n.divisors ^ k).sum
+			(k = 0).if {
+				(n.factorInteger.values + 1).product
+			} {
+				(n.divisors ^ k).sum
+			}
 		} {
 			n.adaptToNumberAndApply(k, divisorSigma:/2)
 		}

@@ -1,12 +1,15 @@
 # / (solidus)
 
-- _aNumber / anotherNumber_
-- _aNumber./_
+- _x / y_
+- _x./_
 
-The binary form answers _aNumber_ divided by _anotherNumber_.
+The binary form answers the number _x_ divided by the number _y_.
 
 ```
 >>> 77 / 11
+7
+
+>>> 77 * (11 ^ -1)
 7
 
 >>> 2 / 4
@@ -50,6 +53,14 @@ At `LargeInteger` answers a `Fraction`:
 (2/3, true)
 ```
 
+At `SmallFloat` answers a `SmallFloat`,
+to answer a `Fraction` divide by a fraction literal:
+
+```
+>>> [1 2 3] / 4/1
+[1/4 1/2 3/4]
+```
+
 The unary form is `reciprocal`:
 
 ```
@@ -58,6 +69,9 @@ The unary form is `reciprocal`:
 
 >>> [2 4 8]./
 [0.5 0.25 0.125]
+
+>>> 77 * 11./
+7
 ```
 
 Where supported `/` is displayed as ÷.

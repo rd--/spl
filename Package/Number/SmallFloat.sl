@@ -822,6 +822,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	parseSexagesimal { :self |
+		let [a, b] = self.splitBy(';');
+		let [p, q] = [a, b].collect { :each |
+			each.splitBy(',').collect(parseDecimalInteger:/1)
+		};
+		let [m, n] = [p, q].collect(size:/1);
+		(p * (60 ^ (m - 1 .. 0))).sum + (q / (60 ^ 1:n)).sum
+	}
+
 	parseSmallInteger { :self :radix :elseClause:/0 |
 		radix.isSmallInteger.if {
 			(

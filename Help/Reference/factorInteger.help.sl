@@ -168,6 +168,16 @@ At zero and negative one and one:
 [-1 -> 1]
 ```
 
+Calculate number of divisors:
+
+```
+>>> (24.factorInteger.values + 1).product
+8
+
+>>> 0.divisorSigma(24)
+8
+```
+
 Plot the number of distinct prime factors of the first 100 numbers:
 
 ~~~spl svg=A

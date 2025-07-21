@@ -647,6 +647,20 @@
 		}
 	}
 
+	isColossallyAbundantNumber { :n |
+		(n > 224403121196654400).if {
+			n.error('isColossallyAbundantNumber: domain error')
+		} {
+			[
+				2, 6, 12, 60, 120,
+				360, 2520, 5040, 55440, 720720,
+				1441440, 4324320, 21621600, 367567200, 6983776800,
+				160626866400, 321253732800, 9316358251200, 288807105787200, 2021649740510400,
+				6064949221531200, 224403121196654400
+			].includes(n)
+		}
+	}
+
 	isDeficientNumber { :n |
 		n.divisors.sum < (2 * n)
 	}
@@ -665,9 +679,9 @@
 	}
 
 	isHighlyCompositeNumber { :self |
-		let n = self.divisors.size;
+		let n = 0.divisorSigma(self);
 		1.to(self - 1).allSatisfy { :each |
-			n > each.divisors.size
+			n > 0.divisorSigma(each)
 		}
 	}
 
@@ -747,6 +761,10 @@
 		isPythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
 	}
 
+	isRegularNumber { :self |
+		self.primeLimit <= 5
+	}
+
 	isRoughNumber { :self :k |
 		self.primeFactors.allSatisfy { :each |
 			each >= k
@@ -772,6 +790,20 @@
 		1.to(n - 1).allSatisfy { :k |
 			let y = k.divisors.sum / k;
 			x > y
+		}
+	}
+
+	isSuperiorHighlyCompositeNumber { :n |
+		(n > 6064949221531200).if {
+			n.error('isSuperiorHighlyCompositeNumber: domain error')
+		} {
+			[
+				2, 6, 12, 60, 120,
+				360, 2520, 5040, 55440, 720720,
+				1441440, 4324320, 21621600, 367567200, 6983776800,
+				13967553600, 321253732800, 2248776129600, 65214507758400, 195643523275200,
+				6064949221531200
+			].includes(n)
 		}
 	}
 

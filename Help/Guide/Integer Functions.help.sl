@@ -99,6 +99,7 @@ Number Theory Predicates:
 - `isPrimitiveAbundantNumber`
 - `isPronicNumber`
 - `isPseudoperfectNumber`
+- `isRegularNumber`
 - `isRoughNumber`
 - `isSemiprime`
 - `isSmoothNumber`

@@ -102,6 +102,11 @@ Metric Functions:
 - `barlowIndispensability`: indispensability
 - `kurenniemiMajorMinorIndex`: quality
 
+Naming Function:
+
+- `namedTuning`
+- `tuningName`
+
 Notation Functions:
 
 - `kurenniemiNotation`: draw chord
