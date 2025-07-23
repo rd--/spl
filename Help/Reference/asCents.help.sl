@@ -31,4 +31,6 @@ At `CentsTuning`:
 
 See also: asIntegers, asRatios, CentsTuning, equalTemperamentTuning, ratioToCents, RatioTuning, ScalaTuning, Tuning
 
+Guides: Tuning Functions
+
 Categories: Converting

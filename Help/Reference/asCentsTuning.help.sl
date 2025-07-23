@@ -1,9 +1,9 @@
 # asCentsTuning
 
-- _asCentsTuning(aList | aTuning)_
+- _asCentsTuning(t)_
 
 Answer a `CentsTuning` given either a `List` of intervals in _cents_,
-or a `Record` holding a Scala tuning description.
+or a `ScalaTuning` value.
 
 ```
 >>> let c = [0 .. 11] * 100;

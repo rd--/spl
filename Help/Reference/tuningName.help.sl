@@ -35,6 +35,11 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> .Fraction(360)
 >>> .tuningName
 'kornerup_11'
+
+>>> 26.fibonacciSequence
+>>> .octaveReduced
+>>> .nub.sort.tuningName
+'burt_fibo23'
 ```
 
 To lookup a tuning by name see `namedTuning`:

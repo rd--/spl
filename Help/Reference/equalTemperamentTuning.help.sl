@@ -59,3 +59,5 @@ Seven tone equal temperament:
 * * *
 
 See also: asCents, asRatios, CentsTuning, description, isCentsTuning, isTuning, name, Tuning
+
+Guides: Tuning Functions
