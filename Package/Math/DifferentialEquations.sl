@@ -44,6 +44,29 @@
 		}
 	}
 
+	doublePendulumEquation { :g :l :m |
+		let [l1, l2] = l;
+		let [m1, m2] = m;
+		{ :t :v |
+			let [theta1, omega1, theta2, omega2] = v;
+			let a = (0 - g) * ((2 * m1) + m2) * sin(theta1);
+			let b = m2 * g * sin(theta1 - (2 * theta2));
+			let c = 2 * sin(theta1 - theta2) * m2;
+			let d = ((omega2 ^ 2) * l2) + ((omega1 ^ 2) * l1 * cos(theta1 - theta2));
+			let e = l1 * ((2 * m1) + m2 - ((m2 * cos((2 * theta1)) - (2 * theta2))));
+			let f = (omega1 ^ 2) * l1 * (m1 + m2);
+			let h = (g * (m1 + m2) * cos(theta1)) + ((omega2 ^ 2) * l2 * m2 * cos(theta1 - theta2));
+			let i = 2 * sin(theta1 - theta2) * (f + h);
+			let j = l2 * ((2 * m1) + m2 - (m2 * cos((2 * theta1) - (2 * theta2))));
+			[
+				omega1,
+				(a - b - (c * d)) / e,
+				omega2,
+				i / j
+			]
+		}
+	}
+
 	duffingEquation { :gamma :delta :omega |
 		{ :t :v |
 			let [x, y] = v;

@@ -4,6 +4,7 @@ Ordinary Differential Equations:
 
 - `coulletEquation`
 - `dequanLiEquation`
+- `doublePendulumEquation`
 - `duffingEquation`
 - `henonHeilesEquation`
 - `lorenzEquation`
