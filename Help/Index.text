@@ -1018,6 +1018,7 @@ Reference/dot.help.sl
 Reference/dotLayout.help.sl
 Reference/dotProduct.help.sl
 Reference/doubleFactorial.help.sl
+Reference/doublePendulumEquation.help.sl
 Reference/DoubleQuotedString.help.sl
 Reference/doWhileFalse.help.sl
 Reference/doWhileTrue.help.sl
@@ -1146,6 +1147,7 @@ Reference/fareySequence.help.sl
 Reference/fastWalshHadamardTransform.help.sl
 Reference/FbSineC.help.sl
 Reference/FeedforwardFeedbackward.help.sl
+Reference/feigenbaumConstant.help.sl
 Reference/fejerKernel.help.sl
 Reference/fetchBlob.help.sl
 Reference/fetchByteArray.help.sl
@@ -1588,6 +1590,7 @@ Reference/isCloseToBy.help.sl
 Reference/isCloseTo.help.sl
 Reference/isCodeFence.help.sl
 Reference/isCollection.help.sl
+Reference/isColossallyAbundantNumber.help.sl
 Reference/isColumnVector.help.sl
 Reference/isComplex.help.sl
 Reference/isComplexString.help.sl
@@ -1704,6 +1707,7 @@ Reference/isRational.help.sl
 Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
 Reference/isRegularlySpaced.help.sl
+Reference/isRegularNumber.help.sl
 Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
@@ -1735,6 +1739,7 @@ Reference/isString.help.sl
 Reference/isStrongPrime.help.sl
 Reference/isSubsetOf.help.sl
 Reference/isSuperabundantNumber.help.sl
+Reference/isSuperiorHighlyCompositeNumber.help.sl
 Reference/isSuperparticular.help.sl
 Reference/isSuperpartient.help.sl
 Reference/isSymmetricMatrix.help.sl
@@ -2343,6 +2348,7 @@ Reference/parseRgbColour.help.sl
 Reference/parseRgbTriplet.help.sl
 Reference/parseSchemaType.help.sl
 Reference/parseScientificNotation.help.sl
+Reference/parseSexagesimal.help.sl
 Reference/parseSmallInteger.help.sl
 Reference/parseSvg.help.sl
 Reference/parseTime.help.sl
@@ -2516,6 +2522,7 @@ Reference/primesListWheelSieve.help.sl
 Reference/primesUpToDo.help.sl
 Reference/primesUpTo.help.sl
 Reference/primitiveLoadPackageSequence.help.sl
+Reference/primorial.help.sl
 Reference/printString.help.sl
 Reference/printStringHex.help.sl
 Reference/printStringLimitedTo.help.sl
@@ -2813,6 +2820,7 @@ Reference/ScSynth.help.sl
 Reference/ScUgen.help.sl
 Reference/search.help.sl
 Reference/secant.help.sl
+Reference/secondFeigenbaumConstant.help.sl
 Reference/second.help.sl
 Reference/seconds.help.sl
 Reference/seedRandom.help.sl
@@ -3185,6 +3193,7 @@ Reference/tschirnhausenCubic.help.sl
 Reference/tukeyWindow.help.sl
 Reference/Tuning.help.sl
 Reference/tuningIndices.help.sl
+Reference/tuningName.help.sl
 Reference/tuningSize.help.sl
 Reference/Tuple.help.sl
 Reference/tuplesArray.help.sl

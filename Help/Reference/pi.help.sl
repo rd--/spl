@@ -42,6 +42,28 @@ which can be confusing if one is not aware of the distinction between _x / y_ an
 0.15915
 ```
 
+Approximations of π:
+
+```
+>>> [3 7].fromContinuedFraction
+22/7
+
+>>> let x = 22/7;
+>>> (x - 1.pi) / 1.pi * 100
+0.040250
+
+>>> 3 + (1 / (7 + (1 / (15 + 1/1))))
+355/113
+
+>>> let x = 355/113;
+>>> (x - 1.pi) / 1.pi * 100
+0.000009
+
+>>> let x = 9801 / (2206 * 2.sqrt);
+>>> (x - 1.pi) / 1.pi * 100
+0.000002
+```
+
 `pi` is not defined as a constant, unlike `Infinity` and `NaN`.
 
 Where supported `pi` is displayed as π.
@@ -61,6 +83,7 @@ _Smalltalk_
 5.6.8.10,
 _W_
 [1](https://en.wikipedia.org/wiki/Pi)
+[2](https://en.wikipedia.org/wiki/Approximations_of_%CF%80)
 
 Unicode: U+03C0 π Greek Small Letter Pi
 

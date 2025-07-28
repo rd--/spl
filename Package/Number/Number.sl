@@ -1173,6 +1173,10 @@
 		self * 0.577215664901532860606512090082402431042
 	}
 
+	feigenbaumConstant { :self |
+		self * 4.669201609102990671853203820466201617258
+	}
+
 	fineStructureConstant { :self |
 		self * 0.0072973525643
 	}
@@ -1248,6 +1252,10 @@
 
 	pythagorasConstant { :self |
 		self * 1.4142135623730950488
+	}
+
+	secondFeigenbaumConstant { :self |
+		self * 2.502907875095892822283902873218215786381
 	}
 
 	silverConstant { :self |

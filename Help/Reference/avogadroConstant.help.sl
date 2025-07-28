@@ -1,8 +1,8 @@
 # avogadroConstant
 
-- _avogadroConstant(aNumber)_
+- _avogadroConstant(n)_
 
-Answer _aNumber_ times the Avogadro constant,
+Answer _n_ times the Avogadro constant,
 the number of constituent particles in one mole,
 approximately equal to _6.02E23_.
 

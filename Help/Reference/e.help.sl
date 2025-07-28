@@ -35,7 +35,8 @@ Answer _n_ times `e`.
 [1.35914, 4.07742]
 ```
 
-_e_ raised to _iπ_ plus `one` is `zero`:
+_e_ raised to _iπ_ plus `one` is `zero`,
+Euler’s formula:
 
 ```
 >>> 1.e ^ (1.pi * 0J1) + 1
@@ -61,6 +62,18 @@ The binary form likewise threads over lists:
 ```
 >>> [0 0.1 0.2 0.3 0.4 0.5 0.75 1.0].e(2)
 [0 10 20 30 40 50 75 100]
+```
+
+Expressions that approach _e_:
+
+```
+>>> let n = 1E4;
+>>> (1 + (1 / n)) ^ n
+1.e
+
+>>> let n = 10;
+>>> (1 / [0 .. n].!).sum
+1.e
 ```
 
 _e_ is also a part of the `Scientific Notation` for `Number Literals`,

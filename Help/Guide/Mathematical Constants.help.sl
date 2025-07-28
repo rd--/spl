@@ -1,6 +1,6 @@
 # Mathematical Constants
 
-- `aperysConstant`: Apéry
+- `aperysConstant`: ζ(3)
 - `arcMinute`: 1/60 of a degree
 - `arcSecond`: 1/60² of a degree
 - `avogadroConstant`: Avogadro _k_
@@ -12,6 +12,7 @@
 - `e`: Euler’s number
 - `epsilon`: epsilon
 - `eulerGamma`: Euler’s _k_
+- `feigenbaumConstant`: δ
 - `gausssConstant`: Gauss’s _k_
 - `goldenAngle`: golden angle
 - `goldenRatio`: φ
@@ -25,6 +26,7 @@
 - `pi`: circumference diameter ratio
 - `plasticRatio`: plastic ratio
 - `pythagorasConstant`: Pythagoras’ _k_
+- `secondFeigenbaumConstant`: α
 - `silverConstant`: silver _k_
 - `silverRatio`: silver ratio
 - `smallFloatEpsilon`: `SmallFloat` ε

@@ -3,6 +3,7 @@
 - _aperysConstant(n)_
 
 Apéry’s constant,
+ζ(3),
 the infinite sum of the reciprocals of the positive integers, cubed.
 
 ```

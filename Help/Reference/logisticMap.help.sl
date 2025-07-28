@@ -84,6 +84,20 @@ logisticMap(3.741)
 
 ![](sw/spl/Help/Image/logisticMap-H.svg)
 
+Sparse plot of a fragment of the bifurcation diagram:
+
+~~~spl svg=I
+(3.55 -- 3.7).discretize(25) { :r |
+	r.logisticMap
+	.nestList(0.5, 11)
+	.collect { :y |
+		[r, y]
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/logisticMap-I.svg)
+
 * * *
 
 See also: henonMap
