@@ -49,6 +49,18 @@ Rational number as `Fraction`:
 Quadratic irrational (recurring continued fraction):
 
 ```
+>>> 3.sqrt.continuedFraction(5)
+[1 1 2 1 2]
+
+>>> 5.sqrt.continuedFraction(3)
+[2 4 4]
+
+>>> 6.sqrt.continuedFraction(5)
+[2 2 4 2 4]
+
+>>> 7.sqrt.continuedFraction(9)
+[2 1 1 1 4 1 1 1 4]
+
 >>> 13.sqrt.continuedFraction(16)
 [3 1 1 1 1 6 1 1 1 1 6 1 1 1 1 6]
 ```
@@ -77,6 +89,10 @@ The continued fraction of the `goldenRatio` is uniformly one:
 ```
 >>> 1.goldenRatio.continuedFraction(9)
 [1 1 1 1 1 1 1 1 1]
+
+>>> (5.sqrt / 1.goldenRatio)
+>>> .continuedFraction(9)
+[1 2 1 1 1 1 1 1 1]
 ```
 
 The continued fractions of integer square roots:

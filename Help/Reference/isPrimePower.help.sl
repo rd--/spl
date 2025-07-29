@@ -1,8 +1,8 @@
 # isPrimePower
 
-- _isPrimePower(aNumber)_
+- _isPrimePower(n)_
 
-Answers `true` if _aNumber_ is an integer power of a prime number, else false.
+Answers `true` if the number _n_ is an integer power of a prime number, else false.
 
 Test whether a number is a prime power:
 
@@ -46,7 +46,9 @@ The first few prime powers that are not prime:
 
 ```
 >>> 1:99.select { :each |
->>> 	each.isPrimePower & { each.isPrime.not }
+>>> 	each.isPrimePower & {
+>>> 		each.isPrime.not
+>>> 	}
 >>> }
 [4 8 9 16 25 27 32 49 64 81]
 ```
@@ -55,9 +57,13 @@ Recognize Mersenne numbers, integers that have the form _2^n - 1_:
 
 ```
 >>> let isMersenneNumber = { :n |
->>> 	(n + 1).isEven & { (n + 1).isPrimePower }
+>>> 	(n + 1).isEven & {
+>>> 		(n + 1).isPrimePower
+>>> 	}
 >>> };
->>> [524285, 2147483647].collect(isMersenneNumber:/1)
+>>> [524285, 2147483647].collect(
+>>> 	isMersenneNumber:/1
+>>> )
 [false true]
 ```
 
@@ -66,7 +72,9 @@ The number of prime powers in intervals of size 1000:
 ```
 >>> 0:4.collect { :each |
 >>> 	let i = 10 ^ each;
->>> 	(i  .. i + 999).select(isPrimePower:/1).size
+>>> 	(i  .. i + 999).select(
+>>> 		isPrimePower:/1
+>>> 	).size
 >>> }
 [193 187 175 140 108]
 ```
@@ -75,7 +83,41 @@ Threads over lists:
 
 ```
 >>> 1:9.isPrimePower
-[false true true true true false true true true]
+[
+	false true true true true
+	false true true true
+]
+```
+
+Prime powers are divisible by exactly one prime number:
+
+```
+>>> 625.isPrimePower
+true
+
+>>> 625.divisors.select(isPrime:/1)
+[5]
+```
+
+Use `primeNu` to count the number of distinct divisors,
+if `primeNu` answers `one`, the number is a prime power:
+
+```
+>>> 25.primeNu
+1
+
+>>> 25.isPrimePower
+true
+```
+
+`primeOmega` gives the exponent for a prime power:
+
+```
+>>> (7 ^ 5).isPrimePower
+true
+
+>>> (7 ^ 5).primeOmega
+5
 ```
 
 * * *
@@ -89,6 +131,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PrimePower.html)
 [2](https://reference.wolfram.com/language/ref/PrimePowerQ.html),
 _OEIS_
-[1](https://oeis.org/A246655)
+[1](https://oeis.org/A246655),
+_W_
+[1](https://en.wikipedia.org/wiki/Prime_power)
 
 Categories: Testing

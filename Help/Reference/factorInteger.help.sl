@@ -17,6 +17,9 @@ Answer the `List` of prime factors of _n_, each associated with its exponent.
 >>> (2 ^ 3) * 3 * 5
 120
 
+>>> 7.!.factorInteger
+[2 -> 4, 3 -> 2, 5 -> 1, 7 -> 1]
+
 >>> 20.!.factorInteger
 [
 	2 -> 18,

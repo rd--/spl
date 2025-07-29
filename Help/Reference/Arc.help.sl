@@ -67,6 +67,20 @@ let c = circlePoints(12, [0 0], 1, 0);
 
 ![](sw/spl/Help/Image/Arc-C.svg)
 
+13th-century fifth-point arch shape,
+according to Branner’s 1960 interpretation of the 13th-century Picard artist Villard de Honnecourt:
+
+~~~spl svg=D
+let n = 2 * 6.sqrt;
+[
+	Arc([5 0], [5 5], [1/2.pi 1.pi]),
+	Arc([3 0], [5 5], [0 1/2.pi]),
+	Line([4 0; 4 n])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Arc-D.svg)
+
 * * *
 
 See also: Circle, Ellipse, LineDrawing, Polygon, Rectangle, Triangle

@@ -45,6 +45,9 @@ The binary form answers the base _b_ logarithm of the number _z_.
 >>> 1024.log(2)
 10
 
+>>> 279936.log(6)
+7
+
 >>> (3 ^ -12).log(3)
 -12
 

@@ -1,8 +1,8 @@
 # primeOmega
 
-- _primeOmega(anInteger)_
+- _primeOmega(n)_
 
-Answer the number of prime factors counting multiplicities in _anInteger_.
+Answer the number of prime factors counting multiplicities in the integer _n_.
 
 ```
 >>> 12.primeOmega

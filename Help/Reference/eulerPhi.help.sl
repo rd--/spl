@@ -62,6 +62,24 @@ the totient of _n_ is equal to the `product` of the totients of each factor of _
 (3.eulerPhi * 11.eulerPhi * 31.eulerPhi)
 ```
 
+Sequence of _φ(φ(n))_:
+
+```
+>>> 1:72.collect { :n |
+>>> 	n.eulerPhi.eulerPhi
+>>> }
+[
+	 1  1  1  1  2  1  2  2  2  2
+	 4  2  4  2  4  4  8  2  6  4
+	 4  4 10  4  8  4  6  4 12  4
+	 8  8  8  8  8  4 12  6  8  8
+	16  4 12  8  8 10 22  8 12  8
+	16  8 24  6 16  8 12 12 28  8
+	16  8 12 16 16  8 20 16 20  8
+	24  8
+]
+```
+
 Plot the sequence:
 
 ~~~spl svg=A
@@ -142,5 +160,10 @@ _OEIS_
 [1](https://oeis.org/A000010)
 [2](https://oeis.org/A002088)
 [3](https://oeis.org/A018804)
+[4](https://oeis.org/A010554),
+_W_
+[1](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
+
+Unicode: U+03C6 φ Greek Small Letter Phi
 
 Categories: Math

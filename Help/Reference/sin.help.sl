@@ -13,6 +13,9 @@ Answers the sin of _z_.
 
 >>> 60.degree.sin
 3.sqrt / 2
+
+>>> 18.degree.sin
+1 / (5.sqrt + 1)
 ```
 
 Prefix notation:

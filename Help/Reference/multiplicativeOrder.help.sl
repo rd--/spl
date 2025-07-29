@@ -145,4 +145,6 @@ See also: %, eulerPhi, powerMod
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DiscreteLogarithm.html)
-[2](https://reference.wolfram.com/language/ref/MultiplicativeOrder.html?view=all)
+[2](https://reference.wolfram.com/language/ref/MultiplicativeOrder.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Multiplicative_order)

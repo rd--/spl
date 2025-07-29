@@ -1,8 +1,8 @@
 # silverRatio
 
-- _silverRatio(aNumber)_
+- _silverRatio(n)_
 
-Answer _aNumber_ × the silver ratio, _√2 + 1_, usually written as δs or λ or σ.
+Answer _n_ × the silver ratio, _√2 + 1_, usually written as δs or λ or σ.
 
 ```
 >>> 1.silverRatio
@@ -37,9 +37,16 @@ As a continued fraction:
 (2 # 20)
 ```
 
+The silver ratio is the limiting ratio of consecutive Pell numbers:
+
+```
+>>> 19.pellNumber / 18.pellNumber
+1.silverRatio
+```
+
 * * *
 
-See also: e, metallicMean, pi, plasticRatio, supersilverRatio
+See also: e, metallicMean, pellNumbers, pi, plasticRatio, supersilverRatio
 
 Guides: Integer Sequences, Mathematical Constants
 

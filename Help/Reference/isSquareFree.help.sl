@@ -22,11 +22,15 @@ false
 false
 ```
 
-The number 1 is by convention taken to be squarefree:
+The number `one` is by convention taken to be squarefree,
+`zero` is not:
 
 ```
 >>> 1.isSquareFree
 true
+
+>>> 0.isSquareFree
+false
 ```
 
 The first few squarefree numbers are after `one`:
@@ -52,6 +56,47 @@ The first few squareful numbers are:
 ]
 ```
 
+A number that is divisible by a square is not square free:
+
+```
+>>> 12.divisible(4)
+true
+
+>>> 12.isSquareFree
+false
+```
+
+In the prime factorization of a square-free number, the exponents of primes are all 1:
+
+```
+>>> 210.isSquareFree
+true
+
+>>> 210.factorInteger
+[2 -> 1, 3 -> 1, 5 -> 1, 7 -> 1]
+```
+
+`primeNu` is equal to `primeOmega` for square-free numbers:
+
+```
+>>> 14.isSquareFree
+true
+
+>>> 14.primeNu = 14.primeOmega
+0
+```
+
+`moebiusMu` is zero for non-square-free integers:
+
+
+```
+>>> 12.isSquareFree
+false
+
+>>> 12.moebiusMu
+0
+```
+
 Plot the first few squarefree numbers:
 
 ~~~spl svg=A
@@ -72,7 +117,7 @@ Plot the first few squareful numbers:
 
 * * *
 
-See also: isPerfectSquare, isPowerfulNumber
+See also: factorInteger, factor, isDuplicateFree, isPerfectSquare, isPowerfulNumber, isPrime, isPrimePower, moebiusMu, primeOmega, primeNu
 
 Guides: Integer Functions
 
@@ -80,6 +125,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Squarefree.html)
 [2](https://mathworld.wolfram.com/Squareful.html)
-[3](https://reference.wolfram.com/language/ref/SquareFreeQ.html)
+[3](https://reference.wolfram.com/language/ref/SquareFreeQ.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Square-free_integer)
 
 Categories: Testing, Math

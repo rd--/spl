@@ -1,8 +1,8 @@
 # isDuplicateFree
 
-- _isDuplicateFree(aCollection, aBlock:/2)_
+- _isDuplicateFree(c, f:/2)_
 
-Answer `true` if _aCollection_ has no duplicates according to _aBlock_, and `false` otherwise.
+Answer `true` if the collection _c_ has no duplicates according to the block _f_, and `false` otherwise.
 
 Determine whether or not a list has duplicated elements:
 

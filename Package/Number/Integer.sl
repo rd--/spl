@@ -782,7 +782,11 @@
 	}
 
 	isSquareFree { :self |
-		self.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
+		self.isZero.if {
+			false
+		} {
+			self.abs.divisors.allButFirst.noneSatisfy(isPerfectSquare:/1)
+		}
 	}
 
 	isSuperabundantNumber { :n |

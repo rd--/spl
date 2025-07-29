@@ -28,7 +28,7 @@
 - `pythagorasConstant`: Pythagoras’ _k_
 - `secondFeigenbaumConstant`: α
 - `silverConstant`: silver _k_
-- `silverRatio`: silver ratio
+- `silverRatio`: δs
 - `smallFloatEpsilon`: `SmallFloat` ε
 - `stolarskyHarborthConstant`: Stolarsky-Harborth _k_
 - `supergoldenRatio`: supergolden ratio

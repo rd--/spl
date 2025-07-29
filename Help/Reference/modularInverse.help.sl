@@ -12,39 +12,81 @@ Compute using integers:
 >>> 3.modularInverse(5)
 2
 
+>>> (3 * 2) % 5
+1
+
 >>> 3.modularInverse(7)
 5
+
+>>> (3 * 5) % 7
+1
 
 >>> 11.modularInverse(8)
 3
 
+>>> (11 * 3) % 8
+1
+
 >>> 7.modularInverse(31)
 9
 
->>> -5.modularInverse(7)
-4
+>>> (7 * 9) % 31
+1
 
 >>> 42.modularInverse(2017)
 1969
 
->>> 40.modularInverse(1)
-0
-
->>> 52.modularInverse(-217)
-96
-
->>> -486.modularInverse(217)
-121
-
->>> 111.modularInverse(10)
+>>> (42 * 1969) % 2017
 1
 
 >>> 38.modularInverse(97)
 23
 
+>>> (38 * 23) % 97
+1
+
+>>> 111.modularInverse(10)
+1
+
+>>> (111 * 1) % 10
+1
+```
+
+At large integers:
+
+```
 >>> 147198853397
 >>> .modularInverse(73599183960)
 43827926933
+
+>>> (147198853397L * 43827926933L) % 73599183960L
+1L
+```
+
+At negative numbers:
+
+```
+>>> -5.modularInverse(7)
+4
+
+>>> (-5 * 4) % 7
+1
+
+>>> -486.modularInverse(217)
+121
+
+>>> (-486 * 121) % 217
+1
+```
+
+At modulus `one`:
+
+```
+>>> 40.modularInverse(1)
+0
+
+>>> (40 * 0) % 1
+0
 ```
 
 `modularInverse` is a periodic function:
@@ -63,8 +105,20 @@ If the results would be negative it is added to _n_:
 >>> 5.modularInverse(7)
 3
 
+>>> (5 * 3) % 7
+1
+
 >>> 5.modularInverse(-7)
 (-4 + 7)
+
+>>> (5 * 3) % -7
+1 + -7
+
+>>> 52.modularInverse(-217)
+96
+
+>>> (52 * 96) % -217
+1 + -217
 ```
 
 If _k_ and _n_ are coprime, then _k_ is invertible modulo _n_ :
@@ -137,3 +191,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ModularInverse.html)
 [2](https://reference.wolfram.com/language/ref/ModularInverse.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Modular_multiplicative_inverse)

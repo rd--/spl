@@ -23,6 +23,9 @@ The golden ratio is the `metallicMean` of `one`:
 ```
 >>> 1.metallicMean
 1.61803
+
+>>> [1 5.sqrt].mean
+1.goldenRatio
 ```
 
 φ is the number whose inversion is itself minus `one`:
@@ -174,8 +177,6 @@ See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasti
 
 Guides: Mathematical Constants, Xenharmonic Functions
 
-Unicode: U+03C6 φ Greek Small Letter Phi
-
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
@@ -185,5 +186,7 @@ _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Acoustic_phi)
+
+Unicode: U+03C6 φ Greek Small Letter Phi
 
 Categories: Math, Constant

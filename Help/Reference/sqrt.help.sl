@@ -11,11 +11,30 @@ Pythagoras’ constant:
 1.41421
 ```
 
-Particular values:
+Theodorus’ constant
 
 ```
 >>> 3.sqrt
 1.73205
+
+>>> 265/153
+3.sqrt
+
+>>> 1351/780
+3.sqrt
+```
+
+Particular values:
+
+```
+>>> 5.sqrt
+2.23607
+
+>>> 161/72
+5.sqrt
+
+>>> 6.sqrt
+2.44949
 
 >>> 7.sqrt
 2.64575
