@@ -1,6 +1,6 @@
 # CalendarDuration
 
-- _CalendarDuration([Y, M, D, h, m, s])_
+- _CalendarDuration([Y M D h m s])_
 
 A `Type` to represent an interval of time specified as a list _(years, months, days, hours, minutes, seconds)_.
 The duration represented is relative, not absolute.
@@ -8,7 +8,8 @@ The duration represented is relative, not absolute.
 Ninety seconds:
 
 ```
->>> CalendarDuration([0000 00 00 00 01 30])
+>>> [0000 00 00 00 01 30]
+>>> .CalendarDuration
 >>> .durationString
 'P0Y0M0DT0H1M30S'
 ```
@@ -16,7 +17,8 @@ Ninety seconds:
 Seventeen days, five hours, eleven minutes and seventeen seconds:
 
 ```
->>> CalendarDuration([0000 00 17 05 11 17])
+>>> [0000 00 17 05 11 17]
+>>> .CalendarDuration
 >>> .durationString
 'P0Y0M17DT5H11M17S'
 ```
@@ -34,7 +36,8 @@ CalendarDuration([0 0 25 0 0 0])
 A `CalendarDuration` can be formatted as ISO-8601 using `durationString`:
 
 ```
->>> CalendarDuration([0000 00 25 00 00 00])
+>>> [0000 00 25 00 00 00]
+>>> .CalendarDuration
 >>> .durationString
 'P0Y0M25DT0H0M0S'
 ```

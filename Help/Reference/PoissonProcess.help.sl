@@ -44,6 +44,8 @@ let r = Sfc32(890133);
 
 See also: BinomialProcess, PoissonDistribution, ExponentialDistribution
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PoissonProcess.html),

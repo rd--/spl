@@ -31,6 +31,8 @@ BinomialProcess(2 / 5)
 
 See also: BernoulliProcess, BinomialDistribution, GeometricDistribution, PoissonProcess, randomFunction
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BinomialProcess.html),

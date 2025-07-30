@@ -45,6 +45,8 @@ Sfc32(317892)
 
 See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess
 
+Guides: Random Processes
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Milstein_method)

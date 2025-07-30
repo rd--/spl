@@ -14,6 +14,9 @@ The binary form answers _x_ raised to the power of _y_.
 
 >>> 2.squared ^ 3
 64
+
+>>> 2 ^ 12
+4096
 ```
 
 Fractional exponents:

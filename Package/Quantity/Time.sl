@@ -145,7 +145,7 @@ Time : [Object] { | seconds |
 	}
 
 	siderealDays { :self |
-		(self * 0.99726968).days
+		(self * 86164.0905).seconds
 	}
 
 	siderealMonths { :self |

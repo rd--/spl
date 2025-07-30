@@ -44,4 +44,6 @@ the predicted value is `zero`:
 
 See also: FractionalBrownianMotionProcess, FractionalGaussianNoiseProcess
 
+Guides: Random Processes
+
 Further Reading: Hosking 1984

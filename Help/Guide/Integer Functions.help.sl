@@ -33,7 +33,7 @@ Division-Related Functions:
 
 Recurrence and Sum Functions:
 
-- `bernoulli`
+- `bernoulliNumber`
 - `binetsFormula`
 - `eulerNumber`
 - `fibonacci`

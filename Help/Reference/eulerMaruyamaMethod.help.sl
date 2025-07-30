@@ -61,6 +61,8 @@ Sfc32(529721)
 
 See also: BrownianBridgeProcess, GeometricBrownianMotionProcess, milsteinMethod, OrnsteinUhlenbeckProcess
 
+Guides: Random Processes
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%E2%80%93Maruyama_method)

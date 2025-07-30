@@ -20,6 +20,8 @@ BernoulliProcess(1 / 3)
 
 See also: randomBit, randomBoolean, BernoulliDistribution, BinomialProcess, randomFunction
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliDistribution.html)

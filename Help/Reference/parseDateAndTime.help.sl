@@ -1,10 +1,10 @@
 # parseDateAndTime
 
-- _parseDateAndTime(aString)_
-- _parseDateAndTime(aString, elseClause:/0)_
+- _parseDateAndTime(s, f₀)_
 
-Parse _aString_ as a `Date` value.
+Parse the string _s_ as a `Date` value.
 A string parser that recognizes subsets of the ISO 8601 specification.
+An optional error handler can be specified.
 
 ```
 >>> '2025-04-08T10:41:00.000+10:00'

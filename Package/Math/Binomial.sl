@@ -2,16 +2,12 @@
 
 +@Number {
 
-	positiveIntegerBinomial { :n :k |
-		let numerator = n.one;
-		let denominator = n.one;
-		n.toByDo(k.max(n - k) + 1, -1) { :factor |
-			numerator := numerator * factor
+	bernoulliPolynomial { :n |
+		let b = (n + 1).bernoulliSequence;
+		let c = 0:n.collect { :k |
+			binomial(n, k) * b[k + 1]
 		};
-		1.toDo(k.min(n - k)) { :factor |
-			denominator := denominator * factor
-		};
-		numerator // denominator
+		UnivariatePolynomial(c.reverse)
 	}
 
 	binomial { :n :k |
@@ -38,6 +34,18 @@
 			answer := answer * (a - i) / (i + 1)
 		};
 		answer
+	}
+
+	positiveIntegerBinomial { :n :k |
+		let numerator = n.one;
+		let denominator = n.one;
+		n.toByDo(k.max(n - k) + 1, -1) { :factor |
+			numerator := numerator * factor
+		};
+		1.toDo(k.min(n - k)) { :factor |
+			denominator := denominator * factor
+		};
+		numerator // denominator
 	}
 
 }
@@ -94,7 +102,7 @@
 						binomial(2 * n, 2 * k) * f(2 * (n - k))
 					}.sum.negated
 				}
-			}.memoize(true);
+			}.memoize(false);
 			f(self)
 		}
 	}

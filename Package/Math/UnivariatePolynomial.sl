@@ -33,6 +33,13 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		}
 	}
 
+	asBlock { :self |
+		let c = self.coefficientList;
+		{ :x |
+			c.evaluateUnivariatePolynomial(x)
+		}
+	}
+
 	at { :self :x |
 		self.coefficientList.evaluateUnivariatePolynomial(x)
 	}

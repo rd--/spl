@@ -48,6 +48,8 @@ Plot over a subset of the reals:
 
 See also: betaRegularized, binomial, gamma, logGamma
 
+Guides: Special Functions
+
 References:
 _Dlmf_
 [1](https://dlmf.nist.gov/5.12),

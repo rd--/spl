@@ -31,4 +31,4 @@ Simulation methods:
 
 * * *
 
-Guides: Probability Distributions, Random Number Generators
+Guides: Probability Distributions, Random Functions, Random Number Generators

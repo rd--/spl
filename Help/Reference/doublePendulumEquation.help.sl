@@ -7,9 +7,10 @@ The double-pendulum equation is a non-linear fourth-order differential equation.
 _g_ tells the acceleration due to gravity in _m/s²_ (on Earth 9.81),
 _l_ tells the lengths of the two pendulums in _m_,
 _m_ tells the mass of each pendulum in _kg_.
-The state vector is _[θ₁ θ′₁ θ₂ θ′₂]_,
+
+The input vector to the equation is _[θ₁ ω₁ θ₂ ω₂]_,
 where θ are the angles, in radians, from the vertical,
-and θ′are the previous θ.
+and ω are angular velocities, initially zero.
 
 Parametric plot for the time evolution of the angles of a double pendulum,
 note that the graph resembles Brownian motion:

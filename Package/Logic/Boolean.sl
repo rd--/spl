@@ -80,7 +80,7 @@ Boolean! : [Object, Json] {
 		}
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		true
 	}
 

@@ -6,6 +6,7 @@ Types:
 
 Constructors:
 
+- `bernoulliPolynomial`
 - `chebyshevT`
 - `chebyshevU`
 

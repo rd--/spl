@@ -1,6 +1,6 @@
 # asTimeStamp
 
-- _asTimeStamp(anObject)_
+- _asTimeStamp(x)_
 
 At `DateAndTime`,
 converts to an equivalent `TimeStamp` value:

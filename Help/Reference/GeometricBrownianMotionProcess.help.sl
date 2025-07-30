@@ -68,6 +68,8 @@ let r = Sfc32(675932);
 
 See also: LogNormalDistribution, OrnsteinUhlenbeckProcess, WienerProcess
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GeometricBrownianMotionProcess.html),

@@ -1,20 +1,25 @@
 # bernoulliSequence
 
-- _bernoulliSequence(anInteger)_
+- _bernoulliSequence(n)_
 
-Answer the first _anInteger_ Bernoulli numbers.
+Answer the first _n_ Bernoulli numbers,
+following the NIST sign convention (the second term, _B(1)_, is _-1/2_).
+
+First eleven Bernoulli numbers:
 
 ```
->>> 15.bernoulliSequence.reject(isZero:/1)
+>>> 11.bernoulliSequence
+[1 -1/2 1/6 0 -1/30 0 1/42 0 -1/30 0 5/66]
+```
+
+First few non-zero Bernoulli numbers:
+
+```
+>>> 16.bernoulliSequence.reject(isZero:/1)
 [
-	1/1 1/2 1/6 -1/30 1/42
+	1 -1/2 1/6 -1/30 1/42
 	-1/30 5/66 -691/2730 7/6
 ]
-
->>> 60.bernoulliSequence.last
--1215233140483755572040304994079820246041491L
-/
-56786730L
 ```
 
 Plot numerator:
@@ -41,7 +46,7 @@ Plot denominator:
 
 * * *
 
-See also: bernoulli
+See also: bernoulliNumber, bernoulliPolynomial
 
 Guides: Integer Sequences, Mathematical Sequences
 

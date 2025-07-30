@@ -44,6 +44,8 @@ Guides: Random Functions
 
 References:
 _Python_
-[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.PoissonDisk.html)
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.qmc.PoissonDisk.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Poisson_sampling)
 
 Further Reading: Cook 1986, Bridson 2007

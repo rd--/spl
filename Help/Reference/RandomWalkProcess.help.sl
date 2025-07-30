@@ -71,6 +71,8 @@ RandomWalkProcess(0.5, 0.5)
 
 See also: BernoulliProcess, randomFunction, WienerProcess
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomWalkProcess.html)

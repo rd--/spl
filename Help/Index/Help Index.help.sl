@@ -603,8 +603,8 @@
 
 ## Recurrence and Sum Functions
 
-- `bernoulli`, `fibonacci`, `lucasNumber`
-- `bernoulliList`, `fibonacciSequence`, `fibonacciSequenceUpTo`
+- `bernoulliNumber`, `fibonacci`, `lucasNumber`
+- `bernoulliSequence`, `fibonacciSequence`, `fibonacciSequenceUpTo`
 - `harmonicNumber`
 
 ## Reflection

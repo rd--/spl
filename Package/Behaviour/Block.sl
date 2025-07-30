@@ -236,7 +236,7 @@ Block! : [Object] {
 		}
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		true
 	}
 

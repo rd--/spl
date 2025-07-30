@@ -377,7 +377,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isFinite(_self);>
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		true
 	}
 

@@ -1,9 +1,9 @@
 # parseCalendarDuration
 
-- _parseCalendarDuration(aString)_
-- _parseCalendarDuration(aString, elseClause:/0)_
+- _parseCalendarDuration(s, f₀)_
 
-Parse an ISO-8601 duration string and answer a `CalendarDuration` value.
+Parse the ISO-8601 duration string _s_ and answer a `CalendarDuration` value.
+An optional error handler can be specified.
 
 Three days and four hours:
 
@@ -15,7 +15,8 @@ CalendarDuration([0 0 3 4 0 0])
 Four days, twelve hours, thirty minutes, and five seconds:
 
 ```
->>> 'P4DT12H30M5S'.parseCalendarDuration
+>>> 'P4DT12H30M5S'
+>>> .parseCalendarDuration
 CalendarDuration([0 0 4 12 30 5])
 
 >>> 'P4DT12H30M5S'
@@ -30,7 +31,9 @@ Five minutes and seven and one half seconds:
 >>> 'PT5M7.5S'.parseCalendarDuration
 CalendarDuration([0 0 0 0 5 7.5])
 
->>> 'PT5M7.5S'.parseCalendarDuration.asList
+>>> 'PT5M7.5S'
+>>> .parseCalendarDuration
+>>> .asList
 [0 0 0 0 5 7.5]
 ```
 

@@ -143,6 +143,8 @@ let p3 = p1 + p2;
 
 See also: degree, evaluateUnivariatePolynomial, functionPlot, chebyshevT, chebyshevU
 
+Guides: Polynomial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnivariatePolynomial.html)

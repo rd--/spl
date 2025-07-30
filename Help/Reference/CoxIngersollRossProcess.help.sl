@@ -34,6 +34,8 @@ CoxIngersollRossProcess(0.3, 0.5, 1, 2)
 
 See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess, WienerProcess
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CoxIngersollRossProcess.html),

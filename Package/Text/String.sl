@@ -551,11 +551,11 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		self.size = 0
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		true
 	}
 
-	isLiteral { :self |
+	isLiteral { :unused |
 		true
 	}
 

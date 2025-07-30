@@ -82,6 +82,8 @@ Estimate a four-state discrete Markov process:
 
 See also: ContinuousMarkovProcess, Graph, HiddenMarkovProcess, randomFunction, stochasticMatrix
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DiscreteMarkovProcess.html),

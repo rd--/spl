@@ -44,7 +44,7 @@ Only defined for _z_ in _(0,1)_ and integer _a_ and _b_.
 
 See also: beta
 
-Guides: Sigmoid Functions
+Guides: Sigmoid Functions, Special Functions
 
 References:
 _Mathematica_

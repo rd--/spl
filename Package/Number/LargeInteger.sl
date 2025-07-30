@@ -233,6 +233,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		true
 	}
 
+	isImmediate { :unused |
+		false /* 1L ~~ 1 */
+	}
+
 	isInteger { :unused |
 		true
 	}

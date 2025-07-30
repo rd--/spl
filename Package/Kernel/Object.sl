@@ -156,7 +156,7 @@
 		false
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		false
 	}
 

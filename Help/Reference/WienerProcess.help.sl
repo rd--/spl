@@ -45,6 +45,8 @@ WienerProcess(0, 1)
 
 See also: GeometricBrownianMotionProcess, NormalDistribution, OrnsteinUhlenbeckProcess, randomFunction, RandomWalkProcess
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/WienerProcess.html)

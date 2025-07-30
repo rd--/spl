@@ -65,7 +65,7 @@ The following help files include references to integer sequences:
 - `aliquotSequence`: A044050
 - `aliquotSum`: A001065
 - `bellNumber`: A000110
-- `bernoulli`: A000367 A002445
+- `bernoulliNumber`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
 - `bernoulliTriangle`: A008949
 - `bitAnd`: A279125
@@ -83,7 +83,7 @@ The following help files include references to integer sequences:
 - `divisorSigma`: A000005
 - `doubleFactorial`: A000165
 - `eulerGradusSuavitatis`: A275314
-- `eulerNumber`: A000111 A000364 A028296
+- `eulerNumber`: A122045 A000111 A000364 A028296
 - `eulerPhi`: A000010 A002088
 - `factorial`: A000435
 - `fareySequence`: A005728 A006842 A006843

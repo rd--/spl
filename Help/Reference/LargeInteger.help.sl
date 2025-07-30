@@ -34,6 +34,17 @@ true
 true
 ```
 
+Equal values are also identical,
+however LargeInteger values are not considered immediate because the do not compare identically with SmallFloat values:
+
+```
+>>> LargeInteger(23) == LargeInteger(23)
+true
+
+>>> LargeInteger(23).isImmediate
+false
+```
+
 Adapts left and right operands to `LargeIntegers`:
 
 ```

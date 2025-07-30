@@ -28,19 +28,22 @@
 		aliquotSequence(n, 21)
 	}
 
-	bernoulli { :k |
-		k.bernoulliSequence.last
+	bernoulliNumber { :k |
+		(k + 1).bernoulliSequence.last
 	}
 
 	bernoulliSequence { :k |
-		let a = List(k + 1);
-		let b = List(k + 1);
-		0:k.do { :n |
+		let a = List(k);
+		let b = List(k);
+		0.toDo(k - 1) { :n |
 			a[n + 1] := Fraction(1L, n + 1);
 			n.toByDo(1, -1) { :j |
 				a[j] := j * (a[j] - a[j + 1])
 			};
 			b[n + 1] := a[1]
+		};
+		(k > 1).ifTrue {
+			b[2] := -1/2
 		};
 		b
 	}

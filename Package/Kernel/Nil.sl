@@ -40,7 +40,7 @@ Nil! : [Object, Json] {
 		whenNil()
 	}
 
-	isImmediate { :self |
+	isImmediate { :unused |
 		true
 	}
 

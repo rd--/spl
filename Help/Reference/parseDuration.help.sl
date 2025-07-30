@@ -1,9 +1,9 @@
 # parseDuration
 
-- _parseDuration(aString)_
-- _parseDuration(aString, elseClause:/0)_
+- _parseDuration(s, f₀)_
 
-Parse an ISO-8601 duration string and answer a `Duration` value.
+Parse the ISO-8601 duration string _s_ and answer a `Duration` value.
+An optional error handler can be specified.
 
 Three days and four hours:
 

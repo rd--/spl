@@ -38,10 +38,12 @@ Use `viterbiDecoding` to find the most likely hidden state sequence from the giv
 
 See also: DiscreteMarkovProcess, Graph, randomFunction, viterbiDecoding
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HiddenMarkovProcess.html)
 [2](https://reference.wolfram.com/language/ref/FindHiddenMarkovStates.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Hidden_Markov_model),
+[1](https://en.wikipedia.org/wiki/Hidden_Markov_model)
 [2](https://en.wikipedia.org/wiki/Viterbi_algorithm)

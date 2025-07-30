@@ -1,11 +1,11 @@
 # parseDate
 
-- _parseDate(aString)_
-- _parseDate(aString, elseClause:/0)_
+- _parseDate(s, f₀)_
 
-Parse _aString_ as a `Date` value.
-A string parser that recognizes subsets of the ISO 8601 specification,
+Parse the string _s_ as a `Date` value.
+The parser recognizes subsets of the ISO 8601 specification,
 specifically _YYYY-MM-DD_.
+An optional error handler can be specified.
 
 Parse date:
 

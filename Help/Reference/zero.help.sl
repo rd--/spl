@@ -38,6 +38,8 @@ See also: isNegative, isNonZero, isPositive, isZero, one
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Zero.html),
+_OEIS_
+[1](https://oeis.org/A000004),
 _W_
 [1](https://en.wikipedia.org/wiki/0)
 

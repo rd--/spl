@@ -1,8 +1,8 @@
 # isImmediate
 
-- _isImmediate(anObject)_
+- _isImmediate(x)_
 
-Answer if _anObject_ is _immediate_,
+Answer if the object _x_ is _immediate_,
 one criteria for which is that an instance will compare `==` when it compares `=`.
 
 Immediate objects are suitable for inclusion in `IdentitySet` and `IdentityBag`,
