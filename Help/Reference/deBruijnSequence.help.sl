@@ -4,18 +4,24 @@
 
 Answer a de Bruijn sequence on the elements _x_ taken _n_ at a time.
 
-A de Bruijn sequence of order 2 on the list _0,1_:
+A de Bruijn sequence of order two on the list _0,1_:
 
 ```
 >>> [0 1].deBruijnSequence(2)
 [0 0 1 1]
+
+>>> 2 ^ 2
+4
 ```
 
-A de Bruijn sequence of order 3:
+A de Bruijn sequence of order three:
 
 ```
 >>> [0 1].deBruijnSequence(3)
 [0 0 0 1 0 1 1 1]
+
+>>> 2 ^ 3
+8
 ```
 
 A de Bruijn sequence on the elements _0,1,2,3_:
@@ -23,6 +29,9 @@ A de Bruijn sequence on the elements _0,1,2,3_:
 ```
 >>> 0:3.deBruijnSequence(2)
 [0 0 1 0 2 0 3 1 1 2 1 3 2 2 3 3]
+
+>>> 4 ^ 2
+16
 ```
 
 A de Bruijn sequence on a string:
@@ -30,6 +39,9 @@ A de Bruijn sequence on a string:
 ```
 >>> 'abcd'.deBruijnSequence(2)
 'aabacadbbcbdccdd'
+
+>>> 4 ^ 2
+16
 ```
 
 A de Bruijn sequence of order 1 on a list is the list itself:
@@ -37,6 +49,9 @@ A de Bruijn sequence of order 1 on a list is the list itself:
 ```
 >>> [1 2 3].deBruijnSequence(1)
 [1 2 3]
+
+>>> 3 ^ 1
+3
 ```
 
 The ordering of the input list determines the ordering of the de Bruijn sequence:
@@ -49,6 +64,9 @@ The ordering of the input list determines the ordering of the de Bruijn sequence
 	2 2 3 2 1 3 3 1 1;
 	3 3 1 3 2 1 1 2 2
 ]
+
+>>> 3 ^ 2
+9
 ```
 
 The length of a de Bruijn sequence is _k ^ n_:
@@ -82,9 +100,32 @@ The subsequences of length _n_ in a de Bruijn sequence form all possible _n_-tup
 )
 ```
 
+Construct a binary de Bruijn sequence of order four,
+and show relation to `lyndonWords`:
+
+```
+>>> [0 1].deBruijnSequence(4)
+[0 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1]
+
+>>> [0 1].lyndonWords(4).select { :x |
+>>> 	4.divisible(x.size)
+>>> }
+[0; 0 0 0 1; 0 0 1 1; 0 1; 0 1 1 1; 1]
+```
+
+Use `shiftRegisterSequence` to generate a binary de Bruijn sequence:
+
+```
+>>> let i = [0 1 1 1];
+>>> let t = [1 2];
+>>> let n = 2 ^ 4 - 1;
+>>> [0] ++ shiftRegisterSequence(i, t, n)
+[0 1].deBruijnSequence(4)
+```
+
 * * *
 
-See also: partition, tuples
+See also: partition, shiftRegisterSequence, tuples
 
 Guides: Combinatorial Functions, Integer Sequences
 

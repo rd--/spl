@@ -59,6 +59,16 @@
 		answer
 	}
 
+	champernowneSequence { :b :n |
+		let answer = [];
+		let i = 0;
+		{ answer.size < n }.whileTrue {
+			answer.addAll(i.integerDigits(b));
+			i := i + 1
+		};
+		answer.take(n)
+	}
+
 	collatzSequence { :self |
 		{ :n |
 			n.isOdd.if {

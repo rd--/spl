@@ -696,6 +696,51 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}.asGraph
 	}
 
+	deBruijnGraph { :m :n |
+		let o = n - 1;
+		let k = m ^ n;
+		let s = (0 .. k - 1).collect { :i |
+			i.integerDigits(m, n)
+		};
+		let v = [1 .. k];
+		let e = [];
+		let g = nil;
+		let withLabels = false;
+		[v, v].tuplesDo { :each |
+			let [i, j] = each;
+			let [p, q] = s.atAll([i, j]);
+			(p.last(o) = q.first(o)).ifTrue {
+				e.add([i, j])
+			}
+		};
+		g := Graph(v, e);
+		withLabels.ifTrue {
+			g.vertexLabels(
+				s.collect { :each |
+					each.collect(asString:/1).stringCatenate
+				}
+			)
+		};
+		g
+	}
+
+	hammingGraph { :d :q |
+		let k = q ^ d;
+		let s = [1 .. q].tuples(d);
+		let v = [1 .. k];
+		let e = [];
+		1.toDo(k) { :i |
+			(i + 1).toDo(k) { :j |
+				let p = s[i];
+				let q = s[j];
+				(p.hammingDistance(q) = 1).ifTrue {
+					e.add([i, j])
+				}
+			}
+		};
+		Graph(v, e)
+	}
+
 	hararyGraphEdgeList { :k :n |
 		k.isEven.if {
 			let m = k / 2;

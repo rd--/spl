@@ -76,7 +76,9 @@ The following help files include references to integer sequences:
 - `cantorStaircase`: A095844 A095845
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
+- `champernowneSequence`: A007376
 - `collatzSequence`: A070165
+- `copelandErdosSequence`: A033308
 - `delannoySequence`: A008288
 - `digitCount`: A000120 A006046
 - `digitalRoot`: A010888

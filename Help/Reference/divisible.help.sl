@@ -84,6 +84,13 @@ Divisible threads elementwise over lists:
 [false true false true false true]
 ```
 
+All integers are divisible by one:
+
+```
+>>> [1 .. 13].divisible(1)
+true ! 13
+```
+
 The sum of the first few multiples of three or five:
 
 ```

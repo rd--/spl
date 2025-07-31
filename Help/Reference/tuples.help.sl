@@ -111,10 +111,13 @@ Word combinations:
 ['1J1' '1J-1' '-1J1' '-1J-1']
 ```
 
-All possible two and three-tuples of 0 and 1,
+All possible one, two and three-tuples of 0 and 1,
 digits of successive base-two numbers:
 
 ```
+>>> [0 1].tuples(1)
+[0; 1]
+
 >>> [0 1].tuples(2)
 [0 0; 0 1; 1 0; 1 1]
 

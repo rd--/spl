@@ -14,7 +14,7 @@ Answer the _n_-th primorial number.
 
 * * *
 
-See also: primePi
+See also: euclidNumber, primePi
 
 Guides: Prime Number Functions
 

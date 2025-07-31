@@ -16,6 +16,7 @@ Constructor Functions:
 - `completeGraph`
 - `cubeGraph`
 - `cycleGraph`
+- `deBruijnGraph`
 - `gridGraph`
 - `hararyGraph`
 - `incidenceGraph`

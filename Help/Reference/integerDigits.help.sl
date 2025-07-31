@@ -66,9 +66,12 @@ Count from zero to seven in binary, answers to three places:
 	1 1 0;
 	1 1 1
 ]
+
+>>> 2 ^ 3
+8
 ```
 
-Number of 1s in the ternary expansion of _n_,
+Number of ones in the ternary expansion of _n_,
 OEIS [A062756](https://oeis.org/A062756):
 
 ```
@@ -151,8 +154,10 @@ Create a Champernowne word, c.f. OEIS [A007376](https://oeis.org/A007376):
 >>> 0:29.collect(integerDigits:/1).++
 [
 	0 1 2 3 4 5 6 7 8 9
-	1 0 1 1 1 2 1 3 1 4 1 5 1 6 1 7 1 8 1 9
-	2 0 2 1 2 2 2 3 2 4 2 5 2 6 2 7 2 8 2 9
+	1 0 1 1 1 2 1 3 1 4
+	1 5 1 6 1 7 1 8 1 9
+	2 0 2 1 2 2 2 3 2 4
+	2 5 2 6 2 7 2 8 2 9
 ]
 ```
 

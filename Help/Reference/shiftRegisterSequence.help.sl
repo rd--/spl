@@ -48,11 +48,30 @@ The maximal Lfsr of four places:
 
 ```
 >>> shiftRegisterSequence(
->>> 	[0 0 0 1],
+>>> 	[0 1 1 1],
 >>> 	[1 2],
 >>> 	2 ^ 4 - 1
 >>> )
-[0 1 0 0 1 1 0 1 0 1 1 1 1 0 0]
+[0 0 0 1 0 0 1 1 0 1 0 1 1 1 1]
+```
+
+The maximal Lfsr of six places:
+
+```
+>>> shiftRegisterSequence(
+>>> 	[0 1 1 1 1 1],
+>>> 	[1 2],
+>>> 	2 ^ 6 - 1
+>>> )
+[
+	0 0 0 0 0 1 0 0 0 0
+	1 1 0 0 0 1 0 1 0 0
+	1 1 1 1 0 1 0 0 0 1
+	1 1 0 0 1 0 0 1 0 1
+	1 0 1 1 1 0 1 1 0 0
+	1 1 0 1 0 1 0 1 1 1
+	1 1 1
+]
 ```
 
 Generate the first few steps of the rule 90 pattern:
@@ -70,7 +89,7 @@ i.shiftRegisterSequence(t, n)
 
 * * *
 
-See also: linearRecurrence
+See also: deBruijnGraph, deBruijnSequence, elementaryCellularAutomaton, linearRecurrence, nestList, randomInteger
 
 References:
 _Mathematica_

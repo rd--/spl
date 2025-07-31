@@ -1,10 +1,10 @@
 # rotated
 
-- _rotated(aSequence, anInteger)_
+- _rotated([x₁ x₂ …], n)_
 - _rotated(g, theta)_
 
-At _aSequence_,
-answer the rotation to the right by _anInteger_ places.
+At a sequence _x_,
+answer the rotation to the right by _n_ places.
 
 ```
 >>> [1 3 2 4 5].rotated(1)

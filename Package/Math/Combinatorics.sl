@@ -78,8 +78,7 @@
 
 	deBruijnSequence { :self :anInteger |
 		self.lyndonWords(anInteger).select { :each |
-			let k = each.size;
-			k = 1 | { k.divisible(anInteger) }
+			anInteger.divisible(each.size)
 		}.catenate
 	}
 

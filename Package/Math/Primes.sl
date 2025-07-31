@@ -27,6 +27,22 @@
 		}
 	}
 
+	copelandErdosSequence { :n |
+		let answer = [];
+		let i = 1;
+		{ answer.size < n }.whileTrue {
+			answer.addAll(
+				i.prime.integerDigits(10)
+			);
+			i := i + 1
+		};
+		answer.take(n)
+	}
+
+	euclidNumber { :n |
+		1 + n.primorial
+	}
+
 	factorInteger { :self |
 		self.isNegative.if {
 			let answer = self.negated.factorInteger;
