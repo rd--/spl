@@ -10,7 +10,8 @@ The coordinates have the invariant that they sum to `zero`,
 allowing the _s_ coordinate to be elided.
 
 ```
->>> HexagonalCoordinates([1 3]).coordinates
+>>> HexagonalCoordinates([1 3])
+>>> .coordinates
 [1 3 -4]
 ```
 

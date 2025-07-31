@@ -15,7 +15,7 @@ Plot over a subset of the reals:
 
 Varying β:
 
-~~~spl svg=A
+~~~spl svg=B
 (-5 -- 5).functionPlot(
 	[-0.25 0 0.75].collect { :beta |
 		beta.swishFunction

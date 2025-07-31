@@ -1,6 +1,6 @@
 system.splFileName('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 11,123
+Total => 11,234
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -14,7 +14,7 @@ Write image files:
 system.helpFilesDo('Reference', '.*', true, writeImageFiles:/1); nil
 ~~~
 
-'ls ~/sw/spl/Help/Image/* | wc -l' => 1,727
+'ls ~/sw/spl/Help/Image/* | wc -l' => 1,841
 
 ~~~
 system.splFileName('Help/Reference').terseSuperColliderGraphSummary(verbose: false, pattern: '.*')

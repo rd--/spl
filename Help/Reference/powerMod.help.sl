@@ -110,8 +110,8 @@ Plot the sequence with varying powers:
 Plot a list of powers of 3 where the exponent is varied, modulo some prime number:
 
 ~~~spl svg=C
-let n = 22.prime;
-1:n.functionPlot { :x |
+let n = 44.prime;
+(1 .. n - 1).functionPlot { :x |
 	3.powerMod(x, n)
 }
 ~~~

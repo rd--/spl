@@ -41,7 +41,7 @@ let i = 300.regularPaperfoldingSequence;
 
 Recurrence plot:
 
-~~~spl png=A
+~~~spl png=B
 100.regularPaperfoldingSequence
 .recurrenceMatrix(1, 1, 'Manhattan', 0.1)
 .Bitmap

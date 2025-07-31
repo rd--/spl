@@ -132,8 +132,8 @@ and the hexagonal shape is also rotated:
 let theta = -30.degree;
 { :r :q |
 	let c = [q, r]
-	.fromHexagonalCoordinates;
-	6.regularPolygon(c, 0.9, 1.pi)
+	.fromHexagonalCoordinates(theta);
+	6.regularPolygon(c, 0.9, 0.pi)
 }.table(1:5, 1:5).LineDrawing
 ~~~
 

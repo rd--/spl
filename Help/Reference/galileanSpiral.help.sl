@@ -17,7 +17,7 @@ Drawing with _b=-1_:
 
 Drawing with _b=1/8_:
 
-~~~spl svg=A
+~~~spl svg=B
 (-10 -- 10).discretize(
 	500,
 	galileanSpiral(1, 0.125)

@@ -8,13 +8,13 @@ Calculate Euler numbers:
 
 ```
 >>> 14.eulerNumber
-−199360981
+-199360981
 
 >>> 16.eulerNumber
 19391512145
 
 >>> 18.eulerNumber
-−2404879675441
+-2404879675441
 
 >>> 20.eulerNumber
 370371188237525

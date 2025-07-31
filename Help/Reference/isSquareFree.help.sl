@@ -83,7 +83,7 @@ true
 true
 
 >>> 14.primeNu = 14.primeOmega
-0
+true
 ```
 
 `moebiusMu` is zero for non-square-free integers:

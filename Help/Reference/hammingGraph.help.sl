@@ -44,7 +44,7 @@ hammingGraph(4, 2)
 
 The _(3,3)_ Hamming graph:
 
-~~~spl svg=D
+~~~spl svg=E
 hammingGraph(3, 3)
 .graphPlot
 ~~~

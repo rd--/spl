@@ -217,7 +217,10 @@ Spiral Functions:
 - `archimedeanSpiral`
 - `doyleSpiral`
 - `eulerSpiral`
+- `inverseNorwichSpiral`
 - `logarithmicSpiral`
+- `norwichSpiral`
+- `sinusoidalSpiral`
 - `theodorusSpiral`
 - `tractrixSpiral`
 
