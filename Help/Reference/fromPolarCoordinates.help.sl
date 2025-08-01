@@ -26,6 +26,36 @@ Collects over lists:
 [1 0; -2 0; 0 1]
 ```
 
+Plot points at polar coordinates where r and θ are equal:
+
+~~~spl svg=A
+1:123.collect { :n |
+	[n n].fromPolarCoordinates
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-A.svg)
+
+Consider only primes:
+
+~~~spl svg=B
+1:47.prime.collect { :n |
+	[n n].fromPolarCoordinates
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-B.svg)
+
+A longer prime sequence:
+
+~~~spl svg=C
+1:123.prime.collect { :n |
+	[n n].fromPolarCoordinates
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-C.svg)
+
 * * *
 
 See also: fromBipolarCoordinates, PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates

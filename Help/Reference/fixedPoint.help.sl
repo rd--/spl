@@ -57,4 +57,6 @@ See also: fixedPointList
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FixedPoint.html)
-[2](https://reference.wolfram.com/language/ref/FixedPoint.html)
+[2](https://reference.wolfram.com/language/ref/FixedPoint.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Fixed-point_iteration)

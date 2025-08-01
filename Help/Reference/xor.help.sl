@@ -1,9 +1,9 @@
 # xor
 
-- _xor(aBoolean, anotherBoolean)_
+- _xor(a, b)_
 
 Boolean exclusive or.
-Answer the Boolean exclusive or of the receiver and operand.
+Answer the Boolean exclusive or of the boolean values _a_ and _b_.
 
 Truth table:
 

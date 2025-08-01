@@ -223,6 +223,7 @@ Spiral Functions:
 - `sinusoidalSpiral`
 - `theodorusSpiral`
 - `tractrixSpiral`
+- `ulamSpiralMatrix`
 
 Triangle Functions:
 

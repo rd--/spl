@@ -1,8 +1,8 @@
 # bitNot
 
-- _bitNot(anInteger | aBitSet)_
+- _bitNot(n)_
 
-Answer bitwise not, i.e. invert bits.
+Answer bitwise not, i.e. invert bits of _n_.
 
 ```
 >>> 3.bitNot
@@ -62,6 +62,8 @@ Guides: Bitwise Functions, Boolean Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitNot.html)
+[1](https://reference.wolfram.com/language/ref/BitNot.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Bitwise_operation#NOT)
 
 Categories: Bit Manipulation, Binary

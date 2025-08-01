@@ -59,38 +59,36 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 	downHeap { :self :anIndex |
-		let value = self.array[anIndex];
+		let array = self.array;
+		let size = array.size;
+		let value = array[anIndex];
 		let index = anIndex;
 		let childIndex = nil;
 		let childValue = nil;
 		{
-			(childIndex := 2 * index) >= self.size | {
-				childValue := self.array[childIndex];
-				self.compare(self.array[childIndex + 1], childValue).ifTrue {
+			(childIndex := (2 * index)) >= size | {
+				childValue := array[childIndex];
+				self.compare(array[childIndex + 1], childValue).ifTrue {
 					childIndex := childIndex + 1;
-					childValue := self.array[childIndex]
+					childValue := array[childIndex]
 				};
 				self.compare(value, childValue)
 			}
 		}.whileFalse {
-			self.array[index] := childValue;
+			array[index] := childValue;
 			self.indexUpdate(childValue, index);
 			index := childIndex
 		};
-		(childIndex = self.size).ifTrue {
-			childValue := self.array[childIndex];
+		(childIndex = size).ifTrue {
+			childValue := array[childIndex];
 			self.compare(value, childValue).ifFalse {
-				self.array[index] := childValue;
+				array[index] := childValue;
 				self.indexUpdate(childValue, index);
 				index := childIndex
 			}
 		};
-		self.array[index] := value;
+		array[index] := value;
 		self.indexUpdate(value, index)
-	}
-
-	downHeapSingle { :self :anIndex |
-		self.downHeap(anIndex)
 	}
 
 	first { :self |
@@ -107,6 +105,26 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 		self.size = 0
 	}
 
+	isValid { :self |
+		let array = self.array;
+		let size = array.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(size // 2) { :index |
+				let childIndex = 2 * index;
+				self.compare(array[index], array[childIndex]).ifFalse {
+					false.return
+				};
+				(childIndex < size).ifTrue {
+					childIndex := childIndex + 1;
+					self.compare(array[index], array[childIndex]).ifFalse {
+						false.return
+					}
+				}
+			};
+			true
+		}
+	}
+
 	postCopy { :self |
 		self.array := self.array.copy
 	}
@@ -119,7 +137,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 			self.array[index] := self.array.last;
 			self.array.removeLast;
 			(2 * index <= self.size).if {
-				self.downHeapSingle(index)
+				self.downHeap(index)
 			} {
 				self.upHeap(index)
 			}
@@ -168,6 +186,37 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	size { :self |
 		self.array.size
 	}
+
+	/*
+	sort { :self |
+		let start = 1;
+		let array = self.array;
+		let end = array.size;
+		let index = end;
+		{ index > 1 }.whileTrue {
+			let element = array[index];
+			array[index] := array[1];
+			array[1] := element;
+			index := index - 1;
+			self.downHeap(1); array.postLine
+		};
+		index := end;
+		{ start < end }.whileTrue {
+			let element = array[start];
+			let endValue = array[end];
+			array[start] := endValue;
+			array[end] := element;
+			self.indexUpdate(endValue, start);
+			self.indexUpdate(element, end);
+			start := start + 1;
+			end := end - 1; [start, end, array].postLine
+		};
+		(start = end).ifTrue {
+			self.indexUpdateBlock(array[start], start)
+		};
+		self
+	}
+	*/
 
 	upHeap { :self :anIndex |
 		(anIndex = 1).if {

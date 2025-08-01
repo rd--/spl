@@ -13,12 +13,19 @@ Insertion and removal times are more efficient than above upper bound, provided 
 a) Elements are only removed at the beginning
 b) Elements are added with arbitrary sort order
 
-The heap can be fully sorted using _sort_.
-Worse time for fully sorting the Heap is O(n log n).
-Unless the Heap has been sorted iterators will not enumerate elements in order.
-
 Heap implements the Iterable, Collection, Extensible and Removable traits.
 
+Add all items in collection, which is out of order, and retrieve first (least) element:
+
+```
+>>> let h = Heap();
+>>> h.addAll([5 7 1 3]);
+>>> h.first
+1
+```
+
 * * *
+
+See also: add, addAll, heapSort, removeFirst
 
 Categories: Collection, Type

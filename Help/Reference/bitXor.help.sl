@@ -1,8 +1,8 @@
 # bitXor
 
-- _bitXor(n1, n2)_
+- _bitXor(i, j)_
 
-Answer bitwise exclusive or.
+Answer bitwise exclusive or of _i_ and _j_.
 
 Truth table:
 
@@ -117,6 +117,18 @@ Generate a Gray code sequence:
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-C.svg)
+
+Plot a grid satisfying _xor(a,b)<n_:
+
+~~~spl svg=D
+let n = 5;
+{ :a :b |
+	(a.bitXor(b) < n).boole
+}.table(0:15, 0:15).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-D.svg)
+
 
 * * *
 

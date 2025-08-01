@@ -1,6 +1,9 @@
 # bitShiftRight
 
-- _bitShiftRight(aNumber, anInteger)_
+- _bitShiftRight(n, k)_
+
+Shift the binary bits in the integer _n_ to the right by _k_ places,
+dropping bits that are shifted past the unit position on the right.
 
 Right shift, towards least significant:
 
@@ -47,6 +50,8 @@ Guides: Bitwise Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitShiftRight.html)
+[1](https://reference.wolfram.com/language/ref/BitShiftRight.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Binary_shift)
 
 Categories: Bits, Binary

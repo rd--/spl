@@ -4,7 +4,15 @@
 
 Encode the integer _n_ using binary reflected Gray code.
 A Gray code is an encoding of numbers so that adjacent numbers have a single digit differing by `one`.
-The inverse is `grayDecode`.
+
+Find the Gray code of an integer:
+
+```
+>>> 14.grayEncode.integerDigits(2)
+[1 0 0 1]
+```
+
+The inverse is `grayDecode`:
 
 ```
 >>> 0:15.collect { :n |
@@ -54,6 +62,25 @@ Scatter plot of the gray encodings of the first few integers:
 
 ![](sw/spl/Help/Image/grayEncode-A.svg)
 
+Line plot of the gray encodings of the first few integers:
+
+~~~spl svg=B
+1:100.collect(grayEncode:/1).linePlot
+~~~
+
+![](sw/spl/Help/Image/grayEncode-B.svg)
+
+Successive values differ in only one bit in the binary representation,
+plot differences:
+
+~~~spl svg=C
+0:15.collect { :n |
+	n.grayEncode.integerDigits(2, 4)
+}.differences.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/grayEncode-C.svg)
+
 * * *
 
 See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, shiftRegisterSequence
@@ -64,7 +91,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GrayCode.html),
 _OEIS_
-[1](https://oeis.org/A014550)
-[2](https://oeis.org/A003188),
+[1](https://oeis.org/A003188)
+[2](https://oeis.org/A014550)
+[3](https://oeis.org/A006068),
 _W_
 [1](https://en.wikipedia.org/wiki/Gray_code)

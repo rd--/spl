@@ -35,6 +35,10 @@
 
 - `Bitwise Functions`: Guide
 
+## Chaotic Functions
+
+- `Chaotic Functions`: Guide
+
 ## Chebyshev Functions
 
 - `chebyshevT`: first kind
@@ -335,4 +339,4 @@ Function List:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Distance Functions, Fourier Analysis Functions, Geometry Functions, Integer Functions, Integer Sequences, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, SPecial Functions, Statistics Functions, Trigonometric Functions, Window Functions
+Guides: Bitwise Functions, Chaotic Functions, Combinatorial Functions, Distance Functions, Fourier Analysis Functions, Geometry Functions, Integer Functions, Integer Sequences, Mathematical Constants, Matrix Functions, Permutation Functions, Polynomial Functions, Prime Number Functions, SPecial Functions, Statistics Functions, Trigonometric Functions, Window Functions

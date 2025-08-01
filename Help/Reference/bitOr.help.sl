@@ -1,9 +1,9 @@
 # bitOr
 
-- _bitOr(aCollection)_
-- _bitOr(aNumber, anotherNumber)_
+- _bitOr(i, j)_
+- _bitOr([i j …])_
 
-Answers the bitwise or of the integers _aNumber_ and _anotherNumber_.
+Answers the bitwise or of the integers _i_ and _j_.
 
 ```
 >>> 61.bitOr(15)
@@ -70,9 +70,20 @@ Plot bitOr with double and triple:
 
 ![](sw/spl/Help/Image/bitOr-C.svg)
 
+Plot the bitwise and of the first few integers:
+
+~~~spl png=D
+bitOr:/2
+.table(-31:31, -31:31)
+.rescale
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/bitOr-D.png)
+
 * * *
 
-See also: and, bitNot, bitOr, bitXor
+See also: or, bitAnd, bitNot, bitXor
 
 Guides: Bitwise Functions, Boolean Functions, Logical Operators
 

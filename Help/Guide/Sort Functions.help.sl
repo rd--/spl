@@ -9,6 +9,7 @@ Comparison Operators:
 
 Sort:
 
+- `heapSort`
 - `lexicographicSort`
 - `mergeInPlace`
 - `mergeSortBy`

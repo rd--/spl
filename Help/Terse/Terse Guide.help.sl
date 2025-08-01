@@ -874,7 +874,7 @@ system.includesPackage('Character') /* character package */
 '䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter /* characters are comparable */
 'x'.asCharacter.codePoint = 120
-'x'.asCharacter.printString = '\'x\''
+'x'.asCharacter.printString = '120.asCharacter'
 'x'.asCharacter.storeString = '120.asCharacter'
 'x'.asCharacter == 120.asCharacter /* characters are identical */
 '𠮷'.asCharacter == '𠮷'.asCharacter /* characters are identical */
@@ -885,7 +885,7 @@ system.includesPackage('Character') /* character package */
 32.asCharacter.characterString = ' ' /* 32 is space */
 ' '.asCharacter.codePoint = 32 /* space is 32 */
 97.asCharacter.characterString = 'a' /* 92 is a */
-'a'.asCharacter.printString = '\'a\'' /* print as single character string */
+'a'.asCharacter.printString = '97.asCharacter' /* print as asCharacter */
 'a'.asCharacter.asString = 'a' /* single element string of Character */
 { 'xy'.asCharacter }.ifError { true } /* it is an error is the string is not a single Character */
 let c = '𠮷'.asCharacter; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
@@ -1240,11 +1240,11 @@ true.asBit = 1 /* asBit */
 126.asCharacter = '~'.asCharacter /* integer to character */
 '~'.asCharacter.isCharacter /* string to character */
 let c = '~'.asCharacter; c.asCharacter == c /* identity */
-let c = 126.asCharacter; c.asString = '~' & { c.printString = '\'~\'' } /* character to string */
+let c = 126.asCharacter; c.asString = '~' & { c.printString = '126.asCharacter' } /* character to string */
 '~'.asString = '~' /* identity operation */
 '~'.asString == '~' /* identity operation */
 23.asString = '23' /* Object>>printString (integral to string) */
-15.asHexDigit = 'F'.asCharacter /* integral to hex character */
+15.asHexDigit = 'F' /* integral to hex character */
 { 16.asHexDigit }.ifError { true } /* error if out of range */
 'x'.asCharacter = 120.asCharacter /* string to character */
 120.asCharacter = 'x'.asCharacter /* small integer to character */
@@ -2723,71 +2723,71 @@ let r = Rectangle([10, 20], [30, 50]); r.upperRightQuadrant = Rectangle([20, 35]
 let r = Rectangle([10, 20], [30, 50]); r.upperRightQuadrant.upperRightQuadrant = Rectangle([25, 42.5], [30, 50])
 ```
 
-## RegExp -- text type
+## RegularExpression -- text type
 ```
-system.includesPackage('RegExp') /* regular expression package */
-RegExp('ab+c').typeOf = 'RegExp' /* type of, single argument constructor */
-RegExp('ab+c').isRegExp = true /* type predicate */
-RegExp('x.x').source = 'x.x' /* retrieve source */
-RegExp('x.x', 'g').flags = 'g' /* retreive flags */
-RegExp('x.x', 'g').isGlobal = true /* is global flag set */
-RegExp('x.x', 'g').printString = 'RegExp(\'x.x\', \'g\')' /* print string is contructor */
-RegExp('x.x', 'g').stringLiteral = '/x.x/g' /* a string indicating both source and flags */
-RegExp('ab*c').search('abc') = true /* predicate to determine if a string contains a match for a regular expression */
-RegExp('ab*c').search('-abc-') = true /* the entire string is not required to match */
-RegExp('ab*c').matches('abc') = true /* predicate to determine if a string exactly matches a regular expression */
-RegExp('ab*c').matches('-abc-') = false /* predicate to determine if a string exactly matches a regular expression */
-RegExp('^ab*c$').search('abc') = true /* ^ matches the start of the string and $ the end */
-RegExp('^ab*c$').search('-abc-') = false /* searching for a regular expression with ^ and $ requires an exact match */
-RegExp('c(a|d)+r').matches('caddar') = true /* test if a string exactly matches a regular expression */
-RegExp('c(a|d)+r').matches('-caddar-') = false /* test if a string exactly matches a regular expression */
-RegExp('c(a|d)+r').search('caddar') = true /* test if a string contains a match for a regular expression */
-RegExp('c(a|d)+r').search('-caddar-') = true /* test if a string constains a match for a regular expression */
-RegExp('c(a|d)+r').match('car') = 'car' /* get match for regular expression */
-RegExp('c(a|d)+r').match('cdr') = 'cdr' /* get match for regular expression */
-RegExp('c(a|d)+r').match('-car-') = 'car' /* get match for regular expression */
-RegExp('c(a|d)+r').match('-cdr-') = 'cdr' /* get match for regular expression */
-RegExp('c(a|d)+r').match('xyz') = nil /* if there is no match answer nil */
-let r = RegExp('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.matches(each) } = [true, true, true] /* test input string against regexp */
-{ RegExp('ab*c').matches(1.pi) }.ifError { true } /* test parameter must be a string */
-RegExp('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
-RegExp('c(a|d)+r', 'g').matchAll('does not') = []
-RegExp('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
-RegExp('-|:').splitBy('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
-RegExp('x|z').replaceWith('x y z', '-') = '- y z'
-RegExp('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
-{ RegExp('x|z').replaceAllWith('x y z', '-') }.ifError { true } /* requires 'g' flag */
-'ab abc ac'.allRegExpMatches(RegExp('ab*c', 'g')) = ['abc', 'ac']
-'a-b:c'.splitByRegExp('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
-'x y z'.replaceRegExp('x|z', '-') = '- y z'
-'x y z'.replaceRegExp(RegExp('x|z', 'g'), '-') = '- y -'
-RegExp('x|z').replaceModifying('x y z', asUpperCase:/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
-RegExp('x|z', 'g').replaceAllModifying('x y z', asUpperCase:/1) = 'X y Z'
+system.includesPackage('RegularExpression') /* regular expression package */
+RegularExpression('ab+c').typeOf = 'RegExp' /* type of, single argument constructor */
+RegularExpression('ab+c').isRegularExpression = true /* type predicate */
+RegularExpression('x.x').source = 'x.x' /* retrieve source */
+RegularExpression('x.x', 'g').flags = 'g' /* retreive flags */
+RegularExpression('x.x', 'g').isGlobal = true /* is global flag set */
+RegularExpression('x.x', 'g').printString = 'RegularExpression(\'x.x\', \'g\')' /* print string is contructor */
+RegularExpression('x.x', 'g').stringLiteral = '/x.x/g' /* a string indicating both source and flags */
+RegularExpression('ab*c').search('abc') = true /* predicate to determine if a string contains a match for a regular expression */
+RegularExpression('ab*c').search('-abc-') = true /* the entire string is not required to match */
+RegularExpression('ab*c').matches('abc') = true /* predicate to determine if a string exactly matches a regular expression */
+RegularExpression('ab*c').matches('-abc-') = false /* predicate to determine if a string exactly matches a regular expression */
+RegularExpression('^ab*c$').search('abc') = true /* ^ matches the start of the string and $ the end */
+RegularExpression('^ab*c$').search('-abc-') = false /* searching for a regular expression with ^ and $ requires an exact match */
+RegularExpression('c(a|d)+r').matches('caddar') = true /* test if a string exactly matches a regular expression */
+RegularExpression('c(a|d)+r').matches('-caddar-') = false /* test if a string exactly matches a regular expression */
+RegularExpression('c(a|d)+r').search('caddar') = true /* test if a string contains a match for a regular expression */
+RegularExpression('c(a|d)+r').search('-caddar-') = true /* test if a string constains a match for a regular expression */
+RegularExpression('c(a|d)+r').match('car') = 'car' /* get match for regular expression */
+RegularExpression('c(a|d)+r').match('cdr') = 'cdr' /* get match for regular expression */
+RegularExpression('c(a|d)+r').match('-car-') = 'car' /* get match for regular expression */
+RegularExpression('c(a|d)+r').match('-cdr-') = 'cdr' /* get match for regular expression */
+RegularExpression('c(a|d)+r').match('xyz') = nil /* if there is no match answer nil */
+let r = RegularExpression('ab*c'); ['ac', 'abc', 'abbc'].collect { :each | r.matches(each) } = [true, true, true] /* test input string against regexp */
+{ RegularExpression('ab*c').matches(1.pi) }.ifError { true } /* test parameter must be a string */
+RegularExpression('c(a|d)+r', 'g').matchAll('car cdr cadr') = ['car', 'cdr', 'cadr']
+RegularExpression('c(a|d)+r', 'g').matchAll('does not') = []
+RegularExpression('ab*c', 'g').matchAll('ab abc ac') = ['abc', 'ac']
+RegularExpression('-|:').splitBy('a-b:c') = ['a', 'b', 'c'] /* split string at matching tokens */
+RegularExpression('x|z').replaceWith('x y z', '-') = '- y z'
+RegularExpression('x|z', 'g').replaceAllWith('x y z', '-') = '- y -'
+{ RegularExpression('x|z').replaceAllWith('x y z', '-') }.ifError { true } /* requires 'g' flag */
+'ab abc ac'.allRegularExpressionMatches(RegularExpression('ab*c', 'g')) = ['abc', 'ac']
+'a-b:c'.splitByRegularExpression('-|:') = ['a', 'b', 'c'] /* split string at matching tokens */
+'x y z'.replaceRegularExpression('x|z', '-') = '- y z'
+'x y z'.replaceRegularExpression(RegularExpression('x|z', 'g'), '-') = '- y -'
+RegularExpression('x|z').replaceModifying('x y z', asUpperCase:/1) = 'X y z' /* instead of a replacement string, allows for a block to process the match */
+RegularExpression('x|z', 'g').replaceAllModifying('x y z', asUpperCase:/1) = 'X y Z'
 'A short sentence of six words'.wordAtIndex(23) = 'six' /* get word looking backwards and forwards from index for non-word characters */
 ```
 
 ## Regular Expressions -- matches
 ```
-'car'.matchesRegExp('c(a|d)+r'.RegExp) /* test if a string matches a regular expression */
-'cdr'.matchesRegExp('c(a|d)+r'.asRegExp) /* asRegExp compiles a string */
-'caar'.matchesRegExp('c(a|d)+r') /* a string parameter is compiled using asRegExp */
-'cadr'.matchesRegExp('c(a|d)+r')
-'caddar'.matchesRegExp('c(a|d)+r')
-'-car-'.matchesRegExp('c(a|d)+r') = false /* incomplete match for regular expression */
-'-cdr-'.matchesRegExp('c(a|d)+r') = false /* incomplete match for regular expression */
-'-car-'.searchRegExp('c(a|d)+r') /* search for incomplete match regular expression */
-'-cdr-'.searchRegExp('c(a|d)+r') /* search for incomplete match for regular expression */
-'aabbcc'.matchesRegExp('a+b+c+')
-'aabbcc'.matchesRegExp('a+$').not
-'aabbcc'.matchesRegExp('^b+c+').not
-'aabbcc'.matchesRegExp('a+b+c+')
-'car'.matchRegExp('c(a|d)+r') = 'car' /* retrieve match for regular expression */
-'cdr'.matchRegExp('c(a|d)+r') = 'cdr' /* retrieve match for regular expression */
-'-car-'.matchRegExp('c(a|d)+r') = 'car' /* retrieve match for regular expression */
-'-cdr-'.matchRegExp('c(a|d)+r') = 'cdr' /* retrieve match for regular expression */
+'car'.matchesRegularExpression('c(a|d)+r'.RegularExpression) /* test if a string matches a regular expression */
+'cdr'.matchesRegularExpression('c(a|d)+r'.asRegularExpression) /* asRegularExpression compiles a string */
+'caar'.matchesRegularExpression('c(a|d)+r') /* a string parameter is compiled using asRegularExpression */
+'cadr'.matchesRegularExpression('c(a|d)+r')
+'caddar'.matchesRegularExpression('c(a|d)+r')
+'-car-'.matchesRegularExpression('c(a|d)+r') = false /* incomplete match for regular expression */
+'-cdr-'.matchesRegularExpression('c(a|d)+r') = false /* incomplete match for regular expression */
+'-car-'.searchRegularExpression('c(a|d)+r') /* search for incomplete match regular expression */
+'-cdr-'.searchRegularExpression('c(a|d)+r') /* search for incomplete match for regular expression */
+'aabbcc'.matchesRegularExpression('a+b+c+')
+'aabbcc'.matchesRegularExpression('a+$').not
+'aabbcc'.matchesRegularExpression('^b+c+').not
+'aabbcc'.matchesRegularExpression('a+b+c+')
+'car'.matchRegularExpression('c(a|d)+r') = 'car' /* retrieve match for regular expression */
+'cdr'.matchRegularExpression('c(a|d)+r') = 'cdr' /* retrieve match for regular expression */
+'-car-'.matchRegularExpression('c(a|d)+r') = 'car' /* retrieve match for regular expression */
+'-cdr-'.matchRegularExpression('c(a|d)+r') = 'cdr' /* retrieve match for regular expression */
 ```
 
-## RegExp -- testing
+## RegularExpression -- testing
 ```
 '23'.isDecimalIntegerString
 '23.0'.isDecimalIntegerString.not
@@ -3289,8 +3289,8 @@ system.includesPackage('String') /* package */
 { 'Mačiūnas'.asciiByteArray }.ifError { true } /* non-ascii characters */
 '3.4'.parseNumber = 3.4 /* parse float */
 '3'.parseDecimalInteger = 3 /* parse integer */
-'string'.at(4) = 'i'.asCharacter /* one-indexing */
-'string'[4] = 'i'.asCharacter /* one-indexing (bracket notation) */
+'string'.at(4) = 'i' /* one-indexing */
+'string'[4] = 'i' /* one-indexing (bracket notation) */
 { 'string'[7] }.ifError { true } /* error on out of range index */
 ''.isEmpty = true /* empty string predicate */
 'string'.isEmpty = false /* is empty string */
@@ -3379,15 +3379,15 @@ system.includesPackage('String') /* package */
 '`quoted`'.withoutQuoting = 'quoted' /* remove backtick quotes */
 "x" = DoubleQuotedString('x') /* double quoted string */
 `x`.isSymbol /* backtick quoted string */
-'string'[3] = 'r'.asCharacter /* string indexing */
+'string'[3] = 'r' /* string indexing */
 { 'string'[3] := nil }.ifError { true } /* strings are immutable */
 '{"x": 3.141, "y": 23}'.parseJson = (x: 3.141, y: 23)
 { '_'.parseJson }.ifError { true }
 'a text string'.asJson = '"a text string"' /* json encoding of string */
 '"a text string"'.parseJson = 'a text string' /* parse json string */
-'string'.first = 's'.asCharacter /* first character */
+'string'.first = 's' /* first character */
 'element'.first.isVowel = true /* is first letter a vowel? */
-'string'.last = 'g'.asCharacter /* last character */
+'string'.last = 'g' /* last character */
 let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'a short string'.replaceString('short', 'longer') = 'a longer string' /* replace substring */
 'x x x'.replaceString('x', 'y') = 'y x x' /* replace first occurence of one string with another */
@@ -3417,7 +3417,7 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 { 'testAt'.endsWith(nil) }.ifError { true }
 'sndfile.wav'.endsWith('.wav') = true
 ['a','b','','c'].unlines.paragraphs.collect(lines:/1) = [['a', 'b'], ['c']]
-'string'.at(3) = 'r'.asCharacter /* string indexing */
+'string'.at(3) = 'r' /* string indexing */
 let s = 'string'; [s[2], s[4], s[5]].stringJoin = 'tin' /* string subscripting */
 ' x '.withBlanksTrimmed = 'x'
 ' x '.withoutLeadingBlanks = 'x '
@@ -3437,7 +3437,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 '𠮷'.isInBasicMultilingualPlane = false
 '𠮷'.isWellFormed = true
 { '𠮷'.asciiByteArray }.ifError { true } /* non-ascii character */
-'𠮷'[1] = '𠮷'.asCharacter
+'𠮷'[1] = '𠮷'
 { '𠮷'[2] }.ifError { true } /* lone surrogate */
 '0123456789'.isAllDigits
 '1'.isAllDigits
@@ -3569,7 +3569,7 @@ let d = (w: (x: (y: (z: 1)))); d['w', 'x', 'y', 'z'] := -1; d = (w: (x: (y: (z: 
 
 ## Syntax -- collection access and mutation
 ```
-'text'[3] = 'x'.asCharacter /* [At Syntax] */
+'text'[3] = 'x' /* [At Syntax] */
 let x = [1 .. 5]; x[3] := '3'; x[3] = '3' /* [AtPut Syntax] */
 (x: 1.pi) :: x = 1.pi /* quoted at syntax */
 let d = (x: 1); d::x = 1 /* [Quoted At Syntax] */
@@ -3777,6 +3777,8 @@ system.methodLookupAtType('collect', 2, 'List').isMethod = true
 let m = system.methodLookupAtType('plusSign', 2, 'SmallFloat'); m.operatorTokenOrQualifiedName = '+'
 system.methodImplementations('sum').collect { :each | each.origin.name }.includes('Bag') = true
 system.methodSignatures('add').includes('@Dictionary>>add:/2') = true
+'@Iterable>>sum:/1'.parseMethodSignature = ['@Iterable', 'sum:/1']
+'@Iterable'.isQualifiedTraitName = true
 system.methodLookupAtSignature('@Iterable>>sum:/1').isMethod = true
 system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self | reduce(self,min:/2) }'
 system.methodTypes('last:/1').includes('String') = true

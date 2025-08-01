@@ -63,7 +63,7 @@ Generate a path based on the Rudin–Shapiro sequence:
 
 * * *
 
-See also: thueMorse, integerDigits, substitutionSystem
+See also: grayDecode, integerDigits, substitutionSystem, thueMorse
 
 Guides: Integer Sequences
 

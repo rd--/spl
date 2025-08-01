@@ -10,7 +10,7 @@ Answers the bitwise and of the integers _i_ and _j_.
 13
 ```
 
-`bitAnd` of `one` is 1 when odd and 0 when even:
+`bitAnd` of `one` is `one` when odd and `zero` when even:
 
 ```
 >>> 1:9.bitAnd(1)
@@ -62,7 +62,7 @@ The unary form reduces over a collection:
 1025
 ```
 
-Test for powers of 2:
+Test for powers of two:
 
 ```
 >>> 1:20.collect { :i |
@@ -131,6 +131,17 @@ answer.scatterPlot
 
 ![](sw/spl/Help/Image/bitAnd-D.svg)
 
+Plot the bitwise and of the first few integers:
+
+~~~spl png=E
+bitAnd:/2
+.table(-31:31, -31:31)
+.rescale
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/bitAnd-E.png)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor
@@ -139,9 +150,12 @@ Guides: Bitwise Functions, Boolean Functions, Integer Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/OR.html)
-[2](https://reference.wolfram.com/language/ref/BitOr.html),
+[1](https://mathworld.wolfram.com/AND.html)
+[2](https://reference.wolfram.com/language/ref/BitAnd.html),
 _OEIS_
 [1](https://oeis.org/A279125),
 _Smalltalk_
-5.6.5.4
+5.6.5.4,
+_W_
+[1](https://en.wikipedia.org/wiki/Bitwise_operation#AND)
+[2](https://en.wikipedia.org/wiki/Logical_conjunction)

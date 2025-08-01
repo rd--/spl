@@ -1,5 +1,16 @@
 +@Collection {
 
+	heapSort { :self |
+		let h = Heap();
+		let l = [];
+		let k = self.size;
+		h.addAll(self);
+		k.timesRepeat {
+			l.add(h.removeFirst)
+		};
+		l
+	}
+
 	sorted { :self |
 		self.asList.sort
 	}

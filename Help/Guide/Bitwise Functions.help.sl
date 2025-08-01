@@ -46,3 +46,7 @@ Converting:
 * * *
 
 Guides: Boolean Functions, Logical Operators, Mathematical Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Bitwise_operation)

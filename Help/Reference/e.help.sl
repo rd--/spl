@@ -36,14 +36,17 @@ Answer _n_ times `e`.
 ```
 
 _e_ raised to _iπ_ plus `one` is `zero`,
-Euler’s formula:
+Euler’s formula and Euler’s identity:
 
 ```
->>> 1.e ^ (1.pi * 0J1) + 1
+>>> (1.e ^ 1.pi.i) + 1
 0
 
 >>> 1.pi.cos + (1.i * 1.pi.sin) + 1
 0
+
+>>> -1J0.log
+1.pi.i
 ```
 
 In the binary case,
@@ -75,6 +78,24 @@ Expressions that approach _e_:
 >>> (1 / [0 .. n].!).sum
 1.e
 ```
+
+The continued fraction of _e_ is regular:
+
+```
+>>> 1.e.continuedFraction(20)
+[2 1 2 1 1 4 1 1 6 1 1 8 1 1 10 1 1 12 1 1]
+```
+
+The graph of _eˣ_ has gradient `one` at `zero`:
+
+~~~
+(-2 -- 1).functionPlot([
+	{ :x | x + 1 },
+	{ :x | 1.e ^ x }
+])
+~~~
+
+![](sw/spl/Help/Image/e-A.svg)
 
 _e_ is also a part of the `Scientific Notation` for `Number Literals`,
 however in that context an upper case _E_ is ordinary.
