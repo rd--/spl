@@ -23,6 +23,17 @@ The operator form is `//`:
 3
 ```
 
+Quotient table:
+
+```
+>>> //.table(1:10, 2:4).transposed
+[
+	0 1 1 2 2 3 3 4 4 5;
+	0 0 1 1 1 2 2 2 3 3;
+	0 0 0 1 1 1 1 2 2 2
+]
+```
+
 At `Fraction`:
 
 ```
@@ -38,6 +49,10 @@ At `SmallFloat`, i.e. inexact numbers:
 ```
 >>> 4.56 // 2.5
 1
+
+>>> let e = 1.e;
+>>> (e ^ (e ^ e)) // 1.pi
+1214122
 ```
 
 Quotient threads elementwise over lists:
@@ -103,11 +118,18 @@ Plot the quotient of a function:
 
 ![](sw/spl/Help/Image/quotient-C.svg)
 
+At `Symbol`:
+
+```
+>> `m` // `n`
+(// m n)
+```
+
 `remainder` answers the remainder from this division.
 
 * * *
 
-See also: //, quotientBy, remainder
+See also: //, quotientBy, quotientRemainder, remainder
 
 Guides: Integer Functions
 

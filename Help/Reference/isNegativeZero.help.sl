@@ -1,8 +1,8 @@
 # isNegativeZero
 
-- _isNegativeZero(aNumber)_
+- _isNegativeZero(x)_
 
-Answer `true` if _aNumber_ is negative `zero`, else `false`.
+Answer `true` if the number _x_ is negative `zero`, else `false`.
 
 ```
 >>> [-1 -0 0 1].collect(isNegativeZero:/1)
@@ -28,6 +28,6 @@ false
 
 * * *
 
-See also: =, ==, < isZero, isNegative
+See also: =, ==, <, isZero, isNegative
 
 Categories: Testing, Math

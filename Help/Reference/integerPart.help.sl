@@ -30,6 +30,9 @@ At `Fraction`:
 ```
 >>> -5/4.integerPart
 -1
+
+>>> (-5 / 4).integerPart
+-1
 ```
 
 At `Complex`:

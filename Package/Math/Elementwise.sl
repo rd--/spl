@@ -548,11 +548,11 @@
 	}
 
 	// { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, //)
+		anObject.adaptToCollectionAndApply(self, quotient:/2)
 	}
 
 	\\ { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, \\)
+		anObject.adaptToCollectionAndApply(self, remainder:/2)
 	}
 
 	< { :self :anObject |

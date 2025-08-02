@@ -51,6 +51,11 @@ Guides: Boolean Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Boole.html)
+[1](https://mathworld.wolfram.com/IversonBracket.html)
+[2](https://mathworld.wolfram.com/CharacteristicFunction.html)
+[3](https://reference.wolfram.com/language/ref/Boole.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Iverson_bracket)
+[2](https://en.wikipedia.org/wiki/Indicator_function)
 
 Categories: Converting

@@ -73,6 +73,30 @@ If n has a primitive root, then it has exactly _phi(phi(n))_ of them:
 ]
 ```
 
+Select reptend primes,
+primes with a specified primitive root:
+
+```
+>>> 1:35.prime.select { :x |
+>>> 	x.primitiveRootList.includes(10)
+>>> }
+[
+	 17  19  23  29  47
+	 59  61  97 109 113
+	131 149
+]
+
+>>> 1:35.prime.select { :x |
+>>> 	x.primitiveRootList.includes(2)
+>>> }
+[
+	  3   5  11  13  19
+	 29  37  53  59  61
+	 67  83 101 107 131
+	139 149
+]
+```
+
 * * *
 
 See also: mangoldtLambda, welchCostasArrayList
@@ -83,6 +107,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PrimitiveRootList.html),
 _OEIS_
 [1](https://oeis.org/A033948)
-[2](https://oeis.org/A046144),
+[2](https://oeis.org/A046144)
+[3](https://oeis.org/A001913)
+[4](https://oeis.org/A001122),
 _W_
 [1](https://en.wikipedia.org/wiki/Primitive_root_modulo_n)

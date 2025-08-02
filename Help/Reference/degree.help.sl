@@ -26,7 +26,7 @@ which are in turn divided into sixty _arc seconds_:
 ```
 
 At `UnivariatePolynomial`,
-answers the is the largest exponent of the polynomial:
+answer the largest exponent of the polynomial:
 
 ```
 >>> UnivariatePolynomial([1 2 3])
@@ -40,7 +40,7 @@ Where supported `degree` is displayed as °.
 
 See also: angleVector, arcMinute, arcSecond, arcSin, degrees, fromDms, pi, sin
 
-Guides: Mathematical Constants, Trigonometric Functions
+Guides: Mathematical Constants, Polynomial Functions, Trigonometric Functions
 
 References:
 _Mathematica_

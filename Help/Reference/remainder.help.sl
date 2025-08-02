@@ -71,7 +71,7 @@ Detect perfect multiples in a given list of numbers:
 
 * * *
 
-See also: \\, quotient, remainderBy
+See also: \\, quotient, quotientRemainder, remainderBy
 
 References:
 _Haskell_:
@@ -86,6 +86,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/sym.quorem.html),
 _Smalltalk_
-5.6.2.30
+5.6.2.30,
+_W_
+[1](https://en.wikipedia.org/wiki/Remainder)
 
 Categories: Arithmetic

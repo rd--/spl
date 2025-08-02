@@ -4,6 +4,11 @@ Types:
 
 - `UnivariatePolynomial`
 
+Accessors:
+
+- `coefficientList`
+- `degree`
+
 Constructors:
 
 - `bernoulliPolynomial`

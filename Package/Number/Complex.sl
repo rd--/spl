@@ -390,6 +390,10 @@ Complex : [Object, Number] { | real imaginary |
 		].stringIntercalate('J')
 	}
 
+	quotient { :self :aNumber |
+		self.error('quotient: not implemented')
+	}
+
 	realImaginary { :self |
 		[self.real, self.imaginary]
 	}
@@ -400,6 +404,10 @@ Complex : [Object, Number] { | real imaginary |
 		} {
 			1 / self
 		}
+	}
+
+	remainder { :self :aNumber |
+		self.error('remainder: not implemented')
 	}
 
 	secant { :self |
@@ -447,6 +455,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	tanh { :self |
 		self.i.tan.i.negated
+	}
+
+	truncated { :self |
+		self.integerPart
 	}
 
 	storeString { :self |

@@ -67,6 +67,10 @@
 		(a + b) / 2
 	}
 
+	isAlmostPrime { :self :k |
+		self.primeFactors.size = k
+	}
+
 	isBalancedPrime { :n |
 		(n >= 3) & {
 			n.isPrime & {
@@ -98,8 +102,12 @@
 		self.gcd(anInteger) = 1
 	}
 
-	isAlmostPrime { :self :k |
-		self.primeFactors.size = k
+	isFullReptendPrime { :self |
+		self = 7 | {
+			self.isPrime & {
+				self.primitiveRootList.includes(10)
+			}
+		}
 	}
 
 	isPowerfulNumber { :self |

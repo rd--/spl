@@ -1,8 +1,8 @@
 # mixedFractionParts
 
-- _mixedFractionParts(aNumber)_
+- _mixedFractionParts(x)_
 
-Answer a two element list of the _integerPart_ and the _fractionPart_ of _aNumber_.
+Answer a two element list of the `integerPart` and the `fractionPart` of the number _x_.
 
 Separate the integer and fractional parts of a real number:
 
@@ -48,7 +48,7 @@ Complex numbers:
 
 * * *
 
-See also: fractionalPart, integerPart
+See also: fractionPart, integerPart
 
 References:
 _Mathematica_

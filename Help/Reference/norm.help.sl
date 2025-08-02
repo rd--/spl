@@ -116,7 +116,8 @@ See also: abs, dot, hypot, rootMeanSquare
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Norm.html)
-[2](https://reference.wolfram.com/language/ref/Norm.html),
+[2](https://mathworld.wolfram.com/ComplexModulus.html)
+[3](https://reference.wolfram.com/language/ref/Norm.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/norm.html)
 [2](https://mathworks.com/help/matlab/ref/vecnorm.html)

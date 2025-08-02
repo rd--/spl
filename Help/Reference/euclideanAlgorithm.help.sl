@@ -17,3 +17,9 @@ The Euclidean algorithm is an efficient method for computing the greatest common
 * * *
 
 See also: extendedEuclideanAlgorithm, gcd
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/EuclideanAlgorithm.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Euclidean_algorithm)

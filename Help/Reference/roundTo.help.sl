@@ -1,8 +1,8 @@
 # roundTo
 
-- _roundTo(aNumber, anotherNumber)_
+- _roundTo(x, a=1)_
 
-Answer the nearest number to _aNumber_ that is a multiple of _anotherNumber_.
+Answer the nearest number to _x_ that is a multiple of _a_.
 
 Round to integer:
 
@@ -22,6 +22,22 @@ Rounds away from zero, c.f. `roundToTowardsZero`:
 ```
 >>> -3.99.roundTo(1)
 -4
+```
+
+At half integers:
+
+```
+>>> 2.5.roundTo(1)
+3
+
+>>> 3.5.roundTo(1)
+4
+
+>>> -4.5.roundTo(1)
+-4
+
+>>> -5.5.roundTo(1)
+-5
 ```
 
 Round to precision:

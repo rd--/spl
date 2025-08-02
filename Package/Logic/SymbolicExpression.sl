@@ -128,6 +128,14 @@
 		'log10'.symbolicPrimitive([self])
 	}
 
+	quotient { :self :operand |
+		'quotient'.symbolicPrimitive([self, operand])
+	}
+
+	remainder { :self :operand |
+		'remainder'.symbolicPrimitive([self, operand])
+	}
+
 	sin { :self |
 		'sin'.symbolicPrimitive([self])
 	}

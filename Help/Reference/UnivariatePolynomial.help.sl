@@ -13,6 +13,13 @@ The `degree` of the polynomial is the largest exponent,
 (2, [1 2 3])
 ```
 
+Evaluate at `Symbol`:
+
+```
+>> UnivariatePolynomial([1 2 3]).at(`x`)
+(+ (* x (+ (* x 3) 2)) 1)
+```
+
 The sum of two univariate polynomials of degrees seven and eleven:
 
 ```
@@ -141,7 +148,7 @@ let p3 = p1 + p2;
 
 * * *
 
-See also: degree, evaluateUnivariatePolynomial, functionPlot, chebyshevT, chebyshevU
+See also: degree, coefficientList, evaluateUnivariatePolynomial, functionPlot, chebyshevT, chebyshevU
 
 Guides: Polynomial Functions
 

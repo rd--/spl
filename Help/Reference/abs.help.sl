@@ -21,20 +21,20 @@ of the number _z_.
 ```
 
 `abs` is defined at `Complex`,
-where it is also called the modulus:
+where it is also called the complex modulus or `norm`:
 
 ```
->>> 1J1.abs
-2.sqrt
+>>> (1J1.abs, 1J1.norm)
+(2.sqrt, 2.sqrt)
 
->>> 1.4J2.3.abs
-2.69258
+>>> (1.4J2.3.abs, 1.4J2.3.norm)
+(2.69258, 2.69258)
 
->>> -2J1.abs
-5.sqrt
+>>> (-2J1.abs, -2J1.norm)
+(5.sqrt, 5.sqrt)
 
->>> 3J-4.abs
-5
+>>> (3J-4.abs, 3J-4.norm)
+(5, 5)
 ```
 
 `abs` collects over lists:

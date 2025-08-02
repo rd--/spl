@@ -11,7 +11,8 @@ Positive integer values, threads over lists:
 [1 1 2 6 24 120 720 5040 40320 362880]
 ```
 
-Half-integer values, threads over lists:
+The values of the γ function on half-integers are integer multiples of the square root of π,
+threads over lists:
 
 ```
 >>> (1.5 .. 5.5).gamma

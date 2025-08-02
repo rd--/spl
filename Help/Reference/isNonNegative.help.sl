@@ -1,8 +1,8 @@
 # isNonNegative
 
-- _isNonNegative(aNumber)_
+- _isNonNegative(x)_
 
-Answers `true` if _aNumber_ is greater than or equal to zero.
+Answers `true` if the number _x_ is greater than or equal to `zero`.
 
 ```
 >>> [-1 0 1].collect(isNonNegative:/1)

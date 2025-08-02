@@ -62,13 +62,16 @@ Extract parts of a list cyclically:
 
 * * *
 
-See also: %, /, //, \\, quotient, remainder
+See also: %, /, //, \\, commonResidue, minimalResidue, quotient, remainder
 
 Guides: Integer Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Mod.html),
+[1](https://mathworld.wolfram.com/Congruence.html)
+[2](https://mathworld.wolfram.com/Modulus.html)
+[3](https://mathworld.wolfram.com/CommonResidue.html)
+[4](https://reference.wolfram.com/language/ref/Mod.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Modulo)
 

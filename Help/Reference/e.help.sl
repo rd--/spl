@@ -31,8 +31,8 @@ Answer _n_ times `e`.
 `e` threads over lists:
 
 ```
->>> [0.5, 1.5].e
-[1.35914, 4.07742]
+>>> [0.5 1.5].e
+[1.35914 4.07742]
 ```
 
 _e_ raised to _iπ_ plus `one` is `zero`,

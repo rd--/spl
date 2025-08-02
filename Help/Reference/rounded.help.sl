@@ -2,7 +2,8 @@
 
 - _rounded(x)_
 
-Answer the integer nearest _x_.
+Answer the integer nearest _x_,
+sometimes written as _⌊x⌉_.
 
 ```
 >>> 0.9.rounded
@@ -22,12 +23,26 @@ Answer the integer nearest _x_.
 
 >>> -2.1.rounded
 -2
+```
 
+At half integers:
+
+```
 >>> 1.5.rounded
 2
 
 >>> -1.5.rounded
 -1
+```
+
+At `Complex` applies separately to real and imaginary parts:
+
+```
+>>> 5.37J-1.3.rounded
+5J-1
+
+>>> 1.4J2.6.rounded
+1J3
 ```
 
 Threads elementwise over lists:
@@ -62,9 +77,14 @@ Compute Fibonacci numbers:
 
 ```
 >>> 1:15.collect { :k |
->>> 	((1.goldenRatio ^ k) / 5.sqrt).rounded
+>>> 	let z = (1.goldenRatio ^ k);
+>>> 	(z / 5.sqrt).rounded
 >>> }
-[1 1 2 3 5 8 13 21 34 55 89 144 233 377 610]
+[
+	 1   1   2   3   5
+	 8  13  21  34  55
+	89 144 233 377 610
+]
 ```
 
 Negative numbers also round to the nearest integer:
@@ -81,6 +101,18 @@ Plot the function over a subset of the reals:
 ~~~
 
 ![](sw/spl/Help/Image/rounded-A.svg)
+
+Plot _√x-⌊√x⌉_ over a subset of the reals:
+
+~~~spl svg=A
+(0 -- 16).functionPlot { :x |
+	let z = x.sqrt;
+	z - z.rounded
+}
+~~~
+
+![](sw/spl/Help/Image/rounded-B.svg)
+
 
 * * *
 

@@ -18,10 +18,6 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		self.applyBinaryOperator(anObject, /)
 	}
 
-	// { :self :anObject |
-		self.applyBinaryOperator(anObject, //)
-	}
-
 	% { :self :anObject |
 		self.applyBinaryOperator(anObject, %)
 	}
@@ -107,6 +103,10 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 
 	phi { :self |
 		atan2(self.y, self.x)
+	}
+
+	quotient { :self :anObject |
+		self.applyBinaryOperator(anObject, quotient:/2)
 	}
 
 	radius { :self |

@@ -61,6 +61,13 @@ to answer a `Fraction` divide by a fraction literal:
 [1/4 1/2 3/4]
 ```
 
+At `Complex` answers a `Complex`:
+
+```
+>>> 9.4J6 / 1J1
+7.7J-1.7
+```
+
 The unary form is `reciprocal`:
 
 ```

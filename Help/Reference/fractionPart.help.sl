@@ -1,8 +1,8 @@
 # fractionPart
 
-- _fractionPart(aNumber)_
+- _fractionPart(x)_
 
-Answer a number whose value is the difference between the _aNumber_ and its truncated value,
+Answer a number whose value is the difference between the number _x_ and its truncated value,
 so that _x.truncated + x.fractionPart = x_.
 
 ```

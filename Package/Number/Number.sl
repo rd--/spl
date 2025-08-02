@@ -436,6 +436,10 @@
 		2 * self.sqrt.arcSin
 	}
 
+	isHalfInteger { :self |
+		(self.fractionPart.abs * 2).isOne
+	}
+
 	isNegative { :self |
 		self < self.zero
 	}

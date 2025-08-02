@@ -2,7 +2,8 @@
 
 - _truncated(x)_
 
-Answer the integer nearest _x_ toward `zero`.
+Answer the integer nearest _x_ toward `zero`,
+that is the integer part of the number.
 
 ```
 >>> 1.25.truncated

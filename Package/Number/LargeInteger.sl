@@ -78,15 +78,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		}
 	}
 
-	// { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self / BigInt(_anObject);
-		};
-		>
-		anObject.adaptToIntegerAndApply(self, //)
-	}
-
 	% { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
@@ -289,8 +280,13 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		self.storeString
 	}
 
-	quotient { :self :anInteger |
-		self // anInteger
+	quotient { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self / BigInt(_anObject);
+		};
+		>
+		anObject.adaptToIntegerAndApply(self, quotient:/2)
 	}
 
 	raisedToInteger { :self :anInteger |

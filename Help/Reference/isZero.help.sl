@@ -1,8 +1,8 @@
 # isZero
 
-- _isZero(aNumber)_
+- _isZero(x)_
 
-Answer `true` if _aNumber_ is `zero`.
+Answer `true` if the number _x_ is `zero`.
 
 At `SmallFloat`:
 

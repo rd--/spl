@@ -53,6 +53,7 @@ Testing:
 - `isChenPrime`
 - `isCoprime`
 - `isEisensteinPrime`
+- `isFullReptendPrime`
 - `isGaussianPrime`
 - `isLesserCousinPrime`
 - `isLesserTwinPrime`

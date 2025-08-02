@@ -31,6 +31,10 @@
 - `/`: division
 - `^`: raised to
 
+## Boolean Functions
+
+- `Boolean Functions`: Guide
+
 ## Bitwise Functions
 
 - `Bitwise Functions`: Guide
@@ -173,6 +177,19 @@
 - `minkowskiQuestionMarkInverse`: inverse Minkowski ? function
 - `weierstrassFunction`: Weierstrass function
 
+## Fraction and Integer Part Functions
+
+- `ceiling`: round towards +∞
+- `floor`: round towards -∞
+- `fractionPart`: fractional part
+- `integerPart`: integer part
+- `mixedFractionParts`: integer and fractional parts
+- `mod`
+- `quotient`
+- `rounded`: round to nearest integer
+- `sawtoothWave`
+- `sign`: sign of
+
 ## Integer Functions
 
 - `Integer Functions`: Guide
@@ -188,17 +205,6 @@
 ## Interpolation Functions
 
 - `Interpolation Functions`: Guide
-
-## Numerical Functions
-
-- `boole`: 1 for true, 0 for false
-- `ceiling`: round towards +∞
-- `floor`: round towards -∞
-- `fractionPart`: fractional part
-- `integerPart`: integer part
-- `mixedFractionParts`: integer and fractional parts
-- `round`: round to nearest integer
-- `sign`: sign of
 
 ## One-Dimensional Lists
 
