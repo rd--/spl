@@ -66,6 +66,25 @@
 		}
 	}
 
+	digamma { :z |
+		/* Jose Bernardo, Algorithm AS 103, Applied Statistics 25/3, 1976 */
+		(z <= 0.000001).if {
+			let eulerMascheroni = 0.57721566490153286060;
+			0 - eulerMascheroni - (1 / z) + (1.6449340668482264365 * z)
+		} {
+			let answer = 0;
+			let r = nil;
+			{ z < 8.5 }.whileTrue {
+				answer := answer - (1 / z);
+				z := z + 1
+			};
+			r := 1 / z;
+			answer := answer + z.log - (0.5 * r);
+			r := r * r;
+			answer - (r * (1 / 12 - (r * (1 / 120 - (r * (1 / 252 - (r * (1 / 240 - (r * (1 / 132))))))))))
+		}
+	}
+
 	gammaLanczosFormulaLeadingFactor { :self |
 		let z = self + 5.5;
 		z.log * (self + 0.5) - z

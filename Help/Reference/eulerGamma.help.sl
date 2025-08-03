@@ -23,6 +23,16 @@ with numerical value ~0.5772.
 [0 1 1 2 1 2 1 4 3 13 5 1 1 8 1 2 4 1 1]
 ```
 
+Calculate an approximation using an asymptotic formula of Negoi:
+
+```
+>>> let n = 400;
+>>> let h = n.harmonicNumber;
+>>> let a = (n + 1/2 + (1 / (24 * n))).log;
+>>> (h, h - a)
+(6.56993, 1.eulerGamma)
+```
+
 * * *
 
 See also: e, meisselMertensConstant, pi

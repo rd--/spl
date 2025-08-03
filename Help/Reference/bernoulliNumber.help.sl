@@ -11,7 +11,8 @@ The first eleven Bernoulli numbers:
 [
 	1/1 -1/2 1/6 0 -1/30
 	0 1/42 0 -1/30 0
-	5/66]
+	5/66
+]
 ```
 
 The 20th Bernoulli number:
@@ -42,6 +43,19 @@ Relation to Euler numbers and π:
 1.pi
 ```
 
+The _2n_-th Bernoulli numbers divided by _2n_:
+
+```
+>>> 1:8.collect { :n |
+>>> 	let m = 2 * n;
+>>> 	m.bernoulliNumber / m
+>>> }
+[
+	1/12 -1/120 1/252 -1/240 1/132
+	-691/32760 1/12 -3617/8160
+]
+```
+
 * * *
 
 See also: bernoulliSequence, eulerNumber
@@ -54,6 +68,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BernoulliB.html),
 _OEIS_
 [1](https://oeis.org/A000367)
-[2](https://oeis.org/A002445),
+[2](https://oeis.org/A002445)
+[3](https://oeis.org/A001067)
+[4](https://oeis.org/A006953),
 _W_
 [1](https://en.wikipedia.org/wiki/Bernoulli_number)
