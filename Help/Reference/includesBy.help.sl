@@ -1,8 +1,8 @@
 # includesBy
 
-- _includesBy(aCollection, anObject, aBlock:/1)_
+- _includesBy(c, x, f:/1)_
 
-Answer whether _aCollection_ contains _anObject_ as a member using the equality predicate _aBlock_.
+Answer whether the collection _c_ contains the object _x_ as a member using the equality predicate block _f_.
 
 Is a number close to five close to an element of a `List`:
 

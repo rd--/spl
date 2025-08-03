@@ -1,9 +1,9 @@
 # unionBy
 
-- _unionBy(aCollection, anotherCollection, aBlock:/2)_
+- _unionBy(c₁, c₂, f:/2)_
 
-Answer a `Set` holding the set theoretic union of two collections,
-equality is decided by _aBlock_.
+Answer the set theoretic union of the two collections _c₁_ and _c₂_.
+Equality is decided by the block _f_.
 
 ```
 >>> [1 2 3].unionBy([2 3 4], ==)

@@ -104,6 +104,16 @@ The binary form applies the block _f_ to each element before summing:
 385
 ```
 
+An instance of a family of cutoff, or weighting, functions that answer _-1/12_ for a partial sum of the integers:
+
+```
+>>> let n = 5;
+>>> (1 .. 99).sum { :x |
+>>> 	x * (x / n).-.exp * (x / n).cos
+>>> }
+-1/12
+```
+
 Evaluate symbolically:
 
 ```

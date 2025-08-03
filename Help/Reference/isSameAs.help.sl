@@ -1,6 +1,6 @@
 # isSameAs
 
-- _isSameAs(anObject, anotherObject)_
+- _isSameAs(x₁, x₂)_
 
 For `Character` and `String` values answers if the values are the same.
 The comparison ignores case and possibly some other attributes.

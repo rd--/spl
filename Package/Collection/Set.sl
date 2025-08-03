@@ -43,6 +43,12 @@
 		}
 	}
 
+	union { :self :aSet |
+		let answer = self.copy;
+		answer.includeAll(aSet);
+		answer
+	}
+
 	without { :self :anObject |
 		self.removeIfAbsent(anObject) { };
 		self
@@ -228,6 +234,16 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 			'List>>asIdentitySet: non-immediate entry'.error
 		};
 		self.basicAsIdentitySet
+	}
+
+	unionBy { :self :aCollection :aBlock:/2 |
+		let set = self.asSet(aBlock:/2);
+		set.includeAll(aCollection);
+		set.asList
+	}
+
+	union { :self :aCollection |
+		self.unionBy(aCollection, =)
 	}
 
 }

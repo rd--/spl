@@ -1,6 +1,6 @@
 # intersection
 
-- _intersection(aCollection, anotherCollection)_
+- _intersection(c₁, c₂)_
 
 Answer the set theoretic intersection of two collections.
 
@@ -66,6 +66,8 @@ Where supported `intersection` is displayed as ∩.
 * * *
 
 See also: difference, lineLineIntersection, union
+
+Guides: Set Functions
 
 References:
 _Apl_

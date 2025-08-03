@@ -122,7 +122,7 @@ At `Symbol`:
 
 ```
 >> `m` // `n`
-(// m n)
+(quotient m n)
 ```
 
 `remainder` answers the remainder from this division.

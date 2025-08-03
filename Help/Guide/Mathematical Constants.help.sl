@@ -23,6 +23,7 @@
 - `lemniscateConstant`: ϖ
 - `levysConstant`: Lévy’s _k_
 - `logarithmicPhi`: _2^φ_
+- `meisselMertensConstant`: B₁
 - `pi`: circumference diameter ratio
 - `plasticRatio`: plastic ratio
 - `pythagorasConstant`: Pythagoras’ _k_

@@ -28,6 +28,7 @@
 - `Prime Number Functions`
 - `Quantity Functions`
 - `Random Functions`
+- `Set Functions`
 - `Sigmoid Functions`
 - `Similarity Functions`
 - `Sort Functions`

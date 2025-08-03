@@ -1,9 +1,11 @@
 # differenceAll
 
-- _differenceAll(aCollection, anotherCollection)_
+- _differenceAll(c₁, c₂, =)_
 
-Answer a value like _aCollection_ that contains elements from _aCollection_ that
-do not occur in any collection that is an element of _anotherCollection_.
+Answer a value like the collection _c₁_ that contains elements from _c₁_ that
+do not occur in any collection that is an element of _c₂_,
+according to the equality predicate _=_,
+which is taken to be `=` if elided.
 
 ```
 >>> 1:75.differenceAll(
@@ -22,5 +24,7 @@ do not occur in any collection that is an element of _anotherCollection_.
 * * *
 
 See also: difference
+
+Guides: Set Functions
 
 Categories: Set, Logic

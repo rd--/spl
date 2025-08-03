@@ -1,8 +1,8 @@
 # asSet
 
-- _asSet(aCollection, aBlock:/2)_
+- _asSet(c, f:/2)_
 
-Answer a `Set` of the elements of _aCollection_ using the comparison predicate _aBlock_.
+Answer a `Set` of the elements of the collection _c_ using the comparison predicate _f_.
 
 At `List` with `==` answers an `IdentitySet`:
 
@@ -40,7 +40,9 @@ Lists that compare `=` do not compare `==`,
 >>> [1 1; 1 1].asSet(=).size
 1
 
->>> { [1 1; 1 1].asSet(==) }.ifError { true }
+>>> {
+>>> 	[1 1; 1 1].asSet(==)
+>>> }.ifError { true }
 true
 ```
 

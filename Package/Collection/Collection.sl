@@ -83,13 +83,13 @@
 	}
 
 	asList { :self |
-		let array = List(self.size);
-		let index = 0;
+		let answer = List(self.size);
+		let index = 1;
 		self.do { :each |
-			index := index + 1;
-			array[index] := each
+			answer[index] := each;
+			index := index + 1
 		};
-		array
+		answer
 	}
 
 	asCollection { :self |
@@ -270,12 +270,16 @@
 		}
 	}
 
-	differenceAll { :self :aCollection |
+	differenceAll { :self :aCollection :aBlock:/2 |
 		self.reject { :each |
 			aCollection.anySatisfy { :subCollection |
-				subCollection.includes(each)
+				subCollection.includesBy(each, aBlock:/2)
 			}
 		}
+	}
+
+	differenceAll { :self :aCollection |
+		self.differenceAll(aCollection, =)
 	}
 
 	discreteDelta { :self |
@@ -703,16 +707,6 @@
 				each
 			}
 		}
-	}
-
-	unionBy { :self :aCollection :aBlock:/2 |
-		let answer = self.asSet(aBlock:/2);
-		answer.includeAll(aCollection);
-		answer
-	}
-
-	union { :self :aCollection |
-		self.unionBy(aCollection, =)
 	}
 
 	withLevelCollect { :self :aBlock:/2 :level |

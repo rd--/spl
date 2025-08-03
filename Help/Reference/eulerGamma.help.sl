@@ -4,17 +4,20 @@
 
 _1.eulerGamma_ is Euler’s constant γ,
 also called the Euler–Mascheroni constant,
-with numerical value ~0.57722.
+with numerical value ~0.5772.
 
 ```
 >>> 1.eulerGamma
 0.5772
 
 >>> 1 / 3.sqrt
-0.5774
+0.57735
 
 >>> 2.eulerGamma
 1.1544
+
+>>> 1.eulerGamma.exp
+1.78107
 
 >>> 1.eulerGamma.continuedFraction(19)
 [0 1 1 2 1 2 1 4 3 13 5 1 1 8 1 2 4 1 1]
@@ -22,7 +25,7 @@ with numerical value ~0.57722.
 
 * * *
 
-See also: e, pi
+See also: e, meisselMertensConstant, pi
 
 Guides: Mathematical Constants
 

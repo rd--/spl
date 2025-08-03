@@ -43,6 +43,8 @@ Where supported `complement` is displayed as ∁.
 
 See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, symmetricDifference
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Complement.html)

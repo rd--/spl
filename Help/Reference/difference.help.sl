@@ -1,9 +1,11 @@
 # difference
 
-- _difference(aCollection, anotherCollection)_
+- _difference(c₁, c₂)_
 
-Answer a value like _aCollection_ that is the set theoretic difference of the two collections.
-This is also called the _relative complement_.
+Answer a value that is the set theoretic difference of the two collections _c₁_ and _c₂_.
+This is also called the relative complement.
+
+At `Range`:
 
 ```
 >>> 1:4.difference(2:5)
@@ -60,6 +62,8 @@ The answer is not sorted and may contain repeated elements:
 * * *
 
 See also: differenceAll, intersection, symmetricDifference, union
+
+Guides: Set Functions
 
 References:
 _Haskell_
