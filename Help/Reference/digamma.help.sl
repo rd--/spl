@@ -13,10 +13,25 @@ Answer the digamma function _ψ(z)_.
 
 >>> 2.2.digamma
 0.54429
+```
 
+Zero:
+
+```
 >>> 1.46163.digamma
 0
+```
 
+At `zero`:
+
+```
+>>> 0.digamma.isFinite
+false
+```
+
+At `one`:
+
+```
 >>> 0 - 1.digamma
 1.eulerGamma
 ```

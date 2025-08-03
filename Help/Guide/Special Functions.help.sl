@@ -19,6 +19,7 @@ Gamma and Related Functions:
 
 - `beta`
 - `betaRegularized`
+- `digamma`
 - `gamma`
 - `hyperfactorial`
 - `logGamma`

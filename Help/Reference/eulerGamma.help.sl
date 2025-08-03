@@ -18,7 +18,19 @@ with numerical value ~0.5772.
 
 >>> 1.eulerGamma.exp
 1.78107
+```
 
+γ is defined as the limiting difference between the harmonic series and the natural logarithm:
+
+```
+>>> let n = 9999;
+>>> n.harmonicNumber - n.log
+1.eulerGamma
+```
+
+The first few terms of the continued fraction:
+
+```
 >>> 1.eulerGamma.continuedFraction(19)
 [0 1 1 2 1 2 1 4 3 13 5 1 1 8 1 2 4 1 1]
 ```
@@ -32,6 +44,16 @@ Calculate an approximation using an asymptotic formula of Negoi:
 >>> (h, h - a)
 (6.56993, 1.eulerGamma)
 ```
+
+Plot approach to limit:
+
+~~~spl svg=A
+(1 .. 43).functionPlot { :n |
+	n.harmonicNumber - n.log
+}
+~~~
+
+![](sw/spl/Help/Image/eulerGamma-A.svg)
 
 * * *
 
