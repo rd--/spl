@@ -62,6 +62,86 @@ Approximations of π:
 >>> let x = 9801 / (2206 * 2.sqrt);
 >>> (x - 1.pi) / 1.pi * 100
 0.000002
+
+>>> [10.sqrt, 3 + (2.sqrt / 10)]
+[3.1623, 3.1414]
+```
+
+Arc tangent:
+
+```
+>>> (4 * (1 / 5).arcTan)
+>>> -
+>>> (1 / 239).arcTan
+1/4.pi
+
+>>> (5 * (1 / 7).arcTan)
+>>> +
+>>> (2 * (3 / 79).arcTan)
+1/4.pi
+```
+
+An infinite series by Nilakantha (15th century):
+
+```
+>>> let k = 47;
+>>> 3 + 1:k.sum { :n |
+>>> 	let m = n * 2;
+>>> 	let z = 0 - (-1 ^ n);
+>>> 	(4 * z) / (m + [0 1 2]).product
+>>> }
+1.pi
+```
+
+Viète’s formula:
+
+```
+>>> let k = 9;
+>>> let a = { :n |
+>>> 	(2 + n).sqrt
+>>> }.nestList(2.sqrt, k);
+>>> (a / 2).product
+2 / 1.pi
+```
+
+Wallis product:
+
+```
+>>> let k = 1E3;
+>>> 1:k.product { :n |
+>>> 	let m = 4 * (n ^ 2);
+>>> 	m / (m - 1)
+>>> } * 2
+3.141
+```
+
+
+An infinite series by Ramanujan:
+
+```
+>>> let k = 2;
+>>> let a = (2 * 2.sqrt) / 9801;
+>>> let b = 0:k.sum { :n |
+>>> 	((4 * n).! * (1103 + (26390 * n)))
+>>> 	/
+>>> 	((n.! ^ 4) * (396 ^ (4 * n)))
+>>> };
+>>> 1 / (a * b)
+1.pi
+```
+
+Continued fraction:
+
+```
+>>> 1.pi.continuedFraction(13)
+[3 7 15 1 292 1 1 1 2 1 3 1 14]
+```
+
+Euler’s identity:
+
+```
+>>> (1.e ^ 1.pi.i) + 1
+0
 ```
 
 `pi` is not defined as a constant, unlike `Infinity` and `NaN`.
@@ -78,7 +158,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Pi.html),
 OEIS
-[1](https://oeis.org/A000796),
+[1](https://oeis.org/A000796)
+[2](https://oeis.org/A001203),
 _Smalltalk_
 5.6.8.10,
 _W_

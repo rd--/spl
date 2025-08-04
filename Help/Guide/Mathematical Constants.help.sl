@@ -14,6 +14,7 @@
 - `eulerGamma`: Euler’s _k_
 - `feigenbaumConstant`: δ
 - `gausssConstant`: Gauss’s _k_
+- `gelfondsConstant`
 - `goldenAngle`: golden angle
 - `goldenRatio`: φ
 - `gompertzConstant`: δ

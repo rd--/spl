@@ -1189,6 +1189,10 @@
 		self * 0.83462684167407318628142973
 	}
 
+	gelfondsConstant { :self |
+		self * 1.pi.exp
+	}
+
 	goldenAngle { :self |
 		self.pi * (3 - 5.sqrt)
 	}
