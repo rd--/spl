@@ -37,7 +37,9 @@ Growth of annually compounded capital:
 Newton iterations for 2.sqrt:
 
 ```
->>> { :x | (x + (2 / x)) / 2 }.nestList(1, 5)
+>>> { :x |
+>>> 	(x + (2 / x)) / 2
+>>> }.nestList(1, 5)
 [1 1.5 1.41667 1.41422 1.41421 1.41421]
 ```
 
@@ -119,7 +121,9 @@ Successively rotate a list:
 The orbit of 4 under the mapping _5 x mod 7_:
 
 ```
->>> { :x | (5 * x) % 7 }.nestList(4, 6)
+>>> { :x |
+>>> 	(5 * x) % 7
+>>> }.nestList(4, 6)
 [4 6 2 3 1 5 4]
 ```
 
@@ -133,6 +137,20 @@ The first ten items in an integer sequence:
 	2 12 56 177 441 936 1739
 	2971 4720 6986 9879
 ]
+```
+
+A prime-representing constant:
+
+```
+>>> let k = 2.920050977316135;
+>>> { :n |
+>>> 	let m = n.floor;
+>>> 	m * (n - m + 1) }
+>>> .nestList(k, 13).floor
+[2 3 5 7 11 13 17 19 23 29 31 37 41 43]
+
+>>> 14.primesList
+[2 3 5 7 11 13 17 19 23 29 31 37 41 43]
 ```
 
 Plot the first few terms of the `dyadicMap`:

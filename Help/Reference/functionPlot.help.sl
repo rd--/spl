@@ -236,6 +236,17 @@ Trace over a sphere:
 
 ![](sw/spl/Help/Image/functionPlot-U.svg)
 
+Alternating the signs of the reciprocals of positive integers produces a  conditionally convergent series,
+called the alternating harmonic series:
+
+~~~spl svg=V
+1:47.functionPlot { :n |
+	(-1 ^ (n + 1)) / n
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-V.svg)
+
 * * *
 
 See also: discreteFunctionPlot, discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

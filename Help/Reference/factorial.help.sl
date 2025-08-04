@@ -120,6 +120,13 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 ]
 ```
 
+The reciprocals of factorials produce a convergent series for `e`:
+
+```
+>>> 0:17.!./.sum
+1.e
+```
+
 * * *
 
 See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial

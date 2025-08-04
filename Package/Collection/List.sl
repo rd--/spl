@@ -207,6 +207,12 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 +@Integer {
 
+	alternatingHarmonicSeries { :n |
+		1:n.collect { :n |
+			Fraction(-1 ^ (n + 1), n)
+		}
+	}
+
 	arithmeticoGeometricSequence { :n :a :d :b :r |
 		let i = arithmeticProgression(n, a, d);
 		let j = geometricProgression(n, b, r);
@@ -239,6 +245,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	harmonicProgression { :self :start :step |
 		1 / self.arithmeticProgression(start, step)
+	}
+
+	harmonicSeries { :self |
+		Fraction(1, 1:self)
 	}
 
 	List { :size |

@@ -27,6 +27,7 @@
 - `pi`: circumference diameter ratio
 - `plasticRatio`: plastic ratio
 - `pythagorasConstant`: Pythagoras’ _k_
+- `reciprocalFibonacciConstant`
 - `secondFeigenbaumConstant`: α
 - `silverConstant`: silver _k_
 - `silverRatio`: δs

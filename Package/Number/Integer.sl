@@ -1074,6 +1074,15 @@
 		}.asciiStringStreamContents
 	}
 
+	ramanujanTau { :n |
+		let a = 65/756 * divisorSigma(11, n);
+		let b = 691/756 * divisorSigma(5, n);
+		let c = 691/3 * (1 .. n - 1).sum { :k |
+			divisorSigma(5, k) * divisorSigma(5, n - k)
+		};
+		a + b - c
+	}
+
 	reducedResidueSystem { :self |
 		0.to(self - 1).select { :each |
 			each.isCoprime(self)

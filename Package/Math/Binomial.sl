@@ -143,6 +143,10 @@
 		}
 	}
 
+	mersenneNumber { :n |
+		(2 ^ n) - 1
+	}
+
 	multichoose { :n :k |
 		[n - 1, k].multinomial
 	}

@@ -69,3 +69,5 @@ _OEIS_
 [1](https://oeis.org/A002852),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%27s_constant)
+
+Unicode: U+03B3 γ Greek Small Letter Gamma

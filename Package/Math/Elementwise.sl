@@ -527,6 +527,10 @@
 		}
 	}
 
+	zeta { :self |
+		self.collect(zeta:/1)
+	}
+
 }
 
 +@Sequenceable {

@@ -9,6 +9,9 @@ the infinite sum of the reciprocals of the positive integers, cubed.
 ```
 >>> 1.aperysConstant
 1.20206
+
+>>> zeta(3)
+1.aperysConstant
 ```
 
 * * *

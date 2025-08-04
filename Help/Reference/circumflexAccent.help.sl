@@ -59,6 +59,15 @@ false
 
 >>> -9J0 ^ 0.5
 0J3
+
+>>> -1 ^ 4/7
+1
+```
+
+Negative base and exponent:
+
+```
+>>> -2 ^ -0.25
 ```
 
 At `Complex`:

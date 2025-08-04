@@ -1,8 +1,9 @@
 # harmonicProgression
 
-- _harmonicProgression(n, a, d)_
+- _harmonicProgression(n, a=1, d=1)_
 
 Answer a `List` holding the first _n_ places of the harmonic progression,
+with initial denominator _a_ incrementing by _d_,
 the reciprocal of the arithmetic progression.
 
 ```

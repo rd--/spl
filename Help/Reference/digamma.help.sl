@@ -56,3 +56,5 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PolyGamma.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Digamma_function)
+
+Unicode: U+03C8 ψ Greek Small Letter Psi

@@ -38,6 +38,14 @@ The `centroid` of a regular polygon is its center:
 [0 0]
 ```
 
+The `arcLength` of a successive regular polygons with radius one half converges to π:
+
+```
+>>> 99.regularPolygon([0 0], 1/2, 0)
+>>> .arcLength
+3.141
+```
+
 Drawing of a pentagon:
 
 ~~~spl svg=A
@@ -119,6 +127,16 @@ Overlap regular polygons of increasing radii and vertices:
 ~~~
 
 ![](sw/spl/Help/Image/regularPolygon-H.svg)
+
+The `arcLength` of successive regular polygons with radius `one` approximates _2π_:
+
+~~~spl svg=I
+(3 .. 47).functionPlot { :n |
+	n.regularPolygon([0 0], 1, 0).arcLength
+}
+~~~
+
+![](sw/spl/Help/Image/regularPolygon-I.svg)
 
 * * *
 

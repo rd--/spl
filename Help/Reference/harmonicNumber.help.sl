@@ -15,6 +15,14 @@ The _n_-th harmonic number is the `sum` of the `reciprocal` of the range _1:n_.
 10.000043008276
 ```
 
+Analytic form, in terms of γ and ψ:
+
+```
+>>> let n = 4550;
+>>> n.harmonicNumber
+1.eulerGamma + (n + 1).digamma
+```
+
 The value _H(n)−ln(n)_ decrease monotonically towards the limit γ:
 
 ```
@@ -44,7 +52,7 @@ Plot over a subset of the integers:
 
 * * *
 
-See also: harmonicMean, harmonicProgression
+See also: digamma, gamma, harmonicMean, harmonicProgression, harmonicSeries
 
 Guides: Integer Functions, Integer Sequences
 

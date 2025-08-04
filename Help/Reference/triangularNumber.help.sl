@@ -9,6 +9,13 @@ Answer the _n_-th triangular number.
 276
 ```
 
+Relation to `binomial`:
+
+```
+>>> 23.triangularNumber
+(23 + 1).binomial(2)
+```
+
 Threads over lists:
 
 ```
@@ -20,6 +27,13 @@ Threads over lists:
 ]
 ```
 
+The _n_-th partial sum of the natural integer series is the _n_-th triangular number:
+
+```
+>>> 1:23.sum
+23.triangularNumber
+```
+
 Calculate arithmetic series starting at `zero`:
 
 ```
@@ -27,6 +41,17 @@ Calculate arithmetic series starting at `zero`:
 >>> r.sum
 (r.size - 1).triangularNumber * r.step
 ```
+
+The reciprocals of triangular numbers produce is convergent series where the limit is two:
+
+~~~spl svg=A
+1:47.triangularNumber
+.reciprocal
+.prefixSum
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/triangularNumber-A.svg)
 
 * * *
 

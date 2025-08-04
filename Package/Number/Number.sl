@@ -1258,6 +1258,10 @@
 		self * 1.4142135623730950488
 	}
 
+	reciprocalFibonacciConstant { :self |
+		self * 3.359885666243177553172011302918927179689
+	}
+
 	secondFeigenbaumConstant { :self |
 		self * 2.502907875095892822283902873218215786381
 	}
