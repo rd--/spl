@@ -64,12 +64,6 @@ false
 1
 ```
 
-Negative base and exponent:
-
-```
->>> -2 ^ -0.25
-```
-
 At `Complex`:
 
 ```

@@ -130,7 +130,7 @@ Reflection formula:
 >>> 	(2 * z.gamma) / (2.pi ^ z),
 >>> 	(1/2.pi * z).cos,
 >>> 	zeta(z)
->>> ]
+>>> ].product
 zeta(1 - z)
 ```
 
