@@ -7,13 +7,13 @@ Equality is decided by the block _f_.
 
 ```
 >>> [1 2 3].unionBy([2 3 4], ==)
-1:4
+[1 2 3 4]
 
 >>> ['a' 'b' 'c'].unionBy(['b' 'c' 'd'], ==)
 ['a' 'b' 'c' 'd']
 
 >>> [1 1 2 2 3 3].unionBy([2 2 3 3 4 4], ==)
-1:4
+[1 2 3 4]
 ```
 
 Find divisors that occur in any of 10, 12, and 20:
@@ -24,7 +24,7 @@ Find divisors that occur in any of 10, 12, and 20:
 >>> 		20.divisors, ==
 >>> 	), ==
 >>> )
-[1, 2, 5, 10, 3, 4, 6, 12, 20]
+[1 2 5 10 3 4 6 12 20]
 ```
 
 * * *
