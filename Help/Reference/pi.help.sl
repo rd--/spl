@@ -42,29 +42,62 @@ which can be confusing if one is not aware of the distinction between _x / y_ an
 0.15915
 ```
 
-Approximations of π:
+Fractions approximating π:
 
 ```
 >>> [3 7].fromContinuedFraction
 22/7
 
 >>> let x = 22/7;
->>> (x - 1.pi) / 1.pi * 100
-0.040250
+>>> (x, (x - 1.pi) / 1.pi * 100)
+(3.14286, 0.040250)
 
 >>> 3 + (1 / (7 + (1 / (15 + 1/1))))
 355/113
 
 >>> let x = 355/113;
->>> (x - 1.pi) / 1.pi * 100
-0.000009
+>>> (x, (x - 1.pi) / 1.pi * 100)
+(3.141593, 0.000009)
 
+>>> let x = 3 + 8/60 + 30/3600;
+>>> (x, (x - 1.pi) / 1.pi * 100)
+(377/120, 0.002356)
+```
+
+Sqyare and cube root approximations:
+
+```
+>>> [10.sqrt, 31.nthRoot(3), 3 + (2.sqrt / 10)]
+[3.1623, 3.1414, 3.1414]
+```
+
+Approximation by Kochański, 1685:
+
+```
+>>> (40/3 - (2 * 3.sqrt)).sqrt
+3.14154
+```
+
+Approximation by Ramanujan, 1910:
+
+```
 >>> let x = 9801 / (2206 * 2.sqrt);
->>> (x - 1.pi) / 1.pi * 100
-0.000002
+>>> (x, (x - 1.pi) / 1.pi * 100)
+(3.1415927, 0.000002)
+```
 
->>> [10.sqrt, 3 + (2.sqrt / 10)]
-[3.1623, 3.1414]
+Approximation by Hobson, 1913:
+
+```
+>>> 6/5 * (1 + 1.goldenRatio)
+3.1416
+```
+
+Approximation by Ramanujan, 1914:
+
+```
+>>> (2143 / 22).nthRoot(4)
+3.14159265
 ```
 
 Arc tangent:
@@ -81,7 +114,7 @@ Arc tangent:
 1/4.pi
 ```
 
-An infinite series by Nilakantha (15th century):
+An infinite series by Nilakantha, 15th century:
 
 ```
 >>> let k = 47;
@@ -93,7 +126,7 @@ An infinite series by Nilakantha (15th century):
 1.pi
 ```
 
-Viète’s formula:
+Viète’s formula, 1593:
 
 ```
 >>> let k = 9;
@@ -104,7 +137,7 @@ Viète’s formula:
 2 / 1.pi
 ```
 
-Wallis product:
+Wallis product, 1656:
 
 ```
 >>> let k = 1E3;
@@ -115,8 +148,7 @@ Wallis product:
 3.141
 ```
 
-
-An infinite series by Ramanujan:
+An infinite series by Ramanujan, 1910:
 
 ```
 >>> let k = 2;
@@ -135,6 +167,14 @@ Continued fraction:
 ```
 >>> 1.pi.continuedFraction(13)
 [3 7 15 1 292 1 1 1 2 1 3 1 14]
+
+>>> 1.pi.continuedFraction(5)
+>>> .convergents
+[3 22/7 333/106 355/113 103993/33102]
+
+>>> 1.pi.continuedFraction
+>>> .semiconvergents(1E-2)
+[2/1 3/1 13/4 16/5 19/6 22/7]
 ```
 
 Euler’s identity:

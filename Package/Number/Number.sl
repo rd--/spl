@@ -1222,6 +1222,14 @@
 		1.7872316501829659330132748903370084
 	}
 
+	landauConstant { :self |
+		self * 0.543258965342976706952728295
+	}
+
+	landauRamanujanConstant { :self |
+		self * 0.764223653589220662990698731
+	}
+
 	lemniscateConstant { :self |
 		self * 2.62205755429211981046483959
 	}
@@ -1268,6 +1276,10 @@
 
 	secondFeigenbaumConstant { :self |
 		self * 2.502907875095892822283902873218215786381
+	}
+
+	sierpinskiConstant { :self |
+		self * 0.822825249678847032995328716261464949475
 	}
 
 	silverConstant { :self |

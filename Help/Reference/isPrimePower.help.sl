@@ -122,7 +122,7 @@ true
 
 * * *
 
-See also: isGaussianPrime, isPrime
+See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega
 
 Guides: Integer Sequences, Prime Number Functions
 

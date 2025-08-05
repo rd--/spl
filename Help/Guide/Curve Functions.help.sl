@@ -24,6 +24,7 @@ Algebraic Curve Functions:
 - `lissajousCurve`
 - `logarithmicSpiral`
 - `norwichSpiral`
+- `quadratrixOfHippias`
 - `rhodonea`
 - `richardsCurve`
 - `satelliteCurve`

@@ -127,6 +127,19 @@ A geometric technique for finding twelve equally-spaced points around a circle:
 
 ![](sw/spl/Help/Image/Circle-G.svg)
 
+Circle and square of equal area:
+
+~~~spl svg=H
+let n = 1.pi.sqrt / 2;
+let m = 0 - n;
+[
+	Circle([0 0], 1),
+	Rectangle([m m], [n n])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-H.svg)
+
 * * *
 
 See also: Arc, arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y

@@ -78,9 +78,11 @@
 ## Congruence Functions
 
 - `%`: modulo
+- `carmichaelLambda`
 - `chineseRemainder`: chinese remainder theorem
 - `multiplicativeOrder`: multiplicative order
 - `powerMod`: power modulo
+- `primitiveRootList`
 
 ## Continued Fraction and Rational Approximation Functions
 
@@ -114,14 +116,18 @@
 
 - `divisible`: is divisible predicate
 - `euclideanAlgorithm`: greatest common divisor
+- `eulerPhi`
 - `extendedEuclideanAlgorithm`: greatest common divisor and Bézout coefficients
 - `gcd`: greatest common divisor
 - `isCoprime`: is coprime predicate
 - `isEven`: is even predicate
 - `isOdd`: is odd predicate
 - `isPrime`: is prime predicate
+- `jacobiSymbol`
+- `kroneckerSymbol`
 - `lcm`: least common multiple
 - `modularInverse`: modular inverse
+- `moebiusMu `
 
 ## Division Functions
 

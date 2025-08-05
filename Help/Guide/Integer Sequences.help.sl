@@ -76,6 +76,8 @@ The following help files include references to integer sequences:
 - `cantorStaircase`: A095844 A095845
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
+- `centeredPolygonalNumber`: A005448 A001844 A005891 A003215
+- `centeredHexagonalNumber`: A003215
 - `champernowneSequence`: A007376
 - `collatzSequence`: A070165
 - `copelandErdosSequence`: A033308
@@ -153,6 +155,8 @@ The following help files include references to integer sequences:
 - `schroderSequence`: A006318
 - `silverConstant`: A116425
 - `silverRatio`: A014176
+- `squared`: A000290
+- `squarePyramidalNumber`: A000330
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487
 - `stolarskyArray`: A035506
@@ -160,6 +164,7 @@ The following help files include references to integer sequences:
 - `sylvestersSequence`: A000058
 - `supergoldenRatio`: A092526
 - `supersilverRatio`: A356035
+- `tetrahedralNumber`: A000292
 - `thueMorseSequence`: A010060
 - `triangularNumber`: A000217
 - `tribonacciWord`: A092782

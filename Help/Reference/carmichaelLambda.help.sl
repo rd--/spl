@@ -74,6 +74,8 @@ Plot the sequence:
 
 See also: eulerPhi, factorInteger, isCarmichaelNumber, isCoprime, isPrimePower, isSquareFree, lcm, multiplicativeOrder, primitiveRootList
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CarmichaelFunction.html)

@@ -69,6 +69,10 @@ Random Numbers:
 
 - `randomPrime`
 
+Sequences:
+
+- `zeta`
+
 Algorithms:
 
 - `cachedPrimesList`

@@ -31,6 +31,13 @@ Non-integers are never odd:
 false
 ```
 
+The sums of the first odd integers, beginning with one, are perfect squares:
+
+```
+>>> 1:19.select(isOdd:/1).prefixSum
+[1 4 9 16 25 36 49 64 81 100]
+```
+
 * * *
 
 See also: divisible, isEven, isInteger
@@ -40,6 +47,8 @@ Guides: Integer Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/OddQ.html),
+_OEIS_
+[1](https://oeis.org/A005408),
 _Smalltalk_
 5.6.5.16
 

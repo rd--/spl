@@ -168,6 +168,16 @@
 		}
 	}
 
+	quadratrixOfHippias { :a |
+		let m = (2 * a) / 1.pi;
+		{ :t |
+			[
+				m * t * t.cotangent,
+				m * t
+			]
+		}
+	}
+
 	rhodonea { :a :n |
 		{ :theta |
 			let r = a * (n * theta).cos;

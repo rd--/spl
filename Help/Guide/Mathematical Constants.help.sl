@@ -30,6 +30,7 @@
 - `pythagorasConstant`: Pythagoras’ _k_
 - `reciprocalFibonacciConstant`
 - `secondFeigenbaumConstant`: α
+- `sierpinskiConstant`: _S_
 - `silverConstant`: silver _k_
 - `silverRatio`: δs
 - `smallFloatEpsilon`: `SmallFloat` ε

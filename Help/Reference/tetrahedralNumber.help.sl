@@ -17,6 +17,8 @@ Answer the _n_-th tetrahedral number.
 
 See also: binomial, cubed, pascalTriangle, squared, triangularNumber
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TetrahedralNumber.html),

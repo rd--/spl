@@ -789,6 +789,14 @@
 		}
 	}
 
+	isSumOfTwoSquares { :self |
+		self.factorInteger.select { :each |
+			(each.key % 4) = 3
+		}.allSatisfy { :each |
+			each.value.isEven
+		}
+	}
+
 	isSuperabundantNumber { :n |
 		let x = n.divisors.sum / n;
 		1.to(n - 1).allSatisfy { :k |
@@ -1132,6 +1140,30 @@
 
 	rulerFunction { :n |
 		(2 * n).integerExponent(2)
+	}
+
+	squarePyramidalNumber { :n |
+		(n * (n + 1) * ((2 * n) + 1)) / 6
+	}
+
+	squaresR { :d :n |
+		(n = 0).if {
+			1
+		} {
+			d.caseOf([
+				2 -> {
+					let f = { :c |
+						n.divisors.count { :x | (x % 4) = c }
+					};
+					4 * (f(1) - f(3))
+				},
+				4 -> {
+					8 * n.divisors.select { :x | x.divisible(4).not }.sum
+				}
+			]) {
+				d.error('squaresR: d≠{2,4}')
+			}
+		}
 	}
 
 	stolarskyArray { :m :n |

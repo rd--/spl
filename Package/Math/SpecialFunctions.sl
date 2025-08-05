@@ -57,6 +57,21 @@
 		fresnel(z, 'S', 2000)
 	}
 
+	lambertW { :x |
+		let z = -1.exp.-;
+		(x < z).if {
+			x.error('lambertW: undefined')
+		} {
+			let k = max(4, ceiling(log10(x) / 3));
+			let w = 3 * log(x + 1) / 4;
+			k.timesRepeat {
+				let e = exp(w);
+				w := w - (((w * e) - x) / ((e * (w + 1)) - (((w + 2) * ((w * e) - x)) / ((2 * w) + 2))))
+			};
+			w
+		}
+	}
+
 }
 
 +@Number {

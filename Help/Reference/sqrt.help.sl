@@ -122,6 +122,15 @@ The representation of the square root of any non-square positive integer as a co
 ]
 ```
 
+Select first few squares:
+
+```
+>>> 0:100.select { :n |
+>>> 	n.sqrt.isInteger
+>>> }
+[0 1 4 9 16 25 36 49 64 81 100]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -140,6 +149,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareRoot.html)
 [2](https://reference.wolfram.com/language/ref/Sqrt.html),
+_OEIS_
+[1](https://oeis.org/A000290),
 _Smalltalk_
 5.6.2.34,
 _W_
