@@ -1,8 +1,8 @@
 # pellLucasNumbers
 
-- _pellLucasNumbers(anInteger)_
+- _pellLucasNumbers(n)_
 
-Answer the first _anInteger_ Pell-Lucas numbers.
+Answer the first _n_ Pell-Lucas numbers.
 
 The first eleven Pell-Lucas numbers (OEIS A002203):
 

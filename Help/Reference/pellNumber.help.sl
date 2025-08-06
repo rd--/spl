@@ -24,6 +24,20 @@ Approximations of the square root of two:
 1.4142
 ```
 
+Pell numbers can be used to form Pythagorean triples:
+
+```
+>>> let p = { :x |
+>>> 	x.pellNumber.rounded
+>>> };
+>>> let n = 7;
+>>> let a = 2 * p(n) * p(n + 1);
+>>> let b = (p(n + 1) ^ 2) - (p(n) ^ 2);
+>>> let c = p((2 * n) + 1);
+>>> (a, b, c, isPythagoreanTriple(a, b, c))
+(137904, 137903, 195025, true)
+```
+
 * * *
 
 See also: pellNumbers, pellLucasNumbers

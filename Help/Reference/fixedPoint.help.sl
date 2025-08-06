@@ -1,22 +1,17 @@
 # fixedPoint
 
-- _fixedPoint(aBlock:/1, anObject, equalBlock:/2)_
+- _fixedPoint(f:/1, x, =)_
 
-Starting with _anObject_,
-apply _aBlock_ repeatedly until the answer no longer changes,
-according to _equalBlock_.
-
-Find the fixed point:
-
-```
->>> { :x | 1 + (x / 2).floor }.fixedPoint(1000, =)
-2
-```
+Starting with the value _x_,
+apply the block _f_ repeatedly until the answer no longer changes,
+according to _=_.
 
 Show convergence to `2.sqrt` in Newton’s method:
 
 ```
->>> { :x | (x + (2 / x)) / 2 }.fixedPoint(1, ~)
+>>> { :x |
+>>> 	(x + (2 / x)) / 2
+>>> }.fixedPoint(1, ~)
 1.41421
 
 >>> 2.sqrt
@@ -26,7 +21,9 @@ Show convergence to `2.sqrt` in Newton’s method:
 Fixed point of an integer-valued function:
 
 ```
->>> { :x | 1 + (x / 2).floor }.fixedPoint(1000, =)
+>>> { :x |
+>>> 	1 + (x / 2).floor
+>>> }.fixedPoint(1000, =)
 2
 ```
 
@@ -44,7 +41,8 @@ Use a test function with a specific tolerance to resolve this:
 >>> cos:/1.fixedPointList(0.5, ~).size
 24
 
->>> cos:/1.fixedPointList(0.5) { :alpha :beta |
+>>> cos:/1
+>>> .fixedPointList(0.5) { :alpha :beta |
 >>> 	(alpha - beta).abs < 0.1
 >>> }
 [0.5 0.8775 0.6390 0.8027 0.6948 0.7682]
@@ -59,4 +57,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/FixedPoint.html)
 [2](https://reference.wolfram.com/language/ref/FixedPoint.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Fixed-point_iteration)
+[1](https://en.wikipedia.org/wiki/Fixed_point_(mathematics))
+[2](https://en.wikipedia.org/wiki/Fixed-point_iteration)

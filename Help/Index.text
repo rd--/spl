@@ -1000,6 +1000,7 @@ Reference/DiscreteMarkovProcess.help.sl
 Reference/discretePlot.help.sl
 Reference/DiscreteUniformDistribution.help.sl
 Reference/discretize.help.sl
+Reference/discriminant.help.sl
 Reference/Disk.help.sl
 Reference/diskMatrix.help.sl
 Reference/distance.help.sl
@@ -1283,6 +1284,7 @@ Reference/gaussianMatrix.help.sl
 Reference/gaussianVector.help.sl
 Reference/gaussianWindow.help.sl
 Reference/gaussJordanInverse.help.sl
+Reference/gausssConstant.help.sl
 Reference/gaussSeidelMethod.help.sl
 Reference/gcd.help.sl
 Reference/Gcd.help.sl
@@ -2414,6 +2416,7 @@ Reference/pentagonalNumber.help.sl
 Reference/PenX.help.sl
 Reference/percentile.help.sl
 Reference/percentSign.help.sl
+Reference/perfectNumber.help.sl
 Reference/perform.help.sl
 Reference/perimeter.help.sl
 Reference/periodogramArray.help.sl
@@ -2767,6 +2770,7 @@ Reference/rho.help.sl
 Reference/Rhpf.help.sl
 Reference/richardsCurve.help.sl
 Reference/riemannFunction.help.sl
+Reference/riemannXi.help.sl
 Reference/riffle.help.sl
 Reference/rightCurlyBracket.help.sl
 Reference/rightIdentity.help.sl

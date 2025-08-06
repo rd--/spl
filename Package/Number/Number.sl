@@ -1242,6 +1242,10 @@
 		self * (2 ^ 1.goldenRatio)
 	}
 
+	magneticConstant { :self |
+		self * 1.25663706127E-6
+	}
+
 	meisselMertensConstant { :self |
 		self * 0.2614972128476427837554268386086958590516
 	}
@@ -1272,6 +1276,10 @@
 
 	reciprocalFibonacciConstant { :self |
 		self * 3.359885666243177553172011302918927179689
+	}
+
+	reducedPlanckConstant { :self |
+		self * 1.054571817E-34
 	}
 
 	secondFeigenbaumConstant { :self |
@@ -1308,6 +1316,10 @@
 
 	tribonacciConstant { :n |
 		n * 1.83928675521416113255185
+	}
+
+	vacuumPermeability { :self |
+		self * 1.25663706127E-6
 	}
 
 	vacuumPermittivity { :self |

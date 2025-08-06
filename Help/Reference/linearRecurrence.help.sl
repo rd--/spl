@@ -14,7 +14,7 @@ Solve an initial-value problem for a first-order difference equation with kernel
 Find the first few Fibonacci numbers:
 
 ```
->>> linearRecurrence([1 1], [1, 1], 10)
+>>> linearRecurrence([1 1], [1 1], 10)
 [1 1 2 3 5 8 13 21 34 55]
 ```
 
