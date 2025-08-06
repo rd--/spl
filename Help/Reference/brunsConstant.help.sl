@@ -2,7 +2,7 @@
 
 - _brunsConstant(n)_
 
-Answer _n_ times Brun’s constant,
+Answer _n_ times Brun’s constant _B_,
 the number obtained by adding the reciprocals of the odd twin primes.
 
 ```

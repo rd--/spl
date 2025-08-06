@@ -1,42 +1,45 @@
 # Mathematical Constants
 
 - `aperysConstant`: ζ(3)
-- `arcMinute`: 1/60 of a degree
-- `arcSecond`: 1/60² of a degree
-- `avogadroConstant`: Avogadro _k_
-- `berahaConstant`: Beraha _k_
-- `boltzmannConstant`: Boltzmann _k_
-- `brunsConstant`: Brun’s _k_
-- `conwaysConstant`: Conways’s _k_
-- `degree`: 1/180 of pi
-- `e`: Euler’s number
-- `epsilon`: epsilon
-- `eulerGamma`: Euler’s _k_
+- `arcMinute`: π÷180·60
+- `arcSecond`: π÷180·60²
+- `avogadroConstant`: _Nᴀ_
+- `berahaConstant`: _B(n)_
+- `boltzmannConstant`: _kʙ_
+- `brunsConstant`: _B_
+- `catalansConstant`
+- `conwaysConstant`: _λ_
+- `degree`: π÷180
+- `e`: _e_
+- `epsilon`: ε
+- `eulerGamma`: γ
 - `feigenbaumConstant`: δ
-- `gausssConstant`: Gauss’s _k_
+- `gausssConstant`: G
 - `gelfondsConstant`
-- `goldenAngle`: golden angle
+- `goldenAngle`
 - `goldenRatio`: φ
 - `gompertzConstant`: δ
-- `i`: square root of negative one
+- `i`: √-1
 - `keplerBouwkampConstant`
-- `khinchinsConstant`: Khinchin’s _k_
+- `khinchinsConstant`
+- `landauConstant`
+- `landauRamanujanConstant`
 - `lemniscateConstant`: ϖ
-- `levysConstant`: Lévy’s _k_
+- `levysConstant`: _exp(β)_
 - `logarithmicPhi`: _2^φ_
 - `meisselMertensConstant`: B₁
-- `pi`: circumference diameter ratio
-- `plasticRatio`: plastic ratio
-- `pythagorasConstant`: Pythagoras’ _k_
+- `pi`: π
+- `plasticRatio`
+- `pythagorasConstant`: √2
 - `reciprocalFibonacciConstant`
 - `secondFeigenbaumConstant`: α
 - `sierpinskiConstant`: _S_
-- `silverConstant`: silver _k_
+- `silverConstant`: _B(7)_
 - `silverRatio`: δs
-- `smallFloatEpsilon`: `SmallFloat` ε
-- `stolarskyHarborthConstant`: Stolarsky-Harborth _k_
-- `supergoldenRatio`: supergolden ratio
-- `supersilverRatio`: supersilver ratio
+- `smallFloatEpsilon`: ε
+- `stolarskyHarborthConstant`: β
+- `supergoldenRatio`: ψ
+- `supersilverRatio`: ς
 
 Pyhsical Constants:
 
@@ -92,19 +95,6 @@ Pi:
 6.28319
 ```
 
-Lemniscate constant (ϖ):
-
-```
->>> 1.lemniscateConstant
-2.62206
-
->>> 1.lemniscateConstant / 1.pi
-1.gausssConstant
-
->>> 1.gausssConstant
-0.83462
-```
-
 * * *
 
 See also: degree, e, eulerGamma, goldenRatio, pi
@@ -114,8 +104,8 @@ Guides: Mathematical Functions, Mathematical Sequences, SI Units
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GausssConstant.html)
-[2](https://mathworld.wolfram.com/LemniscateConstant.html)
-[3](https://reference.wolfram.com/language/guide/MathematicalConstants.html),
+[3](https://reference.wolfram.com/language/guide/MathematicalConstants.html)
+[4](https://reference.wolfram.com/language/ref/entity/PhysicalConstant.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Pi)
 [2](https://en.wikipedia.org/wiki/Lemniscate_constant)

@@ -9,7 +9,9 @@ also called the Bloch-Landau constant.
 >>> 1.landauConstant
 0.5432589
 
->>> ((1 / 3).gamma * (5 / 6).gamma) / (1 / 6).gamma
+>>> ((1 / 3).gamma * (5 / 6).gamma)
+>>> /
+>>> (1 / 6).gamma
 0.5432589
 ```
 

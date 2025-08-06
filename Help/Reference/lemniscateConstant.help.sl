@@ -21,18 +21,6 @@ the ratio of the perimeter of Bernoulli’s lemniscate to its diameter.
 2.622058
 ```
 
-Relation to Gauss’s constant:
-
-```
->>> 1.lemniscateConstant
->>> / 1.pi
-1.gausssConstant
-
->>> 1
->>> / 1.arithmeticGeometricMean(2.sqrt)
-1.gausssConstant
-```
-
 * * *
 
 See also: arithmeticGeometricMean, gamma, gausssConstant, lemniscate, pi, sqrt

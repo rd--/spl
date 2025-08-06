@@ -2,7 +2,7 @@
 
 - _conwaysConstant(n)_
 
-Answer _n_ times Conways’s constant
+Answer _n_ times Conways’s constant λ.
 
 ```
 >>> 1.conwaysConstant
@@ -25,6 +25,17 @@ It is the solution to the following univariate polynomial:
 >>> 	]
 >>> ).at(1.conwaysConstant)
 0
+```
+
+Continued fraction:
+
+```
+>>> 1.conwaysConstant
+>>> .continuedFraction(15)
+[1 3 3 2 2 54 5 2 1 16 1 30 1 1 1]
+
+>>> 73 / 56
+1.30357
 ```
 
 * * *

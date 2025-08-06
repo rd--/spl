@@ -2,7 +2,7 @@
 
 - _avogadroConstant(n)_
 
-Answer _n_ times the Avogadro constant,
+Answer _n_ times the Avogadro constant Nᴀ,
 the number of constituent particles in one mole,
 approximately equal to _6.02E23_.
 

@@ -1,6 +1,8 @@
 # berahaConstant
 
-- _berahaConstant(anInteger)_
+- _berahaConstant(n)_
+
+Answer the _n_-th Beraha constant _B(n)_.
 
 The first ten Beraha constants:
 
@@ -17,6 +19,12 @@ Notable values:
 
 >>> 7.berahaConstant
 1.silverConstant
+
+>>> 8.berahaConstant
+2 + 2.sqrt
+
+>>> 9.berahaConstant
+2 + (2 * 2/9.pi.cos)
 
 >>> 10.berahaConstant
 1.goldenRatio + 2

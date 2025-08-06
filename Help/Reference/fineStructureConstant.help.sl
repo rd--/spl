@@ -26,7 +26,20 @@ Definition in terms of four other physical constants:
 0.007297
 ```
 
-A definition of an approximation to the inverse fine-structure constant by Stanbury:
+Approximations to the inverse fine-structure constant:
+
+```
+>>> 1 / 7/3000.pi
+136.41
+
+>>> 1 / 1/432.pi
+137.51
+
+>>> 360 / 1.goldenRatio.squared
+137.51
+```
+
+Stanbury:
 
 ```
 >>> UnivariatePolynomial([0 1 1 4])

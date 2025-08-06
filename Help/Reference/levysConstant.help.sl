@@ -2,11 +2,17 @@
 
 - _levysConstant(n)_
 
-Answer _n_ times Lévy’s constant.
+Answer _n_ times Lévy’s constant, _exp(β)_.
 
 ```
 >>> 1.levysConstant
 3.27582
+
+>>> 1.levysConstant.log
+1.186569
+
+>>> 1.pi.squared / (12 * 2.log)
+1.186569
 ```
 
 Continued fraction:
