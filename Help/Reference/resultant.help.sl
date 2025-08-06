@@ -2,9 +2,15 @@
 
 - _resultant(p, q)_
 
-Answer the `resultant` of two polynomials, represented as coefficient lists.
+Answer the `resultant` of two univariate polynomials, represented as coefficient lists.
 
 ```
+>>> UnivariatePolynomial([7 -2 1])
+>>> .resultant(
+>>> 	UnivariatePolynomial([5 -1 0 1])
+>>> )
+265
+
 >>> [7 -2 1].resultant([5 -1 0 1])
 265
 ```
@@ -24,11 +30,23 @@ the `resultant` vanishes exactly when the polynomials have roots in common:
 
 >>> [-1 0 0 1].resultant([1 2 2 1])
 0
+
+>>> [-6 11 -6 1].resultant([-120 74 -15 1])
+-8640
+
+>>> [-6 11 -6 1].resultant([-20 29 -10 1])
+0
+
+>>> [-1 0 0 1].resultant([-1 2 2 1])
+16
+
+>>> [-1 0 0 1].resultant([1 2 2 1])
+0
 ```
 
 * * *
 
-See also: sylvesterMatrix
+See also: discriminant, sylvesterMatrix
 
 Guides: Polynomial Functions
 

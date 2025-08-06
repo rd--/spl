@@ -166,7 +166,7 @@ Plot the zeta function on the critical line:
 
 * * *
 
-See also: harmonicNumber, primePi
+See also: harmonicNumber, primePi, riemannXi
 
 Guides: Special Functions
 

@@ -76,6 +76,19 @@
 
 +@Number {
 
+	riemannXi { :z |
+		z.isZero.if {
+			0.5
+		} {
+			(z.isSmallFloat & { z < 0 }).if {
+				riemannXi(1 - z)
+			} {
+				/* ((z - 1) * gamma((0.5 * z) + 1) * zeta(z)) / sqrt(1.pi ^ z) */
+				0.5 * z * (z - 1) * (1.pi ^ ((0 - z) * 0.5)) * zeta(z) * gamma(0.5 * z)
+			}
+		}
+	}
+
 	zeta { :s |
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8;

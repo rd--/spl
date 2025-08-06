@@ -423,6 +423,10 @@
 		self.collect(reciprocal:/1)
 	}
 
+	riemannXi { :self |
+		self.collect(riemannXi:/1)
+	}
+
 	rounded { :self |
 		self.collect(rounded:/1)
 	}

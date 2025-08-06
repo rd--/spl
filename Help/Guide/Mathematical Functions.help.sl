@@ -217,6 +217,11 @@
 - `Range`: range of values in equal steps
 - `subdivide`: list of values from equal subdivisions
 
+## Perfect Numbers
+
+- `isPerfectNumber`
+- `perfectNumber`
+
 ## Permutations Functions
 
 - `Permutation Functions`: Guide

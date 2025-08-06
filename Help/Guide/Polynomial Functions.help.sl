@@ -17,6 +17,7 @@ Constructors:
 
 Functions:
 
+- `discriminant`
 - `evaluateUnivariatePolynomial`
 - `resultant`
 - `sylvesterMatrix`

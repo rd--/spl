@@ -1,8 +1,8 @@
 # determinant
 
-- _determinant(aMatrix)_
+- _determinant(n)_
 
-Answer the determinant of a square matrix.
+Answer the determinant of the square matrix _m_.
 
 The determinant of a _2×2_ `Integer` matrix:
 

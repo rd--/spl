@@ -845,10 +845,6 @@
 		}
 	}
 
-	resultant { :p :q |
-		p.sylvesterMatrix(q).determinant
-	}
-
 	rowCatenate { :self |
 		let n = self.size;
 		let k = self.first.size;

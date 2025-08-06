@@ -27,6 +27,11 @@ Gamma and Related Functions:
 - `pochhammer`
 - `upperIncompleteGamma`
 
+Zeta Functions:
+
+- `zeta`
+- `riemannXi`
+
 * * *
 
 Guides: Combinatorial Functions, Integer Sequences, Mathematical Functions

@@ -1,8 +1,8 @@
 # integerLength
 
-- _integerLength(anInteger, radix)_
+- _integerLength(n, radix=10)_
 
-Answer the number of digits in the base _radix_ representation of _anInteger_.
+Answer the number of digits in the base _radix_ representation of the integer _n_.
 
 Find the number of decimal digits in 123456789:
 
@@ -33,6 +33,16 @@ Find how the number of digits in _100!_ decreases with the base:
 	147 142 138 135 132
 	129 126 124 122
 ]
+```
+
+At `LargeInteger`:
+
+```
+>>> (23L ^ 23L).integerLength(10)
+32
+
+>>> (23 ^ 23).integerLength(10)
+32
 ```
 
 Plot for base 10 from -25 to 25:

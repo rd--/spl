@@ -54,6 +54,14 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		self.coefficientList.size - 1
 	}
 
+	discriminant { :self |
+		self.coefficientList.discriminant
+	}
+
+	resultant { :self :operand |
+		self.coefficientList.resultant(operand.coefficientList)
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -61,6 +69,65 @@ UnivariatePolynomial : [Object] { | coefficientList |
 }
 
 +List {
+
+	discriminant { :self |
+		(self.size - 1).caseOf([
+			1 -> { 1 },
+			2 -> {
+				let [c, b, a] = self;
+				b.squared - (4 * a * c)
+			},
+			3 -> {
+				let [d, c, b, a] = self;
+				(b.squared * c.squared)
+				- (4 * a * c.cubed)
+				- (4 * b.cubed * d)
+				- (27 * a.squared * d.squared)
+				+ (18 * a * b * c * d)
+			},
+			4 -> {
+				/*
+					256a³e³
+					-192a²bde²
+					-128a²c²e²
+					+144a²cd²e
+					-27a²d⁴
+					+144ab²ce²
+					-6ab²d²e
+					-80abc²de
+					+18abcd³
+					+16ac⁴e
+					-4ac³d²
+					-27b⁴e²
+					+18b³cde
+					-4b³d³
+					-4b²c³e
+					+b²c²d²
+				*/
+				let [e, d, c, b, a] = self;
+				[
+					256 * a.cubed * e.cubed,
+					-192 * a.squared * b * d * e.squared,
+					-128 * a.squared * c.squared * e.squared,
+					144 * a.squared * c * d.squared * e,
+					-27 * a.squared * (d ^ 4),
+					144 * a * b.squared * c * e.squared,
+					-6 * a * b.squared * d.squared * e,
+					-80 * a * b * c.squared * d * e,
+					18 * a * b * c * d.cubed,
+					16 * a * (c ^ 4) * e,
+					-4 * a * c.cubed * d.squared,
+					-27 * (b ^ 4) * e.squared,
+					18 * b.cubed * c * d * e,
+					-4 * b.cubed * d.cubed,
+					-4 * b.squared * c.cubed * e,
+					1 * b.squared * c.squared * d.squared
+				].sum
+			}
+		]) {
+			self.error('discriminant: degree≠{1,2,3,4}')
+		}
+	}
 
 	evaluateUnivariatePolynomial { :coefficientList :x |
 		let n = coefficientList.size;
@@ -89,6 +156,10 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			p[i] := p[i] * (1 / p[i].at(x[i]))
 		};
 		(p * y).sum
+	}
+
+	resultant { :p :q |
+		p.sylvesterMatrix(q).determinant
 	}
 
 	UnivariatePolynomial { :self |

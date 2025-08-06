@@ -216,6 +216,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		}
 	}
 
+	integerLength { :self :radix |
+		self.integerDigits(radix).size
+	}
+
 	isEven { :self |
 		(self % 2L) = 0L
 	}
