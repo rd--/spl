@@ -229,14 +229,31 @@ Spiral Functions:
 Triangle Functions:
 
 - `aasTriangle`
+- `altitudes`
 - `asaTriangle`
+- `centroid`
+- `cevianTriangle`
+- `contactTriangle`
+- `deLongchampsPoint`
 - `excenters`
 - `excircles`
 - `exradii`
+- `gergonnePoint`
 - `incenter`
 - `incircle`
+- `interiorAngles`
+- `medialTriangle`
+- `mittenpunkt`
+- `nagelPoint`
+- `orthocenter`
+- `pedalTriangle`
 - `sasTriangle`
+- `sideLengths`
+- `spiekerCenter`
+- `spiekerCircle`
 - `sssTriangle`
+- `symmedianPoint`
+- `triangleCentre`
 
 Uncategorized:
 

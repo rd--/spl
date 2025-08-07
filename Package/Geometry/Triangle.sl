@@ -59,6 +59,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.circumcircle
 	}
 
+	contactTriangle { :self |
+		self.cevianTriangle(self.gergonnePoint)
+	}
+
+	deLongchampsPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			a.cos - (b.cos * c.cos)
+		}
+	}
+
 	dimension { :self |
 		2
 	}
@@ -99,8 +109,10 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		[[1 .. 3]]
 	}
 
-	svgFragment { :self :options |
-		self.asPolygon.svgFragment(options)
+	feuerbachPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			1 - (b - c).cos
+		}
 	}
 
 	fromBarycentricCoordinates { :self |
@@ -132,6 +144,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		).Triangle
 	}
 
+	gergonnePoint { :self |
+		self.triangleCentreL { :a :b :c |
+			(a * (b + c - a)) ^ -1
+		}
+	}
+
 	heronsFormula { :self |
 		let [a, b, c] = self.sideLengths;
 		let s = (a + b + c) * 0.5;
@@ -160,6 +178,18 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	medialTriangle { :self |
 		self.vertexCoordinates.medialTriangle.Triangle
+	}
+
+	mittenpunkt { :self |
+		self.triangleCentreL { :a :b :c |
+			b + c - a
+		}
+	}
+
+	nagelPoint { :self |
+		self.triangleCentreL { :a :b :c |
+			(b + c - a) / a
+		}
 	}
 
 	ninePointCircle { :self |
@@ -236,6 +266,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		(b - a).cross(c - b) * 0.5
 	}
 
+	spiekerCenter { :self |
+		self.triangleCentreL { :a :b :c |
+			(b + c) / a
+		}
+	}
+
+	spiekerCircle { :self |
+		self.medialTriangle.incircle
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
 	}
@@ -245,6 +285,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let u = p2 - p1;
 		let v = p3 - p1;
 		u.cross(v)
+	}
+
+	svgFragment { :self :options |
+		self.asPolygon.svgFragment(options)
+	}
+
+	symmedianPoint { :self |
+		self.triangleCentreL { :a :b :c |
+			a
+		}
 	}
 
 	toBarycentricCoordinates { :self :c |
@@ -271,6 +321,22 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	translated { :self :operand |
 		self.asPolygon.translated(operand).vertexCoordinates.Triangle
+	}
+
+	triangleCentre { :self :p:/1 :f:/3 |
+		let [a, b, c] = p(self);
+		let alpha = f(a, b, c);
+		let beta = f(b, c, a);
+		let gamma = f(c, a, b);
+		self.fromTrilinearCoordinates([alpha, beta, gamma])
+	}
+
+	triangleCentreA { :self :f:/3 |
+		self.triangleCentre(interiorAngles:/1, f:/3)
+	}
+
+	triangleCentreL { :self :f:/3 |
+		self.triangleCentre(sideLengths:/1, f:/3)
 	}
 
 	vertexCount { :self |

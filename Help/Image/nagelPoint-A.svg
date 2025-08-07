@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="216.7" height="100.0" viewBox="-5.000 -5.000 226.732 110.000">
+<g fill="none" stroke="black" stroke-width="0.0115%" transform="translate(0, 100.0000) scale(43.3464, -43.3464)">
+<polygon points="0.000,0.000 5.000,0.000 3.082,2.307" />
+<circle cx="2.232" cy="0.360" r="0.012" />
+<circle cx="2.694" cy="0.769" r="0.012" />
+<circle cx="2.925" cy="0.973" r="0.012" />
+<polyline points="2.232,0.360 2.694,0.769 2.925,0.973" />
+<polygon points="4.409,0.711 0.741,0.554 2.075,0.000" />
+</g>
+</svg>

@@ -124,7 +124,7 @@ Draw the 128×128 Hadamard matrix:
 
 * * *
 
-See also: walshMatrix
+See also: fastWalshHadamardTransform, walshMatrix
 
 References:
 _Mathematica_

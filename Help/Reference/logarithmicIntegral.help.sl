@@ -1,8 +1,8 @@
 # logarithmicIntegral
 
-- _logarithmicIntegral(aNumber)_
+- _logarithmicIntegral(n)_
 
-The logarithmic integral function.
+The logarithmic integral function for the number _n_.
 Calculated using a series expansion due to Ramanujan,
 with the limit set to nine.
 

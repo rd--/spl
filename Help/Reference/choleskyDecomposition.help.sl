@@ -114,7 +114,7 @@ See also: luDecomposition, qrDecomposition
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
+[1](https://mathworld.wolfram.com/CholeskyDecomposition.html)
 [2](https://reference.wolfram.com/language/ref/CholeskyDecomposition.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/chol.html),

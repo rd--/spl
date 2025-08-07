@@ -80,7 +80,5 @@ See also: akimaInterpolator, catmullRomInterpolation, cubicSplineInterpolator, l
 Guides: Interpolation Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Nearest-neighbor_interpolation)

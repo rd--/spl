@@ -17,6 +17,9 @@ The binary form answers _x_ raised to the power of _y_.
 
 >>> 2 ^ 12
 4096
+
+>>> 2 ^ -1
+1/2
 ```
 
 Fractional exponents:

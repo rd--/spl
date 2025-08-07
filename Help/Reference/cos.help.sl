@@ -96,6 +96,16 @@ Plot `cos` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/cos-E.svg)
 
+Chirp signal:
+
+~~~spl svg=F
+(1 .. 100).functionPlot { :i |
+	((i / 4) + (i / 20).squared).cos
+}
+~~~
+
+![](sw/spl/Help/Image/cos-F.svg)
+
 * * *
 
 See also: arcCos, arcCosh, cosh, secant, sin, tan

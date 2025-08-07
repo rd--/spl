@@ -1,8 +1,8 @@
 # centroid
 
-- _centroid(anObject)_
+- _centroid(g)_
 
-Answer the centroid of _anObject_.
+Answer the centroid of the geometry _g_.
 
 Find the centroid of a `Circle`:
 
@@ -53,6 +53,8 @@ let p = 8.regularPolygon([0 0], 1, 0);
 * * *
 
 See also: Circle, Line, Polygon, polygonCentroid, Rectangle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

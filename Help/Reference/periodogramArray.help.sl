@@ -57,7 +57,7 @@ Use a numerical array as a custom smoothing window:
 [0.65793 0.77438 0.19214 0.77438]
 ```
 
-Verification of Parsevals theorem:
+Verification of Parseval’s theorem:
 
 ```
 >>> let r = Sfc32(678321);
@@ -74,6 +74,8 @@ Guides: Fourier Analysis Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
+[1](https://reference.wolfram.com/language/ref/PeriodogramArray.html)
+[2](https://mathworld.wolfram.com/ParsevalsTheorem.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Parseval%27s_theorem)
+[1](https://en.wikipedia.org/wiki/Periodogram)
+[2](https://en.wikipedia.org/wiki/Parseval%27s_theorem)

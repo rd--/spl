@@ -1,9 +1,23 @@
 # Signal Processing Functions
 
+## Convolution Functions
+
+- `convolve`
+- `fftConvolve`
+
 ## Delta Functions
 
 - `diracDelta`
 - `kroneckerDelta`
+
+## Fourier Transforms
+
+- `Fourier Analysis Functions`: Guide
+
+## Hadamard Transforms
+
+- `fastWalshHadamardTransform`
+- `hadamardMatrix`
 
 ## Heaviside Functions
 

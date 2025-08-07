@@ -16,6 +16,7 @@ Guides: Coordinate Systems, Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/BarycentricCoordinates.html),
+[1](https://mathworld.wolfram.com/BarycentricCoordinates.html)
+[2](https://mathworld.wolfram.com/TrilinearCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Barycentric_coordinate_system)

@@ -30,7 +30,7 @@ See also: pentagonalNumber
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
+[1](https://mathworld.wolfram.com/PentagonalNumber.html),
 _OEIS_
 [1](https://oeis.org/A001318),
 _W_

@@ -62,7 +62,7 @@ Guides: Special Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/x.html),
+[1](https://mathworld.wolfram.com/IncompleteGammaFunction.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/gammainc.html),
 _NIST_
