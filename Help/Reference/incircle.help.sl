@@ -1,8 +1,8 @@
 # incircle
 
-- _incircle(aGeometry)_
+- _incircle(g)_
 
-Answer the incircle of _aGeometry_,
+Answer the incircle of the geometry _g_,
 the inscribed circle of a polygon.
 
 Draw at `Triangle`:

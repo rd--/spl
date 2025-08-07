@@ -230,6 +230,11 @@ Triangle Functions:
 
 - `aasTriangle`
 - `asaTriangle`
+- `excenters`
+- `excircles`
+- `exradii`
+- `incenter`
+- `incircle`
 - `sasTriangle`
 - `sssTriangle`
 

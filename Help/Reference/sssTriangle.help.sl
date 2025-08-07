@@ -16,7 +16,8 @@ the archetypal Pythagorean triangle:
 >>> 	t.area,
 >>> 	t.centroid,
 >>> 	t.interiorAngles,
->>> 	t.circumradius
+>>> 	t.circumradius,
+>>> 	t.sideLengths
 >>> )
 (
 	[
@@ -34,7 +35,8 @@ the archetypal Pythagorean triangle:
 		(3 / 5).arcCos,
 		1/2.pi
 	],
-	5/2
+	5/2,
+	[3 4 5]
 )
 ```
 

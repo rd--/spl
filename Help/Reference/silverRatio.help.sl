@@ -2,7 +2,7 @@
 
 - _silverRatio(n)_
 
-Answer _n_ × the silver ratio, _√2 + 1_, usually written as δs or λ or σ.
+Answer _n_ × the silver ratio, _√2+1_, usually written as δs or λ or σ.
 
 ```
 >>> 1.silverRatio
@@ -58,13 +58,14 @@ As the ⁠superstable fixed point of an iteration:
 1.silverRatio
 ```
 
-Silver triangle:
+A silver triangle has height _δs/2_:
 
 ```
-let a = 67.5.degree;
-let t = asaTriangle(a, 1, a);
-let [_, q, r] = t.altitudes;
-r / q
+>>> let a = 67.5.degree;
+>>> let t = asaTriangle(a, 1, a);
+>>> let [_, _, h] = t.altitudes;
+>>> h * 2
+1.silverRatio
 ```
 
 Draw silver rectangle:
@@ -84,13 +85,14 @@ asaTriangle(a, 1, a)
 
 ![](sw/spl/Help/Image/silverRatio-B.svg)
 
-Silver rectangle in regular octagon:
+Silver rectangle and silver triangle in regular octagon:
 
 ~~~spl svg=C
 let p = 8.regularPolygon([0 0], 1, 1/8.pi);
 let c = p.vertexCoordinates;
 let r = Polygon(c.atAll([8 1 4 5]));
-LineDrawing([p, r])
+let t = Triangle([c[6], c[7], [0 0]]);
+LineDrawing([p, r, t])
 ~~~
 
 ![](sw/spl/Help/Image/silverRatio-C.svg)
@@ -119,24 +121,21 @@ let r = centeredRectangle([0 0], [s 1]);
 
 ![](sw/spl/Help/Image/silverRatio-E.svg)
 
-Nested silver triangles
+Nested silver triangles:
 
-~~~spl svg=E
+~~~spl svg=F
 let s = 1.silverRatio;
 let a = 67.5.degree;
 let m = 2 * a.cos;
 let t = asaTriangle(a, 2, a);
 let c = [2, s + 1, 2] / (s + 5);
-let z = [s, s + 2] / (4 * s + 3);
 { :x |
 	let r = x.fromBarycentricCoordinates(c);
-	z := z / s;
-	r := x.circumcenter + z;
 	x.rotated(112.5.degree, r).scaled(m)
-}.nestList(t, 5).LineDrawing
+}.nestList(t, 6).LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/silverRatio-E.svg)
+![](sw/spl/Help/Image/silverRatio-F.svg)
 
 * * *
 

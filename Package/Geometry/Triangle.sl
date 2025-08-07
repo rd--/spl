@@ -44,6 +44,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.polygonCentroid
 	}
 
+	cevianTriangle { :self :p |
+		let [alpha, beta, gamma] = self.toTrilinearCoordinates(p);
+		self.fromTrilinearVertexMatrix(
+			[
+				0 beta gamma;
+				alpha 0 gamma;
+				alpha beta 0
+			]
+		)
+	}
+
 	circumcircle { :self |
 		self.vertexCoordinates.circumcircle
 	}
@@ -54,6 +65,30 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	embeddingDimension { :self |
 		self.vertexCoordinates.anyOne.size
+	}
+
+	excenters { :self |
+		[-1 1 1; 1 -1 1; 1 1 -1].collect { :c |
+			self.fromTrilinearCoordinates(c)
+		}
+	}
+
+	excircles { :self |
+		let c = self.excenters;
+		let r = self.exradii;
+		Circle(c, r)
+	}
+
+	exradii { :self |
+		let s = self.semiperimeter;
+		let l = self.sideLengths;
+		let f = { :x |
+			let [a, b, c] = x;
+			((s * (s - b) * (s - c)) / (s - a)).sqrt
+		};
+		[0 2 1].collect { :r |
+			l.rotated(r).f
+		}
 	}
 
 	faceCount { :self |
@@ -337,12 +372,14 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	}
 
 	sssTriangle { :a :b :c |
-		(c < (a + b)).if {
+		let z = a + b + c;
+		let m = [a, b, c].max;
+		(m < (z - m)).if {
 			let x = ((b ^ 2) + (c ^ 2) - (a ^ 2)) / (2 * c);
 			let y = ((a + b - c) * (a - b + c) * (b + c - a) * (a + b + c)).sqrt / (2 * c);
 			Triangle([0 0], [c 0], [x y])
 		} {
-			[a, b, c].error('sssTriangle: c >= a+b')
+			[a, b, c].error('sssTriangle: invalid triangle')
 		}
 	}
 

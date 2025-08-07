@@ -1,8 +1,10 @@
 # semiperimeter
 
-- _semiperimeter(aGeometry)_
+- _semiperimeter(g)_
 
-The semiperimeter of a polygon is half its perimeter.
+Answer the semiperimeter of the geometry _g_.
+
+The semiperimeter of a polygon is half its perimeter:
 
 ```
 >>> let t = sssTriangle(3, 4, 5);

@@ -1,8 +1,8 @@
 # circumradius
 
-- _circumradius(aGeometry)_
+- _circumradius(g)_
 
-The `circumradius` is the `radius` of the `circumcircle`.
+The `circumradius` is the `radius` of the `circumcircle` of the geometry _g_.
 
 ```
 >>> let t = Triangle([0 0; 0 1; 1 0]);

@@ -4,7 +4,7 @@
 
 Answer the pedal triangle of the triangle _t_ given the point _p_.
 
-An equilateral triangle, an interior point, and an associated pedal triangle:
+An equilateral triangle, an interior point, and the associated pedal triangle:
 
 ~~~spl svg=A
 let a = [1 1 1].sssTriangle;
@@ -47,7 +47,9 @@ let f = a.circumcircle;
 
 * * *
 
-See also: fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, secant
+See also: cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, secant
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

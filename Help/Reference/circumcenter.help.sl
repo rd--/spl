@@ -16,7 +16,9 @@ At `Triangle`:
 At `Tetrahedron`:
 
 ```
->>> let t = Tetrahedron([0 0 0; 1 0 0; 0 1 0; 0 0 1]);
+>>> let t = Tetrahedron(
+>>> 	[0 0 0; 1 0 0; 0 1 0; 0 0 1]
+>>> );
 >>> let c = t.circumsphere;
 >>> (c.center, t.circumcenter)
 ([0.5 0.5 0.5], [0.5 0.5 0.5])

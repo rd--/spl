@@ -7,6 +7,14 @@ Given a `Triangle` or `Tetrahedron` _t_,
 answer the Cartesian coordinates of the barycentric coordinates λ.
 Barycentric coordinates were introduced by August Möbius in 1827.
 
+The homogeneous barycentric coordinates of the centroid are _1,1,1_:
+
+```
+>>> let t = sssTriangle(1, 1, 1);
+>>> t.fromBarycentricCoordinates([1 1 1] / 3)
+t.centroid
+```
+
 Plot specific points:
 
 ~~~spl svg=A
