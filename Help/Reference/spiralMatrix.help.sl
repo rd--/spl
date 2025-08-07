@@ -1,8 +1,10 @@
 # spiralMatrix
 
-- _spiralMatrix(anInteger)_
+- _spiralMatrix(n)_
 
-Counter-clockwise involute starting at upper left:
+Answer an _n×n_ matrix of the first _n²_ integers arranged in a counter-clockwise involute spiral starting at upper left at first descending.
+
+The 5×5 involute spiral matrix:
 
 ```
 >>> 5.spiralMatrix
@@ -15,7 +17,7 @@ Counter-clockwise involute starting at upper left:
 ]
 ```
 
-Clockwise involute starting at upper left:
+Transposed to give a clockwise involute starting at upper left:
 
 ```
 >>> 5.spiralMatrix.transposed
@@ -44,7 +46,9 @@ Clockwise evolute at first ascending:
 Counter-clockwise evolute at first leftwards:
 
 ```
->>> (5 ^ 2 + 1) - 5.spiralMatrix.transposed
+>>> (5 ^ 2 + 1)
+>>> -
+>>> 5.spiralMatrix.transposed
 [
 	25 24 23 22 21;
 	10  9  8  7 20;
@@ -74,12 +78,24 @@ m.transposed.isPrime.boole.Bitmap
 
 ![](sw/spl/Help/Image/spiralMatrix-B.png)
 
+Plot matrix:
+
+~~~spl svg=C
+13.spiralMatrix.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/spiralMatrix-C.svg)
+
 * * *
 
-See also: crossMatrix, isPrime
+See also: crossMatrix, isPrime, spirangle, evoluteSpiralMatrix
+
+Guides: Geometry Functions, Matrix Functions
 
 References:
 _J_
-[1](https://www.jsoftware.com/papers/play132.htm)
+[1](https://www.jsoftware.com/papers/play132.htm),
 _Mathematica_
-[1](https://mathworld.wolfram.com/PrimeSpiral.html)
+[1](https://mathworld.wolfram.com/PrimeSpiral.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Ulam_spiral)

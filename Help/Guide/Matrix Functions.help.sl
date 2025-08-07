@@ -57,6 +57,7 @@ Constructing:
 - `diamondMatrix`: diamond matrix
 - `diskMatrix`: disk matrix
 - `distanceMatrix`: distance matrix
+- `evoluteSpiralMatrix`
 - `exchangeMatrix`: exchange matrix
 - `fourierMatrix`: square Fourier matrix
 - `frobeniusCompanionMatrix`: Frobenius companion matrix
@@ -65,11 +66,14 @@ Constructing:
 - `identityMatrix`: identity matrix
 - `permutationMatrix`: permutation matrix
 - `recurrenceMatrix`: recurrence matrix
+- `singleEntryMatrix`
+- `spiralMatrix`
 - `sylvesterMatrix`: Sylvester matrix
 - `toeplitzMatrix`: Toeplitz matrix
 - `vandermondeMatrix`: Vandermonde matrix
 - `walshMatrix`: Walsh matrix
 - `zeroMatrix`: zero matrix
+- `zigzagMatrix`
 
 General:
 

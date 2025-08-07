@@ -16,9 +16,10 @@ Convert numerical values to zero or one:
 With `epsilon`:
 
 ```
->>> (2.sqrt + 3.sqrt - (5 + (2 * 6.sqrt)).sqrt)
->>> .unitize(1.epsilon)
-0
+>>> let a = 5 + (2 * 6.sqrt);
+>>> let b = 2.sqrt + 3.sqrt - a.sqrt;
+>>> (b, b.unitize(1.epsilon))
+(4E-16, 0)
 ```
 
 Replace values in a matrix with zeros or ones:
@@ -34,9 +35,30 @@ Replace values in a matrix with zeros or ones:
 ]
 ```
 
+Plot matrix:
+
+~~~spl svg=A
+[-2 1 0 1; 1 -2 1 0; 0 1 -2 1; 1 0 -2 1]
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/unitize-A.svg)
+
+Plot unitized matrix:
+
+~~~spl svg=B
+[-2 1 0 1; 1 -2 1 0; 0 1 -2 1; 1 0 -2 1]
+.unitize
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/unitize-B.svg)
+
 * * *
 
-See also: boole, clip, diracDelta, kroneckerDelta, sign
+See also: boole, clip, diracDelta, kroneckerDelta, sign, unitStep
+
+Guide: Mathematical Functions
 
 References:
 _Mathematica_

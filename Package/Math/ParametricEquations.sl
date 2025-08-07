@@ -41,6 +41,15 @@
 		[x, y]
 	}
 
+	cissoidOfDiocles { :a |
+		{ :theta |
+			let t = theta.tan;
+			let x = 2 * a * (t ^ 2) / (1 + (t ^ 2));
+			let y = t * x;
+			[x, y]
+		}
+	}
+
 	cleliaCurve { :r :c |
 		{ :theta |
 			[

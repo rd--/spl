@@ -1,8 +1,8 @@
 # sideLengths
 
-- _sideLengths(aGeometry)_
+- _sideLengths(g)_
 
-Answer a `List` of the side lengths of _aGeometry_.
+Answer a `List` of the side lengths of the geometry _g_.
 
 For a `Triangle` given by the points _A, B, C_,
 the side lengths are given as _a, b, c_ where each length is of the line opposite,

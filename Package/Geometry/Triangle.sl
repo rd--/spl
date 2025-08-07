@@ -6,6 +6,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
+	altitudes { :self |
+		let [a, b, c] = self.sideLengths;
+		let [p, q, r] = self.interiorAngles;
+		[b * r.sin, c * p.sin, a * q.sin]
+	}
+
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength
 	}
@@ -85,6 +91,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.fromTrilinearCoordinates.value(c)
 	}
 
+	fromTrilinearVertexMatrix { :self :matrix |
+		matrix.collect(
+			self.fromTrilinearCoordinates
+		).Triangle
+	}
+
 	heronsFormula { :self |
 		let [a, b, c] = self.sideLengths;
 		let s = (a + b + c) * 0.5;
@@ -119,10 +131,33 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.ninePointCircle
 	}
 
+	orthicTriangle { :self |
+		let [a, b, c] = self.interiorAngles;
+		self.fromTrilinearVertexMatrix(
+			[
+				[0, b.secant, c.secant],
+				[a.secant, 0, c.secant],
+				[a.secant, b.secant, 0]
+			]
+		)
+	}
+
 	orthocenter { :self |
 		let a = self.interiorAngles;
 		let c = a.tan.normalizeSum;
 		self.fromBarycentricCoordinates(c)
+	}
+
+	pedalTriangle { :self :p |
+		let [a, b, c] = self.interiorAngles;
+		let [alpha, beta, gamma] = self.toTrilinearCoordinates(p);
+		self.fromTrilinearVertexMatrix(
+			[
+				[0, beta + (alpha * c.cos), gamma + (alpha * b.cos)],
+				[alpha + (beta * c.cos), 0, gamma + (beta * a.cos)],
+				[alpha + (gamma * b.cos), beta + (gamma * a.cos), 0]
+			]
+		)
 	}
 
 	perimeter { :self |
@@ -134,6 +169,18 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		.vertexCoordinates
 		.collect(projection.asUnaryBlock)
 		.Triangle
+	}
+
+	rotated { :self :theta :center |
+		self.asPolygon.rotated(theta, center).vertexCoordinates.Triangle
+	}
+
+	rotated { :self :theta |
+		self.asPolygon.rotated(theta).vertexCoordinates.Triangle
+	}
+
+	scaled { :self :factor |
+		self.asPolygon.scaled(factor).vertexCoordinates.Triangle
 	}
 
 	semiperimeter { :self |
@@ -172,6 +219,23 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	toBarycentricCoordinates { :self |
 		let [a, b, c] = self.vertexCoordinates;
 		toBarycentricCoordinates(a, b, c)
+	}
+
+	toTrilinearCoordinates { :self |
+		let [a, b, c] = self.vertexCoordinates;
+		let v = self.sideLengths;
+		let f:/1 = toBarycentricCoordinates(a, b, c);
+		{ :x |
+			f(x) / v
+		}
+	}
+
+	toTrilinearCoordinates { :self :c |
+		self.toTrilinearCoordinates.value(c)
+	}
+
+	translated { :self :operand |
+		self.asPolygon.translated(operand).vertexCoordinates.Triangle
 	}
 
 	vertexCount { :self |
@@ -222,9 +286,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	medialTriangle { :self |
 		let [a, b, c] = self;
 		[
-			[a b].midpoint,
-			[a c].midpoint,
-			[b c].midpoint
+			[b c].midpoint,
+			[c a].midpoint,
+			[a b].midpoint
 		]
 	}
 
@@ -273,9 +337,13 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	}
 
 	sssTriangle { :a :b :c |
-		let y = ((a ^ 2).negated + (b ^ 2) + (c ^ 2)) / (2 * c);
-		let z = ((a + b - c) * (a - b + c) * (a.negated + b + c) * (a + b + c)).sqrt / (2 * c);
-		Triangle([0 0], [c 0], [y z])
+		(c < (a + b)).if {
+			let x = ((b ^ 2) + (c ^ 2) - (a ^ 2)) / (2 * c);
+			let y = ((a + b - c) * (a - b + c) * (b + c - a) * (a + b + c)).sqrt / (2 * c);
+			Triangle([0 0], [c 0], [x y])
+		} {
+			[a, b, c].error('sssTriangle: c >= a+b')
+		}
 	}
 
 }

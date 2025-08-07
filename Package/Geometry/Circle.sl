@@ -73,6 +73,10 @@ Circle : [Object, Geometry] { | center radius |
 		} ! shape
 	}
 
+	scaled { :self :m |
+		Circle(self.center, self.radius * m)
+	}
+
 	storeString { :self |
 		'Circle(%, %)'.format([
 			self.center.storeString,
@@ -80,7 +84,11 @@ Circle : [Object, Geometry] { | center radius |
 		])
 	}
 
-	translateBy { :self :factor |
+	translate { :self :factor |
+		self.center := self.center + factor
+	}
+
+	translated { :self :factor |
 		Circle(self.center + factor, self.radius)
 	}
 

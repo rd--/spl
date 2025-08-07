@@ -229,11 +229,14 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.asPolygon.rotated(theta, center)
 	}
 
-	scaleBy { :self :scale |
-		Rectangle(
-			self.lowerLeft * scale,
-			self.upperRight * scale
-		)
+	rotated { :self :theta |
+		self.rotated(theta, self.centroid)
+	}
+
+	scaled { :self :scale |
+		let c = self.center;
+		let e = self.extent * scale;
+		centeredRectangle(c, e)
 	}
 
 	swallow { :self :aRectangle |
@@ -241,7 +244,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.upperRight := self.upperRight.max(aRectangle.upperRight)
 	}
 
-	translateBy { :self :factor |
+	translated { :self :factor |
 		Rectangle(
 			self.lowerLeft + factor,
 			self.upperRight + factor
@@ -323,6 +326,11 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		[lowerLeft, upperRight]
 	}
 
+	centeredRectangle { :centerPoint :extentPoint |
+		let half = extentPoint / 2;
+		Rectangle(centerPoint - half, centerPoint + half)
+	}
+
 	computeBoundingBoxRectangle { :self |
 		let answer = Rectangle(self[1], self[1]);
 		self.allButFirstDo { :aPoint |
@@ -341,11 +349,6 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		} {
 			newRectangle().initializeSlots(lowerLeft, upperRight)
 		}
-	}
-
-	RectangleCenterExtent { :centerPoint :extentPoint |
-		let half = extentPoint / 2;
-		Rectangle(centerPoint - half, centerPoint + half)
 	}
 
 	unitSquare { :center |

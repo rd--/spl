@@ -47,7 +47,7 @@ let t = asaTriangle(a, 1, a);
 
 * * *
 
-See also: fromBarycentricCoordinates, interiorAngles, normalizeSum, tan
+See also: fromBarycentricCoordinates, interiorAngles, normalizeSum, orthicTriangle, tan
 
 Guides: Geometry Functions
 

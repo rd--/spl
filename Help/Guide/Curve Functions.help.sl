@@ -7,6 +7,7 @@ Algebraic Curve Functions:
 - `butterflyCurve`
 - `cayleysSextic`
 - `catenaryCurve`
+- `cissoidOfDiocles`
 - `cleliaCurve`
 - `cochleoid`
 - `epicycloid`

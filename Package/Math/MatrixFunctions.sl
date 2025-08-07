@@ -73,7 +73,7 @@
 
 	choleskyBanachiewiczAlgorithm { :a |
 		let [m, n] = a.shape;
-		let l = m.zeroMatrix(n);
+		let l = [m, n].zeroMatrix;
 		1.toDo(m) { :i |
 			1.toDo(i) { :k |
 				let sum = 0;
@@ -214,8 +214,8 @@
 
 	gaussJordanInverse { :self |
 		let [m, n] = self.shape;
-		let a = m.zeroMatrix(m * 2);
-		let r = m.zeroMatrix(n);
+		let a = [m, m * 2].zeroMatrix;
+		let r = [m, n].zeroMatrix;
 		(m ~= n).ifTrue {
 			self.error('List>>gaussJordanInverse: matrix is not square')
 		};
@@ -638,7 +638,7 @@
 	matrixPower { :m :p |
 		let [a, b] = m.shape;
 		(a = b).if {
-			let r = b.zeroMatrix(a);
+			let r = [b, a].zeroMatrix;
 			p.caseOf([
 				0 -> {
 					1:b.do { :i |
@@ -729,8 +729,8 @@
 	qrDecomposition { :self |
 		let [m, n] = self.shape;
 		let qr = self.deepCopy;
-		let q = m.zeroMatrix(n);
-		let r = m.zeroMatrix(n);
+		let q = [m, n].zeroMatrix;
+		let r = [m, n].zeroMatrix;
 		1.toDo(n) { :k |
 			let norm = 0;
 			k.toDo(m) { :i |
@@ -1346,7 +1346,7 @@
 +@Integer {
 
 	exchangeMatrix { :self |
-		let answer = self.zeroMatrix(self);
+		let answer = [self, self].zeroMatrix;
 		1:self.do { :each |
 			answer[self - each + 1][each] := 1
 		};

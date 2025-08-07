@@ -58,7 +58,16 @@ As the ⁠superstable fixed point of an iteration:
 1.silverRatio
 ```
 
-Silver rectangle:
+Silver triangle:
+
+```
+let a = 67.5.degree;
+let t = asaTriangle(a, 1, a);
+let [_, q, r] = t.altitudes;
+r / q
+```
+
+Draw silver rectangle:
 
 ~~~spl svg=A
 Rectangle([0, 0], [1.silverRatio 1])
@@ -66,7 +75,7 @@ Rectangle([0, 0], [1.silverRatio 1])
 
 ![](sw/spl/Help/Image/silverRatio-A.svg)
 
-Silver triangle:
+Draw silver triangle:
 
 ~~~spl svg=B
 let a = 67.5.degree;
@@ -97,6 +106,37 @@ let b = 1.silverRatio.log / 0.5.pi;
 ~~~
 
 ![](sw/spl/Help/Image/silverRatio-D.svg)
+
+Nested silver rectangles, scaled by _1/δs_:
+
+~~~spl svg=E
+let s = 1.silverRatio;
+let r = centeredRectangle([0 0], [s 1]);
+{ :x |
+	x.rotated(1/4.pi).scaled(1 / s)
+}.nestList(r, 4).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/silverRatio-E.svg)
+
+Nested silver triangles
+
+~~~spl svg=E
+let s = 1.silverRatio;
+let a = 67.5.degree;
+let m = 2 * a.cos;
+let t = asaTriangle(a, 2, a);
+let c = [2, s + 1, 2] / (s + 5);
+let z = [s, s + 2] / (4 * s + 3);
+{ :x |
+	let r = x.fromBarycentricCoordinates(c);
+	z := z / s;
+	r := x.circumcenter + z;
+	x.rotated(112.5.degree, r).scaled(m)
+}.nestList(t, 5).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/silverRatio-E.svg)
 
 * * *
 

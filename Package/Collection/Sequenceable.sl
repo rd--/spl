@@ -1730,7 +1730,7 @@
 	longestCommonSubsequence { :a :b |
 		let m = a.size + 1;
 		let n = b.size + 1;
-		let lengths = m.zeroMatrix(n);
+		let lengths = [m, n].zeroMatrix;
 		let answer = [];
 		a.withIndexCollect { :x :i |
 			b.withIndexCollect { :y :j |

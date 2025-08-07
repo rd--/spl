@@ -1,8 +1,8 @@
 # transpose
 
-- _transpose(aMatrix)_
+- _transpose(m)_
 
-Transpose the rows and columns of _aMatrix_ in place.
+Transpose the rows and columns of the matrix _m_ in place.
 
 At square `NumericArray`:
 

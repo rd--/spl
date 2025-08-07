@@ -33,7 +33,7 @@ DiscreteMarkovProcess : [Object] { | p0 m |
 		let stateList = self.catenate.nub.sort;
 		let k = stateList.size;
 		(stateList = [1 .. k]).if {
-			let m = zeroMatrix(k, k);
+			let m = [k, k].zeroMatrix;
 			self.do { :each |
 				each.adjacentPairsDo { :i :j |
 					m[i][j] := m[i][j] + 1

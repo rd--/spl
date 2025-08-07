@@ -46,7 +46,7 @@ let q = c.collect { :each |
 
 * * *
 
-See also: fromBarycentricCoordinates, Triangle
+See also: fromBarycentricCoordinates, toTrilinearCoordinates, Triangle
 
 Guides: Coordinate System Functions
 

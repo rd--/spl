@@ -36,10 +36,10 @@
 		let s2 = range(k + n, k, -1) - u;
 		let tiny = 1.smallFloatEpsilon;
 		let huge = 1.smallFloatMax;
-		let w = zeroMatrix(n, n + 1);
-		let t = zeroMatrix(n - 1, n);
+		let w = [n, n + 1].zeroMatrix;
+		let t = [n - 1, n].zeroMatrix;
 		let m = nsets;
-		let x = zeroMatrix(n, m);
+		let x = [n, m].zeroMatrix;
 		let rt = self.randomReal([0 1], [n - 1, m]);
 		let rs = self.randomReal([0 1], [n - 1, m]);
 		let j = (k + 1) # m;

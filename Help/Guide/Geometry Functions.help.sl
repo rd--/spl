@@ -217,13 +217,14 @@ Spiral Functions:
 - `archimedeanSpiral`
 - `doyleSpiral`
 - `eulerSpiral`
+- `evoluteSpiralMatrix`
 - `inverseNorwichSpiral`
 - `logarithmicSpiral`
 - `norwichSpiral`
 - `sinusoidalSpiral`
+- `spiralMatrix`
 - `theodorusSpiral`
 - `tractrixSpiral`
-- `ulamSpiralMatrix`
 
 Triangle Functions:
 

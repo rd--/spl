@@ -1,10 +1,28 @@
 # medialTriangle
 
+- _medialTriangle(t)_
 - _medialTriangle([p₁ p₂ p₃])_
 
 The medial triangle,
 also called the midpoint triangle,
 of a triangle is the triangle with vertices at the midpoints of the triangle’s sides.
+It is the `pedalTriangle` of the `orthocenter`.
+
+```
+>>> let a = [3 4 5].sssTriangle;
+>>> let b = a.medialTriangle;
+>>> let c = a.circumcenter;
+>>> let d = b.orthocenter;
+>>> let e = a.pedalTriangle(c);
+>>> (a, b, c, d, e)
+(
+	Triangle([0 0; 5 0; 3.2 2.4]),
+	Triangle([4.1 1.2; 1.6 1.2; 2.5 0]),
+	[2.5 0],
+	[2.5 0],
+	Triangle([4.1 1.2; 1.6 1.2; 2.5 0])
+)
+```
 
 At `List`:
 
@@ -34,7 +52,7 @@ let t = sssTriangle(1, 1, 1);
 
 * * *
 
-See also: midpoint, midpointPolygon, Triangle
+See also: midpoint, midpointPolygon, pedalTriangle, Triangle
 
 Guides: Geometry Functions
 

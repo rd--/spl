@@ -33,7 +33,7 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 	transitionMatrix { :self |
 		let q = self.q;
 		let [m, n] = q.shape;
-		let t = zeroMatrix(m, n);
+		let t = [m, n].zeroMatrix;
 		1:m.do { :i |
 			let h = q[i][i].abs;
 			let r = (h = 0).if { 0 } { 1 / h };

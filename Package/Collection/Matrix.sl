@@ -255,7 +255,7 @@
 
 	antidiagonalMatrix { :self |
 		let k = self.size;
-		let answer = k.zeroMatrix(k);
+		let answer = [k, k].zeroMatrix;
 		1.toDo(k) { :each |
 			answer[k - each + 1][each] := self[k - each + 1]
 		};
@@ -305,7 +305,7 @@
 		let [m, n] = shape;
 		let r = k.min(0).abs;
 		let c = k.max(0);
-		let answer = m.zeroMatrix(n);
+		let answer = [m, n].zeroMatrix;
 		1.toDo(self.size) { :each |
 			answer[each + r][each + c] := self[each]
 		};
@@ -342,20 +342,99 @@
 		k / k.deepSum
 	}
 
-}
-
-+@Integer {
-
-	identityMatrix { :m :n |
-		let answer = m.zeroMatrix(n);
+	identityMatrix { :shape |
+		let [m, n] = shape;
+		let answer = [m, n].zeroMatrix;
 		1.toDo(n.min(m)) { :each |
 			answer[each][each] := 1
 		};
 		answer
 	}
 
+	singleEntryMatrix { :shape :index :x |
+		let m = shape.zeroMatrix;
+		m.atPathPut(index, x);
+		m
+	}
+
+	zeroMatrix { :shape |
+		let [m, n] = shape;
+		(1 .. m).collect { :unused |
+			List(n, 0)
+		}
+	}
+
+	zigzagIndices { :shape |
+		let [r, c] = shape;
+		let h = 0;
+		let v = 0;
+		let o = [];
+		let step = { :a :b |
+			o.add([v + 1, h + 1]);
+			v := v + a;
+			h := h + b
+		};
+		{ v < r & { h < c } }.whileTrue {
+			(((h + v) % 2) = 0).if {
+				(v = 0).if {
+					(h = (c - 1)).if {
+						step(1, 0)
+					} {
+						step(0, 1)
+					}
+				} {
+					(h = (c - 1) & { v < r }).if {
+						step(1, 0)
+					} {
+						step(-1, 1)
+					}
+				}
+			} {
+				(v = (r - 1) & { h <= (c - 1) }).if {
+					step(0, 1)
+				} {
+					(h = 0).if {
+						(v = (r - 1)).if {
+							step(0, 1)
+						} {
+							step(1, 0)
+						}
+					} {
+						step(1, -1)
+					}
+				};
+				(v = (r - 1) & { h = (c - 1) }).ifTrue {
+					step(1, 1)
+				}
+			}
+		};
+		o
+	}
+
+	zigzagMatrix { :shape |
+		let i = 1;
+		let answer = shape.zeroMatrix;
+		shape.zigzagIndices.do { :each |
+			answer.atPathPut(each, i);
+			i := i + 1
+		};
+		answer
+	}
+
+	zigzagScan { :m |
+		let answer = [];
+		m.shape.zigzagIndices.do { :i |
+			answer.add(m.atPath(i))
+		};
+		answer
+	}
+
+}
+
++@Integer {
+
 	identityMatrix { :self |
-		self.identityMatrix(self)
+		[self, self].identityMatrix
 	}
 
 	vedicSquare { :self |
@@ -365,10 +444,8 @@
 		}.table(l, l)
 	}
 
-	zeroMatrix { :numberOfRows :numberOfColumns |
-		1:numberOfRows.collect { :unused |
-			List(numberOfColumns, 0)
-		}
+	zeroMatrix { :self |
+		[self self].zeroMatrix
 	}
 
 }
@@ -426,6 +503,17 @@
 		{ :i :j |
 			([i - 1, j - 1].euclideanDistance(c) <= l).boole
 		}.table(1:n, 1:n)
+	}
+
+	evoluteSpiralMatrix { :n |
+		[1 .. n ^ 2].permute(
+			[
+				[n ^ 2 + 1] / 2,
+				{ :j :i |
+					-1 ^ j * i # j
+				}.table(1:n, [-1, n])
+			].flatten.take(n ^ 2).accumulate
+		).partition(n)
 	}
 
 	gaussianMatrix { :r :sigma |
@@ -516,17 +604,6 @@
 			}
 		};
 		answer
-	}
-
-	ulamSpiralMatrix { :n |
-		[1 .. n ^ 2].permute(
-			[
-				[n ^ 2 + 1] / 2,
-				{ :j :i |
-					-1 ^ j * i # j
-				}.table(1:n, [-1, n])
-			].flatten.take(n ^ 2).accumulate
-		).partition(n)
 	}
 
 }

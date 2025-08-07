@@ -119,6 +119,13 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		self.rotated(theta, self.centroid)
 	}
 
+	scaled { :self :scale |
+		let c = self.centroid;
+		self.vertexCoordinates.collect { :each |
+			((each - c) * scale) + c
+		}.Polygon
+	}
+
 	sideLengths { :self |
 		let v = self.vertexCoordinates;
 		(2 .. v.size + 1).collect { :i |
@@ -132,6 +139,12 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	translated { :self :operand |
+		self.vertexCoordinates.collect { :each |
+			each + operand
+		}.Polygon
 	}
 
 	vertexAngle { :self :i |

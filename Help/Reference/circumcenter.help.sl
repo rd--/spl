@@ -1,8 +1,8 @@
 # circumcenter
 
-- _circumcenter(aGeometry)_
+- _circumcenter(g)_
 
-The `circumcenter` is the `center` of the `circumcircle` or `circumsphere`.
+The `circumcenter` of the geometry _g_ is the `center` of the `circumcircle` or `circumsphere`.
 
 At `Triangle`:
 

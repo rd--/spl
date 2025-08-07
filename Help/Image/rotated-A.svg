@@ -1,5 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-55.000 -55.000 110.000 110.000">
-<g fill="none" stroke="black" stroke-width="0.0071%" transform="translate(0, 0.0000) scale(70.7107, -70.7107)">
-<polygon points="-0.000,-0.707 0.707,-0.000 0.000,0.707 -0.707,0.000" />
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="15.711 157.132 110.000 110.000">
+<g fill="none" stroke="black" stroke-width="0.0071%" transform="translate(0, 424.2641) scale(70.7107, -70.7107)">
+<rect x="0.500" y="2.500" width="1.000" height="1.000" />
+<circle cx="1.000" cy="3.000" r="0.007" />
+<polygon points="1.000,2.293 1.707,3.000 1.000,3.707 0.293,3.000" />
 </g>
 </svg>

@@ -1,8 +1,8 @@
 # vertexCoordinates
 
-- _vertexCoordinates(aGeometry)_
+- _vertexCoordinates(g)_
 
-Answer the coordinates of _aGeometry_.
+Answer the coordinates of the geometry _g_.
 
 At `Point`, in two dimensions:
 
@@ -81,6 +81,8 @@ At `Polyhedron`:
 * * *
 
 See also: Graph, Polygon, Polyhedron, Rectangle, Triangle, vertexCount
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_
