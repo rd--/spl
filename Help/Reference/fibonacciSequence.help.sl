@@ -70,6 +70,13 @@ The one-hundredth Fibonacci number:
 354224848179261915075L
 ```
 
+Closed form, see also `binetsFormula`:
+
+```
+>>> ((1.goldenRatio ^ [1 .. 13]) / 5.sqrt).rounded
+[1 1 2 3 5 8 13 21 34 55 89 144 233]
+```
+
 * * *
 
 See also: binetsFormula, fibonacci, goldenRatio, pellNumbers

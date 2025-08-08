@@ -12,6 +12,34 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		[b * r.sin, c * p.sin, a * q.sin]
 	}
 
+	anticomplementaryTriangle { :self |
+		self.antipedalTriangle(self.orthocenter)
+	}
+
+	antipedalTriangle { :self :p |
+		let [a, b, c] = self.interiorAngles;
+		let [alpha, beta, gamma] = self.toTrilinearCoordinates(p);
+		self.fromTrilinearVertexMatrix(
+			[
+				[
+					0 - (beta + (alpha * c.cos)) * (gamma + (alpha * b.cos)),
+					(gamma + (alpha * b.cos)) * (alpha + (beta * c.cos)),
+					(beta + (alpha * c.cos)) * (alpha + (gamma * b.cos))
+				],
+				[
+					(gamma + (beta * a.cos)) * (beta + (alpha * c.cos)),
+					0 - (gamma + (beta * a.cos)) * (alpha + (beta * c.cos)),
+					(alpha + (beta * c.cos)) * (beta + (gamma * a.cos))
+				],
+				[
+					(beta + (gamma * a.cos)) * (gamma + (alpha * b.cos)),
+					(alpha + (gamma * b.cos)) * (gamma + (beta * a.cos)),
+					0 - (alpha + (gamma * b.cos)) * (beta + (gamma * a.cos))
+				]
+			]
+		)
+	}
+
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength
 	}
@@ -69,6 +97,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.circumcircle
 	}
 
+	clawsonPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			a.tan
+		}
+	}
+
 	contactTriangle { :self |
 		self.cevianTriangle(self.gergonnePoint)
 	}
@@ -121,6 +155,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	extangentsTriangle { :self |
+		let [x, y, z] = self.interiorAngles.cos;
+		self.fromTrilinearVertexMatrix(
+			[
+				[0 - (x + 1), x + z, x + y],
+				[y + z, 0 - (y + 1), y + x],
+				[z + y, z + x, 0 - (z + 1)]
+			]
+		)
+	}
+
 	extouchTriangle { :self |
 		self.cevianTriangle(self.nagelPoint)
 	}
@@ -136,6 +181,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	feuerbachPoint { :self |
 		self.triangleCentreA { :a :b :c |
 			1 - (b - c).cos
+		}
+	}
+
+	firstFermatPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			(a + 1/3.pi).cosecant
 		}
 	}
 
@@ -216,6 +267,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	ninePointCenter { :self |
+		self.triangleCentreA { :a :b :c |
+			(b - c).cos
+		}
+	}
+
 	ninePointCircle { :self |
 		self.vertexCoordinates.ninePointCircle
 	}
@@ -270,6 +327,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	scaled { :self :factor |
 		self.asPolygon.scaled(factor).vertexCoordinates.Triangle
+	}
+
+	secondFermatPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			(a - 1/3.pi).cosecant
+		}
 	}
 
 	semiperimeter { :self |

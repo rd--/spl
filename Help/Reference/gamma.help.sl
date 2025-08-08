@@ -76,6 +76,13 @@ At `zero`:
 [Infinity Infinity]
 ```
 
+Minimum value:
+
+```
+>>> gamma(1.461632)
+0.885603
+```
+
 Plot the Euler gamma function:
 
 ~~~spl svg=A

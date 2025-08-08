@@ -8,6 +8,7 @@
 - `boltzmannConstant`: _kʙ_
 - `brunsConstant`: _B_
 - `catalansConstant`
+- `champernowneNumber`: _C_
 - `conwaysConstant`: _λ_
 - `degree`: π÷180
 - `e`: _e_
@@ -28,6 +29,7 @@
 - `levysConstant`: _exp(β)_
 - `logarithmicPhi`: _2^φ_
 - `meisselMertensConstant`: B₁
+- `omegaConstant`: Ω
 - `pi`: π
 - `plasticRatio`
 - `pythagorasConstant`: √2

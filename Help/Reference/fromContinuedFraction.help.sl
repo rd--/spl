@@ -51,10 +51,38 @@ A continued fraction may begin with a zero, where the answer is less than 1/2:
 0
 ```
 
+Construct continued fractions:
+
+```
+>>> 1:5.collect { :n |
+>>> 	1:n.collect { :k |
+>>> 		k ^ 6
+>>> 	}.fromContinuedFraction
+>>> }
+[
+	1/1
+	65/64
+	47386/46657
+	194093121/191107136
+	3032705063011/2986049046657
+]
+```
+
+Trott’s constant:
+
+```
+>>> [0 1 0 8 4 1 0 1 5 1 2 2 3 1 1 1 3 6 1]
+>>> .fromContinuedFraction
+0.108410151223
+```
+
 * * *
 
-See also: goldenRatio
+See also: convergents, continuedFraction, goldenRatio
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FromContinuedFraction.html)
+[1](https://mathworld.wolfram.com/ContinuedFractionConstants.html)
+[2](https://reference.wolfram.com/language/ref/FromContinuedFraction.html)
+_OEIS_
+[1](https://oeis.org/A039662)

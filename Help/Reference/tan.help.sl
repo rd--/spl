@@ -11,6 +11,12 @@ Answers the tangent of the number _x_.
 >>> 30.degree.tan
 1 / 3.sqrt
 
+>>> 1/12.pi.tan
+2 - 3.sqrt
+
+>>> 15.degree.tan
+2 - 3.sqrt
+
 >>> 1/4.pi.tan
 1
 ```

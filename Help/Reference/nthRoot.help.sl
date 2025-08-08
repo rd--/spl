@@ -33,6 +33,9 @@ At `SmallFloat`:
 
 >>> 4192.nthRoot(3)
 16.124
+
+>>> (27.nthRoot(5) - 2.nthRoot(5)).nthRoot(3)
+0.92228
 ```
 
 At `LargeInteger`:

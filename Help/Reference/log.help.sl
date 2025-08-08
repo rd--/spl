@@ -15,6 +15,9 @@ the logarithm to base _e_:
 
 >>> 1.e.log
 1
+
+>>> 2.log
+0.693147
 ```
 
 At `zero` and `one`:

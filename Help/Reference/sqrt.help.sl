@@ -22,6 +22,9 @@ Theodorus’ constant
 
 >>> 1351/780
 3.sqrt
+
+>>> 3.sqrt / 2
+0.866025
 ```
 
 Particular values:

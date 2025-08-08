@@ -6,6 +6,16 @@ The nine-point circle,
 also called Euler’s circle or the Feuerbach circle,
 is the circle that passes through the medial triangle of a triangle.
 
+```
+>>> let x = 1/12.sqrt;
+>>> let t = [1 1 1].sssTriangle;
+>>> (
+>>> 	t.ninePointCircle,
+>>> 	t.medialTriangle.circumcircle
+>>> )
+(Circle([0.5 x], x), Circle([0.5 x], x))
+```
+
 At `List`:
 
 ~~~spl svg=A
@@ -32,7 +42,7 @@ let t = sssTriangle(1, 1, 1);
 
 * * *
 
-See also: circleThrough, medialTriangle, orthocenter
+See also: circleThrough, medialTriangle, ninePointCenter, orthocenter
 
 Guides: Geometry Functions
 

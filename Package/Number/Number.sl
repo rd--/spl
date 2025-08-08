@@ -1149,6 +1149,14 @@
 		self * 0.9159655941772190150
 	}
 
+	champernowneNumber { :b |
+		(b = 10).if {
+			0.1234567891011121314151617181920
+		} {
+			b.error('champernowneNumber: b≠10')
+		}
+	}
+
 	conwaysConstant { :self |
 		1.303577269034296391257099112152551890730702504659404875755
 	}
@@ -1248,6 +1256,10 @@
 
 	meisselMertensConstant { :self |
 		self * 0.2614972128476427837554268386086958590516
+	}
+
+	omegaConstant { :self |
+		self * 0.567143290409783872999968662210
 	}
 
 	paperFoldingConstant { :self |

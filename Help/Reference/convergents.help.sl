@@ -81,6 +81,12 @@ Continue until the precision of the input is reached:
 ]
 ```
 
+Continued fraction constants:
+
+```
+>>> [0 1 2 3 4 5 6 7].convergents
+[0, 1/1, 2/3, 7/10, 30/43, 157/225, 972/1393, 6961/9976]
+
 * * *
 
 See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconvergents
@@ -88,4 +94,8 @@ See also: /, continuedFraction, fromContinuedFraction, rationalize, semiconverge
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Convergent.html)
-[2](https://reference.wolfram.com/language/ref/Convergents.html)
+[2](https://mathworld.wolfram.com/ContinuedFractionConstants.html)
+[3](https://reference.wolfram.com/language/ref/Convergents.html),
+_OEIS_
+[1](https://oeis.org/A001040)
+[2](https://oeis.org/A001053)

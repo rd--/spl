@@ -31,9 +31,9 @@ The golden ratio is the `metallicMean` of `one`:
 φ is the number whose inversion is itself minus `one`:
 
 ```
->>> let x = 1.goldenRatio;
->>> 1 / x
-x - 1
+>>> let phi = 1.goldenRatio;
+>>> 1 / phi
+phi - 1
 ```
 
 and therefore phi and its inverse have equal fraction parts:
@@ -56,8 +56,8 @@ Equivalently:
 
 ```
 >>> let phi = 1.goldenRatio;
->>> 1 + phi
-phi.squared
+>>> (1 + phi = phi.squared, 1 + phi)
+(true, 2.618034)
 ```
 
 Compute the Fibonacci numbers:

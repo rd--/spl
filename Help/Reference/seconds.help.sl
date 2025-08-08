@@ -22,6 +22,9 @@ answer the number of seconds:
 
 >>> 3.minutes.seconds
 180
+
+>>> 365.25.days.seconds
+31557600
 ```
 
 * * *

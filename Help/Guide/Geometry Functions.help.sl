@@ -230,6 +230,8 @@ Triangle Functions:
 
 - `aasTriangle`
 - `altitudes`
+- `anticomplementaryTriangle`
+- `antipedalTriangle`
 - `arcLength`
 - `area`
 - `asaTriangle`
@@ -238,6 +240,7 @@ Triangle Functions:
 - `centroid`
 - `cevianTriangle`
 - `circumcircle`
+- `clawsonPoint`
 - `contactTriangle`
 - `deLongchampsPoint`
 - `equilateralTriangle`
@@ -247,6 +250,7 @@ Triangle Functions:
 - `exradii`
 - `extouchTriangle`
 - `feuerbachPoint`
+- `firstFermatPoint`
 - `gergonnePoint`
 - `heronsFormula`
 - `incenter`
@@ -256,6 +260,7 @@ Triangle Functions:
 - `medialTriangle`
 - `mittenpunkt`
 - `nagelPoint`
+- `ninePointCenter`
 - `ninePointCircle`
 - `orthicTriangle`
 - `orthocenter`

@@ -2,7 +2,8 @@
 
 - _pedalTriangle(t, p)_
 
-Answer the pedal triangle of the triangle _t_ given the point _p_.
+Answer the pedal triangle of the reference triangle _t_,
+given the point _p_.
 
 An equilateral triangle, an interior point, and the associated pedal triangle:
 
@@ -47,12 +48,12 @@ let f = a.circumcircle;
 
 * * *
 
-See also: cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, secant
+See also: antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, secant
 
 Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PedalTriangle.html)
+[1](https://mathworld.wolfram.com/PedalTriangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Pedal_triangle)

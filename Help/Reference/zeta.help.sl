@@ -23,6 +23,9 @@ the generalization of the harmonic series.
 
 >>> zeta(1/2)
 -1.46035
+
+>>> zeta(1/2) * (1 - 2.sqrt)
+0.6048986
 ```
 
 Threads over lists:

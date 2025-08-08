@@ -61,9 +61,10 @@ Construct an identity matrix:
 Generate a banded matrix with two superdiagonals:
 
 ```
+>>> let k:/2 = kroneckerDelta:/2;
 >>> { :i :j |
->>> 	let p = (i - j + 1).kroneckerDelta(0);
->>> 	let q = (i - j + 2).kroneckerDelta(0);
+>>> 	let p = k(i - j + 1, 0);
+>>> 	let q = k(i - j + 2, 0);
 >>> 	(p + q) * i * (j ^ 2)
 >>> }.table(1:5, 1:5)
 [
@@ -73,6 +74,25 @@ Generate a banded matrix with two superdiagonals:
 	0   0   0   0 100;
 	0   0   0   0   0
 ]
+```
+
+Relation to convergents of continued fraction constant:
+
+```
+>>> 1:7.collect { :n |
+>>> 	{ :i :j |
+>>> 		(kroneckerDelta(i, j) * i)
+>>> 		+
+>>> 		kroneckerDelta(i, j - 1)
+>>> 		+
+>>> 		kroneckerDelta(i, j + 1)
+>>> 	}.array([n - 1, n - 1]).permanent
+>>> }
+[1 1 3 10 43 225 1393]
+
+>>> [0 1 2 3 4 5 6].convergents
+>>> .denominator
+[1 1 3 10 43 225 1393]
 ```
 
 Plot over a subset of the integers:
