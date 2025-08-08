@@ -1,8 +1,8 @@
 # inradius
 
-- _inradius(aGeometry)_
+- _inradius(g)_
 
-Answer the radius of the incircle of _aGeometry_.
+Answer the radius of the `incircle` of the geometry _g_.
 
 At `Triangle`:
 
@@ -22,6 +22,10 @@ At `Rectangle`:
 
 See also: incenter, incircle, radius, Triangle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Inradius.html)
+[1](https://mathworld.wolfram.com/Inradius.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Inradius)

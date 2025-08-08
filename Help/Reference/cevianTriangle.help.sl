@@ -19,7 +19,7 @@ let e = d.collect { :x | Line([b, x]) };
 
 * * *
 
-See also: pedalTriangle
+See also: pedalTriangle, Triangle
 
 Guides: Geometry Functions
 

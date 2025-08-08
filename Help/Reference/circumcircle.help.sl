@@ -65,6 +65,8 @@ let t = sssTriangle(13, 17, 7);
 
 See also: Circle, circumcenter, circumradius, circumsphere, Triangle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumcircle.html),

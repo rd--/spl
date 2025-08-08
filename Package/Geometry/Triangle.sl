@@ -36,6 +36,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	bevanCircle { :self |
+		self.excentralTriangle.circumcircle
+	}
+
+	bevanPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			b.cos + c.cos - a.cos - 1
+		}
+	}
+
 	boundingBox { :self |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
@@ -83,6 +93,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	excentralTriangle { :self |
+		self.fromTrilinearVertexMatrix(
+			[
+				-1 1 1;
+				1 -1 1;
+				1 1 -1
+			]
+		)
+	}
+
 	excircles { :self |
 		let c = self.excenters;
 		let r = self.exradii;
@@ -99,6 +119,10 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		[0 2 1].collect { :r |
 			l.rotated(r).f
 		}
+	}
+
+	extouchTriangle { :self |
+		self.cevianTriangle(self.nagelPoint)
 	}
 
 	faceCount { :self |
@@ -295,6 +319,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.triangleCentreL { :a :b :c |
 			a
 		}
+	}
+
+	tangentialTriangle { :self |
+		let [a, b, c] = self.interiorAngles;
+		self.fromTrilinearVertexMatrix(
+			[
+				[0 - a, b, c],
+				[a, 0 - b, c],
+				[a, b, 0 - c]
+			]
+		)
 	}
 
 	toBarycentricCoordinates { :self :c |

@@ -35,12 +35,12 @@ Draw nested contact triangles:
 
 * * *
 
-See also: incircle, Triangle
+See also: cevianTriangle, gergonnePoint, incircle, Triangle
 
 Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/TriangleCenterFunction.html)
+[1](https://mathworld.wolfram.com/ContactTriangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangle_center)

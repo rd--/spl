@@ -230,29 +230,45 @@ Triangle Functions:
 
 - `aasTriangle`
 - `altitudes`
+- `arcLength`
+- `area`
 - `asaTriangle`
+- `bevanCircle`
+- `bevanPoint`
 - `centroid`
 - `cevianTriangle`
+- `circumcircle`
 - `contactTriangle`
 - `deLongchampsPoint`
+- `equilateralTriangle`
 - `excenters`
+- `excentralTriangle`
 - `excircles`
 - `exradii`
+- `extouchTriangle`
+- `feuerbachPoint`
 - `gergonnePoint`
+- `heronsFormula`
 - `incenter`
 - `incircle`
+- `inradius`
 - `interiorAngles`
 - `medialTriangle`
 - `mittenpunkt`
 - `nagelPoint`
+- `ninePointCircle`
+- `orthicTriangle`
 - `orthocenter`
 - `pedalTriangle`
+- `perimeter`
 - `sasTriangle`
+- `semiperimeter`
 - `sideLengths`
 - `spiekerCenter`
 - `spiekerCircle`
 - `sssTriangle`
 - `symmedianPoint`
+- `tangentialTriangle`
 - `triangleCentre`
 
 Uncategorized:
