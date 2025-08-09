@@ -67,6 +67,13 @@
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
 
+	catalanTriangle { :r |
+		{ :x |
+			let y = x.accumulate;
+			y ++ [y.last]
+		}.nestList([1], r)
+	}
+
 	catalanTriangle { :n :k |
 		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
 	}

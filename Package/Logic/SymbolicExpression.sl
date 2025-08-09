@@ -112,6 +112,10 @@
 		'exp'.symbolicPrimitive([self])
 	}
 
+	gamma { :self |
+		'gamma'.symbolicPrimitive([self])
+	}
+
 	isInteger { :unused |
 		false
 	}
@@ -126,6 +130,10 @@
 
 	log10 { :self |
 		'log10'.symbolicPrimitive([self])
+	}
+
+	one { :unused |
+		1
 	}
 
 	quotient { :self :operand |

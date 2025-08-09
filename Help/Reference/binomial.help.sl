@@ -119,6 +119,26 @@ Threads over lists:
 [11 66 286]
 ```
 
+One of a family of integer sequences (OEIS A006542):
+
+```
+>>> 4:37.collect { :n |
+>>> 	let m = binomial(n, 3);
+>>> 	 * (binomial(m, 3) / 4)
+>>> }
+[
+	1 10 50 175
+	490 1176 2520 4950
+	9075 15730 26026 41405
+	63700 95200 138720 197676
+	276165 379050 512050 681835
+	896126 1163800 1495000 1901250
+	2395575 2992626 3708810 4562425
+	5573800 6765440 8162176 9791320
+	11682825 13869450
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

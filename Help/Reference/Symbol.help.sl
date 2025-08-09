@@ -1,8 +1,8 @@
 # Symbol
 
-- _Symbol(aString)_
+- _Symbol(s)_
 
-A `Type` representing a named symbol.
+A `Type` representing a named symbol specified by the string _s_.
 
 Symbols have a predicate and a name:
 

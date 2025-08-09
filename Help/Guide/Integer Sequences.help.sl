@@ -94,6 +94,7 @@ The following help files include references to integer sequences:
 - `fibonacciSequence`: A000045
 - `fibonacciWord`: A003849
 - `fibonacci`: A000045
+- `finesSequence`: A000957
 - `fromDigits`: A019518
 - `gijswijtsSequence`: A090822
 - `golombsSequence`: A001462

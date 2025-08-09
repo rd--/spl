@@ -126,6 +126,18 @@
 		answer
 	}
 
+	finesSequence { :self |
+		(0 .. self).collect { :n |
+			(0 .. n).collect { :m |
+				(-1 ^ (m + n))
+				*
+				((n + m).! / n.! / m.!)
+				*
+				((n - m + 1) / (n + 1))
+			}.sum
+		}
+	}
+
 	gijswijtsSequence { :n |
 		let k = { :s |
 			let z = 1;
