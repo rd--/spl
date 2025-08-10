@@ -123,8 +123,9 @@ One of a family of integer sequences (OEIS A006542):
 
 ```
 >>> 4:37.collect { :n |
->>> 	let m = binomial(n, 3);
->>> 	 * (binomial(m, 3) / 4)
+>>> 	let a = binomial(n, 3);
+>>> 	let b = binomial(n - 1, 3);
+>>> 	a * (b / 4)
 >>> }
 [
 	1 10 50 175

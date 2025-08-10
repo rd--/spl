@@ -30,6 +30,8 @@ See also: ^, binomial
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/MersenneNumber.html)
+[1](https://mathworld.wolfram.com/MersenneNumber.html),
+_OEIS_
+[1](https://oeis.org/A000225),
 _W_
 [1](https://en.wikipedia.org/wiki/Mersenne_prime)

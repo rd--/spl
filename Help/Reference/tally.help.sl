@@ -1,8 +1,9 @@
 # tally
 
-- _tally(aCollection, aBlock:/2)_
+- _tally(c, f:/2)_
 
-Answer all distinct elements of _aCollection_ together with their multiplicities.
+Answer all distinct elements of the collection _c_ together with their multiplicities,
+according to the equality predicate _f_.
 
 ```
 >>> 'aabacba'.contents.tally(=)
