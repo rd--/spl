@@ -63,6 +63,52 @@ The inverse of `exp` is `log`:
 ```
 >>> 123.45.exp.log
 123.45
+
+>>> 123.45.log.exp
+123.45
+```
+
+Power series:
+
+```
+>>> let n = 11;
+>>> let x = 1.5;
+>>> 0:n.sum { :i | (x ^ i) / i.! }
+4.48169
+
+>>> 1.5.exp
+4.48169
+```
+
+Functional equation:
+
+```
+>>> let x = 1.5;
+>>> let y = 2.9;
+>>> (x + y).exp
+x.exp * y.exp
+```
+
+Euler’s forumula:
+
+```
+>>> let x = 1.5;
+>>> x.cos + x.sin.i
+x.i.exp
+
+>>> let x = 1.5;
+>>> (x.i.exp + x.-.i.exp) / 2
+x.cos
+
+>>> let x = 1.5;
+>>> (x.i.exp - x.-.i.exp) / 2.i
+x.sin
+
+>>> let x = 1.5;
+>>> let a = 1 - (2 * x).i.exp;
+>>> let b = 1 + (2 * x).i.exp;
+>>> (a / b).i
+x.tan
 ```
 
 Plot over a subset of the reals:
@@ -84,6 +130,16 @@ Plot `exp` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/exp-B.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=C
+[-2J-2 2J2].complexPlot { :z |
+	z.exp
+}
+~~~
+
+![](sw/spl/Help/Image/exp-C.png)
+
 * * *
 
 See also: ^, log
@@ -103,6 +159,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/ExponentialFunction.html)
 [2](https://reference.wolfram.com/language/ref/Exp.html),
 _Smalltalk_
-5.6.7.7
+5.6.7.7,
+_W_
+[1](https://en.wikipedia.org/wiki/Exponential_function)
 
 Categories: Math

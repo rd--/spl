@@ -90,6 +90,15 @@ At `Complex`:
 ]
 ```
 
+De Moivre’s formula:
+
+```
+>>> let x = 1/6.pi;
+>>> let n = 2;
+>>> (x.cos + x.sin.i) ^ n
+(n * x).cos + (n * x).sin.i
+```
+
 Threads elementwise over lists and matrices:
 
 ```

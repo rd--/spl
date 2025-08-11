@@ -94,7 +94,8 @@ Sums of concentric circles:
 >>> 	 6  1  7  2  4 8;
 >>> 	 9 11 18 17  3 19
 >>> 	16 12 10 13 15 14
->>> ].collect(sum:/1)
+>>> ].catenate
+collect(sum:/1)
 [5 28 157]
 ```
 
