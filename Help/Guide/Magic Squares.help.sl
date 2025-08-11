@@ -123,9 +123,22 @@ A 4×4×4 magic cube:
 ([s s s s], [s s s s], [s s s s])
 ```
 
+The third order magic hexagon:
+
+```
+>>> 3.magicHexagon
+[
+	 0  0  3 17 18;
+	 0 19  7  1 11;
+	16  2  5  6  9;
+	12  4  8 14  0;
+	10 13 15  0  0
+]
+```
+
 * * *
 
-See also: magicSquare, magicSquareSummary
+See also: magicHexagon, magicSquare, magicSquareSummary
 
 Guides: Integer Sequences
 

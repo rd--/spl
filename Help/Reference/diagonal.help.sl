@@ -1,11 +1,11 @@
 # diagonal
 
-- _diagonal(aMatrix, anInteger=0)_
+- _diagonal(m, n=0)_
 
 Answer the list of elements on the leading diagonal,
-or on the _anInteger-th_ diagonal,
-of _aMatrix_.
-Diagonal works even if _aMatrix_ is not a square matrix.
+or on the _n-th_ diagonal,
+of the matrix _m_.
+Diagonal works even if _m_ is not a square matrix.
 
 ```
 >>> [3 3].iota.diagonal

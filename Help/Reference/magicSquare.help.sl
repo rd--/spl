@@ -1,8 +1,8 @@
 # magicSquare
 
-- _magicSquare(anInteger)_
+- _magicSquare(n)_
 
-Answer a magic square of the specified size.
+Answer a magic square of the size _n×n_.
 
 A 3×3 magic square:
 
