@@ -120,6 +120,7 @@ Constructors:
 - `polygonCollection`
 - `regularPolygon`
 - `spirangle`
+- `starPolygon`
 - `unitCircle`
 - `unitCube`
 - `unitDodecahedron`
@@ -169,6 +170,7 @@ Polygon Functions:
 
 - `crossingNumber`
 - `regularPolygon`
+- `starPolygon`
 - `windingNumber`
 
 Predicate Functions:

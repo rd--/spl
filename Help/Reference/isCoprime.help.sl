@@ -3,7 +3,7 @@
 - _isCoprime(n₁, n₂)_
 - _isCoprime([n₁ n₂ …])_
 
-Is co-prime, also called relatively prime, predicate.
+Predicate to decide if integers are co-prime, also called relatively prime.
 
 In the binary form answer true if _n₁_ and _n₂_ are relatively prime, else false.
 

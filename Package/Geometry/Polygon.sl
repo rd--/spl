@@ -270,6 +270,36 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		)
 	}
 
+	starFigure { :p :q |
+		isCoprime(p, q).if {
+			[p, q].error('starFigure: coprime')
+		} {
+			let n = p // q;
+			let m = p // n;
+			let v = p.circlePoints([0 0], 1, 0);
+			let i = [0, q .. n * q - 1];
+			GeometryCollection(
+				1:m.collect { :j |
+					Polygon(
+						v.atAll((i + j).mod(p, 1)++ [j])
+					)
+				}
+			)
+		}
+	}
+
+	starPolygon { :p :q |
+		isCoprime(p, q).if {
+			let v = p.circlePoints([0 0], 1, 0);
+			let i = [1, 1 + q .. p * q].mod(p, 1);
+			Polygon(
+				v.atAll(i) ++ [v.first]
+			)
+		} {
+			[p, q].error('starPolygon: not coprime')
+		}
+	}
+
 }
 
 +@RandomNumberGenerator {

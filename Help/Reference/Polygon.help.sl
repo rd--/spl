@@ -1,8 +1,8 @@
 # Polygon
 
-- _Polygon(aSequence)_
+- _Polygon([v₁ v₂ …])_
 
-A Polygon is a `Type` representing a polygon with vertex coordinates given by _aSequence_.
+A Polygon is a `Type` representing a polygon with vertex coordinates given by _v_.
 
 The `area` and `centroid` of two triangles:
 
