@@ -72,6 +72,13 @@ At `SmallFloat` and `Fraction`:
 true
 ```
 
+At `Record`, keys do not need to be in equal order:
+
+```
+>>> (x: 1, y: 2, z: 3) = (z: 3, y: 2, x: 1)
+true
+```
+
 When the arguments to `=` are `boole`, it is the logical biconditional function:
 
 ```

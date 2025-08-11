@@ -1,13 +1,23 @@
 # hasEqualElements
 
-- _hasEqualElements(aCollection, anotherCollection)_
+- _hasEqualElements(c₁, c₂)_
 
-Answer `true` if _aCollection_ and _anotherCollection_ have the same size,
-and if each of the elements of _aCollection_ equal the corresponding element of _anotherCollection_.
+Answer `true` if the collections _c₁_ and _c₂_ have the same size,
+and if each of the elements of _c₁_ are equal the corresponding element of _c₂_.
+
+At `List`, requires elements be equal in sequence:
+
+```
+>>> [1 2 3].hasEqualElements([3 2 1])
+false
+```
 
 A `Range` and a `List` are never equal, but may have equal elements:
 
 ```
+>>> 1:9 = [1 .. 9]
+false
+
 >>> 1:9.hasEqualElements([1 .. 9])
 true
 ```

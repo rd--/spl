@@ -1,9 +1,9 @@
 # ~ (tilde)
 
-- _anObject ~ anotherObject_
+- _p ~ q_
 
-Answer `true` if _anObject_ is almost equal to (or similar to or close to) _anotherObject_, else `false`.
-The meaning of _close to_ is determined by the type of _anObject_.
+Answer `true` if the object _p_ is almost equal to (or similar to or close to) another object _q_, else `false`.
+The meaning of _close to_ is determined by the type of _p_.
 
 At `SmallFloat`:
 
@@ -22,7 +22,7 @@ true
 At `Complex`:
 
 ```
->>> Complex(1.e, 1.pi) ~ Complex(2.7183, 3.1416)
+>>> Complex(1.e, 1.pi) ~ 2.7183J3.1416
 true
 ```
 
@@ -78,6 +78,15 @@ At `Tuple`:
 ```
 >>> (1, 2) ~ (1.000000001, 2)
 true
+```
+
+At `Record`:
+
+```
+>>> let a = (x: 1, y: 2);
+>>> let b = (y: 2, x: 1.000001);
+>>> (a = b, a ~ b)
+(false, true)
 ```
 
 The name of this operator is `tilde`.

@@ -3,12 +3,11 @@
 @Dictionary {
 
 	= { :self :aDictionary |
-		let keyList = self.indices;
-		keyList = aDictionary.indices & {
-			keyList.allSatisfy { :key |
-				self[key] = aDictionary[key]
-			}
-		}
+		self.equalBy(aDictionary, =)
+	}
+
+	~ { :self :aDictionary |
+		self.equalBy(aDictionary, ~)
 	}
 
 	++ { :self :aDictionary |
@@ -161,6 +160,14 @@
 
 	do { :self :aBlock:/1 |
 		self.valuesDo(aBlock:/1)
+	}
+
+	equalBy { :self :aDictionary :aBlock:/2 |
+		(self.size = aDictionary.size) & {
+			self.keys.allSatisfy { :key |
+				aBlock(self[key], aDictionary[key])
+			}
+		}
 	}
 
 	errorValueNotFound { :self |

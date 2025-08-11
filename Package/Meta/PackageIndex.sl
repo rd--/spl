@@ -42,6 +42,7 @@
 	'Collection-Graph'
 	'Collection-Heap'
 	'Collection-Histogram'
+	'Collection-HuffmanCoding'
 	'Collection-Indexable'
 	'Collection-Iterable'
 	'Collection-LinkedList'

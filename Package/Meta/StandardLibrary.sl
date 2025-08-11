@@ -21,6 +21,7 @@
 	'Graph'
 	'Heap'
 	'Histogram'
+	'HuffmanCoding'
 	'LinkedList'
 	'MergeSort'
 	'NumericArray'
