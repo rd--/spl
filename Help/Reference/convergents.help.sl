@@ -18,17 +18,9 @@ Answer a `List` of the convergents corresponding to the continued fraction terms
 [0 1/6 1/7 5/34 6/41 23/157]
 ```
 
-Generate the first 10 convergents to the `goldenRatio` and `pi`:
+Generate the first 10 convergents to `pi`:
 
 ```
->>> 1.goldenRatio
->>> .continuedFraction(10)
->>> .convergents
-[
-	1 2 3/2 5/3 8/5
-	13/8 21/13 34/21 55/34 89/55
-]
-
 >>> 1.pi
 >>> .continuedFraction(10)
 >>> .convergents
@@ -45,6 +37,15 @@ Generate convergents from the continued fraction terms for `goldenRatio`:
 ```
 >>> [1 1 1 1 1].convergents
 [1 2 3/2 5/3 8/5]
+
+>>> 1.goldenRatio
+>>> .continuedFraction(10)
+>>> .convergents
+[
+	1 2 3/2 5/3 8/5
+	13/8 21/13 34/21 55/34 89/55
+]
+
 ```
 
 Quadratic irrationals have periodic continued fractions:
@@ -64,7 +65,8 @@ Quadratic irrationals have periodic continued fractions:
 Give all convergents for a rational number:
 
 ```
->>> 7/17.continuedFraction(4).convergents
+>>> 7/17.continuedFraction(4)
+>>> .convergents
 [0 1/2 2/5 7/17]
 ```
 
@@ -85,7 +87,11 @@ Continued fraction constants:
 
 ```
 >>> [0 1 2 3 4 5 6 7].convergents
-[0, 1/1, 2/3, 7/10, 30/43, 157/225, 972/1393, 6961/9976]
+[
+	0 1/1 2/3 7/10 30/43
+	157/225 972/1393 6961/9976
+]
+```
 
 * * *
 

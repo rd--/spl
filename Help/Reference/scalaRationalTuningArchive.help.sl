@@ -29,11 +29,14 @@ Look up an entry in the archive by ratios, and fetch the names:
 >>> let r = [1/1 9/8 32/27 4/3 3/2 128/81 16/9];
 >>> system
 >>> .scalaRationalTuningArchive
->>> .select { :each | each.asRatios ~ r }
->>> .collect { :each | each.description }
+>>> .select { :each |
+>>> 	each.asRatios ~ r
+>>> }.collect { :each |
+>>> 	each.description.contractTo(32)
+>>> }
 (
 	aeolic:
-	'Ancient Greek Aeolic, also tritriadic scale of the 54:64:81 triad'
+	'Ancient Greek A...54:64:81 triad'
 )
 ```
 

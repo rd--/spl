@@ -127,7 +127,7 @@
 - `kroneckerSymbol`
 - `lcm`: least common multiple
 - `modularInverse`: modular inverse
-- `moebiusMu `
+- `moebiusMu`
 
 ## Division Functions
 

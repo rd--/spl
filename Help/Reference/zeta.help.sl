@@ -185,4 +185,3 @@ _W_
 [1](https://en.wikipedia.org/wiki/Riemann_zeta_function)
 
 Unicode: U+03B6 ζ Greek Small Letter Zeta
-

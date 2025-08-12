@@ -1,8 +1,8 @@
 # concisePrintString
 
-- _concisePrintString(anObject)_
+- _concisePrintString(x)_
 
-Answer a concise string representation of _anObject_.
+Answer a concise string representation of the object _x_.
 
 ```
 >>> 3.141.concisePrintString

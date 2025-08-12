@@ -24,4 +24,3 @@ Guides: Matrix Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Single-entry_matrix)
-

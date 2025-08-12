@@ -113,7 +113,6 @@ Plot _√x-⌊√x⌉_ over a subset of the reals:
 
 ![](sw/spl/Help/Image/rounded-B.svg)
 
-
 * * *
 
 See also: ceiling, divisible, floor, integerPart, rescale, roundTiesEven

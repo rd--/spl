@@ -1,8 +1,8 @@
 # printStringLimitedTo
 
-- _printStringLimitedTo(anObject, anInteger)_
+- _printStringLimitedTo(x, n)_
 
-Truncate the `printString` of _anObject_ to _anInteger_ places.
+Truncate the `printString` of the object _x_ to _n_ places.
 
 ```
 >>> let x = [1 .. 99];

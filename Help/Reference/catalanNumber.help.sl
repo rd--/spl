@@ -25,7 +25,9 @@ Definition in terms of `gamma`:
 
 ```
 >>> let n = 9;
->>> (4 ^ n) * gamma(n + 0.5) / (1.pi.sqrt * gamma(n + 2))
+>>> let a = (4 ^ n) * gamma(n + 0.5);
+>>> let b = 1.pi.sqrt * gamma(n + 2);
+>>> a / b
 4862
 ```
 

@@ -129,7 +129,6 @@ let n = 5;
 
 ![](sw/spl/Help/Image/bitXor-D.svg)
 
-
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor

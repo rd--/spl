@@ -88,7 +88,6 @@ true
 
 `moebiusMu` is zero for non-square-free integers:
 
-
 ```
 >>> 12.isSquareFree
 false

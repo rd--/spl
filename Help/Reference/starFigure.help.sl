@@ -29,7 +29,6 @@ The _{9/3}=3{3}_ star figure, the nonagram:
 
 ![](sw/spl/Help/Image/starFigure-C.svg)
 
-
 The _{10/5}=2{5}_ star figure, two pentagrams:
 
 ~~~spl svg=D

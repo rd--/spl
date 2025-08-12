@@ -19,7 +19,6 @@ let t = [3 3.85 5].sssTriangle;
 
 ![](sw/spl/Help/Image/contactTriangle-A.svg)
 
-
 Draw nested contact triangles:
 
 ~~~spl svg=A
