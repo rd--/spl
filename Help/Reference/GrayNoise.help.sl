@@ -1,7 +1,6 @@
 # GrayNoise
 
-- _GrayNoise()_
-- _GrayNoise(mul=1, add=0) ⟹ { GrayNoise() } ! mul.shape * mul + add_
+- _GrayNoise(mul=1, add=0)_
 
 Noise generator.
 Generates noise which results from flipping random bits in a word.
@@ -33,6 +32,8 @@ modulating cutoff frequency:
 * * *
 
 See also: BrownNoise, ClipNoise, PinkNoise, WhiteNoise
+
+Guides: Unit Generators
 
 References:
 _SuperCollider_

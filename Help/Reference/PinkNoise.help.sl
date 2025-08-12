@@ -1,7 +1,6 @@
 # PinkNoise
 
-- _PinkNoise()_
-- _PinkNoise(mul=1, add=0) ⟹ { PinkNoise() } ! mul.shape * mul + add_
+- _PinkNoise(mul=1, add=0)_
 
 Noise generator.
 Generates noise whose spectrum falls off in power by 3 dB per octave.
@@ -50,6 +49,8 @@ PinkNoise(0.2 # 2, 0).Bpf(
 * * *
 
 See also: BrownNoise, ClipNoise, GrayNoise, WhiteNoise
+
+Guides: Unit Generators
 
 References:
 _Csound_

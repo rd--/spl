@@ -1,7 +1,6 @@
 # BrownNoise
 
-- _BrownNoise()_
-- _BrownNoise(mul=1, add=0)_ ⟹ _{ BrownNoise() } ! mul.shape * mul + add_
+- _BrownNoise(mul=1, add=0)_
 
 Generates noise whose spectrum falls off in power by 6 dB per octave.
 
@@ -20,6 +19,8 @@ BrownNoise(0.1 # 2, 0).Hpz1
 * * *
 
 See also: PinkNoise, WhiteNoise
+
+Guides: Unit Generators
 
 References:
 _Csound_

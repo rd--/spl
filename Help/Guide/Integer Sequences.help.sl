@@ -96,6 +96,7 @@ The following help files include references to integer sequences:
 - `fibonacci`: A000045
 - `finesSequence`: A000957
 - `fromDigits`: A019518
+- `generalizedPentagonalNumbers`: A001318
 - `gijswijtsSequence`: A090822
 - `golombsSequence`: A001462
 - `gouldsNumber`: A001316
@@ -103,6 +104,7 @@ The following help files include references to integer sequences:
 - `grayEncode`: A014550 A003188
 - `hammingWeight`: A000120
 - `harmonicNumber`: A002805 A001008
+- `hexagonalNumber`: A000384
 - `hofstadterQSequence`: A005185
 - `integerDigits`: A062756 A364024 A007376 A265326 A117966
 - `inventorySequence`: A342585
@@ -143,6 +145,7 @@ The following help files include references to integer sequences:
 - `pascalTriangle`: A007318
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A096650
+- `pentagonalNumber`: A000326
 - `perrinFunction`: A001608 A112881
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006

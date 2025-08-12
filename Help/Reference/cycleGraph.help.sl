@@ -1,8 +1,8 @@
 # cycleGraph
 
-- _cycleGraph(anInteger)_
+- _cycleGraph(n)_
 
-Answer the cycle graph with _anInteger_ vertices.
+Answer the cycle graph with _n_ vertices.
 
 The `adjacencyMatrix` of three small cycle graphs:
 
@@ -21,6 +21,13 @@ The `adjacencyMatrix` of three small cycle graphs:
 	0 0 1 0 1;
 	1 0 0 1 0
 ]
+```
+
+Cycle graphs are regular:
+
+```
+>>> 5.cycleGraph.isRegular
+true
 ```
 
 The `vertexList` and `edgeList` of a cycle graph:
@@ -48,7 +55,9 @@ Draw cycle graph on five vertices:
 The adjacency matrix is banded:
 
 ~~~spl svg=B
-17.cycleGraph.adjacencyMatrix.matrixPlot
+17.cycleGraph
+.adjacencyMatrix
+.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/cycleGraph-B.svg)
@@ -56,7 +65,9 @@ The adjacency matrix is banded:
 The incidence matrix is banded:
 
 ~~~spl svg=C
-17.cycleGraph.incidenceMatrix.matrixPlot
+17.cycleGraph
+.incidenceMatrix
+.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/cycleGraph-C.svg)

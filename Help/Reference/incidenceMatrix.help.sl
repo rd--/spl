@@ -1,8 +1,8 @@
 # incidenceMatrix
 
-- _incidenceMatrix(aGraph)_
+- _incidenceMatrix(g)_
 
-Answer the vertex-edge incidence matrix of _aGraph_.
+Answer the vertex-edge incidence matrix of the graph _g_.
 
 The incidence matrix of an undirected graph (a cycle graph):
 
@@ -94,6 +94,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/IncidenceMatrix.html)
 [2](https://reference.wolfram.com/language/ref/IncidenceMatrix.html),
 _W_
-[1](completeBipartiteGraph.help.sl)
+[1](https://en.wikipedia.org/wiki/Incidence_matrix)
 
 Categories: Graph, Matrix

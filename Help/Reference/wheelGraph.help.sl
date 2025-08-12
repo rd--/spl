@@ -26,6 +26,13 @@ The `adjacencyMatrix` of two small wheel graphs:
 ]
 ```
 
+Wheel graphs are not regular:
+
+```
+>>> 5.wheelGraph.isRegular
+false
+```
+
 The `vertexCount`, `edgeCount` and `vertexDegree` of a wheel graph:
 
 ```

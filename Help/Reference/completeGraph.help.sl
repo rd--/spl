@@ -1,8 +1,8 @@
 # completeGraph
 
-- _completeGraph(anInteger)_
+- _completeGraph(n)_
 
-Answer the complete graph with _anInteger_ vertices.
+Answer the complete graph with _n_ vertices.
 A complete graph of order _n_ is a graph with _n_ vertices and an edge between every pair of vertices.
 
 The `adjacencyMatrix` of three small complete graphs:
@@ -22,6 +22,13 @@ The `adjacencyMatrix` of three small complete graphs:
 	1 1 1 0 1;
 	1 1 1 1 0
 ]
+```
+
+Complete graphs are regular:
+
+```
+>>> 5.completeGraph.isRegular
+true
 ```
 
 The `edgeCount` of small complete graphs:

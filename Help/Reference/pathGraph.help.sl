@@ -1,8 +1,8 @@
 # pathGraph
 
-- _pathGraph(anInteger)_
+- _pathGraph(n)_
 
-Answer the path graph with _anInteger_ vertices.
+Answer the path graph with _n_ vertices.
 
 The `adjacencyMatrix` of three small path graphs:
 

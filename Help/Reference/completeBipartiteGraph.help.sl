@@ -41,8 +41,12 @@ Draw the complete bipartite graph _(2, 3)_:
 
 * * *
 
-See also: completeGraph
+See also: completeGraph, Graph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/CompleteBipartiteGraph.html)
+[1](https://mathworld.wolfram.com/CompleteBipartiteGraph.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Complete_bipartite_graph)

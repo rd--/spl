@@ -1,8 +1,8 @@
 # isRegular
 
-- _isRegular(aGraph)_
+- _isRegular(g)_
 
-Answer `true` if _aGraph_ is regular, else `false`.
+Answer `true` if the graph _g_ is regular, else `false`.
 A graph is said to be regular of degree _r_ if all local degrees are the same number _r_.
 
 ```

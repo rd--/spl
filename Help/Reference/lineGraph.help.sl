@@ -1,10 +1,10 @@
 # lineGraph
 
-- _lineGraph(aGraph)_
+- _lineGraph(g)_
 
-Answer the line graph of _aGraph_.
+Answer the line graph of the graph _g_.
 
-The `lineGraph` of a directed graph:
+The line graph of a directed graph:
 
 ```
 >>> let g = [
@@ -21,7 +21,7 @@ The `lineGraph` of a directed graph:
 ]
 ```
 
-The line graph of _K(1, 3)_ is a triangle:
+The line graph of the claw graph _K(1, 3)_ is a triangle:
 
 ```
 >>> [1 2; 1 3; 1 4]
@@ -29,6 +29,15 @@ The line graph of _K(1, 3)_ is a triangle:
 >>> .lineGraph
 >>> .edgeList
 [1 2; 1 3; 2 3].asEdgeList
+```
+
+The number of edges in a graph is equal to the number of vertices in its line graph:
+
+```
+>>> let g = 5.petersenGraph(2);
+>>> let l = g.lineGraph;
+>>> (g.edgeCount, l.vertexCount)
+(15, 15)
 ```
 
 The line graph of the `pathGraph` of _n_ is isomorphic to the `pathGraph` of _n - 1_:

@@ -15,7 +15,7 @@ Complete graph on five vertices:
 Complete graph on seven vertices:
 
 ~~~spl svg=B
-23.completeGraphDrawing(1)
+7.completeGraphDrawing(1)
 ~~~
 
 ![](sw/spl/Help/Image/completeGraphDrawing-B.svg)

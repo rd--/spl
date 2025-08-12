@@ -782,6 +782,29 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}.asGraph
 	}
 
+	petersenGraph { :n :k |
+		(k < (n / 2)).if {
+			let u = [1 .. n];
+			let v = [n + 1 .. n + n];
+			let e = (1 .. n).collect { :i |
+				let a = (i + 1).mod(n, 1);
+				let b = (i + k).mod(n, 1);
+				[
+					[u[i], u[a]],
+					[u[i], v[i]],
+					[v[i], v[b]]
+				]
+			};
+			Graph(u ++ v, e.catenate)
+		} {
+			[n, k].error('petersenGraph: k > n/2')
+		}
+	}
+
+	prismGraph { :n |
+		petersenGraph(n, 1)
+	}
+
 	starGraph { :self |
 		2:self.collect { :each |
 			[1, each]

@@ -1,7 +1,6 @@
 # WhiteNoise
 
-- _WhiteNoise()_
-- _WhiteNoise(mul=1, add=0)_ ⟹ _{ WhiteNoise() } ! mul.shape * mul + add_
+- _WhiteNoise(mul=1, add=0)_
 
 Generates noise whose spectrum has equal power at all frequencies.
 
@@ -26,6 +25,8 @@ WhiteNoise(0.1 # 2, 0).Lpz1
 * * *
 
 See also: BrownNoise, ClipNoise, GrayNoise, PinkNoise, Rand, TRand
+
+Guides: Unit Generators
 
 References:
 _Csound_

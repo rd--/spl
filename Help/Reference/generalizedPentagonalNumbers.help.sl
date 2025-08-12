@@ -28,6 +28,8 @@ The first few terms:
 
 See also: pentagonalNumber
 
+Guides: Integer Sequences
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PentagonalNumber.html),
