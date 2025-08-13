@@ -247,6 +247,21 @@ called the alternating harmonic series:
 
 ![](sw/spl/Help/Image/functionPlot-V.svg)
 
+Plot a potential energey equation:
+
+~~~spl svg=W
+let lambda = 2;
+let b = 0 - ((2 * lambda) - 4);
+let p = UnivariatePolynomial(
+	[9 b -1 0 0.25]
+);
+(-2.1 -- 2.1).functionPlot(
+	p.asBlock
+)
+~~~
+
+![](sw/spl/Help/Image/functionPlot-W.svg)
+
 * * *
 
 See also: discreteFunctionPlot, discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

@@ -121,6 +121,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
+	equalDetourPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			1 + (((0.5 * b).cos * (0.5 * c).cos) / (0.5 * a).cos)
+		}
+	}
+
 	excenters { :self |
 		[-1 1 1; 1 -1 1; 1 1 -1].collect { :c |
 			self.fromTrilinearCoordinates(c)
@@ -141,6 +147,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let c = self.excenters;
 		let r = self.exradii;
 		Circle(c, r)
+	}
+
+	exeterPoint { :self |
+		self.triangleCentreL { :a :b :c |
+			a * ((b ^ 4) + (c ^ 4) - (a ^ 4))
+		}
 	}
 
 	exradii { :self |
@@ -188,6 +200,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.triangleCentreA { :a :b :c |
 			(a + 1/3.pi).cosecant
 		}
+	}
+
+	firstIsodynamicPoint { :t |
+		t.triangleCentreA { :a :b :c |
+			(a + 1/3.pi).sin
+		}
+	}
+
+	firstNapoleonPoint { :t |
+		t.triangleCentreA { :a :b :c |
+			(a + 1/6.pi).cosecant }
 	}
 
 	fromBarycentricCoordinates { :self |
@@ -249,6 +272,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	interiorAngles { :self |
 		self.vertexCoordinates.polygonInteriorAngles
+	}
+
+	isoperimetricPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			(((0.5 * a).secant * (0.5 * b).cos) / (0.5 * c).cos) - 1
+		}
+	}
+
+	kimberlingCenter { :self :n |
+		n.kimberlingCenter.value(self)
 	}
 
 	medialTriangle { :self |
@@ -329,10 +362,27 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.asPolygon.scaled(factor).vertexCoordinates.Triangle
 	}
 
+	schifflerPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			1 / (b.cos - c.cos)
+		}
+	}
+
 	secondFermatPoint { :self |
 		self.triangleCentreA { :a :b :c |
 			(a - 1/3.pi).cosecant
 		}
+	}
+
+	secondIsodynamicPoint { :t |
+		t.triangleCentreA { :a :b :c |
+			(a - 1/3.pi).sin
+		}
+	}
+
+	secondNapoleonPoint { :t |
+		t.triangleCentreA { :a :b :c |
+			(a - 1/6.pi).cosecant }
 	}
 
 	semiperimeter { :self |
@@ -562,6 +612,144 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	sssTriangle { :self |
 		let [a, b, c] = self;
 		sssTriangle(a, b, c)
+	}
+
+}
+
++SmallFloat {
+
+	kimberlingCenter { :n |
+		{ :t |
+			n.caseOf([
+				1 -> {
+					t.triangleCentreL { :a :b :c |
+						1
+					}
+				},
+				2 -> {
+					t.triangleCentreA { :a :b :c |
+						a.cosecant
+					}
+				},
+				3 -> {
+					t.triangleCentreA { :a :b :c |
+						a.cos
+					}
+				},
+				4 -> {
+					t.triangleCentreA { :a :b :c |
+						a.secant
+					}
+				},
+				5 -> {
+					t.triangleCentreA { :a :b :c |
+						(b - c).cos
+					}
+				},
+				6 -> {
+					t.triangleCentreL { :a :b :c |
+						a
+					}
+				},
+				7 -> {
+					t.triangleCentreL { :a :b :c |
+						(b * c) / (b + c - a)
+					}
+				},
+				8 -> {
+					t.triangleCentreL { :a :b :c |
+						(b + c - a) / a
+					}
+				},
+				9 -> {
+					t.triangleCentreL { :a :b :c |
+						b + c - a
+					}
+				},
+				10 -> {
+					t.triangleCentreL { :a :b :c |
+						b * c * (b + c)
+					}
+				},
+				11 -> {
+					t.triangleCentreA { :a :b :c |
+						1 - (b - c).cos
+					}
+				},
+				12 -> {
+					t.triangleCentreA { :a :b :c |
+						1 + (b - c).cos
+					}
+				},
+				13 -> {
+					t.triangleCentreA { :a :b :c |
+						(a + 1/3.pi).cosecant
+					}
+				},
+				14 -> {
+					t.triangleCentreA { :a :b :c |
+						(a - 1/3.pi).cosecant
+					}
+				},
+				15 -> {
+					t.triangleCentreA { :a :b :c |
+						(a + 1/3.pi).sin
+					}
+				},
+				16 -> {
+					t.triangleCentreA { :a :b :c |
+						(a - 1/3.pi).sin
+					}
+				},
+				17 -> {
+					t.triangleCentreA { :a :b :c |
+						(a + 1/6.pi).cosecant
+					}
+				},
+				18 -> {
+					t.triangleCentreA { :a :b :c |
+						(a - 1/6.pi).cosecant
+					}
+				},
+				19 -> {
+					t.triangleCentreA { :a :b :c |
+						a.tan
+					}
+				},
+				20 -> {
+					t.triangleCentreA { :a :b :c |
+						a.cos - (b.cos * c.cos)
+					}
+				},
+				21 -> {
+					t.triangleCentreA { :a :b :c |
+						1 / (b.cos - c.cos)
+					}
+				},
+				22 -> {
+					t.triangleCentreL { :a :b :c |
+						a * ((b ^ 4) + (c ^ 4) - (a ^ 4))
+					}
+				},
+				40 -> {
+					t.triangleCentreA { :a :b :c |
+						b.cos + c.cos - a.cos - 1
+					}
+				},
+				175 -> {
+					t.triangleCentreA { :a :b :c |
+						(((0.5 * a).secant * (0.5 * b).cos) / (0.5 * c).cos) - 1
+					}
+				},
+				176 -> {
+					t.triangleCentreA { :a :b :c |
+						1 + (((0.5 * b).cos * (0.5 * c).cos) / (0.5 * a).cos)
+					}
+				}
+			]) {
+				n.error('kimberlingCenter: unknown n')
+			}
+		}
 	}
 
 }

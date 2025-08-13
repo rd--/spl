@@ -4,16 +4,18 @@
 
 Answer the incenter of the triangle _t_.
 
-The trilinear coordinates of the incenter are _1,1,1_:
+The incenter is Kimberling center one,
+the trilinear coordinates are _1,1,1_:
 
 ```
 >>> let t = [3 4 5].sssTriangle;
 >>> let c = [1 1 1];
 >>> (
 >>> 	t.incenter,
+>>> 	t.kimberlingCenter(1),
 >>> 	t.fromTrilinearCoordinates(c)
 >>> )
-([3 1], [3 1])
+([3 1], [3 1], [3 1])
 ```
 
 Draw incenter:
@@ -29,6 +31,8 @@ let c = t.incenter;
 * * *
 
 See also: excenters, incircle, Triangle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

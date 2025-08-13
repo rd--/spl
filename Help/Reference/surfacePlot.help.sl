@@ -126,6 +126,18 @@ A pseudosphere:
 
 ![](sw/spl/Help/Image/surfacePlot-H.svg)
 
+A one-dimensional potential energy equation plotted as the parameter λ is varied:
+
+~~~spl svg=H
+[0 4; -2.5 2.5].surfacePlot { :lambda :x |
+	let a = 0.25 * (x ^ 4);
+	let c = ((2 * lambda) - 4) * x;
+	a - (x ^ 2) - c + 9
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-I.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot

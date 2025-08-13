@@ -5,7 +5,7 @@
 
 The medial triangle,
 also called the midpoint triangle,
-of a triangle is the triangle with vertices at the midpoints of the triangle’s sides.
+of a references triangle _t_ is the triangle with vertices at the midpoints of the triangle’s sides.
 It is the `pedalTriangle` of the `orthocenter`.
 
 ```
@@ -50,6 +50,49 @@ let t = sssTriangle(1, 1, 1);
 
 ![](sw/spl/Help/Image/medialTriangle-B.svg)
 
+The triangle centroid is at the intersection of the triangle medians:
+
+~~~spl svg=C
+let t = sssTriangle(1, 1, 1);
+let m = t.medialTriangle;
+let [a, b, c] = t.vertexCoordinates;
+let [p, q, r] = m.vertexCoordinates;
+[
+	t,
+	m,
+	[a p; b q; c r].Line,
+	t.centroid.Point
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/medialTriangle-C.svg)
+
+Barymetric subdivision:
+
+~~~spl svg=D
+{ :l |
+	l.collect { :t |
+		let m = t.medialTriangle;
+		let [a, b, c] = t.vertexCoordinates;
+		let [p, q, r] = m.vertexCoordinates;
+		let u = t.centroid;
+		[
+			a r u;
+			r b u;
+			b p u;
+			p c u;
+			c q u;
+			q a u
+		].collect(Triangle:/1)
+	}.catenate
+}.iterate(
+	[sssTriangle(1, 1, 1)],
+	2
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/medialTriangle-D.svg)
+
 * * *
 
 See also: midpoint, midpointPolygon, pedalTriangle, Triangle
@@ -58,6 +101,7 @@ Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/MedialTriangle.html),
+[1](https://mathworld.wolfram.com/MedialTriangle.html)
+[2](https://mathworld.wolfram.com/TriangleMedian.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Medial_triangle)

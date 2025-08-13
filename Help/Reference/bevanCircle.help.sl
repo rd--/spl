@@ -1,6 +1,6 @@
 # bevanCircle
 
-- _bevanCircle(g)_
+- _bevanCircle(t)_
 
 Answer the Bevan circle of the reference triangle _t_.
 

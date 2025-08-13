@@ -7,7 +7,7 @@
 - `berahaConstant`: _B(n)_
 - `boltzmannConstant`: _kʙ_
 - `brunsConstant`: _B_
-- `catalansConstant`
+- `catalansConstant`: _C_
 - `champernowneNumber`: _C_
 - `conwaysConstant`: _λ_
 - `degree`: π÷180
@@ -17,6 +17,7 @@
 - `feigenbaumConstant`: δ
 - `gausssConstant`: G
 - `gelfondsConstant`
+- `glaisher`: _A_
 - `goldenAngle`
 - `goldenRatio`: φ
 - `gompertzConstant`: δ
@@ -39,6 +40,7 @@
 - `silverConstant`: _B(7)_
 - `silverRatio`: δs
 - `smallFloatEpsilon`: ε
+- `stieltjesGamma`: γₙ
 - `stolarskyHarborthConstant`: β
 - `supergoldenRatio`: ψ
 - `supersilverRatio`: ς

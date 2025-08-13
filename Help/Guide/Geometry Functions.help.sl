@@ -241,14 +241,17 @@ Triangle Functions:
 - `bevanPoint`
 - `centroid`
 - `cevianTriangle`
+- `circumcenter`
 - `circumcircle`
 - `clawsonPoint`
 - `contactTriangle`
 - `deLongchampsPoint`
+- `equalDetourPoint`
 - `equilateralTriangle`
 - `excenters`
 - `excentralTriangle`
 - `excircles`
+- `exeterPoint`
 - `exradii`
 - `extouchTriangle`
 - `feuerbachPoint`
@@ -259,6 +262,8 @@ Triangle Functions:
 - `incircle`
 - `inradius`
 - `interiorAngles`
+- `isoperimetricPoint`
+- `kimberlingCenter`
 - `medialTriangle`
 - `mittenpunkt`
 - `nagelPoint`
@@ -269,6 +274,7 @@ Triangle Functions:
 - `pedalTriangle`
 - `perimeter`
 - `sasTriangle`
+- `schifflerPoint`
 - `semiperimeter`
 - `sideLengths`
 - `spiekerCenter`

@@ -61,7 +61,18 @@ The binary form applies the block _f_ to each element before multiplying:
 518400
 ```
 
-Plot the sequence of partial products:
+Product representation of π:
+
+```
+>>> let n = 1E4;
+>>> 2 * 1:n.product { :k |
+>>> 	let m = 2 * k;
+>>> 	(4 * (k ^ 2)) / ((m - 1) * (m + 1))
+>>> }
+3.1415
+```
+
+Plot a function:
 
 ~~~spl svg=A
 (1 -- 50).functionPlot { :i |
@@ -72,13 +83,15 @@ Plot the sequence of partial products:
 
 ![](sw/spl/Help/Image/product-A.svg)
 
+Plot the sequence of partial products of the function:
+
 ~~~spl svg=B
-1:50.functionPlot { :j |
+1:50.collect { :j |
 	1:j.collect { :i |
 		let z = 2 + (i * 2.pi / 15).sin;
 		(11 / 12) ^ i * z
 	}.product
-}
+}.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/product-B.svg)
@@ -91,11 +104,13 @@ See also: *, injectInto, reduce, sum
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Product.html),
+[1](https://mathworld.wolfram.com/Product.html)
+[2](https://reference.wolfram.com/language/ref/Product.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.prod.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Empty_product)
+[1](https://en.wikipedia.org/wiki/Product_(mathematics))
+[2](https://en.wikipedia.org/wiki/Empty_product)
 
 Unicode: U+03A0 Π Greek capital letter pi
 

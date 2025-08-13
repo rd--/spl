@@ -18,11 +18,13 @@ Find the centroid of a `Line`:
 [1 1]
 ```
 
-Find the centroid of a `Triangle`:
+Find the centroid of a `Triangle`,
+the Kimberling center two:
 
 ```
->>> Triangle([0 0], [1 0], [0 1]).centroid
-[1/3 1/3]
+>>> let t = Triangle([0 0], [1 0], [0 1]);
+>>> (t.centroid, t.kimberlingCenter(2))
+([1/3 1/3], [1/3 1/3])
 ```
 
 Find the centroid of a `Rectangle`:
@@ -58,7 +60,9 @@ Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RegionCentroid.html),
+[1](https://mathworld.wolfram.com/GeometricCentroid.html)
+[2](https://mathworld.wolfram.com/TriangleCentroid.html)
+[3](https://reference.wolfram.com/language/ref/RegionCentroid.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Centroid)
 

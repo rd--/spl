@@ -5,6 +5,14 @@
 Answer the orthocenter of a triangle _t_,
 the point where the three altitudes intersect.
 
+The fourth Kimberling center:
+
+```
+>>> let t = sssTriangle(3, 4, 5);
+>>> (t.orthocenter, t.kimberlingCenter(4))
+([3.2 2.4], [3.2 2.4])
+```
+
 The orthocenter is interior to an acute triangle,
 and for an equilateral triangle,
 all triangle centers coincide at its centroid:

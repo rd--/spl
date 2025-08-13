@@ -4,13 +4,18 @@
 
 The `circumcenter` of the geometry _g_ is the `center` of the `circumcircle` or `circumsphere`.
 
-At `Triangle`:
+At `Triangle`,
+the third Kimberling center:
 
 ```
 >>> let t = Triangle([0 0; 0 1; 1 0]);
 >>> let c = t.circumcircle;
->>> (c.center, t.circumcenter)
-([0.5 0.5], [0.5 0.5])
+>>> (
+>>> 	c.center,
+>>> 	t.circumcenter,
+>>> 	t.kimberlingCenter(3)
+>>> )
+([0.5 0.5], [0.5 0.5], [0.5 0.5])
 ```
 
 At `Tetrahedron`:

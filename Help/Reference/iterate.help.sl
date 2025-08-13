@@ -1,10 +1,10 @@
 # iterate
 
-- _iterate(aBlock:/1, anObject)_
-- _iterate(aBlock:/1, anObject, anInteger)_
+- _iterate(f:/1, x)_
+- _iterate(f:/1, x, n)_
 
 In the binary case,
-answer an infinite `Stream` of repeated applications of _aBlock_ to _anObject_.
+answer an infinite `Stream` of repeated applications of the block _f_ to the object _x_.
 
 ```
 >>> not:/1.iterate(true).next(10)
@@ -26,7 +26,7 @@ answer an infinite `Stream` of repeated applications of _aBlock_ to _anObject_.
 ```
 
 In the ternary case,
-apply _aBlock_ iteratively _anInteger_ times, initially to _anObject_.
+apply the block _f_ iteratively _n_ times, initially to _x_.
 
 ```
 >>> { :x | (1 + x) ^ 2 }.iterate(1, 3)
