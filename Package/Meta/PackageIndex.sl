@@ -136,6 +136,7 @@
 	'Graphics-ColourGradient'
 	'Graphics-ColourPalette'
 	'Graphics-Graymap'
+	'Graphics-Heightmap'
 	'Graphics-Image'
 	'Graphics-LineDrawing'
 	'Graphics-PerspectiveDrawing'
