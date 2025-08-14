@@ -13,7 +13,7 @@ Env! : [Object] {
 	}
 
 	circle { :self :timeFromLastToFirst :curve |
-		let first0Then1 = Latch(1, Impulse(0, 0));
+		let first0Then1 = Latch(Dc(1), Impulse(0, 0));
 		self.releaseNode.isNil.if {
 			self.levels := [0] ++ self.levels ++ [0];
 			self.curves := [curve] ++ self.curves.asList.wrapExtend(self.times.size) ++ ['lin'];

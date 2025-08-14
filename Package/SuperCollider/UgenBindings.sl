@@ -80,7 +80,6 @@
 	Latch { :in :trig | <primitive: return sc.Latch(_in, _trig);> }
 	LeakDc { :in :coef | <primitive: return sc.LeakDc(_in, _coef);> }
 	Limiter { :in :level :dur | <primitive: return sc.Limiter(_in, _level, _dur);> }
-	LinExp { :in :srclo :srchi :dstlo :dsthi | <primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);> }
 	LinPan2 { :in :pos :level | <primitive: return sc.LinPan2(_in, _pos, _level);> }
 	LinXFade2 { :inA :inB :pan | <primitive: return sc.LinXFade2(_inA, _inB, _pan);> }
 	MantissaMask { :in :bits | <primitive: return sc.MantissaMask(_in, _bits);> }
@@ -116,7 +115,6 @@
 	Trig1 { :in :dur | <primitive: return sc.Trig1(_in, _dur);> }
 	TwoPole { :in :freq :radius | <primitive: return sc.TwoPole(_in, _freq, _radius);> }
 	TwoZero { :in :freq :radius | <primitive: return sc.TwoZero(_in, _freq, _radius);> }
-	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 	TwIndex { :input :normalize :array | <primitive: return sc.TwIndex(_input, _normalize, _array);> }
 	XFade2 { :inA :inB :pan :level | <primitive: return sc.XFade2(_inA, _inB, _pan, _level);> }
 	ZeroCrossing { :in | <primitive: return sc.ZeroCrossing(_in);> }
@@ -126,6 +124,8 @@
 /* Auto-generated (Filters, Math) */
 +[List, Ugen, SmallFloat] {
 	Clip { :in :lo :hi | <primitive: return sc.Clip(_in, _lo, _hi);> }
+	LinExp { :in :srclo :srchi :dstlo :dsthi | <primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);> }
+	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 }
 
 /* Auto-generated (Oscillators) */
