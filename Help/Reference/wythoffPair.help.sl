@@ -1,8 +1,8 @@
 # wythoffPair
 
-- _wythoffPair(anInteger)_
+- _wythoffPair(n)_
 
-Answer the _anInteger_-th Wythoff pair.
+Answer the _n_-th Wythoff pair.
 
 ```
 >>> 1:9.collect(wythoffPair:/1)
@@ -19,7 +19,7 @@ Answer the _anInteger_-th Wythoff pair.
 ]
 ```
 
-The sequence of the first element of each pair is a Beatty sequence called the _lower Wythoff sequence_,
+The sequence of the first element of each pair is a Beatty sequence called the lower Wythoff sequence,
 c.f. OEIS A000201:
 
 ```
@@ -30,7 +30,7 @@ c.f. OEIS A000201:
 ]
 ```
 
-The sequence of the second element of each pair is a Beatty sequence called the _upper Wythoff sequence_,
+The sequence of the second element of each pair is a Beatty sequence called the upper Wythoff sequence,
 c.f. OEIS A001950:
 
 ```
@@ -41,15 +41,29 @@ c.f. OEIS A001950:
 ]
 ```
 
+Plot Wythoff’s game of Nim:
+
+~~~spl svg=A
+let w = 1:23.collect(wythoffPair:/1);
+[
+	w,
+	w.collect(reversed:/1)
+].scatterPlot
+~~~
+
+![](sw/spl/Help/Image/wythoffPair-A.svg)
+
 * * *
 
-See also: fibonacci, wythoffArray, wythoffLower, wythoffUpper
+See also: beattySequence, fibonacci, wythoffArray, wythoffLower, wythoffUpper
 
 Guides: Integer Sequences
 
 References:
 _OEIS_
 [1](https://oeis.org/A000201)
-[2](https://oeis.org/A001950)
+[2](https://oeis.org/A001950),
+_W_
+[1](https://en.wikipedia.org/wiki/Wythoff%27s_game)
 
 Further Reading: Beatty 1926, Horadam 1978

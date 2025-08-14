@@ -345,7 +345,7 @@ Draw the Cantor square fractal, the binary complement of Cantor dust:
 
 ![](sw/spl/Help/Image/substitutionSystem-D.png)
 
-Draw the Haferman carpet:
+Draw the partial complement of the Haferman carpet:
 
 ~~~spl png=E
 [

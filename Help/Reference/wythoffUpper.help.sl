@@ -1,8 +1,8 @@
 # wythoffUpper
 
-- _wythoffUpper(anInteger)_
+- _wythoffUpper(n)_
 
-Answer the _anInteger_-th element of the _upper Wythoff sequence_,
+Answer the _n_-th element of the upper Wythoff sequence,
 c.f. OEIS A001950.
 
 ```
@@ -15,7 +15,7 @@ c.f. OEIS A001950.
 
 * * *
 
-See also: wythoffArray, wythoffLower, wythoffPair
+See also: beattySequence, wythoffArray, wythoffLower, wythoffPair
 
 Guides: Integer Sequences
 

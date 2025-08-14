@@ -4,6 +4,21 @@
 
 Answer a binary matrix representing the _n_-th step Haferman carpet.
 
+```
+>>> 2.hafermanCarpet
+[
+	1 0 1 1 1 1 1 0 1;
+	0 1 0 1 1 1 0 1 0;
+	1 0 1 1 1 1 1 0 1;
+	1 1 1 1 0 1 1 1 1;
+	1 1 1 0 1 0 1 1 1;
+	1 1 1 1 0 1 1 1 1;
+	1 0 1 1 1 1 1 0 1;
+	0 1 0 1 1 1 0 1 0;
+	1 0 1 1 1 1 1 0 1
+]
+```
+
 Drawing of the 2nd step of the Haferman carpet:
 
 ~~~spl svg=A

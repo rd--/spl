@@ -1,8 +1,8 @@
 # logScale
 
-- _logScale(aNumber)_
+- _logScale(x)_
 
-Answer _aNumber_,
+Answer the number _x_,
 converted to a `SmallFloat`,
 scaled by `log`.
 That is, the magnitude is scaled and the sign is retained.

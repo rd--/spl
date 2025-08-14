@@ -52,7 +52,8 @@ The sequences for _α=π_:
 [1 2 4 5 7 8 10 11 13 14 16 17 19]
 ```
 
-The sequences for _α=φ_:
+The sequences for _α=φ_,
+the lower and upper Wythoff sequences:
 
 ```
 >>> 13.beattySequence(1.goldenRatio)
@@ -66,7 +67,7 @@ The sequences for _α=φ_:
 
 * * *
 
-See also: e, goldenRatio, pi, sqrt
+See also: e, goldenRatio, pi, sqrt, wythoffLower, wythoffUpper
 
 Guides: Integer Sequences
 
