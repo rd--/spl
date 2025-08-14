@@ -1,6 +1,6 @@
 # arrayFlatten
 
-- _arrayFlatten(aMatrix)_
+- _arrayFlatten(m)_
 
 Create a block matrix by flattening out a matrix of matrices:
 

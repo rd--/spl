@@ -2,7 +2,7 @@
 
 - _kochCurve(n)_
 
-Answer the line segments representing the _n_-th step Koch curve.
+Answer the vertices of a line segment representing the _n_-th step Koch curve.
 
 Lengths of successive approximations to the Koch curve:
 
@@ -31,7 +31,7 @@ Drawing of the 5th step of the Koch curve:
 
 * * *
 
-See also: angleVector, peanoCurve, substitutionSystem
+See also: angleVector, peanoCurve, simpleLindenmayerSystem, substitutionSystem
 
 Guides: Curve Functions
 

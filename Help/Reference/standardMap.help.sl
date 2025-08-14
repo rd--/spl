@@ -11,8 +11,8 @@ Plot the first _n_ terms of the map for each of _m_ randomly selected initial co
 let k = 0.13;
 let m = 17;
 let n = 13;
-Sfc32(637214).
-randomReal([0 2.pi], [m 2])
+Sfc32(637214)
+.randomReal([0 2.pi], [m 2])
 .collect { :each |
 	standardMap(k)
 	.nestList(each, n)

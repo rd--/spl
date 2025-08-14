@@ -28,6 +28,10 @@
 		aliquotSequence(n, 21)
 	}
 
+	beattySequence { :n :theta |
+		(1:n * theta).floor
+	}
+
 	bernoulliNumber { :k |
 		(k + 1).bernoulliSequence.last
 	}

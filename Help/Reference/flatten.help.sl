@@ -1,6 +1,6 @@
 # flatten
 
-- _flatten(aCollection, anInteger=Infinity)_
+- _flatten(c, n=Infinity)_
 
 Similar to `catenate`,
 however also allows non-collection items,
@@ -74,7 +74,7 @@ At `Tree`:
 
 * * *
 
-See also: ++, catenate, deepDo, flattenTo
+See also: ++, catenate, arrayFlatten, deepDo, flattenTo
 
 References:
 _Apl_

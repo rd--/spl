@@ -16,6 +16,7 @@ Ordinary Differential Equations:
 Map Functions:
 
 - `bakersMap`
+- `circleMap`
 - `cuspMap`
 - `deJongMap`
 - `duffingMap`

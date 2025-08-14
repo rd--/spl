@@ -46,8 +46,11 @@ Algebraic Curve Functions:
 Fractal Curve Functions:
 
 - `blancmangeCurve`
+- `cantorDust`
 - `cantorStaircase`
+- `fibonacciCurve`
 - `gosperCurve`
+- `hafermanCarpet`
 - `heighwayDragonCurve`
 - `hilbertCurve`
 - `kochCurve`
@@ -58,7 +61,11 @@ Fractal Curve Functions:
 - `pentadentriteCurve`
 - `regularPaperfoldingSequence`
 - `riemannFunction`
+- `sierpinskiArrowheadCurve`
+- `sierpinskiCarpet`
 - `sierpinskiCurve`
+- `sierpinskiSieve`
+- `vicsekCurve`
 - `weierstrassFunction`
 - `zOrderCurve`
 

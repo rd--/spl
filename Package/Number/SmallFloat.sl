@@ -82,7 +82,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 			anObject.isInteger.if {
 				self.raisedToInteger(anObject)
 			} {
-				self.raisedToSmallFloat(anObject)
+				self.isNegative.if {
+					Complex(self, 0) ^ anObject
+				} {
+					self.raisedToSmallFloat(anObject)
+				}
 			}
 		} {
 			anObject.adaptToNumberAndApply(self, ^)

@@ -9,13 +9,19 @@
 		.asMap
 		.substitutionSystem(initialCondition, count)
 		.last
-		.select { :each | keepLetters.includes(each) }
-		.contents
+		.select { :each |
+			keepLetters.includes(each)
+		}.contents
 		.do { :each |
 			stepLetters.includes(each).if {
 				answer.add(answer.last + angle.angleVector)
 			} {
-				angle := angle + (each = '+').if { plusAngle } { minusAngle }
+				let delta = (each = '+').if {
+					plusAngle
+				} {
+					minusAngle
+				};
+				angle := angle + delta
 			}
 		};
 		answer
@@ -41,6 +47,31 @@
 		b
 	}
 
+	cantorDust { :self |
+		[
+			0 -> [0 0 0; 0 0 0; 0 0 0],
+			1 -> [1 0 1; 0 0 0; 1 0 1]
+		]
+		.substitutionSystem([[1]], self)
+		.last
+	}
+
+	fibonacciCurve { :self |
+		let p = [0 0];
+		let answer = [p];
+		let theta = 1/2.pi;
+		1:self.do { :n |
+			let m = n.fibonacciWord;
+			p := p + theta.angleVector;
+			answer.add(p);
+			(m = 0).ifTrue {
+				let delta = n.isEven.if { -1/2.pi } { 1/2.pi };
+				theta := theta + delta
+			}
+		};
+		answer
+	}
+
 	gosperCurve { :self |
 		'AB'.simpleLindenmayerSystem(
 			[1/3.pi -1/3.pi],
@@ -51,6 +82,15 @@
 			'A',
 			self
 		)
+	}
+
+	hafermanCarpet { :self |
+		[
+			0 -> [1 1 1; 1 1 1; 1 1 1],
+			1 -> [1 0 1; 0 1 0; 1 0 1]
+		]
+		.substitutionSystem([[1]], self)
+		.last
 	}
 
 	heighwayDragonCurve { :self |
@@ -149,6 +189,28 @@
 		)
 	}
 
+	sierpinskiArrowheadCurve { :self |
+		'F'.simpleLindenmayerSystem(
+			[1/3.pi -1/3.pi],
+			[
+				'X' -> 'YF+XF+Y',
+				'Y' -> 'XF-YF-X',
+				'F' -> 'F'
+			],
+			'YF',
+			self
+		)
+	}
+
+	sierpinskiCarpet { :self |
+		[
+			1 -> [1 1 1; 1 0 1; 1 1 1],
+			0 -> [0 0 0; 0 0 0; 0 0 0]
+		]
+		.substitutionSystem([[1]], self)
+		.last
+	}
+
 	sierpinskiCurve { :self |
 		'FG'.simpleLindenmayerSystem(
 			[1/4.pi -1/4.pi],
@@ -158,6 +220,29 @@
 				'G' -> 'G'
 			],
 			'F--XF--F--XF',
+			self
+		)
+	}
+
+	sierpinskiSieve { :self |
+		'F'.simpleLindenmayerSystem(
+			[-1/3.pi 1/3.pi],
+			[
+				'X' -> '--FXF++FXF++FXF--',
+				'F' -> 'FF'
+			],
+			'FXF--FF--FF',
+			self
+		)
+	}
+
+	vicsekCurve { :self |
+		'F'.simpleLindenmayerSystem(
+			[1/2.pi -1/2.pi],
+			[
+				'F' -> 'F-F+F+F-F'
+			],
+			'F-F-F-F',
 			self
 		)
 	}

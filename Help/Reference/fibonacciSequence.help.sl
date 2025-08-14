@@ -79,7 +79,7 @@ Closed form, see also `binetsFormula`:
 
 * * *
 
-See also: binetsFormula, fibonacci, goldenRatio, pellNumbers
+See also: binetsFormula, fibonacci, fibonacciWord, goldenRatio, pellNumbers
 
 Guides: Integer Sequences, Mathematical Sequences
 

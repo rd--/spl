@@ -33,6 +33,9 @@ Fractional exponents:
 
 >>> 2 ^ 1/2
 1.4142
+
+>>> -3 ^ 5/7
+-1.36656J1.71362
 ```
 
 Signed exponents:
@@ -53,18 +56,31 @@ Signed bases:
 
 >>> -7 ^ 3
 -343
+```
 
->>> (-7 ^ 0.5).isFinite
-false
+Negative base, non-integer exponent:
 
->>> (-7J0 ^ 0.5, 7.sqrt)
+```
+>>> (-7 ^ 0.5).isComplex
+true
+
+>>> (-7 ^ 1/2, 7.sqrt)
 (0J2.6457, 2.6457)
 
->>> -9J0 ^ 0.5
+>>> -9 ^ 1/2
 0J3
 
+>>> -5 ^ 0.5
+0.j(5.sqrt)
+
+>>> -1 ^ 1/2
+0J1
+
+>>> -1 ^ 1/3
+0.5J0.866
+
 >>> -1 ^ 4/7
-1
+-0.222521J0.974928
 ```
 
 At `Complex`:

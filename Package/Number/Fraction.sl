@@ -95,7 +95,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.raisedToInteger(aNumber.asInteger)
 		} {
 			aNumber.isFraction.if {
-				self.raisedToFraction(aNumber)
+				self.isNegative.if {
+					Complex(self.asFloat, 0) ^ aNumber
+				} {
+					self.raisedToFraction(aNumber)
+				}
 			} {
 				aNumber.adaptToFractionAndApply(self, ^)
 			}

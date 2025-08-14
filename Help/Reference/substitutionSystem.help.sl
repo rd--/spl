@@ -286,12 +286,13 @@ Steps in constructing a Cantor set:
 ]
 ```
 
-Create an analogous two-dimensional nested object:
+Create an analogous two-dimensional nested object,
+the Sierpiński carpet:
 
 ~~~spl png=A
 [
-	1 -> [1 1 1; 1 0 1; 1 1 1],
-	0 -> [3 3].constantArray(0)
+	0 -> [0 0 0; 0 0 0; 0 0 0],
+	1 -> [1 1 1; 1 0 1; 1 1 1]
 ]
 .substitutionSystem([[1]], 4)
 .last
@@ -330,9 +331,37 @@ Approximate a Cantor staircase function:
 
 ![](sw/spl/Help/Image/substitutionSystem-C.svg)
 
+Draw the Cantor square fractal, the binary complement of Cantor dust:
+
+~~~spl png=D
+[
+	0 -> [0 1 0; 1 1 1; 0 1 0],
+	1 -> [1 1 1; 1 1 1; 1 1 1]
+]
+.substitutionSystem([[0]], 4)
+.last
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-D.png)
+
+Draw the Haferman carpet:
+
+~~~spl png=E
+[
+	0 -> [1 1 1; 1 1 1; 1 1 1],
+	1 -> [0 1 0; 1 0 1; 0 1 0]
+]
+.substitutionSystem([[0]], 4)
+.last
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/substitutionSystem-E.png)
+
 * * *
 
-See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, thueMorse
+See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse
 
 References:
 _Mathematica_

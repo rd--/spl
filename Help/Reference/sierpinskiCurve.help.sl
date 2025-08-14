@@ -31,7 +31,7 @@ Drawing of the 3rd step of the Sierpiński curve:
 
 * * *
 
-See also: angleVector, hilbertCurve, kochCurve, substitutionSystem
+See also: angleVector, hilbertCurve, kochCurve, sierpinskiCarpet, sierpinskiSieve, substitutionSystem
 
 Guides: Curve Functions
 

@@ -17,6 +17,13 @@
 		bakersMap(c, c)
 	}
 
+	circleMap { :k :omega |
+		let a = k / 2.pi;
+		{ :theta |
+			(theta + omega - (a * (2.pi * theta).sin)) % 1
+		}
+	}
+
 	cuspMap { :x |
 		1 - (2 * x.abs.sqrt)
 	}

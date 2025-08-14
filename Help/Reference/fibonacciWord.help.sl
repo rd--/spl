@@ -22,6 +22,28 @@ Calculate the first one hundred elements:
 ]
 ```
 
+Threads over lists, derive the binary complement of the Fibonacci word:
+
+```
+>>> 1 - 1:20.fibonacciWord
+[
+	1 0 1 1 0 1 0 1 1 0
+	1 1 0 1 0 1 1 0 1 0
+]
+```
+
+A Fibonacci word is palindromic excepting last two terms:
+
+```
+>>> 1:13.fibonacciWord
+[0 1 0 0 1 0 1 0 0 1 0 0 1]
+
+>>> let n = 8.fibonacci;
+>>> let w = 1:n.fibonacciWord.first(n - 2);
+>>> (n, w = w.reversed)
+(21, true)
+```
+
 The Fibonacci word can be generated using a substitution system,
 at the seventh step thirty-four terms have been generated:
 
@@ -36,6 +58,14 @@ at the seventh step thirty-four terms have been generated:
 ]
 ```
 
+The size of each sucessive word is the Fibonacci sequence:
+
+```
+>>> let rule = [0 -> [0 1], 1 -> [0]].asMap;
+>>> rule.substitutionSystem([0], 7).collect(size:/1)
+[1 2 3 5 8 13 21 34]
+```
+
 It can also be specified as a locally catenative sequence:
 
 ```
@@ -48,11 +78,26 @@ It can also be specified as a locally catenative sequence:
 	0 0 1 0 0 1 0 1 0 0
 	1 0 0 1
 ]
+
+>>> [0; 0 1]
+>>> .locallyCatenativeSequence([1 2], 6)
+>>> .collect(size:/1)
+[1 2 3 5 8 13 21 34]
 ```
+
+Recurrence plot:
+
+~~~spl svg=A
+1:13.fibonacciWord
+.recurrenceMatrix(1, 1, 'Manhattan', 0.1)
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciWord-A.svg)
 
 * * *
 
-See also: fibonacci, locallyCatenativeSequence, substitutionSystem, tribonacciWord
+See also: fibonacci, locallyCatenativeSequence, rabbitConstant, substitutionSystem, tribonacciWord
 
 Guides: Integer Sequences
 
@@ -60,6 +105,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/RabbitSequence.html),
 _OEIS_
-[1](https://oeis.org/A003849),
+[1](https://oeis.org/A003849)
+[2](https://oeis.org/A005614),
 _W_
 [1](https://en.wikipedia.org/wiki/Fibonacci_word)
