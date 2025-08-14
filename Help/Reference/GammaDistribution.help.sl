@@ -58,7 +58,7 @@ Mean and variance:
 _Note_: There are two equivalent parameterizations in common use,
 in one,
 followed here,
- _beta_ is a scale parameter (often written θ),
+_beta_ is a scale parameter (often written θ),
 in the other it is a rate parameter ⁠(often written λ).
 λ = 1/θ.
 

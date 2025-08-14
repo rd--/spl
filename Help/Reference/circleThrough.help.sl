@@ -79,9 +79,9 @@ Plot three points and the circle passing through them:
 
 ~~~spl svg=D
 let p = [
- 	[1 / 2, 3.sqrt / 2],
- 	[-1 / 2, 3.sqrt /2],
- 	[-1, 0]
+	[1 / 2, 3.sqrt / 2],
+	[-1 / 2, 3.sqrt /2],
+	[-1, 0]
 ];
 [
 	p.PointCloud,

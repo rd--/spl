@@ -27,7 +27,7 @@ Plot modulo three:
 ~~~spl png=A
 let i = (0L .. 80L);
 { :m :n |
- 	(m.delannoyNumber(n) % 3) / 2
+	(m.delannoyNumber(n) % 3) / 2
 }.table(i, i).Graymap
 ~~~
 

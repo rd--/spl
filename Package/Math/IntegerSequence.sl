@@ -159,7 +159,7 @@
 						let b = k - (i * m);
 						(i * m < k) & { s.copyFromTo(a, b) = y }
 					}.whileTrue {
-						 i := i + 1
+						i := i + 1
 					};
 					z := max(z, i)
 				};

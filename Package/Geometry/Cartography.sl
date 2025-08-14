@@ -3,7 +3,7 @@
 	gallPetersProjection { :self |
 		let [lambda, phi] = self;
 		[phi, 2 * lambda.sin]
- 	}
+	}
 
 	gallStereographicProjection { :self |
 		let [lambda, phi] = self;

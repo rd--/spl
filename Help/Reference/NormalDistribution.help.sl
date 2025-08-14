@@ -40,7 +40,7 @@ over a subset of the reals:
 
 Plot the cumulative distribution function,
 `cdf`,
- over a subset of the reals:
+over a subset of the reals:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot(

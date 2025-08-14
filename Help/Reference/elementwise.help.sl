@@ -72,7 +72,7 @@ If any of the lists contains sublists,
 ```
 >>> { :x :y :z |
 >>> 	['F' x y z].stringJoin
->>>  }.elementwise(['A' 'B'], 0, ['X' 'Y'])
+>>> }.elementwise(['A' 'B'], 0, ['X' 'Y'])
 ['FA0X' 'FB0Y']
 ```
 

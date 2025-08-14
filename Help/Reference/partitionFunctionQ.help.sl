@@ -54,7 +54,7 @@ Plot table:
 		n.partitionFunctionQ(k)
 	}.select { :i |
 		i > 0
- 	}
+	}
 }.catenate.discretePlot
 ~~~
 
@@ -68,7 +68,7 @@ Plot log scaled:
 		n.partitionFunctionQ(k)
 	}.select { :i |
 		i > 0
- 	}
+	}
 }.catenate.log.scatterPlot
 ~~~
 

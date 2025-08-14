@@ -87,22 +87,22 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			},
 			4 -> {
 				/*
-					256a³e³
-					-192a²bde²
-					-128a²c²e²
-					+144a²cd²e
-					-27a²d⁴
-					+144ab²ce²
-					-6ab²d²e
-					-80abc²de
-					+18abcd³
-					+16ac⁴e
-					-4ac³d²
-					-27b⁴e²
-					+18b³cde
-					-4b³d³
-					-4b²c³e
-					+b²c²d²
+				256a³e³
+				-192a²bde²
+				-128a²c²e²
+				+144a²cd²e
+				-27a²d⁴
+				+144ab²ce²
+				-6ab²d²e
+				-80abc²de
+				+18abcd³
+				+16ac⁴e
+				-4ac³d²
+				-27b⁴e²
+				+18b³cde
+				-4b³d³
+				-4b²c³e
+				+b²c²d²
 				*/
 				let [e, d, c, b, a] = self;
 				[

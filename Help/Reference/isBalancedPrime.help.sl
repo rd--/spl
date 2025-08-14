@@ -9,7 +9,7 @@ The first few balanced primes:
 ```
 1:1000.select(isBalancedPrime:/1)
 [
-	  5  53 157 173 211 257 263 373 563 593
+	5  53 157 173 211 257 263 373 563 593
 	607 653 733 947 977
 ]
 ```

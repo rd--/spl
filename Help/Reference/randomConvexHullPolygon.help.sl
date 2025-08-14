@@ -9,9 +9,9 @@ Draw the convex hull of 13 uniformly distributed randomly generated coordinates:
 ~~~spl svg=A
 Sfc32(789341)
 .randomConvexHullPolygon(
-	 UniformDistribution(
-		 [-1 1; -1 1]
-	 ),
+	UniformDistribution(
+		[-1 1; -1 1]
+	),
 	13
 )
 ~~~

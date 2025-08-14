@@ -200,10 +200,10 @@ const asJs: ohm.ActionDict<string> = {
 	SlotDefinitions(_l, slots, _r) {
 		// Space separated list of quoted names for internal use only, see makeTypeDefinition
 		return slots.children.map(
-			function(e) {
+			function (e) {
 				let [nm, ty] = e.sourceString.split(':'); // ignore type
 				return `'${nm}'`;
-			}
+			},
 		).join(' ');
 	},
 	StringAssociation(lhs, _c, rhs) {

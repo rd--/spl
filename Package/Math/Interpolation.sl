@@ -577,7 +577,7 @@
 				(1 .. k).collect { :i | y[i] - (m * x[i]) }.median,
 				m
 			]
-                } {
+		} {
 			xList.error('theilSenEstimator: invalid input')
 		}
 	}

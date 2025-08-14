@@ -7,7 +7,7 @@ Answer `true` if _n_ is a strong prime, else `false`.
 The first few strong primes:
 
 ```
-1:500.select(isStrongPrime:/1)
+>>> 1:500.select(isStrongPrime:/1)
 [
 	 11  17  29  37  41  59  67  71  79  97
 	101 107 127 137 149 163 179 191 197 223

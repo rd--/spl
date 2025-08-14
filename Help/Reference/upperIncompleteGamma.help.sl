@@ -48,7 +48,7 @@ The regularized upper incomplete gamma function is equal to one minus the regula
 >>> let x = 0.4;
 >>> (
 >>> 	x.upperIncompleteGamma(a),
->>> 	 1 - x.lowerIncompleteGamma(a)
+>>> 	1 - x.lowerIncompleteGamma(a)
 >>> )
 (0.3711, 0.3711)
 ```

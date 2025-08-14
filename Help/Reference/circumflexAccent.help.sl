@@ -289,6 +289,13 @@ for example a right argument of _1/2_ gives the square root:
 3
 ```
 
+Disprove Euler’s conjecture (Lander & Parkin 1966):
+
+```
+>>> ([27 84 110 133] ^ 5).sum
+144 ^ 5
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

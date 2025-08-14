@@ -145,8 +145,8 @@ A prime-representing constant:
 >>> let k = 2.920050977316135;
 >>> { :n |
 >>> 	let m = n.floor;
->>> 	m * (n - m + 1) }
->>> .nestList(k, 13).floor
+>>> 	m * (n - m + 1)
+>>> }.nestList(k, 13).floor
 [2 3 5 7 11 13 17 19 23 29 31 37 41 43]
 
 >>> 14.primesList

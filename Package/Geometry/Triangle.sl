@@ -210,7 +210,8 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	firstNapoleonPoint { :t |
 		t.triangleCentreA { :a :b :c |
-			(a + 1/6.pi).cosecant }
+			(a + 1/6.pi).cosecant
+		}
 	}
 
 	fromBarycentricCoordinates { :self |
@@ -382,7 +383,8 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	secondNapoleonPoint { :t |
 		t.triangleCentreA { :a :b :c |
-			(a - 1/6.pi).cosecant }
+			(a - 1/6.pi).cosecant
+		}
 	}
 
 	semiperimeter { :self |

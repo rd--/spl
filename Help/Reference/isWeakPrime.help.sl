@@ -7,7 +7,7 @@ Answer `true` if _n_ is a weak prime, else `false`.
 The first few weak primes:
 
 ```
-1:500.select(isWeakPrime:/1)
+>>> 1:500.select(isWeakPrime:/1)
 [
 	  3   7  13  19  23  31  43  47  61  73
 	 83  89 103 109 113 131 139 151 167 181

@@ -20,7 +20,7 @@ let c = 5.sqrt;
 
 Plot the cumulative distribution function,
 `cdf`,
- over a subset of the reals:
+over a subset of the reals:
 
 ~~~spl svg=B
 let c = 5.sqrt;
