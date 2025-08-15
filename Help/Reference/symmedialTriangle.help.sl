@@ -25,4 +25,4 @@ Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/SymmedialTriangle.html),
+[1](https://mathworld.wolfram.com/SymmedialTriangle.html)

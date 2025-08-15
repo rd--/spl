@@ -127,6 +127,20 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	eulerTriangle { :self |
+		let [a, b, c] = self.interiorAngles;
+		let x = a.tan;
+		let y = b.tan;
+		let z = c.tan;
+		self.fromTrilinearVertexMatrix(
+			[
+				[(2 * x) + y + z, a.sin * b.secant, a.sin * c.secant],
+				[b.sin * a.secant, x + (2 * y) + z, b.sin * c.secant],
+				[c.sin * a.secant, c.sin * b.secant, x + y + (2 * z)]
+			]
+		)
+	}
+
 	excenters { :self |
 		[-1 1 1; 1 -1 1; 1 1 -1].collect { :c |
 			self.fromTrilinearCoordinates(c)

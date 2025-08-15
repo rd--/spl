@@ -11,7 +11,7 @@ let t = sssTriangle(3, 4, 5);
 [
 	t,
 	t.bevanCircle,
-	t.excircles
+	t.excenters.PointCloud
 ].LineDrawing
 ~~~
 
@@ -19,7 +19,7 @@ let t = sssTriangle(3, 4, 5);
 
 * * *
 
-See also: bevanPoint, Circle, Triangle
+See also: bevanPoint, Circle, excenters, Triangle
 
 Guides: Geometry Functions
 

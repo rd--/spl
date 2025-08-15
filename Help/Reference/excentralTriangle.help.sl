@@ -44,6 +44,6 @@ Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/ExcentralTriangle.html)
+[1](https://mathworld.wolfram.com/ExcentralTriangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Excentral_triangle)

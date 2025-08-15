@@ -59,6 +59,7 @@ Derived Triangles:
 - `antipedalTriangle`
 - `cevianTriangle`
 - `contactTriangle`
+- `eulerTriangle`
 - `excentralTriangle`
 - `extouchTriangle`
 - `firstBrocardTriangle`

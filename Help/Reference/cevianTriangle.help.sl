@@ -25,4 +25,6 @@ Guides: Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/CevianTriangle.html)
+[1](https://mathworld.wolfram.com/CevianTriangle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cevian)

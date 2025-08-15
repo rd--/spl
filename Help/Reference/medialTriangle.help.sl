@@ -5,7 +5,7 @@
 
 The medial triangle,
 also called the midpoint triangle,
-of a references triangle _t_ is the triangle with vertices at the midpoints of the triangle’s sides.
+of a reference triangle _t_ is the triangle with vertices at the midpoints of the triangle’s sides.
 It is the `pedalTriangle` of the `orthocenter`.
 
 ```

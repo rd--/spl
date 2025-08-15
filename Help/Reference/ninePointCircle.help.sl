@@ -34,7 +34,8 @@ At `Triangle`:
 let t = sssTriangle(1, 1, 1);
 [
 	t,
-	t.ninePointCircle
+	t.ninePointCircle,
+	t.eulerTriangle
 ].LineDrawing
 ~~~
 

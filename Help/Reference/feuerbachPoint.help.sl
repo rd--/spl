@@ -2,7 +2,7 @@
 
 - _feuerbachPoint(t)_
 
-Answer the de Longchamps point of the triangle _t_.
+Answer the Feuerbach point of the triangle _t_.
 
 ```
 >>> [3 4 5].sssTriangle
@@ -12,7 +12,7 @@ Answer the de Longchamps point of the triangle _t_.
 
 Plot Feuerbach point:
 
-~~~
+~~~spl svg=A
 let t = [4 2.5 4].sssTriangle;
 let f = t.feuerbachPoint;
 let o = t.orthocenter;

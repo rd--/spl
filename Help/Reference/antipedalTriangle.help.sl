@@ -37,9 +37,11 @@ The antipedal triangle of the first Fermat point is equilateral:
 
 ~~~spl svg=C
 let t = [4 5 4].sssTriangle;
+let p = t.firstFermatPoint;
 [
 	t,
-	t.antipedalTriangle(t.firstFermatPoint)
+	t.antipedalTriangle(p),
+	p.Point
 ].LineDrawing
 ~~~
 
