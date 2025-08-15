@@ -230,59 +230,7 @@ Spiral Functions:
 
 Triangle Functions:
 
-- `aasTriangle`
-- `altitudes`
-- `anticomplementaryTriangle`
-- `antipedalTriangle`
-- `arcLength`
-- `area`
-- `asaTriangle`
-- `bevanCircle`
-- `bevanPoint`
-- `centroid`
-- `cevianTriangle`
-- `circumcenter`
-- `circumcircle`
-- `clawsonPoint`
-- `contactTriangle`
-- `deLongchampsPoint`
-- `equalDetourPoint`
-- `equilateralTriangle`
-- `excenters`
-- `excentralTriangle`
-- `excircles`
-- `exeterPoint`
-- `exradii`
-- `extouchTriangle`
-- `feuerbachPoint`
-- `firstFermatPoint`
-- `gergonnePoint`
-- `heronsFormula`
-- `incenter`
-- `incircle`
-- `inradius`
-- `interiorAngles`
-- `isoperimetricPoint`
-- `kimberlingCenter`
-- `medialTriangle`
-- `mittenpunkt`
-- `nagelPoint`
-- `ninePointCenter`
-- `ninePointCircle`
-- `orthicTriangle`
-- `orthocenter`
-- `pedalTriangle`
-- `perimeter`
-- `sasTriangle`
-- `schifflerPoint`
-- `semiperimeter`
-- `sideLengths`
-- `spiekerCenter`
-- `spiekerCircle`
-- `sssTriangle`
-- `symmedianPoint`
-- `tangentialTriangle`
-- `triangleCentre`
+- `Triangle Functions`: Guide
 
 Uncategorized:
 

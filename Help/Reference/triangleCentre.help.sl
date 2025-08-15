@@ -21,7 +21,7 @@ The Spieker center:
 
 * * *
 
-See also: Triangle
+See also: interiorAngles, sideLengths, Triangle
 
 Guides: Geometry Functions
 

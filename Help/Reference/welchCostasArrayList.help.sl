@@ -30,7 +30,7 @@ Construct 4×4 arrays:
 ]
 ```
 
-Construct 6×6 arrays:
+Construct 7×7 arrays:
 
 ```
 >>> (7 - 1).eulerPhi
@@ -55,9 +55,33 @@ Construct 6×6 arrays:
 ]
 ```
 
+Plot a 13×13 array:
+
+~~~spl svg=A
+13.welchCostasArrayList
+.anyOne
+.normal
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/welchCostasArrayList-A.svg)
+
+Plot a 43×43 array:
+
+~~~spl png=B
+97.welchCostasArrayList
+.anyOne
+.normal
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/welchCostasArrayList-B.png)
+
 * * *
 
 See also: erdosTuranConstruction, optimalGolombRulers, powerMod, primitiveRootList
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

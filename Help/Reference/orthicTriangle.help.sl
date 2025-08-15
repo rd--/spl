@@ -4,6 +4,15 @@
 
 Answer the orthic triangle of the reference triangle _t_.
 
+The orthic triangle is both the pedal triangle and Cevian triangle with respect to the  orthocenter.
+
+```
+>>> let t = [3 4.5 6].sssTriangle;
+>>> let p = t.orthocenter;
+>>> t.pedalTriangle(p)
+t.cevianTriangle(p)
+```
+
 An equilateral triangle and the associated orthic triangle and orthocenter,
 the `excenters` of the orthic triangle of an acute triangle _t_ are the vertices of _t_:
 

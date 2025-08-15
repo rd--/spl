@@ -196,6 +196,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	firstBrocardTriangle { :self |
+		let [a, b, c] = self.sideLengths;
+		self.fromTrilinearVertexMatrix(
+			[
+				[a * b * c, c.cubed, b.cubed],
+				[c.cubed, a * b * c, a.cubed],
+				[b.cubed, a.cubed, a * b * c]
+			]
+		)
+	}
+
 	firstFermatPoint { :self |
 		self.triangleCentreA { :a :b :c |
 			(a + 1/3.pi).cosecant
@@ -434,6 +445,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.triangleCentreL { :a :b :c |
 			a
 		}
+	}
+
+	symmedialTriangle { :self |
+		let [a, b, c] = self.sideLengths;
+		self.fromTrilinearVertexMatrix(
+			[
+				0 b c;
+				a 0 c;
+				a b 0
+			]
+		)
 	}
 
 	tangentialTriangle { :self |

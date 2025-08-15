@@ -21,6 +21,30 @@ Indices for a _3×3_ square matrix:
 [2 3 3 4 4 4 5 5 6]
 ```
 
+Plot square matrix index path:
+
+~~~spl svg=A
+[9 9].zigzagIndices.Line
+~~~
+
+![](sw/spl/Help/Image/zigzagIndices-A.svg)
+
+Plot rectangular matrix index path, _m<n_:
+
+~~~spl svg=B
+[7 13].zigzagIndices.Line
+~~~
+
+![](sw/spl/Help/Image/zigzagIndices-B.svg)
+
+Plot rectangular matrix index path, _m>n_:
+
+~~~spl svg=C
+[13 7].zigzagIndices.Line
+~~~
+
+![](sw/spl/Help/Image/zigzagIndices-C.svg)
+
 * * *
 
 See also: zigzagMatrix, zigzagScan

@@ -72,6 +72,7 @@ Constructing:
 - `toeplitzMatrix`: Toeplitz matrix
 - `vandermondeMatrix`: Vandermonde matrix
 - `walshMatrix`: Walsh matrix
+- `welchCostasArrayList`
 - `zeroMatrix`: zero matrix
 - `zigzagMatrix`
 

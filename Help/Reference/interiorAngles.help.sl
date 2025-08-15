@@ -1,8 +1,8 @@
 # interiorAngles
 
-- _interiorAngles(aGeometry)_
+- _interiorAngles(g)_
 
-Answer the interior angles of _aGeometry_.
+Answer the interior angles of the geometry _g_.
 The `sum` of interior angles in any _n_-gon is given by _(n-2)π_ radians.
 
 At `Polygon`:
@@ -60,6 +60,8 @@ Guides: Geometry Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/VertexAngle.html)
-[2](https://reference.wolfram.com/language/ref/PolygonAngle.html)
+[2](https://reference.wolfram.com/language/ref/PolygonAngle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Interior_angle)
 
 Categories: Geometry

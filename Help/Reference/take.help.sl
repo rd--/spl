@@ -1,11 +1,10 @@
 # take
 
-- _take(aCollection, anInteger)_
-- _take(aSequence, anInteger, anObject)_
-- _take(anInteger, anotherInteger)_ ⟹ _positiveIntegerBinomial(anInteger, anotherInteger)_
+- _take(c, n)_
+- _take(c, n, x)_
 
-Answer a copy of _aCollection_ with only the first _anInteger_ places,
-or less if _aCollection_ is not large enough.
+Answer a copy of the collection _c_ with only the first _n_ places,
+or less if _c_ is not large enough.
 
 ```
 >>> 'Hello World!'.take(5)
@@ -31,7 +30,7 @@ true
 ```
 
 The ternary form only applies to sequences.
-If _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anInteger_ places.
+If _n_ is negative, answer a copy of _c_ with only the last _n_ places.
 
 ```
 >>> [5 4 3 2 1].take(-3, 0)
@@ -42,7 +41,7 @@ If _anInteger_ is negative, answer a copy of _aSequence_ with only the last _anI
 ```
 
 The ternary form allows taking more elements than the sequence contains,
-filling the empty slots with _anObject_, either as a suffix:
+filling the empty slots with the object _x_, either as a suffix:
 
 ```
 >>> [5 4 3 2 1].take(8, 0)
@@ -56,18 +55,24 @@ or as a prefix:
 [0 0 0 5 4 3 2 1]
 ```
 
-At `Integer` `take` is an alias for `positiveIntegerBinomial`,
+At `Integer` `take` is an alias for `binomial`,
 which tells the number of combinations of _n_ elements taken _k_ at a time.
 
 ```
 >>> 6.take(3)
 ((6 * 5 * 4) / (1 * 2 * 3))
+
+>>> binomial(6, 3)
+20
 ```
 
 If _k > n_ answers zero:
 
 ```
 >>> 3.take(6)
+0
+
+>>> binomial(3, 6)
 0
 ```
 

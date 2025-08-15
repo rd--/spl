@@ -12,6 +12,15 @@ of the triangle _t_.
 [3.2 1.2]
 ```
 
+The symmedian point of a triangle _t_ is the centroid of its own pedal triangle:
+
+```
+>>> let t = [3 4 5].sssTriangle;
+>>> let p = t.symmedianPoint;
+>>> p ~ t.pedalTriangle(p).centroid
+true
+```
+
 Plot symmedian point and related triangle centers,
 the symmedian point _s_ of the triangle _t_ is the centroid of the pedal triangle of _(t,s)_:
 
