@@ -63,4 +63,8 @@ Guides: Trigonometric Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Csc.html)
+[1](http://mathworld.wolfram.com/Cosecant.html)
+[2](https://reference.wolfram.com/language/ref/Csc.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Cosecant)
+

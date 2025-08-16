@@ -4,16 +4,6 @@
 - `sin`: sine
 - `tan`: tangent
 
-Degrees:
-
-- `cosDegrees`
-- `sinDegrees`
-
-Sinc:
-
-- `sincHistorical`: historical sinc
-- `sincNormalized`: normalized sinc
-
 Reciprocal:
 
 - `sec`: secant
@@ -23,8 +13,21 @@ Reciprocal:
 Inverse:
 
 - `arcCos`: arc cosine
+- `arcSec`: arc secant
 - `arcSin`: arc sine
 - `arcTan`: arc tangent
+
+Degrees:
+
+- `cosDegrees`
+- `secDegrees`
+- `sinDegrees`
+- `tanDegrees`
+
+Sinc:
+
+- `sincHistorical`: historical sinc
+- `sincNormalized`: normalized sinc
 
 Hyperbolic Funtions:
 
@@ -47,4 +50,4 @@ Converting:
 
 * * *
 
-Guides: Mathematical Functions
+Guides: Hyperbolic Functions, Mathematical Functions

@@ -26,3 +26,7 @@ Gudermannian:
 
 - `gudermannian`
 - `inverseGudermannian`
+
+* * *
+
+See also: Trigonometric Functions

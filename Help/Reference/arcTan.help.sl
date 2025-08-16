@@ -141,6 +141,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/ArcTan.html)
 [2](https://reference.wolfram.com/language/ref/ArcTan.html),
 _Smalltalk_
-5.6.7.4
+5.6.7.4,
+_W_
+[1](https://en.wikipedia.org/wiki/Arctangent)
 
 Categories: Math, Trigonometry

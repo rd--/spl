@@ -166,6 +166,10 @@
 
 +[SmallFloat, Complex] {
 
+	arcCot { :self |
+		(1 / self).arcTan
+	}
+
 	haversine { :self |
 		0.5 * (1 - self.cos)
 	}
@@ -210,6 +214,10 @@
 
 	arcCos { :self |
 		self.collect(arcCos:/1)
+	}
+
+	arcCot { :self |
+		self.collect(arcCot:/1)
 	}
 
 	arcSin { :self |

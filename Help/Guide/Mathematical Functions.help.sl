@@ -196,6 +196,10 @@
 - `sawtoothWave`
 - `sign`: sign of
 
+## Hyperbolic Functions
+
+- `Hyperbolic Functions`: Guide
+
 ## Integer Functions
 
 - `Integer Functions`: Guide

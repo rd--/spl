@@ -8,6 +8,10 @@
 		<primitive: return Math.asinh(_self)>
 	}
 
+	arcTanh { :self |
+		<primitive: return Math.atanh(_self)>
+	}
+
 	cosh { :self |
 		<primitive: return Math.cosh(_self);>
 	}
@@ -34,6 +38,10 @@
 
 	arcSinh { :z |
 		(z + ((z ^ 2) + 1).sqrt).log
+	}
+
+	arcTanh { :z |
+		((z + 1).log - (1 - z).log) / 2
 	}
 
 	coth { :z |

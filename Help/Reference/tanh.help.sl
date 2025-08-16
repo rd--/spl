@@ -90,6 +90,16 @@ Plot a nonlinear function:
 
 ![](sw/spl/Help/Image/tanh-C.svg)
 
+Plot a tractrix pursuit curve:
+
+~~~spl svg=D
+(0 -- 4).functionPlot { :x |
+	[x - x.tanh, x.sech]
+}
+~~~
+
+![](sw/spl/Help/Image/tanh-D.svg)
+
 * * *
 
 See also: arcTanh, sinh, coth, sobolevaModifiedTanh, tan

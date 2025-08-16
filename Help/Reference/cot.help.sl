@@ -53,6 +53,13 @@ Relation to `csc`:
 z.csc.squared
 ```
 
+The continued fraction is highly regular:
+
+```
+>>> 1.cot.continuedFraction(17)
+[0 1 1 1 3 1 5 1 7 1 9 1 11 1 13 1 15]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -62,6 +69,17 @@ Plot over a subset of the reals:
 ~~~
 
 ![](sw/spl/Help/Image/cot-A.svg)
+
+Plot at integer points:
+
+~~~spl png=B
+{ :x :y |
+	(x * y).cot.abs.arcCot
+}.table(-40:40, -40:40)
+.rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/cot-B.png)
 
 * * *
 
