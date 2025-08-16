@@ -112,87 +112,6 @@ Complex : [Object, Number] { | real imaginary |
 		aNumber.asComplex.aBlock(self)
 	}
 
-	arcCos { :self |
-		(self.imaginary = 0).if {
-			(self.real.abs > 1).if {
-				(self.real < 0).if {
-					pi
-				} {
-					0
-				}.j(
-					self.real.copySignTo(self.real.abs.arcCosh)
-				)
-			} {
-				self.real.arcCos.j(0)
-			}
-		} {
-			let tmp = self.squaredNorm - 1 / 2;
-			let delta = tmp.squared + self.imaginary.squared;
-			let sh2y = tmp + delta.sqrt;
-			let shy = sh2y.sqrt;
-			let ch2y = 1 + sh2y;
-			let chy = ch2y.sqrt;
-			(self.real / chy).arcCos.j(
-				self.imaginary.copySignTo(shy.arcSinh.negated)
-			)
-		}
-	}
-
-	arcSin { :self |
-		(self.imaginary = 0).if {
-			(self.real.abs > 1).if {
-				(0.5.pi * self.real.sign).j(
-					self.real.copySignTo(self.real.abs.arcCosh).negated
-				)
-			} {
-				self.real.arcSin.j(0)
-			}
-		} {
-			let tmp = self.squaredNorm - 1 / 2;
-			let delta = tmp.squared + self.imaginary.squared;
-			let sh2y = tmp + delta.sqrt;
-			let shy = sh2y.sqrt;
-			let ch2y = 1 + sh2y;
-			let chy = ch2y.sqrt;
-			(self.real / chy).arcSin.j(
-				self.imaginary.copySignTo(shy.arcSinh)
-			)
-		}
-	}
-
-	arcSinh { :z |
-		(z + ((z ^ 2) + 1).sqrt).log
-	}
-
-	arcTan { :self |
-		let r2 = self.squaredNorm;
-		Complex(
-			(1 - r2).arcTan(self.real * 2) / 2,
-			((r2 + (self.imaginary * 2) + 1) / (r2 - (self.imaginary * 2) + 1)).log / 4
-		)
-	}
-
-	arcTan { :self :aNumber |
-		self.isZero.if {
-			aNumber.isZero.if {
-				Complex(0, 0)
-			} {
-				Complex(1.pi / aNumber.real.copySignTo(2), 0)
-			}
-		} {
-			let answer = (aNumber / self).arcTan;
-			(self.real < 0).if {
-				answer + 1.pi
-			} {
-				(answer.real > 1.pi).if {
-					answer - 2.pi
-				} {
-					answer
-				}
-			}
-		}
-	}
-
 	arg { :self |
 		self.isZero.if {
 			self.error('Zero has no argument')
@@ -219,21 +138,6 @@ Complex : [Object, Number] { | real imaginary |
 
 	conjugated { :self |
 		Complex(self.real, self.imaginary.negated)
-	}
-
-	cos { :self |
-		self.i.cosh
-	}
-
-	cosecant { :self |
-		1 / self.sin
-	}
-
-	cosh { :self |
-		Complex(
-			self.real.cosh * self.imaginary.cos,
-			self.real.sinh * self.imaginary.sin
-		)
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -410,23 +314,8 @@ Complex : [Object, Number] { | real imaginary |
 		self.error('remainder: not implemented')
 	}
 
-	secant { :self |
-		1 / self.cos
-	}
-
 	sign { :self |
 		self / self.abs
-	}
-
-	sin { :self |
-		self.i.sinh.i.negated
-	}
-
-	sinh { :self |
-		Complex(
-			self.real.sinh * self.imaginary.cos,
-			self.real.cosh * self.imaginary.sin
-		)
 	}
 
 	sqrt { :self |
@@ -447,14 +336,6 @@ Complex : [Object, Number] { | real imaginary |
 
 	squaredNorm { :self |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
-	}
-
-	tan { :self |
-		self.sin / self.cos
-	}
-
-	tanh { :self |
-		self.i.tan.i.negated
 	}
 
 	truncated { :self |

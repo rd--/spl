@@ -16,6 +16,13 @@ Answer a `Complex` number with a real part of `zero` and an imaginary part of _x
 3J1
 ```
 
+At `Complex`:
+
+```
+>>> 2J3.i
+-3J2
+```
+
 Threads over lists:
 
 ```

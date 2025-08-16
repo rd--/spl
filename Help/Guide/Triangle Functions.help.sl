@@ -38,6 +38,7 @@ Triangle Centers:
 - `equalDetourPoint`
 - `excenters`
 - `exeterPoint`
+- `farOutPoint`
 - `feuerbachPoint`
 - `firstFermatPoint`
 - `gergonnePoint`

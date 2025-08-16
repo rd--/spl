@@ -34,26 +34,6 @@
 		self.collect(absSquared:/1)
 	}
 
-	arcCosh { :self |
-		self.collect(arcCosh:/1)
-	}
-
-	arcCos { :self |
-		self.collect(arcCos:/1)
-	}
-
-	arcSin { :self |
-		self.collect(arcSin:/1)
-	}
-
-	arcSinh { :self |
-		self.collect(arcSinh:/1)
-	}
-
-	arcTan { :self |
-		self.collect(arcTan:/1)
-	}
-
 	asFloat { :self |
 		self.collect(asFloat:/1)
 	}
@@ -110,26 +90,6 @@
 
 	continuedFraction { :self |
 		self.collect(continuedFraction:/1)
-	}
-
-	cos { :self |
-		self.collect(cos:/1)
-	}
-
-	cosDegrees { :self |
-		self.collect(cosDegrees:/1)
-	}
-
-	cosecant { :self |
-		self.collect(cosecant:/1)
-	}
-
-	cosh { :self |
-		self.collect(cosh:/1)
-	}
-
-	cotangent { :self |
-		self.collect(cotangent:/1)
 	}
 
 	cubed { :self |
@@ -230,10 +190,6 @@
 		self.collect(halved:/1)
 	}
 
-	haversine { :self |
-		self.collect(haversine:/1)
-	}
-
 	hexagonalNumber { :self |
 		self.collect(hexagonalNumber:/1)
 	}
@@ -274,10 +230,6 @@
 
 	inverseErfc { :self |
 		self.collect(inverseErfc:/1)
-	}
-
-	inverseHaversine { :self |
-		self.collect(inverseHaversine:/1)
 	}
 
 	isComposite { :self |
@@ -439,32 +391,8 @@
 		self.collect(rudinShapiro:/1)
 	}
 
-	secant { :self |
-		self.collect(secant:/1)
-	}
-
 	sign { :self |
 		self.collect(sign:/1)
-	}
-
-	sin { :self |
-		self.collect(sin:/1)
-	}
-
-	sinDegrees { :self |
-		self.collect(sinDegrees:/1)
-	}
-
-	sincHistorical { :self |
-		self.collect(sincHistorical:/1)
-	}
-
-	sincNormalized { :self |
-		self.collect(sincNormalized:/1)
-	}
-
-	sinh { :self |
-		self.collect(sinh:/1)
 	}
 
 	sqrt { :self |
@@ -477,10 +405,6 @@
 
 	tan { :self |
 		self.collect(tan:/1)
-	}
-
-	tanh { :self |
-		self.collect(tanh:/1)
 	}
 
 	thueMorse { :self |

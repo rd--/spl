@@ -21,6 +21,9 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 1.5 1.8].cosh
 [1.81066 2.35241 3.10747]
+
+>>> [0 1 2 3].pi.cosh
+[1 11.59195 267.74676 6195.82394]
 ```
 
 Value at infinity:
@@ -56,9 +59,21 @@ Plot `cosh` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/cosh-B.svg)
 
+`cosh` of _x_ is the average of `exp` _x_ and _-x_:
+
+~~~spl svg=C
+(-1.pi -- 1.pi).functionPlot([
+	cosh:/1,
+	exp:/1,
+	{ :x | x.negated.exp }
+])
+~~~
+
+![](sw/spl/Help/Image/cosh-C.svg)
+
 * * *
 
-See also: arcCosh, cos, sin, secanth, sinh
+See also: arcCosh, cos, sin, sech, sinh
 
 Guides: Trigonometric Functions
 
@@ -66,6 +81,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicCosine.html)
 [2](https://reference.wolfram.com/language/ref/Cosh.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.cosh.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hyperbolic_functions)
 

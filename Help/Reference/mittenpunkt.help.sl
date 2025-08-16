@@ -9,9 +9,26 @@ Answer the mittenpunkt of the triangle _t_.
 [0.5, 0.2887]
 ```
 
+Draw the mittenpunk, excenters and medial triangle:
+
+~~~spl svg=A
+let t = [1 1 1.15].sssTriangle;
+let e = t.excenters;
+let m = t.mittenpunkt;
+[
+	t,
+	t.medialTriangle,
+	e.PointCloud,
+	m.Point,
+	e.collect { :x | Line([m x]) }
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/mittenpunkt-A.svg)
+
 Plot mittenpunkt and related triangle centers:
 
-~~~
+~~~spl svg=B
 let t = [3 3.85 5].sssTriangle;
 let m = t.mittenpunkt;
 let c = t.centroid;
@@ -29,7 +46,7 @@ let s = t.spiekerCenter;
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/mittenpunkt-A.svg)
+![](sw/spl/Help/Image/mittenpunkt-B.svg)
 
 * * *
 

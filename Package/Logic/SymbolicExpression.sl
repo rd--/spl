@@ -100,12 +100,12 @@
 		'cos'.symbolicPrimitive([self])
 	}
 
-	cosecant { :self |
-		'cosecant'.symbolicPrimitive([self])
+	cot { :self |
+		'cot'.symbolicPrimitive([self])
 	}
 
-	cotangent { :self |
-		'cotangent'.symbolicPrimitive([self])
+	csc { :self |
+		'csc'.symbolicPrimitive([self])
 	}
 
 	exp { :self |

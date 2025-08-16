@@ -3,17 +3,20 @@
 - _contactTriangle(t)_
 
 Answer the contact triangle,
-also called the intouch triangle,
+also called the Gergonne or intouch triangle,
 of the triangle _t_.
 
 Draw contact triangle:
 
 ~~~spl svg=A
-let t = [3 3.85 5].sssTriangle;
+let a = [3 3.85 5].sssTriangle;
+let b = a.contactTriangle;
 [
-	t,
-	t.contactTriangle,
-	t.incircle
+	a,
+	b.contactTriangle,
+	a.incircle,
+	a.gergonnePoint.Point,
+	b.symmedianPoint.Point
 ].LineDrawing
 ~~~
 

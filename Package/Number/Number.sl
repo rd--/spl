@@ -205,10 +205,6 @@
 		}
 	}
 
-	cosDegrees { :self |
-		(90 - (180 + self % 360 - 180).abs).degreesToRadians.sin
-	}
-
 	cubed { :self |
 		self * self * self
 	}
@@ -334,16 +330,8 @@
 		}
 	}
 
-	gudermannian { :z |
-		z.sinh.arcTan
-	}
-
 	halved { :self |
 		self / 2
-	}
-
-	haversine { :self |
-		0.5 * (1 - self.cos)
 	}
 
 	heavisideLambda { :x |
@@ -426,14 +414,6 @@
 		let b = (2 / a.pi);
 		let c = (1 - x.squared).log;
 		(((b + (c / 2)).squared - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
-	}
-
-	inverseGudermannian { :z |
-		((z * 0.5) + 0.25.pi).tan.log
-	}
-
-	inverseHaversine { :self |
-		2 * self.sqrt.arcSin
 	}
 
 	isHalfInteger { :self |
@@ -934,22 +914,12 @@
 		}
 	}
 
-	sinDegrees { :self |
-		(90 - self).cosDegrees
-	}
-
 	smallFloatEpsilon { :self |
 		self * system.smallFloatEpsilon
 	}
 
 	smallFloatMax { :self |
 		self * system.smallFloatMax
-	}
-
-	sobolevaModifiedTanh { :a :b :c :d |
-		{ :x |
-			((a * x).exp - (b.negated * x).exp) / ((c * x).exp + (d.negated * x).exp)
-		}
 	}
 
 	softPlus { :x |

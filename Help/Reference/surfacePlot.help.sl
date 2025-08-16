@@ -117,8 +117,8 @@ A pseudosphere:
 [-2 2; 0 2.pi].surfacePlot { :u :v |
 	let i = v.cos + (0.5 * v).tan.log;
 	[
-		u.secanth * v.cos,
-		u.secanth * v.sin,
+		u.sech * v.cos,
+		u.sech * v.sin,
 		u - u.tanh
 	]
 }

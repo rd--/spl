@@ -1,15 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="195.1" height="100.0" viewBox="-5.000 -5.000 205.145 110.000">
-<g fill="none" stroke="black" stroke-width="0.0128%" transform="translate(0, 100.0000) scale(39.0290, -39.0290)">
-<polygon points="0.000,0.000 5.000,0.000 3.082,2.307" />
-<circle cx="2.534" cy="0.499" r="0.013" />
-<circle cx="2.694" cy="0.769" r="0.013" />
-<circle cx="3.014" cy="1.309" r="0.013" />
-<circle cx="2.925" cy="0.973" r="0.013" />
-<circle cx="3.096" cy="1.181" r="0.013" />
-<circle cx="3.082" cy="2.562" r="0.013" />
-<circle cx="2.579" cy="0.667" r="0.013" />
-<line x1="2.694" y1="0.769" x2="3.014" y2="1.309" />
-<line x1="2.925" y1="0.973" x2="3.096" y2="1.181" />
-<line x1="3.082" y1="2.562" x2="2.579" y2="0.667" />
+<svg xmlns="http://www.w3.org/2000/svg" width="103.9" height="100.0" viewBox="-27.077 -62.500 113.892 110.000">
+<g fill="none" stroke="black" stroke-width="0.0096%" transform="translate(0, -15.0000) scale(51.9462, -51.9462)">
+<polygon points="0.000,0.000 1.150,0.000 0.575,0.818" />
+<polygon points="0.862,0.409 0.287,0.409 0.575,0.000" />
+<circle cx="1.575" cy="0.818" r="0.010" />
+<circle cx="-0.425" cy="0.818" r="0.010" />
+<circle cx="0.575" cy="-1.107" r="0.010" />
+<circle cx="0.575" cy="0.244" r="0.010" />
+<line x1="0.575" y1="0.244" x2="1.575" y2="0.818" />
+<line x1="0.575" y1="0.244" x2="-0.425" y2="0.818" />
+<line x1="0.575" y1="0.244" x2="0.575" y2="-1.107" />
 </g>
 </svg>

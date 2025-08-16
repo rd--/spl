@@ -48,7 +48,7 @@ let f = a.circumcircle;
 
 * * *
 
-See also: antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, secant
+See also: antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, sec
 
 Guides: Geometry Functions
 

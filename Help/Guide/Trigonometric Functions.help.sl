@@ -16,9 +16,9 @@ Sinc:
 
 Reciprocal:
 
-- `secant`: reciprocal cosine
-- `cosecant`: reciprocal sine
-- `cotangent`: reciprocal tangent
+- `sec`: secant
+- `csc`: cosecant
+- `cot`: cotangent
 
 Inverse:
 
@@ -26,17 +26,9 @@ Inverse:
 - `arcSin`: arc sine
 - `arcTan`: arc tangent
 
-Hyperbolic:
+Hyperbolic Funtions:
 
-- `cosh`: hyperbolic cosine
-- `sinh`: hyperbolic sine
-- `tanh`: hyperbolic tangent
-
-Inverse Hyperbolic:
-
-- `arcCosh`: arc hyperbolic cosine
-- `arcSinh`: arc hyperbolic sine
-- `arcTanh`: arc hyperbolic tangent
+- `Hyperbolic Funtions`: Guide
 
 Haversine:
 

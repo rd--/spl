@@ -125,30 +125,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
-	arcCos { :self |
-		<primitive: return Math.acos(_self)>
-	}
-
-	arcCosh { :self |
-		<primitive: return Math.acosh(_self)>
-	}
-
-	arcSin { :self |
-		<primitive: return Math.asin(_self)>
-	}
-
-	arcSinh { :self |
-		<primitive: return Math.asinh(_self)>
-	}
-
-	arcTan { :self |
-		<primitive: return Math.atan(_self)>
-	}
-
-	arcTan { :self :anObject |
-		anObject.atan2(self)
-	}
-
 	asFloat { :self |
 		self
 	}
@@ -169,15 +145,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	atRandom { :self |
 		system.nextRandomFloat(0, self)
-	}
-
-	atan2 { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.atan2(_self, _anObject);
-		}
-		>
-		anObject.adaptToNumberAndApply(self, atan2:/2)
 	}
 
 	basicPrintString { :self :radix |
@@ -266,26 +233,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	cantorStaircase { :x |
 		x.cantorStaircase(12)
-	}
-
-	cos { :self |
-		<primitive: return Math.cos(_self);>
-	}
-
-	cosecant { :self |
-		1 / self.sin
-	}
-
-	cosh { :self |
-		<primitive: return Math.cosh(_self);>
-	}
-
-	cotangent { :self |
-		1 / self.tan
-	}
-
-	cotangenth { :self |
-		self.cosh / self.sinh
 	}
 
 	cubeRoot { :self |
@@ -627,14 +574,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	secant { :self |
-		1 / self.cos
-	}
-
-	secanth { :self |
-		1 / self.cosh
-	}
-
 	shallowCopy { :self |
 		self
 	}
@@ -656,26 +595,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		>
 	}
 
-	sin { :self |
-		<primitive: return Math.sin(_self)>
-	}
-
-	sincHistorical { :self |
-		self.isZero.if {
-			1
-		} {
-			self.sin / self
-		}
-	}
-
-	sincNormalized { :self |
-		self.pi.sincHistorical
-	}
-
-	sinh { :self |
-		<primitive: return Math.sinh(_self)>
-	}
-
 	sqrt { :self |
 		self.isNegative.if {
 			Complex(self, 0).sqrt
@@ -686,14 +605,6 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	storeString { :self |
 		self.printString(10)
-	}
-
-	tan { :self |
-		<primitive: return Math.tan(_self)>
-	}
-
-	tanh { :self |
-		<primitive: return Math.tanh(_self)>
 	}
 
 	truncated { :self |

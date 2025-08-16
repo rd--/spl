@@ -92,7 +92,7 @@ Plot a nonlinear function:
 
 * * *
 
-See also: arcTanh, sinh, cotangenth, sobolevaModifiedTanh, tan
+See also: arcTanh, sinh, coth, sobolevaModifiedTanh, tan
 
 Guides: Sigmoid Functions
 

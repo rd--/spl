@@ -159,6 +159,7 @@
 	'FeatureDetection'
 	'Fourier'
 	'Gamma'
+	'HyperbolicFunctions'
 	'IntegerSequence'
 	'Integrals'
 	'Interpolation'
@@ -173,6 +174,7 @@
 	'SignalProcessing'
 	'SpecialFunctions'
 	'Statistics'
+	'TrigonometricFunctions'
 	'UnivariatePolynomial'
 	'WindowFunction'
 

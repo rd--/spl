@@ -108,7 +108,7 @@ Chirp signal:
 
 * * *
 
-See also: arcCos, arcCosh, cosh, secant, sin, tan
+See also: arcCos, arcCosh, cosh, sec, sin, tan
 
 Guides: Trigonometric Functions
 
@@ -119,6 +119,9 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.cos.html),
 _Smalltalk_
-5.6.7.5
+5.6.7.5,
+_W_
+[1](https://en.wikipedia.org/wiki/Cosine)
+
 
 Categories: Math, Trigonometry

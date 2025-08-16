@@ -79,7 +79,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	}
 
 	centroid { :self |
-		self.vertexCoordinates.polygonCentroid
+		self.triangleCentreA { :a :b :c |
+			a.csc
+		}
 	}
 
 	cevianTriangle { :self :p |
@@ -93,8 +95,18 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		)
 	}
 
+	circumcenter { :self |
+		self.triangleCentreA { :a :b :c |
+			a.cos
+		}
+	}
+
 	circumcircle { :self |
 		self.vertexCoordinates.circumcircle
+	}
+
+	circumradius { :self |
+		self.circumcircle.radius
 	}
 
 	clawsonPoint { :self |
@@ -127,6 +139,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	eulerInfinityPoint { :self |
+		self.triangleCentreA { :a :b :c |
+			a.cos - (2 * b.cos * c.cos)
+		}
+	}
+
 	eulerTriangle { :self |
 		let [a, b, c] = self.interiorAngles;
 		let x = a.tan;
@@ -134,9 +152,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let z = c.tan;
 		self.fromTrilinearVertexMatrix(
 			[
-				[(2 * x) + y + z, a.sin * b.secant, a.sin * c.secant],
-				[b.sin * a.secant, x + (2 * y) + z, b.sin * c.secant],
-				[c.sin * a.secant, c.sin * b.secant, x + y + (2 * z)]
+				[(2 * x) + y + z, a.sin * b.sec, a.sin * c.sec],
+				[b.sin * a.sec, x + (2 * y) + z, b.sin * c.sec],
+				[c.sin * a.sec, c.sin * b.sec, x + y + (2 * z)]
 			]
 		)
 	}
@@ -204,6 +222,12 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		[[1 .. 3]]
 	}
 
+	farOutPoint { :self |
+		self.triangleCentreL { :a :b :c |
+			a * ((b ^ 4) + (c ^ 4) - (a ^ 4) - ((b ^ 2) * (c ^ 2)))
+		}
+	}
+
 	feuerbachPoint { :self |
 		self.triangleCentreA { :a :b :c |
 			1 - (b - c).cos
@@ -223,7 +247,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	firstFermatPoint { :self |
 		self.triangleCentreA { :a :b :c |
-			(a + 1/3.pi).cosecant
+			(a + 1/3.pi).csc
 		}
 	}
 
@@ -235,7 +259,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	firstNapoleonPoint { :t |
 		t.triangleCentreA { :a :b :c |
-			(a + 1/6.pi).cosecant
+			(a + 1/6.pi).csc
 		}
 	}
 
@@ -270,7 +294,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	gergonnePoint { :self |
 		self.triangleCentreL { :a :b :c |
-			(a * (b + c - a)) ^ -1
+			(b * c) / (b + c - a)
 		}
 	}
 
@@ -281,9 +305,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	}
 
 	incenter { :self |
-		let v = self.vertexCoordinates;
-		let l = self.sideLengths.rotatedRight(3);
-		(v * l).sum / l.sum
+		self.triangleCentreL { :a :b :c |
+			1
+		}
 	}
 
 	incircle { :self |
@@ -302,7 +326,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	isoperimetricPoint { :self |
 		self.triangleCentreA { :a :b :c |
-			(((0.5 * a).secant * (0.5 * b).cos) / (0.5 * c).cos) - 1
+			(((0.5 * a).sec * (0.5 * b).cos) / (0.5 * c).cos) - 1
 		}
 	}
 
@@ -340,17 +364,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let [a, b, c] = self.interiorAngles;
 		self.fromTrilinearVertexMatrix(
 			[
-				[0, b.secant, c.secant],
-				[a.secant, 0, c.secant],
-				[a.secant, b.secant, 0]
+				[0, b.sec, c.sec],
+				[a.sec, 0, c.sec],
+				[a.sec, b.sec, 0]
 			]
 		)
 	}
 
 	orthocenter { :self |
-		let a = self.interiorAngles;
-		let c = a.tan.normalizeSum;
-		self.fromBarycentricCoordinates(c)
+		self.triangleCentreA { :a :b :c |
+			a.sec
+		}
 	}
 
 	pedalTriangle { :self :p |
@@ -396,7 +420,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	secondFermatPoint { :self |
 		self.triangleCentreA { :a :b :c |
-			(a - 1/3.pi).cosecant
+			(a - 1/3.pi).csc
 		}
 	}
 
@@ -408,7 +432,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	secondNapoleonPoint { :t |
 		t.triangleCentreA { :a :b :c |
-			(a - 1/6.pi).cosecant
+			(a - 1/6.pi).csc
 		}
 	}
 
@@ -432,7 +456,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	spiekerCenter { :self |
 		self.triangleCentreL { :a :b :c |
-			(b + c) / a
+			b * c * (b + c) /* eqv. (b + c) / a */
 		}
 	}
 
@@ -604,15 +628,15 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 +@Number {
 
 	aasTriangle { :alpha :beta :a |
-		let x2 = a * alpha.cosecant * (alpha + beta).sin;
-		let x3 = a * alpha.cotangent * beta.sin;
+		let x2 = a * alpha.csc * (alpha + beta).sin;
+		let x3 = a * alpha.cot * beta.sin;
 		let y3 = a * beta.sin;
 		Triangle([0 0; x2 0; x3 y3])
 	}
 
 	asaTriangle { :alpha :c :beta |
-		let x = alpha.cos * (alpha + beta).cosecant * beta.sin;
-		let y = alpha.sin * (alpha + beta).cosecant * beta.sin;
+		let x = alpha.cos * (alpha + beta).csc * beta.sin;
+		let y = alpha.sin * (alpha + beta).csc * beta.sin;
 		Triangle([0 0], [c 0], [c * x, c * y])
 	}
 
@@ -637,15 +661,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 }
 
-+[List, Triangle] {
-
-	circumcenter { :self |
-		self.circumcircle.center
-	}
-
-	circumradius { :self |
-		self.circumcircle.radius
-	}
++List {
 
 	sssTriangle { :self |
 		let [a, b, c] = self;
@@ -659,131 +675,37 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 	kimberlingCenter { :n |
 		{ :t |
 			n.caseOf([
-				1 -> {
-					t.triangleCentreL { :a :b :c |
-						1
-					}
-				},
-				2 -> {
-					t.triangleCentreA { :a :b :c |
-						a.cosecant
-					}
-				},
-				3 -> {
-					t.triangleCentreA { :a :b :c |
-						a.cos
-					}
-				},
-				4 -> {
-					t.triangleCentreA { :a :b :c |
-						a.secant
-					}
-				},
-				5 -> {
-					t.triangleCentreA { :a :b :c |
-						(b - c).cos
-					}
-				},
-				6 -> {
-					t.triangleCentreL { :a :b :c |
-						a
-					}
-				},
-				7 -> {
-					t.triangleCentreL { :a :b :c |
-						(b * c) / (b + c - a)
-					}
-				},
-				8 -> {
-					t.triangleCentreL { :a :b :c |
-						(b + c - a) / a
-					}
-				},
-				9 -> {
-					t.triangleCentreL { :a :b :c |
-						b + c - a
-					}
-				},
-				10 -> {
-					t.triangleCentreL { :a :b :c |
-						b * c * (b + c)
-					}
-				},
-				11 -> {
-					t.triangleCentreA { :a :b :c |
-						1 - (b - c).cos
-					}
-				},
+				1 -> { t.incenter },
+				2 -> { t.centroid },
+				3 -> { t.circumcenter },
+				4 -> { t.orthocenter },
+				5 -> { t.ninePointCenter },
+				6 -> { t.symmedianPoint },
+				7 -> { t.gergonnePoint },
+				8 -> { t.nagelPoint },
+				9 -> { t.mittenpunkt },
+				10 -> { t.spiekerCenter },
+				11 -> { t.feuerbachPoint },
 				12 -> {
 					t.triangleCentreA { :a :b :c |
 						1 + (b - c).cos
 					}
 				},
-				13 -> {
-					t.triangleCentreA { :a :b :c |
-						(a + 1/3.pi).cosecant
-					}
-				},
-				14 -> {
-					t.triangleCentreA { :a :b :c |
-						(a - 1/3.pi).cosecant
-					}
-				},
-				15 -> {
-					t.triangleCentreA { :a :b :c |
-						(a + 1/3.pi).sin
-					}
-				},
-				16 -> {
-					t.triangleCentreA { :a :b :c |
-						(a - 1/3.pi).sin
-					}
-				},
-				17 -> {
-					t.triangleCentreA { :a :b :c |
-						(a + 1/6.pi).cosecant
-					}
-				},
-				18 -> {
-					t.triangleCentreA { :a :b :c |
-						(a - 1/6.pi).cosecant
-					}
-				},
-				19 -> {
-					t.triangleCentreA { :a :b :c |
-						a.tan
-					}
-				},
-				20 -> {
-					t.triangleCentreA { :a :b :c |
-						a.cos - (b.cos * c.cos)
-					}
-				},
-				21 -> {
-					t.triangleCentreA { :a :b :c |
-						1 / (b.cos - c.cos)
-					}
-				},
-				22 -> {
-					t.triangleCentreL { :a :b :c |
-						a * ((b ^ 4) + (c ^ 4) - (a ^ 4))
-					}
-				},
-				40 -> {
-					t.triangleCentreA { :a :b :c |
-						b.cos + c.cos - a.cos - 1
-					}
-				},
-				175 -> {
-					t.triangleCentreA { :a :b :c |
-						(((0.5 * a).secant * (0.5 * b).cos) / (0.5 * c).cos) - 1
-					}
-				},
-				176 -> {
-					t.triangleCentreA { :a :b :c |
-						1 + (((0.5 * b).cos * (0.5 * c).cos) / (0.5 * a).cos)
-					}
-				}
+				13 -> { t.firstFermatPoint },
+				14 -> { t.secondFermatPoint },
+				15 -> { t.firstIsodynamicPoint },
+				16 -> { t.secondIsodynamicPoint },
+				17 -> { t.firstNapoleonPoint },
+				18 -> { t.secondNapoleonPoint },
+				19 -> { t.clawsonPoint },
+				20 -> { t.deLongchampsPoint },
+				21 -> { t.schifflerPoint },
+				22 -> { t.exeterPoint },
+				23 -> { t.farOutPoint },
+				30 -> { t.eulerInfinityPoint },
+				40 -> { t.bevanPoint },
+				175 -> { t.isoperimetricPoint },
+				176 -> { t.equalDetourPoint }
 			]) {
 				n.error('kimberlingCenter: unknown n')
 			}

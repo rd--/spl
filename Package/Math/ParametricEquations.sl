@@ -181,7 +181,7 @@
 		let m = (2 * a) / 1.pi;
 		{ :t |
 			[
-				m * t * t.cotangent,
+				m * t * t.cot,
 				m * t
 			]
 		}
@@ -206,7 +206,7 @@
 	serpentineCurve { :a :b |
 		{ :theta |
 			[
-				a * theta.cotangent,
+				a * theta.cot,
 				b * theta.sin * theta.cos
 			]
 		}
@@ -287,7 +287,7 @@
 
 	trisectrixOfMaclaurin { :a |
 		{ :theta |
-			let r = (a / 2) * ((4 * theta.cos) - theta.secant);
+			let r = (a / 2) * ((4 * theta.cos) - theta.sec);
 			[r, theta].fromPolarCoordinates
 		}
 	}

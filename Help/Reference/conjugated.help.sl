@@ -65,6 +65,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/plus),
 _Mathematica_
 [1](https://mathworld.wolfram.com/ComplexConjugate.html)
-[2](https://reference.wolfram.com/language/ref/Conjugate.html)
+[2](https://reference.wolfram.com/language/ref/Conjugate.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Complex_conjugate)
 
 Categories: Math

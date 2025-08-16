@@ -182,7 +182,7 @@ Plot of complex `sin` function:
 
 * * *
 
-See also: arcSin, cos, cosecant, haversine, sinDegrees, sinh, tan
+See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan
 
 Guides: Trigonometric Functions
 
@@ -191,6 +191,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)
 [2](https://reference.wolfram.com/language/ref/Sin.html),
 _Smalltalk_
-5.6.7.13
+5.6.7.13,
+_W_
+[1](https://en.wikipedia.org/wiki/Sine)
 
 Categories: Math, Trigonometry

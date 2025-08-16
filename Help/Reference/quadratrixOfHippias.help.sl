@@ -28,7 +28,7 @@ Plot over _(-4π,4π)_:
 
 * * *
 
-See also: cotangent, pi
+See also: cot, pi
 
 Guides: Curve Functions
 

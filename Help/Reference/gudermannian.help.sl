@@ -25,7 +25,7 @@ Plot over a subset of the reals:
 
 See also: arcTan, inverseGudermannian, sinh
 
-Guides: Sigmoid Functions
+Guides: Hyperbolic Functions, Sigmoid Functions
 
 References:
 _Mathematica_

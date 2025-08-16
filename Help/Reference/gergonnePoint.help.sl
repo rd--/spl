@@ -25,7 +25,7 @@ let c = t.cevianTriangle(g);
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/mittenpunkt-A.svg)
+![](sw/spl/Help/Image/gergonnePoint-A.svg)
 
 * * *
 
