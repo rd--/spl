@@ -4,6 +4,14 @@
 		<primitive: return Math.acosh(_self)>
 	}
 
+	arcSech { :z |
+		(z >= 0 & { z <= 1 }).if {
+			(1 / z).arcCosh
+		} {
+			Complex(z, 0).arcSech
+		}
+	}
+
 	arcSinh { :self |
 		<primitive: return Math.asinh(_self)>
 	}
@@ -20,10 +28,6 @@
 		self.cosh / self.sinh
 	}
 
-	sech { :self |
-		1 / self.cosh
-	}
-
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
 	}
@@ -35,6 +39,21 @@
 }
 
 +Complex {
+
+	arcCosh { :z |
+		(((z + 1).sqrt * (z - 1).sqrt) + z).log
+	}
+
+	arcSech { :z |
+		z.isZero.if {
+			Infinity
+		} {
+			z.imaginary.isZero.ifTrue {
+				z.imaginary := system.smallFloatMin
+			};
+			(1 / z).arcCosh
+		}
+	}
 
 	arcSinh { :z |
 		(z + ((z ^ 2) + 1).sqrt).log
@@ -77,6 +96,10 @@
 
 	csch { :self |
 		1 / self.sinh
+	}
+
+	sech { :self |
+		1 / self.cosh
 	}
 
 }
@@ -131,6 +154,10 @@
 		self.collect(arcCosh:/1)
 	}
 
+	arcSech { :self |
+		self.collect(arcSech:/1)
+	}
+
 	arcSinh { :self |
 		self.collect(arcSinh:/1)
 	}
@@ -141,6 +168,10 @@
 
 	coth { :self |
 		self.collect(coth:/1)
+	}
+
+	sech { :self |
+		self.collect(sech:/1)
 	}
 
 	sinh { :self |

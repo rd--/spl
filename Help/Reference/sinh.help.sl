@@ -66,6 +66,8 @@ Plot over a subset of the complexes:
 
 See also: arcSinh, cosh, csch, sin
 
+Guides: Hyperbolic Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HyperbolicSine.html)

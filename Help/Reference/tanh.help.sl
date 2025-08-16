@@ -104,7 +104,7 @@ Plot a tractrix pursuit curve:
 
 See also: arcTanh, sinh, coth, sobolevaModifiedTanh, tan
 
-Guides: Sigmoid Functions
+Guides: Hyperbolic Functions, Sigmoid Functions
 
 References:
 _Mathematica_

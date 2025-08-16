@@ -71,11 +71,20 @@ Plot `cosh` alongside a Padé approximation:
 
 ![](sw/spl/Help/Image/cosh-C.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=D
+[-0.25.pi.j(-2.5), 0.25.pi.j(2.5)]
+.complexPlot(cosh:/1)
+~~~
+
+![](sw/spl/Help/Image/cosh-D.png)
+
 * * *
 
 See also: arcCosh, cos, sin, sech, sinh
 
-Guides: Trigonometric Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_

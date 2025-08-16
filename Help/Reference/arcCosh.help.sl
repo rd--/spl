@@ -1,8 +1,8 @@
 # arcCosh
 
-- _arcCosh(aNumber)_
+- _arcCosh(z)_
 
-Answer the inverse hyperbolic cosine of the _aNumber_.
+Answer the inverse hyperbolic cosine of _z_.
 
 ```
 >>> 1.5.arcCosh
@@ -14,6 +14,13 @@ Inverse is cosh:
 ```
 >>> 2.arcCosh.cosh
 2
+```
+
+At `Complex`:
+
+```
+>>> 1.5J1.arcCosh
+1.26048J0.66442
 ```
 
 Threads over lists:
@@ -35,7 +42,7 @@ Plot over a subset of the reals:
 
 See also: arcCos, cos
 
-Guides: Trigonometric Functions
+Guides: Hyperbolic Functions, Trigonometric Functions
 
 References:
 _Mathematica_

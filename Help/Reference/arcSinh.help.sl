@@ -2,7 +2,7 @@
 
 - _arcSinh(z)_
 
-Answers the inverse hyperbolic sine sine of the complex number _z_.
+Answers the inverse hyperbolic sine of the complex number _z_.
 
 `SmallFloat` arguments:
 
@@ -64,7 +64,7 @@ Plot over a subset of the reals:
 
 See also: arcSin, cos, sin, tan
 
-Guides: Sigmoid Functions, Trigonometric Functions
+Guides: Hyperbolic Functions, Sigmoid Functions, Trigonometric Functions
 
 References:
 _Mathematica_
