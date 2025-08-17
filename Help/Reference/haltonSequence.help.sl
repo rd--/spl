@@ -1,0 +1,61 @@
+# haltonSequence
+
+- _haltonSequence([b₁ b₂ …], n)_
+
+Answer the first _n_ terms of the _(b₁,b₂…)_ Halton sequence.
+
+The _(2,3)_ Halton sequence:
+
+```
+>>> [2 3].haltonSequence(9)
+[
+	1/2 1/3;
+	1/4 2/3;
+	3/4 1/9;
+	1/8 4/9;
+	5/8 7/9;
+	3/8 2/9;
+	7/8 5/9;
+	1/16 8/9;
+	9/16 1/27
+]
+```
+
+Relation to `vanDerCorputNumber`:
+
+```
+>>> [2].haltonSequence(9).++
+[1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
+
+>>> 1:9.vanDerCorputNumber(2)
+[1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
+
+>>> [3].haltonSequence(9).++
+[1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9 1/27]
+
+>>> 1:9.vanDerCorputNumber(3)
+[1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9 1/27]
+```
+
+Plot first few terms of the _2,3_ Halton sequence:
+
+~~~spl svg=A
+[2 3].haltonSequence(100).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/haltonSequence-A.svg)
+
+* * *
+
+See also: hammersleyPointSet, poissonDiskSampling, vanDerCorputNumber
+
+Guides: Integer Sequences
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/x.html)
+
+_W_
+[1](https://en.wikipedia.org/wiki/Halton_sequence)
+
+Further Reading: Halton 1964, Kocis 1997

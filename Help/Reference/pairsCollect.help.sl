@@ -1,8 +1,8 @@
 # pairsCollect
 
-- _pairsCollect(aSequence, aBlock:/2)_
+- _pairsCollect([x₁ x₂ …], f:/2)_
 
-Apply _aBlock_ to the items of _aSequence_ taken two at a time,
+Apply the binary block _f_ to the items of the sequence _x_ taken two at a time,
 moving forward two places each time.
 Answer a `List` of the answers.
 
@@ -16,6 +16,6 @@ Answer a `List` of the answers.
 
 * * *
 
-See also: adjacentPairsCollect, pairsDo, tuples
+See also: adjacentPairsCollect, pairsDo, partition, tuples
 
 Categories: Enumerating

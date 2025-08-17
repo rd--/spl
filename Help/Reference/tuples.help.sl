@@ -25,6 +25,9 @@ answer of all possible tuples whose _i_-th element is from _i_-th _l_.
 ```
 >>> [1 2; 7 8 9].tuples
 [1 7; 1 8; 1 9; 2 7; 2 8; 2 9]
+
+>>> [1 2 3; 1 2].tuples
+[1 1; 1 2; 2 1; 2 2; 3 1; 3 2]
 ```
 
 `tuples` of a three-vector and a four-vector is a 12×2 matrix:

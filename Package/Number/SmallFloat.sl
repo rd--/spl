@@ -235,6 +235,18 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		x.cantorStaircase(12)
 	}
 
+	chop { :self :epsilon |
+		(self.abs < epsilon).if {
+			0
+		} {
+			self
+		}
+	}
+
+	chop { :self |
+		self.chop(1E-10)
+	}
+
 	cubeRoot { :self |
 		<primitive: return Math.cbrt(_self);>
 	}

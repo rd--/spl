@@ -709,6 +709,10 @@
 		}
 	}
 
+	threshold { :self |
+		self.threshold(10E-10)
+	}
+
 	withLevelCollect { :self :aBlock:/2 :level |
 		let type = self.typeOf;
 		self.collect { :each |

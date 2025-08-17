@@ -136,6 +136,23 @@ Complex : [Object, Number] { | real imaginary |
 		system.randomComplex([0J0, self], [])
 	}
 
+	chop { :self :epsilon |
+		let x = self.real;
+		let y = self.imaginary;
+		(y.abs < 1E-10).if {
+			x.chop(epsilon)
+		} {
+			Complex(
+				x.chop(epsilon),
+				y
+			)
+		}
+	}
+
+	chop { :self |
+		self.chop(1E-10)
+	}
+
 	conjugated { :self |
 		Complex(self.real, self.imaginary.negated)
 	}

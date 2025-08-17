@@ -102,6 +102,7 @@ The following help files include references to integer sequences:
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A001316
 - `grayEncode`: A014550 A003188
+- `haltonSequence`
 - `hammingWeight`: A000120
 - `harmonicNumber`: A002805 A001008
 - `hexagonalNumber`: A000384

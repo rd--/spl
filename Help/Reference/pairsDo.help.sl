@@ -1,8 +1,8 @@
 # pairsDo
 
-- _pairsDo(aSequence, aBlock:/2)_
+- _pairsDo([x₁ x₂ …], f:/2)_
 
-Apply _aBlock_ to the items of _aSequence_ taken two at a time.
+Apply the binary block _f_ to the items of the sequence _x_ taken two at a time.
 The iterative form of `pairsCollect`.
 
 * * *

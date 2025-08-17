@@ -1,8 +1,8 @@
 # adjacentPairsCollect
 
-- _adjacentPairsCollect(aSequence, aBlock:/2)_
+- _adjacentPairsCollect([x₁ x₂ …], f:/2)_
 
-Collect over the items of _aSequence_ taken two at a time,
+Collect over the items of the sequence _x_ taken two at a time,
 moving forward one place each time.
 
 At `Range`:
@@ -18,7 +18,8 @@ At `List`:
 >>> [10 6 3 1 0].adjacentPairsCollect(-)
 [4 3 2 1]
 
->>> [7 9 16 20 1 5].adjacentPairsCollect(-.swap)
+>>> [7 9 16 20 1 5]
+>>> .adjacentPairsCollect(-.swap)
 [2 7 4 -19 4]
 
 >>> [7 23 47].adjacentPairsCollect(*)

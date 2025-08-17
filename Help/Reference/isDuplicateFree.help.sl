@@ -43,6 +43,19 @@ Determine whether or not the sublists have the same total:
 false
 ```
 
+Construct the permanent analog of the totally antisymmetric tensor:
+
+```
+>>> [1 2 3].tuples(3).collect { :x |
+>>> 	x.isDuplicateFree(=)
+>>> }.boole.reshape([3 3 3])
+[
+	0 0 0; 0 0 1; 0 1 0:;
+	0 0 1; 0 0 0; 1 0 0:;
+	0 1 0; 1 0 0; 0 0 0
+]
+```
+
 * * *
 
 See also: countDistinct, counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree

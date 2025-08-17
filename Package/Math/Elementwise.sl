@@ -84,6 +84,10 @@
 		self.collect(ceiling:/1)
 	}
 
+	chop { :self |
+		self.collect(chop:/1)
+	}
+
 	conjugated { :self |
 		self.collect(conjugated:/1)
 	}

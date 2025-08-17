@@ -189,6 +189,16 @@
 		(0 .. k - 1).collect(gouldsNumber:/1)
 	}
 
+	hammersleyPointSet { :d :n |
+		(d = 2).if {
+			(1 .. n).collect { :i |
+				[i.vanDerCorputNumber(2), Fraction(i, n)]
+			}
+		} {
+			d.error('hammersleyPointSet: not implemented')
+		}
+	}
+
 	harmonicNumber { :self |
 		1:self.reciprocal.sum
 	}
@@ -503,6 +513,12 @@
 }
 
 +List {
+
+	haltonSequence { :self :k |
+		self.collect { :b |
+			(1 .. k).vanDerCorputNumber(b)
+		}.transposed
+	}
 
 	locallyCatenativeSequence { :w :i :n :f |
 		let u = w.copy;

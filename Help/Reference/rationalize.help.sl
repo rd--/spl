@@ -1,9 +1,8 @@
 # rationalize
 
-- _rationalize(aSmallFloat, epsilon)_
-- _rationalize(α)_ ⇒ _rationalize(α, 1E-5)_
+- _rationalize(x, ε=1E-5)_
 
-Answer a `Fraction` that approximates a floating point number given an error bound.
+Answer a `Fraction` that approximates the floating point number _x_ given an error bound ε.
 
 ```
 >>> 1.pi.rationalize(1E-5)
@@ -21,6 +20,9 @@ Find rational approximations to within a given tolerance:
 ```
 >>> 1.pi.rationalize(1E-2)
 22/7
+
+>>> 1.pi.rationalize(1E-12)
+4272943/1360120
 
 >>> 2.sqrt.exp.rationalize(1E-4)
 218/53
