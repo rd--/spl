@@ -56,9 +56,9 @@ At `one` and `zero` and negative `one`:
 
 ```
 >>> [-1 0 1].inverseErf
-[-1.inf 0 1.inf]
+[-Infinity 0 Infinity]
 
->>> [-1.inf 0 1.inf].erf
+>>> [-Infinity 0 Infinity].erf
 [-1 0 1]
 ```
 

@@ -184,9 +184,9 @@ let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self
 -0.cubeRoot = -0 /* cube root */
 0.cubeRoot = 0 /* cube root */
 -2.cubeRoot = -1.2599210498948732 /* cube root */
-1.inf = Infinity /* Infinity is the literal for IEEE infinity, inf is a constant, like 1.pi */
-3 / 0 = 1.inf /* division by zero is infinity */
--3 / 0 = -1.inf /* negative division by zero is negative infinity */
+1.infinity = Infinity /* Infinity is the literal for IEEE infinity, 1.infinity is a method, like 1.pi */
+3 / 0 = Infinity /* division by zero is infinity */
+-3 / 0 = -Infinity /* negative division by zero is negative infinity */
 (0 / 0).isNaN /* division of zero by zero is NaN */
 1.isNaN.not /* one is a number */
 4 / 0:3 = [Infinity, 4, 2, 4 / 3] /* divide by zero is infinity */

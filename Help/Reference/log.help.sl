@@ -24,7 +24,7 @@ At `zero` and `one`:
 
 ```
 >>> 0.log
--1.inf
+-Infinity
 
 >>> 1.log
 0
@@ -71,10 +71,17 @@ Complex arguments:
 0J1.5708
 ```
 
+At branch cut:
+
+```
+>>> -2J0.log
+2.log.j(1.pi)
+```
+
 Show that the natural logarithm of -1 is iπ:
 
 ```
->>> -1J0.log
+>>> -1.log
 0J3.14159
 ```
 
@@ -105,6 +112,30 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/log-A.svg)
 
+Polar plot:
+
+~~~spl svg=B
+(0.01 -- 6.pi).polarPlot(log:/1)
+~~~
+
+![](sw/spl/Help/Image/log-B.svg)
+
+Plot `log` at integer points:
+
+~~~spl svg=C
+{ :x :y |
+	let z = x * y;
+	(z = 0).if {
+		0
+	} {
+		z.log.abs.fractionPart
+	}
+}.table(-6:6, -6:6)
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/log-C.svg)
+
 * * *
 
 See also: exp, log2, log10, logarithmicIntegral
@@ -119,9 +150,13 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Logarithm.html)
 [2](https://reference.wolfram.com/language/ref/Log.html),
+_Mathworks_
+[1](https://mathworks.com/help/matlab/ref/double.log.html)
 _Smalltalk_
 5.6.7.9
-5.6.7.10
+5.6.7.10,
+_W_
+[1](https://en.wikipedia.org/wiki/Logarithm)
 
 Unicode: U+235F ⍟ Apl Functional Symbol Circle Star
 

@@ -121,8 +121,8 @@ Threads elementwise over lists and matrices:
 >>> 7 ^ [2 3 4]
 [49 343 2401]
 
->>> [0 1.5 0J1 1.pi 1.inf] ^ 0.5
-[0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, 1.inf]
+>>> [0 1.5 0J1 1.pi Infinity] ^ 0.5
+[0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, Infinity]
 
 >>> 2 ^ [1 2 3 5 10]
 [2 4 8 32 1024]

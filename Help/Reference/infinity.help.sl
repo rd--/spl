@@ -1,28 +1,28 @@
-# inf
+# infinity
 
-- _inf(aNumber)_
+- _infinity(n)_
 
-Answer `Infinity` times _aNumber_,
+Answer _n_ times `Infinity`,
 a constant representing either positive or negative floating point infinity.
 
 ```
->>> 1.inf > 0
+>>> 1.infinity > 0
 true
 
->>> -1.inf < 0
+>>> -1.infinity < 0
 true
 
->>> 1.inf - 1
-1.inf
+>>> 1.infinity - 1
+1.infinity
 
->>> -1.inf + 1
--1.inf
+>>> -1.infinity + 1
+-1.infinity
 ```
 
 Infinity is a `SmallFloat` value:
 
 ```
->>> 1.inf.isSmallFloat
+>>> 1.infinity.isSmallFloat
 true
 ```
 
@@ -30,7 +30,7 @@ Where supported `inf` is displayed as ∞.
 
 * * *
 
-See also: eulerGamma, e, i, pi
+See also: eulerGamma, e, i, Infinity, pi
 
 Unicode: U+221E ∞ Infinity
 

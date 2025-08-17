@@ -370,7 +370,7 @@
 		self + 1
 	}
 
-	inf { :self |
+	infinity { :self |
 		self * Infinity
 	}
 

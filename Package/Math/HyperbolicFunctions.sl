@@ -4,12 +4,16 @@
 		<primitive: return Math.acosh(_self)>
 	}
 
-	arcSech { :z |
-		(z >= 0 & { z <= 1 }).if {
-			(1 / z).arcCosh
-		} {
-			Complex(z, 0).arcSech
-		}
+	arcCoth { :self |
+		(1 / self).arcTanh
+	}
+
+	arcCsch { :self |
+		(1 / self).arcSinh
+	}
+
+	arcSech { :self |
+		(1 / self).arcCosh
 	}
 
 	arcSinh { :self |
@@ -42,6 +46,14 @@
 
 	arcCosh { :z |
 		(((z + 1).sqrt * (z - 1).sqrt) + z).log
+	}
+
+	arcCoth { :z |
+		(1 / z).arcTanh /* ((z + 1).log - (z - 1).log) / 2 */
+	}
+
+	arcCsch { :z |
+		(1 / z).arcSinh /* ((1 / z) + ((1 / (z ^ 2)) + 1).sqrt).log */
 	}
 
 	arcSech { :z |
@@ -152,6 +164,14 @@
 
 	arcCosh { :self |
 		self.collect(arcCosh:/1)
+	}
+
+	arcCoth { :self |
+		self.collect(arcCoth:/1)
+	}
+
+	arcCsch { :self |
+		self.collect(arcCsch:/1)
 	}
 
 	arcSech { :self |

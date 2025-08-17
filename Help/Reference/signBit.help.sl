@@ -1,11 +1,13 @@
 # signBit
 
-- _signBit(aNumber)_
+- _signBit(x)_
 
-Answer `true` if _aNumber_ has sign bit set (including case of IEEE-754 negative-zero and negative infinity), else `false`.
+Answer `true` if the number _x_ has sign bit set,
+including the case of IEEE-754 negative-zero and negative infinity,
+else `false`.
 
 ```
->>> [-1.inf -1 -0 0 1 1.inf].collect(signBit:/1)
+>>> [-Infinity -1 -0 0 1 Infinity].collect(signBit:/1)
 [true true true false false false]
 ```
 

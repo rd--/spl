@@ -365,7 +365,12 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	log { :self |
-		<primitive: return Math.log(_self)>
+		<primitive:
+		if(_self >= 0) {
+			return Math.log(_self)
+		}
+		>
+		Complex(self, 0).log
 	}
 
 	log { :self :base |

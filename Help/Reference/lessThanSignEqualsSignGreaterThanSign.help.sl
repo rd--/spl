@@ -70,14 +70,14 @@ Mixed numeric types, equal to:
 -∞ comes before any real-valued expression:
 
 ```
->>> -1.inf <=> 1.goldenRatio
+>>> -Infinity <=> 1.goldenRatio
 -1
 ```
 
 ∞ comes after any real-valued expression:
 
 ```
->>> 1E53 <=> 1.inf
+>>> 1E53 <=> Infinity
 -1
 ```
 

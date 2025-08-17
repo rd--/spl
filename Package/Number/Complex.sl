@@ -210,6 +210,12 @@ Complex : [Object, Number] { | real imaginary |
 		true
 	}
 
+	isNaN { :self |
+		self.real.isNaN | {
+			self.imaginary.isNaN
+		}
+	}
+
 	isNegative { :self |
 		false
 	}
@@ -237,7 +243,13 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	log { :self |
-		self.abs.log + self.arg.i
+		/* self.abs.log + self.arg.i */
+		let x = self.real;
+		let y = self.imaginary;
+		Complex(
+			0.5 * ((x ^ 2) + (y ^ 2)).log,
+			self.arg
+		)
 	}
 
 	log { :self :aNumber |

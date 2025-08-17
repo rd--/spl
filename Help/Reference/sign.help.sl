@@ -50,6 +50,9 @@ Complex numbers, division by absolute value:
 
 >>> 1J1.sign
 (1J1 / 1J1.abs)
+
+>>> 0J0.sign.isNaN
+true
 ```
 
 Element-wise sign function:

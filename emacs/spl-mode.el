@@ -245,7 +245,7 @@ If the string begins with a doctest, also delete all non doctest lines."
 (defconst spl-font-lock-keywords
   (list
    `(,(regexp-opt '("let" "var") 'symbols) . font-lock-keyword-face)
-   `(,(regexp-opt '("false" "inf" "nil" "pi" "true" "system") 'symbols) . font-lock-builtin-face)
+   `(,(regexp-opt '("false" "nil" "true" "system") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "doWhileFalse" "doWhileTrue" "if" "ifEmpty" "ifFalse" "ifNil" "ifNotNil" "ifTrue" "kr" "timesRepeat" "whileFalse" "whileTrue" "withIndexDo") 'symbols) . font-lock-function-name-face)
    `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
@@ -410,7 +410,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("i" . ?𝒊) ; U+1D48A 𝒊 Mathematical Italic Small I
      ("includes" . ?∋) ; U+220B ∋ Contains as Member
      ("index" . ?ⅈ) ; U+02148 ⅈ Double-Struck Italic Small I
-     ("inf" . ?∞) ; U+221E ∞ Infinity
+     ("infinity" . ?∞) ; U+221E ∞ Infinity
      ("Infinity" . ?∞) ; U+221E ∞ Infinity
      ("intersection" . ?∩) ; U+2229 ∩ Intersection
      ("j" . ?𝑗) ; U+1D457 𝑗 Mathematical Italic Small J
