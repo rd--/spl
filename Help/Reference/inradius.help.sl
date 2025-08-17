@@ -7,6 +7,9 @@ Answer the radius of the `incircle` of the geometry _g_.
 At `Triangle`:
 
 ```
+>>> sssTriangle(1, 1, 1).inradius
+3.sqrt / 6
+
 >>> sssTriangle(3, 4, 5).inradius
 1
 ```

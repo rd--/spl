@@ -125,6 +125,21 @@ A quintic curve:
 
 ![](sw/spl/Help/Image/polarPlot-K.svg)
 
+Plot a Reuleaux triangle:
+
+~~~spl svg=L
+let n = 3;
+(0 -- 2.pi).polarPlot { :theta |
+	let a = n * (theta - 1.pi) / 2.pi + 1/2;
+	let b = 2.pi * a.floor / n;
+	let c = (theta - b).cos;
+	let d = 2 * (1.pi / n).cos;
+	c + (1 + d + (c ^ 2)).sqrt
+}
+~~~
+
+![](sw/spl/Help/Image/polarPlot-L.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

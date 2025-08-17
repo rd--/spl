@@ -56,9 +56,21 @@ A squircle:
 
 ![](sw/spl/Help/Image/superellipseCurve-E.svg)
 
+Approximate path the geometric centroid of a rotating Reuleaux triangle:
+
+~~~spl svg=F
+let a = 2 * 3.sqrt / 3 - 1;
+let r = 2.36185;
+(0 -- 2.pi).functionPlot(
+	superellipseCurve(a, a, r)
+)
+~~~
+
+![](sw/spl/Help/Image/superellipseCurve-F.svg)
+
 * * *
 
-See also: Superellipse, superformulaCurve
+See also: fernandezGuastiSquircle, Superellipse, superformulaCurve
 
 Guides: Curve Functions
 

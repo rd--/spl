@@ -81,6 +81,20 @@ let n = 2 * 6.sqrt;
 
 ![](sw/spl/Help/Image/Arc-D.svg)
 
+A Reuleaux triangle:
+
+~~~spl svg=E
+let t = sssTriangle(1, 1, 1);
+{ :c :a |
+	Arc(c, [1, 1], [a, a + 1/3.pi])
+}.map(
+	t.vertexCoordinates,
+	[0, 2/3, 4/3].pi
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Arc-E.svg)
+
 * * *
 
 See also: Circle, Ellipse, LineDrawing, Polygon, Rectangle, Triangle

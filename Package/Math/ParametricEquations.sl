@@ -90,6 +90,21 @@
 		[theta.fresnelC, theta.fresnelS]
 	}
 
+	fernandezGuastiSquircle { :r :s |
+		{ :theta |
+			let a = r * 2.sqrt;
+			let b = s * (2 * theta).sin.abs;
+			let rho = b.isVeryCloseTo(0).if {
+				r
+			} {
+				let c = (1 - (s.squared * (2 * theta).sin.squared)).sqrt;
+				let d = (1 - c).sqrt;
+				(a / b) * d
+			};
+			[rho theta].fromPolarCoordinates
+		}
+	}
+
 	foliumOfDescartes { :a |
 		{ :theta |
 			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cubed + theta.cos.cubed);
@@ -184,6 +199,17 @@
 				m * t * t.cot,
 				m * t
 			]
+		}
+	}
+
+	reuleauxPolygonCurve { :n |
+		{ :theta |
+			let a = n * (theta - 1.pi) / 2.pi + 0.5;
+			let b = 2.pi * a.floor / n;
+			let c = (theta - b).cos;
+			let d = 2 * (1.pi / n).cos;
+			let r = c + (1 + d + (c ^ 2)).sqrt;
+			[r theta].fromPolarCoordinates
 		}
 	}
 

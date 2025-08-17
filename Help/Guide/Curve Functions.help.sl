@@ -13,6 +13,7 @@ Algebraic Curve Functions:
 - `epicycloid`
 - `epitrochoid`
 - `eulerSpiral`
+- `fernandezGuastiSquircle`
 - `foliumOfDescartes`
 - `galileanSpiral`
 - `gompertzFunction`
@@ -26,6 +27,7 @@ Algebraic Curve Functions:
 - `logarithmicSpiral`
 - `norwichSpiral`
 - `quadratrixOfHippias`
+- `reuleauxPolygonCurve`
 - `rhodonea`
 - `richardsCurve`
 - `satelliteCurve`
