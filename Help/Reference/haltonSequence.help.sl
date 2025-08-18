@@ -21,20 +21,37 @@ The _(2,3)_ Halton sequence:
 ]
 ```
 
+The _(2,3,5)_ Halton sequence:
+
+```
+>>> [2 3 5].haltonSequence(9)
+[
+	 1/2   1/3   1/5;
+	 1/4   2/3   2/5;
+	 3/4   1/9   3/5;
+	 1/8   4/9   4/5;
+	 5/8   7/9  1/25;
+	 3/8   2/9  6/25;
+	 7/8   5/9 11/25;
+	1/16   8/9 16/25;
+	9/16  1/27 21/25
+]
+```
+
 Relation to `vanDerCorputNumber`:
 
 ```
->>> [2].haltonSequence(9).++
-[1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
+>>> [2 3].haltonSequence(8).transposed
+[
+	1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16;
+	1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9
+]
 
->>> 1:9.vanDerCorputNumber(2)
-[1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
+>>> 1:8.vanDerCorputNumber(2)
+[1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16]
 
->>> [3].haltonSequence(9).++
-[1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9 1/27]
-
->>> 1:9.vanDerCorputNumber(3)
-[1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9 1/27]
+>>> 1:8.vanDerCorputNumber(3)
+[1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9]
 ```
 
 Plot first few terms of the _2,3_ Halton sequence:
@@ -44,6 +61,14 @@ Plot first few terms of the _2,3_ Halton sequence:
 ~~~
 
 ![](sw/spl/Help/Image/haltonSequence-A.svg)
+
+As _b_ increases sample values can exhibit surprisingly regular patterns:
+
+~~~spl svg=B
+[29 31].haltonSequence(100).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/haltonSequence-B.svg)
 
 * * *
 

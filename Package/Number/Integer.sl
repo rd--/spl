@@ -702,6 +702,10 @@
 		}
 	}
 
+	isHarmonicDivisorNumber { :n |
+		isInteger(n * divisorSigma(0, n) / divisorSigma(1, n))
+	}
+
 	isHighlyCompositeNumber { :self |
 		let n = 0.divisorSigma(self);
 		1.to(self - 1).allSatisfy { :each |

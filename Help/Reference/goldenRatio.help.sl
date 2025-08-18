@@ -171,6 +171,18 @@ let z = phi - 1;
 
 ![](sw/spl/Help/Image/goldenRatio-C.svg)
 
+A low discrepancy quasirandom sequence:
+
+~~~spl svg=D
+let phi = 1.goldenRatio;
+let a = 1 / phi;
+1:100.collect { :n |
+	(0.5 + (a * n)) % 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-D.svg)
+
 * * *
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio

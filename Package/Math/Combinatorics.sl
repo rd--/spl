@@ -56,6 +56,10 @@
 		}
 	}
 
+	fibonacciFactorial { :self |
+		self.fibonacciSequence.product
+	}
+
 	hyperfactorial { :self |
 		self.isInteger.if {
 			(self.one .. self).collect { :k | k ^ k }.product

@@ -1,8 +1,8 @@
 # vanDerLaanSequence
 
-- _vanDerLaanSequence(anInteger)_
+- _vanDerLaanSequence(n)_
 
-Answer the first _anInteger_ items of the van der Laan sequence.
+Answer the first _n_ terms of the van der Laan sequence.
 
 The first 23 entries, c.f. OEIS A182097:
 

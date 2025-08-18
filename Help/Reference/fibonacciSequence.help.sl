@@ -77,9 +77,22 @@ Closed form, see also `binetsFormula`:
 [1 1 2 3 5 8 13 21 34 55 89 144 233]
 ```
 
+The multiplicative dual of the Fibonacci sequence,
+OEIS [007660](https://oeis.org/A007660):
+
+```
+>>> { :a :n |
+>>> 	a[n - 1] * a[n - 2] + 1
+>>> }.recurrenceTable([0 0], 13)
+[
+	0 0 1 1 2 3 7 22 155 3411
+	528706 1803416167 953476947989903
+]
+```
+
 * * *
 
-See also: binetsFormula, fibonacci, fibonacciWord, goldenRatio, pellNumbers
+See also: binetsFormula, fibonacci, fibonacciWord, goldenRatio, linearRecurrence, pellNumbers
 
 Guides: Integer Sequences, Mathematical Sequences
 

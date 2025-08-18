@@ -1,8 +1,9 @@
 # padovanSequence
 
-- _padovanSequence(anInteger, initialSequence)_
+- _padovanSequence(n, [x₁ x₂ …])_
 
-Answer the first _anInteger_ elements of the Padovan sequence.
+Answer the first _n_ elements of the Padovan sequence,
+given initial terms _x_.
 This is the same recurrence relation as for the `perrinSequence`,
 but with different initial conditions.
 

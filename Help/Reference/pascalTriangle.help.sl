@@ -2,7 +2,8 @@
 
 - _pascalTriangle(n)_
 
-Answer the first _n_ rows of Pascal’s triangle.
+Answer the first _n_ rows of Pascal’s triangle,
+also known as meru-prastāra, مثلث خیام and Yang Hui’s Triangle
 
 The first eleven rows:
 
@@ -22,6 +23,13 @@ The first eleven rows:
 	1 10 45 120 210 252 210 120 45 10 1
 ]
 ```
+
+linearRecurrence([0 1 1], [1 1 1], 30)
+
+The diagonals as linear recurrences:
+
+```
+
 
 A `log` scaled scatter plot of the row-order sequence,
 c.f. OEIS [A007318](https://oeis.org/A007318):

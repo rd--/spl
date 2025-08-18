@@ -43,6 +43,8 @@ See also: BezierCurve, Circle, Line, Point, Polygon, Rectangle, Triangle, vertex
 Guides: Geometry Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/PointSet.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Point_cloud)
 

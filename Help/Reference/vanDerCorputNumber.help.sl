@@ -81,8 +81,8 @@ n.integerDigits(k).reversed.fromDigits(k)
 Plot decimal sequence:
 
 ~~~spl svg=A
-let v = 1:300.vanDerCorputNumber(10);
-v.asFloat.linePlot
+1:100.vanDerCorputNumber(10)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-A.svg)
@@ -90,8 +90,9 @@ v.asFloat.linePlot
 Plot numerators of decimal sequence:
 
 ~~~spl svg=B
-let v = 1:300.vanDerCorputNumber(10);
-v.numerator.linePlot
+1:100.vanDerCorputNumber(10)
+.numerator
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-B.svg)
@@ -106,19 +107,39 @@ Plot the binary radical inverse:
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-C.svg)
 
-Progressive filling of the interval _(0,1)_:
+Plot progressive filling of the interval _(0,1)_:
 
 ~~~spl svg=D
-1:200.collect { :i |
+1:100.collect { :i |
 	[i.vanDerCorputNumber(10), i]
 }.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-D.svg)
 
+Plot sorted binary sequence of length 2⁶:
+
+~~~spl svg=E
+1:64.vanDerCorputNumber(2)
+.sort
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-E.svg)
+
+Show decimal sequence at length hafway between 10ⁱ and 10²:
+
+~~~spl svg=F
+1:55.vanDerCorputNumber(10)
+.sort
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-F.svg)
+
 * * *
 
-See also: fromDigits, integerDigits
+See also: fromDigits, haltonSequence, integerDigits
 
 Guides: Integer Sequences
 

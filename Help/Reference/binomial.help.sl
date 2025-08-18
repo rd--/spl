@@ -6,6 +6,8 @@ The binomial coefficients are the positive integers that occur as coefficients i
 Commonly, a binomial coefficient is indexed by a pair of integers _n ≥ k ≥ 0_.
 Tells the number of combinations of _n_ elements taken _k_ at a time.
 
+With positive integer _n_ and _k_:
+
 ```
 >>> 4.binomial(2)
 6
@@ -17,6 +19,15 @@ Tells the number of combinations of _n_ elements taken _k_ at a time.
 70
 
 >>> 8.binomial(5)
+56
+```
+
+Relation to `factorial`:
+
+```
+>>> let n = 8;
+>>> let k = 5;
+>>> n.! / (k.! * (n - k).!)
 56
 ```
 
@@ -137,6 +148,30 @@ One of a family of integer sequences (OEIS A006542):
 	2395575 2992626 3708810 4562425
 	5573800 6765440 8162176 9791320
 	11682825 13869450
+]
+```
+
+Triangle of trinomial coefficients,
+OEIS [A027907](https://oeis.org/A027907):
+
+```
+>>> (0 .. 6).collect { :n |
+>>> 	(0 .. 2 * n).collect { :k |
+>>> 		0:n.sum { :i |
+>>> 			binomial(n, i)
+>>> 			*
+>>> 			binomial(n - i, k - (2 * i))
+>>> 		}
+>>> 	}
+>>> }
+[
+	1;
+	1 1 1;
+	1 2 3 2 1;
+	1 3 6 7 6 3 1;
+	1 4 10 16 19 16 10 4 1;
+	1 5 15 30 45 51 45 30 15 5 1;
+	1 6 21 50 90 126 141 126 90 50 21 6 1;
 ]
 ```
 
