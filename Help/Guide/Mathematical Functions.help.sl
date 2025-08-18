@@ -216,6 +216,12 @@
 
 - `Interpolation Functions`: Guide
 
+## Low-discrepancy Sequences
+
+- `haltonSequence`
+- `hammersleyPointSet`
+- `vanDerCorputNumber`
+
 ## One-Dimensional Lists
 
 - `Range`: range of values in equal steps

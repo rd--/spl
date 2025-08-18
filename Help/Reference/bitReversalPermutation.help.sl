@@ -21,7 +21,10 @@ Repeating the same permutation twice returns to the original ordering,
 that is the bit reversal permutation is an involution:
 
 ```
->>> let p = [1 9 5 13 3 11 7 15 2 10 6 14 4 12 8 16];
+>>> let p = [
+>>> 	1  9  5 13  3 11  7 15  2 10
+>>> 	6 14  4 12  8 16
+>>> ];
 >>> p.permute(p)
 [1 .. 16]
 ```

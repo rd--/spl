@@ -1576,6 +1576,17 @@
 		}
 	}
 
+	isPalindrome { :self |
+		let k = self.size;
+		(k < 2).if {
+			true
+		} {
+			(1 .. k // 2).allSatisfy { :i |
+				self[i] = self[k + 1 - i]
+			}
+		}
+	}
+
 	isRegularlySpaced { :self |
 		let k = self.size;
 		(k <= 2).if {

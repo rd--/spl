@@ -182,6 +182,10 @@
 		self.collect(fractionPart:/1)
 	}
 
+	fromRomanNumeral { :self |
+		self.collect(fromRomanNumeral:/1)
+	}
+
 	gamma { :self |
 		self.collect(gamma:/1)
 	}
@@ -222,6 +226,10 @@
 
 	integerPart { :self |
 		self.collect(integerPart:/1)
+	}
+
+	integerReverse { :self |
+		self.collect(integerReverse:/1)
 	}
 
 	integerSquareRoot { :self |
@@ -381,6 +389,10 @@
 
 	riemannXi { :self |
 		self.collect(riemannXi:/1)
+	}
+
+	romanNumeral { :self |
+		self.collect(romanNumeral:/1)
 	}
 
 	rounded { :self |

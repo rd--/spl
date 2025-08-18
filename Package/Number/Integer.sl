@@ -203,6 +203,14 @@
 		}
 	}
 
+	digitSum { :self :base |
+		self.integerDigits(base).sum
+	}
+
+	digitSum { :self |
+		self.digitSum(10)
+	}
+
 	dividesImmediately { :self :aNumber |
 		Fraction(self, 1).dividesImmediately(Fraction(aNumber, 1))
 	}
@@ -612,6 +620,14 @@
 		}
 	}
 
+	integerReverse { :self :base |
+		self.integerDigits(base).reverse.fromDigits(base)
+	}
+
+	integerReverse { :self |
+		self.integerReverse(10)
+	}
+
 	integerSquareRoot { :self |
 		(self < 0).if {
 			self.error('integerSquareRoot: negative')
@@ -635,6 +651,14 @@
 			};
 			r
 		}
+	}
+
+	integerString { :self :radix |
+		self.basicPrintString(radix)
+	}
+
+	integerString { :self |
+		self.integerString(10)
 	}
 
 	isAbundantNumber { :n |
@@ -687,6 +711,10 @@
 
 	isInteger { :self |
 		self.typeResponsibility('@Integer>>isInteger')
+	}
+
+	isPalindrome { :self |
+		self.integerDigits.isPalindrome
 	}
 
 	isPerfectNumber { :self |
@@ -1091,12 +1119,6 @@
 		self.printString(16)
 	}
 
-	printStringRoman { :self |
-		{ :stream |
-			romanDigitsOn(self, stream)
-		}.asciiStringStreamContents
-	}
-
 	ramanujanTau { :n |
 		let a = 65/756 * divisorSigma(11, n);
 		let b = 691/756 * divisorSigma(5, n);
@@ -1143,6 +1165,16 @@
 		integer.romanDigitsForOn('MDC'.asciiByteArray, 100, aStream);
 		integer.romanDigitsForOn('CLX'.asciiByteArray, 10, aStream);
 		integer.romanDigitsForOn('XVI'.asciiByteArray, 1, aStream)
+	}
+
+	romanNumeral { :self |
+		self.isZero.if {
+			'N'
+		} {
+			{ :stream |
+				romanDigitsOn(self, stream)
+			}.asciiStringStreamContents
+		}
 	}
 
 	rudinShapiro { :n |

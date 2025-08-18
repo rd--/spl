@@ -45,7 +45,7 @@ Converting:
 
 * * *
 
-Guides: Boolean Functions, Logical Operators, Mathematical Functions
+Guides: Boolean Functions, Integer Functions, Logical Operators, Mathematical Functions
 
 References:
 _W_

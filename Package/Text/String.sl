@@ -455,6 +455,27 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		}
 	}
 
+	fromRomanNumeral { :self |
+		(self = 'N').if {
+			0
+		} {
+			let value = 0;
+			let v1 = 0;
+			let v2 = 0;
+			let letters = 'IVXLCDM'.asciiByteArray;
+			self.asciiByteArray.reverseDo { :each |
+				v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
+				(v1 >= v2).if {
+					value := value + v1
+				} {
+					value := value - v1
+				};
+				v2 := v1
+			};
+			value
+		}
+	}
+
 	includes { :self :aCharacter |
 		self.characterList.includes(aCharacter.asCharacter)
 	}
@@ -565,6 +586,10 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	isAscii { :self |
 		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+	}
+
+	isPalindrome { :self |
+		self.contents.isPalindrome
 	}
 
 	isPrintableAscii { :self |
@@ -787,23 +812,6 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	reversed { :self |
 		self.onCharacters(reversed:/1)
-	}
-
-	romanNumber { :self |
-		let value = 0;
-		let v1 = 0;
-		let v2 = 0;
-		let letters = 'IVXLCDM'.asciiByteArray;
-		self.asciiByteArray.reverseDo { :each |
-			v1 := [1, 5, 10, 50, 100, 500, 1000].at(letters.indexOf(each));
-			(v1 >= v2).if {
-				value := value + v1
-			} {
-				value := value - v1
-			};
-			v2 := v1
-		};
-		value
 	}
 
 	select { :self :aBlock:/1 |

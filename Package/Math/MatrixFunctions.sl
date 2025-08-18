@@ -1379,6 +1379,23 @@
 		}.table(1:m, 1:n)
 	}
 
+	pascalMatrix { :n :l |
+		let m = (0 .. n - 1);
+		l.caseOf([
+			'LowerTriangular' -> { binomial:/2 },
+			'UpperTriangular' -> { binomial:/2.swap },
+			'Symmetric' -> {
+				{ :i :j |
+					binomial(i + j, j)
+				}
+			}
+		]).table(m, m)
+	}
+
+	pascalMatrix { :n |
+		pascalMatrix(n, 'Symmetric')
+	}
+
 	walshMatrix { :n |
 		let h = n.hadamardMatrix;
 		let z = h.collect(zeroCrossingCount:/1);

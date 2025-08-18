@@ -1,8 +1,8 @@
 # swap
 
-- _swap(aBlock:/2)_
+- _swap(f:/2)_
 
-Answer a block that applies _aBlock_ with the arguments reversed.
+Answer a block that applies the block _f_ with the arguments reversed.
 
 ```
 >>> 3 - 1

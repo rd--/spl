@@ -64,6 +64,7 @@ Constructing:
 - `hadamardMatrix`: Hadamard matrix
 - `hilbertMatrix`: Hilbert matrix
 - `identityMatrix`: identity matrix
+- `pascalMatrix`
 - `permutationMatrix`: permutation matrix
 - `recurrenceMatrix`: recurrence matrix
 - `singleEntryMatrix`

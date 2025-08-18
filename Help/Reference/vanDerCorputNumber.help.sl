@@ -4,6 +4,28 @@
 
 A van der Corput sequence is a low-discrepancy sequence over the unit interval,
 first published in 1935 by the Dutch mathematician J. G. van der Corput.
+This function is also called the radical inverse.
+
+The base-10 radical inverse of 42:
+
+```
+>>> 42.vanDerCorputNumber(10)
+6/25
+```
+
+The base-2 radical inverse of 42:
+
+```
+>>> 42.vanDerCorputNumber(2)
+21/64
+```
+
+Threads over lists:
+
+```
+>>> [31 32 33].vanDerCorputNumber(2)
+[31/32 1/64 33/64]
+```
 
 Binary van der Corput sequence (OEIS A030101):
 
@@ -74,6 +96,26 @@ v.numerator.linePlot
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-B.svg)
 
+Plot the binary radical inverse:
+
+~~~spl svg=C
+1:100
+.vanDerCorputNumber(2)
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-C.svg)
+
+Progressive filling of the interval _(0,1)_:
+
+~~~spl svg=D
+1:200.collect { :i |
+	[i.vanDerCorputNumber(10), i]
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-D.svg)
+
 * * *
 
 See also: fromDigits, integerDigits
@@ -88,5 +130,7 @@ _OEIS_
 [2](https://oeis.org/A030102),
 _W_
 [1](https://en.wikipedia.org/wiki/Van_der_Corput_sequence)
+
+Further Reading: van der Corput 1935
 
 Categories: Math, Sequence

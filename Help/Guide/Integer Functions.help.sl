@@ -52,11 +52,13 @@ Integer Decompositions:
 
 Digit-Related Functions:
 
-- `integerDigits`
-- `fromDigits`
-- `integerLength`
 - `digitCount`
+- `digitSum`
+- `fromDigits`
+- `integerDigits`
 - `integerExponent`
+- `integerLength`
+- `integerReverse`
 
 Digit-Based Substitution System Functions:
 
