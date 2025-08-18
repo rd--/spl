@@ -1,10 +1,10 @@
 # include
 
-- _include(aCollection, newObject)_
+- _include(c, x)_
 
-Include _newObject_ as one of the elements of _aCollection_.
-After including an entry, the _size_ of the collection may increases by one, or may stay the same.
-Answers _newObject_.
+Include the object _x_ as one of the elements of the collection _c_.
+After including an entry, the `size` of the collection may increases by one, or may stay the same.
+Answers _x_.
 
 ```
 >>> let r = Map();

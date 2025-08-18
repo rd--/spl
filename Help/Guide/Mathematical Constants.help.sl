@@ -16,6 +16,7 @@
 - `eulerGamma`: γ
 - `feigenbaumConstant`: δ
 - `fibonacciFactorialConstant`: _F_
+- `freimansConstant`: _F_
 - `gausssConstant`: G
 - `gelfondsConstant`
 - `glaisher`: _A_

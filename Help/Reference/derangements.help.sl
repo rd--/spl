@@ -1,8 +1,8 @@
 # derangements
 
-- _derangements(aSequence)_
+- _derangements([x₁ x₂ …])_
 
-Answer a `List` of the derangements of _aSequence_.
+Answer a `List` of the derangements of the sequence _x_.
 A derangement is a permutation in which no item appears in it’s original place.
 
 ```
@@ -28,6 +28,10 @@ The number of derangements of _n_ distinct items is the `subfactorial` of _n_.
 
 See also: permutations, subfactorial
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Derangement.html)
+[1](https://mathworld.wolfram.com/Derangement.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Derangement)

@@ -376,6 +376,34 @@ OEIS [A017827](https://oeis.org/A017827):
 ]
 ```
 
+Odd indexed Pell numbers,
+OEIS [A001653](https://oeis.org/A001653):
+
+```
+>>> linearRecurrence([6 -1], [1 5], 9)
+[
+	1 5 29 169 985
+	5741 33461 195025 1136689
+]
+
+>>> (1, 3 .. 17).pellNumber
+[
+	1 5 29 169 985
+	5741 33461 195025 1136689
+]
+```
+
+Odd indexed Fibonacci numbers,
+OEIS [A001519](https://oeis.org/A001519):
+
+```
+>>> linearRecurrence([3 -1], [1 1], 9)
+[1 1 2 5 13 34 89 233 610]
+
+>>> (-1, 1 .. 15).fibonacci
+[1 1 2 5 13 34 89 233 610]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

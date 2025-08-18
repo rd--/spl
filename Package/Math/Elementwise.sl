@@ -341,6 +341,10 @@
 		self.collect(partitionsQ:/1)
 	}
 
+	pellNumber { :self |
+		self.collect(pellNumber:/1)
+	}
+
 	pi { :self |
 		self.collect(pi:/1)
 	}

@@ -16,6 +16,9 @@ Real valued input:
 ```
 >>> (15 / 17).fibonacci
 0.95652
+
+>>> -1.fibonacci
+1
 ```
 
 Value at `zero`:
@@ -35,6 +38,9 @@ Threads over lists:
 	89 144 233 377 610
 	987 1597 2584 4181 6765
 ]
+
+>>> [-1, 1 .. 13].fibonacci
+[1 1 2 5 13 34 89 233]
 ```
 
 Fibonomial coefficients:

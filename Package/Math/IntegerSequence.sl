@@ -336,7 +336,7 @@
 	pellNumber { :self |
 		let n = self;
 		let x = 2.sqrt;
-		(((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)
+		((((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)).real
 	}
 
 	pellNumbers { :self |
@@ -555,6 +555,81 @@
 			j := j + 1
 		};
 		answer
+	}
+
+}
+
++List {
+
+	isMarkovTriple { :self |
+		self.squared.sum = (3 * self.product)
+	}
+
+	nextMarkovTriple { :self |
+		let [x, y, z] = self;
+		[x, y, 3 * x * y - z].sort
+	}
+
+	markovTripleNeighbours { :self |
+		let [x, y, z] = self;
+		[
+			[x, y, z].nextMarkovTriple,
+			[x, z, y].nextMarkovTriple,
+			[z, y, x].nextMarkovTriple
+		].nub
+	}
+
+}
+
++@Integer {
+
+	isMarkovNumber { :self |
+		let u = 100.markovNumberSequence;
+		(self > u.max).if {
+			self.error('not implemented')
+		} {
+			u.includes(self)
+		}
+	}
+
+	markovNumber { :self |
+		self.markovNumberSequence.last
+	}
+
+	markovNumberGenerator { :k |
+		let m = SortedList([1]);
+		k.timesRepeat {
+			1.toDo(m.size) { :i |
+				1.toDo(i) { :j |
+					let x = m[i];
+					let y = m[j];
+					let a = (3 * x * y + sqrt((-4 * (x ^ 2)) - (4 * (y ^ 2)) + (9 * (x ^ 2) * (y ^ 2)))) / 2;
+					a.isInteger.ifTrue {
+						m.addIfNotPresent(a)
+					}
+				}
+			}
+		};
+		m.contents
+	}
+
+	markovNumberSequence { :self |
+		/* https://oeis.org/A002559/b002559.txt */
+		[1, 2, 5, 13, 29, 34, 89, 169, 194, 233, 433, 610, 985, 1325, 1597, 2897, 4181, 5741, 6466, 7561, 9077, 10946, 14701, 28657, 33461, 37666, 43261, 51641, 62210, 75025, 96557, 135137, 195025, 196418, 294685, 426389, 499393, 514229, 646018, 925765, 1136689, 1278818, 1346269, 1441889, 1686049, 2012674, 2423525, 2922509, 3276509, 3524578, 4400489, 6625109, 7453378, 8399329, 9227465, 9647009, 11485154, 13782649, 16609837, 16964653, 20031170, 21531778, 24157817, 38613965, 43484701, 48928105, 63245986, 78442645, 94418953, 111242465, 137295677, 144059117, 165580141, 205272962, 225058681, 253191266, 285018617, 298045301, 321534781, 375981346, 433494437, 447626321, 537169541, 576298801, 647072098, 780291637, 941038565, 981277621, 1134903170, 1311738121, 1405695061, 1475706146, 1873012681, 2151239746, 2561077037, 2971215073, 3057250481, 3778847945, 4434764269, 4801489937].first(self)
+	}
+
+	markovNumberTree { :n |
+		n.unfoldTree(
+			[1 1 1],
+			{ :triple |
+				let k = triple.sum;
+				triple
+				.markovTripleNeighbours
+				.select { :each |
+					each.sum > k
+				}
+			}
+		)
 	}
 
 }

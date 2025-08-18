@@ -9,6 +9,13 @@ Answer the _n_-th Pell number, zero-indexed.
 0:8.collect(pellNumber:/1)
 ```
 
+At non-integer values:
+
+```
+>>> 1.25.pellNumber
+1.14703
+```
+
 Approximations of the square root of two:
 
 ```
@@ -37,6 +44,14 @@ Pell numbers can be used to form Pythagorean triples:
 >>> (a, b, c, isPythagoreanTriple(a, b, c))
 (137904, 137903, 195025, true)
 ```
+
+Plot over a subset of the reals:
+
+~~~spl svg=A
+(-2 -- 2).functionPlot(pellNumber:/1)
+~~~
+
+![](sw/spl/Help/Image/pellNumber-A.svg)
 
 * * *
 

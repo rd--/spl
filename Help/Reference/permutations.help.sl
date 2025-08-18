@@ -1,9 +1,8 @@
 # permutations
 
-- _permutations(aSequence, anInteger)_
-- _permutations(α)_ ⇒ _permutations(α, α.size)_
+- _permutations(self, n)_
 
-Answer a `List` of the permutations containing at most _anInteger_ elements of _aSequence_.
+Answer a `List` of the permutations containing at most _n_ elements of the sequence _x_.
 
 The six length three permutations of three elements:
 

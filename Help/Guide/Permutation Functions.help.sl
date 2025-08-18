@@ -14,6 +14,7 @@ Converting:
 
 General:
 
+- `derangements`
 - `lexicographicPermutations`: permutations in lexicographic sequence
 - `minimumChangePermutations`: permutations in minimum change sequence (Heap’s algorithm)
 - `permutations`: permutations
