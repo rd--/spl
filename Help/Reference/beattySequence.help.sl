@@ -73,7 +73,8 @@ Guides: Integer Sequences
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/BeattySequence.html),
+[1](https://mathworld.wolfram.com/BeattySequence.html)
+[2](https://mathworld.wolfram.com/SpectrumSequence.html),
 _OEIS_
 [1](https://oeis.org/A001951)
 [2](https://oeis.org/A001952)

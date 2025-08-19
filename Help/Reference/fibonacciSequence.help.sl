@@ -15,6 +15,13 @@ Answer a `List` of the first _n_ Fibonacci numbers:
 ]
 ```
 
+The limit ratio between consecutive terms is the golden ratio:
+
+```
+>>> 6765 / 4181
+1.goldenRatio
+```
+
 C.f. `fibonacci`:
 
 ```

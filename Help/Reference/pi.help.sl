@@ -173,8 +173,12 @@ Continued fraction:
 [3 22/7 333/106 355/113 103993/33102]
 
 >>> 1.pi.continuedFraction
->>> .semiconvergents(1E-2)
-[2/1 3/1 13/4 16/5 19/6 22/7]
+>>> .semiconvergents(1E-6)
+[
+	2/1 3/1 13/4 16/5 19/6
+	22/7 179/57 201/64 223/71 245/78
+	267/85 289/92 311/99 333/106 355/113
+]
 ```
 
 Euler’s identity:
@@ -199,7 +203,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Pi.html),
 OEIS
 [1](https://oeis.org/A000796)
-[2](https://oeis.org/A001203),
+[2](https://oeis.org/A001203)
+[3](https://oeis.org/A002485)
+[4](https://oeis.org/A002486),
 _Smalltalk_
 5.6.8.10,
 _W_

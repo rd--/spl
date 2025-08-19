@@ -3,47 +3,75 @@
 - _padovanSequence(n, [x₁ x₂ …])_
 
 Answer the first _n_ elements of the Padovan sequence,
-given initial terms _x_.
+given initial terms _x_,
+set to _1,1,1_ if elided.
 This is the same recurrence relation as for the `perrinSequence`,
 but with different initial conditions.
 
 First few places:
 
 ```
->>> 22.padovanSequence([1 1 1])
+>>> 26.padovanSequence
 [
-	  1   1   1   2   2   3   4   5   7   9
-	 12  16  21  28  37  49  65  86 114 151
-	200 265
+	  1   1   1   2   2
+	  3   4   5   7   9
+	 12  16  21  28  37
+	 49  65  86 114 151
+	200 265 351 465 616
+	816
 ]
+
+>>> 22.padovanSequence
+22.padovanSequence([1 1 1])
 ```
 
-Begin sequence with _1 0 0_, c.f. OEIS A000931:
+The limit ratio between consecutive terms is the plastic ratio:
 
 ```
->>> 27.padovanSequence([1 0 0])
+>>> 816 / 616
+1.plasticRatio
+```
+
+Begin sequence with _1 0 0_,
+OEIS [A000931](https://oeis.org/A000931):
+
+```
+>>> 30.padovanSequence([1 0 0])
 [
-	  1   0   0   1   0   1   1   1   2   2
-	  3   4   5   7   9  12  16  21  28  37
-	 49  65  86 114 151 200 265
+	  1   0   0   1   0
+	  1   1   1   2   2
+	  3   4   5   7   9
+	 12  16  21  28  37
+	 49  65  86 114 151
+	200 265 351 465 616
 ]
+
+>>> 616/465
+1.plasticRatio
 ```
 
 The Perrin sequence,
 as given by `perrinFunction`,
 is the same recurrence relation but with the initial sequence _3 0 2_,
-c.f. OEIS A001608:
+OEIS [A001608](https://oeis.org/A001608):
 
 ```
 >>> 27.padovanSequence([3 0 2])
 [
-	   3    0    2    3    2    5    5    7   10   12
-	  17   22   29   39   51   68   90  119  158  209
-	 277  367  486  644  853 1130 1497
+	   3    0    2    3    2
+	   5    5    7   10   12
+	  17   22   29   39   51
+	  68   90  119  158  209
+	 277  367  486  644  853
+	1130 1497
 ]
+
+>>> 1497/1130
+1.plasticRatio
 ```
 
-The Van der Laan sequence, c.f. OEIS A182097:
+The Van der Laan sequence,
+OEIS [A182097]((https://oeis.org/A182097):
 
 ```
 >>> 27.padovanSequence([1 0 1])
@@ -52,14 +80,17 @@ The Van der Laan sequence, c.f. OEIS A182097:
 	  7   9  12  16  21  28  37  49  65  86
 	114 151 200 265 351 465 616
 ]
+
+>>> 616/465
+1.plasticRatio
 ```
 
 Padovan L-system, the size of the sequence at each step gives the Padovan sequence:
 
 ```
->>> let rules = [1 -> [2], 2 -> [3], 3 -> [1 2]].asMap;
->>> let steps = rules.substitutionSystem([1], 8);
->>> (steps.collect(size:/1), steps)
+>>> let r = [1 -> [2], 2 -> [3], 3 -> [1 2]];
+>>> let x = r.substitutionSystem([1], 8);
+>>> (x.collect(size:/1), x)
 (
 	[1 1 1 2 2 3 4 5 7],
 	[

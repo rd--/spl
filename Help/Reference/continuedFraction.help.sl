@@ -98,16 +98,20 @@ The continued fraction of the `goldenRatio` is uniformly one:
 Other low order repeating continued fractions:
 
 ```
->>> (1 + 2.sqrt).continuedFraction(17)
+>>> (1 + 2.sqrt)
+>>> .continuedFraction(17)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
 
->>> ((9 + 221.sqrt) / 10).continuedFraction(17)
+>>> ((9 + 221.sqrt) / 10)
+>>> .continuedFraction(17)
 [2 2 1 1 2 2 1 1 2 2 1 1 2 2 1 1 2]
 
->>> ((23 + 1517.sqrt) / 26).continuedFraction(19)
+>>> ((23 + 1517.sqrt) / 26)
+>>> .continuedFraction(19)
 [2 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 1 1 2]
 
->>> ((5 + 7565.sqrt) / 58).continuedFraction(19)
+>>> ((5 + 7565.sqrt) / 58)
+>>> .continuedFraction(19)
 [1 1 1 2 2 2 2 1 1 2 2 2 2 1 1 2 2 2 2]
 ```
 

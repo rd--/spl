@@ -1,8 +1,8 @@
 # plasticRatio
 
-- _plasticRatio(aNumber)_
+- _plasticRatio(n)_
 
-The plastic ratio (rho) ,
+Answer _n_ times the plastic ratio (rho) ,
 also called the minimal Pisot number or plastic number or plastic constant,
 is the limiting ratio of the successive terms of the Padovan sequence or Perrin sequence.
 
@@ -21,7 +21,7 @@ Powers of rho generate almost integers:
 3480
 ```
 
-The Plastic Number represents the smallest proportional growth of three-dimensional objects:
+The Plastic number represents the smallest proportional growth of three-dimensional objects:
 
 ```
 >>> let p = 1.plasticRatio;
@@ -61,7 +61,7 @@ The plastic ratio is close to the seventh root of seven:
 
 * * *
 
-See also: goldenRatio, metallicMean
+See also: goldenRatio, harmoniousNumber, metallicMean, supergoldenRatio
 
 Guides: Integer Sequences, Mathematical Constants
 

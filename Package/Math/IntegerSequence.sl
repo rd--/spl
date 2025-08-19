@@ -203,6 +203,18 @@
 		1:self.reciprocal.sum
 	}
 
+	harmoniousNumber { :d :n |
+		let x = 2;
+		n.timesRepeat {
+			x := (1 + x) ^ (1 / (d + 1))
+		};
+		x
+	}
+
+	harmoniousNumber { :d |
+		d.harmoniousNumber(25)
+	}
+
 	hofstadterQSequence { :self |
 		let f:/1 = { :n |
 			(n <= 2).if {
@@ -520,6 +532,18 @@
 		}.transposed
 	}
 
+	kroneckerSequence { :alpha :n :k0 |
+		alpha.collect { :each |
+			each.kroneckerSequence(n, k0)
+		}.transposed
+	}
+
+	kroneckerSequence { :alpha :n |
+		alpha.collect { :each |
+			each.kroneckerSequence(n)
+		}.transposed
+	}
+
 	locallyCatenativeSequence { :w :i :n :f |
 		let u = w.copy;
 		let k = i.size;
@@ -541,6 +565,19 @@
 }
 
 +SmallFloat {
+
+	kroneckerSequence { :alpha :n |
+		((0 .. n - 1) * alpha) % 1
+	}
+
+	kroneckerSequence { :alpha :n :k0 |
+		let s = List(n);
+		s[1] := k0;
+		2.toDo(n) { :i |
+			s[i] := (s[i - 1] + alpha) % 1
+		};
+		s
+	}
 
 	tagSystem { :m :r :i :k |
 		let word = i.asList;
@@ -590,6 +627,11 @@
 		} {
 			u.includes(self)
 		}
+	}
+
+	lagrangeNumber { :n |
+		let m = n.markovNumber;
+		(9 - (4 / m.squared)).sqrt
 	}
 
 	markovNumber { :self |

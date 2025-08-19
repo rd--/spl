@@ -46,6 +46,16 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/lucasNumber-A.svg)
 
+Plot modulo _n-1_:
+
+~~~spl svg=B
+1:200.functionPlot { :n |
+	(n + 1).lucasNumber % n
+}
+~~~
+
+![](sw/spl/Help/Image/lucasNumber-B.svg)
+
 * * *
 
 See also: fibonacci, lucasNumbers

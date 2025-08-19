@@ -275,9 +275,30 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.exp(_self)>
 	}
 
+	fibonacci { :n :x |
+		let a = (4 + x.squared).sqrt;
+		let b = x + a;
+		let c = 2 ^ (0 - n);
+		let d = 2 ^ n;
+		let e = b ^ n;
+		let f = b ^ (0 - n);
+		let g = n.pi.cos;
+		let r = ((c * e) - (d * f * g)) / a;
+		(n.isInteger & { x.isInteger }).if {
+			r.rounded
+		} {
+			r
+		}
+	}
+
 	fibonacci { :n |
 		let phi = 1.goldenRatio;
-		((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt
+		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
+		n.isInteger.if {
+			r.rounded
+		} {
+			r
+		}
 	}
 
 	floor { :self |

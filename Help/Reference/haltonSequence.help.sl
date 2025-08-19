@@ -72,7 +72,7 @@ As _b_ increases sample values can exhibit surprisingly regular patterns:
 
 * * *
 
-See also: hammersleyPointSet, poissonDiskSampling, vanDerCorputNumber
+See also: hammersleyPointSet, kroneckerSequence, poissonDiskSampling, vanDerCorputNumber
 
 Guides: Integer Sequences
 

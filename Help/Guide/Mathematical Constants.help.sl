@@ -34,7 +34,7 @@
 - `meisselMertensConstant`: B₁
 - `omegaConstant`: Ω
 - `pi`: π
-- `plasticRatio`
+- `plasticRatio`: _P_
 - `pythagorasConstant`: √2
 - `reciprocalFibonacciConstant`
 - `secondFeigenbaumConstant`: α

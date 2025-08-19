@@ -1,6 +1,6 @@
 # fibonacci
 
-- _fibonacci(n)_
+- _fibonacci(n, x=1)_
 
 Answer the _n_-th Fibonacci number, _F(n)_.
 
@@ -9,23 +9,64 @@ The eighth Fibonacci number:
 ```
 >>> 8.fibonacci
 21
+
+>>> 8.fibonacci(2)
+408
 ```
 
-Real valued input:
+At integer values:
+
+```
+>>> 3.fibonacci
+2
+
+>>> 3.fibonacci(2)
+5
+```
+
+At non-integer real values:
 
 ```
 >>> (15 / 17).fibonacci
 0.95652
 
->>> -1.fibonacci
-1
+>>> (15 / 17).fibonacci(2)
+0.92096
+
+>>> 5.8.fibonacci
+7.26639
+
+>>> 5.8.fibonacci(3)
+283.483
 ```
 
 Value at `zero`:
 
 ```
+>>> 1.fibonacci(0)
+1
+
 >>> 0.fibonacci
 0
+```
+
+At negative `one`:
+
+```
+>>> -1.fibonacci
+1
+
+>>> -1.fibonacci(1)
+1
+```
+
+Values at fixed points:
+
+```
+>>> 1:5.collect { :x |
+>>> 	fibonacci(3, x)
+>>> }
+[2 5 10 17 26]
 ```
 
 Threads over lists:
@@ -64,6 +105,73 @@ Fibonomial coefficients:
 ]
 ```
 
+The sequence of _F(n)%m_ is periodic with respect to _n_ for a fixed natural number _m_:
+
+```
+>>> 0:15.collect { :n |
+>>> 	let m = n + 16;
+>>> 	(m.fibonacci - n.fibonacci) % 7
+>>> }
+0 # 16
+```
+
+With _x=2_ answers the Pell numbers,
+OEIS [A000129](https://oeis.org/A000129):
+
+```
+>>> 0:15.collect { :n |
+>>> 	fibonacci(n, 2)
+>>> }
+[
+	     0    1     2     5    12
+	    29   70   169   408   985
+	  2378 5741 13860 33461 80782
+	195025
+]
+```
+
+With _x=3_,
+OEIS [A006190](https://oeis.org/A006190):
+
+```
+>>> 0:13.collect { :n |
+>>> 	fibonacci(n, 3)
+>>> }
+[
+	    0      1      3      10      33
+	  109    360   1189    3927   12970
+	42837 141481 467280 1543321
+]
+```
+
+With _x=4_,
+OEIS [A001076](https://oeis.org/A001076):
+
+```
+>>> 0:13.collect { :n |
+>>> 	fibonacci(n, 4)
+>>> }
+[
+	     0       1       4       17    72
+	   305    1292    5473    23184 98209
+	416020 1762289 7465176 31622993
+]
+```
+
+With _x=5_,
+OEIS [A052918](https://oeis.org/A052918)
+
+```
+>>> 1:23.collect { :n |
+>>> 	fibonacci(n, 5)
+>>> }
+[
+	1 5 26 135 701
+	3640 18901 98145 509626 2646275
+	13741001 71351280 370497401
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -72,7 +180,7 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/fibonacci-A.svg)
 
-The sequence of _F(n) % m_ is periodic with respect to _n_ for a fixed natural number _m_:
+Plot modulo seven, period is sixteen:
 
 ~~~spl svg=B
 (0:35.fibonacci % 7).discretePlot
@@ -114,9 +222,35 @@ Plot over a larger subset of the reals:
 (-7.5 -- 7.5).functionPlot(fibonacci:/1)
 ~~~
 
+![](sw/spl/Help/Image/fibonacci-F.svg)
+
+Plot with _n=0.5_:
+
+~~~spl svg=G
+(-10 -- 10).functionPlot { :x |
+	fibonacci(0.5, x)
+}
+~~~
+
+![](sw/spl/Help/Image/fibonacci-G.svg)
+
+Plot the Fibonacci polynomial for various orders:
+
+~~~spl svg=H
+(-2 -- 2).functionPlot(
+	1:4.collect { :n |
+		{ :x |
+			fibonacci(n, x)
+		}
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/fibonacci-H.svg)
+
 * * *
 
-See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio
+See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio, lucasNumber
 
 Guides: Integer Functions, Integer Sequences
 

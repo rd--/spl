@@ -211,19 +211,22 @@ also Erv Wilson’s Meru 2,
 OEIS [A000930](https://oeis.org/A000930):
 
 ```
->>> linearRecurrence([1 0 1], [1 1 1], 17)
+>>> linearRecurrence([1 0 1], [1 1 1], 19)
 [
 	  1   1   1   2   3
 	  4   6   9  13  19
 	 28  41  60  88 129
-	189 277
+	189 277 406 595
 ]
+
+>>> 595 / 406
+1.supergoldenRatio
 ```
 
 The third, fourth and fifth sequences in the series beginning Fibonacci sequence, Padovan sequence,
 OEIS [A079398](https://oeis.org/A079398) &
-OEIS[A103372](https://oeis.org/A103372) &
-:
+OEIS [A103372](https://oeis.org/A103372) &
+OEIS [A103373](https://oeis.org/A103373):
 
 ```
 >>> linearRecurrence([0 0 1 1], [0 1 1 1], 30)
@@ -293,6 +296,9 @@ OEIS [A134816](https://oeis.org/A134816):
 	200  265  351  465  616
 	816 1081 1432 1897 2513
 ]
+
+>>> 2513 / 1897
+1.plasticRatio
 ```
 
 Erv Wilson’s Meru 4,
@@ -308,18 +314,29 @@ OEIS [A003269](https://oeis.org/A003269):
 	 250  345  476  657  907
 	1252 1728 2385 3292 4544
 ]
+
+>>> 4544 / 3292
+1.380277
 ```
 
 Erv Wilson’s Meru 5,
 OEIS [A017817](https://oeis.org/A017817):
 
 ```
->>> linearRecurrence([0 0 1 1], [1 0 0 1], 30)
+>>> linearRecurrence([0 0 1 1], [1 0 0 1], 40)
 [
-	 1  0  0  1  1  0  1  2  1  1
-	 3  3  2  4  6  5  6 10 11 11
-	16 21 22 27 37 43 49 64 80 92
+	  1   0   0   1   1
+	  0   1   2   1   1
+	  3   3   2   4   6
+	  5   6  10  11  11
+	 16  21  22  27  37
+	 43  49  64  80  92
+	113 144 172 205 257
+	316 377 462 573 693
 ]
+
+>>> 89404037 / 73237462
+3.harmoniousNumber
 ```
 
 Erv Wilson’s Meru 6,

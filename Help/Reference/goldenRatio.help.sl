@@ -48,7 +48,19 @@ and therefore phi and its inverse have equal fraction parts:
 
 ```
 >>> let phi = 1.goldenRatio;
->>> phi.squared - phi - 1
+>>> (phi ^ 2) - phi - 1
+0
+```
+
+The family of constants given by this family of polynomials is called the harmonious numbers:
+
+```
+>>> let k = 2.harmoniousNumber;
+>>> (k ^ 3) - k - 1
+0
+
+>>> let k = 3.harmoniousNumber;
+>>> (k ^ 4) - k - 1
 0
 ```
 
@@ -185,7 +197,7 @@ let a = 1 / phi;
 
 * * *
 
-See also: e, fibonacci, fibonacciSequence, goldenAngle, metallicMean, pi, plasticRatio, supergoldenRatio
+See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, pi, plasticRatio, supergoldenRatio
 
 Guides: Mathematical Constants, Xenharmonic Functions
 
@@ -194,6 +206,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
 [2](https://mathworld.wolfram.com/GoldenRectangle.html)
 [3](https://reference.wolfram.com/language/ref/GoldenRatio.html),
+_OEIS_
+[1](https://oeis.org/A001622),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio),
 _Xenharmonic_

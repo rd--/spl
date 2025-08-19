@@ -23,10 +23,14 @@ Reconstructs a number from the list of its continued fraction terms.
 Rational approximations to golden ratio:
 
 ```
->>> 1:9.collect { :k |
+>>> 1:14.collect { :k |
 >>> 	(1 # k).fromContinuedFraction
 >>> }
-[1 2 3/2 5/3 8/5 13/8 21/13 34/21 55/34]
+[
+	1 2 3/2 5/3 8/5
+	13/8 21/13 34/21 55/34 89/55
+	144/89 233/144 377/233 610/377
+]
 
 >>> (55 / 34).roundTo(0.001)
 1.618
