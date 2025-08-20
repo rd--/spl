@@ -16,6 +16,7 @@ Algebraic Curve Functions:
 - `fernandezGuastiSquircle`
 - `foliumOfDescartes`
 - `galileanSpiral`
+- `geocentricOrbitCurve`
 - `gompertzFunction`
 - `hippopede`
 - `hypocycloid`

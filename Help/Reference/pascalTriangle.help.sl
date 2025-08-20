@@ -24,15 +24,31 @@ The first eleven rows:
 ]
 ```
 
-linearRecurrence([0 1 1], [1 1 1], 30)
-
-The diagonals as linear recurrences:
+The number of odd entries in the first _n_ rows of Pascal’s triangle is given by Gould’s sequence,
+OEIS [A001316](https://oeis.org/A001316):
 
 ```
+>>> 11.gouldsSequence
+[1 2 2 4 2 4 4 8 2 4 4]
+```
 
+The sums of the number of odd entries in the first _n_ rows of Pascal’s triangle,
+OEIS [A006046](https://oeis.org/A006046):
+
+```
+>>> 0:11.collect { :n |
+>>> 	n.pascalTriangle.collect { :each |
+>>> 		each.count(isOdd:/1)
+>>> 	}.sum
+>>> }
+[0 1 3 5 9 11 15 19 27 29 33 37]
+
+>>> 11.gouldsSequence.prefixSum
+[1 3 5 9 11 15 19 27 29 33 37]
+```
 
 A `log` scaled scatter plot of the row-order sequence,
-c.f. OEIS [A007318](https://oeis.org/A007318):
+OEIS [A007318](https://oeis.org/A007318):
 
 ~~~spl svg=A
 21.pascalTriangle
@@ -45,7 +61,7 @@ c.f. OEIS [A007318](https://oeis.org/A007318):
 
 * * *
 
-See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, table, triangularNumber
+See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, stolarskyHarborthConstant, table, triangularNumber
 
 Guides: Integer Sequences
 
@@ -53,6 +69,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PascalsTriangle.html),
 _OEIS_
-[1](https://oeis.org/A007318),
+[1](https://oeis.org/A007318)
+[2](http://oeis.org/A006046),
 _W_
 [1](https://en.wikipedia.org/wiki/Pascal%27s_triangle)

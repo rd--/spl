@@ -162,7 +162,7 @@ With _x=5_,
 OEIS [A052918](https://oeis.org/A052918)
 
 ```
->>> 1:23.collect { :n |
+>>> 1:13.collect { :n |
 >>> 	fibonacci(n, 5)
 >>> }
 [

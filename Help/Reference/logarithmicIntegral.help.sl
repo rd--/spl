@@ -7,9 +7,6 @@ Calculated using a series expansion due to Ramanujan,
 with the limit set to nine.
 
 ```
->>> 2.logarithmicIntegral
-1.0452
-
 >>> [1.2, 1.5, 1.8].collect { :each |
 >>> 	each.logarithmicIntegral
 >>> }
@@ -17,6 +14,14 @@ with the limit set to nine.
 
 >>> 0.5.logarithmicIntegral
 -0.37867
+```
+
+At two,
+OEIS [A069284](https://oeis.org/A069284):
+
+```
+>>> 2.logarithmicIntegral
+1.045163
 ```
 
 At zero:
@@ -33,7 +38,8 @@ At one:
 false
 ```
 
-Zero of:
+The zero is at Soldner’s constant,
+OEIS [A070769](https://oeis.org/A070769):
 
 ```
 >>> 1.451369.logarithmicIntegral
@@ -53,11 +59,16 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: log, logarithmicIntegralRamanujan
+See also: eulerGamma, log, logarithmicIntegralRamanujan
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LogarithmicIntegral.html)
-[2](https://reference.wolfram.com/language/ref/LogIntegral.html)
+[2](https://reference.wolfram.com/language/ref/LogIntegral.html),
+_OEIS_
+[1](https://oeis.org/A070769)
+[2](https://oeis.org/A069284),
+_W_
+[1](https://en.wikipedia.org/wiki/Logarithmic_integral_function)
 
 Categories: Math

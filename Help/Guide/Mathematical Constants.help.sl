@@ -42,6 +42,7 @@
 - `silverConstant`: _B(7)_
 - `silverRatio`: δs
 - `smallFloatEpsilon`: ε
+- `soldnersConstant`: μ
 - `stieltjesGamma`: γₙ
 - `stolarskyHarborthConstant`: β
 - `supergoldenRatio`: ψ

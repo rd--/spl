@@ -60,7 +60,7 @@ The sequence of Euler numbers modulo a fixed number is periodic:
 
 * * *
 
-See also: bernoulliNumber
+See also: bernoulliNumber, eulerGamma
 
 Guides: Integer Functions, Integer Sequences
 

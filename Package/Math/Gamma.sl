@@ -140,6 +140,10 @@
 		}
 	}
 
+	hadjicostassFormula { :s |
+		gamma(s + 2) * (zeta(s + 2) - (1 / (s + 1)))
+	}
+
 	incompleteGamma { :x :a |
 		(a < 0).if {
 			'incompleteGamma: a must be real and nonnegative'.error

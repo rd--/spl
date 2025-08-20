@@ -79,7 +79,8 @@ Guides: Bitwise Functions, Integer Functions, Integer Sequences
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DigitCount),
+[1](https://mathworld.wolfram.com/DigitCount.html)
+[2](https://reference.wolfram.com/language/ref/DigitCount),
 _OEIS_
 [1](https://oeis.org/A000120)
 [2](https://oeis.org/A006046)

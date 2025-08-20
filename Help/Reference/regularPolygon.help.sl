@@ -1,12 +1,12 @@
 # regularPolygon
 
-- _regularPolygon(n, center, radius, theta)_
+- _regularPolygon(n, c, r, θ)_
 
 Answer a regular `Polygon` of _n_ sides inscribed on a circle
 (the _circumcircle_)
-of _radius_,
-at _center_,
-with initial angle _theta_.
+of radius _r_,
+at center _c_,
+with initial angle _θ_.
 
 The regular four polygon is a diamond:
 
@@ -132,7 +132,8 @@ The `arcLength` of successive regular polygons with radius `one` approximates _2
 
 ~~~spl svg=I
 (3 .. 47).functionPlot { :n |
-	n.regularPolygon([0 0], 1, 0).arcLength
+	n.regularPolygon([0 0], 1, 0)
+	.arcLength
 }
 ~~~
 

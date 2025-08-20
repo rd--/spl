@@ -76,7 +76,8 @@ Compute the Fibonacci numbers:
 
 ```
 >>> 1:20.collect { :n |
->>> 	(1.goldenRatio ^ n / 5.sqrt).rounded
+>>> 	(1.goldenRatio ^ n / 5.sqrt)
+>>>	.rounded
 >>> }
 [
 	1 1 2 3 5 8 13 21 34 55
@@ -170,14 +171,15 @@ Position of ones in a Fibonacci substitution system:
 
 ![](sw/spl/Help/Image/goldenRatio-B.svg)
 
-Draw the golden rectangle:
+Draw the golden rectangle,
+partitioned into a unit square and another golden rectangle:
 
 ~~~spl svg=C
 let phi = 1.goldenRatio;
-let z = phi - 1;
+let y = phi - 1;
 [
 	Rectangle([0 0], [1 phi]),
-	Line([0 z; 1 z])
+	Line([0 y; 1 y])
 ].LineDrawing
 ~~~
 
@@ -195,6 +197,39 @@ let a = 1 / phi;
 
 ![](sw/spl/Help/Image/goldenRatio-D.svg)
 
+A rectangle in proportion √φ partitioned into three similar rectangles:
+
+~~~spl svg=E
+let phi = 1.goldenRatio;
+let a = phi ^ 5/2;
+let b = phi ^ 2;
+let c = phi ^ 1/2;
+[
+	Rectangle([0 0], [a b]),
+	Line([c 0; c b]),
+	Line([0 1; c 1])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-E.svg)
+
+The golden triangle:
+
+~~~spl svg=F
+let phi = 1.goldenRatio;
+sssTriangle(phi, phi, 1)
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-F.svg)
+
+The tips of a pentagram are golden triangles:
+
+~~~spl svg=G
+[0 0].pentagram(1, 1/10.pi)
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-G.svg)
+
 * * *
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, pi, plasticRatio, supergoldenRatio
@@ -205,11 +240,14 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GoldenRatio.html)
 [2](https://mathworld.wolfram.com/GoldenRectangle.html)
-[3](https://reference.wolfram.com/language/ref/GoldenRatio.html),
+[3](https://mathworld.wolfram.com/GoldenTriangle.html)
+[4](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _OEIS_
 [1](https://oeis.org/A001622),
 _W_
-[1](https://en.wikipedia.org/wiki/Golden_ratio),
+[1](https://en.wikipedia.org/wiki/Golden_ratio)
+[2](https://en.wikipedia.org/wiki/Golden_rectangle)
+[3](https://en.wikipedia.org/wiki/Golden_triangle_(mathematics)),
 _Xenharmonic_
 [1](https://en.xen.wiki/w/Acoustic_phi)
 

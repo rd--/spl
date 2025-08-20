@@ -38,11 +38,14 @@ and the next term is equal to their sum plus one:
 
 ```
 >>> 1.supergoldenRatio
->>> .continuedFraction(8)
-[1 2 6 1 3 5 4 22]
+>>> .continuedFraction(12)
+[1 2 6 1 3 5 4 22 1 1 4 1]
 
->>> [1 2 6 1 3].convergents
-[1/1 3/2 19/13 22/15 85/58]
+>>> [1 2 6 1 3 5 4].convergents
+[
+	1/1 3/2 19/13 22/15 85/58
+	447/305 1873/1278
+]
 
 >>> (1.supergoldenRatio ^ 2)
 >>> .continuedFraction(7)
@@ -79,10 +82,17 @@ The sum of the first eight subharmonics:
 3
 ```
 
-Supergolden rectangle:
+The supergolden rectangle,
+partitiond into a unit square and two smaller supergolden rectangles:
 
 ~~~spl svg=A
-Rectangle([0, 0], [1.supergoldenRatio 1])
+let psi = 1.supergoldenRatio;
+let y = psi ^ -3;
+[
+	Rectangle([0, 0], [psi 1]),
+	Line([1 0; 1 1]),
+	Line([1 y; psi y])
+].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/supergoldenRatio-A.svg)
@@ -108,8 +118,14 @@ Guides: Integer Sequences, Mathematical Constants
 Unicode: U+003C8 ψ Greek Small Letter Psi
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/SupergoldenRatio.html)
+[2](https://mathworld.wolfram.com/SupergoldenRectangle.html),
 _OEIS_
-[1](https://oeis.org/A092526),
+[1](https://oeis.org/A092526)
+[2](http://oeis.org/A369346)
+[3](http://oeis.org/A381124)
+[4](http://oeis.org/A381125),
 _W_
 [1](https://en.wikipedia.org/wiki/Supergolden_ratio)
 

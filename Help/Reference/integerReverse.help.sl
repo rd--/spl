@@ -30,7 +30,6 @@ Threads over lists:
 [321 432 543 654]
 ```
 
-
 * * *
 
 See also: bitReversalPermutation, fromDigits, integerDigits, integerLength, isPalindrome, reverse, vanDerCorputNumber

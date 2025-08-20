@@ -195,6 +195,10 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		Polygon([p, p + v1, p + v1 + v2, p + v2])
 	}
 
+	pentagram { :center :radius :theta |
+		starPolygon(5, 2, center, radius, theta)
+	}
+
 	Polygon { :self |
 		(self.depth > 3).if {
 			self.collect(Polygon:/1)
@@ -288,9 +292,9 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
-	starPolygon { :p :q |
+	starPolygon { :p :q :c :r :theta |
 		isCoprime(p, q).if {
-			let v = p.circlePoints([0 0], 1, 0);
+			let v = p.circlePoints(c, r, theta);
 			let i = [1, 1 + q .. p * q].mod(p, 1);
 			Polygon(
 				v.atAll(i) ++ [v.first]
@@ -298,6 +302,10 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		} {
 			[p, q].error('starPolygon: not coprime')
 		}
+	}
+
+	starPolygon { :p :q |
+		starPolygon(p, q, [0 0], 1, 0)
 	}
 
 }

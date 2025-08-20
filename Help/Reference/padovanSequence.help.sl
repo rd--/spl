@@ -71,7 +71,7 @@ OEIS [A001608](https://oeis.org/A001608):
 ```
 
 The Van der Laan sequence,
-OEIS [A182097]((https://oeis.org/A182097):
+OEIS [A182097](https://oeis.org/A182097):
 
 ```
 >>> 27.padovanSequence([1 0 1])

@@ -17,7 +17,6 @@ Sfc32(791742)
 
 ![](sw/spl/Help/Image/circleMap-A.svg)
 
-
 Plot with _k=1,Ω=0.2_:
 
 ~~~spl svg=B

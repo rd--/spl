@@ -83,6 +83,20 @@ Minimum value:
 0.885603
 ```
 
+The _alternating Euler constant_,
+OEIS [A094640](https://oeis.org/A094640),
+and it’s continued fraction,
+OEIS [A094641](https://oeis.org/A094641):
+
+```
+>>> (4 / 1.pi).log
+0.241564
+
+>>> (4 / 1.pi).log
+>>> .continuedFraction(14)
+[0 4 7 6 3 1 1 9 1 1 4 26 1 2]
+```
+
 Plot the Euler gamma function:
 
 ~~~spl svg=A

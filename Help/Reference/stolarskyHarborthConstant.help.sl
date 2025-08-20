@@ -43,7 +43,7 @@ let n = 1:200;
 
 * * *
 
-See also: binomial, digitCount, pascalTriangle
+See also: binomial, blancmangeCurve, digitCount, pascalTriangle, rudinShapiro
 
 Guides: Integer Sequences
 

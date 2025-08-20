@@ -14,7 +14,6 @@ At _s=0_, a circle:
 
 ![](sw/spl/Help/Image/fernandezGuastiSquircle-A.svg)
 
-
 At _s=1_, a square:
 
 ~~~spl svg=B
@@ -24,7 +23,6 @@ At _s=1_, a square:
 ~~~
 
 ![](sw/spl/Help/Image/fernandezGuastiSquircle-B.svg)
-
 
 At _s=0.928_, a squircle:
 

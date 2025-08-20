@@ -9,6 +9,9 @@ Pythagoras’ constant:
 ```
 >>> 2.sqrt
 1.41421
+
+>>> 2 ^ 1/2
+1.41421
 ```
 
 Theodorus’ constant

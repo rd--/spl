@@ -119,6 +119,16 @@
 		}
 	}
 
+	geocentricOrbitCurve { :r |
+		let a = r ^ 2/3;
+		{ :t |
+			let b = t / r;
+			let x = t.sin + (a * b.sin);
+			let y = t.cos + (a * b.cos);
+			[x, y]
+		}
+	}
+
 	hippopede { :a :b |
 		{ :theta |
 			let r = 2 * (a - (b * (theta.sin ^ 2))).sqrt.real;

@@ -1,5 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="146.6" height="100.0" viewBox="-5.000 -5.000 156.557 110.000">
 <g fill="none" stroke="black" stroke-width="0.0050%" transform="translate(0, 100.0000) scale(100.0000, -100.0000)">
 <rect x="0.000" y="0.000" width="1.466" height="1.000" />
+<line x1="1.000" y1="0.000" x2="1.000" y2="1.000" />
+<line x1="1.000" y1="0.318" x2="1.466" y2="0.318" />
 </g>
 </svg>

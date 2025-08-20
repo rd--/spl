@@ -1296,6 +1296,10 @@
 		self * (2.sqrt + 1)
 	}
 
+	soldnersConstant { :self |
+		self * 1.45136923488338105028396848589202744949303228
+	}
+
 	speedOfLight { :self |
 		self * 299792458
 	}

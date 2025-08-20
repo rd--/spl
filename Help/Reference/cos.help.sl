@@ -123,5 +123,4 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Cosine)
 
-
 Categories: Math, Trigonometry

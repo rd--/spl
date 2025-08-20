@@ -28,7 +28,8 @@ with numerical value ~0.5772.
 1.eulerGamma
 ```
 
-The first few terms of the continued fraction:
+The first few terms of the continued fraction,
+OEIS [A00285](https://oeis.org/A00285):
 
 ```
 >>> 1.eulerGamma.continuedFraction(19)
@@ -66,7 +67,9 @@ _Mathematica_
 [1](http://mathworld.wolfram.com/Euler-MascheroniConstant.html)
 [2](https://reference.wolfram.com/language/ref/EulerGamma.html),
 _OEIS_
-[1](https://oeis.org/A002852),
+[1](https://oeis.org/A002852)
+[2](https://oeis.org/A001620)
+[3](https://oeis.org/A094640),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%27s_constant)
 
