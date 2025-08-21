@@ -122,9 +122,24 @@
 	geocentricOrbitCurve { :r |
 		let a = r ^ 2/3;
 		{ :t |
-			let b = t / r;
-			let x = t.sin + (a * b.sin);
-			let y = t.cos + (a * b.cos);
+			let b = t * 2.pi;
+			let c = b / r;
+			let x = b.sin + (a * c.sin);
+			let y = b.cos + (a * c.cos);
+			[x, y]
+		}
+	}
+
+	geocentricOrbitCurve { :tP :rP |
+		let a = 2.pi * (1 - (1 / tP));
+		{ :t |
+			let r = (1 + (rP ^ 2) - (2 * rP * cos(a * t))).sqrt;
+			let b = (rP * sin(a * t)) / r;
+			let c = (1 + (r ^ 2) - (rP ^ 2)) / (2 * r);
+			let d = sin(2.pi * t);
+			let e = cos(2.pi * t);
+			let x = r * ((d * b) - (e * c));
+			let y = r * (0 - ((d * c) + (e * b)));
 			[x, y]
 		}
 	}

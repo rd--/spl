@@ -1,57 +1,56 @@
 # geocentricOrbitCurve
 
-- _geocentricOrbitCurve(r)_
+- _geocentricOrbitCurve(α, β)_
 
-Answer a parametric function that will calculate the apparent geocentric orbit of a planet with orbital ratio _r_.
+Answer a parametric function that will calculate the apparent geocentric orbit of a planet with orbital period ratio _α_ and orbital distance ratio _β_ following a circular orbit.
 
-Apparent geocentric orbit of Venus:
+Apparent geocentric orbit of Venus over eight years:
 
 ~~~spl svg=A
-let venus = 224.701;
-let earth = 365.256;
-(0 -- 8 * 2.pi).discretize(
+let alpha = (224.701 / 365.256);
+let beta = 0.723;
+(0 -- 8).discretize(
 	700,
-	(venus / earth).geocentricOrbitCurve
+	alpha.geocentricOrbitCurve(beta)
 ).Line
 ~~~
 
 ![](sw/spl/Help/Image/geocentricOrbitCurve-A.svg)
 
-Apparent geocentric orbit of Juno:
+Apparent geocentric orbit of Juno over thirteen years:
 
 ~~~spl svg=B
-let earth = 365.256;
-let juno = 1594.627;
-(0 -- 3 * 2.pi).discretize(
-	400,
-	(earth / juno).geocentricOrbitCurve
+let alpha = 1594.627 / 365.256;
+let beta = 2.67;
+(0 -- 13).discretize(
+	700,
+	alpha.geocentricOrbitCurve(beta)
 ).Line
 ~~~
 
 ![](sw/spl/Help/Image/geocentricOrbitCurve-B.svg)
 
-Apparent geocentric orbit of Mars:
+Apparent geocentric orbit of Mars over fifteen years:
 
 ~~~spl svg=C
-let earth = 365.256;
-let mars = 686.980;
-(0 -- 1.05 * 2.pi).discretize(
-	400,
-	(earth / mars).geocentricOrbitCurve
+let alpha = 686.980 / 365.256;
+let beta = 1.523;
+(0 -- 15).discretize(
+	700,
+	alpha.geocentricOrbitCurve(beta)
 ).Line
 ~~~
 
 ![](sw/spl/Help/Image/geocentricOrbitCurve-C.svg)
 
-Apparent geocentric orbit of Mercury:
+Apparent geocentric orbit of Mercury over six years:
 
 ~~~spl svg=D
-let mercury = 87.969;
-let earth = 365.256;
-(0 -- 6 * 2.pi).discretize(
+let alpha = 87.969 / 365.256;
+let beta = 0.387;
+(0 -- 6).discretize(
 	700,
-	(mercury / earth)
-	.geocentricOrbitCurve
+	alpha.geocentricOrbitCurve(beta)
 ).Line
 ~~~
 
