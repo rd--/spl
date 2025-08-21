@@ -90,6 +90,13 @@ Find Euler–Jacobi pseudoprimes:
 [561 1105 1729 1905 2047]
 ```
 
+Threads element-wise over lists:
+
+```
+>>> [2 3 5 7 11].jacobiSymbol(3)
+[-1 0 -1 1 -1]
+```
+
 Plot the sequence varying _m_:
 
 ~~~spl svg=A
@@ -99,6 +106,21 @@ Plot the sequence varying _m_:
 ~~~
 
 ![](sw/spl/Help/Image/jacobiSymbol-A.svg)
+
+Successive differences modulo two:
+
+~~~spl png=B
+let k = 100;
+let j = differences:/1.nestList(
+	jacobiSymbol((1L .. k), 77),
+	k
+);
+(j  % 2)
+.padRight([k + 1, k + 1], 0)
+.Bitmap
+~~~
+
+![](sw/spl/Help/Image/jacobiSymbol-B.png)
 
 * * *
 

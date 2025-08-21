@@ -276,6 +276,12 @@
 		self.collect(isZero:/1)
 	}
 
+	jacobiSymbol { :a :n |
+		a.collect { :each |
+			each.jacobiSymbol(n)
+		}
+	}
+
 	lcm { :self |
 		self.reduce(lcm:/2)
 	}

@@ -19,6 +19,12 @@ Answers _(a ^ b) % m_.
 
 >>> 4.powerMod(13, 497)
 445
+
+>>> 4030.powerMod(2657, 55049)
+21144
+
+>>> 21144.powerMod(79081, 55049)
+4030
 ```
 
 If _b_ is negative answer the multiplicative modular inverse of _a^|b|_ and _m_:
@@ -66,7 +72,8 @@ Find all base two and five pseudoprimes below one thousand:
 ```
 >>> [2 5].collect { :b |
 >>> 	2:1000.select { :n |
->>> 		b.powerMod(n - 1, n) = 1 & {
+>>> 		let z = b.powerMod(n - 1, n);
+>>> 		z = 1 & {
 >>> 			n.isComposite
 >>> 		}
 >>> 	}

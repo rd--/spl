@@ -1309,9 +1309,6 @@
 	}
 
 	tonelliShanksAlgorithm { :n :p |
-		let legendreSymbol = { :a :p |
-			powerMod(a, (p - 1) / 2, p)
-		};
 		(legendreSymbol(n, p) ~= 1).if {
 			[n, p].error('tonelliShanksAlgorithm: not square')
 		} {
@@ -1329,7 +1326,7 @@
 				let c = nil;
 				let r = nil;
 				let t = nil;
-				{ z < p & { legendreSymbol(z, p) ~= (p - 1) } }.whileTrue {
+				{ z < p & { legendreSymbol(z, p) ~= -1 } }.whileTrue {
 					z := z + 1
 				};
 				c := powerMod(z, q, p);
