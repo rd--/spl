@@ -1,7 +1,7 @@
 # Fraction
 
-- _Fraction([numerator, denominator])_
-- _Fraction(numerator, denominator)_
+- _Fraction([n d])_
+- _Fraction(n, d)_
 
 `Fraction` is a numerical `Type` that provides methods for working with fractions like 1/3 as a ratio of two integers.
 

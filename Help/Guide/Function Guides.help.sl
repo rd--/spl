@@ -1,5 +1,6 @@
 # Function Guides
 
+- `Array Functions`
 - `Bitwise Functions`
 - `Boolean Functions`
 - `Chaotic Functions`
@@ -7,12 +8,19 @@
 - `Combinatorial Functions`
 - `Comparison Functions`
 - `Coordinate System Functions`
+- `Curve Functions`
 - `Date and Time Functions`
+- `Dictionary Functions`
 - `Distance Functions`
 - `Drawing Functions`
+- `Feature Detection Functions`
 - `File Functions`
+- `Filter Functions`
+- `Fourier Analysis Functions`
+- `Geodetic Functions`
 - `Geometry Functions`
 - `Graph Functions`
+- `Hyperbolic Functions`
 - `Image Functions`
 - `Indexing Functions`
 - `Integer Functions`
@@ -25,21 +33,28 @@
 - `Permutation Functions`
 - `Pitch Functions`
 - `Plotting Functions`
+- `Polynomial Functions`
 - `Prime Number Functions`
 - `Quantity Functions`
 - `Random Functions`
+- `Scale Functions`
+- `Sequence Alignment Functions`
 - `Set Functions`
 - `Sigmoid Functions`
+- `Signal Processing Functions`
 - `Similarity Functions`
 - `Sort Functions`
+- `Special Functions`
 - `Statistics Functions`
 - `Stream Functions`
 - `String Functions`
 - `System Functions`
 - `Tree Functions`
+- `Triangle Functions`
 - `Trigonometric Functions`
 - `Tuning Functions`
 - `Window Functions`
+- `Xenharmonic Functions`
 
 Kinds Of Functions:
 

@@ -1,8 +1,8 @@
 # fareySequence
 
-- _fareySequence(anInteger)_
+- _fareySequence(n)_
 
-Answer the Farey sequence of order _anInteger_.
+Answer the Farey sequence of order _n_.
 
 The Farey sequence of order _n_ is the sorted sequence of reduced fractions between 0 and 1 with denominators not exceeding _n_.
 

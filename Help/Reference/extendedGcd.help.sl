@@ -55,10 +55,29 @@ At `Collection`:
 3
 ```
 
+Plot matrix:
+
+~~~spl png=A
+{ :m :n |
+	let [_, c] = extendedGcd(m, n);
+	c[1].abs
+}.table(1:100, 1:100)
+.rescale
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/extendedGcd-A.png)
+
 * * *
 
 See also: extendedEuclideanAlgorithm, gcd
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ExtendedGCD.html)
+[1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
+[2](https://mathworld.wolfram.com/BezoutsIdentity.html)
+[3](https://reference.wolfram.com/language/ref/ExtendedGCD.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Greatest_common_divisor)
+[2](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)
+[3](https://en.wikipedia.org/wiki/B%C3%A9zout%27s_identity)

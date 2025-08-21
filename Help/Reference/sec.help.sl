@@ -75,6 +75,16 @@ let a = 7;
 
 ![](sw/spl/Help/Image/sec-D.svg)
 
+Draw a hyperbola:
+
+~~~spl svg=E
+(-1/4.pi -- 1/4.pi).functionPlot { :theta |
+	[theta.sec theta.tan]
+}
+~~~
+
+![](sw/spl/Help/Image/sec-E.svg)
+
 * * *
 
 See also: cos, cosec, sin

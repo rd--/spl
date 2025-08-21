@@ -1,9 +1,23 @@
 # gcd
 
-- _gcd(aCollection)_
-- _gcd(aNumber, anotherNumber)_
+- _gcd(n₁, n₂)_
+- _gcd([n₁ n₂ …])_
 
-Greatest common divisor.
+Answer the greatest common divisor of _n_,
+the largest positive integer that divides each of the integers _n_.
+
+Table for small _n_:
+
+```
+>>> gcd:/2.table(2:4, 1:10)
+[
+	1 2 1 2 1 2 1 2 1 2;
+	1 1 3 1 1 3 1 1 3 1;
+	1 2 1 4 1 2 1 4 1 2
+]
+```
+
+The binary form:
 
 ```
 >>> 0.gcd(9)
@@ -23,11 +37,15 @@ Greatest common divisor.
 
 >>> 66.gcd(54) * 66.lcm(54)
 66 * 54
+```
 
->>> [2 6 10].reduce(gcd:/2)
+The unary form:
+
+```
+>>> [2 6 10].gcd
 2
 
->>> [2 6 10].gcd
+>>> [2 6 10].reduce(gcd:/2)
 2
 
 >>> [-12 9 57].gcd
@@ -37,14 +55,14 @@ Greatest common divisor.
 1/105
 ```
 
-The one-argument form is identity for positive integers & an error for empty collections:
+The unary, or one-argument, form is identity for positive integers & `zero` for empty collections:
 
 ```
 >>> [5].gcd
 5
 
->>> { [].gcd }.ifError { true }
-true
+>>> [].gcd
+0
 ```
 
 Gcd threads elementwise over lists:
@@ -91,6 +109,59 @@ For `zero` and `one`, `gcd` is analogous to logical or:
 [false true; true true]
 ```
 
+Real rational numbers:
+
+```
+>>> [1/3 2/5 3/7].gcd
+1/105
+```
+
+Table of the first one hundred integers:
+
+```
+>>> gcd:/2.table(1:10, 1:10)
+[
+	1  1  1  1  1  1  1  1  1  1;
+	1  2  1  2  1  2  1  2  1  2;
+	1  1  3  1  1  3  1  1  3  1;
+	1  2  1  4  1  2  1  4  1  2;
+	1  1  1  1  5  1  1  1  1  5;
+	1  2  3  2  1  6  1  2  3  2;
+	1  1  1  1  1  1  7  1  1  1;
+	1  2  1  4  1  2  1  8  1  2;
+	1  1  3  1  1  3  1  1  9  1;
+	1  2  1  2  5  2  1  2  1 10
+]
+```
+
+Use `eulerPhi` to compute `gcd`:
+
+```
+>>> 24.divisors
+>>> .intersection(12.divisors)
+>>> .collect(eulerPhi:/1)
+>>> .sum
+12
+
+>>> 24.gcd(12)
+12
+```
+
+The determinant of the matrix of pairwise greatest common divisors is related to Euler’s totient function:
+
+```
+>>> 1:6.collect { :n |
+>>> 	outer(gcd:/2, 1:n, 1:n)
+>>> 	.determinant
+>>> }
+[1 1 2 4 16 32]
+
+>>> 1:6.collect { :n |
+>>> 	1:n.product(eulerPhi:/1)
+>>> }
+[1 1 2 4 16 32]
+```
+
 Plot the gcd for a number with 12:
 
 ~~~spl svg=A
@@ -99,9 +170,41 @@ Plot the gcd for a number with 12:
 
 ![](sw/spl/Help/Image/gcd-A.svg)
 
+Matrix plot of table:
+
+~~~spl png=B
+(1 - gcd:/2.table(1:100, 1:100).rescale)
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/gcd-B.png)
+
+Fibonacci numbers:
+
+~~~spl png=C
+let n = 100.fibonacciSequence;
+let m = { :j :k |
+	n[j].gcd(n[k])
+}.table(1:100, 1:100);
+(1 - (m % n[11]).rescale)
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/gcd-C.png)
+
+Form the greatest common divisors of one with rational numbers:
+
+~~~spl svg=D
+17.fareySequence.collect { :n |
+	1.gcd(n)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/gcd-D.svg)
+
 * * *
 
-See also: ||, euclideanAlgorithm, extendedGcd, Gcd, lcm
+See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm
 
 Guides: Integer Functions
 

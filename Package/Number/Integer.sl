@@ -972,11 +972,13 @@
 		(r > 1).if {
 			'@Integer>>modularInverse: not invertible'.error
 		} {
-			(t < 0).if {
-				t + n
-			} {
-				t
-			}
+			(t < 0).ifTrue {
+				t := t + n
+			};
+			(n < 0).ifTrue {
+				t := t + n
+			};
+			t
 		}
 	}
 
@@ -1304,6 +1306,52 @@
 			remaining := remaining - 1
 		};
 		self
+	}
+
+	tonelliShanksAlgorithm { :n :p |
+		let legendreSymbol = { :a :p |
+			powerMod(a, (p - 1) / 2, p)
+		};
+		(legendreSymbol(n, p) ~= 1).if {
+			[n, p].error('tonelliShanksAlgorithm: not square')
+		} {
+			let q = p - 1;
+			let s = 0;
+			{ q.isEven }.whileTrue {
+				q := q / 2;
+				s := s + 1
+			};
+			(s = 1).if {
+				powerMod(n, (p + 1) / 4, p)
+			} {
+				let z = 2;
+				let m = s;
+				let c = nil;
+				let r = nil;
+				let t = nil;
+				{ z < p & { legendreSymbol(z, p) ~= (p - 1) } }.whileTrue {
+					z := z + 1
+				};
+				c := powerMod(z, q, p);
+				r := powerMod(n, (q + 1) / 2, p);
+				t := powerMod(n, q, p);
+				{ (t - 1) % p ~= 0 }.whileTrue {
+					let t2 = (t ^ 2) % p;
+					let i = 1;
+					let b = nil;
+					{ i < m & { (t2 - 1) % p ~= 0 } }.whileTrue {
+						t2 := (t2 ^ 2) % p;
+						i := i + 1
+					};
+					b := powerMod(c, 2 ^ (m - i - 1), p);
+					r := (r * b) % p;
+					c := (b ^ 2) % p;
+					t := (t * c) % p;
+					m := i
+				};
+				r
+			}
+		}
 	}
 
 	tribonacciNumber { :n |

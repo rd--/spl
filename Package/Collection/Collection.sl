@@ -360,7 +360,11 @@
 	}
 
 	gcd { :self |
-		self.reduce(gcd:/2)
+		self.isEmpty.if {
+			0
+		} {
+			self.reduce(gcd:/2)
+		}
 	}
 
 	groupBy { :self :keyBlock:/1 |

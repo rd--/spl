@@ -1,15 +1,15 @@
 # reduce
 
-- _reduce(anIterable, aBlock:/2)_
+- _reduce(c, f:/2)_
 
-Apply _aBlock_ cumulatively to the elements of _anIterable_.
+Apply the block _f_ cumulatively to the elements of the iterable collection _c_.
 
 Initially evaluates the block with the first two elements of the collecton,
 then with the result of the first evaluation and the next element,
 and so on.
 Answers the result of the final evaluation.
-If _aCollection_ is empty, raise an error.
-If _aCollection_ has a single element, answer that element.
+If _c_ is empty, raise an error.
+If _c_ has a single element, answer that element.
 
 For sequenceable collections the elements will be used in order,
 for unordered collections the order is unspecified.

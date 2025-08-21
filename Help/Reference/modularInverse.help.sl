@@ -3,7 +3,8 @@
 - _modularInverse(k, n)_
 
 Answer the modular inverse of _k_ modulo _n_,
-the number _r_ such that the remainder of the division of _r_ _k_ by _n_ is equal to 1.
+also known as modular multiplicative inverse,
+the number _r_ such that the remainder of the division of _r·k_ by _n_ is equal to one.
 If _k_ and _n_ are not coprime, no modular inverse exists.
 
 Compute using integers:
@@ -59,7 +60,9 @@ At large integers:
 >>> .modularInverse(73599183960)
 43827926933
 
->>> (147198853397L * 43827926933L) % 73599183960L
+>>> (147198853397L * 43827926933L)
+>>> %
+>>> 73599183960L
 1L
 ```
 
@@ -99,7 +102,8 @@ At modulus `one`:
 [3 3]
 ```
 
-If the results would be negative it is added to _n_:
+
+The answer has the same sign as the modulus:
 
 ```
 >>> 5.modularInverse(7)
@@ -109,16 +113,16 @@ If the results would be negative it is added to _n_:
 1
 
 >>> 5.modularInverse(-7)
-(-4 + 7)
+-4
 
->>> (5 * 3) % -7
-1 + -7
+>>> (5 * -4) % 7
+1
 
 >>> 52.modularInverse(-217)
-96
+-121
 
->>> (52 * 96) % -217
-1 + -217
+>>> (52 * -121) % 217
+1
 ```
 
 If _k_ and _n_ are coprime, then _k_ is invertible modulo _n_ :
@@ -134,7 +138,8 @@ true
 Computing `modularInverse` twice yields the original argument:
 
 ```
->>> 7.modularInverse(9).modularInverse(9)
+>>> 7.modularInverse(9)
+>>> .modularInverse(9)
 7
 ```
 
@@ -171,6 +176,58 @@ false
 true
 ```
 
+Two numbers are modular inverses of each other if their product is one:
+
+```
+>>> let p = 5.prime;
+>>> let g = (1 .. p - 1);
+>>> { :i :j |
+>>> 	(i * j) % p -> [i, j]
+>>> }.table(g, g)
+>>> .catenate
+>>> .select { :each |
+>>> 	each.key = 1
+>>> }.values
+[
+	 1  1;
+	 2  6;
+	 3  4;
+	 4  3;
+	 5  9;
+	 6  2;
+	 7  8;
+	 8  7;
+	 9  5;
+	10 10
+]
+
+>>> let n = 5.prime;
+>>> 1:10.collect { :k |
+>>> 	modularInverse(k, n)
+>>> }
+[1 6 4 3 9 2 8 7 5 10]
+```
+
+`extendedGcd` answers modular inverses:
+
+```
+>>> extendedGcd(3, 5)
+[1, [2, -1]]
+
+>>> modularInverse(3, 5)
+2
+```
+
+Compute using `powerMod`:
+
+```
+>>> modularInverse(3, 5)
+2
+
+>>> powerMod(3, -1, 5)
+2
+```
+
 Plot the sequence with a fixed modulus:
 
 ~~~spl svg=A
@@ -181,9 +238,46 @@ Plot the sequence with a fixed modulus:
 
 ![](sw/spl/Help/Image/modularInverse-A.svg)
 
+~~~spl png=B
+let p = 200.prime;
+{ :a :b |
+	modularInverse(a.squared + b.squared, p)
+}.table(1:100, 1:100)
+.rescale
+.Graymap
+~~~
+
+![](sw/spl/Help/Image/modularInverse-B.png)
+
+A psuedo-random number generator:
+
+~~~spl svg=C
+let prng = { :i :n |
+	let m = 2147483647;
+	let a = 16807;
+	let c = 1891423;
+	{ :x :k |
+		(x[k - 1] = 0).if {
+			a
+		} {
+			let z = modularInverse(
+				x[k - 1],
+				m
+			);
+			mod(a * z + c, m)
+		}
+	}.recurrenceTable([i], n)
+};
+prng(789714739, 250)
+.rescale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/modularInverse-C.svg)
+
 * * *
 
-See also: ^, eulerPhi, extendedEuclideanAlgorithm, isCoprime, mod, powerMod
+See also: ^, eulerPhi, extendedEuclideanAlgorithm, extendedGcd, isCoprime, mod, powerMod
 
 Guides: Integer Functions
 
