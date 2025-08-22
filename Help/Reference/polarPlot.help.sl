@@ -140,6 +140,16 @@ let n = 3;
 
 ![](sw/spl/Help/Image/polarPlot-L.svg)
 
+Plot the lima bean curve:
+
+~~~spl svg=M
+(0 -- 2.pi).polarPlot { :theta |
+	theta.sin.cubed + theta.cos.cubed
+}
+~~~
+
+![](sw/spl/Help/Image/polarPlot-M.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

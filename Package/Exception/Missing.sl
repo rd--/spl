@@ -21,7 +21,7 @@ Missing : [Object] { | reason value |
 +@Collection {
 
 	deleteMissing { :self |
-		self.reject(isMissing:/1)
+		self.reject(isMissingOrNil:/1)
 	}
 
 }

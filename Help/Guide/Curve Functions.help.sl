@@ -2,7 +2,9 @@
 
 Algebraic Curve Functions:
 
+- `ampersandCurve`
 - `archimedeanSpiral`
+- `bicorn`
 - `botanicCurve`
 - `butterflyCurve`
 - `cayleysSextic`
@@ -10,6 +12,9 @@ Algebraic Curve Functions:
 - `cissoidOfDiocles`
 - `cleliaCurve`
 - `cochleoid`
+- `conchoidOfDeSluze`
+- `cycloid`
+- `ellipseCurve`
 - `epicycloid`
 - `epitrochoid`
 - `eulerSpiral`
@@ -24,6 +29,7 @@ Algebraic Curve Functions:
 - `inverseNorwichSpiral`
 - `lemniscate`
 - `lHospitalQuintic`
+- `limacon`
 - `lissajousCurve`
 - `logarithmicSpiral`
 - `norwichSpiral`
@@ -39,12 +45,18 @@ Algebraic Curve Functions:
 - `superellipseCurve`
 - `superformulaCurve`
 - `swishFunction`
+- `syntractrix`
 - `tractrix`
 - `tractrixSpiral`
+- `tridentOfNewton`
 - `trisectrixOfMaclaurin`
 - `trochoid`
 - `tschirnhausenCubic`
 - `witchOfAgnesi`
+
+Implicit Curve Functions:
+
+- `ampersandImplicitCurve`
 
 Fractal Curve Functions:
 

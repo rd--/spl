@@ -14,7 +14,7 @@ An algebraic curve investigated by Maclaurin in 1742.
 
 * * *
 
-See also: foliumOfDescartes, serpentineCurve
+See also: conchoidOfDeSluze, foliumOfDescartes, serpentineCurve
 
 Guides: Curve Functions
 

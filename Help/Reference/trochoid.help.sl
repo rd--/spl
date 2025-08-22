@@ -36,7 +36,7 @@ Where _b>a_, a prolate cycloid:
 
 * * *
 
-See also: sphericalTrochoid
+See also: cycloid, hypocycloid, sphericalTrochoid
 
 Guides: Curve Functions
 

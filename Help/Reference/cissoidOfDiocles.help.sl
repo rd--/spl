@@ -19,7 +19,7 @@ let t = (-1/3.pi -- 1/3.pi).discretize(100);
 
 * * *
 
-See also: strophoid, tan
+See also: conchoidOfDeSluze, strophoid, tan
 
 Guides: Curve Functions
 

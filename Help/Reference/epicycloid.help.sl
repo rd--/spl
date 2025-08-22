@@ -47,7 +47,7 @@ An epicycloid with non-integer _a_ and period _4π_:
 
 * * *
 
-See also: Circle, cos, epitrochoid, hypotrochoid, sin
+See also: Circle, cos, cycloid, epitrochoid, hypotrochoid, sin, trochoid
 
 Guides: Curve Functions
 

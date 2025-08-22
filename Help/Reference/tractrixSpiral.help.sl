@@ -18,7 +18,7 @@ let f:/1 = tractrixSpiral(1);
 
 * * *
 
-See also: tractrix
+See also: syntractrix, tractrix
 
 Guides: Curve Functions
 

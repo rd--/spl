@@ -14,7 +14,7 @@ Plot:
 
 * * *
 
-See also: catenary, cosh, tanh, tractrixSpiral
+See also: catenary, cosh, syntractrix, tanh, tractrixSpiral
 
 Guides: Curve Functions
 

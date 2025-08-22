@@ -88,6 +88,66 @@ wattsCurve(a, b, c)
 
 ![](sw/spl/Help/Image/contourPlot-F.svg)
 
+Plot the trident curve given by _xy+x³+x²+x-1=0_:
+
+~~~spl svg=G
+let i = (-10 -- 10).subdivide(100);
+{ :x :y |
+	(x * y) + (x ^ 3) + (x ^ 2) + x - 1
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-G.svg)
+
+Plot the implicit curve _sin(x+y)-cos(xy)+1=0_:
+
+~~~spl svg=H
+let i = (-5 -- 5).subdivide(35);
+{ :x :y |
+	(x + y).sin - (x * y).cos + 1
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-H.svg)
+
+Plot the bow curve:
+
+~~~spl svg=I
+let i = (-0.5 -- 0.5).subdivide(50);
+{ :x :y |
+	(x ^ 4) - ((x ^ 2) * y) + (y ^ 3)
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-I.svg)
+
+Plot the stirrup curve:
+
+~~~spl svg=J
+let i = (-5 -- 5).subdivide(50);
+{ :x :y |
+	let a = ((x ^ 2) - 1) ^ 2;
+	let b = (y - 1) * (y - 2) * (y + 5);
+	a - ((y ^ 2) * b)
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-J.svg)
+
+Plot the bicuspid curve:
+
+~~~spl svg=K
+let i = (-2 -- 2).subdivide(35);
+{ :x :y |
+	let a = (x ^ 2) - 1;
+	let b = (x - 1) ^ 2;
+	let c = ((y ^ 2) - 1) ^ 2;
+	a * b + c
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-K.svg)
+
 * * *
 
 See also: bourkeContourAlgorithm, densityPlot
@@ -101,4 +161,7 @@ _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/contour.html)
 [2](https://au.mathworks.com/help/matlab/ref/fcontour.html),
 _NIST_
-[1](https://www.itl.nist.gov/div898/handbook/eda/section3/contour.htm)
+[1](https://www.itl.nist.gov/div898/handbook/eda/section3/contour.htm),
+_W_
+[1](https://en.wikipedia.org/wiki/Contour)
+[2](https://en.wikipedia.org/wiki/Implicit_curve)

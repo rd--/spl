@@ -58,7 +58,7 @@ let c = [0 0.25 0.5 0.75 1].pi.collect(
 
 * * *
 
-See also: botanicCurve, butterflyCurve, epitrochoid, hypotrochoid, lissajousCurve
+See also: botanicCurve, butterflyCurve, cycloid, epitrochoid, hypotrochoid, lissajousCurve
 
 Guides: Curve Functions
 
