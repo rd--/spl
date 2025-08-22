@@ -8,7 +8,7 @@ The first element of the answer is the `gcd`:
 
 ```
 >>> 6.extendedEuclideanAlgorithm(21)
-[3; -3 1]
+[3, [-3, 1]]
 
 >>> 6.gcd(21)
 3

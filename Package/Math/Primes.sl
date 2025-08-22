@@ -756,3 +756,28 @@
 	}
 
 }
+
++SmallFloat{
+
+	ellipticCurveOverFiniteField { :a :b :q |
+		let p = UnivariatePolynomial([b, a, 0, 1]);
+		let c = [];
+		[0 .. q - 1].collect { :x |
+			let a = p.at(x);
+			let l = legendreSymbol(a, q);
+			(l = 0).ifTrue {
+				c.add([x, 0])
+			};
+			(l = 1).ifTrue {
+				let r = tonelliShanksAlgorithm(a, q);
+				let s = q - r;
+				let i = r.min(s);
+				let j = r.max(s);
+				c.add([x, i]);
+				c.add([x, j])
+			}
+		};
+		c
+	}
+
+}

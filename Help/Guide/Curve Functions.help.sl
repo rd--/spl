@@ -57,6 +57,7 @@ Algebraic Curve Functions:
 Implicit Curve Functions:
 
 - `ampersandImplicitCurve`
+- `ellipticCurve`
 
 Fractal Curve Functions:
 
