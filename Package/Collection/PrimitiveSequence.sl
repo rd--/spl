@@ -91,10 +91,18 @@
 		<primitive: return _self.length;>
 	}
 
-	sortBy { :self :aBlock:/2 |
+	sortBy { :self :sortBlock:/2 |
 		<primitive:
 		return _self.sort(function(p, q) {
-			return _aBlock_2(p, q) ? -1 : 1
+			return _sortBlock_2(p, q) ? -1 : 1
+		});
+		>
+	}
+
+	sortByOn { :self :sortBlock:/2 :keyBlock:/1 |
+		<primitive:
+		return _self.sort(function(p, q) {
+			return _sortBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
 		});
 		>
 	}
@@ -103,14 +111,6 @@
 		<primitive:
 		return _self.toSorted(function(p, q) {
 			return _aBlock_2(p, q) ? -1 : 1
-		});
-		>
-	}
-
-	sortOnBy { :self :keyBlock:/1 :compareBlock:/2 |
-		<primitive:
-		return _self.sort(function(p, q) {
-			return _compareBlock_2(_keyBlock_1(p), _keyBlock_1(q)) ? -1 : 1
 		});
 		>
 	}

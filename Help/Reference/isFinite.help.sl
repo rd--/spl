@@ -1,9 +1,10 @@
 # isFinite
 
-- _isFinite(aNumber | aCollection)_
+- _isFinite(x)_
+- _isFinite([x₁ x₂ …])_
 
-Answer true if _aNumber_ is not infinite,
-or if all items in _aCollection_ are finite.
+Answer true if the number _x_ is not infinite,
+or if all items in the collection _x_ are finite.
 
 ```
 >>> 1.pi.isFinite

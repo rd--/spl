@@ -1,8 +1,8 @@
 # mergeSort
 
-- _mergeSort(aSequence)_
+- _mergeSort([x₁ x₂ …], f:/2=≤)_
 
-Sort _aSequence_ in place using the mergesort algorithm.
+Sort the sequence _x_ in place using the mergesort algorithm.
 Mergesort is a worst-case _O(N log N)_ sorting algorithm that usually does only half as many comparisons as heapsort or quicksort.
 
 Sort two items in place:
@@ -52,6 +52,23 @@ Sort a random sequence of integers:
 	13 15 17 18 21 22 23
 ]
 ```
+
+Show comparisons made in doing a sort:
+
+~~~spl svg=A
+let n = 200;
+let m = 50;
+let r = [];
+0:n.collect { :x |
+	(x.sin * m).rounded
+}.mergeSort { :a :b |
+	r.add(a);
+	a > b
+};
+r.downsample(4).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mergeSort-A.svg)
 
 * * *
 

@@ -85,6 +85,10 @@
 		self.quickSortFromToBy(1, self.size, sortBlock:/2)
 	}
 
+	quickSort { :self :sortBlock:/2 |
+		self.quickSortBy(sortBlock:/2)
+	}
+
 	quickSort { :self |
 		self.quickSortBy(<=)
 	}

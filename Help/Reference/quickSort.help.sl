@@ -1,8 +1,8 @@
 # quickSort
 
-- _quickSort(aSequence)_
+- _quickSort([x₁ x₂ …], f:/2=≤)_
 
-Sort elements of _aSequence_ to be non-descending according to _<=_,
+Sort elements of the sequence _x_ to be non-descending according to the sort block _f_,
 using an in-place quicksort with simple median-of-three partitioning,
 with guaranteed _O(log(n))_ space usage.
 
@@ -50,6 +50,23 @@ Sort a random sequence of integers:
 >>> .quickSort
 [1 3 3 6 7 8 9 10 10 12 13 15 17 18 21 23]
 ```
+
+Show comparisons made in doing a sort:
+
+~~~spl svg=A
+let n = 150;
+let m = 50;
+let r = [];
+0:n.collect { :x |
+	(x.sin * m).rounded
+}.quickSort { :a :b |
+	r.add(a);
+	a > b
+};
+r.downsample(4).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/quickSort-A.svg)
 
 * * *
 

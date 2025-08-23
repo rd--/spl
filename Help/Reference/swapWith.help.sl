@@ -1,8 +1,8 @@
 # swapWith
 
-- _swapWith(aSequence, oneIndex, anotherIndex)_
+- _swapWith([x₁ x₂ …], i, j)_
 
-Move the element at _oneIndex_ of _aSequence_ to _anotherIndex_, and vice-versa.
+Move the element at index _i_ of the sequence _x_ to index _j_, and vice-versa.
 
 At `List`, swap elements at indices one and four:
 

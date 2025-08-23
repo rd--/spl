@@ -666,7 +666,7 @@
 ## Sorting
 
 - `sort`, `sorted`
-- `sortBy`, `sortOn`, `sortOnBy`
+- `sortBy`, `sortByOn`, `sortOn`
 - `sortedWithIndices`
 - `mergeSort`, `mergeSortBy`, `mergeSortByFromTo`
 - `quickSort`, `quickSortBy`, `quickSortByFromTo`

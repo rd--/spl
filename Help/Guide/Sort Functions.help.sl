@@ -20,7 +20,7 @@ Sort:
 - `quickSortBy`
 - `quickSort`
 - `sortBy`
-- `sortOnBy`
+- `sortByOn`
 - `sortOn`
 - `sort`
 - `sorted`

@@ -1,8 +1,8 @@
 # isMonotonicallyIncreasing
 
-- _isMonotonicallyIncreasing(aSequence)_
+- _isMonotonicallyIncreasing([x₁ x₂ …])_
 
-Answers `true` if _aSequence_ is monotonically increasing,
+Answers `true` if the sequence _x_ is monotonically increasing,
 that is if it `isFinite` and `isSortedBy` `<=`.
 
 A strictly increasing sequence is also monotonically increasing:

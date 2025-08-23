@@ -1,6 +1,8 @@
 # ? (questionMark)
 
-- _alpha ? beta_ ⟹ _ifNil(alpha, beta)_
+- _a ? b_
+
+Answer _a_ if _a_ is not `nil`, else answer _b_.
 
 ```
 >>> 1 ? { 2 }

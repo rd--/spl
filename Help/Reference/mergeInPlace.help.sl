@@ -1,6 +1,6 @@
 # mergeInPlace
 
-- _mergeInPlace(aSequenceCollection, select:/1, insert:/2)_
+- _mergeInPlace([x₁ x₂ …], select:/1, insert:/2)_
 
 Answer a `List` that merges a collection of sorted sequences into a sorted sequence.
 The algorithm rewrites the input collection and the input sequences in place.

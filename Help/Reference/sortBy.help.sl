@@ -31,7 +31,7 @@ At an `Association` list, sort by descending key:
 
 * * *
 
-See also: sort, sorted, sortOn, sortOnBy
+See also: sort, sortByOn, sorted, sortOn
 
 Guides: Sort Functions
 

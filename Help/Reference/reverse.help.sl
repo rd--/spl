@@ -1,16 +1,24 @@
 # reverse
 
-- _reverse(aSequence)_
+- _reverse([x₁ x₂ …])_
 
-Reverse _aSequence_ in place.
-Answer _aSequence_.
+Reverse the sequence _x_ in place,
+answering _x_.
 
 At `List`:
 
 ```
->>> let a = [1 3 5 7];
->>> (a.reverse == a, a)
+>>> let x = [1 3 5 7];
+>>> (x.reverse == x, x)
 (true, [7 5 3 1])
+```
+
+At `Range`:
+
+```
+>>> let x = Range(9, 1, -2);
+>>> (x.reverse == x, x)
+(true, Range(9, 1, 2))
 ```
 
 * * *

@@ -1,7 +1,7 @@
 +@Collection {
 
-	heapSort { :self |
-		let h = Heap();
+	heapSort { :self :sortBlock:/2 |
+		let h = Heap(sortBlock:/2);
 		let l = [];
 		let k = self.size;
 		h.addAll(self);
@@ -9,6 +9,10 @@
 			l.add(h.removeFirst)
 		};
 		l
+	}
+
+	heapSort { :self |
+		self.heapSort(<=)
 	}
 
 	sorted { :self |
@@ -137,32 +141,32 @@
 		])
 	}
 
+	sort { :self :sortBlock:/2 :keyBlock:/1 |
+		keyBlock:/1.ifNil {
+			self.sortBy(sortBlock:/2 ? <=)
+		} {
+			self.sortByOn(sortBlock:/2 ? <=, keyBlock:/1)
+		}
+	}
+
+	sort { :self :sortBlock:/2 |
+		self.sortBy(sortBlock:/2 ? <=)
+	}
+
 	sort { :self |
 		self.sortBy(<=)
 	}
 
-	sort { :self :aBlock:/2 |
-		aBlock:/2.ifNil {
-			self.sort
-		} {
-			self.sortBy(aBlock:/2)
-		}
-	}
-
 	sortOn { :self :keyBlock:/1 |
-		self.sortOnBy(keyBlock:/1, <=)
+		self.sortByOn(<=, keyBlock:/1)
 	}
 
-	sorted { :self :aSortBlock:/2 |
-		self.copy.sortBy(aSortBlock:/2)
+	sorted { :self :sortBlock:/2 |
+		self.copy.sortBy(sortBlock:/2)
 	}
 
 	sorted { :self |
 		self.copy.sort
-	}
-
-	sortedWithIndices { :self |
-		self.sortedWithIndices(<)
 	}
 
 	sortedWithIndices { :self :sortBlock:/2 |
@@ -175,6 +179,10 @@
 				sortBlock(p.key, q.key)
 			}
 		}
+	}
+
+	sortedWithIndices { :self |
+		self.sortedWithIndices(<)
 	}
 
 	takeSmallest { :self :anInteger |

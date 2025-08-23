@@ -129,20 +129,18 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		}
 	}
 
+	reverse { :self |
+		self.step := 0 - self.step;
+		self.isEmpty.ifFalse {
+			let start = self.start;
+			self.start := self.last;
+			self.last := start
+		};
+		self
+	}
+
 	reversed { :self |
-		self.isEmpty.if {
-			Range(
-				self.stop,
-				self.start,
-				self.step.negated
-			)
-		} {
-			Range(
-				self.last,
-				self.start,
-				self.step.negated
-			)
-		}
+		self.copy.reverse
 	}
 
 	size { :self |
@@ -162,12 +160,15 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		}
 	}
 
+	sort { :self |
+		(self.step < 0).ifTrue {
+			self.reverse
+		};
+		self
+	}
+
 	sorted { :self |
-		(self.step < 0).if {
-			self.reversed
-		} {
-			self
-		}
+		self.copy.sort
 	}
 
 	species { :self |

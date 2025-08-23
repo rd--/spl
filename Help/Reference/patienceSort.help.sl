@@ -1,8 +1,8 @@
 # patienceSort
 
-- _patienceSort(aSequence)_
+- _patienceSort([x₁ x₂ …])_
 
-Sort _aSequence_ using the patience sort algorithm.
+Sort the sequence _x_ using the patience sort algorithm.
 
 ```
 >>> let l = [4 65 2 -31 0 99 83 782 1];
@@ -17,6 +17,14 @@ Sort a random permutation:
 >>> .randomSample(1:99, 99)
 >>> .patienceSort
 [1 .. 99]
+```
+
+The intermediate state is accessible:
+
+```
+>>> [4 65 2 -31 0 99 83 782 1]
+>>> .patienceSortPiles
+[4 2 -31; 65 0; 99 83 1; 782]
 ```
 
 * * *

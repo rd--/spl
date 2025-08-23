@@ -247,7 +247,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.characters
 		.asIdentityBag
 		.associations
-		.sortOnBy(value:/1, >=)
+		.sort(>=, value:/1)
 	}
 
 	characterCounts { :self :n |
@@ -257,7 +257,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.collect(stringJoin:/1)
 		.asIdentityBag
 		.associations
-		.sortOnBy(value:/1, >=)
+		.sort(>=, value:/1)
 	}
 
 	characterRange { :self :aString |
@@ -646,7 +646,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.select(isLetter:/1)
 		.asIdentityBag
 		.associations
-		.sortOnBy(value:/1, >=)
+		.sort(>=, value:/1)
 	}
 
 	letterCounts { :self :n |
@@ -657,7 +657,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.collect(stringJoin:/1)
 		.asIdentityBag
 		.associations
-		.sortOnBy(value:/1, >=)
+		.sort(>=, value:/1)
 	}
 
 	letterNumber { :self :aString |
