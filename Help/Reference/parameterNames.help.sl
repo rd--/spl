@@ -1,8 +1,8 @@
 # parameterNames
 
-- _parameterNames(aMethod)_
+- _parameterNames(m)_
 
-Answer a `List` of `String` items giving the names of the parameters of _aMethod_.
+Answer a `List` of `String` items giving the names of the parameters of the method _m_.
 
 ```
 >>> size:/1.parameterNames
@@ -33,5 +33,7 @@ The parameter names reported can be for any one of the defined methods.
 * * *
 
 See also: Block, Method
+
+Guides: Reflection Functions
 
 Categories: Reflection

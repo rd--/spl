@@ -1,9 +1,9 @@
 # perform
 
-- _perform(anObject, aString)_
-- _perform(anObject, aString, anArgument)_
+- _perform(x, s)_
+- _perform(x, s, y)_
 
-Look up a named method in the method table for the type of the receiver and apply it.
+Look up the named method _s_ in the method table for the type of the receiver _x_ and apply it.
 
 Perform a named unary method, the name is given without the arity qualifier:
 
@@ -35,5 +35,7 @@ Operator names must be given using the translated name:
 * * *
 
 See also: methodLookupAtType, respondsTo
+
+Guides: Reflection Functions
 
 Categories: Reflection

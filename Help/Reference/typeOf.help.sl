@@ -1,8 +1,8 @@
 # typeOf
 
-- _typeOf(anObject)_
+- _typeOf(x)_
 
-Answers the type name of _anObject_,
+Answers the type name of the object _x_,
 the answer is a `String` value.
 
 The names of the primitive atomic types:
@@ -61,6 +61,8 @@ true
 * * *
 
 See also: elementTypes, species, typeDefinition, typeDictionary, Type
+
+Guides: Reflection Functions
 
 References:
 _Mathematica_

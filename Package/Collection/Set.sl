@@ -236,14 +236,24 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 		self.basicAsIdentitySet
 	}
 
-	unionBy { :self :aCollection :aBlock:/2 |
-		let set = self.asSet(aBlock:/2);
-		set.includeAll(aCollection);
+	unionBy { :self :aBlock:/2 |
+		let set = Set(aBlock:/2);
+		self.do { :each |
+			set.includeAll(each)
+		};
 		set.asList
 	}
 
+	unionBy { :self :aCollection :aBlock:/2 |
+		[self, aCollection].unionBy(aBlock:/2)
+	}
+
+	union { :self |
+		self.unionBy(=)
+	}
+
 	union { :self :aCollection |
-		self.unionBy(aCollection, =)
+		[self, aCollection].unionBy(=)
 	}
 
 }

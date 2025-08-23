@@ -1,29 +1,39 @@
 # packageDictionary
 
-- _packageDictionary(aSystem)_
+- _packageDictionary(s)_
 
-Answer a `Dictionary` holding the `Package`s known to _aSystem_.
+Ay `System`,
+answer a `Dictionary` holding the `Package`s known to the system.
 
 ```
->>> system.packageDictionary.isDictionary
+>>> system.packageDictionary
+>>> .isDictionary
 true
 
->>> system.packageDictionary.elementType
+>>> system.packageDictionary
+>>> .elementType
 'Package'
 ```
 
 `Object` is a package:
 
 ```
->>> system.packageDictionary.includesKey('Object')
+>>> system.packageDictionary
+>>> .includesKey('Object')
 true
 ```
 
 Package fields include `category`, `name`, `isLoaded` and `url`:
 
 ```
->>> let p = system.packageDictionary['List'];
->>> (p.category, p.name, p.isLoaded, p.url)
+>>> let d = system.packageDictionary;
+>>> let p = d.at('List');
+>>> (
+>>> 	p.category,
+>>> 	p.name,
+>>> 	p.isLoaded,
+>>> 	p.url
+>>> )
 (
 	'Collection',
 	'List',
@@ -36,10 +46,16 @@ Package fields include `category`, `name`, `isLoaded` and `url`:
 `dependencies` answers the recursive set of packages required by a package:
 
 ```
->>> let p = system.packageDictionary;
->>> let d = p['PackageBrowser'].dependencies;
->>> d.collect(name:/1).includesAllOf(
->>> 	['ColumnBrowser' 'Event' 'SmallKansas']
+>>> let d = system.packageDictionary;
+>>> d.at('PackageBrowser')
+>>> .dependencies
+>>> .collect(name:/1)
+>>> .includesAllOf(
+>>> 	[
+>>> 		'ColumnBrowser'
+>>> 		'Event'
+>>> 		'SmallKansas'
+>>> 	]
 >>> )
 true
 ```
@@ -47,5 +63,7 @@ true
 * * *
 
 See also: methodDictionary, Package, packageMethods, packageTraits, packageTypes, traitDictionary, typeDictionary, system
+
+Guides: Reflection Functions
 
 Categories: Reflection, System

@@ -27,6 +27,8 @@ Methods for displaying and storing objects: `printString`, `printOn`, `storeStri
 
 See also: Trait
 
+Guides: Reflection Functions
+
 References:
 _Smalltalk_
 5.3.1

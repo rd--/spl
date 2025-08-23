@@ -1,8 +1,8 @@
 # parseMethodSignature
 
-- _parseMethodSignature(aString)_
+- _parseMethodSignature(s)_
 
-Answer a `List` of two places giving the holder and selector of a method signature.
+Answer a `List` of two places giving the holder and selector of the method signature _s_.
 
 ```
 >>> 'List>>sum:/1'
@@ -21,5 +21,9 @@ Answer a `List` of two places giving the holder and selector of a method signatu
 ```
 
 * * *
+
+See also: asMethodName, Method, parseQualifiedMethodName
+
+Guides: Reflection Functions
 
 Categories: Reflection

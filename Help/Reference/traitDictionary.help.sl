@@ -1,20 +1,26 @@
 # traitDictionary
 
-- _traitDictionary(aSystem)_
+- _traitDictionary(s)_
 
 A `Dictionary` at `System` to hold the set of `Trait`s.
 
 ```
->>> system.traitDictionary['Collection'].isTrait
+>>> system
+>>> .traitDictionary['Collection']
+>>> .isTrait
 true
 
->>> let trait = system.traitDictionary['Iterable'];
->>> trait.methodDictionary.includesKey('sum:/1')
+>>> system
+>>> .traitDictionary['Iterable']
+>>> .methodDictionary
+>>> .includesKey('sum:/1')
 true
 ```
 
 * * *
 
 See also: methodDictionary, packageDictionary, System, Trait, typeDictionary
+
+Guides: Reflection Functions
 
 Categories: Reflection, System

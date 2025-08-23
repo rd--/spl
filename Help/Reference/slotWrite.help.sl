@@ -1,8 +1,8 @@
 # slotWrite
 
-- _slotWrite(anObject, aString, anotherObject)_
+- _slotWrite(x, s, y)_
 
-Set the value of the slot _aString_ at _anObject_ to have the value _anotherObject_.
+Set the value of the slot named _s_ at the object _x_ to have the value _y_.
 
 ```
 >>> ('x' -> 1).slotNameList
@@ -18,6 +18,8 @@ Set the value of the slot _aString_ at _anObject_ to have the value _anotherObje
 * * *
 
 See also: slotNameList, slotRead
+
+Guides: Reflection Functions
 
 Categories: Reflection
 

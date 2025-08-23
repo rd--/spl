@@ -111,25 +111,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		<primitive: return _self.methodDictionary;>
 	}
 
-	operatorCharacters { :self |
-		self.cached('operatorCharacters') {
-			'&*^@$=!>-<#%+?\\/~|'.contents
-		}
-	}
-
-	operatorNameTable { :self |
-		let table = self.punctuationCharacterNameTable;
-		self.cached('operatorNameTable') {
-			[
-				'& * ^ @ $ = ! > - < # % + ? \\ / ~ |'
-				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // ~= ~~ ||'
-				'>>> <=> +++'
-			].collect(words:/1).++.collect { :each |
-				each -> each.operatorTokenName(table)
-			}.asRecord
-		}
-	}
-
 	packageDictionary { :self |
 		<primitive: return _self.packageDictionary;>
 	}
@@ -185,14 +166,6 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		]
 	}
 
-	punctuationCharacterNameTable { :unused |
-		<primitive: return sl.punctuationCharacterNameTable;>
-	}
-
-	punctuationCharacters { :unused |
-		<primitive: return sl.punctuationCharacters.split('');>
-	}
-
 	nextRandomFloat { :self |
 		self.randomNumberGenerator.next
 	}
@@ -242,6 +215,33 @@ System! : [Object, Cache, RandomNumberGenerator] {
 			self.splDirectory,
 			aString
 		])
+	}
+
+	splOperatorCharacters { :self |
+		self.cached('splOperatorCharacters') {
+			'&*^@$=!>-<#%+?\\/~|'.contents
+		}
+	}
+
+	splOperatorNameTable { :self |
+		let table = self.splPunctuationCharacterNameTable;
+		self.cached('splOperatorNameTable') {
+			[
+				'& * ^ @ $ = ! > - < # % + ? \\ / ~ |'
+				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // ~= ~~ ||'
+				'>>> <=> +++'
+			].collect(words:/1).++.collect { :each |
+				each -> each.splOperatorTokenName(table)
+			}.asRecord
+		}
+	}
+
+	splPunctuationCharacterNameTable { :unused |
+		<primitive: return sl.splPunctuationCharacterNameTable;>
+	}
+
+	splPunctuationCharacters { :unused |
+		<primitive: return sl.splPunctuationCharacters.split('');>
 	}
 
 	splUrl { :self :aString |
@@ -353,33 +353,33 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 +String {
 
-	isOperatorCharacter { :self |
-		<primitive: return sl.isOperatorCharacter(_self);>
+	isSplOperatorCharacter { :self |
+		<primitive: return sl.isSplOperatorCharacter(_self);>
 	}
 
-	isOperatorToken { :self |
-		<primitive: return sl.isOperatorToken(_self);>
+	isSplOperatorToken { :self |
+		<primitive: return sl.isSplOperatorToken(_self);>
 	}
 
-	isPunctuationCharacter { :self |
-		<primitive: return sl.isPunctuationCharacter(_self);>
+	isSplPunctuationCharacter { :self |
+		<primitive: return sl.isSplPunctuationCharacter(_self);>
 	}
 
-	isPunctuationToken { :self |
-		<primitive: return sl.isPunctuationToken(_self);>
+	isSplPunctuationToken { :self |
+		<primitive: return sl.isSplPunctuationToken(_self);>
 	}
 
-	isSyntaxCharacter { :self |
-		<primitive: return sl.isSyntaxCharacter(_self);>
+	isSplSyntaxCharacter { :self |
+		<primitive: return sl.isSplSyntaxCharacter(_self);>
 	}
 
-	isSyntaxToken { :self |
-		<primitive: return sl.isSyntaxToken(_self);>
+	isSplSyntaxToken { :self |
+		<primitive: return sl.isSplSyntaxToken(_self);>
 	}
 
-	operatorNameToken { :self |
+	splOperatorNameToken { :self |
 		valueWithReturn { :return:/1 |
-			system.operatorNameTable.associationsDo { :each |
+			system.splOperatorNameTable.associationsDo { :each |
 				(each.value = self).ifTrue {
 					each.key.return
 				}
@@ -388,26 +388,18 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		}
 	}
 
-	operatorTokenName { :self :table |
-		self.isOperatorToken.if {
-			self.punctuationTokenName(table)
+	splOperatorTokenName { :self :table |
+		self.isSplOperatorToken.if {
+			self.splPunctuationTokenName(table)
 		} {
-			self.error('operatorTokenName: not operator token')
+			self.error('splOperatorTokenName: not operator token')
 		}
 	}
 
-	operatorTokenName { :self |
-		self.operatorTokenName(system.punctuationCharacterNameTable)
-	}
-
-	punctuationTokenName { :self :table |
-		self.contents.collect { :letter |
-			table[letter]
-		}.camelCase.stringCatenate
-	}
-
-	punctuationTokenName { :self |
-		self.punctuationTokenName(system.punctuationCharacterNameTable)
+	splOperatorTokenName { :self |
+		self.splOperatorTokenName(
+			system.splPunctuationCharacterNameTable
+		)
 	}
 
 	splParseExpression { :self |
@@ -472,6 +464,18 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	splParseTree { :self |
 		<primitive: return sl.rewriteSlToAst(_self);>
+	}
+
+	splPunctuationTokenName { :self :table |
+		self.contents.collect { :letter |
+			table[letter]
+		}.camelCase.stringCatenate
+	}
+
+	splPunctuationTokenName { :self |
+		self.splPunctuationTokenName(
+			system.splPunctuationCharacterNameTable
+		)
 	}
 
 	splSimplify { :self |

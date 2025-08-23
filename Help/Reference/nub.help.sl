@@ -1,9 +1,9 @@
 # nub
 
-- _nub(aCollection)_
+- _nub([x₁ x₂ …])_
 
-Answer a copy of _aCollection_ that removes any duplicates, according to `=`.
-If _aCollection_ is a `Sequence` the copy will preserve the order of elements.
+Answer a copy of the collection _x_ that removes any duplicates, according to `=`.
+If _x_ is a `Sequence` the copy will preserve the order of elements.
 
 ```
 >>> [1 2 2 3 3 3].nub

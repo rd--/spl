@@ -16,7 +16,8 @@ which a type must implement if it to implement the trait.
 We can ask the system which traits a given type implements:
 
 ```
->>> system.typeTraits('List').includes('Sequenceable')
+>>> system.typeTraits('List')
+>>> .includes('Sequenceable')
 true
 ```
 
@@ -38,6 +39,6 @@ A definition is more specific if it is defined at the type, or at a trait that i
 
 See also: Trait
 
-Guides: What is a Type
+Guides: Reflection Functions, What is a Type
 
 Further Reading: Ungar and Smith 1987

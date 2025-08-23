@@ -1,9 +1,9 @@
 # storeStringAsInitializeSlots
 
-- _storeStringAsInitializeSlots(anObject)_
+- _storeStringAsInitializeSlots(x)_
 
 Answer a `String` that can be used as `storeString`,
-if _anObject_ can be created by a method with the name of the type,
+if the object _x_ can be created by a method with the name of the type,
 that accepts initial values for each slot in sequence.
 
 ```
@@ -14,5 +14,7 @@ that accepts initial values for each slot in sequence.
 * * *
 
 See also: slotValueList, storeString
+
+Guides: Reflection Functions
 
 Categories: Reflection

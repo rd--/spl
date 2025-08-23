@@ -1,15 +1,20 @@
 # packageTraits
 
-- _packageTraits(aSystem, aString)_
+- _packageTraits(s, p)_
 
-Answer the `List` of `Trait`s defined in the named `Package`.
+At `System`,
+answer the `List` of `Trait`s defined in the named `Package` _p_.
 
 ```
->>> let traitList = system.packageTraits('Iterable');
->>> (traitList.size, traitList[1].name)
+>>> let t = system.packageTraits(
+>>> 	'Iterable'
+>>> );
+>>> (t.size, t[1].name)
 (1, 'Iterable')
 ```
 
 * * *
 
 See also: Package, packageDictionary, packageMethods, packageTypes, Trait
+
+Guides: Reflection Functions

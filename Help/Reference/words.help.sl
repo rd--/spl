@@ -1,8 +1,8 @@
 # words
 
-- _words(aString)_
+- _words(s)_
 
-Answer a `List` having as items the _words_ in _aString_, which were delimited by white space.
+Answer a `List` having as items the words in the string _s_, which were delimited by white space.
 Trims any white spaces at the beginning and at the end before splitting.
 
 ```

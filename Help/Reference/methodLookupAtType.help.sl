@@ -38,4 +38,6 @@ Lookup the `+` method at `SmallFloat`:
 
 See also: Method, perform, System, Type
 
+Guides: Reflection Functions
+
 Categories: Reflection

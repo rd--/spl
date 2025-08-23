@@ -1,11 +1,11 @@
-# operatorNameTable
+# splOperatorNameTable
 
-- _operatorNameTable(aSystem)_
+- _splOperatorNameTable(aSystem)_
 
 Answer a `Dictionary` where the `keys` are operator tokens and the values are operator names.
 
 ```
->>> let t = system.operatorNameTable;
+>>> let t = system.splOperatorNameTable;
 >>> (t.size, t['++'], t['&'], t['!^'])
 (
 	44,
@@ -18,12 +18,12 @@ Answer a `Dictionary` where the `keys` are operator tokens and the values are op
 One- and two-character operators:
 
 ```
->>> let table = system.operatorNameTable;
->>> let all = table.associations.collect { :each |
+>>> let t = system.splOperatorNameTable;
+>>> let a = t.associations.collect { :each |
 >>> 	each.value -> each.key
 >>> }.sort;
 >>> [1 2].collect { :k |
->>> 	all.select { :each |
+>>> 	a.select { :each |
 >>> 		each.value.size = k
 >>> 	}
 >>> }.++
@@ -74,8 +74,8 @@ One- and two-character operators:
 
 * * *
 
-See also: punctuationCharacterNameTable, operatorTokenName
+See also: splPunctuationCharacterNameTable, splOperatorTokenName
 
-Guides: Binary Operators
+Guides: Binary Operators, Reflection Functions
 
 Categories: Reflection

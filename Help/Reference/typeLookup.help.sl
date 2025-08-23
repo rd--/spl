@@ -1,12 +1,16 @@
 # typeLookup
 
-- _typeLookup(aSystem, aString)_
+- _typeLookup(s, t)_
 
-Answer the named `Type`, if it exists:
+At `System`,
+answer the named `Type` _t_, if it exists:
 
 ```
 >>> let t = system.typeLookup('List');
->>> (t.isType, t.methodDictionary.size > 500)
+>>> (
+>>> 	t.isType,
+>>> 	t.methodDictionary.size > 1200
+>>> )
 (true, true)
 ```
 
@@ -14,7 +18,7 @@ else signal an `error`:
 
 ```
 >>> {
->>> 	system.typeLookup('UnknownType')
+>>> 	system.typeLookup('Unknown')
 >>> }.ifError { true }
 true
 ```
@@ -22,5 +26,7 @@ true
 * * *
 
 See also: System, traitLookup, Type
+
+Guides: Reflection Functions
 
 Categories: Reflection

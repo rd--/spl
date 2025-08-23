@@ -13,4 +13,4 @@ Each value in Spl is an _instance_ of a type.
 
 See also: Type, typeOf
 
-Guides: Primitive Types, What is a Trait
+Guides: Primitive Types, Reflection Functions, What is a Trait

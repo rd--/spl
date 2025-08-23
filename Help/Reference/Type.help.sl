@@ -40,4 +40,6 @@ A `Type` holds a `methodDictionary`:
 
 See also: Method, System, Trait, traitNameList, typeDefinition, typeLookup, typeOf
 
+Guides: Reflection Functions
+
 Categories: Type

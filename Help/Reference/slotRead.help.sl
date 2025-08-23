@@ -1,8 +1,8 @@
 # slotRead
 
-- _slotRead(anObject, aString)_
+- _slotRead(x, s)_
 
-Answer the value of the slot _aString_ at _anObject_,
+Answer the value of the slot named _s_ at the object _x_,
 or `nil` if no such slot exists.
 
 ```
@@ -10,7 +10,10 @@ or `nil` if no such slot exists.
 ['key' 'value']
 
 >>> let a = ('x' -> 1);
->>> (a.slotRead('key'), a.slotRead('value'))
+>>> (
+>>> 	a.slotRead('key'),
+>>> 	a.slotRead('value')
+>>> )
 ('x', 1)
 ```
 
@@ -24,6 +27,8 @@ nil
 * * *
 
 See also: slotList, slotNameList, slotValueList, slotWrite
+
+Guides: Reflection Functions
 
 Categories: Reflection
 

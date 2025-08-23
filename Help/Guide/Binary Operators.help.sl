@@ -59,6 +59,6 @@ in alphabetical order:
 
 * * *
 
-See also: isOperatorToken, operatorCharacters, operatorTokenName, operatorNameTable
+See also: isSplOperatorToken, splOperatorCharacters, splOperatorTokenName, splOperatorNameTable
 
-Guides: Binary Operator Syntax, Syntax Tokens
+Guides: Binary Operator Syntax, Reflection Functions, Syntax Tokens

@@ -1,61 +1,61 @@
 import { stringCapitalizeFirstLetter } from '../lib/jssc3/ts/kernel/string.ts';
 
-export const operatorCharacters = '!#$%&*+-/<=>?@\\^|~';
+export const splOperatorCharacters = '!#$%&*+-/<=>?@\\^|~';
 
 /* These characters aren't allowed in operator names. They're here so help file lookup can find them. */
-export const syntaxCharacters = '"\'(),:;.[]_`{}';
+export const splSyntaxCharacters = '"\'(),:;.[]_`{}';
 
-export const punctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
+export const splPunctuationCharacters = '!#$%&*+-/<=>?@\\^|~"\'(),:;.[]_`{}';
 
-export function isOperatorCharacter(character: string): boolean {
+export function isSplOperatorCharacter(character: string): boolean {
 	if (character.length === 1) {
-		return operatorCharacters.includes(character[0]);
+		return splOperatorCharacters.includes(character[0]);
 	}
-	throw new Error('isOperatorCharacter: not character');
+	throw new Error('isSplOperatorCharacter: not character');
 }
 
-export function isSyntaxCharacter(character: string): boolean {
+export function isSplSyntaxCharacter(character: string): boolean {
 	if (character.length === 1) {
-		return syntaxCharacters.includes(character[0]);
+		return splSyntaxCharacters.includes(character[0]);
 	}
-	throw new Error('isSyntaxCharacter: not character');
+	throw new Error('isSplSyntaxCharacter: not character');
 }
 
-export function isPunctuationCharacter(character: string): boolean {
+export function isSplPunctuationCharacter(character: string): boolean {
 	if (character.length === 1) {
-		return punctuationCharacters.includes(character[0]);
+		return splPunctuationCharacters.includes(character[0]);
 	}
-	throw new Error('isPunctuationCharacter: not character');
+	throw new Error('isSplPunctuationCharacter: not character');
 }
 
-export function isOperatorToken(name: string): boolean {
+export function isSplOperatorToken(name: string): boolean {
 	for (const character of name) {
-		if (!operatorCharacters.includes(character)) {
+		if (!splOperatorCharacters.includes(character)) {
 			return false;
 		}
 	}
 	return true;
 }
 
-export function isSyntaxToken(name: string): boolean {
+export function isSplSyntaxToken(name: string): boolean {
 	for (const character of name) {
-		if (!syntaxCharacters.includes(character)) {
+		if (!splSyntaxCharacters.includes(character)) {
 			return false;
 		}
 	}
 	return true;
 }
 
-export function isPunctuationToken(name: string): boolean {
+export function isSplPunctuationToken(name: string): boolean {
 	for (const character of name) {
-		if (!punctuationCharacters.includes(character)) {
+		if (!splPunctuationCharacters.includes(character)) {
 			return false;
 		}
 	}
 	return true;
 }
 
-export const punctuationCharacterNameTable: Record<string, string> = {
+export const splPunctuationCharacterNameTable: Record<string, string> = {
 	// Operator Characters
 	'!': 'exclamationMark', // U+0021 ! Exclamation Mark
 	'#': 'numberSign', // U+0023 # Number Sign
@@ -92,9 +92,9 @@ export const punctuationCharacterNameTable: Record<string, string> = {
 	'}': 'rightCurlyBracket', // U+007D } Right Curly Bracket
 };
 
-export function punctuationTokenName(operator: string): string {
+export function splPunctuationTokenName(operator: string): string {
 	const words = [...operator].map((letter) =>
-		punctuationCharacterNameTable[letter]
+		splPunctuationCharacterNameTable[letter]
 	);
 	return words.slice(0, 1).concat(
 		words.slice(1).map(stringCapitalizeFirstLetter),
@@ -102,9 +102,9 @@ export function punctuationTokenName(operator: string): string {
 }
 
 export function resolveMethodName(name: string): string {
-	return isOperatorToken(name) ? punctuationTokenName(name) : name;
+	return isSplOperatorToken(name) ? splPunctuationTokenName(name) : name;
 }
 
 export function resolveTokenName(name: string): string {
-	return isPunctuationToken(name) ? punctuationTokenName(name) : name;
+	return isSplPunctuationToken(name) ? splPunctuationTokenName(name) : name;
 }

@@ -1,8 +1,8 @@
 # respondsTo
 
-- _respondsTo(anObject, aMethod)_
+- _respondsTo(x, m)_
 
-Answer whether the method dictionary at `Type` of _anObject_ contains an entry for _aMethod_.
+Answer whether the method dictionary at `Type` of the object _x_ contains an entry for the method _m_.
 
 ```
 >>> 9.respondsTo(sqrt:/1)

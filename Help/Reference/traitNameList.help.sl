@@ -20,4 +20,6 @@ Answer a `List` of the `Trait` names implemented by _aType_.
 
 See also: Trait, Type
 
+Guides: Reflection Functions
+
 Categories: Reflection

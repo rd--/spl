@@ -91,7 +91,7 @@ When compiling the operators are likewise given text names, again because of rul
 
 * * *
 
-See also: operatorNameTable, punctuationCharacterNameTable
+See also: splOperatorNameTable, splPunctuationCharacterNameTable
 
 Guides: Binary Operators, Operator List, Operator Syntax, Operator Names, Syntax Tokens, Unary Operator Syntax
 

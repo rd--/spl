@@ -1,25 +1,30 @@
 # traitLookup
 
-- _traitLookup(aSystem, aString)_
+- _traitLookup(s, t)_
 
-Answer the `Trait` named by _aString_ at _aSystem_.
+At `System`,
+answer the `Trait` named by _t_.
 
 ```
->>> system.traitLookup('Collection').isTrait
+>>> system
+>>> .traitLookup('Collection')
+>>> .isTrait
 true
 ```
 
 The `methodDictionary` at a `Trait` is keyed by qualified method names:
 
 ```
->>> let t = system.traitLookup('Iterable');
->>> let m = t.methodDictionary;
->>> m.includesKey('sum:/1')
+>>> system.traitLookup('Iterable')
+>>> .methodDictionary
+>>> .includesKey('sum:/1')
 true
 ```
 
 * * *
 
 See also: Method, System, Trait
+
+Guides: Reflection Functions
 
 Categories: System, Reflection

@@ -36,6 +36,9 @@ The multiplicative order of 5 modulo 8:
 
 >>> (5 ^ 2) % 8
 1
+
+>>> 5.powerMod(2, 8)
+1
 ```
 
 Compute using integers:
@@ -140,7 +143,7 @@ Plot the sequence, varying the modulus:
 
 * * *
 
-See also: %, eulerPhi, powerMod
+See also: %, carmichaelLambda, eulerPhi, powerMod, primitiveRootList
 
 References:
 _Mathematica_
@@ -148,3 +151,4 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/MultiplicativeOrder.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Multiplicative_order)
+[2](https://en.wikipedia.org/wiki/Discrete_logarithm)

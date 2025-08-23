@@ -180,8 +180,8 @@ HelpFile : [Object, Cache] { | origin source cache |
 	properName { :self |
 		self.isReferenceFile.if {
 			let firstWord = self.name.words.first;
-			firstWord.isOperatorName.if {
-				firstWord.operatorTokenName
+			firstWord.isSplOperatorName.if {
+				firstWord.splOperatorTokenName
 			} {
 				firstWord
 			}

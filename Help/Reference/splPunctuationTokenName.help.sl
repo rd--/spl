@@ -1,34 +1,38 @@
-# punctuationTokenName
+# splPunctuationTokenName
 
-- _punctuationTokenName(aString)_
+- _splPunctuationTokenName(s)_
 
 Answer the name,
 which is a `String`,
-of the punctuation token _aString_.
+of the punctuation token string _s_.
 
 For single character tokens this is the unicode table name of the character:
 
 ```
->>> ','.punctuationTokenName
+>>> ','.splPunctuationTokenName
 'comma'
 ```
 
 For multiple character names, the indidual names are joined together:
 
 ```
->>> ':;'.punctuationTokenName
+>>> ':;'.splPunctuationTokenName
 'colonSemicolon'
 ```
 
 It is an `error` if the string is not a punctuation character:
 
 ```
->>> { 'x'.punctuationTokenName }.ifError { true }
+>>> {
+>>> 	'x'.splPunctuationTokenName
+>>> }.ifError { true }
 true
 ```
 
 * * *
 
-See also: operatorNameTable, operatorTokenName, punctuationCharacterNameTable
+See also: splOperatorNameTable, splOperatorTokenName, splPunctuationCharacterNameTable
+
+Guides: Reflection Functions
 
 Categories: Reflection

@@ -91,7 +91,7 @@
 	adaptToNumberAndApply { :self :receiver :aBlock:/2 |
 		let name = aBlock:/2.unqualifiedName;
 		SymbolicExpression(
-			name.operatorNameToken ? { name },
+			name.splOperatorNameToken ? { name },
 			[receiver, self]
 		)
 	}

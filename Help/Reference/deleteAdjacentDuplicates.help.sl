@@ -1,14 +1,15 @@
 # deleteAdjacentDuplicates
 
-- _deleteAdjacentDuplicates(aSequence, aBlock:/2)_
-- _deleteAdjacentDuplicates(α)_ ⟹ _deleteAdjacentDuplicates(α, =)_
+- _deleteAdjacentDuplicates([x₁ x₂ …], f:/2)_
 
-Answer a sequence that deletes all duplicates in runs of identical elements in _aSequence_.
+Answer a sequence that deletes all duplicates in runs of identical elements in the sequence _x_,
+according to _f_.
 
 At integer sequence:
 
 ```
->>> [3 2 2 2 3 3 1].deleteAdjacentDuplicates
+>>> [3 2 2 2 3 3 1]
+>>> .deleteAdjacentDuplicates
 [3 2 3 1]
 ```
 
@@ -50,7 +51,7 @@ Delete sublists that have the same total:
 
 * * *
 
-See also: deleteDuplicates, split, union
+See also: deleteDuplicates, nub, split, union, unique
 
 References:
 _Mathematica_

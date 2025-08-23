@@ -3476,7 +3476,7 @@ let s = 'string'; (s.size * 2) = s.asHexString.size /* hex string is twice as lo
 '\f'.asCharacter.codePoint = 12 /* form feed, new page */
 '\r'.asCharacter.codePoint = 13 /* carriage return */
 'The quick brown fox jumps over the lazy dog'.crc16 = 16rFCDF /* 16 bit cyclic redundancy check, crc-16/arc */
-'* + - / ^ ? ~ = < >'.words.allSatisfy(isOperatorToken:/1)
+'* + - / ^ ? ~ = < >'.words.allSatisfy(isSplOperatorToken:/1)
 'a comment'.asBracketedComment('<!--', '-->') = '<!-- a comment -->' /* add Html comment brackets */
 'a comment'.asPliComment = '/* a comment */' /* add PL/I (or C) comment brackets */
 'a comment'.asMlComment = '(* a comment *)' /* add Ml comment brackets */
@@ -3699,15 +3699,15 @@ system.lowBitPerByteTable.asIdentityBag.sortedCounts = [128 -> 1, 64 -> 2, 32 ->
 
 ## System -- system names
 ```
-'!'.isOperatorToken = true /* operator token predicate */
-'*'.operatorTokenName = 'asterisk' /* operator token name */
-['~', '!', '@', '#', '$','%'].collect(operatorTokenName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
-['^', '&', '*', '-', '+', '='].collect(operatorTokenName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
-['?', '<', '>'].collect(operatorTokenName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
-'!^'.operatorTokenName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
-'~='.operatorTokenName = 'tildeEqualsSign'
-system.punctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
-'+ ++ * / - %'.words.collect { :each | system.operatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
+'!'.isSplOperatorToken = true /* operator token predicate */
+'*'.splOperatorTokenName = 'asterisk' /* operator token name */
+['~', '!', '@', '#', '$','%'].collect(splOperatorTokenName:/1) = ['tilde', 'exclamationMark', 'commercialAt', 'numberSign', 'dollarSign', 'percentSign']
+['^', '&', '*', '-', '+', '='].collect(splOperatorTokenName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
+['?', '<', '>'].collect(splOperatorTokenName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
+'!^'.splOperatorTokenName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
+'~='.splOperatorTokenName = 'tildeEqualsSign'
+system.splPunctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
+'+ ++ * / - %'.words.collect { :each | system.splOperatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
 ```
 
 ## System -- cache
@@ -3784,7 +3784,7 @@ system.methodLookupAtType('min', 1, 'List').sourceCode = '{ :self | reduce(self,
 system.methodTypes('last:/1').includes('String') = true
 system.multipleArityMethodList.includes('at') = true
 system.onlyZeroArityMethodList.includes('PriorityQueue') = true
-system.operatorNameTable['^'] = 'circumflexAccent' = true
+system.splOperatorNameTable['^'] = 'circumflexAccent' = true
 system.doesTraitImplementMethod('Collection', 'select') = true
 system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select:/2) = true /* does a value (courtesy the type) implement a method */

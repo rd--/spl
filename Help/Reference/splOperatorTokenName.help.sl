@@ -1,41 +1,43 @@
-# operatorTokenName
+# splOperatorTokenName
 
-- _operatorTokenName(aString)_
+- _splOperatorTokenName(s)_
 
 Answer the name,
 which is a `String`,
-of the operator token _aString_.
+of the operator token string _s_.
 
 For single character operators this is the unicode table name of the character:
 
 ```
->>> '~'.operatorTokenName
+>>> '~'.splOperatorTokenName
 'tilde'
 ```
 
 For multiple character operators, the individual names are joined together:
 
 ```
->>> '!^'.operatorTokenName
+>>> '!^'.splOperatorTokenName
 'exclamationMarkCircumflexAccent'
 
->>> '<=>'.operatorTokenName
+>>> '<=>'.splOperatorTokenName
 'lessThanSignEqualsSignGreaterThanSign'
 ```
 
-The inverse is `operatorNameToken`:
+The inverse is `splOperatorNameToken`:
 
 ```
->>> '/'.operatorTokenName.operatorNameToken
+>>> '/'
+>>> .splOperatorTokenName
+>>> .splOperatorNameToken
 '/'
 ```
 
-The names of all of the `operatorCharacters`:
+The names of all of the `splOperatorCharacters`:
 
 ```
->>> let c = system.operatorCharacters;
->>> c.collect { :each |
->>> 	each -> each.operatorTokenName
+>>> system.splOperatorCharacters
+>>> .collect { :c |
+>>> 	c -> c.splOperatorTokenName
 >>> }
 [
 	'&' -> 'ampersand',
@@ -60,28 +62,30 @@ The names of all of the `operatorCharacters`:
 ```
 
 This will not answer the names of non-operator characters,
-see instead `punctuationTokenName`,
+see instead `splPunctuationTokenName`,
 which will also answer the names of operators (since operators are a subset of punctuation tokens):
 
 ```
->>> '_'.punctuationTokenName
+>>> '_'.splPunctuationTokenName
 'lowLine'
 
->>> '&'.punctuationTokenName
+>>> '&'.splPunctuationTokenName
 'ampersand'
 ```
 
 It is an `error` if the string is not an operator character:
 
 ```
->>> { 'x'.operatorTokenName }.ifError { true }
+>>> {
+>>> 	'x'.splOperatorTokenName
+>>> }.ifError { true }
 true
 ```
 
 * * *
 
-See also: isOperatorToken, isPunctuationToken, operatorCharacters, operatorNameTable, operatorTokenName, punctuationTokenName
+See also: isSplOperatorToken, isSplPunctuationToken, splOperatorCharacters, splOperatorNameTable, splOperatorTokenName, splPunctuationTokenName
 
-Guides: Binary Operators
+Guides: Binary Operators, Reflection Functions
 
 Categories: Reflection

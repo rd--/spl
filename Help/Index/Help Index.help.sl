@@ -490,10 +490,10 @@
 
 ## Operators
 
-- `isOperatorCharacter`, `isOperatorToken`
-- `operatorCharacters`, `operatorTokenName`, `operatorNameTable`
-- `isPunctuationCharacter`, `isPunctuationToken`
-- `punctuationCharacterNameTable`, `punctuationCharacters`, `punctuationTokenName`
+- `isSplOperatorCharacter`, `isSplOperatorToken`
+- `splOperatorCharacters`, `splOperatorTokenName`, `splOperatorNameTable`
+- `isSplPunctuationCharacter`, `isSplPunctuationToken`
+- `splPunctuationCharacterNameTable`, `splPunctuationCharacters`, `splPunctuationTokenName`
 
 ## Package
 

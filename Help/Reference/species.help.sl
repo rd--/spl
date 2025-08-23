@@ -1,8 +1,8 @@
 # species
 
-- _species(anObject)_
+- _species(x)_
 
-Answers the primary factory method for the type of _anObject_,
+Answers the primary factory method for the type of the object _x_,
 or a more specific constructor if required.
 
 ```

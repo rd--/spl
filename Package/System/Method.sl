@@ -66,7 +66,7 @@ Method! : [Object] {
 
 	operatorTokenOrQualifiedName { :self |
 		(self.arity = 2).if {
-			self.name.operatorNameToken ? { self.qualifiedName }
+			self.name.splOperatorNameToken ? { self.qualifiedName }
 		} {
 			self.qualifiedName
 		}
@@ -112,8 +112,8 @@ Method! : [Object] {
 +String {
 
 	asMethodName { :self |
-		self.isOperatorToken.if {
-			self.operatorTokenName
+		self.isSplOperatorToken.if {
+			self.splOperatorTokenName
 		} {
 			self
 		}

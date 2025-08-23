@@ -1,8 +1,8 @@
 # slotNameList
 
-- _slotNameList(anObject | aType)_
+- _slotNameList(x)_
 
-Answer a `List` of `String`s giving the slot names for the type of _anObject_.
+Answer a `List` of `String`s giving the slot names for the type of the object _x_.
 
 ```
 >>> 2/3.slotNameList
@@ -18,7 +18,7 @@ There is an experimental slot reader syntax (:@) and writer syntax (:@ :=).
 
 See also: perform, slotList, slotRead, slotValueList, slotWrite
 
-Guides: Slot Access Syntax
+Guides: Reflection Functions, Slot Access Syntax
 
 Categories: Accessing, Reflection
 

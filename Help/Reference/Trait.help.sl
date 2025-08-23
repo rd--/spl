@@ -49,7 +49,7 @@ true
 
 See also: Method, System, Type
 
-Guides: What is a Trait
+Guides: Reflection Functions, What is a Trait
 
 Further Reading: Cannon 1982, Curry 1982, Moon 1986, Weinreb 1980, Ungar and Smith 1987
 

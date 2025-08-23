@@ -1,8 +1,8 @@
 # counts
 
-- _counts(aList)_
+- _counts([x₁ x₂ …])_
 
-Answer an `Association` `List` whose keys are the distinct elements of _aCollection_,
+Answer an association list whose keys are the distinct elements of the collection _x_,
 and whose values give the number of times those elements appear.
 
 ```

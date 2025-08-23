@@ -1,9 +1,10 @@
 # deleteDuplicates
 
-- _deleteDuplicates(α, β)_ ⟹ _nubBy(α, β)_
-- _deleteDuplicates(α)_ ⟹ _nub(α, β)_
+- _deleteDuplicates([x₁ x₂ …], f:/2)_
 
-An alias for `nub` and `nubBy`.
+Answer a copy of the collection _x_ that removes any duplicates, according to _f_.
+
+At `List`:
 
 ```
 >>> [1 3 5 3 5 9 5 2 3 5 7 3 5 7 3]
@@ -79,7 +80,7 @@ it answers a copy of the collection without the duplicate elements.
 
 * * *
 
-See also: counts, deleteAdjacentDuplicates, nub, nubBy
+See also: counts, deleteAdjacentDuplicates, nub, nubBy, unique
 
 References:
 _Apl_

@@ -1,9 +1,12 @@
 # unionBy
 
 - _unionBy(c₁, c₂, f:/2)_
+- _unionBy([c₁ c₂ …], f:/2)_
 
-Answer the set theoretic union of the two collections _c₁_ and _c₂_.
+Answer the set theoretic union of the collections _c₁_ and _c₂_.
 Equality is decided by the block _f_.
+
+The binary case at `List`:
 
 ```
 >>> [1 2 3].unionBy([2 3 4], ==)
@@ -24,6 +27,9 @@ Find divisors that occur in any of 10, 12, and 20:
 >>> 		20.divisors, ==
 >>> 	), ==
 >>> )
+[1 2 5 10 3 4 6 12 20]
+
+>>> [10 12 20].divisors.unionBy(==)
 [1 2 5 10 3 4 6 12 20]
 ```
 
