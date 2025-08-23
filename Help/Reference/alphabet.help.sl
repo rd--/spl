@@ -1,8 +1,8 @@
 # alphabet
 
-- _alphabet(aString)_
+- _alphabet(a)_
 
-Answer a `List` of the letters in the named alphabet.
+Answer a `List` of the letters in the named alphabet _a_.
 
 ```
 >>> 'english'.alphabet.stringCatenate

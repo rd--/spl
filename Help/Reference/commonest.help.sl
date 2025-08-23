@@ -1,8 +1,8 @@
 # commonest
 
-- _commonest(aList)_
+- _commonest([x₁ x₂ …])_
 
-Answer a `List` of the elements that are the most common in _aCollection_.
+Answer a `List` of the elements that are the most common in the collection _x_.
 
 ```
 >>> ['b' 'a' 'c' 2 'a' 'b' 1 2].commonest
@@ -29,7 +29,7 @@ Find the _mode_ for the heights of the children in a class:
 
 See also: Bag, counts, mean, median, sortedElements
 
-Guides: Statistics Functions
+Guides: List Functions, Statistics Functions
 
 References:
 _Mathematica_

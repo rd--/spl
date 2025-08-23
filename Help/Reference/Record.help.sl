@@ -1,16 +1,9 @@
 # Record
 
-- _Record(aMatrix)_
+- _Record([k₁ v₁; k₂ v₂; …])_
 
 A `Record` is a `Dictionary` type where all the keys are strings.
 Answer a `Record` where the keys and values are specified in a two-column matrix.
-
-There is a literal syntax for records.
-
-```
->>> (x: 3.141, y: 23).isRecord
-true
-```
 
 Construct a `Record` from a two-column matrix:
 
@@ -19,24 +12,27 @@ Construct a `Record` from a two-column matrix:
 (x: 1, y: 2, z: 3)
 ```
 
+There is a literal syntax for records.
+
+```
+>>> (x: 3.141, y: 23).isRecord
+true
+```
+
 There is a conversion method,
 `asRecord`,
 from an `Association` `List`:
 
 ```
->>> ['x' -> 3.141, 'y' -> 23]
->>> .asRecord
->>> .asJson
-'{"x":3.141,"y":23}'
-
 >>> ['x' -> 3.141, 'y' -> 23].asRecord
 (x: 3.141, y: 23)
 
->>> ['pi' -> 1.pi].asRecord.isDictionary
+>>> ['pi' -> 1.pi].asRecord
+>>> .isDictionary
 true
 ```
 
-At the ordinary `asRecord` constructor it is an error if any key is not a string:
+At the ordinary `asRecord` constructor it is an `error` if any key is not a string:
 
 ```
 >>> {
@@ -65,5 +61,9 @@ and sequences:
 See also: asJson, asRecord, Association, Dictionary, Map
 
 Guides: Dictionary Functions, Dictionary Syntax
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Association.html)
 
 Categories: Collection, Type

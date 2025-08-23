@@ -1,27 +1,26 @@
 # partition
 
-- _partition(aSequence, windowSize, stepSize)_
-- _partition(alpha, beta)_ ⟹ _partition(alpha, beta, beta)_
+- _partition([x₁ x₂ …], n, d=n)_
 
-Answer a sequence of arrays of _windowSize_ places,
-each is a subsequence of _aSequence_,
-starting _stepSize_ places after the last.
+Answer a sequence of arrays of window size _n_ places,
+each is a subsequence of the sequence _x_,
+starting step size _d_ places after the last.
 
-If the _stepSize_ is less than the _windowSize_ the windows will overlap:
+If the step size is less than the window size the windows will overlap:
 
 ```
 >>> [1 .. 9].partition(3, 2)
 [1 2 3; 3 4 5; 5 6 7; 7 8 9]
 ```
 
-If the _stepSize_ is greater than the _windowSize_ there will be gaps:
+If the step size is greater than the window size there will be gaps:
 
 ```
 >>> [1 .. 9].partition(3, 4)
 [1 2 3; 5 6 7]
 ```
 
-If the _stepSize_ is equal to the _windowSize_ the catenate of the answer will be the original sequence:
+If the step size is equal to the window size the catenate of the answer will be the original sequence:
 
 ```
 >>> [1 .. 9].partition(3, 3)

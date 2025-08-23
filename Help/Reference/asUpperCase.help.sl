@@ -16,6 +16,8 @@ Answer a `String` made up from _aString_ whose characters are all uppercase.
 
 See also: asLowerCase, isUpperCase
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToUpperCase.html),

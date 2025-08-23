@@ -1,10 +1,10 @@
 # asBag
 
-- _asBag(aList)_
+- _asBag([x₁ x₂ …])_
 
-Convert _aList_ to a `Bag`.
+Convert the list _x_ to a `Bag`.
 
-At a `List` on integers:
+At a `List` of integers:
 
 ```
 >>> [1 1 1 3 3 5].asBag.sortedElements
@@ -18,7 +18,7 @@ Count occurrences of characters in a string:
 
 ```
 >>> 'occurrences'
->>> .contents
+>>> .characters
 >>> .asBag
 >>> .sortedCounts
 [

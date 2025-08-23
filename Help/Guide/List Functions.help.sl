@@ -20,6 +20,13 @@ Constructing:
 - `table`
 - `tuples`
 
+Counting:
+
+- `commonest`
+- `counts`
+- `sum`
+- `tally`
+
 Iterative Construction:
 
 - `fixedPointList`

@@ -10,6 +10,13 @@ and whose values give the number of times those elements appear.
 ['a' -> 2, 'b' -> 1, 'c' -> 1]
 ```
 
+Items are sorted by key:
+
+```
+>>> ['z' 'y' 'x' 'z'].counts
+['x' -> 1, 'y' -> 1, 'z' -> 2]
+```
+
 Count the number of items in a random list of 100 small integers:
 
 ```
@@ -21,6 +28,8 @@ Count the number of items in a random list of 100 small integers:
 * * *
 
 See also: Bag, commonest, count, sort, sortedElements, tally
+
+Guides: List Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # asLowerCase
 
-- _asLowerCase(aCharacter | aString)_
+- _asLowerCase(s)_
 
-Answer a `String` made up from _aString_ whose characters are all lower case.
+Answer a `String` made up from the string _s_ whose characters are all lower case.
 
 ```
 >>> 'Word'.asLowerCase
@@ -15,6 +15,8 @@ Answer a `String` made up from _aString_ whose characters are all lower case.
 * * *
 
 See also: asUpperCase, isLowerCase
+
+Guides: String Functions
 
 References:
 _Mathematica_

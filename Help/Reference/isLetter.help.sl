@@ -1,8 +1,8 @@
 # isLetter
 
-- _isLetter(aCharacter)_
+- _isLetter(s)_
 
-Answer `true` if _aCharacter_ represents a letter, else `false`.
+Answer `true` if the string _s_ represents a letter, else `false`.
 
 Lower case _x_ is a letter:
 
@@ -43,6 +43,8 @@ There are twenty six letters and each has two cases:
 * * *
 
 See also: Character, isDigit, isLowerCase, isUpperCase
+
+Guides: String Functions
 
 References:
 _Mathematica_

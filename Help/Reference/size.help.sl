@@ -1,8 +1,8 @@
 # size
 
-- _size(aCollection)_
+- _size(c)_
 
-Answer the number of elements in _aCollection_.
+Answer the number of elements in the collection _c_.
 For indexable collections, this value is the same as the largest legal index.
 
 Size of a `List`:
@@ -110,7 +110,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Length.html),
+[1](https://reference.wolfram.com/language/ref/Length.html)
+[1](https://reference.wolfram.com/language/ref/StringLength.html),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#len)
 _Smalltalk_

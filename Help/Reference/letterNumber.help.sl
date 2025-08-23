@@ -1,6 +1,8 @@
 # letterNumber
 
-- _letterNumber(aString, alphabet)_
+- _letterNumber(c, alphabet)_
+
+Answer the index of the letter _c_ in the named alphabet.
 
 The fourth letter in the English alphabet is d:
 
@@ -35,3 +37,5 @@ Get positions of each of the letters in a string:
 * * *
 
 See also: alphabet, indexOf, String
+
+Guides: String Functions

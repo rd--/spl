@@ -1,8 +1,8 @@
 # indexValueAssociations
 
-- _indexValueAssociations(aSequence)_
+- _indexValueAssociations([x₁ x₂ …])_
 
-Answer a sequence containing the (index -> value) associations of _aSequence_.
+Answer a sequence containing the (index -> value) associations of the sequence _x_.
 
 ```
 >>> 3:7.indexValueAssociations

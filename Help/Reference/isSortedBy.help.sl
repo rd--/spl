@@ -1,8 +1,8 @@
 # isSortedBy
 
-- _isSorted(aSequence, aBlock:/2)_
+- _isSortedBy([x₁ x₂ …], f:/2)_
 
-Answer `true` if _aSequence_ is sorted by _aBlock_, else `false`.
+Answer `true` if the sequence _x_ is sorted by the block _f_, else `false`.
 
 At `List`:
 

@@ -81,6 +81,7 @@ Sets:
 
 - `alphabet`
 - `characterRange`
+- `letterNumber`
 
 Syntax:
 

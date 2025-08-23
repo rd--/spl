@@ -1,8 +1,8 @@
 # tally
 
-- _tally(c, f:/2)_
+- _tally([x₁ x₂ …], f:/2)_
 
-Answer all distinct elements of the collection _c_ together with their multiplicities,
+Answer all distinct elements of the collection _x_ together with their multiplicities,
 according to the equality predicate _f_.
 
 ```
@@ -48,6 +48,8 @@ Count odd and even numbers in a list:
 * * *
 
 See also: commonest, counts, entropy, mean, median, sort, sortBy, union
+
+Guides: List Functions
 
 References:
 _Mathematica_

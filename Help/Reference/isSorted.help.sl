@@ -1,8 +1,8 @@
 # isSorted
 
-- _isSorted(aSequence)_
+- _isSorted([x₁ x₂ …])_
 
-Answers `true` if _aSequence_ is sorted by `<=`, else `false`.
+Answers `true` if the sequence _x_ is sorted by `<=`, else `false`.
 
 At `List`:
 

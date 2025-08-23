@@ -1,9 +1,9 @@
 # sortOnBy
 
-- _sortOnBy(aSequence, keyBlock:/1, compareBlock:/2)_
+- _sortOnBy([x₁ x₂ …], keyBlock:/1, compareBlock:/2)_
 
-Sort _aSequence_ in place using _compareBlock_ to compare items according to _keyBlock_.
-Answers _aSequence_.
+Sort the sequence _x_ in place using _compareBlock_ to compare items according to _keyBlock_.
+Answers _x.
 
 Sort into descending order according to last item:
 

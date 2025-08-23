@@ -116,6 +116,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		}
 	}
 
+	keySort { :self |
+		self.sortOn(key:/1)
+	}
+
 	normal { :self |
 		self
 	}
@@ -201,6 +205,10 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 
 	storeString { :self |
 		self.printString(storeString:/1)
+	}
+
+	valueSort { :self |
+		self.sortOn(value:/1)
 	}
 
 }

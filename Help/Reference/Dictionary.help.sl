@@ -35,4 +35,8 @@ See also: Association, EqualityDictionary, Map, Record, TolerantDictionary
 
 Guides: Dictionary Functions
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Association.html)
+
 Categories: Collection, Trait

@@ -1,15 +1,19 @@
 # sortedCounts
 
-- _sortedCounts(aBag)_
+- _sortedCounts(b)_
 
-Answer a `List` of `Association`s between counts and elements, sorted by _decreasing_ count.
+At `Bag`,
+answer a `List` of `Association`s between counts and elements, sorted by _decreasing_ count.
 
 ```
->>> [1 2 3 1 2 1].asIdentityBag.sortedCounts
+>>> [1 2 3 1 2 1].asBag.sortedCounts
 [3 -> 1, 2 -> 2, 1 -> 3]
 
->>> [1 2 3 1 3 1].asIdentityBag.sortedCounts
+>>> [1 2 3 1 3 1].asBag.sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 2]
+
+>>> 'abcaca'.characters.asBag.sortedCounts
+[3 -> 'a', 2 -> 'c', 1 -> 'b']
 ```
 
 * * *

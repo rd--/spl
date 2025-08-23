@@ -20,6 +20,8 @@ true
 
 See also: asLowerCase, isUpperCase
 
+Guides: String Functions
+
 References:
 _Smalltalk_
 5.3.4.9

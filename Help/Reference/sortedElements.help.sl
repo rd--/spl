@@ -1,19 +1,21 @@
 # sortedElements
 
-- _sortedElements(aBag)_
+- _sortedElements(b)_
 
-Answer a `List` of `Association`s between elements and counts, sorted by increasing element.
-The idiom _asBag.sortedElements_ can be written as `counts`.
+At `Bag`,
+answer a `List` of `Association`s between elements and counts of the bag _b_,
+sorted by increasing element.
+The idiom `asBag` of `sortedElements` can be written as `counts`.
 
 ```
->>> [1 3 5 1 3 1].asIdentityBag.sortedElements
+>>> [1 3 5 1 3 1].asBag.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 3 5 1 5 1].asIdentityBag.sortedElements
+>>> [1 3 5 1 5 1].asBag.sortedElements
 [1 -> 3, 3 -> 1, 5 -> 2]
 
->>> ['a' 'b' 'c' 'a'].asIdentityBag.sortedElements
-['a' -> 2, 'b' -> 1, 'c' -> 1]
+>>> 'abcaca'.characters.asBag.sortedElements
+['a' -> 3, 'b' -> 1, 'c' -> 2]
 ```
 
 * * *

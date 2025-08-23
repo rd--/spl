@@ -717,6 +717,10 @@
 		self.threshold(10E-10)
 	}
 
+	unique { :self |
+		self.nub
+	}
+
 	withLevelCollect { :self :aBlock:/2 :level |
 		let type = self.typeOf;
 		self.collect { :each |

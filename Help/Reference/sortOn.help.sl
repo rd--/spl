@@ -1,9 +1,9 @@
 # sortOn
 
-- _sortOn(aSequence, aBlock:/1)_
+- _sortOn([x₁ x₂ …], f:/1)_
 
-Sort the elements of _aSequence_ in the order defined by applying _aBlock_ to each of them.
-Sort is in place (mutating) and answers _aSequence_.
+Sort the elements of the sequence _x_ in the order defined by applying the unary block _f_ to each of them.
+Sort is in place (mutating) and answers _x_.
 
 Sort according to `last` item in each sub-list:
 

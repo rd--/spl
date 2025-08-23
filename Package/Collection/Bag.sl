@@ -35,6 +35,10 @@
 		answer
 	}
 
+	associations { :self |
+		self.contents.associations
+	}
+
 	asSet { :self :aBlock:/2 |
 		self.contents.indices.asSet(aBlock:/2)
 	}
@@ -69,6 +73,10 @@
 
 	includes { :self :anObject |
 		self.contents.includesIndex(anObject)
+	}
+
+	keySort { :self |
+		self.sortedElements
 	}
 
 	max { :self |
@@ -134,7 +142,7 @@
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sort
+		self.contents.associations.sortOn(key:/1)
 	}
 
 	storeString { :self |
@@ -155,6 +163,10 @@
 
 	valuesAndCounts { :self |
 		self.contents
+	}
+
+	valueSort { :self |
+		self.associations.sortOn(value:/1)
 	}
 
 }

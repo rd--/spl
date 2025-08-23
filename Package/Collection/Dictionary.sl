@@ -249,6 +249,10 @@
 		true
 	}
 
+	keySort { :self |
+		self.associations.sortOn(key:/1)
+	}
+
 	keysAndValuesCollect { :self :aBlock:/2 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |
@@ -410,6 +414,10 @@
 		self.keysAndValuesCollect { :key :value |
 			aBlock(value, key)
 		}
+	}
+
+	valueSort { :self |
+		self.associations.sortOn(value:/1)
 	}
 
 }

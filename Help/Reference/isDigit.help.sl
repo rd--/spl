@@ -30,6 +30,8 @@ false
 
 See also: Character, isLetter
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DigitQ.html),

@@ -1,0 +1,30 @@
+# isDictionary
+
+- _isDictionary(x)_
+
+Answer `true` if the object _x_ is an instance of a type that implements the `Dictionary` trait,
+else `false`.
+
+At `Record`:
+
+```
+>>> (a: 1, b: 2, c: 3).isDictionary
+```
+
+At `Map`:
+
+
+```
+>>> [1 -> 'a', 2 -> 'b', 3 -> 'c']
+>>> .asMap
+>>> .isDictionary
+true
+```
+
+* * *
+
+See also: Dictionary, Map, Record
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/AssociationQ.html)

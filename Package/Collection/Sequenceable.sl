@@ -1603,6 +1603,10 @@
 		true
 	}
 
+	isVeryCloseTo { :self :anObject |
+		self.equalBy(anObject, isVeryCloseTo:/2)
+	}
+
 	kadanesAlgorithm { :self |
 		let answer = -Infinity;
 		let currentSum = 0;
@@ -2851,8 +2855,8 @@
 		}
 	}
 
-	isVeryCloseTo { :self :anObject |
-		self.equalBy(anObject, isVeryCloseTo:/2)
+	unique { :self |
+		self.nub.sort
 	}
 
 	which { :self |
