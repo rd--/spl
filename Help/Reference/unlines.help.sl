@@ -16,6 +16,8 @@ answer a `String` that joins together all of the input strings separated by line
 
 See also: lines, stringIntercalate, unwords
 
+Guides: String Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:unlines)

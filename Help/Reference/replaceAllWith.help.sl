@@ -23,12 +23,17 @@ Replace every substring that has one or more occurrences of "ab" with "X":
 
 ```
 >>> RegularExpression('(ab)+', 'g')
->>> .replaceAllWith('ababbabbaaababa', 'X')
+>>> .replaceAllWith(
+>>> 	'ababbabbaaababa',
+>>> 	'X'
+>>> )
 'XbXbaaXa'
 ```
 
 * * *
 
 See also: copyReplaceAllWith, replaceString, replaceStringAll, replaceWith
+
+Guides: Regular Expression Functions
 
 Categories: Replacing

@@ -1,8 +1,8 @@
 # withoutTrailingBlanks
 
-- _withoutTrailingBlanks(aString)_
+- _withoutTrailingBlanks(s)_
 
-Answer a copy of _aString_ from which trailing blanks have been trimmed.
+Answer a copy of string _s_ from which trailing blanks have been trimmed.
 
 ```
 >>> ' blanks '.withoutTrailingBlanks
@@ -11,6 +11,8 @@ Answer a copy of _aString_ from which trailing blanks have been trimmed.
 
 * * *
 
-See also: withBlanksTrimmed, withoutLeadingBlanks
+See also: trim, withBlanksTrimmed, withoutLeadingBlanks
+
+Guides: String Functions
 
 Categories: Converting

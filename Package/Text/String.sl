@@ -1056,7 +1056,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	deleteStopWords { :self |
 		let stopWords = system.englishStopWords;
 		self.reject { :each |
-			stopWords.includes(each)
+			stopWords.includes(each.asLowerCase)
 		}
 	}
 

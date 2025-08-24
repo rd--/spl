@@ -43,6 +43,8 @@ Replace every occurrence of _ab_ with a period:
 
 See also: replaceString, stringReplace
 
+Guides: String Functions
+
 References:
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll),

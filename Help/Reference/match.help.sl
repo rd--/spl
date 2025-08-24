@@ -49,4 +49,6 @@ Match prefix:
 
 See also: matches, matchRegularExpression, RegularExpression, search
 
+Guides: Regular Expression Functions
+
 Categories: Testing

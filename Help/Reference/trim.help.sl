@@ -13,6 +13,8 @@ Remove whitespace from both ends of the string _s_.
 
 See also: String, withBlanksTrimmed, withoutLeadingBlanks, withoutTrailingBlanks
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringTrim.html),

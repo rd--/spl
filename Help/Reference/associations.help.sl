@@ -41,4 +41,8 @@ See also: ->, associationsDo, Association, Dictionary, indexValueAssociations, k
 
 Guides: Dictionary Functions
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Normal.html)
+
 Categories: Accessing

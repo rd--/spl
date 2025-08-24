@@ -62,6 +62,8 @@ false
 
 See also: beginsWithAnyOf, endsWith, first
 
+Guides: String Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf)

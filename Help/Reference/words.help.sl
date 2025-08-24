@@ -51,6 +51,8 @@ Multiple spaces are treated as one space:
 
 See also: lines, paragraphs, RegularExpression, sentences, splitByRegularExpression, unwords
 
+Guides: String Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:words),

@@ -30,4 +30,6 @@ true
 
 See also: replaceStringAll
 
+Guides: String Functions
+
 Categories: Replacing

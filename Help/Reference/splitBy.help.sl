@@ -1,6 +1,6 @@
 # splitBy
 
-- _splitBy(aString | aSequence, separator)_
+- _splitBy(sequence, separator)_
 
 Split a sequence or a string by a sub-sequence or a sub-string.
 The separator is discarded.
@@ -12,7 +12,7 @@ At `List`:
 [1 2 3; 4 5 6; 7 8 9]
 ```
 
-Split _aString_ into a `List` of `String`s,
+Split a `String` into a `List` of `String`s,
 according to _separator_,
 which is also a `String`.
 
@@ -55,6 +55,20 @@ Split a string at every '--':
 ['a' 'bbb' '-ccc' 'dddd']
 ```
 
+Split at every run of spaces:
+
+```
+>>> 'the cat in the hat'.splitBy(' ')
+['the' 'cat' 'in' 'the' 'hat']
+```
+
+Split at periods:
+
+```
+>>> '192.168.0.1'.splitBy('.')
+['192' '168' '0' '1']
+```
+
 Make a nested array by applying `splitBy` twice:
 
 ```
@@ -85,7 +99,9 @@ Simple attribute parser:
 
 * * *
 
-See also: join, split, splitByRegularExpression, stringJoin
+See also: join, split, splitByRegularExpression, stringJoin, stringSplit
+
+Guides: String Functions
 
 References:
 _Mathematica_

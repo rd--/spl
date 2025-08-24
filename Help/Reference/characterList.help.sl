@@ -1,8 +1,8 @@
 # characterList
 
-- _characterList(aString)_
+- _characterList(s)_
 
-Answer a `List` of the `Character` elements of _aString_.
+Answer a `List` of the `Character` elements of the string _s_.
 
 The `elementType` of the answer is `Character`:
 

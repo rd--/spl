@@ -1,8 +1,8 @@
 # endsWithAnyOf
 
-- _endsWithAnyOf(aSequence, aCollection)_
+- _endsWithAnyOf(s, c)_
 
-Answer if _aSequence_ ends with any element of _aCollection_.
+Answer if the sequence _s_ ends with any element of the collection _c_.
 
 ```
 >>> [1 .. 5].endsWithAnyOf([4 5; 3 4; 2 3])

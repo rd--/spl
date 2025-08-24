@@ -70,6 +70,8 @@ list
 
 See also: paragraphs, sentences, unlines, words
 
+Guides: String Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:lines)

@@ -30,7 +30,6 @@ Converting:
 - `asUpperCase`
 - `characterList`
 - `codePoints`
-- `removeDiacritics`
 - `utf16List`
 - `utf8ByteArray`
 
@@ -39,9 +38,28 @@ Decoding and Encoding:
 - `base64Decoded`
 - `base64Encoded`
 
+Editing:
+
+- `removeDiacritics`
+- `trim`
+- `withBlanksTrimmed`
+- `withoutLeadingBlanks`
+- `withoutTrailingBlanks`
+
+Joining:
+
+- `unlines`
+- `unwords`
+
 Parsing:
 
 - `Parsing Functions`: Guide
+
+Partitioning:
+
+- `paragraphs`
+- `sentences`
+- `words`
 
 Predicates:
 
@@ -75,6 +93,9 @@ Printing:
 
 Rewriting:
 
+- `replaceMultipleStrings`
+- `replaceString`
+- `replaceStringAll`
 - `stringReplace`
 
 Sets:
@@ -83,12 +104,21 @@ Sets:
 - `characterRange`
 - `letterNumber`
 
+Splitting:
+
+- `splitBy`
+- `splitByLimitedTo`
+
 Syntax:
 
 - `apostrophe`
 - `graveAccent`
 - `quotationMark`
 
+Text Analysis:
+
+- `deleteStopWords`
+
 * * *
 
-Guides: Literals Syntax, Parsing Functions, String Syntax
+Guides: Literals Syntax, Parsing Functions, Regular Expression Functions, String Syntax

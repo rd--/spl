@@ -18,7 +18,7 @@ which is set when the expression is defined.
 
 See also: asRegularExpression, flags, hasIndices, isGlobal, matches, source
 
-Guides: Regular Expressions
+Guides: Regular Expression Functions
 
 References:
 _Mathematica_

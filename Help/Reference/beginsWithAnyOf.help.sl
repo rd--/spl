@@ -1,8 +1,8 @@
 # beginsWithAnyOf
 
-- _beginsWithAnyOf(aSequence, aCollection)_
+- _beginsWithAnyOf(s, c)_
 
-Answer if _aSequence_ begins with any element of _aCollection_.
+Answer if the sequence _s_ begins with any element of the collection _c_.
 
 ```
 >>> [1 .. 5].beginsWithAnyOf(

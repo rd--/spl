@@ -3,32 +3,42 @@
 - _matchesRegularExpression(s, r)_
 
 Answers `true` if the string _s_ matches the regular expression _r_, else `false`.
-The expression to match is read using `asRegularExpression`, so an uncompiled regular expression may be used.
+The expression to match is read using `asRegularExpression`,
+so an uncompiled regular expression may be used.
 
 Match Lisp:
 
 ```
->>> 'caddar'.matchesRegularExpression('c(a|d)+r')
+>>> 'caddar'
+>>> .matchesRegularExpression(
+>>> 	'c(a|d)+r'
+>>> )
 true
 ```
 
 Match Dna:
 
 ```
->>> 'acggtaagc'.matchesRegularExpression('[acgt]+')
+>>> 'acggtaagc'
+>>> .matchesRegularExpression(
+>>> 	'[acgt]+'
+>>> )
 true
 ```
 
 Match _x_ prefix:
 
 ```
->>> 'xy.z'.matchesRegularExpression('x.*')
+>>> 'xy.z'
+>>> .matchesRegularExpression('x.*')
 true
 ```
 
 * * *
 
 See also: matches, RegularExpression
+
+Guides: Regular Expression Functions
 
 References:
 _Mathematica_

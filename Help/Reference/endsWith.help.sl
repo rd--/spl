@@ -1,8 +1,8 @@
 # endsWith
 
-- _endsWith(aSequence, anotherSequence)_
+- _endsWith(u, v)_
 
-Answer if the _aSequence_ ends with _anotherSequence_.
+Answer if the sequence _u_ ends with another sequence _v_.
 
 ```
 >>> [1 .. 5].endsWith([3 .. 5])
@@ -49,10 +49,12 @@ false
 
 See also: beginsWith, endsWithAnyOf
 
+Guides: String Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf)
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/StringStartsQ.html)
+[1](https://reference.wolfram.com/language/ref/StringEndsQ.html)
 
 Categories: Testing

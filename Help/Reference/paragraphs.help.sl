@@ -33,4 +33,6 @@ At empty `String` has one paragraph which is empty:
 
 See also: lines, sentences, unlines, words
 
+Guides: String Functions
+
 Categories: Converting

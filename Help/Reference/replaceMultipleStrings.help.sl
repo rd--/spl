@@ -43,3 +43,5 @@ A neighbor-independent substitution system:
 * * *
 
 See also: stringReplace
+
+Guides: String Functions

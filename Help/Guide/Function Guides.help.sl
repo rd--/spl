@@ -37,6 +37,8 @@
 - `Prime Number Functions`
 - `Quantity Functions`
 - `Random Functions`
+- `Reflection Functions`
+- `Regular Expression Functions`
 - `Scale Functions`
 - `Sequence Alignment Functions`
 - `Set Functions`

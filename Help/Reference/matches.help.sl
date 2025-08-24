@@ -18,4 +18,6 @@ false
 
 See also: matchesRegularExpression, RegularExpression, search
 
+Guides: Regular Expression Functions
+
 Categories: Regular Expression, Testing

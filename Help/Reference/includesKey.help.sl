@@ -4,8 +4,17 @@
 
 Answer whether the dictionary _d_ has a key equal to _k_.
 
+At `Record`:
+
 ```
->>> (Italie: 'Rome', France: 'Paris').includesKey('France')
+>>> (Italie: 'Rome', France: 'Paris')
+>>> .includesKey('France')
+true
+
+>>> (x: 1, y: 2, z: 3).includesKey('z')
+true
+
+>>> (x: 1, y: 2, z: 3).includes(3)
 true
 ```
 
@@ -14,9 +23,14 @@ The indices of dictionaries are called keys.
 `includesKey` is another name for `includesIndex`,
 and `keys` is another name for `indices`.
 
+```
+>>> (x: 1, y: 2, z: 3).includesIndex('z')
+true
+```
+
 * * *
 
-See also: at, Dictionary, includesIndex, Indexable, keys
+See also: at, Dictionary, includes, includesIndex, Indexable, keys
 
 References:
 _Mathematica_

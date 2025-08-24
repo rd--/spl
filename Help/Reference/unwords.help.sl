@@ -1,8 +1,8 @@
 # unwords
 
-- _unwords(aSequence)_
+- _unwords([s₁ s₂ …])_
 
-Answer a `String` made by joining together the items of _aSequence_ with separating spaces.
+Answer a `String` made by joining together the items of the sequence _s_ with separating spaces.
 
 ```
 >>> ['Lorem' 'ipsum' 'dolor'].unwords
@@ -15,6 +15,8 @@ Answer a `String` made by joining together the items of _aSequence_ with separat
 * * *
 
 See also: stringIntercalate, unlines, words
+
+Guides: String Functions
 
 References:
 _Haskell_
