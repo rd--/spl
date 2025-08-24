@@ -1,12 +1,12 @@
 # add
 
-- _add(aCollection, newObject)_
+- _add(c, x)_
 
-Include _newObject_ as one of the elements of _aCollection_.
+Include the object _x_ as one of the elements of the collection _c_.
 After adding an entry, the `size` of the collection increases by one.
 Therefore, for collections with invariants such as `Dictionary` and `IdentitySet`, `add` may fail.
 In these cases see `include`, which is like `add` except that the size of the collection may stay the same.
-Answers _newObject_.
+Answers _x_.
 
 At `IdentityBag`:
 

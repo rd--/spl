@@ -143,14 +143,14 @@
 
 	sort { :self :sortBlock:/2 :keyBlock:/1 |
 		keyBlock:/1.ifNil {
-			self.sortBy(sortBlock:/2 ? <=)
+			self.sortBy(sortBlock:/2 ? { <= })
 		} {
-			self.sortByOn(sortBlock:/2 ? <=, keyBlock:/1)
+			self.sortByOn(sortBlock:/2 ? { <= }, keyBlock:/1)
 		}
 	}
 
 	sort { :self :sortBlock:/2 |
-		self.sortBy(sortBlock:/2 ? <=)
+		self.sortBy(sortBlock:/2 ? { <= })
 	}
 
 	sort { :self |

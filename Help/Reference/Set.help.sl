@@ -1,9 +1,9 @@
 # Set
 
-- _Set(aBlock:/2)_
+- _Set(f:/2)_
 
 A `Trait` and a `Type` representing a collection of objects without duplicates.
-The comparison operator is _aBlock_.
+The comparison operator is the block _f_, or `=` if elided.
 
 Sets with predicates other than `==` may not be at all efficient,
 however `==` has some subtle behaviours:

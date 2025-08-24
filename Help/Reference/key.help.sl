@@ -1,8 +1,8 @@
 # key
 
-- _key(anAssociation)_
+- _key(k → v)_
 
-Answer the _key_ of _anAssociation_.
+Answer the key _k_ of the association _k→v_.
 
 ```
 >>> ('x' -> 1).key

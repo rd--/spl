@@ -1053,6 +1053,13 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		self.stringIntercalate(', ')
 	}
 
+	deleteStopWords { :self |
+		let stopWords = system.englishStopWords;
+		self.reject { :each |
+			stopWords.includes(each)
+		}
+	}
+
 	fromCharacterCode { :self :encoding |
 		self.allSatisfy(isSmallFloat:/1).if {
 			encoding.caseOf([

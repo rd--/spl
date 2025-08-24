@@ -1,8 +1,8 @@
 # trim
 
-- _trim(aString)_
+- _trim(s)_
 
-Remove whitespace from both ends of _aString_.
+Remove whitespace from both ends of the string _s_.
 
 ```
 >>> '   aaa bbb ccc   '.trim

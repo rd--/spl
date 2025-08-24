@@ -9,6 +9,7 @@ At `Record`:
 
 ```
 >>> (a: 1, b: 2, c: 3).isDictionary
+true
 ```
 
 At `Map`:

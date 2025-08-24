@@ -1,8 +1,8 @@
 # constant
 
-- _constant(anObject)_
+- _constant(x)_
 
-Answer a unary Block that always answers _anObject_.
+Answer a unary Block that always answers the object _x_.
 
 ```
 >>> 1:4.collect(42.constant)

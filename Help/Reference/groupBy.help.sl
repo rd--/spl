@@ -1,9 +1,9 @@
 # groupBy
 
-- _groupBy(aCollection, keyBlock:/1)_
+- _groupBy(c, f:/1)_
 
-Like in Sql answer the contents of _aCollection_ split into groups for which _keyBlock_ returns the same results.
-The answer is a `Map` keyed by the answers of _keyBlock_.
+Like in Sql answer the contents of th collection _c_ split into groups for which the key block _f_ returns the same results.
+The answer is a `Map` keyed by the answers of _f_.
 
 ```
 >>> [1 .. 5].groupBy(isEven:/1)

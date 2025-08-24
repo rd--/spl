@@ -1,8 +1,10 @@
 # intersection
 
 - _intersection(c₁, c₂)_
+- _intersection([c₁ c₂ …])_
 
-Answer the set theoretic intersection of two collections.
+Answer the set theoretic intersection of two collections,
+or of each of the subcollection _c_.
 
 At `Set`:
 
@@ -20,6 +22,22 @@ find divisors common to 45 and 78:
 ```
 >>> 45.divisors.intersection(78.divisors)
 [1 3]
+
+>>> [45 78].divisors.intersection
+[1 3]
+```
+
+The unary form answers the items that are present in all subcollections:
+
+```
+>>> [1 2 3; 2 3 4; 3 4 5].intersection
+[3]
+
+>>> [1 2; 2 3; 3 4].intersection
+[]
+
+>>> [].intersection
+[]
 ```
 
 At `Range`,
@@ -74,7 +92,9 @@ _Apl_
 [1](https://aplwiki.com/wiki/Intersection),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Intersection.html)
-[2](https://reference.wolfram.com/language/ref/IntervalIntersection.html)
+[2](https://reference.wolfram.com/language/ref/IntervalIntersection.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Intersection_(set_theory))
 
 Unicode: U+2229 ∩ Intersection
 

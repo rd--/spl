@@ -48,7 +48,7 @@ Use `valueSort` to sort by value:
 
 * * *
 
-See also: Dictionary, valueSort
+See also: Dictionary, keys, sort, valueSort
 
 References:
 _Mathematica_

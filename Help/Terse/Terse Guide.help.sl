@@ -140,7 +140,7 @@ NaN.isNaN /* literal for NaN */
 1.exp.log = 1 /* natural logarithm */
 3.log = 1.0986122886681096 /* natural logarithm */
 100.log = 4.605170185988092 /* natural logarithm */
--1.log.isNaN /* natural logarithm */
+-1.log.isComplex /* natural logarithm */
 100.log10 = 2.0 /* base 10 logarithm */
 1024.log2 = 10 /* base 2 logarithm */
 2048.log2 = 11 /* base 2 logarithm */
@@ -469,8 +469,8 @@ let l = [1 nil 3]; l.atPutWrap(5, 2); l = [1 2 3] /* atPut with index wrap aroun
 (-1 .. 5).collect { :index | 1:3.atFold(index) } = [3 2 1 2 3 2 1] /* at with index fold-around */
 [1 .. 9].difference([3 .. 7]) = [1, 2, 8, 9] /* set theoretic difference of two collections */
 [1 .. 9].difference([]) = [1 .. 9] /* set theoretic difference of two collections */
-[1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4].asIdentitySet /* elements which are in either set but not their intersection */
-['A', 'B', 'D', 'E'].symmetricDifference(['B', 'E', 'F']) = ['A', 'D', 'F'].asIdentitySet
+[1, 2, 3].symmetricDifference([3, 4]) = [1, 2, 4] /* elements which are in either set but not their intersection */
+['A', 'B', 'D', 'E'].symmetricDifference(['B', 'E', 'F']) = ['A', 'D', 'F']
 let a = [1 .. 9]; a.reject { :each | a.includes(each) } = [] /* reject all */
 [1 .. 9].difference([1 .. 9]) = [] /* set theoretic difference of two collections */
 [1, 3 .. 9].intersection([2, 4 .. 8]) = [] /* set theoretic intersection, unicode = ∩ */
@@ -480,7 +480,7 @@ let a = []; [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1,
 let a = []; [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(isEven:/1) { :each | each * 3 } = [6, 12, 18, 24] /* avoid intermediate collection */
 [1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] /* avoid intermediate collection */
-[1, 3 .. 9].union([3 .. 7]) = [1, 3, 4, 5, 6, 7, 9].asIdentitySet /* set theoretic union, unicode = ∪ */
+[1, 3 .. 9].union([3 .. 7]) = [1, 3, 5, 7, 9, 4, 6] /* set theoretic union, unicode = ∪ */
 let a = [1 .. 9]; a.removeAllSuchThat(isEven:/1); a = [1, 3 .. 9] /* remove elements selected by predicate */
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 2 }; a = [1] /* remove elements selected by predicate, answers copy of self */
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 3 }; a = [1 2 2] /* it is not an error if no elements match */
@@ -1819,14 +1819,14 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 
 ## Integer -- roman numerals
 ```
-1:10.collect(printStringRoman:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
-11:20.collect(printStringRoman:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
-(50, 61 .. 160).collect(printStringRoman:/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
-['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(romanNumber:/1) = [1 .. 10]
-['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(romanNumber:/1) = [11 .. 20]
-['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(romanNumber:/1) = [50, 61 .. 160]
-2023.printStringRoman = 'MMXXIII'
-'MMXXIII'.romanNumber = 2023
+1:10.collect(romanNumeral:/1) = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
+11:20.collect(romanNumeral:/1) = ['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX']
+(50, 61 .. 160).collect(romanNumeral:/1) = ['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX']
+['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'].collect(fromRomanNumeral:/1) = [1 .. 10]
+['XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX'].collect(fromRomanNumeral:/1) = [11 .. 20]
+['L', 'LXI', 'LXXII', 'LXXXIII', 'XCIV', 'CV', 'CXVI', 'CXXVII', 'CXXXVIII', 'CXLIX', 'CLX'].collect(fromRomanNumeral:/1) = [50, 61 .. 160]
+2023.romanNumeral = 'MMXXIII'
+'MMXXIII'.fromRomanNumeral = 2023
 ```
 
 ## Range -- collection type
@@ -1922,7 +1922,7 @@ collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Range(1, 6, 2).asList = [1, 3, 5]
 Range(1, 6, 2).last = 5
 1:9.reversed.asList = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Range(1, 6, 2).reversed.asList = [5, 3, 1]
+Range(1, 6, 2).reversed.asList = [5, 3, 1] /* start becomes last, not stop */
 1.to(9).step = 1 /* get step size of interval */
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
@@ -2148,7 +2148,7 @@ let c = Map(); c[2] := 'two'; c[1] := 'one'; c.removeKey(2); c[1] := 'one'; c.re
 let m = (x: 1, y: 2).asMap; m.removeAssociation('x' -> 1); m = (y: 2).asMap /* remove association */
 let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty /* remove all entries */
 (x: 1, y: 2).asMap = (x: 1, y: 2).asMap /* key sequence and equality */
-(x: 1, y: 2).asMap ~= (y: 2, x: 1).asMap /* key sequence and equality */
+(x: 1, y: 2).asMap = (y: 2, x: 1).asMap /* key sequence and equality */
 ```
 
 ## Math
@@ -2680,7 +2680,7 @@ let r = (x: 1, y: 2); r == r /* Record identity */
 (x: 1, y: 2) ~~ (x: 1, y: 2) /* Record non-identity */
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] /* indices of record (an array) */
 (x: 1, y: 2) = (x: 1, y: 2) /* key sequence and equality */
-(x: 1, y: 2) ~= (y: 2, x: 1) /* key sequence and equality */
+(x: 1, y: 2) = (y: 2, x: 1) /* key sequence and equality */
 Record().hasEqualElements(Record()) /* key sequence and equality */
 (x: 1, y: 2).hasEqualElements(x: 1, y: 2) /* key sequence and equality */
 (x: 1, y: 2).hasEqualElements(y: 2, x: 1) /* key sequence and equality */
@@ -2701,7 +2701,7 @@ Rectangle([1, 1], [3, 3]).area = 4
 Rectangle([1, 1], [3, 3]).center = [2, 2]
 Rectangle([1, 1], [3, 3]).containsPoint([2, 2]) = true /* includes */
 let r = Rectangle([0, 0], [10, 20]); r.area = (10 * 20) /* area is width by height */
-let r = Rectangle([0, 0], [10, 20]); r.translateBy([-20, 10]).area = (10 * 20) /* translation preserves area */
+let r = Rectangle([0, 0], [10, 20]); r.translated([-20, 10]).area = (10 * 20) /* translation preserves area */
 let r = Rectangle([0, 0], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
 let r = Rectangle([10, 10], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
 let r = Rectangle([0, 0], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
@@ -2709,7 +2709,7 @@ let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.containsPoint(c) /* the
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerRight.euclideanDistance(c)
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.lowerLeft.euclideanDistance(c) = r.upperRight.euclideanDistance(c)
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerLeft.euclideanDistance(c)
-let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.translateBy([-20, 10]).center = (c + [-20, 10]) /* the center is translated with the rectangle */
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.translated([-20, 10]).center = (c + [-20, 10]) /* the center is translated with the rectangle */
 let r = Rectangle([30, 10], [10, 20]); let c = r.center; r.containsPoint(c).not /* an empty rectangle does not contain any point */
 let r = Rectangle([0, 0], [50, 50]); [r.center, [1.5, 1.5], r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.lowerLeft) /* a rectangle does contain its lower left corner */
@@ -3074,7 +3074,7 @@ let s = 1:4.asIdentitySet; let t = 5:9; let u = s.union(t); u.size = (s.size + t
 1:9.asIdentitySet.select { :each | false } = [].asIdentitySet /* select nothing */
 let s = IdentitySet(); s.includeAll([4 / 2, 4, 2]); s.size = 2 /* 4 / 2 = 2 */
 [1, 2, 3, 1, 4].asIdentitySet = [1, 2, 3, 4, 3, 2, 1].asIdentitySet = true
-1:6.union(4:10) = 1:10.asIdentitySet /* set union */
+[1 .. 6].union([4 .. 10]) = [1 .. 10]
 'hello'.characters.intersection('there'.characters) = 'he'.contents /* set intersection */
 'Smalltalk'.characters.includes('k') = true
 [1, 2, 3, 1, 4].asIdentitySet.isIndexable = false /* sets are not indexable */

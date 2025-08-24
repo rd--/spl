@@ -65,4 +65,6 @@ See also: ->, associations
 
 Guides: Dictionary Functions
 
+Unicode: U+2190 → Rightwards Arrow
+
 Categories: Collection, Type

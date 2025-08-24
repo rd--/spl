@@ -47,10 +47,11 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	}
 
 	compare { :self :anItem :anotherItem |
-		self.sortBlock.ifNil {
+		let sortBlock:/2 = self.sortBlock;
+		sortBlock:/2.ifNil {
 			anItem <= anotherItem
 		} {
-			self.sortBlock.value(anItem, anotherItem)
+			sortBlock(anItem, anotherItem)
 		}
 	}
 

@@ -1,9 +1,9 @@
 # select
 
-- _select(aCollection, aBlock:/1)_
+- _select(c, f:/1)_
 
-Evaluate _aBlock_ with each of the elements of _aCollection_ as the argument.
-Collect into a new collection like the receiver only those elements for which _aBlock_ evaluates to _true_.
+Evaluate the block _f_ with each of the elements of the collection _c_ as the argument.
+Collect into a new collection like the receiver only those elements for which _f_ evaluates to `true`.
 Answer the new collection.
 
 Select elements that are even:
@@ -109,7 +109,7 @@ At `Sfc32`, which implements `Stream`:
 
 * * *
 
-See also: collect, detect, reject
+See also: collect, detect, keySelect, reject
 
 References:
 _Mathematica_

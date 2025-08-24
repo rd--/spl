@@ -15,6 +15,10 @@ Accessing:
 - `keys`
 - `values`
 
+Combining:
+
+- `merge`
+
 Constructors:
 
 - `->`
@@ -29,6 +33,11 @@ Predicates:
 
 - `isAssociation`
 - `isAssociationList`
+
+Set Functions:
+
+- `keyIntersection`
+- `keyUnion`
 
 * * *
 

@@ -18,7 +18,7 @@ At `Range`:
 ```
 >>> let x = Range(9, 1, -2);
 >>> (x.reverse == x, x)
-(true, Range(9, 1, 2))
+(true, Range(1, 9, 2))
 ```
 
 * * *

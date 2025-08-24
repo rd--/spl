@@ -1,8 +1,8 @@
 # join
 
-- _join(aList, anInteger)_
+- _join([x₁ x₂ …], n=1)_
 
-Joins the objects at level _anInteger_ in each of the `List` items at _aList_.
+Joins the objects at level _n_ in each of the `List` items at _x_.
 
 Join a matrix into a vector:
 

@@ -1,8 +1,8 @@
 # keys
 
-- _keys(aDictionary)_
+- _keys(d)_
 
-Answer the keys of a `Dictionary`.
+Answer the keys of the `Dictionary` _d_.
 
 At `Record`:
 
@@ -20,7 +20,7 @@ At `Map`:
 ['x' 'y' 'z']
 ```
 
-At an `Association` `List`:
+At an `List` of `Association`s:
 
 ```
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3].keys

@@ -1,8 +1,8 @@
 # includesKey
 
-- _includesKey(aDictionary, key)_
+- _includesKey(d, k)_
 
-Answer whether _aDictionary_ has a key equal to _key_.
+Answer whether the dictionary _d_ has a key equal to _k_.
 
 ```
 >>> (Italie: 'Rome', France: 'Paris').includesKey('France')

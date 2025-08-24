@@ -33,7 +33,7 @@ At `Range`:
 ```
 >>> let x = Range(9, 1, -2);
 >>> (x == x.sort, x)
-(true, Range(9, 1, 2))
+(true, Range(1, 9, 2))
 ```
 
 Sort subsets lexicographically:
@@ -127,6 +127,13 @@ Relation to `ordering`:
 >>> let x = [9 7 6 10 3 0 8 3 3 5];
 >>> x.atAll(x.ordering)
 [0 3 3 3 5 6 7 8 9 10]
+```
+
+With explicit `nil`:
+
+```
+>>> [3 1 5 3 7 5 9].sort(nil)
+[1 3 3 5 5 7 9]
 ```
 
 Show comparisons made in doing a sort:

@@ -249,6 +249,16 @@
 		true
 	}
 
+	keySelect { :self :aBlock:/1 |
+		let answer = self.species.new;
+		self.associationsDo { :each |
+			each.key.aBlock.ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
 	keySort { :self |
 		self.associations.sortOn(key:/1)
 	}
@@ -424,10 +434,72 @@
 
 +List {
 
+	keyIntersection { :self |
+		let keys = self.collect(keys:/1).intersection;
+		self.collect { :each |
+			let item = each.species.new;
+			keys.do { :key |
+				item.add(key -> each.at(key))
+			};
+			item
+		}
+	}
+
+	keyUnion { :self :blockOrDictionary |
+		let keys = Set(=);
+		let aBlock:/1 = blockOrDictionary.isBlock.if {
+			blockOrDictionary
+		} {
+			{ :key |
+				blockOrDictionary.at(key)
+			}
+		};
+		self.do { :each |
+			keys.includeAll(each.keys)
+		};
+		self.collect { :each |
+			let copy = each.copy;
+			keys.do { :key |
+				copy.includesKey(key).ifFalse {
+					copy.add(key -> aBlock(key))
+				}
+			};
+			copy
+		}
+	}
+
+	keyUnion { :self |
+		self.keyUnion { :key |
+			Missing('KeyAbsent', key)
+		}
+	}
+
 	lookup { :self :key :defaultValue |
 		self.collect { :each |
 			each.lookup(key, defaultValue)
 		}
+	}
+
+	merge { :self :aBlock:/1 |
+		let keys = self.collect(keys:/1).union;
+		let values = keys.collect { :key |
+			let list = [];
+			self.do { :each |
+				each.includesKey(key).ifTrue {
+					list.add(each.at(key))
+				}
+			};
+			list
+		};
+		let answer = self.anyOne.species.new;
+		keys.withDo(values) { :key :value |
+			answer.add(key -> aBlock(value))
+		};
+		answer
+	}
+
+	merge { :self |
+		self.merge(identity:/1)
 	}
 
 }

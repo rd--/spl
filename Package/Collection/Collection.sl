@@ -398,6 +398,20 @@
 		}
 	}
 
+	intersection { :self |
+		let answer = self.species.new;
+		self.isEmpty.ifFalse {
+			self.anyOne.do { :x |
+				self.allSatisfy { :c |
+					c.includes(x)
+				}.ifTrue {
+					answer.add(x)
+				}
+			}
+		};
+		answer
+	}
+
 	ifEmpty { :self :aBlock:/0 |
 		self.isEmpty.if {
 			aBlock()

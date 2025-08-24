@@ -43,9 +43,9 @@
 		}
 	}
 
-	union { :self :aSet |
+	union { :self :aCollection |
 		let answer = self.copy;
-		answer.includeAll(aSet);
+		answer.includeAll(aCollection);
 		answer
 	}
 

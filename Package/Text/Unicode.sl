@@ -15,3 +15,19 @@ LibraryItem(
 	mimeType: 'application/json',
 	parser: identity:/1
 )
+
++System {
+
+	englishStopWords { :self |
+		self.requireLibraryItem('EnglishStopWords')
+	}
+
+}
+
+LibraryItem(
+	name: 'EnglishStopWords',
+	category: 'Text/Analysis',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/text/stopwords-mathematica.text',
+	mimeType: 'application/json',
+	parser: identity:/1
+)

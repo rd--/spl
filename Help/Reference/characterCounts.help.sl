@@ -23,7 +23,7 @@ Character counts include all characters, including numbers, punctuation and whit
 
 ```
 >>> '- x !'.characterCounts
-[' ' -> 2, '-' -> 1, '!' -> 1, 'x' -> 1]
+[' ' -> 2, '!' -> 1, 'x' -> 1, '-' -> 1]
 
 >>> 'TK-421;TK-412'.characterCounts(2)
 [

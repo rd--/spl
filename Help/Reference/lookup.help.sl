@@ -1,9 +1,9 @@
 # lookup
 
-- _lookup(aDictionary, key, defaultAnswer)_
+- _lookup(d, key, m=nil)_
 
-Look up the value associated with _key_ in _aDictionary_,
-if the key is not present the `value` of _defaultAnswer_ is given.
+Look up the value associated with _key_ in the dictionary _d_,
+if the key is not present the `value` of _m_ is given.
 
 Look up the value associated with the key:
 

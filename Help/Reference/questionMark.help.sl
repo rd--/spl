@@ -1,6 +1,6 @@
 # ? (questionMark)
 
-- _a ? b_
+- _a ? { b }_
 
 Answer _a_ if _a_ is not `nil`, else answer _b_.
 

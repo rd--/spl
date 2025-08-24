@@ -18,6 +18,10 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		self.applyBinaryOperator(anObject, /)
 	}
 
+	// { :self :anObject |
+		self.applyBinaryOperator(anObject, //)
+	}
+
 	% { :self :anObject |
 		self.applyBinaryOperator(anObject, %)
 	}

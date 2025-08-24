@@ -281,6 +281,10 @@ RegExp! : [Object] {
 		}
 	}
 
+	wordCount { :self |
+		self.words.size
+	}
+
 	wordsBy { :self :separators |
 		self.splitByRegularExpression(
 			separators.characters.stringIntercalate('|')
@@ -288,7 +292,12 @@ RegExp! : [Object] {
 	}
 
 	words { :self |
-		self.trim.splitByRegularExpression('\\s+')
+		let trimmed = self.trim;
+		trimmed.isEmpty.if {
+			[]
+		} {
+			trimmed.splitByRegularExpression('\\s+')
+		}
 	}
 
 }

@@ -24,6 +24,13 @@ Trims any white spaces at the beginning and at the end before splitting.
 ]
 ```
 
+The empty string has zero words:
+
+```
+>>> ''.words
+[]
+```
+
 `unwords` can sometimes undo `words`:
 
 ```

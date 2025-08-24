@@ -130,12 +130,10 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 	}
 
 	reverse { :self |
+		let start = self.start;
+		self.start := self.last;
+		self.stop := start;
 		self.step := 0 - self.step;
-		self.isEmpty.ifFalse {
-			let start = self.start;
-			self.start := self.last;
-			self.last := start
-		};
 		self
 	}
 
