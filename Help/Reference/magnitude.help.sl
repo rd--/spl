@@ -1,8 +1,8 @@
 # magnitude
 
-- _magnitude(aQuantity)_
+- _magnitude(q)_
 
-Answer the amount of the specified quantity.
+Answer the amount of the specified `Quantity` _q_.
 
 ```
 >>> 3.millimetres

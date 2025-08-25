@@ -50,9 +50,16 @@ Triangle Centers:
 - `ninePointCenter`
 - `orthocenter`
 - `schifflerPoint`
+- `schouteCenter`
 - `spiekerCenter`
 - `symmedianPoint`
 - `triangleCentre`
+
+Derived Points:
+
+- `firstBrocardPoint`
+- `nobbsPoints`
+- `secondBrocardPoint`
 
 Derived Triangles:
 
@@ -67,6 +74,7 @@ Derived Triangles:
 - `medialTriangle`
 - `orthicTriangle`
 - `pedalTriangle`
+- `secondBrocardTriangle`
 - `symmedialTriangle`
 - `tangentialTriangle`
 
@@ -74,10 +82,14 @@ Derived Circles:
 
 - `bevanCircle`
 - `circumcircle`
+- `cosineCircle`
 - `excircles`
 - `incircle`
+- `innerSoddyCircle`
 - `ninePointCircle`
+- `outerSoddyCircle`
 - `spiekerCircle`
+- `tangentCircles`
 
 * * *
 

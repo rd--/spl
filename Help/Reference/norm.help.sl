@@ -111,15 +111,18 @@ Sfc32(567131)
 
 * * *
 
-See also: abs, dot, hypot, rootMeanSquare
+See also: abs, dot, euclideanDistance, hypotenuse, rootMeanSquare
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Norm.html)
-[2](https://mathworld.wolfram.com/ComplexModulus.html)
-[3](https://reference.wolfram.com/language/ref/Norm.html),
+[2](https://mathworld.wolfram.com/L2-Norm.html)
+[3](https://mathworld.wolfram.com/ComplexModulus.html)
+[4](https://reference.wolfram.com/language/ref/Norm.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/norm.html)
-[2](https://mathworks.com/help/matlab/ref/vecnorm.html)
+[2](https://mathworks.com/help/matlab/ref/vecnorm.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Norm_(mathematics))
 
 Categories: Math, Vector

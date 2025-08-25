@@ -1,8 +1,8 @@
 # hypotenuse
 
-- _hypotenuse(aNumber, anotherNumber)_
+- _hypotenuse(x, y)_
 
-Answer the square root of the sum of the squares.
+Answer the square root of the sum of the squares of _x_ and _y_.
 
 Integer answers:
 
@@ -38,8 +38,10 @@ See also: +, abs, norm, sqrt, sum
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Hypotenuseenuse.html),
+[1](https://mathworld.wolfram.com/Hypotenuse.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hypot.html),
 _Tc39_
-[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.hypot)
+[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.hypot),
+_W_
+[1](https://en.wikipedia.org/wiki/Hypotenuse)

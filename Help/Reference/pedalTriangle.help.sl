@@ -46,6 +46,26 @@ let f = a.circumcircle;
 
 ![](sw/spl/Help/Image/pedalTriangle-C.svg)
 
+Draw pedal triangles of the two Brocard points:
+
+~~~spl svg=D
+let t = [4 5 4].sssTriangle;
+let a = t.firstBrocardPoint;
+let b = t.secondBrocardPoint;
+let c = t.firstBrocardTriangle;
+let d = t.secondBrocardTriangle;
+[
+	t,
+	c,
+	d,
+	[a, b].PointCloud,
+	t.pedalTriangle(a),
+	t.pedalTriangle(b)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/pedalTriangle-D.svg)
+
 * * *
 
 See also: antipedalTriangle, cevianTriangle, fromTrilinearVertexMatrix, medialTriangle, orthicTriangle, orthocenter, Triangle, sec

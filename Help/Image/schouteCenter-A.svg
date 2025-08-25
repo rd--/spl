@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78.3" height="100.0" viewBox="-5.00 -44.15 88.30 110.00">
+<g fill="none" stroke="black" stroke-width="0.0319%" transform="translate(0, 21.7039) scale(15.6592, -15.6592)">
+<polygon points="0.00,0.00 5.00,0.00 1.80,2.40" />
+<circle cx="2.50" cy="0.00" r="2.50" />
+<line x1="2.50" y1="-0.00" x2="0.23" y2="3.89" />
+<circle cx="2.50" cy="-0.00" r="0.03" />
+<circle cx="0.23" cy="3.89" r="0.03" />
+<circle cx="1.80" cy="1.20" r="0.03" />
+</g>
+</svg>

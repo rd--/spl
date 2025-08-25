@@ -35,6 +35,10 @@ Circle : [Object, Geometry] { | center radius |
 		p.euclideanDistance(self.center) <= self.radius
 	}
 
+	curvature { :self |
+		1 / self.radius
+	}
+
 	diameter { :self |
 		self.radius * 2
 	}
@@ -135,6 +139,12 @@ Circle : [Object, Geometry] { | center radius |
 		}
 	}
 
+	isDescartesQuadruple { :self |
+		self.size = 4 & {
+			(2 * self.squared.sum) = self.sum.squared
+		}
+	}
+
 	unitCircle { :center |
 		Circle(center, 1)
 	}
@@ -195,6 +205,24 @@ UnitCircle : [Object] {
 
 	UnitCircle {
 		newUnitCircle()
+	}
+
+}
+
++Fraction {
+
+	fordCircle { :self |
+		let [h, k] = self.asList;
+		let r = 1 / (2 * k.squared);
+		Circle([h / k, r], r)
+	}
+
+}
+
++List {
+
+	fordCircle { :self |
+		self.collect(fordCircle:/1)
 	}
 
 }

@@ -11,6 +11,8 @@ let a = [6 4 5].sssTriangle;
 let b = a.firstBrocardTriangle;
 [
 	a,
+	a.firstBrocardPoint.Point,
+	a.secondBrocardPoint.Point,
 	b,
 	b.circumcircle
 ].LineDrawing
@@ -20,7 +22,7 @@ let b = a.firstBrocardTriangle;
 
 * * *
 
-See also: Triangle
+See also: secondBrocardTriangle, Triangle
 
 Guides: Geometry Functions
 

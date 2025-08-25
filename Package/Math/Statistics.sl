@@ -92,6 +92,10 @@
 		}
 	}
 
+	meanSquare { :self |
+		self.squared.mean
+	}
+
 	moment { :self :r |
 		(1 / self.size) * (self ^ r).sum
 	}

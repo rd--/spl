@@ -78,6 +78,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
+	brocardPoints { :self |
+		let [a, b, c] = self.sideLengths;
+		[
+			self.fromTrilinearCoordinates([c / b, a / c, b / a]),
+			self.fromTrilinearCoordinates([b / c, c / a, a / b]),
+			self.triangleCentreL { :a :b :c |
+				a ^ -3
+			}
+		]
+	}
+
 	centroid { :self |
 		self.triangleCentreA { :a :b :c |
 			a.csc
@@ -117,6 +128,15 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	contactTriangle { :self |
 		self.cevianTriangle(self.gergonnePoint)
+	}
+
+
+	cosineCircle { :self |
+		let l = self.sideLengths;
+		Circle(
+			self.symmedianPoint,
+			l.product / l.squared.sum
+		)
 	}
 
 	deLongchampsPoint { :self |
@@ -234,6 +254,11 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	firstBrocardPoint { :self |
+		let [a, b, c] = self.sideLengths;
+		self.fromTrilinearCoordinates([c / b, a / c, b / a])
+	}
+
 	firstBrocardTriangle { :self |
 		let [a, b, c] = self.sideLengths;
 		self.fromTrilinearVertexMatrix(
@@ -298,6 +323,10 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	hasIsoperimetricPoint { :self |
+		self.perimeter > ((4 * self.circumradius) + self.inradius)
+	}
+
 	heronsFormula { :self |
 		let [a, b, c] = self.sideLengths;
 		let s = (a + b + c) * 0.5;
@@ -314,6 +343,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		Circle(self.incenter, self.inradius)
 	}
 
+	innerSoddyCircle { :self |
+		let a = self.area;
+		let r1 = self.inradius;
+		let r2 = self.circumradius;
+		let s = self.semiperimeter;
+		Circle(
+			self.equalDetourPoint,
+			a / ((4 * r2) + r1 + (2 * s))
+		)
+	}
+
 	inradius { :self |
 		let [a, b, c] = self.sideLengths;
 		let s = (a + b + c) * 0.5;
@@ -324,9 +364,22 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
 
+	isHeronian { :self |
+		let epsilon = 1E-9;
+		self.sideLengths.allSatisfy { :each |
+			each.isInteger(epsilon)
+		} & {
+			self.area.isInteger(epsilon)
+		}
+	}
+
 	isoperimetricPoint { :self |
-		self.triangleCentreA { :a :b :c |
-			(((0.5 * a).sec * (0.5 * b).cos) / (0.5 * c).cos) - 1
+		self.hasIsoperimetricPoint.if {
+			self.triangleCentreA { :a :b :c |
+				((0.5 * a).sec * (0.5 * b).cos * (0.5 * c).cos) - 1
+			}
+		} {
+			self.error('isoperimetricPoint: no such point')
 		}
 	}
 
@@ -360,6 +413,17 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.ninePointCircle
 	}
 
+	nobbsPoints { :self |
+		let [a, b, c] = self.sideLengths;
+		[
+			[-1 * (a - b + c) * b, (0 - a + b + c) * a, 0],
+			[0, -1 * (a + b - c) * c, (a - b + c) * b],
+			[(a + b - c) * c, 0, -1 * a * (0 - a + b + c)]
+		].collect { :each |
+			self.fromTrilinearCoordinates(each)
+		}
+	}
+
 	orthicTriangle { :self |
 		let [a, b, c] = self.interiorAngles;
 		self.fromTrilinearVertexMatrix(
@@ -375,6 +439,21 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.triangleCentreA { :a :b :c |
 			a.sec
 		}
+	}
+
+	outerSoddyCircle { :self |
+		let a = self.area;
+		let r1 = self.inradius;
+		let r2 = self.circumradius;
+		let s = self.semiperimeter;
+		let r = a / ((4 * r2) + r1 - (2 * s));
+		let c = (r > 0).if {
+			self.equalDetourPoint
+		} {
+			self.isoperimetricPoint
+		};
+		[c, r].postLine;
+		Circle(c, r.abs)
 	}
 
 	pedalTriangle { :self :p |
@@ -416,6 +495,29 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.triangleCentreA { :a :b :c |
 			1 / (b.cos - c.cos)
 		}
+	}
+
+	schouteCenter { :self |
+		self.triangleCentreL { :a :b :c |
+			a * ((2 * a.squared) - b.squared - c.squared)
+		}
+	}
+
+	secondBrocardPoint { :self |
+		let [a, b, c] = self.sideLengths;
+		self.fromTrilinearCoordinates([b / c, c / a, a / b])
+	}
+
+	secondBrocardTriangle { :self |
+		let [a, b, c] = self.sideLengths;
+		let [alpha, beta, gamma] = self.interiorAngles;
+		self.fromTrilinearVertexMatrix(
+			[
+				[2 * b * c * alpha.cos, a * b, a * c],
+				[a * b, 2 * a * c * beta.cos, b * c],
+				[a * c, b * c, 2 * a * b * gamma.cos]
+			]
+		)
 	}
 
 	secondFermatPoint { :self |
@@ -494,6 +596,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 				a b 0
 			]
 		)
+	}
+
+	tangentCircles { :self |
+		let [a, b, c] = self.sideLengths;
+		let [p, q, r] = self.vertexCoordinates;
+		[
+			Circle(p, (0 - a + b + c) / 2),
+			Circle(q, (a - b + c) / 2),
+			Circle(r, (a + b - c) / 2)
+		]
 	}
 
 	tangentialTriangle { :self |
@@ -705,7 +817,8 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 				30 -> { t.eulerInfinityPoint },
 				40 -> { t.bevanPoint },
 				175 -> { t.isoperimetricPoint },
-				176 -> { t.equalDetourPoint }
+				176 -> { t.equalDetourPoint },
+				187 -> { t.schouteCenter }
 			]) {
 				n.error('kimberlingCenter: unknown n')
 			}

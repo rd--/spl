@@ -75,7 +75,9 @@ The product of all nonzero elements of the Farey sequence for a few small orders
 
 ```
 >>> 2:11.collect { :n |
->>> 	n.fareySequence.allButFirst.product
+>>> 	n.fareySequence
+>>> 	.allButFirst
+>>> 	.product
 >>> }
 [
 	1/2 1/9 1/48 1/1250
@@ -137,6 +139,21 @@ let f = 20.fareySequence;
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-D.svg)
+
+Draw the Farey sunburst:
+
+~~~spl svg=E
+let x = 9.fareySequence.collect(asList:/1);
+let y = x.collect(reversed:/1);
+[1 1; 1 -1; -1 1; -1 -1].collect { :m |
+	[
+		([m] * x).Line,
+		([m] * y).Line
+	]
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/fareySequence-E.svg)
 
 * * *
 

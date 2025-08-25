@@ -93,6 +93,7 @@ Circle Functions:
 - `circlePoints`
 - `circleThrough`
 - `circumcircle`
+- `fordCircle`
 - `welzlAlgorithm`
 
 Computational Geometry:
@@ -116,6 +117,7 @@ Constructors:
 - `circlePoints`
 - `closedLine`
 - `equilateralTriangle`
+- `fordCircle`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`

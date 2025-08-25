@@ -27,6 +27,9 @@ Find the area of a `Triangle`:
 >>> let t = Triangle([0 1], [1 0], [0 0]);
 >>> (t.area, t.signedArea)
 (1/2, -1/2)
+
+>>> [13 14 15].sssTriangle.area
+84
 ```
 
 Find the area of a `Rectangle`:

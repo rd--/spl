@@ -30,9 +30,10 @@ Calculate `arcLength`, `area`, `circumference`, `perimeter`, `centroid`, `diamet
 >>> 	c.centroid,
 >>> 	c.center,
 >>> 	c.diameter,
->>> 	c.radius
+>>> 	c.radius,
+>>> 	c.curvature
 >>> )
-(2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1)
+(2.pi, 1.pi, 2.pi, 2.pi, [0 0], [0 0], 2, 1, 1)
 ```
 
 Circles can be elements of `LineDrawing`s.
@@ -139,6 +140,22 @@ let m = 0 - n;
 ~~~
 
 ![](sw/spl/Help/Image/Circle-H.svg)
+
+A hexafoil:
+
+~~~spl svg=I
+let c = [0 0];
+let r = 1;
+let h = 6.circlePoints(c, r, 0);
+[
+	Circle(c, r),
+	h.collect { :u |
+		Circle(u, 1)
+	}
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-I.svg)
 
 * * *
 

@@ -1,8 +1,8 @@
 # median
 
-- _median(aSequence)_
+- _median([x₁ x₂ …])_
 
-When the sequence is sorted the median is given by the `middle` element if the sequence length is odd,
+When the sequence _x_ is sorted the median is given by the `middle` element if the sequence length is odd,
 and the `mean` of the two center elements if it is even.
 
 Odd length sequence:

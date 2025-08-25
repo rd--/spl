@@ -158,7 +158,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asList { :self |
-		[self.numerator, self.denominator]
+		[
+			self.numerator.asInteger,
+			self.denominator.asInteger
+		]
 	}
 
 	dividesImmediately { :self :aNumber |
@@ -184,6 +187,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		} {
 			aFraction.adaptToFractionAndApply(self, lcm:/2)
 		}
+	}
+
+	isAdjacentFraction { :self :operand |
+		(operand - self).numerator.abs.isOne
 	}
 
 	isCloseTo { :self :aNumber |

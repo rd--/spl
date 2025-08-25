@@ -1,8 +1,8 @@
 # isInteger
 
-- _isInteger(aNumber)_
+- _isInteger(x, ε)_
 
-Answers `true` if _aNumber_ is an `Integer`, else `false`.
+Answers `true` if the number _x_ is an `Integer`, else `false`.
 
 At `SmallFloat`:
 
@@ -15,6 +15,9 @@ false
 
 >>> Infinity.isInteger
 false
+
+>>> 1.000001.isInteger(1E-6)
+true
 ```
 
 Note that numbers written using floating point literal notation,

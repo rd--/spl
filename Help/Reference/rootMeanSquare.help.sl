@@ -1,14 +1,23 @@
 # rootMeanSquare
 
-- _rootMeanSquare(aCollection)_
+- _rootMeanSquare([x₁ x₂ …])_
 
-For a set of numbers the root-mean-square (sometimes called the quadratic mean) is the square root of mean of the values.
+Answer the root-mean-square,
+sometimes called the quadratic mean,
+of the numbers _x_.
+The answer is the square root of the mean of the square of _x_.
 
 At `List`:
 
 ```
 >>> [1 5 5 4].rootMeanSquare
-(67.sqrt / 2)
+67.sqrt / 2
+
+>>> [1 5 5 4].squared.mean.sqrt
+67.sqrt / 2
+
+>>> [1 5 5 4].meanSquare.sqrt
+67.sqrt / 2
 
 >>> [2 10 2 8].rootMeanSquare
 43.sqrt
@@ -59,13 +68,15 @@ Find the root mean square value for the heights of children in a class:
 
 * * *
 
-See also: mean, norm, standardDeviation, variance
+See also: mean, meanSquare, norm, standardDeviation, variance
 
 Guides: Statistics Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Root-Mean-Square.html)
-[2](https://reference.wolfram.com/language/ref/RootMeanSquare.html)
+[2](https://reference.wolfram.com/language/ref/RootMeanSquare.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Root_mean_square)
 
 Categories: Statistics

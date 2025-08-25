@@ -369,6 +369,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Number.isInteger(_self);>
 	}
 
+	isInteger { :self :epsilon |
+		(self - self.rounded).abs < epsilon
+	}
+
 	isLiteral { :self |
 		true
 	}

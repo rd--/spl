@@ -1,11 +1,11 @@
 # asInteger
 
-- _asInteger(aNumber)_
+- _asInteger(x)_
 
-Answer the integer value nearest to _aNumber_,
+Answer the integer value nearest to the number _x_,
 rounding towards zero if required.
 
-If the `Integer` case this will answer a value that is equal to _aNumber_,
+In the `Integer` case this will answer a value that is equal to _x_,
 however it may change the type of the value:
 
 ```

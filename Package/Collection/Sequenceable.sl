@@ -1981,7 +1981,7 @@
 	}
 
 	norm { :self |
-		(self.dotProduct(self.conjugated)).sqrt
+		self.dotProduct(self.conjugated).sqrt
 	}
 
 	normalize { :self |

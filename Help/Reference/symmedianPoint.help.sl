@@ -40,7 +40,7 @@ let c = p.centroid;
 
 * * *
 
-See also: centroid, gergonnePoint, incenter, orthocenter, spiekerCenter, Triangle
+See also: centroid, gergonnePoint, incenter, orthocenter, schouteCenter, spiekerCenter, Triangle
 
 Guides: Geometry Functions
 
