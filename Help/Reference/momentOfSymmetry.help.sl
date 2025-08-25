@@ -116,7 +116,7 @@ The _58.33/100_ sequence, rounded:
 
 ```
 >>> 58.3333.momentOfSymmetry(100)
->>> .rounded
+>>> .round
 [
 	58 42;
 	17 42 42;
@@ -177,7 +177,7 @@ An outer ring of the least step equally dividing the period can be appended befo
 let appendOuterRing = { :mos |
 	let period = mos.anyOne.sum;
 	let leastStep = mos.last.min;
-	let k = (period / leastStep).rounded;
+	let k = (period / leastStep).round;
 	mos ++ [leastStep # k]
 };
 7.momentOfSymmetry(12)

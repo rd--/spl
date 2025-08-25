@@ -9,7 +9,7 @@ Plot of real values scaled and rounded:
 ```
 >>> (
 >>> 	[1.2 2.5 4.1 1.6 3.8 2.6 2.9] * 10
->>> ).rounded.stemLeafPlot
+>>> ).round.stemLeafPlot
 [
 	1 -> [2 6],
 	2 -> [5 6 9],

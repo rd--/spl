@@ -67,7 +67,7 @@ Plot `arcSin` at integer points:
 
 ~~~spl svg=C
 { :x :y |
-	(x * y).j(0).arcSin.abs.fractionPart
+	(x * y).j(0).arcSin.abs.fractionalPart
 }.table(-20:20, -20:20).matrixPlot
 ~~~
 

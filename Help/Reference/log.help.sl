@@ -128,7 +128,7 @@ Plot `log` at integer points:
 	(z = 0).if {
 		0
 	} {
-		z.log.abs.fractionPart
+		z.log.abs.fractionalPart
 	}
 }.table(-6:6, -6:6)
 .matrixPlot

@@ -1742,12 +1742,12 @@ Cf: floor
 receiver that is equal to the fractional part of the receiver. Within
 the limits of representation, the following invariants should hold:
 
-	receiver integerPart + receiver fractionPart = receiver
-	receiver \\ 1 = receiver fractionPart
+	x integerPart + x fractionalPart = x
+	x \\ 1 = x fractionalPart
 
 *Return Value*: ⧼receiver⧽
 
-Cf: fractionPart
+Cf: fractionalPart
 
 ### 5.6.2.21
 
@@ -1917,7 +1917,7 @@ rounded = -1.
 
 *Return Value*: ⧼integer⧽
 
-Cf: rounded
+Cf: round
 
 ### 5.6.2.32
 

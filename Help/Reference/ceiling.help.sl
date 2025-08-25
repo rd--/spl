@@ -34,7 +34,7 @@ Where supported `ceiling` is displayed as ⌈.
 
 * * *
 
-See also: floor, max, min, rounded, roundUpTo
+See also: floor, max, min, round, roundUpTo
 
 References:
 _Apl_
@@ -49,8 +49,8 @@ _Mathematica_
 _Smalltalk_
 5.6.2.18,
 _W_
-[1](https://en.wikipedia.org/wiki/Floor_and_ceiling_functions)
+[1](https://en.wikipedia.org/wiki/Ceiling_function)
 
-Unicode: U+02308 ⌈ Left Ceiling
+Unicode: U+02308 ⌈ Left Ceiling, U+2309 ⌉ Right Ceiling
 
 Categories: Truncating and rounding

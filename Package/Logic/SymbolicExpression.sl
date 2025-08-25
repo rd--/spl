@@ -156,8 +156,8 @@
 		'tan'.symbolicPrimitive([self])
 	}
 
-	truncated { :self |
-		'truncated'.symbolicPrimitive([self])
+	truncate { :self |
+		'truncate'.symbolicPrimitive([self])
 	}
 
 }

@@ -33,7 +33,7 @@ system.coin(1/3).isBoolean /* probability may be a fraction */
 [-3 .. 3].roundTo(2) = [-2, -2, -0, 0, 2, 2, 4]
 [9, 25, 81].collect(sqrt:/1) * [2, 3, 4] = [ 6, 15, 36 ]
 [1, 2, 3, 4, 5] * [6, 7, 8, 9] = [6, 14, 24, 36, 30]
-[1, 2, 3].cos.rounded = [1, -0, -1]
+[1, 2, 3].cos.round = [1, -0, -1]
 [1, 2, 3].cubed = [1, 8, 27]
 [1 .. 5].stutter(2) = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
 1.to(9).collect(squared:/1) * 2 = [2, 8, 18, 32, 50,72, 98, 128, 162]
@@ -66,9 +66,9 @@ let x = [4, 4.5]; let y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [
 [2 3 5 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2 3 5 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
 [0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] /* cummulative sum */
-([0 1 2 3 4 4 3 2].asRandomTable * 100).rounded = [0 23 35 44 53 61 72 88]
-([0, 1, 2, 3, 2].asRandomTable * 100).rounded = [0, 30, 47, 60, 80]
-([0 1 2 3 4 4 3 2].integrate.normalizeRange(1, 8) * 100).rounded = [100 137 211 321 468 616 726 800]
+([0 1 2 3 4 4 3 2].asRandomTable * 100).round = [0 23 35 44 53 61 72 88]
+([0, 1, 2, 3, 2].asRandomTable * 100).round = [0, 30, 47, 60, 80]
+([0 1 2 3 4 4 3 2].integrate.normalizeRange(1, 8) * 100).round = [100 137 211 321 468 616 726 800]
 [1 2 4 7 11 16].differentiate = [1 1 2 3 4 5] /* differentiate, first entry is distance from zero */
 ```
 

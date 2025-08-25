@@ -4,8 +4,25 @@ Types:
 
 - `Permutation`
 
+Accessing:
+
+- `ascents`
+- `descents`
+- `fixedPoints`
+- `length`
+- `majorIndex`
+- `max`
+- `min`
+- `order`
+- `peaks`
+- `reducedWords`
+- `runs`
+- `signature`
+- `support`
+
 Constructors:
 
+- `asPermutation`
 - `cycles`
 
 Converting:
@@ -14,7 +31,10 @@ Converting:
 
 General:
 
+- `action`
 - `derangements`
+- `image`
+- `inverse`
 - `lexicographicPermutations`: permutations in lexicographic sequence
 - `minimumChangePermutations`: permutations in minimum change sequence (Heap’s algorithm)
 - `permutations`: permutations
@@ -23,6 +43,10 @@ General:
 Lists:
 
 - `ordering`: inverse of a permutation list
+
+Notation:
+
+- `twoLineNotation`
 
 Operations:
 
@@ -36,8 +60,13 @@ Operations:
 
 Predicates:
 
+- `hasPattern`
+- `isDerangement`
+- `isIdentity`
+- `isInvolution`
 - `isPermutationCycles`
 - `isPermutationList`
+- `isPermutationOf`
 
 Properties:
 

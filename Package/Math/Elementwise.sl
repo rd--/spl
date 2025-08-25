@@ -178,8 +178,8 @@
 		}
 	}
 
-	fractionPart { :self |
-		self.collect(fractionPart:/1)
+	fractionalPart { :self |
+		self.collect(fractionalPart:/1)
 	}
 
 	fromRomanNumeral { :self |
@@ -405,8 +405,8 @@
 		self.collect(romanNumeral:/1)
 	}
 
-	rounded { :self |
-		self.collect(rounded:/1)
+	round { :self |
+		self.collect(round:/1)
 	}
 
 	roundTiesEven { :self |
@@ -445,12 +445,8 @@
 		self.collect(tribonacciNumber:/1)
 	}
 
-	truncated { :self |
-		self.collect(truncated:/1)
-	}
-
-	truncated { :self |
-		self.collect(truncated:/1)
+	truncate { :self |
+		self.collect(truncate:/1)
 	}
 
 	unitize { :self |

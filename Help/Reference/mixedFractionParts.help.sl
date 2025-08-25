@@ -2,7 +2,7 @@
 
 - _mixedFractionParts(x)_
 
-Answer a two element list of the `integerPart` and the `fractionPart` of the number _x_.
+Answer a two element list of the `integerPart` and the `fractionalPart` of the number _x_.
 
 Separate the integer and fractional parts of a real number:
 
@@ -48,7 +48,7 @@ Complex numbers:
 
 * * *
 
-See also: fractionPart, integerPart
+See also: fractionalPart, integerPart
 
 References:
 _Mathematica_

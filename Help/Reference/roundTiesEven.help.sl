@@ -13,19 +13,19 @@ with half-way cases rounded to an even number.
 [3 -3 4 4]
 ```
 
-Compare to `rounded`:
+Compare to `round`:
 
 ```
->>> [0.5 1.5 2.5].rounded
+>>> [0.5 1.5 2.5].round
 [1 2 3]
 
->>> [3.3 -3.3 3.5 4.5].rounded
+>>> [3.3 -3.3 3.5 4.5].round
 [3 -3 4 5]
 ```
 
 * * *
 
-See also: rounded
+See also: round, roundTo
 
 References:
 _Rust_

@@ -130,7 +130,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	asInteger { :self |
-		self.truncated
+		self.truncate
 	}
 
 	asSmallFloat { :self |
@@ -285,7 +285,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		let g = n.pi.cos;
 		let r = ((c * e) - (d * f * g)) / a;
 		(n.isInteger & { x.isInteger }).if {
-			r.rounded
+			r.round
 		} {
 			r
 		}
@@ -295,7 +295,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		let phi = 1.goldenRatio;
 		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
 		n.isInteger.if {
-			r.rounded
+			r.round
 		} {
 			r
 		}
@@ -305,7 +305,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.floor(_self)>
 	}
 
-	fractionPart { :self |
+	fractionalPart { :self |
 		<primitive: return _self % 1;>
 	}
 
@@ -370,7 +370,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	isInteger { :self :epsilon |
-		(self - self.rounded).abs < epsilon
+		(self - self.round).abs < epsilon
 	}
 
 	isLiteral { :self |
@@ -524,8 +524,8 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	numberExpand { :self :base |
-		let i = self.abs.truncated;
-		let f = self.abs.fractionPart;
+		let i = self.abs.truncate;
+		let f = self.abs.fractionalPart;
 		let d = i.integerDigits(base);
 		let k = d.size;
 		let m = (k .. 1).collect { :each | base ^ (each - 1) };
@@ -579,17 +579,17 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		(base ~= 10).if {
 			self.error('SmallFloat>>realDigits: not implemented unless base=10')
 		} {
-			let exponent = (self.log10 + 1).rounded;
+			let exponent = (self.log10 + 1).round;
 			[
-				(self * (10 ^ (size - exponent))).rounded.integerDigits(10, size),
+				(self * (10 ^ (size - exponent))).round.integerDigits(10, size),
 				exponent
 			]
 		}
 	}
 
 	reduce { :self |
-		self.isCloseTo(self.rounded).if {
-			self.rounded
+		self.isCloseTo(self.round).if {
+			self.round
 		} {
 			self
 		}
@@ -604,15 +604,15 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.error('remainder')
 	}
 
-	rounded { :self |
+	round { :self |
 		<primitive: return Math.round(_self)>
 	}
 
 	roundTiesEven { :n |
-		(n.fractionPart = 0.5).if {
-			2 * (n / 2).rounded
+		(n.fractionalPart = 0.5).if {
+			2 * (n / 2).round
 		} {
-			n.rounded
+			n.round
 		}
 	}
 
@@ -649,7 +649,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self.printString(10)
 	}
 
-	truncated { :self |
+	truncate { :self |
 		<primitive: return Math.trunc(_self)>
 	}
 

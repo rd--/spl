@@ -30,7 +30,7 @@
 						each.latticeVectorString(primesVector)
 					}
 				},
-				self.asCents.rounded,
+				self.asCents.round,
 				self.asIntegers
 			].transposed.asHtmlTable
 		]);

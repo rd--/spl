@@ -5,14 +5,14 @@
 Integer quotient defined by division with rounding defered to _aBlock_.
 
 ```
->>> -8.quotientBy(7, truncated:/1)
+>>> -8.quotientBy(7, truncate:/1)
 -1
 
 >>> -8.quotientBy(7, floor:/1)
 -2
 ```
 
-`quotient` is `quotientBy` of `truncated`:
+`quotient` is `quotientBy` of `truncate`:
 
 ```
 >>> 8 // 7

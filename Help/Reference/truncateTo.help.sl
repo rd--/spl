@@ -39,7 +39,7 @@ If there are less places than requested answer the complete string:
 
 * * *
 
-See also: contractTo, roundTo, integerPart, truncated
+See also: contractTo, roundTo, integerPart, truncate
 
 References:
 _Smalltalk_

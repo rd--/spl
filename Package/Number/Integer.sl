@@ -1357,7 +1357,7 @@
 		let c = (19 - (3 * 33.sqrt)).cubeRoot;
 		let d = ((1 / 3) * (a + c + 1)) ^ (n - 1);
 		let e = b.squared - (2 * b) + 4;
-		((3 * b) * (d / e)).rounded
+		((3 * b) * (d / e)).round
 	}
 
 	tribonacciWords { :n |
@@ -1372,7 +1372,7 @@
 		(n + 1).tribonacciWords.at(n + 1)
 	}
 
-	truncated { :self |
+	truncate { :self |
 		self
 	}
 

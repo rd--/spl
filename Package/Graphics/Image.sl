@@ -10,7 +10,7 @@ Image : [Object] { | contents |
 		let rows = self.contents.collect { :each |
 			each.collect { :pixel |
 				pixel.isValidRgb.if {
-					(pixel.first(3) * maxDepth).rounded.collect(printString:/1).unwords
+					(pixel.first(3) * maxDepth).round.collect(printString:/1).unwords
 				} {
 					'% % %'.format([maxDepth, maxDepth, maxDepth])
 				}

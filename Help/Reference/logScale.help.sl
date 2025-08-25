@@ -13,7 +13,7 @@ Threads over lists:
 ```
 >>> (-9 .. 9).collect {
 >>> 	:each | 10 ^ each
->>> }.logScale.rounded
+>>> }.logScale.round
 [
 	-21 -18 -16 -14 -12 -9 -7 -5 -2
 	0

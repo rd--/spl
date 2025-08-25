@@ -31,7 +31,7 @@ Test if two numbers are the same to a certain tolerance:
 
 * * *
 
-See also: clip, floor, integerPart, rationalize, rounded, threshold
+See also: clip, floor, integerPart, rationalize, round, threshold
 
 References:
 _Mathematica_

@@ -33,7 +33,7 @@ let k = 9;
 (0 -- 0.5).functionPlot { :x |
 	let y = (1 .. k).collect { :n |
 		let s = { :a |
-			(a.rounded - a).abs
+			(a.round - a).abs
 		};
 		let m = 2 ^ n;
 		s(m * x) / m

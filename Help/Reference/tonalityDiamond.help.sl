@@ -82,7 +82,7 @@ The scale is symmetrical within the octave:
 >>> { :i |
 >>> 	let d = i.tonalityDiamond;
 >>> 	let r = d.catenate.nub.sort ++ [2];
->>> 	r.collect(ratioToCents:/1).differences.rounded
+>>> 	r.collect(ratioToCents:/1).differences.round
 >>> }.map([5 7])
 [
 	316 71 112 204 112 71 316;

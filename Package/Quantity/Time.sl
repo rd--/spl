@@ -15,8 +15,8 @@ Time : [Object] { | seconds |
 			'%:%:%.%'.format([
 				h.asString.padLeft([2], '0'),
 				m.asString.padLeft([2], '0'),
-				s.truncated.asString.padLeft([2], '0'),
-				(s.fractionPart * 1000).rounded.asString.padLeft([3], '0')
+				s.truncate.asString.padLeft([2], '0'),
+				(s.fractionalPart * 1000).round.asString.padLeft([3], '0')
 			])
 		} {
 			self.error('timeString: invalid time')

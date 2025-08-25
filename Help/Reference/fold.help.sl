@@ -24,7 +24,7 @@ Fold a floating point number between two values:
 ```
 >>> let x = (0.2, 0.3 .. 0.8);
 >>> let y = x.fold(0.3, 0.7);
->>> (y * 10).rounded
+>>> (y * 10).round
 [4 3 4 5 6 7 6]
 ```
 

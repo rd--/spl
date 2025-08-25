@@ -1341,11 +1341,11 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asSmallerPowerOfTwo'
 		'ceiling'
 		'floor'
-		'fractionPart'
+		'fractionalPart'
 		'previousPowerOf'
 		'nextPowerOf'
 		'nextPowerOfTwo'
-		'rounded'
+		'round'
 		'roundDownTo'
 		'roundDown'
 		'roundTo'
@@ -1353,7 +1353,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'roundTowardsZero'
 		'roundUpTo'
 		'roundUp'
-		'truncated'
+		'truncate'
 		'truncateTo'
 	],
 	'type predicate': [

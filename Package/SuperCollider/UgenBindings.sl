@@ -426,7 +426,7 @@
 
 	/*
 	ceiling { :self | <primitive: return sc.Ceil(_self);> }
-	fractionPart { :self | <primitive: return sc.Frac(_self);> }
+	fractionalPart { :self | <primitive: return sc.Frac(_self);> }
 	negated { :self | <primitive: return sc.Neg(_self);> }
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }
 	*/
@@ -443,7 +443,7 @@
 		TruncateTo(self, 1)
 	}
 
-	rounded { :self |
+	round { :self |
 		RoundTo(self, 1)
 	}
 

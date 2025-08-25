@@ -24,4 +24,6 @@ Answer the number _n_ rounded down to a multiple of _d_.
 
 * * *
 
-See also: floor, round, roundTo, roundUpTo, truncated
+See also: floor, round, roundTo, roundUpTo, truncate
+
+Guides: Integer Functions

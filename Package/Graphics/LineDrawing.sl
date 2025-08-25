@@ -28,7 +28,7 @@ LineDrawing : [Object] { | contents metadata |
 			actualBoundingBox
 		};
 		let yRange = boundingBox.height;
-		let precision = (3 - yRange.log10.rounded).max(0);
+		let precision = (3 - yRange.log10.round).max(0);
 		let scaleFactor = (height / boundingBox.height);
 		let scaledBoundingBox = Rectangle(boundingBox.lowerLeft * scaleFactor, boundingBox.upperRight * scaleFactor); /* ? */
 		let options = (precision: precision, scaleFactor: scaleFactor);

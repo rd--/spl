@@ -33,7 +33,7 @@ Table of harmonicities:
 >>> 	15/8 48/25 2/1
 >>> ].collect { :each |
 >>> 	(each.barlowHarmonicity * 100)
->>> 	.rounded
+>>> 	.round
 >>> }
 [
 	Infinity 5 5 -8 -5

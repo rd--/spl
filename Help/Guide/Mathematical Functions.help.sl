@@ -187,12 +187,12 @@
 
 - `ceiling`: round towards +∞
 - `floor`: round towards -∞
-- `fractionPart`: fractional part
+- `fractionalPart`: fractional part
 - `integerPart`: integer part
 - `mixedFractionParts`: integer and fractional parts
 - `mod`
 - `quotient`
-- `rounded`: round to nearest integer
+- `round`: round to nearest integer
 - `sawtoothWave`
 - `sign`: sign of
 

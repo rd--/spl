@@ -23,11 +23,11 @@ The silver ratio is the `metallicMean` of two:
 2.4142
 ```
 
-The `reciprocal` of δs is its `fractionPart`:
+The `reciprocal` of δs is its `fractionalPart`:
 
 ```
 >>> 1.silverRatio.reciprocal
-1.silverRatio.fractionPart
+1.silverRatio.fractionalPart
 ```
 
 As a continued fraction:

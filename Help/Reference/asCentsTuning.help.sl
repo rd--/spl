@@ -25,7 +25,7 @@ Translate the simplified ratios to cents courtesy `asRatioTuning` and `asCents`:
 >>> 	17/12 3/2 19/12 27/16 16/9 17/9
 >>> ];
 >>> let t = r.asRatioTuning;
->>> t.asCents.rounded
+>>> t.asCents.round
 [
 	0 112 204 289 386 498 603
 	702 796 906 996 1101

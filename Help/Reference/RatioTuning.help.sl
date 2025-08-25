@@ -18,7 +18,7 @@ Tuning specified using fractions:
 >>> (
 >>> 	r.size,
 >>> 	r.primeLimit,
->>> 	r.asCents.rounded,
+>>> 	r.asCents.round,
 >>> 	r.asIntegers
 >>> )
 (
@@ -44,7 +44,7 @@ Tuning specified as integers:
 >>> (
 >>> 	r.size,
 >>> 	r.primeLimit,
->>> 	r.asCents.rounded,
+>>> 	r.asCents.round,
 >>> 	r.asRatios
 >>> )
 (

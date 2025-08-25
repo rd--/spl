@@ -34,7 +34,7 @@ A five-limit tuning specified as a `List` of `Fraction`s:
 >>> 	t.primeLimit,
 >>> 	t.octave,
 >>> 	t.asIntegers,
->>> 	t.asCents.rounded
+>>> 	t.asCents.round
 >>> )
 (
 	5,
@@ -53,7 +53,7 @@ A seven-limit tuning specified as a `List` of integers:
 >>> 	t.primeLimit,
 >>> 	t.octave,
 >>> 	t.asRatios,
->>> 	t.asCents.rounded
+>>> 	t.asCents.round
 >>> )
 (
 	7,
@@ -77,9 +77,9 @@ A seven-limit just intonation approximation of 13-tone equal temperament:
 >>> let j = t.asCents;
 >>> (
 >>> 	t.primeLimit,
->>> 	c.rounded,
->>> 	j.rounded,
->>> 	(j - c).rounded
+>>> 	c.round,
+>>> 	j.round,
+>>> 	(j - c).round
 >>> )
 (
 	7,

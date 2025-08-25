@@ -32,7 +32,7 @@ Wrap a real number between two values:
 >>> 	0.3,
 >>> 	0.7 + 0.1
 >>> );
->>> (w * 10).rounded
+>>> (w * 10).round
 [6 7 3 4 5 6 7 3 4]
 ```
 

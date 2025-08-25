@@ -1,6 +1,6 @@
-# FractionPart
+# FractionalPart
 
-- _FractionPart(aNumber)_
+- _FractionalPart(aNumber)_
 
 Fractional part.
 Answer only the fractional part of the signal.
@@ -17,13 +17,13 @@ let phase = Phasor(
 );
 let mnn = [
 	phase,
-	(phase * mul).FractionPart
+	(phase * mul).FractionalPart
 ] * [12, -12] + [48, 72];
 SinOsc(mnn.MidiCps, 0) * 0.1
 ```
 
 * * *
 
-See also: fractionPart
+See also: fractionalPart
 
 Categories: Ugen

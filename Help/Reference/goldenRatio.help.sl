@@ -77,7 +77,7 @@ Compute the Fibonacci numbers:
 ```
 >>> 1:20.collect { :n |
 >>> 	(1.goldenRatio ^ n / 5.sqrt)
->>>	.rounded
+>>>	.round
 >>> }
 [
 	1 1 2 3 5 8 13 21 34 55
@@ -125,7 +125,7 @@ Compute the effective "inverse" of the Fibonacci numbers:
 >>> 1:25.collect { :n |
 >>> 	(n * 5.sqrt)
 >>> 	.log(1.goldenRatio)
->>> 	.rounded
+>>> 	.round
 >>> }
 [
 	2 3 4 5 5 5 6 6 6 6
@@ -154,7 +154,7 @@ Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
 1:100.functionPlot { :n |
-	n.goldenRatio.fractionPart
+	n.goldenRatio.fractionalPart
 }
 ~~~
 

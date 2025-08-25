@@ -80,7 +80,7 @@ The one-hundredth Fibonacci number:
 Closed form, see also `binetsFormula`:
 
 ```
->>> ((1.goldenRatio ^ [1 .. 13]) / 5.sqrt).rounded
+>>> ((1.goldenRatio ^ [1 .. 13]) / 5.sqrt).round
 [1 1 2 3 5 8 13 21 34 55 89 144 233]
 ```
 

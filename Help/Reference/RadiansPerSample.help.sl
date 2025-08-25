@@ -10,7 +10,7 @@ Ordinarily a very small number:
 >>> 2.pi / 48000
 1.30899E-4
 
->>> (2.pi / 48000 * 1E7).rounded
+>>> (2.pi / 48000 * 1E7).round
 1309
 ~~~
 

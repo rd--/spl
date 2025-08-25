@@ -146,11 +146,11 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	asInteger { :self |
-		self.truncated.asInteger
+		self.truncate.asInteger
 	}
 
 	asLargeInteger { :self |
-		self.truncated
+		self.truncate
 	}
 
 	asSmallFloat { :self |
@@ -362,8 +362,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 	}
 
 	raisedToFraction { :self :aFraction |
-		let rootNumerator = self.numerator.nthRoot(aFraction.denominator).truncated;
-		let rootDenominator = self.denominator.nthRoot(aFraction.denominator).truncated;
+		let rootNumerator = self.numerator.nthRoot(aFraction.denominator).truncate;
+		let rootDenominator = self.denominator.nthRoot(aFraction.denominator).truncate;
 		let root = Fraction(rootNumerator, rootDenominator);
 		(root.raisedToInteger(aFraction.denominator) = self).if {
 			root.raisedToInteger(aFraction.numerator)
@@ -429,7 +429,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		].stringIntercalate('/')
 	}
 
-	truncated { :self |
+	truncate { :self |
 		self.numerator.quotient(self.denominator)
 	}
 
@@ -646,7 +646,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			ReducedFraction(self, 1L)
 		} {
 			Fraction(
-				(self * denominator).rounded,
+				(self * denominator).round,
 				denominator
 			)
 		}

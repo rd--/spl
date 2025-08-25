@@ -5,14 +5,14 @@
 Integer remainder defined by division with rounding defered to _aBlock_.
 
 ```
->>> -8.remainderBy(7, truncated:/1)
+>>> -8.remainderBy(7, truncate:/1)
 -1
 
 >>> -8.remainderBy(7, floor:/1)
 6
 ```
 
-`remainder` is `remainderBy` of `truncated` (rounds toward `zero`).
+`remainder` is `remainderBy` of `truncate` (rounds toward `zero`).
 
 ```
 >>> 8 \\ 7

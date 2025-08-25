@@ -68,7 +68,7 @@ Decimal : [Object] { | fraction scale |
 		operand.isDecimal.if {
 			(self.scale = operand.scale) & {
 				let m = 10 ^ self.scale;
-				(self.asFloat * m).rounded = (operand.asFloat * m).rounded
+				(self.asFloat * m).round = (operand.asFloat * m).round
 			}
 		} {
 			false
@@ -146,16 +146,16 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	asLargeInteger { :self |
-		self.fraction.truncated
+		self.fraction.truncate
 	}
 
 	denominator { :self |
 		self.fraction.denominator
 	}
 
-	fractionPart { :self |
+	fractionalPart { :self |
 		UnsimplifiedDecimal(
-			self.fraction.fractionPart,
+			self.fraction.fractionalPart,
 			self.scale
 		)
 	}
@@ -207,7 +207,7 @@ Decimal : [Object] { | fraction scale |
 				[
 					self.fraction.isNegative.if { '-' } { '' },
 					self.integerPart.asLargeInteger.abs.basicPrintString(10),
-					(self.fractionPart.fraction.abs * (10 ^ self.scale)).rounded.basicPrintString(10)
+					(self.fractionalPart.fraction.abs * (10 ^ self.scale)).round.basicPrintString(10)
 				]
 			)
 		}
@@ -246,8 +246,8 @@ Decimal : [Object] { | fraction scale |
 
 	}
 
-	truncated { :self |
-		self.fraction.truncated
+	truncate { :self |
+		self.fraction.truncate
 	}
 
 	zero { :self |

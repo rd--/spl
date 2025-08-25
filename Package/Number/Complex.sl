@@ -125,7 +125,7 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	asGaussianInteger { :self |
-		self.real.rounded.j(self.imaginary.rounded)
+		self.real.round.j(self.imaginary.round)
 	}
 
 	asList { :self |
@@ -175,8 +175,8 @@ Complex : [Object, Number] { | real imaginary |
 		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
-	fractionPart { :self |
-		Complex(self.real.fractionPart, self.imaginary.fractionPart)
+	fractionalPart { :self |
+		Complex(self.real.fractionalPart, self.imaginary.fractionalPart)
 	}
 
 	i { :self |
@@ -367,7 +367,7 @@ Complex : [Object, Number] { | real imaginary |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 
-	truncated { :self |
+	truncate { :self |
 		self.integerPart
 	}
 

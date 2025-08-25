@@ -92,7 +92,7 @@
 	zeta { :s |
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8;
-		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).rounded;
+		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).round;
 		let e = { :k | (k .. n).sum { :j | binomial(n, j) } };
 		let a = 1 / (1 - (2 ^ (1 - s)));
 		let b = (1 .. n).sum { :k | (-1 ^ (k - 1)) / (k ^ s) };

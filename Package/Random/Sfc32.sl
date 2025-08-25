@@ -86,7 +86,7 @@ Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
 +@Integer {
 
 	asSfc32State { :self |
-		self.truncated.asWords.asSfc32State
+		self.truncate.asWords.asSfc32State
 	}
 
 	Sfc32 { :self |

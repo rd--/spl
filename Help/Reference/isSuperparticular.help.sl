@@ -26,7 +26,7 @@ The first eight superparticular ratios, and their values in `cents`:
 
 ```
 >>> let r = Fraction(2:9, 1:8);
->>> let c = r.ratioToCents.rounded;
+>>> let c = r.ratioToCents.round;
 >>> (r, c, r.allSatisfy(isSuperparticular:/1))
 (
 	[2/1 3/2 4/3 5/4 6/5 7/6 8/7 9/8],

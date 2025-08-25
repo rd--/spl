@@ -17,11 +17,11 @@ the _q_-axis is is aligned with the _x_-axis:
 
 >>> [-3 .. 3].collect { :q |
 >>> 	[q 0].fromHexagonalCoordinates
->>> }.rounded
+>>> }.round
 [-5 0; -3 0; -2 0; 0 0; 2 0; 3 0; 5 0]
 
 >>> [-5 0; -3 0; -2 0; 0 0; 2 0; 3 0; 5 0]
->>> .toHexagonalCoordinates.rounded
+>>> .toHexagonalCoordinates.round
 [
 	-3 0 3;
 	-2 0 2;
@@ -44,11 +44,11 @@ it is the rotation by 60° counter-clockwise of the _q_ axis:
 
 >>> [-3 .. 3].collect { :r |
 >>> 	[0 r].fromHexagonalCoordinates
->>> }.rounded
+>>> }.round
 [-3 -4; -2 -3; -1 -1; 0 0; 1 1; 2 3; 3 4]
 
 >>> [-3 -4; -2 -3; -1 -1; 0 0; 1 1; 2 3; 3 4]
->>> .toHexagonalCoordinates.rounded
+>>> .toHexagonalCoordinates.round
 [
 	0 -3 3;
 	0 -2 2;

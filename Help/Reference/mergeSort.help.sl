@@ -60,7 +60,7 @@ let n = 200;
 let m = 50;
 let r = [];
 0:n.collect { :x |
-	(x.sin * m).rounded
+	(x.sin * m).round
 }.mergeSort { :a :b |
 	r.add(a);
 	a > b

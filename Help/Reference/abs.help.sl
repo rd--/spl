@@ -71,7 +71,7 @@ Plot `abs` at Gaussian integers:
 
 ~~~spl png=C
 { :x :y |
-	x.j(y).abs.rounded % 2
+	x.j(y).abs.round % 2
 }.table(-36:36, -36:36).Bitmap
 ~~~
 

@@ -9,7 +9,7 @@ The `hue` of a 3×3 matrix of random colours:
 ```
 >>> let r = 2166136261.seedRandom;
 >>> let c = system.randomColour([4 4]);
->>> (c.hue * 360).rounded
+>>> (c.hue * 360).round
 [
 	227 277 196 121;
 	277 309 123 228;

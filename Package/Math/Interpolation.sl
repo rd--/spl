@@ -295,7 +295,7 @@
 						aBlock . (
 							self[i],
 							self[i + 1],
-							x.fractionPart
+							x.fractionalPart
 						)
 					}
 				}
@@ -311,7 +311,7 @@
 							self[i],
 							self[i + 1],
 							self[(i + 2).min(k)],
-							x.fractionPart
+							x.fractionalPart
 						)
 					}
 				}
@@ -333,8 +333,8 @@
 				self[i2][j1],
 				self[i1][j2],
 				self[i2][j2],
-				x.fractionPart,
-				y.fractionPart
+				x.fractionalPart,
+				y.fractionalPart
 			)
 		}
 	}
@@ -394,9 +394,9 @@
 				self[i2][j1][k2],
 				self[i1][j2][k2],
 				self[i2][j2][k2],
-				x.fractionPart,
-				y.fractionPart,
-				z.fractionPart
+				x.fractionalPart,
+				y.fractionalPart,
+				z.fractionalPart
 			)
 		}
 	}

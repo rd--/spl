@@ -39,7 +39,7 @@ Seven tone equal temperament:
 ```
 >>> let t = 7.equalTemperamentTuning;
 >>> (
->>> 	t.asCents.rounded,
+>>> 	t.asCents.round,
 >>> 	t.asRatios.collect { :each |
 >>> 		each.asFraction(1E-2)
 >>> 	}

@@ -10,7 +10,7 @@ Graymap : [Object] { | contents |
 		let rows = self.contents.collect { :each |
 			each.collect { :level |
 				level.betweenAnd(0, 1).if {
-					(level * maxDepth).rounded.printString
+					(level * maxDepth).round.printString
 				} {
 					self.error('asPgm: not (0,1) matrix')
 				}

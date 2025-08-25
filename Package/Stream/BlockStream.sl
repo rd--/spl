@@ -225,7 +225,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		rhs.adaptToStreamAndApply(lhs, roundTo:/2)
 	}
 
-	rounded { :self :a|
+	round { :self :a|
 		self.roundTo(1)
 	}
 

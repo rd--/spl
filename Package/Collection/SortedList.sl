@@ -109,7 +109,7 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 					let [a, b] = o[1];
 					let [c, d] = o[2];
 					let r = a + ((n + b) * p);
-					let f = r.fractionPart;
+					let f = r.fractionalPart;
 					let i0 = r.floor.max(1);
 					let i1 = r.ceiling.min(n);
 					y[i0] + ((y[i1] - y[i0]) * (c + (d * f)))

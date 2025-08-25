@@ -158,7 +158,7 @@ Integer and fraction parts:
 >>> (23D ^ 23).integerPart
 20880467999847912034355032910567D
 
->>> (3.141D ^ 54 - 1).fractionPart
+>>> (3.141D ^ 54 - 1).fractionalPart
 0.463D
 ```
 

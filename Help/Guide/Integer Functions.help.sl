@@ -50,6 +50,20 @@ Integer Decompositions:
 - `integerPartitions`
 - `numberDecompose`
 
+Integer Part:
+
+- `ceiling`
+- `floor`
+- `roundDownTo`
+- `roundDown`
+- `roundTo`
+- `roundTowardsZero`
+- `roundTowardsZeroTo`
+- `roundUpTo`
+- `roundUp`
+- `round`
+- `truncate`
+
 Digit-Related Functions:
 
 - `digitCount`

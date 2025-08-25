@@ -10,7 +10,7 @@
 		);
 		let freq = Rand(30, 5000) * note.MidiRatio;
 		let sig = Select(
-			LfNoise0(dur).LinLin(-1, 1, 0, 2).rounded,
+			LfNoise0(dur).LinLin(-1, 1, 0, 2).Round,
 			[
 				SinOsc(freq, 0),
 				Saw(freq),
@@ -19,7 +19,7 @@
 		);
 		let filtFreq = Rand(30, 1000) * LfNoise1(dur).LinLin(-1, 1, 1, 5);
 		let filt = Select(
-			LfNoise0(dur).LinLin(-1, 1, 0, 2).rounded,
+			LfNoise0(dur).LinLin(-1, 1, 0, 2).Round,
 			[
 				Lpf(sig, filtFreq),
 				Hpf(sig, filtFreq),

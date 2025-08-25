@@ -14,4 +14,4 @@ Answer the nearest number to _aNumber_ that is a multiple of _anotherNumber_, ro
 
 * * *
 
-See also: rounded, roundTo
+See also: round, roundTo

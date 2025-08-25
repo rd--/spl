@@ -62,19 +62,19 @@ PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of 
 5.sign(-1) = -5 /* answer number with sign of argument */
 -1.copySignTo(5) = -5 /* answer argument with sign of number */
 5.negated = -5 /* negate receiver, unary minus */
-1.25.truncated = 1 /* integer part of number */
--1.25.truncated = -1 /* integer part of number */
-1.25.fractionPart = 0.25 /* fractional part */
--1.25.fractionPart = -0.25 /* fractional part */
-1.pi.fractionPart + 1.pi.truncated = 1.pi /* fractional part and truncated part sum to identity */
-let x = 1.pi.negated; x.fractionPart + x.truncated = x /* fractional part and truncated part sum to identity */
-let x = 1.pi.negated; x.fractionPart + x.integerPart = x /* fractional part and truncated part sum to identity */
-2.fractionPart = 0 /* the fractional part of an integer is zero */
-(1 / 2).fractionPart = (1 / 2) /* the fractional part of a number between zero and one is identity */
-(4 / 3).fractionPart ~ (1 / 3) /* floating point math is not exact */
+1.25.truncate = 1 /* integer part of number */
+-1.25.truncate = -1 /* integer part of number */
+1.25.fractionalPart = 0.25 /* fractional part */
+-1.25.fractionalPart = -0.25 /* fractional part */
+1.pi.fractionalPart + 1.pi.truncate = 1.pi /* fractional part and truncate part sum to identity */
+let x = 1.pi.negated; x.fractionalPart + x.truncate = x /* fractional part and truncate part sum to identity */
+let x = 1.pi.negated; x.fractionalPart + x.integerPart = x /* fractional part and truncate part sum to identity */
+2.fractionalPart = 0 /* the fractional part of an integer is zero */
+(1 / 2).fractionalPart = (1 / 2) /* the fractional part of a number between zero and one is identity */
+(4 / 3).fractionalPart ~ (1 / 3) /* floating point math is not exact */
 (4 / 3) - 1 ~ (1 / 3) /* floating point math is not exact */
-0.5.fractionPart = 0.5
-2.5.fractionPart = 0.5
+0.5.fractionalPart = 0.5
+2.5.fractionalPart = 0.5
 5.reciprocal = (1 / 5) /* reciprocal function */
 6 * 3.1 = 18.6 /* auto convert to float */
 5.squared = 25 /* square function */
@@ -98,8 +98,8 @@ NaN.isNaN /* literal for NaN */
 (0 - 1.pi).abs = 1.pi /* absolute value of floating point numbers */
 0.abs = 0 & { 5.abs = 5 } /* absolute value of zero and positive numbers */
 -0 = 0 /* negative zero is equal to zero */
-3.99.rounded = 4 /* round, c.f. rounded */
-3.99.truncated = 3 /* truncate */
+3.99.round = 4 /* round, c.f. round */
+3.99.truncate = 3 /* truncate */
 3.99.roundTo(1) = 4.0 /* round to specified decimal places, c.f. roundTo: */
 3.99.truncateTo(1) = 3.0 /* truncate to specified decimal places */
 12345.truncateTo(600) = 12000 /* truncate to integer */
@@ -218,10 +218,10 @@ let x = 9; let y = 4; (x // y) * y + (x \\ y) = x /* // = quotient, \\ = remaind
 0.1E-6 = 1E-7 /* scientific notation, equivalence */
 8.625 / 0.75 = 11.5 /* a number divided by a number less than zero */
 let x = 8.625; let y = 0.75; let q = x.quotient(y); let r = x.remainder(y); [q, r, x = (y * q + r)] = [11, 0.375, true]
-let x = 8.625; let y = 0.75; let q = x.quotientBy(y, rounded:/1); let r = x.remainderBy(y, rounded:/1); [q, r, x = (y * q + r)] = [12, -0.375, true]
-0.5.rounded = 1 /* round to neareset or upwards (not to nearest or even */
--0.5.rounded = -0 /* round upwards to negative zero */
-1.5.rounded = 2 /* round to neareset or upwards (not to nearest or even */
+let x = 8.625; let y = 0.75; let q = x.quotientBy(y, round:/1); let r = x.remainderBy(y, round:/1); [q, r, x = (y * q + r)] = [12, -0.375, true]
+0.5.round = 1 /* round to neareset or upwards (not to nearest or even */
+-0.5.round = -0 /* round upwards to negative zero */
+1.5.round = 2 /* round to neareset or upwards (not to nearest or even */
 5 - 3 = 2 /* subtraction */
 2 * 3 = 6 /* multiplication */
 10 / 2.5 = 4 /* division */
@@ -305,7 +305,7 @@ let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] /* array reverse (in place) */
 [1, 2, 3, 5, 7, 9].product = 1890 /* product, unicode = Π */
 [1 2 3 5 7 9].reduce( * ) = 1890
 [1 2 3 5 7 9].injectInto(1, * ) = 1890
-[1, 2, 3, 5, 7, 9].collect(sqrt:/1).sum.rounded = 12
+[1, 2, 3, 5, 7, 9].collect(sqrt:/1).sum.round = 12
 [9, 16, 25].collect(sqrt:/1) = [3, 4, 5]
 [9, 16, 25].collect { :each | sqrt(each) } = [3, 4, 5]
 [].allSatisfy(isOdd:/1) = true
@@ -631,7 +631,7 @@ let c = [1, 2, 3, 1]; c.asBag = c.histogramOf { :each | each }
 (x: 1, y: 2, z: 1).histogramOf { :each | each } = [1, 2, 1].asBag
 (x: 1, y: 2, z: 1).values.histogramOf { :each | each } = [1, 2, 1].asBag
 (x: 1, y: 2, z: 1).indices.histogramOf { :each | each } = ['x', 'y', 'z'].asBag
-[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.rounded } = [1, 2, 3, 2, 3, 1].asBag
+[1.1, 2.1, 3.1, 1.9, 2.9, 1.1].histogramOf { :each | each.round } = [1, 2, 3, 2, 3, 1].asBag
 [1, 3, 5].asIdentityBag.select { :x | x > 1 } = [3, 5].asIdentityBag
 let b = [1, 2, 3, 2, 1].asIdentityBag; b.removeAll([1, 2, 3]); b = [2, 1].asIdentityBag /* only remove first instance */
 ```
@@ -986,7 +986,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
 let a = [1 .. 5]; a.contents = a & { a.contents ~~ a } /* contents at list is equal but not identitical */
-(1:9 / 3).rounded = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
+(1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
 [].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true /* branch on isEmpty */
@@ -1213,11 +1213,11 @@ false.boole = 0 /* boolean as integer, asBit */
 '~'.asCharacter.codePoint = 126 /* character as integer, c.f. codePoint */
 23.asInteger = 23 /* small integer as integer, c.f. identity */
 -23.asInteger = -23 /* identity */
-1.pi.asInteger = 3 /* small float as integer, c.f. truncated */
-(0 - 1.pi).asInteger = -3 /* floating point is truncated */
-22/7.asInteger = 3 /* fraction as integer, c.f. truncated */
--22/7.asInteger = -3 /* fraction is truncated */
-7/8.asInteger = 0 /* fraction is truncated */
+1.pi.asInteger = 3 /* small float as integer, c.f. truncate */
+(0 - 1.pi).asInteger = -3 /* floating point is truncate */
+22/7.asInteger = 3 /* fraction as integer, c.f. truncate */
+-22/7.asInteger = -3 /* fraction is truncate */
+7/8.asInteger = 0 /* fraction is truncate */
 '23'.parseSmallInteger(10) = 23 /* string is parsed, c.f. parseDecimalInteger */
 { '3.141'.parseSmallInteger(10) }.ifError { true } /* floating point strings are not decimal integers */
 { '3x'.parseDecimalInteger }.ifError { true } /* large radix strings are not decimal integers */
@@ -1467,7 +1467,7 @@ ReducedFraction(4, 6) ~= 2/3 /* ReducedFraction assumes fraction is normal, and 
 9/5.reciprocal = 5/9 /* reciprocal, mutiplicative inverse */
 let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
 7/5.squared = 49/25 /* square of */
-3/2.truncated = 1 /* truncation */
+3/2.truncate = 1 /* truncation */
 1/2 < 0.5 = false
 1/3 > 0.25
 0.5 < 1/2 = false
@@ -1523,12 +1523,12 @@ Fraction(3, 1) = 3/1
 3/4.reciprocal = 4/3
 -1/3.reciprocal = -3
 -3/5.reciprocal = -5/3
-4/5.rounded = 1
-6/5.rounded = 1
--4/5.rounded = -1
--6/5.rounded = -1
-3/2.rounded = 2 /* in case of tie, round to upper magnitude */
--3/2.rounded = -2
+4/5.round = 1
+6/5.round = 1
+-4/5.round = -1
+-6/5.round = -1
+3/2.round = 2 /* in case of tie, round to upper magnitude */
+-3/2.round = -2
 1.pi.roundUpTo(0.01) = 3.15 /* round up to nearest 1/100th */
 1.pi.roundUpTo(0.1) = 3.2 /* round up to nearest 1/10th */
 226.roundUpTo(10) = 230 /* round up to nearest multiple of 10 */
@@ -1545,8 +1545,8 @@ ReducedFraction(4, 6).numerator = 4 /* ReducedFraction is not initially reduced 
 ReducedFraction(4, 6).denominator = 6 /* ReducedFraction is not initially reduced */
 Fraction(4, 6).numerator = 2
 Fraction(4, 6).denominator = 3
-3/2.truncated = 1
--3/2.truncated = -1
+3/2.truncate = 1
+-3/2.truncate = -1
 2/3 - 5/3 = -1
 3/2 / 3/4 = 2
 3/2 / -3/4 = -2
@@ -1623,8 +1623,8 @@ Fraction(-4, -12).normalized = 1/3
 3/2 / (1 + 2.i) ~ (3/10 - 3/5.i)
 1/2 + 2.i ~ (1/2 + 2/1.i)
 (1/2 + 1/2).isInteger /* fractions with unit denominators are integers */
-1/2.fractionPart = 1/2 /* the fractional part of a number between zero and one is identity */
-4/3.fractionPart = 1/3 /* fraction math is exact */
+1/2.fractionalPart = 1/2 /* the fractional part of a number between zero and one is identity */
+4/3.fractionalPart = 1/3 /* fraction math is exact */
 64/33.primeLimit = 11 /* the prime limit of a fraction is maximum of the limit of each part */
 1/1.primeLimit = 0 /* by convention the prime limit of one is zero */
 64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] /* the factors of the denominator are fractions */
@@ -2179,14 +2179,14 @@ Infinity.isNumber /* constant positive infinity (is a number) */
 3.squared = 9 /* x * x */
 1.pi.radiansToDegrees = 180 /* radiansToDegrees */
 { 1 / nil }.ifError { true } /* operand not apatable to number */
-0.9.rounded = 1
-1.rounded = 1
-1.1.rounded = 1
--1.9.rounded = -2
--2.rounded = -2
--2.1.rounded = -2
-1.5.rounded = 2 /* in case of tie, round to +infinity */
--1.5.rounded = -1
+0.9.round = 1
+1.round = 1
+1.1.round = 1
+-1.9.round = -2
+-2.round = -2
+-2.1.round = -2
+1.5.round = 2 /* in case of tie, round to +infinity */
+-1.5.round = -1
 let n = 10 ^ 6; n ~ (n + 1) & { 1 !~ 2 } /* a million is close to a million and one, but one is not close to two */
 ```
 
@@ -2239,8 +2239,8 @@ system.includesPackage('Number') /* package */
 12 > 9 = true /* greater than */
 12 >= 10 = true /* greater or equal than */
 12 < 10 = false /* smaller than */
-2.718.truncated = 2 /* truncate to integer */
-2.718.rounded = 3 /* round to integer */
+2.718.truncate = 2 /* truncate to integer */
+2.718.round = 3 /* round to integer */
 2.718.roundTo(0.01) = 2.72 /* round to a given precision */
 123456789.asStringWithCommas = '123,456,789'
 123456.789.asStringWithCommas = '123,456.789'
@@ -2280,14 +2280,14 @@ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) =
 4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
 4/3.numerator = 4/3.slotRead('numerator') /* slot read */
 let n = 4/3; n.slotWrite('denominator', 5); n = 4/5 /* slot write */
-1.pi.in { :x | x.rounded + 20 } = 23 /* evaluate block with object */
+1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
 { 1.pi.error('pi') }.ifError { true } /* user error */
 ```
 
 ## Operator -- adverbs
 ```
 [1 2 3] +.e [4 5 6] = [5 7 9] /* e = equal, operands must be of equal size */
-[1 2 3] +.s [4 5 6 7] = [5 7 9] /* s = small, right operand is truncated */
+[1 2 3] +.s [4 5 6 7] = [5 7 9] /* s = small, right operand is truncate */
 [1 2 3] *.s [4 5 6 7] = [4 10 18] /* s = small */
 [1 2 3] +.w [4 5 6 7] = [5 7 9 8] /* w = wrap, left operand indexed using atWrap */
 [1 2 3] +.f [4 5 6 7] = [5 7 9 9] /* f = fold, left operand indexed using atFold */
@@ -2499,7 +2499,7 @@ let s = IdentitySet(); 729.timesRepeat { s.include(1:9.atRandom) }; s.minMax = [
 let s = IdentitySet(); 729.timesRepeat { s.include(1:9.atRandom) }; s = 1:9.asIdentitySet /* check distribution */
 let s = IdentitySet(); 729.timesRepeat { s.include(system.randomInteger([-3 3], [])) }; s = -3:3.asIdentitySet /* check distribution */
 system.randomReal([0 9], []).isNumber /* random floating point number (0 to self) */
-let s = IdentitySet(); 729.timesRepeat { s.include(system.randomReal([0 9], []).rounded) }; s.minMax = [0, 9] /* check distribution */
+let s = IdentitySet(); 729.timesRepeat { s.include(system.randomReal([0 9], []).round) }; s.minMax = [0, 9] /* check distribution */
 system.randomInteger([3 9], []).isInteger /* random integer in range */
 system.randomReal([3 9], []).isNumber /* random float in range */
 let b = IdentityBag(); 5000.timesRepeat { b.add(1:5.atRandom) }; b.contents.values.allSatisfy { :each | (each / 5000 * 5 - 1).abs < 0.1}
@@ -2827,7 +2827,7 @@ let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.asList = [9 7 7 7 7 5 5
 let a = RunArray([1, 4, 2, 1], 'abca'.contents); a.first = 'a' & { a.last = 'a' } /* first and last are optimized */
 let a = RunArray([1, 4, 2], 'abc'.contents); a.includes('c') & { a.isSorted } /* includes and isSorted are optimized */
 RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray /* reversed is optimized */
-let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).rounded = 9 /* space saving, in % */
+let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).round = 9 /* space saving, in % */
 RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
 [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
 [4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
@@ -3215,8 +3215,8 @@ let n = 23453456; (n * n).sqrt = n /* floating point square and square root */
 2 ^ 100 = 1267650600228229401496703205376 /* ieee precision */
 (1 / 2).asString = '0.5' /* division prints as floating point */
 1.0 = 1 /* there is no distinct integer type */
-[1, 1.4, 1.49999, 1.5, 1.50000001].rounded = [1, 1, 1, 2, 2] /* rounding */
-[14 / 10, 44534 / 100].rounded = [1, 445] /* rounding */
+[1, 1.4, 1.49999, 1.5, 1.50000001].round = [1, 1, 1, 2, 2] /* rounding */
+[14 / 10, 44534 / 100].round = [1, 445] /* rounding */
 1.pi.sin.abs < 0.00000000001 /* sin of 1.pi is close to zero */
 (1.pi / 2).sin > 0.9999999999 /* sin of two 1.pi is close to one */
 0 = -0 /* zero is equal to negative zero */

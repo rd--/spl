@@ -88,7 +88,7 @@ Apply a function on a tensor product grid:
 >>> let m = { :x :y |
 >>> 	((x ^ 2) * y).pi.sin
 >>> }.outer(x, y).first(3);
->>> (m * 1E4).rounded
+>>> (m * 1E4).round
 [
 	   -0   -0   0   0    0    0;
 	 -314 -157   0 105  209  314;

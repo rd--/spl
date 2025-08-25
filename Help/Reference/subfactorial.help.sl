@@ -1,14 +1,17 @@
 # subfactorial
 
-- _subfactorial(anInteger)_
+- _subfactorial(n)_
 
-Answers the number of permutations of _anInteger_ objects that leave no object fixed.
+Answers the number of permutations of _n_ objects that leave no object fixed.
 
 A permutation in which no object appears in its natural place is called a derangement.
 The subfactorial counts the number of derangements.
 
 ```
 >>> 6.subfactorial
+265
+
+>>> (6.factorial / 1.e).round
 265
 
 >>> 1:9.collect(subfactorial:/1)
@@ -30,7 +33,7 @@ Plot the values on a log scale over a subset of the reals:
 
 * * *
 
-See also: doubleFactorial, factorial
+See also: derangements, doubleFactorial, factorial
 
 Guides: Combinatorial Functions
 

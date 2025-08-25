@@ -2,15 +2,15 @@
 
 ## Music-Tuning
 ```
-[1 9/8 5/4 4/3 3/2 2].collect(ratioToCents:/1).rounded = [0 204 386 498 702 1200]
+[1 9/8 5/4 4/3 3/2 2].collect(ratioToCents:/1).round = [0 204 386 498 702 1200]
 [0 203.9 386.3 498 701.9 1200].collect(centsToRatio:/1) ~ [1 9/8 5/4 4/3 3/2 2]
 12.equalTemperamentTuning.name = 'ET-12'
 12.equalTemperamentTuning.description = 'Twelve tone equal-temperament'
 12.equalTemperamentTuning.asCents = [0 100 200 300 400 500 600 700 800 900 1000 1100]
 12.equalTemperamentTuning.octave = 2
-7.equalTemperamentTuning.asCents.rounded = [0 171 343 514 686 857 1029]
+7.equalTemperamentTuning.asCents.round = [0 171 343 514 686 857 1029]
 [1/1 6/5 4/3 3/2 8/5].asRatioTuning.asRatios = [1 6/5 4/3 3/2 8/5]
-[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.rounded = [0 316 498 702 814]
+[1/1 6/5 4/3 3/2 8/5].asRatioTuning.asCents.round = [0 316 498 702 814]
 [1/1 6/5 4/3 3/2 8/5].asRatioTuning.asIntegers = [30 36 40 45 48]
 [1/1 6/5 4/3 3/2 8/5].asRatioTuning.octave = 2
 30/17.latticePrimes(false) = [3 5 17]
@@ -23,13 +23,13 @@ let r = [1/1 10/9 20/17 4/3 3/2 5/3 30/17]; let t = r.asRatioTuning; let p = t.l
 
 ## Music-RatioTuning
 ```
-let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.primeLimit, r.asCents.rounded] = [5, 7, [0, 231, 498, 765, 996]]
+let r = RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2); [r.size, r.primeLimit, r.asCents.round] = [5, 7, [0, 231, 498, 765, 996]]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2).asIntegers =  [63 72 84 98 112]
 RatioTuning('', '', [63 72 84 98 112], 2).asRatios = [1/1 8/7 4/3 14/9 16/9]
 RatioTuning('', '', [1/1 8/7 4/3 14/9 16/9], 2) = RatioTuning('', '', [63 72 84 98 112], 2)
 let t = [63, 72, 84, 98, 112].asRatioTuning; [t.primeLimit, t.size, t.octave] = [7, 5, 2]
 let t = [63, 72, 84, 98, 112].asRatioTuning; t.asRatios = [1, 8/7, 4/3, 14/9, 16/9]
-let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.rounded = [0, 231, 498, 765, 996]
+let t = [63, 72, 84, 98, 112].asRatioTuning; t.asCents.round = [0, 231, 498, 765, 996]
 let r = [1/1, 8/7, 4/3, 14/9, 16/9]; [r.reduce(gcd:/2), r.reduce(lcm:/2)] = [1/63, 112]
 [1, 8/7, 4/3, 14/9, 16/9] / 1/63 = [63, 72, 84, 98, 112]
 [1/1, 8/7, 4/3, 14/9, 16/9].asRatioTuning.asIntegers = [63, 72, 84, 98, 112]
@@ -126,18 +126,18 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [2, 3, 5, 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2, 3, 5, 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
 [0, 4].collect { :i | [2, 3, 5].atPin(i) } = [2, 5] /* clamp index to valid range */
-0:10.collect { :n | n.linLin(0, 10, -4.3, 100).rounded } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
-0:10.collect { :n | n.linExp(0, 10, 4.3, 100).rounded } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]
-1:10.collect { :n | n.expLin(0.1, 10, -4.3, 100).rounded } = [48, 64, 73, 79, 84, 88, 92, 95, 98, 100]
-1:10.collect { :n | n.expExp(0.1, 10, 4.3, 100).rounded } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
-0:10.collect { :n | n.linCurve(0, 10, -4.3, 100, -3).rounded } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
-1:10.collect { :n | n.curveLin(0, 10, -4.3, 100, -3).rounded } = [-1, 3, 7, 12, 18, 25, 34, 45, 63, 100]
-5.linLin(0, 10, -4.3, 100).rounded = 48 /* linear to linear mapping */
-5.linExp(0, 10, 4.3, 100).rounded = 21 /* linear to exponential mapping */
-5.expLin(0.1, 10, -4.3, 100).rounded = 84 /* exponential to linear mapping */
-5.expExp(0.1, 10, 4.3, 100).rounded = 62 /* exponential to exponential mapping */
-5.linCurve(0, 10, -4.3, 100, -3).rounded = 81 /* linear to parametric curve mapping */
-5.curveLin(0, 10, -4.3, 100, -3).rounded = 18 /* parametric curve to liner mapping */
+0:10.collect { :n | n.linLin(0, 10, -4.3, 100).round } = [-4, 6, 17, 27, 37, 48, 58, 69, 79, 90, 100]
+0:10.collect { :n | n.linExp(0, 10, 4.3, 100).round } = [4, 6, 8, 11, 15, 21, 28, 39, 53, 73, 100]
+1:10.collect { :n | n.expLin(0.1, 10, -4.3, 100).round } = [48, 64, 73, 79, 84, 88, 92, 95, 98, 100]
+1:10.collect { :n | n.expExp(0.1, 10, 4.3, 100).round } = [21, 33, 44, 53, 62, 71, 78, 86, 93, 100]
+0:10.collect { :n | n.linCurve(0, 10, -4.3, 100, -3).round } = [-4, 24, 45, 61, 72, 81, 87, 92, 96, 98, 100]
+1:10.collect { :n | n.curveLin(0, 10, -4.3, 100, -3).round } = [-1, 3, 7, 12, 18, 25, 34, 45, 63, 100]
+5.linLin(0, 10, -4.3, 100).round = 48 /* linear to linear mapping */
+5.linExp(0, 10, 4.3, 100).round = 21 /* linear to exponential mapping */
+5.expLin(0.1, 10, -4.3, 100).round = 84 /* exponential to linear mapping */
+5.expExp(0.1, 10, 4.3, 100).round = 62 /* exponential to exponential mapping */
+5.linCurve(0, 10, -4.3, 100, -3).round = 81 /* linear to parametric curve mapping */
+5.curveLin(0, 10, -4.3, 100, -3).round = 18 /* parametric curve to liner mapping */
 { :break:/1 | 1:10.do { :index | (index = 5).ifTrue { 5.break } } }.block = 5 /* non-local return */
 [1, 2, 4, 8, 16, 32, 64, 128, 256].collect { :each | (each + 1).nextPowerOfTwo } = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 [4, 8, 16, 32, 64, 128, 256, 512].collect { :each | (each - 1).previousPowerOf(2) } = [2, 4, 8, 16, 32, 64, 128, 256]
@@ -152,7 +152,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 10.instill(1, -10, nil) = -10
 nil ? { 'x' } = 'x' /* right hand side if nil */
 'x' ? { 'y' } = 'x' /* left hand side unless nil */
-3/2.RatioCents.rounded = 702 /* ratio (interval) to cents */
+3/2.RatioCents.round = 702 /* ratio (interval) to cents */
 3/2.RatioCents ~ 702 /* ratio (interval) to cents */
 702.CentsRatio ~ 1.5 /* cents (interval) to ratio */
 3/2.RatioMidi ~ 7.02 /* ratio (interval) to midi */
@@ -163,8 +163,8 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 440.CpsOct = 4.75 /* hertz to linear octave */
 440.CpsMidi = 69 /* hertz to midi note number */
 69.MidiCps = 440 /* midi note number to hertz */
-0.MidiCps.rounded = 8 /* midi note zero */
-1.CpsMidi.rounded = -36 /* one hertz */
+0.MidiCps.round = 8 /* midi note zero */
+1.CpsMidi.round = -36 /* one hertz */
 [1 .. 5].slide(3, 1) = [1 2 3 2 3 4 3 4 5] /* adjacent elements given windowLength and stepSize */
 [1 .. 7].slide(3, 2) = [1 2 3 3 4 5 5 6 7] /* 1-3, 3-5, 5-7 */
 [1 .. 6].slide(4, 1) = [1 2 3 4 2 3 4 5 3 4 5 6] /* 1-4, 2-5, 3-6 */

@@ -85,7 +85,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 		}
 	}
 
-	rounded { :self |
+	round { :self |
 		HexagonalCoordinates(
 			self.coordinates.roundedHexagonalCoordinates
 		)
@@ -167,9 +167,9 @@ HexagonalCoordinates : [Object] { | coordinates |
 	roundedHexagonalCoordinates { :self |
 		self.isVector.if {
 			let [q, r, s] = self;
-			let qR = q.rounded;
-			let rR = r.rounded;
-			let sR = s.rounded;
+			let qR = q.round;
+			let rR = r.round;
+			let sR = s.round;
 			let qD = (qR - q).abs;
 			let rD = (rR - r).abs;
 			let sD = (sR - s).abs;

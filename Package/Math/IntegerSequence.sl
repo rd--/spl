@@ -263,7 +263,7 @@
 			1
 		} {
 			let phi = 1.goldenRatio;
-			(phi ^ self).rounded
+			(phi ^ self).round
 		}
 	}
 

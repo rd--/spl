@@ -60,6 +60,7 @@ Answer the inversion of _x_ given the reference circle _c_.
 >>> let v = u.circleInversion(c);
 >>> (v, v.circleInversion(c))
 ([0.25 0.25], [2 2])
+```
 
 Invert a circle to another circle:
 
@@ -69,8 +70,3 @@ Invert a circle to another circle:
 >>> u.circleInversion(c)
 Circle([2/7 2/7], 1/7)
 ```
-
-
-x^'	=	x_0+s(x-x_0)	
-(6)
-y^'	=	y_0+s(y-y_0)

@@ -30,7 +30,7 @@ true
 
 * * *
 
-See also: abs, fractionPart, isOne, isZero
+See also: abs, fractionalPart, isOne, isZero
 
 References:
 _W_

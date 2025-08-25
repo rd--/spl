@@ -35,7 +35,7 @@ Pell numbers can be used to form Pythagorean triples:
 
 ```
 >>> let p = { :x |
->>> 	x.pellNumber.rounded
+>>> 	x.pellNumber.round
 >>> };
 >>> let n = 7;
 >>> let a = 2 * p(n) * p(n + 1);

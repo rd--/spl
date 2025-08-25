@@ -35,7 +35,7 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 
 In the `Number` case,
 i.e. `SmallFloat` or `Fraction`,
-answer `truncated`:
+answer `truncate`:
 
 ```
 >>> 1.pi.asInteger
@@ -78,7 +78,7 @@ Threads over lists:
 
 * * *
 
-See also: asBit, asFloat, asNumber, codePoint, parseDecimalInteger, truncated
+See also: asBit, asFloat, asNumber, codePoint, parseDecimalInteger, truncate
 
 References:
 _Smalltalk_

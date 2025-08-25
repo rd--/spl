@@ -158,7 +158,7 @@ For a positive real number _x_, _x % 1_ gives the fractional part of _x_:
 >>> 3.141 % 1
 0.141
 
->>> 3.141.fractionPart
+>>> 3.141.fractionalPart
 0.141
 ```
 

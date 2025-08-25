@@ -14,7 +14,7 @@ Inverse of `MidiRatio`.
 A rational perfect fifth is 702 cents:
 
 ```
->>> ((3 / 2).RatioMidi * 100).rounded
+>>> ((3 / 2).RatioMidi * 100).round
 702
 ```
 

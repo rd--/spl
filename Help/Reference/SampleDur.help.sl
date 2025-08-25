@@ -11,7 +11,7 @@ ordinarily a very small number:
 >>> 1 / [44100 48000]
 [2.2267E-7 2.0833E-7]
 
->>> (1 / 48000 * 1E8).rounded
+>>> (1 / 48000 * 1E8).round
 2083
 ```
 

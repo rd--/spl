@@ -1290,8 +1290,8 @@ Reference/fourth.help.sl
 Reference/FractionalBrownianMotionProcess.help.sl
 Reference/FractionalGaussianNoiseProcess.help.sl
 Reference/Fraction.help.sl
-Reference/fractionPart.help.sl
-Reference/FractionPart.help.sl
+Reference/fractionalPart.help.sl
+Reference/FractionalPart.help.sl
 Reference/fradinPolyhedraCatalogue.help.sl
 Reference/fragment.help.sl
 Reference/Frame.help.sl
@@ -2878,7 +2878,7 @@ Reference/rotatedLeft.help.sl
 Reference/rotatedRight.help.sl
 Reference/rotationMatrix.help.sl
 Reference/roundDownTo.help.sl
-Reference/rounded.help.sl
+Reference/round.help.sl
 Reference/roundTiesEven.help.sl
 Reference/roundTo.help.sl
 Reference/RoundTo.help.sl
@@ -3343,7 +3343,7 @@ Reference/trimmedMean.help.sl
 Reference/trisectrixOfMaclaurin.help.sl
 Reference/trochoid.help.sl
 Reference/true.help.sl
-Reference/truncated.help.sl
+Reference/truncate.help.sl
 Reference/truncateTo.help.sl
 Reference/tschirnhausenCubic.help.sl
 Reference/tukeyWindow.help.sl

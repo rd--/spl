@@ -700,7 +700,7 @@
 +SmallFloat {
 
 	degreeToKey { :self :scale :stepsPerOctave |
-		let scaleDegree = self.rounded;
+		let scaleDegree = self.round;
 		let accidental = (self - scaleDegree) * 10;
 		let baseKey = (stepsPerOctave * (scaleDegree.quotientBy(scale.size, floor:/1))) + scale.atWrap(scaleDegree + 1);
 		(accidental = 0).if {

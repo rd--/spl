@@ -3,7 +3,7 @@ PointCloud : [Object, Geometry] { | vertexCoordinates |
 	asBitmap { :self :k |
 		let p = self.vertexCoordinates;
 		let q = (p - [p.min]).rescale;
-		let i = (q * k).rounded;
+		let i = (q * k).round;
 		let [w, h] = i.max;
 		let a = i.collect { :each |
 			let [x, y] = each;

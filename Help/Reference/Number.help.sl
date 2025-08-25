@@ -8,7 +8,7 @@ Methods implementing mathematical functions: `exp`, `log`, `floorLog`, `^`, `rai
 
 Methods for testing: `isEven`, `isOdd`, `isNegative`, `isNonNegative`, `isPositive`, `isZero`, `sign`
 
-Methods for truncating and rounding: `ceiling`, `floor`, `truncated`, `truncateTo`, `rounded`, `roundTo`, `roundUpTo`
+Methods for truncating and rounding: `ceiling`, `floor`, `truncate`, `truncateTo`, `round`, `roundTo`, `roundUpTo`
 
 Methods for trigonometry: `sin`, `cos`, `tan`, `sinDegrees`, `cosDegrees`, `arcSin`, `arcCos`, `arcTan`, `degreesToRadians`, `radiansToDegrees`
 

@@ -72,10 +72,10 @@ Quotient is equivalent to `floor` of division for integers:
 5
 ```
 
-For positive integers _quotient(m, n) + fractionPart(m / n)_ is always equal to _m / n_:
+For positive integers _quotient(m, n) + fractionalPart(m / n)_ is always equal to _m / n_:
 
 ```
->>> (24 // 7) + (24 / 7).fractionPart
+>>> (24 // 7) + (24 / 7).fractionalPart
 (24 / 7)
 ```
 

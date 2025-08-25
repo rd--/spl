@@ -33,7 +33,7 @@
 	hexTriplet { :self |
 		let c = (self.alpha = 1).if { self.rgb } { self.rgba };
 		'#' ++ c.collect { :each |
-			(each * 255).rounded.byteHexString
+			(each * 255).round.byteHexString
 		}.stringCatenate
 	}
 
@@ -148,7 +148,7 @@
 
 	rgbString { :self |
 		self.isValid.if {
-			let [r, g, b] = (self.rgb * 255).rounded;
+			let [r, g, b] = (self.rgb * 255).round;
 			let alpha = self.alpha;
 			(alpha = 1).if {
 				'rgb(%,%,%)'.format([r, g, b])

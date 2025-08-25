@@ -6,7 +6,7 @@ SinOsc(440 * env, 0) * 0.1
 let tEnvx = { :tr :atk :hld :rel |
 	CurveGen(tr, [0 1 1 0], [atk hld rel], [0 0 -9])
 };
-let noteZero = MouseY(48, 75, 0, 0.2).rounded;
+let noteZero = MouseY(48, 75, 0, 0.2).Round;
 let decayTime = MouseX(2, 4, 0, 0.2);
 let seq = Dseq(Infinity, [0 5 0 3 0 3 5 0 3] + noteZero);
 let tr = Impulse(4, 0);

@@ -19,7 +19,7 @@ let n = 100;
 let m = 25;
 let r = [];
 0:n.collect { :x |
-	(x.sin * m).rounded
+	(x.sin * m).round
 }.heapSort { :a :b |
 	r.add(a);
 	a > b

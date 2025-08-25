@@ -3,7 +3,7 @@
 - _integerPart(x)_
 
 Answers the integer part of _x_.
-`integerPart` is equivalent to `truncated`.
+`integerPart` is equivalent to `truncate`.
 
 Find the integer part of a real number:
 
@@ -59,7 +59,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: ceiling, floor, fractionPart, truncated
+See also: ceiling, floor, fractionalPart, truncate
 
 References:
 _Mathematica_

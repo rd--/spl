@@ -10,7 +10,7 @@ The control duration is the block size divided by the sample rate:
 >>> [48 64] / 48000
 [1E-3 1.3333E-3]
 
->>> (64 / 48000 * 1E6).rounded
+>>> (64 / 48000 * 1E6).round
 1333
 ```
 

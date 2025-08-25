@@ -115,7 +115,7 @@
 	}
 
 	asInteger { :self |
-		self.truncated
+		self.truncate
 	}
 
 	asNumber { :self |
@@ -154,7 +154,7 @@
 	}
 
 	ceiling { :self |
-		let truncation = self.truncated;
+		let truncation = self.truncate;
 		(self <= 0).if {
 			truncation
 		} {
@@ -286,7 +286,7 @@
 	}
 
 	floor { :self |
-		let truncation = self.truncated;
+		let truncation = self.truncate;
 		(self >= 0).if {
 			truncation
 		} {
@@ -312,7 +312,7 @@
 		low + z
 	}
 
-	fractionPart { :self |
+	fractionalPart { :self |
 		self - self.integerPart
 	}
 
@@ -375,7 +375,7 @@
 	}
 
 	integerPart { :self |
-		self.truncated
+		self.truncate
 	}
 
 	inverseErf { :x |
@@ -417,7 +417,7 @@
 	}
 
 	isHalfInteger { :self |
-		(self.fractionPart.abs * 2).isOne
+		(self.fractionalPart.abs * 2).isOne
 	}
 
 	isNegative { :self |
@@ -705,17 +705,17 @@
 
 	printStringShowingDecimalPlaces { :self :placesDesired |
 		(placesDesired <= 0).if {
-			self.rounded.printString
+			self.round.printString
 		} {
 			let rounder = 10 ^ placesDesired;
-			let rounded = self.roundTo(rounder.reciprocal);
-			let prefix = rounded.isNegative.if { '-' } { '' };
-			let roundedFractionPart = (rounded.abs.fractionPart * rounder).rounded; /* truncated? */
+			let round = self.roundTo(rounder.reciprocal);
+			let prefix = round.isNegative.if { '-' } { '' };
+			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
 			[
 				prefix,
-				rounded.abs.integerPart.truncated.printString,
+				round.abs.integerPart.truncate.printString,
 				'.',
-				roundedFractionPart.printString.padLeft([placesDesired], '0')
+				roundFractionPart.printString.padLeft([placesDesired], '0')
 			].stringCatenate
 		}
 	}
@@ -729,7 +729,7 @@
 	}
 
 	quotient { :self :aNumber |
-		self.quotientBy(aNumber, truncated:/1)
+		self.quotientBy(aNumber, truncate:/1)
 	}
 
 	quotientRemainder { :self :aNumber |
@@ -807,7 +807,7 @@
 	}
 
 	remainder { :self :aNumber |
-		self.remainderBy(aNumber, truncated:/1)
+		self.remainderBy(aNumber, truncate:/1)
 	}
 
 	rescale { :self :min :max |
@@ -832,11 +832,11 @@
 		(self / aNumber).floor * aNumber
 	}
 
-	rounded { :self |
-		(self + (self.sign / 2)).truncated
+	round { :self |
+		(self + (self.sign / 2)).truncate
 	}
 
-	roundToTowardsZero { :self :aNumber |
+	roundTowardsZeroTo { :self :aNumber |
 		(self < 0).if {
 			self.roundUpTo(aNumber)
 		} {
@@ -845,16 +845,16 @@
 	}
 
 	roundTo { :self :quantum |
-		(self / quantum).rounded * quantum
+		(self / quantum).round * quantum
 	}
 
 	roundToPrecision { :self :precision |
 		let scalar = 10 ^ precision;
-		(self * scalar).rounded / scalar
+		(self * scalar).round / scalar
 	}
 
 	roundTowardsZero { :self |
-		self.roundToTowardsZero(1)
+		self.roundTowardsZeroTo(1)
 	}
 
 	roundUp { :self |

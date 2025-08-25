@@ -140,7 +140,7 @@ Amortize a 5% loan of 1000 with 10 annual payments of 90:
 
 ```
 >>> (90 # 10).foldList(1000) { :x :i |
->>> 	(x * 1.05).rounded - i
+>>> 	(x * 1.05).round - i
 >>> }
 [
 	1000 960 918 874 828
