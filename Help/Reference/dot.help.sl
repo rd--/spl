@@ -67,7 +67,7 @@ Dot allows complex inputs, but does not conjugate any of them:
 Compute the `norm` of a vector using the Hermitian inner product:
 
 ```
->>> let h = { :a :b | a.conjugated.dot(b) };
+>>> let h = { :a :b | a.conjugate.dot(b) };
 >>> let u = [1 2J-1];
 >>> (h(u, u).sqrt, u.norm)
 (6.sqrt, 6.sqrt)

@@ -87,6 +87,7 @@ Derived Circles:
 - `circumcircle`
 - `cosineCircle`
 - `excircles`
+- `excirclesRadicalCircle`
 - `incircle`
 - `innerSoddyCircle`
 - `ninePointCircle`

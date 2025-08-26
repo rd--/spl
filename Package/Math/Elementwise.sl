@@ -3,7 +3,7 @@
 +@Collection {
 
 	+ { :self |
-		self.collect(conjugated:/1)
+		self.collect(conjugate:/1)
 	}
 
 	- { :self |
@@ -88,8 +88,8 @@
 		self.collect(chop:/1)
 	}
 
-	conjugated { :self |
-		self.collect(conjugated:/1)
+	conjugate { :self |
+		self.collect(conjugate:/1)
 	}
 
 	continuedFraction { :self |

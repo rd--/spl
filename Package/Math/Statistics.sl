@@ -202,7 +202,7 @@
 	absoluteCorrelation { :u :v |
 		let n = u.size;
 		(v.size = n).if {
-			u.dot(v.conjugated) / n
+			u.dot(v.conjugate) / n
 		} {
 			u.error('absoluteCorrelation: size mismatch')
 		}
@@ -258,7 +258,7 @@
 			let n = v.size;
 			let m = w.size;
 			(n = m).if {
-				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugated)
+				(1 / (n - 1)) * (v - v.mean).dot((w - w.mean).conjugate)
 			} {
 				[v, w].error('@Sequenceable>>covariance: vectors must be equal')
 			}

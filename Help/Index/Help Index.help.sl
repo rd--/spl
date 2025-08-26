@@ -128,7 +128,7 @@
 ## Complex Numbers
 
 - `i`, `imaginary`, `j`, `real`
-- `abs`, `absArg`, `arg`, `conjugated`, `sign`
+- `abs`, `absArg`, `arg`, `conjugate`, `sign`
 - `randomComplex`
 
 ## Computing Angles
@@ -429,7 +429,7 @@
 - `antidiagonal`, `determinant`, `diagonal`
 - `inverse`, `matrixRank`, `rowReduce`
 - `permanent`, `trace`
-- `conjugated`, `conjugateTranspose`, `transposed`
+- `conjugate`, `conjugateTranspose`, `transposed`
 - `kroneckerProduct`
 - `lowerTriangularize`, `upperTriangularize`
 - `luDecomposition`

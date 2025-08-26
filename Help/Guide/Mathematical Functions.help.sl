@@ -70,7 +70,7 @@
 - `absArg`: absolute value and argument
 - `abs`: absolute value
 - `arg`: argument
-- `conjugated`: complex conjugate
+- `conjugate`: complex conjugate
 - `imaginary`: imaginary component of a complex number
 - `real`: real component of a complex number
 - `sign`: sign of

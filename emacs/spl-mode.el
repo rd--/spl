@@ -393,7 +393,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("catenate" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("Chi" . ?Χ) ; U+03A7 Χ Greek Capital Letter Chi
      ("chi" . ?χ) ; U+03C7 χ Greek Small Letter Chi
-     ("conjugated" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
+     ("conjugate" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
      ("degree" . ?°) ; U+00b0 ° Degree Sign
      ("delta" . ?δ) ; U+03B4 δ Greek Small Letter Delta

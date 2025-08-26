@@ -1,7 +1,7 @@
 @Number {
 
 	+ { :self |
-		self.conjugated
+		self.conjugate
 	}
 
 	* { :self |

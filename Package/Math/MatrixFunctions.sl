@@ -115,7 +115,7 @@
 	}
 
 	conjugateTranspose { :self |
-		self.transposed.conjugated
+		self.transposed.conjugate
 	}
 
 	cramersRule { :m :d |
@@ -137,7 +137,7 @@
 		let [m, q] = b.shape;
 		let l = List(n, 1);
 		{ n = m }.assert;
-		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugated)
+		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugate)
 	}
 
 	determinant { :self |

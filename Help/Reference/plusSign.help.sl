@@ -49,7 +49,7 @@ Plus at `SmallFloat` is not always associative:
 1
 ```
 
-The unary form of `+` is `conjugated`:
+The unary form of `+` is `conjugate`:
 
 ```
 >>> [0 2 -1.1 1E300 -200].+
@@ -65,7 +65,7 @@ The name of this operator is `plusSign`.
 
 * * *
 
-See also: -, *, /, conjugated, Plus, sum
+See also: -, *, /, conjugate, Plus, sum
 
 Guides: Defining Methods
 

@@ -41,7 +41,7 @@ Methods:
 - [ceiling](https://aplwiki.com/wiki/Ceiling) Ceiling ⌈
 - [isCloseTo](https://aplwiki.com/wiki/Match) Match ≡
 - [composeLeft](https://aplwiki.com/wiki/Compose) Compose
-- [conjugated](https://aplwiki.com/wiki/Conjugate) Conjugate
+- [conjugate](https://aplwiki.com/wiki/Conjugate) Conjugate
 - [constant](https://aplwiki.com/wiki/Constant) Constant ⍨
 - [drop](http://aplwiki.com/wiki/Drop) Drop ↓
 - [each](https://aplwiki.com/wiki/Each) Each ¨

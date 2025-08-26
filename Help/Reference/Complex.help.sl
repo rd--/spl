@@ -106,7 +106,7 @@ Combinations of operands of different types:
 >>> 1J2.imaginary
 2
 
->>> 1J2.conjugated
+>>> 1J2.conjugate
 1J-2
 
 >>> 1J2.abs
@@ -199,7 +199,7 @@ true
 
 * * *
 
-See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugated, i, imaginary, j, real, SmallFloat
+See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugate, i, imaginary, j, real, SmallFloat
 
 Guides: Complex Numbers
 

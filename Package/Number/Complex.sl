@@ -153,7 +153,7 @@ Complex : [Object, Number] { | real imaginary |
 		self.chop(1E-10)
 	}
 
-	conjugated { :self |
+	conjugate { :self |
 		Complex(self.real, self.imaginary.negated)
 	}
 
@@ -395,7 +395,7 @@ Complex : [Object, Number] { | real imaginary |
 		newComplex().initializeSlots(real, imaginary)
 	}
 
-	conjugated { :self |
+	conjugate { :self |
 		self
 	}
 

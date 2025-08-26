@@ -22,7 +22,7 @@ EisensteinInteger : [Object] { | a b |
 		[self.a, self.b]
 	}
 
-	conjugated { :self |
+	conjugate { :self |
 		EisensteinInteger(0 - self.a - 1, 0 - self.b)
 	}
 

@@ -1009,7 +1009,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'atan2'
 		'average'
 		'clip'
-		'conjugated'
+		'conjugate'
 		'cos'
 		'cosh'
 		'cubeRoot'

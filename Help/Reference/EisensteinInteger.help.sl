@@ -17,10 +17,10 @@ Find the norm of an Eisenstein integer:
 Find its conjugate:
 
 ```
->>> EisensteinInteger(3, 7).conjugated
+>>> EisensteinInteger(3, 7).conjugate
 EisensteinInteger(-4, -7)
 
->>> EisensteinInteger(3, 7).asComplex.conjugated
+>>> EisensteinInteger(3, 7).asComplex.conjugate
 EisensteinInteger(-4, -7).asComplex
 ```
 
@@ -28,11 +28,11 @@ Verify that the norm is the product of the number and its conjugate:
 
 ```
 >>> let n = EisensteinInteger(3, 7);
->>> n * n.conjugated
+>>> n * n.conjugate
 EisensteinInteger(37, 0)
 
 >>> let n = EisensteinInteger(3, 7).asComplex;
->>> n * n.conjugated
+>>> n * n.conjugate
 37J0
 ```
 

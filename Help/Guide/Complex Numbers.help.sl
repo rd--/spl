@@ -15,7 +15,7 @@ Querying:
 - `abs`: absolute value
 - `arg`: argument
 - `absArg`
-- `conjugated`
+- `conjugate`
 - `sign`
 
 Matrix Functions:

@@ -1981,7 +1981,7 @@
 	}
 
 	norm { :self |
-		self.dotProduct(self.conjugated).sqrt
+		self.dotProduct(self.conjugate).sqrt
 	}
 
 	normalize { :self |
@@ -2212,7 +2212,7 @@
 	}
 
 	projection { :u :v |
-		let w = v.conjugated;
+		let w = v.conjugate;
 		u.dot(w) / v.dot(w) * v
 	}
 

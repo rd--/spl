@@ -5,7 +5,7 @@
 
 Answer the _norm_ of a number or vector.
 For complex numbers `norm` is `abs`.
-For vectors answer the Euclidean norm, _norm(v) = (v * v.conjugated).sqrt_.
+For vectors answer the Euclidean norm, _norm(v) = (v * v.conjugate).sqrt_.
 The vector norm is also called the vector magnitude or Euclidean length.
 
 At `Complex`:
@@ -42,12 +42,12 @@ As square root of sum of squares:
 (v ^ 2).sum.sqrt
 ```
 
-As square root of `dot` with `conjugated`:
+As square root of `dot` with `conjugate`:
 
 ```
 >>> let v = [1 .. 5];
 >>> v.norm
-v.dot(v.conjugated).sqrt
+v.dot(v.conjugate).sqrt
 ```
 
 C.f. `hypot`:

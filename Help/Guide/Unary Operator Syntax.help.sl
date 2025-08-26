@@ -26,7 +26,7 @@ or in a prefix name in `Apply Syntax`:
 
 The translation is _3.- ⇒ hyphenMinus(3)  ⇒ hyphenMinus:/1 . (3)_.
 
-Unary `+` is `conjugated`:
+Unary `+` is `conjugate`:
 
 ```
 >>> [2J3 -4J-3 -12 1.5J1.5].+

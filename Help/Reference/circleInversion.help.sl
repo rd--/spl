@@ -100,6 +100,26 @@ let b = [0.15 0.25 0.35 0.45].collect { :r |
 
 ![](sw/spl/Help/Image/circleInversion-C.svg)
 
+Orthogonal circles are invariant under inversion with respect to each other,
+however points exchange places:
+
+~~~spl svg=D
+let a = Circle([5 0], 4);
+let b = Circle([0 0], 3);
+let c = a.circleInversion(b);
+let p = (-3 / 2.sqrt) # 2;
+let q = p.circleInversion(a);
+let r = a.center;
+[
+	b,
+	c,
+	[p q].PointCloud,
+	[p q r].Line
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circleInversion-D.svg)
+
 * * *
 
 See also: Circle, circlePower, isOrthogonalCircle

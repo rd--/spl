@@ -75,7 +75,7 @@ Plot _arg(x + i)_ on the reals:
 
 * * *
 
-See also: abs, absArg, arcTan, conjugated, Complex, toPolarCoordinates
+See also: abs, absArg, arcTan, conjugate, Complex, toPolarCoordinates
 
 References:
 _Mathematica_

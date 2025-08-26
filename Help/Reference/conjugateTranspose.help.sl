@@ -3,7 +3,7 @@
 - _conjugateTranspose(m)_
 
 Answer the conjugate transpose of the matrix _m_.
-Equivalent to _m.transposed.conjugated_.
+Equivalent to _m.transposed.conjugate_.
 For real matrices, the conjugate transpose is just the transpose.
 
 Conjugate transpose of a real-valued matrix:
@@ -55,7 +55,7 @@ h.negated
 
 * * *
 
-See also: conjugated, transposed
+See also: conjugate, transposed
 
 Guides: Complex Numbers
 

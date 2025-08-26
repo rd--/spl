@@ -179,6 +179,31 @@ let b = [0 0] - a;
 
 ![](sw/spl/Help/Image/Circle-J.svg)
 
+Draw Apollonian circles:
+
+~~~spl svg=K
+let alphaFamily = { :t |
+	Circle(
+		[t + (1 / t) / 2, 0],
+		(t - (1 / t)).abs / 2
+	)
+};
+let betaFamily = { :lambda |
+	Circle(
+		[0 lambda],
+		(lambda.squared + 1).sqrt
+	)
+};
+let t = (0.2 -- 0.8).discretize(10);
+let l = (0.25 -- 2.5).discretize(5);
+[
+	(t.- ++ t).collect(alphaFamily:/1),
+	(l.- ++ l).collect(betaFamily:/1)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-K.svg)
+
 * * *
 
 See also: Arc, arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y

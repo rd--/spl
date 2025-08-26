@@ -1130,7 +1130,7 @@ let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } /* copy com
 2 * (1.i ^ 2) ~ (-2 + 0.i)
 1 + (3 / 4.i) = (1 - 0.75.i)
 let z = 1 + 2.i; z.real = 1 & { z.imaginary = 2 }
-let z = 1 + 2.i; z.conjugated = (1 - 2.i) & { z.absSquared = 5 }
+let z = 1 + 2.i; z.conjugate = (1 - 2.i) & { z.absSquared = 5 }
 let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
 1.i.sqrt ~ (0.7071 + 0.7071.i)
 (1 + 2.i).sqrt ~ (1.2720 + 0.7861.i)
@@ -1167,7 +1167,7 @@ let n = (1 + 2.i); n.reciprocal * n = 1 /* multiplicative inverse */
 1J1.arg = 1/4.pi
 [5J12.abs, 5J12.arg] = [13, (12 / 5).arcTan] /* absolute value & argument */
 1.4J2.3.sign ~ 0.519947J0.854199 /* sign */
-1J1.conjugated = 1J-1
+1J1.conjugate = 1J-1
 ```
 
 ## Conditional Statements

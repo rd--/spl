@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="100.0" viewBox="-42.50 -55.00 160.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.0400%" transform="translate(0, 0.0000) scale(12.5000, -12.5000)">
+<circle cx="0.00" cy="0.00" r="3.00" />
+<circle cx="5.00" cy="0.00" r="4.00" />
+<circle cx="-2.12" cy="-2.12" r="0.04" />
+<circle cx="2.94" cy="-0.61" r="0.04" />
+<polyline points="-2.12,-2.12 2.94,-0.61 5.00,0.00" />
+</g>
+</svg>

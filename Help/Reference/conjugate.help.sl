@@ -1,28 +1,37 @@
-# conjugated
+# conjugate
 
-- _conjugated(z)_
+- _conjugate(z)_
 
 The complex conjugate of a complex number _a+bi_ is defined to be _a-bi_.
 
-```
->>> 1J1.conjugated
-1J-1
+At `SmallFloat`:
 
->>> 0.7J0.conjugated
-0.7J0
+```
+>>> 0.7.conjugate
+0.7
+```
+
+At `Complex`:
+
+```
+>>> 0.7J0.conjugate
+0.7
+
+>>> 1J1.conjugate
+1J-1
 ```
 
 Threads elementwise over lists and matrices:
 
 ```
->>> [1.2 2.5J1.5 0J-1.8].conjugated
+>>> [1.2 2.5J1.5 0J-1.8].conjugate
 [1.2 2.5J-1.5 0J1.8]
 ```
 
 Value at zero:
 
 ```
->>> 0.conjugated
+>>> 0.conjugate
 0
 ```
 
@@ -30,7 +39,7 @@ Value at real number is `identity`:
 
 ```
 >>> let n = system.nextRandomFloat;
->>> n.conjugated
+>>> n.conjugate
 n
 ```
 
@@ -38,17 +47,35 @@ Conjugate is an odd function:
 
 ```
 >>> let n = 1.j(system.nextRandomFloat);
->>> n.negated.conjugated
-n.conjugated.negated
+>>> n.negated.conjugate
+n.conjugate.negated
 ```
 
 Conjugate is involutive:
 
 ```
 >>> let n = 1.j(system.nextRandomFloat);
->>> n.conjugated.conjugated = n
+>>> n.conjugate.conjugate = n
 true
 ```
+
+Plot over a subset of the complex numbers:
+
+~~~spl png=A
+[-2J-2 2J2].complexPlot(conjugate:/1)
+~~~
+
+![](sw/spl/Help/Image/conjugate-A.png)
+
+Plot the absolute value of  function:
+
+~~~spl svg=B
+(-3 -- 3).functionPlot { :x |
+	x.j(1).abs.conjugate
+}
+~~~
+
+![](sw/spl/Help/Image/conjugate-B.svg)
 
 * * *
 

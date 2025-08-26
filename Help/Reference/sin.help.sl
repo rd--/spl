@@ -65,8 +65,8 @@ n.sin.negated
 
 ```
 >>> let n = (0 -- 2.pi).atRandom.j(1);
->>> n.conjugated.sin
-n.sin.conjugated
+>>> n.conjugate.sin
+n.sin.conjugate
 ```
 
 Fixed point:
