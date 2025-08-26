@@ -36,7 +36,7 @@ let y = [0 0; 1 2; -1 3; 0 1; 3 0];
 let x = [1 .. y.size];
 (1 -- y.size).functionPlot(
 	[x, y]
-	.transposed
+	.transpose
 	.interpolation
 )
 ~~~

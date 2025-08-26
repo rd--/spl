@@ -18,7 +18,7 @@ as the enclosure of three squares:
 [
 	[0 -3; 3 0].asRectangle,
 	[3 0; 7 4].asRectangle,
-	[0 0; 5 5].asRectangle.rotated(
+	[0 0; 5 5].asRectangle.rotate(
 		1/2.pi - (4 / 5).arcCos,
 		[0 0]
 	)

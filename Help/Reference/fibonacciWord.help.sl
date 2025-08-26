@@ -40,7 +40,7 @@ A Fibonacci word is palindromic excepting last two terms:
 
 >>> let n = 8.fibonacci;
 >>> let w = 1:n.fibonacciWord.first(n - 2);
->>> (n, w = w.reversed)
+>>> (n, w = w.reverse)
 (21, true)
 ```
 

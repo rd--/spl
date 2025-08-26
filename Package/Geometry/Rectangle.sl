@@ -225,17 +225,17 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.upperRight[1]
 	}
 
-	rotated { :self :theta :center |
-		self.asPolygon.rotated(theta, center)
+	rotate { :self :theta :center |
+		self.asPolygon.rotate(theta, center)
 	}
 
-	rotated { :self :theta |
-		self.rotated(theta, self.centroid)
+	rotate { :self :theta |
+		self.rotate(theta, self.centroid)
 	}
 
-	scaled { :self :scale |
+	scale { :self :m |
 		let c = self.center;
-		let e = self.extent * scale;
+		let e = self.extent * m;
 		centeredRectangle(c, e)
 	}
 
@@ -244,7 +244,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.upperRight := self.upperRight.max(aRectangle.upperRight)
 	}
 
-	translated { :self :factor |
+	translate { :self :factor |
 		Rectangle(
 			self.lowerLeft + factor,
 			self.upperRight + factor

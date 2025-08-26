@@ -30,7 +30,7 @@ SphericalCoordinates : [Object] { | coordinates |
 	}
 
 	elevation { :self |
-		(self.phi - 0.5.pi).negated
+		(self.phi - 0.5.pi).negate
 	}
 
 	inclination { :self |

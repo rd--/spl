@@ -47,15 +47,15 @@ Matrix22 : [Object] { | a b c d |
 	invert { :self |
 		let m = 1 / self.determinant;
 		self.initializeSlots(
-			self.d * m, self.b.negated * m,
-			self.c.negated * m, self.a * m
+			self.d * m, self.b.negate * m,
+			self.c.negate * m, self.a * m
 		)
 	}
 
 	rotation { :self :n |
 		self.initializeSlots(
 			n.cos, n.sin,
-			n.sin.negated, n.cos
+			n.sin.negate, n.cos
 		)
 	}
 
@@ -66,7 +66,7 @@ Matrix22 : [Object] { | a b c d |
 		self.c := b
 	}
 
-	transposed { :self |
+	transpose { :self |
 		Matrix22(self.a, self.c, self.b, self.d)
 	}
 

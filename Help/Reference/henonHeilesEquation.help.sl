@@ -15,8 +15,8 @@ henonHeilesEquation(1)
 	[1/6 ^ 1/2, 0, 0, 0],
 	0, 50, 0.1
 );
-let [x, y, px, py] = v.transposed;
-[y py].transposed.linePlot
+let [x, y, px, py] = v.transpose;
+[y py].transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/henonHeilesEquation-A.svg)

@@ -13,7 +13,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		self.do { :each |
 			answer := Cons(aBlock(each), answer)
 		};
-		answer.reversed
+		answer.reverse
 	}
 
 	depth { :self |
@@ -65,7 +65,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		}
 	}
 
-	reversed { :self |
+	reverse { :self |
 		let answer = Cons(self.car, nil);
 		let next = self.cdr;
 		{
@@ -77,7 +77,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 		(next = nil).if {
 			answer
 		} {
-			'Cons>>reversed: not proper list'.error
+			'Cons>>reverse: not proper list'.error
 		}
 	}
 
@@ -97,7 +97,7 @@ Cons : [Object, Iterable, Collection] { | car cdr |
 				answer
 			)
 		};
-		answer.reversed
+		answer.reverse
 	}
 
 }

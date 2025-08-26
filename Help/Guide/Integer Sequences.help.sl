@@ -29,7 +29,7 @@ Scatter plot of the first few terms of OEIS [A265326](https://oeis.org/A265326):
 1:60.collect { :n |
 	let m = n.prime;
 	let d = m.integerDigits(2);
-	m - d.reversed.fromDigits(2)
+	m - d.reverse.fromDigits(2)
 }.scatterPlot
 ~~~
 

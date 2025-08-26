@@ -241,7 +241,7 @@
 		self * mul + add
 	}
 
-	Negated { :self |
+	Negate { :self |
 		0 - self
 	}
 
@@ -593,7 +593,7 @@
 
 	shift { :self :count :item |
 		let fill = List(count.abs, item);
-		let remain = self.drop(count.negated);
+		let remain = self.drop(count.negate);
 		count.isNegative.if {
 			remain ++ fill
 		} {

@@ -40,7 +40,7 @@ Plot the `mirror` of the `++` of the `prefixes` of the arithmetic sequence _1:13
 
 * * *
 
-See also: first, last, pyramid, reversed
+See also: first, last, pyramid, reverse
 
 References:
 _SuperCollider_

@@ -1,37 +1,37 @@
-# negated
+# negate
 
-- _negated(aNumber)_
+- _negate(x)_
 
-Answer a number that is the negation of _aNumber_.
+Answer a number that is the negation of the number _x_.
 Equivalent to multiplication by negative `one`.
 
 At `zero` and `one`:
 
 ```
->>> 0.negated
+>>> 0.negate
 -0
 
->>> 1.negated
+>>> 1.negate
 -1
 ```
 
 At negative `zero` and negative `one`:
 
 ```
->>> -0.negated
+>>> -0.negate
 0
 
->>> -1.negated
+>>> -1.negate
 1
 ```
 
 Threads over lists and matrices:
 
 ```
->>> [1 2 3].negated
+>>> [1 2 3].negate
 [-1 -2 -3]
 
->>> [1, [2, 3, 4], [[5, 6], [7, [8, 9]]]].negated
+>>> [1, [2, 3, 4], [[5, 6], [7, [8, 9]]]].negate
 [-1, [-2, -3, -4], [[-5, -6], [-7, [-8, -9]]]]
 ```
 
@@ -46,7 +46,7 @@ At a `Colour`, inverts the value of the colour channels:
 
 ```
 >>> let r = RgbColour([1, 0, 0], 1);
->>> let c = r.negated;
+>>> let c = r.negate;
 >>> (r.isRed, c.isCyan)
 (true, true)
 ```
@@ -54,9 +54,9 @@ At a `Colour`, inverts the value of the colour channels:
 The unary operator form is `-`.
 
 _Rationale_:
-This operator is spelled `negated` as in Smalltalk,
-in which notation unary messages are written postfix,
-hence _1 negated_ and and not _negate 1_.
+This operator is not spelled _negated_ as in Smalltalk,
+where unary messages are always written postfix,
+hence _1 negated_ and and not _negate(1)_.
 
 * * *
 

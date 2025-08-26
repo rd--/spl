@@ -171,7 +171,7 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 	}
 
 	path { :self |
-		[self.times, self.values].transposed
+		[self.times, self.values].transpose
 	}
 
 	pathComponents { :self |
@@ -180,7 +180,7 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 			self.error('pathComponents: not multivariate')
 		} {
 			let t = self.times;
-			let v = self.values.transposed;
+			let v = self.values.transpose;
 			(1 .. k).collect { :i |
 				TimeSeries(v[i], t)
 			}
@@ -268,7 +268,7 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 	TimeSeries { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
-			let [t, v] = self.transposed;
+			let [t, v] = self.transpose;
 			TimeSeries(v, t)
 		} {
 			self.error('TimeSeries: not two-column matrix')

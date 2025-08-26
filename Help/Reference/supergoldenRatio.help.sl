@@ -77,7 +77,7 @@ The sum of the first eight subharmonics:
 
 ```
 >>> 0:7.collect { :n |
->>> 	1.supergoldenRatio ^ n.negated
+>>> 	1.supergoldenRatio ^ n.negate
 >>> }.sum
 3
 ```

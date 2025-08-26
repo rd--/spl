@@ -93,7 +93,7 @@ UniformDistribution : [Object, ProbabilityDistribution] { | a b |
 		let [a, b] = self.isVector.if {
 			self
 		} {
-			self.transposed
+			self.transpose
 		};
 		newUniformDistribution().initializeSlots(a, b)
 	}

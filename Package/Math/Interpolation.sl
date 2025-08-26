@@ -255,7 +255,7 @@
 			let x = [1 .. y.size];
 			f(x, y)
 		} {
-			let [x, y] = self.transposed;
+			let [x, y] = self.transpose;
 			f(x, y)
 		}
 	}
@@ -417,7 +417,7 @@
 
 	downsampleSteinarsson { :self :threshold |
 		self.isVector.if {
-			[self.indices, self].transposed.basicDownsampleSteinarsson(threshold)
+			[self.indices, self].transpose.basicDownsampleSteinarsson(threshold)
 		} {
 			self.basicDownsampleSteinarsson(threshold)
 		}
@@ -496,7 +496,7 @@
 		{ :x |
 			let answer = 0;
 			0.toDo(n) { :i |
-				let p = binomialPascal(n.negated - 1, i);
+				let p = binomialPascal(n.negate - 1, i);
 				let q = binomialPascal(2 * n + 1, n - i);
 				let r = x ^ (n + i + 1);
 				answer := answer + (p * q * r)
@@ -547,7 +547,7 @@
 			let y = self;
 			x.simpleLinearRegression(y)
 		} {
-			let [x, y] = self.transposed;
+			let [x, y] = self.transpose;
 			x.simpleLinearRegression(y)
 		}
 	}
@@ -586,7 +586,7 @@
 		self.isVector.if {
 			theilSenEstimator([1 .. self.size], self)
 		} {
-			let [x, y] = self.transposed;
+			let [x, y] = self.transpose;
 			theilSenEstimator(x, y)
 		}
 	}

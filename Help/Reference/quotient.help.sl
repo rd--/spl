@@ -26,7 +26,7 @@ The operator form is `//`:
 Quotient table:
 
 ```
->>> //.table(1:10, 2:4).transposed
+>>> //.table(1:10, 2:4).transpose
 [
 	0 1 1 2 2 3 3 4 4 5;
 	0 0 1 1 1 2 2 2 3 3;

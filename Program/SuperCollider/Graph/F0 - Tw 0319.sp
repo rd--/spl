@@ -6,4 +6,4 @@ let f = b.withIndexCollect { :x :i |
 } * 60;
 let e = (SinOscFb([3, 6], 1) * (Lag(c, 0.1) / 3)).Max(0);
 let o = (SinOscFb(f, c) * e);
-o.Splay2.transposed.Mix
+o.Splay2.transpose.Mix

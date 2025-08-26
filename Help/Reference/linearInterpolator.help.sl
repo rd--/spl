@@ -71,7 +71,7 @@ Discrete plot of sin function at sixty-four random values in _(0, 2π)_:
 ~~~spl svg=D
 let r = Sfc32(361782);
 let x = r.randomReal([0 2.pi], [64]).sort;
-[x x.sin].transposed.discretePlot
+[x x.sin].transpose.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/linearInterpolator-D.svg)

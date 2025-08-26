@@ -28,6 +28,15 @@ The annular Steiner chain with _n=18_:
 
 ![](sw/spl/Help/Image/annularSteinerChain-C.svg)
 
+The circle inversions of an annular Steiner chain is another Steiner chain:
+
+~~~spl svg=D
+7.annularSteinerChain([0 0], 1)
+.circleInversion(Circle([-5 -5], 0.5))
+~~~
+
+![](sw/spl/Help/Image/annularSteinerChain-D.svg)
+
 * * *
 
 See also: circlePoints, Circle

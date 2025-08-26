@@ -95,6 +95,22 @@ let t = sssTriangle(1, 1, 1);
 
 ![](sw/spl/Help/Image/Arc-E.svg)
 
+Draw arcs between points on Farey sequences:
+
+~~~spl svg=F
+[2 .. 9].collect { :n |
+	n.fareySequence
+	.partition(2, 1)
+	.collect { :each |
+		let [a, b] = each.asFloat;
+		let c = (b - a) / 2;
+		Arc([a + c, 0], [c, c], [0, 1.pi])
+	}
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Arc-F.svg)
+
 * * *
 
 See also: Circle, Ellipse, LineDrawing, Polygon, Rectangle, Triangle

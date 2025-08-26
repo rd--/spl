@@ -37,6 +37,7 @@ OEIS [A000166](https://oeis.org/A000166):
 	176214841 2290792932
 ]
 ```
+
 * * *
 
 See also: permutations, subfactorial

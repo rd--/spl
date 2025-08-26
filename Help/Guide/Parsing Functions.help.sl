@@ -13,8 +13,8 @@ Parse Numbers:
 
 Parse Binary Data:
 
-- `parseBase16`, `base16Decoded`
-- `parseBase64`, `base64Decoded`
+- `parseBase16`, `base16Decode`
+- `parseBase64`, `base64Decode`
 
 Parse Logic:
 

@@ -84,7 +84,7 @@ Compute the geometric and arithmetic means of the columns of a matrix:
 >>> 	2.0637 0.6035 0.0438 0.0880;
 >>> 	0.0906 0.0434 0.7228 0.2329;
 >>> 	0.4583 0.0357 0.2228 0.0414
->>> ].transposed.collect { :each |
+>>> ].transpose.collect { :each |
 >>> 	[
 >>> 		each.geometricMean,
 >>> 		each.arithmeticMean

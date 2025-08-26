@@ -4,11 +4,11 @@ let freq = MouseX(0.01, 40, 1, 0.2);
 let divide = 1;
 let cutoff = 1;
 let snd = LocalIn(4, 0);
-snd := Latch(snd, PulseDivider(snd.reversed, Lpf(snd, 10 * cutoff) * 100000 * divide, 0));
+snd := Latch(snd, PulseDivider(snd.reverse, Lpf(snd, 10 * cutoff) * 100000 * divide, 0));
 snd := SinOsc({ ExpRand(10, 100) } ! 4 * freq + (snd * index), 0);
-snd := Latch(snd, PulseDivider(snd.reversed, Lpf(snd, 10 * cutoff).Cubed * 8000 * divide, 0));
+snd := Latch(snd, PulseDivider(snd.reverse, Lpf(snd, 10 * cutoff).Cubed * 8000 * divide, 0));
 snd := Lpf(snd, 440);
-snd := Select(Lpf(snd.reversed, 10 * cutoff) * 3, [Pulse(440 * freq + (snd * index), 0.5), SinOsc(100 * freq + (snd * index), 0)]);
+snd := Select(Lpf(snd.reverse, 10 * cutoff) * 3, [Pulse(440 * freq + (snd * index), 0.5), SinOsc(100 * freq + (snd * index), 0)]);
 snd := Rlpf(snd, 440 + (1000 * Clip(Lpf(Lpf(snd, 1), 1), 0, 1)), 0.1);
 snd := Sanitize(snd, 0);
 4.timesRepeat {

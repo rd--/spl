@@ -11,7 +11,7 @@ Answers `true` if _aNumber_ is negative or `zero`, else `false`.
 
 * * *
 
-See also: negated, isNegative, isNonNegative, isPositive
+See also: negate, isNegative, isNonNegative, isPositive
 
 References:
 _Mathematica_

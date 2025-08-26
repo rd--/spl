@@ -164,14 +164,14 @@ let g = [ /* call function f to create each instrument */
 	anaSynFunc(1, 8, 0.31, 0.2), /* +1 octave,  8 clocks per second, PWM rate, Rlpf rate */
 	anaSynFunc(0, 2, 0.13, 0.11) /* +0 octaves, 2 clocks per second, PWM rate, Rlpf rate */
 ] + snare; /* add to snares */
-/* comb delay of input plus dry stereo pair reversed */
+/* comb delay of input plus dry stereo pair reverse */
 let z = 0.4 * ( /* scale delayed part down */
 	CombN( /* feedback delay */
 		g, /* input dry signal */
 		0.375, 0.375, /* 3 / 8 second delay */
 		5 /* 5 second 60dB decay time */
 	)
-	+ g.reverse); /* add dry stereo pair with the channels reversed */
+	+ g.reverse); /* add dry stereo pair with the channels reverse */
 let e = EnvLinen(2, 56, 2, 1, -4); /* one minute trapezoid envelope */
 z * EnvGen(1, 1, 0, 1, 2, e.asList) /* wrap a one minute envelope around entire sound */
 

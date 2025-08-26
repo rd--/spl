@@ -429,7 +429,7 @@
 - `antidiagonal`, `determinant`, `diagonal`
 - `inverse`, `matrixRank`, `rowReduce`
 - `permanent`, `trace`
-- `conjugate`, `conjugateTranspose`, `transposed`
+- `conjugate`, `conjugateTranspose`, `transpose`
 - `kroneckerProduct`
 - `lowerTriangularize`, `upperTriangularize`
 - `luDecomposition`
@@ -596,7 +596,7 @@
 ## Rearranging & Restructuring Lists
 
 - `++`, `flatten`, `partition`
-- `reverse`, `rotatedLeft`, `rotatedRight`
+- `reverse`, `rotateLeft`, `rotateRight`
 - `intercalate`, `interleave`, `intersperse`
 - `deleteAdjacentDuplicates`, `deleteDuplicates`
 - `subsequences`, `subsets`, `substrings`
@@ -730,8 +730,8 @@
 ## String Operations
 
 - `join`, `splitBy`, `splitByRegExp`
-- `at`, `characters`, `codePoints`, `drop`, `size`, `reversed`, `take`
-- `asLowerCase`, `asUpperCase`, `capitalized`
+- `at`, `characters`, `codePoints`, `drop`, `size`, `reverse`, `take`
+- `asLowerCase`, `asUpperCase`, `capitalize`
 - `asInteger`, `asNumber`
 - `trim`, `withBlanksTrimmed`, `withoutLeadingBlanks`, `withoutTrailingBlanks`
 - `lines`, `sentences`, `words`

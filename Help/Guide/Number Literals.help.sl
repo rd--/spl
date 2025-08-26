@@ -4,7 +4,7 @@ Numbers may be written with a sign, which is part of the literal syntax.
 
 ```
 >>> -23
-23.negated
+23.negate
 ```
 
 The sign may be either `+` or `-`:

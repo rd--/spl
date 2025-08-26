@@ -46,7 +46,7 @@ The permanents of _3×3_ `Integer` matrices:
 -2
 
 >>> [1 2 3; 4 1 6; 7 8 1]
->>> .transposed
+>>> .transpose
 >>> .permanent
 258
 
@@ -146,7 +146,7 @@ The permanent of the transpose of _m_ equals the permanent of _m_:
 >>> let r = Sfc32(789141);
 >>> let m = r.randomReal([0 1], [3 3]);
 >>> let p = m.permanent;
->>> (p, m.transposed.permanent)
+>>> (p, m.transpose.permanent)
 (0.89478, p)
 ```
 

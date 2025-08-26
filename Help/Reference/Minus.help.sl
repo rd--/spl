@@ -21,7 +21,7 @@ At `SmallFloat`:
 It answers the sum of _aNumber_ and the negation of _anotherNumber_:
 
 ```
->>> Plus(3, Negated(4))
+>>> Plus(3, Negate(4))
 -1
 
 >>> 3 + -4
@@ -30,6 +30,6 @@ It answers the sum of _aNumber_ and the negation of _anotherNumber_:
 
 * * *
 
-See also: -, +, *, /, Divide, Negated, Plus, Times
+See also: -, +, *, /, Divide, Negate, Plus, Times
 
 Categories: Math, Ugen

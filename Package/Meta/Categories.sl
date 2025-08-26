@@ -664,7 +664,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asUrl'
 		'asUrlQueryParameters'
 		'asUrlQueryParameters'
-		'capitalized'
+		'capitalize'
 		'catenate'
 		'degreesToRadians'
 		'flatten'
@@ -743,8 +743,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'padLeft'
 		'padRight'
 		'postCopy'
-		'reversed'
-		'reversed'
+		'reverse'
+		'reverseInPlace'
 		'shallowCopy'
 		'veryDeepCopy'
 	],
@@ -756,8 +756,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'messageSend'
 	],
 	'encoding and decoding': [
-		'base64Decoded'
-		'base64Encoded'
+		'base64Decode'
+		'base64Encode'
 		'encode'
 	],
 	'enumerating': [
@@ -1030,7 +1030,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'min'
 		'minBy'
 		'minMax'
-		'negated'
+		'negate'
 		'normalize'
 		'numerator'
 		'pow'
@@ -1721,7 +1721,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'MulAdd'
 		'MultiTapDelay'
 		'Unequal'
-		'Negated'
+		'Negate'
 		'Normalizer'
 		'NRand'
 		'NumOutputBuses'
@@ -1901,10 +1901,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'ordering-sequence': [
 		'transpose'
-		'transposed'
-		'rotated'
-		'rotatedLeft'
-		'rotatedRight'
+		'transposeInPlace'
+		'rotate'
+		'rotateLeft'
+		'rotateRight'
 		'rotation'
 	]
 ))

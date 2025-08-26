@@ -61,7 +61,7 @@ Exchange matrices are symmetric:
 
 ```
 >>> let e = 4.exchangeMatrix;
->>> e = e.transposed
+>>> e = e.transpose
 true
 ```
 

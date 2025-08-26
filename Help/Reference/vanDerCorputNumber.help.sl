@@ -75,7 +75,7 @@ The numerator is the reverse of the radix-_k_ representation:
 >>> let k = 2;
 >>> let n = 47;
 >>> n.vanDerCorputNumber(k).numerator
-n.integerDigits(k).reversed.fromDigits(k)
+n.integerDigits(k).reverse.fromDigits(k)
 ```
 
 Plot decimal sequence:

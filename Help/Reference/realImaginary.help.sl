@@ -15,7 +15,7 @@ Threads over lists:
 
 ```
 >>> (-1, -2 .. -5).sqrt.realImaginary
-[0 # 5, 1:5.sqrt].transposed
+[0 # 5, 1:5.sqrt].transpose
 ```
 
 At `SmallFloat` and `LargeInteger` and `Fraction`:

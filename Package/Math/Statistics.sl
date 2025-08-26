@@ -56,7 +56,7 @@
 			self.centralMoment(4) / (self.centralMoment(2) ^ 2)
 		} {
 			self.isMatrix.if {
-				self.transposed.collect(kurtosis:/1)
+				self.transpose.collect(kurtosis:/1)
 			} {
 				'@Collection>>kurtosis: not vector or matrix'.error
 			}
@@ -113,7 +113,7 @@
 			self.asSortedList.quantile(p, o)
 		} {
 			self.isMatrix.if {
-				self.transposed.collect { :each |
+				self.transpose.collect { :each |
 					each.asSortedList.quantile(p, o)
 				}
 			} {
@@ -151,7 +151,7 @@
 			self.centralMoment(3) / (self.centralMoment(2) ^ (3 / 2))
 		} {
 			self.isMatrix.if {
-				self.transposed.collect(skewness:/1)
+				self.transpose.collect(skewness:/1)
 			} {
 				'@Collection>>skewness: not vector or matrix'.error
 			}
@@ -289,7 +289,7 @@
 
 	standardDeviation { :self |
 		self.isMatrix.if {
-			self.transposed.collect { :each |
+			self.transpose.collect { :each |
 				each.variance.sqrt
 			}
 		} {
@@ -316,7 +316,7 @@
 
 	variance { :self |
 		self.isMatrix.if {
-			self.transposed.collect(variance:/1)
+			self.transpose.collect(variance:/1)
 		} {
 			((self - self.mean) ^ 2).sum / (self.size - 1)
 		}
@@ -328,7 +328,7 @@
 
 	gaussianFilter { :x :r |
 		let sigma = r / 2;
-		let k = [r.negated .. r].collect(sigma.gaussianKernel);
+		let k = [r.negate .. r].collect(sigma.gaussianKernel);
 		let y = k.convolve(x);
 		y.removeFirst(r);
 		y.removeLast(r);
@@ -371,7 +371,7 @@
 	nadarayaWatsonEstimator { :i :x :y :h :k:/1 |
 		let kx = x.collect { :each |
 			((i - each) / h).collect(k:/1) / h
-		}.transposed;
+		}.transpose;
 		let w = kx / kx.collect(sum:/1);
 		w.dot(y)
 	}

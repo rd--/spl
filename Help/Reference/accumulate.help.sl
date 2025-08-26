@@ -28,7 +28,7 @@ Diagonals of Pascal’s triangle:
 ```
 >>> accumulate:/1
 >>> .nestList([1 .. 5], 5)
->>> .transposed
+>>> .transpose
 [
 	1  1  1  1   1   1;
 	2  3  4  5   6   7;

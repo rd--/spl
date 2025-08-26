@@ -13,7 +13,7 @@ let chord = Demand(
 	trig,
 	0,
 	Dbufrd(buf, count + [1 .. length], 1)
-).reversed <! Demand(
+).reverse <! Demand(
 	trig,
 	0,
 	Dbufwr(buf, count, note, 1)

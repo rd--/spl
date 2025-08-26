@@ -20,7 +20,7 @@ Find a bounding box for coordinates in two dimensions:
 ]
 ```
 
-The `transposed` `minMax` of the `transposed` matrix:
+The transposed `minMax` of the transposed matrix:
 
 ```
 >>> [
@@ -29,16 +29,16 @@ The `transposed` `minMax` of the `transposed` matrix:
 >>> 	2 1;
 >>> 	3 2;
 >>> 	4 0
->>> ].transposed.collect(
+>>> ].transpose.collect(
 >>> 	minMax:/1
->>> ).transposed
+>>> ).transpose
 [
 	0 0;
 	4 2
 ]
 ```
 
-`coordinateBoundingBox` is the `transposed` `coordinateBounds`.
+`coordinateBoundingBox` is the transposed `coordinateBounds`.
 
 ```
 >>> [0 1; 1 2; 2 1; 3 2; 4 0]
@@ -60,7 +60,7 @@ let p = [3 10; 6 3; 10 2; 2 8; 3 3];
 
 * * *
 
-See also: coordinateBounds, minMax, transposed
+See also: coordinateBounds, minMax, transpose
 
 References:
 _Mathematica_

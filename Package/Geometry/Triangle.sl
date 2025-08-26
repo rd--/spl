@@ -242,7 +242,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 			((s * (s - b) * (s - c)) / (s - a)).sqrt
 		};
 		[0 2 1].collect { :r |
-			l.rotated(r).f
+			l.rotate(r).f
 		}
 	}
 
@@ -538,16 +538,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		.Triangle
 	}
 
-	rotated { :self :theta :center |
-		self.asPolygon.rotated(theta, center).vertexCoordinates.Triangle
+	rotate { :self :theta :center |
+		self.asPolygon.rotate(theta, center).vertexCoordinates.Triangle
 	}
 
-	rotated { :self :theta |
-		self.asPolygon.rotated(theta).vertexCoordinates.Triangle
+	rotate { :self :theta |
+		self.asPolygon.rotate(theta).vertexCoordinates.Triangle
 	}
 
-	scaled { :self :factor |
-		self.asPolygon.scaled(factor).vertexCoordinates.Triangle
+	scale { :self :m |
+		self.asPolygon.scale(m).vertexCoordinates.Triangle
 	}
 
 	schifflerPoint { :self |
@@ -700,8 +700,8 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.toTrilinearCoordinates.value(c)
 	}
 
-	translated { :self :operand |
-		self.asPolygon.translated(operand).vertexCoordinates.Triangle
+	translate { :self :operand |
+		self.asPolygon.translate(operand).vertexCoordinates.Triangle
 	}
 
 	triangleCentre { :self :p:/1 :f:/3 |

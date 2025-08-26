@@ -39,7 +39,7 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 	}
 
 	- { :self :anObject |
-		self + anObject.negated
+		self + anObject.negate
 	}
 
 	hertz { :self |
@@ -92,8 +92,8 @@ Quantity : [Object, Magnitude] { | magnitude unit |
 		}
 	}
 
-	negated { :self |
-		Quantity(self.magnitude.negated, self.unit)
+	negate { :self |
+		Quantity(self.magnitude.negate, self.unit)
 	}
 
 	radians { :self |

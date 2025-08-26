@@ -13,7 +13,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 		self.error('atPut: index not an integer or value not a byte')
 	}
 
-	base16Encoded { :self |
+	base16Encode { :self |
 		let map = '0123456789ABCDEF'.asciiByteArray;
 		let array = ByteArray(self.size * 2);
 		let index = 1;
@@ -25,7 +25,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 		array.asciiString
 	}
 
-	base64Encoded { :self |
+	base64Encode { :self |
 		<primitive:
 		const binaryString = Array.from(_self, function(x) {
 			return String.fromCodePoint(x)
@@ -181,11 +181,11 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 
 +String {
 
-	base16Decoded { :self |
+	base16Decode { :self |
 		self.parseBase16
 	}
 
-	base64Decoded { :self |
+	base64Decode { :self |
 		<primitive:
 		const binaryString = atob(_self);
 		return Uint8Array.from(binaryString, function(m) {
@@ -208,7 +208,7 @@ ByteArray! : [Object, Iterable, Indexable, Collection, Sequenceable, PrimitiveSe
 	}
 
 	parseBase64 { :self |
-		self.base64Decoded
+		self.base64Decode
 	}
 
 	parseBase16 { :self |

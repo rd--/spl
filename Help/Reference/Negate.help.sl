@@ -1,15 +1,15 @@
-# Negated
+# Negate
 
-- _Negated(aNumber)_
+- _Negate(x)_
 
-`Negated` is an alias for the unary `-` operator.
-It answers _aNumber_ multiplied by negative `one`,
+`Negate` is an alias for the unary `-` operator.
+It answers the number _x_ multiplied by negative `one`,
 also called inversion.
 
 At `SmallFloat`:
 
 ```
->>> Negated(9)
+>>> Negate(9)
 -9
 
 >>> Times(9, -1)

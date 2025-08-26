@@ -38,9 +38,9 @@ Matrix33 : [Object] { | elements |
 	invert { :self |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		self.elements := self.determinant * [
-			(e * i) - (f * h), ((b * i) - (c * h)).negated, (b * f) - (c * e),
-			((d * i) - (f * g)).negated, (a * i) - (c * g), ((a * f) - (c * d)).negated,
-			(d * h) - (e * g), ((a * h).negated - (b * g)), (a * e) - (b * d)
+			(e * i) - (f * h), ((b * i) - (c * h)).negate, (b * f) - (c * e),
+			((d * i) - (f * g)).negate, (a * i) - (c * g), ((a * f) - (c * d)).negate,
+			(d * h) - (e * g), ((a * h).negate - (b * g)), (a * e) - (b * d)
 		];
 		self
 	}

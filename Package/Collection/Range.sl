@@ -23,7 +23,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 	}
 
 	- { :self |
-		self.negated
+		self.negate
 	}
 
 	- { :self :operand |
@@ -82,11 +82,11 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		true
 	}
 
-	negated { :self |
+	negate { :self |
 		Range(
-			self.start.negated,
-			self.stop.negated,
-			self.step.negated
+			self.start.negate,
+			self.stop.negate,
+			self.step.negate
 		)
 	}
 
@@ -129,7 +129,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		}
 	}
 
-	reverse { :self |
+	reverseInPlace { :self |
 		let start = self.start;
 		self.start := self.last;
 		self.stop := start;
@@ -137,8 +137,8 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 		self
 	}
 
-	reversed { :self |
-		self.copy.reverse
+	reverse { :self |
+		self.copy.reverseInPlace
 	}
 
 	size { :self |
@@ -160,7 +160,7 @@ Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgre
 
 	sort { :self |
 		(self.step < 0).ifTrue {
-			self.reverse
+			self.reverseInPlace
 		};
 		self
 	}

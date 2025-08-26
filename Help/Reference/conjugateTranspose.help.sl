@@ -3,7 +3,7 @@
 - _conjugateTranspose(m)_
 
 Answer the conjugate transpose of the matrix _m_.
-Equivalent to _m.transposed.conjugate_.
+Equivalent to _m.transpose.conjugate_.
 For real matrices, the conjugate transpose is just the transpose.
 
 Conjugate transpose of a real-valued matrix:
@@ -45,17 +45,17 @@ A Hermitian matrix is unchaged by `conjugateTranspose`:
 h
 ```
 
-An anti-Hermitian matrix is `negated` by `conjugateTranspose`:
+An anti-Hermitian matrix is `negate` by `conjugateTranspose`:
 
 ```
 >>> let h = [0 -1 0J2; 1 0 -3J4; 0J2 3J4 0];
 >>> h.conjugateTranspose
-h.negated
+h.negate
 ```
 
 * * *
 
-See also: conjugate, transposed
+See also: conjugate, transpose
 
 Guides: Complex Numbers
 

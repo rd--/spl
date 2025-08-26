@@ -84,7 +84,7 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 		self
 	}
 
-	reversed { :self |
+	reverse { :self |
 		let answer = Map();
 		self.keysAndValuesDo { :key :value |
 			answer.add(value -> key)

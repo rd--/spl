@@ -67,7 +67,7 @@ Plot : [Object] { | pages format options |
 					let t = { :list |
 						list.collect { :each |
 							let [x, y, z] = each;
-							[x.negated, z, y.negated].p
+							[x.negate, z, y.negate].p
 						}
 					};
 					let l = self.pages.collect { :each | each.t.Line };
@@ -161,7 +161,7 @@ Plot : [Object] { | pages format options |
 		{ :x :y |
 			let z = Complex(y, x);
 			colourFunction(aBlock(z).arg / 2.pi + 0.5)
-		}.table(i, r).reversed.Image
+		}.table(i, r).reverse.Image
 	}
 
 	complexPlot { :self :aBlock:/1 |
@@ -170,7 +170,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	densityHistogramPlot { :d :b1 :b2 |
-		d.binCounts(b1, b2).transposed.reversed.matrixPlot
+		d.binCounts(b1, b2).transpose.reverse.matrixPlot
 	}
 
 	densityHistogramPlot { :d |
@@ -217,7 +217,7 @@ Plot : [Object] { | pages format options |
 		let x = b.adjacentPairsCollect { :i :j |
 			i + ((j - i) / 2)
 		};
-		[x, y].transposed.discretePlot
+		[x, y].transpose.discretePlot
 	}
 
 	histogramPlot { :self |
@@ -233,7 +233,7 @@ Plot : [Object] { | pages format options |
 		let n = k - d;
 		let y = self.copyFromTo(1, n);
 		let x = self.copyFromTo(1 + d, k);
-		[x, y].transposed.scatterPlot
+		[x, y].transpose.scatterPlot
 	}
 
 	linePlot { :self |
@@ -710,11 +710,11 @@ Plot : [Object] { | pages format options |
 +Association {
 
 	discretePlot { :self |
-		[self.key, self.value].transposed.discretePlot
+		[self.key, self.value].transpose.discretePlot
 	}
 
 	linePlot { :self |
-		[self.key, self.value].transposed.linePlot
+		[self.key, self.value].transpose.linePlot
 	}
 
 }

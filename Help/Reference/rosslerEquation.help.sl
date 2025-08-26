@@ -23,7 +23,7 @@ Plot of _x_ over _t_ in _(0,50)_ for the same initial conditions:
 ~~~spl svg=B
 let [t, v] = rosslerEquation(0.2, 0.2, 8)
 .rungeKuttaMethod([1 1 1], 0, 50, 0.05);
-let [x, y, z] = v.transposed;
+let [x, y, z] = v.transpose;
 x.linePlot
 ~~~
 

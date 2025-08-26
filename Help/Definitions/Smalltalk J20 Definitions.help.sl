@@ -1778,7 +1778,7 @@ _neg_ operation.
 
 *Return Value*: ⧼receiver⧽
 
-Cf: negated
+Cf: negate
 
 ### 5.6.2.23
 
@@ -4141,7 +4141,7 @@ collection;
 
 *Return Values*: ⧼receiver⧽ new
 
-Cf: reversed
+Cf: reverse
 
 ### 5.7.8.27
 

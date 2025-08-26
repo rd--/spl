@@ -44,7 +44,7 @@ Alternate positive and negative integers:
 
 * * *
 
-See also: inShuffle, intercalate, interleave, intersperse, outShuffle, transposed
+See also: inShuffle, intercalate, interleave, intersperse, outShuffle, transpose
 
 References:
 _Mathematica_

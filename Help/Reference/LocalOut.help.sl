@@ -30,7 +30,7 @@ let n = Decay(
 ) * PinkNoise() * 0.2;
 let l = LocalIn(2, 0) + [n, 0];
 let d = DelayN(l, 0.2, 0.2);
-d <! LocalOut(d.reversed * 0.8)
+d <! LocalOut(d.reverse * 0.8)
 ~~~
 
 * * *

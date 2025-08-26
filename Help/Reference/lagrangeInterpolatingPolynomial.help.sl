@@ -50,7 +50,7 @@ Interpolation divergence for a set of Lagrange polynomials:
 ~~~spl svg=C
 let y = [0 0 0.05 0.15 0.6 1 0.6 0.15 0.05 0 0];
 let x = [-5 .. 5];
-let c = [x, y].transposed;
+let c = [x, y].transpose;
 let p = c.lagrangeInterpolatingPolynomial;
 (-5 -- 5).functionPlot { :x |
 	p[x]

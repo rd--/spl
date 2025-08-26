@@ -851,7 +851,7 @@
 			self.species.new
 		} {
 			(count < 0).if {
-				self.dropLast(count.negated)
+				self.dropLast(count.negate)
 			} {
 				self.dropFirst(count)
 			}
@@ -1708,15 +1708,15 @@
 	}
 
 	lexicographicallyLeastRotation { :self |
-		self.rotatedLeft(self.lexicographicallyLeastRotationStartIndex - 1)
+		self.rotateLeft(self.lexicographicallyLeastRotationStartIndex - 1)
 	}
 
 	leastSquares { :m :b |
-		let x = m.transposed;
+		let x = m.transpose;
 		let y = [b];
 		let cx = m;
-		let cy = y.transposed;
-		x.dot(cx).inverse.dot(x).dot(cy).transposed.first
+		let cy = y.transpose;
+		x.dot(cx).inverse.dot(x).dot(cy).transpose.first
 	}
 
 	linearCombination { :v :c |
@@ -1905,7 +1905,7 @@
 		let n = x.size;
 		[
 			x.asList ! m,
-			(y.asList ! n).transposed
+			(y.asList ! n).transpose
 		]
 	}
 
@@ -1933,7 +1933,7 @@
 	}
 
 	mirror { :self :m :n |
-		self ++ self.copyFromTo(n + 1, self.size - m).reversed
+		self ++ self.copyFromTo(n + 1, self.size - m).reverse
 	}
 
 	mixedRadixDecode { :self :factors |
@@ -2292,7 +2292,7 @@
 		self.replicateEachApplying(counts, identity:/1)
 	}
 
-	reversed { :self :level |
+	reverse { :self :level |
 		(level <= 1).if {
 			let answer = self.species.ofSize(self.size);
 			let fromIndex = self.size + 1;
@@ -2303,13 +2303,13 @@
 			answer
 		} {
 			self.collect { :each |
-				each.reversed(level - 1)
+				each.reverse(level - 1)
 			}
 		}
 	}
 
-	reversed { :self |
-		self.reversed(1)
+	reverse { :self |
+		self.reverse(1)
 	}
 
 	reverseDo { :self :aBlock:/1 |
@@ -2355,37 +2355,37 @@
 		}
 	}
 
-	rotated { :self :anInteger |
-		self.rotatedRight(anInteger)
+	rotate { :self :anInteger |
+		self.rotateRight(anInteger)
 	}
 
-	rotatedLeft { :self |
-		self.rotatedLeft(1)
+	rotateLeft { :self |
+		self.rotateLeft(1)
 	}
 
-	rotatedLeft { :self :anInteger |
+	rotateLeft { :self :anInteger |
 		(1 + anInteger).toAsCollect(self.size + anInteger, self.species) { :index |
 			self.atWrap(index)
 		}
 	}
 
-	rotatedRight { :self |
-		self.rotatedRight(1)
-	}
-
-	rotatedRight { :self :anInteger |
-		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
-			self.atWrap(index)
-		}
-	}
-
-	rotateLeft { :self |
+	rotateLeftInPlace { :self |
 		let n = self.size;
 		let left = self.first;
 		2.toDo(n) { :i |
 			self[i - 1] := self[i]
 		};
-		self[n] := z
+		self[n] := left
+	}
+
+	rotateRight { :self |
+		self.rotateRight(1)
+	}
+
+	rotateRight { :self :anInteger |
+		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
+			self.atWrap(index)
+		}
 	}
 
 	scan { :self :aBlock:/2 |
@@ -2718,7 +2718,7 @@
 
 	take { :self :count :fill |
 		(count < 0).if {
-			self.takeLast(count.negated, fill)
+			self.takeLast(count.negate, fill)
 		} {
 			self.takeFirst(count, fill)
 		}
@@ -2777,7 +2777,7 @@
 		self[self.size - 2]
 	}
 
-	transposed { :self :permutation |
+	transpose { :self :permutation |
 		permutation.isPermutationList.if {
 			let fromShape = self.shape;
 			let toShape = fromShape @* permutation;
@@ -2787,11 +2787,11 @@
 				self @> fromIndex
 			}
 		} {
-			self.error('@Sequenceable>>transposed: not permutation')
+			self.error('@Sequenceable>>transpose: not permutation')
 		}
 	}
 
-	transposed { :self |
+	transpose { :self |
 		let [m, n] = self.dimensions(2);
 		1.toAsCollect(n, self[1].species) { :index |
 			self.collect { :row |

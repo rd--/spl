@@ -20,7 +20,7 @@ Find bounds for coordinates in 2 dimensions:
 ]
 ```
 
-The `minMax` of the `transposed` matrix:
+The `minMax` of the transposed matrix:
 
 ```
 >>> [
@@ -29,7 +29,7 @@ The `minMax` of the `transposed` matrix:
 >>> 	2 1;
 >>> 	3 2;
 >>> 	4 0
->>> ].transposed.collect(
+>>> ].transpose.collect(
 >>> 	minMax:/1
 >>> )
 [
@@ -40,7 +40,7 @@ The `minMax` of the `transposed` matrix:
 
 * * *
 
-See also: between, coordinateBoundingBox, minMax, transposed
+See also: between, coordinateBoundingBox, minMax, transpose
 
 References:
 _Mathematica_

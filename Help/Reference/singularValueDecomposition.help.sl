@@ -13,7 +13,7 @@ At 2×2 integer matrix:
 >>> 	1 2;
 >>> 	1 2
 >>> ].singularValueDecomposition;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([0 0; 0 10.sqrt], [1 2; 1 2])
 ```
 
@@ -24,7 +24,7 @@ At 2×2 integer matrix:
 >>> 	2 3;
 >>> 	0 2
 >>> ] .singularValueDecomposition;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([1 0; 0 4], [2 3; 0 2])
 ```
 
@@ -35,7 +35,7 @@ At 2×2 real matrix:
 >>> 	0.76 -0.32;
 >>> 	0.26 -0.75
 >>> ].singularValueDecomposition;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 (
 	[0.46555 0; 0 1.04564],
 	[0.76 -0.32; 0.26 -0.75]
@@ -47,7 +47,7 @@ At 2×2 real invertible matrix:
 ```
 >>> let m = [0.5 1; 2 2.5];
 >>> let [u, s, v] = m.svd;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([0.22163 0; 0 3.38391], m)
 ```
 
@@ -80,7 +80,7 @@ At 3×3 integer matrix:
 ```
 >>> let m = [1 0 1; -1 -2 0; 0 1 -1];
 >>> let [u, s, v] = m.svd;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([2.4605 0 0; 0 0.2391 0; 0 0 1.6996], m)
 ```
 
@@ -93,7 +93,7 @@ At 3×3 real matrix:
 >>> 	3.3 -3.0 4.7
 >>> ];
 >>> let [u, s, v] = m.svd;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([7.41607 0 0; 0 0.21464 0; 0 0 3.84912], m)
 ```
 
@@ -106,7 +106,7 @@ At 3×3 real matrix:
 >>> 	0.92 0.93 0.15
 >>> ];
 >>> let [u, s, v] = m.svd;
->>> (s, u.dot(s).dot(v.transposed))
+>>> (s, u.dot(s).dot(v.transpose))
 ([1.49805 0 0; 0 0.49661 0; 0 0 0.99772], m)
 ```
 

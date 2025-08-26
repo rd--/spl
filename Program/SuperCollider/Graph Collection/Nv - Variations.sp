@@ -6,7 +6,7 @@ let f = Sequencer(y, Impulse(5, 0));
 GVerb(
 	VarSaw(f, 0, 0.9) * LfPulse(5, 0, 0.5).Lag(0.01),
 	99, 5, 0.5, 0.5, 15, 1, 0.7, 0.5, 300
-).transposed.Mix / 15
+).transpose.Mix / 15
 
 /* https://swiki.hfbk-hamburg.de/MusicTechnology/899 (nv) L43 ; requires=keywords */
 0:9.collect { :i |
@@ -24,4 +24,4 @@ let f = HoldSequence(y, 1 / 5);
 GVerb(
 	VarSaw(f, 0, 0.9) * LfPulse(5, 0, 0.5).Lag(0.01),
 	99, 5, 0.5, 0.5, 15, 1, 0.7, 0.5, 300
-).transposed.Mix / 15
+).transpose.Mix / 15

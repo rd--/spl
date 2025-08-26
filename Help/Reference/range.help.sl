@@ -30,7 +30,7 @@ At `List` of lists:
 >>> [
 >>> 	4 9 2 10;
 >>> 	6 9 7 12
->>> ].transposed.range
+>>> ].transpose.range
 [8 6]
 
 >>> [

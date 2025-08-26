@@ -37,7 +37,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 	intervalMatrix { :self |
 		let n = self.ratios;
 		n.withIndexCollect { :p :i |
-			n.rotatedLeft(i - 1).collect { :q |
+			n.rotateLeft(i - 1).collect { :q |
 				(q / p).octaveReduced(self.octave)
 			}
 		}
@@ -45,7 +45,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 
 	isConstantStructure { :self |
 		let m = self.intervalMatrix;
-		let t = m.transposed;
+		let t = m.transpose;
 		let i = m.flatten.nub.reject(isOne:/1);
 		i.collect { :each |
 			t.collect { :c |

@@ -24,7 +24,7 @@ Generate vectors with specified correlation:
 >>> 	[0 0], [1 1], -0.75
 >>> );
 >>> let m = d.randomVariate(r, [3E2]);
->>> let [x, y] = m.transposed;
+>>> let [x, y] = m.transpose;
 >>> x.correlation(y)
 -0.7429
 ```

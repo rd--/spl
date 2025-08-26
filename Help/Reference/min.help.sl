@@ -29,11 +29,11 @@ At a matrix answer the column minima:
 [-3 -2 -1 0]
 ```
 
-To find row minima see `transposed` or `collect`:
+To find row minima see `transpose` or `collect`:
 
 ```
 >>> [-1 0 1 2; 0 2 4 6; -3 -2 -1 0]
->>> .transposed
+>>> .transpose
 >>> .min
 [-1 0 -3]
 

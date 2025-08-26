@@ -50,10 +50,10 @@ let t = [1 .. 10];
 let d = NormalDistribution(0, 1);
 let x = d.randomVariate(r, [t.size 1]);
 let ts = (-5 -- 15).discretize(600);
-let tsM = (ts ! t.size).transposed;
+let tsM = (ts ! t.size).transpose;
 let tM = t ! ts.size;
 let y = (tsM - tM).sincNormalized.dot(x);
-[ts, y.collect(first:/1)].transposed.linePlot
+[ts, y.collect(first:/1)].transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/sincNormalized-B.svg)

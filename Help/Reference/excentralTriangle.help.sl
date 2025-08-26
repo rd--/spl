@@ -8,7 +8,7 @@ Answer the excentral triangle of the reference triangle _t_.
 >>> let r = 2/3.pi.sin;
 >>> [1 1 1].sssTriangle
 >>> .excentralTriangle
-Triangle([1.5 r; -0.5 r; 0.5 r.negated])
+Triangle([1.5 r; -0.5 r; 0.5 r.negate])
 ```
 
 Plot excentral triangle:

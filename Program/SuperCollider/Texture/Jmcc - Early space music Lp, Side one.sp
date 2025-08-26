@@ -25,5 +25,5 @@
 			CombN(SinOsc(freq, 0) * 0.02, 0.3, Rand(0.15, 0.3), 4)
 		}
 	].atRandom.value;
-	CombN(z, 0.5, [0.5, 0.47], 7) + z.reversed
+	CombN(z, 0.5, [0.5, 0.47], 7) + z.reverse
 }.overlapTextureProgram(4, 4, 6)

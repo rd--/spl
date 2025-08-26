@@ -6,6 +6,6 @@
 		2,
 		0
 	);
-	let s = GVerb(n, 9, 9, 1, 0.5, 15, 1, 0.7, 0.5, 300).transposed.Mix;
+	let s = GVerb(n, 9, 9, 1, 0.5, 15, 1, 0.7, 0.5, 300).transpose.Mix;
 	Release(s * 0.1, 3, 0, 19)
 }.spawnTextureProgram(3)

@@ -22,9 +22,9 @@ let e = j.nadarayaWatsonEstimator(
 	1.gaussianKernel
 );
 [
-	[x, y].transposed.PointCloud,
-	[i, i.collect(m:/1)].transposed.Line,
-	[j, e].transposed.Line
+	[x, y].transpose.PointCloud,
+	[i, i.collect(m:/1)].transpose.Line,
+	[j, e].transpose.Line
 ].LineDrawing
 ~~~
 

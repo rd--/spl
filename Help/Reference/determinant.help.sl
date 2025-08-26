@@ -39,7 +39,7 @@ The determinants of _3×3_ `Integer` matrices:
 54
 
 >>> [1 2 3; 4 1 6; 7 8 1]
->>> .transposed
+>>> .transpose
 >>> .determinant
 104
 
@@ -156,7 +156,7 @@ Find the area of the image of the unit disk under the linear transformation asso
 ```
 >>> let m = [7 -3; 5 7; -10 4];
 >>> m
->>> .transposed
+>>> .transpose
 >>> .dot(m)
 >>> .determinant
 >>> .sqrt
@@ -176,7 +176,7 @@ The determinant of the transpose of _m_ equals the determinant of _m_:
 ```
 >>> let r = Sfc32(356721);
 >>> let m = r.randomReal([0 1], [3 3]);
->>> m.transposed.determinant
+>>> m.transpose.determinant
 m.determinant
 ```
 

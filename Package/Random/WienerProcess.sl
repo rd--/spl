@@ -7,7 +7,7 @@ WienerProcess : [Object] { | mu sigma |
 		let b = { :y :t | sigma };
 		TemporalData(
 			{
-				r.eulerMaruyamaMethod(a:/2, b:/2, t, 0).transposed
+				r.eulerMaruyamaMethod(a:/2, b:/2, t, 0).transpose
 			} ! n
 		)
 	}

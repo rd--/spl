@@ -80,7 +80,7 @@ The vertex degrees of an undirected graph can be obtained from its adjacency mat
 >>> (
 >>> 	m,
 >>> 	g.vertexDegree,
->>> 	m.transposed.sum +  m.diagonal
+>>> 	m.transpose.sum +  m.diagonal
 >>> )
 (
 	[

@@ -30,6 +30,6 @@ At `AsciiString`:
 
 * * *
 
-See also: asciiByteArray, AsciiString, asHexDigit, base64Encoded, parseBase16, String
+See also: asciiByteArray, AsciiString, asHexDigit, base64Encode, parseBase16, String
 
 Categories: Converting

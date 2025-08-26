@@ -99,7 +99,7 @@ Circle : [Object, Geometry] { | center radius |
 		} ! shape
 	}
 
-	scaled { :self :m |
+	scale { :self :m |
 		Circle(self.center, self.radius * m)
 	}
 
@@ -114,7 +114,7 @@ Circle : [Object, Geometry] { | center radius |
 		self.center := self.center + factor
 	}
 
-	translated { :self :factor |
+	translate { :self :factor |
 		Circle(self.center + factor, self.radius)
 	}
 

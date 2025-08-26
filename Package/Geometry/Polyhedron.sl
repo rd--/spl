@@ -13,7 +13,7 @@ Polyhedron : [Object, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
 		self.storeStringAsInitializeSlots
 	}
 
-	translated { :self :v |
+	translate { :self :v |
 		Polyhedron(
 			self.vertexCoordinates.collect { :each | each + v },
 			self.faceIndices

@@ -20,7 +20,7 @@ however it should answer equivalently:
 .asFileUrl
 .fetchByteArray.then { :answer |
 	answer
-	.base64Encoded
+	.base64Encode
 }
 ~~~
 

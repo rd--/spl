@@ -21,7 +21,7 @@ lotkaVolterraEquations(1.5, 1, 3, 1)
 	0.1
 )
 .second
-.transposed
+.transpose
 .linePlot
 ~~~
 
@@ -37,7 +37,7 @@ lotkaVolterraEquations(1, 1, 1, 1)
 	0.1
 )
 .second
-.transposed
+.transpose
 .linePlot
 ~~~
 

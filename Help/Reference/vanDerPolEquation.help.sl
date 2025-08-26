@@ -32,7 +32,7 @@ _f(t)_ plot of the van der Pol equation with μ=3.7:
 ~~~spl svg=C
 let [t, v] = vanDerPolEquation(3.7)
 .rungeKuttaMethod([1 0], 0, 47, 0.1);
-let [x, y] = v.downsample(2).transposed;
+let [x, y] = v.downsample(2).transpose;
 x.linePlot
 ~~~
 

@@ -37,7 +37,7 @@ Singular outlier:
 
 >>> let x = [1 2 3 4 10 12 18];
 >>> let y = [10 14 180 22 46 54 78];
->>> let m = [x y].transposed;
+>>> let m = [x y].transpose;
 >>> (
 >>> 	m.theilSenEstimator,
 >>> 	m.simpleLinearRegression
@@ -71,12 +71,12 @@ let y = x.collect { :y |
 	}
 };
 let l = Line([1 1; n n]);
-let p = [x y].transposed.PointCloud;
+let p = [x y].transpose.PointCloud;
 let [y0, m] = y.theilSenEstimator;
 let [y0L, mL, _] = y.simpleLinearRegression;
 [
 	Line([1 1; n n]),
-	[x y].transposed.PointCloud,
+	[x y].transpose.PointCloud,
 	Line([[0, y0], [n, n * m]]),
 	Line([[0, y0L], [n, n * mL]])
 ].LineDrawing

@@ -3,7 +3,7 @@
 	poissonDistribution { :self :mu |
 		let k = 0;
 		let r = self.nextRandomFloat;
-		let t = mu.negated.exp;
+		let t = mu.negate.exp;
 		{
 			r > t
 		}.whileTrue {

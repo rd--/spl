@@ -143,7 +143,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 		])
 	}
 
-	transpose { :self |
+	transposeInPlace { :self |
 		(self.rank = 2).if {
 			let [m, n] = self.shape;
 			(n = m).if {
@@ -179,14 +179,14 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 						}
 					}
 				};
-				self.shape.reverse
+				self.shape.reverseInPlace
 			}
 		} {
-			self.error('NumericArray>>transpose: not matrix')
+			self.error('NumericArray>>transposeInPlace: not matrix')
 		}
 	}
 
-	transposed { :self |
+	transpose { :self |
 		self.isMatrix.if {
 			let [m, n] = self.shape;
 			let c = self.contents;
@@ -200,7 +200,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 			};
 			NumericArray(a, [n, m])
 		} {
-			self.error('NumericArray>>transposed: not matrix')
+			self.error('NumericArray>>transpose: not matrix')
 		}
 	}
 

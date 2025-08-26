@@ -1,4 +1,4 @@
- linearRecurrence
+# linearRecurrence
 
 - _linearRecurrence(k, i, n)_
 

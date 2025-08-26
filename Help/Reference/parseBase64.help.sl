@@ -10,11 +10,11 @@ Answer the `ByteArray` encoded in Base-64 at _aString_.
 [1 .. 16].asByteArray
 ```
 
-This is another name for `base64Decoded`.
+This is another name for `base64Decode`.
 
 * * *
 
-See also: base64Decoded, base64Encoded, parseBase16
+See also: base64Decode, base64Encode, parseBase16
 
 Guides: Parsing Functions
 

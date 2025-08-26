@@ -7,7 +7,7 @@
 	}
 
 	- { :self |
-		self.collect(negated:/1)
+		self.collect(negate:/1)
 	}
 
 	* { :self |
@@ -331,8 +331,8 @@
 		self.collect(mixedFractionParts:/1)
 	}
 
-	negated { :self |
-		self.collect(negated:/1)
+	negate { :self |
+		self.collect(negate:/1)
 	}
 
 	numerator { :self |

@@ -65,7 +65,7 @@ The column and row rank of a matrix are equal:
 >>> let m = [1 2 3; 4 5 6; 7 8 9];
 >>> (
 >>> 	m.matrixRank,
->>> 	m.transposed.matrixRank
+>>> 	m.transpose.matrixRank
 >>> )
 (2, 2)
 ```

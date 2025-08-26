@@ -55,20 +55,20 @@ PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of 
 [10 % 5, -4 % 3, 4 % -3, -4 % -3] = [0, 2, -2, -1] /* modulo, negative operands */
 13 % 7 % 4 = 2 /* left assocative */
 13 + 1 % 7 = 0 /* equal precedence */
--5 = 5.negated /* unary minus */
+-5 = 5.negate /* unary minus */
 5.sign = 1 /* numeric sign, positive->1 */
 [-9, 0, 9].collect(sign:/1) = [-1, 0, 1] /* numeric sign, -1 or 0 or 1 */
 [-9, 0, 9].collect(signBit:/1) = [true, false, false] /* numeric sign, true for negative else false */
 5.sign(-1) = -5 /* answer number with sign of argument */
 -1.copySignTo(5) = -5 /* answer argument with sign of number */
-5.negated = -5 /* negate receiver, unary minus */
+5.negate = -5 /* negate receiver, unary minus */
 1.25.truncate = 1 /* integer part of number */
 -1.25.truncate = -1 /* integer part of number */
 1.25.fractionalPart = 0.25 /* fractional part */
 -1.25.fractionalPart = -0.25 /* fractional part */
 1.pi.fractionalPart + 1.pi.truncate = 1.pi /* fractional part and truncate part sum to identity */
-let x = 1.pi.negated; x.fractionalPart + x.truncate = x /* fractional part and truncate part sum to identity */
-let x = 1.pi.negated; x.fractionalPart + x.integerPart = x /* fractional part and truncate part sum to identity */
+let x = 1.pi.negate; x.fractionalPart + x.truncate = x /* fractional part and truncate part sum to identity */
+let x = 1.pi.negate; x.fractionalPart + x.integerPart = x /* fractional part and truncate part sum to identity */
 2.fractionalPart = 0 /* the fractional part of an integer is zero */
 (1 / 2).fractionalPart = (1 / 2) /* the fractional part of a number between zero and one is identity */
 (4 / 3).fractionalPart ~ (1 / 3) /* floating point math is not exact */
@@ -107,10 +107,10 @@ NaN.isNaN /* literal for NaN */
 1.pi.roundDownTo(0.1) = 3.1 /* round down to nearest 1/10th */
 1923.roundDownTo(10) = 1920 /* round down to nearest multiple of 10 */
 1.pi.roundDownTo(0.005) = 3.140 /* round down to nearest 5/1000th */
-1.pi.negated.roundDownTo(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
+1.pi.negate.roundDownTo(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
 (3 - 1.epsilon).roundDown = 2 /* round down to nearest integer */
-0.9.roundToTowardsZero(1) = 0 /* round towards zero, i.e. down for positive numbers */
--0.9.roundToTowardsZero(1) = 0 /* round towards zero, i.e. up for negative numbers */
+0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. down for positive numbers */
+-0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. up for negative numbers */
 0.9.roundTowardsZero = 0 /* round to nearest integer towards zero */
 -0.9.roundTowardsZero = 0 /* round to nearest integer towards zero, upwards for negative numbers */
 [-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDownTo(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
@@ -161,9 +161,9 @@ NaN.isNaN /* literal for NaN */
 2.sqrt / 2 = 0.7071067811865476
 2.sqrt / 2 = 0.5.sqrt
 10.max(20) = 20 /* get maximum of two numbers */
-10.maxOn(20, negated:/1) = 10 /* comparison of translated values */
+10.maxOn(20, negate:/1) = 10 /* comparison of translated values */
 10.min(20) = 10 /* get minimum of two numbers */
-10.minOn(20, negated:/1) = 20 /* comparison of translated values */
+10.minOn(20, negate:/1) = 20 /* comparison of translated values */
 1.pi.isVeryCloseTo(3.141592653589793) /* pi = 3.141592653589793 */
 1.exp.isVeryCloseTo(2.718281828459) /* e = 2.718281828459 */
 let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self-1) */
@@ -173,7 +173,7 @@ let n = (0 -- 100).atRandom; (n >= 0) & { n < 100 } /* random number in (0, self
 -1.arcCos = 1.pi /* arc cosine */
 0.arcSin = 0 /* arc sine */
 1.arcSin =(1.pi / 2) /* arc sine */
--1.arcSin = (1.pi / 2).negated /* arc sine */
+-1.arcSin = (1.pi / 2).negate /* arc sine */
 0.atan2(0) = 0 /* arc tangent */
 0.atan2(1) = 0
 1.atan2(0) = (1.pi / 2)
@@ -203,7 +203,7 @@ let x = 10 ^ -7; let nearest = 10 ^ -8; let furthest = 0; (x - nearest).abs < (x
 Infinity ~ Infinity /* being equal, infinty is also close to itself */
 0 ~ 1.epsilon & { 1.epsilon ~ 0 } & { 1 + 1.epsilon ~ 1 } /* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one */
 let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
-[8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negated % 3] ~ [2, 0, 2.9, 0, 3] /* modulo */
+[8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negate % 3] ~ [2, 0, 2.9, 0, 3] /* modulo */
 -5:5.collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] /* modulo */
 15 % 4 = 3 /* modulo */
 15 \\ 4 = 3 /* remainder */
@@ -288,10 +288,10 @@ let a = [1, 2, 3]; a == a = true /* array self identity */
 [1, 2, 3].isList = true /* array predicate */
 [1, 2.3, '4'].atRandom.isList.not /* array predicate */
 4 * [1, 2, 3] = [4, 8, 12] /* scalar List math */
-[1, 3, 5, 7].reversed = [7, 5, 3, 1] /* reversed answers new array */
-let a = [1, 3, 5, 7]; a.reversed ~= a /* reversed answers new array */
-let a = [1, 3, 5, 7]; a.reverse = a /* reverse mutates array in place */
-let a = [1, 3, 5, 7]; a.reverse; a = [7, 5, 3, 1] /* array reverse (in place) */
+[1, 3, 5, 7].reverse = [7, 5, 3, 1] /* reverse answers new array */
+let a = [1, 3, 5, 7]; a.reverse ~= a /* reverse answers new array */
+let a = [1, 3, 5, 7]; a.reverseInPlace = a /* reverse array in place */
+let a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1] /* array reverse (in place) */
 [1, 2, 3, 5, 7, 9].sum = 27 /* sum of elements, unicode = Σ */
 [1, 2, 3, 5, 7, 9].reduce { :a :b | a + b } = 27 /* reduce by plus is sum */
 1:4.reduce { :sum :each | sum + each } = 10 /* sum is first argument, element is second */
@@ -344,8 +344,8 @@ let l = [1, 2, 3]; l.atModify(2, squared:/1) = 4 & { l = [1, 4, 3] } /* modify v
 [5, 4, 3, 2, 1].detectIfNone { :each | each % 7 = 0 } { nil } = nil /* nil if no element is found */
 [5, 4, 3, 2, 1].findFirst { :each | each % 3 = 0 } = 3 /* answer index of first element matching predicate */
 [5, 4, 3, 2, 1].findFirst { :each | each % 7 = 0 } = 0 /* zero if no element is found */
-[[1, 2, 3, 4], [5, 6, 7, 8]].transposed = [[1, 5], [2, 6], [3, 7], [4, 8]]
-[1 2 3; 4 5 6].transposed = [1 4; 2 5; 3 6] /* transposed, matrix syntax */
+[[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
+[1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] /* transposed, matrix syntax */
 1.toAsCollect(9, List:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] /* shuffle in place, using system Random */
 let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in place, using given Random */
@@ -373,10 +373,10 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } /* answer shuffled copy */
 [9 .. 1].includesAllOf([3 .. 7]) = true
 [5 .. 3].includesAllOf([3 .. 7]) = false
 [].includesAllOf([3 .. 7]) = false
-5.fill(negated:/1) = [-1 .. -5] /* fill array with answers of a block applied to each index */
+5.fill(negate:/1) = [-1 .. -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
-List(5).fillFromWith(1:5, negated:/1) = [-1 .. -5]
+List(5).fillFromWith(1:5, negate:/1) = [-1 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
@@ -451,10 +451,10 @@ let a = List(9); a.atAllPut('x'); a.allSatisfy { :each | each = 'x' } /* set all
 let a = List(9); a.atAllPut('x') = 'x' & { a.atRandom = 'x' } /* answers object put */
 [1 .. 9].collect { :each | 10 - each } = [9 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
-[1 .. 5].reversed = [5 .. 1]
+[1 .. 5].reverse = [5 .. 1]
 let c = [1 .. 5]; { c[1.5] }.ifError { true } /* index not an integer */
 let c = [1 .. 5]; { c['1'] }.ifError { true } /* index not an integer */
-{ [1 .. 5].not }.ifError { true } /* cannot be negated */
+{ [1 .. 5].not }.ifError { true } /* cannot be negate */
 let a = [1, 2, 4]; a.insertAt(3, 3); a = [1 .. 4] /* insert value at index */
 let l = [1 2 4]; l.addAfter(3, 2) = 3 & { l = [1 2 3 4] } /* insert value after existing value */
 let l = [1 2 4]; l.addBefore(3, 4) = 3 & { l = [1 2 3 4] } /* insert value before existing value */
@@ -660,9 +660,9 @@ system.includesPackage('Binary') /* binary package */
 32.highBit = 6 /* high bit, the number of bits required to represent an integer */
 32 = 2r00100000 & { 2r00100000.highBit = 6 } /* high bit */
 2r00101000.highBit = 6 /* high bit */
-{ 2r00101000.negated.highBit }.ifError { true } /* high bit is not defined for negative integers */
+{ 2r00101000.negate.highBit }.ifError { true } /* high bit is not defined for negative integers */
 2r00101000.lowBit = 4 /* low bit */
-2r00101000.negated.lowBit = 4 /* low bit */
+2r00101000.negate.lowBit = 4 /* low bit */
 0.lowBit = 0 & { 0.highBit = 0 } /* the low and high bits of zero are zero */
 ```
 
@@ -831,23 +831,23 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
 { [-1].asByteArray }.ifError { true } /* out of range element error */
 { ['1'].asByteArray }.ifError { true } /* not a number element error */
-1:9.asByteArray.reversed = 9:-1:1.asByteArray
+1:9.asByteArray.reverse = 9:-1:1.asByteArray
 1:3.asByteArray.printString = 'ByteArray([1, 2, 3])'
 1:3.asByteArray.storeString = 'ByteArray([1, 2, 3])'
-ByteArray(4).base16Encoded = '00000000'
+ByteArray(4).base16Encode = '00000000'
 'text'.asciiByteArray[1] = 116 /* ByteArray subscript */
-let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encoded = '0F00F000'
-let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encoded = '000F00F0'
-1:4.asByteArray.base16Encoded = '01020304'
-let b = ByteArray(4); b.atAllPut(15); b.base16Encoded = '0F0F0F0F'
+let b = ByteArray(4); b[1] := 15; b[3] := 240; b.base16Encode = '0F00F000'
+let b = ByteArray(4); b[2] := 15; b[4] := 240; b.base16Encode = '000F00F0'
+1:4.asByteArray.base16Encode = '01020304'
+let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } /* ByteArrays are not Extensible */
 1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */
 1:9.asByteArray ~= [1 .. 9] /* ByteArray and List of equal elements are not equal */
 1:9.asByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
-[1, 13 .. 253].asByteArray.base64Encoded = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
-'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decoded = (1, 13 .. 253).asByteArray /* base 64 decoding */
-'SGVsbG8gV29ybGQ='.base64Decoded.asciiString = 'Hello World' /* answer is a ByteArray */
+[1, 13 .. 253].asByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
+'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).asByteArray /* base 64 decoding */
+'SGVsbG8gV29ybGQ='.base64Decode.asciiString = 'Hello World' /* answer is a ByteArray */
 [1, 3 .. 9].asByteArray.indices = 1:5 /* indices of byte array (an interval) */
 let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy ~~ b } /* copies are equal & not identical */
 let b = [1 .. 9].asByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
@@ -933,8 +933,8 @@ system.includesPackage('Collection') /* collection package */
 [9, 4, 5, 7, 8, 6].size = 6 /* size of collection */
 [9, 4, 5, 7, 8, 6].max = 9 /* maximum item in collection */
 [9, 4, 5, 7, 8, 6].min = 4 /* minimum item in collection */
-[9, 4, 5, 7, 8, 6].maximalBy(negated:/1) = [4] /* comparison of translated values */
-[9, 4, 5, 7, 8, 6].minimalBy(negated:/1) = [9] /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].maximalBy(negate:/1) = [4] /* comparison of translated values */
+[9, 4, 5, 7, 8, 6].minimalBy(negate:/1) = [9] /* comparison of translated values */
 [9, 4, 5, 7, 8, 6].sum = 39 /* sum of collection */
 [9, 4, 5, 7, 8, 6].mean = 6.5 /* sum of collection divided by size */
 1:9.mean = 5 /* sum of collection divided by size */
@@ -1099,7 +1099,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 ((2 / 3) + (1 + 2.i)).isCloseTo((5 / 3) + 2.i)
 (0 + 5.i).arg = (1.pi / 2)
 let c = (5 - 6.i); (c * 1.i) = c.i
-(2 + 5.i).negated = (-2 - 5.i)
+(2 + 5.i).negate = (-2 - 5.i)
 (2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
 (6 - 6.i).squared = -72.i
 (1 + 2.i) = (1 + 2.i) = true /* equality = same value */
@@ -1415,8 +1415,8 @@ Float64Array(8).atPut(1, 1.pi) = 1.pi /* atPut protocol, answer value put */
 let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.asFloat64Array.isFloat64Array = true /* interval as array */
-1:9.asFloat64Array.reversed = 9:-1:1.asFloat64Array /* reversed copy */
-let a = [1 .. 9].asFloat64Array; a.reverse; a = 9:-1:1.asFloat64Array /* reverse in place */
+1:9.asFloat64Array.reverse = 9:-1:1.asFloat64Array /* reverse copy */
+let a = [1 .. 9].asFloat64Array; a.reverseInPlace; a = 9:-1:1.asFloat64Array /* reverse in place */
 let a = 9:-1:1.asFloat64Array; a.sort; a = 1:9.asFloat64Array /* sort in place */
 { Float64Array(1).atPut(3, 'x') }.ifError { true } /* out of bounds error */
 let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
@@ -1458,7 +1458,7 @@ ReducedFraction(4, 6) ~= 2/3 /* ReducedFraction assumes fraction is normal, and 
 4/3.denominator = 3 /* denominator */
 4/3.gcd(7/5) = 1/15 /* greatest common denominator */
 4/3.lcm(7/5) = 28 /* least common multiple */
-4/3.negated = -4/3 /* negation */
+4/3.negate = -4/3 /* negation */
 4/3.isNegative.not /* is negative predicate */
 4/3.numerator = 4 /* numerator */
 2/3.raisedToInteger(5) = 32/243 /* fractions also can be exponentiated */
@@ -1503,7 +1503,7 @@ Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
 23.denominator = 1 /* denominator of integer is one */
 1/3 + 1/7 = 10/21
 Fraction(3, 1) = 3/1
--3/2.negated = 3/2
+-3/2.negate = 3/2
 -3/2.abs = 3/2
 3/2.ceiling = 2
 -3/2.ceiling = -1
@@ -1534,7 +1534,7 @@ Fraction(3, 1) = 3/1
 226.roundUpTo(10) = 230 /* round up to nearest multiple of 10 */
 1923.roundUpTo(10) = 1930 /* round up to nearest multiple of 10 */
 1.pi.roundUpTo(0.005) = 3.145 /* round up to nearest 5/1000th */
-1.pi.negated.roundUpTo(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
+1.pi.negate.roundUpTo(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
 1.pi.roundUp = 4 /* round up to nearest integer */
 -3/2.numerator.isNegative /* numerator of negative fraction is negative */
 -3/2.denominator.isPositive /* denominator of negative fraction is positive */
@@ -1889,7 +1889,7 @@ Range(-1, 1, 1).storeString = 'Range(-1, 1, 1)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
 Range(1, 10, 3).asList = [1, 4, 7, 10]
-1.to(6).reversed = 6:-1:1
+1.to(6).reverse = 6:-1:1
 1:6.first = 1 /* first element of interval */
 1.to(6).first = 1 /* first element of interval */
 { 1.to(0).first }.ifError { true } /* first element of empty interval */
@@ -1921,8 +1921,8 @@ collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Range(1, 6, 2).asList = [1, 3, 5]
 Range(1, 6, 2).last = 5
-1:9.reversed.asList = [9, 8, 7, 6, 5, 4, 3, 2, 1]
-Range(1, 6, 2).reversed.asList = [5, 3, 1] /* start becomes last, not stop */
+1:9.reverse.asList = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+Range(1, 6, 2).reverse.asList = [5, 3, 1] /* start becomes last, not stop */
 1.to(9).step = 1 /* get step size of interval */
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
@@ -1935,7 +1935,7 @@ Range(1, 6, 2).reversed.asList = [5, 3, 1] /* start becomes last, not stop */
 1.to(0).size = 0
 3.to(5) = 3:5
 0.toBy(1, -1).size = 0 /* toBy may be empty */
-3.upOrDownTo(5) = 5.upOrDownTo(3).reversed
+3.upOrDownTo(5) = 5.upOrDownTo(3).reverse
 let s = ''; (1, 3 .. 9).reverseDo { :x | s := s ++ x }; s = '97531' /* do from end */
 1:9 + 3 = 4:12 /* plus with a number answers a Range */
 1:9 - 2 = -1:7 /* minus with a number answers a Range */
@@ -1986,7 +1986,7 @@ let s = ''; 1.toDo(4) { :x | s := s ++ x }; s = '1234' /* for loop (int) */
 let s = ''; 1:5.do { :x | s := s ++ x }; s = '12345' /* for loop (interval) */
 let s = ''; 1.toDo(5) { :x | s := s ++ x }; s = '12345' /* for loop (start & end indices) */
 let s = ''; 1.toDo(0) { :x | 'error'.error }; s = '' /* for loop (end less than start) */
-let s = ''; 1:3.reverseDo { :x | s := s ++ x }; s = '321' /* for loop (interval, reversed) */
+let s = ''; 1:3.reverseDo { :x | s := s ++ x }; s = '321' /* for loop (interval, reverse) */
 let s = ''; [1, 3, 5].do { :x | s := s ++ x }; s = '135' /* for loop (collection) */
 let n = 9; { n > 3 }.whileTrue { n := n - 1 }; n = 3 /* while true loop */
 let n = 9; { n < 7 }.whileFalse { n := n - 1 }; n = 6 /* while false loop */
@@ -2069,7 +2069,7 @@ let l = 1:99.asLinkedList; l.removeAll; l.isEmpty /* remove all */
 1:99.asLinkedList.select(isEven:/1).asList = [2, 4 .. 98] /* select */
 1:9.asLinkedList.selectThenCollect(isEven:/1, squared:/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
 1:9.asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
-1:9.asLinkedList.reversed = [9 .. 1] /* reversed, species is List */
+1:9.asLinkedList.reverse = [9 .. 1] /* reverse, species is List */
 { LinkedList().removeFirst }.ifError { :error | true } /* remove first, error if empty */
 { LinkedList().removeLast }.ifError { :error | true } /* remove last, error if empty */
 let l = 1:5.asLinkedList; l[3] = 3 /* index into */
@@ -2156,7 +2156,7 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty /* remove all entries */
 -3.abs = 3 /* absolute value */
 1.5.ceiling = 2 /* ceiling (round up) */
 [2 2.8 -2 -2.8].ceiling = [2 3 -2 -2] /* ceiling, pointwise at array */
-let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated /* ceiling is equal to negate/floor/negate */
+let v = [2 2.8 -2 -2.8]; v.ceiling = v.negate.floor.negate /* ceiling is equal to negate/floor/negate */
 0.cos = 1 /* cosine */
 180.degreesToRadians = 1.pi /* degreesToRadians */
 2.isEven = true /* eveness predicate */
@@ -2168,7 +2168,7 @@ let v = [2 2.8 -2 -2.8]; v.ceiling = v.negated.floor.negated /* ceiling is equal
 3.isPositive = true /* is x > 0 */
 1.max(2) = 2 /* maximum */
 1.min(2) = 1 /* minimum */
-3.negated = -3 /* negation */
+3.negate = -3 /* negation */
 3.isOdd = true /* oddness predicate */
 1.pi.isVeryCloseTo(3.1415926535898) /* constant pi (Float pi) */
 Infinity.isNumber /* constant positive infinity (is a number) */
@@ -2392,8 +2392,8 @@ collect:/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is ma
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.ifError { true }
 { { :x | x }.apply([]) }.ifError { true }
-9.with { :x | x.sqrt; x.negated } = -9 /* evaluate block with self and answer answer of block */
-9.also { :x | x.sqrt; x.negated } = 9 /* evaluate block with self and answer self */
+9.with { :x | x.sqrt; x.negate } = -9 /* evaluate block with self and answer answer of block */
+9.also { :x | x.sqrt; x.negate } = 9 /* evaluate block with self and answer self */
 let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
 let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
 let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }
@@ -2701,7 +2701,7 @@ Rectangle([1, 1], [3, 3]).area = 4
 Rectangle([1, 1], [3, 3]).center = [2, 2]
 Rectangle([1, 1], [3, 3]).containsPoint([2, 2]) = true /* includes */
 let r = Rectangle([0, 0], [10, 20]); r.area = (10 * 20) /* area is width by height */
-let r = Rectangle([0, 0], [10, 20]); r.translated([-20, 10]).area = (10 * 20) /* translation preserves area */
+let r = Rectangle([0, 0], [10, 20]); r.translate([-20, 10]).area = (10 * 20) /* translation preserves area */
 let r = Rectangle([0, 0], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
 let r = Rectangle([10, 10], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
 let r = Rectangle([0, 0], [0, 0]); r.area = 0 /* the area of an empty rectangle is zero */
@@ -2709,7 +2709,7 @@ let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.containsPoint(c) /* the
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerRight.euclideanDistance(c)
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.lowerLeft.euclideanDistance(c) = r.upperRight.euclideanDistance(c)
 let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.upperLeft.euclideanDistance(c) = r.lowerLeft.euclideanDistance(c)
-let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.translated([-20, 10]).center = (c + [-20, 10]) /* the center is translated with the rectangle */
+let r = Rectangle([0, 0], [10, 20]); let c = r.center; r.translate([-20, 10]).center = (c + [-20, 10]) /* the center is translated with the rectangle */
 let r = Rectangle([30, 10], [10, 20]); let c = r.center; r.containsPoint(c).not /* an empty rectangle does not contain any point */
 let r = Rectangle([0, 0], [50, 50]); [r.center, [1.5, 1.5], r.upperLeft, r.upperRight, r.lowerLeft, r.lowerRight].collect { :each | r.containsPoint(each) } = [true, true, false, false, true, false]
 let r = Rectangle([10, 10], [20, 30]); r.containsPoint(r.lowerLeft) /* a rectangle does contain its lower left corner */
@@ -2826,7 +2826,7 @@ let a = RunArray([1 4 2 1], [9 7 5 3]); a.size = 8 & { a.asList = [9 7 7 7 7 5 5
 { let a = RunArray([1 3], ['a' 'b']); a[5] }.ifError { true } /* invalid index */
 let a = RunArray([1, 4, 2, 1], 'abca'.contents); a.first = 'a' & { a.last = 'a' } /* first and last are optimized */
 let a = RunArray([1, 4, 2], 'abc'.contents); a.includes('c') & { a.isSorted } /* includes and isSorted are optimized */
-RunArray([1, 4, 2], ['a', 'b', 'c']).reversed = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray /* reversed is optimized */
+RunArray([1, 4, 2], ['a', 'b', 'c']).reverse = [2 -> 'c', 4 -> 'b', 1 -> 'a'].associationListToRunArray /* reverse is optimized */
 let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100).round = 9 /* space saving, in % */
 RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
 [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
@@ -2838,7 +2838,7 @@ RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' 
 ```
 system.includesPackage('Sequenceable') /* package */
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] /* append sequences */
-[1, 3, 2, 4, 5].reversed = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
+[1, 3, 2, 4, 5].reverse = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
 [1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] /* sort using provided comparison (answer new array) */
 [3, 3, 3, 2, 2, 1].sorted.size = 6 /* sort retains duplicates */
@@ -2889,15 +2889,15 @@ let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indi
 [1, [2, [3, [4, [5], 6], 7], 8], 9].flatten = [1 .. 9] /* catenate removing all nesting */
 [1, [2, [3, ['45', 6], '78']], 9].flatten = [1, 2, 3, '45', 6, '78', 9] /* strings are not flatten to sequences of characters */
 [3, 4, [2, 4, ['xy'], 'wz']].flatten = [3, 4, 2, 4, 'xy', 'wz']
-1:9.rotatedLeft(3) = ([4 .. 9] ++ [1 .. 3]) /* rotate left */
-1:7.rotatedLeft(3) = [4 5 6 7 1 2 3] /* rotate left */
-1:7.rotatedLeft(-4) = [4 5 6 7 1 2 3] /* negative argument rotates right */
-let a = [1 .. 9]; a.rotatedLeft(3) ~~ a /* rotation is not in place */
-1:9.rotatedRight(3) = ([7 .. 9] ++ [1 .. 6]) /* rotate right */
-1:7.rotatedRight(3) = [5 6 7 1 2 3 4] /* rotate right */
-1:7.rotatedRight(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
-1:7.rotated(3) = [5 6 7 1 2 3 4] /* rotate right */
-1:7.rotated(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
+1:9.rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) /* rotate left */
+1:7.rotateLeft(3) = [4 5 6 7 1 2 3] /* rotate left */
+1:7.rotateLeft(-4) = [4 5 6 7 1 2 3] /* negative argument rotates right */
+let a = [1 .. 9]; a.rotateLeft(3) ~~ a /* rotation is not in place */
+1:9.rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) /* rotate right */
+1:7.rotateRight(3) = [5 6 7 1 2 3 4] /* rotate right */
+1:7.rotateRight(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
+1:7.rotate(3) = [5 6 7 1 2 3 4] /* rotate right */
+1:7.rotate(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
 let d = []; 3:-1:1.withDo(1:3) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] /* do with elements from a second sequence of equal size */
 let d = []; 3:-1:1.reverseWithDo(1:3) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
 let d = []; 3:-1:1.withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
@@ -3405,9 +3405,9 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 'Word'.asUpperCase = 'WORD'
 '12345'.asUpperCase = '12345' /* only if letters */
 'x' ~= 'X' & { 'x'.isSameAs('X') & { 'x'.isSameAs('x') } } /* considered without case */
-'word'.capitalized = 'Word' /* uppercase first letter only */
-'anotherWord'.capitalized = 'AnotherWord' /* uppercase first letter only, do not lower case interior letters */
-'12345'.capitalized = '12345' /* only if a letter */
+'word'.capitalize = 'Word' /* uppercase first letter only */
+'anotherWord'.capitalize = 'AnotherWord' /* uppercase first letter only, do not lower case interior letters */
+'12345'.capitalize = '12345' /* only if a letter */
 'testAt'.beginsWith('test') = true /* does string begin with substring */
 'testAt'.beginsWith('At') = false /* does string begin with substring */
 { 'testAt'.beginsWith(nil) }.ifError { true }
@@ -3453,7 +3453,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 'Hello'.isEmpty = false
 'XYZ'.asLowerCase = 'xyz'
 'xyz'.asUpperCase = 'XYZ'
-'hilaire'.capitalized = 'Hilaire'
+'hilaire'.capitalize = 'Hilaire'
 '1.54'.parseNumber = 1.54 /* parse floating point number */
 '154'.parseNumber = 154 /* parse integral number */
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' /* contract string to be of size */
@@ -3540,7 +3540,7 @@ let a = 1; let b = 3; let c = 5; [a b c; c b a] = [[1, 3, 5], [5, 3, 1]] /* matr
 [1 2; 3 4:; 5 6; 7 8] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]] /* matrix syntax */
 let a = 1; let b = 3; [a b; b a:; b a; a b] = [[[1, 3], [3, 1]], [[3, 1], [1, 3]]] /* volume syntax, identifier items */
 [1 0 0; 0 1 0; 0 0 1:; 0 1 0; 1 0 1; 0 1 0:; 1 0 1; 0 1 0; 1 0 1].collect(sum:/1) = [1 1 1; 1 2 1; 2 1 2] /* volume to matrix */
-[1 0 0; 0 1 0; 0 0 1:; 0 1 0; 1 0 1; 0 1 0].transposed = [1 0 0; 0 1 0:; 0 1 0; 1 0 1:; 0 0 1; 0 1 0] /* transposed */
+[1 0 0; 0 1 0; 0 0 1:; 0 1 0; 1 0 1; 0 1 0].transpose = [1 0 0; 0 1 0:; 0 1 0; 1 0 1:; 0 0 1; 0 1 0] /* transposed */
 [1 2 3; 4 5 6][2][3] = 6 /* matrix indexing */
 [1 2 3; 4 5 6].atPath([2]) = [4 5 6] /* matrix indexing; atPath, single index */
 [1 2 3; 4 5 6].atPath([2, 3]) = 6 /* matrix indexing; atPath, two indices */
@@ -3658,7 +3658,7 @@ let x = 1; let y = 2; let z = 3; [x, y, z] = [1, 2, 3] /* there can be multiple 
 1:9.collect { :x | x * x }.last = 81
 1:9.collect { :x | x * x }.collect { :x | x * x }.last = 6561
 [1, 3, 5].withCollect([1, 3, 5]) { :p :q | p -> q } = [1 -> 1, 3 -> 3, 5 -> 5]
-[1, 3, 5].reversed.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]
+[1, 3, 5].reverse.withCollect([1, 3, 5]) { :p :q | p -> q } = [5 -> 1, 3 -> 3, 1 -> 5]
 ```
 
 ## Syntax -- type field mutation
@@ -3955,8 +3955,8 @@ let t = (1, 2, 3); t[2] := 4; t = (1, 4, 3) /* mutate second */
 let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
 (1, 2, 3).size = 3 /* size of */
 [1 2 3].asTuple = (1, 2, 3) /* from list */
-(1, 2, 3).rotatedLeft = (2, 3, 1) /* rotated left */
-(1, 2, 3).rotatedRight = (3, 1, 2) /* rotated right */
+(1, 2, 3).rotateLeft = (2, 3, 1) /* rotated left */
+(1, 2, 3).rotateRight = (3, 1, 2) /* rotated right */
 (1, 2, 3).typeOf = 'Tuple' /* type of */
 (1, 2, 3).isTuple = true /* type predicate */
 (1, 2, 3).size = 3 /* size of */
@@ -3967,7 +3967,7 @@ let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
 Tuple(0).isEmpty = true /* the empty tuple */
 [1 .. 5].asTuple.first = 1 /* from list */
 [1 .. 5].asTuple.asList = [1 .. 5] /* as list */
-[1 .. 5].asTuple.reversed.first = 5 /* reversed */
+[1 .. 5].asTuple.reverse.first = 5 /* reverse */
 let t = (1, 2, 3); t[3] = 3 /* at protocol */
 let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* atPut protocol */
 let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 /* copy */
@@ -4078,7 +4078,7 @@ PlanarCoordinates([-1, 1]).y(3) = 3
 [-1, 1] + 2 = [1, 3]
 2 * ([1, 1].-) * 2 = ([4, 4].-)
 PlanarCoordinates([-1, 1]).asString = 'PlanarCoordinates([-1, 1])'
-[1, 1].negated = [-1, -1] /* negation */
+[1, 1].negate = [-1, -1] /* negation */
 0 - [1, 1] = [-1, -1] /* negation as subtraction from zero */
 let p = PlanarCoordinates([-1, 1]); p.x := -3; p.y := 3; p = PlanarCoordinates([-3, 3]) = true
 let p = PlanarCoordinates([-1, 3]); let a = [p]; a.first.x := -3; p = PlanarCoordinates([-3, 3]) = true

@@ -142,7 +142,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	asHexString { :self |
-		self.asciiByteArray.base16Encoded
+		self.asciiByteArray.base16Encode
 	}
 
 	asList { :self |
@@ -238,7 +238,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		}
 	}
 
-	capitalized { :self |
+	capitalize { :self |
 		<primitive: return _self[0].toUpperCase() + _self.slice(1);>
 	}
 
@@ -848,8 +848,8 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		self.basicReplaceStringAll(stringToFind, stringToReplaceWith)
 	}
 
-	reversed { :self |
-		self.onCharacters(reversed:/1)
+	reverse { :self |
+		self.onCharacters(reverse:/1)
 	}
 
 	select { :self :aBlock:/1 |
@@ -891,7 +891,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	stringReverse { :self |
-		self.reversed
+		self.reverse
 	}
 
 	take { :self :anInteger |
@@ -1046,7 +1046,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	camelCase { :self |
-		[self.first] ++ self.allButFirst.collect(capitalized:/1)
+		[self.first] ++ self.allButFirst.collect(capitalize:/1)
 	}
 
 	commaSeparated { :self |
@@ -1113,7 +1113,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	pascalCase { :self |
-		self.collect(capitalized:/1)
+		self.collect(capitalize:/1)
 	}
 
 	removeDiacritics { :self |
@@ -1140,7 +1140,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	burrowsWheelerMatrix { :self |
 		(1 .. self.size).collect { :each |
-			self.rotatedLeft(each)
+			self.rotateLeft(each)
 		}
 		.lexicographicSort
 	}

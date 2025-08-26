@@ -31,7 +31,7 @@ zero padded to be 3×3:
 ```
 >>> let m = [1 2 0; 3 4 0; 5 6 0];
 >>> let [q, r] = m.qrDecomposition;
->>> (q, r, m ~ q.dot(r), q.transposed.dot(q))
+>>> (q, r, m ~ q.dot(r), q.transpose.dot(q))
 (
 	[
 		-0.16903   0.89709   0.40825;
@@ -158,8 +158,8 @@ The Gram-Schmidt process also answers an orthogonal matrix:
 
 ```
 >>> let m = [3 4 2; 2 5 2; 1 2 6];
->>> let [q, _] = m.transposed.qrDecomposition;
->>> let z = q.transposed.negated;
+>>> let [q, _] = m.transpose.qrDecomposition;
+>>> let z = q.transpose.negate;
 >>> (m.gramSchmidtProcess ~ z, z)
 (
 	true,

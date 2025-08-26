@@ -29,10 +29,10 @@ C.f. `submatrix` to answer a column vector:
 [2; 5; 8]
 ```
 
-C.f. `transposed` to answer all columns as rows:
+C.f. `transpose` to answer all columns as rows:
 
 ```
->>> [3 3].iota.transposed
+>>> [3 3].iota.transpose
 [1 4 7; 2 5 8; 3 6 9]
 ```
 
@@ -47,6 +47,6 @@ true
 
 * * *
 
-See also: at, columns, List, Matrix, row, submatrix, transposed
+See also: at, columns, List, Matrix, row, submatrix, transpose
 
 Guides: Matrix Functions

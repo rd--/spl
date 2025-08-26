@@ -32,7 +32,7 @@
 				},
 				self.asCents.round,
 				self.asIntegers
-			].transposed.asHtmlTable
+			].transpose.asHtmlTable
 		]);
 		div
 	}

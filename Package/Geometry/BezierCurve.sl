@@ -178,7 +178,7 @@ BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 	bezierFunction { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
-			let [x, y] = self.transposed;
+			let [x, y] = self.transpose;
 			{ :index |
 				[
 					x.bezierFunctionAt(index),

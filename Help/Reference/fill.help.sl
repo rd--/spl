@@ -22,7 +22,7 @@ List of squares of indices with named method:
 List of negated indices:
 
 ```
->>> 9.fill(negated:/1)
+>>> 9.fill(negate:/1)
 [-1 -2 -3 -4 -5 -6 -7 -8 -9]
 ```
 

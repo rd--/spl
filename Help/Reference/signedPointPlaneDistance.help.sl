@@ -21,7 +21,7 @@ and negative if it is on the opposite side.
 >>> [1 1 0 -2].signedPointPlaneDistance(
 >>> 	[-1 1 2]
 >>> )
-2.sqrt.negated
+2.sqrt.negate
 
 >>> [3 4 -1 -1]
 >>> .signedPointPlaneDistance([1 2 3])

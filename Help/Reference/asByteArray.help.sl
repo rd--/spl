@@ -7,7 +7,7 @@ Convert _aCollection_ to a `ByteArray`.
 ```
 >>> [1 1 1 3 3 5]
 >>> .asByteArray
->>> .base64Encoded
+>>> .base64Encode
 'AQEBAwMF'
 ```
 

@@ -12,6 +12,12 @@ GeometryCollection : [Object, Geometry] { | contents |
 		self.contents.collect(boundingBox:/1).boundingBoxMerging
 	}
 
+	circleInversion { :self :circle |
+		self.contents.collect { :each |
+			each.circleInversion(circle)
+		}.GeometryCollection
+	}
+
 	collect { :self :aBlock:/1 |
 		GeometryCollection(
 			self.contents.collect(aBlock:/1)

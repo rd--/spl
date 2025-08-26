@@ -4,4 +4,4 @@
 	let p = PinkNoise(1 # 2, 0);
 	let b = 4 ^ LfNoise2(1.2 ^ i / 16);
 	Bpf(p, b * 300, 0.15) * (5 ^ LfNoise2(f) / (i + 8) * 20)
-}.Splay2.transposed.Mix
+}.Splay2.transpose.Mix

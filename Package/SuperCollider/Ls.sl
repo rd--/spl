@@ -477,7 +477,7 @@
 		next := aBlock(randomNumberGenerator, [low.next, high.next], []);
 		low.withAndCollect(high, step) { :low :high :step |
 			let answer = next;
-			next := (next + aBlock(randomNumberGenerator, [step.negated, step], [])).fold(low, high);
+			next := (next + aBlock(randomNumberGenerator, [step.negate, step], [])).fold(low, high);
 			answer
 		}
 	}

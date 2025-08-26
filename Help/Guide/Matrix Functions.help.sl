@@ -80,7 +80,7 @@ Constructing:
 General:
 
 - `adjugate`: adjugate or adjoint
-- `antitransposed`: antitransposition
+- `antitranspose`: antitransposition
 - `arrayFlatten`: flatten a matrix of matrices
 - `arrayRules`: positions and values of non-zero elements
 - `choleskyDecomposition`: the Cholesky decomposition
@@ -107,7 +107,7 @@ General:
 - `shape`: list the dimensions of a matrix
 - `singularValueDecomposition`
 - `trace`: trace
-- `transposed`: transposition
+- `transpose`: transposition
 
 Graph:
 

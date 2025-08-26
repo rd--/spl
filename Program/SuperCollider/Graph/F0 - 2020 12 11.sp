@@ -11,4 +11,4 @@ let arpDur = 0.25;
 let freq = [freq1, freq2, freq3];
 let env = EnvLinen(atk, sus, rls, 1, [1, 1, 1]).asEnvGen(DelayN(Dc(gate), arpDur, [0, 0.5, 1] * arpDur).kr);
 let sig = GVerb((SinOsc(freq, 0) * env).Sum, 150, 5, 0.5, 0.5, 15, 1, 0.7, 0.5, 300) * 0.1;
-Pan2(sig, pan, 0.25).transposed.Sum <! DetectSilence(sig, 0.0001, 0.1, 2)
+Pan2(sig, pan, 0.25).transpose.Sum <! DetectSilence(sig, 0.0001, 0.1, 2)

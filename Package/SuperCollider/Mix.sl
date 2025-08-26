@@ -21,82 +21,82 @@
 					4.iota,
 					4.iota,
 					1 # 4
-				].transposed,
+				].transpose,
 				'4×2→1×4': [
 					8.iota,
 					[1 2 2 3 3 4 4 1],
 					1 # 8
-				].transposed,
+				].transpose,
 				'4×2→1×8': [
 					8.iota,
 					8.iota,
 					1 # 8
-				].transposed,
+				].transpose,
 				'8×2→1×8': [
 					16.iota,
 					[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
 					1 # 16
-				].transposed,
+				].transpose,
 				'8×2→2×4': [
 					16.iota,
 					[0 4] +.x [1 2 2 3 3 4 4 1],
 					1 # 16
-				].transposed,
+				].transpose,
 				'16×2→2×8': [
 					32.iota,
 					[0 8] +.x [1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
 					1 # 32
-				].transposed,
+				].transpose,
 				'16×2→4×4': [
 					32.iota,
 					[0 4 8 12] +.x [1 2 2 3 3 4 4 1],
 					1 # 32
-				].transposed,
+				].transpose,
 				'2×2→1×8': [
 					4.iota,
 					[8 2 4 6],
 					1 # 4
-				].transposed,
+				].transpose,
 				'3×2→1×8': [
 					6.iota,
 					[8 2 7 3 6 4],
 					1 # 6
-				].transposed,
+				].transpose,
 				'3×6→1×2+1×8+2×4': [
 					18.iota,
 					18.iota,
 					1 # 18
-				].transposed,
+				].transpose,
 				'4×2→1×8': [
 					8.iota,
 					8.iota,
 					1 # 8
-				].transposed,
+				].transpose,
 				'5×2→1×2+1×8': [
 					10.iota,
 					10.iota,
 					1 # 10
-				].transposed,
+				].transpose,
 				'6×2→1×8+2×4': [
 					12.iota,
 					12.iota,
 					1 # 12
-				].transposed,
+				].transpose,
 				'7×2→1×8+2×4': [
 					14.iota,
 					14.iota,
 					1 # 14
-				].transposed,
+				].transpose,
 				'8×1→1×8': [
 					8.iota,
 					8.iota,
 					1 # 8
-				].transposed,
+				].transpose,
 				'9×2→1×2+1×8+2×4': [
 					18.iota,
 					18.iota,
 					1 # 18
-				].transposed,
+				].transpose,
 				'10×2→1×2+1×8+2×4': [
 					20.iota,
 					[
@@ -105,7 +105,7 @@
 						2 + [1 5]
 					].catenate,
 					1 # 20
-				].transposed,
+				].transpose,
 				'11×2→1×2+1×8+2×4': [
 					22.iota,
 					[
@@ -114,7 +114,7 @@
 						2 + [1 5 3 7]
 					].catenate,
 					1 # 22
-				].transposed,
+				].transpose,
 				'12×2→1×2+1×8+2×4': [
 					24.iota,
 					[
@@ -123,7 +123,7 @@
 						2 + [1 5 3 7 4 8]
 					].catenate,
 					1 # 24
-				].transposed,
+				].transpose,
 				'13×2→1×2+1×8+2×4': [
 					26.iota,
 					[
@@ -132,12 +132,12 @@
 						2 + [1 5 3 7 4 8 2 6]
 					].catenate,
 					1 # 26
-				].transposed,
+				].transpose,
 				'1×8+2×4→1×8+2×4': [
 					16.iota,
 					16.iota,
 					1 # 16
-				].transposed,
+				].transpose,
 				'16×2→1×8+2×4': [
 					32.iota,
 					[
@@ -145,7 +145,7 @@
 						[8 12] +.x [1 2 2 4 4 3 3 1]
 					].catenate,
 					1 # 32
-				].transposed
+				].transpose
 			)
 		}
 	}

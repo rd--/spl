@@ -42,7 +42,7 @@ Minimum and maximum values of matrix columns and rows:
 >>> 	9 7 6 12;
 >>> 	4 14 15 1
 >>> ];
->>> (m.minMax, m.transposed.minMax)
+>>> (m.minMax, m.transpose.minMax)
 (
 	[4 2 3 1; 16 14 15 13],
 	[2 5 6 1; 16 11 12 15]
@@ -72,7 +72,7 @@ Relation to `coordinateBounds`:
 >>> let c = [4 3].iota;
 >>> (
 >>> 	c.coordinateBounds,
->>> 	c.transposed.collect(minMax:/1)
+>>> 	c.transpose.collect(minMax:/1)
 >>> )
 (
 	[1 10; 2 11; 3 12],

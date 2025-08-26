@@ -108,21 +108,21 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		)
 	}
 
-	rotated { :self :theta :center |
+	rotate { :self :theta :center |
 		let matrix = theta.rotationMatrix;
 		self.vertexCoordinates.collect { :each |
 			matrix.dot(each - center) + center
 		}.Polygon
 	}
 
-	rotated { :self :theta |
-		self.rotated(theta, self.centroid)
+	rotate { :self :theta |
+		self.rotate(theta, self.centroid)
 	}
 
-	scaled { :self :scale |
+	scale { :self :m |
 		let c = self.centroid;
 		self.vertexCoordinates.collect { :each |
-			((each - c) * scale) + c
+			((each - c) * m) + c
 		}.Polygon
 	}
 
@@ -141,7 +141,7 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		self.storeStringAsInitializeSlots
 	}
 
-	translated { :self :operand |
+	translate { :self :operand |
 		self.vertexCoordinates.collect { :each |
 			each + operand
 		}.Polygon

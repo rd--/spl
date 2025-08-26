@@ -21,6 +21,6 @@ true
 
 * * *
 
-See also: asHexString, base16Encoded, Character, Integer
+See also: asHexString, base16Encode, Character, Integer
 
 Categories: Converting

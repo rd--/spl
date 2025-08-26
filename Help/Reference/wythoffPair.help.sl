@@ -47,7 +47,7 @@ Plot Wythoff’s game of Nim:
 let w = 1:23.collect(wythoffPair:/1);
 [
 	w,
-	w.collect(reversed:/1)
+	w.collect(reverse:/1)
 ].scatterPlot
 ~~~
 

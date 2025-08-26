@@ -12,7 +12,7 @@ The distance between equally spaced indices is not, in general, equal:
 ~~~spl svg=A
 let p = [35 140; 175 245; 15 35; 65 150];
 let [i, d] = p.bezierDistanceTable(128);
-[i, d / d.last].transposed.linePlot
+[i, d / d.last].transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/bezierDistanceTable-A.svg)

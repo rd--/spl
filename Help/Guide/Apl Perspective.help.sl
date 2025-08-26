@@ -76,8 +76,8 @@ Methods:
 - [reduce](https://aplwiki.com/wiki/Reduce) Reduce /
 - [replicateEach](https://aplwiki.com/wiki/Replicate) Replicate /
 - [reshape](https://aplwiki.com/wiki/Reshape) Reshape ⍴
-- [reversed](https://aplwiki.com/wiki/Reverse) Reverse ⌽
-- [rotatedLeft](https://aplwiki.com/wiki/Rotate) Rotate ⌽
+- [reverse](https://aplwiki.com/wiki/Reverse) Reverse ⌽
+- [rotateLeft](https://aplwiki.com/wiki/Rotate) Rotate ⌽
 - [rightIdentity](https://aplwiki.com/wiki/Identity) Identity ⊢
 - [scanLeftAssociatingRight](https://aplwiki.com/wiki/Scan) Scan
 - [scan](https://aplwiki.com/wiki/Scan) Scan \
@@ -86,6 +86,6 @@ Methods:
 - [size](https://aplwiki.com/wiki/Tally) Tally ≢
 - [swap](https://aplwiki.com/wiki/Commute) Commute ⍨
 - [take](http://aplwiki.com/wiki/Take) Take ↑
-- [transposed](https://aplwiki.com/wiki/Transpose) Transpose ⍉
+- [transpose](https://aplwiki.com/wiki/Transpose) Transpose ⍉
 - [windowedReduce](https://aplwiki.com/wiki/Windowed_Reduce) Windowed Reduce /
 - [withLevelCollect](https://aplwiki.com/wiki/Depth_(operator)) Depth ¨

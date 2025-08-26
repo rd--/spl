@@ -20,7 +20,7 @@ Threads over lists:
 
 * * *
 
-See also: reversed, String
+See also: reverse, String
 
 References:
 _Mathematica_

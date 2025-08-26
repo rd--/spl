@@ -16,9 +16,9 @@
 			[0, 2 / (top - bottom), 0, 0],
 			[0, 0, -2 / (farVal - nearVal), 0],
 			[
-				(right + left).negated / (right - left),
-				(top + bottom).negated / (top - bottom),
-				(farVal + nearVal.negated) / (farVal - nearVal),
+				(right + left).negate / (right - left),
+				(top + bottom).negate / (top - bottom),
+				(farVal + nearVal.negate) / (farVal - nearVal),
 				1
 			]
 		]
@@ -26,7 +26,7 @@
 
 	gluPerspective { :fovy :aspect :zNear :zFar |
 		let ymax = zNear * (fovy.pi / 360).tan;
-		let ymin = ymax.negated;
+		let ymin = ymax.negate;
 		let xmin = ymin * aspect;
 		let xmax = ymax * aspect;
 		glFrustum(xmin, xmax, ymin, ymax, zNear, zFar)
@@ -43,7 +43,7 @@
 		let [x1, x2, x3] = x.normalize;
 		let [y1, y2, y3] = y.normalize;
 		let [z1, z2, z3] = z;
-		let [w1, w2, w3] = eye.negated;
+		let [w1, w2, w3] = eye.negate;
 		[x1 y1 z1 w1; x2 y2 z2 w2; x3 y3 z3 w3; 0 0 0 1]
 	}
 

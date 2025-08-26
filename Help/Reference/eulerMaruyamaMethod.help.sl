@@ -20,7 +20,7 @@ let b = { :y :t | sigma };
 let t = [0 10 0.1];
 let y0 = 1;
 eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
-.transposed
+.transpose
 .linePlot
 ~~~
 
@@ -37,7 +37,7 @@ let b = { :y :t | sigma * y };
 let t = [0 10 0.1];
 let y0 = 2;
 eulerMaruyamaMethod(r, a:/2, b:/2, t, y0)
-.transposed
+.transpose
 .linePlot
 ~~~
 
@@ -52,7 +52,7 @@ Sfc32(529721)
 	{ :y :t | 1 },
 	[0 2 0.01],
 	-1
-).transposed.linePlot
+).transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/eulerMaruyamaMethod-C.svg)

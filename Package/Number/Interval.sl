@@ -50,9 +50,9 @@ Interval : [Object, Magnitude, Number] { | min max |
 			self
 		} {
 			(self.max <= 0).if {
-				self.negated
+				self.negate
 			} {
-				Interval(0, self.min.negated.max(self.max))
+				Interval(0, self.min.negate.max(self.max))
 			}
 		}
 	}
@@ -158,7 +158,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 		[self.min, self.max]
 	}
 
-	negated { :self |
+	negate { :self |
 		self.zero - self
 	}
 

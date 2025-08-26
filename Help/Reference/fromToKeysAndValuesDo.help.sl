@@ -11,7 +11,7 @@ At `List`:
 >>> let answer = [];
 >>> list
 >>> .fromToKeysAndValuesDo(3, 7) { :key :value |
->>> 	answer.add([key.negated, value])
+>>> 	answer.add([key.negate, value])
 >>> };
 >>> answer
 [-3 '3'; -4 '4'; -5 '5'; -6 '6'; -7 '7']

@@ -7,7 +7,7 @@ Answer a Block that applies _anotherBlock_ to post-processes the result of _aBlo
 The negation of the pointwise maximum of two lists:
 
 ```
->>> max:/2.atop(negated:/1) . (
+>>> max:/2.atop(negate:/1) . (
 >>> 	[3 1 2], [4 6 5]
 >>> )
 [-4 -6 -5]

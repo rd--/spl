@@ -70,7 +70,7 @@
 
 	bitShift { :self :anInteger |
 		anInteger.isNegative.if {
-			self >> anInteger.negated
+			self >> anInteger.negate
 		} {
 			self << anInteger
 		}
@@ -117,7 +117,7 @@
 
 	highBitOfMagnitude { :self |
 		(self < 0).if {
-			self.negated.highBit
+			self.negate.highBit
 		} {
 			self.highBitOfPositiveReceiver
 		}

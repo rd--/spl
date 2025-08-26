@@ -8,7 +8,7 @@ TemporalData : [Object] { | valueList timeList |
 		} {
 			t.allEqual.if {
 				TimeSeries(
-					self.valueList.transposed,
+					self.valueList.transpose,
 					self.timeList.anyOne
 				)
 			} {
@@ -43,7 +43,7 @@ TemporalData : [Object] { | valueList timeList |
 
 	pathList { :self |
 		self.timeList.withCollect(self.valueList) { :i :j |
-			[i, j].transposed
+			[i, j].transpose
 		}
 	}
 
@@ -85,7 +85,7 @@ TemporalData : [Object] { | valueList timeList |
 		let t = [];
 		let v = [];
 		self.do { :each |
-			let [i, j] = each.transposed;
+			let [i, j] = each.transpose;
 			t.add(i);
 			v.add(j)
 		};
@@ -112,7 +112,7 @@ TemporalData : [Object] { | valueList timeList |
 				[
 					timeList,
 					aBlock(timeList)
-				].transposed
+				].transpose
 			}
 		)
 	}

@@ -11,7 +11,7 @@ Syntax for the `at` protocol.
 At `Range`:
 
 ```
->>> let aRange = 9.iota.reversed;
+>>> let aRange = 9.iota.reverse;
 >>> aRange[7]
 3
 ```

@@ -13,7 +13,7 @@ The transposition of a list of lists, cycling row as required:
 ]
 ```
 
-If the matrix is regular this is equal to `transposed`:
+If the matrix is regular this is equal to `transpose`:
 
 ```
 >>> [3 3].iota.irregularTransposition
@@ -26,4 +26,4 @@ If the matrix is regular this is equal to `transposed`:
 
 * * *
 
-See also: transposed
+See also: transpose

@@ -6,7 +6,7 @@ Cons(1, nil).length = 1
 Cons(1, nil).isList = true
 Cons(1, 2).isList = false
 Cons([1 .. 9]).length = 9
-[1 .. 9].Cons.reversed.car = 9
+[1 .. 9].Cons.reverse.car = 9
 [1, [2, 3], [4]].Cons.isList = true
 [1, [2, 3], [4]].Cons.length = 3
 [[[[1, 2, 3]]]].Cons.length = 1
@@ -28,7 +28,7 @@ Matrix22(1, 4, -1, 9).determinant = 13 /* determinant */
 Matrix22(-1, 3/2, 1,-1).inverse = Matrix22(2, 3, 2, 2) /* inverse, answers new matrix */
 let m = Matrix22(-1, 3/2, 1,-1); m.invert; m = Matrix22(2, 3, 2, 2) /* inverse, in place */
 Matrix22().rotation(1.pi / 2).applyTo(PlanarCoordinates(0, 1)).isCloseTo(PlanarCoordinates(1, 0))
-Matrix22(1, 2, 3, 4).transposed = Matrix22(1, 3, 2, 4) /* transpose, answers new matrix */
+Matrix22(1, 2, 3, 4).transpose = Matrix22(1, 3, 2, 4) /* transpose, answers new matrix */
 let m = Matrix22(1, 2, 3, 4); m.transpose; m = Matrix22(1, 3, 2, 4) /* transpose, in place */
 ```
 

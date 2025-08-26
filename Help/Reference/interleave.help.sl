@@ -35,7 +35,7 @@ Alternate positive and negative integers:
 
 * * *
 
-See also: intercalate, intersperse, irregularTransposition, transposed
+See also: intercalate, intersperse, irregularTransposition, transpose
 
 References:
 _Mathematica_

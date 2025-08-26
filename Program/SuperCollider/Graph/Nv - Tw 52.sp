@@ -11,4 +11,4 @@ GVerb(
 	).Lag(0.01),
 	99, 5, 0.5, 0.5, 15,
 	1, 0.7, 0.5, 300
-).transposed.Mix / 15
+).transpose.Mix / 15

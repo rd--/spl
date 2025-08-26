@@ -1,5 +1,5 @@
 /* https://fredrikolofsson.com/f0blog/sapf-sctweets/ 0186 */
-let b = [1 .. 11].rotated(4) * 1.011;
+let b = [1 .. 11].rotate(4) * 1.011;
 LeakDc(
 	Splay2(
 		Sweep(0, b + 999).Fold(

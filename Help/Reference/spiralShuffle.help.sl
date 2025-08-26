@@ -34,12 +34,12 @@ Permutation cycles:
 
 ```
 >>> 1:5.spiralShuffle
->>> .reversed
+>>> .reverse
 >>> .permutationCycles(false)
 [1; 2 3 5; 4]
 
 >>> 1:8.spiralShuffle
->>> .reversed
+>>> .reverse
 >>> .permutationCycles(false)
 [1; 2 3 5; 4 7; 6; 8]
 ```

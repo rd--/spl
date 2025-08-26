@@ -91,7 +91,7 @@ Splay(
 			LfdNoise3(1 # 4) * 0.1 + 0.97215,
 			1 / 4,
 			1 / 4
-		) * e.reversed,
+		) * e.reverse,
 		0.995
 	),
 	StandardN(e.last * 14, 1, 0.5, 0)
@@ -551,7 +551,7 @@ let a = [41 73 123 196];
 let f = SinOsc(440, 0);
 0:8.do { :i |
 	a := a * 5.MidiRatio;
-	f := SinOsc(f * a.rotated(i + 3), 0) * SinOsc(f, 0).Tanh
+	f := SinOsc(f * a.rotate(i + 3), 0) * SinOsc(f, 0).Tanh
 };
 Splay(
 	LeakDc(f.Tanh, 0.995),

@@ -72,7 +72,7 @@ Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of 
 ]
 ```
 
-The counter clockwise rotation and the two further rotations given in terms of `reversed` and `transposed`:
+The counter clockwise rotation and the two further rotations given in terms of `reverse` and `transpose`:
 
 ```
 >>> let m = [
@@ -81,9 +81,9 @@ The counter clockwise rotation and the two further rotations given in terms of `
 >>> 	7 8 9
 >>> ];
 >>> (
->>> 	m.collect(reversed:/1).transposed,
->>> 	m.collect(reversed:/1).reversed,
->>> 	m.transposed.collect(reversed:/1)
+>>> 	m.collect(reverse:/1).transpose,
+>>> 	m.collect(reverse:/1).reverse,
+>>> 	m.transpose.collect(reverse:/1)
 >>> )
 (
 	[
@@ -106,7 +106,7 @@ The counter clockwise rotation and the two further rotations given in terms of `
 
 * * *
 
-See also: Matrix, reversed, transposed
+See also: Matrix, reverse, transpose
 
 References:
 _Mathworks_

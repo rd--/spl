@@ -175,7 +175,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		)
 	}
 
-	negated { :self |
+	negate { :self |
 		RgbColour(
 			1 - self.rgb,
 			self.alpha

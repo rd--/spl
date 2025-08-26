@@ -7,7 +7,7 @@
 		}.whileTrue {
 			r := self.nextRandomFloat
 		};
-		beta * (r.log.negated ^ (1 / alpha)) + mu
+		beta * (r.log.negate ^ (1 / alpha)) + mu
 	}
 
 }
@@ -20,7 +20,7 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		let mu = self.mu;
 		{ :x |
 			(x >= 0).if {
-				1 - (((x - mu) / beta) ^ alpha).negated.exp
+				1 - (((x - mu) / beta) ^ alpha).negate.exp
 			} {
 				0
 			}
@@ -68,7 +68,7 @@ WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
 		let mu = self.mu;
 		{ :x |
 			(x >= mu).if {
-				(alpha / beta) * (((x - mu) / beta) ^ (alpha - 1)) * (((x - mu) / beta) ^ alpha).negated.exp
+				(alpha / beta) * (((x - mu) / beta) ^ (alpha - 1)) * (((x - mu) / beta) ^ alpha).negate.exp
 			} {
 				0
 			}

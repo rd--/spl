@@ -47,8 +47,8 @@ Conjugate is an odd function:
 
 ```
 >>> let n = 1.j(system.nextRandomFloat);
->>> n.negated.conjugate
-n.conjugate.negated
+>>> n.negate.conjugate
+n.conjugate.negate
 ```
 
 Conjugate is involutive:

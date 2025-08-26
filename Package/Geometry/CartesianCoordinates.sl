@@ -75,7 +75,7 @@
 	}
 
 	negate { :self |
-		self.coordinates := self.coordinates.negated
+		self.coordinates := self.coordinates.negate
 	}
 
 	norm { :self |

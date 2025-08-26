@@ -81,7 +81,7 @@ Table : [Object] { | contents columnLabels columnTypes |
 		let c = self.keys;
 		let r = c.collect { :each |
 			self.at(each)
-		}.transposed;
+		}.transpose;
 		Table(r, c)
 	}
 

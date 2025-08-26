@@ -53,7 +53,7 @@ Autocorrelation of white noise is an impulse:
 ~~~spl svg=C
 let r = Sfc32(317841);
 let u = r.randomReal([-1 1], [200]);
-let v = u.reversed;
+let v = u.reverse;
 u.convolve(v).linePlot
 ~~~
 
@@ -63,7 +63,7 @@ Find the autocorrelation of a list:
 
 ~~~spl svg=D
 let u = 1:100.collect { :i | (i ^ 2) % 17 };
-let v = u.reversed;
+let v = u.reverse;
 (u ++ u).convolve(v).middle(100).linePlot
 ~~~
 

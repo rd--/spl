@@ -58,7 +58,7 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		};
 		channelsArray
 		*/
-		self.partition(n, n).transposed
+		self.partition(n, n).transpose
 	}
 
 	fill { :shape :aBlock:/1 |

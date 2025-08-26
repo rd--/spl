@@ -87,7 +87,7 @@ FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 				[
 					timeList,
 					self.hoskingMethod(tMax - tMin, m, h, k).take(l)
-				].transposed
+				].transpose
 			} ! n
 		)
 	}

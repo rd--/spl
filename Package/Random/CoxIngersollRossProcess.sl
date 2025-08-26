@@ -9,7 +9,7 @@ CoxIngersollRossProcess : [Object] { | mu sigma theta x0 |
 		let b = { :y :t | sigma * y.sqrt };
 		TemporalData(
 			{
-				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
+				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transpose
 			} ! n
 		)
 	}

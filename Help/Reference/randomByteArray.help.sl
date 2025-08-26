@@ -11,7 +11,7 @@ each randomly initialized using the random number generator _r_.
 >>> (
 >>> 	b.isByteArray,
 >>> 	b.size,
->>> 	b.base16Encoded.size,
+>>> 	b.base16Encode.size,
 >>> 	b
 >>> )
 (	true,

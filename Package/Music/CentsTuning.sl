@@ -48,7 +48,7 @@ CentsTuning : [Object, Tuning] { | name description asCents octave |
 		let step = 1200 / self;
 		CentsTuning(
 			'ET-' ++ self,
-			self.asWords.capitalized ++ ' tone equal-temperament',
+			self.asWords.capitalize ++ ' tone equal-temperament',
 			[0, step .. 1200 - step],
 			2
 		)

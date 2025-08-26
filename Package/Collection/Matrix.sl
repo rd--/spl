@@ -141,7 +141,7 @@
 	isLatinSquare { :self |
 		self.isSquareMatrix & {
 			let x = self[1];
-			(self ++ self.transposed).allSatisfy { :each |
+			(self ++ self.transpose).allSatisfy { :each |
 				each.isPermutationOf(x)
 			}
 		}
@@ -157,7 +157,7 @@
 
 	isSymmetricMatrix { :self |
 		self.isSquareMatrix & {
-			self = self.transposed
+			self = self.transpose
 		}
 	}
 
@@ -211,9 +211,9 @@
 
 	matrixRotate { :self :k |
 		k.caseOf([
-			1 -> { self.collect(reversed:/1).transposed },
-			2 -> { self.collect(reversed:/1).reversed },
-			3 -> { self.transposed.collect(reversed:/1) }
+			1 -> { self.collect(reverse:/1).transpose },
+			2 -> { self.collect(reverse:/1).reverse },
+			3 -> { self.transpose.collect(reverse:/1) }
 		]) {
 			self.error('List>>matrixRotate: k not 1,2,3')
 		}
@@ -293,7 +293,7 @@
 
 	circulantMatrix { :self |
 		(1 .. self.size).collect { :i |
-			self.rotatedRight(i)
+			self.rotateRight(i)
 		}
 	}
 
@@ -567,9 +567,9 @@
 				let k = i.size // 2;
 				let j = [
 					i.take(k),
-					i.reversed.take(k)
+					i.reverse.take(k)
 				];
-				m.swapAllWith(j.transposed)
+				m.swapAllWith(j.transpose)
 			};
 			let columnSwaps = { :m :i :j :c |
 				i.withDo(j) { :p :q |
@@ -581,9 +581,9 @@
 					let z = [1 .. n * n];
 					let shift = (z - 1 / n).floor;
 					let c = (z - shift + ((n - 3) / 2)) % n;
-					let r = (z.reversed + (2 * shift)) % n;
+					let r = (z.reverse + (2 * shift)) % n;
 					let m = (c * n + r + 1).ordering;
-					m.reshape([n n]).transposed
+					m.reshape([n n]).transpose
 				},
 				{ n % 4 = 0 } -> {
 					let z = [1 .. n * n];

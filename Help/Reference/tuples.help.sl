@@ -149,7 +149,7 @@ The first element given is always picked first:
 [1 1; 1 0; 0 1; 0 0]
 
 >>> [1 0].tuples(3)
-[0 1].tuples(3).reversed
+[0 1].tuples(3).reverse
 ```
 
 All ways of picking one element from each list:

@@ -11,4 +11,4 @@ let f = { :octave :clockRate :pwmRate :fltRate |
 let a = { LfNoise0(LfNoise1(0.3) * 6000 + 8000) } ! 2 * 0.07;
 let x = Decay(Impulse(2, 0), 0.15) * a;
 let g = x + [f(1, 8, 0.31, 0.2), f(0, 2, 0.13, 0.11)];
-CombC(g, 0.375, 0.375, 5) + g.reversed * 0.4
+CombC(g, 0.375, 0.375, 5) + g.reverse * 0.4

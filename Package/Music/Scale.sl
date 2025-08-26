@@ -29,7 +29,7 @@ Scale : [Object] { | startIndex intervals description |
 	fractionalDegreeToKey { :self :scaleDegree |
 		let accidental = (scaleDegree.fractionalPart * 10).round;
 		(accidental > 5).ifTrue {
-			accidental := (10 - accidental).negated
+			accidental := (10 - accidental).negate
 		};
 		self.integerDegreeToKey(scaleDegree.round, accidental)
 	}

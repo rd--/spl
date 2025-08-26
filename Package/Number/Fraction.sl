@@ -71,7 +71,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			)
 		} {
 			aNumber.isFraction.if {
-				self + aNumber.negated
+				self + aNumber.negate
 			} {
 				aNumber.adaptToFractionAndApply(self, -)
 			}
@@ -321,6 +321,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.asFloat.log
 	}
 
+	log2 { :self |
+		self.asFloat.log2
+	}
+
+	log10 { :self |
+		self.asFloat.log10
+	}
+
 	mediant { :self :aFraction |
 		Fraction(
 			self.numerator + aFraction.numerator,
@@ -328,8 +336,8 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		)
 	}
 
-	negated { :self |
-		ReducedFraction(self.numerator.negated, self.denominator)
+	negate { :self |
+		ReducedFraction(self.numerator.negate, self.denominator)
 	}
 
 	normalize { :self |
@@ -377,7 +385,7 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.one
 		} {
 			(anInteger < 0).if {
-				self.reciprocal.raisedToInteger(anInteger.negated)
+				self.reciprocal.raisedToInteger(anInteger.negate)
 			} {
 				ReducedFraction(
 					self.numerator.raisedToInteger(anInteger),

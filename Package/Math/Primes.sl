@@ -45,7 +45,7 @@
 
 	factorInteger { :self |
 		self.isNegative.if {
-			let answer = self.negated.factorInteger;
+			let answer = self.negate.factorInteger;
 			answer.addFirst(-1 -> 1);
 			answer
 		} {
@@ -549,7 +549,7 @@
 	factorInteger { :self |
 		let n = self.numerator.factorInteger;
 		let d = self.denominator.factorInteger.collect { :each |
-			each.key -> each.value.negated
+			each.key -> each.value.negate
 		};
 		(n ++ d).sorted
 	}

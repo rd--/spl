@@ -20,7 +20,7 @@ let c = { :y | sigma.squared / 2 * y };
 let t = [0 10 0.1];
 let y0 = 2;
 milsteinMethod(r, a:/1, b:/1, c:/1, t, y0)
-.transposed
+.transpose
 .linePlot
 ~~~
 
@@ -36,7 +36,7 @@ Sfc32(317892)
 	{ :y | y },
 	[0 5 0.02],
 	1
-).transposed.linePlot
+).transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/milsteinMethod-B.svg)

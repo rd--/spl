@@ -9,7 +9,7 @@ let f = { :saw |
 	let freq2 = saw.ExpRange(freq1, freq1 * LfNoise1(rate).ExpRange(2, 10));
 	let u1 = LfSaw(freq2, 0);
 	let u2 = system.coin(0.5).if {
-		u1 * [1 - saw, saw.reversed].atRandom
+		u1 * [1 - saw, saw.reverse].atRandom
 	} {
 		u1 * (LfSaw(freq1 * 0.1, 0) * 0.1 + 1)
 	};

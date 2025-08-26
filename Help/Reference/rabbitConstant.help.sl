@@ -30,4 +30,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/RabbitConstant.html),
 _OEIS_
 [1](https://oeis.org/A014565)
-

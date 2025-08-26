@@ -120,6 +120,17 @@ let r = a.center;
 
 ![](sw/spl/Help/Image/circleInversion-D.svg)
 
+The circle inversions of an annular Steiner chain is another Steiner chain:
+
+~~~spl svg=E
+let a = Circle([-2 0], 1);
+let b = 9.annularSteinerChain([0 0], 0.475);
+let c = b.circleInversion(a);
+[a b c].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circleInversion-E.svg)
+
 * * *
 
 See also: Circle, circlePower, isOrthogonalCircle

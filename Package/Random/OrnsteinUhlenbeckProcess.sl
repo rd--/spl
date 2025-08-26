@@ -13,7 +13,7 @@ OrnsteinUhlenbeckProcess : [Object] { | mu sigma theta x0 |
 				x0.ifNil {
 					x0 := r.normalDistribution(self.mu, self.sigma / (2 * self.theta).sqrt)
 				};
-				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transposed
+				r.eulerMaruyamaMethod(a:/2, b:/2, t, x0).transpose
 			} ! n
 		)
 	}

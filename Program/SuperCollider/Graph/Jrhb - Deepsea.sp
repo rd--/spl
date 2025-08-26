@@ -22,7 +22,7 @@ let f2 = CombL(
 	0.5,
 	0.5,
 	1
-) + f1.reversed;
+) + f1.reverse;
 let f3 = f2;
 5.timesRepeat {
 	f3 := AllpassN(f3, 0.18, { 0.06.Rand0 } ! 2 + 0.06, 8)

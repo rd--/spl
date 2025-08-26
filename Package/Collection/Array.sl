@@ -70,7 +70,7 @@
 
 	coordinateBoundingBoxArray { :bounds :steps :offset |
 		let [m, n] = bounds.shape;
-		bounds.transposed.coordinateBoundsArray(steps, offset)
+		bounds.transpose.coordinateBoundsArray(steps, offset)
 	}
 
 	coordinateBoundingBoxArray { :bounds :steps |
@@ -119,10 +119,10 @@
 
 	flipLeftRight { :self |
 		self.isVector.if {
-			self.reversed
+			self.reverse
 		} {
 			self.isMatrix.if {
-				self.collect(reversed:/1)
+				self.collect(reverse:/1)
 			} {
 				self.collect(flipLeftRight:/1)
 			}
@@ -189,7 +189,7 @@
 	}
 
 	padLeft { :self :aList :anObject |
-		self.padRight(aList.negated, anObject)
+		self.padRight(aList.negate, anObject)
 	}
 
 	padLeft { :self |

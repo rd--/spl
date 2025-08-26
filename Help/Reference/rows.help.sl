@@ -37,6 +37,6 @@ Table([3 3].iota).rows([1 3]).asHtml
 
 * * *
 
-See also: at, column, List, Matrix, row, submatrix, transposed
+See also: at, column, List, Matrix, row, submatrix, transpose
 
 Guides: Matrix Functions

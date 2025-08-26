@@ -190,7 +190,7 @@ The distance between equally spaced indices is not, in general, equal:
 let p = [35 140; 175 245; 15 35; 65 150];
 let d = BezierCurve(p, 3).distance;
 let i = (0 -- 1).discretize(d.size);
-[i, d / d.last].transposed.linePlot
+[i, d / d.last].transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/BezierCurve-I.svg)

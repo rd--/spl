@@ -1,16 +1,16 @@
-# rotated
+# rotate
 
-- _rotated([x₁ x₂ …], n)_
-- _rotated(g, theta)_
+- _rotate([x₁ x₂ …], n=1)_
+- _rotate(g, theta)_
 
 At `List`,
 answer _x_ rotated to the right by _n_ places.
 
 ```
->>> [1 3 2 4 5].rotated(1)
+>>> [1 3 2 4 5].rotate(1)
 [5 1 3 2 4]
 
->>> [1 3 2 4 5].rotated(-1)
+>>> [1 3 2 4 5].rotate(-1)
 [3 2 4 5 1]
 ```
 
@@ -24,15 +24,15 @@ let g = [1 3].unitSquare;
 [
 	g,
 	Point(g.centroid),
-	g.rotated(1/4.pi)
+	g.rotate(1/4.pi)
 ].LineDrawing
 ~~~
 
-![](sw/spl/Help/Image/rotated-A.svg)
+![](sw/spl/Help/Image/rotate-A.svg)
 
 * * *
 
-See also: centroid, Polygon, rotatedLeft, rotatedRight, scaled
+See also: centroid, Polygon, rotateLeft, rotateRight, scaled
 
 References:
 _Mathematica_

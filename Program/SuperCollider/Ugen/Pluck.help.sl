@@ -10,7 +10,7 @@ EqPan(snd, freq)
 /* Pluck ; Event control */
 Voicer(1, 16) { :e |
 	let dm = 1 / 220;
-	let dl = (e.x.negated * 0.9 + 1) * dm;
+	let dl = (e.x.Negate * 0.9 + 1) * dm;
 	let sig = Pluck(WhiteNoise() * e.z, e.w, dm, dl, 10, e.y / 3);
 	EqPan2(sig, e.i * 2 - 1)
 }.Mix
@@ -23,7 +23,7 @@ Voicer(1, 16) { :e |
 	z: LfNoise2(Rand(1, [9 .. 2] / 11)).LinLin(-1, 1, 0, [2 .. 9] / 9)
 ).Voicer { :e |
 	let dm = 1 / 220;
-	let dl = (e.x.negated * 0.9 + 1) * dm;
+	let dl = (e.x.Negate * 0.9 + 1) * dm;
 	let sig = Pluck(WhiteNoise() * e.z, e.w, dm, dl, 10, e.y / 3);
 	EqPan2(sig, e.y * 2 - 1) * 0.25
 }.Mix

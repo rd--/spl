@@ -1,8 +1,8 @@
 # cubed
 
-- _cubed(aNumber)_
+- _cubed(x)_
 
-Answer _aNumber_ raised to the power of three.
+Answer the number _x_ raised to the power of three.
 
 ```
 >>> (3 * 3 * 3, 3 ^ 3, 3.cubed)

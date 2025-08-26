@@ -38,7 +38,7 @@ Hpf(
 		9
 	),
 	200
-).Sum.transposed.Mix
+).Sum.transpose.Mix
 
 /* http://earslap.com/weblog/music-release-laconicism.html ; wait */
 let f = LocalIn(2, 0).Tanh;
@@ -139,7 +139,7 @@ fundamentals.withIndexCollect { :freq0 :index |
 
 /* http://earslap.com/article/recreating-the-thx-deep-note.html ; inverting init sort, louder bass, final volume envelope, some little tweaks ; requires=CurveGen */
 let numVoices = 30;
-let fundamentals = system.randomReal([200 400], [numVoices]).sorted.reversed;
+let fundamentals = system.randomReal([200 400], [numVoices]).sorted.reverse;
 let finalPitches = (1:numVoices.collect { :each |
 	(each / (numVoices / 6)).RoundTo(1) * 12
 } + 14.5).MidiCps;

@@ -1,14 +1,14 @@
-# base16Encoded
+# base16Encode
 
-- _base16Encoded(aByteArray)_
+- _base16Encode(b)_
 
-Answer _aByteArray_ encoded as a Base-16 `String`.
+Answer the byte array _b_ encoded as a Base-16 `String`.
 
 At `ByteArray`:
 
 ```
 >>> [9 .. 15].asByteArray
->>> .base16Encoded
+>>> .base16Encode
 '090A0B0C0D0E0F'
 ```
 
@@ -16,7 +16,7 @@ At `ByteArray` of the Ascii encoding of a `String`:
 
 ```
 >>> 'string'.asciiByteArray
->>> .base16Encoded
+>>> .base16Encode
 '737472696E67'
 ```
 
@@ -29,7 +29,7 @@ Radix notation of list:
 
 * * *
 
-See also: asciiByteArray, AsciiString, asHexDigit, base16Decoded, base64Encoded, String
+See also: asciiByteArray, AsciiString, asHexDigit, base16Decode, base64Encode, String
 
 References:
 _Ietf_

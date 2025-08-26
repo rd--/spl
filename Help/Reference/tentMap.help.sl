@@ -20,7 +20,7 @@ Plot the above parameters as _(x[n], x[n+1])_:
 let x0 = 0.4;
 let y = tentMap(1.9).nestList(x0, 99);
 let x = [x0] ++ y.allButLast;
-[x, y].transposed.scatterPlot
+[x, y].transpose.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/tentMap-B.svg)

@@ -424,7 +424,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	lucasNumber { :self |
 		let phi = 1.goldenRatio;
-		(phi ^ self) + (self.pi.cos * (phi ^ self.negated))
+		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
 	}
 
 	min { :self :anObject |
@@ -514,7 +514,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		};
 		self.isNegative.if {
 			aPositiveInteger.isOdd.if {
-				(self.negated ^ (1 / aPositiveInteger)).negated
+				(self.negate ^ (1 / aPositiveInteger)).negate
 			} {
 				'nthRoot: negative numbers do not have even roots.'.error
 			}

@@ -15,7 +15,7 @@ Calculate the signed area of a pentagon:
 >>> let p = [1 6; 3 1; 7 2; 4 4; 8 5];
 >>> (
 >>> 	p.shoelaceFormula,
->>> 	p.reversed.shoelaceFormula
+>>> 	p.reverse.shoelaceFormula
 >>> )
 (16.5, -16.5)
 ```

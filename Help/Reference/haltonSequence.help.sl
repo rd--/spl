@@ -41,7 +41,7 @@ The _(2,3,5)_ Halton sequence:
 Relation to `vanDerCorputNumber`:
 
 ```
->>> [2 3].haltonSequence(8).transposed
+>>> [2 3].haltonSequence(8).transpose
 [
 	1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16;
 	1/3 2/3 1/9 4/9 7/9 2/9 5/9 8/9

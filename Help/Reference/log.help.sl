@@ -30,6 +30,13 @@ At `zero` and `one`:
 0
 ```
 
+At `Fraction`:
+
+```
+>>> 3/2.log
+0.405465
+```
+
 The binary form answers the base _b_ logarithm of the number _z_.
 
 ```

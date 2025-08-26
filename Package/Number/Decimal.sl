@@ -191,8 +191,8 @@ Decimal : [Object] { | fraction scale |
 		self.fraction.numerator = 0
 	}
 
-	negated { :self |
-		UnsimplifiedDecimal(self.fraction.negated, self.scale)
+	negate { :self |
+		UnsimplifiedDecimal(self.fraction.negate, self.scale)
 	}
 
 	numerator { :self |

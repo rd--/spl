@@ -11,7 +11,7 @@ HexagonalEfficientCoordinates : [Object] { | coordinates |
 	}
 
 	- { :self :operand |
-		self + operand.negated
+		self + operand.negate
 	}
 
 	* { :self :operand |
@@ -24,7 +24,7 @@ HexagonalEfficientCoordinates : [Object] { | coordinates |
 				(c * operand) + z
 			)
 		} {
-			self.negated * operand.abs
+			self.negate * operand.abs
 		}
 
 	}
@@ -40,7 +40,7 @@ HexagonalEfficientCoordinates : [Object] { | coordinates |
 		self.coordinates
 	}
 
-	negated { :self |
+	negate { :self |
 		let [a, r, c] = self.coordinates;
 		HexagonalEfficientCoordinates(
 			a,

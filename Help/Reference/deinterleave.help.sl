@@ -23,10 +23,10 @@ Deinterleave a 9 vector into a 3×3 matrix:
 ]
 ```
 
-Equivalent to `transposed` of `partition`:
+Equivalent to `transpose` of `partition`:
 
 ```
->>> [1 .. 9].partition(3, 3).transposed
+>>> [1 .. 9].partition(3, 3).transpose
 [
 	1 4 7;
 	2 5 8;
@@ -43,4 +43,4 @@ The inverse is `interleave`:
 
 * * *
 
-See also: flatten, interleave, partition, transposed
+See also: flatten, interleave, partition, transpose

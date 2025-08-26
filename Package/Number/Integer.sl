@@ -79,7 +79,7 @@
 			let milCount = 1;
 			(self < 0).ifTrue {
 				minus := 'negative ';
-				num := self.negated
+				num := self.negate
 			};
 			{
 				num > 0
@@ -960,8 +960,8 @@
 	modularInverse { :a :n |
 		let t = 0;
 		let t1 = 1;
-		let r = (n < 0).if { n.negated } { n };
-		let r1 = (a < 0).if { (n - (a.negated % n)) % n } { a % n };
+		let r = (n < 0).if { n.negate } { n };
+		let r1 = (a < 0).if { (n - (a.negate % n)) % n } { a % n };
 		{
 			r1 ~= 0
 		}.whileTrue {
@@ -1014,7 +1014,7 @@
 
 	numberOfDigitsInBase { :self :radix |
 		self.isNegative.if {
-			self.negated.numberOfDigitsInBase(radix)
+			self.negate.numberOfDigitsInBase(radix)
 		} {
 			(self < radix).if {
 				1
@@ -1161,7 +1161,7 @@
 	romanDigitsOn { :self :aStream |
 		let integer = self.isNegative.if {
 			aStream.nextPut('-'.asciiValue);
-			self.negated
+			self.negate
 		} {
 			self
 		};

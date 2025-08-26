@@ -47,7 +47,7 @@ Plot correspondence between two 6-vectors:
 let x = [1 2 3 4 5 9];
 let y = [11 9 8 9 12 14];
 x.warpingCorrespondence(y)
-.transposed.linePlot
+.transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/warpingCorrespondence-A.svg)
@@ -64,7 +64,7 @@ let y = [
 	5 5 5 5 6 6 7
 ];
 x.warpingCorrespondence(y)
-.transposed.linePlot
+.transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/warpingCorrespondence-B.svg)
@@ -75,7 +75,7 @@ Plot correspondence between 13 and 5- vectors:
 let x = [0 1 0 0 0 0 0 0 0 0 0 1 0];
 let y = [0 1 0 1 0];
 x.warpingCorrespondence(y)
-.transposed.linePlot
+.transpose.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/warpingCorrespondence-C.svg)

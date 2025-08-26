@@ -217,7 +217,7 @@
 +SmallFloat {
 
 	randomIntegerBipolar { :max |
-		system.randomInteger([max.negated, max], [])
+		system.randomInteger([max.negate, max], [])
 	}
 
 	randomReal { :max :shape |
@@ -229,7 +229,7 @@
 	}
 
 	randomRealBipolar { :max |
-		system.randomReal([max.negated, max], [])
+		system.randomReal([max.negate, max], [])
 	}
 
 }

@@ -47,7 +47,7 @@ Autocorrelation of white noise is an impulse:
 ~~~spl svg=C
 let r = Sfc32(317841);
 let u = r.randomReal([-1 1], [200]);
-let v = u.reversed;
+let v = u.reverse;
 u.fftConvolve(v).linePlot
 ~~~
 

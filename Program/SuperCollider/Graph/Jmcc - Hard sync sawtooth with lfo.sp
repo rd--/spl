@@ -6,4 +6,4 @@ let txt = { :tr |
 		SinOsc(0.2, { TRand(0, 2.pi, tr) } ! 2) * 2 * f + (3 * f)
 	) * 0.05
 }.OverlapTexture(4, 4, 4).Mix;
-CombN(txt, 0.3, 0.3, 4) + txt.reversed
+CombN(txt, 0.3, 0.3, 4) + txt.reverse

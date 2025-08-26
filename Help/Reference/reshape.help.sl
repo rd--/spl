@@ -201,12 +201,12 @@ Reshape a 4×3 matrix into a 2×2×3 array.
 ]
 ```
 
-Reversing matrix dimensions does not give the same element order as `transposed`:
+Reversing matrix dimensions does not give the same element order as `transpose`:
 
 ```
 >>> let s = [3 4];
 >>> let m = s.iota;
->>> (m.reshape(s.reversed), m.transposed)
+>>> (m.reshape(s.reverse), m.transpose)
 (
 	[
 		 1  2  3;
@@ -281,7 +281,7 @@ The ordering is _row_ not _column_:
 	9 10
 ]
 
->>> 1:10.reshape([2 5]).transposed
+>>> 1:10.reshape([2 5]).transpose
 [
 	1  6;
 	2  7;

@@ -22,7 +22,7 @@ Calculate signed point-plane distances using Hesse normal form:
 >>> let p = InfinitePlane(1, 1, 0, -2);
 >>> let [n, d] = p.hessianNormalForm;
 >>> n.dot([-1 1 2]) + d
-2.sqrt.negated
+2.sqrt.negate
 
 >>> let p = InfinitePlane(3, 4, -1, -1);
 >>> let [n, d] = p.hessianNormalForm;

@@ -1,18 +1,18 @@
-# base16Decoded
+# base16Decode
 
-- _base16Decoded(aString)_
+- _base16Decode(s)_
 
-Answer the `ByteArray` encoded in Base16 at _aString_.
+Answer the `ByteArray` encoded in Base16 at the string _s_.
 
 ```
 >>> '0102030405060708090A0B0C0D0E0F'
->>> .base16Decoded
+>>> .base16Decode
 [1 .. 15].asByteArray
 ```
 
 * * *
 
-See also: base64Decoded, base16Encoded, isBase16String
+See also: base64Decode, base16Encode, isBase16String
 
 References:
 _Ietf_

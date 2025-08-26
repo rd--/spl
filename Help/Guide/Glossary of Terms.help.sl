@@ -388,7 +388,7 @@ A _sequence type_ that is less general than `List`.
 Cf: Tuple
 
 - _Unary Function_:
-A _function_ of one _argument_, such as _negated_.
+A _function_ of one _argument_, such as `negate`.
 
 - _Unicode Character_:
 A character encoded according to the [Unicode](http://www.unicode.org/) specification.

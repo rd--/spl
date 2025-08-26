@@ -40,7 +40,7 @@ Unary `*` is `sign`:
 [-1 0 1]
 ```
 
-Unary `-` is `negated`:
+Unary `-` is `negate`:
 
 ```
 >>> 3.-

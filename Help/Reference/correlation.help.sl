@@ -82,10 +82,10 @@ Correlation between a Toeplitz matrix and itself:
 >>> let x = 2/5.sqrt;
 >>> correlation(m, m)
 [
-	1 x x.negated -1;
-	x 1 0 x.negated;
-	x.negated 0 1 x;
-	-1 x.negated x 1
+	1 x x.negate -1;
+	x 1 0 x.negate;
+	x.negate 0 1 x;
+	-1 x.negate x 1
 ]
 ```
 

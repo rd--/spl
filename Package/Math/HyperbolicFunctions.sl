@@ -99,7 +99,7 @@
 	}
 
 	tanh { :z |
-		z.i.tan.i.negated
+		z.i.tan.i.negate
 	}
 
 }

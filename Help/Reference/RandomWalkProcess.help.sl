@@ -47,7 +47,7 @@ let r = Sfc32(768134);
 RandomWalkProcess(0.5, 0.5)
 .randomFunction(r, [0 1E3], 2)
 .valueList
-.transposed
+.transpose
 .Line
 ~~~
 
@@ -60,7 +60,7 @@ let r = Sfc32(791234);
 RandomWalkProcess(0.5, 0.5)
 .randomFunction(r, [0 1E3], 3)
 .valueList
-.transposed
+.transpose
 .Line
 .asPerspectiveDrawing
 ~~~

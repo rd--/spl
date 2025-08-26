@@ -58,7 +58,7 @@ Eigenvalues of 3×3 real matrices:
 [6.60674 4.52536 0.66790]
 
 >>> let r = 1 / 2.sqrt;
->>> [1 0 0; 0 r r.negated; 0 r r].eigenvalues
+>>> [1 0 0; 0 r r.negate; 0 r r].eigenvalues
 [1 r r]
 ```
 
@@ -74,7 +74,7 @@ Eigen values of a 3×3 symmetric matrix:
 
 ```
 >>> let s = [1 4 -2; 4 5 -3; -2 -3 2];
->>> (s = s.transposed, s.eigenvalues)
+>>> (s = s.transpose, s.eigenvalues)
 (true, [9.26080 -1.47973 0.21892])
 ```
 

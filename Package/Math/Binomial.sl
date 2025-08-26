@@ -111,7 +111,7 @@
 				} {
 					1:n.collect { :k |
 						binomial(2 * n, 2 * k) * f(2 * (n - k))
-					}.sum.negated
+					}.sum.negate
 				}
 			}.memoize(false);
 			f(self)

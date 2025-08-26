@@ -55,7 +55,7 @@ let n = 64;
 	x.gaussianWindow(3 / n)
 }
 .fft
-.rotatedRight(n // 2)
+.rotateRight(n // 2)
 .abs
 .discretePlot
 ~~~

@@ -83,7 +83,7 @@
 		>
 	}
 
-	reverse { :self |
+	reverseInPlace { :self |
 		<primitive: return _self.reverse();>
 	}
 

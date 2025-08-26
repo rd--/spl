@@ -27,7 +27,7 @@ DiscreteUniformDistribution : [Object, ProbabilityDistribution] { | a b |
 		let [a, b] = self.isVector.if {
 			self
 		} {
-			self.transposed
+			self.transpose
 		};
 		newDiscreteUniformDistribution().initializeSlots(a, b)
 	}

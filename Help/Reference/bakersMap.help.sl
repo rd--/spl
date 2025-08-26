@@ -9,7 +9,7 @@ Plot with _a=b=1.1_:
 ~~~spl svg=A
 bakersMap(1.1)
 .nestList([0.4132 0.5872], 50)
-.transposed
+.transpose
 .linePlot
 ~~~
 
@@ -20,7 +20,7 @@ Plot with _a=b=0.947_:
 ~~~spl svg=B
 bakersMap(0.947)
 .nestList([0.4783 0.1847], 50)
-.transposed
+.transpose
 .linePlot
 ~~~
 

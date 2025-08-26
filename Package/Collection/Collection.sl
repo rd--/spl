@@ -508,7 +508,7 @@
 
 	normalizeSignal { :self :minima :maxima |
 		let x = self.min.abs.max(self.max.abs);
-		self.rescale(x.negated, x, minima, maxima)
+		self.rescale(x.negate, x, minima, maxima)
 	}
 
 	normalizeSignal { :self |
@@ -617,7 +617,7 @@
 
 	rankedMax { :self :n |
 		(n < 0).if {
-			self.rankedMin(n.negated)
+			self.rankedMin(n.negate)
 		} {
 			let m = self.size;
 			self.quantile((m - n + 1) / m)
@@ -626,7 +626,7 @@
 
 	rankedMin { :self :n |
 		(n < 0).if {
-			self.rankedMax(n.negated)
+			self.rankedMax(n.negate)
 		} {
 			self.quantile(n / self.size)
 		}

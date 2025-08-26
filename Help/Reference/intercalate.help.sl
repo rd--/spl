@@ -32,7 +32,7 @@ At empty list:
 
 * * *
 
-See also: intersperse, interleave, riffle, transposed
+See also: intersperse, interleave, riffle, transpose
 
 References:
 _Haskell_

@@ -15,7 +15,7 @@ BrownianBridgeProcess : [Object] { | sigma start end |
 					let [p, q] = r.eulerMaruyamaMethod(a:/2, b:/2, t, x1);
 					let k = q.size;
 					q[k] := x2;
-					[p, q].transposed
+					[p, q].transpose
 				} ! n
 			)
 		}

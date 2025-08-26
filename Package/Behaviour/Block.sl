@@ -208,7 +208,7 @@ Block! : [Object] {
 				h(p, q).reduce(g:/2)
 			} {
 				q.isMatrix.if {
-					q.transposed.collect { :each |
+					q.transpose.collect { :each |
 						h(p, each).reduce(g:/2)
 					}
 				} {

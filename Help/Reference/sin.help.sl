@@ -57,8 +57,8 @@ Values of `sin` at fixed points:
 
 ```
 >>> let n = (0 -- 2.pi).atRandom;
->>> n.negated.sin
-n.sin.negated
+>>> n.negate.sin
+n.sin.negate
 ```
 
 `sin` has the mirror property:

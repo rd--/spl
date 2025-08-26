@@ -1,41 +1,40 @@
-# rotatedLeft
+# rotateLeft
 
-- _rotatedLeft(aSequence)_
-- _rotatedLeft(aSequence, anInteger)_
+- _rotateLeft([x₁ x₂ …], n=1)_
 
-Rotate _aSequence_ by _anInteger_ places to the left,
-i.e. _anInteger_ elements from the start are moved to the end.
+Rotate te sequence _x_ by _n_ places to the left,
+i.e. _n_ elements from the start are moved to the end.
 The rotation is not in place, a new sequence is answered.
 
 ```
->>> [1 2 3 4 5 6 7].rotatedLeft(3)
+>>> [1 2 3 4 5 6 7].rotateLeft(3)
 [4 5 6 7 1 2 3]
 
->>> [1 2 3 4 5 6 7].rotatedLeft(8)
+>>> [1 2 3 4 5 6 7].rotateLeft(8)
 [2 3 4 5 6 7 1]
 
->>> [1 2 3 4 5 6 7].rotatedLeft(-4)
+>>> [1 2 3 4 5 6 7].rotateLeft(-4)
 [4 5 6 7 1 2 3]
 ```
 
 Rotate two positions to the left:
 
 ```
->>> 1:5.rotatedLeft(2)
+>>> 1:5.rotateLeft(2)
 [3 4 5 1 2]
 ```
 
 Rotate one position to the left:
 
 ```
->>> 1:5.rotatedLeft(1)
+>>> 1:5.rotateLeft(1)
 [2 3 4 5 1]
 ```
 
 Successively rotate a list left:
 
 ```
->>> rotatedLeft:/1.nestList([1 2 3 4 5], 4)
+>>> rotateLeft:/1.nestList([1 2 3 4 5], 4)
 [
 	1 2 3 4 5;
 	2 3 4 5 1;
@@ -50,7 +49,7 @@ Rotate successive rows of a matrix by their row number:
 ```
 >>> let u = [1 2 3 4];
 >>> let m = u ! 5;
->>> m.withIndexCollect(rotatedLeft:/2)
+>>> m.withIndexCollect(rotateLeft:/2)
 [
 	2 3 4 1;
 	3 4 1 2;
@@ -63,7 +62,7 @@ Rotate successive rows of a matrix by their row number:
 Rotate matrix rows:
 
 ```
->>> 0:9.reshape([5 2]).rotatedLeft(2)
+>>> 0:9.reshape([5 2]).rotateLeft(2)
 [
 	4 5;
 	6 7;
@@ -76,13 +75,22 @@ Rotate matrix rows:
 The unary form rotates by one place:
 
 ```
->>> [1 2 3 4 5 6 7].rotatedLeft
+>>> [1 2 3 4 5 6 7].rotateLeft
 [2 3 4 5 6 7 1]
+```
+
+There is also an in-place variant:
+
+```
+>>> let x = [1 2 3 4 5];
+>>> x.rotateLeftInPlace;
+>>> x
+[2 3 4 5 1]
 ```
 
 * * *
 
-See also: atWrap, rotatedRight
+See also: atWrap, rotateRight
 
 References:
 _Apl_

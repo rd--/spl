@@ -7,4 +7,4 @@ CombC(
 	2,
 	2 - Lpf(e, 50),
 	1
-).transposed.Mix
+).transpose.Mix

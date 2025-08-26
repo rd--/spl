@@ -22,7 +22,7 @@ true
 
 Methods for accessing: `atAll`, `atAllPut`, `first`, `second`, `middle`, `last`, `allButFirst`, `allButLast`, `indexOf,indexOfIfAbsent`, `indexOfSubstringStartingAt`, `indexOfSubstringStartingAtIfAbsent`, `replaceFromToWith`, `replaceFromToWithStartingAt`
 
-Methods for copying: `++`, `copyFromTo`, `copyReplaceAllWith`, `copyReplaceFromToWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `forceToPaddingWith`, `reversed`, `shuffled`, `sortBy`
+Methods for copying: `++`, `copyFromTo`, `copyReplaceAllWith`, `copyReplaceFromToWith`, `copyWith`, `copyWithout`, `copyWithoutAll`, `forceToPaddingWith`, `reverse`, `shuffled`, `sortBy`
 
 Methods for enumerating: `findFirst`, `findLast`, `keysAndValuesDo`, `reverseDo`, `withDo`, `reverseWithDo`
 

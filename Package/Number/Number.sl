@@ -9,7 +9,7 @@
 	}
 
 	- { :self |
-		self.negated
+		self.negate
 	}
 
 	/ { :self |
@@ -62,7 +62,7 @@
 
 	abs { :self |
 		self.isNegative.if {
-			self.negated
+			self.negate
 		} {
 			self
 		}
@@ -199,7 +199,7 @@
 
 	copySignTo { :self :aNumber |
 		self.signBit.if {
-			aNumber.abs.negated
+			aNumber.abs.negate
 		} {
 			aNumber.abs
 		}
@@ -320,13 +320,13 @@
 		let m = 1 / (2.pi.sqrt * sigma);
 		let sigmaSquared = sigma * sigma;
 		{ :u |
-			m * (u.squared / (2 * sigmaSquared)).negated.exp
+			m * (u.squared / (2 * sigmaSquared)).negate.exp
 		}
 	}
 
 	gompertzFunction { :a :b :c |
 		{ :t |
-			a * ((c.negated * t).exp * b.negated).exp
+			a * ((c.negate * t).exp * b.negate).exp
 		}
 	}
 
@@ -393,14 +393,14 @@
 				r := z * (((a[4] * x2 + a[3]) * x2 + a[2]) * x2 + a[1]);
 				r := r / ((((b[5] * x2 + b[4]) * x2 + b[3]) * x2 + b[2]) * x2 + b[1])
 			} {
-				let y = ((1 - z) / 2).log.negated.sqrt;
+				let y = ((1 - z) / 2).log.negate.sqrt;
 				r := ((c[4] * y + c[3]) * y + c[2]) * y + c[1];
 				r := r / ((d[3] * y + d[2]) * y + d[1])
 			};
 			r := r * x.sign;
 			z := z * x.sign;
-			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negated * r).exp));
-			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negated * r).exp));
+			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negate * r).exp));
+			r := r - ((r.erf - z) / (2 / 1.pi.sqrt * (r.negate * r).exp));
 			r
 		}
 	}
@@ -536,7 +536,7 @@
 		m - (n * ((m - d) / n).floor)
 	}
 
-	negated { :self |
+	negate { :self |
 		self * -1
 	}
 
@@ -569,7 +569,7 @@
 
 	niceNumberBy { :self :aBlock:/2 |
 		let n = self;
-		let m = 10 ^ n.abs.log10.floor.negated;
+		let m = 10 ^ n.abs.log10.floor.negate;
 		let steps = [1 1.5 2 2.5 5 7.5 10];
 		let z = steps.aBlock(n * m);
 		z / m
@@ -769,7 +769,7 @@
 				self
 			} {
 				(operand < 0).if {
-					self.raisedToInteger(operand.negated).reciprocal
+					self.raisedToInteger(operand.negate).reciprocal
 				} {
 					operand.isLargeInteger.if {
 						self.asLargeInteger ^ operand
@@ -897,7 +897,7 @@
 			self.unit
 		} {
 			(self < 0).if {
-				self.unit.negated
+				self.unit.negate
 			} {
 				self.zero
 			}
@@ -944,13 +944,13 @@
 
 	swishFunction { :beta |
 		{ :x |
-			x / (1 + (beta.negated * x).exp)
+			x / (1 + (beta.negate * x).exp)
 		}
 	}
 
 	symmetricPower { :self :aNumber |
 		self.isNegative.if {
-			(self.negated ^ aNumber).negated
+			(self.negate ^ aNumber).negate
 		} {
 			self ^ aNumber
 		}

@@ -144,7 +144,7 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 	lagrangeInterpolatingPolynomial { :c |
 		let n = c.size;
-		let [x, y] = c.transposed;
+		let [x, y] = c.transpose;
 		let p = List(n, UnivariatePolynomial([1]));
 		1.toDo(n) { :i |
 			1.toDo(n) { :j |

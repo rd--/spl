@@ -25,7 +25,7 @@ Strings are not lists of Characters.
 
 Strings are immutable, i.e. there is no `atPut` implementation.
 
-Methods for converting: `asLowerCase`, `asUpperCase`, `capitalized`, `asInteger`, `asNumber`
+Methods for converting: `asLowerCase`, `asUpperCase`, `capitalize`, `asInteger`, `asNumber`
 
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.

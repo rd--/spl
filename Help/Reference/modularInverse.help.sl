@@ -102,7 +102,6 @@ At modulus `one`:
 [3 3]
 ```
 
-
 The answer has the same sign as the modulus:
 
 ```

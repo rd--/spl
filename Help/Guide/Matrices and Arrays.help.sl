@@ -63,7 +63,7 @@ Process all of the values in a matrix using a single arithmetic function:
 Transpose a matrix:
 
 ```
->>> [3 3].iota.transposed
+>>> [3 3].iota.transpose
 [
 	1 4 7;
 	2 5 8;

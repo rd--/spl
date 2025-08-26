@@ -1,8 +1,8 @@
 # circulantMatrix
 
-- _circulantMatrix(aSequence)_
+- _circulantMatrix([x₁ x₂ …])_
 
-Answer the circulant matrix of _aSequence_,
+Answer the circulant matrix of the sequence _x_,
 a square matrix in which each row is rotated one element to the right relative to the preceding row.
 
 ```

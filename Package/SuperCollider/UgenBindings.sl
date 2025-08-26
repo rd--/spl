@@ -335,7 +335,7 @@
 
 /* Auto-generated */
 +[List, Ugen] {
-	Negated { :self | <primitive: return sc.Neg(_self);> }
+	Negate { :self | <primitive: return sc.Neg(_self);> }
 	Squared { :self | <primitive: return sc.Squared(_self);> }
 	Cubed { :self | <primitive: return sc.Cubed(_self);> }
 	Reciprocal { :self | <primitive: return sc.Recip(_self);> }
@@ -427,7 +427,7 @@
 	/*
 	ceiling { :self | <primitive: return sc.Ceil(_self);> }
 	fractionalPart { :self | <primitive: return sc.Frac(_self);> }
-	negated { :self | <primitive: return sc.Neg(_self);> }
+	negate { :self | <primitive: return sc.Neg(_self);> }
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }
 	*/
 
@@ -451,7 +451,7 @@
 		(self * 100).MidiCps
 	}
 
-	- { :self | Negated(self) }
+	- { :self | Negate(self) }
 
 	^ { :self :anObject | Power(self, anObject) }
 	+ { :self :anObject | Plus(self, anObject) }
@@ -491,7 +491,7 @@
 				aNumber.isNegative
 			}
 		).if {
-			self.negated.gcd(aNumber.negated).negated
+			self.negate.gcd(aNumber.negate).negate
 		} {
 			self.gcd(aNumber)
 		}
@@ -503,7 +503,7 @@
 				aNumber.isNegative
 			}
 		).if {
-			self.abs.lcm(aNumber.abs).negated
+			self.abs.lcm(aNumber.abs).negate
 		} {
 			self.lcm(aNumber)
 		}
@@ -511,7 +511,7 @@
 
 	Sqrt { :self |
 		self.isNegative.if {
-			self.negated.sqrt.negated
+			self.negate.sqrt.negate
 		} {
 			self.sqrt
 		}

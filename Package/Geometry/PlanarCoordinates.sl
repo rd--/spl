@@ -93,8 +93,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		self.applyBinaryOperator(anObject, min:/2)
 	}
 
-	negated { :self |
-		self.applyUnaryOperator(negated:/1)
+	negate { :self |
+		self.applyUnaryOperator(negate:/1)
 	}
 
 	normalized { :self |
@@ -134,14 +134,14 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 	}
 
 	swapped { :self |
-		PlanarCoordinates(self.coordinates.reversed)
+		PlanarCoordinates(self.coordinates.reverse)
 	}
 
 	theta { :self |
 		atan2(self.y, self.x)
 	}
 
-	translated { :self :delta |
+	translate { :self :delta |
 		self + delta
 	}
 

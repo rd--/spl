@@ -108,7 +108,7 @@ Successively append to a string:
 Successively rotate a list:
 
 ```
->>> rotatedLeft:/1.nestList([1 2 3 4], 4)
+>>> rotateLeft:/1.nestList([1 2 3 4], 4)
 [
 	1 2 3 4;
 	2 3 4 1;

@@ -86,7 +86,7 @@
 			let ch2y = 1 + sh2y;
 			let chy = ch2y.sqrt;
 			(self.real / chy).arcCos.j(
-				self.imaginary.copySignTo(shy.arcSinh.negated)
+				self.imaginary.copySignTo(shy.arcSinh.negate)
 			)
 		}
 	}
@@ -95,7 +95,7 @@
 		(self.imaginary = 0).if {
 			(self.real.abs > 1).if {
 				(0.5.pi * self.real.sign).j(
-					self.real.copySignTo(self.real.abs.arcCosh).negated
+					self.real.copySignTo(self.real.abs.arcCosh).negate
 				)
 			} {
 				self.real.arcSin.j(0)
@@ -155,7 +155,7 @@
 	}
 
 	sin { :self |
-		self.i.sinh.i.negated
+		self.i.sinh.i.negate
 	}
 
 	tan { :self |
@@ -192,7 +192,7 @@
 
 	sobolevaModifiedTanh { :a :b :c :d |
 		{ :x |
-			((a * x).exp - (b.negated * x).exp) / ((c * x).exp + (d.negated * x).exp)
+			((a * x).exp - (b.negate * x).exp) / ((c * x).exp + (d.negate * x).exp)
 		}
 	}
 

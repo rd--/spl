@@ -41,7 +41,7 @@ system
 	mimeType
 ).then { :aByteArray |
 	aByteArray
-	.base64Encoded
+	.base64Encode
 }
 ~~~
 

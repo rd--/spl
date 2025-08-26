@@ -1,22 +1,22 @@
-# base64Decoded
+# base64Decode
 
-- _base64Decoded(aString)_
+- _base64Decode(s)_
 
-Answer the `ByteArray` encoded in Base-64 notation at _aString_.
+Answer the `ByteArray` encoded in Base-64 notation at the string _s_.
 
-Decode an encoded `ByteArray`:
+Decode an encode `ByteArray`:
 
 ```
 >>> 'AQIDBAUGBwgJCgsMDQ4PEB'
->>> .base64Decoded
+>>> .base64Decode
 [1 .. 16].asByteArray
 ```
 
-Decode an encoded Ascii `String`:
+Decode an encode Ascii `String`:
 
 ```
 >>> 'SGVsbG8gV29ybGQ='
->>> .base64Decoded
+>>> .base64Decode
 >>> .asciiString
 'Hello World'
 ```
@@ -30,7 +30,7 @@ White space is ignored:
 >>> 	'lIGxpZ2h0IHdvcmsu'
 >>> ]
 >>> .stringCatenate
->>> .base64Decoded
+>>> .base64Decode
 >>> .asciiString
 'Many hands make light work.'
 ```
@@ -39,7 +39,7 @@ Decode `ByteArray` and Ascii `String`:
 
 ```
 >>> let e = 'ezEsIDIsIDMsIDQsIDV9';
->>> let d = e.base64Decoded;
+>>> let d = e.base64Decode;
 >>> (d.asList, d.asciiString)
 (
 	[
@@ -51,12 +51,12 @@ Decode `ByteArray` and Ascii `String`:
 )
 ```
 
-The inverse is `base64Encoded`:
+The inverse is `base64Encode`:
 
 ```
 >>> let b = 1:9.asByteArray;
->>> let e = b.base64Encoded;
->>> (e, e.base64Decoded)
+>>> let e = b.base64Encode;
+>>> (e, e.base64Decode)
 (
 	'AQIDBAUGBwgJ',
 	1:9.asByteArray
@@ -67,14 +67,14 @@ Out of range values raise an error:
 
 ```
 >>> {
->>> 	'ABαCD'.base64Decoded
+>>> 	'ABαCD'.base64Decode
 >>> }.ifError { true }
 true
 ```
 
 * * *
 
-See also: base64Encoded, parseBase64
+See also: base64Encode, parseBase64
 
 References:
 _Ietf_

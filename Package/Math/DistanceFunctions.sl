@@ -386,7 +386,7 @@
 			path
 		};
 		let [tracebackMatrix, _] = warpingMatrices(x, y, w, f:/2);
-		tracebackMatrix.derivePath.transposed.collect(reverse:/1)
+		tracebackMatrix.derivePath.transpose.collect(reverse:/1)
 	}
 
 	warpingCorrespondence { :x :y :w |
@@ -448,8 +448,8 @@
 	warpingPlot { :x :y :c |
 		let [a, b] = c;
 		let o = (y.range - x.min) * 1.5;
-		let p = [[1 .. x.size], x + o].transposed;
-		let q = [[1 .. y.size], y].transposed;
+		let p = [[1 .. x.size], x + o].transpose;
+		let q = [[1 .. y.size], y].transpose;
 		let r = (1 .. a.size).collect { :i |
 			Line([p[a[i]], q[b[i]]])
 		};

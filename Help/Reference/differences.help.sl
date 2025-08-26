@@ -126,7 +126,7 @@ Compute the first-order difference between the columns of a 3×3 matrix:
 >>> 	1   3  5;
 >>> 	7  11 13;
 >>> 	17 19 23
->>> ].transposed.differences.transposed
+>>> ].transpose.differences.transpose
 [
 	2 2;
 	4 2;

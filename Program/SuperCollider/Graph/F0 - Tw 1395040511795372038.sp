@@ -13,4 +13,4 @@ let q = Bpf(
 	2 ^ SinOscFb(b / c * 2, 0) * 1000,
 	1 / 99
 );
-Hpf(p + GVerb(q, 99, 9, 0.2, 0.5, 15, 1, 0.7, 0.5, 300), 50).clump(2).Sum.transposed.Mix * 0.2
+Hpf(p + GVerb(q, 99, 9, 0.2, 0.5, 15, 1, 0.7, 0.5, 300), 50).clump(2).Sum.transpose.Mix * 0.2

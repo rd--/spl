@@ -4,7 +4,7 @@ LaplaceDistribution : [Object, ProbabilityDistribution] { | mu beta |
 		let mu = self.mu;
 		let beta = self.beta;
 		{ :x |
-			let y = ((x - mu).abs.negated / beta).exp / 2;
+			let y = ((x - mu).abs.negate / beta).exp / 2;
 			(x >= mu).if {
 				1 - y
 			} {
@@ -33,7 +33,7 @@ LaplaceDistribution : [Object, ProbabilityDistribution] { | mu beta |
 		let mu = self.mu;
 		let beta = self.beta;
 		{ :x |
-			((x - mu).abs.negated / beta).exp / (2 * beta)
+			((x - mu).abs.negate / beta).exp / (2 * beta)
 		}
 	}
 

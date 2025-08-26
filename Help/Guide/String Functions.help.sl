@@ -35,8 +35,8 @@ Converting:
 
 Decoding and Encoding:
 
-- `base64Decoded`
-- `base64Encoded`
+- `base64Decode`
+- `base64Encode`
 
 Editing:
 

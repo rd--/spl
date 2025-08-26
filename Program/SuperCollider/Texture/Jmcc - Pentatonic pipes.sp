@@ -9,5 +9,5 @@ let root = 36 + 0:12.atRandom;
 	(1 / 20).coin.ifTrue {
 		root := 36 + 0:12.atRandom /* maybe shift */
 	};
-	CombN(z, 0.3, 0.3, 8) + z.reversed
+	CombN(z, 0.3, 0.3, 8) + z.reverse
 }.overlapTextureProgram(10, 0.01, n)

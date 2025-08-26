@@ -140,7 +140,7 @@
 	reverseDo { :self :aBlock:/1 |
 		let nextValue = self.end;
 		let count = self.size;
-		let stepSize = self.step.negated;
+		let stepSize = self.step.negate;
 		{
 			count > 1
 		}.whileTrue {

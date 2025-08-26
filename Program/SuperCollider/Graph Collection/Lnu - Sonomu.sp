@@ -22,7 +22,7 @@ let b = GVerb(
 );
 let o = Splay(m:/0 ! 4 * b);
 let p = CompanderD(o, 1 / 2, 1 / 3, 1 / 2, 0.01, 0.1) / 3;
-(o / 3 + p).SoftClip.transposed.Sum
+(o / 3 + p).SoftClip.transpose.Sum
 
 /* https://sonomu.club/@lukiss/112280811322923333 ; Apr 16, 2024 */
 let f = [77 777 7777];
@@ -34,7 +34,7 @@ let e = { :f |
 Splay(
 	SinOsc(f, 0) * (e(f / 7) ^ [2 6 10]) * [1, 1 / 3, 1 / 9],
 	SinOsc((e(7) * 7), 0)
-).transposed.Sum
+).transpose.Sum
 
 /* https://sonomu.club/@lukiss/112090216321959038 ; Mar 14, 2024 */
 let m = {
@@ -86,7 +86,7 @@ let o = VarSaw(
 	f + (p * f),
 	0,
 	1 - e() ^ 2 / 2
-) * (p.rotatedRight(2) - e() @* [8 .. 1] ^ 0.125);
+) * (p.rotateRight(2) - e() @* [8 .. 1] ^ 0.125);
 let r = FreeVerb(
 	Bpf(
 		o * e() ^ 2,
@@ -522,7 +522,7 @@ let g = FbSineN(
 	0.5,
 	0.1,
 	0.1
-).Sin > (o.reversed % q).Lag(q.Max(0)).RoundTo(q * e);
+).Sin > (o.reverse % q).Lag(q.Max(0)).RoundTo(q * e);
 let x = SinOsc(
 	f,
 	SinOsc(

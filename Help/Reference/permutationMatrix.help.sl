@@ -62,11 +62,11 @@ The `determinant` is always one:
 1
 ```
 
-The `transposed` is also the `inverse`:
+The `transpose` is also the `inverse`:
 
 ```
 >>> let m = [3 2 4 1].permutationMatrix;
->>> (m, m.transposed, m.inverse)
+>>> (m, m.transpose, m.inverse)
 (
 	[
 		0 0 1 0;
@@ -94,7 +94,7 @@ The dot product of a permutation matrix _m_ with it’s transpose is the identit
 ```
 >>> let l = [4 5 1 3 2 6 7];
 >>> let m = l.permutationMatrix;
->>> m.dot(m.transposed)
+>>> m.dot(m.transpose)
 7.identityMatrix
 ```
 

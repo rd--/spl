@@ -8,12 +8,12 @@ Answer a Block that applies _anotherBlock_ to pre-processes the arguments of _aB
 The pointwise maxima of the negation of two lists:
 
 ```
->>> max:/2.over(negated:/1) . (
+>>> max:/2.over(negate:/1) . (
 >>> 	[3 1 2], [4 6 5]
 >>> )
 [-3 -1 -2]
 
->>> max:/2.over(negated:/1).value([3 1 2], [4 6 5])
+>>> max:/2.over(negate:/1).value([3 1 2], [4 6 5])
 [-3 -1 -2]
 
 >>> [3 1 2].-.max([4 6 5].-)

@@ -21,11 +21,11 @@ Sort according to `sum` of each sub-list:
 [2 2; 3 1 2; 2 3 1; 1 2 3]
 ```
 
-Sort according to `negated` value of each item:
+Sort according to `negate` value of each item:
 
 ```
 >>> let alpha = [1 .. 9];
->>> let beta = alpha.sortOn(negated:/1);
+>>> let beta = alpha.sortOn(negate:/1);
 >>> (alpha, alpha == beta)
 ([9 .. 1], true)
 ```

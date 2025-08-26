@@ -38,7 +38,7 @@ To convert a Base-16 string to a `ByteArray` see `parseBase16`.
 
 * * *
 
-See also: asNumber, base16Decoded, base16Encoded, isBase64String, isBooleanString, isFloatString, isDecimalIntegerString, parseBase16
+See also: asNumber, base16Decode, base16Encode, isBase64String, isBooleanString, isFloatString, isDecimalIntegerString, parseBase16
 
 Guides: Parsing Functions
 

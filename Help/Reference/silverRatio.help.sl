@@ -115,7 +115,7 @@ Nested silver rectangles, scaled by _1/δs_:
 let s = 1.silverRatio;
 let r = centeredRectangle([0 0], [s 1]);
 { :x |
-	x.rotated(1/4.pi).scaled(1 / s)
+	x.rotate(1/4.pi).scale(1 / s)
 }.nestList(r, 4).LineDrawing
 ~~~
 
@@ -131,7 +131,7 @@ let t = asaTriangle(a, 2, a);
 let c = [2, s + 1, 2] / (s + 5);
 { :x |
 	let r = x.fromBarycentricCoordinates(c);
-	x.rotated(112.5.degree, r).scaled(m)
+	x.rotate(112.5.degree, r).scale(m)
 }.nestList(t, 6).LineDrawing
 ~~~
 

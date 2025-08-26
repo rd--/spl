@@ -4,7 +4,7 @@
 		self.inverse * self.determinant
 	}
 
-	antitransposed { :self |
+	antitranspose { :self |
 		let [m, n] = self.shape;
 		let answer = [];
 		n.downToDo(1) { :i |
@@ -106,7 +106,7 @@
 				((r ^ 2).sum.sqrt < epsilon).if {
 					x.return
 				} {
-					let beta = r.dot(ap).negated / p.dot(ap);
+					let beta = r.dot(ap).negate / p.dot(ap);
 					p := r + (beta * p)
 				}
 			};
@@ -115,7 +115,7 @@
 	}
 
 	conjugateTranspose { :self |
-		self.transposed.conjugate
+		self.transpose.conjugate
 	}
 
 	cramersRule { :m :d |
@@ -137,7 +137,7 @@
 		let [m, q] = b.shape;
 		let l = List(n, 1);
 		{ n = m }.assert;
-		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transposed.dot((a - (*.outer(l, a.mean))).conjugate)
+		(1 / (n - 1)) * (a - (*.outer(l, a.mean))).transpose.dot((a - (*.outer(l, a.mean))).conjugate)
 	}
 
 	determinant { :self |
@@ -194,7 +194,7 @@
 
 	frobeniusCompanionMatrix { :self |
 		let n = self.size - 1;
-		let w = self.negated / self.last;
+		let w = self.negate / self.last;
 		{ :i :j |
 			(i = (j + 1)).if {
 				1
@@ -284,7 +284,7 @@
 	}
 
 	gramMatrix { :self |
-		self.dot(self.transposed)
+		self.dot(self.transpose)
 	}
 
 	gramSchmidtProcess { :self |
@@ -444,9 +444,9 @@
 	isOrthogonalMatrix { :self |
 		let [p, q] = self.shape;
 		(p >= q).if {
-			self.transposed.dot(self).isVeryCloseTo(q.identityMatrix)
+			self.transpose.dot(self).isVeryCloseTo(q.identityMatrix)
 		} {
-			self.dot(self.transposed).isVeryCloseTo(p.identityMatrix)
+			self.dot(self.transpose).isVeryCloseTo(p.identityMatrix)
 		}
 	}
 
@@ -628,7 +628,7 @@
 	matchPairs { :self |
 		let [_, i] = self.kuhnMunkresAlgorithm;
 		let k = i.size;
-		[i, 1:k].transposed.select { :each | each[1] ~= 0 }
+		[i, 1:k].transpose.select { :each | each[1] ~= 0 }
 	}
 
 	matrixCorrelation { :a :b |
@@ -723,7 +723,7 @@
 				1 / x
 			}
 		};
-		v.dot(i).dot(u.transposed)
+		v.dot(i).dot(u.transpose)
 	}
 
 	qrDecomposition { :self |
@@ -738,7 +738,7 @@
 			};
 			norm.isZero.ifFalse {
 				(qr[k][k] < 0).ifTrue {
-					norm := norm.negated
+					norm := norm.negate
 				};
 				k.toDo(m) { :i |
 					qr[i][k] := qr[i][k] / norm
@@ -749,7 +749,7 @@
 					k.toDo(m) { :i |
 						s := s + (qr[i][k] * qr[i][j])
 					};
-					s := s.negated / qr[k][k];
+					s := s.negate / qr[k][k];
 					k.toDo(m) { :i |
 						qr[i][j] := qr[i][j] + (s * qr[i][k]);
 						(i < j).ifTrue {
@@ -758,7 +758,7 @@
 					}
 				}
 			};
-			r[k][k] := norm.negated
+			r[k][k] := norm.negate
 		};
 		n.toByDo(1, -1) { :k |
 			q[k][k] := 1;
@@ -768,7 +768,7 @@
 					k.toDo(m) { :i |
 						s := s + (qr[i][k] * q[i][j])
 					};
-					s := s.negated / qr[k][k];
+					s := s.negate / qr[k][k];
 					k.toDo(m) { :i |
 						q[i][j] := q[i][j] + (s * qr[i][k])
 					}
@@ -899,7 +899,7 @@
 			s[n][n] := ssn.abs;
 			(ssn < 0).ifTrue {
 				1.toDo(m) { :i |
-					u[i][n] := u[i][n].negated
+					u[i][n] := u[i][n].negate
 				}
 			}
 		};
@@ -1274,11 +1274,11 @@
 		let d = m + n;
 		let x = d - m - 1;
 		let y = d - n - 1;
-		let a = p.reversed ++ (0 # x);
-		let b = q.reversed ++ (0 # y);
+		let a = p.reverse ++ (0 # x);
+		let b = q.reverse ++ (0 # y);
 		[
-			0:x.collect { :i | a.rotatedRight(i) },
-			0:y.collect { :i | b.rotatedRight(i) }
+			0:x.collect { :i | a.rotateRight(i) },
+			0:y.collect { :i | b.rotateRight(i) }
 		].catenate
 	}
 
@@ -1411,7 +1411,7 @@
 		let n = 2 * self;
 		[
 			[n.cos, n.sin],
-			[n.sin, n.cos.negated]
+			[n.sin, n.cos.negate]
 		]
 	}
 
@@ -1445,7 +1445,7 @@
 
 	rotationMatrix { :self |
 		[
-			[self.cos, self.sin.negated],
+			[self.cos, self.sin.negate],
 			[self.sin, self.cos]
 		]
 	}

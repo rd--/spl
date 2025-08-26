@@ -175,7 +175,7 @@ First few non-trivial palindromic prime numbers:
 ```
 >>> 99.primesList.select { :x |
 >>> 	let d = x.integerDigits;
->>> 	d.size > 1 & { d = d.reversed }
+>>> 	d.size > 1 & { d = d.reverse }
 >>> }
 [11 101 131 151 181 191 313 353 373 383]
 ```
@@ -185,7 +185,7 @@ Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 ~~~spl svg=A
 { :n |
 	let m = n.prime;
-	let r = m.integerDigits(2).reversed;
+	let r = m.integerDigits(2).reverse;
 	m - r.fromDigits(2)
 }.map(1:200).scatterPlot
 ~~~

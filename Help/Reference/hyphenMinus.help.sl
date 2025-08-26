@@ -10,7 +10,7 @@ or equally _aNumber_ plus the negation of _anotherNumber_.
 >>> 10 - 3
 7
 
->>> 10 + 3.negated
+>>> 10 + 3.negate
 7
 
 >>> 1 - 0.3
@@ -56,7 +56,7 @@ As the argument to `reduce` and `foldRight`:
 6 - (1 - 2)
 ```
 
-The unary form is equivalent to `negated`, answering the negation of _aNumber_.
+The unary form is equivalent to `negate`, answering the negation of _aNumber_.
 
 At `SmallFloat`:
 
@@ -121,7 +121,7 @@ Where supported `-` is displayed as −.
 
 * * *
 
-See also: +, *, /, ^, Minus, negated
+See also: +, *, /, ^, Minus, negate
 
 References:
 _Apl_

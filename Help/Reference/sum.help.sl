@@ -51,7 +51,7 @@ Row-wise sums of a matrix:
 [6 15 24]
 
 >>> [1 2 3; 4 5 6; 7 8 9]
->>> .transposed
+>>> .transpose
 >>> .sum
 [6 15 24]
 ```
@@ -63,7 +63,7 @@ Column-wise sums of a matrix:
 [12 15 18]
 
 >>> [1 2 3; 4 5 6; 7 8 9]
->>> .transposed
+>>> .transpose
 >>> .collect(sum:/1)
 [12 15 18]
 ```

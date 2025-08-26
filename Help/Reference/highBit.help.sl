@@ -33,7 +33,7 @@ High bit is not defined for negative integers:
 
 ```
 >>> {
->>> 	2r00101000.negated.highBit
+>>> 	2r00101000.negate.highBit
 >>> }.ifError { true }
 true
 ```

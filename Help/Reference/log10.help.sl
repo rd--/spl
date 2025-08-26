@@ -1,8 +1,8 @@
 # log10
 
-- _log10(aNumber)_
+- _log10(x)_
 
-Answers the base-10 logarithm of _aNumber_.
+Answers the base-10 logarithm of the number _x_.
 
 ```
 >>> (10 ^ 6).log10
@@ -23,6 +23,13 @@ Answers the base-10 logarithm of _aNumber_.
 >>> let n = system.nextRandomFloat;
 >>> n.log10
 (n.log / 10.log)
+```
+
+At `Fraction`:
+
+```
+>>> 7/4.log10
+0.243038
 ```
 
 Threads over lists:

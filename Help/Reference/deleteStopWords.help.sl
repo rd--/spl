@@ -39,6 +39,7 @@ Remove stopwords from a string:
 >>> .deleteStopWords
 []
 ```
+
 Remove stopwords from a list of strings:
 
 ```

@@ -47,7 +47,7 @@ Find the Cholesky decomposition of a 3×3 real matrix:
 >>> (
 >>> 	l,
 >>> 	l.isLowerTriangularMatrix,
->>> 	l.dot(l.transposed) ~ m
+>>> 	l.dot(l.transpose) ~ m
 >>> )
 (
 	[
@@ -92,7 +92,7 @@ Find the Cholesky decomposition of a 6×6 real matrix:
 >>> (
 >>> 	l,
 >>> 	l.isLowerTriangularMatrix,
->>> 	l.dot(l.transposed) ~ m
+>>> 	l.dot(l.transpose) ~ m
 >>> )
 (
 	[

@@ -34,7 +34,7 @@ Three rotated unit squares:
 0:3.withCollect(
 	1.pi / [2 13 11 7]
 ) { :n :t |
-	[n, n].unitSquare.asPolygon.rotated(t)
+	[n, n].unitSquare.asPolygon.rotate(t)
 }.LineDrawing
 ~~~
 

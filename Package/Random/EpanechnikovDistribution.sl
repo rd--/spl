@@ -31,7 +31,7 @@ EpanechnikovDistribution : [Object] { | c |
 
 	support { :self |
 		let c = self.c;
-		Interval(c.negated, c)
+		Interval(c.negate, c)
 	}
 
 	variance { :self |

@@ -20,7 +20,7 @@ The 5×5 involute spiral matrix:
 Transposed to give a clockwise involute starting at upper left:
 
 ```
->>> 5.spiralMatrix.transposed
+>>> 5.spiralMatrix.transpose
 [
 	 1  2  3  4  5;
 	16 17 18 19  6;
@@ -48,7 +48,7 @@ Counter-clockwise evolute at first leftwards:
 ```
 >>> (5 ^ 2 + 1)
 >>> -
->>> 5.spiralMatrix.transposed
+>>> 5.spiralMatrix.transpose
 [
 	25 24 23 22 21;
 	10  9  8  7 20;
@@ -63,7 +63,7 @@ Small Ulam spiral:
 ~~~spl svg=A
 let k = 25;
 let m = (k ^ 2 + 1) - k.spiralMatrix;
-m.transposed.isPrime.boole.matrixPlot
+m.transpose.isPrime.boole.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/spiralMatrix-A.svg)
@@ -73,7 +73,7 @@ Less small Ulam spiral
 ~~~spl png=B
 let k = 300;
 let m = (k ^ 2 + 1) - k.spiralMatrix;
-m.transposed.isPrime.boole.Bitmap
+m.transpose.isPrime.boole.Bitmap
 ~~~
 
 ![](sw/spl/Help/Image/spiralMatrix-B.png)

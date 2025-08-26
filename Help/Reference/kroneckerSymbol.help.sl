@@ -20,7 +20,7 @@ also known as the Jacobi symbol or Legendre symbol.
 
 >>> kroneckerSymbol:/2
 >>> .table(1:10, 1:4)
->>> .transposed
+>>> .transpose
 [
 	1  1  1  1  1  1  1  1  1  1;
 	1  0 -1  0 -1  0  1  0  1  0;

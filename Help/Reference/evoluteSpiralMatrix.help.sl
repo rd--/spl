@@ -20,7 +20,7 @@ The 5×5 evolute spiral:
 Transposed to give a counter-clockwise evolute at first descending:
 
 ```
->>> 5.evoluteSpiralMatrix.transposed
+>>> 5.evoluteSpiralMatrix.transpose
 [
 	17 18 19 20 21;
 	16  5  6  7 22;
@@ -48,7 +48,7 @@ Counter-clockwise involute starting at lower right:
 ```
 >>> (5 ^ 2 + 1)
 >>> -
->>> 5.evoluteSpiralMatrix.transposed
+>>> 5.evoluteSpiralMatrix.transpose
 [
 	 9  8  7  6  5;
 	10 21 20 19  4;
@@ -85,7 +85,7 @@ Small Ulam spiral:
 
 ~~~spl svg=B
 25.evoluteSpiralMatrix
-.transposed.isPrime.boole.matrixPlot
+.transpose.isPrime.boole.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/evoluteSpiralMatrix-B.svg)

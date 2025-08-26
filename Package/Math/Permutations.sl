@@ -15,7 +15,7 @@ Permutation : [Object] { | cycles degree |
 
 	^ { :self :anInteger |
 		anInteger.isNegative.if {
-			self.inverse ^ anInteger.negated
+			self.inverse ^ anInteger.negate
 		} {
 			(self # anInteger).product
 		}
@@ -114,7 +114,7 @@ Permutation : [Object] { | cycles degree |
 
 	inverse { :self |
 		self.cycles.collect { :each |
-			each.reversed
+			each.reverse
 		}.cycles
 	}
 

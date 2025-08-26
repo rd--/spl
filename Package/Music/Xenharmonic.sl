@@ -80,7 +80,7 @@
 	}
 
 	octaveReduced { :self :octaveRatio |
-		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negated;
+		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negate;
 		self * (2/1 ^ exponent)
 	}
 

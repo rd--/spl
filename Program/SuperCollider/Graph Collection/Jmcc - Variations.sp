@@ -160,7 +160,7 @@ let d = [
 	12.arithmeticProgression(f, f),
 	12.geometricProgression(1, Rand(0.7, 0.9)),
 	{ Rand(1, 3) } ! 12
-].transposed.++;
+].transpose.++;
 let k = Klank(x, 1, 0, 1, d);
 (k * 0.1).SoftClip
 
@@ -200,7 +200,7 @@ let txt = { :tr |
 		SinOsc(0.2, { TRand(0, 1.pi, tr).Times(2) } ! 2).Times(2).MulAdd(f, f * 3)
 	).Times(0.05)
 }.OverlapTexture(4, 4, 4).Mix;
-txt.CombN(0.3, 0.3, 4) + txt.reversed
+txt.CombN(0.3, 0.3, 4) + txt.reverse
 
 /* Harmonic swimming (Jmcc) #1 */
 let l = Line(0, -0.02, 60);

@@ -529,19 +529,19 @@
 	haltonSequence { :self :k |
 		self.collect { :b |
 			(1 .. k).vanDerCorputNumber(b)
-		}.transposed
+		}.transpose
 	}
 
 	kroneckerSequence { :alpha :n :k0 |
 		alpha.collect { :each |
 			each.kroneckerSequence(n, k0)
-		}.transposed
+		}.transpose
 	}
 
 	kroneckerSequence { :alpha :n |
 		alpha.collect { :each |
 			each.kroneckerSequence(n)
-		}.transposed
+		}.transpose
 	}
 
 	locallyCatenativeSequence { :w :i :n :f |

@@ -42,7 +42,7 @@ Of a volume:
 
 * * *
 
-See also: reversed, transposed
+See also: reverse, transpose
 
 Guides: Array Functions, Matrix Functions
 

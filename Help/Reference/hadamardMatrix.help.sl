@@ -70,7 +70,7 @@ The `dot` product of an _n×n_ Hadamard matrix with its transposition is the _n^
 
 ```
 >>> let m = 16.hadamardMatrix;
->>> m.dot(m.transposed)
+>>> m.dot(m.transpose)
 (16 * 16.identityMatrix)
 ```
 

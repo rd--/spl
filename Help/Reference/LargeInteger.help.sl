@@ -91,10 +91,10 @@ Math with a `Fraction` answers a `Fraction`:
 69/2
 ```
 
-`negated` answers a `LargeInteger`:
+`negate` answers a `LargeInteger`:
 
 ```
->>> 23L.negated
+>>> 23L.negate
 -23L
 ```
 

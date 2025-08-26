@@ -63,7 +63,7 @@ let trig5 = ImpulseSequencer(
 clock);
 let w = SinOsc((root + 24 + 7).MidiCps, 0) * Decay2(trig5, 0.005, 0.2);
 let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
-(CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reversed).SoftClip
+(CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reverse).SoftClip
 
 /* Sequencer ; Jmcc */
 let z = 0; let a = 0.1; let b = 0.2; let c = 0.4;

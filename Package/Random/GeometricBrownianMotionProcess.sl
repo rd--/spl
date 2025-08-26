@@ -6,7 +6,7 @@ GeometricBrownianMotionProcess : [Object] { | mu sigma x0 |
 		let c = { :y | (self.sigma.squared / 2) * y };
 		TemporalData(
 			{
-				r.milsteinMethod(a:/1, b:/1, c:/1, t, self.x0).transposed
+				r.milsteinMethod(a:/1, b:/1, c:/1, t, self.x0).transpose
 			} ! n
 		)
 	}

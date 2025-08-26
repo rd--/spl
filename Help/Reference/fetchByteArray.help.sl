@@ -10,7 +10,7 @@ system
 .fetchByteArray
 .thenElse { :aByteArray |
 	aByteArray
-	.base64Encoded
+	.base64Encode
 } { :reason |
 	reason
 }

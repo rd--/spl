@@ -102,7 +102,7 @@
 		(self.abs > 0.5).if {
 			0
 		} {
-			(self.squared / (2 * sigma.squared)).negated.exp
+			(self.squared / (2 * sigma.squared)).negate.exp
 		}
 	}
 

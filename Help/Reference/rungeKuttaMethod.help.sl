@@ -49,7 +49,7 @@ Solve with timestep of 0.1 and downsample to show results at time steps of one:
 >>> let [x, y] = { :x :y |
 >>> 	x * y.sqrt
 >>> }.rungeKuttaMethod(1, 0, 10, 0.1);
->>> [x, y].transposed.downsample(10)
+>>> [x, y].transpose.downsample(10)
 [
 	 0      1.0000;
 	 1      1.5625;

@@ -37,7 +37,7 @@ InfinitePlane : [Object] { | a b c d |
 	}
 
 	intercepts { :self |
-		let n = self.d.negated;
+		let n = self.d.negate;
 		[
 			n / self.a,
 			n / self.b,
@@ -94,13 +94,13 @@ InfinitePlane : [Object] { | a b c d |
 		let a = (y1 * (z2 - z3)) + (y2 * (z3 - z1)) + (y3 * (z1 - z2));
 		let b = (z1 * (x2 - x3)) + (z2 * (x3 - x1)) + (z3 * (x1 - x2));
 		let c = (x1 * (y2 - y3)) + (x2 * (y3 - y1)) + (x3 * (y1 - y2));
-		let d = ([a b c] * p1).sum.negated;
+		let d = ([a b c] * p1).sum.negate;
 		[a b c].allSatisfy(isInteger:/1).ifTrue {
 			let z = [a b c].gcd;
 			[a, b, c, d] := [a b c d] / z
 		};
 		[a b c].allSatisfy(isNonPositive:/1).ifTrue {
-			[a, b, c, d] := [a b c d].negated
+			[a, b, c, d] := [a b c d].negate
 		};
 		InfinitePlane(a, b, c, d)
 	}

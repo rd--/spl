@@ -123,8 +123,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		self.values := self.values.copy
 	}
 
-	reversed { :self |
-		RunArray(self.runs.reversed, self.values.reversed)
+	reverse { :self |
+		RunArray(self.runs.reverse, self.values.reverse)
 	}
 
 	runLengthAt { :self :index |

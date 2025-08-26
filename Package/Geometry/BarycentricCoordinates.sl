@@ -43,7 +43,7 @@ BarycentricCoordinates : [Object] { | coordinates |
 		let f = { :u :v :w :x |
 			[u v w x]
 			.arrayPad([0 0; 0 1], 1)
-			.transposed
+			.transpose
 			.determinant
 		};
 		let z = f(a, b, c, d);

@@ -12,8 +12,8 @@ Plot of _(x,y)_ for a small iteration count:
 ~~~spl svg=A
 let [t, v] = lorenzEquation(28, 10, 8 / 3)
 .rungeKuttaMethod([10 10 10], 0, 5, 0.01);
-let [x, y, z] = v.transposed;
-[x, y].transposed.scatterPlot
+let [x, y, z] = v.transpose;
+[x, y].transpose.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/lorenzEquation-A.svg)

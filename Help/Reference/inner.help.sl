@@ -100,7 +100,7 @@ The binary form is _adverbial_, it answers a `Block` that will perform _inner(f,
 0
 
 >>> let m = [0 0 1; 1 0 0; 0 1 0];
->>> m *.inner(+) m.transposed
+>>> m *.inner(+) m.transpose
 [
 	1 0 0;
 	0 1 0;

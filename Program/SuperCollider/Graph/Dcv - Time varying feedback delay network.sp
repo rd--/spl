@@ -50,6 +50,6 @@ let sig = inSig + LocalIn(order, 0 # order);
 sig := DelayC(sig, 0.5, delTimesSec * size - ControlDur());
 sig := sig * ctl::feedback;
 sig := OnePole(sig, ctl::coef);
-sig := sig * matrix(ctl::trig, ctl::rotateFreq, ctl::rotateAmount).transposed;
+sig := sig * matrix(ctl::trig, ctl::rotateFreq, ctl::rotateAmount).transpose;
 sig := sig.Sum;
 (inSig + sig.Splay2 <! LocalOut(sig)) * 0.5

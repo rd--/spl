@@ -5,7 +5,7 @@
 	let delayedOutput = DelayN(InFb(2, 0), 1, 1);
 	let oscillator = SinOsc(
 		harmonicNumber * 99 + [0, 2],
-		delayedOutput.reversed
+		delayedOutput.reverse
 	);
 	Release(oscillator / 9, 0, nextDelay, 16).playAt(currentTime);
 	[nextDelay, nextHarmonicNumber]

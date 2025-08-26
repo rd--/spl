@@ -47,7 +47,7 @@
 	}
 
 	gradeDown { :self |
-		self.sortedWithIndices.collect(value:/1).reversed
+		self.sortedWithIndices.collect(value:/1).reverse
 	}
 
 	gradeUp { :self |
@@ -90,7 +90,7 @@
 	windowedReduce { :self :windowSize :aBlock:/2 |
 		self.partition(windowSize.abs, 1).collect { :each |
 			windowSize.isNegative.ifTrue {
-				each.reverse
+				each.reverseInPlace
 			};
 			each.foldRight(aBlock:/2)
 		}

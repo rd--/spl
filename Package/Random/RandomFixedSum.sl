@@ -66,7 +66,7 @@
 			j := j - e
 		};
 		x.atPut(n - 1 + 1, sm + (pr * s));
-		x.transposed.collect { :each |
+		x.transpose.collect { :each |
 			each.shuffle(self)
 		}
 	}

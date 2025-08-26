@@ -183,7 +183,7 @@
 - `Minus`: subtraction
 - `ModDif`: minimum difference of two values in modulo arithmetics
 - `MulAdd`: multiply and add
-- `Negated`: negation
+- `Negate`: negation
 - `Plus`: addition
 - `Power`: raised to
 - `Quotient`: quotient

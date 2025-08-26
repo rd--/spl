@@ -2,7 +2,7 @@
 
 `Number` is the `Trait` for numerical values.
 
-Methods for arithmetic: `+`, `-`, `*`, `/`, `%`, `quotient`, `remainder`, `abs`, `negated`, `reciprocal`
+Methods for arithmetic: `+`, `-`, `*`, `/`, `%`, `quotient`, `remainder`, `abs`, `negate`, `reciprocal`
 
 Methods implementing mathematical functions: `exp`, `log`, `floorLog`, `^`, `raisedToInteger`, `sqrt`, `squared`
 

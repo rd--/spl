@@ -22,17 +22,17 @@ Cyan, magenta and yellow are the negations of red, green and blue.
 
 ```
 >>> RgbColour([1 0 0], 1)
->>> .negated
+>>> .negate
 >>> .isCyan
 true
 
 >>> RgbColour([0 1 0], 1)
->>> .negated
+>>> .negate
 >>> .isMagenta
 true
 
 >>> RgbColour([0 0 1], 1)
->>> .negated
+>>> .negate
 >>> .isYellow
 true
 ```

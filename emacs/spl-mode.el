@@ -365,7 +365,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("log" . ?⍟) ; Apl ; U+235F ⍟ Apl Functional Symbol Circle Star
      ("max" . ?⌈) ; Apl ; U+2308 ⌈ Left Ceiling
      ("min" . ?⌊) ; Apl ; U+230A ⌊ Left Floor
-     ("negated" . ?-) ; Apl
+     ("negate" . ?-) ; Apl
      ;("nest" . ?⊆) ; Apl
      ("nthRoot" . ?√) ; Apl
      ;("nubSieve" . ?≠) ; Apl
@@ -376,7 +376,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ;("replicateEach" . ?/) ; Apl
      ("reshape" . ?⍴) ; Apl
      ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
-     ("rotatedLeft" . ?⌽) ; Apl
+     ("rotateLeft" . ?⌽) ; Apl
      ("shape" . ?⍴) ; Apl ; U+2374 ⍴ Apl Functional Symbol Rho
      ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
      ;("take" . ?↑) ; Apl
@@ -436,8 +436,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("r" . ?𝑟) ; U+1D45F 𝑟 Mathematical Italic Small R
      ("return" . ?↑) ; U+2191 ↑ Upwards Arrow
      ("return:/1" . ?↑) ; U+2191 ↑ Upwards Arrow
-     ("reversed" . ?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R ; U+233D ⌽ APL Functional Symbol Circle Stile
-     ("rotatedLeft" . ?⌽) ; U+233D ⌽ APL Functional Symbol Circle Stile
+     ("reverse" . ?ᴙ) ; U+1D19 ᴙ Latin Letter Small Capital Reversed R ; U+233D ⌽ APL Functional Symbol Circle Stile
+     ("rotateLeft" . ?⌽) ; U+233D ⌽ APL Functional Symbol Circle Stile
      ("rho" . ?ρ) ; U+03C1 ρ Greek Small Letter Rho
      ("second" . ?₂) ; U+2082 ₂ Subscript Two
      ("sharp" . ?♯) ; U+266F ♯ Music Sharp Sign
@@ -452,7 +452,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("theta" . ?θ) ; U+03B8 θ Greek Small Letter Theta
      ("Theta" . ?Θ) ; U+0398 Θ Greek Capital Letter Theta
      ("third" . ?₃) ; U+2083 ₃ Subscript Three
-     ("transposed" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T ; U+2349 ⍉ APL Functional Symbol Circle Backslash
+     ("transpose" . ?ᵀ) ; U+1D40 ᵀ Modifier Letter Capital T ; U+2349 ⍉ APL Functional Symbol Circle Backslash
      ("true" . ?⊤) ; U+22A4 ⊤ Down Tack
      ("u" . ?𝑢) ; U+1D462 𝑢 Mathematical Italic Small U
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack

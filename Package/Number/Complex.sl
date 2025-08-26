@@ -154,7 +154,7 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	conjugate { :self |
-		Complex(self.real, self.imaginary.negated)
+		Complex(self.real, self.imaginary.negate)
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -180,7 +180,7 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	i { :self |
-		Complex(self.imaginary.negated, self.real)
+		Complex(self.imaginary.negate, self.real)
 	}
 
 	integerPart { :self |
@@ -289,8 +289,8 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
-	negated { :self |
-		Complex(self.real.negated, self.imaginary.negated)
+	negate { :self |
+		Complex(self.real.negate, self.imaginary.negate)
 	}
 
 	norm { :self |

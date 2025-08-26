@@ -72,7 +72,7 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Union.html)
 [2](https://reference.wolfram.com/language/ref/IntervalUnion.html),
 _W_
-[1]https://en.wikipedia.org/wiki/Union_(set_theory))
+[1](https://en.wikipedia.org/wiki/Union_(set_theory))
 
 Unicode: U+222A ∪ Union
 

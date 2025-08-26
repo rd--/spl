@@ -27,7 +27,7 @@ true
 >>> let m = [4 -5 2; 3 -3 -3; 5 5 5];
 >>> (
 >>> 	m.isSymmetricMatrix,
->>> 	((m + m.transposed) / 2).isSymmetricMatrix
+>>> 	((m + m.transpose) / 2).isSymmetricMatrix
 >>> )
 (false, true)
 ```

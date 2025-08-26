@@ -14,7 +14,7 @@ system
 	.then { :anArrayBuffer |
 		anArrayBuffer
 		.asByteArray
-		.base64Encoded
+		.base64Encode
 	}
 }
 ~~~

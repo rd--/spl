@@ -58,7 +58,7 @@ Join depth three arrays at different levels:
 
 ```
 >>> let a = [2 2 2].iota;
->>> let b = a.negated;
+>>> let b = a.negate;
 >>> (
 >>> 	[a b].join(1),
 >>> 	[a b].join(2),

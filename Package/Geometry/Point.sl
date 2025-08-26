@@ -92,7 +92,7 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	coordinateBounds { :self |
-		self.coordinateBoundingBox.transposed
+		self.coordinateBoundingBox.transpose
 	}
 
 	counterClockwiseVectorAngle { :u :v |

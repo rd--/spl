@@ -4,4 +4,4 @@ let n = { LfNoise1(0.001) } ! 99 + 1 / 99;
 let j = CombL(Lpf(i, 2000), 1, n, 0.05);
 let d = { Dust2(0.01) } ! 99;
 let x = (j + d).Sin;
-Splay2(x) <! Out(20, (x - x.rotated(1)) / 2)
+Splay2(x) <! Out(20, (x - x.rotate(1)) / 2)

@@ -102,7 +102,7 @@ Visualizes a Laplacian operator matrix:
 let n = 5;
 let i = n.identityMatrix;
 let e = (1 # 4).diagonalMatrix(-1);
-let d = (e + e.transposed) - (2 * i);
+let d = (e + e.transpose) - (2 * i);
 (
 	d.kroneckerProduct(i)
 	+

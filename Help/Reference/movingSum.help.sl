@@ -23,7 +23,7 @@ Moving sum of a matrix:
 [3 6 3; -2 1 1]
 
 >>> [4 8 6; -1 -2 -3; -1 3 4]
->>> .transposed
+>>> .transpose
 >>> .movingSum(2)
 [12 -3 2; 14 -5 7]
 ```

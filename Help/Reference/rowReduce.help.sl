@@ -40,7 +40,7 @@ This augmented matrix represents a linear system _ax=b_, with the extra column c
 ```
 >>> let a = [8 1 6; 3 5 7; 4 9 2];
 >>> let b = [1 1 1];
->>> let m = [a, [b].transposed];
+>>> let m = [a, [b].transpose];
 >>> let c = m.rowCatenate;
 >>> let x = c.rowReduce.column(4);
 >>> (x, a.dot(x) ~ b)

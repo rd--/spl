@@ -17,10 +17,10 @@
 			self.latticePrimes(primes.includes(2))
 		).if {
 			let pf1 = self.numerator.primeFactors;
-			let pf2 = self.denominator.primeFactors.negated;
+			let pf2 = self.denominator.primeFactors.negate;
 			let pf3 = pf1 ++ pf2;
 			primes.collect { :each |
-				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negated)
+				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negate)
 			}
 		} {
 			self.error('Fraction>>latticeVector: incomplete primes')

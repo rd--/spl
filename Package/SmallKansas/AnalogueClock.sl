@@ -71,17 +71,17 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 
 	moveHourHand { :self :fractionalHour |
 		let theta = fractionalHour - 3 / 12 * 2.pi;
-		self.hourHand.p2 := PolarCoordinates([55, theta.negated])
+		self.hourHand.p2 := PolarCoordinates([55, theta.negate])
 	}
 
 	moveMinuteHand { :self :minute |
 		let theta = minute - 15 / 60 * 2.pi;
-		self.minuteHand.p2 := PolarCoordinates([80, theta.negated])
+		self.minuteHand.p2 := PolarCoordinates([80, theta.negate])
 	}
 
 	moveSecondHand { :self :second |
 		let theta = second - 15 / 60 * 2.pi;
-		self.secondHand.p2 := PolarCoordinates([85, theta.negated])
+		self.secondHand.p2 := PolarCoordinates([85, theta.negate])
 	}
 
 	openIn { :self :smallKansas :event |

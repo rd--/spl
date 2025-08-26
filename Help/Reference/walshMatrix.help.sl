@@ -39,7 +39,7 @@ The `dot` product of an _n×n_ Walsh matrix with its transposition is the _n^2_ 
 
 ```
 >>> let m = 16.walshMatrix;
->>> m.dot(m.transposed)
+>>> m.dot(m.transpose)
 (16 * 16.identityMatrix)
 ```
 

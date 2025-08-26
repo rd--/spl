@@ -15,13 +15,18 @@ let t = [3 2.5 3].sssTriangle;
 
 ![](sw/spl/Help/Image/outerSoddyCircle-A.svg)
 
+Outer and inner Soddy circles:
+
+~~~spl svg=B
 let t = sssTriangle(1, 5 / 6, 5 / 6);
 [
 	t.tangentCircles,
 	t.innerSoddyCircle,
 	t.outerSoddyCircle
 ].LineDrawing
+~~~
 
+![](sw/spl/Help/Image/outerSoddyCircle-B.svg)
 
 * * *
 

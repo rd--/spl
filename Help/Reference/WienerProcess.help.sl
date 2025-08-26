@@ -35,7 +35,7 @@ let r = Sfc32(990914);
 WienerProcess(0, 1)
 .randomFunction(r, [0 1 0.005], 3)
 .valueList
-.transposed
+.transpose
 .linePlot
 ~~~
 

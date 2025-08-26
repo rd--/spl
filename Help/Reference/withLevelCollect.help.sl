@@ -24,7 +24,7 @@ Reverse at each level of a rank three array:
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	(k = 0).if { z.reversed } { z }
+>>> 	(k = 0).if { z.reverse } { z }
 >>> }
 [
 	7 8; 9 10; 11 12:;
@@ -32,7 +32,7 @@ Reverse at each level of a rank three array:
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	(k = 1).if { z.reversed } { z }
+>>> 	(k = 1).if { z.reverse } { z }
 >>> }
 [
 	5 6; 3 4; 1 2:;
@@ -40,7 +40,7 @@ Reverse at each level of a rank three array:
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	(k = 2).if { z.reversed } { z }
+>>> 	(k = 2).if { z.reverse } { z }
 >>> }
 [
 	2 1; 4 3; 6 5:;
@@ -48,7 +48,7 @@ Reverse at each level of a rank three array:
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	(k = 3).if { z.negated } { z }
+>>> 	(k = 3).if { z.negate } { z }
 >>> }
 [
 	-1 -2; -3 -4; -5 -6:;
@@ -60,7 +60,7 @@ Reverse at each two and three element combination of levels of a rank three arra
 
 ```
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 1].includes(k).if { z.reversed } { z }
+>>> 	[0 1].includes(k).if { z.reverse } { z }
 >>> }
 [
 	11 12;  9 10;  7  8:;
@@ -68,7 +68,7 @@ Reverse at each two and three element combination of levels of a rank three arra
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 2].includes(k).if { z.reversed } { z }
+>>> 	[0 2].includes(k).if { z.reverse } { z }
 >>> }
 [
 	 8  7; 10  9; 12 11:;
@@ -76,7 +76,7 @@ Reverse at each two and three element combination of levels of a rank three arra
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[1 2].includes(k).if { z.reversed } { z }
+>>> 	[1 2].includes(k).if { z.reverse } { z }
 >>> }
 [
 	 6  5;  4  3;  2  1:;
@@ -84,7 +84,7 @@ Reverse at each two and three element combination of levels of a rank three arra
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	[0 1 2].includes(k).if { z.reversed } { z }
+>>> 	[0 1 2].includes(k).if { z.reverse } { z }
 >>> }
 [
 	12 11; 10  9;  8  7:;

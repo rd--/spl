@@ -21,7 +21,7 @@ In three dimensions divides a cube into six tetrahedra:
 ~~~spl svg=B
 let k = 3.kuhnTriangulation;
 [1 .. 6].collect { :i |
-	Tetrahedron(k[i]).translated(
+	Tetrahedron(k[i]).translate(
 		[
 			i % 2 * 2,
 			i % 2 + i * 0.75,

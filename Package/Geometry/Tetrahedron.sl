@@ -59,7 +59,7 @@ Tetrahedron : [Object] { | vertexCoordinates |
 		self.asPolyhedron.project(projection)
 	}
 
-	translated { :self :v |
+	translate { :self :v |
 		Tetrahedron(
 			self.vertexCoordinates.collect { :each |
 				each + v

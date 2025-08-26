@@ -16,4 +16,4 @@ let z = (1 .. n).collect { :i |
 	EqPan2(z, l) / n
 };
 let y = Limiter(LeakDc(z.Sum, 0.995), 1, 0.01);
-GVerb(y, 3, 5, 0.2, 0.8, 20, 0.1, 0.7, 0.5, 300).transposed.Mix * 0.25
+GVerb(y, 3, 5, 0.2, 0.8, 20, 0.1, 0.7, 0.5, 300).transpose.Mix * 0.25

@@ -27,4 +27,4 @@ Splay2(
 		)
 	},
 	0.5, 1, 0, true
-).transposed.Mix
+).transpose.Mix

@@ -58,7 +58,7 @@ Scalar and matrix multiplication:
 Matrix transposition:
 
 ```
->>> [1 2 3; 0 -6 7].transposed
+>>> [1 2 3; 0 -6 7].transpose
 [1 0; 2 -6; 3 7]
 ```
 

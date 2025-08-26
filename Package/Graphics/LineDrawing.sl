@@ -2,7 +2,7 @@ LineDrawing : [Object] { | contents metadata |
 
 	asImg { :self |
 		let svgText = self.asSvg;
-		let svgEncoded = svgText.asciiByteArray.base64Encoded;
+		let svgEncoded = svgText.asciiByteArray.base64Encode;
 		let svgEncodedPretty = svgEncoded.chunksOf(76).unlines;
 		'<img src="data:image/svg+xml;base64,\n%\n">'.format([svgEncodedPretty])
 	}
@@ -48,7 +48,7 @@ LineDrawing : [Object] { | contents metadata |
 				strokeWith.printStringToFixed(4), '%',
 				yTranslation.printStringToFixed(4),
 				scaleFactor.printStringToFixed(4),
-				scaleFactor.negated.printStringToFixed(4)
+				scaleFactor.negate.printStringToFixed(4)
 			]),
 			fragments,
 			'</g>',
@@ -107,7 +107,7 @@ LineDrawing : [Object] { | contents metadata |
 		].catenate.collect(prefixSum:/1);
 		let angles = places.collect { :p |
 			p.collect { :q |
-				((q / period).negated * 2.pi + 0.5.pi) % 2.pi
+				((q / period).negate * 2.pi + 0.5.pi) % 2.pi
 			}
 		};
 		let circles = (1 .. circleCount).collect { :each |
