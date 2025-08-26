@@ -55,6 +55,18 @@ Circle : [Object, Geometry] { | center radius |
 		2
 	}
 
+
+	inversiveDistance { :c1 :c2 |
+		let a = c1.radius;
+		let b = c2.radius;
+		let c = (c2.center - c1.center).norm;
+		(c.squared - a.squared - b.squared) / (2 * a * b)
+	}
+
+	inversiveDistanceDelta { :c1 :c2 |
+		c1.inversiveDistance(c2).abs.arcCosh
+	}
+
 	isOrthogonalCircle { :self :operand |
 		let r1 = self.radius;
 		let r2 = operand.radius;
@@ -292,6 +304,25 @@ UnitCircle : [Object] {
 		} {
 			self.collect(f:/1)
 		}
+	}
+
+}
+
+
++SmallFloat {
+
+	annularSteinerChain { :n :c :r |
+		let theta = 1.pi / n;
+		let rho = (r * theta.sin) / (1 - theta.sin);
+		let rr = (theta.sec + theta.tan).squared * r;
+		[
+			Circle(c, r),
+			Circle(c, rr),
+			n.circlePoints(c, r + rho, 0)
+			.collect { :each |
+				Circle(each, rho)
+			}
+		].GeometryCollection
 	}
 
 }

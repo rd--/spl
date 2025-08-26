@@ -88,6 +88,26 @@ let q = 12.circlePoints([0 0], 9 / 17, 0);
 
 ![](sw/spl/Help/Image/circlePoints-D.svg)
 
+An annular Steiner chain:
+
+~~~spl svg=E
+let n = 9;
+let r = 1;
+let theta = 1.pi / n;
+let rho = (r * theta.sin) / (1 - theta.sin);
+let rr = (theta.sec + theta.tan).squared * r;
+[
+	Circle([0 0], r),
+	Circle([0 0], rr),
+	n.circlePoints([0 0], r + rho, 0)
+	.collect { :each |
+		Circle(each, rho)
+	}
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-E.svg)
+
 * * *
 
 See also: %, ^, angleVector, Circle, cos, Range, sin

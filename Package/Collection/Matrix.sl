@@ -138,6 +138,15 @@
 		}
 	}
 
+	isLatinSquare { :self |
+		self.isSquareMatrix & {
+			let x = self[1];
+			(self ++ self.transposed).allSatisfy { :each |
+				each.isPermutationOf(x)
+			}
+		}
+	}
+
 	isMatrixOf { :self :elementType |
 		(self.arrayDepth >= 2) & {
 			self.allSatisfy { :each |
