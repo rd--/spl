@@ -55,6 +55,16 @@ Circle : [Object, Geometry] { | center radius |
 		2
 	}
 
+	isOrthogonalCircle { :self :operand |
+		let r1 = self.radius;
+		let r2 = operand.radius;
+		let c1 = self.center;
+		let c2 = operand.center;
+		(r1.squared + r2.squared).isVeryCloseTo(
+			(c2 - c1).norm.squared
+		)
+	}
+
 	svgFragment { :self :options |
 		let precision = options['precision'];
 		'<circle cx="%" cy="%" r="%" />'.format([
@@ -223,6 +233,65 @@ UnitCircle : [Object] {
 
 	fordCircle { :self |
 		self.collect(fordCircle:/1)
+	}
+
+}
+
+
++Circle {
+
+	circleInversion { :self |
+		let c = self.center;
+		let r = self.radius;
+		{ :u |
+			let v = u - c;
+			c + ((r.squared * v) / v.norm.squared)
+		}
+	}
+
+	circleInversion { :self :reference |
+		let [x, y] = self.center;
+		let a = self.radius;
+		let [x0, y0] = reference.center;
+		let k = reference.radius;
+		let s = k.squared / ((x - x0).squared + (y - y0).squared - a.squared);
+		Circle(
+			[
+				x0 + (s * (x - x0)),
+				y0 + (s * (y - y0))
+			],
+			s.abs * a
+		)
+	}
+
+	circlePower { :self |
+		let c = self.center;
+		let r = self.radius;
+		{ :u |
+			(u - c).norm.squared - r.squared
+		}
+	}
+
+}
+
++List {
+
+	circleInversion { :self :circle |
+		let f:/1 = circle.circleInversion;
+		self.isVector.if {
+			f(self)
+		} {
+			self.collect(f:/1)
+		}
+	}
+
+	circlePower { :self :circle |
+		let f:/1 = circle.circlePower;
+		self.isVector.if {
+			f(self)
+		} {
+			self.collect(f:/1)
+		}
 	}
 
 }

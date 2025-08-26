@@ -1,8 +1,8 @@
 # isCloseTo
 
-- _isCloseTo(aNumber, anotherNumber)_
+- _isCloseTo(n, m)_
 
-Answer `true` if _aNumber_ is close to _anotherNumber_, else `false`.
+Answer `true` if the number _n_ is close to another number _m_, else `false`.
 This takes magnitude into account, so that a million is close to a million and one, but one is not close to two.
 The operator form is `~`.
 

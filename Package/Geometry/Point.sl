@@ -6,6 +6,10 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		self.coordinates ! 2
 	}
 
+	circleInversion { :self :circle |
+		self.coordinates.circleInversion(circle).Point
+	}
+
 	edgeCount { :self |
 		0
 	}

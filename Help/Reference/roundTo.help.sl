@@ -17,7 +17,7 @@ Round to integer:
 2.68
 ```
 
-Rounds away from zero, c.f. `roundToTowardsZero`:
+Rounds away from zero, c.f. `roundTowardsZeroTo`:
 
 ```
 >>> -3.99.roundTo(1)
@@ -56,7 +56,7 @@ Threads over lists:
 
 * * *
 
-See also: round, roundToTowardsZero, truncateTo
+See also: round, roundDownTo, roundTowardsZeroTo, roundUpTo, truncateTo
 
 References:
 _Mathematica_

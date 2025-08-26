@@ -6,7 +6,14 @@ Answer the Euclidean distance between vectors _u_ and _v_.
 
 Equivalent to _(u - v).norm_.
 
-Euclidean distance between numeric vectors:
+Euclidean distance between two-vectors:
+
+```
+>>> [0 0].euclideanDistance([1/2 1/2])
+1/2.sqrt
+```
+
+Euclidean distance between three-vectors:
 
 ```
 >>> [1 2 3].euclideanDistance([2 4 6])
@@ -21,16 +28,17 @@ Euclidean distance between numeric vectors:
 >>> [1 2 3].euclideanDistance([4 5 6])
 5.196
 
+>>> [0 0 0].euclideanDistance([1/2 1/2 1/2])
+1/3.pi.sin
+```
+
+Euclidean distance between five-vectors:
+
+```
 >>> [1 5 2 3 10].euclideanDistance(
 >>> 	[4 15 20 5 5]
 >>> )
 462.sqrt
-
->>> [0 0].euclideanDistance([1/2 1/2])
-1/2.sqrt
-
->>> [0 0 0].euclideanDistance([1/2 1/2 1/2])
-1/3.pi.sin
 ```
 
 The Euclidean distance in one dimension is the absolute value of the difference:
@@ -55,7 +63,7 @@ The Euclidean distance in two dimensions is the straight line distance:
 
 * * *
 
-See also: -, abs, brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance
+See also: -, abs, brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance, norm
 
 Guides: Distance Functions
 

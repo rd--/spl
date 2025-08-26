@@ -1,9 +1,9 @@
 # isCloseToBy
 
-- _isCloseToBy(aNumber, anotherNumber, anEpsilon)_
+- _isCloseToBy(n, m, ε)_
 
-Answer `true` if _aNumber_ is close to _anotherNumber_,
-according to _anEpsilon_,
+Answer `true` if a number _n_ is close to another number _m_,
+according to _ε_,
 else `false`.
 
 At `SmallFloat`:

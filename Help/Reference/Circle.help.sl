@@ -157,6 +157,28 @@ let h = 6.circlePoints(c, r, 0);
 
 ![](sw/spl/Help/Image/Circle-I.svg)
 
+Draw circles from the Apollonian pencil of segment _ab_:
+
+~~~spl svg=J
+let a = [1 0];
+let b = [0 0] - a;
+[
+	Circle([0 0], 1),
+	[0.1, 0.2 .. 0.7].collect { :k |
+		let kk = k.squared;
+		let c = (a - b).norm;
+		let d = (kk / (1 - kk)) * c;
+		let r = (k / (1 - kk)) * c;
+		[
+			Circle(a + [d, 0], r),
+			Circle(b - [d, 0], r)
+		]
+	}
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-J.svg)
+
 * * *
 
 See also: Arc, arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y

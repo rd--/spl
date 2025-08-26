@@ -57,6 +57,8 @@ Triangle Centers:
 
 Derived Points:
 
+- `brocardMidpoint`
+- `brocardPoints`
 - `firstBrocardPoint`
 - `nobbsPoints`
 - `secondBrocardPoint`
@@ -81,6 +83,7 @@ Derived Triangles:
 Derived Circles:
 
 - `bevanCircle`
+- `brocardCircle`
 - `circumcircle`
 - `cosineCircle`
 - `excircles`
@@ -88,6 +91,8 @@ Derived Circles:
 - `innerSoddyCircle`
 - `ninePointCircle`
 - `outerSoddyCircle`
+- `polarCircle`
+- `powerCircles`
 - `spiekerCircle`
 - `tangentCircles`
 

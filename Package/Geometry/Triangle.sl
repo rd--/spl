@@ -78,6 +78,23 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.coordinateBoundingBox
 	}
 
+	brocardCircle { :self |
+		Circle(
+			self.kimberlingCenter(182),
+			self.brocardDiameter / 2
+		)
+	}
+
+	brocardDiameter { :self |
+		(self.symmedianPoint - self.circumcenter).norm
+	}
+
+	brocardMidpoint { :self |
+		self.triangleCentreL { :a :b :c |
+			a * (b.squared + c.squared)
+		}
+	}
+
 	brocardPoints { :self |
 		let [a, b, c] = self.sideLengths;
 		[
@@ -199,6 +216,16 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let c = self.excenters;
 		let r = self.exradii;
 		Circle(c, r)
+	}
+
+	excirclesRadicalCircle { :self |
+		let [a, b, c] = self.sideLengths;
+		let i = (a.squared * b) + (a * b.squared) + (a.squared * c) + (a * b * c) + (b.squared * c) + (a * c.squared) + (b * c.squared);
+		let r = (i / (a + b + a)).sqrt / 2;
+		Circle(
+			self.spiekerCenter,
+			r
+		)
 	}
 
 	exeterPoint { :self |
@@ -373,6 +400,18 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
+	isAcute { :self |
+		self.interiorAngles.allSatisfy { :x |
+			x < 1/2.pi
+		}
+	}
+
+	isObtuse { :self |
+		self.interiorAngles.anySatisfy { :x |
+			x > 1/2.pi
+		}
+	}
+
 	isoperimetricPoint { :self |
 		self.hasIsoperimetricPoint.if {
 			self.triangleCentreA { :a :b :c |
@@ -470,6 +509,26 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	perimeter { :self |
 		self.sideLengths.sum
+	}
+
+	polarCircle { :self |
+		self.isObtuse.if {
+			Circle(
+				self.orthocenter,
+				((4 * self.circumradius.squared) - (0.5 * self.sideLengths.squared.sum)).sqrt
+			)
+		} {
+			self.error('polarCircle: not obtuse')
+		}
+	}
+
+	powerCircles { :self |
+		let [a, b, c] = self.vertexCoordinates;
+		let [p, q, r] = [a, b, c].medialTriangle;
+		Circle(
+			[p, q, r],
+			[(p - a).norm, (q - b).norm, (r - c).norm]
+		)
 	}
 
 	project { :self :projection |
@@ -815,9 +874,15 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 				22 -> { t.exeterPoint },
 				23 -> { t.farOutPoint },
 				30 -> { t.eulerInfinityPoint },
+				39 -> { t.brocardMidpoint },
 				40 -> { t.bevanPoint },
 				175 -> { t.isoperimetricPoint },
 				176 -> { t.equalDetourPoint },
+				182 -> {
+					t.triangleCentreL { :a :b :c |
+						((a.squared * (b.squared + c.squared)) + (2 * b.squared * c.squared) - (a ^ 4)) / (b * c)
+					}
+				},
 				187 -> { t.schouteCenter }
 			]) {
 				n.error('kimberlingCenter: unknown n')
