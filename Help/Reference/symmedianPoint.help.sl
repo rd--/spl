@@ -24,7 +24,7 @@ true
 Plot symmedian point and related triangle centers,
 the symmedian point _s_ of the triangle _t_ is the centroid of the pedal triangle of _(t,s)_:
 
-~~~
+~~~spl svg=A
 let t = [3 3.85 5].sssTriangle;
 let s = t.symmedianPoint;
 let p = t.pedalTriangle(s);

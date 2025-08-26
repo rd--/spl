@@ -1,6 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="81.6" height="100.0" viewBox="-5.654 -7.233 91.647 110.000">
+<svg xmlns="http://www.w3.org/2000/svg" width="82.8" height="100.0" viewBox="-5.654 -7.233 92.763 110.000">
 <g fill="none" stroke="black" stroke-width="0.0123%" transform="translate(0, 95.5348) scale(40.4966, -40.4966)">
 <polygon points="0.000,0.000 2.000,0.000 1.000,2.414" />
 <polygon points="1.984,-0.055 1.398,1.359 -0.016,-0.055" />
+<polygon points="1.442,1.364 0.613,0.535 2.028,-0.050" />
+<polygon points="0.597,0.565 1.426,0.222 1.426,1.393" />
+<polygon points="1.409,0.202 1.409,0.888 0.581,0.545" />
+<polygon points="1.428,0.882 0.943,0.681 1.428,0.196" />
+<polygon points="0.941,0.696 1.226,0.412 1.427,0.897" />
 </g>
 </svg>

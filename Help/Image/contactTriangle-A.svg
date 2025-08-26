@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="216.7" height="100.0" viewBox="-5.000 -5.000 226.732 110.000">
 <g fill="none" stroke="black" stroke-width="0.0115%" transform="translate(0, 100.0000) scale(43.3464, -43.3464)">
 <polygon points="0.000,0.000 5.000,0.000 3.082,2.307" />
-<polygon points="3.674,1.596 2.342,1.753 2.925,0.000" />
+<polygon points="2.567,1.076 3.407,1.027 3.050,1.669" />
 <circle cx="2.925" cy="0.973" r="0.973" />
+<circle cx="3.014" cy="1.309" r="0.012" />
+<circle cx="3.014" cy="1.309" r="0.012" />
 </g>
 </svg>

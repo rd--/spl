@@ -128,7 +128,7 @@ A pseudosphere:
 
 A one-dimensional potential energy equation plotted as the parameter λ is varied:
 
-~~~spl svg=H
+~~~spl svg=I
 [0 4; -2.5 2.5].surfacePlot { :lambda :x |
 	let a = 0.25 * (x ^ 4);
 	let c = ((2 * lambda) - 4) * x;

@@ -115,17 +115,6 @@
 		}
 	}
 
-	ellipseCurve { :r :theta |
-		let [a, b] = r;
-		let p = theta.cos;
-		let q = theta.sin;
-		{ :t |
-			let x = (a * p * t.cos) - (b * q * t.sin);
-			let y = (a * q * t.cos) + (b * p * t.sin);
-			[x, y]
-		}
-	}
-
 	epicycloid { :a :b |
 		epitrochoid(a, b, b)
 	}
@@ -406,13 +395,6 @@
 		}
 	}
 
-	tridentOfNewton { :self |
-		let [a, b, c, d] = self;
-		{ :x |
-			(d / x) - (a * x.squared) - (b * x) - c
-		}
-	}
-
 	trisectrixOfMaclaurin { :a |
 		{ :theta |
 			let r = (a / 2) * ((4 * theta.cos) - theta.sec);
@@ -459,6 +441,28 @@
 	ellipticCurve { :a :b |
 		{ :x :y |
 			(x ^ 3) + (a * x) + b - (y ^ 2)
+		}
+	}
+
+}
+
++List {
+
+	ellipseCurve { :r :theta |
+		let [a, b] = r;
+		let p = theta.cos;
+		let q = theta.sin;
+		{ :t |
+			let x = (a * p * t.cos) - (b * q * t.sin);
+			let y = (a * q * t.cos) + (b * p * t.sin);
+			[x, y]
+		}
+	}
+
+	tridentOfNewton { :self |
+		let [a, b, c, d] = self;
+		{ :x |
+			(d / x) - (a * x.squared) - (b * x) - c
 		}
 	}
 

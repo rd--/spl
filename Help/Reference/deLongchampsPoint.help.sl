@@ -12,7 +12,7 @@ Answer the de Longchamps point of the triangle _t_.
 
 Plot de Longchamps point:
 
-~~~
+~~~spl svg=A
 let t = [4 2.5 4].sssTriangle;
 let d = t.deLongchampsPoint;
 let o = t.orthocenter;

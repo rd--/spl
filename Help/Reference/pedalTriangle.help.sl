@@ -33,7 +33,7 @@ let e = d.collect { :x | Line([b, x]) };
 
 If _p_ is the `circumcenter`, then the pedal triangle is the medial triangle:
 
-~~~spl svg=B
+~~~spl svg=C
 let a = [4 5 4].sssTriangle;
 let b = a.circumcenter;
 let c = a.pedalTriangle(b);

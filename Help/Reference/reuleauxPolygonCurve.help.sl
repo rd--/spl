@@ -16,7 +16,7 @@ Plot a Reuleaux triangle:
 
 Plot a Reuleaux 5-polygon:
 
-~~~spl svg=A
+~~~spl svg=B
 (0 -- 2.pi).functionPlot(
 	5.reuleauxPolygonCurve
 )

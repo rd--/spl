@@ -502,11 +502,11 @@
 	}
 
 	// { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, quotient:/2)
+		self.quotient(anObject)
 	}
 
 	\\ { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, remainder:/2)
+		self.remainder(anObject)
 	}
 
 	< { :self :anObject |
@@ -636,6 +636,14 @@
 
 	nthRoot { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, nthRoot:/2)
+	}
+
+	quotient { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, quotient:/2)
+	}
+
+	remainder { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, remainder:/2)
 	}
 
 	roundTo { :self :anObject |

@@ -12,7 +12,7 @@ Answer the Nagel point of the triangle _t_.
 
 Plot Nagel point:
 
-~~~
+~~~spl svg=A
 let t = [3 3.85 5].sssTriangle;
 let n = t.nagelPoint;
 let c = t.centroid;

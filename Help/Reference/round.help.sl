@@ -104,7 +104,7 @@ Plot the function over a subset of the reals:
 
 Plot _√x-⌊√x⌉_ over a subset of the reals:
 
-~~~spl svg=A
+~~~spl svg=B
 (0 -- 16).functionPlot { :x |
 	let z = x.sqrt;
 	z - z.round

@@ -37,7 +37,7 @@ Answer the _n_-th Kimberling center of the triangle _t_.
 
 The first few Kimberling centers on or within the right triangle:
 
-~~~
+~~~spl svg=A
 let t = sssTriangle(3, 4, 5);
 [
 	t,

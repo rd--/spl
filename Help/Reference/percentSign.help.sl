@@ -204,10 +204,10 @@ let k = (0L .. 64L);
 
 ![](sw/spl/Help/Image/percentSign-C.png)
 
-Plot of an Ulam spiral where numbers are colored based on their congruence:
+Plot of a spiral matrix where numbers are colored based on their congruence:
 
 ~~~spl png=D
-(109.ulamSpiralMatrix % 109 / 109)
+(109.spiralMatrix % 109 / 109)
 .Graymap
 ~~~
 

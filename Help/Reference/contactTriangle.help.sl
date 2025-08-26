@@ -24,7 +24,7 @@ let b = a.contactTriangle;
 
 Draw nested contact triangles:
 
-~~~spl svg=A
+~~~spl svg=B
 { :t |
 	t.contactTriangle
 }.nestList(

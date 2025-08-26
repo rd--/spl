@@ -12,7 +12,7 @@ Answer the Gergonne point of the triangle _t_.
 
 Plot Gergonne point:
 
-~~~
+~~~spl svg=A
 let t = [3 3.85 5].sssTriangle;
 let g = t.gergonnePoint;
 let i = t.incircle;

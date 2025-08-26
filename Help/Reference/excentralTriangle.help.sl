@@ -25,7 +25,7 @@ let t = [4 5 4].sssTriangle;
 
 Draw nested excentral triangles:
 
-~~~spl svg=A
+~~~spl svg=B
 { :t |
 	t.excentralTriangle
 }.nestList(

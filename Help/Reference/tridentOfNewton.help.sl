@@ -13,7 +13,7 @@ Answer the trident of Newton in Cartesian form.
 
 ![](sw/spl/Help/Image/tridentOfNewton-A.svg)
 
-~~~spl svg=A
+~~~spl svg=B
 (-3 -- 3).functionPlot(
 	[
 		1 1 1 -1;

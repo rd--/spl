@@ -90,7 +90,7 @@ Plot the sequence of quotients:
 
 ~~~spl svg=A
 1:50.functionPlot { :n |
-	n // 8
+	n.quotient(8)
 }
 ~~~
 
@@ -100,7 +100,7 @@ Plot the quotient of two integers:
 
 ~~~spl svg=B
 { :m :n |
-	m // n
+	m.quotient(n)
 }.table(1:10, 1:10).matrixPlot
 ~~~
 

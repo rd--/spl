@@ -11,7 +11,7 @@ Circle([3/7 1/98], 1/98)
 
 Draw Ford circles for the ninth-order Farey sequence:
 
-~~~
+~~~spl svg=A
 9.fareySequence
 .allButFirstAndLast
 .fordCircle

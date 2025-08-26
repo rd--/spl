@@ -119,7 +119,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 	voronoiVertexCoordinates { :self |
 		let vertices = self.vertexCoordinates;
 		self.faceIndices.collect { :each |
-			vertices.atAll(each).circumcenter
+			vertices.atAll(each).Triangle.circumcenter
 		}
 	}
 

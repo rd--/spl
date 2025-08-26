@@ -34,15 +34,23 @@ Threads over lists:
 [2 -2 -2 2]
 ```
 
-Plot the Ulam spiral of the quotient:
+Plot the spiral matrix of the quotient:
 
 ~~~spl png=A
-(99.ulamSpiralMatrix % 1185 / 1185).Graymap
+(99.spiralMatrix // 654).rescale.Graymap
 ~~~
 
 ![](sw/spl/Help/Image/solidusSolidus-A.png)
 
-Where supported `//` is displayed as ⫽.
+Plot the quotient of two integers:
+
+~~~spl svg=B
+{ :m :n |
+	m // n
+}.table(1:10, 1:10).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/solidusSolidus-B.svg)
 
 The name of this operator is `solidusSolidus`.
 

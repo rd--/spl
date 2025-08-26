@@ -15,27 +15,23 @@ Triangle([3 a; -2 a; 0.5 b])
 Plot extangents triangle:
 
 ~~~spl svg=A
-let t = [4 5 4].sssTriangle;
+let a = [3 2.5 3].sssTriangle;
+let b = a.extangentsTriangle;
+let c = a.excenters;
 [
-	t,
-	t.extangentsTriangle
+	a,
+	a.excircles,
+	c.PointCloud,
+	a.orthicTriangle,
+	a.clawsonPoint.Point,
+	b,
+	b.incircle,
+	b.incenter.Point,
+	c.Triangle.circumcircle
 ].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/extangentsTriangle-A.svg)
-
-Draw nested extangents triangles:
-
-~~~spl svg=A
-{ :t |
-	t.extangentsTriangle
-}.nestList(
-	[3 4 5].sssTriangle,
-	4
-).LineDrawing
-~~~
-
-![](sw/spl/Help/Image/extangentsTriangle-B.svg)
 
 * * *
 

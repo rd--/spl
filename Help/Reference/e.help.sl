@@ -88,7 +88,7 @@ The continued fraction of _e_ is regular:
 
 The graph of _eˣ_ has gradient `one` at `zero`:
 
-~~~
+~~~spl svg=A
 (-2 -- 1).functionPlot([
 	{ :x | x + 1 },
 	{ :x | 1.e ^ x }
