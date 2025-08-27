@@ -1,10 +1,10 @@
 # Residue
 
-- _Residue(anInteger, anotherInteger)_
+- _Residue(n, m)_
 
 A `Residue` is a `Type` holding an `Integer` and a constant modulus.
 
-There is a literal syntax for residues, _rZm_:
+There is a literal syntax for residues, _nZm_:
 
 ```
 >>> 3Z5

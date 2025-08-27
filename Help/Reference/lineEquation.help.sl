@@ -1,6 +1,6 @@
 # lineEquation
 
-- _lineEquation(aPoint, anotherPoint)_
+- _lineEquation(p, q)_
 
 Answer the terms of the linear equation for a line given by two points.
 
@@ -34,6 +34,16 @@ and slope-intercept form _y = -2/3x - 11/3_:
 >>> 	-22 / -6
 >>> )
 (0, 0, -2/3, 11/3)
+```
+
+_a_ and _b_ are reduced:
+
+```
+>>> [0 0].lineEquation([1 1])
+[1 -1 0]
+
+>>> [-1 -1].lineEquation([2 2])
+[1 -1 0]
 ```
 
 * * *

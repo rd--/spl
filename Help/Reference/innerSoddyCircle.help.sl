@@ -20,7 +20,7 @@ let t = [3.5 2.5 4].sssTriangle;
 
 See also: Circle, equalDetourPoint, outerSoddyCircle, tangentCircles, Triangle
 
-Guides: Triangle Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

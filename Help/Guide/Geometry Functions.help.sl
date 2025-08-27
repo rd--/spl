@@ -10,6 +10,7 @@ Types:
 - `Circle`
 - `Disk`
 - `Ellipse`
+- `GeneralisedCircle`
 - `GeometryCollection`
 - `HalfLine`
 - `HalfPlane`
@@ -90,10 +91,28 @@ Catalogues:
 
 Circle Functions:
 
+- `annularSteinerChain`
+- `bevanCircle`
+- `brocardCircle`
+- `circleInversion`
 - `circlePoints`
+- `circlePower`
 - `circleThrough`
 - `circumcircle`
+- `cosineCircle`
+- `excirclesRadicalCircle`
+- `excircles`
 - `fordCircle`
+- `incircle`
+- `innerSoddyCircle`
+- `isOrthogonalCircle`
+- `ninePointCircle`
+- `outerSoddyCircle
+- `polarCircle`
+- `powerCircles`
+- `spiekerCircle`
+- `tangentCircles`
+- `unitCircle`
 - `welzlAlgorithm`
 
 Computational Geometry:

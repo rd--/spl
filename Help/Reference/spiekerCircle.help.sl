@@ -32,7 +32,7 @@ let t = [3 4 5].sssTriangle;
 
 See also: incenter, medialTriangle, spiekerCircle, triangleCentre, Triangle
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

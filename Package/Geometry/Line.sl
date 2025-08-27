@@ -40,23 +40,9 @@ Line : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.anyOne.size
 	}
 
-	svgFragment { :self :options |
-		(self.vertexCount = 2).if {
-			let precision = options['precision'];
-			let [p1, p2] = self.vertexCoordinates;
-			let [x1, y1] = p1;
-			let [x2, y2] = p2;
-			'<line x1="%" y1="%" x2="%" y2="%" />'.format([
-				x1.printStringToFixed(precision),
-				y1.printStringToFixed(precision),
-				x2.printStringToFixed(precision),
-				y2.printStringToFixed(precision)
-			])
-		} {
-			'<polyline points="%" />'.format([
-				self.vertexCoordinates.asSvgPointList(options)
-			])
-		}
+	lineEquation { :self |
+		let [a, b] = self.vertexCoordinates;
+		a.lineEquation(b)
 	}
 
 	lineIndices { :self |
@@ -90,6 +76,25 @@ Line : [Object, Geometry] { | vertexCoordinates |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	svgFragment { :self :options |
+		(self.vertexCount = 2).if {
+			let precision = options['precision'];
+			let [p1, p2] = self.vertexCoordinates;
+			let [x1, y1] = p1;
+			let [x2, y2] = p2;
+			'<line x1="%" y1="%" x2="%" y2="%" />'.format([
+				x1.printStringToFixed(precision),
+				y1.printStringToFixed(precision),
+				x2.printStringToFixed(precision),
+				y2.printStringToFixed(precision)
+			])
+		} {
+			'<polyline points="%" />'.format([
+				self.vertexCoordinates.asSvgPointList(options)
+			])
+		}
 	}
 
 	vertexCount { :self |

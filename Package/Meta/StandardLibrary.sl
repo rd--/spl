@@ -96,6 +96,7 @@
 	'DoyleSpiral'
 	'Ellipse'
 	'FractalCurve'
+	'GeneralisedCircle'
 	'GeodeticCoordinates'
 	'GeometryCollection'
 	'HalfPlane'

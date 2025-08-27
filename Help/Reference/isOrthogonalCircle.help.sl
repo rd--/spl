@@ -15,6 +15,8 @@ true
 
 See also: Circle
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/OrthogonalCircles.html),

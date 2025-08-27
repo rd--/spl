@@ -112,6 +112,8 @@ let rr = (theta.sec + theta.tan).square * r;
 
 See also: %, ^, angleVector, Circle, cos, Range, sin
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CirclePoints.html)

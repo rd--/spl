@@ -1,9 +1,9 @@
 # positiveResidue
 
-- _positiveResidue(anInteger, modulus)_
+- _positiveResidue(n, m)_
 
-Answer the positive residue of _anInteger_ (mod _modulus_),
-in which _modulus_ is the representive in place of `zero`,
+Answer the positive residue of the integer _n_ modulo _m_,
+in which _m_ is the representive in place of `zero`,
 as in `commonResidue`.
 
 ```
@@ -15,4 +15,4 @@ as in `commonResidue`.
 
 * * *
 
-See also: %, minimalResidue, positiveResidue
+See also: %, minimalResidue, positiveResidue, Residue

@@ -1,8 +1,8 @@
 # parametricPlot
 
-- _parametricPlot(domain, xBlock:/1, yBlock:/1)_
+- _parametricPlot(u, x:/1, y:/1)_
 
-Answer a parametric plot of a curve with _x_ and _y_ coordinates as function of _domain_.
+Answer a parametric plot of a curve with _x_ and _y_ coordinates as function of the domain _u_.
 
 Plot a parametric curve:
 
@@ -50,6 +50,23 @@ Lemniscate of Bernoulli:
 ~~~
 
 ![](sw/spl/Help/Image/parametricPlot-D.svg)
+
+Specify subdivision of domain:
+
+~~~spl svg=E
+let a = 3;
+let b = 3.25;
+(0 -- 8.pi).parametricPlot(400,
+	{ :t |
+		(a * b * t.cos) - (a * (b * t).cos)
+	},
+	{ :t |
+		(a * b * t.sin) - (a * (b * t).sin)
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/parametricPlot-E.svg)
 
 * * *
 

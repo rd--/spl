@@ -19,7 +19,7 @@ let t = [5 3.5 5].sssTriangle;
 
 See also: Circle, symmedianPoint, Triangle
 
-Guides: Triangle Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

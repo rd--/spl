@@ -29,6 +29,8 @@ Threads over lists:
 
 See also: Circle, LineDrawing, unitSquare
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnitCircle.html),

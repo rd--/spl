@@ -101,6 +101,7 @@
 	'Geometry-Ellipse'
 	'Geometry-FourVector'
 	'Geometry-FractalCurve'
+	'Geometry-GeneralisedCircle'
 	'Geometry-GeodeticCoordinates'
 	'Geometry-Geometry'
 	'Geometry-GeometryCollection'

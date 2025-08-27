@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-55.00 -45.00 110.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.0500%" transform="translate(0, 20.0000) scale(10.0000, -10.0000)">
+<line x1="-3.00" y1="-2.00" x2="3.00" y2="4.00" />
+<circle cx="-5.00" cy="-4.00" r="0.05" />
+<circle cx="-3.75" cy="-2.75" r="0.05" />
+<circle cx="-2.50" cy="-1.50" r="0.05" />
+<circle cx="-1.25" cy="-0.25" r="0.05" />
+<circle cx="0.00" cy="1.00" r="0.05" />
+<circle cx="1.25" cy="2.25" r="0.05" />
+<circle cx="2.50" cy="3.50" r="0.05" />
+<circle cx="3.75" cy="4.75" r="0.05" />
+<circle cx="5.00" cy="6.00" r="0.05" />
+</g>
+</svg>

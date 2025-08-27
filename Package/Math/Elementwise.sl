@@ -30,8 +30,8 @@
 		self.collect(abs:/1)
 	}
 
-	absSquared { :self |
-		self.collect(absSquared:/1)
+	absSquare { :self |
+		self.collect(absSquare:/1)
 	}
 
 	asFloat { :self |

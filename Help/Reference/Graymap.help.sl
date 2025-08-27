@@ -59,7 +59,7 @@ let julia = { :c |
 	{ :y :x |
 		let z = x.j(y);
 		let n = 0;
-		{ z.absSquared < 4 }.whileTrue {
+		{ z.absSquare < 4 }.whileTrue {
 			z := z ^ 2 + c;
 			n := n + 1
 		};

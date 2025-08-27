@@ -148,6 +148,25 @@ let i = (-2 -- 2).subdivide(35);
 
 ![](sw/spl/Help/Image/contourPlot-K.svg)
 
+Plot the equation for a generalised circle:
+
+~~~spl svg=L
+let [a, b, c, d] = [1, 2, 0, 0];
+let i = (-2 -- 2).subdivide(35);
+let generalisedCircle = { :x :y |
+	[
+		a * x * x,
+		a * y * y,
+		b * x,
+		c * y,
+		d
+	].sum
+};
+generalisedCircle:/2.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-L.svg)
+
 * * *
 
 See also: bourkeContourAlgorithm, densityPlot

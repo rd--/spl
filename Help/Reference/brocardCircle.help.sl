@@ -25,7 +25,7 @@ let t = [5 4.5 6].sssTriangle;
 
 See also: brocardDiameter, brocardMidpoint, brocardPoints, Circle, Triangle
 
-Guides: Triangle Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

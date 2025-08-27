@@ -32,6 +32,8 @@ For _p_ inside _c_:
 
 See also: Circle, circleInversion
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CirclePower.html),

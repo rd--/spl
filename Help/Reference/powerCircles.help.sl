@@ -20,7 +20,7 @@ let m = t.medialTriangle;
 
 See also: Circle, medialTriangle, Triangle
 
-Guides: Triangle Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

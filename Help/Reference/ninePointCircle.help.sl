@@ -45,7 +45,7 @@ let t = sssTriangle(1, 1, 1);
 
 See also: circleThrough, medialTriangle, ninePointCenter, orthocenter
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

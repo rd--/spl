@@ -4,21 +4,13 @@
 
 Answer the inversion of _x_ given the reference circle _c_.
 
-At `List`, invert a point:
+A `Point` on the circumference of the inversion circle is its own inverse point:
 
 ```
 >>> let c = Circle([0 0], 1);
->>> let u = [2 2];
->>> let v = u.circleInversion(c);
->>> (v, v.circleInversion(c))
-([0.25 0.25], [2 2])
-```
-
-A point on the circumference of the inversion circle is its own inverse point:
-
-```
->>> [1 0].circleInversion(Circle([0 0], 1))
-[1 0]
+>>> let p = Point([1 0]);
+>>> p.circleInversion(c)
+Point([1 0])
 ```
 
 At `Circle`, invert a circle to another circle:
@@ -45,6 +37,32 @@ Orthogonal circles are invariant under inversion with respect to each other:
 >>> Circle([5 0], 4)
 >>> .circleInversion(Circle([0 0], 3))
 Circle([5 0], 4)
+```
+
+Circle inversion is its own inverse:
+
+```
+>>> let c = Circle([0 0], 1);
+>>> let u = [2 2];
+>>> let v = u.circleInversion(c);
+>>> (v, v.circleInversion(c))
+([0.25 0.25], [2 2])
+```
+
+The inverse of the center of the reference circle is defined as `Infinity`:
+
+```
+>>> let c = Circle([0 0], 1);
+>>> [0 0].circleInversion(c)
+Infinity
+```
+
+Conversely, the inverse of Infinity is the inversion center:
+
+```
+>>> let c = Circle([0 0], 1);
+>>> Infinity.circleInversion(c)
+[0 0]
 ```
 
 Draw circle inversion of a point:
@@ -134,6 +152,8 @@ let c = b.circleInversion(a);
 * * *
 
 See also: Circle, circlePower, isOrthogonalCircle
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

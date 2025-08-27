@@ -1001,7 +1001,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'abs'
 		'abs'
 		'absMax'
-		'absSquared'
+		'absSquare'
 		'arcCos'
 		'arcSin'
 		'arcTan'

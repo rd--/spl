@@ -96,7 +96,7 @@ Combinations of operands of different types:
 
 `real` & `imaginary` answer the components.
 `abs` (absolute value) answers the distance from zero.
-`absSquared` answers the square of the absolute value.
+`absSquare` answers the square of the absolute value.
 `arg` answers the phase angle in radians.
 
 ```
@@ -112,7 +112,7 @@ Combinations of operands of different types:
 >>> 1J2.abs
 2.23607
 
->>> 1J2.absSquared
+>>> 1J2.absSquare
 5
 
 >>> 1J2.arg

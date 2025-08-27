@@ -8,6 +8,14 @@ Circle : [Object, Geometry] { | center radius |
 		self.hasEqualSlotsBy(anObject, ~)
 	}
 
+	asGeneralisedCircle { :self |
+		let c = 1;
+		let [r, i] = self.center;
+		let alpha = Complex(r.negate, i);
+		let d = alpha.abs.square - self.radius.square;
+		GeneralisedCircle(c, alpha, d)
+	}
+
 	arcLength { :self |
 		self.circumference
 	}
@@ -256,8 +264,13 @@ UnitCircle : [Object] {
 		let c = self.center;
 		let r = self.radius;
 		{ :u |
-			let v = u - c;
-			c + ((r.square * v) / v.norm.square)
+			u.isVeryCloseTo(c).if {
+				Infinity
+			} {
+				let v = u - c;
+				let w = v.norm;
+				c + ((r.square * v) / w.square)
+			}
 		}
 	}
 
@@ -323,6 +336,14 @@ UnitCircle : [Object] {
 				Circle(each, rho)
 			}
 		].GeometryCollection
+	}
+
+	circleInversion { :self :circle |
+		(self = Infinity).if {
+			circle.center
+		} {
+			self.error('circleInversion?')
+		}
 	}
 
 }

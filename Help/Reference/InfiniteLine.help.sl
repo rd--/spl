@@ -11,11 +11,22 @@ or as passing through the points _p1_ and _p2_.
 >>> InfiniteLine([0 0], [1 1])
 InfiniteLine([0 0], [1 1])
 
+>>> let a = 2.sqrt / 2;
+>>> InfiniteLine([0 0; 1 1])
+InfiniteLine([0 0], [a a])
+
 >>> InfiniteLine([2 0; 0 3])
 InfiniteLine([2, 0], [-0.5547, 0.8321])
 
 >>> InfiniteLine([1 2], [1 2/3])
 InfiniteLine([1 2], [1 2/3])
+```
+
+Derive the `UnivariatePolynomial` of a line:
+
+```
+>>> InfiniteLine([2 0; 1 2]).polynomial
+UnivariatePolynomial([4 -2])
 ```
 
 * * *

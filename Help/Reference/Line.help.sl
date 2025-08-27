@@ -114,6 +114,24 @@ Draw a line in three dimensions:
 
 ![](sw/spl/Help/Image/Line-F.svg)
 
+Plot line and points given by derived polynomial:
+
+~~~spl svg=G
+let l = Line([-3 -2; 3 4]);
+let p = InfiniteLine([-3 -2; 3 4]).polynomial;
+[
+	l,
+	(-5 -- 5).discretize(
+		9,
+		{ :x |
+			[x, p.at(x)]
+		}
+	).PointCloud
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-G.svg)
+
 The ternary form of `Line` is a unit generator.
 `Line` generates a line from the start value to the end value.
 

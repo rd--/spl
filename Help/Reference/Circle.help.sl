@@ -206,7 +206,7 @@ let l = (0.25 -- 2.5).discretize(5);
 
 * * *
 
-See also: Arc, arcLength, area, centroid, circleThrough, Disk, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
+See also: Arc, arcLength, area, centroid, circleThrough, Disk, GeneralisedCircle, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
 
 Guides: Geometry Functions
 

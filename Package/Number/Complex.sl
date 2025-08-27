@@ -93,14 +93,14 @@ Complex : [Object, Number] { | real imaginary |
 	}
 
 	abs { :self |
-		self.absSquared.sqrt
+		self.absSquare.sqrt
 	}
 
 	absArg { :self |
 		[self.abs, self.arg]
 	}
 
-	absSquared { :self |
+	absSquare { :self |
 		(self.real * self.real) + (self.imaginary * self.imaginary)
 	}
 

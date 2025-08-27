@@ -7,7 +7,11 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	circleInversion { :self :circle |
-		self.coordinates.circleInversion(circle).Point
+		self.coordinates.isVeryCloseTo(circle.center).if {
+			Infinity
+		} {
+			self.coordinates.circleInversion(circle).Point
+		}
 	}
 
 	edgeCount { :self |
@@ -120,7 +124,15 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		let a = y2 - y1;
 		let b = x1 - x2;
 		let c = (y1 * (x2 - x1)) - (x1 * (y2 - y1));
-		[a, b, c]
+		let d = a.gcd(b);
+		[a / d, b / d, c]
+	}
+
+	lineEquationPolynomial { :self |
+		let [a, b, c] = self;
+		let m = 0 - (c / b);
+		let y = 0 - (a / b);
+		UnivariatePolynomial([m, y])
 	}
 
 	lineLineIntersection { :l1 :l2 |

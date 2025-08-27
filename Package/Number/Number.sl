@@ -72,7 +72,7 @@
 		self.j(0).absArg
 	}
 
-	absSquared { :self |
+	absSquare { :self |
 		let abs = self.abs;
 		abs * abs
 	}

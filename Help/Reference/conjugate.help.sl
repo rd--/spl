@@ -3,6 +3,8 @@
 - _conjugate(z)_
 
 The complex conjugate of a complex number _a+bi_ is defined to be _a-bi_.
+The conjugate of _z_ is ordinarily with a ¯ as _z̄_.
+
 
 At `SmallFloat`:
 
@@ -57,6 +59,14 @@ Conjugate is involutive:
 >>> let n = 1.j(system.nextRandomFloat);
 >>> n.conjugate.conjugate = n
 true
+```
+
+A complex number multiplied by its conjugate is the square of its modulus:
+
+```
+>>> let z = 2J3;
+>>> z * z.conjugate
+z.abs.square
 ```
 
 Plot over a subset of the complex numbers:

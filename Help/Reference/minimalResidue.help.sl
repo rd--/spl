@@ -1,8 +1,8 @@
 # minimalResidue
 
-- _minimalResidue(anInteger, modulus)_
+- _minimalResidue(n, m)_
 
-Answer the minimal residue of _anInteger_ (mod _modulus_).
+Answer the minimal residue of the integer _n_ modulo _m_.
 
 ```
 >>> (0, 5 .. 20).collect { :each |
@@ -23,7 +23,7 @@ Answer the minimal residue of _anInteger_ (mod _modulus_).
 
 * * *
 
-See also: %, commonResidue
+See also: %, commonResidue, positiveResidue, Residue
 
 References:
 _Mathematica_

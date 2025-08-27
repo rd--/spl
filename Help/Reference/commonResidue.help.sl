@@ -16,7 +16,7 @@ Answer the common residue of _n_ (modulo _m_).
 
 * * *
 
-See also: %, minimalResidue, positiveResidue
+See also: %, minimalResidue, positiveResidue, Residue
 
 References:
 _Mathematica_
