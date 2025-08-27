@@ -9,12 +9,12 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> .tuningName
 'aeolic'
 
->>> 1:17.octaveReduced
+>>> 1:17.octaveReduce
 >>> .nub.sort
 >>> .tuningName
 'harm9'
 
->>> (1/1 / 1:15).octaveReduced
+>>> (1/1 / 1:15).octaveReduce
 >>> .nub.sort
 >>> .tuningName
 'sub8'
@@ -37,7 +37,7 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 'kornerup_11'
 
 >>> 26.fibonacciSequence
->>> .octaveReduced
+>>> .octaveReduce
 >>> .nub.sort.tuningName
 'burt_fibo23'
 ```

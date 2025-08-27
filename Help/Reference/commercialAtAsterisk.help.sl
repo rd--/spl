@@ -6,7 +6,7 @@
 At `Block` the operator (infix) form of `compose`:
 
 ```
->>> (squared:/1 @* sqrt:/1) . (23)
+>>> (square:/1 @* sqrt:/1) . (23)
 23
 ```
 

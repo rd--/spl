@@ -25,7 +25,7 @@ let scale = 0.2;
 let freq = [
 	a,
 	b * scale,
-	c * scale.squared
+	c * scale.square
 ] * 100 + 200;
 SinOsc(freq, 0).Splay * 0.1
 ```

@@ -53,7 +53,7 @@ Correlation between two irrational vectors:
 >>> correlation([1 1.pi 2], [2 2 1])
 (-3 + 1.pi)
 /
-(2 * (3 - 3.pi + 1.pi.squared).sqrt)
+(2 * (3 - 3.pi + 1.pi.square).sqrt)
 ```
 
 Correlation between two real vectors:

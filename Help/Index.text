@@ -894,8 +894,8 @@ Reference/CrystalStructure.help.sl
 Reference/csc.help.sl
 Reference/csch.help.sl
 Reference/CssStyleSheet.help.sl
-Reference/cubed.help.sl
-Reference/Cubed.help.sl
+Reference/cube.help.sl
+Reference/Cube.help.sl
 Reference/cubeGraph.help.sl
 Reference/cubeHelix.help.sl
 Reference/cubeRoot.help.sl
@@ -1417,7 +1417,7 @@ Reference/hadjicostassFormula.help.sl
 Reference/hafermanCarpet.help.sl
 Reference/HalfPlane.help.sl
 Reference/haltonSequence.help.sl
-Reference/halved.help.sl
+Reference/halve.help.sl
 Reference/hammersleyPointSet.help.sl
 Reference/hammingDistance.help.sl
 Reference/hammingGraph.help.sl
@@ -2371,7 +2371,7 @@ Reference/nuttallWindow.help.sl
 Reference/Object.help.sl
 Reference/occurrencesOf.help.sl
 Reference/octave.help.sl
-Reference/octaveReduced.help.sl
+Reference/octaveReduce.help.sl
 Reference/OctCps.help.sl
 Reference/oddLimit.help.sl
 Reference/oddLimitSet.help.sl
@@ -3121,8 +3121,8 @@ Reference/SqrDif.help.sl
 Reference/sqrt.help.sl
 Reference/Sqrt.help.sl
 Reference/squaredEuclideanDistance.help.sl
-Reference/squared.help.sl
-Reference/Squared.help.sl
+Reference/square.help.sl
+Reference/Square.help.sl
 Reference/squareForm.help.sl
 Reference/squarePyramidalNumber.help.sl
 Reference/squaresR.help.sl

@@ -1974,7 +1974,7 @@ itself. The answer must conform to the same protocol as the receiver.
 
 *Return Value*: ⧼receiver>
 
-Cf: squared
+Cf: square
 
 ### 5.6.2.36
 

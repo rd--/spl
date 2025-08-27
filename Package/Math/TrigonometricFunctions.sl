@@ -80,7 +80,7 @@
 			}
 		} {
 			let tmp = self.squaredNorm - 1 / 2;
-			let delta = tmp.squared + self.imaginary.squared;
+			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
 			let ch2y = 1 + sh2y;
@@ -102,7 +102,7 @@
 			}
 		} {
 			let tmp = self.squaredNorm - 1 / 2;
-			let delta = tmp.squared + self.imaginary.squared;
+			let delta = tmp.square + self.imaginary.square;
 			let sh2y = tmp + delta.sqrt;
 			let shy = sh2y.sqrt;
 			let ch2y = 1 + sh2y;

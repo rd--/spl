@@ -15,7 +15,7 @@ List of squares of indices with literal block:
 List of squares of indices with named method:
 
 ```
->>> 9.fill(squared:/1)
+>>> 9.fill(square:/1)
 [1 4 9 16 25 36 49 64 81]
 ```
 

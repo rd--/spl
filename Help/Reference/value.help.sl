@@ -31,10 +31,10 @@ The binary form answer the result of _aBlock(anObject)_.
 >>> { :x | x * x }.value(23)
 529
 
->>> squared:/1.value(23)
+>>> square:/1.value(23)
 529
 
->>> 23.squared
+>>> 23.square
 529
 ```
 
@@ -42,7 +42,7 @@ The variant formulation of this with the arguments reversed is `in` or `with`,
 so that _f.value(x)_ is equal to _x.in(f)_ or _x.with(f)_.
 
 ```
->>> 23.in(squared:/1)
+>>> 23.in(square:/1)
 529
 ```
 

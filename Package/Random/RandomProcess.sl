@@ -59,7 +59,7 @@
 		2.toDo(n) { :i |
 			let y = ys[i - 1];
 			let dw = dW(dt);
-			ys[i] := y + (a(y) * dt) + (b(y) * dw) + (0.5 * c(y) * (dw.squared - dt))
+			ys[i] := y + (a(y) * dt) + (b(y) * dw) + (0.5 * c(y) * (dw.square - dt))
 		};
 		[ts, ys]
 	}

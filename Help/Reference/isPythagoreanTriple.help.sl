@@ -21,7 +21,7 @@ Plot _a_ and _c_ of the first few Pythagorean triples:
 ~~~spl png=B
 let i = (-64 .. 64);
 { :c :a |
-	let b = (c.squared - a.squared).sqrt;
+	let b = (c.square - a.square).sqrt;
 	isPythagoreanTriple(a, b, c).boole
 }.table(i, i).Bitmap
 ~~~

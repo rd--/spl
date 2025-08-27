@@ -26,7 +26,7 @@ Rms power:
 let input= LfSaw(440, 0);
 let numsamp = 30;
 (
-	RunningSum(input.Squared, numsamp)
+	RunningSum(input.square, numsamp)
 	/
 	numsamp
 ).Sqrt

@@ -31,7 +31,7 @@ LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
 		let beta = self.beta;
 		{ :x |
 			let z = ((x - mu) / beta).-.exp;
-			z / ((1 + z).squared * beta)
+			z / ((1 + z).square * beta)
 		}
 	}
 

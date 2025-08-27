@@ -11,7 +11,7 @@ At `List`:
 >>> [1 5 5 4].meanSquare
 67 / 4
 
->>> [1 5 5 4].squared.mean
+>>> [1 5 5 4].square.mean
 67 / 4
 
 >>> [2 10 2 8].meanSquare

@@ -25,13 +25,13 @@ Binary operators have lower precedence than ordinary application,
 _α + β.γ_ = _α + (β.γ)_:
 
 ```
->>> 3 + 4.squared
+>>> 3 + 4.square
 19
 
->>> 3 + squared(4)
+>>> 3 + square(4)
 19
 
->>> (3 + 4).squared
+>>> (3 + 4).square
 49
 ```
 

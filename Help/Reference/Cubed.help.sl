@@ -1,14 +1,14 @@
-# Cubed
+# Cube
 
-Cubed value.
+Cube value.
 
 ```
->>> 3.Cubed
+>>> 3.Cube
 27
 ```
 
 * * *
 
-See also: cubed, squared
+See also: cube, square
 
 Categories: Math, Ugen

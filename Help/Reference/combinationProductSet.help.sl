@@ -61,7 +61,7 @@ A worked example:
 >>> [3 5 15 7 21 35] / 3
 [1 5/3 5 7/3 7 35/3]
 
->>> [1 5/3 5 7/3 7 35/3].octaveReduced
+>>> [1 5/3 5 7/3 7 35/3].octaveReduce
 [1/1 5/3 5/4 7/6 7/4 35/24]
 
 >>> [1/1 5/3 5/4 7/6 7/4 35/24].sort
@@ -70,7 +70,7 @@ A worked example:
 
 * * *
 
-See also: eulerFokkerGenus, latticeGraph, nub, product, octaveReduced, subsets
+See also: eulerFokkerGenus, latticeGraph, nub, product, octaveReduce, subsets
 
 Guides: Xenharmonic Functions
 

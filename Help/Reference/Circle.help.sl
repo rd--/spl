@@ -165,7 +165,7 @@ let b = [0 0] - a;
 [
 	Circle([0 0], 1),
 	[0.1, 0.2 .. 0.7].collect { :k |
-		let kk = k.squared;
+		let kk = k.square;
 		let c = (a - b).norm;
 		let d = (kk / (1 - kk)) * c;
 		let r = (k / (1 - kk)) * c;
@@ -191,7 +191,7 @@ let alphaFamily = { :t |
 let betaFamily = { :lambda |
 	Circle(
 		[0 lambda],
-		(lambda.squared + 1).sqrt
+		(lambda.square + 1).sqrt
 	)
 };
 let t = (0.2 -- 0.8).discretize(10);

@@ -25,7 +25,7 @@ The first metallic mean is the `goldenRatio`:
 >>> let n = 1;
 >>> (
 >>> 	1.goldenRatio,
->>> 	(n + (n.squared + 4).sqrt) / 2
+>>> 	(n + (n.square + 4).sqrt) / 2
 >>> )
 (1.618, 1.618)
 ```
@@ -36,7 +36,7 @@ The second metallic mean is the `silverRatio`:
 >>> let n = 2;
 >>> (
 >>> 	1.silverRatio,
->>> 	(n + (n.squared + 4).sqrt) / 2
+>>> 	(n + (n.square + 4).sqrt) / 2
 >>> )
 (2.4142, 2.4142)
 ```

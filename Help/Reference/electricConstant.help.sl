@@ -11,7 +11,7 @@ the absolute dielectric permittivity of classical vacuum.
 
 >>> let c = 1.speedOfLight;
 >>> let m = 1.magneticConstant;
->>> 1 / (m * c.squared)
+>>> 1 / (m * c.square)
 1.electricConstant
 
 >>> let a = 1.fineStructureConstant;

@@ -51,7 +51,7 @@ LaplaceDistribution : [Object, ProbabilityDistribution] { | mu beta |
 	}
 
 	variance { :self |
-		2 * self.beta.squared
+		2 * self.beta.square
 	}
 
 }

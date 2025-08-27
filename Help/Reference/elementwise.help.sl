@@ -41,7 +41,7 @@ Choose matrix elements that have the largest square:
 
 ```
 >>> { :x :y |
->>> 	(x.squared >= y.squared).if {
+>>> 	(x.square >= y.square).if {
 >>> 		x
 >>> 	} {
 >>> 		y

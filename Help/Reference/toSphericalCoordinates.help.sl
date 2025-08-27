@@ -20,9 +20,9 @@ Equations are:
 
 ```
 >>> let [x, y, z] = { system.nextRandomFloat } ! 3;
->>> let r = (x.squared + y.squared + z.squared).sqrt;
+>>> let r = (x.square + y.square + z.square).sqrt;
 >>> let theta = x.arcTan(y);
->>> let phi = z.arcTan((x.squared + y.squared).sqrt);
+>>> let phi = z.arcTan((x.square + y.square).sqrt);
 >>> [x y z].toSphericalCoordinates
 [r theta phi]
 ```

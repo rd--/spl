@@ -19,7 +19,7 @@ the sum of the first _n_ square numbers.
 
 * * *
 
-See also: ^, *, squared, sqrt
+See also: ^, *, square, sqrt
 
 Guides: Integer Sequences
 

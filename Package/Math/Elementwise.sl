@@ -96,8 +96,8 @@
 		self.collect(continuedFraction:/1)
 	}
 
-	cubed { :self |
-		self.collect(cubed:/1)
+	cube { :self |
+		self.collect(cube:/1)
 	}
 
 	degree { :self |
@@ -194,8 +194,8 @@
 		self.collect(harmonicNumber:/1)
 	}
 
-	halved { :self |
-		self.collect(halved:/1)
+	halve { :self |
+		self.collect(halve:/1)
 	}
 
 	hexagonalNumber { :self |
@@ -425,8 +425,8 @@
 		self.collect(sqrt:/1)
 	}
 
-	squared { :self |
-		self.collect(squared:/1)
+	square { :self |
+		self.collect(square:/1)
 	}
 
 	tan { :self |

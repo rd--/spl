@@ -27,8 +27,8 @@ Evaluate at specific _x_:
 [
 	1,
 	1.pi,
-	-1 + 1.pi.squared,
-	-2.pi + 1.pi.cubed
+	-1 + 1.pi.square,
+	-2.pi + 1.pi.cube
 ]
 ```
 

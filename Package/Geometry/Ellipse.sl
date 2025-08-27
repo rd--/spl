@@ -14,7 +14,7 @@ Ellipse : [Object, Geometry] { | center radii |
 
 	eccentricity { :self |
 		let [b, a] = self.radii.sorted;
-		(1 - (b / a).squared).sqrt
+		(1 - (b / a).square).sqrt
 	}
 
 	svgFragment { :self :options |
@@ -31,12 +31,12 @@ Ellipse : [Object, Geometry] { | center radii |
 
 	linearEccentricity { :self |
 		let [a, b] = self.radii;
-		(a.squared - b.squared).sqrt
+		(a.square - b.square).sqrt
 	}
 
 	semiLatusRectum { :self |
 		let [a, b] = self.radii;
-		b.squared / a
+		b.square / a
 	}
 }
 

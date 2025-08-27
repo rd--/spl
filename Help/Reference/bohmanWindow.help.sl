@@ -23,7 +23,7 @@ The area under the Bohman window:
 ```
 >>> bohmanWindow:/1
 >>> .adaptiveSimpsonsMethod([-0.5 0.5])
-4 / 1.pi.squared
+4 / 1.pi.square
 ```
 
 Plot:

@@ -16,7 +16,7 @@ Derivative of ζ at negative two:
 >>> let a = 1.glaisher;
 >>> let gamma = 1.eulerGamma;
 >>> let x = (12 * a.log) - gamma - 2.pi.log;
->>> 1/6 * 1.pi.squared * x
+>>> 1/6 * 1.pi.square * x
 0.937548
 ```
 

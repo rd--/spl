@@ -12,7 +12,7 @@ Implememt the adaptive Simpson’s method for calculating the integral of the un
 40.5
 
 >>> { :x |
->>> 	1 / (x.cubed + 1)
+>>> 	1 / (x.cube + 1)
 >>> }.adaptiveSimpsonsMethod([0 1])
 ((2 * 3.sqrt.pi) + 64.log) / 18
 
@@ -56,7 +56,7 @@ Integrate a cubic function:
 
 ```
 >>> { :x |
->>> 	1 / (x.cubed - (2 * x) - 5)
+>>> 	1 / (x.cube - (2 * x) - 5)
 >>> }.adaptiveSimpsonsMethod([0 2])
 -0.46050
 ```

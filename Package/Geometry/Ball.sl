@@ -18,7 +18,7 @@ Ball : [Object] { | center radius |
 	}
 
 	volume { :self |
-		(self.radius.cubed * 4 / 3).pi
+		(self.radius.cube * 4 / 3).pi
 	}
 
 }

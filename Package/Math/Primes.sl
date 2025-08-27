@@ -174,7 +174,7 @@
 			let k = (n / 2).sqrt.floor;
 			{
 				k > 0 & {
-					(n - (2 * k.squared)).isPrime.not
+					(n - (2 * k.square)).isPrime.not
 				}
 			}.whileTrue {
 				k := k - 1
@@ -344,7 +344,7 @@
 							answer.return
 						}
 					};
-					(prime.squared > k).ifTrue {
+					(prime.square > k).ifTrue {
 						answer.add(k);
 						answer.return
 					};
@@ -590,7 +590,7 @@
 					f(a.abs)
 				}
 			} {
-				(a.squared + b.squared).isPrime
+				(a.square + b.square).isPrime
 			}
 		}
 	}

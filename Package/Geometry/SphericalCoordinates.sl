@@ -115,9 +115,9 @@ SphericalCoordinates : [Object] { | coordinates |
 		self.isVector.if {
 			let [x, y, z] = self;
 			[
-				(x.squared + y.squared + z.squared).sqrt,
+				(x.square + y.square + z.square).sqrt,
 				y.atan2(x),
-				(x.squared + y.squared).sqrt.atan2(z)
+				(x.square + y.square).sqrt.atan2(z)
 			]
 		} {
 			self.collect(toSphericalCoordinates:/1)
@@ -155,11 +155,11 @@ SphericalCoordinates : [Object] { | coordinates |
 	}
 
 	phi { :self |
-		(self.x.squared + self.y.squared).sqrt.atan2(self.z)
+		(self.x.square + self.y.square).sqrt.atan2(self.z)
 	}
 
 	radius { :self |
-		(self.x.squared + self.y.squared + self.z.squared).sqrt
+		(self.x.square + self.y.square + self.z.square).sqrt
 	}
 
 	rho { :self |

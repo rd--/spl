@@ -47,7 +47,7 @@ GeometricDistribution : [Object, ProbabilityDistribution] { | p |
 
 	variance { :self |
 		let p = self.p;
-		(1 - p) / p.squared
+		(1 - p) / p.square
 	}
 
 }

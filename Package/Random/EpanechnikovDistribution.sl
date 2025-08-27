@@ -35,7 +35,7 @@ EpanechnikovDistribution : [Object] { | c |
 	}
 
 	variance { :self |
-		self.c.squared / 5
+		self.c.square / 5
 	}
 
 }

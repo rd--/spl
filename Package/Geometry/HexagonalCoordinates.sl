@@ -42,7 +42,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 	euclideanDistance { :self :operand |
 		let [q1, r1, _] = self.coordinates;
 		let [q2, r2, _] = operand.coordinates;
-		((q2 - q1).squared + (r2 - r1).squared + ((q2 - q1) * (r2 - r1))).sqrt
+		((q2 - q1).square + (r2 - r1).square + ((q2 - q1) * (r2 - r1))).sqrt
 	}
 
 	diagonalNeighbourVectors { :unused |

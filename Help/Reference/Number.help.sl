@@ -4,7 +4,7 @@
 
 Methods for arithmetic: `+`, `-`, `*`, `/`, `%`, `quotient`, `remainder`, `abs`, `negate`, `reciprocal`
 
-Methods implementing mathematical functions: `exp`, `log`, `floorLog`, `^`, `raisedToInteger`, `sqrt`, `squared`
+Methods implementing mathematical functions: `exp`, `log`, `floorLog`, `^`, `raisedToInteger`, `sqrt`, `square`
 
 Methods for testing: `isEven`, `isOdd`, `isNegative`, `isNonNegative`, `isPositive`, `isZero`, `sign`
 

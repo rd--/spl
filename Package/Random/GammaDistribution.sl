@@ -1,6 +1,6 @@
 +@RandomNumberGenerator {
 
-	chiSquareDistribution { :self :nu |
+	chiSquareistribution { :self :nu |
 		self.gammaDistribution(nu / 2, 2)
 	}
 
@@ -70,7 +70,7 @@ GammaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
 	}
 
 	variance { :self |
-		self.alpha * self.beta.squared
+		self.alpha * self.beta.square
 	}
 
 }

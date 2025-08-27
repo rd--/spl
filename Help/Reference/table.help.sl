@@ -30,7 +30,7 @@ This makes a table with values of _x_ running from 0 to 1 in steps of 0.25:
 A table with _i_ running from 0 to 20 in steps of 2:
 
 ```
->>> squared:/1.table(Range(0, 20, 2))
+>>> square:/1.table(Range(0, 20, 2))
 [0 4 16 36 64 100 144 196 256 324 400]
 ```
 
@@ -45,7 +45,7 @@ Make a 3×3 matrix:
 
 ```
 >>> { :i :j |
->>> 	i.squared + j.squared
+>>> 	i.square + j.square
 >>> }.table(1:3, 1:3)
 [
 	 2  5 10;

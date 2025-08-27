@@ -358,7 +358,7 @@ Plot : [Object] { | pages format options |
 		let r = (0.025 * k).round;
 		let n = k.nextPowerOfTwo;
 		let d = self.padRight([n], 0);
-		let p = (d.fft / n).take(n / 2).absSquared;
+		let p = (d.fft / n).take(n / 2).absSquare;
 		p[1] := 0;
 		(p * 10).gaussianFilter(r).linePlot
 	}
@@ -620,11 +620,11 @@ Plot : [Object] { | pages format options |
 +SmallFloat {
 
 	matlabPeaksFunction { :x :y |
-		(3 * (1 - x).squared * (0 - x.squared - (y + 1).squared).exp)
+		(3 * (1 - x).square * (0 - x.square - (y + 1).square).exp)
 		-
-		(10 * ((x / 5) - x.cubed- (y ^ 5)) * (0 - x.squared - y.squared).exp)
+		(10 * ((x / 5) - x.cube- (y ^ 5)) * (0 - x.square - y.square).exp)
 		-
-		((1 / 3) * (0 - (x + 1).squared - y.squared).exp)
+		((1 / 3) * (0 - (x + 1).square - y.square).exp)
 	}
 
 }

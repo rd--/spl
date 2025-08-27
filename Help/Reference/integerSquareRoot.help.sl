@@ -54,7 +54,7 @@ Show that the expression _f_ below answers non-square numbers:
 >>> };
 >>> let isSquare = { :n |
 >>> 	let r = n.integerSquareRoot;
->>> 	r.squared = n
+>>> 	r.square = n
 >>> };
 >>> (
 >>> 	1:22.collect(f:/1),

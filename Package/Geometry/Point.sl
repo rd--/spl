@@ -173,7 +173,7 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		let [x0, y0] = p;
 		let [x2, y2] = q2;
 		let n = ((x1 - x0) * (x2 - x0)) + ((y1 - y0) * (y2 - y0));
-		let d = ((x1 - x0).squared + (y1 - y0).squared).sqrt * ((x2 - x0).squared + (y2 - y0).squared).sqrt;
+		let d = ((x1 - x0).square + (y1 - y0).square).sqrt * ((x2 - x0).square + (y2 - y0).square).sqrt;
 		(n / d).arcCos
 	}
 
@@ -309,7 +309,7 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 	spherePoints { :n :r |
-		let a = (4.pi * r.squared) / n;
+		let a = (4.pi * r.square) / n;
 		let d = a.sqrt;
 		let mTheta = (1.pi / d).round;
 		let dTheta = 1.pi / mTheta;

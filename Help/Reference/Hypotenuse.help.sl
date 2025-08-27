@@ -15,7 +15,7 @@ let y = LfSaw(1 / 6, 0) * 100;
 let distance = Hypotenuse(x, y);
 let velocity = Slope(distance);
 let pitchRatio = (344 - velocity) / 344;
-let amplitude = 10 / distance.Squared;
+let amplitude = 10 / distance.square;
 SinOsc(1000 * pitchRatio, 0) * amplitude
 ```
 
@@ -25,7 +25,7 @@ The next example uses the distance to modulate a delay line:
 let x = 10;
 let y = LfSaw(1 / [6, 11], [0, 1]) * 100;
 let distance = Hypotenuse(x, y);
-let amplitude = 40 / distance.Squared;
+let amplitude = 40 / distance.square;
 let motorSound = Rlpf(
 	SinOsc(
 		200,

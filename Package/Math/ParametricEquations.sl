@@ -30,7 +30,7 @@
 	bicorn { :a |
 		{ :t |
 			let x = a * t.sin;
-			let y = (a * t.cos.squared * (2 + t.cos)) / (3 + t.sin.squared);
+			let y = (a * t.cos.square * (2 + t.cos)) / (3 + t.sin.square);
 			[x, y]
 		}
 	}
@@ -63,7 +63,7 @@
 	}
 
 	cayleysSextic { :t |
-		let a = t.cos.cubed;
+		let a = t.cos.cube;
 		let x = a * (3 * t).cos;
 		let y = a * (3 * t).sin;
 		[x, y]
@@ -141,7 +141,7 @@
 			let rho = b.isVeryCloseTo(0).if {
 				r
 			} {
-				let c = (1 - (s.squared * (2 * theta).sin.squared)).sqrt;
+				let c = (1 - (s.square * (2 * theta).sin.square)).sqrt;
 				let d = (1 - c).sqrt;
 				(a / b) * d
 			};
@@ -151,14 +151,14 @@
 
 	foliumOfDescartes { :a |
 		{ :theta |
-			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cubed + theta.cos.cubed);
+			let r = (3 * a * theta.sin * theta.cos) / (theta.sin.cube + theta.cos.cube);
 			[r, theta].fromPolarCoordinates
 		}
 	}
 
 	galileanSpiral { :a :b |
 		{ :theta |
-			let rho = (b * theta.squared) - a;
+			let rho = (b * theta.square) - a;
 			[rho theta].fromPolarCoordinates
 		}
 	}
@@ -212,7 +212,7 @@
 
 	inverseNorwichSpiral { :a |
 		{ :t |
-			let rho = a * t.cos.squared;
+			let rho = a * t.cos.square;
 			let theta = (2 * t) - t.tan;
 			[rho theta].fromPolarCoordinates
 		}
@@ -222,7 +222,7 @@
 		{ :theta |
 			/*let rho = a * (2 * theta).cos.sqrt;
 			[rho theta].fromPolarCoordinates*/
-			let u = 1 + theta.sin.squared;
+			let u = 1 + theta.sin.square;
 			let x = (a * theta.cos) / u;
 			let y = (a * theta.sin * theta.cos) / u;
 			[x, y]
@@ -233,7 +233,7 @@
 		{ :theta |
 			let u = (theta / 2).tan;
 			let x = (a / 2) * (u - ((u ^ 5) / 5));
-			let y = (a / 4) * (1 + u.squared).squared;
+			let y = (a / 4) * (1 + u.square).square;
 			[x, y]
 		}
 	}
@@ -262,7 +262,7 @@
 
 	norwichSpiral { :a |
 		{ :t |
-			let rho = a / t.cos.squared;
+			let rho = a / t.cos.square;
 			let theta = t.tan - (2 * t);
 			[rho theta].fromPolarCoordinates
 		}
@@ -413,7 +413,7 @@
 	witchOfAgnesi { :a |
 		{ :theta |
 			let x = 2 * a * theta;
-			let y = (2 * a) / (1 + theta.squared);
+			let y = (2 * a) / (1 + theta.square);
 			[x, y]
 		}
 	}
@@ -462,7 +462,7 @@
 	tridentOfNewton { :self |
 		let [a, b, c, d] = self;
 		{ :x |
-			(d / x) - (a * x.squared) - (b * x) - c
+			(d / x) - (a * x.square) - (b * x) - c
 		}
 	}
 

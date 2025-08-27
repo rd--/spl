@@ -79,7 +79,7 @@
 	}
 
 	norm { :self |
-		self.coordinates.squared.sum.sqrt
+		self.coordinates.square.sum.sqrt
 	}
 
 	second { :self |

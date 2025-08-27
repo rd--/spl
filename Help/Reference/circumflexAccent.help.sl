@@ -12,7 +12,7 @@ The binary form answers _x_ raised to the power of _y_.
 >>> 0 ^ 0
 1
 
->>> 2.squared ^ 3
+>>> 2.square ^ 3
 64
 
 >>> 2 ^ 12

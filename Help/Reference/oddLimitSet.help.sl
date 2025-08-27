@@ -5,7 +5,7 @@
 Answer the odd limit set of the integer _n_,
 which is the set of all fractions with are within this odd-limit.
 
-The answer is given `octaveReduced` and `sorted`.
+The answer is given octave reduced and sorted.
 
 ```
 >>> 7.oddLimitSet
@@ -25,7 +25,7 @@ The answer is given `octaveReduced` and `sorted`.
 
 * * *
 
-See also: octaveReduced, oddLimit, sorted
+See also: octaveReduce, oddLimit, sorted
 
 Guides: Xenharmonic Functions
 

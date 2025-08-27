@@ -38,7 +38,7 @@ C.f. `polygonalNumber`:
 
 * * *
 
-See also: binomial, cubed, hexagonalNumber, pascalTriangle, polygonalNumber, squared, tetrahedralNumber, triangularNumber
+See also: binomial, cube, hexagonalNumber, pascalTriangle, polygonalNumber, square, tetrahedralNumber, triangularNumber
 
 Guides: Integer Functions, Integer Sequences
 

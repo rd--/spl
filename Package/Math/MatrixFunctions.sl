@@ -209,7 +209,7 @@
 	}
 
 	frobeniusNorm { :self |
-		self.ravel.collect(squared:/1).sum.sqrt
+		self.ravel.collect(square:/1).sum.sqrt
 	}
 
 	gaussJordanInverse { :self |
@@ -783,7 +783,7 @@
 		let m = [0].reshape([n n]);
 		let [f, g] = metric.caseOf([
 			'Manhattan' -> { [abs:/1, sum:/1] },
-			'Euclidean' -> { [squared:/1, { :x | x.sum.sqrt }] },
+			'Euclidean' -> { [square:/1, { :x | x.sum.sqrt }] },
 			'Supremum' -> { [abs:/1, max:/1] }
 		]);
 		1.toDo(n) { :i |
@@ -925,8 +925,8 @@
 					let beta = u[j].sumOfSquares;
 					let gamma = (u[i] * u[j]).sum;
 					let zeta = (beta - alpha) / (2 * gamma);
-					let t = zeta.sign / (zeta.abs + (1 + zeta.squared).sqrt);
-					let cs = 1 / (1 + t.squared).sqrt;
+					let t = zeta.sign / (zeta.abs + (1 + zeta.square).sqrt);
+					let cs = 1 / (1 + t.square).sqrt;
 					let sn = cs * t;
 					let tmp = nil;
 					converge := converge.max(gamma.abs / (alpha * beta).sqrt);

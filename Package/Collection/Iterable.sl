@@ -483,7 +483,7 @@
 	}
 
 	sumOfSquares { :self |
-		self.sum(squared:/1)
+		self.sum(square:/1)
 	}
 
 	withLevelDo { :self :aBlock:/2 :level |

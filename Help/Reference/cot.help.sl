@@ -49,8 +49,8 @@ Relation to `csc`:
 
 ```
 >>> let z = 1/7.pi;
->>> 1 + z.cot.squared
-z.csc.squared
+>>> 1 + z.cot.square
+z.csc.square
 ```
 
 The continued fraction is highly regular:

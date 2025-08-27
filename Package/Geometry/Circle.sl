@@ -13,7 +13,7 @@ Circle : [Object, Geometry] { | center radius |
 	}
 
 	area { :self |
-		self.radius.squared.pi
+		self.radius.square.pi
 	}
 
 	boundingBox { :self |
@@ -60,7 +60,7 @@ Circle : [Object, Geometry] { | center radius |
 		let a = c1.radius;
 		let b = c2.radius;
 		let c = (c2.center - c1.center).norm;
-		(c.squared - a.squared - b.squared) / (2 * a * b)
+		(c.square - a.square - b.square) / (2 * a * b)
 	}
 
 	inversiveDistanceDelta { :c1 :c2 |
@@ -72,8 +72,8 @@ Circle : [Object, Geometry] { | center radius |
 		let r2 = operand.radius;
 		let c1 = self.center;
 		let c2 = operand.center;
-		(r1.squared + r2.squared).isVeryCloseTo(
-			(c2 - c1).norm.squared
+		(r1.square + r2.square).isVeryCloseTo(
+			(c2 - c1).norm.square
 		)
 	}
 
@@ -163,7 +163,7 @@ Circle : [Object, Geometry] { | center radius |
 
 	isDescartesQuadruple { :self |
 		self.size = 4 & {
-			(2 * self.squared.sum) = self.sum.squared
+			(2 * self.square.sum) = self.sum.square
 		}
 	}
 
@@ -235,7 +235,7 @@ UnitCircle : [Object] {
 
 	fordCircle { :self |
 		let [h, k] = self.asList;
-		let r = 1 / (2 * k.squared);
+		let r = 1 / (2 * k.square);
 		Circle([h / k, r], r)
 	}
 
@@ -257,7 +257,7 @@ UnitCircle : [Object] {
 		let r = self.radius;
 		{ :u |
 			let v = u - c;
-			c + ((r.squared * v) / v.norm.squared)
+			c + ((r.square * v) / v.norm.square)
 		}
 	}
 
@@ -266,7 +266,7 @@ UnitCircle : [Object] {
 		let a = self.radius;
 		let [x0, y0] = reference.center;
 		let k = reference.radius;
-		let s = k.squared / ((x - x0).squared + (y - y0).squared - a.squared);
+		let s = k.square / ((x - x0).square + (y - y0).square - a.square);
 		Circle(
 			[
 				x0 + (s * (x - x0)),
@@ -280,7 +280,7 @@ UnitCircle : [Object] {
 		let c = self.center;
 		let r = self.radius;
 		{ :u |
-			(u - c).norm.squared - r.squared
+			(u - c).norm.square - r.square
 		}
 	}
 
@@ -314,7 +314,7 @@ UnitCircle : [Object] {
 	annularSteinerChain { :n :c :r |
 		let theta = 1.pi / n;
 		let rho = (r * theta.sin) / (1 - theta.sin);
-		let rr = (theta.sec + theta.tan).squared * r;
+		let rr = (theta.sec + theta.tan).square * r;
 		[
 			Circle(c, r),
 			Circle(c, rr),

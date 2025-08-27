@@ -27,10 +27,10 @@ Tetrahedron : [Object] { | vertexCoordinates |
 	circumsphere { :self |
 		let v = self.vertexCoordinates;
 		let a = v.arrayPad([0 0; 0 1], 1).determinant;
-		let vSquaredSum = v.squared.collect { :each |
+		let vSquareSum = v.square.collect { :each |
 			each.sum.enclose
 		};
-		let c = [vSquaredSum, v].join(2);
+		let c = [vSquareSum, v].join(2);
 		let d = c.arrayPad([0 0; 0 1], 1);
 		let f = { :m :i |
 			d.submatrix(
@@ -41,7 +41,7 @@ Tetrahedron : [Object] { | vertexCoordinates |
 		let dx = f(1, 1);
 		let dy = f(-1, 2);
 		let dz = f(1, 3);
-		let r = (dx.squared + dy.squared + dz.squared - (4 * a * c.determinant)).sqrt / (2 * a.abs);
+		let r = (dx.square + dy.square + dz.square - (4 * a * c.determinant)).sqrt / (2 * a.abs);
 		Sphere(
 			[dx dy dz] / (a * 2),
 			r

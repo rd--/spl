@@ -10,7 +10,7 @@ Apply _aBlock_ to _anObject_.
 >>> } $ 3
 27
 
->>> cubed:/1 $ 3
+>>> cube:/1 $ 3
 27
 ```
 
@@ -22,7 +22,7 @@ This is the operator form of `value`:
 >>> }.value(3)
 27
 
->>> cubed:/1.value(3)
+>>> cube:/1.value(3)
 27
 ```
 

@@ -79,8 +79,8 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		let k = inversionRadius;
 		PlanarCoordinates(
 			[
-				x0 + ((k.squared * (x - x0)) / ((x - x0).squared + (y - y0).squared)),
-				y0 + ((k.squared * (y - y0)) / ((x - x0).squared + (y - y0).squared))
+				x0 + ((k.square * (x - x0)) / ((x - x0).square + (y - y0).square)),
+				y0 + ((k.square * (y - y0)) / ((x - x0).square + (y - y0).square))
 			]
 		)
 	}
@@ -97,7 +97,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 		self.applyUnaryOperator(negate:/1)
 	}
 
-	normalized { :self |
+	normalize { :self |
 		self / self.norm
 	}
 
@@ -114,7 +114,7 @@ PlanarCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coo
 	}
 
 	radius { :self |
-		(self.x.squared + self.y.squared).sqrt
+		(self.x.square + self.y.square).sqrt
 	}
 
 	rho { :self |

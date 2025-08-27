@@ -100,7 +100,7 @@ Chirp signal:
 
 ~~~spl svg=F
 (1 .. 100).functionPlot { :i |
-	((i / 4) + (i / 20).squared).cos
+	((i / 4) + (i / 20).square).cos
 }
 ~~~
 

@@ -12,7 +12,7 @@ Answer _n_ times the Fibonacci factorial constant.
 Infinite series:
 
 ```
->>> let a = -1 / 1.goldenRatio.squared;
+>>> let a = -1 / 1.goldenRatio.square;
 >>> 1:20.product { :k |
 >>> 	1 - (a ^ k)
 >>> }

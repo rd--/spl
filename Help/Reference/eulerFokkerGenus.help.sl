@@ -59,7 +59,7 @@ Draw the _3 5 7 11 13_ genus:
 
 * * *
 
-See also: combinationProductSet, latticeGraph, nub, product, octaveReduced, subsets
+See also: combinationProductSet, latticeGraph, nub, product, octaveReduce, subsets
 
 References:
 _W_

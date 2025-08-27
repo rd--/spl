@@ -336,8 +336,8 @@
 /* Auto-generated */
 +[List, Ugen] {
 	Negate { :self | <primitive: return sc.Neg(_self);> }
-	Squared { :self | <primitive: return sc.Squared(_self);> }
-	Cubed { :self | <primitive: return sc.Cubed(_self);> }
+	Square { :self | <primitive: return sc.Squared(_self);> }
+	Cube { :self | <primitive: return sc.Cubed(_self);> }
 	Reciprocal { :self | <primitive: return sc.Recip(_self);> }
 	MidiCps { :self | <primitive: return sc.MidiCps(_self);> }
 	CpsMidi { :self | <primitive: return sc.CpsMidi(_self);> }

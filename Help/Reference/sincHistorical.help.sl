@@ -45,8 +45,8 @@ Single-slit diffraction pattern for a 4λ slit:
 	(
 		(4.pi * x)
 		/
-		(1 + x.squared).sqrt
-	).sincHistorical.squared
+		(1 + x.square).sqrt
+	).sincHistorical.square
 }
 ~~~
 

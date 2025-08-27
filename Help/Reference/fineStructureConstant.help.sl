@@ -22,7 +22,7 @@ Definition in terms of four other physical constants:
 >>> let e = 1.elementaryCharge;
 >>> let c = 1.speedOfLight;
 >>> let e0 = 1.electricConstant;
->>> e.squared / (2 * e0 * h * c)
+>>> e.square / (2 * e0 * h * c)
 0.007297
 ```
 
@@ -35,7 +35,7 @@ Approximations to the inverse fine-structure constant:
 >>> 1 / 1/432.pi
 137.51
 
->>> 360 / 1.goldenRatio.squared
+>>> 360 / 1.goldenRatio.square
 137.51
 ```
 

@@ -1,32 +1,32 @@
-# squared
+# square
 
-- _squared(n)_
+- _square(n)_
 
 Answer the number _n_ multiplied by itself.
 
 ```
->>> (3 * 3, 3 ^ 2, 3.squared)
+>>> (3 * 3, 3 ^ 2, 3.square)
 (9, 9, 9)
 ```
 
 At `List`:
 
 ```
->>> [1 2 3 4].squared
+>>> [1 2 3 4].square
 [1 4 9 16]
 ```
 
 The inverse is `sqrt`:
 
 ```
->>> 3.squared.sqrt
+>>> 3.square.sqrt
 3
 ```
 
 Threads over lists:
 
 ```
->>> 1:9.sum.squared
+>>> 1:9.sum.square
 2025
 ```
 
@@ -35,7 +35,7 @@ More generally, the difference of the squares of two numbers is the product of t
 ```
 >>> let a = 47;
 >>> let b = 53;
->>> a.squared - b.squared
+>>> a.square - b.square
 (a + b) * (a - b)
 ```
 
@@ -54,11 +54,11 @@ the square pyramidal numbers:
 ]
 ```
 
-Where supported `squared` is displayed as ².
+Where supported `square` is displayed as ².
 
 * * *
 
-See also: ^, *, cubed, squarePyramidalNumber, sqrt
+See also: ^, *, cube, squarePyramidalNumber, sqrt
 
 Guides: Integer Sequences
 

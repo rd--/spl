@@ -113,7 +113,7 @@ Plot over a subset of the complexes:
 
 ~~~spl png=B
 [-0.5J-1 0.5J1].complexPlot { :z |
-	z.squared.arcTan
+	z.square.arcTan
 }
 ~~~
 

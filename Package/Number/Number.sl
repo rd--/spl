@@ -205,7 +205,7 @@
 		}
 	}
 
-	cubed { :self |
+	cube { :self |
 		self * self * self
 	}
 
@@ -320,7 +320,7 @@
 		let m = 1 / (2.pi.sqrt * sigma);
 		let sigmaSquared = sigma * sigma;
 		{ :u |
-			m * (u.squared / (2 * sigmaSquared)).negate.exp
+			m * (u.square / (2 * sigmaSquare)).negate.exp
 		}
 	}
 
@@ -330,7 +330,7 @@
 		}
 	}
 
-	halved { :self |
+	halve { :self |
 		self / 2
 	}
 
@@ -412,8 +412,8 @@
 	inverseErfWinitzki { :x |
 		let a = 0.147;
 		let b = (2 / a.pi);
-		let c = (1 - x.squared).log;
-		(((b + (c / 2)).squared - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
+		let c = (1 - x.square).log;
+		(((b + (c / 2)).square - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
 	}
 
 	isHalfInteger { :self |
@@ -520,7 +520,7 @@
 	}
 
 	metallicMean { :n |
-		(n + (n.squared + 4).sqrt) / 2
+		(n + (n.square + 4).sqrt) / 2
 	}
 
 	mixedFractionParts { :self |
@@ -646,14 +646,14 @@
 		let c = 1.speedOfLight;
 		let h = 1.planckConstant;
 		let k = 1.boltzmannConstant;
-		((2 * h * nu.cubed) / (c.squared)) * (1 / (((h * nu) / (k * t)).exp - 1))
+		((2 * h * nu.cube) / (c.square)) * (1 / (((h * nu) / (k * t)).exp - 1))
 	}
 
 	planckRadiationLawWavelength { :lambda :t |
 		let c = 1.speedOfLight;
 		let h = 1.planckConstant;
 		let k = 1.boltzmannConstant;
-		((2 * h * c.squared) / (lambda ^ 5)) * (1 / (((h * c) / (lambda * k * t)).exp - 1))
+		((2 * h * c.square) / (lambda ^ 5)) * (1 / (((h * c) / (lambda * k * t)).exp - 1))
 	}
 
 	planckRadiationLaw { :nuOrLambda :t |
@@ -749,7 +749,7 @@
 		{
 			count > 0
 		}.whileTrue {
-			result := result.squared;
+			result := result.square;
 			(operand.bitAnd(count) = 0).ifFalse {
 				result := result * self
 			};
@@ -930,7 +930,7 @@
 		x / (1 + x.abs)
 	}
 
-	squared { :self |
+	square { :self |
 		self * self
 	}
 

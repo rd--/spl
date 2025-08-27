@@ -1,8 +1,8 @@
 # absSquared
 
-- _absSquared(aNumber)_
+- _absSquared(x)_
 
-Answer the square of the absolute value of _aNumber_.
+Answer the square of the absolute value of the number _x_.
 
 At `SmallFloat`:
 
@@ -27,7 +27,7 @@ Threads over lists:
 
 * * *
 
-See also: abs, Complex, squared
+See also: abs, Complex, square
 
 References:
 _Julia_

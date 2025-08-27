@@ -59,7 +59,7 @@ See also: GammaDistribution, StudentTDistribution
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/ChiSquaredDistribution.html)
+[1](https://mathworld.wolfram.com/Chi-SquaredDistribution.html)
 [2](https://reference.wolfram.com/language/ref/ChiSquareDistribution.html),
 _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3666.htm),

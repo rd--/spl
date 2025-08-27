@@ -88,10 +88,10 @@ certain constant numbers are recognised as symbolic expressions:
 ```
 
 Symbolic expressions implement `Number`.
-`squared` multiplies a number by itself:
+`square` multiplies a number by itself:
 
 ```
->> (23 - 𝒙).squared
+>> (23 - 𝒙).square
 (* (- 23 x) (- 23 x))
 ```
 

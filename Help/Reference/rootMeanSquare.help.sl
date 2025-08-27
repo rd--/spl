@@ -13,7 +13,7 @@ At `List`:
 >>> [1 5 5 4].rootMeanSquare
 67.sqrt / 2
 
->>> [1 5 5 4].squared.mean.sqrt
+>>> [1 5 5 4].square.mean.sqrt
 67.sqrt / 2
 
 >>> [1 5 5 4].meanSquare.sqrt

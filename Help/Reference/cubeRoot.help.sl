@@ -13,7 +13,7 @@ Answer the real-valued cube root of the number _n_.
 >>> -27.cubeRoot
 -3
 
->>> -3.cubed
+>>> -3.cube
 -27
 
 >>> 27.cubeRoot.negate

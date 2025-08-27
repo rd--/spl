@@ -92,7 +92,7 @@ The scale is symmetrical within the octave:
 
 * * *
 
-See also: isSuperparticular, octaveReduced
+See also: isSuperparticular, octaveReduce
 
 Guides: Xenharmonic Functions
 

@@ -77,18 +77,18 @@ let x = 1.pi.negate; x.fractionalPart + x.integerPart = x /* fractional part and
 2.5.fractionalPart = 0.5
 5.reciprocal = (1 / 5) /* reciprocal function */
 6 * 3.1 = 18.6 /* auto convert to float */
-5.squared = 25 /* square function */
+5.square = 25 /* square function */
 25.sqrt = 5 /* square root */
 -1.sqrt.isComplex /* the square root of a negative number is a complex number */
 NaN.isNaN /* literal for NaN */
 4.sqrt = 2 & { 1000000.sqrt = 1000 & { 1.sqrt = 1 } & { 0.sqrt = 0 } }
 2.sqrt = 1.4142135623730951
-2.sqrt.squared.isCloseTo(2) /* floating point errors */
-2.sqrt.squared ~ 2 /* almost equal to, or similar to, unicode = ≈ */
-2.sqrt.squared <~ 2 /* less than or similar to */
-2.sqrt.squared >~ 2 /* greater than or similar to */
+2.sqrt.square.isCloseTo(2) /* floating point errors */
+2.sqrt.square ~ 2 /* almost equal to, or similar to, unicode = ≈ */
+2.sqrt.square <~ 2 /* less than or similar to */
+2.sqrt.square >~ 2 /* greater than or similar to */
 2 !~ 3 /* not almost equal to */
-2.sqrt.squared.isVeryCloseTo(2) /* floating point errors */
+2.sqrt.square.isVeryCloseTo(2) /* floating point errors */
 5.0 ^ 2.0 = 25.0 /* raisedTo (power) function */
 5 ^ 2 = 25 /* raisedTo integer */
 3 ^ 4 = 81 /* 3 * 3 * 3 * 3 = 81 */
@@ -337,7 +337,7 @@ let m = [1 2; 3 4; 5 6]; m[2, 2] := 16; m[3, 1] := 25; m = [1 2; 3 16; 25 6] /* 
 1:5.atIfPresentIfAbsent(3) { :x | x * x } { false } = 9 /* ifPresent and ifAbsent clauses */
 let l = [1 2 3]; l.atPut(2, 'two') = 'two' & { l = [1 'two' 3] } /* atPut answers value put */
 let a = [1, 2, 3]; (a[2] := 'two') = 'two' & { a = [1, 'two', 3] }
-let l = [1, 2, 3]; l.atModify(2, squared:/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
+let l = [1, 2, 3]; l.atModify(2, square:/1) = 4 & { l = [1, 4, 3] } /* modify value at index */
 [5, 4, 3, 2, 1].detect { :each | each % 2 = 0 } = 4
 { [5, 4, 3, 2, 1].detect { :each | each % 7 = 0 } }.ifError { true }
 [5, 4, 3, 2, 1].detect { :each | each * 2 <= 4 } = 2 /* find first element matching predicate */
@@ -377,7 +377,7 @@ let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } /* answer shuffled copy */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
 List(5).fillFromWith(1:5, negate:/1) = [-1 .. -5]
-let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], squared:/1); a = [1, 9, 25, 49, 81]
+let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], square:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
@@ -479,7 +479,7 @@ let a = []; [1 .. 3].doSeparatedBy { :each | a.add(each) } { a.add(0) }; a = [1,
 [1, 2, 3].intersperse(0) = [1, 0, 2, 0, 3]
 let a = []; [1 .. 3].doWithout({ :each | a.add(each) }, 2); a = [1, 3]
 [1 .. 9].selectThenCollect(isEven:/1) { :each | each * 3 } = [6, 12, 18, 24] /* avoid intermediate collection */
-[1 .. 9].collectThenSelect(squared:/1) { :each | each > 36 } = [49, 64, 81] /* avoid intermediate collection */
+[1 .. 9].collectThenSelect(square:/1) { :each | each > 36 } = [49, 64, 81] /* avoid intermediate collection */
 [1, 3 .. 9].union([3 .. 7]) = [1, 3, 5, 7, 9, 4, 6] /* set theoretic union, unicode = ∪ */
 let a = [1 .. 9]; a.removeAllSuchThat(isEven:/1); a = [1, 3 .. 9] /* remove elements selected by predicate */
 let a = [1 2 2]; a.removeAllSuchThat { :each | each = 2 }; a = [1] /* remove elements selected by predicate, answers copy of self */
@@ -972,8 +972,8 @@ let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s ~= c & { c = [1 .. 5].a
 [].ifEmpty { true } { false } /* evaluate emptyBlock if collection is empty */
 [1].ifEmpty { false } { true } /* evaluate notEmptyBlock if collection is not empty */
 [1].ifEmpty { false } { :c | c = [1] } /* evaluate notEmptyBlock with collection if not empty */
-1:9.detectSum(squared:/1) = 285 /* apply block to each element and sum */
-1:9.collect(squared:/1).sum = 285
+1:9.detectSum(square:/1) = 285 /* apply block to each element and sum */
+1:9.collect(square:/1).sum = 285
 let a = [1 .. 9]; a.removeAll(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
 let a = [1, 2, 3, 2, 1]; [a.removeAll([1, 2, 3]), a] = [[1, 2, 3], [2, 1]] /* answer items to remove, only remove first instance */
 { [1 .. 3].removeAll(7:9) }.ifError { true } /* it is an error if an element to be removed is not located */
@@ -988,7 +988,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 let a = [1 .. 5]; a.contents = a & { a.contents ~~ a } /* contents at list is equal but not identitical */
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
-let n = 0; 3:7.collectThenDo(squared:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
+let n = 0; 3:7.collectThenDo(square:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
 [].ifEmptyIfNotEmptyDo { true } { :aCollection | false } = true /* branch on isEmpty */
 1:9.ifEmptyIfNotEmptyDo { false } { :aCollection | aCollection.size = 9 } = true /* branch on isEmpty */
 1:9.ifNotEmptyDo { :aCollection | aCollection.size = 9 } = true /* branch on isEmpty */
@@ -1101,7 +1101,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 let c = (5 - 6.i); (c * 1.i) = c.i
 (2 + 5.i).negate = (-2 - 5.i)
 (2 + 5.i).reciprocal = ((2 / 29) - (5 / 29).i)
-(6 - 6.i).squared = -72.i
+(6 - 6.i).square = -72.i
 (1 + 2.i) = (1 + 2.i) = true /* equality = same value */
 (1 + 2.i) == (1 + 2.i) = false /* identity = different objects */
 (1 + 2.i) ~= (1 + 4.i) = true /* inequality */
@@ -1130,7 +1130,7 @@ let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } /* copy com
 2 * (1.i ^ 2) ~ (-2 + 0.i)
 1 + (3 / 4.i) = (1 - 0.75.i)
 let z = 1 + 2.i; z.real = 1 & { z.imaginary = 2 }
-let z = 1 + 2.i; z.conjugate = (1 - 2.i) & { z.absSquared = 5 }
+let z = 1 + 2.i; z.conjugate = (1 - 2.i) & { z.absSquare = 5 }
 let z = 1 + 2.i; z.abs ~ 2.2361 & { z.arg ~ 1.1071 } /* absolute value (modulus, magnitude) and argument (phase) */
 1.i.sqrt ~ (0.7071 + 0.7071.i)
 (1 + 2.i).sqrt ~ (1.2720 + 0.7861.i)
@@ -1324,8 +1324,8 @@ let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), (
 let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
 let p = (); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), ()]
 let p = (); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
-(x: 1, y: 2, z: 3).collect(squared:/1) = (x: 1, y: 4, z: 9)
-let d = (x: 1, y: 2, z: 3); d.replace(squared:/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
+(x: 1, y: 2, z: 3).collect(square:/1) = (x: 1, y: 4, z: 9)
+let d = (x: 1, y: 2, z: 3); d.replace(square:/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
 { (x: 1).remove }.ifError { true } /* should not implement, see removeKey */
 (x: 1, y: 2) ++ (x: 2, y: 1) = (x: 2, y: 1) /* appending two dictionaries is right-biased, unicode = ⧺ */
 (x: 1, y: 2) ++ ['z' -> 3] = (x: 1, y: 2, z: 3) /* append an array of associations to a dictionary */
@@ -1466,7 +1466,7 @@ ReducedFraction(4, 6) ~= 2/3 /* ReducedFraction assumes fraction is normal, and 
 2/3 ^ 3/4 ~ 0.737788 /* non integer exponents answer floatinput point values */
 9/5.reciprocal = 5/9 /* reciprocal, mutiplicative inverse */
 let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
-7/5.squared = 49/25 /* square of */
+7/5.square = 49/25 /* square of */
 3/2.truncate = 1 /* truncation */
 1/2 < 0.5 = false
 1/3 > 0.25
@@ -1590,8 +1590,8 @@ let x = Fraction(2L ^ 55L, 2); x ~= (x - 1) /* fractions of large large integers
 7/8 / 3 = 7/24 /* division by integer is fraction */
 6/9 = 2/3
 -4/8 = -1/2
-Fraction(5, -15).normalized = -1/3
-Fraction(-4, -12).normalized = 1/3
+Fraction(5, -15) = -1/3
+Fraction(-4, -12) = 1/3
 2/3.numerator = 2
 2/3.denominator = 3
 2/3 = 6/9
@@ -1878,8 +1878,8 @@ to(1, 9).size = 9 /* to generates a Range */
 1:9 = 1.to(9)
 Range(-2, 2, 1).collect(isEven:/1) = [true, false, true, false, true]
 -2:2.collect(isOdd:/1) = [false, true, false, true, false]
-1 + 1.to(9).collect(squared:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
-2 * 1:9.collect(squared:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
+1 + 1.to(9).collect(square:/1) = [2, 5, 10, 17, 26,37, 50, 65, 82]
+2 * 1:9.collect(square:/1) = [2, 8, 18, 32, 50,72, 98, 128, 162]
 1.to(9).asList = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 1:9.copyFromTo(3, 7) = 3:7 /* copy from start to end indices, inclusive */
 1:16.copyFromTo(1, 8) = 1:8 /* copy from start to end indices, inclusive */
@@ -2000,8 +2000,8 @@ let a = []; 1:9.selectThenDo(isEven:/1) { :each | a.add(each * 3) }; a = [6, 12,
 ```
 system.includesPackage('LargeInteger') /* LargeInteger package */
 23L.typeOf = 'LargeInteger' /* syntax for large integer literals */
-(2 ^ 54).asLargeInteger.squared.printString = '324518553658426726783156020576256L'
-(2 ^ 37).asLargeInteger.squared.storeString = '18889465931478580854784L'
+(2 ^ 54).asLargeInteger.square.printString = '324518553658426726783156020576256L'
+(2 ^ 37).asLargeInteger.square.storeString = '18889465931478580854784L'
 '324518553658426726783156020576256'.parseLargeInteger.isLargeInteger = true
 2971215073.asLargeInteger.isPrime = true
 23L.factorial = 25852016738884976640000L /* factorial of LargeInteger */
@@ -2067,8 +2067,8 @@ let l = [1].asLinkedList; l.removeLast = 1 & { l.isEmpty } /* remove last */
 let l = [1 .. 5].asLinkedList; l.removeAllSuchThat(isOdd:/1); l.asList = [2, 4] /* in place reject */
 let l = 1:99.asLinkedList; l.removeAll; l.isEmpty /* remove all */
 1:99.asLinkedList.select(isEven:/1).asList = [2, 4 .. 98] /* select */
-1:9.asLinkedList.selectThenCollect(isEven:/1, squared:/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
-1:9.asLinkedList.collectThenSelect(squared:/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
+1:9.asLinkedList.selectThenCollect(isEven:/1, square:/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
+1:9.asLinkedList.collectThenSelect(square:/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
 1:9.asLinkedList.reverse = [9 .. 1] /* reverse, species is List */
 { LinkedList().removeFirst }.ifError { :error | true } /* remove first, error if empty */
 { LinkedList().removeLast }.ifError { :error | true } /* remove last, error if empty */
@@ -2176,7 +2176,7 @@ Infinity.isNumber /* constant positive infinity (is a number) */
 5.reciprocal = 0.2 /* 1 / x */
 (1.pi / 2).sin = 1 /* sine */
 9.sqrt = 3 /* square root */
-3.squared = 9 /* x * x */
+3.square = 9 /* x * x */
 1.pi.radiansToDegrees = 180 /* radiansToDegrees */
 { 1 / nil }.ifError { true } /* operand not apatable to number */
 0.9.round = 1
@@ -2250,13 +2250,13 @@ system.includesPackage('Number') /* package */
 -987654.321.asStringWithCommas = '-987,654.321'
 -97.531.asStringWithCommas = '-97.531'
 -951.asStringWithCommas = '-951'
-let i = 1; 1.toDo(5) { :each | i := i + each.squared }; i = 56 /* iterate over numbers from start to end */
-let i = 1; 1.toByDo(5, 2) { :each | i := i + each.squared }; i = 36 /* iterate over numbers from start to end by step */
-let i = 1; 1:3.do { :each | i := i + each.squared }; i = 15 /* iterate over numbers from one to end */
+let i = 1; 1.toDo(5) { :each | i := i + each.square }; i = 56 /* iterate over numbers from start to end */
+let i = 1; 1.toByDo(5, 2) { :each | i := i + each.square }; i = 36 /* iterate over numbers from start to end by step */
+let i = 1; 1:3.do { :each | i := i + each.square }; i = 15 /* iterate over numbers from one to end */
 { 23.size }.ifError { true } /* numbers do not have a size */
 { 23.at(1) }.ifError { true } /* numbers are not indexable */
 { 23.do { :each | nil } }.ifError { true } /* numbers are not iterable */
--23.absSquared = 23.absSquared /* see Complex */
+-23.absSquare = 23.absSquare /* see Complex */
 ```
 
 ## Object -- kernel trait
@@ -2997,7 +2997,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:16.last(4) = 13:16  /* last group of n elements of sequence */
 1:4.replicateEach(2) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
 1:4.replicateEach([2 2 2 2]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
-1:4.replicateEachApplying([2 2 2 2], squared:/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
+1:4.replicateEachApplying([2 2 2 2], square:/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
 [{ 1 }, { 2 }].duplicateEach(2) = [1 1 2 2] /* duplicate each element n times */
 1:10.middle = 6 /* middle element */
 1:10.median = 5.5 /* mean of two middle-most elements */
@@ -3021,7 +3021,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 [1, 3 .. 9] * [1 .. 5] = [1, 6, 15, 28, 45] /* sequence * sequence */
 [1, 6, 15, 28, 45] / [1 .. 5] = [1, 3 .. 9] /* sequence / sequence */
 { [1 .. 5] + [6 .. 9] = [7, 9, 11, 13, 11] }.ifError { true } /* sequences must be of equal size, Sc/Lang extends this behaviour */
-[1 .. 5].squared = [1, 4, 9, 16, 25] /* unary math lifted to collection */
+[1 .. 5].square = [1, 4, 9, 16, 25] /* unary math lifted to collection */
 [1, 4, 9, 16, 25].sqrt = [1 .. 5] /* unary math lifted to collection */
 1:3.asIdentitySet ++ 4:7.asIdentitySet = 1:7.asIdentitySet /* append */
 ```
@@ -4113,8 +4113,8 @@ PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi
 [1, 1].normalize = ([1, 1] / 2.sqrt) /* normalized to have unit magnitude */
 [1, 1].normalize.norm ~ 1
 PlanarCoordinates([1, 1]).norm = 2.sqrt /* magnitude, distance to origin */
-PlanarCoordinates([1, 1]).normalized = (PlanarCoordinates([1, 1]) / 2.sqrt) /* normalized to have unit magnitude */
-PlanarCoordinates([1, 1]).normalized.norm ~ 1
+PlanarCoordinates([1, 1]).normalize = (PlanarCoordinates([1, 1]) / 2.sqrt) /* normalized to have unit magnitude */
+PlanarCoordinates([1, 1]).normalize.norm ~ 1
 ```
 
 ## CartesianCoordinates -- geometry type

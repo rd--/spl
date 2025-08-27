@@ -95,7 +95,7 @@ let n = 9;
 let r = 1;
 let theta = 1.pi / n;
 let rho = (r * theta.sin) / (1 - theta.sin);
-let rr = (theta.sec + theta.tan).squared * r;
+let rr = (theta.sec + theta.tan).square * r;
 [
 	Circle([0 0], r),
 	Circle([0 0], rr),

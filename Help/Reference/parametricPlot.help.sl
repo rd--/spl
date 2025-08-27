@@ -39,12 +39,12 @@ Lemniscate of Bernoulli:
 ~~~spl svg=D
 (0 -- 2.pi).parametricPlot(
 	{ :u |
-		u.cos / (1 + u.sin.squared)
+		u.cos / (1 + u.sin.square)
 	},
 	{ :u |
 		(u.sin * u.cos)
 		/
-		(1 + u.sin.squared)
+		(1 + u.sin.square)
 	}
 )
 ~~~

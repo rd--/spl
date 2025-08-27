@@ -41,7 +41,7 @@ This is similar to, but distinct from, the matrix given by `distanceMatrix`:
 ```
 >>> let r = [1/1 9/8 5/4 3/2 5/3];
 >>> r.distanceMatrix(r) { :i :j |
->>> 	(j / i).octaveReduced
+>>> 	(j / i).octaveReduce
 >>> }
 [
 	1/1  9/8  5/4 3/2  5/3;

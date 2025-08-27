@@ -16,7 +16,7 @@ let sigma = 0.1;
 let r = Sfc32(317892);
 let a = { :y | mu * y };
 let b = { :y | sigma * y};
-let c = { :y | sigma.squared / 2 * y };
+let c = { :y | sigma.square / 2 * y };
 let t = [0 10 0.1];
 let y0 = 2;
 milsteinMethod(r, a:/1, b:/1, c:/1, t, y0)
@@ -32,7 +32,7 @@ Simulate a stochastic differential equation:
 Sfc32(317892)
 .milsteinMethod(
 	{ :y | y.- },
-	{ :y | (1 + y.squared).sqrt },
+	{ :y | (1 + y.square).sqrt },
 	{ :y | y },
 	[0 5 0.02],
 	1

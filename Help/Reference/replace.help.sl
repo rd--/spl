@@ -9,7 +9,7 @@ At `Record`:
 
 ```
 >>> let d = (x: 1, y: 2, z: 3);
->>> d.replace(squared:/1);
+>>> d.replace(square:/1);
 >>> d
 (x: 1, y: 4, z: 9)
 ```

@@ -63,7 +63,7 @@
 
 	cayleyMengerDeterminant { :self |
 		let n = self.size - 1;
-		let z = (-1 ^ (n + 1)) / (n.factorial.squared * (2 ^ n));
+		let z = (-1 ^ (n + 1)) / (n.factorial.square * (2 ^ n));
 		(z * self.cayleyMengerMatrix.determinant).abs.sqrt
 	}
 
@@ -345,8 +345,8 @@
 	gaussianMatrix { :r :sigma |
 		let [r1, r2] = r;
 		let [sigma1, sigma2] = sigma;
-		let p = (-0.5 * [r1.- ..  r1].squared / sigma1.squared).exp;
-		let q = (-0.5 * [r2.- ..  r2].squared / sigma2.squared).exp;
+		let p = (-0.5 * [r1.- ..  r1].square / sigma1.square).exp;
+		let q = (-0.5 * [r2.- ..  r2].square / sigma2.square).exp;
 		let k = p.outerProduct(q);
 		k / k.deepSum
 	}
@@ -534,7 +534,7 @@
 	}
 
 	gaussianVector { :r :sigma |
-		let k = (-0.5 * [r.- ..  r].squared / sigma.squared).exp;
+		let k = (-0.5 * [r.- ..  r].square / sigma.square).exp;
 		k / k.sum
 	}
 

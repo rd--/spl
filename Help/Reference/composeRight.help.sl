@@ -19,7 +19,7 @@ Composition of inverses:
 
 ```
 >>> let n = system.nextRandomFloat;
->>> squared:/1.composeRight(sqrt:/1) . (n)
+>>> square:/1.composeRight(sqrt:/1) . (n)
 n
 ```
 

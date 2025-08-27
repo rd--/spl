@@ -80,7 +80,7 @@
 	ikedaMap { :u |
 		{ :v |
 			let [x, y] = v;
-			let t = 0.4 - (6 / (1 + x.squared + y.squared));
+			let t = 0.4 - (6 / (1 + x.square + y.square));
 			[
 				1 + (u * ((x * t.cos) - (y * t.sin))),
 				u * ((x * t.sin) + (y * t.cos))
@@ -107,7 +107,7 @@
 
 	procacciaSchuster { :u |
 		{ :x |
-			(x + (u * x.squared)) % 1
+			(x + (u * x.square)) % 1
 		}
 	}
 

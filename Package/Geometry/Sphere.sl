@@ -9,7 +9,7 @@ Sphere : [Object] { | center radius |
 	}
 
 	area { :self |
-		(self.radius.squared * 4).pi
+		(self.radius.square * 4).pi
 	}
 
 	diameter { :self |

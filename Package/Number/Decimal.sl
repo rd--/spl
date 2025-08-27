@@ -232,9 +232,9 @@ Decimal : [Object] { | fraction scale |
 		}
 	}
 
-	squared { :self |
+	square { :self |
 		UnsimplifiedDecimal(
-			self.fraction.squared,
+			self.fraction.square,
 			self.scale
 		)
 	}

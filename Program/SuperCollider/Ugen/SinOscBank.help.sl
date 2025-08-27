@@ -23,7 +23,7 @@ let f2 = [
 [f1, f2].collect { :f |
 	let o = SinOscBank(
 		f,
-		{ Rand(0.01, 0.1) } ! f.size / f * f.size.squared,
+		{ Rand(0.01, 0.1) } ! f.size / f * f.size.square,
 		[0]
 	);
 	EqPan2(o, LfNoise2(0.25)) * LfNoise2(0.5).LinLin(-1, 1, 0.05, 0.15)

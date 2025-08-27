@@ -15,4 +15,4 @@ At `Fraction`:
 
 * * *
 
-See also: Fraction, ReducedFraction, simplify
+See also: Fraction, normal, ReducedFraction, simplify

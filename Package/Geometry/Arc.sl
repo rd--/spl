@@ -33,11 +33,11 @@ Arc : [Object] { | center radii angles |
 	}
 
 	sectorArea { :self |
-		self.radius.squared * self.theta * 0.5
+		self.radius.square * self.theta * 0.5
 	}
 
 	segmentArea { :self |
-		self.radius.squared * (self.theta - self.theta.sin) * 0.5
+		self.radius.square * (self.theta - self.theta.sin) * 0.5
 	}
 
 	theta { :self |

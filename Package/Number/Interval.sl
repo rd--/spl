@@ -174,7 +174,7 @@ Interval : [Object, Magnitude, Number] { | min max |
 		(self.max - self.min).abs / 2
 	}
 
-	squared { :self |
+	square { :self |
 		let answer = self * self;
 		(answer.min < 0).ifTrue {
 			answer.min := 0

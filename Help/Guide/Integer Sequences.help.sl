@@ -160,7 +160,7 @@ The following help files include references to integer sequences:
 - `schroderSequence`: A006318
 - `silverConstant`: A116425
 - `silverRatio`: A014176
-- `squared`: A000290
+- `square`: A000290
 - `squarePyramidalNumber`: A000330
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487

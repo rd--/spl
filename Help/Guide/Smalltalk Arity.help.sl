@@ -17,8 +17,8 @@ The expression _c sorted: f_ answers a copy of the collection _c_ sorted accordi
 and _c sorted_ sorts according to _<=_.
 
 In Smalltalk blocks and methods have distinct application syntaxes.
-The block _squared := [ :aNumber | aNumber * aNumber ]_ is applied as _squared value: 3_
-The method _squared_ is applied as _3 squared_.
+The block _square := [ :aNumber | aNumber * aNumber ]_ is applied as _square value: 3_
+The method _square_ is applied as _3 square_.
 
 Methods that require behaviours as arguments generally require blocks, i.e. _#(9 16 25) collect: [ :each | each sqrt ]_.
 By implementing _value:_ at _Symbol_ (as _anObject perform: self_) this can be written _#(9 16 25) collect: #sqrt_.

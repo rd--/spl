@@ -66,7 +66,7 @@ The iteration function can operate on a list:
 Use `valueWithReturn` to exit an iteration:
 
 ```
->>> squared:/1.iterate(2L, 6)
+>>> square:/1.iterate(2L, 6)
 18446744073709551616L
 
 >>> { :return:/1 |
@@ -119,7 +119,7 @@ Derive the seven tone Pythagorean scale:
 
 ```
 >>> { :n |
->>> 	(n * 3/2).octaveReduced
+>>> 	(n * 3/2).octaveReduce
 >>> }.iterate(1/1).next(7).sort
 [1/1 9/8 81/64 729/512 3/2 27/16 243/128]
 ```

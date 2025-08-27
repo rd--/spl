@@ -32,7 +32,7 @@ At `IdentityBag`:
 ```
 >>> [2, 6 .. 14]
 >>> .asIdentityBag
->>> .collect(squared:/1)
+>>> .collect(square:/1)
 [4 36 100 196].asIdentityBag
 ```
 
@@ -41,7 +41,7 @@ At `IdentitySet`:
 ```
 >>> [2, 6 .. 14]
 >>> .asIdentitySet
->>> .collect(squared:/1)
+>>> .collect(square:/1)
 [4 36 100 196].asIdentitySet
 ```
 
@@ -57,7 +57,7 @@ At `Stream`:
 
 ```
 >>> [1 .. 9].asStream
->>> .collect(squared:/1)
+>>> .collect(square:/1)
 >>> .upToEnd
 [1 4 9 16 25 36 49 64 81]
 ```

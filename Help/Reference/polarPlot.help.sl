@@ -144,7 +144,7 @@ Plot the lima bean curve:
 
 ~~~spl svg=M
 (0 -- 2.pi).polarPlot { :theta |
-	theta.sin.cubed + theta.cos.cubed
+	theta.sin.cube + theta.cos.cube
 }
 ~~~
 

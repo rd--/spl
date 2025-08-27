@@ -72,7 +72,7 @@ CylindricalCoordinates : [Object] { | coordinates |
 	toCylindricalCoordinates { :self |
 		self.isVector.if {
 			let [x, y, z] = self;
-			let rho = (x.squared + y.squared).sqrt;
+			let rho = (x.square + y.square).sqrt;
 			let phi = y.atan2(x);
 			[rho phi z]
 		} {

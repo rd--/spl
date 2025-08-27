@@ -156,11 +156,11 @@
 	normalizedSquaredEuclideanDistance { :u :v |
 		let uu = (u - u.mean);
 		let vv = (v - v.mean);
-		0.5 * (uu - vv).norm.squared / (uu.norm.squared + vv.norm.squared)
+		0.5 * (uu - vv).norm.square / (uu.norm.square + vv.norm.square)
 	}
 
 	squaredEuclideanDistance { :self :aList |
-		(self - aList).norm.squared
+		(self - aList).norm.square
 	}
 
 }

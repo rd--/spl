@@ -37,7 +37,7 @@ CauchyDistribution : [Object, ProbabilityDistribution] { | x0 gamma |
 		let x0 = self.x0;
 		let gamma = self.gamma;
 		{ :x |
-			1 / (gamma.pi * (1 + ((x - x0) / gamma).squared))
+			1 / (gamma.pi * (1 + ((x - x0) / gamma).square))
 		}
 	}
 

@@ -16,7 +16,7 @@ Relation to `sin`:
 
 ```
 >>> 0.8.haversine
-(0.8 / 2).sin.squared
+(0.8 / 2).sin.square
 ```
 
 Relation to `cos`:

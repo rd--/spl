@@ -43,7 +43,7 @@ It has lattice coordinates _11 -4 -2_:
 
 * * *
 
-See also: mercatorsComma, octaveReduced, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
 
 Guides: Xenharmonic Functions
 

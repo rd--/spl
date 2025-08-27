@@ -75,11 +75,11 @@
 		n.max(d)
 	}
 
-	octaveReduced { :self |
-		self.octaveReduced(2)
+	octaveReduce { :self |
+		self.octaveReduce(2)
 	}
 
-	octaveReduced { :self :octaveRatio |
+	octaveReduce { :self :octaveRatio |
 		let exponent = self.asFloat.log(octaveRatio.asFloat).floor.negate;
 		self * (2/1 ^ exponent)
 	}
@@ -115,10 +115,10 @@
 			0
 		} {
 			p.isPrime.if {
-				(p - 1).squared / p * 2
+				(p - 1).square / p * 2
 			} {
 				p.primeFactors.collect { :n |
-					(n - 1).squared / n * 2
+					(n - 1).square / n * 2
 				}.sum
 			}
 		}
@@ -133,11 +133,11 @@
 		}
 	}
 
-	octaveReduced { :self |
+	octaveReduce { :self |
 		self.isInteger.ifFalse {
-			self.error('octaveReduced: not integer')
+			self.error('octaveReduce: not integer')
 		};
-		Fraction(self, 1).octaveReduced(2)
+		Fraction(self, 1).octaveReduce(2)
 	}
 
 }
@@ -164,8 +164,8 @@
 		}.sum / self.size
 	}
 
-	octaveReduced { :self |
-		self.collect(octaveReduced:/1)
+	octaveReduce { :self |
+		self.collect(octaveReduce:/1)
 	}
 
 	tenneyHeight { :self :base |
@@ -236,17 +236,21 @@
 
 	tonalityDiamond { :self |
 		let n = [1, 3 .. self];
-		let o = n.collect { :i | Fraction(i, 1).octaveReduced }.sort;
+		let o = n.collect { :i |
+			Fraction(i, 1).octaveReduce
+		}.sort;
 		let u = 1 / o;
-		{ :i :j | (i * j).octaveReduced }.table(u, o)
+		{ :i :j |
+			(i * j).octaveReduce
+		}.table(u, o)
 	}
 
 }
 
 +@Collection {
 
-	octaveReduced { :self |
-		self.collect(octaveReduced:/1)
+	octaveReduce { :self |
+		self.collect(octaveReduce:/1)
 	}
 
 }

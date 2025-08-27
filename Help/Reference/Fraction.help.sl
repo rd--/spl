@@ -69,7 +69,7 @@ it assumes the fraction being specified is in reduced form:
 [2 4]
 ```
 
-Literal fractions are `normalized` and have the following invariants:
+Literal fractions are `normal` and have the following invariants:
 
 - the denominator shall always be positive
 - the numerator and denominator shall never have common multiples
@@ -93,8 +93,7 @@ Fraction(4, 3)
 
 A Fraction that does not conform to the above invariants could be the cause of undefined behavior and unexpected results.
 
-The message `normalized` obtains a normal Fraction.
-The message `reduced` obtains a normal Fraction or an Integer.
+The message `normal` obtains a normal Fraction.
 
 Note that `Fraction` and `Integer` represent together the set of Rational numbers:
 

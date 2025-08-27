@@ -223,7 +223,7 @@
 		let u = x.sqrt.floor;
 		2 * (1 .. u).sum { :k |
 			(x / k).floor
-		} - u.squared
+		} - u.square
 	}
 
 	divisors { :self |
@@ -291,9 +291,9 @@
 	}
 
 	euclidsFormula { :m :n :k |
-		let a = k * (m.squared - n.squared);
+		let a = k * (m.square - n.square);
 		let b = k * 2 * m * n;
-		let c = k * (m.squared + n.squared);
+		let c = k * (m.square + n.square);
 		[a, b, c]
 	}
 
@@ -758,14 +758,14 @@
 		[a, b, c].allSatisfy(isInteger:/1) & {
 			a.isCoprime(b) & {
 				[a, b].collect(isOdd:/1).boole.sum = 1 & {
-					(a.squared + b.squared) = c.squared
+					(a.square + b.square) = c.square
 				}
 			}
 		}
 	}
 
 	isPrimitivePythagoreanTriple { :a :b |
-		isPrimitivePythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
+		isPrimitivePythagoreanTriple(a, b, (a.square + b.square).sqrt)
 	}
 
 	isPronicNumber { :self |
@@ -785,12 +785,12 @@
 
 	isPythagoreanTriple { :a :b :c |
 		[a, b, c].allSatisfy(isInteger:/1) & {
-			(a.squared + b.squared) = c.squared
+			(a.square + b.square) = c.square
 		}
 	}
 
 	isPythagoreanTriple { :a :b |
-		isPythagoreanTriple(a, b, (a.squared + b.squared).sqrt)
+		isPythagoreanTriple(a, b, (a.square + b.square).sqrt)
 	}
 
 	isRegularNumber { :self |
@@ -1356,7 +1356,7 @@
 		let b = (586 + (102 * 33.sqrt)).cubeRoot;
 		let c = (19 - (3 * 33.sqrt)).cubeRoot;
 		let d = ((1 / 3) * (a + c + 1)) ^ (n - 1);
-		let e = b.squared - (2 * b) + 4;
+		let e = b.square - (2 * b) + 4;
 		((3 * b) * (d / e)).round
 	}
 

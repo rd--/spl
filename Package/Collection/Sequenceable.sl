@@ -815,7 +815,7 @@
 		let rhs = a[n] + (a[n] - a[n - 1]);
 		a.addFirst(lhs);
 		a.addLast(rhs);
-		a / (4 * h.squared)
+		a / (4 * h.square)
 	}
 
 	do { :self :aBlock:/1 |

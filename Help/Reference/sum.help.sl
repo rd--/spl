@@ -100,7 +100,7 @@ Difference between a sum squared, and the sum of squares:
 The binary form applies the block _f_ to each element before summing:
 
 ```
->>> 1:10.sum(squared:/1)
+>>> 1:10.sum(square:/1)
 385
 ```
 

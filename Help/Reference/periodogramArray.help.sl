@@ -63,7 +63,7 @@ Verification of Parseval’s theorem:
 >>> let r = Sfc32(678321);
 >>> let x = r.randomReal([-1 1], [8]);
 >>> x.periodogramArray.sum
-x.squared.sum
+x.square.sum
 ```
 
 * * *

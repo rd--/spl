@@ -26,7 +26,7 @@
 		let floatPrecisionMitigation = Math.max(1, Math.max(width, height) / 64 | 0);
 		let epsilonRadius = 1e-14 * floatPrecisionMitigation;
 		let epsilonAngle = 2e-14;
-		let squaredRadius = radius * radius;
+		let squareRadius = radius * radius;
 		let radiusPlusEpsilon = radius + epsilonRadius;
 		let cellSize = radius * Math.SQRT1_2;
 		let angleIncrement = Math.PI * 2 / maxTries;
@@ -71,7 +71,7 @@
 				);
 				if (internalArrayIndex !== -1 && grid[internalArrayIndex] !== 0) {
 					let existingPoint = samplePoints[grid[internalArrayIndex] - 1];
-					if (Math.pow(point[0] - existingPoint[0], 2) + Math.pow(point[1] - existingPoint[1], 2) < squaredRadius) {
+					if (Math.pow(point[0] - existingPoint[0], 2) + Math.pow(point[1] - existingPoint[1], 2) < squareRadius) {
 						return true;
 					}
 				}

@@ -102,7 +102,7 @@
 		(self.abs > 0.5).if {
 			0
 		} {
-			(self.squared / (2 * sigma.squared)).negate.exp
+			(self.square / (2 * sigma.square)).negate.exp
 		}
 	}
 
@@ -180,16 +180,16 @@
 				0
 			},
 			{ x.between(0.25 -- 0.5) } -> {
-				-2 * ((2 * x) - 1).cubed
+				-2 * ((2 * x) - 1).cube
 			},
 			{ x.between(-0.5 -- -0.25) } -> {
-				2 * ((2 * x) + 1).cubed
+				2 * ((2 * x) + 1).cube
 			},
 			{ x.between(-0.25 -- 0) } -> {
-				0 - (48 * x.cubed) - (24 * x.squared) + 1
+				0 - (48 * x.cube) - (24 * x.square) + 1
 			},
 			{ x.between(0 -- 0.25) } -> {
-				(48 * x.cubed) - (24 * x.squared) + 1
+				(48 * x.cube) - (24 * x.square) + 1
 			}
 		].which
 	}
@@ -251,7 +251,7 @@
 		(self.abs > 0.5).if {
 			0
 		}  {
-			(alpha.squared - (4 * self.squared)) / alpha.squared
+			(alpha.square - (4 * self.square)) / alpha.square
 		}
 	}
 

@@ -122,7 +122,7 @@
 		let r = [n, n].tuplesDo { :each |
 			l.add(Fraction(each[1], each[2]))
 		};
-		l.nub.octaveReduced.sort
+		l.nub.octaveReduce.sort
 	}
 
 }
@@ -139,7 +139,7 @@
 		let combinations = self.subsets(aBlock:/1);
 		let products = combinations.collect(product:/1);
 		let normalized = Fraction(products, products.min);
-		let reduced = normalized.octaveReduced;
+		let reduced = normalized.octaveReduce;
 		reduced.nub.sort
 	}
 

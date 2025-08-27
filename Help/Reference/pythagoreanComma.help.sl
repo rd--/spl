@@ -27,7 +27,7 @@ It is the amount by which twelve fifths exceed seven octaves.
 >>> (3/2 ^ 12) / (2 ^ 7)
 1.pythagoreanComma
 
->>> (3/2 ^ 12).octaveReduced
+>>> (3/2 ^ 12).octaveReduce
 1.pythagoreanComma
 ```
 
@@ -55,7 +55,7 @@ It is also the ratio between the Pythagorean augmented fourth and diminished fif
 It also equates six 9/8 major seconds with an octave:
 
 ```
->>> (9/8 ^ 6).octaveReduced
+>>> (9/8 ^ 6).octaveReduce
 1.pythagoreanComma
 ```
 
@@ -85,7 +85,7 @@ and it is conventionally taken as 24 cents:
 
 * * *
 
-See also: mercatorsComma, octaveReduced, pythagoreanChroma, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduce, pythagoreanChroma, septimalComma, syntonicComma
 
 Guides: Xenharmonic Functions
 

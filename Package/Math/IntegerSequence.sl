@@ -502,7 +502,7 @@
 			((m * phi).floor * phi).floor
 		} {
 			(n = 2).if {
-				((m * phi).floor * phi.squared).floor
+				((m * phi).floor * phi.square).floor
 			} {
 				m.wythoffArray(n - 2) + m.wythoffArray(n - 1)
 			}
@@ -515,11 +515,11 @@
 
 	wythoffPair { :self |
 		let phi = 1.goldenRatio;
-		[(self * phi).floor, (self * phi.squared).floor]
+		[(self * phi).floor, (self * phi.square).floor]
 	}
 
 	wythoffUpper { :self |
-		(self * 1.goldenRatio.squared).floor
+		(self * 1.goldenRatio.square).floor
 	}
 
 }
@@ -599,7 +599,7 @@
 +List {
 
 	isMarkovTriple { :self |
-		self.squared.sum = (3 * self.product)
+		self.square.sum = (3 * self.product)
 	}
 
 	nextMarkovTriple { :self |
@@ -631,7 +631,7 @@
 
 	lagrangeNumber { :n |
 		let m = n.markovNumber;
-		(9 - (4 / m.squared)).sqrt
+		(9 - (4 / m.square)).sqrt
 	}
 
 	markovNumber { :self |

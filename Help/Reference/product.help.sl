@@ -57,7 +57,7 @@ Collecting answers the products of the rows:
 The binary form applies the block _f_ to each element before multiplying:
 
 ```
->>> 1:6.product(squared:/1)
+>>> 1:6.product(square:/1)
 518400
 ```
 

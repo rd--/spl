@@ -68,7 +68,7 @@ Equivalently:
 
 ```
 >>> let phi = 1.goldenRatio;
->>> (1 + phi = phi.squared, 1 + phi)
+>>> (1 + phi = phi.square, 1 + phi)
 (true, 2.618034)
 ```
 

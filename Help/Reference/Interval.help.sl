@@ -27,7 +27,7 @@ Use `+` to add intervals, getting an interval representing the result:
 Squaring gives a non-negative interval:
 
 ```
->>> (-2 -- 5).squared
+>>> (-2 -- 5).square
 0 -- 25
 ```
 

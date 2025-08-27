@@ -19,7 +19,7 @@ let c = 0; 4.tuplesIndicesDo(7) { :each | c +:= 1 }; c = 16384
 ## AtDelegateTo Syntax
 ```
 let d = (c: 3, parent: (b: 2, parent: (a: 1))); [d:.a, d:.b, d:.c] = [1, 2, 3] /* [AtDelegateTo Syntax] */
-let d = (length: { :self | (self::x.squared + self::y.squared).sqrt }); let p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
+let d = (length: { :self | (self::x.square + self::y.square).sqrt }); let p = (x: 3.141, y: 23, parent: d); p:.length = 23.213484895637706
 let d = (x: 9, parent: (f: { :self :aNumber | self::x.sqrt * aNumber })); d:.f(7) = 21
 ```
 

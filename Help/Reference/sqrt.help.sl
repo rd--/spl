@@ -149,7 +149,7 @@ Where supported `sqrt` is displayed as √.
 
 * * *
 
-See also: cubeRoot, nthRoot, squared
+See also: cubeRoot, nthRoot, square
 
 References:
 _Mathematica_

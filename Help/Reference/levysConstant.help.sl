@@ -11,7 +11,7 @@ Answer _n_ times Lévy’s constant, _exp(β)_.
 >>> 1.levysConstant.log
 1.186569
 
->>> 1.pi.squared / (12 * 2.log)
+>>> 1.pi.square / (12 * 2.log)
 1.186569
 ```
 

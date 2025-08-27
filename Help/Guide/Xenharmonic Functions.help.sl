@@ -70,7 +70,7 @@ Mediant Functions:
 
 Pitch Functions:
 
-- `octaveReduced`
+- `octaveReduce`
 
 Predicates:
 

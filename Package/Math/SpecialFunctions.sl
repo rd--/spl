@@ -7,7 +7,7 @@
 			let a1 = 0.3480242 * t;
 			let a2 = -0.0958798 * t * t;
 			let a3 = 0.7478556 * t * t * t;
-			1 - ((a1 + a2 + a3) * x.squared.negate.exp)
+			1 - ((a1 + a2 + a3) * x.square.negate.exp)
 		} {
 			x.negate.erf.negate
 		}
@@ -22,7 +22,7 @@
 			let a3 = 1.421413741 * t * t * t;
 			let a4 = -1.453152027 * t * t * t * t;
 			let a5 = 1.061405429 * t * t * t * t * t;
-			1 - ((a1 + a2 + a3 + a4 + a5) * x.squared.negate.exp)
+			1 - ((a1 + a2 + a3 + a4 + a5) * x.square.negate.exp)
 		} {
 			x.negate.erf.negate
 		}

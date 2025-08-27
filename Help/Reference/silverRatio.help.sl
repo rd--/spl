@@ -37,7 +37,7 @@ As a continued fraction:
 >>> .continuedFraction(14)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2]
 
->>> 1.silverRatio.squared
+>>> 1.silverRatio.square
 >>> .continuedFraction(14)
 [5 1 4 1 4 1 4 1 4 1 4 1 4 1]
 ```
@@ -53,7 +53,7 @@ As the ⁠superstable fixed point of an iteration:
 
 ```
 >>> { :x |
->>> 	0.5 * (x.squared + 1) / (x - 1)
+>>> 	0.5 * (x.square + 1) / (x - 1)
 >>> }.fixedPoint(2.5, ~)
 1.silverRatio
 ```

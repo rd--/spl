@@ -17,8 +17,8 @@ StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
 		let sigma = self.sigma;
 		let nu = self.nu;
 		{ :x |
-			let a = sigma.squared * nu;
-			let b = (x - mu).squared;
+			let a = sigma.square * nu;
+			let b = (x - mu).square;
 			let t = a / (a + b);
 			let r = (1 / 2) * t.betaRegularized(nu / 2, 1 / 2);
 			(x <= mu).if {
@@ -50,7 +50,7 @@ StudentTDistribution : [Object, ProbabilityDistribution] { | mu sigma nu |
 		let sigma = self.sigma;
 		let nu = self.nu;
 		{ :x |
-			let d = (x - mu).squared / sigma.squared;
+			let d = (x - mu).square / sigma.square;
 			((nu / (d + nu)) ^ ((nu + 1) / 2))
 			/
 			(sigma * nu.sqrt * (nu / 2).beta(1 / 2))

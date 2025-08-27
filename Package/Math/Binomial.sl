@@ -79,7 +79,7 @@
 	}
 
 	centeredHexagonalNumber { :n |
-		(3 * n.squared) - (3 * n) + 1
+		(3 * n.square) - (3 * n) + 1
 	}
 
 	centeredPolygonalNumber { :k :n |
@@ -235,7 +235,7 @@
 	}
 
 	pentagonalNumber { :n |
-		(3 * n.squared - n) / 2
+		(3 * n.square - n) / 2
 	}
 
 	polygonalNumber { :n |
@@ -244,7 +244,7 @@
 
 	pyramidalNumber { :r |
 		{ :n |
-			((3 * n.squared) + (n.cubed * (r - 2)) - (n * (r - 5))) / 6
+			((3 * n.square) + (n.cube * (r - 2)) - (n * (r - 5))) / 6
 		}
 	}
 

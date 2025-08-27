@@ -65,7 +65,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	}
 
 	circumradius { :self |
-		(self.width.squared + self.height.squared).sqrt
+		(self.width.square + self.height.square).sqrt
 	}
 
 	containsPoint { :self :aPoint |

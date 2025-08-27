@@ -48,7 +48,7 @@ Test if a number is hexagonal:
 
 * * *
 
-See also: binomial, cubed, pascalTriangle, pentagonalNumber, polygonalNumber, squared, tetrahedralNumber, triangularNumber
+See also: binomial, cube, pascalTriangle, pentagonalNumber, polygonalNumber, square, tetrahedralNumber, triangularNumber
 
 Guides: Integer Functions, Integer Sequences
 

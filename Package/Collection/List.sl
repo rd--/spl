@@ -140,16 +140,16 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 			2 -> {
 				let [a, b] = self;
 				[
-					[a.squared - b.squared, 2 * a * b],
-					[2 * a * b, b.squared - a.squared]
+					[a.square - b.square, 2 * a * b],
+					[2 * a * b, b.square - a.square]
 				]
 			},
 			3 -> {
 				let [a, b, c] = self;
 				[
-					[1 - (2 * a.squared), -2 * a * b, -2 * a * c],
-					[-2 * a * b, 1 - (2 * b.squared), -2 * b * c],
-					[-2 * a * c, -2 * b * c, 1 - (2 * c.squared)]
+					[1 - (2 * a.square), -2 * a * b, -2 * a * c],
+					[-2 * a * b, 1 - (2 * b.square), -2 * b * c],
+					[-2 * a * c, -2 * b * c, 1 - (2 * c.square)]
 				]
 			}
 		]) {

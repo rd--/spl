@@ -31,7 +31,7 @@ The Pythagorean minor second is narrower:
 
 * * *
 
-See also: mercatorsComma, octaveReduced, pythagoreanComma, pythagoreanLimma, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduce, pythagoreanComma, pythagoreanLimma, septimalComma, syntonicComma
 
 Guides: Xenharmonic Functions
 

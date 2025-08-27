@@ -30,7 +30,7 @@ WeightedData : [Object] { | inputData weights |
 	rootMeanSquare { :self |
 		let x = self.inputData;
 		let w = self.weights;
-		((x.squared * w) / w.sum).sum.sqrt
+		((x.square * w) / w.sum).sum.sqrt
 	}
 
 	sampleVariance { :self |
@@ -48,10 +48,10 @@ WeightedData : [Object] { | inputData weights |
 		let x = self.inputData;
 		let w = self.weights;
 		let wSum = w.sum;
-		let v = w.squared.sum;
+		let v = w.square.sum;
 		let n = x.size;
 		let mu = self.mean;
-		(wSum / (wSum.squared - v)) * (w * ((x - mu) ^ 2)).sum
+		(wSum / (wSum.square - v)) * (w * ((x - mu) ^ 2)).sum
 	}
 
 

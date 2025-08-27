@@ -6,7 +6,7 @@
 			[
 				((z - b) * x) - (d * y),
 				(d * x) + ((z - b) * y),
-				c + (a * z) - (z.cubed / 3) - ((x.squared + y.squared) * (1 + (e * z))) + (f * z * x.cubed)
+				c + (a * z) - (z.cube / 3) - ((x.square + y.square) * (1 + (e * z))) + (f * z * x.cube)
 			]
 		}
 	}
@@ -17,7 +17,7 @@
 			[
 				y,
 				z,
-				0 - (a * x) - (b * y) - z + (c * x.cubed)
+				0 - (a * x) - (b * y) - z + (c * x.cube)
 			]
 		}
 	}
@@ -28,7 +28,7 @@
 			[
 				y,
 				z,
-				(a * x) + (b * y) + (c * z) + (d * x.cubed)
+				(a * x) + (b * y) + (c * z) + (d * x.cube)
 			]
 		}
 	}

@@ -213,7 +213,7 @@
 				1
 			} {
 				x.betweenAnd(a.-, a).if {
-					(a * x.pi.sin * (x.pi / a).sin) / (1.pi.squared * x.squared)
+					(a * x.pi.sin * (x.pi / a).sin) / (1.pi.square * x.square)
 				} {
 					0
 				}

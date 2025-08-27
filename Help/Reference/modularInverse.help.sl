@@ -240,7 +240,7 @@ Plot the sequence with a fixed modulus:
 ~~~spl png=B
 let p = 200.prime;
 { :a :b |
-	modularInverse(a.squared + b.squared, p)
+	modularInverse(a.square + b.square, p)
 }.table(1:100, 1:100)
 .rescale
 .Graymap

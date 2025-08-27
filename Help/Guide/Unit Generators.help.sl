@@ -165,7 +165,7 @@
 - `Clip2`: bilateral clipping
 - `Cos`: cosine
 - `Cosh`: hyperbolic cosine
-- `Cubed`: cubed value
+- `Cube`: cube value
 - `Exp`: exponential
 - `Divide`: division
 - `Floor`: next lower integer
@@ -192,7 +192,7 @@
 - `Sin`: sine
 - `Sinh`: hyperbolic sine
 - `Sqrt`: square root
-- `Squared`: squared value
+- `Square`: square value
 - `Tan`: tangent
 - `Tanh`: hyperbolic tangent
 - `Wrap`: wrap a signal outside given thresholds

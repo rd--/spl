@@ -340,6 +340,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		ReducedFraction(self.numerator.negate, self.denominator)
 	}
 
+	normal { :self |
+		self.copy.normalize
+	}
+
 	normalize { :self |
 		(self.denominator = 0).if {
 			self.error('Fraction>>normalize: zeroDenominatorError')
@@ -351,10 +355,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			self.denominator := y // d;
 			self
 		}
-	}
-
-	normalized { :self |
-		self.copy.normalize
 	}
 
 	one { :self |

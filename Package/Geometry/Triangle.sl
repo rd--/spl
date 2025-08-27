@@ -91,7 +91,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	brocardMidpoint { :self |
 		self.triangleCentreL { :a :b :c |
-			a * (b.squared + c.squared)
+			a * (b.square + c.square)
 		}
 	}
 
@@ -152,7 +152,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let l = self.sideLengths;
 		Circle(
 			self.symmedianPoint,
-			l.product / l.squared.sum
+			l.product / l.square.sum
 		)
 	}
 
@@ -220,7 +220,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	excirclesRadicalCircle { :self |
 		let [a, b, c] = self.sideLengths;
-		let i = (a.squared * b) + (a * b.squared) + (a.squared * c) + (a * b * c) + (b.squared * c) + (a * c.squared) + (b * c.squared);
+		let i = (a.square * b) + (a * b.square) + (a.square * c) + (a * b * c) + (b.square * c) + (a * c.square) + (b * c.square);
 		let r = (i / (a + b + a)).sqrt / 2;
 		Circle(
 			self.spiekerCenter,
@@ -290,9 +290,9 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		let [a, b, c] = self.sideLengths;
 		self.fromTrilinearVertexMatrix(
 			[
-				[a * b * c, c.cubed, b.cubed],
-				[c.cubed, a * b * c, a.cubed],
-				[b.cubed, a.cubed, a * b * c]
+				[a * b * c, c.cube, b.cube],
+				[c.cube, a * b * c, a.cube],
+				[b.cube, a.cube, a * b * c]
 			]
 		)
 	}
@@ -515,7 +515,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.isObtuse.if {
 			Circle(
 				self.orthocenter,
-				((4 * self.circumradius.squared) - (0.5 * self.sideLengths.squared.sum)).sqrt
+				((4 * self.circumradius.square) - (0.5 * self.sideLengths.square.sum)).sqrt
 			)
 		} {
 			self.error('polarCircle: not obtuse')
@@ -558,7 +558,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 
 	schouteCenter { :self |
 		self.triangleCentreL { :a :b :c |
-			a * ((2 * a.squared) - b.squared - c.squared)
+			a * ((2 * a.square) - b.square - c.square)
 		}
 	}
 
@@ -880,7 +880,7 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 				176 -> { t.equalDetourPoint },
 				182 -> {
 					t.triangleCentreL { :a :b :c |
-						((a.squared * (b.squared + c.squared)) + (2 * b.squared * c.squared) - (a ^ 4)) / (b * c)
+						((a.square * (b.square + c.square)) + (2 * b.square * c.square) - (a ^ 4)) / (b * c)
 					}
 				},
 				187 -> { t.schouteCenter }

@@ -276,7 +276,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	fibonacci { :n :x |
-		let a = (4 + x.squared).sqrt;
+		let a = (4 + x.square).sqrt;
 		let b = x + a;
 		let c = 2 ^ (0 - n);
 		let d = 2 ^ n;

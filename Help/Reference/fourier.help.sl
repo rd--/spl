@@ -35,7 +35,7 @@ The discrete Fourier transform:
 The power spectrum:
 
 ```
->>> [1 1 2 2 1 1 0 0].fourier.abs.squared
+>>> [1 1 2 2 1 1 0 0].fourier.abs.square
 [
 	8.00000,
 	1.70711,
@@ -56,7 +56,7 @@ Sfc32(235617)
 .fourier
 .allButFirst
 .abs
-.squared
+.square
 .linePlot
 ~~~
 
@@ -69,7 +69,7 @@ Sfc32(235617)
 .randomReal([0 1], 100)
 .fourier
 .abs
-.squared
+.square
 .log(10)
 .linePlot
 ~~~

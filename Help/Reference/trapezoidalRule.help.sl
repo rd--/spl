@@ -7,20 +7,20 @@ also called the trapezium rule,
 a technique for numerical integration of _f_ over the interval _(a,b)_.
 The step size _h_ is given by _(b-a)/n_.
 
-Integrate the `squared` function over _(1,5)_:
+Integrate the `square` function over _(1,5)_:
 
 ```
->>> squared:/1.trapezoidalRule([1 5], 100)
+>>> square:/1.trapezoidalRule([1 5], 100)
 41.3344
 
->>> squared:/1.adaptiveSimpsonsMethod([1 5])
+>>> square:/1.adaptiveSimpsonsMethod([1 5])
 41 + 1/3
 ```
 
-Integrate the `cubed` function over _(0,1)_:
+Integrate the `cube` function over _(0,1)_:
 
 ```
->>> cubed:/1.trapezoidalRule([0 1], 100)
+>>> cube:/1.trapezoidalRule([0 1], 100)
 0.25
 ```
 

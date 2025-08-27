@@ -1,8 +1,8 @@
 # vedicSquare
 
-- _vedicSquare(anInteger)_
+- _vedicSquare(n)_
 
-A table formed by taking the `positiveResidue` of the multiplication table of _anInteger_.
+A table formed by taking the `positiveResidue` of the multiplication table of the integer _n_.
 
 ```
 >>> 9.vedicSquare

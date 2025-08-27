@@ -48,18 +48,18 @@ Converting:
 
 Fraction Functions:
 
-- `continuedFraction`: continued fraction
-- `convergents`: convergents
-- `fromContinuedFraction`: to fraction
-- `limitDenominator`: limit denominator
-- `octaveReduced`: octave reduced
-- `semiconvergents`: semiconvergents
-- `rationalize`: approximate fraction
+- `continuedFraction`
+- `convergents`
+- `fromContinuedFraction`
+- `limitDenominator`
+- `octaveReduce`
+- `semiconvergents`
+- `rationalize`
 
 Instance Creation:
 
-- `equalTemperamentTuning`: edo
-- `namedTuning`: archive lookup
+- `equalTemperamentTuning`
+- `namedTuning`
 
 Interval Functions:
 

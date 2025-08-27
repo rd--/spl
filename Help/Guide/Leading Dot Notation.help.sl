@@ -17,14 +17,14 @@ not the end (trailing dot).
 Indentation follows the usual rules:
 
 ```
->>> -9.abs.max(9.cubed).sqrt
+>>> -9.abs.max(9.cube).sqrt
 27
 
 >>> -9
 >>> .abs
 >>> .max(
 >>> 	9
->>> 	.cubed
+>>> 	.cube
 >>> )
 >>> .sqrt
 27

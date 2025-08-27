@@ -82,7 +82,7 @@ UniformDistribution : [Object, ProbabilityDistribution] { | a b |
 	}
 
 	variance { :self |
-		(self.b - self.a).squared / 12
+		(self.b - self.a).square / 12
 	}
 
 }

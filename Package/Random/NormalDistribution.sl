@@ -85,7 +85,7 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 		let sigma = self.sigma;
 		let d = sigma * 2.pi.sqrt;
 		{ :x |
-			(-0.5 * ((x - mu) / sigma).squared).exp / d
+			(-0.5 * ((x - mu) / sigma).square).exp / d
 		}
 	}
 
@@ -110,7 +110,7 @@ NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
 	}
 
 	variance { :self |
-		self.sigma.squared
+		self.sigma.square
 	}
 
 }

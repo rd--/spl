@@ -91,7 +91,7 @@ PolarCoordinates : [Object] { | coordinates |
 	toPolarCoordinates { :self |
 		self.isVector.if {
 			let [x, y] = self;
-			[(x.squared + y.squared).sqrt, atan2(y, x)]
+			[(x.square + y.square).sqrt, atan2(y, x)]
 		} {
 			self.collect(toPolarCoordinates:/1)
 		}

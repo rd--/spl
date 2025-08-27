@@ -40,7 +40,7 @@ At an array, answers a matrix:
 
 * * *
 
-See also: +, *, injectInto, squared, sum
+See also: +, *, injectInto, square, sum
 
 References:
 _Mathworks_

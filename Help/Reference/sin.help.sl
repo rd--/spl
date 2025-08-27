@@ -151,7 +151,7 @@ Intensity of the Fraunhofer diffraction pattern of a circular aperture versus di
 (0.01 -- 1/2.pi).functionPlot { :theta |
 	let a = 2.besselJ(10 * theta.sin);
 	let b = 10 * theta.sin;
-	2 * (a / b).squared
+	2 * (a / b).square
 }
 ~~~
 

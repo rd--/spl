@@ -359,7 +359,7 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
-	squared { :self |
+	square { :self |
 		self * self
 	}
 

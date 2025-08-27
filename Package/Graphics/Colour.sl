@@ -513,15 +513,15 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		let [l, a, b] = self;
 		let [rx, ry, rz] = reference;
 		let delta = 6 / 29;
-		let epsilon = delta.cubed;
+		let epsilon = delta.cube;
 		let kappa = 8 / epsilon;
 		let fy = (l + 16) / 116;
 		let fx = (a / 500) + fy;
 		let fz = fy - (b / 200);
-		let fx3 = fx.cubed;
-		let fz3 = fz.cubed;
+		let fx3 = fx.cube;
+		let fz3 = fz.cube;
 		let x = (fx3 > epsilon).if { fx3 } { (116 * fx - 16) / kappa };
-		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116).cubed } { l / kappa };
+		let y = (l > (kappa * epsilon)).if { ((l + 16) / 116).cube } { l / kappa };
 		let z = (fz3 > epsilon).if { fz3 } { (116 * fz - 16) / kappa };
 		[
 			x * rx,
@@ -581,7 +581,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 			[-0.0763812845, -0.4214819784,  1.5861632204]
 		];
 		let lms = labToLms.dot(self);
-		lmsToXyz.dot(lms.cubed)
+		lmsToXyz.dot(lms.cube)
 	}
 
 	quilezGradient { :self |
@@ -651,7 +651,7 @@ RgbColour : [Object, Colour] { | rgb alpha |
 		let [x, y, z] = self;
 		let [rx, ry, rz] = reference;
 		let delta = 6 / 29;
-		let epsilon = delta.cubed;
+		let epsilon = delta.cube;
 		let kappa = 8 / epsilon;
 		let f = { :tu |
 			let t = tu * 100;

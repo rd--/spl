@@ -81,7 +81,7 @@
 		(self / 440).log2 + 4.75
 	}
 
-	Cubed { :self |
+	Cube { :self |
 		self * self * self
 	}
 
@@ -274,7 +274,7 @@
 		1 / self
 	}
 
-	Squared { :self |
+	Square { :self |
 		self * self
 	}
 

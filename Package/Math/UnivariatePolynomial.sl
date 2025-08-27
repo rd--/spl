@@ -75,14 +75,14 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			1 -> { 1 },
 			2 -> {
 				let [c, b, a] = self;
-				b.squared - (4 * a * c)
+				b.square - (4 * a * c)
 			},
 			3 -> {
 				let [d, c, b, a] = self;
-				(b.squared * c.squared)
-				- (4 * a * c.cubed)
-				- (4 * b.cubed * d)
-				- (27 * a.squared * d.squared)
+				(b.square * c.square)
+				- (4 * a * c.cube)
+				- (4 * b.cube * d)
+				- (27 * a.square * d.square)
 				+ (18 * a * b * c * d)
 			},
 			4 -> {
@@ -106,22 +106,22 @@ UnivariatePolynomial : [Object] { | coefficientList |
 				*/
 				let [e, d, c, b, a] = self;
 				[
-					256 * a.cubed * e.cubed,
-					-192 * a.squared * b * d * e.squared,
-					-128 * a.squared * c.squared * e.squared,
-					144 * a.squared * c * d.squared * e,
-					-27 * a.squared * (d ^ 4),
-					144 * a * b.squared * c * e.squared,
-					-6 * a * b.squared * d.squared * e,
-					-80 * a * b * c.squared * d * e,
-					18 * a * b * c * d.cubed,
+					256 * a.cube * e.cube,
+					-192 * a.square * b * d * e.square,
+					-128 * a.square * c.square * e.square,
+					144 * a.square * c * d.square * e,
+					-27 * a.square * (d ^ 4),
+					144 * a * b.square * c * e.square,
+					-6 * a * b.square * d.square * e,
+					-80 * a * b * c.square * d * e,
+					18 * a * b * c * d.cube,
 					16 * a * (c ^ 4) * e,
-					-4 * a * c.cubed * d.squared,
-					-27 * (b ^ 4) * e.squared,
-					18 * b.cubed * c * d * e,
-					-4 * b.cubed * d.cubed,
-					-4 * b.squared * c.cubed * e,
-					1 * b.squared * c.squared * d.squared
+					-4 * a * c.cube * d.square,
+					-27 * (b ^ 4) * e.square,
+					18 * b.cube * c * d * e,
+					-4 * b.cube * d.cube,
+					-4 * b.square * c.cube * e,
+					1 * b.square * c.square * d.square
 				].sum
 			}
 		]) {

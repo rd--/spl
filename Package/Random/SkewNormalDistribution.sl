@@ -33,7 +33,7 @@ SkewNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma alpha |
 		let sigma = self.sigma;
 		let alpha = self.alpha;
 		{ :x |
-			(((x - mu).squared / (2 * sigma.squared)).-.exp * ((alpha * (x - mu)) / (2.sqrt * sigma)).-.erfc) / (2.pi.sqrt * sigma)
+			(((x - mu).square / (2 * sigma.square)).-.exp * ((alpha * (x - mu)) / (2.sqrt * sigma)).-.erfc) / (2.pi.sqrt * sigma)
 		}
 	}
 

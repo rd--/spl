@@ -38,7 +38,7 @@ RatioTuning : [Object, Cache, Tuning] { | name description ratios octave cache |
 		let n = self.ratios;
 		n.withIndexCollect { :p :i |
 			n.rotateLeft(i - 1).collect { :q |
-				(q / p).octaveReduced(self.octave)
+				(q / p).octaveReduce(self.octave)
 			}
 		}
 	}

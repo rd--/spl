@@ -18,7 +18,7 @@ Plot functional form:
 let a = 1;
 let b = 1;
 (-5 -- 5).functionPlot { :x |
-	let d = x.squared + a.squared;
+	let d = x.square + a.square;
 	let y = (a * b * x) / d;
 	[x, y]
 }

@@ -23,7 +23,7 @@ Over a smaller domain with smaller time step:
 
 ~~~spl svg=B
 { :x :y |
-	y * x.sin.squared
+	y * x.sin.square
 }.rungeKuttaMethod(1, 0, 5, 0.05)
 .second
 .linePlot

@@ -177,7 +177,7 @@ Square the values in a time series:
 
 ```
 >>> TimeSeries([3 2 4 7], [1 .. 4])
->>> .squared
+>>> .square
 TimeSeries([9 4 16 49], [1 .. 4])
 ```
 

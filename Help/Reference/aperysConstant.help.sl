@@ -4,7 +4,7 @@
 
 Apéry’s constant,
 ζ(3),
-the infinite sum of the reciprocals of the positive integers, cubed.
+the infinite sum of the reciprocals of the positive integers, cube.
 
 ```
 >>> 1.aperysConstant

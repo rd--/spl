@@ -30,7 +30,7 @@ The Pythagorean chromatic semitone is wider:
 
 * * *
 
-See also: mercatorsComma, octaveReduced, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
+See also: mercatorsComma, octaveReduce, pythagoreanChroma, pythagoreanComma, septimalComma, syntonicComma
 
 Guides: Xenharmonic Functions
 

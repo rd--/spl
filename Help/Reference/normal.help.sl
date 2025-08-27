@@ -23,6 +23,21 @@ At `NumericArray` answers a normal dense list:
 ]
 ```
 
+At `Fraction` answer the normalized form:
+
+```
+>>> let n = ReducedFraction(2, 4);
+>>> (n.asList, n.normal.asList)
+([2 4], [1 2])
+```
+
+Fractions are ordinarily normalized by construction.
+
+```
+>>> (Fraction(2, 4).asList, 2/4.asList)
+([1 2], [1 2])
+```
+
 At `List` is the identity function:
 
 ```

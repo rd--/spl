@@ -254,7 +254,7 @@
 ## Exponential Functions
 
 - `log`, `log2`, `log10`
-- `^`, `exp`, `squared`
+- `^`, `exp`, `square`
 - `cubeRoot`, `sqrt`, `nthRoot`
 
 ## File Path

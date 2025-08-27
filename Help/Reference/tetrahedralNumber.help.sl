@@ -15,7 +15,7 @@ Answer the _n_-th tetrahedral number.
 
 * * *
 
-See also: binomial, cubed, pascalTriangle, squared, triangularNumber
+See also: binomial, cube, pascalTriangle, square, triangularNumber
 
 Guides: Integer Sequences
 

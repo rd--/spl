@@ -64,7 +64,7 @@ Plot first few terms:
 
 * * *
 
-See also: divisors, isSumOfTwoSquares, squared
+See also: divisors, isSumOfTwoSquares, square
 
 References:
 _Mathematica_

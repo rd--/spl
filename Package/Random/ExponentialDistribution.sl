@@ -111,7 +111,7 @@ ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
 	}
 
 	variance { :self |
-		1 / self.lambda.squared
+		1 / self.lambda.square
 	}
 
 }

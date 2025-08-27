@@ -30,7 +30,7 @@
 	}
 
 	contraharmonicMean { :self |
-		self.squared.sum / self.sum
+		self.square.sum / self.sum
 	}
 
 	geometricMean { :self |
@@ -93,7 +93,7 @@
 	}
 
 	meanSquare { :self |
-		self.squared.mean
+		self.square.mean
 	}
 
 	moment { :self :r |
@@ -135,11 +135,11 @@
 	}
 
 	rootMeanSquare { :self |
-		self.squared.mean.sqrt
+		self.square.mean.sqrt
 	}
 
 	sampleStandardDeviation { :self |
-		(self - self.mean).squared.mean.sqrt
+		(self - self.mean).square.mean.sqrt
 	}
 
 	sampleVariance { :self |
@@ -245,7 +245,7 @@
 				(x[i] - mu) * (x[i + h] - mu)
 			}.sum;
 			let b = (1 .. n).collect { :i |
-				(x[i] - mu).squared
+				(x[i] - mu).square
 			}.sum;
 			a / b
 		}

@@ -18,7 +18,7 @@ Plot a function:
 
 ~~~spl png=B
 { :x :y |
-	(x + y.squared).sin
+	(x + y.square).sin
 }.densityPlot(-3 -- 3, -1 -- 1)
 ~~~
 

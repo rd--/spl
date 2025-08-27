@@ -10,9 +10,9 @@ Answer the order _r_ central moment of _aCollection_.
 
 >>> [1.pi 1.e 2].centralMoment(2)
 2 / 9 * (
-	4 - 2.e + 1.e.squared
+	4 - 2.e + 1.e.square
 	-
-	2.pi - (1.e * 1.pi) + 1.pi.squared
+	2.pi - (1.e * 1.pi) + 1.pi.square
 )
 
 >>> 1:4.centralMoment(2)
