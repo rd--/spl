@@ -255,6 +255,100 @@ Line : [Object, Geometry] { | vertexCoordinates |
 }
 
 
++SmallFloat{
+
+	cohenSutherlandAlgorithm { :x0 :y0 :x1 :y1 :xMin :yMin :xMax :yMax |
+		let inside = 2r0000;
+		let left = 2r0001;
+		let right = 2r0010;
+		let bottom = 2r0100;
+		let top = 2r1000;
+		let computeOutCode = { :x :y |
+			let code = inside;
+			(x < xMin).if {
+				code := code.bitOr(left)
+			} {
+				(x > xMax).ifTrue {
+					code := code.bitOr(right)
+				}
+			};
+			(y < yMin).if {
+				code := code.bitOr(bottom)
+			} {
+				(y > yMax).ifTrue {
+					code := code.bitOr(top)
+				}
+			};
+			code
+		};
+		let outCode0 = computeOutCode(x0, y0);
+		let outCode1 = computeOutCode(x1, y1);
+		let accept = false;
+		let completed = false;
+		{ completed }.whileFalse {
+			[outCode0, outCode1, accept, completed].postLine;
+			outCode0.bitOr(outCode1).isNonZero.not.if {
+				accept := true;
+				completed := true
+			} {
+				outCode0.bitAnd(outCode1).isNonZero.if {
+					completed := true
+				} {
+					let x = nil;
+					let y = nil;
+					let outCodeOut = (outCode1 > outCode0).if { outCode1 } { outCode0 };
+					outCodeOut.bitAnd(top).isNonZero.if {
+						x := x0 + ((x1 - x0) * (yMax - y0) / (y1 - y0));
+						y := yMax
+					} {
+						outCodeOut.bitAnd(bottom).isNonZero.if {
+							x := x0 + ((x1 - x0) * (yMin - y0) / (y1 - y0));
+							y := yMin
+						} {
+							outCodeOut.bitAnd(right).isNonZero.if {
+								y := y0 + ((y1 - y0) * (xMax - x0) / (x1 - x0));
+								x := xMax
+							} {
+								outCodeOut.bitAnd(left).isNonZero.ifTrue {
+									y := y0 + ((y1 - y0) * (xMin - x0) / (x1 - x0));
+									x := xMin
+								}
+							}
+						}
+					};
+					(outCodeOut = outCode0).if {
+						x0 := x;
+						y0 := y;
+						outCode0 := computeOutCode(x0, y0)
+					} {
+						x1 := x;
+						y1 := y;
+						outCode1 := computeOutCode(x1, y1)
+					}
+				}
+			}
+		};
+		[accept, x0, y0, x1, y1]
+	}
+
+}
+
++Line{
+
+	cohenSutherlandAlgorithm { :self :aRectangle |
+		let [a, b] = self.vertexCoordinates;
+		let c = aRectangle.lowerLeft;
+		let d = aRectangle.upperRight;
+		let [accept, x1, y1, x2, y2] = cohenSutherlandAlgorithm(a[1], a[2], b[1], b[2], c[1], c[2], d[1], d[2]);
+		accept.if {
+			Line([x1 y1; x2 y2])
+		} {
+			nil
+		}
+	}
+
+}
+
 +System {
 
 	schareinKnotCatalogue { :self |

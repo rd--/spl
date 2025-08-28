@@ -177,6 +177,7 @@ Intersection Functions:
 Line Functions:
 
 - `bresenhamLineAlgorithm`
+- `cohenSutherlandAlgorithm`
 - `midpoint`
 - `perpendicularBisector`
 

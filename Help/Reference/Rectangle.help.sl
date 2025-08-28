@@ -4,7 +4,7 @@
 
 A `Type` that represents an axis-aligned rectangle,
 from the lower left coordinate _(x₁,y₁,…)_
-to  the upper right coordinate _(x₂,y₂,…)_.
+to the upper right coordinate _(x₂,y₂,…)_.
 
 ```
 >>> let r = [0 0; 1 1].asRectangle;

@@ -25,7 +25,7 @@ let b = a.translate([400 0]);
 
 * * *
 
-See also: Polygon
+See also: cohenSutherlandAlgorithm, Polygon
 
 Guides: Geometry Functions
 
