@@ -12,6 +12,9 @@ At `SmallFloat`:
 
 >>> -2.halve
 -1
+
+>>> 6.4.halve
+3.2
 ```
 
 At `Complex`:
@@ -27,6 +30,13 @@ At `Complex`:
 3.2J3
 ```
 
+At `Fraction`:
+
+```
+>>> 4/3.halve
+2/3
+```
+
 Threads over lists:
 
 ```
@@ -34,10 +44,14 @@ Threads over lists:
 [1 2 3 4]
 ```
 
+Where supported `halve` is displayed as ½.
+
 * * *
 
-See also: /, Number
+See also: /, double, Number
 
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/minusco)
+
+Unicode: U+00BD ½ Vulgar Fraction One Half

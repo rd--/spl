@@ -265,6 +265,10 @@
 		Range(self, anInteger, -1).do(aBlock:/1)
 	}
 
+	double { :self |
+		self * 2
+	}
+
 	e { :self :aNumber |
 		self * (10 ^ aNumber)
 	}

@@ -120,6 +120,10 @@
 		self.collect(divisors:/1)
 	}
 
+	double { :self |
+		self.collect(double:/1)
+	}
+
 	doubleFactorial { :self |
 		self.collect(doubleFactorial:/1)
 	}

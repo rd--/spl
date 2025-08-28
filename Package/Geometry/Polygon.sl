@@ -141,6 +141,12 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		self.storeStringAsInitializeSlots
 	}
 
+	sutherlandHodgmanAlgorithm { :self :operand |
+		self.vertexCoordinates.sutherlandHodgmanAlgorithm(
+			operand.vertexCoordinates
+		).Polygon
+	}
+
 	translate { :self :operand |
 		self.vertexCoordinates.collect { :each |
 			each + operand
@@ -349,6 +355,51 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 				self.error('randomStarConvexPolygon: d={2,3}')
 			}
 		}
+	}
+
+}
+
++List{
+
+	sutherlandHodgmanAlgorithm { :subjectPolygon :clipPolygon |
+		let outputList = subjectPolygon;
+		let cp1 = clipPolygon.last;
+		let cp2 = nil;
+		let s = nil;
+		let e = nil;
+		let inside = { :p |
+			((cp2[1] - cp1[1]) * (p[2] - cp1[2])) > ((cp2[2] - cp1[2]) * (p[1] - cp1[1]))
+		};
+		let computeIntersection = {
+			let dc = [cp1[1] - cp2[1], cp1[2] - cp2[2]];
+			let dp = [s[1] - e[1], s[2] - e[2]];
+			let n1 = (cp1[1] * cp2[2]) - (cp1[2] * cp2[1]);
+			let n2 = (s[1] * e[2]) - (s[2] * e[1]);
+			let n3 = 1 / ((dc[1] * dp[2]) - (dc[2] * dp[1]));
+			[((n1 * dp[1]) - (n2 * dc[1])) * n3, ((n1 * dp[2]) - (n2 * dc[2])) * n3]
+		};
+		clipPolygon.do { :clipVertex |
+			let inputList = outputList;
+			cp2 := clipVertex;
+			outputList := [];
+			s := inputList.last;
+			inputList.do { :subjectVertex |
+				e := subjectVertex;
+				e.inside.if {
+					s.inside.ifFalse {
+						outputList.add(computeIntersection())
+					};
+					outputList.add(e)
+				} {
+					inside(s).ifTrue {
+						outputList.add(computeIntersection())
+					}
+				};
+				s := e
+			};
+			cp1 := cp2
+		};
+		outputList
 	}
 
 }

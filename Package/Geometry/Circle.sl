@@ -354,3 +354,11 @@ UnitCircle : [Object] {
 	}
 
 }
+
++Complex {
+
+	circleInversion { :self :circle |
+		self.asList.circleInversion(circle).asComplex
+	}
+
+}

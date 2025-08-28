@@ -1,8 +1,26 @@
 # circleInversion
 
-- _circleInversion(x, c)_
+- _circleInversion(z, c)_
 
-Answer the inversion of _x_ given the reference circle _c_.
+Answer the inversion of _z_ given the reference circle _c_.
+
+At `Complex`,
+the inversion of _z_ at the circle _(z₀,r)_ is _r²÷(z-z₀)*+z₀_:
+
+```
+>>> let c = Circle([0 0], 1);
+>>> let z = 2J2;
+>>> z.circleInversion(c)
+1J1 / 4
+
+>>> let c = Circle([2 3], 4);
+>>> let z = 5J6;
+>>> z.circleInversion(c)
+14J17 / 3
+
+>>> 4 ^ 2 / (5J6 - 2J3).conjugate + 2J3
+14J17 / 3
+```
 
 A `Point` on the circumference of the inversion circle is its own inverse point:
 

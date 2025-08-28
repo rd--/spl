@@ -466,8 +466,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("~>" . ?⇝) ; U+21DD ⇝ Rightwards Squiggle Arrow
      ("~~" . ?≢) ; U+2262 ≢ Not Identical To
      (":;" . ?↲) ; U+21B2 ↲ Downwards Arrow With Tip Leftwards
-     ("Sha" . ?Ш); U+0428 Ш Cyrillic Capital Letter Sha
-     ("sha" . ?ш); U+0448 ш Cyrillic Small Letter Sha
+     ("Sha" . ?Ш) ; U+0428 Ш Cyrillic Capital Letter Sha
+     ("sha" . ?ш) ; U+0448 ш Cyrillic Small Letter Sha
+     ("halve" . ?½) ; U+00BD ½ Vulgar Fraction One Half
 
      ;; ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡

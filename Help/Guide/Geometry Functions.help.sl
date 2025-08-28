@@ -192,6 +192,7 @@ Polygon Functions:
 - `crossingNumber`
 - `regularPolygon`
 - `starPolygon`
+- `sutherlandHodgmanAlgorithm`
 - `windingNumber`
 
 Predicate Functions:

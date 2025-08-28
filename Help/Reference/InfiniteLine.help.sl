@@ -77,7 +77,9 @@ InfiniteLine([0 0], [2/3 1])
 
 * * *
 
-See also: HalfLine, Line
+See also: HalfLine, implicitEquation, Line
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

@@ -10,9 +10,9 @@ GeneralisedCircle : [Object] { | c alpha d |
 
 	asCircle { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
-		let [r, i] = alpha.asList;
+		let [a, b] = alpha.asList;
 		Circle(
-			[r.negate, i] / c,
+			[a.negate, b] / c,
 			(self.discriminant / c.square).sqrt
 		)
 	}
