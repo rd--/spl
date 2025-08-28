@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="141.4" height="100.0" viewBox="-225.711 145.000 151.421 110.000">
+<g fill="none" stroke="black" stroke-width="0.0100%" transform="translate(0, 400.0000) scale(50.0000, -50.0000)">
+<ellipse cx="-3.000" cy="4.000" rx="1.414" ry="1.000" />
+<circle cx="-3.000" cy="4.000" r="0.010" />
+<circle cx="-2.000" cy="4.000" r="0.010" />
+<circle cx="-4.000" cy="4.000" r="0.010" />
+<circle cx="-1.586" cy="4.000" r="0.010" />
+<circle cx="-3.000" cy="5.000" r="0.010" />
+<polygon points="-3.000,4.000 -2.000,4.000 -3.000,5.000" />
+<circle cx="-3.000" cy="4.000" r="1.000" />
+</g>
+</svg>

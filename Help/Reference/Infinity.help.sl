@@ -33,7 +33,11 @@ true
 false
 ```
 
-_∞×0_ is not a number:
+```
+>>> (0 * Infinity).isNaN
+true
+```
+_∞×0_, `zero` times `Infinity`, is not a number:
 
 ```
 >>> (Infinity * 0).isNaN

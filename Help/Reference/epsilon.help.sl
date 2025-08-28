@@ -7,6 +7,9 @@ Answer _n_ times epsilon.
 
 ```
 >>> 1.epsilon
+1E-15
+
+>>> 1.epsilon
 0.0000000000000010
 
 >>> 2.epsilon

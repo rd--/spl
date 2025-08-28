@@ -124,8 +124,12 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		let a = y2 - y1;
 		let b = x1 - x2;
 		let c = (y1 * (x2 - x1)) - (x1 * (y2 - y1));
-		let d = a.gcd(b);
-		[a / d, b / d, c]
+		let e = [a, b, c];
+		e.allSatisfy(isInteger:/1).if {
+			e / e.gcd
+		} {
+			e
+		}
 	}
 
 	lineEquationPolynomial { :self |
@@ -260,6 +264,14 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 			(u1 * v2) - (u2 * v1),
 			(u1 * v1) + (u2 * v2)
 		)
+	}
+
+	slopeInterceptForm { :p :q |
+		let [x1, y1] = p;
+		let [x2, y2] = q;
+		let m = (y2 - y1) / (x2 - x1);
+		let c = y1 - (m * x1);
+		[m, c]
 	}
 
 	vectorAngle { :u :v |

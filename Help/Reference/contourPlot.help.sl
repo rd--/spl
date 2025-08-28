@@ -153,7 +153,7 @@ Plot the equation for a generalised circle:
 ~~~spl svg=L
 let [a, b, c, d] = [1, 2, 0, 0];
 let i = (-2 -- 2).subdivide(35);
-let generalisedCircle = { :x :y |
+{ :x :y |
 	[
 		a * x * x,
 		a * y * y,
@@ -161,11 +161,26 @@ let generalisedCircle = { :x :y |
 		c * y,
 		d
 	].sum
-};
-generalisedCircle:/2.contourPlot(i, i, [0])
+}.contourPlot(i, i, [0])
 ~~~
 
 ![](sw/spl/Help/Image/contourPlot-L.svg)
+
+Plot a _y,x_ Cassini oval:
+
+~~~spl svg=M
+let [a, b] = [0.9 1];
+let i = (-2 -- 2).subdivide(25);
+{ :y :x |
+	(((x ^ 2) + (y ^ 2) + (a ^ 2)) ^ 2)
+	-
+	(4 * (a ^ 2) * (x ^ 2))
+	-
+	(b ^ 4)
+}.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/contourPlot-M.svg)
 
 * * *
 

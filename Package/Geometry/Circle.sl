@@ -63,6 +63,13 @@ Circle : [Object, Geometry] { | center radius |
 		2
 	}
 
+	implicitEquation { :self |
+		let [a, b] = self.center;
+		let rSquared = self.radius.square;
+		{ :x :y |
+			(x - a).square + (y - b).square - rSquared
+		}
+	}
 
 	inversiveDistance { :c1 :c2 |
 		let a = c1.radius;

@@ -1,10 +1,13 @@
 # lineEquation
 
-- _lineEquation(p, q)_
+- _lineEquation(l)_
+- _lineEquation([x₁ y₁], [x₂ y₂])_
 
-Answer the terms of the linear equation for a line given by two points.
+Answer the terms of the standard form linear equation for a line,
+_ax+by+c=0_.
 
-The line given by _(1,1)_ and _(3,5)_ has equation _4x - 2y - 2 = 0_,
+At `List`,
+the line given by the two points _(1,1)_ and _(3,5)_ has implicit equation _4x - 2y - 2 = 0_,
 and slope-intercept form _y = 2x - 1_:
 
 ```
@@ -20,23 +23,41 @@ and slope-intercept form _y = 2x - 1_:
 (0, 0, 2, -1)
 ```
 
-The line given by _(-5,7)_ and _(1,3)_ has equation _-4x - 6y - 22 = 0_,
+At `InfiniteLine`,
+the line given by _(-5,7)_ and _(1,3)_ has implicit equation _-2x - 3y - 11 = 0_,
 and slope-intercept form _y = -2/3x - 11/3_:
 
 ```
->>> [-5 7].lineEquation([1 3])
-[-4 -6 22]
+>>> InfiniteLine([-5 7; 1 3])
+>>> .lineEquation
+[-2 -3 11]
 
 >>> (
->>> 	20 - 42 + 22,
->>> 	-4 -18 + 22,
->>> 	4 / -6,
->>> 	-22 / -6
+>>> 	10 - 21 + 11,
+>>> 	-2 -9 + 11,
+>>> 	2 / -3,
+>>> 	-11 / -3
 >>> )
 (0, 0, -2/3, 11/3)
 ```
 
-_a_ and _b_ are reduced:
+The _x_ and _y_ axes and parallels:
+
+```
+>>> [0 0].lineEquation([1 0])
+[0 -1 0]
+
+>>> [0 1].lineEquation([1 1])
+[0 -1 1]
+
+>>> [0 0].lineEquation([0 1])
+[1 0 0]
+
+>>> [1 0].lineEquation([1 1])
+[1 0 -1]
+```
+
+If the coefficients are all integers they are given in reduced form:
 
 ```
 >>> [0 0].lineEquation([1 1])
@@ -48,7 +69,7 @@ _a_ and _b_ are reduced:
 
 * * *
 
-See also: HalfLine, InfiniteLine, Line
+See also: HalfLine, InfiniteLine, Line, slopeInterceptForm
 
 References:
 _Mathematica_

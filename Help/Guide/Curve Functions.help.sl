@@ -9,6 +9,7 @@ Algebraic Curve Functions:
 - `butterflyCurve`
 - `cayleysSextic`
 - `catenaryCurve`
+- `circleCurve`
 - `cissoidOfDiocles`
 - `cleliaCurve`
 - `cochleoid`

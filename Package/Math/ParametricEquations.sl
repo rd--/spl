@@ -448,13 +448,23 @@
 
 +List {
 
-	ellipseCurve { :r :theta |
+	circleCurve { :c :r |
+		let [x0, y0] = c;
+		{ :t |
+			let x = x0 + (r * t.cos);
+			let y = y0 + (r * t.sin);
+			[x, y]
+		}
+	}
+
+	ellipseCurve { :c :r :theta |
 		let [a, b] = r;
+		let [x0, y0] = c;
 		let p = theta.cos;
 		let q = theta.sin;
 		{ :t |
-			let x = (a * p * t.cos) - (b * q * t.sin);
-			let y = (a * q * t.cos) + (b * p * t.sin);
+			let x = x0 + (a * p * t.cos) - (b * q * t.sin);
+			let y = y0 + (a * q * t.cos) + (b * p * t.sin);
 			[x, y]
 		}
 	}

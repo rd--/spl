@@ -18,15 +18,8 @@ GeneralisedCircle : [Object] { | c alpha d |
 	}
 
 	asLine { :self |
-		let [c, alpha, d] = self.assertIsLine.coefficientList;
-		let [a, b] = alpha.asList;
-		let [i, j] = [b, a.negate];
-		let [x, y] = (a.abs > b.abs).if {
-			[d.- / (2 * a), 0]
-		} {
-			[0, d / (2 * b)]
-		};
-		InfiniteLine([x, y], [i, j])
+		let [a, b, c] = self.lineEquation;
+		InfiniteLine(a, b, c)
 	}
 
 	asPoint { :self |
@@ -59,11 +52,19 @@ GeneralisedCircle : [Object] { | c alpha d |
 	}
 
 	distanceFromOrigin { :self |
-		let [c, alpha, d] = self.coefficientList;
+		let [c, alpha, d] = self.assertIsLine.coefficientList;
 		(alpha.abs > 1E-12).if {
 			d.abs / (2 * alpha.abs)
 		} {
 			Infinity
+		}
+	}
+
+	implicitEquation { :self |
+		let [c, alpha, d] = self.coefficientList;
+		let [a, b] = alpha.asList;
+		{ :x :y |
+			(c * (x.square + y.square)) + (2 * ((a * x) - (b * y))) + d
 		}
 	}
 
@@ -85,10 +86,8 @@ GeneralisedCircle : [Object] { | c alpha d |
 
 	lineEquation { :self |
 		let [_, alpha, d] = self.assertIsLine.coefficientList;
-		let a = alpha.real;
-		let b = alpha.imaginary.negate;
-		let c = d / 2;
-		[a, b, c]
+		let [a, b] = alpha.asList;
+		[a, -1 * b, d / 2]
 	}
 
 	storeString { :self |

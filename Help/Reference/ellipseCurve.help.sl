@@ -1,16 +1,16 @@
 # ellipseCurve
 
-- _ellipseCurve(r, θ)_
+- _ellipseCurve([x y], [r₁ r₂], θ)_
 
-Answer the parametric equation for the ellipse with radii _r_ and rotation θ.
-The radii _a,b_ specify the semi-major axis and semi-minor axis respectively.
+Answer the parametric equation for the ellipse centered at _x,y_ with radii _r₁,r₂_ and rotation θ.
+The radii specify the semi-major axis and semi-minor axis respectively.
 
 Plot three ellipses, including a circle:
 
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
 	[1 1; 1 1.5; 1.5 1].collect { :r |
-		ellipseCurve(r, 0)
+		ellipseCurve([0 0], r, 0)
 	}
 )
 ~~~
@@ -22,7 +22,7 @@ Plot an ellipse through four rotatations:
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
 	[0, 0.25, 0.5, 0.75].pi.collect { :theta |
-		ellipseCurve([1 1.pi], theta)
+		ellipseCurve([0 0], [1 1.pi], theta)
 	}
 )
 ~~~
@@ -31,7 +31,7 @@ Plot an ellipse through four rotatations:
 
 * * *
 
-See also: Ellipse
+See also: circleCurve, Ellipse
 
 Guides: Curve Functions
 

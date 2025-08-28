@@ -1,8 +1,8 @@
 # Circle
 
-- _Circle(c, r)_
+- _Circle([x y …], r)_
 
-A `Type` that represents a circle of radius _r_ at center coordinates _c_.
+A `Type` that represents a circle of radius _r_ at center coordinates _x,y_.
 
 ```
 >>> let c = Circle([0 0], 1);
@@ -204,9 +204,33 @@ let l = (0.25 -- 2.5).discretize(5);
 
 ![](sw/spl/Help/Image/Circle-K.svg)
 
+Plot using implicit equation:
+
+~~~spl svg=L
+let i = (-1 -- 1).subdivide(35);
+Circle([0 0], 1)
+.implicitEquation
+.contourPlot(i, i, [0])
+~~~
+
+![](sw/spl/Help/Image/Circle-L.svg)
+
+A family of circles:
+
+~~~spl svg=M
+1:20.collect { :t |
+	let x = (2.pi * t / 20).cos;
+	let y = (2.pi * t / 20).sin;
+	let r = 1;
+	Circle([x y], 1)
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Circle-M.svg)
+
 * * *
 
-See also: Arc, arcLength, area, centroid, circleThrough, Disk, GeneralisedCircle, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
+See also: Arc, arcLength, area, centroid, circleThrough, Disk, Ellipse, GeneralisedCircle, LineDrawing, perimeter, Polygon, Rectangle, r, Triangle, unitCircle, x, y
 
 Guides: Geometry Functions
 

@@ -12,9 +12,44 @@ Ellipse : [Object, Geometry] { | center radii |
 		]
 	}
 
+	covertex { :self |
+		self.vertexCoordinates.at(2)
+	}
+
 	eccentricity { :self |
-		let [b, a] = self.radii.sorted;
+		let [a, b] = self.majorMinorAxes;
 		(1 - (b / a).square).sqrt
+	}
+
+	foci { :self |
+		let c = self.center;
+		let e = self.linearEccentricity;
+		let f1 = c + [e, 0];
+		let f2 = c - [e, 0];
+		[f1, f2]
+	}
+
+	implicitEquation { :self |
+		let [x0, y0] = self.center;
+		let [a, b] = self.radii;
+		{ :x :y |
+			((x - x0).square / a.square) + ((y - y0).square / b.square) - 1
+		}
+	}
+
+	linearEccentricity { :self |
+		let [a, b] = self.majorMinorAxes;
+		(a.square - b.square).sqrt
+	}
+
+	majorMinorAxes { :self |
+		let [b, a] = self.radii.sorted;
+		[a, b]
+	}
+
+	semiLatusRectum { :self |
+		let [a, b] = self.radii;
+		b.square / a
 	}
 
 	svgFragment { :self :options |
@@ -29,15 +64,25 @@ Ellipse : [Object, Geometry] { | center radii |
 		])
 	}
 
-	linearEccentricity { :self |
-		let [a, b] = self.radii;
-		(a.square - b.square).sqrt
+	vertex { :self |
+		self.vertexCoordinates.at(1)
 	}
 
-	semiLatusRectum { :self |
-		let [a, b] = self.radii;
-		b.square / a
+	vertices { :self |
+		self.vertexCoordinates.first(2)
 	}
+
+	vertexCoordinates { :self |
+		let [x, y] = self.center;
+		let [a, b] = self.radii;
+		[
+			[x + a, y],
+			[x, y + b],
+			[x - a, y],
+			[x, y - b]
+		]
+	}
+
 }
 
 +List {
