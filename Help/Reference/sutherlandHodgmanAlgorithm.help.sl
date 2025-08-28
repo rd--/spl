@@ -5,7 +5,7 @@
 Implement the Sutherland and Hodgman algorithm for polygon clipping.
 Clips the subject polygon _s_ to the clipping polygon _c_.
 
-Draw _s_ and _c_ and a translated copy of _w_.
+Draw _s_ and _c_ and a translated copy of answer:
 
 ~~~spl svg=A
 let s = [
@@ -16,9 +16,12 @@ let s = [
 let c = [
 	100 100; 300 100; 300 300; 100 300
 ].Polygon;
-let a = s.sutherlandHodgmanAlgorithm(c);
-let b = a.translate([400 0]);
-[s c b].LineDrawing
+[
+	s,
+	c,
+	s.sutherlandHodgmanAlgorithm(c)
+	.translate([400 0])
+].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/sutherlandHodgmanAlgorithm-A.svg)
