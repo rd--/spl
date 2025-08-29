@@ -30,6 +30,18 @@ Draw the unit circle and a square:
 
 ![](sw/spl/Help/Image/poincareDiskArc-B.svg)
 
+Diagonals are lines:
+
+~~~spl svg=C
+[
+	Circle([0 0], 1),
+	[0 1/2; 1/2 3/2; 1 3/2].pi
+	.collect(poincareDiskArc:/1)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/poincareDiskArc-C.svg)
+
 * * *
 
 See also: Arc, Circle

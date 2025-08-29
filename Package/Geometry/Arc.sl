@@ -75,18 +75,22 @@ Arc : [Object] { | center radii angles |
 
 	poincareDiskArc { :self |
 		let [theta1, theta2] = self;
-		let theta = (theta1 + theta2) / 2;
 		let dTheta = (theta1 - theta2).abs / 2;
-		let r = dTheta.tan;
-		let y = dTheta.sin * r;
-		let bigR = dTheta.sec;
-		let phi = dTheta.cos.arcSin;
-		let cx = bigR * theta.cos;
-		let cy = bigR * theta.sin;
-		let c = [cx, cy];
-		let a = [1, theta2].fromPolarCoordinates;
-		let b = (c -> [c + [1, 0], a]).planarAngle;
-		Arc(c, [r, r], [b, b + (2 * phi)])
+		dTheta.isVeryCloseTo(1/2.pi).if {
+			Line([[1, theta1], [1, theta2]].collect(fromPolarCoordinates:/1))
+		} {
+			let theta = (theta1 + theta2) / 2;
+			let r = dTheta.tan;
+			let y = dTheta.sin * r;
+			let bigR = dTheta.sec;
+			let phi = dTheta.cos.arcSin;
+			let cx = bigR * theta.cos;
+			let cy = bigR * theta.sin;
+			let c = [cx, cy];
+			let a = [1, theta2].fromPolarCoordinates;
+			let b = (c -> [c + [1, 0], a]).planarAngle;
+			Arc(c, [r, r], [b, b + (2 * phi)])
+		}
 	}
 
 }
