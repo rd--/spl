@@ -1,8 +1,8 @@
 # coordinateBoundingBox
 
-- _coordinateBoundingBox(aMatrix)_
+- _coordinateBoundingBox(m)_
 
-Answer the corners of the bounding box of the region defined by _aMatrix_.
+Answer the corners of the bounding box of the region defined by matrix _m_.
 
 Find a bounding box for coordinates in two dimensions:
 

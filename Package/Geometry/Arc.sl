@@ -1,10 +1,26 @@
 Arc : [Object] { | center radii angles |
 
 	boundingBox { :self |
+		/*[
+			self.center - self.radii,
+			self.center + self.radii
+		]*/
+		(0 -- 1).discretize(
+			50,
+			self.parametricEquation
+		).coordinateBoundingBox
+	}
+
+	circle { :self |
+		Circle(self.center, self.radius)
+	}
+
+	ellipse { :self |
+		Ellipse(self.center, self.radii)
 	}
 
 	parametricEquation { :self |
-		let f:/1 = rescaleBlock([0, 2.pi], self.angles);
+		let f:/1 = rescaleBlock([0, 1], self.angles);
 		let g:/1 = ellipseCurve(self.center, self.radii, 0);
 		{ :theta |
 			g(f(theta))
@@ -55,6 +71,22 @@ Arc : [Object] { | center radii angles |
 
 	Arc { :center :radii :angles |
 		newArc().initializeSlots(center, radii, angles)
+	}
+
+	poincareDiskArc { :self |
+		let [theta1, theta2] = self;
+		let theta = (theta1 + theta2) / 2;
+		let dTheta = (theta1 - theta2).abs / 2;
+		let r = dTheta.tan;
+		let y = dTheta.sin * r;
+		let bigR = dTheta.sec;
+		let phi = dTheta.cos.arcSin;
+		let cx = bigR * theta.cos;
+		let cy = bigR * theta.sin;
+		let c = [cx, cy];
+		let a = [1, theta2].fromPolarCoordinates;
+		let b = (c -> [c + [1, 0], a]).planarAngle;
+		Arc(c, [r, r], [b, b + (2 * phi)])
 	}
 
 }

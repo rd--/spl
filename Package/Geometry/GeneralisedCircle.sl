@@ -46,7 +46,7 @@ GeneralisedCircle : [Object] { | c alpha d |
 		[self.c, self.alpha, self.d]
 	}
 
-        discriminant { :self |
+	discriminant { :self |
 		let [c, alpha, d] = self.coefficientList;
 		alpha.abs.square - (c * d)
 	}

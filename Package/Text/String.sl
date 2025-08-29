@@ -1289,8 +1289,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		}
 		if (
 			(match = sfxE.exec(result)) &&
-			(gt1.test(match[1]) ||
-				(eq1.test(match[1]) && !consonantLike.test(match[1])))
+			(gt1.test(match[1]) || (eq1.test(match[1]) && !consonantLike.test(match[1])))
 		) {
 			result = match[1];
 		}
