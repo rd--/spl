@@ -33,10 +33,6 @@ true
 false
 ```
 
-```
->>> (0 * Infinity).isNaN
-true
-```
 _∞×0_, `zero` times `Infinity`, is not a number:
 
 ```

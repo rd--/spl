@@ -160,7 +160,7 @@
 		let l = self.lcm.log;
 		let g = self.gcd.log;
 		self.collect { :each |
-			each.log.rescale(g, l, -1, 1)
+			each.log.rescale([g, l], [-1, 1])
 		}.sum / self.size
 	}
 

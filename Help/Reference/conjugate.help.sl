@@ -5,7 +5,6 @@
 The complex conjugate of a complex number _a+bi_ is defined to be _a-bi_.
 The conjugate of _z_ is ordinarily with a ¯ as _z̄_.
 
-
 At `SmallFloat`:
 
 ```

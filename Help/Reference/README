@@ -1,6 +1,6 @@
 system.splFileName('Help/Reference').terseReferenceSummary(verbose: false, pattern: '.*')
 
-Total => 12,093
+Total => 12,159
 
 Note: Requires LibraryItems be at the interpreter cache, i.e.
 
@@ -22,4 +22,4 @@ system.splFileName('Help/Reference').terseSuperColliderGraphSummary(verbose: fal
 
 Total => 568
 
-Linting: 3385 file(s)
+Linting: 3392 file(s)

@@ -7,12 +7,12 @@ Answer the terms of the standard form linear equation for a line,
 _ax+by+c=0_.
 
 At `List`,
-the line given by the two points _(1,1)_ and _(3,5)_ has implicit equation _4x - 2y - 2 = 0_,
-and slope-intercept form _y = 2x - 1_:
+the line given by the two points _(1,1)_ and _(3,5)_ has implicit equation _2x-y-1=0_,
+and slope-intercept form _y=2x-1_:
 
 ```
 >>> [1 1].lineEquation([3 5])
-[4 -2 -2]
+[2 -1 -1]
 
 >>> (
 >>> 	4 - 2 - 2,
@@ -24,8 +24,8 @@ and slope-intercept form _y = 2x - 1_:
 ```
 
 At `InfiniteLine`,
-the line given by _(-5,7)_ and _(1,3)_ has implicit equation _-2x - 3y - 11 = 0_,
-and slope-intercept form _y = -2/3x - 11/3_:
+the line given by _(-5,7)_ and _(1,3)_ has implicit equation _-2x-3y-11=0_,
+and slope-intercept form _y=-2x/3-11/3_:
 
 ```
 >>> InfiniteLine([-5 7; 1 3])

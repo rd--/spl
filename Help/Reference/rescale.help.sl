@@ -135,8 +135,8 @@ so that the answer retains the same shape as the input:
 ]
 
 >>> let m = [3 3].iota;
->>> m.rescale(m.min, m.max, 0, 1).shape
-[3 3 3]
+>>> m.rescale([m.min m.max], [0 1]).shape
+[3 3]
 ```
 
 Plot over a subset of the reals:

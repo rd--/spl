@@ -286,7 +286,6 @@ Line : [Object, Geometry] { | vertexCoordinates |
 		let accept = false;
 		let completed = false;
 		{ completed }.whileFalse {
-			[outCode0, outCode1, accept, completed].postLine;
 			outCode0.bitOr(outCode1).isNonZero.not.if {
 				accept := true;
 				completed := true

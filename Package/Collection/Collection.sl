@@ -503,12 +503,12 @@
 	}
 
 	normalizeRange { :self :minima :maxima |
-		self.rescale(self.min, self.max, minima, maxima)
+		self.rescale([self.min, self.max], [minima, maxima])
 	}
 
 	normalizeSignal { :self :minima :maxima |
 		let x = self.min.abs.max(self.max.abs);
-		self.rescale(x.negate, x, minima, maxima)
+		self.rescale([x.negate, x], [minima, maxima])
 	}
 
 	normalizeSignal { :self |

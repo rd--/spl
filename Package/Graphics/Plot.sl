@@ -310,7 +310,7 @@ Plot : [Object] { | pages format options |
 		};
 		let data = { :i :j |
 			self[i][j]
-			.rescale(z0, z1, 0, 1)
+			.rescale([z0, z1], [0, 1])
 			.colourFunction
 		}.table(1:m, 1:n);
 		options['dataReversed'].ifFalse {
