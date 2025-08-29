@@ -1,8 +1,8 @@
 # normalizeRange
 
-- _normalizeRange(aCollection, minima, maxima)_
+- _normalizeRange([x₁ x₂ …], minima, maxima)_
 
-Answers _aCollection_ rescaled to the indicated range,
+Answers the collection _x_ rescaled to the indicated range,
 taking as the domain the `min` and `max` items of the collection:
 
 ```

@@ -1,8 +1,8 @@
 # Arc
 
-- _Arc([x y], [r₁ r₂], [a₁ a₂])_
+- _Arc([x y], [r₁ r₂], [θ₁ θ₂])_
 
-A `Type` that represents an arc between angles _a_ of an ellipse of radii _r_ at center _(x,y)_.
+A `Type` that represents an arc between angles _θ_ of an ellipse of radii _r_ at center _(x,y)_.
 
 ```
 >>> let a = Arc([0 0], [1 1], [1/2.pi 1.pi]);
@@ -110,6 +110,18 @@ Draw arcs between points on Farey sequences:
 ~~~
 
 ![](sw/spl/Help/Image/Arc-F.svg)
+
+Draw using parametric equation:
+
+~~~spl svg=G
+(0 -- 2.pi).discretize(
+	50,
+	Arc([0 0], [1/2.pi 1], [5/8.pi 8/5.pi])
+	.parametricEquation
+).PointCloud
+~~~
+
+![](sw/spl/Help/Image/Arc-G.svg)
 
 * * *
 

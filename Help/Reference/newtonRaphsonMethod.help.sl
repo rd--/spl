@@ -43,7 +43,9 @@ Find a non-zero solution of _x = 2 × sin(x)_:
 
 * * *
 
-See also: regulaFalsiMethod, secantMethod
+See also: regulaFalsiMethod, rungeKuttaMethod, secantMethod
+
+Guides: Numerical Methods
 
 References:
 _Mathematica_

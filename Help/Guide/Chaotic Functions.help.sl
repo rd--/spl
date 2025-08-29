@@ -31,7 +31,7 @@ Map Functions:
 
 * * *
 
-Guides: Function Guides, Mathematical Functions
+Guides: Function Guides, Mathematical Functions, Numerical Methods
 
 References:
 _Mathematica_

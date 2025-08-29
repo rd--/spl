@@ -1,54 +1,58 @@
 # rescale
 
-- _rescale(aNumber | aCollection, min, max, yMin, yMax)_
-- _rescale(alpha, beta, gamma)_ ⟹ _rescale(alpha, beta, gamma, 0, 1)_
-- _rescale(alpha)_ ⟹ _rescale(alpha, alpha.deepMin, alpha.deepMax, 0, 1)_
+- _rescale(x, [⌊ ⌈], [y⌊ y⌈]=[0 1])_
 
-In the quinternary case,
-answer _aNumber_ rescaled to run from _yMin_ to _yMax_ over the range _min_ to _max_.
-In the ternary case _yMin_ and _yMax_ are set to `zero` and `one`.
-In the unary case _min_ and _max_ are set to the (deep) minima and maxima of _aCollection_.
+In the ternary case,
+answer _x_ rescaled to run from _y⌊_ to _y⌈_ over the range _⌊_ to _⌈_.
+In the binary case _y⌊_ and _y⌈_ are set to `zero` and `one`.
+In the unary case _⌊_ and _⌈_ are set to the (deep) ⌊ and ⌈ of the collection _x_.
 
 At `SmallFloat`:
 
 ```
->>> 2.5.rescale(-10, 10, 0, 1)
+>>> 2.5.rescale([-10 10])
 0.625
 
->>> 12.5.rescale(-10, 10, 0, 1)
+>>> 2.5.rescale([-10 10], [0 1])
+0.625
+
+>>> 12.5.rescale([-10 10])
+1.125
+
+>>> 12.5.rescale([-10 10], [0 1])
 1.125
 ```
 
 At `Fraction`:
 
 ```
->>> -3/2.rescale(-2, 2, 0, 1)
+>>> -3/2.rescale([-2 2])
 1/8
 ```
 
 At `SmallFloat`:
 
 ```
->>> 1.pi.rescale(0, 2.5, 0, 1)
+>>> 1.pi.rescale([0 2.5])
 1.25664
 
->>> 3.rescale(-9, 7, 11, 28)
+>>> 3.rescale([-9 7], [11 28])
 (95 / 4)
 
->>> (1 / 11).rescale(1 / 7, 5, 0, 1)
+>>> (1 / 11).rescale([1/7 5])
 -0.010695
 
->>> 8.rescale(-9, 7.11111, 0, 1)
+>>> 8.rescale([-9 7.11111])
 1.05517
 ```
 
 At `List`:
 
 ```
->>> [-10 0 10].rescale(-10, 10, 0, 1)
+>>> [-10 0 10].rescale([-10 10])
 [0 0.5 1]
 
->>> [-10 0 10].rescale(-10, 10)
+>>> [-10 0 10].rescale([-10 10])
 [0 0.5 1]
 ```
 
@@ -68,22 +72,22 @@ Rescale so that all the `List` elements run from 0 to 1:
 Specify the maximum and minimum values:
 
 ```
->>> [-2 0 2].rescale(-5, 5, 0, 1)
+>>> [-2 0 2].rescale([-5 5], [0 1])
 [0.3 0.5 0.7]
 
->>> [-2 0 2].rescale(-5, 5, -1, 1)
-[-2 / 5, 0, 2 / 5]
+>>> [-2 0 2].rescale([-5 5], [-1 1])
+[-2/5 0 2/5]
 
->>> 1:5.rescale(1, 5, -1, 1)
+>>> 1:5.rescale([1 5], [-1 1])
 [-1 -0.5 0 0.5 1]
 ```
 
 Make a Celsius-to-Fahrenheit conversion table:
 
 ```
->>> (-40, -30 .. 80).collect { :each |
->>> 	[each, each.rescale(-40, 100, -40, 212)]
->>> }
+>>> let c = [-40, -30 .. 80];
+>>> let f = c.rescale([-40 100], [-40 212]);
+>>> [c f].transpose
 [
 	-40 -40;
 	-30 -22;
@@ -101,19 +105,17 @@ Make a Celsius-to-Fahrenheit conversion table:
 ]
 ```
 
-Linear rescaling from (0, 1) to (3, 9):
+Linear rescaling from _0,1_ to _3,9_:
 
 ```
->>> [0 0.5 1].collect { :each |
->>> 	each.rescale(0, 1, 3, 9)
->>> }
+>>> [0 0.5 1].rescale([0 1], [3 9])
 [3 6 9]
 ```
 
 At a 3×3 matrix:
 
 ```
->>> [3 3].iota.rescale(1, 9, -1, 1)
+>>> [3 3].iota.rescale([1 9], [-1 1])
 [
 	-1.00 -0.75 -0.50;
 	-0.25 +0.00 +0.25;
@@ -140,9 +142,11 @@ so that the answer retains the same shape as the input:
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot { :each |
-	each.rescale(-2, 2)
-}
+(-3 -- 3).functionPlot([
+	identity:/1,
+	{ :each | each.round },
+	{ :each | each.rescale([-2 2]) }
+])
 ~~~
 
 ![](sw/spl/Help/Image/rescale-A.svg)

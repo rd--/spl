@@ -119,6 +119,8 @@ Solve a system of four equations:
 
 See also: gaussianElimination
 
+Guides: Numerical Methods
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)

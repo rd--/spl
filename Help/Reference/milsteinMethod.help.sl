@@ -45,7 +45,7 @@ Sfc32(317892)
 
 See also: eulerMaruyamaMethod, GeometricBrownianMotionProcess
 
-Guides: Random Processes
+Guides: Numerical Methods, Random Processes
 
 References:
 _W_

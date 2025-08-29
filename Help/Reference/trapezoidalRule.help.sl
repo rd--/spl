@@ -10,31 +10,36 @@ The step size _h_ is given by _(b-a)/n_.
 Integrate the `square` function over _(1,5)_:
 
 ```
->>> square:/1.trapezoidalRule([1 5], 100)
+>>> square:/1
+>>> .trapezoidalRule([1 5], 100)
 41.3344
 
->>> square:/1.adaptiveSimpsonsMethod([1 5])
+>>> square:/1
+>>> .adaptiveSimpsonsMethod([1 5])
 41 + 1/3
 ```
 
 Integrate the `cube` function over _(0,1)_:
 
 ```
->>> cube:/1.trapezoidalRule([0 1], 100)
+>>> cube:/1
+>>> .trapezoidalRule([0 1], 100)
 0.25
 ```
 
 Integrate the `reciprocal` function over _(1,100)_:
 
 ```
->>> reciprocal:/1.trapezoidalRule([1 100], 5000)
+>>> reciprocal:/1
+>>> .trapezoidalRule([1 100], 5000)
 4.6052
 ```
 
 Integrate the `sin` function over _(0,π)_:
 
 ```
->>> sin:/1.trapezoidalRule([0 1.pi], 100)
+>>> sin:/1
+>>> .trapezoidalRule([0 1.pi], 100)
 2
 ```
 
@@ -57,6 +62,10 @@ Integrate a sampled function using linear interpolation:
 ```
 
 * * *
+
+See also: adaptiveSimpsonsMethod
+
+Guides: Numerical Methods
 
 References:
 _Mathematica_

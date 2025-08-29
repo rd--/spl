@@ -161,7 +161,7 @@ Rescale a time series to run from 0 to 20:
 
 ```
 >>> TimeSeries([0 3; 1 5; 2 7; 3 2; 4 5])
->>> .rescale(0, 20)
+>>> .rescale([0 20])
 TimeSeries([0 3; 5 5; 10 7; 15 2; 20 5])
 ```
 

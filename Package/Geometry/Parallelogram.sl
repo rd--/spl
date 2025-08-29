@@ -1,8 +1,10 @@
 Parallelogram : [Object, Geometry] { | origin vectors |
 
 	area { :self |
-		let b = self.vectors[1][1];
-		let h = self.vectors[2][2] - self.origin[2];
+		let o = self.origin;
+		let [u, v] = self.vectors;
+		let b = u[1];
+		let h = v[2] - o[2];
 		b * h
 	}
 
@@ -23,7 +25,9 @@ Parallelogram : [Object, Geometry] { | origin vectors |
 	}
 
 	height { :self |
-		self.vectors[2][2] - self.origin[2]
+		let o = self.origin;
+		let [_, v] = self.vectors;
+		v[2] - o[2]
 	}
 
 	svgFragment { :self :options |
@@ -31,11 +35,13 @@ Parallelogram : [Object, Geometry] { | origin vectors |
 	}
 
 	vertexCoordinates { :self |
-		let a = self.origin;
-		let b = a + self.vectors[1];
-		let c = b + self.vectors[2];
-		let d = a + self.vectors[2];
-		[a b c d]
+		let o = self.origin;
+		let [u, v] = self.vectors;
+		let a = o;
+		let b = a + u;
+		let c = b + v;
+		let d = a + v;
+		[a, b, c, d]
 	}
 
 }
@@ -47,4 +53,3 @@ Parallelogram : [Object, Geometry] { | origin vectors |
 	}
 
 }
-

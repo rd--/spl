@@ -117,20 +117,34 @@ Draw a line in three dimensions:
 Plot line and points given by derived polynomial:
 
 ~~~spl svg=G
-let l = Line([-3 -2; 3 4]);
-let p = InfiniteLine([-3 -2; 3 4]).polynomial;
+let a = Line([-3 -2; 3 4]);
+let b = InfiniteLine([-3 -2; 3 4]);
+let c = b.polynomial;
 [
-	l,
+	a,
 	(-5 -- 5).discretize(
 		9,
 		{ :x |
-			[x, p.at(x)]
+			[x, c.at(x)]
 		}
 	).PointCloud
 ].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Line-G.svg)
+
+Draw circle tangent lines:
+
+~~~spl svg=H
+[0, 6 .. 354].collect { :n |
+	let theta = n.degree;
+	let u = [theta.cos, theta.sin];
+	let v = [theta.sin.-, theta.cos];
+	Line([u, u + (v * 2)])
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Line-H.svg)
 
 The ternary form of `Line` is a unit generator.
 `Line` generates a line from the start value to the end value.

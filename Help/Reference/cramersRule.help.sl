@@ -96,6 +96,8 @@ Solve a system that has four equations and four unknowns:
 
 See also: conjugateGradientMethod
 
+Guides: Numerical Methods
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CramersRule.html),

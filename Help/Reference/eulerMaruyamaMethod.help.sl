@@ -61,7 +61,7 @@ Sfc32(529721)
 
 See also: BrownianBridgeProcess, GeometricBrownianMotionProcess, milsteinMethod, OrnsteinUhlenbeckProcess
 
-Guides: Random Processes
+Guides: Numerical Methods, Random Processes
 
 References:
 _W_

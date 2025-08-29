@@ -1,6 +1,6 @@
 # Parallelogram
 
-- _Parallelogram(p, [u, v])_
+- _Parallelogram(p, [u v])_
 
 A `Type` holding a parallelogram with origin _p_ and directions _u_ and _v_.
 
@@ -16,7 +16,7 @@ A `Type` holding a parallelogram with origin _p_ and directions _u_ and _v_.
 Draw a parallelogram:
 
 ~~~spl svg=A
-Parallelogram([0 0], [1 0; 1 1])
+Parallelogram([0 0], [3 0; 1 4])
 ~~~
 
 ![](sw/spl/Help/Image/Parallelogram-A.svg)
@@ -29,13 +29,13 @@ Parallelogram([2 1], [1 2; 4 -2])
 
 ![](sw/spl/Help/Image/Parallelogram-B.svg)
 
-A Parallelogram can tile the plane:
+A parallelogram can tile the plane:
 
 ~~~spl svg=C
 { :i :j |
 	Parallelogram(
-		([1 0] * i) + ([1 1] * j),
-		[1 0; 1 1]
+		([3 0] * i) + ([1 4] * j),
+		[3 0; 1 4]
 	)
 }.table(1:5, 1:5).LineDrawing
 ~~~
@@ -44,7 +44,7 @@ A Parallelogram can tile the plane:
 
 * * *
 
-See also: LineDrawing, Polygon, vertexCoordinates
+See also: LineDrawing, parallelogram, Polygon, vertexCoordinates
 
 Guides: Geometry Functions
 

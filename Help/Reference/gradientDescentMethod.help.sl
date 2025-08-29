@@ -26,6 +26,8 @@ an algorithm for finding the nearest local minimum of a function.
 
 See also: conjugateGradientMethod
 
+Guides: Numerical Methods
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MethodofSteepestDescent.html),

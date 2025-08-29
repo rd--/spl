@@ -95,6 +95,8 @@ duffingEquation(0.3, 0.25, 1)
 
 See also: eulerMethod
 
+Guides: Numerical Methods
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Runge-KuttaMethod.html)

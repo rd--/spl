@@ -68,6 +68,8 @@ Compare to analytic solution:
 
 See also: rungeKuttaMethod
 
+Guides: Numerical Methods
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EulerForwardMethod.html)

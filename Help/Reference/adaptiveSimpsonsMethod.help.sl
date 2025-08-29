@@ -5,10 +5,12 @@
 Implememt the adaptive Simpson’s method for calculating the integral of the unary block _f_ over the interval _(a,b)_ to tolerance ε.
 
 ```
->>> sin:/1.adaptiveSimpsonsMethod([0 1])
+>>> sin:/1
+>>> .adaptiveSimpsonsMethod([0 1])
 0.459698
 
->>> identity:/1.adaptiveSimpsonsMethod([0 9])
+>>> identity:/1
+>>> .adaptiveSimpsonsMethod([0 9])
 40.5
 
 >>> { :x |
@@ -94,7 +96,7 @@ true
 
 See also: trapezoidalRule
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Numerical Methods
 
 References:
 _Mathematica_

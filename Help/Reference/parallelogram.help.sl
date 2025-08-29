@@ -74,7 +74,7 @@ Draw a rectanglular parallelogram:
 
 * * *
 
-See also: Cuboid, Polygon, Rectangle
+See also: Cuboid, Parallelogram, Polygon, Rectangle
 
 Guides: Geometry Functions
 

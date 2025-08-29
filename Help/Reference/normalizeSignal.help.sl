@@ -1,9 +1,8 @@
 # normalizeSignal
 
-- _normalizeSignal(aCollection, minima, maxima)_
-- _normalizeSignal(α)_ ⇒ _normalizeSignal(α, -1, 1)_
+- _normalizeSignal([x₁ x₂ …], minima=-1, maxima=1)_
 
-Answers _aCollection_ rescaled to the indicated range,
+Answers the collection _x_ rescaled to the indicated range,
 taking as the domain ± of the `max` of the absolute values of the `min` and `max`:
 
 ```
@@ -20,7 +19,7 @@ Unlike `normalizeRange` this does not necessarily answer a signal which has the 
 [-1 -9/11 1/11 1]
 ```
 
-The unary form normalizes to _(-1, 1)_.
+The unary form normalizes to _(-1,1)_.
 
 * * *
 

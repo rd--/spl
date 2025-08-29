@@ -638,18 +638,16 @@
 		}
 	}
 
-	rescale { :self :min :max :ymin :ymax |
-		self.collect { :each |
-			each.rescale(min, max, ymin, ymax)
-		}
+	rescale { :self :a :b |
+		self.collect(rescaleBlock(a, b))
 	}
 
-	rescale { :self :min :max |
-		self.rescale(min, max, 0, 1)
+	rescale { :self :a |
+		self.rescale(a, [0, 1])
 	}
 
 	rescale { :self |
-		self.rescale(self.deepMin, self.deepMax, 0, 1)
+		self.rescale([self.deepMin, self.deepMax], [0, 1])
 	}
 
 	select { :self :aBlock:/1 |

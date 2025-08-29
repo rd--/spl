@@ -814,12 +814,15 @@
 		self.remainderBy(aNumber, truncate:/1)
 	}
 
-	rescale { :self :min :max |
+	rescale { :self :a |
+		let [min, max] = a;
 		(self - min) / (max - min)
 	}
 
-	rescale { :self :min :max :ymin :ymax |
-		((self - min) / (max - min)) * (ymax - ymin) + ymin
+	rescale { :self :a :b |
+		let [min, max] = a;
+		let [yMin, yMax] = b;
+		((self - min) / (max - min)) * (yMax - yMin) + yMin
 	}
 
 	richardsCurve { :a :k :b :nu :q :c |
@@ -1362,6 +1365,18 @@
 
 	vacuumPermittivity { :self |
 		self * 8.8541878188E-12
+	}
+
+}
+
++List {
+
+	rescaleBlock { :a :b |
+		let [min, max] = a;
+		let [yMin, yMax] = b;
+		{ :x |
+			((x - min) / (max - min)) * (yMax - yMin) + yMin
+		}
 	}
 
 }

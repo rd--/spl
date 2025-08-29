@@ -29,6 +29,17 @@ Plot an ellipse through four rotatations:
 
 ![](sw/spl/Help/Image/ellipseCurve-B.svg)
 
+Draw equidistant points:
+
+~~~spl svg=C
+(0 -- 2.pi).discretize(
+	75,
+	ellipseCurve([0 0], [1 1.75], -1/4.pi)
+).PointCloud
+~~~
+
+![](sw/spl/Help/Image/ellipseCurve-C.svg)
+
 * * *
 
 See also: circleCurve, Ellipse

@@ -132,6 +132,32 @@ BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 
 +List {
 
+	approximateCircularArc { :self |
+		let [c, u, v] = self;
+		let [xc, yc] = c;
+		let [x1, y1] = u;
+		let [x4, y4] = v;
+		let ax = x1 - xc;
+		let ay = y1 - yc;
+		let bx = x4 - xc;
+		let by = y4 - yc;
+		let q1 = (ax * ax) + (ay * ay);
+		let q2 = q1 + (ax * bx) + (ay * by);
+		let k2 = (4 / 3) * ((2 * q1 * q2).sqrt - q2) / ((ax * by) - (ay * bx));
+		let x2 = xc + ax - (k2 * ay);
+		let y2 = yc + ay + (k2 * ax);
+		let x3 = xc + bx + (k2 * by);
+		let y3 = yc + by - (k2 * bx);
+		BezierCurve([x1 y1; x2 y2; x3 y3; x4 y4], 3)
+	}
+
+	approximateCircularArc { :c :r :a |
+		let [a1, a2] = a;
+		let u = [r a1].fromPolarCoordinates;
+		let v = [r a2].fromPolarCoordinates;
+		[c, u, v].approximateCircularArc
+	}
+
 	BezierCurve { :self :degree |
 		(self.rank > 2).if {
 			self.collect { :each |
@@ -178,7 +204,7 @@ BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 	bezierFunction { :self |
 		let [m, n] = self.shape;
 		(n = 2).if {
-			let [x, y] = self.transpose;
+			let [x, y] = self.transposed;
 			{ :index |
 				[
 					x.bezierFunctionAt(index),

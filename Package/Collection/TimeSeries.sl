@@ -207,11 +207,11 @@ TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
 		self.resample([t1, t1 + dt .. t2])
 	}
 
-	rescale { :self :t1 :t2 |
+	rescale { :self :b |
 		let t = self.times;
 		TimeSeries(
 			self.values,
-			t.rescale(t.first, t.last, t1, t2)
+			t.rescale([t.first, t.last], b)
 		)
 	}
 

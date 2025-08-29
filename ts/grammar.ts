@@ -114,7 +114,7 @@ Sl {
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
-	VectorSyntaxUnarySend = (literal | varName) "." selectorName
+	VectorSyntaxUnarySend = (literal | varName) "." (selectorName | boundOperator)
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"

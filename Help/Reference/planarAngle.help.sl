@@ -128,6 +128,29 @@ The angle answered in the `Association` form is in _(0, 2π)_:
 (1/2.pi, 3/2.pi)
 ```
 
+Calculate angles for arcs from _p,q₁_ to _p,q₂_ and also the reverse:
+
+~~~spl svg=A
+let p = [0 0];
+let q0 = [1 0];
+let q1 = [0.4 1];
+let q2 = [-1 -0.8];
+let a0 = (p -> [q0 q1]).planarAngle;
+let a1 = (p -> [q1 q2]).planarAngle;
+let a2 = (p -> [q2 q1]).planarAngle;
+let a3 = a0 + a1;
+let [r1, r2] = [0.5 0.75];
+[
+	PointCloud([p q1 q2]),
+	Line([p q1]),
+	Line([p q2]),
+	Arc(p, [r1 r1], [a0 a3]),
+	Arc(p, [r2 r2], [a3 a0])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/planarAngle-A.svg)
+
 * * *
 
 See also: angleBisector, anglePath, dot, vectorAngle

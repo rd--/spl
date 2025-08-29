@@ -99,7 +99,7 @@
 - `movingMap`: map a function over a moving window with any span
 - `movingMedian`: find the moving median with any span
 - `normalize`: normalize vector
-- `rescale`: rescale between
+- `rescale`
 - `standardize`: zero mean and unit sample variance
 
 ## Differential Equations

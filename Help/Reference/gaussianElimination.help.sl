@@ -47,6 +47,8 @@ Solve for 6×6 matrix and 6 vector:
 
 See also: gaussSeidelMethod, inverse, rowReduce
 
+Guides: Numerical Methods
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianElimination.html),

@@ -71,7 +71,7 @@ let julia = { :c |
 };
 let m = julia(-0.786J0.147);
 m
-.rescale(m.deepMin, m.deepMax, 1, 0)
+.rescale([m.deepMin, m.deepMax], [1, 0])
 .Graymap
 ~~~
 

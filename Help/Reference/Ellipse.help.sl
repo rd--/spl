@@ -48,7 +48,7 @@ Ellipse(
 
 Draw an ellipse indicating the center _c_,
 the two foci _f₁,f₂_,
-and the vertex and covertex _v₁,v₂_:
+and the vertex and co-vertex _v₁,v₂_:
 
 ~~~spl svg=B
 let c = [-3, 4];

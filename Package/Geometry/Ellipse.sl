@@ -5,6 +5,14 @@ Ellipse : [Object, Geometry] { | center radii |
 		(rx * ry).pi
 	}
 
+	axisAlignedBoundingBox { :self |
+		let c = self.center;
+		let [a, b] = self.radii;
+		let u = [a 0];
+		let v = [0 b];
+		ellipseAxisAlignedBoundingBox(c, u, v)
+	}
+
 	boundingBox { :self |
 		[
 			self.center - self.radii,
@@ -12,7 +20,7 @@ Ellipse : [Object, Geometry] { | center radii |
 		]
 	}
 
-	covertex { :self |
+	coVertex { :self |
 		self.vertexCoordinates.at(2)
 	}
 
@@ -45,6 +53,10 @@ Ellipse : [Object, Geometry] { | center radii |
 	majorMinorAxes { :self |
 		let [b, a] = self.radii.sorted;
 		[a, b]
+	}
+
+	parametricEquation { :self |
+		ellipseCurve(self.center, self.radii, 0)
 	}
 
 	semiLatusRectum { :self |
@@ -86,6 +98,11 @@ Ellipse : [Object, Geometry] { | center radii |
 }
 
 +List {
+
+	ellipseAxisAlignedBoundingBox { :c :u :v |
+		let e = (u.dot(u) + v.dot(v)).sqrt;
+		[c - e, c + e]
+	}
 
 	Ellipse { :center :radii |
 		(center.rank > 1).if {
