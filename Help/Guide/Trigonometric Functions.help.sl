@@ -19,19 +19,19 @@ Inverse:
 
 Degrees:
 
-- `cosDegrees`
-- `secDegrees`
-- `sinDegrees`
-- `tanDegrees`
+- `cosDegrees`: cosine °
+- `secDegrees`: secant °
+- `sinDegrees`: sine °
+- `tanDegrees`: tangent °
 
 Sinc:
 
 - `sincHistorical`: historical sinc
 - `sincNormalized`: normalized sinc
 
-Hyperbolic Funtions:
+Hyperbolic Functions:
 
-- `Hyperbolic Funtions`: Guide
+- `Hyperbolic Functions`: Guide
 
 Haversine:
 

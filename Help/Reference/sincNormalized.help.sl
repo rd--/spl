@@ -4,8 +4,8 @@
 
 The normalized sinc function.
 
-_sincNormalized(z)_ is equivalent to _sincHistorical(z * π)_,
-which is equivalent to _sin(z * π) / (z * π)_,
+_sincNormalized(z)_ is equivalent to _sincHistorical(zπ)_,
+which is equivalent to _sin(zπ)/zπ_,
 except at zero where it is one.
 
 ```
@@ -61,6 +61,8 @@ let y = (tsM - tM).sincNormalized.dot(x);
 * * *
 
 See also: sin, sincHistorical
+
+Guides: Trigonometric Functions
 
 References:
 _Mathematica_
