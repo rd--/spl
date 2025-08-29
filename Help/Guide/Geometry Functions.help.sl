@@ -51,6 +51,8 @@ Area Functions:
 - `cayleyMengerDeterminant`
 - `cayleyMengerMatrix`
 - `heronsForumula`
+- `sectorArea`
+- `segmentArea`
 - `shoelaceFormula`
 - `signedArea`
 

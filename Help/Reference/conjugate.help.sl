@@ -90,7 +90,7 @@ Plot the absolute value of  function:
 
 See also: +, Complex
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Apl_

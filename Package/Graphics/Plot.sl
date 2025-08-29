@@ -146,7 +146,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	complexListPlot { :self |
-		self.realImaginary.scatterPlot
+		self.flatten.realImaginary.scatterPlot
 	}
 
 	complexPlot { :self :k :aBlock:/1 |

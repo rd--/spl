@@ -201,7 +201,7 @@ true
 
 See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugate, i, imaginary, j, real, SmallFloat
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Apl_

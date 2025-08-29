@@ -57,7 +57,7 @@ h.negate
 
 See also: conjugate, transpose
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Mathematica_

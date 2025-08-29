@@ -1,22 +1,29 @@
 # polarPlot
 
-- _polarPlot(aList)_
-- _polarPlot(domain, aBlock:/1 | aList)_
+- _polarPlot([ρ₁ θ₁; ρ₂ θ₂; …])_
+- _polarPlot(x, f:/1)_
 
-Generate a polar plot of a curve with radius r as a function of angle θ in _domain_.
+In the unary case,
+plot a sequence of polar coordinates _ρ,θ_.
 
-A circle:
+In the binary case,
+generate a polar plot of a curve with radius r as a function _f_ of angle θ over domain _x_.
+
+The polar plot of both sine and cosine over the domain _0,π_ is a circle:
 
 ~~~spl svg=A
-(0 -- 1.pi).polarPlot(sin:/1)
+(0 -- 1.pi).polarPlot(cos:/1)
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-A.svg)
 
-Another circle:
+The polar plot of a constant function over the domain _0,2π_ is also a circle,
+plot three concentric circles:
 
 ~~~spl svg=B
-(0 -- 2.pi).polarPlot { :t | 1 }
+(0 -- 2.pi).polarPlot(
+	[1 2 3].collect(constant:/1)
+)
 ~~~
 
 ![](sw/spl/Help/Image/polarPlot-B.svg)
@@ -62,7 +69,7 @@ Another Archimedean spiral:
 
 ![](sw/spl/Help/Image/polarPlot-F.svg)
 
-A circle, given as a `List` or polar coordinates:
+A circle, given as a `List` of polar coordinates:
 
 ~~~spl svg=G
 (0 -- 2.pi).discretize(99).collect { :each |

@@ -34,7 +34,7 @@ Threads over lists:
 
 See also: Complex, imaginary, j, real
 
-Guides: Complex Numbers, Mathematical Constants
+Guides: Complex Number Functions, Mathematical Constants
 
 References:
 _Apl_

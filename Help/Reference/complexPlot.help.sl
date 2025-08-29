@@ -130,6 +130,8 @@ Plot a complex function with zeros at poles:
 
 See also: arg, Complex
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ComplexPlot.html)

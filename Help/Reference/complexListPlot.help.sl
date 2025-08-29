@@ -25,7 +25,7 @@ Plot the spectrum of a discrete time signal:
 
 See also: realImaginary, scatterPlot
 
-Guides: Complex Numbers, Plotting Functions
+Guides: Complex Number Functions, Plotting Functions
 
 References:
 _Mathematica_

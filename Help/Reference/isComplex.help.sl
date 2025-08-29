@@ -1,8 +1,8 @@
 # isComplex
 
-- _isComplex(anObject)_
+- _isComplex(x)_
 
-Answers `true` if _anObject_ is a `Complex`, else `false`.
+Answers `true` if the object _x_ is a `Complex`, else `false`.
 
 ```
 >>> 3J4.isComplex
@@ -14,6 +14,8 @@ false
 
 * * *
 
-See also: isNumber, Complex
+See also: isNumber, isReal, Complex
+
+Guides: Complex Number Functions
 
 Categories: Testing, Math

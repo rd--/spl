@@ -1,8 +1,8 @@
 # realImaginary
 
-- _realImaginary(n)_
+- _realImaginary(z)_
 
-Answer the `real` and `imaginary` parts of the number _n_.
+Answer the `real` and `imaginary` parts of the number _z_.
 
 At `Complex`:
 
@@ -27,9 +27,9 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 * * *
 
-See also: Complex, i, real, imaginary
+See also: asList, Complex, i, j, real, imaginary
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Mathematica_

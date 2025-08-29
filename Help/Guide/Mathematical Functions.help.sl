@@ -67,13 +67,7 @@
 
 ## Complex Number Functions
 
-- `absArg`: absolute value and argument
-- `abs`: absolute value
-- `arg`: argument
-- `conjugate`: complex conjugate
-- `imaginary`: imaginary component of a complex number
-- `real`: real component of a complex number
-- `sign`: sign of
+- `Complex Number Functions`: Guide
 
 ## Congruence Functions
 

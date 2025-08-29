@@ -81,7 +81,7 @@ Plot `abs` at Gaussian integers:
 
 See also: absArg, arg, hypot, imaginary, norm, sign, real
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Apl_

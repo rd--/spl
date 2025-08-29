@@ -32,7 +32,7 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 See also: Complex, imaginary, real, realImaginary
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Mathematica_

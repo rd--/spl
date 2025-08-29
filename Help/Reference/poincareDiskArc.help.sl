@@ -30,7 +30,7 @@ Draw the unit circle and a square:
 
 ![](sw/spl/Help/Image/poincareDiskArc-B.svg)
 
-Diagonals are lines:
+Diameters are lines:
 
 ~~~spl svg=C
 [

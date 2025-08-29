@@ -1,8 +1,8 @@
 # imaginary
 
-- _imaginary(n)_
+- _imaginary(x)_
 
-Answer the imaginary part of the number _n_.
+Answer the imaginary part of the number _x_.
 
 At `Complex`:
 
@@ -36,7 +36,7 @@ C.f. `i`:
 
 See also: Complex, i, real, realImaginary
 
-Guides: Complex Numbers
+Guides: Complex Number Functions
 
 References:
 _Mathematica_

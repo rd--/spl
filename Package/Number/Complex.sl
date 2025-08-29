@@ -391,6 +391,10 @@ Complex : [Object, Number] { | real imaginary |
 		Complex(self, self.zero)
 	}
 
+	cayleyTransform { :z |
+		(z - 0J1) / (z + 0J1)
+	}
+
 	Complex { :real :imaginary |
 		newComplex().initializeSlots(real, imaginary)
 	}
@@ -401,6 +405,10 @@ Complex : [Object, Number] { | real imaginary |
 
 	i { :self |
 		Complex(self.zero, self)
+	}
+
+	isGaussianInteger { :self |
+		self.isInteger
 	}
 
 	isReal { :self |

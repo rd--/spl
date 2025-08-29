@@ -93,7 +93,7 @@ Plot the `imaginary` part of the `sign` function:
 
 See also: *, abs, copySignTo, negate, signBit
 
-Guides: Complex Numbers, Mathematical Functions
+Guides: Complex Number Functions, Mathematical Functions
 
 References:
 _Apl_
