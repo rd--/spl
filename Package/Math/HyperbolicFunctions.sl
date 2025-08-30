@@ -37,6 +37,12 @@
 		self.cosh / self.sinh
 	}
 
+	hyperbolaCurve { :a :b |
+		{ :x :y |
+			(x.square / a.square) - (y.square / b.square) - 1
+		}
+	}
+
 	sinh { :self |
 		<primitive: return Math.sinh(_self)>
 	}

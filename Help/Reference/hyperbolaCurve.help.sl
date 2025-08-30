@@ -5,14 +5,6 @@
 Answer the implicit equation of the hyperbola,
 _x²/a²-y²/b²-1=0_.
 
-+SmallFloat{
-	hyperbolaCurve { :a :b |
-		{ :x :y |
-			(x.square / a.square) - (y.square / b.square) - 1
-		}
-	}
-}
-
 Plot unit hyperbola:
 
 ~~~spl svg=A
