@@ -59,6 +59,14 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcCoth-A.svg)
 
+Plot of complex `arcCoth` function:
+
+~~~spl png=B
+[-5J-5 5J5].complexPlot(arcCoth:/1)
+~~~
+
+![](sw/spl/Help/Image/arcCoth-B.png)
+
 * * *
 
 See also: arcSec, cos, sec, tan

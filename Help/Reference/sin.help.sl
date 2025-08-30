@@ -175,10 +175,16 @@ Plot of complex `sin` function:
 
 ![](sw/spl/Help/Image/sin-I.png)
 
-(1E-2 -- 1E-1).subdivide(1000)
+Plot with increasing density:
+
+~~~spl svg=J
+(0.005 -- 0.025).subdivide(300)
 .collect { :x |
 	(1 / x).sin
 }.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sin-J.svg)
 
 * * *
 

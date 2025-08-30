@@ -60,6 +60,14 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcSinh-A.svg)
 
+Plot of complex `arcSinh` function:
+
+~~~spl png=B
+[-2J-2 2J2].complexPlot(arcSinh:/1)
+~~~
+
+![](sw/spl/Help/Image/arcSinh-B.png)
+
 * * *
 
 See also: arcSin, cos, sin, tan

@@ -9,6 +9,9 @@ At `SmallFloat`:
 ```
 >>> 2.2.tanh
 0.975743
+
+>>> 2.arcCosh.tanh
+0.866025
 ```
 
 In terms of `sinh` and `cosh`:

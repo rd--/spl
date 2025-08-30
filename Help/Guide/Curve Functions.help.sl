@@ -25,6 +25,7 @@ Algebraic Curve Functions:
 - `geocentricOrbitCurve`
 - `gompertzFunction`
 - `hippopede`
+- `hyperbolaCurve`
 - `hypocycloid`
 - `hypotrochoid`
 - `inverseNorwichSpiral`

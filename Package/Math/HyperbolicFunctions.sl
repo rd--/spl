@@ -1,7 +1,12 @@
 +SmallFloat{
 
 	arcCosh { :self |
-		<primitive: return Math.acosh(_self)>
+		<primitive:
+		if(_self >= 1) {
+			return Math.acosh(_self);
+		}
+		>
+		Complex(self, 0).arcCosh
 	}
 
 	arcCoth { :self |
@@ -45,7 +50,7 @@
 +Complex {
 
 	arcCosh { :z |
-		(((z + 1).sqrt * (z - 1).sqrt) + z).log
+		(z + ((z ^ 2) - 1).sqrt).log /* (((z + 1).sqrt * (z - 1).sqrt) + z).log */
 	}
 
 	arcCoth { :z |

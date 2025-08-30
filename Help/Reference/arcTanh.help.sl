@@ -40,6 +40,14 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcTanh-A.svg)
 
+Plot of complex `arcTanh` function:
+
+~~~spl png=B
+[-2J-2 2J2].complexPlot(arcTanh:/1)
+~~~
+
+![](sw/spl/Help/Image/arcTanh-B.png)
+
 * * *
 
 See also: arcCoth, arcTan, tanh
@@ -49,4 +57,6 @@ Guides: Hyperbolic Functions
 References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/InverseHyperbolicTangent.html)
-[2](https://reference.wolfram.com/language/ref/ArcTanh.html)
+[2](https://reference.wolfram.com/language/ref/ArcTanh.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Inverse_hyperbolic_tangent)
