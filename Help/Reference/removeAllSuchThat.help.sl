@@ -30,6 +30,8 @@ see also `associationsRemove`:
 
 * * *
 
-See also: associationsRemove, keysAndValuesRemove, reject, remove, removeAll
+See also: associationsRemove, keysAndValuesRemove, reject, Removable, remove, removeAll
+
+Guides: Dictionary Functions, List Functions
 
 Categories: Removing

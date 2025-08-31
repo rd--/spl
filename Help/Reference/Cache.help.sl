@@ -1,14 +1,20 @@
 # Cache
 
-`Cache` is a `Trait` used to implement initialise-on-demand global variables.
+`Cache` is both a `Trait` and a `Type` used to implement initialise-on-demand global variables.
 
-The required method is `cache`, which should answer a `Dictionary`.
+The required method of the `Cache` trait is `cache`, which should answer a `Dictionary`.
 
-Implements the methods `cached`, for where the initializer is synchronous, and `whenCached` for where it is not.
+The trait implements the methods `cached`,
+for where the initializer is synchronous,
+and `whenCached`,
+for where it is not.
 
-The `System` type, which is instantiated once as `system`, implements `Cache`.
+The `System` type,
+which is instantiated once as `system`,
+implements `Cache`.
 
-The `primesList` method caches previous requests, and continues any required calculations from the cached answers.
+The `primesList` method caches previous requests,
+and continues any required calculations from the cached answers.
 
 ```
 >>> 23.primesList

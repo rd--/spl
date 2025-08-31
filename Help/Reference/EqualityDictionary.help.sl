@@ -2,9 +2,13 @@
 
 - _EqualityDictionary()_
 
-A `Type` representing a dictionary where keys are compared according to equality.
+A `Type` representing a dictionary where keys are compared according to `=`,
+the equality operator.
 
-The `EqualityDictionary` type is less efficient than both `Map` and `Record`.
+The `EqualityDictionary` type is less efficient than both `Map`,
+the identity dictionary type,
+and `Record`,
+the string dictionary type.
 
 An empty `EqualityDictionary`:
 

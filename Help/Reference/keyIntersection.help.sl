@@ -16,7 +16,7 @@ Make a list of records with common keys:
 
 See also: keys, keyUnion, union
 
-Guide: Dictionary Functions
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

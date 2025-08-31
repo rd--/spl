@@ -1,12 +1,12 @@
 # deepIndices
 
-- _deepIndices(aCollection, aBlock:/1)_
-- _deepIndices(alpha)_ ⟹ _deepIndices(alpha, true.constant)_
+- _deepIndices(c, f:/1)_
 
-Answer a `List` of indices, each a `List`, of the paths to each leaf element in _aCollection_
-that satisfies the predicate _aBlock_.
+Answer a `List` of indices, each a `List`, of the paths to each leaf element in the collection _c_
+that satisfies the predicate the block _f_.
+If _f_ is elided all paths are answered.
 
-A leaf element is an item that is not of the same type as _aCollection_.
+A leaf element is an item that is not of the same type as the collection _c_.
 
 At `Range`:
 
@@ -14,7 +14,9 @@ At `Range`:
 >>> 1:9.deepIndices
 [1; 2; 3; 4; 5; 6; 7; 8; 9]
 
->>> 1:9.deepIndices { :each | each >= 7 }
+>>> 1:9.deepIndices { :each |
+>>> 	each >= 7
+>>> }
 [7; 8; 9]
 ```
 
@@ -44,12 +46,26 @@ At `Tuple`:
 At `Record`:
 
 ```
->>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6))
+>>> (
+>>> 	x: 1,
+>>> 	y: (x: 2, y:3),
+>>> 	z: (x: 4, y: 5, z: 6)
+>>> )
 >>> .deepIndices
-['x'; 'y' 'x'; 'y' 'y'; 'z' 'x'; 'z' 'y'; 'z' 'z']
+[
+	'x';
+	'y' 'x';
+	'y' 'y';
+	'z' 'x';
+	'z' 'y';
+	'z' 'z'
+]
 
->>> (x: 1, y: (x: 2, y:3), z: (x: 4, y: 5, z: 6))
->>> .deepIndices(isEven:/1)
+>>> (
+>>> 	x: 1,
+>>> 	y: (x: 2, y:3),
+>>> 	z: (x: 4, y: 5, z: 6)
+>>> ).deepIndices(isEven:/1)
 ['y' 'x'; 'z' 'x'; 'z' 'z']
 ```
 

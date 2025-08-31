@@ -2,7 +2,7 @@
 
 `(` is a balanced syntax token, closed by `)`, it is not an operator.
 
-`(` is a part of `Dictionary Syntax`, `Trailing Dictionary Syntax` and `Tuple Syntax`,
+`(` is a part of `Record Syntax`, `Trailing Record Syntax` and `Tuple Syntax`,
 where it begins either a dictionary or a tuple that is subsequently ended by `)`.
 
 ```

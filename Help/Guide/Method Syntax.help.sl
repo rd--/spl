@@ -26,13 +26,13 @@ Extending _f(x)_ to _f(x).g(y)_ requires inserting characters only at the right 
 Method syntax is particularly useful if the insertion cursor is already at the end of the existing text.
 
 _Note:_
-`Dictionary Syntax` allows _()_ to be the empty dictionary,
+`Record Syntax` allows _()_ to be the empty dictionary,
 _().f_ means _f(())_.
 
 * * *
 
 See also: .
 
-Guides: Apply Syntax, Dictionary Syntax
+Guides: Apply Syntax, Record Syntax
 
 Categories: Syntax

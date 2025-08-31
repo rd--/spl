@@ -23,4 +23,6 @@ Otherwise, evaluate the no-argument block _β_ as the answer.
 
 See also: at, atIfAbsent, atIfPresent
 
+Guides: Indexing Functions
+
 Categories: Accessing

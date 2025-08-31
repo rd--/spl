@@ -6,13 +6,13 @@
 _reason_ specifies a reason for the data being missing,
 _value_ associates a value with the reason for the missing data.
 
-`atMissing` answers `Missing` if the index is out of range:
+`atOrMissing` answers `Missing` if the index is out of range:
 
 ```
->>> 1:5.atMissing(9)
+>>> 1:5.atOrMissing(9)
 Missing('NotAvailable', 9)
 
->>> 1:5.atAllMissing([-1 5 9])
+>>> 1:5.atOrMissingAll([-1 5 9])
 [
 	Missing('NotAvailable', -1),
 	5,
@@ -32,7 +32,7 @@ true
 
 * * *
 
-See also: atMissing, atAllMissing, deleteMissing, isMissing
+See also: atOrMissing, atOrMissingAll, deleteMissing, isMissing
 
 References:
 _Mathematica_

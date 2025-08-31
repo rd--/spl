@@ -1,4 +1,4 @@
-# MessageSend Syntax
+# Experimental MessageSend Syntax
 
 Rewrite rule:
 

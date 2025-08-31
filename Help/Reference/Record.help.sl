@@ -60,7 +60,7 @@ and sequences:
 
 See also: asJson, asRecord, Association, Dictionary, Map
 
-Guides: Dictionary Functions, Dictionary Syntax
+Guides: Dictionary Functions, Record Syntax
 
 References:
 _Mathematica_

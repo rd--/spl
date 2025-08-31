@@ -15,13 +15,15 @@ At `Record`:
 true
 ```
 
-This syntax is a counterpart to `Dictionary Syntax`.
+This syntax is a counterpart to `Record Syntax`.
 
 Where supported `::` is displayed as _·_.
 
 * * *
 
-See also: ::, At Syntax, Put Syntax, Quoted Indexable Syntax
+See also: ::
+
+Guides: At Syntax, Put Syntax, Record Syntax, Quoted Indexable Syntax
 
 Unicode: U+00B7 · Middle Dot
 

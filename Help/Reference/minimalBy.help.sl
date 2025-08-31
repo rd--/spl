@@ -1,8 +1,8 @@
 # minimalBy
 
-- _minimalBy(aCollection, aBlock:/1)_
+- _minimalBy(c, f:/1)_
 
-Answer a `List` of the elements of _aCollection_ for which the value of _aBlock_ is minimal.
+Answer a `List` of the elements of the collection _c_ for which the value of the block _f_ is minimal.
 
 ```
 >>> [-2J2 4J1].minimalBy(abs:/1)

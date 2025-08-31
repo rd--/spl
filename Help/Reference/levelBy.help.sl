@@ -1,8 +1,8 @@
 # levelBy
 
-- _levelBy(aCollection, aBlock:/1)_
+- _levelBy(c, f:/1)_
 
-Answer a `List` of all sub-trees of _aCollection_ at levels specified by the predicate _aBlock_.
+Answer a `List` of all sub-trees of the collection _c_ at levels specified by the predicate block _f_.
 
 Values in a `Dictionary` are at the first level:
 

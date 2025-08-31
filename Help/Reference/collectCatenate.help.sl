@@ -1,10 +1,10 @@
 # collectCatenate
 
-- _collectCatenate(aCollection, aBlock:/1)_
+- _collectCatenate(c, f:/1)_
 
-Apply _aBlock_,
+Apply the block _f_,
 which should answer a collection,
-to each item in _aCollection_,
+to each item in the collection _c_,
 and add each item in each answer to the answer.
 
 ```

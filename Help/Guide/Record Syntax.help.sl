@@ -1,4 +1,4 @@
-# Dictionary Syntax
+# Record Syntax
 
 Rewrite rule:
 

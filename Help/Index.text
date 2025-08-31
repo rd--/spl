@@ -7,12 +7,8 @@ Guide/Arity Notation.help.sl
 Guide/Array Functions.help.sl
 Guide/Array Syntax.help.sl
 Guide/Assignment and Equality.help.sl
-Guide/Assignment Operator Syntax.help.sl
 Guide/Assignment Syntax.help.sl
 Guide/AtAll Syntax.help.sl
-Guide/AtIfAbsentPut Syntax.help.sl
-Guide/AtIfAbsent Syntax.help.sl
-Guide/AtPutDelegateTo Syntax.help.sl
 Guide/AtPut Syntax.help.sl
 Guide/At Syntax.help.sl
 Guide/Binary Operators.help.sl
@@ -34,9 +30,8 @@ Guide/Comment Syntax.help.sl
 Guide/Comparing Collections.help.sl
 Guide/Comparison Functions.help.sl
 Guide/Complex Literals.help.sl
-Guide/Complex Numbers.help.sl
+Guide/Complex Number Functions.help.sl
 Guide/Complicated Method Arity.help.sl
-Guide/Constant Syntax.help.sl
 Guide/Control Blocks.help.sl
 Guide/Control Structures.help.sl
 Guide/Coordinate System Functions.help.sl
@@ -47,7 +42,6 @@ Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Assignment Syntax.help.sl
 Guide/Dictionary Functions.help.sl
-Guide/Dictionary Syntax.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
@@ -55,9 +49,20 @@ Guide/Drawing Functions.help.sl
 Guide/Elementwise Functions.help.sl
 Guide/Emacs Editor.help.sl
 Guide/Error Handling.help.sl
+Guide/Experimental Assignment Operator Syntax.help.sl
+Guide/Experimental AtIfAbsentPut Syntax.help.sl
+Guide/Experimental AtIfAbsent Syntax.help.sl
+Guide/Experimental AtPutDelegateTo Syntax.help.sl
+Guide/Experimental Constant Syntax.help.sl
 Guide/Experimental Infix Method Syntax.help.sl
 Guide/Experimental Initialised Temporaries Syntax.help.sl
+Guide/Experimental MessageSend Syntax.help.sl
+Guide/Experimental Quoted AtIfAbsentPut Syntax.help.sl
+Guide/Experimental Quoted AtIfAbsent Syntax.help.sl
 Guide/Experimental Simple Method Arity.help.sl
+Guide/Experimental Slot Access Syntax.help.sl
+Guide/Experimental Slot Assignment Syntax.help.sl
+Guide/Experimental Temporary Block Syntax.help.sl
 Guide/Experimental Tree Syntax.help.sl
 Guide/Feature Detection Functions.help.sl
 Guide/Fenced Code Blocks.help.sl
@@ -108,7 +113,6 @@ Guide/Matrix Functions.help.sl
 Guide/Matrix Operations.help.sl
 Guide/Matrix Syntax.help.sl
 Guide/Message Cascades.help.sl
-Guide/MessageSend Syntax.help.sl
 Guide/Method Arity.help.sl
 Guide/Method Dictionary.help.sl
 Guide/Method Syntax.help.sl
@@ -143,8 +147,6 @@ Guide/Probability Distributions.help.sl
 Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
 Guide/Quantity Functions.help.sl
-Guide/Quoted AtIfAbsentPut Syntax.help.sl
-Guide/Quoted AtIfAbsent Syntax.help.sl
 Guide/Quoted AtPut Syntax.help.sl
 Guide/Quoted At Syntax.help.sl
 Guide/Quoted Indexable Syntax.help.sl
@@ -154,6 +156,7 @@ Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
 Guide/Range Syntax.help.sl
+Guide/Record Syntax.help.sl
 Guide/Reference Help Files.help.sl
 Guide/Reflection Functions.help.sl
 Guide/Regular Expression Functions.help.sl
@@ -169,8 +172,6 @@ Guide/Similarity Functions.help.sl
 Guide/Simple Editor.help.sl
 Guide/Simple Programming Language.help.sl
 Guide/SI Units.help.sl
-Guide/Slot Access Syntax.help.sl
-Guide/Slot Assignment Syntax.help.sl
 Guide/Small Hours.help.sl
 Guide/Small Kansas.help.sl
 Guide/Smalltalk Arity.help.sl
@@ -189,7 +190,6 @@ Guide/Syntax Guides.help.sl
 Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
-Guide/Temporary Block Syntax.help.sl
 Guide/Texture Programs.help.sl
 Guide/Trailing Block Syntax.help.sl
 Guide/Trailing Dictionary Syntax.help.sl
@@ -481,8 +481,6 @@ Reference/asWords.help.sl
 Reference/asWriteStream.help.sl
 Reference/atAllBlend.help.sl
 Reference/atAll.help.sl
-Reference/atAllMissing.help.sl
-Reference/atAllNil.help.sl
 Reference/atAllPin.help.sl
 Reference/atAllPutAll.help.sl
 Reference/atAllPut.help.sl
@@ -498,11 +496,13 @@ Reference/atIfAbsentPut.help.sl
 Reference/atIfPresent.help.sl
 Reference/atIfPresentIfAbsent.help.sl
 Reference/atLevelCollect.help.sl
-Reference/atMissing.help.sl
 Reference/atMod.help.sl
 Reference/atModify.help.sl
-Reference/atNil.help.sl
 Reference/atop.help.sl
+Reference/atOrMissingAll.help.sl
+Reference/atOrMissing.help.sl
+Reference/atOrNilAll.help.sl
+Reference/atOrNil.help.sl
 Reference/atPath.help.sl
 Reference/atPathPut.help.sl
 Reference/atPin.help.sl
@@ -697,6 +697,7 @@ Reference/cauchyMatrix.help.sl
 Reference/cayleyMengerDeterminant.help.sl
 Reference/cayleyMengerMatrix.help.sl
 Reference/cayleysSextic.help.sl
+Reference/cayleyTransform.help.sl
 Reference/cdf.help.sl
 Reference/ceiling.help.sl
 Reference/Ceiling.help.sl
@@ -1523,6 +1524,7 @@ Reference/Html.help.sl
 Reference/hue.help.sl
 Reference/HuffmanCoding.help.sl
 Reference/huffmanEncode.help.sl
+Reference/hyperbolaCurve.help.sl
 Reference/hyperfactorial.help.sl
 Reference/HypergeometricDistribution.help.sl
 Reference/hyphenMinusGreaterThanSign.help.sl
@@ -2828,7 +2830,7 @@ Reference/Release.help.sl
 Reference/reliefPlot.help.sl
 Reference/remainderBy.help.sl
 Reference/remainder.help.sl
-Reference/Removeable.help.sl
+Reference/Removable.help.sl
 Reference/removeAllEqualTo.help.sl
 Reference/removeAllFoundIn.help.sl
 Reference/removeAll.help.sl
@@ -2990,6 +2992,7 @@ Reference/secondBrocardTriangle.help.sl
 Reference/secondFeigenbaumConstant.help.sl
 Reference/second.help.sl
 Reference/seconds.help.sl
+Reference/sectorArea.help.sl
 Reference/seedRandom.help.sl
 Reference/selectedText.help.sl
 Reference/selectedTextOrWordAtCaret.help.sl

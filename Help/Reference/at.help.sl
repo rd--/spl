@@ -24,7 +24,9 @@ All sequenceable collections, including `List`, are indexable:
 Invalid indices signal an `error`:
 
 ```
->>> { ['x', 'y'].at(3) }.ifError { true }
+>>> { ['x' 'y'].at(3) }.ifError {
+>>> 	true
+>>> }
 true
 ```
 
@@ -48,7 +50,9 @@ All dictionaries, including `Record` and `Map`, are indexable:
 A non-existing key signals an `error`:
 
 ```
->>> { (x: 1, y: 2).at('z') }.ifError { true }
+>>> { (x: 1, y: 2).at('z') }.ifError {
+>>> 	true
+>>> }
 true
 ```
 
@@ -112,6 +116,7 @@ The `Trait` definitions of the extended arity forms are:
 
 - _at(c,i,j)_ = _at(at(c,i),j)_
 - _at(c,i,j,k)_ = _at(at(at(c,i),j),k)_
+
 Collections may implement extended arity forms as required.
 
 It is an error if the index is a collection:
@@ -127,7 +132,7 @@ true
 
 See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atPut, atSymmetrical, atWrap, Indexable, size
 
-Guides: AtPut Syntax, At Syntax, Quoted At Syntax
+Guides: AtPut Syntax, At Syntax, Indexing Functions, Quoted At Syntax
 
 References:
 _Mathematica_

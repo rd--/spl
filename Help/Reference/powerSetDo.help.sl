@@ -1,10 +1,11 @@
 # powerSetDo
 
-- _powerSetDo(aCollection, aBlock:/1)_
+- _powerSetDo(c, f:/1)_
 
-Apply _aBlock_ to each element of the power set of _aCollection_.
+Apply the block _f_ to each element of the power set of the collection _c_.
+The power set includes the empty subset.
 
-Visit all subsets of _123_ written as a `Range`:
+Visit all subsets of _1,2,3_ written as a `Range`:
 
 ```
 >>> let l = [];

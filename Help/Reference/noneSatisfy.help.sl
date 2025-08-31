@@ -1,9 +1,9 @@
 # noneSatisfy
 
-- _noneSatisfy(aCollection, aBlock:/1)_
+- _noneSatisfy(c, f:/1)_
 
-Evaluate _aBlock_ with the elements of _aCollection_.
-If _aBlock_ answers `true` for any element answer `false`, otherwise answer `true`.
+Evaluate the block _f_ with the elements of the collection _c_.
+If _f_ answers `true` for any element answer `false`, otherwise answer `true`.
 
 ```
 >>> [].noneSatisfy(isOdd:/1)

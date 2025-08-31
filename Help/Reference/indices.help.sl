@@ -1,11 +1,15 @@
 # indices
 
-- _indices(aCollection)_
-- _indices(aCollection, aBlock:/1)_
+- _indices(c)_
+- _indices(c, f:/1)_
 
-Answer the valid indices for _aCollection_.
-The binary form only answers indices where the associated item satisifes the predicate _aBlock_.
-At `Sequence`, `indices` answers a `Range` from the first to the last index by `one`.
+Answer the valid indices for the collection _c_.
+The binary form only answers indices where the associated item satisifes the predicate block _f_.
+
+At a `Sequence`,
+`indices` answers a `Range` from the first to the last index by `one`.
+At a `Dictionary`,
+`indices` answers a `List` of the keys.
 
 At `List`:
 

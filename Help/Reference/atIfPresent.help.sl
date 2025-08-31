@@ -29,4 +29,6 @@ nil
 
 See also: at, atIfAbsent, atIfPresentIfAbsent
 
+Guides: Indexing Functions
+
 Categories: Accessing

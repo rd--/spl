@@ -1,5 +1,12 @@
 # List Functions
 
+Traits
+
+- `Collection`
+- `Indexable`
+- `Iterable`
+- `Removable`
+
 Types:
 
 - `ByteArray`
@@ -8,6 +15,15 @@ Types:
 - `Range`
 - `Span`
 - `Tuple`
+
+Accessing:
+
+- `atIfAbsent`
+- `atIfPresentIfAbsent`
+- `atIfPresent`
+- `atOrMissing`
+- `atOrNil`
+- `at`
 
 Constructing:
 
@@ -57,3 +73,7 @@ Converting:
 Querying:
 
 - `size`
+
+* * *
+
+Guides: Dictionary Functions, Indexing Functions, List Syntax

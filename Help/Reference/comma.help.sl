@@ -9,7 +9,7 @@ Comma separates items in `List Syntax`:
 [1, 2, 3]
 ```
 
-Comma separates items in `Dictionary Syntax`:
+Comma separates items in `Record Syntax`:
 
 ```
 >>> (x: 1, y: 2, z: 3)

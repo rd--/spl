@@ -14,8 +14,8 @@ providing guard blocks:
 Access an element at a specified index,
 or answer a `Nil` or `Missing` value:
 
-- `atMissing`
-- `atNil`
+- `atOrMissing`
+- `atOrNil`
 
 Access an element at a specified index,
 or at a modified index if the specified index is invalid:
@@ -30,10 +30,11 @@ Access a set of elements at the specified indices:
 
 - `atAll`
 - `atAllFold`
-- `atAllMissing`
-- `atAllNil`
+- `atOrMissingAll`
+- `atOrNilAll`
 - `atAllPin`
 - `atAllSymmetrical`
+- `atAllValid`
 
 Access an element using a positional index:
 
@@ -83,3 +84,15 @@ Write a value, or a collection of values, to a specified sequence of indices:
 Mutate at deep index:
 
 - `atPathPut`
+
+Indexing Syntax
+
+- `At Syntax`
+- `AtAll Syntax`
+- `AtPut Syntax`
+- `Quoted At Syntax`
+- `Quoted AtPut Syntax`
+
+* * *
+
+See also: Dictionary Functions, Indexable Syntax, List Functions

@@ -1,8 +1,8 @@
 # collect
 
-- _collect(aCollection, aBlock:/1)_
+- _collect(c, f:/1)_
 
-Evaluate _aBlock_ with each element of _aCollection_ as the argument.
+Evaluate the block _f_ with each element of the collection _c_ as the argument.
 Collect the resulting values into a collection like the receiver.
 Answer the new collection.
 

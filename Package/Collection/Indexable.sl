@@ -110,17 +110,17 @@
 		self.atPath(self.shape.cartesianIndex(index))
 	}
 
-	atMissing { :self :index |
+	atModify { :self :index :aBlock:/1 |
+		self[index] := aBlock(self[index])
+	}
+
+	atOrMissing { :self :index |
 		self.atIfAbsent(index) {
 			Missing('NotAvailable', index)
 		}
 	}
 
-	atModify { :self :index :aBlock:/1 |
-		self[index] := aBlock(self[index])
-	}
-
-	atNil { :self :index |
+	atOrNil { :self :index |
 		self.atIfAbsent(index) {
 			nil
 		}

@@ -1,9 +1,9 @@
 # cachedFetch
 
-- _cachedFetch(aUrl | aLibraryItem, cacheName)_
+- _cachedFetch(url, cache)_
 
 A caching variant of `fetch`.
-Runs `fetch` unless _aUrl_ is not located in _cacheName_ at `caches`.
+Runs `fetch` unless the `Url` _url_ is located in named `Cache` _cache_ at `caches`.
 
 Fetch a text file:
 

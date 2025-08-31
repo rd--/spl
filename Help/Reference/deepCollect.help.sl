@@ -1,12 +1,11 @@
 # deepCollect
 
-- _deepCollect(aCollection, aBlock:/1)_
+- _deepCollect(c, f:/1)_
 
-Collect over _aCollection_,
-descending into elements that are of the same type as _aCollection_,
-else applying _aBlock_.
-
-The answer has the same structure as _aCollection_.
+Collect over the collection _c_,
+descending into elements that are of the same type as _c_,
+else applying the block _f_.
+The answer has the same structure as _c_.
 
 At `List`:
 

@@ -258,12 +258,12 @@
 		self.atAllUsing(indexList, atFold:/2)
 	}
 
-	atAllMissing { :self :indexList |
-		self.atAllUsing(indexList, atMissing:/2)
+	atOrMissingAll { :self :indexList |
+		self.atAllUsing(indexList, atOrMissing:/2)
 	}
 
-	atAllNil { :self :indexList |
-		self.atAllUsing(indexList, atNil:/2)
+	atOrNilAll { :self :indexList |
+		self.atAllUsing(indexList, atOrNil:/2)
 	}
 
 	atAllPin { :self :indexList |
@@ -291,7 +291,7 @@
 	}
 
 	atAllValid { :self :indexList |
-		self.atAllMissing(indexList).deleteMissing
+		self.atOrMissingAll(indexList).deleteMissing
 	}
 
 	atAllWrap { :self :indexList |

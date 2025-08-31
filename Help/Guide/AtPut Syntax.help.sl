@@ -11,19 +11,19 @@ Syntax for the `atPut` protocol.
 At `List`:
 
 ```
->>> let list = [1 2 3 4 5 6];
->>> list[3] := -3;
->>> list
+>>> let x = [1 2 3 4 5 6];
+>>> x[3] := -3;
+>>> x
 [1 2 -3 4 5 6]
 ```
 
-At List of List:
+At a list of lists:
 
 ```
->>> let matrix = [1 2; 3 4; 5 6];
->>> matrix[2, 2] := -4;
->>> matrix[3, 1] := -5;
->>> matrix
+>>> let x = [1 2; 3 4; 5 6];
+>>> x[2, 2] := -4;
+>>> x[3, 1] := -5;
+>>> x
 [1 2; 3 -4; -5 6]
 ```
 

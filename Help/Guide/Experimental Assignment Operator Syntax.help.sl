@@ -1,4 +1,4 @@
-# Assignment Operator Syntax
+# Experimental Assignment Operator Syntax
 
 Experimental rewrite rule:
 
@@ -13,10 +13,15 @@ However the query operator ? is also interesting.
 
 The notation _p ?:= q_ initializes _p_ if it is nil, where _q_ must be a no-argument block.
 
-```
-var x; x ?:= { 4 }; x = 4
-let x = 1; x ?:= { 4 }; x = 1
-```
+~~~spl experimental
+var x;
+x ?:= { 4 };
+x = 4
+
+let x = 1;
+x ?:= { 4 };
+x = 1
+~~~
 
 * * *
 

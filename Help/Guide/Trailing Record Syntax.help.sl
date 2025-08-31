@@ -1,11 +1,11 @@
-# Trailing Dictionary Syntax
+# Trailing Record Syntax
 
 Rewrite rules:
 
 - _f(k: v, ...)_ ⟹ _f((k: v, ...))_
 - _x.f(k: v, ...)_ ⟹ _f(x, (k: v, ...))_
 
-Trailing dictionary syntax allows for a single concluding _literal dictionary_ argument to be written as
+Trailing dictionary syntax allows for a single concluding literal record argument to be written as
 
 1. the only parameter in an `Apply Syntax` expression
 2. the second parameter of a `Method Syntax` expression

@@ -1,4 +1,4 @@
-# Slot Access Syntax
+# Experimental Slot Access Syntax
 
 The `:@` syntax directly reads the value of a slot at a type.
 

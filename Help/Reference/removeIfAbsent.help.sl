@@ -1,19 +1,26 @@
 # removeIfAbsent
 
-- _removeIfAbsent(aCollection, anObject, aBlock:/0)_
+- _removeIfAbsent(c, x, f:/0)_
 
-Remove the element _anObject_ from _aCollection_.
+Remove the element _x_ from the collection _c_.
 Answer the removed element.
-If no such item exists answer _aBlock()_.
+If no such item exists answer _f()_.
 
 ```
->>> [1 2 3].removeIfAbsent(5) { true }
-true
+>>> let c = [1 2 3];
+>>> let x = c.removeIfAbsent(3) { nil };
+>>> (c, x)
+([1 2], 3)
+
+>>> let c = [1 2 3];
+>>> let x = c.removeIfAbsent(5) { nil };
+>>> (c, x)
+([1 2 3], nil)
 ```
 
 * * *
 
-See also: remove, removeAll
+See also: Removable, remove, removeAll
 
 References:
 _Smalltalk_

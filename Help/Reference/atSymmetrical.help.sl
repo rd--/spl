@@ -37,3 +37,5 @@ The second last item has index _-2_:
 * * *
 
 See also: at, atAllSymmetrical, part
+
+Guides: Indexing Functions

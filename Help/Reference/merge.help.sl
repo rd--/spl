@@ -68,7 +68,7 @@ Merge record with an empty record:
 
 See also: counts, gather, groupBy, keyIntersection, keyUnion, transpose
 
-Guide: Dictionary Functions
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

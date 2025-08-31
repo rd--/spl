@@ -6,6 +6,6 @@ Methods for adding: `add`, `addAll`
 
 * * *
 
-See also: add, Collection, Removeable
+See also: add, Collection, Removable
 
 Categories: Collection, Trait

@@ -31,7 +31,7 @@ and it is defined so that _max([-3, 0, 3])_ answers _3_,
 where in SuperCollider language the same expression answers _[-3, 0, 3]_.
 
 There are no keywords or default argument values.
-There is however a `Trailing Dictionary Syntax`,
+There is however a `Trailing Record Syntax`,
 and this allows writing _SinOsc(freq: 440, phase: 0)_,
 so long as there is a suitable definition of `SinOsc` at `Record`.
 

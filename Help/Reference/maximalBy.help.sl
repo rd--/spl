@@ -1,8 +1,8 @@
 # maximalBy
 
-- _maximalBy(aCollection, aBlock:/1)_
+- _maximalBy(c, f:/1)_
 
-Answer a `List` of the elements of _aCollection_ for which the value of _aBlock_ is maximal.
+Answer a `List` of the elements of the collection _c_ for which the value of the block _f_ is maximal.
 
 ```
 >>> [-2J2 4J1].maximalBy(abs:/1)

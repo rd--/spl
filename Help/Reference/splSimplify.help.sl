@@ -110,7 +110,7 @@ DoubleQuotedString('q')
 Symbol('q')
 ```
 
-`Dictionary Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
+`Record Syntax` is rewritten as `Apply Syntax` and `List Syntax`:
 
 ```
 >>> '(k: v)'.splSimplify
@@ -189,7 +189,7 @@ List range expressions:
 'f(x, { :i | i })'
 ```
 
-`Trailing Dictionary Syntax` is rewritten as `Apply Syntax`:
+`Trailing Record Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >>> 'f(k: v)'.splSimplify

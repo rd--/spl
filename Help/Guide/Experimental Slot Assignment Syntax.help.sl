@@ -1,4 +1,4 @@
-# Slot Assignment Syntax
+# Experimental Slot Assignment Syntax
 
 Rewrite rules:
 

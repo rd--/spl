@@ -9,7 +9,7 @@ A colon prefix indicates argument names in `Block Syntax`:
 9
 ```
 
-A colon suffix indicates key names in `Dictionary Syntax`:
+A colon suffix indicates key names in `Record Syntax`:
 
 ```
 >>> (x: 1, y: 2).keys
@@ -36,7 +36,7 @@ The name of this syntax token is `colon`.
 
 See also: ,, ., ;, :;, :=
 
-Guides: Block Syntax, Dictionary Syntax, Infix Method Syntax, Range Syntax, Syntax Tokens, Type Definition Syntax
+Guides: Block Syntax, Record Syntax, Infix Method Syntax, Range Syntax, Syntax Tokens, Type Definition Syntax
 
 References:
 _Mathworks_

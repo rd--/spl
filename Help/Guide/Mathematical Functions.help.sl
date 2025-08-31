@@ -283,9 +283,7 @@
 
 ## Statistics Functions
 
-Guide:
-
-- `Statistics Functions`
+- `Statistics Functions`: Guide
 
 General:
 
@@ -317,9 +315,7 @@ Shape:
 
 ## Trigonometric Functions
 
-Guide:
-
-- `Trigonometric Functions`
+- `Trigonometric Functions`: Guide
 
 Function List:
 

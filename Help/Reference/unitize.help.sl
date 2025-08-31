@@ -58,7 +58,7 @@ Plot unitized matrix:
 
 See also: boole, clip, diracDelta, kroneckerDelta, sign, unitStep
 
-Guide: Mathematical Functions
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

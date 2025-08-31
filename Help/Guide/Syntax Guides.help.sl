@@ -18,7 +18,7 @@
 - `Binary Operator Syntax`
 - `Comment Syntax`
 - `Dictionary Assignment Syntax`
-- `Dictionary Syntax`
+- `Record Syntax`
 - `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
@@ -27,7 +27,7 @@
 - `Range Syntax`
 - `Slot Assignment Syntax`
 - `Trailing Block Syntax`
-- `Trailing Dictionary Syntax`
+- `Trailing Record Syntax`
 - `Unary Operator Syntax`
 
 ## Accessing Syntax
@@ -52,17 +52,17 @@
 
 ## Experimental Syntax
 
-- `Assignment Operator Syntax`
-- `AtIfAbsent Syntax`
-- `AtIfAbsentPut Syntax`
-- `AtPutDelegateTo Syntax`
-- `Constant Syntax`
-- `Initialised Temporaries Syntax`
-- `MessageSend Syntax`
-- `Quoted AtIfAbsent Syntax`
-- `Quoted AtIfAbsentPut Syntax`
-- `Slot Access Syntax`
-- `Temporary Block Syntax`
+- `Experimental Assignment Operator Syntax`
+- `Experimental AtIfAbsent Syntax`
+- `Experimental AtIfAbsentPut Syntax`
+- `Experimental AtPutDelegateTo Syntax`
+- `Experimental Constant Syntax`
+- `Experimental Initialised Temporaries Syntax`
+- `Experimental MessageSend Syntax`
+- `Experimental Quoted AtIfAbsent Syntax`
+- `Experimental Quoted AtIfAbsentPut Syntax`
+- `Experimental Slot Access Syntax`
+- `Experimental Temporary Block Syntax`
 
 * * *
 

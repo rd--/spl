@@ -22,3 +22,5 @@ The last three items have indices _(-3, -2, -1)_:
 * * *
 
 See also: atAll, atSymmetrical, part
+
+Guides: Indexing Functions

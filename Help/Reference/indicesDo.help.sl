@@ -1,9 +1,19 @@
 # indicesDo
 
-- _indicesDo(aCollection, aBlock:/1)_
+- _indicesDo(c, f:/1)_
 
-Evaluate _aBlock_ at the valid indices of _aCollection_.
+Evaluate the block _f_ at the valid indices of the collection _c_.
 For sequenceable collections indices are enumerated in sequence.
+
+```
+>>> let c = [1 3 5 7 9];
+>>> let r = [];
+>>> c.indicesDo { :each |
+>>> 	r.add(each)
+>>> };
+>>> r
+[1 2 3 4 5]
+```
 
 * * *
 

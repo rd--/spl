@@ -1,12 +1,14 @@
-# Temporary Block Syntax
+# Experimental Temporary Block Syntax
 
 In the case where a temporary variable is `let` bound to a literal block,
-the system appends the appropriate arity qualified to the bound name.
+the system appends the appropriate arity qualifier to the bound name.
 
 This allows the defined block to be applied using `Apply Syntax`:
 
 ```
->>> let f = { :x | x * x * x};
+>>> let f = { :x |
+>>> 	x * x * x
+>>> };
 >>> f(3)
 27
 ```
@@ -14,9 +16,11 @@ This allows the defined block to be applied using `Apply Syntax`:
 To refer to the block by name the qualified must be written:
 
 ```
->>> let f = { :x | x * x * x };
+>>> let f = { :x |
+>>> 	x * x * x
+>>> };
 >>> [3, 5, 7].collect(f:/1)
-[27, 125, 343]
+[27 125 343]
 ```
 
 _Experimental_:

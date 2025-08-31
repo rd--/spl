@@ -1,4 +1,4 @@
-# AtIfAbsentPut Syntax
+# Experimental AtIfAbsentPut Syntax
 
 Rewrite rule:
 
@@ -11,6 +11,8 @@ _a_ must be a literal block.
 
 * * *
 
-See also: At Synax, AtAll Syntax, AtIfAbsent Syntax, AtPut Syntax, Quoted At Syntax
+See also: At Synax, AtAll Syntax, AtPut Syntax, Quoted At Syntax
 
 Categories: Syntax
+
+Status: Disallowed, Experimental

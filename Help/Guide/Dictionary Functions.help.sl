@@ -41,4 +41,5 @@ Set Functions:
 
 * * *
 
-Guides: Dictionary Syntax
+Guides: Record Syntax
+Guides: Indexing Functions, List Functions

@@ -9,3 +9,5 @@ Rewrite rules:
 See also: Let Syntax, Var Syntax
 
 Categories: Syntax
+
+Status: Disallowed, Experimental

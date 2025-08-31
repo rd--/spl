@@ -1,8 +1,8 @@
 # subsets
 
-- _subsets(aCollection, aBlock:/1)_
+- _subsets(c, f:/1)_
 
-Answer the elements of the power set of _aCollection_ that satisfy the predicate _aBlock_.
+Answer the elements of the power set of the collection _c_ that satisfy the predicate block _f_.
 
 All possible subsets containing up to 2 elements:
 

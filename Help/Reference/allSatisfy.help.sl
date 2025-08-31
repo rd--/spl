@@ -1,9 +1,9 @@
 # allSatisfy
 
-- _allSatisfy(aCollection, aBlock:/1)_
+- _allSatisfy(c, f:/1)_
 
-Evaluate _aBlock_ with the elements of _aCollection_.
-If _aBlock_ answers `false` for any element,
+Evaluate the block _f_ with the elements of the collection _c_.
+If _f_ answers `false` for any element,
 answers `false`,
 otherwise answers `true`.
 Only tests elements until one answers `false`.

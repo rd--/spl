@@ -20,3 +20,7 @@ The name of the method value is the same as the name of the method when applied.
 
 It is also possible to define both an arity specific name which dispatches to the type table,
 and an arity generic name which dispatches to the arity table.
+
+* * *
+
+Status: Disallowed, Experimental

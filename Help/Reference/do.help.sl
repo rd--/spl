@@ -1,14 +1,16 @@
 # do
 
-- _do(aCollection, aBlock:/1)_
+- _do(c, f:/1)_
 
-Evaluate _aBlock_ with each element of _aCollection_ as the argument.
-Answers _aCollection_.
+Evaluate the block _f_ with each element of the collection _c_ as the argument.
+Answers _c_.
 
 ```
->>> let list = [];
->>> let answer = 1:9.do { :each | list.add(each) };
->>> (answer, list)
+>>> let c = [];
+>>> let x = 1:9.do { :each |
+>>> 	c.add(each)
+>>> };
+>>> (x, c)
 (1:9, [1 .. 9])
 ```
 
@@ -16,13 +18,13 @@ It is not safe to modify a mutable collection that is being iterated over,
 instead a copy should be used:
 
 ```
->>> let list = [1 .. 9];
->>> list.copy.do { :each |
+>>> let c = [1 .. 9];
+>>> c.copy.do { :each |
 >>> 	each.isOdd.ifTrue {
->>> 		list.add(each)
+>>> 		c.add(each)
 >>> 	}
 >>> };
->>> list
+>>> c
 [1 2 3 4 5 6 7 8 9 1 3 5 7 9]
 ```
 
@@ -33,6 +35,8 @@ All collection types are iterable.
 * * *
 
 See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepeat, valuesDo
+
+Guides: Dictionary Functions, List Functions
 
 References:
 _Mathematica_

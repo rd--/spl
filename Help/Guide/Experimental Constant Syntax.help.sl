@@ -1,4 +1,4 @@
-# Constant Syntax
+# Experimental Constant Syntax
 
 Constants can be defined using the experimental syntax _Constant.name = value_.
 

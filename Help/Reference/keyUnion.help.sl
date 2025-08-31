@@ -36,7 +36,7 @@ If _f_ is a dictionary lookup missing key values directly:
 
 See also: keyIntersection, keys, union
 
-Guide: Dictionary Functions
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

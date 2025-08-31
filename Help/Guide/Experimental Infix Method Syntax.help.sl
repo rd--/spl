@@ -16,14 +16,14 @@ or using `Method Syntax` as:
 
 Methods of arity two (binary methods) may also be written infix by appending a `:` to the name:
 
-~~~
+~~~spl experimental
 3 min: 4
 => 3
 ~~~
 
 When written infix, methods may also take an adverb, in which case the `:` is elided:
 
-~~~
+~~~spl experimental
 [3 1 2] min.outer [4 1 2]
 => [3 1 2; 1 1 1; 2 1 2]
 
@@ -38,3 +38,5 @@ See also: :
 Guides: Apply Syntax, Binary Operator Syntax, Method Syntax, Operator Adverbs
 
 Categories: Syntax
+
+Status: Disallowed, Experimental

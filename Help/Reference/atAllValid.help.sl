@@ -17,4 +17,6 @@ A variant of `atAll` that discards invalid indices:
 
 * * *
 
-See also: atAll, atAllMissing
+See also: atAll, atOrMissingAll
+
+Guides: Indexing Functions, List Functions
