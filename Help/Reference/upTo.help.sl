@@ -1,9 +1,11 @@
 # upTo
 
-- _upTo(aStream, anObject)_
+- _upTo(s, x)_
 
-Answer a collection of all of the items in _aStream_ up to, but not including, the next occurrence of _anObject_.
-Sets the stream to read the object just after the next occurrence of _anObject_.
+Answer a collection of all of the items in the stream _s_ up to,
+but not including,
+the next occurrence of the object _x_.
+Sets the stream to read the object just after the next occurrence of _x_.
 
 ```
 >>> let s = [1 .. 9].asStream;
@@ -11,7 +13,7 @@ Sets the stream to read the object just after the next occurrence of _anObject_.
 ([1 2 3 4], [6 7 8 9])
 ```
 
-If _anObject_ is not found and the end of the stream is encountered, the objects read are answered.
+If _x_ is not found and the end of the stream is encountered, the objects read are answered.
 
 ```
 >>> 1:9.asStream.upTo(11)
@@ -30,6 +32,8 @@ At `BlockStream`:
 * * *
 
 See also: Iterator, next, Stream, upToEnd
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

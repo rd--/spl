@@ -1,8 +1,8 @@
 # atEnd
 
-- _atEnd(aStream)_
+- _atEnd(s)_
 
-Answers `true` if there are no more elements in _aStream_, else `false`.
+Answers `true` if there are no more elements in the stream _s_, else `false`.
 
 ```
 >>> let i = [1 3 5 7 9].asIterator;
@@ -13,6 +13,8 @@ Answers `true` if there are no more elements in _aStream_, else `false`.
 * * *
 
 See also: asIterator, Stream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

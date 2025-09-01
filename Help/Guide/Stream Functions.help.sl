@@ -44,7 +44,6 @@ Stream Functions:
 
 Positionable Stream Functions:
 
-- `on`
 - `peek`
 - `peekFor`
 - `position`
@@ -64,4 +63,4 @@ Mutable Stream Functions:
 
 * * *
 
-See also: Iterator
+Guides: List Functions

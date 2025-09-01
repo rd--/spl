@@ -1,9 +1,9 @@
 # skipTo
 
-- _skipTo(aStream, anObject)_
+- _skipTo(s, x)_
 
-Sets _aStream_ to read the object just after the next occurrence of _anObject_ and answer `true`.
-If _anObject_ is not found before the end of the stream is encountered, answers `false`.
+Sets the stream _s_ to read the object just after the next occurrence of _x_ and answer `true`.
+If _x_ is not found before the end of the stream is encountered, answers `false`.
 
 Skip to an object:
 
@@ -17,6 +17,8 @@ Skip to an object:
 * * *
 
 See also: position, skip, upToEnd
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

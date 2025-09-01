@@ -1,6 +1,6 @@
 # isBinary
 
-- _isBinary(anObject)_
+- _isBinary(x)_
 
 Predicate to test if a value implements the `Binary` trait.
 
@@ -38,10 +38,12 @@ true
 At `Stream` tells if the underlying collection is a `ByteArray`:
 
 ```
->>> List(100).asWriteStream.isBinary
+>>> List(100).asWriteStream
+>>> .isBinary
 false
 
->>> ByteArray(100).asWriteStream.isBinary
+>>> ByteArray(100).asWriteStream
+>>> .isBinary
 true
 ```
 
@@ -49,6 +51,6 @@ true
 
 See also: Binary, Tree
 
-Guides: Tree Functions
+Guides: Stream Functions, Tree Functions
 
 Categories: Testing

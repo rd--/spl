@@ -1,8 +1,8 @@
 # utf8ByteArray
 
-- _utf8ByteArray(aString)_
+- _utf8ByteArray(s)_
 
-Answer a `ByteArray` of the Utf-8 encoding of _aString_.
+Answer a `ByteArray` of the Utf-8 encoding of the string _s_.
 
 ```
 >>> '€'.utf8ByteArray

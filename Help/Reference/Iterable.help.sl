@@ -8,17 +8,19 @@ Iterable defines `size` in terms of `do`,
 but for many types a more efficient form is possible.
 
 ```
->>> system.traitDictionary['Iterable'].isTrait
+>>> system.traitDictionary['Iterable']
+>>> .isTrait
 true
 
->>> system.traitTypes('Iterable').includes('List')
+>>> system.traitTypes('Iterable')
+>>> .includes('List')
 true
 ```
-
-Methods for accessing: `anyOne`
 
 * * *
 
 See also: Collection, do, Iterator, size, Trait
+
+Guides: Stream Functions
 
 Categories: Trait

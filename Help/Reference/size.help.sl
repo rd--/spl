@@ -104,6 +104,8 @@ not the number of elements remaining:
 
 See also: at, atPut, depth, dimensions, do, indices, isEmpty, leafCount
 
+Guides: Dictionary Functions, List Functions, Stream Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Tally),

@@ -3,7 +3,8 @@
 - _peek(x)_
 
 Answer what would be returned if the next item were requested from the object _x_,
-for instance `next` at a `Stream`,
+but do not request the item.
+For instance `next` at a `Stream`,
 or `pop` at a `Stack` or `PriorityQueue`.
 If there is no item, answer nil.
 

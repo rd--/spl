@@ -1,8 +1,8 @@
 # asIterator
 
-- _asIterator(aCollection)_
+- _asIterator(c)_
 
-Answer a `CollectionStream` on _aCollection_.
+Answer a `CollectionStream` on the collection _c_.
 
 ```
 >>> let i = 1:9.asIterator;
@@ -12,6 +12,8 @@ Answer a `CollectionStream` on _aCollection_.
 
 * * *
 
-See also: CollectionStream, do, Iterator, Iterable, next, Stream
+See also: asStream, CollectionStream, do, Iterator, Iterable, next, Stream
+
+Guides: Stream Functions
 
 Categories: Converting

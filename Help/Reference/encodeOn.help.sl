@@ -1,9 +1,11 @@
 # encodeOn
 
-- _encodeOn(aString, aBinaryStream)_
+- _encodeOn(x, s)_
 
-Encode _aString_ using `utf8ByteArray` onto _aBinaryStream_.
+Encode the string _x_ using `utf8ByteArray` onto the binary stream _s_.
 
 * * *
 
 See also: isBinary, nextPutAll, utf8ByteArray, Utf8Stream
+
+Guides: Stream Functions

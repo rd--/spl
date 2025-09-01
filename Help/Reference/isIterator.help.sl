@@ -1,6 +1,8 @@
 # isIterator
 
-- _isIterator(anObject)_
+- _isIterator(x)_
+
+Answer `true` if the object _x_ implements the `Iterator` trait.
 
 At `Sfc32`, an instance of `RandomNumberGenerator`:
 
@@ -21,3 +23,5 @@ At `CollectionStream`:
 * * *
 
 See also: Iterator, Stream
+
+Guides: Stream Functions

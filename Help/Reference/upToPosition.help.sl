@@ -1,6 +1,8 @@
 # upToPosition
 
-- _upToPosition(aStream, anInteger)_
+- _upToPosition(s, n)_
+
+Answer the items at the stream _s_ from the current position up to position _n_.
 
 Read from current up to indicated position:
 
@@ -13,3 +15,5 @@ Read from current up to indicated position:
 * * *
 
 See also: upTo, upToEnd
+
+Guides: Stream Functions

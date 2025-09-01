@@ -1,8 +1,8 @@
 # asWriteStream
 
-- _asWriteStream(aCollection)_
+- _asWriteStream(c)_
 
-Answer a `MutableCollectionStream` on _aCollection_.
+Answer a `MutableCollectionStream` on the collection _c_.
 
 `nextPut` writes a value to the stream,
 `contents` answers the contents of the stream:
@@ -28,5 +28,7 @@ Answer a `MutableCollectionStream` on _aCollection_.
 * * *
 
 See also: MutableCollectionStream, nextPut, nextPutAll, Stream, WriteStream
+
+Guides: Stream Functions
 
 Categories: Converting

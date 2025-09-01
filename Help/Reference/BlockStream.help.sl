@@ -21,7 +21,7 @@
 with the restriction that the stream cannot be copied.
 
 `BlockStream` implements `collect`, `reject` and `select`,
-as well as the adaptTo protocol and the usual math operators.
+as well as the _adapt-to_ protocol and the usual math operators.
 
 * * *
 

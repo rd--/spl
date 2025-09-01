@@ -80,4 +80,4 @@ Querying:
 
 * * *
 
-Guides: Dictionary Functions, Indexing Functions, List Syntax
+Guides: Dictionary Functions, Indexing Functions, List Syntax, Stream Functions

@@ -6,4 +6,6 @@
 
 See also: asStream, asWriteStream, PositionableStream, Stream, WriteStream
 
+Guides: Stream Functions
+
 Categories: Collection, Type

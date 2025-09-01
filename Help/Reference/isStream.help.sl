@@ -1,6 +1,8 @@
 # isStream
 
-- _isStream(anObject)_
+- _isStream(x)_
+
+Answer `true` if the object _x_ implements the `Stream` trait.
 
 At `Sfc32`, an instance of `RandomNumberGenerator`:
 
@@ -20,3 +22,5 @@ At `CollectionStream`:
 * * *
 
 See also: Iterator, Stream
+
+Guides: Stream Functions

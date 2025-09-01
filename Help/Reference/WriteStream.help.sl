@@ -4,7 +4,7 @@
 
 * * *
 
-See also: nextPut, ReadStream, Stream
+See also: nextPut, MutableCollectionStream, ReadStream, Stream
 
 Guides: Stream Functions
 
