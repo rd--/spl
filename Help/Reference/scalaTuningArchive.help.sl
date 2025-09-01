@@ -39,7 +39,7 @@ Count the tunings where the octave is non-standard:
 >>> system
 >>> .scalaTuningArchive
 >>> .count { :each |
->>> 	each.octave ~= 2
+>>> 	each.octave != 2
 >>> }
 806
 ```

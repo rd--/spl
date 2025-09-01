@@ -31,7 +31,7 @@ A `List` with only `Association` entries is called an _association list_.
 Equality considers both _key_ & _value_, unlike in Smalltalk-80:
 
 ```
->>> ('x' -> 1) ~= ('y' -> 1)
+>>> ('x' -> 1) != ('y' -> 1)
 true
 ```
 

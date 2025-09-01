@@ -192,7 +192,7 @@ Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Trailing Block Syntax.help.sl
-Guide/Trailing Dictionary Syntax.help.sl
+Guide/Trailing Record Syntax.help.sl
 Guide/Tree Functions.help.sl
 Guide/Triangle Functions.help.sl
 Guide/Trigonometric Functions.help.sl
@@ -1190,6 +1190,8 @@ Reference/exchangeMatrix.help.sl
 Reference/excircles.help.sl
 Reference/excirclesRadicalCircle.help.sl
 Reference/exclamationMarkCircumflexAccent.help.sl
+Reference/exclamationMarkEqualsSignEqualsSign.help.sl
+Reference/exclamationMarkEqualsSign.help.sl
 Reference/exclamationMark.help.sl
 Reference/exclamationMarkPlusSign.help.sl
 Reference/exclamationMarkTilde.help.sl
@@ -2300,6 +2302,7 @@ Reference/multinomial.help.sl
 Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
+Reference/multiplyAdd.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MultivariateTDistribution.help.sl
 Reference/MutableCollectionStream.help.sl
@@ -3326,9 +3329,7 @@ Reference/third.help.sl
 Reference/threshold.help.sl
 Reference/thueMorse.help.sl
 Reference/thueMorseSequence.help.sl
-Reference/tildeEqualsSign.help.sl
 Reference/tilde.help.sl
-Reference/tildeTilde.help.sl
 Reference/Time.help.sl
 Reference/TimeInterval.help.sl
 Reference/timelinePlot.help.sl

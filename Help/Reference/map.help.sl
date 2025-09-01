@@ -1,11 +1,11 @@
 # map
 
-- _map(α)_ ⇒ _each(α)_
-- _map(α, β)_ ⇒ _collect(β, α)_
-- _map(α, β, γ)_ ⇒ _withCollect(γ, α, β)_
-- _map(α, β, γ, δ)_ ⇒ _withWithCollect(δ, α, β, γ)_
+- _map(f:/2)_
+- _map(f:/1, c)_
+- _map(f:/2, c₁, c₂)_
+- _map(f:/3, c₁, c₂, c₃)_
 
-The unary form answers a `Block` that will apply _aBlock_ element wise to two sequences.
+The unary form answers a `Block` that will apply the block _f_ element wise to two sequences.
 If the sequences are not of equal size the shorter will be recycled.
 This form is equivalent to `each`.
 
@@ -105,6 +105,8 @@ Negate integers that are prime:
 * * *
 
 See also: array, collect, each, swap, table, withCollect, withWithCollect
+
+Guides: List Functions
 
 References:
 _Python_

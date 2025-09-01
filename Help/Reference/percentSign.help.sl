@@ -4,6 +4,8 @@
 
 Answer the floating-point remainder of dividing _m_ by _n_.
 
+At integer _m_ and _n_:
+
 ```
 >>> 5 % 3
 2
@@ -250,6 +252,8 @@ The name of this operator is `percentSign`.
 * * *
 
 See also: /, //, \\, divisible, minimalResidue, mod, quotient, quotientRemainder, remainder
+
+Guides: Binary Operators
 
 References:
 _Apl_

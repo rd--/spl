@@ -1,55 +1,64 @@
 # atPut
 
-- _atPut(aCollection, anInteger, anObject)_
-- _atPut(c, i, j, v)_ ⇒ _at(c, i).atPut(j, v)_
-- _atPut(c, i, j, k, v)_ ⇒ _at(c, i).at(j).atPut(k, v)_
+- _atPut(c, i, x)_
+- _atPut(c, i, j, x)_
+- _atPut(c, i, j, k, x)_
 
-Store _anObject_ at _anInteger_ in _aCollection_.
+Store the object _x_ at index _i_ of the indexable collection _c_.
 If the collection does not have indexed variables,
-or if the argument is less than one or greater than the number of indexed variables,
+or if the argument is not a valid index,
 then report an error.
-Answer _anObject_.
+Answer _x_.
 
-The trait definitions of the extended arity forms are as above.
+In the extended cases _j_ a secondary index and _k_ a tertiary index.
 
-```
->>> let l = [1 2 3];
->>> (l.atPut(2, 'two'), l)
-('two', [1 'two' 3])
-```
-
-- _atPut(aCollection, aKey, anObject)_
-
-Associate _anObject_ with _aKey_ in _aCollection_.
-If the collection is not a kind of dictionary then report an error.
-If the dictionary does not have an entry for _aKey_ create one.
-Answer _anObject_.
+At `List`:
 
 ```
->>> let r = Record();
->>> (r.atPut('x', 1), r.at('x'))
-(1, 1)
+>>> let c = [1 2 3];
+>>> let x = c.atPut(2, -2);
+>>> (x, c)
+(-2, [1 -2 3])
+```
+
+At `Record`:
+
+```
+>>> let c = (x: 1, y: 2, z: 3);
+>>> let x = c.atPut('y', -2);
+>>> (x, c)
+(-2, (x: 1, y: -2, z: 3))
+```
+
+In the dictionary case,
+the index, or key, must be valid there does not have to be an existing entry:
+
+```
+>>> let c = (x: 1, z: 3);
+>>> let x = c.atPut('y', -2);
+>>> (x, c)
+(-2, (x: 1, y: -2, z: 3))
 ```
 
 There is `AtPut Syntax` for mutating indexed values:
 
 ```
->>> let a = ['x' 'y'];
->>> a[1] := 'z';
->>> a
-['z' 'y']
+>>> let c = [1 2 3];
+>>> let x = c[2] := -2;
+>>> (x, c)
+(-2, [1 -2 3])
 
->>> let d = (x: 1, y: 2);
->>> d['x'] := 3;
->>> d
-(x: 3, y: 2)
+>>> let c = (x: 1, y: 2, z: 3);
+>>> let x = c['y'] := -2;
+>>> (x, c)
+(-2, (x: 1, y: -2, z: 3))
 ```
 
 * * *
 
 See also: at, atPathPut, size
 
-Guides: AtPut Syntax, Quoted AtPut Syntax
+Guides: AtPut Syntax, Dictionary Functions, List Functions, Quoted AtPut Syntax
 
 References:
 _Smalltalk_

@@ -545,7 +545,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 				index.betweenAnd(1, end)
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
-				(index ~= 0).ifTrue {
+				(index != 0).ifTrue {
 					answer.add(index);
 					index := index + 1
 				}
@@ -738,7 +738,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 				index.betweenAnd(1, end)
 			}.whileTrue {
 				index := self.findStringStartingAt(aString, index);
-				(index ~= 0).ifTrue {
+				(index != 0).ifTrue {
 					tally := tally + 1;
 					index := index + 1
 				}

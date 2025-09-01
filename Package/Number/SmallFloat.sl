@@ -187,7 +187,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	bitTest { :self :anInteger |
-		self.bitAnd(1 << (anInteger - 1)) ~= 0
+		self.bitAnd(1 << (anInteger - 1)) != 0
 	}
 
 	bitXor { :self :anObject |
@@ -576,7 +576,7 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	realDigits { :self :base :size |
-		(base ~= 10).if {
+		(base != 10).if {
 			self.error('SmallFloat>>realDigits: not implemented unless base=10')
 		} {
 			let exponent = (self.log10 + 1).round;

@@ -144,7 +144,7 @@
 	}
 
 	assertIsValidInterpolatorData { :x :y :n |
-		(x.size ~= y.size).ifTrue {
+		(x.size != y.size).ifTrue {
 			x.error('Interpolator: dimension mismatch')
 		};
 		(x.size < n).ifTrue {
@@ -229,7 +229,7 @@
 	hermiteInterpolatorCoefficientList { :x :y :firstDerivative |
 		let n = x.size - 1;
 		assertIsValidInterpolatorData(x, y, 2);
-		(x.size ~= firstDerivative.size).ifTrue {
+		(x.size != firstDerivative.size).ifTrue {
 			x.error('hermiteInterpolatorCoefficientList: firstDerivative list invalid')
 		};
 		(1 .. n).collect { :i |
@@ -564,7 +564,7 @@
 				(i + 1).toDo(k) { :j |
 					let x2 = x[j];
 					let y2 = y[j];
-					(x1 ~= x2).ifTrue {
+					(x1 != x2).ifTrue {
 						slope.add(
 							(y2 - y1) / (x2 - x1)
 						);

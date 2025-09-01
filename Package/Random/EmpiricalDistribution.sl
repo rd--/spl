@@ -44,7 +44,7 @@ EmpiricalDistribution : [Object, ProbabilityDistribution] { | contents k |
 						high := high + high
 					};
 					{
-						i ~= 0
+						i != 0
 					}.whileTrue {
 						let mid = (high + low) / 2;
 						(f(mid) >= p).if {

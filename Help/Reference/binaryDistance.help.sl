@@ -4,7 +4,7 @@
 
 Answer the angular binary distance between vectors _u_ and _v_.
 
-`binaryDistance` is equivalent to _(u ~= v).boole_.
+`binaryDistance` is equivalent to _(u != v).boole_.
 
 Binary distance between numeric vectors:
 

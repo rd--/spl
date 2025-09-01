@@ -230,7 +230,7 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 				(each = oneCodePoint).if {
 					answer.add(index - 1)
 				} {
-					(each ~= zeroCodePoint).ifTrue {
+					(each != zeroCodePoint).ifTrue {
 						self.error('asBitSet: not 0 or 1: ' ++ each)
 					}
 				}
@@ -264,7 +264,7 @@ BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity byte
 +ByteArray {
 
 	asBitSet { :self :capacity |
-		(self.size * 8 ~= capacity).if {
+		(self.size * 8 != capacity).if {
 			self.error('asBitSet: incorrect capacity')
 		} {
 			newBitSet().initializeSlots(

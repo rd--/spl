@@ -1,8 +1,8 @@
 # atPath
 
-- _atPath(aCollection, indices)_
+- _atPath(c, i)_
 
-The _indices_ describe a path of accesses into _aCollection_, taken in sequence.
+The indices _i_ describe a path of accesses into the collection _i_, taken in sequence.
 
 A one element path at a `Record`:
 
@@ -54,9 +54,12 @@ The infix form is @>.
 1
 ```
 
+_Rationale_: There are two distinct kinds of collection index lookups,
+`atPath` and `atAll`.
+
 * * *
 
-See also: at, atAll
+See also: at, atAll, atPathPut
 
 References:
 _Apl_

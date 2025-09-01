@@ -7,7 +7,7 @@ BrownianBridgeProcess : [Object] { | sigma start end |
 		let a = { :y :t | (x2 - y) / (t2 - t) };
 		let b = { :y :t | sigma };
 		let [tMin, tMax, dt] = t;
-		(t1 ~= tMin | { t2 ~= tMax }).if {
+		(t1 != tMin | { t2 != tMax }).if {
 			self.error('randomFunction: invalid t')
 		} {
 			TemporalData(

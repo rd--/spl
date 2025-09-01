@@ -447,7 +447,7 @@
 	}
 
 	isNonZero { :self |
-		self ~= 0
+		self != 0
 	}
 
 	isNumber { :self |
@@ -538,6 +538,10 @@
 
 	mod { :m :n :d |
 		m - (n * ((m - d) / n).floor)
+	}
+
+	multiplyAdd { :i :j :k |
+		(i * j) + k
 	}
 
 	negate { :self |

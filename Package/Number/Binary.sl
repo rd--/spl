@@ -96,7 +96,7 @@
 		let answer = n;
 		{
 			n := n.bitShiftRight(1);
-			n ~= 0
+			n != 0
 		}.whileTrue {
 			answer := answer.bitXor(n)
 		};

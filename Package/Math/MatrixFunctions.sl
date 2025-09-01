@@ -40,7 +40,7 @@
 				(m[i][i] = 0).ifTrue {
 					let swapTo = nil;
 					(i + 1).toDo(n) { :j |
-						(m[j][i] ~= 0).ifTrue {
+						(m[j][i] != 0).ifTrue {
 							swapTo := j
 						}
 					};
@@ -216,7 +216,7 @@
 		let [m, n] = self.shape;
 		let a = [m, m * 2].zeroMatrix;
 		let r = [m, n].zeroMatrix;
-		(m ~= n).ifTrue {
+		(m != n).ifTrue {
 			self.error('List>>gaussJordanInverse: matrix is not square')
 		};
 		1.toDo(m) { :i |
@@ -226,7 +226,7 @@
 		a.reducedRowEchelonForm;
 		1.toDo(n) { :i |
 			1.toDo(n) { :j |
-				(a[i][j] ~= (i = j).boole).if {
+				(a[i][j] != (i = j).boole).if {
 					self.error('List>>gaussJordanInverse: matrix is singular')
 				} {
 					r[i][j] := a[i][m + j]
@@ -592,7 +592,7 @@
 					row := j
 				}
 			};
-			(i ~= row).ifTrue {
+			(i != row).ifTrue {
 				p.swapWith(i, row)
 			}
 		};
@@ -628,7 +628,7 @@
 	matchPairs { :self |
 		let [_, i] = self.kuhnMunkresAlgorithm;
 		let k = i.size;
-		[i, 1:k].transpose.select { :each | each[1] ~= 0 }
+		[i, 1:k].transpose.select { :each | each[1] != 0 }
 	}
 
 	matrixCorrelation { :a :b |
@@ -832,7 +832,7 @@
 					}
 				};
 				1.toDo(m) { :i |
-					(i ~= r).ifTrue {
+					(i != r).ifTrue {
 						let e = self[i][lead];
 						1.toDo(n) { :c |
 							self[i][c] := self[i][c] - (self[r][c] * e)

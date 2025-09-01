@@ -1,12 +1,10 @@
 # = (equalsSign)
 
-- _anObject = anotherObject_
+- _x = y_
 
-`=` is both a syntax token and an operator.
-
-As an operator it represents _structural equality_.
-It answers `true` if _anObject_ is equal to _anotherObject_, else `false`.
-The meaning of equality is determined by the type of _anObject_.
+The structural equality predicate,
+answers `true` if the object _x_ is equal to another object _y_, else `false`.
+The meaning of equality is determined by the type of _x_.
 
 At `SmallFloat`:
 
@@ -28,9 +26,15 @@ false
 true
 ```
 
-To compare element-wise use `each`:
+To compare element-wise use `map` or `withCollect` or `each`:
 
 ```
+>>> =.map([3 2 1], [1 2 3])
+[false true false]
+
+>>> [3 2 1].withCollect([1 2 3], =)
+[false true false]
+
 >>> [3 2 1] =.each [1 2 3]
 [false true false]
 ```
@@ -88,13 +92,14 @@ When the arguments to `=` are `boole`, it is the logical biconditional function:
 
 The `=` method is not implemented at `Object`.
 
+`=` is both a syntax token and an operator.
 As a syntax token the `=` symbol is a part of `Let Syntax`.
 
 The name of this operator and syntax token is `equalsSign`.
 
 * * *
 
-See also: <, <=, >, >=, ~=, ==, ~, :=, hasEqualElements, hasEqualSlots
+See also: <, <=, >, >=, !=, ==, ~, :=, hasEqualElements, hasEqualSlots
 
 Guides: Comparison Functions, Let Syntax, Syntax Tokens
 

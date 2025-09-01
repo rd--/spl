@@ -303,7 +303,7 @@
 
 	isProperSubsetOf { :self :aCollection |
 		aCollection.includesAllOf(self) & {
-			self ~= aCollection
+			self != aCollection
 		}
 	}
 

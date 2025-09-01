@@ -12,7 +12,7 @@ At `List`, answer a copy:
 >>> let z = c.removeAllSuchThat { :each |
 >>> 	[2 3].includes(each)
 >>> };
->>> (c, c ~= z)
+>>> (c, c != z)
 ([1 4 4 4 4], true)
 ```
 

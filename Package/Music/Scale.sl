@@ -180,7 +180,7 @@ Scale : [Object] { | startIndex intervals description |
 
 	namedScale { :self |
 		let answers = self.namedScales;
-		(answers.size ~= 1).ifTrue {
+		(answers.size != 1).ifTrue {
 			self.error('namedScale: no such singular scale')
 		};
 		answers[1]
@@ -258,7 +258,7 @@ Scale : [Object] { | startIndex intervals description |
 			}
 		} {
 			let k = x.gcd(y);
-			(k ~= 1).if {
+			(k != 1).if {
 				answer := (momentOfSymmetryXy(x // k, y // k, l, s) # k).stringJoin
 			} {
 				(k = 1).if {

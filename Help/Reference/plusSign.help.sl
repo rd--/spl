@@ -67,7 +67,7 @@ The name of this operator is `plusSign`.
 
 See also: -, *, /, conjugate, Plus, sum
 
-Guides: Defining Methods
+Guides: Binary Operators, Defining Methods
 
 References:
 _Apl_

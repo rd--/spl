@@ -48,7 +48,7 @@ Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of 
 >>> let m = a + s + s.matrixRotate(2);
 >>> m.collect { :each |
 >>> 	each.select { :item |
->>> 		item ~= 0
+>>> 		item != 0
 >>> 	}
 >>> }
 [

@@ -119,8 +119,8 @@
 
 ## Comparison Operators
 
-- `=`, `~=`
-- `==`, `~~`
+- `=`, `!=`
+- `==`, `!==`
 - `>`, `<`, `<=`, `>=`, `<=>`
 - `~`, `!~`
 - `isCloseTo`, `isVeryCloseTo`, `isSameAs`
@@ -226,8 +226,8 @@
 
 ## Equality Testing
 
-- `=`, `~=`
-- `==`, `~~`
+- `=`, `!=`
+- `==`, `!==`
 - `~`, `!~`
 - `isCloseTo`, `isCloseToBy`, `isVeryCloseTo`
 - `isSameAs`

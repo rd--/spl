@@ -3,7 +3,7 @@
 - _mod(m, n, d=0)_
 
 Answer the remainder on division of _m_ by _n_ using offset _d_.
-In the case where _d = 0_ this is the operator `%`.
+In the case where _d=0_ this is the operator `%`.
 
 Modulo table:
 

@@ -73,15 +73,15 @@
 		let start = 1;
 		let answer = [];
 		aSequence.withIndexDo { :each :index |
-			(each > previous | { each = 0 & { previous ~= 0 }}).ifTrue {
-				(index > start & { previous ~= 0 }).ifTrue {
+			(each > previous | { each = 0 & { previous != 0 }}).ifTrue {
+				(index > start & { previous != 0 }).ifTrue {
 					answer.add(self.copyFromTo(start, index - 1))
 				};
 				start := index
 			};
 			previous := each
 		};
-		(aSequence.last ~= 0).ifTrue {
+		(aSequence.last != 0).ifTrue {
 			answer.add(self.copyFromTo(start, self.size))
 		};
 		answer

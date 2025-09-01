@@ -162,7 +162,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 				let cycle = 0;
 				{
 					cycle := cycle + 1;
-					cycle ~= k
+					cycle != k
 				}.whileTrue {
 					(visited[cycle] = 0).ifTrue {
 						let a = cycle;
@@ -175,7 +175,7 @@ NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conte
 							c.swapWith(a + 1, cycle + 1);
 							visited[a] := 1
 						}.doWhileTrue {
-							a ~= cycle
+							a != cycle
 						}
 					}
 				};

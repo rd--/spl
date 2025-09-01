@@ -163,7 +163,7 @@ Different algorithms answer the same permutations in different sequences:
 >>> 	l.lexicographicPermutations,
 >>> 	l.plainChanges
 >>> ];
->>> { :p :q | p ~= q }.table(a, a).boole
+>>> { :p :q | p != q }.table(a, a).boole
 [
 	0 1 1 1;
 	1 0 1 1;

@@ -51,6 +51,7 @@ One- and two-character operators:
 	'commercialAtGreaterThanSign' -> '@>',
 	'equalsSignEqualsSign' -> '==',
 	'exclamationMarkCircumflexAccent' -> '!^',
+	'exclamationMarkEqualsSign' -> '!=',
 	'exclamationMarkGreaterThanSign' -> '!>',
 	'exclamationMarkPlusSign' -> '!+',
 	'exclamationMarkTilde' -> '!~',
@@ -66,8 +67,6 @@ One- and two-character operators:
 	'plusSignPlusSign' -> '++',
 	'reverseSolidusReverseSolidus' -> '\\\\',
 	'solidusSolidus' -> '//',
-	'tildeEqualsSign' -> '~=',
-	'tildeTilde' -> '~~',
 	'verticalLineVerticalLine' -> '||'
 ]
 ```

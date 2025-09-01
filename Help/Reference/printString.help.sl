@@ -90,7 +90,7 @@ At `String`, the string is quoted:
 >>> 'x'.printString.size
 3
 
->>> 'x'.printString ~= 'x'.asString
+>>> 'x'.printString != 'x'.asString
 true
 ```
 

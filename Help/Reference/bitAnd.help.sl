@@ -119,7 +119,7 @@ let answer = [];
 1.toDo(n - 1) { :i |
 	let j = 0;
 	{
-		g[j + 1].bitAnd(i) ~= 0
+		g[j + 1].bitAnd(i) != 0
 	}.whileTrue {
 		j := j + 1
 	};

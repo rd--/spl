@@ -130,7 +130,7 @@
 		};
 		let answer = List(size, 0);
 		let xs = Interval(xint.-, xint).discretize(size);
-		((xamp ~= 1) || (h0 ~= 0)).ifTrue {
+		((xamp != 1) || (h0 != 0)).ifTrue {
 			'gen13: xamp must be 1 and h0 must be 0'.error
 		};
 		h.withIndexDo { :a :k |

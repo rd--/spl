@@ -260,12 +260,12 @@
 					{
 						r := r + 1;
 						r < s & {
-							x ~= (self - 1)
+							x != (self - 1)
 						}
 					}.whileTrue {
 						x := (x ^ 2) \\ self
 					};
-					(x ~= (self - 1)).ifTrue {
+					(x != (self - 1)).ifTrue {
 						false.return
 					}
 				}
@@ -375,7 +375,7 @@
 				m := m + 2
 			}
 		};
-		(n ~= 1).ifTrue {
+		(n != 1).ifTrue {
 			answer.add(n)
 		};
 		answer
@@ -638,7 +638,7 @@
 +@Cache {
 
 	isCachedPrime { :self :anInteger |
-		self.cachedPrimesList.binarySearch(anInteger) ~= 0
+		self.cachedPrimesList.binarySearch(anInteger) != 0
 	}
 
 	cachedPrimesList { :self |

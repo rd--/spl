@@ -19,7 +19,6 @@ The following operators are spelled differently:
 
 - equality is `=` in place of `==`
 - identity is `==` in place of `===`
-- inequality is `~=` in place of `!=`
 - logical and is `&` in place of `&&`
 - logical or is `|` in place of `||`
 

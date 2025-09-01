@@ -3,14 +3,19 @@
 - _wrapExclusive(x, ⌊, ⌈)_
 
 Wrap _x_ so that it lies between ⌊ and ⌈.
-Threads elementwise over lists.
-
 Within the boundaries equivalent to `identity`,
 note that the the upper bound is excluded:
 
 ```
->>> [-1 0 1].wrapExclusive(-1, 1)
-[-1 0 -1]
+>>> -2.wrapExclusive(-1, 1)
+0
+```
+
+Threads elementwise over lists.
+
+```
+>>> [-2 -1 0 1 2].wrapExclusive(-1, 1)
+[0 -1 0 -1 0]
 ```
 
 Wrap between two integer indices,
@@ -49,5 +54,7 @@ Plot a sawtooth wave formed by wrapping a line:
 * * *
 
 See also: atFold, atWrap, fold, foldIndex, wrap, wrapIndex
+
+Guides: Indexing Functions
 
 Categories: Testing

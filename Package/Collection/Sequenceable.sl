@@ -527,7 +527,7 @@
 		valueWithReturn { :return:/1 |
 			1.toDo(n.min(m)) { :i |
 				let c = self[i] <=> aList[i];
-				(c ~= 0).ifTrue {
+				(c != 0).ifTrue {
 					c.return
 				}
 			};
@@ -570,6 +570,14 @@
 
 	catenate { :self |
 		self.catenate(false)
+	}
+
+	collect { :self :aSequence :aBlock:/2 |
+		self.withCollect(aSequence, aBlock:/2)
+	}
+
+	collect { :self :aSequence :anotherSequence :aBlock:/3 |
+		self.withWithCollect(aSequence, anotherSequence, aBlock:/3)
 	}
 
 	constantArray { :self :anObject |
@@ -1276,7 +1284,7 @@
 	}
 
 	includes { :self :anObject |
-		self.indexOf(anObject) ~= 0
+		self.indexOf(anObject) != 0
 	}
 
 	includesIndex { :self :index |
@@ -1682,8 +1690,8 @@
 		1.toDo(2 * n - 1) { :j |
 			let i = f[j - k];
 			{
-				(i ~= -1) & {
-					b(j) ~= b(k + i + 1)
+				(i != -1) & {
+					b(j) != b(k + i + 1)
 				}
 			}.whileTrue {
 				(b(j) < b(k + i + 1)).ifTrue {
@@ -1693,7 +1701,7 @@
 			};
 			(
 				(i = -1) & {
-					b(j) ~= b(k + i + 1)
+					b(j) != b(k + i + 1)
 				}
 			).if {
 				(b(j) < b(k + i + 1)).ifTrue {
@@ -2186,7 +2194,7 @@
 	}
 
 	precedesOrEqualTo { :self :aList |
-		self.compare(aList) ~= 1
+		self.compare(aList) != 1
 	}
 
 	prefixesDo { :self :aBlock:/1 |
@@ -2268,7 +2276,7 @@
 	}
 
 	replicateEachApplying { :self :counts :aBlock:/1 |
-		(self.size ~= counts.size).if {
+		(self.size != counts.size).if {
 			self.error('@Sequenceable>>replicateEachApplying: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
@@ -2319,7 +2327,7 @@
 	}
 
 	reverseWithDo { :self :aList :aBlock:/2 |
-		(self.size ~= aList.size).if {
+		(self.size != aList.size).if {
 			self.error('@Sequenceable>> reverseWithDo: unequal size')
 		} {
 			self.size.toByDo(1, -1) { :index |
@@ -2843,7 +2851,7 @@
 		self.withIndexCollect { :p :i |
 			let seen = [];
 			self.withIndexDo { :q :j |
-				(i ~= j).ifTrue {
+				(i != j).ifTrue {
 					q.do { :each |
 						seen.includesBy(each, aBlock:/2).ifFalse {
 							seen.add(each)

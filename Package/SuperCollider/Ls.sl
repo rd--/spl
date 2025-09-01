@@ -341,7 +341,7 @@
 		let window = input.next(overlap);
 		BlockStream {
 			let current = input.nextOrUpToEnd(require);
-			(current.size ~= require).if {
+			(current.size != require).if {
 				nil
 			} {
 				let answer = window ++ current;

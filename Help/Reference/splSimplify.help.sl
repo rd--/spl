@@ -52,11 +52,11 @@ expr
 
 ```
 >>> let expr = 'let [x] = y; x';
->>> expr.splSimplify ~= expr
+>>> expr.splSimplify != expr
 true
 
 >>> let expr = '[x] := y';
->>> expr.splSimplify ~= expr
+>>> expr.splSimplify != expr
 true
 ```
 
@@ -64,11 +64,11 @@ true
 
 ```
 >>> let expr = 'let (x: x) = d; x';
->>> expr.splSimplify ~= expr
+>>> expr.splSimplify != expr
 true
 
 >>> let expr = '(x: x) := d';
->>> expr.splSimplify ~= expr
+>>> expr.splSimplify != expr
 true
 ```
 

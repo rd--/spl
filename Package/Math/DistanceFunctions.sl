@@ -1,7 +1,7 @@
 +@Sequenceable {
 
 	binaryDistance { :u :v |
-		(u ~= v).boole
+		(u != v).boole
 	}
 
 	brayCurtisDistance { :self :aList |
@@ -79,7 +79,7 @@
 		let size = self.size.min(other.size);
 		let count = (self.size - other.size).abs;
 		1.toDo(size) { :index |
-			(self[index] ~= other[index]).ifTrue {
+			(self[index] != other[index]).ifTrue {
 				count := count + 1
 			}
 		};
@@ -92,7 +92,7 @@
 			let a = 0;
 			let b = 0;
 			u.withDo(v) { :i :j |
-				(i ~= j).ifTrue {
+				(i != j).ifTrue {
 					a := a + 1
 				};
 				(i.asBoolean.not & { j.asBoolean.not }).ifTrue {
@@ -168,7 +168,7 @@
 +@Number {
 
 	binaryDistance { :self :operand |
-		(self ~= operand).boole
+		(self != operand).boole
 	}
 
 	euclideanDistance { :self :aNumber |
@@ -315,7 +315,7 @@
 			let leastDistance = sortedDistances[2];
 			1.toDo(vertexCount) { :j |
 				let distance = distanceList[j];
-				(i ~= j & { distance <= leastDistance }).ifTrue {
+				(i != j & { distance <= leastDistance }).ifTrue {
 					edgeList.addIfNotPresent(i --> j)
 				}
 			}

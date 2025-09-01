@@ -122,7 +122,13 @@ Threads elementwise over lists and matrices:
 [49 343 2401]
 
 >>> [0 1.5 0J1 1.pi Infinity] ^ 0.5
-[0, 1.22474, -1J0 ^ 0.25, 1.pi.sqrt, Infinity]
+[
+	0,
+	1.22474,
+	-1J0 ^ 0.25,
+	1.pi.sqrt,
+	Infinity
+]
 
 >>> 2 ^ [1 2 3 5 10]
 [2 4 8 32 1024]
@@ -330,6 +336,8 @@ In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
 * * *
 
 See also: +, -, *, /, exp, factorialPower, log, powerMod, powerRange, sqrt, symmetricPower
+
+Guides: Binary Operators
 
 References:
 _Apl_

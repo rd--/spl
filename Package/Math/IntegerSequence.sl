@@ -7,7 +7,7 @@
 		let i = 1;
 		{
 			i < k & {
-				b ~= n & {
+				b != n & {
 					r.includes(b).not & {
 						a > 1
 					}

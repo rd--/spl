@@ -228,7 +228,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 		self.cached('splOperatorNameTable') {
 			[
 				'& * ^ @ $ = ! > - < # % + ? \\ / ~ |'
-				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // ~= ~~ ||'
+				'&& @* @> == !^ !> !+ !~ >= >> >~ -> - <= <! <- << <~ ++ \\\\ // != !== ||'
 				'>>> <=> +++'
 			].collect(words:/1).++.collect { :each |
 				each -> each.splOperatorTokenName(table)

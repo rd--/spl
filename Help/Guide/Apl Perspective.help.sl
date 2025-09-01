@@ -16,7 +16,7 @@ Operators:
 - [@*](https://aplwiki.com/wiki/From) From,
   [@>](https://aplwiki.com/wiki/Pick) Pick ⊃
 - [=](https://aplwiki.com/wiki/Equal_to) Equal to,
-  [~=](https://aplwiki.com/wiki/Not_Equal_to) Not Equal to,
+  [!=](https://aplwiki.com/wiki/Not_Equal_to) Not Equal to,
   [~](https://aplwiki.com/wiki/Match) Match ≡,
   [!~](https://aplwiki.com/wiki/Not_Match) Not Match ≢
 - [<=](https://aplwiki.com/wiki/Less_than_or_Equal_to) Less than or Equal to,

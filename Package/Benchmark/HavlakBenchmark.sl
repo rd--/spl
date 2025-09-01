@@ -176,7 +176,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 		(nodeW.numPred > 0 ).ifTrue {
 			nodeW.inEdges.do { :nodeV |
 				let v = self.number[nodeV];
-				(v ~= self.unvisited).ifTrue {
+				(v != self.unvisited).ifTrue {
 					self.isAncestorV(w, v).if {
 						self.backPreds[w].addLast(v)
 					} {
@@ -220,7 +220,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						nodePool.do { :niter |
 							workList.addLast(niter)
 						};
-						(nodePool.size ~= 0).ifTrue {
+						(nodePool.size != 0).ifTrue {
 							self.type[w] := 'BBReducible'
 						};
 						{
@@ -236,7 +236,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 						(nodePool.size > 0 | {
 							self.type[w] = 'BBSelf'
 						}).ifTrue {
-							let loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] ~= 'BBIrreducible');
+							let loop = self.lsg.createNewLoopReducible(nodeW, self.type[w] != 'BBIrreducible');
 							self.setLoopAttributeNodePoolLoop(w, nodePool, loop)
 						}
 					}
@@ -253,7 +253,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				self.type[w] := 'BBIrreducible';
 				self.nonBackPreds[w].include(ydash.dfsNumber)
 			} {
-				(ydash.dfsNumber ~= w).ifTrue {
+				(ydash.dfsNumber != w).ifTrue {
 					nodePool.anySatisfy { :each |
 						each == ydash
 					}.ifFalse {
@@ -280,7 +280,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 
 	stepDNodePool { :self :w :nodePool |
 		self.backPreds[w].do { :v |
-			(v ~= w).if {
+			(v != w).if {
 				nodePool.addLast(self.nodes[v].findSet)
 			} {
 				self.type[w] := 'BBSelf'
@@ -519,9 +519,9 @@ UnionFindNode : [Object] { | parent bb dfsNumber loop |
 		let nodeList = List();
 		let node = self;
 		{
-			node ~~ node.parent
+			node !== node.parent
 		}.whileTrue {
-			(node.parent ~~ node.parent.parent).ifTrue {
+			(node.parent !== node.parent.parent).ifTrue {
 				nodeList.addLast(node)
 			};
 			node := node.parent

@@ -1,8 +1,8 @@
 # > (greaterThanSign)
 
-- _aMagnitude > anotherMagnitude_
+- _x > y_
 
-Answers `true` if _aMagnitude_ is greater than _anotherMagnitude_, else `false`.
+Answers `true` if _x_ is greater than _y_, else `false`.
 
 ```
 >>> 1.pi > 1.e
@@ -19,7 +19,10 @@ Element-wise at `List`:
 [false false false true true]
 
 >>> [1 .. 9] > [1 3 5 1 5 9 1 7 13]
-[false false false true false false true true false]
+[
+	false false false true false
+	false true true false
+]
 ```
 
 When the arguments to `>` are `boole`, it is the material non-implication `Boolean` function:

@@ -17,7 +17,7 @@
 				1 -> {
 					browser.setStatus(system.typeTraits(path[1]).commaSeparated);
 					methodSet := system.typeMethodDictionary(path[1]).values.select { :each |
-						each.origin.name ~= 'Object'
+						each.origin.name != 'Object'
 					};
 					methodSet.collect(qualifiedName:/1).asList.sorted
 				},

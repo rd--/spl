@@ -1,8 +1,8 @@
 # atFold
 
-- _atFold(s, i)_
+- _atFold(c, i)_
 
-Answer the element at the index _i_ in the sequence _s_.
+Answer the element at the index _i_ in the sequential collection _c_.
 If the index is out of bounds, let it fold back in on itself.
 
 ```
@@ -24,7 +24,9 @@ This form of indexing _reflects_ points at the boundaries:
 
 * * *
 
-See also: at, atBlend, atPin, atWrap
+See also: at, atAllFold, atBlend, atPin, atWrap
+
+Guides: Indexing Functions
 
 References:
 _SuperCollider_

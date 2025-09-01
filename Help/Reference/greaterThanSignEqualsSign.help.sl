@@ -32,7 +32,7 @@ The name of this operator is `greaterThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, <=, =, ~=, <=>, Magnitude
+See also: <, >, <=, =, !=, <=>, Magnitude
 
 References:
 _Apl_

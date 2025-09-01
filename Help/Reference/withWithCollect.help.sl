@@ -1,8 +1,8 @@
 # withWithCollect
 
-- _withWithCollect(p, q, r, aBlock:/2)_
+- _withWithCollect(c₁, c₂, c₃, f:/3)_
 
-Answer the result of evaluating _aBlock_ with corresponding elements from each `List` _p_, _q_ and _r_.
+Answer the result of evaluating the block _f_ with corresponding elements from each collection _c_.
 
 ```
 >>> [1 3 5 7 9].withWithCollect(
@@ -30,5 +30,7 @@ shorter lists are extended as required by recycling:
 * * *
 
 See also: collect, map, withCollect
+
+Guides: List Functions
 
 Categories: Enumerating

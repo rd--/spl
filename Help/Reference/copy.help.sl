@@ -9,12 +9,12 @@ Answer another object just like the object _x_.
 [1 .. 5]
 
 >>> let a = [1 .. 5];
->>> a ~~ a.copy
+>>> a !== a.copy
 true
 
 >>> let a = [1 .. 5];
 >>> let b = a.copy;
->>> a[1] := 5; b[1] ~= 5
+>>> a[1] := 5; b[1] != 5
 true
 ```
 

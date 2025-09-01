@@ -7,7 +7,7 @@
 ```
 >>> let p = [1 .. 9];
 >>> let q = List(9).fillFrom(p);
->>> (p = q, p ~~ q)
+>>> (p = q, p !== q)
 (true, true)
 ```
 

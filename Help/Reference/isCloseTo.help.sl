@@ -26,11 +26,6 @@ true
 true
 ```
 
-_Rationale_:
-The use of ~ as the operator to indicate _similar to_ is a standard mathematical notation.
-However it is a little confusing in this context because in Smalltalk ~= is the binary operator for _not equal to_,
-and ~~ is the binary operator for _not identical to_.
-
 * * *
 
 See also: ~, !~, =, <~, >~, isCloseToBy, isVeryCloseTo, threshold

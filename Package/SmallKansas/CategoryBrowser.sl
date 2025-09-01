@@ -35,7 +35,7 @@ CategoryBrowser : [Object, SmallKansan] {
 				2 -> {
 					browser.setStatus(system.typeTraits(path[2]).commaSeparated);
 					completeMethodSet := system.typeMethodDictionary(path[2]).values.select { :each |
-						each.origin.name ~= 'Object'
+						each.origin.name != 'Object'
 					};
 					completeMethodSet.collect { :each |
 						system.categoryDictionary.categoryOf('method', each.name)

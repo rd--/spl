@@ -17,7 +17,7 @@ system.typeDictionary.size
 true
 ```
 
-Methods for comparing objects: `==`, `~~`, `=`, `~=`
+Methods for comparing objects: `==`, `~~`, `=`, `!=`
 
 Methods for copying objects: `copy`, `shallowCopy`, `deepCopy`, `veryDeepCopy`
 

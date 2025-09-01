@@ -12,4 +12,4 @@ and are applicable to any `Sequencable` collection.
 
 * * *
 
-See also: adaptToCollectionAndApply, collect, Collection, Sequence, withCollect
+See also: adaptToCollectionAndApply, collect, Collection, Sequence

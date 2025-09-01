@@ -55,7 +55,7 @@ Find the digits of π before the first occurrence of a seven:
 >>> 1.pi.realDigits(10, 15)
 >>> .first
 >>> .takeWhile { :n |
->>> 	n ~= 7
+>>> 	n != 7
 >>> }
 [3 1 4 1 5 9 2 6 5 3 5 8 9]
 ```

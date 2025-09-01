@@ -20,7 +20,7 @@ The answer is in the form of a matrix with `zero` entries for cells not in the h
 
 >>> 3.magicHexagon.collect { :row |
 >>> 	row.select { :x |
->>> 		x ~= 0
+>>> 		x != 0
 >>> 	}
 >>> }
 [

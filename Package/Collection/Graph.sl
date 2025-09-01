@@ -189,8 +189,8 @@
 		let answer = [];
 		let [d, p] = g.dijkstrasAlgorithm(s, t);
 		let u = t;
-		( p[u] ~= nil | { u = s } ).ifTrue {
-			{ u ~= nil }.whileTrue {
+		( p[u] != nil | { u = s } ).ifTrue {
+			{ u != nil }.whileTrue {
 				answer.addFirst(u);
 				u := p[u]
 			}
@@ -308,7 +308,7 @@
 
 	isLoopFree { :self |
 		self.edgeList.allSatisfy { :each |
-			each[1] ~= each[2]
+			each[1] != each[2]
 		}
 	}
 
@@ -376,7 +376,7 @@
 			1.toDo(k) { :i |
 				(i + 1).toDo(k) { :j |
 					(
-						i ~= j & {
+						i != j & {
 							self.edgeList[i][2] = self.edgeList[j][1]
 						}
 					).ifTrue {
@@ -421,7 +421,7 @@
 		let v = self.vertexList;
 		let e = Set(matchesEdge:/2);
 		self.edgeList.do { :each |
-			(each[1] ~= each[2]).ifTrue {
+			(each[1] != each[2]).ifTrue {
 				e.include(each)
 			}
 		};

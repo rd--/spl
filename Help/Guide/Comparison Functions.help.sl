@@ -1,13 +1,27 @@
 # Comparison Functions
 
-- `<`, `<=`
-- `>`, `>=`
-- `=`, `~=`
-- `~`, `!~`
+Equalities:
+
+- `==`
+- `=`
+- `~`
+
+Inequalities:
+
+- `!==`
+- `!=`
+- `!~`
+
+Orderings:
+
+- `<=`
+- `<`
+- `>=`
+- `>`
 
 A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the two arguments.
 
-The comparison functions can be subdivided into two equalities `=` and `~=`,
+The comparison functions can be subdivided into two equalities `=` and `!=`,
 which depend only on whether the arguments are equal and not on the ordering of the arguments,
 and may be applied to values that do not implement `Magnitude`,
 and four inequalities `<` `<=` `>=` `>`, which depend on ordering.
@@ -34,7 +48,7 @@ Every remaining possibility is one of the comparisons:
 
 ```
 >>> [
->>> 	<, <=, =, >=, >, ~=
+>>> 	<, <=, =, >=, >, !=
 >>> ].collect { :f:/2 |
 >>> 	[f(0, 1), f(0, 0), f(1, 0)]
 >>> }.boole
@@ -50,7 +64,7 @@ Every remaining possibility is one of the comparisons:
 
 * * *
 
-See also: <, <=, =, >=, >, ~=, <~, ~, >~, !~, boole, Boolean, Magnitude
+See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Magnitude
 
 References:
 _Apl_

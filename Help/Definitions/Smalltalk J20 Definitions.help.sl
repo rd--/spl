@@ -88,9 +88,9 @@ the value of `comparand ~= receiver` would also be true.
 *Rationale*: This definition does not require that the implementation
 be `^(self = comparand) not` but it does require that within a class,
 the same definition of equivalence is used in the implementation of
-both `=` and `~=`.
+both `=` and `@=`.
 
-Cf: ~=
+Cf: !=
 
 ### 5.3.1.4
 
@@ -113,7 +113,7 @@ be `^(self == comparand) not` but it does require that the same
 definition of object identity is used in the implementation of both
 `==` and `~~`.
 
-Cf: ~~
+Cf: !==
 
 ### 5.3.1.6
 

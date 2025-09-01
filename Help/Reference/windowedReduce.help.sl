@@ -72,7 +72,7 @@ Adjacent comparisons, edge detection:
 
 ```
 >>> [1 1 2 2 2 3 3]
->>> .windowedReduce(2, ~=)
+>>> .windowedReduce(2, !=)
 >>> .boole
 [0 1 0 0 1 0]
 ```

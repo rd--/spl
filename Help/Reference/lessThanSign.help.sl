@@ -1,8 +1,8 @@
 # < (lessThanSign)
 
-- _aMagnitude < anotherMagnitude_
+- _x < y_
 
-Answers _true_ if _aMagnitude_ is comparable with and less than _anotherMagnitude_.
+Answers `true` if _x_ is comparable with and less than _y_.
 Also known as strong inequality or strict inequality.
 
 At `Integer`:
@@ -91,9 +91,9 @@ The name of this operator is `lessThanSign`.
 
 * * *
 
-See also: =, ~=, <=, >, >=, <=>, Magnitude
+See also: =, !=, <=, >, >=, <=>, Magnitude
 
-Guides: Sort Functions
+Guides: Binary Operators, Comparison Functions, Sort Functions
 
 References:
 _Apl_

@@ -1,10 +1,10 @@
 # - (hyphenMinus)
 
-- _aNumber - anotherNumber_
-- _aNumber.-_
+- _x - y_
+- _x.-_
 
-The binary form answers _anotherNumber_ subtracted from _aNumber_,
-or equally _aNumber_ plus the negation of _anotherNumber_.
+The binary form answers _y_ subtracted from _x_,
+or equally _x_ plus the negation of _y_.
 
 ```
 >>> 10 - 3
@@ -21,6 +21,9 @@ or equally _aNumber_ plus the negation of _anotherNumber_.
 
 >>> 6 - (1 - 2)
 7
+
+>>> 5/7 - 3/4
+-1/28
 ```
 
 Subtracting `Complex` numbers subtracts their components:
@@ -68,21 +71,18 @@ At `SmallFloat`:
 3
 ```
 
-At `Range`:
-
-```
->>> (1 .. 9).-
-(-1 .. -9)
-
->>> (1, 3 .. 9).-
-(-1, -3 .. -9)
-```
-
 At `LargeInteger`:
 
 ```
 >>> 32L.!.-
 -263130836933693530167218012160000000L
+```
+
+At `Fraction`:
+
+```
+>>> 3/4.-
+-3/4
 ```
 
 Threads over lists:
@@ -100,6 +100,16 @@ Threads over lists:
 	-4 -5 -6;
 	-7 -8 -9
 ]
+```
+
+At `Range`:
+
+```
+>>> (1 .. 9).-
+(-1 .. -9)
+
+>>> (1, 3 .. 9).-
+(-1, -3 .. -9)
 ```
 
 Negation is its own inverse:
@@ -122,6 +132,8 @@ Where supported `-` is displayed as −.
 * * *
 
 See also: +, *, /, ^, Minus, negate
+
+Guides: Binary Operators
 
 References:
 _Apl_

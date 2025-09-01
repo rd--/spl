@@ -17,7 +17,7 @@ Not in place, see `reverseInPlace` for in place variant:
 ```
 >>> let a = [1 3 5 7];
 >>> let b = a.reverse;
->>> (a ~= b, b)
+>>> (a != b, b)
 (true, [7 5 3 1])
 ```
 

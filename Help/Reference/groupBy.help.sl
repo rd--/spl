@@ -2,7 +2,7 @@
 
 - _groupBy(c, f:/1)_
 
-Like in Sql answer the contents of th collection _c_ split into groups for which the key block _f_ returns the same results.
+Like in Sql answer the contents of the collection _c_ split into groups for which the key block _f_ returns the same results.
 The answer is a `Map` keyed by the answers of _f_.
 
 ```

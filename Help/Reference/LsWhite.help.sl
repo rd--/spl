@@ -10,7 +10,7 @@ Reset does not reset random number generator:
 >>> let r = Sfc32(189314);
 >>> let l = LsWhite(-1, 1, Infinity, r);
 >>> let a = l.next(99);
->>> (l.reset, l.next(99) ~= a)
+>>> (l.reset, l.next(99) != a)
 (0, true)
 ```
 

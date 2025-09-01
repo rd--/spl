@@ -90,7 +90,7 @@ Matrix33 : [Object] { | elements |
 +List {
 
 	asMatrix33 { :self |
-		(self.size ~= 9).if {
+		(self.size != 9).if {
 			self.error('List>>asMatrix33: not 9-element array')
 		} {
 			newMatrix33().initializeSlots(self)

@@ -43,7 +43,7 @@ PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of 
 1 + 2 * 3 = ((1 + 2) * 3) /* equals predicate is also left to right */
 3 + 4 * 5 - 6 / 7 ~ 4.1428 /* precedence, longer sequence, not ~22.1428 */
 3 = 3 /* equals */
-2 ~= 3 /* not equals */
+2 != 3 /* not equals */
 3 == 3 /* identical */
 1 + (2 * 3) = 7 /* parentheses group sub-expressions */
 (5 / 3).isInteger.not /* division with fractional result */
@@ -267,9 +267,9 @@ List(3).size = 3 /* new array of indicated size */
 List(5) = [nil, nil, nil, nil, nil] /* array slots are initialised to nil */
 List(5, 0) = [0, 0, 0, 0, 0] /* array can have slots initialised to a value */
 [].asList = [] /* List constructor, empty array */
-let a = [1 .. 9]; a.copy ~~ a /* copy does not answer argument */
+let a = [1 .. 9]; a.copy !== a /* copy does not answer argument */
 let a = [1 .. 9]; a.asList == a /* asList answers the receiver if it is an array */
-let a = [1 .. 9].asIdentitySet; a.asList ~~ a /* List constructor copies any collection, sequenceable or otherwise */
+let a = [1 .. 9].asIdentitySet; a.asList !== a /* List constructor copies any collection, sequenceable or otherwise */
 1.asCollection = [1] /* enclose a non-collection in an array */
 [1 .. 3].asCollection = [1 .. 3] /* an array is a collection */
 1:3.asCollection = 1:3 /* an interval is a collection */
@@ -277,11 +277,11 @@ let x = [1 .. 3]; x.asCollection == x /* in the case of a collection, it is not 
 let x = 1:3; x.asCollection == x /* in the case of a collection, it is not copied */
 let x = [[1, 2], [3, 4, 5]]; x.collect(asCollection:/1) = x /* identity */
 [1, 2, 3] = [1, 2, 3] = true /* array equality */
-[1, 2, 3] ~= [1, 2, 4] /* array inequality, differ by value */
+[1, 2, 3] != [1, 2, 4] /* array inequality, differ by value */
 [1, 2, 3] = [1, 2, 4] = false /* array inequality */
-[1, 2] ~= [1, 2, 3, 4] /* array inequality, differ by size */
+[1, 2] != [1, 2, 3, 4] /* array inequality, differ by size */
 [1, 2] = [1, 2, 3, 4] = false /* array inequality */
-[1, 2, 3, 4, 5, 6] ~= 7 /* array inequality, differ by type */
+[1, 2, 3, 4, 5, 6] != 7 /* array inequality, differ by type */
 [1, 2, 3, 4, 5, 6] = 7 = false /* array inequality */
 [1, 2, 3] == [1, 2, 3] = false /* arrays are not identical, even if equal */
 let a = [1, 2, 3]; a == a = true /* array self identity */
@@ -289,7 +289,7 @@ let a = [1, 2, 3]; a == a = true /* array self identity */
 [1, 2.3, '4'].atRandom.isList.not /* array predicate */
 4 * [1, 2, 3] = [4, 8, 12] /* scalar List math */
 [1, 3, 5, 7].reverse = [7, 5, 3, 1] /* reverse answers new array */
-let a = [1, 3, 5, 7]; a.reverse ~= a /* reverse answers new array */
+let a = [1, 3, 5, 7]; a.reverse != a /* reverse answers new array */
 let a = [1, 3, 5, 7]; a.reverseInPlace = a /* reverse array in place */
 let a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1] /* array reverse (in place) */
 [1, 2, 3, 5, 7, 9].sum = 27 /* sum of elements, unicode = Σ */
@@ -321,7 +321,7 @@ let a = [1, 3, 5, 7]; a.reverseInPlace; a = [7, 5, 3, 1] /* array reverse (in pl
 1:5.count { :each | each.isEven & { each > 2 } } = 1 /* exactly one element matches */
 [1 .. 3] ++ [4 .. 6] = [1 .. 6] /* addAllLast, answering new like collection, unicode = ⧺ */
 let a = [1 .. 3]; a.addAllLast([4 .. 6]); a = [1 .. 6]
-let a = [1 .. 3]; let b = a ++ [4 .. 6]; a ~~ b & { a = [1 .. 3] } & { b = [1 .. 6] }
+let a = [1 .. 3]; let b = a ++ [4 .. 6]; a !== b & { a = [1 .. 3] } & { b = [1 .. 6] }
 { [1 .. 3] ++ 4 }.ifError { true } /* right hand side must be a collection */
 [[1 .. 3], [4 .. 6], [7 .. 9]].catenate = [1 .. 9] /* catenate, unicode = ⧻ */
 [1 2 3; 4 5 6; 7 8 9].catenate = [1 .. 9] /* catenate, [Matrix Syntax] */
@@ -347,9 +347,9 @@ let l = [1, 2, 3]; l.atModify(2, square:/1) = 4 & { l = [1, 4, 3] } /* modify va
 [[1, 2, 3, 4], [5, 6, 7, 8]].transpose = [[1, 5], [2, 6], [3, 7], [4, 8]]
 [1 2 3; 4 5 6].transpose = [1 4; 2 5; 3 6] /* transposed, matrix syntax */
 1.toAsCollect(9, List:/1) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
-let a = [1 .. 9]; a.shuffle; a ~= [1 .. 9] /* shuffle in place, using system Random */
+let a = [1 .. 9]; a.shuffle; a != [1 .. 9] /* shuffle in place, using system Random */
 let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 4, 6] /* shuffle in place, using given Random */
-let a = [1 .. 9]; a.shuffled ~= a & { a = [1 .. 9] } /* answer shuffled copy */
+let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
 [1 .. 9].shuffled.sorted = [1 .. 9] /* resort after shuffle */
 [].shuffled = []
 13.fibonacciSequence = [1 1 2 3 5 8 13 21 34 55 89 144 233]
@@ -520,7 +520,7 @@ let a = [1, 2, 3]; a.ofSize(2) = a /* if requested size is smaller, do nothing *
 let a = [1, 2, 3]; a.ofSize(2) == a /* if requested size is smaller, answer the array itself */
 [1, 3 .. 9].indices = 1:5 /* indices of array (an interval) */
 let a = [1, [2, 3]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2, 3]] } /* copy is a shallow copy */
-let a = [1, [2, 3]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2, 3]] } /* deepCopy is a deep copy */
+let a = [1, [2, 3]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2, 3]] } /* deepCopy is a deep copy */
 let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a /* deepCopy of shallow array */
 [1, 3 .. 9].copyUpTo(7) = [1, 3, 5] /* copy up to but not including element */
 [1, 3 .. 9].copyUpThrough(7) = [1, 3, 5, 7] /* copy up to but and including element */
@@ -566,14 +566,14 @@ let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = '(23 -> 3.141)'
 (1 -> '1').key = (1 -> 'one').key
-(1 -> '1').value ~= (1 -> 'one').value
-(1 -> '1') ~= (1 -> 'one')
+(1 -> '1').value != (1 -> 'one').value
+(1 -> '1') != (1 -> 'one')
 (1 -> 2) = system.evaluate((1 -> 2).storeString) /* store string can be evaluated to answer value */
 (false -> true) = system.evaluate((false -> true).storeString)
 ('+' -> 'plusSign') = system.evaluate(('+' -> 'plusSign').storeString)
-(0 -> 1) ~= (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
-('x' -> 1) ~= ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
-('x' -> 1) ~= (x: 1) /* an association is not equal to a record */
+(0 -> 1) != (0 -> 2) /* equality considers both key and value, unlike in Smalltalk-80 */
+('x' -> 1) != ('y' -> 1) /* equality considers both key and value, unlike in Smalltalk-80 */
+('x' -> 1) != (x: 1) /* an association is not equal to a record */
 let a = 'x' -> 1; a.keyValue('y', 2); a = ('y' -> 2) /* set key and value */
 ('x' -> 1).first = 'x' /* implements first */
 ('x' -> 1).second = 1 /* implements second */
@@ -612,7 +612,7 @@ let c = IdentityBag(); { c.remove('x') }.ifError { true }
 [2, 3, 3, 4, 4, 4].asIdentityBag.occurrencesOf(nil) = 0
 [nil].asIdentityBag.occurrencesOf(nil) = 1 /* count occurrences of nil */
 let c = [2, 3, 3, 4, 4, 4].asIdentityBag; c.copy = c /* copy answers new equal Bag */
-let c = [2, 3, 3, 4, 4, 4].asIdentityBag; c.copy ~~ c /* copy does not answer argument */
+let c = [2, 3, 3, 4, 4, 4].asIdentityBag; c.copy !== c /* copy does not answer argument */
 let c = IdentityBag(); c.addWithOccurrences('x', 4); c.occurrencesOf('x') = 4
 [2, 3, 3, 4, 4, 4].asIdentityBag.asIdentitySet.size = 3 /* number of unique elements */
 [2, 3, 3, 4, 4, 4].asIdentityBag.asIdentitySet.occurrencesOf(3) = 1
@@ -682,7 +682,7 @@ let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b.includes(each) } = [
 let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, atPut */
 let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
 let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
-let b = [1, 7].asBitSet; let c = b.copy; c.add(3); b ~= c & { c = [1, 3, 7].asBitSet } /* copy bitset */
+let b = [1, 7].asBitSet; let c = b.copy; c.add(3); b != c & { c = [1, 3, 7].asBitSet } /* copy bitset */
 [1, 3, 9].asBitSet.bitAt(3) = 1 /* bitAt is equal to at */
 BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to add */
 [1, 3, 9].asBitSet.with { :b | b.clearBitAt(3); b.asList = [1, 9] } /* clearBitAt is equal to remove */
@@ -719,14 +719,14 @@ Blob([], ()).isEmpty /* empty Blob is empty */
 system.includesPackage('Boolean') /* boolean package */
 true = true /* true constant, unicode = ⊤ */
 false = false /* false constant, unicode = ⊥ */
-true ~= false /* true is not false, unicode = ≠ */
-false ~= true /* false is not true */
+true != false /* true is not false, unicode = ≠ */
+false != true /* false is not true */
 true == true /* true is identical to true, unicode = ≡ */
 false == false /* false is identical to false */
 1 = 1 = true /* equality predicate (operator) */
-1 ~= 2 = true /* inequality predicate (operator) */
+1 != 2 = true /* inequality predicate (operator) */
 (1 == 1) = true /* identical */
-(1 ~~ 2) = true /* not identical, unicode = ≢ */
+(1 !== 2) = true /* not identical, unicode = ≢ */
 true & { true } /* logical and (operator) */
 false & { '&'.error } = false /* & is equal to and and is not strict (unlike in Smalltalk) */
 true & { false } = false /* logical and (operator) */
@@ -801,17 +801,17 @@ false ==> { false } = true /* material implication */
 ## Boolean -- equality
 ```
 true = true & { false = false }
-true ~= false & { false ~= true }
+true != false & { false != true }
 true == true & { false == false }
-true ~~ false & { false ~~ true }
-true ~= 1
-false ~= 0
-true ~= 'true'
-false ~= 'false'
-false ~= ''
-false ~= nil
-(true ~= true) = false
-(false ~= false) = false
+true !== false & { false !== true }
+true != 1
+false != 0
+true != 'true'
+false != 'false'
+false != ''
+false != nil
+(true != true) = false
+(false != false) = false
 ```
 
 ## ByteArray -- collection type
@@ -843,13 +843,13 @@ let b = ByteArray(4); b.atAllPut(15); b.base16Encode = '0F0F0F0F'
 'string'.asciiByteArray.asList = [115, 116, 114, 105, 110, 103] /* array from ByteArray */
 { [1, 2, 3].asByteArray.add(4) }.ifError { true } /* ByteArrays are not Extensible */
 1:9.asByteArray.select { :each | false } = [].asByteArray /* select nothing */
-1:9.asByteArray ~= [1 .. 9] /* ByteArray and List of equal elements are not equal */
+1:9.asByteArray != [1 .. 9] /* ByteArray and List of equal elements are not equal */
 1:9.asByteArray.hasEqualElements(1:9) /* ByteArray and List of equal elements */
 [1, 13 .. 253].asByteArray.base64Encode = 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q==' /* base 64 encoding */
 'AQ0ZJTE9SVVhbXmFkZ2ptcHN2eXx/Q=='.base64Decode = (1, 13 .. 253).asByteArray /* base 64 decoding */
 'SGVsbG8gV29ybGQ='.base64Decode.asciiString = 'Hello World' /* answer is a ByteArray */
 [1, 3 .. 9].asByteArray.indices = 1:5 /* indices of byte array (an interval) */
-let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy ~~ b } /* copies are equal & not identical */
+let b = [1, 3 .. 9].asByteArray; b.copy = b & { b.copy !== b } /* copies are equal & not identical */
 let b = [1 .. 9].asByteArray; let c = b.copy; c[1] := 9; c[1] = 9 & { b[1] = 1 } /* copies are distinct */
 [115, 116, 114, 105, 110, 103].asByteArray.crc16 = 58909 /* 16 bit cyclic redundancy check, crc-16/arc */
 let s = 'string'; let a = []; a.addAll(s.asciiByteArray); a.size = 6 /* add elements from ByteArray to end of List */
@@ -964,8 +964,8 @@ IdentitySet().asList = []
 4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
 [2, 3, 4, 5, 5, 6].copyWithoutAll([3, 5]) = [2, 4, 6] /* copy without element, removes multiples */
-let a = [1 .. 4]; let c = a.copyWith(5); a ~= c & { c = [1 .. 5] } /* copy with new (last) element */
-let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s ~= c & { c = [1 .. 5].asIdentitySet } /* copy with new element */
+let a = [1 .. 4]; let c = a.copyWith(5); a != c & { c = [1 .. 5] } /* copy with new (last) element */
+let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].asIdentitySet } /* copy with new element */
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } /* evaluate block if collection is empty */
@@ -985,7 +985,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
-let a = [1 .. 5]; a.contents = a & { a.contents ~~ a } /* contents at list is equal but not identitical */
+let a = [1 .. 5]; a.contents = a & { a.contents !== a } /* contents at list is equal but not identitical */
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(square:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */
@@ -1059,7 +1059,7 @@ system.includesPackage('Colour') /* colour package */
 ## Comparing
 ```
 1 = 1 /* 1 is equal to 1 */
-2 ~= 1 /* 2 is not equal to 1 */
+2 != 1 /* 2 is not equal to 1 */
 2 > 1 /* 2 is greater than 1 */
 1 < 2 /* 1 is less than 2 */
 1 >= 1 /* 1 is greater than or equal to 1 */
@@ -1088,7 +1088,7 @@ Complex(-1, 0) + 1 = Complex(0, 0) /* complex addition with scalar */
 2 * [1 + 2.i, 3 + 4.i, 5 + 6.i] = [2 + 4.i, 6 + 8.i, 10 + 12.i]
 5 + 5.i * [1 + 2.i, 3, 5 + 6.i] = [-5 + 15.i, 15 + 15.i, -5 + 55.i]
 (5 = 5.i) = false
-1 ~= 1.i
+1 != 1.i
 (6 - 6.i).abs = 72.sqrt /* absolute value */
 -2J1.abs = 5.sqrt /* absolute value */
 (1 + 2.i) + 1 = (2 + 2.i)
@@ -1104,8 +1104,8 @@ let c = (5 - 6.i); (c * 1.i) = c.i
 (6 - 6.i).square = -72.i
 (1 + 2.i) = (1 + 2.i) = true /* equality = same value */
 (1 + 2.i) == (1 + 2.i) = false /* identity = different objects */
-(1 + 2.i) ~= (1 + 4.i) = true /* inequality */
-let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } /* copy complex */
+(1 + 2.i) != (1 + 4.i) = true /* inequality */
+let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
 (0.5 * (2 + 0.i).log).exp = (0.5 * 2.log).exp /* natural logarithm */
 (3 + 5.i) ^ 0 = (1 + 0.i) /* exponent of zero answers one */
 (3 + 5.i) ^ 1 = (3 + 5.i) /* exponent of one is identity */
@@ -1263,15 +1263,15 @@ let b = true; b.copy == b /* copy boolean, identity */
 let n = 3.141; n.copy == n /* copy small float, identity */
 let n = 23L; n.copy == n /* copy large integer, identity */
 let s = 'string'; s.copy == s /* copy string, identity */
-let a = ('x' -> 1); let c = a.copy; c.value := 2; c ~= a & { c = ('x' -> 2) } /* copy association */
-let t = (0, 0); let c = t.copy; c[1] := 1; c ~= t & { c = (1, 0) } /* copy two tuple */
-let f = 3/4; let c = f.copy; c.numerator := 1; c ~= f & { c = 1/4 } /* copy fraction */
-let c = 2.i; let z = c.copy; z.real := 3; z ~= c & { z = (3 + 2.i) } /* copy complex */
+let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
+let t = (0, 0); let c = t.copy; c[1] := 1; c != t & { c = (1, 0) } /* copy two tuple */
+let f = 3/4; let c = f.copy; c.numerator := 1; c != f & { c = 1/4 } /* copy fraction */
+let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallowCopy array */
-let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c ~= a & { a = [1, [2]] } /* deepCopy array */
+let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deepCopy array */
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a /* copy of array is shallowCopy and postCopy */
-let b = [1, 2, 2].asIdentityBag; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 2, 3].asIdentityBag } /* copy bag */
-let b = [1, 2].asBitSet; let c = b.copy; c.add(3); c ~= b & { c = [1, 2, 3].asBitSet } /* copy bitset */
+let b = [1, 2, 2].asIdentityBag; let c = b.copy; c.add(3); c != b & { c = [1, 2, 2, 3].asIdentityBag } /* copy bag */
+let b = [1, 2].asBitSet; let c = b.copy; c.add(3); c != b & { c = [1, 2, 3].asBitSet } /* copy bitset */
 let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
 ```
 
@@ -1282,7 +1282,7 @@ system.now.asDate.typeOf = 'Date' /* type of Date, system constructor gets curre
 0.asDate.isDate /* Date type predicate, number constructor accepts time from epoch in seconds */
 let d = 0.asDate; [d.year, d.month, d.dayOfMonth] = [1970, 1, 1] /* month and day are one-indexed */
 0.asDate = 0.asDate /* dates are comparable */
-0.asDate ~= system.now.asDate /* dates are comparable */
+0.asDate != system.now.asDate /* dates are comparable */
 0.asDate < system.now.asDate /* dates are magnitudes */
 system.now.asDate > 0.asDate /* dates are magnitudes */
 '2023-05-11'.parseDate.dateString = '2023-05-11' /* read date from partial ISO-8601 string */
@@ -1384,7 +1384,7 @@ let f = { :t0 | let t1 = system.randomReal([0 2], []).seconds.asDuration; f:/1.v
 
 ## Quantity
 ```
-let d = 2.seconds; let c = d.copy; d ~~ c & { d = c } /* copy quantity */
+let d = 2.seconds; let c = d.copy; d !== c & { d = c } /* copy quantity */
 ```
 
 ## Error -- exception type
@@ -1423,7 +1423,7 @@ let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsaf
 let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
 1:3.asFloat64Array.printString = 'Float64Array([1, 2, 3])'
 1:3.asFloat64Array.storeString = 'Float64Array([1, 2, 3])'
-let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c ~= a & { c.asList = [3, 2, 3] } /* copy */
+let a = 1:3.asFloat64Array; let c = a.copy; c[1] := 3; c != a & { c.asList = [3, 2, 3] } /* copy */
 ```
 
 ## Floating point
@@ -1444,7 +1444,7 @@ system.includesPackage('Fraction') /* fraction package */
 Fraction(2, 3).isFraction /* fractional type */
 2/3 = Fraction(2, 3) /* literal syntax */
 Fraction(4, 6) = 2/3 /* Fraction normalises */
-ReducedFraction(4, 6) ~= 2/3 /* ReducedFraction assumes fraction is normal, and will construct a non-reduced fraction */
+ReducedFraction(4, 6) != 2/3 /* ReducedFraction assumes fraction is normal, and will construct a non-reduced fraction */
 2/3 = 4/6 /* literals are reduced by construction */
 2 / 3/4 = 8/3 /* division */
 2/3 + 2/3 = 4/3 /* addition */
@@ -1487,9 +1487,9 @@ let n = 9/5; n.reciprocal * n = 1 /* mutiplicative inverse */
 0.5 = 1/4 = false
 0.5 - 1/2 = 0
 0.5 = 3/4 = false
-0.5 ~= 1/4
+0.5 != 1/4
 1/2 - 0.5 = 0
-0.5 ~= 3/4
+0.5 != 3/4
 Fraction(6, 4) = Fraction(3, 2) /* Fraction normalizes */
 Fraction(-6, 4) = Fraction(-3, 2) /* Fraction normalizes */
 Fraction(6, -4) = Fraction(-3, 2) /* Fraction normalizes */
@@ -1571,12 +1571,12 @@ let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorte
 '4/3'.parseFraction = 4/3 /* parse fraction */
 '4/3'.parseFraction('/') = 4/3 /* parse fraction given delimiter */
 { '4/3'.parseNumber = 4/3 }.ifError { true } /* the fraction module does not modify asNumber to parse fractions */
-let x = Fraction(2 ^ 55, 2); x ~= (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
-let x = Fraction(2L ^ 55L, 2); x ~= (x - 1) /* fractions of large large integers behave ordinarily */
-2/3 ~= 3/4 /* unequal fractions */
+let x = Fraction(2 ^ 55, 2); x != (x - 1) /* fractions of large small floats would behave strangely, enforce large integers  */
+let x = Fraction(2L ^ 55L, 2); x != (x - 1) /* fractions of large large integers behave ordinarily */
+2/3 != 3/4 /* unequal fractions */
 (2/3 == 2/3).not /* non-identical fractions (equal fractions need not be the same object) */
-2/3 ~~ 2/3 /* non-identical fractions */
-2/3 ~~ 3/4 /* non-identical fractions */
+2/3 !== 2/3 /* non-identical fractions */
+2/3 !== 3/4 /* non-identical fractions */
 355/113.limitDenominator(77) = 223/71
 223/71.limitDenominator(7) = 22/7
 22/7.limitDenominator(5) = 16/5
@@ -1595,7 +1595,7 @@ Fraction(-4, -12) = 1/3
 2/3.numerator = 2
 2/3.denominator = 3
 2/3 = 6/9
-2/3 ~= 9/27
+2/3 != 9/27
 3/7 < 1/2
 3/4 > 2/3
 2/4 + 1/6 = 2/3
@@ -1683,7 +1683,7 @@ let h = Heap(); h.addAll([1 .. 9].shuffled); 8.timesRepeat { h.removeAt(2) }; h.
 let h = [1, 3, 5].asHeap; let a = []; h.do { :each | a.add(each) }; a = [1, 3, 5]
 let h = Heap(>); h.addAll([1 3 5]); h.first = 5
 let h = Heap { :p :q | p > q }; h.addAll([1, 3, 5]); [h.removeFirst, h.first] = [5, 3]
-let h = 1:4.asHeap; let c = h.copy; c.add(5); h ~= c & { c = [1 .. 5].asHeap }
+let h = 1:4.asHeap; let c = h.copy; c.add(5); h != c & { c = [1 .. 5].asHeap }
 ```
 
 ## Identity -- literals
@@ -1692,8 +1692,8 @@ nil == nil /* nil identity */
 true == true & { false == false } /* boolean identity */
 3.141 == 3.141 & { 23 == 23 } & { 5L == 5L } /* number identity */
 'str' == 'str' /* string identity */
-(x: 1) ~~ (x: 1) /* record non-identity */
-[1] ~~ [1] /* array non-identity */
+(x: 1) !== (x: 1) /* record non-identity */
+[1] !== [1] /* array non-identity */
 ```
 
 ## Integer -- numeric trait
@@ -1844,7 +1844,7 @@ Range(5, 10, 2).last = 9 /* create interval object with specified increment */
 5.toBy(10, 2).last = 9 /* interval from 5 to 10 by 2 */
 1:5.isEmpty.not /* test if empty */
 1:5.size = 5 /* number of elements */
-let i = 1:9; i.copy ~~ i & { i.copy = i } /* copy is equal not identical */
+let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 1:9.includes(9) /* test if element is in collection, interval is inclusive */
 1:9.includes(11).not /* test if element is in collection */
 1:9.includesIndex(3) /* does interval include index */
@@ -1858,8 +1858,8 @@ let i = 1:9; i.copy ~~ i & { i.copy = i } /* copy is equal not identical */
 1:9.injectInto(0) { :sum :item | sum + item } = 45 /* sum elements */
 1:9.asList = [1 .. 9] /* convert to array */
 1:9 = 1:9 /* equality */
-1:9 ~= 9:-1:1 /* inequality */
-1:9 ~= [1 .. 9] /* intervals are not equal to arrays */
+1:9 != 9:-1:1 /* inequality */
+1:9 != [1 .. 9] /* intervals are not equal to arrays */
 10.toBy(90, 10).includes(30)
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1/10 .. 1).size = 11
@@ -2011,7 +2011,7 @@ system.includesPackage('LargeInteger') /* LargeInteger package */
 6L / 8L = Fraction(3L, 4L)
 2 / 3L = Fraction(2L, 3L)
 4L / 2L = 2L /* reduced */
-let x = (2L ^ 54L); x ~= (x - 1) /* large integers behave ordinarily */
+let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 5L % 3L = 2L /* modulo */
 [10L % 5L, -4L % 3L, 4L % -3L, -4L % -3L] = [0L, 2L, -2L, -1L] /* modulo, negative operands */
 13L % 7L % 4L = 2L /* left assocative */
@@ -2082,7 +2082,7 @@ let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] /* muta
 1:9.asLinkedList.isSorted = true /* are elements in sequence */
 9:-1:1.asLinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
 [1, 3 .. 9].asLinkedList.indices = 1:5 /* indices of linked list (an interval) */
-let l = 1:9.asLinkedList; l.copy = l & { l.copy ~~ l } /* copy is equal but not identical */
+let l = 1:9.asLinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
 ```
 
@@ -2235,7 +2235,7 @@ system.includesPackage('Number') /* package */
 8 / 2 = 4 /* division of two numbers */
 2 ^ 3 = 8 /* exponentiation of a number */
 12 = 11 = false /* equality between two numbers */
-12 ~= 11 = true /* test if two numbers are different */
+12 != 11 = true /* test if two numbers are different */
 12 > 9 = true /* greater than */
 12 >= 10 = true /* greater or equal than */
 12 < 10 = false /* smaller than */
@@ -2407,11 +2407,11 @@ let x = { }; x:/0.isBlock /* blocks are objects and may be assigned to a variabl
 { :x | x + 1 }.numArgs = 1 /* the number of arguments can be retrieved */
 { :x | x := nil }.value(42).isNil /* arguments are mutable */
 let f = { :x :y | x := y; x }; f(1, 3) = 3 /* arguments are mutable */
-{ } ~= { } /* inequality */
+{ } != { } /* inequality */
 ({ } = { }).not /* inequality */
-{ 1 } ~= { 1 } /* inequality */
-{ 1 } ~= 1 /* inequality */
-{ } ~~ { } /* non-identity */
+{ 1 } != { 1 } /* inequality */
+{ 1 } != 1 /* inequality */
+{ } !== { } /* non-identity */
 let f = { }; f:/0 == f:/0 /* identity */
 { }.printString = 'a Block'
 { :x | x }.printString = 'a Block'
@@ -2617,7 +2617,7 @@ let r = 1:9.asStream; [r.next, r.back, r.next] = [1, 1, 1] /* go back one elemen
 ```
 1:5.asStream.size = 5 /* stream from interval, stream size */
 1:5.asStream.contents = 1:5 /* contents of finite stream (a copy of the collection) */
-let a = [1 .. 5]; a.asStream.contents ~~ a /* contents of finite stream (a copy of the collection) */
+let a = [1 .. 5]; a.asStream.contents !== a /* contents of finite stream (a copy of the collection) */
 let i = 1:5; i.asStream.originalContents == i /* original contents of stream (the actual collection */
 let r = 1:5.asStream; r.upToEnd; r.contents = 1:5 /* contents of consumed stream */
 1:9.asStream.collection = Range(1, 9, 1) /* read stream over interval collection */
@@ -2651,7 +2651,7 @@ let d = (x: 1, y: 2); d.collect { :each | each * 9 } = (x: 9, y: 18)
 let d = (x: 23, y: 3.141); d['x'] = 23
 let d = (x: 23, y: 3.141); d['x'] := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) /* a copy of record is a record */
-let d = (x: 23, y: 3.141); let c = d.copy; d ~~ c & { d = c } /* copy is equal to but not identical to */
+let d = (x: 23, y: 3.141); let c = d.copy; d !== c & { d = c } /* copy is equal to but not identical to */
 let d = (x: 1, y: 2); let c = d.copy; c['x'] := 3; c['x'] = 3 & { d['x'] = 1 } /* copies are distinct */
 (x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is optional */
 let x = 1; (x:9) = (x: 9) /* white space after colon is optional */
@@ -2672,12 +2672,12 @@ let c = (y: 2, z: 3); (x: 1).addAll(c) = c /* answer is argument */
 (x: true)['x'] = true /* true value answers true */
 (x: false).includesIndex('x') = true /* includes index at false value answers true */
 (x: false)['x'] = false /* at at key with false value answers false */
-(x: false)['x'] ~= nil /* at at key with false value does not answer nil */
+(x: false)['x'] != nil /* at at key with false value does not answer nil */
 (x: nil)['x'] = nil /* at at key with nil value answers nil */
 (x: 1, y: 2) = (x: 1, y: 2) /* Record equality */
-(x: 1, y: 2) ~= (x: 2, y: 1) /* Record in-equality */
+(x: 1, y: 2) != (x: 2, y: 1) /* Record in-equality */
 let r = (x: 1, y: 2); r == r /* Record identity */
-(x: 1, y: 2) ~~ (x: 1, y: 2) /* Record non-identity */
+(x: 1, y: 2) !== (x: 1, y: 2) /* Record non-identity */
 (x: 1, y: 2, z: 3).indices = ['x', 'y', 'z'] /* indices of record (an array) */
 (x: 1, y: 2) = (x: 1, y: 2) /* key sequence and equality */
 (x: 1, y: 2) = (y: 2, x: 1) /* key sequence and equality */
@@ -2844,8 +2844,8 @@ system.includesPackage('Sequenceable') /* package */
 [3, 3, 3, 2, 2, 1].sorted.size = 6 /* sort retains duplicates */
 let c = [3, 2, 1]; c.sort; c = [1, 2, 3] /* sort is in place (mutating) */
 let a = [3, 2, 1]; a.sort = a /* sort is in place (mutating) */
-let a = [3, 2, 1]; a.sorted ~= a /* sorted answers a new array */
-let c = [3, 2, 1]; let r = c.sorted; c ~= r /* sorted (answer a new array) */
+let a = [3, 2, 1]; a.sorted != a /* sorted answers a new array */
+let c = [3, 2, 1]; let r = c.sorted; c != r /* sorted (answer a new array) */
 [1 .. 5].isSorted /* is sequence sorted */
 [1, 3 .. 11].isSorted /* is sequence sorted */
 [].isSorted /* an empty sequence is sorted */
@@ -2879,10 +2879,10 @@ let s = ''; [1 9 2 8 3 7 4 6].reverseDo { :i | s := s ++ i }; s = '64738291' /* 
 ([1, 3 .. 9] ++ [1, 3 .. 9] ++ [2, 4 .. 10] ++ [2, 4 .. 10]).copyWithoutIdenticalElements = [1, 3, 5, 7, 9, 2, 4, 6, 8, 10]
 1:9.hasEqualElements(1:9) /* an array is not equal to an interval, but can have equal elements */
 1:9.hasEqualElements(1:9) /* an interval is not equal to an array, but can have equal elements */
-[1 .. 9] ~= 1:9 /* an array is not equal to an interval */
-1:9 ~= [1 .. 9] /* an interval is not equal to an array */
-[1 .. 9] ~= 1:9 /* an array is not equal to an interval */
-1:9 ~= [1 .. 9] /* an interval is not equal to an array */
+[1 .. 9] != 1:9 /* an array is not equal to an interval */
+1:9 != [1 .. 9] /* an interval is not equal to an array */
+[1 .. 9] != 1:9 /* an array is not equal to an interval */
+1:9 != [1 .. 9] /* an interval is not equal to an array */
 [1.5 .. 9.5].middle = 5.5 /* range start need not be an integer */
 let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indices in place */
 { [1 .. 5].swapWith(1, 9) }.ifError { true } /* it is an error if an index is invalid */
@@ -2892,7 +2892,7 @@ let c = [1 .. 5]; c.swapWith(1, 4); c = [4, 2, 3, 1, 5] /* swap elements at indi
 1:9.rotateLeft(3) = ([4 .. 9] ++ [1 .. 3]) /* rotate left */
 1:7.rotateLeft(3) = [4 5 6 7 1 2 3] /* rotate left */
 1:7.rotateLeft(-4) = [4 5 6 7 1 2 3] /* negative argument rotates right */
-let a = [1 .. 9]; a.rotateLeft(3) ~~ a /* rotation is not in place */
+let a = [1 .. 9]; a.rotateLeft(3) !== a /* rotation is not in place */
 1:9.rotateRight(3) = ([7 .. 9] ++ [1 .. 6]) /* rotate right */
 1:7.rotateRight(3) = [5 6 7 1 2 3 4] /* rotate right */
 1:7.rotateRight(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
@@ -2929,7 +2929,7 @@ let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all
 let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let l = [1 .. 9]; l.atAllPutAll(3:7, 7:-1:3); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
-let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted ~= c } /* sorted copy */
+let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in place */
 [7, 2, 6, 1].asSortedList.contents = [1, 2, 6, 7]
 [7 2 6 1].sorted(>) = [7 6 2 1]
@@ -2950,7 +2950,7 @@ let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] /* set at
 let a = 'string'.contents; a.atAll([6, 4, 5, 3, 1, 2]) = a.sorted
 [1, 3, 2, 5, 4].sortedWithIndices = [1 -> 1, 2 -> 3, 3 -> 2, 4 -> 5, 5 -> 4]
 [1, 3, 2, 5, 4].atAll([1, 3, 2, 5, 4]) = [1 .. 5]
-let a = [2 .. 5]; let b = a.copyWithFirst(1); a ~= b & { b = [1 .. 5] } /* copy with new first element */
+let a = [2 .. 5]; let b = a.copyWithFirst(1); a != b & { b = [1 .. 5] } /* copy with new first element */
 let a = [1 .. 7]; a.replaceFromToWith(3, 5, [-3, -4, -5]); a = [1, 2, -3, -4, -5, 6, 7]
 { [1 .. 7].replaceFromToWith(3, 5, [-3, -4]) }.ifError { true } /* replacement must be of equal size */
 let a = [1 .. 7]; a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 2, -3, -4, -5, 6, 7]
@@ -3039,7 +3039,7 @@ IdentitySet().isEmpty /* is set empty? */
 [1, 3, 5, 3, 1].asIdentitySet.includes(7) = false
 [1, 5, 3, 5, 1].asIdentitySet.asList = [1, 5, 3] /* set from array to array */
 [1, 5, 3, 5, 1].asIdentitySet.sorted = [1, 3, 5] /* a sorted set is an array */
-let s = [1 .. 5].asIdentitySet; s ~~ s.asIdentitySet /* a Set formed from a Set is not identical to the initial set */
+let s = [1 .. 5].asIdentitySet; s !== s.asIdentitySet /* a Set formed from a Set is not identical to the initial set */
 let s = [1 .. 5].asIdentitySet; s = s.asIdentitySet /* a Set formed from a Set is equal to the initial set */
 let s = [1, 3, 5, 3, 1].asIdentitySet; s.remove(3) = 3; s.asList = [1, 5] /* remove answers removed element */
 [1 .. 9].asIdentitySet.atRandom.betweenAnd(1, 9) /* inclusive */
@@ -3163,8 +3163,8 @@ eulersNumber() = 1.exp /* eulers number */
 1.e = eulersNumber() /* e is a constant, like 1.pi */
 system.smallFloatEpsilon < (10 ^ -15) /* the difference between 1 and the smallest SmallFloat greater than 1 */
 system.smallFloatEpsilon > (10 ^ -16)
-1 - system.smallFloatEpsilon ~= 1 /* epsilon() is the difference between 1.0 and previous representable value */
-1.epsilon ~= system.smallFloatEpsilon /* epsilon is a constant, like 1.pi & e */
+1 - system.smallFloatEpsilon != 1 /* epsilon() is the difference between 1.0 and previous representable value */
+1.epsilon != system.smallFloatEpsilon /* epsilon is a constant, like 1.pi & e */
 1.pi = 3.141592653589793 /* 1.pi is a number */
 1.epsilon = 0.000000000000001 /* epsilon is a number */
 1.e = 2.718281828459045 /* e is a number */
@@ -3185,8 +3185,8 @@ Infinity.isFinite = false /* Infinity is not finite */
 [561, 2821, 6601, 10585, 15841, 256, 29996224275831].noneSatisfy(isPrime:/1) /* no primes here */
 1.00001.reduce = 1 /* round if number is close to an integer */
 1.5.reduce = 1.5 /* identity if number is not close to an integer */
-let x = (2 ^ 54); x ~= (x - 1) = false /* large numbers behave strangely */
-let x = (2.0 ^ 54.0); x ~= (x - 1.0) = false /* large numbers behave strangely */
+let x = (2 ^ 54); x != (x - 1) = false /* large numbers behave strangely */
+let x = (2.0 ^ 54.0); x != (x - 1.0) = false /* large numbers behave strangely */
 [-1, 0, 1].collect(asString:/1) = ['-1', '0', '1']
 Infinity.asString = 'Infinity' /* Infinity prints as Infinity */
 (0 - Infinity).asString = '-Infinity'
@@ -3237,9 +3237,9 @@ let pi = 23; pi = 23 /* 1.pi is a constant, it can be shadowed */
 ```
 3 % 2 = 1
 3 % 3 = 0
--3 % 2 ~= -1 /* ? */
+-3 % 2 != -1 /* ? */
 -3 % -2 = -1
-3 % -2 ~= 1 /* ? */
+3 % -2 != 1 /* ? */
 3 % 3 = 0
 -3 % -3 = 0
 3 % -3 = 0
@@ -3272,7 +3272,7 @@ let s = Stack(); s.push(1.pi); [s.size, s.pop, s.size] = [1, 1.pi, 0] /* push el
 let s = Stack(); s.push('x'); s.push('y'); [s.size, s.pop, s.size, s.pop, s.size] = [2, 'y', 1, 'x', 0] /* push two elements, pop two elements */
 let s = Stack(); s.pop = nil /* pop of empty stack answers nil */
 let s = Stack(); s.push('x') = 'x' /* push answers object pushed */
-let s = Stack(); s.push('x'); s.copy = s & { s.copy ~~ s } /* copy is equal but not identical */
+let s = Stack(); s.push('x'); s.copy = s & { s.copy !== s } /* copy is equal but not identical */
 ```
 
 ## String -- text type
@@ -3404,7 +3404,7 @@ let x = ['a', 'bc', 'def']; x.unlines.lines = x
 '12345'.asLowerCase = '12345' /* only if letters */
 'Word'.asUpperCase = 'WORD'
 '12345'.asUpperCase = '12345' /* only if letters */
-'x' ~= 'X' & { 'x'.isSameAs('X') & { 'x'.isSameAs('x') } } /* considered without case */
+'x' != 'X' & { 'x'.isSameAs('X') & { 'x'.isSameAs('x') } } /* considered without case */
 'word'.capitalize = 'Word' /* uppercase first letter only */
 'anotherWord'.capitalize = 'AnotherWord' /* uppercase first letter only, do not lower case interior letters */
 '12345'.capitalize = '12345' /* only if a letter */
@@ -3459,7 +3459,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' /* contract string to be of size */
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' /* contract string to be of size */
 'string'.asList.sort.stringJoin = 'ginrst'
-'x' ~= 'x'.asCharacter /* a single element string is not equal to a character */
+'x' != 'x'.asCharacter /* a single element string is not equal to a character */
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
 'string'.asHexString = '737472696E67' /* hex string of ascii codes of string */
@@ -3689,7 +3689,7 @@ system.isSystem /* system predicate */
 system.typeDictionary.indices.includes('System') = true
 system.nextRandomFloat < 1 /* system random number generator */
 system.uniqueId.isInteger /* system unique identifier generator, answers are integers */
-system.uniqueId ~= system.uniqueId /* system unique identifier generator */
+system.uniqueId != system.uniqueId /* system unique identifier generator */
 let p = system.uniqueId; let q = system.uniqueId; p + 1 = q /* the generator is a simple counter */
 system.highBitPerByteTable.size = 256 /* high bits per byte table */
 system.highBitPerByteTable.asIdentityBag.sortedCounts = [128 -> 8, 64 -> 7, 32 -> 6, 16 -> 5, 8 -> 4, 4 -> 3, 2 -> 2, 1 -> 1, 1 -> 0]
@@ -3705,7 +3705,7 @@ system.lowBitPerByteTable.asIdentityBag.sortedCounts = [128 -> 1, 64 -> 2, 32 ->
 ['^', '&', '*', '-', '+', '='].collect(splOperatorTokenName:/1) = ['circumflexAccent', 'ampersand', 'asterisk', 'hyphenMinus', 'plusSign', 'equalsSign']
 ['?', '<', '>'].collect(splOperatorTokenName:/1) = ['questionMark', 'lessThanSign', 'greaterThanSign']
 '!^'.splOperatorTokenName = 'exclamationMarkCircumflexAccent' /* composite operator names capitalize non-initial names */
-'~='.splOperatorTokenName = 'tildeEqualsSign'
+'!='.splOperatorTokenName = 'exclamationMarkEqualsSign'
 system.splPunctuationCharacterNameTable['^'] = 'circumflexAccent' /* table of operator names */
 '+ ++ * / - %'.words.collect { :each | system.splOperatorNameTable[each] } = 'plusSign plusSignPlusSign asterisk solidus hyphenMinus percentSign'.words
 ```
@@ -3932,7 +3932,7 @@ let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
 { system.now.postLine }.valueAfter(Duration(0.5)).cancel = nil
 { system.now.postLine }.valueAt(system.now + Duration(0.5)).cancel = nil
 { system.now.postLine }.valueEvery(Duration(3)).cancel = nil
-let t = 1676784053576.asTimeStamp; let c = t.copy; c ~~ t & { c = t }
+let t = 1676784053576.asTimeStamp; let c = t.copy; c !== t & { c = t }
 ```
 
 ## Tuple -- collection type
@@ -4105,7 +4105,7 @@ let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements atPut */
 PlanarCoordinates([3, 4]).size = 2 /* implements size */
 let v = PlanarCoordinates([3 4]); v.swapInPlace; v[1] = 4 /* swap fields in place */
 PlanarCoordinates([3 4]).swapped = PlanarCoordinates([4, 3]) /* answer swapped vector */
-let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c ~= v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
+let v = PlanarCoordinates([0, 0]); let c = v.copy; c.x := 1; c != v & { c = PlanarCoordinates([1, 0]) } /* copy two vector */
 PlanarCoordinates([1, 1]).asPolarCoordinates = PolarCoordinates([2.sqrt, 0.25.pi]) /* radius and angle, r and theta */
 [0 0].asPlanarCoordinates.isPlanarCoordinates /* array as point, point predicate */
 [0 0].asPlanarCoordinates.isOrigin /* are x and y both zero */

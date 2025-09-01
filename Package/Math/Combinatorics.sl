@@ -120,7 +120,7 @@
 		self.includes(1).if {
 			-1
 		} {
-			(self.gcd ~= 1).if {
+			(self.gcd != 1).if {
 				Infinity
 			} {
 				let r = self.sorted.bockerLiptakAlgorithm.last;
@@ -145,7 +145,7 @@
 					let r = mm % a[1];
 					let lb = ert[i - 1][r + 1];
 					c[i] := j;
-					(lb ~= Infinity).ifTrue {
+					(lb != Infinity).ifTrue {
 						{
 							mm >= lb
 						}.whileTrue {

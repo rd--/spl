@@ -40,6 +40,14 @@ A 3×4 matrix of random integers:
 ]
 ```
 
+A 2×2×2 array of random integers:
+
+```
+>>> let r = Sfc32(12345);
+>>> r.randomInteger([1 9], [2 2 2])
+[8 5; 9 9:; 4 7; 5 8]
+```
+
 * * *
 
 See also: atRandom, randomByteArray, randomLargeInteger, RandomNumberGenerator, randomReal, randomSample

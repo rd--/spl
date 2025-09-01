@@ -257,7 +257,7 @@ ScSynth! : [Object] {
 	}
 
 	asLocalBufferList { :self |
-		(self.depth ~= 3).if {
+		(self.depth != 3).if {
 			'asLocalBufferList: not a matrix'.error
 		} {
 			self.collect(asLocalBuf:/1)

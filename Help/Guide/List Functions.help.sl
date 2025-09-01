@@ -43,6 +43,10 @@ Counting:
 - `sum`
 - `tally`
 
+Indexing:
+
+- `Indexing Functions`: Guide
+
 Iterative Construction:
 
 - `fixedPointList`

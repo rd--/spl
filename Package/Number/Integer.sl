@@ -281,7 +281,7 @@
 
 	euclideanAlgorithm { :a :b |
 		{
-			b ~= 0
+			b != 0
 		}.whileTrue {
 			let t = b;
 			b := a % b;
@@ -321,7 +321,7 @@
 		let [s0, s] = [1, 0];
 		let [t0, t] = [0, 1];
 		{
-			r ~= 0
+			r != 0
 		}.whileTrue {
 			let quotient = r0 // r;
 			[r0, r] := [r, r0 - (quotient * r)];
@@ -522,7 +522,7 @@
 		d[1] := n;
 		aBlock(d.copyFromTo(1, 1));
 		{
-			k ~= n
+			k != n
 		}.whileTrue {
 			let l = k;
 			let m = d[k];
@@ -561,7 +561,7 @@
 		let k = 2;
 		let y = n - 1;
 		{
-			k ~= 1
+			k != 1
 		}.whileTrue {
 			var x, l;
 			k := k - 1;
@@ -963,7 +963,7 @@
 		let r = (n < 0).if { n.negate } { n };
 		let r1 = (a < 0).if { (n - (a.negate % n)) % n } { a % n };
 		{
-			r1 ~= 0
+			r1 != 0
 		}.whileTrue {
 			let quotient = r // r1;
 			[t, t1] := [t1, t - (quotient * t1)];
@@ -1309,7 +1309,7 @@
 	}
 
 	tonelliShanksAlgorithm { :n :p |
-		(legendreSymbol(n, p) ~= 1).if {
+		(legendreSymbol(n, p) != 1).if {
 			[n, p].error('tonelliShanksAlgorithm: not square')
 		} {
 			let q = p - 1;
@@ -1326,17 +1326,17 @@
 				let c = nil;
 				let r = nil;
 				let t = nil;
-				{ z < p & { legendreSymbol(z, p) ~= -1 } }.whileTrue {
+				{ z < p & { legendreSymbol(z, p) != -1 } }.whileTrue {
 					z := z + 1
 				};
 				c := powerMod(z, q, p);
 				r := powerMod(n, (q + 1) / 2, p);
 				t := powerMod(n, q, p);
-				{ (t - 1) % p ~= 0 }.whileTrue {
+				{ (t - 1) % p != 0 }.whileTrue {
 					let t2 = (t ^ 2) % p;
 					let i = 1;
 					let b = nil;
-					{ i < m & { (t2 - 1) % p ~= 0 } }.whileTrue {
+					{ i < m & { (t2 - 1) % p != 0 } }.whileTrue {
 						t2 := (t2 ^ 2) % p;
 						i := i + 1
 					};
@@ -1432,7 +1432,7 @@
 	}
 
 	isPowerOfTwo { :self |
-		self ~= 0 & {
+		self != 0 & {
 			self.bitAnd(self - 1) = 0
 		}
 	}

@@ -67,21 +67,21 @@ Split at jumps:
 Split so that in each sublist successive elements are not the same:
 
 ```
->>> [1 1 1 2 1 2 2 1 1 1 3 1].split(~=)
+>>> [1 1 1 2 1 2 2 1 1 1 3 1].split(!=)
 [1; 1; 1 2 1 2; 2 1; 1; 1 3 1]
 ```
 
 Split after every occurrence of 1:
 
 ```
->>> [1 2 1 2 3 4 1 1].split { :i :j | i ~= 1 }
+>>> [1 2 1 2 3 4 1 1].split { :i :j | i != 1 }
 [1; 2 1; 2 3 4 1; 1]
 ```
 
 Split before every occurrence of 1:
 
 ```
->>> [1 2 1 2 3 4 1 1].split { :i :j | j ~= 1 }
+>>> [1 2 1 2 3 4 1 1].split { :i :j | j != 1 }
 [1 2; 1 2 3 4; 1; 1]
 ```
 

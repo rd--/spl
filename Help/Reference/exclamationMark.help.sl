@@ -1,13 +1,10 @@
 # ! (exclamationMark)
 
-- _aNumber.!_
-- _anObject ! integerOrShape_
+- _x.!_
+- _x ! n_
 
-`!` is both an operator and a syntax token.
-
-As an operator,
-the unary form answers the `factorial` of _aNumber_ if it is a non-negative integer,
-else it answers `gamma`:
+The unary form answers the `factorial` of the number _x_ if it is a non-negative integer,
+else it answers `gamma`.
 
 At integral `SmallFloat` and `LargeInteger`:
 
@@ -56,20 +53,24 @@ Plot the volume of the unit hypersphere as a function of dimension:
 
 ![](sw/spl/Help/Image/exclamationMark-B.svg)
 
-In the binary case there two meanings depending on the type of the operand.
+In the binary case there two meanings depending on the type of the operand _n_.
 In the `Integer` case,
-evaluate _value(anObject)_ _anInteger_ times and collect the results into a `List`.
+evaluates the _x_ _n_ times as _value(x)_ and collect the results into a `List`:
 
 ```
 >>> { 1 } ! 3
 [1 1 1]
+
+>>> let x = Sfc32(6783141);
+>>> { x.nextRandomFloat } ! 3
+[0.394068 0.704648 0.187997]
 
 >>> 1 ! 3
 [1 1 1]
 ```
 
 In the `Sequence` case,
-evaluate _value(anObject)_ to fill an array of the indicated size or shape.
+evaluate _value(x)_ to fill an array of the indicated size or shape.
 
 Scalar value:
 
@@ -136,12 +137,13 @@ With external state:
 [2 4 8 16 32]
 
 >>> let r = Sfc32(12345);
->>> r.randomInteger([1 9], [5])
+>>> { r.nextRandomInteger(1, 9) } ! 5
 [8 5 9 9 4]
 ```
 
 The name of this operator is `exclamationMark`.
 
+`!` is both an operator and a syntax token.
 As a syntax token `!` is part of `Type Definition Syntax`.
 
 Answer a `List` constructed by evaluating a no-argument block the indicated number of times.
@@ -185,7 +187,7 @@ This can be written more simply using the _!^_ operator as:
 
 See also: !^, !+, #, duplicateInteger, duplicateShape, factorial, fill, List
 
-Guides: Type Definition Syntax
+Guides: Binary Operators, Type Definition Syntax
 
 Unicode: ! U+00021 Exclamation Mark
 

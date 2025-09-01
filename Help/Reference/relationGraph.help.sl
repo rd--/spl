@@ -25,7 +25,7 @@ An arbitrary boolean expression:
 
 ```
 >>> { :i :j |
->>> 	(i ~= j) & { i.divisible(j) }
+>>> 	(i != j) & { i.divisible(j) }
 >>> }.relationGraph(
 >>> 	true,
 >>> 	24.divisors

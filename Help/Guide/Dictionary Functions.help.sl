@@ -29,6 +29,10 @@ Converting:
 - `asMap`
 - `asRecord`
 
+Indexing:
+
+- `Indexing Functions`: Guide
+
 Predicates:
 
 - `isAssociation`
@@ -41,5 +45,4 @@ Set Functions:
 
 * * *
 
-Guides: Record Syntax
-Guides: Indexing Functions, List Functions
+Guides: Indexing Functions, List Functions, Record Syntax

@@ -462,9 +462,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("zeta" . ?ζ) ; U+03B6 ζ Greek Small Letter Zeta
      ("||" . ?‖) ; U+2016 ‖ Double Vertical Line
      ("~" . ?≈) ; U+2248 ≈ Almost Equal To
-     ("~=" . ?≠) ; U+2260 ≠ Not equal to
+     ("!=" . ?≠) ; U+2260 ≠ Not equal to
      ("~>" . ?⇝) ; U+21DD ⇝ Rightwards Squiggle Arrow
-     ("~~" . ?≢) ; U+2262 ≢ Not Identical To
+     ("!==" . ?≢) ; U+2262 ≢ Not Identical To
      (":;" . ?↲) ; U+21B2 ↲ Downwards Arrow With Tip Leftwards
      ("Sha" . ?Ш) ; U+0428 Ш Cyrillic Capital Letter Sha
      ("sha" . ?ш) ; U+0448 ш Cyrillic Small Letter Sha

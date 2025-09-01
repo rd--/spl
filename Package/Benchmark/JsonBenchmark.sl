@@ -164,7 +164,7 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 
 	indexOf { :self :name |
 		let index = self.table[name];
-		(index ~= 0 & {
+		(index != 0 & {
 			name = self.names[index]
 		}).if {
 			index
@@ -392,7 +392,7 @@ JsonParser : [Object] { | input index line column current captureBuffer captureS
 		self.readDigit.ifFalse {
 			self.expected('digit')
 		};
-		(firstDigit ~= '0').ifTrue {
+		(firstDigit != '0').ifTrue {
 			{
 				self.readDigit
 			}.whileTrue {

@@ -119,7 +119,7 @@ Copy colour and mutate components:
 >>> let c = RgbColour([1 0 0], 0.5);
 >>> let z = c.copy;
 >>> z.rgb := [1 1 0];
->>> (c ~= z, c.isRed, z)
+>>> (c != z, c.isRed, z)
 (true, true, RgbColour([1 1 0], 0.5))
 ```
 

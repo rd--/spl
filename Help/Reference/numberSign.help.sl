@@ -88,6 +88,8 @@ The name of this operator is `numberSign`.
 
 See also: !, fill, replicateInteger, replicateEach, replicateEachApplying, reshape, shape, size
 
+Guides: Binary Operators
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Replicate),

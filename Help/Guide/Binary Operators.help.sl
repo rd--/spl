@@ -31,6 +31,8 @@ in alphabetical order:
 - `commercialAtGreaterThanSign`: @>
 - `equalsSignEqualsSign`: ==
 - `exclamationMarkCircumflexAccent`: !^
+- `exclamationMarkEqualsSignEqualsSign`: !==
+- `exclamationMarkEqualsSign`: !=
 - `exclamationMarkPlusSign`: !+
 - `exclamationMarkTilde`: !~
 - `greaterThanSignEqualsSign`: >=
@@ -46,8 +48,6 @@ in alphabetical order:
 - `plusSignPlusSign`: ++
 - `reverseSolidusReverseSolidus`: \\\\
 - `solidusSolidus`: //
-- `tildeEqualsSign`: ~=
-- `tildeTilde`: ~~
 - `verticalLineVerticalLine`: ||
 
 Three-character binary operators,

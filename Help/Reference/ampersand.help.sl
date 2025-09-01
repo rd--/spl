@@ -1,11 +1,11 @@
 # & (ampersand)
 
-- _aBoolean & aBlock:/0_
-- _aCollection.&_
+- _b & f:/0_
+- _c.&_
 
 Nonevaluating conjunction.
-`true` if _aBoolean_ is `true` and _aBlock_ evaluates to `true`, else `false`.
-If _aBoolean_ is `false` then _aBlock_ is not evaluated.
+`true` if the boolean _b_ is `true` and the block _f_ evaluates to `true`, else `false`.
+If _b_ is `false` then _f_ is not evaluated.
 
 ```
 >>> true & { true }
@@ -15,17 +15,19 @@ true
 false
 ```
 
-The unary form of & is `allSatisfy` of `blockValue`:
-
-```
->>> &([ {1 > 0 }, { 2 > 1 }, { 3 > 2 }])
-true
-```
-
-Unary operator syntax may be used:
+The unary form of `&`,
+define for collections,
+is `allSatisfy` of `blockValue`:
 
 ```
 >>> [{ 1 > 0 }, { 2 > 1 }, { 3 > 2 }].&
+true
+```
+
+Applicative syntax may be used:
+
+```
+>>> &([{ 1 > 0 }, { 2 > 1 }, { 3 > 2 }])
 true
 ```
 
@@ -39,7 +41,7 @@ In Spl the names are _&_ and _&&_.
 
 See also: |, &&, allSatisfy, value
 
-Guides: Boolean Functions, Logical Operators
+Guides: Boolean Functions, Binary Operators, Logical Operators
 
 References:
 _Apl_

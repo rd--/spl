@@ -109,7 +109,7 @@ Integer division does not neccesarily answer an integer, c.f. `//`:
 
 See also: //, +, -, *, Divide
 
-Guides: Fraction Literals
+Guides: Binary Operators, Fraction Literals
 
 References:
 _Apl_

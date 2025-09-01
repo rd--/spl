@@ -9,7 +9,7 @@ At `Fraction`:
 ```
 >>> let p = ReducedFraction(2, 4);
 >>> let q = p.simplified;
->>> (q, p ~= q)
+>>> (q, p != q)
 (1/2, true)
 ```
 

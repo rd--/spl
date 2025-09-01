@@ -132,8 +132,8 @@ SparseArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | conten
 
 	withCollect { :self :other :aBlock:/2 |
 		(
-			self.rank ~= other.rank | {
-				self.unspecifiedValue ~= other.unspecifiedValue
+			self.rank != other.rank | {
+				self.unspecifiedValue != other.unspecifiedValue
 			}
 		).if {
 			self.error('withCollect: unequal rank or unspecified value')

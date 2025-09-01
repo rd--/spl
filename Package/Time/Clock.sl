@@ -69,7 +69,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		let queue = self.priorityQueue;
 		let frontOfQueueTime = self.nextEntryTime;
 		{
-			frontOfQueueTime ~= nil & {
+			frontOfQueueTime != nil & {
 				frontOfQueueTime <= currentTime
 			}
 		}.whileTrue {

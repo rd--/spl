@@ -30,7 +30,7 @@ Answer is a new `List`, see `sort` for in place variant:
 
 ```
 >>> let a = [3 2 1];
->>> a.sorted ~~ a
+>>> a.sorted !== a
 true
 ```
 

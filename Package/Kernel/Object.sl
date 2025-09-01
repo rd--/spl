@@ -10,7 +10,7 @@
 		/* self.hasEqualSlotsBy(anObject, ~) */
 	}
 
-	~= { :self :anObject |
+	!= { :self :anObject |
 		not(self = anObject)
 	}
 
@@ -18,7 +18,7 @@
 		<primitive: return _self === _anObject;>
 	}
 
-	~~ { :self :anObject |
+	!== { :self :anObject |
 		<primitive: return _self !== _anObject;>
 	}
 

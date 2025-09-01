@@ -38,7 +38,7 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 			let h = q[i][i].abs;
 			let r = (h = 0).if { 0 } { 1 / h };
 			1:n.do { :j |
-				(i ~= j).ifTrue {
+				(i != j).ifTrue {
 					t[i][j] := q[i][j] * r
 				}
 			};

@@ -1,8 +1,8 @@
 # @ (commercialAt)
 
-- _aCollection @ anIndex_
+- _c @ i_
 
-Answer the item in _aCollection_ at _anIndex_.
+Answer the item in the collection _c_ at index _i_.
 
 ```
 >>> let c = 1:9;
@@ -18,8 +18,10 @@ This form is rarely used since `at` is ordinarily written using `At Syntax` as:
 3
 ```
 
-However it is nice to have operator forms for variants of `at`,
-such as `atAll` and `atPath`. `@*` is a mnemonic for `atAll`:
+However there is a family of operator forms for variants of `at`,
+such as `atAll` and `atPath`.
+
+`@*` is a mnemonic for `atAll`:
 
 ```
 >>> let c = [1 .. 9];
@@ -27,7 +29,7 @@ such as `atAll` and `atPath`. `@*` is a mnemonic for `atAll`:
 [3 5 7]
 ```
 
-and `@>` for `atPath`:
+`@>` is a mnemonic for `atPath`:
 
 ```
 >>> let c = [1 2 3; 4 5 6];
@@ -44,7 +46,7 @@ The name of this operator is `commercialAt`.
 
 See also: at, Point
 
-Guides: At Syntax, Defining Methods
+Guides: At Syntax, Binary Operators, Defining Methods
 
 Unicode: U+0040 @ Commercial At
 

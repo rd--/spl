@@ -19,7 +19,7 @@ Some of the notations are:
 1. `:=` as ← and `::` as ·
 1. `return` as ↑ and `valueWithReturn` as ↓
 1. `->` as →
-1. `~=` as ≠ and `==` as ≡
+1. `!=` as ≠ and `==` as ≡
 1. `<=` as ≤ and `>=` as ≥
 1. `++` as ⧺
 1. `:/` as ⧸

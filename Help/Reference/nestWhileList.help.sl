@@ -50,7 +50,7 @@ Find the multiplicative order of 2 modulo 19:
 >>> { :x |
 >>> 	(x * 2) % 19
 >>> }.nestWhileList(2) { :x |
->>> 	x ~= 1
+>>> 	x != 1
 >>> }
 [2 4 8 16 13 7 14 9 18 17 15 11 3 6 12 5 10 1]
 ```

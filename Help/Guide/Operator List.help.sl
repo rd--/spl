@@ -14,9 +14,9 @@ Math operators:
 Comparison operators:
 
 - `=`: equal to
-- `~=`: not equal to (≠)
+- `!=`: not equal to (≠)
 - `==`: identical to (≡)
-- `~~`: not identical to (≢)
+- `!==`: not identical to (≢)
 - `>`: greater than
 - `>=`: greater than or equal to (≥)
 - `>~`: greater than or similar to (⪆)

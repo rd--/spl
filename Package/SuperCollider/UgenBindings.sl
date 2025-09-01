@@ -461,7 +461,7 @@
 	// { :self :anObject | Quotient(self, anObject) }
 	% { :self :anObject | Mod(self, anObject) }
 	= { :self :anObject | Equal(self, anObject) }
-	~= { :self :anObject | Unequal(self, anObject) }
+	!= { :self :anObject | Unequal(self, anObject) }
 	< { :self :anObject | LessThan(self, anObject) }
 	> { :self :anObject | GreaterThan(self, anObject) }
 	<= { :self :anObject | LessThanOrEqual(self, anObject) }

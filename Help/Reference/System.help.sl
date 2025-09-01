@@ -31,7 +31,7 @@ true
 
 >>> let p = system.uniqueId;
 >>> let q = system.uniqueId;
->>> p ~= q
+>>> p != q
 true
 ```
 

@@ -1,9 +1,9 @@
 # * (asterisk)
 
-- _aNumber * anotherNumber_
-- _aNumber.*_
+- _x * y_
+- _z.*_
 
-The binary form answers _aNumber_ multiplied by _anotherNumber_.
+The binary form answers the number _x_ multiplied by _y_.
 
 ```
 >>> 2 * 3 * 4
@@ -97,6 +97,8 @@ The name of this operator is `asterisk`.
 * * *
 
 See also: +, -, /, ^, *+, cross, dot, product, sign, Times
+
+Guides: Binary Operators
 
 References:
 _Apl_

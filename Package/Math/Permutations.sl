@@ -406,7 +406,7 @@ Permutation : [Object] { | cycles degree |
 	derangements { :self |
 		let answer = [];
 		self.permutationsDo { :each |
-			self.withCollect(each, ~=).allSatisfy(identity:/1).ifTrue {
+			self.withCollect(each, !=).allSatisfy(identity:/1).ifTrue {
 				answer.add(each.copy)
 			}
 		};
@@ -881,7 +881,7 @@ Permutation : [Object] { | cycles degree |
 		self.do { :x |
 			{
 				let n = stack.peek;
-				n ~= nil & {
+				n != nil & {
 					x > n
 				}
 			}.whileTrue {

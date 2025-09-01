@@ -106,7 +106,7 @@ true
 
 See also: at, atAllBlend, atAllPin, atAllPut, atAllSymmetrical, atPath
 
-Guides: AtAll Syntax
+Guides: AtAll Syntax, Indexing Functions
 
 References:
 _Apl_

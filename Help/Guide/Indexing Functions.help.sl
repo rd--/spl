@@ -28,13 +28,15 @@ or at a modified index if the specified index is invalid:
 
 Access a set of elements at the specified indices:
 
-- `atAll`
 - `atAllFold`
-- `atOrMissingAll`
-- `atOrNilAll`
+- `atAllMod`
 - `atAllPin`
 - `atAllSymmetrical`
 - `atAllValid`
+- `atAllWrap`
+- `atAll`
+- `atOrMissingAll`
+- `atOrNilAll`
 
 Access an element using a positional index:
 
@@ -84,6 +86,13 @@ Write a value, or a collection of values, to a specified sequence of indices:
 Mutate at deep index:
 
 - `atPathPut`
+
+Wrap Indices:
+
+- `mod`, `%`
+- `wrap`
+- `wrapExclusive`
+- `wrapIndex`
 
 Indexing Syntax
 

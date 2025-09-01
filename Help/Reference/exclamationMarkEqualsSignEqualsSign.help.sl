@@ -1,6 +1,6 @@
-# ~~ (tildeTilde)
+# !== (exclamationMarkEqualsSignEqualsSign)
 
-- _p ~~ q_
+- _p !== q_
 
 Answers `true` if an object _p_ is not identical to another object _q_, else `false`.
 
@@ -10,40 +10,40 @@ It decides if two values are not the same.
 At `Symbol`:
 
 ```
->>> `x` ~~ `y`
+>>> `x` !== `y`
 true
 
->>> `x` ~~ `x`
+>>> `x` !== `x`
 false
 ```
 
 At `String`:
 
 ```
->>> 'xyz' ~~ 'XYZ'
+>>> 'xyz' !== 'XYZ'
 true
 
->>> 'xyz' ~~ 'xyz'
+>>> 'xyz' !== 'xyz'
 false
 ```
 
 Numbers in different representations are not identical but are equal:
 
 ```
->>> 1/1 ~~ 1
+>>> 1/1 !== 1
 true
 
->>> 1/1 ~= 1
+>>> 1/1 != 1
 false
 ```
 
 Where supported `~~` is displayed as ≢.
 
-The name of this operator is `tildeTilde`.
+The name of this operator is `exclamationMarkEqualsSignEqualsSign`.
 
 * * *
 
-See also: =, ~=, ==
+See also: =, !=, ==
 
 Unicode: U+2262 ≢ Not Identical To
 

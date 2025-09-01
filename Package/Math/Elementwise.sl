@@ -638,6 +638,10 @@
 		}
 	}
 
+	multiplyAdd { :i :j :k |
+		withWithCollect(i, j, k, multiplyAdd:/3)
+	}
+
 	nthRoot { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, nthRoot:/2)
 	}

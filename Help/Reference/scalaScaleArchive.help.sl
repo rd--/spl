@@ -38,7 +38,7 @@ Count the scales where the `startIndex` is not `one`:
 >>> system
 >>> .scalaScaleArchive
 >>> .count { :each |
->>> 	each.startIndex ~= 1
+>>> 	each.startIndex != 1
 >>> }
 17
 ```

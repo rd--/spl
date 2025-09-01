@@ -579,7 +579,7 @@
 		0.toDo(size - 1) { :i |
 			let subset = self.species.new;
 			powersOfTwo.withIndexDo { :each :j |
-				(i // each % 2 ~= 0).ifTrue {
+				(i // each % 2 != 0).ifTrue {
 					subset.include(list[j])
 				}
 			};

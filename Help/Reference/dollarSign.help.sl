@@ -1,8 +1,8 @@
 # $ (dollarSign)
 
-- _aBlock:/1 $ anObject_
+- _f:/1 $ x_
 
-Apply _aBlock_ to _anObject_.
+Apply the unary block _f_ to the object _x_.
 
 ```
 >>> { :x |
@@ -32,4 +32,4 @@ The name of this operator is `dollarSign`.
 
 See also: value
 
-Guides: Apply Syntax, Value Apply Syntax
+Guides: Apply Syntax, Binary Operators, Value Apply Syntax
