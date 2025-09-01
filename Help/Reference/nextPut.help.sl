@@ -1,8 +1,8 @@
 # nextPut
 
-- _nextPut(aStream, anObject)_
+- _nextPut(s, x)_
 
-Write _anObject_ into _aStream_.
+Write the object _x_ into the stream _s_.
 
 ```
 >>> let s = [].asWriteStream;

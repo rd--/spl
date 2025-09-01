@@ -1,8 +1,8 @@
 # nextPutAll
 
-- _nextPutAll(aStream, aCollection)_
+- _nextPutAll(s, c)_
 
-Enumerates _aCollection_, adding each element to _aStream_.
+Enumerates the collection _c_, adding each element to the stream _s_.
 
 ```
 >>> let s = ByteArray(0).asWriteStream;
@@ -14,6 +14,8 @@ Enumerates _aCollection_, adding each element to _aStream_.
 * * *
 
 See also: nextPut, putOn, Stream, WriteStream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

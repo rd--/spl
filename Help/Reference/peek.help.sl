@@ -1,8 +1,8 @@
 # peek
 
-- _peek(aCollection)_
+- _peek(x)_
 
-Answer what would be returned if the next item were requested from _aCollection_,
+Answer what would be returned if the next item were requested from the object _x_,
 for instance `next` at a `Stream`,
 or `pop` at a `Stack` or `PriorityQueue`.
 If there is no item, answer nil.
@@ -16,6 +16,8 @@ If there is no item, answer nil.
 * * *
 
 See also: next, peekFor, Stream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

@@ -10,10 +10,21 @@ To implement `Iterator` a type must implement `next`.
 (1, 2, 3)
 ```
 
-`Iterator` implements: `any`, `do`, `nextInto`, `nextMatchFor`, `nextSatisfy`, `nextUntil`, `nextWhile`, `upToEnd`.
+`Iterator` implements:
+
+- `any`
+- `do`
+- `nextInto`
+- `nextMatchFor`
+- `nextSatisfy`
+- `nextUntil`
+- `nextWhile`
+- `upToEnd`
 
 * * *
 
 See also: asIterator, do, Iterable, next, Stream
+
+Guides: Stream Functions
 
 Categories: Collection, Trait

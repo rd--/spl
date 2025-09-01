@@ -1,8 +1,10 @@
 # nextWhile
 
-- _nextWhile(aStream, aBlock:/1)_
+- _nextWhile(s, f:/1)_
 
-Answer a `List` of the next items in _aStream_ for as long as _aBlock_, applied to each item, answers `true`.
+Answer a `List` of the next items in the stream _s_ for as long as the block _f_,
+applied to each item,
+answers `true`.
 
 ```
 >>> (1 .. Infinity)
@@ -17,5 +19,7 @@ Answer a `List` of the next items in _aStream_ for as long as _aBlock_, applied 
 * * *
 
 See also: next, nextUntil, takeWhile, Stream
+
+Guides: Stream Functions
 
 Categories: Accessing, Stream

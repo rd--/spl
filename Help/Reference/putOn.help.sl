@@ -1,8 +1,8 @@
 # putOn
 
-- _putOn(anObject | aList, aStream)_
+- _putOn(x, s)_
 
-Write _anObject_, or the items of _aList_, onto _aStream_.
+Write the object _x_, or the items of _x_ if it is a list, onto the stream _s_.
 
 In the `Object` case, equivalent to `swap` of `nextPut`.
 
@@ -27,3 +27,5 @@ In the `List` case, equivalent to `swap` of `nextPutAll`:
 * * *
 
 See also: nextPut, nextPutAll, swap, WriteStream
+
+Guides: Stream Functions

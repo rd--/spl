@@ -1,8 +1,8 @@
 # nextMatchFor
 
-- _nextMatchFor(aStream, anObject)_
+- _nextMatchFor(s, x)_
 
-Reads the next object from the stream and answer `true` if the object is equivalent to _anObject_,
+Read the next object from the stream _s_ and answer `true` if the object is equivalent to _x_,
 and `false` if not.
 
 ```
@@ -14,6 +14,8 @@ and `false` if not.
 * * *
 
 See also: next, peekFor, Stream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

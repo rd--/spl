@@ -1,8 +1,8 @@
 # nextSatisfy
 
-- _nextSatisfy(aStream, aBlock:/1)_
+- _nextSatisfy(s, f:/1)_
 
-Answer the next element of _aStream_ that satisfies the predicate _aBlock_.
+Answer the next element of the stream _s_ that satisfies the predicate block _f_.
 
 Read stream until element satisfies predicate:
 
@@ -18,3 +18,5 @@ Read stream until element satisfies predicate:
 * * *
 
 See also: Iterator, next, Stream
+
+Guides: Stream Functions

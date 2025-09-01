@@ -1,10 +1,9 @@
 # skip
 
-- _skip(aStream, amount)_
+- _skip(s, n)_
 
-Skips the next _amount_ objects in _aStream_.
-
-A number of objects equal to the lesser of _amount_ and the number of remaining items in _aStream_.
+Skips the next _k_ objects in the stream _s_,
+where _k_ is a number of objects equal to the lesser of _n_ and the number of remaining items in _s_.
 
 Relative re-positioning:
 
@@ -28,6 +27,8 @@ Skip to a position:
 * * *
 
 See also: asStream, position, next, skipTo
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

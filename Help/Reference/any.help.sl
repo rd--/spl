@@ -1,9 +1,9 @@
 # any
 
-- _any(aCollection, anInteger)_
+- _any(c, n)_
 
-Answer _anInteger_ elements from _aCollection_ as a new collection (using _species_).
-It is an error if there are not enough elements.
+Answer _n_ elements from the collection _c_ as a new collection (using `species`).
+It is an `error` if there are not enough elements.
 
 At `List`:
 
@@ -22,5 +22,7 @@ At `Record`:
 * * *
 
 See also: anyAs, anyOne, take
+
+Guides: Stream Functions
 
 Categories: Accessing

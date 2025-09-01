@@ -4,6 +4,8 @@
 
 * * *
 
-See also: ReadStream, Stream
+See also: nextPut, ReadStream, Stream
+
+Guides: Stream Functions
 
 Categories: Collection, Trait

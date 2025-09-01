@@ -1,13 +1,13 @@
 # next
 
-- _next(aStream)_
-- _next(aStream, anInteger)_
+- _next(s)_
+- _next(s, n)_
 
-In the unary case, answer the next object accessible by _aStream_.
+In the unary case, answer the next object accessible by the stream _s_.
 If the stream is positioned at its end, or if the position is out of bounds in the collection, answer `nil`.
 
-In the binary case, answer the next _anInteger_ number of objects accessible by _aStream_.
-If the stream ends before _anInteger_ items are read it is an `error`, see `nextOrUpToEnd`.
+In the binary case, answer the next _n_ number of objects accessible by _s_.
+If the stream ends before _n_ items are read it is an `error`, see `nextOrUpToEnd`.
 
 At an infinite stream:
 

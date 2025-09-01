@@ -1,10 +1,11 @@
 # peekFor
 
-- _peekFor(aStream, anObject)_
+- _peekFor(s, x)_
 
-Answer `false` and do not move over the next element if it is not equal to _anObject_,
-or if the receiver is at the end.
-Answer `true` and increment the position for accessing elements, if the next element is equal to `anObject`.
+Answer `false` and do not move over the next element of the stream _s_ if it is not equal to the object _x_,
+or if the _s_ is at the end.
+Answer `true` and increment the position for accessing elements,
+if the next element is equal to `x`.
 
 ```
 >>> let s = [1 2 3 4 5].asStream;
@@ -21,6 +22,8 @@ Answer `true` and increment the position for accessing elements, if the next ele
 * * *
 
 See also: peek, Stream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

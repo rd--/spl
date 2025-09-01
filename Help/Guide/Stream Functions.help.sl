@@ -2,6 +2,7 @@
 
 Traits:
 
+- `Iterator`
 - `Stream`
 - `WriteStream`
 - `PositionableStream`

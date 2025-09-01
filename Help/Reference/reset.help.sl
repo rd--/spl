@@ -1,8 +1,8 @@
 # reset
 
-- _reset(aStream)_
+- _reset(s)_
 
-Set the position of _aStream_ to the beginning of the sequence of objects.
+Set the position of the stream _s_ to the beginning of the sequence of objects.
 Answer `zero`, which is what `position` would answer.
 
 ```
@@ -14,6 +14,8 @@ Answer `zero`, which is what `position` would answer.
 * * *
 
 See also: ReadStream, WriteStream
+
+Guides: Stream Functions
 
 References:
 _Smalltalk_

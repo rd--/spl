@@ -36,7 +36,7 @@ All collection types are iterable.
 
 See also: associationsDo, collect, Iterable, keysAndValuesDo, keysDo, timesRepeat, valuesDo
 
-Guides: Dictionary Functions, List Functions
+Guides: Dictionary Functions, List Functions, Stream Functions
 
 References:
 _Mathematica_

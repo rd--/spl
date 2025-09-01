@@ -1,11 +1,11 @@
-# !== (exclamationMarkEqualsSignEqualsSign)
+# !== (exclamationMarkEqualsSign…)
 
 - _p !== q_
 
 Answers `true` if an object _p_ is not identical to another object _q_, else `false`.
 
 This is the non-identity operator.
-It decides if two values are not the same.
+It decides if two values are not the identical.
 
 At `Symbol`:
 
@@ -35,9 +35,15 @@ true
 
 >>> 1/1 != 1
 false
+
+>>> 1L !== 1
+true
+
+>>> 1L != 1
+false
 ```
 
-Where supported `~~` is displayed as ≢.
+Where supported `!==` is displayed as ≢.
 
 The name of this operator is `exclamationMarkEqualsSignEqualsSign`.
 
