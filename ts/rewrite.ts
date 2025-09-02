@@ -63,7 +63,7 @@ function validateSign(x: string): string {
 	throw new Error('validateSign: invalid sign: ' + x);
 }
 
-function genDictionaryAssignmentSlots(
+function genRecordAssignmentSlots(
 	withLet: boolean,
 	rhsDictionaryName: string,
 	keyVarNamesArray: string[],
@@ -176,9 +176,6 @@ const asJs: ohm.ActionDict<string> = {
 	NonFinalExpression(e, _semicolon, stm) {
 		return `${e.asJs}; ${stm.asJs};`;
 	},
-	NameAssociation(lhs, rhs) {
-		return `['${lhs.asJs}', ${rhs.asJs}]`;
-	},
 	ListExpression(_leftBracket, items, _rightBracket) {
 		return `[${commaListJs(items.asIteration().children)}]`;
 	},
@@ -193,6 +190,9 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	Program(tmp, stm) {
 		return tmp.asJs + stm.asJs;
+	},
+	RecordKeyAssociation(lhs, rhs) {
+		return `['${lhs.asJs}', ${rhs.asJs}]`;
 	},
 	ScalarAssignment(lhs, _ce, rhs) {
 		return `${lhs.asJs} = ${rhs.asJs}`;
@@ -247,7 +247,7 @@ const asJs: ohm.ActionDict<string> = {
 		if (c.length === 1) {
 			return `[${c[0].asJs}]`;
 		}
-		throw new Error('VectorSyntax: ?');
+		throw new Error(`VectorSyntax: ${c.length}`);
 	},
 
 	argumentName(_c, name) {
@@ -270,9 +270,6 @@ const asJs: ohm.ActionDict<string> = {
 		// Allow 03 for 3 and -03 for -3
 		return `${s.sourceString + parseInt(i.sourceString)}`;
 	},
-	keyNameToken(n, _c) {
-		return n.sourceString;
-	},
 	largeIntegerLiteral(s, i, _l) {
 		return `${s.sourceString}${i.sourceString}n`;
 	},
@@ -281,6 +278,9 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	operator(op) {
 		return `_${genName(op.sourceString, 2)}`;
+	},
+	recordKeyToken(n, _c) {
+		return n.sourceString;
 	},
 	reservedIdentifier(id) {
 		switch (id.sourceString) {
@@ -339,7 +339,7 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl(args.children.concat(trailing.children))
 		})`;
 	},
-	ApplyWithTrailingDictionarySyntax(name, trailing) {
+	ApplyWithTrailingRecordSyntax(name, trailing) {
 		return `${name.sourceString}(${commaListSl(trailing.children)})`;
 	},
 	Arguments(a, _p) {
@@ -387,35 +387,8 @@ const asSl: ohm.ActionDict<string> = {
 	BlockLiteralInitializer(name, _e, blk) {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
-	DictionaryAssignment(_l, lhs, _r, _e, rhs) {
-		const rhsDictionaryName = genSym('__SPL');
-		const keyVarNamesArray = lhs.asIteration().children.map(
-			(c) => c.parametersOf,
-		);
-		const slots = genDictionaryAssignmentSlots(
-			false,
-			rhsDictionaryName,
-			keyVarNamesArray,
-		);
-		return `({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} } . ())`;
-	},
-	DictionaryExpression(_l, d, _r) {
-		return `Record([${commaListSl(d.asIteration().children)}])`;
-	},
-	DictionaryInitializer(_l, lhs, _r, _e, rhs) {
-		const rhsDictionaryName = genSym('__SPL');
-		const keyVarNamesArray = lhs.asIteration().children.map(
-			(c) => c.parametersOf,
-		);
-		const slots = genDictionaryAssignmentSlots(
-			true,
-			rhsDictionaryName,
-			keyVarNamesArray,
-		);
-		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots}`;
-	},
-	NonEmptyDictionaryExpression(_l, d, _r) {
-		return `Record([${commaListSl(d.asIteration().children)}])`;
+	DictionaryLiteralItem(lhs, _c, rhs) {
+		return `Association(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
@@ -440,7 +413,7 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl([lhs].concat(args.children, trailing.children))
 		})`;
 	},
-	DotExpressionWithTrailingDictionarySyntax(lhs, _dot, name, trailing) {
+	DotExpressionWithTrailingRecordSyntax(lhs, _dot, name, trailing) {
 		return `${name.sourceString}(${
 			commaListSl([lhs].concat(trailing.children))
 		})`;
@@ -497,11 +470,14 @@ const asSl: ohm.ActionDict<string> = {
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
-	NameAssociation(lhs, rhs) {
-		return `['${lhs.asSl}', ${rhs.asSl}]`;
+	NonEmptyDictionaryLiteral(_l, d, _r) {
+		return `asMap([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
+	},
+	NonEmptyRecordLiteral(_l, d, _r) {
+		return `Record([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonFinalExpression(e, _s, stm) {
 		return `${e.asSl}; ${stm.asSl}`;
@@ -518,6 +494,9 @@ const asSl: ohm.ActionDict<string> = {
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
 	},
+	RecordKeyAssociation(lhs, rhs) {
+		return `['${lhs.asSl}', ${rhs.asSl}]`;
+	},
 	QuotedAtSyntax(c, _colons, k) {
 		return `at(${c.asSl}, '${k.sourceString}')`;
 	},
@@ -529,6 +508,33 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	RangeThenSyntax(_left, start, _comma, then, _dots, end, _right) {
 		return `thenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
+	},
+	RecordAssignment(_l, lhs, _r, _e, rhs) {
+		const rhsDictionaryName = genSym('__SPL');
+		const keyVarNamesArray = lhs.asIteration().children.map(
+			(c) => c.parametersOf,
+		);
+		const slots = genRecordAssignmentSlots(
+			false,
+			rhsDictionaryName,
+			keyVarNamesArray,
+		);
+		return `({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} } . ())`;
+	},
+	RecordInitializer(_l, lhs, _r, _e, rhs) {
+		const rhsDictionaryName = genSym('__SPL');
+		const keyVarNamesArray = lhs.asIteration().children.map(
+			(c) => c.parametersOf,
+		);
+		const slots = genRecordAssignmentSlots(
+			true,
+			rhsDictionaryName,
+			keyVarNamesArray,
+		);
+		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots}`;
+	},
+	RecordLiteral(_l, d, _r) {
+		return `Record([${commaListSl(d.asIteration().children)}])`;
 	},
 	ScalarAssignment(lhs, _e, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
@@ -614,7 +620,7 @@ const asSl: ohm.ActionDict<string> = {
 	integerLiteral(s, i) {
 		return s.sourceString + i.sourceString;
 	},
-	keyNameToken(n, _c) {
+	recordKeyToken(n, _c) {
 		return n.sourceString;
 	},
 	largeIntegerLiteral(s, i, _l) {
@@ -851,7 +857,7 @@ const parametersOf: ohm.ActionDict<string[]> = {
 	Block(_l, arg, _tmp, _prm, _stm, _r) {
 		return arg.parametersOf;
 	},
-	KeyVarNameAssociation(lhs, rhs) {
+	RecordInitializerItem(lhs, rhs) {
 		return [
 			lhs.sourceString.substring(0, lhs.sourceString.length - 1),
 			rhs.sourceString,

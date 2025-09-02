@@ -16,27 +16,27 @@ Sl {
 	TraitExtension = "+" qualifiedTraitName "{" (methodName Block)* "}"
 	TraitDefinition = qualifiedTraitName "{" (methodName Block)* "}"
 	LibraryItem = LibraryItemLiteral | LibraryItemExpression
-	LibraryItemLiteral = "LibraryItem" DictionaryExpression
+	LibraryItemLiteral = "LibraryItem" RecordLiteral
 	LibraryItemExpression = "LibraryItem" ApplySyntax
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
 	Initializer =
 		BlockLiteralInitializer |
 		ExpressionInitializer |
-		DictionaryInitializer |
+		RecordInitializer |
 		ListInitializer
 	BlockLiteralInitializer = varName "=" Block ~("." | operator)
 	ExpressionInitializer = varNameOrUnused "=" Expression
-	DictionaryInitializer = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" "=" Expression
+	RecordInitializer = "(" NonemptyListOf<RecordInitializerItem, ","> ")" "=" Expression
 	ListInitializer = "[" NonemptyListOf<varNameOrUnused, ","> "]" "=" Expression
 	LetTemporary = "let" Initializer ";"
 	VarTemporaries = "var" NonemptyListOf<varName, ","> ";"
 
 	Expression = Assignment | BinaryExpression | Primary
-	Assignment = ScalarAssignment | ListAssignment | DictionaryAssignment
+	Assignment = ScalarAssignment | ListAssignment | RecordAssignment
 	ScalarAssignment = varName ":=" Expression
 	ListAssignment = "[" NonemptyListOf<varName, ","> "]" ":=" Expression
-	DictionaryAssignment = "(" NonemptyListOf<KeyVarNameAssociation, ","> ")" ":=" Expression
+	RecordAssignment = "(" NonemptyListOf<RecordInitializerItem, ","> ")" ":=" Expression
 	BinaryExpression = BinaryOperatorExpression | BinaryAdverbExpression
 	BinaryOperatorExpression = Expression (operator Primary)+
 	BinaryAdverbExpression = Expression (operatorWithAdverb Primary)+
@@ -48,12 +48,12 @@ Sl {
 		| AtSyntax
 		| QuotedAtSyntax
 		| ValueApply
-		| DotExpressionWithTrailingDictionarySyntax
+		| DotExpressionWithTrailingRecordSyntax
 		| DotExpressionWithTrailingClosuresSyntax
 		| DotExpressionWithAssignmentSyntax
 		| DotExpression
 		| Block
-		| ApplyWithTrailingDictionarySyntax
+		| ApplyWithTrailingRecordSyntax
 		| ApplyWithTrailingClosuresSyntax
 		| ApplySyntax
 		| EmptyListSyntax
@@ -67,7 +67,8 @@ Sl {
 		| VolumeSyntax
 		| ListExpression
 		| ParenthesisedExpression
-		| DictionaryExpression
+		| RecordLiteral
+		| NonEmptyDictionaryLiteral
 		| TupleExpression
 		| ListRangeSyntax
 		| ListRangeThenSyntax
@@ -75,16 +76,16 @@ Sl {
 		| RangeThenSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
-	QuotedAtPutSyntax = Primary "::" keyName ":=" Expression
+	QuotedAtPutSyntax = Primary "::" recordKey ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllSyntax = Primary "[" NonemptyListOf<(spanLiteral | ListExpression), ","> "]"
-	QuotedAtSyntax = Primary "::" keyName
+	QuotedAtSyntax = Primary "::" recordKey
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
-	DotExpressionWithTrailingDictionarySyntax = Primary "." selectorName NonEmptyDictionaryExpression+
+	DotExpressionWithTrailingRecordSyntax = Primary "." selectorName NonEmptyRecordLiteral+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
@@ -96,15 +97,17 @@ Sl {
 	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
-	ApplyWithTrailingDictionarySyntax = selectorName NonEmptyDictionaryExpression+
+	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordLiteral+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
 	ParenthesisedExpression = "(" Expression ")"
-	NonEmptyDictionaryExpression = "(" NonemptyListOf<AssociationExpression, ","> ")"
-	DictionaryExpression = "(" ListOf<AssociationExpression, ","> ")"
-	AssociationExpression = NameAssociation | StringAssociation
-	NameAssociation = keyNameToken Expression
-	KeyVarNameAssociation = keyNameToken varName
+	NonEmptyRecordLiteral = "(" NonemptyListOf<RecordLiteralItem, ","> ")"
+	RecordLiteral = "(" ListOf<RecordLiteralItem, ","> ")"
+	RecordLiteralItem = RecordKeyAssociation | StringAssociation
+	RecordKeyAssociation = recordKeyToken Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
+	RecordInitializerItem = recordKeyToken varName
+	NonEmptyDictionaryLiteral = "[" NonemptyListOf<DictionaryLiteralItem, ","> "]"
+	DictionaryLiteralItem = Expression ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"
 	ListRangeSyntax = "[" Expression ".." Expression "]"
@@ -139,8 +142,8 @@ Sl {
 	slotNameWithType = lowercaseIdentifier ":" "<" uppercaseIdentifier ">"
 	slotName = lowercaseIdentifier
 	constantName = lowercaseIdentifier
-	keyName = lowercaseIdentifier | uppercaseIdentifier
-	keyNameToken = keyName ":"
+	recordKey = lowercaseIdentifier | uppercaseIdentifier
+	recordKeyToken = recordKey ":"
 	letterOrDigit = letter | digit
 	reservedIdentifier = ("nil" | "true" | "false") ~letterOrDigit
 	infixMethod = lowercaseIdentifier ":"
