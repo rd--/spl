@@ -1,8 +1,8 @@
 # withIndexDo
 
-- _withIndexDo(aSequence, elementAndIndexBlock:/2)_
+- _withIndexDo(c, f:/2)_
 
-Like `withDo` except that the iteration index supplies the second argument to the block.
+Like `withDo` except that the iteration index for the collection _c_ supplies the second argument to the block _f_.
 
 At `Range`, iterate over indices and values:
 
@@ -18,5 +18,7 @@ At `Range`, iterate over indices and values:
 * * *
 
 See also: do, indices, indicesDo, keysAndValuesDo, withDo, withIndexCollect, withIndexReplace
+
+Guides: Iteration Functions
 
 Categories: Enumerating

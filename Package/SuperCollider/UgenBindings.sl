@@ -109,7 +109,6 @@
 	Slew { :in :up :dn | <primitive: return sc.Slew(_in, _up, _dn);> }
 	Slope { :in | <primitive: return sc.Slope(_in);> }
 	Spring { :in :spring :damp | <primitive: return sc.Spring(_in, _spring, _damp);> }
-	Sum4 { :in0 :in1 :in2 :in3 | <primitive: return sc.Sum4(_in0, _in1, _in2, _in3);> }
 	TDelay { :in :dur | <primitive: return sc.TDelay(_in, _dur);> }
 	Trig { :in :dur | <primitive: return sc.Trig(_in, _dur);> }
 	Trig1 { :in :dur | <primitive: return sc.Trig1(_in, _dur);> }
@@ -125,6 +124,7 @@
 +[List, Ugen, SmallFloat] {
 	Clip { :in :lo :hi | <primitive: return sc.Clip(_in, _lo, _hi);> }
 	LinExp { :in :srclo :srchi :dstlo :dsthi | <primitive: return sc.LinExp(_in, _srclo, _srchi, _dstlo, _dsthi);> }
+	Sum4 { :in0 :in1 :in2 :in3 | <primitive: return sc.Sum4(_in0, _in1, _in2, _in3);> }
 	Wrap { :in :lo :hi | <primitive: return sc.Wrap(_in, _lo, _hi);> }
 }
 

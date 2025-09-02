@@ -1,12 +1,14 @@
 # doWhileFalse
 
-- _doWhileFalse(aBlock:/0, conditionBlock:/0)_
+- _doWhileFalse(f:/0, condition:/0)_
 
 Conditional evaluation.
-Evaluate _aBlock_ once, then again as long the value of _conditionBlock_ is false.
+Evaluate the block _f_ once, then again as long the value of the block _condition_ is `false`.
 
 * * *
 
 See also: doWhileTrue, if, ifFalse, ifNil, ifTrue, whileFalse, whileTrue
+
+Guides: Control Functions, Iteration Functions
 
 Categories: Evaluating

@@ -3077,6 +3077,10 @@
 		answer
 	}
 
+	tuplesIndicesDo { :k :n :f:/1 |
+		({ [1 .. k] } ! n).tuplesDo(f:/1)
+	}
+
 }
 
 /* NB. CopyableSequence */

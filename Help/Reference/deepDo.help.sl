@@ -1,10 +1,10 @@
 # deepDo
 
-- _deepDo(anIterable, aBlock:/1)_
+- _deepDo(c, f:/1)_
 
-Run `do` over _anIterable_,
-descending into elements that are of the same type as _anIterable_,
-else applying _aBlock_.
+Run `do` over the iterable collection _c_,
+descending into elements that are of the same type as _c_,
+else applying the block _f_.
 
 At `List`:
 
@@ -43,5 +43,7 @@ At `Record`:
 * * *
 
 See also: deepAllSatisfy, deepCollect, deepIndices, do
+
+Guides: Iteration Functions
 
 Categories: Enumerating

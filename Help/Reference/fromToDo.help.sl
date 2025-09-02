@@ -15,6 +15,8 @@ Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop
 
 See also: do, toDo
 
+Guides: Iteration Functions
+
 References:
 _Smalltalk_
 5.7.8.18

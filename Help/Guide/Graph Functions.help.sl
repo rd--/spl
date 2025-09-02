@@ -3,9 +3,9 @@
 Traits and Types:
 
 - `DelaunayTriangulation`
-- `DirectedEdge`, `-->`
+- `DirectedEdge`
 - `Graph`
-- `UndirectedEdge`, `---`
+- `UndirectedEdge`
 
 Constructor Functions:
 
@@ -109,4 +109,4 @@ Catalogues:
 
 See also: Graph
 
-Guides: Tree Functions
+Guides: Dictionary Functions, List Functions, Tree Functions

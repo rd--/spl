@@ -1,28 +1,34 @@
 # toByDo
 
-- _toByDo(start, stop, step, aBlock:/1)_
+- _toByDo(i, j, k, f:/1)_
 
-Iterate over the range from _start_ to _stop_ counting by _step_.
+Iterate over the range from the start index _i_ to the stop index _j_ counting by step _k_.
 
 ```
->>> let l = [];
->>> 9.toByDo(1, -2) { :each | l.add(each) };
->>> l
+>>> let r = [];
+>>> 9.toByDo(1, -2) { :each |
+>>> 	r.add(each)
+>>> };
+>>> r
 [9 7 5 3 1]
 ```
 
-If the range is empty there are no values to iterate over.
+If the range is empty there are no values to iterate over:
 
 ```
->>> let l = [];
->>> 9.toByDo(1, 2) { :each | l.add(each) };
->>> l
+>>> let r = [];
+>>> 9.toByDo(1, 2) { :each |
+>>> 	r.add(each)
+>>> };
+>>> r
 []
 ```
 
 * * *
 
 See also: do, downToDo, Range, to, toDo, upToDo
+
+Guides: Iteration Functions
 
 References:
 _Smalltalk_

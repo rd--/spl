@@ -104,6 +104,8 @@ in order to allow writing `!~` as _not similar to_.
 
 See also: =, <~, >~, !=, isCloseTo, isVeryCloseTo
 
+Guides: Comparison Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Match)

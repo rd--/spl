@@ -1,10 +1,21 @@
 # !+ (exclamationMarkPlusSign)
 
-- _alpha !+ beta_ ⟹ _(alpha ! beta).Sum_
+- _x !+ y_
 
 Duplicate and Sum.
 Names the idiom of generating a list and then immediately summing it.
 This operator does not need to construct the intermediate list structure to calculate the answer.
+
+```
+>>> { 5 } !+ 5
+25
+
+>>> let r = Sfc32(637142);
+>>> { r.nextRandomFloat } !+ 100
+46.7254
+```
+
+Sum randomly generated oscillators:
 
 ```
 { :tr |

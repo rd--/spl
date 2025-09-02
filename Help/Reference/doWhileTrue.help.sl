@@ -1,9 +1,10 @@
 # doWhileTrue
 
-- _doWhileTrue(aBlock:/0, conditionBlock:/0)_
+- _doWhileTrue(f:/0, condition:/0)_
 
 Conditional evaluation.
-Evaluate _aBlock_ once, then again as long the value of _conditionBlock_ is true.
+Evaluate the block _f_ once,
+then again as long the value of the block _condition_ is `true`.
 
 ```
 >>> let n = 1;
@@ -30,5 +31,7 @@ C.f. `whileTrue`:
 * * *
 
 See also: doWhileFalse, if, ifFalse, ifNil, ifTrue, whileFalse, whileTrue
+
+Guides: Control Functions, Iteration Functions
 
 Categories: Evaluating

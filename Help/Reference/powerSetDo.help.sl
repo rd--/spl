@@ -39,3 +39,5 @@ At `IdentitySet`:
 * * *
 
 See also: powerSet, subsets, tuples
+
+Guides: Iteration Functions

@@ -1,12 +1,11 @@
 # whileFalse
 
-- _whileFalse(condition:/0, aBlock:/0)_
-- _whileFalse(condition:/0)_ ⟹ _whileFalse(condition:/0, { })_
+- _whileFalse(condition:/0, f:/0)_
 
 Conditional evaluation.
-Evaluate _aBlock()_ as long as the value of _condition()_ is `false`.
+Evaluate the block _f_ as long as the value of the block _condition_ is `false`.
 
-Ordinarily _condition_ and _aBlock_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _condition_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
 A counter:
 
@@ -38,6 +37,8 @@ In the unary case, simply evaluate _condition_ repeatedly as long as it answers 
 * * *
 
 See also: if, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, whileTrue
+
+Guides: Control Functions, Iteration Functions
 
 References:
 _Smalltalk_

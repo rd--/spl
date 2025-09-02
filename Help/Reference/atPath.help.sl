@@ -59,7 +59,9 @@ _Rationale_: There are two distinct kinds of collection index lookups,
 
 * * *
 
-See also: at, atAll, atPathPut
+See also: @>, at, atAll, atPathPut
+
+Guides: Indexing Functions
 
 References:
 _Apl_

@@ -1,8 +1,8 @@
 # associationsDo
 
-- _associationsDo(aDictionary, aBlock:/1)_
+- _associationsDo(d, f:/1)_
 
-Evaluate _aBlock_ with each `Association` of _aDictionary_ as the argument.
+Evaluate the block _f_ with each `Association` of the dictionary _d_ as the argument.
 
 ```
 >>> let list = [];
@@ -16,5 +16,7 @@ Evaluate _aBlock_ with each `Association` of _aDictionary_ as the argument.
 * * *
 
 See also: associations, do, keysDo, keysAndValuesDo, valuesDo
+
+Guides: Iteration Functions
 
 Categories: Enumerating

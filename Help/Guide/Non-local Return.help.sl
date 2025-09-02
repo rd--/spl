@@ -1,6 +1,6 @@
 # Non-local Return
 
-There is no _block return_ operator.
+There is no block return operator in Sᴘʟ.
 Instead there is the `valueWithReturn` method, implementing delimited non-local return.
 
 _Rationale_:
@@ -14,3 +14,5 @@ The scope of the `return` is indicated by the `valueWithReturn` method.
 * * *
 
 See also: caseOf, valueWithReturn
+
+Guides: Control Functions

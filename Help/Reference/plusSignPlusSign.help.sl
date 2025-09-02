@@ -1,9 +1,9 @@
 # ++
 
-- _aCollection ++ anotherCollection_
-- _aCollection.++_
+- _c₁ ++ c₂_
+- _c.++_
 
-The binary form answer a new collection comprising _aCollection_ catenated with _anotherCollection_.
+The binary form answer a new collection comprising the collection _c₁_ catenated with _c₂_.
 If the collections are sequences, the answer is a sequence.
 
 At `List`:

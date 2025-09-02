@@ -35,6 +35,8 @@ true
 
 See also: cull, Error, isError
 
+Guides: Control Functions
+
 References:
 _Smalltalk_
 5.4.3.2

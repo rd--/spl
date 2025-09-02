@@ -1,11 +1,10 @@
 # || (verticalLineVerticalLine)
 
-- _aBoolean || anotherBoolean_
-- _aCollection.||_
+- _b₁ || b₂_
+- _c.||_
 
-Evaluating disjunction.
-The evaluating form of `|`.
-The operand must be a `Boolean`.
+Evaluating disjunction, that is the evaluating form of `|`.
+The operand _b₂_ must be a `Boolean`.
 
 ```
 >>> false || true

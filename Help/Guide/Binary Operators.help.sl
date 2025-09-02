@@ -1,5 +1,57 @@
 # Binary Operators
 
+Arithmetic Operators:
+
+- `+`
+- `*`
+- `-`
+- `/`
+- `^`
+
+Equality Operators:
+
+- `=`
+- `==`
+
+Comparison Operators:
+
+- `<`
+- `<=`
+- `>`
+- `>=`
+
+Logical Operators:
+
+- `&`
+- `&&`
+- `|`
+- `||`
+
+Bitwise Operators:
+
+- `>>`
+- `>>>`
+
+Indexing Operators:
+
+- `@`
+- `@>`
+- `@*`
+
+Evaluation Operators:
+
+- `$`
+
+List Operators:
+
+- `++`
+- `+++`
+
+Graph Operators:
+
+- `-->`
+- `---`
+
 The one-character binary operators,
 in alphabetical order:
 

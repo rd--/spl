@@ -1,12 +1,12 @@
 # lexicographicPermutationsDo
 
-- _lexicographicPermutationsDo(aSequence, aBlock:/1)_
+- _lexicographicPermutationsDo(c, f:/1)_
 
-Apply _aBlock_ to each permutation of _aSequence_ in turn,
+Apply the block _f_ to each permutation of the sequence _c_ in turn,
 which must answer either `true` to continue,
 or `false` to end,
 the iteration.
-Note: the value supplied to _aBlock_ is _not_ a copy,
+Note: The value supplied to _f_ is _not_ a copy,
 the same sequence is mutated in place.
 
 Count the lexicographic permutations of _1234_:
@@ -25,3 +25,5 @@ Count the lexicographic permutations of _1234_:
 * * *
 
 See also: lexicographicPermutations, nthLexicographicPermutation
+
+Guides: Iteration Functions, Permutation Functions

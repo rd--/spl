@@ -56,14 +56,25 @@ the store string is similar but adds parentheses:
 '(0 -> 1)'
 ```
 
+Fetch both key and value:
+
+```
+>>> ('x' -> 1).asList
+['x' 1]
+```
+
 _Note_:
 In a `Dictionary` context there cannot be duplicate keys, hence considering only key for equality in St-80.
 
 * * *
 
-See also: ->, associations
+See also: ->, <-, associations, key, value
 
 Guides: Dictionary Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Rule.html)
 
 Unicode: U+2190 → Rightwards Arrow
 

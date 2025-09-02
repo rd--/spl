@@ -1,14 +1,11 @@
 # | (verticalLine)
 
-- _aCollection.|_
-- _aBoolean | aBlock:/0_
+- _b | f:/0_
+- _c.|_
 
-`|` is both an operator and a syntax token.
-
-As an operator,
-`|` is non-evaluating conjunction.
-It answers `true` if _aBoolean_ is `true` or _aBlock_ evaluates to `true`, else `false`.
-If _aBoolean_ is `true` then _aBlock_ is not evaluated.
+The binary form of `|` is non-evaluating conjunction.
+It answers `true` if the boolean _b_ is `true` or the block _f_ evaluates to `true`, else `false`.
+If _b_ is `true` then _f_ is not evaluated.
 
 Combine assertions:
 
@@ -33,13 +30,14 @@ The unary form of `|` is `anySatisfy` of `blockValue`:
 false
 ```
 
-Operator syntax:
+Can be written using apply syntax:
 
 ```
->>> [{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }].|
+>>> |([{ 1 < 0 }, { 2 < 1 }, { 3 < 2 }])
 false
 ```
 
+`|` is both an operator and a syntax token.
 As a syntax token `|` separates the parameter list from the body in `Block Syntax`.
 It also encloses and slot names in `Type Definition Syntax`.
 

@@ -1,12 +1,11 @@
 # whileTrue
 
-- _whileTrue(condition:/0, aBlock:/0)_
-- _whileTrue(condition:/0)_ ⟹ _whileTrue(condition:/0, { })_
+- _whileTrue(condition:/0, f:/0)_
 
 Conditional evaluation.
-Evaluate _aBlock()_ as long as the value of _condition()_ is `true`.
+Evaluate the block _f_ as long as the value of the block _condition_ is `true`.
 
-Ordinarily _condition_ and _aBlock_ are literal no-argument blocks written using `Trailing Block Syntax`.
+Ordinarily _condition_ and _f_ are literal no-argument blocks written using `Trailing Block Syntax`.
 
 Calculate an initial subsequence of the Fibonacci series,
 the sum of two elements defines the next:
@@ -31,6 +30,8 @@ In the unary case, simply evaluate _condition_ repeatedly as long as it answers 
 * * *
 
 See also: doWhileTrue, if, ifFalse, ifNil, ifTrue, whileFalse
+
+Guides: Control Functions, Iteration Functions
 
 References:
 _Smalltalk_

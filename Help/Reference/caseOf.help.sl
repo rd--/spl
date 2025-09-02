@@ -5,11 +5,8 @@
 Compare _x_ to each _y_ in turn,
 evaluating the corresponding `Block` _f_ associated with the first item that matches.
 
-that The elements of _aCollection_ are `Association`s.
-Answer the evaluated `blockValue` of the first association whose unevaluated key equals _anObject_.
-
-The keys of the associations are values that are to be compared with _anObject_ using `=`.
-The values of the associations are `Block` values to be evaluated when a case matches.
+The keys of the associations, _y_, are values that are to be compared with _x_ using `=`.
+The values of the associations are blocks to be evaluated when a case matches.
 
 Even if the answer values are constant they must be placed in blocks:
 
@@ -24,7 +21,7 @@ Even if the answer values are constant they must be placed in blocks:
 2
 ```
 
-With both `key` and `value` of each association as `Block`s:
+With non-constant blocks:
 
 ```
 >>> let x = 'b';
@@ -49,7 +46,7 @@ If no match is found, answer the result of evaluating the _otherwise_ clause:
 'd'
 ```
 
-If no match is found, report an error:
+If no match is found, and no _otherwise_ clause is given, report an `error`:
 
 ```
 >>> let c = [
@@ -63,7 +60,7 @@ If no match is found, report an error:
 true
 ```
 
-If _aCollection_ does not contain associations, report an `error`:
+If the collection _c_ does not contain associations, report an `error`:
 
 ```
 >>> {
@@ -75,6 +72,8 @@ true
 * * *
 
 See also: =, if, value, which
+
+Guides: Control Functions
 
 References:
 _Mathematica_

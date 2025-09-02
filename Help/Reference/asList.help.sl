@@ -4,6 +4,7 @@
 
 At a `Collection`,
 answer a `List` whose elements are the elements of _x_.
+
 If the collection is a `List`, answer it directly.
 
 ```
@@ -20,6 +21,13 @@ At `Record`:
 
 >>> (x: 1, y: 2, z: 3).associations
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
+```
+
+At `Association`:
+
+```
+>>> (1 -> 3).asList
+[1 3]
 ```
 
 At `IdentityBag`:
@@ -91,7 +99,7 @@ answer _(days, hours, minutes, seconds)_:
 [4 12 30 5]
 ```
 
-This should not be defined for scalar values, see _asCollection_.
+This should not be defined for scalar values, see `asCollection`.
 
 * * *
 

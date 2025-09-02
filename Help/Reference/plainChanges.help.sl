@@ -1,9 +1,8 @@
 # plainChanges
 
-- _plainChanges(anInteger)_
-- _steinhausJohnsonTrotter(alpha)_ ⟹ _plainChanges(alpha)_
+- _plainChanges(n)_
 
-Answer a `List` of the permutations of _[1 .. anInteger]_ in the _plain changes_ sequence,
+Answer a `List` of the permutations of _1…n_ in the _plain changes_ sequence,
 whereby only one swap is made at each step,
 following the Steinhaus–Johnson–Trotter algorithm.
 

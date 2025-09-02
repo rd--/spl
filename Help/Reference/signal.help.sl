@@ -1,10 +1,10 @@
 # signal
 
-- _signal(anError)_
+- _signal(e)_
 
-Signal the occurrence of an exceptional condition.
-Execution of the current `Block` will stop, the statements after throw will not be executed.
-Control will be passed to the first error handler `Block` in the call stack.
+Signal the occurrence of an exceptional condition _e_.
+Execution of the current `Block` will stop, the statements after `signal` will not be executed.
+Control will be passed to the first `error` handler `Block` in the call stack.
 If no such block exists, the program will terminate.
 
 ```

@@ -23,4 +23,6 @@ nil
 
 See also: if, ifEmpty, ifFalse, ifNil, ifTrue, nil, Nil
 
+Guides: Control Functions
+
 Categories: Evaluating

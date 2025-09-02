@@ -1,11 +1,13 @@
 # combinationsAtATimeDo
 
-- _combinationsAtATimeDo(aSequence, anInteger, aBlock:/1)_
+- _combinationsAtATimeDo(c, k, f:/1)_
 
-Take the items in the _aSequence_, _anInteger_ at a time, and evaluate _aBlock:/1_ for each combination.
-Hand in a list of elements of _aSequence_ as the block argument.
-Each combination only occurs once, and order of the elements does not matter.
-There are _aSequence.size.take(anInteger)_ combinations.
+Take the items in the sequence _c_,
+_k_ at a time,
+and evaluate the block _f_ for each combination.
+Provide a list of elements of _c_ as the block argument.
+Each combination only occurs once, and the order of the elements does not matter.
+There are _binomial(n, k)_ combinations where _n_ is the `size` of _c_.
 
 ```
 >>> let l = [];
@@ -40,5 +42,7 @@ All Pythagorean triples with elements between 1 and _n_:
 * * *
 
 See also: combinations, subsets
+
+Guides: Iteration Functions
 
 Categories: Enumerating

@@ -1,6 +1,6 @@
 # ---> (hyphenMinusHyphenMinusG...)
 
-- _α --> β_ ⟹ _DirectedEdge(α, β)_
+- _α --> β_
 
 Answer a `DirectedEdge` between vertices α and β.
 
@@ -12,5 +12,7 @@ DirectedEdge(1, 2)
 * * *
 
 See also: ---, DirectedEdge, Graph, UndirectedEdge
+
+Guides: Graph Functions
 
 Unicode: U+027F6 ⟶ Long Rightwards Arrow

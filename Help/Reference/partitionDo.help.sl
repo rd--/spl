@@ -1,9 +1,12 @@
 # partitionDo
 
-- _partitionDo(aSequence, windowSize, stepSize, aBlock:/1)_
+- _partitionDo(c, w, n, f:/1)_
 
-Apply _aBlock_ to each partition in turn.
-Only one `List`, of _windowSize_ places, is allocated.
+Apply the block _f_ to each partition,
+having window size _w_ places,
+and moving fowards _n_ steps per iteration,
+of the sequence _c_.
+Only one `List`, of _w_ places, is allocated.
 
 ```
 >>> let sum = 0;
@@ -17,3 +20,5 @@ Only one `List`, of _windowSize_ places, is allocated.
 * * *
 
 See also: adjacentPairsDo, partition, partitionCollect
+
+Guides: Iteration Functions

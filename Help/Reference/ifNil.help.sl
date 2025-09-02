@@ -32,4 +32,6 @@ true
 
 See also: if, ifEmpty, ifFalse, ifNotNil, ifTrue, nil, Nil
 
+Guides: Control Functions
+
 Categories: Evaluating

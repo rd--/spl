@@ -1,20 +1,20 @@
 # == (equalsSignEqualsSign)
 
-- _anObject == anotherObject_
+- _x == y_
 
-Answers `true` if _anObject_ is identical to _anotherObject_, else `false`.
+Answers `true` if the object _x_ is identical to another object _y_, else `false`.
 
 This is the _identitical to_ operator.
 It decides if two values are references to the same object.
 
-Equal strings are identical, at `String`:
+Equal strings are identical:
 
 ```
 >>> 'abc' == 'abc'
 true
 ```
 
-Equal integers are identical, at `SmallFloat`:
+Equal integers are identical:
 
 ```
 >>> 123 == 123
@@ -66,7 +66,7 @@ Where supported `==` is displayed as ≡.
 
 See also: =, ~~, ~
 
-Unicode: U+2261 ≡ Identical To
+Guides: Comparison Functions
 
 References:
 _Lisp_
@@ -75,5 +75,7 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SameQ.html),
 _Smalltalk_
 5.3.1.2
+
+Unicode: U+2261 ≡ Identical To
 
 Categories: Comparing

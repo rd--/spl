@@ -19,4 +19,6 @@ else answer _aCollection_ or _notEmptyBlock.cull(aCollection)_.
 
 See also: if, ifFalse, ifNil, ifNotNil, ifTrue, size
 
+Guides: Control Functions
+
 Categories: Evaluating

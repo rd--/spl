@@ -1,11 +1,10 @@
 # && (ampersandAmpersand)
 
-- _aBoolean && anotherBoolean_
-- _aCollection.&&_
+- _b₁ && b₂_
+- _c.&&_
 
-Evaluating conjunction.
-The _evaluating_ form of `&`.
-The operand must be a `Boolean`.
+Evaluating conjunction, that is the evaluating form of `&`.
+The operand _b₂_ must be a `Boolean`.
 
 ```
 >>> true && true

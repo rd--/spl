@@ -1,6 +1,6 @@
 # if
 
-- _if(aBoolean, whenTrue:/0, whenFalse:/0)_
+- _if(condition, whenTrue:/0, whenFalse:/0)_
 
 Conditional evaluation.
 If _aBoolean_ is `true` answer the result of  _whenTrue()_, else answer _whenFalse()_.
@@ -48,7 +48,7 @@ To delay evaluation of alternatives each must be written as a no argument block.
 
 See also: boole, ifEmpty, ifFalse, ifNil, ifNotNil, ifTrue, which
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Control Functions
 
 References:
 _Mathematica_

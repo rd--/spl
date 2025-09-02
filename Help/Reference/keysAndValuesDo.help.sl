@@ -1,8 +1,8 @@
 # keysAndValuesDo
 
-- _keysAndValuesDo(aDictionary | aSequence, aBlock:/2)_
+- _keysAndValuesDo(d, f:/2)_
 
-Apply _aBlock_ to each `key` and `value` of _aDictionary_.
+Apply the block _f_ to each `key` and `value` of the dictionary _d_.
 
 At `Record`:
 
@@ -43,6 +43,8 @@ Iterate over keys and values:
 * * *
 
 See also: associationsDo, do, fromTokeysAndValuesDo, keysAndValuesCollect, keysDo, valuesDo, withIndexDo
+
+Guides: Iteration Functions
 
 References:
 _Smalltalk_

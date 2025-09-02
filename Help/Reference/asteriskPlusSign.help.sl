@@ -33,6 +33,6 @@ The name of this operator is `asteriskPlusSign`.
 
 * * *
 
-See also: +, *, MulAdd, Plus, Times
+See also: +, *, multiplyAdd, MulAdd, Plus, Times
 
 Categories: Arithmetic, Math, Operator, Syntax

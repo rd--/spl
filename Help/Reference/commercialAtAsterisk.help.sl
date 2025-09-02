@@ -1,7 +1,7 @@
 # @* (commercialAtAsterisk)
 
-- aBlock:/1 @* aBlock:/1
-- aCollection @* aCollection
+- _c₁ @* c₂_
+- _f:/1 @* g:/1_
 
 At `Block` the operator (infix) form of `compose`:
 
@@ -23,6 +23,8 @@ The name of this operator is `commercialAtAsterisk`.
 * * *
 
 See also: @, @>, atAll, compose
+
+Guides: Binary Operators
 
 References:
 _Mathematica_

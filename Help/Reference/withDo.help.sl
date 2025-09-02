@@ -1,8 +1,8 @@
 # withDo
 
-- _withDo(aSequence, anotherSequence, aBlock:/2)_
+- _withDo(c₁, c₂, f:/2)_
 
-Evaluate _aBlock_ with corresponding elements from _aSequence_ and _anotherSequence_,
+Evaluate the block _f_ with corresponding elements from the sequences _c₁_ and _c₂_,
 which must have the same `size`.
 
 ```
@@ -17,6 +17,8 @@ which must have the same `size`.
 * * *
 
 See also: do, reverseWithDo, withCollect, withIndexDo
+
+Guides: Iteration Functions
 
 References:
 _Smalltalk_

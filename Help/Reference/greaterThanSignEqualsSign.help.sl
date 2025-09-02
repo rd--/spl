@@ -1,8 +1,10 @@
 # >= (greaterThanSignEqualsSign)
 
-- _aMagnitude >= anotherMagnitude_
+- _x >= y_
 
-Answers _true_ if _aMagnitude_ is greater than or equal to _anotherMagnitude_.
+Answers _true_ if the number _x_ is greater than or equal to the number _y_.
+
+At `SmallFloat`:
 
 ```
 >>> 1.pi >= 1.e
@@ -12,7 +14,7 @@ true
 true
 ```
 
-Element-wise at `Sequence`:
+Element-wise at `List`:
 
 ```
 >>> [1 3 5 7 9] >= [3 4 5 6 7]
@@ -33,6 +35,8 @@ The name of this operator is `greaterThanSignEqualsSign`.
 * * *
 
 See also: <, >, <=, =, !=, <=>, Magnitude
+
+Guides: Comparison Functions
 
 References:
 _Apl_

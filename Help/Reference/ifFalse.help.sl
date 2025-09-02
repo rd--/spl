@@ -25,7 +25,7 @@ true
 
 See also: if, ifEmpty, ifNil, ifNotNil, ifTrue
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Control Functions
 
 References:
 _Smalltalk_

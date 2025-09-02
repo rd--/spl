@@ -1,8 +1,8 @@
 # downToDo
 
-- _downToDo(start, stop, aBlock:/1)_
+- _downToDo(i, j, f:/1)_
 
-Iterate over the range from _start_ to _stop_ counting by negative one.
+Iterate over the range from the start index _i_ to the stop index _j_ counting by negative one.
 
 ```
 >>> let l = [];
@@ -11,7 +11,7 @@ Iterate over the range from _start_ to _stop_ counting by negative one.
 [9 8 7 6 5 4 3 2 1]
 ```
 
-If the interval is empty there are no values to iterate over.
+If the interval is empty there are no values to iterate over:
 
 ```
 >>> let l = [];
@@ -22,7 +22,9 @@ If the interval is empty there are no values to iterate over.
 
 * * *
 
-See also: do, downToDo, Range, to, toByDo, toDo
+See also: do, Range, to, toByDo, toDo
+
+Guides: Iteration Functions
 
 References:
 _Smalltalk_

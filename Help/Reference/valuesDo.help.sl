@@ -1,20 +1,23 @@
 # valuesDo
 
-- _valuesDo(aDictionary, aBlock:/1)_
+- _valuesDo(d, f:/1)_
 
-Evaluate _aBlock_ with each value of _aDictionary_ as the argument.
+Evaluate the block _f_ with each value of the dictionary _d_ as the argument.
 
 ```
->>> let list = [];
->>> (x: 1, y: 2, z: 3).valuesDo { :each |
->>> 	list.add(each)
+>>> let r = [];
+>>> (x: 1, y: 2, z: 3)
+>>> .valuesDo { :each |
+>>> 	r.add(each)
 >>> };
->>> list
+>>> r
 [1 2 3]
 ```
 
 * * *
 
 See also: associationsDo, do, keysAndValuesDo, keysDo
+
+Guides: Iteration Functions
 
 Categories: Enumerating

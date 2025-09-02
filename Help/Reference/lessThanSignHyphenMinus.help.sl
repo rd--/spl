@@ -1,6 +1,6 @@
 # <- (lessThanSignHyphenMinus)
 
-- _value <- key_ ⇒ _Association(key, value)_
+- _value <- key_
 
 The _<-_ operator creates as `Association` object associating _key_ with _value_.
 

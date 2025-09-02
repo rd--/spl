@@ -19,4 +19,6 @@ For sequenceable collections indices are enumerated in sequence.
 
 See also: includesIndex, Indexable, indices, withIndexDo
 
+Guides: Iteration Functions, Indexing Functions
+
 Categories: Enumerating

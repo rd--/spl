@@ -2,22 +2,27 @@
 
 Equalities:
 
-- `==`
 - `=`
-- `~`
+- `==`
 
 Inequalities:
 
-- `!==`
 - `!=`
-- `!~`
+- `!==`
 
 Orderings:
 
-- `<=`
 - `<`
-- `>=`
+- `<=`
 - `>`
+- `>=`
+
+Similarities:
+
+- `~`
+- `!~`
+- `<~`
+- `>~`
 
 A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the two arguments.
 

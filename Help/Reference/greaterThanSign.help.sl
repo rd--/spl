@@ -38,7 +38,7 @@ The name of this operator is `greaterThanSign`.
 
 See also: >=, <, <=, Magnitude
 
-Guides: Sort Functions
+Guides: Comparison Functions, Sort Functions
 
 References:
 _Apl_

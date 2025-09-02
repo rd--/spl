@@ -16,7 +16,7 @@ If _aBoolean_ is _true_ answer the result of  _aBlock()_, else answer _nil_.
 
 See also: if, ifEmpty, ifFalse, ifNil, ifNotNil
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Control Functions
 
 References:
 _Smalltalk_

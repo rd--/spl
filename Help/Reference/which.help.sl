@@ -1,8 +1,8 @@
 # which
 
-- _which(aList)_
+- _which([p₁ → f₁, p₂ → f₂, …])_
 
-Iterate over the association list _aList_ and answer the `value` of the `value` associated with the first key whose `value` is `true`.
+Iterate over an association list and answer the value of the block _f_ associated with the first key _p_ whose value is `true`.
 If no clause answers `true`, answer `nil`.
 
 ```
@@ -30,6 +30,8 @@ Use `true` for an else clause that always matches:
 * * *
 
 See also: caseOf, if
+
+Guides: Control Functions
 
 References:
 _Mathematica_

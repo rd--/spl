@@ -1,9 +1,9 @@
 # permutationsDo
 
-- _permutationsDo(aSequence, aBlock:/1)_
+- _permutationsDo(c, f:/1)_
 
-Repeatly evaluate _aBlock_ with a single copy of _aSequence_.
-Reorder the copy so that _aBlock_ is presented all _aSequence.size.factorial_ possible permutations.
+Repeatly evaluate the block _f_ with a single copy of the sequence _c_.
+Reorder the copy so that _f_ is presented all _c.size.factorial_ possible permutations.
 
 ```
 >>> let list = [];
@@ -17,5 +17,7 @@ Reorder the copy so that _aBlock_ is presented all _aSequence.size.factorial_ po
 * * *
 
 See also: permutations
+
+Guides: Iteration Functions, Permutation Functions
 
 Categories: Enumerating, Permutations

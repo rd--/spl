@@ -27,6 +27,7 @@ Operators Forms:
 
 - `<<`
 - `>>`
+- `>>>`
 
 Counting:
 

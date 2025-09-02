@@ -1,10 +1,10 @@
 # >>> (greaterThanSign...)
 
-- _α >>> β_ ⟹ _bitShiftRightUnsigned(α, β)_
+- _α >>> β_
 
 The operator form or `bitShiftRightUnsigned`.
 
-Answers a number whose binary representation is α shifted by β bits to the right.
+Answers a number whose binary representation is _α_ shifted by _β_ bits to the right.
 Excess bits shifted off to the right are discarded,
 and zero bits are shifted in from the left.
 The answer is always positive.
@@ -50,7 +50,7 @@ Where supported `>>>` is displayed as ⋙.
 
 See also: >>, DocumentationTest
 
-Guides: Documentation Tests
+Guides: Bitwise Functions, Documentation Tests
 
 Unicode: U+22D9 ⋙ Very Much Greater-Than
 

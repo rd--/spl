@@ -1,8 +1,8 @@
 # fromToKeysAndValuesDo
 
-- _fromToKeysAndValuesDo(aSequence, start, stop, aBlock:/2)_
+- _fromToKeysAndValuesDo(c, i, j, f:/2)_
 
-Evaluate _aBlock_ for all elements of _aSequence_ between indices start and stop (inclusive).
+Evaluate the block _f_ for all elements of the sequence _c_ between start index _i_ and stop index _j_ (inclusive).
 
 At `List`:
 
@@ -10,7 +10,9 @@ At `List`:
 >>> let list = 1:9.collect(printString:/1);
 >>> let answer = [];
 >>> list
->>> .fromToKeysAndValuesDo(3, 7) { :key :value |
+>>> .fromToKeysAndValuesDo(
+>>> 	3, 7
+>>> ) { :key :value |
 >>> 	answer.add([key.negate, value])
 >>> };
 >>> answer
@@ -20,6 +22,8 @@ At `List`:
 * * *
 
 See also: do, fromToDo, keysAndValuesDo, toDo
+
+Guides: Iteration Functions
 
 References:
 _Smalltalk_

@@ -1,9 +1,11 @@
 # valueWithReturn
 
-- _valueWithReturn(aBlock:/1)_
+- _valueWithReturn(f:/1)_
 
 Non-local control flow.
-Provides a return block to _aBlock_, which can be used exit directly from _aBlock_, returning a value.
+Provides a return block to the block _f_,
+which can be used exit directly from _f_,
+returning a value.
 
 In the example below if _k_ were between one and nine the answer would be `one`,
 but it is not and the answer is negative `one`:

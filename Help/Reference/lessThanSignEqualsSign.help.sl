@@ -1,8 +1,8 @@
 # <= (lessThanSignEqualsSign)
 
-- _aMagnitude <= anotherMagnitude_
+- _x <= y_
 
-Answers _true_ if _aMagnitude_ is less than or equal to _anotherMagnitude_.
+Answers `true` if _x_ is less than or equal to _y_.
 
 ```
 >>> 1.e <= 1.pi
@@ -12,7 +12,7 @@ true
 true
 ```
 
-Element-wise at `Sequence`:
+Element-wise at `List`:
 
 ```
 >>> [1 3 5 7 9] <= [3 4 5 6 7]
@@ -34,6 +34,8 @@ The name of this operator is `lessThanSignEqualsSign`.
 
 See also: <, >, >=, =
 
+Guides: Comparison Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Less_than_or_Equal_to),
@@ -46,4 +48,4 @@ _Smalltalk_
 
 Unicode: U+2264 ≤ Less-than or equal to
 
-Categories: Comparison operator
+Categories: Comparison

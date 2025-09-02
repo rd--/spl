@@ -1,8 +1,9 @@
 # ensure
 
-- _ensure(aBlock:/0, terminationBlock:/0)_
+- _ensure(f:/0, termination:/0)_
 
-Evaluate _terminationBlock_ after evaluating _aBlock_, regardless of whether the initial evaluation completes.
+Evaluate the block _termination_ after evaluating the block _f_,
+regardless of whether the initial evaluation completes.
 
 Assign to _x_ in the case of an error:
 
@@ -29,6 +30,8 @@ true
 * * *
 
 See also: Error, ifError
+
+Guides: Control Functions
 
 References:
 _Smalltalk_

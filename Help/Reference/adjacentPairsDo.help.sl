@@ -1,12 +1,15 @@
 # adjacentPairsDo
 
-- _adjacentPairsDo(aSequence, aBlock:/2)_
+- _adjacentPairsDo(c, f:/2)_
 
-Apply _aBlock_ to the items of _aSequence_ taken two at a time, moving forward one place each turn.
+Apply the block _f_ to the items of the sequence _c_ taken two at a time,
+moving forward one place each turn.
 The iterative form of `adjacentPairsCollect`.
 
 * * *
 
 See also: adjacentPairsCollect, do, pairsDo
+
+Guides: Iteration Functions
 
 Categories: Enumerating

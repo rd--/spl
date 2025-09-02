@@ -1,6 +1,6 @@
 # @> (commercialAtGreaterThanSign)
 
-- _aCollection @> aSequence_
+- _c₁ @> c₂_
 
 The operator (infix) form of `atPath`.
 
@@ -13,6 +13,8 @@ The name of this operator is `commercialAtGreaterThanSign`.
 
 * * *
 
-See also: @*, atAll, atPath
+See also: @, @*, atAll, atPath
+
+Guides: Indexing Functions
 
 Categories: Accesing

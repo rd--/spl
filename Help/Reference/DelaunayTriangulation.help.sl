@@ -1,8 +1,8 @@
 # DelaunayTriangulation
 
-- _DelaunayTriangulation(aMatrix)_
+- _DelaunayTriangulation(m)_
 
-Answer the Delaunay triangulation of _aMatrix_,
+Answer the Delaunay triangulation of the matrix _m_,
 which should be a two column matrix of _(x,y)_ coordinates,
 
 Calculate the `vertexCount`, `faceCount` and `edgeCount` of the `DelaunayTriangulation` of a hexagon:

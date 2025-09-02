@@ -1,8 +1,8 @@
 # -> (hyphenMinusGreaterThanSign)
 
-- _key -> value_ ⇒ _Association(key, value)_
+- _k -> v_
 
-The _->_ operator creates as `Association` object associating _key_ with _value_.
+The `->` operator creates as `Association` object associating the key _k_ with value _v_.
 
 ```
 >>> 'x' -> 1

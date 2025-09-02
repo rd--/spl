@@ -1,8 +1,8 @@
 # upOrDownTo
 
-- _upOrDownTo(start, stop)_
+- _upOrDownTo(i, j)_
 
-Construct a `Range` by counting up or down from _start_ to _stop_ by one.
+Construct a `Range` by counting up or down from the start index _i_ to the stop index _j_ by one.
 
 Count up:
 

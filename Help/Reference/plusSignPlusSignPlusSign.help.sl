@@ -1,6 +1,6 @@
 # +++ (plusSignPlusSignPlusSign)
 
-- _aSequence_ +++ _anotherSequence_
+- _m₁ ++ m₂_
 
 Append matrices.
 
@@ -62,5 +62,7 @@ The name of this operator is `plusSignPlusSignPlusSign`.
 * * *
 
 See also: ++, catenate, flatten, join
+
+Guides: Matrix Functions
 
 Categories: Rearranging
