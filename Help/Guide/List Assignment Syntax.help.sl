@@ -80,6 +80,6 @@ or with temporary variables:
 
 See also: :=, List
 
-Guides: Dictionary Assignment Syntax
+Guides: Record Assignment Syntax
 
 Categories: Syntax

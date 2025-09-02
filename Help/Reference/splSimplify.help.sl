@@ -60,7 +60,7 @@ true
 true
 ```
 
-`Dictionary Assignment Syntax` is rewritten:
+`Record Assignment Syntax` is rewritten:
 
 ```
 >>> let expr = 'let (x: x) = d; x';

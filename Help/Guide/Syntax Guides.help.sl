@@ -17,14 +17,14 @@
 - `Apply Syntax`
 - `Binary Operator Syntax`
 - `Comment Syntax`
-- `Dictionary Assignment Syntax`
-- `Record Syntax`
 - `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
 - `Method Syntax`
 - `Operator Syntax`
 - `Range Syntax`
+- `Record Assignment Syntax`
+- `Record Syntax`
 - `Slot Assignment Syntax`
 - `Trailing Block Syntax`
 - `Trailing Record Syntax`

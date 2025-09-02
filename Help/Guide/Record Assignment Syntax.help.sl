@@ -1,6 +1,6 @@
-# Dictionary Assignment Syntax
+# Record Assignment Syntax
 
-There is dictionary assignment syntax for both temporary variable initialisers:
+There is a record assignment syntax for both temporary variable initialisers:
 
 ```
 >>> let d = (x: 1 * 2, y: 3 * 4, z: 5 * 6);

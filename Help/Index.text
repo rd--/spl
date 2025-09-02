@@ -33,14 +33,13 @@ Guide/Complex Literals.help.sl
 Guide/Complex Number Functions.help.sl
 Guide/Complicated Method Arity.help.sl
 Guide/Control Blocks.help.sl
-Guide/Control Structures.help.sl
+Guide/Control Functions.help.sl
 Guide/Coordinate System Functions.help.sl
 Guide/Csound Gen Routines.help.sl
 Guide/Curve Functions.help.sl
 Guide/Date and Time Functions.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
-Guide/Dictionary Assignment Syntax.help.sl
 Guide/Dictionary Functions.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
@@ -54,6 +53,7 @@ Guide/Experimental AtIfAbsentPut Syntax.help.sl
 Guide/Experimental AtIfAbsent Syntax.help.sl
 Guide/Experimental AtPutDelegateTo Syntax.help.sl
 Guide/Experimental Constant Syntax.help.sl
+Guide/Experimental Implicit Dictionary.help.sl
 Guide/Experimental Infix Method Syntax.help.sl
 Guide/Experimental Initialised Temporaries Syntax.help.sl
 Guide/Experimental MessageSend Syntax.help.sl
@@ -83,7 +83,6 @@ Guide/Guide Index.help.sl
 Guide/Help Files.help.sl
 Guide/Hyperbolic Functions.help.sl
 Guide/Image Functions.help.sl
-Guide/Implicit Dictionary.help.sl
 Guide/Implicit Self.help.sl
 Guide/Indentation Rules.help.sl
 Guide/Indexable Syntax.help.sl
@@ -92,6 +91,7 @@ Guide/Integer Functions.help.sl
 Guide/Integer Literals.help.sl
 Guide/Integer Sequences.help.sl
 Guide/Interpolation Functions.help.sl
+Guide/Iteration Functions.help.sl
 Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
 Guide/Lexical Scoping.help.sl
@@ -156,6 +156,7 @@ Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
 Guide/Range Syntax.help.sl
+Guide/Record Assignment Syntax.help.sl
 Guide/Record Syntax.help.sl
 Guide/Reference Help Files.help.sl
 Guide/Reflection Functions.help.sl
@@ -2430,6 +2431,7 @@ Reference/Ordered.help.sl
 Reference/orderedSubstrings.help.sl
 Reference/ordering.help.sl
 Reference/ordinalDateString.help.sl
+Reference/originalContents.help.sl
 Reference/origin.help.sl
 Reference/OrnsteinUhlenbeckProcess.help.sl
 Reference/orthicTriangle.help.sl
