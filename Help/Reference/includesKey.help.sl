@@ -18,6 +18,14 @@ true
 true
 ```
 
+At `Map`:
+
+```
+>>> ['w': 1, 'x': 2, 'y': 3]
+>>> .includesIndex('x')
+true
+```
+
 _Rationale:_
 The indices of dictionaries are called keys.
 `includesKey` is another name for `includesIndex`,

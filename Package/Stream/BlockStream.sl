@@ -47,7 +47,7 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 	fixedPointList { :self:/1 :anObject :aBlock:/2 |
 		let previous = nil;
 		self:/1.iterate(anObject).nextUntil { :each |
-			let continue = previous.notNil & {
+			let continue = previous.isNotNil & {
 				aBlock(previous, each)
 			};
 			previous := each;

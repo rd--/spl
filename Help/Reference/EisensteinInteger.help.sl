@@ -56,7 +56,7 @@ Plot Eisenstein integer primes on the complex plane:
 	}
 }.table(-23:23, -23:23)
 .flatten(1)
-.select(notNil:/1)
+.select(isNotNil:/1)
 .scatterPlot
 ~~~
 

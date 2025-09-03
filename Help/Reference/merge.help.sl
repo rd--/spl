@@ -57,10 +57,10 @@ Merge retaining answer from rightmost entry:
 Merge record with an empty record:
 
 ```
->>> [(a: 1, b: 2), ()].merge
+>>> [(a: 1, b: 2), (:)].merge
 (a: [1], b: [2])
 
->>> [(), (a: 1, b: 2)].merge
+>>> [(:), (a: 1, b: 2)].merge
 (a: [1], b: [2])
 ```
 

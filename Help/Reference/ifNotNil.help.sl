@@ -1,11 +1,10 @@
 # ifNotNil
 
-- _ifNotNil(anObject, whenNotNil:/1)_
-- _ifNotNil(anObject, whenNotNil:/1, whenNil:/0)_
+- _ifNotNil(x, f:/1, g:/0)_
 
 Conditional evaluation.
-If _anObject_ is not `nil` answer the result of _whenNotNil(anObject)_,
-else answer _whenNil()_,
+If the object _x_ is not `nil` answer the result of _f(x)_,
+else answer _g()_,
 or in the binary case `nil`.
 
 ```

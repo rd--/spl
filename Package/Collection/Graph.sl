@@ -939,7 +939,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		newGraph().initializeSlots(
 			vertexList,
 			edgeList.collect(asEdge:/1),
-			()
+			(:)
 		)
 	}
 

@@ -120,7 +120,7 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 
 	library { :self |
 		self.cached('library') {
-			()
+			(:)
 		}
 	}
 

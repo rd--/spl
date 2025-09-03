@@ -240,7 +240,7 @@
 
 	typeInheritedMethodDictionary { :self :typeName |
 		/* Methods inherited from Traits at typeName, most specific only. */
-		let answer = ();
+		let answer = (:);
 		self.typeLookup(typeName).traitNameList.do { :traitName |
 			self.traitLookup(traitName).methodDictionary.valuesDo { :method |
 				answer[method.qualifiedName] := method

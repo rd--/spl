@@ -71,7 +71,7 @@ LibraryItem(
 	parser: { :text |
 		text
 		.lines
-		.select(notEmpty:/1)
+		.select(isNotEmpty:/1)
 		.collect { :each |
 			let [kind, name] = each.replaceString('.help.sl', '').splitBy('/');
 			[kind, name]

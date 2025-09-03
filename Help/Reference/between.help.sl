@@ -43,6 +43,8 @@ true
 
 See also: <=, >=, betweenAnd, coordinateBounds, exclusivelyBetweenAnd, includes, inclusivelyBetweenAnd, minMax
 
+Guides: Comparison Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Between.html)

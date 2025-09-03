@@ -209,7 +209,7 @@ produce consistent results. For a given receiver if the result of
 
 *Return Value*: ⧼boolean⧽
 
-Cf: notNil
+Cf: isNotNil
 
 ### 5.3.1.16
 
@@ -3117,7 +3117,7 @@ otherwise. This is equivalent to receiver isEmpty not
 
 *Return Value*: ⧼boolean⧽
 
-Cf: notEmpty
+Cf: isNotEmpty
 
 ### 5.7.1.19
 

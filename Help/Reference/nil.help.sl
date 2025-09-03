@@ -21,4 +21,6 @@ nil
 
 See also: false, Nil, true, Void
 
+Guides: Nil Functions
+
 Categories: UndefinedObject, Type, Reserved Word

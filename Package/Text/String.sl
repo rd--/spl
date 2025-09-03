@@ -564,6 +564,10 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		<primitive: return !/[^\t\n\r ]/.test(_self);>
 	}
 
+	isAscii { :self |
+		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
+	}
+
 	isBlankLine { :self |
 		self.isEmpty | {
 			self.allSatisfy { :each |
@@ -594,6 +598,11 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		true
 	}
 
+	isImmediateType { :self |
+		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
+		.includes(self)
+	}
+
 	isLiteral { :unused |
 		true
 	}
@@ -602,13 +611,8 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		<primitive: return /^[a-z]+$/.test(_self);>
 	}
 
-	isAscii { :self |
-		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
-	}
-
-	isImmediateType { :self |
-		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
-		.includes(self)
+	isNotEmpty { :self |
+		self.isEmpty.not
 	}
 
 	isPalindrome { :self |
@@ -717,10 +721,6 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	longestIncreasingSubsequence { :self |
 		self.characters.longestIncreasingSubsequence.stringCatenate
-	}
-
-	notEmpty { :self |
-		self.isEmpty.not
 	}
 
 	nub { :self |

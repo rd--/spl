@@ -3,6 +3,7 @@
 Traits and Types:
 
 - `Set`
+- `IdentitySet`
 
 Set Theoretic Functions:
 

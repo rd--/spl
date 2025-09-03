@@ -9,14 +9,14 @@ Read the value at the index _k_ of the collection _c_,
 if it is absent evaluate to _a_.
 
 ~~~spl experimental
-let c = ();
+let c = (:);
 c['x'] :? { 'y' }
 ~~~
 
 Written out:
 
 ```
->>> let c = ();
+>>> let c = (:);
 >>> c.atIfAbsent('x') { 'y' }
 'y'
 ```

@@ -584,7 +584,7 @@
 				segment := []
 			}
 		};
-		self.notEmpty.ifTrue {
+		self.isNotEmpty.ifTrue {
 			segment.add(self.last)
 		};
 		answer.add(segment);

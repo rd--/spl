@@ -9,9 +9,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 	recurseEvery { :self :aBlock:/2 :anObject :delay |
 		self.scheduleInjecting(0, anObject) { :currentTime :inputValue |
 			let nextDelay = delay.value;
-			(inputValue.notNil & {
-				nextDelay.notNil
-			}).ifTrue {
+			(
+				inputValue.isNotNil & {
+					nextDelay.isNotNil
+				}
+			).ifTrue {
 				[nextDelay, aBlock(currentTime, inputValue)]
 			}
 		}

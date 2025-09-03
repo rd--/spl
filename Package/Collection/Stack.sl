@@ -16,7 +16,7 @@ Stack : [Object] { | linkedList |
 		self.linkedList.isEmpty
 	}
 
-	notEmptyCheck { :self |
+	isNotEmptyCheck { :self |
 		self.isEmpty.ifTrue {
 			self.errorEmptyStack
 		}

@@ -21,7 +21,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 			self.markdown.codeBlocks.collect { :each |
 				let information = each['information'];
 				information.isEmpty.if {
-					each['attributes'] := ()
+					each['attributes'] := (:)
 				} {
 					each['attributes'] := information.words.collect { :each |
 						let parts = each.splitBy('=');
@@ -105,23 +105,23 @@ HelpFile : [Object, Cache] { | origin source cache |
 	}
 
 	hasDocumentationTests { :self |
-		self.documentationTests.notEmpty
+		self.documentationTests.isNotEmpty
 	}
 
 	hasRationale { :self |
-		self.rationale.notEmpty
+		self.rationale.isNotEmpty
 	}
 
 	hasReferences { :self |
-		self.references.notEmpty
+		self.references.isNotEmpty
 	}
 
 	hasSignatures { :self |
-		self.signatures.notEmpty
+		self.signatures.isNotEmpty
 	}
 
 	hasUnicode { :self |
-		self.unicode.notEmpty
+		self.unicode.isNotEmpty
 	}
 
 	isGuideFile { :self |
@@ -176,7 +176,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 
 	paragraphFrom { :self :index |
 		self.linesFromWhile(index) { :each :unusedIndex |
-			each.notEmpty
+			each.isNotEmpty
 		}
 	}
 
@@ -220,7 +220,7 @@ HelpFile : [Object, Cache] { | origin source cache |
 			};
 			index.isPositive.if {
 				self.linesFromWhile(index + 1) { :each :unusedIndex |
-					each.notEmpty
+					each.isNotEmpty
 				}
 			} {
 				[]

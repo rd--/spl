@@ -25,7 +25,9 @@ true
 
 * * *
 
-See also: ?, ??, ~?, nil, ifNil, ifNotNil, Void
+See also: ?, ??, ~?, nil, ifNil, ifNotNil, Nil, Void
+
+Guides: Nil Functions
 
 References:
 _Mathematica_

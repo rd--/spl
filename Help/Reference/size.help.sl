@@ -37,7 +37,17 @@ Size of a `Record`:
 >>> (x: (y: (z: 1))).size
 1
 
->>> ().size
+>>> (:).size
+0
+```
+
+Size of a `Map`:
+
+```
+>>> [1: 'x', 2: 'y'].size
+2
+
+>>> [:].size
 0
 ```
 

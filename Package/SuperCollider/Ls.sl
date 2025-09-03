@@ -311,7 +311,7 @@
 		let next = nil;
 		{
 			next := input.next;
-			next.notNil
+			next.isNotNil
 		}.whileTrue {
 			answer := next
 		};

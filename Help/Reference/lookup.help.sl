@@ -66,7 +66,7 @@ Use `error` as default value:
 >>> };
 >>> (
 >>> 	(weight: 90, height: 1.8).bmi,
->>> 	{ ().bmi }.ifError { nil }
+>>> 	{ (:).bmi }.ifError { nil }
 >>> )
 (27.7778, nil)
 ```

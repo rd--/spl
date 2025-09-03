@@ -1,8 +1,8 @@
 # assertIsSmallInteger
 
-- _assertIsSmallInteger(anObject)_
+- _assertIsSmallInteger(x)_
 
-Require that _anObject_ be a small integer:
+Require that the object _x_ be a small integer:
 
 ```
 >>> 23.assertIsSmallInteger
@@ -12,12 +12,14 @@ Require that _anObject_ be a small integer:
 Raise an error if value is not a small integer:
 
 ```
->>> { 3.141.assertIsSmallInteger }.ifError { true }
+>>> {
+>>> 	3.141.assertIsSmallInteger
+>>> }.ifError { true }
 true
 ```
 
 * * *
 
-See also: assert, error
+See also: assert, error, isSmallInteger
 
 Categories: Asserting

@@ -1,13 +1,7 @@
 # ()
 
-_()_ is part of the `Record Syntax`, where constructs an empty `Record`:
-
-```
->>> ()
-Record()
-```
-
-It is also part of the `Apply Syntax` and `Value Apply Syntax` where it represents an empty parameter list:
+`()` is part of `Apply Syntax` and `Value Apply Syntax`,
+where it represents an empty parameter list:
 
 ```
 >>> List()
@@ -17,6 +11,16 @@ It is also part of the `Apply Syntax` and `Value Apply Syntax` where it represen
 []
 ```
 
+Note that _()_ is not part of the `Record Syntax`,
+it does not construct an empty `Record`:
+
+```
+>>> (:)
+Record()
+```
+
 * * *
 
 See also: Record
+
+Guides: Apply Syntax, Value Apply Syntax

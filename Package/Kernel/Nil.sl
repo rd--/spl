@@ -1,14 +1,14 @@
 Nil! : [Object, Json] {
 
-	? { :self :aBlock:/0 |
+	? { :unused :aBlock:/0 |
 		aBlock()
 	}
 
-	?? { :self :anObject |
+	?? { :unused :anObject |
 		anObject.value
 	}
 
-	~? { :self :aBlock:/0 |
+	~? { :unused :aBlock:/0 |
 		nil
 	}
 
@@ -52,7 +52,7 @@ Nil! : [Object, Json] {
 		true
 	}
 
-	notNil { :self |
+	isNotNil { :self |
 		false
 	}
 
@@ -84,7 +84,7 @@ Nil! : [Object, Json] {
 		false
 	}
 
-	notNil { :self |
+	isNotNil { :self |
 		true
 	}
 

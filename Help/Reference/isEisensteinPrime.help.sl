@@ -16,7 +16,7 @@ let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 	}
 }.table(-11:11, -11:11)
 .flatten(1)
-.select(notNil:/1)
+.select(isNotNil:/1)
 .scatterPlot
 ~~~
 

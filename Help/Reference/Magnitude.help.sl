@@ -1,15 +1,26 @@
 # Magnitude
 
 A `Trait` defining comparison operators.
-Objects that are magnitudes should implement `=`.
 
-The method that must be defined to implement this trait is `<`.
+The required methods are:
 
-`Magnitude` implements: `<`, `>`, `<=`, `>=`, `betweenAnd`, `min`, `max`, `minMax`.
+- `<`
+- `=`
+
+Methods implemented at `Magnitude` include:
+
+- `<=`
+- `<`
+- `>=`
+- `max`
+- `min`
+- `<=>`
 
 * * *
 
 See also: <=, >, >=, <=>, betweenAnd, boole, clamp, min, max
+
+Guides: Comparison Functions
 
 References:
 _Smalltalk_

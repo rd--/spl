@@ -214,7 +214,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 				size.toByDo(1, -1) { :w |
 					let nodePool = List();
 					let nodeW = self.nodes[w].bb;
-					nodeW.notNil.ifTrue {
+					nodeW.isNotNil.ifTrue {
 						let workList = List();
 						self.stepDNodePool(w, nodePool);
 						nodePool.do { :niter |
@@ -270,7 +270,7 @@ HavlakLoopFinder : [Object] { | cfg lsg nonBackPreds backPreds number maxSize he
 		nodePool.do { :node |
 			self.header[node.dfsNumber] := w;
 			node.union(self.nodes[w]);
-			node.loop.notNil.if {
+			node.loop.isNotNil.if {
 				node.loop.setParent(loop)
 			} {
 				loop.addNode(node.bb)

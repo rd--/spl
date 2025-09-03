@@ -100,6 +100,12 @@
 		self
 	}
 
+	assertIsOfSize { :self :anInteger |
+		self.assert {
+			self.size = anInteger
+		}
+	}
+
 	atLevelCollect { :self :level :aBlock:/1 |
 		let levelPredicate:/1 = level.isCollection.if {
 			{ :each | level.includes(each) }
@@ -462,6 +468,10 @@
 		self.size = 0
 	}
 
+	isNotEmpty { :self |
+		self.size > 0
+	}
+
 	isOfSameSizeCheck { :self :otherCollection |
 		(otherCollection.size = self.size).ifFalse {
 			self.error('@Collection>>isOfSameSizeCheck')
@@ -517,10 +527,6 @@
 
 	not { :self |
 		self.collect(not:/1)
-	}
-
-	notEmpty { :self |
-		self.isEmpty.not
 	}
 
 	nub { :self |

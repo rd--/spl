@@ -24,7 +24,12 @@ Similarities:
 - `<~`
 - `>~`
 
-A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the two arguments.
+Ternary:
+
+- `between`
+- `betweenAnd`
+
+A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the arguments.
 
 The comparison functions can be subdivided into two equalities `=` and `!=`,
 which depend only on whether the arguments are equal and not on the ordering of the arguments,

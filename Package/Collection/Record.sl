@@ -87,14 +87,22 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 	}
 
 	storeString { :self |
-		'(%)'.format([
-			self.associations.collect { :each |
-				'%: %'.format([
-					each.key,
-					each.value.storeString
-				])
-			}.commaSeparated
-		])
+		self.isEmpty.if {
+			'(:)'
+		} {
+			'(%)'.format(
+				[
+					self.associations.collect { :each |
+						'%: %'.format(
+							[
+								each.key,
+								each.value.storeString
+							]
+						)
+					}.commaSeparated
+				]
+			)
+		}
 	}
 
 	uncheckedAt { :self :key |

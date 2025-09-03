@@ -102,7 +102,7 @@ Response! : [Object] {
 			(
 				status: 200,
 				statusText: '',
-				headers: ()
+				headers: (:)
 			)
 		)
 	}

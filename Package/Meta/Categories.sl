@@ -1252,7 +1252,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isEmptyOrNil'
 		'isSequenceable'
 		'noneSatisfy'
-		'notEmpty'
+		'isNotEmpty'
 		'oneSatisfies'
 	],
 	'testing-sequenceable': [

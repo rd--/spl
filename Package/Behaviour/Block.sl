@@ -260,7 +260,11 @@ Block! : [Object] {
 	}
 
 	memoize { :self:/1 :requireImmediate |
-		let table = requireImmediate.if { Map() } { EqualityDictionary() };
+		let table = requireImmediate.if {
+			Map()
+		} {
+			EqualityDictionary()
+		};
 		{ :input |
 			table.atIfAbsent(input) {
 				let answer = self(input);

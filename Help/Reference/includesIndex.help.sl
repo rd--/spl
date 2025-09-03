@@ -11,14 +11,6 @@ At `Range`:
 true
 ```
 
-At `Record`:
-
-```
->>> (w: 1, x: 2, y: 3)
->>> .includesIndex('x')
-true
-```
-
 At `BitSet`, which is notably _zero-indexed_:
 
 ```

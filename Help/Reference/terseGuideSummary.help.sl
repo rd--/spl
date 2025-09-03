@@ -1,9 +1,9 @@
 # terseGuideSummary
 
-- _terseGuideSummary(aUrl | aString)_
+- _terseGuideSummary(x)_
 
 At `Url`,
-fetch the terse guide at _aUrl_,
+fetch the terse guide at _x_,
 run all of the terse examples,
 and print a summary of each section and of the guide altogether.
 
@@ -15,7 +15,7 @@ system
 ~~~
 
 At `String`,
-run all of the terse examples in _aString_,
+run all of the terse examples in _x_,
 and print a summary of each section and of the guide altogether.
 
 ~~~spl console

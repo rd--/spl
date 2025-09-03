@@ -16,7 +16,7 @@ Sl {
 	TraitExtension = "+" qualifiedTraitName "{" (methodName Block)* "}"
 	TraitDefinition = qualifiedTraitName "{" (methodName Block)* "}"
 	LibraryItem = LibraryItemLiteral | LibraryItemExpression
-	LibraryItemLiteral = "LibraryItem" RecordLiteral
+	LibraryItemLiteral = "LibraryItem" NonEmptyRecordSyntax
 	LibraryItemExpression = "LibraryItem" ApplySyntax
 	Program = Temporaries? ListOf<Expression, ";">
 	Temporaries = VarTemporaries | LetTemporary+
@@ -67,9 +67,10 @@ Sl {
 		| VolumeSyntax
 		| ListExpression
 		| ParenthesisedExpression
-		| RecordLiteral
-		| EmptyMapLiteral
-		| NonEmptyMapLiteral
+		| EmptyRecordSyntax
+		| NonEmptyRecordSyntax
+		| EmptyMapSyntax
+		| NonEmptyMapSyntax
 		| TupleExpression
 		| ListRangeSyntax
 		| ListRangeThenSyntax
@@ -86,7 +87,7 @@ Sl {
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"
 
 	DotExpressionWithTrailingClosuresSyntax = Primary "." selectorName NonEmptyParameterList? Block+
-	DotExpressionWithTrailingRecordSyntax = Primary "." selectorName NonEmptyRecordLiteral+
+	DotExpressionWithTrailingRecordSyntax = Primary "." selectorName NonEmptyRecordSyntax+
 	DotExpressionWithAssignmentSyntax = Primary "." selectorName ":=" Expression
 	DotExpression = Primary ("." (selectorName | boundOperator) ~("{" | ":=") NonEmptyParameterList? ~("{" | "("))+
 
@@ -98,18 +99,18 @@ Sl {
 	FinalExpression = Expression
 
 	ApplyWithTrailingClosuresSyntax = selectorName NonEmptyParameterList? Block+
-	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordLiteral+
+	ApplyWithTrailingRecordSyntax = selectorName NonEmptyRecordSyntax+
 	ApplySyntax = (selectorName | boundOperator) ParameterList
 	ParenthesisedExpression = "(" Expression ")"
-	NonEmptyRecordLiteral = "(" NonemptyListOf<RecordLiteralItem, ","> ")"
-	RecordLiteral = "(" ListOf<RecordLiteralItem, ","> ")"
-	RecordLiteralItem = RecordKeyAssociation | StringAssociation
+	NonEmptyRecordSyntax = "(" NonemptyListOf<RecordSyntaxItem, ","> ")"
+	EmptyRecordSyntax = "(" ":" ")"
+	RecordSyntaxItem = RecordKeyAssociation | StringAssociation
 	RecordKeyAssociation = recordKeyToken Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	RecordInitializerItem = recordKeyToken varName
-	EmptyMapLiteral = "[" ":" "]"
-	NonEmptyMapLiteral = "[" NonemptyListOf<MapLiteralItem, ","> "]"
-	MapLiteralItem = Expression ":" Expression
+	EmptyMapSyntax = "[" ":" "]"
+	NonEmptyMapSyntax = "[" NonemptyListOf<MapSyntaxItem, ","> "]"
+	MapSyntaxItem = Expression ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
 	ListExpression = "[" ListOf<Expression, ","> "]"
 	ListRangeSyntax = "[" Expression ".." Expression "]"
@@ -159,7 +160,7 @@ Sl {
     symbolicCharacterLiteral = "𝒂" | "𝒃" | "𝒄" | "𝒅" | "𝒆" | "𝒇" | "𝒈" | "𝒉" | "𝒊" | "𝒋" | "𝒌" | "𝒍" | "𝒎" | "𝒏" | "𝒐" | "𝒑" | "𝒒" | "𝒓" | "𝒔" | "𝒕" | "𝒖" | "𝒗" | "𝒘" | "𝒙" | "𝒚" | "𝒛"
 
 	literal = spanLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
-	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | infinityLiteral | nanLiteral
+	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | imaginaryLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | infinityLiteral | nanLiteral
 	spanLiteral = spanFromByToLiteral | spanFromToLiteral
 	spanFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	spanFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
@@ -169,6 +170,7 @@ Sl {
 	integerDecimalLiteral = plusOrMinus? digit+ "D" // ("d" | "D")
 	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
+	imaginaryLiteral = integerOrFloatLiteral "I" // ("i" | "I")
 	residueLiteral = integerLiteral "Z" digit+ // ("z" | "Z")
 	fractionLiteral = plusOrMinus? digit+ "/" digit+
 	largeIntegerLiteral = plusOrMinus? digit+ "L"

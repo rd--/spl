@@ -1,8 +1,8 @@
 # cache
 
-- _cache(hasCache)_
+- _cache(x)_
 
-Answer the cache `Dictionary` at _hasCache_.
+Answer the cache `Dictionary` at the object _x_.
 
 The `system` cache:
 
@@ -25,3 +25,5 @@ true
 * * *
 
 See also: Cache, cached, caches, whenCached
+
+Guides: Dictionary Functions

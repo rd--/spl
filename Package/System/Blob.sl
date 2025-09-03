@@ -47,7 +47,7 @@ Blob! : [Object, Blob] {
 	}
 
 	asBlob { :self |
-		Blob([self], ())
+		Blob([self], (:))
 	}
 
 }

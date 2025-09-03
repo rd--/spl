@@ -182,7 +182,7 @@ Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagn
 
 	symbolDictionary { :self |
 		self.cached('symbolDictionary') {
-			()
+			(:)
 		}
 	}
 

@@ -58,7 +58,7 @@ true
 ```
 
 At `IdentitySet`,
-`add` will include _newObject_ as one of the set elements only if not already present:
+`add` will include _x_ as one of the set elements only if not already present:
 
 ```
 >>> let s = IdentitySet();

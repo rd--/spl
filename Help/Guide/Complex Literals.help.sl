@@ -1,22 +1,37 @@
 # Complex Literals
 
 A complex number is a number consisting of a _real_ and an _imaginary_ component.
+There are two literal notations for complex numbers.
 
-Complex numbers may be written as literals using the syntax _rJi_,
-i.e. `3J4` or `2J3`.
+In the first,
+complex numbers may be written using the syntax _aJb_,
+i.e. `3J4` or `2.3J4.5`.
 
 ```
 >>> 3J4
 Complex(3, 4)
 
->>> 2J3
-Complex(2, 3)
+>>> 2.3J4.5
+Complex(2.3, 4.5)
 ```
 
-The rewrite rule is _rJi => Complex(r, i)_.
+The rewrite rule is _aJb => Complex(a, b)_.
 
-The _J_ may also be written _j_,
-however Spl writes _J_ consistently.
+In the second,
+a purely imaginary number may be written using the syntax _aI_.
+
+```
+>>> 3I
+0J3
+
+>>> 2.3I
+0J2.3
+
+>>> 2 + 3I
+2J3
+```
+
+The rewrite rule is _aI_ => Complex(0, a)_.
 
 `j` is the name of a method:
 
@@ -35,11 +50,21 @@ however Spl writes _J_ consistently.
 3J4
 ```
 
+`i` is also the name of a method:
+
+```
+>>> 3.i
+0J3
+
+>>> 2 + 3.i
+2J3
+```
+
 * * *
 
 See also: Complex, i, j
 
-Guides: Complex Numbers, Number Literals
+Guides: Complex Number Functions, Number Literals
 
 References:
 _Apl_

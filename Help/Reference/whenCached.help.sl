@@ -1,14 +1,19 @@
 # whenCached
 
-- _whenCached(hasCache, key, aysncInitializerBlock:/0)_
+- _whenCached(x, k, f:/0)_
 
-A simple idiom to make accessing cached values nicer.
-The answer will be a `Promise`, unlike with `cached`, so access to the answer is courtesy `then`.
+Read the value associated with the key _k_ at the `cache` associated with the value _x_,
+initializing the cache if required using the asynchronous initializer block _f_.
+The answer is a `Promise`,
+unlike with `cached`,
+so access to the cached resource is courtesy `then`.
 
-This is ordinarily used by methods that provide access to system resources &etc. that are initialized on first access.
+This is ordinarily used by methods that provide access to system resources that are initialized on first access.
 
 * * *
 
 See also: atIfAbsentPut, Cache, cached
+
+Guides: Dictionary Functions
 
 Categories: Accessing

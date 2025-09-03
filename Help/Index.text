@@ -41,7 +41,6 @@ Guide/Date and Time Functions.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Functions.help.sl
-Guide/Map Syntax.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
@@ -106,6 +105,7 @@ Guide/Loading Libraries.help.sl
 Guide/Local Controls.help.sl
 Guide/Logical Operators.help.sl
 Guide/Magic Squares.help.sl
+Guide/Map Syntax.help.sl
 Guide/Mathematical Constants.help.sl
 Guide/Mathematical Functions.help.sl
 Guide/Mathematical Sequences.help.sl
@@ -119,6 +119,7 @@ Guide/Method Dictionary.help.sl
 Guide/Method Syntax.help.sl
 Guide/Named Controls.help.sl
 Guide/Network Functions.help.sl
+Guide/Nil Functions.help.sl
 Guide/Non-local Return.help.sl
 Guide/Notational Conventions.help.sl
 Guide/Number Literals.help.sl
@@ -2732,6 +2733,7 @@ Reference/quartiles.help.sl
 Reference/query.help.sl
 Reference/queryParameters.help.sl
 Reference/questionMark.help.sl
+Reference/questionMarkQuestionMark.help.sl
 Reference/quickSortBy.help.sl
 Reference/quickSortFromToBy.help.sl
 Reference/quickSort.help.sl
@@ -3417,6 +3419,7 @@ Reference/TwoPole.help.sl
 Reference/TwoZero.help.sl
 Reference/TxLine.help.sl
 Reference/TypeBrowser.help.sl
+Reference/TypedDictionary.help.sl
 Reference/typeDefinition.help.sl
 Reference/typeDictionary.help.sl
 Reference/Type.help.sl

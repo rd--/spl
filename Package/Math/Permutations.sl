@@ -497,7 +497,7 @@ Permutation : [Object] { | cycles degree |
 			continue := aBlock(list);
 			continue.ifTrue {
 				next := list.nextPermutationLexicographic;
-				continue := next.notNil
+				continue := next.isNotNil
 			}
 		}
 	}

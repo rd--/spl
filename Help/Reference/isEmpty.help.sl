@@ -18,7 +18,14 @@ true
 At `Record`:
 
 ```
->>> ().isEmpty
+>>> (:).isEmpty
+true
+```
+
+At `Map`:
+
+```
+>>> [:].isEmpty
 true
 ```
 
@@ -41,7 +48,7 @@ For streams, answers `true` if both the set of past and future sequence values a
 
 * * *
 
-See also: ifEmpty, notEmpty, size
+See also: ifEmpty, isNotEmpty, size
 
 References:
 _Haskell_

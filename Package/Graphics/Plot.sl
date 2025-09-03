@@ -514,7 +514,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	Plot { :self :format |
-		self.Plot(format, ())
+		self.Plot(format, (:))
 	}
 
 }

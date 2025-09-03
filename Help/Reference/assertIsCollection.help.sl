@@ -1,8 +1,8 @@
 # assertIsCollection
 
-- _assertIsCollection(aCollection)_
+- _assertIsCollection(x)_
 
-Identity if _aCollection_ is, in fact, a collection, else signal an error.
+Answer _x_ if _x_ is a `Collection`, else signal an `error`.
 
 ```
 >>> 1:4.assertIsCollection

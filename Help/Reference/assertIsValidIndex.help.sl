@@ -1,9 +1,9 @@
 # assertIsValidIndex
 
-- _assertIsValidIndex(aCollection, index)_
+- _assertIsValidIndex(c, i)_
 
-If `includesIndex` answers `true`,
-answer _index_,
+If `includesIndex` at the collection _c_ answers `true`,
+answer the index _i_,
 else signal an `Error`.
 
 Valid index at `Range`:
@@ -32,6 +32,6 @@ true
 
 * * *
 
-See also: includesIndex
+See also: assert, includesIndex
 
 Categories: Asserting

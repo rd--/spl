@@ -125,7 +125,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 
 	preferences { :self |
 		self.cached('preferences') {
-			()
+			(:)
 		}
 	}
 
@@ -140,7 +140,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 			let item = self.preferencesRead(path[1]);
 			let index = 2;
 			{
-				item.notNil & {
+				item.isNotNil & {
 					index <= path.size
 				}
 			}.whileTrue {

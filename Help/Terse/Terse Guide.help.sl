@@ -431,7 +431,7 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 5].groupBy(isEven:/1).indices = [false, true] /* answer a Map grouping elements according to a predicate */
 [1 .. 5].groupBy(isEven:/1)[true] = [2, 4]
 let a = []; [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] /* iterate adjacent pairs */
-let r = (); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r['elmer'] = 3 /* iterate adjacent pairs */
+let r = (:); [1, 'fred', 2, 'charlie', 3, 'elmer'].pairsDo { :p :q | r.add(q -> p) }; r['elmer'] = 3 /* iterate adjacent pairs */
 [1 .. 9].indexOfSubstring([3 .. 5]) = 3
 [1 .. 9].indexOfSubstringStartingAt([3 .. 5], 9) = 0
 [1 .. 9].indexOfSubstringStartingAt([9], 9) = 9
@@ -709,9 +709,9 @@ BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to a
 ## Blob -- system type
 ```
 system.includesPackage('Blob') /* blob package */
-Blob([], ()).typeOf = 'Blob' /* type of Blob */
-Blob([], ()).size = 0 /* empty Blob has size zero */
-Blob([], ()).isEmpty /* empty Blob is empty */
+Blob([], (:)).typeOf = 'Blob' /* type of Blob */
+Blob([], (:)).size = 0 /* empty Blob has size zero */
+Blob([], (:)).isEmpty /* empty Blob is empty */
 ```
 
 ## Boolean -- logic type
@@ -969,9 +969,9 @@ let s = [1 .. 4].asIdentitySet; let c = s.copyWith(5); s != c & { c = [1 .. 5].a
 { [1, 2].take(-1) }.ifError { true }
 [].select { :each | each > 0 } = []
 [].ifEmpty { true } /* evaluate block if collection is empty */
-[].ifEmpty { true } { false } /* evaluate emptyBlock if collection is empty */
-[1].ifEmpty { false } { true } /* evaluate notEmptyBlock if collection is not empty */
-[1].ifEmpty { false } { :c | c = [1] } /* evaluate notEmptyBlock with collection if not empty */
+[].ifEmpty { true } { false } /* evaluate first lock if collection is empty */
+[1].ifEmpty { false } { true } /* evaluate second block if collection is not empty */
+[1].ifEmpty { false } { :c | c = [1] } /* evaluate second block with collection if not empty */
 1:9.detectSum(square:/1) = 285 /* apply block to each element and sum */
 1:9.collect(square:/1).sum = 285
 let a = [1 .. 9]; a.removeAll(3:7); a = [1, 2, 8, 9] /* remove all indicated elements */
@@ -1300,15 +1300,15 @@ let d = 0.asDateAndTime; [d.hour, d.minute, d.second] = [0, 0, 0] /* hour is in 
 ```
 system.includesPackage('Dictionary') /* package */
 (x: 1, y: 2, z: 3).count(isEven:/1) = 1 /* count elements that match predicate */
-(x: 1, y: 2).select { :each | false } = () /* select nothing */
+(x: 1, y: 2).select { :each | false } = (:) /* select nothing */
 (x: 1, y: 2, z: 3).select(isOdd:/1) = (x: 1, z: 3) /* select odd values */
 (x: 1, y: 2, z: 3).select(isEven:/1) = (y: 2) /* select even values */
-{ ().at('x') }.ifError { true } /* indexing with an unknown key is an error */
+{ (:).at('x') }.ifError { true } /* indexing with an unknown key is an error */
 (x: nil).at('x') = nil /* as does indexing a field that is set to nil */
 (x: nil).size = 1 /* nil fields exist */
 (x: nil).indices = ['x'] /* nil fields exist */
-().atIfAbsentPut('x') { 1 } = 1 /* at or atPut followed by at */
-let d = (); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
+(:).atIfAbsentPut('x') { 1 } = 1 /* at or atPut followed by at */
+let d = (:); d.atIfAbsentPut('x') { 1 } = 1 & { d['x'] = 1 }
 (x: 1, y: 2).includes(2) /* includes, testing values for equality */
 (x: 1, y: [2, 3]).includes([2, 3])
 (x: 1, y: 2).includesIdentity(2) /* includes, testing for identity not equality */
@@ -1320,10 +1320,10 @@ let d = (x: 1); let a = 'y' -> 2; d.add(a) = a & { d = (x: 1, y: 2) } /* add ass
 { (x: 1).add('y') }.ifError { true } /* only associations may be added */
 { (x: 1).add('x' -> 2) }.ifError { true } /* add can only add associations for keys that are not already included */
 let d = (x: 1, y: 2); d.includeAll(y: 3, z: 4); d = (x: 1, y: 3, z: 4) /* includeAll replaces existing entries */
-let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), ()]
+let p = (x: 1); let q = (y: 2); p.declareFrom('y', q); [p, q] = [(x: 1, y: 2), (:)]
 let p = (x: 1); let q = (x: 2); p.declareFrom('x', q); [p, q] = [(x: 1), (x: 2)]
-let p = (); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), ()]
-let p = (); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
+let p = (:); let q = (x: 1); p.declareFrom('x', q); [p, q] = [(x: 1), (:)]
+let p = (:); let q = (x: 1); p.declareFrom('y', q); [p, q] = [(y: nil), (x: 1)]
 (x: 1, y: 2, z: 3).collect(square:/1) = (x: 1, y: 4, z: 9)
 let d = (x: 1, y: 2, z: 3); d.replace(square:/1); d = (x: 1, y: 4, z: 9) /* replace value at each key, in place collect */
 { (x: 1).remove }.ifError { true } /* should not implement, see removeKey */
@@ -2220,8 +2220,8 @@ let c = nil; c ? { 'red' } = 'red' /* nil-coalescing operator, if lhs is nil eva
 let c = 'blue'; c ? { 'red' } = 'blue' /* nil-coalescing operator */
 let c = nil; c ?? 'red' = 'red' /* evaluating nil-coalescing operator, if lhs is nil answer rhs */
 let c = 'blue'; c ?? 'red' = 'blue' /* nil-coalescing operator */
-nil ? { 'notNil' } = 'notNil' /* right hand side if left hand side is nil */
-'notNil' ? { nil } = 'notNil' /* left hand side unless nil */
+nil ? { 'rhs' } = 'rhs' /* right hand side if left hand side is nil */
+'lhs' ? { nil } = 'lhs' /* left hand side unless nil */
 nil ~? { 1 } = nil /* left hand side if nil, else right hand side */
 1 ~? { 2 } = 2 /* right hand side if left hand side is not nil */
 ```
@@ -2331,7 +2331,7 @@ system.includesPackage('Date')
 '/* Package: Collection-ByteArray */'.parsePackageHeader = (Category: 'Collection', Name: 'ByteArray')
 '/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
-system.packageDictionary.select { :each | each.requires.notEmpty }.size > 10
+system.packageDictionary.select { :each | each.requires.isNotEmpty }.size > 10
 system.packageDictionary['PackageBrowser'].dependencies.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
@@ -2627,14 +2627,14 @@ let i = 1:9; let s = i.asStream; let c = s.copy; c.next; s.next = 1 & { c.next =
 ## Record -- collection type
 ```
 system.includesPackage('Record') /* package */
-().typeOf = 'Record' /* literal empty record syntax, typeOf query */
-().isRecord /* record predicate */
-().species = Record:/0 /* record species */
+(:).typeOf = 'Record' /* literal empty record syntax, typeOf query */
+(:).isRecord /* record predicate */
+(:).species = Record:/0 /* record species */
 Record().isRecord /* empty record constructor */
 Record().includesIndex('x') = false /* includes key predicate */
 (w: 0, x: 1).includesIndex('x') = true /* includes key predicate */
 { Record().at('x') }.ifError { true } /* lookup for non-existing key raises an error */
-{ ()['x'] }.ifError { true } /* lookup for non-existing key is an error */
+{ (:)['x'] }.ifError { true } /* lookup for non-existing key is an error */
 let d = Record(); d.atPut('x', 1) = 1 & { d.at('x') = 1 }
 let d = Record(); (d['x'] := 1) = 1 & { d['x'] = 1 }
 let d = Record(); d['x'] := 1; d['y'] := 2; d.size = 2
@@ -3590,8 +3590,9 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 
 ## Syntax -- dictionary literals
 ```
-().isRecord /* () is the empty dictionary */
-() = [].asRecord /* () the empty dictionary */
+(:).isRecord /* (:) is the empty dictionary */
+(:) = [].asRecord /* (:) the empty dictionary */
+(:) = [:].asRecord /* (:) the empty dictionary */
 (x: 1, y: 2) = ['x' -> 1, 'y' -> 2].asRecord /* dictionary literal syntax */
 (x: 1, y: 2).printString = '(x: 1, y: 2)' /* Record print string */
 (x: 1, y: 2).storeString = '(x: 1, y: 2)' /* Record print string */

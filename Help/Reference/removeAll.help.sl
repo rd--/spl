@@ -13,7 +13,7 @@ The answer is an empty collection.
 
 >>> let c = (x: 1, y: 2, z: 3);
 >>> (c.removeAll, c)
-(['x' 'y' 'z'], ())
+(['x' 'y' 'z'], (:))
 ```
 
 In the binary case remove all items in the collection _c₂_ from the collection _c₁_.

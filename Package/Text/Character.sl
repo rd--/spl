@@ -209,7 +209,7 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 	Character { :self :codePoint |
 		self.isCharacter.if {
 			system.cache.atIfAbsentPut('characterDictionary') {
-				()
+				(:)
 			}.atIfAbsentPut(self) {
 				newCharacter().initializeSlots(self, codePoint)
 			}

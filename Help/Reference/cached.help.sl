@@ -1,9 +1,14 @@
 # cached
 
-- _cached(hasCache, key, aBlock:/0)_ ⟹ _atIfAbsentPut(hasCache.cache, key, aBlock:/0)_
+- _cached(x, k, f:/0)_
 
-A simple idiom to make accessing cached values nicer.
-This is ordinarily used by methods that provide access to tables &etc. that are initialized on first access,
+Read the value associated with the key _k_ at the `cache` associated with the value _x_,
+initializing the cache if required using the initializer block _f_.
+
+This is a simple idiom to make accessing cached values nicer,
+equivalent to `atIfAbsentPut` of `cache` of _x_.
+
+It is ordinarily used by methods that provide access to lookup tables that are initialized on first access,
 for instance `primesList`:
 
 ```
@@ -17,5 +22,7 @@ for instance `primesList`:
 * * *
 
 See also: atIfAbsentPut, Cache, whenCached
+
+Guides: Dictionary Functions
 
 Categories: Accessing

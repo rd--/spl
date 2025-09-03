@@ -3,6 +3,7 @@
 Traits and Types:
 
 - `Association`
+- `Cache`
 - `Dictionary`
 - `EqualityDictionary`
 - `Map`
@@ -17,6 +18,17 @@ Accessing:
 - `keys`
 - `lookup`
 - `values`
+
+Adding:
+
+- `add`
+- `declareFrom`
+
+Caching:
+
+- `cached`
+- `memoize`
+- `whenCached`
 
 Combining:
 

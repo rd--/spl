@@ -48,3 +48,5 @@ and have the expected mathematical behavior in relation to scalars:
 * * *
 
 See also: IdentitySet
+
+Guides: Set Functions

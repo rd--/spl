@@ -10,7 +10,7 @@ At `Record`:
 >>> (x: 1, y: 2, z: 3).associations
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
 
->>> ().associations
+>>> (:).associations
 []
 ```
 

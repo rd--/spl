@@ -387,7 +387,7 @@ const asSl: ohm.ActionDict<string> = {
 	BlockLiteralInitializer(name, _e, blk) {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
-	MapLiteralItem(lhs, _c, rhs) {
+	MapSyntaxItem(lhs, _c, rhs) {
 		return `Association(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpression(lhs, _dot, names, args) {
@@ -418,11 +418,14 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl([lhs].concat(trailing.children))
 		})`;
 	},
-	EmptyMapLiteral(_l, _, _r) {
-		return 'Map()';
-	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
+	},
+	EmptyMapSyntax(_l, _, _r) {
+		return 'Map()';
+	},
+	EmptyRecordSyntax(_l, _c, _r) {
+		return 'Record()';
 	},
 	ExpressionInitializer(name, _e, exp) {
 		return `${name.sourceString} = ${exp.asSl}`;
@@ -473,13 +476,13 @@ const asSl: ohm.ActionDict<string> = {
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
-	NonEmptyMapLiteral(_l, d, _r) {
+	NonEmptyMapSyntax(_l, d, _r) {
 		return `asMap([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
 	},
-	NonEmptyRecordLiteral(_l, d, _r) {
+	NonEmptyRecordSyntax(_l, d, _r) {
 		return `Record([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonFinalExpression(e, _s, stm) {
@@ -535,9 +538,6 @@ const asSl: ohm.ActionDict<string> = {
 			keyVarNamesArray,
 		);
 		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots}`;
-	},
-	RecordLiteral(_l, d, _r) {
-		return `Record([${commaListSl(d.asIteration().children)}])`;
 	},
 	ScalarAssignment(lhs, _e, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
@@ -613,6 +613,9 @@ const asSl: ohm.ActionDict<string> = {
 		return `Fraction(${
 			validateSign(s.sourceString)
 		}${n.sourceString}L, ${d.sourceString}L)`;
+	},
+	imaginaryLiteral(i, _i) {
+		return `Complex(0, ${i.sourceString})`;
 	},
 	infinityLiteral(s, i) {
 		return validateSign(s.sourceString) + i.sourceString;

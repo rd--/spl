@@ -33,14 +33,14 @@ At `Record`:
 With empty record:
 
 ```
->>> (x: 1) ++ ()
+>>> (x: 1) ++ (:)
 (x: 1)
 
->>> () ++ (x: 1)
+>>> (:) ++ (x: 1)
 (x: 1)
 
->>> () ++ ()
-()
+>>> (:) ++ (:)
+(:)
 ```
 
 Biases right,
@@ -49,6 +49,13 @@ keys that are given in both records will retain the value from the right hand si
 ```
 >>> (x: 1, y: 2) ++ (y: 3, z: 4)
 (x: 1, y: 3, z: 4)
+```
+
+At `Map`:
+
+```
+>>> ['x': 1] ++ ['y': 2, 'z': 3]
+['x': 1, 'y': 2, 'z': 3]
 ```
 
 At `String`:

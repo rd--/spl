@@ -27,8 +27,11 @@ The names of the primitive collection types:
 >>> [].typeOf
 'List'
 
->>> ().typeOf
+>>> (:).typeOf
 'Record'
+
+>>> [:].typeOf
+'Map'
 ```
 
 The primitive behaviour type:

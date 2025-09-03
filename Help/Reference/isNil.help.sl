@@ -1,20 +1,22 @@
 # isNil
 
-- _isNil(anObject)_
+- _isNil(x)_
 
-True if _anObject_ is _nil_ else false.
+Anwer `true` if the object _x_ is `nil` else `false`.
 
 ```
 >>> nil.isNil
 true
 
->>> ().isNil
+>>> (:).isNil
 false
 ```
 
 * * *
 
-See also: Nil, notNil
+See also: isNotNil, Nil
+
+Guides: Nil Functions
 
 References:
 _Smalltalk_

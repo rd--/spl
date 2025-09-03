@@ -101,7 +101,7 @@
 		} {
 			let answer = [];
 			answer.add(self.size);
-			(self.notEmpty & { self.allSatisfy(isSequenceable:/1) }).ifTrue {
+			(self.isNotEmpty & { self.allSatisfy(isSequenceable:/1) }).ifTrue {
 				let k = self.anyOne.size;
 				self.allSatisfy { :each |
 					each.size = k
@@ -146,12 +146,12 @@
 	}
 
 	isArray { :self |
-		self.shapeOrNil.notNil
+		self.shapeOrNil.isNotNil
 	}
 
 	isArray { :self :depth |
 		let rho = self.shapeOrNil;
-		rho.notNil & {
+		rho.isNotNil & {
 			rho.size = depth
 		}
 	}

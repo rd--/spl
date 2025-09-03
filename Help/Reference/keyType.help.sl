@@ -31,14 +31,14 @@ At an association list:
 At empty `Record`:
 
 ```
->>> ().keyType
+>>> (:).keyType
 'String'
 ```
 
 At empty `Map`:
 
 ```
->>> Map().keyType
+>>> [:].keyType
 nil
 ```
 

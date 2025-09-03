@@ -47,7 +47,7 @@ All possible non-empty subsets of the divisors of 10:
 
 ```
 >>> 10.divisors.subsets  { :each |
->>> 	each.notEmpty
+>>> 	each.isNotEmpty
 >>> }
 [
 	1;
@@ -101,7 +101,7 @@ and an edge between two vertices if their corresponding sets are disjoint:
 >>> 		}
 >>> 	}
 >>> }.select { :each |
->>> 	each.value.notEmpty
+>>> 	each.value.isNotEmpty
 >>> }
 [
 	[1 2] -> [3 4; 3 5; 4 5],

@@ -135,7 +135,7 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 		let inBlock = false;
 		let block = [];
 		self.lines.do { :current |
-			(current.notEmpty & {
+			(current.isNotEmpty & {
 				current.first.isTab & {
 					previous.isEmpty & {
 						inBlock.not
@@ -145,7 +145,7 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 				inBlock := true
 			};
 			(current.isEmpty & {
-				previous.notEmpty & {
+				previous.isNotEmpty & {
 					previous.first.isTab & {
 						inBlock
 					}

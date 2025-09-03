@@ -7,7 +7,7 @@ Integer literals evaluate to the type `SmallFloat`.
 'SmallFloat'
 ```
 
-There is a `LargeInteger` type, written with an `n` suffix:
+There is a `LargeInteger` type, written with an _L_ suffix:
 
 ```
 >>> 23L.isLargeInteger
@@ -44,6 +44,8 @@ Leading signs, both negative and positive, are allowed:
 
 * * *
 
-See also: Integer, LargeInteger, Literals Syntax, Radix Syntax
+See also: Integer, LargeInteger, SmallFloat
+
+Guides: Literals Syntax, Radix Syntax
 
 Categories: Syntax

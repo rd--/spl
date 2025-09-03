@@ -1,8 +1,8 @@
 # assertIsString
 
-- _assertIsString(anObject)_
+- _assertIsString(x)_
 
-Answer _anObject_ if it is a _String_, else signal an _Error_.
+Answer _x_ if _x_ a `String`, else signal an `error`.
 
 ```
 >>> 'text'.assertIsString

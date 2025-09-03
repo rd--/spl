@@ -179,7 +179,7 @@ LibraryItem(
 	url: 'https://rohandrape.net/sw/hmt/data/json/scala-intnam.json',
 	mimeType: 'application/json',
 	parser: { :libraryItem |
-		let answer = ();
+		let answer = (:);
 		libraryItem.keysAndValuesDo { :key :value |
 			let [n, d] = value;
 			answer.add(Fraction(n, d).printString -> key)

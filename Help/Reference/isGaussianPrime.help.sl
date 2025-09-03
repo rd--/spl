@@ -58,7 +58,7 @@ Plot Gaussian primes in the complex plane:
 	}
 }.table(-11:11, -11:11)
 .flatten(1)
-.select(notNil:/1)
+.select(isNotNil:/1)
 .scatterPlot
 ~~~
 
