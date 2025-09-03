@@ -1,9 +1,9 @@
-# Dictionary Syntax
+# Map Syntax
 
 Rewrite rule:
 
-- _[:]_ ⟹ _Map()_
-- _[k: v, ...]_ ⟹ _[k → v, ...].asMap_
+- _[:]_ ⟹ _[].asMap_
+- _[k: v, …]_ ⟹ _[k → v, …].asMap_
 
 With `String` keys:
 
@@ -25,11 +25,11 @@ With `SmallFloat` keys:
 )
 ```
 
-Empty `Dictionary`:
+Empty `Map`:
 
 ```
 >>> let d = [:];
->>> (d.isDictionary, d.isEmpty)
+>>> (d.isMap, d.isEmpty)
 (true, true)
 ```
 

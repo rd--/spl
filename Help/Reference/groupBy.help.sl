@@ -23,9 +23,9 @@ The answer is a `Map` keyed by the answers of _f_.
 >>> 	'it' 'was' 'the' 'worst' 'of' 'times'
 >>> ].groupBy(size:/1)
 [
-	2: ['it' 'of' 'it' 'of']
-	3: ['was' 'the' 'was' 'the']
-	4: ['best']
+	2: ['it' 'of' 'it' 'of'],
+	3: ['was' 'the' 'was' 'the'],
+	4: ['best'],
 	5: ['times' 'worst' 'times']
 ]
 ```

@@ -20,6 +20,7 @@
 - `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
+- `Map Syntax`
 - `Method Syntax`
 - `Operator Syntax`
 - `Range Syntax`

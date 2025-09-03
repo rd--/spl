@@ -387,7 +387,7 @@ const asSl: ohm.ActionDict<string> = {
 	BlockLiteralInitializer(name, _e, blk) {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
-	DictionaryLiteralItem(lhs, _c, rhs) {
+	MapLiteralItem(lhs, _c, rhs) {
 		return `Association(${lhs.asSl}, ${rhs.asSl})`;
 	},
 	DotExpression(lhs, _dot, names, args) {
@@ -418,7 +418,7 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl([lhs].concat(trailing.children))
 		})`;
 	},
-	EmptyDictionaryLiteral(_l, _, _r) {
+	EmptyMapLiteral(_l, _, _r) {
 		return 'Map()';
 	},
 	EmptyListSyntax(_l, _r) {
@@ -473,7 +473,7 @@ const asSl: ohm.ActionDict<string> = {
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
-	NonEmptyDictionaryLiteral(_l, d, _r) {
+	NonEmptyMapLiteral(_l, d, _r) {
 		return `asMap([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {

@@ -9,6 +9,9 @@ At a `List` of `Association` values:
 ```
 >>> ['x' -> 1, 'y' -> 2].asMap
 ['x': 1, 'y': 2]
+
+>>> [].asMap
+[:]
 ```
 
 At `Record`:
