@@ -8,6 +8,7 @@ Traits and Types:
 - `Map`
 - `Record`
 - `TolerantDictionary`
+- `TypedDictionary`
 
 Accessing:
 

@@ -606,6 +606,11 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
 	}
 
+	isImmediateType { :self |
+		['Nil', 'Boolean', 'Block', 'SmallFloat', 'LargeInteger', 'String']
+		.includes(self)
+	}
+
 	isPalindrome { :self |
 		self.contents.isPalindrome
 	}

@@ -1,8 +1,8 @@
 # values
 
-- _values(aDictionary)_
+- _values(d)_
 
-Answer a `List` of the values of a dictionary or dictionary-like object.
+Answer a `List` of the values of the dictionary or dictionary-like object _d_.
 
 At `Record`:
 

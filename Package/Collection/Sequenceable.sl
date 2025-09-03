@@ -1192,7 +1192,7 @@
 		}
 	}
 
-	fromToKeysAndValuesDo { :self :start :stop :aBlock:/2 |
+	fromToIndicesAndValuesDo { :self :start :stop :aBlock:/2 |
 		start.toDo(stop) { :index |
 			aBlock(index, self[index])
 		}
@@ -1430,6 +1430,12 @@
 		(1 .. self.size)
 	}
 
+	indicesAndValuesDo { :self :aBlock:/2 |
+		self.withIndexDo { :each :index |
+			aBlock(index, each)
+		}
+	}
+
 	indicesDo { :self :aBlock:/1 |
 		1.toDo(self.size, aBlock:/1)
 	}
@@ -1623,12 +1629,6 @@
 			answer := max(answer, currentSum)
 		};
 		answer
-	}
-
-	keysAndValuesDo { :self :aBlock:/2 |
-		self.withIndexDo { :each :index |
-			aBlock(index, each)
-		}
 	}
 
 	last { :self |

@@ -13,6 +13,18 @@ Evaluate the block _f_ with each `Association` of the dictionary _d_ as the argu
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
 ```
 
+At a `List` of associations:
+
+```
+>>> let r = 0;
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .associationsDo { :each |
+>>> 	r := r + each.value.square
+>>> };
+>>> r
+14
+```
+
 * * *
 
 See also: associations, do, keysDo, keysAndValuesDo, valuesDo

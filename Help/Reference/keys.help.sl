@@ -20,7 +20,7 @@ At `Map`:
 ['x' 'y' 'z']
 ```
 
-At an `List` of `Association`s:
+At a `List` of `Association`s:
 
 ```
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3].keys

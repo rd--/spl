@@ -1,8 +1,8 @@
 # Association
 
-- _Association(key, value)_
+- _Association(k, v)_
 
-An `Association` is a `Type` that connects a `key` with a `value`.
+An `Association` is a `Type` that connects a key _k_ with a value _v_.
 
 Retrieve the `key` and the `value` of an `Association` between a `String` and a `Number`:
 

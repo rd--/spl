@@ -100,10 +100,6 @@
 		self
 	}
 
-	associationsDo { :self :aBlock:/1 |
-		self.do(aBlock:/1)
-	}
-
 	atLevelCollect { :self :level :aBlock:/1 |
 		let levelPredicate:/1 = level.isCollection.if {
 			{ :each | level.includes(each) }

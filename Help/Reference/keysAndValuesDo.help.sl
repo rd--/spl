@@ -16,11 +16,11 @@ At `Record`:
 ['x' 1 'y' 2 'z' 3]
 ```
 
-At `List`:
+At a `List` of associations:
 
 ```
 >>> let answer = [];
->>> ['x' 'y' 'z']
+>>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
 >>> .keysAndValuesDo { :key :value |
 >>> 	answer.addAll([key, value])
 >>> };

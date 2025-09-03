@@ -41,6 +41,7 @@ Guide/Date and Time Functions.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Functions.help.sl
+Guide/Dictionary Syntax.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
@@ -1598,6 +1599,7 @@ Reference/indexOfSubstring.help.sl
 Reference/indexOfSubstringStartingAt.help.sl
 Reference/indexOfSubstringStartingAtIfAbsent.help.sl
 Reference/indexValueAssociations.help.sl
+Reference/indicesAndValuesDo.help.sl
 Reference/indicesDo.help.sl
 Reference/indices.help.sl
 Reference/indicesOf.help.sl
@@ -1921,6 +1923,7 @@ Reference/keySelect.help.sl
 Reference/keys.help.sl
 Reference/keySort.help.sl
 Reference/KeyState.help.sl
+Reference/keyType.help.sl
 Reference/keyUnion.help.sl
 Reference/khinchinsConstant.help.sl
 Reference/kimberlingCenter.help.sl
@@ -3480,6 +3483,7 @@ Reference/value.help.sl
 Reference/valuesAndCounts.help.sl
 Reference/valuesDo.help.sl
 Reference/values.help.sl
+Reference/valueType.help.sl
 Reference/valueWithReturn.help.sl
 Reference/vanDerCorputNumber.help.sl
 Reference/vanDerLaanSequence.help.sl

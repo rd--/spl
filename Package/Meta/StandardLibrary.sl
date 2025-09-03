@@ -40,6 +40,7 @@
 	'TemporalData'
 	'TimeSeries'
 	'TolerantDictionary'
+	'TypedDictionary'
 	'Tree'
 	'Tuple' /* List */
 	'UndirectedEdge'

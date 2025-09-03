@@ -3995,7 +3995,7 @@ second argument.
 inappropriate for use as arguments to operation.  start < 1.  stop >
 receiver’s size.
 
-Cf: fromToKeysAndValuesDo
+Cf: fromToIndicesAndValuesDo
 
 ### 5.7.8.20
 

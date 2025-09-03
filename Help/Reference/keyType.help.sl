@@ -29,6 +29,20 @@ At an association list:
 'Fraction'
 ```
 
+At empty `Record`:
+
+```
+>>> ().keyType
+'String'
+```
+
+At empty `Map`:
+
+```
+>>> Map().keyType
+nil
+```
+
 * * *
 
 See also: elementType, typeOf, valueType

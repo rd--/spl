@@ -12,7 +12,7 @@ Collection iteration:
 - `associationsDo`
 - `do`
 - `fromToDo`
-- `fromToKeysAndValuesDo`
+- `fromToIndicesAndValuesDo`
 - `keysAndValuesDo`
 - `keysDo`
 - `reverseDo`

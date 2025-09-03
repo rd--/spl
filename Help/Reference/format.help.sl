@@ -1,9 +1,10 @@
 # format
 
-- _format(aString, aSequence)_
+- _format(s, [x₁ x₂ …])_
 
-Answer a `String` that is like _aString_ but where _%_ characters are replaced with items from _aSequence_.
-Items in _aSequence_ are formatted using `asString`.
+Answer a `String` that is like the string _s_,
+but where _%_ characters are replaced with items from the sequence _x_.
+Items in _x_ are formatted using `asString`.
 
 ```
 >>> 'pi=% & e=%'.format([1.pi, 1.e])

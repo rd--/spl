@@ -35,6 +35,14 @@ At `Bag`:
 ['a' -> 5, 'b' -> 2, 'r' -> 2, 'c' -> 1, 'd' -> 1]
 ```
 
+At a `List` of `Association` values:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .associations
+['x' -> 1, 'y' -> 2, 'z' -> 3]
+```
+
 * * *
 
 See also: ->, associationsDo, Association, Dictionary, indexValueAssociations, keys, values

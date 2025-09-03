@@ -75,6 +75,7 @@
 	'Collection-TemporalData'
 	'Collection-TimeSeries'
 	'Collection-TolerantDictionary'
+	'Collection-TypedDictionary'
 	'Collection-Tree'
 	'Collection-Tuple'
 	'Collection-UndirectedEdge'
