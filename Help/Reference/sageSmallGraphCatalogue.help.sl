@@ -1,6 +1,6 @@
 # sageSmallGraphCatalogue
 
-- _sageSmallGraphCatalogue(aSystem)_
+- _sageSmallGraphCatalogue(system)_
 
 The small graphs catalogue from the Sage system.
 Answers a `Record` of `Graph` values keyed by name.
@@ -123,7 +123,7 @@ The `sageSmallGraphCatalogue` method is `requireLibraryItem` of 'SageSmallGraphC
 
 See also: Graph
 
-Guides: Graph Functions
+Guides: Graph Functions, Library Catalogue
 
 References:
 _Mathematica_

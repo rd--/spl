@@ -1,6 +1,6 @@
 # splPunctuationCharacters
 
-- _splPunctuationCharacters(aSystem)_
+- _splPunctuationCharacters(system)_
 
 Answer the list of Spl punctuation characters.
 
@@ -35,3 +35,5 @@ true
 * * *
 
 See also: splOperatorTokenName, splOperatorNameTable, splPunctuationCharacterNameTable
+
+Guides: Reflection Functions

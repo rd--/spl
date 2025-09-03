@@ -1,12 +1,11 @@
 # postLine
 
-- _postLine(aSystem, anObject)_
-- _postLine(alpha)_ ⟹ _postLine(system, alpha)_
+- _postLine(system, x)_
 
-Print the `printString` of _anObject_ to the console, followed by a new line.
-Answer _anObject_.
+Print the `printString` of the object _x_ to the console, followed by a new line.
+Answer _x_.
 
-Print the answer of _3 + 4_ and answer it multiplied by _7_:
+Print the answer of _3+4_ and answer it multiplied by _7_:
 
 ```
 >>> (3 + 4).postLine * 7
@@ -42,6 +41,8 @@ where it may be viewed using a `TranscriptViewer`.
 * * *
 
 See also: system, Transcript
+
+Guides: System Functions
 
 References:
 _Haskell_

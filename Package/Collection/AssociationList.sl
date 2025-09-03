@@ -12,14 +12,20 @@
 		self.allSatisfy(isAssociation:/1)
 	}
 
+	keyType { :self |
+		self.keys.elementType
+	}
+
 	keys { :self |
-		self.assertIsAssociationList;
-		self.collect(key:/1)
+		self.assertIsAssociationList.collect(key:/1)
 	}
 
 	values { :self |
-		self.assertIsAssociationList;
-		self.collect(value:/1)
+		self.assertIsAssociationList.collect(value:/1)
+	}
+
+	valueType { :self |
+		self.values.elementType
 	}
 
 }

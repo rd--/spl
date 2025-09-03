@@ -1,6 +1,6 @@
 # schareinMinimalLinkCatalogue
 
-- _schareinMinimalLinkCatalogue(aSystem)_
+- _schareinMinimalLinkCatalogue(system)_
 
 This is the minimal configuration data for the knots at `schareinKnotCatalogue`.
 
@@ -38,6 +38,8 @@ The `schareinMinimalLinkCatalogue` method is `requireLibraryItem` of 'SchareinMi
 * * *
 
 See also: Line, schareinKnotCatalogue, schareinMinimalKnotCatalogue
+
+Guides: Library Catalogue
 
 References:
 _W_

@@ -1,8 +1,8 @@
 # evaluate
 
-- _evaluate(aSystem, aString)_
+- _evaluate(system, s)_
 
-Compile and execute _aString_ in the context of _aSystem_.
+Compile and execute the string _s_ in the context of `system`.
 
 ```
 >>> system.evaluate('3 + 4')
@@ -15,6 +15,8 @@ Compile and execute _aString_ in the context of _aSystem_.
 * * *
 
 See also: evaluateNotifying, System
+
+Guides: Reflection Functions
 
 References:
 _Tc39_

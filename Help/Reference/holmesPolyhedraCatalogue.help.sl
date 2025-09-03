@@ -1,6 +1,6 @@
 # holmesPolyhedraCatalogue
 
-- _holmesPolyhedraCatalogue(aSystem)_
+- _holmesPolyhedraCatalogue(system)_
 
 The Holmes polyhedron catalogue is a collection of polyhedra by Ryan Holmes.
 Answers a `Record` of `Polyhedron`s, keyed by name.
@@ -35,3 +35,5 @@ The `holmesPolyhedraCatalogue` method is `requireLibraryItem` of 'HolmesPolyhedr
 * * *
 
 See also: asPerspectiveDrawing, fradinPolhyedraCatalogue, levskayaPolyhedraCatalogue, Polyhedron
+
+Guides: Library Catalogue

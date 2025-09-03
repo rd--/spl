@@ -1,8 +1,8 @@
 # elementType
 
-- _elementType(aCollection | aMatrix)_
+- _elementType(c)_
 
-Answer the uniform `typeOf` each element of _aCollection_,
+Answer the uniform `typeOf` each element of the collection _c_,
 else `nil`.
 
 At `Range`:
@@ -34,7 +34,7 @@ At `NumericArray`:
 'SmallFloat'
 ```
 
-At heterogeneous `List`:
+At a heterogeneous `List`:
 
 ```
 >>> [1 2/3 4J5 '6' 7L].elementType
@@ -48,8 +48,17 @@ At the empty `List`:
 nil
 ```
 
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3).elementType
+'SmallFloat'
+```
+
 * * *
 
-See also: elementTypeIfAbsent, elementTypes, typeOf
+See also: elementTypeIfAbsent, elementTypes, keyType, typeOf
+
+Guides: Reflection Functions
 
 Categories: Reflection, Types

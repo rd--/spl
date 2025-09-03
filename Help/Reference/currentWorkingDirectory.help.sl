@@ -1,6 +1,6 @@
 # currentWorkingDirectory
 
-- _currentWorkingDirectory(aSystem)_
+- _currentWorkingDirectory(system)_
 
 Answer a `String` giving the current working directory of the process.
 

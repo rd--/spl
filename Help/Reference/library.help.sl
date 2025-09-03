@@ -1,8 +1,8 @@
 # library
 
-- _library(aSystem)_
+- _library(system)_
 
-Answer a `Record` holding the `LibraryItem` library of _aSystem_.
+Answer a `Record` holding the `LibraryItem` library of `system`.
 
 Count the entries in the library:
 
@@ -23,3 +23,5 @@ true
 * * *
 
 See also: LibraryItem, Record, system
+
+Guides: Library Catalogue, System Functions

@@ -1,10 +1,14 @@
 # Library Catalogue
 
+- `colourCheckerChart`
+- `colourGradients`
+- `colourPalettes`
 - `fradinPolyhedraCatalogue`
 - `helpIndex`
 - `holmesPolyhedraCatalogue`
 - `leitnerCrystalStructureCatalogue`
 - `levskayaPolyhedraCatalogue`
+- `masinaConsonanceData`
 - `mcClurePolyhedraCatalogue`
 - `planarConvexPolytopeGraphCatalogue`
 - `planarGraphCatalogue`

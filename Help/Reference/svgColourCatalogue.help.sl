@@ -1,6 +1,6 @@
 # svgColourCatalogue
 
-- _svgColourCatalogue(aSystem)_
+- _svgColourCatalogue(system)_
 
 The Svg colour catalogue is a `Record` of named colours from the Svg 1.1 specification.
 
@@ -54,7 +54,7 @@ The `svgColourCatalogue` method is `requireLibraryItem` of 'SvgColourCatalogue'.
 
 See also: asColour, Colour, LibraryItem, RgbColour
 
-Guides: Colour Functions
+Guides: Colour Functions, Library Catalogue
 
 References:
 _W3_

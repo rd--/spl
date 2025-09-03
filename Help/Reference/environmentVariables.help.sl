@@ -1,6 +1,6 @@
 # environmentVariables
 
-- _environmentVariable(aSystem)_
+- _environmentVariable(system)_
 
 Answer a `Record` holding the set of environment variables.
 The keys are the names of the environment variables,

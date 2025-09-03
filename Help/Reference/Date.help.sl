@@ -59,6 +59,8 @@ These fields are answered by `asList`:
 
 See also: absoluteTime, asDate, dayOfMonth, DateAndTime, Duration, hour, minute, month, now, parseDate, second, TimeStamp, year
 
+Guides: Date and Time Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DateObject.html),

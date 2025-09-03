@@ -1,6 +1,6 @@
 # leitnerCrystalStructureCatalogue
 
-- _leitnerCrystalStructureCatalogue(aSystem)_
+- _leitnerCrystalStructureCatalogue(system)_
 
 The Leitner catalogue is a collection of crystal structures by Michael Leitner at Universität Wien.
 
@@ -62,3 +62,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: CrystalStructure, CrystalStructureBrowser, LibraryItem, requireLibraryItem
+
+Guides: Library Catalogue

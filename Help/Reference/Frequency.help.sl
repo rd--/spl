@@ -46,6 +46,8 @@ Duration(1 / 440)
 
 See also: asHertz, Duration, hertz, Quantity
 
+Guides: Quantity Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/International_System_of_Quantities)

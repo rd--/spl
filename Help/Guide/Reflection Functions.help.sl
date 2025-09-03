@@ -7,6 +7,11 @@ Dictionaries:
 - `traitDictionary`
 - `typeDictionary`
 
+Evaluating:
+
+- `evaluate`
+- `evaluateNotifying`
+
 Method:
 
 - `Method`
@@ -43,6 +48,7 @@ Syntax:
 
 - `splOperatorCharacters`
 - `splOperatorTokenName`
+- `splPunctuationCharacters`
 - `splPunctuationTokenName`
 
 Tables:
@@ -67,6 +73,8 @@ Traits:
 Types:
 
 - `Type`
+- `elementType`
+- `elementTypeIfAbsent`
 - `elementTypes`
 - `species`
 - `typeDefinition`
@@ -79,3 +87,7 @@ System:
 
 - `System`
 - `system`
+
+* * *
+
+Guides: System Functions

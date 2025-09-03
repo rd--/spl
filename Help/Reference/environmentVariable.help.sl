@@ -1,27 +1,27 @@
 # environmentVariable
 
-- _environmentVariable(aSystem, aKey)_
-- _environmentVariable(aSystem, aKey, aValue)_
+- _environmentVariable(system, k)_
+- _environmentVariable(system, k, v)_
 
-With two arguments read the named environment variable,
-with three arguments set it to the indicated value,
+With two arguments read the environment variable with key _k_,
+with three arguments set _k_ to the indicated value _v_,
 which must be a `String`.
 
-Set _EDITOR_ to _emacs_:
+Set 'Editor' to 'emacs':
 
 ```
 >>> system.environmentVariable(
->>> 	'EDITOR',
+>>> 	'Editor',
 >>> 	'emacs'
 >>> )
 nil
 ```
 
-Read _EDITOR_:
+Read 'Editor':
 
 ```
 >>> system.environmentVariable(
->>> 	'EDITOR'
+>>> 	'Editor'
 >>> )
 'emacs'
 ```
@@ -30,7 +30,7 @@ If the requested variable is not set, answers `nil`:
 
 ```
 >>> system.environmentVariable(
->>> 	'NO_SUCH_VARIABLE'
+>>> 	'NoSuchVariable'
 >>> )
 nil
 ```

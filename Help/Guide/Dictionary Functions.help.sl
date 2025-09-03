@@ -12,7 +12,9 @@ Traits and Types:
 Accessing:
 
 - `associations`
+- `at`
 - `keys`
+- `lookup`
 - `values`
 
 Combining:
@@ -42,6 +44,12 @@ Set Functions:
 
 - `keyIntersection`
 - `keyUnion`
+
+Type Functions:
+
+- `elementType`
+- `keyType`
+- `valueType`
 
 * * *
 

@@ -1,8 +1,8 @@
 # elementTypes
 
-- _elementTypes(aCollection)_
+- _elementTypes(c)_
 
-Answer an `IdentitySet` of answers of `typeOf` for each element of _aCollection_.
+Answer an `IdentitySet` of answers of `typeOf` for each element of the collection _c_.
 
 At a heterogeneous `List`:
 
@@ -42,5 +42,7 @@ At `NumericArray`:
 * * *
 
 See also: elementType, elementTypeIfAbsent, typeOf
+
+Guides: Reflection Functions
 
 Categories: Reflection, Types

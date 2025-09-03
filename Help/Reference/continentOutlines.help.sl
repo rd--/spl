@@ -1,8 +1,8 @@
 # continentOutlines
 
-- _continentOutlines(aSystem, dataSet)_
+- _continentOutlines(system, d)_
 
-Answer the named data set of continent outlines as a `GeoJson` value.
+Answer the named data set _d_ of continent outlines as a `GeoJson` value.
 
 ```
 >>> system.continentOutlines(

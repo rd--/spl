@@ -1,12 +1,18 @@
 # hostName
 
-- _hostName(aSystem | aUrl)_
+- _hostName(x)_
 
 At `System`,
-answer the name of the local host.
+answer the name of the local host,
+which may be any arbitrary string:
+
+```
+>>> system.hostName.isString
+true
+```
 
 At `Url`,
-answer a `String` having the name of the `host` subcomponent of _aUrl_,
+answer a `String` having the name of the `host` subcomponent of address,
 also called the domain:
 
 ```

@@ -1,6 +1,6 @@
 # temporaryFileName
 
-- _temporaryFileName(aSystem, prefix, suffix)_
+- _temporaryFileName(system, prefix, suffix)_
 
 Create an empty temporary file in an appropriate directory,
 given a file name prefix and suffix,
@@ -23,6 +23,6 @@ and answer the file path.
 
 See also: System
 
-Guides: File Functions
+Guides: File Functions, System Functions
 
 Categories: Files, System

@@ -29,6 +29,8 @@ true
 
 See also: asTimeStamp, dateAndTimeString, Date, Duration, Time, TimeInterval, now
 
+Guides: Date and Time Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Timestamp)

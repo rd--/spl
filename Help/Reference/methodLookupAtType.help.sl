@@ -1,6 +1,6 @@
 # methodLookupAtType
 
-- _methodLookupAtType(aSystem, methodName, arity, typeName)_
+- _methodLookupAtType(system, methodName, arity, typeName)_
 
 Answer the `Method` that implements _methodName_ with _arity_ at _typeName_.
 

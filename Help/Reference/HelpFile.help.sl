@@ -53,6 +53,6 @@ url.fetchText.then { :aString |
 
 See also: helpIndex, HelpIndex, terseReferenceSummary
 
-Guides: Documentation Tests, Help Files
+Guides: Documentation Tests, Help Files, System Functions
 
 Categories: Help

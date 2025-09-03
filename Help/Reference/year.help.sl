@@ -16,6 +16,8 @@ Answer the year of _aDate_.
 
 See also: asDate, Date, day, minute, month, parseDate
 
+Guides: Date and Time Functions
+
 References:
 _Smalltalk_
 5.8.1.28

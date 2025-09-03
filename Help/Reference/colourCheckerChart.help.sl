@@ -1,6 +1,6 @@
 # colourCheckerChart
 
-- _colourCheckerChart(aSystem)_
+- _colourCheckerChart(system)_
 
 Answer a `Record` of named _Rgb_ colours,
 colours are answered as _(r,g,b)_ triples.
@@ -66,6 +66,8 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: Colour, LibraryItem, parseHexColour, parseHexTriplet, RgbColour
+
+Guides: Library Catalogue
 
 References:
 _W_

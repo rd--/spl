@@ -1,8 +1,8 @@
 # unicodeCharacterDatabase
 
-- _unicodeCharacterDatabase(aSystem)_
+- _unicodeCharacterDatabase(system)_
 
-Answer a _matrix_ holding the _Unicode Character Database_.
+Answer a matrix holding the _Unicode Character Database_.
 
 Count the number of entries, or rows:
 
@@ -47,7 +47,7 @@ Parse code point and convert to a character:
 'π'
 ```
 
-The tabl contains only the most commonly used fields of the database:
+The table contains only the most commonly used fields of the database:
 
 - 1\. Code point
 - 2\. Name
@@ -66,6 +66,8 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: codePoint, LibraryItem
+
+Guides: Library Catalogue
 
 References:
 _Unicode_

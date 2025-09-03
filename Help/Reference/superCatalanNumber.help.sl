@@ -1,6 +1,6 @@
 # superCatalanNumber
 
-- _superCatalanNumber(anInteger)_
+- _superCatalanNumber(n)_
 
 The super Catalan numbers count the number of lattice paths with diagonal steps from _(n,n)_ to _(0,0)_,
 which do not touch the diagonal line _x=y_.
@@ -22,6 +22,8 @@ The twenty-fourth super Catalan number:
 * * *
 
 See also: catalanNumber, memoize
+
+Guides: Integer Sequences
 
 References:
 _Mathematica_

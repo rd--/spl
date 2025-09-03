@@ -1,6 +1,6 @@
 # fradinPolyhedraCatalogue
 
-- _fradinPolyhedraCatalogue(aSystem)_
+- _fradinPolyhedraCatalogue(system)_
 
 The Fradin catalogue is a collection of polyhedra distributed with TeXgraph by Patrick Fradin.
 The catalogue contains:
@@ -57,3 +57,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: asPerspectiveDrawing, holmesPolyhedraCatalogue, levskayaPolyhedraCatalogue, Polyhedra
+
+Guides: Library Catalogue

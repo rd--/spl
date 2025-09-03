@@ -1,6 +1,6 @@
 # splOperatorNameTable
 
-- _splOperatorNameTable(aSystem)_
+- _splOperatorNameTable(system)_
 
 Answer a `Dictionary` where the `keys` are operator tokens and the values are operator names.
 

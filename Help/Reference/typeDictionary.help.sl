@@ -1,8 +1,8 @@
 # typeDictionary
 
-- _typeDictionary(s)_
+- _typeDictionary(system)_
 
-A `Dictionary` at `System` to hold the set of `Type`s:
+A `Dictionary` at `system` to hold the set of `Type`s:
 
 ```
 >>> system.typeDictionary

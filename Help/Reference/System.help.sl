@@ -39,4 +39,6 @@ true
 
 See also: Cache, methodDictionary, packageDictionary, traitDictionary, typeDictionary, system
 
+Guides: Reflection Functions, System Functions
+
 Categories: System, Type

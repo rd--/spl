@@ -100,6 +100,10 @@ HelpFile : [Object, Cache] { | origin source cache |
 		answer
 	}
 
+	guides { :self |
+		self.readCommaSeparatedField('Guides: ')
+	}
+
 	hasDocumentationTests { :self |
 		self.documentationTests.notEmpty
 	}

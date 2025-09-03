@@ -82,6 +82,8 @@ Unlike `atAll`, the answer gives only the values, in sequence.
 
 See also: at, atAll, atIfAbsent, Dictionary, includesKey, Map, Record
 
+Guides: Dictionary Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Lookup.html)

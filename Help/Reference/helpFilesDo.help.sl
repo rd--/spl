@@ -1,14 +1,16 @@
 # helpFilesDo
 
-- _helpFilesDo(aSystem, kind, pattern, aBlock:/1)_
+- _helpFilesDo(system, k, r, verbose, f:/1)_
 
-Evaluate _aBlock_ at each `HelpFile` of _kind_ where the `pathBasename` matches _pattern_.
+Evaluate the block _f_ at each `HelpFile`,
+of kind _k_,
+where the `pathBasename` matches the regular expression _r_.
 
-Print the _reference_ help files with an empty categories field:
+Print the reference help files with an empty guides field:
 
 ~~~spl console
-system.helpFilesDo('Reference', '.*') { :each |
-	each.categories.isEmpty.ifTrue {
+system.helpFilesDo('Reference', '.*', false) { :each |
+	each.guides.isEmpty.ifTrue {
 		each.name.postLine
 	}
 };
@@ -18,3 +20,5 @@ nil
 * * *
 
 See also: HelpFile, splDirectory, splFileName
+
+Guides: Help Files, System Functions

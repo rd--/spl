@@ -1,8 +1,8 @@
 # typeLookup
 
-- _typeLookup(s, t)_
+- _typeLookup(system, t)_
 
-At `System`,
+At `system`,
 answer the named `Type` _t_, if it exists:
 
 ```

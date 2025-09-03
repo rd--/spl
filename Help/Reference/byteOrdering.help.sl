@@ -1,8 +1,8 @@
 # byteOrdering
 
-- _byteOrdering(aSystem)_
+- _byteOrdering(system)_
 
-Answer -1 if _aSystem_ is Little-endian, else +1.
+Answer -1 if `system` is Little-endian, else +1.
 
 ```
 >>> system.byteOrdering
@@ -12,6 +12,8 @@ Answer -1 if _aSystem_ is Little-endian, else +1.
 * * *
 
 See also: isBigEndian, isLittleEndian
+
+Guides: System Functions
 
 References:
 _Mathematica_

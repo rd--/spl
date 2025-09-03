@@ -1,6 +1,6 @@
 # localTimeZoneOffset
 
-- _localTimeZoneOffset(aSystem)_
+- _localTimeZoneOffset(system)_
 
 Answer a `Quantity` telling the local time offset from _Greenwich Mean Time_.
 
@@ -15,3 +15,5 @@ true
 * * *
 
 See also: Quantity, System
+
+Guides: Date and Time Functions

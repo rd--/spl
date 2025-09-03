@@ -1,6 +1,6 @@
 # colourGradients
 
-- _colourGradients(aSystem)_
+- _colourGradients(system)_
 
 Answer a collection of colour gradients collated from a variety of sources.
 The collection is keyed firstly by the collection name,
@@ -182,4 +182,4 @@ and this function requires the item be in the interpreter cache.
 
 See also: asColourGradient, colourPalettes, Colour, ColourGradient, cubeHelix, parula, RgbColour
 
-Guides: Colour Functions
+Guides: Colour Functions, Library Catalogue

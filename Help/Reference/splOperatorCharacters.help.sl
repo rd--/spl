@@ -1,6 +1,6 @@
 # splOperatorCharacters
 
-- _splOperatorCharacters(aSystem)_
+- _splOperatorCharacters(system)_
 
 Answer the list of operator characters.
 

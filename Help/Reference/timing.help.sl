@@ -1,14 +1,15 @@
 # timing
 
-- _timing(alpha)_ ⟹ _timing(system, alpha)_
-- _timing(aSystem, aBlock:/0)_
+- _timing(system, f:/0)_
 
-Answers the number of seconds required to evaluate _aBlock:/0_.
+Answers the number of seconds required to evaluate the block _f_.
 
 Time summing a `Range`:
 
 ```
->>> let [t, r] = { 1:123456.sum }.timing;
+>>> let [t, r] = {
+>>> 	1:123456.sum
+>>> }.timing;
 >>> (t < 0.001, r)
 (true, 7620753696)
 ```
@@ -16,7 +17,9 @@ Time summing a `Range`:
 Time summing a `List`:
 
 ```
->>> let [t, r] = { [1 .. 123456].sum }.timing;
+>>> let [t, r] = {
+>>> 	[1 .. 123456].sum
+>>> }.timing;
 >>> (t < 0.1, r)
 (true, 7620753696)
 ```
@@ -34,6 +37,8 @@ Timing computing a prime number:
 * * *
 
 See also: absoluteTime, sessionTime
+
+Guides: Date and Time Functions, System Functions
 
 References:
 _Mathematica_

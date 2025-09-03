@@ -1,6 +1,6 @@
 # helpIndex
 
-- _helpIndex(aSystem)_
+- _helpIndex(system)_
 
 Answer a `HelpIndex` holding an index of the Spl help files.
 
@@ -39,5 +39,7 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: HelpFile, HelpIndex, LibraryItem
+
+Guides: System Functions
 
 Categories: Help

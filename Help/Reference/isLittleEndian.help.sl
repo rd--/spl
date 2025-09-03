@@ -1,8 +1,8 @@
 # isLittleEndian
 
-- _isLittleEndian(aSystem)_
+- _isLittleEndian(system)_
 
-Answer `true` if _aSystem_ is Little-endian.
+Answer `true` if `system` is Little-endian.
 
 ```
 >>> system.isLittleEndian
@@ -12,6 +12,8 @@ true
 * * *
 
 See also: byteOrdering, isBigEndian
+
+Guides: System Functions
 
 References:
 _Mathematica_

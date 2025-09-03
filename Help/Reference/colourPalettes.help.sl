@@ -1,6 +1,6 @@
 # colourPalettes
 
-- _colourPalettes(aSystem)_
+- _colourPalettes(system)_
 
 Answer a collection of colour palettes collated from a variety of sources.
 The collection is keyed firstly by the collection name,
@@ -121,4 +121,4 @@ and this function requires the item be in the interpreter cache.
 
 See also: asContinuousColourGradient, asDiscreteColourGradient, colourGradients, Colour, ColourGradient, RgbColour
 
-Guides: Colour Functions
+Guides: Colour Functions, Library Catalogue

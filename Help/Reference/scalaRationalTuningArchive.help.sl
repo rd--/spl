@@ -1,6 +1,6 @@
 # scalaRationalTuningArchive
 
-- _scalaTuningArchive(aSystem)_
+- _scalaTuningArchive(system)_
 
 Answer a `Record` holding the rational entries of the `scalaTuningArchive`.
 
@@ -47,3 +47,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: LibraryItem, RatioTuning, scalaTuningArchive
+
+Guides: Library Catalogue, Xenharmonic Functions

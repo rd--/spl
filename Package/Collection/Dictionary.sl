@@ -249,18 +249,21 @@
 		true
 	}
 
-	keySelect { :self :aBlock:/1 |
-		let answer = self.species.new;
-		self.associationsDo { :each |
-			each.key.aBlock.ifTrue {
-				answer.add(each.copy)
-			}
-		};
-		answer
+	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
+		valueWithReturn { :return:/1 |
+			self.associationsDo { :association |
+				(value = association.value).ifTrue {
+					association.key.return
+				}
+			};
+			exceptionBlock()
+		}
 	}
 
-	keySort { :self |
-		self.associations.sortOn(key:/1)
+	keyAtValue { :self :value |
+		self.keyAtValueIfAbsent(value) {
+			self.errorValueNotFound
+		}
 	}
 
 	keysAndValuesCollect { :self :aBlock:/2 |
@@ -286,27 +289,28 @@
 		}
 	}
 
-	keyAtValueIfAbsent { :self :value :exceptionBlock:/0 |
-		valueWithReturn { :return:/1 |
-			self.associationsDo { :association |
-				(value = association.value).ifTrue {
-					association.key.return
-				}
-			};
-			exceptionBlock()
-		}
-	}
-
-	keyAtValue { :self :value |
-		self.keyAtValueIfAbsent(value) {
-			self.errorValueNotFound
-		}
-	}
-
 	keysDo { :self :aBlock:/1 |
 		self.associationsDo { :association |
 			aBlock(association.key)
 		}
+	}
+
+	keySelect { :self :aBlock:/1 |
+		let answer = self.species.new;
+		self.associationsDo { :each |
+			each.key.aBlock.ifTrue {
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
+	keySort { :self |
+		self.associations.sortOn(key:/1)
+	}
+
+	keyType { :self |
+		self.keys.elementType
 	}
 
 	lookup { :self :key :defaultAnswer |
@@ -428,6 +432,10 @@
 
 	valueSort { :self |
 		self.associations.sortOn(value:/1)
+	}
+
+	valueType { :self |
+		self.values.elementType
 	}
 
 }

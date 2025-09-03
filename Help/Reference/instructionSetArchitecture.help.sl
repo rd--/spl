@@ -1,6 +1,6 @@
 # instructionSetArchitecture
 
-- _instructionSetArchitecture(aSystem)_
+- _instructionSetArchitecture(system)_
 
 Answer a `String` indicating the instruction set architecture.
 _aarch64_ indicates Arm-64, _x86_64_ indicates Intel-64.

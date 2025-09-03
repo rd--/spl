@@ -1,6 +1,6 @@
 # superColliderProgramIndex
 
-- _superColliderProgramIndex(aSystem)_
+- _superColliderProgramIndex(system)_
 
 Answer the `SuperColliderProgramIndex`.
 
@@ -47,3 +47,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: SuperColliderProgramIndex
+
+Guides: Library Catalogue

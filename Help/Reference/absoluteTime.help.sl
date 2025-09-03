@@ -46,6 +46,8 @@ At `Number`, answer the identity function:
 
 See also: currentDate, Date, now, Number, sessionTime, System, TimeStamp
 
+Guides: Date and Time Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/AbsoluteTime.html)

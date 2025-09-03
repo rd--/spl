@@ -1,6 +1,6 @@
 # operatingSystem
 
-- _operatingSystem(aSystem)_
+- _operatingSystem(system)_
 
 Answer a `String` indicating the operating system.
 

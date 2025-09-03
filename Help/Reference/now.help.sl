@@ -1,6 +1,6 @@
 # now
 
-- _now(aSystem)_
+- _now(system)_
 
 Answer a `TimeStamp` indicating the current time.
 
@@ -15,6 +15,8 @@ true
 * * *
 
 See also: currentDate, TimeStamp
+
+Guides: Date and Time Functions
 
 References:
 _Mathematica_

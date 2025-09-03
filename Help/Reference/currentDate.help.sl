@@ -1,6 +1,6 @@
 # currentDate
 
-- _currentDate(aSystem)_
+- _currentDate(system)_
 
 Answer the current `Date`.
 
@@ -14,6 +14,8 @@ true
 * * *
 
 See also: Date, now
+
+Guides: Date and Time Functions
 
 References:
 _Mathematica_

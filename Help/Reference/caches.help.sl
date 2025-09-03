@@ -1,8 +1,8 @@
 # caches
 
-- _caches(aSystem)_
+- _caches(system)_
 
-Answer the `CacheStorage` value associated with _aSystem_.
+Answer the `CacheStorage` value associated with `system`.
 
 ```
 >>> system.caches.isCacheStorage
@@ -34,6 +34,8 @@ system
 * * *
 
 See also: Cache, CacheStorage, system, System
+
+Guides: System Functions
 
 References:
 _W3c_

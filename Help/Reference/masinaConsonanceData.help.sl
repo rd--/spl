@@ -1,6 +1,6 @@
 # masinaConsonanceData
 
-- _masinaConsonanceData(aSystem)_
+- _masinaConsonanceData(system)_
 
 A table of perceptual data on the consonance of dyads as reported by Masina et. al.
 
@@ -91,6 +91,6 @@ Table(
 
 See also: Fraction, Tuning
 
-Guides: Tuning Functions
+Guides: Library Catalogue, Tuning Functions
 
 Further Reading: Masina 2022

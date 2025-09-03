@@ -24,7 +24,7 @@ _Guide_ files are freely structured and are organised by cross-reference.
 
 See also: helpFileName, HelpFile
 
-Guides: File Extensions
+Guides: File Extensions, System Functions
 
 References:
 _CommonMark_

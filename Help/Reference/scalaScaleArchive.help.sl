@@ -1,6 +1,6 @@
 # scalaScaleArchive
 
-- _scalaScaleArchive(aSystem)_
+- _scalaScaleArchive(system)_
 
 Answer a `List` holding the _Scala_ scale archive.
 
@@ -146,7 +146,7 @@ The archive is stored in the file _modename.par_ in the Scala distribution.
 
 See also: LibraryItem, namedScale, scalaTuningArchive, Scale
 
-Guides: Scale Functions, Tuning Functions
+Guides: Library Catalogue, Scale Functions, Tuning Functions
 
 References:
 _Scala_

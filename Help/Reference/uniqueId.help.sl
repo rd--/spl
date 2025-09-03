@@ -1,9 +1,9 @@
 # uniqueId
 
-- _uniqueId(aSystem)_
+- _uniqueId(system)_
 
 Generate a unique idenfitier.
-Identifiers are integers, and are unique only for the lifetime of _aSystem_.
+Identifiers are integers, and are unique only for the lifetime of `system`.
 
 ```
 >>> let k = system.uniqueId;
@@ -14,3 +14,5 @@ true
 * * *
 
 Categories: System
+
+Guides: System Functions

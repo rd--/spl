@@ -1,6 +1,6 @@
 # scalaTuningMetaArchive
 
-- _scalaTuningMetaArchive(aSystem)_
+- _scalaTuningMetaArchive(system)_
 
 Answer a `Record` where the keys are categories and the associated values are `List`s of tuning names.
 
@@ -33,3 +33,5 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: LibraryItem, scalaRationalTuningArchive, scalaTuningArchive, ScalaTuning
+
+Guides: Library Catalogue, Xenharmonic Functions

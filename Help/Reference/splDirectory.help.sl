@@ -1,8 +1,8 @@
 # splDirectory
 
-- _splDirectory(aSystem)_
+- _splDirectory(system)_
 
-Answer the absolute file path of the Spl directory.
+Answer the absolute file path of the Sᴘʟ directory.
 This reads the 'SPL_DIR' environment variable.
 
 ```
@@ -15,3 +15,5 @@ This reads the 'SPL_DIR' environment variable.
 * * *
 
 See also: environmentVariable, splFileName
+
+Guides: Reflection Functions, System Functions

@@ -1,8 +1,8 @@
 # traitDictionary
 
-- _traitDictionary(s)_
+- _traitDictionary(system)_
 
-A `Dictionary` at `System` to hold the set of `Trait`s.
+A `Dictionary` at `system` to hold the set of `Trait`s.
 
 ```
 >>> system

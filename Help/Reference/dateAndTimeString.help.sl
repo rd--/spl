@@ -42,6 +42,8 @@ TimeStamp(1744141500)
 
 See also: Date, dateString, parseDate, parseDuration, TimeStamp
 
+Guides: Date and Time Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DateString.html),

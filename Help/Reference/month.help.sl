@@ -16,6 +16,8 @@ Answer the month of _aDate_.
 
 See also: asDate, Date, dayOfMonth, minute, parseDate, year
 
+Guides: Date and Time Functions
+
 References:
 _Smalltalk_
 5.8.1.19

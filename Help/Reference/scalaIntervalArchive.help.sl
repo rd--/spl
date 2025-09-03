@@ -1,6 +1,6 @@
 # scalaIntervalArchive
 
-- _scalaIntervalArchive(aSystem)_
+- _scalaIntervalArchive(system)_
 
 Count entries:
 
@@ -46,4 +46,4 @@ The archive is stored in the file _intnam.par_ in the Scala distribution.
 
 See also: Fraction, intervalName, LibraryItem, namedInterval
 
-Guides: Xenharmonic Functions
+Guides: Library Catalogue, Xenharmonic Functions

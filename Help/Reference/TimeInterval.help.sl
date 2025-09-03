@@ -39,6 +39,8 @@ it includes _t₁_ and excludes _t₂_.
 
 See also: Duration, Interval, Time, TimeStamp
 
+Guides: Date and Time Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DateInterval.html)

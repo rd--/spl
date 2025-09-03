@@ -15,6 +15,8 @@ The base unit of time in the International System of Units (SI) is the second (_
 
 See also: Frequency, Length, Mass, PlaneAngle, Quantity, SiUnit
 
+Guides: Date and Time Functions, Quantity Functions
+
 References:
 _NIST_
 [1](https://www.nist.gov/pml/special-publication-811),

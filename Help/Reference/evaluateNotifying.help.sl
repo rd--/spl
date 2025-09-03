@@ -1,9 +1,9 @@
 # evaluateNotifying
 
-- _evaluateNotifying(aSystem, aString, aBlock:/1)_
+- _evaluateNotifying(system, s, f:/1)_
 
-Compile and execute _aString_ in the context of _aSystem_.
-If there is an error evaluate _aBlock_ with the error value.
+Compile and execute the string _s_ in the context of `system`.
+If there is an error evaluate the block _f_ with the error value.
 
 Non-existing method:
 
@@ -30,6 +30,8 @@ true
 * * *
 
 See also: evaluate, ifError, System
+
+Guides: Reflection Functions
 
 References:
 _Tc39_

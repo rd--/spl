@@ -14,4 +14,6 @@ To delete all items from the storage use `removeAll`.
 
 See also: Dictionary, Indexable, localStorage, sessionStorage, System
 
+Guides: System Functions
+
 Categories: Collection, Type

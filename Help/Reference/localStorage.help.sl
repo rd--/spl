@@ -1,8 +1,8 @@
 # localStorage
 
-- _localStorage(aSystem)_
+- _localStorage(system)_
 
-Answer the local `Storage` value of _aSystem_.
+Answer the local `Storage` value of `system`.
 
 ```
 >>> let s = system.localStorage;
@@ -17,7 +17,7 @@ Answer the local `Storage` value of _aSystem_.
 Check if a key exists:
 
 ```
->>> system.localStorage.includesKey('PI')
+>>> system.localStorage.includesKey('Pi')
 false
 ```
 
@@ -25,15 +25,15 @@ Store a value:
 
 ```
 >>> let s = system.localStorage;
->>> s['PI'] := 1.pi.asString;
->>> s.includesKey('PI')
+>>> s['Pi'] := 1.pi.asString;
+>>> s.includesKey('Pi')
 true
 ```
 
 Read a value:
 
 ```
->>> system.localStorage['PI']
+>>> system.localStorage['Pi']
 1.pi.asString
 ```
 
@@ -41,8 +41,8 @@ Delete an entry:
 
 ```
 >>> let s = system.localStorage;
->>> let x = s.removeKey('PI');
->>> (x, s.includesKey('PI'))
+>>> let x = s.removeKey('Pi');
+>>> (x, s.includesKey('Pi'))
 (1.pi.asString, false)
 ```
 
@@ -56,3 +56,5 @@ system.localStorage.removeAll
 * * *
 
 See also: :=, at, atPut, Dictionary, includesKey, sessionStorage, Storage, System
+
+Guides: System Functions

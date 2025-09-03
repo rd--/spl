@@ -51,4 +51,6 @@ true
 
 See also: Method, Trait, Type, System
 
+Guides: Reflection Functions, System Functions
+
 Categories: Reflection

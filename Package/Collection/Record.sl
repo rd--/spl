@@ -49,6 +49,10 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		self.allSatisfy(isLiteral:/1)
 	}
 
+	keyType { :unused |
+		'String'
+	}
+
 	keys { :self |
 		<primitive: return Object.keys(_self);>
 	}

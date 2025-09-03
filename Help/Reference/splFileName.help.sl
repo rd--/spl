@@ -1,17 +1,18 @@
 # splFileName
 
-- _splFileName(aSystem, aString)_
+- _splFileName(system, s)_
 
-Answer a `String` holding the absolute file path to _aString_ given by prepending the `splDirectory`.
+Answer a `String` holding the absolute file path to the file name specified by the string _s_,
+given by prepending the `splDirectory`.
 
-The Spl _read me_ file:
+The Sᴘʟ _read me_ file:
 
 ```
 >>> system.splFileName('README.md')
 '/home/rohan/sw/spl/README.md'
 ```
 
-The directory holding the Spl help files:
+The directory holding the Sᴘʟ help files:
 
 ```
 >>> system.splFileName('Help')
@@ -21,3 +22,5 @@ The directory holding the Spl help files:
 * * *
 
 See also: environmentVariable, splDirectory
+
+Guides: Reflection Functions, System Functions

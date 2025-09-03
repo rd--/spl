@@ -67,3 +67,7 @@ Scheduling:
 Generic Accessors:
 
 - `asSeconds`
+
+* * *
+
+Guides: System Functions

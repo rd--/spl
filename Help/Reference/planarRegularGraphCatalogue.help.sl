@@ -1,6 +1,6 @@
 # planarRegularGraphCatalogue
 
-- _planarRegularGraphCatalogue(aSystem)_
+- _planarRegularGraphCatalogue(system)_
 
 A catalogue of Tutte drawings of planar graphs.
 Answers a `List` of `PolygonMesh` values keyed by name.
@@ -32,5 +32,7 @@ and this function requires the item be in the interpreter cache.
 * * *
 
 See also: planarConvexPolytopeGraphCatalogue, planarNonHamiltonianGraphCatalogue, planarQuadrangulationsCatalogue, PolygonMesh
+
+Guides: Library Catalogue
 
 Further Reading: Brinkmann & McKay 2007

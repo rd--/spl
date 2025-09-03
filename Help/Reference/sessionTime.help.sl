@@ -1,6 +1,6 @@
 # sessionTime
 
-- _sessionTime(aSystem)_
+- _sessionTime(system)_
 
 Answer the total number of seconds of real time that have elapsed since the beginning of the current session.
 This clock may be more accurate that the clock read by `absoluteTime`.
@@ -14,6 +14,8 @@ This clock may be more accurate that the clock read by `absoluteTime`.
 * * *
 
 See also: absoluteTime, System
+
+Guides: Date and Time Functions
 
 References:
 _Mathematica_
