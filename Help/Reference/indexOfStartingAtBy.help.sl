@@ -1,8 +1,8 @@
 # indexOfStartingAtBy
 
-- _indexOfStartingAtBy(aSequence, anObject, anInteger, aBlock:/2)_
+- _indexOfStartingAtBy(c, x, i, f:/2)_
 
-A variant of `indexOf` allowing to specify the starting index and the comparison function.
+A variant of `indexOf` allowing to specify the starting index _i_ and the comparison function _f_.
 
 Find the index of a floating point number that `indexOf` will not find:
 
@@ -18,3 +18,5 @@ Find the index of a floating point number that `indexOf` will not find:
 * * *
 
 See also: =, ~, indexOf
+
+Guides: Indexing Functions, List Functions

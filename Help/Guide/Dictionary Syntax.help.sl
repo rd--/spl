@@ -2,7 +2,8 @@
 
 Rewrite rule:
 
-- _[k: v, ...]_ ⟹ _[k → v, ...].asDictionary_
+- _[:]_ ⟹ _Map()_
+- _[k: v, ...]_ ⟹ _[k → v, ...].asMap_
 
 With `String` keys:
 
@@ -22,6 +23,14 @@ With `SmallFloat` keys:
 	['x' 'y' 'z'],
 	[1 -> 'x', 2 -> 'y', 3 -> 'z']
 )
+```
+
+Empty `Dictionary`:
+
+```
+>>> let d = [:];
+>>> (d.isDictionary, d.isEmpty)
+(true, true)
 ```
 
 * * *

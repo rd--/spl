@@ -49,7 +49,7 @@ BounceBall : [Object] { | x y xVel yVel |
 +Void {
 
 	BounceBenchmark {
-		Benchmark('Bounce', [100 -> 1331].asMap) { :ballCount |
+		Benchmark('Bounce', [100: 1331]) { :ballCount |
 			let random = SomRandom();
 			let bounces = 0;
 			let balls = ballCount.fill { :unusedIndex |

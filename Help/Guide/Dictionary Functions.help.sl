@@ -41,6 +41,11 @@ Predicates:
 - `isAssociation`
 - `isAssociationList`
 
+Selecting:
+
+- `keySelect`
+- `select`
+
 Set Functions:
 
 - `keyIntersection`

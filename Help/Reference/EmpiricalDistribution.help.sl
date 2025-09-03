@@ -55,10 +55,14 @@ An empirical distribution from weighted input data:
 let r = Sfc32(371249);
 EmpiricalDistribution(
 	[
-		1 -> 1, 2 -> 2, 3 -> 4,
-		4 -> 7,
-		5 -> 4, 6 -> 2, 7 -> 1
-	].asMap
+		1: 1,
+		2: 2,
+		3: 4,
+		4: 7,
+		5: 4,
+		6: 2,
+		7: 1
+	]
 )
 .randomVariate(r, [10 ^ 4])
 .histogramPlot

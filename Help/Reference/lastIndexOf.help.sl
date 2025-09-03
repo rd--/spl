@@ -1,9 +1,9 @@
 # lastIndexOf
 
-- _lastIndexOf(aCollection, anElement)_
+- _lastIndexOf(c, x)_
 
-Answer the index of the last occurence of _anObject_ within _aCollection_.
-If _aCollection_ does not contain _anObject_, answer 0.
+Answer the index of the last occurence of the object _x_ within the sequential collection _c_.
+If _c_ does not contain _x_, answers `zero`.
 
 ```
 >>> [1 2 3 2 3].lastIndexOf(3)
@@ -16,5 +16,7 @@ If _aCollection_ does not contain _anObject_, answer 0.
 * * *
 
 See also: indexOf, indicesOf
+
+Guides: Indexing Functions, List Functions
 
 Categories: Accessing

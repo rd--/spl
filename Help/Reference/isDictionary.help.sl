@@ -15,8 +15,7 @@ true
 At `Map`:
 
 ```
->>> [1 -> 'a', 2 -> 'b', 3 -> 'c']
->>> .asMap
+>>> [1: 'a', 2: 'b', 3: 'c']
 >>> .isDictionary
 true
 ```

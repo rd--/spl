@@ -49,6 +49,7 @@ Locate index:
 - `indexOfIfAbsent`
 - `indexOfStartingAtBy`
 - `lastIndexOf`
+- `positionIndex`
 
 Binary search:
 

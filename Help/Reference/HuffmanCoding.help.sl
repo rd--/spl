@@ -14,12 +14,12 @@ Encode a `List` of integers using `huffmanEncode`:
 >>> .huffmanEncode
 HuffmanCoding(
 	[
-		1 -> [0 0 0],
-		2 -> [0 0 1],
-		3 -> [0 1],
-		4 -> [1 0],
-		5 -> [1 1]
-	].asMap,
+		1: [0 0 0],
+		2: [0 0 1],
+		3: [0 1],
+		4: [1 0],
+		5: [1 1]
+	],
 	[
 		0 0 0 0 0 1 0 0 1 0
 		1 0 1 0 1 1 0 1 0 1

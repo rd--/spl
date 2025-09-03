@@ -1,9 +1,9 @@
 # indexOf
 
-- _indexOf(aCollection, anElement)_
+- _indexOf(c, x)_
 
-Answer the index of the first occurence of _anElement_ within _aCollection_.
-At sequences answer zero (an invalid index) if _anElement_ is not found,
+Answer the index of the first occurence of ythe object _x_ within the sequential collection _c_.
+At sequences answer `zero` (an invalid index) if _x_ is not found,
 else signal an `error`.
 
 Find index of first occurrence of element in sequence:
@@ -71,6 +71,8 @@ At `Range` there is a closed form:
 * * *
 
 See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, lastIndexOf
+
+Guides: Indexing Functions, List Functions
 
 References:
 _Smalltalk_

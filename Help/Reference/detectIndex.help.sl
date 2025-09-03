@@ -1,8 +1,8 @@
 # detectIndex
 
-- _detectIndex(aSequence, aBlock:/1)_
+- _detectIndex(c, f:/1)_
 
-Answer the index of the first item in _aSequence_ that answers `true` to _aBlock_.
+Answer the index of the first item in the sequential collection _c_ that answers `true` to the block _f_.
 Answer `nil` if there is no such item.
 
 Find index of first even number:
@@ -40,6 +40,8 @@ Note that for sorted sequences, `binaryDetectIndex` will, on average, be quicker
 * * *
 
 See also: binaryDetectIndex, bisect, detect, detectIndexIfFoundIfNone, indexOf
+
+Guides: Indexing Functions, List Functions
 
 References:
 _Mathematica_

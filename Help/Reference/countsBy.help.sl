@@ -9,21 +9,21 @@ Count the even and odd elements of a list:
 
 ```
 >>> [1 2 3 2 1 1].countsBy(isEven:/1)
-[(false -> 4), (true -> 2)].asMap
+[false: 4, true: 2]
 ```
 
 Count the prime and composite numbers in a list:
 
 ```
 >>> [1 .. 1000].countsBy(isPrime:/1)
-[(false -> 832), (true -> 168)].asMap
+[false: 832, true: 168]
 ```
 
 Count elements have the same absolute value:
 
 ```
 >>> [-1 0 1 0 -1 1].countsBy(abs:/1)
-[(1 -> 4), (0 -> 2)].asMap
+[1: 4, 0: 2]
 ```
 
 * * *

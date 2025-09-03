@@ -243,18 +243,18 @@ The runs of two random permutations:
 
 ```
 >>> [2 1 3].asPermutation.dictionary
-[1 -> 2, 2 -> 1, 3 -> 3].asMap
+[1: 2, 2: 1, 3: 3]
 
 >>> [1 2 5 3 7; 4; 6].cycles.dictionary
 [
-	1 -> 2,
-	2 -> 5,
-	3 -> 7,
-	4 -> 4,
-	5 -> 3,
-	6 -> 6,
-	7 -> 1
-].asMap
+	1: 2,
+	2: 5,
+	3: 7,
+	4: 4,
+	5: 3,
+	6: 6,
+	7: 1
+]
 ```
 
 Cauchy’s two-line notation lists the elements of S in the first row,

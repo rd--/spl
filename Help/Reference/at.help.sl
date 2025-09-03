@@ -43,8 +43,11 @@ All dictionaries, including `Record` and `Map`, are indexable:
 >>> (x: 1, y: 2).at('x')
 1
 
->>> (x: 1, y: 2).asMap.at('x')
+>>> ['x': 1, 'y': 2].at('x')
 1
+
+>>> [1: 'x', 2: 'y'].at(1)
+'x'
 ```
 
 A non-existing key signals an `error`:

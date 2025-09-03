@@ -2,10 +2,10 @@
 
 	MandelbrotBenchmark {
 		Benchmark('Mandelbrot', [
-			1 -> 128,
-			500 -> 191,
-			750 -> 50
-		].asMap) { :size |
+			1: 128,
+			500: 191,
+			750: 50
+		]) { :size |
 			let sum = 0;
 			let byteAcc = 0;
 			let bitNum = 0;

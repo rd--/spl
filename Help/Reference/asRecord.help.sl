@@ -39,7 +39,7 @@ true
 At a `Map`:
 
 ```
->>> (x: 1, y: 2, z: 3).asMap.asRecord
+>>> ['x': 1, 'y': 2, 'z': 3].asRecord
 (x: 1, y: 2, z: 3)
 ```
 

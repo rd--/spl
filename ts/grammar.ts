@@ -68,6 +68,7 @@ Sl {
 		| ListExpression
 		| ParenthesisedExpression
 		| RecordLiteral
+		| EmptyDictionaryLiteral
 		| NonEmptyDictionaryLiteral
 		| TupleExpression
 		| ListRangeSyntax
@@ -106,6 +107,7 @@ Sl {
 	RecordKeyAssociation = recordKeyToken Expression
 	StringAssociation = singleQuotedStringLiteral ":" Expression
 	RecordInitializerItem = recordKeyToken varName
+	EmptyDictionaryLiteral = "[" ":" "]"
 	NonEmptyDictionaryLiteral = "[" NonemptyListOf<DictionaryLiteralItem, ","> "]"
 	DictionaryLiteralItem = Expression ":" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"

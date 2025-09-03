@@ -105,7 +105,22 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	}
 
 	storeString { :self |
-		self.associations.storeString ++ '.asMap'
+		self.isEmpty.if {
+			'[:]'
+		} {
+			'[%]'.format(
+				[
+					self.associations.collect { :each |
+						'%: %'.format(
+							[
+								each.key.storeString,
+								each.value.storeString
+							]
+						)
+					}.commaSeparated
+				]
+			)
+		}
 	}
 
 	listSubstitutionSystem { :self :aList :anInteger |

@@ -8,15 +8,15 @@ else `nil`.
 At `Record`:
 
 ```
->>> (x: 1, y: 2, z: 3).valueType
+>>> (x: 1, y: 2, z: 3)
+>>> .valueType
 'SmallFloat'
 ```
 
 At `Map`:
 
 ```
->>> [1 -> 'x', 2 -> 'y', 3 -> 'z']
->>> .asMap
+>>> [1: 'x', 2: 'y', 3: 'z']
 >>> .valueType
 'String'
 ```

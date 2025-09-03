@@ -17,11 +17,11 @@ At `Record`:
 At `Map`:
 
 ```
->>> [1 -> 'x', 2 -> 'y', 3 -> 'z'].asMap
+>>> [1: 'x', 2: 'y', 3: 'z']
 >>> .associations
 [1 -> 'x', 2 -> 'y', 3 -> 'z']
 
->>> [].asMap.associations
+>>> [:].associations
 []
 ```
 

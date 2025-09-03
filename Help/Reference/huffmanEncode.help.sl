@@ -11,11 +11,11 @@ At `List`:
 >>> .huffmanEncode
 >>> .symbolTable
 [
-	1 -> [1 0 0],
-	2 -> [1 0 1],
-	3 -> [1 1],
-	4 -> [0]
-].asMap
+	1: [1 0 0],
+	2: [1 0 1],
+	3: [1 1],
+	4: [0]
+]
 
 >>> [4 4 4 4 3 3 3 2 2 1]
 >>> .huffmanEncode
@@ -29,12 +29,12 @@ At `String`:
 >>> 'wwwwxxxyyz'
 >>> .huffmanEncode
 >>> .symbolTable
-(
-	w: [0],
-	x: [1 1],
-	y: [1 0 1],
-	z: [1 0 0]
-).asMap
+[
+	'w': [0],
+	'x': [1 1],
+	'y': [1 0 1],
+	'z': [1 0 0]
+]
 
 >>> 'wwwwxxxyyz'
 >>> .huffmanEncode

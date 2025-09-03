@@ -14,8 +14,7 @@ Sort the elements in a `Record` by key:
 At `Map`:
 
 ```
->>> ['c' -> 1, 'b' -> 2, 'a' -> 3]
->>> .asMap
+>>> ['c': 1, 'b': 2, 'a': 3]
 >>> .keySort
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
@@ -38,6 +37,9 @@ Use `valueSort` to sort by value:
 
 ```
 >>> (a: 3, c: 1, b: 2).valueSort
+['c' -> 1, 'b' -> 2, 'a' -> 3]
+
+>>> ['a': 3, 'c': 1, 'b': 2].valueSort
 ['c' -> 1, 'b' -> 2, 'a' -> 3]
 
 >>> 'abcaba'.characters.asBag.valueSort

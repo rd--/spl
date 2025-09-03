@@ -80,8 +80,8 @@ so that it can act as a key,
 and also _immediate_:
 
 ```
->>> (x: 1, y: 2, z: 3).asMap.reverse
-[(1 -> 'x'), (2 -> 'y'), (3 -> 'z')].asMap
+>>> ['x': 1, 'y': 2, 'z': 3].reverse
+[1: 'x', 2: 'y', 3: 'z']
 ```
 
 Iteratively join a string to its reverse:

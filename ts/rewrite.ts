@@ -418,6 +418,9 @@ const asSl: ohm.ActionDict<string> = {
 			commaListSl([lhs].concat(trailing.children))
 		})`;
 	},
+	EmptyDictionaryLiteral(_l, _, _r) {
+		return 'Map()';
+	},
 	EmptyListSyntax(_l, _r) {
 		return '[]';
 	},

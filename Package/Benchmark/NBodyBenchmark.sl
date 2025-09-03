@@ -153,9 +153,9 @@ NBodySystem : [Object] { | bodies |
 
 	NBodyBenchmark {
 		Benchmark('NBody', [
-			1 -> -0.16907495402506745,
-			250000 -> -0.1690859889909308
-		].asMap) { :iterations |
+			1: -0.16907495402506745,
+			250000: -0.1690859889909308
+		]) { :iterations |
 			let system = NBodySystem();
 			iterations.timesRepeat {
 				system.advance(0.01)

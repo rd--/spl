@@ -20,6 +20,12 @@
 		self.allSatisfy(isAssociation:/1)
 	}
 
+	keySelect { :self :aBlock:/1 |
+		self.assertIsAssociationList.select { :each |
+			aBlock(each.key)
+		}
+	}
+
 	keyType { :self |
 		self.keys.elementType
 	}
