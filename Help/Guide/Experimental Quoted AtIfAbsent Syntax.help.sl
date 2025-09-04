@@ -14,7 +14,7 @@ Where supported the operator _:?_ is displayed as _⍰_.
 
 * * *
 
-See also: At Syntax, Put Syntax, Quoted At Syntax
+See also: At Syntax, Put Syntax, Property Read Syntax
 
 Unicode: U+2370 ⍰ Apl Functional Symbol Quad Question
 

@@ -22,7 +22,7 @@ At `Map`:
 
 ```
 >>> ['w': 1, 'x': 2, 'y': 3]
->>> .includesIndex('x')
+>>> .includesKey('x')
 true
 ```
 
@@ -32,7 +32,8 @@ The indices of dictionaries are called keys.
 and `keys` is another name for `indices`.
 
 ```
->>> (x: 1, y: 2, z: 3).includesIndex('z')
+>>> (x: 1, y: 2, z: 3)
+>>> .includesIndex('z')
 true
 ```
 

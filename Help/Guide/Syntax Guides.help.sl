@@ -35,8 +35,8 @@
 
 - `At Syntax`
 - `AtPut Syntax`
-- `Quoted At Syntax`
-- `Quoted AtPut Syntax`
+- `Property Read Syntax`
+- `Property Write Syntax`
 
 ## Collection Notation Syntax
 

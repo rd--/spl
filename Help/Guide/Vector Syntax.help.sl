@@ -7,6 +7,11 @@ Rewrite rule:
 Allows writing lists of literals without comma separators.
 A Vector cannot contain other Vectors, see `Matrix Syntax`.
 
+```
+>> '[p q r]'.splSimplify
+[p, q, r]
+```
+
 Literal items:
 
 ```

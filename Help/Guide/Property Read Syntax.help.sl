@@ -1,11 +1,10 @@
-# Quoted At Syntax
+# Property Read Syntax
 
 Rewrite rule:
 
-- _c::k_ ⟹ _c['k']_ ⟹ _at(c, 'k')_
+- _c::p_ ⟹ _propertyRead(c, 'p')_
 
-Syntax for the `at` protocol.
-_c::k_ reads the values at the key _'k'_ from the collection _c_.
+_c::p_ reads the value at the property _'p'_ from the record _r_.
 
 At `Record`:
 
@@ -23,7 +22,7 @@ Where supported `::` is displayed as _·_.
 
 See also: ::
 
-Guides: At Syntax, Put Syntax, Record Syntax, Quoted Indexable Syntax
+Guides: At Syntax, Put Syntax, Record Syntax, Property Syntax
 
 Unicode: U+00B7 · Middle Dot
 

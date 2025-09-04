@@ -212,12 +212,6 @@
 		aCollection
 	}
 
-	includesAllIndices { :self :indices |
-		indices.allSatisfy { :each |
-			self.includesKey(each)
-		}
-	}
-
 	includesAssociation { :self :anAssociation |
 		self.atIfPresentIfAbsent(anAssociation.key) { :value |
 			anAssociation.value = value
@@ -239,6 +233,12 @@
 
 	includesKey { :self :key |
 		self.keys.includesBy(key, self.comparator)
+	}
+
+	includesKeys { :self :aCollection |
+		aCollection.allSatisfy { :each |
+			self.includesKey(each)
+		}
 	}
 
 	indices { :self |
@@ -277,7 +277,7 @@
 	keysAndValuesDo { :self :aBlock:/2 |
 		let keys = self.keys;
 		let values = self.values;
-		1.toDo(keys.size) { :index |
+		1.toDo(self.size) { :index |
 			aBlock(keys[index], values[index])
 		};
 		nil
@@ -290,8 +290,8 @@
 	}
 
 	keysDo { :self :aBlock:/1 |
-		self.associationsDo { :association |
-			aBlock(association.key)
+		self.keysAndValuesDo { :key :value |
+			aBlock(key)
 		}
 	}
 
@@ -390,7 +390,7 @@
 	}
 
 	replace { :self :aBlock:/1 |
-		self.indices.do { :key |
+		self.keysDo { :key |
 			self[key] := aBlock(self[key])
 		}
 	}
@@ -419,8 +419,8 @@
 	}
 
 	valuesDo { :self :aBlock:/1 |
-		self.associationsDo { :association |
-			aBlock(association.value)
+		self.keysAndValuesDo { :key :value |
+			aBlock(value)
 		}
 	}
 

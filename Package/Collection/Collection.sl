@@ -100,12 +100,6 @@
 		self
 	}
 
-	assertIsOfSize { :self :anInteger |
-		self.assert {
-			self.size = anInteger
-		}
-	}
-
 	atLevelCollect { :self :level :aBlock:/1 |
 		let levelPredicate:/1 = level.isCollection.if {
 			{ :each | level.includes(each) }

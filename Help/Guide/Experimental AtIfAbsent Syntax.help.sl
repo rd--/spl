@@ -29,7 +29,7 @@ Where supported `:?` is displayed as ⍰.
 
 See also: ?
 
-Guides: At Synax, AtAll Syntax, AtPut Syntax, Quoted At Syntax
+Guides: At Synax, AtAll Syntax, AtPut Syntax, Property Read Syntax
 
 Unicode: U+2370 ⍰ Apl Functional Symbol Quad Question
 

@@ -8,6 +8,17 @@ Rewrite rule:
 
 Syntax for the `at` protocol.
 
+```
+>> 'c[i]'.splSimplify
+at(c, i)
+
+>> 'c[i, j]'.splSimplify
+at(c, i, j)
+
+>> 'c[i, j, k]'.splSimplify
+at(c, i, j, k)
+```
+
 At `Range`:
 
 ```
@@ -74,7 +85,7 @@ however this is confusing and should be disallowed:
 
 See also: @, at, atAll, List, Range, Record
 
-Guides: AtAll Syntax, AtPut Syntax, Quoted At Syntax
+Guides: AtAll Syntax, AtPut Syntax, Property Read Syntax
 
 References:
 _Apl_

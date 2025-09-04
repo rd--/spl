@@ -11,7 +11,7 @@ _a_ must be a literal block.
 
 * * *
 
-See also: At Synax, AtAll Syntax, AtPut Syntax, Quoted At Syntax
+See also: At Synax, AtAll Syntax, AtPut Syntax, Property Read Syntax
 
 Categories: Syntax
 

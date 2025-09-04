@@ -100,8 +100,8 @@ Indexing Syntax
 - `At Syntax`
 - `AtAll Syntax`
 - `AtPut Syntax`
-- `Quoted At Syntax`
-- `Quoted AtPut Syntax`
+- `Property Read Syntax`
+- `Property Write Syntax`
 
 * * *
 

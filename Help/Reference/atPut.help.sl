@@ -58,7 +58,7 @@ There is `AtPut Syntax` for mutating indexed values:
 
 See also: at, atPathPut, size
 
-Guides: AtPut Syntax, Dictionary Functions, List Functions, Quoted AtPut Syntax
+Guides: AtPut Syntax, Dictionary Functions, List Functions, Property Write Syntax
 
 References:
 _Smalltalk_

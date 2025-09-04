@@ -7,6 +7,9 @@ Rewrite rule:
 The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ and _'q' → y_.
 
 ```
+>> '(p: 1, q: 2)'.splSimplify
+Record([['p', 1], ['q', 2]])
+
 >>> (p: 1, q: 2).associations
 ['p' -> 1, 'q' -> 2]
 ```
@@ -15,6 +18,6 @@ The notation _(p: x, q: y)_ constructs a `Record` with associations _'p' → x_ 
 
 See also: :, Record
 
-Guides: List Syntax, Quoted At Syntax, Quoted AtPut Syntax
+Guides: List Syntax, Property Read Syntax, Property Write Syntax
 
 Categories: Syntax

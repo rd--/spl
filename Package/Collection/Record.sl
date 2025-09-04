@@ -31,12 +31,6 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
 
-	includesKeys { :self :aCollection |
-		aCollection.allSatisfy { :each |
-			self.includesKey(each)
-		}
-	}
-
 	indices { :self |
 		self.keys
 	}
@@ -64,6 +58,14 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 		});
 		return null;
 		>
+	}
+
+	propertyRead { :self :aString |
+		<primitive: return _self[_aString];>
+	}
+
+	propertyWrite { :self :aString :anObject |
+		<primitive: return _self[_aString] = _anObject;>
 	}
 
 	removeKeyIfAbsent { :self :key :aBlock |

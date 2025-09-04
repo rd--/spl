@@ -135,7 +135,7 @@ true
 
 See also: atAll, atFold, atIfAbsent, atIfPresent, atIfPresentIfAbsent, atMod, atPath, atPin, atPut, atSymmetrical, atWrap, Indexable, size
 
-Guides: AtPut Syntax, At Syntax, Indexing Functions, Quoted At Syntax
+Guides: AtPut Syntax, At Syntax, Indexing Functions, Property Read Syntax
 
 References:
 _Mathematica_

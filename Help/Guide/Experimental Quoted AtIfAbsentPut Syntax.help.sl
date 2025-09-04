@@ -11,4 +11,4 @@ _a_ must be a literal block.
 
 * * *
 
-See also: At Syntax, Put Syntax, Quoted At Syntax
+See also: At Syntax, Put Syntax, Property Read Syntax

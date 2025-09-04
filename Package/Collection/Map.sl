@@ -192,25 +192,48 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 +List {
 
-	mapFromTwoElementLists { :self |
-		<primitive: return new Map(_self);>
+	associationListToMap { :self |
+		self.isAssociationList.if {
+			self.collect(asList:/1).uncheckedAsMap
+		} {
+			self.error('List>>associationListToMap')
+		}
+	}
+
+	matrixToMap { :self |
+		self.allSatisfy { :each |
+			each.isList & {
+				each.size = 2
+			}
+		}.if {
+			self.uncheckedAsMap
+		} {
+			self.error('List>>matrixToMap')
+		}
 	}
 
 	asMap { :self |
-		self.isAssociationList.if {
-			self.collect(asList:/1).mapFromTwoElementLists
+		self.isEmpty.if {
+			Map()
 		} {
-			let [_, n] = self.shape;
-			(n = 2).if {
-				self.mapFromTwoElementLists
+			self.anyOne.isAssociation.if {
+				self.associationListToMap
 			} {
-				self.error('List>>asMap: not association list or two column matrix')
+				self.matrixToMap
 			}
 		}
 	}
 
+	Map { :self |
+		self.matrixToMap
+	}
+
 	substitutionSystem { :self :initialCondition :anInteger |
 		self.asMap.substitutionSystem(initialCondition, anInteger)
+	}
+
+	uncheckedAsMap { :self |
+		<primitive: return new Map(_self);>
 	}
 
 }

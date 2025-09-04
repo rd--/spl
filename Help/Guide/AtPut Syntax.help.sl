@@ -2,11 +2,22 @@
 
 Rewrite rule:
 
-- _c[i] := v_ ⟹ _atPut(c, i, v)_
-- _c[i, j] := v_ ⟹ _atPut(c, i, j, v)_
-- _c[i, j, k] := v_ ⟹ _atPut(c, i, j, k, v)_
+- _c[i] := x_ ⟹ _atPut(c, i, x)_
+- _c[i, j] := x_ ⟹ _atPut(c, i, j, x)_
+- _c[i, j, k] := x_ ⟹ _atPut(c, i, j, k, x)_
 
 Syntax for the `atPut` protocol.
+
+```
+>> 'c[i] := x'.splSimplify
+atPut(c, i, x)
+
+>> 'c[i, j] := x'.splSimplify
+atPut(c, i, j, x)
+
+>> 'c[i, j, k] := x'.splSimplify
+atPut(c, i, j, k, x)
+```
 
 At `List`:
 
@@ -31,6 +42,6 @@ At a list of lists:
 
 See also: atPut
 
-Guides: At Syntax, Quoted AtPut Syntax, Syntax Guides
+Guides: At Syntax, Property Write Syntax, Syntax Guides
 
 Categories: Syntax

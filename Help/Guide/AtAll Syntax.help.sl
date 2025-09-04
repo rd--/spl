@@ -56,7 +56,7 @@ The @* operator expresses this operation succinctly at vectors:
 
 See also: @*, at, atAll, atPath
 
-Guides: At Syntax, AtPut Syntax, Quoted At Syntax
+Guides: At Syntax, AtPut Syntax, Property Read Syntax
 
 References:
 _Apl_

@@ -1,10 +1,17 @@
 # Binary Operator Syntax
 
+Rewrite rule:
+
+- _x ▯ y_ ⟹ _▯(x, y)_
+
 Binary operators are written _α + β_:
 
 ```
 >>> 3 + 4
 7
+
+>> '3 + 4'.splSimplify
++(3, 4)
 ```
 
 Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
@@ -12,6 +19,9 @@ Binary operators associate to the left, _α + β * γ_ = _(α + β) * γ_:
 ```
 >>> 3 + 4 * 5
 35
+
+>> '3 + 4 * 5'.splSimplify
+*(+(3, 4), 5)
 ```
 
 Binary operators are grouped using parentheses:
@@ -19,6 +29,9 @@ Binary operators are grouped using parentheses:
 ```
 >>> 3 + (4 * 5)
 23
+
+>> '3 + (4 * 5)'.splSimplify
++(3, (*(4, 5)))
 ```
 
 Binary operators have lower precedence than ordinary application,

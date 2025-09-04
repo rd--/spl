@@ -35,7 +35,7 @@ It is an error to assign to an undeclared variable:
 true
 ```
 
-The `:=` symbol is also part of `AtPut Syntax`, `List Assignment Syntax` and `Quoted AtPut Syntax`.
+The `:=` symbol is also part of `AtPut Syntax`, `List Assignment Syntax` and `Property Write Syntax`.
 
 The name of this token is `colonEqualsSign`.
 
@@ -45,7 +45,7 @@ Where supported `:=` is displayed either as ← or ≔.
 
 See also: :, =
 
-Guides: Assignment Syntax, AtPut Syntax, List Assignment Syntax, Quoted AtPut Syntax, Syntax Tokens
+Guides: Assignment Syntax, AtPut Syntax, List Assignment Syntax, Property Write Syntax, Syntax Tokens
 
 References:
 _Apl_

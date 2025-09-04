@@ -58,3 +58,7 @@ At `List` is the identity function:
 * * *
 
 See also: List, NumericArray, SparseArray
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Normal.html)

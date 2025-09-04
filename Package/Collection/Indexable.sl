@@ -18,6 +18,12 @@
 		self.atPath(pathString.splitBy('/'))
 	}
 
+	assertIsOfSize { :self :anInteger |
+		self.assert {
+			self.size = anInteger
+		}
+	}
+
 	assertIsValidIndex { :self :index |
 		self.includesIndex(index).if {
 			index

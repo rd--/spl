@@ -126,7 +126,7 @@
 
 }
 
-CartesianCoordinates : [Object, Magnitude, Indexable, Collection, CartesianCoordinates] { | coordinates |
+CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
 
 	asCartesianCoordinates { :self |
 		self

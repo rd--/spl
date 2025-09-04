@@ -2,14 +2,24 @@
 
 Rewrite rules:
 
-- _c[k]_ ⟹ _at(c, k)_
-- _c[k] := v_ ⟹ _atPut(c, k, v)_
+- _c[i]_ ⟹ _at(c, i)_
+- _c[i] := x_ ⟹ _atPut(c, i, x)_
 
 Collection types implement the `at` and `atPut` protocols.
 
 The first rule, `At Syntax`, provides the usual indexing notation for reading from a collection.
 
+```
+>> 'c[i]'.splSimplify
+at(c, i)
+```
+
 The second rule, `AtPut Syntax`, provides the usual indexing notation for writing to a collection.
+
+```
+>> 'c[i] := x'.splSimplify
+atPut(c, i, x)
+```
 
 There are two further experimental syntaxes:
 

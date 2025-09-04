@@ -388,7 +388,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
 	MapSyntaxItem(lhs, _c, rhs) {
-		return `Association(${lhs.asSl}, ${rhs.asSl})`;
+		return `[${lhs.asSl}, ${rhs.asSl}]`;
 	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
@@ -477,7 +477,7 @@ const asSl: ohm.ActionDict<string> = {
 		return [begin, middle, end].flat().join('\n');
 	},
 	NonEmptyMapSyntax(_l, d, _r) {
-		return `asMap([${commaListSl(d.asIteration().children)}])`;
+		return `Map([${commaListSl(d.asIteration().children)}])`;
 	},
 	NonEmptyParameterList(_leftParen, sq, _rightParen) {
 		return commaListSl(sq.asIteration().children);
@@ -500,14 +500,11 @@ const asSl: ohm.ActionDict<string> = {
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
 	},
-	RecordKeyAssociation(lhs, rhs) {
-		return `['${lhs.asSl}', ${rhs.asSl}]`;
+	PropertyReadSyntax(c, _colons, k) {
+		return `propertyRead(${c.asSl}, '${k.sourceString}')`;
 	},
-	QuotedAtSyntax(c, _colons, k) {
-		return `at(${c.asSl}, '${k.sourceString}')`;
-	},
-	QuotedAtPutSyntax(c, _colons, k, _equals, v) {
-		return `atPut(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
+	PropertyWriteSyntax(c, _colons, k, _equals, v) {
+		return `propertyWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
 	RangeSyntax(_left, start, _dots, end, _right) {
 		return `upOrDownTo(${start.asSl}, ${end.asSl})`;
@@ -538,6 +535,9 @@ const asSl: ohm.ActionDict<string> = {
 			keyVarNamesArray,
 		);
 		return `${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots}`;
+	},
+	RecordKeyAssociation(lhs, rhs) {
+		return `['${lhs.asSl}', ${rhs.asSl}]`;
 	},
 	ScalarAssignment(lhs, _e, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
