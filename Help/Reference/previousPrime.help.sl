@@ -1,8 +1,8 @@
 # previousPrime
 
-- _previousPrime(anInteger)_
+- _previousPrime(n)_
 
-Answer the greatest prime number less than _anInteger_.
+Answer the greatest prime number less than the integer _n_.
 
 Compute the last prime before 50:
 

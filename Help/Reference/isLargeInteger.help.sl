@@ -1,8 +1,8 @@
 # isLargeInteger
 
-- _isLargeInteger(anObject)_
+- _isLargeInteger(x)_
 
-Answers `true` if _anObject_ is a `LargeInteger`, else `false`.
+Answers `true` if the object _x_ is a `LargeInteger`, else `false`.
 
 ```
 >>> 23L.isLargeInteger
@@ -17,7 +17,7 @@ false
 
 * * *
 
-See also: isInteger, isNumber, isSmallFloat, LargeInteger
+See also: asLargeInteger, isInteger, isNumber, isSmallFloat, LargeInteger
 
 Guides: Integer Functions
 

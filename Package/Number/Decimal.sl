@@ -145,8 +145,12 @@ Decimal : [Object] { | fraction scale |
 		self.fraction.asInteger
 	}
 
+	asSmallInteger { :self |
+		self.fraction.asSmallInteger
+	}
+
 	asLargeInteger { :self |
-		self.fraction.truncate
+		self.fraction.asLargeInteger
 	}
 
 	denominator { :self |

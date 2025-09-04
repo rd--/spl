@@ -1,8 +1,8 @@
 # primesListWheelSieve
 
-- _primesListWheelSieve(anInteger)_
+- _primesListWheelSieve(n)_
 
-Answer a `List` of the prime numbers up to _anInteger_,
+Answer a `List` of the prime numbers up to the integer _n_,
 calculated using a _wheel sieve_ algorithm.
 
 ```

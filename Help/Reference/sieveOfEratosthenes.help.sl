@@ -1,8 +1,8 @@
 # sieveOfEratosthenes
 
-- _sieveOfEratosthenes(anInteger)_
+- _sieveOfEratosthenes(n)_
 
-Answer a `List` of the prime numbers less than or equal to _anInteger_ according to the sieve of Eratosthenes algorithm.
+Answer a `List` of the prime numbers less than or equal to the integer _n_ according to the sieve of Eratosthenes algorithm.
 
 Prime numbers up to 99:
 

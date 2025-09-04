@@ -245,7 +245,7 @@
 		self.keys
 	}
 
-	isDictionary { :self |
+	isDictionary { :unused |
 		true
 	}
 
@@ -524,6 +524,14 @@
 			};
 			answer
 		}
+	}
+
+}
+
++@Object {
+
+	isDictionary { :unused |
+		false
 	}
 
 }

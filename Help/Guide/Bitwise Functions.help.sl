@@ -41,6 +41,7 @@ Permuting:
 Converting:
 
 - `asBitSet`
+- `asLargeInteger`
 - `integerDigits`
 - `fromDigits`
 

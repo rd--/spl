@@ -1,8 +1,8 @@
 # normal
 
-- _normal(anObject)_
+- _normal(x)_
 
-Converts an object to a normal form from a special form.
+Convert the object _x_ to a normal form from a special form.
 
 At `SparseArray` answers a normal dense list:
 
@@ -36,6 +36,16 @@ Fractions are ordinarily normalized by construction.
 ```
 >>> (Fraction(2, 4).asList, 2/4.asList)
 ([1 2], [1 2])
+```
+
+At `LargeInteger` answers `asInteger`:
+
+```
+>>> 23L.normal
+23
+
+>>> (2L ^ 54).normal
+18014398509481984L
 ```
 
 At `List` is the identity function:

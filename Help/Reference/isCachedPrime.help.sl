@@ -1,8 +1,8 @@
 # isCachedPrime
 
-- _isCachedPrime(aCache, anInteger)_
+- _isCachedPrime(system, n)_
 
-Answer `true` if _anInteger_ is an element of the `cachedPrimesList` at _aCache_.
+Answer `true` if the integer _n_ is an element of the `cachedPrimesList` at `system`.
 
 ```
 >>> system.isCachedPrime(23)

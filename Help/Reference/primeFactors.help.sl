@@ -108,6 +108,13 @@ The largest prime factor of an integer:
 6857
 ```
 
+At a power of two:
+
+```
+>>> (2 ^ 52).primeFactors
+2 # 52
+```
+
 `min` of `primeFactors` is called the _least prime factor_.
 Plot the first few entries of [A020639](https://oeis.org/A020639),
 excluding the first:

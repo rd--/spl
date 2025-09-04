@@ -45,7 +45,7 @@
 	}
 
 	atAllPut { :self :anObject |
-		self.indices.do { :index |
+		self.indicesDo { :index |
 			self[index] := anObject
 		};
 		anObject
@@ -225,7 +225,7 @@
 
 	indexOfIfAbsent { :self :anObject :aBlock:/0 |
 		valueWithReturn { :return:/1 |
-			self.indices.do { :index |
+			self.indicesDo { :index |
 				(self[index] = anObject).ifTrue {
 					index.return
 				}
@@ -303,7 +303,7 @@
 	}
 
 	withIndexDo { :self :elementAndIndexBlock:/2 |
-		self.indices.do { :index |
+		self.indicesDo { :index |
 			elementAndIndexBlock(self[index], index)
 		}
 	}

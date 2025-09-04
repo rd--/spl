@@ -31,6 +31,15 @@ Answer the `List` of prime factors of _n_, each associated with its exponent.
 	17 -> 1,
 	19 -> 1
 ]
+
+>>> (3 ^ 51).factorInteger
+[
+	2 -> 28,
+	3 -> 2,
+	7 -> 1,
+	11491 -> 1,
+	11082704099 -> 1
+]
 ```
 
 A prime power has one prime factor:
@@ -83,13 +92,6 @@ Threads over lists:
 	[101 -> 1],
 	[7 -> 1, 11 -> 1, 13 -> 1]
 ]
-```
-
-A unit factor:
-
-```
->>> -60.factorInteger
-[-1 -> 1, 2 -> 2, 3 -> 1, 5 -> 1]
 ```
 
 Use `factorInteger` to test for prime powers:

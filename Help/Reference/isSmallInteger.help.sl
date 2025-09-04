@@ -1,8 +1,8 @@
 # isSmallInteger
 
-- _isSmallInteger(anObject)_
+- _isSmallInteger(x)_
 
-Answers `true` if _anObject_ is an integer that can be accurately represented as an IEEE-754 double precision number,
+Answers `true` if the object _x_ is an integer that can be accurately represented as an IEEE-754 double precision number,
 and whose IEEE-754 representation cannot be the result of rounding any other integer to fit the IEEE-754 representation.
 
 ```
@@ -32,34 +32,49 @@ A `SmallFloat` that is an integer,
 according to `isInteger`,
 need not be a small integer.
 
-_2 ^ 54_ is an integer:
+_2^54_ and _20!_ are integers:
 
 ```
 >>> (2 ^ 54).isInteger
 true
+
+>>> 20.!.isInteger
+true
 ```
 
-_2 ^ 54_ is an not a small integer:
+_2^54_ and _20!_ are not small integers:
 
 ```
 >>> (2 ^ 54).isSmallInteger
 false
+
+>>> 20.!.isSmallInteger
+false
 ```
 
-_2 ^ 54_ is accurately represented:
+_2^54_ and _20!_ are accurately represented:
 
 ```
 >>> (2 ^ 54) = (2L ^ 54)
 true
+
+>>> 20.! = 20L.!
+true
 ```
 
-_2 ^ 54_ is not uniquely represented:
+_2^54_ and _20!_ are not uniquely represented:
 
 ```
 >>> (2 ^ 54) = (2 ^ 54 - 1)
 true
 
 >>> (2L ^ 54) = (2L ^ 54 - 1)
+false
+
+>>> 20.! = (20.! - 1)
+true
+
+>>> 20L.! = (20L.! - 1)
 false
 ```
 
@@ -83,6 +98,13 @@ true
 >>> let x = Fraction(2L ^ 54, 1);
 >>> (x.isInteger, x.isSmallInteger)
 (true, false)
+```
+
+Threads over lists:
+
+```
+>>> [1 1.pi 1L].isSmallInteger
+[true false true]
 ```
 
 * * *

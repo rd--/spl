@@ -1,6 +1,8 @@
 # asSmallFloat
 
-- _asSmallFloat(aFraction | aLargeInteger | aSmallFloat)_
+- _asSmallFloat(x)_
+
+Convert a `Fraction` or a `LargeInteger` into a `SmallFloat`.
 
 In the `Fraction` case, answer the nearest `SmallFloat`:
 

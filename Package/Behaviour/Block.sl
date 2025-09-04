@@ -474,6 +474,23 @@ Block! : [Object] {
 		>
 	}
 
+	yCombinator { :self:/1 |
+		let u = { :f:/1 |
+			{ :x:/1 |
+				f(x(x:/1))
+			}
+		};
+		let delta:/1 = identity:/1.u;
+		{ :i:/1 |
+			self(
+				{ :x |
+					let h:/1 = i(i:/1);
+					h(x)
+				}
+			)
+		}.delta
+	}
+
 }
 
 +@Object {

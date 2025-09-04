@@ -72,13 +72,15 @@ To parse a `String` as an integer use `parseDecimalInteger`:
 Threads over lists:
 
 ```
->>> [23 23.3].asInteger
-[23 23]
+>>> [23 23.3 23L].asInteger
+[23 23 23]
 ```
 
 * * *
 
-See also: asBit, asFloat, asNumber, codePoint, parseDecimalInteger, truncate
+See also: asBit, asFloat, asNumber, asLargeInteger, asSmallInteger, codePoint, parseDecimalInteger, truncate
+
+Guides: Integer Functions
 
 References:
 _Smalltalk_

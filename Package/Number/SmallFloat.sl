@@ -137,6 +137,14 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		self
 	}
 
+	asSmallInteger { :self |
+		self.isSmallInteger.if {
+			self
+		} {
+			self.error('SmallFloat>>asSmallInteger: not integer')
+		}
+	}
+
 	assertIsSmallInteger { :self |
 		self.assert {
 			self.isSmallInteger

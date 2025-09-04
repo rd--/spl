@@ -1,8 +1,8 @@
 # primeDivisors
 
-- _primeDivisors(anInteger)_
+- _primeDivisors(n)_
 
-Answer the prime divisors of `anInteger`.
+Answer the prime divisors of the integer _n_.
 
 ```
 >>> 2434500.primeDivisors
@@ -14,13 +14,13 @@ Answer the prime divisors of `anInteger`.
 >>> (2 ^ 2) * (3 ^ 2) * (5 ^ 3)
 4500
 
->>> 2434500.primeFactorization
-[2 2 3 3 5 5 5 541].asBag
+>>> 2434500.primeFactors
+[2 2 3 3 5 5 5 541]
 ```
 
 * * *
 
-See also: primeExponents, primeFactorization
+See also: primeExponents, primeFactors
 
 Guides: Prime Number Functions
 

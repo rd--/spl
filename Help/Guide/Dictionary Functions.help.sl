@@ -52,6 +52,7 @@ Predicates:
 
 - `isAssociation`
 - `isAssociationList`
+- `isDictionary`
 
 Selecting:
 

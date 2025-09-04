@@ -8,7 +8,8 @@ else `false`.
 At `Record`:
 
 ```
->>> (a: 1, b: 2, c: 3).isDictionary
+>>> (a: 1, b: 2, c: 3)
+>>> .isDictionary
 true
 ```
 
@@ -20,9 +21,19 @@ At `Map`:
 true
 ```
 
+An association list is not a dictionary:
+
+```
+>>> [1 -> 'a', 2 -> 'b', 3 -> 'c']
+>>> .isDictionary
+false
+```
+
 * * *
 
 See also: Dictionary, Map, Record
+
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

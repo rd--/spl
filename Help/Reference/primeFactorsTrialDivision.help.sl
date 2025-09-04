@@ -1,16 +1,33 @@
 # primeFactorsTrialDivision
 
-- _primeFactorsTrialDivision(anInteger)_
+- _primeFactorsTrialDivision(n)_
 
-Answer the prime factors of _anInteger_ as given by the _trial division_ algorithm.
+Answer the prime factors of the integer _n_ as given by the _trial division_ algorithm.
 
 Prime factors of the first seventeen integers:
 
 ```
->>> 1:17.collect(primeFactorsTrialDivision:/1)
+>>> 1:17.collect(
+>>> 	primeFactorsTrialDivision:/1
+>>> )
 [
-	; 2; 3; 2 2; 5; 2 3; 7; 2 2 2; 3 3; 2 5;
-	11; 2 2 3; 13; 2 7; 3 5; 2 2 2 2; 17
+	;
+	2;
+	3;
+	2 2;
+	5;
+	2 3;
+	7;
+	2 2 2;
+	3 3;
+	2 5;
+	11;
+	2 2 3;
+	13;
+	2 7;
+	3 5;
+	2 2 2 2;
+	17
 ]
 ```
 

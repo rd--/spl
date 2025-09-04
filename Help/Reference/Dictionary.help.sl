@@ -11,15 +11,21 @@ For both `Map` and `Record` the uniqueness of keys is determined using `==`,
 for `EqualityDictionary` it is determined using `=`.
 Dictionaries are indexed using the unique `key` to obtain the corresponding `value`.
 
+Dictionary is a trait:
+
+```
+>>> system
+>>> .traitDictionary['Dictionary']
+>>> .isTrait
+true
+```
+
+Map implements Dictionary:
+
 ```
 >>> system
 >>> .traitTypes('Dictionary')
 >>> .includes('Map')
-true
-
->>> system
->>> .traitDictionary['Dictionary']
->>> .isTrait
 true
 ```
 

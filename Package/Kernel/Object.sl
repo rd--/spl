@@ -172,6 +172,10 @@
 		self
 	}
 
+	normal { :self |
+		self
+	}
+
 	notificationMessage { :self :message |
 		'%: %: (%)'.format([
 			self.typeOf,

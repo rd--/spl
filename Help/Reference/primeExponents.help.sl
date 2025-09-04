@@ -4,7 +4,7 @@
 
 Prime exponents in the factorization of the integer _n_.
 
-An exponent of `zero` means that the corresponding prime is not a factor of `anInteger`.
+An exponent of `zero` means that the corresponding prime is not a factor of _n_.
 
 ```
 >>> 700.primeExponents

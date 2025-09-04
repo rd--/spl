@@ -1,8 +1,8 @@
 # asFloat
 
-- _asFloat(aNumber)_
+- _asFloat(x)_
 
-Answer a `SmallFloat` that closely approximates the value of _aNumber_.
+Answer a `SmallFloat` that closely approximates the value of the number _x_.
 
 At `SmallFloat`:
 

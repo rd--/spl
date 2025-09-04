@@ -1,8 +1,8 @@
 # isPrimeWilson
 
-- _isPrimeWilson(anInteger)_
+- _isPrimeWilson(n)_
 
-Answer `true` if _anInteger_ is a prime number,
+Answer `true` if the integer _n_ is a prime number,
 according to Wilson’s primality test,
 else `false`.
 Wilson’s theorem states that a natural number _n > 1_ is a prime number if,

@@ -143,6 +143,14 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		}
 	}
 
+	asSmallInteger { :self |
+		self.isSmallInteger.if {
+			self.asSmallFloat
+		} {
+			self.error('LargeInteger>>asSmallInteger: not small integer')
+		}
+	}
+
 	asLargeInteger { :self |
 		self
 	}
@@ -254,6 +262,10 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
+	}
+
+	normal { :self |
+		self.asInteger
 	}
 
 	isZero { :self |

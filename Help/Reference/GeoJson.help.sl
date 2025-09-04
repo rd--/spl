@@ -1,8 +1,8 @@
 # GeoJson
 
-- _GeoJson(aRecord)_
+- _GeoJson(r)_
 
-A `Type` holding a `Record` conforming to the GeoJson protocol.
+A `Type` holding a `Record` _r_ conforming to the GeoJson protocol.
 
 Each `GeoJson` object has a `type`,
 either 'Feature',

@@ -1,8 +1,8 @@
 # unit
 
-- _unit(aQuantity)_
+- _unit(q)_
 
-Answer the unit of the specified quantity.
+Answer the unit of the specified quantity _q_.
 
 ```
 >>> 3.millimetres
@@ -20,6 +20,8 @@ the conversion is made by the constructor funtion:
 * * *
 
 See also: Quantity
+
+Guides: Quantity Functions
 
 References:
 _Mathematica_

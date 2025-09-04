@@ -110,12 +110,14 @@ The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires _millerRabinPrimali
 false
 ```
 
-Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) - 1_:
+Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1)-1_:
 
 ```
 >>> let f = { :n |
 >>> 	n.isPrime & {
->>> 		(2 ^ (n - 1) - 1) % (n ^ 2) = 0
+>>> 		let a = 2 ^ (n - 1) - 1;
+>>> 		let b = n ^ 2;
+>>> 		a % b = 0
 >>> 	}
 >>> };
 >>> (1L .. 9999L).select(f:/1)
@@ -125,9 +127,9 @@ Recognize Wieferich primes, prime numbers _p_ such that _p^2_ divides _2^(p-1) -
 Find twin primes:
 
 ```
->>> 1:333.select { :each |
->>> 	each.isPrime & {
->>> 		each.nextPrime = (each + 2)
+>>> 1:333.select { :i |
+>>> 	i.isPrime & {
+>>> 		i.nextPrime = (i + 2)
 >>> 	}
 >>> }
 [
@@ -155,8 +157,10 @@ Eulers prime-generating polynomial (OEIS [A005846](https://oeis.org/A005846)):
 (
 	true,
 	[
-		41  43  47  53  61  71  83  97 113 131
-		151 173 197 223 251 281 313 347	383 421
+		 41  43  47  53  61
+		 71  83  97 113 131
+		151 173 197 223 251
+		281 313 347 383 421
 		461 503 547 593
 	]
 )

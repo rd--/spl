@@ -23,7 +23,7 @@ Answer a `Bag` giving the prime factors of the integer _n_ and their multiplicit
 >>> 2401.primeFactorization
 [7 7 7 7].asBag
 
->>> 20.factorial
+>>> 20L.factorial
 >>> .primeFactorization
 >>> .sortedElements
 [

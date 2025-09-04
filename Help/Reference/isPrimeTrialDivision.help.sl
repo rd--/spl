@@ -1,13 +1,15 @@
 # isPrimeTrialDivision
 
-- _isPrimeTrialDivision(anInteger)_
+- _isPrimeTrialDivision(n)_
 
-Answer `true` if _anInteger_ is a prime number, according to the trial division algorithm.
+Answer `true` if the integer _n_ is a prime number, according to the trial division algorithm.
 
 Select the prime numbers up to one hundred:
 
 ```
->>> (1L .. 99L).select(isPrimeTrialDivision:/1)
+>>> (1L .. 99L).select(
+>>> 	isPrimeTrialDivision:/1
+>>> )
 [
 	2 3 5 7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71
@@ -29,13 +31,15 @@ Validate using `isPrime`:
 Number of primes up to ten-thousand:
 
 ```
->>> 1:9999.select(isPrimeTrialDivision:/1).size
+>>> 1:9999.select(
+>>> 	isPrimeTrialDivision:/1
+>>> ).size
 1229
 ```
 
 * * *
 
-See also: isPrime, primeFactorsTrialDivision
+See also: isPrime, millerRabinPrimalityTest, primeFactorsTrialDivision
 
 Guides: Prime Number Functions
 

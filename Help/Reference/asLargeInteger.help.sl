@@ -2,7 +2,9 @@
 
 - _asLargeInteger(x)_
 
-Convert a `SmallFloat` or a `ByteArray` into a `LargeInteger`.
+Answer the `LargeInteger` that is equal to the number _x_,
+which must be an integer value,
+or a `ByteArray`.
 
 At `SmallFloat`:
 
@@ -13,11 +15,34 @@ At `SmallFloat`:
 (8388608, 8388608L, true, false, true)
 ```
 
+It is an error if the value is not an integer:
+
+```
+>>> {
+>>> 	1.pi.asLargeInteger
+>>> }.ifError { true }
+true
+```
+
 At `LargeInteger`:
 
 ```
 >>> 8388608L.asLargeInteger
 8388608L
+```
+
+At `Fraction`:
+
+```
+>>> 23/1.asLargeInteger
+23L
+```
+
+At `Decimal`:
+
+```
+>>> 23.0D.asLargeInteger
+23L
 ```
 
 At `ByteArray`:
@@ -42,6 +67,8 @@ At `ByteArray`:
 
 * * *
 
-See also: ByteArray, isSmallInteger, LargeInteger
+See also: asInteger, asSmallInteger, ByteArray, isSmallInteger, LargeInteger
+
+Guides: Bitwise Functions, Integer Functions
 
 Categories: Converting

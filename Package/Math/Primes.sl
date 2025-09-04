@@ -345,7 +345,7 @@
 						}
 					};
 					(prime.square > k).ifTrue {
-						answer.add(k);
+						answer.add(k.normal);
 						answer.return
 					};
 					index := index + 1

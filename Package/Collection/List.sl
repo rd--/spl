@@ -120,10 +120,6 @@ List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, S
 		self.sortOn(key:/1)
 	}
 
-	normal { :self |
-		self
-	}
-
 	printString { :self :toString:/1 |
 		'[%]'.format([
 			self.collect(toString:/1).commaSeparated

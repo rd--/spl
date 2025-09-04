@@ -15,6 +15,12 @@ Combinatorial Functions:
 
 - `Combinatorial Functions`: Guide
 
+Converting:
+
+- `asInteger`
+- `asSmallInteger`
+- `asLargeInteger`
+
 Division-Related Functions:
 
 - `divisible`
