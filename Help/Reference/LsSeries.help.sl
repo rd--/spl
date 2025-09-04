@@ -20,7 +20,7 @@ With infinite length:
 
 Non-cubical squares:
 
-~~~
+```
 >>> let powers = { :m |
 >>> 	LsSeries(0, 1, Infinity) ^ m
 >>> };
@@ -39,7 +39,7 @@ Non-cubical squares:
 >>> .take(9)
 >>> .upToEnd
 [529 576 625 676 784 841 900 961 1024]
-~~~
+```
 
 * * *
 

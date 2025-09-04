@@ -9,7 +9,7 @@ At `SmallFloat`:
 
 ```
 >>> 23.asSmallInteger
->>> 23
+23
 ```
 
 It is an error if the value is not an integer:
@@ -41,14 +41,14 @@ At `Fraction`:
 
 ```
 >>> 23/1.asSmallInteger
->>> 23
+23
 ```
 
 At `Decimal`:
 
 ```
 >>> 23.0D.asSmallInteger
->>> 23
+23
 ```
 
 * * *
