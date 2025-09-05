@@ -166,11 +166,11 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	}
 
 	asIdentitySet { :self |
-		self.characters.asIdentitySet
+		IdentitySet(self.characters)
 	}
 
-	asSet { :self :aBlock:/2 |
-		self.characters.asSet(aBlock:/2)
+	asSet { :self |
+		Set(self.characters)
 	}
 
 	asString { :self |

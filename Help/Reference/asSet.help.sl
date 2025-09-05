@@ -1,54 +1,36 @@
 # asSet
 
-- _asSet(c, f:/2)_
+- _asSet(c)_
 
-Answer a `Set` of the elements of the collection _c_ using the comparison predicate _f_.
-
-At `List` with `==` answers an `IdentitySet`:
-
-```
->>> let s = [1 1 2 1 2 3].asSet(==);
->>> (s.isIdentitySet, s.size)
-(true, 3)
-```
-
-At `Tuple`:
-
-```
->>> (1, 1.0001, 2, 1, 2.00001, 3).asSet(~).size
-3
-```
+Answer a `Set` of the elements of the collection _c_.
 
 At `IdentityBag`:
 
 ```
->>> [1 1 2 1 2 3].asIdentityBag.asSet(==)
-[1 2 3].asIdentitySet
+>>> [1 1 2 1 2 3]
+>>> .asIdentityBag
+>>> .asSet
+[1 2 3].Set
 ```
 
 At `String`:
 
 ```
->>> 'abracadabra'.asSet(==).size
-5
+>>> 'abracadabra'
+>>> .asSet
+Set(['a' 'b' 'r' 'c' 'd'])
 ```
 
-Lists that compare `=` do not compare `==`,
-`IdentitySet` refuses to construct a `Set` with non-immediate values:
+At a list of lists:
 
 ```
->>> [1 1; 1 1].asSet(=).size
-1
-
->>> {
->>> 	[1 1; 1 1].asSet(==)
->>> }.ifError { true }
-true
+>>> [1 1; 1 1].asSet
+Set([[1 1]])
 ```
 
 * * *
 
-See also: asIdentitySet, Collection, IdentitySet, isImmediate, nub, Set
+See also: asIdentitySet, Collection, IdentitySet, nub, Set
 
 References:
 _Smalltalk_

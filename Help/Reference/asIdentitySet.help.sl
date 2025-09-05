@@ -7,8 +7,9 @@ Answer a `IdentitySet` of the elements of _aCollection_.
 At `List`:
 
 ```
->>> [1 1 2 1 2 3].asIdentitySet.size
-3
+>>> [1 1 2 1 2 3].asIdentitySet
+>>> .contents
+[1 2 3]
 ```
 
 At `Tuple`:
@@ -34,12 +35,10 @@ At `String`:
 5
 ```
 
-Lists that compare `=` do not compare `==`, that is they are not `isImmediate`:
+Lists that compare `=` do not compare `==`,
+`asIdentitySet` refuses to construct a set with non-immediate values:
 
 ```
->>> [1 1; 1 1].basicAsIdentitySet.size
-2
-
 >>> {
 >>> 	[1 1; 1 1].asIdentitySet
 >>> }.ifError { true }
@@ -48,7 +47,7 @@ true
 
 * * *
 
-See also: basicAsIdentitySet, Collection, IdentitySet, isImmediate, nub, Set
+See also: Collection, IdentitySet, isImmediate, nub, Set
 
 References:
 _Smalltalk_

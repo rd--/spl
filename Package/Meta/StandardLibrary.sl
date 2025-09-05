@@ -46,6 +46,8 @@
 	'WeakMap'
 	'WeightedData'
 	'BitSet' /* ByteArray */
+	'IdentityBag' /* Bag */
+	'IdentitySet' /* Set */
 	'Matrix' /* NumericArray */
 	'ResidueSet' /* BitSet Set */
 

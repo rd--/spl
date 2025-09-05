@@ -1,9 +1,9 @@
 # commonSubexpressions
 
-- _commonSubexpressions(aSymbolicExpression, aBlock:/2)_
+- _commonSubexpressions(e, f:/2)_
 
-Answer a list of the subexpressions of _aSymbolicExpression_ that occur more than once,
-according to _aBlock_.
+Answer a list of the subexpressions of the symbolic expression _e_ that occur more than once,
+according to the comparator _f_.
 
 List subexpressions that are common,
 according to `==`.

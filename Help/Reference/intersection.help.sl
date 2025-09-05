@@ -9,11 +9,11 @@ or of each of the subcollection _c_.
 At `Set`:
 
 ```
->>> let s1 = [1 1 2 3].asSet(=);
->>> let s2 = [3 1 4].asSet(=);
->>> let s3 = [4 1 3 3].asSet(=);
+>>> let s1 = [1 1 2 3].Set;
+>>> let s2 = [3 1 4].Set;
+>>> let s3 = [4 1 3 3].Set;
 >>> s1.intersection(s2).intersection(s3)
-[1 3].asSet(=)
+[1 3].Set
 ```
 
 At `List`,

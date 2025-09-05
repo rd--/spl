@@ -1,7 +1,6 @@
 # IdentityBag
 
-- _IdentityBag()_
-- _IdentityBag(m)_
+- _IdentityBag([c₁: i₁, c₂: i₂, …])_
 
 A `Type` holding an unordered collection of possibly duplicated elements,
 also called a _multiset_.

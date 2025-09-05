@@ -1,9 +1,9 @@
 # countDistinct
 
-- _countDistinct(aList, aBlock:/2)_
+- _countDistinct([x₁ x₂ …], f:/2)_
 
-Answer the number of distinct elements that appear in _aList_,
-according to _aBlock_.
+Answer the number of distinct elements that appear in _x_,
+according to the block _f_.
 
 Count distinct elements in a `List`:
 

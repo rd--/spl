@@ -56,100 +56,7 @@
 
 }
 
-Set! : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] {
-
-	asList { :self |
-		<primitive: return Array.from(_self);>
-	}
-
-	basicInclude { :self :anObject |
-		<primitive:
-		_self.add(_anObject);
-		return _anObject;
-		>
-	}
-
-	basicIncludeAll { :self :aCollection |
-		<primitive:
-		for (const item of _aCollection) {
-			_self.add(item);
-		};
-		return _aCollection;
-		>
-	}
-
-	basicRemove { :self :anObject |
-		<primitive:
-		_self.delete(_anObject);
-		return _anObject;
-		>
-	}
-
-	do { :self :aBlock |
-		<primitive:
-		_self.forEach(function(item) {
-			_aBlock(item);
-		});
-		>
-		self
-	}
-
-	include { :self :anObject |
-		anObject.isImmediate.ifFalse {
-			self.error('IdentitySet>>include: non-immediate entry: ' ++ anObject)
-		};
-		self.basicInclude(anObject)
-	}
-
-	includes { :self :anObject |
-		<primitive: return _self.has(_anObject);>
-	}
-
-	isIdentitySet { :self |
-		true
-	}
-
-	pseudoSlotNameList { :self |
-		['size']
-	}
-
-	removeAll { :self |
-		<primitive:
-		_self.clear();
-		return null;
-		>
-	}
-
-	removeIfAbsent { :self :anObject :aBlock:/0 |
-		<primitive:
-		if(_self.has(_anObject)) {
-			_self.delete(_anObject);
-			return _anObject;
-		} else {
-			return _aBlock_0();
-		}
-		>
-	}
-
-	shallowCopy { :self |
-		<primitive: return new Set(_self);>
-	}
-
-	size { :self |
-		<primitive: return _self.size;>
-	}
-
-	species { :self |
-		IdentitySet:/0
-	}
-
-	storeString { :self |
-		self.asList.storeString ++ '.asIdentitySet'
-	}
-
-}
-
-SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents predicate |
+Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
 
 	asList { :self |
 		self.contents.copy
@@ -165,11 +72,11 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 	}
 
 	include { :self :anObject |
-		self.contents.addIfNotPresentBy(anObject, self.predicate)
+		self.contents.addIfNotPresentBy(anObject, self.comparator)
 	}
 
 	includes { :self :anObject |
-		self.contents.includesBy(anObject, self.predicate)
+		self.contents.includesBy(anObject, self.comparator)
 	}
 
 	removeAll { :self |
@@ -178,7 +85,7 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 
 	removeIfAbsent { :self :anObject :aBlock:/0 |
 		self.contents.detectIndexIfFoundIfNone { :item |
-			self.predicate.value(item, anObject)
+			self.comparator.value(item, anObject)
 		} { :index |
 			self.contents.removeAt(index)
 		} {
@@ -187,7 +94,7 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 	}
 
 	shallowCopy { :self |
-		self.contents.shallowCopy.asSet(self.predicate)
+		self.contents.shallowCopy.asSet
 	}
 
 	size { :self |
@@ -195,49 +102,28 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 	}
 
 	species { :self |
-		{
-			Set(self.predicate)
-		}
+		Set:/0
 	}
 
 	storeString { :self |
-		'%.asSet(%)'.format(
-			[
-				self.contents.storeString,
-				self.predicate.name
-			]
-		)
+		'Set(%)'.format([self.contents.storeString])
 	}
 
 }
 
 +@Dictionary {
 
-	asIdentitySet { :self |
-		self.values.asIdentitySet
-	}
-
-	asSet { :self :aBlock:/2 |
-		self.values.asSet(aBlock:/2)
+	asSet { :self |
+		self.values.asSet
 	}
 
 }
 
 +List {
 
-	basicAsIdentitySet { :self |
-		<primitive: return new Set(_self);>
-	}
-
-	asIdentitySet { :self |
-		self.allSatisfy(isImmediate:/1).ifFalse {
-			'List>>asIdentitySet: non-immediate entry'.error
-		};
-		self.basicAsIdentitySet
-	}
-
 	unionBy { :self :aBlock:/2 |
-		let set = Set(aBlock:/2);
+		let set = Set();
+		set.comparator := aBlock:/2;
 		self.do { :each |
 			set.includeAll(each)
 		};
@@ -260,44 +146,22 @@ SetBy : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { 
 
 +@Collection {
 
-	asIdentitySet { :self |
-		let answer = IdentitySet();
-		answer.includeAll(self);
-		answer
+	asSet { :self |
+		Set(self)
 	}
 
-	asSet { :self :aBlock:/2 |
-		let answer = Set(aBlock:/2);
+	Set { :self |
+		let answer = Set();
 		answer.includeAll(self);
 		answer
-	}
-
-}
-
-+@Object {
-
-	isIdentitySet { :self |
-		false
 	}
 
 }
 
 +Void {
 
-	IdentitySet {
-		<primitive: return new Set();>
-	}
-
-}
-
-+Block {
-
-	Set { :aBlock:/2 |
-		(aBlock:/2 == ==).if {
-			IdentitySet()
-		} {
-			newSetBy().initializeSlots([], aBlock:/2)
-		}
+	Set {
+		newSet().initializeSlots([], =)
 	}
 
 }

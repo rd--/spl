@@ -3,7 +3,7 @@
 +Fraction {
 
 	latticePrimes { :self :includeOctave |
-		let answer = Set(=);
+		let answer = Set();
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
 		includeOctave.ifFalse {
@@ -115,7 +115,7 @@
 	}
 
 	latticePrimes { :self :includeOctave |
-		let answer = Set(=);
+		let answer = Set();
 		self.asRatios.do { :each |
 			answer.includeAll(each.latticePrimes(includeOctave))
 		};

@@ -75,8 +75,11 @@ true
 At `Set`:
 
 ```
+>>> [2 3].Set.add(1)
+1
+
 >>> {
->>> 	[1 2 3].asSet(~).add(1.00001)
+>>> 	[1 2 3].Set.add(1)
 >>> }.ifError { true }
 true
 ```

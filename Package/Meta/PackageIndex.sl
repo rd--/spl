@@ -42,6 +42,8 @@
 	'Collection-Heap'
 	'Collection-Histogram'
 	'Collection-HuffmanCoding'
+	'Collection-IdentityBag'
+	'Collection-IdentitySet'
 	'Collection-Indexable'
 	'Collection-Iterable'
 	'Collection-LinkedList'

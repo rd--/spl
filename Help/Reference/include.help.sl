@@ -34,7 +34,8 @@ At `IdentitySet`:
 At `Set`:
 
 ```
->>> let s = Set(~);
+>>> let s = Set();
+>>> s.comparator := ~;
 >>> s.include(1);
 >>> (s.include(1.00001), s.asList, s.size)
 (1.00001, [1], 1)

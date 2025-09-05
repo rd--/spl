@@ -1,6 +1,6 @@
 # Bag
 
-- _Bag()_
+- _Bag([|c₁→i₁, c₂→i₂, …|])_
 
 A `Type` and associated `Trait` holding an unordered collection of possibly duplicated elements,
 also called a _multiset_.

@@ -27,8 +27,8 @@ Removes only one matching element:
 At `Set`:
 
 ```
->>> let c = [1 2 3].asSet(~);
->>> let x = c.remove(1.00001);
+>>> let c = Set([1 2 3]);
+>>> let x = c.remove(1);
 >>> (c.asList, x)
 ([2 3], 1)
 ```
@@ -42,7 +42,7 @@ If no item matches an `error` is signaled:
 true
 
 >>> {
->>> 	[1 2 3].asSet(=).remove(4)
+>>> 	Set([1 2 3]).remove(4)
 >>> }.ifError { true }
 true
 ```

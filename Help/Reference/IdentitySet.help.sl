@@ -16,7 +16,12 @@ The empty set constructor:
 Set predicate:
 
 ```
->>> IdentitySet().isIdentitySet
+>>> IdentitySet()
+>>> .isIdentitySet
+true
+
+>>> IdentitySet()
+>>> .isSet
 true
 ```
 

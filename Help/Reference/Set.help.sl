@@ -1,11 +1,40 @@
 # Set
 
-- _Set(f:/2)_
+- _Set([x₁ x₂ …])_
 
-A `Trait` and a `Type` representing a collection of objects without duplicates.
-The comparison operator is the block _f_, or `=` if elided.
+Set is both a `Trait` holding behaviours for collection types that do not contain duplicate items,
+and a `Type` representing a set where the comparison operator is `=`.
 
-Sets with predicates other than `==` may not be at all efficient,
+The empty set constructor,
+also a `Set` from an empty list:
+
+```
+>>> Set().size
+0
+
+>>> Set([]).size
+0
+```
+
+Set predicate:
+
+```
+>>> Set().isSet
+true
+
+>>> Set().isIdentitySet
+false
+```
+
+Sets are unordered collections,
+and have the expected mathematical behavior in relation to scalars:
+
+```
+>>> Set([1 2 3]) * 5
+Set([5 10 15])
+```
+
+Note that `Set` may be significantly less efficient that `IdentitySet`,
 however `==` has some subtle behaviours:
 
 ```
@@ -14,35 +43,15 @@ false
 
 >>> 1 == 1L
 false
-```
 
-The empty set constructor:
+>>> Set([1 1L])
+>>> .contents
+[1]
 
-```
->>> Set(=).size
-0
-```
-
-Set predicate:
-
-```
->>> Set(=).isSet
+>>> {
+>>> 	IdentitySet([1 1L])
+>>> }.ifError { true }
 true
-```
-
-Providing the identity predicate answers an `IdentitySet`:
-
-```
->>> Set(==).isIdentitySet
-true
-```
-
-Sets are unordered collections,
-and have the expected mathematical behavior in relation to scalars:
-
-```
->>> [1 2 3].asSet(=) * 5
-[5 10 15].asSet(=)
 ```
 
 * * *

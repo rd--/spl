@@ -39,8 +39,8 @@
 		self.contents.associations
 	}
 
-	asSet { :self :aBlock:/2 |
-		self.contents.indices.asSet(aBlock:/2)
+	asSet { :self |
+		self.contents.indices.asSet
 	}
 
 	basicAddWithOccurrences { :self :anObject :anInteger |
@@ -173,39 +173,8 @@
 
 Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | contents |
 
-	asSet { :self |
-		self.contents.indices.asSet(=)
-	}
-
 	species { :self |
 		Bag:/0
-	}
-
-}
-
-IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | contents |
-
-	addWithOccurrences { :self :anObject :anInteger |
-		anObject.isImmediate.ifFalse {
-			'IdentityBag>>addWithOccurrences: non-immediate entry'.error
-		};
-		self.basicAddWithOccurrences(anObject, anInteger)
-	}
-
-	asIdentityBag { :self |
-		self
-	}
-
-	asMap { :self |
-		self.contents
-	}
-
-	asIdentitySet { :self |
-		self.contents.indices.asIdentitySet
-	}
-
-	species { :self |
-		IdentityBag:/0
 	}
 
 }
@@ -213,23 +182,15 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 +Void {
 
 	Bag {
-		newBag().initializeSlots(
-			Dictionary()
-		)
-	}
-
-	IdentityBag {
-		IdentityBag(
-			Map()
-		)
+		Bag(Dictionary())
 	}
 
 }
 
-+Map {
++Dictionary {
 
-	IdentityBag { :self |
-		newIdentityBag().initializeSlots(self)
+	Bag { :self |
+		newBag().initializeSlots(self)
 	}
 
 }
@@ -238,12 +199,6 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 
 	asBag { :self |
 		let answer = Bag();
-		answer.addAll(self);
-		answer
-	}
-
-	asIdentityBag { :self |
-		let answer = IdentityBag();
 		answer.addAll(self);
 		answer
 	}

@@ -57,7 +57,7 @@ function splObjectTypeOf(anObject: SplObject): TypeName {
 		return 'Map';
 	}
 	if (anObject instanceof Set) {
-		return 'Set';
+		return 'IdentitySet';
 	}
 	if (anObject instanceof Promise) {
 		return 'Promise';

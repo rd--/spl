@@ -214,8 +214,10 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 	}
 
 	commonSubexpressions { :self :aBlock:/2 |
-		let all = Set(aBlock:/2);
-		let common = Set(aBlock:/2);
+		let all = Set();
+		let common = Set();
+		all.comparator := aBlock:/2;
+		common.comparator := aBlock:/2;
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
 				all.includes(each).if {

@@ -365,7 +365,7 @@
 
 	recamanSequence { :self |
 		let answer = List(self, 0);
-		let seen = [0].asIdentitySet;
+		let seen = IdentitySet([0]);
 		1.toDo(self - 1) { :n |
 			let next = answer[n] - n;
 			(
