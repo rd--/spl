@@ -42,7 +42,7 @@ To get the elements as a `Dictionary` use `valuesAndCounts`:
 
 ```
 >>> [1 1 1 3 3 5].asBag.valuesAndCounts
-[1 -> 3, 3 -> 2, 5 -> 1].asEqualityDictionary
+[|1 -> 3, 3 -> 2, 5 -> 1|]
 ```
 
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:

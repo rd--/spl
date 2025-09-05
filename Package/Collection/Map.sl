@@ -105,22 +105,7 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 	}
 
 	storeString { :self |
-		self.isEmpty.if {
-			'[:]'
-		} {
-			'[%]'.format(
-				[
-					self.associations.collect { :each |
-						'%: %'.format(
-							[
-								each.key.storeString,
-								each.value.storeString
-							]
-						)
-					}.commaSeparated
-				]
-			)
-		}
+		self.storeStringLiteral('[:]', '[', ']', storeString:/1, ': ', storeString:/1)
 	}
 
 	listSubstitutionSystem { :self :aList :anInteger |
@@ -192,23 +177,20 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 
 +List {
 
-	associationListToMap { :self |
+	associationsToMap { :self |
 		self.isAssociationList.if {
-			self.collect(asList:/1).uncheckedAsMap
+			self.collect(asList:/1).uncheckedListToMap
 		} {
-			self.error('List>>associationListToMap')
+			self.error('List>>associationsToMap')
 		}
 	}
 
-	matrixToMap { :self |
-		self.allSatisfy { :each |
-			each.isList & {
-				each.size = 2
-			}
-		}.if {
-			self.uncheckedAsMap
+	listToMap { :self |
+		let [_, m] = self.dimensions;
+		(m = 2).if {
+			self.uncheckedListToMap
 		} {
-			self.error('List>>matrixToMap')
+			self.error('List>>listToMap')
 		}
 	}
 
@@ -217,22 +199,22 @@ Map! : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictiona
 			Map()
 		} {
 			self.anyOne.isAssociation.if {
-				self.associationListToMap
+				self.associationsToMap
 			} {
-				self.matrixToMap
+				self.listToMap
 			}
 		}
 	}
 
 	Map { :self |
-		self.matrixToMap
+		self.listToMap
 	}
 
 	substitutionSystem { :self :initialCondition :anInteger |
 		self.asMap.substitutionSystem(initialCondition, anInteger)
 	}
 
-	uncheckedAsMap { :self |
+	uncheckedListToMap { :self |
 		<primitive: return new Map(_self);>
 	}
 

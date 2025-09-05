@@ -4,7 +4,7 @@
 
 Answer a one argument `Block` that memoizes _aBlock_,
 using a `Map` if _requireImmediate_ is `true`,
-else an `EqualityDictionary`.
+else an `Dictionary`.
 
 Un-memoized Fibonacci may take several seconds to evaluate for _k > 30_:
 

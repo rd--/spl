@@ -41,6 +41,7 @@ Guide/Date and Time Functions.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Functions.help.sl
+Guide/Dictionary Syntax.help.sl
 Guide/Distance Functions.help.sl
 Guide/Divisions of the Tetrachord.help.sl
 Guide/Documentation Tests.help.sl
@@ -148,10 +149,10 @@ Guide/Primitive Types.help.sl
 Guide/Probability Distributions.help.sl
 Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
+Guide/Property Read Syntax.help.sl
+Guide/Property Syntax.help.sl
+Guide/Property Write Syntax.help.sl
 Guide/Quantity Functions.help.sl
-Guide/Quoted AtPut Syntax.help.sl
-Guide/Quoted At Syntax.help.sl
-Guide/Quoted Indexable Syntax.help.sl
 Guide/Radix Syntax.help.sl
 Guide/Random Functions.help.sl
 Guide/Random Number Generators.help.sl
@@ -389,13 +390,13 @@ Reference/asDateAndTime.help.sl
 Reference/asDate.help.sl
 Reference/asDecimalFraction.help.sl
 Reference/asDecimal.help.sl
+Reference/asDictionary.help.sl
 Reference/asDiscreteColourGradient.help.sl
 Reference/asDocumentationTest.help.sl
 Reference/asDot.help.sl
 Reference/asDuration.help.sl
 Reference/asEdge.help.sl
 Reference/asEdgeList.help.sl
-Reference/asEqualityDictionary.help.sl
 Reference/asFileUrl.help.sl
 Reference/asFloat32Array.help.sl
 Reference/asFloat64Array.help.sl
@@ -458,6 +459,7 @@ Reference/assertIsValidIndex.help.sl
 Reference/asSet.help.sl
 Reference/asSmallerPowerOfTwo.help.sl
 Reference/asSmallFloat.help.sl
+Reference/asSmallInteger.help.sl
 Reference/associationAt.help.sl
 Reference/associationAtIfAbsent.help.sl
 Reference/Association.help.sl
@@ -1158,7 +1160,6 @@ Reference/EqPan2.help.sl
 Reference/EqPan.help.sl
 Reference/equalByAtNamedSlots.help.sl
 Reference/equalDetourPoint.help.sl
-Reference/EqualityDictionary.help.sl
 Reference/equalsSignEqualsSign.help.sl
 Reference/equalsSign.help.sl
 Reference/equalTemperamentTuning.help.sl
@@ -1792,6 +1793,8 @@ Reference/isNonNegativeInteger.help.sl
 Reference/isNonPositive.help.sl
 Reference/isNonZero.help.sl
 Reference/isNormal.help.sl
+Reference/isNotEmpty.help.sl
+Reference/isNotNil.help.sl
 Reference/isNumber.help.sl
 Reference/isObtuse.help.sl
 Reference/isOdd.help.sl
@@ -2385,10 +2388,8 @@ Reference/norm.help.sl
 Reference/norwichSpiral.help.sl
 Reference/noseHooverEquation.help.sl
 Reference/Notebook.help.sl
-Reference/notEmpty.help.sl
 Reference/not.help.sl
 Reference/notify.help.sl
-Reference/notNil.help.sl
 Reference/now.help.sl
 Reference/NRand.help.sl
 Reference/nthLexicographicPermutation.help.sl
@@ -3608,6 +3609,7 @@ Reference/xyzToLab.help.sl
 Reference/xyzToOklab.help.sl
 Reference/xyzToRgb.help.sl
 Reference/xyzToXyy.help.sl
+Reference/yCombinator.help.sl
 Reference/year.help.sl
 Reference/y.help.sl
 Reference/zeckendorfRepresentation.help.sl

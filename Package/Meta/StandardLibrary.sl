@@ -17,7 +17,6 @@
 	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
-	'EqualityDictionary'
 	'Graph'
 	'Heap'
 	'Histogram'

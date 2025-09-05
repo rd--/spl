@@ -1,8 +1,8 @@
 # dimensions
 
-- _dimensions(anObject, anInteger=Infinity)_
+- _dimensions(x, n=Infinity)_
 
-Answer the list of the dimensions of _anObject_ down to level _anInteger_.
+Answer the list of the dimensions of the object _x_ down to level _n_.
 
 Find the dimensions of a vector:
 

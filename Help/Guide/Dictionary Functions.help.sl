@@ -5,11 +5,8 @@ Traits and Types:
 - `Association`
 - `Cache`
 - `Dictionary`
-- `EqualityDictionary`
 - `Map`
 - `Record`
-- `TolerantDictionary`
-- `TypedDictionary`
 
 Accessing:
 
@@ -40,7 +37,7 @@ Constructors:
 
 Converting:
 
-- `asEqualityDictionary`
+- `asDictionary`
 - `asMap`
 - `asRecord`
 
@@ -72,4 +69,4 @@ Type Functions:
 
 * * *
 
-Guides: Indexing Functions, List Functions, Record Syntax
+Guides: Dictionary Syntax, Indexing Functions, List Functions, Map Syntax, Record Syntax

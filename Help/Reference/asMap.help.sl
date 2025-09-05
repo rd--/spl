@@ -46,7 +46,7 @@ true
 
 * * *
 
-See also: ->, asEqualityDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
+See also: ->, asDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
 
 Guides: Dictionary Functions
 

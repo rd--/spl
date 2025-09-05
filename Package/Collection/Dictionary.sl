@@ -409,7 +409,30 @@
 		self.keys.size
 	}
 
-	storeString { :self |
+
+	storeStringLiteral { :self :empty :open :close :formatKey:/1 :join :formatValue:/1 |
+		self.isEmpty.if {
+			empty
+		} {
+			'%%%'.format(
+				[
+					open,
+					self.associations.collect { :each |
+						'%%%'.format(
+							[
+								each.key.formatKey,
+								join,
+								each.value.formatValue
+							]
+						)
+					}.commaSeparated,
+					close
+				]
+			)
+		}
+	}
+
+	storeStringExpression { :self |
 		'%.as%'.format(
 			[
 				self.associations.storeString,
@@ -528,10 +551,44 @@
 
 }
 
-+@Object {
+Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values |
 
-	isDictionary { :unused |
-		false
+	comparator { :unused |
+		=
+	}
+
+	storeString { :self |
+		self.storeStringLiteral(
+			'[| |]', '[|', '|]',
+			storeString:/1, ' -> ', storeString:/1
+		)
+	}
+
+}
+
++Void {
+
+	Dictionary {
+		newDictionary().initializeSlots([], [])
+	}
+
+}
+
++List {
+
+	asDictionary { :self |
+		Dictionary(self)
+	}
+
+	Dictionary { :self |
+		self.isAssociationList.if {
+			let answer = Dictionary();
+			answer.keys := self.collect(key:/1);
+			answer.values := self.collect(value:/1);
+			answer
+		} {
+			self.error('List>>Dictionary: not association list')
+		}
 	}
 
 }

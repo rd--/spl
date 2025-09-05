@@ -65,12 +65,13 @@ Sl {
 		| VectorSyntax
 		| MatrixSyntax
 		| VolumeSyntax
-		| ListExpression
+		| ListSyntax
 		| ParenthesisedExpression
 		| EmptyRecordSyntax
 		| NonEmptyRecordSyntax
 		| EmptyMapSyntax
 		| NonEmptyMapSyntax
+		| DictionarySyntax
 		| TupleExpression
 		| ListRangeSyntax
 		| ListRangeThenSyntax
@@ -80,7 +81,7 @@ Sl {
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	PropertyWriteSyntax = Primary "::" recordKey ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
-	AtAllSyntax = Primary "[" NonemptyListOf<(spanLiteral | ListExpression), ","> "]"
+	AtAllSyntax = Primary "[" NonemptyListOf<(spanLiteral | ListSyntax), ","> "]"
 	PropertyReadSyntax = Primary "::" recordKey
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
@@ -111,8 +112,10 @@ Sl {
 	EmptyMapSyntax = "[" ":" "]"
 	NonEmptyMapSyntax = "[" NonemptyListOf<MapSyntaxItem, ","> "]"
 	MapSyntaxItem = Expression ":" Expression
+	DictionarySyntax = "[|" ListOf<BinaryOperatorExpression, ","> "|]"
+	DictionarySyntaxItem = Expression "->" Expression
 	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
-	ListExpression = "[" ListOf<Expression, ","> "]"
+	ListSyntax = "[" ListOf<Expression, ","> "]"
 	ListRangeSyntax = "[" Expression ".." Expression "]"
 	ListRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
 	RangeSyntax = "(" Expression ".." Expression ")"

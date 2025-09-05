@@ -100,4 +100,3 @@ Derived Circles:
 * * *
 
 Guides: Geometry Functions
-

@@ -89,7 +89,8 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 	}
 
 	storeString { :self |
-		self.isEmpty.if {
+		self.storeStringLiteral('(:)', '(', ')', identity:/1, ': ', storeString:/1)
+		/*self.isEmpty.if {
 			'(:)'
 		} {
 			'(%)'.format(
@@ -104,7 +105,7 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 					}.commaSeparated
 				]
 			)
-		}
+		}*/
 	}
 
 	uncheckedAt { :self :key |

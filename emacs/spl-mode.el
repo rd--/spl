@@ -287,6 +287,11 @@ If the string begins with a doctest, also delete all non doctest lines."
 
 (defun spl-prettier ()
   "Unicode symbols"
+  (setq prettify-symbols-compose-predicate
+	(lambda (start end match)
+	  (if (string-suffix-p "]" match)
+	      t
+	    (prettify-symbols-default-compose-p start end match))))
   (setq
    prettify-symbols-alist
    '(
@@ -470,12 +475,16 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("sha" . ?ш) ; U+0448 ш Cyrillic Small Letter Sha
      ("halve" . ?½) ; U+00BD ½ Vulgar Fraction One Half
 
+     ("[|" . ?⟦) ; U+27E6 ⟦ Mathematical Left White Square Bracket
+     ("|]" . ?⟧) ; U+27E7 ⟧ Mathematical Right White Square Bracket
+
+     ;; ("{|" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
+     ;; ("|}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
+
      ;; ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡
-     ;; ("-}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
      ;; ("..." . ?‥) ; U+2026 … Horizontal Ellipsis; U+22ef ⋯ Midline Horizontal Ellipsis
      ;; ("e" . ?𝑒)
-     ;; ("{-" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
      ;; ("|(" . ?⦇) ; U+2989 ⦇ Z Notation Left Image Bracket
      )))
 

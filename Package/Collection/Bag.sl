@@ -214,7 +214,7 @@ IdentityBag : [Object, Iterable, Collection, Extensible, Removable, Unordered, B
 
 	Bag {
 		newBag().initializeSlots(
-			[].asEqualityDictionary
+			Dictionary()
 		)
 	}
 

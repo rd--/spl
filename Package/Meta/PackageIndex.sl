@@ -35,7 +35,6 @@
 	'Collection-Cons'
 	'Collection-Dictionary'
 	'Collection-DirectedEdge'
-	'Collection-EqualityDictionary'
 	'Collection-Extensible'
 	'Collection-Float32Array'
 	'Collection-Float64Array'

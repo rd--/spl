@@ -15,6 +15,6 @@ A `Type` representing a dictionary where keys are compared using the tolerant eq
 
 * * *
 
-See also: Dictionary, EqualityDictionary, Map, Record
+See also: Dictionary, Map, Record
 
 Guides: Dictionary Functions

@@ -9,7 +9,9 @@ where the `pathBasename` matches the regular expression _r_.
 Print the reference help files with an empty guides field:
 
 ~~~spl console
-system.helpFilesDo('Reference', '.*', false) { :each |
+system.helpFilesDo(
+	'Reference', '.*', false
+) { :each |
 	each.guides.isEmpty.ifTrue {
 		each.name.postLine
 	}

@@ -45,7 +45,7 @@ true
 At `Dictionary`:
 
 ```
->>> [1L -> 'A', 2L -> 'B'].asEqualityDictionary.includes('A')
+>>> [|1L -> 'A', 2L -> 'B'|].includes('A')
 true
 ```
 

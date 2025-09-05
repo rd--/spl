@@ -263,7 +263,7 @@ Block! : [Object] {
 		let table = requireImmediate.if {
 			Map()
 		} {
-			EqualityDictionary()
+			Dictionary()
 		};
 		{ :input |
 			table.atIfAbsent(input) {

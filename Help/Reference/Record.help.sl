@@ -17,6 +17,9 @@ There is a literal syntax for records.
 ```
 >>> (x: 3.141, y: 23).isRecord
 true
+
+>>> (:).isRecord
+true
 ```
 
 There is a conversion method,

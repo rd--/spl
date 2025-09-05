@@ -1,22 +1,25 @@
 # Map
 
-- _Map([k₁ v₁; k₂ v₂; …])_
+- _Map([[k₁, v₁], [k₂, v₂], …])_
 
 A `Map` is a `Dictionary` type where the keys are compared using the identical to (`==`) operator.
 See `isImmediate` for deciding if a value is suitable as a key.
 
-At a Map from a matrix:
+Construct a `Map` from a list of lists:
 
 ```
 >>> Map([1 2; 3 4; 5 6])
 [1: 2, 3: 4, 5: 6]
+
+>>> Map([[1, [2, 3]], [3, [4, 5, 6]]])
+[1: [2 3], 3: [4 5 6]]
 ```
 
 Construct an empty `Map`:
 
 ```
->>> Map().isMap
-true
+>>> Map()
+[:]
 ```
 
 `Map` treats negative zero as zero when used as a key:

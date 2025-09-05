@@ -57,7 +57,7 @@ TypedDictionary : [Object, Iterable, Indexable, Collection, Extensible, Removabl
 		let contents = [
 			{ self = 'String' } -> { Record() },
 			{ self.isImmediateType } -> { Map() },
-			{ true } -> { EqualityDictionary() }
+			{ true } -> { Dictionary() }
 		].which;
 		newTypedDictionary().initializeSlots(contents, self)
 	}

@@ -176,7 +176,7 @@ const asJs: ohm.ActionDict<string> = {
 	NonFinalExpression(e, _semicolon, stm) {
 		return `${e.asJs}; ${stm.asJs};`;
 	},
-	ListExpression(_leftBracket, items, _rightBracket) {
+	ListSyntax(_leftBracket, items, _rightBracket) {
 		return `[${commaListJs(items.asIteration().children)}]`;
 	},
 	ParameterList(_leftParen, sq, _rightParen) {
@@ -387,8 +387,11 @@ const asSl: ohm.ActionDict<string> = {
 	BlockLiteralInitializer(name, _e, blk) {
 		return `${name.sourceString} = ${blk.asSl}`;
 	},
-	MapSyntaxItem(lhs, _c, rhs) {
-		return `[${lhs.asSl}, ${rhs.asSl}]`;
+	DictionarySyntax(_l, items, _r) {
+		return `Dictionary([${commaListSl(items.asIteration().children)}])`;
+	},
+	DictionarySyntaxItem(lhs, _c, rhs) {
+		return `${lhs.asSl} -> ${rhs.asSl}`;
 	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
@@ -447,9 +450,6 @@ const asSl: ohm.ActionDict<string> = {
 		).join('; ');
 		return `({ let ${rhsListName} = ${rhs.asSl}; ${slots} } . ())`;
 	},
-	ListExpression(_l, items, _r) {
-		return `[${commaListSl(items.asIteration().children)}]`;
-	},
 	ListInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
 		const rhsName = genSym('__SPL');
@@ -463,6 +463,12 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	ListRangeThenSyntax(_left, start, _comma, then, _dots, end, _right) {
 		return `asList(thenTo(${start.asSl}, ${then.asSl}, ${end.asSl}))`;
+	},
+	ListSyntax(_l, items, _r) {
+		return `[${commaListSl(items.asIteration().children)}]`;
+	},
+	MapSyntaxItem(lhs, _c, rhs) {
+		return `[${lhs.asSl}, ${rhs.asSl}]`;
 	},
 	MatrixSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -741,7 +747,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	LetTemporary(_l, tmp, _s) {
 		return ['Let', tmp.asAst].flat(1);
 	},
-	ListExpression(_l, items, _r) {
+	ListSyntax(_l, items, _r) {
 		return ['List'].concat(items.children.map((x) => x.asAst).flat(1));
 	},
 	NonEmptyParameterList(_l, sq, _r) {
