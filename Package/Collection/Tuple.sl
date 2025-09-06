@@ -1,6 +1,12 @@
 /* Requires: List */
 
-Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
+Tuple : [Object/*, Iterable, Indexable, Collection, Sequenceable*/] { | contents |
+
+	~ { :self :anObject |
+		anObject.isTuple & {
+			self.contents ~ anObject.contents
+		}
+	}
 
 	asList { :self |
 		self.contents.copy
@@ -10,9 +16,9 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 		self.contents.at(index)
 	}
 
-	atPut { :self :index :anObject |
+	/*atPut { :self :index :anObject |
 		self.contents.atPut(index, anObject)
-	}
+	}*/
 
 	concisePrintString { :self |
 		'(' ++ self.contents.collect(concisePrintString:/1).commaSeparated ++ ')'
@@ -22,9 +28,9 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 		self.contents.asTuple
 	}
 
-	do { :self :aBlock:/1 |
+	/*do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1)
-	}
+	}*/
 
 	indices { :self |
 		self.contents.indices
@@ -42,9 +48,9 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 		self.contents.size
 	}
 
-	species { :self |
+	/*species { :self |
 		Tuple:/1
-	}
+	}*/
 
 	storeString { :self |
 		'(' ++ self.contents.collect(storeString:/1).commaSeparated ++ ')'
@@ -52,6 +58,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
 }
 
+/*
 +@Integer {
 
 	Tuple { :size |
@@ -63,6 +70,7 @@ Tuple : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
 	}
 
 }
+*/
 
 +List {
 

@@ -21,16 +21,6 @@ At `List`:
 [1 2 5]
 ```
 
-At `Tuple`:
-
-```
->>> (1, 3, 5, 7, 9).indices
-1:5
-
->>> (1, 3, 4, 2, 5).indices(isEven:/1)
-[3 4]
-```
-
 At `Record`:
 
 ```

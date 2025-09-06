@@ -4,13 +4,21 @@
 
 Answer a `Set` of the elements of the collection _c_.
 
-At `IdentityBag`:
+At `List`:
 
 ```
 >>> [1 1 2 1 2 3]
->>> .asIdentityBag
 >>> .asSet
-[1 2 3].Set
+{|1, 2, 3|}
+```
+
+At `Bag`:
+
+```
+>>> [1 1 2 1 2 3]
+>>> .asBag
+>>> .asSet
+{|1, 2, 3|}
 ```
 
 At `String`:
@@ -18,14 +26,14 @@ At `String`:
 ```
 >>> 'abracadabra'
 >>> .asSet
-Set(['a' 'b' 'r' 'c' 'd'])
+{|'a', 'b', 'r', 'c', 'd'|}
 ```
 
 At a list of lists:
 
 ```
 >>> [1 1; 1 1].asSet
-Set([[1 1]])
+{|[1, 1]|}
 ```
 
 * * *

@@ -33,6 +33,13 @@ At `List`:
 true
 ```
 
+At `Tuple`:
+
+```
+>>> (1.e, 1.pi) ~ (2.7183, 3.1416)
+true
+```
+
 At `List` of `List`:
 
 ```

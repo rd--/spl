@@ -31,7 +31,7 @@
 	staffordsAlgorithm { :self :n :u :nsets |
 		/* https://github.com/jlelli/taskgen/ */
 		let range = { :i :j :k | Range(i, j - k, k).asList };
-		let k = (u.floor, n - 1).min;
+		let k = u.floor.min(n - 1);
 		let s1 = u - range(k, k - n, -1);
 		let s2 = range(k + n, k, -1) - u;
 		let tiny = 1.smallFloatEpsilon;

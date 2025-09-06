@@ -15,14 +15,6 @@ At `List`:
 ['A', ['B', ['C', ['D']]]]
 ```
 
-At `Tuple`:
-
-```
->>> ('a', ('b', ('c', 'd')))
->>> .deepCollect(asUpperCase:/1)
-('A', ('B', ('C', 'D')))
-```
-
 At `Record`:
 
 ```

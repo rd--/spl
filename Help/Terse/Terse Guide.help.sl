@@ -1264,7 +1264,7 @@ let n = 3.141; n.copy == n /* copy small float, identity */
 let n = 23L; n.copy == n /* copy large integer, identity */
 let s = 'string'; s.copy == s /* copy string, identity */
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
-let t = (0, 0); let c = t.copy; c[1] := 1; c != t & { c = (1, 0) } /* copy two tuple */
+let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
 let f = 3/4; let c = f.copy; c.numerator := 1; c != f & { c = 1/4 } /* copy fraction */
 let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallowCopy array */
@@ -3941,39 +3941,25 @@ let t = 1676784053576.asTimeStamp; let c = t.copy; c !== t & { c = t }
 system.includesPackage('Tuple') /* package */
 (1, 2).typeOf = 'Tuple' /* type of */
 (1, 2).isTuple /* type predicate */
-(1, 2).first = 1 /* first element */
-(1, 2).second = 2 /* second element */
-let t = (1, 2); t[1] := 3; t = (3, 2) /* mutate first */
-let t = (1, 2); t[2] := 3; t = (1, 3) /* mutate second */
+(1, 2).at(1) = 1 /* first element */
+(1, 2).at(2) = 2 /* second element */
 (1, 2).size = 2 /* size of */
 (1, 2, 3).typeOf = 'Tuple' /* type of */
 (1, 2, 3).isTuple /* type predicate */
-(1, 2, 3).first = 1 /* first element */
-(1, 2, 3).second = 2 /* second element */
-(1, 2, 3).third = 3 /* third element */
-let t = (1, 2, 3); t[1] := 4; t = (4, 2, 3) /* mutate first */
-let t = (1, 2, 3); t[2] := 4; t = (1, 4, 3) /* mutate second */
-let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
+(1, 2, 3).at(1) = 1 /* first element */
+(1, 2, 3).at(2) = 2 /* second element */
+(1, 2, 3).at(3) = 3 /* third element */
 (1, 2, 3).size = 3 /* size of */
 [1 2 3].asTuple = (1, 2, 3) /* from list */
-(1, 2, 3).rotateLeft = (2, 3, 1) /* rotated left */
-(1, 2, 3).rotateRight = (3, 1, 2) /* rotated right */
 (1, 2, 3).typeOf = 'Tuple' /* type of */
 (1, 2, 3).isTuple = true /* type predicate */
 (1, 2, 3).size = 3 /* size of */
-(1, 2, 3).species = Tuple:/1 /* species */
-(1, 2, 3).isCollection = true /* collection trait */
+(1, 2, 3).isCollection = false /* collection trait */
 (1, 2, 3).isIndexable = true /* indexable trait */
-(1, 2, 3).isSequenceable = true /* sequenceable trait */
-Tuple(0).isEmpty = true /* the empty tuple */
-[1 .. 5].asTuple.first = 1 /* from list */
+(1, 2, 3).isSequenceable = false /* sequenceable trait */
+[1 .. 5].asTuple.at(1) = 1 /* from list */
 [1 .. 5].asTuple.asList = [1 .. 5] /* as list */
-[1 .. 5].asTuple.reverse.first = 5 /* reverse */
 let t = (1, 2, 3); t[3] = 3 /* at protocol */
-let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* atPut protocol */
-let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 /* copy */
-(1, 4, 9).collect(sqrt:/1) = (1, 2, 3) /* collect */
-(1, 4, 9).reduce(+) = 14 /* reduce */
 ```
 
 ## Type -- reflection type

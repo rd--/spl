@@ -390,9 +390,6 @@ const asSl: ohm.ActionDict<string> = {
 	DictionarySyntax(_l, items, _r) {
 		return `Dictionary([${commaListSl(items.asIteration().children)}])`;
 	},
-	DictionarySyntaxItem(lhs, _c, rhs) {
-		return `${lhs.asSl} -> ${rhs.asSl}`;
-	},
 	DotExpression(lhs, _dot, names, args) {
 		let rcv = lhs.asSl;
 		const namesArray = names.children.map((c) => c.asSl);
@@ -429,6 +426,9 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	EmptyRecordSyntax(_l, _c, _r) {
 		return 'Record()';
+	},
+	EmptySetSyntax(_l, _r) {
+		return 'Set()';
 	},
 	ExpressionInitializer(name, _e, exp) {
 		return `${name.sourceString} = ${exp.asSl}`;
@@ -548,6 +548,9 @@ const asSl: ohm.ActionDict<string> = {
 	ScalarAssignment(lhs, _e, rhs) {
 		return `${lhs.asSl} := ${rhs.asSl}`;
 	},
+	SetSyntax(_l, items, _r) {
+		return `Set([${commaListSl(items.asIteration().children)}])`;
+	},
 	StringAssociation(lhs, _c, rhs) {
 		return `[${lhs.sourceString}, ${rhs.asSl}]`;
 	},
@@ -560,7 +563,7 @@ const asSl: ohm.ActionDict<string> = {
 	TraitExtension(_p, t, _l, n, b, _r) {
 		return rewriteTypeOrTraitExtension(t, n, b);
 	},
-	TupleExpression(_l, items, _r) {
+	TupleSyntax(_l, items, _r) {
 		return `Tuple([${commaListSl(items.asIteration().children)}])`;
 	},
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {

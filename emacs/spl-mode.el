@@ -289,7 +289,7 @@ If the string begins with a doctest, also delete all non doctest lines."
   "Unicode symbols"
   (setq prettify-symbols-compose-predicate
 	(lambda (start end match)
-	  (if (string-suffix-p "]" match)
+	  (if (string-match-p "\\[\\|\\]\\|{\\|}"  match)
 	      t
 	    (prettify-symbols-default-compose-p start end match))))
   (setq
@@ -478,8 +478,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("[|" . ?⟦) ; U+27E6 ⟦ Mathematical Left White Square Bracket
      ("|]" . ?⟧) ; U+27E7 ⟧ Mathematical Right White Square Bracket
 
-     ;; ("{|" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
-     ;; ("|}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
+     ("{|" . ?⦃) ; U+2983 ⦃ Left White Curly Bracket
+     ("|}" . ?⦄) ; U+2984 ⦄ Right White Curly Bracket
 
      ;; ("--" . ?⍝) ; U+235D ⍝ APL Functional Symbol Up Shoe Jot ; U+2014 — Em Dash
      ;; (")|" . ?⦈) ; U+2988 ⦈ Z Notation Right Image Bracket ; ⦄ ; ⸡

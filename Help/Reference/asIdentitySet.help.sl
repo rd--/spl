@@ -1,8 +1,8 @@
 # asIdentitySet
 
-- _asIdentitySet(aCollection)_
+- _asIdentitySet(c)_
 
-Answer a `IdentitySet` of the elements of _aCollection_.
+Answer a `IdentitySet` of the elements of the collection _c_.
 
 At `List`:
 
@@ -10,13 +10,6 @@ At `List`:
 >>> [1 1 2 1 2 3].asIdentitySet
 >>> .contents
 [1 2 3]
-```
-
-At `Tuple`:
-
-```
->>> (1, 1, 2, 1, 2, 3).asIdentitySet.size
-3
 ```
 
 At `IdentityBag`:

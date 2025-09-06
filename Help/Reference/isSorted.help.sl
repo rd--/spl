@@ -17,16 +17,6 @@ false
 true
 ```
 
-At `Tuple`:
-
-```
->>> (1, 3, 5, 7, 9, 11).isSorted
-true
-
->>> (1, 3, 2, 5, 4).isSorted
-false
-```
-
 At `Range`:
 
 ```

@@ -1,28 +1,28 @@
 # isSequenceable
 
-- _isSequenceable(anObject)_
+- _isSequenceable(x)_
 
-Answers `true` if _anObject_ implements the `Sequenceable` trait.
+Answers `true` if the object _x_ implements the `Sequenceable` trait.
 
-At `List`:
+At `List` answers `true`:
 
 ```
 >>> List().isSequenceable
 true
 ```
 
-At `Range` answers true:
+At `Range` answers `true`:
 
 ```
 >>> Range(0, 9, 1).isSequenceable
 true
 ```
 
-At `Tuple`:
+At `Tuple`, which is not a proper sequence:
 
 ```
 >>> (1, 2, 3).isSequenceable
-true
+false
 ```
 
 At `IdentityBag` answers false:

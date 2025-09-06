@@ -25,7 +25,7 @@ With `SmallFloat` keys:
 
 Empty `Dictionary`,
 note that the space character is required,
-the expression `[||]` is parsed as a `List` of one place holding the binary operator `||`.
+the expression `[||]` is parsed as a `List` of one place holding the binary operator `||`:
 
 ```
 >>> let d = [| |];

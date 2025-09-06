@@ -72,7 +72,9 @@ Sl {
 		| EmptyMapSyntax
 		| NonEmptyMapSyntax
 		| DictionarySyntax
-		| TupleExpression
+		| EmptySetSyntax
+		| SetSyntax
+		| TupleSyntax
 		| ListRangeSyntax
 		| ListRangeThenSyntax
 		| RangeSyntax
@@ -113,8 +115,9 @@ Sl {
 	NonEmptyMapSyntax = "[" NonemptyListOf<MapSyntaxItem, ","> "]"
 	MapSyntaxItem = Expression ":" Expression
 	DictionarySyntax = "[|" ListOf<BinaryOperatorExpression, ","> "|]"
-	DictionarySyntaxItem = Expression "->" Expression
-	TupleExpression = "(" NonemptyListOf<Expression, ","> ")"
+	EmptySetSyntax = "{|" "|}"
+	SetSyntax = "{|" ListOf<Expression, ","> "|}"
+	TupleSyntax = "(" NonemptyListOf<Expression, ","> ")"
 	ListSyntax = "[" ListOf<Expression, ","> "]"
 	ListRangeSyntax = "[" Expression ".." Expression "]"
 	ListRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"

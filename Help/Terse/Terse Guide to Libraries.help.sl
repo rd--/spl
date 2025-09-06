@@ -1,5 +1,21 @@
 # Terse Guide to Libraries
 
+## Tuple
+let t = (1, 2); t[1] := 3; t = (3, 2) /* mutate first */
+let t = (1, 2); t[2] := 3; t = (1, 3) /* mutate second */
+let t = (1, 2, 3); t[1] := 4; t = (4, 2, 3) /* mutate first */
+let t = (1, 2, 3); t[2] := 4; t = (1, 4, 3) /* mutate second */
+let t = (1, 2, 3); t[3] := 4; t = (1, 2, 4) /* mutate third */
+(1, 2, 3).rotateLeft = (2, 3, 1) /* rotated left */
+(1, 2, 3).rotateRight = (3, 1, 2) /* rotated right */
+(1, 2, 3).species = Tuple:/1 /* species */
+Tuple(0).isEmpty = true /* the empty tuple */
+[1 .. 5].asTuple.reverse = (5,4,3,2,1) /* reverse */
+let t = (1, 2, 3); t[3] := '3'; t = (1, 2, '3') /* atPut protocol */
+let t = (1, 2, 3); let c = t.copy; t[3] := '3'; c[3] = 3 /* copy & mutate */
+(1, 4, 9).collect(sqrt:/1) = (1, 2, 3) /* collect */
+(1, 4, 9).reduce(+) = 14 /* reduce */
+
 ## Cons -- collection type
 ```
 Cons(1, nil).length = 1

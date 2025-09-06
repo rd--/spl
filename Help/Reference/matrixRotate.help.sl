@@ -12,26 +12,22 @@ The three rotations of a 3×3 matrix:
 >>> 	4 5 6;
 >>> 	7 8 9
 >>> ];
->>> (1, 2, 3).collect { :k |
+>>> [1 2 3].collect { :k |
 >>> 	m.matrixRotate(k)
 >>> }
-(
-	[
-		3 6 9;
-		2 5 8;
-		1 4 7
-	],
-	[
-		9 8 7;
-		6 5 4;
-		3 2 1
-	],
-	[
-		7 4 1;
-		8 5 2;
-		9 6 3
-	]
-)
+[
+	3 6 9;
+	2 5 8;
+	1 4 7
+	:;
+	9 8 7;
+	6 5 4;
+	3 2 1
+	:;
+	7 4 1;
+	8 5 2;
+	9 6 3
+]
 ```
 
 Create a 17-by-17 diagonally dominant singular matrix A and view the pattern of nonzero elements.

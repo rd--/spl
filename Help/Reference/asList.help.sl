@@ -13,6 +13,13 @@ If the collection is a `List`, answer it directly.
 true
 ```
 
+At `Tuple`:
+
+```
+>>> (1, 2, 3).asList
+[1 2 3]
+```
+
 At `Record`:
 
 ```

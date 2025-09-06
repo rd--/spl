@@ -302,6 +302,10 @@
 		}
 	}
 
+	isIterable { :unused |
+		true
+	}
+
 	isProperSubsetOf { :self :aCollection |
 		aCollection.includesAllOf(self) & {
 			self != aCollection
@@ -502,6 +506,14 @@
 	withLevelDo { :self :aBlock:/2 |
 		self.withLevelDo(aBlock:/2, 1);
 		aBlock(self, 0)
+	}
+
+}
+
++@Object {
+
+	isIterable { :unused |
+		false
 	}
 
 }

@@ -181,7 +181,7 @@
 			seen.add(x);
 			x := digitSum(x, b)
 		};
-		(x, seen)
+		[x, seen]
 	}
 
 	digitalRoot { :x :b |

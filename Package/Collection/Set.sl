@@ -106,6 +106,12 @@ Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | 
 	}
 
 	storeString { :self |
+		'{|%|}'.format([
+			self.contents.collect(storeString:/1).commaSeparated
+		])
+	}
+
+	storeStringExpression { :self |
 		'Set(%)'.format([self.contents.storeString])
 	}
 

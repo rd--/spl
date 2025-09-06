@@ -65,15 +65,7 @@ At `List`:
 9
 ```
 
-At `Tuple`:
-
-```
->>> let [i, j, k] = (1, 2, 3);
->>> i + j * k
-9
-```
-
-At Record:
+At `Record`:
 
 ```
 >>> let (i: i, j: j, k: k) = (i: 1, j: 2, k: 3);

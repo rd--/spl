@@ -1,5 +1,9 @@
 # Tuple Syntax
 
+Rewrite rule:
+
+- _(x, …)_ ⟹ _Tuple([x, …])_
+
 Tuples are written between parenthesis brackets.
 Tuple items are separated by commas.
 
@@ -30,7 +34,7 @@ true
 
 _Rationale:_
 It would be possible for _(,)_ to denote the empty tuple,
-and for _(a,)_ the one tuple.
+and _(a,)_ the one tuple.
 
 * * *
 

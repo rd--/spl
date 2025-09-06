@@ -1,8 +1,9 @@
 # isAtom
 
-- _isAtom(anObject)_
+- _isAtom(x)_
 
-Answer `true` if _anObject_ is indivisible.
+Answer `true` if the object _x_ is indivisible,
+specifically if it does not implement the `Collection` trait.
 The opposite predicate is `isCollection`.
 
 At `String`:
@@ -103,16 +104,18 @@ At `Record`:
 false
 ```
 
-At `Tuple`:
+At `Tuple`, which is not properly a collection:
 
 ```
 >>> (1, 2, 3).isAtom
-false
+true
 ```
 
 * * *
 
 See also: isCollection, isList, isNumber
+
+Guides: List Functions
 
 References:
 _Mathematica_

@@ -1,11 +1,11 @@
 # depth
 
-- _depth(aCollection | anObject)_
+- _depth(c)_
 
-Answer the maximum number of indices needed to specify any part of _aCollection_,
+Answer the maximum number of indices needed to specify any part of the collection _c_,
 plus `one`.
 
-Objects that are not collections have _depth_ of one.
+Objects that are not collections have a `depth` of `one`.
 
 ```
 >>> 1.depth
@@ -58,11 +58,11 @@ At deeply nested `List`:
 6
 ```
 
-At deeply nested `Tuple`:
+A `Tuple` is not a collection and has depth one:
 
 ```
 >>> (1, (3, (5, (7, 9)))).depth
-5
+1
 ```
 
 At `Tree`:

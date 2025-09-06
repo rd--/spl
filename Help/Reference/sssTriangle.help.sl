@@ -50,10 +50,6 @@ the Kepler triangle,
 >>> .interiorAngles
 >>> .third
 0.5.pi
-
->>> let phi = 1.goldenRatio;
->>> (1, phi ^ 1/2, phi) * 3
-(3, 3.8161, 4.8541)
 ```
 
 Pythagorean triples with equal area:

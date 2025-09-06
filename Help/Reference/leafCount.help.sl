@@ -21,13 +21,6 @@ At `List`:
 5
 ```
 
-At `Tuple`:
-
-```
->>> (1, (2, (3, (4, 5)))).leafCount
-5
-```
-
 At `Record`:
 
 ```
