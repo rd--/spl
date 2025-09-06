@@ -38,7 +38,6 @@
 	'Table'
 	'TemporalData'
 	'TimeSeries'
-	'TolerantDictionary'
 	'TypedDictionary'
 	'Tree'
 	'Tuple' /* List */

@@ -1,6 +1,6 @@
 /* Requires: List */
 
-Tuple : [Object/*, Iterable, Indexable, Collection, Sequenceable*/] { | contents |
+Tuple : [Object] { | contents |
 
 	~ { :self :anObject |
 		anObject.isTuple & {
@@ -16,61 +16,35 @@ Tuple : [Object/*, Iterable, Indexable, Collection, Sequenceable*/] { | contents
 		self.contents.at(index)
 	}
 
-	/*atPut { :self :index :anObject |
-		self.contents.atPut(index, anObject)
-	}*/
-
 	concisePrintString { :self |
-		'(' ++ self.contents.collect(concisePrintString:/1).commaSeparated ++ ')'
+		self.storeString(concisePrintString:/1)
 	}
 
 	copy { :self |
 		self.contents.asTuple
 	}
 
-	/*do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1)
-	}*/
-
 	indices { :self |
 		self.contents.indices
 	}
 
-	/*isVector { :self |
-		self.noneSatisfy(isTuple:/1)
-	}*/
-
 	printString { :self |
-		'(' ++ self.contents.collect(printString:/1).commaSeparated ++ ')'
+		self.storeString(printString:/1)
 	}
 
 	size { :self |
 		self.contents.size
 	}
 
-	/*species { :self |
-		Tuple:/1
-	}*/
+	storeString { :self :aBlock:/1 |
+		'(' ++ self.contents.collect(aBlock:/1).commaSeparated ++ ')'
+	}
 
 	storeString { :self |
-		'(' ++ self.contents.collect(storeString:/1).commaSeparated ++ ')'
+		self.storeString(storeString:/1)
 	}
 
 }
-
-/*
-+@Integer {
-
-	Tuple { :size |
-		List(size).asTuple
-	}
-
-	Tuple { :size :anObject |
-		List(size, anObject).asTuple
-	}
-
-}
-*/
 
 +List {
 

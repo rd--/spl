@@ -9,8 +9,11 @@
 	'Number'
 	'RandomNumberGenerator' /* > Object */
 
-	/* Collection Traits */
+	/* Primitive Traits */
+	'PrimitiveMap'
 	'PrimitiveSequence'
+
+	/* Collection Traits */
 	'ArithmeticProgression'
 	'Collection'
 	'Extensible'

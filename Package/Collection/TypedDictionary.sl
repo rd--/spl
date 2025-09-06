@@ -20,6 +20,10 @@ TypedDictionary : [Object, Iterable, Indexable, Collection, Extensible, Removabl
 		self.contents.keys
 	}
 
+	keysAndValuesDo { :self :aBlock:/2 |
+		self.contents.keysAndValuesDo(aBlock:/2)
+	}
+
 	typeCheckKey { :self :key |
 		(key.typeOf = self.keyType).if {
 			key

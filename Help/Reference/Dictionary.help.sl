@@ -4,7 +4,7 @@
 
 `Dictionary` is a `Trait` holding behaviours common to collections of associations,
 and also a `Type` representing a dictionary where keys are compared according to `=`,
-the equality operator,
+the equality operator.
 
 Dictionaries are homogenous sets of key and value pairs,
 called associations,
@@ -15,6 +15,13 @@ for `Map` and `Record` it is `==`,
 for `Dictionary` it is `=`.
 
 Dictionaries are indexed using the unique `key` to obtain the corresponding `value`.
+
+The required methods are:
+
+- `atIfAbsent`
+- `atPut`
+- `keysAndValuesDo`
+- `size`
 
 The `Dictionary` type is less efficient than both `Map`,
 the identity dictionary type,
@@ -29,7 +36,7 @@ There is a literal syntax for `Dictionary`:
 ([1 2], ['x' 'y'])
 ```
 
-An empty `Dictionary`:
+The empty `Dictionary`:
 
 ```
 >>> let d = [| |];
@@ -50,6 +57,18 @@ A `Dictionary` with lists for keys:
 >>> 	d.values
 >>> )
 ([1 2; 4 5], [3 6], [3 6])
+```
+
+Construct a dictionary with a specified comparator:
+
+```
+>>> let d = Dictionary();
+>>> d.comparator := ~;
+>>> d[0] := 1;
+>>> d[1E-9] := 2;
+>>> d[-1E-9] := 3;
+>>> (d.size, d.associations)
+(1, [0 -> 3])
 ```
 
 Dictionary is a trait:

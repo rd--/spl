@@ -4,6 +4,20 @@
 
 Apply the block _f_ to each `key` and `value` of the dictionary _d_.
 
+Iterate over keys and values at `Map`:
+
+```
+>>> let n = 0;
+>>> let c = [];
+>>> ['x': 1, 'y': 2, 'z': 3]
+>>> .keysAndValuesDo { :key :value |
+>>> 	n := n + value;
+>>> 	c.add([key n])
+>>> };
+>>> c
+['x' 1; 'y' 3; 'z' 6]
+```
+
 At `Record`:
 
 ```
@@ -28,23 +42,11 @@ At a `List` of associations:
 [1 'x' 2 'y' 3 'z']
 ```
 
-Iterate over keys and values:
-
-```
->>> let n = 0;
->>> (x: 1, y: 2, z: 3)
->>> .keysAndValuesDo { :unusedKey :value |
->>> 	n := n + value
->>> };
->>> n
-6
-```
-
 * * *
 
 See also: associationsDo, do, fromTokeysAndValuesDo, keysAndValuesCollect, keysDo, valuesDo, withIndexDo
 
-Guides: Iteration Functions
+Guides: Dictionary Functions, Iteration Functions
 
 References:
 _Smalltalk_

@@ -105,12 +105,7 @@
 	}
 
 	atIfAbsent { :self :key :ifAbsent:/0 |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			ifAbsent()
-		} {
-			self.values[index]
-		}
+		self.typeResponsibility('@Dictionary>>atIfAbsent')
 	}
 
 	atAll { :self :keys |
@@ -120,14 +115,7 @@
 	}
 
 	atPut { :self :key :value |
-		let index = self.keys.indexOfBy(key, self.comparator);
-		(index = 0).if {
-			self.keys.add(key);
-			self.values.add(value)
-		} {
-			self.values[index] := value
-		};
-		value
+		self.typeResponsibility('@Dictionary>>atPut')
 	}
 
 	collect { :self :aBlock:/1 |
@@ -136,10 +124,6 @@
 			answer.add(key -> aBlock(value))
 		};
 		answer
-	}
-
-	comparator { :self |
-		self.typeResponsibility('@Dictionary>>comparator')
 	}
 
 	declareFrom { :self :key :aDictionary |
@@ -275,12 +259,7 @@
 	}
 
 	keysAndValuesDo { :self :aBlock:/2 |
-		let keys = self.keys;
-		let values = self.values;
-		1.toDo(self.size) { :index |
-			aBlock(keys[index], values[index])
-		};
-		nil
+		self.typeResponsibility('@Dictionary>>keysAndValuesDo')
 	}
 
 	keysAndValuesRemove { :self :keyValueBlock:/2 |
@@ -406,9 +385,8 @@
 	}
 
 	size { :self |
-		self.keys.size
+		self.typeResponsibility('@Dictionary>>size')
 	}
-
 
 	storeStringLiteral { :self :empty :open :close :formatKey:/1 :join :formatValue:/1 |
 		self.isEmpty.if {
@@ -551,10 +529,40 @@
 
 }
 
-Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values |
+Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
 
-	comparator { :unused |
-		=
+	atIfAbsent { :self :key :ifAbsent:/0 |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			ifAbsent()
+		} {
+			self.values[index]
+		}
+	}
+
+	atPut { :self :key :value |
+		let index = self.keys.indexOfBy(key, self.comparator);
+		(index = 0).if {
+			self.keys.add(key);
+			self.values.add(value)
+		} {
+			self.values[index] := value
+		};
+		value
+	}
+
+	keysAndValuesDo { :self :aBlock:/2 |
+		let keys = self.keys;
+		let values = self.values;
+		let size = keys.size;
+		1.toDo(size) { :index |
+			aBlock(keys[index], values[index])
+		};
+		nil
+	}
+
+	size { :self |
+		self.keys.size
 	}
 
 	storeString { :self |
@@ -569,7 +577,7 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 +Void {
 
 	Dictionary {
-		newDictionary().initializeSlots([], [])
+		newDictionary().initializeSlots([], [], =)
 	}
 
 }

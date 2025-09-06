@@ -1,4 +1,4 @@
-/* Requires: Map */
+/* Requires: PrimitiveMap */
 
 WeakMap! : [Object, Indexable, PrimitiveMap] {
 
