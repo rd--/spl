@@ -128,41 +128,32 @@ Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible,
 +List {
 
 	asRecord { :self |
-		let matrix = self.collect(asList:/1);
-		(
-			(
-				self.isAssociationList | {
-					matrix.isMatrix & {
-						matrix.shape.second = 2
-					}
-				}
-			) & {
-				matrix.allSatisfy { :each |
-					each.first.isString
+		Record(self)
+	}
+
+	listToRecord { :self |
+		self.allSatisfy { :each |
+			each.isList & {
+				each.size = 2 & {
+					each.at(1).isString
 				}
 			}
-		).if {
-			matrix.uncheckedAsRecord
+		}.if {
+			self.uncheckedListToRecord
 		} {
-			self.error('List>>asRecord: not of correct shape or invalid keys')
+			self.error('List>>listToRecord')
 		}
 	}
 
 	Record { :self |
-		self.allSatisfy { :each |
-			each.isList & {
-				each.size = 2 & {
-					each[1].isString
-				}
-			}
-		}.if {
-			self.uncheckedAsRecord
+		self.isAssociationList.if {
+			self.collect(asList:/1).listToRecord
 		} {
-			self.error('List>>Record: not two column matrix or keys not uniformly String values')
+			self.listToRecord
 		}
 	}
 
-	uncheckedAsRecord { :self |
+	uncheckedListToRecord { :self |
 		<primitive: return Object.fromEntries(_self);>
 	}
 

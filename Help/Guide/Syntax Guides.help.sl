@@ -40,8 +40,12 @@
 
 ## Collection Notation Syntax
 
+- `Dictionary Syntax`
 - `List Syntax`
+- `Map Syntax`
 - `Matrix Syntax`
+- `Record Syntax`
+- `Set Syntax`
 - `Tuple Syntax`
 - `Vector Syntax`
 - `Volume Syntax`

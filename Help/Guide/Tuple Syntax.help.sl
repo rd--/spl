@@ -2,10 +2,15 @@
 
 Rewrite rule:
 
-- _(x, …)_ ⟹ _Tuple([x, …])_
+- _(x, y, z…)_ ⟹ _Tuple([x, y, z…])_
 
-Tuples are written between parenthesis brackets.
+Tuples are written between parentheses.
 Tuple items are separated by commas.
+
+```
+>> '(x, y, z)'.splSimplify
+Tuple([x, y, z])
+```
 
 A three tuple of integers:
 

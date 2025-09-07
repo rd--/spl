@@ -590,12 +590,22 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 
 	Dictionary { :self |
 		self.isAssociationList.if {
+			self.collect(asList:/1).listToDictionary
+		} {
+			self.listToDictionary
+		}
+	}
+
+	listToDictionary { :self |
+		let [_, m] = self.dimensions;
+		(m = 2).if {
+			let [keys, values] = self.transpose;
 			let answer = Dictionary();
-			answer.keys := self.collect(key:/1);
-			answer.values := self.collect(value:/1);
+			answer.keys := keys;
+			answer.values := values;
 			answer
 		} {
-			self.error('List>>Dictionary: not association list')
+			self.error('List>>listToDictionary')
 		}
 	}
 

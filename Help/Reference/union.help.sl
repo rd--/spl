@@ -29,7 +29,14 @@ The unary case at `List`:
 [1 2 3 4 5]
 ```
 
-At binary case at `IdentitySet`:
+The binary case at `Set`:
+
+```
+>>> {|1, 2, 3|}.union({|2, 3, 4|})
+{|1, 2, 3, 4|}
+```
+
+The binary case at `IdentitySet`:
 
 ```
 >>> [1 2 3].asIdentitySet.union([2 3 4])

@@ -5,6 +5,11 @@ Traits and Types:
 - `Set`
 - `IdentitySet`
 
+Converting:
+
+- `asIdentitySet`
+- `asSet`
+
 Set Theoretic Functions:
 
 - `complement`
@@ -16,4 +21,4 @@ Set Theoretic Functions:
 
 * * *
 
-Guides: Function Guides
+Guides: Function Guides, Set Syntax

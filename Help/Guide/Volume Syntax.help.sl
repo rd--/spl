@@ -8,6 +8,11 @@ Rewrite rule:
 
 Allows writing _volumes_, three-dimensional arrays, as _matrices_ separated by `:;` tokens.
 
+```
+>> '[p q; r s:; a b; c d]'.splSimplify
+[[[p, q], [r, s]], [[a, b], [c, d]]]
+```
+
 A _2×2×2_ array of integer literals:
 
 ```

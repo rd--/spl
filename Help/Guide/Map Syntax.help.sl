@@ -1,9 +1,16 @@
 # Map Syntax
 
-Rewrite rule:
+Rewrite rules:
 
-- _[:]_ ⟹ _[].asMap_
-- _[k: v, …]_ ⟹ _[k → v, …].asMap_
+- _[:]_ ⟹ _Map([])_
+- _[k: v, …]_ ⟹ _Map([[k, v], …])_
+
+The notation _[p: x, q: y]_ constructs a `Map` with associations _p → x_ and _q → y_.
+
+```
+>> '[p: x, q: y]'.splSimplify
+Map([[p, x], [q, y]])
+```
 
 With `String` keys:
 
@@ -37,4 +44,4 @@ Empty `Map`:
 
 See also: Dictionary, Record, Map
 
-Guides: Record Syntax
+Guides: Dictionary Syntax, Record Syntax, Syntax Guides

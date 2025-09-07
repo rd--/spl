@@ -6,25 +6,57 @@ Rewrite rule:
 
 Allows writing _matrices_, two dimensional arrays, as a sequence of _vectors_ separated by semicolons.
 
+```
+>> '[p q; r s]'.splSimplify
+[[p, q], [r, s]]
+```
+
 A _3×3_ array:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9]
-[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+>>> [
+>>> 	1 2 3;
+>>> 	4 5 6;
+>>> 	7 8 9
+>>> ]
+[
+	[1, 2, 3],
+	[4, 5, 6],
+	[7, 8, 9]
+]
 ```
 
 This notation can be used to write irregular arrays:
 
 ```
->>> [1; 2 3; 4 5 6]
-[[1], [2, 3], [4, 5, 6]]
+>>> [
+>>> 	1;
+>>> 	2 3;
+>>> 	4 5 6
+>>> ]
+[
+	[1],
+	[2, 3],
+	[4, 5, 6]
+]
 ```
 
 Empty fields are allowed, both at the start, and at the end, and in the middle:
 
 ```
->>> [; 2 3; ; 5 6; ]
-[[], [2, 3], [], [5, 6], []]
+>>> [
+>>> 	;
+>>> 	2 3;
+>>> 	;
+>>> 	5 6;
+>>> ]
+[
+	[],
+	[2, 3],
+	[],
+	[5, 6],
+	[]
+]
 ```
 
 The `powerSet` help file includes examples of this notation.
@@ -33,7 +65,7 @@ The `powerSet` help file includes examples of this notation.
 
 See also: List, Matrix
 
-Guides: List Syntax, Vector Syntax, Volume Syntax
+Guides: List Syntax, Syntax Guides, Vector Syntax, Volume Syntax
 
 References:
 _Fortress_

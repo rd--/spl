@@ -54,8 +54,18 @@ false
 true
 ```
 
+The comparison method for `Set` can be modified:
+
+```
+>>> let x = Set();
+>>> x.comparator := ~;
+>>> x.includeAll([1, 1.0001, 2, 1, 2.00001, 3]);
+>>> x
+Set([1 2 3])
+```
+
 * * *
 
 See also: IdentitySet
 
-Guides: Set Functions
+Guides: Set Functions, Set Syntax

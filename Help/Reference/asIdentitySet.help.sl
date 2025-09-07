@@ -42,6 +42,8 @@ true
 
 See also: Collection, IdentitySet, isImmediate, nub, Set
 
+Guides: Set Functions
+
 References:
 _Smalltalk_
 5.7.1.7

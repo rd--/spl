@@ -147,10 +147,12 @@ At `Range`:
 it counts the corresponding list of `Assocation`s as two:
 
 ```
->>> (a: 1, b: 2, c: 3).depth
+>>> (a: 1, b: 2, c: 3)
+>>> .depth
 2
 
->>> ['a' -> 1, 'b' -> 2, 'c' -> 3].depth
+>>> ['a' -> 1, 'b' -> 2, 'c' -> 3]
+>>> .depth
 3
 ```
 

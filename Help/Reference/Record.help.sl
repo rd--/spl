@@ -12,6 +12,13 @@ Construct a `Record` from a two-column matrix:
 (x: 1, y: 2, z: 3)
 ```
 
+Construct a `Record` from an association list:
+
+```
+>>> Record(['x' -> 1, 'y' -> 2, 'z' -> 3])
+(x: 1, y: 2, z: 3)
+```
+
 There is a literal syntax for records.
 
 ```
@@ -24,22 +31,24 @@ true
 
 There is a conversion method,
 `asRecord`,
-from an `Association` `List`:
+that is equivalent to `Record`:
 
 ```
 >>> ['x' -> 3.141, 'y' -> 23].asRecord
 (x: 3.141, y: 23)
+```
 
->>> ['pi' -> 1.pi].asRecord
->>> .isDictionary
+A `Record` is a dictionary:
+
+>>> (pi: 1.pi).isDictionary
 true
 ```
 
-At the ordinary `asRecord` constructor it is an `error` if any key is not a string:
+It is an `error` if any key is not a string:
 
 ```
 >>> {
->>> 	[1.pi -> 'pi'].asRecord
+>>> 	Record([1.pi -> 'pi'])
 >>> }.ifError { :err | true }
 true
 ```
