@@ -1,6 +1,10 @@
 # Control Functions
 
-## Boolean Choice
+Types and Traits:
+
+- `Error`
+
+Boolean Logic:
 
 - `if`
 - `ifTrue`
@@ -10,21 +14,21 @@
 - `ifNil`
 - `ifNotNil`
 
-## Branch Choice
+Branching:
 
 - `caseOf`
 - `which`
 
-## Conditional Loops
+Conditional Loops:
 
 - `whileTrue`
 - `whileFalse`
 
-## Non-local Return
+Non-local Return:
 
 - `valueWithReturn`
 
-## Exceptions
+Exceptions:
 
 - `ensure`
 - `error`

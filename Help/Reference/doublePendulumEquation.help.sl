@@ -51,7 +51,7 @@ doublePendulumEquation(9.81, l, [1 1])
 
 * * *
 
-See also: rungeKuttaMethod
+See also: pendulumEquation, rungeKuttaMethod
 
 Guides: Chaotic Functions
 

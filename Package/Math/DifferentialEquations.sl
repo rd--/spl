@@ -135,6 +135,21 @@
 		}
 	}
 
+	pendulumEquation { :g :l :m :b :a :k |
+		/* https://github.com/myphysicslab/myphysicslab/blob/master/src/sims/pendulum/PendulumSim.ts */
+		{ :t :v |
+			let [theta1, theta2] = v;
+			let mll = m * l * l;
+			let z1 = (g / l).negate * sin(theta1);
+			let z2 = z1 - ((b / mll) * theta2);
+			let z3 = z2 + ((a / mll) * cos(k * t));
+			[
+				theta2,
+				z3
+			]
+		}
+	}
+
 	rosslerEquation { :a :b :c |
 		{ :t :v |
 			let [x, y, z] = v;

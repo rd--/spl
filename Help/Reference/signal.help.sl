@@ -20,6 +20,8 @@ If no such block exists, the program will terminate.
 
 See also: ensure, error, Error, ifError
 
+Guides: Control Functions
+
 References:
 _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw),

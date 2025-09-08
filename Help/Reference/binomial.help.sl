@@ -4,7 +4,8 @@
 
 The binomial coefficients are the positive integers that occur as coefficients in the binomial theorem.
 Commonly, a binomial coefficient is indexed by a pair of integers _n ≥ k ≥ 0_.
-Tells the number of combinations of _n_ elements taken _k_ at a time.
+Tells the number of combinations of _n_ elements taken _k_ at a time,
+usually pronounced _n choose k_.
 
 With positive integer _n_ and _k_:
 
@@ -173,6 +174,16 @@ OEIS [A027907](https://oeis.org/A027907):
 	1 5 15 30 45 51 45 30 15 5 1;
 	1 6 21 50 90 126 141 126 90 50 21 6 1
 ]
+```
+
+The sum of binomial coefficients _(n-i,i)_ for _i_ in _(0,n/2)_ is the _n+1_-th Fibonacci number:
+
+```
+>>> let n = 23;
+>>> (0 .. n // 2).sum { :i |
+>>> 	binomial(n - i, i)
+>>> }
+(n + 1).fibonacci
 ```
 
 Plot over a subset of the reals as a function of its first parameter:

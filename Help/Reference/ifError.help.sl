@@ -1,13 +1,11 @@
 # ifError
 
-- _ifError(aBlock:/0, errorHandlerBlock:/1)_
+- _ifError(f:/0, g:/1)_
 
-Evaluate _aBlock_ and if there is no error then that is the answer.
-If an error occurs evaluate _errorHandlerBlock_ and that is the answer.
-
-_errorHandlerBlock_ must accept zero or one parameter,
-it is evaluated using `cull`,
-which will be the `Error` signalled.
+Evaluate the no-argument block _f_ and if there is no error then that is the answer.
+If an error occurs evaluate the unary block _g_ and that is the answer.
+_g_ is evaluated using `cull`,
+the parameter is the `Error` signalled by _f_.
 
 With one argument block:
 
@@ -39,6 +37,8 @@ Guides: Control Functions
 
 References:
 _Smalltalk_
-5.4.3.2
+5.4.3.2,
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Function.html#-try)
 
 Categories: Evaluating

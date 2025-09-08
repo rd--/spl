@@ -1,8 +1,8 @@
 # ResidueSet
 
-- _ResidueSet(anInteger)_
+- _ResidueSet(n)_
 
-Answer an empty `ResidueSet` with modulus _anInteger_.
+Answer an empty `ResidueSet` with modulus _n_.
 A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modulus`.
 
 `leastResidueSystem` answers a complete `ResidueSet`:
@@ -55,7 +55,7 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 [1 3 5].asResidueSet(6)
 ```
 
-`ResideSet` implements `Collection`
+`ResidueSet` implements `Collection`
 
 ```
 >>> 4.leastResidueSystem

@@ -1,8 +1,8 @@
 # ensure
 
-- _ensure(f:/0, termination:/0)_
+- _ensure(f:/0, g:/0)_
 
-Evaluate the block _termination_ after evaluating the block _f_,
+Evaluate the no-argument block _g_ after evaluating the no-argument block _f_,
 regardless of whether the initial evaluation completes.
 
 Assign to _x_ in the case of an error:
@@ -10,7 +10,9 @@ Assign to _x_ in the case of an error:
 ```
 >>> let x = nil;
 >>> {
->>> 	{ ''.error }.ensure {
+>>> 	{
+>>> 		''.error
+>>> 	}.ensure {
 >>> 		x := true
 >>> 	}
 >>> }.ifError { };
@@ -29,12 +31,14 @@ true
 
 * * *
 
-See also: Error, ifError
+See also: Error, ifError, signal
 
 Guides: Control Functions
 
 References:
 _Smalltalk_
-5.4.3.1
+5.4.3.1,
+_SuperCollider_
+[1](https://doc.sccode.org/Classes/Function.html#-protect)
 
 Categories: Exceptions
