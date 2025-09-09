@@ -26,6 +26,7 @@ Plotting Functions:
 - `logLinearPlot`
 - `matrixPlot`
 - `parametricPlot`
+- `pathPlot`
 - `periodogramPlot`
 - `pianoRollPlot`
 - `poincarePlot`

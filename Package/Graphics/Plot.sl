@@ -718,3 +718,39 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List {
+
+	pathPlot { :self |
+		let [n, m] = self.shape;
+		(m = 2).if {
+			let height = 100;
+			let boundingCoordinates = self.coordinateBoundingBox;
+			let fragmentList = [
+				{ :options |
+					[
+						'<circle r="%" fill="none" stroke="black">'.format(
+							[
+								(1 / options['scaleFactor'])
+								.printStringToFixed(options['precision'])
+							]
+						),
+						'<animateMotion dur="%s" repeatCount="indefinite" calcMode="linear" path="M% L%"/>'
+						.format(
+							[
+								n - 1,
+								[self.first].asSvgPointList(options),
+								self.allButFirst.asSvgPointList(options)
+							]
+						),
+						'</circle>'
+					].unlines
+				}
+			];
+			scaledFragments(fragmentList, height, boundingCoordinates)
+		} {
+			self.error('pathPlot')
+		}
+	}
+
+}

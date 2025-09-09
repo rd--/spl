@@ -60,7 +60,7 @@ At `Complex`:
 0J0.3
 ```
 
-At `Decimal`:
+At `Decimal`, retains scale:
 
 ```
 >>> 3.1416D.fractionalPart

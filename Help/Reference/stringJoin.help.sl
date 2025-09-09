@@ -1,10 +1,11 @@
 # stringJoin
 
-- _stringJoin(aSequence, anObject)_
-- _stringJoin(alpha)_ ⟹ _stringJoin(alpha, '')_
+- _stringJoin([x₁ x₂ …], y='')_
 
-First `flatten` and then join together the items of _aSequence_ (objects that implement `asString`) into a `String`,
-intercalating _anObject_ between each.
+First `flatten` and then join together the items of the sequence _x_,
+objects that implement `asString`,
+into a `String`,
+intercalating the object _y_ between each.
 
 At `List` of `String`:
 

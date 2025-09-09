@@ -42,6 +42,13 @@ At `Complex`:
 1J-4
 ```
 
+At `Decimal`:
+
+```
+>>> 3.14159D.integerPart
+3.00000D
+```
+
 Threads elementwise over lists:
 
 ```

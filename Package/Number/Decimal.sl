@@ -205,13 +205,22 @@ Decimal : [Object] { | fraction scale |
 
 	printString { :self |
 		(self.scale = 0).if {
-			self.integerPart.asLargeInteger.basicPrintString(10) ++ 'D'
+			self.integerPart.basicPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
-					self.fraction.isNegative.if { '-' } { '' },
-					self.integerPart.asLargeInteger.abs.basicPrintString(10),
-					(self.fractionalPart.fraction.abs * (10 ^ self.scale)).round.basicPrintString(10)
+					self.fraction.isNegative.if {
+						'-'
+					} {
+						''
+					},
+					self.integerPart
+					.abs
+					.basicPrintString(10),
+					(self.fractionalPart.fraction.abs * (10 ^ self.scale))
+					.round
+					.basicPrintString(10)
+					.padRight([self.scale], '0')
 				]
 			)
 		}
@@ -244,8 +253,11 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	storeString { :self |
-		'%.asDecimal(%)'.format(
-			[self.fraction.storeString, self.scale]
+		'Decimal(%, %)'.format(
+			[
+				self.fraction.storeString,
+				self.scale
+			]
 		)
 
 	}
@@ -267,6 +279,10 @@ Decimal : [Object] { | fraction scale |
 	}
 
 	asDecimal { :self :scale |
+		Decimal(self, scale)
+	}
+
+	Decimal { :self :scale |
 		UnsimplifiedDecimal(
 			self.asDecimalFraction(scale),
 			scale
@@ -364,4 +380,3 @@ Decimal : [Object] { | fraction scale |
 	}
 
 }
-

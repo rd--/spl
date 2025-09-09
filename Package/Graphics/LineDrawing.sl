@@ -17,43 +17,14 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	asSvg { :self |
+		let fragmentList = self.contents.collect { :each |
+			{ :options |
+				each.svgFragment(options)
+			}
+		};
 		let height = self.metadata['height'];
-		let actualBoundingBox = self.boundingBox.asRectangle;
-		let boundingBox = actualBoundingBox.height.isZero.if {
-			Rectangle(
-				actualBoundingBox.lowerLeft,
-				[actualBoundingBox.right, actualBoundingBox.lower + 1]
-			)
-		} {
-			actualBoundingBox
-		};
-		let yRange = boundingBox.height;
-		let precision = (3 - yRange.log10.round).max(0);
-		let scaleFactor = (height / boundingBox.height);
-		let scaledBoundingBox = Rectangle(boundingBox.lowerLeft * scaleFactor, boundingBox.upperRight * scaleFactor); /* ? */
-		let options = (precision: precision, scaleFactor: scaleFactor);
-		let fragments = self.contents.collect { :each |
-			each.svgFragment(options)
-		};
-		let strokeWith = (0.5 / scaleFactor);
-		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
-		[
-			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
-				'http://www.w3.org/2000/svg',
-				scaledBoundingBox.width.printStringToFixed(1),
-				scaledBoundingBox.height.printStringToFixed(1),
-				scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
-			]),
-			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
-				strokeWith.printStringToFixed(4), '%',
-				yTranslation.printStringToFixed(4),
-				scaleFactor.printStringToFixed(4),
-				scaleFactor.negate.printStringToFixed(4)
-			]),
-			fragments,
-			'</g>',
-			'</svg>'
-		].flatten.unlines.Svg
+		let boundingCoordinates = self.boundingBox;
+		scaledFragments(fragmentList, height, boundingCoordinates)
 	}
 
 	boundingBox { :self |

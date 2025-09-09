@@ -1,9 +1,17 @@
 # Decimal
 
-- _Decimal(aFraction, anInteger)_
+- _Decimal(n/d, k)_
 
 `Decimal` is a numeric `Type` for fixed point decimal numbers.
 It is able to accurately represent arbitrary precision decimal fractions.
+
+```
+>>> Decimal(1/3, 3)
+0.333D
+
+>>> Decimal(7/13, 5)
+0.53846D
+```
 
 Parse `String` as `Decimal`,
 with and without fractional part:
@@ -80,7 +88,7 @@ true
 Decimal values may be unequal even if their fraction and floating point values are equal:
 
 ```
->>> let x = 3/7.asDecimal(3);
+>>> let x = Decimal(3/7, 3);
 >>> let y = 0.4290D;
 >>> (
 >>> 	(x, y),
@@ -114,10 +122,10 @@ false
 The stored fraction is not necessarily the initial fraction:
 
 ```
->>> 1/3.asDecimal(2) * 3
+>>> Decimal(1/3, 2) * 3
 0.99D
 
->>> 1/3.asDecimal(2).asFraction
+>>> Decimal(1/3, 2).fraction
 33/100
 ```
 
@@ -131,6 +139,9 @@ Addition with integer preserves precision:
 Exact fraction:
 
 ```
+>>> -3.14D.fraction
+-157/50
+
 >>> -3.14D.asFraction
 -157/50
 ```
@@ -152,11 +163,14 @@ Division:
 0.142857D
 ```
 
-Integer and fraction parts:
+Integer and fraction parts retain scale:
 
 ```
 >>> (23D ^ 23).integerPart
 20880467999847912034355032910567D
+
+>>> 3.141D.integerPart
+3.000D
 
 >>> (3.141D ^ 54 - 1).fractionalPart
 0.463D
@@ -175,14 +189,17 @@ Absolute value:
 Print `String`:
 
 ```
->>> 3.14159D.asString
-'3.14159D'
+>> 1.00000D.asString
+1.00000D
 
->>> -1.618D.printString
-'-1.618D'
+>> 3.14159D.asString
+3.14159D
 
->>> (23D ^ 23).printString
-'20880467999847912034355032910567D'
+>> -1.618D.printString
+-1.618D
+
+>> (23D ^ 23).printString
+20880467999847912034355032910567D
 ```
 
 * * *

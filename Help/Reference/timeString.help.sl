@@ -1,8 +1,8 @@
 # timeString
 
-- _timeString(aTime)_
+- _timeString(t)_
 
-Format a `Time` value as a subset of the ISO-8601 specification,
+Format the `Time` value _t_ as a subset of the ISO-8601 specification,
 specifically _hh:mm:ss.sss_.
 
 ```

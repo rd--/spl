@@ -83,6 +83,46 @@ Svg : [Object] { | contents |
 		}.unwords
 	}
 
+	scaledFragments { :fragmentList :height :boundingCoordinates |
+		let actualBoundingBox = boundingCoordinates.asRectangle;
+		let boundingBox = actualBoundingBox.height.isZero.if {
+			Rectangle(
+				actualBoundingBox.lowerLeft,
+				[actualBoundingBox.right, actualBoundingBox.lower + 1]
+			)
+		} {
+			actualBoundingBox
+		};
+		let yRange = boundingBox.height;
+		let precision = (3 - yRange.log10.round).max(0);
+		let scaleFactor = (height / boundingBox.height);
+		let scaledBoundingBox = Rectangle(boundingBox.lowerLeft * scaleFactor, boundingBox.upperRight * scaleFactor); /* ? */
+		let options = (precision: precision, scaleFactor: scaleFactor);
+		let fragments = fragmentList.collect { :aBlock:/1 |
+			aBlock(options)
+		};
+		let strokeWith = (0.5 / scaleFactor);
+		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
+		[
+			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
+				'http://www.w3.org/2000/svg',
+				scaledBoundingBox.width.printStringToFixed(1),
+				scaledBoundingBox.height.printStringToFixed(1),
+				scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
+			]),
+			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
+				strokeWith.printStringToFixed(4), '%',
+				yTranslation.printStringToFixed(4),
+				scaleFactor.printStringToFixed(4),
+				scaleFactor.negate.printStringToFixed(4)
+			]),
+			fragments,
+			'</g>',
+			'</svg>'
+		].flatten.unlines.Svg
+	}
+
+
 }
 
 +Rectangle {
