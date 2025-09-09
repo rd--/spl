@@ -9,6 +9,7 @@ Ordinary Differential Equations:
 - `henonHeilesEquation`
 - `lorenzEquation`
 - `lotkaVolterraEquations`
+- `pendulumEquation`
 - `rosslerEquation`
 - `rucklidgeEquation`
 - `vanDerPolEquation`

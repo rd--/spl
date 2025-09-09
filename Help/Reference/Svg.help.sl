@@ -7,7 +7,7 @@ A `Type` holding a Scalable Vector Graphics image.
 
 * * *
 
-See also: asGreyscaleSvg, contents, parseSvg, SvgViewer
+See also: asColourSvg, asGreyscaleSvg, contents, parseSvg, SvgViewer
 
 Guides: Drawing Functions, Image Functions
 

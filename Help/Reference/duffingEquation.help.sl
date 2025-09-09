@@ -10,9 +10,12 @@ and answering _(x′,y′)_.
 Period-five oscillation, γ=0.37, phase plot:
 
 ~~~spl svg=A
-duffingEquation(0.37, 0.3, 1.2)
-.rungeKuttaMethod([1 0], 0, 23, 0.1)
-.second.linePlot
+let [_, v] = duffingEquation(
+	0.37, 0.3, 1.2
+).rungeKuttaMethod(
+	[1 0], 0, 23, 0.1
+);
+v.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/duffingEquation-A.svg)
@@ -20,9 +23,12 @@ duffingEquation(0.37, 0.3, 1.2)
 Period-four oscillation, γ=0.29, phase plot:
 
 ~~~spl svg=B
-duffingEquation(0.29, 0.3, 1.2)
-.rungeKuttaMethod([1 0], 0, 17, 0.1)
-.second.linePlot
+let [_, v] = duffingEquation(
+	0.29, 0.3, 1.2
+).rungeKuttaMethod(
+	[1 0], 0, 17, 0.1
+);
+v.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/duffingEquation-B.svg)
@@ -30,9 +36,12 @@ duffingEquation(0.29, 0.3, 1.2)
 Period-four oscillation, γ=0.29, _f(t)_ plot:
 
 ~~~spl svg=C
-let [t, v] = duffingEquation(0.29, 0.3, 1.2)
-.rungeKuttaMethod([1 0], 0, 37, 0.1);
-let [x, y] = v.downsample(2).transpose;
+let [_, v] = duffingEquation(
+	0.29, 0.3, 1.2
+).rungeKuttaMethod(
+	[1 0], 0, 37, 0.1
+);
+let [x, _] = v.downsample(2).transpose;
 x.linePlot
 ~~~
 

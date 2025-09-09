@@ -4,10 +4,13 @@
 
 Model a damped, driven pendulum.
 The pendulum equation is a non-linear second-order differential equation.
+Answers a two argument `Block`,
+accepting _t_ and _(θ₁,θ₂)_,
+and answering _(θ₁′,θ₂′)_.
 
 _g_ tells the gravitational constant,
-_l_ tells the length of the pendulum,
-_m_ tells the mass of the pendulum,
+_l_ tells the length of the pendulum rod,
+_m_ tells the mass of the pendulum bob,
 _b_ tells the damping constant,
 _a_ tells the amplitude of the driving force,
 and _k_ tells the frequency of driving force.
@@ -15,14 +18,17 @@ and _k_ tells the frequency of driving force.
 Plot time-sequence of θ of a simple damped oscillator:
 
 ~~~spl svg=A
-pendulumEquation(1, 1, 1, 0.15, 0, 1)
-.rungeKuttaMethod(
+let [_, v] = pendulumEquation(
+	1, 1, 1, 0.15, 0, 1
+).rungeKuttaMethod(
 	[1/2.pi, 0],
 	0, 30,
 	0.05
-).second
-.collect(first:/1)
-.downsample(2)
+);
+v.collect { :v |
+	let [theta, _] = v;
+	theta
+}.downsample(2)
 .linePlot
 ~~~
 
@@ -31,13 +37,14 @@ pendulumEquation(1, 1, 1, 0.15, 0, 1)
 Plot time-sequence of `sin` of θ of a chaotic set of parameters:
 
 ~~~spl svg=B
-pendulumEquation(1, 1, 1, 0.5, 1.5, 2 / 3)
-.rungeKuttaMethod(
+let [_, v] = pendulumEquation(
+	1, 1, 1, 0.5, 1.5, 2 / 3
+).rungeKuttaMethod(
 	[0, 0],
 	0, 75,
 	0.025
-).second
-.collect { :v |
+);
+v.collect { :v |
 	let [theta, _] = v;
 	theta.sin
 }.downsample(4)
@@ -49,6 +56,8 @@ pendulumEquation(1, 1, 1, 0.5, 1.5, 2 / 3)
 * * *
 
 See also: doublePendulumEquation, rungeKuttaMethod
+
+Guides: Chaotic Functions
 
 References:
 _Mathematica_

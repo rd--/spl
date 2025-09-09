@@ -100,4 +100,4 @@ At `Rectangle`:
 
 See also: Geometry, LineDrawing, Svg
 
-Guides: Geometry Functions
+Guides: Drawing Functions, Geometry Functions

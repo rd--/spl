@@ -1,12 +1,13 @@
 # List
 
-- _List(anInteger, anObject)_
-- _List(α) ⇒ List(α, nil)_
+- _List(n, x=nil)_
 
 `List` is a sequential collection `Type`.
 Lists may have any length or depth.
 
-Create a new `List` of _anInteger_ places, each initialised to `nil`, or to _anObject_.
+Create a new `List` of _n_ places,
+each initialised the object _x_,
+or to `nil` if _x_ is elided.
 
 ```
 >>> List(3, 1)

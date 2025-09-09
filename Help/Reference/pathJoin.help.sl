@@ -1,8 +1,8 @@
 # pathJoin
 
-- _pathJoin(aList)_
+- _pathJoin([p₁ p₂ …])_
 
-Join a `List` of `String` together as a file path.
+Join a `List` of `String` items together as a file path.
 
 ```
 >>> ['/p', 'q', 'r.s'].pathJoin
@@ -21,5 +21,9 @@ The empty path:
 See also: pathBasename, pathDirectory, pathExtension, pathIsAbsolute, pathNormalize
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FileNameJoin.html)
 
 Categories: System

@@ -1,7 +1,7 @@
 # TemporalData
 
 - _TemporalData([[t₁ v₁; t₂ v₂ …]…])_
-- _TemporalData([v₁₂ v₂ …], [t₁ t₂ …])_
+- _TemporalData([v₁ v₂ …], [t₁ t₂ …])_
 
 A `Type` that represents a temporal data collection given as lists of time-value pairs.
 

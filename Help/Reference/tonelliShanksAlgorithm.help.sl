@@ -64,7 +64,11 @@ Answer one root, _r_, the second is _p-r_.
 
 >>> (144161 ^ 2) % 1000003
 331575
+```
 
+At large integer:
+
+```
 >>> tonelliShanksAlgorithm(
 >>> 	665820697L, 1000000009L
 >>> )
@@ -82,6 +86,44 @@ Answer one root, _r_, the second is _p-r_.
 >>> %
 >>> 1000000000039L
 881398088036L
+
+>>> let n = [
+>>> 	3 4 0 3 5 2 4 3 9 1
+>>> 	4 6 3 5 5 4 9 6 0 1
+>>> 	5 8 3 3 6 9 5 4 4 5
+>>> 	6 0 6 5 0 2 5 4 3 2
+>>> 	5 0 8 4 6 4 3 2 0 1
+>>> ].fromDigits(10L);
+>>> let m = [
+>>> 	8 2 5 6 3 1 1 8 8 2
+>>> 	8 0 9 0 3 6 2 2 6 1
+>>> 	3 7 8 9 9 3 9 5 7 4
+>>> 	5 0 2 1 3 5 7 3 6 8
+>>> 	7 1 1 3 6 9 0 7 5 1
+>>> ].fromDigits(10L);
+>>> let p = 10L ^ 50 + 151;
+>>> let q = tonelliShanksAlgorithm(n, p);
+>>> (q, (m ^ 2) % (10L ^ 50 + 151))
+(m, n)
+
+>>> let n = [
+>>> 	4 1 6 6 0 8 1 5 1 2
+>>> 	7 6 3 7 3 4 7 4 6 8
+>>> 	1 4 0 7 4 5 0 4 2 8
+>>> 	2 7 7 0 4 1 0 3 4 4
+>>> 	5 7 5 0 1 7 2 0 0 2
+>>> ].fromDigits(10L);
+>>> let m = [
+>>> 	3 2 1 0 2 9 8 5 3 6
+>>> 	9 9 4 0 6 2 0 8 4 9
+>>> 	7 4 1 9 8 3 9 8 7 3
+>>> 	0 0 0 3 8 9 0 3 7 2
+>>> 	5 2 6 6 6 3 4 5 0 8
+>>> ].fromDigits(10L);
+>>> let p = 10L ^ 50 + 577;
+>>> let q = tonelliShanksAlgorithm(n, p);
+>>> (q, (m ^ 2) % (10L ^ 50 + 577))
+(m, n)
 ```
 
 Plot the set of affine points of elliptic curve _y²=x³−x_ over finite field _F89_:
@@ -105,6 +147,8 @@ let m = 89;
 * * *
 
 See also: ^, %, powerMod
+
+Guides: Prime Number Functions
 
 References:
 _Mathematica_

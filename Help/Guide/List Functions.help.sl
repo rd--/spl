@@ -69,6 +69,8 @@ Partitioning:
 - `takeDrop`
 - `takeList`
 - `partition`
+- `prefixes`
+- `suffixes`
 
 Converting:
 

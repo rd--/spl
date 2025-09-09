@@ -1,8 +1,8 @@
 # pathBasename
 
-- _pathBasename(aPath)_
+- _pathBasename(p)_
 
-Answer the last component of the `String` _aPath_.
+Answer the last component of the `String` _p_.
 Components are ordinarily separated by _solidus_ characters.
 
 ```
@@ -22,5 +22,12 @@ If there is a trailing directory separator:
 See also: pathExtension, pathIsAbsolute, pathJoin, pathNormalize
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FileBaseName.html)
+[2](https://reference.wolfram.com/language/ref/FileNameTake.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Basename)
 
 Categories: System

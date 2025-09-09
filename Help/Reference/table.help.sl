@@ -1,9 +1,9 @@
 # table
 
-- _table(aBlock:/2)_
-- _table(aBlock:/1, iSequence)_
-- _table(aBlock:/2, iSequence, jSequence)_
-- _table(aBlock:/3, iSequence, jSequence, kSequence)_
+- _table(f:/2)_
+- _table(f:/1, i)_
+- _table(f:/2, i, j)_
+- _table(f:/3, i, j, k)_
 
 The unary form answers a `Block`,
 the binary form a `List`,
@@ -18,12 +18,18 @@ A table of the first 10 squares:
 >>> 	i ^ 2
 >>> }.table(1:10)
 [1 4 9 16 25 36 49 64 81 100]
+
+>>> 1:10 ^ 2
+[1 4 9 16 25 36 49 64 81 100]
 ```
 
-This makes a table with values of _x_ running from 0 to 1 in steps of 0.25:
+A table with values of _x_ running from 0 to 1 in steps of 0.25:
 
 ```
 >>> sqrt:/1.table(Range(0, 1, 0.25))
+[0 0.5 0.707107 0.866025 1]
+
+>>> (0, 0.25 .. 1).sqrt
 [0 0.5 0.707107 0.866025 1]
 ```
 
@@ -32,12 +38,18 @@ A table with _i_ running from 0 to 20 in steps of 2:
 ```
 >>> square:/1.table(Range(0, 20, 2))
 [0 4 16 36 64 100 144 196 256 324 400]
+
+>>> 0:2:20.square
+[0 4 16 36 64 100 144 196 256 324 400]
 ```
 
 A list of 10 _x_:
 
 ```
 >>> 'x'.constant.table(1:10)
+['x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x']
+
+>>> 'x' # 10
 ['x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x' 'x']
 ```
 
@@ -262,6 +274,8 @@ let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 * * *
 
 See also: array, collect, diagonalMatrix, identityMatrix, do, map, sum, product, nestList, tuples, withCollect
+
+Guides: List Functions, Matrix Functions
 
 References:
 _J_

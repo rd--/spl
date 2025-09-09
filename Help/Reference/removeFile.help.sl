@@ -1,10 +1,10 @@
 # removeFile
 
-- _removeFile(aPath)_
+- _removeFile(p)_
 
-Remove the file at _aPath_.
+Remove the file at the path _p_.
 Signal an `error` if no such file exists,
-or if exists but cannot be removed.
+or if it exists but cannot be removed.
 Removes ordinary files only,
 see `removeDirectory` to remove a directory.
 
@@ -12,8 +12,14 @@ see `removeDirectory` to remove a directory.
 >>> '/tmp/spl.text'.writeTextFile('Sᴘʟ')
 nil
 
+>>> '/tmp/spl.text'.fileExists
+true
+
 >>> '/tmp/spl.text'.removeFile
 nil
+
+>>> '/tmp/spl.text'.fileExists
+false
 ```
 
 * * *
@@ -21,5 +27,9 @@ nil
 See also: fetchText, makeDirectory, removeDirectory, writeTextFile
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DeleteFile.html)
 
 Categories: Files

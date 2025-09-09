@@ -1,42 +1,47 @@
 +System {
 
-	currentWorkingDirectory { :self |
+	currentWorkingDirectory { :unused |
 		<primitive: return host.currentWorkingDirectory();>
 	}
 
-	environmentVariable { :self :name |
+	currentWorkingDirectory { :unused :aPath |
+		<primitive: host.changeCurrentWorkingDirectory(_aPath);>
+		aPath
+	}
+
+	environmentVariable { :unused :name |
 		<primitive: return host.environmentVariableGet(_name);>
 	}
 
-	environmentVariable { :self :name :aString |
+	environmentVariable { :unused :name :aString |
 		<primitive: return host.environmentVariableSet(_name, _aString);>
 	}
 
-	environmentVariables { :self |
+	environmentVariables { :unused |
 		<primitive: return host.environmentVariables();>
 	}
 
-	exit { :self :exitCode |
+	exit { :unused :exitCode |
 		<primitive: host.exit(_exitCode);>
 	}
 
-	hostName { :self |
+	hostName { :unused |
 		<primitive: return host.hostName();>
 	}
 
-	instructionSetArchitecture { :self |
+	instructionSetArchitecture { :unused |
 		<primitive: return host.instructionSetArchitecture();>
 	}
 
-	operatingSystem { :self |
+	operatingSystem { :unused |
 		<primitive: return host.operatingSystem();>
 	}
 
-	primitiveSystemCommand { :self :commandName :arguments |
+	primitiveSystemCommand { :unused :commandName :arguments |
 		<primitive: return host.systemCommand(_commandName, _arguments);>
 	}
 
-	scriptArguments { :self |
+	scriptArguments { :unused |
 		<primitive: return Deno.args;>
 	}
 

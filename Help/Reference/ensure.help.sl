@@ -36,6 +36,8 @@ See also: Error, ifError, signal
 Guides: Control Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/WithCleanup.html),
 _Smalltalk_
 5.4.3.1,
 _SuperCollider_

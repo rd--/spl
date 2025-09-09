@@ -16,13 +16,16 @@ Parametric plot for the time evolution of the angles of a double pendulum,
 note that the graph resembles Brownian motion:
 
 ~~~spl svg=A
-doublePendulumEquation(9.81, [1 1], [1 1])
-.rungeKuttaMethod(
+let [_, v] = doublePendulumEquation(
+	9.81, [1 1], [1 1]
+).rungeKuttaMethod(
 	[22 / 7, 0, 22 / 7, 0],
 	0, 50,
 	0.05
-).second.collect { :v |
-	[v[1], v[3]]
+);
+v.collect { :v |
+	let [theta1, _, theta2, _] = v;
+	[theta1, theta2]
 }.downsample(2).linePlot
 ~~~
 
@@ -32,12 +35,14 @@ Plot _(x,y)_ coordinates of second mass:
 
 ~~~spl svg=B
 let l = [1 1];
-doublePendulumEquation(9.81, l, [1 1])
-.rungeKuttaMethod(
+let [_, v] = doublePendulumEquation(
+	9.81, l, [1 1]
+).rungeKuttaMethod(
 	[85.degree 0 80.degree 0],
 	0, 50,
 	0.05
-).second.collect { :v |
+);
+v.collect { :v |
 	let [theta1, _, theta2, _] = v;
 	let x1 = l[1] * sin(theta1);
 	let y1 = (0 - l[1]) * cos(theta1);

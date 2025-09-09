@@ -89,6 +89,11 @@ Standards:
 
 - `lightnessCie`
 
+Svg:
+
+- `asColourSvg`
+- `asGreyscaleSvg`
+
 * * *
 
 Guides: Image Functions

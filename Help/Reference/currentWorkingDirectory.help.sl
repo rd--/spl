@@ -1,9 +1,8 @@
 # currentWorkingDirectory
 
-- _currentWorkingDirectory(system)_
+- _currentWorkingDirectory(system, p)_
 
-Answer a `String` giving the current working directory of the process.
-
+The unary form answer a `String` giving the current working directory of the process.
 The answer is a `String`:
 
 ```
@@ -13,10 +12,27 @@ The answer is a `String`:
 true
 ```
 
+The binary form sets the current working directory,
+or signals an error if _p_ does not specify a valid directory:
+
+```
+>>> system
+>>> .currentWorkingDirectory := '/tmp'
+'/tmp'
+
+>>> system
+>>> .currentWorkingDirectory
+'/tmp'
+```
+
 * * *
 
 See also: environmentVariable, systemCommand
 
-Guides: System Functions
+Guides: File Functions, System Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/SetDirectory.html)
 
 Categories: System

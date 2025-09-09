@@ -1,6 +1,6 @@
 # fileInformation
 
-- _fileInformation(aPath | aUrl)_
+- _fileInformation(p)_
 
 Answer a `Record` holding information about the named file.
 The will be at least entries for _isFile_, _isDirectory_, _size_ and _mtime_.
@@ -28,8 +28,15 @@ true
 
 * * *
 
-See also: modificationTime
+See also: directoryExists, fileExists, modificationTime
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FileType.html)
+[2](https://reference.wolfram.com/language/ref/FileDate.html)
+[3](https://reference.wolfram.com/language/ref/FileByteCount.html)
+[4](https://reference.wolfram.com/language/ref/FileSize.html)
 
 Categories: Files, System

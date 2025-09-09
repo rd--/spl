@@ -1,8 +1,8 @@
 # pathDirectory
 
-- _pathDirectory(aPath)_
+- _pathDirectory(p)_
 
-Answer the directory component of the `String` _aPath_.
+Answer the directory component of the filename path _p_.
 
 ```
 >>> '/p/q/r.s'.pathDirectory
@@ -21,5 +21,9 @@ If there is no directory, answers a full stop:
 See also: pathBasename, pathExtension, pathIsAbsolute, pathJoin, pathNormalize
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/DirectoryName.html)
 
 Categories: System

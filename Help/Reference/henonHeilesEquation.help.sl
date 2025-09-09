@@ -9,9 +9,9 @@ The vector is _(x,y,px,py)_.
 Plot _y/py_ for _t=(0,50)_:
 
 ~~~spl svg=A
-let [t, v] =
-henonHeilesEquation(1)
-.rungeKuttaMethod(
+let [_, v] = henonHeilesEquation(
+	1
+).rungeKuttaMethod(
 	[1/6 ^ 1/2, 0, 0, 0],
 	0, 50, 0.1
 );

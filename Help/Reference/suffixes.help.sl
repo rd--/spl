@@ -1,8 +1,8 @@
 # suffixes
 
-- _suffixes(aSequence)_
+- _suffixes([x₁ x₂ …])_
 
-Answer a `List` of all of the suffixes of _aSequence_.
+Answer a `List` of all of the suffixes of the sequence _x_.
 
 ```
 >>> [1 2 3].suffixes
@@ -18,6 +18,8 @@ Answer a `List` of all of the suffixes of _aSequence_.
 * * *
 
 See also: prefixes
+
+Guides: List Functions
 
 References:
 _Haskell_

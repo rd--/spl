@@ -5,6 +5,11 @@ Types:
 - `List`: list type
 - `Matrix`: matrix type
 
+Constructing:
+
+- `array`
+- `table`
+
 Converting:
 
 - `asList`: convert matrix to list of lists
@@ -45,7 +50,7 @@ Predicates:
 - `isUnitaryMatrix`: is unitary matrix
 - `isUpperTriangularMatrix`: is upper triangular matrix
 
-Constructing:
+Specific Matrices:
 
 - `antidiagonalMatrix`: matrix with list items on antidiagonal
 - `blockDiagonalMatrix`: matrix with matrices on block diagonal

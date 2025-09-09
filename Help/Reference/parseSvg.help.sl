@@ -1,8 +1,8 @@
 # parseSvg
 
-- _parseSvg(aString)_
+- _parseSvg(s)_
 
-Answer an Svg element parsed from _aString_.
+Answer an Svg element parsed from the string _s_.
 
 * * *
 

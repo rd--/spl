@@ -1,5 +1,21 @@
 +String {
 
+	directoryExists { :self |
+		{
+			self.fileInformation.at('isDirectory')
+		}.ifError {
+			false
+		}
+	}
+
+	fileExists { :self |
+		{
+			self.fileInformation.at('isFile')
+		}.ifError {
+			false
+		}
+	}
+
 	fileInformation { :self |
 		<primitive: return host.fileInformationSync(_self);>
 	}

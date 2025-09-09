@@ -83,6 +83,7 @@ Algorithms:
 - `primeFactorsTrialDivision`
 - `primesListWheelSieve`
 - `sieveOfEratosthenes`
+- `tonelliShanksAlgorithm`
 
 * * *
 

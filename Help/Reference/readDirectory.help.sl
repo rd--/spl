@@ -1,8 +1,8 @@
 # readDirectory
 
-- _readDirectory(aString | aUrl)_
+- _readDirectory(p)_
 
-Answer a `List` of the entries in the specified directory.
+Answer a `List` of the entries in the directory specified at _p_.
 
 The entries are given as `Record` values.
 Keys are _name_, _isFile_, _isDirectory_ and _isSymlink_.

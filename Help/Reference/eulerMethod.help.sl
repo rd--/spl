@@ -10,11 +10,10 @@ The start time is _x0_, the end time is _x1_ and the step size is _h_.
 Solve and plot a first-order ordinary differential equation:
 
 ~~~spl svg=A
-{ :x :y |
+let [_, y] = { :x :y |
 	y * (x + y).cos
-}.eulerMethod(1, 0, 30, 0.05)
-.transpose
-.linePlot
+}.eulerMethod(1, 0, 30, 0.05);
+y.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/eulerMethod-A.svg)
@@ -45,11 +44,10 @@ Newton’s cooling law, with initial value 100, and with time running from 0 to 
 Plot:
 
 ~~~spl svg=B
-{ :x :y |
+let [_, y] = { :x :y |
 	-0.07 * (y - 20)
-}.eulerMethod(100, 0, 100, 2)
-.transpose
-.linePlot
+}.eulerMethod(100, 0, 100, 2);
+y.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/eulerMethod-B.svg)

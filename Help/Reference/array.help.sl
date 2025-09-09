@@ -1,8 +1,8 @@
 # array
 
-- _array(aBlock, shape)_
+- _array(f:/n, ⍴)_
 
-Answer an array with the specified _shape_ where each place is defined by _aBlock_,
+Answer an array with the specified shape _⍴_ where each place is defined by the block _f_,
 which must take as many arguments as the `rank` of the array constructed,
 that is one for each index.
 
@@ -159,6 +159,8 @@ gcd:/2.array([20 20]).matrixPlot
 * * *
 
 See also: collect, map, table, tuples
+
+Guides: List Functions, Matrix Functions
 
 References:
 _Mathematica_

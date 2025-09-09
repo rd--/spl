@@ -1,8 +1,8 @@
 # readDirectoryFileNames
 
-- _readDirectoryFileNames(aString | aUrl)_
+- _readDirectoryFileNames(p)_
 
-Answer a `List` of the files in the specified directory,
+Answer a `List` of the files in the directory specified at _p_,
 or reject with an `Error` value.
 
 The names are given in qualified form, that is with the directory prefix.
@@ -31,5 +31,9 @@ or reject with an `Error` value.
 See also: pathJoin, Promise, readBinaryFile, readDirectory, readTextFile
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FileNames.html)
 
 Categories: Files

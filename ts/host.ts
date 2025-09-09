@@ -2,6 +2,10 @@ export function currentWorkingDirectory(): string {
 	return Deno.cwd();
 }
 
+export function changeCurrentWorkingDirectory(path: string | URL): void {
+	return Deno.chdir(path);
+}
+
 export function environmentVariableGet(variableName: string): string | null {
 	return Deno.env.get(variableName) || null;
 }

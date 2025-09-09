@@ -10,11 +10,10 @@ The start time is _x0_, the end time is _x1_ and the step size is _h_.
 Solve and plot a first-order ordinary differential equation (ODE):
 
 ~~~spl svg=A
-{ :x :y |
+let [_, y] = { :x :y |
 	y * (x + y).cos
-}.rungeKuttaMethod(1, 0, 30, 0.1)
-.second
-.linePlot
+}.rungeKuttaMethod(1, 0, 30, 0.1);
+y.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-A.svg)
@@ -22,11 +21,10 @@ Solve and plot a first-order ordinary differential equation (ODE):
 Over a smaller domain with smaller time step:
 
 ~~~spl svg=B
-{ :x :y |
+let [_, y] = { :x :y |
 	y * x.sin.square
-}.rungeKuttaMethod(1, 0, 5, 0.05)
-.second
-.linePlot
+}.rungeKuttaMethod(1, 0, 5, 0.05);
+y.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-B.svg)
@@ -34,11 +32,10 @@ Over a smaller domain with smaller time step:
 An equation that does not consult _y_:
 
 ~~~spl svg=C
-{ :x :y |
+let [_, y] = { :x :y |
 	2 * x
-}.rungeKuttaMethod(0, 0, 5, 0.1)
-.second
-.linePlot
+}.rungeKuttaMethod(0, 0, 5, 0.1);
+y.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-C.svg)
@@ -71,9 +68,9 @@ with μ = 1,
 and plot phase diagram:
 
 ~~~spl svg=D
-vanDerPolEquation(1)
-.rungeKuttaMethod([2 0], 0, 20, 0.1)
-.second.scatterPlot
+let [_, y] = vanDerPolEquation(1)
+.rungeKuttaMethod([2 0], 0, 20, 0.1);
+y.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-D.svg)
@@ -84,9 +81,9 @@ with γ = 0.3 and δ = 0.25 and ω = 1,
 and plot phase diagram:
 
 ~~~spl svg=E
-duffingEquation(0.3, 0.25, 1)
-.rungeKuttaMethod([0 0], 0, 23, 0.1)
-.second.scatterPlot
+let [_, y] = duffingEquation(0.3, 0.25, 1)
+.rungeKuttaMethod([0 0], 0, 23, 0.1);
+y.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/rungeKuttaMethod-E.svg)

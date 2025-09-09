@@ -45,7 +45,13 @@ c.f. OEIS [A019518](https://oeis.org/A019518):
 	235711131719
 	23571113171923
 ]
+```
 
+If _b_ is a large integer, so is the answer:
+
+```
+>>> [1 2 3].fromDigits(10L)
+123L
 ```
 
 * * *

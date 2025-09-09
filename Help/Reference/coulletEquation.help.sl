@@ -10,14 +10,14 @@ and answering _(x′,y′,z′)_.
 Plot system:
 
 ~~~spl svg=A
-coulletEquation(0.8, -1.1, -0.45, -1)
-.rungeKuttaMethod(
+let [_, v] = coulletEquation(
+	0.8, -1.1, -0.45, -1
+).rungeKuttaMethod(
 	[0.1 0.41 0.31],
 	0, 67,
 	0.1
-)
-.second
-.linePlot
+);
+v.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/coulletEquation-A.svg)

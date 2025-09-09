@@ -1,7 +1,6 @@
 # trace
 
-- _trace(aSequence | aMatrix, aBlock:/1)_
-- _trace(alpha)_ ⟹ _trace(alpha, +)_
+- _trace(m, f:/1=Σ)_
 
 Answer the trace of the matrix or tensor list.
 Properly, a trace is only defined for square matrices.
@@ -27,34 +26,38 @@ For a higher-rank Array, trace gives the `sum` of elements with equal indices:
 
 ```
 >>> [3 3 3].iota.trace
-(1 + 14 + 27)
+1 + 14 + 27
 ```
 
 Apply a function to the diagonal elements of a matrix:
 
 ```
->>> [1 2 3; 4 5 6; 7 8 9].trace(asTuple:/1)
+>>> [1 2 3; 4 5 6; 7 8 9]
+>>> .trace(Tuple:/1)
 (1, 5, 9)
 ```
 
 Find the determinant of a triangular matrix:
 
 ```
->>> [1 2 3; 0 4 5; 0 0 6].trace(product:/1)
+>>> [1 2 3; 0 4 5; 0 0 6]
+>>> .trace(product:/1)
 (1 * 4 * 6)
 ```
 
-_trace(m, asList:/1)_ is equivalent to _diagonal(m)_ for a matrix _m_:
+`trace` if `identity` is equivalent to `diagonal` for a matrix _m_:
 
 ```
 >>> let m = [1 2 3; 4 5 6];
->>> (m.trace(asList:/1), m.diagonal)
+>>> (m.trace(identity:/1), m.diagonal)
 ([1 5], [1 5])
 ```
 
 * * *
 
 See also: diagonal, transposed
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

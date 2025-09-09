@@ -41,4 +41,8 @@ See also: environmentVariables
 
 Guides: System Functions
 
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/Environment.html)
+
 Categories: System

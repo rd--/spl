@@ -3,6 +3,9 @@
 - _dequanLiEquation(a, c, d, e, k, f)_
 
 The Dequan Li equation, a non-linear third-order differential equation.
+Answers a two argument `Block`,
+accepting _t_ and _(x,y,z)_,
+and answering _(x′,y′,z′)_.
 
 Plot system:
 
@@ -13,14 +16,14 @@ let d = 0.16;
 let e = 0.65;
 let k = 55;
 let f = 20;
-dequanLiEquation(a, c, d, e, k, f)
-.rungeKuttaMethod(
+let [_, v] = dequanLiEquation(
+	a, c, d, e, k, f
+).rungeKuttaMethod(
 	[0.1 0.41 0.31],
 	0, 2,
 	0.0025
-)
-.second
-.linePlot
+);
+v.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/dequanLiEquation-A.svg)

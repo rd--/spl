@@ -10,10 +10,15 @@ Converting:
 - `asLineDrawing`
 - `asPerspectiveDrawing`
 
+Svg Drawing:
+
+- `Svg`
+- `svgFragment`
+
 Text Drawings:
 
 - `textDrawing`
 
 * * *
 
-Guides: Image Functions, Plotting Functions
+Guides: Colour Functions, Image Functions, Plotting Functions

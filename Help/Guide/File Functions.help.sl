@@ -2,6 +2,7 @@
 
 Files:
 
+- `fileExists`
 - `readBinaryFile`: read binary file
 - `readTextFile`: read text file
 - `removeFile`: remove file
@@ -10,6 +11,8 @@ Files:
 
 Directories:
 
+- `currentWorkingDirectory`
+- `directoryExists`
 - `makeDirectory`: make directory
 - `readDirectory`: read directory entries
 - `readDirectoryFileNames`: file entries
@@ -17,6 +20,8 @@ Directories:
 
 File Information:
 
+- `directoryExists`
+- `fileExists`
 - `fileInformation`: file information
 - `modificationTime`: modification time
 
