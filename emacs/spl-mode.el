@@ -463,6 +463,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("undefined" . ?⊥) ; U+22A5 ⊥ Up tack
      ("union" . ?∪) ; U+222A ∪ Union
      ("valueWithReturn" . ?↓) ; U+2193 ↓ Downwards Arrow
+     ("xi" . ?ξ) ; U+03BE ξ Greek Small Letter Xi
+     ("Xi" . ?Ξ) ; U+039E Ξ Greek Capital Letter Xi
      ("Zeta" . ?Ζ) ; U+0396 Ζ Greek Capital Letter Zeta
      ("zeta" . ?ζ) ; U+03B6 ζ Greek Small Letter Zeta
      ("||" . ?‖) ; U+2016 ‖ Double Vertical Line

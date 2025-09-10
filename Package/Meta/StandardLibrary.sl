@@ -231,6 +231,7 @@
 	'PoissonDistribution'
 	'ReciprocalDistribution'
 	'SkewNormalDistribution'
+	'StableDistribution'
 	'StudentTDistribution'
 	'TriangularDistribution'
 	'UniformDistribution'

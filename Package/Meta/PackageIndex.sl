@@ -278,6 +278,7 @@
 	'Random-Sfc32'
 	'Random-SkewNormalDistribution'
 	'Random-SplitMix'
+	'Random-StableDistribution'
 	'Random-StudentTDistribution'
 	'Random-TelegraphProcess'
 	'Random-TriangularDistribution'

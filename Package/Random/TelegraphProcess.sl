@@ -7,15 +7,13 @@ TelegraphProcess : [Object] { | mu |
 		let k = ts.size;
 		TemporalData(
 			{
-				let c = 0;
 				let a = 1;
 				let e = r.exponentialDistribution(mu);
 				[
 					ts,
 					ts.collect { :t |
 						(t >= e).ifTrue {
-							c := c + 1;
-							a := c.isEven.if { 1 } { -1 };
+							a := a.negate;
 							e := e + r.exponentialDistribution(mu)
 						};
 						a
