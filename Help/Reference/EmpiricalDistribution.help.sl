@@ -92,7 +92,9 @@ let e = EmpiricalDistribution(
 
 * * *
 
-See also: cdf, inverseCdf
+See also: cdf, inverseCdf, ProbabilityDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # NormalDistribution
 
-- _NormalDistribution(mu=0, sigma=1)_
+- _NormalDistribution(μ=0, σ=1)_
 
-Answer a `Type` that represents a normal (Gaussian) distribution with mean `μ` and standard deviation `σ`.
+A `Type` that represents a normal (Gaussian) distribution with mean _μ_ and standard deviation _σ_.
 
 Probability density function at specific values:
 
@@ -108,9 +108,9 @@ NormalDistribution(0, 1)
 
 * * *
 
-See also: erf, gaussianMatrix, MultinormalDistribution, ProbabilityDistribution, SkewNormalDistribution, StudentTDistribution
+See also: MultinormalDistribution, ProbabilityDistribution, SkewNormalDistribution, StableDistribution, StudentTDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_

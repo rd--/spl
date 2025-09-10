@@ -47,8 +47,11 @@ BetaBinomialDistribution(2, 3, 50)
 Compare to `pdf`:
 
 ~~~spl svg=D
-let d = BetaBinomialDistribution(2, 3, 50);
-(0 -- 50).functionPlot(d.pdf)
+(0 -- 50).functionPlot(
+	BetaBinomialDistribution(
+		2, 3, 50
+	).pdf
+)
 ~~~
 
 ![](sw/spl/Help/Image/BetaBinomialDistribution-D.svg)
@@ -85,8 +88,9 @@ Define the Pólya distribution:
 Mean:
 
 ```
->> BetaBinomialDistribution(`α`, `β`, `n`)
->> .mean
+>> BetaBinomialDistribution(
+>> 	`α`, `β`, `n`
+>> ).mean
 (/ (* n α) (+ α β))
 ```
 
@@ -94,7 +98,7 @@ Mean:
 
 See also: BetaDistribution, BinomialDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

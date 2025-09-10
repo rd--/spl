@@ -2,7 +2,7 @@
 
 - _BernoulliDistribution(p)_
 
-Answer a `Type` that represents a Bernoulli distribution with probability parameter _p_.
+A `Type` that represents a Bernoulli distribution with probability parameter _p_.
 The Bernoulli distribution is a special case of the Binomial distribution, where _n_ is `one`.
 
 Mean and variance:
@@ -88,12 +88,12 @@ let b = d.randomVariate(r, 100);
 
 See also: BernoulliProcess, BinomialDistribution, CauchyDistribution, UniformDistribution, WeibullDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/BernoulliDistribution.html)
-[2](https://reference.wolfram.com/language/ref/BernoulliDistribution.html)
+[2](https://reference.wolfram.com/language/ref/BernoulliDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Bernoulli_distribution)
 

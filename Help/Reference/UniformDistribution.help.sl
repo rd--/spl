@@ -3,7 +3,7 @@
 - _UniformDistribution([x₁ x₂])_
 - _UniformDistribution([x₁ x₂; y₁ y₂ …])_
 
-Answer a `Type` that represents a uni-variate uniform distribution with minima _x₁_ and maxima _x₂_,
+A `Type` that represents a uni-variate uniform distribution with minima _x₁_ and maxima _x₂_,
 or a multi-variate uniform distribution with minima _(x₁,y₁…)_ and maxima _(x₂,y₂…)_
 
 Calculate `entropy`, `mean`, `median`, `kurtosis`, `skewness`, `standardDeviation` and `variance`:
@@ -130,7 +130,9 @@ UniformDistribution(
 
 * * *
 
-See also: CauchyDistribution, cdf, DiscreteUniformDistribution, mean, MultinormalDistribution, NormalDistribution, pdf, randomVariate, ReciprocalDistribution, standardDeviation, WeibullDistribution
+See also: CauchyDistribution, DiscreteUniformDistribution, MultinormalDistribution, NormalDistribution, ReciprocalDistribution, WeibullDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_

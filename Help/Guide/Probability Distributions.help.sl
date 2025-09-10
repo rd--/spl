@@ -25,6 +25,7 @@ Types:
 - `HypergeometricDistribution`
 - `InverseGaussianDistribution`
 - `LaplaceDistribution`
+- `LevyDistribution`
 - `LogisticDistribution`
 - `LogNormalDistribution`
 - `MultinormalDistribution`
@@ -36,6 +37,7 @@ Types:
 - `PoissonDistribution`
 - `ReciprocalDistribution`
 - `SkewNormalDistribution`
+- `StableDistribution`
 - `StudentTDistribution`
 - `TriangularDistribution`
 - `UniformDistribution`

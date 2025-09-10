@@ -3,7 +3,7 @@
 - _DiscreteUniformDistribution([x₁ x₂])_
 - _DiscreteUniformDistribution([x₁ x₂; y₁ y₂ …])_
 
-Answer a `Type` that represents a discrete uni-variate uniform distribution with minima _x₁_ and maxima _x₂_,
+A `Type` that represents a discrete uni-variate uniform distribution with minima _x₁_ and maxima _x₂_,
 or a multi-variate discrete uniform distribution with minima _(x₁,y₁…)_ and maxima _(x₂,y₂…)_
 
 Generate a sample of pseudorandom numbers from a discrete uniform distribution:
@@ -52,6 +52,8 @@ let c = DiscreteUniformDistribution(
 * * *
 
 See also: UniformDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

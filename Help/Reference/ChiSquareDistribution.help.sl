@@ -57,6 +57,8 @@ Mean and variance:
 
 See also: GammaDistribution, StudentTDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Chi-SquaredDistribution.html)

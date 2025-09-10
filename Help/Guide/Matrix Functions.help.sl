@@ -66,6 +66,7 @@ Specific Matrices:
 - `exchangeMatrix`: exchange matrix
 - `fourierMatrix`: square Fourier matrix
 - `frobeniusCompanionMatrix`: Frobenius companion matrix
+- `gaussianMatrix`
 - `hadamardMatrix`: Hadamard matrix
 - `hilbertMatrix`: Hilbert matrix
 - `identityMatrix`: identity matrix

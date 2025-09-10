@@ -60,6 +60,8 @@ Compute and plot a Gaussian vector:
 
 See also: differences, diskMatrix, exp, gaussianVector, NormalDistribution
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GaussianMatrix.html),

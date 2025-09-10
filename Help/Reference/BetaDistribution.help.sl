@@ -138,7 +138,7 @@ BetaDistribution(3, 1 / 3)
 
 See also: BinomialDistribution, beta, betaRegularized, GammaDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_

@@ -2,7 +2,7 @@
 
 - _NoncentralBetaDistribution(α, β, δ)_
 
-Answer a `Type` representing a noncentral beta distribution with shape parameters α and β,
+A `Type` representing a noncentral β distribution with shape parameters α and β,
 and noncentrality parameter δ.
 
 Generate a sample of pseudo-random numbers:
@@ -19,6 +19,8 @@ NoncentralBetaDistribution(3, 2.5, 20)
 * * *
 
 See also: BetaDistribution, GammaDistribution, NoncentralChiSquareDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

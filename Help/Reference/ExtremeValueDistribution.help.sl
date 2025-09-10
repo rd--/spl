@@ -79,6 +79,8 @@ ExtremeValueDistribution(3, 2.5)
 
 See also: WeibullDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ExtremeValueDistribution.html),

@@ -4,6 +4,8 @@
 
 A `Type` representing an inverse Gaussian distribution with mean μ and scale parameter λ.
 
+Plot histogram of random variate:
+
 ~~~spl svg=A
 let r = Sfc32(267813);
 InverseGaussianDistribution(1, 5)
@@ -16,6 +18,10 @@ InverseGaussianDistribution(1, 5)
 _Note_: The inverse Gaussian distribution is also known as the Wald distribution.
 
 * * *
+
+See also: NormalDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

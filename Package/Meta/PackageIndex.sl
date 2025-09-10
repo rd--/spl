@@ -255,6 +255,7 @@
 	'Random-HypergeometricDistribution'
 	'Random-InverseGaussianDistribution'
 	'Random-LaplaceDistribution'
+	'Random-LevyDistribution'
 	'Random-LinearCongruential'
 	'Random-LogNormalDistribution'
 	'Random-LogisticDistribution'

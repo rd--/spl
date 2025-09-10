@@ -109,7 +109,7 @@ Evaluate symbolically:
 
 See also: cdf, GammaDistribution, LaplaceDistribution, pdf, randomVariate
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_

@@ -53,7 +53,9 @@ ParetoDistribution(2, 5)
 
 * * *
 
-See also: cdf, pdf
+See also: StableDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

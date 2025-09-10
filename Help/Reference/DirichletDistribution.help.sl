@@ -1,6 +1,6 @@
 # DirichletDistribution
 
-- _DirichletDistribution(alphaList)_
+- _DirichletDistribution([α₁ α₂ …])_
 
 A `Type` representing a Dirichlet distribution with shape parameters α,
 and dimension _#α - 1_.
@@ -54,6 +54,8 @@ let m = { :x :y |
 * * *
 
 See also: BetaDistribution, GammaDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

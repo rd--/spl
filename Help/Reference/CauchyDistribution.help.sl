@@ -1,9 +1,9 @@
 # CauchyDistribution
 
-- _CauchyDistribution(x0, gamma)_
+- _CauchyDistribution(x₀, γ)_
 
-Answer a `Type` that represents a Cauchy distribution with  location parameter _x0_ and scale parameter _gamma_.
-The Cauchy distribution is the distribution of the _x_-intercept of a ray issuing from _(x0, gamma)_ with a uniformly distributed angle.
+A `Type` that represents a Cauchy distribution with location parameter _x₀_ and scale parameter _γ_.
+The Cauchy distribution is the distribution of the _x_-intercept of a ray issuing from _(x₀, γ)_ with a uniformly distributed angle.
 It is also the distribution of the ratio of two independent normally distributed random variables with `mean` `zero`.
 
 Plot `pdf` over a subset of the reals:
@@ -86,7 +86,9 @@ CauchyDistribution(0, 1 / 9)
 
 * * *
 
-See also: cdf, mean, NormalDistribution, pdf, randomVariate, standardDeviation, UniformDistribution, WeibullDistribution
+See also: NormalDistribution, StableDistribution, UniformDistribution, WeibullDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_
@@ -95,7 +97,7 @@ _Csound_
 _Mathematica_
 [1](https://mathworld.wolfram.com/CauchyDistribution.html),
 _NIST_
-[1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3663.htm)
+[1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3663.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Cauchy_distribution)
 

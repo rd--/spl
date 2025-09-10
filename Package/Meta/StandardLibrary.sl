@@ -220,6 +220,7 @@
 	'HypergeometricDistribution'
 	'InverseGaussianDistribution'
 	'LaplaceDistribution'
+	'LevyDistribution'
 	'LogisticDistribution'
 	'LogNormalDistribution'
 	'MultinormalDistribution'

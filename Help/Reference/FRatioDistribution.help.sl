@@ -19,6 +19,8 @@ FRatioDistribution(25, 50)
 
 See also: ChiSquareDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FRatioDistribution.html),

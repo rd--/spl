@@ -11,8 +11,9 @@ Probability density function, varying alpha:
 ~~~spl svg=A
 (-5 -- 5).functionPlot(
 	[-3 0.5 4].collect { :alpha |
-		SkewNormalDistribution(0, 2, alpha)
-		.pdf
+		SkewNormalDistribution(
+			0, 2, alpha
+		).pdf
 	}
 )
 ~~~
@@ -33,6 +34,8 @@ SkewNormalDistribution(0, 2, 3)
 * * *
 
 See also: NormalDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

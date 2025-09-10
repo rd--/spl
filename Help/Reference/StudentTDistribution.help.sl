@@ -2,7 +2,7 @@
 
 - _StudentTDistribution(μ, σ, ν)_
 
-Answer a `Type` representing a Student _t_ distribution with location parameter μ,
+A `Type` representing a Student _t_ distribution with location parameter μ,
 scale parameter σ,
 and ν degrees of freedom.
 
@@ -75,6 +75,8 @@ StudentTDistribution(0, 1, 10)
 * * *
 
 See also: beta, betaRegularized, CauchyDistribution, NormalDistribution
+
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

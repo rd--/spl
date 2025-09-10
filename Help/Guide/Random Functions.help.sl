@@ -35,4 +35,4 @@ Random Number Functions:
 
 * * *
 
-Guides: Random Number Generators, Random Processes
+Guides: Probability Distributions, Random Number Generators, Random Processes

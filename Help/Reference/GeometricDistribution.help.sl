@@ -81,7 +81,10 @@ Simulate a counting process:
 >>> let n = d.randomVariate(r, 20);
 >>> (n, n.mean, d.mean)
 (
-	[4 1 13 2 20 2 9 4 0 1 0 4 1 15 0 4 1 0 2 0],
+	[
+		4  1 13  2 20  2  9  4  0  1
+		0  4  1 15  0  4  1  0  2  0
+	],
 	4.15,
 	4
 )
@@ -121,7 +124,7 @@ Evaluate mean and variance of a geometric distribution symbolically:
 
 See also: cdf, mean, pdf, randomVariate, variance
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_
