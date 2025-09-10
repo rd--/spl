@@ -68,7 +68,7 @@ let c = (1 -- k).subdivide(100).collect(i);
 
 See also: akimaInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Time Series Functions
 
 References:
 _W_

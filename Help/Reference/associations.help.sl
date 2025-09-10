@@ -32,7 +32,10 @@ At `Bag`:
 >>> .characters
 >>> .asBag
 >>> .associations
-['a' -> 5, 'b' -> 2, 'r' -> 2, 'c' -> 1, 'd' -> 1]
+[
+	'a' -> 5, 'b' -> 2, 'r' -> 2,
+	'c' -> 1, 'd' -> 1
+]
 ```
 
 At a `List` of `Association` values:
@@ -41,6 +44,15 @@ At a `List` of `Association` values:
 >>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
 >>> .associations
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
+```
+
+At `TimeSeries`:
+
+```
+>>> TimeSeries(
+>>> 	[2 1; 5 6; 10 5; 12 7; 15 4]
+>>> ).associations
+[2 -> 1, 5 -> 6, 10 -> 5, 12 -> 7, 15 -> 4]
 ```
 
 * * *

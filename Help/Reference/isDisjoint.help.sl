@@ -1,8 +1,8 @@
 # isDisjoint
 
-- _isDisjoint(aCollection, anotherCollection)_
+- _isDisjoint(c₁, c₂)_
 
-Answer `true` if the intersection of two collections is empty, else `false`.
+Answer `true` if the intersection of the two collections _c₁_ and _c₂_ is empty, else `false`.
 
 Two lists that do not intersect:
 
@@ -21,6 +21,8 @@ false
 * * *
 
 See also: intersection
+
+Guides: Set Functions
 
 References:
 _Mathematica_

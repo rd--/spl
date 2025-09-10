@@ -77,7 +77,7 @@ let y = [0 0 1 0 0];
 
 See also: akimaInterpolator, catmullRomInterpolation, cubicSplineInterpolator, linearInterpolator
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Time Series Functions
 
 References:
 _W_

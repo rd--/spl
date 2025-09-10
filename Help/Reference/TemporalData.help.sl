@@ -100,6 +100,8 @@ PoissonProcess(5)
 
 See also: TimeSeries
 
+Guides: Random Processes
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/TemporalData.html)

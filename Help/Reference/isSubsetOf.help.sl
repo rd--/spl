@@ -58,6 +58,8 @@ true
 
 See also: includes, includesAllOf, isProperSubsetOf
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SubsetQ.html),

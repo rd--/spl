@@ -1,8 +1,22 @@
 # merge
 
+- _merge(x₁, x₂, f:/2)_
 - _merge([d₁ d₂ …], f:/1=⊣)_
 
-Merges the dictionaries _d_, using the block _f_ to combine values with the same key.
+At `TimeSeries`,
+merge two time series,
+using _f_ to resolve conflicts:
+
+```
+>>> [1 -1; 3 -3; 5 -5].TimeSeries
+>>> .merge(
+>>> 	[2 -2; 4 -4].TimeSeries
+>>> )
+TimeSeries([-1 .. -5], [1 .. 5])
+```
+
+At a `List` of dictionaries,
+merge the dictionaries _d_, using the block _f_ to combine values with the same key.
 
 Merge two records, using `sum` to combine elements with the same key:
 
@@ -68,7 +82,7 @@ Merge record with an empty record:
 
 See also: counts, gather, groupBy, keyIntersection, keyUnion, transpose
 
-Guides: Dictionary Functions
+Guides: Dictionary Functions, Time Series Functions
 
 References:
 _Mathematica_

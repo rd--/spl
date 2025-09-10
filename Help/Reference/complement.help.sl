@@ -1,8 +1,10 @@
 # complement
 
 - _complement(c)_
+- _complement(c₁, c₂)_
 
-Answer the complement of the collection _c_.
+In the unary case,
+answer the complement of the collection _c_.
 
 The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
 
@@ -37,11 +39,39 @@ c.f. `complementGraph`:
 ].asEdgeList
 ```
 
+In the binary case,
+answer the items in _c₁_ that are not in _c₂_.
+
+Find elements in the first list that are not in the second list:
+
+```
+>>> [1 2 3 4 5].complement([1 3 5])
+[2 4]
+```
+
+Find divisors of 20 that are not also divisors of 12:
+
+```
+>>> 20.divisors.complement(12.divisors)
+[5 10 20]
+```
+
+Find which triples of digits do not occur in the binary decomposition of 12345:
+
+```
+>>> [0 1].tuples(3).complement(
+>>> 	12345
+>>> 	.integerDigits(2)
+>>> 	.partition(3, 1)
+>>> )
+[0 1 0; 1 0 1]
+```
+
 Where supported `complement` is displayed as ∁.
 
 * * *
 
-See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, symmetricDifference
+See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, select, symmetricDifference, take, uniqueElements
 
 Guides: Set Functions
 

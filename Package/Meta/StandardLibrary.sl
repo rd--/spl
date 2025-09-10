@@ -250,6 +250,7 @@
 	'OrnsteinUhlenbeckProcess'
 	'PoissonProcess'
 	'RandomWalkProcess'
+	'TelegraphProcess'
 	'WienerProcess'
 
 	/* System */

@@ -35,7 +35,7 @@ Plot _(x,y)_ coordinates of second mass:
 
 ~~~spl svg=B
 let l = [1 1];
-let [_, v] = doublePendulumEquation(
+let [t, v] = doublePendulumEquation(
 	9.81, l, [1 1]
 ).rungeKuttaMethod(
 	[85.degree 0 80.degree 0],
@@ -49,7 +49,9 @@ v.collect { :v |
 	let x2 = x1 + (l[2] * sin(theta2));
 	let y2 = y1 - (l[2] * cos(theta2));
 	[x2, y2]
-}.downsample(5).scatterPlot
+}.downsample(2).pathPlot(t.downsample(2))
+
+downsample(5).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/doublePendulumEquation-B.svg)

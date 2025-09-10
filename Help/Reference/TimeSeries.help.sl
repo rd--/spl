@@ -297,6 +297,8 @@ Plot Akima interpolation function of time series:
 
 See also: isRegularlySampled, minimumTimeIncrement, resample, TemporalData
 
+Guides: Time Series Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TimeSeriesAnalysis.html)

@@ -17,4 +17,6 @@ The value `Type` of an `Error`.
 
 See also: description, error, ifError, messageText, name, signal
 
+Guides: Control Functions
+
 Categories: Exception, Type

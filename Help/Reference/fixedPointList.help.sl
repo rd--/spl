@@ -1,10 +1,10 @@
 # fixedPointList
 
-- _fixedPointList(aBlock:/1, anObject, equalBlock:/2)_
+- _fixedPointList(f:/1, x, =)_
 
-Generates a `List` giving the results of applying _aBlock_ repeatedly,
-starting with _anObject_,
-until the results no longer change according to _equalBlock_.
+Generates a `List` giving the results of applying the unary block _f_ repeatedly,
+starting with the object _x_,
+until the results no longer change according to equality block _=_.
 
 Find the sequence of values leading to a fixed point:
 
@@ -16,6 +16,21 @@ Find the sequence of values leading to a fixed point:
 ```
 
 Repeated application of a rule until the result no longer changes:
+
+```
+>>> { :x |
+>>> 	let [a, b] = x;
+>>> 	(b != 0).if {
+>>> 		[b, a % b]
+>>> 	} {
+>>> 		[a, b]
+>>> 	}
+>>> }.fixedPointList([28 21])
+[28 21; 21 7; 7 0; 7 0]
+
+>>> 28.gcd(21)
+7
+```
 
 Show convergence to `2.sqrt` in Newton’s method:
 

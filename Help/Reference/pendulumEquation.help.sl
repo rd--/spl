@@ -15,11 +15,12 @@ _b_ tells the damping constant,
 _a_ tells the amplitude of the driving force,
 and _k_ tells the frequency of driving force.
 
-Plot time-sequence of θ of a simple damped oscillator:
+Plot time-sequence of θ of an undamped and non-driven pendulum,
+simple harmonic motion:
 
 ~~~spl svg=A
 let [_, v] = pendulumEquation(
-	1, 1, 1, 0.15, 0, 1
+	1, 1, 1, 0, 0, 1
 ).rungeKuttaMethod(
 	[1/2.pi, 0],
 	0, 30,
@@ -52,6 +53,26 @@ v.collect { :v |
 ~~~
 
 ![](sw/spl/Help/Image/pendulumEquation-B.svg)
+
+Plot time-sequence of the cartesian coordinates of a simple damped pendulum:
+
+~~~spl svg=C
+let [t, v] = pendulumEquation(
+	1, 1, 1, 0.125, 0, 1
+).rungeKuttaMethod(
+	[2/3.pi, 0],
+	0, 20,
+	0.05
+);
+v.collect { :v |
+	let [theta, _] = v;
+	let x = sin(theta);
+	let y = -1 * cos(theta);
+	[x, y]
+}.pathPlot(t)
+~~~
+
+![](sw/spl/Help/Image/pendulumEquation-C.svg)
 
 * * *
 

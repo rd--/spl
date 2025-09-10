@@ -90,7 +90,7 @@ let y = cos(x);
 
 See also: cubicSplineInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Time Series Functions
 
 References:
 _Mathworks_

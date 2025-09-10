@@ -52,4 +52,6 @@ This is equivalent to `partition` with window size of two and step size of one:
 
 See also: adjacentPairs, adjacentPairsDo, blockMap, collect, pairsCollect, partition, partitionDo
 
+Guides: List Functions
+
 Categories: Enumerating

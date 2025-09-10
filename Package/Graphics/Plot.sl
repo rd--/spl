@@ -721,36 +721,52 @@ Plot : [Object] { | pages format options |
 
 +List {
 
-	pathPlot { :self |
+	pathPlot { :self :timesList |
 		let [n, m] = self.shape;
 		(m = 2).if {
 			let height = 100;
 			let boundingCoordinates = self.coordinateBoundingBox;
-			let fragmentList = [
-				{ :options |
-					[
-						'<circle r="%" fill="none" stroke="black">'.format(
-							[
-								(1 / options['scaleFactor'])
-								.printStringToFixed(options['precision'])
-							]
-						),
-						'<animateMotion dur="%s" repeatCount="indefinite" calcMode="linear" path="M% L%"/>'
-						.format(
-							[
-								n - 1,
-								[self.first].asSvgPointList(options),
-								self.allButFirst.asSvgPointList(options)
-							]
-						),
-						'</circle>'
-					].unlines
-				}
-			];
-			scaledFragments(fragmentList, height, boundingCoordinates)
+			let distanceList = self.differencesBy(euclideanDistance:/2).prefixSum;
+			let keyPoints = [0] ++ (distanceList / distanceList.last);
+			let duration = timesList.last;
+			let keyTimes = timesList / duration;
+			let keyPrecision = 4;
+			{ timesList.size = n }.assert;
+			{ :options |
+				[
+					'<path id="P1" fill="none" stroke="black" stroke-opacity="0.175" d="M% L%" />'.format(
+						[
+							[self.first].asSvgPointList(options),
+							self.allButFirst.asSvgPointList(options)
+						]
+					),
+					'<circle r="%" fill="none" stroke="black">'.format(
+						[
+							(1 / options['scaleFactor'])
+							.printStringToFixed(options['precision'])
+						]
+					),
+					'  <animateMotion dur="%s" repeatCount="indefinite" calcMode="linear" keyTimes="%" keyPoints="%">'.format(
+						[
+							duration.printStringToFixed(keyPrecision),
+							keyTimes.collect { :x | x.printStringToFixed(keyPrecision) }.stringJoin(';'),
+							keyPoints.collect { :x | x.printStringToFixed(keyPrecision) }.stringJoin(';')
+						]
+					),
+					'    <mpath href="#P1" />',
+					'  </animateMotion>',
+					'</circle>'
+				].unlines
+			}.scaledFragments(height, boundingCoordinates)
 		} {
 			self.error('pathPlot')
 		}
+	}
+
+	pathPlot { :self |
+		let n = self.size;
+		let keyTimes = [0 .. n - 1];
+		self.pathPlot(keyTimes)
 	}
 
 }

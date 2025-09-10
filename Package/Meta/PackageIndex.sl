@@ -279,6 +279,7 @@
 	'Random-SkewNormalDistribution'
 	'Random-SplitMix'
 	'Random-StudentTDistribution'
+	'Random-TelegraphProcess'
 	'Random-TriangularDistribution'
 	'Random-UniformDistribution'
 	'Random-WeibullDistribution'

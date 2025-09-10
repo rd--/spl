@@ -70,6 +70,8 @@ Interpolate a `TimeSeries`:
 
 See also: akimaInterpolator, cubicSplineInterpolator, linearInterpolator, nearestNeighbourInterpolator
 
+Guides: Interpolation Functions, Time Series Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Interpolation.html)

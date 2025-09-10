@@ -17,6 +17,7 @@ Types:
 - `OrnsteinUhlenbeckProcess`
 - `PoissonProcess`
 - `RandomWalkProcess`
+- `TelegraphProcess`
 - `WienerProcess`
 
 Trait Functions:
@@ -31,4 +32,4 @@ Simulation methods:
 
 * * *
 
-Guides: Probability Distributions, Random Functions, Random Number Generators
+Guides: Probability Distributions, Random Functions, Random Number Generators, Time Series Functions

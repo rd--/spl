@@ -174,6 +174,16 @@
 		answer
 	}
 
+	complement { :self :aCollection |
+		let answer = self.species.new;
+		self.do { :each |
+			aCollection.includes(each).ifFalse {
+				answer.add(each)
+			}
+		};
+		answer
+	}
+
 	concisePrintString { :self |
 		'% (size: %)'.format([
 			self.typeOf.withIndefiniteArticle,

@@ -816,6 +816,12 @@
 		}
 	}
 
+	differencesBy { :self :aBlock:/2 |
+		self.adjacentPairsCollect { :i :j |
+			aBlock(j, i)
+		}
+	}
+
 	discreteLaplacian { :y :h |
 		let a = y.differences(2);
 		let n = a.size;

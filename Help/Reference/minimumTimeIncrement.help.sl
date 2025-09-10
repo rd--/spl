@@ -1,6 +1,6 @@
 # minimumTimeIncrement
 
-- _minimumTimeIncrement(aTimeSeries)_
+- _minimumTimeIncrement(t)_
 
 The minimum time increment for a vector is always `one`:
 
@@ -12,14 +12,16 @@ The minimum time increment for a vector is always `one`:
 Find the minimum time increment for a list of time-value pairs:
 
 ```
->>> [1 0; 2 0; 2.5 0; 4 0].minimumTimeIncrement
+>>> [1 0; 2 0; 2.5 0; 4 0]
+>>> .minimumTimeIncrement
 0.5
 ```
 
 Find the minimum time increments for a time series:
 
 ```
->>> TimeSeries([1 0; 2 0; 2.5 0; 4 0]).minimumTimeIncrement
+>>> TimeSeries([1 0; 2 0; 2.5 0; 4 0])
+>>> .minimumTimeIncrement
 0.5
 ```
 
@@ -36,6 +38,8 @@ Find the minimum time increments for a collection of paths:
 * * *
 
 See also: isRegularlySampled, TemporalData, TimeSeries
+
+Guides: Time Series Functions
 
 References:
 _Mathematica_

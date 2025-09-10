@@ -41,6 +41,8 @@ true
 
 See also: isRegularlySpaced, minimumTimeIncrement, TemporalData, TimeSeries
 
+Guides: Time Series Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RegularlySampledQ.html)

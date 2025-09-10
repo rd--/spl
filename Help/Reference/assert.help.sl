@@ -1,11 +1,9 @@
 # assert
 
-- _assert(anObject, aString, aBlock:/0)_
-- _assert(α, β)_ ⇒ _assert(α, '', β)_
-- _assert(α)_ ⇒ _assert(nil, α)_
+- _assert(x, s='', f:/0)_
 
-Signal an assertion `error` with message _aString_ if _aBlock_ does not evaluate to `true`.
-Answers _anObject_.
+Signal an assertion `error` with message string _s_ if the block _f_ does not evaluate to `true`.
+Answers _x_.
 
 ```
 >>> 1.pi.assert { true }
@@ -31,6 +29,8 @@ true
 * * *
 
 See also: error
+
+Guides: Control Functions
 
 References:
 _Mathematica_

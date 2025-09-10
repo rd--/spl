@@ -76,3 +76,5 @@ Guides: Random Processes
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RandomWalkProcess.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Random_walk)

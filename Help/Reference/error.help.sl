@@ -1,11 +1,8 @@
 # error
 
-Error handling.
+- _error(x, s)_
 
-- _error(aString)_
-- _error(anObject, aString)_
-
-Generate an `Error` value and then run `signal`.
+Generate an `Error` value and then `signal` it.
 
 ```
 >>> {
@@ -19,6 +16,8 @@ Generate an `Error` value and then run `signal`.
 * * *
 
 See also: Error, signal
+
+Guides: Control Functions
 
 References:
 _Smalltalk_

@@ -17,14 +17,13 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	asSvg { :self |
-		let fragmentList = self.contents.collect { :each |
-			{ :options |
-				each.svgFragment(options)
-			}
-		};
 		let height = self.metadata['height'];
 		let boundingCoordinates = self.boundingBox;
-		scaledFragments(fragmentList, height, boundingCoordinates)
+		{ :options |
+			self.contents.collect { :each |
+				each.svgFragment(options)
+			}
+		}.scaledFragments(height, boundingCoordinates)
 	}
 
 	boundingBox { :self |

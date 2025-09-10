@@ -92,4 +92,8 @@ let x = r.randomReal([0 2.pi], [64]).sort;
 
 See also: akimaInterpolator, cubicSplineInterpolator, nearestNeighbourInterpolator
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Time Series Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Linear_interpolation)

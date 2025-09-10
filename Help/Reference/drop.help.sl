@@ -1,8 +1,8 @@
 # drop
 
-- _drop(aSequence, anInteger)_
+- _drop([x₁ x₂ …], n)_
 
-Answer a copy of _aSequence_ without the first _anInteger_ places.
+Answer a copy of the sequence _x_ without the first _n_ places.
 
 At `List`:
 

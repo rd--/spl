@@ -1,8 +1,8 @@
 # resample
 
-- _resample(aSequence | aColourGradient | aTimeSeries, anInteger)_
+- _resample(x, n)_
 
-Resample _aSequence_ to have _anInteger_ places.
+Resample the sequenctial value _x_ to have _n_ places.
 
 Subsample a `List`:
 
@@ -74,7 +74,7 @@ TimeSeries([4 1 3 2 5], [1 .. 5])
 
 See also: atBlend, blend, ColourGradient, downsample, interpolation, linearInterpolation, listInterpolation, upsample
 
-Guides: Interpolation Functions
+Guides: Interpolation Functions, Time Series Functions
 
 References:
 _Mathematica_
