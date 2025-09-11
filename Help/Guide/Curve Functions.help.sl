@@ -29,6 +29,7 @@ Algebraic Curve Functions:
 - `hypocycloid`
 - `hypotrochoid`
 - `inverseNorwichSpiral`
+- `lateralHarmonographCurve`
 - `lemniscate`
 - `lHospitalQuintic`
 - `limacon`
@@ -39,6 +40,7 @@ Algebraic Curve Functions:
 - `reuleauxPolygonCurve`
 - `rhodonea`
 - `richardsCurve`
+- `rotaryHarmonographCurve`
 - `satelliteCurve`
 - `serpentineCurve`
 - `sinusoidalSpiral`

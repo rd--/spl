@@ -470,18 +470,10 @@
 	}
 
 	harmonographCurve { :f :p :a :d |
-		let adjust = { :z |
-			[
-				{ z.size = 1 } -> { [z[1], 0, z[1], 0] },
-				{ z.size = 2 } -> { [z[1], 0, z[2], 0] },
-				{ z.size = 4 } -> { z },
-				{ true } -> { z.error('List>>harmonographCurve') }
-			].which
-		};
-		let [f1, f2, f3, f4] = f.adjust;
-		let [p1, p2, p3, p4] = p.adjust;
-		let [a1, a2, a3, a4] = a.adjust;
-		let [d1, d2, d3, d4] = d.adjust / 100;
+		let [f1, f2, f3, f4] = f;
+		let [p1, p2, p3, p4] = p;
+		let [a1, a2, a3, a4] = a;
+		let [d1, d2, d3, d4] = d / 100;
 		{ :t |
 			let x = (
 				(a1 * sin((t * f1) + p1) * (-1 * d1 * t).exp)
@@ -500,6 +492,11 @@
 	lateralHarmonographCurve { :self |
 		let [f, p, a, d] = self;
 		harmonographCurve([1 0 f 0], [0 0 p 0], [1 0 a 0], [d 0 d 0])
+	}
+
+	rotaryHarmonographCurve { :self |
+		let [f, p, a, d] = self;
+		harmonographCurve([1 f 1 f], [0, p, 1/2.pi, p + 1/2.pi], [1 a 1 a], [d d d d])
 	}
 
 	tridentOfNewton { :self |

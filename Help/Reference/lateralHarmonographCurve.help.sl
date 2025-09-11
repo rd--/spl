@@ -92,11 +92,13 @@ A whole tone:
 
 * * *
 
-See also: lissajousCurve, hypotrochoid, sin
+See also: harmonographCurve, lissajousCurve, hypotrochoid, rotaryHarmonographCurve, sin
 
 Guides: Curve Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Harmonograph.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Harmonograph)
 
