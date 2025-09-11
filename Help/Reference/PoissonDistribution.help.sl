@@ -71,7 +71,7 @@ mu
 
 See also: BinomialDistribution, GammaDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Csound_

@@ -27,7 +27,7 @@ MultinormalDistribution(
 
 See also: BinormalDistribution, NormalDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

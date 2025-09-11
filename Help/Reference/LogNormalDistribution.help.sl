@@ -68,6 +68,8 @@ LogNormalDistribution(2, 0.3)
 
 See also: erf, inverseErf, NormalDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LogNormalDistribution.html)

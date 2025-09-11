@@ -54,6 +54,8 @@ ReciprocalDistribution(1, 4)
 
 See also: UniformDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathworks_
 [1](https://au.mathworks.com/help/stats/loguniform-distribution.html),

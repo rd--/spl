@@ -79,13 +79,14 @@ With parameters _a=b=1_, a circle and two ellipses:
 Evaluate symbolically:
 
 ```
->> lissajousCurve(`δ`, `a`, `b`).value(`t`)
+>> lissajousCurve(`δ`, `a`, `b`)
+>> .value(`t`)
 [(sin (+ (* a t) δ)), (sin (* b t))]
 ```
 
 * * *
 
-See also: botanicCurve, butterflyCurve, hypotrochoid, sin
+See also: botanicCurve, butterflyCurve, harmonographCurve, hypotrochoid, sin
 
 Guides: Curve Functions
 

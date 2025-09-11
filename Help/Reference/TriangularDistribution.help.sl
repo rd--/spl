@@ -57,6 +57,8 @@ TriangularDistribution(-1 -- 1, 0)
 
 See also: Piecewise, UniformDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Csound_
 [1](https://csound.com/docs/manual/trirand.html),

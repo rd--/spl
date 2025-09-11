@@ -37,6 +37,8 @@ HypergeometricDistribution(20, 50, 100)
 
 See also: BinomialDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/HypergeometricDistribution.html),

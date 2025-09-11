@@ -24,6 +24,7 @@ Algebraic Curve Functions:
 - `galileanSpiral`
 - `geocentricOrbitCurve`
 - `gompertzFunction`
+- `harmonographCurve`
 - `hippopede`
 - `hyperbolaCurve`
 - `hypocycloid`

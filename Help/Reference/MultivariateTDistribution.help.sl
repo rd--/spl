@@ -29,7 +29,7 @@ MultivariateTDistribution(
 
 See also: ChiSquareDistribution, MultinormalDistribution, StudentTDistribution
 
-Guides: Probability Distributions
+Guides: Probability Distributions, Random Functions
 
 References:
 _Mathematica_

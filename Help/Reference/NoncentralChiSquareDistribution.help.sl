@@ -20,6 +20,8 @@ NoncentralChiSquareDistribution(5, 10)
 
 See also: ChiSquareDistribution, GammaDistribution
 
+Guides: Probability Distributions, Random Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NoncentralChiSquareDistribution.html),
