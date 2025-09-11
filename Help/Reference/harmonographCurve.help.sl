@@ -15,7 +15,7 @@ the Lemniscate of Gerono:
 ~~~spl svg=A
 (0 -- 2.pi).functionPlot(
 	harmonographCurve(
-		[1 2], [1/2.pi 0], [1], [0]
+		[1 2], [1/2.pi 0], [1 1], [0 0]
 	)
 )
 ~~~
@@ -28,7 +28,7 @@ the Lincoln Laboratory:
 ~~~spl svg=B
 (0 -- 2.pi).functionPlot(
 	harmonographCurve(
-		[3 4], [1/2.pi 0], [1], [0]
+		[3 4], [1/2.pi 0], [1 1], [0 0]
 	)
 )
 ~~~
@@ -41,12 +41,57 @@ The Lincoln Laboratory curve with _d=1%_ and domain _0-8π_:
 (0 -- 8.pi).functionPlot(
 	400,
 	harmonographCurve(
-		[3 4], [1/2.pi 0], [1], [1]
+		[3 4], [1/2.pi 0], [1 1], [1 1]
 	)
 )
 ~~~
 
 ![](sw/spl/Help/Image/harmonographCurve-C.svg)
+
+Specifying all four parameters at each field:
+
+~~~spl svg=D
+(0 -- 54.pi).functionPlot(
+	800,
+	harmonographCurve(
+		[1      1      1.0125 1.9875],
+		[0      0      0      0     ],
+		[1      1      1      1     ],
+		[0      1      0      1     ]
+	)
+)
+~~~
+
+![](sw/spl/Help/Image/harmonographCurve-D.svg)
+
+A near octave:
+
+~~~spl svg=D
+(0 -- 48.pi).functionPlot(
+	800,
+	harmonographCurve(
+		[1 2.0125], [0 0], [1 1], [0.25 1]
+	)
+)
+~~~
+
+![](sw/spl/Help/Image/harmonographCurve-E.svg)
+
+Near octaves:
+
+~~~spl svg=F
+(0 -- 48.pi).functionPlot(
+	800,
+	harmonographCurve(
+		[1      2.050 1    2.025],
+		[1/2.pi  0     1.pi  0    ],
+		[1      1     1    1    ],
+		[0.5    0.5   0.25 0.25 ]
+	)
+)
+~~~
+
+![](sw/spl/Help/Image/harmonographCurve-F.svg)
 
 * * *
 
@@ -57,3 +102,5 @@ Guides: Curve Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Harmonograph)
+
+Further Reading: Ashton 2003

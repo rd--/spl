@@ -273,3 +273,19 @@
 	}
 
 }
+
++Fraction {
+
+	cos { :self |
+		self.asFloat.cos
+	}
+
+	sin { :self |
+		self.asFloat.sin
+	}
+
+	tan { :self |
+		self.asFloat.tan
+	}
+
+}

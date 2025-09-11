@@ -60,7 +60,7 @@ An equilateral triangle is equivalent to a regular polygon:
 
 See also: regularPolygon, Triangle
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

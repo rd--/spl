@@ -35,3 +35,5 @@ For a `Polygon` this is generalized to answer the side lengths between adjacent 
 * * *
 
 See also: Polygon, Triangle
+
+Guides: Geometry Functions, Triangle Functions

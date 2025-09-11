@@ -36,9 +36,26 @@ Varying an angle:
 
 ![](sw/spl/Help/Image/aasTriangle-A.svg)
 
+The indicated side length is _a_,
+which is opposite to angle α:
+
+~~~spl svg=B
+let a = 1;
+let t = aasTriangle(60.degree, 90.degree, a);
+let [_, _, c] = t.sideLengths;
+[
+	t,
+	[0 0; c 0; c a].PointCloud
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/aasTriangle-B.svg)
+
 * * *
 
 See also: asaTriangle, sasTriangle, sssTriangle, Triangle
+
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

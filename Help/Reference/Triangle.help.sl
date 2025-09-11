@@ -90,7 +90,7 @@ Draw a triangle in three dimensional space:
 
 See also: Circle, equilateralTriangle, Line, Polygon, Rectangle, Simplex
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

@@ -26,7 +26,6 @@ Algebraic Curve Functions:
 - `gompertzFunction`
 - `harmonographCurve`
 - `hippopede`
-- `hyperbolaCurve`
 - `hypocycloid`
 - `hypotrochoid`
 - `inverseNorwichSpiral`
@@ -61,6 +60,7 @@ Implicit Curve Functions:
 
 - `ampersandImplicitCurve`
 - `ellipticCurve`
+- `hyperbolaCurve`
 
 Fractal Curve Functions:
 

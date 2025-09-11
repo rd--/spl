@@ -472,8 +472,8 @@
 	harmonographCurve { :f :p :a :d |
 		let adjust = { :z |
 			[
-				{ z.size = 1 } -> { z.atAll([1 1 1 1]) },
-				{ z.size = 2 } -> { z.atAll([1 1 2 2]) },
+				{ z.size = 1 } -> { [z[1], 0, z[1], 0] },
+				{ z.size = 2 } -> { [z[1], 0, z[2], 0] },
 				{ z.size = 4 } -> { z },
 				{ true } -> { z.error('List>>harmonographCurve') }
 			].which
@@ -495,6 +495,11 @@
 			);
 			[x, y]
 		}
+	}
+
+	lateralHarmonographCurve { :self |
+		let [f, p, a, d] = self;
+		harmonographCurve([1 0 f 0], [0 0 p 0], [1 0 a 0], [d 0 d 0])
 	}
 
 	tridentOfNewton { :self |

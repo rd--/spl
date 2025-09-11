@@ -46,9 +46,27 @@ Varying one angle:
 
 ![](sw/spl/Help/Image/sasTriangle-A.svg)
 
+The indicated angle is γ,
+which is opposite to the side with length _c_:
+
+~~~spl svg=B
+let a = 1;
+let b = 4/3.sqrt;
+let t = sasTriangle(a, 30.degree, b);
+let [_, _, c] = t.sideLengths;
+[
+	t,
+	[0 0; c 0; c a].PointCloud
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/sasTriangle-B.svg)
+
 * * *
 
 See also: asaTriangle, sssTriangle, Triangle
+
+Guides: Geometry Functions, Triangle Functions
 
 References:
 _Mathematica_

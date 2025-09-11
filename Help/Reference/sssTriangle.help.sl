@@ -164,12 +164,14 @@ let t = sssTriangle(x ^ -1, 1, x);
 
 See also: asaTriangle, sasTriangle, Triangle
 
+Guides: Geometry Functions, Triangle Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PythagoreanTriple.html)
 [2](https://mathworld.wolfram.com/SupergoldenTriangle.html)
 [3](https://mathworld.wolfram.com/KeplerTriangle.html)
-[4](https://reference.wolfram.com/language/ref/SSSTriangle.html)
+[4](https://reference.wolfram.com/language/ref/SSSTriangle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Pythagorean_triple)
 [2](https://en.wikipedia.org/wiki/Kepler_triangle)

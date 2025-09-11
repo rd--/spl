@@ -64,7 +64,8 @@ With parameters _δ=3π/4,a=2,b=3_:
 
 ![](sw/spl/Help/Image/lissajousCurve-F.svg)
 
-With parameters _a=b=1_, a circle and two ellipses:
+With parameters _a=b=1_ and varying δ,
+plot a circle and two ellipses:
 
 ~~~spl svg=G
 (0 -- 2.pi).functionPlot(

@@ -65,6 +65,8 @@ Varying two angles together:
 
 See also: aasTriangle, sasTriangle, sssTriangle, Triangle
 
+Guides: Geometry Functions, Triangle Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ASATriangle.html)
