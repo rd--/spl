@@ -60,7 +60,6 @@ With varying radii:
 
 ![](sw/spl/Help/Image/StadiumShape-D.svg)
 
-
 With varying coordinates:
 
 ~~~spl svg=E

@@ -589,10 +589,14 @@ Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Di
 	}
 
 	Dictionary { :self |
-		self.isAssociationList.if {
-			self.collect(asList:/1).listToDictionary
+		self.isEmpty.if {
+			Dictionary()
 		} {
-			self.listToDictionary
+			self.isAssociationList.if {
+				self.collect(asList:/1).listToDictionary
+			} {
+				self.listToDictionary
+			}
 		}
 	}
 

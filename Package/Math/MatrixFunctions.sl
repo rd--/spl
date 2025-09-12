@@ -377,7 +377,7 @@
 		tour.push(1);
 		tour.reverse();
 		tour.push(1);
-		return _Tuple_1([minCost, tour]);
+		return [minCost, tour];
 		>
 	}
 

@@ -16,7 +16,7 @@ A 4×4 distance matrix:
 >>> 	15 07 00 08;
 >>> 	06 03 12 00
 >>> ].heldKarpAlgorithm
-(21, [1 3 4 2 1])
+[21, [1 3 4 2 1]]
 ```
 
 A 4×4 distance matrix:
@@ -28,7 +28,7 @@ A 4×4 distance matrix:
 >>> 	15 35 00 30;
 >>> 	20 25 30 00
 >>> ].heldKarpAlgorithm
-(80, [1 3 4 2 1])
+[80, [1 3 4 2 1]]
 ```
 
 A 5×5 distance matrix:
@@ -41,7 +41,7 @@ A 5×5 distance matrix:
 >>> 	96 94 21 00 70;
 >>> 	74 43 06 70 00
 >>> ].heldKarpAlgorithm
-(215, [1 4 3 5 2 1])
+[215, [1 4 3 5 2 1]]
 ```
 
 A 6×6 distance matrix:
@@ -55,7 +55,7 @@ A 6×6 distance matrix:
 >>> 	13 25 23 04 00 16;
 >>> 	24 06 28 05 16 00
 >>> ].heldKarpAlgorithm
-(76, [1 5 4 6 2 3 1])
+[76, [1 5 4 6 2 3 1]]
 ```
 
 Generate a uniform distribution of random points,
@@ -180,7 +180,7 @@ A 20×20 distance matrix:
 >>> 	1583 0774 0621 1495 2984
 >>> 	0442 3012 1634 1011 0000
 >>> ].heldKarpAlgorithm
-(
+[
 	9275,
 	[
 		01 17 15 02 04
@@ -189,7 +189,7 @@ A 20×20 distance matrix:
 		06 07 18 14 10
 		01
 	]
-)
+]
 ```
 
 * * *

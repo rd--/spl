@@ -108,7 +108,7 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 		}
 	}
 
-	findShortestTour{ :self |
+	findShortestTour { :self |
 		self
 		.distanceMatrix
 		.heldKarpAlgorithm

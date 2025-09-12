@@ -149,10 +149,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 		self.truncate.asInteger
 	}
 
-	asSmallInteger { :self |
-		self.asLargeInteger.asSmallInteger
-	}
-
 	asLargeInteger { :self |
 		self.isInteger.if {
 			self.numerator
@@ -163,6 +159,10 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 
 	asSmallFloat { :self |
 		self.asFloat
+	}
+
+	asSmallInteger { :self |
+		self.asLargeInteger.asSmallInteger
 	}
 
 	asList { :self |

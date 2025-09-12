@@ -78,7 +78,7 @@ Specifying all four parameters allows for distinct ratios at _x_ and _y_:
 
 A near octave:
 
-~~~spl svg=D
+~~~spl svg=E
 (0 -- 48.pi).functionPlot(
 	800,
 	harmonographCurve(

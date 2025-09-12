@@ -324,7 +324,7 @@
 		let m = 1 / (2.pi.sqrt * sigma);
 		let sigmaSquared = sigma * sigma;
 		{ :u |
-			m * (u.square / (2 * sigmaSquare)).negate.exp
+			m * (u.square / (2 * sigmaSquared)).negate.exp
 		}
 	}
 

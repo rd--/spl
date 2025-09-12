@@ -49,9 +49,7 @@ v.collect { :v |
 	let x2 = x1 + (l[2] * sin(theta2));
 	let y2 = y1 - (l[2] * cos(theta2));
 	[x2, y2]
-}.downsample(2).pathPlot(t.downsample(2))
-
-downsample(5).scatterPlot
+}.downsample(5).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/doublePendulumEquation-B.svg)

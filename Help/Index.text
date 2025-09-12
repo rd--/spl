@@ -170,6 +170,7 @@ Guide/Scheme Perspective.help.sl
 Guide/Scientific Notation.help.sl
 Guide/Sequence Alignment Functions.help.sl
 Guide/Set Functions.help.sl
+Guide/Set Syntax.help.sl
 Guide/Sigmoid Functions.help.sl
 Guide/Signal Processing Functions.help.sl
 Guide/Similarity Functions.help.sl
@@ -195,6 +196,7 @@ Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
 Guide/Texture Programs.help.sl
+Guide/Time Series Functions.help.sl
 Guide/Trailing Block Syntax.help.sl
 Guide/Trailing Record Syntax.help.sl
 Guide/Tree Functions.help.sl
@@ -1022,6 +1024,7 @@ Reference/dictionaryJoin.help.sl
 Reference/diesis.help.sl
 Reference/differenceAll.help.sl
 Reference/difference.help.sl
+Reference/differencesBy.help.sl
 Reference/differences.help.sl
 Reference/differentiate.help.sl
 Reference/digamma.help.sl
@@ -1039,6 +1042,7 @@ Reference/dimensions.help.sl
 Reference/diracComb.help.sl
 Reference/diracDelta.help.sl
 Reference/DirectedEdge.help.sl
+Reference/directoryExists.help.sl
 Reference/DirichletDistribution.help.sl
 Reference/dirichletKernel.help.sl
 Reference/dirichletWindow.help.sl
@@ -1251,6 +1255,7 @@ Reference/fibonacci.help.sl
 Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
 Reference/fibonacciWord.help.sl
+Reference/fileExists.help.sl
 Reference/File.help.sl
 Reference/fileInformation.help.sl
 Reference/fileName.help.sl
@@ -1458,6 +1463,7 @@ Reference/harmonicNumber.help.sl
 Reference/harmonicProgression.help.sl
 Reference/harmonicSeries.help.sl
 Reference/harmoniousNumber.help.sl
+Reference/harmonographCurve.help.sl
 Reference/hasEqualElementsBy.help.sl
 Reference/hasEqualElements.help.sl
 Reference/hasEqualSlotsBy.help.sl
@@ -1508,6 +1514,7 @@ Reference/histogramPlot.help.sl
 Reference/hofstadterQSequence.help.sl
 Reference/holdersComma.help.sl
 Reference/holmesPolyhedraCatalogue.help.sl
+Reference/homeDirectory.help.sl
 Reference/homogeneousTranslationMatrix.help.sl
 Reference/horogramDrawing.help.sl
 Reference/horogramTable.help.sl
@@ -1964,6 +1971,7 @@ Reference/lassalleNumber.help.sl
 Reference/last.help.sl
 Reference/lastIndexOf.help.sl
 Reference/Latch.help.sl
+Reference/lateralHarmonographCurve.help.sl
 Reference/LatoocarfianC.help.sl
 Reference/latticeEdges.help.sl
 Reference/latticeGraph.help.sl
@@ -2011,6 +2019,7 @@ Reference/level.help.sl
 Reference/levenshteinDistance.help.sl
 Reference/levskayaPolyhedraCatalogue.help.sl
 Reference/levyCCurve.help.sl
+Reference/LevyDistribution.help.sl
 Reference/levysConstant.help.sl
 Reference/lexicographicallyLeastRotation.help.sl
 Reference/lexicographicPermutationsDo.help.sl
@@ -2531,6 +2540,7 @@ Reference/pathIsAbsolute.help.sl
 Reference/pathJoin.help.sl
 Reference/pathName.help.sl
 Reference/pathNormalize.help.sl
+Reference/pathPlot.help.sl
 Reference/patienceSort.help.sl
 Reference/pdf.help.sl
 Reference/peakDetect.help.sl
@@ -2543,6 +2553,7 @@ Reference/peekPriority.help.sl
 Reference/pellLucasNumbers.help.sl
 Reference/pellNumber.help.sl
 Reference/pellNumbers.help.sl
+Reference/pendulumEquation.help.sl
 Reference/pentadentriteCurve.help.sl
 Reference/pentagonalNumber.help.sl
 Reference/pentagram.help.sl
@@ -2924,6 +2935,7 @@ Reference/Rlpf.help.sl
 Reference/romanNumeral.help.sl
 Reference/rootMeanSquare.help.sl
 Reference/rosslerEquation.help.sl
+Reference/rotaryHarmonographCurve.help.sl
 Reference/Rotate2.help.sl
 Reference/rotate.help.sl
 Reference/rotateLeft.help.sl
@@ -3176,6 +3188,7 @@ Reference/Spring.help.sl
 Reference/SqrDif.help.sl
 Reference/sqrt.help.sl
 Reference/Sqrt.help.sl
+Reference/squareChladniPlateEquation.help.sl
 Reference/squaredEuclideanDistance.help.sl
 Reference/squareForm.help.sl
 Reference/square.help.sl
@@ -3186,9 +3199,11 @@ Reference/squareWave.help.sl
 Reference/srgbDecode.help.sl
 Reference/srgbEncode.help.sl
 Reference/sssTriangle.help.sl
+Reference/StableDistribution.help.sl
 Reference/stackedListPlot.help.sl
 Reference/Stack.help.sl
 Reference/stackSort.help.sl
+Reference/StadiumShape.help.sl
 Reference/staffordsAlgorithm.help.sl
 Reference/standardDeviation.help.sl
 Reference/standardizedMoment.help.sl
@@ -3313,6 +3328,7 @@ Reference/Tanh.help.sl
 Reference/TChoose.help.sl
 Reference/TDelay.help.sl
 Reference/TDuty.help.sl
+Reference/TelegraphProcess.help.sl
 Reference/TemporalData.help.sl
 Reference/temporaryFileName.help.sl
 Reference/tenneyHeight.help.sl

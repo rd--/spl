@@ -40,6 +40,7 @@ that is equivalent to `Record`:
 
 A `Record` is a dictionary:
 
+```
 >>> (pi: 1.pi).isDictionary
 true
 ```

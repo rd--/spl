@@ -277,7 +277,7 @@ BezierCurve : [Object, Cache, Geometry] { | controlPoints splineDegree cache |
 			}
 		};
 		deCasteljaus(self, x);
-		(left, right)
+		[left, right]
 	}
 
 	bezierTrace { :self :size |

@@ -205,7 +205,7 @@ Decimal : [Object] { | fraction scale |
 
 	printString { :self |
 		(self.scale = 0).if {
-			self.integerPart.basicPrintString(10) ++ 'D'
+			self.integerPart.asLargeInteger.basicPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
@@ -215,6 +215,7 @@ Decimal : [Object] { | fraction scale |
 						''
 					},
 					self.integerPart
+					.asLargeInteger
 					.abs
 					.basicPrintString(10),
 					(self.fractionalPart.fraction.abs * (10 ^ self.scale))

@@ -9,6 +9,9 @@ Dictionaries are written as association lists between special squared brackets:
 ```
 >> '[|k -> v|]'.splSimplify
 Dictionary([->(k, v)])
+
+>> '[| |]'.splSimplify
+Dictionary([])
 ```
 
 With `String` keys:

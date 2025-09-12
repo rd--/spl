@@ -419,7 +419,8 @@
 
 	simpleGraph { :self |
 		let v = self.vertexList;
-		let e = Set(matchesEdge:/2);
+		let e = Set();
+		e.comparator := matchesEdge:/2;
 		self.edgeList.do { :each |
 			(each[1] != each[2]).ifTrue {
 				e.include(each)

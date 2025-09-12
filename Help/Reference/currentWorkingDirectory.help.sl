@@ -16,12 +16,10 @@ The binary form sets the current working directory,
 or signals an error if _p_ does not specify a valid directory:
 
 ```
->>> system
->>> .currentWorkingDirectory := '/tmp'
-'/tmp'
-
->>> system
->>> .currentWorkingDirectory
+>>> system.currentWorkingDirectory(
+>>> 	'/tmp'
+>>> );
+>>> system.currentWorkingDirectory
 '/tmp'
 ```
 
