@@ -1141,7 +1141,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 }
 
-+List{
++List {
 
 	burrowsWheelerMatrix { :self |
 		(1 .. self.size).collect { :each |

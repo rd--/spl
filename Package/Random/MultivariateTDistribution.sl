@@ -10,7 +10,7 @@ MultivariateTDistribution : [Object] { | mu sigma nu |
 
 }
 
-+List{
++List {
 
 	MultivariateTDistribution { :mu :sigma :nu |
 		newMultivariateTDistribution().initializeSlots(mu, sigma, nu)

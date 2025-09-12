@@ -510,7 +510,7 @@
 		let flags = List(size);
 		flags.atAllPut(true);
 		2.toDo(size) { :i |
-			flags[i - 1].ifTrue{
+			flags[i - 1].ifTrue {
 				let k = i + i;
 				aBlock(i);
 				{
@@ -757,7 +757,7 @@
 
 }
 
-+SmallFloat{
++SmallFloat {
 
 	ellipticCurveOverFiniteField { :a :b :q |
 		let p = UnivariatePolynomial([b, a, 0, 1]);

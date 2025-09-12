@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	arcCos { :self |
 		<primitive: return Math.acos(_self)>

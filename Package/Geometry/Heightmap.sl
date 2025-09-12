@@ -1,6 +1,6 @@
 /* Requires: RandomNumberGenerator */
 
-+@RandomNumberGenerator{
++@RandomNumberGenerator {
 
 	diamondSquareAlgorithm { :self :k :h :c |
 		let n = (2 ^ k) + 1;

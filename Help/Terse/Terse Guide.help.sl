@@ -414,8 +414,8 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 [1 .. 9].reject { :x | true } = [] /* reject everything */
 [1 .. 9].reject { :x | false } = [1 .. 9] /* reject nothing */
 [].reject { :x | true } = [] & { [].reject { :x | false } = [] } /* reject from empty collection */
-1:9.collect{ :x | x * x }.last = 81
-1:9.collect{ :x | x * x }.collect{ :x | x * x }.last = 6561
+1:9.collect { :x | x * x }.last = 81
+1:9.collect { :x | x * x }.collect { :x | x * x }.last = 6561
 [1 .. 9].last(5) = [5 .. 9]
 { [1 .. 3].last(5) }.ifError { true }
 [1 .. 9].anyOne = 1 /* any element, chooses first */

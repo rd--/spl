@@ -255,7 +255,7 @@ Line : [Object, Geometry] { | vertexCoordinates |
 }
 
 
-+SmallFloat{
++SmallFloat {
 
 	cohenSutherlandAlgorithm { :x0 :y0 :x1 :y1 :xMin :yMin :xMax :yMax |
 		let inside = 2r0000;
@@ -332,7 +332,7 @@ Line : [Object, Geometry] { | vertexCoordinates |
 
 }
 
-+Line{
++Line {
 
 	cohenSutherlandAlgorithm { :self :aRectangle |
 		let [a, b] = self.vertexCoordinates;

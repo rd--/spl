@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	arcCosh { :self |
 		<primitive:

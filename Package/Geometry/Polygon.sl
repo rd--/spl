@@ -359,7 +359,7 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 
 }
 
-+List{
++List {
 
 	sutherlandHodgmanAlgorithm { :subjectPolygon :clipPolygon |
 		let outputList = subjectPolygon;

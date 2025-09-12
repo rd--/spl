@@ -44,7 +44,7 @@ The second metallic mean is the `silverRatio`:
 The continued fractions of the first five metallic means:
 
 ```
->>> 1:5.collect{ :each |
+>>> 1:5.collect { :each |
 >>> 	each
 >>> 	.metallicMean
 >>> 	.continuedFraction(9)

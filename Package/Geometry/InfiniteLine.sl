@@ -80,7 +80,7 @@ InfiniteLine : [Object] { | point vector |
 
 }
 
-+SmallFloat{
++SmallFloat {
 
 	InfiniteLine { :a :b :c |
 		(a = 0).if {

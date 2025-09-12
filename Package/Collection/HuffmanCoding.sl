@@ -32,7 +32,7 @@ HuffmanCoding : [Object] { | symbolTable encoding |
 
 }
 
-+String{
++String {
 
 	huffmanEncode { :self |
 		self.contents.huffmanEncode

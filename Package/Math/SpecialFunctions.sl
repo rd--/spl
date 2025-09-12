@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	erfAbramowitzStegun { :x |
 		(x >= 0).if {

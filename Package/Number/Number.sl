@@ -972,7 +972,7 @@
 			'@Number>>toByDo: step must be non-zero'.error
 		} {
 			let nextValue = self;
-			(step < 0).if{
+			(step < 0).if {
 				{
 					stop <= nextValue
 				}.whileTrue {

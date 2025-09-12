@@ -131,7 +131,7 @@
 
 }
 
-+@Collection{
++@Collection {
 
 	CpsCv { :self |
 		self.collect(CpsCv:/1)

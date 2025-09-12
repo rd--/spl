@@ -63,7 +63,7 @@ StadiumShape : [Object, Geometry] { | c r |
 
 }
 
-+List{
++List {
 
 	StadiumShape { :c :r |
 		newStadiumShape().initializeSlots(c, r)

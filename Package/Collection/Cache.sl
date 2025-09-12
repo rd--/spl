@@ -31,7 +31,7 @@ Cache! : [Object] {
 		<primitive: return _self.match(_key);>
 	}
 
-	basicPut{ :self :key :value |
+	basicPut { :self :key :value |
 		<primitive: return _self.put(_key, _value);>
 	}
 

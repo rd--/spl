@@ -2,9 +2,6 @@
 
 - _replaceSubarray(anArray, indices, subarray)_
 
-+List{
-}
-
 Replace the first row at all columns with the specified row vector:
 
 ```

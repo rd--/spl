@@ -719,7 +719,7 @@
 
 }
 
-+List{
++List {
 
 	bSplineFunctionPrimitive { :p :d :k :w :t |
 		<primitive:
@@ -804,7 +804,7 @@
 
 }
 
-+List{
++List {
 
 	cubicHermiteFunctionPrimitive { :points :tangents :knots :t |
 		<primitive:

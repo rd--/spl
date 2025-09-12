@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	doyleSpiralParameters { :p :q |
 		<primitive:

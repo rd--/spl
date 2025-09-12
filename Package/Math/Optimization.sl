@@ -1,4 +1,4 @@
-+Block{
++Block {
 
 	gradientDescentMethod { :f:/1 :x :alpha :tolerance |
 		let gradientOf = { :p |

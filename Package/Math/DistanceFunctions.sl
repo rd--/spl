@@ -340,7 +340,7 @@
 
 }
 
-+List{
++List {
 
 	correspondancePlot { :self |
 		let [a, b] = self;

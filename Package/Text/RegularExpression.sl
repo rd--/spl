@@ -302,7 +302,7 @@ RegExp! : [Object] {
 
 }
 
-+List{
++List {
 
 	stringReplace { :s :r |
 		s.collect { :each |

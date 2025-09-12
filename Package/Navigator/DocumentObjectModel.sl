@@ -1017,7 +1017,7 @@ Selection! : [Object] {
 	collapse { :self :node :offset | <primitive: return _self.collapse(_node, _offset);> }
 	collapseToEnd { :self | <primitive: return _self.collapseToEnd();> }
 	collapseToStart { :self | <primitive: return _self.collapseToStart();> }
-	containsNode{ :self :node :partialContainment | <primitive: return _self.containsNode(_node, _partialContainment);> }
+	containsNode { :self :node :partialContainment | <primitive: return _self.containsNode(_node, _partialContainment);> }
 	direction { :self | <primitive: return _self.direction;> }
 	focusNode { :self | <primitive: return _self.focusNode;> }
 	focusOffset { :self | <primitive: return _self.focusOffset + 1;> } /* One-indexed */

@@ -67,7 +67,7 @@ Draw the Gall-Peters projection of the geographic regions labeled 'Africa' and '
 			each.property('NAME')
 		)
 	}
-	.collect{ :each |
+	.collect { :each |
 		each
 		.polygonList('Gall-Peters')
 		.collect { :p |

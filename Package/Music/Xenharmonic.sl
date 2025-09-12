@@ -19,7 +19,7 @@
 
 }
 
-+List{
++List {
 
 	setharesDissonance { :p :q |
 		{ :a :b |

@@ -47,7 +47,7 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 			(offset < 0).ifTrue {
 				self.errorInvalidIndex('at', index)
 			};
-			(offset >= self.runs[run]).ifTrue{
+			(offset >= self.runs[run]).ifTrue {
 				self.indexError(index)
 			};
 			value

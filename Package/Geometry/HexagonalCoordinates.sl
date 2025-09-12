@@ -112,7 +112,7 @@ HexagonalCoordinates : [Object] { | coordinates |
 
 }
 
-+List{
++List {
 
 	fromHexagonalCoordinates { :self :theta |
 		let m = 3.sqrt;

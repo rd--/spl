@@ -1,4 +1,4 @@
-+Block{
++Block {
 
 	adaptiveSimpsonsMethod { :f:/1 :i :epsilon |
 		let mem = { :a :fa :b :fb |

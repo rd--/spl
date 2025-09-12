@@ -1,4 +1,4 @@
-+List{
++List {
 
 	contourDetect { :self :delta |
 		let answer = [];
