@@ -25,6 +25,7 @@ Types:
 - `PolygonWithHoles`
 - `Polyhedron`
 - `Rectangle`
+- `StadiumShape`
 - `Tetrahedron`
 - `Triangle`
 

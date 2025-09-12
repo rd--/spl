@@ -133,6 +133,7 @@
 	'Geometry-Sphere'
 	'Geometry-SphericalCoordinates'
 	'Geometry-Superellipse'
+	'Geometry-StadiumShape'
 	'Geometry-Tetrahedron'
 	'Geometry-Triangle'
 	'Graphics-Bitmap'

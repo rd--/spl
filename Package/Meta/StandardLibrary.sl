@@ -123,6 +123,7 @@
 	'Rectangle'
 	'Simplex'
 	'Sphere'
+	'StadiumShape'
 	'Superellipse'
 	'Tetrahedron'
 	'FourVector' /* PlanarCoordinates CartesianCoordinates */

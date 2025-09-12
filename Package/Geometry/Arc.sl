@@ -51,13 +51,14 @@ Arc : [Object] { | center radii angles |
 		let [startAngle, endAngle] = self.angles;
 		let [x1, y1] = [cx, cy] + [rx * startAngle.cos, ry * startAngle.sin];
 		let [x2, y2] = [cx, cy] + [rx * endAngle.cos, ry * endAngle.sin];
-		let largeArcFlag = (((endAngle - startAngle) % 2.pi) > 1.pi).boole;
-		'<path d="M %,% A % % 0 % 1 %,%" />'.format([
-			x1.printStringToFixed(precision), y1.printStringToFixed(precision),
-			rx.printStringToFixed(precision), ry.printStringToFixed(precision),
-			largeArcFlag,
-			x2.printStringToFixed(precision), y2.printStringToFixed(precision)
-		])
+		let largeArcFlag = ((endAngle - startAngle) % 2.pi) > 1.pi;
+		'<path d="M %,% %" />'.format(
+			[
+				x1.printStringToFixed(precision),
+				y1.printStringToFixed(precision),
+				svgArcTo(rx, ry, 0, largeArcFlag, true, x2, y2, precision)
+			]
+		)
 	}
 
 	theta { :self |

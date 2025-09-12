@@ -83,7 +83,6 @@ Svg : [Object] { | contents |
 		}.unwords
 	}
 
-
 }
 
 +Rectangle {
@@ -139,6 +138,24 @@ Svg : [Object] { | contents |
 			'</g>',
 			'</svg>'
 		].flatten.unlines.Svg
+	}
+
+}
+
++SmallFloat {
+
+	svgArcTo { :rx :ry :xAxisRotation :largeArcFlag :sweepFlag :x :y :precision |
+		'A % % % % % %,%'.format(
+			[
+				rx.printStringToFixed(precision),
+				ry.printStringToFixed(precision),
+				xAxisRotation.printStringToFixed(precision),
+				largeArcFlag.boole.printString,
+				sweepFlag.boole.printString,
+				x.printStringToFixed(precision),
+				y.printStringToFixed(precision)
+			]
+		)
 	}
 
 }

@@ -63,6 +63,7 @@ Implicit Curve Functions:
 - `ampersandImplicitCurve`
 - `ellipticCurve`
 - `hyperbolaCurve`
+- `squareChladniPlateEquation`
 
 Fractal Curve Functions:
 

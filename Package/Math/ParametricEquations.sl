@@ -444,6 +444,14 @@
 		}
 	}
 
+	squareChladniPlateEquation { :m :n |
+		{ :x :y |
+			(cos(n.pi * x) * cos(m.pi * y))
+			-
+			(cos(m.pi * x) * cos(n.pi * y))
+		}
+	}
+
 }
 
 +List {
