@@ -9,10 +9,11 @@ The split is made using the same process as `deCasteljausAlgorithm`.
 ```
 >>> [5 5; 1 3; 10 0; 10 10]
 >>> .bezierSplitAt(0.5)
-(
-	[5 5; 3 4; 4.25 2.75; 6 3],
-	[6 3; 7.75 3.25; 10 5; 10 10]
-)
+[
+	5 5; 3 4; 4.25 2.75; 6 3
+	:;
+	6 3; 7.75 3.25; 10 5; 10 10
+]
 ```
 
 Draw a cubic Bézier curve and the control points:

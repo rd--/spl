@@ -18,7 +18,7 @@ In the `LargeInteger` case:
 23
 
 >>> (2L ^ 54).asSmallFloat
-18014398509481984
+18014398509481984.0
 
 >>> (2L ^ 99).asSmallFloat
 6.33825E29

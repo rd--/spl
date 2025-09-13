@@ -11,10 +11,10 @@ Find the length and ordering of the shortest tour through points in the plane:
 ```
 >>> [2 2; 5 2; 5 3; 4 5; 4 4; 3 2]
 >>> .findShortestTour
-(
+[
 	5 + 2.sqrt + 13.sqrt,
 	[1 6 2 3 5 4 1]
-)
+]
 ```
 
 Find and draw shortest tour:
@@ -45,7 +45,7 @@ Calculate shortest tour:
 >>> 	3 4; 3 5; 4 1; 4 3; 4 5;
 >>> 	5 1; 5 2; 5 3; 5 4
 >>> ].findShortestTour
-(
+[
 	14 + (5 * 2.sqrt),
 	[
 		01 06 09 13 16
@@ -53,7 +53,7 @@ Calculate shortest tour:
 		07 11 15 12 08
 		05 04 03 02 01
 	]
-)
+]
 ```
 
 Shortest tour of randomly generated coordinates:

@@ -20,9 +20,9 @@ At `SmallFloat`:
 
 >>> (1 + 5.sqrt / 7)
 >>> .minkowskiQuestionMark
-11822865281537472
+11822865281537472L
 /
-24019198012642645
+24019198012642645L
 
 >>> 1.pi.minkowskiQuestionMark
 3.015624761581421
