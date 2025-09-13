@@ -98,6 +98,7 @@ The following help files include references to integer sequences:
 - `fromDigits`: A019518
 - `generalizedPentagonalNumbers`: A001318
 - `gijswijtsSequence`: A090822
+- `goebelsSequence`: A003504
 - `golombsSequence`: A001462
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A001316
@@ -160,6 +161,7 @@ The following help files include references to integer sequences:
 - `schroderSequence`: A006318
 - `silverConstant`: A116425
 - `silverRatio`: A014176
+- `somosSequence`: A006720
 - `square`: A000290
 - `squarePyramidalNumber`: A000330
 - `sternBrocotNumber`: A002487

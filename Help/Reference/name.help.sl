@@ -1,8 +1,8 @@
 # name
 
-- _name(anObject)_
+- _name(x)_
 
-Answer the name of _anObject_, if it has one.
+Answer the name of the object _x_, if it has one.
 
 At `Block`:
 

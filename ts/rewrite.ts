@@ -268,7 +268,12 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	integerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
-		return `${s.sourceString + parseInt(i.sourceString)}`;
+		const x = parseInt(i.sourceString);
+		if(Number.isSafeInteger(x)) {
+			return `${s.sourceString + x}`;
+		} else {
+			throw new Error('integerLiteral: not small integer: ' + x);
+		}
 	},
 	largeIntegerLiteral(s, i, _l) {
 		return `${s.sourceString}${i.sourceString}n`;

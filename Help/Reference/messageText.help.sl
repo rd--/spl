@@ -1,8 +1,8 @@
 # messageText
 
-- _messageText(anError)_
+- _messageText(e)_
 
-Answer the message text of the exception.
+Answer the message text of the exception _e_.
 
 ```
 >>> Error('message text').messageText

@@ -1,6 +1,6 @@
 # eulerMethod
 
-- _eulerMethod(aBlock:/2, y0, x0, x1, h)_
+- _eulerMethod(f:/2, y0, x0, x1, h)_
 
 Apply the forward Euler method for solving an ordinary differential equation.
 Answer two lists, _x_ and _y_, of values at each time step.

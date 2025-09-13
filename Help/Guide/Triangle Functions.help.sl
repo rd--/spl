@@ -97,7 +97,6 @@ Derived Circles:
 - `spiekerCircle`
 - `tangentCircles`
 
-
 Notation:
 The three vertices of a triangle are labeled _A,B,C_.
 The angles at each vertex are labeled _α,β,γ_.

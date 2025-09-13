@@ -47,6 +47,8 @@ The _x_ and _y_ axes and parallels:
 
 See also: HalfLine, InfiniteLine, Line, lineEquation
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Slope-InterceptForm.html)

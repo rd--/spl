@@ -173,6 +173,20 @@
 		answer
 	}
 
+	goebelsSequence { :m |
+		let a = List(m);
+		0.to(m - 1).do { :n |
+			a[n + 1] := (n < 2).if {
+				1L
+			} {
+				(0 .. n - 1).sum { :k |
+					a[k + 1] ^ 2
+				} / (n - 1)
+			}
+		};
+		a
+	}
+
 	golombsSequence { :n |
 		let a = List(n, 1);
 		2.toDo(n) { :i |
@@ -411,6 +425,20 @@
 
 	selfCountingSequence { :k |
 		(1 .. k).collect(selfCountingNumber:/1)
+	}
+
+	somosSequence { :k :m |
+		let a = List(m);
+		0.to(m - 1).do { :n |
+			a[n + 1] := (n < k).if {
+				1L
+			} {
+				(1 .. (k / 2).floor).sum { :j |
+					a[n - j + 1] * a[n - (k - j) + 1]
+				} / a[n - k + 1]
+			}
+		};
+		a
 	}
 
 	sternBrocotNumber { :self |

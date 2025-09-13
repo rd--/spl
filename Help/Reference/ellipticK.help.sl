@@ -56,6 +56,8 @@ Probability that a random walker in a cubic lattice returns to the origin:
 
 See also: arithmeticGeometricMean
 
+Guides: Mathematical Functions, Special Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CompleteEllipticIntegraloftheFirstKind.html)

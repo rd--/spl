@@ -6,6 +6,10 @@ Bessel and Related Functions:
 - `besselJ`
 - `besselY`
 
+Elliptic Integrals:
+
+- `ellipticK`
+
 Error Function and Related Functions:
 
 - `erf`
