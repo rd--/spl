@@ -1,6 +1,6 @@
 # CartesianCoordinates
 
-- _CartesianCoordinates([x, y, …])_
+- _CartesianCoordinates([x y …])_
 
 A `Type` representing a point in _n_-dimensional Cartesian space.
 

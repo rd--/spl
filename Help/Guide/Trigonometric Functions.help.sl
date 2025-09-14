@@ -13,9 +13,14 @@ Reciprocal:
 Inverse:
 
 - `arcCos`: arc cosine
-- `arcSec`: arc secant
 - `arcSin`: arc sine
 - `arcTan`: arc tangent
+
+Inverse reciprocal:
+
+- `arcSec`: arc secant
+- `arcCsc`: arc cosecant
+- `arcCot`: arc cotangent
 
 Degrees:
 

@@ -34,6 +34,13 @@ In the `SmallFloat` case answer _identity_:
 1.pi
 ```
 
+At `Infinity`:
+
+```
+>>> Infinity.asSmallFloat
+Infinity
+```
+
 * * *
 
 See also: Fraction, LargeInteger, SmallFloat

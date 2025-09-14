@@ -2,94 +2,106 @@
 
 Plot : [Object] { | pages format options |
 
-	asLineDrawing { :self |
-		let columnCount = self.columnCount;
-		(columnCount = 2).if {
-			let r = self.pages.catenate.coordinateBoundingBox.asRectangle;
-			let w = r.width;
-			let h = r.height;
-			let dataRatio = (w / h);
-			let aspectRatio = ((dataRatio - 1).abs < 0.075).if {
-				dataRatio
-			} {
-				1.goldenRatio
-			};
-			let xScalar = aspectRatio / (w / h);
-			let scaledPages = self.pages.collect { :each |
-				each * [[xScalar, 1]]
-			};
-			let items = [];
-			let gen:/1 = self.format.caseOf([
-				'line' -> {
-					{ :p |
-						[p.Line]
-					}
-				},
-				'scatter' -> {
-					{ :p |
-						[p.PointCloud]
-					}
-				},
-				'discrete' -> {
-					{ :p |
-						p.collect { :each |
-							let [x, y] = each;
-							Line([x 0; x y])
-						}
-					}
-				}
-			]);
-			let includesXAxis = r.lower <= 0 & { r.upper >= 0 };
-			let includesYAxis = r.left <= 0 & { r.right >= 0 };
-			includesXAxis.ifTrue {
-				items.add(Point([r.left * xScalar, 0]))
-			};
-			includesYAxis.ifTrue {
-				items.add(Point([0, r.upper]))
-			};
-			scaledPages.do { :each |
-				items.addAll(each.gen)
-			};
-			items.LineDrawing
+	asLineDrawingXy { :self |
+		let segments = self.pages.collect(segmentPlotData:/1).catenate;
+		let r = segments.catenate.coordinateBoundingBox.asRectangle;
+		let w = r.width;
+		let h = r.height;
+		let dataRatio = (w / h);
+		let aspectRatio = ((dataRatio - 1).abs < 0.075).if {
+			dataRatio
 		} {
-			(columnCount = 3).if {
-				(self.format = 'line').if {
-					let p:/1 = AxonometricProjection(
-						1/6.pi, 0, 0,
-						0.5, 1, 1
-					).asUnaryBlock;
-					let r = [
-						-1 -1 0;
-						+1 -1 0;
-						+1 +1 0;
-						-1 +1 0
-					];
-					let t = { :list |
-						list.collect { :each |
-							let [x, y, z] = each;
-							[x.negate, z, y.negate].p
-						}
-					};
-					let l = self.pages.collect { :each | each.t.Line };
-					[l].LineDrawing
-				} {
-					self.error('n×3 matrix: format must be line')
+			1.goldenRatio
+		};
+		let xScalar = aspectRatio / (w / h);
+		let scaledSegments = segments.collect { :each |
+			each * [[xScalar, 1]]
+		};
+		let items = [];
+		let gen:/1 = self.format.caseOf([
+			'line' -> {
+				{ :p |
+					[p.Line]
 				}
-			} {
-				(columnCount = 1).if {
-					Plot(
-						self.pages.collect { :each |
-							each.withIndexCollect { :item :x |
-								let [y] = item;
-								[x, y]
-							}
-						},
-						self.format
-					).asLineDrawing
-				} {
-					self.error('Multiple plots not implemented: ' ++ columnCount)
+			},
+			'scatter' -> {
+				{ :p |
+					[p.PointCloud]
+				}
+			},
+			'discrete' -> {
+				{ :p |
+					p.collect { :each |
+						let [x, y] = each;
+						Line([x 0; x y])
+					}
 				}
 			}
+		]);
+		r.includesY(0).ifTrue {
+			items.add(Point([r.left * xScalar, 0]))
+		};
+		r.includesX(0).ifTrue {
+			items.add(Point([0, r.upper]))
+		};
+		scaledSegments.do { :each |
+			items.addAll(each.gen)
+		};
+		items.LineDrawing
+	}
+
+	asLineDrawingXyz { :self |
+		(self.format = 'line').if {
+			let p:/1 = AxonometricProjection(
+				1/6.pi, 0, 0,
+				0.5, 1, 1
+			).asUnaryBlock;
+			let r = [
+				-1 -1 0;
+				+1 -1 0;
+				+1 +1 0;
+				-1 +1 0
+			];
+			let t = { :list |
+				list.collect { :each |
+					let [x, y, z] = each;
+					[x.negate, z, y.negate].p
+				}
+			};
+			let l = self.pages.collect { :each | each.t.Line };
+			[l].LineDrawing
+		} {
+			self.error('n×3 matrix: format must be line')
+		}
+	}
+
+	asLineDrawingY { :self |
+		Plot(
+			self.pages.collect { :each |
+				each.withIndexCollect { :item :x |
+					let [y] = item;
+					[x, y]
+				}
+			},
+			self.format
+		).asLineDrawing
+	}
+
+	asLineDrawing { :self |
+		self.columnCount.caseOf(
+			[
+				1 -> {
+					self.asLineDrawingY
+				},
+				2 -> {
+					self.asLineDrawingXy
+				},
+				3 -> {
+					self.asLineDrawingXyz
+				}
+			]
+		) {
+			self.error('Multiple plots not implemented: ' ++ columnCount)
 		}
 	}
 
@@ -333,6 +345,25 @@ Plot : [Object] { | pages format options |
 
 	scatterPlot { :self |
 		self.typedSwitchingPlot('scatter')
+	}
+
+	segmentPlotData { :self |
+		let answer = [];
+		let segment = [];
+		self.do { :each |
+			each.isFinite.if {
+				segment.add(each)
+			} {
+				segment.isEmpty.ifFalse {
+					answer.add(segment);
+					segment := []
+				}
+			}
+		};
+		segment.isEmpty.ifFalse {
+			answer.add(segment)
+		};
+		answer
 	}
 
 	signalPlot { :y :i |

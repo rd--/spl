@@ -66,11 +66,23 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arcCot-A.svg)
 
+Plot over a subset of the complexes:
+
+~~~spl png=B
+[-3J-2 3J2].complexPlot(arcCot:/1)
+~~~
+
+![](sw/spl/Help/Image/arcCot-B.png)
+
 * * *
 
 See also: arcTan, arcCoth, cot, degree
 
+Guides: Trigonometric Functions
+
 References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/InverseCotangent.html)
-[2](https://reference.wolfram.com/language/ref/ArcCot.html)
+[2](https://reference.wolfram.com/language/ref/ArcCot.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Arccotangent)

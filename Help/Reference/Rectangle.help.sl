@@ -7,7 +7,7 @@ from the lower left coordinate _(x₁,y₁,…)_
 to the upper right coordinate _(x₂,y₂,…)_.
 
 ```
->>> let r = [0 0; 1 1].asRectangle;
+>>> let r = Rectangle([0 0], [1 1]);
 >>> (
 >>> 	r.isRectangle,
 >>> 	r.center,

@@ -12,8 +12,21 @@ true
 
 >>> Infinity.isFinite
 false
+```
 
->>> { nil.isFinite }.ifError { true }
+At _not a number_:
+
+```
+>>> NaN.isFinite
+false
+```
+
+At `nil`:
+
+```
+>>> {
+>>> 	nil.isFinite
+>>> }.ifError { true }
 true
 ```
 
@@ -30,6 +43,8 @@ false
 * * *
 
 See also: /, allSatisfy, Infinity, isInteger, Number, SmallFloat, zero
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

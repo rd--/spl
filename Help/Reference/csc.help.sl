@@ -2,7 +2,7 @@
 
 - _csc(x)_
 
-Answer the csc of the number _x_,
+Answer the cosecant of the number _x_,
 often abbreviated as _csc_.
 
 Equal to the reciprocal of `sin`:

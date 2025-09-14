@@ -70,6 +70,8 @@ Partitioning:
 - `takeList`
 - `partition`
 - `prefixes`
+- `split`
+- `splitBy`
 - `suffixes`
 
 Converting:

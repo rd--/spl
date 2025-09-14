@@ -4,7 +4,7 @@
 
 Geometric types must implement `embeddingDimension`.
 
-To be drawn, a geometric types must implement `boundingBox` and `svgFragment`.
+To be drawn, a geometric type must implement `boundingBox` and `svgFragment`.
 
 * * *
 

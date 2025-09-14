@@ -119,6 +119,18 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		Circle(self.center, self.inradius)
 	}
 
+	includesX { :self :x |
+		self.left <= x & {
+			self.right >= x
+		}
+	}
+
+	includesY { :self :y |
+		self.lower <= y & {
+			self.upper >= y
+		}
+	}
+
 	inradius { :self |
 		self.isSquare.if {
 			self.width / 2
@@ -176,7 +188,10 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	}
 
 	lowerRight { :self |
-		[self.upperRight[1], self.lowerLeft[2]]
+		[
+			self.upperRight[1],
+			self.lowerLeft[2]
+		]
 	}
 
 	lowerRightQuadrant { :self |
@@ -292,10 +307,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 		self.upperRight[1] - self.lowerLeft[1]
 	}
 
-	withLower { :self :y |
-		self.lowerLeft.upperRight([self.upperRight[1], y])
-	}
-
+	/*
 	x { :self |
 		self.lowerLeft[1]
 	}
@@ -303,6 +315,7 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	y { :self |
 		self.lowerLeft[2]
 	}
+	*/
 
 }
 

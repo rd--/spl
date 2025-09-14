@@ -198,6 +198,16 @@ Compare the n^(th) prime to an estimate:
 
 ![](sw/spl/Help/Image/linePlot-P.svg)
 
+Values that are not finite are elided,
+and the line segmented:
+
+~~~spl svg=D
+[3 2 9 5 NaN 4 7 6 8 1]
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/linePlot-Q.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, stepPlot, surfacePlot

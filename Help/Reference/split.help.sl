@@ -105,7 +105,11 @@ Only split when there is a change from non-positive to positive sign (rising edg
 
 ```
 >>> [3 0 -4 3 3 -2 0 -3 -4 5].split { :i :j |
->>> 	(i.sign <= 0 & { j.sign > 0 }).not
+>>> 	(
+>>> 		i.sign <= 0 & {
+>>> 			j.sign > 0
+>>> 		}
+>>> 	).not
 >>> }
 [3 0 -4; 3 3 -2 0 -3 -4; 5]
 ```
@@ -191,6 +195,8 @@ Find runs of numbers in base 10 that contain the same number of 1s:
 * * *
 
 See also: splitBy
+
+Guides: List Functions
 
 References:
 _Mathematica_

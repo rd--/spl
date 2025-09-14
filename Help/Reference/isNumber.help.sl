@@ -1,8 +1,8 @@
 # isNumber
 
-- _isNumber(anObject)_
+- _isNumber(x)_
 
-Answers `true` if _anObject_ implements the trait `Number`,
+Answers `true` if the object _x_ implements the trait `Number`,
 else `false`.
 
 At `SmallFloat`, where the value is a fraction:
@@ -108,9 +108,13 @@ true
 
 See also: isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
 
+
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NumberQ.html)
-[2](https://reference.wolfram.com/language/ref/NumericQ.html)
+[2](https://reference.wolfram.com/language/ref/NumericQ.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Number)
 
 Categories: Testing, Math

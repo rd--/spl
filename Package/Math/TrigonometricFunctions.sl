@@ -4,6 +4,22 @@
 		<primitive: return Math.acos(_self)>
 	}
 
+	arcCsc { :self |
+		self.isZero.if {
+			Infinity
+		} {
+			(1 / self).arcSin
+		}
+	}
+
+	arcSec { :self |
+		self.isZero.if {
+			Infinity
+		} {
+			(1 / self).arcCos
+		}
+	}
+
 	arcSin { :self |
 		<primitive: return Math.asin(_self)>
 	}
@@ -89,6 +105,14 @@
 				self.imaginary.copySignTo(shy.arcSinh.negate)
 			)
 		}
+	}
+
+	arcCsc { :z |
+		-1I * ((1 - (1 / z.square)).sqrt + (1I / z)).log
+	}
+
+	arcSec { :z |
+		-1I * (((1 - z.square).sqrt + 1).log - z.log)
 	}
 
 	arcSin { :self |
@@ -218,6 +242,14 @@
 
 	arcCot { :self |
 		self.collect(arcCot:/1)
+	}
+
+	arcCsc { :self |
+		self.collect(arcCsc:/1)
+	}
+
+	arcSec { :self |
+		self.collect(arcSec:/1)
 	}
 
 	arcSin { :self |

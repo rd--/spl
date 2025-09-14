@@ -1,8 +1,11 @@
 # splitBy
 
-- _splitBy(sequence, separator)_
+- _splitBy([x₁ x₂ …], [y₁ …])_
 
-Split a sequence or a string by a sub-sequence or a sub-string.
+Split the sequence _x_,
+or a string,
+by the sub-sequence _y_,
+or a sub-string.
 The separator is discarded.
 
 At `List`:
@@ -101,7 +104,7 @@ Simple attribute parser:
 
 See also: join, split, splitByRegularExpression, stringJoin, stringSplit
 
-Guides: String Functions
+Guides: List Functions, String Functions
 
 References:
 _Mathematica_

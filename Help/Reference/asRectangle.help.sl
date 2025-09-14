@@ -1,14 +1,14 @@
 # asRectangle
 
-- _asRectangle(aMatrix)_
+- _asRectangle([x₁ y₁; x₂ y₂])_
 
-Answer a `Rectangle` given _lower left_ and _upper right_ coordinates.
+Answer a `Rectangle` given lower left and upper right coordinates.
 
 At `List`:
 
 ```
->>> [0 0; 1 1].asRectangle
-Rectangle([0, 0], [1, 1])
+>>> [-1 -1; 1 1].asRectangle
+Rectangle([-1 -1], [1 1])
 ```
 
 The archetypal Pythagorean triangle,

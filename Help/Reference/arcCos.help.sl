@@ -2,7 +2,7 @@
 
 - _arcCos(z)_
 
-Answers the arc cosine of the complex number _z_.
+Answers the arc cosine of the complex number _z_ in radians.
 The arc cosine is the inverse cosine function.
 
 `SmallFloat` arguments:

@@ -34,6 +34,15 @@ A dense discrete plot of a cosine function:
 
 ![](sw/spl/Help/Image/discretePlot-C.svg)
 
+Values that are not finite are elided:
+
+~~~spl svg=D
+[1 2 3 4 5 Infinity 5 4 3 2 1]
+.discretePlot
+~~~
+
+![](sw/spl/Help/Image/discretePlot-D.svg)
+
 * * *
 
 See also: discreteFunctionPlot, functionPlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
