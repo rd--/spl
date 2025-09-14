@@ -45,6 +45,7 @@ Plotting Functions:
 
 - `complexListPlot`
 - `complexPlot`
+- `conformalPlot`
 
 Random Functions:
 

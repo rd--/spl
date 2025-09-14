@@ -663,6 +663,20 @@ Plot : [Object] { | pages format options |
 		r.linePlot
 	}
 
+	conformalPlot { :f:/1 :v :m :n |
+		let [p, q] = v;
+		let [i, j] = m;
+		{ :a :b |
+			f(Complex(a, b)).realImaginary
+		}.carpetPlot(
+			[
+				(p.real -- q.real).discretize(i).asList,
+				(p.imaginary -- q.imaginary).discretize(j).asList
+			],
+			n
+		)
+	}
+
 	contourPlot { :self:/2 :xList :yList :zList |
 		let d = self:/2.table(xList, yList);
 		let l = List(zList.size, []);

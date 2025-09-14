@@ -12,6 +12,7 @@ Plotting Functions:
 - `cobwebPlot`
 - `complexPlot`
 - `complexListPlot`
+- `conformalPlot`
 - `contourPlot`
 - `correspondancePlot`
 - `densityPlot`

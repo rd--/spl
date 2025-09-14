@@ -40,7 +40,7 @@ here over the same _a_ and _b_ at the same interpolation points:
 
 * * *
 
-See also: linePlot, parametricPlot, resample
+See also: conformalPlot, linePlot, parametricPlot, resample
 
 Guides: Plotting Functions
 
