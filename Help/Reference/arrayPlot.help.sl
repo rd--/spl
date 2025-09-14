@@ -1,8 +1,8 @@
 # arrayPlot
 
-- _arrayPlot(anArray)_
+- _arrayPlot(a)_
 
-Answer a plot that gives a visual representation of the elements in _anArray_.
+Answer a plot that gives a visual representation of the elements in the array _a_.
 
 A 3×3×3 matrix:
 
@@ -63,6 +63,8 @@ let g = (1 -- c.size).discretize(36).collect(
 * * *
 
 See also: asColourSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+
+Guides: Plotting Functions
 
 References:
 _Mathematica_

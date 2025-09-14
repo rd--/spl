@@ -1,8 +1,8 @@
 # listInterpolation
 
-- _listInterpolation(aSequence, aBlock)_
+- _listInterpolation([x₁ x₂ …], f)_
 
-Answer a `Block` that will interpolate into _aSequence_ using the interpolation function defined at _aBlock_,
+Answer a `Block` that will interpolate into the sequence _x_ using the interpolation function defined at the block _f_,
 which should be of either three or five arguments.
 
 Linear interpolation:
@@ -119,6 +119,8 @@ let n = l.size;
 * * *
 
 See also: blend, catmullRomInterpolation, cosineInterpolation, cubicInterpolation, linearInterpolation
+
+Guides: Interpolation Functions
 
 References:
 _Mathematica_

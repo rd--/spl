@@ -135,6 +135,8 @@ Formatted plot of primes up to one-hundred:
 
 See also: discretePlot, linePlot, scatterPlot
 
+Guides: Plotting Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Stem-and-LeafDiagram.html)

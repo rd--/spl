@@ -82,6 +82,10 @@ Visualization:
 - `runSequencePlot`
 - `spectralPlot`
 
+Data Sets:
+
+- `nistData`
+
 * * *
 
 Guides: Mathematical Functions

@@ -17,3 +17,9 @@ Similarity and Distance Measures:
 - `hammingDistance`
 - `nearest`
 - `warpingMatrices`
+
+* * *
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Sequence_alignment)

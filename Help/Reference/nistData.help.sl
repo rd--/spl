@@ -3,7 +3,9 @@
 - _nistData(system)_
 - _nistData(system, name, columns)_
 
-A dictionary of datasets from the NIST Engineering Statistics Handbook.
+A dictionary of datasets from the NIST
+(National Institute of Standards and Technology)
+Engineering Statistics Handbook.
 The unary form answers a `Record` of named data sets.
 The ternary form answers a matrix of the specified columns of the named dataset.
 If a single column is selected the answer is a vector, else it is a matrix.
@@ -108,4 +110,4 @@ system
 
 See also: LibraryItem
 
-Guides: Plotting Functions, Statistics Functions
+Guides: Library Catalogue, Plotting Functions, Statistics Functions

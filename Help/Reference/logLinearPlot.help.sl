@@ -63,6 +63,20 @@ Plot the A-weighting curve:
 
 ![](sw/spl/Help/Image/logLinearPlot-F.svg)
 
+Plot multiple functions:
+
+~~~spl svg=G
+(1E-1 -- 1E3).logLinearPlot(
+	[
+		{ :x | 10 ^ x }.clip([0 10]),
+		{ :x | x }.clip([0 10]),
+		{ :x | x.log10 }
+	]
+)
+~~~
+
+![](sw/spl/Help/Image/logLinearPlot-G.svg)
+
 * * *
 
 See also: exp, linePlot, log

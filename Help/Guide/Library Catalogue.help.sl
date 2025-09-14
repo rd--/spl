@@ -10,6 +10,7 @@
 - `levskayaPolyhedraCatalogue`
 - `masinaConsonanceData`
 - `mcClurePolyhedraCatalogue`
+- `nistData`
 - `planarConvexPolytopeGraphCatalogue`
 - `planarGraphCatalogue`
 - `planarNonHamiltonianGraphCatalogue`

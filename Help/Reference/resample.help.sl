@@ -2,7 +2,7 @@
 
 - _resample(x, n)_
 
-Resample the sequenctial value _x_ to have _n_ places.
+Resample the sequence _x_ to have _n_ places.
 
 Subsample a `List`:
 

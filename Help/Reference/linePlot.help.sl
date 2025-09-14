@@ -209,6 +209,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ListLinePlot.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/plot.html)
-[2](https://mathworks.com/help/matlab/ref/plot3.html)
+[2](https://mathworks.com/help/matlab/ref/plot3.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Line_chart)
 
 Categories: Plotting

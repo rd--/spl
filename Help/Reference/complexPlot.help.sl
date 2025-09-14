@@ -126,12 +126,61 @@ Plot a complex function with zeros at poles:
 
 ![](sw/spl/Help/Image/complexPlot-J.png)
 
+Plot over non-square complex domain:
+
+~~~spl png=K
+[-2J-2 3J3].complexPlot { :x |
+	((x.square - 1) * (x - 2 - 1I).square)
+	/
+	(x.square + 2 + 2I)
+}
+~~~
+
+![](sw/spl/Help/Image/complexPlot-K.png)
+
+Complex plot of _z³-1_:
+
+~~~spl png=L
+[-2J-2 2J2].complexPlot { :z |
+	(z ^ 3) - 1
+}
+~~~
+
+![](sw/spl/Help/Image/complexPlot-L.png)
+
+Contour plot of the absolute value of _z³-1_:
+
+~~~spl svg=M
+let i = (-2 -- 2).discretize(50);
+{ :x :y |
+	let z = Complex(x, y);
+	((z ^ 3) - 1).abs
+}.contourPlot(i, i, [0.5 1 1.5])
+~~~
+
+![](sw/spl/Help/Image/complexPlot-M.svg)
+
+Contour plot of the argument of _z³-1_:
+
+~~~spl svg=N
+let i = (-2 -- 2).discretize(25);
+{ :x :y |
+	let z = Complex(x, y);
+	((z ^ 3) - 1).arg
+}.contourPlot(i, i, [-1/2.pi 1/2.pi])
+~~~
+
+![](sw/spl/Help/Image/complexPlot-N.svg)
+
 * * *
 
-See also: arg, Complex
+See also: arg, complexListPlot, Complex
 
-Guides: Plotting Functions
+Guides: Complex Number Functions, Plotting Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/ComplexPlot.html)
+[1](https://reference.wolfram.com/language/ref/ComplexPlot.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Domain_coloring)
+[2](https://en.wikipedia.org/wiki/Color_wheel)

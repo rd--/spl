@@ -198,4 +198,5 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/contour.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Contour)
-[2](https://en.wikipedia.org/wiki/Implicit_curve)
+[2](https://en.wikipedia.org/wiki/Contour_plot)
+[3](https://en.wikipedia.org/wiki/Implicit_curve)

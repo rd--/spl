@@ -576,17 +576,18 @@ Plot : [Object] { | pages format options |
 		self.functionPlot(100, anObject)
 	}
 
-	logLinearPlot { :self :aBlock:/1 |
+	logLinearPlot { :self :operand |
 		let k = 100;
 		let [a, b] = self.minMax.log;
 		let h = (b - a) / (k - 1);
 		let x = (0 .. k - 1).collect { :i |
 			(a + (i * h)).exp
 		};
-		let y = x.collect { :each |
-			aBlock(each)
-		};
-		y.linePlot
+		operand.nest.collect { :aBlock:/1 |
+			x.collect { :each |
+				aBlock(each)
+			}
+		}.linePlot
 	}
 
 	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
@@ -630,6 +631,25 @@ Plot : [Object] { | pages format options |
 }
 
 +Block {
+
+	carpetPlot { :f:/2 :v :n |
+		let [a, b] = v;
+		let [i, j] = n;
+		let aR = a.resample(i);
+		let bR = b.resample(j);
+		[
+			a.collect { :p |
+				bR.collect { :q |
+					f(p, q)
+				}
+			},
+			b.collect { :q |
+				aR.collect { :p |
+					f(p, q)
+				}
+			}
+		].catenate.linePlot
+	}
 
 	cobwebPlot { :f:/1 :a0 :n |
 		let a1 = f(a0);

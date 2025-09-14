@@ -23,7 +23,7 @@ Plot the spectrum of a discrete time signal:
 
 * * *
 
-See also: realImaginary, scatterPlot
+See also: complexPlot, realImaginary, scatterPlot
 
 Guides: Complex Number Functions, Plotting Functions
 

@@ -1,8 +1,8 @@
 # treePlot
 
-- _treePlot(aTree)_
+- _treePlot(t)_
 
-Answer a tree plot of _aTree_.
+Answer a tree plot of the tree _t_.
 
 A tree with two leaves:
 
@@ -50,4 +50,6 @@ Guides: Graph Functions, Plotting Functions, Tree Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/TreePlot.html)
+[1](https://reference.wolfram.com/language/ref/TreePlot.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Dendrogram)

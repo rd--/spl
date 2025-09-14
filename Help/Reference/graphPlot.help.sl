@@ -1,6 +1,9 @@
 # graphPlot
 
-- _graphPlot(aGraph)_
+- _graphPlot(g)_
+
+Answer a drawing of the graph _g_.
+The layout is made using the graph visualization library _Graphviz_.
 
 Plot a complete graph on eight vertices:
 
@@ -142,7 +145,11 @@ See also: discretePlot, functionPlot, linePlot, matrixPlot, parametricPlot, scat
 Guides: Graph Functions, Plotting Functions
 
 References:
+_AT&T_
+[1](https://graphviz.org/),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/GraphPlot.html)
+[1](https://reference.wolfram.com/language/ref/GraphPlot.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Graph_drawing)
 
 Categories: Plotting

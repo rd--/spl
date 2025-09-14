@@ -8,6 +8,7 @@ Plotting Functions:
 
 - `arrayPlot`
 - `autocorrelationPlot`
+- `carpetPlot`
 - `cobwebPlot`
 - `complexPlot`
 - `complexListPlot`
@@ -54,3 +55,7 @@ Matrix Plots:
 * * *
 
 Guides: Colour Functions, Drawing Functions, Image Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Plot_(graphics))
