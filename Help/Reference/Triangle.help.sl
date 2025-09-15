@@ -86,6 +86,37 @@ Draw a triangle in three dimensional space:
 
 ![](sw/spl/Help/Image/Triangle-B.svg)
 
+The flag of Guyana:
+
+~~~spl svg=C
+[
+	[0 0; 5 3].asRectangle,
+	[0 0; 5 1.5; 0 3].Triangle,
+	[0 0; 2.5 1.5; 0 3].Triangle
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Triangle-C.svg)
+
+The flag of Saint Lucia:
+
+~~~spl svg=D
+let a = 32;
+let b = 2 * 55.sqrt;
+let c = 18 - b;
+let d = c + b;
+let e = c + (2 * b);
+let f = e - 4;
+[
+	[0 0; 72 36].asRectangle,
+	[24 c; 48 c; 36 d].Triangle,
+	[24 c; 48 c; 36 e].Triangle,
+	[25.5 c; 46.5 c; 36 f].Triangle
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Triangle-D.svg)
+
 * * *
 
 See also: Circle, equilateralTriangle, Line, Polygon, Rectangle, Simplex

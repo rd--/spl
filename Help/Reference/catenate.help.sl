@@ -1,10 +1,10 @@
 # catenate
 
-- _catenate(aCollection, isStrict=false)_
+- _catenate(c, isStrict=false)_
 
-Flattens the collection by one level into a `List`.
+Flattens the collection _c_ by one level into a `List`.
 If _isStrict_ is `true`,
-each of the items in _aCollection_ must be of the same type as the container.
+each of the items in _c_ must be of the same type as the container.
 
 ```
 >>> [1 2 3; 4 5; 6].catenate

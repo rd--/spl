@@ -24,6 +24,15 @@ Queries:
 - `semiperimeter`
 - `sideLengths`
 
+Predicates:
+
+- `isAcute`
+- `isHeronian`
+- `isIsosceles`
+- `isObtuse`
+- `isRight`
+- `isScalene`
+
 Radii:
 
 - `exradii`
@@ -105,3 +114,9 @@ The lengths of the sides opposite each vertex are labeled _a,b,c_.
 * * *
 
 Guides: Geometry Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Triangle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Triangle)

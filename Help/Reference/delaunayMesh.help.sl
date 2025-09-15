@@ -45,7 +45,7 @@ Sfc32(323193)
 
 * * *
 
-See also: DelaunayTriangulation, PolygonMesh
+See also: DelaunayTriangulation, PolygonMesh, triangulation
 
 Guides: Geometry Functions
 

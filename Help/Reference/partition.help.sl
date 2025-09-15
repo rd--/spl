@@ -20,7 +20,7 @@ If the step size is greater than the window size there will be gaps:
 [1 2 3; 5 6 7]
 ```
 
-If the step size is equal to the window size the catenate of the answer will be the original sequence:
+If the step size is equal to the window size the `catenate` of the answer will be the original sequence:
 
 ```
 >>> [1 .. 9].partition(3, 3)

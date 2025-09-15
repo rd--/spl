@@ -880,6 +880,7 @@
 			} {
 				self.cubicHermiteFunctionPrimitive(tangents, nil, t)
 			}
+		}
 
 	}
 

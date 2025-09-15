@@ -7,6 +7,9 @@ export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twi
 import { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
 export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
 
+import { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
+export { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
+
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';
 import { isSmallFloatInteger } from './predicates.ts';

@@ -153,6 +153,14 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 		}.Polygon
 	}
 
+	triangulation { :self |
+		(self.embeddingDimension = 2).if {
+			self.vertexCoordinates.basicPolygonTriangulation
+		} {
+			self.error('triangulation')
+		}
+	}
+
 	vertexAngle { :self :i |
 		self.vertexCoordinates.polygonVertexAngle(i)
 	}
@@ -360,6 +368,23 @@ Polygon : [Object, Geometry] { | vertexCoordinates |
 }
 
 +List {
+
+	basicPolygonTriangulation { :self |
+		<primitive:
+		/* https://github.com/mapbox/earcut/ */
+		const a = sl.earcut(_catenate_1(_self));
+		const n = a.length / 3;
+		const b = new Array(n);
+		for (let i = 0; i < n; i++) {
+			let c = new Array(3);
+			b[i] = c;
+			for (let j = 0; j < 3; j++) {
+				c[j] = a[(i * 3) + j] + 1;
+			}
+		}
+		return b;
+		>
+	}
 
 	sutherlandHodgmanAlgorithm { :subjectPolygon :clipPolygon |
 		let outputList = subjectPolygon;

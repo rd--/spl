@@ -197,6 +197,7 @@ Polygon Functions:
 - `regularPolygon`
 - `starPolygon`
 - `sutherlandHodgmanAlgorithm`
+- `triangulation`
 - `windingNumber`
 
 Predicate Functions:

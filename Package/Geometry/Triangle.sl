@@ -391,6 +391,18 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		self.vertexCoordinates.polygonInteriorAngles
 	}
 
+	isAcute { :self |
+		self.interiorAngles.allSatisfy { :each |
+			each < 1/2.pi
+		}
+	}
+
+	isEquilateral { :self |
+		self.interiorAngles.allSatisfy { :each |
+			each.isVeryCloseTo(1/3.pi)
+		}
+	}
+
 	isHeronian { :self |
 		let epsilon = 1E-9;
 		self.sideLengths.allSatisfy { :each |
@@ -400,16 +412,28 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		}
 	}
 
-	isAcute { :self |
-		self.interiorAngles.allSatisfy { :x |
-			x < 1/2.pi
-		}
+	isIsosceles { :self |
+		self.sideLengths.nubBy(isVeryCloseTo:/2).size <= 2
+	}
+
+	isOlique { :self |
+		self.isRight.not
 	}
 
 	isObtuse { :self |
-		self.interiorAngles.anySatisfy { :x |
-			x > 1/2.pi
+		self.interiorAngles.anySatisfy { :each |
+			each > 1/2.pi
 		}
+	}
+
+	isRight { :self |
+		self.interiorAngles.anySatisfy { :each |
+			each.isVeryCloseTo(1/2.pi)
+		}
+	}
+
+	isScalene { :self |
+		self.isIsosceles.not
 	}
 
 	isoperimetricPoint { :self |
