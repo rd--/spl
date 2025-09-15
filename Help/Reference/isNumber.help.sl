@@ -108,7 +108,7 @@ true
 
 See also: isAtom, isFinite, isFraction, isInteger, isLargeInteger, isSmallFloat, Number
 
-
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

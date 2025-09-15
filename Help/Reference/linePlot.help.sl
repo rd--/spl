@@ -201,7 +201,7 @@ Compare the n^(th) prime to an estimate:
 Values that are not finite are elided,
 and the line segmented:
 
-~~~spl svg=D
+~~~spl svg=Q
 [3 2 9 5 NaN 4 7 6 8 1]
 .linePlot
 ~~~

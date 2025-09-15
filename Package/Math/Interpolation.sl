@@ -811,12 +811,12 @@
 		/* https://github.com/thibauts/cubic-hermite-spline */
 		let points = _points;
 		let tangents = _tangents;
-		let n = points.length;
-		let d = points[0].length;
-		let v = new Array(d);
 		let knots = _knots;
-		let derivative = false;
 		let t = _t;
+		const derivative = false;
+		const n = points.length;
+		const d = points[0].length;
+		const v = new Array(d);
 		let i0, i1, scale;
 		if(knots) {
 			for(let i=0; i<n-1; i++) {
@@ -829,8 +829,8 @@
 			}
 			i0 = i;
 			i1 = i + 1;
-			let k0 = knots[i0];
-			let k1 = knots[i1];
+			const k0 = knots[i0];
+			const k1 = knots[i1];
 			scale = k1 - k0;
 			t = (t - k0) / scale;
 		} else {
@@ -848,16 +848,16 @@
 		}
 		let h00, h10, h01, h11;
 		if(derivative) {
-			let t2 = t * t;
+			const t2 = t * t;
 			h00 = 6 * t2 - 6 * t;
 			h10 = 3 * t2 - 4 * t + 1;
 			h01 = - 6 * t2 + 6 * t;
 			h11 = 3 * t2 - 2 * t;
 		} else {
-			let t2 = t * t;
-			let it = 1 - t;
-			let it2 = it * it;
-			let tt = 2 * t;
+			const t2 = t * t;
+			const it = 1 - t;
+			const it2 = it * it;
+			const tt = 2 * t;
 			h00 = (1 + tt) * it2;
 			h10 = t * it2;
 			h01 = t2 * (3 - tt);
@@ -875,8 +875,12 @@
 
 	cubicHermiteFunction { :self :tangents |
 		{ :t |
-			self.cubicHermiteFunctionPrimitive(tangents, nil, t)
-		}
+			(t >= 1).if {
+				self.last
+			} {
+				self.cubicHermiteFunctionPrimitive(tangents, nil, t)
+			}
+
 	}
 
 }

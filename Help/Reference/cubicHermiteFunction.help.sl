@@ -4,6 +4,15 @@
 
 Answer a cubic Hermite function defined by the points _p_ and tangents _t_.
 
+```
+>>> let p = [-1 0; 0 0; 1 0];
+>>> let t = [1 1; 0 1; 1 1];
+>>> [0 0.5 1].collect(
+>>> 	p.cubicHermiteFunction(t)
+>>> )
+[-1 0; 0 0; 1 0]
+```
+
 Plot cubic Hermite function in two dimensions:
 
 ~~~spl svg=A

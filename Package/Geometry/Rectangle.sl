@@ -104,8 +104,8 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	svgFragment { :self :options |
 		let precision = options['precision'];
 		'<rect x="%" y="%" width="%" height="%" />'.format([
-			self.x.printStringToFixed(precision),
-			self.y.printStringToFixed(precision),
+			self.left.printStringToFixed(precision),
+			self.lower.printStringToFixed(precision),
 			self.width.printStringToFixed(precision),
 			self.height.printStringToFixed(precision)
 		])
@@ -279,7 +279,10 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	}
 
 	upperLeft { :self |
-		[self.lowerLeft[1], self.upperRight[2]]
+		[
+			self.lowerLeft[1],
+			self.upperRight[2]
+		]
 	}
 
 	upperLeftQuadrant { :self |
@@ -306,16 +309,6 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 	width { :self |
 		self.upperRight[1] - self.lowerLeft[1]
 	}
-
-	/*
-	x { :self |
-		self.lowerLeft[1]
-	}
-
-	y { :self |
-		self.lowerLeft[2]
-	}
-	*/
 
 }
 

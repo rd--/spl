@@ -56,3 +56,11 @@ Converting:
 * * *
 
 Guides: Hyperbolic Functions, Mathematical Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/TrigonometricFunctions.html)
+[2](https://mathworld.wolfram.com/InverseTrigonometricFunctions.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Trigonometric_functions)
+[2](https://en.wikipedia.org/wiki/Inverse_trigonometric_functions)

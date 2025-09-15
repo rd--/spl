@@ -111,6 +111,22 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/Rectangle-D.svg)
 
+Plot scaled quadrants:
+
+~~~spl svg=E
+let r = Rectangle([-2 -1], [2 1]);
+[
+	r.lowerLeftQuadrant,
+	r.lowerRightQuadrant,
+	r.upperLeftQuadrant,
+	r.upperRightQuadrant
+].collect { :each |
+	each.scale([0.95 0.9])
+}.LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Rectangle-E.svg)
+
 * * *
 
 See also: asPolygon, asRectangle, centeredRectangle, Circle, Line, LineDrawing, Point, Polygon, Triangle, unitSquare, vertexCoordinates

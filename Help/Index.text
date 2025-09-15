@@ -328,11 +328,13 @@ Reference/ArcCos.help.sl
 Reference/arcCosh.help.sl
 Reference/arcCot.help.sl
 Reference/arcCoth.help.sl
+Reference/arcCsc.help.sl
 Reference/arcCsch.help.sl
 Reference/Arc.help.sl
 Reference/archimedeanSpiral.help.sl
 Reference/arcLength.help.sl
 Reference/arcMinute.help.sl
+Reference/arcSec.help.sl
 Reference/arcSech.help.sl
 Reference/arcSecond.help.sl
 Reference/arcSin.help.sl
@@ -686,6 +688,7 @@ Reference/capacity.help.sl
 Reference/capitalize.help.sl
 Reference/cardanosAlgorithm.help.sl
 Reference/carmichaelLambda.help.sl
+Reference/carpetPlot.help.sl
 Reference/CartesianCoordinates.help.sl
 Reference/cartesianIndex.help.sl
 Reference/cartesianProductDo.help.sl
@@ -829,6 +832,7 @@ Reference/conchoidOfDeSluze.help.sl
 Reference/concisePrintString.help.sl
 Reference/condensedDistanceMatrix.help.sl
 Reference/confirm.help.sl
+Reference/conformalPlot.help.sl
 Reference/conjugateGradientMethod.help.sl
 Reference/conjugate.help.sl
 Reference/conjugateTranspose.help.sl
@@ -1403,6 +1407,7 @@ Reference/gijswijtsSequence.help.sl
 Reference/glaisher.help.sl
 Reference/gluLookAt.help.sl
 Reference/gluPerspective.help.sl
+Reference/goebelsSequence.help.sl
 Reference/goldenAngle.help.sl
 Reference/goldenRatio.help.sl
 Reference/golombsSequence.help.sl
@@ -3133,6 +3138,7 @@ Reference/soldnersConstant.help.sl
 Reference/solidusAsterisk.help.sl
 Reference/solidus.help.sl
 Reference/solidusSolidus.help.sl
+Reference/somosSequence.help.sl
 Reference/sortBlock.help.sl
 Reference/sortBy.help.sl
 Reference/sortByOn.help.sl
