@@ -26,7 +26,7 @@ An equilateral triangle:
 ```
 >>> sssTriangle(1, 1, 1)
 >>> .isScalene
-true
+false
 ```
 
 * * *

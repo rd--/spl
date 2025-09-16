@@ -730,7 +730,6 @@
 		let d = (self ^ power).integerDigits(base);
 		let p = d.last(n).fromDigits(base);
 		let q = d.dropLast(n).fromDigits(base);
-		[n,d,p,q].postLine;
 		(p + q) = self
 	}
 

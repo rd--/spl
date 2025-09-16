@@ -9,11 +9,14 @@ Answer the Gaussian window function at the number _x_.
 0.945959
 ```
 
-Threads over lists, zero at each end-point:
+Threads over lists, zero outside of _(-½,½)_:
 
 ```
->>> [-1 0 1].gaussianWindow(0.3)
-[0 1 0]
+>>> [-1 -0.5 0 0.5 1].gaussianWindow(0.3)
+[0 -25/18.exp 1 -25/18.exp 0]
+
+>>> -25/18.exp
+0.24935
 ```
 
 Plot, the unary form sets σ to 0.3:

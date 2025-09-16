@@ -18,6 +18,10 @@
 - `gen03`: evaluate polynomial
 - `gen13`: evaluate Chebyshev polynomial
 
+## Windows
+
+- `gen20`: window functions
+
 * * *
 
 See also: Osc, Shaper

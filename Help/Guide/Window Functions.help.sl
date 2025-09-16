@@ -22,6 +22,7 @@ to zero at the edges of the sampled region.
 - `nuttallWindow`: Nuttall
 - `parzenWindow`: Parzen
 - `planckTaperWindow`: Planck-taper
+- `sincWindow`: sinc
 - `tukeyWindow`: Tukey
 - `welchWindow`: Welch
 

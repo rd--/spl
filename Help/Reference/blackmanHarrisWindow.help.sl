@@ -12,8 +12,8 @@ Answer the Blackman-Harris window function at _x_.
 Threads over lists, zero at each end-point:
 
 ```
->>> [-1 0 1].blackmanHarrisWindow
-[0 1 0]
+>>> [-1 -0.5 0 0.5 1].blackmanHarrisWindow
+[0 0 1 0 0]
 ```
 
 Plot:

@@ -220,6 +220,14 @@
 		}
 	}
 
+	sincWindow { :x :a |
+		(x.abs <= 0.5).if {
+			(x * a * 2).sincNormalized
+		} {
+			0
+		}
+	}
+
 	tukeyWindow { :x :alpha |
 		[
 			{ x.abs > 0.5 } -> {
@@ -342,6 +350,12 @@
 	planckTaperWindow { :self :epsilon |
 		self.collect { :x |
 			x.planckTaperWindow(epsilon)
+		}
+	}
+
+	sincWindow { :self :a |
+		self.collect { :each |
+			each.sincWindow(a)
 		}
 	}
 

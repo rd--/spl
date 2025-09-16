@@ -177,6 +177,42 @@
 		answer / answer.absMax
 	}
 
+	gen20 { :self :window :max :coefficients |
+		(-0.5 -- 0.5).discretize(
+			self,
+			window.caseOf(
+				[
+					1 -> { hammingWindow:/1 },
+					2 -> { hannWindow:/1 },
+					3 -> { bartlettWindow:/1 },
+					4 -> { blackmanWindow:/1 },
+					5 -> { blackmanHarrisWindow:/1 },
+					6 -> {
+						let sigma = coefficients[1] * 0.1;
+						{ :x |
+							x.gaussianWindow(sigma)
+						}
+					},
+					7 -> {
+						let alpha = coefficients[1];
+						{ :x |
+							x.kaiserWindow(alpha)
+						}
+					},
+					8 -> { dirichletWindowWindow:/1 },
+					9 -> {
+						let alpha = coefficients[1];
+						{ :x |
+							x.sincWindow(alpha)
+						}
+					}
+				]
+			) {
+				self.error('gen20: unknown window')
+			}
+		)
+	}
+
 	sineTable { :self :amplitudes :phases |
 		let answer = List(self, 0);
 		answer.sineFill(amplitudes, phases);

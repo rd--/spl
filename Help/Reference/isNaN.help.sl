@@ -11,8 +11,8 @@ true
 >>> Infinity.isNaN
 false
 
->>> 0 / 0
-NaN
+>>> (0 / 0).isNaN
+true
 ```
 
 Complex `NaN`:

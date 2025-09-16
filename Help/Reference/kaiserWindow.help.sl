@@ -9,11 +9,11 @@ Answer the Kaiser window function at _x_.
 0.9522
 ```
 
-Threads over lists, zero at each end-point:
+Threads over lists, zero outside of _(-½,½)_:
 
 ```
->>> [-1 0 1].kaiserWindow(3)
-[0 1 0]
+>>> [-1 -0.5 0 0.5 1].kaiserWindow(3)
+[0 0.20488 1 0.20488 0]
 ```
 
 Plot:
@@ -57,15 +57,13 @@ Discrete Kaiser window of length 15:
 
 ![](sw/spl/Help/Image/kaiserWindow-D.svg)
 
-Frequency response of the Kaiser window with
+Frequency response of the Kaiser window:
 
 ~~~spl svg=E
 51.windowTable { :x |
 	x.kaiserWindow(2.55)
 }.fftPlot(512, 'Centred', 'Logarithmic')
 ~~~
-
-14 / 1.pi
 
 ![](sw/spl/Help/Image/kaiserWindow-E.svg)
 

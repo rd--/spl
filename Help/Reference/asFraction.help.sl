@@ -1,8 +1,8 @@
 # asFraction
 
-- _asFraction(aNumber)_
+- _asFraction(x)_
 
-Convert _aNumber_ to a `Fraction`.
+Convert the number _x_ to a `Fraction`.
 
 In the `Fraction` case answer `identity`:
 
@@ -35,6 +35,9 @@ In the `SmallFloat` case derive a `Fraction` using `rationalize`:
 
 >>> 0.333333333333.asFraction
 1/3
+
+>>> 0.086957.asFraction
+2/23
 ```
 
 In the `SmallFloat` case a tolerance may be given:

@@ -14,8 +14,8 @@ Evaluate numerically:
 Threads over lists, zero at each end-point:
 
 ```
->>> [-1 0 1].lanczosWindow
-[0 1 0]
+>>> [-1 -0.5 0 0.5 1].lanczosWindow
+[0 0 1 0 0]
 ```
 
 Plot:

@@ -10,11 +10,11 @@ The Dirichlet window is rectangular.
 1
 ```
 
-Threads over lists, zero at each end-point:
+Threads over lists, zero outside of _(-½,½)_:
 
 ```
->>> [-1 0 1].dirichletWindow
-[0 1 0]
+>>> [-1 -0.5 0 0.5 1].dirichletWindow
+[0 1 1 1 0]
 ```
 
 Plot:
