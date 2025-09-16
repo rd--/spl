@@ -33,4 +33,4 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A062539),
 _W_
-[1](https://en.wikipedia.org/wiki/Ap%C3%A9ry%27s_constant)
+[1](https://en.wikipedia.org/wiki/Lemniscate_constant)

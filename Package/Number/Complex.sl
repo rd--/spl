@@ -213,6 +213,10 @@ Complex : [Object, Number] { | real imaginary |
 		}
 	}
 
+	isFinite { :self |
+		self.arg.isFinite
+	}
+
 	isGaussianInteger { :self |
 		self.real.isInteger & {
 			self.imaginary.isInteger

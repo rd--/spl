@@ -1,8 +1,8 @@
 # padLeft
 
-- _padLeft(anArray, aList, anObject)_
+- _padLeft(a, ⍴, x)_
 
-Answer an array of shape _aList_ by prefixing _anArray_ with copies of _anObject_.
+Answer an array of shape _⍴_ by prefixing the array _a_ with copies of the object _x_.
 
 Pad a `List` to make a longer list:
 

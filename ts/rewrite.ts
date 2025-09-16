@@ -26,7 +26,8 @@ function genArityCheck(k: number, a: string): string {
 	].join('\n');
 }
 
-function rewriteMethodList(n: ohm.Node, b: ohm.Node): string[] {
+// n = names, b = bodies
+function rewriteMethodListToCore(n: ohm.Node, b: ohm.Node): string[] {
 	const nArray = n.children;
 	const bArray = b.children;
 	const k = nArray.length;
@@ -37,13 +38,14 @@ function rewriteMethodList(n: ohm.Node, b: ohm.Node): string[] {
 	return answer;
 }
 
-function rewriteTypeOrTraitExtension(
+// t = types/traits, n = names, b = bodies
+function rewriteTypeOrTraitExtensionToCore(
 	t: ohm.Node,
 	n: ohm.Node,
 	b: ohm.Node,
 ): string {
 	const begin = `+[${t.sourceString}] {`;
-	const middle = rewriteMethodList(n, b);
+	const middle = rewriteMethodListToCore(n, b);
 	const end = '}\n';
 	return [begin, middle, end].flat().join('\n');
 }
@@ -483,7 +485,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	MethodDefinitions(_p, _l, n, _r, _lc, mn, mb, _rc) {
 		const begin = `+[${n.sourceString}] {`;
-		const middle = rewriteMethodList(mn, mb);
+		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
@@ -561,12 +563,12 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	TraitDefinition(n, _l, mn, mb, _r) {
 		const begin = `${n.sourceString} {`;
-		const middle = rewriteMethodList(mn, mb);
+		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
 	TraitExtension(_p, t, _l, n, b, _r) {
-		return rewriteTypeOrTraitExtension(t, n, b);
+		return rewriteTypeOrTraitExtensionToCore(t, n, b);
 	},
 	TupleSyntax(_l, items, _r) {
 		return `Tuple([${commaListSl(items.asIteration().children)}])`;
@@ -574,12 +576,12 @@ const asSl: ohm.ActionDict<string> = {
 	TypeDefinition(n, h, t, _l, v, mn, mb, _r) {
 		const begin =
 			`${n.sourceString}${h.sourceString} ${t.sourceString} { ${v.sourceString}`;
-		const middle = rewriteMethodList(mn, mb);
+		const middle = rewriteMethodListToCore(mn, mb);
 		const end = '}\n';
 		return [begin, middle, end].flat().join('\n');
 	},
 	TypeExtension(_p, t, _l, n, b, _r) {
-		return rewriteTypeOrTraitExtension(t, n, b);
+		return rewriteTypeOrTraitExtensionToCore(t, n, b);
 	},
 	ValueApply(p, _d, a) {
 		return `${p.asSl} . (${a.asSl})`;

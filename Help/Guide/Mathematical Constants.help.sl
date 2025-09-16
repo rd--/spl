@@ -1,5 +1,12 @@
 # Mathematical Constants
 
+Literals
+
+- `Infinity`
+- `NaN`
+
+Mathematical Constants:
+
 - `aperysConstant`: ζ(3)
 - `arcMinute`: π÷180·60
 - `arcSecond`: π÷180·60²
@@ -66,11 +73,10 @@ Guides: Mathematical Functions, Mathematical Sequences, SI Units
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/GausssConstant.html)
-[3](https://reference.wolfram.com/language/guide/MathematicalConstants.html)
-[4](https://reference.wolfram.com/language/ref/entity/PhysicalConstant.html),
+[1](https://reference.wolfram.com/language/guide/MathematicalConstants.html)
+[2](https://reference.wolfram.com/language/ref/entity/PhysicalConstant.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Pi)
-[2](https://en.wikipedia.org/wiki/Lemniscate_constant)
+[1](https://en.wikipedia.org/wiki/Mathematical_constant)
+[2](https://en.wikipedia.org/wiki/Physical_constant)
 
 Categories: Math, Constant

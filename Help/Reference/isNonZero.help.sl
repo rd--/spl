@@ -63,6 +63,9 @@ See also: isEven, isNegative, isOdd, isOne, isPositive, isZero
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Nonzero.html)
+[1](https://mathworld.wolfram.com/Nonzero.html),
+_W_
+[1](https://en.wikipedia.org/wiki/0)
+[2](https://en.wikipedia.org/wiki/Zero_element)
 
 Categories: Testing, Math

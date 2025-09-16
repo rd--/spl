@@ -45,6 +45,13 @@ At `LargeInteger`:
 32
 ```
 
+Threads over lists:
+
+```
+>>> [999 1000].integerLength(10)
+[3 4]
+```
+
 Plot for base 10 from -25 to 25:
 
 ~~~spl svg=A

@@ -101,10 +101,15 @@ Infinity
 
 See also: e, inf, NaN, pi
 
+Guides: Mathematical Constants
+
 References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/Infinity.html)
-[2](https://reference.wolfram.com/language/ref/Infinity.html),
+[2](https://mathworld.wolfram.com/DirectedInfinity.html)
+[3](https://reference.wolfram.com/language/ref/Infinity.html)
+[4](https://reference.wolfram.com/language/ref/DirectedInfinity.html)
+[5](https://reference.wolfram.com/language/ref/ComplexInfinity.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Infinity)
 

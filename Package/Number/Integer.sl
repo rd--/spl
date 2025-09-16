@@ -511,7 +511,11 @@
 		self.isZero.if {
 			0
 		} {
-			self.abs.log(radix).floor + 1
+			let n = 1;
+			{ self >= (radix ^ n) }.whileTrue {
+				n := n + 1
+			};
+			n
 		}
 	}
 
@@ -672,7 +676,7 @@
 	}
 
 	isColossallyAbundantNumber { :n |
-		(n > 224403121196654400).if {
+		(n > 224403121196654400L).if {
 			n.error('isColossallyAbundantNumber: domain error')
 		} {
 			[
@@ -680,7 +684,7 @@
 				360, 2520, 5040, 55440, 720720,
 				1441440, 4324320, 21621600, 367567200, 6983776800,
 				160626866400, 321253732800, 9316358251200, 288807105787200, 2021649740510400,
-				6064949221531200, 224403121196654400
+				6064949221531200, 224403121196654400L
 			].includes(n)
 		}
 	}
@@ -702,6 +706,10 @@
 		}
 	}
 
+	isHappyNumber { :self |
+		self.perfectDigitalInvariantSequence(10, 2).last = 1
+	}
+
 	isHarmonicDivisorNumber { :n |
 		isInteger(n * divisorSigma(0, n) / divisorSigma(1, n))
 	}
@@ -717,8 +725,34 @@
 		self.typeResponsibility('@Integer>>isInteger')
 	}
 
+	isKaprekarNumber { :self :base :power |
+		let n = self.integerLength(base);
+		let d = (self ^ power).integerDigits(base);
+		let p = d.last(n).fromDigits(base);
+		let q = d.dropLast(n).fromDigits(base);
+		[n,d,p,q].postLine;
+		(p + q) = self
+	}
+
+	isKaprekarNumber { :self |
+		self.isKaprekarNumber(10, 2)
+	}
+
+	isNarcissisticNumber { :self :base |
+		let power = self.integerLength(base);
+		(self.integerDigits(base) ^ power).sum = self
+	}
+
+	isNarcissisticNumber { :self |
+		self.isNarcissisticNumber(10)
+	}
+
 	isPalindrome { :self |
 		self.integerDigits.isPalindrome
+	}
+
+	isPerfectDigitalInvariant { :self :base :power |
+		self.perfectDigitalInvariantFunction(base, power) = self
 	}
 
 	isPerfectNumber { :self |
@@ -829,6 +863,15 @@
 		}
 	}
 
+	isSumProductNumber { :self :base |
+		let d = self.integerDigits(base);
+		(d.sum * d.product) = self
+	}
+
+	isSumProductNumber { :self |
+		self.isSumProductNumber(10)
+	}
+
 	isSuperabundantNumber { :n |
 		let x = n.divisors.sum / n;
 		1.to(n - 1).allSatisfy { :k |
@@ -849,6 +892,10 @@
 				6064949221531200
 			].includes(n)
 		}
+	}
+
+	isUnhappyNumber { :self |
+		self.isHappyNumber.not
 	}
 
 	isWeirdNumber { :self |
@@ -1075,6 +1122,24 @@
 			}
 		};
 		a[n + 1]
+	}
+
+	perfectDigitalInvariantFunction { :self :base :power |
+		let sum = 0;
+		{ self > 0 }.whileTrue {
+			sum := sum + ((self % base) ^ power);
+			self := self // base
+		};
+		sum
+	}
+
+	perfectDigitalInvariantSequence { :self :base :power |
+		let answer = [];
+		{ answer.includes(self) }.whileFalse {
+			answer.add(self);
+			self := self.perfectDigitalInvariantFunction(base, power)
+		};
+		answer
 	}
 
 	perfectNumber { :n |

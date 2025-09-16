@@ -5,6 +5,8 @@
 
 The binary form answers the number _x_ divided by the number _y_.
 
+At `SmallFloat`:
+
 ```
 >>> 77 / 11
 7
@@ -14,9 +16,6 @@ The binary form answers the number _x_ divided by the number _y_.
 
 >>> 2 / 4
 0.5
-
->>> 3J1 / 2
-1.5J0.5
 
 >>> 1 / 81
 0.01234567
@@ -66,6 +65,22 @@ At `Complex` answers a `Complex`:
 ```
 >>> 9.4J6 / 1J1
 7.7J-1.7
+
+>>> 3J1 / 2
+1.5J0.5
+```
+
+Division by `zero` may be `Infinity`, `NaN` or an `error`:
+
+```
+>>> 5 / 0
+Infinity
+
+>>> (5J3 / 0).isNaN
+true
+
+>>> { 5/3 / 0 }.ifError { true }
+true
 ```
 
 The unary form is `reciprocal`:
@@ -78,7 +93,7 @@ The unary form is `reciprocal`:
 [0.5 0.25 0.125]
 
 >>> 77 * 11./
-7
+77 / 11
 ```
 
 Where supported `/` is displayed as ÷.
@@ -109,7 +124,7 @@ Integer division does not neccesarily answer an integer, c.f. `//`:
 
 See also: //, +, -, *, Divide
 
-Guides: Binary Operators, Fraction Literals
+Guides: Binary Operators, Fraction Literals, Mathematical Functions
 
 References:
 _Apl_
@@ -123,7 +138,9 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Divide.html),
 _Smalltalk_
 5.6.2.4
-5.6.2.29
+5.6.2.29,
+_W_
+[1](https://en.wikipedia.org/wiki/Division_(mathematics))
 
 Unicode: U+0002F / Solidus, U+00F7 ÷ Division Sign
 

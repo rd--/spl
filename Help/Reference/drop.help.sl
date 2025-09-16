@@ -62,6 +62,8 @@ Removing more elements than the length of the sequence gives an empty result:
 
 See also: allButFirst, dropFirst, dropLast, take
 
+Guides: List Functions
+
 References:
 _Apl_
 [1](http://aplwiki.com/wiki/Drop),

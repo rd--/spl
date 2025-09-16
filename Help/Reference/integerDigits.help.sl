@@ -9,6 +9,9 @@ Find digits in base 10:
 ```
 >>> 58127.integerDigits
 [5 8 1 2 7]
+
+>>> [5 8 1 2 7].fromDigits
+58127
 ```
 
 Find digits in base 2 & 3:

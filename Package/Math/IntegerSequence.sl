@@ -257,6 +257,27 @@
 		answer
 	}
 
+	kaprekarSequenceStep { :self :base :fixedLength |
+		let d = self.integerDigits(base);
+		fixedLength.ifNotNil {
+			d := d.padLeft([fixedLength], 0)
+		};
+		d.sort(>).fromDigits(base) - d.sort(<).fromDigits(base)
+	}
+
+	kaprekarSequence { :self :base :fixedLength |
+		let answer = [];
+		{ answer.includes(self) }.whileFalse {
+			answer.add(self);
+			self := self.kaprekarSequenceStep(base, fixedLength)
+		};
+		answer
+	}
+
+	kaprekarSequence { :self |
+		self.kaprekarSequence(10, nil)
+	}
+
 	kolakoskiSequence { :n |
 		let a = [1 2 2];
 		[3 .. n].injectInto(a) { :i :j |

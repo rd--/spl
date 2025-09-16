@@ -56,6 +56,8 @@ Where supported `floor` is displayed as ⌊.
 
 See also: ceiling, max, min, round
 
+Guides: Integer Functions, Mathematical Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Floor),

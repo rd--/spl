@@ -28,6 +28,9 @@ Threads over lists:
 ```
 >>> 1:9.sum.square
 2025
+
+>>> [1 11 111 1111].square
+[1 121 12321 1234321]
 ```
 
 More generally, the difference of the squares of two numbers is the product of their sum and their difference:

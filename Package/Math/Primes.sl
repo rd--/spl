@@ -229,6 +229,12 @@
 		}
 	}
 
+	mertensFunction { :self |
+		1:self.sum { :k |
+			k.moebiusMu
+		}
+	}
+
 	millerRabinPrimalityTest { :self :k |
 		var d, s, a, x, r;
 		valueWithReturn { :return:/1 |

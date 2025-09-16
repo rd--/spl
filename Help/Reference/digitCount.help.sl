@@ -1,33 +1,36 @@
 # digitCount
 
-- _digitCount(n, b, d)_
+- _digitCount(n, b=10, d)_
 
-Answer the number of _d_ digits in the base-_b_ representation of _n_.
+Answer the number of _d_ digits in the base-_b_ representation of the integer _n_.
 
-Binary representation:
+Consider the binary representation of a number:
 
 ```
 >>> 2147.integerDigits(2)
 [1 0 0 0 0 1 1 0 0 0 1 1]
 ```
 
-Number of 1s in binary representation:
+Count the number of `one`s in the binary representation:
 
 ```
 >>> 2147.digitCount(2, 1)
 5
 ```
 
-Number of 1s and 0s:
+Count the number of `one`s and `zero`es:
 
 ```
 >>> 2147.digitCount(2)
 [5 7]
 ```
 
-Count the number of digits 1 and 2 in ternary representation:
+Count the number of digits _(2,1,0)_ in the ternary representation:
 
 ```
+>>> 242442422.integerDigits(3)
+[1 2 1 2 2 0 0 1 2 1 0 0 1 1 0 2 2 2]
+
 >>> 242442422.digitCount(3)
 [7 6 5]
 ```

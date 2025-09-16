@@ -228,6 +228,12 @@
 		self.collect(integerDigits:/1)
 	}
 
+	integerLength { :self :radix |
+		self.collect { :each |
+			each.integerLength(radix)
+		}
+	}
+
 	integerPart { :self |
 		self.collect(integerPart:/1)
 	}

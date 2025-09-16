@@ -111,13 +111,17 @@ The following help files include references to integer sequences:
 - `integerDigits`: A062756 A364024 A007376 A265326 A117966
 - `inventorySequence`: A342585
 - `isAlmostPrime`: A000040 A001358 A046308 A069272
+- `isKaprekarNumber`: A006886
 - `isLesserTwinPrime`: A001359 A014574 A006512
+- `isNarcissisticNumber`: A005188
 - `isPerfectNumber`: A000396
 - `isPerfectSquare`: A000290
 - `isPowerfulNumber`: A001694 A118896 A060355
 - `isPrimePower`: A246655
 - `isSmoothNumber`: A000079 A003586 A051037 A002473 A051038 A080197 A080681 A080682 A080683
+- `isSumProductNumber`: A038369
 - `iterate`: A014707
+- `kaprekarSequence`: A099009
 - `keplerTree`: A294442 A020651
 - `kolakoskiSequence`: A000002
 - `lassalleNumber`: A180874
@@ -130,6 +134,7 @@ The following help files include references to integer sequences:
 - `lucasNumbers`: A000032
 - `lyndonWords`: A001037
 - `mallowsSequence`: A005229
+- `mertensFunction`: A002321
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
 - `moebiusMu`: A008683
@@ -148,6 +153,7 @@ The following help files include references to integer sequences:
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A096650
 - `pentagonalNumber`: A000326
+- `perfectDigitalInvariantSequence`: A193995
 - `perrinFunction`: A001608 A112881
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006

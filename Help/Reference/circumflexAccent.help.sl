@@ -9,9 +9,6 @@ The binary form answers _x_ raised to the power of _y_.
 >>> 2L ^ 100L
 1267650600228229401496703205376L
 
->>> 0 ^ 0
-1
-
 >>> 2.square ^ 3
 64
 
@@ -20,6 +17,13 @@ The binary form answers _x_ raised to the power of _y_.
 
 >>> 2 ^ -1
 1/2
+```
+
+Zero to the power of zero is one:
+
+```
+>>> 0 ^ 0
+1
 ```
 
 Fractional exponents:
