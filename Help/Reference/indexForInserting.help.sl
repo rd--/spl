@@ -1,9 +1,9 @@
 # indexForInserting
 
-- _indexForInserting(aSortedList, anObject)_
+- _indexForInserting(c, x)_
 
-At `SortedList`,
-answers the index where _anObject_ would be inserted.
+At the `SortedList` _c_,
+answers the index where the object _x_ would be inserted.
 
 ```
 >>> let l = [0 2.5 5 7.5 10].asSortedList;

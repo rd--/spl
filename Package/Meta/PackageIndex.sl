@@ -69,6 +69,7 @@
 	'Collection-Slice'
 	'Collection-Sort'
 	'Collection-SortedList'
+	'Collection-SortedSet'
 	'Collection-SoundFile'
 	'Collection-Span'
 	'Collection-SparseArray'

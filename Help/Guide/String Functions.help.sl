@@ -46,6 +46,13 @@ Editing:
 - `withoutLeadingBlanks`
 - `withoutTrailingBlanks`
 
+Hashing:
+
+- `crc16`
+- `digest`
+- `hash`
+- `fnv1aHash`
+
 Joining:
 
 - `unlines`

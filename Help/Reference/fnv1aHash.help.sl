@@ -1,20 +1,26 @@
 # fnv1aHash
 
-- _fnv1aHash(aByteArray)_
+- _fnv1aHash(b)_
 
-Answer the 32-Bit Fowler-Noll-Vo hash function of _aByteArray_.
+Answer the 32-Bit Fowler-Noll-Vo hash function of the byte array _b_.
 
 ```
->>> 'FNV-1a'.asciiByteArray.fnv1aHash
+>>> 'FNV-1a'
+>>> .asciiByteArray
+>>> .fnv1aHash
 3973616866
 
->>> 'Fowler-Noll-Vo'.asciiByteArray.fnv1aHash
+>>> 'Fowler-Noll-Vo'
+>>> .asciiByteArray
+>>> .fnv1aHash
 354390154
 ```
 
 * * *
 
-See also: *, bitXor, isBinary
+See also: *, bitXor, crc16, hash, isBinary
+
+Guides: String Functions
 
 References:
 _IETF_

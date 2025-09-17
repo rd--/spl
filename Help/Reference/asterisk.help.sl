@@ -1,13 +1,16 @@
 # * (asterisk)
 
-- _x * y_
-- _z.*_
+- _m * n_
+- _n.*_
 
-The binary form answers the number _x_ multiplied by _y_.
+The binary form answers the number _m_ multiplied by _n_.
 
 ```
 >>> 2 * 3 * 4
 24
+
+>>> -5 * 12
+-60
 ```
 
 Threads element-wise over lists:
@@ -88,6 +91,16 @@ The unary form is `sign`:
 
 >>> [-3 0 3].*
 [-1 0 1]
+```
+
+At `Symbol`:
+
+```
+>> `m` * `n`
+(* m n)
+
+>> `m`.*
+(if (> m 0) 1 (if (< m 0) -1 0))
 ```
 
 Where supported `*` is displayed as ×.

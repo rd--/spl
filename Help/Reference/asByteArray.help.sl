@@ -1,8 +1,10 @@
 # asByteArray
 
-- _asByteArray(aCollection)_
+- _asByteArray(c)_
 
-Convert _aCollection_ to a `ByteArray`.
+Convert the collection _c_ to a `ByteArray`.
+
+At `List`:
 
 ```
 >>> [1 1 1 3 3 5]

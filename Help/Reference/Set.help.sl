@@ -52,6 +52,21 @@ false
 >>> 	IdentitySet([1 1L])
 >>> }.ifError { true }
 true
+
+>>> 1J1 == 1J1
+false
+
+>>> 1J1 = 1J1
+true
+
+>>> Set([1J1 1J1])
+>>> .contents
+[1J1]
+
+>>> {
+>>> 	IdentitySet([1J1 1J1])
+>>> }.ifError { true }
+true
 ```
 
 The comparison method for `Set` can be modified:

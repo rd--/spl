@@ -1,6 +1,6 @@
-# \ (reverseSolidus)
+# `\` (reverseSolidus)
 
-- _aCollection \ anotherCollection_
+- _c₁ `\` c₂_
 
 The operator form of `difference`.
 

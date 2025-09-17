@@ -7,6 +7,9 @@ Arithmetic Operators:
 - `-`
 - `/`
 - `^`
+- `%`
+- `//`
+- `\\`
 
 Equality Operators:
 

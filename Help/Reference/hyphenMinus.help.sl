@@ -1,10 +1,10 @@
 # - (hyphenMinus)
 
-- _x - y_
-- _x.-_
+- _m - n_
+- _m.-_
 
-The binary form answers _y_ subtracted from _x_,
-or equally _x_ plus the negation of _y_.
+The binary form answers the number _n_ subtracted from _m_,
+or equally _m_ plus the negation of _n_.
 
 ```
 >>> 10 - 3
@@ -123,6 +123,16 @@ Negation is its own inverse:
 
 >>> [1 3 5].-.-
 [1 3 5]
+```
+
+At `Symbol`:
+
+```
+>> `m` - `n`
+(- m n)
+
+>> `m`.-
+(* m -1)
 ```
 
 The name of this operator is `hyphenMinus`.

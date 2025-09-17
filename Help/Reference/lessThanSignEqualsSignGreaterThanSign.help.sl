@@ -104,6 +104,8 @@ The name of this operator is `lessThanSignEqualsSignGreaterThanSign`.
 
 See also: ~, =, <, <=, >, >=, compare
 
+Guides: Comparison Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NumericalOrder.html)

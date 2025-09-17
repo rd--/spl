@@ -1,9 +1,9 @@
 # ^ (circumflexAccent)
 
-- _x ^ y_
-- _x.^_
+- _m ^ n_
+- _m.^_
 
-The binary form answers _x_ raised to the power of _y_.
+The binary form answers the number _m_ raised to the power of _n_.
 
 ```
 >>> 2L ^ 100L
@@ -304,6 +304,16 @@ Disprove Euler’s conjecture (Lander & Parkin 1966):
 ```
 >>> ([27 84 110 133] ^ 5).sum
 144 ^ 5
+```
+
+At `Symbol`:
+
+```
+>> `m` ^ `n`
+(^ m n)
+
+>> `m`.^
+(^ 2.718281828459045 m)
 ```
 
 Plot over a subset of the reals:

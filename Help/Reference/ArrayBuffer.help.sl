@@ -1,6 +1,6 @@
 # ArrayBuffer
 
-- _ArrayBuffer(anInteger)_
+- _ArrayBuffer(n)_
 
 An `ArrayBuffer` is a `Type` representing a binary data buffer.
 

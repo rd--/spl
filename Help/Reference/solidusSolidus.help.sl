@@ -1,6 +1,6 @@
 # // (solidusSolidus)
 
-- _aNumber // anotherNumber_
+- _m // n_
 
 Operator form of `quotient`.
 
@@ -32,6 +32,13 @@ Threads over lists:
 
 >>> [7 7 -7 -7] // [3 -3 3 -3]
 [2 -2 -2 2]
+```
+
+At `Symbol`:
+
+```
+>> `m` // `n`
+(quotient m n)
 ```
 
 Plot the spiral matrix of the quotient:

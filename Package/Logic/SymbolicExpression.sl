@@ -96,6 +96,10 @@
 		)
 	}
 
+	conjugate { :self |
+		'conjugate'.symbolicPrimitive([self])
+	}
+
 	cos { :self |
 		'cos'.symbolicPrimitive([self])
 	}

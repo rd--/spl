@@ -34,6 +34,8 @@ See also: base16Encode, base64Decode
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BaseEncode.html)
+[1](https://reference.wolfram.com/language/ref/BaseEncode.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Base64)
 
 Categories: Converting

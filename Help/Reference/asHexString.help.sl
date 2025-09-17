@@ -1,8 +1,8 @@
 # asHexString
 
-- _asHexString(aString)_
+- _asHexString(s)_
 
-Answer the two character per byte hexadecimal encoding of the Ascii encoding of _aString_.
+Answer the two character per byte hexadecimal encoding of the Ascii encoding of the string _s_.
 
 At `String`:
 

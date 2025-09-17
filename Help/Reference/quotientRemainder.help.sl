@@ -69,7 +69,7 @@ Plot the sequence of remainders:
 
 See also: //, \\, quotient, remainder
 
-Guides: Integer Functions
+Guides: Integer Functions, Mathematical Functions
 
 References:
 _Haskell_:

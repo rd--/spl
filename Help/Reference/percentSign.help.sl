@@ -2,22 +2,22 @@
 
 - _m % n_
 
-Answer the floating-point remainder of dividing _m_ by _n_.
+The modulus operator.
 
 At integer _m_ and _n_:
 
 ```
->>> 5 % 3
-2
+>>> (5 % 3, 5.mod(3))
+(2, 2)
 
->>> 17 % 5
+>>> (17 % 5, 17.mod(5))
 2
 ```
 
 A number modulo itself is `zero`:
 
 ```
->>> 5 % 5
+>>> (5 % 5, 5.mod(5))
 0
 ```
 
@@ -28,7 +28,7 @@ Zero modulo any number is `zero`:
 0
 ```
 
-_m%n_ is _m-qn_, where _q_ is the quotient of _m/n_, rounded toward zero to an integer.
+_m%n_ is _m-qn_, where _q_ is the quotient of _m/n_, rounded toward zero to an integer:
 
 ```
 >>> let [m, n] = [5, 3];
@@ -36,11 +36,21 @@ _m%n_ is _m-qn_, where _q_ is the quotient of _m/n_, rounded toward zero to an i
 2
 ```
 
-At negative numbers:
+At negative _m_:
 
 ```
 >>> (-5 % 3, -5 % 4, -1 % 3)
 (1, 3, 2)
+```
+
+At negative _n_, relation to `\\`:
+
+```
+>>> (19 % 12, 19 % -12)
+(7, -5)
+
+>>> (19 \\ 12, 19 \\ -12)
+(7, 7)
 ```
 
 Rational numbers:
@@ -50,7 +60,8 @@ Rational numbers:
 1/2
 ```
 
-Real numbers:
+Real numbers,
+for positive _n_ answer the floating-point remainder of dividing _m_ by _n_:
 
 ```
 >>> 28.sqrt % 3
@@ -59,8 +70,8 @@ Real numbers:
 >>> 1.pi % 2
 (-2 + 1.pi)
 
->>> 1.pi % 2
-1.1416
+>>> (1.pi % 2, 1.pi % -2)
+(1.1416, -0.8584)
 
 >>> 1.5 % 1
 0.5
@@ -134,7 +145,8 @@ true
 0
 ```
 
-The second part of the `quotientRemainder` is the same as `%`:
+For positive _n_,
+the second part of the `quotientRemainder` is the same as `%`:
 
 ```
 >>> 17.quotientRemainder(6)
@@ -142,6 +154,12 @@ The second part of the `quotientRemainder` is the same as `%`:
 
 >>> 17 % 6
 5
+
+>>> 17.quotientRemainder(-6)
+[-2 5]
+
+>>> 17 % -6
+-1
 ```
 
 The answers have the same sign as the modulus:
@@ -172,6 +190,13 @@ Modulo of negative number with negative operand:
 
 >>> [-5.1 -4.1 -3.1 -2.1 -1.1 -0.1] % -5
 [-0.1 -4.1 -3.1 -2.1 -1.1 -0.1]
+```
+
+At `Symbol`:
+
+```
+>> `m` % `n`
+(% m n)
 ```
 
 Plot an integer sequence modulo an integer,

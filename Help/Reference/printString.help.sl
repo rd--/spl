@@ -1,7 +1,7 @@
 # printString
 
-- _printString(anObject)_
-- _printString(anInteger, radix)_
+- _printString(x)_
+- _printString(n, radix)_
 
 Answer a `String` that is a description of the receiver.
 

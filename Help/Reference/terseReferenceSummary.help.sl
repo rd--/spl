@@ -1,10 +1,10 @@
 # terseReferenceSummary
 
-- _terseReferenceSummary(aDirectoryName, options)_
+- _terseReferenceSummary(d, o)_
 
-Read all files at _aDirectoryName_,
+Read all files at the directory _d_,
 extract all `Documentation Tests`,
-evaluate each and summarise the results.
+evaluate each and summarise the results using the options _o_.
 
 * * *
 

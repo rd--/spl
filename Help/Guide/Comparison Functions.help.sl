@@ -16,6 +16,7 @@ Orderings:
 - `<=`
 - `>`
 - `>=`
+- `precedes`
 
 Similarities:
 
@@ -28,6 +29,11 @@ Ternary:
 
 - `between`
 - `betweenAnd`
+
+Collation:
+
+- `<=>`
+- `compare`
 
 A comparison function is one whose result is a `Boolean` determined by the numerical ordering of the arguments.
 

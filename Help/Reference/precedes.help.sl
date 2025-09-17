@@ -2,7 +2,23 @@
 
 - _precedes(p, q)_
 
-Answer `true` if _p_ precedes _q_, according to `compare`, else `false`.
+Answer `true` if _p_ precedes _q_,
+according to `<` if the arguments are numbers or else `compare` if they are collections,
+else `false`.
+
+At `SmallFloat`:
+
+```
+>>> 1.precedes(3)
+true
+```
+
+At `Fraction`:
+
+```
+>>> 1/3.precedes(1/2)
+true
+```
 
 At `List`:
 

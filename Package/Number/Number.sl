@@ -711,6 +711,14 @@
 		answer
 	}
 
+	precedes { :self :operand |
+		operand.isNumber.if {
+			self < operand
+		} {
+			self.error('precedes: invalid operand')
+		}
+	}
+
 	printStringShowingDecimalPlaces { :self :placesDesired |
 		(placesDesired <= 0).if {
 			self.round.printString

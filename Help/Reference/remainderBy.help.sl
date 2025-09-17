@@ -1,8 +1,8 @@
 # remainderBy
 
-- _remainderBy(aNumber, anotherNumber, aBlock:/1)_
+- _remainderBy(m, n, f:/1)_
 
-Integer remainder defined by division with rounding defered to _aBlock_.
+Integer remainder defined by division with rounding defered to the unary block _f_.
 
 ```
 >>> -8.remainderBy(7, truncate:/1)
@@ -29,5 +29,7 @@ Julia implements remainder with an optional parameter to set the rounding mode.
 * * *
 
 See also: \\, quotientBy, remainder
+
+Guides: Mathematical Functions
 
 Categories: Math, Arithmetic

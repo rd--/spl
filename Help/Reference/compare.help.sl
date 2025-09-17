@@ -1,6 +1,6 @@
 # compare
 
-- _compare(p, q)_
+- _compare([p₁ p₂ …], [q₁ q₂ …])_
 
 Answer -1 if _p_ precedes _q_,
 answer 0 if _p_ equals _q_,
@@ -42,6 +42,8 @@ the shorter sequence is the lesser one:
 * * *
 
 See also: =, <, >, <=>, precedes
+
+Guides: List Functions, String Functions
 
 References:
 _Mathematica_

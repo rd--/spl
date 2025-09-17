@@ -1,9 +1,9 @@
 # + (plusSign)
 
-- _aNumber + anotherNumber_
-- _aNumber.+_
+- _m + n_
+- _m.+_
 
-The binary form answers the sum of _aNumber_ and _anotherNumber_.
+The binary form answers the sum of the numbers _n_ and _m_.
 
 ```
 >>> 3 + 4
@@ -57,6 +57,16 @@ The unary form of `+` is `conjugate`:
 
 >>> [2J3 -4J-3 -12 1.5J1.5].+
 [2J-3 -4J3 -12 1.5J-1.5]
+```
+
+At `Symbol`:
+
+```
+>> `m` + `n`
+(+ m n)
+
+>> `m`.+
+(conjugate m)
 ```
 
 The name of this operator is `plusSign`.

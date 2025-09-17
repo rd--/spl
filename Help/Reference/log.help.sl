@@ -111,6 +111,17 @@ Show that the natural logarithm of -1 is iπ:
 [-1 -2 -3 -4 -5]
 ```
 
+Note that `log` is subject to the usual small inaccuracies,
+in particular it should not be used to implement `integerLength`:
+
+```
+>>> 1000.log(10).floor + 1 = 3
+true
+
+>>> 1000.integerLength(10) = 4
+true
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

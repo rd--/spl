@@ -62,10 +62,6 @@ Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | 
 		self.contents.copy
 	}
 
-	basicInclude { :self :anObject |
-		self.include(anObject)
-	}
-
 	do { :self :aBlock:/1 |
 		self.contents.do(aBlock:/1);
 		self

@@ -10,7 +10,7 @@ A `Type` representing floating-point numbers like 23 or 3.141.
 'SmallFloat'
 ```
 
-There is no distinct integer type:
+There is no distinct small integer type:
 
 ```
 >>> 23 = 23.0

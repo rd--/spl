@@ -1,9 +1,9 @@
 # / (solidus)
 
-- _x / y_
-- _x./_
+- _m / n_
+- _m./_
 
-The binary form answers the number _x_ divided by the number _y_.
+The binary form answers the number _m_ divided by the number _n_.
 
 At `SmallFloat`:
 
@@ -118,6 +118,16 @@ Integer division does not neccesarily answer an integer, c.f. `//`:
 
 >>> 7 // 3
 2
+```
+
+At `Symbol`:
+
+```
+>> `m` / `n`
+(/ m n)
+
+>> `m`./
+(/ 1 m)
 ```
 
 * * *

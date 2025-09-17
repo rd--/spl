@@ -1,9 +1,9 @@
 # remainder
 
-- _remainder(aNumber, anotherNumber)_
+- _remainder(m, n)_
 
-Remainder defined in terms of _quotient_.
-Answers a _Number_ with the same sign as _aNumber_.
+Remainder defined in terms of `quotient`.
+Answers a `Number` with the same sign as _m_.
 
 ```
 >>> 9.remainder(4)
@@ -71,7 +71,9 @@ Detect perfect multiples in a given list of numbers:
 
 * * *
 
-See also: \\, quotient, quotientRemainder, remainderBy
+See also: //, \\, quotient, quotientRemainder, remainderBy
+
+Guides: Mathematical Functions
 
 References:
 _Haskell_:

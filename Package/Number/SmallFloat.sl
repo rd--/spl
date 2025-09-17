@@ -125,6 +125,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		<primitive: return Math.abs(_self)>
 	}
 
+	addI32 { :a :b |
+		(a + b).wrapExclusive(-2147483648, 2147483647 + 1)
+	}
+
 	asFloat { :self |
 		self
 	}
@@ -192,6 +196,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		}
 		>
 		anObject.adaptToNumberAndApply(self, bitOr:/2)
+	}
+
+	bitRotateLeftI32 { :self :anInteger |
+		<primitive: return (_self << _anInteger) | (_self >>> (32 - _anInteger));>
 	}
 
 	bitTest { :self :anInteger |
@@ -495,6 +503,11 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 		y + (lo[1] / lo[2])
 	}
 
+	multiplyI32 { :m :n |
+		/* <primitive: return ((_m & 0xffff) * _n) + ((((_m >>> 16) * _n) & 0xffff) << 16);> */
+		<primitive: return Math.imul(_m, _n);>
+	}
+
 	newtonRaphsonMethod { :epsilon :tolerance :iterationCount :x0 :f:/1 :fPrime:/1 |
 		valueWithReturn { :return:/1 |
 			iterationCount.timesRepeat {
@@ -684,6 +697,10 @@ SmallFloat! : [Object, Json, Magnitude, Number, Integer, Binary] {
 
 	isFinite { :self |
 		self.allSatisfy(isFinite:/1)
+	}
+
+	isNaN { :self |
+		self.collect(isNaN:/1)
 	}
 
 }

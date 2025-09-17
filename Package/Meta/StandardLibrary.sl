@@ -35,6 +35,7 @@
 	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'
+	'SortedSet' /* SortedList */
 	'Table'
 	'TemporalData'
 	'TimeSeries'

@@ -1,6 +1,6 @@
 # SortedList
 
-- _SortedList(l)_
+- _SortedList([x₁ x₂ …])_
 
 A `Type` holding a `List` where insertions (using `add` and `addAll`) maintain the list ordering,
 which is specified by a sort block.

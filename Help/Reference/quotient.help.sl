@@ -131,7 +131,7 @@ At `Symbol`:
 
 See also: //, quotientBy, quotientRemainder, remainder
 
-Guides: Integer Functions
+Guides: Integer Functions, Mathematical Functions
 
 References:
 _Haskell_:

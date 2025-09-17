@@ -41,6 +41,8 @@ If there are less places than requested answer the complete string:
 
 See also: contractTo, roundTo, integerPart, truncate
 
+Guides: Mathematical Functions, String Functions
+
 References:
 _Smalltalk_
 5.6.2.42
