@@ -37,7 +37,7 @@ SortedSet : [Object, Iterable, Collection, Extensible, Removable, Set] { | conte
 	}
 
 	removeIfAbsent { :self :anObject :aBlock:/0 |
-		self.contents.removeIfAbsentlet(anObject, aBlock:/0)
+		self.contents.removeIfAbsent(anObject, aBlock:/0)
 	}
 
 	shallowCopy { :self |
@@ -53,6 +53,18 @@ SortedSet : [Object, Iterable, Collection, Extensible, Removable, Set] { | conte
 	}
 
 	storeString { :self |
+		self.storeStringLiteral
+	}
+
+	storeStringLiteral { :self |
+		'{|%|}'.format(
+			[
+				self.contents.contents.collect(storeString:/1).commaSeparated
+			]
+		)
+	}
+
+	storeStringExpression { :self |
 		'SortedSet([%])'.format(
 			[
 				self.contents.contents.collect(storeString:/1).commaSeparated
@@ -66,7 +78,7 @@ SortedSet : [Object, Iterable, Collection, Extensible, Removable, Set] { | conte
 
 	SortedSet {
 		newSortedSet().initializeSlots(
-			SortedList([], precedes:/2)
+			SortedList([], precedesOrEqualTo:/2)
 		)
 	}
 
@@ -78,6 +90,22 @@ SortedSet : [Object, Iterable, Collection, Extensible, Removable, Set] { | conte
 		let answer = SortedSet();
 		answer.includeAll(self);
 		answer
+	}
+
+}
+
++List {
+
+	union { :self |
+		let set = SortedSet();
+		self.do { :each |
+			set.includeAll(each)
+		};
+		set.asList
+	}
+
+	union { :self :aCollection |
+		[self, aCollection].union
 	}
 
 }

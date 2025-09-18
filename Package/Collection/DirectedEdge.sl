@@ -1,14 +1,4 @@
-DirectedEdge : [Object, Indexable] { | vertexList |
-
-	< { :self :anEdge |
-		self.vertexList.precedes(anEdge.vertexList)
-	}
-
-	<= { :self :anEdge |
-		self = anEdge | {
-			self < anEdge
-		}
-	}
+DirectedEdge : [Object, Comparable, Indexable] { | vertexList |
 
 	asAssociation { :self |
 		let [from, to] = self.vertexList;
@@ -30,6 +20,10 @@ DirectedEdge : [Object, Indexable] { | vertexList |
 
 	at { :self :index |
 		self.vertexList.at(index)
+	}
+
+	compare { :self :anEdge |
+		self.vertexList.compare(anEdge.vertexList)
 	}
 
 	forDot { :self :isMixed |

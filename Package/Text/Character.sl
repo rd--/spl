@@ -1,13 +1,5 @@
 @Character {
 
-	= { :self :anObject |
-		self == anObject
-	}
-
-	< { :self :anObject |
-		self.codePoint < anObject.codePoint
-	}
-
 	asciiValue { :self |
 		(self.codePoint > 127).if {
 			self.error('asciiValue: not ascii')
@@ -128,12 +120,20 @@
 
 }
 
-Character : [Object, Magnitude, Character] { | characterString codePoint |
+Character : [Object, Comparable, Magnitude, Character] { | characterString codePoint |
+
+	= { :self :anObject |
+		self == anObject
+	}
 
 	~ { :self :anObject |
 		anObject.isCharacter & {
 			self.characterString = anObject.characterString
 		}
+	}
+
+	< { :self :operand |
+		self.codePoint < operand.codePoint
 	}
 
 	asCharacter { :self |
@@ -158,6 +158,10 @@ Character : [Object, Magnitude, Character] { | characterString codePoint |
 
 	asString { :self |
 		self.characterString
+	}
+
+	compare { :self :anObject |
+		self.codePoint.compare(anObject.codePoint)
 	}
 
 	copy { :self |

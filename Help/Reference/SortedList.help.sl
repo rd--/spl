@@ -1,9 +1,9 @@
 # SortedList
 
-- _SortedList([x₁ x₂ …])_
+- _SortedList([x₁ x₂ …], f:/2)_
 
 A `Type` holding a `List` where insertions (using `add` and `addAll`) maintain the list ordering,
-which is specified by a sort block.
+which is specified by a sort block that is ordinarily `precedesOrEqualTo`.
 
 ```
 >>> let l = SortedList([]);
@@ -36,8 +36,9 @@ Remove item:
 Count occurrences of an item:
 
 ```
->>> let l = SortedList([1 2 2 3 3 3 4 4 4 4]);
->>> l.occurrencesOf(3)
+>>> SortedList(
+>>> 	[1 2 2 3 3 3 4 4 4 4]
+>>> ).occurrencesOf(3)
 3
 ```
 
@@ -52,9 +53,20 @@ Add `String` items to a `SortedList` and ask for the `middle` and `median` eleme
 ('porcinet', 'porcinet')
 ```
 
+`Complex` does not implement `<=` but does implement `precedesOrEqualTo`:
+
+```
+>>> SortedList(
+>>> 	[2J2 1J1 0J0 -1J-1]
+>>> ).asList
+[0J0 -1J-1 1J1 2J2]
+```
+
 * * *
 
 See also: add, addAll, asSortedList, List, sort, sorted
+
+Guides: List Functions
 
 References:
 _Smalltalk_

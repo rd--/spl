@@ -1,7 +1,9 @@
 HuffmanCoding : [Object] { | symbolTable encoding |
 
 	decode { :self |
-		let codeTable = self.symbolTable.associations.sortOn { :x | x.value.size }.reverse;
+		let codeTable = self.symbolTable.associations.sortByOn(<) { :x |
+			x.value.size
+		}.reverse;
 		let codes = self.encoding;
 		let symbols = [];
 		{ codes.isEmpty }.whileFalse {

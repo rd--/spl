@@ -1,6 +1,6 @@
 # Magnitude
 
-A `Trait` defining comparison operators.
+A `Trait` defining comparison operators between numeric values.
 
 The required methods are:
 

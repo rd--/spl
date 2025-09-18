@@ -1,14 +1,4 @@
-UndirectedEdge : [Object, Indexable] { | vertexList |
-
-	< { :self :anEdge |
-		self.vertexList.precedes(anEdge.vertexList)
-	}
-
-	<= { :self :anEdge |
-		self = anEdge | {
-			self < anEdge
-		}
-	}
+UndirectedEdge : [Object, Comparable, Indexable] { | vertexList |
 
 	asDirectedEdge { :self |
 		let [i, j] = self.vertexList;
@@ -29,6 +19,10 @@ UndirectedEdge : [Object, Indexable] { | vertexList |
 
 	at { :self :index |
 		self.vertexList.at(index)
+	}
+
+	compare { :self :anEdge |
+		self.vertexList.compare(anEdge.vertexList)
 	}
 
 	forDot { :self :isMixed |

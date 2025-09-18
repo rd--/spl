@@ -36,23 +36,23 @@ true
 >>> (
 >>> 	m.isMethod,
 >>> 	m.origin.name,
->>> 	m.block . ([3, 4, 5], { :x | x * x })
+>>> 	m.block . ([3 4 5], { :x | x * x })
 >>> )
-(true, 'PrimitiveSequence', [9, 16, 25])
+(true, 'PrimitiveSequence', [9 16 25])
 
->>> collect([3, 4, 5], { :x | x * x })
-[9, 16, 25]
+>>> [3 4 5].collect { :x | x * x }
+[9 16 25]
 ```
 
 The `sum` method is implemented at a `Trait`,
-the copies at `List` and `IdentitySet` are identical:
+the copies at `List` and `SortedSet` are identical:
 
 ```
 >>> let listSum = system.methodLookupAtType(
 >>> 	'sum', 1, 'List'
 >>> );
 >>> let setSum = system.methodLookupAtType(
->>> 	'sum', 1, 'Set'
+>>> 	'sum', 1, 'SortedSet'
 >>> );
 >>> listSum == setSum
 true

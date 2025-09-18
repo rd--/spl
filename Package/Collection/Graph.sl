@@ -419,7 +419,7 @@
 
 	simpleGraph { :self |
 		let v = self.vertexList;
-		let e = Set();
+		let e = UnsortedSet();
 		e.comparator := matchesEdge:/2;
 		self.edgeList.do { :each |
 			(each[1] != each[2]).ifTrue {

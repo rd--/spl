@@ -17,6 +17,10 @@
 		self.include(anObject)
 	}
 
+	basicInclude { :self :anObject |
+		self.include(anObject)
+	}
+
 	collect { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |
@@ -56,63 +60,6 @@
 
 }
 
-Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
-
-	asList { :self |
-		self.contents.copy
-	}
-
-	do { :self :aBlock:/1 |
-		self.contents.do(aBlock:/1);
-		self
-	}
-
-	include { :self :anObject |
-		self.contents.addIfNotPresentBy(anObject, self.comparator)
-	}
-
-	includes { :self :anObject |
-		self.contents.includesBy(anObject, self.comparator)
-	}
-
-	removeAll { :self |
-		self.contents.removeAll
-	}
-
-	removeIfAbsent { :self :anObject :aBlock:/0 |
-		self.contents.detectIndexIfFoundIfNone { :item |
-			self.comparator.value(item, anObject)
-		} { :index |
-			self.contents.removeAt(index)
-		} {
-			aBlock()
-		}
-	}
-
-	shallowCopy { :self |
-		self.contents.shallowCopy.asSet
-	}
-
-	size { :self |
-		self.contents.size
-	}
-
-	species { :self |
-		Set:/0
-	}
-
-	storeString { :self |
-		'{|%|}'.format([
-			self.contents.collect(storeString:/1).commaSeparated
-		])
-	}
-
-	storeStringExpression { :self |
-		'Set(%)'.format([self.contents.storeString])
-	}
-
-}
-
 +@Dictionary {
 
 	asSet { :self |
@@ -121,41 +68,14 @@ Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | 
 
 }
 
-+List {
-
-	unionBy { :self :aBlock:/2 |
-		let set = Set();
-		set.comparator := aBlock:/2;
-		self.do { :each |
-			set.includeAll(each)
-		};
-		set.asList
-	}
-
-	unionBy { :self :aCollection :aBlock:/2 |
-		[self, aCollection].unionBy(aBlock:/2)
-	}
-
-	union { :self |
-		self.unionBy(=)
-	}
-
-	union { :self :aCollection |
-		[self, aCollection].unionBy(=)
-	}
-
-}
-
 +@Collection {
 
 	asSet { :self |
-		Set(self)
+		SortedSet(self)
 	}
 
 	Set { :self |
-		let answer = Set();
-		answer.includeAll(self);
-		answer
+		SortedSet(self)
 	}
 
 }
@@ -163,7 +83,7 @@ Set : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | 
 +Void {
 
 	Set {
-		newSet().initializeSlots([], =)
+		SortedSet()
 	}
 
 }

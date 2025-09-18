@@ -1,6 +1,6 @@
 /* Requires: List, Object */
 
-Association : [Object] { | key value |
+Association : [Object, Comparable] { | key value |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -10,20 +10,8 @@ Association : [Object] { | key value |
 		self.equalBy(anObject, ~)
 	}
 
-	< { :self :anAssociation |
-		self.key < anAssociation.key
-	}
-
-	<= { :self :anAssociation |
-		self.key <= anAssociation.key
-	}
-
-	> { :self :anAssociation |
-		self.key > anAssociation.key
-	}
-
-	>= { :self :anAssociation |
-		self.key >= anAssociation.key
+	compare { :self :anAssociation |
+		self.key.compare(anAssociation.key)
 	}
 
 	depth { :self |

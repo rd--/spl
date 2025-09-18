@@ -1,4 +1,4 @@
-Range : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Range : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	= { :self :operand |
 		operand.isRange & {

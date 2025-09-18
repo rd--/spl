@@ -1,6 +1,6 @@
-/* Requires: List Number Object */
+/* Requires: Comparable List Number Object */
 
-Complex : [Object, Number] { | real imaginary |
+Complex : [Object, Comparable, Number] { | real imaginary |
 
 	= { :self :anObject |
 		self.equalBy(anObject, =)
@@ -151,6 +151,14 @@ Complex : [Object, Number] { | real imaginary |
 
 	chop { :self |
 		self.chop(1E-10)
+	}
+
+	compare { :self :operand |
+		operand.isComplex.if {
+			self.abs.compare(operand.abs)
+		} {
+			self.error('compare: not Complex')
+		}
 	}
 
 	conjugate { :self |

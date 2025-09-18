@@ -1,4 +1,4 @@
-Residue : [Object, Magnitude, Number] { | commonResidue modulus |
+Residue : [Object, Comparable, Magnitude, Number] { | commonResidue modulus |
 
 	+ { :self :aNumber |
 		self.binaryOperator(aNumber, +)
@@ -16,6 +16,10 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 		self * aNumber.inverse
 	}
 
+	< { :self :aNumber |
+		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
+	}
+
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
 		aBlock(
 			Residue(anInteger, self.modulus),
@@ -31,19 +35,23 @@ Residue : [Object, Magnitude, Number] { | commonResidue modulus |
 		}
 	}
 
-	assertIsCompatibleResidue { :self :aResidue |
-		(self.modulus = aResidue.modulus).ifFalse {
+	assertIsCompatibleOperand { :self :operand |
+		(
+			operand.isResidue & {
+				self.modulus = operand.modulus
+			}
+		).ifFalse {
 			self.error('Residue>>assertIsCompatibleResidue')
-		}
+		};
+		operand
 	}
 
 	binaryOperator { :self :aNumber :aBlock:/2 |
 		aNumber.isResidue.if {
-			self.assertIsCompatibleResidue(aNumber);
 			Residue(
 				aBlock(
 					self.commonResidue,
-					aNumber.commonResidue
+					self.assertIsCompatibleOperand(aNumber).commonResidue
 				),
 				self.modulus
 			)

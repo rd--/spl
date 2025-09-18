@@ -1,4 +1,4 @@
-Quantity : [Object, Magnitude] { | magnitude unit |
+Quantity : [Object, Comparable, Magnitude] { | magnitude unit |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)

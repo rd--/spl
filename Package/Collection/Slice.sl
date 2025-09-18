@@ -1,4 +1,4 @@
-Slice : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents startIndex size |
+Slice : [Object, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents startIndex size |
 
 	asList { :self |
 		self.contents.copyFromTo(self.startIndex, self.endIndex).asList

@@ -1,15 +1,14 @@
 # sorted
 
-- _sorted(aCollection, aBlock:/2)_
-- _sorted(α)_ ⟹ _sorted(α, <=)_
+- _sorted([x₁ x₂ …], f:/2)_
 
-Answer a new `List` which contains the same elements as _aCollection_,
-where the elements are sorted by _aBlock_.
+Answer a new `List` which contains the same elements as the collection _x_,
+where the elements are sorted by the binary block _f_.
 
 The block should take two arguments,
 and answer `true` if the first element should preceed the second one.
 
-The unary form of `sorted` sorts using `<=`.
+The unary form of `sorted` sorts using `<|`.
 
 ```
 >>> [1 3 2 4 5].sorted
@@ -22,7 +21,9 @@ The unary form of `sorted` sorts using `<=`.
 With literal block:
 
 ```
->>> [1 3 2 4 5].sorted { :i :j | i > j }
+>>> [1 3 2 4 5].sorted { :i :j |
+>>> 	i > j
+>>> }
 [5 .. 1]
 ```
 

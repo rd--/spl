@@ -31,10 +31,10 @@ At `IdentitySet`:
 ('x', 1)
 ```
 
-At `Set`:
+At `UnsortedSet`:
 
 ```
->>> let s = Set();
+>>> let s = UnsortedSet();
 >>> s.comparator := ~;
 >>> s.include(1);
 >>> (s.include(1.00001), s.asList, s.size)

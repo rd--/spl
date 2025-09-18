@@ -2,7 +2,8 @@
 
 - _SortedSet([x₁ x₂ …])_
 
-`SortedSet` is a `Type` representing a set ordered according to `precedes`.
+`SortedSet` is a `Type` representing a set ordered according to `precedesOrEqualTo`,
+where the comparison operator is `=`.
 
 The empty set constructor,
 also a `SortedSet` from an empty list:
@@ -35,14 +36,16 @@ Use `add` to insert non-existing items:
 SortedSet([1 2 3 4 5])
 ```
 
-Use `include` to insert possibly existing items:
+Use `include` to insert possibly existing items,
+use `remove` to remove items:
 
 ```
 >>> let c = SortedSet([1 3 5]);
 >>> c.include(2);
 >>> c.include(5);
+>>> c.remove(5);
 >>> c
-SortedSet([1 2 3 5])
+SortedSet([1 2 3])
 ```
 
 Generate _n_ positive integers less than _m_ and construct a sorted set:

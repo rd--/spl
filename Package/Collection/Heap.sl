@@ -1,4 +1,4 @@
-Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock indexUpdateBlock |
+Heap : [Object, Comparable, Iterable, Collection, Extensible, Removable] { | array sortBlock indexUpdateBlock |
 
 	= { :self :anObject |
 		self == anObject | {
@@ -49,7 +49,7 @@ Heap : [Object, Iterable, Collection, Extensible, Removable] { | array sortBlock
 	compare { :self :anItem :anotherItem |
 		let sortBlock:/2 = self.sortBlock;
 		sortBlock:/2.ifNil {
-			anItem <= anotherItem
+			anItem <=| anotherItem
 		} {
 			sortBlock(anItem, anotherItem)
 		}

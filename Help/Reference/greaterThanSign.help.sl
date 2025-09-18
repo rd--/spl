@@ -36,7 +36,7 @@ The name of this operator is `greaterThanSign`.
 
 * * *
 
-See also: >=, <, <=, Magnitude
+See also: >=, |>, <, <=, Magnitude
 
 Guides: Comparison Functions, Sort Functions
 

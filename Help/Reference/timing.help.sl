@@ -1,6 +1,6 @@
 # timing
 
-- _timing(system, f:/0)_
+- _timing(f:/0)_
 
 Answers the number of seconds required to evaluate the block _f_.
 
@@ -36,9 +36,9 @@ Timing computing a prime number:
 
 * * *
 
-See also: absoluteTime, sessionTime
+See also: absoluteTime, repeatedTiming, sessionTime
 
-Guides: Date and Time Functions, System Functions
+Guides: Benchmarking Functions, Date and Time Functions, System Functions
 
 References:
 _Mathematica_

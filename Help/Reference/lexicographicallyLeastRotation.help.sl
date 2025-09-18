@@ -1,6 +1,6 @@
 # lexicographicallyLeastRotation
 
-- _lexicographicallyLeastRotation(aSequence)_
+- _lexicographicallyLeastRotation([x₁ x₂ …])_
 
 Answer the rotation of _aSequence_ that is lexicographically least of all the rotations.
 

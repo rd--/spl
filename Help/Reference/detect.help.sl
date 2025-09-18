@@ -38,9 +38,18 @@ Detect the first prime number in a `Range`:
 101
 ```
 
+At `Record`:
+
+```
+>>> (a: 1, b: 2, c: 3).detect(isEven:/1)
+2
+```
+
 * * *
 
-See also: detectIfFoundIfNone, detectIfNone, detectIndex, findFirst, reject, select
+See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, reject, select
+
+Guides: Dictionary Functions, List Functions
 
 References:
 _Smalltalk_

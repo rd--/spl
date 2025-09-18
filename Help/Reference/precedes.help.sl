@@ -3,7 +3,7 @@
 - _precedes(p, q)_
 
 Answer `true` if _p_ precedes _q_,
-according to `<` if the arguments are numbers or else `compare` if they are collections,
+ordinarily according to `<` if the arguments are numbers or else `compare` if they are collections,
 else `false`.
 
 At `SmallFloat`:
@@ -17,6 +17,13 @@ At `Fraction`:
 
 ```
 >>> 1/3.precedes(1/2)
+true
+```
+
+At `Complex`, where it is defined as `<` of `abs`:
+
+```
+>>> 1J1.precedes(2J2)
 true
 ```
 
@@ -74,7 +81,9 @@ Where supported `precedes` is displayed as ≺.
 
 * * *
 
-See also: =, <, >, <=>, compare, lexicographicSort, precedesOrEqualTo
+See also: =, <, <|, >, <=>, compare, lexicographicSort, precedesOrEqualTo, succeeds
+
+Guides: Comparison Functions, List Functions
 
 References:
 _Mathematica_

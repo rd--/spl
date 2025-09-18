@@ -52,7 +52,8 @@
 		}
 		h ^= len & 0xffffffff; /* 0xffffffff === 4294967295 */
 		return function () {
-			return fmix(h) >>> 0;
+			h = fmix(h) >>> 0;
+			return h;
 		};
 		>
 	}

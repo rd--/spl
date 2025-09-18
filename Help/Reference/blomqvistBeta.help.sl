@@ -18,10 +18,13 @@ Answer Blomqvist’s medial correlation coefficient β for the vectors _v_ and _
 >>> 	36 -10 -12 56 -14
 >>> ];
 >>> (
+>>> 	p.median,
+>>> 	q.median,
+>>> 	r.median,
 >>> 	p.blomqvistBeta(q),
 >>> 	q.blomqvistBeta(r)
 >>> )
-(3/5, 3/5)
+(-6, 5/2, -9/2, 3/5, 3/5)
 ```
 
 Blomqvist’s β ranges from _-1_ to _1_ for high negative and high positive association, respectively.

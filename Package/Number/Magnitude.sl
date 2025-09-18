@@ -18,16 +18,8 @@
 		aMagnitude <= self
 	}
 
-	<=> { :self :aMagnitude |
-		(self = aMagnitude).if {
-			0
-		} {
-			(self < aMagnitude).if {
-				-1
-			} {
-				1
-			}
-		}
+	<=> { :self :operand |
+		self.compare(operand)
 	}
 
 	between { :self :interval |
@@ -74,6 +66,18 @@
 
 	clip { :self |
 		self.clip([-1 1], [-1 1])
+	}
+
+	compare { :self :operand |
+		(self = operand).if {
+			0
+		} {
+			(self < operand).if {
+				-1
+			} {
+				1
+			}
+		}
 	}
 
 	inRangeOfAnd { :self :first :second |

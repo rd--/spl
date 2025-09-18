@@ -88,6 +88,16 @@ There is also an in-place variant:
 [2 3 4 5 1]
 ```
 
+At `String`:
+
+```
+>>> 'abcdefg'.rotateLeft(3)
+'defgabc'
+
+>>> 'abcdefg'.rotateLeft(-3)
+'efgabcd'
+```
+
 * * *
 
 See also: atWrap, rotateRight

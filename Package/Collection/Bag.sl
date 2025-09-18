@@ -138,11 +138,11 @@
 		self.contents.associationsDo { :anAssociation |
 			answer.add(anAssociation.value -> anAssociation.key)
 		};
-		answer.sortBy(>=)
+		answer.sortBy(succeedsOrEqualTo:/2)
 	}
 
 	sortedElements { :self |
-		self.contents.associations.sortOn(key:/1)
+		self.contents.associations.sortByOn(precedesOrEqualTo:/2, key:/1)
 	}
 
 	storeString { :self |
@@ -166,7 +166,7 @@
 	}
 
 	valueSort { :self |
-		self.associations.sortOn(value:/1)
+		self.associations.sortByOn(precedesOrEqualTo:/2, value:/1)
 	}
 
 }

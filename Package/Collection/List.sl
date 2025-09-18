@@ -1,4 +1,4 @@
-List! : [Object, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveSequence, Ordered] {
+List! : [Object, Comparable, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveSequence, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:

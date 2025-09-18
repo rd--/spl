@@ -26,19 +26,6 @@ At `Fraction`:
 true
 ```
 
-At `String`:
-
-```
->>> '3' < '5'
-true
-
->>> 'five' < 'three'
-true
-
->>> '-0' < '-2'
-true
-```
-
 At `Complex`, inequalities are defined only for real numbers:
 
 ```
@@ -106,5 +93,6 @@ _Smalltalk_
 5.6.1.1,
 _W_
 [1](https://en.wikipedia.org/wiki/Converse_nonimplication)
+[2](https://en.wikipedia.org/wiki/Inequality_(mathematics))
 
 Categories: Comparing

@@ -6,7 +6,7 @@ Answers a collation order of -1, 0, or 1,
 indicating whether the left operand _p_ should be collated
 before, equal to, or after the right operand _q_.
 
-Implemented for numbers and strings.
+Implemented by `Magnitude`:
 
 Ascending:
 
@@ -15,12 +15,6 @@ Ascending:
 -1
 
 >>> (7 / 3).gamma <=> 2.sqrt
--1
-
->>> 'abc' <=> 'bcd'
--1
-
->>> '-0' <=> '-2'
 -1
 ```
 
@@ -32,9 +26,6 @@ Equal to:
 
 >>> 2.pi / 2 <=> 1.pi
 0
-
->>> 'abc' <=> 'abc'
-0
 ```
 
 Descending:
@@ -44,9 +35,6 @@ Descending:
 1
 
 >>> 1.e ^ 2 <=> 1.pi
-1
-
->>> 'bcd' <=> 'abc'
 1
 ```
 
@@ -79,13 +67,6 @@ Mixed numeric types, equal to:
 ```
 >>> 1E53 <=> Infinity
 -1
-```
-
-Comparison of strings with equal base letters and different marks:
-
-```
->>> 'réservé' <=> 'reserve'
-1
 ```
 
 Find which tuples are in order:

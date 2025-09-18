@@ -1,8 +1,8 @@
 # sortByOn
 
-- _sortByOn([x₁ x₂ …], compare:/2, key:/1)_
+- _sortByOn([x₁ x₂ …], f:/2, g:/1)_
 
-Sort the sequence _x_ in place using the block _compare_ to compare items according to the block _key_.
+Sort the sequence _x_ in place using the binary sort block _f_ to compare items according to the unary key block _g_.
 Answers _x_.
 
 Sort into descending order according to last item:
@@ -21,6 +21,14 @@ Sort into ascending order according to the `second` item:
 >>> let b = a.sortByOn(<, second:/1);
 >>> (a == b, a)
 (true, [2 1 3; 2 2 2; 2 3 1])
+```
+
+Sort association list:
+
+```
+>>> ['x' -> 1, 'y' -> 2, 'z' -> 3]
+>>> .sortByOn(>, value:/1)
+['z' -> 3, 'y' -> 2, 'x' -> 1]
 ```
 
 * * *

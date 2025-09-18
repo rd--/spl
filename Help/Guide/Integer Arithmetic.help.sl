@@ -32,9 +32,9 @@ Bitwise left-rotate of 32-bit integer:
 >>> let i = 16r87654321;
 >>> let j = bitRotateLeftI32(i, 4);
 >>> [
-	i.integerDigits(2),
-	j.integerDigits(2)
-]
+>>> 	i.integerDigits(2, 32),
+>>> 	j.integerDigits(2, 32)
+>>> ]
 [
 	1 0 0 0 0 1 1 1
 	0 1 1 0 0 1 0 1

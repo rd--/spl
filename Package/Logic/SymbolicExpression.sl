@@ -218,8 +218,8 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 	}
 
 	commonSubexpressions { :self :aBlock:/2 |
-		let all = Set();
-		let common = Set();
+		let all = UnsortedSet();
+		let common = UnsortedSet();
 		all.comparator := aBlock:/2;
 		common.comparator := aBlock:/2;
 		self.do { :each |

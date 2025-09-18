@@ -92,7 +92,7 @@
 	}
 
 	countDistinct { :self :aBlock:/2 |
-		let set = Set();
+		let set = UnsortedSet();
 		set.comparator := aBlock:/2;
 		self.do { :each |
 			set.include(each)

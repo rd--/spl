@@ -1,6 +1,6 @@
 +@Collection {
 
-	heapSort { :self :sortBlock:/2 |
+	heapSortBy { :self :sortBlock:/2 |
 		let h = Heap(sortBlock:/2);
 		let l = [];
 		let k = self.size;
@@ -12,7 +12,7 @@
 	}
 
 	heapSort { :self |
-		self.heapSort(<=)
+		self.heapSortBy(<=|)
 	}
 
 	sorted { :self |
@@ -60,7 +60,7 @@
 	}
 
 	isSortedBetweenAnd { :self :startIndex :endIndex |
-		self.isSortedByBetweenAnd(<=, startIndex, endIndex)
+		self.isSortedByBetweenAnd(<=|, startIndex, endIndex)
 	}
 
 	isSortedBy { :self :aBlock:/2 |
@@ -92,7 +92,7 @@
 	}
 
 	lexicographicSort { :self |
-		self.sort(precedes:/2)
+		self.sortBy(precedes:/2)
 	}
 
 	longestIncreasingSubsequenceList { :self |
@@ -110,7 +110,7 @@
 	}
 
 	ordering { :self |
-		self.ordering(<)
+		self.ordering(<|)
 	}
 
 	rankingFractional { :self |
@@ -143,22 +143,22 @@
 
 	sort { :self :sortBlock:/2 :keyBlock:/1 |
 		keyBlock:/1.ifNil {
-			self.sortBy(sortBlock:/2 ? { <= })
+			self.sortBy(sortBlock:/2 ? { <| })
 		} {
-			self.sortByOn(sortBlock:/2 ? { <= }, keyBlock:/1)
+			self.sortByOn(sortBlock:/2 ? { <| }, keyBlock:/1)
 		}
 	}
 
 	sort { :self :sortBlock:/2 |
-		self.sortBy(sortBlock:/2 ? { <= })
+		self.sortBy(sortBlock:/2 ? { <| })
 	}
 
 	sort { :self |
-		self.sortBy(<=)
+		self.sortBy(<|)
 	}
 
 	sortOn { :self :keyBlock:/1 |
-		self.sortByOn(<=, keyBlock:/1)
+		self.sortByOn(<|, keyBlock:/1)
 	}
 
 	sorted { :self :sortBlock:/2 |

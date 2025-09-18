@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anObject |
 		<primitive: return _self === _anObject;>
@@ -27,15 +27,6 @@ LargeInteger! : [Object, Binary, Magnitude, Number, Integer] {
 		}
 		>
 		anObject.adaptToIntegerAndApply(self, <)
-	}
-
-	<= { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self <= BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, <=)
 	}
 
 	+ { :self :anObject |

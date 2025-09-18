@@ -43,6 +43,7 @@
 	'Tree'
 	'Tuple' /* List */
 	'UndirectedEdge'
+	'UnsortedSet'
 	'WeakMap'
 	'WeightedData'
 	'BitSet' /* ByteArray */

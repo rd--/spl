@@ -39,6 +39,36 @@ the shorter sequence is the lesser one:
 -1
 ```
 
+At `Association` compares on `key`:
+
+```
+>>> ('x' -> 3).compare('y' -> 1)
+-1
+```
+
+At `String`:
+
+
+>>> 'abc'.compare('bcd')
+-1
+
+>>> '-0'.compare('-2')
+-1
+
+>>> 'abc'.compare('abc')
+0
+
+>>> 'bcd'.compare('abc')
+1
+```
+
+Comparison of strings with equal base letters and different marks:
+
+```
+>>> 'réservé'.compare('reserve')
+1
+```
+
 * * *
 
 See also: =, <, >, <=>, precedes

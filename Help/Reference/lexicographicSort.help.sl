@@ -39,9 +39,27 @@ Empty lists are sorted before any other list:
 [; 1 2 3; 2 1]
 ```
 
+Sort list of strings:
+
+```
+>>> ['a' 'c' 'bx' 'xa']
+>>> .lexicographicSort
+['a' 'bx' 'c' 'xa']
+```
+
+Sort matrix of strings:
+
+```
+>>> ['c' 'a'; 'bx' 'xa']
+>>> .lexicographicSort
+['bx' 'xa'; 'c' 'a']
+```
+
 * * *
 
 See also: precedes, sort
+
+Guides: Comparison Functions, Sorting Functions
 
 References:
 _Mathematica_

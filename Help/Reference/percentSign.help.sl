@@ -11,14 +11,14 @@ At integer _m_ and _n_:
 (2, 2)
 
 >>> (17 % 5, 17.mod(5))
-2
+(2, 2)
 ```
 
 A number modulo itself is `zero`:
 
 ```
 >>> (5 % 5, 5.mod(5))
-0
+(0, 0)
 ```
 
 Zero modulo any number is `zero`:

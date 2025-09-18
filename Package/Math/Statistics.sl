@@ -110,11 +110,11 @@
 
 	quantile { :self :p :o |
 		self.isVector.if {
-			self.asSortedList.quantile(p, o)
+			self.asSortedList(<=).quantile(p, o)
 		} {
 			self.isMatrix.if {
 				self.transpose.collect { :each |
-					each.asSortedList.quantile(p, o)
+					each.asSortedList(<=).quantile(p, o)
 				}
 			} {
 				'Collection>>quantile: not vector or matrix'
@@ -177,7 +177,7 @@
 	trimmedMean { :self :f |
 		let [f1, f2] = f;
 		let n = self.size;
-		self.sorted.sliceFromTo(
+		self.sorted(<=).sliceFromTo(
 			1 + (f1 * n).floor,
 			n - (f2 * n).floor
 		).mean
@@ -276,9 +276,8 @@
 	}
 
 	median { :self |
-		self.asSortedList.median
+		self.asSortedList(<=).median
 	}
-
 
 	spearmanRho { :u :v |
 		correlation(

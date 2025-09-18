@@ -1,4 +1,4 @@
-Span : [Object, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Span : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	= { :self :operand |
 		self.hasEqualSlots(operand)

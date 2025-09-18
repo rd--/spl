@@ -2,8 +2,9 @@
 
 - _Set([x₁ x₂ …])_
 
-Set is both a `Trait` holding behaviours for collection types that do not contain duplicate items,
-and a `Type` representing a set where the comparison operator is `=`.
+`Set` is both a `Trait`,
+holding behaviours for collection types that do not contain duplicate items,
+and an alias for the `SortedSet` type
 
 The empty set constructor,
 also a `Set` from an empty list:
@@ -22,11 +23,14 @@ Set predicate:
 >>> Set().isSet
 true
 
+>>> Set().isSortedSet
+true
+
 >>> Set().isIdentitySet
 false
 ```
 
-Sets are unordered collections,
+Sets are collections,
 and have the expected mathematical behavior in relation to scalars:
 
 ```
@@ -45,7 +49,7 @@ false
 false
 
 >>> Set([1 1L])
->>> .contents
+>>> .asList
 [1]
 
 >>> {
@@ -60,7 +64,7 @@ false
 true
 
 >>> Set([1J1 1J1])
->>> .contents
+>>> .asList
 [1J1]
 
 >>> {
@@ -69,18 +73,8 @@ true
 true
 ```
 
-The comparison method for `Set` can be modified:
-
-```
->>> let x = Set();
->>> x.comparator := ~;
->>> x.includeAll([1, 1.0001, 2, 1, 2.00001, 3]);
->>> x
-Set([1 2 3])
-```
-
 * * *
 
-See also: IdentitySet
+See also: IdentitySet, SortedSet, UnsortedSet
 
 Guides: Set Functions, Set Syntax

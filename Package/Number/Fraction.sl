@@ -1,4 +1,4 @@
-Fraction : [Object, Magnitude, Number] { | numerator denominator |
+Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 
 	= { :self :anObject |
 		anObject.isNumber.if {
@@ -11,6 +11,14 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			}
 		} {
 			false
+		}
+	}
+
+	< { :self :aNumber |
+		aNumber.isFraction.if {
+			(self.numerator * aNumber.denominator) < (aNumber.numerator * self.denominator)
+		} {
+			aNumber.adaptToFractionAndApply(self, <)
 		}
 	}
 
@@ -103,22 +111,6 @@ Fraction : [Object, Magnitude, Number] { | numerator denominator |
 			} {
 				aNumber.adaptToFractionAndApply(self, ^)
 			}
-		}
-	}
-
-	< { :self :aNumber |
-		aNumber.isFraction.if {
-			(self.numerator * aNumber.denominator) < (aNumber.numerator * self.denominator)
-		} {
-			aNumber.adaptToFractionAndApply(self, <)
-		}
-	}
-
-	<= { :self :aNumber |
-		aNumber.isFraction.if {
-			(self.numerator * aNumber.denominator) <= (aNumber.numerator * self.denominator)
-		} {
-			aNumber.adaptToFractionAndApply(self, <=)
 		}
 	}
 

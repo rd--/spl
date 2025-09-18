@@ -20,7 +20,7 @@ sorted by _c_:
 >>> 		}
 >>> 	}
 >>> };
->>> t.sortOn(last:/1)
+>>> t.sortByOn(<=, last:/1)
 [
 	 3  4  5;
 	 5 12 13;
@@ -57,6 +57,8 @@ let i = (-64 .. 64);
 * * *
 
 See also: euclidsFormula, isPythagoreanTriple
+
+Guides: Triangle Functions
 
 References:
 _Mathematica_

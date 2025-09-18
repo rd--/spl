@@ -70,4 +70,4 @@ Generic Accessors:
 
 * * *
 
-Guides: System Functions
+Guides: Benchmarking Functions, System Functions

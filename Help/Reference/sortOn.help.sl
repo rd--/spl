@@ -10,7 +10,7 @@ Sort according to `last` item in each sub-list:
 ```
 >>> [1 2 3; 2 3 1; 3 1 2; 2 2]
 >>> .sortOn(last:/1)
-[2 3 1; 2 2; 3 1 2; 1 2 3]
+[2 3 1; 3 1 2; 2 2; 1 2 3]
 ```
 
 Sort according to `sum` of each sub-list:
@@ -18,7 +18,7 @@ Sort according to `sum` of each sub-list:
 ```
 >>> [1 2 3; 2 3 1; 3 1 2; 2 2]
 >>> .sortOn(sum:/1)
-[2 2; 3 1 2; 2 3 1; 1 2 3]
+[2 2; 1 2 3; 2 3 1; 3 1 2]
 ```
 
 Sort according to `negate` value of each item:

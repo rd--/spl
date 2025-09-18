@@ -2,12 +2,13 @@
 	/* Kernel Traits */
 	'Object'
 	'Cache'
+	'Comparable'
+	'Json'
+	'Magnitude'
+	'Number'
+	'RandomNumberGenerator'
 	'Binary' /* > Cache */
 	'Integer' /* > Cache */
-	'Json'
-	'Magnitude' /* > Object */
-	'Number'
-	'RandomNumberGenerator' /* > Object */
 
 	/* Primitive Traits */
 	'PrimitiveMap'

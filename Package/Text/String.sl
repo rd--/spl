@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Json, Iterable, Indexable, Character] {
+String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] {
 
 	= { :self :anObject |
 		self == anObject
@@ -16,40 +16,12 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		}
 	}
 
-	<=> { :self :aString |
-		<primitive:
-		if(typeof _aString == 'string') {
-			const n = _self.localeCompare(_aString);
-			if(n < 0) {
-				return -1;
-			} else if(n == 0) {
-				return 0;
-			} else {
-				return 1;
-			}
-		};
-		>
-		self.error('String>><=>: non string operand')
-	}
-
-	< { :self :aString |
-		self <=> aString = -1
-	}
-
-	<= { :self :aString |
-		self <=> aString <= 0
-	}
-
-	> { :self :aString |
-		self <=> aString = 1
-	}
-
-	>= { :self :aString |
-		self <=> aString >= 1
-	}
-
 	++ { :self :anObject |
 		self.basicAppendString(anObject.asString)
+	}
+
+	< { :self :operand |
+		self.codePoint < operand.codePoint
 	}
 
 	abbreviateTo { :self :anInteger |
@@ -247,7 +219,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.characters
 		.asIdentityBag
 		.associations
-		.sort(>=, value:/1)
+		.sort(|>=, value:/1)
 	}
 
 	characterCounts { :self :n |
@@ -257,7 +229,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.collect(stringJoin:/1)
 		.asIdentityBag
 		.associations
-		.sort(>=, value:/1)
+		.sort(|>=, value:/1)
 	}
 
 	characterRange { :self :aString |
@@ -298,8 +270,20 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		}, [])
 	}
 
-	compare { :self :anObject |
-		self <=> anObject
+	compare { :self :operand |
+		<primitive:
+		if(typeof _operand == 'string') {
+			const n = _self.localeCompare(_operand);
+			if(n < 0) {
+				return -1;
+			} else if(n == 0) {
+				return 0;
+			} else {
+				return 1;
+			}
+		};
+		>
+		self.error('String>>compare: non string operand')
 	}
 
 	characters { :self |
@@ -414,6 +398,10 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	first { :self |
 		self[1]
+	}
+
+	first { :self :anInteger |
+		self.copyFromTo(1, 1 + anInteger - 1)
 	}
 
 	firstBracketedCommentIfAbsent { :self :open :close :aBlock:/0 |
@@ -655,7 +643,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.select(isLetter:/1)
 		.asIdentityBag
 		.associations
-		.sort(>=, value:/1)
+		.sort(|>=, value:/1)
 	}
 
 	letterCounts { :self :n |
@@ -666,7 +654,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		.collect(stringJoin:/1)
 		.asIdentityBag
 		.associations
-		.sort(>=, value:/1)
+		.sort(|>=, value:/1)
 	}
 
 	letterNumber { :self :aString |
@@ -803,14 +791,6 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 		system.postLine(self)
 	}
 
-	precedes { :self :anObject |
-		self < anObject
-	}
-
-	precedesOrEqualTo { :self :anObject |
-		self <= anObject
-	}
-
 	primitiveCollectInto { :self :aBlock:/1 :aCollection |
 		self.primitiveDo { :each |
 			aCollection.add(aBlock(each))
@@ -855,6 +835,16 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 
 	reverse { :self |
 		self.onCharacters(reverse:/1)
+	}
+
+	rotateLeft { :self :anInteger |
+		let k = self.size;
+		let n = anInteger % k;
+		(n = 0).if {
+			self
+		} {
+			self.allButFirst(n) ++ self.first(n)
+		}
 	}
 
 	select { :self :aBlock:/1 |
@@ -1146,8 +1136,7 @@ String! : [Object, Json, Iterable, Indexable, Character] {
 	burrowsWheelerMatrix { :self |
 		(1 .. self.size).collect { :each |
 			self.rotateLeft(each)
-		}
-		.lexicographicSort
+		}.lexicographicSort
 	}
 
 	burrowsWheelerTransform { :self |

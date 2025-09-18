@@ -78,9 +78,64 @@ Every remaining possibility is one of the comparisons:
 ]
 ```
 
+The distinction between `<` and `<|` is subtle:
+
+```
+>>> 1 < 3
+true
+
+>>> 1 <| 3
+true
+
+>>> 3 <= 3
+true
+
+>>> 3 <=| 3
+true
+
+>>> 2 < [1 2 3]
+[false false true]
+
+>>> 2 <= [1 2 3]
+[false true true]
+
+>>> {
+>>> 	2 <| [1 2 3]
+>>> }.ifError { true }
+true
+
+>>> [2 2 2] < [1 2 3]
+[false false true]
+
+>>> [2 2 2] <= [1 2 3]
+[false true true]
+
+>>> [2 2 2] <| [1 2 3]
+false
+
+>>> [2 2 2] <=| [1 2 3]
+false
+
+>>> {
+>>> 	1J1 < 2J2
+>>> }.ifError { true }
+true
+
+>>> 1J1 <| 2J2
+true
+
+>>> {
+>>> 	'bcd' < 'abc'
+>>> }.ifError { true }
+true
+
+>>> 'bcd' <| 'abc'
+false
+```
+
 * * *
 
-See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Magnitude
+See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Magnitude, Number, String
 
 References:
 _Apl_

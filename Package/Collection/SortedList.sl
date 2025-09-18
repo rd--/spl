@@ -1,4 +1,4 @@
-SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
+SortedList : [Object, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {
@@ -40,10 +40,11 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 	indexForInserting { :self :newObject |
 		let low = 1;
 		let high = self.contents.size;
+		let sortBlock:/2 = self.sortBlock;
 		let index = nil;
 		{
 			index := high + low // 2;
-			low <= high
+			sortBlock(low, high)
 		}.whileTrue {
 			self.sortBlock.value(self.contents[index], newObject).if {
 				low := index + 1
@@ -136,10 +137,15 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 	}
 
 	storeString { :self |
-		(self.sortBlock = <=).if {
+		(self.sortBlock = precedesOrEqualTo:/2).if {
 			'SortedList(%)'.format([self.contents])
 		} {
-			'SortedList(%, %)'.format([self.contents], self.sortBlock.name)
+			'SortedList(%, %)'.format(
+				[
+					self.contents,
+					self.sortBlock.name
+				]
+			)
 		}
 	}
 
@@ -148,23 +154,7 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 +Void {
 
 	SortedList {
-		newSortedList().initializeSlots([], <=)
-	}
-
-}
-
-+List {
-
-	asSortedList { :self |
-		SortedList(self.sorted)
-	}
-
-	SortedList { :self |
-		SortedList(self, sortBlock:/2)
-	}
-
-	SortedList { :self :sortBlock:/2 |
-		newSortedList().initializeSlots(self.sorted, <=)
+		newSortedList().initializeSlots([], precedesOrEqualTo:/2)
 	}
 
 }
@@ -172,14 +162,26 @@ SortedList : [Object, Iterable, Indexable, Collection, Extensible, Removable, Se
 +@Collection {
 
 	asSortedList { :self |
-		self.asSortedList(<=)
+		SortedList(self.asList)
 	}
 
-	asSortedList { :self :aSortBlock:/2 |
-		let answer = SortedList();
-		answer.sortBlock := aSortBlock:/2;
-		answer.addAll(self);
-		answer
+	asSortedList { :self :sortBlock:/2 |
+		SortedList(self.asList, sortBlock:/2)
+	}
+
+}
+
++List {
+
+	SortedList { :self |
+		SortedList(self, precedesOrEqualTo:/2)
+	}
+
+	SortedList { :self :sortBlock:/2 |
+		newSortedList().initializeSlots(
+			self.copy.sortBy(sortBlock:/2),
+			sortBlock:/2
+		)
 	}
 
 }

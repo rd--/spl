@@ -1,22 +1,25 @@
 # asSortedList
 
-- _asSortedList(alpha)_ ⟹ _asSortedList(alpha, <)_
-- _asSortedList(aCollection, aBlock:/2)_
+- _asSortedList(c, f:/2)_
 
-Answer a `SortedList` having as items those of _aCollection_,
-sorted according to _aBlock_.
+Answer a `SortedList` having as items those of the collection _c_,
+sorted according to _f_.
 
 At `List`:
 
 ```
->>> [1 9 3 7 5].asSortedList.contents
-[1 3 5 7 9]
+>>> let x = [1 9 3 7 5];
+>>> let y = x.asSortedList;
+>>> (y.contents, x !== y.contents)
+([1 3 5 7 9], true)
 ```
 
 Specifiy the sort block, here to maintain a list in reverse order:
 
 ```
->>> [1 9 3 7 5].asSortedList(>).contents
+>>> [1 9 3 7 5]
+>>> .asSortedList(>)
+>>> .contents
 [9 7 5 3 1]
 ```
 
@@ -39,6 +42,8 @@ At `Range`:
 * * *
 
 See also: SortedList
+
+Guides: List Functions
 
 References:
 _Smalltalk_

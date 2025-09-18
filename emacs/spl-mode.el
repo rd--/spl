@@ -331,7 +331,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      (":@" . ?⋄) ; U+22C4 ⋄ Diamond Operator
      ("<-" . ?←) ; U+2190 ← Leftwards Arrow
      ("<=" . ?≤) ; U+2264 ≤ Less-than or equal to
-     ("<|" . ?◁) ; U+25C1 ◁ White Left-Pointing Triangle
+     ("<|" . ?≺) ; U+227a ≺ Precedes ; U+25C1 ◁ White Left-Pointing Triangle
+     ("<=|" . ?≼) ; U+227c ≼ Precedes Or Equal To
      ("<~" . ?⪅) ; U+2A85 ⪅ Less-Than or Approximate ; ⪝
      ("<<" . ?≪) ; U+226A ≪ Much Less-Than ; U+00AB « Left-Pointing Double Angle Quotation Mark
      ("<<<" . ?⋘) ; U+22D8 ⋘ Very Much Less-Than Unicode Character
@@ -341,7 +342,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      (">~" . ?⪆) ; U+2A86 ⪆ Greater-Than or Approximate ; ⪞
      (">>" . ?≫) ; U+226B ≫ Much Greater-Than ; U+00BB » Right-Pointing Double Angle Quotation Mark
      (">>>" . ?⋙) ; U+22D9 ⋙ Very Much Greater-Than
-     ("|>" . ?▷) ; U+25B7 ▷ White Right-Pointing Triangle
+     ("|>" . ?≻) ; U+227B ≻ Succeeds ; U+25B7 ▷ White Right-Pointing Triangle
+     ("|>=" . ?≽) ; U+227D ≽ Succeeds or Equal To
      ;("/*" . ?«) ; U+000AB « Left-Pointing Double Angle Quotation Mark
      ;("*/" . ?») ; U+000BB » Right-Pointing Double Angle Quotation Mark
      ("Phi" . ?ϕ) ; U+03D5 ϕ Greek Phi Symbol
@@ -435,6 +437,9 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi
      ("Pi" . ?Π) ; U+003A0 Π Greek Capital Letter Pi
      ("precedes" . ?≺) ; U+227a ≺ Precedes
+     ("precedesOrEqualTo" . ?≼) ; U+227c ≼ Precedes Or Equal To
+     ("succeeds" . ?≻) ; U+227B ≻ Succeeds
+     ("succeedsOrEqualTo" . ?≽) ; U+227D ≽ Succeeds or Equal To ; U+2AB0 ⪰ Succeeds Above Single-Line Equals Sign
      ("product" . ?Π) ; U+03A0 Π Greek Capital Letter Pi
      ("quarterToneFlat" . ?𝄳) ; U+1D133 𝄳 Musical Symbol Quarter Tone Flat
      ("quarterToneSharp" . ?𝄲) ; U+1D132 𝄲 Musical Symbol Quarter Tone Sharp

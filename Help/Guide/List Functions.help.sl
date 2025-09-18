@@ -13,6 +13,7 @@ Types:
 - `Float64Array`
 - `List`
 - `Range`
+- `SortedList`
 - `Span`
 - `Tuple`
 

@@ -32,6 +32,8 @@ let i = (-64 .. 64);
 
 See also: euclidsFormula, isPrimitivePythagoreanTriple
 
+Guides: Triangle Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PythagoreanTriple.html)

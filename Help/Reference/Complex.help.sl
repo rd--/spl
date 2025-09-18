@@ -1,6 +1,6 @@
 # Complex
 
-- _Complex(real, imaginary)_
+- _Complex(r, i)_
 
 A `Type` representing a complex number with the specified `real` and `imaginary` parts.
 
@@ -194,6 +194,18 @@ true
 true
 
 >>> 23L.isReal
+true
+```
+
+`Complex` implements `Comparable` but not `Magnitude`:
+
+```
+>>> 1J1 <| 2J2
+true
+
+>>> {
+>>> 	1J1 > 2J2
+>>> }.ifError { true }
 true
 ```
 

@@ -711,14 +711,6 @@
 		answer
 	}
 
-	precedes { :self :operand |
-		operand.isNumber.if {
-			self < operand
-		} {
-			self.error('precedes: invalid operand')
-		}
-	}
-
 	printStringShowingDecimalPlaces { :self :placesDesired |
 		(placesDesired <= 0).if {
 			self.round.printString
@@ -959,6 +951,23 @@
 
 	strictlyPositive { :self |
 		self > 0
+	}
+
+
+	succeeds { :self :operand |
+		operand.isNumber.if {
+			self > operand
+		} {
+			self.error('succeeds: invalid operand')
+		}
+	}
+
+	succeedsOrEqualTo { :self :operand |
+		operand.isNumber.if {
+			self >= operand
+		} {
+			self.error('succeedsOrEqualTo: invalid operand')
+		}
 	}
 
 	swishFunction { :beta |

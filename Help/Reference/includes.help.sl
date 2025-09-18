@@ -1,8 +1,8 @@
 # includes
 
-- _includes(aCollection, anObject)_
+- _includes(c, x)_
 
-Answer whether _aCollection_ contains _anObject_ as a member.
+Answer whether the collection _c_ contains the object _x_ as a member.
 
 Is five an element of a `List`:
 
@@ -86,6 +86,8 @@ Where supported `includes` is displayed as ∋.
 * * *
 
 See also: anySatisfy, includesAllOf, includesBy
+
+Guides: Dictionary Functions, List Functions
 
 References:
 _Apl_

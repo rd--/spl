@@ -1,4 +1,4 @@
-Interval : [Object, Magnitude, Number] { | min max |
+Interval : [Object, Comparable, Magnitude, Number] { | min max |
 
 	~ { :self :anObject |
 		self.hasEqualSlotsBy(anObject, ~)

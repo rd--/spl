@@ -526,12 +526,12 @@
 		let m = aList.size;
 		valueWithReturn { :return:/1 |
 			1.toDo(n.min(m)) { :i |
-				let c = self[i] <=> aList[i];
+				let c = self[i].compare(aList[i]);
 				(c != 0).ifTrue {
 					c.return
 				}
 			};
-			n <=> m
+			n.compare(m)
 		}
 	}
 
@@ -1530,7 +1530,7 @@
 				self.error('isAlternating: invalid z')
 			};
 			(2 .. k).allSatisfy { :i |
-				let x = self[i - 1] <=> self[i];
+				let x = self[i - 1].compare(self[i]);
 				let r = (0 - x) = z;
 				z := x;
 				r
@@ -1692,7 +1692,9 @@
 		let n = self.size;
 		let f = List(2 * n, -1);
 		let k = 0;
-		let b = { :i | self[i - 1 % n + 1] };
+		let b = { :i |
+			self[i - 1 % n + 1]
+		};
 		1.toDo(2 * n - 1) { :j |
 			let i = f[j - k];
 			{
@@ -1700,7 +1702,7 @@
 					b(j) != b(k + i + 1)
 				}
 			}.whileTrue {
-				(b(j) < b(k + i + 1)).ifTrue {
+				(b(j) <| b(k + i + 1)).ifTrue {
 					k := j - i - 1
 				};
 				i := f[i + 1]
@@ -1710,7 +1712,7 @@
 					b(j) != b(k + i + 1)
 				}
 			).if {
-				(b(j) < b(k + i + 1)).ifTrue {
+				(b(j) <| b(k + i + 1)).ifTrue {
 					k := j
 				};
 				f[j - k + 1] := -1
@@ -2193,14 +2195,6 @@
 				index
 			}
 		}
-	}
-
-	precedes { :self :aList |
-		self.compare(aList) = -1
-	}
-
-	precedesOrEqualTo { :self :aList |
-		self.compare(aList) != 1
 	}
 
 	prefixesDo { :self :aBlock:/1 |

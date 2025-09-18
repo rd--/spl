@@ -1,4 +1,4 @@
-Decimal : [Object] { | fraction scale |
+Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 
 	* { :self :operand |
 		operand.isDecimal.if {
@@ -48,22 +48,6 @@ Decimal : [Object] { | fraction scale |
 		}
 	}
 
-	< { :self :operand |
-		operand.isDecimal.if {
-			self.fraction < operand.fraction
-		} {
-			operand.adaptToDecimalAndApply(self, <)
-		}
-	}
-
-	<= { :self :operand |
-		operand.isDecimal.if {
-			self.fraction <= operand.fraction
-		} {
-			operand.adaptToDecimalAndApply(self, <=)
-		}
-	}
-
 	= { :self :operand |
 		operand.isDecimal.if {
 			(self.scale = operand.scale) & {
@@ -85,19 +69,11 @@ Decimal : [Object] { | fraction scale |
 		}
 	}
 
-	> { :self :operand |
+	< { :self :operand |
 		operand.isDecimal.if {
-			self.fraction > operand.fraction
+			self.fraction < operand.fraction
 		} {
-			operand.adaptToDecimalAndApply(self, >)
-		}
-	}
-
-	>= { :self :operand |
-		operand.isDecimal.if {
-			self.fraction >= operand.fraction
-		} {
-			operand.adaptToDecimalAndApply(self, >=)
+			operand.adaptToDecimalAndApply(self, <)
 		}
 	}
 

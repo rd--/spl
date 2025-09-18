@@ -557,7 +557,7 @@
 		let d = self.denominator.factorInteger.collect { :each |
 			each.key -> each.value.negate
 		};
-		(n ++ d).sorted
+		(n ++ d).sortBy(<|)
 	}
 
 	primeFactors { :self |

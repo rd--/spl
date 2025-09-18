@@ -1,4 +1,4 @@
-NumericArray : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
+NumericArray : [Object, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)

@@ -1,9 +1,9 @@
 # sortBy
 
-- _sortBy(aSequence, aBlock:/2)_
+- _sortBy([x₁ x₂ …], f:/2)_
 
-Sort _aSequence_ in place using the comparator _aBlock_.
-Answers _aSequence_.
+Sort the sequence _x_ in place using the comparator block _f_.
+Answers _x_.
 Unlike `sort`, the comparison block must be valid, not `nil`.
 
 At `List`, sort into descending order:
@@ -25,8 +25,19 @@ At `List`, sort into ascending order:
 At an `Association` list, sort by descending key:
 
 ```
->>> [3 -> 'a', 1 -> 'b', 2 -> 'c'].sortBy(>=)
+>>> [3 -> 'a', 1 -> 'b', 2 -> 'c'].sortBy(|>)
 [3 -> 'a', 2 -> 'c', 1 -> 'b']
+```
+
+At a matrix:
+
+```
+>>> [1 2 3; 4 5 6].sortBy(>)
+[4 5 6; 1 2 3]
+
+>>> ['1' '2' '3'; '4' '5' '6']
+>>> .sortBy(|>)
+['4' '5' '6'; '1' '2' '3']
 ```
 
 * * *
