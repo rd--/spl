@@ -36,6 +36,6 @@ true
 
 * * *
 
-See also: <, <=|, |>, precedes
+See also: <, <=|, |>, compare, Comparable, precedes
 
 Guides: Comparison Functions

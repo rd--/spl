@@ -1,22 +1,28 @@
 # Comparison Functions
 
-Equalities:
+Equation:
 
 - `=`
 - `==`
 
-Inequalities:
+Inequation:
 
 - `!=`
 - `!==`
 
-Orderings:
+Inequalities:
 
 - `<`
 - `<=`
 - `>`
 - `>=`
+
+Ordering:
+
 - `precedes`
+- `precedesOrEqualTo`
+- `succeeds`
+- `succeedsOrEqualTo`
 
 Similarities:
 
@@ -140,3 +146,7 @@ See also: <, <=, =, >=, >, !=, <~, ~, >~, !~, boole, Boolean, Magnitude, Number,
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Comparison_function)
+_W_
+[1](https://en.wikipedia.org/wiki/Equation)
+[2](https://en.wikipedia.org/wiki/Inequation)
+[3](https://en.wikipedia.org/wiki/Inequality_(mathematics))

@@ -11,6 +11,7 @@ Guide/Assignment Syntax.help.sl
 Guide/AtAll Syntax.help.sl
 Guide/AtPut Syntax.help.sl
 Guide/At Syntax.help.sl
+Guide/Benchmarking Functions.help.sl
 Guide/Binary Operators.help.sl
 Guide/Binary Operator Syntax.help.sl
 Guide/Bitwise Functions.help.sl
@@ -88,6 +89,7 @@ Guide/Implicit Self.help.sl
 Guide/Indentation Rules.help.sl
 Guide/Indexable Syntax.help.sl
 Guide/Indexing Functions.help.sl
+Guide/Integer Arithmetic.help.sl
 Guide/Integer Functions.help.sl
 Guide/Integer Literals.help.sl
 Guide/Integer Sequences.help.sl
@@ -816,6 +818,7 @@ Reference/commonest.help.sl
 Reference/commonResidue.help.sl
 Reference/commonSubexpressions.help.sl
 Reference/Compander.help.sl
+Reference/Comparable.help.sl
 Reference/compare.help.sl
 Reference/complementGraph.help.sl
 Reference/complement.help.sl
@@ -1032,6 +1035,7 @@ Reference/differencesBy.help.sl
 Reference/differences.help.sl
 Reference/differentiate.help.sl
 Reference/digamma.help.sl
+Reference/digest.help.sl
 Reference/DigitalClock.help.sl
 Reference/digitalRoot.help.sl
 Reference/digitAt.help.sl
@@ -1388,6 +1392,7 @@ Reference/gen11.help.sl
 Reference/gen13.help.sl
 Reference/gen16.help.sl
 Reference/gen19.help.sl
+Reference/gen20.help.sl
 Reference/Gendy1.help.sl
 Reference/GeneralisedCircle.help.sl
 Reference/generalizedPentagonalNumbers.help.sl
@@ -1688,6 +1693,7 @@ Reference/iota.help.sl
 Reference/IRand.help.sl
 Reference/irregularTransposition.help.sl
 Reference/isAbundantNumber.help.sl
+Reference/isAcute.help.sl
 Reference/isAdjacentFraction.help.sl
 Reference/isAllWhiteSpace.help.sl
 Reference/isAlmostPrime.help.sl
@@ -1764,6 +1770,7 @@ Reference/isGaussianPrime.help.sl
 Reference/isGeometricProgression.help.sl
 Reference/isGraveAccent.help.sl
 Reference/isHalfInteger.help.sl
+Reference/isHappyNumber.help.sl
 Reference/isHarmonicDivisorNumber.help.sl
 Reference/isHeronian.help.sl
 Reference/isHighlyAbundantNumber.help.sl
@@ -1777,8 +1784,10 @@ Reference/isIntegerMatrix.help.sl
 Reference/isIntegerRange.help.sl
 Reference/isInvolution.help.sl
 Reference/isIso8601DurationString.help.sl
+Reference/isIsosceles.help.sl
 Reference/isIterator.help.sl
 Reference/isJson.help.sl
+Reference/isKaprekarNumber.help.sl
 Reference/isLargeInteger.help.sl
 Reference/isLatinSquare.help.sl
 Reference/isLeaf.help.sl
@@ -1797,6 +1806,8 @@ Reference/isMatrixOf.help.sl
 Reference/isMixed.help.sl
 Reference/isMomentOfSymmetry.help.sl
 Reference/isMonotonicallyIncreasing.help.sl
+Reference/isNaN.help.sl
+Reference/isNarcissisticNumber.help.sl
 Reference/isNegative.help.sl
 Reference/isNegativeZero.help.sl
 Reference/isNil.help.sl
@@ -1850,11 +1861,13 @@ Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
 Reference/isRegularlySpaced.help.sl
 Reference/isRegularNumber.help.sl
+Reference/isRight.help.sl
 Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
 Reference/isSameAs.help.sl
 Reference/isScalar.help.sl
 Reference/isScalarInteger.help.sl
+Reference/isScalene.help.sl
 Reference/isSchemaType.help.sl
 Reference/isScientificNotationString.help.sl
 Reference/isSemiprime.help.sl
@@ -1887,6 +1900,7 @@ Reference/isString.help.sl
 Reference/isStrongPrime.help.sl
 Reference/isSubsetOf.help.sl
 Reference/isSumOfTwoSquares.help.sl
+Reference/isSumProductNumber.help.sl
 Reference/isSuperabundantNumber.help.sl
 Reference/isSuperiorHighlyCompositeNumber.help.sl
 Reference/isSuperparticular.help.sl
@@ -1922,6 +1936,7 @@ Reference/K2A.help.sl
 Reference/kadanesAlgorithm.help.sl
 Reference/kaiserWindow.help.sl
 Reference/kaiserWindowTable.help.sl
+Reference/kaprekarSequence.help.sl
 Reference/karyTree.help.sl
 Reference/katoYamasakiAlgorithm.help.sl
 Reference/keesSemiHeight.help.sl
@@ -2016,6 +2031,7 @@ Reference/lessThanSign.help.sl
 Reference/lessThanSignHyphenMinus.help.sl
 Reference/lessThanSignLessThanSign.help.sl
 Reference/lessThanSignTilde.help.sl
+Reference/lessThanSignVerticalLine.help.sl
 Reference/let.help.sl
 Reference/letterCounts.help.sl
 Reference/letterNumber.help.sl
@@ -2246,6 +2262,7 @@ Reference/mergeSortFromToBy.help.sl
 Reference/mergeSort.help.sl
 Reference/mersenneNumber.help.sl
 Reference/MersenneTwister.help.sl
+Reference/mertensFunction.help.sl
 Reference/meshGrid.help.sl
 Reference/messageText.help.sl
 Reference/metallicMean.help.sl
@@ -2565,6 +2582,7 @@ Reference/pentagram.help.sl
 Reference/PenX.help.sl
 Reference/percentile.help.sl
 Reference/percentSign.help.sl
+Reference/perfectDigitalInvariantSequence.help.sl
 Reference/perfectNumber.help.sl
 Reference/perform.help.sl
 Reference/perimeter.help.sl
@@ -3090,6 +3108,7 @@ Reference/simplified.help.sl
 Reference/simplify.help.sl
 Reference/sincHistorical.help.sl
 Reference/sincNormalized.help.sl
+Reference/sincWindow.help.sl
 Reference/sinDegrees.help.sl
 Reference/sineFill.help.sl
 Reference/sineTable.help.sl
@@ -3146,6 +3165,7 @@ Reference/sortedCounts.help.sl
 Reference/sortedElements.help.sl
 Reference/sorted.help.sl
 Reference/SortedList.help.sl
+Reference/SortedSet.help.sl
 Reference/sortedWithIndices.help.sl
 Reference/sort.help.sl
 Reference/sortOn.help.sl
@@ -3407,6 +3427,7 @@ Reference/Triangle.help.sl
 Reference/triangleWave.help.sl
 Reference/TriangularDistribution.help.sl
 Reference/triangularNumber.help.sl
+Reference/triangulation.help.sl
 Reference/tribonacciConstant.help.sl
 Reference/tribonacciNumber.help.sl
 Reference/tribonacciWord.help.sl
@@ -3481,6 +3502,7 @@ Reference/UnivariatePolynomial.help.sl
 Reference/unlines.help.sl
 Reference/unrankPermutation.help.sl
 Reference/unsigned32BitWordList.help.sl
+Reference/UnsortedSet.help.sl
 Reference/unwords.help.sl
 Reference/unwrapPhase.help.sl
 Reference/upOrDownTo.help.sl
@@ -3528,6 +3550,8 @@ Reference/vertexInDegree.help.sl
 Reference/vertexLabels.help.sl
 Reference/vertexList.help.sl
 Reference/vertexOutDegree.help.sl
+Reference/verticalLineGreaterThanSignEqualsSign.help.sl
+Reference/verticalLineGreaterThanSign.help.sl
 Reference/verticalLine.help.sl
 Reference/verticalLineVerticalLine.help.sl
 Reference/vicsekCurve.help.sl

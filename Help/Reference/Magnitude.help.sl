@@ -1,24 +1,28 @@
 # Magnitude
 
-A `Trait` defining comparison operators between numeric values.
+`Magnitude` is a `Trait` defining comparison operators between numeric values.
 
 The required methods are:
 
 - `<`
 - `=`
 
-Methods implemented at `Magnitude` include:
+The implemented operators include:
 
-- `<=`
 - `<`
+- `<=`
 - `>=`
+- `<=>`
+
+The implemented methods include:
+
+- `compare`
 - `max`
 - `min`
-- `<=>`
 
 * * *
 
-See also: <=, >, >=, <=>, betweenAnd, boole, clamp, min, max
+See also: <=, >, >=, <=>, betweenAnd, boole, clamp, Comparable, min, max
 
 Guides: Comparison Functions
 

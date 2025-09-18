@@ -41,7 +41,8 @@ _Mathematica_
 _Smalltalk_
 5.3.1.3,
 _W_
-[1](https://en.wikipedia.org/wiki/Exclusive_or)
+[1](https://en.wikipedia.org/wiki/Inequation)
+[2](https://en.wikipedia.org/wiki/Exclusive_or)
 
 Unicode: U+2260 ≠ Not equal to
 

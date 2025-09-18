@@ -48,7 +48,7 @@ At `Association` compares on `key`:
 
 At `String`:
 
-
+```
 >>> 'abc'.compare('bcd')
 -1
 
@@ -71,7 +71,7 @@ Comparison of strings with equal base letters and different marks:
 
 * * *
 
-See also: =, <, >, <=>, precedes
+See also: =, <, >, <=>, Comparable, precedes
 
 Guides: List Functions, String Functions
 
