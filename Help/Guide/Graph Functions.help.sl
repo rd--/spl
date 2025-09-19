@@ -32,7 +32,11 @@ Constructor Functions:
 - `sumGraph`
 - `wheelGraph`
 
-Operators:
+Graph Operations:
+
+- `graphProduct`
+
+Edge Operators:
 
 - `-->`
 - `---`

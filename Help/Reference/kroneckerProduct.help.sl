@@ -116,6 +116,8 @@ let d = (e + e.transpose) - (2 * i);
 
 See also: cross, dot, inner, outer
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KroneckerProduct),

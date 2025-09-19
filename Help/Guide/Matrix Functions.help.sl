@@ -97,6 +97,7 @@ General:
 - `gaussJordanInverse`: inverse
 - `inner`: outer product
 - `inverse`: inverse of a square matrix
+- `kroneckerProduct`
 - `luDecomposition`: the LU decomposition
 - `matrixPower`: matrix power
 - `matrixPrintString`: two dimensional matrix text format

@@ -1,8 +1,8 @@
 # nestList
 
-- _nestList(aBlock:/1, anObject, count)_
+- _nestList(f:/1, x, n)_
 
-Answer a _count + 1_ element `List` of repeated applications of _aBlock_ to _anObject_.
+Answer an _n+1_ element `List` of repeated applications of the unary block _f_ to the object _x_.
 
 ```
 >>> cos:/1.nestList(1, 10)
