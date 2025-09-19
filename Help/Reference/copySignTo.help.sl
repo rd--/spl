@@ -26,3 +26,5 @@ Copy sign to `zero`:
 * * *
 
 See also: negate, sign, signBit
+
+Guides: Copying Functions, Mathematical Functions

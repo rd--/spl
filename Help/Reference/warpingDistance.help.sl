@@ -109,7 +109,7 @@ Dynamic time warping is not translation invariant:
 
 See also: euclideanDistance, levenshteinDistance, warpingCorrespondence, warpingMatrices, warpingPlot
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

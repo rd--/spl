@@ -1,8 +1,8 @@
 # deepCopy
 
-- _deepCopy(anObject)_
+- _deepCopy(x)_
 
-Answer a copy of _anObject_ with its own copy of each instance variable.
+Answer a copy of the object _x_ with its own copy of each instance variable.
 
 A `deepCopy` of a `List`:
 
@@ -27,5 +27,7 @@ Compare to `copy`:
 * * *
 
 See also: copy, postCopy, shallowCopy
+
+Guides: Copying Functions
 
 Categories: Copying

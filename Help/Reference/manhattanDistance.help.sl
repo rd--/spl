@@ -28,7 +28,7 @@ The Manhattan distance is equivalent to _(u - v).abs.sum_.
 
 See also: editDistance, euclideanDistance, hammingDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

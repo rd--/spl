@@ -1,8 +1,15 @@
 # copyWithout
 
-- _copyWithout(aCollection, oldElement)_
+- _copyWithout(c, x)_
 
-Answer a copy of _aCollection_ that does not contain any elements equal to oldElement.
+Answer a copy of the collection _c_ that does not contain any elements equal to the object _x_.
+
+At `List`:
+
+```
+>>> [1 3 5 7 9].copyWithout(5)
+[1 3 7 9]
+```
 
 At `Range`:
 
@@ -21,5 +28,7 @@ At `Record`:
 * * *
 
 See also: copy, copyFromTo, copyWith, copyWithoutIdenticalElements
+
+Guides: Copying Functions
 
 Categories: Copying

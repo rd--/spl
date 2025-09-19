@@ -96,12 +96,15 @@ SortedSet : [Object, Iterable, Collection, Extensible, Removable, Set] { | conte
 
 +List {
 
-	union { :self |
-		let set = SortedSet();
+	unionInto { :self :aCollection |
 		self.do { :each |
-			set.includeAll(each)
+			aCollection.includeAll(each)
 		};
-		set.asList
+		aCollection
+	}
+
+	union { :self |
+		self.unionInto(SortedSet()).asList
 	}
 
 	union { :self :aCollection |

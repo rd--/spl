@@ -77,7 +77,7 @@ Levenshtein distance treats transposition as separate deletion and insertion ope
 
 See also: editDistance, hammingDistance, damerauLevenshteinDistance, manhattanDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

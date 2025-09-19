@@ -75,6 +75,20 @@
 		self.contents.includesIndex(anObject)
 	}
 
+	intersection { :self :operand |
+		let answer = self.species.new;
+		self.associations.do { :each |
+			let x = each.key;
+			let i = each.value;
+			let j = operand.occurrencesOf(x);
+			let k = i.min(j);
+			(k > 0).ifTrue {
+				answer.addWithOccurrences(x, k)
+			}
+		};
+		answer
+	}
+
 	keySort { :self |
 		self.sortedElements
 	}
@@ -223,6 +237,10 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | 
 
 	counts { :self |
 		self.asBag.sortedElements
+	}
+
+	multisetIntersection { :self |
+		self.collect(asBag:/1).reduce(intersection:/2)
 	}
 
 }

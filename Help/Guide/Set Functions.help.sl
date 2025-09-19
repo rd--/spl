@@ -16,10 +16,10 @@ Set Theoretic Functions:
 - `complement`
 - `difference`
 - `differenceAll`
-- `intersection`
+- `intersection`: ∩
 - `symmetricDifference`
-- `union`
+- `union`: ∪
 
 * * *
 
-Guides: Function Guides, Set Syntax
+Guides: Function Guides, List Functions, Set Syntax

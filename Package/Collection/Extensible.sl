@@ -53,7 +53,14 @@
 	}
 
 	include { :self :anObject |
+		/* self.typeResponsibility('@Extensible>>include') */
 		self.add(anObject)
+	}
+
+	includeAll { :self :aCollection |
+		aCollection.do { :each |
+			self.include(each)
+		}
 	}
 
 	intersperse { :self :anObject |
@@ -63,6 +70,12 @@
 		} {
 			answer.add(anObject)
 		};
+		answer
+	}
+
+	union { :self :aCollection |
+		let answer = self.copy;
+		answer.includeAll(aCollection);
 		answer
 	}
 

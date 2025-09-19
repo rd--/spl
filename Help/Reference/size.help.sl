@@ -61,6 +61,14 @@ Size of a `String`:
 0
 ```
 
+Size of a `Bag` is the total number of items:
+
+```
+>>> Bag([|'x' -> 1, 'y' -> 2, 'z' -> 3|])
+>>> .size
+6
+```
+
 Find the number of rows in a matrix:
 
 ```

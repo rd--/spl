@@ -1,14 +1,19 @@
 # copyReplaceFromToWith
 
-- _copyReplaceFromToWith(aSequence, startIndex, stopIndex, replacement)_
+- _copyReplaceFromToWith([x₁ x₂ …], i, j, [y₁ y₂ …])_
 
-Answer a copy of _aSequence_,
-with items from _startIndex_ to _stopIndex_ replaced with items from _replacement_.
+Answer a copy of the sequence _x_,
+with items from start index _i_ to stop index _j_ replaced with items from the replacement sequence _y_.
+The replacement need not be the same size as the deleted region.
+
+Replace the middle of one list with items from another:
 
 ```
 >>> let a = [1 2 3 4 5 6 7];
 >>> let b = [-3 -4 -5];
->>> let c = a.copyReplaceFromToWith(3, 5, b);
+>>> let c = a.copyReplaceFromToWith(
+>>> 	3, 5, b
+>>> );
 >>> (a, b, c)
 (
 	[1 2 3 4 5 6 7],
@@ -17,32 +22,34 @@ with items from _startIndex_ to _stopIndex_ replaced with items from _replacemen
 )
 ```
 
-The replacement need not be the same size as the deleted region.
-
-Delete region:
-
-```
->>> [1 2 3 4 5].copyReplaceFromToWith(2, 4, [])
-[1 5]
-```
-
-Reduce size of region:
-
-```
->>> [1 2 3 4 5].copyReplaceFromToWith(2, 4, ['x'])
-[1 'x' 5]
-```
-
-Expand size of region:
+With an empty replacement deletes region:
 
 ```
 >>> [1 2 3 4 5]
->>> .copyReplaceFromToWith(2, 4, [-1 -2 -3 -4])
+>>> .copyReplaceFromToWith(2, 4, [])
+[1 5]
+```
+
+With a smaller replacement reduces the size of the region:
+
+```
+>>> [1 2 3 4 5]
+>>> .copyReplaceFromToWith(2, 4, ['x'])
+[1 'x' 5]
+```
+
+With a larger replacement expands the size of the region:
+
+```
+>>> [1 2 3 4 5]
+>>> .copyReplaceFromToWith(
+>>> 	2, 4, [-1 -2 -3 -4]
+>>> )
 [1 -1 -2 -3 -4 5]
 ```
 
-If _stopIndex_ is one less than _startIndex_,
-insert collection at _startIndex_:
+If the stop index _j_ is one less than the start index _i_,
+insert the replacement collection _y_ at _i_:
 
 ```
 >>> [1 2 3 4 5].copyReplaceFromToWith(
@@ -51,8 +58,8 @@ insert collection at _startIndex_:
 [1 2 0 0 0 0 3 4 5]
 ```
 
-If _stopIndex_ is the end index and _startIndex_ is one past the end,
-append collection:
+If stop index _j_ is the end index and the start index _i_ is one past the end,
+append the collection _y_:
 
 ```
 >>> [1 2 3 4 5].copyReplaceFromToWith(
@@ -64,6 +71,8 @@ append collection:
 * * *
 
 See also: copy, copyFromTo, copyReplaceFromToWithObject, insertAt
+
+Guides: Copying Functions
 
 References:
 _Smalltalk_

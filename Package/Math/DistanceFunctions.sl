@@ -67,6 +67,10 @@
 		>
 	}
 
+	diceSorensenCoefficient { :self :operand |
+		self.asBag.diceSorensenCoefficient(operand.asBag)
+	}
+
 	editDistance { :self :other |
 		self.levenshteinDistance(other)
 	}
@@ -187,6 +191,14 @@
 
 }
 
++Bag {
+
+	diceSorensenCoefficient { :self :operand |
+		(2 * (self.intersection(operand).size)) / (self.size + operand.size)
+	}
+
+}
+
 +String {
 
 	editDistance { :self :aString |
@@ -195,6 +207,73 @@
 
 	hammingDistance { :self :aString |
 		self.characters.hammingDistance(aString.characters)
+	}
+
+	jaroDistance { :self :aString |
+		<primitive:
+		const s = _self;
+		const t = _aString;
+		const sLength = s.length;
+		const tLength = t.length;
+		if (sLength === 0 && tLength === 0) {
+			return 1;
+		}
+		const matchDistance = Math.floor(Math.max(sLength, tLength) / 2) - 1;
+		const sMatches = new Array(sLength).fill(false);
+		const tMatches = new Array(tLength).fill(false);
+		let matches = 0;
+		let transpositions = 0;
+		for (let i = 0; i < sLength; i++) {
+			const start = Math.max(0, i - matchDistance);
+			const end = Math.min(i + matchDistance + 1, tLength);
+			for (let j = start; j < end; j++) {
+				if (tMatches[j]) {
+					continue;
+				}
+				if (s[i] !== t[j]) {
+					continue;
+				}
+				sMatches[i] = true;
+				tMatches[j] = true;
+				matches++;
+				break;
+			}
+		}
+		if (matches === 0) {
+			return 0;
+		}
+		let k = 0;
+		for (let i = 0; i < sLength; i++) {
+			if (!sMatches[i]) {
+				continue;
+			}
+			while (!tMatches[k]) {
+				k++;
+			}
+			if (s[i] !== t[k]) {
+				transpositions++;
+			}
+			k++;
+		}
+		transpositions = transpositions / 2;
+		return (
+			(matches / sLength) +
+			(matches / tLength) +
+			((matches - transpositions) / matches)
+		) / 3;
+		>
+	}
+
+	jaroWinklerSimilarity { :s :t :p |
+		let j = jaroDistance(s, t);
+		let k = s.size.min(t.size).min(4);
+		let l = 0;
+		1.toDo(k) { :i |
+			(s[i] = t[i]).ifTrue {
+				l := l + 1
+			}
+		};
+		1 - (j + (l * p * (1 - j)))
 	}
 
 	levenshteinDistance { :self :aString |

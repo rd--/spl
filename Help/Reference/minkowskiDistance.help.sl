@@ -32,7 +32,7 @@ The unary form answers a two argument block:
 
 See also: euclideanDistance, manhattanDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _W_

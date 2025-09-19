@@ -2,20 +2,20 @@
 
 Equation:
 
-- `=`
-- `==`
+- `=`: equal to
+- `==`: ≡ identical to
 
 Inequation:
 
-- `!=`
-- `!==`
+- `!=`: ≠ not equal to
+- `!==`: ≢ not identical to
 
 Inequalities:
 
-- `<`
-- `<=`
-- `>`
-- `>=`
+- `<`: less than
+- `<=`: ≤ less than or equal to
+- `>`: greater than
+- `>=`: ≥ greater than or equal to
 
 Ordering:
 
@@ -26,10 +26,10 @@ Ordering:
 
 Similarities:
 
-- `~`
-- `!~`
-- `<~`
-- `>~`
+- `~`: ≈ almost equal to
+- `!~`: ≉ not almost equal to
+- `<~`: ⪅ less than or almost equal to
+- `>~`: ⪆ greater than or almost equal to
 
 Ternary:
 

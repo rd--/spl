@@ -78,7 +78,7 @@ If either side has fewer elements, includes the difference:
 
 See also: editDistance, manhattanDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

@@ -1,10 +1,10 @@
 # copyFromTo
 
-- _copyFromTo(aSequence, startIndex, stopIndex)_
+- _copyFromTo([x₁ x₂ …], i, j)_
 
-Answer a copy of a subset of _aSequence_,
-starting from the element at _startIndex_
-and continuing until the element at _stopIndex_,
+Answer a copy of a subset of the sequence _x_,
+starting from the element at start index _i_
+and continuing until the element at stop index _j_,
 inclusive of both.
 
 At `Range`:
@@ -76,6 +76,8 @@ true
 * * *
 
 See also: copy, copyFromToInto, copyFromToWrap, copyWith, copyWithout, deepCopy
+
+Guides: Copying Functions, List Functions
 
 References:
 _Smalltalk_

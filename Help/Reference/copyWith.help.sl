@@ -1,8 +1,8 @@
 # copyWith
 
-- _copyWith(aCollection, newElement)_
+- _copyWith(c, x)_
 
-Answer a copy of _aCollection_ with _newElement_ added (as last	element if sequenceable).
+Answer a copy of the collection _c_ with new element _x_ added (as the last element if _c_ is sequenceable).
 
 At `List`:
 
@@ -12,8 +12,25 @@ At `List`:
 ([1 2 3], [1 2 3 4])
 ```
 
+At `Set`:
+
+```
+>>> {|1, 2, 3|}.copyWith(4)
+{|1, 2, 3, 4|}
+```
+
+At `Bag`:
+
+```
+>>> Bag([|'x' -> 2, 'y' -> 1|])
+>>> .copyWith('y')
+Bag([|'x' -> 2, 'y' -> 2|])
+```
+
 * * *
 
 See also: copy, copyFromTo, copyWithout
+
+Guides: Copying Functions
 
 Categories: Copying

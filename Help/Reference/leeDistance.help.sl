@@ -23,4 +23,8 @@ Answer the Lee distance between the sequences _x_ and _y_.
 
 See also: hammingDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Lee_distance)

@@ -47,12 +47,6 @@
 		}
 	}
 
-	union { :self :aCollection |
-		let answer = self.copy;
-		answer.includeAll(aCollection);
-		answer
-	}
-
 	without { :self :anObject |
 		self.removeIfAbsent(anObject) { };
 		self
@@ -84,6 +78,14 @@
 
 	Set {
 		SortedSet()
+	}
+
+}
+
++List {
+
+	setIntersection { :self |
+		self.collect(asSet:/1).reduce(intersection:/2)
 	}
 
 }

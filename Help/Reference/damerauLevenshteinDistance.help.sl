@@ -56,7 +56,7 @@ Damerau–Levenshtein distance counts transposition as a single operation:
 
 See also: editDistance, hammingDistance, levenshteinDistance, manhattanDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

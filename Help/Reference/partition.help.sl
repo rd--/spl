@@ -108,9 +108,45 @@ Split a list into two equal halves:
 [1 2 3 4 5; 6 7 8 9 10]
 ```
 
++String{
+	partition { :self :n :d |
+		let k = self.size;
+		let p = [];
+		let i = 1;
+		let j = n;
+		{ j <= k }.whileTrue {
+			p.add(self.copyFromTo(i, j));
+			i := i + d;
+			j := j + d
+		};
+		p
+	}
+}
+
+At `String`:
+
+```
+>>> 'differ'.partition(2, 1)
+['di' 'if' 'ff' 'fe' 'er']
+
+>>> 'differ'.partition(2, 2)
+['di' 'ff' 'er']
+
+>>> 'differ'.partition(3, 1)
+['dif' 'iff' 'ffe' 'fer']
+
+>>> 'differ'.partition(3, 2)
+['dif' 'ffe']
+
+>>> 'differ'.partition(3, 3)
+['dif' 'fer']
+```
+
 * * *
 
 See also: clump, adjacentPairsCollect, movingMap, pairsCollect, pairsDo, partitionDo, takeList, windowedReduce
+
+Guided: List Functions, String Functions
 
 References:
 _Mathematica_

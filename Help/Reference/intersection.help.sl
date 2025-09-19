@@ -79,6 +79,18 @@ At `Interval`:
 (1 -- 3)
 ```
 
+At `Bag`:
+
+```
+>>> let a = [|'x' -> 1, 'y' -> 2, 'z' -> 3|];
+>>> let b = [|'x' -> 2, 'y' -> 1|];
+>>> Bag(a).intersection(Bag(b))
+Bag([|'x' -> 1, 'y' -> 1|])
+
+>>> ['x' 'y' 'z' 'z' 'z'].intersection(['x' 'x' 'y'])
+['x' 'y']
+```
+
 Where supported `intersection` is displayed as ∩.
 
 * * *

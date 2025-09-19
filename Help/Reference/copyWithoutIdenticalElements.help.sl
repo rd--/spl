@@ -1,9 +1,9 @@
 # copyWithoutIdenticalElements
 
-- _copyWithoutIdenticalElements(aCollection)_
+- _copyWithoutIdenticalElements(c)_
 
-Answer a copy of _aCollection_ that removes any duplicates, according to `==`.
-If _aCollection_ is a sequence the copy will preserve the order of elements.
+Answer a copy of the collection _c_ that removes any duplicates, according to `==`.
+If _c_ is a sequence, the copy will preserve the order of elements.
 
 ```
 >>> [1 2 2 3 3 3]
@@ -21,5 +21,7 @@ If _aCollection_ is a sequence the copy will preserve the order of elements.
 * * *
 
 See also: ==, asIdentitySet, copy, copyWith, copyWithout, IdentitySet, nub, Set
+
+Guides: Copying Functions
 
 Categories: Copying

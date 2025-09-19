@@ -384,16 +384,6 @@
 		result
 	}
 
-	include { :self :anObject |
-		self.typeResponsibility('@Collection>>include')
-	}
-
-	includeAll { :self :aCollection |
-		aCollection.do { :each |
-			self.include(each)
-		}
-	}
-
 	indices { :self |
 		nil
 	}
@@ -733,6 +723,14 @@
 
 	threshold { :self |
 		self.threshold(10E-10)
+	}
+
+	union { :self |
+		let answer = self.anyOne.species.new;
+		self.do { :each |
+			answer.includeAll(each)
+		};
+		answer
 	}
 
 	unique { :self |

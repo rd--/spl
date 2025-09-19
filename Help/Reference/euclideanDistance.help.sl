@@ -65,7 +65,7 @@ The Euclidean distance in two dimensions is the straight line distance:
 
 See also: -, abs, brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance, norm
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_

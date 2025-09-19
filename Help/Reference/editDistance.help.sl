@@ -55,7 +55,7 @@ Compute distance between any strings of equal length:
 
 See also: editDistance, levenshteinDistance, manhattanDistance
 
-Guides: Distance Functions
+Guides: Distance Functions, Similarity Functions
 
 References:
 _Mathematica_
