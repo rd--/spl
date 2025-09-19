@@ -421,6 +421,19 @@ OEIS [A001519](https://oeis.org/A001519):
 [1 1 2 5 13 34 89 233 610]
 ```
 
+Edge count of the king graph,
+OEIS [A002943](https://oeis.org/A002943):
+
+```
+>>> linearRecurrence([3 -3 1], [0 6 20], 16)
+[
+	  0   6  20  42  72
+	110 156 210 272 342
+	420 506 600 702 812
+	930
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
