@@ -1,8 +1,8 @@
 # isLiteral
 
-- _isLiteral(anObject)_
+- _isLiteral(x)_
 
-Answers `true` for values that have a literal representation in the grammar of the language,
+Answers `true` for values where _x_ has a literal representation in the grammar of the language,
 else `false`.
 
 The reserverd words `nil` (of type `Nil`) and `true` and `false` (of type `Boolean`) are all literals:

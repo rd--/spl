@@ -16,6 +16,10 @@ CrystalStructure : [Object] { | name description vertexCount edges vertexLabels 
 		self.asGraph.asPerspectiveDrawing(projection)
 	}
 
+	asPerspectiveDrawing { :self |
+		self.asGraph.asPerspectiveDrawing
+	}
+
 	atoms { :self |
 		self.vertexLabels.withCollect(
 			self.vertexCoordinates

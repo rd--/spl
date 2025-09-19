@@ -2,6 +2,7 @@
 
 - `Array Functions`
 - `Bitwise Functions`
+- `Block Functions`
 - `Boolean Functions`
 - `Chaotic Functions`
 - `Colour Functions`

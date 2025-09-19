@@ -56,8 +56,9 @@ Infinity
 
 See also: findShortestPath, graphDistanceMatrix, Graph
 
-Guides: Distance Functions
+Guides: Distance Functions, Graph Funcrions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/GraphDistance.html)
+[1](https://mathworld.wolfram.com/GraphDistance.html)
+[2](https://reference.wolfram.com/language/ref/GraphDistance.html)

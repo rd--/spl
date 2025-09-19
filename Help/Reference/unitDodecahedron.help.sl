@@ -1,8 +1,8 @@
 # unitDodecahedron
 
-- _unitDodecahedron(center)_
+- _unitDodecahedron([x y z])_
 
-Answer a `Polyhedron` of the unit regular dodecahedron at _center_.
+Answer a `Polyhedron` of the unit regular dodecahedron at center _(x,y,z)_.
 
 Count the number of vertices, faces and edges,
 show that each face is of four vertices,
@@ -32,6 +32,16 @@ Draw the _xy_ projection of the unit dodecahedron:
 ~~~
 
 ![](sw/spl/Help/Image/unitDodecahedron-A.svg)
+
+Draw an axonometric projection of the unit dodecahedron:
+
+~~~spl svg=B
+[0 0 0]
+.unitDodecahedron
+.asPerspectiveDrawing
+~~~
+
+![](sw/spl/Help/Image/unitDodecahedron-B.svg)
 
 * * *
 

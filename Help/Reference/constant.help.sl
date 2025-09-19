@@ -2,7 +2,7 @@
 
 - _constant(x)_
 
-Answer a unary Block that always answers the object _x_.
+Answer a unary `Block` that always answers the object _x_.
 
 ```
 >>> 1:4.collect(42.constant)
@@ -15,6 +15,8 @@ Answer a unary Block that always answers the object _x_.
 * * *
 
 See also: bindLeft, bindRight
+
+Guides: Block Functions
 
 References:
 _Apl_

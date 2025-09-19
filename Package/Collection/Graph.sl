@@ -112,7 +112,23 @@
 	}
 
 	asPerspectiveDrawing { :self :projection |
-		self.asGeometryCollection.project(projection).asLineDrawing
+		self.asGeometryCollection.asPerspectiveDrawing(projection)
+	}
+
+	asPerspectiveDrawing { :self |
+		self.asGeometryCollection.asPerspectiveDrawing
+	}
+
+	circularGraphPlot { :self :radius |
+		let k = self.vertexCount;
+		let p = k.circlePoints([0 0], radius, 0);
+		let e = self.edgeList.collect { :each |
+			Line(p.atAll(each.asList))
+		};
+		[
+			p.PointCloud,
+			e
+		].LineDrawing
 	}
 
 	complement { :self |
@@ -196,6 +212,10 @@
 			}
 		};
 		answer
+	}
+
+	findShortestTour { :g |
+		g.graphDistanceMatrix.heldKarpAlgorithm
 	}
 
 	graphDistance { :g :s :t |
@@ -694,11 +714,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeGraphDrawing { :self :radius |
-		let p = self.circlePoints([0 0], radius, 0);
-		[
-			p.PointCloud,
-			p.tuples(2).Line
-		].LineDrawing
+		self.completeGraph.circularGraphPlot(radius)
 	}
 
 	cubeGraph { :self |

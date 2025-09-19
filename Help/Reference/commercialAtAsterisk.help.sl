@@ -24,7 +24,7 @@ The name of this operator is `commercialAtAsterisk`.
 
 See also: @, @>, atAll, compose
 
-Guides: Binary Operators
+Guides: Binary Operators, Block Functions
 
 References:
 _Mathematica_

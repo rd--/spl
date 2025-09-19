@@ -29,13 +29,17 @@ In the ternary case,
 apply the block _f_ iteratively _n_ times, initially to _x_.
 
 ```
->>> { :x | (1 + x) ^ 2 }.iterate(1, 3)
+>>> { :x |
+>>> 	(1 + x) ^ 2
+>>> }.iterate(1, 3)
 676
 
 >>> sqrt:/1.iterate(100, 4)
 1.33352
 
->>> { :x | x ^ 2 }.iterate(2, 3)
+>>> { :x |
+>>> 	x ^ 2
+>>> }.iterate(2, 3)
 256
 
 >>> let x = 2;
@@ -204,7 +208,7 @@ _Apl_
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:iterate),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Nest.html),
+[1](https://reference.wolfram.com/language/ref/Nest.html)
 [2](https://reference.wolfram.com/language/ref/NestList.html),
 _OEIS_
 [1](https://oeis.org/A014707)

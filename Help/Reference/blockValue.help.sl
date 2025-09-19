@@ -24,3 +24,5 @@ true
 * * *
 
 See also: Block, cull, value
+
+Guides: Block Functions

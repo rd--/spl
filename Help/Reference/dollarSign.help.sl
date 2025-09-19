@@ -32,4 +32,4 @@ The name of this operator is `dollarSign`.
 
 See also: value
 
-Guides: Apply Syntax, Binary Operators, Value Apply Syntax
+Guides: Apply Syntax, Binary Operators, Block Functions, Value Apply Syntax

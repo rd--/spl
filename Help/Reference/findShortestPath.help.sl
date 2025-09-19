@@ -81,4 +81,7 @@ Guides: Geometry Functions, Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FindShortestPath.html)
+[1](https://mathworld.wolfram.com/ShortestPathProblem.html)
+[2](https://reference.wolfram.com/language/ref/FindShortestPath.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Shortest_path_problem)

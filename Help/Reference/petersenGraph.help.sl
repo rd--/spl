@@ -85,6 +85,26 @@ Plot the cubic symmetric graph _F(048)A_:
 
 ![](sw/spl/Help/Image/petersenGraph-F.svg)
 
+Plot the Petersen graph,
+the _(5,2)_ generalized Petersen graph:
+
+~~~spl svg=G
+5.petersenGraph(2)
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/petersenGraph-G.svg)
+
+Plot the line graph of the Petersen graph:
+
+~~~spl svg=H
+5.petersenGraph(2)
+.lineGraph
+.circularGraphPlot(1)
+~~~
+
+![](sw/spl/Help/Image/petersenGraph-H.svg)
+
 * * *
 
 See also: circulantGraph, complement, completeGraph, cycleGraph, Graph, lineGraph, prismGraph, starPolygon

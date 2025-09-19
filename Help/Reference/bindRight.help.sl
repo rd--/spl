@@ -1,8 +1,8 @@
 # bindRight
 
-- _bindRight(aBlock:/2, anObject)_
+- _bindRight(f:/2, x)_
 
-Answer a unary `Block` that evaluates _aBlock_ with _anObject_ bound to the second (right) argument.
+Answer a unary `Block` that evaluates the binary block _f_ with the object _x_ bound to the second, or right, argument.
 
 ```
 >>> [1 .. 5].collect(+.bindRight(4))
@@ -15,6 +15,8 @@ Answer a unary `Block` that evaluates _aBlock_ with _anObject_ bound to the seco
 * * *
 
 See also: bindLeft, constant
+
+Guides: Block Functions
 
 References:
 _Apl_

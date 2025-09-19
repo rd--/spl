@@ -1,8 +1,8 @@
 # includesEdge
 
-- _includesEdge(aGraph, anEdge)_
+- _includesEdge(g, e)_
 
-Answer `true` if _aGraph_ includes _anEdge_ according to `matchesEdge`.
+Answer `true` if the graph _g_ includes the edge _e_ according to `matchesEdge`.
 
 Undirected edges match directed edges in both directions:
 

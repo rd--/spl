@@ -1,8 +1,8 @@
 # blockMap
 
-- _blockMap(aBlock:/1, aList, n, d)_
+- _blockMap(f:/1, [x₁ x₂ …], n, d)_
 
-Applies _aBlock_ to sublists of size _n_ in _aList_ with offset _d_.
+Applies the unary block _f_ to sublists of size _n_ in the list _x_ with offset _d_.
 
 Apply a function to all non-overlapping, length two sublists:
 
@@ -86,6 +86,8 @@ Compute a moving average with runs of three elements:
 * * *
 
 See also: adjacentPairsCollect, arrayFilter, map, movingMap, partition
+
+Guides: Block Functions
 
 References:
 _Mathematica_

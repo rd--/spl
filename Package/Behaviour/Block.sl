@@ -412,7 +412,7 @@ Block! : [Object] {
 	}
 
 	valueWithArguments { :self :argumentsList |
-		<primitive: _self.apply(null, _argumentsList)>
+		<primitive: return _self.apply(null, _argumentsList);>
 	}
 
 	valueWithReturn { :self:/1 |

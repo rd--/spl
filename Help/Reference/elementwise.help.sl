@@ -1,10 +1,10 @@
 # elementwise
 
-- _elementwise(aBlock:/1, x)_
-- _elementwise(aBlock:/2, x, y)_
-- _elementwise(aBlock:/3, x, y, z)_
+- _elementwise(f:/1, x)_
+- _elementwise(f:/2, x, y)_
+- _elementwise(f:/3, x, y, z)_
 
-Apply _aBlock_ elementwise recurively over the parameters.
+Apply the block _f_ elementwise recursively over the parameters.
 
 Replace negative numbers with 0:
 
@@ -80,7 +80,7 @@ If any of the lists contains sublists,
 
 See also: adaptToCollectionAndApply, withCollect, withWithCollect
 
-Guides: Elementwise Functions
+Guides: Block Functions, Elementwise Functions
 
 References:
 _Mathematica_

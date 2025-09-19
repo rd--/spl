@@ -1,16 +1,16 @@
 # in
 
-- _in(anObject, aBlock:/1)_
+- _in(x, f:/1)_
 
-Evaluate _aBlock_ with _anObject_ as argument and answer the answer of _aBlock_.
+Evaluate the block _f_ with the object _x_ as argument and answer the answer of _f_.
 `in` is an alias for `with`, following the Squeak naming of this method.
 
-`in` is `value` with argument order reversed, ie. _in(α, β)_ is equal to _value(β, α)_.
+`in` is `value` with argument order reversed, ie. _in(α,β)_ is equal to _value(β,α)_.
 
 `in` can be used where a "cascade" would be in Smalltalk,
 to apply a sequence of message sends to an object and answer the value of the last.
 
-See `also` for a slight variation that answers _anObject_ instead.
+See `also` for a slight variation that answers _x_ instead.
 
 ```
 >>> let d = (c: 1);
@@ -26,4 +26,6 @@ true
 
 See also: also, value, with
 
-Categories: Accessing
+Guides: Block Functions
+
+Categories: Accessing, Behaviour

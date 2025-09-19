@@ -33,7 +33,7 @@ true
 
 See also: cull, Error, isError
 
-Guides: Control Functions
+Guides: Block Functions, Control Functions
 
 References:
 _Smalltalk_

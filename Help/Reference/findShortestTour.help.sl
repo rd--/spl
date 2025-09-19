@@ -1,8 +1,10 @@
 # findShortestTour
 
+- _findShortestTour(g)_
 - _findShortestTour([v₁, v₂, …])_
 
-Answer an ordering of the vertices _v_
+Answer an ordering of the vertices _v_,
+of the vertices of the graph _g_,
 that minimizes the total distance on a tour
 that visits all vertices once.
 
@@ -70,12 +72,28 @@ let [_, i] = p.findShortestTour;
 
 ![](sw/spl/Help/Image/findShortestTour-B.svg)
 
+Perspective drawing of the shortest tour of a dodecahedron:
+
+~~~spl svg=C
+let c = system.holmesPolyhedraCatalogue;
+let p = c.at('Dodecahedron');
+let g = p.graph;
+let [_, t] = g.findShortestTour;
+let v = g.vertexCoordinates;
+Line(v.atAll(t))
+~~~
+
+![](sw/spl/Help/Image/findShortestTour-C.svg)
+
 * * *
 
 See also: findShortestPath, heldKarpAlgorithm, nearest, nearestNeighbourAlgorithm
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FindShortestTour.html)
+[1](https://mathworld.wolfram.com/TravelingSalesmanProblem.html)
+[2](https://reference.wolfram.com/language/ref/FindShortestTour.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Travelling_salesman_problem)

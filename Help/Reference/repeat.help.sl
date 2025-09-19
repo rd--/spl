@@ -1,7 +1,7 @@
 # repeat
 
 - _repeat(s, n)_
-- _repeat(aBlock:/0)_
+- _repeat(f:/0)_
 
 At `String`,
 answer a string consisting of the string _s_ repeated _n_ times.
@@ -21,7 +21,8 @@ Repeat a triplet of characters seven times:
 ```
 
 At `Block`,
-evaluate _aBlock_ repeatedly, ending only if the block explicitly returns (non-locally).
+evaluate the no-argument block _f_ repeatedly,
+ending only if the block explicitly returns (non-locally):
 
 ```
 >>> { :return:/1 |
@@ -40,7 +41,7 @@ true
 
 See also: Block, constantArray, findRepeat, stringCatenate, stringJoin, whileFalse, whileTrue
 
-Guides: Non-local Return, String Functions
+Guides: Block Functions, Non-local Return, String Functions
 
 References:
 _Mathematica_

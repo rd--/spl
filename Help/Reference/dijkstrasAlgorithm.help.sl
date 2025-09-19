@@ -40,3 +40,9 @@ The ternary form is useful for functions like `graphDistance` and `findShortestP
 See also: findShortestPath, graphDistance, graphDistanceMatrix
 
 Guides: Graph Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/DijkstrasAlgorithm.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)

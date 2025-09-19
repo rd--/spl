@@ -1,9 +1,9 @@
 # condensedDistanceMatrix
 
-- _condensedDistanceMatrix(v, aBlock:/2)_
+- _condensedDistanceMatrix(v, f:/2)_
 
 Answer the condensed distance matrix of the vector _v_ with itself,
-given distance measure _aBlock_.
+given distance measure _f_.
 This is the upper right triangle of the equivalent `distanceMatrix`.
 
 ```

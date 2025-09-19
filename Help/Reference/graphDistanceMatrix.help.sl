@@ -1,8 +1,8 @@
 # graphDistanceMatrix
 
-- _graphDistanceMatrix(aGraph)_
+- _graphDistanceMatrix(g)_
 
-Answer the matrix of distances between vertices for _aGraph_.
+Answer the matrix of distances between vertices for the graph _g_.
 
 Answer the distance matrix of a grid graph:
 
@@ -65,10 +65,13 @@ Plot the distance matrix of a `gridGraph` of size _(5, 5)_:
 
 * * *
 
-See also: graphDistance, Graph
+See also: distanceMatrix, graphDistance, Graph
 
-Guides: Distance Functions
+Guides: Distance Functions, Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/GraphDistanceMatrix.html)
+[1](https://mathworld.wolfram.com/GraphDistanceMatrix.html)
+[2](https://reference.wolfram.com/language/ref/GraphDistanceMatrix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Distance_matrix)

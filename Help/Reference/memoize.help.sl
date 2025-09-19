@@ -1,10 +1,10 @@
 # memoize
 
-- _memoize(aBlock:/1, requireImmediate)_
+- _memoize(f:/1, requireImmediate)_
 
-Answer a one argument `Block` that memoizes _aBlock_,
+Answer a one argument `Block` that memoizes the unary block _f_,
 using a `Map` if _requireImmediate_ is `true`,
-else an `Dictionary`.
+else a `Dictionary`.
 
 Un-memoized Fibonacci may take several seconds to evaluate for _k > 30_:
 
@@ -40,7 +40,7 @@ Memoized Fibonacci will answer immediately for large _k_:
 
 See also: Block, cached, fibonacci
 
-Guides: Dictionary Functions
+Guides: Block Functions, Dictionary Functions
 
 References:
 _Python_

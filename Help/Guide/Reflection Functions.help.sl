@@ -1,5 +1,15 @@
 # Reflection Functions
 
+Types:
+
+- `Method`
+- `MethodInformation`
+- `Object`
+- `Package`
+- `Trait`
+- `Type`
+- `System`
+
 Dictionaries:
 
 - `methodDictionary`
@@ -14,7 +24,6 @@ Evaluating:
 
 Method:
 
-- `Method`
 - `methodDictionary`
 - `methodLookupAtType`
 - `parameterNames`
@@ -24,7 +33,6 @@ Method:
 
 Object:
 
-- `Object`
 - `equalByAtNamedSlots`
 - `hasEqualSlots`
 - `slotList`
@@ -58,7 +66,6 @@ Tables:
 
 Package:
 
-- `Package`
 - `packageDictionary`
 - `packageMethods`
 - `packageTraits`
@@ -66,13 +73,11 @@ Package:
 
 Traits:
 
-- `Trait`
 - `traitDictionary`
 - `traitNameList`
 
 Types:
 
-- `Type`
 - `elementType`
 - `elementTypeIfAbsent`
 - `elementTypes`
@@ -85,7 +90,6 @@ Types:
 
 System:
 
-- `System`
 - `system`
 
 * * *

@@ -133,6 +133,16 @@ let x = (0 -- 25).discretize(100);
 
 ![](sw/spl/Help/Image/distanceMatrix-B.png)
 
+Plot 6×6 distance matrix:
+
+~~~spl svg=C
+let v = [2 6; 0 1; 0 0; 3 1; 3 0; 5 0.5];
+let m = v.distanceMatrix;
+(1 - m.rescale).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/distanceMatrix-C.svg)
+
 * * *
 
 See also: adjacencyMatrix, condensedDistanceMatrix, graphDistanceMatrix, norm, outer, pairwiseDistances, recurrenceMatrix
@@ -144,6 +154,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DistanceMatrix.html),
 _Matlab_
 [1](https://mathworks.com/help/stats/pdist.html)
-[2](https://mathworks.com/help/stats/pdist2.html)
+[2](https://mathworks.com/help/stats/pdist2.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Distance_matrix)
 
 Categories: Math, Matrix

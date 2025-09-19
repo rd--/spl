@@ -26,6 +26,7 @@ Constructor Functions:
 - `neighbourhoodGraph`
 - `pathGraph`
 - `permutationGraph`
+- `petersenGraph`
 - `relationGraph`
 - `starGraph`
 - `subgraph`
@@ -50,6 +51,7 @@ Accessing (Query) Functions:
 - `edgeLabels`
 - `edgeList`
 - `findShortestPath`
+- `findShortestTour`
 - `graphDistance`
 - `incidenceList`
 - `labeledVertexList`

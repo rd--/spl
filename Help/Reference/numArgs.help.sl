@@ -1,8 +1,9 @@
 # numArgs
 
-- _numArgs(aBlock)_
+- _numArgs(f:/n)_
 
-Answer the number of arguments that must be used to evaluate _aBlock_.
+Answer _n_,
+the number of arguments that must be used to evaluate the _n_-ary block _f_.
 
 ```
 >>> { }.numArgs
@@ -21,7 +22,7 @@ Answer the number of arguments that must be used to evaluate _aBlock_.
 
 See also: cull, value
 
-Guides: Block Semantics
+Guides: Block Functions, Block Semantics
 
 References:
 _Smalltalk_

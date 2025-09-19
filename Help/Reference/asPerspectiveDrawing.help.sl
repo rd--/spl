@@ -1,8 +1,8 @@
 # asPerspectiveDrawing
 
-- _asPerspectiveDrawing(anObject, aBlock:/1)_
+- _asPerspectiveDrawing(x, f:/1)_
 
-Answer a `LineDrawing` of _anObject_ given the projection function _aBlock_,
+Answer a `LineDrawing` of the object _x_ given the projection function _f_,
 which may be elided.
 
 At `Polyhedron`, draw the _xy_ projection of the unit cube,

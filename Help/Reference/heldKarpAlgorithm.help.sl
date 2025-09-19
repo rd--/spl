@@ -2,7 +2,8 @@
 
 - _heldKarpAlgorithm(m)_
 
-Implements the Held–Karp algorithm, also called the Bellman–Held–Karp algorithm.
+Implements the Held–Karp algorithm,
+also called the Bellman–Held–Karp algorithm.
 The input is a distance matrix,
 the answer is the minimum-length traversal,
 along with the distance of the traversal.
@@ -196,7 +197,7 @@ A 20×20 distance matrix:
 
 See also: dijkstrasAlgorithm, findShortestTour
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Graph Functions
 
 References:
 _W_

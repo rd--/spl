@@ -53,7 +53,7 @@ Instead there is the delimited control method `valueWithReturn`.
 
 See also: apply, isBlock, numArgs, value, valueWithReturn
 
-Guides: Apply Syntax, Block Syntax, Block Semantics, Value Apply Syntax
+Guides: Apply Syntax, Block Functions, Block Semantics, Block Syntax, Value Apply Syntax
 
 References:
 _Smalltalk_

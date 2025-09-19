@@ -106,7 +106,7 @@ Negate integers that are prime:
 
 See also: array, collect, each, swap, table, withCollect, withWithCollect
 
-Guides: List Functions
+Guides: Block Functions, List Functions
 
 References:
 _Python_

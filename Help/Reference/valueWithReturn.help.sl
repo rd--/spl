@@ -51,7 +51,7 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 See also: Block, repeat, value
 
-Guides: Non-local Return
+Guides: Block Functions, Non-local Return
 
 References:
 _SuperCollider_
