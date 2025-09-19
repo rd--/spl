@@ -18,6 +18,7 @@ Constructor Functions:
 - `cycleGraph`
 - `deBruijnGraph`
 - `gridGraph`
+- `hammingGraph`
 - `hararyGraph`
 - `incidenceGraph`
 - `lineGraph`

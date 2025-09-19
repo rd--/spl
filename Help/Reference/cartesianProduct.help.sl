@@ -1,8 +1,8 @@
 # cartesianProduct
 
-- _cartesianProduct(aCollection, anotherCollection)_
+- _cartesianProduct(c₁, c₂)_
 
-Answer an array of the two-tuples of the cartesian product of _aCollection_ and _anotherCollection_.
+Answer an array of the two-tuples of the Cartesian product of the two collections _c₁_ and _c₂_.
 
 The Cartesian product of two sets A and B is the set of all (a, b) where a ∈ A and b ∈ B.
 
@@ -37,6 +37,8 @@ The Cartesian product of two three-vectors is a 9×2 matrix:
 * * *
 
 See also: cartesianProductDo, tuples
+
+Guides: Combinatorial Functions, List Functions
 
 References:
 _Mathematica_

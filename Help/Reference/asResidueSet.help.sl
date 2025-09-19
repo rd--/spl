@@ -1,12 +1,15 @@
 # asResidueSet
 
-- _asResidueSet(aBitSet | aString)_
-- _asResidueSet(aCollection, anInteger)_
+- _asResidueSet(c, m)_
+- _asResidueSet(x)_
 
-The binary form answers a `ResidueSet` including a _aCollection_ and having modulus _anInteger_.
+The binary form answers a `ResidueSet` including a the collection _c_ and having modulus _m_.
+The unary form answers a `ResidueSet` given an object _x_ for which a modulus can be inferred.
 
 ```
->>> [0 5 10 15 20 25 30 35].asResidueSet(4).asList
+>>> [0 5 10 15 20 25 30 35]
+>>> .asResidueSet(4)
+>>> .asList
 [0 1 2 3]
 ```
 
@@ -20,5 +23,7 @@ The unary form infers the modulus, i.e. at `String`:
 * * *
 
 See also: asList, ResidueSet
+
+Guides: Set Functions
 
 Categories: Converting

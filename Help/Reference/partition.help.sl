@@ -108,21 +108,6 @@ Split a list into two equal halves:
 [1 2 3 4 5; 6 7 8 9 10]
 ```
 
-+String{
-	partition { :self :n :d |
-		let k = self.size;
-		let p = [];
-		let i = 1;
-		let j = n;
-		{ j <= k }.whileTrue {
-			p.add(self.copyFromTo(i, j));
-			i := i + d;
-			j := j + d
-		};
-		p
-	}
-}
-
 At `String`:
 
 ```

@@ -4,6 +4,7 @@ Traits and Types:
 
 - `Set`
 - `IdentitySet`
+- `ResidueSet`
 - `SortedSet`
 
 Converting:

@@ -787,6 +787,19 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		<primitive: return JSON.parse(_self);>
 	}
 
+	partition { :self :n :d |
+		let k = self.size;
+		let p = [];
+		let i = 1;
+		let j = n;
+		{ j <= k }.whileTrue {
+			p.add(self.copyFromTo(i, j));
+			i := i + d;
+			j := j + d
+		};
+		p
+	}
+
 	postLine { :self |
 		system.postLine(self)
 	}

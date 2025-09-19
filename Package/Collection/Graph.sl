@@ -217,6 +217,34 @@
 		[self].Plot('graph', (method: 'neato'))
 	}
 
+	graphProduct { :g1 :g2 |
+		let v = cartesianProduct(g1.vertexList, g2.vertexList);
+		let e = [];
+		let k = v.size;
+		1.toDo(k - 1) { :i |
+			let [u1, u2] = v[i];
+			(i + 1).toDo(k) { :j |
+				let [v1, v2] = v[j];
+				(
+					(
+						(u1 = v1) & {
+							g2.includesEdge(u2 --- v2)
+						}
+					) | {
+						(
+							(u2 = v2) & {
+								g1.includesEdge(u1 --- v1)
+							}
+						)
+					}
+				).ifTrue {
+					e.add(i --- j)
+				}
+			}
+		};
+		Graph([1 .. k], e)
+	}
+
 	hasValidEdgeList { :self |
 		let v = self.vertexList;
 		self.edgeList.allSatisfy { :edge |
@@ -847,7 +875,9 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	gridGraph { :shape |
 		let k = shape.product;
 		let v = k.iota;
-		let c = 1:k.collect { :i | shape.cartesianIndex(i) };
+		let c = 1:k.collect { :i |
+			shape.cartesianIndex(i)
+		};
 		let e = [];
 		1.toDo(k) { :i |
 			(i + 1).toDo(k) { :j |

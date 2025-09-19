@@ -2,16 +2,27 @@
 
 - _chessboardDistance(u, v)_
 
-Answer the chessboard, Chebyshev, or sup norm distance between vectors _u_ and _v_.
+Answer the chessboard distance,
+also called the Chebyshev distance,
+between the two vectors _u_ and _v_.
 
-Equivalent to _(u - v).abs.max_.
-
-Chessboard distance between numeric vectors:
+Chessboard distance between numeric three-vectors:
 
 ```
 >>> [1 2 3].chessboardDistance([2 4 6])
 3
+```
 
+Equivalent to _⌈|u-v|_:
+
+```
+>>> ([1 2 3] - [2 4 6]).abs.max
+3
+```
+
+At five vectors:
+
+```
 >>> [1 5 2 3 10].chessboardDistance(
 >>> 	[4 15 20 5 5]
 >>> )
