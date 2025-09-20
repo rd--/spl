@@ -36,16 +36,16 @@ Plot the number of restricted partitions:
 
 Successive differences of `partitionsQ` modulo two:
 
-~~~spl svg=B
+~~~spl png=B
 let n = 47;
 (
 	{ :x |
 		x.differences.padRight([n], 0)
 	}.nestList(1:n.partitionsQ, n) % 2
-).matrixPlot
+).Bitmap
 ~~~
 
-![](sw/spl/Help/Image/partitionsQ-B.svg)
+![](sw/spl/Help/Image/partitionsQ-B.png)
 
 A walk based on `partitionsQ`:
 
