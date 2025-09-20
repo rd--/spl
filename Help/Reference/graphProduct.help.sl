@@ -1,6 +1,6 @@
 # graphProduct
 
-- _graphProduct(g₁, g₂)_
+- _graphProduct(g₁, g₂, k='Cartesian')_
 
 Answer the cartesian graph product of the two graphs _g₁_ and _g₂_.
 
@@ -42,7 +42,7 @@ Plot a three-prism graph:
 ~~~spl svg=C
 3.cycleGraph
 .graphProduct(
-	2.pathGraph
+	2.pathGraph,
 ).graphPlot
 ~~~
 
@@ -64,7 +64,7 @@ Plot a torus grid graph:
 ~~~spl svg=E
 5.cycleGraph
 .graphProduct(
-	8.cycleGraph
+	8.cycleGraph,
 ).graphPlot
 ~~~
 
@@ -126,6 +126,18 @@ which is the hypercube graph:
 
 ![](sw/spl/Help/Image/graphProduct-J.svg)
 
+Plot _7,7_ king graph,
+the strong (normal) product of two path graphs:
+
+~~~spl svg=K
+7.pathGraph.graphProduct(
+	7.pathGraph,
+	'Normal'
+).graphPlot
+~~~
+
+![](sw/spl/Help/Image/graphProduct-K.svg)
+
 * * *
 
 See also: hammingGraph, gridGraph, prismGraph
@@ -135,6 +147,8 @@ Guides: Graph Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GraphCartesianProduct.html)
-[2](https://reference.wolfram.com/language/ref/GraphProduct.html),
+[2](https://mathworld.wolfram.com/GraphStrongProduct.html)
+[3](https://reference.wolfram.com/language/ref/GraphProduct.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Cartesian_product_of_graphs)
+[2](https://en.wikipedia.org/wiki/Strong_product_of_graphs)

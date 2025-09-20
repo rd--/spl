@@ -3,7 +3,7 @@
 - _starGraph(n)_
 
 Answer the star graph with _n_ vertices.
-A star graph of order _n_ is a tree with one vertex of degree _n - 1_ and the remaining _n - 1_ vertices of degree one.
+A star graph of order _n_ is a tree with one vertex of degree _n-1_ and the remaining _n-1_ vertices of degree one.
 
 The `adjacencyMatrix` of three small star graphs,
 a star graph has 1s in the first column and first row only:

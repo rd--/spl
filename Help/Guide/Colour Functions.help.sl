@@ -85,6 +85,22 @@ Physics:
 - `planckRadiationLaw`
 - `plancksRadiationFunction`
 
+Predicates:
+
+- `isBlack`
+- `isBlue`
+- `isCyan`
+- `isGreen`
+- `isGreyOf`
+- `isGrey`
+- `isMagenta`
+- `isOpaque`
+- `isRed`
+- `isTransparent`
+- `isValid`
+- `isWhite`
+- `isYellow`
+
 Standards:
 
 - `lightnessCie`

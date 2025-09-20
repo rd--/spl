@@ -35,14 +35,21 @@ Svg : [Object] { | contents |
 		let bitSize = (100 / height.max(width / 1.goldenRatio)).round.max(1);
 		let viewBox = Rectangle([0, 0], [width * bitSize, height * bitSize]);
 		let items = { :x :y |
-			'<rect x="%" y="%" width="%" height="%" fill="%"/>'.format([
-				(x - 1 * bitSize),
-				(y - 1 * bitSize),
-				bitSize,
-				bitSize,
-				self[y][x].asColour.rgbString
-			])
-		}.table(1:width, 1:height);
+			let colour = self[y][x].asColour;
+			colour.isTransparent.if {
+				nil
+			} {
+				'<rect x="%" y="%" width="%" height="%" fill="%"/>'.format(
+					[
+						(x - 1 * bitSize),
+						(y - 1 * bitSize),
+						bitSize,
+						bitSize,
+						self[y][x].asColour.rgbString
+					]
+				)
+			}
+		}.table(1:width, 1:height).collect(deleteMissing:/1);
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
 				'http://www.w3.org/2000/svg',

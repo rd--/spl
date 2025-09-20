@@ -1,19 +1,23 @@
 # ofSize
 
-- _ofSize(aBlock:/1, anInteger)_
-- _ofSize(aCollection, anInteger)_
+- _ofSize(f:/1, n)_
+- _ofSize(c, n)_
 
-Implements the Smalltalk idiom _aCollection.species.ofSize(anInteger)_.
-
-In the first case, evaluate _aBlock(anInteger)_ to create a new collection of size _anInteger_,
-with nil as every element.
+At `Block`,
+evaluate the unary block _f_ using `cull` at _n_ to create a new collection,
+and the call `ofSize` at _n_ to ensure the collection is correctly sized,
+with `nil` as every element:
 
 ```
 >>> [].species.ofSize(3)
 [nil nil nil]
+
+>>> [].species.cull(3).ofSize(3)
+[nil nil nil]
 ```
 
-In the second case ensure _aCollection_ has _anInteger_ places:
+At `Collection`,
+ensure the collection _c_ has _n_ places:
 
 ```
 >>> [1 2 3].ofSize(3)
@@ -34,10 +38,19 @@ If the collection has as many or more places than requested, it is answered unch
 [1 2 3 4 5]
 ```
 
+_Rationale_:
 This method exists because for some collection types the species block may create an empty collection.
+It implements the Smalltalk idiom that allows `collect` to answer a collection of the required type.
+
+```
+>>> [].species.ofSize(3)
+[nil nil nil]
+```
 
 * * *
 
 See also: new, newFrom, species
+
+Guides: Dictionary Functions, List Functions
 
 Categories: Instance Creation, Reflection

@@ -10,6 +10,7 @@ Traits and Types:
 Constructor Functions:
 
 - `adjacencyGraph`
+- `bookGraph`
 - `circulantGraph`
 - `complementGraph`
 - `completeBipartiteGraph`
@@ -28,6 +29,7 @@ Constructor Functions:
 - `permutationGraph`
 - `petersenGraph`
 - `relationGraph`
+- `stackedBookGraph`
 - `starGraph`
 - `subgraph`
 - `sumGraph`
@@ -103,6 +105,7 @@ Drawing Functions:
 - `asGeometryCollection`
 - `asLineDrawing`
 - `asPerspectiveDrawing`
+- `circularGraphPlot`
 - `completeGraphDrawing`
 - `dotLayout`
 - `graphPlot`

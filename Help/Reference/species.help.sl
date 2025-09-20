@@ -54,6 +54,6 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 
 See also: new, newFrom, ofSize, Trait, Type, typeOf
 
-Guides: Reflection Functions
+Guides: Collection Functions, Reflection Functions
 
 Categories: Reflection

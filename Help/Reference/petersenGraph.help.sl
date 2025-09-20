@@ -100,7 +100,7 @@ Plot the line graph of the Petersen graph:
 ~~~spl svg=H
 5.petersenGraph(2)
 .lineGraph
-.circularGraphPlot(1)
+.circularGraphPlot
 ~~~
 
 ![](sw/spl/Help/Image/petersenGraph-H.svg)

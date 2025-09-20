@@ -119,16 +119,20 @@
 		self.asGeometryCollection.asPerspectiveDrawing
 	}
 
-	circularGraphPlot { :self :radius |
+	circularGraphPlot { :self :ordering :radius |
 		let k = self.vertexCount;
 		let p = k.circlePoints([0 0], radius, 0);
 		let e = self.edgeList.collect { :each |
-			Line(p.atAll(each.asList))
+			Line(p.atAll(ordering.atAll(each.vertexList)))
 		};
 		[
 			p.PointCloud,
 			e
 		].LineDrawing
+	}
+
+	circularGraphPlot { :self |
+		self.circularGraphPlot([1 .. self.vertexCount], 1)
 	}
 
 	complement { :self |
@@ -237,32 +241,52 @@
 		[self].Plot('graph', (method: 'neato'))
 	}
 
-	graphProduct { :g1 :g2 |
+	graphProduct { :g1 :g2 :kind |
+		let cartesianPredicate = { :u1 :u2 :v1 :v2 |
+			(
+				(u1 = v1) & {
+					g2.includesEdge(u2 --- v2)
+				}
+			) | {
+				(
+					(u2 = v2) & {
+						g1.includesEdge(u1 --- v1)
+					}
+				)
+			}
+		};
+		let normalPredicate = { :u1 :u2 :v1 :v2 |
+			cartesianPredicate(u1, u2, v1, v2) | {
+				g2.includesEdge(u2 --- v2) & {
+					g1.includesEdge(u1 --- v1)
+				}
+			}
+		};
 		let v = cartesianProduct(g1.vertexList, g2.vertexList);
+		let predicate:/4 = kind.caseOf(
+			[
+				'Cartesian' -> { cartesianPredicate:/4 },
+				'Normal' -> { normalPredicate:/4 }
+			]
+		) {
+			kind.error('Graph>>graphProduct')
+		};
 		let e = [];
 		let k = v.size;
 		1.toDo(k - 1) { :i |
 			let [u1, u2] = v[i];
 			(i + 1).toDo(k) { :j |
 				let [v1, v2] = v[j];
-				(
-					(
-						(u1 = v1) & {
-							g2.includesEdge(u2 --- v2)
-						}
-					) | {
-						(
-							(u2 = v2) & {
-								g1.includesEdge(u1 --- v1)
-							}
-						)
-					}
-				).ifTrue {
+				predicate(u1, u2, v1, v2).ifTrue {
 					e.add(i --- j)
 				}
 			}
 		};
 		Graph([1 .. k], e)
+	}
+
+	graphProduct { :g1 :g2 |
+		graphProduct(g1, g2, 'Cartesian')
 	}
 
 	hasValidEdgeList { :self |
@@ -676,6 +700,13 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 +@Integer {
 
+	bookGraph { :self |
+		(self + 1).starGraph
+		.graphProduct(
+			2.pathGraph
+		)
+	}
+
 	circulantGraph { :self :aList |
 		let e = [];
 		1.toDo(self) { :i |
@@ -714,7 +745,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeGraphDrawing { :self :radius |
-		self.completeGraph.circularGraphPlot(radius)
+		self.completeGraph.circularGraphPlot([1 .. self], radius)
 	}
 
 	cubeGraph { :self |
@@ -821,6 +852,41 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		hararyGraphEdgeList(k, n).asGraph
 	}
 
+	kingGraph { :m :n |
+		m.pathGraph
+		.graphProduct(
+			n.pathGraph,
+			'Normal'
+		)
+	}
+
+	kingGraph { :m |
+		kingGraph(m, m)
+	}
+
+	knightGraph { :m :n |
+		let d = 5.sqrt;
+		let c = { :i :j |
+			[i, j]
+		}.table(1:m, 1:n).catenate;
+		let e = [];
+		1.toDo(m * n) { :i |
+			(i + 1).toDo(m * n) { :j |
+				euclideanDistance(c[i], c[j])
+				.isVeryCloseTo(d).ifTrue {
+					e.add(i --- j)
+				}
+			}
+		};
+		Graph([1 .. m * n], e).also { :g |
+			g.vertexCoordinates(c)
+		}
+	}
+
+	knightGraph { :m |
+		knightGraph(m, m)
+	}
+
 	pathGraph { :self |
 		(1 .. (self - 1)).collect { :each |
 			[each, each + 1]
@@ -848,6 +914,24 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	prismGraph { :n |
 		petersenGraph(n, 1)
+	}
+
+	rookGraph { :m :n |
+		m.completeGraph
+		.graphProduct(
+			n.completeGraph
+		)
+	}
+
+	rookGraph { :m |
+		rookGraph(m, m)
+	}
+
+	stackedBookGraph { :m :n |
+		(m + 1).starGraph
+		.graphProduct(
+			n.pathGraph
+		)
 	}
 
 	starGraph { :self |
@@ -903,6 +987,10 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			}
 		};
 		Graph(v, e)
+	}
+
+	torusGraph { :self |
+		self.collect(cycleGraph:/1).reduce(graphProduct:/2)
 	}
 
 }
@@ -1026,6 +1114,196 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			}
 		);
 		>
+	}
+
+	namedGraph { :self |
+		self.caseOf(
+			[
+				'CoxeterGraph' -> {
+					Graph(
+						[1 .. 84],
+						[
+							1 2; 1 3; 1 4;
+							2 3; 2 40;
+							3 70;
+							4 5; 4 6;
+							5 6; 5 7;
+							6 22;
+							7 8; 7 9;
+							8 9; 8 10;
+							9 82;
+							10 11; 10 12;
+							11 12; 11 13;
+							12 79;
+							13 14; 13 15;
+							14 15; 14 16;
+							15 76;
+							16 17; 16 18;
+							17 18; 17 19;
+							18 49;
+							19 20; 19 21;
+							20 21; 20 23;
+							21 73;
+							22 23; 22 24;
+							23 24;
+							24 25;
+							25 26; 25 27;
+							26 27; 26 28;
+							27 64;
+							28 29; 28 30;
+							29 30; 29 31;
+							30 46;
+							31 32; 31 33;
+							32 33; 32 34;
+							33 83;
+							34 35; 34 36;
+							35 36; 35 37;
+							36 77;
+							37 38; 37 39;
+							38 39; 38 41;
+							39 74;
+							40 41; 40 42;
+							41 42;
+							42 43;
+							43 44; 43 45;
+							44 45; 44 47;
+							45 80;
+							46 47; 46 48;
+							47 48; 48 50;
+							49 50; 49 51;
+							50 51;
+							51 52;
+							52 53; 52 54;
+							53 54; 53 55;
+							54 71;
+							55 56; 55 57;
+							56 57; 56 58;
+							57 84;
+							58 59; 58 60;
+							59 60; 59 61;
+							60 75;
+							61 62; 61 63;
+							62 63; 62 65;
+							63 81;
+							64 65; 64 66;
+							65 66;
+							66 67;
+							67 68; 67 69;
+							68 69; 68 72;
+							69 78;
+							70 71; 70 72;
+							71 72;
+							73 74; 73 75;
+							74 75;
+							76 77; 76 78;
+							77 78;
+							79 80; 79 81;
+							80 81;
+							82 83; 82 84;
+							83 84]
+					)
+				},
+				'HeawoodGraph' -> {
+					Graph(
+						[1 .. 14],
+						[
+							1 2; 1 6; 1 14;
+							2 3; 2 11;
+							3 4; 3 8;
+							4 5; 4 13;
+							5 6; 5 10;
+							6 7; 7 8; 7 12;
+							8 9; 9 10; 9 14;
+							10 11;
+							11 12;
+							12 13;
+							13 14
+						]
+					)
+				},
+				'PetersenGraph' -> {
+					petersenGraph(5, 2)
+				},
+				'ShrikhandeGraph' -> {
+					Graph(
+						[1 .. 16],
+						[
+							1 2; 1 3; 1 4; 1 5; 1 6; 1 7;
+							2 3; 2 7; 2 8; 2 9; 2 10;
+							3 4; 3 8; 3 11; 3 12;
+							4 6; 4 11; 4 13; 4 14;
+							5 6; 5 7; 5 12; 5 15; 5 16;
+							6 9; 6 13; 6 15;
+							7 10; 7 14; 7 16;
+							8 9; 8 12; 8 13; 8 16;
+							9 10; 9 13; 9 15;
+							10 11; 10 14; 10 15;
+							11 12; 11 14; 11 15;
+							12 15; 12 16;
+							13 14; 13 16;
+							14 16
+						]
+					)
+				},
+				'TutteGraph' -> {
+					Graph(
+						[1 .. 46],
+						[
+							1 11; 1 12; 1 13; 2 3; 2 8; 2 20; 3 4; 3 42; 4 5; 4 28;
+							5 6; 5 34; 6 7; 6 46; 7 10; 7 30; 8 9; 8 22;
+							9 10; 9 23; 10 25; 11 14; 11 15; 12 27; 12 29;
+							13 31; 13 32; 14 16; 14 22; 15 16; 15 19; 16 17;
+							17 18; 17 21; 18 19; 18 24; 19 25; 20 26; 20 41;
+							21 22; 21 23; 23 24; 24 25;
+							26 27; 26 39; 27 35; 28 29; 28 40;
+							29 35; 30 31; 30 45; 31 36; 32 33; 32 36;
+							33 34; 33 43; 34 44; 35 37; 36 38;
+							37 39; 37 40; 38 43; 38 45; 39 41; 40 42;
+							41 42; 43 44; 44 46;
+							45 46
+						]
+					)
+				},
+				'TutteThreeEightCageGraph' -> {
+					Graph(
+						[1 .. 30],
+						[
+							1 2; 1 14; 1 30;
+							2 3; 2 19;
+							3 4; 3 24;
+							4 5; 4 11;
+							5 6; 5 28;
+							6 7; 6 15;
+							7 8; 7 20;
+							8 9; 8 25;
+							9 10; 9 30;
+							10 11; 10 17;
+							11 12;
+							12 13; 12 21;
+							13 14; 13 26;
+							14 15;
+							15 16;
+							16 17; 16 23;
+							17 18;
+							18 19; 18 27;
+							19 20;
+							20 21;
+							21 22;
+							22 23; 22 29;
+							23 24;
+							24 25;
+							25 26;
+							26 27;
+							27 28;
+							28 29;
+							29 30
+						]
+					)
+				}
+			]
+		) {
+			self.error('namedGraph: unknown graph')
+		}
 	}
 
 }

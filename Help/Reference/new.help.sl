@@ -1,9 +1,11 @@
 # new
 
-- _new(aBlock:/0)_ ⟹ _aBlock()_
-- _new(aBlock:/1, anObject)_ ⟹ _aBlock(anObject)_
+- _new(f:/0)_
+- _new(f:/1, n)_
 
-The unary form implements the Smalltalk idiom _aCollection.species.new()_.
+Implement the Smalltalk idioms _c.species.new_ and _c.species.new(n)_.
+
+The unary form, for collections where `species` answers a no-argument block:
 
 ```
 >>> IdentitySet().species
@@ -13,7 +15,7 @@ IdentitySet:/0
 IdentitySet()
 ```
 
-The binary form implements the Smalltalk idiom _aCollection.species.new(aSize)_.
+The unary form, for collections where `species` answers a one-argument block:
 
 ```
 >>> [].species
@@ -26,6 +28,8 @@ List:/1
 * * *
 
 See also: ofSize, newFrom, species
+
+Guides: Collection Functions
 
 References:
 _Smalltalk_
