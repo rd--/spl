@@ -1,12 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="119" height="102" viewBox="0 0 119 102">
 <g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="17" height="17" fill="rgba(255,255,255,0)"/>
 <rect x="0" y="17" width="17" height="17" fill="rgb(162,162,162)"/>
 <rect x="0" y="34" width="17" height="17" fill="rgb(162,162,162)"/>
 <rect x="0" y="51" width="17" height="17" fill="rgb(116,116,116)"/>
 <rect x="0" y="68" width="17" height="17" fill="rgb(116,116,116)"/>
 <rect x="0" y="85" width="17" height="17" fill="rgb(116,116,116)"/>
-<rect x="17" y="0" width="17" height="17" fill="rgba(255,255,255,0)"/>
 <rect x="17" y="17" width="17" height="17" fill="rgb(162,162,162)"/>
 <rect x="17" y="34" width="17" height="17" fill="rgb(162,162,162)"/>
 <rect x="17" y="51" width="17" height="17" fill="rgb(116,116,116)"/>

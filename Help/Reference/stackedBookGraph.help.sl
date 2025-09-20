@@ -15,7 +15,7 @@ Plot the stacked book graph _B(3,4)_:
 
 Plot the adjacency matrix of the stacked book graph _B(5,7)_:
 
-~~~spl svg=A
+~~~spl svg=B
 5.stackedBookGraph(7)
 .adjacencyMatrix
 .matrixPlot

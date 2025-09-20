@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="105" height="105" viewBox="0 0 105 105">
 <g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="5" height="5" fill="rgba(255,255,255,0)"/>
 <rect x="0" y="5" width="5" height="5" fill="rgb(149,149,149)"/>
 <rect x="0" y="10" width="5" height="5" fill="rgb(76,76,76)"/>
 <rect x="0" y="15" width="5" height="5" fill="rgb(55,55,55)"/>

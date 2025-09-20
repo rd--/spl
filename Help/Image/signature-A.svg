@@ -30,7 +30,6 @@
 <rect x="6" y="66" width="6" height="6" fill="rgb(0,0,0)"/>
 <rect x="6" y="72" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="6" y="78" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="6" y="84" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="6" y="90" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="0" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="6" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -39,7 +38,6 @@
 <rect x="12" y="24" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="36" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="12" y="42" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="12" y="48" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="54" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="12" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -57,7 +55,6 @@
 <rect x="18" y="36" width="6" height="6" fill="rgb(0,0,0)"/>
 <rect x="18" y="42" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="18" y="48" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="18" y="54" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="18" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="18" y="66" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="18" y="72" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -75,7 +72,6 @@
 <rect x="24" y="48" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="24" y="54" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="24" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="24" y="66" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="24" y="72" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="24" y="78" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="24" y="84" width="6" height="6" fill="rgb(0,0,0)"/>
@@ -108,13 +104,11 @@
 <rect x="36" y="54" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="36" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="36" y="66" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="36" y="72" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="36" y="78" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="36" y="84" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="36" y="90" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="42" y="0" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="42" y="6" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="42" y="12" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="42" y="18" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="42" y="24" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="42" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -141,13 +135,11 @@
 <rect x="48" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="48" y="66" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="48" y="72" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="48" y="78" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="48" y="84" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="48" y="90" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="54" y="0" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="54" y="6" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="54" y="12" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="54" y="18" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="54" y="24" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="54" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="54" y="36" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -180,7 +172,6 @@
 <rect x="66" y="6" width="6" height="6" fill="rgb(0,0,0)"/>
 <rect x="66" y="12" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="66" y="18" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="66" y="24" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="66" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="66" y="36" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="66" y="42" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -198,7 +189,6 @@
 <rect x="72" y="18" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="72" y="24" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="72" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="72" y="36" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="72" y="42" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="72" y="48" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="72" y="54" width="6" height="6" fill="rgb(0,0,0)"/>
@@ -216,7 +206,6 @@
 <rect x="78" y="30" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="78" y="36" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="78" y="42" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="78" y="48" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="78" y="54" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="78" y="60" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="78" y="66" width="6" height="6" fill="rgb(128,128,128)"/>
@@ -225,7 +214,6 @@
 <rect x="78" y="84" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="78" y="90" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="84" y="0" width="6" height="6" fill="rgb(128,128,128)"/>
-<rect x="84" y="6" width="6" height="6" fill="rgba(255,255,255,0)"/>
 <rect x="84" y="12" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="84" y="18" width="6" height="6" fill="rgb(128,128,128)"/>
 <rect x="84" y="24" width="6" height="6" fill="rgb(0,0,0)"/>

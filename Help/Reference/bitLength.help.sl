@@ -1,12 +1,15 @@
 # bitLength
 
-- _bitLength(anInteger)_
+- _bitLength(n)_
 
-Answer the number of binary bits necessary to represent _anInteger_.
+Answer the number of binary bits necessary to represent the integer _n_.
 
 ```
 >>> 32.bitLength
 6
+
+>>> -64.bitLength
+7
 ```
 
 Equivalent to `floor` of `log` plus `one`:

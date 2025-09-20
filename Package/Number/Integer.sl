@@ -512,7 +512,8 @@
 			0
 		} {
 			let n = 1;
-			{ self >= (radix ^ n) }.whileTrue {
+			let m = self.abs;
+			{ m >= (radix ^ n) }.whileTrue {
 				n := n + 1
 			};
 			n

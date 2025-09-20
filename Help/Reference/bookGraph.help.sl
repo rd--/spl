@@ -14,7 +14,7 @@ Plot the book graph _B(3)_:
 
 Plot the adjacency matrix of the book graph _B(17)_:
 
-~~~spl svg=A
+~~~spl svg=B
 17.bookGraph.adjacencyMatrix.matrixPlot
 ~~~
 

@@ -22,17 +22,22 @@ Constructor Functions:
 - `hammingGraph`
 - `hararyGraph`
 - `incidenceGraph`
+- `kingGraph`
+- `knightGraph`
 - `lineGraph`
+- `namedGraph`
 - `nearestNeighbourGraph`
 - `neighbourhoodGraph`
 - `pathGraph`
 - `permutationGraph`
 - `petersenGraph`
 - `relationGraph`
+- `rookGraph`
 - `stackedBookGraph`
 - `starGraph`
 - `subgraph`
 - `sumGraph`
+- `torusGraph`
 - `wheelGraph`
 
 Graph Operations:

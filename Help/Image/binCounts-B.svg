@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
 <g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="10" height="10" fill="rgba(255,255,255,0)"/>
-<rect x="0" y="10" width="10" height="10" fill="rgba(255,255,255,0)"/>
 <rect x="0" y="20" width="10" height="10" fill="rgb(249,249,249)"/>
 <rect x="0" y="30" width="10" height="10" fill="rgb(233,233,233)"/>
 <rect x="0" y="40" width="10" height="10" fill="rgb(242,242,242)"/>
@@ -90,8 +88,6 @@
 <rect x="80" y="70" width="10" height="10" fill="rgb(226,226,226)"/>
 <rect x="80" y="80" width="10" height="10" fill="rgb(239,239,239)"/>
 <rect x="80" y="90" width="10" height="10" fill="rgb(252,252,252)"/>
-<rect x="90" y="0" width="10" height="10" fill="rgba(255,255,255,0)"/>
-<rect x="90" y="10" width="10" height="10" fill="rgba(255,255,255,0)"/>
 <rect x="90" y="20" width="10" height="10" fill="rgb(239,239,239)"/>
 <rect x="90" y="30" width="10" height="10" fill="rgb(239,239,239)"/>
 <rect x="90" y="40" width="10" height="10" fill="rgb(249,249,249)"/>

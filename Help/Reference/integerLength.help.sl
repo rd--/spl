@@ -52,6 +52,17 @@ Threads over lists:
 [3 4]
 ```
 
+At negative integers:
+
+```
+>>> [-100 -10 -1].integerLength(10)
+[3 2 1]
+
+>>> [-128 -64 -32 -16 -8 -4 -2 -1]
+>>> .integerLength(2)
+[8 7 6 5 4 3 2 1]
+```
+
 Plot for base 10 from -25 to 25:
 
 ~~~spl svg=A

@@ -42,7 +42,7 @@ Plot a three-prism graph:
 ~~~spl svg=C
 3.cycleGraph
 .graphProduct(
-	2.pathGraph,
+	2.pathGraph
 ).graphPlot
 ~~~
 
@@ -64,7 +64,7 @@ Plot a torus grid graph:
 ~~~spl svg=E
 5.cycleGraph
 .graphProduct(
-	8.cycleGraph,
+	8.cycleGraph
 ).graphPlot
 ~~~
 
