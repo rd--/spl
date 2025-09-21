@@ -1,6 +1,6 @@
 # easingFunction
 
-- _easingFunction(aString)_
+- _easingFunction(s)_
 
 Select an easing function by name.
 Answers a one argument `Block`,

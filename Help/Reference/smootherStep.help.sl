@@ -1,6 +1,6 @@
 # smootherStep
 
-- _smootherStep(aNumber)_
+- _smootherStep(x)_
 
 `smootherStep` is the second `smoothStepFunction`.
 

@@ -5,20 +5,42 @@ Activation Function:
 - `softSign`
 - `swishFunction`
 
+Beta Functions:
+
+- `betaRegularized`
+
+Easing Functions:
+
+- `easingFunction`
+
 Error Functions:
 
 - `erf`
 - `inverseErf`
 
+Gain Functions:
+
+- `barronCurve`
+- `perlinGainFunction`
+- `schlickGainFunction`
+
 Hyperbolic Functions:
 
 - `arcSinh`
 - `gudermannian`
+- `sobolevaModifiedTanh`
 - `tanh`
+
+Interpolation Functions:
+
+- `smoothStep`
+- `smootherStep`
+- `smoothStepFunction`
 
 Logistic Functions:
 
 - `logisticSigmoid`
+- `richardsCurve`
 - `softMax`
 
 Time Series Functions:
@@ -28,16 +50,6 @@ Time Series Functions:
 Trigonometric Functions:
 
 - `arcTan`
-
-- `barronCurve`
-- `betaRegularized`
-- `easingFunction`
-- `perlinGainFunction`
-- `richardsCurve`
-- `schlickGainFunction`
-- `smoothStep`
-- `smoothStepFunction`
-- `sobolevaModifiedTanh`
 
 * * *
 

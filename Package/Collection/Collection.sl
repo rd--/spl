@@ -482,6 +482,12 @@
 		}.sum
 	}
 
+	logSumExp { :self |
+		/* self.exp.sum.log */
+		let m = self.max;
+		m + (self - m).exp.sum.log
+	}
+
 	maxIfEmpty { :self :aBlock:/0 |
 		self.ifEmpty {
 			aBlock()
