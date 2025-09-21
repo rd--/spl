@@ -101,3 +101,31 @@
 		a * (b + (c * d))
 	}
 }
+
++Fraction {
+
+	fabiusFunction { :x :n |
+		let dyadicRationals = { :x :n |
+			let m = 2 ^ n;
+			[0 .. x * m].collect { :k |
+				k \ m
+			}
+		};
+		(2 ^ (n * (n + 1) / 2))
+		/
+		n.factorial
+		*
+		dyadicRationals(x, n).sum { :k |
+			(-1 ^ digitSum((k * (2 ^ n)).asLargeInteger, 2)) * ((x - k) ^ n)
+		}
+	}
+
+}
+
++SmallFloat {
+
+	fabiusFunction { :x :n |
+		x.asFraction.fabiusFunction(n)
+	}
+
+}
