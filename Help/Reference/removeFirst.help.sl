@@ -1,17 +1,18 @@
 # removeFirst
 
-- _removeFirst(aSequence)_
-- _removeFirst(aSequence, anInteger)_
+- _removeFirst([x₁ x₂ …],  n)_
 
-Remove the first _anInteger_ element of _aSequence_ and answer it.
+Remove the first _n_ element of the sequence _x_ and answer the item (or items) removed.
 If the sequence is empty it is an error.
 
 The unary form removes one item:
 
 ```
 >>> let l = [1 .. 9];
->>> (l.removeFirst, l)
-(1, [2 .. 9])
+>>> let a = l.removeFirst;
+>>> let b = l.removeFirst(1);
+>>> (a, b, l)
+(1, [2], [3 .. 9])
 ```
 
 Remove three items:
@@ -25,6 +26,8 @@ Remove three items:
 * * *
 
 See also: remove, removeLast
+
+Guides: List Functions
 
 References:
 _Smalltalk_

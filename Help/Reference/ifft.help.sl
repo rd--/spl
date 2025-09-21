@@ -1,9 +1,9 @@
 # ifft
 
-- _ifft(aList)_
+- _ifft([z₁ z₂ …])_
 
-Compute the inverse discrete Fourier transform (DFT) of _aList_ using a fast Fourier transform (FFT) algorithm.
-The answer is the same size as _aList_.
+Compute the inverse discrete Fourier transform (DFT) of _z_ using a fast Fourier transform (FFT) algorithm.
+The answer is the same size as _z_.
 
 The input and output lists are `Complex`:
 

@@ -345,6 +345,12 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		<primitive: return _self.length;>
 	}
 
+	difference { :self :operand |
+		self.characters.difference(
+			operand.characters
+		).stringJoin
+	}
+
 	do { :self :aBlock:/1 |
 		self.primitiveDo { :each |
 			aBlock(each)

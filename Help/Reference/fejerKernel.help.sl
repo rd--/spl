@@ -20,6 +20,8 @@ Plot kernels for _n_ of two, four and six:
 
 See also: dirichletKernel, lanczosKernel, sin
 
+Guides: Window Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FejersIntegral.html),

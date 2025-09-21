@@ -1,6 +1,6 @@
 # fourier
 
-- _fourier(list)_
+- _fourier([z₁ z₂ …])_
 
 Answer the discrete Fourier transform of a list of complex numbers.
 The zero frequency term appears at position one in the resulting list.

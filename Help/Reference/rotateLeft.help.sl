@@ -5,6 +5,7 @@
 Rotate te sequence _x_ by _n_ places to the left,
 i.e. _n_ elements from the start are moved to the end.
 The rotation is not in place, a new sequence is answered.
+Also called a circular shift.
 
 ```
 >>> [1 2 3 4 5 6 7].rotateLeft(3)
@@ -88,6 +89,19 @@ There is also an in-place variant:
 [2 3 4 5 1]
 ```
 
+At `Range`:
+
+```
+>>> 1:10.rotateLeft(3)
+[4 5 6 7 8 9 10 1 2 3]
+
+>>> 1:10.rotateLeft(-3)
+[8 9 10 1 2 3 4 5 6 7]
+
+>>> 1:10.rotateLeft(0)
+[1 2 3 4 5 6 7 8 9 10]
+```
+
 At `String`:
 
 ```
@@ -102,12 +116,16 @@ At `String`:
 
 See also: atWrap, rotateRight
 
+Guides: List Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Rotate),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot#dyadic),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RotateLeft.html)
+[1](https://reference.wolfram.com/language/ref/RotateLeft.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Circular_shift)
 
 Categories: Ordering

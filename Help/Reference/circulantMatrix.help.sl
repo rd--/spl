@@ -19,6 +19,8 @@ a square matrix in which each row is rotated one element to the right relative t
 
 See also: toeplitzMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CirculantMatrix.html),

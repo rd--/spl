@@ -164,6 +164,22 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 		]
 	}
 
+	continuedFraction { :self |
+		let answer = [];
+		let i = self.integerPart;
+		let f = self - i;
+		{
+			f != 0
+		}.whileTrue {
+			answer.add(i);
+			f := 1 / f;
+			i := f.integerPart;
+			f := f - i
+		};
+		answer.add(i);
+		answer
+	}
+
 	dividesImmediately { :self :aNumber |
 		let r = self / aNumber;
 		r.denominator = 1 & {
@@ -199,6 +215,10 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 
 	isCloseToBy { :self :aNumber :epsilon |
 		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
+	}
+
+	isDyadicRational { :self |
+		self.denominator.isPowerOfTwo
 	}
 
 	isExact { :unused |
@@ -334,6 +354,15 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 			self.numerator + aFraction.numerator,
 			self.denominator + aFraction.denominator
 		)
+	}
+
+	minkowskiQuestionMark { :self |
+		let a = self.continuedFraction;
+		let a0 = a.removeFirst;
+		let m = a.size;
+		a0 + (2 * [1L .. m].sum { :n |
+			(-1 ^ (n + 1)) / (2 ^ a.take(n).sum)
+		})
 	}
 
 	negate { :self |

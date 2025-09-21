@@ -80,6 +80,12 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Complement.html)
 [2](https://mathworld.wolfram.com/ComplementSet.html)
 [3](https://mathworld.wolfram.com/GraphComplement.html)
+[4](https://mathworld.wolfram.com/SetDifference.html)
+[5](https://reference.wolfram.com/language/ref/Complement.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Bitwise_complement)
+[2](https://en.wikipedia.org/wiki/Complement_graph)
+[3](https://en.wikipedia.org/wiki/Complement_(set_theory))
 
 Unicode: U+02201 ∁ Complement
 

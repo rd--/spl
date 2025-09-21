@@ -4,6 +4,26 @@
 
 Answer a list of at most the first _k_ terms in the continued fraction representation of the number _n_.
 
+All rational number have finite continued fractions,
+at `Fraction`:
+
+```
+>>> 47/17.continuedFraction
+[2 1 3 4]
+
+>>> 27/32.continuedFraction
+[0 1 5 2 2]
+
+>>> 22/45.continuedFraction
+[0 2 22]
+
+>>> 13/27.continuedFraction
+[0 2 13]
+
+>>> 789213/479713.continuedFraction
+[1 1 1 1 4 1 1 63 1 13 8 2]
+```
+
 Rational number as `SmallFloat`:
 
 ```
@@ -34,16 +54,6 @@ Does not simplify final term:
 
 >>> [0 2 12 1].fromContinuedFraction
 [0 2 13].fromContinuedFraction
-```
-
-Rational number as `Fraction`:
-
-```
->>> 47/17.continuedFraction
-[2 1 3 4]
-
->>> 27/32.continuedFraction
-[0 1 5 2 2]
 ```
 
 Quadratic irrational (recurring continued fraction):
@@ -138,8 +148,8 @@ Objects showing regularity in their continued fractions:
 Examples of rational and irrational numbers:
 
 ```
->>> [123 12.3 1.23 0.123].collect {
->>> 	:n | n.continuedFraction(6)
+>>> [123 12.3 1.23 0.123].collect { :n |
+>>> 	n.continuedFraction(6)
 >>> }
 [123; 12 3 3; 1 4 2 1 6 1; 0 8 7 1 2 5]
 
@@ -196,7 +206,7 @@ Threads over lists:
 >>> 	141421/100000
 >>> 	1414214/1000000
 >>> 	14142136/10000000
->>> ].collect(continuedFraction:/1)
+>>> ].continuedFraction
 [
 	0 2;
 	3;
@@ -214,6 +224,8 @@ Threads over lists:
 * * *
 
 See also: fromContinuedFraction, metallicMean
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

@@ -1,5 +1,10 @@
 # Interpolation Functions
 
+Types:
+
+- `Interval`
+- `Range`
+
 Interpolators:
 
 - `linearInterpolator`
@@ -40,6 +45,13 @@ Polynomial Interpolation Functions:
 - `cubicHermiteFunction`
 - `lagrangeInterpolatingPolynomial`
 - `nevillesAlgorithm`
+
+Interval Functions:
+
+- `discretize`
+- `linspace`
+- `logspace`
+- `subdivide`
 
 SuperCollider Functions:
 

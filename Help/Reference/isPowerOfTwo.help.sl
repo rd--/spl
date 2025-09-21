@@ -1,8 +1,8 @@
 # isPowerOfTwo
 
-- _isPowerOfTwo(anInteger)_
+- _isPowerOfTwo(n)_
 
-Answers `true` if _anInteger_ is a power of two, else `false`.
+Answers `true` if the integer _n_ is a power of two, else `false`.
 
 ```
 >>> 8.isPowerOfTwo
@@ -21,6 +21,8 @@ At `Fraction`:
 
 * * *
 
-See also: asPowerOfTwo, nextPowerOfTwo
+See also: asPowerOfTwo, isDyadicRational, nextPowerOfTwo
+
+Guides: Integer Functions, Mathematical Functions
 
 Categories: Testing

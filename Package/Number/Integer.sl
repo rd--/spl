@@ -694,6 +694,10 @@
 		n.divisors.sum < (2 * n)
 	}
 
+	isDyadicRational { :self |
+		self.isInteger
+	}
+
 	isHighlyAbundantNumber { :n |
 		let k = n.divisors.sum;
 		1.to(n - 1).allSatisfy { :i |

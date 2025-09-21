@@ -8,6 +8,11 @@ Binomial Functions:
 - `polygonalNumber`
 - `deBruijnSequence`
 
+Counting Functions:
+
+- `braceletCount`
+- `necklaceCount`
+
 Factorial Functions:
 
 - `doubleFactorial`
@@ -25,11 +30,12 @@ Frobenius Functions:
 
 Partition Functions:
 
+- `bellNumber`
 - `partitionFunctionP`
 - `partitionFunctionQ`
 - `partitionsP`
 - `partitionsQ`
-- `bellNumber`
+- `stirlingS2`
 
 * * *
 

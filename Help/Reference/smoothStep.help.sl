@@ -1,6 +1,6 @@
 # smoothStep
 
-- _smoothStep(aNumber)_
+- _smoothStep(x)_
 
 SmoothStep is a family of sigmoid-like interpolation functions.
 `smoothStep` interpolates between `zero` and `one` using a Hermite polynomial.

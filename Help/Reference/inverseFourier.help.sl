@@ -1,6 +1,6 @@
 # inverseFourier
 
-- _inverseFourier(list)_
+- _inverseFourier([z₁ z₂ …])_
 
 Answer the discrete inverse Fourier transform of a list of complex numbers.
 

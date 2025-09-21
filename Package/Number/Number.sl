@@ -36,6 +36,10 @@
 		self - (self // aNumber * aNumber)
 	}
 
+	\ { :self :aNumber |
+		self.Fraction(aNumber)
+	}
+
 	~ { :self :aNumber |
 		self.isCloseTo(aNumber)
 	}

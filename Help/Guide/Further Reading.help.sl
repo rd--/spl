@@ -76,7 +76,7 @@
 
 16
 :   P. Duchon. On the Enumeration and Generation of Generalized Dyck
-    Words. *Discrete Mathematics*, 225(1):121--135, 2000. FPSAC\'98.
+    Words. *Discrete Mathematics*, 225(1):121--135, 2000. FPSAC 1998.
     [doi:10.1016/S0012-365X(00)00150-3](https://doi.org/10.1016/S0012-365X(00)00150-3).
 
 17
@@ -147,7 +147,7 @@
 
 31
 :   D.H.H. Ingalls. A Simple Technique for Handling Multiple
-    Polymorphism. In *OOPLSA \'86*. 1986.
+    Polymorphism. In *Proc. OOPLSA*. 1986.
     [doi:10.1145/28697.28732](https://doi.org/10.1145/28697.28732).
 
 32

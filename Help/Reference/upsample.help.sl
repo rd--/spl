@@ -1,8 +1,8 @@
 # upsample
 
-- _upsample(aSequence, anInteger)_
+- _upsample([x₁ x₂ …], n)_
 
-Answer an upsampled copy of _aSequence_ by inserting _anInteger - 1_ zeros after each element.
+Answer an upsampled copy of the sequence _x_ by inserting _n-1_ zeros after each element.
 
 Upsample a `Range` by a factor of three:
 

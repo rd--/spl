@@ -1,6 +1,6 @@
 # fftConvolve
 
-- _fftConvolve(aList, anotherList)_
+- _fftConvolve(u, v)_
 
 Convolution, also known as Fourier convolution and polynomial multiplication.
 The answer size is the sum of the input sizes minus one.
@@ -57,7 +57,7 @@ u.fftConvolve(v).linePlot
 
 See also: convolve, fft, ifft
 
-Guides: Fourier Analysis Functions
+Guides: Fourier Analysis Functions, Signal Processing Functions
 
 References:
 _Mathematica_

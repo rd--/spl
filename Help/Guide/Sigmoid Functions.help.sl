@@ -1,24 +1,43 @@
 # Sigmoid Functions
 
+Activation Function:
+
+- `softSign`
+- `swishFunction`
+
+Error Functions:
+
+- `erf`
+- `inverseErf`
+
+Hyperbolic Functions:
+
 - `arcSinh`
+- `gudermannian`
+- `tanh`
+
+Logistic Functions:
+
+- `logisticSigmoid`
+- `softMax`
+
+Time Series Functions:
+
+- `gompertzFunction`
+
+Trigonometric Functions:
+
 - `arcTan`
+
 - `barronCurve`
 - `betaRegularized`
 - `easingFunction`
-- `erf`
-- `gompertzFunction`
-- `gudermannian`
-- `inverseErf`
-- `logisticSigmoid`
 - `perlinGainFunction`
 - `richardsCurve`
 - `schlickGainFunction`
 - `smoothStep`
 - `smoothStepFunction`
 - `sobolevaModifiedTanh`
-- `softSign`
-- `swishFunction`
-- `tanh`
 
 * * *
 

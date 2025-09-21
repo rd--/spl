@@ -34,4 +34,4 @@ Utilities
 
 * * *
 
-Guides: Mathematical Functions, Window Functions
+Guides: Mathematical Functions, Signal Processing Functions, Window Functions

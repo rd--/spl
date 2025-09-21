@@ -18,6 +18,10 @@ Reconstructs a number from the list of its continued fraction terms.
 >>> .prefixes
 >>> .collect(fromContinuedFraction:/1)
 [2 3 11/4 47/17]
+
+>>> [1 1 1 1 4 1 1 63 1 13 8 2]
+>>> .fromContinuedFraction
+789213/479713
 ```
 
 Rational approximations to golden ratio:
@@ -83,6 +87,8 @@ Trott’s constant:
 * * *
 
 See also: convergents, continuedFraction, goldenRatio
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

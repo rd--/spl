@@ -20,6 +20,8 @@ Plot kernels for _n_ of one, three and five:
 
 See also: fejerKernel, lanczosKernel, sin
 
+Guides: Window Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DirichletKernel.html),

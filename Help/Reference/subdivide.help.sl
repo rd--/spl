@@ -102,7 +102,7 @@ let n = 256;
 
 See also: --, discretize, Interval, linspace, Range
 
-Guides: Coordinate System Functions, List Functions
+Guides: Coordinate System Functions, Interpolation Functions, List Functions
 
 References:
 _Mathematica_

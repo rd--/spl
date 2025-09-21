@@ -5,26 +5,26 @@ also called an apodization function or tapering function,
 is a function used to smoothly bring a sampled signal down
 to zero at the edges of the sampled region.
 
-- `bartlettWindow`: Bartlett
-- `bartlettHannWindow`: Bartlett-Hann
-- `blackmanWindow`: Blackman
-- `blackmanHarrisWindow`: Harris
-- `blackmanNuttallWindow`: Blackman-Nuttall
-- `bohmanWindow`: Bohman
-- `cosineWindow`: Cosine
-- `dirichletWindow`: Dirichlet
-- `flatTopWindow`: flat top
-- `gaussianWindow`: Gaussian
-- `hammingWindow`: Hamming
-- `hannWindow`: Hann
-- `kaiserWindow`: Kaiser
-- `lanczosWindow`: Lanczos
-- `nuttallWindow`: Nuttall
-- `parzenWindow`: Parzen
-- `planckTaperWindow`: Planck-taper
-- `sincWindow`: sinc
-- `tukeyWindow`: Tukey
-- `welchWindow`: Welch
+- `bartlettWindow`
+- `bartlettHannWindow`
+- `blackmanWindow`
+- `blackmanHarrisWindow`
+- `blackmanNuttallWindow`
+- `bohmanWindow`
+- `cosineWindow`
+- `dirichletWindow`
+- `flatTopWindow`
+- `gaussianWindow`
+- `hammingWindow`
+- `hannWindow`
+- `kaiserWindow`
+- `lanczosWindow`
+- `nuttallWindow`
+- `parzenWindow`
+- `planckTaperWindow`
+- `sincWindow`
+- `tukeyWindow`
+- `welchWindow`
 
 _Note:_ The Bartlett window is triangular,
 the Dirichlet window is rectangular,
@@ -32,22 +32,22 @@ the Hann window is a raised cosine.
 
 ## Window Table Functions
 
-- `hammingWindowTable`: Hamming
-- `hannWindowTable`: Hann
-- `kaiserWindowTable`: Kaiser
-- `welchWindowTable`: Welch
+- `hammingWindowTable`
+- `hannWindowTable`
+- `kaiserWindowTable`
+- `welchWindowTable`
 
 ## Kernel Functions
 
-- `dirichletKernel`: Dirichlet
-- `epanechnikovKernel`: Epanechnikov
-- `fejerKernel`: Fejér
-- `gaussianKernel`: Gaussian
-- `lanczosKernel`: Lanczos
+- `dirichletKernel`
+- `epanechnikovKernel`
+- `fejerKernel`
+- `gaussianKernel`
+- `lanczosKernel`
 
 ## Impulse Response Functions
 
-- `raisedCosinePulse`: Raised-cosine
+- `raisedCosinePulse`
 
 ## Window Function Types
 
@@ -72,7 +72,7 @@ the Hann window is a raised cosine.
 
 * * *
 
-Guides: Mathematical Functions, Plotting Functions
+Guides: Mathematical Functions, Plotting Functions, Signal Processing Functions
 
 References:
 _Mathematica_

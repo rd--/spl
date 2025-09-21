@@ -443,15 +443,6 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
 	}
 
-	min { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return Math.min(_self, _anObject);
-		}
-		>
-		anObject.adaptToNumberAndApply(self, min:/2)
-	}
-
 	max { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -459,6 +450,15 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 		}
 		>
 		anObject.adaptToNumberAndApply(self, max:/2)
+	}
+
+	min { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return Math.min(_self, _anObject);
+		}
+		>
+		anObject.adaptToNumberAndApply(self, min:/2)
 	}
 
 	minkowskiQuestionMark { :x |

@@ -20,6 +20,8 @@ Plot over _(-5, 5)_ with increasing σ of _0.3_, _1_, and _2_:
 
 See also: epanechnikovKernel, gaussianFilter, gaussianMatrix, gaussianWindow, NormalDistribution
 
+Guides: Window Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GaussianFunction.html),

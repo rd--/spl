@@ -18,3 +18,7 @@ Plot over a subset of the reals:
 See also: softMax, softPlus, tanh
 
 Guides: Sigmoid Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Activation_function)

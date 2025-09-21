@@ -2,17 +2,17 @@
 
 - _linspace(x1, x2, n)_
 
-Answer _n_ points, the spacing between the points is _(x2 - x1) / (n - 1)_.
+Answer _n_ points, the spacing between the points is _(x2-x1)/(n-1)_.
 For real values equivalent to `discretize`.
 
 At `SmallFloat`, create a `List` of seven evenly spaced points in the interval -5 -- 5:
 
 ```
 >>> -5.linspace(5, 7)
-[-5 -3.3333 -1.6667 0 1.6667 3.3333 5]
+[-5 -10/3 -5/3 0 5/3 10/3 5]
 
 >>> (-5 -- 5).discretize(7).asList
-[-5 -3.3333 -1.6667 0 1.6667 3.3333 5]
+[-15 -10 -5 0 5 10 15] / 3
 ```
 
 At `Complex`, create a `List` of eight evenly spaced points in the interval 1J2 -- 10J10:
@@ -34,6 +34,8 @@ At `Complex`, create a `List` of eight evenly spaced points in the interval 1J2 
 * * *
 
 See also: discretize, logspace, subdivide
+
+Guides: Interpolation Functions
 
 References:
 _Mathworks_

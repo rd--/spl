@@ -314,9 +314,9 @@ Print `String`:
 
 * * *
 
-See also: denominator, normalized, numerator, ReducedFraction, reduced
+See also: /, denominator, normalized, numerator, ReducedFraction, reduced
 
-Guides: Fraction Literals
+Guides: Fraction Literals, Numeric Types
 
 References:
 _Haskell_

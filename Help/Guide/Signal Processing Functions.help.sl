@@ -1,57 +1,73 @@
 # Signal Processing Functions
 
-## Convolution Functions
+Convolution Functions:
 
 - `convolve`
 - `fftConvolve`
 
-## Delta Functions
+Delta Functions:
 
 - `diracDelta`
 - `kroneckerDelta`
 
-## Fourier Transforms
+Filter Functions:
+
+- `Filter Functions`: Guide
+
+Fourier Transforms:
 
 - `Fourier Analysis Functions`: Guide
 
-## Hadamard Transforms
+Hadamard Transforms:
 
 - `fastWalshHadamardTransform`
 - `hadamardMatrix`
 
-## Heaviside Functions
+Heaviside Functions:
 
 - `heavisideLambda`
 - `heavisidePi`
 - `heavisideTheta`
 
-## Phase Functions
+Interpolation Functions:
+
+- `Interpolation Functions`: Guide
+
+Phase Functions:
 
 - `unwrapPhase`
 
-## Resampling Functions
+Resampling Functions:
 
 - `downsample`
 - `downsampleSteinarsson`
 - `resample`
 - `upsample`
 
-## Unit Functions
+Sigmoid Functions:
+
+- `Sigmoid Functions`: Guide
+
+Unit Functions:
 
 - `unitBox`
 - `unitStep`
 - `unitTriangle`
 
-## Waveform Functions
+Waveform Functions:
 
 - `sawtoothWave`
 - `squareWave`
 - `triangleWave`
 
-## Weighting Curve Functions
+Weighting Curve Functions:
 
 - `aWeightingCurve`
 - `bWeightingCurve`
+
+Window Functions:
+
+- `Window Functions`: Guide
 
 * * *
 

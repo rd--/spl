@@ -16,7 +16,7 @@ At `SmallFloat`:
 
 ```
 >>> 0.123456.minkowskiQuestionMark
-0.00780487
+1/128
 
 >>> (1 + 5.sqrt / 7)
 >>> .minkowskiQuestionMark
@@ -30,6 +30,20 @@ At `SmallFloat`:
 >>> (13.sqrt - 7 / 6)
 >>> .minkowskiQuestionMark
 -5/9
+```
+
+At `Fraction` answers a dyadic rational:
+
+```
+>>> 7/11.minkowskiQuestionMark
+23/32
+
+>>> (7 / 11).minkowskiQuestionMark
+23 / 32
+
+>>> 77913/12387.minkowskiQuestionMark
+>>> .isDyadicRational
+true
 ```
 
 At `Integer`:

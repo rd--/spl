@@ -67,4 +67,4 @@ Plot the sine function:
 
 See also: --, Interval, Range, subdivide
 
-Guides: Coordinate System Functions, List Functions
+Guides: Coordinate System Functions, Interpolation Functions, List Functions

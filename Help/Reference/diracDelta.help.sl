@@ -30,5 +30,7 @@ Guides: Signal Processing Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/DeltaFunction.html),
-[2](https://reference.wolfram.com/language/ref/DiracDelta)
+[1](https://mathworld.wolfram.com/DeltaFunction.html)
+[2](https://reference.wolfram.com/language/ref/DiracDelta),
+_W_
+[1](https://en.wikipedia.org/wiki/Dirac_delta_function)

@@ -519,6 +519,10 @@
 		self.remainder(anObject)
 	}
 
+	\ { :self :aNumber |
+		self.Fraction(aNumber)
+	}
+
 	< { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, <)
 	}

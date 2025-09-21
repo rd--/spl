@@ -40,6 +40,8 @@ At `Complex`, create a `List` of eight evenly spaced points in the interval _10^
 
 See also: discretize, linspace, subdivide
 
+Guides: Interpolation Functions
+
 References:
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/logspace.html)

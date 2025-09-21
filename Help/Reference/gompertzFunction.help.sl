@@ -60,6 +60,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/GompertzCurve.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Gompertz_function)
+[1](https://wikipedia.org/wiki/Gompertz_function)
 
 Further Reading: Gompertz 1825

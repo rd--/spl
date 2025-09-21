@@ -28,10 +28,6 @@
 		self.collect(%.bindRight(anObject))
 	}
 
-	\ { :self :aCollection |
-		self.difference(aCollection)
-	}
-
 	++ { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);

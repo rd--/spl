@@ -21,8 +21,18 @@
 		}
 	}
 
-	polygonalNumber { :r :n |
-		(1 / 2) * n * (n * (r - 2) - r + 4)
+	braceletCount { :n :k |
+		let t1 = 0;
+		1.toDo(n) { :d |
+			((n % d) = 0).ifTrue {
+				t1 := t1 + (d.eulerPhi * (k ^ (n / d)))
+			}
+		};
+		n.isEven.if {
+			(t1 + ((n / 2) * (1 + k) * (k ^ (n / 2)))) / (2 * n)
+		} {
+			(t1 + (n * (k ^ ((n + 1) / 2)))) / (2 * n)
+		}
 	}
 
 	doubleFactorial { :self |
@@ -66,6 +76,34 @@
 		} {
 			'@Integer>>hyperfactorial: not implemented for non-integer'.error
 		}
+	}
+
+	necklaceCount { :n :k |
+		k.isList.if {
+			let [m] = k;
+			n.divisors.sum { :d |
+				d.eulerPhi * stirlingS2(n / d, m) * m.factorial
+			} / n
+		} {
+			n.divisors.sum { :d |
+				d.eulerPhi * (k ^ (n / d)) / n
+			}
+		}
+	}
+
+	polygonalNumber { :r :n |
+		(1 / 2) * n * (n * (r - 2) - r + 4)
+	}
+
+	stirlingS2 { :n :k |
+		/*
+		0:k.sum { :i |
+			((-1 ^ (k - i)) * (i ^ n)) / ((k - i).factorial * i.factorial)
+		}
+		*/
+		((1 / k.factorial) * 0:k.sum { :i |
+			(-1 ^ (k - i)) * binomial(k, i) * (i ^ n)
+		}).round
 	}
 
 }

@@ -73,7 +73,7 @@ let v = u.reverse;
 
 See also: accumulate, differences, fft, fftConvolve, ifft, inner, linearRecurrence, movingAverage, partition
 
-Guides: Fourier Analysis Functions
+Guides: Fourier Analysis Functions, Signal Processing Functions
 
 References:
 _Mathematica_

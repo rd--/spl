@@ -47,9 +47,21 @@ each row of the matrix is normalized:
 ]
 ```
 
+Plot:
+
+~~~spl svg=A
+(-1 -- 1).discretize(100)
+.softMax
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/softMax-A.svg)
+
 * * *
 
 See also: softPlus
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_
