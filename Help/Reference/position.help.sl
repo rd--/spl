@@ -34,12 +34,12 @@ It is an `error` to move the position out of bounds:
 ```
 >>> {
 >>> 	[].asStream.position := -1
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	[].asStream.position := 1
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

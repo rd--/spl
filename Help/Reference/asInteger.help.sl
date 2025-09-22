@@ -11,13 +11,13 @@ however it may change the type of the value:
 ```
 >>> let x = 23L;
 >>> let y = x.asInteger;
->>> (y, x = y)
-(23, true)
+>>> (y, x = y, x == y)
+(23, true, false)
 
 >>> let x = 23/1;
 >>> let y = x.asInteger;
->>> (y, x = y)
-(23, true)
+>>> (y, x = y, x == y)
+(23, true, false)
 ```
 
 At `LargeInteger`,
@@ -33,17 +33,25 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 (18014398509481984L, true)
 ```
 
-In the `Number` case,
-i.e. `SmallFloat` or `Fraction`,
-answer `truncate`:
+If a `SmallFloat`, `Fraction` and `Decimal` it is not an integer it is an error:
 
 ```
->>> 1.pi.asInteger
-3
+>>> { 1.pi.asInteger }.hasError
+true
 
->>> 22/7.asInteger
-3
+>>> { 22/7.asInteger }.hasError
+true
+
+>>> { 3.142D.asInteger }.hasError
+true
 ```
+
+To convert a non-integer to an integer use `round` or `ceiling` or `floor` or `truncate`:
+
+```
+>>> let x = 1.pi;
+>>> (x.round, x.floor, x.ceiling, x.truncate)
+(3, 3, 4, 3)
 
 To convert a `Boolean` to an integer use `asBit` or `boole`:
 
@@ -72,7 +80,7 @@ To parse a `String` as an integer use `parseDecimalInteger`:
 Threads over lists:
 
 ```
->>> [23 23.3 23L].asInteger
+>>> [23 23.0 23L].asInteger
 [23 23 23]
 ```
 

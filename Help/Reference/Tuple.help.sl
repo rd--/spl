@@ -68,7 +68,7 @@ they are not directly mutable:
 false
 
 >>> let x = (1, 2, 3);
->>> { x[1] := -1 }.ifError { true }
+>>> { x[1] := -1 }.hasError
 true
 ```
 

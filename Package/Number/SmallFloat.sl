@@ -134,7 +134,7 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 	}
 
 	asInteger { :self |
-		self.truncate
+		self.asSmallInteger
 	}
 
 	asSmallFloat { :self |

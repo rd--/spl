@@ -59,17 +59,17 @@ It is an error if either index is out of bounds:
 ```
 >>> {
 >>> 	1:9.copyFromTo(-3, 5)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	1:9.copyFromTo(7, 11)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	'text'.copyFromTo(0, 3)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -22,7 +22,7 @@ Replacement must be a string:
 ```
 >>> {
 >>> 	'x x x'.replaceString('x', 1)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

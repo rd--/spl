@@ -24,7 +24,7 @@ nil
 
 >>> {
 >>> 	'23X'.parseLargeInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

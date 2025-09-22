@@ -21,7 +21,7 @@ It is an `error` if the string _s_ is not a single character:
 ```
 >>> {
 >>> 	'..'.isSplPunctuationCharacter
->>> }.ifError { true}
+>>> }.hasError
 true
 ```
 

@@ -17,7 +17,7 @@ Reduce from right to left.
 >>> [1 .. 4].foldRight(+)
 10
 
->>> { [].foldRight(+) }.ifError { true }
+>>> { [].foldRight(+) }.hasError
 true
 
 >>> [1 .. 4].foldRight(-)

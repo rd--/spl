@@ -32,7 +32,7 @@ nil
 >>> {
 >>> 	'2023-05-11T09:30'
 >>> 	.parseDateAndTime
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -11,7 +11,7 @@ Answers _x_.
 
 >>> {
 >>> 	1.pi.assert { false }
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -22,7 +22,7 @@ Answers nil.
 >>> { true }.assert
 nil
 
->>> { { false }.assert }.ifError { true }
+>>> { { false }.assert }.hasError
 true
 ```
 

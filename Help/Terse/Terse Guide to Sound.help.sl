@@ -185,7 +185,7 @@ nil ? { 'x' } = 'x' /* right hand side if nil */
 [[[1], [2]], [[3], [4]], [[5], [6]]].shape = [3, 2, 1] /* rank and shape both assume regularity */
 [1 2 3; 4 5 6].shape = [2 3] /* size of shape is rank */
 [1 2; 3 4; 5 6].shape = [3 2] /* size of each element is size at depth */
-{ [1 2; 3; 4 5 6].shape }.ifError { true } /* rank and shape both assume and check regularity */
+{ [1 2; 3; 4 5 6].shape }.hasError /* rank and shape both assume and check regularity */
 [4].iota = [1 2 3 4] /* list with counter */
 [3, 2].iota = [[1, 2], [3, 4], [5, 6]] /* matrix (two-dimensional array) with counter */
 [3, 2, 1].iota = [[[1], [2]], [[3], [4]], [[5], [6]]] /* three-dimensional array with counter */

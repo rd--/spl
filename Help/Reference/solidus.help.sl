@@ -79,7 +79,7 @@ Infinity
 >>> (5J3 / 0).isNaN
 true
 
->>> { 5/3 / 0 }.ifError { true }
+>>> { 5/3 / 0 }.hasError
 true
 ```
 

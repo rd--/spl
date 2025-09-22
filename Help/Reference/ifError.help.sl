@@ -18,7 +18,7 @@ With one argument block:
 true
 ```
 
-With no argument block:
+With no argument block at _g_:
 
 ```
 >>> {
@@ -31,7 +31,7 @@ true
 
 * * *
 
-See also: cull, Error, isError
+See also: cull, Error, hasError, isError
 
 Guides: Block Functions, Control Functions
 

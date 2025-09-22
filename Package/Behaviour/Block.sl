@@ -183,10 +183,18 @@ Block! : [Object] {
 		>
 	}
 
-	ifError { :self :errorHandlerBlock:/1 |
+	hasError { :self:/0 |
+		let answer = false;
+		self:/0.ifError {
+			answer := true
+		};
+		answer
+	}
+
+	ifError { :self:/0 :errorHandlerBlock:/1 |
 		<primitive:
 		try {
-			return _self();
+			return _self_0();
 		} catch (caughtValue) {
 			if(caughtValue instanceof Error) {
 				return _cull_2(_errorHandlerBlock_1, caughtValue)
@@ -197,7 +205,11 @@ Block! : [Object] {
 		>
 	}
 
-	isLiteral { :self |
+	ignoreError { :self:/0 |
+		self:/0.ifError { }
+	}
+
+	isLiteral { :unused |
 		true
 	}
 

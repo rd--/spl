@@ -85,7 +85,7 @@ Threads elementwise over lists and matrices:
 Unlike `sqrt`, does not answer `Complex` values:
 
 ```
->>> { -8.nthRoot(2) }.ifError { true }
+>>> { -8.nthRoot(2) }.hasError
 true
 
 >>> -8.sqrt
@@ -95,7 +95,7 @@ true
 On the negative real axis, `nthRoot` is undefined for even _n_:
 
 ```
->>> { -3.nthRoot(2) }.ifError { true }
+>>> { -3.nthRoot(2) }.hasError
 true
 ```
 

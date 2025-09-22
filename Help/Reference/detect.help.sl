@@ -27,7 +27,7 @@ It is an error if no element is detected:
 >>> 	(5 .. 1).detect { :each |
 >>> 		each % 7 = 0
 >>> 	}
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -78,7 +78,7 @@ Span(-1, 1, -1)
 >>> Range(-1, 1, -1).size
 0
 
->>> { -1:-1:1.size }.ifError { true }
+>>> { -1:-1:1.size }.hasError
 true
 ```
 
@@ -95,7 +95,7 @@ Span(1, -1, 1)
 >>> Range(1, -1, 1).size
 0
 
->>> { 1:-1.size }.ifError { true }
+>>> { 1:-1.size }.hasError
 true
 ```
 

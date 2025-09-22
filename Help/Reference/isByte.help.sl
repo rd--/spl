@@ -22,7 +22,7 @@ false
 It is an `error` if the value is not a number:
 
 ```
->>> { 'x'.isByte }.ifError { true }
+>>> { 'x'.isByte }.hasError
 true
 ```
 

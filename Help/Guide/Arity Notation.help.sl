@@ -7,7 +7,7 @@ meaning that each `Block` and `Method` must be called with the correct number of
 >>> { :x | x * x } . (3)
 9
 
->>> { { :x | x * x } . (3, 4) }.ifError { true }
+>>> { { :x | x * x } . (3, 4) }.hasError
 true
 ```
 

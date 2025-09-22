@@ -103,7 +103,7 @@ nil
 
 >>> {
 >>> 	'three'.parseSmallInteger(10)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

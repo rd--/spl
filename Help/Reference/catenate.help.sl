@@ -57,7 +57,7 @@ At `List` of `String`:
 
 >>> {
 >>> 	['x' 'y' 'z'].catenate(true)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

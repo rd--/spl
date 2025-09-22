@@ -58,7 +58,7 @@ nil
 
 >>> {
 >>> 	'3M'.parseDuration
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

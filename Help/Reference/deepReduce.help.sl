@@ -29,7 +29,7 @@ In cases where _aBlock_ is not associative, reduce associates to the left:
 Reducing an empty collection is an error:
 
 ```
->>> { [].deepReduce(+) }.ifError { true }
+>>> { [].deepReduce(+) }.hasError
 true
 ```
 

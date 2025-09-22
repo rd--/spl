@@ -28,7 +28,7 @@ If _primes_ does not contain all of the factors for _aFraction_ signal an `error
 ```
 >>> {
 >>> 	17/13.latticeVector([3 5 7 11 13])
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 17/13.latticePrimes(true)

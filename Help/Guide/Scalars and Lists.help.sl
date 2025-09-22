@@ -56,7 +56,7 @@ Require that the vectors be of equal size:
 >>> [1 2 3] +.e [4 5 6]
 [5 7 9]
 
->>> {[1 2 3] +.e [4 5 6 7] }.ifError { true }
+>>> {[1 2 3] +.e [4 5 6 7] }.hasError
 true
 ```
 

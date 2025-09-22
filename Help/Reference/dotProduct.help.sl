@@ -25,7 +25,7 @@ It is an `error` if the vectors are of unequal size:
 ```
 >>> {
 >>> 	dotProduct([3 4 5])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

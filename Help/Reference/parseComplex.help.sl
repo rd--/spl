@@ -28,7 +28,7 @@ nil
 
 >>> {
 >>> 	'3.141'.parseComplex
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

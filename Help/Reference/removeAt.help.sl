@@ -25,7 +25,7 @@ If is an error if the index is not valid:
 
 ```
 >>> let l = [1 2 3 4 5];
->>> { l.removeAt(7) }.ifError { true }
+>>> { l.removeAt(7) }.hasError
 true
 ```
 

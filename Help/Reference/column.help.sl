@@ -41,7 +41,7 @@ It is an error if the column is out of bounds:
 ```
 >>> {
 >>> 	[5 5].iota.column(9)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

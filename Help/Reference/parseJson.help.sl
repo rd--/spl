@@ -57,7 +57,7 @@ nil
 
 >>> {
 >>> 	'invalid'.parseJson
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

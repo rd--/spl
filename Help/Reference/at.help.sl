@@ -24,9 +24,9 @@ All sequenceable collections, including `List`, are indexable:
 Invalid indices signal an `error`:
 
 ```
->>> { ['x' 'y'].at(3) }.ifError {
->>> 	true
->>> }
+>>> {
+>>> 	['x' 'y'].at(3)
+>>> }.hasError
 true
 ```
 
@@ -53,9 +53,9 @@ All dictionaries, including `Record` and `Map`, are indexable:
 A non-existing key signals an `error`:
 
 ```
->>> { (x: 1, y: 2).at('z') }.ifError {
->>> 	true
->>> }
+>>> {
+>>> 	 (x: 1, y: 2).at('z')
+>>> }.hasError
 true
 ```
 
@@ -71,7 +71,7 @@ true
 ```
 >>> {
 >>> 	[1 2 3].asIdentitySet.at(1)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -80,7 +80,7 @@ true
 ```
 >>> {
 >>> 	[1 2 3].asIdentityBag.at(1)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -127,7 +127,7 @@ It is an error if the index is a collection:
 ```
 >>> {
 >>> 	['1' '2' '3'].at([1 2])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

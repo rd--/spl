@@ -119,7 +119,7 @@
 	}
 
 	asInteger { :self |
-		self.truncate
+		self.typeResponsibility('@Number>>asInteger')
 	}
 
 	asNumber { :self |

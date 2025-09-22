@@ -28,7 +28,7 @@ It is an `error` if the name is not in the archive:
 ```
 >>> {
 >>> 	'*unnamed tuning*'.namedTuning
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

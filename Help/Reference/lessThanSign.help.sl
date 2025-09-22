@@ -29,7 +29,7 @@ true
 At `Complex`, inequalities are defined only for real numbers:
 
 ```
->>> { 3J3 < 5J5 }.ifError { true }
+>>> { 3J3 < 5J5 }.hasError
 true
 ```
 
@@ -43,10 +43,10 @@ Element-wise at `Sequence`:
 `String` and `Number` cannot be compared with each other:
 
 ```
->>> { '5' < 3 }.ifError { true }
+>>> { '5' < 3 }.hasError
 true
 
->>> { 5 < '3' }.ifError { true }
+>>> { 5 < '3' }.hasError
 true
 ```
 

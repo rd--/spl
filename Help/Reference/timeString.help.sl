@@ -24,7 +24,7 @@ Time(86399.999)
 
 >>> {
 >>> 	Time(86400).timeString
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

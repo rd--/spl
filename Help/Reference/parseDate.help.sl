@@ -27,7 +27,7 @@ nil
 
 >>> {
 >>> 	'2025-05'.parseDate
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

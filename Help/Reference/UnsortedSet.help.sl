@@ -49,7 +49,7 @@ false
 
 >>> {
 >>> 	IdentitySet([1 1L])
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 1J1 == 1J1
@@ -64,7 +64,7 @@ true
 
 >>> {
 >>> 	IdentitySet([1J1 1J1])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

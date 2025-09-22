@@ -50,7 +50,7 @@ It is an `error` if any key is not a string:
 ```
 >>> {
 >>> 	Record([1.pi -> 'pi'])
->>> }.ifError { :err | true }
+>>> }.hasError
 true
 ```
 

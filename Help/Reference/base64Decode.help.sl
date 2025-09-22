@@ -68,7 +68,7 @@ Out of range values raise an error:
 ```
 >>> {
 >>> 	'ABαCD'.base64Decode
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -482,7 +482,7 @@
 			let numDigits = self.isZero.if {
 				1
 			} {
-				(self.abs.log / base.log + 0.0000000001).asInteger + 1
+				(self.abs.log / base.log + 0.0000000001).truncate + 1
 			};
 			self.integerDigits(
 				base,

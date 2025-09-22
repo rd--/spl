@@ -86,7 +86,7 @@ Transposition of a vector is an error:
 ```
 >>> {
 >>> 	[1.5 2.2 3.1].transpose
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -95,12 +95,12 @@ Transposition requires that the matrix be regular:
 ```
 >>> {
 >>> 	[1 2; 3 4 5].transpose
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	[1 2; 3 4 5].transpose([2 1])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

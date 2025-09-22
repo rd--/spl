@@ -57,7 +57,7 @@ It is an `error` to refer to a variable before it is declared:
 >>> 	let x = y;
 >>> 	let y = 4;
 >>> 	x
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

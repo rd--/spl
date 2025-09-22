@@ -7,7 +7,7 @@ Blocks have fixed arity and must be applied to the correct number of arguments.
 >>> { true } . ()
 true
 
->>> { { true } . (true) }.ifError { true }
+>>> { { true } . (true) }.hasError
 true
 
 >>> { :x | x * x } . (9)

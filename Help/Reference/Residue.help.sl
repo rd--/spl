@@ -80,7 +80,7 @@ Only `isCoprime` values have an inverse:
 >>> 6.isCoprime(15)
 false
 
->>> { 6Z15.inverse }.ifError { true }
+>>> { 6Z15.inverse }.hasError
 true
 ```
 
@@ -127,7 +127,7 @@ or a collection:
 It is an error if the two modulus are not equal:
 
 ```
->>> { 9Z12 + 5Z7 }.ifError { true }
+>>> { 9Z12 + 5Z7 }.hasError
 true
 ```
 

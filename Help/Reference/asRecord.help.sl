@@ -27,12 +27,12 @@ or does not have two columns:
 ```
 >>> {
 >>> 	[1 2; 3 4; 5 6].asRecord
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	['x' 1 2; 'y' 3 4; 'z' 5 6].asRecord
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

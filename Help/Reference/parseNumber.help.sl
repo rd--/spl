@@ -71,7 +71,7 @@ nil
 
 >>> {
 >>> 	'Infinity'.parseNumber
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -84,7 +84,7 @@ nil
 
 >>> {
 >>> 	'2r1001'.parseNumber
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 2r1001

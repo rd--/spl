@@ -11,7 +11,7 @@ The collection must be non-empty and contain compatible magnitudes.
 >>> 1:10.min
 1
 
->>> { [].min }.ifError { true }
+>>> { [].min }.hasError
 true
 ```
 

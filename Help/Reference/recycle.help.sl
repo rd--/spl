@@ -89,7 +89,7 @@ Recycle to make a regular 2×3×3 volume:
 It is an `error` if there are any empty places:
 
 ```
->>> { [1; ; 3].recycle }.ifError { true }
+>>> { [1; ; 3].recycle }.hasError
 true
 ```
 

@@ -11,6 +11,12 @@ that is the integer part of the number.
 
 >>> -1.25.truncate
 -1
+
+>>> 1.pi.truncate
+3
+
+>>> (0 - 1.pi).truncate
+-3
 ```
 
 Compare to `floor`:
@@ -21,6 +27,19 @@ Compare to `floor`:
 
 >>> -1.25.floor
 -2
+```
+
+At `Fraction`:
+
+```
+>>> 22/7.truncate
+3
+
+>>> -22/7.truncate
+-3
+
+>>> 7/8.truncate
+0
 ```
 
 * * *

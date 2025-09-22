@@ -17,7 +17,7 @@ It is an error if the value is not an integer:
 ```
 >>> {
 >>> 	1.pi.asSmallInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -33,7 +33,7 @@ It is an error if the value is cannot be represented as a small integer:
 ```
 >>> {
 >>> 	(2L ^ 53L).asSmallInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

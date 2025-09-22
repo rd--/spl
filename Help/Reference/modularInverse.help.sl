@@ -163,7 +163,7 @@ false
 
 >>> {
 >>> 	10.modularInverse(22)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 40.isCoprime(2018)
@@ -171,7 +171,7 @@ false
 
 >>> {
 >>> 	40.modularInverse(2018)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

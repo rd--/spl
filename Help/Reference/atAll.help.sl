@@ -98,7 +98,7 @@ It is an error if the index is not a collection:
 ```
 >>> {
 >>> 	['1' '2' '3'].atAll(2)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

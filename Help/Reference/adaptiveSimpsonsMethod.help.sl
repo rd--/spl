@@ -88,7 +88,7 @@ Fails for oscillatory and other complicated functions:
 >>> 	{ :x |
 >>> 		(1 / x) * (x.log / x).cos
 >>> 	}.adaptiveSimpsonsMethod([0 1])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

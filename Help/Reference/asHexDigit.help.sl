@@ -15,7 +15,7 @@ Answer the `Character` representing given hexadecimal digit.
 Signal an `error` if out of bounds:
 
 ```
->>> { -1.asHexDigit }.ifError { true }
+>>> { -1.asHexDigit }.hasError
 true
 ```
 

@@ -29,7 +29,7 @@ nil
 
 >>> {
 >>> 	'3.141'.parseFraction
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

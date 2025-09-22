@@ -15,10 +15,10 @@ Answer a block that applies the block _f_ with the arguments reversed.
 It is an error if _aBlock_ is not binary:
 
 ```
->>> { {}.swap }.ifError { true }
+>>> { {}.swap }.hasError
 true
 
->>> { identity:/1.swap }.ifError { true }
+>>> { identity:/1.swap }.hasError
 true
 ```
 

@@ -47,7 +47,7 @@ _reduce_ is an alias for _foldLeft_, the dual of which is _foldRight_:
 Reducing an empty collection is an error:
 
 ```
->>> { [].reduce(+) }.ifError { true }
+>>> { [].reduce(+) }.hasError
 true
 ```
 

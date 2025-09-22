@@ -138,7 +138,7 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 	}
 
 	asInteger { :self |
-		self.truncate.asInteger
+		self.asLargeInteger.asInteger
 	}
 
 	asLargeInteger { :self |
@@ -165,19 +165,25 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 	}
 
 	continuedFraction { :self |
-		let answer = [];
 		let i = self.integerPart;
 		let f = self - i;
-		{
-			f != 0
-		}.whileTrue {
+		self.isNegative.if {
+			let answer = (1 + f).continuedFraction;
+			answer[1] := answer[1] + i - 1;
+			answer
+		} {
+			let answer = [];
+			{
+				f != 0
+			}.whileTrue {
+				answer.add(i);
+				f := 1 / f;
+				i := f.integerPart;
+				f := f - i
+			};
 			answer.add(i);
-			f := 1 / f;
-			i := f.integerPart;
-			f := f - i
-		};
-		answer.add(i);
-		answer
+			answer
+		}
 	}
 
 	dividesImmediately { :self :aNumber |

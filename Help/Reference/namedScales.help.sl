@@ -20,7 +20,7 @@ It is an `error` if the name is not in the archive:
 ```
 >>> {
 >>> 	'*unnamed scale*'.namedScales
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

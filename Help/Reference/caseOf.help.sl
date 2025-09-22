@@ -56,7 +56,7 @@ If no match is found, and no _otherwise_ clause is given, report an `error`:
 >>> ];
 >>> {
 >>> 	'd'.caseOf(c)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -65,7 +65,7 @@ If the collection _c_ does not contain associations, report an `error`:
 ```
 >>> {
 >>> 	'x'.caseOf(['x' 'y' 'z'])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

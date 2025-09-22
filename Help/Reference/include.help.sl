@@ -45,7 +45,7 @@ Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`
 
 ```
 >>> let s = IdentitySet();
->>> { s.include([1]) }.ifError { true }
+>>> { s.include([1]) }.hasError
 true
 ```
 

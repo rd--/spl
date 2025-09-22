@@ -27,7 +27,7 @@ It is an error if the string contains non-Ascii characters:
 ```
 >>> {
 >>> 	'Mačiūnas'.asciiByteArray
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

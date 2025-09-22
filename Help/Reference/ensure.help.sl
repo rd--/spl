@@ -9,15 +9,15 @@ Assign to _x_ in the case of an error:
 
 ```
 >>> let x = nil;
->>> {
+>>> let y = {
 >>> 	{
 >>> 		''.error
 >>> 	}.ensure {
 >>> 		x := true
 >>> 	}
->>> }.ifError { };
->>> x
-true
+>>> }.ignoreError;
+>>> (x, y)
+(true, nil)
 ```
 
 Assign to _x_ in the case of no `error`:

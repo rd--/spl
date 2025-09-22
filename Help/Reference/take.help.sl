@@ -22,7 +22,7 @@ or less if _c_ is not large enough.
 >>> [1 2].take(0)
 []
 
->>> { [1 2].take(-1) }.ifError { true }
+>>> { [1 2].take(-1) }.hasError
 true
 
 >>> [5 4 3 2 1].take(3)

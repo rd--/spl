@@ -82,7 +82,7 @@ For positive integers _quotient(m, n) + fractionalPart(m / n)_ is always equal t
 Division by `zero` is an `error`:
 
 ```
->>> { 3 // 0 }.ifError { true }
+>>> { 3 // 0 }.hasError
 true
 ```
 

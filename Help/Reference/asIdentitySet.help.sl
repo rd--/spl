@@ -34,7 +34,7 @@ Lists that compare `=` do not compare `==`,
 ```
 >>> {
 >>> 	[1 1; 1 1].asIdentitySet
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

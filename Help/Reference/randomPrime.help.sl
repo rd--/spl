@@ -23,7 +23,7 @@ If no prime exists in the specified range, an error is raised:
 ```
 >>> {
 >>> 	system.randomPrime(14, 16, [])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

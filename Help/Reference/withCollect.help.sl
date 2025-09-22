@@ -48,7 +48,7 @@ There are variant forms with distinct rules for how to behave when the sequences
 >>> 		[4 5 6 7],
 >>> 		*
 >>> 	)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

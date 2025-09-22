@@ -11,7 +11,7 @@ If _key_ is not found, signal an `error`.
 
 >>> {
 >>> 	(x: 1, y: 2).associationAt('z')
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

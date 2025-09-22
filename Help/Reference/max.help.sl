@@ -23,7 +23,7 @@ At `List`:
 It is an error if the collection is empty:
 
 ```
->>> { [].max }.ifError { true }
+>>> { [].max }.hasError
 true
 ```
 

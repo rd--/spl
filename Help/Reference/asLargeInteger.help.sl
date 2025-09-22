@@ -20,7 +20,7 @@ It is an error if the value is not an integer:
 ```
 >>> {
 >>> 	1.pi.asLargeInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -30,7 +30,7 @@ If the index is out of range answer signal an error:
 ```
 >>> {
 >>> 	'four'.wordAtIndex(5)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -78,7 +78,7 @@ It is an `error` if the string is not an operator character:
 ```
 >>> {
 >>> 	'x'.splOperatorTokenName
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -17,7 +17,7 @@ Prefix must be a sequence:
 ```
 >>> {
 >>> 	[1 .. 5].beginsWith(1) = false
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

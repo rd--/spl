@@ -33,7 +33,7 @@ If the sequence has as many places as are discared answer the empty sequence:
 If there are too few items an `error` is signalled:
 
 ```
->>> { [].allButFirst }.ifError { true }
+>>> { [].allButFirst }.hasError
 true
 ```
 

@@ -19,7 +19,27 @@ at `Fraction`:
 
 >>> 13/27.continuedFraction
 [0 2 13]
+```
 
+At negative _x_:
+
+```
+>>> -17/12.continuedFraction
+[-2 1 1 2 2]
+
+>>> [-2 1 1 2 2].fromContinuedFraction
+-17/12
+
+>>> -151/77.continuedFraction
+[-2 25 1 2]
+
+>>> [-2 25 1 2].fromContinuedFraction
+-151/77
+```
+
+At larger fraction:
+
+```
 >>> 789213/479713.continuedFraction
 [1 1 1 1 4 1 1 63 1 13 8 2]
 ```
@@ -38,6 +58,9 @@ Rational number as `SmallFloat`:
 
 >>> (22 / 45).continuedFraction
 [0 2 22]
+
+>>> (-151 / 77).continuedFraction
+[-2 25 1 2]
 ```
 
 Does not simplify final term:
@@ -108,6 +131,10 @@ The continued fraction of the `goldenRatio` is uniformly one:
 Other low order repeating continued fractions:
 
 ```
+>>> ((1 + 3.sqrt) / 2)
+>>> .continuedFraction(16)
+[1 2 1 2 1 2 1 2 1 2 1 2 1 2 1 2]
+
 >>> (1 + 2.sqrt)
 >>> .continuedFraction(17)
 [2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2]
@@ -123,6 +150,14 @@ Other low order repeating continued fractions:
 >>> ((5 + 7565.sqrt) / 58)
 >>> .continuedFraction(19)
 [1 1 1 2 2 2 2 1 1 2 2 2 2 1 1 2 2 2 2]
+
+>>> ((4 + 37.sqrt) / 7)
+>>> .continuedFraction(18)
+[1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3]
+
+>>> ((9 + (2 * 39.sqrt)) / 15)
+>>> .continuedFraction(16)
+[1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4]
 ```
 
 The continued fractions of integer square roots:
@@ -219,6 +254,16 @@ Threads over lists:
 	1 2 2 2 2 2 2 2 3 6 1 2 1 12;
 	1 2 2 2 2 2 2 2 2 2 6 1 2 4 1 1 2
 ]
+```
+
+At `zero`:
+
+```
+>>> 0.continuedFraction
+[0]
+
+[0].fromContinuedFraction
+0
 ```
 
 * * *

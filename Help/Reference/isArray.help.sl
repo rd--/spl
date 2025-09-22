@@ -40,7 +40,7 @@ In the Apl model scalars are zero dimensional arrays.
 However `isArray` is not implemented for Object.
 
 ```
->>> { 1.isArray = nil }.ifError { true }
+>>> { 1.isArray = nil }.hasError
 true
 ```
 

@@ -66,9 +66,9 @@ Use `error` as default value:
 >>> };
 >>> (
 >>> 	(weight: 90, height: 1.8).bmi,
->>> 	{ (:).bmi }.ifError { nil }
+>>> 	{ (:).bmi }.hasError
 >>> )
-(27.7778, nil)
+(27.7778, true)
 ```
 
 _Rationale_:

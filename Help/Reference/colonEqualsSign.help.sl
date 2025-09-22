@@ -31,7 +31,7 @@ Assigning to multiple variables:
 It is an error to assign to an undeclared variable:
 
 ```
->>> { x := 3 }.ifError { true }
+>>> { x := 3 }.hasError
 true
 ```
 

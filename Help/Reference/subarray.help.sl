@@ -105,7 +105,7 @@ It is an `error` for there to be no indices:
 ```
 >>> {
 >>> 	[1 2; 3 4].subarray([])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -114,7 +114,7 @@ It is an `error` for the indices to not be a list:
 ```
 >>> {
 >>> 	[1 2; 3 4].subarray(0)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

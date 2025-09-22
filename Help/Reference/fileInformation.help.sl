@@ -22,7 +22,7 @@ It is an `error` if the file does not exist:
 >>> {
 >>> 	'/FileDoesNotExist'
 >>> 	.fileInformation
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

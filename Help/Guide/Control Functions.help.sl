@@ -32,7 +32,10 @@ Exceptions:
 
 - `ensure`
 - `error`
+- `hasError`
+- `ignoreError`
 - `ifError`
+- `isError`
 - `signal`
 
 * * *

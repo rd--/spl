@@ -26,7 +26,7 @@ At integer allows `zero` or `one`:
 else it is an error:
 
 ```
->>> { 2.asBit }.ifError { true }
+>>> { 2.asBit }.hasError
 true
 ```
 

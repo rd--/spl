@@ -1,6 +1,6 @@
 # fromContinuedFraction
 
-- _fromContinuedFraction(aSequence)_
+- _fromContinuedFraction([a₁ a₂ …])_
 
 Reconstructs a number from the list of its continued fraction terms.
 
@@ -18,7 +18,35 @@ Reconstructs a number from the list of its continued fraction terms.
 >>> .prefixes
 >>> .collect(fromContinuedFraction:/1)
 [2 3 11/4 47/17]
+```
+Quadratic irrationals have recurring continued fractions,
+which are not marked, instead a truncation is taken:
 
+```
+>>> 71.sqrt.continuedFraction(9)
+[8 2 2 1 7 1 2 2 16]
+
+>>> [8 2 2 1 7 1 2 2 16]
+>>> .fromContinuedFraction
+71.sqrt
+```
+
+Rational approximation to π:
+
+```
+>>> 1.pi.continuedFraction(3)
+[3 7 15]
+
+>>> [3 7 15].fromContinuedFraction
+333/106
+
+>>> 333/106.asFloat
+3.1415
+```
+
+Larger fractions:
+
+```
 >>> [1 1 1 1 4 1 1 63 1 13 8 2]
 >>> .fromContinuedFraction
 789213/479713
@@ -57,6 +85,16 @@ A continued fraction may begin with a zero, where the answer is less than 1/2:
 
 >>> [0].fromContinuedFraction
 0
+```
+
+Continued fractions of negative numbers have a negative leading term:
+
+```
+>>> [-2 25 1 2].fromContinuedFraction
+-151/77
+
+>>> [-2 1 1 2 2].fromContinuedFraction
+-17/12
 ```
 
 Construct continued fractions:

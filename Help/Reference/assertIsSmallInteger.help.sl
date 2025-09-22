@@ -14,7 +14,7 @@ Raise an error if value is not a small integer:
 ```
 >>> {
 >>> 	3.141.assertIsSmallInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

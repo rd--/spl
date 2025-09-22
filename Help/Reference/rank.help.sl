@@ -52,7 +52,7 @@ do not have a shape,
 and therefore do not have a rank:
 
 ```
->>> { [1; 2 3].rank }.ifError { true }
+>>> { [1; 2 3].rank }.hasError
 true
 ```
 

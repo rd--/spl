@@ -53,7 +53,7 @@ nil
 
 >>> {
 >>> 	'3.141'.parseScientificNotation
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

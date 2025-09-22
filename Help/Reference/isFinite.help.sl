@@ -35,7 +35,7 @@ At `nil`:
 ```
 >>> {
 >>> 	nil.isFinite
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

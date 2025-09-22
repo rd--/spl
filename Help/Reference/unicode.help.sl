@@ -11,7 +11,7 @@ If _aFraction_ has a unicode code-point answer it.
 >>> 2/3.unicode
 '⅔'
 
->>> { 11/13.unicode }.ifError { true }
+>>> { 11/13.unicode }.hasError
 true
 ```
 

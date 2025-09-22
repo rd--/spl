@@ -159,7 +159,7 @@ At the empty list:
 >>> [].join(1)
 []
 
->>> { [].join(2) }.ifError { true }
+>>> { [].join(2) }.hasError
 true
 ```
 

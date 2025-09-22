@@ -41,7 +41,7 @@ nil
 
 >>> {
 >>> 	'09:46'.parseTime
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

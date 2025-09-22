@@ -17,7 +17,7 @@ Signal an error if there are not enough elements.
 It is an error if too many items are discarded:
 
 ```
->>> { [1 .. 9].allButLast(23) }.ifError { true }
+>>> { [1 .. 9].allButLast(23) }.hasError
 true
 ```
 
@@ -34,7 +34,7 @@ The unary form answers all but the last element.
 At an empty list signals an error:
 
 ```
->>> { [].allButLast }.ifError { true }
+>>> { [].allButLast }.hasError
 true
 ```
 
@@ -57,7 +57,7 @@ At `String`:
 At `String` it is likewise an error to discard too many items:
 
 ```
->>> { ''.allButLast }.ifError { true }
+>>> { ''.allButLast }.hasError
 true
 ```
 

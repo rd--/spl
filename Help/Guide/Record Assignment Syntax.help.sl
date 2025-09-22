@@ -38,14 +38,14 @@ It is an error if a requested field is not present:
 >>> {
 >>> 	let (x: x, y: y) = (x: 1);
 >>> 	nil
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	var x, y;
 >>> 	(x: x, y: y) := (x: 1);
 >>> 	nil
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -55,14 +55,14 @@ It is an error if not all fields are matched:
 >>> {
 >>> 	let (x: x, y: y) = (x: 1, y: 2, z: 3);
 >>> 	(x, y)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	var x, y;
 >>> 	(x: x, y: y) := (x: 1, y: 2, z: 3);
 >>> 	(x, y)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

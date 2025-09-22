@@ -15,7 +15,7 @@ Signal an error if the sequence is empty.
 
 >>> {
 >>> 	[].middle
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

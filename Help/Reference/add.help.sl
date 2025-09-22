@@ -53,7 +53,7 @@ It is an `error` if the key exists:
 ```
 >>> {
 >>> 	(x: 1).add('x' -> 2)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -68,7 +68,7 @@ At `IdentitySet`,
 
 >>> {
 >>> 	[1].asIdentitySet.add(1)
->>> }.ifError { true}
+>>> }.hasError
 true
 ```
 
@@ -80,7 +80,7 @@ At `Set`:
 
 >>> {
 >>> 	[1 2 3].Set.add(1)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -97,7 +97,7 @@ At `SortedList`:
 At `String`, which is not `Extensible`:
 
 ```
->>> { 'string'.add('!') }.ifError { true }
+>>> { 'string'.add('!') }.hasError
 true
 ```
 

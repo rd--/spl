@@ -43,7 +43,7 @@ with no else clause signals `error` on failure:
 ```
 >>> {
 >>> 	'10r9'.parseDecimalInteger
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 10r9

@@ -19,7 +19,7 @@ else signal an `error`:
 ```
 >>> {
 >>> 	system.typeLookup('Unknown')
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

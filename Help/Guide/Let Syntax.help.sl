@@ -30,9 +30,9 @@ Initialising a value to a `Block` literal rewrites the bound name to its arity q
 >>> let f = { :x | x * 2 + 1 };
 >>> (
 >>> 	f:/1 . (11),
->>> 	{ f . (11) }.ifError { 'undefined' }
+>>> 	{ f . (11) }.hasError
 >>> )
-(23, 'undefined')
+(23, true)
 ```
 
 The syntax token `_` may be used to indicate a binding to an unused name.

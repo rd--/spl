@@ -11,7 +11,7 @@ Unlike `value` this is only defined at `Block` objects.
 
 >>> {
 >>> 	'x'.blockValue
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> { 'x' }.value

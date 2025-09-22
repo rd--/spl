@@ -25,7 +25,7 @@ nil
 
 >>> {
 >>> 	'neither'.parseBoolean
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -18,7 +18,7 @@ Construct a `Range` by counting up or down from _start_ to _stop_ by _step_.
 It is an `error` if _step_ is zero:
 
 ```
->>> { 1.toBy(9, 0) }.ifError { true }
+>>> { 1.toBy(9, 0) }.hasError
 true
 ```
 

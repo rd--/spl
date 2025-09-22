@@ -17,7 +17,7 @@ It is an error if the sequences are not of equal size:
 ```
 >>> {
 >>> 	[1 2 3].withCollectEqual([4 5], +)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

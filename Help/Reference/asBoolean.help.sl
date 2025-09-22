@@ -21,7 +21,7 @@ true
 Integers other than `zero` and `one` signal an error:
 
 ```
->>> { -1.asBoolean }.ifError { true }
+>>> { -1.asBoolean }.hasError
 true
 ```
 

@@ -78,7 +78,7 @@ A zero count entry skips over the corresponding item
 It is an `error` if the count is not integral:
 
 ```
->>> { 3 # 3.5 }.ifError { true }
+>>> { 3 # 3.5 }.hasError
 true
 ```
 

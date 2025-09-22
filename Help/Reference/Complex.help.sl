@@ -205,7 +205,7 @@ true
 
 >>> {
 >>> 	1J1 > 2J2
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

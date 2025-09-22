@@ -11,7 +11,7 @@ Answers _c_.
 
 >>> {
 >>> 	1:4.assertIsOfSize(3)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

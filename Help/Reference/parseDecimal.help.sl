@@ -46,7 +46,7 @@ nil
 
 >>> {
 >>> 	'3.141'.parseDecimal
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

@@ -24,7 +24,7 @@ If there is no such value, signal an `error`:
 ```
 >>> {
 >>> 	(x: 1, y: 2).keyAtValue(3)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

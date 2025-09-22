@@ -14,7 +14,7 @@ Suffix must be a sequence:
 ```
 >>> {
 >>> 	[1 .. 5].endsWith(5) = false
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

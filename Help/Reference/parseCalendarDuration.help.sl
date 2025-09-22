@@ -56,7 +56,7 @@ nil
 
 >>> {
 >>> 	'3M'.parseCalendarDuration
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

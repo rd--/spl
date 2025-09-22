@@ -64,7 +64,7 @@ It is an `error` to search for a substring, see `includesSubstring`:
 ```
 >>> {
 >>> 	'String'.includes('tri')
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 'String'.includesSubstring('tri')

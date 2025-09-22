@@ -172,7 +172,7 @@ A `Range` may not have a `step` of `zero`:
 ```
 >>> {
 >>> 	Range([1 9 0])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

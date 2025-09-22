@@ -36,10 +36,10 @@ The inverse of `boole` is `asBoolean`:
 It is an error if _anObject_ is not a `Boolean`:
 
 ```
->>> { 'false'.boole }.ifError { true }
+>>> { 'false'.boole }.hasError
 true
 
->>> { 0.boole }.ifError { true }
+>>> { 0.boole }.hasError
 true
 ```
 

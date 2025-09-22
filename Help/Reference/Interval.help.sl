@@ -84,7 +84,7 @@ Cannot combine disjoint intervals:
 ```
 >>> {
 >>> 	(-2 -- 0).union(1 -- 4)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -103,14 +103,14 @@ Cannot intersect disjoint intervals:
 ```
 >>> {
 >>> 	(-2 -- 0).intersection(1 -- 4)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
 It is an `error` if `min` exceeds `max`:
 
 ```
->>> { (1 -- 0) }.ifError { true }
+>>> { (1 -- 0) }.hasError
 true
 ```
 

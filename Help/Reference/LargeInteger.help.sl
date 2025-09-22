@@ -71,7 +71,7 @@ Division by an integer answers either a `LargeInteger` or a `Fraction`:
 Division by `zero` signals an `error`:
 
 ```
->>> { 23L / 0 }.ifError { true }
+>>> { 23L / 0 }.hasError
 true
 ```
 
@@ -101,7 +101,7 @@ Math with a `Fraction` answers a `Fraction`:
 Cannot be implicitly converted to a `SmallFloat`:
 
 ```
->>> { 23L * 2.5 }.ifError { true }
+>>> { 23L * 2.5 }.hasError
 true
 
 >>> 23L.asSmallFloat * 2.5

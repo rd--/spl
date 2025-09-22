@@ -33,7 +33,7 @@ It is an error to try and octave reduce a real number:
 ```
 >>> {
 >>> 	3.141.octaveReduce
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

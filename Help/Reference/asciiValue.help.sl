@@ -16,7 +16,7 @@ else an error.
 >>> 'x'.asciiValue
 120
 
->>> { 'é'.asciiValue }.ifError { true }
+>>> { 'é'.asciiValue }.hasError
 true
 ```
 

@@ -19,7 +19,7 @@ If is an error if any index is not valid:
 >>> let l = [1 2 3 4 5];
 >>> {
 >>> 	l.removeAtAll([1 7])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

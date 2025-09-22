@@ -172,7 +172,7 @@ It is an error if the operand is not an integer:
 ```
 >>> {
 >>> 	-3.141.integerDigits
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

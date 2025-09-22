@@ -1,9 +1,9 @@
 # bitAt
 
-- _bitAt(anInteger | aBitSet, k)_
+- _bitAt(x, k)_
 
-Answer the bit corresponding to the coefficient of _2 ^ (k - 1)_ in _anInteger_ or _aBitSet_.
-`bitAt` gets the bit _k - 1_ places from the right.
+Answer the bit corresponding to the coefficient of _2 ^ (k - 1)_ in the integer or bit set _x_.
+`bitAt` gets the bit _k-1_ places from the right.
 `bitAt` represents the bits it retrieves as 0 or 1.
 
 Display coefficients at powers of 2 in the integer 42:

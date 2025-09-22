@@ -15,9 +15,6 @@ At a quadratic irrational number:
 At `SmallFloat`:
 
 ```
->>> 0.123456.minkowskiQuestionMark
-1/128
-
 >>> (1 + 5.sqrt / 7)
 >>> .minkowskiQuestionMark
 11822865281537472L

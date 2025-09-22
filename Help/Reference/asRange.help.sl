@@ -14,7 +14,7 @@ At `List`:
 >>> [1 3 5 7 9].asRange
 (1, 3 .. 9)
 
->>> { [1 3 1 3 1].asRange }.ifError { true }
+>>> { [1 3 1 3 1].asRange }.hasError
 true
 ```
 

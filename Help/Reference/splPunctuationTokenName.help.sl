@@ -25,7 +25,7 @@ It is an `error` if the string is not a punctuation character:
 ```
 >>> {
 >>> 	'x'.splPunctuationTokenName
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

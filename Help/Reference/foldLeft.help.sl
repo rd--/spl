@@ -29,7 +29,7 @@ Reduce from left to right.
 
 >>> {
 >>> 	[].foldLeft(+)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> [1 .. 4].foldLeft(-)

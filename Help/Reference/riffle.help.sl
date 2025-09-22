@@ -28,7 +28,7 @@ It is an `error` if _q_ has too many elements:
 ```
 >>> {
 >>> 	[3 4 5].riffle([-1 -2 -3 -4])
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

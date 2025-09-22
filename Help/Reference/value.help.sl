@@ -63,7 +63,7 @@ It is an `error` if there are too few arguments:
 ```
 >>> {
 >>> 	{ :i | false }.value
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -72,7 +72,7 @@ It is an `error` if there are too many arguments:
 ```
 >>> {
 >>> 	{ :x | false }.value(3, 4)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

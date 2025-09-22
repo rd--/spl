@@ -17,7 +17,7 @@
 	}
 
 	shallowCopy { :self |
-		self.error('copy: cannot copy')
+		self.error('Exception>>shallowCopy: cannot copy')
 	}
 
 }

@@ -28,7 +28,7 @@ where `hadamardProduct` does:
 >>> let c = a * b;
 >>> let d = {
 >>> 	a.hadamardProduct(b)
->>> }.ifError { true } ;
+>>> }.hasError ;
 >>> (c, d)
 ([4 5; 12 18], true)
 
@@ -37,7 +37,7 @@ where `hadamardProduct` does:
 >>> let c = a * b;
 >>> let d = {
 >>> 	a.hadamardProduct(b)
->>> }.ifError { true } ;
+>>> }.hasError ;
 >>> (c, d)
 ([1 4 3; 12 20 18], true)
 ```

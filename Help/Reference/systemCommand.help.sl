@@ -43,9 +43,7 @@ If the system command does not exist an `error` is signaled:
 >>> 		'/CommandDoesNotExist',
 >>> 		[]
 >>> 	)
->>> }.ifError {
->>> 	true
->>> }
+>>> }.hasError
 true
 ```
 

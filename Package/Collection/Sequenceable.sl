@@ -1170,7 +1170,7 @@
 			let answer = 0/1;
 			self.reverseDo { :each |
 				let next = (each + answer);
-				(next > 0).ifTrue {
+				(next != 0).ifTrue {
 					answer := 1 / next
 				}
 			};

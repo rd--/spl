@@ -29,7 +29,7 @@ It is an `error` if the string _s_ is not a single character:
 ```
 >>> {
 >>> 	'..'.isSplSyntaxCharacter
->>> }.ifError { true}
+>>> }.hasError
 true
 ```
 

@@ -26,7 +26,7 @@ If the key does not exist it is an `error`:
 ```
 >>> {
 >>> 	(x: 1, y: 2).removeKey('w')
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

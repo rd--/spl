@@ -121,7 +121,7 @@ and answer `false` to `isArray`,
 however they do have `dimensions`:
 
 ```
->>> { [1; 2 3].shape }.ifError { true }
+>>> { [1; 2 3].shape }.hasError
 true
 
 >>> [1; 2 3].isArray

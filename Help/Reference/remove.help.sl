@@ -38,12 +38,12 @@ If no item matches an `error` is signaled:
 ```
 >>> {
 >>> 	[1 2 3].remove(4)
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> {
 >>> 	Set([1 2 3]).remove(4)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

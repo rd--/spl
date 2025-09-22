@@ -107,7 +107,7 @@ true
 
 >>> {
 >>> 	2 <| [1 2 3]
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> [2 2 2] < [1 2 3]
@@ -124,7 +124,7 @@ false
 
 >>> {
 >>> 	1J1 < 2J2
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 1J1 <| 2J2
@@ -132,7 +132,7 @@ true
 
 >>> {
 >>> 	'bcd' < 'abc'
->>> }.ifError { true }
+>>> }.hasError
 true
 
 >>> 'bcd' <| 'abc'

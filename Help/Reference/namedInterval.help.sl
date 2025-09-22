@@ -15,7 +15,7 @@ It is an `error` if the name is not in the database:
 ```
 >>> {
 >>> 	'*unnamed interval*'.namedInterval
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

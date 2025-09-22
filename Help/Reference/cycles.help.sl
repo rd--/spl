@@ -40,7 +40,7 @@ All integers must be distinct:
 ```
 >>> {
 >>> 	[1 2 3; 3 4 5].cycles
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

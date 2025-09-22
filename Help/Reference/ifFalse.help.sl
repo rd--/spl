@@ -17,7 +17,7 @@ Non-boolean values signal an error:
 ```
 >>> {
 >>> 	nil.ifFalse { nil }
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

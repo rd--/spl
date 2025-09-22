@@ -14,7 +14,7 @@ Span(1, 9, 1)
 >>> [1 3 5 7 9].asSpan
 Span(1, 9, 2)
 
->>> { [1 3 1 3 1].asSpan }.ifError { true }
+>>> { [1 3 1 3 1].asSpan }.hasError
 true
 ```
 

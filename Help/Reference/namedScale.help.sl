@@ -15,7 +15,7 @@ It is an `error` if the name belongs to more than one scale in the archive:
 ```
 >>> {
 >>> 	'Whole-tone'.namedScale
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 
@@ -24,7 +24,7 @@ It is an `error` if the name is not in the archive:
 ```
 >>> {
 >>> 	'*unnamed scale*'.namedScale
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

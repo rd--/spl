@@ -28,7 +28,7 @@ Replacement must be a string:
 ```
 >>> {
 >>> 	'x x x'.replaceStringAll('x', 1)
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

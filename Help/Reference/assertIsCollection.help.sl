@@ -14,7 +14,7 @@ A `String` is not a `Collection`:
 ```
 >>> {
 >>> 	'1 to 4'.assertIsCollection
->>> }.ifError { true }
+>>> }.hasError
 true
 ```
 

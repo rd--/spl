@@ -50,7 +50,9 @@ Threads over lists:
 
 * * *
 
-See also: negate, isNonNegative, isPositive
+See also: negate, isNonNegative, isPositive, isZero
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_
