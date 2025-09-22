@@ -100,20 +100,20 @@ NaN.isNaN /* literal for NaN */
 -0 = 0 /* negative zero is equal to zero */
 3.99.round = 4 /* round, c.f. round */
 3.99.truncate = 3 /* truncate */
-3.99.roundTo(1) = 4.0 /* round to specified decimal places, c.f. roundTo: */
-3.99.truncateTo(1) = 3.0 /* truncate to specified decimal places */
-12345.truncateTo(600) = 12000 /* truncate to integer */
-1.pi.roundDownTo(0.01) = 3.14 /* round down to nearest 1/100th */
-1.pi.roundDownTo(0.1) = 3.1 /* round down to nearest 1/10th */
-1923.roundDownTo(10) = 1920 /* round down to nearest multiple of 10 */
-1.pi.roundDownTo(0.005) = 3.140 /* round down to nearest 5/1000th */
-1.pi.negate.roundDownTo(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
+3.89.round(0.1) = 3.9 /* round to specified decimal places */
+3.99.truncate(1) = 3.0 /* truncate to specified decimal places */
+12345.truncate(600) = 12000 /* truncate to integer */
+1.pi.roundDown(0.01) = 3.14 /* round down to nearest 1/100th */
+1.pi.roundDown(0.1) = 3.1 /* round down to nearest 1/10th */
+1923.roundDown(10) = 1920 /* round down to nearest multiple of 10 */
+1.pi.roundDown(0.005) = 3.140 /* round down to nearest 5/1000th */
+1.pi.negate.roundDown(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
 (3 - 1.epsilon).roundDown = 2 /* round down to nearest integer */
 0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. down for positive numbers */
 -0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. up for negative numbers */
 0.9.roundTowardsZero = 0 /* round to nearest integer towards zero */
 -0.9.roundTowardsZero = 0 /* round to nearest integer towards zero, upwards for negative numbers */
-[-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDownTo(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
+[-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDown(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
 3.99.floor = 3 /* round down */
 3.99.ceiling = 4 /* round up */
 5.factorial = 120 /* factorial of SmallFloat */
@@ -1524,12 +1524,12 @@ Fraction(3, 1) = 3/1
 -6/5.round = -1
 3/2.round = 2 /* in case of tie, round to upper magnitude */
 -3/2.round = -2
-1.pi.roundUpTo(0.01) = 3.15 /* round up to nearest 1/100th */
-1.pi.roundUpTo(0.1) = 3.2 /* round up to nearest 1/10th */
-226.roundUpTo(10) = 230 /* round up to nearest multiple of 10 */
-1923.roundUpTo(10) = 1930 /* round up to nearest multiple of 10 */
-1.pi.roundUpTo(0.005) = 3.145 /* round up to nearest 5/1000th */
-1.pi.negate.roundUpTo(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
+1.pi.roundUp(0.01) = 3.15 /* round up to nearest 1/100th */
+1.pi.roundUp(0.1) = 3.2 /* round up to nearest 1/10th */
+226.roundUp(10) = 230 /* round up to nearest multiple of 10 */
+1923.roundUp(10) = 1930 /* round up to nearest multiple of 10 */
+1.pi.roundUp(0.005) = 3.145 /* round up to nearest 5/1000th */
+1.pi.negate.roundUp(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
 1.pi.roundUp = 4 /* round up to nearest integer */
 -3/2.numerator.isNegative /* numerator of negative fraction is negative */
 -3/2.denominator.isPositive /* denominator of negative fraction is positive */
@@ -2236,7 +2236,7 @@ system.includesPackage('Number') /* package */
 12 < 10 = false /* smaller than */
 2.718.truncate = 2 /* truncate to integer */
 2.718.round = 3 /* round to integer */
-2.718.roundTo(0.01) = 2.72 /* round to a given precision */
+2.718.round(0.01) = 2.72 /* round to a given precision */
 123456789.asStringWithCommas = '123,456,789'
 123456.789.asStringWithCommas = '123,456.789'
 13579.asStringWithCommas = '13,579'
@@ -2933,7 +2933,7 @@ let n = 0; [3 .. 7].allButLastDo { :each | n := n + each }; n = [3 .. 6].sum /* 
 let a = []; 1:4.combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4]]
 let a = []; 1:5.combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
 let a = []; 1:9.fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] /* partial iterator */
-let a = []; [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.roundTo(q) = r) }; a = [true, true]
+let a = []; [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.round(q) = r) }; a = [true, true]
 let a = []; 9:-1:1.indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] /* indexed */
 let a = []; 9:-1:1.withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] /* keys are indices */
 let a = []; 9:-1:7.withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] /* keys are indices */
@@ -3120,7 +3120,7 @@ let total = 0; 9.timesRepeat { total := total + system.nextRandomFloat }; total 
 3.max(7) = 7.max(3)
 7.min(3) = 3
 3.min(7) = 7.min(3)
-12345.truncateTo(600) = 12000
+12345.truncate(600) = 12000
 13.betweenAnd(11, 14) = true /* is number between two numbers, inclusive */
 [1 .. 5].collect { :each | each.betweenAnd(2, 4) } = [false, true, true, true, false]
 1:9.atRandom.isInteger = true /* random number between 1 and 9 */
@@ -3924,7 +3924,7 @@ system.includesPackage('TimeStamp') /* timestamp package */
 1676784053.576.asTimeStamp.dateAndTimeString = '2023-02-19T05:20:53.576Z' /* convert TimeStamp to ISO-8601 string */
 system.now.isTimeStamp = true /* get current time at system */
 system.now.dateAndTimeString.size = 24
-1676784053.576.asTimeStamp.roundTo(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
+1676784053.576.asTimeStamp.round(24.hours).dateAndTimeString = '2023-02-19T00:00:00.000Z' /* round to duration */
 let t = system.now; t - Duration(0) = t /* offset TimeStamp by Duration */
 { system.now.postLine }.valueAfter(Duration(0.5)).cancel = nil
 { system.now.postLine }.valueAt(system.now + Duration(0.5)).cancel = nil

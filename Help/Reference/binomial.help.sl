@@ -186,6 +186,24 @@ The sum of binomial coefficients _(n-i,i)_ for _i_ in _(0,n/2)_ is the _n+1_-th 
 (n + 1).fibonacci
 ```
 
+Regions obtained by joining _n_ points around a circle by straight lines,
+OEIS [A000127](https://oeis.org/A000127):
+
+```
+>>> 1:25.collect { :n |
+>>> 	[0 2 4].sum { :i |
+>>> 		binomial(n, i)
+>>> 	}
+>>> }
+[
+	     1      2      4      8    16
+	    31     57     99    163   256
+	   386    562    794   1093  1471
+	  1941   2517   3214   4048  5036
+	  6196   7547   9109  10903 12951
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A

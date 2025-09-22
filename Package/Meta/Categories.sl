@@ -1346,15 +1346,10 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'nextPowerOf'
 		'nextPowerOfTwo'
 		'round'
-		'roundDownTo'
 		'roundDown'
-		'roundTo'
-		'roundToTowardsZero'
 		'roundTowardsZero'
-		'roundUpTo'
 		'roundUp'
 		'truncate'
-		'truncateTo'
 	],
 	'type predicate': [
 		'isArrayBuffer'

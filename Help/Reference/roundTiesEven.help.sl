@@ -25,7 +25,9 @@ Compare to `round`:
 
 * * *
 
-See also: round, roundTo
+See also: round, roundTowardsZero
+
+Guides: Rounding Functions
 
 References:
 _Rust_

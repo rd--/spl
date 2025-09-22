@@ -1,8 +1,8 @@
 # frobeniusNumber
 
-- _frobeniusNumber(aList)_
+- _frobeniusNumber([x₁ x₂ …])_
 
-Answer the Frobenius number of _aList_.
+Answer the Frobenius number of _x_.
 
 The Frobenius number of 12, 16, 20, 27:
 

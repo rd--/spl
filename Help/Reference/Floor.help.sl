@@ -1,6 +1,6 @@
 # Floor
 
-- _Floor(aNumber)_
+- _Floor(x)_
 
 Next lower integer.
 

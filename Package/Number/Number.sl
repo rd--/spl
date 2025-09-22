@@ -720,7 +720,7 @@
 			self.round.printString
 		} {
 			let rounder = 10 ^ placesDesired;
-			let round = self.roundTo(rounder.reciprocal);
+			let round = self.round(rounder.reciprocal);
 			let prefix = round.isNegative.if { '-' } { '' };
 			let roundFractionPart = (round.abs.fractionalPart * rounder).round; /* truncate? */
 			[
@@ -839,45 +839,45 @@
 		}
 	}
 
-	roundDown { :self |
-		self.roundDownTo(1)
+	roundDown { :self :aNumber |
+		(self / aNumber).floor * aNumber
 	}
 
-	roundDownTo { :self :aNumber |
-		(self / aNumber).floor * aNumber
+	roundDown { :self |
+		self.floor
+	}
+
+	round { :self :aNumber |
+		(self / aNumber).round * aNumber
 	}
 
 	round { :self |
 		(self + (self.sign / 2)).truncate
 	}
 
-	roundTowardsZeroTo { :self :aNumber |
-		(self < 0).if {
-			self.roundUpTo(aNumber)
-		} {
-			self.roundDownTo(aNumber)
-		}
-	}
-
-	roundTo { :self :quantum |
-		(self / quantum).round * quantum
-	}
-
-	roundToPrecision { :self :precision |
-		let scalar = 10 ^ precision;
+	roundToPrecision { :self :aNumber |
+		let scalar = 10 ^ aNumber;
 		(self * scalar).round / scalar
 	}
 
+	roundTowardsZero { :self :aNumber |
+		(self < 0).if {
+			self.roundUp(aNumber)
+		} {
+			self.roundDown(aNumber)
+		}
+	}
+
 	roundTowardsZero { :self |
-		self.roundTowardsZeroTo(1)
+		self.roundTowardsZero(1)
+	}
+
+	roundUp { :self :aNumber |
+		(self / aNumber).ceiling * aNumber
 	}
 
 	roundUp { :self |
-		self.roundUpTo(1)
-	}
-
-	roundUpTo { :self :aNumber |
-		(self / aNumber).ceiling * aNumber
+		self.ceiling
 	}
 
 	schlickBiasFunction { :b :x |
@@ -1023,7 +1023,7 @@
 		self
 	}
 
-	truncateTo { :self :aNumber |
+	truncate { :self :aNumber |
 		self.quotient(aNumber) * aNumber
 	}
 

@@ -44,12 +44,12 @@ Print a `SmallFloat` to a specified precision:
 Round a `SmallFloat` to a specified precision:
 
 ```
->>> (1 / 3).roundTo(1E-3).printString
+>>> (1 / 3).round(1E-3).printString
 '0.333'
 ```
 
 * * *
 
-See also: printStringShowingDecimalPlaces, roundTo, SmallFloat, smallFloatEpsilon, LargeInteger
+See also: printStringShowingDecimalPlaces, round, SmallFloat, smallFloatEpsilon, LargeInteger
 
 Guides: Numeric Types

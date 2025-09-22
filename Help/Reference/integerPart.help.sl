@@ -68,6 +68,8 @@ Plot over a subset of the reals:
 
 See also: ceiling, floor, fractionalPart, truncate
 
+Guides: Rounding Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerPart.html)

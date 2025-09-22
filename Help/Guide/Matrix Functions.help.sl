@@ -99,6 +99,7 @@ General:
 - `inverse`: inverse of a square matrix
 - `kroneckerProduct`
 - `luDecomposition`: the LU decomposition
+- `matchPairs`
 - `matrixPower`: matrix power
 - `matrixPrintString`: two dimensional matrix text format
 - `matrixRank`: matrix rank, the number of linearly independent rows or columns
@@ -136,6 +137,10 @@ Linear Systems:
 Tuning:
 
 - `intervalMatrix`: interval matrix
+
+Algorithms:
+
+- `kuhnMunkresAlgorithm`
 
 * * *
 

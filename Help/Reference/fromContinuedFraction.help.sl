@@ -64,10 +64,10 @@ Rational approximations to golden ratio:
 	144/89 233/144 377/233 610/377
 ]
 
->>> (55 / 34).roundTo(0.001)
+>>> (55 / 34).round(0.001)
 1.618
 
->>> 1.goldenRatio.roundTo(0.001)
+>>> 1.goldenRatio.round(0.001)
 1.618
 ```
 

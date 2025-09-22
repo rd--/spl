@@ -1,8 +1,8 @@
 # matchPairs
 
-- _matchPairs(aMatrix)_
+- _matchPairs(m)_
 
-Solve the linear assignment problem for the rows and columns of _aMatrix_.
+Solve the linear assignment problem for the rows and columns of the matrix _m_.
 Each row is assigned to a column in such a way that the total cost is minimized.
 The answer is a list of _(i, j)_ indices,
 sorted by column index.
@@ -78,6 +78,8 @@ At a non-square _m×n_ matrix only _m_ columns are matched:
 * * *
 
 See also: kuhnMunkresAlgorithm
+
+Guides: Matrix Functions
 
 References:
 _Mathworks_

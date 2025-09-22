@@ -1934,7 +1934,7 @@ underflow or overflow is implementation defined.
 
 *Parameters*: factor ⧼number⧽
 
-Cf: roundTo
+Cf: round
 
 ### 5.6.2.33
 

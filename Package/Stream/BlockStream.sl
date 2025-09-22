@@ -221,12 +221,12 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		}
 	}
 
-	roundTo { :lhs :rhs |
-		rhs.adaptToStreamAndApply(lhs, roundTo:/2)
+	round { :lhs :rhs |
+		rhs.adaptToStreamAndApply(lhs, round:/2)
 	}
 
-	round { :self :a|
-		self.roundTo(1)
+	round { :self |
+		self.round(1)
 	}
 
 	scan { :input :aBlock:/2 |

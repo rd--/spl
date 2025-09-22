@@ -63,7 +63,7 @@ zero padded to be 5×5:
 >>> 	1 -4 7 0 0;
 >>> 	1 2 1 0 0
 >>> ].qrDecomposition;
->>> (q.roundTo(1E-3), r.roundTo(1E-3))
+>>> (q.round(1E-3), r.round(1E-3))
 (
 	[
 		-0.447  -0.607   0.469   0.063  -0.456;
@@ -136,7 +136,7 @@ since this does not affect the value of the expression _A = Q*R_:
 >>> 	13 08 12 01
 >>> ];
 >>> let [q, r] = m.qrDecomposition;
->>> (q.roundTo(1E-3), r.roundTo(1E-2), q.dot(r) ~ m)
+>>> (q.round(1E-3), r.round(1E-2), q.dot(r) ~ m)
 (
 	[
 		-0.765   0.268   0.542   0.224;

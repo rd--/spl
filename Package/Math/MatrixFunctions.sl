@@ -628,7 +628,9 @@
 	matchPairs { :self |
 		let [_, i] = self.kuhnMunkresAlgorithm;
 		let k = i.size;
-		[i, 1:k].transpose.select { :each | each[1] != 0 }
+		[i, 1:k].transpose.select { :each |
+			each[1] != 0
+		}
 	}
 
 	matrixCorrelation { :a :b |

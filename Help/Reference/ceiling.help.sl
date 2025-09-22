@@ -4,15 +4,21 @@
 
 Answer the integer nearest _x_ toward infinity.
 
+At integers:
+
 ```
 >>> 1.ceiling
 1
 
->>> 1.1.ceiling
-2
-
 >>> -2.ceiling
 -2
+```
+
+At real numbers:
+
+```
+>>> 1.1.ceiling
+2
 
 >>> -2.1.ceiling
 -2
@@ -22,7 +28,11 @@ Answer the integer nearest _x_ toward infinity.
 
 >>> (-3 / 2).ceiling
 -1
+```
 
+At `Fraction`:
+
+```
 >>> 3/2.ceiling
 2
 
@@ -30,11 +40,20 @@ Answer the integer nearest _x_ toward infinity.
 -1
 ```
 
+Threads over lists:
+
+```
+>>> [-2, -1.5 .. 2].ceiling
+[-2 -1 -1 0 0 1 1 2 2]
+```
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *
 
-See also: floor, max, min, round, roundUpTo
+See also: floor, max, min, round, roundUp
+
+Guides: Rounding Functions
 
 References:
 _Apl_

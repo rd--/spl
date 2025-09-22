@@ -1,21 +1,50 @@
 # round
 
-- _round(x)_
+- _round(n, α=1)_
 
-Answer the integer nearest _x_,
-sometimes written as _⌊x⌉_.
+Answer the nearest number to _n_ that is a multiple of _α_.
+The unary form answers the integer nearest _n_,
+sometimes written as _⌊n⌉_.
+
+Round to integer, unary form or _α=1_:
 
 ```
->>> 0.9.round
-1
+>>> 3.99.round
+4
 
->>> 1.round
-1
+>>> 4.round
+4
 
->>> 1.1.round
-1
+>>> 4.01.round
+4
+```
 
->>> -1.9.round
+At half integers:
+
+```
+>>> 1.5.round
+2
+
+>>> 2.5.round
+3
+
+>>> 3.5.round
+4
+
+>>> -1.5.round
+-1
+
+>>> -2.5.round
+-2
+
+>>> -3.5.round
+-3
+```
+
+At negative _n_:
+
+```
+ >>> -1.9.round
 -2
 
 >>> -2.round
@@ -25,14 +54,11 @@ sometimes written as _⌊x⌉_.
 -2
 ```
 
-At half integers:
+Rounds away from zero, c.f. `roundTowardsZero`:
 
 ```
->>> 1.5.round
-2
-
->>> -1.5.round
--1
+>>> -3.99.round
+-4
 ```
 
 At `Complex` applies separately to real and imaginary parts:
@@ -45,6 +71,16 @@ At `Complex` applies separately to real and imaginary parts:
 1J3
 ```
 
+Round to precision:
+
+```
+>>> 2.675.round(0.01)
+2.68
+
+>>> 3.1416.round(1E4.reciprocal)
+3.1416
+```
+
 Threads elementwise over lists:
 
 ```
@@ -53,7 +89,11 @@ Threads elementwise over lists:
 
 >>> [1/7 5/4 7/3 5/2].round
 [0 1 2 3]
+
+>>> [1.5 2.5 3.5 4.5].round
+[2 3 4 5]
 ```
+
 
 Value at Infinity:
 
@@ -115,15 +155,15 @@ Plot _√x-⌊√x⌉_ over a subset of the reals:
 
 * * *
 
-See also: ceiling, divisible, floor, integerPart, rescale, roundTiesEven
+See also: ceiling, divisible, floor, integerPart, rescale, round, roundDown, roundTiesEven, roundTowardsZero, roundUp, truncate
+
+Guides: Rounding Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/NearestIntegerFunction.html)
 [2](https://reference.wolfram.com/language/ref/Round.html),
-_Python_
-[1](https://docs.python.org/3/library/functions.html#round),
 _Smalltalk_
-5.6.2.31
+5.6.2.32
 
 Categories: Truncating, Rounding

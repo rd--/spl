@@ -379,7 +379,7 @@
 	}
 
 	atBlend { :self :index |
-		let indexMin = index.roundUpTo(1) - 1;
+		let indexMin = index.roundUp - 1;
 		self.atPin(indexMin).blend(
 			self.atPin(indexMin + 1),
 			(index - indexMin).abs

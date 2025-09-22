@@ -636,9 +636,9 @@
 
 ## Rounding & Truncating
 
-- `ceiling`, `floor`, `round`, `roundTo`, `roundUpTo`
+- `ceiling`, `floor`, `round`, `roundDown`, `roundUp`
 - `fractionalPart`, `integerPart`, `mixedFractionParts`
-- `truncate`, `truncateTo`
+- `truncate`
 - `mod`, `quotient`, `remainder`
 - `sawtoothWave`
 

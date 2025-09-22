@@ -105,8 +105,8 @@ Interval : [Object, Comparable, Magnitude, Number] { | min max |
 	}
 
 	findDivisions { :self :dx :n |
-		let step = ((self.max - self.min) / (n + 1)).roundUpTo(dx);
-		let next = self.min.roundDownTo(dx);
+		let step = ((self.max - self.min) / (n + 1)).roundUp(dx);
+		let next = self.min.roundDown(dx);
 		let answer = [next];
 		{ next < self.max }.whileTrue {
 			next := next + step;

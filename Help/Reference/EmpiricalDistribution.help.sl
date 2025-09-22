@@ -12,7 +12,7 @@ let r = Sfc32(678132);
 	EmpiricalDistribution(
 		NormalDistribution(0, 1)
 		.randomVariate(r, [50])
-		.roundTo(1E-2)
+		.round(1E-2)
 	).cdf
 )
 ~~~
@@ -27,7 +27,7 @@ let r = Sfc32(678132);
 	EmpiricalDistribution(
 		NormalDistribution(0, 1)
 		.randomVariate(r, [10 ^ 3])
-		.roundTo(1E-2)
+		.round(1E-2)
 	).cdf
 )
 ~~~
@@ -41,7 +41,7 @@ let r = Sfc32(678132);
 EmpiricalDistribution(
 	NormalDistribution(0, 1)
 	.randomVariate(r, [10 ^ 3])
-	.roundTo(1E-3)
+	.round(1E-3)
 )
 .randomVariate(r, [10 ^ 4])
 .histogramPlot
@@ -78,7 +78,7 @@ let n = NormalDistribution(0, 1);
 let e = EmpiricalDistribution(
 	n
 	.randomVariate(r, [10 ^ 3])
-	.roundTo(1E-2)
+	.round(1E-2)
 );
 (0 -- 1).functionPlot(
 	[

@@ -18,7 +18,8 @@ There are no directives to modify item formatting,
 instead we can adapt the items:
 
 ```
->>> '`pi` = % and `e` = %.'.format([1.pi, 1.e].roundTo(1E-4))
+>>> '`pi` = % and `e` = %.'
+>>> .format([1.pi, 1.e].round(1E-4))
 '`pi` = 3.1416 and `e` = 2.7183.'
 ```
 

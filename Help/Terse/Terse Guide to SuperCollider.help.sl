@@ -30,7 +30,7 @@ system.coin(1/3).isBoolean /* probability may be a fraction */
 [-2 .. 2].max(0) = 0.max([-2 .. 2])
 [-2 .. 2].min(0) = [-2, -1, 0, 0, 0]
 0.min([-2 .. 2]) = [-2 .. 2].min(0)
-[-3 .. 3].roundTo(2) = [-2, -2, -0, 0, 2, 2, 4]
+[-3 .. 3].round(2) = [-2, -2, -0, 0, 2, 2, 4]
 [9, 25, 81].collect(sqrt:/1) * [2, 3, 4] = [ 6, 15, 36 ]
 [1, 2, 3, 4, 5] * [6, 7, 8, 9] = [6, 14, 24, 36, 30]
 [1, 2, 3].cos.round = [1, -0, -1]
@@ -62,7 +62,7 @@ let x = [4, 4.5]; let y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [
 [1 .. 9].atAllBlend([3, 4.5, 5]) = [3, 4.5, 5] /* linear interpolating indexing */
 [1 .. 3].atAllBlend([1, 1.5 .. 3]) = [1, 1.5 .. 3]
 [1, 3 .. 9].resample(9) = [1 .. 9] /* linear interpolating resampler */
-[1 .. 4].resample(12).roundTo(0.01) = [1 1.27 1.55 1.82 2.09 2.36 2.64 2.91 3.18 3.45 3.73 4]
+[1 .. 4].resample(12).round(0.01) = [1 1.27 1.55 1.82 2.09 2.36 2.64 2.91 3.18 3.45 3.73 4]
 [2 3 5 6].indexOfInBetween(5.2) = 3.2 /* interpolated index for value (collection must be sorted) */
 [2 3 5 6].atBlend(3.2) = 5.2 /* interpolated value between indices */
 [0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] /* cummulative sum */

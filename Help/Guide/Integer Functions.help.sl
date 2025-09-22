@@ -60,12 +60,8 @@ Integer Part:
 
 - `ceiling`
 - `floor`
-- `roundDownTo`
 - `roundDown`
-- `roundTo`
 - `roundTowardsZero`
-- `roundTowardsZeroTo`
-- `roundUpTo`
 - `roundUp`
 - `round`
 - `truncate`

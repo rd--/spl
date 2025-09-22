@@ -50,13 +50,20 @@ Floor of division:
 1
 ```
 
+Threads over lists:
+
+```
+>>> [-2, -1.5 .. 2].floor
+[-2 -2 -1 -1 0 0 1 1 2]
+```
+
 Where supported `floor` is displayed as ⌊.
 
 * * *
 
 See also: ceiling, max, min, round
 
-Guides: Integer Functions, Mathematical Functions
+Guides: Integer Functions, Mathematical Functions, Rounding Functions
 
 References:
 _Apl_

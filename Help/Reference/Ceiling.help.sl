@@ -1,6 +1,6 @@
 # Ceiling
 
-- _Ceiling(aNumber)_
+- _Ceiling(x)_
 
 Next higher integer.
 

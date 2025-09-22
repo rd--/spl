@@ -1,8 +1,9 @@
 # truncate
 
-- _truncate(x)_
+- _truncate(n, α=1)_
 
-Answer the integer nearest _x_ toward `zero`,
+In the unary case,
+answer the integer nearest _n_ toward `zero`,
 that is the integer part of the number.
 
 ```
@@ -42,9 +43,31 @@ At `Fraction`:
 0
 ```
 
+In the binary case,
+answer the next multiple of _α_ toward `zero` that is nearest _n_.
+
+```
+>>> 3.1479.truncate(0.01)
+3.14
+
+>>> 3.1479.truncate(0.1)
+3.1
+
+>>> 1923.truncate(10)
+1920
+
+>>> 3.1479.truncate(0.005)
+3.145
+
+>>> -3.1479.truncate(0.01)
+-3.14
+```
+
 * * *
 
-See also: integerPart, round, truncateTo
+See also: ceiling, floor, integerPart, round, roundDown, roundTowardsZero, roundUp
+
+Guides: Rounding Functions
 
 References:
 _Mathematica_

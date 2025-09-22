@@ -16,23 +16,23 @@ to a precision decided by _n_.
 1
 
 >>> fabiusFunction(3/16, 8)
->>> .roundTo(0.01)
+>>> .round(0.01)
 0.02
 
 >>> fabiusFunction(1.pi, 8)
->>> .roundTo(0.01)
+>>> .round(0.01)
 -0.99
 
 >>> fabiusFunction(5/16, 8)
->>> .roundTo(0.01)
+>>> .round(0.01)
 0.15
 
 >>> fabiusFunction(2/3, 8)
->>> .roundTo(0.01)
+>>> .round(0.01)
 0.82
 
 >>> fabiusFunction(0.775, 8)
->>> .roundTo(0.01)
+>>> .round(0.01)
 0.95
 ```
 

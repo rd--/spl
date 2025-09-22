@@ -36,8 +36,8 @@ TimeStamp : [Object, Magnitude] { | absoluteTime |
 		self.asDateAndTime.dateAndTimeString
 	}
 
-	roundTo { :self :operand |
-		self.absoluteTime := self.absoluteTime.roundTo(operand.asSeconds);
+	round { :self :operand |
+		self.absoluteTime := self.absoluteTime.round(operand.asSeconds);
 		self
 	}
 

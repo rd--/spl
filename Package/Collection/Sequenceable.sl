@@ -2447,7 +2447,7 @@
 		valueWithReturn { :return:/1 |
 			self.prefixesDo { :each |
 				let z = each.last;
-				let h = (z / 2).roundUpTo(1);
+				let h = (z / 2).roundUp;
 				let p = each.allButLast;
 				h.toDo(z) { :k |
 					let c = p ++ [k];

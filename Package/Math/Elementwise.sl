@@ -664,12 +664,12 @@
 		anObject.adaptToCollectionAndApply(self, remainder:/2)
 	}
 
-	roundTo { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, roundTo:/2)
+	round { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, round:/2)
 	}
 
-	truncateTo { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, truncateTo:/2)
+	truncate { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, truncate:/2)
 	}
 
 }

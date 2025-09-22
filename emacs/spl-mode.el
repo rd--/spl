@@ -55,9 +55,10 @@ evaluating spl expressions.  Input and output is via `spl-buffer'."
 
 (defun spl-find-files (dir rgx)
   "Find files at DIR matching RGX."
-  (mapc (lambda (filename)
-          (find-file-other-window filename))
-        (find-lisp-find-files dir rgx)))
+  (let ((case-fold-search nil))
+    (mapc (lambda (filename)
+            (find-file-other-window filename))
+          (find-lisp-find-files dir rgx))))
 
 (defun spl-help ()
   "Lookup up the name at point in the Spl help files."

@@ -102,7 +102,7 @@ At `Sfc32`, which implements `Stream`:
 
 ```
 >>> Sfc32(188311).collect { :x |
->>> 	(x * 23).roundTo(1)
+>>> 	(x * 23).round
 >>> }.select(isOdd:/1).next(5)
 [15 21 5 13 1]
 ```

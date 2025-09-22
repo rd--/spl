@@ -1,12 +1,12 @@
 # kuhnMunkresAlgorithm
 
-- _kuhnMunkresAlgorithm(aMatrix)_
+- _kuhnMunkresAlgorithm(m)_
 
 The Kuhn–Munkres algorithm,
 also called the Hungarian method,
 is a combinatorial optimization algorithm that solves the assignment problem in polynomial time.
 
-The input is ordinarily a square cost matrix,
+The input _m_ is ordinarily a square cost matrix,
 although matrices with fewer rows than columns are allowed.
 The answer is a list of _[minimaPerRow, rowIndices]_,
 where the last minima is the minimum cost and the row indices are in column sequence,
@@ -277,6 +277,8 @@ a `zero` indicating unassigned columns.
 
 See also: matchPairs
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HungarianMaximumMatchingAlgorithm.html),
@@ -285,4 +287,5 @@ _Mathworks_
 _Python_
 [1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Hungarian_algorithm)
+[1](https://en.wikipedia.org/wiki/Assignment_problem)
+[2](https://en.wikipedia.org/wiki/Hungarian_algorithm)

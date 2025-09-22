@@ -58,7 +58,7 @@
 		let n = 0;
 		self.sortedCounts.collect { :a |
 			n := n + a.key;
-			(n / s.roundTo(0.1)) -> a.value
+			(n / s.round(0.1)) -> a.value
 		}
 	}
 
