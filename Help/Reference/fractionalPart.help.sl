@@ -96,7 +96,8 @@ Table of `floor`, `ceiling` and `fractionalPart` values:
 ]
 ```
 
-Plot over a subset of the reals:
+Plot over a subset of the reals,
+fraction part is a sawtooth function:
 
 ~~~spl svg=A
 (-2 -- 2).functionPlot(fractionalPart:/1)

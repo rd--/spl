@@ -134,10 +134,11 @@ Negative numbers also round to the nearest integer:
 [-2 -2 -3]
 ```
 
-Plot the function over a subset of the reals:
+Plot the function over a subset of the reals
+round is a staircase function:
 
 ~~~spl svg=A
-(-3 -- 3).functionPlot(round:/1)
+(0 -- 7).functionPlot(round:/1)
 ~~~
 
 ![](sw/spl/Help/Image/round-A.svg)

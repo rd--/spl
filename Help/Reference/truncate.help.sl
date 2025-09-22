@@ -63,6 +63,14 @@ answer the next multiple of _α_ toward `zero` that is nearest _n_.
 -3.14
 ```
 
+Truncate is a staircase function:
+
+~~~spl svg=A
+(0 -- 8).functionPlot(truncate:/1)
+~~~
+
+![](sw/spl/Help/Image/truncate-A.svg)
+
 * * *
 
 See also: ceiling, floor, integerPart, round, roundDown, roundTowardsZero, roundUp

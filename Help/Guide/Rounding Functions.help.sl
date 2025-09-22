@@ -3,11 +3,14 @@
 - `ceiling`
 - `floor`
 - `round`
+- `truncate`
+
+Specific Roundings:
+
+- `roundUp`
 - `roundDown`
 - `roundTiesEven`
 - `roundTowardsZero`
-- `roundUp`
-- `truncate`
 
 Number Parts:
 

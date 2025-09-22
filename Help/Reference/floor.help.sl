@@ -57,6 +57,14 @@ Threads over lists:
 [-2 -2 -1 -1 0 0 1 1 2]
 ```
 
+Floor is a staircase function:
+
+~~~spl svg=A
+(0 -- 8).functionPlot(floor:/1)
+~~~
+
+![](sw/spl/Help/Image/floor-A.svg)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

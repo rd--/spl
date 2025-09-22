@@ -1,6 +1,6 @@
 # roundUp
 
-- _roundUp(b, α=1)_
+- _roundUp(n, α=1)_
 
 Answer the next multiple of the number _n_ toward infinity that is nearest the number _α_.
 

@@ -47,6 +47,14 @@ Threads over lists:
 [-2 -1 -1 0 0 1 1 2 2]
 ```
 
+Ceiling is a staircase function:
+
+~~~spl svg=A
+(0 -- 7).functionPlot(ceiling:/1)
+~~~
+
+![](sw/spl/Help/Image/ceiling-A.svg)
+
 Where supported `ceiling` is displayed as ⌈.
 
 * * *
