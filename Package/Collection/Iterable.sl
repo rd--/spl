@@ -255,7 +255,7 @@
 		self.includesBy(anObject, =)
 	}
 
-	includesAnyOf { :self :aCollection |
+	includesAny { :self :aCollection |
 		valueWithReturn { :return:/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifTrue {
@@ -266,7 +266,7 @@
 		}
 	}
 
-	includesAllOf { :self :aCollection |
+	includesAll { :self :aCollection |
 		valueWithReturn { :return:/1 |
 			aCollection.do { :elem |
 				self.includes(elem).ifFalse {
@@ -306,14 +306,14 @@
 		true
 	}
 
-	isProperSubsetOf { :self :aCollection |
-		aCollection.includesAllOf(self) & {
+	isProperSubset { :self :aCollection |
+		aCollection.includesAll(self) & {
 			self != aCollection
 		}
 	}
 
-	isSubsetOf { :self :aCollection |
-		aCollection.includesAllOf(self)
+	isSubset { :self :aCollection |
+		aCollection.includesAll(self)
 	}
 
 	levelBy { :self :aBlock:/1 |

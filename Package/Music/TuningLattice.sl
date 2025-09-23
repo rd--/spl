@@ -13,7 +13,7 @@
 	}
 
 	latticeVector { :self :primes |
-		primes.includesAllOf(
+		primes.includesAll(
 			self.latticePrimes(primes.includes(2))
 		).if {
 			let pf1 = self.numerator.primeFactors;
@@ -28,7 +28,7 @@
 	}
 
 	latticeVectorString { :self :primes |
-		primes.includesAllOf(
+		primes.includesAll(
 			self.latticePrimes(primes.includes(2))
 		).if {
 			self.latticeVector(primes).collect { :each |

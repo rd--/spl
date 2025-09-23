@@ -154,6 +154,12 @@ Interval : [Object, Comparable, Magnitude, Number] { | min max |
 		}
 	}
 
+	isIntersecting { :self :anInterval |
+		self.max > anInterval.min | {
+			anInterval.max > self.min
+		}
+	}
+
 	minMax { :self |
 		[self.min, self.max]
 	}

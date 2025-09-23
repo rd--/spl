@@ -458,6 +458,12 @@
 		self.size = 0
 	}
 
+	isIntersecting { :self :aCollection |
+		self.anySatisfy { :each |
+			aCollection.includes(each)
+		}
+	}
+
 	isNotEmpty { :self |
 		self.size > 0
 	}

@@ -370,9 +370,9 @@ let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
 [1 .. 7].doesNotInclude(9) /* decide if a collection does not include an element, unicode = ∌ */
 [9 .. 1].anySatisfy { :each | each = 3 } = true
 [].includes(3) = false /* the empty collection does not include any element */
-[9 .. 1].includesAllOf([3 .. 7]) = true
-[5 .. 3].includesAllOf([3 .. 7]) = false
-[].includesAllOf([3 .. 7]) = false
+[9 .. 1].includesAll([3 .. 7]) = true
+[5 .. 3].includesAll([3 .. 7]) = false
+[].includesAll([3 .. 7]) = false
 5.fill(negate:/1) = [-1 .. -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
@@ -427,7 +427,7 @@ List:/1.newFrom(Range(1, 5, 2)) = [1, 3, 5]
 { [1, 2].take(-1) }.hasError
 [1 .. 5].beginsWith([1 .. 3]) = true /* does sequence begin with subsequence */
 { [1 .. 5].beginsWith(1) = false }.hasError /* prefix must be a sequence */
-[1 .. 5].beginsWithAnyOf([[4, 5], [3, 4], [2, 3]]) = false /* does sequence begin with any of a set of subsequences */
+[1 .. 5].beginsWithAny([[4, 5], [3, 4], [2, 3]]) = false /* does sequence begin with any of a set of subsequences */
 [1 .. 5].groupBy(isEven:/1).indices = [false, true] /* answer a Map grouping elements according to a predicate */
 [1 .. 5].groupBy(isEven:/1)[true] = [2, 4]
 let a = []; [1, 'x', 2, 'y', 3, 'x'].pairsDo { :p :q | a.add(q -> p) }; a = ['x' -> 1, 'y' -> 2, 'x' -> 3] /* iterate adjacent pairs */
@@ -959,7 +959,7 @@ let c = 1:9; c.sum / c.size = 5 /* sum of collection divided by size */
 [].select { :each | 'select'.error } = []
 [].species.newFrom(IdentitySet()) = []
 IdentitySet().asList = []
-1:9.includesAnyOf([0, 6]) /* includes any element of a collection */
+1:9.includesAny([0, 6]) /* includes any element of a collection */
 [4 .. 6].copyWithout(5) = [4, 6] /* copy without element */
 4:6.copyWithout(5) = [4, 6] /* copy without element, interval becomes array */
 [2, 3, 4, 5, 5, 6].copyWithout(5) = [2, 3, 4, 6] /* copy without element, removes multiples */
@@ -2327,7 +2327,7 @@ system.includesPackage('Date')
 '/* Requires: ColumnBrowser SmallKansas */'.parsePackageHeader = (Requires: ['ColumnBrowser', 'SmallKansas'])
 system.indexedPackages.size - system.loadedPackages.size = system.availablePackages.size
 system.packageDictionary.select { :each | each.requires.isNotEmpty }.size > 10
-system.packageDictionary['PackageBrowser'].dependencies.collect(name:/1).includesAllOf(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
+system.packageDictionary['PackageBrowser'].dependencies.collect(name:/1).includesAll(['Event' 'SmallKansas' 'Window' 'ColumnBrowser'])
 'Time-Date'.isQualifiedPackageName
 'Time-Date'.parseQualifiedPackageName = ['Time', 'Date']
 system.packageDictionary.size > 100 /* number of packages */
@@ -3817,7 +3817,7 @@ system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveSequence') = true
-system.methodTraits('atRandom:/1').includesAllOf(['Collection', 'Sequenceable']) = true
+system.methodTraits('atRandom:/1').includesAll(['Collection', 'Sequenceable']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Multiset']
 system.traitTypes('Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true

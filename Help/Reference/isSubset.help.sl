@@ -1,32 +1,34 @@
-# isSubsetOf
+# isSubset
 
-- _isSubsetOf(alpha, beta)_ ⟹ _includesAllOf(beta, alpha)_
+- _isSubset(c₁, c₂)_
 
-Answer `true` if the first collection is a subset of the second,
-the inverse of `includesAllOf` which answers if the second collection is a subset of the first.
+Answer `true` if the collection _c₁_ is a subset of the _c₂_.
 
 _1,3,5_ is a subset of _1,3,5,7_:
 
 ```
->>> [1 3 5].isSubsetOf([1 3 5 7])
+>>> [1 3 5].isSubset([1 3 5 7])
+true
+
+>>> [1 3 5 7].includesAll([1 3 5])
 true
 ```
 
 The empty list is a subset of every list:
 
 ```
->>> [].isSubsetOf([])
+>>> [].isSubset([])
 true
 
->>> [].isSubsetOf([1 2 3])
+>>> [].isSubset([1 2 3])
 true
 ```
 
 Every list is a subset of itself,
-c.f. `isProperSubsetOf`:
+c.f. `isProperSubset`:
 
 ```
->>> [1 2 3].isSubsetOf([1 2 3])
+>>> [1 2 3].isSubset([1 2 3])
 true
 ```
 
@@ -48,15 +50,15 @@ A lipogrammatic panagram (Ezra 7:21):
 >>> let t = v.contents.withoutAll(
 >>> 	[' ' ',']
 >>> );
->>> t.isSubsetOf(l) & {
->>> 	l.isSubsetOf(t)
+>>> t.isSubset(l) & {
+>>> 	l.isSubset(t)
 >>> }
 true
 ```
 
 * * *
 
-See also: includes, includesAllOf, isProperSubsetOf
+See also: includes, includesAll, isProperSubset
 
 Guides: Set Functions
 

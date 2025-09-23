@@ -23,6 +23,16 @@ Counting:
 - `multinomial`
 - `multichoose`
 
+Predicates:
+
+- `includes`
+- `includesAll`
+- `includesAny`
+- `isDisjoint`
+- `isIntersecting`
+- `isProperSubset`
+- `isSubset`
+
 Set Theoretic Functions:
 
 - `complement`

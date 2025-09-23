@@ -50,7 +50,7 @@ Package fields include `category`, `name`, `isLoaded` and `url`:
 >>> d.at('PackageBrowser')
 >>> .dependencies
 >>> .collect(name:/1)
->>> .includesAllOf(
+>>> .includesAll(
 >>> 	[
 >>> 		'ColumnBrowser'
 >>> 		'Event'

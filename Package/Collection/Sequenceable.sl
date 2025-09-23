@@ -393,7 +393,7 @@
 		}
 	}
 
-	beginsWithAnyOf { :self :aCollection |
+	beginsWithAny { :self :aCollection |
 		aCollection.anySatisfy { :prefix |
 			self.beginsWith(prefix)
 		}
@@ -917,7 +917,7 @@
 		}
 	}
 
-	endsWithAnyOf { :self :aCollection |
+	endsWithAny { :self :aCollection |
 		aCollection.anySatisfy { :suffix |
 			self.endsWith(suffix)
 		}

@@ -204,7 +204,7 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		self.error('String>>beginsWith: non string operand')
 	}
 
-	beginsWithAnyOf { :self :aCollection |
+	beginsWithAny { :self :aCollection |
 		aCollection.anySatisfy { :prefix |
 			self.beginsWith(prefix)
 		}
