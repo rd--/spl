@@ -2852,7 +2852,7 @@ The result is unspecified if the receiver contains nil.
 
 *Return Value*: ⧼Bag⧽
 
-Cf: asBag
+Cf: asMultiset
 
 ### 5.7.1.5
 
@@ -3579,7 +3579,7 @@ whose elements can be added or removed, but cannot be individually
 accessed by external keys. A bag is similar to a set but can contain duplicate
 elements. Elements are duplicates if they are equivalent.
 
-Cf: Bag
+Cf: Multiset
 
 ### 5.7.6.2
 

@@ -19,10 +19,10 @@ At `Map`:
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
 
-At `Bag`:
+At `Multiset`:
 
 ```
->>> 'abcaba'.characters.asBag.keySort
+>>> 'abcaba'.characters.asMultiset.keySort
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
 
@@ -42,7 +42,7 @@ Use `valueSort` to sort by value:
 >>> ['a': 3, 'c': 1, 'b': 2].valueSort
 ['c' -> 1, 'b' -> 2, 'a' -> 3]
 
->>> 'abcaba'.characters.asBag.valueSort
+>>> 'abcaba'.characters.asMultiset.valueSort
 ['c' -> 1, 'b' -> 2, 'a' -> 3]
 
 >>> ['a' -> 3, 'b' -> 2, 'c' -> 1].valueSort

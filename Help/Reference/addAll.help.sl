@@ -7,11 +7,11 @@ Answer _anotherCollection_.
 
 In general, any object responding to _do_ can be used as the second argument.
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
 >>> let c = [1 2 2 3 3 3];
->>> let b = IdentityBag();
+>>> let b = IdentityMultiset();
 >>> (b.addAll(c), b.size)
 (c, 6)
 ```

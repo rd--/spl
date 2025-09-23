@@ -11,11 +11,11 @@ Determine whether or not a list has duplicated elements:
 false
 ```
 
-Use `asIdentityBag` to reveal duplicate elements:
+Use `asIdentityMultiset` to reveal duplicate elements:
 
 ```
 >>> [1 7 8 4 3 4 1 9 9 2]
->>> .asIdentityBag
+>>> .asIdentityMultiset
 >>> .sortedElements
 [
 	1 -> 2,

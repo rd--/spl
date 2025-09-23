@@ -27,7 +27,7 @@ Find the _mode_ for the heights of the children in a class:
 
 * * *
 
-See also: Bag, counts, mean, median, sortedElements
+See also: Multiset, counts, mean, median, sortedElements
 
 Guides: List Functions, Statistics Functions
 

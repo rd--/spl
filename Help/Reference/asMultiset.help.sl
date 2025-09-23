@@ -1,16 +1,16 @@
-# asBag
+# asMultiset
 
-- _asBag([x₁ x₂ …])_
+- _asMultiset([x₁ x₂ …])_
 
-Convert the list _x_ to a `Bag`.
+Convert the list _x_ to a `Multiset`.
 
 At a `List` of integers:
 
 ```
->>> [1 1 1 3 3 5].asBag.sortedElements
+>>> [1 1 1 3 3 5].asMultiset.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 1 1 3 3 5].asBag.sortedCounts
+>>> [1 1 1 3 3 5].asMultiset.sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
 ```
 
@@ -19,7 +19,7 @@ Count occurrences of characters in a string:
 ```
 >>> 'occurrences'
 >>> .characters
->>> .asBag
+>>> .asMultiset
 >>> .sortedCounts
 [
 	3 -> 'c',
@@ -30,7 +30,7 @@ Count occurrences of characters in a string:
 
 * * *
 
-See also: Bag, sortedCounts, sortedElements
+See also: Multiset, sortedCounts, sortedElements
 
 References:
 _Mathematica_

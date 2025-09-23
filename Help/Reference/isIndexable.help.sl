@@ -12,10 +12,10 @@ At `List`:
 true
 ```
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
->>> IdentityBag().isIndexable
+>>> IdentityMultiset().isIndexable
 false
 ```
 

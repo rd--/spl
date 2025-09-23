@@ -68,7 +68,7 @@
 	}
 
 	diceSorensenCoefficient { :self :operand |
-		self.asBag.diceSorensenCoefficient(operand.asBag)
+		self.asMultiset.diceSorensenCoefficient(operand.asMultiset)
 	}
 
 	editDistance { :self :other |
@@ -191,7 +191,7 @@
 
 }
 
-+Bag {
++Multiset {
 
 	diceSorensenCoefficient { :self :operand |
 		(2 * (self.intersection(operand).size)) / (self.size + operand.size)

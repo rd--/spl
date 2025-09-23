@@ -1,20 +1,25 @@
 # multinomial
 
-- _multinomial(aCollection)_
+- _multinomial(c)_
 
-Answer the multinomial coefficient.
+Answer the multinomial coefficient of the collection _c_,
+the number of distinct permutations in a multiset of cardinalty _|c|_ and multiplicities _c_.
 
 ```
 >>> [1 2 1].multinomial
 12
+```
 
->>> [2, 0.2, 5].multinomial
+With non-integer values:
+
+```
+>>> [2 0.2 5].multinomial
 34.3178
 
->>> [1 / 3, 1 / 7, 1 / 5, 1 / 6].multinomial
+>>> [3 7 5 6]./.multinomial
 1.32595
 
->>> [1 / 3, 1 / 11, 1 / 5, 1 / 6].multinomial
+>>> [3 11 5 6]./.multinomial
 1.27878
 ````
 
@@ -40,7 +45,10 @@ Values at zero:
 The number of distinct permutations of _Mississippi_ is:
 
 ```
->>> [1 4 4 2].multinomial
+>>> 'Mississippi'.counts
+['i' -> 4, 'M' -> 1, 'p' -> 2, 's' -> 4]
+
+>>> [4 1 2 4].multinomial
 34650
 ```
 
@@ -56,9 +64,9 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: binomial, factorial
+See also: binomial, factorial, multichoose
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Set Functions
 
 References:
 _Mathematica_

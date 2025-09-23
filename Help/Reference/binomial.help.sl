@@ -152,13 +152,13 @@ One of a family of integer sequences (OEIS A006542):
 ]
 ```
 
-Triangle of trinomial coefficients,
+Calculate the triangle of trinomial coefficients,
 OEIS [A027907](https://oeis.org/A027907):
 
 ```
 >>> (0 .. 6).collect { :n |
 >>> 	(0 .. 2 * n).collect { :k |
->>> 		0:n.sum { :i |
+>>> 		(0 .. n).sum { :i |
 >>> 			binomial(n, i)
 >>> 			*
 >>> 			binomial(n - i, k - (2 * i))
@@ -226,7 +226,7 @@ Plot over a subset of the reals as a function of its second parameter:
 
 * * *
 
-See also: factorial, multinomial
+See also: factorial, multinomial, trinomial
 
 Guides: Combinatorial Functions
 

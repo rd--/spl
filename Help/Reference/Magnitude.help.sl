@@ -30,6 +30,8 @@ References:
 _Smalltalk_
 5.6.1,
 _Swift_
-[1](https://developer.apple.com/documentation/swift/comparable)
+[1](https://developer.apple.com/documentation/swift/comparable),
+_W_
+[1](https://en.wikipedia.org/wiki/Magnitude_(mathematics))
 
 Categories: Comparison, Trait

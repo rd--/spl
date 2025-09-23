@@ -29,13 +29,13 @@ At `Record`:
 (x: 36, y: 100, z: 196)
 ```
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
 >>> [2, 6 .. 14]
->>> .asIdentityBag
+>>> .asIdentityMultiset
 >>> .collect(square:/1)
-[4 36 100 196].asIdentityBag
+[4 36 100 196].asIdentityMultiset
 ```
 
 At `IdentitySet`:

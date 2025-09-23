@@ -118,6 +118,8 @@ and an edge between two vertices if their corresponding sets are disjoint:
 
 See also: combinationsAtATimeDo, powerSet, tuples
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PowerSet.html)

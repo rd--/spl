@@ -217,7 +217,7 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 	characterCounts { :self |
 		self
 		.characters
-		.asIdentityBag
+		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
 	}
@@ -227,7 +227,7 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		.characters
 		.partition(n, 1)
 		.collect(stringJoin:/1)
-		.asIdentityBag
+		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
 	}
@@ -647,7 +647,7 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		self
 		.characters
 		.select(isLetter:/1)
-		.asIdentityBag
+		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
 	}
@@ -658,7 +658,7 @@ String! : [Object, Magnitude, Comparable, Json, Iterable, Indexable, Character] 
 		.select(isLetter:/1)
 		.partition(n, 1)
 		.collect(stringJoin:/1)
-		.asIdentityBag
+		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
 	}

@@ -56,7 +56,7 @@ Five sixths:
 
 * * *
 
-See also: Bag
+See also: Multiset
 
 Guides: List Functions, Set Functions, Similarity Functions
 

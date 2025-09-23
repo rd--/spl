@@ -36,7 +36,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 	],
 	'Collection-Unordered': [
 		'Association'
-		'Bag'
+		'Multiset'
 		'CategoryDictionary'
 		'Graph'
 		'Map'
@@ -616,7 +616,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'adaptToResidueAndApply'
 		'asAscii'
 		'asAssociation'
-		'asIdentityBag'
+		'asIdentityMultiset'
 		'asBit'
 		'asBitSet'
 		'asBoolean'
@@ -874,7 +874,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'ArrayBuffer'
 		'Association'
 		'BacktickQuotedString'
-		'Bag'
+		'Multiset'
 		'BitSet'
 		'ByteArray'
 		'Character'
@@ -1354,7 +1354,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	'type predicate': [
 		'isArrayBuffer'
 		'isAssociation'
-		'isBag'
+		'isMultiset'
 		'isBitSet'
 		'isBlob'
 		'isBlock'

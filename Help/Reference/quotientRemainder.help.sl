@@ -45,6 +45,30 @@ At `SmallFloat`:
 [4, (1.e ^ 1.e) - 4.pi]
 ```
 
+Calculate the first few terms of OEIS [A118006](https://oeis.org/A118006):
+
+```
+>>> let a = { :n |
+>>> 	let b = n % 2;
+>>> 	let d = nil;
+>>> 	n := (n - 1) >> 1;
+>>> 	{
+>>> 		[n, d] := quotientRemainder(n, 3);
+>>> 		d = 1
+>>> 	}.whileTrue;
+>>> 	(d = (2 * b)).boole
+>>> };
+>>> 1:105.collect(a:/1)
+[
+	0 1 0 1 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1
+	0 1 1 0 0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1
+	1 0 0 1 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0
+	0 1 0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1
+	0 1 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 1 0
+	1 0 0 1 1
+]
+```
+
 Plot the sequence of quotients:
 
 ~~~spl svg=A

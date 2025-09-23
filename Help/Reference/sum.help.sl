@@ -75,10 +75,10 @@ Total sum of a matrix:
 45
 ```
 
-Sum is implemented efficiently for `IdentityBag` as a sum of products:
+Sum is implemented efficiently for `IdentityMultiset` as a sum of products:
 
 ```
->>> [3 3 3 5 5 5 5 5].asIdentityBag.sum
+>>> [3 3 3 5 5 5 5 5].asIdentityMultiset.sum
 (3 * 3) + (5 * 5)
 ```
 

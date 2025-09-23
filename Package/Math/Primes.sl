@@ -327,7 +327,7 @@
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.asBag
+		self.primeFactors.asMultiset
 	}
 
 	primeFactors { :self |

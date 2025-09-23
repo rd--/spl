@@ -1,4 +1,4 @@
-/* Requires: Bag Fraction RatioTuning */
+/* Requires: Fraction RatioTuning */
 
 +Fraction {
 

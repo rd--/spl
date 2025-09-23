@@ -243,7 +243,7 @@
 	inventorySequence { :terms |
 		let number = 0;
 		let answer = [0];
-		let inventory = [0].asIdentityBag;
+		let inventory = [0].asIdentityMultiset;
 		(2 .. terms).do { :n |
 			let count = inventory.occurrencesOf(number);
 			number := (count = 0).if {

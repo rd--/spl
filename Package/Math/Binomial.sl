@@ -48,6 +48,14 @@
 		numerator // denominator
 	}
 
+	trinomial { :n :k |
+		(0 .. n).sum { :i |
+			binomial(n, i)
+			*
+			binomial(n - i, k - (2 * i))
+		}
+	}
+
 }
 
 +@Integer {

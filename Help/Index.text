@@ -372,7 +372,6 @@ Reference/asAssociation.help.sl
 Reference/asAssociationList.help.sl
 Reference/asaTriangle.help.sl
 Reference/asAxonometricProjection.help.sl
-Reference/asBag.help.sl
 Reference/asBit.help.sl
 Reference/asBitSet.help.sl
 Reference/asBlob.help.sl
@@ -424,7 +423,7 @@ Reference/asHeaders.help.sl
 Reference/asHertz.help.sl
 Reference/asHexDigit.help.sl
 Reference/asHexString.help.sl
-Reference/asIdentityBag.help.sl
+Reference/asIdentityMultiset.help.sl
 Reference/asIdentitySet.help.sl
 Reference/asInteger.help.sl
 Reference/asIntegers.help.sl
@@ -437,6 +436,7 @@ Reference/asList.help.sl
 Reference/asLocalBuf.help.sl
 Reference/asLowerCase.help.sl
 Reference/asMap.help.sl
+Reference/asMultiset.help.sl
 Reference/asNumber.help.sl
 Reference/asNumericArray.help.sl
 Reference/asOscParameter.help.sl
@@ -533,7 +533,6 @@ Reference/aWeightingCurve.help.sl
 Reference/AxonometricProjection.help.sl
 Reference/azimuth.help.sl
 Reference/BacktickQuotedString.help.sl
-Reference/Bag.help.sl
 Reference/bakersMap.help.sl
 Reference/Balance2.help.sl
 Reference/Ball.help.sl
@@ -1573,9 +1572,9 @@ Reference/hypocycloid.help.sl
 Reference/hypotenuse.help.sl
 Reference/Hypotenuse.help.sl
 Reference/hypotrochoid.help.sl
-Reference/IdentityBag.help.sl
 Reference/identity.help.sl
 Reference/identityMatrix.help.sl
+Reference/IdentityMultiset.help.sl
 Reference/IdentitySet.help.sl
 Reference/ifAbsentAdd.help.sl
 Reference/ifEmpty.help.sl
@@ -2363,6 +2362,7 @@ Reference/MultinormalDistribution.help.sl
 Reference/multipleRootGraph.help.sl
 Reference/multiplicativeOrder.help.sl
 Reference/multiplyAdd.help.sl
+Reference/Multiset.help.sl
 Reference/multisetIntersection.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MultivariateTDistribution.help.sl

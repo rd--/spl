@@ -668,6 +668,10 @@
 		anObject.adaptToCollectionAndApply(self, round:/2)
 	}
 
+	trinomial { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, trinomial:/2)
+	}
+
 	truncate { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, truncate:/2)
 	}

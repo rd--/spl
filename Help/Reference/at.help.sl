@@ -75,11 +75,11 @@ true
 true
 ```
 
-`IdentityBag` is not indexable:
+`IdentityMultiset` is not indexable:
 
 ```
 >>> {
->>> 	[1 2 3].asIdentityBag.at(1)
+>>> 	[1 2 3].asIdentityMultiset.at(1)
 >>> }.hasError
 true
 ```

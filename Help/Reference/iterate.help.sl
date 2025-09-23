@@ -191,6 +191,20 @@ A complete binary tree:
 ]
 ```
 
+Plot the first few terms of OEIS [A118006](https://oeis.org/A118006),
+the pattern is called Reverend Back’s abbey floor:
+
+~~~spl svg=A
+let i = { :x |
+	x ++ x ++ x.reverse
+}.iterate([0 1], 2);
+{ :x :y |
+	(x + y) % 2
+}.table(i, i).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/iterate-A.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

@@ -1,11 +1,11 @@
-@Bag {
+@Multiset {
 
-	= { :self :aBag |
-		(self.typeOf = aBag.typeOf) & {
-			self.size = aBag.size & {
+	= { :self :aMultiset |
+		(self.typeOf = aMultiset.typeOf) & {
+			self.size = aMultiset.size & {
 				valueWithReturn { :return:/1 |
 					self.contents.associationsDo { :assoc |
-						(aBag.occurrencesOf(assoc.key) = assoc.value).ifFalse {
+						(aMultiset.occurrencesOf(assoc.key) = assoc.value).ifFalse {
 							false.return
 						}
 					};
@@ -23,7 +23,7 @@
 		self.basicAddWithOccurrences(anObject, anInteger)
 	}
 
-	asBag { :self |
+	asMultiset { :self |
 		self
 	}
 
@@ -185,40 +185,40 @@
 
 }
 
-Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | contents |
+Multiset : [Object, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
 
 	species { :self |
-		Bag:/0
+		Multiset:/0
 	}
 
 }
 
 +Void {
 
-	Bag {
-		Bag(Dictionary())
+	Multiset {
+		Multiset(Dictionary())
 	}
 
 }
 
 +Dictionary {
 
-	Bag { :self |
-		newBag().initializeSlots(self)
+	Multiset { :self |
+		newMultiset().initializeSlots(self)
 	}
 
 }
 
 +@Collection {
 
-	asBag { :self |
-		let answer = Bag();
+	asMultiset { :self |
+		let answer = Multiset();
 		answer.addAll(self);
 		answer
 	}
 
 	histogramOf { :self :aBlock:/1 |
-		let answer = Bag();
+		let answer = Multiset();
 		self.collectInto(aBlock:/1, answer);
 		answer
 	}
@@ -228,7 +228,7 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | 
 +List {
 
 	commonest { :self |
-		let byCount = self.asBag.sortedCounts;
+		let byCount = self.asMultiset.sortedCounts;
 		let count = byCount.first.key;
 		byCount.select { :each |
 			each.key = count
@@ -236,11 +236,19 @@ Bag : [Object, Iterable, Collection, Extensible, Removable, Unordered, Bag] { | 
 	}
 
 	counts { :self |
-		self.asBag.sortedElements
+		self.asMultiset.sortedElements
 	}
 
 	multisetIntersection { :self |
-		self.collect(asBag:/1).reduce(intersection:/2)
+		self.collect(asMultiset:/1).reduce(intersection:/2)
+	}
+
+}
+
++String {
+
+	counts { :self |
+		self.characters.counts
 	}
 
 }

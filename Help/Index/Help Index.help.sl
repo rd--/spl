@@ -82,7 +82,7 @@
 - `isArray`, `isVector`, `isMatrix`
 - `isCollection`, `isIndexable`
 - `isDictionary`, `isSequence`
-- `isBag`, `isList`, `isMap`, `isRecord`, `isSet`
+- `isMultiset`, `isList`, `isMap`, `isRecord`, `isSet`
 - `isRange`, `isSortedList`
 - `isBitSet`, `isPriorityQueue`
 - `isAssociation`, `isAssociationList`
@@ -95,7 +95,7 @@
 - `Extensible`, `Removable`
 - `Unordered`
 - `List`, `IdentityMap`, `Record`, `IdentitySet`
-- `IdentityBag`, `Tree`, `Tuple`
+- `IdentityMultiset`, `Tree`, `Tuple`
 - `BitSet`, `PriorityQueue`, `SortedList`
 - `ArithmeticProgression`, `Range`
 - `Association`
@@ -158,7 +158,7 @@
 - `asBit`, `asBoolean`
 - `asComplex`, `asFloat`, `asFraction`, `asGaussianInteger`, `asInteger`, `asLargeInteger`, `asNumber`, `asSmallFloat`
 - `asCharacter`, `asCodePoint`, `asHexDigit`, `asLowerCase`, `asRegExp`, `asString`, `asUpperCase`, `asWords`
-- `asIdentityBag`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
+- `asIdentityMultiset`, `asByteArray`, `asCollection`, `asList`, `asMap`, `asRecord`, `asIdentitySet`, `asSortedList`, `asTree`
 - `degreesToRadians`, `radiansToDegrees`
 
 ## Copying

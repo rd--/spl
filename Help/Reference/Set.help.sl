@@ -4,7 +4,7 @@
 
 `Set` is both a `Trait`,
 holding behaviours for collection types that do not contain duplicate items,
-and an alias for the `SortedSet` type
+and an alias for the `SortedSet` type.
 
 The empty set constructor,
 also a `Set` from an empty list:
@@ -17,7 +17,7 @@ also a `Set` from an empty list:
 0
 ```
 
-Set predicate:
+Set predicates:
 
 ```
 >>> Set().isSet
@@ -78,3 +78,9 @@ true
 See also: IdentitySet, SortedSet, UnsortedSet
 
 Guides: Set Functions, Set Syntax
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Set.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Set_(mathematics))

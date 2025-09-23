@@ -13,7 +13,6 @@
 	/* Collection */
 	'Array'
 	'AssociationList'
-	'Bag'
 	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
@@ -23,6 +22,7 @@
 	'HuffmanCoding'
 	'LinkedList'
 	'MergeSort'
+	'Multiset'
 	'NumericArray'
 	'PatienceSort'
 	'PriorityQueue'
@@ -47,7 +47,7 @@
 	'WeakMap'
 	'WeightedData'
 	'BitSet' /* ByteArray */
-	'IdentityBag' /* Bag */
+	'IdentityMultiset' /* Multiset */
 	'IdentitySet' /* Set */
 	'Matrix' /* NumericArray */
 	'ResidueSet' /* BitSet Set */

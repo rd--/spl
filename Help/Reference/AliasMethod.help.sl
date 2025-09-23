@@ -11,7 +11,7 @@ The distribution is given as a sequence of probability values that `sum` to `one
 >>> let m = AliasMethod(w);
 >>> let r = Sfc32(1372);
 >>> let d = { m.nextRandom(r) } ! 1000;
->>> let a = d.asIdentityBag.sortedElements;
+>>> let a = d.asIdentityMultiset.sortedElements;
 >>> (->.map(1:5, w * 1000), a)
 (
 	[

@@ -63,7 +63,7 @@ HuffmanCoding : [Object] { | symbolTable encoding |
 			};
 			heap.array.first.value.asMap
 		};
-		let symbolTable = self.asBag.huffmanSymbolTable;
+		let symbolTable = self.asMultiset.huffmanSymbolTable;
 		HuffmanCoding(
 			symbolTable,
 			self.collect { :each |

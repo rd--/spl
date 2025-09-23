@@ -26,8 +26,8 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 		}
 	}
 
-	asIdentityBag { :self |
-		let answer = IdentityBag();
+	asIdentityMultiset { :self |
+		let answer = IdentityMultiset();
 		self.runsAndValuesDo { :run :value |
 			answer.addWithOccurrences(value, run)
 		};

@@ -21,10 +21,10 @@ At `Record`:
 ['x': 1, 'y': 2]
 ```
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
->>> [1 2 2 3 3 3].asIdentityBag.asMap
+>>> [1 2 2 3 3 3].asIdentityMultiset.asMap
 [1: 1, 2: 2, 3: 3]
 ```
 
@@ -46,7 +46,7 @@ true
 
 * * *
 
-See also: ->, asDictionary, asRecord, Association, Dictionary, IdentityBag, List, Map, Record
+See also: ->, asDictionary, asRecord, Association, Dictionary, IdentityMultiset, List, Map, Record
 
 Guides: Dictionary Functions
 

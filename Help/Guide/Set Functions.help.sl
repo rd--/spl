@@ -3,14 +3,25 @@
 Traits and Types:
 
 - `Set`
+- `Multiset`
 - `IdentitySet`
+- `IdentityMultiset`
 - `ResidueSet`
 - `SortedSet`
+- `UnsortedSet`
 
 Converting:
 
-- `asIdentitySet`
 - `asSet`
+- `asMultiset`
+- `asIdentitySet`
+- `asIdentityMultiset`
+
+Counting:
+
+- `binomial`
+- `multinomial`
+- `multichoose`
 
 Set Theoretic Functions:
 

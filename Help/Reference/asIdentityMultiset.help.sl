@@ -1,14 +1,14 @@
-# asIdentityBag
+# asIdentityMultiset
 
-- _asIdentityBag(aList)_
+- _asIdentityMultiset(aList)_
 
-Convert _aList_ to a `IdentityBag`.
+Convert _aList_ to a `IdentityMultiset`.
 
 ```
->>> [1 1 1 3 3 5].asIdentityBag.sortedElements
+>>> [1 1 1 3 3 5].asIdentityMultiset.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 1 1 3 3 5].asIdentityBag.sortedCounts
+>>> [1 1 1 3 3 5].asIdentityMultiset.sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
 ```
 
@@ -17,7 +17,7 @@ Count occurrences of characters in a string:
 ```
 >>> 'occurrences'
 >>> .contents
->>> .asIdentityBag
+>>> .asIdentityMultiset
 >>> .sortedCounts
 [
 	3 -> 'c',
@@ -28,7 +28,7 @@ Count occurrences of characters in a string:
 
 * * *
 
-See also: IdentityBag, sortedCounts, sortedElements
+See also: IdentityMultiset, sortedCounts, sortedElements
 
 References:
 _Mathematica_

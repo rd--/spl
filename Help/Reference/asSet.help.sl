@@ -12,11 +12,11 @@ At `List`:
 {|1, 2, 3|}
 ```
 
-At `Bag`:
+At `Multiset`:
 
 ```
 >>> [1 1 2 1 2 3]
->>> .asBag
+>>> .asMultiset
 >>> .asSet
 {|1, 2, 3|}
 ```

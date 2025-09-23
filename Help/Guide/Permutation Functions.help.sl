@@ -29,6 +29,13 @@ Converting:
 
 - `asPermutation`
 
+Counting:
+
+- `factorial`
+- `multinomial`
+- `stope`
+- `subfactorial`
+
 General:
 
 - `action`

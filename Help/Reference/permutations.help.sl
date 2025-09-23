@@ -1,6 +1,6 @@
 # permutations
 
-- _permutations(self, n)_
+- _permutations([x₁ x₂ …], n=|x|)_
 
 Answer a `List` of the permutations containing at most _n_ elements of the sequence _x_.
 
@@ -95,9 +95,15 @@ Length-two permutations of four elements:
 ]
 ```
 
-The number of _length-k_ permutations of _n_ elements is given by _k.stope(-1, n)_:
+The number of length-_k_ permutations of _n_ elements is given by _n!/(n-k)!_ or `stope`:
 
 ```
+>>> [1 .. 5].permutations(2).size
+20
+
+>>> 5.! / (5 - 2).!
+20
+
 >>> 5.iota.permutations(3).size
 60
 

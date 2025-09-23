@@ -64,13 +64,13 @@ At `Interval`:
 (1 -- 7)
 ```
 
-At `Bag`:
+At `Multiset`:
 
 ```
 >>> let a = [|'x' -> 1, 'y' -> 2, 'z' -> 3|];
 >>> let b = [|'x' -> 2, 'y' -> 1|];
->>> Bag(a).union(Bag(b))
-Bag([|'x' -> 3, 'y' -> 3, 'z' -> 3|])
+>>> Multiset(a).union(Multiset(b))
+Multiset([|'x' -> 3, 'y' -> 3, 'z' -> 3|])
 ```
 
 Where supported `union` is displayed as ∪.

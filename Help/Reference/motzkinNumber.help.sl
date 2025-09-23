@@ -5,6 +5,9 @@
 Answer the _k_-th Motzkin number.
 
 ```
+>>> 2:12.collect(motzkinNumber:/1)
+[1 2 4 9 21 51 127 323 835 2188 5798]
+
 >>> 23.motzkinNumber
 400763223
 ```

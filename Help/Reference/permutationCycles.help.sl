@@ -78,7 +78,7 @@ A histogram of the cycle count for the permutations of the symmetric group _S6_:
 >>> 	)
 >>> 	.size
 >>> };
->>> k.asIdentityBag.sortedElements
+>>> k.asIdentityMultiset.sortedElements
 [
 	1 -> 120,
 	2 -> 274,

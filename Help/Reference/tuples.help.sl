@@ -1,10 +1,10 @@
 # tuples
 
-- _tuples(l, n)_
-- _tuples([l₁ l₂ …])_
+- _tuples([x₁ x₂ …], n)_
+- _tuples([x₁ x₂ …; y₁ y₂ …])_
 
 In the binary case,
-answer all of the possible _n_-tuples of each of the elements of the sequence _l_,
+answer all of the possible _n_-tuples of each of the elements of the sequence _x_,
 which is an _n_-element sequence of any sized sequences.
 
 In the unary case,
@@ -66,8 +66,16 @@ Two-tuples are the cartesian product of a set with itself:
 >>> let a = x.tuples(2);
 >>> let b = [x, x].tuples;
 >>> let c = x.cartesianProduct(x);
->>> (a = b, b = c)
-(true, true)
+>>> (a, a = b, b = c)
+(
+	[
+		0 0; 0 1; 0 2;
+		1 0; 1 1; 1 2;
+		2 0; 2 1; 2 2
+	],
+	true,
+	true
+)
 ```
 
 The Cartesian product of an empty list with any other list is the empty list:
@@ -118,17 +126,20 @@ All possible one, two and three-tuples of 0 and 1,
 digits of successive base-two numbers:
 
 ```
->>> [0 1].tuples(1)
-[0; 1]
+>>> ([0 1].tuples(1), 2 ^ 1)
+([0; 1], 2)
 
->>> [0 1].tuples(2)
-[0 0; 0 1; 1 0; 1 1]
+>>> ([0 1].tuples(2), 2 ^ 2)
+([0 0; 0 1; 1 0; 1 1], 4)
 
->>> [0 1].tuples(3)
-[
-	0 0 0; 0 0 1; 0 1 0; 0 1 1;
-	1 0 0; 1 0 1; 1 1 0; 1 1 1
-]
+>>> ([0 1].tuples(3), 2 ^ 3)
+(
+	[
+		0 0 0; 0 0 1; 0 1 0; 0 1 1;
+		1 0 0; 1 0 1; 1 1 0; 1 1 1
+	],
+	8
+)
 ```
 
 The first nine three-tuples of the base-three counting system:
@@ -186,13 +197,14 @@ All possible trigrams of A and B:
 
 See also: cartesianProduct, powerSet, subsets, table, tuplesArray, tuplesCollect, tuplesDo
 
-Guides: List Functions
+Guides: Combinatorial Functions, List Functions, Set Functions
 
 References:
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlylf),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Tuples.html),
+[1](https://mathworld.wolfram.com/String.html)
+[2](https://reference.wolfram.com/language/ref/Tuples.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/combinations.html)
 

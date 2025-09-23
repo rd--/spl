@@ -5,7 +5,7 @@
 Answer if the object _x_ is _immediate_,
 one criteria for which is that an instance will compare `==` when it compares `=`.
 
-Immediate objects are suitable for inclusion in `IdentitySet` and `IdentityBag`,
+Immediate objects are suitable for inclusion in `IdentitySet` and `IdentityMultiset`,
 as for use as keys in `Map` (the identity dictionary).
 
 `Nil`, `Boolean`, `SmallFloat`, `String` and `Block` values are all immediate.
@@ -59,6 +59,6 @@ true
 
 * * *
 
-See also: =, ==, IdentityBag, isJson, isLiteral, Map, IdentitySet
+See also: =, ==, IdentityMultiset, isJson, isLiteral, Map, IdentitySet
 
 Categories: Testing

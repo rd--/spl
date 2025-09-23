@@ -11,10 +11,10 @@ At `List`:
 2
 ```
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
->>> [2 3 3 4 4 4].asIdentityBag.occurrencesOf(4)
+>>> [2 3 3 4 4 4].asIdentityMultiset.occurrencesOf(4)
 3
 ```
 

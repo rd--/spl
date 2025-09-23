@@ -21,6 +21,20 @@ The subfactorial counts the number of derangements.
 895014631192902121L
 ```
 
+The number of derangements of an _n_-element set for small _n_,
+OEIS [A000166](https://oeis.org/A000166):
+
+```
+>>> 0:13.collect(subfactorial:/1)
+[
+	        1          0        1
+	        2          9       44
+	      265       1854    14833
+	   133496    1334961 14684570
+	176214841 2290792932
+]
+```
+
 Plot the values on a log scale over a subset of the reals:
 
 ~~~spl svg=A
@@ -35,7 +49,7 @@ Plot the values on a log scale over a subset of the reals:
 
 See also: derangements, doubleFactorial, factorial
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Permutation Functions
 
 References:
 _Mathematica_

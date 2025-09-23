@@ -61,10 +61,10 @@ Size of a `String`:
 0
 ```
 
-Size of a `Bag` is the total number of items:
+Size of a `Multiset` is the total number of items:
 
 ```
->>> Bag([|'x' -> 1, 'y' -> 2, 'z' -> 3|])
+>>> Multiset([|'x' -> 1, 'y' -> 2, 'z' -> 3|])
 >>> .size
 6
 ```
@@ -136,5 +136,7 @@ _Python_
 [1](https://docs.python.org/3/library/functions.html#len)
 _Smalltalk_
 5.7.1.23
+_W_
+[1](https://en.wikipedia.org/wiki/Cardinality)
 
 Categories: Accessing

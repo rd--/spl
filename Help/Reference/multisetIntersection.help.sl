@@ -7,7 +7,7 @@ Answer the multiset intersection of _m_.
 ```
 >>> [1 1 2 3; 3 1 1 1 4; 4 1 1 3 3]
 >>> .multisetIntersection
-[1 1 3].asBag
+[1 1 3].asMultiset
 ```
 
 If there is no intersection, the result is empty:
@@ -15,7 +15,7 @@ If there is no intersection, the result is empty:
 ```
 >>> [1 2 2 3; 4 5 6 6]
 >>> .multisetIntersection
-[].asBag
+[].asMultiset
 ```
 
 Compare to `setIntersection` and `intersection`:
@@ -23,7 +23,7 @@ Compare to `setIntersection` and `intersection`:
 ```
 >>> [1 2 1 4 4; 4 1 4 5 4; 3 4 1 4]
 >>> .multisetIntersection
-[1 4 4].asBag
+[1 4 4].asMultiset
 
 >>> [1 2 1 4 4; 4 1 4 5 4; 3 4 1 4]
 >>> .setIntersection

@@ -35,7 +35,7 @@ and have the expected mathematical behavior in relation to scalars:
 
 * * *
 
-See also: asIdentitySet, add, IdentityBag, include, isImmediate, isIdentitySet, List
+See also: asIdentitySet, add, IdentityMultiset, include, isImmediate, isIdentitySet, List
 
 Guides: Set Functions
 

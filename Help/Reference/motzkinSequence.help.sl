@@ -26,6 +26,17 @@ Answer the first _k_ Motzkin numbers.
 ]
 ```
 
+A recurrence function:
+
+```
+>>> { :m :n |
+>>> 	let a = 3 * (n - 1) * m[n - 2];
+>>> 	let b = ((2 * n) + 1) * m[n - 1];
+>>> 	(a + b) / (n + 2)
+>>> }.recurrenceTable([1 2], 11)
+[1 2 4 9 21 51 127 323 835 2188 5798]
+```
+
 * * *
 
 See also: delannoySequence, motzkinNumber, schroderSequence, superCatalanNumber

@@ -25,10 +25,10 @@ At `Tuple`, which is not a proper sequence:
 false
 ```
 
-At `IdentityBag` answers false:
+At `IdentityMultiset` answers false:
 
 ```
->>> IdentityBag().isSequenceable
+>>> IdentityMultiset().isSequenceable
 false
 ```
 

@@ -12,11 +12,11 @@ At `List`:
 [1 2 3]
 ```
 
-At `IdentityBag`:
+At `IdentityMultiset`:
 
 ```
 >>> [1 1 2 1 2 3]
->>> .asIdentityBag
+>>> .asIdentityMultiset
 >>> .asIdentitySet
 [1 2 3].asIdentitySet
 ```

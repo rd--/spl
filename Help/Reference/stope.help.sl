@@ -2,7 +2,7 @@
 
 - _stope(x, p, y)_
 
-Answer _x * (x + p) * (x + (2 * p)) * ..._ for _y_ terms.
+Answer _x(x+p)(x+2p)…_ for _y_ terms.
 
 ```
 >>> 5.stope(1, 3)
@@ -26,6 +26,8 @@ Calculate the _rising Pochhammer symbol (x)y_ as used in the hypergeometric func
 * * *
 
 See also: permutations
+
+Guides: Permutation Functions
 
 References:
 _J_

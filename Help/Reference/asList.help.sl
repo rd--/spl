@@ -37,11 +37,11 @@ At `Association`:
 [1 3]
 ```
 
-At `IdentityBag`:
+At `Multiset`:
 
 ```
 >>> [1 2 2 3 3 3 4 4 4 4]
->>> .asIdentityBag
+>>> .asMultiset
 >>> .asList
 [1 2 2 3 3 3 4 4 4 4]
 ```

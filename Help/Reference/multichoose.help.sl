@@ -30,7 +30,9 @@ The number of multisets of length _k_ on _n_ symbols.
 
 * * *
 
-See also: Bag, binomial, multinomial
+See also: Multiset, binomial, multinomial
+
+Guides: Set Functions
 
 References:
 _Mathematica_

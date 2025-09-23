@@ -25,12 +25,12 @@ At `Map`:
 []
 ```
 
-At `Bag`:
+At `Multiset`:
 
 ```
 >>> 'abracadabra'
 >>> .characters
->>> .asBag
+>>> .asMultiset
 >>> .associations
 [
 	'a' -> 5, 'b' -> 2, 'r' -> 2,
