@@ -1241,8 +1241,8 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'contains'
 		'doesNotInclude'
 		'includes'
-		'includesAllOf'
-		'includesAnyOf'
+		'includesAll'
+		'includesAny'
 		'includesAssociation'
 		'includesIdentity'
 		'includesIndex'
@@ -1257,9 +1257,9 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 	],
 	'testing-sequenceable': [
 		'beginsWith'
-		'beginsWithAnyOf'
+		'beginsWithAny'
 		'endsWith'
-		'endsWithAnyOf'
+		'endsWithAny'
 		'isArithmeticProgression'
 		'isArithmeticProgressionBy'
 		'isOctetSequence'

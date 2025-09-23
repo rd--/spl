@@ -277,6 +277,14 @@
 		}
 	}
 
+	includesNone { :self :aCollection |
+		self.includesAny(aCollection).not
+	}
+
+	includesOnly { :self :aCollection |
+		aCollection.includesAll(self)
+	}
+
 	injectIntoBy { :self :initialValue :aBlock:/2 :doBlock:/2 |
 		let nextValue = initialValue;
 		doBlock(self) { :each |

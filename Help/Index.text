@@ -554,7 +554,7 @@ Reference/base64Encode.help.sl
 Reference/basicStringIntercalate.help.sl
 Reference/beattySequence.help.sl
 Reference/before.help.sl
-Reference/beginsWithAnyOf.help.sl
+Reference/beginsWithAny.help.sl
 Reference/beginsWith.help.sl
 Reference/bellNumber.help.sl
 Reference/benedettiHeight.help.sl
@@ -1163,7 +1163,7 @@ Reference/encodeInt32.help.sl
 Reference/encodeOn.help.sl
 Reference/encodeUri.help.sl
 Reference/endIndex.help.sl
-Reference/endsWithAnyOf.help.sl
+Reference/endsWithAny.help.sl
 Reference/endsWith.help.sl
 Reference/ensure.help.sl
 Reference/enumerate.help.sl
@@ -1604,8 +1604,8 @@ Reference/incircle.help.sl
 Reference/inclination.help.sl
 Reference/includeAll.help.sl
 Reference/include.help.sl
-Reference/includesAllOf.help.sl
-Reference/includesAnyOf.help.sl
+Reference/includesAll.help.sl
+Reference/includesAny.help.sl
 Reference/includesBy.help.sl
 Reference/includesEdge.help.sl
 Reference/includes.help.sl
@@ -1796,6 +1796,7 @@ Reference/isIndexable.help.sl
 Reference/isInteger.help.sl
 Reference/isIntegerMatrix.help.sl
 Reference/isIntegerRange.help.sl
+Reference/isIntersecting.help.sl
 Reference/isInvolution.help.sl
 Reference/isIso8601DurationString.help.sl
 Reference/isIsosceles.help.sl
@@ -1863,7 +1864,7 @@ Reference/isPrimitivePythagoreanTriple.help.sl
 Reference/isPrintableAscii.help.sl
 Reference/isPronicNumber.help.sl
 Reference/isProper.help.sl
-Reference/isProperSubsetOf.help.sl
+Reference/isProperSubset.help.sl
 Reference/isPseudoperfectNumber.help.sl
 Reference/isPythagorean.help.sl
 Reference/isPythagoreanPrime.help.sl
@@ -1912,7 +1913,7 @@ Reference/isStrictlyIncreasing.help.sl
 Reference/isStrictlyProper.help.sl
 Reference/isString.help.sl
 Reference/isStrongPrime.help.sl
-Reference/isSubsetOf.help.sl
+Reference/isSubset.help.sl
 Reference/isSumOfTwoSquares.help.sl
 Reference/isSumProductNumber.help.sl
 Reference/isSuperabundantNumber.help.sl
@@ -3466,6 +3467,7 @@ Reference/TrigRoundRobin.help.sl
 Reference/trilinearInterpolation.help.sl
 Reference/trim.help.sl
 Reference/trimmedMean.help.sl
+Reference/trinomial.help.sl
 Reference/trisectrixOfMaclaurin.help.sl
 Reference/trochoid.help.sl
 Reference/true.help.sl

@@ -23,11 +23,16 @@ Counting:
 - `multinomial`
 - `multichoose`
 
-Predicates:
+Inclusion Predicates:
 
 - `includes`
 - `includesAll`
 - `includesAny`
+- `includesNone`
+- `includesOnly`
+
+Relation Predicates:
+
 - `isDisjoint`
 - `isIntersecting`
 - `isProperSubset`

@@ -85,7 +85,7 @@ Where supported `includes` is displayed as ∋.
 
 * * *
 
-See also: anySatisfy, includesAllOf, includesBy
+See also: anySatisfy, includesAll, includesBy
 
 Guides: Dictionary Functions, List Functions
 

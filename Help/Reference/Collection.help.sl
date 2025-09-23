@@ -12,8 +12,8 @@ Methods for testing
 
 - `allSatisfy`
 - `anySatisfy`
-- `includesAllOf`
-- `includesAnyOf`
+- `includesAll`
+- `includesAny`
 - `includes`
 - `isEmpty`
 - `occurrencesOf`

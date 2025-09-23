@@ -220,7 +220,7 @@
 	}
 
 	includesIndices { :self :aCollection |
-		self.indices.includesAllOf(aCollection)
+		self.indices.includesAll(aCollection)
 	}
 
 	indexOf { :self :anObject |

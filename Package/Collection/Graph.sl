@@ -503,7 +503,7 @@
 
 	subgraph { :self :vertexList |
 		self.edgeList.select { :each |
-			vertexList.includesAllOf(each.vertexList)
+			vertexList.includesAll(each.vertexList)
 		}.asGraph
 	}
 
