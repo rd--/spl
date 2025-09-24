@@ -25,6 +25,8 @@ The first few weak primes:
 
 See also: isBalancedPrime, isPrime, isStrongPrime
 
+Guides: Prime Number Functions, Predicate Functions
+
 References:
 _OEIS_
 [1](https://oeis.org/A051635),

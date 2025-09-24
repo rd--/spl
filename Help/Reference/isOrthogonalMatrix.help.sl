@@ -1,8 +1,8 @@
 # isOrthogonalMatrix
 
-- _isOrthogonalMatrix(aMatrix)_
+- _isOrthogonalMatrix(m)_
 
-Answer `true` if _aMatrix_ is orthogonal, else `false`.
+Answer `true` if the matrix _m_ is orthogonal, else `false`.
 
 Test if a 2×2 matrix is orthogonal:
 
@@ -67,6 +67,8 @@ true
 * * *
 
 See also: isUnitaryMatrix, isSymmetricMatrix, normalize, transpose
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

@@ -63,4 +63,6 @@ true
 
 See also: isEven, isOrigin, isNegative, isOdd, isOne, isPositive, zero
 
+Guides: Predicate Functions
+
 Categories: Testing, Math

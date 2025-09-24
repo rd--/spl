@@ -1,6 +1,6 @@
 # scalingMatrix
 
-- _scalingMatrix(aList)_
+- _scalingMatrix([x₁ x₂ …])_
 
 Answer the matrix corresponding to scaling along each coordinate axis.
 
@@ -24,6 +24,8 @@ Scaling factors can be negative or zero:
 * * *
 
 See also: diagonalMatrix, identityMatrix, reflectionMatrix, rotationMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

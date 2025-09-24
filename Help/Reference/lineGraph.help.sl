@@ -95,4 +95,6 @@ Guides: Graph Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LineGraph.html)
-[2](https://reference.wolfram.com/language/ref/LineGraph.html)
+[2](https://reference.wolfram.com/language/ref/LineGraph.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Line_graph)

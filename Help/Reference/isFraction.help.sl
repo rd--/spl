@@ -1,8 +1,8 @@
 # isFraction
 
-- _isFraction(anObject)_
+- _isFraction(x)_
 
-Answers if _anObject_ is a `Fraction` value.
+Answers if the object _x_ is a `Fraction` value.
 
 At `Fraction`:
 
@@ -39,5 +39,7 @@ The predicate `isRational` will answer `true` for integer values.
 * * *
 
 See also: denominator, Fraction, isExact, isInteger, isNumber, isRational, numerator
+
+Guides: Predicate Functions
 
 Categories: Testing, Arithmetic

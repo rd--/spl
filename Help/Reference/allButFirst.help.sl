@@ -9,6 +9,9 @@ Signal an error if there are not enough elements.
 >>> [1 .. 9].allButFirst(5)
 [6 .. 9]
 
+>>> [1 .. 9].drop(5)
+[6 .. 9]
+
 >>> 'text'.allButFirst(3)
 't'
 ```
@@ -23,7 +26,7 @@ The unary form answers all but the first element.
 'ext'
 ```
 
-If the sequence has as many places as are discared answer the empty sequence:
+If the sequence has as many places as are discarded answer the empty sequence:
 
 ```
 >>> [1].allButFirst
@@ -35,11 +38,16 @@ If there are too few items an `error` is signalled:
 ```
 >>> { [].allButFirst }.hasError
 true
+
+>>> [].drop(1)
+[]
 ```
 
 * * *
 
 See also: allButLast
+
+Guides: List Functions
 
 References:
 _Mathematica_

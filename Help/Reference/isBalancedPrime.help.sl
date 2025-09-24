@@ -19,7 +19,7 @@ The first few balanced primes:
 
 See also: isPrime, isStrongPrime, isWeakPrime, prime, primeGap
 
-Guides: Prime Number Functions
+Guides: Prime Number Functions, Predicate Functions
 
 References:
 _OEIS_

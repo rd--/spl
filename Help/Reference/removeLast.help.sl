@@ -1,9 +1,8 @@
 # removeLast
 
-- _removeLast(alpha)_ ⟹ _removeLast(alpha, 1)_
-- _removeLast(aSequence, anInteger)_
+- _removeLast([x₁ x₂ …], n=1)_
 
-In the unary case, remove the last element of _aSequence_ and answer it.
+In the unary case, remove the last element of the sequence _x_ and answer it.
 If the collection is empty it is an error.
 
 ```
@@ -12,7 +11,7 @@ If the collection is empty it is an error.
 (9, [1 .. 8])
 ```
 
-In the binary case remove the last _anInteger_ items:
+In the binary case remove the last _n_ items:
 
 ```
 >>> let l = [1 .. 5];

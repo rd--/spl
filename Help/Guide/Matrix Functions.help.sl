@@ -41,14 +41,14 @@ Predicates:
 
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
-- `isIntegerMatrix`: is integer matrix
-- `isLowerTriangularMatrix`: is lower triangular matrix
-- `isMatrix`: is matrix
-- `isOrthogonalMatrix`: is orthogonal matrix
-- `isSquareMatrix`: is square matrix
-- `isSymmetricMatrix`: is symmetric matrix
-- `isUnitaryMatrix`: is unitary matrix
-- `isUpperTriangularMatrix`: is upper triangular matrix
+- `isIntegerMatrix`
+- `isLowerTriangularMatrix`
+- `isMatrix`
+- `isOrthogonalMatrix`
+- `isSquareMatrix`
+- `isSymmetricMatrix`
+- `isUnitaryMatrix`
+- `isUpperTriangularMatrix`
 
 Specific Matrices:
 

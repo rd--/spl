@@ -1,7 +1,8 @@
 # rank
 
-- _rank(anArray | anObject)_
+- _rank(x)_
 
+Answer the rank of the object _x_.
 In the Apl array model,
 the `rank` of an array is the number of dimensions or axes in its structure,
 or the length of its `shape`.
@@ -87,4 +88,6 @@ Guides: Matrix Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Rank)
-[2](https://aplwiki.com/wiki/Rank_(operator))
+[2](https://aplwiki.com/wiki/Rank_(operator)),
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/TensorRank.html)

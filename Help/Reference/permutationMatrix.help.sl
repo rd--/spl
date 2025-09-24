@@ -102,6 +102,8 @@ The dot product of a permutation matrix _m_ with it’s transpose is the identit
 
 See also: permutationCycles, permutationList, permute
 
+Guides: Matrix Functions, Permutation Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PermutationMatrix.html)

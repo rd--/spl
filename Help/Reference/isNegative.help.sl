@@ -52,7 +52,8 @@ Threads over lists:
 
 See also: negate, isNonNegative, isPositive, isZero
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Predicate Functions
+
 
 References:
 _Mathematica_

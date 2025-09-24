@@ -1,8 +1,8 @@
 # rotationMatrix
 
-- _rotationMatrix(theta, aVector)_
+- _rotationMatrix(θ, [x₁ x₂ …])_
 
-Answers the 2×2 rotation matrix that rotates vectors counterclockwise by _theta_ radians.
+The unary form answers the 2×2 rotation matrix that rotates vectors counterclockwise by _θ_ radians.
 
 Counterclockwise rotation by 30°:
 
@@ -58,6 +58,8 @@ Rotation matrix about _x_-axis:
 * * *
 
 See also: dot, eulerMatrix, reflectionMatrix, scalingMatrix, sin, unitVector
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

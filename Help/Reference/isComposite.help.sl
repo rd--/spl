@@ -2,7 +2,7 @@
 
 - _isComposite(n)_
 
-Answer `true` if the integer _n_ is prime, else `false`.
+Answer `true` if the integer _n_ is _not_ prime, else `false`.
 
 Test whether a number is composite:
 
@@ -11,7 +11,7 @@ Test whether a number is composite:
 true
 ```
 
-The number  is not composite:
+The number thirteen is not composite:
 
 ```
 >>> 13.isComposite
@@ -56,7 +56,7 @@ The distribution of Gaussian composite numbers:
 
 See also: isGaussianPrime, isPrime
 
-Guides: Integer Functions, Prime Number Functions
+Guides: Integer Functions, Predicate Functions, Prime Number Functions
 
 References:
 _Mathematica_

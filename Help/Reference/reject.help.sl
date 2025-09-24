@@ -49,6 +49,8 @@ Reject items that are integers:
 
 See also: collect, detect, select
 
+Guides: Collection Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DeleteCases.html),

@@ -1,8 +1,8 @@
 # antidiagonalMatrix
 
-- _antidiagonalMatrix(aList)_
+- _antidiagonalMatrix([x₁ x₂ …])_
 
-Answer a matrix with the elements of _aList_ on the antidiagonal, and `zero` elsewhere.
+Answer a matrix with the elements of the list _x_ on the antidiagonal, and `zero` elsewhere.
 
 ```
 >>> [1 2 3].antidiagonalMatrix
@@ -23,6 +23,8 @@ An `exchangeMatrix` is a special case of an `antidiagonalMatrix`:
 * * *
 
 See also: antidiagonal, diagonal, diagonalMatrix, exchangeMatrix, identityMatrix, scalingMatrix
+
+Guides: Matrix Functions
 
 References:
 _W_

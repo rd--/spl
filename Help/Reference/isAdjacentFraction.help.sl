@@ -28,6 +28,8 @@ false
 
 See also: fareySequence, Fraction
 
+Guides: Predicate Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AdjacentFraction.html)

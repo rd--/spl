@@ -1,6 +1,6 @@
 # permutationGraph
 
-- _permutationGraph(aPermutation)_
+- _permutationGraph(p)_
 
 A permutation graph is a graph whose vertices represent the elements of a permutation,
 and whose edges represent pairs of elements that are reversed by the permutation.

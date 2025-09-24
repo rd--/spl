@@ -1,8 +1,9 @@
 # isRowVector
 
-- _isRowVector(aMatrix)_
+- _isRowVector(m)_
 
-A _row vector_ is a _matrix_ with a single row, ie. a _1×n_ matrix.
+Answer `true` if the matrix _m_ is a row vector.
+A row vector is a matrix with a single row, ie. a _1×n_ matrix.
 
 At `List`:
 
@@ -19,7 +20,7 @@ A 1×4 matrix is a row vector:
 ([1 4], true)
 ```
 
-A _vector_ is not a _row vector_:
+A vector is not a row vector:
 
 ```
 >>> [1 2 3].isRowVector
@@ -29,5 +30,7 @@ false
 * * *
 
 See also: isColumnVector, isMatrix, isVector, List, Matrix
+
+Guides: Predicate Functions
 
 Categories: Testing

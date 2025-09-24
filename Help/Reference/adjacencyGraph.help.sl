@@ -1,10 +1,10 @@
 # adjacencyGraph
 
-- _adjacencyGraph(aMatrix)_
-- _adjacencyGraph(aMatrix, vertexList)_
+- _adjacencyGraph(m)_
+- _adjacencyGraph(m, [v₁ v₂ …])_
 
 In the binary case,
-answer the `Graph` with adjacency matrix _aMatrix_ and vertices from _vertexList_.
+answer the `Graph` with adjacency matrix _m_ and vertices from the vertex list _v_.
 
 In the unary case,
 vertices are numbered from `one`.
@@ -85,7 +85,9 @@ Represent a network with an adjacency matrix:
 
 * * *
 
-See also: adjacencyList, adjacencyMatrix, Graph
+See also: adjacencyList, adjacencyMatrix, Graph, weightedAdjacencyGraph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

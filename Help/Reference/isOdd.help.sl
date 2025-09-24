@@ -42,7 +42,7 @@ The sums of the first odd integers, beginning with one, are perfect squares:
 
 See also: divisible, isEven, isInteger
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_

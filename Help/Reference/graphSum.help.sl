@@ -1,7 +1,6 @@
-# sumGraph
+# graphSum
 
-- _sumGraph(aGraph, anotherGraph)_
-- _alpha + beta_ ⟹ _sumGraph(alpha, beta)_
+- _graphSum(g₁, g₂)_
 
 The graph sum of two graphs is the graph with adjacency matrix given by the sum of the two adjacency matrices.
 A graph sum is defined when the orders of the two graphs are the same.
@@ -41,16 +40,16 @@ The graph sum of the pentatope graph _K(5)_ and the cycle graph _C(5)_.
 Draw the sum of the three cycle and path graphs:
 
 ~~~spl svg=A
-3.cycleGraph.sumGraph(
+3.cycleGraph.graphSum(
 	3.pathGraph
 ).graphPlot
 ~~~
 
-![](sw/spl/Help/Image/sumGraph-A.svg)
+![](sw/spl/Help/Image/graphSum-A.svg)
 
 * * *
 
-See also: Graph
+See also: Graph, graphProduct
 
 Guides: Graph Functions
 

@@ -1,10 +1,10 @@
 # neighbourhoodGraph
 
-- _neighbourhoodGraph(aGraph, aVertex)_
+- _neighbourhoodGraph(g, v)_
 
-Answer the graph neighbourhood of _aVertex_ in _aGraph_.
-The neighbourhood graph for is defined as the vertices adjacent to _aVertex_,
-including _aVertex_ itself,
+Answer the graph neighbourhood of the vertex _v_ in graph _g_.
+The neighbourhood graph for is defined as the vertices adjacent to _v_,
+including _v_ itself,
 and all edges connecting them.
 
 Each vertex in a cycle graph has two neighours:
@@ -44,12 +44,15 @@ The neighbourhood graph of a complete graph is itself:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceGraph
+See also: adjacencyList, Graph, incidenceGraph, incidenceList, incidenceMatrix
 
 Guides: Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/NeighborhoodGraph.html)
+[1](https://mathworld.wolfram.com/NeighborhoodGraph.html)
+[2](https://reference.wolfram.com/language/ref/NeighborhoodGraph.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Neighbourhood_(graph_theory))
 
 Categories: Graph

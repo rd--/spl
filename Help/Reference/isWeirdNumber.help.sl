@@ -17,7 +17,7 @@ The first few weird numbers:
 
 See also: isAbundantNumber, isPerfectNumber, isPseudoperfectNumber
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_

@@ -328,7 +328,7 @@
 
 - `Graph`
 - `asGraph`
-- `complementGraph`, `lineGraph`, `undirectedGraph`
+- `graphComplement`, `lineGraph`, `undirectedGraph`
 - `isDirectedEdge`, `isEdge`, `isUndirectedEdge`
 - `isDirected`, `isMixed`, `isUndirected`
 - `isEmpty`, `isLoopFree`, `isRegular`, `isSingleton`
@@ -338,7 +338,7 @@
 - `adjacencyList`, `adjacencyMatrix`, `connectionMatrix`, `incidenceMatrix`
 - `completeGraph`, `completeBipartiteGraph`
 - `cycleGraph`, `gridGraph`, `pathGraph`, `starGraph`, `wheelGraph`
-- `sumGraph`
+- `graphSum`
 - `edgeLabels`, `vertexCoordinates`, `vertexLabels`
 
 ## Help Files

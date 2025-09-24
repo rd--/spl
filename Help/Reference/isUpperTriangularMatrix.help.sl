@@ -1,8 +1,8 @@
 # isUpperTriangularMatrix
 
-- _isUpperTriangularMatrix(aMatrix)_
+- _isUpperTriangularMatrix(m)_
 
-Answer `true` if _aMatrix_ is upper triangular, else `false`.
+Answer `true` if the matrix _m_ is upper triangular, else `false`.
 
 An upper triangular matrix:
 
@@ -60,6 +60,8 @@ true
 * * *
 
 See also: isLowerTriangularMatrix, isMatrix, isSquareMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

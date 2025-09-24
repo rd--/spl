@@ -827,7 +827,6 @@ Reference/commonSubexpressions.help.sl
 Reference/Compander.help.sl
 Reference/Comparable.help.sl
 Reference/compare.help.sl
-Reference/complementGraph.help.sl
 Reference/complement.help.sl
 Reference/completeBipartiteGraph.help.sl
 Reference/completeGraphDrawing.help.sl
@@ -1438,6 +1437,7 @@ Reference/grahamScan.help.sl
 Reference/GrainBuf.help.sl
 Reference/GrainFm.help.sl
 Reference/gramSchmidtProcess.help.sl
+Reference/graphComplement.help.sl
 Reference/graphDistance.help.sl
 Reference/graphDistanceMatrix.help.sl
 Reference/graph.help.sl
@@ -1611,6 +1611,8 @@ Reference/includesEdge.help.sl
 Reference/includes.help.sl
 Reference/includesIndex.help.sl
 Reference/includesKey.help.sl
+Reference/includesNone.help.sl
+Reference/includesOnly.help.sl
 Reference/includesScatteredSubsequence.help.sl
 Reference/includesSubsequence.help.sl
 Reference/includesSubstring.help.sl

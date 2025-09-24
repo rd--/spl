@@ -1,9 +1,9 @@
 # subgraph
 
-- _subgraph(aGraph, vertexList)_
+- _subgraph(g, [v₁ v₂ …])_
 
-Answer the subgraph of _aGraph_ given by _vertexList_.
-The subgraph is defined as the vertices in _vertexList_ and all edges connecting them.
+Answer the subgraph of the graph _g_ given by the vertex list _v_.
+The subgraph is defined as the vertices in _v_ and all edges connecting them.
 
 Subgraph of a cycle graph:
 
@@ -46,6 +46,7 @@ Guides: Graph Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Subgraph.html)
+[1](https://mathworld.wolfram.com/Subgraph.html)
+[2](https://reference.wolfram.com/language/ref/Subgraph.html)
 
 Categories: Graph

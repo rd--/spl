@@ -16,7 +16,7 @@ Answer the home directory.
 
 See also: environmentVariable, splDirectory, system
 
-Guide: System Functions
+Guides: System Functions
 
 References:
 _Mathematica_

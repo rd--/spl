@@ -1,8 +1,8 @@
 # exchangeMatrix
 
-- _exchangeMatrix(anInteger)_
+- _exchangeMatrix(n)_
 
-Answers the _n x n_ exchange matrix,
+Answers the _n×n_ exchange matrix,
 where the elements of the `antidiagonal` are all `one`,
 and all other elements are `zero`.
 
@@ -113,6 +113,8 @@ Draw `exchangeMatrix`:
 * * *
 
 See also: antidiagonalMatrix, diagonalMatrix, identityMatrix, kroneckerDelta, unitVector, permutationMatrix, table
+
+Guides: Matrix Functions
 
 References:
 _W_

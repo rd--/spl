@@ -39,11 +39,11 @@ The first few amicable pairs:
 
 See also: divisors, sum
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/WeirdNumber.html),
+[1](https://mathworld.wolfram.com/AmicablePair.html),
 _OEIS_
 [1](https://oeis.org/A259180)
 _W_

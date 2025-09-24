@@ -85,7 +85,7 @@ The incidence matrix of a graph with self-loops has some entries equal to 2:
 
 * * *
 
-See also: adjacencyMatrix, incidenceList
+See also: adjacencyMatrix, incidenceGraph, incidenceList
 
 Guides: Graph Functions
 

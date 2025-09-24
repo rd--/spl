@@ -1,6 +1,8 @@
 # isDiagonalMatrix
 
-- _isDiagonalMatrix(aMatrix)_
+- _isDiagonalMatrix(m)_
+
+Answer `true` if the matrix _m_ is a diagonal matrix.
 
 At three 3×3 matrices:
 
@@ -67,6 +69,10 @@ false
 
 See also: diagonalMatrix, identityMatrix, isMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DiagonalMatrixQ.html)
+[1](https://reference.wolfram.com/language/ref/DiagonalMatrixQ.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Diagonal_matrix)

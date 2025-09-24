@@ -46,7 +46,7 @@ true
 
 See also: allSatisfy, isZero
 
-Guides: Geometry Functions
+Guides: Geometry Functions, Predicate Functions
 
 References:
 _Mathematica_

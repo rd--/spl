@@ -1,8 +1,8 @@
 # isExact
 
-- _isExact(aNumber)_
+- _isExact(x)_
 
-Answer `true` if _aNumber_ is an exact real or complex number, and `false` otherwise.
+Answer `true` if the number _x_ is an exact real or complex number, and `false` otherwise.
 
 At `SmallFloat`,
 answers `true` if `isSmallInteger` would answer `true`:
@@ -50,6 +50,8 @@ true
 * * *
 
 See also: isComplex, isFraction, isInteger, isNumber, isSmallFloat, isSmallInteger
+
+Guides: Predicate Functions
 
 References:
 _Mathematica_

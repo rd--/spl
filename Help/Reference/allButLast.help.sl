@@ -1,9 +1,8 @@
 # allButLast
 
-- _allButLast(aSequence, anInteger)_
-- _allButLast(α)_ ⇒ _allButLast(α, 1)_
+- _allButLast([x₁ x₂ …], n=1)_
 
-Answer a copy of _aSequence_ containing all but the last _anInteger_ elements.
+Answer a copy of the sequence _x_ containing all but the last _n_ elements.
 Signal an error if there are not enough elements.
 
 ```
@@ -64,6 +63,8 @@ true
 * * *
 
 See also: allButFirst, copyFromTo, first, last
+
+Guides: List Functions
 
 References:
 _Mathematica_

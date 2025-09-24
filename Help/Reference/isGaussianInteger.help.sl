@@ -23,7 +23,7 @@ true
 
 See also: Complex, isGaussianPrime, isInteger
 
-Guides: Complex Functions, Integer Functions
+Guides: Complex Functions, Integer Functions, Predicate Functions
 
 References:
 _Mathematica_

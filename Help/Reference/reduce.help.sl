@@ -24,7 +24,7 @@ For instance, to sum the numeric elements of a collection:
 15
 ```
 
-In cases where _aBlock_ is not associative, reduce associates to the left:
+In cases where _f_ is not associative, reduce associates to the left:
 
 ```
 >>> [1 .. 9].reduce(-)
@@ -34,7 +34,7 @@ In cases where _aBlock_ is not associative, reduce associates to the left:
 -43
 ```
 
-_reduce_ is an alias for _foldLeft_, the dual of which is _foldRight_:
+`reduce` is an alias for `foldLeft`, the dual of which is `foldRight`:
 
 ```
 >>> [1 .. 9].foldRight(-)
@@ -47,7 +47,9 @@ _reduce_ is an alias for _foldLeft_, the dual of which is _foldRight_:
 Reducing an empty collection is an error:
 
 ```
->>> { [].reduce(+) }.hasError
+>>> {
+>>> 	[].reduce(+)
+>>> }.hasError
 true
 ```
 

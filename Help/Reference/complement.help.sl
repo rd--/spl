@@ -25,7 +25,7 @@ The complement of a `ResidueSet` is the difference to the complete residue set _
 ```
 
 The `complement` of a `Graph` is a graph with the same vertices and the complement edge set,
-c.f. `complementGraph`:
+c.f. `graphComplement`:
 
 ```
 >>> 6.cycleGraph
@@ -71,7 +71,7 @@ Where supported `complement` is displayed as ∁.
 
 * * *
 
-See also: BitSet, complementGraph, Graph, intersection, union, ResidueSet, select, symmetricDifference, take, uniqueElements
+See also: BitSet, graphComplement, Graph, intersection, union, ResidueSet, select, symmetricDifference, take, uniqueElements
 
 Guides: Set Functions
 

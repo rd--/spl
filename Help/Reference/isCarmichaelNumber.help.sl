@@ -7,7 +7,9 @@ Predicate to decide if _n_ is a Carmichael number.
 There is one Carmichael less than one thousand:
 
 ```
->>> (501, 503 .. 599).select(isCarmichaelNumber:/1)
+>>> (501, 503 .. 599).select(
+>>> 	isCarmichaelNumber:/1
+>>> )
 [561]
 ```
 
@@ -30,6 +32,8 @@ true
 * * *
 
 See also: carmichaelLambda
+
+Guides: Predicate Functions
 
 References:
 _Mathematica_

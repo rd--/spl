@@ -1,8 +1,8 @@
 # inversePermutation
 
-- _inversePermutation(aPermutation)_
+- _inversePermutation(p)_
 
-Answer the inverse of _aPermutation_.
+Answer the inverse of the permutation _p_.
 Every permutation has a uniquely defined inverse.
 
 Inverse of a permutation in cyclic notation:
@@ -83,6 +83,8 @@ Inverting a permutation is equivalent to reversing its cycles:
 * * *
 
 See also: cycles, Permutation, permutationPower
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

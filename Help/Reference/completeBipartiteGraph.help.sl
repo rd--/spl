@@ -34,10 +34,20 @@ The complete bipartite graph _(2, 3)_:
 Draw the complete bipartite graph _(2, 3)_:
 
 ~~~spl svg=A
-2.completeBipartiteGraph(3).graphPlot
+2.completeBipartiteGraph(3)
+.graphPlot
 ~~~
 
 ![](sw/spl/Help/Image/completeBipartiteGraph-A.svg)
+
+Circular drawing of the same graph:
+
+~~~spl svg=B
+2.completeBipartiteGraph(3)
+.circularGraphPlot
+~~~
+
+![](sw/spl/Help/Image/completeBipartiteGraph-B.svg)
 
 * * *
 

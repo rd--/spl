@@ -7,7 +7,7 @@
 	}
 
 	+ { :self :aGraph |
-		self.sumGraph(aGraph)
+		self.graphSum(aGraph)
 	}
 
 	adjacencyList { :self |
@@ -136,12 +136,7 @@
 	}
 
 	complement { :self |
-		self.complementGraph
-	}
-
-	complementGraph { :self |
-		let m = self.adjacencyMatrix;
-		(1 - m.size.identityMatrix - m).adjacencyGraph
+		self.graphComplement
 	}
 
 	connectionMatrix { :self |
@@ -222,6 +217,11 @@
 		g.graphDistanceMatrix.heldKarpAlgorithm
 	}
 
+	graphComplement { :self |
+		let m = self.adjacencyMatrix;
+		(1 - m.size.identityMatrix - m).adjacencyGraph
+	}
+
 	graphDistance { :g :s :t |
 		let [d, p] = g.dijkstrasAlgorithm(s, t);
 		d[t]
@@ -287,6 +287,16 @@
 
 	graphProduct { :g1 :g2 |
 		graphProduct(g1, g2, 'Cartesian')
+	}
+
+	graphSum { :self :aGraph |
+		(self.vertexCount = aGraph.vertexCount).if {
+			let m = self.adjacencyMatrix;
+			let n = aGraph.adjacencyMatrix;
+			(m + n).adjacencyGraph
+		} {
+			self.error('@Graph>>graphSum: non-equal vertex counts')
+		}
 	}
 
 	hasValidEdgeList { :self |
@@ -505,16 +515,6 @@
 		self.edgeList.select { :each |
 			vertexList.includesAll(each.vertexList)
 		}.asGraph
-	}
-
-	sumGraph { :self :aGraph |
-		(self.vertexCount = aGraph.vertexCount).if {
-			let m = self.adjacencyMatrix;
-			let n = aGraph.adjacencyMatrix;
-			(m + n).adjacencyGraph
-		} {
-			self.error('@Graph>>sumGraph: non-equal vertex counts')
-		}
 	}
 
 	treePlot { :self |
@@ -1056,7 +1056,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				self[i, j]
 			}.edgeCountGraph(isDirected, self.size.iota)
 		} {
-			self.adjacencyGraph('List>>adjacencyGraph: not a square matrix')
+			self.error('List>>adjacencyGraph: not a square matrix')
 		}
 	}
 
@@ -1070,12 +1070,38 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		Graph(vertexList.nub.sort, edgeList)
 	}
 
+	incidenceGraph { :self |
+		self.transpose.collect { :each |
+			let i = each.detectIndices(isNonZero:/1);
+			each.atAll(i).caseOf(
+				[
+					[2] -> { i[1] --- i[1] },
+					[-2] -> { i[1] --> i[1] },
+					[1, 1] -> { i[1] --- i[2] },
+					[-1, 1] -> { i[1] --> i[2] },
+					[1, -1] -> { i[2] --> i[1] }
+				]
+			)
+		}.asGraph
+	}
+
 	Graph { :vertexList :edgeList |
 		newGraph().initializeSlots(
 			vertexList,
 			edgeList.collect(asEdge:/1),
 			(:)
 		)
+	}
+
+	kirchhoffGraph { :self |
+		self.isSquareMatrix.if {
+			let isDirected = self.isSymmetricMatrix.not;
+			{ :i :j |
+				(self[i, j] = -1).boole
+			}.edgeCountGraph(isDirected, self.size.iota)
+		} {
+			self.error('List>>kirchhoffGraph: not a square matrix')
+		}
 	}
 
 	weightedAdjacencyGraph { :self |

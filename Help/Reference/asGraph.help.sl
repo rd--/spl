@@ -1,11 +1,11 @@
 # asGraph
 
-- _asGraph(anObject)_
+- _asGraph(e)_
 
-Answer a `Graph` having the specified edges.
+Answer a `Graph` having the edges specified at _e_.
 The `vertexList` of the graph is inferred.
 
-At `Association` `List` makes a directed graph:
+At an `Association` `List` makes a directed graph:
 
 ```
 >>> [1 -> 2, 2 -> 3, 3 -> 1]
@@ -18,7 +18,7 @@ At `Association` `List` makes a directed graph:
 ]
 ```
 
-At two-column matrix makes an undirected graph:
+At a two-column matrix makes an undirected graph:
 
 ```
 >>> [1 2; 2 3; 3 1]

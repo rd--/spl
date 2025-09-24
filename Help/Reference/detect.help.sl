@@ -49,7 +49,7 @@ At `Record`:
 
 See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, reject, select
 
-Guides: Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
 _Smalltalk_

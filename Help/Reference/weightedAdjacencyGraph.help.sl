@@ -1,8 +1,8 @@
 # weightedAdjacencyGraph
 
-- _weightedAdjacencyGraph(aMatrix)_
+- _weightedAdjacencyGraph(m)_
 
-Answer the graph with weighted adjacency matrix _aMatrix_.
+Answer the graph with weighted adjacency matrix _m_.
 
 ~~~spl svg=A
 [
@@ -34,6 +34,8 @@ A symmetric weighted adjacency matrix results in an undirected graph:
 * * *
 
 See also: adjacencyGraph, edgeWeights, isEdgeWeightedGraph, incidenceGraph, kirchhoffGraph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

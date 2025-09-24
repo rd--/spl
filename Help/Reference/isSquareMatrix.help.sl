@@ -2,7 +2,8 @@
 
 - _isSquareMatrix(m)_
 
-A square matrix is a matrix with an equal number of rows and column, ie. a _n×n_ matrix.
+A square matrix is a matrix with an equal number of rows and column,
+ie. an _n×n_ matrix.
 
 At `List`:
 
@@ -18,5 +19,7 @@ true
 * * *
 
 See also: isMatrix, List, Matrix, shape
+
+Guides: Matrix Functions
 
 Categories: Testing, Matrix

@@ -474,6 +474,10 @@
 		}
 	}
 
+	isSingleton { :self |
+		self.size = 1
+	}
+
 	kroneckerDelta { :self |
 		self.allEqual.boole
 	}

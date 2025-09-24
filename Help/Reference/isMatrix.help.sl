@@ -1,8 +1,8 @@
 # isMatrix
 
-- _isMatrix(aList)_
+- _isMatrix(m)_
 
-A `List` is a _matrix_ if each of the elements is a _vector_ of equal size.
+A `List` _m_ is a matrix if each of the elements is a vector of equal size.
 Specifically if `arrayDepth` is equal to two.
 
 At `List`:
@@ -58,6 +58,8 @@ false
 * * *
 
 See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isVector, isVectorOf
+
+Guides: Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

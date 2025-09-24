@@ -31,6 +31,6 @@ Where supported `|>=` is displayed as ≽.
 
 See also: <|, |>, succeedsOrEqualTo
 
-Guide: Comparison Functions
+Guides: Comparison Functions
 
 Unicode: U+227D ≽ Succeeds or Equal To

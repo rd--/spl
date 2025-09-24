@@ -1,9 +1,9 @@
 # relationGraph
 
-- _relationGraph(aBlock:/2, aBoolean, vertexList)_
+- _relationGraph(f:/2, t, [v₁ v₂ …])_
 
-Answer a graph on _vertexList_,
-with edges from _u_ to _v_ whenever _aBlock(u, v)_ is `true`.
+Answer a graph on the vertex list _v_,
+with edges from _u_ to _v_ whenever _f(u,v)_ is equal to _t_.
 
 Construct a graph with a lower triangle adjacency matrix:
 

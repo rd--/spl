@@ -1,8 +1,8 @@
 # shape
 
-- _shape(anObject)_
+- _shape(x)_
 
-Answer the shape of _anObject_,
+Answer the shape of the object _x_,
 a vector of lengths of the array along each axis.
 
 The shape of a _scalar_ is the empty list:

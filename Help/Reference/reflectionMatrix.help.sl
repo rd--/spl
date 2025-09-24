@@ -1,9 +1,9 @@
 # reflectionMatrix
 
-- _reflectionMatrix(aNumber)_
-- _reflectionMatrix(aList)_
+- _reflectionMatrix(θ)_
+- _reflectionMatrix([x₁ x₂ …])_
 
-Answer a reflection matrix, either about an angle or a vector.
+Answer a reflection matrix, either about an angle _θ_ or a vector _x_.
 
 Reflection about an angle:
 
@@ -39,6 +39,8 @@ Reflection about a three vector:
 * * *
 
 See also: rotationMatrix, scalingMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

@@ -1,8 +1,8 @@
 # isUnitaryMatrix
 
-- _isUnitaryMatrix(aMatrix)_
+- _isUnitaryMatrix(m)_
 
-Answer `true` if _aMatrix_ is a unitary matrix, else `false`.
+Answer `true` if the matrix _m_ is a unitary matrix, else `false`.
 
 Test if a 2×2 numerical matrix is unitary:
 
@@ -47,6 +47,8 @@ If there are more columns than rows, this indicates that the rows are orthonorma
 * * *
 
 See also: conjugateTranspose, isSymmetricMatrix, normalize
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

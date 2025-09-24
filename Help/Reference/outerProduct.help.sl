@@ -1,6 +1,6 @@
 # outerProduct
 
-- _outerProduct(aSequence, anotherSequence)_
+- _outerProduct([x₁ x₂ …], [y₁ y₂ …])_
 
 Answer the outer product of two sequences.
 

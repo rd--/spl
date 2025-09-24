@@ -111,6 +111,8 @@ At `Sfc32`, which implements `Stream`:
 
 See also: collect, detect, keySelect, reject
 
+Guides: Collection Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Predicate.html)

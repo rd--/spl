@@ -111,7 +111,7 @@ and in terms of `ofSize`, `size`, `at` and `atPut` for sequences.
 
 See also: collectCatenate, deepCollect, do, map, reject, replace, select, table, withIndexCollect
 
-Guides: Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
 _Haskell_

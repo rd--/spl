@@ -15,6 +15,8 @@ Evaluate at different types of numbers:
 
 See also: isNegative, isNonNegative
 
+Guides: Predicate Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Positive.html),

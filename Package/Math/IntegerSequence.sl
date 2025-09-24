@@ -240,6 +240,33 @@
 		(1 .. self).collect(f:/1)
 	}
 
+	josephusProblem { :n :k |
+		(k = 2).if {
+			fromDigits(rotateLeft(integerDigits(n, 2), 1), 2)
+		} {
+			(n <= 1).if {
+				n
+			} {
+				let m = mod(josephusProblem(n - 1, k) + k, n);
+				(m != 0).if {
+					m
+				} {
+					n
+				}
+			}
+		}
+	}
+
+	josephusSequence { :n :k |
+		let z = [];
+		{ :x |
+			let y = x.rotateLeft(k);
+			z.add(y.removeLast);
+			y
+		}.iterate([1 .. n], n);
+		z
+	}
+
 	inventorySequence { :terms |
 		let number = 0;
 		let answer = [0];

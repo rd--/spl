@@ -1,8 +1,9 @@
 # isColumnVector
 
-- _isColumnVector(aMatrix)_
+- _isColumnVector(m)_
 
-A _column vector_ is a _matrix_ with a single column, ie. an _n×1_ matrix.
+Answer `true` if the matrix _m_ is a column vector.
+A column vector is a matrix with a single column, ie. an _n×1_ matrix.
 
 At `List`:
 
@@ -21,5 +22,7 @@ false
 * * *
 
 See also: isRowVector, isMatrix, isVector
+
+Guides: Predicate Functions
 
 Categories: Testing

@@ -1,8 +1,8 @@
 # diagonalMatrix
 
-- _diagonalMatrix(aList, k, n)_
+- _diagonalMatrix([x₁ x₂ …], k, n)_
 
-Answer a matrix with the elements of _aList_ on the leading `diagonal`, and `zero` elsewhere.
+Answer a matrix with the elements of the list _x_ on the leading `diagonal`, and `zero` elsewhere.
 In the binary case answer super- or sub-diagonal matrices.
 
 A 3×3 diagonal matrix:
@@ -109,11 +109,15 @@ An `identityMatrix` is a special case of a `diagonalMatrix`:
 
 See also: antidiagonalMatrix, exchangeMatrix, identityMatrix, scalingMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DiagonalMatrix.html)
 [2](https://reference.wolfram.com/language/ref/DiagonalMatrix.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/diag.html)
+[1](https://mathworks.com/help/matlab/ref/diag.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Diagonal_matrix)
 
 Categories: Math, Matrix

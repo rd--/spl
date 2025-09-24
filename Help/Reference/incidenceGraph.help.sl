@@ -1,8 +1,80 @@
 # incidenceGraph
 
-- _incidenceGraph(aGraph, aVertex)_
+- _incidenceGraph(m)_
+- _incidenceGraph(g, v)_
 
-Answer the `Graph` of the `incidenceList`
+At `List`,
+answer the `Graph` described by the incidence matrix _m_.
+
+An undirected graph from its incidence matrix:
+
+```
+>>> [
+>>> 	0 1 1;
+>>> 	1 0 1;
+>>> 	1 1 0
+>>> ].incidenceGraph
+[2 3; 1 3; 1 2].asGraph
+```
+
+A directed graph from its incidence matrix:
+
+```
+>>> [
+>>> 	0 -1 1;
+>>> 	1 0 -1;
+>>> 	-1 1 0
+>>> ].incidenceGraph
+[3 -> 2, 1 -> 3, 2 -> 1].asGraph
+```
+
+An undirected graph with a self-loop:
+
+```
+>>> [
+>>> 	2 0 1 1;
+>>> 	0 1 0 1;
+>>> 	0 1 1 0
+>>> ].incidenceGraph
+[1 1; 2 3; 1 3; 1 2].asGraph
+```
+
+A directed graph with a self-loop:
+
+```
+>>> [
+>>> 	2 0 -1 1;
+>>> 	0 1 0 -1;
+>>> 	0 -1 1 0
+>>> ].incidenceGraph
+[1 --- 1, 3 --> 2, 1 --> 3, 2 --> 1].asGraph
+```
+
+A graph of four vertices and five edges:
+
+```
+>>> [
+>>> 	1 1 0 0 0;
+>>> 	1 0 1 1 0;
+>>> 	0 1 1 0 1;
+>>> 	0 0 0 1 1
+>>> ].incidenceGraph
+[1 2; 1 3; 2 3; 2 4; 3 4].asGraph
+```
+
+Reconstruct a graph from the calculated incidence matrix:
+
+~~~spl svg=A
+5.completeGraph
+.incidenceMatrix
+.incidenceGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/incidenceGraph-A.svg)
+
+At `Graph`,
+answer the graph of the `incidenceList` of the vertex _v_ of the graph _g_.
 
 Each vertex in a cycle graph has two neighours:
 
@@ -69,5 +141,9 @@ The incidence graph of a star graph is itself:
 See also: adjacencyList, Graph, incidenceMatrix, neighbourhoodGraph
 
 Guides: Graph Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/IncidenceGraph.html)
 
 Categories: Graph

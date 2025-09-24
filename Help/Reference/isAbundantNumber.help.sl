@@ -24,7 +24,7 @@ true
 
 See also: aliquotSum, divisorSigma, isPerfectNumber
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_

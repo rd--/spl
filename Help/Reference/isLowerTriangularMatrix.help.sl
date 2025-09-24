@@ -1,8 +1,8 @@
 # isLowerTriangularMatrix
 
-- _isLowerTriangularMatrix(aMatrix)_
+- _isLowerTriangularMatrix(m)_
 
-Answer `true` if _aMatrix_ is lower triangular, else `false`.
+Answer `true` if the matrix _m_ is lower triangular, else `false`.
 
 A lower triangular matrix:
 
@@ -78,6 +78,8 @@ The Hermite normal form is lower triangular:
 * * *
 
 See also: isMatrix, isSquareMatrix, isUpperTriangularMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

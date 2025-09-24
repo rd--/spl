@@ -1,9 +1,9 @@
 # atAllWrap
 
-- _atAllWrap(aSequence, anotherSequence)_
+- _atAllWrap([x₁ x₂ …], [i₁ i₂ …])_
 
-Answer the elements at each item of _anotherSequence_ in _aSequence_.
-If any _index_ is out of bounds, let it wrap around from the end to the beginning until it is in bounds.
+Answer the elements at each item of the index sequence _i_ in the sequence _x_.
+If any index is out of bounds, let it wrap around from the end to the beginning until it is in bounds.
 
 ```
 >>> [1 .. 5].atAllWrap([-1 .. 9])

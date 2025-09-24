@@ -10,9 +10,15 @@ Traits and Types:
 Constructor Functions:
 
 - `adjacencyGraph`
+- `kirchhoffGraph`
+- `permutationGraph`
+- `relationGraph`
+- `weightedAdjacencyGraph`
+
+Specific Graphs:
+
 - `bookGraph`
 - `circulantGraph`
-- `complementGraph`
 - `completeBipartiteGraph`
 - `completeGraph`
 - `cubeGraph`
@@ -21,28 +27,27 @@ Constructor Functions:
 - `gridGraph`
 - `hammingGraph`
 - `hararyGraph`
-- `incidenceGraph`
 - `kingGraph`
 - `knightGraph`
-- `lineGraph`
 - `namedGraph`
 - `nearestNeighbourGraph`
-- `neighbourhoodGraph`
 - `pathGraph`
-- `permutationGraph`
 - `petersenGraph`
-- `relationGraph`
 - `rookGraph`
 - `stackedBookGraph`
 - `starGraph`
-- `subgraph`
-- `sumGraph`
 - `torusGraph`
 - `wheelGraph`
 
 Graph Operations:
 
+- `graphComplement`
 - `graphProduct`
+- `graphSum`
+- `incidenceGraph`
+- `lineGraph`
+- `neighbourhoodGraph`
+- `subgraph`
 
 Edge Operators:
 

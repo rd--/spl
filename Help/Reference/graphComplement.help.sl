@@ -1,6 +1,6 @@
-# complementGraph
+# graphComplement
 
-- _complementGraph(aGraph)_
+- _graphComplement(g)_
 
 Answer the complement graph of _aGraph_.
 
@@ -8,17 +8,17 @@ At `cycleGraph`:
 
 ```
 >>> 4.cycleGraph
->>> .complementGraph
+>>> .graphComplement
 >>> .edgeList
 [1 3; 2 4].asEdgeList
 
 >>> 5.cycleGraph
->>> .complementGraph
+>>> .graphComplement
 >>> .edgeList
 [1 3; 1 4; 2 4; 2 5; 3 5].asEdgeList
 
 >>> 6.cycleGraph
->>> .complementGraph
+>>> .graphComplement
 >>> .edgeList
 [
 	1 3; 1 4; 1 5;
@@ -37,7 +37,7 @@ At directed cycle graph:
 >>> 	3 -> 4,
 >>> 	4 -> 1
 >>> ].asGraph
->>> .complementGraph
+>>> .graphComplement
 >>> .edgeList
 [
 	1 --> 3, 1 --> 4,
@@ -47,31 +47,31 @@ At directed cycle graph:
 ]
 ```
 
-The complementGraph of a `completeGraph` is an edgeless graph:
+The graphComplement of a `completeGraph` is an edgeless graph:
 
 ```
 >>> let g = 5.completeGraph
->>> .complementGraph;
+>>> .graphComplement;
 >>> (g.vertexList, g.isEmpty)
 ([1 .. 5], true)
 ```
 
-For simple graphs, the complementGraph of the complementGraph is the original graph:
+For simple graphs, the graphComplement of the graphComplement is the original graph:
 
 ```
 >>> 6.cycleGraph
->>> .complementGraph
->>> .complementGraph
+>>> .graphComplement
+>>> .graphComplement
 >>> .edgeList
 [1 2; 1 6; 2 3; 3 4; 4 5; 5 6].asEdgeList
 ```
 
-The complementGraph of the line graph of _K(5)_ is a Petersen graph:
+The graphComplement of the line graph of _K(5)_ is a Petersen graph:
 
 ```
 >>> 5.completeGraph
 >>> .lineGraph
->>> .complementGraph
+>>> .graphComplement
 >>> .adjacencyMatrix
 [
 	0 0 0 0 0 0 0 1 1 1;
@@ -90,13 +90,17 @@ The complementGraph of the line graph of _K(5)_ is a Petersen graph:
 The complement of the union of the two and three path graphs:
 
 ```
->>> [1 2; 3 4; 4 5].asGraph.complementGraph
+>>> [1 2; 3 4; 4 5]
+>>> .asGraph
+>>> .graphComplement
 [1 3; 1 4; 1 5; 2 3; 2 4; 2 5; 3 5].asGraph
 ```
 
 * * *
 
 See also: complement, Graph, lineGraph, undirectedGraph
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

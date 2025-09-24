@@ -1,8 +1,8 @@
 # incidenceList
 
-- _incidenceList(aGraph, aVertex)_
+- _incidenceList(g, v)_
 
-Answer the `List` of edges of _aGraph_ incident to _aVertex_.
+Answer the `List` of edges of the graph _g_ incident to the vertex _v_.
 
 Edges incident to vertices one through five of an undirected graph:
 
@@ -75,7 +75,7 @@ Relation to `adjacencyList`:
 
 * * *
 
-See also: adjacencyList, Graph, incidenceGraph, incidenceMatrix
+See also: adjacencyList, adjacencyMatrix, Graph, incidenceGraph, incidenceMatrix, neighborhoodGraph
 
 Guides: Graph Functions
 

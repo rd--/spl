@@ -71,6 +71,8 @@ Draw `identityMatrix`:
 
 See also: diagonalMatrix, exchangeMatrix, kroneckerDelta, unitVector, permutationMatrix, table
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/IdentityMatrix.html)
