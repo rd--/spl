@@ -11,6 +11,13 @@ At `Complex`:
 2
 ```
 
+At `Quaternion`:
+
+```
+>>> Quaternion([1 2 3 4]).imaginary
+[2 3 4]
+```
+
 Threads over lists:
 
 ```

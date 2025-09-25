@@ -60,6 +60,7 @@
 	'EisensteinInteger'
 	'Interval'
 	'LargeInteger' /* ByteArray */
+	'Quaternion'
 	'Residue'
 	'Fraction' /* LargeInteger */
 	'Decimal' /* Fraction */

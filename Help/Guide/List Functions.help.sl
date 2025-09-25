@@ -13,6 +13,7 @@ Types:
 - `Float64Array`
 - `List`
 - `Range`
+- `Slice`
 - `SortedList`
 - `Span`
 - `Tuple`
@@ -82,6 +83,10 @@ Converting:
 Querying:
 
 - `size`
+
+Slice Functions:
+
+- `sliceFromTo`
 
 * * *
 

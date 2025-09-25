@@ -1,8 +1,8 @@
 # matrixPower
 
-- _matrixPower(aMatrix, anInteger)_
+- _matrixPower(m, n)_
 
-Answer the _anInteger_-th matrix power of _aMatrix_.
+Answer the _n_-th matrix power of the matrix _m_.
 
 The second power of a 2×2 matrix:
 
@@ -57,6 +57,8 @@ Raise a floating point matrix to a positive integer power:
 * * *
 
 See also: dot
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

@@ -216,6 +216,7 @@
 	'Number-LargeInteger'
 	'Number-Magnitude'
 	'Number-Number'
+	'Number-Quaternion'
 	'Number-Residue'
 	'Number-SmallFloat'
 	'Protocol-GeoJson'

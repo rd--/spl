@@ -15,13 +15,14 @@ inclusive of each index.
 The `average` and `median`, `min`, `max` and `sum` of a `slice`:
 
 ```
->>> let s = [1 3 2 4 6 5].sliceFromTo(3, 5);
+>>> let a = [1 3 2 4 6 5];
+>>> let b = a.sliceFromTo(3, 5);
 >>> (
->>> 	s.average,
->>> 	s.median,
->>> 	s.min,
->>> 	s.max,
->>> 	s.sum
+>>> 	b.average,
+>>> 	b.median,
+>>> 	b.min,
+>>> 	b.max,
+>>> 	b.sum
 >>> )
 (4, 4, 2, 6, 12)
 ```
@@ -29,3 +30,5 @@ The `average` and `median`, `min`, `max` and `sum` of a `slice`:
 * * *
 
 See also: copyFromTo, Sequence, Slice
+
+Guides: List Functions

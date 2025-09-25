@@ -11,6 +11,13 @@ At `Complex`:
 [1 2]
 ```
 
+At `Quaternion`:
+
+```
+>>> Quaternion([1 2 3 4]).realImaginary
+[1, [2 3 4]]
+```
+
 Threads over lists:
 
 ```
@@ -29,7 +36,7 @@ At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 See also: asList, Complex, i, j, real, imaginary
 
-Guides: Complex Number Functions
+Guides: Complex Number Functions, Quaternion Functions
 
 References:
 _Mathematica_

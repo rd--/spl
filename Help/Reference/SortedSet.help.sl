@@ -5,6 +5,21 @@
 `SortedSet` is a `Type` representing a set ordered according to `precedesOrEqualTo`,
 where the comparison operator is `=`.
 
+Traits implemented by `SortedSet`:
+
+```
+>>> system.typeLookup('SortedSet')
+>>> .traitNameList
+[
+	'Object'
+	'Iterable'
+	'Collection'
+	'Extensible'
+	'Removable'
+	'Set'
+]
+```
+
 The empty set constructor,
 also a `SortedSet` from an empty list:
 

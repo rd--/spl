@@ -28,6 +28,7 @@ Converting:
 - `asLowerCase`
 - `asString`
 - `asUpperCase`
+- `capitalize`
 - `characterList`
 - `codePoints`
 - `utf16List`

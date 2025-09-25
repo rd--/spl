@@ -1,8 +1,8 @@
 # gramSchmidtProcess
 
-- _gramSchmidtProcess(aMatrix)_
+- _gramSchmidtProcess(m)_
 
-Answer an orthonormal basis found by orthogonalizing the vectors of _aMatrix_ using the Gram–Schmidt procedure.
+Answer an orthonormal basis found by orthogonalizing the vectors of the matrix _m_ using the Gram–Schmidt procedure.
 
 Two three-vectors (a 2×3 matrix):
 
@@ -28,6 +28,8 @@ Three three-vectors (a 3×3 matrix):
 * * *
 
 See also: orthogonalize
+
+Guides: Matrix Functions
 
 References:
 _W_

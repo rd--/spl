@@ -106,6 +106,7 @@ General:
 - `matrixRotate`: matrix rotation
 - `minor`: the indicated minor of a matrix
 - `minors`: the minors of a matrix
+- `orthogonalize`
 - `outer`: outer product
 - `permanent`: permanent of a square matrix
 - `qrDecomposition`: the QR decomposition

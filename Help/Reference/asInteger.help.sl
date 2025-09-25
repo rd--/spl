@@ -63,7 +63,16 @@ To convert a `Boolean` to an integer use `asBit` or `boole`:
 1
 ```
 
-To get the code point of a `Character` use `codePoint`:
+Not defined at `String`:
+
+```
+>>> {
+>>> 	'1'.asInteger
+>>> }.hasError
+true
+```
+
+To get the code point of a character use `codePoint`:
 
 ```
 >>> '~'.codePoint

@@ -25,9 +25,12 @@ The cross product of two vectors in three dimensions answers a vector which is p
 
 >>> [1 2 0].cross([4 5 0])
 [0 0 -3]
+
+>>> [3 4 5].cross([4 3 5])
+[5 5 -7]
 ```
 
-The cross product of a single vector in two dimensions _(x, y)_ is the perpendicular vector _(-y, x)_:
+The cross product of a single vector in two dimensions _(x,y)_ is the perpendicular vector _(-y,x)_:
 
 ```
 >>> [1 3.sqrt].cross
@@ -81,7 +84,7 @@ The cross product of exact vectors:
 >>> let a = [1 2 3];
 >>> let b = [4 5 6];
 >>> a.cross(b)
-b.-.cross(a)
+b.cross(a).-
 ```
 
 Use dot products to verify that _a * b_ is perpendicular to _a_ and _b_:
@@ -152,9 +155,27 @@ If _u_ and _v_ are linearly dependent, _u × v_ is zero:
 [0 0 0]
 ```
 
+The scalar triple product and the the vector triple product:
+
+```
+>>> let a = [3 4 5];
+>>> let b = [4 3 5];
+>>> let c = [-5 -12 -13];
+>>> (
+>>> 	a.dot(b.cross(c)),
+>>> 	a.cross(b.cross(c))
+>>> )
+(
+	6,
+	[-267 204 -3]
+)
+```
+
 * * *
 
 See also: dot, kroneckerProduct, outer, permutationSymbol, vectorAngle
+
+Guides: List Functions
 
 References:
 _Julia_

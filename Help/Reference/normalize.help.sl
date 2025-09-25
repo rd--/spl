@@ -41,9 +41,21 @@ At `Complex`:
 (v / 91.sqrt)
 ```
 
+At `Quaternion`:
+
+```
+>>> let a = Quaternion([1 2 3 4]);
+>>> let b = a.norm;
+>>> let c = a.normalize;
+>>> (b, c, c.norm)
+(30.sqrt, Quaternion([1 2 3 4] / 30.sqrt), 1)
+```
+
 * * *
 
 See also: abs, dot, norm, normalizeRange, normalizeSignal, normalizeSum, rescale, sign, standardize, unitVector
+
+Guides: Vector Functions
 
 References:
 _Mathematica_

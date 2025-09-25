@@ -5,6 +5,23 @@
 A `Record` is a `Dictionary` type where all the keys are strings.
 Answer a `Record` where the keys and values are specified in a two-column matrix.
 
+List of traits implemented by `Record`:
+
+```
+>>> system.typeLookup('Record')
+>>> .traitNameList
+[
+	'Object'
+	'Json'
+	'Iterable'
+	'Indexable'
+	'Collection'
+	'Removable'
+	'Extensible'
+	'Dictionary'
+]
+```
+
 Construct a `Record` from a two-column matrix:
 
 ```

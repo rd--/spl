@@ -2,6 +2,23 @@
 
 `String` is the `Type` of text literals and constants.
 
+List of traits implemented by `String`:
+
+```
+>>> system.typeLookup('String')
+>>> .traitNameList
+[
+	'Object'
+	'Comparable'
+	'Json'
+	'Iterable'
+	'Indexable'
+	'Character'
+]
+```
+
+String literal syntax:
+
 ```
 >>> 'string'.typeOf
 'String'
@@ -12,20 +29,19 @@
 
 Strings do not implement the `Collection` trait, however they are `Iterable`.
 
-There is a `Character` type.
-Iterating over a string supplies each succesive `Character` of the `String`,
-and fetching an indexed location in a string answers a `Character`.
+There is a `Character` type,
+however ordinarily characters are represented as single element string values.
+Iterating over a string supplies each succesive character of the `String`,
+and fetching an indexed location in a string answers a character:
 
 ```
->>> 'string'[1]
-'s'.asCharacter
+>>> 'string'.at(1).typeOf
+'String'
 ```
 
-Strings are not lists of Characters.
+Strings are not lists of characters.
 
 Strings are immutable, i.e. there is no `atPut` implementation.
-
-Methods for converting: `asLowerCase`, `asUpperCase`, `capitalize`, `asInteger`, `asNumber`
 
 _Implementation Note_:
 Javascript has a curious implementation of Unicode.
@@ -35,7 +51,7 @@ String indexing only makes sense for strings that are in the _Basic Multilingual
 
 See also: AsciiString, asciiByteArray, BacktickQuotedString, characterList, Character, DoubleQuotedString, utf8ByteArray, utf16List
 
-Guides: String Syntax
+Guides: String Functions, String Syntax
 
 Unicode: U+00027 Apostrophe
 

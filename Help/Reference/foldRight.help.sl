@@ -4,27 +4,44 @@
 
 Reduce from right to left.
 
+At `Range`:
+
 ```
->>> [1 .. 9].foldRight(-)
-5
+>>> 1:7.foldRight(-)
+4
 
->>> 1 - (2 - (3 - (4 - (5 - (6 - (7 - (8 - 9)))))))
-5
+>>> 1 - (2 - (3 - (4 - (5 - (6 - 7)))))
+4
 
+>>> 1:4.foldRight(-)
+-2
+
+>>> 1 - (2 - (3 - 4))
+-2
+```
+
+At `List`:
+
+```
 >>> [1 2 3 4 5].foldRight(/)
-(1 / (2 / (3 / (4 / 5))))
+1 / (2 / (3 / (4 / 5)))
 
 >>> [1 .. 4].foldRight(+)
 10
+```
 
+At the empty list:
+
+```
 >>> {
 >>> 	[].foldRight(+)
 >>> }.hasError
 true
+```
 
->>> [1 .. 4].foldRight(-)
--2
+At `List` of `Boolean`:
 
+```
 >>> [true false true true].foldRight(&&)
 false
 
@@ -35,6 +52,8 @@ true
 * * *
 
 See also: foldLeft, reduce
+
+Guides: List Functions
 
 References:
 _Haskell_

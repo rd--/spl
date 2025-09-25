@@ -2079,7 +2079,7 @@
 	}
 
 	outerProduct { :self :aList |
-		self *.outer aList
+		outer(*, self, aList)
 	}
 
 	padLeftAndRight { :self :anInteger :anObject |
@@ -2394,6 +2394,10 @@
 		(1 - anInteger).toAsCollect(self.size - anInteger, self.species) { :index |
 			self.atWrap(index)
 		}
+	}
+
+	scalarTripleProduct { :a :b :c |
+		a.dot(b.cross(c))
 	}
 
 	scan { :self :aBlock:/2 |
@@ -2865,6 +2869,10 @@
 
 	unique { :self |
 		self.nub.sort
+	}
+
+	vectorTripleProduct { :a :b :c |
+		a.cross(b.cross(c))
 	}
 
 	which { :self |

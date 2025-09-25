@@ -328,23 +328,10 @@
 	}
 
 	tensorProduct { :self |
-		self.size.caseOf(
-			[
-				0 -> {
-					1
-				},
-				1 -> {
-					self[1]
-				},
-				2 -> {
-					let [a, b] = self;
-					outer(*, a, b)
-				}
-			]
-		) {
-			self.foldRight { :a :b |
-				outer(*, a, b)
-			}
+		self.isEmpty.if {
+			1
+		} {
+			self.foldRight(outerProduct:/2)
 		}
 	}
 

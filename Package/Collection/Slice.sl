@@ -39,20 +39,34 @@ Slice : [Object, Comparable, Iterable, Indexable, Collection, Sequenceable] { | 
 		])
 	}
 
+	Slice { :self :startIndex :size |
+		Slice(self.contents, self.startIndex + startIndex - 1, size)
+	}
+
 	storeString { :self |
 		self.error('Slice>>storeString: do not store slices')
 	}
 
 }
 
-+[List, Slice] {
++List {
 
 	Slice { :self :startIndex :size |
-		newSlice().initializeSlots(self, startIndex, size)
+		let endIndex = startIndex + size - 1;
+		(self.size >= endIndex).if {
+			newSlice().initializeSlots(self, startIndex, size)
+		} {
+			self.error('Slice: invalid indices')
+		}
 	}
 
+}
+
++[List, Slice] {
+
 	sliceFromTo { :self :startIndex :endIndex |
-		Slice(self, startIndex, endIndex - startIndex + 1)
+		let size = endIndex - startIndex + 1;
+		Slice(self, startIndex, size)
 	}
 
 }

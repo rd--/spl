@@ -18,6 +18,8 @@ Constructing:
 Converting:
 
 - `asGaussianInteger`
+- `asList`
+- `asMatrix`
 
 Predicates:
 
@@ -29,8 +31,10 @@ Querying:
 
 - `abs`
 - `absArg`
+- `absSquare`
 - `arg`
 - `conjugate`
+- `norm`
 - `sign`
 
 Transforms:
@@ -53,4 +57,4 @@ Random Functions:
 
 * * *
 
-Guides: Complex Literals, Integer Functions, Mathematical Functions
+Guides: Complex Literals, Integer Functions, Mathematical Functions, Quaternion Functions

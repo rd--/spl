@@ -2,11 +2,32 @@
 
 A `Type` representing floating-point numbers like 23 or 3.141.
 
+List traits implemented by `SmallFloat`:
+
+```
+>>> system.typeLookup('SmallFloat')
+>>> .traitNameList
+[
+	'Object'
+	'Comparable'
+	'Json'
+	'Magnitude'
+	'Number'
+	'Integer'
+	'Binary'
+]
+```
+
+Literal syntaxes:
+
 ```
 >>> 3.141.typeOf
 'SmallFloat'
 
 >>> 23.typeOf
+'SmallFloat'
+
+>>> 2.3E3.typeOf
 'SmallFloat'
 ```
 
@@ -28,11 +49,11 @@ the boolean parameter indicates if the encoding is in little (`true`) or big (`f
 >>> 	x.encodeFloat32(true).asList
 >>> }
 [
-	0 0 128 63;
-	0 0 0 64;
-	0 0 64 64;
-	0 0 128 64;
-	0 0 160 64
+	0 0 128  63;
+	0 0   0  64;
+	0 0  64  64;
+	0 0 128  64;
+	0 0 160  64
 ]
 ```
 

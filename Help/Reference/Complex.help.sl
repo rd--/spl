@@ -209,6 +209,37 @@ true
 true
 ```
 
+A complex number with a zero imaginary part is equatable with a real number:
+
+```
+>>> 3J0 = 3
+true
+
+>>> 3J0 ~ 3.0001
+true
+```
+
+The matrix form of a complex number:
+
+```
+>>> let a = 1J2;
+>>> let b = a.asMatrix;
+>>> (
+>>> 	b,
+>>> 	a.absSquare,
+>>> 	b.determinant,
+>>> 	a.conjugate.asMatrix,
+>>> 	b.transpose
+>>> )
+(
+	[1 -2; 2 1],
+	5,
+	5,
+	[1 2; -2 1],
+	[1 2; -2 1]
+)
+```
+
 * * *
 
 See also: abs, absArg, arg, isGaussianInteger, asInteger, asNumber, conjugate, i, imaginary, j, real, SmallFloat

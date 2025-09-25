@@ -21,7 +21,7 @@ The reflective method to answer the `Type` of a value is used only infrequently.
 
 * * *
 
-See also: typeOf, Type
+See also: typeLookup, typeOf, Type
 
 Guides: Reflection Functions
 

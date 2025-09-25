@@ -1,10 +1,13 @@
 # traitNameList
 
-- _traitNameList(aType)_
+- _traitNameList(t)_
 
-Answer a `List` of the `Trait` names implemented by _aType_.
+Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 
 ```
+>>> 23.typeDefinition.name
+'SmallFloat'
+
 >>> 23.typeDefinition.traitNameList
 [
 	'Object'

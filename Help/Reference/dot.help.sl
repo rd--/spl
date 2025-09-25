@@ -39,6 +39,9 @@ Scalar product of vectors in three dimensions:
 
 >>> [1 2 3].dot([4 5 6])
 32
+
+>>> [3 4 5].dot([4 3 5])
+49
 ```
 
 Dot product of exact vectors:
@@ -370,6 +373,8 @@ Evaluate symbolically:
 * * *
 
 See also: +, *, dotProduct, inner, outer
+
+Guides: List Functions, Vector Functions
 
 References:
 _Julia_

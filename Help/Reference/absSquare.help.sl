@@ -22,6 +22,19 @@ At `Complex`:
 
 >>> 3J4.abs.square
 25
+
+>>> [3 4].square.sum
+25
+```
+
+At `Quaternion`:
+
+```
+>>> Quaternion([1 2 3 4]).absSquare
+30
+
+>>> [1 2 3 4].square.sum
+30
 ```
 
 Threads over lists:
@@ -37,6 +50,8 @@ Threads over lists:
 * * *
 
 See also: abs, Complex, square
+
+Guides: Complex Number Functions, Quaternion Functions
 
 References:
 _Julia_

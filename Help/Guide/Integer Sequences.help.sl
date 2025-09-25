@@ -124,6 +124,8 @@ The following help files include references to integer sequences:
 - `kaprekarSequence`: A099009
 - `keplerTree`: A294442 A020651
 - `kolakoskiSequence`: A000002
+- `josephusProblem`: A006257 A054995 A032434
+- `josephusSequence`: A209258
 - `lassalleNumber`: A180874
 - `leibnizHarmonicTriangle`: A003506
 - `linearRecurrence`: A000931 A000204 A000129 A002203 A001608

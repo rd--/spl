@@ -1,8 +1,8 @@
 # asNumber
 
-- _asNumber(aNumber)_
+- _asNumber(x)_
 
-Answer _aNumber_, if it is a number, else error.
+Answer _x_, if it is a number, else error.
 
 In the `Number` case answer `identity`.
 
@@ -37,5 +37,7 @@ To convert a `String` use `parseNumber`:
 * * *
 
 See also: asBit, asInteger, boole, parseNumber
+
+Guides: Number Functions
 
 Categories: Converting

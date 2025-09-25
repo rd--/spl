@@ -117,6 +117,8 @@ The binary form is _adverbial_, it answers a `Block` that will perform _inner(f,
 
 See also: dot, outer
 
+Guides: Array Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Inner_Product),

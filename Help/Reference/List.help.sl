@@ -5,8 +5,28 @@
 `List` is a sequential collection `Type`.
 Lists may have any length or depth.
 
+Traits implemented by `List`:
+
+```
+>>> system.typeLookup('List')
+>>> .traitNameList
+[
+	'Object'
+	'Comparable'
+	'Json'
+	'Iterable'
+	'Indexable'
+	'Collection'
+	'Extensible'
+	'Removable'
+	'Sequenceable'
+	'PrimitiveSequence'
+	'Ordered'
+]
+```
+
 Create a new `List` of _n_ places,
-each initialised the object _x_,
+each initialised to the object _x_,
 or to `nil` if _x_ is elided.
 
 ```
@@ -15,6 +35,9 @@ or to `nil` if _x_ is elided.
 
 >>> List(5, 0)
 [0 0 0 0 0]
+
+>>> List(7)
+[nil nil nil nil nil nil nil]
 ```
 
 The `#` and `!` operators can also construct these lists:
@@ -37,8 +60,6 @@ Elements can be added at the start, at the end, or in a place given by a relatio
 >>> l
 [1, 2, 3]
 ```
-
-`List` implements the `Iterable`, `Indexable`, `Collection`, `Sequence`, `PrimitiveSequence` and `Ordered` traits.
 
 Squares each number in the list, and add 1 to it:
 

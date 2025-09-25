@@ -15,6 +15,13 @@ At `Complex`:
 5.sqrt
 ```
 
+At `Quaternion`:
+
+```
+>>> Quaternion([1 2 3 4]).norm
+30.sqrt
+```
+
 At `List`:
 
 ```

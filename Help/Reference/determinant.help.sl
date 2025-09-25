@@ -1,6 +1,6 @@
 # determinant
 
-- _determinant(n)_
+- _determinant(m)_
 
 Answer the determinant of the square matrix _m_.
 

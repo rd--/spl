@@ -116,6 +116,9 @@ At singleton list:
 ```
 >>> [1I].tensorProduct
 1I
+
+>>> [1I].foldRight(outerProduct:/2)
+1I
 ```
 
 At empty list:

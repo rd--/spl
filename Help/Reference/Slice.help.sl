@@ -1,22 +1,37 @@
 # Slice
 
-- _Slice(aSequence, startIndex, size)_
+- _Slice([x₁ x₂ …], i, n)_
 
-A `Slice` is a `Type` holding a view into a segment of _aSequence_,
-starting at _startIndex_,
-and continuning for _size_ places.
+A `Slice` is a `Type` holding a view into a segment of the sequence _x_,
+starting at start index _i_,
+and continuing for _n_ places.
 
-`Slice` does not copy the elements from _aSequence_ into separate storage.
+`Slice` does not copy the elements from _x_ into separate storage.
+
+Traits implemented by `Slice`:
+
+```
+>>> system.typeLookup('Slice')
+>>> .traitNameList
+[
+	'Object'
+	'Comparable'
+	'Iterable'
+	'Indexable'
+	'Collection'
+	'Sequenceable'
+]
+```
 
 `sliceFromTo` constructs a `Slice` from a `Sequence`:
 
 ```
->>> let list = [1 .. 9] ++ [9 .. 1];
->>> let slice = list.sliceFromTo(7, 13);
+>>> let a = [1 .. 9] ++ [9 .. 1];
+>>> let b = a.sliceFromTo(7, 13);
 >>> (
->>> 	list.size, list.indices, list.sum,
->>> 	slice.size, slice.indices, slice.asList,
->>> 	slice.first, slice.last, slice.sum
+>>> 	a.size, a.indices, a.sum,
+>>> 	b.size, b.indices, b.asList,
+>>> 	b.first, b.last, b.sum
 >>> )
 (
 	18, 1:18, 90,
@@ -25,7 +40,9 @@ and continuning for _size_ places.
 )
 ```
 
-A `Slice` is a sequence, hence one can take a `Slice` of a `Slice`:
+A `Slice` is a sequence,
+hence one can take a `Slice` of a `Slice`,
+this process does not create a double indirection:
 
 ```
 >>> let p = [111 .. 999];
@@ -34,12 +51,16 @@ A `Slice` is a sequence, hence one can take a `Slice` of a `Slice`:
 >>> (
 >>> 	[p.first, p.last, p.size],
 >>> 	[q.first, q.last, q.size],
->>> 	[r.first, r.last, r.size]
+>>> 	[r.first, r.last, r.size],
+>>> 	q.contents == p,
+>>> 	r.contents == q.contents
 >>> )
 (
 	[111 999 889],
 	[443 887 445],
-	[664 886 223]
+	[664 886 223],
+	true,
+	true
 )
 
 >>> 111:999.copyFromTo(333, 777)
@@ -63,5 +84,7 @@ use `hasEqualElements` to compare sequences regardless of type:
 * * *
 
 See also: copyFromTo, Sequence, sliceFromTo
+
+Guides: List Functions
 
 Categories: Collection, Type

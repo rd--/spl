@@ -55,6 +55,8 @@ false
 
 See also: arrayDepth, dimensions, elementType, isArray, isColumnVector, isRowVector, isList, isMatrix, isVectorOf
 
+Guides: Vector Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/VectorQ.html)

@@ -1,8 +1,8 @@
 # Float32Array
 
-- _Float32Array(anInteger)_
+- _Float32Array(n)_
 
-Answer an array of _anInteger_ places, each initialized to `zero`,
+Answer an array of _n_ places, each initialized to `zero`,
 
 A `Float32Array` is a `Type` representing an array whose elements are IEEE 32-bit floating point values.
 Unlike `List`, a `Float32Array` is of fixed size.
@@ -31,6 +31,8 @@ the boolean parameter indicates if the encoding is in little (`true`) or big (`f
 * * *
 
 See also: asFloat32Array, ByteArray, List, Float64Array
+
+Guides: Vector Functions
 
 References:
 _Mathematica_

@@ -2,8 +2,18 @@
 
 Querying:
 
+- `arrayDepth`
+- `dimensions`
 - `rank`
 - `shape`
+
+Products:
+
+- `dot`
+- `dotProduct`
+- `inner`
+- `outer`
+- `outerProduct`
 
 Tensors:
 

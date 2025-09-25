@@ -152,6 +152,8 @@ Outer product of a three-vector and a two-square matrix:
 
 See also: inner, map, outerProduct, table
 
+Guides: Array Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Outer_Product),

@@ -1,8 +1,8 @@
 # orthogonalize
 
-- _orthogonalize(aMatrix)_
+- _orthogonalize(m)_
 
-Answer an orthonormal basis found by orthogonalizing the vectors of _aMatrix_ using the Gram–Schmidt procedure.
+Answer an orthonormal basis found by orthogonalizing the vectors of the matrix _m_ using the Gram–Schmidt procedure.
 
 Two integer two-vectors (a 2×2 matrix):
 
@@ -106,6 +106,8 @@ Calculate the orthonormal basis vectors for the range of a rank deficient matrix
 * * *
 
 See also: dot, inner, gramSchmidtProcess, isOrthogonalMatrix, isUnitaryMatrix, normalize, projection, qrDecomposition
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

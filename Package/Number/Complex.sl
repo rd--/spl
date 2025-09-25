@@ -132,6 +132,12 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 		[self.real, self.imaginary]
 	}
 
+	asMatrix { :self |
+		let a = self.real;
+		let b = self.imaginary;
+		[a b.negate; b a]
+	}
+
 	atRandom { :self |
 		system.randomComplex([0J0, self], [])
 	}
@@ -247,10 +253,6 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 
 	isNegative { :self |
 		false
-	}
-
-	isNumber { :self |
-		true
 	}
 
 	isRational { :unused |
