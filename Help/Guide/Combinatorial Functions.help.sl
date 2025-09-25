@@ -36,11 +36,16 @@ Frobenius Functions:
 Partition Functions:
 
 - `bellNumber`
+- `integerPartitions`
 - `partitionFunctionP`
 - `partitionFunctionQ`
 - `partitionsP`
 - `partitionsQ`
 - `stirlingS2`
+
+Composition Functions:
+
+- `integerCompositions`
 
 * * *
 

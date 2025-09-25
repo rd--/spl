@@ -73,7 +73,7 @@ let n = 37;
 
 * * *
 
-See also: partitionFunctionP, partitionsQ
+See also: integerPartitions, partitionFunctionP, partitionsQ
 
 Guides: Combinatorial Functions, Integer Functions, Integer Sequences
 

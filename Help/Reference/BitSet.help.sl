@@ -1,11 +1,11 @@
 # BitSet
 
-- _BitSet(capacity)_
+- _BitSet(n)_
 
-Answer a new empty `BitSet` with the specified _capacity_.
+Answer a new empty `BitSet` with the specified capacity _n_.
 The capacity is fixed and need not be a multiple of eight.
 
-A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers between `zero` and _capacity - 1_.
+A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers between `zero` and _n-1_.
 
 `BitSet` implements three different kind of protocols,
 each corresponding to a way of thinking about this data structure:
