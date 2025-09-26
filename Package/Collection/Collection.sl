@@ -34,6 +34,12 @@
 		answer
 	}
 
+	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+		self.collect { :each |
+			aBlock(anInteger, each)
+		}
+	}
+
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
 		self.collect { :each |
 			aBlock(aNumber, each)

@@ -500,7 +500,7 @@
 
 	logarithmicIntegralRamanujan { :self :limit |
 		self.isZero.if {
-			0
+			self
 		} {
 			1.eulerGamma + (self.log.abs.log) + 1:limit.collect { :k |
 				(self.log ^ k) / (k.factorial * k)

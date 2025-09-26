@@ -38,10 +38,10 @@ Equal values are also identical,
 however LargeInteger values are not considered immediate because the do not compare identically with SmallFloat values:
 
 ```
->>> LargeInteger(23) == LargeInteger(23)
+>>> 23L == 23L
 true
 
->>> LargeInteger(23).isImmediate
+>>> 23L.isImmediate
 false
 ```
 
@@ -56,6 +56,12 @@ Adapts left and right operands to `LargeIntegers`:
 
 >>> 23 ^ 23
 2.088E31
+
+>>> 23L ^ 0.5
+23.sqrt
+
+>>> 10L ^ [16 8 0]
+[10000000000000000L 100000000L 1L]
 ```
 
 Division by an integer answers either a `LargeInteger` or a `Fraction`:
@@ -66,6 +72,15 @@ Division by an integer answers either a `LargeInteger` or a `Fraction`:
 
 >>> 23L / 5
 23/5
+
+>>> 23L / 1/2
+46
+
+>>> 23L / 0.5
+46
+
+>>> 0.5 / 23L
+1/46
 ```
 
 Multiplication of `LargeInteger` and `SmallFloat` values:
@@ -111,11 +126,11 @@ Math with a `Fraction` answers a `Fraction`:
 -23L
 ```
 
-Cannot be implicitly converted to a `SmallFloat`:
+Can be implicitly converted to a `SmallFloat`:
 
 ```
->>> { 23L * 2.5 }.hasError
-true
+>>> 23L * 2.5
+57.5
 
 >>> 23L.asSmallFloat * 2.5
 57.5

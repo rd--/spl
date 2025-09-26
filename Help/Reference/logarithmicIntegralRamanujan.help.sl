@@ -1,10 +1,10 @@
 # logarithmicIntegralRamanujan
 
-- _logarithmicIntegralRamanujan(aNumber, anInteger)_
+- _logarithmicIntegralRamanujan(n, α)_
 
 The logarithmic integral function,
 calculated using a series expansion due to Ramanujan,
-with limit _anInteger_.
+with limit _α_.
 
 The `logarithmicIntegral` calls this with the limit set to nine.
 
@@ -19,6 +19,8 @@ The `logarithmicIntegral` calls this with the limit set to nine.
 * * *
 
 See also: log, logarithmicIntegral
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

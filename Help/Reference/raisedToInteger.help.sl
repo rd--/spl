@@ -1,6 +1,6 @@
 # raisedToInteger
 
-- _raisedToInteger(aNumber, anInteger)_
+- _raisedToInteger(n, m)_
 
 Special case of `^` where the exponent is an integer.
 
@@ -20,7 +20,7 @@ An exponent of `zero` answers `one` of the correct type:
 1.000D
 ```
 
-An exponent of `one` answers _aNumber_:
+An exponent of `one` answers _n_:
 
 ```
 >>> let n = system.nextRandomFloat;

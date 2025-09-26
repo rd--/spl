@@ -5,7 +5,7 @@
 The number of compositions of a number _n_ of length _k_ (where 0 is allowed).
 
 ```
->>> 9.integerCompositions(5).size
+>>> 9.integerCompositions([5]).size
 70
 
 >>> 9.numberOfCompositions(5)
@@ -32,6 +32,8 @@ The number of compositions of a number _n_ of length _k_ (where 0 is allowed).
 * * *
 
 See also: integerCompositions, numberOfCompositionsWeak
+
+Guides: Combinatorial Function
 
 References:
 _Mathematica_

@@ -56,7 +56,7 @@ Evaluate for half-integer arguments:
 
 ```
 >>> (9 / 2).trinomial(7 / 2)
-(9 / 2)26.869537
+26.869537
 ```
 
 Make the trinomial triangle:

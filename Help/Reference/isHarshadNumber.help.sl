@@ -4,17 +4,6 @@
 
 Answer `true` if _n_ is a Harshad number.
 
-+@Integer{
-	isHarshadNumber { :self :base |
-		self.divisible(
-			self.integerDigits(base).sum
-		)
-	}
-	isHarshadNumber { :self |
-		self.isHarshadNumber(10)
-	}
-}
-
 First few terms,
 OEIS [A005349](https://oeis.org/A005349):
 

@@ -55,6 +55,16 @@ At `List` is the identity function:
 [1 2 3; 4 5 6]
 ```
 
+At `LargeInteger` answers a `SmallFloat` if the integer can be properly represented:
+
+```
+>>> 23L.normal
+23
+
+>>> (23L ^ 13).normal
+504036361936467383L
+```
+
 * * *
 
 See also: List, NumericArray, SparseArray

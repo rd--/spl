@@ -284,6 +284,16 @@
 		answer
 	}
 
+	isHarshadNumber { :self :base |
+		self.divisible(
+			self.integerDigits(base).sum
+		)
+	}
+
+	isHarshadNumber { :self |
+		self.isHarshadNumber(10)
+	}
+
 	kaprekarSequenceStep { :self :base :fixedLength |
 		let d = self.integerDigits(base);
 		fixedLength.ifNotNil {

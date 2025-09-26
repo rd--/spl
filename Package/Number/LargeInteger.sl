@@ -92,7 +92,7 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 		anObject.isScalarInteger.if {
 			self.raisedToInteger(anObject)
 		} {
-			anObject.adaptToNumberAndApply(self, ^)
+			anObject.adaptToIntegerAndApply(self, ^)
 		}
 	}
 
@@ -119,7 +119,11 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
-		aBlock(aNumber.asLargeInteger, self)
+		aNumber.isInteger.if {
+			aBlock(aNumber.asLargeInteger, self)
+		} {
+			aBlock(aNumber, self.asSmallFloat)
+		}
 	}
 
 	asFloat { :self |
@@ -297,11 +301,21 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 	}
 
 	raisedToInteger { :self :anInteger |
-		<primitive: return _self ** BigInt(_anInteger);>
+		<primitive:
+		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
+			return _self ** BigInt(_anInteger);
+		}
+		>
+		self.error('raisedToInteger: not integer')
 	}
 
 	remainder { :self :anInteger |
-		<primitive: return _self % BigInt(_anInteger);>
+		<primitive:
+		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
+			return _self % BigInt(_anInteger);
+		}
+		>
+		self.error('ramainder: not integer')
 	}
 
 	shallowCopy { :self |
@@ -342,6 +356,14 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 
 	toNumber { :self :precision |
 		<primitive: BigInt.asIntN(_precision, _self);>
+	}
+
+	uncheckedRaisedToInteger { :self :anInteger |
+		<primitive: return _self ** BigInt(_anInteger);>
+	}
+
+	uncheckedRemainder { :self :anInteger |
+		<primitive: return _self % BigInt(_anInteger);>
 	}
 
 	unit { :unused |

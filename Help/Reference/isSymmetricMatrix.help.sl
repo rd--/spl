@@ -42,7 +42,7 @@ true
 >>> 	3 -3 -3;
 >>> 	5  5  5
 >>> ];
->>> let b = (m + m.transpose) / 2;
+>>> let b = (a + a.transpose) / 2;
 >>> (
 >>> 	a.isSymmetricMatrix,
 >>> 	b.isSymmetricMatrix
