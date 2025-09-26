@@ -18,6 +18,9 @@ Compositions of three into two parts:
 The number of compositions of _n_ into _k_ parts:
 
 ```
+>>> 3.numberOfCompositionsWeak(2)
+4
+
 >>> let n = 3;
 >>> let k = 2;
 >>> (n + k - 1).binomial(n)
@@ -108,7 +111,7 @@ In the weak form _k_ may be greater than _n_:
 
 * * *
 
-See also: binomial, integerCompositions, integerPartitions
+See also: binomial, integerCompositions, integerPartitions, numberOfCompositionsWeak
 
 Guides: Combinatorial Functions
 

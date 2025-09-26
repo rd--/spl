@@ -608,6 +608,7 @@ Reference/bindRight.help.sl
 Reference/binetsFormula.help.sl
 Reference/binLists.help.sl
 Reference/BinomialDistribution.help.sl
+Reference/binomialGamma.help.sl
 Reference/binomial.help.sl
 Reference/binomialPascal.help.sl
 Reference/BinomialProcess.help.sl
@@ -1438,7 +1439,7 @@ Reference/gouldsNumber.help.sl
 Reference/gouldsSequence.help.sl
 Reference/gradientDescentMethod.help.sl
 Reference/gradient.help.sl
-Reference/gradyLatticeCoordinates.help.sl
+Reference/gradyTuningLatticeCoordinates.help.sl
 Reference/grahamScan.help.sl
 Reference/GrainBuf.help.sl
 Reference/GrainFm.help.sl
@@ -1798,6 +1799,7 @@ Reference/isHalfInteger.help.sl
 Reference/isHamiltonianInteger.help.sl
 Reference/isHappyNumber.help.sl
 Reference/isHarmonicDivisorNumber.help.sl
+Reference/isHarshadNumber.help.sl
 Reference/isHeronian.help.sl
 Reference/isHighlyAbundantNumber.help.sl
 Reference/isHighlyCompositeNumber.help.sl
@@ -2029,12 +2031,6 @@ Reference/lastIndexOf.help.sl
 Reference/Latch.help.sl
 Reference/lateralHarmonographCurve.help.sl
 Reference/LatoocarfianC.help.sl
-Reference/latticeEdges.help.sl
-Reference/latticeGraph.help.sl
-Reference/latticePrimes.help.sl
-Reference/latticeVector.help.sl
-Reference/latticeVectorString.help.sl
-Reference/latticeVertexCoordinates.help.sl
 Reference/lchToLuv.help.sl
 Reference/lcm.help.sl
 Reference/Lcm.help.sl
@@ -3498,6 +3494,12 @@ Reference/tschirnhausenCubic.help.sl
 Reference/tukeyWindow.help.sl
 Reference/Tuning.help.sl
 Reference/tuningIndices.help.sl
+Reference/tuningLatticeEdges.help.sl
+Reference/tuningLatticeGraph.help.sl
+Reference/tuningLatticePrimes.help.sl
+Reference/tuningLatticeVector.help.sl
+Reference/tuningLatticeVectorString.help.sl
+Reference/tuningLatticeVertexCoordinates.help.sl
 Reference/tuningName.help.sl
 Reference/tuningSize.help.sl
 Reference/Tuple.help.sl
@@ -3641,7 +3643,7 @@ Reference/WhiteNoise.help.sl
 Reference/whiteSpaceDelimitedWordAtIndex.help.sl
 Reference/WienerProcess.help.sl
 Reference/wilsonHeight.help.sl
-Reference/wilsonLatticeCoordinates.help.sl
+Reference/wilsonTuningLatticeCoordinates.help.sl
 Reference/windingNumber.help.sl
 Reference/windowedReduce.help.sl
 Reference/Window.help.sl

@@ -1,8 +1,8 @@
 # rightInversionCount
 
-- _rightInversionCount(aPermutation)_
+- _rightInversionCount(p)_
 
-Answer the right inversion count, also called the Lehmer code, of _aPermutation_.
+Answer the right inversion count, also called the Lehmer code, of the permutation _p_.
 
 ```
 >>> [2 1 3].rightInversionCount
@@ -88,6 +88,8 @@ on the symmetric group to which it belongs:
 * * *
 
 See also: inversionVector, leftInversionCount
+
+Guides: Permutation Functions
 
 References:
 _Sage_

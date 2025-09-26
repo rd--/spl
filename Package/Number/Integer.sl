@@ -232,10 +232,11 @@
 		}
 	}
 
-	dyckWords { :n |
+	dyckWords { :n :letters |
+		let [a, b] = letters;
 		let f = { :x :i :n0 :n1 |
-			let d0 = { f(x ++ [0], i + 1, n0 + 1, n1) };
-			let d1 = { f(x ++ [1], i + 1, n0, n1 + 1) };
+			let d0 = { f(x ++ [a], i + 1, n0 + 1, n1) };
+			let d1 = { f(x ++ [b], i + 1, n0, n1 + 1) };
 			((n0 < n) && (n1 < n) && (n0 > n1)).if {
 				d0() ++ d1()
 			} {
@@ -257,7 +258,7 @@
 				}
 			}
 		};
-		f([0], 1, 1, 0)
+		f([a], 1, 1, 0)
 	}
 
 	elementaryCellularAutomaton { :ruleNumber :initialState :stepLimit |
@@ -1098,11 +1099,13 @@
 	}
 
 	numberOfCompositions { :n :k |
-		(n - 1).factorial / ((k - 1).factorial * (n - k).factorial)
+		/* (n - 1).factorial / ((k - 1).factorial * (n - k).factorial) */
+		(n - 1).binomial(k - 1)
 	}
 
 	numberOfCompositionsWeak { :n :k |
-		(n + k - 1).factorial / (n.factorial * (k - 1).factorial)
+		/* (n + k - 1).factorial / (n.factorial * (k - 1).factorial) */
+		binomial(n + k - 1, n)
 	}
 
 	numberOfDigitsInBase { :self :radix |

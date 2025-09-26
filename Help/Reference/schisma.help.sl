@@ -27,7 +27,7 @@ Relations to simple intervals:
 1.schisma
 ```
 
-It has lattice coordinates _11 -4 -2_:
+It has tuning lattice coordinates _11 -4 -2_:
 
 ```
 >>> 1.schisma.factorInteger

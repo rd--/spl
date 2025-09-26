@@ -54,8 +54,14 @@ and two of three into two parts:
 >>> 4.integerCompositions([2])
 [1 3; 2 2; 3 1]
 
+>>> 4.numberOfCompositions(2)
+3
+
 >>> 3.integerCompositions([2])
 [1 2; 2 1]
+
+>>> 3.numberOfCompositions(2)
+2
 ```
 
 The compositions of 1, 2 & 3:
@@ -94,6 +100,9 @@ A positive integer _n_ has _2 ^ (n - 1)_ compositions:
 The number of _n,k_ compositions:
 
 ```
+>>> 7.numberOfCompositions(3)
+15
+
 >>> let n = 7;
 >>> let k = 3;
 >>> n.integerCompositions([k]).size
@@ -102,7 +111,7 @@ The number of _n,k_ compositions:
 
 * * *
 
-See also: binomial, integerCompositionsDo, integerCompositionsWeak, integerPartitions
+See also: binomial, integerCompositionsDo, integerCompositionsWeak, integerPartitions, numberOfCompositions
 
 Guides: Combinatorial Functions
 

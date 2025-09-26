@@ -25,7 +25,7 @@ and between 81/16 and 5/1:
 1.septimalComma
 ```
 
-It has lattice coordinates _6 -2 0 -1_:
+It has tuning lattice coordinates _6 -2 0 -1_:
 
 ```
 >>> 1.septimalComma.factorInteger

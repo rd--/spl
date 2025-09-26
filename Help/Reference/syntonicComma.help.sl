@@ -33,7 +33,7 @@ or more usually between 81/64 and 5/4, the 3- and 5- limit major thirds
 1.syntonicComma
 ```
 
-It has lattice coordinates _-4 4 -1_:
+It has tuning lattice coordinates _-4 4 -1_:
 
 ```
 >>> 1.syntonicComma.factorInteger

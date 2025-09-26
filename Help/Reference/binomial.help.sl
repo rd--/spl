@@ -204,6 +204,45 @@ OEIS [A000127](https://oeis.org/A000127):
 ]
 ```
 
+The first few central binomial coefficients,
+OEIS [A000984](https://oeis.org/A000984):
+
+```
+>>> 0:27.collect { :n |
+>>> 	binomial(2 * n, n)
+>>> }
+[
+	1
+	2
+	6
+	20
+	70
+	252
+	924
+	3432
+	12870
+	48620
+	184756
+	705432
+	2704156
+	10400600
+	40116600
+	155117520
+	601080390
+	2333606220
+	9075135300
+	35345263800
+	137846528820
+	538257874440
+	2104098963720
+	8233430727600
+	32247603683100
+	126410606437752
+	495918532948104
+	1946939425648112
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -237,8 +276,9 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bang#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialCoefficient.html)
-[2](https://mathworld.wolfram.com/Choose.html)
-[3](https://reference.wolfram.com/language/ref/Binomial.html),
+[2](https://mathworld.wolfram.com/CentralBinomialCoefficient.html)
+[3](https://mathworld.wolfram.com/Choose.html)
+[4](https://reference.wolfram.com/language/ref/Binomial.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/nchoosek.html),
 _W_

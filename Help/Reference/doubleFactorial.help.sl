@@ -5,6 +5,12 @@
 The product of the positive integers of equal parity up to _n_.
 
 ```
+>>> 7.doubleFactorial
+105
+
+>>> 13.doubleFactorial
+135135
+
 >>> 23.doubleFactorial
 316234143225
 
@@ -46,11 +52,15 @@ Value at `zero`:
 1
 ```
 
-At `LargeInteger`:
+At `LargeInteger` answers `normal` integer,
+at `SmallFloat` may answer `LargeInteger`:
 
 ```
 >>> 27L.doubleFactorial
-213458046676875L
+213458046676875
+
+>>> 43.doubleFactorial
+563862029680583509947946875L
 ```
 
 At negative odd integers:
@@ -67,8 +77,8 @@ Relation to the factorial:
 >>> let a = n.doubleFactorial;
 >>> let b = (n - 1).doubleFactorial;
 >>> let c = n.factorial;
->>> a * b = c
-true
+>>> a * b
+c
 ```
 
 Recurrence relation:
@@ -77,8 +87,8 @@ Recurrence relation:
 >>> let n = 23L;
 >>> let a = n.doubleFactorial;
 >>> let b = (n - 2).doubleFactorial;
->>> n * b = a
-true
+>>> n * b
+a
 ```
 
 Extended to real numbers:
@@ -95,6 +105,13 @@ Extended to real numbers:
 
 >>> -0.5.doubleFactorial
 0.920442
+```
+
+Complex number inputs:
+
+```
+>>> 2J1.doubleFactorial
+5.1547334J3.276185
 ```
 
 Plot over subset of the reals:
@@ -119,19 +136,19 @@ Plot the ratio of doubled factorials over double factorial:
 
 ![](sw/spl/Help/Image/doubleFactorial-B.svg)
 
-_Note_: For integer values the generalized form can be requested especially:
+_Note_: Both the integer and generalized forms can be requested especially:
 
 ```
->>> 7.doubleFactorial
+>>> 7.integerDoubleFactorial
 105
 
->>> 7.doubleFactorialGeneralized
+>>> 7.generalizedDoubleFactorial
 105
 
->>> 0.doubleFactorial
+>>> 0.integerDoubleFactorial
 1
 
->>> 0.doubleFactorialGeneralized
+>>> 0.generalizedDoubleFactorial
 1
 ```
 
@@ -139,7 +156,7 @@ _Note_: For integer values the generalized form can be requested especially:
 
 See also: factorial, gamma, subfactorial
 
-Guides: Combinatorial Functions, Integer Sequences
+Guides: Combinatorial Functions, Integer Sequences, Special Functions
 
 References:
 _Mathematica_
@@ -148,6 +165,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A076668)
 [2](https://oeis.org/A000165),
+_Python_
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.factorial2.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Double_factorial)
 

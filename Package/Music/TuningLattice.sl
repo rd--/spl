@@ -2,7 +2,7 @@
 
 +Fraction {
 
-	latticePrimes { :self :includeOctave |
+	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set();
 		answer.includeAll(self.numerator.primeFactors);
 		answer.includeAll(self.denominator.primeFactors);
@@ -12,9 +12,9 @@
 		answer.asList.sort
 	}
 
-	latticeVector { :self :primes |
+	tuningLatticeVector { :self :primes |
 		primes.includesAll(
-			self.latticePrimes(primes.includes(2))
+			self.tuningLatticePrimes(primes.includes(2))
 		).if {
 			let pf1 = self.numerator.primeFactors;
 			let pf2 = self.denominator.primeFactors.negate;
@@ -23,15 +23,15 @@
 				pf3.occurrencesOf(each) - pf3.occurrencesOf(each.negate)
 			}
 		} {
-			self.error('Fraction>>latticeVector: incomplete primes')
+			self.error('Fraction>>tuningLatticeVector: incomplete primes')
 		}
 	}
 
-	latticeVectorString { :self :primes |
+	tuningLatticeVectorString { :self :primes |
 		primes.includesAll(
-			self.latticePrimes(primes.includes(2))
+			self.tuningLatticePrimes(primes.includes(2))
 		).if {
-			self.latticeVector(primes).collect { :each |
+			self.tuningLatticeVector(primes).collect { :each |
 				each.asString.padLeft([2], ' ')
 			}.unwords
 		} {
@@ -43,7 +43,7 @@
 
 +List {
 
-	latticeDistance { :self :aList |
+	tuningLatticeDistance { :self :aList |
 		(self - aList).abs.sum
 	}
 
@@ -51,7 +51,7 @@
 
 +SmallFloat {
 
-	gradyLatticeCoordinates { :self |
+	gradyTuningLatticeCoordinates { :self |
 		[
 			40 0;
 			0 40;
@@ -64,7 +64,7 @@
 		] / 40 * self
 	}
 
-	wilsonLatticeCoordinates { :self |
+	wilsonTuningLatticeCoordinates { :self |
 		[
 			20 0;
 			0 20;
@@ -78,7 +78,7 @@
 
 +RatioTuning {
 
-	latticeEdges { :self :vertexCoordinates |
+	tuningLatticeEdges { :self :vertexCoordinates |
 		let indices = self.size.iota;
 		let answer = [];
 		indices.combinationsAtATimeDo(2) { :each |
@@ -90,9 +90,9 @@
 		answer
 	}
 
-	latticeGraph { :self :primes :unitVector |
-		let primesList = self.latticeVertexCoordinates(primes);
-		let edgeList = self.latticeEdges(primesList);
+	tuningLatticeGraph { :self :primes :unitVector |
+		let primesList = self.tuningLatticeVertexCoordinates(primes);
+		let edgeList = self.tuningLatticeEdges(primesList);
 		let coordinateList = primesList.collect { :each |
 			let v = unitVector.first(each.size);
 			each.withCollect(v) { :count :unit |
@@ -105,29 +105,29 @@
 		).vertexCoordinates(coordinateList)
 	}
 
-	latticeGraph { :self |
-		self.latticeGraph(
-			self.latticeDerivedPrimesVector(
+	tuningLatticeGraph { :self |
+		self.tuningLatticeGraph(
+			self.tuningLatticeDerivedPrimesVector(
 				[3 5 7 11 13 17 19 23]
 			),
-			1.gradyLatticeCoordinates
+			1.gradyTuningLatticeCoordinates
 		)
 	}
 
-	latticePrimes { :self :includeOctave |
+	tuningLatticePrimes { :self :includeOctave |
 		let answer = Set();
 		self.asRatios.do { :each |
-			answer.includeAll(each.latticePrimes(includeOctave))
+			answer.includeAll(each.tuningLatticePrimes(includeOctave))
 		};
 		answer.asList.sort
 	}
 
-	latticeDerivedPrimesVector { :self :primes |
+	tuningLatticeDerivedPrimesVector { :self :primes |
 		let upperLimit = primes.last;
 		(self.primeLimit <= upperLimit).if {
 			primes
 		} {
-			let tuningPrimes = self.latticePrimes(false);
+			let tuningPrimes = self.tuningLatticePrimes(false);
 			(tuningPrimes.size <= primes.size).if {
 				tuningPrimes
 			} {
@@ -136,9 +136,9 @@
 		}
 	}
 
-	latticeVertexCoordinates { :self :primes |
+	tuningLatticeVertexCoordinates { :self :primes |
 		self.asRatios.collect { :each |
-			each.latticeVector(primes)
+			each.tuningLatticeVector(primes)
 		}
 	}
 

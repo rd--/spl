@@ -21,7 +21,7 @@ Relations to simple intervals:
 1.diesis
 ```
 
-It has lattice coordinates _7 0 -3_:
+It has tuning lattice coordinates _7 0 -3_:
 
 ```
 >>> 1.diesis.factorInteger

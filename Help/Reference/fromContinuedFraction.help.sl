@@ -19,6 +19,7 @@ Reconstructs a number from the list of its continued fraction terms.
 >>> .collect(fromContinuedFraction:/1)
 [2 3 11/4 47/17]
 ```
+
 Quadratic irrationals have recurring continued fractions,
 which are not marked, instead a truncation is taken:
 

@@ -32,7 +32,7 @@ Draw the _3 3 3 5 5_ genus:
 ~~~spl svg=A
 [3 3 3 5 5].eulerFokkerGenus
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-A.svg)
@@ -42,7 +42,7 @@ Draw the _3 3 3 5 7 11_ genus:
 ~~~spl svg=B
 [3 3 3 5 7 11].eulerFokkerGenus
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-B.svg)
@@ -52,14 +52,16 @@ Draw the _3 5 7 11 13_ genus:
 ~~~spl svg=C
 [3 5 7 11 13].eulerFokkerGenus
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
 ![](sw/spl/Help/Image/eulerFokkerGenus-C.svg)
 
 * * *
 
-See also: combinationProductSet, latticeGraph, nub, product, octaveReduce, subsets
+See also: combinationProductSet, tuningLatticeGraph, nub, product, octaveReduce, subsets
+
+Guides: Tuning Functions
 
 References:
 _W_

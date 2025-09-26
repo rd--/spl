@@ -1,15 +1,25 @@
 # dyckWords
 
-- _dyckWords(anInteger)_
+- _dyckWords(n, [a b])_
 
-Enumerate all Dyck words of size _anInteger * 2_.
-A Dyck word is a balanced string of brackets.
+Enumerate all Dyck words of size _2n_.
+A Dyck word is a balanced string of brackets _a_ and _b_.
 The set of Dyck words forms a Dyck language.
 
-Words of length six:
+Words of length four on _-1,1_:
 
 ```
->>> 3.dyckWords
+>>> 2.dyckWords([-1 1])
+[
+	-1 -1 1 1;
+	-1 1 -1 1
+]
+```
+
+Words of length six on _0,1_:
+
+```
+>>> 3.dyckWords([0 1])
 [
 	0 0 0 1 1 1;
 	0 0 1 0 1 1;
@@ -22,7 +32,7 @@ Words of length six:
 Words of length eight:
 
 ```
->>> 4.dyckWords
+>>> 4.dyckWords([0 1])
 [
 	0 0 0 0 1 1 1 1;
 	0 0 0 1 0 1 1 1;
@@ -41,11 +51,11 @@ Words of length eight:
 ]
 ```
 
-The number of Dyck words of length _2 * n_ is the _n_-th Catalan number.
+The number of Dyck words of length _2n_ is the _n_-th Catalan number.
 
 ```
 >>> 1:7.collect { :each |
->>> 	each.dyckWords.size
+>>> 	each.dyckWords([-1 1]).size
 >>> }
 [1 2 5 14 42 132 429]
 
@@ -56,6 +66,8 @@ The number of Dyck words of length _2 * n_ is the _n_-th Catalan number.
 * * *
 
 See also: catalanNumber
+
+Guides: Combinatorial Functions
 
 References:
 _Mathematica_

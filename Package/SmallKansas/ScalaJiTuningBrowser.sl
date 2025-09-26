@@ -2,7 +2,7 @@
 
 	htmlView { :self |
 		let ratios = self.asRatios;
-		let primesVector = self.latticeDerivedPrimesVector([3 5 7 11 13 17 19 23]);
+		let primesVector = self.tuningLatticeDerivedPrimesVector([3 5 7 11 13 17 19 23]);
 		let div = 'div'.createElement;
 		div.appendChildren([
 			[
@@ -10,14 +10,14 @@
 				['Limit', self.primeLimit.asString],
 				['Description', self.description],
 				['Octave', self.octave.asString],
-				['Primes', self.latticePrimes(false).asString]
+				['Primes', self.tuningLatticePrimes(false).asString]
 			].asHtmlTable,
 			primesVector.ifNil {
 				'No drawing'.TextParagraph
 			} {
-				self.latticeDrawing(
+				self.tuningLatticeDrawing(
 					primesVector,
-					1.gradyLatticeCoordinates
+					1.gradyTuningLatticeCoordinates
 				)
 			},
 			[
@@ -27,7 +27,7 @@
 					primesVector.ifNil {
 						'*'
 					} {
-						each.latticeVectorString(primesVector)
+						each.tuningLatticeVectorString(primesVector)
 					}
 				},
 				self.asCents.round,
@@ -37,8 +37,8 @@
 		div
 	}
 
-	latticeDrawing { :self :primes :unitVector |
-		self.latticeGraph(
+	tuningLatticeDrawing { :self :primes :unitVector |
+		self.tuningLatticeGraph(
 			primes,
 			unitVector
 		).asSvgElement(

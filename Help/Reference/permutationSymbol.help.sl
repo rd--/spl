@@ -1,10 +1,10 @@
 # permutationSymbol
 
-- _permutationSymbol(aSequence)_
+- _permutationSymbol([x₁ x₂ …])_
 
-Answer the permutation symbol of the permutation needed to place the elements of _aSequence_ in canonical order.
+Answer the permutation symbol of the permutation needed to place the elements of the sequence _x_ in canonical order.
 
-The permutation symbol is _-1 ^ n_,
+The permutation symbol is _-1^n_,
 where _n_ is the number of transpositions of pairs of elements that must be composed to build up the permutation.
 
 ```
@@ -80,6 +80,8 @@ The `permutationSymbol` is the _signature_ of a `Permutation`:
 * * *
 
 See also: cross, kroneckerDelta, permutations
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

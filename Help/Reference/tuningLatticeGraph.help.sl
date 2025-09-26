@@ -1,14 +1,14 @@
-# latticeGraph
+# tuningLatticeGraph
 
-- _latticeGraph(aRatioTuning)_
-- _latticeGraph(aRatioTuning, primesList, unitVectorList)_
+- _tuningLatticeGraph(t)_
+- _tuningLatticeGraph(t, p, u)_
 
-Answer a `Graph` of _aRatioTuning_.
+Answer a `Graph` of the `RatioTuning` t.
 
 In the ternary case,
-_primesList_ and _unitVectorList_,
+_p_ is the primes list and _u_ the unit vector list,
 which should be of equal size,
-specify the unit lattice.
+and specify the unit tuning lattice.
 
 The vertices of the graph are labelled with their coordinates,
 allowing the graph to be drawn using `draw`.
@@ -18,13 +18,13 @@ A 7-note 7-limit tuning:
 ~~~spl svg=A
 [1/1 8/7 6/5 21/16 3/2 8/5 7/4]
 .asRatioTuning
-.latticeGraph(
+.tuningLatticeGraph(
 	[3 5 7],
 	[1 0; 0 1; 0.2 0.15]
 )
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-A.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-A.svg)
 
 A 22-note 11-limit tuning:
 
@@ -37,43 +37,43 @@ A 22-note 11-limit tuning:
 	15/8 64/33
 ]
 .asRatioTuning
-.latticeGraph(
+.tuningLatticeGraph(
 	[3 5 7 11],
 	[1 0; 0 1; 0.2 0.15; -0.15 0.2]
 )
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-B.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-B.svg)
 
 The `divisors` set of sixty,
-drawn on a lattice including the octave,
+drawn on a tuning lattice including the octave,
 where the _y_ axis indicates pitch in logarithmic space:
 
 ~~~spl svg=C
 [1 2 3 4 5 6 10 12 15 20 30 60]
 .asRatioTuning
-.latticeGraph(
+.tuningLatticeGraph(
 	[2 3 5],
 	[-0.69 0.69; 0.00 1.10; 1.61 1.61]
 )
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-C.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-C.svg)
 
 In the unary case the primes list is either _3 5 7 11 13 17 19 23_,
-or is derived from the tuning using `latticePrimes`,
+or is derived from the tuning using `tuningLatticePrimes`,
 and the unit vector is that of Kraig Grady,
-given by `gradyLatticeCoordinates`.
+given by `gradyTuningLatticeCoordinates`.
 
 A 7-note 19-limit tuning:
 
 ~~~spl svg=D
 [128 144 156 171 192 208 228]
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-D.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-D.svg)
 
 A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp:
 
@@ -84,13 +84,13 @@ A 17-tone 13-limit scale by Larry Polansky for the Harrison-Colvig transfer harp
 	3/2 25/16 13/8 5/3 27/16
 	7/4 15/8 2/1
 ].asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-E.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-E.svg)
 
 A 47-tone 11-limit scale by Paul Johnson,
-_3,7,11_ is drawn upon what is ordinarily the _3,5,7_ lattice:
+_3,7,11_ is drawn upon what is ordinarily the _3,5,7_ tuning lattice:
 
 ~~~spl svg=F
 [
@@ -115,15 +115,15 @@ _3,7,11_ is drawn upon what is ordinarily the _3,5,7_ lattice:
 	16/9 231/128
 	21/11 27/14 64/63 63/32 196/99
 	2/1
-].asRatioTuning.latticeGraph(
+].asRatioTuning.tuningLatticeGraph(
 	[3 7 11],
 	[1 0; 0 1; 0.2 0.15]
 )
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-F.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-F.svg)
 
-Draw a _1,3,5,7,11,13_ diamond on a circular lattice:
+Draw a _1,3,5,7,11,13_ diamond on a circular tuning lattice:
 
 ~~~spl svg=G
 let m = [4.35 4.25 3.5 3.35 3.75];
@@ -132,15 +132,15 @@ let n = [1 3 5 7 11 13];
 [n, n].tuples.collect { :each |
 	let [n, d] = each;
 	Fraction(n, d)
-}.nub.sort.asRatioTuning.latticeGraph(
+}.nub.sort.asRatioTuning.tuningLatticeGraph(
 	[3 5 7 11 13],
 	v
 )
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-G.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-G.svg)
 
-Lattice graph of regular numbers within the octave double _(360,720)_:
+Tuning lattice graph of regular numbers within the octave double _(360,720)_:
 
 ~~~svg=H
 let n = 6.!;
@@ -149,10 +149,10 @@ let n = 6.!;
 }.allButLast
 .Fraction(360)
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 ~~~
 
-![](sw/spl/Help/Image/latticeGraph-H.svg)
+![](sw/spl/Help/Image/tuningLatticeGraph-H.svg)
 
 _Rationale_:
 While the unary case is useful for drawing simple examples,
@@ -160,9 +160,9 @@ it is more usual to calculate the required primes vector.
 
 * * *
 
-See also: asRatioTuning, draw, gradyLatticeCoordinates, Graph, latticePrimes, wilsonLatticeCoordinates
+See also: asRatioTuning, draw, gradyTuningLatticeCoordinates, Graph, tuningLatticePrimes, wilsonTuningLatticeCoordinates
 
-Guides: Xenharmonic Functions
+Guides: Tuning Functions, Xenharmonic Functions
 
 References:
 _Xenharmonic_

@@ -1,8 +1,8 @@
 # leftInversionCount
 
-- _leftInversionCount(aPermutation)_
+- _leftInversionCount(p)_
 
-Answer the left inversion count, also called the Lehmer co-code, of _aPermutation_.
+Answer the left inversion count, also called the Lehmer co-code, of the permutation _p_.
 
 ```
 >>> [2 1 3].leftInversionCount
@@ -45,6 +45,8 @@ The left inversion counts of _S4_:
 * * *
 
 See also: inversionVector, rightInversionCount
+
+Guides: Permutation Functions
 
 References:
 _Sage_

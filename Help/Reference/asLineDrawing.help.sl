@@ -69,7 +69,7 @@ At `Graph`:
 ~~~spl svg=H
 [1/1 8/7 3/2 8/5 7/4]
 .asRatioTuning
-.latticeGraph
+.tuningLatticeGraph
 .asLineDrawing
 ~~~
 

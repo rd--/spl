@@ -31,4 +31,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BookGraph.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Book_(graph_theory))
-

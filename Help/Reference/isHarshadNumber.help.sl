@@ -68,4 +68,3 @@ _OEIS_
 [1](https://oeis.org/A005349),
 _W_
 [1](https://en.wikipedia.org/wiki/Harshad_number)
-

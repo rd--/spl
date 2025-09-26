@@ -75,17 +75,17 @@ Interval Complexity Measures:
 - `weilHeight`: Weil height
 - `wilsonHeight`: Wilson height
 
-Lattice Functions:
+Tuning Lattice Functions:
 
-- `latticeDrawing`: drawing
-- `latticeEdges`: edges
-- `latticeGraph`: graph
-- `latticePrimes`: primes
-- `latticeVector`: vector
-- `latticeVectorString`: vector string
-- `latticeVertexCoordinates`: vertices
-- `manhattanDistance`: distance metric
-- `wilsonLatticeCoordinates`: unit vector
+- `gradyTuningLatticeCoordinates`
+- `tuningLatticeDrawing`
+- `tuningLatticeEdges`
+- `tuningLatticeGraph`
+- `tuningLatticePrimes`
+- `tuningLatticeVector`
+- `tuningLatticeVectorString`
+- `tuningLatticeVertexCoordinates`
+- `wilsonTuningLatticeCoordinates`
 
 Library Items:
 

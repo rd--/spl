@@ -38,7 +38,8 @@ Fractions are ordinarily normalized by construction.
 ([1 2], [1 2])
 ```
 
-At `LargeInteger` answers `asInteger`:
+At `LargeInteger` answers `asInteger`,
+which answers a `SmallFloat` if the integer can be properly represented as such:
 
 ```
 >>> 23L.normal

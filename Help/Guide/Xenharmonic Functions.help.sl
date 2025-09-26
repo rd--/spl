@@ -32,12 +32,6 @@ Converting:
 - `centsToRatio`
 - `ratioToCents`
 
-Lattices:
-
-- `gradyLatticeCoordinates`
-- `latticeGraph`
-- `wilsonLatticeCoordinates`
-
 Limit Functions:
 
 - `integerLimit`
@@ -85,6 +79,12 @@ Scale Functions:
 Tables:
 
 - `tonalityDiamond`
+
+Tuning Lattices:
+
+- `gradyTuningLatticeCoordinates`
+- `tuningLatticeGraph`
+- `wilsonTuningLatticeCoordinates`
 
 * * *
 

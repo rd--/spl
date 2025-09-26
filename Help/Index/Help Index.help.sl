@@ -798,7 +798,7 @@
 - `limit`, `octave`
 - `centsToRatio`, `degreeToKey`, `ratioToCents`
 - `benedettiHeight`, `keesSemiHeight`, `tenneyHeight`, `weilHeight`, `wilsonHeight`
-- `latticePrimes`, `latticeVertices`, `latticeVector`
+- `tuningLatticePrimes`, `tuningLatticeVertices`, `tuningLatticeVector`
 - `intervalMatrix`, `isConstantStructure`
 
 ## Units & Measures

@@ -1,8 +1,8 @@
 # inversionVector
 
-- _inversionVector(aPermutation)_
+- _inversionVector(p)_
 
-Answer the inversion vector of _aPermutation_.
+Answer the inversion vector of the permutation _p_.
 
 The inversion vector of a permutation indicates for each place the number of elements larger than it that appear to its left.
 
@@ -41,6 +41,8 @@ The inversion vectors of _S4_:
 * * *
 
 See also: leftInversionCount, Permutation, permutationInversions, permutationSymbol
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

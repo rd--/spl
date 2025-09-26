@@ -40,10 +40,46 @@
 	}
 
 	hyperfactorial { :self |
+		let one = self.one;
 		self.isInteger.if {
-			(self.one .. self).collect { :k | k ^ k }.product
+			(one .. self).collect { :k |
+				k ^ k
+			}.product
 		} {
 			'@Integer>>hyperfactorial: not implemented for non-integer'.error
+		}
+	}
+
+	integerDoubleFactorial { :self |
+		let one = self.one;
+		self.isNegative.if {
+			self.isOdd.if {
+				(self + 2).integerDoubleFactorial / (self + 2)
+			} {
+				self.error('@Integer>>integerDoubleFactorial: negative even')
+			}
+		} {
+			(self <= 3).if {
+				self.max(one)
+			} {
+				self * (self - 2).integerDoubleFactorial
+			}
+		}
+	}
+
+	integerFactorial { :self |
+		let one = self.one;
+		self.isNegative.ifTrue {
+			'@Integer>>integerFactorial: not valid for negative integers'.error
+		};
+		(self <= one).if {
+			one
+		} {
+			let answer = one;
+			1.toDo(self) { :each |
+				answer := answer * each
+			};
+			answer
 		}
 	}
 
@@ -85,71 +121,31 @@
 
 +@Number {
 
+	doubleFactorial { :self |
+		self.isInteger.if {
+			self.asLargeInteger.integerDoubleFactorial.normal
+		} {
+			self.generalizedDoubleFactorial
+		}
+	}
+
+	factorial { :self |
+		self.isNonNegativeInteger.if {
+			self.asLargeInteger.integerFactorial.normal
+		} {
+			(self + 1).gamma
+		}
+	}
+
 	factorialPower { :self :anInteger |
 		(self - 0.to(anInteger - 1)).product
 	}
 
 }
 
-+SmallFloat {
-
-	doubleFactorial { :self |
-		self.isInteger.if {
-			self.asLargeInteger.doubleFactorial.normal
-		} {
-			self.doubleFactorialGeneralized
-		}
-	}
-
-	factorial { :self |
-		self.isNonNegativeInteger.if {
-			self.asLargeInteger.factorial.normal
-		} {
-			(self + 1).gamma
-		}
-	}
-
-}
-
-+LargeInteger {
-
-	factorial { :self |
-		let one = self.one;
-		self.isNegative.ifTrue {
-			'@Integer>>factorial: not valid for negative integers'.error
-		};
-		(self <= one).if {
-			one
-		} {
-			let answer = one;
-			1.toDo(self) { :each |
-				answer := answer * each
-			};
-			answer
-		}
-	}
-
-	doubleFactorial { :self |
-		self.isNegative.if {
-			self.isOdd.if {
-				(self + 2).doubleFactorial / (self + 2)
-			} {
-				self.error('LargeInteger>>doubleFactorial: not valid for negative even integers')
-			}
-		} {
-			(self <= 3).if {
-				self.max(1)
-			} {
-				self * (self - 2).doubleFactorial
-			}
-		}
-	}
-
-}
-
 +[SmallFloat, Complex] {
 
-	doubleFactorialGeneralized { :self |
+	generalizedDoubleFactorial { :self |
 		/*
 			let n = (self + 1) / 2;
 			gamma(n + 0.5) / 1.pi.sqrt * (2 ^ n)

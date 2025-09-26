@@ -21,7 +21,7 @@
 					}
 				}
 			).if {
-				n.binomialNonNegativeInteger(k)
+				n.asLargeInteger.integerBinomial(k).normal
 			} {
 				n.binomialGamma(k)
 			}
@@ -41,18 +41,6 @@
 			answer := answer * (a - i) / (i + 1)
 		};
 		answer
-	}
-
-	binomialNonNegativeInteger { :n :k |
-		let numerator = n.one;
-		let denominator = n.one;
-		n.toByDo(k.max(n - k) + 1, -1) { :factor |
-			numerator := numerator * factor
-		};
-		1.toDo(k.min(n - k)) { :factor |
-			denominator := denominator * factor
-		};
-		numerator // denominator
 	}
 
 	trinomial { :n :k |
@@ -140,6 +128,18 @@
 	hexagonalNumber { :n |
 		let m = 2 * n;
 		(m * (m - 1)) / 2
+	}
+
+	integerBinomial { :n :k |
+		let numerator = 1L;
+		let denominator = 1L;
+		n.toByDo(k.max(n - k) + 1, -1) { :factor |
+			numerator := numerator * factor
+		};
+		1.toDo(k.min(n - k)) { :factor |
+			denominator := denominator * factor
+		};
+		numerator // denominator
 	}
 
 	lassalleNumber { :m |
@@ -306,7 +306,7 @@
 		(k > n).if {
 			0
 		} {
-			n.binomialNonNegativeInteger(k)
+			n.integerBinomial(k)
 		}
 	}
 

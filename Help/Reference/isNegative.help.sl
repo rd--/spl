@@ -54,7 +54,6 @@ See also: negate, isNonNegative, isPositive, isZero
 
 Guides: Mathematical Functions, Predicate Functions
 
-
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Negative.html)

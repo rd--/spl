@@ -94,7 +94,6 @@ Threads elementwise over lists:
 [2 3 4 5]
 ```
 
-
 Value at Infinity:
 
 ```

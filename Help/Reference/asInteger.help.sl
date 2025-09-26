@@ -52,6 +52,7 @@ To convert a non-integer to an integer use `round` or `ceiling` or `floor` or `t
 >>> let x = 1.pi;
 >>> (x.round, x.floor, x.ceiling, x.truncate)
 (3, 3, 4, 3)
+```
 
 To convert a `Boolean` to an integer use `asBit` or `boole`:
 

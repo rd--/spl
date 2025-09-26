@@ -34,7 +34,7 @@ Relations to simple intervals:
 1.diaschisma
 ```
 
-It has lattice coordinates _11 -4 -2_:
+It has tuning lattice coordinates _11 -4 -2_:
 
 ```
 >>> 1.diaschisma.factorInteger
