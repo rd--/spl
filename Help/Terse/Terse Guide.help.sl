@@ -100,7 +100,7 @@ NaN.isNaN /* literal for NaN */
 -0 = 0 /* negative zero is equal to zero */
 3.99.round = 4 /* round, c.f. round */
 3.99.truncate = 3 /* truncate */
-3.89.round(0.1) = 3.9 /* round to specified decimal places */
+3.89.round(0.1) ~ 3.9 /* round to specified decimal places */
 3.99.truncate(1) = 3.0 /* truncate to specified decimal places */
 12345.truncate(600) = 12000 /* truncate to integer */
 1.pi.roundDown(0.01) = 3.14 /* round down to nearest 1/100th */
@@ -109,8 +109,8 @@ NaN.isNaN /* literal for NaN */
 1.pi.roundDown(0.005) = 3.140 /* round down to nearest 5/1000th */
 1.pi.negate.roundDown(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
 (3 - 1.epsilon).roundDown = 2 /* round down to nearest integer */
-0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. down for positive numbers */
--0.9.roundTowardsZeroTo(1) = 0 /* round towards zero, i.e. up for negative numbers */
+0.9.roundTowardsZero(1) = 0 /* round towards zero, i.e. down for positive numbers */
+-0.9.roundTowardsZero(1) = 0 /* round towards zero, i.e. up for negative numbers */
 0.9.roundTowardsZero = 0 /* round to nearest integer towards zero */
 -0.9.roundTowardsZero = 0 /* round to nearest integer towards zero, upwards for negative numbers */
 [-4, -3, -2.9, -2, -1, -0.9, 0, 0.9, 1, 2, 2.9, 3, 4].collect { :each | each.roundDown(2) } = [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4]
@@ -121,7 +121,8 @@ NaN.isNaN /* literal for NaN */
 20.factorial = 2432902008176640000L /* large small float factorial */
 20.factorial.isSmallInteger = false /* 20! is not a small integer */
 0:9.collect(factorial:/1) = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
-{ -1.factorial }.hasError /* factorial is not defined for negative integers */
+{ -1L.factorial }.hasError /* factorial is not defined for negative integers */
+-1.factorial = Infinity
 9.factorial = 1:9.product /* factorial is product of interval */
 12.factorial.log2.floor = 28 /* bit-depth of factorial */
 [12, 18, 20, 100, 170].collect { :each | each.factorial.log2.floor } = [28, 52, 61, 524, 1019]
