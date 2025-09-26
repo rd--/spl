@@ -1,11 +1,12 @@
 # integerCompositions
 
-- _integerCompositions(n, k)_
 - _integerCompositions(n)_
+- _integerCompositions(n, [k…])_
 
 A composition is an ordered arrangement of _k_ positive integers which sum to _n_.
 It is therefore a partition in which order is significant.
-The compositions here are sometimes called strict compositions.
+The compositions given here are sometimes called strict compositions,
+see also `integerCompositionsWeak`.
 
 There are eight compositions of four:
 
@@ -50,10 +51,10 @@ There are three compositions of four into two parts,
 and two of three into two parts:
 
 ```
->>> 4.integerCompositions(2)
+>>> 4.integerCompositions([2])
 [1 3; 2 2; 3 1]
 
->>> 3.integerCompositions(2)
+>>> 3.integerCompositions([2])
 [1 2; 2 1]
 ```
 
@@ -95,13 +96,13 @@ The number of _n,k_ compositions:
 ```
 >>> let n = 7;
 >>> let k = 3;
->>> n.integerCompositions(k).size
+>>> n.integerCompositions([k]).size
 (n - 1).binomial(k - 1)
 ```
 
 * * *
 
-See also: binomial, integerCompositionsDo, integerPartitions
+See also: binomial, integerCompositionsDo, integerCompositionsWeak, integerPartitions
 
 Guides: Combinatorial Functions
 

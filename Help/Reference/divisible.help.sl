@@ -106,7 +106,7 @@ The sum of the first few multiples of three or five:
 
 See also: %, divisors, even, gcd, mod, quotient, round
 
-Guides: Integer Functions
+Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_

@@ -384,7 +384,33 @@
 		self.digitCount(2, 1)
 	}
 
-	integerCompositionsDo { :n :k :aBlock:/1 |
+	integerCompositionsDo { :n :kList :aBlock:/1 |
+		kList.do { :k |
+			n.integerCompositionsExactlyDo(k, aBlock:/1)
+		}
+	}
+
+	integerCompositionsDo { :n :aBlock:/1 |
+		integerCompositionsDo(n, 1:n, aBlock:/1)
+	}
+
+	integerCompositions { :n |
+		let answer = [];
+		n.integerCompositionsDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	integerCompositions { :n :k |
+		let answer = [];
+		n.integerCompositionsDo(k) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	integerCompositionsExactlyDo { :n :k :aBlock:/1 |
 		(n < k).ifFalse {
 			let a = List(k, 1);
 			a[k] := n - k + 1;
@@ -408,29 +434,15 @@
 		}
 	}
 
-	integerCompositionsDo { :n :aBlock:/1 |
-		1:n.do { :k |
-			n.integerCompositionsDo(k, aBlock:/1)
-		}
-	}
-
-	integerCompositions { :n :k |
+	integerCompositionsExactly { :n :k |
 		let answer = [];
-		n.integerCompositionsDo(k) { :each |
+		n.integerCompositionsExactlyDo(k) { :each |
 			answer.add(each.copy)
 		};
 		answer
 	}
 
-	integerCompositions { :n |
-		let answer = [];
-		n.integerCompositionsDo { :each |
-			answer.add(each.copy)
-		};
-		answer
-	}
-
-	integerCompositionsWeakDo { :n :k :aBlock:/1 |
+	integerCompositionsWeakExactlyDo { :n :k :aBlock:/1 |
 		let a = List(k, 0);
 		a[k] := n;
 		aBlock(a);
@@ -452,9 +464,23 @@
 		}
 	}
 
-	integerCompositionsWeak { :n :k |
+	integerCompositionsWeak { :n |
+		integerCompositionsWeak(n, 1:n)
+	}
+
+	integerCompositionsWeak { :n :kList |
 		let answer = [];
-		n.integerCompositionsWeakDo(k) { :each |
+		kList.do { :k |
+			n.integerCompositionsWeakExactlyDo(k) { :each |
+				answer.add(each.copy)
+			}
+		};
+		answer
+	}
+
+	integerCompositionsWeakExactly { :n :k |
+		let answer = [];
+		n.integerCompositionsWeakExactlyDo(k) { :each |
 			answer.add(each.copy)
 		};
 		answer

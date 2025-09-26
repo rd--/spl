@@ -68,6 +68,19 @@ Division by an integer answers either a `LargeInteger` or a `Fraction`:
 23/5
 ```
 
+Multiplication of `LargeInteger` and `SmallFloat` values:
+
+```
+>>> 23L * 5
+115L
+
+>>> 23 * 5L
+115L
+
+>>> 23L * 1.5
+34.5
+```
+
 Division by `zero` signals an `error`:
 
 ```

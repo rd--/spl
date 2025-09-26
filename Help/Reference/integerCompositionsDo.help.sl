@@ -1,7 +1,7 @@
 # integerCompositionsDo
 
-- _integerCompositionsDo(n, k, aBlock:/1)_
-- _integerCompositionsDo(n, aBlock:/1)_
+- _integerCompositionsDo(n, f:/1)_
+- _integerCompositionsDo(n, [k…], f:/1)_
 
 An integer composition is an ordered arrangement of _k_ non-negative integers which sum to _n_.
 It is therefore a partition in which order is significant.

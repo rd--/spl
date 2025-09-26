@@ -95,7 +95,7 @@
 
 	doubleFactorial { :self |
 		self.isInteger.if {
-			self.asLargeInteger.doubleFactorial
+			self.asLargeInteger.doubleFactorial.asInteger
 		} {
 			self.doubleFactorialGeneralized
 		}
@@ -103,7 +103,7 @@
 
 	factorial { :self |
 		self.isNonNegativeInteger.if {
-			self.asLargeInteger.factorial
+			self.asLargeInteger.factorial.asInteger
 		} {
 			(self + 1).gamma
 		}

@@ -16,7 +16,7 @@ since there are four partitions of 10 into three distinct parts:
 
 >>> let n = 10;
 >>> let k = 3;
->>> let p = n.integerPartitions(k);
+>>> let p = n.integerPartitions([k]);
 >>> p.collect(nub:/1).select { :each |
 >>> 	each.size = k
 >>> }

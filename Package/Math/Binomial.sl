@@ -21,11 +21,18 @@
 					}
 				}
 			).if {
-				n.positiveIntegerBinomial(k)
+				n.binomialNonNegativeInteger(k)
 			} {
-				(n + 1).gamma / ((k + 1).gamma * (n - k + 1).gamma)
+				n.binomialGamma(k)
 			}
 		}
+	}
+
+	binomialGamma { :n :k |
+		let a = (n + 1).gamma;
+		let b = (k + 1).gamma;
+		let c = (n - k + 1).gamma;
+		a / (b * c)
 	}
 
 	binomialPascal { :a :b |
@@ -36,7 +43,7 @@
 		answer
 	}
 
-	positiveIntegerBinomial { :n :k |
+	binomialNonNegativeInteger { :n :k |
 		let numerator = n.one;
 		let denominator = n.one;
 		n.toByDo(k.max(n - k) + 1, -1) { :factor |
@@ -244,7 +251,7 @@
 	}
 
 	partitionFunctionQ { :n :k |
-		partitionFunctionP(n - binomial(k, 2), k)
+		partitionFunctionP(n - k.binomial(2), k)
 	}
 
 	partitionsP { :n |
@@ -299,7 +306,7 @@
 		(k > n).if {
 			0
 		} {
-			n.positiveIntegerBinomial(k)
+			n.binomialNonNegativeInteger(k)
 		}
 	}
 

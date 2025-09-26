@@ -14,9 +14,6 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
-	/*~ { :self :anObject |
-	}*/
-
 	< { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -126,6 +123,14 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 
 	abs { :self |
 		<primitive: return Math.abs(_self)>
+	}
+
+	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |
+		anInteger.isLargeInteger.if {
+			aBlock(anInteger.asSmallFloat, self)
+		} {
+			self.error('adaptToIntegerAndApply: ?')
+		}
 	}
 
 	addI32 { :a :b |

@@ -1,9 +1,9 @@
 # adaptToNumberAndApply
 
-- _adaptToNumberAndApply(anObject, aNumber, aBlock:/2)_
+- _adaptToNumberAndApply(x, n, f:/2)_
 
-Request that _anObject_ adapt itself to operating with the number _aNumber_,
-and then apply _aBlock_ with itself as the second parameter.
+Request that the object _x_ adapt itself to operating with the number _n_,
+and then apply the binary block _f_ with itself as the second parameter.
 
 At `List`:
 

@@ -68,7 +68,7 @@ Evaluate for half-integer arguments:
 
 ```
 >>> (9 / 2).binomial(7 / 2)
-(9 / 2)
+9/2
 ```
 
 Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
