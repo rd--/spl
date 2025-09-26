@@ -1,8 +1,8 @@
 # isNonNegativeInteger
 
-- _isNonNegativeInteger(anObject)_
+- _isNonNegativeInteger(x)_
 
-Answer `true` if _anObject_ is an integer and is greater than or equal to `zero`.
+Answer `true` if the object _x_ is an integer and is greater than or equal to `zero`.
 
 ```
 >>> 23.isNonNegativeInteger
@@ -32,4 +32,4 @@ false
 
 See also: >=, isInteger, isNonNegative, zero
 
-Guides: Integer Functions
+Guides: Integer Functions, Number Functions, Predicate Functions

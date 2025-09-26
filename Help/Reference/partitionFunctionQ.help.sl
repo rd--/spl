@@ -1,5 +1,6 @@
 # partitionFunctionQ
 
+- _partitionFunctionQ(n)_
 - _partitionFunctionQ(n, k)_
 
 Denotes the number of ways of partitioning _n_ into exactly _k_ distinct parts.
@@ -20,6 +21,22 @@ since there are four partitions of 10 into three distinct parts:
 >>> 	each.size = k
 >>> }
 [7 2 1; 6 3 1; 5 4 1; 5 3 2]
+```
+
+First few terms of OEIS [A000041](https://oeis.org/A000041):
+
+```
+>>> 0:39.collect(partitionFunctionQ:/1)
+[
+	  1   1   1   2   2
+	  3   4   5   6   8
+	 10  12  15  18  22
+	 27  32  38  46  54
+	 64  76  89 104 122
+	142 165 192 222 256
+	296 340 390 448 512
+	585 668 760 864 982
+]
 ```
 
 The following table gives the first few values of _Q(n,k)_:
@@ -85,6 +102,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionQ.html)
 [2](https://reference.wolfram.com/language/ref/PartitionsQ.html),
 _OEIS_
-[1](https://oeis.org/A026820)
+[1](https://oeis.org/A000009),
+_W_
+[1](https://en.wikipedia.org/wiki/Partition_function_(number_theory))
 
 Categories: Math, Combinatorics

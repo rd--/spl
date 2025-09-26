@@ -4,6 +4,14 @@
 
 A `Type` representing a complex number with the specified `real` and `imaginary` parts.
 
+Traits implemented by `Complex`:
+
+```
+>>> system.typeLookup('Complex')
+>>> .traitNameList
+['Object' 'Comparable' 'Number']
+```
+
 Answer a `Complex` number:
 
 ```

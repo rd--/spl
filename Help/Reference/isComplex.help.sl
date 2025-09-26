@@ -14,7 +14,7 @@ false
 
 _Note_:
 This is a `Type` predicate,
-real numbers are also complex numbers in that they answer `real` and `imaginary`:
+real numbers and quaternions are also complex numbers in that they answer `real` and `imaginary`:
 
 ```
 >>> 3.141.real
@@ -22,12 +22,16 @@ real numbers are also complex numbers in that they answer `real` and `imaginary`
 
 >>> 3.141.imaginary
 0
+
+>>> Quaternion([1 2 3 4])
+>>> .realImaginary
+[1, [2 3 4]]
 ```
 
 * * *
 
 See also: isNumber, isReal, Complex
 
-Guides: Complex Number Functions, Predicate Functions
+Guides: Complex Number Functions, Number Functions, Predicate Functions
 
 Categories: Testing, Math

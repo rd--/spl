@@ -33,7 +33,7 @@ The inverse of `boole` is `asBoolean`:
 [true false true true false]
 ```
 
-It is an error if _anObject_ is not a `Boolean`:
+It is an error if _b_ is not a `Boolean`:
 
 ```
 >>> { 'false'.boole }.hasError
@@ -47,7 +47,7 @@ true
 
 See also: asBit, asBoolean, asInteger
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Number Functions
 
 References:
 _Mathematica_

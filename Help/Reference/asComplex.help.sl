@@ -35,4 +35,6 @@ In the `Complex` case answer `identity`.
 
 See also: asFloat, asInteger, asNumber, i
 
+Guides: Number Functions
+
 Categories: Converting

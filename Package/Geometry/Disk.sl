@@ -1,4 +1,20 @@
-Disk : [Object] { | center radius |
+Disk : [Object, Geometry] { | center radius |
+
+	asCircle { :self |
+		Circle(self.center, self.radius)
+	}
+
+	boundingBox { :self |
+		self.asCircle.boundingBox
+	}
+
+	dimension { :unused |
+		2
+	}
+
+	embeddingDimension { :unused |
+		2
+	}
 
 	randomPoint { :self :rng :shape |
 		let c = self.center;
@@ -9,13 +25,26 @@ Disk : [Object] { | center radius |
 		} ! shape
 	}
 
+	svgFragment { :self :options |
+		let precision = options['precision'];
+		'<circle cx="%" cy="%" r="%" fill="black" />'.format([
+			self.center[1].printStringToFixed(precision),
+			self.center[2].printStringToFixed(precision),
+			self.radius.printStringToFixed(precision)
+		])
+	}
+
 }
 
 
 +List {
 
 	Disk { :center :radius |
-		newDisk().initializeSlots(center, radius)
+		(center.rank > 1).if {
+			center.withCollect(radius.nest, Disk:/2)
+		} {
+			newDisk().initializeSlots(center, radius)
+		}
 	}
 
 }

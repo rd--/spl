@@ -55,6 +55,6 @@ At `Decimal`:
 
 See also: asInteger, asLargeInteger, isSmallInteger, Fraction, SmallFloat, LargeInteger
 
-Guides: Bitwise Functions, Integer Functions
+Guides: Bitwise Functions, Integer Functions, Number Functions
 
 Categories: Converting

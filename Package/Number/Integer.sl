@@ -520,6 +520,20 @@
 		}
 	}
 
+	integerPartitions { :n |
+		let answer = [];
+		n.integerPartitionsDescendingDo { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	integerPartitions { :n :k |
+		k.collect { :each |
+			n.integerPartitionsExactly(each)
+		}.++
+	}
+
 	integerPartitionsDescendingDo { :self :aBlock:/1 |
 		let n = self;
 		let d = List(n, 1);
@@ -550,14 +564,6 @@
 			d[k] := nPrime;
 			aBlock(d.copyFromTo(1, k))
 		}
-	}
-
-	integerPartitions { :self |
-		let answer = [];
-		self.integerPartitionsDescendingDo { :each |
-			answer.add(each)
-		};
-		answer
 	}
 
 	integerPartitionsAscendingDo { :self :aBlock:/1 |
@@ -602,7 +608,7 @@
 		answer
 	}
 
-	integerPartitions { :j :i |
+	integerPartitionsExactly { :j :i |
 		let f = { :t :m :n |
 			(m = 1 & { t = n }).if {
 				[[t]]
@@ -619,10 +625,20 @@
 		f(j - i + 1, i, j)
 	}
 
+	integerPartitionsOdd { :self |
+		self.integerPartitions.select { :each |
+			each.allSatisfy(isOdd:/1)
+		}
+	}
+
 	integerPartitionsRecursive { :n |
 		1:n.collectCatenate { :k |
-			n.integerPartitions(k)
+			n.integerPartitionsExactly(k)
 		}
+	}
+
+	integerPartitionsStrict { :self |
+		self.integerPartitions.select(isDuplicateFree:/1)
 	}
 
 	integerReverse { :self :base |
@@ -1101,33 +1117,6 @@
 		self
 	}
 
-	partitionFunctionP { :n |
-		let a = List(n + 1);
-		a[1] := 1L;
-		1.toDo(n) { :i |
-			let k = 1;
-			let s = 1;
-			a[i + 1] := 0L;
-			{
-				s <= i
-			}.whileTrue {
-				k.isOdd.if {
-					a[i + 1] := a[i + 1] + a[i - s + 1]
-				} {
-					a[i + 1] := a[i + 1] - a[i - s + 1]
-				};
-				(k > 0).if {
-					s := s + k;
-					k := k.-
-				} {
-					k := 1 - k;
-					s := k * (3 * k - 1) / 2
-				}
-			}
-		};
-		a[n + 1]
-	}
-
 	perfectDigitalInvariantFunction { :self :base :power |
 		let sum = 0;
 		{ self > 0 }.whileTrue {
@@ -1555,6 +1544,41 @@
 }
 
 +List {
+
+	conjugatePartition { :self |
+		let answer = [];
+		let j = self.size;
+		let done = false;
+		(j <= 0).if {
+			answer
+		} {
+			{
+				done
+			}.whileFalse {
+				answer.add(j);
+				{
+					done.not & {
+						answer.size >= self[j]
+					}
+				}.whileTrue {
+					j := j - 1;
+					(j = 0).ifTrue {
+						done := true
+					}
+				}
+			}
+		};
+		answer
+	}
+
+	ferrersDiagram { :self |
+		let m = self.size;
+		(0 .. m - 1).collect { :i |
+			(1 .. self[m - i]).collect { :j |
+				Disk([j, i], 0.25)
+			}
+		}.LineDrawing
+	}
 
 	isAmicablePair { :self |
 		let [m, n] = self;

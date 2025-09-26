@@ -217,10 +217,6 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 		}
 	}
 
-	isCloseTo { :self :anObject |
-		self.isCloseToBy(anObject, 0.0001)
-	}
-
 	isExact { :self |
 		self.real.isExact & {
 			self.imaginary.isExact

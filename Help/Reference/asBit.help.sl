@@ -1,8 +1,8 @@
 # asBit
 
-- _asBit(aBoolean | anInteger)_
+- _asBit(x)_
 
-The numerical interpretation of _aBoolean_ as a one-bit number.
+The numerical interpretation of the `Boolean` _x_ as a one-bit number.
 This extends nicely to _n_-bit numbers, as long as they treat 0 as `false`, and anything else as `true`.
 
 ```
@@ -33,5 +33,7 @@ true
 * * *
 
 See also: asBoolean, boole, Boolean
+
+Guides: Bitwise Functions, Number Functions
 
 Categories: Converting

@@ -28,6 +28,13 @@ true
 false
 ```
 
+A `SmallFloat` can be close to a `LargeInteger`:
+
+```
+>>> 1.001.isCloseToBy(1L, 1E-3)
+true
+```
+
 A `Number` is not close to a `String`:
 
 ```

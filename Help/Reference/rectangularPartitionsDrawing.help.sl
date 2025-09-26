@@ -1,8 +1,8 @@
 # rectangularPartitionsDrawing
 
-- _rectangularPartitionsDrawing(aList)_
+- _rectangularPartitionsDrawing(p)_
 
-Answer a `LineDrawing` showing a rectangular drawing of the partitions at _aList_,
+Answer a `LineDrawing` showing a rectangular drawing of the partitions at the list _p_,
 which should each `sum` to the same value.
 
 `zero` is at the left,
@@ -20,3 +20,5 @@ and rows are descending:
 * * *
 
 See also: circularPartitionsDrawing, integerPartitions, integerPartitionsTable
+
+Guides: Combinatorial Functions

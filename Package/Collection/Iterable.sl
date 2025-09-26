@@ -310,6 +310,10 @@
 		}
 	}
 
+	isDuplicateFree { :self |
+		self.isDuplicateFree(=)
+	}
+
 	isIterable { :unused |
 		true
 	}

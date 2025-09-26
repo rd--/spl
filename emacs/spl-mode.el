@@ -360,7 +360,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ;("enclose" . ?⊂) ; Apl
      ;("exp" . ?*) ; Apl
      ;("expand" . ?\\) ; Apl
-     ;("factorial" . ?!) ; Apl
+     ("factorial" . ?!) ; Apl
+     ("doubleFactorial" . ?‼) ; U+203C ‼ Double Exclamation Mark
      ;("find" . ?⍷) ; Apl
      ("floor" . ?⌊) ; Apl
      ;("foldRight" . ?/) ; Apl

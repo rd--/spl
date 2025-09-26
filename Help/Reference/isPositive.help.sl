@@ -15,7 +15,7 @@ Evaluate at different types of numbers:
 
 See also: isNegative, isNonNegative
 
-Guides: Predicate Functions
+Guides: Number Functions, Predicate Functions
 
 References:
 _Mathematica_

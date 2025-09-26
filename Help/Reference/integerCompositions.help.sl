@@ -92,6 +92,7 @@ A positive integer _n_ has _2 ^ (n - 1)_ compositions:
 
 The number of _n,k_ compositions:
 
+```
 >>> let n = 7;
 >>> let k = 3;
 >>> n.integerCompositions(k).size

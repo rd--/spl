@@ -206,40 +206,53 @@
 		p(self, anInteger)
 	}
 
+	partitionFunctionP { :n |
+		let a = List(n + 1);
+		a[1] := 1L;
+		1.toDo(n) { :i |
+			let k = 1;
+			let s = 1;
+			a[i + 1] := 0L;
+			{
+				s <= i
+			}.whileTrue {
+				k.isOdd.if {
+					a[i + 1] := a[i + 1] + a[i - s + 1]
+				} {
+					a[i + 1] := a[i + 1] - a[i - s + 1]
+				};
+				(k > 0).if {
+					s := s + k;
+					k := k.-
+				} {
+					k := 1 - k;
+					s := k * (3 * k - 1) / 2
+				}
+			}
+		};
+		a[n + 1]
+	}
+
+	partitionFunctionQ { :n |
+		(n < 1).if {
+			1
+		} {
+			1:n.sum { :k |
+				partitionFunctionQ(n, k)
+			}
+		}
+	}
+
 	partitionFunctionQ { :n :k |
 		partitionFunctionP(n - binomial(k, 2), k)
 	}
 
 	partitionsP { :n |
-		(n = 0).if {
-			1
-		} {
-			let answer = 1;
-			let k = 2;
-			{
-				let i = n.partitionFunctionP(k);
-				answer := answer + i;
-				k := k + 1;
-				i > 0
-			}.whileTrue;
-			answer
-		}
+		n.partitionFunctionP
 	}
 
 	partitionsQ { :n |
-		(n = 0).if {
-			1
-		} {
-			let answer = 1;
-			let k = 2;
-			{
-				let i = n.partitionFunctionQ(k);
-				answer := answer + i;
-				k := k + 1;
-				i > 0
-			}.whileTrue;
-			answer
-		}
+		n.partitionFunctionQ
 	}
 
 	pentagonalNumber { :n |

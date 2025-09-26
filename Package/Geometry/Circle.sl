@@ -59,8 +59,8 @@ Circle : [Object, Geometry] { | center radius |
 		0
 	}
 
-	embeddingDimension { :unused |
-		2
+	embeddingDimension { :self |
+		self.center.size
 	}
 
 	implicitEquation { :self |

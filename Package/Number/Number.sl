@@ -424,6 +424,14 @@
 		(((b + (c / 2)).square - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
 	}
 
+	isCloseToBy { :self :aNumber :epsilon |
+		self.typeResponsibility('isCloseToBy')
+	}
+
+	isCloseTo { :self :aNumber |
+		self.isCloseToBy(aNumber, 0.0001)
+	}
+
 	isHalfInteger { :self |
 		(self.fractionalPart.abs * 2).isOne
 	}

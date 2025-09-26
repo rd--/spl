@@ -5,7 +5,8 @@
 Answers which item of the collection _c_ is the least according to the comparator _f_.
 
 ```
->>> [1 5; 3 4; 2 1; 1 3].minBy(precedes:/2)
+>>> [1 5; 3 4; 2 1; 1 3]
+>>> .minBy(precedes:/2)
 [1 3]
 ```
 

@@ -125,6 +125,10 @@ Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 		self.fraction.asSmallInteger
 	}
 
+	asSmallFloat { :self |
+		self.fraction.asSmallFloat
+	}
+
 	asLargeInteger { :self |
 		self.fraction.asLargeInteger
 	}

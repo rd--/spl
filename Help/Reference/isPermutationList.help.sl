@@ -1,10 +1,10 @@
 # isPermutationList
 
-- _isPermutationList(aSequence)_
+- _isPermutationList([x₁ x₂ …])_
 
-Answer `true` if _aSequence_ is a valid permutation list, and `false` otherwise.
+Answer `true` if the sequence _x_ is a valid permutation list, and `false` otherwise.
 
-A valid permutation list of size _n_ is a rearrangement of the integers _1 .. n_.
+A valid permutation list of size _n_ is a rearrangement of the integers _1:n_.
 
 A valid permutation list:
 
@@ -85,8 +85,9 @@ Conversion to cyclic form:
 >>> ];
 >>> p.permutationCycles
 [
-	2 24 20 18 23 11 27 7 13 14 3 21 6 5 17 28 12 9;
-	8 26;
+	 2 24 20 18 23 11 27  7 13 14
+	 3 21  6  5 17 28 12  9;
+	 8 26;
 	15 22;
 	16 29;
 	19 25

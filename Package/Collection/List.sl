@@ -89,7 +89,7 @@ List! : [Object, Comparable, Json, Iterable, Indexable, Collection, Extensible, 
 	}
 
 	interleave { :self |
-		self.irregularTransposition.flatten
+		self.transposeIrregular.flatten
 	}
 
 	isJson { :self |

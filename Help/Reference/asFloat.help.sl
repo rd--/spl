@@ -39,6 +39,8 @@ Threads over lists:
 
 See also: asInteger, asNumber
 
+Guides: Number Functions
+
 References:
 _Smalltalk_
 5.6.2.11

@@ -1,8 +1,8 @@
 # integerPartitionsTable
 
-- _integerPartitionsTable(t)_
+- _integerPartitionsTable(p)_
 
-Answer an `Html` value containg a rectangular _table_ of the integer partitions at the list _t_.
+Answer an `Html` value containg a rectangular table of the integer partitions at the list _p_.
 Each integer occupies as many columns as its value.
 
 Integer partitions:
@@ -50,3 +50,5 @@ Integer partitions table:
 * * *
 
 See also: circularPartitionsDrawing, Html, integerPartitions, rectangularPartitionsDrawing
+
+Guides: Combinatorial Functions

@@ -1,6 +1,6 @@
 # isInvolution
 
-- _isInvolution(aPemutation)_
+- _isInvolution(p)_
 
 An involution is a permutation which does not contain any cycles of length > 2,
 i.e. it consists exclusively of fixed points and transpositions.
@@ -26,8 +26,12 @@ true
 
 See also: cycles, isSymmetricMatrix, Permutation
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PermutationInvolution.html)
+[1](https://mathworld.wolfram.com/PermutationInvolution.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Involution_(mathematics))
 
 Categories: Testing, Permutation

@@ -210,6 +210,18 @@ Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
 ![](sw/spl/Help/Image/integerDigits-B.svg)
 
+Plot bit patterns for _n_-bit integers:
+
+~~~spl svg=C
+let n = 6;
+let m = 2 ^ (n - 1) - 1;
+0:m.collect { :i |
+	i.integerDigits(2, n)
+}.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-C.svg)
+
 * * *
 
 See also: digitCount, fromDigits

@@ -97,7 +97,7 @@ Threads over lists:
 
 See also: asBit, asFloat, asNumber, asLargeInteger, asSmallInteger, codePoint, parseDecimalInteger, truncate
 
-Guides: Integer Functions
+Guides: Integer Functions, Number Functions
 
 References:
 _Smalltalk_

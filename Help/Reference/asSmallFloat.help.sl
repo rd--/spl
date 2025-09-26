@@ -2,13 +2,20 @@
 
 - _asSmallFloat(x)_
 
-Convert a `Fraction` or a `LargeInteger` into a `SmallFloat`.
+Convert a `Fraction` or a `Decimal` or a `LargeInteger` into a `SmallFloat`.
 
 In the `Fraction` case, answer the nearest `SmallFloat`:
 
 ```
 >>> 1/4.asSmallFloat
 0.25
+```
+
+At `Decimal`:
+
+```
+>>> 3.141D.asSmallFloat
+3.141
 ```
 
 In the `LargeInteger` case:
@@ -43,6 +50,8 @@ Infinity
 
 * * *
 
-See also: Fraction, LargeInteger, SmallFloat
+See also: asFloat, Fraction, LargeInteger, SmallFloat
+
+Guides: Number Functions
 
 Categories: Converting

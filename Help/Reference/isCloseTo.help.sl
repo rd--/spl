@@ -26,6 +26,16 @@ true
 true
 ```
 
+A `SmallFloat` can be close to a `LargeInteger`:
+
+```
+>>> 23L.isCloseTo(23.001)
+true
+
+>>> 23.001.isCloseTo(23L)
+true
+```
+
 * * *
 
 See also: ~, !~, =, <~, >~, isCloseToBy, isVeryCloseTo, threshold

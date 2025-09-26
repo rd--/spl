@@ -10,12 +10,25 @@ At `SmallFloat`:
 ```
 >>> (1.e ~ 2.7183, 1.pi ~ 3.1416)
 (true, true)
+
+>>> 23 ~ 23.001
+true
 ```
 
 At `Interval`:
 
 ```
 >>> (1.e -- 1.pi) ~ (2.7183 -- 3.1416)
+true
+```
+
+At `LargeInteger`:
+
+```
+>>> 23L ~ 23.001
+true
+
+>>> 23.001 ~ 23L
 true
 ```
 

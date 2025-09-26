@@ -1,8 +1,8 @@
 # circularPartitionsDrawing
 
-- _circularPartitionsDrawing(aList)_
+- _circularPartitionsDrawing(p)_
 
-Answer a `LineDrawing` showing a circular drawing of the partitions at _aList_,
+Answer a `LineDrawing` showing a circular drawing of the partitions at the list _p_,
 which should each sum to the same value.
 
 `zero`,
@@ -20,3 +20,5 @@ and divisions increase clockwise:
 * * *
 
 See also: integerPartitions, integerPartitionsTable, rectangularPartitionsDrawing
+
+Guides: Combinatorial Functions

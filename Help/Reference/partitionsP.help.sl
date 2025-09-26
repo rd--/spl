@@ -3,6 +3,7 @@
 - _partitionsP(x)_
 
 Answer the number of partitions of _x_ into distinct parts.
+An alias for the unary form of `partitionFunctionP`.
 
 ```
 >>> [2 4 6].collect(partitionsP:/1)

@@ -3,6 +3,7 @@
 - _partitionsQ(x)_
 
 Answer the number of restricted partitions of _x_ into distinct parts.
+An alias for the unary form of `partitionFunctionQ`.
 
 ```
 >>> [2 4 6].collect(partitionsQ:/1)

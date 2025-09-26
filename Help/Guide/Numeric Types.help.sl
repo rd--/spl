@@ -6,6 +6,7 @@ Types:
 - `Decimal`
 - `Fraction`
 - `LargeInteger`
+- `Quaternion`
 - `Residue`
 - `SmallFloat`
 

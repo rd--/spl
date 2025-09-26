@@ -2,6 +2,22 @@
 
 `Magnitude` is a `Trait` defining comparison operators between numeric values.
 
+```
+>>> system
+>>> .traitTypes('Magnitude')
+>>> .includesAll(
+>>> 	[
+>>> 		'SmallFloat'
+>>> 		'LargeInteger'
+>>> 		'Residue'
+>>> 		'Fraction'
+>>> 		'Decimal'
+>>> 		'Quantity'
+>>> 	]
+>>> )
+true
+```
+
 The required methods are:
 
 - `<`
@@ -35,3 +51,4 @@ _W_
 [1](https://en.wikipedia.org/wiki/Magnitude_(mathematics))
 
 Categories: Comparison, Trait
+

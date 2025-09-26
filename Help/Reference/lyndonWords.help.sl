@@ -36,6 +36,17 @@ The numbers of binary Lyndon words of each length:
 [2 1 2 3 6 9 18 30 56 99 186 335]
 ```
 
+There is a closed form to calculate the number of words:
+
+```
+>>> { :n |
+>>> 	n.divisors.sum { :d |
+>>> 		d.moebiusMu * (2 ^ (n // d))
+>>> 	} / n
+>>> }.map(1:12)
+[2 1 2 3 6 9 18 30 56 99 186 335]
+```
+
 The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the lexicographically smallest de Bruijn sequence:
 
 ```
@@ -48,7 +59,7 @@ The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the
 
 * * *
 
-See also: deBruijnSequence
+See also: deBruijnSequence, moebiusMu
 
 Guides: Integer Sequences
 

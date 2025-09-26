@@ -17,7 +17,7 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 	}
 
 	~ { :self :anObject |
-		self = anObject
+		self.asSmallFloat ~ anObject
 	}
 
 	< { :self :anObject |
@@ -213,6 +213,10 @@ LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
 			};
 			lastDigit.asSmallFloat.highBitOfByte + (8 * (realLength - 1))
 		}
+	}
+
+	isCloseToBy { :self :aNumber :epsilon |
+		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
 	}
 
 	isEven { :self |

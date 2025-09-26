@@ -284,13 +284,13 @@ the transposition works on the outermost dimensions:
 [1 1; 4 4; 2 2:; 1 4; 4 1; 2 2]
 ```
 
-To transpose irregular matrices see `irregularTransposition`:
+To transpose irregular matrices see `transposeIrregular`:
 
 ```
->>> [1 2 3; 4 5 6 7].irregularTransposition
+>>> [1 2 3; 4 5 6 7].transposeIrregular
 [1 4; 2 5; 3 6; 1 7]
 
->>> [1 2 3 4; 5 6 7].irregularTransposition
+>>> [1 2 3 4; 5 6 7].transposeIrregular
 [1 5; 2 6; 3 7; 4 5]
 ```
 
@@ -298,7 +298,7 @@ Where supported `transpose` is displayed as ᵀ.
 
 * * *
 
-See also: transposeInPlace
+See also: transposeInPlace, transposeIrregular, transposeTableau
 
 Unicode: U+1D40 ᵀ Modifier Letter Capital T
 

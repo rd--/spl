@@ -14,12 +14,23 @@ A plot of one hundred random points in the unit disk:
 
 ~~~spl svg=A
 let r = Sfc32(893012);
-Disk([0, 0], 1)
+Disk([0 0], 1)
 .randomPoint(r, [100])
 .scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/Disk-A.svg)
+
+Draw seven random disks:
+
+~~~spl svg=B
+let g = Sfc32(637812);
+let c = g.randomReal([-9 9], [7 2]);
+let r = g.randomReal([0.1 1], [7]);
+Disk(c, r).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Disk-B.svg)
 
 * * *
 

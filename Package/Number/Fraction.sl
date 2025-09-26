@@ -215,10 +215,6 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 		(operand - self).numerator.abs.isOne
 	}
 
-	isCloseTo { :self :aNumber |
-		self.isCloseToBy(aNumber, 0.0001)
-	}
-
 	isCloseToBy { :self :aNumber :epsilon |
 		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
 	}

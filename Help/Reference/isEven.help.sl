@@ -38,7 +38,7 @@ false
 
 See also: divisible, isInteger, isOdd
 
-Guides: Integer Functions, Predicate Functions
+Guides: Integer Functions, Number Functions, Predicate Functions
 
 References:
 _Mathematica_

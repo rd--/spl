@@ -59,6 +59,40 @@ Find the longest ascending sequence of elements in a list:
 [1 2 3 4 5 7 11 19]
 ```
 
+At the empty list:
+
+```
+>>> [].longestIncreasingSubsequence
+[]
+```
+
+At decreasing list:
+
+```
+>>> [10 .. 1].longestIncreasingSubsequence
+[1]
+```
+
+At increasing list is identity:
+
+```
+>>> [1 .. 10].longestIncreasingSubsequence
+[1 .. 10]
+```
+
+In cases where there are many equally long subsequences answer any one:
+
+```
+>>> let x = [3 1 4 1 5 9 2 6 5 3 5 8 9 7 9];
+>>> let y = x.longestIncreasingSubsequenceList;
+>>> (
+>>> 	x.longestIncreasingSubsequence,
+>>> 	y.anyOne,
+>>> 	y.size
+>>> )
+([1 2 3 5 7 9], [1 2 3 5 7 9], 12)
+```
+
 * * *
 
 See also: longestCommonSubsequence, longestIncreasingSubsequenceList, patienceSort

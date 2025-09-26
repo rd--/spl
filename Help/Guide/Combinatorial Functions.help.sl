@@ -47,6 +47,13 @@ Composition Functions:
 
 - `integerCompositions`
 
+Plotting Functions
+
+- `circularPartitionsDrawing`
+- `ferrersDiagram`
+- `integerPartitionsTable`
+- `rectangularPartitionsDrawing`
+
 * * *
 
 Guides: Integer Functions, Mathematical Functions

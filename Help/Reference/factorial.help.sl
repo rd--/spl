@@ -127,6 +127,14 @@ The reciprocals of factorials produce a convergent series for `e`:
 1.e
 ```
 
+Relation to `gamma`:
+
+```
+>>> let n = 23;
+>>> n.factorial = (n + 1).gamma
+true
+```
+
 * * *
 
 See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial
@@ -144,6 +152,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factorial.html),
 _Smalltalk_
-5.6.5.11
+5.6.5.11,
+_W_
+[1](https://en.wikipedia.org/wiki/Factorial)
 
 Categories: Math, Combinatorics

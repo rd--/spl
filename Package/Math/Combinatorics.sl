@@ -35,37 +35,6 @@
 		}
 	}
 
-	doubleFactorial { :self |
-		self.isNegative.if {
-			self.error('@Integer>>doubleFactorial: not valid for negative integers')
-		} {
-			(self <= 3).if {
-				self.max(1)
-			} {
-				self * (self - 2).doubleFactorial
-			}
-		}
-	}
-
-	factorial { :self |
-		self.isNegative.ifTrue {
-			'@Integer>>factorial: not valid for negative integers'.error
-		};
-		(self <= 1).if {
-			1
-		} {
-			let next = self;
-			let answer = self;
-			{
-				next > 1
-			}.whileTrue {
-				next := next - 1;
-				answer := answer * next
-			};
-			answer
-		}
-	}
-
 	fibonacciFactorial { :self |
 		self.fibonacciSequence.product
 	}
@@ -75,6 +44,12 @@
 			(self.one .. self).collect { :k | k ^ k }.product
 		} {
 			'@Integer>>hyperfactorial: not implemented for non-integer'.error
+		}
+	}
+
+	involutionNumber { :n |
+		(0 .. n // 2).sum { :k |
+			((2 * k) - 1).doubleFactorial * binomial(n, 2 * k)
 		}
 	}
 
@@ -112,6 +87,113 @@
 
 	factorialPower { :self :anInteger |
 		(self - 0.to(anInteger - 1)).product
+	}
+
+}
+
++SmallFloat {
+
+	doubleFactorial { :self |
+		self.isInteger.if {
+			self.asLargeInteger.doubleFactorial
+		} {
+			self.doubleFactorialGeneralized
+		}
+	}
+
+	factorial { :self |
+		self.isNonNegativeInteger.if {
+			self.asLargeInteger.factorial
+		} {
+			(self + 1).gamma
+		}
+	}
+
+}
+
++LargeInteger {
+
+	factorial { :self |
+		let one = self.one;
+		self.isNegative.ifTrue {
+			'@Integer>>factorial: not valid for negative integers'.error
+		};
+		(self <= one).if {
+			one
+		} {
+			let answer = one;
+			1.toDo(self) { :each |
+				answer := answer * each
+			};
+			answer
+		}
+	}
+
+	doubleFactorial { :self |
+		self.isNegative.if {
+			self.isOdd.if {
+				(self + 2).doubleFactorial / (self + 2)
+			} {
+				self.error('LargeInteger>>doubleFactorial: not valid for negative even integers')
+			}
+		} {
+			(self <= 3).if {
+				self.max(1)
+			} {
+				self * (self - 2).doubleFactorial
+			}
+		}
+	}
+
+}
+
++[SmallFloat, Complex] {
+
+	doubleFactorialGeneralized { :self |
+		/*
+			let n = (self + 1) / 2;
+			gamma(n + 0.5) / 1.pi.sqrt * (2 ^ n)
+		*/
+		/*
+			let k = self / 2;
+			(1 / 1.pi).sqrt * (2 ^ k) * gamma(k + 1)
+		*/
+		let n = self + 2;
+		let a = n.pi.cos;
+		let b = 2 ^ (0.25 * (-3 + (2 * n) - a));
+		let c = 1.pi ^ (0.25 * (-1 + a));
+		b * c * (n * 0.5).gamma
+	}
+
+}
+
++List {
+
+	isIntegerPartition { :self :n |
+		self.sum = n & {
+			self.allSatisfy(isPositiveInteger:/1) & {
+				self.isSortedBy(>=)
+			}
+		}
+	}
+
+	isTableau { :self |
+		self.collect(size:/1).isSortedBy(>=) & {
+			self.catenate.isPermutationList & {
+				self.allSatisfy(isSorted:/1) & {
+					self.transposeTableau.allSatisfy(isSorted:/1)
+				}
+			}
+		}
+	}
+
+	transposeTableau { :self |
+		let n = self.collect(size:/1).max;
+		1.toAsCollect(n, self.first.species) { :index |
+			self.collect { :row |
+				row.atOrNil(index)
+			}.deleteMissing
+		}
 	}
 
 }

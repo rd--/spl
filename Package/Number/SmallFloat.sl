@@ -14,6 +14,9 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 		}
 	}
 
+	/*~ { :self :anObject |
+	}*/
+
 	< { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -348,21 +351,18 @@ SmallFloat! : [Object, Comparable, Json, Magnitude, Number, Integer, Binary] {
 				(aNumber = 0).if {
 					self.abs < epsilon
 				} {
-					self = aNumber.asSmallFloat | {
+					let other = aNumber.asSmallFloat;
+					self = other | {
 						let z = self.abs;
 						(z < epsilon).if {
-							aNumber.abs < epsilon
+							other.abs < epsilon
 						} {
-							(self - aNumber).abs / (z.max(aNumber.abs)) < epsilon
+							(self - other).abs / (z.max(other.abs)) < epsilon
 						}
 					}
 				}
 			}
 		}
-	}
-
-	isCloseTo { :self :aNumber |
-		self.isCloseToBy(aNumber, 0.0001)
 	}
 
 	isEven { :self |
