@@ -27,6 +27,11 @@ Factorial Functions:
 - `pochhammer`
 - `subfactorial`
 
+Finite Word Functions:
+
+- `isLatticeWord`
+- `isYamanouchiWord`
+
 Frobenius Functions:
 
 - `bockerLiptakAlgorithm`

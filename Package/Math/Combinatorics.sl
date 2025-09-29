@@ -141,6 +141,22 @@
 		(self - 0.to(anInteger - 1)).product
 	}
 
+	lowerChristoffelWord { :self :m |
+		let x = 1;
+		let y = 0;
+		let answer = [0];
+		1.toDo(m - 1) { :n |
+			((y + 1) <= (self * x)).if {
+				answer.add(1);
+				y := y + 1
+			} {
+				answer.add(0);
+				x := x + 1
+			}
+		};
+		answer
+	}
+
 }
 
 +[SmallFloat, Complex] {
@@ -275,6 +291,27 @@
 		};
 		f(b, a.size);
 		answer.sortBy(precedes:/2)
+	}
+
+	isLatticeWord { :self :alphabet |
+		let letters = alphabet.allButLast;
+		self.prefixes.allSatisfy { :word |
+			let a = word.asIdentityMultiset;
+			letters.allSatisfy { :i |
+				let b = a.occurrencesOf(i);
+				let c = a.occurrencesOf(i + 1);
+				b >= c
+			}
+		}
+	}
+
+	isLatticeWord { :self |
+		let alphabet = self.nub.sort;
+		self.isLatticeWord(alphabet)
+	}
+
+	isYamanouchiWord { :self |
+		self.reverse.isLatticeWord
 	}
 
 }

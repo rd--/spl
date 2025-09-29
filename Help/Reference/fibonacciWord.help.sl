@@ -22,6 +22,15 @@ Calculate the first one hundred elements:
 ]
 ```
 
+Relation to `lowerChristoffelWord`:
+
+```
+>>> (1 / 1.goldenRatio)
+>>> .lowerChristoffelWord(101)
+>>> .allButFirst
+1:100.collect(fibonacciWord:/1)
+```
+
 Threads over lists, derive the binary complement of the Fibonacci word:
 
 ```
@@ -143,3 +152,4 @@ _OEIS_
 [2](https://oeis.org/A005614),
 _W_
 [1](https://en.wikipedia.org/wiki/Fibonacci_word)
+[2](https://en.wikipedia.org/wiki/Sturmian_word)

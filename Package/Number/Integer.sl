@@ -1022,13 +1022,6 @@
 		(r > 1).if { r - p } { r }
 	}
 
-	lowerChristoffelWord { :a :b |
-		a.isCoprime(b).if {
-		} {
-			self.error('lowerChristoffelWord: not coprime')
-		}
-	}
-
 	minimalResidue { :self :modulus |
 		let p = self % modulus;
 		let q = p - modulus;

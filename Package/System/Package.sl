@@ -1,21 +1,9 @@
 /* Requires: List String System */
 
-Package! : [Object] {
+Package! : [Object, Comparable] {
 
 	= { :self :anObject |
 		self.primitiveEquals(anObject)
-	}
-
-	< { :self :aPackage |
-		aPackage.requires.includes(self.name) | {
-			self.name < aPackage.name
-		}
-	}
-
-	<= { :self :aPackage |
-		self = aPackage | {
-			self < aPackage
-		}
 	}
 
 	addDependenciesTo { :self :aSequence |
@@ -32,6 +20,14 @@ Package! : [Object] {
 
 	category { :self |
 		<primitive: return _self.category;>
+	}
+
+	compare { :self :aPackage |
+		aPackage.requires.includes(self.name).if {
+			-1
+		} {
+			self.name.compare(aPackage.name)
+		}
 	}
 
 	dependencies { :self |

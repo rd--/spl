@@ -203,6 +203,36 @@
 		}
 	}
 
+	lanczosApproximation { :self |
+		let g = 7;
+		let n = 9;
+		let p = [
+			0.99999999999980993,
+			676.5203681218851,
+			-1259.1392167224028,
+			771.32342877765313,
+			-176.61502916214059,
+			12.507343278686905,
+			-0.13857109526572012,
+			9.9843695780195716E-6,
+			1.5056327351493116E-7
+		];
+		let epsilon = 1E-07;
+		let z = self.asComplex;
+		(z.real < 0.5).if {
+			(1.pi / (sin(1.pi * z) * gamma(1 - z))).chop(epsilon)
+		} {
+			let x = p[1];
+			let t = nil;
+			z := z - 1;
+			2.toDo(p.size) { :i |
+				x := x + (p[i] / (z + i - 1))
+			};
+			t := z + g + 0.5;
+			(2.pi.sqrt * (t ^ (z + 0.5)) * exp(0 - t) * x).chop(epsilon)
+		}
+	}
+
 	logBeta { :self :aNumber |
 		self.logGamma + aNumber.logGamma - (self + aNumber).logGamma
 	}

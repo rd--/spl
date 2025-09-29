@@ -1,8 +1,8 @@
 # occurrencesOf
 
-- _occurrencesOf(aCollection, anObject)_
+- _occurrencesOf(c, x)_
 
-Answer how many elements of _aCollection_ are equal to _anObject_.
+Answer how many elements of the collection _c_ are equal to the object _x_.
 
 At `List`:
 
