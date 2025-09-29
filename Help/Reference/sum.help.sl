@@ -16,7 +16,7 @@ Answer the sum of all the elements in the collection _c_.
 385
 ```
 
-At `Range`,
+At `Span` and `Range`,
 the `sum` is calculated directly using a closed form:
 
 ```
@@ -41,6 +41,9 @@ the `sum` is calculated directly using a closed form:
 
 >>> (23L, 37L .. 26781361428314L).sum
 25615761426939509660643648L
+
+>>> (1, 1.01 .. 5).sum
+1198
 ```
 
 Row-wise sums of a matrix:

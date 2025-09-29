@@ -134,7 +134,12 @@
 		let a = self.start;
 		let d = self.step;
 		let n = self.size;
-		(d ^ n) * ((a / d + n).gamma / (a / d).gamma)
+		(d = 1).if {
+			(a + n).gamma / a.gamma
+		} {
+			let m = a / d;
+			(d ^ n) * ((m + n).gamma / m.gamma)
+		}
 	}
 
 	reverseDo { :self :aBlock:/1 |

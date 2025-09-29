@@ -217,7 +217,7 @@ Range([1 9 2])
 
 * * *
 
-See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
+See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, Span, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
 Guides: Range Syntax
 

@@ -56,7 +56,7 @@
 			self.isOdd.if {
 				(self + 2).integerDoubleFactorial / (self + 2)
 			} {
-				self.error('@Integer>>integerDoubleFactorial: negative even')
+				self.error('@integerDoubleFactorial: negative even')
 			}
 		} {
 			(self <= 3).if {
@@ -70,7 +70,7 @@
 	integerFactorial { :self |
 		let one = self.one;
 		self.isNegative.ifTrue {
-			'@Integer>>integerFactorial: not valid for negative integers'.error
+			self.error('integerFactorial: not valid for negative integers')
 		};
 		(self <= one).if {
 			one

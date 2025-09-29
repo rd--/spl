@@ -23,7 +23,7 @@ The product of an empty collection is one:
 1
 ```
 
-Factorial is product of a `Range`:
+Factorial is product of a `Range` from `one` with step size `one`:
 
 ```
 >>> 9.factorial
@@ -31,6 +31,40 @@ Factorial is product of a `Range`:
 
 >>> 1:9.product
 362880
+```
+
+There is a closed form for arithmetic series:
+
+```
+>>> 1:19.product
+121645100408832000L
+
+>>> 1:19.reduce(*)
+1.2165E+17
+
+>>> 3:23.product
+12926008369442488320000L
+
+>>> 3:23.reduce(*)
+1.2926E+22
+
+>>> (5, 7 .. 31).product
+6.3966E16
+
+>>> (5L, 7 .. 31).reduce(*)
+63966261320836875L
+
+>>> (1, 1.05 .. 2).product
+1599.155
+
+>>> (1, 1.05 .. 2).reduce(*)
+1599.155
+
+>>> (-3, -1 .. 23).product
+9.4870E11
+
+>>> (-3, -1 .. 23).reduce(*)
+948702429675
 ```
 
 At a matrix answer the products of the columns:
@@ -101,6 +135,8 @@ Where supported `product` is displayed as Π.
 * * *
 
 See also: *, injectInto, reduce, sum
+
+Guides: Collection Functions, Mathematical Functions
 
 References:
 _Mathematica_

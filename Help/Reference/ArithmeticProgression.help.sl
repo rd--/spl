@@ -53,7 +53,7 @@ The last item is treated especially so that it will not be outside the specified
 
 * * *
 
-See also: arithmeticProgression, geometricProgression, Range
+See also: arithmeticProgression, geometricProgression, Range, Span
 
 Guides: Range Syntax
 
