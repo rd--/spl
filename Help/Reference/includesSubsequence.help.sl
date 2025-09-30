@@ -1,8 +1,8 @@
 # includesSubsequence
 
-- _includesSubsequence(aSequence, anotherSequence)_
+- _includesSubsequence(u, v)_
 
-Answer `true` if _aSequence_ includes _anotherSequence_ as either a contiguous or disjoint subsequence.
+Answer `true` if the sequence _u_ includes another sequence _v_ as either a contiguous or disjoint subsequence.
 
 _abcde_ includes _ce_:
 
@@ -46,3 +46,9 @@ true
 * * *
 
 See also: includesSubstring, subsequences
+
+Guides: List Functions, String Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Subsequence)

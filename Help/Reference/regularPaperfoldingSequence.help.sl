@@ -9,10 +9,8 @@ First few terms:
 ```
 >>> 32.regularPaperfoldingSequence
 [
-	1 1 0 1 1 0 0 1 1 1
-	0 0 1 0 0 1 1 1 0 1
-	1 0 0 0 1 1 0 0 1 0
-	0 1
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1
+	1 1 0 1	1 0 0 0 1 1 0 0 1 0 0 1
 ]
 ```
 
@@ -23,10 +21,35 @@ Relation to Kronecker symbol:
 >>> 	-1.kroneckerSymbol(n)
 >>> } / 2 + 0.5
 [
-	1 1 0 1 1 0 0 1 1 1
-	0 0 1 0 0 1 1 1 0 1
-	1 0 0 0 1 1 0 0 1 0
-	0 1
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1
+	1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 1
+]
+```
+
+The sequence can be defined by a substitution system:
+
+```
+>>> [
+>>> 	[1 1] -> [1 1 0 1],
+>>> 	[0 1] -> [1 0 0 1],
+>>> 	[1 0] -> [1 1 0 0],
+>>> 	[0 0] -> [1 0 0 0]
+>>> ].substitutionSystem([1 1], 5)
+[[1 1
+	;
+	1 1 0 1
+	;
+	1 1 0 1 1 0 0 1
+	;
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1
+	;
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1
+	1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 1
+	;
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 1
+	1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 1
+	1 1 0 1 1 0 0 1 1 1 0 0 1 0 0 0
+	1 1 0 1 1 0 0 0 1 1 0 0 1 0 0 1
 ]
 ```
 
@@ -51,7 +74,7 @@ Recurrence plot:
 
 * * *
 
-See also: kroneckerSymbol
+See also: baumSweetSequence, kroneckerSymbol
 
 Guides: Curve Functions, Integer Sequences
 

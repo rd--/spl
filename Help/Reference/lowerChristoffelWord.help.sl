@@ -3,6 +3,7 @@
 - _lowerChristoffelWord(s, n)_
 
 Answer the first _n_ terms of the lower Christoffel word with slope _s_.
+If _s_ is irrational the word is Sturmian.
 
 The first few terms of _s=4/7_,
 OEIS [A144595](https://oeis.org/A144595):
@@ -76,13 +77,11 @@ OEIS [A144608](https://oeis.org/A144608):
 Plot at _s=4/7_:
 
 ~~~spl svg=A
-let c = [[0 0]];
-4/7.lowerChristoffelWord(47).do { :i |
-	let a = c.last;
-	let b = (i = 0).if { [1 0] } { [0 1] };
-	c.add(a + b)
-};
-c.Line
+[0: [1 0], 1: [0 1]]
+.staircasePath(
+	4/7.lowerChristoffelWord(47),
+	[0 0]
+).Line
 ~~~
 
 ![](sw/spl/Help/Image/lowerChristoffelWord-A.svg)
@@ -92,3 +91,8 @@ c.Line
 See also: fibonacciWord
 
 Guides: Combinatorial Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Cutting_sequence)
+[2](https://en.wikipedia.org/wiki/Sturmian_word)

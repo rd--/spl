@@ -1,8 +1,8 @@
 # withIndexCollect
 
-- _withIndexCollect(aCollection, aBlock:/2)_
+- _withIndexCollect(c, f:/2)_
 
-Answer a collection like _aCollection_ where the values are given by _aBlock_,
+Answer a collection like the collection _c_ where the values are given by _f_,
 which receives both the _value_ and _index_ for each element.
 
 At `List`:

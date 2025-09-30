@@ -40,6 +40,7 @@ Mathematical Constants:
 - `logarithmicPhi`: _2^φ_
 - `meisselMertensConstant`: B₁
 - `omegaConstant`: Ω
+- `paperFoldingConstant`: _P_
 - `pi`: π
 - `plasticRatio`: _P_
 - `pythagorasConstant`: √2

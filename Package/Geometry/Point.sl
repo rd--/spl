@@ -379,3 +379,17 @@ Point : [Object, Geometry, CartesianCoordinates] { | coordinates |
 	}
 
 }
+
++@Indexable {
+
+	staircasePath { :self :aList :origin |
+		let c = [origin];
+		aList.do { :i |
+			let a = c.last;
+			let b = self[i];
+			c.add(a + b)
+		};
+		c
+	}
+
+}

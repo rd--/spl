@@ -1,8 +1,8 @@
 # indicesOfSubsequence
 
-- _indicesOfSubsequence(aSequence, anotherSequence)_
+- _indicesOfSubsequence(u, v)_
 
-Answer the indices for each place that _anotherSequence_ occurs as a subsequence in _aSequence_.
+Answer the indices for each place that the sequence _v_ occurs as a subsequence in the sequence _u_.
 
 ```
 >>> let p = [1 2 3 4 5 4 3 2 1];
@@ -29,3 +29,5 @@ Find the positions of a sublist:
 * * *
 
 See also: indicesOfSubstring
+
+Guides: List Functions

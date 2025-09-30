@@ -1,10 +1,10 @@
 # indicesOfSubstring
 
-- _indicesOfSubstring(aSequence, anotherSequence)_
+- _indicesOfSubstring(u, v)_
 
-Answer a `List`, possibly empty, of all the start indices of _anotherSequence_,
+Answer a `List`, possibly empty, of all the start indices of the sequence _v_,
 as a contigusous subsequence,
-in _aSequence_.
+in the sequence _u_.
 
 The subsequence _345_ appears once in _123456789_:
 
@@ -27,5 +27,7 @@ The subsequence _23_ appears twice in _123234345_:
 * * *
 
 See also: indexOfSubstring, indicesOf, includesSubstring, sequencePosition
+
+Guides: List Functions
 
 Categories: Indexing

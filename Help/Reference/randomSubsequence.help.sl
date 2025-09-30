@@ -1,16 +1,33 @@
 # randomSubsequence
 
-- _randomSubsequence(aRandomNumberGenerator, aSequence, aNumber)_
+- _randomSubsequence(r, u, p)_
 
-Answer a sequence consisting of a random subsequence of _aSequence_,
-where each element is included (in order) with independent probability _aNumber_.
+Answer a sequence consisting of a random subsequence of the sequence _u_,
+where each element is included (in order) with independent probability _p_ in _(0,1)_.
 This process is known as _Bernoulli sampling_.
-The binary form uses the system wide random number generator.
+The random numbers required are drawn from the random number generator _r_.
 
 ```
 >>> Sfc32(79431)
 >>> .randomSubsequence(1:23, 0.3)
 [6 7 10 14 16 17]
+```
+
+With _p=1_ selects all of the input sequence:
+
+```
+>>> Sfc32(381412)
+>>> .randomSubsequence(1:23, 1)
+[1 .. 23]
+```
+
+
+With _p=0_ selects none of the input sequence:
+
+```
+>>> Sfc32(381412)
+>>> .randomSubsequence(1:23, 0)
+[]
 ```
 
 * * *

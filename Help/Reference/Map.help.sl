@@ -1,6 +1,6 @@
 # Map
 
-- _Map([[k₁, v₁], [k₂, v₂], …])_
+- _Map([k₁ v₁; k₂ v₂; …])_
 
 A `Map` is a `Dictionary` type where the keys are compared using the identical to (`==`) operator.
 See `isImmediate` for deciding if a value is suitable as a key.

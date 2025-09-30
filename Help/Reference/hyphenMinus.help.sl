@@ -157,7 +157,9 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Subtract.html)
 [3](https://reference.wolfram.com/language/ref/Minus.html),
 _Smalltalk_
-5.6.2.3
+5.6.2.3,
+_W_
+[1](https://en.wikipedia.org/wiki/Subtraction)
 
 Unicode: U+002D - Hyphen-minus, U+2010 ‐ Hyphen, U+2212 − Minus Sign
 

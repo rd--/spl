@@ -1,8 +1,8 @@
 # longestIncreasingSubsequenceList
 
-- _longestIncreasingSubsequenceList(aSequence)_
+- _longestIncreasingSubsequenceList(u)_
 
-Answer a `List` of the longest ascending sequences of contiguous or disjoint elements in _aSequence_.
+Answer a `List` of the longest ascending sequences of contiguous or disjoint elements in the sequence _u_.
 
 ```
 >>> [6 3 5 10 11 2 9 14 13 7 4 8 12]
@@ -54,4 +54,4 @@ If the sequence contains duplicate elements, the answer may also:
 
 See also: longestIncreasingSubsequence
 
-Guides: Sort Functions
+Guides: List Functions, Sort Functions

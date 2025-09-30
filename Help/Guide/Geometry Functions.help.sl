@@ -191,6 +191,11 @@ Matrix Functions:
 - `rotationMatrix`
 - `scalingMatrix`
 
+Path Functions:
+
+- `anglePath`
+- `staircasePath`
+
 Polygon Functions:
 
 - `crossingNumber`

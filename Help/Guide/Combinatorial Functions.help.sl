@@ -30,7 +30,9 @@ Factorial Functions:
 Finite Word Functions:
 
 - `isLatticeWord`
+- `isLyndonWord`
 - `isYamanouchiWord`
+- `lyndonWords`
 
 Frobenius Functions:
 

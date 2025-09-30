@@ -1,8 +1,8 @@
 # removeDiacritics
 
-- _removeDiacritics(aString)_
+- _removeDiacritics(s)_
 
-Answer a `String` with diacritic marks removed, and the characters they mark retained.
+Answer a copy of the string _s_ with diacritic marks removed, and the characters they mark retained.
 
 ```
 >>> 'Mačiūnas'.removeDiacritics
@@ -62,8 +62,12 @@ Identity at string without diacritics:
 
 See also: String
 
+Guides: String Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RemoveDiacritics.html)
+[1](https://reference.wolfram.com/language/ref/RemoveDiacritics.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Diacritic)
 
 Categories: Converting

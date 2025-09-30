@@ -173,6 +173,8 @@ Guides: Sequence Alignment Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Subsequences.html)
+[1](https://reference.wolfram.com/language/ref/Subsequences.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Substring)
 
 Categories: Enumerating, Math

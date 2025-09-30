@@ -2,15 +2,48 @@
 
 - _UnivariatePolynomial(c)_
 
-A `Type` representing a univariate polynomial, specified as the sequence of ascending coefficients _c_.
+A `Type` representing a univariate polynomial.
+Coefficients at _c_ may be specified either as an ascending sequence,
+or as a dictionary of terms.
 
 The `degree` of the polynomial is the largest exponent,
-`coefficientList` is the list of ascending coefficients:
+`coefficientList` is the list of ascending coefficients,
+`terms` is a `Map` of terms,
+`leadingCoefficient` is the coefficient of the term with the highest degree:
 
 ```
->>> let p = UnivariatePolynomial([1 2 3]);
+>>> let p = UnivariatePolynomial([-2 0 1 5]);
+>>> (
+>>> 	p.degree,
+>>> 	p.coefficientList,
+>>> 	p.terms,
+>>> 	p.leadingCoefficient
+>>> )
+(3, [-2 0 1 5], [0: -2, 2: 1, 3: 5], 5)
+```
+
+Construct from a `Map`, entries are _(exponent, coefficient)_ terms:
+
+```
+>>> UnivariatePolynomial([1: -3, 3: 1])
+UnivariatePolynomial([0 -3 0 1])
+```
+
+Polynomials are normalized by construction:
+
+```
+>>> let p = UnivariatePolynomial([1 0 0]);
 >>> (p.degree, p.coefficientList)
-(2, [1 2 3])
+(0, [1])
+```
+
+Copying:
+
+```
+>>> let a = UnivariatePolynomial([1 2 3]);
+>>> let b = a.deepCopy;
+>>> a.coefficientList !== b.coefficientList
+true
 ```
 
 Evaluate at `Symbol`:
@@ -18,6 +51,92 @@ Evaluate at `Symbol`:
 ```
 >> UnivariatePolynomial([1 2 3]).at(`x`)
 (+ (* x (+ (* x 3) 2)) 1)
+```
+
+Addition:
+
+```
+>>> let a = UnivariatePolynomial([5 3 3]);
+>>> let b = UnivariatePolynomial([-2 -1 2]);
+>>> a + b
+UnivariatePolynomial([3 2 5])
+
+>>> let a = UnivariatePolynomial([1 2]);
+>>> let b = UnivariatePolynomial([3 4 8]);
+>>> a + b
+UnivariatePolynomial([4 6 8])
+```
+
+Subtraction:
+
+```
+>>> let a = UnivariatePolynomial([-2 5 2]);
+>>> let b = UnivariatePolynomial([-1 -3 6]);
+>>> a - b
+UnivariatePolynomial([-1 8 -4])
+
+>>> let a = UnivariatePolynomial([-2 5 2]);
+>>> let b = a - a;
+>>> (b.isZero, b.isNormal)
+(true, true)
+```
+
+Multiplication:
+
+```
+>>> let a = UnivariatePolynomial([47 -12 6]);
+>>> let b = UnivariatePolynomial([7 -3 14]);
+>>> a * b
+UnivariatePolynomial([329 -225 736 -186 84])
+```
+
+Quotient and remainder:
+
+```
+>>> let a = UnivariatePolynomial([-42 0 -12 1]);
+>>> let b = UnivariatePolynomial([-3 1]);
+>>> a.quotientRemainder(b)
+[
+	UnivariatePolynomial([-27 -9 1]),
+	UnivariatePolynomial([-123])
+]
+
+>>> let a = UnivariatePolynomial([3 5 6 -4 1]);
+>>> let b = UnivariatePolynomial([1 2 1]);
+>>> a.quotientRemainder(b)
+[
+	UnivariatePolynomial([17 -6 1]),
+	UnivariatePolynomial([-14 -23])
+]
+```
+
+Greatest common divisor:
+
+```
+>>> let a = UnivariatePolynomial([6 7 1]);
+>>> let b = UnivariatePolynomial([-6 -5 1]);
+>>> a.gcd(b)
+UnivariatePolynomial([12 12])
+
+>>> let a = UnivariatePolynomial([4 4 1]);
+>>> let b = UnivariatePolynomial([1 2 2]);
+>>> a.gcd(b)
+UnivariatePolynomial([25/18])
+
+>>> let a = UnivariatePolynomial([-4 0 0 0 1]);
+>>> let b = UnivariatePolynomial([4 0 4 0 1]);
+>>> a.gcd(b)
+UnivariatePolynomial([-8 0 -4])
+
+>>> let a = UnivariatePolynomial([-4 0 1]);
+>>> let b = UnivariatePolynomial([4 4 1]);
+>>> (a.gcd(b), a.resultant(b))
+(UnivariatePolynomial([-8, -4]), 0)
+
+>>> let a = UnivariatePolynomial([9 3]);
+>>> let b = UnivariatePolynomial([12 -3 0 6]);
+>>> (a.gcd(b), a.resultant(b))
+(UnivariatePolynomial([-141]), -3807)
 ```
 
 The sum of two univariate polynomials of degrees seven and eleven:
@@ -172,3 +291,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/UnivariatePolynomial.html)
 [2](https://reference.wolfram.com/language/ref/CoefficientList.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Polynomial)
+[2](https://en.wikipedia.org/wiki/Polynomial_long_division)

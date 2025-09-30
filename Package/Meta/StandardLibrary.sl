@@ -16,6 +16,7 @@
 	'Box'
 	'CategoryDictionary'
 	'DirectedEdge'
+	'FiniteWord'
 	'Graph'
 	'Heap'
 	'Histogram'

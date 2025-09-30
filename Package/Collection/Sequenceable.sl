@@ -1362,7 +1362,7 @@
 	}
 
 	increasingSubsequenceList { :self |
-		self.increasingSubsequenceList(<)
+		self.increasingSubsequenceList(<|)
 	}
 
 	indexOf { :self :anElement |
@@ -1878,14 +1878,6 @@
 		}
 	}
 
-	lyndonWords { :self :anInteger |
-		let answer = [];
-		self.lyndonWordsDo(anInteger) { :each |
-			answer.add(each)
-		};
-		answer
-	}
-
 	maximumSegmentSum { :self |
 		let answer = -Infinity;
 		let currentSum = 0;
@@ -2066,7 +2058,7 @@
 	}
 
 	orderedSubstrings { :self |
-		self.orderedSubstrings(<)
+		self.orderedSubstrings(<|)
 	}
 
 	outerProduct { :self :aList |

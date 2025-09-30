@@ -31,6 +31,8 @@ Converting:
 - `capitalize`
 - `characterList`
 - `codePoints`
+- `decapitalize`
+- `removeDiacritics`
 - `utf16List`
 - `utf8ByteArray`
 

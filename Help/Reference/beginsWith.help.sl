@@ -62,7 +62,7 @@ false
 
 See also: beginsWithAnyOf, endsWith, first
 
-Guides: String Functions
+Guides: List Functions, String Functions
 
 References:
 _Haskell_

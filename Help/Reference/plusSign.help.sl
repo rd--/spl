@@ -91,7 +91,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Plus.html)
 [2](https://reference.wolfram.com/language/ref/Plus.html),
 _Smalltalk_
-5.6.2.2
+5.6.2.2,
+_W_
+[1](https://en.wikipedia.org/wiki/Addition)
 
 Unicode: U+002B + Plus Sign
 

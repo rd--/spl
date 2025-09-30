@@ -511,5 +511,6 @@ _OEIS_
 [5](http://oeis.org/A001608),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
+[2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)
 
 Categories: Math, Sequence

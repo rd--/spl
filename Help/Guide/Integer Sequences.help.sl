@@ -64,6 +64,7 @@ The following help files include references to integer sequences:
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
 - `aliquotSequence`: A044050
 - `aliquotSum`: A001065
+- `baumSweetSequence`: A086747
 - `bellNumber`: A000110
 - `bernoulliNumber`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
@@ -156,6 +157,7 @@ The following help files include references to integer sequences:
 - `pellNumbers`: A000129 A086383 A096650
 - `pentagonalNumber`: A000326
 - `perfectDigitalInvariantSequence`: A193995
+- `periodDoublingSequence`: A096268
 - `perrinFunction`: A001608 A112881
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006
@@ -195,3 +197,8 @@ The following help files include references to integer sequences:
 * * *
 
 Guides: Magic Squares, Mathematical Sequences
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Sequence)
+[2](https://en.wikipedia.org/wiki/Automatic_sequence)

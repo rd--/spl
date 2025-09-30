@@ -345,6 +345,10 @@ String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
 		<primitive: return _self.length;>
 	}
 
+	decapitalize { :self |
+		<primitive: return _self[0].toLowerCase() + _self.slice(1);>
+	}
+
 	difference { :self :operand |
 		self.characters.difference(
 			operand.characters
@@ -619,6 +623,10 @@ String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
 		}
 	}
 
+	isPunctuation { :self |
+		<primitive: return /\p{Punctuation}/u.test(_self);>
+	}
+
 	isSameAs { :self :aString |
 		(self = aString).if {
 			true
@@ -834,6 +842,10 @@ String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
 		<primitive:
 		return _self.normalize("NFKD").replace(/[\u0300-\u036f]/g, '');
 		>
+	}
+
+	removePunctuation { :self |
+		<primitive: return _self.replace(/\p{Punctuation}/gu, '');>
 	}
 
 	repeat { :self :n |
@@ -1063,8 +1075,16 @@ String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
 		[self.first] ++ self.allButFirst.collect(capitalize:/1)
 	}
 
+	capitalize { :self |
+		self.collect(capitalize:/1)
+	}
+
 	commaSeparated { :self |
 		self.stringIntercalate(', ')
+	}
+
+	decapitalize { :self |
+		self.collect(decapitalize:/1)
 	}
 
 	deleteStopWords { :self |

@@ -28,6 +28,25 @@
 		aliquotSequence(n, 21)
 	}
 
+	baumSweetSequence { :n |
+		let a:/1 = { :i |
+			(i < 2).if {
+				1
+			} {
+				let k = i;
+				{ (k % 4) = 0 }.whileTrue {
+					k := k / 4
+				};
+				k.isOdd.if {
+					a((k - 1) / 2)
+				} {
+					0
+				}
+			}
+		}.memoize(true);
+		(0 .. n - 1).collect(a:/1)
+	}
+
 	beattySequence { :n :theta |
 		(1:n * theta).floor
 	}
@@ -429,6 +448,16 @@
 
 	pellLucasNumbers { :self |
 		[2 1].linearRecurrence([2 2], self)
+	}
+
+	periodDoublingSequence { :n |
+		let k = n.log(2).ceiling;
+		[
+			0 -> [0 1],
+			1 -> [0 0]
+		].substitutionSystem([0 1], k)
+		.last
+		.first(n)
 	}
 
 	perrinSequence { :self |

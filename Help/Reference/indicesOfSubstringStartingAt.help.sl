@@ -1,10 +1,10 @@
 # indicesOfSubstringStartingAt
 
-- _indicesOfSubstringStartingAt(aSequence, anotherSequence, anInteger)_
+- _indicesOfSubstringStartingAt(u, v, n)_
 
-Answer a `List`, possibly empty, of all the start indices of _anotherSequence_,
+Answer a `List`, possibly empty, of all the start indices of the sequence _v_,
 as a contigusous subsequence,
-in _aSequence_, starting at _anInteger_.
+in the sequence _u_, starting at index _n_.
 
 The subsequence _23_ appears once in _123234345_ starting at three:
 
@@ -18,5 +18,7 @@ The subsequence _23_ appears once in _123234345_ starting at three:
 * * *
 
 See also: indexOfSubstring, indicesOf, includesSubstring
+
+Guides: List Functions
 
 Categories: Indexing

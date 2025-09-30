@@ -1,10 +1,10 @@
 # indexOfSubstringStartingAt
 
-- _indexOfSubstringStartingAt(aSequence, aSubstring, anIndex)_
+- _indexOfSubstringStartingAt(u, v, n)_
 
-Answer the index of the first element of _aSequence_, where that element equals the first element of _aSubstring_,
-and the next elements equal the rest of the elements of _aSubstring_.
-Begin the search at element _anIndex_ of _aSequence_.
+Answer the index of the first element of the sequence _u_, where that element equals the first element of the substring _v_,
+and the next elements equal the rest of the elements of _v_.
+Begin the search at element the index _n_ of _u_.
 
 ```
 >>> let p = (1, 3 .. 9);
@@ -43,6 +43,8 @@ If no such match is found, answer `zero`:
 * * *
 
 See also: includesSubstring, indexOf, indexOfSubstring
+
+Guides: List Functions
 
 References:
 _Smalltalk_

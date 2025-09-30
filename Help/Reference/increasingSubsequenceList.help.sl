@@ -1,9 +1,9 @@
 # increasingSubsequenceList
 
-- _increasingSubsequenceList(aSequence, aBlock:/2)_
+- _increasingSubsequenceList(u, f:/2)_
 
-Answer a `List` of the increasing subsequences of _aSequence_, according to the comparison _aBlock_.
-In the unary case, the comparison operator is `<`.
+Answer a `List` of the increasing subsequences of the sequence _u_, according to the comparison block _f_.
+In the unary case, the comparison operator is `<|`.
 
 Find all of the longest increasing subsequences of the permutation _326451_:
 
@@ -23,5 +23,7 @@ Find all of the longest increasing subsequences of the permutation _326451_:
 * * *
 
 See also: longestIncreasingSubsequence
+
+Guides: List Functions
 
 Categories: Enumerating

@@ -88,6 +88,32 @@ Slice Functions:
 
 - `sliceFromTo`
 
+Subsequence Functions:
+
+- `includesScatteredSubsequence`
+- `includesSubsequence`
+- `increasingSubsequenceList`
+- `indicesOfSubsequence`
+- `longestCommonSubsequence`
+- `longestIncreasingSubsequence`
+- `longestIncreasingSubsequenceList`
+- `randomSubsequence`
+- `subsequences`
+
+Substring Functions:
+
+- `includesSubstring`
+- `indexOfSubstring`
+- `indexOfSubstringStartingAt`
+- `indexOfSubstringStartingAtIfAbsent`
+- `indicesOfSubstring`
+- `indicesOfSubstringStartingAt`
+- `longestCommonSubstring`
+- `longestCommonSubstringList`
+- `orderedSubstrings`
+- `substrings`
+- `substringsInCommon`
+
 * * *
 
 Guides: Dictionary Functions, Indexing Functions, List Syntax, Stream Functions

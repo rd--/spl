@@ -15,6 +15,10 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		)
 	}
 
+	- { :self :operand |
+		self + operand.negate
+	}
+
 	* { :self :operand |
 		let a = self.coefficientList;
 		operand.isUnivariatePolynomial.if {
@@ -40,6 +44,12 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		}
 	}
 
+	assertIsNormal { :self |
+		self.isNormal.ifFalse {
+			self.error('assertIsNormal: not normal')
+		}
+	}
+
 	at { :self :x |
 		self.coefficientList.evaluateUnivariatePolynomial(x)
 	}
@@ -58,12 +68,99 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		self.coefficientList.discriminant
 	}
 
+	gcd { :self :operand |
+		let a = self;
+		let b = operand;
+		{
+			b.isZero
+		}.whileFalse {
+			let r = a.remainder(b);
+			a := b;
+			b := r
+		};
+		a
+	}
+
+	isNormal { :self |
+		let c = self.coefficientList;
+		(c.size = 0) | {
+			c.last != 0
+		}
+	}
+
+	isZero { :self |
+		self.degree = -1
+	}
+
+	leadingCoefficient { :self |
+		self.coefficientList.last
+	}
+
+	monicPolynomial { :self |
+		self * self.leadingCoefficient.reciprocal
+	}
+
+	negate { :self |
+		self * -1
+	}
+
+	normalize { :self |
+		let c = self.coefficientList;
+		{
+			c.size > 0 & {
+				c.last = 0
+			}
+		}.whileTrue {
+			c.removeLast
+		};
+		self
+	}
+
+	postCopy { :self |
+		self.coefficientList := self.coefficientList.copy
+	}
+
+	quotient { :numerator :denominator |
+		let [q, _] = numerator.quotientRemainder(denominator);
+		q
+	}
+
+	quotientRemainder { :numerator :denominator |
+		let quotient = UnivariatePolynomial([]);
+		let remainder = numerator.deepCopy;
+		let denominatorDegree = denominator.degree;
+		let denominatorLeadingCoefficient = denominator.leadingCoefficient;
+		{ remainder.degree >= denominatorDegree }.whileTrue {
+			let exponent = remainder.degree - denominatorDegree;
+			let coefficient = remainder.leadingCoefficient / denominatorLeadingCoefficient;
+			let temporary = UnivariatePolynomial(Map([[exponent, coefficient]]));
+			quotient := quotient + temporary;
+			remainder := remainder - (temporary * denominator)
+		};
+		[quotient, remainder]
+	}
+
+	remainder { :numerator :denominator |
+		let [_, r] = numerator.quotientRemainder(denominator);
+		r
+	}
+
 	resultant { :self :operand |
 		self.coefficientList.resultant(operand.coefficientList)
 	}
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	terms { :self |
+		let answer = Map();
+		self.coefficientList.withIndexDo { :c :i |
+			(c != 0).ifTrue {
+				answer.add((i - 1) -> c)
+			}
+		};
+		answer
 	}
 
 }
@@ -163,7 +260,19 @@ UnivariatePolynomial : [Object] { | coefficientList |
 	}
 
 	UnivariatePolynomial { :self |
-		newUnivariatePolynomial().initializeSlots(self)
+		newUnivariatePolynomial().initializeSlots(self).normalize
+	}
+
+}
+
++Map {
+
+	UnivariatePolynomial { :self |
+		let n = self.keys.max;
+		let c = 0:n.collect { :i |
+			self.atIfAbsent(i) { 0 }
+		};
+		UnivariatePolynomial(c)
 	}
 
 }

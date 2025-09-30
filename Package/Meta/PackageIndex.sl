@@ -35,6 +35,7 @@
 	'Collection-Dictionary'
 	'Collection-DirectedEdge'
 	'Collection-Extensible'
+	'Collection-FiniteWord'
 	'Collection-Float32Array'
 	'Collection-Float64Array'
 	'Collection-Graph'

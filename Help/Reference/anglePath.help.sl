@@ -1,10 +1,10 @@
 # anglePath
 
-- _anglePath(thetaList, radiusList, origin)_
-- _anglePath(α)_ ⟹ _anglePath(α, [1], [0, 0])_
+- _anglePath([θ₁ θ₂ …], [r₁ r₂ …], o)_
 
-Answer the `List` of two-dimensional coordinates corresponding to a path that starts at _origin_,
-then takes a series of steps of length _radius_ at successive relative angles _theta_.
+Answer the `List` of two-dimensional coordinates corresponding to a path that starts at origin _o_,
+then takes a series of steps of length _r_ at successive relative angles _θ_.
+If _r_ and _o_ are elided _r_ is uniformly one, and _o_ is _(0,0)_.
 
 ```
 >>> (90.degree # 3).anglePath

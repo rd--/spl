@@ -82,6 +82,10 @@
 		self.codePoint.betweenAnd(97, 122)
 	}
 
+	isPunctuation { :self |
+		self.characterString.isPunctuation
+	}
+
 	isQuotationMark { :self |
 		self.codePoint = 34
 	}

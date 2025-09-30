@@ -29,6 +29,8 @@ At `Character`:
 
 See also: asCodePoint, asString, Character
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromCharacterCode.html),

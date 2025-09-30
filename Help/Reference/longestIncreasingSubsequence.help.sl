@@ -97,7 +97,7 @@ In cases where there are many equally long subsequences answer any one:
 
 See also: longestCommonSubsequence, longestIncreasingSubsequenceList, patienceSort
 
-Guides: Sequence Alignment Functions, Sort Functions
+Guides: List Functions, Sequence Alignment Functions, Sort Functions
 
 References:
 _J_

@@ -1,8 +1,8 @@
 # includesSubstring
 
-- _includesSubstring(aSequence, anotherSequence)_
+- _includesSubstring(u, v)_
 
-Answer `true` if _aSequence_ includes _anotherSequence_ as a substring (a contiguous subsequence).
+Answer `true` if the sequence _u_ includes the sequence _v_ as a substring (a contiguous subsequence).
 
 _abcde_ includes _cd_:
 
@@ -46,3 +46,9 @@ false
 * * *
 
 See also: includes, includesSubsequence, substrings
+
+Guides: String Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Substring)

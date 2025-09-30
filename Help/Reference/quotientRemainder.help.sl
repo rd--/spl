@@ -69,6 +69,30 @@ Calculate the first few terms of OEIS [A118006](https://oeis.org/A118006):
 ]
 ```
 
+At `UnivariatePolynomial`,
+find the quotient and remainder after dividing one polynomial by another,
+the dividend is equal to the product of the quotient and the divisor plus the remainder:
+
+```
+>>> let n = UnivariatePolynomial([1 2 0 0 1]);
+>>> let d = UnivariatePolynomial([1 0 1]);
+>>> let [q, r] = n.quotientRemainder(d);
+>>> (q, r, (q * d) + r = n)
+(
+	UnivariatePolynomial([-1, 0, 1]),
+	UnivariatePolynomial([2, 2]),
+	true
+)
+
+>>> let n = UnivariatePolynomial([1 1 1]);
+>>> let d = UnivariatePolynomial([1 2]);
+>>> n.quotientRemainder(d)
+[
+	UnivariatePolynomial([1/4 1/2]),
+	UnivariatePolynomial([3/4])
+]
+```
+
 Plot the sequence of quotients:
 
 ~~~spl svg=A
@@ -101,9 +125,11 @@ _Haskell_:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Quotient.html)
 [2](https://mathworld.wolfram.com/Remainder.html)
-[3](https://reference.wolfram.com/language/ref/QuotientRemainder.html),
+[3](https://reference.wolfram.com/language/ref/QuotientRemainder.html)
+[4](https://reference.wolfram.com/language/ref/PolynomialQuotientRemainder.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Quotient)
 [2](https://en.wikipedia.org/wiki/Remainder)
+[3](https://en.wikipedia.org/wiki/Polynomial_long_division)
 
 Categories: Math, Arithmetic
