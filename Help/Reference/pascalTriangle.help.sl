@@ -53,7 +53,7 @@ OEIS [A007318](https://oeis.org/A007318):
 ~~~spl svg=A
 21.pascalTriangle
 .catenate
-.logScale
+.log
 .scatterPlot
 ~~~
 

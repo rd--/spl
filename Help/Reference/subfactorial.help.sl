@@ -35,11 +35,11 @@ OEIS [A000166](https://oeis.org/A000166):
 ]
 ```
 
-Plot the values on a log scale over a subset of the reals:
+Plot the values on a `log` scale over a subset of the reals:
 
 ~~~spl svg=A
 2:19.functionPlot { :x |
-	x.subfactorial.logScale
+	x.subfactorial.log
 }
 ~~~
 

@@ -1,13 +1,13 @@
 # adjacencyList
 
-- _adjacencyList(aGraph)_
-- _adjacencyList(aGraph, aVertex)_
+- _adjacencyList(g)_
+- _adjacencyList(g, v)_
 
 In the binary case,
-answer the `List` of vertices of _aGraph_ incident to _aVertex_.
+answer the `List` of vertices of the graph _g_ incident to the vertex _v_.
 
 In the unary case,
-answer a list of the `adjacencyList` for each vertex of _aGraph_.
+answer a list of the `adjacencyList` for each vertex of the graph _g_.
 
 A list of vertices adjacent to vertices one through five of an undirected graph:
 

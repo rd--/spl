@@ -279,6 +279,26 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		}
 	}
 
+	evaluateUnivariatePolynomialDirectForm { :coefficientList :x |
+		let c = coefficientList.reverse;
+		let n = coefficientList.size;
+		(n = 0).if {
+			0
+		} {
+			let answer = c[1] * (x ^ (n - 1));
+			2.toDo(n) { :i |
+				let m = c[i];
+				let j = n - i;
+				let t = (j = 0).if { 1 } { (j = 1).if { x } { x ^ (n - i) } };
+				let f:/2 = (m < 0).if { - } { + };
+				(m != 0).ifTrue {
+					answer := f(answer, (m = 1).if { t } { (t == 1).if { m.abs } { m.abs * t } })
+				}
+			};
+			answer
+		}
+	}
+
 	lagrangeInterpolatingPolynomial { :c |
 		let n = c.size;
 		let [x, y] = c.transpose;

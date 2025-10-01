@@ -33,10 +33,11 @@ Threads over lists:
 7
 ```
 
-Plot the number of restricted partitions:
+Plot the number of restricted partitions,
+`log` scaled:
 
 ~~~spl svg=A
-1:33.partitionsP.logScale.discretePlot
+1:33.partitionsP.log.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/partitionsP-A.svg)

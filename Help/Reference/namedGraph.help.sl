@@ -65,6 +65,36 @@ Plot the adjacency matrix of the Tutte graph:
 
 ![](sw/spl/Help/Image/namedGraph-F.svg)
 
+Plot the Owens graph:
+
+~~~spl svg=G
+'OwensGraph'
+.namedGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/namedGraph-G.svg)
+
+Plot the Herschel graph:
+
+~~~spl svg=H
+'HerschelGraph'
+.namedGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/namedGraph-H.svg)
+
+Plot the Goldner-Harary graph:
+
+~~~spl svg=I
+'GoldnerHararyGraph'
+.namedGraph
+.graphPlot
+~~~
+
+![](sw/spl/Help/Image/namedGraph-I.svg)
+
 * * *
 
 See also: Graph
@@ -78,3 +108,6 @@ _Mathematica_
 [3](https://mathworld.wolfram.com/TuttesGraph.html)
 [4](https://mathworld.wolfram.com/Tutte8-Cage.html)
 [5](https://mathworld.wolfram.com/ShrikhandeGraph.html)
+[6](https://mathworld.wolfram.com/OwensGraphs.html)
+[7](https://mathworld.wolfram.com/HerschelGraph.html)
+[8](https://mathworld.wolfram.com/Goldner-HararyGraph.html)

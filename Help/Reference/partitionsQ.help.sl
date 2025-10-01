@@ -30,7 +30,7 @@ Threads over lists:
 Plot the number of restricted partitions:
 
 ~~~spl svg=A
-1:47.partitionsQ.logScale.discretePlot
+1:47.partitionsQ.log.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/partitionsQ-A.svg)

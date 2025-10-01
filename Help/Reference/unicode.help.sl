@@ -1,8 +1,8 @@
 # unicode
 
-- _unicode(aFraction)_
+- _unicode(n/d)_
 
-If _aFraction_ has a unicode code-point answer it.
+If the fraction _n/d_ has a unicode code-point answer it.
 
 ```
 >>> 3/4.unicode

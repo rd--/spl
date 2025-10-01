@@ -56,6 +56,19 @@ The _2n_-th Bernoulli numbers divided by _2n_:
 ]
 ```
 
+Plot absolute value of numerators on `log` scale:
+
+~~~spl svg=A
+1:50.collect { :n |
+	n.bernoulliNumber
+	.numerator
+	.abs
+	.logScale
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bernoulliNumber-A.svg)
+
 * * *
 
 See also: bernoulliSequence, eulerNumber

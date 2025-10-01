@@ -26,6 +26,7 @@ Plotting Functions:
 - `lagPlot`
 - `linePlot`
 - `logLinearPlot`
+- `logPlot`
 - `matrixPlot`
 - `parametricPlot`
 - `pathPlot`

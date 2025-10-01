@@ -25,7 +25,7 @@ Threads element-wise over lists (OEIS A000110):
 Plot first few terms:
 
 ~~~spl svg=A
-1:99.bellNumber.logScale.discretePlot
+1:99.bellNumber.log.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/bellNumber-A.svg)

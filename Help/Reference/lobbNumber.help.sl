@@ -33,7 +33,7 @@ Plot first few terms:
 	0:m.collect { :n |
 		n.lobbNumber(m)
 	}
-}.flatten.logScale.scatterPlot
+}.flatten.log.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/lobbNumber-A.svg)

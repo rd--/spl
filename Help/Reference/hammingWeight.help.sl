@@ -26,9 +26,21 @@ Scatter plot first few terms:
 
 ![](sw/spl/Help/Image/hammingWeight-A.svg)
 
+Line plot of the first eight-bit integers:
+
+~~~spl svg=B
+0:255.collect(
+	hammingWeight:/1
+).linePlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-B.svg)
+
 * * *
 
 See also: digitCount
+
+Guides: Bitwise Functions, Integer Functions
 
 References:
 _OEIS_

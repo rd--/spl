@@ -1,8 +1,8 @@
 # bernoulliTriangle
 
-- _bernoulliTriangle(anInteger)_
+- _bernoulliTriangle(n)_
 
-Answer the first _anInteger_ rows of Bernoulli’s triangle.
+Answer the first _n_ rows of Bernoulli’s triangle.
 
 The first ten rows:
 
@@ -28,7 +28,7 @@ c.f. OEIS [A008949](https://oeis.org/A008949):
 ~~~spl svg=A
 20.bernoulliTriangle
 .catenate
-.logScale
+.log
 .scatterPlot
 ~~~
 

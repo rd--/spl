@@ -512,13 +512,14 @@
 		self.logarithmicIntegralRamanujan(9)
 	}
 
+	logScale { :self :c |
+		let x = self.asFloat;
+		x.sign * (1 + (x / c).abs).log10
+	}
+
 	logScale { :self |
-		self.isZero.if {
-			0
-		} {
-			let x = self.asFloat;
-			x.sign * x.abs.log
-		}
+		let c = 1 / 10.log;
+		self.logScale(c)
 	}
 
 	logisticSigmoid { :l :k :x0 |

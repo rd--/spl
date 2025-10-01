@@ -321,8 +321,14 @@
 		self.collect(logit:/1)
 	}
 
+	logScale { :self :c |
+		self.collect { :each |
+			each.logScale(c)
+		}
+	}
+
 	logScale { :self |
-		self.collect(logScale:/1)
+		self.logScale(1 / 10.log)
 	}
 
 	lucasNumber { :self |

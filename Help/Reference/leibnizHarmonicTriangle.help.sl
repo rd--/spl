@@ -25,7 +25,7 @@ c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 ~~~spl svg=A
 20.leibnizHarmonicTriangle
 .catenate
-.logScale
+.log
 .scatterPlot
 ~~~
 
@@ -33,7 +33,7 @@ c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 
 * * *
 
-See also: leibnizHarmonicTriangle, binomial, gouldsSequence, table, triangularNumber
+See also: binomial, gouldsSequence, pascalTriangle, table, triangularNumber
 
 Guides: Integer Sequences
 

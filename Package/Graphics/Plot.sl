@@ -621,6 +621,21 @@ Plot : [Object] { | pages format options |
 		}.linePlot
 	}
 
+	logPlot { :self :divisions :operand |
+		self.functionPlot(
+			divisions,
+			operand.nest.collect { :f:/1 |
+				{ :x |
+					f(x).log
+				}
+			}
+		)
+	}
+
+	logPlot { :self :operand |
+		self.logPlot(100, operand)
+	}
+
 	parametricPlot { :self :divisions :xBlock:/1 :yBlock:/1 |
 		self.subdivide(divisions).parametricPlot(xBlock:/1, yBlock:/1)
 	}
