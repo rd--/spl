@@ -73,5 +73,6 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence)
 [2](https://en.wikipedia.org/wiki/Square-free_word)
+[3](https://en.wikipedia.org/wiki/K-regular_sequence)
 
 Categories: Math, Sequence

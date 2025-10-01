@@ -157,6 +157,10 @@
 		answer
 	}
 
+	stirlingsApproximation { :n |
+		(2.pi * n).sqrt * ((n / 1.e) ^ n)
+	}
+
 }
 
 +[SmallFloat, Complex] {

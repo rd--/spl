@@ -32,7 +32,9 @@ Number of trailing zeros in factorials:
 ]
 ```
 
-Powers of 2 in successive integers:
+Powers of two in successive integers,
+known as the ruler sequence,
+OEIS [A007814](https://oeis.org/A007814):
 
 ```
 >>> 1:40.collect { :n |
@@ -58,7 +60,9 @@ A formula for digitCount:
 ]
 ```
 
-Moves for the _n_-disk pyramid puzzle:
+Moves for the _n_-disk pyramid puzzle,
+known as the ruler function,
+OEIS [A001511](https://oeis.org/A001511):
 
 ```
 >>> [3 4 5].collect { :n |
@@ -87,7 +91,7 @@ Plot it:
 
 * * *
 
-See also: ^, digitCount, factorInteger, integerDigits, log2, log10
+See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
 
 Guides: Bitwise Functions, Integer Functions
 
@@ -96,3 +100,4 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IntegerExponent.html),
 _OEIS_
 [1](https://oeis.org/A001511)
+[2](https://oeis.org/A007814)

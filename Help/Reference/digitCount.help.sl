@@ -74,6 +74,17 @@ let b = { :k | k.digitCount(2, 1) };
 
 ![](sw/spl/Help/Image/digitCount-B.svg)
 
+Plot the first few Cantor numbers,
+OEIS [A005823](https://oeis.org/A005823):
+
+~~~spl svg=C
+0:3000.select { :n |
+	n.digitCount(3, 1) = 0
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-C.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
@@ -87,5 +98,6 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000120)
 [2](https://oeis.org/A006046)
+[3](https://oeis.org/A005823)
 
 Categories: Querying

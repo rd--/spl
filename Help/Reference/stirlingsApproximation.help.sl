@@ -4,12 +4,6 @@
 
 Answer Stirlingy’s approximation for the `factorial` function.
 
-+@Number{
-	stirlingsApproximation { :n |
-		(2.pi * n).sqrt * ((n / 1.e) ^ n)
-	}
-}
-
 Approximation for first few integers:
 
 ```

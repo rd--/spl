@@ -556,6 +556,7 @@ Reference/base16Encode.help.sl
 Reference/base64Decode.help.sl
 Reference/base64Encode.help.sl
 Reference/basicStringIntercalate.help.sl
+Reference/baumSweetSequence.help.sl
 Reference/beattySequence.help.sl
 Reference/before.help.sl
 Reference/beginsWithAny.help.sl
@@ -696,6 +697,7 @@ Reference/cancelFlat.help.sl
 Reference/cancel.help.sl
 Reference/cancelSharp.help.sl
 Reference/cantorDust.help.sl
+Reference/cantorNumbers.help.sl
 Reference/cantorStaircase.help.sl
 Reference/capacity.help.sl
 Reference/capitalize.help.sl
@@ -954,6 +956,7 @@ Reference/CvCps.help.sl
 Reference/cycleGraph.help.sl
 Reference/cycles.help.sl
 Reference/cycloid.help.sl
+Reference/cyclotomic.help.sl
 Reference/CylindricalCoordinates.help.sl
 Reference/damerauLevenshteinDistance.help.sl
 Reference/DateAndTime.help.sl
@@ -969,6 +972,7 @@ Reference/Dbrown.help.sl
 Reference/Dc.help.sl
 Reference/deBruijnGraph.help.sl
 Reference/deBruijnSequence.help.sl
+Reference/decapitalize.help.sl
 Reference/deCasteljausAlgorithm.help.sl
 Reference/Decay2.help.sl
 Reference/Decay.help.sl
@@ -1228,6 +1232,7 @@ Reference/exclamationMarkTilde.help.sl
 Reference/exeterPoint.help.sl
 Reference/exp.help.sl
 Reference/Exp.help.sl
+Reference/exponent.help.sl
 Reference/ExponentialDistribution.help.sl
 Reference/exponentialMovingAverage.help.sl
 Reference/expRand.help.sl
@@ -1671,6 +1676,7 @@ Reference/integerCompositions.help.sl
 Reference/integerCompositionsWeak.help.sl
 Reference/integerDigits.help.sl
 Reference/integerExponent.help.sl
+Reference/integerFactorial.help.sl
 Reference/Integer.help.sl
 Reference/integerLength.help.sl
 Reference/integerPart.help.sl
@@ -1820,6 +1826,7 @@ Reference/isJson.help.sl
 Reference/isKaprekarNumber.help.sl
 Reference/isLargeInteger.help.sl
 Reference/isLatinSquare.help.sl
+Reference/isLatticeWord.help.sl
 Reference/isLeaf.help.sl
 Reference/isLesserCousinPrime.help.sl
 Reference/isLesserTwinPrime.help.sl
@@ -1831,6 +1838,7 @@ Reference/isLittleEndian.help.sl
 Reference/isLoopFree.help.sl
 Reference/isLowerCase.help.sl
 Reference/isLowerTriangularMatrix.help.sl
+Reference/isLyndonWord.help.sl
 Reference/isMatrix.help.sl
 Reference/isMatrixOf.help.sl
 Reference/isMixed.help.sl
@@ -1846,6 +1854,7 @@ Reference/isNonNegativeInteger.help.sl
 Reference/isNonPositive.help.sl
 Reference/isNonZero.help.sl
 Reference/isNormal.help.sl
+Reference/isNormalMatrix.help.sl
 Reference/isNotEmpty.help.sl
 Reference/isNotNil.help.sl
 Reference/isNumber.help.sl
@@ -1881,6 +1890,7 @@ Reference/isPronicNumber.help.sl
 Reference/isProper.help.sl
 Reference/isProperSubset.help.sl
 Reference/isPseudoperfectNumber.help.sl
+Reference/isPunctuation.help.sl
 Reference/isPythagorean.help.sl
 Reference/isPythagoreanPrime.help.sl
 Reference/isPythagoreanTriple.help.sl
@@ -1952,12 +1962,14 @@ Reference/isVeryCloseTo.help.sl
 Reference/isVowel.help.sl
 Reference/isWeakPrime.help.sl
 Reference/isWeirdNumber.help.sl
+Reference/isYamanouchiWord.help.sl
 Reference/isZero.help.sl
 Reference/Iterable.help.sl
 Reference/iterate.help.sl
 Reference/Iterator.help.sl
 Reference/jaccardDissimilarity.help.sl
 Reference/jacobiSymbol.help.sl
+Reference/jacobsthalNumber.help.sl
 Reference/jaroDistance.help.sl
 Reference/jaroWinklerSimilarity.help.sl
 Reference/j.help.sl
@@ -2019,6 +2031,7 @@ Reference/lagrangeInterpolatingPolynomial.help.sl
 Reference/lagrangeNumber.help.sl
 Reference/LagUd.help.sl
 Reference/lambertW.help.sl
+Reference/lanczosApproximation.help.sl
 Reference/lanczosKernel.help.sl
 Reference/lanczosWindow.help.sl
 Reference/landauConstant.help.sl
@@ -2034,6 +2047,7 @@ Reference/LatoocarfianC.help.sl
 Reference/lchToLuv.help.sl
 Reference/lcm.help.sl
 Reference/Lcm.help.sl
+Reference/leadingCoefficient.help.sl
 Reference/leafCount.help.sl
 Reference/LeakDc.help.sl
 Reference/leastPrimeGreaterThanOrEqualTo.help.sl
@@ -2172,6 +2186,7 @@ Reference/lorenzEquation.help.sl
 Reference/lotkaVolterraEquations.help.sl
 Reference/lowBit.help.sl
 Reference/lowBitPerByteTable.help.sl
+Reference/lowerChristoffelWord.help.sl
 Reference/lowerIncompleteGamma.help.sl
 Reference/lowerTriangularize.help.sl
 Reference/lowLine.help.sl
@@ -2354,6 +2369,7 @@ Reference/moment.help.sl
 Reference/momentOfSymmetry.help.sl
 Reference/momentOfSymmetryPattern.help.sl
 Reference/mongesShuffle.help.sl
+Reference/monicPolynomial.help.sl
 Reference/month.help.sl
 Reference/MoogFf.help.sl
 Reference/mooreCurve.help.sl
@@ -2543,6 +2559,7 @@ Reference/Pan2.help.sl
 Reference/PanAz.help.sl
 Reference/PanB2.help.sl
 Reference/PanB.help.sl
+Reference/paperFoldingConstant.help.sl
 Reference/paragraphAtCaret.help.sl
 Reference/paragraphAtIndex.help.sl
 Reference/paragraphs.help.sl
@@ -2624,6 +2641,7 @@ Reference/perfectDigitalInvariantSequence.help.sl
 Reference/perfectNumber.help.sl
 Reference/perform.help.sl
 Reference/perimeter.help.sl
+Reference/periodDoublingSequence.help.sl
 Reference/periodogramArray.help.sl
 Reference/periodogramPlot.help.sl
 Reference/perlinBiasFunction.help.sl
@@ -2723,6 +2741,11 @@ Reference/polygonInteriorAngles.help.sl
 Reference/PolygonMesh.help.sl
 Reference/PolygonWithHoles.help.sl
 Reference/Polyhedron.help.sl
+Reference/polynomialGcd.help.sl
+Reference/polynomialMod.help.sl
+Reference/polynomialQuotient.help.sl
+Reference/polynomialQuotientRemainder.help.sl
+Reference/polynomialRemainder.help.sl
 Reference/pop.help.sl
 Reference/porterStemmer.help.sl
 Reference/port.help.sl
@@ -2932,6 +2955,7 @@ Reference/removeKey.help.sl
 Reference/removeKeyIfAbsent.help.sl
 Reference/removeLast.help.sl
 Reference/removeOscListener.help.sl
+Reference/removePunctuation.help.sl
 Reference/repeatedTiming.help.sl
 Reference/repeatEvery.help.sl
 Reference/repeat.help.sl
@@ -3208,6 +3232,7 @@ Reference/SortedList.help.sl
 Reference/SortedSet.help.sl
 Reference/sortedWithIndices.help.sl
 Reference/sort.help.sl
+Reference/sortingNumber.help.sl
 Reference/sortOn.help.sl
 Reference/Sos.help.sl
 Reference/SoundFile.help.sl
@@ -3272,11 +3297,13 @@ Reference/Stack.help.sl
 Reference/stackSort.help.sl
 Reference/StadiumShape.help.sl
 Reference/staffordsAlgorithm.help.sl
+Reference/staircasePath.help.sl
 Reference/standardDeviation.help.sl
 Reference/standardizedMoment.help.sl
 Reference/standardize.help.sl
 Reference/StandardL.help.sl
 Reference/standardMap.help.sl
+Reference/stanleySequence.help.sl
 Reference/starFigure.help.sl
 Reference/starGraph.help.sl
 Reference/starPolygon.help.sl
@@ -3290,6 +3317,7 @@ Reference/sternBrocotSequence.help.sl
 Reference/sternBrocotTree.help.sl
 Reference/stieltjesGamma.help.sl
 Reference/stirlingS2.help.sl
+Reference/stirlingsApproximation.help.sl
 Reference/stochasticMatrix.help.sl
 Reference/stochasticVector.help.sl
 Reference/stolarskyArray.help.sl

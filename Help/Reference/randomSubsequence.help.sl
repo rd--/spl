@@ -21,7 +21,6 @@ With _p=1_ selects all of the input sequence:
 [1 .. 23]
 ```
 
-
 With _p=0_ selects none of the input sequence:
 
 ```

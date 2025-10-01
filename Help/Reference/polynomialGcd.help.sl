@@ -16,7 +16,7 @@ which must be an ascending list of coefficients:
 [1]
 
 >>> [-4 0 0 0 1].polynomialGcd([4 0 4 0 1])
-[-2 0 1]
+[2 0 1]
 
 >>> [-4 0 1].polynomialGcd([4 4 1])
 [2 1]

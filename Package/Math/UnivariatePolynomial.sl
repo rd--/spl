@@ -90,10 +90,16 @@ UnivariatePolynomial : [Object] { | coefficientList |
 	}
 
 	isNormal { :self |
-		let c = self.coefficientList;
-		(c.size = 0) | {
-			c.last != 0
+		self.isSymbolic | {
+			let c = self.coefficientList;
+			(c.size = 0) | {
+				c.last != 0
+			}
 		}
+	}
+
+	isSymbolic { :self |
+		self.coefficientList.allSatisfy(isSymbol:/1)
 	}
 
 	isZero { :self |
@@ -119,13 +125,15 @@ UnivariatePolynomial : [Object] { | coefficientList |
 	}
 
 	normalize { :self |
-		let c = self.coefficientList;
-		{
-			c.size > 0 & {
-				c.last = 0
+		self.isSymbolic.not.ifTrue {
+			let c = self.coefficientList;
+			{
+				c.size > 0 & {
+					c.last = 0
+				}
+			}.whileTrue {
+				c.removeLast
 			}
-		}.whileTrue {
-			c.removeLast
 		};
 		self
 	}

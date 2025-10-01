@@ -82,6 +82,18 @@
 		answer
 	}
 
+	cantorNumbers { :self |
+		let answer = [];
+		let n = 0;
+		{ answer.size < self }.whileTrue {
+			(n.digitCount(3, 1) = 0).ifTrue {
+				answer.add(n)
+			};
+			n := n + 1
+		};
+		answer
+	}
+
 	champernowneSequence { :b :n |
 		let answer = [];
 		let i = 0;
@@ -313,6 +325,10 @@
 		self.isHarshadNumber(10)
 	}
 
+	jacobsthalNumber { :n |
+		((2 ^ n) - (-1 ^ n)) / 3
+	}
+
 	kaprekarSequenceStep { :self :base :fixedLength |
 		let d = self.integerDigits(base);
 		fixedLength.ifNotNil {
@@ -526,6 +542,23 @@
 			}
 		};
 		a
+	}
+
+	sortingNumber { :n |
+		let m = n.log(2).ceiling;
+		(n * m) - (2 ^ m) + 1
+	}
+
+	stanleySequence { :self |
+		let answer = [];
+		let n = 0;
+		{ answer.size < self }.whileTrue {
+			(n.digitCount(3, 2) = 0).ifTrue {
+				answer.add(n)
+			};
+			n := n + 1
+		};
+		answer
 	}
 
 	sternBrocotNumber { :self |

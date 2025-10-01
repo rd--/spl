@@ -74,6 +74,7 @@ The following help files include references to integer sequences:
 - `bitXor`: A003188
 - `brunsConstant`: A065421
 - `calkinWilfSequence`: A002487
+- `cantorNumbers`: A005823
 - `cantorStaircase`: A095844 A095845
 - `catalanNumber`: A000108
 - `catalanTriangle`: A009766
@@ -83,7 +84,7 @@ The following help files include references to integer sequences:
 - `collatzSequence`: A070165
 - `copelandErdosSequence`: A033308
 - `delannoySequence`: A008288
-- `digitCount`: A000120 A006046
+- `digitCount`: A000120 A006046 A005823
 - `digitalRoot`: A010888
 - `divisorSigma`: A000005
 - `doubleFactorial`: A000165
@@ -125,6 +126,7 @@ The following help files include references to integer sequences:
 - `kaprekarSequence`: A099009
 - `keplerTree`: A294442 A020651
 - `kolakoskiSequence`: A000002
+- `jacobsthalNumber`: A001045
 - `josephusProblem`: A006257 A054995 A032434
 - `josephusSequence`: A209258
 - `lassalleNumber`: A180874
@@ -172,8 +174,10 @@ The following help files include references to integer sequences:
 - `silverConstant`: A116425
 - `silverRatio`: A014176
 - `somosSequence`: A006720
+- `sortingNumber`: A001855
 - `square`: A000290
 - `squarePyramidalNumber`: A000330
+- `stanleySequence`: A005836
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487
 - `stolarskyArray`: A035506

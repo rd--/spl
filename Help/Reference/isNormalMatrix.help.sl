@@ -11,7 +11,7 @@ A normal matrix:
 true
 
 >>> let a = [1 2; -2 1];
->>> let b = a.conjugateTranspose
+>>> let b = a.conjugateTranspose;
 >>> a.dot(b)
 b.dot(a)
 ```

@@ -15,7 +15,7 @@ true
 A _4,3,2,1_ Yamanouchi word:
 
 ```
->>> [2 3 4 3 1 2 1 1 2 1].asMultiset
+>>> [2 3 4 3 1 2 1 1 2 1]
 >>> .isYamanouchiWord
 true
 ```
@@ -43,6 +43,7 @@ There are five _2,2,1_ Yamanouchi words:
 >>> 	2 3 1 2 1;
 >>> 	2 1 3 2 1
 >>> ].allSatisfy(isYamanouchiWord:/1)
+true
 ```
 
 * * *

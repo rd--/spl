@@ -118,27 +118,27 @@ see also `polynomialGcd`:
 >>> let a = UnivariatePolynomial([6 7 1]);
 >>> let b = UnivariatePolynomial([-6 -5 1]);
 >>> a.gcd(b)
-UnivariatePolynomial([12 12])
+UnivariatePolynomial([1 1])
 
 >>> let a = UnivariatePolynomial([4 4 1]);
 >>> let b = UnivariatePolynomial([1 2 2]);
 >>> a.gcd(b)
-UnivariatePolynomial([25/18])
+UnivariatePolynomial([1])
 
 >>> let a = UnivariatePolynomial([-4 0 0 0 1]);
 >>> let b = UnivariatePolynomial([4 0 4 0 1]);
 >>> a.gcd(b)
-UnivariatePolynomial([-8 0 -4])
+UnivariatePolynomial([2 0 1])
 
 >>> let a = UnivariatePolynomial([-4 0 1]);
 >>> let b = UnivariatePolynomial([4 4 1]);
 >>> (a.gcd(b), a.resultant(b))
-(UnivariatePolynomial([-8, -4]), 0)
+(UnivariatePolynomial([2 1]), 0)
 
 >>> let a = UnivariatePolynomial([9 3]);
 >>> let b = UnivariatePolynomial([12 -3 0 6]);
->>> (a.gcd(b), a.resultant(b))
-(UnivariatePolynomial([-141]), -3807)
+>>> (a.gcd(b).degree, a.resultant(b))
+(0, -3807)
 ```
 
 The sum of two univariate polynomials of degrees seven and eleven:

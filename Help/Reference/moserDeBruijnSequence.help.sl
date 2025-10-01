@@ -22,7 +22,7 @@ an integer sequence consisting of the sums of distinct powers of four.
 ]
 ```
 
-Equivalently, they are the numbers whose binary representations are nonzero only in even positions.
+Equivalently, they are the numbers whose binary representations are nonzero only in even positions:
 
 ```
 >>> 23.moserDeBruijnSequence.collect { :each |

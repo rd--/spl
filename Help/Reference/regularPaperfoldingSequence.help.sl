@@ -35,7 +35,8 @@ The sequence can be defined by a substitution system:
 >>> 	[1 0] -> [1 1 0 0],
 >>> 	[0 0] -> [1 0 0 0]
 >>> ].substitutionSystem([1 1], 5)
-[[1 1
+[
+	1 1
 	;
 	1 1 0 1
 	;
