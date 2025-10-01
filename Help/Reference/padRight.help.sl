@@ -1,8 +1,8 @@
 # padRight
 
-- _padRight(anArray, aList, anObject)_
+- _padRight(a, ⍴, x)_
 
-Answer an array of shape _aList_ by suffixing _anArray_ with copies of _anObject_.
+Answer an array of shape _⍴_ by suffixing the array _a_ with copies of the object _x_.
 
 Pad a `List` to make a longer list:
 
@@ -81,6 +81,8 @@ At `String`:
 * * *
 
 See also: #, ++, arrayPad, padLeft, padLeftAndRight, recycle, reshape, shape, size
+
+Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _Mathematica_

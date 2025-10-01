@@ -97,6 +97,8 @@ Specify different amounts of padding for each edge:
 
 See also: padLeft, padRight
 
+Guides: Array Functions, List Functions, Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayPad.html),

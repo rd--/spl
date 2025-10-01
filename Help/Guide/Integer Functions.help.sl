@@ -24,6 +24,7 @@ Converting:
 Division-Related Functions:
 
 - `divisible`
+- `euclideanAlgorithm`
 - `gcd`
 - `isComposite`
 - `isCoprime`

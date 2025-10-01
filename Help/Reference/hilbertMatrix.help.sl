@@ -1,13 +1,13 @@
 # hilbertMatrix
 
-- _hilbertMatrix(m, n)_
+- _hilbertMatrix([m n])_
 
 Answer the _m×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
 
 3×3 Hilbert matrix:
 
 ```
->>> 3.hilbertMatrix(3)
+>>> [3 3].hilbertMatrix
 [
 	1/1 1/2 1/3;
 	1/2 1/3 1/4;
@@ -18,7 +18,7 @@ Answer the _m×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
 3×5 Hilbert matrix:
 
 ```
->>> 3.hilbertMatrix(5)
+>>> [3 5].hilbertMatrix
 [
 	1/1 1/2 1/3 1/4 1/5;
 	1/2 1/3 1/4 1/5 1/6;
@@ -29,7 +29,7 @@ Answer the _m×n_ Hilbert matrix with elements of the form _1 / (i + j - 1)_.
 Plot of 23×23 Hilbert matrix:
 
 ~~~spl svg=A
-23.hilbertMatrix(23).deepCollect { :each |
+[23 23].hilbertMatrix.deepCollect { :each |
 	[each ^ 1/7, 0.75, 0.5]
 	.hslToRgb
 	.srgbEncode
@@ -41,6 +41,8 @@ Plot of 23×23 Hilbert matrix:
 * * *
 
 See also: toeplitzMatrix
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

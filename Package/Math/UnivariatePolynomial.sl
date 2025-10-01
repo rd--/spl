@@ -68,7 +68,11 @@ UnivariatePolynomial : [Object] { | coefficientList |
 		self.coefficientList.discriminant
 	}
 
-	gcd { :self :operand |
+	exponent { :self |
+		self.degree
+	}
+
+	euclideanAlgorithm { :self :operand |
 		let a = self;
 		let b = operand;
 		{
@@ -79,6 +83,10 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			b := r
 		};
 		a
+	}
+
+	gcd { :self :operand |
+		self.euclideanAlgorithm(operand).monicPolynomial
 	}
 
 	isNormal { :self |
@@ -94,6 +102,12 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 	leadingCoefficient { :self |
 		self.coefficientList.last
+	}
+
+	mod { :self :modulus |
+		UnivariatePolynomial(
+			self.coefficientList % modulus
+		)
 	}
 
 	monicPolynomial { :self |
@@ -114,6 +128,22 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			c.removeLast
 		};
 		self
+	}
+
+	polynomialGcd { :self :operand |
+		self.gcd(operand)
+	}
+
+	polynomialQuotient { :self :operand |
+		self.quotient(operand)
+	}
+
+	polynomialQuotientRemainder { :self :operand |
+		self.quotientRemainder(operand)
+	}
+
+	polynomialRemainder { :self :operand |
+		self.remainder(operand)
 	}
 
 	postCopy { :self |
@@ -146,7 +176,9 @@ UnivariatePolynomial : [Object] { | coefficientList |
 	}
 
 	resultant { :self :operand |
-		self.coefficientList.resultant(operand.coefficientList)
+		self.coefficientList.resultant(
+			operand.coefficientList
+		)
 	}
 
 	storeString { :self |
@@ -390,6 +422,73 @@ UnivariatePolynomial : [Object] { | coefficientList |
 				(0 - b + d) / (2 * a),
 				(2 * c) / (0 - b + d)
 			]
+		}
+	}
+
+}
+
++List {
+
+	polynomialGcd { :self :operand |
+		UnivariatePolynomial(self).gcd(
+			UnivariatePolynomial(operand)
+		).coefficientList
+	}
+
+	polynomialMod { :self :operand |
+		UnivariatePolynomial(self).mod(
+			operand
+		).coefficientList
+	}
+
+	polynomialQuotient { :self :operand |
+		UnivariatePolynomial(self).quotient(
+			UnivariatePolynomial(operand)
+		).coefficientList
+	}
+
+	polynomialQuotientRemainder { :self :operand |
+		UnivariatePolynomial(self).quotientRemainder(
+			UnivariatePolynomial(operand)
+		).collect(coefficientList:/1)
+	}
+
+	polynomialRemainder { :self :operand |
+		UnivariatePolynomial(self).remainder(
+			UnivariatePolynomial(operand)
+		).coefficientList
+	}
+
+}
+
++System{
+
+	cachedCyclotomic { :self |
+		self.cached('cyclotomic') {
+			[1: UnivariatePolynomial([-1 1])]
+		}
+	}
+
+}
+
++@Integer{
+
+	cyclotomic { :self |
+		let c = system.cachedCyclotomic;
+		c.includesKey(self).if {
+			c.at(self)
+		} {
+			let p = self.isPrime.if {
+				UnivariatePolynomial(1 # self)
+			} {
+				let p = UnivariatePolynomial([-1] ++ (0 # (self - 1)) ++ [1]);
+				self.divisors.allButLast.do { :d |
+					p := p.quotient(d.cyclotomic)
+				};
+				p
+			};
+			c.add(self -> p);
+			p
 		}
 	}
 

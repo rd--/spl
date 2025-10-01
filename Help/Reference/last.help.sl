@@ -1,10 +1,10 @@
 # last
 
-- _last(aSequence)_
-- _last(aSequence, anInteger)_
-- _last(aSequence, anInteger, anObject)_
+- _last([x₁ x₂ …])_
+- _last([x₁ x₂ …], n)_
+- _last([x₁ x₂ …], n, z)_
 
-The unary form answers the last element of _aSequence_.
+The unary form answers the last element of the sequence _x_.
 
 ```
 >>> 1:6.last
@@ -14,7 +14,16 @@ The unary form answers the last element of _aSequence_.
 1
 ```
 
-The binary form answers the last _anInteger_ elements of _aSequence_:
+It is an error if the sequence is empty:
+
+```
+>>> {
+>>> 	[].last
+>>> }.hasError
+true
+```
+
+The binary form answers the last _n_ elements of the sequence _x_:
 
 ```
 >>> 1:99.last(23)
@@ -24,7 +33,7 @@ The binary form answers the last _anInteger_ elements of _aSequence_:
 [6 7 8 9]
 ```
 
-The ternary form will fill missing places with the specified value.
+The ternary form will fill missing places with the specified value _z_.
 Convert a list to a fixed size:
 
 ```
@@ -38,6 +47,8 @@ Convert a list to a fixed size:
 * * *
 
 See also: drop, first, middle, take
+
+Guides: List Functions
 
 References:
 _J_

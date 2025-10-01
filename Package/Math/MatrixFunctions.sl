@@ -326,6 +326,13 @@
 		}.table(1:m, 1:n)
 	}
 
+	hilbertMatrix { :self |
+		let [m, n] = self;
+		{ :i :j |
+			1 / (i + j - 1)
+		}.table(1:m, 1:n)
+	}
+
 	heldKarpAlgorithm { :self |
 		<primitive:
 		const dist = _self;
@@ -439,6 +446,12 @@
 
 	isLowerTriangularMatrix { :self |
 		self.isLowerTriangularMatrix(0)
+	}
+
+	isNormalMatrix { :self |
+		let a = self;
+		let b = a.conjugateTranspose;
+		a.dot(b) = b.dot(a)
 	}
 
 	isOrthogonalMatrix { :self |
@@ -1375,10 +1388,8 @@
 		[1 .. n].hankelMatrix
 	}
 
-	hilbertMatrix { :m :n |
-		{ :i :j |
-			1 / (i + j - 1)
-		}.table(1:m, 1:n)
+	hilbertMatrix { :self |
+		[self, self].hilbertMatrix
 	}
 
 	pascalMatrix { :n :l |

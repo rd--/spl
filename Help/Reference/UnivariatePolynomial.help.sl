@@ -90,7 +90,8 @@ Multiplication:
 UnivariatePolynomial([329 -225 736 -186 84])
 ```
 
-Quotient and remainder:
+Quotient and remainder,
+see also `polynomialQuotientRemainder`:
 
 ```
 >>> let a = UnivariatePolynomial([-42 0 -12 1]);
@@ -110,7 +111,8 @@ Quotient and remainder:
 ]
 ```
 
-Greatest common divisor:
+Greatest common divisor,
+see also `polynomialGcd`:
 
 ```
 >>> let a = UnivariatePolynomial([6 7 1]);

@@ -3,7 +3,7 @@
 - _vectorPlot(f:/2, x, y)_
 - _vectorPlot(f:/2, c)_
 
-Answer a vector plot of the vector field specicifed by the function _f_ of _x_ and _y_,
+Answer a vector plot of the vector field specified by the function _f_ of _x_ and _y_,
 specified as `Interval`s.
 
 Plot the vector field _(y,-x)_:

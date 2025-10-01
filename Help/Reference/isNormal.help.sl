@@ -1,8 +1,8 @@
 # isNormal
 
-- _isNormal(aRange)_
+- _isNormal(r)_
 
-A `Range` is normal if it is proper,
+A `Range` _r_ is normal if it is proper,
 and if the `start` value is less than or equal to the `stop` value:
 
 ```
@@ -14,3 +14,5 @@ and if the `start` value is less than or equal to the `stop` value:
 * * *
 
 See also: isProper, Range, start, stop
+
+Guides: Sequence Functions

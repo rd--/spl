@@ -33,6 +33,8 @@ Accessing:
 Rearranging:
 
 - `flipLeftRight`
+- `padLeft`
+- `padRight`
 - `squareForm`
 - `swapColumns`
 - `swapRows`
@@ -44,6 +46,7 @@ Predicates:
 - `isIntegerMatrix`
 - `isLowerTriangularMatrix`
 - `isMatrix`
+- `isNormalMatrix`
 - `isOrthogonalMatrix`
 - `isSquareMatrix`
 - `isSymmetricMatrix`
