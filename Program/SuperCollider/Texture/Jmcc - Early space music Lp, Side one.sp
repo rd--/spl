@@ -10,7 +10,7 @@
 				LfSaw([ff * Rand(0.99, 1.01), ff * Rand(0.99, 1.01)], 0) * 0.01
 			} !+ 10;
 			let x = z.Lpz2.Lpz2;
-			(0.3.coin & { f < 1400 }).ifTrue {
+			(system.coin(0.3) & { f < 1400 }).ifTrue {
 				let ff = SinOsc(Rand(0.3, 0.8), 0) * f * Rand(0.5, 3) + (f * Rand(4, 12));
 				x := Rlpf(x, ff, 0.1)
 			};

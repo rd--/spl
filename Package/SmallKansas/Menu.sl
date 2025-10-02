@@ -1,8 +1,4 @@
-MenuItem : [Object] { | name accessKey onSelect |
-
-	<= { :self :aMenuItem |
-		self.name <= aMenuItem.name
-	}
+MenuItem : [Object, Comparable] { | name accessKey onSelect |
 
 	accessKeyDislayText { :self |
 		self.accessKey.ifNil {
@@ -10,6 +6,10 @@ MenuItem : [Object] { | name accessKey onSelect |
 		} {
 			' (' ++ self.accessKey ++ ')'
 		}
+	}
+
+	compare { :self :aMenuItem |
+		self.name.compare(aMenuItem.name)
 	}
 
 	displayText { :self |

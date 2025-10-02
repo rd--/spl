@@ -1,6 +1,8 @@
 # asDate
 
-- _asDate(anObject)_
+- _asDate(x)_
+
+Convert the object _x_ into a `Date` value.
 
 At `Number`,
 answer the `Date` that is the specified number of seconds after 1 January, 1970:
@@ -36,7 +38,7 @@ At `Date` answer the identity:
 
 * * *
 
-See also: Date, DateAndTime, Duration, Time, TimeStamp
+See also: asDateAndTime, Date, DateAndTime, Duration, Time, TimeStamp
 
 Guides: Date and Time Functions
 

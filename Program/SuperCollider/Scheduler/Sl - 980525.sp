@@ -1,6 +1,6 @@
 /* Staffan Liljegren 980525 ; Rd (edit) */
 { :currentTime |
-	(1 / 7).coin.ifFalse {
+	system.coin(1 / 7).ifFalse {
 		let chord = [60 63 67; 65 68 72; 55 58 62].atRandom;
 		let iot = (1 / [3 5 7 11 13 17]).atRandom;
 		(iot * 0:2).do { :startTime |

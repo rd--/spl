@@ -6,7 +6,7 @@ let blipProc = {
 	)
 };
 {
-	if(0.8.coin) {
+	if(system.coin(0.8)) {
 		let z = EqPan(
 			blipProc() * blipProc(),
 			Line(1.Rand2, 1.Rand2, 4)

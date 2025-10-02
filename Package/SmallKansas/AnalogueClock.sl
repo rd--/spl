@@ -95,7 +95,7 @@ AnalogueClock : [Object, View, SmallKansan] { | clockPane hourHand minuteHand se
 	}
 
 	tick { :self |
-		let dateAndTime = system.now.asDate;
+		let dateAndTime = system.now.asDateAndTime;
 		self.moveHourHand(dateAndTime.hour + (dateAndTime.minute / 60));
 		self.moveMinuteHand(dateAndTime.minute);
 		self.moveSecondHand(dateAndTime.second)
