@@ -2,6 +2,7 @@
 
 Types:
 
+- `BivariatePolynomial`
 - `UnivariatePolynomial`
 
 Accessors:
@@ -17,6 +18,7 @@ Constructors:
 - `chebyshevT`
 - `chebyshevU`
 - `cyclotomic`
+- `legendreP`
 
 Converting:
 

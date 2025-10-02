@@ -7,11 +7,21 @@ Instance Creation:
 - `species`
 - `ofSize`
 
-Enumerating:
+Enumerating Functions:
 
 - `collect`
 - `reject`
 - `select`
+
+Predicate Functions:
+
+- `isEmpty`
+
+Control Functions:
+
+- `ifEmpty`
+- `ifNotEmpty`
+
 
 * * *
 

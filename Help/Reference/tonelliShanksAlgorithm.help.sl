@@ -151,7 +151,5 @@ See also: ^, %, powerMod
 Guides: Prime Number Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm)

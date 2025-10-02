@@ -1,12 +1,12 @@
 # isEmpty
 
-- _isEmpty(aCollection)_
+- _isEmpty(c)_
 
-Answers whether _aCollection_ contains any elements.
+Answers whether the collection _c_ contains any elements.
 
-For a finite collection this may be the same as asking if the _size_ is not zero,
-however _size_ may require traversing the entire collection,
-where _isEmpty_ may only need to examine if there is an initial element.
+For a finite collection this may be the same as asking if the `size` is not zero,
+however `size` may require traversing the entire collection,
+whereas `isEmpty` may only need to examine if there is an initial element.
 
 At `List`:
 
@@ -26,6 +26,13 @@ At `Map`:
 
 ```
 >>> [:].isEmpty
+true
+```
+
+At `Set`:
+
+```
+>>> {| |}.isEmpty
 true
 ```
 
@@ -49,6 +56,8 @@ For streams, answers `true` if both the set of past and future sequence values a
 * * *
 
 See also: ifEmpty, isNotEmpty, size
+
+Guides: Collection Functions
 
 References:
 _Haskell_

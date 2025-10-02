@@ -9,20 +9,30 @@ Boolean Logic:
 - `if`
 - `ifTrue`
 - `ifFalse`
-- `ifEmpty`
-- `ifNotEmpty`
 - `ifNil`
 - `ifNotNil`
+- `ifEmpty`
+- `ifNotEmpty`
 
 Branching:
 
 - `caseOf`
 - `which`
 
+Collections:
+
+- `ifEmpty`
+- `ifNotEmpty`
+
 Conditional Loops:
 
 - `whileTrue`
 - `whileFalse`
+
+Nil:
+
+- `ifNil`
+- `ifNotNil`
 
 Non-local Return:
 

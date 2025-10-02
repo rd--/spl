@@ -102,6 +102,16 @@
 		}
 	}
 
+	designMatrix { :self :aBlock:/1 |
+		let [m, n] = self.shape;
+		self.submatrix(
+			[1 .. m],
+			[1 .. n - 1]
+		).collect { :each |
+			[1] ++ aBlock(each)
+		}
+	}
+
 	diagonal { :self :k |
 		let m = self.assertIsMatrix('List>>diagonal');
 		let l = m.shape.min - k.abs;

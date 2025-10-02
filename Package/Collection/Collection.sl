@@ -434,9 +434,17 @@
 		}
 	}
 
-	ifNotEmpty { :self :aBlock |
+	ifNotEmpty { :self :notEmptyBlock |
 		self.isEmpty.ifFalse {
-			aBlock.cull(self)
+			notEmptyBlock.cull(self)
+		}
+	}
+
+	ifNotEmpty { :self :notEmptyBlock :emptyBlock:/0 |
+		self.isEmpty.if {
+			emptyBlock()
+		} {
+			notEmptyBlock.cull(self)
 		}
 	}
 

@@ -43,7 +43,5 @@ See also: denominator, Fraction, isPowerOfTwo, minkowskiQuestionMark
 Guides: Integer Functions, Mathematical Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _W_
 [1](https://en.wikipedia.org/wiki/Dyadic_rational)

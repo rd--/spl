@@ -511,6 +511,10 @@
 		(1 .. n).product(prime:/1)
 	}
 
+	radical { :self |
+		self.factorInteger.collect(key:/1).product
+	}
+
 	sieveOfEratosthenesDo { :self :aBlock:/1 |
 		let size = self;
 		let flags = List(size);

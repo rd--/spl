@@ -7,7 +7,7 @@ Answer a value _x_ that solves the linear least-squares problem for the matrix e
 Solve a simple least-squares problem:
 
 ```
->>> let m = [1 1 ; 1 2; 1 3];
+>>> let m = [1 1; 1 2; 1 3];
 >>> let b = [7 7 8];
 >>> leastSquares(m, b)
 [19/3 1/2]
@@ -90,6 +90,53 @@ Solve for data set giving average heights and weights:
 [128.8128 -143.1620 61.9603]
 ```
 
+Use least squares to fit data _{w,p}_ using a model _a+b*log(w)=p_,
+and predict _p_ for _w_ of 100:
+
+```
+>>> let m = [
+>>> 	44 92; 61 99; 81 104;
+>>> 	113 111; 131 113
+>>> ];
+>>> let d = m.designMatrix(log:/1);
+>>> let [_, y] = m.transpose;
+>>> d.leastSquares(y)
+[18.924 19.385]
+
+>>> 18.924 + (19.385 * 100.log)
+108.195
+```
+
+Use least squares to predict a Kepler orbit:
+
+```
+>>> let r = [3 2.3 1.65 1.25 1.01];
+>>> let theta = [0.89 1.2 1.43 1.78 2.15];
+>>> let d = [r theta r].transpose.designMatrix { :u |
+>>> 	let [r, theta] = u;
+>>> 	[r * theta.cos]
+>>> };
+>>> d.leastSquares(r)
+[1.4857 0.8322]
+```
+
+Use least squares to fit data _{x,y}_ using a quadratic polynomial:
+
+```
+>>> let x = [0 .. 10];
+>>> let y = [
+>>> 	1 6 17 34 57
+>>> 	86 121 162 209 262
+>>> 	321
+>>> ];
+>>> let m = [x, y].transpose;
+>>> let d = m.designMatrix { :x |
+>>> 	x ^ [0 1 2]
+>>> };
+>>> d.leastSquares(y)
+[1 2 3 0]
+```
+
 * * *
 
 See also: dot, inverse, pseudoInverse, qrDecomposition, singularValueDecomposition
@@ -100,4 +147,5 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/LeastSquares.html),
 _W_
-[1](https://en.wikipedia.org/wiki/Ordinary_least_squares)
+[1](https://en.wikipedia.org/wiki/Least_squares)
+[2](https://en.wikipedia.org/wiki/Ordinary_least_squares)

@@ -32,6 +32,7 @@ Factors:
 - `primeLimit`
 - `primeNu`
 - `primeOmega`
+- `radical`
 
 Counting:
 

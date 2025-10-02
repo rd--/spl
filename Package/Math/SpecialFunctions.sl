@@ -102,6 +102,32 @@
 	}
 }
 
+
++[SmallFloat, Complex] {
+
+	hypergeometric2F1 { :a :b :c :z |
+		let tolerance = 1E-10;
+		let iterationLimit = 1000;
+		let term = a * b * z / c;
+		let value = 1 + term;
+		let n = 1;
+		{
+			term.abs > tolerance & {
+				n < iterationLimit
+			}
+		}.whileTrue {
+			a := a + 1;
+			b := b + 1;
+			c := c + 1;
+			n := n + 1;
+			term := term * (a * b * z / c / n);
+			value := value + term
+		};
+		value
+	}
+
+}
+
 +Fraction {
 
 	fabiusFunction { :x :n |

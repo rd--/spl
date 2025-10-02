@@ -18,8 +18,8 @@ else answer _c_ or _g.cull(c)_.
 
 * * *
 
-See also: if, ifFalse, ifNil, ifNotNil, ifTrue, size
+See also: if, ifFalse, ifNil, ifNotEmpty, ifNotNil, ifTrue, size
 
-Guides: Control Functions
+Guides: Collection Functions, Control Functions
 
 Categories: Evaluating

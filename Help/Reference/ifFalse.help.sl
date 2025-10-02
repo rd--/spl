@@ -1,15 +1,17 @@
 # ifFalse
 
-- _ifFalse(aBoolean, aBlock:/0)_
+- _ifFalse(b, f:/0)_
 
 Conditional evaluation.
-If _aBoolean_ is _false_ answer the result of  _aBlock()_, else answer _nil_.
+If the boolean _b_ is `false` answer the result of evaluating _f_,
+else answer `nil`.
 
 ```
->>> let x = nil;
->>> false.ifFalse { x := 1 };
->>> x
-1
+>>> let a = nil;
+>>> let b = false.ifFalse { a := 1 };
+>>> let c = true.ifFalse { a := 2 };
+>>> (a, b, c)
+(1, 1, nil)
 ```
 
 Non-boolean values signal an error:

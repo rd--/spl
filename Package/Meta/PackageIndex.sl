@@ -163,6 +163,7 @@
 	'Math-ApproximateMathFunctions'
 	'Math-Bessel'
 	'Math-Binomial'
+	'Math-BivariatePolynomial'
 	'Math-Combinatorics'
 	'Math-DifferentialEquations'
 	'Math-DistanceFunctions'

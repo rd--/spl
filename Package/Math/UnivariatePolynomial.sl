@@ -103,7 +103,7 @@ UnivariatePolynomial : [Object] { | coefficientList |
 	}
 
 	isZero { :self |
-		self.degree = -1
+		self.coefficientList.isEmpty
 	}
 
 	leadingCoefficient { :self |
@@ -327,6 +327,17 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 +Map {
 
+	Polynomial { :self |
+		self.keyType.caseOf(
+			[
+				'SmallFloat' -> { UnivariatePolynomial(self) },
+				'List' -> { BivariatePolynomial(self) }
+			]
+		) {
+			self.error('Polynomial: invalid coefficient dictionary')
+		}
+	}
+
 	UnivariatePolynomial { :self |
 		let n = self.keys.max;
 		let c = 0:n.collect { :i |
@@ -457,6 +468,18 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 +List {
 
+	Polynomial { :self |
+		self.isVector.if {
+			UnivariatePolynomial(self)
+		} {
+			self.isMatrix.if {
+				BivariatePolynomial(self)
+			} {
+				self.error('Polynomial: not vector or matrix')
+			}
+		}
+	}
+
 	polynomialGcd { :self :operand |
 		UnivariatePolynomial(self).gcd(
 			UnivariatePolynomial(operand)
@@ -489,7 +512,7 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 }
 
-+System{
++System {
 
 	cachedCyclotomic { :self |
 		self.cached('cyclotomic') {
@@ -499,7 +522,7 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 }
 
-+@Integer{
++@Integer {
 
 	cyclotomic { :self |
 		let c = system.cachedCyclotomic;
@@ -517,6 +540,22 @@ UnivariatePolynomial : [Object] { | coefficientList |
 			};
 			c.add(self -> p);
 			p
+		}
+	}
+
+	legendreP { :self |
+		self.caseOf(
+			[
+				0 -> { UnivariatePolynomial([1]) },
+				1 -> { UnivariatePolynomial([0 1]) }
+			]
+		) {
+			let n = self - 1;
+			let a = UnivariatePolynomial([0, (2 * n) + 1]);
+			let b = legendreP(n);
+			let c = legendreP(n - 1);
+			let d = 1 / (n + 1);
+			((a * b) - (c * n)) * d
 		}
 	}
 

@@ -31,6 +31,13 @@ The arity is given by `numArgs`:
 1
 ```
 
+The empty block answers `nil`:
+
+```
+>>> { } . ()
+nil
+```
+
 The names of the arguments can be retrieved using `argumentNames`:
 
 ```

@@ -166,6 +166,7 @@ The following help files include references to integer sequences:
 - `polygonalNumber: A000217 A139610
 - `primeGap`: A001223
 - `primesList`: A000040
+- `radical`: A007947
 - `recamanSequence`: A005132
 - `regularPaperfoldingSequence`: A014577
 - `rudinShapiro`: A020985
