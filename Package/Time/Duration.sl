@@ -1,4 +1,4 @@
-Duration : [Object, Copyable, Equatable, Comparable, Magnitude] { | seconds |
+Duration : [Object, Equatable, Comparable, Magnitude] { | seconds |
 
 	< { :self :aDuration |
 		self.seconds < aDuration.asDuration.seconds

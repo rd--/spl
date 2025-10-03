@@ -22,8 +22,8 @@ A `Type` holds a `methodDictionary`:
 >>> let t = system.typeLookup('List');
 >>> let m = t.methodDictionary;
 >>> (
->>> 	m.includesKey('shallowCopy:/1'),
->>> 	m['shallowCopy:/1'].isMethod
+>>> 	m.includesKey('asList:/1'),
+>>> 	m['asList:/1'].isMethod
 >>> )
 (true, true)
 ```

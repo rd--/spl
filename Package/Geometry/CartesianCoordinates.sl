@@ -130,10 +130,6 @@ CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Inde
 		}
 	}
 
-	copy { :self |
-		CartesianCoordinates(self.coordinates.copy)
-	}
-
 	cross { :u :v |
 		CartesianCoordinates(
 			u.coordinates.cross(
@@ -144,6 +140,10 @@ CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Inde
 
 	first { :self |
 		self.at(1)
+	}
+
+	postCopy { :self |
+		self.coordinates := self.coordinates.copy
 	}
 
 	second { :self |

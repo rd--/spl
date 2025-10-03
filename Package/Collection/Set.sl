@@ -7,10 +7,6 @@
 		self.include(anObject)
 	}
 
-	basicInclude { :self :anObject |
-		self.include(anObject)
-	}
-
 	collect { :self :aBlock:/1 |
 		let answer = self.species.new;
 		self.do { :each |
@@ -50,6 +46,10 @@
 	without { :self :anObject |
 		self.removeIfAbsent(anObject) { };
 		self
+	}
+
+	uncheckedInclude { :self :anObject |
+		self.include(anObject)
 	}
 
 }

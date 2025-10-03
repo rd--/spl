@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
+String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
 	= { :self :anObject |
 		self == anObject
@@ -17,7 +17,7 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 	}
 
 	++ { :self :anObject |
-		self.basicAppendString(anObject.asString)
+		self.uncheckedAppendString(anObject.asString)
 	}
 
 	< { :self :operand |
@@ -175,26 +175,6 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 		self.characters.atAll(indices).stringCatenate
 	}
 
-	basicAppendString { :self :aString |
-		<primitive: return _self + _aString;>
-	}
-
-	basicCopyFromTo { :self :start :end |
-		<primitive: return _self.substring(_start - 1, _end);>
-	}
-
-	basicAt { :self :index |
-		self.codePointAt(index).fromCodePoint
-	}
-
-	basicReplaceString { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
-	}
-
-	basicReplaceStringAll { :self :stringToFind :stringToReplaceWith |
-		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
-	}
-
 	beginsWith { :self :aString |
 		<primitive:
 		if(typeof _aString == 'string') {
@@ -311,6 +291,10 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 		}
 	}
 
+	copy { :self |
+		self
+	}
+
 	copyFromTo { :self :start :end |
 		self.includesIndex(start).ifFalse {
 			self.error('copyFromTo: invalid start index')
@@ -321,7 +305,7 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 		(start > end).if {
 			''
 		} {
-			self.basicCopyFromTo(start, end)
+			self.uncheckedCopyFromTo(start, end)
 		}
 	}
 
@@ -855,13 +839,13 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 	replaceString { :self :stringToFind :stringToReplaceWith |
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;
-		self.basicReplaceString(stringToFind, stringToReplaceWith)
+		self.uncheckedReplaceString(stringToFind, stringToReplaceWith)
 	}
 
 	replaceStringAll { :self :stringToFind :stringToReplaceWith |
 		stringToFind.assertIsString;
 		stringToReplaceWith.assertIsString;
-		self.basicReplaceStringAll(stringToFind, stringToReplaceWith)
+		self.uncheckedReplaceStringAll(stringToFind, stringToReplaceWith)
 	}
 
 	reverse { :self |
@@ -890,10 +874,6 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 
 	sentences { :self |
 		<primitive: return sl.stringToSentences(_self);>
-	}
-
-	shallowCopy { :self |
-		self
 	}
 
 	size { :self |
@@ -942,6 +922,26 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 		} {
 			self.copyFromTo(1, smallSize)
 		}
+	}
+
+	uncheckedAppendString { :self :aString |
+		<primitive: return _self + _aString;>
+	}
+
+	uncheckedCopyFromTo { :self :start :end |
+		<primitive: return _self.substring(_start - 1, _end);>
+	}
+
+	uncheckedAt { :self :index |
+		self.codePointAt(index).fromCodePoint
+	}
+
+	uncheckedReplaceString { :self :stringToFind :stringToReplaceWith |
+		<primitive: return _self.replace(_stringToFind, _stringToReplaceWith);>
+	}
+
+	uncheckedReplaceStringAll { :self :stringToFind :stringToReplaceWith |
+		<primitive: return _self.replaceAll(_stringToFind, _stringToReplaceWith);>
 	}
 
 	unique { :self |
@@ -1067,10 +1067,6 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 
 +List {
 
-	basicStringIntercalate { :self :aString |
-		<primitive: return _self.join(_aString);>
-	}
-
 	camelCase { :self |
 		[self.first] ++ self.allButFirst.collect(capitalize:/1)
 	}
@@ -1124,14 +1120,14 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 
 	stringIntercalate { :self :aString |
 		(self.allSatisfy(isString:/1) && aString.isString).if {
-			self.basicStringIntercalate(aString)
+			self.uncheckedStringIntercalate(aString)
 		} {
 			self.error('List>>stringIntercalate: non-string arguments')
 		}
 	}
 
 	stringJoin { :self :aString |
-		self.flatten.collect(asString:/1).basicStringIntercalate(aString.asString)
+		self.flatten.collect(asString:/1).uncheckedStringIntercalate(aString.asString)
 	}
 
 	stringJoin { :self |
@@ -1158,6 +1154,10 @@ String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, C
 		self.collect { :each |
 			each.toCharacterCode(encoding)
 		}
+	}
+
+	uncheckedStringIntercalate { :self :aString |
+		<primitive: return _self.join(_aString);>
 	}
 
 	unlines { :self |

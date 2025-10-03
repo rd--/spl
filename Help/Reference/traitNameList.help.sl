@@ -11,7 +11,6 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 >>> 23.typeDefinition.traitNameList
 [
 	'Object'
-	'Copyable'
 	'Equatable'
 	'Comparable'
 	'Json'

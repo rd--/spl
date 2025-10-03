@@ -3,7 +3,7 @@
 BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 
 	copy { :self |
-		'BlockStream>>copy: not implemented'.error
+		'BlockStream>>copy'.error
 	}
 
 	next { :self |

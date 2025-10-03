@@ -240,7 +240,7 @@
 				[i.vanDerCorputNumber(2), Fraction(i, n)]
 			}
 		} {
-			d.error('hammersleyPointSet: not implemented')
+			d.unimplementedCase('hammersleyPointSet')
 		}
 	}
 
@@ -771,7 +771,7 @@
 	isMarkovNumber { :self |
 		let u = 100.markovNumberSequence;
 		(self > u.max).if {
-			self.error('not implemented')
+			self.unimplementedCase('isMarkovNumber')
 		} {
 			u.includes(self)
 		}

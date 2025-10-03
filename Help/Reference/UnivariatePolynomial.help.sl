@@ -41,7 +41,7 @@ Copying:
 
 ```
 >>> let a = Polynomial([1 2 3]);
->>> let b = a.deepCopy;
+>>> let b = a.copy;
 >>> a.coefficientList !== b.coefficientList
 true
 ```

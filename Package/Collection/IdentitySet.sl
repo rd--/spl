@@ -1,32 +1,17 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] {
+IdentitySet! : [Object, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] {
 
 	asList { :self |
 		<primitive: return Array.from(_self);>
 	}
 
-	basicInclude { :self :anObject |
-		<primitive:
-		_self.add(_anObject);
-		return _anObject;
-		>
+	copy { :self |
+		<primitive: return new Set(_self);>
 	}
 
-	basicIncludeAll { :self :aCollection |
-		<primitive:
-		for (const item of _aCollection) {
-			_self.add(item);
-		};
-		return _aCollection;
-		>
-	}
-
-	basicRemove { :self :anObject |
-		<primitive:
-		_self.delete(_anObject);
-		return _anObject;
-		>
+	deepCopy { :self |
+		self.primitiveDeepCopy
 	}
 
 	do { :self :aBlock |
@@ -42,7 +27,7 @@ IdentitySet! : [Object, Copyable, Equatable, Iterable, Collection, Extensible, R
 		anObject.isImmediate.ifFalse {
 			self.error('IdentitySet>>include: non-immediate entry: ' ++ anObject)
 		};
-		self.basicInclude(anObject)
+		self.uncheckedInclude(anObject)
 	}
 
 	includes { :self :anObject |
@@ -71,10 +56,6 @@ IdentitySet! : [Object, Copyable, Equatable, Iterable, Collection, Extensible, R
 		>
 	}
 
-	shallowCopy { :self |
-		<primitive: return new Set(_self);>
-	}
-
 	size { :self |
 		<primitive: return _self.size;>
 	}
@@ -85,6 +66,29 @@ IdentitySet! : [Object, Copyable, Equatable, Iterable, Collection, Extensible, R
 
 	storeString { :self |
 		'IdentitySet(%)'.format([self.asList.storeString])
+	}
+
+	uncheckedInclude { :self :anObject |
+		<primitive:
+		_self.add(_anObject);
+		return _anObject;
+		>
+	}
+
+	uncheckedIncludeAll { :self :aCollection |
+		<primitive:
+		for (const item of _aCollection) {
+			_self.add(item);
+		};
+		return _aCollection;
+		>
+	}
+
+	uncheckedRemove { :self :anObject |
+		<primitive:
+		_self.delete(_anObject);
+		return _anObject;
+		>
 	}
 
 }

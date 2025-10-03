@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Copyable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anObject |
 		<primitive: return _self === _anObject;>
@@ -195,6 +195,10 @@ LargeInteger! : [Object, Copyable, Equatable, Comparable, Binary, Magnitude, Num
 		self.error('bitXor: operand not a LargeInteger or SmallFloat')
 	}
 
+	copy { :self |
+		self
+	}
+
 	floorLog { :self :radix |
 		(self <= 0).if {
 			self.error('LargeInteger>>floorLog: is only defined for x > 0')
@@ -316,10 +320,6 @@ LargeInteger! : [Object, Copyable, Equatable, Comparable, Binary, Magnitude, Num
 		}
 		>
 		self.error('ramainder: not integer')
-	}
-
-	shallowCopy { :self |
-		self
 	}
 
 	sqrt { :self |

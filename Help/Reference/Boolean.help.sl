@@ -15,7 +15,7 @@ List of traits implemented by `Boolean`:
 ```
 >>> system.typeLookup('Boolean')
 >>> .traitNameList
-['Object' 'Copyable' 'Identifiable' 'Json']
+['Object' 'Equatable' 'Json']
 ```
 
 The basic logical operations are `&`, `&&`, `|` and `||`.

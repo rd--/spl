@@ -1,4 +1,4 @@
-Fraction : [Object, Copyable, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
+Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
 
 	< { :self :aNumber |
 		aNumber.isFraction.if {

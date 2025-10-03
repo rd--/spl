@@ -1,4 +1,4 @@
-Span : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Span : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	asRange { :self |
 		self.isRelative.if {

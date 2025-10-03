@@ -6,6 +6,32 @@
 In the unary case,
 answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the first kind of degree _n_.
 
+Coefficient for the first few Chebyshev polynomials of the first kind,
+OEIS [A008310](https://oeis.org/A008310):
+
+```
+>>> 0:12.collect { :n |
+>>> 	let p = n.chebyshevT;
+>>> 	let c = p.coefficientList;
+>>> 	c.without(0)
+>>> }
+[
+	1;
+	1;
+	-1 2;
+	-3 4;
+	1 -8 8;
+	5 -20 16;
+	-1 18 -48 32;
+	-7 56 -112 64;
+	1 -32 160 -256 128;
+	9 -120 432 -576 256;
+	-1 50 -400 1120 -1280 512;
+	-11 220 -1232 2816 -2816 1024;
+	1 -72 840 -3584 6912 -6144 2048
+]
+```
+
 Evaluate at specific _x_:
 
 ```
@@ -74,6 +100,18 @@ let p = 0:4.collect(chebyshevT:/1);
 
 ![](sw/spl/Help/Image/chebyshevT-C.svg)
 
+Plot a slice of a Banchoff–Chmutov surface:
+
+~~~spl png=D
+let f:/1 = 4.chebyshevT.asBlock;
+let i = (-1.15 -- 1.15).subdivide(100);
+{ :x :y |
+	f(x) + f(y)
+}.table(i, i).rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/chebyshevT-D.png)
+
 Evaluate symbolically:
 
 ```
@@ -95,6 +133,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/ChebyshevPolynomialoftheFirstKind.html)
 [2](https://reference.wolfram.com/language/ref/ChebyshevT.html),
 _Mathworks_
-[1](https://mathworks.com/help/symbolic/sym.chebyshevt.html)
+[1](https://mathworks.com/help/symbolic/sym.chebyshevt.html),
+_OEIS_
+[1](https://oeis.org/A008310)
+[2](https://oeis.org/A053120),
 _W_
 [1](https://en.wikipedia.org/wiki/Chebyshev_polynomials)

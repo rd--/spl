@@ -1,5 +1,9 @@
 @Exception {
 
+	copy { :self |
+		self.shouldNotImplement('copy')
+	}
+
 	description { :self |
 		self.cause.ifNil {
 			self.name ++ ': ' ++ self.messageText
@@ -14,10 +18,6 @@
 
 	isException { :self |
 		true
-	}
-
-	shallowCopy { :self |
-		self.error('Exception>>shallowCopy: cannot copy')
 	}
 
 }
@@ -90,6 +90,10 @@ TypeError! : [Object, Exception, PrimitiveError] {
 
 	typeResponsibility { :self :signature |
 		self.error(signature ++ ': type responsibility')
+	}
+
+	unimplementedCase { :self :signature |
+		self.error(signature ++ ': unimplemented case')
 	}
 
 }

@@ -26,7 +26,7 @@ SmallKansas : [Object, Cache] { | container frameSet cache history where |
 		event.ifNotNil {
 			frame.moveTo(event.x, event.y)
 		};
-		self.frameSet.basicInclude(frame);
+		self.frameSet.uncheckedInclude(frame);
 		self.container.appendChild(frame.outerElement);
 		frame
 	}

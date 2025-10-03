@@ -1,6 +1,6 @@
 /* Requires: List, Object */
 
-Association : [Object, Copyable, Equatable, Comparable] { | key value |
+Association : [Object, Equatable, Comparable] { | key value |
 
 	compare { :self :anAssociation |
 		self.key.compare(anAssociation.key)

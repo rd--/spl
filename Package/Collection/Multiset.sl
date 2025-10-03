@@ -187,6 +187,10 @@
 
 Multiset : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
 
+	postCopy { :self |
+		self.contents := self.contents.copy
+	}
+
 	species { :self |
 		Multiset:/0
 	}

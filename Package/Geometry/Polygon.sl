@@ -354,7 +354,7 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 			}.Polygon
 		} {
 			(d = 3).if {
-				self.error('randomStarConvexPolygon: d=3 not implemented')
+				self.unimplementedCase('randomStarConvexPolygon')
 			} {
 				self.error('randomStarConvexPolygon: d={2,3}')
 			}

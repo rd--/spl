@@ -304,7 +304,7 @@ LinkedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Coll
 
 }
 
-ValueLink : [Object, Copyable, Equatable, Link] { | nextLink value |
+ValueLink : [Object, Equatable, Link] { | nextLink value |
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isValueLink & {

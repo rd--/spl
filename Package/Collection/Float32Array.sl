@@ -1,4 +1,4 @@
-Float32Array! : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable, PrimitiveSequence] {
+Float32Array! : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable, PrimitiveSequence] {
 
 	atPut { :self :index :aFloat |
 		<primitive:
@@ -14,12 +14,12 @@ Float32Array! : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, C
 		<primitive: return _self.buffer;>
 	}
 
-	encode { :self :littleEndian |
-		<primitive: return sc.encodeFloat32Array(_self, _littleEndian);>
+	copy { :self |
+		<primitive: return new Float32Array(_self);>
 	}
 
-	shallowCopy { :self |
-		<primitive: return new Float32Array(_self);>
+	encode { :self :littleEndian |
+		<primitive: return sc.encodeFloat32Array(_self, _littleEndian);>
 	}
 
 	species { :self |

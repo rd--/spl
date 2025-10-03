@@ -67,6 +67,14 @@
 		}
 	}
 
+	copy { :self |
+		self.primitiveCopy
+	}
+
+	deepCopy { :self |
+		self.typeResponsibility('deepCopy')
+	}
+
 	errorMessage { :self :message |
 		'%: %: (%)'.format([
 			self.typeOf,
@@ -150,6 +158,14 @@
 
 	perform { :self :aString :aValue |
 		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
+	}
+
+	primitiveCopy { :self |
+		<primitive: return Object.assign({}, _self);>
+	}
+
+	primitiveDeepCopy { :self |
+		<primitive: return structuredClone(_self);>
 	}
 
 	primitiveIdentity { :self :anObject |
@@ -239,7 +255,7 @@
 	}
 
 	value { :self |
-		/* self.error('@Object>>value: protocol not implemented') */
+		/* self.shouldNotImplement('value') */
 		self
 	}
 

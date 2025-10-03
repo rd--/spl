@@ -1,4 +1,4 @@
-Quantity : [Object, Copyable, Equatable, Comparable, Magnitude] { | magnitude unit |
+Quantity : [Object, Equatable, Comparable, Magnitude] { | magnitude unit |
 
 	< { :self :anObject |
 		self.isCommensurate(anObject).if {

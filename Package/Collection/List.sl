@@ -1,4 +1,4 @@
-List! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveSequence, Ordered] {
+List! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable, PrimitiveSequence, Ordered] {
 
 	addListFirst { :self :aList |
 		<primitive:
@@ -37,6 +37,10 @@ List! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, Col
 		_self.fill(_anObject);
 		return _anObject;
 		>
+	}
+
+	copy { :self |
+		<primitive: return Array.from(_self);>
 	}
 
 	copyList { :self |
@@ -189,10 +193,6 @@ List! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, Col
 
 	scalingMatrix { :self |
 		self.diagonalMatrix
-	}
-
-	shallowCopy { :self |
-		<primitive: return Array.from(_self);>
 	}
 
 	species { :self |

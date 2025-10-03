@@ -31,10 +31,6 @@ UnsortedSet : [Object, Equatable, Iterable, Collection, Extensible, Removable, U
 		}
 	}
 
-	shallowCopy { :self |
-		self.contents.shallowCopy.asUnortedSet
-	}
-
 	size { :self |
 		self.contents.size
 	}

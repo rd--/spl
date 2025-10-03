@@ -46,7 +46,7 @@
 				k ^ k
 			}.product
 		} {
-			'@Integer>>hyperfactorial: not implemented for non-integer'.error
+			self.unimplementedCase('hyperfactorial')
 		}
 	}
 

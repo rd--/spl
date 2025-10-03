@@ -67,10 +67,6 @@ PlanarCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Indexab
 		self
 	}
 
-	copy { :self |
-		PlanarCoordinates(self.coordinates.copy)
-	}
-
 	inverse { :self :inversionCenter :inversionRadius |
 		let x = self.x;
 		let y = self.y;
@@ -107,6 +103,10 @@ PlanarCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Indexab
 
 	phi { :self |
 		atan2(self.y, self.x)
+	}
+
+	postCopy { :self |
+		self.coordinates := self.coordinates.copy
 	}
 
 	quotient { :self :anObject |

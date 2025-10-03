@@ -1263,9 +1263,8 @@ let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /*
 let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
 let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fraction */
 let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
-let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallowCopy array */
-let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deepCopy array */
-let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a /* copy of array is shallowCopy and postCopy */
+let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
+let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
 let b = [1, 2, 2].asIdentityMultiset; let c = b.copy; c.add(3); c != b & { c = [1, 2, 2, 3].asIdentityMultiset } /* copy bag */
 let b = [1, 2].asBitSet; let c = b.copy; c.add(3); c != b & { c = [1, 2, 3].asBitSet } /* copy bitset */
 let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
@@ -3847,8 +3846,8 @@ system.typeLookup('Association').methodDictionary.select { :each | each.name = '
 system.typeLookup('Association').methodDictionary.anySatisfy { :each | each.name = 'copy' } = false
 system.typeLookup('List').isType = true
 system.typeLookup('List').name = 'List'
-system.typeLookup('List').methodDictionary.includesIndex('shallowCopy:/1') = true
-system.typeLookup('List').methodDictionary['shallowCopy:/1'].isMethod = true
+system.typeLookup('List').methodDictionary.includesIndex('asList:/1') = true
+system.typeLookup('List').methodDictionary['asList:/1'].isMethod = true
 system.typeMethodDictionary('List').anySatisfy { :each | each.name ='select' } = true
 system.typeLookup('String').isType = true
 system.typeLookup('String').methodDictionary.includesIndex('includesSubstring:/2') = true
@@ -3968,7 +3967,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour:/0' /* constructo
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object' 'Copyable' 'Equatable' 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['Object' 'Equatable' 'Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access

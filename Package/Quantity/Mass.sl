@@ -1,4 +1,4 @@
-Mass : [Object, Copyable, Equatable, Comparable, Magnitude] { | kilograms |
+Mass : [Object, Equatable, Comparable, Magnitude] { | kilograms |
 
 	< { :self :aMass |
 		self.kilograms < aMass.kilograms

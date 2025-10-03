@@ -359,7 +359,7 @@
 	}
 
 	removeIfAbsent { :self :oldObject :anExceptionBlock:/0 |
-		self.shouldNotImplement('@Dictionary>>removeIfAbsent')
+		self.shouldNotImplement('removeIfAbsent')
 	}
 
 	replace { :self :aBlock:/1 |
@@ -553,6 +553,11 @@ Dictionary : [Object, Copyable, Equatable, Iterable, Indexable, Collection, Exte
 			aBlock(keys[index], values[index])
 		};
 		nil
+	}
+
+	postCopy { :self |
+		self.keys := self.keys.copy;
+		self.values := self.values.copy
 	}
 
 	size { :self |

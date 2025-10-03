@@ -1,6 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-SphericalCoordinates : [Object, Copyable, Equatable] { | coordinates |
+SphericalCoordinates : [Object, Equatable] { | coordinates |
 
 	asSphericalCoordinates { :self |
 		self

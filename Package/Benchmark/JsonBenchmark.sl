@@ -129,10 +129,6 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 		self.values.add(aJsonValue)
 	}
 
-	basicAt { :self :name |
-		self.values[self.indexOf(name)]
-	}
-
 	at { :self :name |
 		name.ifNil {
 			'name is null'.error
@@ -169,8 +165,12 @@ JsonObject : [Object, Indexable, JsonValue] { | names values table |
 		}).if {
 			index
 		} {
-			'not implement'.error
+			self.unimplementedCase('indexOf')
 		}
+	}
+
+	uncheckedAt { :self :name |
+		self.values[self.indexOf(name)]
 	}
 
 }

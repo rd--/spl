@@ -16,10 +16,6 @@ Matrix33 : [Object, Equatable] { | elements |
 		self.elements.copy
 	}
 
-	copy { :self |
-		self.elements.copy.asMatrix33
-	}
-
 	determinant { :self |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)

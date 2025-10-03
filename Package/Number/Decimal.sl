@@ -81,7 +81,7 @@ Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
 		} {
-			self.error('^: not implemented for non-integer exponents')
+			self.unimplementedCase('^')
 		}
 	}
 

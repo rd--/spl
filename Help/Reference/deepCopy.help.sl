@@ -3,25 +3,36 @@
 - _deepCopy(x)_
 
 Answer a copy of the object _x_ with its own copy of each instance variable.
+Deep copying is implemented for `List`, `Record`, `Map` and `IdentitySet`.
 
-A `deepCopy` of a `List`:
+A deep copy of a `List`:
 
 ```
->>> let l = [1; 2 3];
->>> let c = l.deepCopy;
->>> c[2][1] := -2;
->>> (c != l, c, l)
+>>> let a = [1; 2 3];
+>>> let b = a.deepCopy;
+>>> a[2][1] := -2;
+>>> (a != b, a, b)
 (true, [1; -2 3], [1; 2 3])
 ```
 
 Compare to `copy`:
 
 ```
->>> let l = [1; 2 3];
->>> let c = l.copy;
->>> c[2][1] := -2;
->>> (c != l, c, l)
+>>> let a = [1; 2 3];
+>>> let b = a.copy;
+>>> a[2][1] := -2;
+>>> (a != b, a, b)
 (false, [1; -2 3], [1; -2 3])
+```
+
+A deep copy of a `Record`:
+
+```
+>>> let a = (x: 1, y: (z: 2));
+>>> let b = a.deepCopy;
+>>> a['y']['z'] := -2;
+>>> (a != b, a, b)
+(true, (x: 1, y: (z: -2)), (x: 1, y: (z: 2)))
 ```
 
 * * *

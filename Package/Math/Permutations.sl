@@ -277,7 +277,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 	}
 
 	postCopy { :self |
-		self.cycles := self.cycles.copy
+		self.cycles := self.cycles.deepCopy
 	}
 
 	rank { :self |

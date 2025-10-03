@@ -125,10 +125,6 @@ Block! : [Object, Equatable] {
 		}
 	}
 
-	deepCopy { :self |
-		'Block>>deepCopy: not implemented'.error
-	}
-
 	doWhileFalse { :self:/0 :conditionBlock:/0 |
 		let answer = nil;
 		{

@@ -1,4 +1,4 @@
-Length : [Object, Copyable, Equatable, Comparable, Magnitude] { | metres |
+Length : [Object, Equatable, Comparable, Magnitude] { | metres |
 
 	< { :self :aLength |
 		self.metres < aLength.metres

@@ -40,8 +40,8 @@ SortedSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Remo
 		self.contents.removeIfAbsent(anObject, aBlock:/0)
 	}
 
-	shallowCopy { :self |
-		SortedSet(self.contents.shallowCopy)
+	postCopy { :self |
+		self.contents := self.contents.copy
 	}
 
 	size { :self |

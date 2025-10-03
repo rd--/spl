@@ -14,10 +14,6 @@ Tuple : [Object, Copyable, Equatable] { | contents |
 		self.storeString(concisePrintString:/1)
 	}
 
-	copy { :self |
-		self.contents.asTuple
-	}
-
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isTuple & {
 			aBlock(self.contents, anObject.contents)
@@ -26,6 +22,10 @@ Tuple : [Object, Copyable, Equatable] { | contents |
 
 	indices { :self |
 		self.contents.indices
+	}
+
+	postCopy { :self |
+		self.contents := self.contents.copy
 	}
 
 	printString { :self |

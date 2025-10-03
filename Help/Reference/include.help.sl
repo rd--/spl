@@ -49,18 +49,18 @@ Attempting to `include` a non-immediate object in an `IdentitySet` is an `error`
 true
 ```
 
-See instead `basicInclude`:
+See instead `uncheckedInclude`:
 
 ```
 >>> let s = IdentitySet();
->>> s.basicInclude([1]);
->>> s.basicInclude([1]);
+>>> s.uncheckedInclude([1]);
+>>> s.uncheckedInclude([1]);
 >>> s.size = 2
 true
 ```
 
 * * *
 
-See also: add, basicInclude, includeAll, isImmediate, remove
+See also: add, includeAll, isImmediate, remove, uncheckedInclude
 
 Categories: Adding

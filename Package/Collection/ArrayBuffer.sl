@@ -17,7 +17,7 @@ ArrayBuffer! : [Object] {
 	}
 
 	size { :self |
-		self.error('size: should not implement, see byteSize')
+		self.shouldNotImplement('size: see byteSize')
 	}
 
 }

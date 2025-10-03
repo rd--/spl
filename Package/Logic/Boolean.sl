@@ -1,4 +1,4 @@
-Boolean! : [Object, Copyable, Equatable, Json] {
+Boolean! : [Object, Equatable, Json] {
 
 	& { :self :aBlock:/0 |
 		<primitive: return _self && _aBlock_0();>
@@ -46,6 +46,10 @@ Boolean! : [Object, Copyable, Equatable, Json] {
 
 	boole { :self |
 		self.asBit
+	}
+
+	copy { :self |
+		self
 	}
 
 	concisePrintString { :self |
@@ -98,10 +102,6 @@ Boolean! : [Object, Copyable, Equatable, Json] {
 
 	notOr { :self :anObject |
 		self.or(anObject).not
-	}
-
-	shallowCopy { :self |
-		self
 	}
 
 	storeString { :self |

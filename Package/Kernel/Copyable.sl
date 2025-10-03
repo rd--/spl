@@ -6,16 +6,12 @@
 		answer
 	}
 
-	deepCopy { :self |
-		<primitive: return structuredClone(_self);>
-	}
-
 	postCopy { :self |
-		self
+		nil
 	}
 
 	shallowCopy { :self |
-		<primitive: return Object.assign({}, _self);>
+		self.primitiveCopy
 	}
 
 }

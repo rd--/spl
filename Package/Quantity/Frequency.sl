@@ -1,4 +1,4 @@
-Frequency : [Object, Copyable, Equatable, Comparable, Magnitude] { | hertz |
+Frequency : [Object, Equatable, Comparable, Magnitude] { | hertz |
 
 	< { :self :aFrequency |
 		self.hertz < aFrequency.hertz

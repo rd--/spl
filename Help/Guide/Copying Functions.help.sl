@@ -1,11 +1,23 @@
 # Copying Functions
 
-Copying Collections:
+Traits:
+
+- `Object`
+- `Copyable`
+
+Copying Protocol:
 
 - `copy`
+- `deepCopy`
+- `postCopy`
+- `shallowCopy`
+
+Copying Collections:
+
 - `copyFromTo`
 - `copyFromToInto`
 - `copyFromToWrap`
+- `copyList`
 - `copyReplaceAllWith`
 - `copyReplaceFromToWith`
 - `copyReplaceFromToWithObject`
@@ -14,9 +26,6 @@ Copying Collections:
 - `copyWithout`
 - `copyWithoutAll`
 - `copyWithoutIdenticalElements`
-- `deepCopy`
-- `postCopy`
-- `shallowCopy`
 
 Copying Properties:
 

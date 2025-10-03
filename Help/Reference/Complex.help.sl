@@ -11,7 +11,6 @@ Traits implemented by `Complex`:
 >>> .traitNameList
 [
 	'Object'
-	'Copyable'
 	'Equatable'
 	'Comparable'
 	'Number'

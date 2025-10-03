@@ -4,10 +4,36 @@
 
 Answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the second kind of degree _n_.
 
+Coefficient for the first few Chebyshev polynomials of the second kind,
+OEIS [A008312](https://oeis.org/A008312):
+
+```
+>>> 0:12.collect { :n |
+>>> 	let p = n.chebyshevU;
+>>> 	let c = p.coefficientList;
+>>> 	c.without(0)
+>>> }
+[
+	1;
+	2;
+	-1 4;
+	-4 8;
+	1 -12 16;
+	6 -32 32;
+	-1 24 -80 64;
+	-8 80 -192 128;
+	1 -40 240 -448 256;
+	10 -160 672 -1024 512;
+	-1 60 -560 1792 -2304 1024;
+	-12 280 -1792 4608 -5120 2048;
+	1 -84 1120 -5376 11520 -11264 4096
+]
+```
+
 Evaluate at specific _x_:
 
 ```
->>> 2.chebyshevU.atAll([3, 5])
+>>> 2.chebyshevU.atAll([3 5])
 [35 99]
 
 >>> 5.chebyshevU.atAll(
@@ -79,6 +105,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/ChebyshevPolynomialoftheSecondKind.html)
 [2](https://reference.wolfram.com/language/ref/ChebyshevU.html),
+_OEIS_
+[1](https://oeis.org/A008312)
+[2](https://oeis.org/A053117),
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/sym.chebyshevu.html)
 _W_

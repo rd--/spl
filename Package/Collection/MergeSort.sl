@@ -48,7 +48,7 @@
 			(startIndex < stopIndex).ifFalse {
 				self.errorSubscriptBounds(startIndex)
 			};
-			self.shallowCopy.mergeSortFromToIntoBy(startIndex, stopIndex, self, sortBlock:/2);
+			self.copy.mergeSortFromToIntoBy(startIndex, stopIndex, self, sortBlock:/2);
 			self
 		}
 	}

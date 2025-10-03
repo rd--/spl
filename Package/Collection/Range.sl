@@ -1,4 +1,4 @@
-Range : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Range : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	+ { :self :operand |
 		operand.isSmallFloat.if {

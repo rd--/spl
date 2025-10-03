@@ -1,4 +1,4 @@
-Record! : [Object, Copyable, Equatable, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
+Record! : [Object, Equatable, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
 	asRecord { :self |
 		self
@@ -25,6 +25,10 @@ Record! : [Object, Copyable, Equatable, Json, Iterable, Indexable, Collection, R
 
 	comparator { :self |
 		==
+	}
+
+	deepCopy { :self |
+		self.primitiveDeepCopy
 	}
 
 	includesKey { :self :key |

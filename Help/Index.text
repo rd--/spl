@@ -215,6 +215,7 @@ Guide/Tuning Functions.help.sl
 Guide/Tuple Syntax.help.sl
 Guide/Type Definition Syntax.help.sl
 Guide/Unary Operator Syntax.help.sl
+Guide/Unchecked Functions.help.sl
 Guide/Unicode Symbols.help.sl
 Guide/Unit Generators.help.sl
 Guide/Unit Prefixes.help.sl
@@ -884,6 +885,7 @@ Reference/coordinateBounds.help.sl
 Reference/copelandErdosSequence.help.sl
 Reference/copyFromTo.help.sl
 Reference/copy.help.sl
+Reference/copyList.help.sl
 Reference/copyReplaceAllWith.help.sl
 Reference/copyReplaceFromToWith.help.sl
 Reference/copyReplaceFromToWithObject.help.sl

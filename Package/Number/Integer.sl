@@ -370,7 +370,7 @@
 		let step = { :n |
 			(n <= limit).ifTrue {
 				answer.includes(n).ifFalse {
-					answer.basicInclude(n);
+					answer.uncheckedInclude(n);
 					step(n * 2);
 					step(n * 3);
 					step(n * 5)

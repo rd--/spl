@@ -1,6 +1,6 @@
 /* Requires: Comparable List Number Object */
 
-Complex : [Object, Copyable, Equatable, Comparable, Number] { | real imaginary |
+Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 
 	* { :self :anObject |
 		anObject.isComplex.if {
@@ -326,7 +326,7 @@ Complex : [Object, Copyable, Equatable, Comparable, Number] { | real imaginary |
 	}
 
 	quotient { :self :aNumber |
-		self.error('quotient: not implemented')
+		self.shouldNotImplement('quotient')
 	}
 
 	realImaginary { :self |
@@ -342,7 +342,7 @@ Complex : [Object, Copyable, Equatable, Comparable, Number] { | real imaginary |
 	}
 
 	remainder { :self :aNumber |
-		self.error('remainder: not implemented')
+		self.shouldNotImplement('remainder')
 	}
 
 	sign { :self |

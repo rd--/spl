@@ -12,7 +12,6 @@ Traits implemented by `List`:
 >>> .traitNameList
 [
 	'Object'
-	'Copyable'
 	'Equatable'
 	'Comparable'
 	'Json'

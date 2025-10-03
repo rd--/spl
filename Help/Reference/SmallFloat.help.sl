@@ -9,7 +9,6 @@ List traits implemented by `SmallFloat`:
 >>> .traitNameList
 [
 	'Object'
-	'Copyable'
 	'Equatable'
 	'Comparable'
 	'Json'

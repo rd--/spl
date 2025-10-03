@@ -36,7 +36,7 @@ Cache! : [Object] {
 	}
 
 	at { :self :key |
-		self.error('at not implemented, see atIfPresentIfAbsent')
+		self.shouldNotImplement('at: see atIfPresentIfAbsent')
 	}
 
 	atIfAbsent { :self :key :ifAbsent:/0 |
@@ -67,7 +67,7 @@ Cache! : [Object] {
 	}
 
 	includesKey { :self :key |
-		self.error('includesKey not implemented, see atPut and removeKeyIfAbsent')
+		self.shouldNotImplement('includesKey: see atPut and removeKeyIfAbsent')
 	}
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |

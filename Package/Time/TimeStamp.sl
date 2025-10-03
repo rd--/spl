@@ -1,4 +1,4 @@
-TimeStamp : [Object, Copyable, Equatable, Comparable, Magnitude] { | absoluteTime |
+TimeStamp : [Object, Equatable, Comparable, Magnitude] { | absoluteTime |
 
 	< { :self :aTimeStamp |
 		self.absoluteTime < aTimeStamp.absoluteTime

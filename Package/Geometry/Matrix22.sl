@@ -13,10 +13,6 @@ Matrix22 : [Object, Equatable] { | a b c d |
 		[self.a, self.b, self.c, self.d]
 	}
 
-	copy { :self |
-		Matrix22(self.a, self.b, self.c, self.d)
-	}
-
 	determinant { :self |
 		(self.a * self.d) - (self.b * self.c)
 	}

@@ -21,6 +21,10 @@ IdentityMultiset : [Object, Copyable, Equatable, Iterable, Collection, Extensibl
 		self.contents.indices.asIdentitySet
 	}
 
+	postCopy { :self |
+		self.contents := self.contents.copy
+	}
+
 	species { :self |
 		IdentityMultiset:/0
 	}

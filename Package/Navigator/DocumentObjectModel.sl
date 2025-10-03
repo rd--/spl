@@ -1114,7 +1114,7 @@ Text! : [Object, EventTarget, Node, CharacterData] {
 					self.error('paragraphAtCaret: invalid index')
 				}
 			} {
-				self.error('paragraphAtCaret: unimplemented start container type')
+				self.unimplementedCase('paragraphAtCaret')
 			}
 		}
 	}

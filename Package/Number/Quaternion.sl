@@ -1,6 +1,6 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Copyable, Equatable, Number] { | contents |
+Quaternion : [Object, Equatable, Number] { | contents |
 
 	* { :self :anObject |
 		anObject.isQuaternion.if {

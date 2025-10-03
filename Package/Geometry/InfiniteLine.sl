@@ -1,4 +1,4 @@
-InfiniteLine : [Object, Copyable, Equatable] { | point vector |
+InfiniteLine : [Object, Equatable] { | point vector |
 
 	asGeneralisedCircle { :self |
 		let [a, b, c] = self.lineEquation;

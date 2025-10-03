@@ -4,6 +4,31 @@
 
 Answer another object just like the object _x_.
 
+For simple immutable instrinsic types, the copy is identical:
+
+```
+>>> 1.copy == 1
+true
+
+>>> 2.3.copy == 2.3
+true
+
+>>> 4L.copy == 4L
+true
+
+>>> 'five'.copy == 'five'
+true
+
+>>> false.copy == false
+true
+
+>>> nil.copy == nil
+true
+```
+
+For collection types makes a shallow copy,
+at `List`:
+
 ```
 >>> [1 .. 5].copy
 [1 .. 5]
@@ -14,15 +39,14 @@ true
 
 >>> let a = [1 .. 5];
 >>> let b = a.copy;
->>> a[1] := 5; b[1] != 5
-true
+>>> a[1] := -1;
+>>> (a, b)
+([-1 2 3 4 5], [1 .. 5])
 ```
-
-Copy is defined in terms of `shallowCopy` and `postCopy`.
 
 * * *
 
-See also: copyFromTo, copyReplaceFromToWith, copyWith, copyWithout, deepCopy, postCopy, shallowCopy
+See also: copyFromTo, copyReplaceFromToWith, copyWith, copyWithout, deepCopy
 
 Guides: Copying Functions
 

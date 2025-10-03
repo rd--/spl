@@ -101,7 +101,7 @@ Plot : [Object] { | pages format options |
 				}
 			]
 		) {
-			self.error('Multiple plots not implemented: ' ++ columnCount)
+			self.unimplementedCase('asLineDrawing')
 		}
 	}
 

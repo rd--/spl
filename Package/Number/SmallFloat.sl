@@ -1,6 +1,6 @@
 /* Requires: RegularExpression String */
 
-SmallFloat! : [Object, Copyable, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
+SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
 
 	= { :self :anObject |
 		anObject.isNumber.if {
@@ -269,6 +269,10 @@ SmallFloat! : [Object, Copyable, Equatable, Comparable, Json, Magnitude, Number,
 
 	chop { :self |
 		self.chop(1E-10)
+	}
+
+	copy { :self |
+		self
 	}
 
 	cubeRoot { :self |
@@ -640,10 +644,6 @@ SmallFloat! : [Object, Copyable, Equatable, Comparable, Json, Magnitude, Number,
 		} {
 			n.round
 		}
-	}
-
-	shallowCopy { :self |
-		self
 	}
 
 	sign { :self |

@@ -162,7 +162,7 @@
 
 }
 
-RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
+RgbColour : [Object, Equatable, Colour] { | rgb alpha |
 
 	lighten { :self :aNumber |
 		RgbColour(
@@ -370,57 +370,6 @@ RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 		m.dot(self)
 	}
 
-	basicHsvToRgb { :self |
-		let [hue, saturation, brightness] = self.asFloat;
-		let s = saturation.min(1).max(0);
-		let v = brightness.min(1).max(0);
-		let h = (hue * 360) % 360;
-		let i = h // 60;
-		let f = (h % 60) / 60;
-		let p = (1 - s) * v;
-		let q = (1 - (s * f)) * v;
-		let t = (1 - (s * (1 - f))) * v;
-		i.caseOf([
-			0 ->  { [v, t, p] },
-			1 ->  { [q, v, p] },
-			2 ->  { [p, v, t] },
-			3 ->  { [p, q, v] },
-			4 ->  { [t, p, v] },
-			5 ->  { [v, p, q] }
-		]) {
-			'hsvToRgb'.error('implementation error')
-		}
-	}
-
-	basicRgbToHsv { :self |
-		let [r, g, b] = self.asFloat;
-		let v = [r g b].max;
-		let c = v - [r g b].min;
-		let s = (v = 0).if { 0 } { c / v };
-		let h = (c = 0).if {
-			0
-		} {
-			(v = r).if {
-				60 * ((g - b) / c % 6)
-			} {
-				(v = g).if {
-					60 * ((b - r) / c + 2)
-				} {
-					60 * ((r - g) / c + 4)
-				}
-			}
-		};
-		[h / 360, s, v]
-	}
-
-	basicSrgbDecode { :self |
-		self.collect(srgbDecode:/1)
-	}
-
-	basicSrgbEncode { :self |
-		self.collect(srgbEncode:/1)
-	}
-
 	cmyToRgb { :self |
 		1 - self
 	}
@@ -465,7 +414,7 @@ RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 
 	hsvToRgb { :self |
 		self.isVector.if {
-			self.basicHsvToRgb
+			self.uncheckedHsvToRgb
 		} {
 			self.collect(hsvToRgb:/1)
 		}
@@ -608,7 +557,7 @@ RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 
 	rgbToHsv { :self |
 		self.isVector.if {
-			self.basicRgbToHsv
+			self.uncheckedRgbToHsv
 		} {
 			self.collect(rgbToHsv:/1)
 		}
@@ -629,7 +578,7 @@ RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 
 	srgbDecode { :self |
 		self.isVector.if {
-			self.basicSrgbDecode
+			self.uncheckedSrgbDecode
 		} {
 			self.collect(srgbDecode:/1)
 		}
@@ -637,10 +586,62 @@ RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 
 	srgbEncode { :self |
 		self.isVector.if {
-			self.basicSrgbEncode
+			self.uncheckedSrgbEncode
 		} {
 			self.collect(srgbEncode:/1)
 		}
+	}
+
+
+	uncheckedHsvToRgb { :self |
+		let [hue, saturation, brightness] = self.asFloat;
+		let s = saturation.min(1).max(0);
+		let v = brightness.min(1).max(0);
+		let h = (hue * 360) % 360;
+		let i = h // 60;
+		let f = (h % 60) / 60;
+		let p = (1 - s) * v;
+		let q = (1 - (s * f)) * v;
+		let t = (1 - (s * (1 - f))) * v;
+		i.caseOf([
+			0 ->  { [v, t, p] },
+			1 ->  { [q, v, p] },
+			2 ->  { [p, v, t] },
+			3 ->  { [p, q, v] },
+			4 ->  { [t, p, v] },
+			5 ->  { [v, p, q] }
+		]) {
+			self.unimplementedCase('hsvToRgb')
+		}
+	}
+
+	uncheckedRgbToHsv { :self |
+		let [r, g, b] = self.asFloat;
+		let v = [r g b].max;
+		let c = v - [r g b].min;
+		let s = (v = 0).if { 0 } { c / v };
+		let h = (c = 0).if {
+			0
+		} {
+			(v = r).if {
+				60 * ((g - b) / c % 6)
+			} {
+				(v = g).if {
+					60 * ((b - r) / c + 2)
+				} {
+					60 * ((r - g) / c + 4)
+				}
+			}
+		};
+		[h / 360, s, v]
+	}
+
+	uncheckedSrgbDecode { :self |
+		self.collect(srgbDecode:/1)
+	}
+
+	uncheckedSrgbEncode { :self |
+		self.collect(srgbEncode:/1)
 	}
 
 	xyzToLab { :self :reference |

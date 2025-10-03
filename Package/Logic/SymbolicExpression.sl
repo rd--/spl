@@ -225,9 +225,9 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 		self.do { :each |
 			each.isSymbolicExpression.ifTrue {
 				all.includes(each).if {
-					common.basicInclude(each)
+					common.uncheckedInclude(each)
 				} {
-					all.basicInclude(each)
+					all.uncheckedInclude(each)
 				}
 			}
 		};

@@ -22,7 +22,7 @@ Heap : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Extensibl
 	}
 
 	atPut { :self :index :newObject |
-		'Heap>>atPut: shouldNotImplement'.error
+		self.shouldNotImplement('atPut')
 	}
 
 	capacity { :self |

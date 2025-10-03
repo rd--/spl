@@ -1,4 +1,4 @@
-Interval : [Object, Copyable, Equatable, Comparable, Magnitude, Number] { | min max |
+Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 
 	< { :self :operand |
 		operand.isInterval.if {
