@@ -1,0 +1,44 @@
+# politeness
+
+- _politeness(n)_
+
+The `politeness` of a number is non-zero for polite numbers:
+
+```
+>>> 0:100.collect(politeness:/1)
+[
+	0 0 0 1 0 1 1 1 0 2
+	1 1 1 1 1 3 0 1 2 1
+	1 3 1 1 1 2 1 3 1 1
+	3 1 0 3 1 3 2 1 1 3
+	1 1 3 1 1 5 1 1 1 2
+	2 3 1 1 3 3 1 3 1 1
+	3 1 1 5 0 3 3 1 1 3
+	3 1 2 1 1 5 1 3 3 1
+	1 4 1 1 3 3 1 3 1 1
+	5 3 1 3 1 3 1 1 2 5
+	2
+]
+```
+
+Plot politeness of first few numbers:
+
+~~~spl svg=A
+0:200.collect(politeness:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/politeness-A.svg)
+
+* * *
+
+See also: divisors, isPoliteNumber, mod
+
+Guides: Integer Sequences
+
+References:
+_OEIS_
+[1](https://oeis.org/A069283),
+_W_
+[1](https://en.wikipedia.org/wiki/Polite_number)
+

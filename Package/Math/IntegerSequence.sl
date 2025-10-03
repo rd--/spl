@@ -325,6 +325,10 @@
 		self.isHarshadNumber(10)
 	}
 
+	isPoliteNumber { :self |
+		self.politeness > 0
+	}
+
 	jacobsthalNumber { :n |
 		((2 ^ n) - (-1 ^ n)) / 3
 	}
@@ -478,6 +482,19 @@
 
 	perrinSequence { :self |
 		self.padovanSequence([3 0 2])
+	}
+
+	politeness { :n |
+		let dL = (2 * n).divisors;
+		let dP = [dL, 2 * n / dL].transpose;
+		dP.select { :m |
+			let [a, b] = m;
+			1 < a & {
+				a < b & {
+					(a - b) % 2 = 1
+				}
+			}
+		}.size
 	}
 
 	recamanSequence { :self |

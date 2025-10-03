@@ -118,6 +118,7 @@ The following help files include references to integer sequences:
 - `isNarcissisticNumber`: A005188
 - `isPerfectNumber`: A000396
 - `isPerfectSquare`: A000290
+- `isPoliteNumber`: A138591
 - `isPowerfulNumber`: A001694 A118896 A060355
 - `isPrimePower`: A246655
 - `isSmoothNumber`: A000079 A003586 A051037 A002473 A051038 A080197 A080681 A080682 A080683
@@ -163,6 +164,7 @@ The following help files include references to integer sequences:
 - `perrinFunction`: A001608 A112881
 - `perrinSequence`: A001608
 - `plasticRatio`: A060006
+- `politeness`: A069283
 - `polygonalNumber: A000217 A139610
 - `primeGap`: A001223
 - `primesList`: A000040
