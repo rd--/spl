@@ -11,7 +11,7 @@
 
 }
 
-NoncentralBetaDistribution : [Object, ProbabilityDistribution] { | alpha beta delta |
+NoncentralBetaDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta delta |
 
 	randomVariate { :self :rng :shape |
 		let alpha = self.alpha;

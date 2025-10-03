@@ -1,10 +1,4 @@
-BivariatePolynomial : [Object] { | coefficientMatrix |
-
-	~ { :self :operand |
-		operand.isBivariatePolynomial & {
-			self.coefficientMatrix ~ operand.coefficientMatrix
-		}
-	}
+BivariatePolynomial : [Object, Copyable, Equatable] { | coefficientMatrix |
 
 	asBlock { :self |
 		let m = self.coefficientMatrix;
@@ -15,6 +9,12 @@ BivariatePolynomial : [Object] { | coefficientMatrix |
 
 	degree { :self |
 		self.coefficientMatrix.shape - 1
+	}
+
+	equalBy { :self :operand :aBlock:/2 |
+		operand.isBivariatePolynomial & {
+			aBlock(self.coefficientMatrix, operand.coefficientMatrix)
+		}
 	}
 
 	evaluate { :self :x :y |

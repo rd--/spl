@@ -1,12 +1,4 @@
-Circle : [Object, Geometry] { | center radius |
-
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Circle : [Object, Equatable, Geometry] { | center radius |
 
 	asGeneralisedCircle { :self |
 		let c = 1;

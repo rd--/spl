@@ -1,16 +1,4 @@
-Heap : [Object, Comparable, Iterable, Collection, Extensible, Removable] { | array sortBlock indexUpdateBlock |
-
-	= { :self :anObject |
-		self == anObject | {
-			anObject.isHeap & {
-				anObject.size = self.size & {
-					anObject.sortBlock = self.sortBlock & {
-						self.array.sort(self.sortBlock) = anObject.array.sort(self.sortBlock)
-					}
-				}
-			}
-		}
-	}
+Heap : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Extensible, Removable] { | array sortBlock indexUpdateBlock |
 
 	add { :self :anObject |
 		self.array.add(anObject);
@@ -90,6 +78,18 @@ Heap : [Object, Comparable, Iterable, Collection, Extensible, Removable] { | arr
 		};
 		array[index] := value;
 		self.indexUpdate(value, index)
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		self == anObject | {
+			anObject.isHeap & {
+				anObject.size = self.size & {
+					anObject.sortBlock = self.sortBlock & {
+						self.array.sort(self.sortBlock).equalBy(anObject.array.sort(self.sortBlock), aBlock:/2)
+					}
+				}
+			}
+		}
 	}
 
 	first { :self |

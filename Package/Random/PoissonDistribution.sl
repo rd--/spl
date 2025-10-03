@@ -15,7 +15,7 @@
 
 }
 
-PoissonDistribution : [Object, ProbabilityDistribution] { | mu |
+PoissonDistribution : [Object, Equatable, ProbabilityDistribution] { | mu |
 
 	cdf { :self |
 		let mu = self.mu;

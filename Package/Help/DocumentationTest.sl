@@ -1,4 +1,4 @@
-DocumentationTest : [Object] { | prefix program expectedAnswer |
+DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
 
 	evaluate { :self |
 		{

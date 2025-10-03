@@ -1,4 +1,4 @@
-Box : [Object] { | contents |
+Box : [Object, Equatable] { | contents |
 
 	storeString { :self |
 		self.storeStringAsInitializeSlots

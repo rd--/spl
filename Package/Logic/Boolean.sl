@@ -1,8 +1,4 @@
-Boolean! : [Object, Json] {
-
-	= { :self :anObject |
-		<primitive: return _self === _anObject;>
-	}
+Boolean! : [Object, Copyable, Equatable, Json] {
 
 	& { :self :aBlock:/0 |
 		<primitive: return _self && _aBlock_0();>
@@ -54,6 +50,10 @@ Boolean! : [Object, Json] {
 
 	concisePrintString { :self |
 		self.printString
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		self == anObject
 	}
 
 	if { :self :whenTrue:/0 :whenFalse:/0 |

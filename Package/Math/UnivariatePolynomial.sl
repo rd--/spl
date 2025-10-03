@@ -1,10 +1,4 @@
-UnivariatePolynomial : [Object] { | coefficientList |
-
-	~ { :self :operand |
-		operand.isUnivariatePolynomial & {
-			self.coefficientList ~ operand.coefficientList
-		}
-	}
+UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 
 	+ { :self :operand |
 		let c1 = self.coefficientList;
@@ -66,6 +60,12 @@ UnivariatePolynomial : [Object] { | coefficientList |
 
 	discriminant { :self |
 		self.coefficientList.discriminant
+	}
+
+	equalBy { :self :operand :aBlock:/2 |
+		operand.isUnivariatePolynomial & {
+			aBlock(self.coefficientList, operand.coefficientList)
+		}
 	}
 
 	exponent { :self |

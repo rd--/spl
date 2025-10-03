@@ -43,7 +43,7 @@ Encode a `String` using `huffmanEncode`:
 >>> 'compression is based on redundancy'
 >>> .huffmanEncode
 HuffmanCoding(
-	(
+	[
 		'd': [0 0 0],
 		'm': [0 0 1 0 0],
 		'u': [0 0 1 0 1],
@@ -59,7 +59,7 @@ HuffmanCoding(
 		'b': [1 1 0 1 1 1],
 		'o': [1 1 1 0],
 		'e': [1 1 1 1]
-	),
+	],
 	[
 		0 0 1 1 1 1 1 0 0 0
 		1 0 0 1 1 0 1 1 0 0

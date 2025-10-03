@@ -1,18 +1,6 @@
 /* Requires: PlanarCoordinates */
 
-Matrix22 : [Object] { | a b c d |
-
-	= { :self :aMatrix |
-		aMatrix.isMatrix22 & {
-			self.a = aMatrix.a & {
-				self.b = aMatrix.b & {
-					self.c = aMatrix.c & {
-						self.d = aMatrix.d
-					}
-				}
-			}
-		}
-	}
+Matrix22 : [Object, Equatable] { | a b c d |
 
 	applyTo { :self :vector |
 		PlanarCoordinates(
@@ -31,6 +19,18 @@ Matrix22 : [Object] { | a b c d |
 
 	determinant { :self |
 		(self.a * self.d) - (self.b * self.c)
+	}
+
+	equalBy { :self :aMatrix :aBlock:/2 |
+		aMatrix.isMatrix22 & {
+			aBlock(self.a, aMatrix.a) & {
+				aBlock(self.b, aMatrix.b) & {
+					aBlock(self.c, aMatrix.c) & {
+						aBlock(self.d, aMatrix.d)
+					}
+				}
+			}
+		}
 	}
 
 	identity { :self |

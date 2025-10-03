@@ -1,17 +1,5 @@
 @CartesianCoordinates {
 
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	< { :self :anObject |
-		self.compare(anObject) = -1
-	}
-
-	<= { :self :anObject |
-		self.compare(anObject) <= 0
-	}
-
 	asList { :self |
 		self.coordinates.copy
 	}
@@ -126,7 +114,7 @@
 
 }
 
-CartesianCoordinates : [Object, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
+CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Indexable, CartesianCoordinates] { | coordinates |
 
 	asCartesianCoordinates { :self |
 		self

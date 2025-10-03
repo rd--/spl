@@ -1,4 +1,4 @@
-InfinitePlane : [Object] { | a b c d |
+InfinitePlane : [Object, Equatable] { | a b c d |
 
 	area { :self |
 		Infinity

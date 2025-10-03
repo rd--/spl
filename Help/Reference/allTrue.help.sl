@@ -1,8 +1,8 @@
 # allTrue
 
-- _allTrue(aCollection)_
+- _allTrue(c)_
 
-Answer `true` if all items in _aCollection_ are `true`, else `false`.
+Answer `true` if all items in the collection _c_ are `true`, else `false`.
 This is equal to the unary form of `&&`.
 
 ```

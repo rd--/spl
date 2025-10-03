@@ -1,9 +1,5 @@
 @Colour {
 
-	~ { :self :aColour |
-		self.hasEqualSlotsBy(aColour, ~)
-	}
-
 	alpha { :self |
 		self.typeResponsibility('alpha')
 	}
@@ -166,7 +162,7 @@
 
 }
 
-RgbColour : [Object, Colour] { | rgb alpha |
+RgbColour : [Object, Copyable, Equatable, Colour] { | rgb alpha |
 
 	lighten { :self :aNumber |
 		RgbColour(

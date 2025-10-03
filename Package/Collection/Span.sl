@@ -1,12 +1,4 @@
-Span : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
-
-	= { :self :operand |
-		self.hasEqualSlots(operand)
-	}
-
-	~ { :self :operand |
-		self = operand
-	}
+Span : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	asRange { :self |
 		self.isRelative.if {
@@ -34,6 +26,10 @@ Span : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, Arith
 
 	asSpan { :self |
 		self
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		self.hasEqualSlots(anObject, aBlock:/2)
 	}
 
 	isRelative { :self |

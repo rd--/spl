@@ -87,7 +87,7 @@ Where supported `includes` is displayed as ∋.
 
 See also: anySatisfy, includesAll, includesBy
 
-Guides: Dictionary Functions, List Functions
+Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
 _Apl_

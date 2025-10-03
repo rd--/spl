@@ -1,8 +1,4 @@
-Length : [Object, Magnitude] { | metres |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Length : [Object, Copyable, Equatable, Comparable, Magnitude] { | metres |
 
 	< { :self :aLength |
 		self.metres < aLength.metres

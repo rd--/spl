@@ -1,4 +1,4 @@
-Tetrahedron : [Object] { | vertexCoordinates |
+Tetrahedron : [Object, Equatable] { | vertexCoordinates |
 
 	asPerspectiveDrawing { :self |
 		self.asPolyhedron.asPerspectiveDrawing

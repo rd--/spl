@@ -1,6 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-CylindricalCoordinates : [Object] { | coordinates |
+CylindricalCoordinates : [Object, Equatable] { | coordinates |
 
 	asList { :self |
 		self.coordinates.copy

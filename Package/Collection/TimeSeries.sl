@@ -1,4 +1,4 @@
-TimeSeries : [Object, Iterable, Indexable, Collection] { | values times |
+TimeSeries : [Object, Equatable, Iterable, Indexable, Collection] { | values times |
 
 	associations { :self |
 		let answer = [];

@@ -1,4 +1,4 @@
-PolygonWithHoles : [Object, Geometry] { | outerVertexCoordinates innerVertexCoordinatesList |
+PolygonWithHoles : [Object, Equatable, Geometry] { | outerVertexCoordinates innerVertexCoordinatesList |
 
 	area { :self |
 		let o = self.outerVertexCoordinates.shoelaceFormula;

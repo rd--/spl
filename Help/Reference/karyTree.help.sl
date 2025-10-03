@@ -32,6 +32,8 @@ karyTree(8, 4).treePlot
 
 See also: completeKaryTree, starGraph, Tree
 
+Guides: Tree Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/KaryTree.html)

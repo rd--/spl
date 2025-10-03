@@ -1,8 +1,4 @@
-QuantityArray : [Object] { | magnitudeArray unitOrUnitList |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+QuantityArray : [Object, Copyable, Equatable] { | magnitudeArray unitOrUnitList |
 
 	assertIsValid { :self |
 		(self.unitList.size = self.columnCount).if {

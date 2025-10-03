@@ -1,6 +1,6 @@
 /* Requires: Set */
 
-IdentitySet! : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] {
+IdentitySet! : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] {
 
 	asList { :self |
 		<primitive: return Array.from(_self);>

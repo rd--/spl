@@ -1,4 +1,4 @@
-ExtremeValueDistribution : [Object, ProbabilityDistribution] { | alpha beta |
+ExtremeValueDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta |
 
 	cdf { :self |
 		let alpha = self.alpha;

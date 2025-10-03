@@ -2,6 +2,7 @@
 
 @Sequenceable {
 
+	/*
 	= { :self :anObject |
 		self.equalBy(anObject, =)
 	}
@@ -9,6 +10,7 @@
 	~ { :self :anObject |
 		self.equalBy(anObject, ~)
 	}
+	*/
 
 	++ { :self :aList |
 		self.copyReplaceFromToWith(
@@ -926,7 +928,7 @@
 	equalBy { :self :anObject :aBlock:/2 |
 		(self == anObject) | {
 			(self.typeOf = anObject.typeOf) & {
-				self.hasEqualElementsBy(anObject, aBlock:/2)
+				self.hasEqualElements(anObject, aBlock:/2)
 			}
 		}
 	}
@@ -1268,7 +1270,7 @@
 		answer.replaceFromToWithStartingAt(1, self.size, self, 1)
 	}
 
-	hasEqualElementsBy { :self :otherCollection :aBlock:/2 |
+	hasEqualElements { :self :otherCollection :aBlock:/2 |
 		(otherCollection.isSequenceable & {
 			self.size = otherCollection.size
 		}).if {
@@ -1286,7 +1288,7 @@
 	}
 
 	hasEqualElements { :self :otherCollection |
-		self.hasEqualElementsBy(otherCollection, =)
+		self.hasEqualElements(otherCollection, =)
 	}
 
 	includes { :self :anObject |

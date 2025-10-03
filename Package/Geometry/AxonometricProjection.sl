@@ -1,4 +1,4 @@
-AxonometricProjection : [Object] { | xRadius xTheta yRadius yTheta zRadius zTheta |
+AxonometricProjection : [Object, Equatable] { | xRadius xTheta yRadius yTheta zRadius zTheta |
 
 	asTransformationMatrix { :self |
 		[

@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
+String! : [Object, Copyable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
 	= { :self :anObject |
 		self == anObject
@@ -9,7 +9,7 @@ String! : [Object, Comparable, Json, Iterable, Indexable, Character] {
 	~ { :self :anObject |
 		self.isCharacter.if {
 			anObject.isCharacter & {
-				self.asCharacter = anObject.asCharacter
+				self.codePoint == anObject.codePoint
 			}
 		} {
 			self == anObject

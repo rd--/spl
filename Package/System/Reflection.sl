@@ -226,8 +226,9 @@
 	}
 
 	traitTypes { :self :traitName |
-		self.isTraitName(traitName).if {
-			self.typesImplementingTrait(traitName)
+		let unqualifiedTraitName = traitName.parseQualifiedTraitName;
+		self.isTraitName(unqualifiedTraitName).if {
+			self.typesImplementingTrait(unqualifiedTraitName)
 		} {
 			self.error('System>>traitTypes: no such trait: ' ++ traitName)
 		}

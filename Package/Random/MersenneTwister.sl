@@ -1,6 +1,6 @@
 /* Requires: RandomNumberGenerator Iterator Stream */
 
-MersenneTwister : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
+MersenneTwister : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;

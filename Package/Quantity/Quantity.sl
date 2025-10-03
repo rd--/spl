@@ -1,8 +1,4 @@
-Quantity : [Object, Comparable, Magnitude] { | magnitude unit |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Quantity : [Object, Copyable, Equatable, Comparable, Magnitude] { | magnitude unit |
 
 	< { :self :anObject |
 		self.isCommensurate(anObject).if {

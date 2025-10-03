@@ -1,10 +1,6 @@
 /* Requires: ScalaTuning, Tuning */
 
-CentsTuning : [Object, Tuning] { | name description asCents octave |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+CentsTuning : [Object, Copyable, Equatable, Tuning] { | name description asCents octave |
 
 	asFractions { :self :epsilon |
 		self.asRatios.collect { :each |

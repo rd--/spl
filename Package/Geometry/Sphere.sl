@@ -1,12 +1,4 @@
-Sphere : [Object] { | center radius |
-
-	= { :self :anObject |
-		anObject.isSphere & {
-			self.center = anObject.center & {
-				self.radius = anObject.radius
-			}
-		}
-	}
+Sphere : [Object, Equatable] { | center radius |
 
 	area { :self |
 		(self.radius.square * 4).pi
@@ -22,6 +14,14 @@ Sphere : [Object] { | center radius |
 
 	embeddingDimension { :self |
 		self.center.size
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isSphere & {
+			aBlock(self.center, anObject.center) & {
+				aBlock(self.radius, anObject.radius)
+			}
+		}
 	}
 
 	randomPoint { :self :aRandom :shape |

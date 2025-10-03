@@ -185,7 +185,7 @@
 
 }
 
-Multiset : [Object, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
+Multiset : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
 
 	species { :self |
 		Multiset:/0
@@ -196,7 +196,9 @@ Multiset : [Object, Iterable, Collection, Extensible, Removable, Unordered, Mult
 +Void {
 
 	Multiset {
-		Multiset(Dictionary())
+		Multiset(
+			Dictionary()
+		)
 	}
 
 }

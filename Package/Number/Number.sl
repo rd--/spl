@@ -967,22 +967,6 @@
 	}
 
 
-	succeeds { :self :operand |
-		operand.isNumber.if {
-			self > operand
-		} {
-			self.error('succeeds: invalid operand')
-		}
-	}
-
-	succeedsOrEqualTo { :self :operand |
-		operand.isNumber.if {
-			self >= operand
-		} {
-			self.error('succeedsOrEqualTo: invalid operand')
-		}
-	}
-
 	swishFunction { :beta |
 		{ :x |
 			x / (1 + (beta.negate * x).exp)

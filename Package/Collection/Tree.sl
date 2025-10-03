@@ -1,12 +1,4 @@
-Tree : [Object, Iterable, Indexable] { | value subTrees |
-
-	= { :self :anObject |
-		anObject.isTree & {
-			self.value = anObject.value & {
-				self.subTrees = anObject.subTrees
-			}
-		}
-	}
+Tree : [Object, Equatable, Iterable, Indexable] { | value subTrees |
 
 	addChild { :self :child |
 		child.isTree.if {
@@ -107,6 +99,14 @@ Tree : [Object, Iterable, Indexable] { | value subTrees |
 		aBlock(self);
 		self.subTrees.do { :each |
 			each.do(aBlock:/1)
+		}
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isTree & {
+			aBlock(self.value, anObject.value) & {
+				equalBy(self.subTrees, anObject.subTrees, aBlock:/2)
+			}
 		}
 	}
 

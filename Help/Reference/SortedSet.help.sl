@@ -12,6 +12,8 @@ Traits implemented by `SortedSet`:
 >>> .traitNameList
 [
 	'Object'
+	'Copyable'
+	'Equatable'
 	'Iterable'
 	'Collection'
 	'Extensible'

@@ -19,7 +19,7 @@
 
 }
 
-SplitMix : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
+SplitMix : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :aNumber |
 		self.seed := aNumber;

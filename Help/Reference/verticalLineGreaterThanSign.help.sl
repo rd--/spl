@@ -34,8 +34,12 @@ false
 false
 ```
 
+Where supported `|>` is displayed as ≻.
+
 * * *
 
 See also: <, |>=, <|, succeeds
 
 Guides: Comparison Functions
+
+Unicode: U+227B ≻ Succeeds

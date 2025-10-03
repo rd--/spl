@@ -1,4 +1,4 @@
-Ball : [Object] { | center radius |
+Ball : [Object, Equatable] { | center radius |
 
 	dimension { :self |
 		3

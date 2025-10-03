@@ -26,7 +26,7 @@
 
 }
 
-SkewNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma alpha |
+SkewNormalDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma alpha |
 
 	pdf { :self |
 		let mu = self.mu;

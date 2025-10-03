@@ -1,15 +1,5 @@
 @Set {
 
-	= { :self :anObject |
-		anObject.isSet & {
-			self.size = anObject.size & {
-				self.allSatisfy { :each |
-					anObject.includes(each)
-				}
-			}
-		}
-	}
-
 	add { :self :anObject |
 		self.includes(anObject).ifTrue {
 			self.error('@Set>>add: includes item')
@@ -27,6 +17,16 @@
 			answer.include(aBlock(each))
 		};
 		answer
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isSet & {
+			self.size = anObject.size & {
+				self.allSatisfy { :each |
+					anObject.includesBy(each, aBlock:/2)
+				}
+			}
+		}
 	}
 
 	isSet { :unused |

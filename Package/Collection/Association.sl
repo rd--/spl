@@ -1,14 +1,6 @@
 /* Requires: List, Object */
 
-Association : [Object, Comparable] { | key value |
-
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
-	~ { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
+Association : [Object, Copyable, Equatable, Comparable] { | key value |
 
 	compare { :self :anAssociation |
 		self.key.compare(anAssociation.key)

@@ -1,18 +1,4 @@
-Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
-
-	= { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isFraction.if {
-				self.numerator = anObject.numerator & {
-					self.denominator = anObject.denominator
-				}
-			} {
-				anObject.adaptToFractionAndApply(self, =)
-			}
-		} {
-			false
-		}
-	}
+Fraction : [Object, Copyable, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
 
 	< { :self :aNumber |
 		aNumber.isFraction.if {
@@ -190,6 +176,20 @@ Fraction : [Object, Comparable, Magnitude, Number] { | numerator denominator |
 		let r = self / aNumber;
 		r.denominator = 1 & {
 			r.numerator.isPrime
+		}
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isNumber.if {
+			anObject.isFraction.if {
+				self.numerator == anObject.numerator & {
+					self.denominator == anObject.denominator
+				}
+			} {
+				anObject.adaptToFractionAndApply(self, aBlock:/2)
+			}
+		} {
+			false
 		}
 	}
 

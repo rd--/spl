@@ -1,4 +1,4 @@
-PointCloud : [Object, Geometry] { | vertexCoordinates |
+PointCloud : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	asBitmap { :self :k |
 		let p = self.vertexCoordinates;

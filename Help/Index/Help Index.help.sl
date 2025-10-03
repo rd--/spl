@@ -231,9 +231,9 @@
 - `~`, `!~`
 - `isCloseTo`, `isCloseToBy`, `isVeryCloseTo`
 - `isSameAs`
-- `hasEqualElements`, `hasEqualElementsBy`
+- `hasEqualElements`
 - `equalByAtNamedSlots`
-- `hasEqualSlots`, `hasEqualSlotsBy`
+- `hasEqualSlots`
 - `allEqual`, `allEqualBy`
 
 ## Error Functions
@@ -618,7 +618,7 @@
 - `slotList`, `slotNameList`, `slotValueList`
 - `slotRead`, `slotWrite`
 - `equalByAtNamedSlots`
-- `hasEqualSlots`, `hasEqualSlotsBy`
+- `hasEqualSlots`
 - `storeStringAsInitializeSlots`
 
 ## Regular Expressions

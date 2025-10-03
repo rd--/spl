@@ -1,12 +1,6 @@
 /* Requires: Cache Iterable Tree */
 
-Markdown : [Object, Cache, Iterable] { | source cache |
-
-	= { :self :anObject |
-		anObject.isMarkdown & {
-			self.source = anObject.source
-		}
-	}
+Markdown : [Object, Equatable, Cache, Iterable] { | source cache |
 
 	asHtml { :self |
 		self.cached('html') {
@@ -126,6 +120,12 @@ Markdown : [Object, Cache, Iterable] { | source cache |
 	elements { :self |
 		self.cached('elements') {
 			self.contents
+		}
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isMarkdown & {
+			aBlock(self.source, anObject.source)
 		}
 	}
 

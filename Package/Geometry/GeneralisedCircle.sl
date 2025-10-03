@@ -1,12 +1,4 @@
-GeneralisedCircle : [Object] { | c alpha d |
-
-	= { :self :operand |
-		self.hasEqualSlots(operand)
-	}
-
-	~ { :self :operand |
-		self.hasEqualSlotsBy(operand, ~)
-	}
+GeneralisedCircle : [Object, Equatable] { | c alpha d |
 
 	asCircle { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;

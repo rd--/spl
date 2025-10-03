@@ -42,9 +42,18 @@ A `Number` is not close to a `String`:
 false
 ```
 
+Threads over lists:
+
+```
+>>> [1 2 3].isCloseToBy([1.001 2 3.01], 1E-3)
+[true true false]
+```
+
 * * *
 
 See also: =, <~, >~, isCloseTo, isVeryCloseTo
+
+Guides: Comparison Functions, Mathematical Functions
 
 References:
 _Apl_

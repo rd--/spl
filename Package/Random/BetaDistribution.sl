@@ -24,7 +24,7 @@
 
 }
 
-BetaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
+BetaDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)

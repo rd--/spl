@@ -1,4 +1,4 @@
-HalfLine : [Object] { | point vector |
+HalfLine : [Object, Equatable] { | point vector |
 
 	dimension { :self |
 		1

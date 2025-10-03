@@ -3,7 +3,7 @@
 - _countDistinct([x₁ x₂ …], f:/2)_
 
 Answer the number of distinct elements that appear in _x_,
-according to the block _f_.
+according to the equality block _f_.
 
 Count distinct elements in a `List`:
 
@@ -38,13 +38,15 @@ Count the number of distinct characters that occur in a string:
 >>> ]
 >>> .stringCatenate
 >>> .characters
->>> .countDistinct(=)
+>>> .countDistinct(==)
 15
 ```
 
 * * *
 
 See also: count, counts, deleteDuplicates, isDuplicateFree, size
+
+Guides: List Functions
 
 References:
 _Mathematica_

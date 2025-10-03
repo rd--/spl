@@ -1,4 +1,4 @@
-HypergeometricDistribution : [Object, ProbabilityDistribution] { | n s t |
+HypergeometricDistribution : [Object, Equatable, ProbabilityDistribution] { | n s t |
 
 	max { :self |
 		min(self.s, self.n)

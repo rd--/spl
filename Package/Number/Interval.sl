@@ -1,8 +1,4 @@
-Interval : [Object, Comparable, Magnitude, Number] { | min max |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Interval : [Object, Copyable, Equatable, Comparable, Magnitude, Number] { | min max |
 
 	< { :self :operand |
 		operand.isInterval.if {
@@ -10,7 +6,7 @@ Interval : [Object, Comparable, Magnitude, Number] { | min max |
 				self.max < operand.max
 			}
 		} {
-			operand.adaptToIntervalAndApply(self, +)
+			operand.adaptToIntervalAndApply(self, <)
 		}
 	}
 
@@ -141,6 +137,12 @@ Interval : [Object, Comparable, Magnitude, Number] { | min max |
 			}
 		} {
 			operand.adaptToIntervalAndApply(self, intersection:/2)
+		}
+	}
+
+	isCloseToBy { :self :anInterval :epsilon |
+		self.min.isCloseToBy(anInterval.min, epsilon) & {
+			self.max.isCloseToBy(anInterval.max, epsilon)
 		}
 	}
 

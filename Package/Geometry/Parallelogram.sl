@@ -1,4 +1,4 @@
-Parallelogram : [Object, Geometry] { | origin vectors |
+Parallelogram : [Object, Equatable, Geometry] { | origin vectors |
 
 	area { :self |
 		let o = self.origin;

@@ -1,10 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-SphericalCoordinates : [Object] { | coordinates |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+SphericalCoordinates : [Object, Copyable, Equatable] { | coordinates |
 
 	asSphericalCoordinates { :self |
 		self

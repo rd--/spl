@@ -1,8 +1,4 @@
-PlaneAngle : [Object, Magnitude] { | radians |
-
-	= { :self :anAngle |
-		self.radians = anAngle.radians
-	}
+PlaneAngle : [Object, Equatable, Comparable, Magnitude] { | radians |
 
 	< { :self :anAngle |
 		self.radians < anAngle.radians
@@ -10,6 +6,10 @@ PlaneAngle : [Object, Magnitude] { | radians |
 
 	cos { :self |
 		self.radians.cos
+	}
+
+	equalBy { :self :anAngle :aBlock:/2 |
+		aBlock(self.radians, anAngle.radians)
 	}
 
 	magnitude { :self |

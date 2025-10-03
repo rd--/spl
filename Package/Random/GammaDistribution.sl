@@ -35,7 +35,7 @@
 
 }
 
-GammaDistribution : [Object, ProbabilityDistribution] { | alpha beta |
+GammaDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta |
 
 	cdf { :self |
 		let alpha = self.alpha;

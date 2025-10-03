@@ -28,7 +28,7 @@
 
 }
 
-Blob! : [Object, Blob] {
+Blob! : [Object, Equatable, Blob] {
 
 }
 

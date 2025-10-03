@@ -9,6 +9,7 @@ List of traits implemented by `String`:
 >>> .traitNameList
 [
 	'Object'
+	'Equatable'
 	'Comparable'
 	'Json'
 	'Iterable'

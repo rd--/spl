@@ -1,19 +1,5 @@
 @Object {
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-		/* self.typeResponsibility('@Object>>=') */
-	}
-
-	~ { :self :anObject |
-		self = anObject
-		/* self.hasEqualSlotsBy(anObject, ~) */
-	}
-
-	!= { :self :anObject |
-		not(self = anObject)
-	}
-
 	== { :self :anObject |
 		<primitive: return _self === _anObject;>
 	}
@@ -81,23 +67,6 @@
 		}
 	}
 
-	copy { :self |
-		let answer = self.shallowCopy;
-		answer.postCopy;
-		answer
-	}
-
-	deepCopy { :self |
-		<primitive: return structuredClone(_self);>
-	}
-
-	equalByAtNamedSlots { :self :anObject :slotNameList :aBlock:/2 |
-		<primitive: return _slotNameList.every(function (key) {
-			return _aBlock_2(_self[key], _anObject[key]);
-		});
-		>
-	}
-
 	errorMessage { :self :message |
 		'%: %: (%)'.format([
 			self.typeOf,
@@ -109,20 +78,6 @@
 	error { :self :message |
 		let description = self.errorMessage(message);
 		Error(description).signal
-	}
-
-	hasEqualSlots { :self :anObject |
-		self.hasEqualSlotsBy(anObject, =)
-	}
-
-	hasEqualSlotsBy { :self :anObject :aBlock:/2 |
-		self.typeOf = anObject.typeOf & {
-			self.equalByAtNamedSlots(
-				anObject,
-				self.slotNameList,
-				aBlock:/2
-			)
-		}
 	}
 
 	identity { :self |
@@ -197,14 +152,6 @@
 		system.methodLookupAtType(aString, 2, self.typeOf).block . (self, aValue)
 	}
 
-	postCopy { :self |
-		self
-	}
-
-	primitiveEquals { :self :anObject |
-		<primitive: return _self == _anObject;>
-	}
-
 	primitiveIdentity { :self :anObject |
 		<primitive: return _self === _anObject;>
 	}
@@ -234,10 +181,6 @@
 
 	rightIdentity { :self :anObject |
 		anObject
-	}
-
-	shallowCopy { :self |
-		<primitive: return Object.assign({}, _self);>
 	}
 
 	slotList { :self |
@@ -296,6 +239,7 @@
 	}
 
 	value { :self |
+		/* self.error('@Object>>value: protocol not implemented') */
 		self
 	}
 

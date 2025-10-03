@@ -1,8 +1,4 @@
-Duration : [Object, Magnitude] { | seconds |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Duration : [Object, Copyable, Equatable, Comparable, Magnitude] { | seconds |
 
 	< { :self :aDuration |
 		self.seconds < aDuration.asDuration.seconds

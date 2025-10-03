@@ -1,4 +1,4 @@
-Time : [Object] { | seconds |
+Time : [Object, Equatable] { | seconds |
 
 	magnitude { :self |
 		self.seconds

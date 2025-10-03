@@ -1,16 +1,4 @@
-CalendarDuration : [Object, Magnitude] { | components |
-
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
-
-	< { :self :operand |
-		self.components.precedes(operand.components)
-	}
+CalendarDuration : [Object, Copyable, Equatable, Comparable] { | components |
 
 	asCalendarDuration { :self |
 		self
@@ -18,6 +6,10 @@ CalendarDuration : [Object, Magnitude] { | components |
 
 	asList { :self |
 		self.components
+	}
+
+	compare { :self :operand |
+		self.components.compare(operand.components)
 	}
 
 	years  { :self |

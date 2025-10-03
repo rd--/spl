@@ -43,7 +43,10 @@ At `List`:
 false
 ```
 
-Negative zero is equal to, and therefore identical to, zero:
+At `SmallFloat`,
+negative zero is equal to,
+and therefore identical to,
+zero:
 
 ```
 >>> -0 == 0

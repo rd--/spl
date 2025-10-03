@@ -124,7 +124,7 @@
 
 }
 
-Character : [Object, Comparable, Magnitude, Character] { | characterString codePoint |
+Character : [Object, Copyable, Equatable, Comparable, Magnitude, Character] { | characterString codePoint |
 
 	= { :self :anObject |
 		self == anObject

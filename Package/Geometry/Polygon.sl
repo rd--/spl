@@ -1,8 +1,4 @@
-Polygon : [Object, Geometry] { | vertexCoordinates |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength

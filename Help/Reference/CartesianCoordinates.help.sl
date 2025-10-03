@@ -33,13 +33,13 @@ allowing terms to be fetched using `List Assignment Syntax`:
 [3 2 1]
 ```
 
-Implements `<`,
+Implements `<|`,
 meaning behind, below and to the left of:
 
 ```
 >>> let u = CartesianCoordinates([0 0 0]);
 >>> let v = CartesianCoordinates([1 1 1]);
->>> (u < v, u = v, u > v)
+>>> (u <| v, u = v, u |> v)
 (true, false, false)
 ```
 

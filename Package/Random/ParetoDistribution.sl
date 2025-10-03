@@ -8,7 +8,7 @@
 
 }
 
-ParetoDistribution : [Object, ProbabilityDistribution] { | k alpha |
+ParetoDistribution : [Object, Equatable, ProbabilityDistribution] { | k alpha |
 
 	cdf { :self |
 		let k = self.k;

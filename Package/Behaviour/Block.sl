@@ -1,8 +1,12 @@
 /* Requires: Object */
 
-Block! : [Object] {
+Block! : [Object, Equatable] {
 
 	= { :self :anObject |
+		self == anObject
+	}
+
+	~ { :self :anObject |
 		self == anObject
 	}
 

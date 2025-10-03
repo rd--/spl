@@ -1,4 +1,4 @@
-SortedList : [Object, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
+SortedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
 	add { :self :item |
 		self.contents.isEmpty.if {

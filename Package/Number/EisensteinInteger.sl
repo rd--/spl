@@ -1,4 +1,4 @@
-EisensteinInteger : [Object] { | a b |
+EisensteinInteger : [Object, Equatable] { | a b |
 
 	* { :self :operand |
 		let [a, b] = self.asList;

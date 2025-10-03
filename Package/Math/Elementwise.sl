@@ -625,6 +625,12 @@
 		anObject.adaptToCollectionAndApply(self, integerDigits:/2)
 	}
 
+	isCloseToBy { :self :anObject :epsilon |
+		anObject.adaptToCollectionAndApply(self) { :a :b |
+			a.isCloseToBy(b, epsilon)
+		}
+	}
+
 	lcm { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, lcm:/2)
 	}

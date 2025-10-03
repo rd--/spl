@@ -1,8 +1,4 @@
-PolarCoordinates : [Object] { | coordinates |
-
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
+PolarCoordinates : [Object, Equatable] { | coordinates |
 
 	asList { :self |
 		self.coordinates.copy

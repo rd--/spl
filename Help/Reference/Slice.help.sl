@@ -15,6 +15,8 @@ Traits implemented by `Slice`:
 >>> .traitNameList
 [
 	'Object'
+	'Copyable'
+	'Equatable'
 	'Comparable'
 	'Iterable'
 	'Indexable'

@@ -53,7 +53,6 @@ Plot `abs` of `gamma` at higher resolution:
 
 ![](sw/spl/Help/Image/logPlot-D.svg)
 
-
 * * *
 
 See also: functionPlot, log, logLinearPlot

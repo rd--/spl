@@ -9,7 +9,13 @@ Traits implemented by `Complex`:
 ```
 >>> system.typeLookup('Complex')
 >>> .traitNameList
-['Object' 'Comparable' 'Number']
+[
+	'Object'
+	'Copyable'
+	'Equatable'
+	'Comparable'
+	'Number'
+]
 ```
 
 Answer a `Complex` number:

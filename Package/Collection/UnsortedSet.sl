@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
+UnsortedSet : [Object, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
 
 	asList { :self |
 		self.contents.copy

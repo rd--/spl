@@ -1,12 +1,4 @@
-TimeStamp : [Object, Magnitude] { | absoluteTime |
-
-	= { :self :aTimeStamp |
-		aTimeStamp.isTimeStamp.if {
-			self.absoluteTime = aTimeStamp.absoluteTime
-		} {
-			false
-		}
-	}
+TimeStamp : [Object, Copyable, Equatable, Comparable, Magnitude] { | absoluteTime |
 
 	< { :self :aTimeStamp |
 		self.absoluteTime < aTimeStamp.absoluteTime
@@ -34,6 +26,12 @@ TimeStamp : [Object, Magnitude] { | absoluteTime |
 
 	dateAndTimeString { :self |
 		self.asDateAndTime.dateAndTimeString
+	}
+
+	equalBy { :self :aTimeStamp :aBlock:/2 |
+		aTimeStamp.isTimeStamp & {
+			aBlock(self.absoluteTime, aTimeStamp.absoluteTime)
+		}
 	}
 
 	round { :self :operand |

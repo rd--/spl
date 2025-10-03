@@ -1,16 +1,6 @@
 /* Requires: Cache */
 
-HelpFile : [Object, Cache] { | origin source cache |
-
-	= { :self :anObject |
-		anObject.isHelp & {
-			self.equalByAtNamedSlots(
-				anObject,
-				['origin' 'source'],
-				=
-			)
-		}
-	}
+HelpFile : [Object, Equatable, Cache] { | origin source cache |
 
 	categories { :self |
 		self.readCommaSeparatedField('Categories: ')
@@ -80,6 +70,16 @@ HelpFile : [Object, Cache] { | origin source cache |
 	documentationTests { :self |
 		self.cached('documentationTests') {
 			self.lines.extractDocumentationTests
+		}
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isHelp & {
+			self.equalByAtNamedSlots(
+				anObject,
+				['origin' 'source'],
+				aBlock:/2
+			)
 		}
 	}
 

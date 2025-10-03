@@ -1,18 +1,4 @@
-NumericArray : [Object, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
-
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
-	~ { :self :anObject |
-		anObject.isNumericArray & {
-			(self.shape = anObject.shape) & {
-				(self.storageType = anObject.storageType) & {
-					self.contents ~ anObject.contents
-				}
-			}
-		}
-	}
+NumericArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
 
 	arrayDepth { :self |
 		self.shape.size
@@ -89,6 +75,16 @@ NumericArray : [Object, Comparable, Iterable, Indexable, Collection, Sequenceabl
 
 	elementType { :unused |
 		'SmallFloat'
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isNumericArray & {
+			(self.shape = anObject.shape) & {
+				(self.storageType = anObject.storageType) & {
+					aBlock(self.contents, anObject.contents)
+				}
+			}
+		}
 	}
 
 	isArray { :unused |

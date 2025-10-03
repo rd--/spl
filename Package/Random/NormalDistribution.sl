@@ -37,7 +37,7 @@
 
 }
 
-NormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
+NormalDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma |
 
 	cdf { :self |
 		let mu = self.mu;

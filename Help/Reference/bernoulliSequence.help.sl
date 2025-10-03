@@ -38,7 +38,7 @@ Plot denominator:
 ~~~spl svg=B
 99.bernoulliSequence
 .denominator
-.logScale
+.log
 .scatterPlot
 ~~~
 

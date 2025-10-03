@@ -1,6 +1,6 @@
 /* Requires: RandomNumberGenerator Iterator Stream */
 
-Sfc32 : [Object, Iterator, RandomNumberGenerator, Stream] { | seed block |
+Sfc32 : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | seed block |
 
 	initialize { :self :anObject |
 		self.seed := anObject.asSfc32State;

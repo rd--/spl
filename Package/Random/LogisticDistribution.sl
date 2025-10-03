@@ -7,7 +7,7 @@
 
 }
 
-LogisticDistribution : [Object, ProbabilityDistribution] { | mu beta |
+LogisticDistribution : [Object, Equatable, ProbabilityDistribution] { | mu beta |
 
 	cdf { :self |
 		let mu = self.mu;

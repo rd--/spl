@@ -24,4 +24,3 @@ Answer a copy of the string _s_ with punctuation characters removed.
 See also: removeDiacritics
 
 Guides: String Functions
-

@@ -3,6 +3,7 @@
 Binomial Functions:
 
 - `binomial`
+- `integerBinomial`
 - `multinomial`
 - `catalanNumber`
 - `polygonalNumber`

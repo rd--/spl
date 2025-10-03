@@ -1,8 +1,4 @@
-InfiniteLine : [Object] { | point vector |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+InfiniteLine : [Object, Copyable, Equatable] { | point vector |
 
 	asGeneralisedCircle { :self |
 		let [a, b, c] = self.lineEquation;

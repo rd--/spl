@@ -17,6 +17,16 @@ A Fraction can be written using the literal syntax _1/3_:
 Fraction(1, 3)
 ```
 
+Arithmetic is exact:
+
+```
+>>> (31/10 - 1) / (11/10 - 1) + 1 = 22
+true
+
+>>> (31 / 10 - 1) / (11 / 10 - 1) + 1 = 22
+false
+```
+
 Fractions can be converted to floating point numbers:
 
 ```

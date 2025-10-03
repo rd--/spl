@@ -1,12 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-Matrix33 : [Object] { | elements |
-
-	= { :self :aMatrix |
-		aMatrix.isMatrix33 & {
-			self.elements = aMatrix.elements
-		}
-	}
+Matrix33 : [Object, Equatable] { | elements |
 
 	applyTo { :self :vector |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
@@ -29,6 +23,12 @@ Matrix33 : [Object] { | elements |
 	determinant { :self |
 		let [a, b, c, d, e, f, g, h, i] = self.elements;
 		(a * e * i) + (b * f * g) + (c * d * h) - (c * e * g) - (b * d * i) - (a * f * h)
+	}
+
+	equalBy { :self :aMatrix :aBlock:/2 |
+		aMatrix.isMatrix33 & {
+			aBlock(self.elements, aMatrix.elements)
+		}
 	}
 
 	inverse { :self |

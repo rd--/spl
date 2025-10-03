@@ -579,7 +579,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'equalBy'
 		'exclusivelyBetweenAnd'
 		'hasEqualElements'
-		'hasEqualElementsBy'
 		'inclusivelyBetweenAnd'
 		'inRangeOfAnd'
 		'isSameAs'
@@ -632,7 +631,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'asFloat'
 		'asFloat32Array'
 		'asFloat64Array'
-		'asFourVector'
 		'asFraction'
 		'asHeaders'
 		'asHexDigit'
@@ -1407,9 +1405,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isMatrix33'
 		'isRectangle'
 		'isVector'
-		'isTwoVector'
-		'isThreeVector'
-		'isFourVector'
 	],
 	'type predicate-supercollider': [
 		'isCcEvent'

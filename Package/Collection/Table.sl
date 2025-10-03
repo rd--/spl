@@ -1,4 +1,4 @@
-Table : [Object] { | contents columnLabels columnTypes |
+Table : [Object, Equatable] { | contents columnLabels columnTypes |
 
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([

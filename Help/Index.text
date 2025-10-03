@@ -629,6 +629,7 @@ Reference/bitShift.help.sl
 Reference/bitShiftLeft.help.sl
 Reference/bitShiftRight.help.sl
 Reference/bitXor.help.sl
+Reference/BivariatePolynomial.help.sl
 Reference/bjorklundsAlgorithmDo.help.sl
 Reference/bjorklundsAlgorithm.help.sl
 Reference/blackmanHarrisWindow.help.sl
@@ -1023,6 +1024,7 @@ Reference/depth.help.sl
 Reference/dequanLiEquation.help.sl
 Reference/derangements.help.sl
 Reference/description.help.sl
+Reference/designMatrix.help.sl
 Reference/detect.help.sl
 Reference/detectIfFoundIfNone.help.sl
 Reference/detectIfNone.help.sl
@@ -1498,9 +1500,7 @@ Reference/harmonicProgression.help.sl
 Reference/harmonicSeries.help.sl
 Reference/harmoniousNumber.help.sl
 Reference/harmonographCurve.help.sl
-Reference/hasEqualElementsBy.help.sl
 Reference/hasEqualElements.help.sl
-Reference/hasEqualSlotsBy.help.sl
 Reference/hasEqualSlots.help.sl
 Reference/hasError.help.sl
 Reference/Hasher.help.sl
@@ -1574,6 +1574,7 @@ Reference/HuffmanCoding.help.sl
 Reference/huffmanEncode.help.sl
 Reference/hyperbolaCurve.help.sl
 Reference/hyperfactorial.help.sl
+Reference/hypergeometric2F1.help.sl
 Reference/HypergeometricDistribution.help.sl
 Reference/hyphenMinusGreaterThanSign.help.sl
 Reference/hyphenMinus.help.sl
@@ -1597,6 +1598,7 @@ Reference/ifFalseIfTrue.help.sl
 Reference/ifft.help.sl
 Reference/if.help.sl
 Reference/ifNil.help.sl
+Reference/ifNotEmpty.help.sl
 Reference/ifNotNil.help.sl
 Reference/ifTrue.help.sl
 Reference/i.help.sl
@@ -1671,6 +1673,7 @@ Reference/inShuffle.help.sl
 Reference/inspectAsList.help.sl
 Reference/instanceOf.help.sl
 Reference/instructionSetArchitecture.help.sl
+Reference/integerBinomial.help.sl
 Reference/integerCompositionsDo.help.sl
 Reference/integerCompositions.help.sl
 Reference/integerCompositionsWeak.help.sl
@@ -2063,6 +2066,7 @@ Reference/leftParenthesis.help.sl
 Reference/leftParenthesisRightParenthesis.help.sl
 Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
+Reference/legendreP.help.sl
 Reference/legendreSymbol.help.sl
 Reference/leibnizHarmonicTriangle.help.sl
 Reference/leitnerCrystalStructureCatalogue.help.sl
@@ -2172,6 +2176,7 @@ Reference/logisticSigmoid.help.sl
 Reference/logit.help.sl
 Reference/logLinearPlot.help.sl
 Reference/LogNormalDistribution.help.sl
+Reference/logPlot.help.sl
 Reference/logScale.help.sl
 Reference/logspace.help.sl
 Reference/logSumExp.help.sl
@@ -2742,6 +2747,7 @@ Reference/PolygonMesh.help.sl
 Reference/PolygonWithHoles.help.sl
 Reference/Polyhedron.help.sl
 Reference/polynomialGcd.help.sl
+Reference/Polynomial.help.sl
 Reference/polynomialMod.help.sl
 Reference/polynomialQuotient.help.sl
 Reference/polynomialQuotientRemainder.help.sl
@@ -2843,6 +2849,7 @@ Reference/rabbitConstant.help.sl
 Reference/radians.help.sl
 Reference/RadiansPerSample.help.sl
 Reference/radiansToDegrees.help.sl
+Reference/radical.help.sl
 Reference/radius.help.sl
 Reference/raisedCosinePulse.help.sl
 Reference/raisedToFraction.help.sl
@@ -3350,6 +3357,7 @@ Reference/subsets.help.sl
 Reference/substitutionSystem.help.sl
 Reference/substrings.help.sl
 Reference/substringsInCommon.help.sl
+Reference/succeeds.help.sl
 Reference/suffixes.help.sl
 Reference/Sum3Rand.help.sl
 Reference/Sum4.help.sl
@@ -3485,6 +3493,7 @@ Reference/traitDictionary.help.sl
 Reference/Trait.help.sl
 Reference/traitLookup.help.sl
 Reference/traitNameList.help.sl
+Reference/traitTypes.help.sl
 Reference/TRand.help.sl
 Reference/TranscriptViewer.help.sl
 Reference/translate.help.sl
@@ -3558,6 +3567,9 @@ Reference/UndirectedEdge.help.sl
 Reference/undirectedGraph.help.sl
 Reference/unicodeCharacterDatabase.help.sl
 Reference/unicode.help.sl
+Reference/unicodeItalic.help.sl
+Reference/unicodeSubscript.help.sl
+Reference/unicodeSuperscript.help.sl
 Reference/UniformDistribution.help.sl
 Reference/unionBy.help.sl
 Reference/union.help.sl

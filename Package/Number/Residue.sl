@@ -1,4 +1,4 @@
-Residue : [Object, Comparable, Magnitude, Number] { | commonResidue modulus |
+Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue modulus |
 
 	+ { :self :aNumber |
 		self.binaryOperator(aNumber, +)

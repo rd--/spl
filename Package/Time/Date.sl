@@ -1,10 +1,4 @@
-Date! : [Object, Magnitude] {
-
-	= { :self :anObject |
-		anObject.isDate & {
-			self.absoluteTime = anObject.absoluteTime
-		}
-	}
+Date! : [Object, Equatable, Comparable, Magnitude] {
 
 	< { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
@@ -61,6 +55,12 @@ Date! : [Object, Magnitude] {
 		let t1 = Date(y, m, d).absoluteTime;
 		let t2 = Date(y, 1, 1).absoluteTime;
 		(t1 - t2) / (24 * 60 * 60) + 1
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isDate & {
+			aBlock(self.absoluteTime, anObject.absoluteTime)
+		}
 	}
 
 	month { :self |

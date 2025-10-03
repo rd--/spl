@@ -2,7 +2,7 @@
 
 - _IdentitySet()_
 
-A collection of objects without duplicates.
+`IdentitySet` is a `Type` representing a collection of objects without duplicates.
 The comparison operator is `==`, not `=`,
 i.e. `IdentitySet` is an identity set, not an equality set.
 

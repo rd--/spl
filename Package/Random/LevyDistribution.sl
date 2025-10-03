@@ -1,4 +1,4 @@
-LevyDistribution : [Object, ProbabilityDistribution] { | mu sigma |
+LevyDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma |
 
 	pdf { :self |
 		let mu = self.mu;

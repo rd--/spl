@@ -34,7 +34,7 @@
 
 }
 
-StableDistribution : [Object, ProbabilityDistribution] { | alpha beta mu sigma |
+StableDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta mu sigma |
 
 	randomVariate { :self :rng :shape |
 		let alpha = self.alpha;

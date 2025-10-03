@@ -1,14 +1,4 @@
-Range : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
-
-	= { :self :operand |
-		operand.isRange & {
-			self.start = operand.start & {
-				self.stop = operand.stop & {
-					self.step = operand.step
-				}
-			}
-		}
-	}
+Range : [Object, Copyable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	+ { :self :operand |
 		operand.isSmallFloat.if {
@@ -48,6 +38,16 @@ Range : [Object, Comparable, Iterable, Collection, Indexable, Sequenceable, Arit
 
 	concisePrintString { :self |
 		self.rangeSyntaxString
+	}
+
+	equalBy { :self :operand :aBlock:/2 |
+		operand.isRange & {
+			aBlock(self.start, operand.start) & {
+				aBlock(self.stop, operand.stop) & {
+					aBlock(self.step, operand.step)
+				}
+			}
+		}
 	}
 
 	isIntegerRange { :self |

@@ -7,7 +7,7 @@
 
 }
 
-ExponentialDistribution : [Object, ProbabilityDistribution] { | lambda |
+ExponentialDistribution : [Object, Equatable, ProbabilityDistribution] { | lambda |
 
 	cdf { :self |
 		let lambda = self.lambda;

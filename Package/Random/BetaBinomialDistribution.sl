@@ -7,7 +7,7 @@
 
 }
 
-BetaBinomialDistribution : [Object, ProbabilityDistribution] { | alpha beta n |
+BetaBinomialDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta n |
 
 	mean { :self |
 		let alpha = self.alpha;

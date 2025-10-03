@@ -126,9 +126,9 @@ Plot number of non-zero coefficients of the first few cyclotomic polynomials:
 Nonzero coefficients of successive cyclotomic polynomials:
 
 ~~~spl svg=D
-1:40.collect { :n |
+1:20.collect { :n |
 	n.cyclotomic
-	.coefficientList
+	.coefficientList.abs
 }.padRight.matrixPlot
 ~~~
 

@@ -1,4 +1,4 @@
-Disk : [Object, Geometry] { | center radius |
+Disk : [Object, Equatable, Geometry] { | center radius |
 
 	asCircle { :self |
 		Circle(self.center, self.radius)

@@ -1,10 +1,10 @@
 /* Requires: LinkedList */
 
-Stack : [Object] { | linkedList |
+Stack : [Object, Copyable, Equatable] { | linkedList |
 
-	= { :self :aStack |
+	equalBy { :self :aStack :aBlock:/2 |
 		aStack.isStack & {
-			self.linkedList = aStack.linkedList
+			aBlock(self.linkedList, aStack.linkedList)
 		}
 	}
 

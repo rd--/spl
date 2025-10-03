@@ -1,4 +1,4 @@
-SoundFile! : [Object] {
+SoundFile! : [Object, Equatable] {
 
 	allocSendMessage { :self :bufferNumber |
 		<primitive:

@@ -1,6 +1,6 @@
 /* Requires: ByteArray */
 
-BitSet : [Object, Iterable, Collection, Extensible, Removable] { | capacity bytes tally |
+BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable] { | capacity bytes tally |
 
 	= { :self :anObject |
 		anObject.isBitSet & {

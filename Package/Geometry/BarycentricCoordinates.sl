@@ -1,4 +1,4 @@
-BarycentricCoordinates : [Object] { | coordinates |
+BarycentricCoordinates : [Object, Equatable] { | coordinates |
 
 	asCartesianCoordinates { :self :aSimplex |
 		CartesianCoordinates(

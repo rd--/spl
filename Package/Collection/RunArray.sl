@@ -1,16 +1,4 @@
-RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
-
-	= { :self :anObject |
-		(self == anObject).if {
-			true
-		} {
-			anObject.isRunArray & {
-				self.runs.hasEqualElements(anObject.runs) & {
-					self.values.hasEqualElements(anObject.values)
-				}
-			}
-		}
-	}
+RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
 
 	asList { :self |
 		let answer = List(self.size);
@@ -94,6 +82,18 @@ RunArray : [Object, Indexable] { | runs values cachedIndex cachedRun cachedOffse
 				run >= 0
 			}.whileTrue {
 				aBlock(value)
+			}
+		}
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		(self == anObject).if {
+			true
+		} {
+			anObject.isRunArray & {
+				self.runs.hasEqualElements(anObject.runs, aBlock:/2) & {
+					self.values.hasEqualElements(anObject.values, aBlock:/2)
+				}
 			}
 		}
 	}

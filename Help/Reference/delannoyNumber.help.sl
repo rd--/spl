@@ -25,10 +25,9 @@ The Delannoy number _D_ counts the paths from the southwest corner _(0, 0)_ of a
 Plot modulo three:
 
 ~~~spl png=A
-let i = (0L .. 80L);
 { :m :n |
 	(m.delannoyNumber(n) % 3) / 2
-}.table(i, i).Graymap
+}.table(0:80, 0:80).Graymap
 ~~~
 
 ![](sw/spl/Help/Image/delannoyNumber-A.png)

@@ -1,4 +1,4 @@
-Record! : [Object, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
+Record! : [Object, Copyable, Equatable, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
 	asRecord { :self |
 		self

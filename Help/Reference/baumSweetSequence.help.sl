@@ -51,13 +51,13 @@ The sequence can be defined by a substitution system:
 
 Recurrence plot of sequence:
 
-~~~spl svg=A
+~~~spl png=A
 105.baumSweetSequence
 .recurrenceMatrix(1, 1, 'Manhattan')
-.matrixPlot
+.Bitmap
 ~~~
 
-![](sw/spl/Help/Image/baumSweetSequence-A.svg)
+![](sw/spl/Help/Image/baumSweetSequence-A.png)
 
 * * *
 

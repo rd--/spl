@@ -32,6 +32,8 @@ Count occurrences of characters in a string:
 
 See also: Multiset, sortedCounts, sortedElements
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Tally.html),

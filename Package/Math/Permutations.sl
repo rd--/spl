@@ -1,9 +1,13 @@
-Permutation : [Object] { | cycles degree |
+Permutation : [Object, Equatable] { | cycles degree |
 
 	= { :self :anObject |
 		anObject.isPermutation & {
 			self.cycles = anObject.cycles
 		}
+	}
+
+	~  { :self :anObject |
+		self = anObject
 	}
 
 	* { :self :aPermutation |

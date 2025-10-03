@@ -34,8 +34,12 @@ true
 true
 ```
 
+Where supported `<|` is displayed as ≺.
+
 * * *
 
 See also: <, <=|, |>, compare, Comparable, precedes
 
 Guides: Comparison Functions
+
+Unicode: U+227a ≺ Precedes

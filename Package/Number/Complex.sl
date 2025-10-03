@@ -1,14 +1,6 @@
 /* Requires: Comparable List Number Object */
 
-Complex : [Object, Comparable, Number] { | real imaginary |
-
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
-	~ { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
+Complex : [Object, Copyable, Equatable, Comparable, Number] { | real imaginary |
 
 	* { :self :anObject |
 		anObject.isComplex.if {
@@ -391,6 +383,14 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 
 }
 
++SmallFloat {
+
+	Complex { :real :imaginary |
+		newComplex().initializeSlots(real, imaginary)
+	}
+
+}
+
 +@Number {
 
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
@@ -398,7 +398,7 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 	}
 
 	asComplex { :self |
-		Complex(self, self.zero)
+		Complex(self.asFloat, 0)
 	}
 
 	cayleyTransform { :z |
@@ -406,7 +406,7 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 	}
 
 	Complex { :real :imaginary |
-		newComplex().initializeSlots(real, imaginary)
+		Complex(real.asFloat, imaginary.asFloat)
 	}
 
 	conjugate { :self |
@@ -414,7 +414,7 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 	}
 
 	i { :self |
-		Complex(self.zero, self)
+		Complex(0, self.asFloat)
 	}
 
 	isGaussianInteger { :self |
@@ -426,7 +426,7 @@ Complex : [Object, Comparable, Number] { | real imaginary |
 	}
 
 	j { :real :imaginary |
-		Complex(real, imaginary)
+		Complex(real.asFloat, imaginary.asFloat)
 	}
 
 }

@@ -1,14 +1,6 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Number] { | contents |
-
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
-	~ { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
+Quaternion : [Object, Copyable, Equatable, Number] { | contents |
 
 	* { :self :anObject |
 		anObject.isQuaternion.if {
@@ -102,6 +94,12 @@ Quaternion : [Object, Number] { | contents |
 
 	imaginary { :self |
 		self.contents.copyFromTo(2, 4)
+	}
+
+	isCloseToBy { :self :anObject :epsilon |
+		self.contents.equalBy(anObject.asQuaternion.contents) { :a :b |
+			a.isCloseToBy(b, epsilon)
+		}
 	}
 
 	isHamiltonianInteger { :self |

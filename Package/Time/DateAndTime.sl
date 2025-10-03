@@ -1,16 +1,4 @@
-DateAndTime : [Object, Magnitude] { | primitive |
-
-	= { :self :anObject |
-		anObject.isDateAndTime & {
-			self.absoluteTime = anObject.absoluteTime
-		}
-	}
-
-	~ { :self :anObject |
-		anObject.isDateAndTime & {
-			self.absoluteTime ~ anObject.absoluteTime
-		}
-	}
+DateAndTime : [Object, Equatable, Comparable, Magnitude] { | primitive |
 
 	< { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
@@ -57,6 +45,12 @@ DateAndTime : [Object, Magnitude] { | primitive |
 
 	dayOfMonth { :self |
 		<primitive: return _self.primitive.getUTCDate();>
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isDateAndTime & {
+			aBlock(self.absoluteTime, anObject.absoluteTime)
+		}
 	}
 
 	hour { :self |

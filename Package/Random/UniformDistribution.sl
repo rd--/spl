@@ -11,7 +11,7 @@
 
 }
 
-UniformDistribution : [Object, ProbabilityDistribution] { | a b |
+UniformDistribution : [Object, Equatable, ProbabilityDistribution] { | a b |
 
 	cdf { :self |
 		let a = self.a;

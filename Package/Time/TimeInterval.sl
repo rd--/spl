@@ -1,10 +1,6 @@
 /* Requires: TimeStamp */
 
-TimeInterval : [Object] { | min max |
-
-	= { :self :operand |
-		self.hasEqualSlots(operand)
-	}
+TimeInterval : [Object, Equatable] { | min max |
 
 	absoluteTime { :self |
 		Interval(

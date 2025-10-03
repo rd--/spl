@@ -24,6 +24,8 @@ completeKaryTree(3, 3).treePlot
 
 See also: karyTree, Tree
 
+Guides: Tree Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/CompleteKaryTree.html)

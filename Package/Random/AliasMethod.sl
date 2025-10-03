@@ -1,4 +1,4 @@
-AliasMethod : [Object, Iterator] { | alias probability |
+AliasMethod : [Object, Equatable, Iterator] { | alias probability |
 
 	next { :self |
 		self.nextRandom(system)

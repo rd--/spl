@@ -13,7 +13,7 @@
 
 }
 
-BinomialDistribution : [Object, ProbabilityDistribution] { | n p |
+BinomialDistribution : [Object, Equatable, ProbabilityDistribution] { | n p |
 
 	cdf { :self |
 		let n = self.n;

@@ -112,7 +112,9 @@ Use least squares to predict a Kepler orbit:
 ```
 >>> let r = [3 2.3 1.65 1.25 1.01];
 >>> let theta = [0.89 1.2 1.43 1.78 2.15];
->>> let d = [r theta r].transpose.designMatrix { :u |
+>>> let d = [
+>>> 	r theta r
+>>> ].transpose.designMatrix { :u |
 >>> 	let [r, theta] = u;
 >>> 	[r * theta.cos]
 >>> };

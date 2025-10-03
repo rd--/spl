@@ -1,4 +1,4 @@
-Nil! : [Object, Json] {
+Nil! : [Object, Equatable, Json] {
 
 	? { :unused :aBlock:/0 |
 		aBlock()
@@ -14,6 +14,10 @@ Nil! : [Object, Json] {
 
 	= { :self :anObject |
 		anObject.isNil
+	}
+
+	~ { :self :anObject |
+		self = anObject
 	}
 
 	concisePrintString { :self |

@@ -1,4 +1,4 @@
-HalfPlane : [Object] { | p v w |
+HalfPlane : [Object, Equatable] { | p v w |
 
 }
 

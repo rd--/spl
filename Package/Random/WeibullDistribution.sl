@@ -12,7 +12,7 @@
 
 }
 
-WeibullDistribution : [Object, ProbabilityDistribution] { | alpha beta mu |
+WeibullDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta mu |
 
 	cdf { :self |
 		let alpha = self.alpha;

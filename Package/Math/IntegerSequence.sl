@@ -59,7 +59,7 @@
 		let a = List(k);
 		let b = List(k);
 		0.toDo(k - 1) { :n |
-			a[n + 1] := Fraction(1L, n + 1);
+			a[n + 1] := Fraction(1, n + 1);
 			n.toByDo(1, -1) { :j |
 				a[j] := j * (a[j] - a[j + 1])
 			};

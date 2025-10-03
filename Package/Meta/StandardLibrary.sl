@@ -130,7 +130,6 @@
 	'StadiumShape'
 	'Superellipse'
 	'Tetrahedron'
-	'FourVector' /* PlanarCoordinates CartesianCoordinates */
 	'CylindricalCoordinates' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */
 	'Triangle'

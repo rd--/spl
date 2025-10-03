@@ -7,15 +7,33 @@ Answer `true` if the collection _c_ has no duplicates according to the block _f_
 Determine whether or not a list has duplicated elements:
 
 ```
->>> [1 7 8 4 3 4 1 9 9 2].isDuplicateFree(=)
+>>> [1 7 8 4 3 4 1 9 9 2]
+>>> .isDuplicateFree(=)
 false
 ```
 
-Use `asIdentityMultiset` to reveal duplicate elements:
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3).isDuplicateFree
+true
+
+>>> (x: 1, y: 2, z: 1).isDuplicateFree
+false
+```
+
+A `Set` is, by definition, duplicate free:
+
+```
+>>> {|1, 2, 3|}.isDuplicateFree
+true
+```
+
+Use `asMultiset` to reveal duplicate elements:
 
 ```
 >>> [1 7 8 4 3 4 1 9 9 2]
->>> .asIdentityMultiset
+>>> .asMultiset
 >>> .sortedElements
 [
 	1 -> 2,
@@ -59,6 +77,8 @@ Construct the permanent analog of the totally antisymmetric tensor:
 * * *
 
 See also: countDistinct, counts, deleteDuplicates, deleteAdjacentDuplicates, isSquareFree
+
+Guides: Collection Functions, List Functions, Set Functions
 
 References:
 _Mathematica_

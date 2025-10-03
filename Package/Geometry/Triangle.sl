@@ -1,10 +1,6 @@
 /* Requires: Polygon */
 
-Triangle : [Object, Geometry] { | vertexCoordinates |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Triangle : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	altitudes { :self |
 		let [a, b, c] = self.sideLengths;
@@ -515,7 +511,6 @@ Triangle : [Object, Geometry] { | vertexCoordinates |
 		} {
 			self.isoperimetricPoint
 		};
-		[c, r].postLine;
 		Circle(c, r.abs)
 	}
 

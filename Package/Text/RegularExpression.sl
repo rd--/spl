@@ -1,4 +1,4 @@
-RegExp! : [Object] {
+RegExp! : [Object, Equatable] {
 
 	asRegularExpression { :self |
 		self
@@ -44,6 +44,14 @@ RegExp! : [Object] {
 
 	basicSplit { :self :aString |
 		<primitive: return _aString.split(_self);>
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isRegularExpression & {
+			aBlock(self.source, anObject.source) & {
+				aBlock(self.flags, anObject.flags)
+			}
+		}
 	}
 
 	exec { :self :aString |

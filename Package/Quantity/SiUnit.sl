@@ -1,8 +1,4 @@
-SiUnit : [Object] { | name symbol quantity dimension |
-
-	= { :self :anObject |
-		self.hasEqualSlotsBy(anObject, =)
-	}
+SiUnit : [Object, Copyable, Equatable] { | name symbol quantity dimension |
 
 	assertIsValid { :self |
 		(

@@ -1,4 +1,4 @@
-Ellipse : [Object, Geometry] { | center radii |
+Ellipse : [Object, Equatable, Geometry] { | center radii |
 
 	area { :self |
 		let [rx, ry] = self.radii;

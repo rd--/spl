@@ -1,4 +1,4 @@
-LaplaceDistribution : [Object, ProbabilityDistribution] { | mu beta |
+LaplaceDistribution : [Object, Equatable, ProbabilityDistribution] { | mu beta |
 
 	cdf { :self |
 		let mu = self.mu;

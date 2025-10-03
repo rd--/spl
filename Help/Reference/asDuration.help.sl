@@ -1,6 +1,6 @@
 # asDuration
 
-- _asDuration(anObject)_
+- _asDuration(x)_
 
 At `Frequency`,
 answer the reciprocal:

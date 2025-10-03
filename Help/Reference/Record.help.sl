@@ -12,6 +12,8 @@ List of traits implemented by `Record`:
 >>> .traitNameList
 [
 	'Object'
+	'Copyable'
+	'Equatable'
 	'Json'
 	'Iterable'
 	'Indexable'

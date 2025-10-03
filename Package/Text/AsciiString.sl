@@ -1,4 +1,4 @@
-AsciiString : [Object, Iterable, Indexable, Collection, Sequenceable] { | contents |
+AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
 	asByteArray { :self |
 		self.contents.copy

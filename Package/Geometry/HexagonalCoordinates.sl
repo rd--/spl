@@ -1,12 +1,4 @@
-HexagonalCoordinates : [Object] { | coordinates |
-
-	= { :self :operand |
-		self.hasEqualSlots(operand)
-	}
-
-	~ { :self :operand |
-		self.hasEqualSlotsBy(operand, ~)
-	}
+HexagonalCoordinates : [Object, Equatable] { | coordinates |
 
 	+ { :self :operand |
 		operand.isHexagonalCoordinates.if {

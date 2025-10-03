@@ -1,4 +1,4 @@
-LogNormalDistribution : [Object, ProbabilityDistribution] { | mu sigma |
+LogNormalDistribution : [Object, Equatable, ProbabilityDistribution] { | mu sigma |
 
 	pdf { :self |
 		let mu = self.mu;

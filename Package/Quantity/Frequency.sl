@@ -1,8 +1,4 @@
-Frequency : [Object, Magnitude] { | hertz |
-
-	~ { :self :anObject |
-		self.hasEqualSlotsBy(anObject, ~)
-	}
+Frequency : [Object, Copyable, Equatable, Comparable, Magnitude] { | hertz |
 
 	< { :self :aFrequency |
 		self.hertz < aFrequency.hertz

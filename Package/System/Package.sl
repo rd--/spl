@@ -1,10 +1,6 @@
 /* Requires: List String System */
 
-Package! : [Object, Comparable] {
-
-	= { :self :anObject |
-		self.primitiveEquals(anObject)
-	}
+Package! : [Object, Identifiable, Comparable] {
 
 	addDependenciesTo { :self :aSequence |
 		self.requires.ifNotEmpty { :packageNames |

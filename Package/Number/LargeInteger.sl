@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Comparable, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Copyable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anObject |
 		<primitive: return _self === _anObject;>

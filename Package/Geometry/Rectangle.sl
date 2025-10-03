@@ -1,12 +1,4 @@
-Rectangle : [Object, Geometry] { | lowerLeft upperRight |
-
-	= { :self :anObject |
-		anObject.isRectangle & {
-			self.lowerLeft = anObject.lowerLeft & {
-				self.upperRight = anObject.upperRight
-			}
-		}
-	}
+Rectangle : [Object, Equatable, Geometry] { | lowerLeft upperRight |
 
 	arcLength { :self |
 		self.perimeter
@@ -87,6 +79,14 @@ Rectangle : [Object, Geometry] { | lowerLeft upperRight |
 			self.lowerLeft.min(aPoint),
 			self.upperRight.max(aPoint)
 		)
+	}
+
+	equalBy { :self :anObject :aBlock:/2|
+		anObject.isRectangle & {
+			aBlock(self.lowerLeft, anObject.lowerLeft) & {
+				aBlock(self.upperRight, anObject.upperRight)
+			}
+		}
 	}
 
 	extent { :self |

@@ -1,4 +1,4 @@
-UndirectedEdge : [Object, Comparable, Indexable] { | vertexList |
+UndirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
 
 	asDirectedEdge { :self |
 		let [i, j] = self.vertexList;

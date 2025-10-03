@@ -2,14 +2,6 @@
 
 @Dictionary {
 
-	= { :self :aDictionary |
-		self.equalBy(aDictionary, =)
-	}
-
-	~ { :self :aDictionary |
-		self.equalBy(aDictionary, ~)
-	}
-
 	++ { :self :aDictionary |
 		let answer = self.copy;
 		answer.includeAll(aDictionary);
@@ -147,10 +139,8 @@
 	}
 
 	equalBy { :self :aDictionary :aBlock:/2 |
-		(self.size = aDictionary.size) & {
-			self.keys.allSatisfy { :key |
-				aBlock(self[key], aDictionary[key])
-			}
+		self.typeOf = aDictionary.typeOf & {
+			self.hasEqualElements(aDictionary, aBlock:/2)
 		}
 	}
 
@@ -170,11 +160,11 @@
 		}
 	}
 
-	hasEqualElements { :self :aDictionary |
+	hasEqualElements { :self :aDictionary :aBlock:/2 |
 		(self.size = aDictionary.size).if {
 			self.keys.allSatisfy { :key |
 				aDictionary.atIfPresentIfAbsent(key) { :value |
-					self[key] = value
+					aBlock(self[key], value)
 				} {
 					false
 				}
@@ -182,6 +172,10 @@
 		} {
 			false
 		}
+	}
+
+	hasEqualElements { :self :aDictionary |
+		self.hasEqualElements(aDictionary, =)
 	}
 
 	include { :self :anAssociation |
@@ -529,7 +523,7 @@
 
 }
 
-Dictionary : [Object, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
+Dictionary : [Object, Copyable, Equatable, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
 
 	atIfAbsent { :self :key :ifAbsent:/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);

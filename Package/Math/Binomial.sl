@@ -91,7 +91,7 @@
 
 	delannoyNumber { :m :n |
 		(0 .. m.min(n)).collect { :k |
-			(m + n - k).binomial(m) * m.binomial(k)
+			(m + n - k).integerBinomial(m) * m.integerBinomial(k)
 		}.sum
 	}
 
@@ -113,7 +113,7 @@
 					1
 				} {
 					1:n.collect { :k |
-						binomial(2 * n, 2 * k) * f(2 * (n - k))
+						integerBinomial(2 * n, 2 * k) * f(2 * (n - k))
 					}.sum.negate
 				}
 			}.memoize(false);

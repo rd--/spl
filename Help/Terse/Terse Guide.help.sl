@@ -1261,7 +1261,7 @@ let n = 23L; n.copy == n /* copy large integer, identity */
 let s = 'string'; s.copy == s /* copy string, identity */
 let a = ('x' -> 1); let c = a.copy; c.value := 2; c != a & { c = ('x' -> 2) } /* copy association */
 let t = (0, 0); let c = t.copy; c !== t & { c = t } /* copy two tuple */
-let f = 3/4; let c = f.copy; c.numerator := 1; c != f & { c = 1/4 } /* copy fraction */
+let f = 3/4; let c = f.copy; c.numerator := 1L; c != f & { c = 1/4 } /* copy fraction */
 let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy complex */
 let a = [1, [2]]; let c = a.shallowCopy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallowCopy array */
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deepCopy array */
@@ -2275,7 +2275,7 @@ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) =
 4/3.slotNameList = ['numerator', 'denominator']
 4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
 4/3.numerator = 4/3.slotRead('numerator') /* slot read */
-let n = 4/3; n.slotWrite('denominator', 5); n = 4/5 /* slot write */
+let n = 4/3; n.slotWrite('denominator', 5L); n = 4/5 /* slot write */
 1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
 { 1.pi.error('pi') }.hasError /* user error */
 ```
@@ -3840,7 +3840,7 @@ system.typeDictionary['List'].typeOf = 'Type' /* type of type is Type */
 system.typeDictionary['List'].isType = true /* Type type predicate */
 system.typeDictionary['List'].traitNameList.includes('Collection') = true
 system.typeDictionary['Association'].slotNameList = ['key', 'value']
-system.typeDictionary['Association'].methodDictionary.indices.includes('equalsSign:/2')
+system.typeDictionary['Association'].methodDictionary.indices.includes('equalBy:/3')
 system.typeDictionary['Association'].methodDictionary.includesIndex('key:/1') = true
 system.typeDictionary['Nil'].methodDictionary.includesIndex('ifNil:/2') = true
 system.typeLookup('Association').methodDictionary.select { :each | each.name = 'key' }.size = 2
@@ -3968,7 +3968,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour:/0' /* constructo
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object', 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['Object' 'Copyable' 'Equatable' 'Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access
@@ -4131,16 +4131,6 @@ SphericalCoordinates([1, 2, 3]).asRecord = (radius: 1, theta: 2, phi: 3)
 CartesianCoordinates([1, 3, 5]).asRecord = (x: 1, y: 3, z: 5)
 CylindricalCoordinates([1, 1, 1]).asCartesianCoordinates.asRecord = (x: 1.cos, y: 1.sin, z: 1)
 CartesianCoordinates([1.cos, 1.sin, 1]).asCylindricalCoordinates.asRecord = (rho: 1, phi: 1, z: 1)
-```
-
-## FourVector -- geometry type
-```
-[1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) /* from list */
-(w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) /* from record */
-[1, 2, 3, 4].asFourVector = FourVector(1, 2, 3, 4) /* array as point */
-(w: 1, x: 2, y: 3, z: 4).asFourVector = FourVector(1, 2, 3, 4) /* record as point */
-let a = [1 2 3 4]; let v = a.asFourVector; v.asList = [1 2 3 4] /* to list */
-let v = FourVector(1, 2, 3, 4); [v.w, v.x, v.y, v.z] = [1, 2, 3, 4] /* fields are w, x, y, z */
 ```
 
 ## WeakMap -- collection type
