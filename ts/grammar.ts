@@ -139,7 +139,7 @@ Sl {
 	methodName = unqualifiedIdentifier | operator
 	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"
-	systemVariableIdentifier = "__SPL" digit+
+	systemVariableIdentifier = "__SplVar" digit+
     uppercaseIdentifier = upper letterOrDigit*
 	typeName = uppercaseIdentifier
 	unqualifiedTraitName = uppercaseIdentifier

@@ -5,7 +5,6 @@
 	'Comparable'
 	'Copyable'
 	'Equatable'
-	'Identifiable'
 	'Json'
 	'Magnitude'
 	'Number'

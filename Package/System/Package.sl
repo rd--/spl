@@ -1,6 +1,6 @@
 /* Requires: List String System */
 
-Package! : [Object, Identifiable, Comparable] {
+Package! : [Object, Equatable, Comparable] {
 
 	addDependenciesTo { :self :aSequence |
 		self.requires.ifNotEmpty { :packageNames |
@@ -30,6 +30,10 @@ Package! : [Object, Identifiable, Comparable] {
 		let answer = [];
 		self.addDependenciesTo(answer);
 		answer.copyWithoutIdenticalElements
+	}
+
+	equalBy { :self :anObject :aBlock:/2 |
+		self == anObject
 	}
 
 	require { :self |

@@ -6,11 +6,39 @@ import { slParse, slSemantics } from './grammar.ts';
 import { resolveMethodName } from './operator.ts';
 import { slOptions } from './options.ts';
 
-export const context = { packageName: 'UnknownPackage' };
+export const context = {
+	packageName: '*UnknownPackage*',
+	packageSymCounter: 0
+};
+
+function initContext(name: string): void {
+	context.packageName = name;
+	context.packageSymCounter = 0;
+}
+
+function genPackageSym(prefix: string): string {
+	context.packageSymCounter += 1;
+	const sym = `${prefix}${context.packageSymCounter}`;
+	// console.log(`genPackageSym: ${sym}`);
+	return sym;
+}
+
+function genVarSym(): string {
+	return genPackageSym('__SplVar');
+}
 
 function genName(name: string, arity: number): string {
 	return `${resolveMethodName(name)}_${arity}`;
 }
+
+/*
+let genSymCounter = 0;
+
+function genSym(prefix: string): string {
+	genSymCounter += 1;
+	return `${prefix}${genSymCounter}`;
+}
+*/
 
 function clearLeadingZeroes(s: string): string {
 	return s.replace(/^0+(?!\.|$)/, '');
@@ -314,7 +342,7 @@ const asJs: ohm.ActionDict<string> = {
 		return `_${c1.sourceString}${cN.sourceString}`;
 	},
 	unusedVariableIdentifier(_underscore) {
-		return genSym('__genSym');
+		return genPackageSym('__SplUnused');
 	},
 	uppercaseIdentifier(c1, cN) {
 		return `_${c1.sourceString}${cN.sourceString}`;
@@ -451,7 +479,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	ListAssignment(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
-		const rhsListName = genSym('__SPL');
+		const rhsListName = genVarSym();
 		const slots = namesArray.map(
 			(name, index) => `${name} := at(${rhsListName}, ${index + 1})`,
 		).join('; ');
@@ -459,7 +487,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	ListInitializer(_l, lhs, _r, _e, rhs) {
 		const namesArray = lhs.asIteration().children.map((c) => c.asSl);
-		const rhsName = genSym('__SPL');
+		const rhsName = genVarSym();
 		const slots = namesArray.map(
 			(name, index) => `let ${name} = at(${rhsName}, ${index + 1})`,
 		).join('; ');
@@ -526,7 +554,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `thenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
 	},
 	RecordAssignment(_l, lhs, _r, _e, rhs) {
-		const rhsDictionaryName = genSym('__SPL');
+		const rhsDictionaryName = genVarSym();
 		const keyVarNamesArray = lhs.asIteration().children.map(
 			(c) => c.parametersOf,
 		);
@@ -538,7 +566,7 @@ const asSl: ohm.ActionDict<string> = {
 		return `({ let ${rhsDictionaryName} = assertIsOfSize(${rhs.asSl}, ${keyVarNamesArray.length}); ${slots} } . ())`;
 	},
 	RecordInitializer(_l, lhs, _r, _e, rhs) {
-		const rhsDictionaryName = genSym('__SPL');
+		const rhsDictionaryName = genVarSym();
 		const keyVarNamesArray = lhs.asIteration().children.map(
 			(c) => c.parametersOf,
 		);
@@ -911,13 +939,6 @@ function commaListSl(nodeArray: ohm.Node[]): string {
 	return commaList(nodeArray, (e) => e.asSl);
 }
 
-let genSymCounter = 0;
-
-function genSym(prefix: string): string {
-	genSymCounter += 1;
-	return `${prefix}${genSymCounter}`;
-}
-
 function makeMethod(
 	slProc: string,
 	typeOrTraitNameArray: string[],
@@ -997,13 +1018,13 @@ export function rewriteSlToJs(slText: string): string {
 
 export function rewriteSlToJsFor(packageName: string, slText: string): string {
 	let jsText: string;
-	context.packageName = packageName;
+	initContext(packageName);
 	try {
 		jsText = rewriteSlToJs(slText);
-		context.packageName = '*UnknownPackage*';
+		initContext('*UnknownPackage*');
 		return jsText;
 	} catch (err) {
-		context.packageName = '*UnknownPackage*';
+		initContext('*UnknownPackage*');
 		// console.debug('rewriteSlToJsFor', packageName, slText, err);
 		throw new Error('rewriteSlToJsFor: Rewrite failed: ', { cause: err });
 	}
