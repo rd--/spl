@@ -37,7 +37,15 @@ Number of primes up to ten-thousand:
 1229
 ```
 
-* * *
+For large integers the test can be very slow:
+
+~~~spl timing
+{
+	304250263527281L
+	.isPrimeTrialDivision
+}.timing
+~~~
+
 
 See also: isPrime, millerRabinPrimalityTest, primeFactorsTrialDivision
 

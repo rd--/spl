@@ -116,6 +116,17 @@
 		}
 	}
 
+	erdosSelfridgeFunction { :n |
+		let m = n + 2;
+		{
+			let z = factorInteger(binomial(m, n));
+			z[1].key <= n
+		}.whileTrue {
+			m := m + 1
+		};
+		m
+	}
+
 	fareySequence { :n |
 		let [a, b, c, d] = [0, 1, 1, n];
 		let answer = [Fraction(a, b)];
@@ -329,6 +340,42 @@
 		self.politeness > 0
 	}
 
+	isPracticalNumber { :n |
+		let product = 1;
+		(
+			n < 1 | {
+				n > 1 & {
+					n.isOdd
+				}
+			}
+		).if {
+			false
+		} {
+			(n = 1).if {
+				true
+			} {
+				let factors = factorInteger(n);
+				let p = factors.keys;
+				let e = factors.values;
+				let i = 1;
+				let ok = true;
+				{
+					ok & {
+						i <= p.size
+					}
+				}.whileTrue {
+					(p[i] > (1 + divisorSigma(1, product))).if {
+						ok := false
+					} {
+						product := product * (p[i] ^ e[i]);
+						i := i + 1
+					}
+				};
+				ok
+			}
+		}
+	}
+
 	jacobsthalNumber { :n |
 		((2 ^ n) - (-1 ^ n)) / 3
 	}
@@ -485,16 +532,7 @@
 	}
 
 	politeness { :n |
-		let dL = (2 * n).divisors;
-		let dP = [dL, 2 * n / dL].transpose;
-		dP.select { :m |
-			let [a, b] = m;
-			1 < a & {
-				a < b & {
-					(a - b) % 2 = 1
-				}
-			}
-		}.size
+		(n.divisors.count(isOdd:/1) - 1).max(0)
 	}
 
 	recamanSequence { :self |

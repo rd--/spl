@@ -2,7 +2,7 @@
 
 - _politeness(n)_
 
-The `politeness` of a number is non-zero for polite numbers:
+The `politeness` of a number is non-zero for polite numbers.
 
 ```
 >>> 0:100.collect(politeness:/1)
@@ -19,6 +19,32 @@ The `politeness` of a number is non-zero for polite numbers:
 	5 3 1 3 1 3 1 1 2 5
 	2
 ]
+```
+
+`politeness` counts the number of an integer can be expressed as the sum of consecutive integers:
+
+```
+>>> 9.politeness
+2
+
+>>> (2 + 3 + 4, 4 + 5)
+(9, 9)
+
+>>> 15.politeness
+3
+
+>>> [4:6, 1:5, 7:8].collect(sum:/1)
+[15 15 15]
+```
+
+The politeness is one less than the number of odd divisors:
+
+```
+>>> 99.divisors.count(isOdd:/1) - 1
+5
+
+>>> 99.politeness
+5
 ```
 
 Plot politeness of first few numbers:

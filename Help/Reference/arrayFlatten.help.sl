@@ -79,6 +79,8 @@ Iterate a two-dimensional substitution system:
 
 See also: ++, arrayReduce, catenate, flatten, isArray, join, kroneckerProduct
 
+Guides: Array Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ArrayFlatten.html)

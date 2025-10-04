@@ -244,6 +244,14 @@
 		}
 	}
 
+	keysAndValues { :self |
+		let answer = [];
+		self.keysAndValuesDo { :key :value |
+			answer.add([key, value])
+		};
+		answer
+	}
+
 	keysAndValuesCollect { :self :aBlock:/2 |
 		let answer = self.species.new;
 		self.keysAndValuesDo { :key :value |

@@ -277,6 +277,12 @@
 		}
 	}
 
+	includesExactly { :self :aCollection |
+		self.includesAll(aCollection) & {
+			self.includesOnly(aCollection)
+		}
+	}
+
 	includesNone { :self :aCollection |
 		self.includesAny(aCollection).not
 	}

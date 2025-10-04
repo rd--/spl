@@ -88,6 +88,7 @@ The following help files include references to integer sequences:
 - `digitalRoot`: A010888
 - `divisorSigma`: A000005
 - `doubleFactorial`: A000165
+- `erdosSelfridgeFunction`: A003458
 - `eulerGradusSuavitatis`: A275314
 - `eulerNumber`: A122045 A000111 A000364 A028296
 - `eulerPhi`: A000010 A002088
@@ -97,6 +98,7 @@ The following help files include references to integer sequences:
 - `fibonacciWord`: A003849
 - `fibonacci`: A000045
 - `finesSequence`: A000957
+- `fortunateNumber`: A005235
 - `fromDigits`: A019518
 - `generalizedPentagonalNumbers`: A001318
 - `gijswijtsSequence`: A090822
@@ -120,6 +122,7 @@ The following help files include references to integer sequences:
 - `isPerfectSquare`: A000290
 - `isPoliteNumber`: A138591
 - `isPowerfulNumber`: A001694 A118896 A060355
+- `isPracticalNumber`: A005153
 - `isPrimePower`: A246655
 - `isSmoothNumber`: A000079 A003586 A051037 A002473 A051038 A080197 A080681 A080682 A080683
 - `isSumProductNumber`: A038369

@@ -1,9 +1,10 @@
 # lowerChristoffelWord
 
-- _lowerChristoffelWord(s, n)_
+- _lowerChristoffelWord(n/d, k=n+d)_
 
-Answer the first _n_ terms of the lower Christoffel word with slope _s_.
-If _s_ is irrational the word is Sturmian.
+Answer the first _k_ terms of the lower Christoffel word with slope _n/d_.
+If _n/d_ is a `Fraction`, _k_ may be elided and will be taken as _n+d_.
+If the slope is irrational the word is Sturmian.
 
 The first few terms of _s=4/7_,
 OEIS [A144595](https://oeis.org/A144595):
@@ -24,7 +25,10 @@ OEIS [A144595](https://oeis.org/A144595):
 	0 1 0 0 1
 ]
 
->>> 4/7.lowerChristoffelWord(11)
+>>> 4/7.lowerChristoffelWord(4 + 7)
+[0 0 1 0 0 1 0 0 1 0 1]
+
+>>> 4/7.lowerChristoffelWord
 [0 0 1 0 0 1 0 0 1 0 1]
 ```
 
@@ -47,7 +51,7 @@ OEIS [A144596](https://oeis.org/A144596):
 	0 0 0 1 0
 ]
 
->>> 2/7.lowerChristoffelWord(9)
+>>> 2/7.lowerChristoffelWord(2 + 7)
 [0 0 0 0 1 0 0 0 1]
 ```
 
@@ -70,7 +74,7 @@ OEIS [A144608](https://oeis.org/A144608):
 	1 0 1 0 1
 ]
 
->>> 10/11.lowerChristoffelWord(21)
+>>> 10/11.lowerChristoffelWord(10 + 11)
 [0 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1]
 ```
 
@@ -88,7 +92,7 @@ Plot at _s=4/7_:
 
 * * *
 
-See also: fibonacciWord
+See also: fibonacciWord, upperChristoffelWord
 
 Guides: Combinatorial Functions
 

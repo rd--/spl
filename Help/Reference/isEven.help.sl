@@ -27,6 +27,34 @@ At `zero`:
 true
 ```
 
+An even number is divisible by two,
+the modulo of an even number and two is zero:
+
+```
+>>> [2 4 6 8] % 2
+[0 0 0 0]
+```
+
+The sum or difference of two integers with equal parity is even:
+
+```
+>>> (13 - 7).isEven
+true
+
+>>> (14 + 28).isEven
+true
+```
+
+The product of two integers is even if either or both is even:
+
+```
+>>> (13 * 28).isEven
+true
+
+>>> (4 * 12).isEven
+true
+```
+
 Non-integers are never even:
 
 ```
@@ -44,6 +72,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/EvenQ.html),
 _Smalltalk_
-5.6.5.10
+5.6.5.10,
+_W_
+[1](https://en.wikipedia.org/wiki/Even_number)
 
 Categories: Testing, Math

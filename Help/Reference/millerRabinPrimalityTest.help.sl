@@ -53,6 +53,16 @@ The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimali
 )
 ```
 
+Can overflow large integer:
+
+```
+>>> {
+>>> 	304250263527281L
+>>> 	.millerRabinPrimalityTest(10)
+>>> }.hasError
+true
+```
+
 * * *
 
 See also: isPrime, isPrimeTrialDivision

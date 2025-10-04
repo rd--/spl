@@ -2,7 +2,18 @@
 
 - _primorial(n)_
 
-Answer the _n_-th primorial number.
+Answer the _n_-th primorial number,
+the product of the first _n_ primes.
+
+```
+>>> 11.primorial
+200560490130
+
+>>> 11.primesList.product
+200560490130
+```
+
+The first few terms:
 
 ```
 >>> 1:9.collect(primorial:/1)
@@ -14,7 +25,7 @@ Answer the _n_-th primorial number.
 
 * * *
 
-See also: euclidNumber, primePi
+See also: euclidNumber, factorial, primePi
 
 Guides: Prime Number Functions
 

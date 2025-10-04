@@ -34,6 +34,10 @@
 		self.assertIsAssociationList.collect(key:/1)
 	}
 
+	keysAndValues { :self |
+		self.assertIsAssociationList.collect(asList:/1)
+	}
+
 	keysAndValuesDo { :self :aBlock:/2 |
 		self.assertIsAssociationList.do { :each |
 			aBlock(each.key, each.value)

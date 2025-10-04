@@ -1,7 +1,8 @@
 # keysAndValuesCollect
 
-- _keysAndValuesCollect(aDictionary, aBlock:/2)_
+- _keysAndValuesCollect(d, f:/2)_
 
+Collect over the keys and values of the dictionary _d_ usinf the block _f_.
 Like `keysAndValuesDo` except that the answers are collected into a new dictionary.
 
 At `Record`:
@@ -17,6 +18,8 @@ At `Record`:
 * * *
 
 See also: do, collect, keysAndValuesDo, withIndexCollect
+
+Guides: Dictionary Functions
 
 References:
 _Julia_

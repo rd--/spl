@@ -1,10 +1,13 @@
 # isArray
 
-- _isArray(e)_
-- _isArray(e, r)_
+- _isArray(x)_
+- _isArray(x, r)_
+- _isArray(x, r, f:/1)_
 
-A `List` is an _array_ if it is has a `shape`.
-In the binary case require in addition that the array have `rank` _r_.
+Answer `true` if the object _x_ is an array.
+A `List` is an array if it is has a `shape`.
+In the binary case require in addition that the array have rank _r_.
+In the ternary case require in addition that the each element of the array answer `true` to the predicate _f_.
 
 Vectors are arrays:
 
@@ -13,6 +16,9 @@ Vectors are arrays:
 true
 
 >>> [1 2 3 4 5 6].isArray(1)
+true
+
+>>> [1 2 3 4 5 6].isArray(1, isInteger:/1)
 true
 ```
 
@@ -24,6 +30,8 @@ true
 
 >>> [1 2 3; 4 5 6].isArray(2)
 true
+
+>>> [1 2 3; 4 5 6].isArray(2, isInteger:/1)
 ```
 
 Volumes, or boxes, are arrays:
@@ -34,13 +42,18 @@ true
 
 >>> [1 2; 3 4:; 5 6; 7 8].isArray(3)
 true
+
+>>> [1 2; 3 4:; 5 6; 7 8]
+>>> .isArray(3, isInteger:/1)
 ```
 
 In the Apl model scalars are zero dimensional arrays.
 However `isArray` is not implemented for Object.
 
 ```
->>> { 1.isArray = nil }.hasError
+>>> {
+>>> 	1.isArray = nil
+>>> }.hasError
 true
 ```
 
@@ -64,6 +77,8 @@ true
 * * *
 
 See also: elementType, isMatrix, isVector, rank, shape
+
+Guides: Array Functions
 
 References:
 _Mathematica_

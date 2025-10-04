@@ -44,7 +44,7 @@ At a `List` of associations:
 
 * * *
 
-See also: associationsDo, do, fromTokeysAndValuesDo, keysAndValuesCollect, keysDo, valuesDo, withIndexDo
+See also: associationsDo, do, keysAndValuesCollect, keysDo, valuesDo, withIndexDo
 
 Guides: Dictionary Functions, Iteration Functions
 

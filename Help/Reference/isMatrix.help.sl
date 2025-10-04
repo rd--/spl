@@ -1,9 +1,12 @@
 # isMatrix
 
 - _isMatrix(m)_
+- _isMatrix(m, f:/1)_
 
+Answer `true` if _m_ is a matrix, else `false`.
 A `List` _m_ is a matrix if each of the elements is a vector of equal size.
 Specifically if `arrayDepth` is equal to two.
+In the binary case require in addition that the each element of the matrix answer `true` to the predicate _f_.
 
 At `List`:
 
@@ -19,6 +22,16 @@ At `List`:
 >>> let l = [1 2; 3 4 5];
 >>> (l.isMatrix, l.dimensions(2))
 (false, [2])
+```
+
+Require that the matrix be of integers:
+
+```
+>>> [3 3].iota.isMatrix(isInteger:/1)
+true
+
+>>> [1 2; 3 4.5].isMatrix(isInteger:/1)
+false
 ```
 
 At a `List` of `Range` values:
@@ -59,7 +72,7 @@ false
 
 See also: arrayDepth, dimensions, isColumnVector, isMatrixOf, isRowVector, isVector, isVectorOf
 
-Guides: Matrix Functions, Predicate Functions
+Guides: Array Functions, Matrix Functions, Predicate Functions
 
 References:
 _Mathematica_

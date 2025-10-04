@@ -7,6 +7,12 @@ Querying:
 - `rank`
 - `shape`
 
+Predicates:
+
+- `isArray`
+- `isMatrix`
+- `isVector`
+
 Products:
 
 - `dot`
@@ -21,6 +27,8 @@ Tensors:
 
 Transforming:
 
+- `arrayFlatten`
+- `arrayReduce`
 - `flipLeftRight`
 
 * * *

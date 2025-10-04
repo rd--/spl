@@ -31,6 +31,30 @@ Non-integers are never odd:
 false
 ```
 
+An odd number modulo two is one:
+
+```
+>>> [1 3 5 7 9] % 2
+[1 1 1 1 1]
+```
+
+The sum or difference of two integers with unequal parity is odd:
+
+```
+>>> (13 - 4).isOdd
+true
+
+>>> (14 + 27).isOdd
+true
+```
+
+The product of two odd integers is odd:
+
+```
+>>> (13 * 27).isOdd
+true
+```
+
 The sums of the first odd integers, beginning with one, are perfect squares:
 
 ```
@@ -50,6 +74,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A005408),
 _Smalltalk_
-5.6.5.16
+5.6.5.16,
+_W_
+[1](https://en.wikipedia.org/wiki/Odd_number)
 
 Categories: Testing, Math

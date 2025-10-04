@@ -145,8 +145,13 @@
 		}
 	}
 
-	isArray { :self |
-		self.shapeOrNil.isNotNil
+	isArray { :self :depth :aBlock:/1 |
+		let rho = self.shapeOrNil;
+		rho.isNotNil & {
+			rho.size = depth & {
+				self.deepAllSatisfy(aBlock:/1)
+			}
+		}
 	}
 
 	isArray { :self :depth |
@@ -156,10 +161,18 @@
 		}
 	}
 
+	isArray { :self |
+		self.shapeOrNil.isNotNil
+	}
+
 	isCommensurate { :self :other |
 		self.shape = other.shape & {
 			self.elementType = other.elementType
 		}
+	}
+
+	isMatrix { :self :aBlock:/1 |
+		self.isArray(2, aBlock:/1)
 	}
 
 	isMatrix { :self |
@@ -176,16 +189,16 @@
 		self.allSatisfy(isSmallFloat:/1)
 	}
 
-	isVector { :self |
-		self.noneSatisfy(isList:/1)
-	}
-
 	isVector { :self :aBlock:/1 |
 		self.allSatisfy { :each |
 			each.isList.not & {
 				aBlock(each)
 			}
 		}
+	}
+
+	isVector { :self |
+		self.noneSatisfy(isList:/1)
 	}
 
 	padLeft { :self :aList :anObject |

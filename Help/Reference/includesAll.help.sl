@@ -55,14 +55,18 @@ true
 The first list does not contain all elements of the second list:
 
 ```
->>> ['b' 'a' 'b' 'c'].includesAll(['a' 'b' 'd'])
+>>> ['b' 'a' 'b' 'c'].includesAll(
+>>> 	['a' 'b' 'd']
+>>> )
 false
 ```
 
 A short French word containing all five vowels:
 
 ```
->>> 'oiseau'.contents.includesAll('aeiou'.contents)
+>>> 'oiseau'.contents.includesAll(
+>>> 	'aeiou'.contents
+>>> )
 true
 ```
 

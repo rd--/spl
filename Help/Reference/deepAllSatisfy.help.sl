@@ -15,8 +15,8 @@ true
 
 * * *
 
-See also: allSatisfy, deepDo
+See also: allSatisfy, deepDo, isArray
 
-Guides: Boolean Functions
+Guides: Boolean Functions, Array Functions
 
 Categories: Testing

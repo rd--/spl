@@ -1,8 +1,11 @@
 # foldList
 
-- _foldList(aSequence, anObject, aBlock:/2)_
+- _foldList([x₁ x₂ …], y, f:/2)_
 
-Apply a _aBlock_ to each element of _aSequence_, passing an accumulating parameter, initially _anObject_, from left to right.
+Apply a the binary block _f_ to each element of the sequence _x_,
+passing an accumulating parameter,
+initially _y_,
+from left to right.
 
 Cumulative sums of the elements of the list:
 

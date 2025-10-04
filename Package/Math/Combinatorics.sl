@@ -327,3 +327,18 @@
 	}
 
 }
+
++Fraction{
+
+	lowerChristoffelWord { :self |
+		let [n, d] = self.asList;
+		self.lowerChristoffelWord(n + d)
+	}
+
+	upperChristoffelWord { :self |
+		let [n, d] = self.asList;
+		self.lowerChristoffelWord(n + d)
+	}
+
+}
+

@@ -2,17 +2,34 @@
 
 - _euclidNumber(n)_
 
-Answer the _n_-th Euclid number.
+Answer the _n_-th Euclid number,
+one more than the `primorial` of _n_.
+
+```
+>>> 13.euclidNumber
+304250263527210 + 1
+
+>>> 13.primorial
+304250263527210
+```
+
+The first few terms:
 
 ```
 >>> 1:13.collect(euclidNumber:/1)
 [
-	3 7
-	31 211
-	2311 30031
-	510511 9699691
-	223092871 6469693231
-	200560490131 7420738134811
+	3
+	7
+	31
+	211
+	2311
+	30031
+	510511
+	9699691
+	223092871
+	6469693231
+	200560490131
+	7420738134811
 	304250263527211
 ]
 ```

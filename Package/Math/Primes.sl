@@ -57,6 +57,11 @@
 		}
 	}
 
+	fortunateNumber { :n |
+		let p = primorial(n);
+		nextPrime(p + 1) - p
+	}
+
 	indexOfPrime { :self |
 		system.cachedPrimesListExtendedToPrime(self).binarySearch(self)
 	}
@@ -117,11 +122,12 @@
 	}
 
 	isPrime { :self |
-		system.isCachedPrime(self).if {
-			true
-		} {
-			self.isPrimeTrialDivision
-		}
+               system.isCachedPrime(self).if {
+                       true
+               } {
+                       let answer = self.isPrimeTrialDivision;
+		       answer
+               }
 	}
 
 	isPrimeTrialDivision { :self |
@@ -199,14 +205,21 @@
 		}
 	}
 
-	leastPrimeGreaterThanOrEqualTo { :self |
+	leastPrimeGreaterThanOrEqualTo { :self :extendCache |
 		let answer = self;
+		extendCache.ifTrue {
+			system.cachedPrimesListExtendedToPrime(self)
+		};
 		{
 			answer.isPrime
 		}.whileFalse {
 			answer := answer + 1
 		};
 		answer
+	}
+
+	leastPrimeGreaterThanOrEqualTo { :self |
+		self.leastPrimeGreaterThanOrEqualTo(false)
 	}
 
 	liouvilleLambda { :self |
@@ -288,8 +301,12 @@
 		}
 	}
 
+	nextPrime { :self :extendCache |
+		(self + 1).leastPrimeGreaterThanOrEqualTo(extendCache)
+	}
+
 	nextPrime { :self |
-		(self + 1).leastPrimeGreaterThanOrEqualTo
+		(self + 1).leastPrimeGreaterThanOrEqualTo(false)
 	}
 
 	prime { :self |
@@ -309,7 +326,7 @@
 	}
 
 	previousPrime { :self |
-		let index = self.leastPrimeGreaterThanOrEqualTo.indexOfPrime - 1;
+		let index = self.leastPrimeGreaterThanOrEqualTo(true).indexOfPrime - 1;
 		system.cachedPrimesList[index]
 	}
 
@@ -648,7 +665,10 @@
 +@Cache {
 
 	isCachedPrime { :self :anInteger |
-		self.cachedPrimesList.binarySearch(anInteger) != 0
+		let p = self.cachedPrimesList;
+		(p.last >= anInteger) & {
+			p.binarySearch(anInteger) != 0
+		}
 	}
 
 	cachedPrimesList { :self |
