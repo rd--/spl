@@ -57,6 +57,18 @@ Look up an entry in the archive by name, and fetch the pitches as ratios:
 ]
 ```
 
+Drawing of a tuning from the archive,
+the 13-limit detempering of 121-tone equal temperement:
+
+~~~spl svg=A
+system
+.scalaTuningArchive
+.at('ji_121')
+.tuningLatticeGraph
+~~~
+
+![](sw/spl/Help/Image/scalaTuningArchive-A.svg)
+
 _Note:_
 The archive is a `LibraryItem`,
 and this function requires the item be in the interpreter cache.

@@ -1,18 +1,18 @@
 # asHertz
 
-- _asHertz(anObject)_
+- _asHertz(x)_
 
-Answer a frequency in hertz, either directly from a number, or from a `Frequency`.
+Answer a frequency in hertz, either directly from a number, or from a `Quantity`.
 
 ```
 >>> Frequency(5).asHertz
 5
 
->>> 5.asHertz
+>>> Quantity(5, 'hertz').asHertz
 5
 
->>> 5.hertz
-Quantity(5, 'hertz')
+>>> 5.asHertz
+5
 ```
 
 _Rationale_:

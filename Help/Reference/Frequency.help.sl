@@ -33,7 +33,9 @@ The `asHertz` method is `hertz` at `Frequency` and `identity` at `Number`:
 ```
 
 Frequency is a _derived quantity_ in the _International System of Quantities_,
-and _hertz_ is a _derived unit_ in the _International System of Units_.
+and _hertz_ is a _derived unit_ in the _International System of Units_,
+it is the _inverse second_,
+written _s⁻¹_.
 
 A `Frequency` can be converted into a `Duration`, which gives the length of time of one cycle:
 

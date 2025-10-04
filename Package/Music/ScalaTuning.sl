@@ -8,6 +8,10 @@ ScalaTuning : [Object, Tuning] { | contents |
 		answer
 	}
 
+	asRatioTuning { :self |
+		self.asRatios.asRatioTuning
+	}
+
 	asRatios { :self |
 		let answer = self.pitches;
 		answer.allSatisfy(isFraction:/1).ifFalse {
@@ -64,6 +68,14 @@ ScalaTuning : [Object, Tuning] { | contents |
 
 	primeLimit { :self |
 		self.contents['limit']
+	}
+
+	tuningLatticeGraph { :self |
+		self.isRational.if {
+			self.asRatioTuning.tuningLatticeGraph
+		} {
+			self.error('tuningLatticeGraph: irrational')
+		}
 	}
 
 }

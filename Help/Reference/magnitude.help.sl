@@ -21,6 +21,8 @@ which is in all cases the base unit:
 
 See also: Quantity, unit
 
+Guides: Quantity Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/QuantityMagnitude.html)
