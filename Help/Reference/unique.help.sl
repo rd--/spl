@@ -30,6 +30,8 @@ The appended identifier is given by `uniqueId`.
 
 See also: ++, nub, sort, String, uniqueElements, uniqueId
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Unique.html),

@@ -22,6 +22,8 @@ The idiom `asMultiset` of `sortedElements` can be written as `counts`.
 
 See also: asIdentityMultiset, counts, IdentityMultiset, sortedCounts
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Counts.html)

@@ -32,4 +32,6 @@ system
 
 See also: fetch, fetchByteArray, fetchJson, fetchTextWithDefault, String, Url
 
+Guides: Network Functions
+
 Categories: Network

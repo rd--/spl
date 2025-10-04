@@ -40,7 +40,7 @@ let r = b.transpose.asRectangle;
 
 ![](sw/spl/Help/Image/coordinateBoundsArray-A.svg)
 
-Draw an array of three-dimensionsal points with given discretization steps:
+Draw an array of three-dimensional points with given discretization steps:
 
 ~~~spl svg=B
 [3 6; -1 2; 0 1.pi]
@@ -76,6 +76,8 @@ let f = { :o |
 * * *
 
 See also: array, coordinateBoundingBoxArray, coordinateBounds, coordinateBoundsList, outer, Range, subdivide, table
+
+Guides: Array Functions, Geometry Functions
 
 References:
 _Mathematica_

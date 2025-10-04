@@ -1,17 +1,26 @@
 # radiansToDegrees
 
-- _radiansToDegrees(aNumber)_
+- _radiansToDegrees(n)_
 
-Convert from radians to degrees.
+Convert from _n_ radians to degrees.
 
 ```
 >>> 2.pi.radiansToDegrees
 360
 ```
 
+Threads over lists:
+
+```
+>>> [0 1/12 1/6 1/4].pi.radiansToDegrees
+[0 15 30 45]
+```
+
 * * *
 
 See also: degree, degrees, degreesToRadians, radians
+
+Guides: Geometry Functions
 
 References:
 _Smalltalk_

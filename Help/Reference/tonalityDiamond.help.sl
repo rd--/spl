@@ -42,19 +42,18 @@ Eleven limit:
 ]
 ```
 
-Fifteen limit:
+Thirteen limit, multiplied out to integers:
 
 ```
->>> 15.tonalityDiamond
+>>> 13.tonalityDiamond * 8:14
 [
-	1/1 9/8 5/4 11/8 3/2 13/8 7/4 15/8;
-	16/9 1/1 10/9 11/9 4/3 13/9 14/9 5/3;
-	8/5 9/5 1/1 11/10 6/5 13/10 7/5 3/2;
-	16/11 18/11 20/11 1/1 12/11 13/11 14/11 15/11;
-	4/3 3/2 5/3 11/6 1/1 13/12 7/6 5/4;
-	16/13 18/13 20/13 22/13 24/13 1/1 14/13 15/13;
-	8/7 9/7 10/7 11/7 12/7 13/7 1/1 15/14;
-	16/15 6/5 4/3 22/15 8/5 26/15 28/15 1/1
+	 8  9 10 11 12 13 14;
+	16  9 10 11 12 13 14;
+	16 18 10 11 12 13 14;
+	16 18 20 11 12 13 14;
+	16 18 20 22 12 13 14;
+	16 18 20 22 24 13 14;
+	16 18 20 22 24 26 14
 ]
 ```
 
@@ -67,11 +66,14 @@ Ratios between neighbouring pitches are superparticular:
 >>> }.map([5 7])
 [
 	[
-		6/5 25/24 16/15 9/8 16/15 25/24
+		6/5 25/24 16/15
+		9/8 16/15 25/24
 	],
 	[
-		8/7 49/48 36/35 25/24 16/15 21/20
-		50/49 21/20 16/15 25/24 36/35 49/48
+		 8/7  49/48 36/35
+		25/24 16/15 21/20
+		50/49 21/20 16/15
+		25/24 36/35 49/48
 	]
 ]
 ```
@@ -81,14 +83,33 @@ The scale is symmetrical within the octave:
 ```
 >>> { :i |
 >>> 	let d = i.tonalityDiamond;
->>> 	let r = d.catenate.nub.sort ++ [2];
->>> 	r.collect(ratioToCents:/1).differences.round
+>>> 	let r = d.catenate.unique ++ [2];
+>>> 	r.collect(ratioToCents:/1)
+>>> 	.differences
+>>> 	.round
 >>> }.map([5 7])
 [
-	316 71 112 204 112 71 316;
-	231 36 49 71 112 84 35 84 112 71 49 36 231
+	316 71 112
+	204
+	112 71 316
+	;
+	231 36 49 71 112 84
+	35
+	84 112 71 49 36 231
 ]
 ```
+
+Draw the 15-limit diamond:
+
+~~~spl svg=A
+15.tonalityDiamond
+.catenate
+.unique
+.asRatioTuning
+.tuningLatticeGraph
+~~~
+
+![](sw/spl/Help/Image/tonalityDiamond-A.svg)
 
 * * *
 

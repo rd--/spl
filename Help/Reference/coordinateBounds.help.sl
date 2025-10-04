@@ -1,8 +1,8 @@
 # coordinateBounds
 
-- _coordinateBounds(aMatrix)_
+- _coordinateBounds(m)_
 
-Answer a `List` of the bounds in each dimension of the region defined by _aMatrix_.
+Answer a `List` of the bounds in each dimension of the region defined by the matrix _m_.
 
 Find bounds for coordinates in 2 dimensions:
 

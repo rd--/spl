@@ -65,11 +65,17 @@ or is derived from the tuning using `tuningLatticePrimes`,
 and the unit vector is that of Kraig Grady,
 given by `gradyTuningLatticeCoordinates`.
 
-A 7-note 19-limit tuning:
+A 24-note 19-limit draft tuning by Ben Johnston:
 
 ~~~spl svg=D
-[128 144 156 171 192 208 228]
-.asRatioTuning
+
+[
+	32768 32928 33792 35840 36015
+	37632 38416 38912 40960 41160
+	43008 43904 45056 47040 48020
+	49152 50176 53248 53760 54880
+	57344 57624 61440 62720
+].asRatioTuning
 .tuningLatticeGraph
 ~~~
 
@@ -129,10 +135,10 @@ Draw a _1,3,5,7,11,13_ diamond on a circular tuning lattice:
 let m = [4.35 4.25 3.5 3.35 3.75];
 let v = 5.circlePoints([0 0], 1, 1/4.pi) * m;
 let n = [1 3 5 7 11 13];
-[n, n].tuples.collect { :each |
-	let [n, d] = each;
-	Fraction(n, d)
-}.nub.sort.asRatioTuning.tuningLatticeGraph(
+[n, n].tuples
+.collect(Fraction:/1)
+.unique
+.asRatioTuning.tuningLatticeGraph(
 	[3 5 7 11 13],
 	v
 )

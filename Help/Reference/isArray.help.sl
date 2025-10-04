@@ -32,6 +32,7 @@ true
 true
 
 >>> [1 2 3; 4 5 6].isArray(2, isInteger:/1)
+true
 ```
 
 Volumes, or boxes, are arrays:
@@ -45,6 +46,7 @@ true
 
 >>> [1 2; 3 4:; 5 6; 7 8]
 >>> .isArray(3, isInteger:/1)
+true
 ```
 
 In the Apl model scalars are zero dimensional arrays.

@@ -16,6 +16,7 @@ Accessing:
 
 Converting:
 
+- `asFileUrl`: construct a Url
 - `asUrl`: construct a Url
 - `asUrlQueryParameters`: converting
 

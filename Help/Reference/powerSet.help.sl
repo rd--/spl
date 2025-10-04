@@ -63,6 +63,8 @@ The power set of the integers _1 .. n_ give the indices for all subsequences, di
 
 See also: powerSetDo, subsets, tuples
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Subsets.html),

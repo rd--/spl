@@ -51,6 +51,8 @@ Remove from each list those elements that occur in the other lists:
 
 See also: difference, intersection, select, symmetricDifference, union, without, withoutAll
 
+Guides: Set Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/UniqueElements.html)

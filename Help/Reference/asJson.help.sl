@@ -1,10 +1,13 @@
 # asJson
 
-- _asJson(nil | aBoolean | aSmallFloat | aString | aList | aRecord)_
+- _asJson(x)_
 
-Encode _anObject_ as a _Json_ value.
+Encode the object _x_ as a _Json_ value.
 The encoding is defined by _ECMA-404: The JSON Data Interchange Standard_.
 Answers a `String`.
+
+The following types have standard Json encodings:
+`Nil`, `Boolean`, `SmallFloat`, `String`, `List` and `Record`.
 
 Any type or trait may implement `asJson`,
 however only the types listed above will be answered by `parseJson`.

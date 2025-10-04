@@ -1,8 +1,9 @@
 # Url
 
-`Url` is both a `Trait` and a `Type` representing a _Uniform Resource Locator_.
+- _Url(u, b)_
 
-`Url` values are constructed using `asUrl`.
+`Url` is both a `Trait` and a `Type` representing a _Uniform Resource Locator_.
+`Url` values are constructed from an address string _u_ and optionally a base address string _b_.
 
 `Url` implements the
 `fragment`,
@@ -15,8 +16,26 @@
 `protocol` (also called scheme)
 and `query` methods.
 
+Component queries:
+
 ```
->>> let url = 'A://B:0/C?D=E#F'.asUrl;
+>>> Url('http://cern.ch/').hostName
+'cern.ch'
+
+>>> Url('http://cern.ch:8080/').port
+'8080'
+
+>>> Url('http://cern.ch/').protocol
+'http:'
+
+>>> Url('http://cern.ch/#home').fragment
+'#home'
+```
+
+Deconstruct a `Url`:
+
+```
+>>> let url = Url('A://B:0/C?D=E#F');
 >>> (
 >>> 	url.protocol,
 >>> 	url.hostName,
@@ -31,7 +50,7 @@ and `query` methods.
 `asString` at `Url` answers `href`:
 
 ```
->>> 'http://cern.ch/'.asUrl.asString
+>>> Url('http://cern.ch/').asString
 'http://cern.ch/'
 ```
 
@@ -41,6 +60,8 @@ The type has the non-standard spelling _URL_, which is defined by the system.
 * * *
 
 See also: asFileUrl, asUrl, fileName, fragment, href, host, hostName, Location, origin, pathName, protocol, query, UrlQueryParameters
+
+Guides: Network Functions
 
 References:
 _Ietf_

@@ -1,8 +1,8 @@
 # asFileUrl
 
-- _asFileUrl(aString)_
+- _asFileUrl(s)_
 
-Construct a file protocol `Url`.
+Construct a file protocol `Url` given the file name string _s_.
 
 ```
 >>> let url = '/A/B.C'.asFileUrl;
@@ -36,5 +36,7 @@ Fetch text from password file Url:
 * * *
 
 See also: asUrl, href, hostName, Location, origin, pathName, protocol, Url
+
+Guides: Network Functions
 
 Categories: Network

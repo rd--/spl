@@ -245,7 +245,7 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splUrl { :self :aString |
-		('https://rohandrape.net/sw/spl/' ++ aString).asUrl
+		Url('https://rohandrape.net/sw/spl/' ++ aString)
 	}
 
 	timing { :self :aBlock:/0 |

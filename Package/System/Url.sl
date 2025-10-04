@@ -99,11 +99,11 @@ URL! : [Object, Equatable, Url] {
 	}
 
 	asUrl { :self |
-		<primitive: return new URL(_self);>
+		Url(self)
 	}
 
 	asUrl { :self :base |
-		<primitive: return new URL(_self, _base);>
+		Url(self, base)
 	}
 
 	decodeUri { :self |
@@ -124,6 +124,14 @@ URL! : [Object, Equatable, Url] {
 
 	revokeObjectUrl { :self |
 		<primitive: return URL.revokeObjectURL(_self);>
+	}
+
+	Url { :self |
+		<primitive: return new URL(_self);>
+	}
+
+	Url { :self :base |
+		<primitive: return new URL(_self, _base);>
 	}
 
 }

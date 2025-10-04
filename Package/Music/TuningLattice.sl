@@ -51,7 +51,7 @@
 
 +SmallFloat {
 
-	gradyTuningLatticeCoordinates { :self |
+	gradyTuningLatticeCoordinates { :m :n |
 		[
 			40 0;
 			0 40;
@@ -61,17 +61,25 @@
 			-5 32;
 			7 25;
 			20 6
-		] / 40 * self
+		].first(n) / 40 * m
 	}
 
-	wilsonTuningLatticeCoordinates { :self |
+	gradyTuningLatticeCoordinates { :m |
+		m.gradyTuningLatticeCoordinates(8)
+	}
+
+	wilsonTuningLatticeCoordinates { :m :n |
 		[
 			20 0;
 			0 20;
 			4 3;
 			-3 4;
 			-1 2
-		] / 20 * self
+		].first(n) / 20 * m
+	}
+
+	wilsonTuningLatticeCoordinates { :m |
+		m.wilsonTuningLatticeCoordinates(5)
 	}
 
 }
@@ -91,13 +99,12 @@
 	}
 
 	tuningLatticeGraph { :self :primes :unitVector |
+		let dimensionCount = primes.size;
+		let basisVector = unitVector.first(dimensionCount);
 		let primesList = self.tuningLatticeVertexCoordinates(primes);
 		let edgeList = self.tuningLatticeEdges(primesList);
 		let coordinateList = primesList.collect { :each |
-			let v = unitVector.first(each.size);
-			each.withCollect(v) { :count :unit |
-				count * unit
-			}.sum
+			(each * basisVector).sum
 		};
 		Graph(
 			[1 .. primesList.size],

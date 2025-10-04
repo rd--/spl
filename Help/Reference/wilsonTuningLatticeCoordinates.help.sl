@@ -2,7 +2,7 @@
 
 - _wilsonTuningLatticeCoordinates(n)_
 
-Answer a 5×2 matrix of the vectors of the Erv Wilson tuningLattice template.
+Answer a 5×2 matrix of the vectors of the Erv Wilson tuning lattice template.
 
 At `one` the first two vectors are unit vectors:
 
@@ -28,6 +28,18 @@ At twenty the vectors are scaled for graph paper with ten squares per inch:
 	-3 4;
 	-1 2
 ]
+```
+
+See θ for each basis:
+
+```
+>>> 1.wilsonTuningLatticeCoordinates
+>>> .toPolarCoordinates
+>>> .transpose
+>>> .second
+>>> .radiansToDegrees
+>>> .round
+[0 90 37 127 117]
 ```
 
 Compare Wilson and Grady tuning lattice templates using a 7-note 13-limit scale

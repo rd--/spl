@@ -76,6 +76,8 @@ system
 
 See also: fetchByteArray, fetchJson, fetchText, Promise, Response
 
+Guides: Network Functions
+
 References:
 _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/fetch),

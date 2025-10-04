@@ -14,4 +14,6 @@ system
 
 See also: fetch, fetchByteArray, fetchMimeType, fetchText, Json
 
+Guides: Network Functions
+
 Categories: Network

@@ -13,6 +13,8 @@ true
 
 See also: Navigator, System, Url
 
+Guides: Network Functions
+
 References:
 _Mdn_
 [1](https://developer.mozilla.org/en-US/docs/Web/API/Location),

@@ -1,11 +1,11 @@
 # gradyTuningLatticeCoordinates
 
-- _gradyTuningLatticeCoordinates(n)_
+- _gradyTuningLatticeCoordinates(m, n=8)_
 
-Answer an 8×2 matrix of the vectors of the Kraig Grady tuning lattice template.
+Answer an _n×2_ matrix of the vectors of the Kraig Grady tuning lattice template.
 The coordinates are in planar, or Cartesian, form.
 
-At `one` the first two vectors are unit vectors:
+At _m=1_ the first two vectors are unit vectors:
 
 ```
 >>> 1.gradyTuningLatticeCoordinates
@@ -21,7 +21,7 @@ At `one` the first two vectors are unit vectors:
 ]
 ```
 
-At fourty the vectors are scaled for graph paper with twenty squares per inch:
+At _m=40_ the vectors are scaled for graph paper with twenty squares per inch:
 
 ```
 >>> 40.gradyTuningLatticeCoordinates
@@ -37,6 +37,18 @@ At fourty the vectors are scaled for graph paper with twenty squares per inch:
 ]
 ```
 
+See θ for each basis:
+
+```
+>>> 1.gradyTuningLatticeCoordinates
+>>> .toPolarCoordinates
+>>> .transpose
+>>> .second
+>>> .radiansToDegrees
+>>> .round
+[0 90 40 128 153 99 74 17]
+```
+
 Compare Grady and Wilson tuning lattice templates using a 7-note 13-limit scale
 (see `wilsonTuningLatticeCoordinates` for equivalent drawing):
 
@@ -50,6 +62,21 @@ Compare Grady and Wilson tuning lattice templates using a 7-note 13-limit scale
 ~~~
 
 ![](sw/spl/Help/Image/gradyTuningLatticeCoordinates-A.svg)
+
+Draw points at each vertex of an _m×m_ _k_ dimensional grid:
+
+~~~spl svg=B
+let m = 1;
+let k = 8;
+let v = 1.gradyTuningLatticeCoordinates(k);
+([0 m] ! k).coordinateBoundsArray(1 ! k)
+.flatten(k - 1)
+.collect { :x |
+	(x * v).sum
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/gradyTuningLatticeCoordinates-B.svg)
 
 * * *
 

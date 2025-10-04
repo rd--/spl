@@ -1,8 +1,8 @@
 # readTextFile
 
-- _readTextFile(aPath)_
+- _readTextFile(s)_
 
-Answer a `String` holding the contents of the named file.
+Answer a `String` holding the contents of the file named at the string _s_.
 If the file does not exists signal an `Error`.
 
 ~~~

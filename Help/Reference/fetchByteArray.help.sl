@@ -20,4 +20,6 @@ system
 
 See also: ByteArray, fetch, fetchBlob, fetchJson, fetchMimeType, fetchText, Url
 
+Guides: Network Functions
+
 Categories: Network
