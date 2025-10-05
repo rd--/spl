@@ -67,8 +67,8 @@ PlaneAngle(1.pi).asRadians = 1.pi.asRadians /* radians of angle, or identity of 
 1.25.fractionalPart = 0.25 /* fractional part */
 -1.25.fractionalPart = -0.25 /* fractional part */
 1.pi.fractionalPart + 1.pi.truncate = 1.pi /* fractional part and truncate part sum to identity */
-let x = 1.pi.negate; x.fractionalPart + x.truncate = x /* fractional part and truncate part sum to identity */
-let x = 1.pi.negate; x.fractionalPart + x.integerPart = x /* fractional part and truncate part sum to identity */
+let x = -1.pi; x.fractionalPart + x.truncate = x /* fractional part and truncate part sum to identity */
+let x = -1.pi; x.fractionalPart + x.integerPart = x /* fractional part and truncate part sum to identity */
 2.fractionalPart = 0 /* the fractional part of an integer is zero */
 (1 / 2).fractionalPart = (1 / 2) /* the fractional part of a number between zero and one is identity */
 (4 / 3).fractionalPart ~ (1 / 3) /* floating point math is not exact */
@@ -107,7 +107,7 @@ NaN.isNaN /* literal for NaN */
 1.pi.roundDown(0.1) = 3.1 /* round down to nearest 1/10th */
 1923.roundDown(10) = 1920 /* round down to nearest multiple of 10 */
 1.pi.roundDown(0.005) = 3.140 /* round down to nearest 5/1000th */
-1.pi.negate.roundDown(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
+-1.pi.roundDown(0.01) = -3.15 /* rounding down a negative number rounds away from zero */
 (3 - 1.epsilon).roundDown = 2 /* round down to nearest integer */
 0.9.roundTowardsZero(1) = 0 /* round towards zero, i.e. down for positive numbers */
 -0.9.roundTowardsZero(1) = 0 /* round towards zero, i.e. up for negative numbers */
@@ -204,7 +204,7 @@ let x = 10 ^ -7; let nearest = 10 ^ -8; let furthest = 0; (x - nearest).abs < (x
 Infinity ~ Infinity /* being equal, infinty is also close to itself */
 0 ~ 1.epsilon & { 1.epsilon ~ 0 } & { 1 + 1.epsilon ~ 1 } /* ε is ≈ zero ∧ ≈ is a symmetric operator ∧ one plus ε is ≈ one */
 let n = 10 ^ -9; 0 ~ n & { n ~ 0 } & { 1 + n ~ 1 }
-[8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, 1.epsilon.negate % 3] ~ [2, 0, 2.9, 0, 3] /* modulo */
+[8 % 3, 9 % 3, 8.9 % 3, 1.epsilon % 3, -1.epsilon % 3] ~ [2, 0, 2.9, 0, 3] /* modulo */
 -5:5.collect { :each | each % 3 } = [1, 2, 0, 1, 2, 0, 1, 2, 0, 1, 2] /* modulo */
 15 % 4 = 3 /* modulo */
 15 \\ 4 = 3 /* remainder */
@@ -661,9 +661,9 @@ system.includesPackage('Binary') /* binary package */
 32.highBit = 6 /* high bit, the number of bits required to represent an integer */
 32 = 2r00100000 & { 2r00100000.highBit = 6 } /* high bit */
 2r00101000.highBit = 6 /* high bit */
-{ 2r00101000.negate.highBit }.hasError /* high bit is not defined for negative integers */
+{ -2r00101000.highBit }.hasError /* high bit is not defined for negative integers */
 2r00101000.lowBit = 4 /* low bit */
-2r00101000.negate.lowBit = 4 /* low bit */
+-2r00101000.lowBit = 4 /* low bit */
 0.lowBit = 0 & { 0.highBit = 0 } /* the low and high bits of zero are zero */
 ```
 
@@ -729,7 +729,7 @@ false == false /* false is identical to false */
 (1 == 1) = true /* identical */
 (1 !== 2) = true /* not identical, unicode = ≢ */
 true & { true } /* logical and (operator) */
-false & { '&'.error } = false /* & is equal to and and is not strict (unlike in Smalltalk) */
+false & { '&'.error } = false /* & is equal to and is not strict (unlike in Smalltalk) */
 true & { false } = false /* logical and (operator) */
 true | { false } = true /* logical or (operator) */
 false | { true } = true /* logical or (operator) */
@@ -1529,7 +1529,7 @@ Fraction(3, 1) = 3/1
 226.roundUp(10) = 230 /* round up to nearest multiple of 10 */
 1923.roundUp(10) = 1930 /* round up to nearest multiple of 10 */
 1.pi.roundUp(0.005) = 3.145 /* round up to nearest 5/1000th */
-1.pi.negate.roundUp(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
+-1.pi.roundUp(0.01) = -3.14 /* rounding up a negative number rounds towards zero */
 1.pi.roundUp = 4 /* round up to nearest integer */
 -3/2.numerator.isNegative /* numerator of negative fraction is negative */
 -3/2.denominator.isPositive /* denominator of negative fraction is positive */
@@ -2148,7 +2148,7 @@ let m = (x: 1, y: 2).asMap; m.removeAll; m.isEmpty /* remove all entries */
 -3.abs = 3 /* absolute value */
 1.5.ceiling = 2 /* ceiling (round up) */
 [2 2.8 -2 -2.8].ceiling = [2 3 -2 -2] /* ceiling, pointwise at array */
-let v = [2 2.8 -2 -2.8]; v.ceiling = v.negate.floor.negate /* ceiling is equal to negate/floor/negate */
+let v = [2 2.8 -2 -2.8]; v.ceiling = -v.floor.negate /* ceiling is equal to negate/floor/negate */
 0.cos = 1 /* cosine */
 180.degreesToRadians = 1.pi /* degreesToRadians */
 2.isEven = true /* eveness predicate */
@@ -2384,8 +2384,8 @@ collect:/2.swap . ({ :x | x * x }, [3 5 7]) = [9 25 49] /* swap of collect is ma
 { :x :y | x * y + y }.apply([3.141, 23]) = 95.243
 { { :x | x }.apply(0) }.hasError
 { { :x | x }.apply([]) }.hasError
-9.with { :x | x.sqrt; x.negate } = -9 /* evaluate block with self and answer answer of block */
-9.also { :x | x.sqrt; x.negate } = 9 /* evaluate block with self and answer self */
+9.with { :x | x.sqrt; -x } = -9 /* evaluate block with self and answer answer of block */
+9.also { :x | x.sqrt; -x } = 9 /* evaluate block with self and answer self */
 let d = (c: 1); d.with { :x | x['c'] := 2; 0 } = 0 & { d = (c: 2) }
 let d = (c: 1); d.also { :x | x['c'] := 2; 0 } == d & { d = (c: 2) }
 let d = (c: 1); let r = d.with { :x | x['c'] := 2; 0 }; d = (c: 2) & { r = 0 }

@@ -33,7 +33,7 @@ answers a `SmallFloat` if the value would answer `true` for `isSmallInteger`:
 (18014398509481984L, true)
 ```
 
-If a `SmallFloat`, `Fraction` and `Decimal` it is not an integer it is an error:
+At `SmallFloat`, `Fraction` and `Decimal` it is an error if the value is not an integer:
 
 ```
 >>> { 1.pi.asInteger }.hasError

@@ -56,7 +56,7 @@ The unary operator form is `-`.
 _Rationale_:
 This operator is not spelled _negated_ as in Smalltalk,
 where unary messages are always written postfix,
-hence _1 negated_ and and not _negate(1)_.
+hence _1 negated_ and not _negate(1)_.
 
 * * *
 

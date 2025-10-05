@@ -11,4 +11,6 @@ When selected, the help text is shown in the text editor pane.
 
 See also: HelpViewer, WorldMenu
 
+Guides: Help Functions
+
 Categories: Kansas

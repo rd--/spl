@@ -35,7 +35,7 @@ The name of this operator is `ampersand`.
 
 _Note:_
 In Smalltalk the evaluating form is called _and:_ and the non-evaluating form _&_.
-In Spl the names are _&_ and _&&_.
+In Sᴘʟ the names are _&_ and _&&_.
 
 * * *
 

@@ -58,6 +58,6 @@ however they may be written using the ordinary method syntaxes:
 
 * * *
 
-See also: Operator List, Operator Names, Operator Syntax
+Guides: Operator List, Operator Names, Syntax Guides
 
 Categories: Syntax, Operator

@@ -50,7 +50,7 @@ An anti-Hermitian matrix is `negate` by `conjugateTranspose`:
 ```
 >>> let h = [0 -1 0J2; 1 0 -3J4; 0J2 3J4 0];
 >>> h.conjugateTranspose
-h.negate
+-h
 ```
 
 * * *

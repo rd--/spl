@@ -2,7 +2,7 @@
 
 - _splParseExpression(aString)_
 
-Answer a `SymbolicExpression` representing the parse tree of the Spl expression at _aString_.
+Answer a `SymbolicExpression` representing the parse tree of the Sᴘʟ expression at _aString_.
 
 A program expression is indicated by 𝒫,
 an identifier by a `Symbol`:

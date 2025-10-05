@@ -23,7 +23,7 @@ At `SphericalCoordinates`:
 1
 ```
 
-At `Integer`, _r_ defines a _rational_ number, in Spl called a `Fraction`:
+At `Integer`, _r_ defines a _rational_ number, in Sᴘʟ called a `Fraction`:
 
 ```
 >>> 3.r(4)

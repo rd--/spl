@@ -8,6 +8,8 @@ Methods are: `addBefore`, `addAfter`, `addAfterIndex`, `addFirst`, `addAllFirst`
 
 See also: Collection, List, Sequence
 
+Guides: Collection Functions
+
 References:
 _Smalltalk_
 5.7.1.6

@@ -1,9 +1,9 @@
 # simplify
 
-- _simplify(anObject)_
+- _simplify(x)_
 
-Simplify an _anObject_ in place.
-Answer _anObject_.
+Simplify an the object _x_ in place.
+Answer _x_.
 
 At `Fraction`:
 

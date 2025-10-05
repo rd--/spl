@@ -16,7 +16,9 @@ It is a part of `Block Syntax` and `Program Syntax`.
 Defining functions using `let` bindings to a literal block binds the arity qualified name:
 
 ```
->>> let f = { :x | x * 2 + 1 };
+>>> let f = { :x |
+>>> 	x * 2 + 1
+>>> };
 >>> f:/1 . (11)
 23
 ```
@@ -25,7 +27,9 @@ This is distinct from binding a literal block to an existing identifier defined 
 
 ```
 >>> var f;
->>> f := { :x | x * 2 + 1 };
+>>> f := { :x |
+>>> 	x * 2 + 1
+>>> };
 >>> f . (11)
 23
 ```

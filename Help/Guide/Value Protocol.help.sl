@@ -23,7 +23,7 @@ This protocol allows writing methods that will accept either evaluated or delaye
 In cases where this is not the behaviour wanted,
 a `Block` can be required by using a direct form of _apply_ notation.
 
-The Spl standard library mostly requires block arguments be blocks,
+The Sᴘʟ standard library mostly requires block arguments be blocks,
 see for instance `&` and `|`.
 
 * * *

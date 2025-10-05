@@ -50,7 +50,7 @@ let u = (-0.25 -- 0.25).discretize(n);
 	.xyzToRgb
 	.srgbEncode
 }
-.table(u.negate, u)
+.table(-u, u)
 .Image
 ~~~
 

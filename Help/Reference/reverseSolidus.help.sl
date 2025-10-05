@@ -41,7 +41,7 @@ The name of this operator is `reverseSolidus`.
 _Rationale_:
 This is a non-standard use of the reverse solidus symbol,
 which is ordinarily used to denote both set difference (`complement`) and integer division (`quotient`).
-In Spl set difference is written as `difference` or `complement` which are displayed as ∖ and ∁ respectively,
+In Sᴘʟ set difference is written as `difference` or `complement` which are displayed as ∖ and ∁ respectively,
 and `quotient` is written as `\\` which is symmetrical with `remainder` which is written `//` displayed as ⫽.
 
 * * *

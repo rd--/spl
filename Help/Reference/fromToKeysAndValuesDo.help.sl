@@ -13,7 +13,7 @@ At `List`:
 >>> .fromToIndicesAndValuesDo(
 >>> 	3, 7
 >>> ) { :key :value |
->>> 	answer.add([key.negate, value])
+>>> 	answer.add([-key value])
 >>> };
 >>> answer
 [-3 '3'; -4 '4'; -5 '5'; -6 '6'; -7 '7']

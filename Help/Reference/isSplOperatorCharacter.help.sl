@@ -2,7 +2,7 @@
 
 - _isSplOperatorCharacter(s)_
 
-Answer `true` if the string _s_ is a valid Spl operator character.
+Answer `true` if the string _s_ is a valid Sᴘʟ operator character.
 
 Valid operator character:
 

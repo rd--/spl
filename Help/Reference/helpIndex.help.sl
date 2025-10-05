@@ -2,7 +2,7 @@
 
 - _helpIndex(system)_
 
-Answer a `HelpIndex` holding an index of the Spl help files.
+Answer a `HelpIndex` holding an index of the Sᴘʟ help files.
 
 ```
 >>> system.helpIndex.typeOf
@@ -40,6 +40,6 @@ and this function requires the item be in the interpreter cache.
 
 See also: HelpFile, HelpIndex, LibraryItem
 
-Guides: System Functions
+Guides: Help Functions, System Functions
 
 Categories: Help

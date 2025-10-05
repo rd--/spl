@@ -23,4 +23,4 @@ nil
 
 See also: HelpFile, splDirectory, splFileName
 
-Guides: Help Files, System Functions
+Guides: Help Files, Help Functions, System Functions

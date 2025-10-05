@@ -13,7 +13,7 @@ At `Integer`:
 ```
 
 At `SmallFloat` with radix argument,
-the answer is a valid Spl expression:
+the answer is a valid Sᴘʟ expression:
 
 ```
 >>> 254.printString(16)

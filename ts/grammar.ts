@@ -125,8 +125,8 @@ Sl {
 	RangeThenSyntax = "(" Expression "," Expression ".." Expression ")"
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
-	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | varName
-	VectorSyntaxUnarySend = (literal | varName) "." (selectorName | boundOperator)
+	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier
+	VectorSyntaxUnarySend = (literal | identifier) "." (selectorName | boundOperator)
 	MatrixSyntax = "[" NonemptyListOf<MatrixSyntaxItems, ";"> "]"
 	MatrixSyntaxItems = VectorSyntaxItem*
 	VolumeSyntax = "[" NonemptyListOf<VolumeSyntaxItems, ":;"> "]"
@@ -134,8 +134,9 @@ Sl {
 
 	argumentName = ":" varNameOrUnused
 	unqualifiedIdentifier = letter letterOrDigit*
+	negatedIdentifier = "-" lowercaseIdentifier
 	arityQualifiedIdentifier = letter letterOrDigit* (":/" digit+)
-	identifier = arityQualifiedIdentifier | unqualifiedIdentifier
+	identifier = arityQualifiedIdentifier | unqualifiedIdentifier | negatedIdentifier
 	methodName = unqualifiedIdentifier | operator
 	selectorName = unqualifiedIdentifier
 	unusedVariableIdentifier = "_"

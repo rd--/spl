@@ -1,14 +1,17 @@
 # asDecimalFraction
 
-- _asDecimalFraction(aSmallFloat, anInteger)_
+- _asDecimalFraction(x, n)_
 
-Derive a `Fraction` where _anInteger_ is the number of decimal places.
+Derive a `Fraction` for the `SmallFloat` _x_ where the integer _n_ is the number of decimal places.
 
 ```
 >>> 1.pi.asDecimalFraction(2)
 157/50
 
->>> Fraction((1.pi * (10 ^ 2)).round, 10 ^ 2)
+>>> Fraction(
+>>> 	(1.pi * (10 ^ 2)).round,
+>>> 	10 ^ 2
+>>> )
 157/50
 
 >>> 6.75.asDecimalFraction(2)

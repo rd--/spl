@@ -65,7 +65,7 @@ Plot `cosh` alongside a Padé approximation:
 (-1.pi -- 1.pi).functionPlot([
 	cosh:/1,
 	exp:/1,
-	{ :x | x.negate.exp }
+	{ :x | -x.exp }
 ])
 ~~~
 

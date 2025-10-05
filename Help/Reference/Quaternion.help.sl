@@ -35,7 +35,7 @@ Basic arithemtic:
 >>> let d = 7;
 >>> (
 >>> 	a.absSquare, a.abs, a.norm,
->>> 	a.negate,
+>>> 	-a,
 >>> 	a.conjugate,
 >>> 	a + d,
 >>> 	b + c,

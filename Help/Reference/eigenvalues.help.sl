@@ -58,7 +58,7 @@ Eigenvalues of 3×3 real matrices:
 [6.60674 4.52536 0.66790]
 
 >>> let r = 1 / 2.sqrt;
->>> [1 0 0; 0 r r.negate; 0 r r].eigenvalues
+>>> [1 0 0; 0 r -r; 0 r r].eigenvalues
 [1 r r]
 ```
 

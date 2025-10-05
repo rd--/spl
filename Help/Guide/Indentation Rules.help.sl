@@ -3,7 +3,7 @@
 The standard library and the help files follow very simple indentation rules.
 
 Indentation is by _tab_ characters,
-the Spl Emacs mode sets the tab with to eight.
+the Sᴘʟ Emacs mode sets the tab with to eight.
 
 The next line is shifted one place right if:
 

@@ -21,7 +21,7 @@ HelpIndex : [Object] { | contents |
 		}
 	}
 
-	kind { :self |
+	kind { :unused |
 		['Guide', 'Reference', 'Terse']
 	}
 
@@ -31,7 +31,7 @@ HelpIndex : [Object] { | contents |
 		}.collect(second:/1).sorted
 	}
 
-	urlFor { :self :kind :name |
+	urlFor { :unused :kind :name |
 		[
 			'./lib/spl/Help/',
 			kind,

@@ -117,7 +117,7 @@ _Rationale_:
 Writing _~_ to indicate _similar to_ is a standard mathematical notation,
 as is writing _≈_ to indicate _approximately_.
 In Smalltalk `~=` is the operator for _not equal to_, and `~~` is the operator for _not identical to_.
-In Spl these operators are written `!=` and `!==`,
+In Sᴘʟ these operators are written `!=` and `!==`,
 in order to allow writing `!~` as _not similar to_.
 
 * * *

@@ -2,7 +2,7 @@
 
 - _HelpFile(origin, source)_
 
-`HelpFile` is a `Type` holding an Spl help file.
+`HelpFile` is a `Type` holding an Sᴘʟ help file.
 The constructor requires a `Url`.
 
 Help files are written in Markdown.
@@ -53,6 +53,6 @@ url.fetchText.then { :aString |
 
 See also: helpIndex, HelpIndex, terseReferenceSummary
 
-Guides: Documentation Tests, Help Files, System Functions
+Guides: Documentation Tests, Help Files, Help Functions, System Functions
 
 Categories: Help

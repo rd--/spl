@@ -4,6 +4,7 @@
 
 - `Assignment Syntax`
 - `Block Syntax`
+- `Identifier Syntax`
 - `List Syntax`
 - `Literals Syntax`
 - `Program Syntax`

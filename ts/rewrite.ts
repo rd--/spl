@@ -682,6 +682,9 @@ const asSl: ohm.ActionDict<string> = {
 	nanLiteral(x) {
 		return x.sourceString;
 	},
+	negatedIdentifier(_n, i) {
+		return `negate(${i.asSl})`;
+	},
 	operator(op) {
 		return op.sourceString;
 	},

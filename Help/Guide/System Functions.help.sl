@@ -11,13 +11,13 @@ Environment Variables:
 - `environmentVariable`
 - `environmentVariables`
 
-Help Functions
+File Functions:
 
-- `HelpFile`
-- `HelpIndex`
-- `helpFileName`
-- `helpFilesDo`
-- `helpIndex`
+- `File Functions`: Guide
+
+Help Functions:
+
+- `Help Functions`: Guide
 
 Identifiers:
 
@@ -48,6 +48,6 @@ Subprocess:
 
 * * *
 
-Guides: Date and Time Functions, File Functions, Network Functions, Reflection Functions
+Guides: Date and Time Functions, File Functions, Help Functions, Network Functions, Reflection Functions
 
 Categories: System

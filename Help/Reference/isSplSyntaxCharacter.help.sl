@@ -2,7 +2,7 @@
 
 - _isSplSyntaxCharacter(s)_
 
-Answer `true` if the string _s_ is a puncuation character in the context of the Spl grammar.
+Answer `true` if the string _s_ is a puncuation character in the context of the Sᴘʟ grammar.
 
 Valid syntax characters:
 

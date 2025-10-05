@@ -1,8 +1,8 @@
 # splParseTree
 
-- _splParseTree(aString)_
+- _splParseTree(e)_
 
-Answer a parse tree of the Spl expression at _aString_.
+Answer a parse tree of the Sᴘʟ expression at the string _e_.
 
 All expressions are represented by a `List`,
 where the first entry is a `String` identifying the type of the expression,

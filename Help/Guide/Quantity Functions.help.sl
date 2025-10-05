@@ -5,7 +5,7 @@ Generic Quantity Types:
 - `Quantity`
 - `QuantityArray`
 
-Specific Quantity Types:
+Specific Quantity Traits:
 
 - `Frequency`
 - `Length`
@@ -19,6 +19,10 @@ Unit Types:
 
 Converting:
 
+- `asHertz`
+- `asKilograms`
+- `asMetres`
+- `asRadians`
 - `asSeconds`
 
 Quantity accessors:

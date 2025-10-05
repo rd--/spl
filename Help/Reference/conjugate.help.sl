@@ -55,7 +55,7 @@ Conjugate is an odd function:
 
 ```
 >>> let n = 1.j(system.nextRandomFloat);
->>> n.negate.conjugate
+>>> -n.conjugate
 n.conjugate.negate
 ```
 

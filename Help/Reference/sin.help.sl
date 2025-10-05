@@ -57,7 +57,7 @@ Values of `sin` at fixed points:
 
 ```
 >>> let n = (0 -- 2.pi).atRandom;
->>> n.negate.sin
+>>> -n.sin
 n.sin.negate
 ```
 

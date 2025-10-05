@@ -1,5 +1,11 @@
 # Comparison Functions
 
+Traits:
+
+- `Comparable`
+- `Equatable`
+- `Magnitude`
+
 Equation:
 
 - `=`: equal to
@@ -19,10 +25,10 @@ Inequalities:
 
 Ordering:
 
-- `precedes`
-- `precedesOrEqualTo`
-- `succeeds`
-- `succeedsOrEqualTo`
+- `<|`, `precedes`
+- `<=|`, `precedesOrEqualTo`
+- `|>`, `succeeds`
+- `|>=`, `succeedsOrEqualTo`
 
 Similarities:
 

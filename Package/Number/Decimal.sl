@@ -1,4 +1,33 @@
-Decimal : [Object, Comparable, Magnitude] { | fraction scale |
+Decimal : [Object, Equatable, Comparable, Magnitude] { | fraction scale |
+
+	= { :self :operand |
+		operand.isDecimal.if {
+			(self.scale = operand.scale) & {
+				let m = 10 ^ self.scale;
+				(self.asFloat * m).round = (operand.asFloat * m).round
+			}
+		} {
+			false
+		}
+	}
+
+	~ { :self :operand |
+		self = operand | {
+			operand.isNumber.if {
+				self.asFloat ~ operand.asFloat
+			} {
+				false
+			}
+		}
+	}
+
+	< { :self :operand |
+		operand.isDecimal.if {
+			self.fraction < operand.fraction
+		} {
+			operand.adaptToDecimalAndApply(self, <)
+		}
+	}
 
 	* { :self :operand |
 		operand.isDecimal.if {
@@ -48,35 +77,6 @@ Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 		}
 	}
 
-	= { :self :operand |
-		operand.isDecimal.if {
-			(self.scale = operand.scale) & {
-				let m = 10 ^ self.scale;
-				(self.asFloat * m).round = (operand.asFloat * m).round
-			}
-		} {
-			false
-		}
-	}
-
-	~ { :self :operand |
-		self = operand | {
-			operand.isNumber.if {
-				self.asFloat ~ operand.asFloat
-			} {
-				false
-			}
-		}
-	}
-
-	< { :self :operand |
-		operand.isDecimal.if {
-			self.fraction < operand.fraction
-		} {
-			operand.adaptToDecimalAndApply(self, <)
-		}
-	}
-
 	^ { :self :aNumber |
 		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
@@ -118,7 +118,11 @@ Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 	}
 
 	asInteger { :self |
-		self.fraction.asInteger
+		self.isInteger.if {
+			self.fraction.asInteger
+		} {
+			self.error('asInteger')
+		}
 	}
 
 	asSmallInteger { :self |
@@ -156,7 +160,7 @@ Decimal : [Object, Comparable, Magnitude] { | fraction scale |
 	}
 
 	isInteger { :self |
-		self.fraction.isInteger
+		self.scale.isZero
 	}
 
 	isNegative { :self |

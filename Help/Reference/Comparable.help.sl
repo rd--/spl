@@ -6,19 +6,19 @@ The required method is:
 
 - `compare`
 
-The implemented methods are:
-
-- `precedes`
-- `precedesOrEqualTo`
-- `succeeds`
-- `succeedsOrEqualTo`
-
 The implemented operators are:
 
-- `<|`: precedes
-- `<=|`: precedes or equal to
-- `|>`: succeeds
-- `|=>`: succeeds or equal to
+- `<|`: ≺
+- `<=|`: ≼
+- `|>`: ≻
+- `|=>`: ≽
+
+The implemented methods are:
+
+- `precedes`: ≺
+- `precedesOrEqualTo`: ≼
+- `succeeds`: ≻
+- `succeedsOrEqualTo`: ≽
 
 _Rationale_:
 The `Magnitude` trait is implemented for numeric types that have a strict ordering.
@@ -27,6 +27,8 @@ Types such as `Complex` and `String` and `List` implement `Comparable` but not `
 
 * * *
 
-See also: Magnitude
+See also: Equatable, Magnitude
 
 Guides: Comparison Functions, Sorting Functions
+
+Unicode: U+227a ≺ Precedes, U+227c ≼ Precedes Or Equal To, U+227B ≻ Succeeds, U+227D ≽ Succeeds or Equal To

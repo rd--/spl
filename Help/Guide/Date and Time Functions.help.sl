@@ -6,11 +6,14 @@ Types:
 - `Date`
 - `DateAndTime`
 - `Duration`
-- `Frequency`
 - `Quantity`
-- `Time`
 - `TimeInterval`
 - `TimeStamp`
+
+Traits:
+
+- `Frequency`
+- `Time`
 
 Converting:
 

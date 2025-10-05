@@ -1,6 +1,8 @@
 # Magnitude
 
 `Magnitude` is a `Trait` defining comparison operators between numeric values.
+Types that implement magnitude should also implement `Equatable`,
+and should declare themselves `Comparable`.
 
 ```
 >>> system
@@ -21,7 +23,7 @@ true
 The required methods are:
 
 - `<`
-- `=`
+- `=`: Equatable
 
 The implemented operators include:
 

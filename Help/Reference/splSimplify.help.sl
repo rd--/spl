@@ -2,7 +2,7 @@
 
 - _splSimplify(s)_
 
-Answer a simplified form of the Spl program at the string _s_.
+Answer a simplified form of the Sᴘʟ program at the string _s_.
 The program is re-written to use only the core syntactic forms of the language.
 This process is sometimes called _desugaring_.
 
@@ -45,6 +45,13 @@ and `List Syntax` expressions are not rewritten:
 ```
 >> 'let x = 23; x'.splSimplify
 let x = 23; x
+```
+
+Negated variable references are rewritten in terms of `negate`:
+
+```
+>> 'let x = 23; -x'.splSimplify
+let x = 23; negate(x)
 ```
 
 `List Assignment Syntax` is rewritten as `Let Syntax` and `Assignment Syntax`:

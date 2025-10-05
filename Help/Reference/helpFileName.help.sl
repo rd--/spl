@@ -2,7 +2,7 @@
 
 - _helpFileName(aString)_
 
-Answer the relative path to the Spl help file for the topic _aString_.
+Answer the relative path to the Sᴘʟ help file for the topic _aString_.
 
 Topics that have no white space are reference files:
 
@@ -22,4 +22,4 @@ Topics that include white space are guide files:
 
 See also: HelpFile, splDirectory, splFileName
 
-Guides: Help Files
+Guides: Help Files, Help Functions

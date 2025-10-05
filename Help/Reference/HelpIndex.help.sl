@@ -1,9 +1,9 @@
 # HelpIndex
 
-- _HelpIndex(aList)_
+- _HelpIndex([k₁ t₁; k₂ t₂; …])_
 
-A `Type` holding an index of the Spl help files.
-Each entry in the index is a pair _[Kind, Topic]_.
+A `Type` holding an index of the Sᴘʟ help files.
+Each entry in the index is a list _(kind,topic)_.
 
 The `helpIndex` method `System` answers a `HelpIndex`:
 
@@ -15,3 +15,5 @@ The `helpIndex` method `System` answers a `HelpIndex`:
 * * *
 
 See also: helpIndex, HelpFile
+
+Guides: Help Functions

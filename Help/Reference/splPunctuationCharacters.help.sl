@@ -2,7 +2,7 @@
 
 - _splPunctuationCharacters(system)_
 
-Answer the list of Spl punctuation characters.
+Answer the list of Sᴘʟ punctuation characters.
 
 ```
 >>> system.splPunctuationCharacters.size

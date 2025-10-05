@@ -10,7 +10,7 @@ or equally _m_ plus the negation of _n_.
 >>> 10 - 3
 7
 
->>> 10 + 3.negate
+>>> 10 + -3
 7
 
 >>> 1 - 0.3
@@ -59,7 +59,7 @@ As the argument to `reduce` and `foldRight`:
 6 - (1 - 2)
 ```
 
-The unary form is equivalent to `negate`, answering the negation of _aNumber_.
+The unary form is equivalent to `negate`, answering the negation of _m_.
 
 At `SmallFloat`:
 

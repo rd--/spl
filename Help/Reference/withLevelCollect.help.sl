@@ -48,7 +48,7 @@ Reverse at each level of a rank three array:
 ]
 
 >>> [2 3 2].iota.withLevelCollect { :z :k |
->>> 	(k = 3).if { z.negate } { z }
+>>> 	(k = 3).if { -z } { z }
 >>> }
 [
 	-1 -2; -3 -4; -5 -6:;

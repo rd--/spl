@@ -176,6 +176,24 @@ Integer and fraction parts retain scale:
 0.463D
 ```
 
+A `Decimal` is an integer only the `scale` is `zero`:
+
+```
+>>> 3D.isInteger
+true
+
+>>> 3.000D.isInteger
+false
+
+>>> 3D.asInteger
+3
+
+>>> {
+>>> 	3.000D.asInteger
+>>> }.hasError
+true
+```
+
 Absolute value:
 
 ```

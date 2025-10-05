@@ -1,8 +1,9 @@
 # simplified
 
-- _simplified(anObject)_
+- _simplified(x)_
 
-Answer a simplified form of an _anObject_, without changing an _anOject_ in the process.
+Answer a simplified form of an the object _x_,
+without changing an _x_ in the process.
 
 At `Fraction`:
 
