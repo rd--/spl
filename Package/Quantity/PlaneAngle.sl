@@ -20,6 +20,34 @@
 		self.radians / 400
 	}
 
+	isAcute { :self |
+		self.radians < 1/2.pi
+	}
+
+	isFull { :self |
+		self.radians.isVeryCloseTo(2.pi)
+	}
+
+	isObtuse { :self |
+		self.radians > 1/2.pi & {
+			self.radians < 1.pi
+		}
+	}
+
+	isReflex { :self |
+		self.radians > 1.pi & {
+			self.radians < 2.pi
+		}
+	}
+
+	isRight { :self |
+		self.radians.isVeryCloseTo(1/2.pi)
+	}
+
+	isStraight { :self |
+		self.radians.isVeryCloseTo(1.pi)
+	}
+
 	radians { :self |
 		self.typeResponsibility('radians')
 	}
@@ -88,6 +116,18 @@
 
 	fromDms { :self |
 		self.numberCompose([1, 1 / 60, 1 / 3600])
+	}
+
+}
+
++@Collection {
+
+	degrees { :self |
+		self.collect(degrees:/1)
+	}
+
+	radians { :self |
+		self.collect(radians:/1)
 	}
 
 }

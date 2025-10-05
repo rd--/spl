@@ -412,7 +412,7 @@ Triangle : [Object, Equatable, Geometry] { | vertexCoordinates |
 		self.sideLengths.nubBy(isVeryCloseTo:/2).size <= 2
 	}
 
-	isOlique { :self |
+	isOblique { :self |
 		self.isRight.not
 	}
 

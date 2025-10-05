@@ -1,10 +1,22 @@
 # isObtuse
 
-- _isObtuse(t)_
+- _isObtuse(x)_
 
-A predicate to decide if the triangle _t_ is obtuse.
+A predicate to decide if the object _x_ is obtuse.
 
-An obtuse triangle:
+At `Quantity`:
+
+```
+>>> 105.degrees.isObtuse
+true
+
+>>> [60 90 270].degrees
+>>> .collect(isObtuse:/1)
+[false false false]
+```
+
+At `Triangle`:
+an obtuse triangle:
 
 ```
 >>> [12 6.5 9.5].sssTriangle.isObtuse

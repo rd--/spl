@@ -10,6 +10,13 @@ answer a `Quantity` value:
 Quantity(1/2.pi, 'radians')
 ```
 
+Threads over lists:
+
+```
+>>> [30 60 120].degrees
+[1/6 1/3 2/3].pi.radians
+```
+
 At `Quantity` and `PlaneAngle`,
 answer the value in degrees:
 

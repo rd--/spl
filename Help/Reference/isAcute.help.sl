@@ -1,10 +1,22 @@
 # isAcute
 
-- _isAcute(t)_
+- _isAcute(x)_
 
-A predicate to decide if the triangle _t_ is acute.
+A predicate to decide if the object _x_ is acute.
 
-An equilateral triangle is acute:
+At `Quantity`:
+
+```
+>>> 35.degrees.isAcute
+true
+
+>>> [90 120 270].degrees
+>>> .collect(isAcute:/1)
+[false false false]
+```
+
+At `Triangle`,
+an equilateral triangle is acute:
 
 ```
 >>> [1 1 1].sssTriangle.isAcute

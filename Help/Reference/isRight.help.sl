@@ -1,11 +1,24 @@
 # isRight
 
-- _isRight(t)_
+- _isRight(x)_
 
-Answer `true` if the triangle _t_ is a right triangle,
-that is if one angle is ½π radians, or 90°.
+Answer `true` if the object _x_ is right,
 
-A right triangle:
+At `Quantity`:
+
+```
+>>> 90.degrees.isRight
+true
+
+>>> [60 180 270].degrees
+>>> .collect(isRight:/1)
+[false false false]
+```
+
+At `Triangle`,
+a right triangle,
+where one angle is ½π radians,
+or 90°:
 
 ```
 >>> sssTriangle(3, 4, 5)

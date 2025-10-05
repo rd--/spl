@@ -23,6 +23,28 @@ There are `degrees` and `radians` accessors:
 2.pi
 ```
 
+Predicates:
+
+```
+>>> 30.degrees.isAcute
+true
+
+>>> 90.degrees.isRight
+true
+
+>>> 120.degrees.isObtuse
+true
+
+>>> 180.degrees.isStraight
+true
+
+>>> 210.degrees.isReflex
+true
+
+>>> 360.degrees.isFull
+true
+```
+
 The circular (trigonometric) functions are implemented:
 
 ```
