@@ -11,4 +11,6 @@ _s_ is a message string.
 
 See also: Error, error, signal
 
+Guides: Reflection Functions
+
 Categories: Error Handling

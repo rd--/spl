@@ -25,6 +25,8 @@ answer the number of complete centiseconds:
 
 * * *
 
-See also: asSeconds, hours, Quantity, seconds, minutes
+See also: asSeconds, hours, milliseconds, Quantity, seconds, minutes
+
+Guides: Quantity Functions
 
 Categories: Time, Type

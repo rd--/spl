@@ -1,6 +1,6 @@
 # asFrequency
 
-- _asFrequency(anObject)_
+- _asFrequency(x)_
 
 At `Duration`,
 answer the reciprocal:
@@ -19,6 +19,8 @@ Duration(0.01)
 
 * * *
 
-See also: asDuration, Duration, Frequency
+See also: asDuration, Duration, Frequency, Quantity
+
+Guides: Quantity Functions
 
 Categories: Converting, Date, Time

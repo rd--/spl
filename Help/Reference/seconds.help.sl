@@ -31,6 +31,8 @@ answer the number of seconds:
 
 See also: asSeconds, hours, milliseconds, minutes, Quantity
 
+Guides: Quantity Functions
+
 References:
 _Smalltalk_
 5.8.2.17

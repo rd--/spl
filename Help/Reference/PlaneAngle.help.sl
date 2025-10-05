@@ -2,7 +2,8 @@
 
 - _PlaneAngle(x)_
 
-A `Type` representing a _plane angle_ measured in radians.
+PlaneAngle is `Trait` for types representing a _plane angle_ measured in radians.
+It is also a specialized constructor method for `Quantity` values.
 
 Make a plane angle:
 
@@ -43,4 +44,4 @@ _NIST_
 _W_
 [1](https://en.wikipedia.org/wiki/Angle)
 
-Categories: Geometry, Type
+Categories: Geometry, Trait

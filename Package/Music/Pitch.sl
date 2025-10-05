@@ -1,6 +1,6 @@
 /* Requires: Frequency */
 
-+Frequency {
++@Frequency {
 
 	linearOctave { :self |
 		(self.hertz * (1 / 440)).log2 + 4.75
@@ -62,7 +62,7 @@
 }
 
 /* csound naming */
-+Frequency {
++@Frequency {
 
 	cps { :self |
 		self.hertz

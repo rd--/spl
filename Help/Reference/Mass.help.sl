@@ -2,7 +2,8 @@
 
 - _Mass(x)_
 
-A `Type` representing a unit of measure for mass.
+Mass is a `Trait` to for types that represent a measure for mass.
+It is also a specialized constructor method for `Quantity` values.
 The kilogram (_kg_) is the SI unit of mass.
 
 ```
@@ -15,10 +16,12 @@ The kilogram (_kg_) is the SI unit of mass.
 
 See also: Angle, Frequency, Length, Quantity, SiUnit, Time
 
+Guides: Quantity Functions
+
 References:
 _NIST_
 [1](https://www.nist.gov/pml/special-publication-811),
 _W_
 [1](https://en.wikipedia.org/wiki/Mass)
 
-Categories: Unit, Type
+Categories: Unit, Trait

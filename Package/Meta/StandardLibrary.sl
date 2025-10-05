@@ -70,16 +70,18 @@
 	'GeoJson'
 	'Schema'
 
-	/* Quantity */
-	'Quantity'
-	'QuantityArray'
+	/* Quantity Traits */
 	'Frequency'
 	'Length'
 	'Mass'
 	'PlaneAngle'
+	'Time'
+
+	/* Quantity Types */
+	'Quantity'
+	'QuantityArray'
 	'SiPrefix'
 	'SiUnit'
-	'Time'
 
 	/* Logic */
 	'SymbolicExpression'

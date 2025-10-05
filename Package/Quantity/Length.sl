@@ -1,32 +1,4 @@
-Length : [Object, Equatable, Comparable, Magnitude] { | metres |
-
-	< { :self :aLength |
-		self.metres < aLength.metres
-	}
-
-	magnitude { :self |
-		self.metres
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-	unit { :unused |
-		'metres'
-	}
-
-}
-
-+SmallFloat {
-
-	Length { :self |
-		newLength().initializeSlots(self)
-	}
-
-}
-
-+[Length, Quantity] {
+@Length {
 
 	angstroms { :self |
 		self.metres * 1E10
@@ -58,6 +30,10 @@ Length : [Object, Equatable, Comparable, Magnitude] { | metres |
 
 	lightYears { :self |
 		self.metres / (9.4607 * (10 ^ 15))
+	}
+
+	metres { :self |
+		self.typeResponsibility('metres')
 	}
 
 	micrometres { :self |
@@ -102,10 +78,10 @@ Length : [Object, Equatable, Comparable, Magnitude] { | metres |
 
 }
 
-+Quantity {
++SmallFloat {
 
-	asLength { :self |
-		Length(self.metres)
+	Length { :self |
+		Quantity(self, 'metres')
 	}
 
 }

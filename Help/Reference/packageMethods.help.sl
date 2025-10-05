@@ -17,7 +17,6 @@ Find the definitions of `asHert` in the _Frequency_ package:
 >>> }
 [
 	('Number', 1),
-	('Quantity', 1),
 	('Frequency', 1)
 ]
 ```

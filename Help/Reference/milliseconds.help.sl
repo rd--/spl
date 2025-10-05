@@ -28,4 +28,6 @@ answer the number of complete milliseconds in _t_:
 
 See also: asSeconds, hours, minutes, Quantity, seconds
 
+Guides: Quantity Functions
+
 Categories: Time, Type

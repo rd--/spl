@@ -2,8 +2,8 @@
 
 ## PlaneAngle -- geometry type
 ```
-system.includesPackage('PlaneAngle') /* angle package */
-PlaneAngle(1.pi).typeOf = 'PlaneAngle' /* type of angle */
+system.includesPackage('PlaneAngle') /* plane angle package */
+PlaneAngle(1.pi).typeOf = 'Quantity' /* type of angle */
 PlaneAngle(1.pi).isPlaneAngle /* angle predicate */
 PlaneAngle(1).degrees ~ 57.296 /* radians to degrees */
 PlaneAngle(1.pi).degrees = 180 /* pi radians is 180 degrees */
@@ -1631,13 +1631,11 @@ Fraction(-4, -12) = 1/3
 ## Frequency -- temporal type
 ```
 system.includesPackage('Frequency') /* frequency package */
-1.hertz.asFrequency.typeOf = 'Frequency' /* frequency from hertz (cyles per second) */
-1.hertz.asFrequency.isFrequency /* frequency predicate */
-1.hertz.asFrequency.printString = 'Frequency(1)' /* frequency print string */
-10.hertz.asFrequency = (1 / 10).seconds.asDuration.asFrequency /* duration is the reciprocal of frequency */
-(1 / 10).seconds.asDuration.asFrequency = 10.hertz.asFrequency /* frequency is the reciprocal of duration */
-1.kilohertz.asFrequency.asDuration = 1.milliseconds.asDuration /* the period of 1kHz is 1ms */
-1.kilohertz.asFrequency.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
+1.hertz.typeOf = 'Quantity' /* frequency from hertz (cyles per second) */
+1.hertz.isFrequency /* frequency predicate */
+10.hertz.asDuration = (1 / 10).seconds.asDuration /* duration is the reciprocal of frequency */
+1.kilohertz.asDuration = 1.milliseconds.asDuration /* the period of 1kHz is 1ms */
+1.kilohertz.asHertz = 1000.asHertz /* hertz of frequency, or identity of number */
 ```
 
 ## Graph -- collection type
@@ -2036,10 +2034,9 @@ let a = [9 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
 ## Length -- geometry type
 ```
 system.includesPackage('Length') /* Length package */
-1.metres.asLength.typeOf = 'Length' /* metre constructor, type of */
+1.metres.typeOf = 'Quantity' /* metre constructor, type of */
 1.metres.isLength /* length predicate */
-10.centimetres.asLength.printString = 'Length(0.1)'
-10.centimetres.asLength.asMetres = 0.1.asMetres /* metres of length, or identity of number */
+10.centimetres.asMetres = 0.1.asMetres /* metres of length, or identity of number */
 ```
 
 ## LinkedList -- collection type
@@ -4017,10 +4014,9 @@ true.not = false
 
 ## Unit/Mass -- physics unit type
 ```
-23.grams.asMass.typeOf = 'Mass' /* gram constructor, type of */
+23.grams.typeOf = 'Quantity' /* gram constructor, type of */
 23.grams.isMass /* mass predicate */
-23.grams.asMass.printString = 'Mass(0.023)'
-1.kilograms.asMass.asKilograms = 1.asKilograms /* grams of mass, or identity of number */
+1.kilograms.asKilograms = 1.asKilograms /* grams of mass, or identity of number */
 ```
 
 ## Unit/SiUnit -- units type

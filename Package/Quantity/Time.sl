@@ -1,11 +1,35 @@
-Time : [Object, Equatable] { | seconds |
+@Time {
 
-	magnitude { :self |
+	asSeconds { :self |
 		self.seconds
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
+	centiseconds { :self |
+		self.seconds * 10
+	}
+
+	days { :self |
+		self.hours / 24
+	}
+
+	hours { :self |
+		self.minutes / 60
+	}
+
+	julianYears { :self |
+		self.days / 365.25
+	}
+
+	milliseconds { :self |
+		self.seconds * 1000
+	}
+
+	minutes { :self |
+		self.seconds / 60
+	}
+
+	seconds { :self |
+		self.typeResponsibility('seconds')
 	}
 
 	timeString { :self |
@@ -23,8 +47,16 @@ Time : [Object, Equatable] { | seconds |
 		}
 	}
 
-	unit { :unused |
-		'seconds'
+	weeks { :self |
+		self.days / 7
+	}
+
+}
+
++SmallFloat {
+
+	Time { :self |
+		Quantity(self, 'seconds')
 	}
 
 }
@@ -56,58 +88,6 @@ Time : [Object, Equatable] { | seconds |
 			self.error('parseTime: invalid input')
 		}
 	}
-}
-
-+[Time, Quantity] {
-
-	asSeconds { :self |
-		self.seconds
-	}
-
-	centiseconds { :self |
-		self.seconds * 10
-	}
-
-	days { :self |
-		self.hours / 24
-	}
-
-	hours { :self |
-		self.minutes / 60
-	}
-
-	julianYears { :self |
-		self.days / 365.25
-	}
-
-	milliseconds { :self |
-		self.seconds * 1000
-	}
-
-	minutes { :self |
-		self.seconds / 60
-	}
-
-	weeks { :self |
-		self.days / 7
-	}
-
-}
-
-+SmallFloat {
-
-	Time { :self |
-		newTime().initializeSlots(self)
-	}
-
-}
-
-+Quantity {
-
-	asTime { :self |
-		Time(self.seconds)
-	}
-
 }
 
 +SmallFloat {

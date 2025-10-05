@@ -17,6 +17,10 @@ Unit Types:
 
 - `SiUnit`
 
+Converting:
+
+- `asSeconds`
+
 Quantity accessors:
 
 - `magnitude`

@@ -1,35 +1,35 @@
-PlaneAngle : [Object, Equatable, Comparable, Magnitude] { | radians |
+@PlaneAngle {
 
-	< { :self :anAngle |
-		self.radians < anAngle.radians
+	asRadians { :self |
+		self.radians
 	}
 
 	cos { :self |
 		self.radians.cos
 	}
 
-	equalBy { :self :anAngle :aBlock:/2 |
-		aBlock(self.radians, anAngle.radians)
+	degrees { :self |
+		self.radians / 1.pi * 180
 	}
 
-	magnitude { :self |
-		self.radians
+	dmsList { :self |
+		self.degrees.dmsList
+	}
+
+	gradians { :self |
+		self.radians / 400
+	}
+
+	radians { :self |
+		self.typeResponsibility('radians')
 	}
 
 	sin { :self |
 		self.radians.sin
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 	tan { :self |
 		self.radians.tan
-	}
-
-	unit { :unused |
-		'radians'
 	}
 
 	vector { :self |
@@ -41,23 +41,7 @@ PlaneAngle : [Object, Equatable, Comparable, Magnitude] { | radians |
 +SmallFloat {
 
 	PlaneAngle { :self |
-		newPlaneAngle().initializeSlots(self)
-	}
-
-}
-
-+[PlaneAngle, Quantity] {
-
-	asRadians { :self |
-		self.radians
-	}
-
-	degrees { :self |
-		self.radians / 1.pi * 180
-	}
-
-	gradians { :self |
-		self.radians / 400
+		Quantity(self, 'radians')
 	}
 
 }
@@ -104,14 +88,6 @@ PlaneAngle : [Object, Equatable, Comparable, Magnitude] { | radians |
 
 	fromDms { :self |
 		self.numberCompose([1, 1 / 60, 1 / 3600])
-	}
-
-}
-
-+Quantity {
-
-	dmsList { :self |
-		self.degrees.dmsList
 	}
 
 }

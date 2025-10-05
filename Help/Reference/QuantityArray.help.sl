@@ -7,8 +7,15 @@ A `Type` representing an array of quantities with magnitudes _m_ and units _u_.
 A `List` of lengths, all given in meters:
 
 ```
->>> let q = QuantityArray([2.3 1.5 9.0], 'metres');
->>> (q.magnitudeArray, q.unitList, q.normal)
+>>> let q = QuantityArray(
+>>> 	[2.3 1.5 9.0],
+>>> 	'metres'
+>>> );
+>>> (
+>>> 	q.magnitudeArray,
+>>> 	q.unitList,
+>>> 	q.normal
+>>> )
 (
 	[2.3 1.5 9.0],
 	['metres' 'metres' 'metres'],
@@ -27,7 +34,11 @@ A list of pairs _(time, length)_:
 >>> 	[1.4 2.3; 2.8 2.7; 4.2 3.5],
 >>> 	['seconds' 'meters']
 >>> );
->>> (q.magnitudeArray, q.unitList, q.normal)
+>>> (
+>>> 	q.magnitudeArray,
+>>> 	q.unitList,
+>>> 	q.normal
+>>> )
 (
 	[1.4 2.3; 2.8 2.7; 4.2 3.5],
 	['seconds' 'meters'],

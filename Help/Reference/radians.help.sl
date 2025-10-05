@@ -27,4 +27,6 @@ See also: Angle, degrees, radiansToDegrees
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Degree.html)
+[1](https://mathworld.wolfram.com/Radian.html),
+_W_
+[1]*https://en.wikipedia.org/wiki/Radian)

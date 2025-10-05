@@ -17,6 +17,13 @@ which is in all cases the base unit:
 3E-3
 ```
 
+Threads over lists:
+
+```
+>>> [5.hertz 0.2.seconds].magnitude
+[5 0.2]
+```
+
 * * *
 
 See also: Quantity, unit

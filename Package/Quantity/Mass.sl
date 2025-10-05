@@ -1,32 +1,4 @@
-Mass : [Object, Equatable, Comparable, Magnitude] { | kilograms |
-
-	< { :self :aMass |
-		self.kilograms < aMass.kilograms
-	}
-
-	magnitude { :self |
-		self.kilograms
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-	unit { :unused |
-		'kilograms'
-	}
-
-}
-
-+SmallFloat {
-
-	Mass { :self |
-		newMass().initializeSlots(self)
-	}
-
-}
-
-+[Mass, Quantity] {
+@Mass {
 
 	asKilograms { :self |
 		self.kilograms
@@ -34,6 +6,10 @@ Mass : [Object, Equatable, Comparable, Magnitude] { | kilograms |
 
 	grams { :self |
 		self.kilograms * 1E3
+	}
+
+	kilograms { :self |
+		self.typeResponsibility('kilograms')
 	}
 
 	ounces { :self |
@@ -46,10 +22,10 @@ Mass : [Object, Equatable, Comparable, Magnitude] { | kilograms |
 
 }
 
-+Quantity {
++SmallFloat {
 
-	asMass { :self |
-		Mass(self.kilograms)
+	Mass { :self |
+		Quantity(self, 'kilograms')
 	}
 
 }

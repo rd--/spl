@@ -28,6 +28,8 @@ answer the number of complete minutes:
 
 See also: hours, milliseconds, Quantity, seconds
 
+Guides: Quantity Functions
+
 References:
 _Smalltalk_
 5.8.2.12

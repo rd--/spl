@@ -1,4 +1,4 @@
-Quantity : [Object, Equatable, Comparable, Magnitude] { | magnitude unit |
+Quantity : [Object, Equatable, Comparable, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
 	< { :self :anObject |
 		self.isCommensurate(anObject).if {
@@ -38,11 +38,23 @@ Quantity : [Object, Equatable, Comparable, Magnitude] { | magnitude unit |
 		self + anObject.negate
 	}
 
+	equalBy { :self :anObject :aBlock:/2 |
+		anObject.isQuantity & {
+			self.unit == anObject.unit & {
+				aBlock(self.magnitude, anObject.magnitude)
+			}
+		}
+	}
+
 	hertz { :self |
 		(self.unit = 'hertz').if {
 			self.magnitude
 		} {
-			self.error('hertz: not frequency')
+			(self.unit = 'seconds').if {
+				1 / self.magnitude
+			} {
+				self.error('hertz: not frequency')
+			}
 		}
 	}
 
@@ -62,6 +74,10 @@ Quantity : [Object, Equatable, Comparable, Magnitude] { | magnitude unit |
 
 	isLength { :self |
 		self.unit = 'metres'
+	}
+
+	isPlaneAngle { :self |
+		self.unit = 'radians'
 	}
 
 	isMass { :self |
@@ -146,3 +162,14 @@ Quantity : [Object, Equatable, Comparable, Magnitude] { | magnitude unit |
 
 }
 
++@Collection {
+
+	magnitude { :self |
+		self.collect(magnitude:/1)
+	}
+
+	unit { :self |
+		self.collect(unit:/1)
+	}
+
+}

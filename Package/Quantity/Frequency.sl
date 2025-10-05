@@ -1,11 +1,11 @@
-Frequency : [Object, Equatable, Comparable, Magnitude] { | hertz |
-
-	< { :self :aFrequency |
-		self.hertz < aFrequency.hertz
-	}
+@Frequency {
 
 	asDuration { :self |
 		Duration(1 / self.hertz)
+	}
+
+	asHertz { :self |
+		self.hertz
 	}
 
 	cyclesPerMinute { :self |
@@ -16,36 +16,12 @@ Frequency : [Object, Equatable, Comparable, Magnitude] { | hertz |
 		self.hertz
 	}
 
-	magnitude { :self |
-		self.hertz
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
-	unit { :unused |
-		'hertz'
-	}
-
-}
-
-+SmallFloat {
-
-	Frequency { :self |
-		newFrequency().initializeSlots(self)
-	}
-
-}
-
-+[Frequency, Quantity] {
-
-	asHertz { :self |
-		self.hertz
-	}
-
 	gigahertz { :self |
 		self.hertz / 1E9
+	}
+
+	hertz { :self |
+		self.typeResponsibility('hertz')
 	}
 
 	kilohertz { :self |
@@ -54,6 +30,14 @@ Frequency : [Object, Equatable, Comparable, Magnitude] { | hertz |
 
 	megaherz { :self |
 		self.hertz / 1E6
+	}
+
+}
+
++SmallFloat {
+
+	Frequency { :self |
+		Quantity(self, 'hertz')
 	}
 
 }
@@ -74,14 +58,6 @@ Frequency : [Object, Equatable, Comparable, Magnitude] { | hertz |
 
 	megaherz { :self |
 		(self * 1000000).hertz
-	}
-
-}
-
-+Quantity {
-
-	asFrequency { :self |
-		Frequency(self.hertz)
 	}
 
 }

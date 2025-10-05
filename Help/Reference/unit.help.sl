@@ -5,16 +5,29 @@
 Answer the unit of the specified quantity _q_.
 
 ```
->>> 3.millimetres
-Quantity(0.003, 'metres')
+>>> 2.seconds.unit
+'seconds'
+
+>>> 3.kilograms.unit
+'kilograms'
 ```
 
 The specified unit is in all cases the base unit,
 the conversion is made by the constructor funtion:
 
 ```
+>>> 3.millimetres
+Quantity(0.003, 'metres')
+
 >>> 3.millimetres.unit
 'metres'
+```
+
+Threads over lists:
+
+```
+>>> [5.hertz 0.2.seconds].unit
+['hertz' 'seconds']
 ```
 
 * * *

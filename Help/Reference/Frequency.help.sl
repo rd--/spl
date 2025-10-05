@@ -2,11 +2,13 @@
 
 - _Frequency(x)_
 
-A `Type` to represent the number of occurrences of a repeating event per unit of time.
-`Frequency` (_f_) is measured in `hertz` (_Hz_) which is equal to the number of events per second.
+Frequency is a `Trait` to for types that represent the number of occurrences of a repeating event per unit of time.
+It is also a specialized constructor method for `Quantity` values.
+
+Frequency (_f_) is measured in hertz (_Hz_) which is equal to the number of events per second.
 The period (_T_) is the interval of time between events, the reciprocal of the frequency.
 
-Make a frequency:
+Make a `Quantity` value with unit _hertz_:
 
 ```
 >>> let f = Frequency(1);
@@ -55,4 +57,4 @@ _W_
 [1](https://en.wikipedia.org/wiki/International_System_of_Quantities)
 [2](https://en.wikipedia.org/wiki/International_System_of_Units)
 
-Categories: Temporal, Type
+Categories: Temporal, Trait

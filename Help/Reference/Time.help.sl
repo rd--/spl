@@ -2,7 +2,8 @@
 
 - _Time(x)_
 
-A `Type` representing a quantity of the base unit of measure for time.
+Time is a `Trait` holding behaviours for types representing a quantity of the base unit of measure for time.
+It is also a specialized constructor method for `Quantity` values.
 The base unit of time in the International System of Units (SI) is the second (_s_).
 
 ```
@@ -23,4 +24,4 @@ _NIST_
 _W_
 [1](https://en.wikipedia.org/wiki/Time)
 
-Categories: Unit, Type
+Categories: Unit, Trait

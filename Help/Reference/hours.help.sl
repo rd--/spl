@@ -30,6 +30,8 @@ answer the number of complete hours:
 
 See also: milliseconds, minutes, Quantity, seconds
 
+Guides: Quantity Functions
+
 References:
 _Smalltalk_
 5.8.2.11
