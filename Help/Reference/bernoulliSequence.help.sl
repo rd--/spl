@@ -48,7 +48,7 @@ Plot denominator:
 
 See also: bernoulliNumber, bernoulliPolynomial
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

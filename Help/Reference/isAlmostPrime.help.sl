@@ -51,7 +51,7 @@ true
 
 See also: isComposite, isPrime, primeFactors, size
 
-Guides: Integer Functions, Integer Sequences, Predicate Functions, Prime Number Functions
+Guides: Integer Functions,Integer Sequence Functions, Predicate Functions, Prime Number Functions
 
 References:
 _Mathematica_

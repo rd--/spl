@@ -23,7 +23,7 @@ true
 
 See also: linearRecurrence, lucasNumbers, pellNumbers
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

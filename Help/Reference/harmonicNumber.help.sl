@@ -54,7 +54,7 @@ Plot over a subset of the integers:
 
 See also: digamma, gamma, harmonicMean, harmonicProgression, harmonicSeries
 
-Guides: Integer Functions, Integer Sequences
+Guides: Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

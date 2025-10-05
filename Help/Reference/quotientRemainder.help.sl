@@ -127,6 +127,8 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Remainder.html)
 [3](https://reference.wolfram.com/language/ref/QuotientRemainder.html)
 [4](https://reference.wolfram.com/language/ref/PolynomialQuotientRemainder.html),
+_OEIS_
+[1](https://oeis.org/A118006),
 _W_
 [1](https://en.wikipedia.org/wiki/Quotient)
 [2](https://en.wikipedia.org/wiki/Remainder)

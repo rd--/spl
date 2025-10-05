@@ -27,7 +27,7 @@ Lassalle’s sequence connected with Catalan numbers and Narayana polynomials.
 
 See also: catalanNumber, narayanaNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

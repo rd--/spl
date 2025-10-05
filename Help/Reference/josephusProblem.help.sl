@@ -85,7 +85,7 @@ OEIS [A032434](https://oeis.org/A032434):
 
 See also: josephusSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

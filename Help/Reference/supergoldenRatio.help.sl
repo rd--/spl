@@ -113,7 +113,7 @@ let b = 1.supergoldenRatio.log / 0.5.pi;
 
 See also: goldenRatio, narayanaSequence
 
-Guides: Integer Sequences, Mathematical Constants
+Guides: Integer Sequence Functions, Mathematical Constants
 
 Unicode: U+003C8 ψ Greek Small Letter Psi
 

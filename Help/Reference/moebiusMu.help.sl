@@ -64,7 +64,7 @@ Plot the first few terms of Mertens’s function:
 
 See also: isSquareFree, liouvilleLambda
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

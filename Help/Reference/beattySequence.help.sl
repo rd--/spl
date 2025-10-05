@@ -69,7 +69,7 @@ the lower and upper Wythoff sequences:
 
 See also: e, goldenRatio, pi, sqrt, wythoffLower, wythoffUpper
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

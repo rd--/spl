@@ -26,7 +26,7 @@ Plot first few terms:
 
 See also: gouldsSequence, hammingWeight
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 OEIS

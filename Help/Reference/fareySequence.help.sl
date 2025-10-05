@@ -159,7 +159,7 @@ let y = x.collect(reverse:/1);
 
 See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide
 
-Guides: Integer Functions, Integer Sequences, Mathematical Sequences
+Guides: Integer Functions,Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

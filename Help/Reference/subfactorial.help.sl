@@ -55,3 +55,5 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Subfactorial.html)
 [2](https://reference.wolfram.com/language/ref/Subfactorial.html)
+_OEIS_
+[1](https://oeis.org/A000166)

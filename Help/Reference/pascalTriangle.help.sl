@@ -63,7 +63,7 @@ OEIS [A007318](https://oeis.org/A007318):
 
 See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, stolarskyHarborthConstant, table, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

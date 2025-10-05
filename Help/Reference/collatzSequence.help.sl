@@ -78,7 +78,7 @@ Plot the orbit for twenty-seven, which has one-hundred and twelve places:
 
 See also: isEven, isOdd, nestWhileList
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

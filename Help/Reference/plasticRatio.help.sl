@@ -63,7 +63,7 @@ The plastic ratio is close to the seventh root of seven:
 
 See also: goldenRatio, harmoniousNumber, metallicMean, supergoldenRatio
 
-Guides: Integer Sequences, Mathematical Constants
+Guides: Integer Sequence Functions, Mathematical Constants
 
 References:
 _Mathematica_

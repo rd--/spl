@@ -70,7 +70,7 @@ let b = 1.supersilverRatio.log / 0.5.pi;
 
 See also: silverRatio, supergoldenRatio
 
-Guides: Integer Sequences, Mathematical Constants
+Guides: Integer Sequence Functions, Mathematical Constants
 
 Unicode: U+003C2 ς Greek Small Letter Final Sigma
 

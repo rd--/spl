@@ -50,7 +50,7 @@ Answer the _n_-th Jacobsthal number.
 
 See also: ^
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

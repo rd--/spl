@@ -92,7 +92,7 @@ indicating the proportions of zeros and ones:
 
 See also: fibonacci
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

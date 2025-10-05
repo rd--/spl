@@ -33,7 +33,7 @@ that is the bit reversal permutation is an involution:
 
 See also: fromDigits, integerDigits, permute, Permutation
 
-Guides: Bitwise Functions, Integer Sequences
+Guides: Bitwise Functions,Integer Sequence Functions
 
 References:
 _OEIS_

@@ -439,6 +439,17 @@
 		a
 	}
 
+
+	mersennePrimeExponent { :self |
+		[
+			2 3 5 7 13 17 19 31 61 89
+			107 127 521 607 1279 2203 2281 3217 4253 4423
+			9689 9941 11213 19937 21701 23209 44497 86243 110503 132049
+			216091 756839 859433 1257787 1398269 2976221 3021377 6972593 13466917 20996011
+			24036583 25964951 30402457 32582657 37156667 42643801 43112609 57885161 74207281 77232917
+		].at(self)
+	}
+
 	moserDeBruijnSequence { :self |
 		(0 .. self - 1).collect { :n |
 			n.integerDigits(2).riffle([0]).fromDigits(2)
@@ -564,6 +575,10 @@
 		}
 	}
 
+	repunit { :n :b |
+		(b ^ n - 1) / (b - 1)
+	}
+
 	schroderNumber { :k |
 		k.schroderSequence.last
 	}
@@ -652,6 +667,12 @@
 		{ :x |
 			(x ^ 2) - x + 1
 		}.nestList(2L, n - 1)
+	}
+
+	szekeresSequence { :self |
+		(0 .. self - 1).collect { :n |
+			fromDigits(integerDigits(n, 2), 3) + 1
+		}
 	}
 
 	thueMorse { :index |
@@ -765,6 +786,47 @@
 
 	locallyCatenativeSequence { :w :i :n |
 		locallyCatenativeSequence(w, i, n, List(w.size, identity:/1))
+	}
+
+	stanleySequence { :s1 :m |
+		/* https://oeis.org/A185256 */
+		let t1 = s1.size;
+		let mmm = 1000;
+		let s2 = (s1 ! (t1 + m)).flatten;
+		let chvec = List(mmm + 1, 0);
+		let swi = nil;
+		1.toDo(t1) { :i |
+			chvec[s2[i] + 1] := 1
+		};
+		(t1 + 1).toDo(t1 + m) { :n |
+			(s2[n - 1] + 1).toDoWithBreak(mmm) { :i :break:/0 |
+				swi := -1;
+				1.toDoWithBreak(n - 2) { :j :break:/0 |
+					let p = s2[n - j];
+					let k = 2 * p - i;
+					(k < 0).ifTrue {
+						break()
+					};
+					(
+						k <= mmm & {
+							chvec[k + 1] = 1
+						}
+					).ifTrue {
+						swi := 1;
+						break()
+					}
+				};
+				(swi = -1).ifTrue {
+					s2[n] := i;
+					chvec[i + 1] := 1;
+					break()
+				}
+			};
+			(swi = 1).ifTrue {
+				s1.warning('stanleySequence: no solution at n=' ++ n)
+			}
+		};
+		s2.first(m)
 	}
 
 }

@@ -226,7 +226,7 @@ let m = 2 ^ (n - 1) - 1;
 
 See also: digitCount, fromDigits
 
-Guides: Bitwise Functions, Integer Functions, Integer Sequences, Mathematical Functions
+Guides: Bitwise Functions, Integer Functions,Integer Sequence Functions, Mathematical Functions
 
 References:
 _Mathematica_

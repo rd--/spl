@@ -64,7 +64,7 @@ The sequence lengths for the first few terms of the _p=2_ sequences:
 
 See also: isHappyNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

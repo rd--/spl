@@ -33,7 +33,7 @@ Plot first few terms:
 
 See also: lookAndSaySequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

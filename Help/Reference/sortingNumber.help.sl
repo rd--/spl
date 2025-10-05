@@ -29,7 +29,7 @@ OEIS [A001855](https://oeis.org/A001855):
 
 See also: log
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

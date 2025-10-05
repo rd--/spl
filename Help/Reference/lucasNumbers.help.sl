@@ -18,7 +18,7 @@ Answer the first _anInteger_ Lucas numbers.
 
 See also: fibbonaciSequence, lucasNumber, lucasPellNumbers, pellNumbers
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

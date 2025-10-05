@@ -26,7 +26,7 @@ Plot first few terms:
 
 See also: integerExponent
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

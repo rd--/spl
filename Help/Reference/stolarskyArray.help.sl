@@ -25,7 +25,7 @@ The first seven rows and columns of the Stolarsky array:
 
 See also: fibonacci, goldenRatio, wythoffArray
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

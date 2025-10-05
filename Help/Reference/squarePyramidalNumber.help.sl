@@ -21,7 +21,7 @@ the sum of the first _n_ square numbers.
 
 See also: ^, *, square, sqrt
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

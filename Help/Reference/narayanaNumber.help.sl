@@ -28,7 +28,7 @@ that occur in various counting problems.
 
 See also: binomial, catalanNumber, delannoyNumber, dyckWords, narayanaSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

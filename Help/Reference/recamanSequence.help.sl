@@ -60,7 +60,7 @@ let z = true;
 
 See also: Set
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

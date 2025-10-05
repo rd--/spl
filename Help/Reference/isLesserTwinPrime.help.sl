@@ -43,7 +43,7 @@ Plot:
 
 See also: isPrime, nextPrime
 
-Guides: Integer Sequences, Prime Number Functions
+Guides: Integer Sequence Functions, Prime Number Functions
 
 References:
 _Mathematica_

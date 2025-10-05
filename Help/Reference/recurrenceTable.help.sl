@@ -119,7 +119,7 @@ Find fixed points of a nonlinear recurrence equation:
 
 See also: linearRecurrence, recurrenceFilter, recurrenceMatrix, table
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

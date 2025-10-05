@@ -3,7 +3,7 @@
 - _isPerfectNumber(n)_
 
 Answer `true` if the integer _n_ is a perfect number, and `false` otherwise.
-A positive integer _n_ is a perfect number if the sum of all its divisors is _2 * n_.
+A positive integer _n_ is a perfect number if the sum of all its divisors is _2n_.
 
 Six is a perfect number:
 
@@ -53,7 +53,7 @@ true
 
 See also: isPerfectPower, isPerfectSquare
 
-Guides: Integer Functions, Integer Sequences, Predicate Functions
+Guides: Integer Functions,Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_

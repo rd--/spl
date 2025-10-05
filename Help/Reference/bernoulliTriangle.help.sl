@@ -38,7 +38,7 @@ c.f. OEIS [A008949](https://oeis.org/A008949):
 
 See also: bernoulliTriangle, binomial, gouldsSequence, table, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -35,7 +35,7 @@ c.f. the reciprocal of OEIS [A003506](https://oeis.org/A003506):
 
 See also: binomial, gouldsSequence, pascalTriangle, table, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

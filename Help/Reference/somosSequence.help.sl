@@ -154,7 +154,7 @@ The seven sequence:
 
 See also: floor, goebelsSequence, sum
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

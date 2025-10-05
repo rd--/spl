@@ -35,7 +35,7 @@ The integer lengths of the first ten perfect numbers:
 
 See also: isPerfectNumber
 
-Guides: Integer Functions, Integer Sequences
+Guides: Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

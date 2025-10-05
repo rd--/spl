@@ -62,7 +62,7 @@ Plot sequence as series of turns:
 
 See also: grayDecode, integerDigits, thueMorse
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

@@ -34,7 +34,7 @@ Plot first few terms:
 
 See also: !, binomial, catalanNumber, lobbNumber, narayanaNumber, stirlingS2
 
-Guides: Combinatorial Functions, Integer Sequences
+Guides: Combinatorial Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

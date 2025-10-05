@@ -74,9 +74,12 @@ As _b_ increases sample values can exhibit surprisingly regular patterns:
 
 See also: hammersleyPointSet, kroneckerSequence, poissonDiskSampling, vanDerCorputNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A030101)
+[2](https://oeis.org/A030102),
 _W_
 [1](https://en.wikipedia.org/wiki/Halton_sequence)
 

@@ -73,7 +73,7 @@ Plot absolute value of numerators on `log` scale:
 
 See also: bernoulliSequence, eulerNumber
 
-Guides: Integer Functions, Integer Sequences
+Guides: Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

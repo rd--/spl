@@ -34,7 +34,7 @@ Plot first few terms:
 
 See also: golombsSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

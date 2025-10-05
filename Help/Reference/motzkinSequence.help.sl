@@ -41,7 +41,7 @@ A recurrence function:
 
 See also: delannoySequence, motzkinNumber, schroderSequence, superCatalanNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

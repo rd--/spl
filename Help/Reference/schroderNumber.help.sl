@@ -14,7 +14,7 @@ also called a large Schröder number or big Schröder number.
 
 See also: delannoyNumber, schroderSequence, superCatalanNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

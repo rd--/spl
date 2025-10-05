@@ -37,7 +37,7 @@ Scatter plot of the terms in _(6000, 6200)_:
 
 See also: fibonacciSequence, mallowsSequence, memoize
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

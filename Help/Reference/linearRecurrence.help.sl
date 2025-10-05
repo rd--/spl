@@ -497,7 +497,7 @@ linearRecurrence(k, i, 100)
 
 See also: shiftRegisterSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -58,7 +58,7 @@ If _b_ is a large integer, so is the answer:
 
 See also: digitCount, fromContinuedFraction, integerDigits, powerRange, rationalize
 
-Guides: Bitwise Functions, Integer Functions, Integer Sequences
+Guides: Bitwise Functions, Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

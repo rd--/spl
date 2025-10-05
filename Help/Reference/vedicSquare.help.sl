@@ -30,7 +30,7 @@ true
 
 See also: %, commonResidue, positiveResidue
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

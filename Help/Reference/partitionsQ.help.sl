@@ -65,7 +65,7 @@ let n = 47;
 
 See also: partitionFunctionQ, partitionsP
 
-Guides: Combinatorial Functions, Integer Functions, Integer Sequences
+Guides: Combinatorial Functions, Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -23,7 +23,7 @@ OEIS [A001950](https://oeis.org/A001950):
 
 See also: beattySequence, wythoffArray, wythoffLower, wythoffPair
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

@@ -25,7 +25,7 @@ The sequence converges extremely slowly:
 
 See also: boltzmannConstant, e, goldenRatio, isPrime, isLesserTwinPrime, pi, planckConstant, silverConstant, stolarskyHarborthConstant
 
-Guides: Integer Sequences, Mathematical Constants, Prime Number Functions
+Guides: Integer Sequence Functions, Mathematical Constants, Prime Number Functions
 
 References:
 _Mathematica_

@@ -30,7 +30,7 @@ The first few terms:
 
 See also: catalanNumber, catalanTriangle
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

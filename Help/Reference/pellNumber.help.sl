@@ -57,7 +57,7 @@ Plot over a subset of the reals:
 
 See also: fibonacci, pellNumbers, pellLucasNumbers
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

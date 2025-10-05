@@ -146,7 +146,7 @@ let f = { :n |
 
 See also: divisors, factorInteger, gcd, lcm, powerMod
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _J_

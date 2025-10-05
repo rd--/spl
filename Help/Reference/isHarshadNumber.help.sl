@@ -59,7 +59,7 @@ true
 
 See also: divisible, integerDigits, mod, sum
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

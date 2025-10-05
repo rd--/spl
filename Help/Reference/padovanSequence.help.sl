@@ -122,7 +122,7 @@ A matrix analogous to the Fibonacci Q-matrix exists for Padovan numbers:
 
 See also: perrinFunction, perrinSequence, plasticRatio
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

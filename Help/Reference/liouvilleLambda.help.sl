@@ -41,7 +41,7 @@ Plot the Liouville lambda sequence for the first 20 numbers:
 
 See also: primeFactors, size
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

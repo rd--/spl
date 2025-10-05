@@ -89,7 +89,7 @@ OEIS [A005823](https://oeis.org/A005823):
 
 See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
 
-Guides: Bitwise Functions, Integer Functions, Integer Sequences
+Guides: Bitwise Functions, Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

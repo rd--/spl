@@ -65,7 +65,7 @@ Generate a path based on the Rudin–Shapiro sequence:
 
 See also: grayDecode, integerDigits, substitutionSystem, thueMorse
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

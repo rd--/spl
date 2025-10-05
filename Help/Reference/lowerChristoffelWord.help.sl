@@ -97,6 +97,10 @@ See also: fibonacciWord, upperChristoffelWord
 Guides: Combinatorial Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A144595)
+[2](https://oeis.org/A144596)
+[3](https://oeis.org/A144608),
 _W_
 [1](https://en.wikipedia.org/wiki/Cutting_sequence)
 [2](https://en.wikipedia.org/wiki/Sturmian_word)

@@ -83,7 +83,7 @@ First few terms of the base-8 Champernowne sequence:
 
 See also: copelandErdosSequence, integerDigits
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

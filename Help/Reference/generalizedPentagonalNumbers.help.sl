@@ -28,7 +28,7 @@ The first few terms:
 
 See also: pentagonalNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

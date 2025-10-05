@@ -214,7 +214,7 @@ where a loop statement is not allowed.
 
 See also: nestList, timesRepeat
 
-Guides: Integer Sequences, Stream Functions
+Guides: Integer Sequence Functions, Stream Functions
 
 References:
 _Apl_

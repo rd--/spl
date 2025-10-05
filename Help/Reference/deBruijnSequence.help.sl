@@ -127,7 +127,7 @@ Use `shiftRegisterSequence` to generate a binary de Bruijn sequence:
 
 See also: partition, shiftRegisterSequence, tuples
 
-Guides: Combinatorial Functions, Integer Sequences
+Guides: Combinatorial Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

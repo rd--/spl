@@ -57,7 +57,7 @@ The reciprocals of triangular numbers produce is convergent series where the lim
 
 See also: binomial, cube, pascalTriangle, square, tetrahedralNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

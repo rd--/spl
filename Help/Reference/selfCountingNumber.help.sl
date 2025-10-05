@@ -13,7 +13,7 @@ Answer _k_-th term of the self-counting sequence.
 
 See also: selfCountingSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

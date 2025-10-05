@@ -95,7 +95,7 @@ Plot log scaled:
 
 See also: integerPartitions, partitionFunctionP, partitionsQ
 
-Guides: Combinatorial Functions, Integer Functions, Integer Sequences
+Guides: Combinatorial Functions, Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

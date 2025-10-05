@@ -22,7 +22,7 @@ Answer the first _n_ terms of Sylvester’s sequence.
 
 See also: isSquareFree
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

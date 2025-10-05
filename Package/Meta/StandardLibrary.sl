@@ -175,6 +175,7 @@
 	'IterativeMaps'
 	'MatrixFunctions'
 	'NumericalFunctions'
+	'OnlineEncyclopediaOfIntegerSequences'
 	'Optimization'
 	'ParametricEquations'
 	'Permutations'

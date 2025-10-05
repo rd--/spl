@@ -124,7 +124,7 @@ true
 
 See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega
 
-Guides: Integer Sequences, Prime Number Functions
+Guides: Integer Sequence Functions, Prime Number Functions
 
 References:
 _Mathematica_

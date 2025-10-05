@@ -45,7 +45,7 @@ let n = 1:200;
 
 See also: binomial, blancmangeCurve, digitCount, pascalTriangle, rudinShapiro
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

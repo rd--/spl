@@ -39,6 +39,8 @@ At `List`, answers with a zeroed collection of the same `shape`:
 
 See also: isNegative, isNonZero, isPositive, isZero, one
 
+Guides: Mathematical Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Zero.html),

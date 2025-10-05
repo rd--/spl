@@ -156,7 +156,7 @@ _Note_: Both the integer and generalized forms can be requested especially:
 
 See also: factorial, gamma, subfactorial
 
-Guides: Combinatorial Functions, Integer Sequences, Special Functions
+Guides: Combinatorial Functions,Integer Sequence Functions, Special Functions
 
 References:
 _Mathematica_

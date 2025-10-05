@@ -48,7 +48,7 @@ Plot the inverse permutation of the same Josephus sequence:
 
 See also: josephusProblem
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

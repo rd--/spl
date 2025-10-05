@@ -50,7 +50,7 @@ Scatter plot of first few terms:
 
 See also: fareySequence, sternBrocotNumber, sternBrocotTree
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

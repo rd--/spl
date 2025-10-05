@@ -39,7 +39,7 @@ c.f. OEIS A020651:
 
 See also: calkinWilfTree, minkowskiQuestionMark, sternBrocotTree
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

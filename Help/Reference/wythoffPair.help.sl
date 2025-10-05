@@ -57,7 +57,7 @@ let w = 1:23.collect(wythoffPair:/1);
 
 See also: beattySequence, fibonacci, wythoffArray, wythoffLower, wythoffUpper
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

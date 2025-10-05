@@ -38,7 +38,7 @@ Differences are multiples of six:
 
 See also: centeredPolygonalNumber, tetrahedralNumber, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

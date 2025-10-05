@@ -60,7 +60,7 @@ Plot modulo _n-1_:
 
 See also: fibonacci, lucasNumbers
 
-Guides: Integer Functions, Integer Sequences
+Guides: Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

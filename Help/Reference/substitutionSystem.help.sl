@@ -363,6 +363,8 @@ Draw the partial complement of the Haferman carpet:
 
 See also: Association, fibonacciWord, locallyCatenativeSequence, Map, rudinShapiro, simpleLindenmayerSystem, thueMorse
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SubstitutionSystem.html)

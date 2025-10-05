@@ -45,7 +45,7 @@ Plot the first few terms:
 
 See also: sternBrocotSequence, sternBrocotTree
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

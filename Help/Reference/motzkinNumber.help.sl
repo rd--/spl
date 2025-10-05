@@ -16,7 +16,7 @@ Answer the _k_-th Motzkin number.
 
 See also: delannoyNumber, motzkinSequence, schroderNumber, superCatalanNumber
 
-Guides: Integer Sequencess
+Guides: Integer Sequence Functionss
 
 References:
 _Mathematica_

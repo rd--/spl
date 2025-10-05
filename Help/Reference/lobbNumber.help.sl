@@ -42,7 +42,7 @@ Plot first few terms:
 
 See also: bellNumber, binomial, catalanNumber, narayanNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

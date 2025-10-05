@@ -26,7 +26,7 @@ Answer the first _n_ terms of the Göbel sequence.
 
 See also: somosSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -50,7 +50,7 @@ Centered hexagonal numbers;
 
 See also: tetrahedralNumber, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -49,7 +49,7 @@ The binary form answers the entry at position _n,k_:
 
 See also: catalanNumber, finesSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

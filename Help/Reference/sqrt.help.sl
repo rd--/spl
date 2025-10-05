@@ -155,8 +155,6 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SquareRoot.html)
 [2](https://reference.wolfram.com/language/ref/Sqrt.html),
-_OEIS_
-[1](https://oeis.org/A000290),
 _Smalltalk_
 5.6.2.34,
 _W_

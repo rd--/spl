@@ -23,7 +23,7 @@ The twenty-fourth super Catalan number:
 
 See also: catalanNumber, memoize
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

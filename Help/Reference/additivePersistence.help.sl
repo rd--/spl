@@ -12,7 +12,8 @@ The number of additions required to obtain the `digitalRoot` of _x_ in base _b_.
 2
 ```
 
-The additive persistences of the first few positive integers:
+The additive persistences of the first few positive integers,
+OEIS [A031286](https://oeis.org/A031286):
 
 ```
 >>> 1:20.collect { :n |
@@ -35,7 +36,7 @@ Scatter plot of first few terms:
 
 See also: digitalRoot
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

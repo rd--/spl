@@ -67,7 +67,7 @@ Plot first few terms:
 
 See also: fromDigits, integerDigits
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

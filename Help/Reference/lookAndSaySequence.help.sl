@@ -60,7 +60,7 @@ Convert terms to to large integers:
 
 See also: conwaysConstant, gijswijtsSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

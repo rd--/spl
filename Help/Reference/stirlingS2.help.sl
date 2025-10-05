@@ -2,6 +2,8 @@
 
 - _stirlingS2(n, m)_
 
+Answer the Stirling number of the second kind.
+
 Table of first few terms:
 
 ```

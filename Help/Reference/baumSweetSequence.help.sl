@@ -63,7 +63,7 @@ Recurrence plot of sequence:
 
 See also: integerDigits, regularPaperfoldingSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -23,7 +23,7 @@ The first few polite numbers:
 
 See also: divisors, isPowerOfTwo, mod, politeness
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

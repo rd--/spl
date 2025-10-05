@@ -27,7 +27,7 @@ Logarithmic scatter plot of the first few terms:
 
 See also: antidiagonalIndicesDo, delannoyNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

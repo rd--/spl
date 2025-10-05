@@ -1005,6 +1005,19 @@
 		self
 	}
 
+	toDoWithBreak { :self :end :aBlock:/2 |
+		let index = self;
+		valueWithReturn { :return:/1 |
+			{
+				index <= end
+			}.whileTrue {
+				aBlock(index, return:/1);
+				index := index + 1
+			}
+		};
+		self
+	}
+
 	toDo { :self :end :aBlock:/1 |
 		let index = self;
 		{

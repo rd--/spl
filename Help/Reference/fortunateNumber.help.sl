@@ -23,7 +23,7 @@ to calculate the thirteenth term the next prime after the `primorial` of thirtee
 
 See also: nextPrime, primorial
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

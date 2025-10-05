@@ -63,7 +63,7 @@ Where supported `square` is displayed as ².
 
 See also: ^, *, cube, squarePyramidalNumber, sqrt
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

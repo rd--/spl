@@ -85,7 +85,7 @@ plot differences:
 
 See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, shiftRegisterSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

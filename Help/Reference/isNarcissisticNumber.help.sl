@@ -72,7 +72,7 @@ In base nine:
 
 See also: ^, integerDigits, integerLength, isHappyNumber, isPowerfulNumber, sum
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

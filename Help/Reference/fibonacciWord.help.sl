@@ -142,7 +142,7 @@ Plot Fourier transform of the tenth Fibonacci word:
 
 See also: fibonacci, locallyCatenativeSequence, rabbitConstant, substitutionSystem, tribonacciWord
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

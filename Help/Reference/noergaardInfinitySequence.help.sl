@@ -35,7 +35,7 @@ Scatter plot of first few terms:
 
 See also: inventorySequence, memoize, noergaardInfinityTree, noergaardRhythmicInfinitySystem
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

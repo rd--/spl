@@ -66,6 +66,8 @@ Plot first few terms:
 
 See also: divisors, isSumOfTwoSquares, square
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SumofSquaresFunction.html)

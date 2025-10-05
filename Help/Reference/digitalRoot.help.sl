@@ -49,7 +49,7 @@ Plot:
 
 See also: digitalRootSet
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

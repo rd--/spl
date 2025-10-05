@@ -34,7 +34,7 @@ Log scatter plot of first few terms:
 
 See also: binomial, gouldsNumber, pascalTriangle
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 OEIS

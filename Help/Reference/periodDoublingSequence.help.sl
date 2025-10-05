@@ -21,7 +21,7 @@ Answer the first _n_ terms of the period doubling sequence.
 
 See also: regularPaperfoldingSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

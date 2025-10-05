@@ -40,7 +40,7 @@ also called the large Schröder numbers or big Schröder numbers.
 
 See also: delannoySequence, schroderNumber, superCatalanNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

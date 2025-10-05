@@ -68,7 +68,7 @@ and the denominator on the _y_-axis:
 
 See also: calkinWilfTree
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _OEIS_

@@ -91,7 +91,7 @@ Plot sequence of regular numbers:
 
 See also: isRegularNumber, primeFactors, primeLimit
 
-Guides: Integer Functions, Integer Sequences
+Guides: Integer Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

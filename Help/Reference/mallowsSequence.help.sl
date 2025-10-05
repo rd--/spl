@@ -24,7 +24,7 @@ Plot first few terms:
 
 See also: hofstadterQSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

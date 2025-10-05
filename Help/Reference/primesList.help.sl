@@ -28,7 +28,7 @@ Plot first few places:
 
 See also: cachedPrimesList, isPrime, nextPrime, prime, primesBetweenAnd, sieveOfEratosthenes
 
-Guides: Integer Sequences, Prime Number Functions
+Guides: Integer Sequence Functions, Prime Number Functions
 
 References:
 _OEIS_

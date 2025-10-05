@@ -52,7 +52,7 @@ Plot over a subset of the reals:
 
 See also: fibonacci, lucasNumber, perrinSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

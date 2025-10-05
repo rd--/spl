@@ -50,7 +50,7 @@ The first few happy primes:
 
 See also: isUnhappyNumber, perfectDigitalInvariantSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

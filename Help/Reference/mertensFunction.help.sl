@@ -24,7 +24,7 @@ Plot:
 
 See also: moebiusMu
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

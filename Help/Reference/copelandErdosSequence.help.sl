@@ -25,7 +25,7 @@ Answer the first _n_ digits of the Copeland-Erdős constant.
 
 See also: champernowneSequence, prime
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

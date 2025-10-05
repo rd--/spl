@@ -17,7 +17,7 @@ Answer the _n_-th tetrahedral number.
 
 See also: binomial, cube, pascalTriangle, square, triangularNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

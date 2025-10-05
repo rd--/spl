@@ -77,7 +77,7 @@ partitioned into a 100×100 matrix:
 
 See also: fromDigits, integerDigits, sort
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

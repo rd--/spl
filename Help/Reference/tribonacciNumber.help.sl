@@ -19,7 +19,7 @@ Answer the _n_-th tribonacci number.
 
 See also: fibonacci, tribonacciConstant, tribonacciWord
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

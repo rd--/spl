@@ -15,7 +15,7 @@ _Note_: Slow for moderate _n_.
 
 See also: binomial, factorInteger
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

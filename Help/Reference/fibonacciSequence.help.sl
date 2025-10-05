@@ -101,7 +101,7 @@ OEIS [007660](https://oeis.org/A007660):
 
 See also: binetsFormula, fibonacci, fibonacciWord, goldenRatio, linearRecurrence, pellNumbers
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

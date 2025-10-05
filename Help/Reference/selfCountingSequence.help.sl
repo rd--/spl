@@ -21,7 +21,7 @@ Answer the first _k_ terms of the self-counting sequence.
 
 See also: selfCountingNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

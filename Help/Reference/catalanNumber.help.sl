@@ -35,7 +35,7 @@ Definition in terms of `gamma`:
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, gamma, lassalleNumber, superCatalanNumber
 
-Guides: Combinatorial Functions, Integer Sequences
+Guides: Combinatorial Functions,Integer Sequence Functions
 
 References:
 _Mathematica_

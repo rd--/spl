@@ -29,6 +29,8 @@ the `catenate` of `collect`:
 
 See also: catenate, collect
 
+Guides: List Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:concatMap)

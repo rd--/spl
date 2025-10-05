@@ -43,7 +43,7 @@ Asymptotic expression for the _n_-the term:
 
 See also: kolakoskiSequence
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

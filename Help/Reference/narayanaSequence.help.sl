@@ -34,7 +34,7 @@ Plot first few terms:
 
 See also: fibonacciSequence, narayanaNumber, padovanSequence, supergoldenRatio
 
-Guides: Integer Sequences, Mathematical Sequences
+Guides: Integer Sequence Functions, Mathematical Sequences
 
 References:
 _Mathematica_

@@ -17,7 +17,7 @@ constructed by iteratively applying the Tribonacci, or Rauzy, map.
 
 See also: fibonacciWord, tribonacciConstant
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_

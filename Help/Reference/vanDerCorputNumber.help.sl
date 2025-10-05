@@ -141,7 +141,7 @@ Show decimal sequence at length hafway between 10ⁱ and 10²:
 
 See also: fromDigits, haltonSequence, integerDigits
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

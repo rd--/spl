@@ -178,7 +178,7 @@ Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _Mathematica_

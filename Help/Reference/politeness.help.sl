@@ -60,7 +60,7 @@ Plot politeness of first few numbers:
 
 See also: divisors, isPoliteNumber, mod
 
-Guides: Integer Sequences
+Guides: Integer Sequence Functions
 
 References:
 _OEIS_
