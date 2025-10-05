@@ -10,6 +10,7 @@ Instance Creation:
 Enumerating Functions:
 
 - `collect`
+- `do`
 - `reject`
 - `select`
 

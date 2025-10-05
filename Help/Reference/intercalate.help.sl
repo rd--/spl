@@ -1,15 +1,15 @@
 # intercalate
 
-- _intercalate(aSequence, anotherSequence)_
+- _intercalate([x₁ x₂ …], [y₁ y₂ …])_
 
-Answer a `List` that has the elements of _aSequence_ with the elements of _anotherSequence_ between each.
+Answer a `List` that has the elements of the sequence _x_ with the elements of another sequence _y_ between each.
 
 ```
 >>> [3 4 5].intercalate([1 2])
 [3 1 2 4 1 2 5]
 ```
 
-With only one element intercalted:
+With only one element intercalated:
 
 ```
 >>> [3 4 5].intercalate([-1])
@@ -33,6 +33,8 @@ At empty list:
 * * *
 
 See also: intersperse, interleave, riffle, transpose
+
+Guides: List Functions
 
 References:
 _Haskell_

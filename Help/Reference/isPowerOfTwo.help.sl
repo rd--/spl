@@ -21,7 +21,7 @@ At `Fraction`:
 
 * * *
 
-See also: asPowerOfTwo, isDyadicRational, nextPowerOfTwo
+See also: asPowerOfTwo, isDyadicRational, isPoliteNumber, nextPowerOfTwo
 
 Guides: Integer Functions, Mathematical Functions
 

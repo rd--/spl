@@ -26,9 +26,9 @@ First few terms:
 
 * * *
 
-See also: divisorSigma, factorInteger
+See also: divisorSigma, factorInteger, isOdd
 
-Guides: Integer Sequences
+Guides: Integer Functions, Integer Sequences
 
 References:
 _Mathematica_

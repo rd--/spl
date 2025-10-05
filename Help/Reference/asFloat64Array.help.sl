@@ -1,6 +1,8 @@
 # asFloat64Array
 
-- _asFloat64Array(aSequence)_
+- _asFloat64Array([x₁ x₂ …])_
+
+Convert the sequence _x_ into a `Float64Array`.
 
 Encodings of small integers:
 
@@ -18,3 +20,7 @@ Encodings of small integers:
 * * *
 
 See also: asFloat32Array, encode, Float64Array
+
+Guides: List Functions
+
+Categories: Converting

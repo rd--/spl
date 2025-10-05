@@ -1,17 +1,17 @@
 # addSine
 
-- _addSine(aSequence, harmonicNumber, amplitude, initialPhase, offset)_
+- _addSine([x₁ x₂ …], harmonicNumber, amplitude, initialPhase, offset)_
 
-Add a sine component to a mutable sequence.
+Add a sine component to the mutable sequence _x_.
 
-Approximation of square wave:
+Plot approximation of square wave:
 
 ~~~spl svg=A
-let list = List(1024, 0);
-list.addSine(1, 3, 0, 0);
-list.addSine(3, 1, 0, 0);
-list.addSine(9, 1 / 3, 1.pi, 0);
-list.linePlot
+let x = List(1024, 0);
+x.addSine(1, 3, 0, 0);
+x.addSine(3, 1, 0, 0);
+x.addSine(9, 1 / 3, 1.pi, 0);
+x.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/addSine-A.svg)
@@ -19,5 +19,7 @@ list.linePlot
 * * *
 
 See also: sineFill
+
+Guides: Signal Processing Functions
 
 Categories: Wavetable

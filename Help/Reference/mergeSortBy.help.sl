@@ -1,9 +1,9 @@
 # mergeSortBy
 
-- _mergeSortBy(aSequence, aBlock:/2)_
+- _mergeSortBy([x₁ x₂ …], f:/2)_
 
-Sort _aSequence_ in place using the comparator _aBlock_ using the merge sort algorithm.
-Answers _aSequence_.
+Sort the sequence _x_ in place using the comparator block _f_ using the merge sort algorithm.
+Answers _x_.
 
 At `List`, sort into descending order:
 
@@ -25,6 +25,6 @@ At `List`, sort into ascending order:
 
 See also: mergeSort, sort, sortBy, sortByOn, sorted, sortOn
 
-Guides: Sort Functions
+Guides: List Functions, Sort Functions
 
 Categories: Sorting

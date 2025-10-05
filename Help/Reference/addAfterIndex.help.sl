@@ -1,11 +1,11 @@
 # addAfterIndex
 
-- _addAfterIndex(aSequence, newObject, index)_
+- _addAfterIndex([x₁ x₂ …], y, i)_
 
-Add _newObject_ as an element of _aSequence_.
-Put it in the sequence just after _index_,
-so that afterwards is it accessible at _index + 1_.
-Answer _newObject_.
+Add the new object _y_ as an element of the sequence _x_.
+Put it in the sequence just after the index _i_,
+so that afterwards is it accessible at _i+1_.
+Answer _y_.
 
 ```
 >>> let l = ['w' 'x' 'z'];
@@ -33,6 +33,8 @@ To add to the end of a `List` specify the index to be the `size` of the list:
 * * *
 
 See also: add, addAfter, addBefore, addBeforeIndex, insertAt
+
+Guides: List Functions
 
 References:
 _Smalltalk_

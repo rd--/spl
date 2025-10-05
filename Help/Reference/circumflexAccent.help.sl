@@ -316,6 +316,17 @@ At `Symbol`:
 (^ 2.718281828459045 m)
 ```
 
+Can overflow `LargeInteger`:
+
+```
+>>> {
+>>> 	190983753992046L
+>>> 	^
+>>> 	19015641470455L
+>>> }.hasError
+true
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

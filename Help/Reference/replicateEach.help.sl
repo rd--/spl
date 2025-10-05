@@ -1,8 +1,8 @@
 # replicateEach
 
-- _replicateEach(aSequence, anInteger | aSequence)_
+- _replicateEach([x₁ x₂ …], n)_
 
-Replicate each element of _aSequence_ the indicated number of times.
+Replicate each element of the sequence _x_ the number of times indicated by _n_.
 
 With `Integer` count:
 
@@ -45,6 +45,8 @@ At `String`:
 * * *
 
 See also: !, #, replicateApplying
+
+Guides: List Functions
 
 References:
 _Apl_

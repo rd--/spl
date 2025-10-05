@@ -344,7 +344,7 @@
 		} {
 			self.resample(size)
 		};
-		let b = a.integrate.normalizeRange(1, size);
+		let b = a.integrate.normalizeRange([1 size]);
 		1:size.collect { :index |
 			b.indexOfInBetween(index) - 1 / size
 		}

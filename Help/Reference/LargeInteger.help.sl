@@ -170,6 +170,8 @@ Print & store `String`:
 
 See also: asLargeInteger, Binary, Integer, Magnitude, Number, parseLargeInteger, SmallFloat
 
+Guides: Integer Functions
+
 References:
 _Mozilla_
 [1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt)

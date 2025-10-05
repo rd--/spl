@@ -45,6 +45,11 @@ Counting:
 - `sum`
 - `tally`
 
+Enumerating:
+
+- `do`
+- `reverseDo`
+
 Indexing:
 
 - `Indexing Functions`: Guide
@@ -84,9 +89,17 @@ Querying:
 
 - `size`
 
+Rearranging:
+
+- `intercalate`
+
 Slice Functions:
 
 - `sliceFromTo`
+
+Sorting:
+
+- `Sort Functions`: Guide
 
 Subsequence Functions:
 

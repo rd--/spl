@@ -1,9 +1,8 @@
 # allButFirstAndLast
 
-- _allButFirstAndLast(aSequence, anInteger)_
-- _allButFirstAndLast(α)_ ⇒ _allButFirstAndLast(α, 1)_
+- _allButFirstAndLast([x₁ x₂ …], n=1)_
 
-Answer a copy of _aSequence_ containing all but the first and last _anInteger_ elements.
+Answer a copy of the sequence _x_ containing all but the first and last _n_ elements.
 Signal an error if there are not enough elements.
 
 ```
@@ -24,5 +23,7 @@ The unary form answers all but the first and last element.
 * * *
 
 See also: allButFirst, allButLast
+
+Guides: List Functions
 
 Categories: Accessing

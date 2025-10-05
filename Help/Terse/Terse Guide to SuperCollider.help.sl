@@ -68,7 +68,7 @@ let x = [4, 4.5]; let y = [2, 3, 5, 6]; [x * [x, y], y * [x, y]] = [[[16, 18], [
 [0 1 2 3 4 4 3 2].integrate = [0 1 3 6 10 14 17 19] /* cummulative sum */
 ([0 1 2 3 4 4 3 2].asRandomTable * 100).round = [0 23 35 44 53 61 72 88]
 ([0, 1, 2, 3, 2].asRandomTable * 100).round = [0, 30, 47, 60, 80]
-([0 1 2 3 4 4 3 2].integrate.normalizeRange(1, 8) * 100).round = [100 137 211 321 468 616 726 800]
+([0 1 2 3 4 4 3 2].integrate.normalizeRange([1 8]) * 100).round = [100 137 211 321 468 616 726 800]
 [1 2 4 7 11 16].differentiate = [1 1 2 3 4 5] /* differentiate, first entry is distance from zero */
 ```
 

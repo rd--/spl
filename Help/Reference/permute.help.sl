@@ -1,8 +1,8 @@
 # permute
 
-- _permute(aSequence, aPermutation)_
+- _permute([x₁ x₂ …], p)_
 
-Answers the reordering of _aSequence_ according to _aPermutation_.
+Answers the reordering of the sequence _x_ according to the permutation _p_.
 
 Cyclic permutation of three elements in a list:
 
@@ -91,6 +91,8 @@ Applying `permute` to a vector is equivalent to multiplying the vector from the 
 * * *
 
 See also: cycles, findPermutation, permutationMatrix, permutationReplace
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

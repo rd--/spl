@@ -42,7 +42,7 @@ At `LargeInteger`:
 ]
 ```
 
-The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimalityTest`:
+The number _2^(2^7)+1_ is not a Fermat prime, & requires `millerRabinPrimalityTest`:
 
 ```
 >>> let n = (2L ^ (2 ^ 7) + 1);
@@ -53,7 +53,7 @@ The number _2 ^ 2 ^ 7 + 1_ is not a Fermat prime, & requires `millerRabinPrimali
 )
 ```
 
-Can overflow large integer:
+Can overflow the `LargeInteger` type even for moderate queries:
 
 ```
 >>> {

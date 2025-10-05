@@ -87,5 +87,7 @@ References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/StirlingNumberoftheSecondKind.html)
 [2](https://reference.wolfram.com/language/ref/StirlingS2.html),
+_OEIS_
+[1](https://oeis.org/A008277),
 _W_
 [1](https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind)

@@ -337,7 +337,9 @@
 	}
 
 	isPoliteNumber { :self |
-		self.politeness > 0
+		self.isPositive & {
+			self.isPowerOfTwo.not
+		}
 	}
 
 	isPracticalNumber { :n |

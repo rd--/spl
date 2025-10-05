@@ -11,7 +11,13 @@ First few terms:
 [3 5 7 13 23 17 19 23 37 61]
 ```
 
-_Note_: Slow for small _n_.
+_Note_: Slow for small _n_,
+to calculate the thirteenth term the next prime after the `primorial` of thirteen is required:
+
+```
+>>> 13.primorial
+304250263527210
+```
 
 * * *
 

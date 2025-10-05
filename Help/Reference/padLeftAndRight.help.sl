@@ -1,10 +1,10 @@
 # padLeftAndRight
 
-- _padLeftAndRight(aSequence, anInteger, anObject)_
+- _padLeftAndRight([x₁ x₂ …], n, y)_
 
-Answer a sequence of length _anInteger_ by prefixing and suffixing _aSequence_ with copies of _anObject_.
+Answer a sequence of size _n_ by prefixing and suffixing the sequence _x_ with copies of the object _y_.
 
-For both odd or both even sizes is truly centered:
+For cases where the size of _x_ and _n_ are either both odd or both even the answer is truly centered:
 
 ```
 >>> [1 2 3].padLeftAndRight(9, 0)
@@ -27,3 +27,5 @@ For mismatches biases leftwards:
 * * *
 
 See also: #, ++, arrayPad, padLeft, padRight, size
+
+Guides: List Functions

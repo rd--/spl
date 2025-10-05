@@ -19,10 +19,9 @@ The first few polite numbers:
 ]
 ```
 
-
 * * *
 
-See also: divisors, mod, politeness
+See also: divisors, isPowerOfTwo, mod, politeness
 
 Guides: Integer Sequences
 

@@ -96,8 +96,8 @@ Frequency(440).octavePitchClass = 4.09 /* octave pitch class number */
 [1 .. 9].drop(-3) = [1 .. 6] /* negative count drops from end */
 [1 .. 9].keep(3) = [1 .. 3]
 [1 .. 9].keepLast(3) = [6 .. 9]
-[3, 5, 4].normalizeRange(0, 1) = [0, 1, 1 / 2] /* linLin with calculated min and max */
-[3, -5, 4].normalizeRange(0, 1) = [8 / 9, 0, 1]
+[3, 5, 4].normalizeRange([0 1]) = [0, 1, 1 / 2] /* linLin with calculated min and max */
+[3, -5, 4].normalizeRange([0 1]) = [8 / 9, 0, 1]
 ({ :x | x * 2 } <> { :x | x + 3 }).value(4) = 14 /* function composition, right to left */
 'x' ++ ' ' ++ 'y' = 'x y' /* catenation with space */
 '/usr' +/+ 'local' = '/usr/local' /* file path catenation */
@@ -116,7 +116,7 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1 .. 4].similarity([5 .. 8]) = 0 /* similarity based on Levenshtein distance (0 = unequal) */
 [1 .. 4].similarity([1 3 2 4]) = 0.5 /* similarity based on Levenshtein distance */
 [1 .. 9].normalizeSum.sum = 1 /* self / self.sum */
-[1 .. 9].normalizeRange(10, 90) = [10, 20 .. 90] /* normalise between minima and maxima */
+[1 .. 9].normalizeRange([10 90]) = [10, 20 .. 90] /* normalise between minima and maxima */
 [1 .. 5].wrapExtend(9) = ([1 .. 5] ++ [1 .. 4]) /* extend list cyclically */
 [1 .. 5].wrapExtend(3) = [1 .. 3] /* truncate is required */
 [1 .. 9].clump(3) = [[1 .. 3], [4 .. 6], [7 .. 9]] /* chunks of n places */

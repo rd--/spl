@@ -1,9 +1,9 @@
 # atAllPin
 
-- _atAllPin(aSequence, anotherSequence)_
+- _atAllPin(s₁, s₂)_
 
-Answer the elements of _aSeqence_ at each _index_ in _anotherSequence_ if possible.
-Answer the first or last element if _index_ is out of bounds.
+Answer the elements of the seqence _s₁_ at each index in the sequence _s₂_ if possible.
+Answer the first or last element if index is out of bounds.
 
 ```
 >>> [1 .. 5].atAllPin([-1 .. 9])
@@ -13,5 +13,7 @@ Answer the first or last element if _index_ is out of bounds.
 * * *
 
 See also: at, atAll, atAllWrap, atFold, atPin, atWrap, clip
+
+Guides: Indexing Functions
 
 Categories: Accessing

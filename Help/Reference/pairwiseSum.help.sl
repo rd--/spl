@@ -1,8 +1,8 @@
 # pairwiseSum
 
-- _pairwiseSum(aSequence)_
+- _pairwiseSum([x₁ x₂ …])_
 
-Answer the `sum` of _aSequence_ calculated using the _pairwise summation_ algorithm.
+Answer the `sum` of the sequence _x_ calculated using the _pairwise summation_ algorithm.
 
 ```
 >>> let r = Sfc32(289013);
@@ -15,7 +15,11 @@ Answer the `sum` of _aSequence_ calculated using the _pairwise summation_ algori
 )
 ```
 
+* * *
+
 See also: +, neumaierSum, sum
+
+Guides: List Functions
 
 References:
 _W_
