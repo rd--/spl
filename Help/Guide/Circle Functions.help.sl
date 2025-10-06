@@ -32,8 +32,8 @@ Triangle Circles:
 - `bevanCircle`
 - `brocardCircle`
 - `cosineCircle`
-- `excirclesRadicalCircle`
 - `excircles`
+- `excirclesRadicalCircle`
 - `innerSoddyCircle`
 - `ninePointCircle`
 - `outerSoddyCircle
@@ -45,3 +45,7 @@ Triangle Circles:
 Algorithms:
 
 - `welzlAlgorithm`
+
+* * *
+
+Guides: Geometry Functions, Triangle Functions

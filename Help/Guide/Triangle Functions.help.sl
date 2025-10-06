@@ -113,7 +113,7 @@ The lengths of the sides opposite each vertex are labeled _a,b,c_.
 
 * * *
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_

@@ -108,6 +108,6 @@ Signal Processing Curve Functions:
 
 * * *
 
-Guides: Geometry Functions
+Guides: Chaotic Functions, Geometry Functions
 
 Further Reading: Coolidge 1959, Lawrence 1972

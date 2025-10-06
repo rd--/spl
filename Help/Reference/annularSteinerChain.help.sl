@@ -41,7 +41,7 @@ The circle inversions of an annular Steiner chain is another Steiner chain:
 
 See also: circlePoints, Circle
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_

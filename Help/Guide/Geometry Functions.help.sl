@@ -250,4 +250,4 @@ Uncategorized:
 
 * * *
 
-Guides: Coordinate System Functions, Curve Functions, Distance Functions, Plotting Functions
+Guides: Circle Functions, Coordinate System Functions, Curve Functions, Distance Functions, Plotting Functions, Triangle Functions

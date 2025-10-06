@@ -24,7 +24,7 @@ Draw Ford circles for the ninth-order Farey sequence:
 
 See also: Circle, Fraction, fareySequence, isAdjacentFraction
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_
