@@ -137,4 +137,4 @@ Figurate Numbers:
 
 * * *
 
-Guides: Bitwise Functions, Combinatorial Functions, Integer Sequences, Mathematical Functions, Prime Number Functions
+Guides: Bitwise Functions, Combinatorial Functions, Integer Sequence Functions, Mathematical Functions, Prime Number Functions

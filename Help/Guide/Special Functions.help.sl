@@ -40,4 +40,4 @@ Zeta Functions:
 
 * * *
 
-Guides: Combinatorial Functions, Integer Sequences, Mathematical Functions
+Guides: Combinatorial Functions, Integer Sequence Functions, Mathematical Functions

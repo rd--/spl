@@ -1,8 +1,10 @@
 # stanleySequence
 
-- _stanleySequence([x₁ x₂ …], n)_
+- _stanleySequence([x₁ x₂ …], n, k=4000)_
 
 Answer the first _n_ terms of the Stanley sequence that begins with the sequence _x_.
+The parameter _k_ decides the size of working memory,
+a warning will be printed if no solution is found in the working set.
 
 With _s1={0,1}_,
 the numbers whose ternary expansion contain no twos,
@@ -183,10 +185,17 @@ OEIS [A188057](https://oeis.org/A188057):
 ]
 ```
 
+The unary form generates the _s1={0,1}_ sequence using a distinct algorithm:
+
+```
+>>> 192.stanleySequence
+[0 1].stanleySequence(192)
+```
+
 Plot first few terms of _s1={0,1}_:
 
 ~~~spl svg=A
-192.stanleySequence.scatterPlot
+[0 1].stanleySequence(192).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/stanleySequence-A.svg)

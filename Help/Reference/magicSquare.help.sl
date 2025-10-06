@@ -2,9 +2,10 @@
 
 - _magicSquare(n)_
 
-Answer a magic square of the size _n×n_.
+Answer a magic square of size _n×n_.
 
-A 3×3 magic square:
+A 3×3 magic square,
+OEIS[A033812](https://oeis.org/A033812):
 
 ```
 >>> 3.magicSquare
@@ -27,7 +28,8 @@ A 4×4 magic square:
 ]
 ```
 
-A 5×5 magic square:
+A 5×5 magic square,
+OEIS [A127907](https://oeis.org/A127907):
 
 ```
 >>> 5.magicSquare
@@ -88,7 +90,8 @@ An 8×8 magic square:
 A 10×10 magic square:
 
 ```
->>> 10.magicSquare.magicSquareSummary
+>>> 10.magicSquare
+>>> .magicSquareSummary
 (
 	sum: 505,
 	rowSums: 505 # 10,
@@ -103,8 +106,13 @@ A 10×10 magic square:
 
 See also: List, magicSquareSummary, Matrix
 
-Guides: Magic Squares
+Guides: Magic Square Functions
 
 References:
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/magic.html)
+[1](https://mathworks.com/help/matlab/ref/magic.html),
+_OEIS_
+[1](https://oeis.org/A033812)
+[2](https://oeis.org/A127907)
+
+Further Reading: Andrews 1908

@@ -5,10 +5,17 @@
 Answer the _n_-th order magix hexagon.  _n_ must be `one` or three.
 The answer is in the form of a matrix with `zero` entries for cells not in the heaxgon.
 
+The one order magic hexagon:
+
+
 ```
 >>> 1.magicHexagon
 [1]
+```
 
+The third order magic hexagon:
+
+```
 >>> 3.magicHexagon
 [
 	 0  0  3 17 18;
@@ -17,7 +24,11 @@ The answer is in the form of a matrix with `zero` entries for cells not in the h
 	12  4  8 14  0;
 	10 13 15  0  0
 ]
+```
 
+With zeros deleted:
+
+```
 >>> 3.magicHexagon.collect { :row |
 >>> 	row.select { :x |
 >>> 		x != 0
@@ -102,7 +113,7 @@ Sums of concentric circles:
 
 See also: magicSquare
 
-Guides: Magic Squares
+Guides: Magic Square Functions
 
 References:
 _Mathematica_

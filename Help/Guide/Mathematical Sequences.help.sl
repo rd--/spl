@@ -1,51 +1,28 @@
 # Mathematical Sequences
 
-Sequences indicate the OEIS number where applicable.
+Integer Sequences:
 
-Sequences:
+- `Integer Sequence Functions`: Guide
 
-- `bellNumber`: A000110
-- `bernoulliSequence`:  A027641 & A027642
-- `calkinWilfSequence`: A002487
-- `catalanNumber`: A000108
-- `collatzSequence`: A070156
-- `fareySequence`: A006842 & A006843
-- `fibonacciSequence`: A000045
-- `harmonicNumber`: A001008 & A002805
-- `inventorySequence`: A342585
-- `lassalleNumber`: A180874
-- `lobbNumber`: A039599
-- `lucasNumbers`: A000032
-- `narayanaSequence`: A000930
-- `noergaardInfinitySequence`: A004718
-- `padovanSequence`: A000931
-- `pellNumbers`: A000129
-- `pellLucasNumbers`: A002203
-- `perrinSequence`: A001608
-- `polygonalNumber`: A000217
-- `recamanSequence`: A005132
-- `sternBrocotSequence`: A002487
-- `thueMorseSequence`: A010060
-- `vanDerCorputNumber`: A030101 & A030102
-- `vanDerLaanSequence`: A182097
-- `wythoffLower`: A000201
-- `wythoffUpper`: A001950
+Magic Squares:
+
+- `Magic Square Functions`: Guide
 
 Trees:
 
-- `keplerTree`: A294442
-- `sternBrocotTree`: Stern-Brocot tree
+- `keplerTree`
+- `sternBrocotTree`:
 
 Sequence generators:
 
-- `deBruijnSequence`: de Bruijn sequence
-- `linearRecurrence`: linear recurrence
-- `shiftRegisterSequence`: shift register
+- `deBruijnSequence`
+- `linearRecurrence`
+- `shiftRegisterSequence`
 
 Arrays:
 
-- `wythoffArray`: Wythoff array
+- `wythoffArray`
 
 * * *
 
-Guides: Integer Sequences, Magic Squares, Mathematical Constants, Mathematical Functions
+Guides: Integer Sequence Functions, Magic Square Functions, Mathematical Constants, Mathematical Functions

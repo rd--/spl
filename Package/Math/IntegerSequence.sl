@@ -186,7 +186,7 @@
 
 	forestFireSequence { :self |
 		let a = [];
-		0.toDo(self) { :n |
+		0.toDo(self - 1) { :n |
 			let i = 1;
 			let j = 1;
 			let b = IdentitySet();
@@ -809,10 +809,9 @@
 		locallyCatenativeSequence(w, i, n, List(w.size, identity:/1))
 	}
 
-	stanleySequence { :s1 :m |
+	stanleySequence { :s1 :m :mmm |
 		/* https://oeis.org/A185256 */
 		let t1 = s1.size;
-		let mmm = 1000;
 		let s2 = (s1 ! (t1 + m)).flatten;
 		let chvec = List(mmm + 1, 0);
 		let swi = nil;
@@ -848,6 +847,10 @@
 			}
 		};
 		s2.first(m)
+	}
+
+	stanleySequence { :s1 :m |
+		stanleySequence(s1, m, 4000)
 	}
 
 }

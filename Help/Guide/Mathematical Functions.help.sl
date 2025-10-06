@@ -198,9 +198,9 @@
 
 - `Integer Functions`: Guide
 
-## Integer Sequences
+## Integer Sequence Functions
 
-- `Integer Sequences`: Guide
+- `Integer Sequence Functions`: Guide
 
 ## Integrals
 

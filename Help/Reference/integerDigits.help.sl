@@ -222,6 +222,32 @@ let m = 2 ^ (n - 1) - 1;
 
 ![](sw/spl/Help/Image/integerDigits-C.svg)
 
+Scatter plot of first few terms of OEIS [A160855](https://oeis.org/A160855):
+
+~~~spl svg=D
+let m = 250;
+let a = [];
+let k = 1;
+1.toDo(m) { :n |
+	let k = 1;
+	{
+		a.includes(k) | {
+			let p = a.sum + k;
+			let q = p.integerDigits(2);
+			let r = n.integerDigits(2);
+			let s = q.sequencePosition(r);
+			s = []
+		}
+	}.whileTrue {
+		k := k + 1
+	};
+	a.add(k)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-D.svg)
+
 * * *
 
 See also: digitCount, fromDigits
@@ -238,5 +264,6 @@ _OEIS_
 [3](https://oeis.org/A007376)
 [4](https://oeis.org/A265326)
 [5](https://oeis.org/A117966)
+[6](https://oeis.org/A160855)
 
 Categories: Converting
