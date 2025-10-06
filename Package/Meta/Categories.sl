@@ -1259,7 +1259,6 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'endsWith'
 		'endsWithAny'
 		'isArithmeticProgression'
-		'isArithmeticProgressionBy'
 		'isOctetSequence'
 		'isSorted'
 		'isSortedBetweenAnd'

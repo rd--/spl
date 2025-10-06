@@ -54,10 +54,11 @@ c.f. OEIS [A095844](https://oeis.org/A095844) and [A095845](https://oeis.org/A09
 >>> 		1 -> { 1/2 }
 >>> 	]) {
 >>> 		let a = 1 / (3 * (2 ^ n) - 2);
->>> 		let b = 2 + (1 .. n - 1).collect { :k |
+>>> 		let b = (1 .. n - 1);
+>>> 		let c = 2 + b.collect { :k |
 >>> 			n.binomial(k) * f(k)
 >>> 		}.sum;
->>> 		a * b
+>>> 		a * c
 >>> 	}
 >>> };
 >>> 0:7.collect(f:/1)

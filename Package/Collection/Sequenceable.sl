@@ -1306,7 +1306,7 @@
 	includesScatteredSubsequence { :self :aList |
 		valueWithReturn { :return:/1 |
 			1.to(self.size).powerSetDo { :each |
-				each.isArithmeticProgressionBy(1, =).ifFalse {
+				each.isArithmeticProgression(1, =).ifFalse {
 					(self @* each = aList).ifTrue {
 						true.return
 					}
@@ -1531,15 +1531,7 @@
 		}
 	}
 
-	isArithmeticProgression { :self |
-		(self.size <= 1).if {
-			true
-		} {
-			self.isArithmeticProgressionBy(self.second - self.first, =)
-		}
-	}
-
-	isArithmeticProgressionBy { :self :aNumber :aBlock:/2 |
+	isArithmeticProgression { :self :aNumber :aBlock:/2 |
 		(self.size <= 1).if {
 			true
 		} {
@@ -1551,6 +1543,14 @@
 				};
 				true
 			}
+		}
+	}
+
+	isArithmeticProgression { :self |
+		(self.size <= 1).if {
+			true
+		} {
+			self.isArithmeticProgression(self.second - self.first, =)
 		}
 	}
 

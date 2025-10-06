@@ -82,12 +82,12 @@
 		}
 	}
 
-	isArithmeticProgression { :self |
-		true
+	isArithmeticProgression { :self :aNumber :aBlock:/2 |
+		aBlock(self.step, aNumber)
 	}
 
-	isArithmeticProgressionBy { :self :aNumber :aBlock:/2 |
-		aBlock(self.step, aNumber)
+	isArithmeticProgression { :self |
+		true
 	}
 
 	isEmpty { :self |
@@ -197,3 +197,25 @@
 
 }
 
++List{
+
+	threeTermArithmeticProgression { :a |
+		let m = a.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(m // 2) { :i |
+				let k = m - (2 * i);
+				1.toDo(k) { :n |
+					let q = n + i;
+					let r = n + (2 * i);
+					(
+						(2 * a[q]) = (a[n] + a[r])
+					).ifTrue {
+						[n q r].return
+					}
+				}
+			};
+			nil
+		}
+	}
+
+}

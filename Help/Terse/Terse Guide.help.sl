@@ -2995,7 +2995,7 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */
 [1 3 5 7 9].isArithmeticProgression = true /* is arithmetic progression */
-[1 3 5 7 9].isArithmeticProgressionBy(2, =) = true /* is arithmetic progression by step according to block */
+[1 3 5 7 9].isArithmeticProgression(2, =) = true /* is arithmetic progression by step according to block */
 ```
 
 ## Sequence arithmetic

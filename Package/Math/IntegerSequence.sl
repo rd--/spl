@@ -184,6 +184,27 @@
 		}
 	}
 
+	forestFireSequence { :self |
+		let a = [];
+		0.toDo(self) { :n |
+			let i = 1;
+			let j = 1;
+			let b = IdentitySet();
+			{ n - (2 * i) >= 0 }.whileTrue {
+				let p = n - i;
+				let q = n - (2 * i);
+				b.include(2 * a[p + 1] - a[q + 1]);
+				i := i + 1;
+				{ b.includes(j) }.whileTrue {
+					b.remove(j);
+					j := j + 1
+				}
+			};
+			a.add(j)
+		};
+		a
+	}
+
 	gijswijtsSequence { :n |
 		let k = { :s |
 			let z = 1;

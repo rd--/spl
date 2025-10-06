@@ -44,6 +44,7 @@
 - `divisorSigma`: A000005
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
+- `engelExpansion`: A000027 A006784 A028254
 - `erdosSelfridgeFunction`: A003458
 - `euclidNumber`: A006862
 - `eulerGamma`: A001620 A002852 A094640
@@ -60,6 +61,7 @@
 - `fibonacciSequence`: A000045 A007660
 - `fibonacciWord`: A003849
 - `finesSequence`: A000957
+- `forestFireSequence`: A229037
 - `fortunateNumber`: A005235
 - `freimansConstant`: A118472
 - `fromContinuedFraction`: A039662
@@ -241,6 +243,7 @@
 - `superCatalanNumber`: A001003 A006318
 - `supergoldenRatio`: A092526
 - `supersilverRatio`: A356035
+- `sylvesterExpansion`: A050205
 - `sylvestersSequence`: A000058
 - `szekeresSequence`: A003278
 - `tetrahedralNumber`: A000292

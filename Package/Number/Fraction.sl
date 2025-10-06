@@ -179,6 +179,18 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		}
 	}
 
+	engelExpansion { :x |
+		let a = [];
+		{
+			x != 0
+		}.whileTrue {
+			let y = (1 / x).ceiling;
+			a.add(y);
+			x := x * y - 1
+		};
+		a
+	}
+
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {
 			anObject.isFraction.if {
@@ -466,6 +478,24 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 			self.numerator.basicPrintString(10),
 			self.denominator.basicPrintString(10)
 		].stringIntercalate('/')
+	}
+
+	sylvesterExpansion { :self |
+		let a = [];
+		let [x, y] = self.parts;
+		(x = 0 | { y = 0 }).if {
+			[]
+		} {
+			{
+				x != 0
+			}.whileTrue {
+				let z = (y / x).ceiling;
+				a.add([1 z]);
+				x := x * z - y;
+				y := y * z
+			};
+			a.collect(Fraction:/1)
+		}
 	}
 
 	truncate { :self |

@@ -53,7 +53,9 @@ Calculate the first few terms of OEIS [A118006](https://oeis.org/A118006):
 >>> 	let d = nil;
 >>> 	n := (n - 1) >> 1;
 >>> 	{
->>> 		[n, d] := quotientRemainder(n, 3);
+>>> 		[n, d] := quotientRemainder(
+>>> 			n, 3
+>>> 		);
 >>> 		d = 1
 >>> 	}.whileTrue;
 >>> 	(d = (2 * b)).boole
@@ -74,22 +76,22 @@ find the quotient and remainder after dividing one polynomial by another,
 the dividend is equal to the product of the quotient and the divisor plus the remainder:
 
 ```
->>> let n = UnivariatePolynomial([1 2 0 0 1]);
->>> let d = UnivariatePolynomial([1 0 1]);
+>>> let n = Polynomial([1 2 0 0 1]);
+>>> let d = Polynomial([1 0 1]);
 >>> let [q, r] = n.quotientRemainder(d);
 >>> (q, r, (q * d) + r = n)
 (
-	UnivariatePolynomial([-1, 0, 1]),
-	UnivariatePolynomial([2, 2]),
+	Polynomial([-1 0 1]),
+	Polynomial([2 2]),
 	true
 )
 
->>> let n = UnivariatePolynomial([1 1 1]);
->>> let d = UnivariatePolynomial([1 2]);
+>>> let n = Polynomial([1 1 1]);
+>>> let d = Polynomial([1 2]);
 >>> n.quotientRemainder(d)
 [
-	UnivariatePolynomial([1/4 1/2]),
-	UnivariatePolynomial([3/4])
+	Polynomial([1/4 1/2]),
+	Polynomial([3/4])
 ]
 ```
 

@@ -12,7 +12,7 @@ Answer _n_ times Conways’s constant λ.
 It is the solution to the following univariate polynomial:
 
 ```
->>> UnivariatePolynomial(
+>>> Polynomial(
 >>> 	[
 >>> 		-6 3 -6 12 -4 7 -7 1 0 5
 >>> 		-2 -4 -12 2 7 12 -7 -10 -4 3

@@ -17,30 +17,30 @@ The Euclidean algorithm is an efficient method for computing the greatest common
 At `UnivariatePolynomial`:
 
 ```
->>> let a = UnivariatePolynomial([6 7 1]);
->>> let b = UnivariatePolynomial([-6 -5 1]);
+>>> let a = Polynomial([6 7 1]);
+>>> let b = Polynomial([-6 -5 1]);
 >>> a.euclideanAlgorithm(b)
-UnivariatePolynomial([12 12])
+Polynomial([12 12])
 
->>> let a = UnivariatePolynomial([4 4 1]);
->>> let b = UnivariatePolynomial([1 2 2]);
+>>> let a = Polynomial([4 4 1]);
+>>> let b = Polynomial([1 2 2]);
 >>> a.euclideanAlgorithm(b)
-UnivariatePolynomial([25/18])
+Polynomial([25/18])
 
->>> let a = UnivariatePolynomial([-4 0 0 0 1]);
->>> let b = UnivariatePolynomial([4 0 4 0 1]);
+>>> let a = Polynomial([-4 0 0 0 1]);
+>>> let b = Polynomial([4 0 4 0 1]);
 >>> a.euclideanAlgorithm(b)
-UnivariatePolynomial([-8 0 -4])
+Polynomial([-8 0 -4])
 
->>> let a = UnivariatePolynomial([-4 0 1]);
->>> let b = UnivariatePolynomial([4 4 1]);
+>>> let a = Polynomial([-4 0 1]);
+>>> let b = Polynomial([4 4 1]);
 >>> (a.euclideanAlgorithm(b), a.resultant(b))
-(UnivariatePolynomial([-8, -4]), 0)
+(Polynomial([-8, -4]), 0)
 
->>> let a = UnivariatePolynomial([9 3]);
->>> let b = UnivariatePolynomial([12 -3 0 6]);
+>>> let a = Polynomial([9 3]);
+>>> let b = Polynomial([12 -3 0 6]);
 >>> (a.euclideanAlgorithm(b), a.resultant(b))
-(UnivariatePolynomial([-141]), -3807)
+(Polynomial([-141]), -3807)
 ```
 
 * * *

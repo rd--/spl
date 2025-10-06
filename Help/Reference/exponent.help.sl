@@ -6,7 +6,7 @@ Answer the largest exponent of the polynomial _p_,
 also called the `degree` of the polynomial.
 
 ```
->>> let p = UnivariatePolynomial([1 2 3]);
+>>> let p = Polynomial([1 2 3]);
 >>> (p.exponent, p.degree)
 (2, 2)
 ```

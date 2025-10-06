@@ -39,7 +39,7 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 	isEquallySpaced { :self |
 		self.positionListOrNil.isNil | {
 			let p = self.positionList;
-			p.isArithmeticProgressionBy(p[2] - p[1], ~)
+			p.isArithmeticProgression(p[2] - p[1], ~)
 		}
 	}
 

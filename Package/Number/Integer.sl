@@ -203,6 +203,10 @@
 		}
 	}
 
+	digitCount { :n |
+		n.digitCount(10)
+	}
+
 	digitSum { :self :base |
 		self.integerDigits(base).sum
 	}

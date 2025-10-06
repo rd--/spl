@@ -1,4 +1,4 @@
-Decimal : [Object, Equatable, Comparable, Magnitude] { | fraction scale |
+Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale |
 
 	= { :self :operand |
 		operand.isDecimal.if {
@@ -309,6 +309,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude] { | fraction scale |
 }
 
 +LargeInteger {
+
+	adaptToDecimalAndApply { :self :aNumber :aBlock:/2 |
+		aBlock(aNumber, self.asDecimal)
+	}
 
 	asDecimal { :self :scale |
 		UnsimplifiedDecimal(Fraction(self, 1L), scale)
