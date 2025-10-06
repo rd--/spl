@@ -25,7 +25,7 @@ The first few perfect powers:
 
 See also: isPerfectSquare
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

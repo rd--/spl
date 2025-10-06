@@ -50,7 +50,7 @@ Test if a number is hexagonal:
 
 See also: binomial, cube, pascalTriangle, pentagonalNumber, polygonalNumber, square, tetrahedralNumber, triangularNumber
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

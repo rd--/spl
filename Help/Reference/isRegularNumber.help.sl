@@ -45,7 +45,7 @@ Plot sequence of regular numbers:
 
 See also: isSmoothNumber, primeFactors, primeLimit
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _OEIS_

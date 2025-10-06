@@ -42,7 +42,7 @@ Plot:
 
 See also: isPrime, nextPrime, prime
 
-Guides: Prime Number Functions,Integer Sequence Functions
+Guides: Prime Number Functions, Integer Sequence Functions
 
 References:
 _OEIS_

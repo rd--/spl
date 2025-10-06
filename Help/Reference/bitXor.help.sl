@@ -133,7 +133,7 @@ let n = 5;
 
 See also: bitAnd, bitNot, bitOr, xor
 
-Guides: Bitwise Functions, Boolean Functions,Integer Sequence Functions
+Guides: Bitwise Functions, Boolean Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

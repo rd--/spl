@@ -61,7 +61,7 @@ The lexicographic sequence of Lyndon words of lengths divisible by _n_ gives the
 
 See also: deBruijnSequence, isLyndonWord, moebiusMu
 
-Guides: Combinatorial Functions,Integer Sequence Functions
+Guides: Combinatorial Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

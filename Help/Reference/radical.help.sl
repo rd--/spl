@@ -47,7 +47,7 @@ Log plot of first few terms:
 
 See also: factorInteger, product
 
-Guides: Integer Functions,Integer Sequence Functions, Prime Number Functions
+Guides: Integer Functions, Integer Sequence Functions, Prime Number Functions
 
 References:
 _OEIS_

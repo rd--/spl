@@ -252,7 +252,7 @@ Plot the Fibonacci polynomial for various orders:
 
 See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio, lucasNumber
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

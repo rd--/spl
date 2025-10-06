@@ -2,7 +2,7 @@
 
 - _tridentOfNewton([a b c d])_
 
-Answer the trident of Newton in Cartesian form.
+Answer the trident of Newton in parametric Cartesian form.
 
 ~~~spl svg=A
 (-3 -- 2.6).functionPlot(
@@ -30,7 +30,7 @@ Answer the trident of Newton in Cartesian form.
 
 * * *
 
-See also:
+See also: functionPlot, tridentCurve
 
 Guides: Curve Functions
 

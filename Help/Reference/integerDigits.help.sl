@@ -252,7 +252,7 @@ a.scatterPlot
 
 See also: digitCount, fromDigits
 
-Guides: Bitwise Functions, Integer Functions,Integer Sequence Functions, Mathematical Functions
+Guides: Bitwise Functions, Integer Functions, Integer Sequence Functions, Mathematical Functions
 
 References:
 _Mathematica_

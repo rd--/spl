@@ -43,7 +43,7 @@ true
 
 See also: fromDigits, integerDigits, integerLength
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

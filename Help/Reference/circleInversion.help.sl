@@ -46,7 +46,10 @@ The inverse of a circle is a line if the original circle contains the center of 
 >>> let c = Circle([0 0], 1);
 >>> let u = Circle([2 2], 2 * 2.sqrt);
 >>> u.circleInversion(c)
-InfiniteLine([0.125 0.125], [-0.7071 -0.7071])
+InfiniteLine(
+	[0.125 0.125],
+	[-0.7071 -0.7071]
+)
 ```
 
 Orthogonal circles are invariant under inversion with respect to each other:
@@ -160,7 +163,10 @@ The circle inversions of an annular Steiner chain is another Steiner chain:
 
 ~~~spl svg=E
 let a = Circle([-2 0], 1);
-let b = 9.annularSteinerChain([0 0], 0.475);
+let b = 9.annularSteinerChain(
+	[0 0],
+	0.475
+);
 let c = b.circleInversion(a);
 [a b c].LineDrawing
 ~~~
@@ -171,7 +177,7 @@ let c = b.circleInversion(a);
 
 See also: Circle, circlePower, isOrthogonalCircle
 
-Guides: Geometry Functions
+Guides: Circle Functions, Geometry Functions
 
 References:
 _Mathematica_

@@ -438,6 +438,29 @@
 		(3 * (y ^ 2))
 	}
 
+	bicuspidCurve { :a |
+		{ :x :y |
+			let p = (x ^ 2) - (a ^ 2);
+			let q = (x - a) ^ 2;
+			let r = ((y ^ 2) - (a ^ 2)) ^ 2;
+			p * q + r
+		}
+	}
+
+	bowCurve { :x :y |
+		(x ^ 4) - ((x ^ 2) * y) + (y ^ 3)
+	}
+
+	cassiniOval { :a :b |
+		{ :x :y |
+			(((x ^ 2) + (y ^ 2) + (a ^ 2)) ^ 2)
+			-
+			(4 * (a ^ 2) * (x ^ 2))
+			-
+			(b ^ 4)
+		}
+	}
+
 	ellipticCurve { :a :b |
 		{ :x :y |
 			(x ^ 3) + (a * x) + b - (y ^ 2)
@@ -450,6 +473,12 @@
 			-
 			(cos(m.pi * x) * cos(n.pi * y))
 		}
+	}
+
+	stirrupCurve { :x :y |
+		let a = ((x ^ 2) - 1) ^ 2;
+		let b = (y - 1) * (y - 2) * (y + 5);
+		a - ((y ^ 2) * b)
 	}
 
 }
@@ -505,6 +534,13 @@
 	rotaryHarmonographCurve { :self |
 		let [f, p, a, d] = self;
 		harmonographCurve([1 f 1 f], [0, p, 1/2.pi, p + 1/2.pi], [1 a 1 a], [d d d d])
+	}
+
+	tridentCurve { :self |
+		let [a, b, c, d] = self;
+		{ :x :y |
+			(x * y) + (a * (x ^ 3)) + (b * (x ^ 2)) + (c * x) - d
+		}
 	}
 
 	tridentOfNewton { :self |

@@ -1,8 +1,8 @@
 # arrayReduce
 
-- _arrayReduce(aBlock:/1, anArray, anInteger)_
+- _arrayReduce(f:/1, a, n)_
 
-Reduces dimension _anInteger_ of _anArray_ by applying _aBlock_.
+Reduces dimension _n_ of the array _a_ by applying the block _f_.
 
 Compute the mean of every row of a matrix:
 
@@ -22,7 +22,9 @@ Compute the mean of every column of a matrix:
 
 * * *
 
-See also: arrayFlattem, collect, columnCollect, flatten, map, reduce, reshape, transpose
+See also: arrayFlatten, collect, columnCollect, flatten, map, reduce, reshape, transpose
+
+Guides: Array Functions
 
 References:
 _Mathematica_

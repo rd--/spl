@@ -38,7 +38,7 @@ There are infinitely many pairs of consecutive powerful numbers, OEIS A060355:
 
 See also: isSquareFree
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

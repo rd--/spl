@@ -94,29 +94,7 @@ Catalogues:
 
 Circle Functions:
 
-- `annularSteinerChain`
-- `bevanCircle`
-- `brocardCircle`
-- `circleInversion`
-- `circlePoints`
-- `circlePower`
-- `circleThrough`
-- `circumcircle`
-- `cosineCircle`
-- `excirclesRadicalCircle`
-- `excircles`
-- `fordCircle`
-- `incircle`
-- `innerSoddyCircle`
-- `isOrthogonalCircle`
-- `ninePointCircle`
-- `outerSoddyCircle
-- `polarCircle`
-- `powerCircles`
-- `spiekerCircle`
-- `tangentCircles`
-- `unitCircle`
-- `welzlAlgorithm`
+- `Circle Functions`: Guide
 
 Computational Geometry:
 
@@ -272,4 +250,4 @@ Uncategorized:
 
 * * *
 
-Guides: Coordinate System Functions, Curve Functions, Distance Functions
+Guides: Coordinate System Functions, Curve Functions, Distance Functions, Plotting Functions

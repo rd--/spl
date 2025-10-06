@@ -67,4 +67,3 @@ _OEIS_
 [1](https://oeis.org/A069283),
 _W_
 [1](https://en.wikipedia.org/wiki/Polite_number)
-

@@ -61,9 +61,14 @@ Algebraic Curve Functions:
 Implicit Curve Functions:
 
 - `ampersandImplicitCurve`
+- `bicuspidCurve`
+- `bowCurve`
+- `cassiniOval`
 - `ellipticCurve`
 - `hyperbolaCurve`
 - `squareChladniPlateEquation`
+- `stirrupCurve`
+- `tridentCurve`
 
 Fractal Curve Functions:
 

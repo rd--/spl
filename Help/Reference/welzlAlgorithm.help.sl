@@ -7,17 +7,20 @@ Implement the Welzl algorithm to find the smallest circle that contains all of t
 With three points, all are on the boundary:
 
 ```
->>> [0 0; 0 1; 1 0].welzlAlgorithm
+>>> [0 0; 0 1; 1 0]
+>>> .welzlAlgorithm
 Circle([0.5 0.5], 0.7071)
 ```
 
 With five points:
 
 ```
->>> [5 -2; -3 -2; -2 5; 1 6; 0 2].welzlAlgorithm
+>>> [5 -2; -3 -2; -2 5; 1 6; 0 2]
+>>> .welzlAlgorithm
 Circle([1 1], 5)
 
->>> [3 10; 6 3; 10 2; 2 8; 3 3].welzlAlgorithm
+>>> [3 10; 6 3; 10 2; 2 8; 3 3]
+>>> .welzlAlgorithm
 Circle([6.5, 6], 5.3151)
 ```
 

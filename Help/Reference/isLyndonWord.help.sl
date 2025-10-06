@@ -45,7 +45,7 @@ true
 
 See also: lyndonWords
 
-Guides: Combinatorial Functions,Integer Sequence Functions
+Guides: Combinatorial Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

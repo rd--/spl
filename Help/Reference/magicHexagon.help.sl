@@ -7,7 +7,6 @@ The answer is in the form of a matrix with `zero` entries for cells not in the h
 
 The one order magic hexagon:
 
-
 ```
 >>> 1.magicHexagon
 [1]

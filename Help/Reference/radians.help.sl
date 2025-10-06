@@ -32,8 +32,10 @@ answer the value in radians:
 
 See also: Angle, degrees, radiansToDegrees
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Radian.html),
 _W_
-[1]*https://en.wikipedia.org/wiki/Radian)
+[1](https://en.wikipedia.org/wiki/Radian)

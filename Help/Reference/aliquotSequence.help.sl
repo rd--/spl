@@ -99,6 +99,8 @@ It not known if some aliquot sequences terminate:
 
 See also: aliquotSum
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/AliquotSequence.html),

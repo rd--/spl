@@ -106,7 +106,7 @@ Guides: Chaotic Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/LogisticMap.html)
+[1](https://mathworld.wolfram.com/LogisticMap.html),
 _Meier_
 [1](http://www.3d-meier.de/tut19/Seite156.html),
 _W_

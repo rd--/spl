@@ -30,4 +30,3 @@ _OEIS_
 [1](https://oeis.org/A138591),
 _W_
 [1](https://en.wikipedia.org/wiki/Polite_number)
-

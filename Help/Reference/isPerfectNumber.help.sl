@@ -53,7 +53,7 @@ true
 
 See also: isPerfectPower, isPerfectSquare
 
-Guides: Integer Functions,Integer Sequence Functions, Predicate Functions
+Guides: Integer Functions, Integer Sequence Functions, Predicate Functions
 
 References:
 _Mathematica_

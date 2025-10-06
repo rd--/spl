@@ -20,7 +20,7 @@ The perfect squares (A000290 in OEIS) smaller than 200:
 
 See also: square, sqrt
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

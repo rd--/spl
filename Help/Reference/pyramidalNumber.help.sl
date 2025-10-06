@@ -34,7 +34,7 @@ triangular, square, pentagonal, hexagonal and heptagonal pyramidal numbers:
 
 See also: polygonalNumber, tetrahedralNumber
 
-Guides: Integer Functions,Integer Sequence Functions
+Guides: Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

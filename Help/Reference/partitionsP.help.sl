@@ -77,7 +77,7 @@ let n = 37;
 
 See also: integerPartitions, partitionFunctionP, partitionsQ
 
-Guides: Combinatorial Functions, Integer Functions,Integer Sequence Functions
+Guides: Combinatorial Functions, Integer Functions, Integer Sequence Functions
 
 References:
 _Mathematica_

@@ -77,7 +77,7 @@ Recurrence plot:
 
 See also: baumSweetSequence, kroneckerSymbol
 
-Guides: Curve Functions,Integer Sequence Functions
+Guides: Curve Functions, Integer Sequence Functions
 
 References:
 _Mathematica_
