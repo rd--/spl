@@ -1,15 +1,18 @@
 # injectInto
 
-- _injectInto(anIterable, thisValue, aBlock:/2)_
+- _injectInto(c, x, f:/2)_
 
-Accumulate a running value associated with evaluating _aBlock_ with the current value,
-initially _thisValue_,
-and the successive elements of _anIterable_ as arguments.
+Accumulate a running value associated with evaluating the block _f_ with the current value,
+initially _x_,
+and the successive elements of the iterable collection _c_ as arguments.
 
 For instance, to sum the numeric elements of a collection:
 
 ```
 >>> 1:9.injectInto(0, +)
+45
+
+>>> 1:9.reduce(+)
 45
 ```
 
@@ -17,6 +20,9 @@ With a non-zero initial value:
 
 ```
 >>> 1:4.injectInto(42, +)
+52
+
+>>> 1:4.reduce(+) + 42
 52
 ```
 
@@ -45,6 +51,11 @@ Form a number from digits:
 
 ```
 >>> [4 5 1 6 7 8].injectInto(0) { :i :j |
+>>> 	10 * i + j
+>>> }
+451678
+
+>>> [4 5 1 6 7 8].reduce { :i :j |
 >>> 	10 * i + j
 >>> }
 451678
@@ -77,9 +88,21 @@ Find all possible sums of any of the elements of a list of numbers:
 [0 1 2 3 4 5 8 9 10 11 12 13]
 ```
 
+At the empty and one-element lists:
+
+```
+>>> [].injectInto(0, +)
+0
+
+>>> [1].injectInto(0, +)
+1
+```
+
 * * *
 
 See also: foldLeft, foldRight, reduce
+
+Guides: Collection Functions
 
 References:
 _Haskell_

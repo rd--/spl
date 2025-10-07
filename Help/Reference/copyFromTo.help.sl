@@ -29,7 +29,13 @@ If indices are out of order the interval is empty:
 >>> (1, 3 .. 17).copyFromTo(6, 3).isEmpty
 true
 
+>>> 1:1.copyFromTo(2, 1)
+1:0
+
 >>> [1 2 3].copyFromTo(1, 0)
+[]
+
+>>> [1].copyFromTo(2, 1)
 []
 ```
 

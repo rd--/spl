@@ -31,12 +31,17 @@ If the sequence has as many places as are discarded answer the empty sequence:
 ```
 >>> [1].allButFirst
 []
+
+>>> 1:1.allButFirst
+1:0
 ```
 
 If there are too few items an `error` is signalled:
 
 ```
->>> { [].allButFirst }.hasError
+>>> {
+>>> 	[].allButFirst
+>>> }.hasError
 true
 
 >>> [].drop(1)

@@ -445,6 +445,12 @@
 		self.collect(square:/1)
 	}
 
+	stirlingS1 { :self :k |
+		self.collect { :n |
+			n.stirlingS1(k)
+		}
+	}
+
 	tan { :self |
 		self.collect(tan:/1)
 	}

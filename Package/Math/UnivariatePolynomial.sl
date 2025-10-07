@@ -350,6 +350,22 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 
 +SmallFloat {
 
+	bellB { :n |
+		(n = 0).if {
+			UnivariatePolynomial([1])
+		} {
+			(1 .. n).sum { :k |
+				let x = UnivariatePolynomial([0 1]);
+				let c = UnivariatePolynomial([binomial(n - 1, k - 1)]);
+				x * c * bellB(k - 1)
+			}
+		}
+	}
+
+	bellB { :n :x |
+		bellB(n).at(x)
+	}
+
 	cardanosAlgorithm { :a :b :c :d |
 		<primitive:
 		/* https://www.mosismath.com/Cardano/Cardano.html */

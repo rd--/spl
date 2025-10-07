@@ -1,8 +1,8 @@
 # factorialPower
 
-- _factorialPower(aNumber, anInteger)_
+- _factorialPower(x, n)_
 
-Answer the factorial power _aNumber ^ (anInteger)_.
+Answer the factorial power _x^(n)_.
 
 ```
 >>> 10.factorialPower(2)

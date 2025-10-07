@@ -31,6 +31,7 @@ Converting:
 
 Counting:
 
+- `eulerianNumber`
 - `factorial`
 - `multinomial`
 - `stope`

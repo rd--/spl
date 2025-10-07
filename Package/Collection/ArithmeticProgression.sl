@@ -40,7 +40,11 @@
 		).if {
 			self
 		} {
-			self[startIndex].toBy(self[endIndex], self.step)
+			(startIndex > endIndex).if {
+				1:0
+			} {
+				self[startIndex].toBy(self[endIndex], self.step)
+			}
 		}
 	}
 

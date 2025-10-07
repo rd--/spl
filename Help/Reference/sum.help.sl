@@ -130,6 +130,8 @@ Where supported `sum` is displayed as Σ.
 
 See also: +, accumulate, injectInto, neumaierSum, pairwiseSum, prefixSum, product, reduce
 
+Guides: Collection Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Total.html),

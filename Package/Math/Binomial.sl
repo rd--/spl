@@ -57,12 +57,10 @@
 
 	bernoulliTriangle { :self |
 		let m = self - 1;
-		0:m.collect { :n |
-			0:n.collect { :k |
-				0:k.collect { :p |
-					n.binomial(p)
-				}.sum
-			}
+		0:m.numberTriangle { :n :k |
+			0:k.collect { :p |
+				n.binomial(p)
+			}.sum
 		}
 	}
 

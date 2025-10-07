@@ -496,8 +496,14 @@
 	}
 
 	sum { :self :aBlock:/1 |
-		self.injectInto(0) { :i :j |
-			i + aBlock(j)
+		self.isEmpty.if {
+			0
+		} {
+			let a = aBlock(self.first);
+			let b = self.allButFirst;
+			b.injectInto(a) { :i :j |
+				i + aBlock(j)
+			}
 		}
 	}
 

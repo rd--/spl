@@ -450,6 +450,23 @@
 
 }
 
++Range {
+
+	numberTriangle { :self :aBlock:/2 :k |
+		let a = self[1];
+		self.collect { :n |
+			a.to(max(a, n + k)).collect { :m |
+				aBlock(n, m)
+			}
+		}
+	}
+
+	numberTriangle { :self :aBlock:/2 |
+		numberTriangle(self, aBlock:/2, 0)
+	}
+
+}
+
 +@Integer {
 
 	identityMatrix { :self |

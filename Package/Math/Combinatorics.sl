@@ -35,6 +35,26 @@
 		}
 	}
 
+	eulerianNumber { :n :m |
+		0:m.sum { :i |
+			(-1 ^ i)
+			*
+			binomial(n + 1, i)
+			*
+			((m + 1 - i) ^ n)
+		}
+	}
+
+	eulerianNumberSecondOrder { :n :m |
+		(0 .. n - m).sum { :k |
+			(-1 ^ (n + k))
+			*
+			binomial(2 * n + 1, k)
+			*
+			stirlingS1(2 * n - m - k + 1, n - m - k + 1)
+		}
+	}
+
 	fibonacciFactorial { :self |
 		self.fibonacciSequence.product
 	}
@@ -104,6 +124,24 @@
 
 	polygonalNumber { :r :n |
 		(1 / 2) * n * (n * (r - 2) - r + 4)
+	}
+
+	secondOrderEulerianTriangle { :self |
+		1:self.numberTriangle(
+			eulerianNumberSecondOrder:/2
+		)
+	}
+
+	stirlingS1 { :n :k |
+		(k = 0).if {
+			(n < 1).boole
+		} {
+			(k > n).if {
+				0
+			} {
+				stirlingS1(n - 1, k - 1) - ((n - 1) * stirlingS1(n - 1, k))
+			}
+		}
 	}
 
 	stirlingS2 { :n :k |
