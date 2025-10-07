@@ -54,6 +54,13 @@ Pad to make a regular matrix:
 	4 5 0;
 	6 0 0
 ]
+
+>>> [1; 2 3; 4 5 6].padRight
+[
+	1 0 0;
+	2 3 0;
+	4 5 6
+]
 ```
 
 Pad to make a regular volume:

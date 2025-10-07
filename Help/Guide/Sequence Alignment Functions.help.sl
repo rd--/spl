@@ -3,6 +3,7 @@
 - `longestCommonSubsequence`
 - `longestCommonSubstring`
 - `longestIncreasingSubsequence`
+- `noncontiguousSubsequences`
 - `sequenceCount`
 - `sequencePosition`
 - `subsequences`

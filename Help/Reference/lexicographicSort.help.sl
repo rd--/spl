@@ -57,10 +57,12 @@ Sort matrix of strings:
 
 * * *
 
-See also: precedes, sort
+See also: canonicalSort, precedes, sort
 
 Guides: Comparison Functions, Sorting Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LexicographicSort.html)
+[1](https://reference.wolfram.com/language/ref/LexicographicSort.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Lexicographic_order)

@@ -1,8 +1,8 @@
 # allEqualBy
 
-- _allEqualBy(aCollection, aBlock:/2)_
+- _allEqualBy(c, f:/2)_
 
-Answer `true` is all items in _aCollection_ are equal according to _aBlock_.
+Answer `true` is all items in the collection _c_ are equal according to the block _f_.
 
 ```
 >>> [1 1 1].allEqualBy(=)

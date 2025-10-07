@@ -6,16 +6,18 @@ Answer a `List` of all of the subsequences (both contiguous and disjoint) of _x_
 for which _f_ answers `true`.
 In the unary case answer all subsequences.
 
-The subsequences of _abc_:
+At `String`,
+the subsequences of _abc_:
 
 ```
->>> ['a' 'b' 'c']
->>> .subsequences
->>> .collect(stringJoin:/1)
-['', 'a', 'b', 'ab', 'c', 'ac', 'bc', 'abc']
+>>> 'abc'.subsequences
+[
+	'' 'a' 'b' 'ab' 'c' 'ac' 'bc' 'abc'
+]
 ```
 
-The three element subsequences of the permutation _351462_:
+At `List`,
+the three element subsequences of the permutation _351462_:
 
 ```
 >>> [3 5 1 4 6 2].subsequences { :each |
@@ -43,3 +45,10 @@ list.indices.powerSet
 See also: powerSet, subsequencesDo, substrings
 
 Guides: Sequence Alignment Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Subsequence.html)
+[2](https://reference.wolfram.com/language/ref/Subsequences.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Subsequence)

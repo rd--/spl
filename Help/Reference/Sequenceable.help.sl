@@ -30,4 +30,10 @@ Methods for enumerating: `findFirst`, `findLast`, `keysAndValuesDo`, `reverseDo`
 
 See also: Collection, Iterable, Ordered, Trait
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Sequence.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Sequence)
+
 Categories: Collection, Trait

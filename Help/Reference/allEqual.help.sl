@@ -1,8 +1,8 @@
 # allEqual
 
-- _allEqual(aCollection)_
+- _allEqual(c)_
 
-Answer `true` is all items in _aCollection_ are equal according to `=`.
+Answer `true` is all items in the collection _c_ are equal according to `=`.
 
 ```
 >>> [1 1 1].allEqual

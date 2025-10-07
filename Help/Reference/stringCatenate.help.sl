@@ -1,8 +1,8 @@
 # stringCatenate
 
-- _stringCatenate(aSequence)_
+- _stringCatenate([s₁ s₂ …])_
 
-Join together the `String` items of _aSequence_.
+Join together the `String` items of the sequence _s_.
 
 At `List`:
 

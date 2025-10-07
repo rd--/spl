@@ -357,9 +357,9 @@ In scientific notation, nonzero numbers are written in the form _m × (10 ^ n)_.
 Cf: Scientific Notation
 
 - _Sequence_:
-A _collection trait_ for collections that have an ordering.
+A sequence is an ordered collection of objects.
 Sequences are indexed by positive integers between one and the size of the collection.
-Cf: Sequence
+Cf: List
 
 - _Shape_:
 The list of the lengths of the axes of an _array_.
@@ -371,6 +371,12 @@ Of a _behaviour_ that has an observable effect other than its primary effect of 
 - _String_:
 A _sequence_ of _characters_.
 Cf: String
+
+- _Substring_:
+A contiguous _subsequence_.
+
+- _Subsequence_:
+A sequence derived from another sequence by deleting one or more elements.
 
 - _Superparticular Ratio_:
 A superparticular or epimoric ratio is the ratio of two consecutive integers.

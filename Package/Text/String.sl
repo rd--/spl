@@ -172,7 +172,9 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	atAll { :self :indices |
-		self.characters.atAll(indices).stringCatenate
+		self.onCharacters { :c |
+			c.atAll(indices)
+		}
 	}
 
 	beginsWith { :self :aString |
@@ -206,14 +208,21 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self
 		.characters
 		.partition(n, 1)
-		.collect(stringJoin:/1)
+		.collect(stringCatenate:/1)
 		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
 	}
 
 	characterRange { :self :aString |
-		self.asCharacter.characterRange(aString.asCharacter).collect(asString:/1)
+		self
+		.asCharacter
+		.characterRange(aString.asCharacter)
+		.collect(asString:/1)
+	}
+
+	characters { :self |
+		self.primitiveCollectInto(identity:/1, [])
 	}
 
 	characterString { :self |
@@ -266,12 +275,14 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.error('String>>compare: non string operand')
 	}
 
-	characters { :self |
-		self.primitiveCollectInto(identity:/1, [])
-	}
-
 	concisePrintString { :self |
 		self.contractTo(32)
+	}
+
+	contiguousSubsequences { :self |
+		self.onCharactersList(
+			contiguousSubsequences:/1
+		)
 	}
 
 	contractTo { :self :smallSize |
@@ -336,7 +347,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	difference { :self :operand |
 		self.characters.difference(
 			operand.characters
-		).stringJoin
+		).stringCatenate
 	}
 
 	do { :self :aBlock:/1 |
@@ -491,7 +502,11 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	includesSubsequence { :self :aString |
-		self.characters.includesSubsequence(aString.characters)
+		self
+		.characters
+		.includesSubsequence(
+			aString.characters
+		)
 	}
 
 	includesSubstring { :self :aString |
@@ -598,7 +613,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	isPalindrome { :self |
-		self.contents.isPalindrome
+		self.characters.isPalindrome
 	}
 
 	isPrintableAscii { :self |
@@ -649,7 +664,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		.characters
 		.select(isLetter:/1)
 		.partition(n, 1)
-		.collect(stringJoin:/1)
+		.collect(stringCatenate:/1)
 		.asIdentityMultiset
 		.associations
 		.sort(|>=, value:/1)
@@ -686,27 +701,38 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	longestCommonSubsequence { :self :aString |
-		self
-		.characters
-		.longestCommonSubsequence(aString.characters)
-		.stringCatenate
+		self.onCharacters { :c |
+			c.longestCommonSubsequence(
+				aString.characters
+			)
+		}
 	}
 
 	longestCommonSubstringList { :self :aString |
 		self
 		.characters
 		.longestCommonSubstringList(aString.characters)
-		.collect { :each |
-			each.stringCatenate
-		}
+		.collect(stringCatenate:/1)
 	}
 
 	longestCommonSubstring { :self :aString |
-		self.characters.longestCommonSubstring(aString.characters).stringCatenate
+		self.onCharacters { :c |
+			c.longestCommonSubstring(
+				aString.characters
+			)
+		}
 	}
 
 	longestIncreasingSubsequence { :self |
-		self.characters.longestIncreasingSubsequence.stringCatenate
+		self.onCharacters(
+			longestIncreasingSubsequence:/1
+		)
+	}
+
+	noncontiguousSubsequences { :self |
+		self.onCharactersList(
+			noncontiguousSubsequences:/1
+		)
 	}
 
 	nub { :self |
@@ -742,6 +768,10 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	onCharacters { :self :aBlock:/1 |
 		self.characters.aBlock.stringCatenate
+	}
+
+	onCharactersList { :self :aBlock:/1 |
+		self.characters.aBlock.collect(stringCatenate:/1)
 	}
 
 	padLeft { :self :aList :aString |
@@ -898,6 +928,18 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	stringReverse { :self |
 		self.reverse
+	}
+
+	subsequences { :self |
+		self.onCharactersList(
+			subsequences:/1
+		)
+	}
+
+	substrings { :self |
+		self.onCharactersList(
+			substrings:/1
+		)
 	}
 
 	take { :self :anInteger |
@@ -1127,7 +1169,12 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	stringJoin { :self :aString |
-		self.flatten.collect(asString:/1).uncheckedStringIntercalate(aString.asString)
+		self
+		.flatten
+		.collect(asString:/1)
+		.uncheckedStringIntercalate(
+			aString.asString
+		)
 	}
 
 	stringJoin { :self |
@@ -1207,7 +1254,10 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	inverseBurrowWheelerTransform { :self :eot |
-		self.characters.inverseBurrowWheelerTransform(eot).stringJoin
+		self
+		.characters
+		.inverseBurrowWheelerTransform(eot)
+		.stringJoin
 	}
 
 }

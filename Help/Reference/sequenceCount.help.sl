@@ -11,8 +11,6 @@ Count the number of appearances of a sublist:
 3
 ```
 
-Count the number of appearances of a pattern sequence:
-
 Count sequences of integers in a list:
 
 ```

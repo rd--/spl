@@ -6,7 +6,7 @@ Answer -1 if _p_ precedes _q_,
 answer 0 if _p_ equals _q_,
 answer 1 if _p_ succeeds _q_.
 
-The comparison uses lexicographical ordering.
+The comparison uses lexicographic ordering.
 
 If all items of two sequences compare equal, the sequences are considered equal:
 
@@ -32,10 +32,10 @@ the shorter sequence is the lesser one:
 >>> [1 2 3].compare([1 2 3 4])
 -1
 
->>> ['a' 'b' 'c' 'd'].compare(['c' 'd'])
--1
+>>> ['a' 'b' 'c' 'd'].compare(['a' 'b'])
+1
 
->>> 'abcd'.compare('cd')
+>>> 'ab'.compare('abcd')
 -1
 ```
 
@@ -69,14 +69,21 @@ Comparison of strings with equal base letters and different marks:
 1
 ```
 
+_Subtleties_:
+There are different conventions for comparison functions,
+the one followed here is that _-1_ indicates less than and _+1_ indicated greater than.
+The inverse is called `lexicographicOrder`.
+
 * * *
 
 See also: =, <, >, <=>, Comparable, precedes
 
-Guides: List Functions, String Functions
+Guides: List Functions, Sort Functions, String Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/LexicographicOrder.html)
+[1](https://reference.wolfram.com/language/ref/LexicographicOrder.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Lexicographic_order)
 
 Categories: Comparing

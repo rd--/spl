@@ -101,6 +101,41 @@ true
 '[]'
 ```
 
+A vector is a list of nonlist elements:
+
+```
+>>> [1, 2.3, '4'].isVector
+true
+```
+
+A matrix is a list of vectors of equal length:
+
+```
+>>> [[1, 2, 3], [4, 5, 6]].isMatrix
+true
+```
+
+A rectangular array is represented by nested lists with consistent dimensions:
+
+```
+[
+	[[1, 2, 3], [4, 5, 6]],
+	[[7, 8, 9], [10, 11, 12]],
+	[[13, 14, 15], [16, 17, 18]],
+	[[19, 20, 21], [22, 23, 24]]
+].isArray
+```
+
+Ragged arrays are nested lists that are not rectangular arrays:
+
+```
+>>> [[1, 2, 3], [4, 5], [6]].isArray
+false
+
+>>> [[1], [2, 3], [4, 5, 6]].isArray
+false
+```
+
 * * *
 
 See also: #, !, asList, asCollection, ByteArray, enclose, Float64Array, nest, Type
@@ -113,6 +148,9 @@ _Haskell_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/List.html),
 _Smalltalk_
-5.7.14
+5.7.14,
+_W_
+[1](https://en.wikipedia.org/wiki/List)
+[2](https://en.wikipedia.org/wiki/List_(abstract_data_type))
 
 Categories: Collection, Type

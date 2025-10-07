@@ -62,6 +62,12 @@
 		}
 	}
 
+	adjacentPairsAllSatisfy { :self :aBlock:/2 |
+		1.to(self.size - 1).allSatisfy { :i |
+			aBlock(self[i], self[i + 1])
+		}
+	}
+
 	adjacentPairsDo { :self :aBlock:/2 |
 		1.toDo(self.size - 1) { :i |
 			aBlock(self[i], self[i + 1])
@@ -584,6 +590,14 @@
 
 	constantArray { :self :anObject |
 		[anObject].reshape(self)
+	}
+
+	contiguousSubsequences { :self |
+		let n = self.size;
+		self.substrings.select { :each |
+			let k = each.size;
+			k > 1 & { k != n }
+		}
 	}
 
 	convergents { :self |
@@ -1975,6 +1989,22 @@
 
 	movingSum { :self :windowSize |
 		sum:/1.movingMap(self, windowSize)
+	}
+
+	noncontiguousSubsequences { :self |
+		let answer = [];
+		[1 .. self.size].powerSetDo { :each |
+			(
+				each.size > 1 & {
+					each.adjacentPairsAllSatisfy { :i :j |
+						(j - i) = 1
+					}.not
+				}
+			).ifTrue {
+				answer.add(self.atAll(each))
+			}
+		};
+		answer
 	}
 
 	norm { :self :p |

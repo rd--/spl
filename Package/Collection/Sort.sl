@@ -45,6 +45,10 @@
 
 +@Sequenceable {
 
+	canonicalSort { :self |
+		self.sortBy(canonicalPrecedes:/2)
+	}
+
 	indicesSorted { :self |
 		self.indices
 	}
@@ -187,6 +191,33 @@
 
 	takeSmallest { :self :anInteger |
 		self.sorted.first(anInteger)
+	}
+
+}
+
++[List, String] {
+
+	canonicalCompare { :self :operand |
+		let a = self.size;
+		let b = operand.size;
+		let c = a.compare(b);
+		(c = 0).if {
+			self.compare(operand)
+		} {
+			c
+		}
+	}
+
+	canonicalPrecedes { :self :operand |
+		self.canonicalCompare(operand) = -1
+	}
+
+	lexicographicOrder { :self :operand |
+		self.compare(operand).negate
+	}
+
+	canonicalOrder { :self :operand |
+		self.canonicalCompare(operand).negate
 	}
 
 }

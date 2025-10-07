@@ -165,6 +165,19 @@ Likewise _123412314231243121342132413214321_ is a four-superpermutation:
 true
 ```
 
+At `String`:
+
+```
+>>> 'abcd'.substrings
+[
+	''
+	'a' 'b' 'c' 'd'
+	'ab' 'bc' 'cd'
+	'abc' 'bcd'
+	'abcd'
+]
+```
+
 * * *
 
 See also: partition, powerSet, longestCommonSubsequence, subsequences, subsets, tuples
