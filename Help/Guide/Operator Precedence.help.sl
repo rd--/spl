@@ -6,6 +6,9 @@ evaluation is from left to right.
 ```
 >>> 3 + 4 * 5
 35
+
+>>> 4 ^ 3 ^ 2
+4096
 ```
 
 Parentheses are required to follow the usual mathematical conventions.
@@ -13,6 +16,9 @@ Parentheses are required to follow the usual mathematical conventions.
 ```
 >>> 3 + (4 * 5)
 23
+
+>>> 4 ^ (3 ^ 2)
+262144
 ```
 
 Operators have lower precedence than `Method Syntax`:

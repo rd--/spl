@@ -166,6 +166,16 @@
 		}
 	}
 
+	splOperatorPrecedenceTable { :self |
+		(
+			'^': 3,
+			'*': 2,
+			'/': 2,
+			'+': 1,
+			'-': 1
+		)
+	}
+
 	onlyZeroArityMethodList { :self |
 		/* Methods implemented by typeName. */
 		self.methodDictionary.indices.select { :methodName |
@@ -288,6 +298,14 @@
 		system.typeMethodDictionary(self.typeOf).anySatisfy { :each |
 			each.qualifiedName = aBlock.name
 		}
+	}
+
+}
+
++String {
+
+	operatorPrecedence { :self |
+		system.splOperatorPrecedenceTable.at(self)
 	}
 
 }
