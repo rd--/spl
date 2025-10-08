@@ -41,12 +41,41 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/grahlSequence-A.svg)
 
+Variant by R. Stanley,
+avoiding weakly increasing arithmetic progression,
+OEIS [A309890](https://oeis.org/A309890):
+
+```
+>>> 100.grahlSequence('Stanley')
+[
+	 1  1  2  1  1  2  2  4  4  1
+	 1  2  1  1  2  2  4  4  2  4
+	 4  5  5  8  5  5  9  1  1  2
+	 1  1  2  2  4  4  1  1  2  1
+	 1  2  2  4  4  2  4  4  5  5
+	 8  5  5  9  2  4  4  5  5 10
+	 5  5 10 10 11 13 10 11 10 11
+	13 10 10 12 13 10 13 11 12 20
+	11  1  1  2  1  1  2  2  4  4
+	 1  1  2  1  1  2  2  4  4  2
+]
+```
+
+Plot first few terms:
+
+~~~spl svg=B
+250.grahlSequence('Stanley').scatterPlot
+~~~
+
+![](sw/spl/Help/Image/grahlSequence-B.svg)
+
 * * *
 
-See also: threeTermArithmeticProgression, stanleySequence
+See also: detectEquispacedTriple, stanleySequence
 
 Guides: Integer Sequence Functions
 
 References:
 _OEIS_
 [1](https://oeis.org/A229037)
+[2](https://oeis.org/A309890)

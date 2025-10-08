@@ -1,6 +1,6 @@
 # << (lessThanSignLessThanSign)
 
-- _alpha << beta_ ⟹ _bitShiftLeft(alpha, beta)_
+- _n << k_
 
 The operator form or `bitShiftLeft`.
 

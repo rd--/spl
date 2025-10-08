@@ -1,6 +1,6 @@
 # >> (greaterThanSignGreaterThanSign)
 
-- _i >> j_
+- _n >> k_
 
 The operator form or `bitShiftRight`.
 

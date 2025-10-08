@@ -13,7 +13,7 @@ Count the number of entries:
 >>> system
 >>> .scalaTuningMetaArchive
 >>> .size
-34
+36
 ```
 
 Count the number of entries at a particular key:

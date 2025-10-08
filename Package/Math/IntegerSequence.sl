@@ -184,25 +184,62 @@
 		}
 	}
 
-	grahlSequence { :self |
-		let a = [];
+	grahlSequenceStanely { :self |
+		let answer = [];
 		0.toDo(self - 1) { :n |
 			let i = 1;
 			let j = 1;
 			let b = IdentitySet();
 			{ n - (2 * i) >= 0 }.whileTrue {
-				let p = n - i;
-				let q = n - (2 * i);
-				b.include(2 * a[p + 1] - a[q + 1]);
+				let x = answer[n - (2 * i) + 1];
+				let y = answer[n - i + 1];
+				let z = (y * 2) - x;
+				i := i + 1;
+				(
+					x <= y & {
+						y <= z
+					}
+				).ifTrue {
+					b.include(z);
+					{ b.includes(j) }.whileTrue {
+						j := j + 1
+					}
+				}
+			};
+			answer.add(j)
+		};
+		answer
+	}
+
+	grahlSequence { :self |
+		let answer = [];
+		0.toDo(self - 1) { :n |
+			let i = 1;
+			let j = 1;
+			let b = IdentitySet();
+			{ n - (2 * i) >= 0 }.whileTrue {
+				let x = answer[n - (2 * i) + 1];
+				let y = answer[n - i + 1];
+				let z = (y * 2) - x;
+				b.include(z);
 				i := i + 1;
 				{ b.includes(j) }.whileTrue {
 					b.remove(j);
 					j := j + 1
 				}
 			};
-			a.add(j)
+			answer.add(j)
 		};
-		a
+		answer
+	}
+
+	grahlSequence { :self :kind |
+		kind.caseOf(
+			[
+				'Stanley' -> { self.grahlSequenceStanely },
+				'Grahl' -> { self.grahlSequence }
+			]
+		)
 	}
 
 	gijswijtsSequence { :n |

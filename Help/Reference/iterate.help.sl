@@ -205,6 +205,16 @@ let i = { :x |
 
 ![](sw/spl/Help/Image/iterate-A.svg)
 
+Plot the first few terms of OEIS [A164349](https://oeis.org/A164349):
+
+~~~spl svg=B
+{ :x |
+	(x ++ x).allButLast
+}.iterate([0 1], 6).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/iterate-B.svg)
+
 _Rationale:_
 This notation can be more compact than a written out loop,
 and can also be written in the middle of a sequence of bindings,

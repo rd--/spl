@@ -96,7 +96,7 @@
 				gompertzConstant: [073003],
 				gouldsNumber: [001316],
 				gouldsSequence: [001316],
-				grahlSequence: [229037],
+				grahlSequence: [229037 309890],
 				grayEncode: [014550 003188],
 				haltonSequence: [030101 030102],
 				hammingWeight: [000120],

@@ -1,25 +1,36 @@
 # bitShiftLeft
 
-- _bitShiftLeft(aNumber, anInteger)_
+- _bitShiftLeft(n, k)_
+
+Shift the binary bits in the integer _n_ to the left by _k_ places.
 
 Left shift, towards most significant:
 
 ```
 >>> 16.bitShiftLeft(3)
 128
+
+>>> 16 * (2 ^ 3)
+128
 ```
 
-Shift 3 places to the left:
+Shift three places to the left:
 
 ```
 >>> 32.bitShiftLeft(3)
 256
+
+>>> 32 * (2 ^ 3)
+256
 ```
 
-Shift 7 places to the left:
+Shift seven places to the left:
 
 ```
 >>> 32.bitShiftLeft(7)
+4096
+
+>>> 32 * (2 ^ 7)
 4096
 ```
 
@@ -34,6 +45,9 @@ Shift 7 places to the left:
 
 ```
 >>> [1 2 4 16].bitShiftLeft(2)
+[4 8 16 64]
+
+>>> [1 2 4 16] * (2 ^ 2)
 [4 8 16 64]
 ```
 

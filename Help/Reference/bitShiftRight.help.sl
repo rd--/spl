@@ -10,6 +10,9 @@ Right shift, towards least significant:
 ```
 >>> 16.bitShiftRight(3)
 2
+
+>>> 16 // (2 ^ 3)
+2
 ```
 
 Shift 3 places to the right:
@@ -17,12 +20,18 @@ Shift 3 places to the right:
 ```
 >>> 32.bitShiftRight(3)
 4
+
+>>> 32 // (2 ^ 3)
+4
 ```
 
 Shift 7 places to the right, leaving no nonzero bits:
 
 ```
 >>> 32.bitShiftRight(7)
+0
+
+>>> 32 // (2 ^ 7)
 0
 ```
 
@@ -37,6 +46,9 @@ Shift 7 places to the right, leaving no nonzero bits:
 
 ```
 >>> [1 2 4 16].bitShiftRight(2)
+[0 0 1 4]
+
+>>> [1 2 4 16] // (2 ^ 2)
 [0 0 1 4]
 ```
 
