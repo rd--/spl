@@ -184,7 +184,7 @@
 		}
 	}
 
-	forestFireSequence { :self |
+	grahlSequence { :self |
 		let a = [];
 		0.toDo(self - 1) { :n |
 			let i = 1;

@@ -1,6 +1,6 @@
-# forestFireSequence
+# grahlSequence
 
-- _forestFireSequence(n)_
+- _grahlSequence(n)_
 
 Answer the first _n_ terms of the "forest fire" sequence,
 the least sequence such that no three equally spaced terms form an arithmetic progression.
@@ -9,7 +9,7 @@ First few terms,
 OEIS [A229037](https://oeis.org/A229037):
 
 ```
->>> 81.forestFireSequence
+>>> 81.grahlSequence
 [
 	 1  1  2  1  1  2  2  4  4  1
 	 1  2  1  1  2  2  4  4  2  4
@@ -26,7 +26,7 @@ OEIS [A229037](https://oeis.org/A229037):
 Show there are no three term arithmetic progressions:
 
 ```
->>> 100.forestFireSequence
+>>> 100.grahlSequence
 >>> .detectEquispacedTriple { :a :b :c |
 >>> 	(2 * b) = (a + c)
 >>> }
@@ -36,10 +36,10 @@ nil
 Plot first few terms:
 
 ~~~
-250.forestFireSequence.scatterPlot
+250.grahlSequence.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/forestFireSequence-A.svg)
+![](sw/spl/Help/Image/grahlSequence-A.svg)
 
 * * *
 

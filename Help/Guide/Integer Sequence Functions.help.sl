@@ -10,6 +10,7 @@
 - `arithmeticProgression`: A000027 A005408 A005843 A008585 A008586
 - `baumSweetSequence`: A086747
 - `beattySequence`: A000201 A001950 A001951 A001952 A022838 A022843 A022844 A054385 A054386 A054406
+- `bellB`: A106800
 - `bellNumber`: A000110
 - `bernoulliNumber`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
@@ -47,11 +48,14 @@
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
 - `engelExpansion`: A000027 A006784 A028254
+- `equispacedTriples`: A002620
 - `erdosSelfridgeFunction`: A003458
 - `euclidNumber`: A006862
 - `eulerGamma`: A001620 A002852 A094640
 - `eulerGradusSuavitatis`: A275314
 - `eulerNumber`: A000111 A000364 A028296 A122045
+- `eulerianNumber`: A008292
+- `eulerianNumberSecondOrder`: A008517
 - `eulerPhi`: A000010 A002088
 - `fabiusFunction`: A272755 A272757
 - `factorial`: A000435
@@ -63,7 +67,6 @@
 - `fibonacciSequence`: A000045 A007660
 - `fibonacciWord`: A003849
 - `finesSequence`: A000957
-- `forestFireSequence`: A229037
 - `fortunateNumber`: A005235
 - `freimansConstant`: A118472
 - `fromContinuedFraction`: A039662
@@ -80,6 +83,7 @@
 - `gompertzConstant`: A073003
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A001316
+- `grahlSequence`: A229037
 - `grayEncode`: A003188 A014550
 - `haltonSequence`: A030101 A030102
 - `hammingWeight`: A000120
@@ -87,7 +91,7 @@
 - `harmoniousNumber`: A001622 A060006 A060007 A160155 A230159 A230160
 - `hexagonalNumber`: A000384
 - `hofstadterQSequence`: A005185
-- `integerDigits`: A007376 A062756 A117966 A265326 A364024
+- `integerDigits`: A007376 A062756 A117966 A160855 A265326 A364024
 - `integerExponent`: A001511 A007814
 - `interprime`: A024675
 - `inventorySequence`: A342585
@@ -162,6 +166,8 @@
 - `lucasNumber`: A000032
 - `lucasNumbers`: A000032
 - `lyndonWords`: A001037
+- `magicSquare`: A033812 A127907
+- `magicSquareSummary`: A033812 A126649 A126650 A126651 A127907
 - `mallowsSequence`: A005229
 - `mangoldtLambda`: A014963
 - `markovNumberTree`: A002559
@@ -223,6 +229,7 @@
 - `schroderNumber`: A006318
 - `schroderSequence`: A006318
 - `secondFeigenbaumConstant`: A006891
+- `secondOrderEulerianTriangle`: A008517
 - `selfCountingNumber`: A002024
 - `selfCountingSequence`: A002024
 - `sierpinskiConstant`: A062089 A241017
@@ -237,6 +244,7 @@
 - `stanleySequence`: A005487 A005836 A005836 A185256 A187843 A188052 A188053 A188054 A188055 A188056 A188057
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487
+- `stirlingS1`: A008275
 - `stirlingS2`: A008277
 - `stolarskyArray`: A035506
 - `stolarskyHarborthConstant`: A006046 A077464
