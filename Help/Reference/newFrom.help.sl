@@ -2,7 +2,7 @@
 
 - _newFrom(f:/n, c)_
 
-Implements the Smalltalk idiom to make a new collection given from the species of an existing collection.
+Implements the Smalltalk idiom to make a new collection from the species of an existing collection.
 
 At `species` of `List`,
 which is a unary block,

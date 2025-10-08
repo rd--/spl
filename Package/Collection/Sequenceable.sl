@@ -760,6 +760,18 @@
 		self.deleteAdjacentDuplicates(=)
 	}
 
+	detectEquispacedTriple { :self :aBlock:/3 |
+		valueWithReturn { :return:/1 |
+			self.size.equispacedTriplesDo { :i :j :k |
+				let [p, q, r] = self.atAll([i, j, k]);
+				aBlock(p, q, r).ifTrue {
+					[p, q, r].return
+				}
+			};
+			nil
+		}
+	}
+
 	detectIndex { :self :predicate:/1 |
 		self.detectIndexStartingAtIfFoundIfNone(predicate:/1, 1, identity:/1, { })
 	}
@@ -945,6 +957,14 @@
 				self.hasEqualElements(anObject, aBlock:/2)
 			}
 		}
+	}
+
+	equispacedTriples { :self |
+		let answer = [];
+		self.size.equispacedTriplesDo { :i :j :k |
+			answer.add(self.atAll([i, j, k]))
+		};
+		answer
 	}
 
 	eulerMatrix { :self |
@@ -3094,6 +3114,25 @@
 			};
 			low
 		}
+	}
+
+	equispacedTriplesDo { :self :aBlock:/3 |
+		1.toDo(self // 2) { :m |
+			let n = self - (2 * m);
+			1.toDo(n) { :i |
+				let j = i + m;
+				let k = i + (2 * m);
+				aBlock(i, j, k)
+			}
+		}
+	}
+
+	equispacedTriples { :self |
+		let answer = [];
+		self.equispacedTriplesDo { :i :j :k |
+			answer.add([i, j, k])
+		};
+		answer
 	}
 
 	partIndex { :self :operand |

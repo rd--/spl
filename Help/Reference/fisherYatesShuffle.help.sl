@@ -4,6 +4,7 @@
 
 Shuffle the sequence _l_ in place using the Fisher–Yates algorithm,
 given a random number generator _r_.
+Sometimes also called the Knuth shuffle.
 
 Shuffle a list of nine places:
 

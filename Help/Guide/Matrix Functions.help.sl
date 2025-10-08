@@ -41,6 +41,8 @@ Rearranging:
 
 Predicates:
 
+- `isAntisymmetricMatrix`
+- `isBisymmetricMatrix`
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
 - `isIntegerMatrix`

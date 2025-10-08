@@ -14,11 +14,12 @@ Residue(3, 5)
 `commonResidue` and `modulus` answer the components of a `Residue`:
 
 ```
->>> (3Z5.commonResidue, 3Z5.modulus)
+>>> let x = 3Z5;
+>>> (x.commonResidue, x.modulus)
 (3, 5)
 ```
 
-`asResidue` at a two-element `Sequence` answers a `Residue`:
+`asResidue` at a two-element sequence answers a `Residue`:
 
 ```
 >>> [3 5].asResidue
@@ -41,11 +42,20 @@ Residues support basic arithmetic, `+`, `-`, and `*`:
 >>> 9Z12 + 5Z12
 2Z12
 
+>>> 9 + 5 % 12
+2
+
 >>> 2Z12 - 5Z12
 9Z12
 
+>>> 2 - 5 % 12
+9
+
 >>> 10Z7 * 11Z7
 5Z7
+
+>>> 10 * 11 % 7
+5
 ```
 
 `inverse` is the `modularInverse`:
@@ -54,18 +64,27 @@ Residues support basic arithmetic, `+`, `-`, and `*`:
 >>> 3Z7.inverse
 5Z7
 
+>>> 1 - 3 % 7
+5
+
 >>> 3Z7 * 5Z7
 1Z7
+
+>>> 3 * 5 % 7
+1
 ```
 
 `/` is implemented in terms of `inverse`:
 
 ```
->>> 1Z7 / 3Z7
-5Z7
+>>> 4Z7 / 3Z7
+6Z7
 
->>> 1Z7 * 3Z7.inverse
-5Z7
+>>> 4Z7 * 3Z7.inverse
+6Z7
+
+>>> 4 * 3.modularInverse(7) % 7
+6
 
 >>> 2Z7 / 5Z7
 6Z7
@@ -80,7 +99,9 @@ Only `isCoprime` values have an inverse:
 >>> 6.isCoprime(15)
 false
 
->>> { 6Z15.inverse }.hasError
+>>> {
+>>> 	6Z15.inverse
+>>> }.hasError
 true
 ```
 
@@ -120,14 +141,22 @@ or a collection:
 >>> 9Z12 + [2 5]
 [11Z12 2Z12]
 
+>>> 9 + [2 5] % 12
+[11 2]
+
 >>> [2 5] + 9Z12
 [11Z12 2Z12]
+
+>>> [2 5] + 9 % 12
+[11 2]
 ```
 
 It is an error if the two modulus are not equal:
 
 ```
->>> { 9Z12 + 5Z7 }.hasError
+>>> {
+>>> 	9Z12 + 5Z7
+>>> }.hasError
 true
 ```
 

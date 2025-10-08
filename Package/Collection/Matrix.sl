@@ -127,6 +127,25 @@
 		self.diagonal(0)
 	}
 
+	isAntisymmetricMatrix { :self |
+		self.isSquareMatrix & {
+			self = self.transpose.negate
+		}
+	}
+
+	isBisymmetricMatrix { :self |
+		self.isSymmetricMatrix & {
+			self.isCentrosymmetricMatrix
+		}
+	}
+
+	isCentrosymmetricMatrix { :self |
+		self.isSquareMatrix & {
+			let e = self.size.exchangeMatrix;
+			self.dot(e) = e.dot(self)
+		}
+	}
+
 	isDiagonalMatrix { :self :k |
 		(self.rank = 2) & {
 			self.deepIndices.allSatisfy { :index |

@@ -1,8 +1,8 @@
 # adjacentPairs
 
-- _adjacentPairs(aSequence)_
+- _adjacentPairs([x₁ x₂ …])_
 
-Answer the adjacent pairs of _aSequence_.
+Answer the adjacent pairs of the sequence _x_.
 
 At `Range`:
 
@@ -20,4 +20,4 @@ At `List`:
 
 * * *
 
-See also: adjacentPairsCollect, adjacentPairsDo, partition, partitionDo
+See also: adjacentPairsCollect, adjacentPairsDo, equispacedTriples, partition, partitionDo

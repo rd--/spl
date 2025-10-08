@@ -11,7 +11,7 @@ All subsets of the `List` _{1,2,3}_, including the empty set:
 [; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
 ```
 
-The power set of a set of _n_ elements has _2 ^ n_ elements:
+The power set of a set of _n_ elements has _2ⁿ_ elements:
 
 ```
 >>> [1 2 3 4].powerSet.size
@@ -67,7 +67,8 @@ Guides: Combinatorial Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Subsets.html),
+[1](https://mathworld.wolfram.com/PowerSet.html)
+[2](https://reference.wolfram.com/language/ref/Subsets.html),
 _Sage_
 [1](https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/subset.html#sage.combinat.subset.powerset),
 _SuperCollider_

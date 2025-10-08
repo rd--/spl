@@ -61,7 +61,10 @@ Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue m
 	}
 
 	inverse { :self |
-		Residue(self.commonResidue.modularInverse(self.modulus), self.modulus)
+		Residue(
+			self.commonResidue.modularInverse(self.modulus),
+			self.modulus
+		)
 	}
 
 	isCloseTo { :self :anObject |

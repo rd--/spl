@@ -61,6 +61,7 @@
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
 				engelExpansion: [006784 000027 028254],
+				equispacedTriples: [002620],
 				erdosSelfridgeFunction: [003458],
 				euclidNumber: [006862],
 				eulerGamma: [002852 001620 094640],

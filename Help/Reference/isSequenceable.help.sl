@@ -69,6 +69,6 @@ false
 
 * * *
 
-See also: isCollection, isDictionary, isIndexable
+See also: isCollection, isDictionary, isIndexable, Sequenceable
 
 Categories: Testing

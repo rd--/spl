@@ -27,7 +27,9 @@ Show there are no three term arithmetic progressions:
 
 ```
 >>> 100.forestFireSequence
->>> .threeTermArithmeticProgression
+>>> .detectEquispacedTriple { :a :b :c |
+>>> 	(2 * b) = (a + c)
+>>> }
 nil
 ```
 
