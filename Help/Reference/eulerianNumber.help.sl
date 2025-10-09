@@ -8,7 +8,7 @@ telling the number of permutations of _{1,2,…,n}_ having _k_ permutation ascen
 First few rows of the Euler triangle:
 
 ```
->>> 0:8.numberTriangle(
+>>> 0:8.triangularArray(
 >>> 	eulerianNumber:/2, -1
 >>> )
 [
@@ -27,7 +27,7 @@ First few rows of the Euler triangle:
 Log scale scatter plot of first few terms:
 
 ~~~spl svg=A
-(0L .. 20L).numberTriangle(
+(0L .. 20L).triangularArray(
 	eulerianNumber:/2, -1
 ).catenate.log.scatterPlot
 ~~~

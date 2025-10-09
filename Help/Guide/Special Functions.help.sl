@@ -31,6 +31,7 @@ Gamma and Related Functions:
 - `logGamma`
 - `lowerIncompleteGamma`
 - `pochhammer`
+- `qPochhammer`
 - `upperIncompleteGamma`
 
 Zeta Functions:

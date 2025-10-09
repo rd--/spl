@@ -293,6 +293,15 @@
 		}
 	}
 
+	floor { :self :epsilon |
+		let x = self.ceiling;
+		((self - x).abs < epsilon).if {
+			x
+		} {
+			self.floor
+		}
+	}
+
 	floor { :self |
 		let truncation = self.truncate;
 		(self >= 0).if {

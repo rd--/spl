@@ -27,10 +27,8 @@ The unary form answers the first _r_ rows:
 The binary form answers the entry at position _n,k_:
 
 ```
->>> 0:8.collect { :n |
->>> 	0:n.collect { :k |
->>> 		n.catalanTriangle(k)
->>> 	}
+>>> 0:8.triangularArray { :n :k |
+>>> 	n.catalanTriangle(k)
 >>> }
 [
 	1;

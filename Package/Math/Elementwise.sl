@@ -172,6 +172,12 @@
 		self.collect(fibonacciWord:/1)
 	}
 
+	floor { :self :epsilon |
+		self.collect { :each |
+			each.floor(epsilon)
+		}
+	}
+
 	floor { :self |
 		self.collect(floor:/1)
 	}

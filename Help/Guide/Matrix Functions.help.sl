@@ -9,6 +9,7 @@ Constructing:
 
 - `array`
 - `table`
+- `triangularArray`
 
 Converting:
 
@@ -43,6 +44,7 @@ Predicates:
 
 - `isAntisymmetricMatrix`
 - `isBisymmetricMatrix`
+- `isCentrosymmetricMatrix`
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
 - `isIntegerMatrix`

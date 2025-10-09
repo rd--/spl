@@ -150,6 +150,35 @@ or the phi neutral sixth:
 833.1
 ```
 
+Number of positive Wythoff A-numbers not exceeding _n_,
+OEIS [A005206](https://oeis.org/A005206):
+
+```
+>>> let x = 0:76.collect { :n |
+>>> 	(n + 1).goldenRatio.floor - n - 1
+>>> };
+>>> (x, x.asRunArray.runs)
+(
+	[
+		 0  1  1  2  3  3  4  4  5  6
+		 6  7  8  8  9  9 10 11 11 12
+		12 13 14 14 15 16 16 17 17 18
+		19 19 20 21 21 22 22 23 24 24
+		25 25 26 27 27 28 29 29 30 30
+		31 32 32 33 33 34 35 35 36 37
+		37 38 38 39 40 40 41 42 42 43
+		43 44 45 45 46 46 47
+	],
+	[
+		1 2 1 2 2 1 2 1 2 2
+		1 2 2 1 2 1 2 2 1 2
+		1 2 2 1 2 2 1 2 1 2
+		2 1 2 2 1 2 1 2 2 1
+		2 1 2 2 1 2 1
+	]
+)
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
@@ -232,7 +261,7 @@ The tips of a pentagram are golden triangles:
 
 * * *
 
-See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, pi, plasticRatio, supergoldenRatio
+See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, pi, plasticRatio, supergoldenRatio, wythoffLower
 
 Guides: Mathematical Constants, Xenharmonic Functions
 
@@ -243,7 +272,8 @@ _Mathematica_
 [3](https://mathworld.wolfram.com/GoldenTriangle.html)
 [4](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _OEIS_
-[1](https://oeis.org/A001622),
+[1](https://oeis.org/A001622)
+[2](https://oeis.org/A005206),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio)
 [2](https://en.wikipedia.org/wiki/Golden_rectangle)

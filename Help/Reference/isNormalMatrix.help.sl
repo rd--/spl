@@ -2,11 +2,16 @@
 
 - _isNormalMatrix(m)_
 
-Answer `true` if _m_ is a normal matrix, else `false`.
+Answer `true` if _m_ is a normal matrix,
+else `false`.
+The matrix _A_ is normal if _AA𐞖=A𐞖A_.
 
 A normal matrix:
 
 ```
+>>> [1I 0; 0 3J-5].isNormalMatrix
+true
+
 >>> [1 2; -2 1].isNormalMatrix
 true
 
@@ -81,3 +86,5 @@ Guides: Matrix Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NormalMatrixQ.html)
+_W_
+[1](https://en.wikipedia.org/wiki/Normal_matrix)

@@ -56,8 +56,8 @@
 
 	unicodeSuperscriptTable { :self |
 		self.cached('unicodeSuperscriptTable') {
-			let c = '0123456789+-=()abcdefghijklmnopqrstuvwxyz'.characters;
-			let u = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ𐞥ʳˢᵗᵘᵛʷˣʸᶻ'.characters;
+			let c = '0123456789+-=()abcdefghijklmnopqrstuvwxyzGHILNRUY'.characters;
+			let u = '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻⁼⁽⁾ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖ𐞥ʳˢᵗᵘᵛʷˣʸᶻ𐞒𐞖ᶦᶫᶰ𐞪ᶸ𐞲'.characters;
 			let m = [c, u].transpose;
 			Record(m)
 		}

@@ -513,3 +513,20 @@
 	}
 
 }
+
++Range {
+
+	triangularArray { :self :aBlock:/2 :k |
+		let a = self[1];
+		self.collect { :n |
+			a.to(max(a, n + k)).collect { :m |
+				aBlock(n, m)
+			}
+		}
+	}
+
+	triangularArray { :self :aBlock:/2 |
+		triangularArray(self, aBlock:/2, 0)
+	}
+
+}

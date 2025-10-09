@@ -243,6 +243,27 @@ OEIS [A000984](https://oeis.org/A000984):
 ]
 ```
 
+The cake numbers,
+OEIS [A000125](https://oeis.org/A000125):
+
+```
+>>> 1:46.collect { :n |
+>>> 	binomial(n, 3) + n
+>>> }
+[
+	    1     2     4     8    15
+	   26    42    64    93   130
+	  176   232   299   378   470
+	  576   697   834   988  1160
+	 1351  1562  1794  2048  2325
+	 2626  2952  3304  3683  4090
+	 4526  4992  5489  6018  6580
+	 7176  7807  8474  9178  9920
+	10701 11522 12384 13288 14235
+	15226
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -263,6 +284,19 @@ Plot over a subset of the reals as a function of its second parameter:
 
 ![](sw/spl/Help/Image/binomial-B.svg)
 
+Scatter plot of the partial sums of Sierpinski’s sieve,
+OEIS [A166556](https://oeis.org/A166556):
+
+~~~spl svg=C
+(0 .. 21).triangularArray { :n :k |
+	(k .. n).sum { :j |
+		binomial(j, k) % 2
+	}
+}.++.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/binomial-C.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial
@@ -278,10 +312,19 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/BinomialCoefficient.html)
 [2](https://mathworld.wolfram.com/CentralBinomialCoefficient.html)
 [3](https://mathworld.wolfram.com/Choose.html)
-[4](https://reference.wolfram.com/language/ref/Binomial.html),
+[4](https://mathworld.wolfram.com/CakeNumber.html)
+[5](https://reference.wolfram.com/language/ref/Binomial.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/nchoosek.html),
+_OEIS_
+[1](https://oeis.org/A000125)
+[2](https://oeis.org/A000127)
+[3](https://oeis.org/A000984)
+[4](https://oeis.org/A006542)
+[5](https://oeis.org/A027907)
+[6](https://oeis.org/A166556),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
+[2](https://en.wikipedia.org/wiki/Cake_number)
 
 Categories: Math, Combinatorics

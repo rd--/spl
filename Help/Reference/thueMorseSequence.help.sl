@@ -60,7 +60,7 @@ Plot sequence as series of turns:
 
 * * *
 
-See also: grayDecode, integerDigits, thueMorse
+See also: grayDecode, hammingWeight, integerDigits, thueMorse
 
 Guides: Integer Sequence Functions, Mathematical Sequences
 

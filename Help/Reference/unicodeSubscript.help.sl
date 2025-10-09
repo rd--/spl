@@ -12,7 +12,7 @@ Subscript digit:
 '₁'
 ```
 
-Subscript letter:
+Subscript letters:
 
 ```
 >>> 'n'.unicodeSubscript

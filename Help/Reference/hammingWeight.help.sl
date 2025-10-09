@@ -6,6 +6,9 @@ Answer the Hamming weight,
 or binary weight,
 of the integer _n_.
 
+The first few terms,
+OEIS [A000120](https://oeis.org/A000120):
+
 ```
 >>> 0:31.collect(hammingWeight:/1)
 [
@@ -14,6 +17,14 @@ of the integer _n_.
 	2 3 3 4 2 3 3 4 3 4
 	4 5
 ]
+```
+
+Take modulo two it is the Thue-Morse sequence,
+OEIS [A010060](https://oeis.org/A010060):
+
+```
+>>> 0:31.collect(hammingWeight:/1) % 2
+32.thueMorseSequence
 ```
 
 Scatter plot first few terms:
@@ -38,12 +49,13 @@ Line plot of the first eight-bit integers:
 
 * * *
 
-See also: digitCount
+See also: digitCount, gouldsSequence, thueMorseSequence
 
 Guides: Bitwise Functions, Integer Functions
 
 References:
 _OEIS_
-[1](https://oeis.org/A000120),
+[1](https://oeis.org/A000120)
+[2](https://oeis.org/A010060),
 _W_
 [1](https://en.wikipedia.org/wiki/Hamming_weight)

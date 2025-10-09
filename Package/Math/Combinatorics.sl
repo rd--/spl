@@ -127,7 +127,7 @@
 	}
 
 	secondOrderEulerianTriangle { :self |
-		1:self.numberTriangle(
+		1:self.triangularArray(
 			eulerianNumberSecondOrder:/2
 		)
 	}

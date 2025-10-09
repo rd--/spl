@@ -8,7 +8,7 @@ Calculate first few terms,
 OEIS [A008517](http://oeis.org/A008517):
 
 ```
->>> 1:7.numberTriangle(
+>>> 1:7.triangularArray(
 >>> 	eulerianNumberSecondOrder:/2
 >>> )
 [
@@ -24,7 +24,7 @@ OEIS [A008517](http://oeis.org/A008517):
 
 * * *
 
-See also: eulerianNumber, eulerianNumberTypeB, numberTriangle
+See also: eulerianNumber, eulerianNumberTypeB, triangularArray
 
 Guides: Combinatorial Functions
 

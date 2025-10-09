@@ -57,7 +57,7 @@
 
 	bernoulliTriangle { :self |
 		let m = self - 1;
-		0:m.numberTriangle { :n :k |
+		0:m.triangularArray { :n :k |
 			0:k.collect { :p |
 				n.binomial(p)
 			}.sum
@@ -184,12 +184,7 @@
 	}
 
 	pascalTriangle { :self |
-		let m = self - 1;
-		0:m.collect { :n |
-			0:n.collect { :k |
-				n.binomial(k)
-			}
-		}
+		(0 .. self - 1).triangularArray(binomial:/2)
 	}
 
 	partitionFunctionP { :self :anInteger |
@@ -281,6 +276,20 @@
 		} {
 			f(n)
 		}
+	}
+
+	qBinomial { :n :m |
+		let a = (0 .. m - 1).product { :i |
+			Polynomial([0: 1, (n - i): -1])
+		};
+		let b = (0 .. m - 1).product { :i |
+			Polynomial([0: 1, (i + 1): -1])
+		};
+		a.polynomialQuotient(b)
+	}
+
+	qBinomial { :n :m :q |
+		qBinomial(n, m).at(q)
 	}
 
 	subfactorial { :self |

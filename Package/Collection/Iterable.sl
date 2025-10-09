@@ -433,8 +433,14 @@
 	}
 
 	product { :self :aBlock:/1 |
-		self.injectInto(1) { :i :j |
-			i * aBlock(j)
+		self.isEmpty.if {
+			1
+		} {
+			let a = aBlock(self.first);
+			let b = self.allButFirst;
+			b.injectInto(a) { :i :j |
+				i * aBlock(j)
+			}
 		}
 	}
 

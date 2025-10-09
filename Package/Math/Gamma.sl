@@ -390,4 +390,10 @@
 		}
 	}
 
+	qPochhammer { :a :q :n |
+		(0 .. n - 1).product { :k |
+			(1 - (a * (q ^ k)))
+		}
+	}
+
 }

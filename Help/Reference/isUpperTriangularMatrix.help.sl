@@ -1,6 +1,6 @@
 # isUpperTriangularMatrix
 
-- _isUpperTriangularMatrix(m)_
+- _isUpperTriangularMatrix(m, n=0)_
 
 Answer `true` if the matrix _m_ is upper triangular, else `false`.
 
@@ -15,7 +15,8 @@ An upper triangular matrix:
 true
 ```
 
-Test if a matrix is upper triangular starting from the first superdiagonal:
+Test if a matrix is upper triangular starting from the first superdiagonal,
+such a matrix is called strictly upper triangular:
 
 ```
 >>> [
@@ -67,7 +68,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TriangularMatrix.html)
 [2](https://mathworld.wolfram.com/UpperTriangularMatrix.html)
-[3](https://reference.wolfram.com/language/ref/UpperTriangularMatrixQ.html),
+[3](https://mathworld.wolfram.com/StrictlyUpperTriangularMatrix.html)
+[4](https://reference.wolfram.com/language/ref/UpperTriangularMatrixQ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_matrix)
 

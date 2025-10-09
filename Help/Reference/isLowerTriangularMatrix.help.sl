@@ -1,6 +1,6 @@
 # isLowerTriangularMatrix
 
-- _isLowerTriangularMatrix(m)_
+- _isLowerTriangularMatrix(m, n=0)_
 
 Answer `true` if the matrix _m_ is lower triangular, else `false`.
 
@@ -34,7 +34,8 @@ true
 true
 ```
 
-Test if a matrix is lower triangular starting from the first subdiagonal:
+Test if a matrix is lower triangular starting from the first subdiagonal,
+such a matrix is called a strictly lower triangular matrix:
 
 ```
 >>> [
@@ -85,7 +86,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TriangularMatrix.html)
 [2](https://mathworld.wolfram.com/LowerTriangularMatrix.html)
-[3](https://reference.wolfram.com/language/ref/LowerTriangularMatrixQ.html),
+[3](https://mathworld.wolfram.com/StrictlyLowerTriangularMatrix.html)
+[4](https://reference.wolfram.com/language/ref/LowerTriangularMatrixQ.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_matrix)
 

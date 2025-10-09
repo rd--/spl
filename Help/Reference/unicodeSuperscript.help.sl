@@ -12,11 +12,18 @@ Superscript digit:
 '¹'
 ```
 
-Superscript letter:
+Superscript lowercase letter:
 
 ```
 >>> 'n'.unicodeSuperscript
 'ⁿ'
+```
+
+Superscript uppercase letter:
+
+```
+>>> 'Y'.unicodeSuperscript
+'𐞲'
 ```
 
 Superscript number:

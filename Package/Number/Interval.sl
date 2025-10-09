@@ -92,6 +92,10 @@ Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 		Range(start, stop, step)
 	}
 
+	endPoints { :self |
+		self.minMax
+	}
+
 	equalBy { :self :operand :aBlock:/2 |
 		operand.isInterval & {
 			aBlock(self.min, operand.min) & {
@@ -162,6 +166,10 @@ Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 		}
 	}
 
+	lowerBound { :self |
+		self.min
+	}
+
 	minMax { :self |
 		[self.min, self.max]
 	}
@@ -211,6 +219,10 @@ Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 		} {
 			operand.adaptToIntervalAndApply(self, union:/2)
 		}
+	}
+
+	upperBound { :self |
+		self.max
 	}
 
 	zero { :self |

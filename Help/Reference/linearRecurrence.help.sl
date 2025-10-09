@@ -229,14 +229,18 @@ OEIS [A103372](https://oeis.org/A103372) &
 OEIS [A103373](https://oeis.org/A103373):
 
 ```
->>> linearRecurrence([0 0 1 1], [0 1 1 1], 30)
+>>> linearRecurrence(
+>>> 	[0 0 1 1], [0 1 1 1], 30
+>>> )
 [
 	 0  1  1  1  1  2   2   2   3   4
 	 4  5  7  8  9 12  15  17  21  27
 	32 38 48 59 70 86 107 129 156 193
 ]
 
->>> linearRecurrence([0 0 0 1 1], [1 1 1 1 1], 30)
+>>> linearRecurrence(
+>>> 	[0 0 0 1 1], [1 1 1 1 1], 30
+>>> )
 [
 	 1  1  1  1  1  2  2  2  2  3
 	 4  4  4  5  7  8  8  9 12 15
@@ -287,7 +291,9 @@ also Erv Wilson’s Meru 3,
 OEIS [A134816](https://oeis.org/A134816):
 
 ```
->>> linearRecurrence([0 1 1], [1 1 1], 30)
+>>> linearRecurrence(
+>>> 	[0 1 1], [1 1 1], 30
+>>> )
 [
 	  1    1    1    2    2
 	  3    4    5    7    9
@@ -305,7 +311,9 @@ Erv Wilson’s Meru 4,
 OEIS [A003269](https://oeis.org/A003269):
 
 ```
->>> linearRecurrence([1 0 0 1], [0 1 1 1], 30)
+>>> linearRecurrence(
+>>> 	[1 0 0 1], [0 1 1 1], 30
+>>> )
 [
 	   0    1    1    1    1
 	   2    3    4    5    7
@@ -323,7 +331,9 @@ Erv Wilson’s Meru 5,
 OEIS [A017817](https://oeis.org/A017817):
 
 ```
->>> linearRecurrence([0 0 1 1], [1 0 0 1], 40)
+>>> linearRecurrence(
+>>> 	[0 0 1 1], [1 0 0 1], 40
+>>> )
 [
 	  1   0   0   1   1
 	  0   1   2   1   1
@@ -343,7 +353,9 @@ Erv Wilson’s Meru 6,
 OEIS [A003520](https://oeis.org/A003520):
 
 ```
->>> linearRecurrence([1 0 0 0 1], [1 1 1 1 1], 30)
+>>> linearRecurrence(
+>>> 	[1 0 0 0 1], [1 1 1 1 1], 30
+>>> )
 [
 	  1    1    1    1    1
 	  2    3    4    5    6
@@ -358,7 +370,9 @@ Erv Wilson’s Meru 7,
 OEIS [A001687](https://oeis.org/A001687):
 
 ```
->>> linearRecurrence([0 1 0 0 1], [0 1 0 1 0], 30)
+>>> linearRecurrence(
+>>> 	[0 1 0 0 1], [0 1 0 1 0], 30
+>>> )
 [
 	 0  1  0  1  0  1  1  1   2   1
 	 3  2  4  4  5  7  7 11  11  16
@@ -384,7 +398,9 @@ Erv Wilson’s Meru 9,
 OEIS [A017827](https://oeis.org/A017827):
 
 ```
->>> linearRecurrence([0 0 0 1 1], [1 0 0 0 1], 40)
+>>> linearRecurrence(
+>>> 	[0 0 0 1 1], [1 0 0 0 1], 40
+>>> )
 [
 	 1  0  0  0  1  1  0  0  1  2
 	 1  0  1  3  3  1  1  4  6  4
@@ -481,6 +497,26 @@ OEIS [A056530](https://oeis.org/A056530):
 ]
 ```
 
+Central polygonal numbers,
+OIES [A000124](https://oeis.org/A000124):
+
+```
+>>> linearRecurrence([3 -3 1], [1 2 4], 53)
+[
+	   1    2    4    7   11
+	  16   22   29   37   46
+	  56   67   79   92  106
+	 121  137  154  172  191
+	 211  232  254  277  301
+	 326  352  379  407  436
+	 466  497  529  562  596
+	 631  667  704  742  781
+	 821  862  904  947  991
+	1036 1082 1129 1177 1226
+	1276 1327 1379
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -508,7 +544,8 @@ _OEIS_
 [2](http://oeis.org/A000204)
 [3](http://oeis.org/A000129)
 [4](http://oeis.org/A002203)
-[5](http://oeis.org/A001608),
+[5](http://oeis.org/A001608)
+[6](http://oeis.org/A000124),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 [2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)

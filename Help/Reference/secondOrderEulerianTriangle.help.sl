@@ -21,7 +21,7 @@ OEIS [A008517](http://oeis.org/A008517):
 
 * * *
 
-See also: binomial, eulerianNumber, eulerianNumberSecondOrder, numberTriangle, stirlingS1
+See also: binomial, eulerianNumber, eulerianNumberSecondOrder, stirlingS1, triangularArray
 
 Guides: Combinatorial Functions
 

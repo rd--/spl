@@ -7,10 +7,8 @@ called the Narayana triangle,
 that occur in various counting problems.
 
 ```
->>> 1:8.collect { :n |
->>> 	1:n.collect { :k |
->>> 		n.narayanaNumber(k)
->>> 	}
+>>> 1:8.triangularArray { :n :k |
+>>> 	n.narayanaNumber(k)
 >>> }
 [
 	1;

@@ -1,8 +1,8 @@
 # geometricMean
 
-- _geometricMean(aCollection)_
+- _geometricMean(c)_
 
-The `product` of _aCollection_ raised to the `reciprocal` of its `size`.
+The `product` of the collection _c_ raised to the `reciprocal` of its `size`.
 
 ```
 >>> [5 2 4 12].geometricMean
@@ -22,6 +22,9 @@ The `product` of _aCollection_ raised to the `reciprocal` of its `size`.
 
 >>> [1 9].geometricMean
 3
+
+>>> (7 ^ 1:7).geometricMean
+2401
 ```
 
 Find the geometric mean for the heights of children in a class.

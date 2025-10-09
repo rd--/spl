@@ -2,7 +2,8 @@
 
 - _Interval(min, max)_
 
-An interval represents the range of values between _min_ and _max_.
+An interval represents the range of values between `min` and `max`,
+the lower and upper bounds respectively.
 Intervals are closed, they includes both end points.
 
 ```
@@ -14,7 +15,18 @@ Intervals are closed, they includes both end points.
 >>> 	i.includes(0),
 >>> 	i.includes(1)
 >>> )
-(0, 1, [0, 1], true, true)
+(0, 1, [0 1], true, true)
+```
+
+There are aliases `lowerBound`, `upperBound` and `endPoints`:
+
+```
+>>> let i = Interval(0, 1);
+>>> (
+>>> 	i.lowerBound, i.upperBound,
+>>> 	i.endPoints
+>>> )
+(0, 1, [0 1])
 ```
 
 Use `+` to add intervals, getting an interval representing the result:

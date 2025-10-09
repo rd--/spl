@@ -1,8 +1,8 @@
 # floorLog
 
-- _floorLog(aNumber, radix)_
+- _floorLog(n, b)_
 
-Answer the `floor` of the `log` base _radix_ of _aNumber_.
+Answer the `floor` of the `log` base _b_ of the number _n_.
 
 ```
 >>> 100.floorLog(10)
