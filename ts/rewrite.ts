@@ -8,18 +8,21 @@ import { slOptions } from './options.ts';
 
 export const context = {
 	packageName: '*UnknownPackage*',
-	packageSymCounter: 0
+	packageSymCounter: 0,
+	methodBodyInitialSourceTable: new Map() // key=core,value=initial
 };
 
 function initContext(name: string): void {
+	// console.debug('initContext');
 	context.packageName = name;
 	context.packageSymCounter = 0;
+	context.methodBodyInitialSourceTable.clear();
 }
 
 function genPackageSym(prefix: string): string {
 	context.packageSymCounter += 1;
 	const sym = `${prefix}${context.packageSymCounter}`;
-	// console.log(`genPackageSym: ${sym}`);
+	// console.debug(`genPackageSym: ${sym}`);
 	return sym;
 }
 
@@ -61,7 +64,10 @@ function rewriteMethodListToCore(n: ohm.Node, b: ohm.Node): string[] {
 	const k = nArray.length;
 	const answer = [];
 	for (let i = 0; i < k; i++) {
-		answer.push('\t' + nArray[i].sourceString + ' ' + bArray[i].asSl);
+		const bInitial = bArray[i].sourceString;
+		const bCore = bArray[i].asSl;
+		context.methodBodyInitialSourceTable.set(bCore, bInitial);
+		answer.push('\t' + nArray[i].sourceString + ' ' + bCore);
 	}
 	return answer;
 }
@@ -948,10 +954,11 @@ function makeMethod(
 	methodName: string,
 	methodBlock: ohm.Node,
 ): string {
-	const blkSource = methodBlock.sourceString;
+	const blkCoreSource = methodBlock.sourceString;
+	const blkInitialSource = context.methodBodyInitialSourceTable.get(blkCoreSource);
 	const blkParameters = methodBlock.parametersOf;
 	const blkJs = methodBlock.asJs;
-	const blkSrc = JSON.stringify(blkSource);
+	const blkSrc = JSON.stringify(blkInitialSource);
 	const slName = resolveMethodName(methodName);
 	// console.debug('makeMethod', methodName, blkParameters);
 	return typeOrTraitNameArray.map(function (typeOrTraitName) {
