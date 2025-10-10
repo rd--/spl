@@ -14,6 +14,8 @@ Answer the `ByteArray` encoded in Base16 at the string _s_.
 
 See also: base64Decode, base16Encode, isBase16String
 
+Guides: Parsing Functions
+
 References:
 _Ietf_
 [1](https://datatracker.ietf.org/doc/html/rfc4648),

@@ -39,6 +39,8 @@ Radix notation of list:
 
 See also: asciiByteArray, AsciiString, asHexDigit, base16Decode, base64Encode, String
 
+Guides: Parsing Functions
+
 References:
 _Ietf_
 [1](https://datatracker.ietf.org/doc/html/rfc4648),

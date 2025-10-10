@@ -1,8 +1,8 @@
 # isFloatString
 
-- _isFloatString(aString)_
+- _isFloatString(s)_
 
-Answer true if _aString_ would be parsed as a floating point number by `parseNumber`.
+Answer true if the string _s_ would be parsed as a floating point number by `parseNumber`.
 
 This does not allow missing integral or fractional parts,
 i.e. one must write _0.23_ not _.23_ and _23.0_ not _23._.

@@ -22,4 +22,6 @@ At the empty list:
 
 See also: catenate, join, interleave, intersperse, splitBy, stringIntercalate, stringJoin
 
+Guides: String Functions
+
 Categories: Rearranging, String

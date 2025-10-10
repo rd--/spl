@@ -1,8 +1,8 @@
 # isDecimalIntegerString
 
-- _isDecimalIntegerString(aString)_
+- _isDecimalIntegerString(s)_
 
-Answer `true` if _aString_ consists only of the decimal digits _0_ through _9_,
+Answer `true` if the string _s_ consists only of the decimal digits _0_ through _9_,
 perhaps prefixed by a sign character, either _+_ or _-_.
 
 This does not allow a zero fractional part,

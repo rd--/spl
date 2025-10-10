@@ -1,9 +1,8 @@
 # unlines
 
-- _unlines(aList)_
+- _unlines([s₁ s₂ …])_
 
-Given a `List` of `String`s,
-answer a `String` that joins together all of the input strings separated by line feed (new line) characters.
+Answer a `String` that joins together all of the input strings _s_ separated by line feed (new line) characters.
 
 ```
 >>> let list = ['a' 'bc' 'def'];

@@ -1,8 +1,8 @@
 # parseBase16
 
-- _parseBase16(aString)_
+- _parseBase16(s)_
 
-Answer the `ByteArray` encoded in Base16 at _aString_.
+Answer the `ByteArray` encoded in Base16 at the string _s_.
 
 ```
 >>> '0102030405060708090A0B0C0D0E0F'

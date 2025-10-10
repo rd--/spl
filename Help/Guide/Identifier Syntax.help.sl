@@ -21,6 +21,17 @@ This syntax is rewritten by the simplifier in terms of the `negate` method:
 let x = -5; negate(x)
 ```
 
+The negations is of the literal,
+to negate an expression use the `negate` method,
+or the unary `-` operator,
+which must be writte postfix:
+
+```
+>>> let x = -5;
+>>> (-x.square, x.square.-)
+(25, -25)
+```
+
 * * *
 
 Guides: Operator Syntax, Syntax Guides

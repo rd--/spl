@@ -18,4 +18,6 @@ To safely print an object use `concisePrintString`.
 
 See also: asString, concisePrintString, printString, storeString
 
+Guides: Printing Functions
+
 Categories: Printing

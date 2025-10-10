@@ -1,8 +1,8 @@
 # paragraphs
 
-- _paragraphs(aString)_
+- _paragraphs(s)_
 
-Answer a `List` of `String`, one for each paragraph in _aString_.
+Answer a list of strings, one for each paragraph in the input string _s_.
 
 Two paragraphs, the first having two lines:
 

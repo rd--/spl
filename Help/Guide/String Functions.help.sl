@@ -131,4 +131,4 @@ Text Analysis:
 
 * * *
 
-Guides: Literals Syntax, Parsing Functions, Regular Expression Functions, String Syntax
+Guides: Literals Syntax, Parsing Functions, Printing Functions, Regular Expression Functions, String Syntax

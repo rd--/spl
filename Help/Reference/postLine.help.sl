@@ -18,10 +18,10 @@ Print hounds-tooth like pattern to console:
 let d = [3 6 13 11 223 191 111 207];
 4.timesRepeat {
 	1.toDo(8) { :l |
+		let k = d[l].integerDigits(2, 8);
 		let s = [];
 		5.timesRepeat {
 			1.toDo(8) { :n |
-				let k = d[l].integerDigits(2, 8);
 				let c = (k[n] > 0).if {
 					'██'
 				} {
@@ -42,7 +42,7 @@ where it may be viewed using a `TranscriptViewer`.
 
 See also: system, Transcript
 
-Guides: System Functions
+Guides: Printing Functions, System Functions
 
 References:
 _Haskell_

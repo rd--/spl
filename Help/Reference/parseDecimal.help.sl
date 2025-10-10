@@ -1,10 +1,9 @@
 # parseDecimal
 
-- _parseDecimal(aString)_
-- _parseDecimal(aString, elseClause:/0)_
+- _parseDecimal(s, f:/0)_
 
-Parse _aString_ as a `Decimal` value,
-if the parse fails evaluate _elseClause_ or signal an `error`.
+Parse the string _s_ as a `Decimal` value,
+if the parse fails evaluate the else clause _f_ or signal an `error`.
 
 Without fractional part:
 

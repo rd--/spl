@@ -1,8 +1,8 @@
 # commaSeparated
 
-- _commaSeparated(aList)_
+- _commaSeparated([s₁ s₂ …])_
 
-Answer the `String` items of _aList_ joined togther with a comma and space intercalated.
+Answer the `String` items of the list _s_ joined togther with a comma and space intercalated.
 
 ```
 >>> ['a' 'b' 'c'].commaSeparated

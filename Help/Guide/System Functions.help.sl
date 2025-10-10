@@ -40,7 +40,7 @@ Local Storage:
 
 Printing:
 
-- `postLine`
+- `Printing Functions`: Guide
 
 Subprocess:
 

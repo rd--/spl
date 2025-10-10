@@ -82,6 +82,8 @@ Join a list of words, after inserting spaces in between:
 
 See also: ++, join, splitBy, stringCatenate
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/StringJoin.html),

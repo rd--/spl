@@ -1,10 +1,9 @@
 # parseNumber
 
-- _parseNumber(aString)_
-- _parseNumber(aString, elseClause:/0)_
+- _parseNumber(s, f:/0)_
 
-Answer the `SmallFloat` represented by _aString_,
-else signal an `error`.
+Answer the `SmallFloat` represented by the string _s_,
+else evaualte _f_ is specified else signal an `error`.
 
 Parse decimal integer:
 

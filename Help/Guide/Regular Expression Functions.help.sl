@@ -55,4 +55,4 @@ Splitting:
 
 * * *
 
-Guides: String Functions
+Guides: Parsing Functions, String Functions

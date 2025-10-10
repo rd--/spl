@@ -1,8 +1,8 @@
 # parseBase64
 
-- _parseBase64(aString)_
+- _parseBase64(s)_
 
-Answer the `ByteArray` encoded in Base-64 at _aString_.
+Answer the `ByteArray` encoded in Base-64 at the string _s_.
 
 ```
 >>> 'AQIDBAUGBwgJCgsMDQ4PEB'

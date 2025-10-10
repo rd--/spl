@@ -41,4 +41,6 @@ Answer a concise string representation of the object _x_.
 
 See also: asString, contractTo, printString, storeString
 
+Guides: String Functions
+
 Categories: Printing

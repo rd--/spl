@@ -1,8 +1,8 @@
 # stringIntercalate
 
-- _stringIntercalate(aList, aString)_
+- _stringIntercalate([s₁ s₂ …], t)_
 
-Join _aList_ (which must be a list of strings) into a string, intercalating _aString_ between each.
+Join the list of strings _s_ into a string, intercalating teh string _t_ between each.
 
 Join a list of strings into a string, this form is equal to `stringCatenate`:
 
@@ -31,5 +31,7 @@ At the empty list:
 * * *
 
 See also: ++, +++, catenate, flatten, intercalate, join, splitBy, stringCatenate, stringJoin
+
+Guides: String Functions
 
 Categories: String

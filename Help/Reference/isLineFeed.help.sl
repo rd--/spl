@@ -1,8 +1,8 @@
 # isLineFeed
 
-- _isLineFeed(aCharacter)_
+- _isLineFeed(c)_
 
-Answer `true` if _aCharacter_ is a line feed (also called a new line).
+Answer `true` if the character _c_ is a line feed (also called a new line).
 
 ```
 >>> '\n'.isLineFeed

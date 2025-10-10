@@ -27,6 +27,16 @@ Transcript : [Object] { | entries |
 		system.consoleWarning(message)
 	}
 
+	asString { :self |
+		self.entries.collect { :each |
+			(each.category = 'notification').if {
+				each.message
+			} {
+				each.category ++ ': ' ++ each.message
+			}
+		}.unlines
+	}
+
 	removeAll { :self |
 		system.consoleClear;
 		self.entries.removeAll
@@ -48,14 +58,8 @@ Transcript : [Object] { | entries |
 		self.messages('notification')
 	}
 
-	String { :self |
-		self.entries.collect { :each |
-			(each.category = 'notification').if {
-				each.message
-			} {
-				each.category ++ ': ' ++ each.message
-			}
-		}.unlines
+	size { :self |
+		self.entries.size
 	}
 
 	warningMessages { :self |

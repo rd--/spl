@@ -5,18 +5,25 @@
 Answer a `String` representation of the object _x_ from which it can be reconstructed.
 
 ```
->>> (1 -> 2)
-system.evaluate((1 -> 2).storeString)
+>>> let x = (1 -> 2);
+>>> let s = x.storeString;
+>>> (s, system.evaluate(s))
+('(1 -> 2)', x)
 
->>> (false -> true)
-system.evaluate((false -> true).storeString)
+>>> let x = (false -> true);
+>>> let s = x.storeString;
+>>> (s, system.evaluate(s))
+('(false -> true)', x)
 
->>> ('+' -> 'plus')
-system.evaluate(('+' -> 'plus').storeString)
+>> ('+' -> 'plus')
+>> .storeString
+('+' -> 'plus')
 ```
 
 * * *
 
 See also: asString, printString, String
+
+Guides: Parsing Functions, String Functions
 
 Categories: Printing

@@ -1,8 +1,8 @@
 # isFormFeed
 
-- _isFormFeed(aCharacter)_
+- _isFormFeed(c)_
 
-Answer `true` if _aCharacter_ is a form feed.
+Answer `true` if the character _c_ is a form feed.
 
 ```
 >>> '\f'.isFormFeed
@@ -15,5 +15,7 @@ true
 * * *
 
 See also: Character, isCarriageReturn, isLineFeed, isSeparator, isSpace, isTab
+
+Guides: String Functions
 
 Categories: Testing

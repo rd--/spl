@@ -52,6 +52,8 @@ Of `Complex` matrix:
 
 See also: Matrix, printString, storeString
 
+Guides: Printing Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/MatrixForm.html)

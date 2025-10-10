@@ -1,8 +1,8 @@
 # asString
 
-- _asString(anObject)_
+- _asString(x)_
 
-Answer the `printString` of _anObject_,
+Answer the `printString` of the object _x_,
 unless it is a `String`, in which case answer the receiver itself,
 or a `Character`, in which case answer a single character string.
 
@@ -118,6 +118,8 @@ At `Record`:
 * * *
 
 See also: concisePrintString, printString, storeString, String
+
+Guides: String Functions
 
 References:
 _Mathematica_

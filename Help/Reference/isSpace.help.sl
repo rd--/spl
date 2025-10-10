@@ -1,8 +1,8 @@
 # isSpace
 
-- _isSpace(aCharacter)_
+- _isSpace(c)_
 
-Answer `true` if _aCharacter_ is a space.
+Answer `true` if the character _c_ is a space.
 
 ```
 >>> ' '.isSpace
@@ -15,5 +15,7 @@ true
 * * *
 
 See also: Character, isCarriageReturn, isFormFeed, isLineFeed, isSeparator, isTab
+
+Guides: String Functions
 
 Categories: Testing

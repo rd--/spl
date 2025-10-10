@@ -119,6 +119,8 @@ At `Association`:
 
 See also: asString, conciseString, postLine, printStringShowingDecimalPlaces, storeString
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToString.html),

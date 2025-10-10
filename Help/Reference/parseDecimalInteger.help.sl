@@ -1,12 +1,11 @@
 # parseDecimalInteger
 
-- _parseDecimalInteger(aString)_
-- _parseDecimalInteger(aString, elseClause:/0)_
+- _parseDecimalInteger(s, f:/0)_
 
-Answer the `SmallFloat` of the decimal integer indicated by _aString_,
+Answer the `SmallFloat` of the decimal integer indicated by the string _s_,
 which must be in decimal notation.
 If the string is not a decimal integer,
-evaluate _elseClause_ or signal an `error`.
+evaluate the else clause _f_ or signal an `error`.
 
 ```
 >>> '23'.parseDecimalInteger

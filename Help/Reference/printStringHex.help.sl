@@ -1,8 +1,8 @@
 # parseStringHex
 
-- _parseStringHex(anInteger)_
+- _parseStringHex(n)_
 
-Answer the hexadecimal notation of _anInteger_.
+Answer the hexadecimal notation of the integer _n_.
 
 ```
 >>> 58909.printStringHex
@@ -19,3 +19,5 @@ This is equivalent to `printString` with radix set to sixteen:
 * * *
 
 See also: Integer, printString, String
+
+Guides: Printing Functions

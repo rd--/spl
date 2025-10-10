@@ -1,8 +1,8 @@
 # isCarriageReturn
 
-- _isCarriageReturn(aCharacter)_
+- _isCarriageReturn(c)_
 
-Answer `true` if _aCharacter_ is a carriage return.
+Answer `true` if the character _c_ is a carriage return.
 
 ```
 >>> '\r'.isCarriageReturn
@@ -15,5 +15,7 @@ true
 * * *
 
 See also: Character, isFormFeed, isLineFeed, isSeparator, isSpace, isTab
+
+Guides: String Functions
 
 Categories: Testing
