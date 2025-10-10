@@ -43,12 +43,12 @@ The sums of the number of odd entries in the first _n_ rows of Pascal’s triang
 OEIS [A006046](https://oeis.org/A006046):
 
 ```
->>> 0:11.collect { :n |
+>>> 1:11.collect { :n |
 >>> 	n.pascalTriangle.collect { :each |
 >>> 		each.count(isOdd:/1)
 >>> 	}.sum
 >>> }
-[0 1 3 5 9 11 15 19 27 29 33 37]
+[1 3 5 9 11 15 19 27 29 33 37]
 
 >>> 11.gouldsSequence.prefixSum
 [1 3 5 9 11 15 19 27 29 33 37]

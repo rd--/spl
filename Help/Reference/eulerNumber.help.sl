@@ -62,7 +62,7 @@ OEIS [A000111](https://oeis.org/A000111):
 >>> 		let b = 2 ^ a;
 >>> 		let c = a.bernoulliNumber;
 >>> 		let d = b * (b - 1) * c;
->>> 		(c / d).abs
+>>> 		(d / a).abs
 >>> 	}
 >>> }
 [

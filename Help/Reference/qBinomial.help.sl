@@ -44,15 +44,15 @@ Polynomial([1])
 Zero at _n=0_ & _m>n_:
 
 ```
->>> qBinomial(0, 12)
-0
+>>> qBinomial(0, 12).isZero
+true
 ```
 
 Exact evaluation with fractional _q_:
 
 ```
 >>> qBinomial(4, 2, 1/2)
-36/16
+35/16
 
 >>> 1:5.collect { :m |
 >>> 	qBinomial(5, m, 1/3)

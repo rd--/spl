@@ -634,6 +634,14 @@ SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, 
 		self.error('remainder')
 	}
 
+	replaceNaN { :x :y |
+		x.isNaN.if {
+			y
+		} {
+			x
+		}
+	}
+
 	round { :self |
 		<primitive: return Math.round(_self)>
 	}

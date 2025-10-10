@@ -419,6 +419,12 @@
 		self.collect(reciprocal:/1)
 	}
 
+	replaceNaN { :x :y |
+		x.collect { :each |
+			each.replaceNaN(y)
+		}
+	}
+
 	riemannXi { :self |
 		self.collect(riemannXi:/1)
 	}
