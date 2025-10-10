@@ -23,7 +23,7 @@ Accessors to read the parts of the file are:
 
 ~~~spl async
 let url = system.splFileName(
-	'Help/Reference/add.help.sl'
+	'add'.helpFileName
 ).asFileUrl;
 url.fetchText.then { :aString |
 	let help = HelpFile(url, aString);

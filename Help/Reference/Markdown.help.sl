@@ -1,13 +1,13 @@
 # Markdown
 
-- _Markdown(aString)_
+- _Markdown(s)_
 
 `Markdown` is a `Type` representing a text written in _Markdown_.
 
 `asHtml` answers a rendering to an _Html_ `String`:
 
 ```
->>> let string = [
+>>> let s = [
 >>> 	'# H'
 >>> 	''
 >>> 	'P1'
@@ -17,10 +17,10 @@
 >>> 	''
 >>> 	'P2'
 >>> ].unlines;
->>> let markdown = Markdown(string);
+>>> let m = Markdown(s);
 >>> (
->>> 	markdown.asMarkdown = string,
->>> 	markdown.asHtml
+>>> 	m.asMarkdown = s,
+>>> 	m.asHtml
 >>> )
 (
 	true,
@@ -56,19 +56,34 @@ and `contents` collects these nodes into a list:
 >>> 	].unlines
 >>> );
 >>> m.contents.collect { :each |
->>> 	let p = each.includesKey('sourcePosition');
+>>> 	let p = each.includesKey(
+>>> 		'sourcePosition'
+>>> 	);
 >>> 	let mark = p.if { '*' } { '' };
 >>> 	each['type'] ++ mark
 >>> }
 [
 	'document*'
-	'heading*' 'text'
-	'paragraph*' 'text' 'code'
+	'heading*'
+	'text'
+	'paragraph*'
+	'text'
+	'code'
 	'thematicBreak*'
-	'paragraph*' 'link' 'text'
+	'paragraph*'
+	'link'
+	'text'
 	'list*'
-	'listItem*' 'paragraph*' 'text' 'strong' 'text'
-	'paragraph*' 'text' 'image' 'emphasis' 'text'
+	'listItem*'
+	'paragraph*'
+	'text'
+	'strong'
+	'text'
+	'paragraph*'
+	'text'
+	'image'
+	'emphasis'
+	'text'
 ]
 ```
 
@@ -137,5 +152,7 @@ which are stored as a `Record`:
 * * *
 
 See also: asTree, contents, do, markdownToHtml, Tree
+
+Guides: Text Functions
 
 Categories: Text, Type

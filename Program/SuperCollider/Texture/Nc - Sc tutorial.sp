@@ -1,6 +1,6 @@
 /* https://composerprogrammer.com/teaching/supercollider/sctutorial/tutorial.html 1.1 */
 {
-	let n = 5 + 9.atRandom;
+	let n = 5 + 1:9.atRandom;
 	let x = MouseX(100, 2000, 0, 0.2);
 	let y = MouseY(0.01, 1.0, 0, 0.2);
 	let o = {
