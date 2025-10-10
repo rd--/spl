@@ -167,7 +167,7 @@ Sl {
     symbolicCharacterLiteral = "𝒂" | "𝒃" | "𝒄" | "𝒅" | "𝒆" | "𝒇" | "𝒈" | "𝒉" | "𝒊" | "𝒋" | "𝒌" | "𝒍" | "𝒎" | "𝒏" | "𝒐" | "𝒑" | "𝒒" | "𝒓" | "𝒔" | "𝒕" | "𝒖" | "𝒗" | "𝒘" | "𝒙" | "𝒚" | "𝒛"
 
 	literal = spanLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
-	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | imaginaryLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | integerLiteral | infinityLiteral | nanLiteral
+	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | imaginaryLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral | infinityLiteral | nanLiteral
 	spanLiteral = spanFromByToLiteral | spanFromToLiteral
 	spanFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
 	spanFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
@@ -185,7 +185,8 @@ Sl {
 	radixIntegerLiteral = plusOrMinus? digit+ "r" radixDigit+
     infinityLiteral = plusOrMinus? "Infinity"
 	nanLiteral = "NaN"
-	integerLiteral = plusOrMinus? digit+
+	smallIntegerLiteral = plusOrMinus? digit+
+    integerLiteral = largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral
     integerOrFloatLiteral = floatLiteral | integerLiteral
 	singleQuotedStringLiteral = "\'" (~"\'" ("\\\'" | "\\\\" | sourceCharacter))* "\'"
 	doubleQuotedStringLiteral = "\"" (~"\"" ("\\\"" | "\\\\" | sourceCharacter))* "\""

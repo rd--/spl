@@ -8,13 +8,6 @@ The `product` of the integers from `one` up to _n_.
 >>> 5.factorial
 [1 .. 5].product
 
->>> 1:10.factorial
-[
-	1 2 6 24 120
-	720 5040 40320
-	362880 3628800
-]
-
 >>> 9.factorial
 1:9.product
 
@@ -23,6 +16,18 @@ The `product` of the integers from `one` up to _n_.
 
 >>> 23L.factorial
 25852016738884976640000L
+```
+
+Threads over lists,
+OEIS [A000142](https://oeis.org/A000142):
+
+```
+>>> 1:10.factorial
+[
+	1 2 6 24 120
+	720 5040 40320
+	362880 3628800
+]
 ```
 
 Number of permutations of 6 elements:
@@ -135,6 +140,39 @@ Relation to `gamma`:
 true
 ```
 
+Robbins numbers,
+OEIS [A005130](https://oeis.org/A005130):
+
+```
+>>> 1:17.collect { :n |
+>>> 	let m = n - 1;
+>>> 	0:m.product { :k |
+>>> 		(3 * k + 1).factorial
+>>> 		\
+>>> 		(n + k).factorial
+>>> 	}
+>>> }
+[
+	1
+	2
+	7
+	42
+	429
+	7436
+	218348
+	10850216
+	911835460
+	129534272700
+	31095744852375
+	12611311859677500
+	8639383518297652500
+	9995541355448167482000
+	19529076234661277104897200
+	64427185703425689356896743840
+	358869201916137601447486156417296
+]
+```
+
 * * *
 
 See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial
@@ -151,6 +189,10 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Factorial.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factorial.html),
+_OEIS_
+[1](https://oeis.org/A000142)
+[2](https://oeis.org/A000435)
+[3](https://oeis.org/A005130),
 _Smalltalk_
 5.6.5.11,
 _W_

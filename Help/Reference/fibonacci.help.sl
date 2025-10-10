@@ -172,6 +172,28 @@ OEIS [A052918](https://oeis.org/A052918)
 ]
 ```
 
+The Hosoya triangle,
+OEIS [A058071](https://oeis.org/A058071):
+
+```
+>>> 1:11.triangularArray { :n :k |
+>>> 	fibonacci(k) * fibonacci(n - k + 1)
+>>> }
+[
+	 1;
+	 1  1;
+	 2  1  2;
+	 3  2  2  3;
+	 5  3  4  3  5;
+	 8  5  6  6  5  8;
+	13  8 10  9 10  8 13;
+	21 13 16 15 15 16 13 21;
+	34 21 26 24 25 24 26 21 34;
+	55 34 42 39 40 40 39 42 34 55;
+	89 55 68 63 65 64 65 63 68 55 89;
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

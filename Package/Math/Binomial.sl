@@ -152,10 +152,8 @@
 	}
 
 	leibnizHarmonicTriangle { :self |
-		1:self.collect { :n |
-			1:n.collect { :k |
-				Fraction(1, n.binomial(k) * k)
-			}
+		1:self.triangularArray { :n :k |
+			Fraction(1, n.binomial(k) * k)
 		}
 	}
 

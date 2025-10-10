@@ -1,8 +1,8 @@
 # findPeaks
 
-- _findPeaks(aList)_
+- _findPeaks([x₁ x₂ …])_
 
-Answer the positions and values of the detected peaks in _aList_.
+Answer the positions and values of the detected peaks in the list _x_.
 
 Find position and height of dominant peaks in a list:
 
@@ -10,6 +10,10 @@ Find position and height of dominant peaks in a list:
 >>> [5 3 1 3 5 7 9 7 5 3 1 3 5]
 >>> .findPeaks
 [1 5; 7 9; 13 5]
+
+>>> [25 8 15 5 6 10 10 3 1 20 7]
+>>> .findPeaks
+[1 25; 3 15; 6 10; 10 20]
 ```
 
 Only the first index of each plateau is recorded:
@@ -37,4 +41,6 @@ Guides: Feature Detection Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/FindPeaks.html)
+[1](https://reference.wolfram.com/language/ref/FindPeaks.html),
+_Mathworks_
+[1](https://mathworks.com/help/signal/ref/findpeaks.html)

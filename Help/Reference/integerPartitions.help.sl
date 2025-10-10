@@ -148,7 +148,7 @@ Find partitions of six of even length only:
 
 * * *
 
-See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ
+See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ, qBinomial
 
 Guides: Combinatorial Functions, Integer Functions
 

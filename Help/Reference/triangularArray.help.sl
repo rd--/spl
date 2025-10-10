@@ -130,11 +130,115 @@ OEIS [A166556](https://oeis.org/A166556):
 ]
 ```
 
+The rascal triangle,
+OEIS [A077028](https://oeis.org/A077028):
+
+```
+>>> (0 .. 12).triangularArray { :n :k |
+>>> 	k * (n - k) + 1
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	1 3 3 1;
+	1 4 5 4 1;
+	1 5 7 7 5 1;
+	1 6 9 10 9 6 1;
+	1 7 11 13 13 11 7 1;
+	1 8 13 16 17 16 13 8 1;
+	1 9 15 19 21 21 19 15 9 1;
+	1 10 17 22 25 26 25 22 17 10 1;
+	1 11 19 25 29 31 31 29 25 19 11 1;
+	1 12 21 28 33 36 37 36 33 28 21 12 1
+]
+```
+
+Clark’s triangle with _f=6_,
+OEIS [A090850](https://oeis.org/A090850):
+
+```
+>>> let f = 6;
+>>> 0:9.triangularArray { :n :k |
+>>> 	let a = binomial(n, k + 1);
+>>> 	let b = binomial(n - 1, k - 1);
+>>> 	(f * a) + b
+>>> }.replaceNaN(0)
+[
+	0;
+	6 1;
+	12 7 1;
+	18 19 8 1;
+	24 37 27 9 1;
+	30 61 64 36 10 1;
+	36 91 125 100 46 11 1;
+	42 127 216 225 146 57 12 1;
+	48 169 343 441 371 203 69 13 1;
+	54 217 512 784 812 574 272 82 14 1
+]
+```
+
+Robbins triangle,
+OEIS [A048601](https://oeis.org/A048601):
+
+```
+>>> 1L:8.triangularArray { :n :k |
+>>> 	binomial(n + k - 2, k - 1)
+>>> 	*
+>>> 	((2 * n - k - 1).! \ (n - k ).!)
+>>> 	*
+>>> 	0.to(n - 2).product { :j |
+>>> 		(3 * j + 1).! \ (n + j).!
+>>> 	}
+>>> }
+[
+	1;
+	1 1;
+	2 3 2;
+	7 14 14 7;
+	42 105 135 105 42;
+	429 1287 2002 2002 1287 429
+	;
+	7436 26026 47320
+	56784
+	47320 26026 7436
+	;
+	218348 873392 1813968 2519400
+	2519400 1813968 873392 218348
+]
+```
+
+let f:/2 = { :n :m |
+	[
+		{ n = 0 & { m = 0 } } -> { 1 },
+		{ n < m | { m < 0 } } -> { 0 },
+		{ true } -> {
+			1:m.sum { :k |
+				f(n - 1, n - k)
+			}
+		}
+	].which
+}.memoize;
+0:9.triangularArray(f:/2)
+[[1], [0, 1], [0, 1, 1], [0, 1, 2, 2], [0, 2, 4, 5, 5], [0, 5, 10, 14, 16, 16], [0, 16, 32, 46, 56, 61, 61], [0, 61, 122, 178, 224, 256, 272, 272], [0, 272, 544, 800, 1024, 1202, 1324, 1385, 1385], [0, 1385, 2770, 4094, 5296, 6320, 7120, 7664, 7936, 7936]]
+
 * * *
 
+See also: array, collect, table
 
+Guides: Array Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/NumberTriangle.html),
 _OEIS_
-[1](https://oeis.org/A007318),
+[1](https://oeis.org/A007318)
+[2](https://oeis.org/A075363)
+[3](https://oeis.org/A075364)
+[4](https://oeis.org/A094587)
+[5](https://oeis.org/A166556)
+[6](https://oeis.org/A077028)
+[7](https://oeis.org/A048601),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

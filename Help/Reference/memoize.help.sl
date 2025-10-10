@@ -6,7 +6,7 @@ Answer a one argument `Block` that memoizes the unary block _f_,
 using a `Map` if _requireImmediate_ is `true`,
 else a `Dictionary`.
 
-Un-memoized Fibonacci may take several seconds to evaluate for _k > 30_:
+Un-memoized Fibonacci may take several seconds to evaluate for _k>30_:
 
 ```
 >>> let fib = { :n |

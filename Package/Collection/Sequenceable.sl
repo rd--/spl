@@ -1615,6 +1615,15 @@
 		}
 	}
 
+	isLogarithmicallyConcave { :a |
+		let n = a.size;
+		(n < 3) | {
+			(2 .. n - 1).allSatisfy { :i |
+				a[i].square >= (a[i - 1] * a[i + 1])
+			}
+		}
+	}
+
 	isOctetSequence { :self |
 		self.allSatisfy { :each |
 			each.isInteger & {
@@ -1648,6 +1657,34 @@
 
 	isSequenceable { :unused |
 		true
+	}
+
+	isUnimodal { :x :f:/2 |
+		(x.size < 3).if {
+			false
+		} {
+			let n = x.size;
+			let i = 2;
+			{
+				i < n & {
+					f(x[i - 1], x[i])
+				}
+			}.whileTrue {
+				i := i + 1
+			};
+			{
+				i <= n & {
+					f(x[i], x[i - 1])
+				}
+			}.whileTrue {
+				i := i + 1
+			};
+			(i - 1 = n)
+		}
+	}
+
+	isUnimodal { :x |
+		x.isUnimodal(<=)
 	}
 
 	isVeryCloseTo { :self :anObject |

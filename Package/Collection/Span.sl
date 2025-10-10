@@ -63,7 +63,7 @@ Span : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequence
 
 }
 
-+SmallFloat {
++@Integer {
 
 	basicSpan { :start :stop :step |
 		[start, stop, step].allSatisfy(isInteger:/1).if {

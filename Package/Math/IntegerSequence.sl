@@ -116,6 +116,21 @@
 		}
 	}
 
+	entringerTriangle { :self |
+		let f:/2 = { :n :k |
+			k.isZero.if {
+				n.isZero.boole
+			} {
+				f(n, k - 1) + f(n - 1, n - k)
+			}
+		}.memoize;
+		0.to(self - 1).triangularArray(f:/2)
+	}
+
+	entringerNumber { :n :k |
+		(n + 1).entringerTriangle.last.at(k + 1)
+	}
+
 	erdosSelfridgeFunction { :n |
 		let m = n + 2;
 		{
@@ -652,6 +667,14 @@
 		s
 	}
 
+	seidelTriangle { :self |
+		let answer = self.entringerTriangle;
+		(2, 4 .. self).do { :i |
+			answer[i].reverseInPlace
+		};
+		answer
+	}
+
 	selfCountingNumber { :n |
 		(0.5 + (2 * n).sqrt).floor
 	}
@@ -1003,3 +1026,24 @@
 	}
 
 }
+
++Block {
+
+	eulerTransform { :a:/1 |
+		let b:/1 = { :n |
+			(n = 0).if {
+				1
+			} {
+				let s = 1:n.sum { :j |
+					j.divisors.sum { :d |
+						d * a(d)
+					} * b(n - j)
+				};
+				s // n
+			}
+		}.memoize(true);
+		b:/1
+	}
+
+}
+

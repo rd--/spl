@@ -85,6 +85,13 @@ Converting:
 
 - `asList`
 
+Predicates:
+
+- `isLogarithmicallyConcave`
+- `isMonotonicallyIncreasing`
+- `isStrictlyIncreasing`
+- `isUnimodal`
+
 Querying:
 
 - `size`

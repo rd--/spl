@@ -1,5 +1,11 @@
 # Array Functions
 
+Constructors:
+
+- `array`
+- `table`
+- `triangularArray`
+
 Querying:
 
 - `arrayDepth`

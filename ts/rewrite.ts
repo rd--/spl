@@ -296,13 +296,13 @@ const asJs: ohm.ActionDict<string> = {
 	infinityLiteral(s, i) {
 		return s.sourceString + i.sourceString;
 	},
-	integerLiteral(s, i) {
+	smallIntegerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
 		const x = parseInt(i.sourceString);
 		if(Number.isSafeInteger(x)) {
 			return `${s.sourceString + x}`;
 		} else {
-			throw new Error('integerLiteral: not small integer: ' + x);
+			throw new Error('smallIntegerLiteral: not small integer: ' + x);
 		}
 	},
 	largeIntegerLiteral(s, i, _l) {
@@ -667,7 +667,7 @@ const asSl: ohm.ActionDict<string> = {
 	integerDecimalLiteral(s, i, _d) {
 		return `parseDecimal('${s.sourceString}${i.sourceString}D')`;
 	},
-	integerLiteral(s, i) {
+	smallIntegerLiteral(s, i) {
 		return s.sourceString + i.sourceString;
 	},
 	recordKeyToken(n, _c) {
@@ -831,7 +831,7 @@ const asAst: ohm.ActionDict<SlAst> = {
 	infinityLiteral(s, i) {
 		return ['SmallFloat', s.sourceString + i.sourceString];
 	},
-	integerLiteral(s, i) {
+	smallIntegerLiteral(s, i) {
 		return ['SmallInteger', s.sourceString + i.sourceString];
 	},
 	largeIntegerLiteral(s, i, _l) {

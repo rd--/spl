@@ -1,6 +1,6 @@
 # peakDetect
 
-- _peakDetect(aList)_
+- _peakDetect([x₁ x₂ …])_
 
 Answer a binary list in which `one`s correspond to peak positions in _aList_.
 

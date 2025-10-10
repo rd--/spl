@@ -102,6 +102,10 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 		self.coefficientList.allSatisfy(isSymbol:/1)
 	}
 
+	isUnimodal { :self |
+		self.coefficientList.isUnimodal
+	}
+
 	isZero { :self |
 		self.coefficientList.isEmpty
 	}

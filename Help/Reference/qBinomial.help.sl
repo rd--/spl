@@ -6,8 +6,6 @@ Answer the _q_-binomial coefficient,
 a _q_-analog for the binomial coefficient,
 also called a Gaussian coefficient or a Gaussian polynomial.
 
-
-
 ```
 >>> qBinomial(2, 1)
 Polynomial([1 1])
@@ -26,10 +24,6 @@ Polynomial([1 1 2 1 1])
 
 >>> qBinomial(6, 3)
 Polynomial([1 1 2 3 3 3 3 2 1 1])
-
->>> qBinomial(8, 3)
->>> .coefficientList
-[1 1 2 3 4 5 6 6 6 6 5 4 3 2 1 1]
 
 >>> qBinomial(10, 3)
 Polynomial(
@@ -88,6 +82,28 @@ OEIS [A034851](https://oeis.org/A034851):
 ]
 ```
 
+_q_-binomial is a generating function for the sequence in a grid-shading problem,
+counting the number of partitions of an integer _i_
+with at most _m_ parts
+and largest part at most _n_:
+
+```
+>>> let n = 5;
+>>> let m = 3;
+>>> (1 .. n * m).collect { :i |
+>>> 	i.integerPartitions.count { :x |
+>>> 		x.size <= n & {
+>>> 			x.max <= m
+>>> 		}
+>>> 	}
+>>> }
+[1 2 3 4 5 6 6 6 6 5 4 3 2 1 1]
+
+>>> qBinomial(8, 3)
+>>> .coefficientList
+[1 1 2 3 4 5 6 6 6 6 5 4 3 2 1 1]
+```
+
 Plot for _n={1,2,3}_ over a subset of the reals:
 
 ~~~spl svg=A
@@ -104,11 +120,12 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 
 See also: binomial
 
-Guides: Polynomial Functions
+Guides: Combinatorial Functions, Polynomial Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/q-BinomialCoefficient.html)
-[2](https://reference.wolfram.com/language/ref/QBinomial.html),
+[2](https://mathworld.wolfram.com/GridShadingProblem.html)
+[3](https://reference.wolfram.com/language/ref/QBinomial.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Gaussian_binomial_coefficient)

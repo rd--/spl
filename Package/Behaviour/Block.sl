@@ -271,7 +271,17 @@ Block! : [Object, Equatable] {
 		aList.withWithCollect(anotherList, aThirdList, self:/3)
 	}
 
-	memoize { :self:/1 :requireImmediate |
+	memoizeBinary { :self:/2 |
+		let unary:/1 = { :x |
+			let [a, b] = x;
+			self(a, b)
+		}.memoizeUnary(false);
+		{ :a :b |
+			unary([a, b])
+		}
+	}
+
+	memoizeUnary { :self:/1 :requireImmediate |
 		let table = requireImmediate.if {
 			Map()
 		} {
@@ -284,6 +294,19 @@ Block! : [Object, Equatable] {
 				answer
 			}
 		}
+	}
+
+	memoize { :self :requireImmediate |
+		self.numArgs.caseOf(
+			[
+				1 -> { self.memoizeUnary(requireImmediate) },
+				2 -> { { requireImmediate = false }.assert; self.memoizeBinary }
+			]
+		)
+	}
+
+	memoize { :self |
+		self.memoize(false)
 	}
 
 	movingMap { :self:/1 :sequence :windowSize |
