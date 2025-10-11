@@ -49,4 +49,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/EntringerNumber.html),
 _OEIS_
 [1](https://oeis.org/A008281)
-

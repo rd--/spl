@@ -142,6 +142,18 @@
 		m
 	}
 
+	eulerUpDownNumber { :n |
+		n.isEven.if {
+			n.eulerNumber.abs
+		} {
+			let a = n + 1;
+			let b = 2 ^ a;
+			let c = a.bernoulliNumber;
+			let d = b * (b - 1) * c;
+			(d / a).abs
+		}
+	}
+
 	fareySequence { :n |
 		let [a, b, c, d] = [0, 1, 1, n];
 		let answer = [Fraction(a, b)];

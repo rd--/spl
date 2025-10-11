@@ -90,6 +90,25 @@ Multiplication:
 Polynomial([329 -225 736 -186 84])
 ```
 
+Exponentiation:
+
+```
+>>> 5.cyclotomic
+Polynomial([1 1 1 1 1])
+
+>>> 5.cyclotomic ^ 2
+Polynomial([1 2 3 4 5 4 3 2 1])
+
+>>> 5.cyclotomic ^ 3
+Polynomial(
+	[
+		1 3 6 10 15 18
+		19
+		18 15 10 6 3 1
+	]
+)
+```
+
 Quotient and remainder,
 see also `polynomialQuotientRemainder`:
 

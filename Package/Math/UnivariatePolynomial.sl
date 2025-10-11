@@ -31,6 +31,18 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 		}
 	}
 
+	^ { :self :operand |
+		(operand = 0).if {
+			Polynomial([1])
+		} {
+			let answer = self;
+			(operand - 1).timesRepeat {
+				answer := answer * self
+			};
+			answer
+		}
+	}
+
 	asBlock { :self |
 		let c = self.coefficientList;
 		{ :x |

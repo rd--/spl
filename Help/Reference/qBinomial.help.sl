@@ -34,18 +34,31 @@ Polynomial(
 )
 ```
 
-Value at _n=m=0_:
+Value at _m=0_:
 
 ```
 >>> qBinomial(0, 0)
 Polynomial([1])
+
+>>> qBinomial(5, 0)
+Polynomial([1])
 ```
 
-Zero at _n=0_ & _m>n_:
+Zero at _m>n_:
 
 ```
->>> qBinomial(0, 12).isZero
-true
+>>> qBinomial(5, 12)
+Polynomial([])
+```
+
+Specific values:
+
+```
+>>> qBinomial(0, 12, 5)
+0
+
+>>> qBinomial(3, 2, -0.5)
+0.75
 ```
 
 Exact evaluation with fractional _q_:
@@ -54,10 +67,10 @@ Exact evaluation with fractional _q_:
 >>> qBinomial(4, 2, 1/2)
 35/16
 
->>> 1:5.collect { :m |
+>>> 0:5.collect { :m |
 >>> 	qBinomial(5, m, 1/3)
 >>> }
-[121/81 1210/729 1210/729 121/81 1]
+[1 121/81 1210/729 1210/729 121/81 1]
 ```
 
 Losanitsch’s triangle,
@@ -118,7 +131,7 @@ Plot for _n={1,2,3}_ over a subset of the reals:
 
 * * *
 
-See also: binomial
+See also: binomial, qFactorial, qPochhammer, UnivariatePolynomial
 
 Guides: Combinatorial Functions, Polynomial Functions
 

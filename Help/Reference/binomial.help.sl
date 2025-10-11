@@ -71,10 +71,11 @@ Evaluate for half-integer arguments:
 9/2
 ```
 
-Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
+Make Pascal’s triangle (this function is zero outside of Pascal’s triangle),
+OEIS [A007318](https://oeis.org/A007318):
 
 ```
->>> 0:5.collect { :each |
+>>> 0:6.collect { :each |
 >>> 	each.binomial(0:each)
 >>> }
 [
@@ -83,7 +84,8 @@ Make Pascal’s triangle (this function is zero outside of Pascal’s triangle):
 	1 2 1;
 	1 3 3 1;
 	1 4 6 4 1;
-	1 5 10 10 5 1
+	1 5 10 10 5 1;
+	1 6 15 20 15 6 1
 ]
 ```
 
@@ -149,6 +151,28 @@ One of a family of integer sequences (OEIS A006542):
 	2395575 2992626 3708810 4562425
 	5573800 6765440 8162176 9791320
 	11682825 13869450
+]
+```
+
+Triangle of binomial coefficients,
+multiplied by the Euler up/down numbers,
+OEIS [A109449](https://oeis.org/A109449):
+
+```
+>>> 0:8.triangularArray { :n :k |
+>>> 	let m = eulerUpDownNumber(n - k);
+>>> 	binomial(n, k) * m
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	2 3 3 1;
+	5 8 6 4 1;
+	16 25 20 10 5 1;
+	61 96 75 40 15 6 1;
+	272 427 336 175 70 21 7 1;
+	1385 2176 1708 896 350 112 28 8 1
 ]
 ```
 
@@ -322,7 +346,8 @@ _OEIS_
 [3](https://oeis.org/A000984)
 [4](https://oeis.org/A006542)
 [5](https://oeis.org/A027907)
-[6](https://oeis.org/A166556),
+[6](https://oeis.org/A166556)
+[7](https://oeis.org/A109449),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 [2](https://en.wikipedia.org/wiki/Cake_number)

@@ -356,6 +356,26 @@
 
 +[List, Range] {
 
+	boustrophedonTransform { :self |
+		self.boustrophedonTriangle.collect(last:/1)
+	}
+
+	boustrophedonTriangle { :a |
+		let m = a.size;
+		let t = 1:m.triangularArray { :i :j |
+			a[i]
+		};
+		1:m.triangularArrayDo(
+			{ :k :n |
+				(n != 1).ifTrue {
+					t[k][n] := t[k][n - 1] + t[k - 1][k - n + 1]
+				}
+			},
+			0
+		);
+		t
+	}
+
 	iota { :shape :start :step |
 		let count = shape.product;
 		let end = start + (count - 1 * step);
@@ -515,6 +535,15 @@
 }
 
 +Range {
+
+	triangularArrayDo { :self :aBlock:/2 :k |
+		let a = self[1];
+		self.do { :n |
+			a.toDo(max(a, n + k)) { :m |
+				aBlock(n, m)
+			}
+		}
+	}
 
 	triangularArray { :self :aBlock:/2 :k |
 		let a = self[1];

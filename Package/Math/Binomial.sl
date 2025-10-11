@@ -276,7 +276,7 @@
 		}
 	}
 
-	qBinomial { :n :m |
+	qBinomialDirect { :n :m |
 		let a = (0 .. m - 1).product { :i |
 			Polynomial([0: 1, (n - i): -1])
 		};
@@ -286,8 +286,49 @@
 		a.polynomialQuotient(b)
 	}
 
+	qBinomialCyclotomic { :n :m |
+		/* https://arminstraub.com/math/qbinomials-mma */
+		(m > n).if {
+			Polynomial([])
+		} {
+			(n < 2).if {
+				Polynomial([1])
+			} {
+				2:n.product { :d |
+					let a = floor(n / d);
+					let b = floor(m / d);
+					let c = floor((n - m) / d);
+					(a = (b + c)).if {
+						Polynomial([1])
+					} {
+						cyclotomic(d)
+					}
+				}
+			}
+		}
+	}
+
+	qBinomial { :n :m |
+		qBinomialCyclotomic(n, m)
+	}
+
 	qBinomial { :n :m :q |
 		qBinomial(n, m).at(q)
+	}
+
+	qFactorial { :n |
+		/* https://arminstraub.com/math/qbinomials-mma */
+		(n < 2).if {
+			Polynomial([1])
+		} {
+			2:n.product { :d |
+				d.cyclotomic ^ floor(n / d)
+			}
+		}
+	}
+
+	qFactorial { :n :q |
+		n.qFactorial.at(q)
 	}
 
 	subfactorial { :self |
