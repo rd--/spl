@@ -99,6 +99,16 @@ Querying:
 Rearranging:
 
 - `intercalate`
+- `interleave`
+- `intersperse`
+- `riffle`
+
+Resampling:
+
+- `downsampleSteinarsson`
+- `downsample`
+- `resample`
+- `upsample`
 
 Slice Functions:
 

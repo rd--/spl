@@ -1,24 +1,27 @@
 # removeFile
 
-- _removeFile(p)_
+- _removeFile(system, path)_
 
-Remove the file at the path _p_.
+Remove the file at _path_.
 Signal an `error` if no such file exists,
 or if it exists but cannot be removed.
 Removes ordinary files only,
 see `removeDirectory` to remove a directory.
 
 ```
->>> '/tmp/spl.text'.writeTextFile('Sᴘʟ')
+>>> system.writeTextFile(
+>>> 	'/tmp/spl.text',
+>>> 	'Sᴘʟ'
+>>> )
 nil
 
->>> '/tmp/spl.text'.fileExists
+>>> system.fileExists('/tmp/spl.text')
 true
 
->>> '/tmp/spl.text'.removeFile
+>>> system.removeFile('/tmp/spl.text')
 nil
 
->>> '/tmp/spl.text'.fileExists
+>>> system.fileExists('/tmp/spl.text')
 false
 ```
 

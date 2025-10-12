@@ -18,7 +18,12 @@ Join a matrix into a vector:
 Join two matrices to make longer columns:
 
 ```
->>> [1 2; 3 4:; 5 6; 7 8].join(1)
+>>> [
+>>> 	1 2;
+>>> 	3 4
+>>> 	:; 5 6;
+>>> 	7 8
+>>> ].join(1)
 [
 	1 2;
 	3 4;
@@ -30,7 +35,13 @@ Join two matrices to make longer columns:
 Join columns of two matrices to make longer rows:
 
 ```
->>> [1 2; 3 4:; 5 6; 7 8].join(2)
+>>> [
+>>> 	1 2;
+>>> 	3 4
+>>> 	:;
+>>> 	5 6;
+>>> 	7 8
+>>> ].join(2)
 [
 	1 2 5 6;
 	3 4 7 8
@@ -167,8 +178,10 @@ true
 
 See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, repeatMatrix, splitBy, stringCatenate, stringJoin
 
+Guides: Array Functions, List Functions, Matrix Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Join.html)
 
-Categories: String
+Categories: Rearranging

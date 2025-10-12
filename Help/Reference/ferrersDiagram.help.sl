@@ -33,8 +33,8 @@ An twenty-one part integer partition of ninety-six:
 ~~~spl svg=D
 [
 	20 16 12  9  5  4  4  4  2  2
-	 2  2  2  2  2  2  2  1  1  1
-	 1
+	2  2  2  2  2  2  2  1  1  1
+	1
 ].ferrersDiagram
 ~~~
 

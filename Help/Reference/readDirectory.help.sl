@@ -1,6 +1,6 @@
 # readDirectory
 
-- _readDirectory(p)_
+- _readDirectory(system, path)_
 
 Answer a `List` of the entries in the directory specified at _p_.
 
@@ -11,10 +11,9 @@ The name is given relative to the specified directory.
 Print only the names of sub-directories:
 
 ~~~
->>> system
->>> .splFileName('Help')
->>> .readDirectory
->>> .select { :each |
+>>> system.readDirectory(
+>>> 	system.splFileName('Help')
+>>> ).select { :each |
 >>> 	each['isDirectory']
 >>> }.collect { :each |
 >>> 	each['name']
@@ -34,8 +33,8 @@ that will either resolve to a `List` of the entries in the specified directory,
 or reject with an `Error` value.
 
 ~~~spl async
-'/etc'
-.readDirectoryAsync
+system
+.readDirectoryAsync('/etc')
 .then { :answer |
 	answer.select { :each |
 		each['isDirectory']

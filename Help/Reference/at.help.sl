@@ -54,7 +54,7 @@ A non-existing key signals an `error`:
 
 ```
 >>> {
->>> 	 (x: 1, y: 2).at('z')
+>>> 	(x: 1, y: 2).at('z')
 >>> }.hasError
 true
 ```

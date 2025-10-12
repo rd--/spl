@@ -8,7 +8,7 @@ Evaluate document tests at _aHelpFile_, reading options from _aDictionary_.
 >>> let topic = 'Markdown';
 >>> let helpFile = topic.helpFileName;
 >>> let fileName = system.splFileName(helpFile);
->>> let text = fileName.readTextFile;
+>>> let text = system.readTextFile(fileName);
 >>> HelpFile(
 >>> 	fileName.asFileUrl,
 >>> 	text

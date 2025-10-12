@@ -35,7 +35,7 @@ nil
 
 Plot first few terms:
 
-~~~
+~~~spl svg=A
 250.grahlSequence.scatterPlot
 ~~~
 

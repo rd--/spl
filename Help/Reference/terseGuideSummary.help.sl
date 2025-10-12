@@ -29,6 +29,6 @@ system
 
 See also: HelpFile, terseReferenceSummary
 
-Guides: Terse Guides
+Guides: Help Functions
 
 Categories: Help

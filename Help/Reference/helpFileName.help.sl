@@ -1,8 +1,8 @@
 # helpFileName
 
-- _helpFileName(t)_
+- _helpFileName(topic)_
 
-Answer the relative path to the Sᴘʟ help file for the topic _t_.
+Answer the relative path to the Sᴘʟ help file for the string _topic_.
 
 Topics that have no white space are reference files:
 

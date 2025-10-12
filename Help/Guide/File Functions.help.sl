@@ -3,36 +3,37 @@
 Files:
 
 - `fileExists`
-- `readBinaryFile`: read binary file
-- `readTextFile`: read text file
-- `removeFile`: remove file
-- `writeBinaryFile`: write binary file
-- `writeTextFile`: write text file
+- `readBinaryFile`
+- `readTextFile`
+- `removeFile`
+- `writeBinaryFile`
+- `writeTextFile`
 
 Directories:
 
 - `currentWorkingDirectory`
 - `directoryExists`
-- `makeDirectory`: make directory
-- `readDirectory`: read directory entries
-- `readDirectoryFileNames`: file entries
-- `removeDirectory`: remove directory
+- `homeDirectory`:
+- `makeDirectory`
+- `readDirectory`
+- `readDirectoryFileNames`
+- `removeDirectory`
 
 File Information:
 
 - `directoryExists`
 - `fileExists`
-- `fileInformation`: file information
-- `modificationTime`: modification time
+- `fileInformation`
+- `modificationTime`
 
 File Paths:
 
-- `pathBasename`: basename of file path
-- `pathDirectory`: directory of file path
-- `pathExtension`: extension of file path
-- `pathIsAbsolute`: is file path absolute
-- `pathJoin`: join list of file paths
-- `pathNormalize`: normalize file path
+- `pathBasename`
+- `pathDirectory`
+- `pathExtension`
+- `pathIsAbsolute`
+- `pathJoin`
+- `pathNormalize`
 
 Temporary Files:
 

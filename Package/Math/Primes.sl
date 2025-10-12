@@ -122,12 +122,12 @@
 	}
 
 	isPrime { :self |
-               system.isCachedPrime(self).if {
-                       true
-               } {
-                       let answer = self.isPrimeTrialDivision;
-		       answer
-               }
+		system.isCachedPrime(self).if {
+			true
+		} {
+			let answer = self.isPrimeTrialDivision;
+			answer
+		}
 	}
 
 	isPrimeTrialDivision { :self |

@@ -1,13 +1,13 @@
 # readBinaryFile
 
-- _readBinaryFile(aString | aUrl)_
+- _readBinaryFile(system, path)_
 
 Answer a `ByteArray` holding the contents of the named file.
 Signal an `Error` if the file does not exist.
 
 ~~~
->>> '/etc/passwd'
->>> .readBinaryFile
+>>> system
+>>> .readBinaryFile('/etc/passwd')
 >>> .isByteArray
 true
 ~~~
@@ -18,7 +18,8 @@ however it should answer equivalently:
 ~~~spl async
 '/etc/passwd'
 .asFileUrl
-.fetchByteArray.then { :answer |
+.fetchByteArray
+.then { :answer |
 	answer
 	.base64Encode
 }

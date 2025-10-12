@@ -1226,7 +1226,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 							79 80; 79 81;
 							80 81;
 							82 83; 82 84;
-							83 84]
+							83 84
+						]
 					)
 				},
 				'GoldnerHararyGraph' -> {

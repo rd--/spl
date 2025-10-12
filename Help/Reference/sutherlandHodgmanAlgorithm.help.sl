@@ -9,7 +9,7 @@ Draw _s_ and _c_ and a translated copy of answer:
 
 ~~~spl svg=A
 let s = [
-	 50 150; 200  50; 350 150; 350 300;
+	50 150; 200  50; 350 150; 350 300;
 	250 300; 200 250; 150 350; 100 250;
 	100 200
 ].Polygon;

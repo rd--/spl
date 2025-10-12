@@ -538,7 +538,7 @@
 	}
 
 	normalizeSignal { :self |
-		self.normalizeSignal(-1, 1)
+		self.normalizeSignal([-1 1])
 	}
 
 	normalizeSum { :self |

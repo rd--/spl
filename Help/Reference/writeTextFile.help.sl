@@ -1,19 +1,22 @@
 # writeTextFile
 
-- _writeTextFile(aPath, aString)_
+- _writeTextFile(system, path, data)_
 
-Write _aString_ to a text file at _aPath_ and answer `nil`.
+Write the string _data_ to a text file at _path_ and answer `nil`.
 Over-writes any existing file.
 Signals an error if the write fails.
 
 ~~~
->>> '/tmp/spl.text'.writeTextFile('Sᴘʟ')
+>>> system.writeTextFile(
+>>> 	'/tmp/spl.text',
+>>> 	'Sᴘʟ'
+>>> )
 nil
 
->>> '/tmp/spl.text'.readTextFile
+>>> system.readTextFile('/tmp/spl.text')
 'Sᴘʟ'
 
->>> '/tmp/spl.text'.removeFile
+>>> system.removeFile('/tmp/spl.text')
 nil
 ~~~
 

@@ -1,12 +1,12 @@
 # fileInformation
 
-- _fileInformation(p)_
+- _fileInformation(system, path)_
 
 Answer a `Record` holding information about the named file.
 The will be at least entries for _isFile_, _isDirectory_, _size_ and _mtime_.
 
 ```
->>> let x = '/tmp'.fileInformation;
+>>> let x = system.fileInformation('/tmp');
 >>> (
 >>> 	x['isFile'],
 >>> 	x['isDirectory'],
@@ -20,8 +20,9 @@ It is an `error` if the file does not exist:
 
 ```
 >>> {
->>> 	'/FileDoesNotExist'
->>> 	.fileInformation
+>>> 	system.fileInformation(
+>>> 		'/FileDoesNotExist'
+>>> 	)
 >>> }.hasError
 true
 ```

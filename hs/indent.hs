@@ -14,6 +14,7 @@ Runs over .help.sl files and understands the document test layout rules.
 -}
 module Main where
 
+import Control.Monad {- base -}
 import qualified Data.Char {- base -}
 import Data.List {- base -}
 import System.Environment {- base -}
@@ -261,6 +262,7 @@ indentText = unlines . indentRegion (0, InPlain) . lines
 
 indentFileInPlace :: FilePath -> IO ()
 indentFileInPlace fn = do
+  when (True) (putStrLn fn)
   i <- Io.read_file_utf8 fn
   Io.write_file_utf8 fn (indentText i)
 

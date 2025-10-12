@@ -6,10 +6,10 @@
 		let testCount = 0;
 		let passCount = 0;
 		let errorCount = 0;
-		directoryName
-		.readDirectoryFileNames
+		system
+		.readDirectoryFileNames(directoryName)
 		.do { :fileName |
-			let fileText = fileName.readTextFile;
+			let fileText = system.readTextFile(fileName);
 			let programTexts = fileText.paragraphs.takeWhile { :each |
 				each.beginsWith('#').not
 			};
@@ -31,13 +31,13 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
-		let fileNameList = directoryName.readDirectoryFileNames;
+		let fileNameList = system.readDirectoryFileNames(directoryName);
 		let helpFileNameList = fileNameList.sortBy(<|).select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegularExpression(options['pattern'])
 			}
 		};
-		let textList = helpFileNameList.readTextFileList;
+		let textList = system.readTextFileList(helpFileNameList);
 		textList.withIndexDo { :text :index |
 			let fileName = helpFileNameList[index];
 			let helpFile = HelpFile(fileName.asFileUrl, text);

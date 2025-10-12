@@ -1,16 +1,21 @@
 # writeBinaryFile
 
-- _writeBinaryFile(aString | aUrl, aByteArray)_
+- _writeBinaryFile(system, path, data)_
 
-Write _aByteArray_ to the named file and answer `nil`.
+Write the `ByteArray` _data_ to the named file and answer `nil`.
 Over-writes any existing file.
 Signals an error if the write fails.
 
 ```
->>> '/tmp/spl.binary'.writeBinaryFile(1:9.asByteArray)
+>>> system.writeBinaryFile(
+>>> 	'/tmp/spl.binary',
+>>> 	1:9.asByteArray
+>>> )
 nil
 
->>> '/tmp/spl.binary'.readBinaryFile
+>>> system.readBinaryFile(
+>>> 	'/tmp/spl.binary'
+>>> )
 1:9.asByteArray
 ```
 

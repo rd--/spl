@@ -5,7 +5,7 @@
 Answer the sequence of `DocumentationTest` blocks in the sequence of `String` items at _aList_.
 
 ```
->>> let string = [
+>>> [
 >>> 	'a'
 >>> 	'b'
 >>> 	''
@@ -15,21 +15,27 @@ Answer the sequence of `DocumentationTest` blocks in the sequence of `String` it
 >>> 	'```'
 >>> 	'e'
 >>> 	'```'
->>> 	'>>> f'
+>>> 	'>> f'
 >>> 	'g'
 >>> 	'```'
 >>> 	'h'
->>> ].unlines;
->>> let list = string.lines;
->>> list.extractDocumentationTests
+>>> ].extractDocumentationTests
 [
-	DocumentationTest('>>>', ['c'], ['d']),
-	DocumentationTest('>>>', ['f'], ['g'])
+	DocumentationTest(
+		'>>>',
+		['c'],
+		['d']
+	),
+	DocumentationTest(
+		'>>',
+		['f'],
+		['g']
+	)
 ]
 ```
 
 _Rationale_:
-Spl writes document tests inside code blocks inside help files.
+Sᴘʟ writes document tests inside code blocks inside help files.
 This method is, however, agnostic to the container structure,
 and can extract documentation tests from any text.
 

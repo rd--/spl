@@ -7,11 +7,11 @@ but where _%_ characters are replaced with items from the sequence _x_.
 Items in _x_ are formatted using `asString`.
 
 ```
->>> 'pi=% & e=%'.format([1.pi, 1.e])
-'pi=3.141592653589793 & e=2.718281828459045'
+>>> 'pi=% & e=%'.format([3.141, 2.718])
+'pi=3.141 & e=2.718'
 
->>> '23L^23=%'.format([23L ^ 23])
-'23L^23=20880467999847912034355032910567L'
+>>> '11^11=%'.format([11 ^ 11])
+'11^11=285311670611'
 ```
 
 There are no directives to modify item formatting,
@@ -33,7 +33,13 @@ Format `Boolean`:
 Format `String`:
 
 ```
->>> '% ≺ % = %'.format(['pqr', 'xyz', 'pqr'.precedes('xyz')])
+>>> '% ≺ % = %'.format(
+>>> 	[
+>>> 		'pqr',
+>>> 		'xyz',
+>>> 		'pqr'.precedes('xyz')
+>>> 	]
+>>> )
 'pqr ≺ xyz = true'
 ```
 

@@ -338,16 +338,16 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 +System {
 
 	helpFilesDo { :self :kind :pattern :verbose :aBlock:/1 |
+		let directoryName = self.splFileName('Help/' ++ kind);
 		self
-		.splFileName('Help/' ++ kind)
-		.readDirectoryFileNames
+		.readDirectoryFileNames(directoryName)
 		.sort
 		.select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegularExpression(pattern)
 			}
 		}.do { :each |
-			let text = each.readTextFile;
+			let text = system.readTextFile(each);
 			let help = HelpFile(
 				each.asFileUrl,
 				text
@@ -357,6 +357,16 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 			};
 			aBlock(help)
 		}
+	}
+
+	readHelpFile { :self :topic |
+		let fileName = self.splFileName(
+			topic.helpFileName
+		);
+		HelpFile(
+			fileName.asFileUrl,
+			self.readTextFile(fileName)
+		)
 	}
 
 	referenceHelpFilesDo { :self :pattern :aBlock:/1 |

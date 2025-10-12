@@ -61,7 +61,7 @@ OEIS [A230960](https://oeis.org/A230960):
 
 * * *
 
-See also: boustrophedonTriangle, triangularArray
+See also: boustrophedonTriangle, eulerTransform, triangularArray
 
 Guides: Integer Sequence Functions
 

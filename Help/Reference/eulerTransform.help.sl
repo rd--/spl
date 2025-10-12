@@ -58,7 +58,7 @@ OEIS [A166861](https://oeis.org/A166861):
 
 * * *
 
-See also: divisors, memoize, sum
+See also: boustrophedonTransform, divisors, memoize, sum
 
 Guides: Integer Sequence Functions
 

@@ -204,14 +204,6 @@
 +[SmallFloat, Complex] {
 
 	generalizedDoubleFactorial { :self |
-		/*
-			let n = (self + 1) / 2;
-			gamma(n + 0.5) / 1.pi.sqrt * (2 ^ n)
-		*/
-		/*
-			let k = self / 2;
-			(1 / 1.pi).sqrt * (2 ^ k) * gamma(k + 1)
-		*/
 		let n = self + 2;
 		let a = n.pi.cos;
 		let b = 2 ^ (0.25 * (-3 + (2 * n) - a));

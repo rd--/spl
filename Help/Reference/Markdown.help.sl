@@ -153,6 +153,6 @@ which are stored as a `Record`:
 
 See also: asTree, contents, do, markdownToHtml, Tree
 
-Guides: Text Functions
+Guides: Help Functions, Text Functions
 
 Categories: Text, Type

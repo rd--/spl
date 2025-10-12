@@ -37,9 +37,10 @@ Log scale scatter plot of first few terms:
 
 See also: entringerTriangle
 
+Guides: Integer Sequence Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Seidel-Entringer-ArnoldTriangle.html),
 _OEIS_
 [1](https://oeis.org/A008280)
-

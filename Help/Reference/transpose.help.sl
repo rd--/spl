@@ -300,7 +300,7 @@ Where supported `transpose` is displayed as ᵀ.
 
 See also: transposeInPlace, transposeIrregular, transposeTableau
 
-Unicode: U+1D40 ᵀ Modifier Letter Capital T
+Guides: Matrix Functions
 
 References:
 _Apl_
@@ -312,5 +312,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Transpose.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/permute.html)
+
+Unicode: U+1D40 ᵀ Modifier Letter Capital T
 
 Categories: Rearranging, Math, Matrix

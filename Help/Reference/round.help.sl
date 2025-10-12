@@ -44,7 +44,7 @@ At half integers:
 At negative _n_:
 
 ```
- >>> -1.9.round
+>>> -1.9.round
 -2
 
 >>> -2.round

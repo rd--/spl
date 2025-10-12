@@ -38,7 +38,10 @@ Image : [Object] { | contents |
 	}
 
 	writePpm { :self :fileName |
-		fileName.writeTextFile(self.asPpm(255))
+		system.writeTextFile(
+			fileName,
+			self.asPpm(255)
+		)
 	}
 
 	writePng { :self :fileName |

@@ -21,37 +21,9 @@ Accessors to read the parts of the file are:
 - `unicode`: list of unicode code points
 - `categories`: list of categories
 
-~~~spl async
-let url = system.splFileName(
-	'add'.helpFileName
-).asFileUrl;
-url.fetchText.then { :aString |
-	let help = HelpFile(url, aString);
-	(
-		help.name,
-		help.originName,
-		help.isReferenceFile,
-		help.isGuideFile,
-		help.signatures,
-		help.synopsis,
-		help.description,
-		help.markdown,
-		help.documentationTests,
-		help.rationale,
-		help.seeAlso,
-		help.references,
-		help.unicode,
-		help.categories,
-		help.codeBlocksWithAttribute('png'),
-		help.codeBlocksWithAttribute('svg'),
-		help.unspecifiedCodeBlocks
-	)
-}
-~~~
-
 * * *
 
-See also: helpIndex, HelpIndex, terseReferenceSummary
+See also: helpIndex, HelpIndex, readHelpFile, terseReferenceSummary
 
 Guides: Documentation Tests, Help Files, Help Functions, System Functions
 

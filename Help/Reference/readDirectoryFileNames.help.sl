@@ -1,17 +1,17 @@
 # readDirectoryFileNames
 
-- _readDirectoryFileNames(p)_
+- _readDirectoryFileNames(system, path)_
 
-Answer a `List` of the files in the directory specified at _p_,
+Answer a `List` of the files in the directory specified at _path_,
 or reject with an `Error` value.
 
 The names are given in qualified form, that is with the directory prefix.
 Only ordinary files are listed, not sub-directories.
 
 ```
->>> system
->>> .splFileName('Help')
->>> .readDirectoryFileNames
+>>> system.readDirectoryFileNames(
+>>> 	system.splFileName('Help')
+>>> )
 [
 	'/home/rohan/sw/spl/Help/Index.text'
 ]
@@ -22,8 +22,10 @@ which will either resolve to a `List` of the files in the specified directory,
 or reject with an `Error` value.
 
 ~~~spl async
-'/etc'
-.readDirectoryFileNamesAsync
+system
+.readDirectoryFileNamesAsync(
+	'/etc'
+)
 ~~~
 
 * * *

@@ -21,8 +21,8 @@ let r = Rectangle([-1 -1], [1 1]);
 	[
 		-2  0;  2  0:;
 		-2 -2;  2  2:;
-		 0 -2;  0  2:;
-		 2 -2; -2  2
+		0 -2;  0  2:;
+		2 -2; -2  2
 	].collect { :c |
 		Line(c)
 		.cohenSutherlandAlgorithm(r)

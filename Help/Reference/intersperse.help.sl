@@ -1,8 +1,8 @@
 # intersperse
 
-- _intersperse(aSequence, anObject)_
+- _intersperse([x₁ x₂ …], y)_
 
-Answer a `List` that has the elements of _aSequence_ with _anObject_ between each.
+Answer a `List` that has the elements of the sequence _x_ with the object _y_ between each.
 
 ```
 >>> [3 4 5].intersperse(1)
@@ -19,6 +19,8 @@ Insert zeroes between successive integers:
 * * *
 
 See also: intercalate, interleave, stringCatenate, stringJoin, transpose
+
+Guides: List Functions
 
 References:
 _Haskell_

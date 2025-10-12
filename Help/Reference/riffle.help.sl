@@ -46,6 +46,8 @@ Alternate positive and negative integers:
 
 See also: inShuffle, intercalate, interleave, intersperse, outShuffle, transpose
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Riffle.html)

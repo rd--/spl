@@ -1,6 +1,6 @@
 # repeatMatrix
 
-- _repeatMatrix(m, d)_
+- _repeatMatrix(m, r)_
 
 Repeat copies of _m_ according to a list of repeat counts _r_.
 
@@ -88,6 +88,8 @@ Horizontally stack a column vector four times.
 * * *
 
 See also: join
+
+Guides: Matrix Functions
 
 References:
 _Mathworks_

@@ -1,97 +1,89 @@
-+String {
++System {
 
-	directoryExists { :self |
+	directoryExists { :self :aString |
 		{
-			self.fileInformation.at('isDirectory')
+			self.fileInformation(aString).at('isDirectory')
 		}.ifError {
 			false
 		}
 	}
 
-	fileExists { :self |
+	fileExists { :self :aString |
 		{
-			self.fileInformation.at('isFile')
+			self.fileInformation(aString).at('isFile')
 		}.ifError {
 			false
 		}
 	}
 
-	fileInformation { :self |
-		<primitive: return host.fileInformationSync(_self);>
+	fileInformation { :unused :aString |
+		<primitive: return host.fileInformationSync(_aString);>
 	}
 
-	makeDirectory { :self :allowRecursive :fileMode |
-		<primitive: return host.makeDirectorySync(_self, _allowRecursive, _fileMode);>
+	makeDirectory { :unused :aString :allowRecursive :fileMode |
+		<primitive: return host.makeDirectorySync(_aString, _allowRecursive, _fileMode);>
 	}
 
-	modificationTime { :self |
-		<primitive: return host.modificationTimeSync(_self);>
+	modificationTime { :unused :aString |
+		<primitive: return host.modificationTimeSync(_aString);>
 	}
 
-	readDirectory { :self |
-		<primitive: return host.readDirectorySync(_self);>
+	readDirectory { :unused :aString |
+		<primitive: return host.readDirectorySync(_aString);>
 	}
 
-	readDirectoryAsync { :self |
-		<primitive: return host.readDirectoryAsync(_self);>
+	readDirectoryAsync { :unused :aString |
+		<primitive: return host.readDirectoryAsync(_aString);>
 	}
 
-	readDirectoryFileNames { :self |
-		self.readDirectory.select { :each |
+	readDirectoryFileNames { :self :aString |
+		self.readDirectory(aString).select { :each |
 			each['isFile']
 		}.collect { :each |
-			[self, each['name']].pathJoin
+			[aString, each['name']].pathJoin
 		}
 	}
 
-	readDirectoryFileNamesAsync { :self |
-		self.readDirectoryAsync.then { :entries |
+	readDirectoryFileNamesAsync { :self :aString |
+		self.readDirectoryAsync(aString).then { :entries |
 			entries.select { :each |
 				each['isFile']
 			}.collect { :each |
-				[self, each['name']].pathJoin
+				[aString, each['name']].pathJoin
 			}
 		}
 	}
 
-	readBinaryFile { :self |
-		<primitive: return host.readBinaryFileSync(_self);>
+	readBinaryFile { :unused :aString |
+		<primitive: return host.readBinaryFileSync(_aString);>
 	}
 
-	readTextFile { :self |
-		<primitive: return host.readTextFileSync(_self);>
+	readTextFile { :unused :aString |
+		<primitive: return host.readTextFileSync(_aString);>
 	}
 
-	removeDirectory { :self :recursive |
-		<primitive: return host.removeDirectorySync(_self, _recursive);>
+	readTextFileList { :unused :aList |
+		<primitive: return host.readTextFileArraySync(_aList);>
 	}
 
-	removeFile { :self |
-		<primitive: return host.removeFileSync(_self);>
+	removeDirectory { :unused :aString :recursive |
+		<primitive: return host.removeDirectorySync(_aString, _recursive);>
 	}
 
-	writeBinaryFile { :self :aByteArray |
-		<primitive: return host.writeBinaryFileSync(_self, _aByteArray);>
+	removeFile { :unused :aString |
+		<primitive: return host.removeFileSync(_aString);>
 	}
-
-	writeTextFile { :self :aString |
-		<primitive: return host.writeTextFileSync(_self, _aString);>
-	}
-
-}
-
-+List {
-
-	readTextFileList { :self |
-		<primitive: return host.readTextFileArraySync(_self);>
-	}
-
-}
-
-+System {
 
 	temporaryFileName { :unused :prefix :suffix |
 		<primitive: return host.makeTemporaryFileSync(_prefix, _suffix);>
+	}
+
+	writeBinaryFile { :unused :aString :aByteArray |
+		<primitive: return host.writeBinaryFileSync(_aString, _aByteArray);>
+	}
+
+	writeTextFile { :unused :aString :anotherString |
+		<primitive: return host.writeTextFileSync(_aString, _anotherString);>
 	}
 
 }

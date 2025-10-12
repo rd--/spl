@@ -54,7 +54,9 @@ DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
 		let block = [];
 		self.do { :currentLine |
 			(
-				currentLine.beginsWithAny(['>> ', '>>> ']) & {
+				currentLine.beginsWithAny(
+					['>> ', '>>> ']
+				) & {
 					inBlock.not
 				}
 			).ifTrue {

@@ -77,7 +77,7 @@ Compute the Fibonacci numbers:
 ```
 >>> 1:20.collect { :n |
 >>> 	(1.goldenRatio ^ n / 5.sqrt)
->>>	.round
+>>> 	.round
 >>> }
 [
 	1 1 2 3 5 8 13 21 34 55

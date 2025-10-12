@@ -2,8 +2,12 @@
 
 Types:
 
+- `DocumentationTest`
+- `HelpBrowser`
 - `HelpFile`
 - `HelpIndex`
+- `HelpViewer`
+- `Markdown`
 
 Queries:
 
@@ -17,6 +21,15 @@ Indices:
 
 - `helpIndex`
 
+Loading:
+
+- `readHelpFile`
+
+Testing:
+
+- `terseGuideSummary`
+- `terseReferenceSummary`
+
 * * *
 
-Guides: System Functions
+Guides: Help Files, System Functions

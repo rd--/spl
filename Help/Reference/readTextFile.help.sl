@@ -1,15 +1,14 @@
 # readTextFile
 
-- _readTextFile(s)_
+- _readTextFile(system, path)_
 
-Answer a `String` holding the contents of the file named at the string _s_.
+Answer a `String` holding the contents of the file named at the string _path_.
 If the file does not exists signal an `Error`.
 
 ~~~
->>> system
->>> .splFileName('README.md')
->>> .readTextFile
->>> .lines
+>>> system.readTextFile(
+>>> 	system.splFileName('README.md')
+>>> ).lines
 >>> .size
 16
 ~~~

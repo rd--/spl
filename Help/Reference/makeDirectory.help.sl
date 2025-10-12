@@ -1,19 +1,27 @@
 # makeDirectory
 
-- _makeDirectory(p, allowRecursive, fileMode)_
+- _makeDirectory(system, path, allowRecursive, fileMode)_
 
-Create a directory at the path _p_.
+Create a directory at the path _path_.
 If _allowRecursive_ is `true` intermediate directories are created.
 _fileMode_ specifies the file mode, ordinarily it is set to 8r755.
 
 ```
->>> '/tmp/spl'.makeDirectory(false, 8r755)
+>>> system.makeDirectory(
+>>> 	'/tmp/spl',
+>>> 	false,
+>>> 	8r755
+>>> )
 nil
 
->>> '/tmp/spl'.fileInformation['isDirectory']
+>>> system.fileInformation('/tmp/spl')
+>>> .at('isDirectory')
 true
 
->>> '/tmp/spl'.removeDirectory(false)
+>>> system.removeDirectory(
+>>> 	'/tmp/spl',
+>>> 	false
+>>> )
 nil
 ```
 

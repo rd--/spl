@@ -157,6 +157,7 @@ Guide/Prime Number Functions.help.sl
 Guide/Primitive Semantics.help.sl
 Guide/Primitive Syntax.help.sl
 Guide/Primitive Types.help.sl
+Guide/Printing Functions.help.sl
 Guide/Probability Distributions.help.sl
 Guide/Program Files.help.sl
 Guide/Program Syntax.help.sl
@@ -208,6 +209,7 @@ Guide/Syntax Guides.help.sl
 Guide/Syntax Tokens.help.sl
 Guide/System Dictionary.help.sl
 Guide/System Functions.help.sl
+Guide/Text Functions.help.sl
 Guide/Texture Programs.help.sl
 Guide/Time Series Functions.help.sl
 Guide/Trailing Block Syntax.help.sl
@@ -664,6 +666,8 @@ Reference/boole.help.sl
 Reference/botanicCurve.help.sl
 Reference/boundingBox.help.sl
 Reference/bourkeContourAlgorithm.help.sl
+Reference/boustrophedonTransform.help.sl
+Reference/boustrophedonTriangle.help.sl
 Reference/bowCurve.help.sl
 Reference/Box.help.sl
 Reference/boxMatrix.help.sl
@@ -1234,6 +1238,7 @@ Reference/eulerPhi.help.sl
 Reference/eulerSpiral.help.sl
 Reference/eulerTransform.help.sl
 Reference/eulerTriangle.help.sl
+Reference/eulerUpDownNumber.help.sl
 Reference/evaluate.help.sl
 Reference/evaluateNotifying.help.sl
 Reference/evaluateUnivariatePolynomial.help.sl
@@ -2854,6 +2859,7 @@ Reference/pythagoreanChroma.help.sl
 Reference/pythagoreanComma.help.sl
 Reference/pythagoreanLimma.help.sl
 Reference/qBinomial.help.sl
+Reference/qFactorial.help.sl
 Reference/qPochhammer.help.sl
 Reference/qrDecomposition.help.sl
 Reference/quadraticBezierFunctionAt.help.sl
@@ -3537,6 +3543,7 @@ Reference/traitLookup.help.sl
 Reference/traitNameList.help.sl
 Reference/traitTypes.help.sl
 Reference/TRand.help.sl
+Reference/Transcript.help.sl
 Reference/TranscriptViewer.help.sl
 Reference/translate.help.sl
 Reference/transpose.help.sl

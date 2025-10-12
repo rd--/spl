@@ -38,7 +38,10 @@ Graymap : [Object] { | contents |
 	}
 
 	writePgm { :self :fileName |
-		fileName.writeTextFile(self.asPgm(255))
+		system.writeTextFile(
+			fileName,
+			self.asPgm(255)
+		)
 	}
 
 	writePng { :self :fileName |

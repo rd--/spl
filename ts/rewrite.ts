@@ -9,7 +9,7 @@ import { slOptions } from './options.ts';
 export const context = {
 	packageName: '*UnknownPackage*',
 	packageSymCounter: 0,
-	methodBodyInitialSourceTable: new Map() // key=core,value=initial
+	methodBodyInitialSourceTable: new Map(), // key=core,value=initial
 };
 
 function initContext(name: string): void {
@@ -305,7 +305,7 @@ const asJs: ohm.ActionDict<string> = {
 	smallIntegerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
 		const x = parseInt(i.sourceString);
-		if(Number.isSafeInteger(x)) {
+		if (Number.isSafeInteger(x)) {
 			return `${s.sourceString + x}`;
 		} else {
 			throw new Error('smallIntegerLiteral: not small integer: ' + x);
@@ -955,7 +955,9 @@ function makeMethod(
 	methodBlock: ohm.Node,
 ): string {
 	const blkCoreSource = methodBlock.sourceString;
-	const blkInitialSource = context.methodBodyInitialSourceTable.get(blkCoreSource);
+	const blkInitialSource = context.methodBodyInitialSourceTable.get(
+		blkCoreSource,
+	);
 	const blkParameters = methodBlock.parametersOf;
 	const blkJs = methodBlock.asJs;
 	const blkSrc = JSON.stringify(blkInitialSource);

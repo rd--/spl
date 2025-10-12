@@ -33,13 +33,28 @@ Bitmap : [Object] { | contents |
 	}
 
 	writePbm { :self :fileName |
-		fileName.writeTextFile(self.asPbm)
+		system.writeTextFile(
+			fileName,
+			self.asPbm
+		)
 	}
 
 	writePng { :self :fileName |
 		let pbmFileName = '/tmp/bitmap.pbm';
-		pbmFileName.writeTextFile(self.asPbm);
-		system.systemCommand('convert', [pbmFileName, '-transparent', 'white', '-strip', fileName])
+		system.writeTextFile(
+			pbmFileName,
+			self.asPbm
+		);
+		system.systemCommand(
+			'convert',
+			[
+				pbmFileName,
+				'-transparent',
+				'white',
+				'-strip',
+				fileName
+			]
+		)
 	}
 
 }

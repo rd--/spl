@@ -1,6 +1,6 @@
 # +++ (plusSignPlusSignPlusSign)
 
-- _m₁ ++ m₂_
+- _m₁ +++ m₂_
 
 Append matrices.
 

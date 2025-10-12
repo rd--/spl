@@ -13,7 +13,10 @@ Svg : [Object] { | contents |
 	}
 
 	writeSvg { :self :fileName |
-		fileName.writeTextFile(self.contents)
+		system.writeTextFile(
+			fileName,
+			self.contents
+		)
 	}
 
 }

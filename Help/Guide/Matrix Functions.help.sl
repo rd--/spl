@@ -8,6 +8,7 @@ Types:
 Constructing:
 
 - `array`
+- `repeatMatrix`
 - `table`
 - `triangularArray`
 

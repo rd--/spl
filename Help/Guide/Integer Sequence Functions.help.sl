@@ -11,11 +11,11 @@
 - `baumSweetSequence`: A086747
 - `beattySequence`: A000201 A001950 A001951 A001952 A022838 A022843 A022844 A054385 A054386 A054406
 - `bellB`: A106800
-- `bellNumber`: A000110
+- `bellNumber`: A000110 A011971
 - `bernoulliNumber`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
 - `bernoulliTriangle`: A008949
-- `binomial`: A000127 A000984 A006542 A027907
+- `binomial`: A000125 A000127 A000984 A006542 A027907 A166556
 - `bitAnd`: A279125
 - `bitReversalPermutation`: A030109
 - `bitXor`: A003188
@@ -35,6 +35,7 @@
 - `chebyshevU`: A008312 A053117
 - `collatzSequence`: A070165
 - `convergents`: A001040 A001053
+- `convolve`: A001629
 - `conwaysConstant`: A014715
 - `copelandErdosSequence`: A033308
 - `cot`: A069855
@@ -48,17 +49,21 @@
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
 - `engelExpansion`: A000027 A006784 A028254
+- `entringerTriangle`: A008281
 - `equispacedTriples`: A002620
 - `erdosSelfridgeFunction`: A003458
 - `euclidNumber`: A006862
 - `eulerGamma`: A001620 A002852 A094640
 - `eulerGradusSuavitatis`: A275314
 - `eulerNumber`: A000111 A000364 A028296 A122045
+- `eulerUpDownNumber`: A000111
 - `eulerianNumber`: A008292
 - `eulerianNumberSecondOrder`: A008517
 - `eulerPhi`: A000010 A002088
+- `eulerTransform`: A000219 A023871 A034899 A166861
 - `fabiusFunction`: A272755 A272757
-- `factorial`: A000435
+- `factorial`: A000142 A000435 A005130
+- `factorialPower`: A068424
 - `fareySequence`: A005728 A006842 A006843
 - `feigenbaumConstant`: A006890
 - `fibonacci`: A000045
@@ -78,12 +83,12 @@
 - `gijswijtsSequence`: A090822
 - `glaisher`: A074962
 - `goebelsSequence`: A003504
-- `goldenRatio`: A001622
+- `goldenRatio`: A001622 A005206
 - `golombsSequence`: A001462
 - `gompertzConstant`: A073003
 - `gouldsNumber`: A001316
-- `gouldsSequence`: A001316
-- `grahlSequence`: A229037
+- `gouldsSequence`: A000120 A001316 A006046
+- `grahlSequence`: A229037 A309890
 - `grayEncode`: A003188 A014550
 - `haltonSequence`: A030101 A030102
 - `hammingWeight`: A000120
@@ -157,7 +162,7 @@
 - `leibnizHarmonicTriangle`: A003506
 - `lemniscateConstant`: A062539
 - `levysConstant`: A086702 A086703
-- `linearRecurrence`: A000045 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001519 A001590 A001608 A001653 A001687 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
+- `linearRecurrence`: A000045 A000124 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001519 A001590 A001608 A001653 A001687 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599
 - `logarithmicIntegral`: A069284 A070769
@@ -195,7 +200,7 @@
 - `partitionFunctionP`: A000041 A008284 A026820
 - `partitionFunctionQ`: A008289
 - `partitionsQ`: A000041
-- `pascalTriangle`: A006046 A007318 A007318
+- `pascalTriangle`: A006046 A007318 A007318 A047999
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A086383 A096650
 - `pentagonalNumber`: A000326
@@ -207,7 +212,7 @@
 - `pi`: A000796 A001203 A002485 A002486
 - `plasticRatio`: A060006
 - `politeness`: A069283
-- `polygonalNumber`: A000217 A139610
+- `polygonalNumber`: A000124 A000217 A139610
 - `primeFactors`: A020639
 - `primeGap`: A001223
 - `primePi`: A000720
@@ -230,6 +235,7 @@
 - `schroderSequence`: A006318
 - `secondFeigenbaumConstant`: A006891
 - `secondOrderEulerianTriangle`: A008517
+- `seidelTriangle`: A008280
 - `selfCountingNumber`: A002024
 - `selfCountingSequence`: A002024
 - `sierpinskiConstant`: A062089 A241017
@@ -258,6 +264,7 @@
 - `szekeresSequence`: A003278
 - `tetrahedralNumber`: A000292
 - `thueMorseSequence`: A010060
+- `triangularArray`: A007318 A048601 A075363 A075364 A077028 A094587 A166556
 - `triangularNumber`: A000217
 - `tribonacciConstant`: A058265
 - `tribonacciNumber`: A000073
