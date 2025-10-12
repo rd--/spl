@@ -34,7 +34,14 @@ LibraryItem : [Object] { | name category url mimeType parser unparsedContents pa
 	}
 
 	printString { :self |
-		'LibraryItem(%, %, %, %)'.format([self.name, self.category, self.url, self.mimeType])
+		'LibraryItem(%, %, %, %)'.format(
+			[
+				self.name,
+				self.category,
+				self.url,
+				self.mimeType
+			]
+		)
 	}
 
 	request { :self |
