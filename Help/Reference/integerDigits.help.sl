@@ -186,6 +186,23 @@ First few non-trivial palindromic prime numbers:
 [11 101 131 151 181 191 313 353 373 383]
 ```
 
+Calculate the Thue-Morse sequence,
+OEIS [A010060](https://oeis.org/A010060):
+
+```
+>>> 0:35.collect { :n |
+>>> 	integerDigits(n, 2).count { :x |
+>>> 		x = 1
+>>> 	}.isOdd.boole
+>>> }
+[
+	0 1 1 0 1 0 0 1 1 0
+	0 1 0 1 1 0 1 0 0 1
+	0 1 1 0 0 1 1 0 1 0
+	0 1 1 0 0 1
+]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -265,5 +282,6 @@ _OEIS_
 [4](https://oeis.org/A265326)
 [5](https://oeis.org/A117966)
 [6](https://oeis.org/A160855)
+[7](https://oeis.org/A010060)
 
 Categories: Converting

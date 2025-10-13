@@ -1,4 +1,4 @@
-GeneralisedCircle : [Object, Equatable] { | c alpha d |
+GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 
 	asCircle { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
@@ -50,6 +50,10 @@ GeneralisedCircle : [Object, Equatable] { | c alpha d |
 		} {
 			Infinity
 		}
+	}
+
+	embeddingDimension { :unused |
+		2
 	}
 
 	implicitEquation { :self |

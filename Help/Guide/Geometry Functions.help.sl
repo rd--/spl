@@ -6,6 +6,7 @@ Traits:
 
 Types:
 
+- `Arc`
 - `BezierCurve`
 - `Circle`
 - `Disk`
@@ -45,6 +46,11 @@ Angle Functions:
 - `planarAngle`
 - `signedVectorAngle`
 - `vectorAngle`
+
+Arc Functions
+
+- `Arc`
+- `approximateCircularArc`
 
 Area Functions:
 

@@ -116,6 +116,12 @@
 		}
 	}
 
+	connellSequence { :self |
+		0:self.collect { :n |
+			2 * (1 .. n + 1) + (n ^ 2) - 1
+		}
+	}
+
 	entringerTriangle { :self |
 		let f:/2 = { :n :k |
 			k.isZero.if {
@@ -392,6 +398,21 @@
 			y
 		}.iterate([1 .. n], n);
 		z
+	}
+
+	jugglerSequence { :a1 |
+		(a1 < 1).if {
+			[]
+		} {
+			let a = [a1];
+			let ak = a1;
+			{ ak != 1 }.whileTrue {
+				let e = ak.isEven.if { 0.5 } { 1.5 };
+				ak := (ak ^ e).floor;
+				a.add(ak)
+			};
+			a
+		}
 	}
 
 	inventorySequence { :terms |
@@ -765,6 +786,23 @@
 		(0 .. self - 1).collect { :n |
 			fromDigits(integerDigits(n, 2), 3) + 1
 		}
+	}
+
+	toothpickSequence { :self |
+		let a:/1 = { :n |
+			(n = 0).if {
+				0
+			} {
+				let m = 2 ^ (n.integerDigits(2).size - 1);
+				let k = (2 * (m ^ 2) + 1) / 3;
+				(n = m).if {
+					k
+				} {
+					k + (2 * a(n - m)) + a(n - m + 1) - 1
+				}
+			}
+		}.memoize;
+		(0 .. self - 1).collect(a:/1)
 	}
 
 	thueMorse { :index |

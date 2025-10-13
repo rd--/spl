@@ -1,14 +1,18 @@
-Arc : [Object] { | center radii angles |
+Arc : [Object, Equatable, Geometry] { | center radii angles |
+
+	approximation { :self |
+		(0 -- 1).discretize(
+			64,
+			self.parametricEquation
+		)
+	}
 
 	boundingBox { :self |
 		/*[
 			self.center - self.radii,
 			self.center + self.radii
 		]*/
-		(0 -- 1).discretize(
-			50,
-			self.parametricEquation
-		).coordinateBoundingBox
+		self.approximation.coordinateBoundingBox
 	}
 
 	circle { :self |
@@ -19,8 +23,14 @@ Arc : [Object] { | center radii angles |
 		Ellipse(self.center, self.radii)
 	}
 
+	embeddingDimension { :self |
+		self.center.size
+	}
+
 	parametricEquation { :self |
-		let f:/1 = rescaleBlock([0, 1], self.angles);
+		let [a, b] = self.angles;
+		let c = (a < b).if { b } { b + 2.pi };
+		let f:/1 = rescaleBlock([0, 1], [a, c]);
 		let g:/1 = ellipseCurve(self.center, self.radii, 0);
 		{ :theta |
 			g(f(theta))

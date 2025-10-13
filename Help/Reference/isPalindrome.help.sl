@@ -54,6 +54,22 @@ true
 false
 ```
 
+First few palindromic numbers in base ten,
+OEIS [A002113](https://oeis.org/A002113):
+
+```
+>>> 0:222.select(isPalindrome:/1)
+[
+	  0   1   2   3   4
+	  5   6   7   8   9
+	 11  22  33  44  55
+	 66  77  88  99 101
+	111 121 131 141 151
+	161 171 181 191 202
+	212 222
+]
+```
+
 Search for palindromic primes:
 
 ```
@@ -138,8 +154,11 @@ See also: =, reverse
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PalindromeQ.html),
+[1](https://mathworld.wolfram.com/PalindromicNumber.html)
+[2](https://mathworld.wolfram.com/TetradicNumber.html)
+[3](https://reference.wolfram.com/language/ref/PalindromeQ.html),
 _OEIS_
-[1](https://oeis.org/A006072),
+[1](https://oeis.org/A002113)
+[2](https://oeis.org/A006072),
 _W_
 [1](https://en.wikipedia.org/wiki/Palindrome)

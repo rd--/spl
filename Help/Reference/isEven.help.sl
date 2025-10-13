@@ -70,7 +70,8 @@ Guides: Integer Functions, Number Functions, Predicate Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/EvenQ.html),
+[1](https://mathworld.wolfram.com/EvenNumber.html)
+[2](https://reference.wolfram.com/language/ref/EvenQ.html),
 _Smalltalk_
 5.6.5.10,
 _W_

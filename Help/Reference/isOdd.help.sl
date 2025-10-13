@@ -70,7 +70,10 @@ Guides: Integer Functions, Predicate Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/OddQ.html),
+[1](https://mathworld.wolfram.com/OddNumber.html)
+[2](https://mathworld.wolfram.com/GnomonicNumber.html)
+[3](https://mathworld.wolfram.com/Parity.html)
+[4](https://reference.wolfram.com/language/ref/OddQ.html),
 _OEIS_
 [1](https://oeis.org/A005408),
 _Smalltalk_

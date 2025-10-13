@@ -41,10 +41,9 @@ Two circlular arcs, and a line:
 An elliptical arc, and a circle:
 
 ~~~spl svg=B
-[
-	Circle([0 0], 1),
-	Arc([0 0], [1 2], [1.75.pi 0.75.pi])
-].LineDrawing
+let a = Arc([0 0], [1 2], [1.75.pi 0.75.pi]);
+let c = Circle([0 0], 1);
+[a c].LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/Arc-B.svg)
@@ -122,6 +121,18 @@ Draw using parametric equation:
 ~~~
 
 ![](sw/spl/Help/Image/Arc-G.svg)
+
+A long arc,
+and an approximation,
+drawn as a point cloud:
+
+~~~spl svg=H
+let a = Arc([0 0], [1 1], [5/4 3/4].pi);
+let p = a.approximation.PointCloud;
+[a p].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Arc-H.svg)
 
 * * *
 

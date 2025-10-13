@@ -34,6 +34,7 @@
 - `chebyshevT`: A008310 A053120
 - `chebyshevU`: A008312 A053117
 - `collatzSequence`: A070165
+- `connellSequence`: A001614
 - `convergents`: A001040 A001053
 - `convolve`: A001629
 - `conwaysConstant`: A014715
@@ -96,7 +97,7 @@
 - `harmoniousNumber`: A001622 A060006 A060007 A160155 A230159 A230160
 - `hexagonalNumber`: A000384
 - `hofstadterQSequence`: A005185
-- `integerDigits`: A007376 A062756 A117966 A160855 A265326 A364024
+- `integerDigits`: A007376 A010060 A062756 A117966 A160855 A265326 A364024
 - `integerExponent`: A001511 A007814
 - `interprime`: A024675
 - `inventorySequence`: A342585
@@ -150,6 +151,7 @@
 - `jacobsthalNumber`: A001045
 - `josephusProblem`: A006257 A032434 A054995
 - `josephusSequence`: A209258
+- `jugglerSequence`: A007320 A094716
 - `kaprekarSequence`: A099009
 - `keplerBouwkampConstant`: A085365
 - `keplerTree`: A020651 A294442
@@ -264,6 +266,7 @@
 - `szekeresSequence`: A003278
 - `tetrahedralNumber`: A000292
 - `thueMorseSequence`: A010060
+- `toothpickSequence`: A139250
 - `triangularArray`: A007318 A048601 A075363 A075364 A077028 A094587 A166556
 - `triangularNumber`: A000217
 - `tribonacciConstant`: A058265

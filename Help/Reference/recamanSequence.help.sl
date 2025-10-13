@@ -1,9 +1,10 @@
 # recamanSequence
 
-- _recamanSequence(anInteger)_
+- _recamanSequence(n)_
 
-Recamáns sequence: _a[n] = a[n - 1] - n_ if non-negative and not already in the sequence,
-otherwise _a[n] = a[n - 1] + n_.
+Answer the first _n_ terms of Recamáns sequence.
+The _n_-the term is _a[n-1]-n_ if non-negative and not already in the sequence,
+otherwise _a[n-1]+n_.
 
 ```
 >>> 71.recamanSequence
@@ -39,18 +40,19 @@ Drawing connecting adjacent elements with arcs,
 radii are proportionate to distance:
 
 ~~~spl svg=C
-let z = true;
-30.recamanSequence
-.adjacentPairsCollect { :i :j |
-	let r = ((j - i) / 2).abs;
-	let cx = i + ((j - i) / 2);
-	let a = Arc(
+let n = 30;
+let x = n.recamanSequence;
+2:n.collect { :i |
+	let a = x[i - 1];
+	let b = x[i];
+	let c = (b - a) / 2;
+	let r = c.abs;
+	let cx = a + c;
+	Arc(
 		[cx 0],
 		[r r],
-		z.if { [0 1.pi] } { [1.pi 0] }
-	);
-	z := z.not;
-	a
+		i.isEven.if { [0 1.pi] } { [1.pi 0] }
+	)
 }.LineDrawing
 ~~~
 
