@@ -372,3 +372,37 @@
 
 }
 
+
++List{
+
+	isBeckettGrayCode { :self |
+		self.isCyclicGrayCode & {
+			self.first.allSatisfy(isZero:/1) & {
+				let [m, n] = self.shape;
+				let k = (m - 1) // 2;
+				let d = 2:m.collect { :i |
+					self[i] - self[i - 1]
+				}.sortOn(min:/1).allButLast;
+				d.first(k).abs = d.last(k)
+			}
+		}
+	}
+
+	isCyclicGrayCode { :self |
+		self.isGrayCode & {
+			(self.last - self.first).sum.abs = 1
+		}
+	}
+
+	isGrayCode { :self |
+		let [m, n] = self.shape;
+		(m = (2 ^ n)) & {
+			self.allSatisfy(isBitVector:/1) & {
+				2:m.allSatisfy { :i |
+					(self[i] - self[i - 1]).sum.abs = 1
+				}
+			}
+		}
+	}
+
+}

@@ -103,6 +103,7 @@
 				gouldsNumber: [001316],
 				gouldsSequence: [001316 006046 000120],
 				grahlSequence: [229037 309890],
+				grayDecode: [006068],
 				grayEncode: [014550 003188],
 				haltonSequence: [030101 030102],
 				hammingWeight: [000120],

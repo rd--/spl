@@ -12,7 +12,8 @@ Find the Gray code of an integer:
 [1 0 0 1]
 ```
 
-The inverse is `grayDecode`:
+The inverse is `grayDecode`,
+the middle column is OEIS [A014550](https://oeis.org/A014550):
 
 ```
 >>> 0:15.collect { :n |
@@ -42,10 +43,26 @@ The inverse is `grayDecode`:
 ]
 ```
 
+Threads over lists,
+first terms of OEIS [A003188](https://oeis.org/A003188):
+
+```
+>>> 0:67.grayEncode
+[
+	 0  1  3  2  6  7  5  4 12 13
+	15 14 10 11  9  8 24 25 27 26
+	30 31 29 28 20 21 23 22 18 19
+	17 16 48 49 51 50 54 55 53 52
+	60 61 63 62 58 59 57 56 40 41
+	43 42 46 47 45 44 36 37 39 38
+	34 35 33 32 96 97 99 98
+]
+```
+
 Gray encodings of the integers _(0, 2^k - 1)_ are a permutation:
 
 ```
->>> 0:15.collect(grayEncode:/1) + 1
+>>> 0:15.grayEncode + 1
 [
 	 1  2  4  3
 	 7  8  6  5
@@ -57,7 +74,7 @@ Gray encodings of the integers _(0, 2^k - 1)_ are a permutation:
 Scatter plot of the gray encodings of the first few integers:
 
 ~~~spl svg=A
-0:250.collect(grayEncode:/1).scatterPlot
+0:250.grayEncode.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/grayEncode-A.svg)
@@ -65,7 +82,7 @@ Scatter plot of the gray encodings of the first few integers:
 Line plot of the gray encodings of the first few integers:
 
 ~~~spl svg=B
-1:100.collect(grayEncode:/1).linePlot
+1:100.grayEncode.linePlot
 ~~~
 
 ![](sw/spl/Help/Image/grayEncode-B.svg)
@@ -74,16 +91,17 @@ Successive values differ in only one bit in the binary representation,
 plot differences:
 
 ~~~spl svg=C
-0:15.collect { :n |
-	n.grayEncode.integerDigits(2, 4)
-}.differences.matrixPlot
+0:15.grayEncode
+.integerDigits(2, 4)
+.differences
+.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/grayEncode-C.svg)
 
 * * *
 
-See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, shiftRegisterSequence
+See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, isGrayCode, shiftRegisterSequence
 
 Guides: Integer Sequence Functions
 
@@ -92,7 +110,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GrayCode.html),
 _OEIS_
 [1](https://oeis.org/A003188)
-[2](https://oeis.org/A014550)
-[3](https://oeis.org/A006068),
+[2](https://oeis.org/A014550),
 _W_
 [1](https://en.wikipedia.org/wiki/Gray_code)

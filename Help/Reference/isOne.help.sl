@@ -35,6 +35,8 @@ true
 
 * * *
 
-See also: isEven, isNegative, isOdd, isOne, isPositive, one
+See also: isEven, isNegative, isOdd, isPositive, isZero, one
+
+Guides: Integer Functions
 
 Categories: Testing, Math

@@ -202,3 +202,15 @@
 	}
 
 }
+
++List {
+
+	isBitVector { :self |
+		self.allSatisfy { :each |
+			each.isNonNegativeInteger & {
+				each < 2
+			}
+		}
+	}
+
+}

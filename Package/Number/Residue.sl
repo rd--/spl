@@ -135,3 +135,15 @@ Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue m
 	}
 
 }
+
++List{
+
+	isCommonResidueVector { :self :n |
+		self.allSatisfy { :each |
+			each.isNonNegativeInteger & {
+				each < n
+			}
+		}
+	}
+
+}

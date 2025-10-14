@@ -200,6 +200,14 @@
 		self.collect(gamma:/1)
 	}
 
+	grayDecode { :self |
+		self.collect(grayDecode:/1)
+	}
+
+	grayEncode { :self |
+		self.collect(grayEncode:/1)
+	}
+
 	harmonicNumber { :self |
 		self.collect(harmonicNumber:/1)
 	}

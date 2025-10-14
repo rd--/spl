@@ -10,6 +10,7 @@ Answers the bitwise and of the integers _i_ and _j_.
 13
 ```
 
+Threads over lists,
 `bitAnd` of `one` is `one` when odd and `zero` when even:
 
 ```

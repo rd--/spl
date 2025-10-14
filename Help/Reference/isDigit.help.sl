@@ -1,8 +1,8 @@
 # isDigit
 
-- _isDigit(aCharacter)_
+- _isDigit(c)_
 
-Answer `true` if _aCharacter_ represents a digit, else `false`.
+Answer `true` if the character _c_ represents a digit, else `false`.
 There are ten digits, 0 1 2 3 4 5 6 7 8 and 9.
 
 _3_ is a digit:
