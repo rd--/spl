@@ -168,6 +168,7 @@
 	'FeatureDetection'
 	'Fourier'
 	'Gamma'
+	'GrayCode'
 	'HyperbolicFunctions'
 	'IntegerSequence'
 	'Integrals'
