@@ -888,6 +888,12 @@
 		}
 	}
 
+	isSinglyEven { :self |
+		self.isEven & {
+			self.divisible(4).not
+		}
+	}
+
 	isSmoothNumber { :self :k |
 		self.primeLimit <= k
 	}

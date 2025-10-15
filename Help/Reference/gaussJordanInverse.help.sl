@@ -1,8 +1,8 @@
 # gaussJordanInverse
 
-- _gaussJordanInverse(aMatrix)_
+- _gaussJordanInverse(m)_
 
-Answer the inverse of the square matrix _aMatrix_ using Gauss-Jordan elimination.
+Answer the inverse of the square matrix _m_ using Gauss-Jordan elimination.
 
 Inverse of a 2×2 real valued matrix:
 

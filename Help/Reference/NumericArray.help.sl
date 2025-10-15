@@ -1,11 +1,12 @@
 # NumericArray
 
-- _NumericArray(aList, storageType='Float64')_
-- _NumericArray(typedVector, shape)_
+- _NumericArray(m, t='Float64')_
+- _NumericArray([x₁ x₂ …], ⍴)_
 
 A `Type` holding an array of numbers.
 
-Construct a `NumericArray` from a `List`:
+At `List`,
+construct a `NumericArray` from a _n_-dimensional array:
 
 ```
 >>> let l = [2 3].iota;
@@ -82,6 +83,8 @@ let a = NumericArray([7 23].iota);
 * * *
 
 See also: ByteArray, Float32Array, Float64Array, List, SmallFloat, SparseArray
+
+Guides: Array Functions, Matrix Functions, Vector Functions
 
 References:
 _Mathematica_

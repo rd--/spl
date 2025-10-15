@@ -1,6 +1,6 @@
 # triangularArray
 
-- triangularArray(m:n, f:/2, k=0)_
+- _triangularArray(m:n, f:/2, k=0)_
 
 Answer a triangular array of _m:n_ rows,
 where the _i_-th row has _n+k_ columns,

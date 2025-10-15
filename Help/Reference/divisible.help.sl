@@ -2,7 +2,7 @@
 
 - _divisible(n, m)_
 
-Answers _true_ if _n_ is divisible by _m_, else _false_.
+Answers `true` if _n_ is divisible by _m_, else `false`.
 
 _divisible_ is typically used to test whether _n_ is divisible by _m_.
 _n_ is divisible by _m_ if _n_ is the product of _m_ by an integer.

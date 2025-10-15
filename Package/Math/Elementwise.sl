@@ -365,6 +365,10 @@
 		self.collect(negate:/1)
 	}
 
+	nextPrime { :self |
+		self.collect(nextPrime:/1)
+	}
+
 	numerator { :self |
 		self.collect(numerator:/1)
 	}
@@ -393,6 +397,10 @@
 		self.collect { :each |
 			each.powerMod(exponent, modulo)
 		}
+	}
+
+	previousPrime { :self |
+		self.collect(previousPrime:/1)
 	}
 
 	primeFactors { :self |

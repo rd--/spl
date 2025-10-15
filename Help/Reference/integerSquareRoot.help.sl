@@ -1,11 +1,20 @@
 # integerSquareRoot
 
-- _integerSquareRoot(anInteger)_
+- _integerSquareRoot(n)_
 
-Integer square root of the first few integers:
+Answer the integerer square root of the integer _n_.
 
 ```
->>> 0:65.collect(integerSquareRoot:/1)
+>>> 293.integerSquareRoot
+17
+```
+
+Threads over lists,
+integer square root of the first few integers,
+OEIS [A000196](https://oeis.org/A000196):
+
+```
+>>> 0:65.integerSquareRoot
 [
 	0 1 1 1 2 2 2 2 2 3
 	3 3 3 3 3 3 4 4 4 4
@@ -75,5 +84,7 @@ Show that the expression _f_ below answers non-square numbers:
 See also: Integer, LargeInteger, sqrt
 
 References:
+_OEIS_
+[1](https://oeis.org/A000196),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_square_root)

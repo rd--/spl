@@ -1,5 +1,6 @@
 # Magic Square Functions
 
+- `isMagicSquare`
 - `magicHexagon`
 - `magicSquare`
 - `magicSquareSummary`

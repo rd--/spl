@@ -30,6 +30,25 @@ OEIS [A033812](https://oeis.org/A033812):
 )
 ```
 
+A 4×4 magic square:
+
+```
+>>> [
+>>> 	2 16 13 3;
+>>> 	11 5 8 10;
+>>> 	7 9 12 6;
+>>> 	14 4 1 15
+>>> ].magicSquareSummary
+(
+	sum: 34,
+	rowSums: [34 34 34 34],
+	columnSums: [34 34 34 34],
+	diagonalSum: 34,
+	anitdiagonalSum: 34,
+	rank: 3
+)
+```
+
 A 5×5 magic square,
 OEIS [A127907](https://oeis.org/A127907):
 
@@ -94,14 +113,18 @@ A non-magic square:
 
 * * *
 
-See also: magicHexagon, magicSquare
+See also: antidiagonal, diagonal, isMagicSquare, magicHexagon, magicSquare, matrixRank
 
-Guides: Magic Square Functions
+Guides: Magic Square Functions, Matrix Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/MagicSquare.html),
 _OEIS_
 [1](https://oeis.org/A033812)
 [2](https://oeis.org/A126649)
 [3](https://oeis.org/A126650)
 [4](https://oeis.org/A126651)
 [5](https://oeis.org/A127907)
+_W_
+[1](https://en.wikipedia.org/wiki/Magic_square)

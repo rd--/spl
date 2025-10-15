@@ -1,8 +1,8 @@
 # matrixRank
 
-- _matrixRank(aMatrix)_
+- _matrixRank(m)_
 
-Answer the rank of _aMatrix_.
+Answer the rank of the matrix _m_.
 
 Find the number of linearly independent rows of a numerical matrix:
 
@@ -73,6 +73,8 @@ The column and row rank of a matrix are equal:
 * * *
 
 See also: determinant, inverse, rowReduce
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

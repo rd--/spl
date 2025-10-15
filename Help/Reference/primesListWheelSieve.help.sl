@@ -45,12 +45,13 @@ calculated using a _wheel sieve_ algorithm.
 ]
 ```
 
-Calculate the primes up to two million, and lookup the primes at indices one, ten and one-hundred thousand:
+Calculate the primes up to two million,
+and lookup the primes at indices one, ten and one-hundred thousand:
 
 ```
 >>> let p = 2000000.primesListWheelSieve;
->>> (p.size, p @* [1000 10000 100000])
-(148933, [7919 104729 1299709])
+>>> (p.size, p @* [1000 10000 100000], p.last)
+(148933, [7919 104729 1299709], 1999993)
 ```
 
 * * *

@@ -74,6 +74,9 @@ Number of primes up to ten-thousand:
 Test for large integers:
 
 ```
+>>> 3L.isPrime
+true
+
 >>> (10L ^ 3000 + 1).isPrime
 false
 ```

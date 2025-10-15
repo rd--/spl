@@ -102,6 +102,13 @@
 		}
 	}
 
+	columnsCollect { :self :aBlock:/1 |
+		let [m, n] = self.shape;
+		1:n.collect { :i |
+			aBlock(self.column(i))
+		}
+	}
+
 	designMatrix { :self :aBlock:/1 |
 		let [m, n] = self.shape;
 		self.submatrix(
@@ -176,6 +183,20 @@
 		}
 	}
 
+	isMagicSquare { :self |
+		self.isSquareMatrix & {
+			let r = self.magicSquareSummary;
+			let k = r['sum'];
+			r['rowSums'].allEqualTo(k) & {
+				r['columnSums'].allEqualTo(k) & {
+					r['diagonalSum'] = k & {
+						r['anitdiagonalSum'] = k
+					}
+				}
+			}
+		}
+	}
+
 	isMatrixOf { :self :elementType |
 		(self.arrayDepth >= 2) & {
 			self.allSatisfy { :each |
@@ -187,13 +208,6 @@
 	isSymmetricMatrix { :self |
 		self.isSquareMatrix & {
 			self = self.transpose
-		}
-	}
-
-	columnsCollect { :self :aBlock:/1 |
-		let [m, n] = self.shape;
-		1:n.collect { :i |
-			aBlock(self.column(i))
 		}
 	}
 

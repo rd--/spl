@@ -62,6 +62,26 @@ Non-integers are never even:
 false
 ```
 
+OEIS [A005843](https://oeis.org/A005843):
+
+```
+>>> 0:25.select(isEven:/1)
+[
+	 0  2  4  6  8  10 12 14 16 18
+	20 22 24
+]
+```
+
+At `LargeInteger`:
+
+```
+>>> 3L.isEven
+false
+
+>>> 1234567890L.isEven
+true
+```
+
 * * *
 
 See also: divisible, isInteger, isOdd
@@ -72,6 +92,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EvenNumber.html)
 [2](https://reference.wolfram.com/language/ref/EvenQ.html),
+_OEIS_
+[1](https://oeis.org/A005843),
 _Smalltalk_
 5.6.5.10,
 _W_

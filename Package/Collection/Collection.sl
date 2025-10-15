@@ -61,6 +61,12 @@
 		self.allEqualBy(=)
 	}
 
+	allEqualTo { :self :anObject |
+		self.allSatisfy { :each |
+			each = anObject
+		}
+	}
+
 	any { :self :numberOfElements |
 		self.anyAs(numberOfElements, self.species)
 	}

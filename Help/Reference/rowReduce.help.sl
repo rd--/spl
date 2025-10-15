@@ -1,8 +1,8 @@
 # rowReduce
 
-- _rowReduce(aMatrix)_
+- _rowReduce(m)_
 
-Answer the row-reduced form of _aMatrix_.
+Answer the row-reduced form of the matrix _m_.
 `rowReduce` performs a version of Gaussian elimination,
 adding multiples of rows together so as to produce zero elements when possible.
 The final matrix is in reduced row echelon form.
@@ -259,6 +259,8 @@ in this case two:
 * * *
 
 See also: determinant, inverse, permanent, reducedRowEchelonForm
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

@@ -1,12 +1,12 @@
 # Matrix
 
-`Matrix` is a `Trait` collecting behviours applicable to matrices.
+`Matrix` is a `Trait` collecting behaviours applicable to matrices.
 
 * * *
 
 See also: Collection, List, NumericArray, Sequence
 
-Guides: Matrix Operations
+Guides: Matrix Functions
 
 References:
 _Apl_

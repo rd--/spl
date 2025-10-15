@@ -1,7 +1,8 @@
 # reducedRowEchelonForm
 
-- _reducedRowEchelonForm(aMatrix)_
+- _reducedRowEchelonForm(m)_
 
+Place the matrix _m_ in row reduced form.
 An in place variant of `rowReduce`.
 
 ```
@@ -14,5 +15,7 @@ An in place variant of `rowReduce`.
 * * *
 
 See also: rowReduce
+
+Guides: Matrix Functions
 
 Categories: Math, Matrix

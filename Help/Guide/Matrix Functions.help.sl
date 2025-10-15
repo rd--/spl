@@ -1,9 +1,10 @@
 # Matrix Functions
 
-Types:
+Traits and Types:
 
-- `List`: list type
-- `Matrix`: matrix type
+- `List`
+- `Matrix`
+- `NumericArray`
 
 Constructing:
 

@@ -9,7 +9,7 @@ Prime numbers up to 99:
 ```
 >>> 99.sieveOfEratosthenes
 [
-	2 3 5 7 11 13 17 19 23 29
+	 2  3  5  7 11 13 17 19 23 29
 	31 37 41 43 47 53 59 61 67 71
 	73 79 83 89 97
 ]
@@ -82,7 +82,7 @@ Plot the prime counting function:
 
 * * *
 
-See also: isPrime, primesList, primePi
+See also: isPrime, primesList, primesListWheelSieve, primePi
 
 Guides: Prime Number Functions
 

@@ -16,4 +16,6 @@ false
 
 See also: =, allSatisfy, kroneckerDelta
 
+Guides: Predicate Functions
+
 Categories: Testing

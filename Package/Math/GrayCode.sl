@@ -62,7 +62,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 +List{
 
-	grayCodeFromTransitionSequence { :self |
+	grayCodeFromOneIndexedTransitionSequence { :self |
 		let k = self.max;
 		let v = 0 # k;
 		let c = [v.copy];
@@ -71,6 +71,15 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 			c.add(v.copy)
 		};
 		c
+	}
+
+	grayCodeFromTransitionSequence { :self |
+		self.min.caseOf(
+			[
+				0 -> { (self + 1).grayCodeFromTransitionSequence },
+				1 -> { self.grayCodeFromOneIndexedTransitionSequence }
+			]
+		)
 	}
 
 	grayCodeTransitionSequence { :self |

@@ -34,7 +34,7 @@ Gray code from transition sequence:
 Three-bit Gray code:
 
 ```
->>> GrayCode(3)
+>>> GrayCode(3).sequence
 [
 	0 0 0;
 	0 0 1;

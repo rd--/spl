@@ -209,6 +209,8 @@ A square matrix has an inverse if and only if its determinant is nonzero:
 
 See also: bareissAlgorithm, isSquareMatrix, matrixRank, permanent, permutationSymbol, rowReduce, trace
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Determinant.html)

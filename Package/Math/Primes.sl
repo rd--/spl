@@ -125,12 +125,12 @@
 		system.isCachedPrime(self).if {
 			true
 		} {
-			let answer = self.isPrimeTrialDivision;
-			answer
+			self.isPrimeTrialDivision
 		}
 	}
 
 	isPrimeTrialDivision { :self |
+		self.assertIsInteger('isPrimeTrialDivision');
 		(self <= 1).if {
 			false
 		} {
@@ -207,13 +207,20 @@
 
 	leastPrimeGreaterThanOrEqualTo { :self :extendCache |
 		let answer = self;
+		(
+			answer.isEven & {
+				answer != 2
+			}
+		).ifTrue {
+			answer := answer + 1
+		};
 		extendCache.ifTrue {
 			system.cachedPrimesListExtendedToPrime(self)
 		};
 		{
-			answer.isPrime
+			answer.isPrimeTrialDivision
 		}.whileFalse {
-			answer := answer + 1
+			answer := answer + 2
 		};
 		answer
 	}
@@ -301,12 +308,57 @@
 		}
 	}
 
-	nextPrime { :self :extendCache |
-		(self + 1).leastPrimeGreaterThanOrEqualTo(extendCache)
+	nextPrime { :n |
+		(n < 2).if {
+			2
+		} {
+			n := n.floor + 1;
+			n.isEven.ifTrue {
+				n := n + 1
+			};
+			{
+				n.isPrime
+			}.whileFalse {
+				n := n + 2
+			};
+			n
+		}
 	}
 
-	nextPrime { :self |
-		(self + 1).leastPrimeGreaterThanOrEqualTo(false)
+	nextPrime { :n :k |
+		let s = k.sign;
+		let m = s.caseOf(
+			[
+				1 -> { n.nextPrime },
+				-1 -> { n.previousPrime }
+			]
+		);
+		(k.abs = 1).if {
+			m
+		} {
+			m.nextPrime(k - s)
+		}
+	}
+
+	previousPrime { :n |
+		(n <= 3).if {
+			(n = 3).if {
+				2
+			} {
+				n.error('previousPrime')
+			}
+		} {
+			n := n.ceiling - 1;
+			n.isEven.ifTrue {
+				n := n - 1
+			};
+			{
+				n.isPrime
+			}.whileFalse {
+				n := n - 2
+			};
+			n
+		}
 	}
 
 	prime { :self |
@@ -323,11 +375,6 @@
 
 	primeGap { :self |
 		(self + 1).prime - self.prime
-	}
-
-	previousPrime { :self |
-		let index = self.leastPrimeGreaterThanOrEqualTo(true).indexOfPrime - 1;
-		system.cachedPrimesList[index]
 	}
 
 	primeDivisors { :self |
@@ -534,8 +581,7 @@
 
 	sieveOfEratosthenesDo { :self :aBlock:/1 |
 		let size = self;
-		let flags = List(size);
-		flags.atAllPut(true);
+		let flags = List(size, true);
 		2.toDo(size) { :i |
 			flags[i - 1].ifTrue {
 				let k = i + i;
@@ -556,6 +602,26 @@
 			answer.add(each)
 		};
 		answer
+	}
+
+	sieveOfSundaram { :n |
+		let k = (n - 3) // 2 + 1;
+		let z = List(k, true);
+		let m = (integerSquareRoot(n) - 3) // 2 + 1;
+		let a = [2];
+		0.toDo(m - 1) { :i |
+			let p = 2 * i + 3;
+			let s = ((p * p) - 3) // 2;
+			s.toByDo(k - 1, p) { :j |
+				z[j + 1] := false
+			}
+		};
+		z.withIndexDo { :b :i |
+			b.ifTrue {
+				a.add(i - 1 * 2 + 3)
+			}
+		};
+		a
 	}
 
 }
@@ -808,6 +874,18 @@
 			}
 		};
 		c
+	}
+
+}
+
++Fraction {
+
+	nextPrime { :self |
+		self.floor.nextPrime
+	}
+
+	previousPrime { :self |
+		self.ceiling.previousPrime
 	}
 
 }

@@ -1,5 +1,10 @@
 # Array Functions
 
+Types:
+
+- `List`
+- `NumericArray`
+
 Constructors:
 
 - `array`

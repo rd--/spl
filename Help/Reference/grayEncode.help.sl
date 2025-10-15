@@ -2,7 +2,7 @@
 
 - _grayEncode(n)_
 
-Encode the integer _n_ using binary reflected Gray code.
+Encode the integer _n_ using binary-reflected Gray code.
 A Gray code is an encoding of numbers so that adjacent numbers have a single digit differing by `one`.
 
 Find the Gray code of an integer:

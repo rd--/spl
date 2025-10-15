@@ -154,6 +154,8 @@ The permanent of the transpose of _m_ equals the permanent of _m_:
 
 See also: determinant, isSquareMatrix, permutations, trace
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Permanent.html)

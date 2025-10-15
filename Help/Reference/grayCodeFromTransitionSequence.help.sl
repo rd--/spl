@@ -4,16 +4,17 @@
 
 Answer the binary Gray code specified by the transition sequence _x_,
 where _xₙ_ tells which bit in transitioned at the step _n+1_.
+The sequence may be either zero or one indexed.
 
-The 2-bit Gray code:
+The 2-bit Gray code, from a zero-indexed transition sequence:
 
 ```
->>> [2 1 2 1]
+>>> [1 0 1 0]
 >>> .grayCodeFromTransitionSequence
 [0 0; 0 1; 1 1; 1 0]
 ```
 
-Derive a 5-bit Gray code from a transition sequence,
+Derive a 5-bit Gray code from a one-indexed transition sequence,
 confirm the sequence is a Beckett-Gray code:
 
 ```

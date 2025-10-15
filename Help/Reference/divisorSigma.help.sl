@@ -89,7 +89,7 @@ Threads elementwise over lists:
 [1 5 10 21 26]
 ```
 
-OEIS entry _A000005_:
+OEIS [A000005](https://oeis.org/A000005):
 
 ```
 >>> 0.divisorSigma(1:40)
@@ -148,7 +148,7 @@ Calculate the divisor summatory function:
 ]
 ```
 
-Plot divisor function _σ₀(n)_ up to _n = 100_:
+Plot divisor function _σ₀(n)_ up to _n=100_:
 
 ~~~spl svg=A
 1:100.functionPlot { :x |
@@ -158,7 +158,7 @@ Plot divisor function _σ₀(n)_ up to _n = 100_:
 
 ![](sw/spl/Help/Image/divisorSigma-A.svg)
 
-Plot divisor function _σ₁(n)_ up to _n = 100_:
+Plot divisor function _σ₁(n)_ up to _n=100_:
 
 ~~~spl svg=B
 1:100.functionPlot { :x |
@@ -168,7 +168,7 @@ Plot divisor function _σ₁(n)_ up to _n = 100_:
 
 ![](sw/spl/Help/Image/divisorSigma-B.svg)
 
-Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
+Plot the log of the divisor function _σ₂(n)_ up to _n=100_:
 
 ~~~spl svg=C
 1:100.functionPlot { :x |
@@ -177,6 +177,15 @@ Plot the log of the divisor function _σ₂(n)_ up to _n = 100_:
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-C.svg)
+
+Scatter plot of _σ₀(n)_, also called _τ(n)_:
+
+~~~spl svg=D
+let n = 200;
+0.divisorSigma(1:n).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-D.svg)
 
 * * *
 
