@@ -183,6 +183,22 @@ A pattern resembling Pascal’s triangle:
 ]
 ```
 
+First differences of 11-rough numbers,
+OEIS [A049296](https://oeis.org/A049296):
+
+```
+>>> 1:150.select { :x |
+>>> 	x.gcd(210) = 1
+>>> }.differences
+[
+	10 2 4 2 4 6 2 6 4 2
+	 4 6 6 2 6 4 2 6 4 6
+	 8 4 2 4 2 4 8 6 4 6
+	 2 4 6
+]
+```
+
+
 Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A
@@ -221,6 +237,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Differences.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.diff.html),
+_OEIS_
+[1](https://oeis.org/A049296),
 _Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.diff.html),
 _SuperCollider_

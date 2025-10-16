@@ -162,6 +162,25 @@ The determinant of the matrix of pairwise greatest common divisors is related to
 [1 1 2 4 16 32]
 ```
 
+Eleven-rough numbers,
+numbers not divisible by 2, 3, 5 or 7,
+OEIS [A008364](https://oeis.org/A008364):
+
+```
+>>> 1:150.select { :x |
+>>> 	x.gcd(210) = 1
+>>> }
+[
+	  1  11  13  17  19
+	 23  29  31  37  41
+	 43  47  53  59  61
+	 67  71  73  79  83
+	 89  97 101 103 107
+	109 113 121 127 131
+	137 139 143 149
+]
+```
+
 Plot the gcd for a number with 12:
 
 ~~~spl svg=A
@@ -219,6 +238,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/GreatestCommonDivisor.html)
 [2](https://mathworld.wolfram.com/GCD.html)
 [3](https://reference.wolfram.com/language/ref/PolynomialGCD.html),
+_OEIS_
+[1](https://oeis.org/A008364),
 _Smalltalk_
 5.6.5.12,
 _W_

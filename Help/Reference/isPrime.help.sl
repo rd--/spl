@@ -194,6 +194,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/isprime.html),
 _OEIS_
-[1](https://oeis.org/A005846)
+[1](https://oeis.org/A005846),
+_W_
+[1](https://en.wikipedia.org/wiki/Primality_test)
 
 Categories: Arithmetic

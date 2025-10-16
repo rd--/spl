@@ -2,7 +2,8 @@
 
 - _logarithmicIntegral(n)_
 
-The logarithmic integral function for the number _n_.
+The logarithmic integral function for the number _n_,
+usually written _Li(n)_.
 Calculated using a series expansion due to Ramanujan,
 with the limit set to nine.
 

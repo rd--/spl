@@ -53,6 +53,13 @@ Add `String` items to a `SortedList` and ask for the `middle` and `median` eleme
 ('porcinet', 'porcinet')
 ```
 
+Implements `++`:
+
+```
+>>> SortedList([1 3 5]) ++ SortedList([2 4 6])
+SortedList([1, 2, 3, 4, 5, 6])
+```
+
 `Complex` does not implement `<=` but does implement `precedesOrEqualTo`:
 
 ```

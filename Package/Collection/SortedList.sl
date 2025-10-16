@@ -1,5 +1,11 @@
 SortedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
+	++ { :self :aCollection |
+		let answer = self.copy;
+		answer.addAll(aCollection);
+		answer
+	}
+
 	add { :self :item |
 		self.contents.isEmpty.if {
 			self.contents.add(item)
@@ -17,7 +23,8 @@ SortedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Coll
 			aCollection.do { :each |
 				self.add(each)
 			}
-		}
+		};
+		aCollection
 	}
 
 	asList { :self |

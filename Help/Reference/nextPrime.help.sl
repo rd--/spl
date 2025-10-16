@@ -37,7 +37,7 @@ At `LargeInteger`:
 
 ```
 >>> [2L 3L 4L 5L].collect(nextPrime:/1)
-[2 5 5 7]
+[3 5 5 7]
 ```
 
 At `Rational`:
@@ -47,7 +47,7 @@ At `Rational`:
 5
 ```
 
-At `SmallFloat`:
+At non-integral `SmallFloat`:
 
 ```
 >>> 100.5.nextPrime

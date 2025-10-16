@@ -205,6 +205,55 @@
 		}
 	}
 
+	leastPrimeFactor { :n |
+		[
+			{ n < 2 } -> { 0 },
+			{ divisible(n, 2) } -> { 2 },
+			{ divisible(n, 3) } -> { 3 },
+			{ divisible(n, 5) } -> { 5 },
+			{ true } -> {
+				valueWithReturn { :return:/1 |
+					let inc = [4 2 4 2 4 6 2 6];
+					let k = 7;
+					let i = 1;
+					{ k * k <= n }.whileTrue {
+						divisible(n, k).ifTrue {
+							k.return
+						};
+						k := k + inc[i];
+						i := (i < 8).if { i + 1 } { 1 }
+					};
+					n
+				}
+			}
+		].which
+	}
+
+	leastPrimeFactorList { :n |
+		let lp = List(n, 0);
+		let pr = [];
+		2.toDo(n) { :i |
+			let j = 1;
+			let break = false;
+			(lp[i] = 0).ifTrue {
+				lp[i] := i;
+				pr.add(i)
+			};
+			{
+				break | {
+					i * pr[j] > n
+				}
+			}.whileFalse {
+				lp[i * pr[j]] := pr[j];
+				(pr[j] = lp[i]).ifTrue {
+					break := true
+				};
+				j := j + 1
+			}
+		};
+		[lp, pr]
+        }
+
 	leastPrimeGreaterThanOrEqualTo { :self :extendCache |
 		let answer = self;
 		(
@@ -451,6 +500,38 @@
 		answer
 	}
 
+	primeFactorsWheel { :n |
+		let inc = [4 2 4 2 4 6 2 6];
+		let factors = [];
+		let k = 7;
+		let i = 1;
+		{ divisible(n, 2) }.whileTrue {
+			factors.add(2);
+			n := n / 2
+		};
+		{ divisible(n, 3) }.whileTrue {
+			factors.add(3);
+			n := n / 3
+		};
+		{ divisible(n, 5) }.whileTrue {
+			factors.add(5);
+			n := n / 5
+		};
+		{ k * k <= n }.whileTrue {
+			divisible(n, k).if {
+				factors.add(k);
+				n := n / k
+			} {
+				k := k + inc[i];
+				i := (i < 8).if { i + 1 } { 1 }
+			}
+		};
+		(n > 1).ifTrue {
+			factors.add(n)
+		};
+		factors
+	}
+
 	primeNu { :self |
 		self.primeFactorization.valuesAndCounts.size
 	}
@@ -497,7 +578,7 @@
 			let k = 9;
 			let p1 = 11;
 			let p2 = 121;
-			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. */
+			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. https://oeis.org/A049296 */
 			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
 			let w = 0;
 			let answer = [2];
@@ -602,6 +683,62 @@
 			answer.add(each)
 		};
 		answer
+	}
+
+	sieveOfPritchard { :limit |
+		let next = { :c :x |
+			let i = c.indexOf(x);
+			c[i + 1]
+		};
+		let previous = { :c :x |
+			let i = c.indexOf(x);
+			c[i - 1]
+		};
+		let extend = { :c :m :n |
+			let w = 1;
+			let x = m + 1;
+			{ x <= n }.whileTrue {
+				c.add(x);
+				w := c.next(w);
+				x := m + w
+			}
+		};
+		let deleteMultiples = { :a :m :p |
+			let w = p;
+			{ p * w <= m }.whileTrue {
+				w := a.next(w)
+			};
+			{ w > 1 }.whileTrue {
+				w := a.previous(w);
+				a.remove(p * w)
+			}
+		};
+		(limit < 2).if {
+			[]
+		} {
+			let k = 1;
+			let wList = SortedList([1]);
+			let length = 2;
+			let p = 3;
+			let pList = SortedList([2]);
+			{ p.square <= limit}.whileTrue {
+				(length < limit).ifTrue {
+					let n = limit.min(p * length);
+					extend(wList, length, n);
+					length := n
+				};
+				deleteMultiples(wList, length, p);
+				pList.add(p);
+				k := k + 1;
+				p := wList.next(1)
+			};
+			(length < limit).ifTrue {
+				extend(wList, length, limit)
+			};
+			pList.addAll(wList);
+			pList.remove(1);
+			pList.contents
+		}
 	}
 
 	sieveOfSundaram { :n |
@@ -739,24 +876,25 @@
 
 	cachedPrimesList { :self |
 		self.cached('primesList') {
-			1:99.select(isPrimeTrialDivision:/1)
+			200.primesListWheelSieve
 		}
 	}
 
 	cachedPrimesListExtendedToIndex { :self :anInteger |
 		let primesList = self.cachedPrimesList;
 		(anInteger > primesList.size).ifTrue {
-			primesList.primesListExtendedToIndex(anInteger)
+			let limit = anInteger.primeBounds.max.ceiling;
+			primesList := limit.primesListWheelSieve;
+			self.cache.atPut('primesList', primesList)
 		};
 		primesList
 	}
 
 	cachedPrimesListExtendedToPrime { :self :anInteger |
 		let primesList = self.cachedPrimesList;
-		{
-			primesList.last < anInteger
-		}.whileTrue {
-			primesList.primesListExtendedToIndex(primesList.size + 8)
+		(primesList.last < anInteger).ifTrue {
+			primesList := anInteger.primesListWheelSieve;
+			self.cache.atPut('primesList', primesList)
 		};
 		primesList
 	}
@@ -886,6 +1024,48 @@
 
 	previousPrime { :self |
 		self.ceiling.previousPrime
+	}
+
+}
+
++@Integer{
+
+	primeBounds { :n |
+		(n.primeLowerBound -- n.primeUpperBound)
+	}
+
+	primeLowerBound { :n |
+		[
+			{ n > 2 } -> { n * (n.log + n.log.log - 1.5) }
+		].which
+	}
+
+	primeUpperBound { :n |
+		[
+			{ n > 20 } -> { n * (n.log + n.log.log - 0.5) },
+			{ n > 6 } -> { n * (n.log + n.log.log) },
+			{ n > 4 } -> { n * (n.log + (2 * n.log.log)) }
+		].which
+	}
+
+}
+
++@Integer{
+
+	primePiBounds { :x |
+		(x.primePiLowerBound -- x.primePiUpperBound)
+	}
+
+	primePiLowerBound { :x |
+		[
+			{ x > 55 } -> { x / (x.log + 2) }
+		].which
+	}
+
+	primePiUpperBound { :x |
+		[
+			{ x > 55 } -> { x / (x.log - 4) }
+		].which
 	}
 
 }

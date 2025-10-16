@@ -25,6 +25,8 @@ Indexing:
 Factors:
 
 - `factorInteger`
+- `leastPrimeFactor`
+- `leastPrimeFactorList`
 - `primeDivisors`
 - `primeExponents`
 - `primeFactorization`
@@ -82,8 +84,11 @@ Algorithms:
 - `isPrimeWilson`
 - `millerRabinPrimalityTest`
 - `primeFactorsTrialDivision`
+- `primeFactorsWheel`
 - `primesListWheelSieve`
 - `sieveOfEratosthenes`
+- `sieveOfPritchard`
+- `sieveOfSundaram`
 - `tonelliShanksAlgorithm`
 
 * * *

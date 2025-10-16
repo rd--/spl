@@ -46,6 +46,16 @@ so that subsequent accesses do not require recalculation:
 104743
 ```
 
+An approximation for `prime`:
+
+```
+>>> let n = 148933;
+>>> let p = n.prime;
+>>> let q = n * (n.log + n.log.log - 1);
+>>> (p, q, p - q)
+(1999993, 1994024, 5969)
+```
+
 Plot first fifty primes:
 
 ~~~spl svg=A
