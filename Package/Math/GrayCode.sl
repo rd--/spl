@@ -36,6 +36,18 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 +@Binary {
 
+	grayEncode { :n :b |
+		let d = n.integerDigits(b);
+		let k = d.size;
+		let shift = 0;
+		let gray = List(k);
+		1.toDo(k) { :i |
+			gray[i] := (d[i] + shift) % b;
+			shift := shift + b - gray[i]
+		};
+		gray.fromDigits(b)
+	}
+
 	grayEncode { :n |
 		n.bitXor(n.bitShiftRight(1))
 	}
