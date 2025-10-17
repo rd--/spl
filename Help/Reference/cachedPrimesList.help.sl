@@ -4,7 +4,7 @@
 
 A cache to memoize prime number calculations.
 The usual interface is `primesList`.
-Initially the cached list will hold the primes up to one hundred.
+Initially the cached list will hold the primes up to two hundred.
 
 ~~~
 >>> system.cachedPrimesList
@@ -22,22 +22,24 @@ true
 The list can be extended to a specified index:
 
 ```
+>>> let i = 999;
 >>> system
 >>> .cachedPrimesListExtendedToIndex(
->>> 	999
+>>> 	i
 >>> );
->>> system.cachedPrimesList.size >= 999
+>>> system.cachedPrimesList.size >= i
 true
 ```
 
 The list can be extended to a specified prime number:
 
 ```
+>>> let n = 7919;
 >>> system
 >>> .cachedPrimesListExtendedToPrime(
->>> 	7919
+>>> 	n
 >>> );
->>> system.cachedPrimesList.last >= 7919
+>>> system.cachedPrimesList.last >= n
 true
 ```
 

@@ -4,7 +4,8 @@
 
 Answer a `List` of the prime numbers less than or equal to the integer _n_ according to the sieve of Eratosthenes algorithm.
 
-Prime numbers up to 99:
+Prime numbers up to 99,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 99.sieveOfEratosthenes
@@ -82,7 +83,7 @@ Plot the prime counting function:
 
 * * *
 
-See also: isPrime, primesList, primesListWheelSieve, primePi
+See also: isPrime, primesList, primePi, wheelSieve
 
 Guides: Prime Number Functions
 
@@ -90,5 +91,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SieveofEratosthenes.html)
 [2](https://reference.wolfram.com/language/ref/PrimePi.html),
+_OEIS_
+[1](https://oeis.org/A000040),
 _W_
 [1](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)

@@ -13,6 +13,11 @@ Extrema Detection:
 - `minDetect`
 - `peakDetect`
 
+Repetition Detection:
+
+- `findRepeats`
+- `findTransientRepeats`
+
 * * *
 
 References:

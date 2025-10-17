@@ -4,7 +4,8 @@
 
 Implement the sieve of Sundaram.
 
-Primes up to one hundred:
+Primes up to one hundred,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 100.sieveOfSundaram
@@ -17,10 +18,12 @@ Primes up to one hundred:
 
 * * *
 
-See also: primesListWheelSieve, sieveOfEratosthenes
+See also: sieveOfAtkin, sieveOfEratosthenes, sieveOfPritchard, wheelSieve
 
 Guides: Prime Number Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A000040),
 _W_
 [1](https://en.wikipedia.org/wiki/Sieve_of_Sundaram)

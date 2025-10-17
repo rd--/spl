@@ -52,6 +52,8 @@ At negative number:
 
 See also: asFraction, continuedFraction, convergents, limitDenominator, semiconvergents
 
+Guides: Number Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Rationalize.html)

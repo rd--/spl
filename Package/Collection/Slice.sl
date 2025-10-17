@@ -20,6 +20,11 @@ Slice : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenc
 		}
 	}
 
+	copyFromTo { :self :startIndex :endIndex |
+		let size = endIndex - startIndex + 1;
+		Slice(self, startIndex, size)
+	}
+
 	do { :self :aBlock:/1 |
 		let items = self.contents;
 		self.startIndex.toDo(self.endIndex) { :index |

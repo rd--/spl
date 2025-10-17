@@ -357,20 +357,17 @@
 		}
 	}
 
-	nextPrime { :n |
-		(n < 2).if {
+	nearestPrime { :n |
+		(n <= 2).if {
 			2
 		} {
-			n := n.floor + 1;
-			n.isEven.ifTrue {
-				n := n + 1
-			};
-			{
-				n.isPrime
-			}.whileFalse {
-				n := n + 2
-			};
-			n
+			let a = n.nextPrime;
+			let b = (a.primePi - 1).prime;
+			(a < (2 * n - b)).if {
+				a
+			} {
+				b
+			}
 		}
 	}
 
@@ -386,6 +383,23 @@
 			m
 		} {
 			m.nextPrime(k - s)
+		}
+	}
+
+	nextPrime { :n |
+		(n < 2).if {
+			2
+		} {
+			n := n.floor + 1;
+			n.isEven.ifTrue {
+				n := n + 1
+			};
+			{
+				n.isPrime
+			}.whileFalse {
+				n := n + 2
+			};
+			n
 		}
 	}
 
@@ -420,6 +434,10 @@
 		let a = (k - 1).prime;
 		let b = (k + 1).prime;
 		(n - a) <=> (b - n)
+	}
+
+	primeDistance { :n |
+		(n - n.nearestPrime).abs
 	}
 
 	primeGap { :self |
@@ -542,7 +560,7 @@
 
 	primePi { :self |
 		let answer = 0;
-		self.sieveOfEratosthenesDo { :unusedItem |
+		self.wheelSieveDo { :unusedItem |
 			answer := answer + 1
 		};
 		answer
@@ -570,10 +588,8 @@
 		system.cachedPrimesListExtendedToIndex(self).take(self)
 	}
 
-	primesListWheelSieve { :limit |
-		(limit < 2).if {
-			0
-		} {
+	wheelSieveDo { :limit :aBlock:/1 |
+		(limit >= 2).ifTrue {
 			let c = List(limit + 1, false);
 			let k = 9;
 			let p1 = 11;
@@ -581,7 +597,6 @@
 			/* First differences of 11-rough numbers: not divisible by 2, 3, 5 or 7. https://oeis.org/A049296 */
 			let z = [2 4 2 4 6 2 6 4 2 4 6 6 2 6 4 2 6 4 6 8 4 2 4 2 4 8 6 4 6 2 4 6 2 6 6 4 2 4 6 2 6 4 2 4 2 10 2 10];
 			let w = 0;
-			let answer = [2];
 			let j = 3;
 			c[1] := true;
 			c[2] := true;
@@ -613,14 +628,23 @@
 				};
 				p2 := p1 * p1
 			};
+			aBlock(2);
 			{ j <= limit }.whileTrue {
 				c[j + 1].ifFalse {
-					answer.add(j)
+					aBlock(j)
 				};
 				j := j + 2
 			};
-			answer
+			nil
 		}
+	}
+
+	wheelSieve { :limit |
+		let p = [];
+		limit.wheelSieveDo { :i |
+			p.add(i)
+		};
+		p
 	}
 
 	primesUpTo { :self |
@@ -658,6 +682,54 @@
 
 	radical { :self |
 		self.factorInteger.collect(key:/1).product
+	}
+
+	sieveOfAtkinDo { :limit :aBlock:/1 |
+		let a = List(limit + 1, false);
+		let k = limit.integerSquareRoot;
+		(limit > 2).ifTrue {
+			a[2] := true
+		};
+		(limit > 3).ifTrue {
+			a[3] := true
+		};
+		1.toDo(k) { :x |
+			1.toDo(k) { :y |
+				let n = (4 * x * x) + (y * y);
+				(n <= limit & { n % 12 = 1 | { n % 12 = 5 } }).ifTrue {
+					a[n] := a[n].not
+				};
+				n := (3 * x * x) + (y * y);
+				(n <= limit & { n % 12 = 7 }).ifTrue {
+					a[n] := a[n].not
+				};
+				n := (3 * x * x) - (y * y);
+				(x > y & { n <= limit & { n % 12 = 11 } }).ifTrue {
+					a[n] := a[n].not
+				}
+			}
+		};
+		5.toDo(k) { :i |
+			a[i].ifTrue {
+				(i * i).toByDo(limit, i * i) { :j |
+					a[j] := false
+				}
+			}
+		};
+		2.toDo(limit) { :i |
+			a[i].ifTrue {
+				aBlock(i)
+			}
+		};
+		nil
+	}
+
+	sieveOfAtkin { :limit |
+		let p = [];
+		limit.sieveOfAtkinDo { :i |
+			p.add(i)
+		};
+		p
 	}
 
 	sieveOfEratosthenesDo { :self :aBlock:/1 |
@@ -876,7 +948,7 @@
 
 	cachedPrimesList { :self |
 		self.cached('primesList') {
-			200.primesListWheelSieve
+			200.wheelSieve
 		}
 	}
 
@@ -884,7 +956,7 @@
 		let primesList = self.cachedPrimesList;
 		(anInteger > primesList.size).ifTrue {
 			let limit = anInteger.primeBounds.max.ceiling;
-			primesList := limit.primesListWheelSieve;
+			primesList := limit.wheelSieve;
 			self.cache.atPut('primesList', primesList)
 		};
 		primesList
@@ -893,7 +965,7 @@
 	cachedPrimesListExtendedToPrime { :self :anInteger |
 		let primesList = self.cachedPrimesList;
 		(primesList.last < anInteger).ifTrue {
-			primesList := anInteger.primesListWheelSieve;
+			primesList := anInteger.wheelSieve;
 			self.cache.atPut('primesList', primesList)
 		};
 		primesList

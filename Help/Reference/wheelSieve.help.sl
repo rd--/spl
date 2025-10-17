@@ -1,12 +1,13 @@
-# primesListWheelSieve
+# wheelSieve
 
-- _primesListWheelSieve(n)_
+- _wheelSieve(n)_
 
 Answer a `List` of the prime numbers up to the integer _n_,
-calculated using a _wheel sieve_ algorithm.
+calculated using a _wheel sieve_ algorithm,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
->>> 999.primesListWheelSieve
+>>> 999.wheelSieve
 [
 	  2   3   5   7  11
 	 13  17  19  23  29
@@ -49,18 +50,28 @@ Calculate the primes up to two million,
 and lookup the primes at indices one, ten and one-hundred thousand:
 
 ```
->>> let p = 2000000.primesListWheelSieve;
->>> (p.size, p @* [1000 10000 100000], p.last)
-(148933, [7919 104729 1299709], 1999993)
+>>> let p = 2000000.wheelSieve;
+>>> (
+>>> 	p.size,
+>>> 	p.atAll([1E3 1E4 1E5]),
+>>> 	p.last
+>>> )
+(
+	148933,
+	[7919 104729 1299709],
+	1999993
+)
 ```
 
 * * *
 
-See also: sieveOfEratosthenes
+See also: sieveOfAtkin, sieveOfEratosthenes, sieveOfPritchard, sieveOfSundaram
 
 Guides: Prime Number Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A000040),
 _W_
 [1](https://en.wikipedia.org/wiki/Sieve_of_Pritchard)
 [2](https://en.wikipedia.org/wiki/Sieve_of_Atkin)

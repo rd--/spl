@@ -123,3 +123,70 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 	}
 
 }
+
++@Integer{
+
+	savageWinklerAlgorithmSubpath { :n :j |
+		let pi = { :n |
+			(n <= 1).if {
+				[1]
+			} {
+				let x = pi(n - 1) ++ [n];
+				let y = x.atAll(x);
+				let z = y.rotateRight(1);
+				z
+			}
+		};
+		let p = { :n :j :reverse |
+			(n = 1 & { j = 0 }).if {
+				reverse.not.if {
+					[0; 1]
+				} {
+					[1; 0]
+				}
+			} {
+				(j >= 0 & { j < n }).if {
+					let r = [];
+					let o = pi(n - 1);
+					reverse.not.if {
+						p(n - 1, j - 1, false).do { :x |
+							let t = [1] ++ x.atAll(o);
+							r.add(t)
+						};
+						p(n - 1, j, false).do { :x |
+							let t = [0] ++ x;
+							r.add(t)
+						}
+					} {
+						p(n - 1, j, true).do { :x |
+							let t = [0] ++ x;
+							r.add(t)
+						};
+						p(n - 1, j - 1, true).do { :x |
+							let t = [1] ++ x.atAll(o);
+							r.add(t)
+						}
+					};
+					r
+				} {
+					[]
+				}
+			}
+		};
+		j.isEven.if {
+			p(n, j, false)
+		} {
+			p(n, j, true)
+		}
+	}
+
+	savageWinklerAlgorithm { :n |
+		(n < 0).ifTrue {
+			n.error('savageWinklerAlgorithm')
+		};
+		0.to(n - 1).collect { :j |
+			savageWinklerAlgorithmSubpath(n, j)
+		}.catenate
+	}
+
+}

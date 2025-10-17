@@ -2,15 +2,21 @@
 
 - _integerSquareRoot(n)_
 
-Answer the integerer square root of the integer _n_.
+Answer the integer square root of the integer _n_.
 
 ```
 >>> 293.integerSquareRoot
 17
 ```
 
-Threads over lists,
-integer square root of the first few integers,
+Threads over lists:
+
+```
+>>> [4 5 8 10].integerSquareRoot
+[2 2 2 3]
+```
+
+Integer square root of the first few integers,
 OEIS [A000196](https://oeis.org/A000196):
 
 ```
@@ -53,6 +59,22 @@ Integer square root of a large integer:
 
 >>> (7L ^ 73).sqrt
 7015820362023593956150476655802L
+```
+
+At `zero`:
+
+```
+>>> 0.integerSquareRoot
+0
+```
+
+Not defined for negative _n_:
+
+```
+>>> {
+>>> 	-4.integerSquareRoot
+>>> }.hasError
+true
 ```
 
 Show that the expression _f_ below answers non-square numbers:

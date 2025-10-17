@@ -14,6 +14,7 @@ Neighbours:
 
 - `interprime`
 - `leastPrimeGreaterThanOrEqualTo`
+- `nearestPrime`
 - `nextPrime`
 - `previousPrime`
 
@@ -85,11 +86,12 @@ Algorithms:
 - `millerRabinPrimalityTest`
 - `primeFactorsTrialDivision`
 - `primeFactorsWheel`
-- `primesListWheelSieve`
+- `sieveOfAtkin`
 - `sieveOfEratosthenes`
 - `sieveOfPritchard`
 - `sieveOfSundaram`
 - `tonelliShanksAlgorithm`
+- `wheelSieve`
 
 * * *
 

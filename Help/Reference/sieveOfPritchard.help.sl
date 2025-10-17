@@ -2,7 +2,10 @@
 
 - _sieveOfPritchard(n)_
 
-Answer the list of prime numbers up to _n_ using sieve of Pritchard algorithm.
+Answer the list of prime numbers up to _n_ using the sieve of Pritchard algorithm.
+
+Prime numbers up to 99,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 99.sieveOfPritchard
@@ -17,10 +20,12 @@ Answer the list of prime numbers up to _n_ using sieve of Pritchard algorithm.
 
 * * *
 
-See also: sieveOfEratosthenes, sieveOfSundaram
+See also: sieveOfAtkin, sieveOfEratosthenes, sieveOfSundaram, wheelSieve
 
 Guides: Prime Number Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A000040),
 _W_
 [1](https://en.wikipedia.org/wiki/Sieve_of_Pritchard)

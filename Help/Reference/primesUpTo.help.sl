@@ -39,7 +39,7 @@ There is one prime up to two:
 
 * * *
 
-See also: primesList, primesListWheelSieve, primesUpToDo
+See also: primesList, primesUpToDo, wheelSieve
 
 Guides: Prime Number Functions
 

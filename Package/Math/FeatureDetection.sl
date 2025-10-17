@@ -54,24 +54,6 @@
 		answer
 	}
 
-	findRepeatBy { :self :aBlock:/2 |
-		let k = self.size;
-		valueWithReturn { :return:/1 |
-			1.toDo(k) { :i |
-				(i .. k).allSatisfy { :j |
-					aBlock(self[j], self[j.mod(i, 1)])
-				}.ifTrue {
-					self.copyFromTo(1, i).return
-				}
-			};
-			self
-		}
-	}
-
-	findRepeat { :self |
-		self.findRepeatBy(=)
-	}
-
 	isLocalMinimaBy { :self :i :delta :aBlock:/2 |
 		let n = self.size;
 		let y = self[i];
@@ -146,6 +128,55 @@
 			(each >= 0).boole
 		};
 		b.differences.abs.sum * m
+	}
+
+}
+
++[List, Slice] {
+
+	findRepeat { :self :aBlock:/2 |
+		let k = self.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(k - 1) { :i |
+				(i .. k).allSatisfy { :j |
+					aBlock(self[j], self[j.mod(i, 1)])
+				}.ifTrue {
+					self.copyFromTo(1, i).return
+				}
+			};
+			self
+		}
+	}
+
+	findRepeat { :self |
+		self.findRepeat(=)
+	}
+
+	findTransientRepeat { :self :n |
+		let k = self.size;
+		valueWithReturn { :return:/1 |
+			let m = k - (n * 2) + 1;
+			1.toDo(m) { :i |
+				let part = self.sliceFromTo(i, k);
+				let repeat = part.findRepeat;
+				(repeat !== part & { (repeat.size * n) <= (k - i + 1) }).ifTrue {
+					[self.copyFromTo(1, i - 1), repeat.asList].return
+				}
+			};
+			[self, []]
+		}
+	}
+}
+
+
++String {
+
+	findRepeat { :self |
+		self.contents.findRepeat.stringJoin
+	}
+
+	findTransientRepeat { :self :n |
+		self.contents.findTransientRepeat(n).collect(stringJoin:/1)
 	}
 
 }

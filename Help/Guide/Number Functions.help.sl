@@ -29,6 +29,7 @@ Converting:
 - `asSmallFloat`
 - `asSmallInteger`
 - `boole`
+- `rationalize`
 
 Predicates:
 

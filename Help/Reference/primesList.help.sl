@@ -4,6 +4,9 @@
 
 Answer the first _n_ elements of the prime number sequence.
 
+The first nine primes,
+OEIS [A000040](https://oeis.org/A000040):
+
 ```
 >>> 9.primesList
 [2 3 5 7 11 13 17 19 23]

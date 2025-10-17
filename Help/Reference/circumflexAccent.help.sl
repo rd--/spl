@@ -351,6 +351,17 @@ Plot the `sin` function raised to the first three powers:
 
 ![](sw/spl/Help/Image/circumflexAccent-B.svg)
 
+Plot the coefficient of _1/n_ in the base _n_ representation of _√n_,
+OEIS [A074704](https://oeis.org/A074704):
+
+~~~spl svg=C
+1:75.collect { :n |
+	(n ^ 1.5).floor - (n * (n ^ 0.5).floor)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/circumflexAccent-C.svg)
+
 Where supported `^` is displayed as ˆ.
 
 The name of this operator is `circumflexAccent`.

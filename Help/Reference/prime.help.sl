@@ -25,7 +25,8 @@ The inverse is `primePi`:
 3579
 ```
 
-Threads over lists:
+Threads over lists,
+OEIS [A000040](https://oeis.org/A000040):
 
 ```
 >>> 1:9.prime
@@ -74,6 +75,20 @@ Generate a path based on the prime sequence:
 
 ![](sw/spl/Help/Image/prime-B.svg)
 
+Plot the width of the moat of composite numbers surrounding the n-th prime,
+OEIS [A046929](https://oeis.org/A046929):
+
+~~~spl svg=C
+let k = 65;
+1:k.prime
+.partition(3, 1)
+.collect { :m |
+	m.differences.min - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-C.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo
@@ -87,6 +102,9 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=ithprime),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Prime.html),
+_OEIS_
+[1](https://oeis.org/A000040)
+[2](https://oeis.org/A046929),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-nthPrime)
 
