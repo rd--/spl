@@ -1,8 +1,8 @@
 # utf8String
 
-- _utf8String(aList)_
+- _utf8String([b₁ b₂ …])_
 
-Answer a String of the Utf-8 decoding of _aList_,
+Answer a String of the Utf-8 decoding of _b_,
 which must be a valid Utf-8 sequence.
 
 ```
@@ -13,12 +13,16 @@ which must be a valid Utf-8 sequence.
 '€'
 ```
 
+At `ByteArray`:
+
+>>> ByteArray([97 65 206 177])
+>>> .utf8String
+'aAα'
+```
+
 Create a string from a `List`, assuming it contains UTF-8 data:
 
 ```
->>> [97 65 206 177].utf8String
-'aAα'
-
 >>> [
 >>> 	195 139 65 195 146 75 195 135 120 195
 >>> 	129 115 195 137 93
@@ -47,6 +51,8 @@ Not all byte sequences are valid UTF-8 codes:
 * * *
 
 See also: asciiString, ByteArray, String, utf8ByteArray, utf16List
+
+Guides: String Functions
 
 References:
 _Mathematica_

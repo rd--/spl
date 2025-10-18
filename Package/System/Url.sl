@@ -1,4 +1,4 @@
-/* Requires: Blob File */
+/* Requires: BinaryLargeObject File */
 
 @Url {
 
@@ -59,7 +59,7 @@
 	}
 
 	storeString { :self |
-		self.href.storeString ++ '.asUrl'
+		'Url(%)'.format([self.href.storeString])
 	}
 
 }
@@ -136,7 +136,7 @@ URL! : [Object, Equatable, Url] {
 
 }
 
-+[File, Blob] {
++[File, BinaryLargeObject] {
 
 	createObjectUrl { :self |
 		<primitive: return URL.createObjectURL(_self);>
@@ -150,16 +150,22 @@ URL! : [Object, Equatable, Url] {
 		<primitive: return fetch(_self);>
 	}
 
-	fetchBlob { :self |
-		self.fetchThen(blob:/1)
+	fetchBinaryLargeObject { :self |
+		self.fetchThen(
+			binaryLargeObject:/1
+		)
 	}
 
 	fetchByteArray { :self |
-		self.fetchThen(byteArray:/1)
+		self.fetchThen(
+			byteArray:/1
+		)
 	}
 
 	fetchJson { :self |
-		self.fetchThen(json:/1)
+		self.fetchThen(
+			json:/1
+		)
 	}
 
 	fetchMimeType { :self :mimeType |
@@ -169,7 +175,9 @@ URL! : [Object, Equatable, Url] {
 	}
 
 	fetchText { :self |
-		self.fetchThen(text:/1)
+		self.fetchThen(
+			text:/1
+		)
 	}
 
 	fetchTextWithDefault { :self :defaultText |

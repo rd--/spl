@@ -1,9 +1,13 @@
 /* Requires: Object */
 
-@Blob {
+@BinaryLargeObject {
 
 	arrayBuffer { :self |
 		<primitive: return _self.arrayBuffer();>
+	}
+
+	isBinaryLargeObject { :unused |
+		true
 	}
 
 	isEmpty { :self |
@@ -28,13 +32,21 @@
 
 }
 
-Blob! : [Object, Equatable, Blob] {
++@Object {
+
+	isBinaryLargeObject { :unused |
+		false
+	}
+
+}
+
+BinaryLargeObject! : [Object, Equatable, BinaryLargeObject] {
 
 }
 
 +List {
 
-	Blob { :self :options |
+	BinaryLargeObject { :self :options |
 		<primitive: return new Blob(_self, _options);>
 	}
 
@@ -42,12 +54,12 @@ Blob! : [Object, Equatable, Blob] {
 
 +[ByteArray, Float64Array] {
 
-	asBlob { :self :options |
-		Blob([self], options)
+	asBinaryLargeObject { :self :options |
+		BinaryLargeObject([self], options)
 	}
 
-	asBlob { :self |
-		Blob([self], (:))
+	asBinaryLargeObject { :self |
+		BinaryLargeObject([self], (:))
 	}
 
 }

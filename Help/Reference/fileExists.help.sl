@@ -1,6 +1,6 @@
 # fileExists
 
-- _fileExists(system, path)_
+- _fileExists(path)_
 
 Answer `true` if there exists an ordinary file named _path_ at the time the method is invoked,
 else `false`.
@@ -8,23 +8,25 @@ else `false`.
 Test for a system file that usually exists:
 
 ```
->>> system.fileExists('/etc/passwd')
+>>> FilePath('/etc/passwd')
+>>> .fileExists
 true
 ```
 
 A directory is not an ordinary file:
 
 ```
->>> system.fileExists('/etc')
+>>> FilePath('/etc')
+>>> .fileExists
 false
 ```
 
 At a system file that usually does not exist:
 
 ```
->>> system.fileExists(
+>>> FilePath(
 >>> 	'/FileDoesNotExist'
->>> )
+>>> ).fileExists
 false
 ```
 

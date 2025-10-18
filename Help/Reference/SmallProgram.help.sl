@@ -49,12 +49,12 @@ after ten seconds:
 }.Promise
 ~~~
 
-Answer a `Promise` with a `Blob` when the `fetch` request completes:
+Answer a `Promise` with a `BinaryLargeObject` when the `fetch` request completes:
 
 ~~~spl async
 system
 .splUrl('svg/ScProgramBrowser.3.svg')
-.fetchBlob
+.fetchBinaryLargeObject
 .thenElse(identity:/1, identity:/1)
 ~~~
 

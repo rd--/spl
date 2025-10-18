@@ -50,6 +50,8 @@ Plot Utf-8 code points of a String:
 
 See also: asciiByteArray, ByteArray, String, Utf8Stream, utf8String, utf16List
 
+Guides: String Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToCharacterCode.html)

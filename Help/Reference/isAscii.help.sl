@@ -1,9 +1,9 @@
 # isAscii
 
-- _isAscii(aCharacter | aString)_
+- _isAscii(s)_
 
-Answer if _aCharacter_ in the Ascii character set,
-or if all characters of _aString_ are.
+Answer if the character _s_ in the Ascii character set,
+or if all characters of the string _s_ are.
 
 ```
 >>> 'x'.isAscii
@@ -33,5 +33,7 @@ true
 * * *
 
 See also: Character
+
+Guides: String Functions
 
 Categories: Testing, Text

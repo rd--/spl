@@ -1,8 +1,8 @@
 # pathNormalize
 
-- _pathNormalize(aPath)_
+- _pathNormalize(p)_
 
-Answer the normalized form of the `String` _aPath_.
+Answer the normalized form of the `String` the path _p_.
 
 ```
 >>> '/p/./q/../q/r.s'.pathNormalize

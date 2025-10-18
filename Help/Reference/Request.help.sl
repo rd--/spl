@@ -1,6 +1,6 @@
 # Request
 
-- _Request(aString)_
+- _Request(s)_
 
 A `Type` representing a resource request.
 

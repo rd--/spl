@@ -1,6 +1,6 @@
 # directoryExists
 
-- _directoryExists(system, path)_
+- _directoryExists(path)_
 
 Answer `true` if there exists an directory named _path_ at the time the method is invoked,
 else `false`.
@@ -8,23 +8,25 @@ else `false`.
 On a Unix-like system directory the _etc_ directory usually exists:
 
 ```
->>> system.directoryExists('/etc')
+>>> FilePath('/etc')
+>>> .directoryExists
 true
 ```
 
 An ordinary file is not a directory:
 
 ```
->>> system.directoryExists('/etc/passwd')
+>>> FilePath('/etc/passwd')
+>>> .directoryExists
 false
 ```
 
 A directory that usually does not exist:
 
 ```
->>> system.directoryExists(
+>>> FilePath(
 >>> 	'/DirectoryDoesNotExist'
->>> )
+>>> ).directoryExists
 false
 ```
 

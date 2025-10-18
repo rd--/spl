@@ -45,11 +45,16 @@ function isRecord(anObject: SplObject): boolean {
 
 function objectNameByConstructor(anObject: SplObject): TypeName {
 	const name = anObject.constructor.name;
-	return name == 'Range'
-		? 'DocumentRange'
-		: (name == 'bound Storage'
-			? 'Storage'
-			: name); /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
+	if (name == 'Range') {
+		return 'DocumentRange';
+	}
+	if (name == 'Blob') {
+		return 'BinaryLargeObject';
+	}
+	if (name == 'bound Storage') {
+		return 'Storage' /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
+	}
+	return name;
 }
 
 function splObjectTypeOf(anObject: SplObject): TypeName {
@@ -69,7 +74,7 @@ function splObjectTypeOf(anObject: SplObject): TypeName {
 		return 'PriorityQueue';
 	}
 	if (anObject instanceof Uint8Array) {
-		return 'ByteArray';
+		return 'ByteArray'; /* Rename */
 	}
 	if (anObject instanceof Float64Array) {
 		return 'Float64Array';

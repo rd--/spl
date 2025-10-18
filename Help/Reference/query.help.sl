@@ -1,8 +1,10 @@
 # query
 
-- _query(aUrl)_
+- _query(u)_
 
-Answer a `String` having the query, also called the _search_, of the `Url`.
+Answer a `String` having the query,
+also called the search,
+of the `Url` _u_.
 
 ```
 >>> 'http://google.com/search?q=cern'
@@ -14,5 +16,7 @@ Answer a `String` having the query, also called the _search_, of the `Url`.
 * * *
 
 See also: fragment, host, hostName, href, pathName, protocol, Location, Url
+
+Guides: Network Functions
 
 Categories: Network

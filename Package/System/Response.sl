@@ -28,7 +28,7 @@ Response! : [Object] {
 		}
 	}
 
-	blob { :self |
+	binaryLargeObject { :self |
 		<primitive: return _self.blob();>
 	}
 
@@ -90,7 +90,7 @@ Response! : [Object] {
 
 }
 
-+[ArrayBuffer, Blob, ByteArray, Float32Array, Float64Array, String] {
++[ArrayBuffer, BinaryLargeObject, ByteArray, Float32Array, Float64Array, String] {
 
 	Response { :self :options |
 		<primitive: return new Response(_self, _options);>

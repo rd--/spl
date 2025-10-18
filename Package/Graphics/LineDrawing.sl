@@ -11,7 +11,7 @@ LineDrawing : [Object] { | contents metadata |
 		self
 		.asSvg
 		.utf8ByteArray
-		.asBlob(
+		.asBinaryLargeObject(
 			(type: 'image/svg+xml')
 		).createObjectUrl
 	}

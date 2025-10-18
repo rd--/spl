@@ -1,8 +1,8 @@
 # asciiString
 
-- _asciiString(aByteArray | aList)_
+- _asciiString([b₁ b₂ …])_
 
-Answer a `String` of _aByteArray_ or _aList_,
+Answer a `String` of the `ByteArray` or `List` _b_,
 which must be an Ascii encoding.
 
 ```
@@ -26,5 +26,7 @@ The inverses are `ascii` and `asciiByteArray`:
 * * *
 
 See also: ascii, asciiByteArray, ByteArray, String
+
+Guides: String Functions
 
 Categories: Converting, String, Encoding

@@ -707,12 +707,12 @@ BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to a
 0.bitAnd(0) = 0 /* and bits */
 ```
 
-## Blob -- system type
+## BinaryLargeObject -- system type
 ```
-system.includesPackage('Blob') /* blob package */
-Blob([], (:)).typeOf = 'Blob' /* type of Blob */
-Blob([], (:)).size = 0 /* empty Blob has size zero */
-Blob([], (:)).isEmpty /* empty Blob is empty */
+system.includesPackage('BinaryLargeObject') /* blob package */
+BinaryLargeObject([], (:)).typeOf = 'BinaryLargeObject' /* type of BinaryLargeObject */
+BinaryLargeObject([], (:)).size = 0 /* empty BinaryLargeObject has size zero */
+BinaryLargeObject([], (:)).isEmpty /* empty BinaryLargeObject is empty */
 ```
 
 ## Boolean -- logic type
@@ -1557,9 +1557,9 @@ Fraction(4, 6).denominator = 3
 2/3 > 0.5 = true
 1 < 3/2 = true
 3/2 > 1 = true
-3/4.unicode = '¾' /* unicode character for fraction, else error */
-2/3.unicode = '⅔' /* unicode character for fraction, else error */
-{ 9/11.unicode }.hasError /* unicode character for fraction, else error */
+3/4.unicodeFraction = '¾' /* unicode character for fraction, else error */
+2/3.unicodeFraction = '⅔' /* unicode character for fraction, else error */
+{ 9/11.unicodeFraction }.hasError /* unicode character for fraction, else error */
 system.unicodeFractionsTable.isDictionary = true
 system.unicodeFractionsTable.associations.isList = true
 let n = system.unicodeFractionsTable.associations.collect(value:/1); n = n.sorted

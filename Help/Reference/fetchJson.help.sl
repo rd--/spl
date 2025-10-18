@@ -1,8 +1,8 @@
 # fetchJson
 
-- _fetchJson(aUrl)_
+- _fetchJson(u)_
 
-Answer a `Promise` that will resolve to a value having the decoded `Json` contents of _aUrl_.
+Answer a `Promise` that will resolve to a value having the decoded `Json` contents of the `Url` _u_.
 
 ~~~spl async
 system

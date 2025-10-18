@@ -191,6 +191,7 @@ specified as zero-indexed transition codes:
 >>> 	GrayCode(t)
 >>> 	.isBeckettGrayCode
 >>> }.allTrue
+true
 ```
 
 The reversed 5-bit Beckett-Gray codes:

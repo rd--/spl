@@ -1,9 +1,9 @@
 # ImageViewer
 
-- _ImageViewer(smallKansas, title, aUrl)_
+- _ImageViewer(k, t, u)_
 
 A image viewer.
-Add a window to _smallKansas_ with the given _title_ displaying the image at _aUrl_.
+Add a window to the `SmallKansas` _k_ with the given title _t_ displaying the image at `Url` _u_.
 
 Create an object `Url` of an `Svg` of a `LineDrawing`,
 and display it:
@@ -18,12 +18,12 @@ system.smallKansas.ImageViewer(
 )
 ~~~
 
-Fetch a Png file, and display by creating an object Url:
+Fetch a Png file, and display it by creating an object Url:
 
 ~~~spl ui
 system
 .splUrl('png/Emacs Editor.3.png')
-.fetchBlob
+.fetchBinaryLargeObject
 .thenElse { :answer |
 	let url = answer.createObjectUrl;
 	system.smallKansas.ImageViewer(
@@ -42,7 +42,7 @@ Fetch an Svg file, and display by creating an object Url:
 ~~~spl smallKansas
 system
 .splUrl('svg/ScProgramBrowser.3.svg')
-.fetchBlob
+.fetchBinaryLargeObject
 .thenElse { :answer |
 	let url = answer.createObjectUrl;
 	system

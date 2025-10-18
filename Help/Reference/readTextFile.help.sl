@@ -1,14 +1,15 @@
 # readTextFile
 
-- _readTextFile(system, path)_
+- _readTextFile(path)_
 
 Answer a `String` holding the contents of the file named at the string _path_.
 If the file does not exists signal an `Error`.
 
 ~~~
->>> system.readTextFile(
->>> 	system.splFileName('README.md')
->>> ).lines
+>>> 'README.md'
+>>> .splFilePath
+>>> .readTextFile
+>>> .lines
 >>> .size
 16
 ~~~
@@ -29,5 +30,9 @@ system
 See also: fetchText, readBinaryFile, writeTextFile
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/ReadString.html)
 
 Categories: Files, System

@@ -1,23 +1,21 @@
 # removeDirectory
 
-- _removeDirectory(system, path, allowRecursive)_
+- _removeDirectory(path, recursive)_
 
 Remove the directory at _path_.
-If _allowRecursive_ is `true` the directory and all of its contents are removed,
+If _recursive_ is `true` the directory and all of its contents are removed,
 else only the named directory is removed and it must be empty.
 
 ```
->>> system.makeDirectory(
->>> 	'/tmp/spl',
+>>> FilePath('/tmp/spl')
+>>> .makeDirectory(
 >>> 	false,
 >>> 	8r755
 >>> )
 nil
 
->>> system.removeDirectory(
->>> 	'/tmp/spl',
->>> 	false
->>> )
+>>> FilePath('/tmp/spl')
+>>> .removeDirectory(false)
 nil
 ```
 

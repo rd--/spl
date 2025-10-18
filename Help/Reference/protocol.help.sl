@@ -1,8 +1,10 @@
 # protocol
 
-- _protocol(aUrl)_
+- _protocol(u)_
 
-Answer a `String` having the protocol, also called the _scheme_, of the `Url`.
+Answer a `String` having the protocol,
+also called the scheme,
+of the `Url` _u_.
 
 ```
 >>> 'http://cern.ch/'.asUrl.protocol
@@ -25,5 +27,7 @@ Mail, telephone and archive addresses:
 * * *
 
 See also: host, hostName, href, pathName, Location, Url
+
+Guides: Network Functions
 
 Categories: Network

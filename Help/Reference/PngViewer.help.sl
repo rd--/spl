@@ -13,7 +13,7 @@ and displays it when it arrives:
 ~~~spl smallKansas
 system
 .splUrl('png/Emacs Editor.3.png')
-.fetchBlob
+.fetchBinaryLargeObject
 .then { :answer |
 	system.smallKansas.PngViewer(
 		'Emacs Editor',

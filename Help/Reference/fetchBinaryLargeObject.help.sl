@@ -1,15 +1,15 @@
-# fetchBlob
+# fetchBinaryLargeObject
 
-- _fetchBlob(aUrl)_
+- _fetchBinaryLargeObject(aUrl)_
 
-Answer a `Promise` that will resolve to a `Blob` having the contents of _aUrl_.
+Answer a `Promise` that will resolve to a `BinaryLargeObject` having the contents of _aUrl_.
 
 ~~~spl async
 system
 .splUrl('png/Emacs Editor.3.png')
-.fetchBlob
-.then { :aBlob |
-	aBlob
+.fetchBinaryLargeObject
+.then { :aBinaryLargeObject |
+	aBinaryLargeObject
 	.arrayBuffer
 	.then { :anArrayBuffer |
 		anArrayBuffer

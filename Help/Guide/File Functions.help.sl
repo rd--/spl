@@ -1,5 +1,11 @@
 # File Functions
 
+Types:
+
+- `File`
+- `FilePath`
+- `Url`
+
 Files:
 
 - `fileExists`

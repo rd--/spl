@@ -2,6 +2,7 @@
 
 Traits and Types:
 
+- `AsciiStream`
 - `AsciiString`
 - `BacktickQuotedString`
 - `ByteArray`
@@ -9,12 +10,19 @@ Traits and Types:
 - `Character`
 - `String`
 - `Symbol`
+- `Utf8Stream`
 
 Ascii:
 
-- `ascii`
+- `asAsciiString`
 - `asciiByteArray`
+- `asciiContents`
 - `asciiString`
+- `asciiValue`
+- `ascii`
+- `isAsciiCodePoint`
+- `isAscii`
+- `isPrintableAscii`
 
 Converting:
 
@@ -128,6 +136,18 @@ Syntax:
 Text Analysis:
 
 - `deleteStopWords`
+
+Unicode:
+
+- `unicodeCharacterDatabase`
+- `unicodeFraction`
+- `unicodeItalic`
+- `unicodeSubscript`
+- `unicodeSuperscript`
+- `utf16List`
+- `utf8ByteArray`
+- `utf8Contents`
+- `utf8String`
 
 * * *
 

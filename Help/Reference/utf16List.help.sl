@@ -1,8 +1,8 @@
 # utf16List
 
-- _utf16List(aString)_
+- _utf16List(s)_
 
-Answer a `List` of the Utf-16 code points of _aString_.
+Answer a `List` of the Utf-16 code points of the string _s_.
 
 ```
 >>> '€'.utf16List
@@ -25,3 +25,5 @@ The inverse is `utf16String`:
 * * *
 
 See also: String, utf8ByteArray, utf16String
+
+Guides: String Functions

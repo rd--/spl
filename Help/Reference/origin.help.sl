@@ -15,4 +15,6 @@ Answer a `String` having the canonical form of the origin of the Url.
 
 See also: Location, Url
 
+Guides: Network Functions
+
 Categories: Network

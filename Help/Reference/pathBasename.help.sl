@@ -1,19 +1,21 @@
 # pathBasename
 
-- _pathBasename(p)_
+- _pathBasename(path)_
 
-Answer the last component of the `String` _p_.
+Answer the last component of _path_.
 Components are ordinarily separated by _solidus_ characters.
 
 ```
->>> '/p/q/r.s'.pathBasename
+>>> '/p/q/r.s'
+>>> .pathBasename
 'r.s'
 ```
 
 If there is a trailing directory separator:
 
 ```
->>> '/p/q/'.pathBasename
+>>> '/p/q/'
+>>> .pathBasename
 'q'
 ```
 

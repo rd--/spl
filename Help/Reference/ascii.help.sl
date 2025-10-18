@@ -1,9 +1,9 @@
 # ascii
 
-- _ascii(aString)_
+- _ascii(s)_
 
 `ascii` is `asList` of `asciiByteArray`,
-and answers a `List` of the Ascii encoding of _aString_,
+and answers a `List` of the Ascii encoding of the string _s_,
 which must be an Ascii string.
 
 The Ascii encoding of 'ascii':
@@ -16,6 +16,8 @@ The Ascii encoding of 'ascii':
 * * *
 
 See also: asciiByteArray, asciiString, asList, String
+
+Guides: String Functions
 
 References:
 _SuperCollider_

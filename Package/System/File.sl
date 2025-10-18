@@ -1,6 +1,6 @@
-/* Requires: Blob ByteArray Float64Array Sequence */
+/* Requires: BinaryLargeObject ByteArray Float64Array Sequence */
 
-File! : [Object, Blob] {
+File! : [Object, BinaryLargeObject] {
 
 	lastModified { :self |
 		<primitive: return _self.lastModified;>
@@ -20,10 +20,18 @@ File! : [Object, Blob] {
 
 }
 
-+[Blob, ByteArray, Float64Array] {
++[BinaryLargeObject, ByteArray, Float64Array] {
 
 	File { :self :fileName :options |
 		File([self], fileName, options)
+	}
+
+}
+
++[List, BinaryLargeObject, ByteArray, Float64Array] {
+
+	File { :fileBits :fileName |
+		File(fileBits, fileName, (:))
 	}
 
 }

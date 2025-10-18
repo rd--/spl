@@ -1,7 +1,7 @@
 [
 	/* System (Initial) */
-	'File' /* Blob */
-	'Url' /* Blob File */
+	'File' /* BinaryLargeObject */
+	'Url' /* BinaryLargeObject File */
 	'CacheStorage'
 	'LibraryItem' /* CacheStorage, Url */
 

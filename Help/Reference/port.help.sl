@@ -1,8 +1,8 @@
 # port
 
-- _port(aUrl)_
+- _port(u)_
 
-Answer a `String` having the port of the `host` component of _aUrl_.
+Answer a `String` having the port of the `host` component of the `Url` _u_.
 
 ```
 >>> 'http://cern.ch:8080/'.asUrl.port
@@ -15,5 +15,7 @@ Answer a `String` having the port of the `host` component of _aUrl_.
 * * *
 
 See also: host, hostName, Url
+
+Guides: Network Functions
 
 Categories: Network

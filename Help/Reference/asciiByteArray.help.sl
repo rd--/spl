@@ -1,8 +1,8 @@
 # asciiByteArray
 
-- _asciiByteArray(aString)_
+- _asciiByteArray(s)_
 
-Answer a `ByteArray` of the Ascii encoding of _aString_,
+Answer a `ByteArray` of the Ascii encoding of the string _s_,
 which must be an Ascii string.
 
 ```
@@ -34,5 +34,7 @@ true
 * * *
 
 See also: ascii, asciiString, ByteArray, String, utf8ByteArray, utf8String, utf16List
+
+Guides: String Functions
 
 Categories: String, Encoding

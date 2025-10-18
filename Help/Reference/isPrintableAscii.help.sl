@@ -1,8 +1,8 @@
 # isPrintableAscii
 
-- _isPrintableAscii(aString)_
+- _isPrintableAscii(s)_
 
-Answer `true` if _aString_ contains only printable Ascii characters, and `false` otherwise.
+Answer `true` if the string _s_ contains only printable Ascii characters, and `false` otherwise.
 
 Check if a single character is a valid Ascii character:
 
@@ -53,6 +53,8 @@ true
 * * *
 
 See also: characterRange, isDigit, isLetter, removeDiacritics, String, toCharacterCode
+
+Guides: String Functions
 
 References:
 _Mathematica_

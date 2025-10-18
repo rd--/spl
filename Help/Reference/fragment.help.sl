@@ -1,8 +1,10 @@
 # fragment
 
-- _fragment(aUrl)_
+- _fragment(u)_
 
-Answer a `String` having the fragment, also called the _hash_, component of the `Url`.
+Answer a `String` having the fragment component,
+also called the hash component,
+of the `Url` _u_.
 
 ```
 >>> 'A://B/C#D'.asUrl.fragment
@@ -12,5 +14,7 @@ Answer a `String` having the fragment, also called the _hash_, component of the 
 * * *
 
 See also: host, hostName, href, pathName, port, protocol, query, Url
+
+Guides: Network Functions
 
 Categories: Network

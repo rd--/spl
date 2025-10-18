@@ -502,7 +502,7 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		self.numerator.quotient(self.denominator)
 	}
 
-	unicode { :self |
+	unicodeFraction { :self |
 		system.unicodeFractionsTable.indexOf(self)
 	}
 

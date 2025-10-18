@@ -49,7 +49,7 @@ system
 }
 ~~~
 
-Fetch a binary file as a `Blob` with associated mime type:
+Fetch a binary file as a `BinaryLargeObject` with associated mime type:
 
 ~~~spl async
 system
@@ -58,8 +58,8 @@ system
 .thenElse { :response |
 	response
 	.blob
-	.then { :aBlob |
-		aBlob
+	.then { :aBinaryLargeObject |
+		aBinaryLargeObject
 		.arrayBuffer
 		.then { :anArrayBuffer |
 			anArrayBuffer

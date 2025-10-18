@@ -9,9 +9,11 @@ Traits:
 
 Types:
 
+- `AsciiStream`
 - `BlockStream`
 - `CollectionStream`
 - `MutableCollectionStream`
+- `Utf8Stream`
 
 Predicates:
 

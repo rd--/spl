@@ -1,13 +1,13 @@
 # readBinaryFile
 
-- _readBinaryFile(system, path)_
+- _readBinaryFile(path)_
 
 Answer a `ByteArray` holding the contents of the named file.
 Signal an `Error` if the file does not exist.
 
 ~~~
->>> system
->>> .readBinaryFile('/etc/passwd')
+>>> FilePath('/etc/passwd')
+>>> .readBinaryFile
 >>> .isByteArray
 true
 ~~~

@@ -211,10 +211,12 @@ System! : [Object, Cache, RandomNumberGenerator] {
 	}
 
 	splFileName { :self :aString |
-		'%/%'.format([
-			self.splDirectory,
-			aString
-		])
+		'%/%'.format(
+			[
+				self.splDirectory,
+				aString
+			]
+		)
 	}
 
 	splOperatorCharacters { :self |

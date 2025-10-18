@@ -174,7 +174,11 @@ ByteArray! : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Se
 +@ArithmeticProgression {
 
 	asByteArray { :self |
-		self.asList.asByteArray
+		ByteArray(self)
+	}
+
+	ByteArray { :self |
+		ByteArray(self.asList)
 	}
 
 }

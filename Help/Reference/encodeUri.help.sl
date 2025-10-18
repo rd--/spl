@@ -1,8 +1,8 @@
 # encodeUri
 
-- _encodeUri(aString)_
+- _encodeUri(s)_
 
-Answer the Uri encoded form of _aString_.
+Answer the Uri encoded form of the string _s_.
 
 ```
 >>> 'x y'.encodeUri
@@ -18,7 +18,9 @@ The inverse is `decodeUri`:
 
 * * *
 
-See also: encodeUri
+See also: decodeUri
+
+Guides: Network Functions
 
 References:
 _Tc39_

@@ -1,8 +1,8 @@
 # fetchByteArray
 
-- _fetchByteArray(aUrl)_
+- _fetchByteArray(u)_
 
-Answer a `Promise` that will resolve to a `ByteArray` having the contents of _aUrl_.
+Answer a `Promise` that will resolve to a `ByteArray` having the contents of the `Url` _u_.
 
 ~~~spl async
 system
@@ -18,7 +18,7 @@ system
 
 * * *
 
-See also: ByteArray, fetch, fetchBlob, fetchJson, fetchMimeType, fetchText, Url
+See also: ByteArray, fetch, fetchBinaryLargeObject, fetchJson, fetchMimeType, fetchText, Url
 
 Guides: Network Functions
 

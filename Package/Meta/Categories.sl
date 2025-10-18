@@ -53,7 +53,7 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'LargeInteger'
 	],
 	'System': [
-		'Blob'
+		'BinaryLargeObject'
 		'File'
 		'LibraryItem'
 		'Response'
@@ -962,7 +962,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'Colour'
 	],
 	'instance creation-system': [
-		'Blob'
+		'BinaryLargeObject'
 		'File'
 		'LibraryItem'
 		'Response'
@@ -1353,7 +1353,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'isAssociation'
 		'isMultiset'
 		'isBitSet'
-		'isBlob'
+		'isBinaryLargeObject'
 		'isBlock'
 		'isBoolean'
 		'isByteArray'

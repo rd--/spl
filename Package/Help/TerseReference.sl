@@ -1,15 +1,15 @@
 /* Requires: DocumentationTest FileSystem Url */
 
-+String {
++FilePath {
 
 	terseProgramSummary { :directoryName :answerPredicate:/1 |
 		let testCount = 0;
 		let passCount = 0;
 		let errorCount = 0;
-		system
-		.readDirectoryFileNames(directoryName)
+		directoryName
+		.readDirectoryFileNames
 		.do { :fileName |
-			let fileText = system.readTextFile(fileName);
+			let fileText = fileName.readTextFile;
 			let programTexts = fileText.paragraphs.takeWhile { :each |
 				each.beginsWith('#').not
 			};
@@ -31,7 +31,7 @@
 		let totalTestCount = 0;
 		let totalPassCount = 0;
 		let totalErrorCount = 0;
-		let fileNameList = system.readDirectoryFileNames(directoryName);
+		let fileNameList = system.readDirectoryFileNames(directoryName.absolutePathString);
 		let helpFileNameList = fileNameList.sortBy(<|).select { :each |
 			each.endsWith('.help.sl') & {
 				each.pathBasename.matchesRegularExpression(options['pattern'])

@@ -67,7 +67,7 @@ and this function requires the item be in the interpreter cache.
 
 See also: codePoint, LibraryItem
 
-Guides: Library Catalogue
+Guides: Library Catalogue, String Functions
 
 References:
 _Unicode_

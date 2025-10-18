@@ -1,52 +1,71 @@
 # ByteArray
 
 - _ByteArray(n)_
-- _ByteArray([x, …])_
+- _ByteArray([b₁ b₂ …])_
 
-Answer a `ByteArray` of _anInteger_ places, each initialized to `zero`.
-
-A `ByteArray` is an array whose elements are integers between 0 and 255.
+`ByteArray` is a `Type` holding an array whose elements are integers between 0 and 255.
 Unlike a `List`, a `ByteArray` is of fixed size.
+
+At `Integer`,
+answer a `ByteArray` of _n_ places,
+each initialized to `zero`.
 
 ```
 >>> ByteArray(5)
-[0 0 0 0 0].asByteArray
+ByteArray([0 0 0 0 0])
 ```
 
-`asByteArray` creates a `ByteArray` from a sequence of byte values.
+At `List`,
+answer a `ByteArray` with the specified bytes:
+
+```
+>>> ByteArray([1 2 3 4 5])
+ByteArray([1 2 3 4 5])
+```
+
+At `Range`:
+
+```
+>>> ByteArray(1:5)
+ByteArray([1 2 3 4 5])
+```
+
 `ByteArray` implements `Collection`:
 
 ```
->>> [1 3 5 7].asByteArray ^ 2
-[1 9 25 49].asByteArray
+>>> ByteArray([1 3 5 7]) ^ 2
+ByteArray([1 9 25 49])
 ```
 
 `ByteArray` implements `Sequence`:
 
 ```
->>> [1 3 5 7 9].asByteArray.last(3)
-[5 7 9].asByteArray
+>>> ByteArray([1 3 5 7 9])
+>>> .last(3)
+ByteArray([5 7 9])
 ```
 
 The inverse of `asByteArray` is `asList`:
 
 ```
->>> [1 3 5 7 9].asByteArray.asList
+>>> [1 3 5 7 9]
+>>> .asByteArray
+>>> .asList
 [1 3 5 7 9]
 ```
 
 Get the length of a `ByteArray`:
 
 ```
->>> 1:32.asByteArray.size
+>>> ByteArray(1:32).size
 32
 ```
 
 Reverse a `ByteArray`:
 
 ```
->>> 1:5.asByteArray.reverse.asList
-[5 4 3 2 1]
+>>> ByteArray(1:5).reverse
+ByteArray([5 4 3 2 1])
 ```
 
 * * *

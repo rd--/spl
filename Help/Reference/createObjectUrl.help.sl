@@ -1,13 +1,15 @@
 # createObjectUrl
 
-- _createObjectUrl(aFile | aBlob)_
+- _createObjectUrl(x)_
 
-Answer a `String` holding a `Url` that represents the data at _aFile_ or _aBlob_.
+Answer a `String` holding a `Url` that represents the data at _x_,
+which should be either a `File` or `BinaryLargeObject`.
 
 ~~~spl async
 system
 .splUrl('png/Emacs Editor.3.png')
-.fetchBlob.then { :answer |
+.fetchBinaryLargeObject
+.then { :answer |
 	answer
 	.createObjectUrl
 }

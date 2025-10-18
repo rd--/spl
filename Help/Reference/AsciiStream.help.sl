@@ -1,6 +1,6 @@
 # AsciiStream
 
-- _AsciiStream(anInteger=100)_
+- _AsciiStream(n=100)_
 
 Answer a `MutableCollectionStream` on a `ByteArray` on which `String` values can be written using `encodeOn`.
 
@@ -36,7 +36,7 @@ The `asciiContents` method combines `contents` and `asciiString`:
 
 `asciiStringStreamContents` constructs the stream,
 runs an encoding block,
-and answers the finale stream contents as a `String`:
+and answers the final stream contents as a `String`:
 
 ```
 >>> { :stream |
@@ -48,3 +48,5 @@ and answers the finale stream contents as a `String`:
 * * *
 
 See also: asciiContents, asciiString, ByteArray, contents, encodeOn, MutableCollectionStream, printString, String, Utf8Stream
+
+Guides: Stream Functions, String Functions

@@ -1,15 +1,18 @@
 # decodeUri
 
-- _decodeUri(aString)_
+- _decodeUri(s)_
 
-Answer the Uri decoded form of _aString_.
+Answer the Uri decoded form of the string _s_.
 
 ```
 >>> 'x%20y'.decodeUri
 'x y'
 
->>> '%D1%88%D0%B5%D0%BB%D0%BB%D1%8B'
->>> .decodeUri
+>>> [
+>>> 	37 68 49 37 56 56 37 68 48 37
+>>> 	66 53 37 68 48 37 66 66 37 68
+>>> 	48 37 66 66 37 68 49 37 56 66
+>>> ].asciiString.decodeUri
 'шеллы'
 ```
 
@@ -23,6 +26,8 @@ The inverse is `encodeUri`:
 * * *
 
 See also: encodeUri
+
+Guides: Network Functions
 
 References:
 _Tc39_

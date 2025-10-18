@@ -1,4 +1,4 @@
-/* Requires: Blob Event EventTarget */
+/* Requires: BinaryLargeObject Event EventTarget */
 
 @AbstractRange {
 
@@ -919,7 +919,7 @@ ImageBitmap! : [Object] {
 
 }
 
-+[Blob, HTMLImageElement] {
++[BinaryLargeObject, HTMLImageElement] {
 
 	ImageBitmap { :self | <primitive: return createImageBitmap(_self);> }
 

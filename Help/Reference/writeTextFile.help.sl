@@ -1,22 +1,22 @@
 # writeTextFile
 
-- _writeTextFile(system, path, data)_
+- _writeTextFile(path, data)_
 
 Write the string _data_ to a text file at _path_ and answer `nil`.
 Over-writes any existing file.
 Signals an error if the write fails.
 
 ~~~
->>> system.writeTextFile(
->>> 	'/tmp/spl.text',
->>> 	'Sᴘʟ'
->>> )
+>>> FilePath('/tmp/spl.text')
+>>> .writeTextFile('Sᴘʟ')
 nil
 
->>> system.readTextFile('/tmp/spl.text')
+>>> FilePath('/tmp/spl.text')
+>>> .readTextFile
 'Sᴘʟ'
 
->>> system.removeFile('/tmp/spl.text')
+>>> FilePath('/tmp/spl.text')
+>>> .removeFile
 nil
 ~~~
 
@@ -25,5 +25,9 @@ nil
 See also: makeDirectory, readTextFile, removeFile, writeBinaryFile
 
 Guides: File Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/WriteString.html)
 
 Categories: Files

@@ -16,7 +16,7 @@ Answer the `Type` of the object _x_.
 ```
 
 This is not called `type` since that is a very commonly used word and might ordinarily be used to name a slot of a type,
-as it is for `Blob`.
+as it is for `BinaryLargeObject`.
 The reflective method to answer the `Type` of a value is used only infrequently.
 
 * * *

@@ -1,6 +1,6 @@
 # Utf8Stream
 
-- _Utf8Stream(anInteger=100)_
+- _Utf8Stream(n=100)_
 
 Answer a `MutableCollectionStream` on a `ByteArray` on which `String` values can be written using `encodeOn`.
 
@@ -37,3 +37,5 @@ The `utf8Contents` method combines `contents` and `utf8String`:
 * * *
 
 See also: AsciiStream, ByteArray, contents, encodeOn, MutableCollectionStream, printString, String, utf8Contents, utf8String
+
+Guides: Stream Functions, String Functions

@@ -368,7 +368,7 @@
 	'SuperCollider-Ugen'
 	'SuperCollider-UgenBindings'
 	'SuperCollider-UgenGraph'
-	'System-Blob'
+	'System-BinaryLargeObject'
 	'System-CacheStorage'
 	'System-Event'
 	'System-EventTarget'

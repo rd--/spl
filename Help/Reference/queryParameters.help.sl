@@ -1,8 +1,8 @@
 # queryParameters
 
-- _queryParameters(aUrl)_
+- _queryParameters(u)_
 
-Answer a `UrlQueryParameters` value holding the `query` component of _aUrl_.
+Answer a `UrlQueryParameters` value holding the `query` component of the `Url` _u_.
 
 ```
 >>> 'x://?p=i&q=j'.asUrl.queryParameters.associations
@@ -12,5 +12,7 @@ Answer a `UrlQueryParameters` value holding the `query` component of _aUrl_.
 * * *
 
 See also: query, Url, UrlQueryParameters
+
+Guides: Network Functions
 
 Categories: Network, Address

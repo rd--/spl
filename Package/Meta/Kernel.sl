@@ -55,7 +55,7 @@
 	'ByteArray'
 	'Float32Array'
 	'Float64Array'
-	'Blob' /* ByteArray, Float64Array */
+	'BinaryLargeObject' /* ByteArray, Float64Array */
 
 	'Response'
 

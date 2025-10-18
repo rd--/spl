@@ -1,9 +1,9 @@
 # asciiValue
 
-- _asciiValue(aCharacter | aString)_
+- _asciiValue(s)_
 
-Answer the Ascii code point of _aCharacter_,
-or of _aString_ which must have a single character,
+Answer the Ascii code point of the character _s_,
+or of the string _s_ which must have a single character,
 else an error.
 
 ```
@@ -16,12 +16,16 @@ else an error.
 >>> 'x'.asciiValue
 120
 
->>> { 'é'.asciiValue }.hasError
+>>> {
+>>> 	'é'.asciiValue
+>>> }.hasError
 true
 ```
 
 * * *
 
 See also: codePoint, Character, String
+
+Guides: String Functions
 
 Categories: Accessing

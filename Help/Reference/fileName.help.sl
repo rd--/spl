@@ -1,8 +1,8 @@
 # fileName
 
-- _fileName(aUrl)_
+- _fileName(u)_
 
-Answer a `String` having the file name part of the `pathName` of _aUrl_,
+Answer a `String` having the file name part of the `pathName` of the `Url` _u_,
 which may not name a file.
 
 ```
@@ -36,5 +36,7 @@ A Url with trailing directory separator:
 * * *
 
 See also: asFileUrl, asUrl, pathName, Url
+
+Guides: Network Functions
 
 Categories: Network
