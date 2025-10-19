@@ -374,3 +374,26 @@ HelpFile : [Object, Equatable, Cache] { | origin source cache |
 	}
 
 }
+
++String {
+
+	splHelpFragment { :topic :anchor |
+		let h = system.readHelpFile(topic);
+		let m = h.markdown.contents;
+		let f = m.detect { :each |
+			each.includesKey('info') & {
+				let i = each['info'];
+				i.includesSubstring(anchor)
+			}
+		};
+		let k = f['id'];
+		let p = m.detect { :each |
+			each['id'] = (k - 1)
+		};
+		[
+			p['literal'],
+			f['literal']
+		]
+	}
+
+}

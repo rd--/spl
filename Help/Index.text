@@ -1316,6 +1316,7 @@ Reference/fileExists.help.sl
 Reference/File.help.sl
 Reference/fileInformation.help.sl
 Reference/fileName.help.sl
+Reference/FilePath.help.sl
 Reference/fillFrom.help.sl
 Reference/fillFromWith.help.sl
 Reference/fill.help.sl
@@ -3644,7 +3645,7 @@ Reference/uncheckedStringIntercalate.help.sl
 Reference/UndirectedEdge.help.sl
 Reference/undirectedGraph.help.sl
 Reference/unicodeCharacterDatabase.help.sl
-Reference/unicode.help.sl
+Reference/unicodeFraction.help.sl
 Reference/unicodeItalic.help.sl
 Reference/unicodeSubscript.help.sl
 Reference/unicodeSuperscript.help.sl

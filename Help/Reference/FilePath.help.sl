@@ -10,6 +10,14 @@ A `Type` holding a file system path.
 '/etc/fstab'
 ```
 
+Convert to a `Url`:
+
+```
+>>> FilePath('/etc/fstab')
+>>> .asUrl
+Url('file:///etc/fstab')
+```
+
 * * *
 
 See also: Url
