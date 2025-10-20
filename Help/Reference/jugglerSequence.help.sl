@@ -97,4 +97,3 @@ _OEIS_
 [2](https://oeis.org/A094716),
 _W_
 [1](https://en.wikipedia.org/wiki/Juggler_sequence)
-

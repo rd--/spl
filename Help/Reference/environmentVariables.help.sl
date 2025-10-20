@@ -7,10 +7,12 @@ The keys are the names of the environment variables,
 and each is associated with its value.
 
 ```
->>> system
->>> .environmentVariables
->>> .includesKey('HOME')
-true
+>>> let e = system.environmentVariables;
+>>> (
+>>> 	e.includesKey('PATH'),
+>>> 	e.at('HOME')
+>>> )
+(true, '/home/rohan')
 ```
 
 * * *

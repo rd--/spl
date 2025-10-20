@@ -43,6 +43,7 @@
 - `coth`: A085984
 - `delannoySequence`: A008288
 - `derangements`: A000166
+- `differences`: A049296
 - `digitCount`: A000120 A005823 A006046
 - `digitalRoot`: A010888
 - `discriminant`: A007878
@@ -79,6 +80,7 @@
 - `fromDigits`: A019518
 - `gamma`: A094640 A094641
 - `gausssConstant`: A014549 A053002 A053003
+- `gcd`: A008364
 - `gelfondsConstant`: A018938 A039661 A060295
 - `generalizedPentagonalNumbers`: A001318
 - `gijswijtsSequence`: A090822
@@ -90,7 +92,8 @@
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A000120 A001316 A006046
 - `grahlSequence`: A229037 A309890
-- `grayEncode`: A003188 A014550
+- `grayDecode`: A006068
+- `grayEncode`: A003188 A014550 A098488 A105530
 - `haltonSequence`: A030101 A030102
 - `hammingWeight`: A000120
 - `harmonicNumber`: A001008 A002805
@@ -99,6 +102,7 @@
 - `hofstadterQSequence`: A005185
 - `integerDigits`: A007376 A010060 A062756 A117966 A160855 A265326 A364024
 - `integerExponent`: A001511 A007814
+- `integerSquareRoot`: A000196
 - `interprime`: A024675
 - `inventorySequence`: A342585
 - `involutionNumber`: A000085
@@ -111,6 +115,7 @@
 - `isColossallyAbundantNumber`: A004490
 - `isComposite`: A002808
 - `isDeficientNumber`: A005100
+- `isEven`: A005843
 - `isFullReptendPrime`: A001913
 - `isHarmonicDivisorNumber`: A001599
 - `isHarshadNumber`: A005349
@@ -136,7 +141,9 @@
 - `isPseudoperfectNumber`: A005835
 - `isPythagoreanPrime`: A002144
 - `isRegularNumber`: A051037
+- `isRoughNumber`: A007775 A008364
 - `isSemiprime`: A001358 A006881
+- `isSinglyEven`: A016825
 - `isSmoothNumber`: A000079 A002473 A003586 A051037 A051038 A080197 A080681 A080682 A080683
 - `isSphenicNumber`: A007304 A165936
 - `isSternPrime`: A042978
@@ -160,6 +167,7 @@
 - `landauConstant`: A081760
 - `landauRamanujanConstant`: A081760
 - `lassalleNumber`: A180874
+- `leastPrimeFactorList`: A020639
 - `legendreP`: A008316
 - `leibnizHarmonicTriangle`: A003506
 - `lemniscateConstant`: A062539
@@ -190,6 +198,7 @@
 - `motzkinSequence`: A001006
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930
+- `nearestPrime`: A051697
 - `necklaceCount`: A000031
 - `noergaardInfinitySequence`: A004718
 - `noergaardRhythmicInfinitySystem`: A073334
@@ -215,6 +224,9 @@
 - `plasticRatio`: A060006
 - `politeness`: A069283
 - `polygonalNumber`: A000124 A000217 A139610
+- `previousPrime`: A007917
+- `prime`: A000040 A046929
+- `primeDistance`: A051699
 - `primeFactors`: A020639
 - `primeGap`: A001223
 - `primePi`: A000720
@@ -241,6 +253,10 @@
 - `selfCountingNumber`: A002024
 - `selfCountingSequence`: A002024
 - `sierpinskiConstant`: A062089 A241017
+- `sieveOfAtkin`: A000040
+- `sieveOfEratosthenes`: A000040
+- `sieveOfPritchard`: A000040
+- `sieveOfSundaram`: A000040
 - `silverConstant`: A116425
 - `silverRatio`: A014176
 - `soldnersConstant`: A070769 A091723
@@ -275,6 +291,7 @@
 - `vanDerCorputNumber`: A030101 A030102
 - `vanDerLaanSequence`: A182097
 - `vedicSquare`: A125959 A180592 A180593 A180594
+- `wheelSieve`: A000040
 - `wythoffArray`: A003622 A035513
 - `wythoffLower`: A000201
 - `wythoffPair`: A000201 A001950

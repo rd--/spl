@@ -42,6 +42,31 @@ A parallelogram can tile the plane:
 
 ![](sw/spl/Help/Image/Parallelogram-C.svg)
 
+Two parallelograms having equal bases and equal altitudes are also of equal content,
+three equal area parallelograms:
+
+~~~spl svg=D
+let y = 1.85;
+[
+	Parallelogram([0 0], [1 0; 0.5 y]),
+	Parallelogram([0 0], [1 0; -0.15 y]),
+	Parallelogram([0 0], [1 0; 1.65 y])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Parallelogram-D.svg)
+
+Any triangle is always of equal area to a certain parallelogram having an equal base and an altitude half as great as that of the triangle:
+
+~~~spl svg=E
+[
+	Triangle([0 0; 1 0; 0.75 1.5]),
+	Parallelogram([0 0], [1 0; 0.375 0.75])
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/Parallelogram-E.svg)
+
 * * *
 
 See also: LineDrawing, parallelogram, Polygon, vertexCoordinates

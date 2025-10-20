@@ -31,6 +31,9 @@ Guides: File Functions, System Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/SetDirectory.html)
+[1](https://reference.wolfram.com/language/ref/SetDirectory.html),
+_Posix_
+[1](https://pubs.opengroup.org/onlinepubs/9799919799/functions/getcwd.html)
+[2](https://pubs.opengroup.org/onlinepubs/9799919799/functions/chdir.html)
 
 Categories: System

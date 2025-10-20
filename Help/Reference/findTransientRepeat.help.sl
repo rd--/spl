@@ -22,6 +22,7 @@ Too few repeats:
 >>> [1 2 3 4 3 4 3 4]
 >>> .findTransientRepeat(4)
 [1 2 3 4 3 4 3 4; ]
+```
 
 The last sublist does not need to be complete:
 

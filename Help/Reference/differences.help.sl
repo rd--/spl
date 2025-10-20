@@ -198,7 +198,6 @@ OEIS [A049296](https://oeis.org/A049296):
 ]
 ```
 
-
 Successive differences modulo two of a sequence based on the primes:
 
 ~~~spl svg=A

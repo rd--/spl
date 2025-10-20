@@ -42,6 +42,7 @@ Algebraic Curve Functions:
 - `richardsCurve`
 - `rotaryHarmonographCurve`
 - `satelliteCurve`
+- `semicubicalParabola`
 - `serpentineCurve`
 - `sinusoidalSpiral`
 - `sphericalTrochoid`

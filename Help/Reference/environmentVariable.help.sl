@@ -43,6 +43,9 @@ Guides: System Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Environment.html)
+[1](https://reference.wolfram.com/language/ref/Environment.html),
+_Posix_
+[1](https://pubs.opengroup.org/onlinepubs/9799919799/functions/getenv.html)
+[2](https://pubs.opengroup.org/onlinepubs/9799919799/functions/setenv.html)
 
 Categories: System

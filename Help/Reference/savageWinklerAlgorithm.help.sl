@@ -151,4 +151,3 @@ Plot the seven-bit Savage-Winkler monotonic Gray code:
 See also: GrayCode
 
 Further Reading: Savage & Winkler 1995
-

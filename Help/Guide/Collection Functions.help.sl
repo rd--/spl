@@ -23,7 +23,6 @@ Control Functions:
 - `ifEmpty`
 - `ifNotEmpty`
 
-
 * * *
 
 Guides: Dictionary Functions, List Functions

@@ -8,6 +8,7 @@ a positive integer all of whose prime factors are greater than or equal to _k_.
 Find the seven-rough numbers up to one hundred,
 OEIS [A007775](https://oeis.org/A007775):
 
+```
 >>> 1:100.select { :each |
 >>> 	each.isRoughNumber(7)
 >>> }

@@ -305,6 +305,14 @@
 		}
 	}
 
+	semicubicalParabola { :a |
+		{ :t |
+			let x = t.square;
+			let y = a * t.cube;
+			[x, y]
+		}
+	}
+
 	serpentineCurve { :a :b |
 		{ :theta |
 			[
