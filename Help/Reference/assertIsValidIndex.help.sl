@@ -29,6 +29,7 @@ Invalid index at at `List`:
 >>> 	[1 2 3 4 5].assertIsValidIndex(-1)
 >>> }.hasError
 true
+```
 
 * * *
 

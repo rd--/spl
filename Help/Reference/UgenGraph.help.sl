@@ -7,8 +7,10 @@ A `Type` representing a named graph of unit generators.
 This type can be encoded to the binary format understood by _scsynth_.
 
 ```
->>> let g = UgenGraph('sin', SinOsc(440, 0) * 0.1);
->>> g.isUgenGraph
+>>> UgenGraph(
+>>> 	'sin',
+>>> 	SinOsc(440, 0) * 0.1
+>>> ).isUgenGraph
 true
 ```
 
@@ -22,18 +24,21 @@ Accessors are:
 Collect names of `LocalControl` and `ScUgen` values:
 
 ```
->>> let ugenGraph = UgenGraph(
+>>> let g = UgenGraph(
 >>> 	'sin',
 >>> 	SinOsc(
 >>> 		NamedControl('freq', 440),
 >>> 		0
 >>> 	) * 0.1
 >>> );
+>>> let c = g.constantList;
+>>> let k = g.controlList;
+>>> let u = g.ugenList;
 >>> (
->>> 	ugenGraph.name,
->>> 	ugenGraph.constantList,
->>> 	ugenGraph.controlList.collect(name:/1),
->>> 	ugenGraph.ugenList.collect(displayName:/1)
+>>> 	g.name,
+>>> 	c,
+>>> 	k.collect(name:/1),
+>>> 	u.collect(displayName:/1)
 >>> )
 (
 	'sin',

@@ -20,17 +20,12 @@ A granular time stretcher and pitchshifter.
 Here the pointer moves from the beginning to the end of the soundfile over fifteen seconds, control pitch with _MouseX_:
 
 ```spl SfAcquire
-let numChannels = 1;
-let soundFile = SfAcquireMono('Floating');
-let pointer = LfSaw(1 / 15, 0).LinLin(-1, 1, 0, 1);
-let freqScale = MouseX(0.5, 2, 0, 0.2);
-let windowSize = 0.1;
 Warp1(
-	numChannels,
-	soundFile,
-	pointer,
-	freqScale,
-	windowSize,
+	1,
+	SfAcquireMono('Floating'),
+	LfSaw(1 / 15, 0).LinLin(-1, 1, 0, 1),
+	MouseX(0.5, 2, 0, 0.2),
+	0.1,
 	-1,
 	8,
 	0.1,
@@ -42,9 +37,10 @@ Pointer is `Phasor`, playback slows from unit to a quarter over twenty seconds:
 
 ```spl SfAcquire
 let sf = SfAcquireMono('Floating');
+let d = SampleDur() / SfDuration(sf);
 let pointer = Phasor(
 	0,
-	SampleDur() / SfDuration(sf) * XLine(1, 0.25, 20),
+	d * XLine(1, 0.25, 20),
 	0,
 	1,
 	0

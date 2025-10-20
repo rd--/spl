@@ -26,7 +26,12 @@ Texture program:
 {
 	let freq = Rand(47, 69) * [1, 1.1];
 	let mul = {
-		Perc(LfClipNoise(Rand(3, 7)), 0.01, 1, -4) * 0.1
+		Perc(
+			LfClipNoise(Rand(3, 7)),
+			0.01,
+			1,
+			-4
+		) * 0.1
 	} ! 2;
 	let snd = [
 		SinOsc(freq * [1, 2], 0),
