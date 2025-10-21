@@ -1,22 +1,24 @@
 # ResidueSet
 
-- _ResidueSet(n)_
+- _ResidueSet(c, m)_
 
-Answer an empty `ResidueSet` with modulus _n_.
+Answer an `ResidueSet` with the items of the collection _c_, taken modulus _m_.
 A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modulus`.
 
 `leastResidueSystem` answers a complete `ResidueSet`:
 
 ```
 >>> 4.leastResidueSystem
-[0 1 2 3].asResidueSet(4)
+ResidueSet([0 1 2 3], 4)
 ```
 
-`asResidueSet` constructs a `ResidueSet` from a `Collection` and a modulus:
+Construct a `ResidueSet` from a `Collection` and a modulus:
 
 ```
->>> [0 5 10 15 20 25 30 35]
->>> .asResidueSet(4)
+>>> ResidueSet(
+>>> 	[0 5 10 15 20 25 30 35],
+>>> 	4
+>>> )
 4.leastResidueSystem
 ```
 
@@ -24,7 +26,7 @@ A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modu
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
->>> let s = l.asResidueSet(12);
+>>> let s = ResidueSet(l, 12);
 >>> (s.size, s.modulus, s.asList)
 (7, 12, [0 2 4 5 7 9 11])
 ```
@@ -32,10 +34,9 @@ A `ResidueSet` is a `Type` holding a `IdentitySet` of common residues of a `modu
 A `ResidueSet` has a `complement`:
 
 ```
->>> [0 2 4 5 7 9 11]
->>> .asResidueSet(12)
+>>> ResidueSet([0 2 4 5 7 9 11], 12)
 >>> .complement
-[1 3 6 8 10].asResidueSet(12)
+ResidueSet([1 3 6 8 10], 12)
 ```
 
 The `complement` of a `leastResidueSystem` is empty:
@@ -52,7 +53,7 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 ```
 >>> 6.leastResidueSystem
 >>> .select(isOdd:/1)
-[1 3 5].asResidueSet(6)
+ResidueSet([1 3 5], 6)
 ```
 
 `ResidueSet` implements `Collection`
@@ -68,19 +69,16 @@ The `species` of a `ResidueSet` constructs a set with the same modulus:
 indicating the presence of entries in the set:
 
 ```
->>> [0 2 4 5 7 9 11]
->>> .asResidueSet(12)
+>>> ResidueSet([0 2 4 5 7 9 11], 12)
 >>> .asBitString
 '101011010101'
 
->>> [0 2 4 5 7 9 11]
->>> .asResidueSet(12)
+>>> ResidueSet([0 2 4 5 7 9 11], 12)
 >>> .complement
 >>> .asBitString
 '010100101010'
 
->>> [0 2 3 5 7 8 10]
->>> .asResidueSet(12)
+>>> ResidueSet([0 2 3 5 7 8 10], 12)
 >>> .asBitString
 '101101011010'
 ```
@@ -88,15 +86,34 @@ indicating the presence of entries in the set:
 `ResidueSet` implements the arithmetic operators `+`, `-` and `*`:
 
 ```
->>> let s = [0 2 4 5 7 9 11].asResidueSet(12);
->>> (s + 6, s - 1, s * 7 + 1)
+>>> let l = [0 2 4 5 7 9 11];
+>>> let s = ResidueSet(l, 12);
+>>> (
+>>> 	l + 6,
+>>> 	l + 6 % 12,
+>>> 	s + 6,
+>>> 	l - 1,
+>>> 	l - 1 % 12,
+>>> 	s - 1,
+>>> 	l * 7 + 1,
+>>> 	l * 7 + 1 % 12,
+>>> 	s * 7 + 1
+>>> )
 (
-	[1 3 5 6 8 10 11].asResidueSet(12),
-	[1 3 4 6 8 10 11].asResidueSet(12),
-	[0 1 2 3 4 5 6].asResidueSet(12)
+	[6 8 10 11 13 15 17],
+	[6 8 10 11 1 3 5],
+	ResidueSet([1 3 5 6 8 10 11], 12),
+	[-1 1 3 4 6 8 10],
+	[11 1 3 4 6 8 10],
+	ResidueSet([1 3 4 6 8 10 11], 12),
+	[1 15 29 36 50 64 78],
+	[1 3 5 0 2 4 6],
+	ResidueSet([0 1 2 3 4 5 6], 12)
 )
 ```
 
 * * *
 
 See also: commonResidue, IdentitySet, leastResidueSystem, Residue, Set
+
+Gudies: Set Functions

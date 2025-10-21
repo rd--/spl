@@ -25,4 +25,4 @@ Control Functions:
 
 * * *
 
-Guides: Dictionary Functions, List Functions
+Guides: Dictionary Functions, List Functions, Set Functions

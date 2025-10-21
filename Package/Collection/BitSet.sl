@@ -186,7 +186,12 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 	}
 
 	storeString { :self |
-		self.asList.storeString ++ '.asBitSet(' ++ self.capacity ++ ')'
+		'BitSet(%, %)'.format(
+			[
+				self.asList.storeString,
+				self.capacity
+			]
+		)
 	}
 
 }
@@ -207,13 +212,17 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 +@Collection {
 
 	asBitSet { :self :capacity |
-		let answer = BitSet(capacity);
-		answer.addAll(self);
-		answer
+		BitSet(self, capacity)
 	}
 
 	asBitSet { :self |
 		self.asBitSet(self.max + 1)
+	}
+
+	BitSet { :self :capacity |
+		let answer = BitSet(capacity);
+		answer.addAll(self);
+		answer
 	}
 
 }

@@ -96,6 +96,7 @@
 	'Geometry-CartesianCoordinates'
 	'Geometry-Cartography'
 	'Geometry-Circle'
+	'Geometry-Cone'
 	'Geometry-Contour'
 	'Geometry-ConvexHull'
 	'Geometry-CylindricalCoordinates'

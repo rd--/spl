@@ -96,6 +96,7 @@
 	'CartesianCoordinates'
 	'Cartography'
 	'Circle'
+	'Cone'
 	'Contour'
 	'ConvexHull'
 	'DelaunayTriangulation'

@@ -1,12 +1,12 @@
 # leastResidueSystem
 
-- _leastResidueSystem(anInteger)_
+- _leastResidueSystem(m)_
 
-Answer a complete `ResidueSet` with modulus _anInteger_.
+Answer a complete `ResidueSet` with modulus _m_.
 
 ```
 >>> 4.leastResidueSystem
-[0 1 2 3].asResidueSet(4)
+ResidueSet([0 1 2 3], 4)
 ```
 
 * * *

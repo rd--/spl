@@ -1,11 +1,11 @@
 # asBitSet
 
-- _asBitSet(aCollection | aString, capacity)_
+- _asBitSet(c, k)_
 
 In the `Collection` case,
-answer a `BitSet` with the indices at _aCollection_ set to `one`.
+answer a `BitSet` with the indices at the collection _c_ set to `one`.
 Valid indices start from `zero`.
-If the _capacity_ is omitted it is set to one more than the largest index.
+If the capacity _k_ is omitted it is set to one more than the largest index.
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
@@ -16,7 +16,7 @@ If the _capacity_ is omitted it is set to one more than the largest index.
 
 In the `String` case,
 answers a `BitSet` with indices set at places where the corresponding character is `one`.
-If the _capacity_ is omitted it is set to the `size` of the string.
+If the capacity _k_ is omitted it is set to the `size` of the string.
 
 ```
 >>> let s = '101011010101';

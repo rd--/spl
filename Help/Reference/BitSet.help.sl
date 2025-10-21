@@ -1,23 +1,36 @@
 # BitSet
 
-- _BitSet(n)_
+- _BitSet(c, n)_
 
-Answer a new empty `BitSet` with the specified capacity _n_.
+Answer a new `BitSet` from the collection _c_ with capacity _n_.
 The capacity is fixed and need not be a multiple of eight.
 
 A `BitSet` is a `Dictionary`-like data structures mapping 0-1 values to integers between `zero` and _n-1_.
 
 `BitSet` implements three different kind of protocols,
-each corresponding to a way of thinking about this data structure:
+each corresponding to a way of thinking about this data structure.
 
-- a `Set`-like protocol with `add`, `remove` and `includes`
-- a `Dictionary`-like protocol with `at` and `atPut`
-- a `Binary`-like protocol with `bitAt`, `clearBitAt` and `setBitAt`
+A `Set`-like protocol:
+
+- `add`
+- `remove`
+- `includes`
+
+A `Dictionary`-like protocol:
+
+- `at`
+- `atPut`
+
+A `Binary`-like protocol:
+
+- `bitAt`
+- `clearBitAt`
+- `setBitAt`
 
 A new `BitSet` is empty, the `size` of a `BitSet` is the number of non-zero bits:
 
 ```
->>> let b = BitSet(7);
+>>> let b = BitSet([], 7);
 >>> (b.capacity, b.size, b.isEmpty)
 (7, 0, true)
 ```
@@ -25,7 +38,9 @@ A new `BitSet` is empty, the `size` of a `BitSet` is the number of non-zero bits
 All bytes at the empty `BitSet` are `zero`:
 
 ```
->>> BitSet(64).bytes.allSatisfy { :each |
+>>> BitSet([], 64)
+>>> .bytes
+>>> .allSatisfy { :each |
 >>> 	each = 0
 >>> }
 true
@@ -44,7 +59,7 @@ The `capacity` is set to one more than the largest index.
 Add three integers to a `BitSet`:
 
 ```
->>> let b = BitSet(64);
+>>> let b = BitSet([], 64);
 >>> b.add(1);
 >>> b.add(3);
 >>> b.add(9);
@@ -56,7 +71,7 @@ Adding the same integer over again is not allowed,
 however including it is:
 
 ```
->>> let b = BitSet(64);
+>>> let b = BitSet([], 64);
 >>> b.add(5);
 >>> b.include(5);
 >>> b.include(5);
@@ -67,7 +82,8 @@ however including it is:
 `BitSet` implements the predicate `includes`:
 
 ```
->>> [1 3 9].asBitSet.includes(3)
+>>> [1 3 9].asBitSet
+>>> .includes(3)
 true
 
 >>> let b = [1 3 9].asBitSet;
@@ -86,7 +102,7 @@ true
 A three element `BitSet`, set entries using `atPut` which requires `zero` or `one` values:
 
 ```
->>> let b = BitSet(64);
+>>> let b = BitSet([], 64);
 >>> b[1] := 1;
 >>> b[3] := 1;
 >>> b[9] := 1;
@@ -107,7 +123,7 @@ Read entries using `at`, which answers `zero` or `one` values:
 Add elements using `addAll` and iterate over indices using `do`:
 
 ```
->>> let b = BitSet(64);
+>>> let b = BitSet([], 64);
 >>> let c = [1 3 9 27];
 >>> let l = [];
 >>> b.addAll(c);
@@ -131,14 +147,15 @@ Copy `BitSet` and mutate copy:
 `bitAt` is equal to `at`:
 
 ```
->>> [1 3 9].asBitSet.bitAt(3)
+>>> [1 3 9].asBitSet
+>>> .bitAt(3)
 1
 ```
 
 `setBitAt` is equal to `add`:
 
 ```
->>> let b = BitSet(64);
+>>> let b = BitSet([], 64);
 >>> b.setBitAt(3);
 >>> b.bitAt(3)
 1
@@ -156,18 +173,22 @@ Copy `BitSet` and mutate copy:
 `asString` answers a `String` of `capacity` places with '0' for indices that are 0 and '1' for indices that are 1:
 
 ```
->>> [0 2 4 5 7 9 11].asBitSet.asString
+>>> [0 2 4 5 7 9 11].asBitSet
+>>> .asString
 '101011010101'
 
->>> [0 2 5].asBitSet(8).asString
+>>> BitSet([0 2 5], 8)
+>>> .asString
 '10100100'
 ```
 
 The `printString` of a `BitSet`:
 
 ```
->>> [0 2 4 5 7 9 11].asBitSet.printString
-'[0, 2, 4, 5, 7, 9, 11].asBitSet(12)'
+>>> [0 2 4 5 7 9 11]
+>>> .asBitSet
+>>> .printString
+'BitSet([0, 2, 4, 5, 7, 9, 11], 12)'
 ```
 
 `bitNot` at `BitSet` flips the status of each bit:
@@ -190,7 +211,7 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 
 * * *
 
-See also: add, asBitSet, at, atPut, bitAt, clearBitAt, includes, remove, setBitAt
+See also: add, asBitSet, at, atPut, bitAt, clearBitAt, includes, remove, ResidueSet, setBitAt
 
 Guides: Bitwise Functions
 

@@ -1,17 +1,17 @@
 # fromSphericalCoordinates
 
-- _fromSphericalCoordinates(aSequence)_
+- _fromSphericalCoordinates([r θ ϕ])_
 
 Answers the _(x,y,z)_ Cartesian coordinates corresponding to the spherical coordinates _(r,θ,ϕ)_,
 where θ is azimuth,
-usually in _(0, 2π)_,
+usually in _(-π,π)_ or equally _(0,2π)_,
 and ϕ is inclination,
-usually in _(0, π)_.
+usually in _(0,π)_.
 
 ```
 >>> [
 >>> 	3.sqrt,
->>> 	0.25.pi,
+>>> 	1/4.pi,
 >>> 	2.sqrt.arcTan
 >>> ].fromSphericalCoordinates
 [1 1 1]
@@ -52,9 +52,9 @@ Collects over lists:
 
 ```
 >>> [
->>> 	2.sqrt 0 0.25.pi;
->>> 	2 1.pi 0.5.pi;
->>> 	2.sqrt 0.5.pi 0.75.pi
+>>> 	2.sqrt 0 1/4.pi;
+>>> 	2 1.pi 1/2.pi;
+>>> 	2.sqrt 1/2.pi 3/4.pi
 >>> ].fromSphericalCoordinates
 [1 0 1; -2 0 0; 0 1 -1]
 ```
@@ -62,7 +62,7 @@ Collects over lists:
 Inverse is `toSphericalCoordinates`:
 
 ```
->>> [3.sqrt, 0.25.pi, 2.sqrt.arcTan]
+>>> [3.sqrt, 1/4.pi, 2.sqrt.arcTan]
 [1 1 1].toSphericalCoordinates
 
 >>> let u = [8, 1/3.pi, 1/6.pi];
@@ -74,7 +74,7 @@ Inverse is `toSphericalCoordinates`:
 Convert to cyclindrical coordinates:
 
 ```
->>> let u = [2, -5.pi / 6, 1.pi / 6];
+>>> let u = [2 -5/6.pi 1/6.pi];
 >>> let v = u.fromSphericalCoordinates;
 >>> (v, v.toCylindricalCoordinates)
 (

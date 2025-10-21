@@ -850,3 +850,61 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List {
+
+	sphericalPlot { :self :divisions :aBlock:/2 |
+		self.surfacePlot(divisions) { :phi :theta |
+			let r = aBlock(theta, phi);
+			[r theta phi].fromSphericalCoordinates
+		}
+	}
+
+	sphericalPlot { :self :aBlock:/2 |
+		self.sphericalPlot([15 15], aBlock:/2)
+	}
+
+}
+
+
++List {
+
+	revolutionPlot { :self :divisions :aBlock |
+		self.surfacePlot(
+			divisions,
+			aBlock.numArgs.caseOf(
+				[
+					1 -> {
+						{ :t :theta |
+							let [x, z] = aBlock.value(t);
+							[x * theta.sin, x * theta.cos, z]
+						}
+					},
+					2 -> {
+						{ :rho :theta |
+							let z = aBlock.value(rho, theta);
+							[rho, theta, z].fromCylindricalCoordinates
+						}
+					}
+				]
+			)
+		)
+	}
+
+	revolutionPlot { :self :aBlock:/2 |
+		self.revolutionPlot([15 15], aBlock:/2)
+	}
+
+}
+
++Interval {
+
+	revolutionPlot { :self :divisions :aBlock:/2 |
+		[self, 0 -- 2.pi].revolutionPlot(divisions, aBlock:/2)
+	}
+
+	revolutionPlot { :self :aBlock:/2 |
+		self.revolutionPlot([15, 15], aBlock:/2)
+	}
+
+}

@@ -1,6 +1,6 @@
 # fromCylindricalCoordinates
 
-- _fromCylindricalCoordinates(aVector)_
+- _fromCylindricalCoordinates([ρ φ z])_
 
 Answers the _(x,y,z)_ Cartesian coordinates corresponding to the cylindrical coordinates _(ρ,φ,z)_,
 where _(ρ,φ)_ is the polar coordinate on the _x/y_ plane and _z_ is the Cartesian _z_-coordinate.

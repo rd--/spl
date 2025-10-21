@@ -1,6 +1,6 @@
 # SphericalCoordinates
 
-- _SphericalCoordinates([r, θ, φ])_
+- _SphericalCoordinates([r θ φ])_
 
 Answer a `SphericalCoordinates` instance following the convention:
 
@@ -51,13 +51,13 @@ Where supported `r` is displayed as 𝑟, `rho` as ρ, `theta` as θ, and `phi` 
 
 * * *
 
-See also: asCartesianCoordinates, CartesianCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
+See also: asCartesianCoordinates, CartesianCoordinates, fromSphericalCoordinates, PolarCoordinates, IsoSphericalCoordinates, PlanarCoordinates
 
 Guides: Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/SphericalCoordinates.html)
+[1](https://mathworld.wolfram.com/SphericalCoordinates.html),
 _W_
 [1](https://en.wikipedia.org/wiki/ISO/IEC_80000)
 

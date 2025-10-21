@@ -138,6 +138,63 @@ A one-dimensional potential energy equation plotted as the parameter λ is varie
 
 ![](sw/spl/Help/Image/surfacePlot-I.svg)
 
+Plot Möbius strip:
+
+~~~spl svg=J
+let r = 0.35;
+[0 2.pi; -1 1].surfacePlot { :u :v |
+	let a = r + ((v / 2) * (u / 2).cos);
+	let x = a * u.cos;
+	let y = a * u.sin;
+	let z = (v / 2) * (u / 2).sin;
+	[x y z]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-J.svg)
+
+Plot one half of Plücker’s conoid:
+
+~~~spl svg=K
+let n = 2;
+[0 1.pi; 0 1].surfacePlot { :u :v |
+	let x = v * u.cos;
+	let y = v * u.sin;
+	let z = (n * u).sin;
+	[x y z]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-K.svg)
+
+Plot a double cone:
+
+~~~spl svg=L
+[0 2.pi; -1 1].surfacePlot { :theta :h |
+	let x = h * theta.cos;
+	let y = h * theta.sin;
+	let z = h;
+	[x y z]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-L.svg)
+
+Plot a torus:
+
+~~~spl svg=M
+let r = 2.5;
+(0 -- 2.pi).surfacePlot { :theta :phi |
+	let a = r + theta.sin;
+	let x = a * phi.cos;
+	let y = a * phi.sin;
+	let z = theta.cos;
+	[x z y]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-M.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
@@ -152,5 +209,6 @@ _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/surf.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Surface_plot_(mathematics))
+[2](https://en.wikipedia.org/wiki/Ruled_surface)
 
 Categories: Plotting

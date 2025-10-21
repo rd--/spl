@@ -35,11 +35,13 @@ Plotting Functions:
 - `poincarePlot`
 - `polarPlot`
 - `reliefPlot`
+- `revolutionPlot`
 - `runSequencePlot`
 - `scatterPlot`
 - `signalPlot`
 - `soundPlot`
 - `spectralPlot`
+- `sphericalPlot`
 - `stackedListPlot`
 - `stemLeafPlot`
 - `stepPlot`

@@ -1,17 +1,26 @@
 /* Requires: BitSet Set */
 
-ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | modulus contents |
+ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents modulus |
 
 	+ { :self :anInteger |
-		(self.contents + anInteger).asResidueSet(self.modulus)
+		ResidueSet(
+			self.contents + anInteger,
+			self.modulus
+		)
 	}
 
 	- { :self :anInteger |
-		(self.contents - anInteger).asResidueSet(self.modulus)
+		ResidueSet(
+			self.contents - anInteger,
+			self.modulus
+		)
 	}
 
 	* { :self :anInteger |
-		(self.contents * anInteger).asResidueSet(self.modulus)
+		ResidueSet(
+			self.contents * anInteger,
+			self.modulus
+		)
 	}
 
 	asBitSet { :self |
@@ -47,12 +56,17 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | modulus c
 	}
 
 	storeString { :self |
-		self.asList.storeString ++ '.asResidueSet(' ++ self.modulus.printString ++ ')'
+		'ResidueSet(%, %)'.format(
+			[
+				self.asList.storeString,
+				self.modulus.printString
+			]
+		)
 	}
 
 	species { :self |
 		{
-			ResidueSet(self.modulus)
+			ResidueSet([], self.modulus)
 		}
 	}
 
@@ -61,11 +75,10 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | modulus c
 +@Integer {
 
 	leastResidueSystem { :modulus |
-		(0 .. modulus - 1).asResidueSet(modulus)
-	}
-
-	ResidueSet { :modulus |
-		newResidueSet().initializeSlots(modulus, IdentitySet())
+		ResidueSet(
+			(0 .. modulus - 1),
+			modulus
+		)
 	}
 
 }
@@ -73,9 +86,13 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | modulus c
 +@Collection {
 
 	asResidueSet { :self :modulus |
-		let answer = ResidueSet(modulus);
-		answer.includeAll(self % modulus);
-		answer
+		ResidueSet(self, modulus)
+	}
+
+	ResidueSet { :self :modulus |
+		let r = newResidueSet().initializeSlots(IdentitySet(), modulus);
+		r.includeAll(self % modulus);
+		r
 	}
 
 }
