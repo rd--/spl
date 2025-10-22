@@ -2,7 +2,8 @@
 
 - _limacon(a, b)_
 
-Answer the limacon curve.
+Answer the limacon curve,
+also known as a limaçon of Pascal or Pascal’s snail.
 
 Plot at _b=1/2,3/2,5/2_:
 
@@ -23,6 +24,9 @@ See also: cos, epitrochoid, trochoid
 Guides: Curve Functions
 
 References:
+_Ferréol_
+[1](https://mathcurve.com/courbes2d.gb/limacon/limacon.shtml)
+[2](https://mathcurve.com/courbes2d.gb/limacon/limacontrisecteur.shtml),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Limacon.html),
 _W_

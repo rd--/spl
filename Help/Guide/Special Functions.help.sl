@@ -8,7 +8,9 @@ Bessel and Related Functions:
 
 Elliptic Integrals:
 
+- `ellipticE`
 - `ellipticK`
+- `ellipticPi`
 
 Error Function and Related Functions:
 

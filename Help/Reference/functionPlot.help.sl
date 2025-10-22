@@ -247,7 +247,7 @@ called the alternating harmonic series:
 
 ![](sw/spl/Help/Image/functionPlot-V.svg)
 
-Plot a potential energey equation:
+Plot a potential energy equation:
 
 ~~~spl svg=W
 let lambda = 2;
@@ -261,6 +261,18 @@ let p = UnivariatePolynomial(
 ~~~
 
 ![](sw/spl/Help/Image/functionPlot-W.svg)
+
+Plot a helix:
+
+~~~spl svg=X
+let r = 2;
+let c = 1;
+(0 -- 3.pi).functionPlot { :t |
+	[r * t.cos, r * t.sin, c * t]
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-X.svg)
 
 * * *
 

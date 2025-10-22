@@ -1,8 +1,8 @@
 # Polyhedron
 
-- _Polyhedron(vertexCoordinates, faceIndices)_
+- _Polyhedron(v, f)_
 
-A `Type` representing a polyhedron with the specified vertices and faces.
+A `Type` representing a polyhedron with the vertex coordinates _v_ and face indices _f_.
 `vertexCoordinates` is a `List` of Cartesian coordinates,
 `faceIndices` is a `List` of lists of integers that indicate indexes into `vertexCoordinates`.
 

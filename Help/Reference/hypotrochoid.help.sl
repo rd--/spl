@@ -26,6 +26,16 @@ An ellipse, _a=2b_:
 
 ![](sw/spl/Help/Image/hypotrochoid-B.svg)
 
+A spirograph is a hypotrochoid, set _h_ as a proportion of _a_:
+
+~~~spl svg=C
+(0 -- 4.pi).functionPlot(
+	hypotrochoid(7, 2, 0.4 * 7)
+)
+~~~
+
+![](sw/spl/Help/Image/hypotrochoid-C.svg)
+
 A `hypocycloid` is a special case of a `hypotrochoid`,
 where _h=b_.
 
@@ -38,5 +48,7 @@ Guides: Curve Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Hypotrochoid.html)
+[2](https://mathworld.wolfram.com/Spirograph.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hypotrochoid)
+[2](https://en.wikipedia.org/wiki/Spirograph)

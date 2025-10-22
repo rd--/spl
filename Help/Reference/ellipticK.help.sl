@@ -54,7 +54,7 @@ Probability that a random walker in a cubic lattice returns to the origin:
 
 * * *
 
-See also: arithmeticGeometricMean
+See also: arithmeticGeometricMean, ellipticE
 
 Guides: Mathematical Functions, Special Functions
 

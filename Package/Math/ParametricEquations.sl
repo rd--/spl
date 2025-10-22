@@ -156,6 +156,13 @@
 		}
 	}
 
+	freethsNephroid { :a |
+		{ :theta |
+			let r = a * (1 + (2 * (0.5 * theta).sin));
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	galileanSpiral { :a :b |
 		{ :theta |
 			let rho = (b * theta.square) - a;
@@ -487,6 +494,20 @@
 		let a = ((x ^ 2) - 1) ^ 2;
 		let b = (y - 1) * (y - 2) * (y + 5);
 		a - ((y ^ 2) * b)
+	}
+
+	wattsCurve { :a :b :c |
+		let aa = a * a;
+		let bb = b * b;
+		let cc = c * c;
+		{ :x :y |
+			let xx = x * x;
+			let yy = y * y;
+			let r = xx + yy;
+			(r * (r - aa - bb + cc).square)
+			+
+			(4 * aa * yy * (r - bb))
+		}
 	}
 
 }

@@ -141,7 +141,9 @@
 ## Elliptic Integrals
 
 - `arithmeticGeometricMean`
+- `ellipticE`
 - `ellipticK`
+- `ellipticPi`
 
 ## Error Functions
 

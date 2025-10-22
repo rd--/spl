@@ -195,6 +195,85 @@ Polyhedron : [Object, Equatable, Geometry, PolygonMesh] { | vertexCoordinates fa
 
 }
 
++SmallFloat {
+
+	oloid { :nPolygons |
+		/* https://www.cs.cmu.edu/~kmcrane/Projects/ModelRepository/#oloid */
+		let n = nPolygons // 4 + 1;
+		let v = [];
+		let f = [];
+		let index = { :i |
+			(i > 0).ifTrue {
+				i := i - 1
+			};
+			(i = (n * 4 - 2)).ifTrue {
+				i := i - 1
+			};
+			1 + i
+		};
+		0.toDo(n - 1) { :i |
+			let s = i / (n - 1);
+			let t = 2/3.pi * ((3 * s) - (2 * (s ^ 1.5)));
+			let a = [
+				t.sin,
+				t.cos.-,
+				0
+			];
+			let b = [
+				0,
+				1 / (1 + t.cos),
+				(1 + (2 * t.cos)).sqrt / (1 + t.cos)
+			];
+			v.add(a);
+			(i > 0).ifTrue {
+				v.add(a * [-1, 1, 1])
+			};
+			v.add(b);
+			(i != (n - 1)).ifTrue {
+				v.add(b * [1, 1, -1])
+			}
+		};
+		0.toDo(n - 2) { :i |
+			let j = i + 1;
+			f.add(
+				[
+					index(j * 4 + 0),
+					index(j * 4 + 2),
+					index(i * 4 + 2),
+					index(i * 4 + 0)
+				]
+			);
+			f.add(
+				[
+					index(i * 4 + 0),
+					index(i * 4 + 3),
+					index(j * 4 + 3),
+					index(j * 4 + 0)
+				]
+			);
+			f.add(
+				[
+					index(i * 4 + 1),
+					index(i * 4 + 2),
+					index(j * 4 + 2),
+					index(j * 4 + 1)
+				]
+			);
+			f.add(
+				[
+					index(j * 4 + 1),
+					index(j * 4 + 3),
+					index(i * 4 + 3),
+					index(i * 4 + 1)
+				]
+			)
+		};
+		Polyhedron(v, f)
+	}
+
+}
+
+
 +System {
 
 	fradinPolyhedraCatalogue { :self |

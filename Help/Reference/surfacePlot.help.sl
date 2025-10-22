@@ -195,6 +195,50 @@ let r = 2.5;
 
 ![](sw/spl/Help/Image/surfacePlot-M.svg)
 
+Plot a catenoid:
+
+~~~spl svg=N
+let c = 2.5;
+(-1.pi -- 1.pi).surfacePlot { :u :v |
+	let a = c * (v / c).cosh;
+	let x = a * u.cos;
+	let y = a * u.sin;
+	let z = v;
+	[x y z]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-N.svg)
+
+Plot a helicoid:
+
+~~~spl svg=O
+let a = 1;
+[-1.pi 1.pi; -1 1].surfacePlot { :u :v |
+	let x = v * (a * u).cos;
+	let y = v * (a * u).sin;
+	let z = u;
+	[x y z]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-O.svg)
+
+Plot a hyperbolic helicoid:
+
+~~~spl svg=P
+let t = 2;
+[-1.pi 1.pi; -1 1].surfacePlot { :u :v |
+	let a = 1 + (u.cosh * v.cosh);
+	let x = v.sinh * (t * u).cos;
+	let y = v.sinh * (t * u).sin;
+	let z = v.cosh * u.sinh;
+	[x y z] / a
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-P.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot

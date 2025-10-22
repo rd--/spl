@@ -1,8 +1,9 @@
 # PolygonMesh
 
-- _PolygonMesh(vertexCoordinates, faceIndices)_
+- _PolygonMesh(v, f)_
 
-A `Trait` and a related `Type` holding a polygon mesh.
+A `Trait` and a related `Type` holding a polygon mesh,
+having vertex coordinates _v_, and face indices _f_.
 
 `Polyhedron` implements the `PolygonMesh` trait.
 

@@ -277,10 +277,6 @@
 		self * (10 ^ aNumber)
 	}
 
-	ellipticK { :m |
-		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
-	}
-
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
 	}

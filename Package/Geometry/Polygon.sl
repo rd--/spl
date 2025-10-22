@@ -424,3 +424,37 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 }
+
++List{
+
+	spirolateral { :a :n :theta :k |
+		let i = 1;
+		let p = [0 0];
+		let h = 0;
+		let m = 1;
+		let v = [p];
+		{
+			let q = p + [m, h].fromPolarCoordinates;
+			let o = (m + 1).mod(n, 1);
+			let z = a.includes(o).if { -1 } { 1 };
+			v.add(q);
+			p := q;
+			m := o;
+			h := (h + (1.pi + (z * theta))) % 2.pi;
+			i := i + 1
+		}.doWhileTrue {
+			(i < k) & {
+				p.isCloseTo([0, 0]).not
+			}
+		};
+		(i < k).ifTrue {
+			v.removeLast
+		};
+		Polygon(v)
+	}
+
+	spirolateral { :a :n :theta |
+		spirolateral(a, n, theta, 1E4)
+	}
+
+}

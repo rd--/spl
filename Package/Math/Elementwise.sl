@@ -136,6 +136,18 @@
 		self * (10 ^ aNumber)
 	}
 
+	ellipticE { :self |
+		self.collect(ellipticE:/1)
+	}
+
+	ellipticK { :self |
+		self.collect(ellipticK:/1)
+	}
+
+	ellipticPi { :self |
+		self.collect(ellipticPi:/1)
+	}
+
 	erf { :self |
 		self.collect(erf:/1)
 	}

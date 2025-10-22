@@ -67,19 +67,6 @@ Contour plot of Watts curve:
 let a = 3.1;
 let b = 1.1;
 let c = 3.0;
-let wattsCurve = { :a :b :c |
-	let a2 = a ^ 2;
-	let b2 = b ^ 2;
-	let c2 = c ^ 2;
-	{ :x :y |
-		let x2 = x ^ 2;
-		let y2 = y ^ 2;
-		let r2 = x2 + y2;
-		(r2 * ((r2 - a2 - b2 + c2) ^ 2))
-		+
-		(4 * a2 * y2 * (r2 - b2))
-	}
-};
 let z = 1.1 * ((b ^ 2) - ((a - c) ^ 2)).sqrt;
 let i = (z.- -- z).discretize(50);
 wattsCurve(a, b, c)

@@ -21,6 +21,7 @@ Algebraic Curve Functions:
 - `eulerSpiral`
 - `fernandezGuastiSquircle`
 - `foliumOfDescartes`
+- `freethsNephroid`
 - `galileanSpiral`
 - `geocentricOrbitCurve`
 - `gompertzFunction`
@@ -70,6 +71,7 @@ Implicit Curve Functions:
 - `squareChladniPlateEquation`
 - `stirrupCurve`
 - `tridentCurve`
+- `wattsCurve`
 
 Fractal Curve Functions:
 

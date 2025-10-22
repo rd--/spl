@@ -248,7 +248,7 @@ If the string begins with a doctest, also delete all non doctest lines."
    `(,(regexp-opt '("let" "var") 'symbols) . font-lock-keyword-face)
    `(,(regexp-opt '("false" "nil" "true" "system") 'symbols) . font-lock-builtin-face)
    `(,(regexp-opt '("do" "doWhileFalse" "doWhileTrue" "if" "ifTrue" "ifFalse" "ifEmpty" "ifNotEmpty" "ifNil" "ifNotNil" "kr" "timesRepeat" "whileFalse" "whileTrue" "withIndexDo") 'symbols) . font-lock-function-name-face)
-   `(,(regexp-opt '("error" "warn") 'symbols) . font-lock-warning-face)
+   `(,(regexp-opt '("error" "warning") 'symbols) . font-lock-warning-face)
    '("\\<[A-Z][a-zA-Z0-9]*\\>" . font-lock-type-face)
    '(" :[a-z][a-zA-Z0-9]*" . 'font-lock-variable-name-face)
    ;'("`[a-zA-Z]*`" . 'font-lock-constant-face)

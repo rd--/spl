@@ -128,6 +128,79 @@
 
 }
 
++[SmallFloat, Fraction] {
+
+	ellipticE { :m |
+		/* https://github.com/duetosymmetry/elliptic-integrals-js */
+		(m >= 1).if {
+			(m = 1).if {
+				1
+			} {
+				m.error('ellipticE: invalid m')
+			}
+		} {
+			let i = 0;
+			let limit = 50;
+			let kPrime = (1 - m).sqrt;
+			let a0 = m.one;
+			let g0 = kPrime;
+			let aN = a0;
+			let gN = g0;
+			let t = 0.25;
+			let partialSum = 1 - (0.5 * m);
+			{ aN.isVeryCloseTo(gN).not & { i < limit } }.whileTrue {
+				let d = aN - gN;
+				partialSum := partialSum - (t * d * d);
+				t := t * 2;
+				a0 := 0.5 * (aN + gN);
+				g0 := (aN * gN).sqrt;
+				aN := a0;
+				gN := g0;
+				i := i + 1
+			};
+			(i = limit).ifTrue {
+				m.warning('ellipticE: did not converge')
+			};
+			0.5.pi * partialSum / aN
+		}
+	}
+
+	ellipticK { :m |
+		1.pi / (2 * arithmeticGeometricMean(1, (1 - m).sqrt))
+	}
+
+	ellipticPi { :n :m |
+		/* https://github.com/duetosymmetry/elliptic-integrals-js */
+		let i = 0;
+		let limit = 50;
+		let kPrime = sqrt(1 - m);
+		let a0 = 1;
+		let g0 = kPrime;
+		let zeta0 = 0;
+		let aN = a0;
+		let gN = g0;
+		let deltaN = (1 - n) / kPrime;
+		let epsilon = n / (1 - n);
+		let zetaN = zeta0;
+		{ aN.isVeryCloseTo(gN).not | { deltaN.isVeryCloseTo(1).not } & { i < limit } }.whileTrue {
+			zeta0 := 0.5 * (epsilon + zetaN);
+			epsilon := (deltaN * epsilon + zetaN) / (1 + deltaN);
+			zetaN := zeta0;
+			a0 := 0.5 * (aN + gN);
+			g0 := sqrt(aN *gN);
+			aN := a0;
+			gN := g0;
+			deltaN := 0.25 * gN / aN * (2 + deltaN + (1 / deltaN));
+			i := i + 1
+		};
+		(i = limit).ifTrue {
+			[n, m].warning("ellipticPi: did not converge")
+		};
+		0.5.pi / aN * (1 + zetaN)
+	}
+
+}
+
 +Fraction {
 
 	fabiusFunction { :x :n |
