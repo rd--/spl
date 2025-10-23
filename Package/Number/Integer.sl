@@ -878,6 +878,12 @@
 		isPythagoreanTriple(a, b, (a.square + b.square).sqrt)
 	}
 
+	isRefactorableNumber { :self |
+		self.divisible(
+			self.divisors.size
+		)
+	}
+
 	isRegularNumber { :self |
 		self.primeLimit <= 5
 	}

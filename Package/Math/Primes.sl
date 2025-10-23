@@ -252,7 +252,7 @@
 			}
 		};
 		[lp, pr]
-        }
+	}
 
 	leastPrimeGreaterThanOrEqualTo { :self :extendCache |
 		let answer = self;

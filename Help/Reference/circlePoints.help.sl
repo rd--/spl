@@ -108,6 +108,23 @@ let rr = (theta.sec + theta.tan).square * r;
 
 ![](sw/spl/Help/Image/circlePoints-E.svg)
 
+Recursively construct circles at circle points:
+
+~~~spl svg=F
+let n = 3;
+let m = 3;
+Circle(
+	{ :x |
+		x.collect { :c |
+			n.circlePoints(c, 1, 0)
+		}.catenate
+	}.nestList([[0 0]], m).++,
+	1
+).LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-F.svg)
+
 * * *
 
 See also: %, ^, angleVector, Circle, cos, Range, sin

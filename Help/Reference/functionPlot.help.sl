@@ -274,6 +274,35 @@ let c = 1;
 
 ![](sw/spl/Help/Image/functionPlot-X.svg)
 
+Plot a trefoil knot:
+
+~~~spl svg=Y
+(0 -- 2.pi).functionPlot { :t |
+	let x = t.sin + (2 * (2 * t).sin);
+	let y = t.cos - (2 * (2 * t).cos);
+	let z = 0 - (3 * t).sin;
+	[z x y]
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-Y.svg)
+
+Plot a (2,3)-torus knot:
+
+~~~spl svg=Z
+let p = 2;
+let q = 3;
+(0 -- 2.pi).functionPlot { :t |
+	let r = p + (q * t).cos;
+	let x = r * (p * t).cos;
+	let y = r * (p * t).sin;
+	let z = (q * t).sin;
+	[x z y]
+}
+~~~
+
+![](sw/spl/Help/Image/functionPlot-Z.svg)
+
 * * *
 
 See also: discreteFunctionPlot, discretePlot, graphPlot, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot

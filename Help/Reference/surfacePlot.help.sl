@@ -239,6 +239,22 @@ let t = 2;
 
 ![](sw/spl/Help/Image/surfacePlot-P.svg)
 
+Plot an umbilic torus:
+
+~~~spl svg=Q
+(-1.pi -- 1.pi).surfacePlot { :u :v |
+	let a = (u / 3) - (2 * v);
+	let b = (u / 3) + v;
+	let c = 7 + a.cos + (2 * b.cos);
+	let x = c * u.sin;
+	let y = c * u.cos;
+	let z = a.sin + (2 * b.sin);
+	[x z y]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-Q.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot

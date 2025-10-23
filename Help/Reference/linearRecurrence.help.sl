@@ -517,6 +517,22 @@ OIES [A000124](https://oeis.org/A000124):
 ]
 ```
 
+Tetranacci numbers,
+OEIS [A000078](https://oeis.org/A000078):
+
+```
+>>> linearRecurrence(
+>>> 	[1 1 1 1], [0 0 0 1], 25
+>>> )
+[
+	0 0 0 1 1
+	2 4 8 15 29
+	56 108 208 401 773
+	1490 2872 5536 10671 20569
+	39648 76424 147312 283953 547337
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

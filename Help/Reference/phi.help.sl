@@ -1,8 +1,8 @@
 # phi
 
-- _phi(aPoint)_
+- _phi(p)_
 
-Answer the `phi` (inclination) field of _aPoint_.
+Answer the `phi` (inclination) field of the point _p_.
 
 At `SphericalCoordinates`, also called `inclination`:
 

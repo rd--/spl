@@ -80,6 +80,22 @@ Sequence of _φ(φ(n))_:
 ]
 ```
 
+Numbers _k_ such that _φ(k)_ divides _k_,
+OEIS [A007694](https://oeis.org/A007694):
+
+```
+>>> 1:200.select { :x |
+>>> 	x.divisible(x.eulerPhi)
+>>> }
+[
+	  1   2   4   6   8
+	 12  16  18  24  32
+	 36  48  54  64  72
+	 96 108 128 144 162
+	192
+]
+```
+
 Plot the sequence:
 
 ~~~spl svg=A

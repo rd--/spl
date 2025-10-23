@@ -153,6 +153,7 @@
 				isPronicNumber: [002378],
 				isPseudoperfectNumber: [005835],
 				isPythagoreanPrime: [002144],
+				isRefactorableNumber: [033950],
 				isRegularNumber: [051037],
 				isRoughNumber: [007775 008364],
 				isSemiprime: [001358 006881],
@@ -185,7 +186,12 @@
 				leibnizHarmonicTriangle: [003506],
 				lemniscateConstant: [062539],
 				levysConstant: [086702 086703],
-				linearRecurrence: [000931 000204 000129 002203 001608 000975 005578 000295 000225 000045 051049 001590 000930 079398 103372 103373 001076 134816 003269 017817 003520 000975 001687 052920 017827 001653 001519 002943 000127 000931 056530 000124],
+				linearRecurrence: [
+					000931 000204 000129 002203 001608 000975 005578 000295 000225 000045
+					051049 001590 000930 079398 103372 103373 001076 134816 003269 017817
+					003520 000975 001687 052920 017827 001653 001519 002943 000127 000931
+					056530 000124 000078
+				],
 				liouvilleLambda: [008836],
 				lobbNumber: [039599],
 				logarithmicIntegral: [070769 069284],
@@ -217,6 +223,7 @@
 				noergaardRhythmicInfinitySystem: [073334],
 				numberOfCompositions: [007318],
 				numberOfCompositionsWeak: [178300],
+				oloid: [215447],
 				omegaConstant: [030178 030797],
 				optimalGolombRulers: [003022],
 				padovanSequence: [000931 001608 182097],
