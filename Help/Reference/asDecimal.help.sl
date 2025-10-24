@@ -45,7 +45,7 @@ At negative `Fraction`:
 
 ```
 >>> -11.00D / 13.00D
--0.85D
+-0.8462D
 
 >>> -13/11.asDecimal(6)
 -1.181818D
