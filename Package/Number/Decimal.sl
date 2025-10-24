@@ -3,7 +3,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 	= { :self :operand |
 		operand.isDecimal.if {
 			(self.scale = operand.scale) & {
-				let m = 10 ^ self.scale;
+				let m = 10L ^ self.scale;
 				(self.asFloat * m).round = (operand.asFloat * m).round
 			}
 		} {
@@ -33,7 +33,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		operand.isDecimal.if {
 			UnsimplifiedDecimal(
 				self.fraction * operand.fraction,
-				self.scale + operand.scale
+				self.scale + operand.scale /* self.scale.max(operand.scale) */
 			)
 		} {
 			operand.adaptToDecimalAndApply(self, *)
@@ -67,10 +67,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 			self.error('Decimal>>/: zero divide')
 		} {
 			operand.isDecimal.if {
-				UnsimplifiedDecimal(
-					self.fraction / operand.fraction,
-					self.scale.max(operand.scale)
-				)
+				self * operand.reciprocal
 			} {
 				operand.adaptToDecimalAndApply(self, /)
 			}
@@ -202,10 +199,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 					.asLargeInteger
 					.abs
 					.basicPrintString(10),
-					(self.fractionalPart.fraction.abs * (10 ^ self.scale))
+					(self.fractionalPart.fraction.abs * (10L ^ self.scale))
 					.round
 					.basicPrintString(10)
-					.padRight([self.scale], '0')
+					.padLeft([self.scale], '0')
 				]
 			)
 		}
@@ -225,7 +222,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		} {
 			UnsimplifiedDecimal(
 				self.fraction.reciprocal,
-				self.scale
+				self.scale.max(1)
 			)
 		}
 	}
@@ -341,7 +338,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 				let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));
 				let k = parts[2].size;
 				UnsimplifiedDecimal(
-					i + Fraction(f, 10 ^ k),
+					i + Fraction(f, 10L ^ k),
 					k
 				)
 			}

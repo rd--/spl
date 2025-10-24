@@ -53,6 +53,20 @@ true
 165.primeNu
 ```
 
+First few terms,
+OEIS [A001222](https://oeis.org/A001222):
+
+```
+>>> 1:100.collect(primeOmega:/1)
+[
+	0 1 1 2 1 2 1 3 2 2 1 3 1 2 2 4 1 3 1 3
+	2 2 1 4 2 2 3 3 1 3 1 5 2 2 2 4 1 2 2 4
+	1 3 1 3 3 2 1 5 2 3 2 3 1 4 2 4 2 2 1 4
+	1 2 3 6 2 3 1 3 2 3 1 5 1 2 3 3 2 3 1 5
+	4 2 1 4 2 2 2 4 1 4 2 3 2 2 2 6 1 3 3 4
+]
+```
+
 Plot the `primeOmega` sequence for the first 100 numbers:
 
 ~~~spl svg=A
@@ -69,4 +83,8 @@ Guides: Prime Number Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/PrimeOmega.html)
+[1](https://reference.wolfram.com/language/ref/PrimeOmega.html),
+_OEIS_
+[1](https://oeis.org/A001222),
+_W_
+[1](https://en.wikipedia.org/wiki/Prime_omega_function)

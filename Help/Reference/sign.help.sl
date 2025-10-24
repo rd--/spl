@@ -14,8 +14,9 @@ telling the normalized direction.
 Real numbers:
 
 ```
->>> -2.5.sign
--1
+>>> let z = -2.5.sign;
+>>> (z, z.isSmallFloat)
+(-1, true)
 
 >>> 3.14.sign
 1
@@ -40,6 +41,22 @@ The unary operator `*` is `sign`:
 ```
 >>> [-2.5 3.14].*
 [-1 1]
+```
+
+At `Fraction`:
+
+```
+>>> let z = -3/4.sign;
+>>> (z, z.isFraction)
+(-1/1, true)
+```
+
+At `LargeInteger`:
+
+```
+>>> let z = -23L.sign;
+>>> (z, z.isLargeInteger)
+(-1L, true)
 ```
 
 Complex numbers, division by absolute value:
@@ -71,11 +88,17 @@ Element-wise sign function:
 [-1 -0 0 1 1]
 ```
 
-The binary form answers a `Number` with the same sign as _anotherNumber_ and the same magnitude as _aNumber_.
+The binary form answers a `Number` with the same sign as the operand _b_ and the same magnitude as the number _a_:
 
 ```
 >>> 3.sign(-2)
 -3
+
+>>> -3.sign(2)
+3
+
+>>> 3/4.sign(-0.75)
+-3/4
 ```
 
 Plot the `real` part of the `sign` function:

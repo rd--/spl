@@ -295,6 +295,10 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		self.numerator - 1 = self.denominator
 	}
 
+	isUnitFraction { :self |
+		self.numerator = 1
+	}
+
 	isVeryCloseTo { :self :aNumber |
 		self = aNumber
 	}

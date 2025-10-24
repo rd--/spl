@@ -39,6 +39,10 @@
 		answer.take(n)
 	}
 
+	distinctPrimeFactors { :self |
+		self.primeFactorization.valuesAndCounts.keys
+	}
+
 	euclidNumber { :n |
 		1 + n.primorial
 	}

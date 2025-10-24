@@ -923,10 +923,10 @@
 
 	sign { :self |
 		(self > 0).if {
-			self.unit
+			self.one
 		} {
 			(self < 0).if {
-				self.unit.negate
+				self.one.negate
 			} {
 				self.zero
 			}
@@ -1040,10 +1040,6 @@
 
 	twice { :self |
 		self * 2
-	}
-
-	unit { :self |
-		1
 	}
 
 	unitBox { :self |

@@ -1,8 +1,8 @@
 # one
 
-- _one(anObject)_
+- _one(x)_
 
-Answer a unit value of the same type as _anObject_.
+Answer a unit value of the same type as the object _x_.
 
 ```
 >>> (2 + 3.i).one

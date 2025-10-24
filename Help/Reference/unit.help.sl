@@ -13,7 +13,7 @@ Answer the unit of the specified quantity _q_.
 ```
 
 The specified unit is in all cases the base unit,
-the conversion is made by the constructor funtion:
+the conversion is made by the constructor function:
 
 ```
 >>> 3.millimetres

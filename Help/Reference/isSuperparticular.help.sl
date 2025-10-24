@@ -5,7 +5,7 @@
 Answer `true` if the fraction _n/d_ is a superparticular ratio, else `false`.
 
 A superparticular ratio, or epimoric ratio, is the ratio of two consecutive integer numbers.
-For any _n_, _(n + 1) / n_, or equivalently _1 + (1 / n)_, is a superparticular ratio.
+For any _n_, _(n+1)/n_, or equivalently _1+(1/n)_, is a superparticular ratio.
 Equivalently, a ratio in which the antecedent exceeds the consequent by one.
 
 2/1 is superparticular:
@@ -52,12 +52,16 @@ The ratio between two successive members of the Farey sequence is superparticula
 >>> (2 .. f.size - 1).collect { :i |
 >>> 	f[i + 1] / f[i]
 >>> }
-[6/5 5/4 4/3 6/5 5/4 6/5 10/9 9/8 16/15 25/24 6/5]
+[
+	6/5  5/4 4/3  6/5   5/4
+	6/5 10/9 9/8 16/15 25/24
+	6/5
+]
 ```
 
 * * *
 
-See also: fareySequence, Fraction, isSquareSuperparticular
+See also: fareySequence, Fraction, isSquareSuperparticular, isUnitFraction
 
 Guides: Xenharmonic Functions
 

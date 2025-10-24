@@ -49,20 +49,42 @@ Multiplication with integer:
 37.214D
 ```
 
+Reciprocal retains scale, unless it is zero:
+
+```
+>>> [2D 2.0D 2.00D].reciprocal
+[0.5D 0.5D 0.50D]
+
+>>> [3D 3.0D 3.00D].reciprocal
+[0.3D 0.3D 0.33D]
+
+>>> [0.3D 0.33D 0.333D].reciprocal
+[3.3D 3.03D 3.003D]
+```
+
 Division by integer:
 
 ```
 >>> 3.1416D / 2
-1.5708D
+1.57080D
 
 >>> 23 / 1.618D
 14.215D
+
+>>> (2.01D / 2, 2.01D * 0.5D)
+(1.005D, 1.005D)
+
+>>> (2.01D / 2.0D, 2.01D / 2)
+(1.005D, 1.005D)
 ```
 
 Addition with `Decimal` preserves greatest number of places:
 
 ```
 >>> 1.30D + 1.20D
+2.50D
+
+>>> 1.15D + 1.35D
 2.50D
 
 >>> 3.14159D + 1.618D
@@ -146,20 +168,23 @@ Exact fraction:
 -157/50
 ```
 
-Multiplication extends precision:
+Multiplication with `Decimal` follows the schoolbook approach and gives all of the figures in the multiplicands:
 
 ```
 >>> 1.3D * 1.2D
 1.56D
+
+>>> 2.01D * 0.5D
+1.005D
 ```
 
 Division:
 
 ```
 >>> 1.00D / 7.00D
-0.14D
+0.1429D
 
->>> 1.000000D / 7.000000D
+>>> 1.000D / 7.000D
 0.142857D
 ```
 
@@ -179,8 +204,8 @@ Integer and fraction parts retain scale:
 A `Decimal` is an integer only the `scale` is `zero`:
 
 ```
->>> 3D.isInteger
-true
+>>> (3D.isInteger, 3D.scale)
+(true, 0)
 
 >>> 3.000D.isInteger
 false
@@ -222,7 +247,9 @@ Print `String`:
 
 * * *
 
-See also: asDecimal, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat
+See also: asDecimal, asDecimalFraction, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat
+
+Guides: Number Functions
 
 References:
 _Python_

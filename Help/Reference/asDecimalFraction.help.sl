@@ -19,6 +19,11 @@ Derive a `Fraction` for the `SmallFloat` _x_ where the integer _n_ is the number
 
 >>> 23.asFractionOver(2)
 23/1
+
+>>> [1 2 3].collect { :n |
+>>> 	(2.01 / 2).asDecimalFraction(n)
+>>> }
+[1/1 1/1 201/200]
 ```
 
 * * *

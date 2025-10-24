@@ -153,6 +153,9 @@ Plot _√x-⌊√x⌉_ over a subset of the reals:
 
 ![](sw/spl/Help/Image/round-B.svg)
 
+_Note_: The parameter α is not the integer number of places to round to but the multiple.
+To round to two places set _α=0.01_.
+
 * * *
 
 See also: ceiling, divisible, floor, integerPart, rescale, round, roundDown, roundTiesEven, roundTowardsZero, roundUp, truncate

@@ -366,10 +366,6 @@ LargeInteger! : [Object, Equatable, Comparable, Binary, Magnitude, Number, Integ
 		<primitive: return _self % BigInt(_anInteger);>
 	}
 
-	unit { :unused |
-		1L
-	}
-
 	zero { :unused |
 		0L
 	}
