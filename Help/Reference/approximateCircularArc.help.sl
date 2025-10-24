@@ -2,7 +2,7 @@
 
 - _approximateCircularArc([x y], r, [θ₁ θ₂])_
 
-Answer an approximation of a circlular arc as a cubic Bézier curve.
+Answer an approximation of a circular arc as a cubic Bézier curve.
 
 At origin with radius one and angle from zero to ½π:
 

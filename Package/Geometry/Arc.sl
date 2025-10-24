@@ -1,10 +1,22 @@
 Arc : [Object, Equatable, Geometry] { | center radii angles |
 
+	apothem { :self |
+		let a = self.chordLength;
+		let r = self.radius;
+		((4 * r.square) - a.square).sqrt / 2
+	}
+
 	approximation { :self |
 		(0 -- 1).discretize(
 			64,
 			self.parametricEquation
 		)
+	}
+
+	arcLength { :self |
+		let r = self.radius;
+		let theta = self.centralAngle;
+		r * theta
 	}
 
 	boundingBox { :self |
@@ -13,6 +25,27 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 			self.center + self.radii
 		]*/
 		self.approximation.coordinateBoundingBox
+	}
+
+	centralAngle { :self |
+		let [a, b] = self.angles;
+		(b - a) % 2.pi
+	}
+
+	centroid { :self |
+		let [a, b] = self.angles;
+		let r = self.radius;
+		let alpha = (b - a) / 2;
+		let rho = (4 * r * alpha.sin) / (3 * alpha * 2);
+		let theta = a + alpha;
+		let d = [rho, theta].fromPolarCoordinates;
+		self.center + d
+	}
+
+	chordLength { :self |
+		let r = self.radius;
+		let theta = self.centralAngle;
+		2 * r * (theta / 2).sin
 	}
 
 	circle { :self |
@@ -27,6 +60,15 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 		self.center.size
 	}
 
+	isCircularArc { :self |
+		let [rx, ry] = self.radii;
+		rx = ry
+	}
+
+	isMajorArc { :self |
+		self.centralAngle > 1.pi
+	}
+
 	parametricEquation { :self |
 		let [a, b] = self.angles;
 		let c = (a < b).if { b } { b + 2.pi };
@@ -35,6 +77,10 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 		{ :theta |
 			g(f(theta))
 		}
+	}
+
+	perimeter { :self |
+		self.arcLength + (2 * self.radius)
 	}
 
 	radius { :self |
@@ -46,34 +92,66 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 		}
 	}
 
+	sagitta { :self |
+		self.radius - self.apothem
+	}
+
+	sector { :self |
+		self.isCircularArc.if {
+			CircularSector(self)
+		} {
+			self.error('sector: not circular arc')
+		}
+	}
+
 	sectorArea { :self |
-		self.radius.square * self.theta * 0.5
+		let r = self.radius;
+		let theta = self.centralAngle;
+		r.square * theta / 2
+	}
+
+	segment { :self |
+		self.isCircularArc.if {
+			CircularSegment(self)
+		} {
+			self.error('segment: not circular arc')
+		}
 	}
 
 	segmentArea { :self |
-		self.radius.square * (self.theta - self.theta.sin) * 0.5
+		let theta = self.centralAngle;
+		(theta <= 1.pi).if {
+			let r = self.radius;
+			r.square * (theta - theta.sin) / 2
+		} {
+			self.error('segmentArea: θ>π')
+		}
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
 	}
 
 	svgFragment { :self :options |
 		let precision = options['precision'];
+		let r = self.radii;
+		let [c, p, q] = self.vertexCoordinates;
+		'<path d="M %,% %" />'.format(
+			[
+				p[1].printStringToFixed(precision),
+				p[2].printStringToFixed(precision),
+				svgArcTo(r[1], r[2], 0, self.isMajorArc, true, q[1], q[2], precision)
+			]
+		)
+	}
+
+	vertexCoordinates { :self  |
 		let [cx, cy] = self.center;
 		let [rx, ry] = self.radii;
 		let [startAngle, endAngle] = self.angles;
 		let [x1, y1] = [cx, cy] + [rx * startAngle.cos, ry * startAngle.sin];
 		let [x2, y2] = [cx, cy] + [rx * endAngle.cos, ry * endAngle.sin];
-		let largeArcFlag = ((endAngle - startAngle) % 2.pi) > 1.pi;
-		'<path d="M %,% %" />'.format(
-			[
-				x1.printStringToFixed(precision),
-				y1.printStringToFixed(precision),
-				svgArcTo(rx, ry, 0, largeArcFlag, true, x2, y2, precision)
-			]
-		)
-	}
-
-	theta { :self |
-		let [a, b] = self.angles;
-		(b - a).abs
+		[cx cy; x1 y1; x2 y2]
 	}
 
 }
@@ -82,6 +160,16 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 
 	Arc { :center :radii :angles |
 		newArc().initializeSlots(center, radii, angles)
+	}
+
+	circularArcThrough { :self |
+		let circle = circleThrough(self);
+		let c = circle.center;
+		let r = circle.radius;
+		let [a, _, b] = self;
+		let p = counterClockwiseVectorAngle([1 0], a - c);
+		let q = counterClockwiseVectorAngle([1 0], b - c);
+		Arc(c, [r, r], [p, q])
 	}
 
 	poincareDiskArc { :self |
@@ -102,6 +190,85 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 			let b = (c -> [c + [1, 0], a]).planarAngle;
 			Arc(c, [r, r], [b, b + (2 * phi)])
 		}
+	}
+
+}
+
+CircularSector : [Object, Geometry] { | arc |
+
+	boundingBox { :self |
+		self.geometry.boundingBox
+	}
+
+	embeddingDimension { :self |
+		self.arc.embeddingDimension
+	}
+
+	geometry { :self |
+		let a = self.arc;
+		let [c, p, q] = a.vertexCoordinates;
+		GeometryCollection(
+			[
+				Line([c, p]),
+				a,
+				Line([q, c])
+			]
+		)
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+	svgFragment { :self :options |
+		self.geometry.svgFragment(options)
+	}
+
+}
+
++Arc {
+
+	CircularSector { :self |
+		newCircularSector().initializeSlots(self)
+	}
+
+}
+
+CircularSegment : [Object, Geometry] { | arc |
+
+	boundingBox { :self |
+		self.geometry.boundingBox
+	}
+
+	embeddingDimension { :self |
+		self.arc.embeddingDimension
+	}
+
+	geometry { :self |
+		let a = self.arc;
+		let [_, p, q] = a.vertexCoordinates;
+		GeometryCollection(
+			[
+				Line([p, q]),
+				a
+			]
+		)
+	}
+
+	storeString { :self |
+		self.storeStringAsInitializeSlots
+	}
+
+	svgFragment { :self :options |
+		self.geometry.svgFragment(options)
+	}
+
+}
+
++Arc {
+
+	CircularSegment { :self |
+		newCircularSegment().initializeSlots(self)
 	}
 
 }

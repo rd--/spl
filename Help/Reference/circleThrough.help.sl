@@ -1,7 +1,7 @@
 # circleThrough
 
-- _circleThrough([p₁, p₂])_
-- _circleThrough([p₁, p₂, p₃])_
+- _circleThrough([p₁ p₂])_
+- _circleThrough([p₁ p₂ p₃])_
 
 Answer the `Circle` passing through the specified points.
 
@@ -28,7 +28,7 @@ Circle([1 3], 2.2361)
 Circle([-3 1], 5)
 ```
 
-The `arcLength` of an circle passing through three points:
+The `arcLength` of a circle passing through three points:
 
 ```
 >>> [
@@ -93,7 +93,7 @@ let p = [
 
 * * *
 
-See also: Circle, circlePoints, circumcircle, circumsphere, Disk
+See also: Circle, circlePoints, circularArcThrough, circumcircle, circumsphere, Disk
 
 Guides: Geometry Functions
 

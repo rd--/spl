@@ -9,6 +9,8 @@ Types:
 - `Arc`
 - `BezierCurve`
 - `Circle`
+- `CircularSector`
+- `CircularSegment`
 - `Disk`
 - `Ellipse`
 - `GeneralisedCircle`
@@ -50,7 +52,23 @@ Angle Functions:
 Arc Functions
 
 - `Arc`
+- `apothem`
 - `approximateCircularArc`
+- `arcLength`
+- `centralAngle`
+- `centroid`
+- `chordLength`
+- `isCircularArc`
+- `isMajorArc`
+- `parametricEquation`
+- `perimeter`
+- `radius`
+- `sagitta`
+- `sectorArea`
+- `sector`
+- `segmentArea`
+- `segment`
+- `vertexCoordinates`
 
 Area Functions:
 

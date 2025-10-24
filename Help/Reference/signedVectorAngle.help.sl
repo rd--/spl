@@ -17,6 +17,6 @@ The signed angle between two vectors in two-dimensions:
 
 * * *
 
-See also: atan2, counterClockwiseVectorAngle, vectorAngle
+See also: atan2, counterClockwiseVectorAngle, signedVectorAngle, unsignedVectorAngle, vectorAngle
 
 Guides: Geometry Functions

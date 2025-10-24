@@ -94,7 +94,7 @@ Zero of `arcTan`:
 >>> x.arcTan(y)
 2.arcTan
 
->>> [1 0].vectorAngle([1 2])
+>>> [1 0].vectorAngle([1 2], 'Unsigned')
 (1 / 5.sqrt).arcCos
 
 >>> 2.arcTan = (1 / 5.sqrt).arcCos

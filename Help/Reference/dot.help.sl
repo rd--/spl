@@ -21,7 +21,7 @@ Scalar product of vectors in two dimensions:
 Vectors are perpendicular if their inner product is zero:
 
 ```
->>> [1 1].vectorAngle([-1 1])
+>>> [1 1].vectorAngle([-1 1], 'Unsigned')
 1/2.pi
 ```
 
@@ -271,7 +271,8 @@ Project the vector _(-1, -4, -2)_ on the plane spanned by the vectors _(1, 1, -1
 For a vector _v_ with real entries, _v.norm_ equals _(v.v).sqrt_:
 
 ```
->>> let v = { system.nextRandomFloat } ! 3;
+>>> let r = Sfc32(839214);
+>>> let v = r.randomReal([0 1], [3]);
 >>> v.dot(v).sqrt
 v.norm
 ```

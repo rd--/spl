@@ -1,66 +1,79 @@
 # vectorAngle
 
-- _vectorAngle(u, v)_
+- _vectorAngle(u, v, r)_
 
-Answers the angle between the vectors _u_ and _v_.
+Answers the angle between the vectors _u_ and _v_ according to the rule _r_
 
-The angle between two vectors in two-dimensions:
+The unsigned angle between two vectors in two-dimensions:
 
 ```
->>> [1 0].vectorAngle([1 1])
+>>> [1 0].vectorAngle([1 1], 'Unsigned')
 1/4.pi
 ```
 
-The angle between two vectors in three-dimensions:
+The unsigned angle between two vectors in three-dimensions:
 
 ```
->>> [1 0 0].vectorAngle([1 1 1])
+>>> let r = 'Unsigned';
+>>> [1 0 0].vectorAngle([1 1 1], r)
 (1 / 3.sqrt).arcCos
 
 >>> let u = [1 2 3];
 >>> let v = [1 1 1];
->>> u.vectorAngle(v)
+>>> u.vectorAngle(v, 'Unsigned')
 (6 / 7).sqrt.arcCos
 ```
 
-The angle between orthogonal vectors:
+The unsigned angle between orthogonal vectors:
 
 ```
->>> [1 0].vectorAngle([0 1])
+>>> let r = 'Unsigned';
+>>> [1 0].vectorAngle([0 1], r)
 0.5.pi
 
->>> [1 0 1].vectorAngle([0 1 0])
+>>> let r = 'Unsigned';
+>>> [1 0 1].vectorAngle([0 1 0], r)
 0.5.pi
 
 >>> 10.unitVector(1).vectorAngle(
->>> 	10.unitVector(2)
+>>> 	10.unitVector(2),
+>>> 	'Unsigned'
 >>> )
 0.5.pi
 ```
 
-The angle between a vector and another vector on the same line:
+The unsigned angle between a vector and another vector on the same line:
 
 ```
->>> [1 1].vectorAngle([2 2])
+>>> [1 1].vectorAngle([2 2], 'Unsigned')
 0
 ```
 
-The answer is unsigned, see `signedVectorAngle`:
+The answer is may be unsigned, signed or counter-clockwise:
 
 ```
->>> [1 0].vectorAngle([0 1])
-1/2.pi
-
->>> [0 1].vectorAngle([1 0])
-1/2.pi
-
->>> [0 1].signedVectorAngle([1 0])
--1/2.pi
+>>> let a = [1 0];
+>>> let b = [0 1];
+>>> [
+>>> 	'Unsigned'
+>>> 	'Signed'
+>>> 	'CounterClockwise'
+>>> ].collect { :r |
+>>> 	[
+>>> 		a.vectorAngle(b, r),
+>>> 		b.vectorAngle(a, r)
+>>> 	]
+>>> }
+[
+	1/2.pi 1/2.pi;
+	1/2.pi -1/2.pi;
+	1/2.pi 3/2.pi
+]
 ```
 
 * * *
 
-See also: arcCos, cross, degree, dot, planarAngle, signedVectorAngle
+See also: arcCos, cross, counterClockwiseVectorAngle, degree, dot, planarAngle, signedVectorAngle, unsignedVectorAngle
 
 Guides: Geometry Functions
 

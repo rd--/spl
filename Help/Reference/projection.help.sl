@@ -80,8 +80,11 @@ Project the vector _v_ on the plane spanned by the vectors _b1_ and _b2_:
 >>> let b1 = [2 4 -2];
 >>> let b2 = [-3 3 0];
 >>> let b3 = b2 - b2.projection(b1);
->>> let p = v.projection(b1) + v.projection(b3);
->>> (b3, p, v - p, v.projection(b1.cross(b2)))
+>>> let p = v.projection(b1);
+>>> let q = v.projection(b3);
+>>> let r = p + q;
+>>> let s = v.projection(b1.cross(b2));
+>>> (b3, r, v - r, s)
 (
 	[-7 4 1] / 2,
 	[13 35 -16] / 22,
@@ -116,13 +119,23 @@ For subsequent vectors, components parallel to earlier basis vectors are subtrac
 >>> let e1 = v1.n;
 >>> let e2 = (v2 - v2.p(e1)).n;
 >>> let e3 = (v3 - v3.p(e1) - v3.p(e2)).n;
->>> let e4= (v4 - v4.p(e1) - v4.p(e2) - v4.p(e3)).n;
+>>> let a = v4.p(e1);
+>>> let b = v4.p(e2);
+>>> let c = v4.p(e3);
+>>> let e4 = (v4 - a - b - c).n;
 >>> [e1 e2 e3 e4]
 [
-	-0.72134   -0.04498   -0.33577    0.60407;
-	 0.03185   -0.99020   -0.10054   -0.09159;
-	 0.67430    0.02831   -0.53150    0.51188;
-	 0.15482   -0.12918    0.77114    0.60390
+	-0.72134   -0.04498
+	-0.33577    0.60407
+	;
+	 0.03185   -0.99020
+	-0.10054   -0.09159
+	;
+	 0.67430    0.02831
+	-0.53150    0.51188
+	;
+	 0.15482   -0.12918
+	 0.77114    0.60390
 ]
 ```
 
@@ -140,10 +153,10 @@ and use that basis to find a QR factorization:
 >>> let [m, n] = a.shape;
 >>> let x = a.transpose;
 >>> let v:/1 = { :k |
->>> 	let r = x[k] - 1.to(k - 1).collect { :j |
+>>> 	let r = 1.to(k - 1).collect { :j |
 >>> 		x[k].projection(v(j))
 >>> 	}.sum;
->>> 	r.normalize
+>>> 	(x[k] - r).normalize
 >>> }.memoize(true);
 >>> let q = 1:n.collect(v:/1).transpose;
 >>> let r = q.transpose.dot(a);
@@ -201,7 +214,8 @@ The projection of _u_ onto _v_ is in the direction of _v_:
 ```
 >>> let r = Sfc32(17931);
 >>> let [u, v] = r.randomReal([0 1], [2 6]);
->>> vectorAngle(projection(u, v), v)
+>>> let w = projection(u, v);
+>>> vectorAngle(w, v, 'Unsigned')
 0
 ```
 
@@ -220,8 +234,8 @@ See also: dot, inner, normalize, orthogonalize, vectorAngle
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/VectorSpaceProjection.html),
-[1](https://reference.wolfram.com/language/ref/Projection.html),
+[1](https://mathworld.wolfram.com/VectorSpaceProjection.html)
+[2](https://reference.wolfram.com/language/ref/Projection.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Vector_projection)
 

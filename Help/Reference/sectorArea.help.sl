@@ -2,7 +2,7 @@
 
 - _sectorArea(a)_
 
-Answer the sector area of the arc _a_.
+Answer the sector area of the circular sector specified by the arc _a_.
 
 ```
 >>> Arc([0 0], [1 1], [0 1/2.pi])
@@ -11,7 +11,7 @@ Answer the sector area of the arc _a_.
 
 >>> Arc([0 0], [1 1], [1/2.pi 1/3.pi])
 >>> .sectorArea
-1/12.pi
+11/12.pi
 ```
 
 * * *

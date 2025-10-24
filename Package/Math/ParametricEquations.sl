@@ -580,3 +580,17 @@
 	}
 
 }
+
++@Integer {
+
+	torusKnotCurve { :p :q |
+		{ :t |
+			let r = p + (q * t).cos;
+			let x = r * (p * t).cos;
+			let y = r * (p * t).sin;
+			let z = (q * t).sin;
+			[x, y, z]
+		}
+	}
+
+}

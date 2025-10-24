@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-5.000 -5.000 110.000 110.000">
+<g fill="none" stroke="black" stroke-width="0.0055%" transform="translate(0, 100.0000) scale(91.7158, -91.7158)">
+<circle cx="1.000" cy="0.000" r="0.005" />
+<circle cx="1.000" cy="0.707" r="0.005" />
+<circle cx="0.000" cy="1.000" r="0.005" />
+<circle cx="0.354" cy="0.354" r="0.005" />
+<rect x="0.000" y="0.000" width="1.000" height="1.000" />
+<path d="M 1.000,-0.000 A 0.737 0.737 0.000 0 1 0.000,1.000" />
+</g>
+</svg>

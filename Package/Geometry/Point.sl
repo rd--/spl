@@ -228,7 +228,7 @@ Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 			let u = p - a;
 			let v = b - a;
 			let r = projection(u, v);
-			let t = v.vectorAngle(r);
+			let t = v.unsignedVectorAngle(r);
 			(t ~ 1.pi).if {
 				a
 			} {
@@ -274,12 +274,22 @@ Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 		[m, c]
 	}
 
-	vectorAngle { :u :v |
+	unsignedVectorAngle { :u :v |
 		(u.isVector & { v.isVector }).if {
 			(u.dot(v) / (u.norm * v.norm)).arcCos
 		} {
-			self.error('List>>vectorAngle: not vectors')
+			self.error('List>>unsignedVectorAngle: not vectors')
 		}
+	}
+
+	vectorAngle { :u :v :rule |
+		rule.caseOf(
+			[
+				'CounterClockwise' -> { counterClockwiseVectorAngle(u, v) },
+				'Signed' -> { signedVectorAngle(u, v) },
+				'Unsigned' -> { unsignedVectorAngle(u, v) }
+			]
+		)
 	}
 
 }

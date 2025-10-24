@@ -137,6 +137,18 @@ Select first few squares:
 [0 1 4 9 16 25 36 49 64 81 100]
 ```
 
+Identities:
+
+```
+>>> let x = 25;
+>>> x / x.sqrt
+x.sqrt
+
+>>> let x = 25;
+>>> x.sqrt / x
+1 / x.sqrt
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -278,7 +278,7 @@ let c = 0.99873327689;
 
 ![](sw/spl/Help/Image/BezierCurve-O.svg)
 
-Approximation of circlular arcs as a cubic Bézier curves:
+Approximation of circular arcs as a cubic Bézier curves:
 
 ~~~spl svg=P
 [0.2 0.5; 0.6 0.7; 1.1 1.4; 1.8 2.1].pi

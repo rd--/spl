@@ -52,6 +52,7 @@ Algebraic Curve Functions:
 - `superformulaCurve`
 - `swishFunction`
 - `syntractrix`
+- `torusKnotCurve`
 - `tractrix`
 - `tractrixSpiral`
 - `tridentOfNewton`

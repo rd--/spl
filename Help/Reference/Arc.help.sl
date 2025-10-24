@@ -10,8 +10,11 @@ A `Type` that represents an arc between angles _θ_ of an ellipse of radii _r_ a
 >>> 	a.center,
 >>> 	a.radii,
 >>> 	a.angles,
+>>> 	a.arcLength,
+>>> 	a.centralAngle,
 >>> 	a.radius,
->>> 	a.theta,
+>>> 	a.apothem,
+>>> 	a.sagitta,
 >>> 	a.sectorArea,
 >>> 	a.segmentArea
 >>> )
@@ -19,14 +22,33 @@ A `Type` that represents an arc between angles _θ_ of an ellipse of radii _r_ a
 	[0 0],
 	[1 1],
 	[1/2.pi 1.pi],
-	1,
 	1/2.pi,
-	0.7854,
+	1/2.pi,
+	1,
+	2.sqrt / 2,
+	1 - (2.sqrt / 2),
+	1/4.pi,
 	0.2854
 )
 ```
 
-Two circlular arcs, and a line:
+Quarter-circle:
+
+```
+>>> let a = Arc([0 0], [1 1], [0 1/2.pi]);
+>>> (a.sectorArea, a.centroid)
+(1/4.pi, [4 / 3.pi, 4 / 3.pi])
+```
+
+Semi-circle:
+
+```
+>>> let a = Arc([0 0], [1 1], [0 1.pi]);
+>>> (a.sectorArea, a.centroid)
+(1/2.pi, [0, 4 / 3.pi])
+```
+
+Two circular arcs, and a line:
 
 ~~~spl svg=A
 [
@@ -134,17 +156,61 @@ let p = a.approximation.PointCloud;
 
 ![](sw/spl/Help/Image/Arc-H.svg)
 
+Draw a major sector:
+
+~~~spl svg=I
+Arc([0 0], [1 1], [5/4 3/4].pi)
+.sector
+~~~
+
+![](sw/spl/Help/Image/Arc-I.svg)
+
+Draw a minor sector:
+
+~~~spl svg=J
+Arc([0 0], [1 1], [2/5 3/5].pi)
+.sector
+~~~
+
+![](sw/spl/Help/Image/Arc-J.svg)
+
+Draw a proper segment:
+
+~~~spl svg=K
+Arc([0 0], [1 1], [-1/3 1/3].pi)
+.segment
+~~~
+
+![](sw/spl/Help/Image/Arc-K.svg)
+
+Draw a segment of a major sector,
+by convention not properly a segment:
+
+~~~spl svg=L
+Arc([0 0], [1 1], [5/4 3/4].pi)
+.segment
+~~~
+
+![](sw/spl/Help/Image/Arc-L.svg)
+
 * * *
 
-See also: Circle, Ellipse, LineDrawing, Polygon, Rectangle, Triangle
+See also: Circle, CircularSector, CircularSegment, Ellipse, LineDrawing, Polygon, Rectangle, Triangle
 
 Guides: Geometry Functions
 
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Arc.html)
-[2](https://reference.wolfram.com/language/ref/Circle.html),
+[2](https://mathworld.wolfram.com/Chord.html)
+[3](https://mathworld.wolfram.com/Apothem.html)
+[4](https://mathworld.wolfram.com/Sagitta.html)
+[5](https://mathworld.wolfram.com/CircularSector.html)
+[6](https://mathworld.wolfram.com/CentralAngle.html)
+[7](https://reference.wolfram.com/language/ref/Circle.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Circular_arc)
+[2](https://en.wikipedia.org/wiki/Circular_sector)
+[3](https://en.wikipedia.org/wiki/Central_angle)
 
 Categories: Geometry

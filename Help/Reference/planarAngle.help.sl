@@ -106,11 +106,12 @@ The angle answered in the `List` form is in _(0, π)_:
 >>> let p = [0 0];
 >>> let q1 = [0 -1];
 >>> let q2 = [1 0];
+>>> let r = 'Unsigned';
 >>> (
 >>> 	[q1 p q2].planarAngle,
 >>> 	[q2 p q1].planarAngle,
->>> 	vectorAngle(q1 - p, q2 - p),
->>> 	vectorAngle(q2 - p, q1 - p)
+>>> 	vectorAngle(q1 - p, q2 - p, r),
+>>> 	vectorAngle(q2 - p, q1 - p, r)
 >>> )
 (1/2.pi, 1/2.pi, 1/2.pi, 1/2.pi)
 ```
