@@ -35,6 +35,20 @@
 		}
 	}
 
+	bifoliate { :a |
+		{ :theta |
+			let r = a * ((8 * theta.cos * theta.sin.square) / (3 + (4 * theta).cos));
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
+	bifolium { :a |
+		{ :theta |
+			let r = 4 * a * theta.sin.square * theta.cos;
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	botanicCurve { :c :d |
 		{ :theta |
 			let r = 1 + (d * (c * theta).sin);
@@ -410,6 +424,20 @@
 		}
 	}
 
+	trifolium { :r :a :b |
+		{ :theta |
+			let rho = (4 * r * theta.cos.cube) + ((a - (3 * r)) * theta.cos) + (b * theta.sin);
+			[rho, theta].fromPolarCoordinates
+		}
+	}
+
+	trifolium { :a |
+		{ :theta |
+			let r = -a * (3 * theta).cos;
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	trisectrixOfMaclaurin { :a |
 		{ :theta |
 			let r = (a / 2) * ((4 * theta.cos) - theta.sec);
@@ -577,6 +605,13 @@
 		{ :x |
 			(d / x) - (a * x.square) - (b * x) - c
 		}
+	}
+
+	trottCurve { :x :y |
+		let a = 144 * ((x ^ 4) + (y ^ 4));
+		let b = 225 * ((x ^ 2) + (y ^ 2));
+		let c = 350 * (x ^ 2) * (y ^ 2);
+		a - b + c + 81
 	}
 
 }

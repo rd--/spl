@@ -5,6 +5,8 @@ Algebraic Curve Functions:
 - `ampersandCurve`
 - `archimedeanSpiral`
 - `bicorn`
+- `bifoliate`
+- `bifolium`
 - `botanicCurve`
 - `butterflyCurve`
 - `cayleysSextic`
@@ -56,6 +58,7 @@ Algebraic Curve Functions:
 - `tractrix`
 - `tractrixSpiral`
 - `tridentOfNewton`
+- `trifolium`
 - `trisectrixOfMaclaurin`
 - `trochoid`
 - `tschirnhausenCubic`
@@ -72,6 +75,7 @@ Implicit Curve Functions:
 - `squareChladniPlateEquation`
 - `stirrupCurve`
 - `tridentCurve`
+- `trottCurve`
 - `wattsCurve`
 
 Fractal Curve Functions:
