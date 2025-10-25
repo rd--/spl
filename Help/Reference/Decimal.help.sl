@@ -245,6 +245,20 @@ Print `String`:
 20880467999847912034355032910567D
 ```
 
+Retrieve unscaled integer:
+
+```
+>>> 3.141D.unscaledInteger
+3141
+```
+
+Retrieve digits of unscaled integer:
+
+```
+>>> 3.141D.integerDigits
+[3 1 4 1]
+```
+
 * * *
 
 See also: asDecimal, asDecimalFraction, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat

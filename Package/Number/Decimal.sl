@@ -145,6 +145,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		)
 	}
 
+	integerDigits { :self |
+		self.unscaledInteger.integerDigits
+	}
+
 	integerPart { :self |
 		UnsimplifiedDecimal(
 			self.fraction.integerPart.asFraction,
@@ -246,6 +250,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 
 	truncate { :self |
 		self.fraction.truncate
+	}
+
+	unscaledInteger { :self |
+		(self.fraction * (10L ^ self.scale)).asInteger
 	}
 
 	zero { :self |

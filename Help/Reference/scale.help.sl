@@ -1,8 +1,18 @@
 # scale
 
+- _scale(d)_
 - _scale(g, s)_
 
-Scale the geometry _g_ by a factor _s_ retaining the center coordinate.
+At a `Decimal` number _d_,
+answer the number of places after the decimal point:
+
+```
+>>> 3.141D.scale
+3
+```
+
+At a `Geometry` _g_,
+scale by a factor _s_ retaining the center coordinate.
 
 At `Circle`:
 

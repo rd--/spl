@@ -216,6 +216,7 @@
 				moserDeBruijnSequence: [000695],
 				motzkinNumber: [001006],
 				motzkinSequence: [001006],
+				namedConstant: [086088],
 				narayanaNumber: [001263],
 				narayanaSequence: [000930],
 				nearestPrime: [051697],
