@@ -82,6 +82,10 @@
 		self.codePoint.betweenAnd(97, 122)
 	}
 
+	isPrintableAscii { :self |
+		self.codePoint.betweenAnd(32, 126)
+	}
+
 	isPunctuation { :self |
 		self.characterString.isPunctuation
 	}
@@ -249,6 +253,36 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 				'5': '.....', '0': '-----'
 			)
 		}
+	}
+
+}
+
++List {
+
+	equalIgnoringExtraWhitespace { :a :b :f:/1 |
+		let p = a.size;
+		let q = b.size;
+		let i = 1;
+		let j = 1;
+		let mismatch = false;
+		let atEnd = false;
+		{ atEnd }.whileFalse {
+			(a[i] = b[j]).if {
+				i := i + 1;
+				j := j + 1
+			} {
+				f(b[j]).if {
+					j := j + 1
+				} {
+					atEnd := true;
+					mismatch := true
+				}
+			};
+			(i > p | { j > q }).ifTrue {
+				atEnd := true
+			}
+		};
+		mismatch.not & { i >= p & { j >= q } }
 	}
 
 }

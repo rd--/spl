@@ -1,8 +1,8 @@
 # isAllWhiteSpace
 
-- _isAllWhiteSpace(aString)_
+- _isAllWhiteSpace(s)_
 
-Answer `true` if _aString_ contains only white space.
+Answer `true` if the string _s_ contains only white space.
 White space is defined here as `isSpace` or `isTab` or `isCarriageReturn` or `isLineFeed`.
 
 One each of each white space character:

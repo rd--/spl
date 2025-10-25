@@ -32,7 +32,7 @@ true
 
 * * *
 
-See also: Character
+See also: Character, isPrintableAscii
 
 Guides: String Functions
 

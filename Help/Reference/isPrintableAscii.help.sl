@@ -52,7 +52,7 @@ true
 
 * * *
 
-See also: characterRange, isDigit, isLetter, removeDiacritics, String, toCharacterCode
+See also: characterRange, isAscii, isDigit, isLetter, removeDiacritics, String, toCharacterCode
 
 Guides: String Functions
 

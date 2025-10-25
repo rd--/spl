@@ -17,9 +17,9 @@ DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
 			])
 		} {
 			(self.prefix = '>>').if {
-				'{ % }.value.asString.utf8ByteArray = %'.format([
+				'{ % }.value.asString.equalIgnoringExtraWhitespace(%.utf8String)'.format([
 					self.program.unwords,
-					self.expectedAnswer.unlines.utf8ByteArray.storeString
+					self.expectedAnswer.unlines.trim.utf8ByteArray.storeString
 				])
 			} {
 				self.error('format: unknown prefix: ' ++ self.prefix)

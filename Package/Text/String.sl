@@ -373,6 +373,10 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.error('String>>endsWith: non string operand')
 	}
 
+	equalIgnoringExtraWhitespace { :self :operand |
+		self.characters.equalIgnoringExtraWhitespace(operand.characters, isSeparator:/1)
+	}
+
 	findLastOccurrenceOfStringStartingAt { :self :subString :start |
 		let last = self.findStringStartingAt(subString, start);
 		(last = 0).if {
@@ -733,6 +737,10 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.onCharactersList(
 			noncontiguousSubsequences:/1
 		)
+	}
+
+	normalizeWhitespace { :self |
+		<primitive: return _self.replace(/\s+/g, ' ').trim();>
 	}
 
 	nub { :self |

@@ -24,16 +24,17 @@ The `format` method prints the equivalence predicate:
 >>> ).format
 '3 + 4 ~ (7)'
 
->>> DocumentationTest(
->>> 	'>>',
->>> 	['3 + 4'],
->>> 	['7']
->>> ).format
-[
-	'{ 3 + 4 }.value.asString.utf8ByteArray'
-	' = '
-	'ByteArray([55])'
-].stringCatenate
+>> DocumentationTest(
+>> 	'>>',
+>> 	['3 + 4'],
+>> 	['7']
+>> ).format
+{ 3 + 4 }
+.value
+.asString
+.equalIgnoringExtraWhitespace(
+	ByteArray([55]).utf8String
+)
 
 >>> DocumentationTest(
 >>> 	'>>>',
@@ -45,20 +46,20 @@ The `format` method prints the equivalence predicate:
 >>> ).format
 'let x = 3 + 4; x * x ~ (49)'
 
->>> DocumentationTest(
->>> 	'>>',
->>> 	[
->>> 		'let x = 3 + 4;'
->>> 		'x * x'
->>> 	],
->>> 	['49']
->>> ).format
-[
-	'{ let x = 3 + 4; x * x }.value'
-	'.asString.utf8ByteArray'
-	' = '
-	'ByteArray([52, 57])'
-].stringCatenate
+>> DocumentationTest(
+>> 	'>>',
+>> 	[
+>> 		'let x = 3 + 4;'
+>> 		'x * x'
+>> 	],
+>> 	['49']
+>> ).format
+{ let x = 3 + 4; x * x }
+.value
+.asString
+.equalIgnoringExtraWhitespace(
+	ByteArray([52, 57]).utf8String
+)
 ```
 
 The `evaluate` method evaluates the test:

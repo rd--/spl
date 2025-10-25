@@ -1,8 +1,8 @@
 # whiteSpaceDelimitedWordAtIndex
 
-- _whiteSpaceDelimitedWordAtIndex(aString, anInteger)_
+- _whiteSpaceDelimitedWordAtIndex(s, n)_
 
-Get the word in _aString_ at index _anInteger_:
+Get the word in the string _s_ at index _n_:
 
 ```
 >>> let s = 'a list of words';
