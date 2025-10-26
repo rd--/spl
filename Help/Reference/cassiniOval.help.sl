@@ -17,7 +17,7 @@ cassiniOval(9 / 10, 1)
 
 * * *
 
-See also: bicuspidCurve
+See also: bicuspidCurve, spiricSection
 
 Guides: Curve Functions
 

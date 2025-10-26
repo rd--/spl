@@ -55,6 +55,8 @@ Mathematical Constants:
 - `stolarskyHarborthConstant`: β
 - `supergoldenRatio`: ψ
 - `supersilverRatio`: ς
+- `tetranacciConstant`
+- `tribonacciConstant`
 
 Pyhsical Constants:
 

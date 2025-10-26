@@ -16,6 +16,7 @@ Algebraic Curve Functions:
 - `cleliaCurve`
 - `cochleoid`
 - `conchoidOfDeSluze`
+- `conchoidOfDurer`
 - `cycloid`
 - `ellipseCurve`
 - `epicycloid`
@@ -39,6 +40,7 @@ Algebraic Curve Functions:
 - `lissajousCurve`
 - `logarithmicSpiral`
 - `norwichSpiral`
+- `plateauCurve`
 - `quadratrixOfHippias`
 - `reuleauxPolygonCurve`
 - `rhodonea`
@@ -72,6 +74,7 @@ Implicit Curve Functions:
 - `cassiniOval`
 - `ellipticCurve`
 - `hyperbolaCurve`
+- `spiricSection`
 - `squareChladniPlateEquation`
 - `stirrupCurve`
 - `tridentCurve`

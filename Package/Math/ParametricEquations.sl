@@ -120,6 +120,14 @@
 		}
 	}
 
+	conchoidOfDurer { :a :b |
+		{ :t |
+			let x = ((b * t.cos) / (t.cos - t.sin)) + (a * t.cos);
+			let y = a * t.sin;
+			[x, y]
+		}
+	}
+
 	cycloid { :r |
 		{ :t |
 			[
@@ -286,6 +294,15 @@
 			let rho = a / t.cos.square;
 			let theta = t.tan - (2 * t);
 			[rho theta].fromPolarCoordinates
+		}
+	}
+
+	plateauCurve { :a :m :n |
+		{ :t |
+			let p = ((m - n) * t).sin;
+			let x = (a * ((m + n) * t).sin) / p;
+			let y = (2 * a * (m * t).sin * (n * t).sin) / p;
+			[x, y]
 		}
 	}
 
@@ -507,6 +524,12 @@
 	ellipticCurve { :a :b |
 		{ :x :y |
 			(x ^ 3) + (a * x) + b - (y ^ 2)
+		}
+	}
+
+	spiricSection { :a :b :c |
+		{ :x :y |
+			(x.square + y.square - a.square + b.square + c.square).square - (4 * b.square * (x.square + c.square))
 		}
 	}
 

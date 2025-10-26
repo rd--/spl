@@ -125,6 +125,19 @@ Circle(
 
 ![](sw/spl/Help/Image/circlePoints-F.svg)
 
+Circles within a circle:
+
+~~~spl svg=G
+let n = 5;
+let p = n.circlePoints([0 0], 1, 0);
+[
+	Circle([0 0], 2),
+	Circle(p, 1)
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circlePoints-G.svg)
+
 * * *
 
 See also: %, ^, angleVector, Circle, cos, Range, sin

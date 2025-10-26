@@ -1,10 +1,16 @@
-# namedConstant
+# tetranacciConstant
 
-- _namedConstant(s)_
+- _tetranacciConstant(n)_
 
-Answer a `Decimal` number representing the mathematical or physical constant named at the `String` _s_.
+Answer _n_ times the tetranacci constant.
 
-The tetranacci constant,
+```
+>>> let t = 1.tetranacciConstant;
+>>> (t, t + (t ^ -4))
+(1.927562, 2)
+```
+
+The tetranacci constant is also stored as a named constant with higher precision,
 OEIS [A086088](https://oeis.org/A086088):
 
 ```
@@ -23,11 +29,11 @@ Scatter plot of the digits of the tetranacci constant:
 .scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/namedConstant-A.svg)
+![](sw/spl/Help/Image/tetranacciConstant-A.svg)
 
 * * *
 
-See also: Decimal
+See also: linearRecurrence, namedConstant, tribonacciConstant
 
 Guides: Mathematical Constants
 
@@ -35,6 +41,4 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TetranacciConstant.html),
 _OEIS_
-[1](https://oeis.org/A086088)
-[2](https://oeis.org/A058265)
-[3](https://oeis.org/A002117)
+[1](https://oeis.org/A058265)
