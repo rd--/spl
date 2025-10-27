@@ -11,16 +11,6 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		}
 	}
 
-	~ { :self :operand |
-		self = operand | {
-			operand.isNumber.if {
-				self.asFloat ~ operand.asFloat
-			} {
-				false
-			}
-		}
-	}
-
 	< { :self :operand |
 		operand.isDecimal.if {
 			self.fraction < operand.fraction
@@ -154,6 +144,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 			self.fraction.integerPart.asFraction,
 			self.scale
 		)
+	}
+
+	isCloseToBy { :self :aNumber :epsilon |
+		self.asFloat.isCloseToBy(aNumber.asFloat, epsilon)
 	}
 
 	isExact { :unused |

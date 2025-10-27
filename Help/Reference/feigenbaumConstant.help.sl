@@ -26,6 +26,27 @@ Irrational approximation:
 4.669422
 ```
 
+The Feigenbaum constant is also stored as a named constant with higher precision,
+OEIS [A006890](https://oeis.org/A006890):
+
+```
+>>> let n = 'FeigenbaumConstant';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(4.669202, 104)
+```
+
+Scatter plot of the digits of the Feigenbaum constant:
+
+~~~spl svg=A
+'FeigenbaumConstant'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/feigenbaumConstant-A.svg)
+
 * * *
 
 See also: e, pi, secondFeigenbaumConstant

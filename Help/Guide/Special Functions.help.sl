@@ -11,6 +11,9 @@ Elliptic Integrals:
 - `ellipticE`
 - `ellipticK`
 - `ellipticPi`
+- `jacobiCn`
+- `jacobiDn`
+- `jacobiSn`
 
 Error Function and Related Functions:
 

@@ -21,7 +21,7 @@ OEIS [A002117](https://oeis.org/A002117):
 ```
 >>> let n = 'AperysConstant';
 >>> let k = n.namedConstant;
->>> (k.asFloat, k.scale)
+>>> (k, k.scale)
 (1.202057, 107)
 ```
 

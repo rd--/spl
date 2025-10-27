@@ -422,10 +422,6 @@ SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, 
 		<primitive: return Number.isSafeInteger(_self);>
 	}
 
-	isVeryCloseTo { :self :aNumber |
-		self.isCloseToBy(aNumber, 0.000000000001)
-	}
-
 	log { :self |
 		<primitive:
 		if(_self >= 0) {

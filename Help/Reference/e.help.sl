@@ -97,6 +97,27 @@ The graph of _eˣ_ has gradient `one` at `zero`:
 
 ![](sw/spl/Help/Image/e-A.svg)
 
+`e` is also stored as a named constant with higher precision,
+OEIS [A001113](https://oeis.org/A001113):
+
+```
+>>> let n = 'E';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(2.71828, 104)
+```
+
+Scatter plot of the digits of `e`:
+
+~~~spl svg=B
+'E'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/e-B.svg)
+
 _e_ is also a part of the `Scientific Notation` for `Number Literals`,
 however in that context an upper case _E_ is ordinary.
 
@@ -109,6 +130,8 @@ Guides: Mathematical Constants, Number Literals, Scientific Notation
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/e.html),
+_OEIS_
+[1](https://oeis.org/A001113),
 _Smalltalk_
 5.6.8.2
 

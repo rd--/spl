@@ -63,6 +63,7 @@
 				divisorSigma: [000005],
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
+				e: [001113],
 				engelExpansion: [006784 000027 028254],
 				entringerTriangle: [008281],
 				equispacedTriples: [002620],

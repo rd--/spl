@@ -259,6 +259,13 @@ Retrieve digits of unscaled integer:
 [3 1 4 1]
 ```
 
+Approximate comparison:
+
+```
+>>> 3.141592D ~ 1.pi
+true
+```
+
 * * *
 
 See also: asDecimal, asDecimalFraction, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat

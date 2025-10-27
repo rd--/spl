@@ -16,7 +16,7 @@ OEIS [A058265](https://oeis.org/A058265):
 ```
 >>> let n = 'TribonacciConstant';
 >>> let k = n.namedConstant;
->>> (k.asFloat, k.scale)
+>>> (k, k.scale)
 (1.839287, 101)
 ```
 

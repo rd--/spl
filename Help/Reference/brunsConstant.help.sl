@@ -10,7 +10,10 @@ the number obtained by adding the reciprocals of the odd twin primes.
 1.90216058
 ```
 
-The sequence converges extremely slowly:
+The sequence converges extremely slowly,
+the OEIS entry,
+[A065421](https://oeis.org/A065421),
+has only nine places:
 
 ```
 >>> 1:999

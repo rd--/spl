@@ -14,6 +14,7 @@ Mathematical Constants:
 - `berahaConstant`: _B(n)_
 - `boltzmannConstant`: _kʙ_
 - `brunsConstant`: _B_
+- `calabisConstant`
 - `catalansConstant`: _C_
 - `champernowneNumber`: _C_
 - `conwaysConstant`: _λ_
@@ -38,6 +39,7 @@ Mathematical Constants:
 - `lemniscateConstant`: ϖ
 - `levysConstant`: _exp(β)_
 - `logarithmicPhi`: _2^φ_
+- `madelungConstant`
 - `meisselMertensConstant`: B₁
 - `omegaConstant`: Ω
 - `paperFoldingConstant`: _P_
@@ -81,5 +83,7 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Mathematical_constant)
 [2](https://en.wikipedia.org/wiki/Physical_constant)
+
+Further Reading: Finch 2003
 
 Categories: Math, Constant

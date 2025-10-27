@@ -30,7 +30,7 @@ let b = 1.goldenRatio.log / 0.5.pi;
 
 * * *
 
-See also: archimedeanSpiral, eulerSpiral
+See also: archimedeanSpiral, eulerSpiral, goldenRatio
 
 Guides: Curve Functions
 

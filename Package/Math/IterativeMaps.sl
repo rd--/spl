@@ -88,6 +88,13 @@
 		}
 	}
 
+	katsuraFukudaMap { :k |
+		{ :x |
+			let a = 4 * x * (1 - x) * (1 - (k.square * x));
+			let b = (1 - (k.square * x.square)).square;
+			a / b
+		}
+	}
 
 	logisticMap { :r |
 		{ :x |

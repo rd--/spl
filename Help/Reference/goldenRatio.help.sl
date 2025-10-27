@@ -3,6 +3,7 @@
 - _goldenRatio(n)_
 
 Answer _n_ × the golden ratio,
+also called the golden mean,
 _(√5 + 1) / 2_,
 usually written as Phi or phi, also as tau.
 
@@ -179,6 +180,16 @@ OEIS [A005206](https://oeis.org/A005206):
 )
 ```
 
+The ratio of the triangle formed by adjacent points of a regular unit pentagon is φ:
+
+```
+>>> let p = 5.circlePoints([0 0], 1, 0);
+>>> let a = euclideanDistance(p[1], p[2]);
+>>> let b = euclideanDistance(p[1], p[3]);
+>>> b / a
+1.goldenRatio
+```
+
 Plot the fractional part of multiples of the golden ratio:
 
 ~~~spl svg=A
@@ -259,9 +270,30 @@ The tips of a pentagram are golden triangles:
 
 ![](sw/spl/Help/Image/goldenRatio-G.svg)
 
+φ is also stored as a named constant with higher precision,
+OEIS [A001622](https://oeis.org/A001622):
+
+```
+>>> let n = 'GoldenRatio';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(1.618034, 104)
+```
+
+Scatter plot of the digits of φ:
+
+~~~spl svg=H
+'GoldenRatio'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-H.svg)
+
 * * *
 
-See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, pi, plasticRatio, supergoldenRatio, wythoffLower
+See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, logarithmicSpiral, pi, plasticRatio, supergoldenRatio, wythoffLower
 
 Guides: Mathematical Constants, Xenharmonic Functions
 

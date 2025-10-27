@@ -17,9 +17,30 @@ Continued fraction:
 [2 1 2 5 1 1 2 1 1 3 10 2 1 3 2 24 1 3]
 ```
 
+Khinchin’s constant is also stored as a named constant with higher precision,
+OEIS [A002210](https://oeis.org/A002210):
+
+```
+>>> let n = 'KhinchinsConstant';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(2.68545, 104)
+```
+
+Scatter plot of the digits of Khinchin’s constant:
+
+~~~spl svg=A
+'KhinchinsConstant'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/khinchinsConstant-A.svg)
+
 * * *
 
-See also: arithmeticGeometricMean, continuedFraction
+See also: arithmeticGeometricMean, continuedFraction, levysConstant
 
 Guides: Mathematical Constants
 

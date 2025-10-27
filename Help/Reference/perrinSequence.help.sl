@@ -2,7 +2,8 @@
 
 - _perrinSequence(n)_
 
-Answer the first _n_ elements of the Perrin sequence:
+Answer the first _n_ elements of the Perrin sequence,
+OEIS [A001608](https://oeis.org/A001608):
 
 ```
 >>> 27.perrinSequence

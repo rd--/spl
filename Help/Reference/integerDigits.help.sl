@@ -14,6 +14,13 @@ Find digits in base 10:
 58127
 ```
 
+The sign is ignored:
+
+```
+>>> -3141.integerDigits
+[3 1 4 1]
+```
+
 Find digits in base 2 & 3:
 
 ```

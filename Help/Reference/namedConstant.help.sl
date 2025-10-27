@@ -10,24 +10,20 @@ OEIS [A086088](https://oeis.org/A086088):
 ```
 >>> let n = 'TetranacciConstant';
 >>> let k = n.namedConstant;
->>> (k.asFloat, k.scale)
+>>> (k, k.scale)
 (1.927562, 101)
+
+>> 'TetranacciConstant'
+>> .namedConstant
+1.927561975482925304261905861736
+62216869855425516338472714664703
+80096660622978155591498182534618
+9065325D
 ```
-
-Scatter plot of the digits of the tetranacci constant:
-
-~~~spl svg=A
-'TetranacciConstant'
-.namedConstant
-.integerDigits
-.scatterPlot
-~~~
-
-![](sw/spl/Help/Image/namedConstant-A.svg)
 
 * * *
 
-See also: Decimal
+See also: Decimal, tetranacciConstant
 
 Guides: Mathematical Constants
 
@@ -36,5 +32,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/TetranacciConstant.html),
 _OEIS_
 [1](https://oeis.org/A086088)
-[2](https://oeis.org/A058265)
-[3](https://oeis.org/A002117)

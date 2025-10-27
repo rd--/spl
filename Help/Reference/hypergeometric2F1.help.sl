@@ -16,6 +16,12 @@ At `SmallFloat`:
 >>> let z = 1 / 2;
 >>> hypergeometric2F1(a, b, c, z)
 2.728935
+
+>>> hypergeometric2F1(-3, -1, -2, 1)
+-0.5
+
+>>> hypergeometric2F1(-0.5, 1 / 3, 4 / 3, -1)
+1.111448
 ```
 
 At `Complex`:

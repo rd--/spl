@@ -188,6 +188,27 @@ Euler’s identity:
 0
 ```
 
+π is also stored as a named constant with higher precision,
+OEIS [A000796](https://oeis.org/A000796):
+
+```
+>>> let n = 'Pi';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(3.141593, 104)
+```
+
+Scatter plot of the digits of π:
+
+~~~spl svg=A
+'Pi'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/pi-A.svg)
+
 `pi` is not defined as a constant, unlike `Infinity` and `NaN`.
 
 Where supported `pi` is displayed as π.

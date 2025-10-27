@@ -23,6 +23,27 @@ Continued fraction:
 [3 3 1 1 1 2 29 1 130 1 12 3 8]
 ```
 
+Lévy’s constant is also stored as a named constant with higher precision,
+OEIS [A002210](https://oeis.org/A002210):
+
+```
+>>> let n = 'LevysConstant';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(2.68545, 104)
+```
+
+Scatter plot of the digits of Lévy’s constant:
+
+~~~spl svg=A
+'LevysConstant'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/levysConstant-A.svg)
+
 * * *
 
 See also: continuedFraction, convergents, khinchinsConstant

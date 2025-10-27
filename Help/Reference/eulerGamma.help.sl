@@ -56,6 +56,27 @@ Plot approach to limit:
 
 ![](sw/spl/Help/Image/eulerGamma-A.svg)
 
+γ is also stored as a named constant with higher precision,
+OEIS [A001620](https://oeis.org/A001620):
+
+```
+>>> let n = 'EulerGamma';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(0.5772, 99)
+```
+
+Scatter plot of the digits of γ:
+
+~~~spl svg=B
+'EulerGamma'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerGamma-B.svg)
+
 * * *
 
 See also: e, meisselMertensConstant, pi

@@ -2,7 +2,7 @@
 
 - _pythagorasConstant(n)_
 
-Answer _n_ Pythagoras’ constant,
+Answer _n_ times Pythagoras’ constant,
 the square root of two.
 
 ```
@@ -22,6 +22,38 @@ The fraction _99/70_ is a reasonable simple approximation:
 >>> 1.pythagorasConstant.asFraction
 577/408
 ```
+
+It is the Euclidean distance from _(0,0)_ to _(1,1)_,
+which is the norm of _(1,1)-(0,0)_:
+
+```
+>>> euclideanDistance([0 0], [1 1])
+2.sqrt
+
+>>> [1 1].norm
+2.sqrt
+```
+
+Pythagoras’ constant is also stored as a named constant with higher precision,
+OEIS [A002193](https://oeis.org/A002193):
+
+```
+>>> let n = 'PythagorasConstant';
+>>> let k = n.namedConstant;
+>>> (k, k.scale)
+(1.414214, 98)
+```
+
+Scatter plot of the digits of Pythagoras’ constant:
+
+~~~spl svg=A
+'PythagorasConstant'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/pythagorasConstant-A.svg)
 
 * * *
 

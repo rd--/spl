@@ -16,7 +16,7 @@ OEIS [A086088](https://oeis.org/A086088):
 ```
 >>> let n = 'TetranacciConstant';
 >>> let k = n.namedConstant;
->>> (k.asFloat, k.scale)
+>>> (k, k.scale)
 (1.927562, 101)
 ```
 
