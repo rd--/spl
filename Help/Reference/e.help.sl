@@ -79,11 +79,16 @@ Expressions that approach _e_:
 1.e
 ```
 
-The continued fraction of _e_ is regular:
+The continued fraction of _e_ is regular,
+OEIS [A003417](https://oeis.org/A003417):
 
 ```
 >>> 1.e.continuedFraction(20)
-[2 1 2 1 1 4 1 1 6 1 1 8 1 1 10 1 1 12 1 1]
+[
+	2 1 2 1 1 4 1 1 6
+	1 1 8 1 1 10 1 1 12
+	1 1
+]
 ```
 
 The graph of _eˣ_ has gradient `one` at `zero`:
@@ -118,6 +123,24 @@ Scatter plot of the digits of `e`:
 
 ![](sw/spl/Help/Image/e-B.svg)
 
+The continued fraction at the higher precision decimal constant is accurate to many more places:
+
+```
+>>> 'E'.namedConstant.continuedFraction(90)
+[
+	2 1  2 1 1  4 1 1  6
+	1 1  8 1 1 10 1 1 12
+	1 1 14 1 1 16 1 1 18
+	1 1 20 1 1 22 1 1 24
+	1 1 26 1 1 28 1 1 30
+	1 1 32 1 1 34 1 1 36
+	1 1 38 1 1 40 1 1 42
+	1 1 44 1 1 46 1 1 48
+	1 1 50 1 1 52 1 1 54
+	1 1 56 1 1 58 1 1 60
+]
+```
+
 _e_ is also a part of the `Scientific Notation` for `Number Literals`,
 however in that context an upper case _E_ is ordinary.
 
@@ -131,7 +154,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/e.html),
 _OEIS_
-[1](https://oeis.org/A001113),
+[1](https://oeis.org/A001113)
+[2](https://oeis.org/A003417),
 _Smalltalk_
 5.6.8.2
 

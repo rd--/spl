@@ -66,16 +66,16 @@ Division by integer:
 
 ```
 >>> 3.1416D / 2
-1.57080D
+1.5708D
 
 >>> 23 / 1.618D
 14.215D
 
 >>> (2.01D / 2, 2.01D * 0.5D)
-(1.005D, 1.005D)
+(1.01D, 1.005D)
 
->>> (2.01D / 2.0D, 2.01D / 2)
-(1.005D, 1.005D)
+>>> 2.01D / 2.000D
+1.005D
 ```
 
 Addition with `Decimal` preserves greatest number of places:
@@ -182,10 +182,16 @@ Division:
 
 ```
 >>> 1.00D / 7.00D
-0.1429D
+0.14D
 
 >>> 1.000D / 7.000D
-0.142857D
+0.143D
+
+>>> 1 / 7.00D
+0.14D
+
+>>> 1.00D / 7
+0.14D
 ```
 
 Integer and fraction parts retain scale:

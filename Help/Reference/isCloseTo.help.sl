@@ -36,6 +36,13 @@ true
 true
 ```
 
+At `Decimal`:
+
+```
+>>> 3D./.isCloseTo(0.3D)
+true
+```
+
 * * *
 
 See also: ~, !~, =, <~, >~, isCloseToBy, isVeryCloseTo, threshold

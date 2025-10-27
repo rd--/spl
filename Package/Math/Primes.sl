@@ -576,6 +576,10 @@
 		}
 	}
 
+	primeSignature { :self |
+		self.factorInteger.values.sort(>)
+	}
+
 	primesBetweenAnd { :iMin :iMax |
 		let startIndex = iMin.isPrime.if {
 			iMin.indexOfPrime

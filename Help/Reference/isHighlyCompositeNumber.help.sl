@@ -24,6 +24,19 @@ Seven factorial is the nineteenth highly composite number:
 true
 ```
 
+Number of divisors of succesive highly composite numbers,
+OEIS [A002183](https://oeis.org/A002183):
+
+```
+>>> [
+>>> 	1 2 4 6 12 24 36 48 60 120
+>>> 	180 240 360 720 840
+>>> ].collect { :n |
+>>> 	0.divisorSigma(n)
+>>> }
+[1 2 3 4 6 8 9 10 12 16 18 20 24 30 32]
+```
+
 * * *
 
 See also: divisors, isComposite
@@ -34,7 +47,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HighlyCompositeNumber.html),
 _OEIS_
-[1](http://oeis.org/A002182),
+[1](http://oeis.org/A002182)
+[2](https://oeis.org/A002183),
 _W_
 [1](https://en.wikipedia.org/wiki/Highly_composite_number)
 

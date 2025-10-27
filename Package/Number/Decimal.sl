@@ -57,7 +57,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 			self.error('Decimal>>/: zero divide')
 		} {
 			operand.isDecimal.if {
-				self * operand.reciprocal
+				Decimal(
+					self.fraction / operand.fraction,
+					self.scale.max(operand.scale)
+				)
 			} {
 				operand.adaptToDecimalAndApply(self, /)
 			}
@@ -129,7 +132,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 	}
 
 	fractionalPart { :self |
-		UnsimplifiedDecimal(
+		Decimal(
 			self.fraction.fractionalPart,
 			self.scale
 		)
@@ -218,7 +221,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		self.isZero.if {
 			self.error('Decimal>>reciprocal: zero divide')
 		} {
-			UnsimplifiedDecimal(
+			Decimal(
 				self.fraction.reciprocal,
 				self.scale.max(1)
 			)

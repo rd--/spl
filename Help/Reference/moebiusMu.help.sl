@@ -15,6 +15,33 @@ Compute the Möbius function at ten and eleven:
 -1
 ```
 
+Depends only of the prime signature of _n_:
+
+```
+>>> [24 375].collect(moebiusMu:/1)
+[0 0]
+
+>>> [24 375].collect(primeSignature:/1)
+[3 1; 3 1]
+```
+
+First few terms,
+OEIS [A008683](https://oeis.org/A008683):
+
+```
+>>> 1:78.collect(moebiusMu:/1)
+[
+	 1 -1 -1  0 -1  1 -1  0  0  1
+	-1  0 -1  1  1  0 -1  0 -1  0
+	 1  1 -1  0  0  1  0  0 -1 -1
+	-1  0  1  1  1  0 -1  1  1  0
+	-1 -1 -1  0  0  1 -1  0  0  0
+	 1  0 -1  0  1  0  1  1 -1  0
+	-1  1  0  0  1 -1 -1  0  1 -1
+	-1  0 -1  1  0  0  1 -1
+]
+```
+
 `moebiusMu` is a multiplicative function:
 
 ```
@@ -60,9 +87,33 @@ Plot the first few terms of Mertens’s function:
 
 ![](sw/spl/Help/Image/moebiusMu-B.svg)
 
+Moebius transform applied twice to the sequence one then zero,
+OEIS [A007427](https://oeis.org/A007427):
+
+```
+>>> 1:81.collect { :n |
+>>> 	divisorSum(n) { :d |
+>>> 		let a = moebiusMu(d);
+>>> 		let b = moebiusMu(n / d);
+>>> 		a * b
+>>> 	}
+>>> }
+[
+	 1 -2 -2  1 -2  4 -2  0  1  4
+	-2 -2 -2  4  4  0 -2 -2 -2 -2
+	 4  4 -2  0  1  4  0 -2 -2 -8
+	-2  0  4  4  4  1 -2  4  4  0
+	-2 -8 -2 -2 -2  4 -2  0  1 -2
+	 4 -2 -2  0  4  0  4  4 -2  4
+	-2  4 -2  0  4 -8 -2 -2  4 -8
+	-2  0 -2  4 -2 -2  4 -8 -2  0
+	 0
+]
+```
+
 * * *
 
-See also: isSquareFree, liouvilleLambda
+See also: isSquareFree, liouvilleLambda, primeSignature
 
 Guides: Integer Sequence Functions
 

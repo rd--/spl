@@ -21,6 +21,7 @@
 - `bitXor`: A003188
 - `braceletCount`: A000029 A081720
 - `brunsConstant`: A065421
+- `calabisConstant`: A046095
 - `calkinWilfSequence`: A002487
 - `cantorNumbers`: A005823
 - `cantorStaircase`: A095844 A095845
@@ -50,6 +51,7 @@
 - `divisorSigma`: A000005
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
+- `e`: A001113
 - `engelExpansion`: A000027 A006784 A028254
 - `entringerTriangle`: A008281
 - `equispacedTriples`: A002620
@@ -121,7 +123,7 @@
 - `isHarshadNumber`: A005349
 - `isHeronian`: A046128 A046129 A046130 A046131 A055592 A055593 A055594
 - `isHighlyAbundantNumber`: A005101
-- `isHighlyCompositeNumber`: A002182
+- `isHighlyCompositeNumber`: A002182 A002183
 - `isKaprekarNumber`: A006886
 - `isLesserCousinPrime`: A023200 A046132
 - `isLesserTwinPrime`: A001359 A006512 A014574
@@ -140,6 +142,7 @@
 - `isPronicNumber`: A002378
 - `isPseudoperfectNumber`: A005835
 - `isPythagoreanPrime`: A002144
+- `isRefactorableNumber`: A033950
 - `isRegularNumber`: A051037
 - `isRoughNumber`: A007775 A008364
 - `isSemiprime`: A001358 A006881
@@ -152,6 +155,7 @@
 - `isSumProductNumber`: A038369
 - `isSuperabundantNumber`: A004394
 - `isSuperiorHighlyCompositeNumber`: A002201
+- `isUnitFraction`: A003592
 - `isWeakPrime`: A051635
 - `isWeirdNumber`: A006037
 - `iterate`: A014707 A118006
@@ -172,7 +176,7 @@
 - `leibnizHarmonicTriangle`: A003506
 - `lemniscateConstant`: A062539
 - `levysConstant`: A086702 A086703
-- `linearRecurrence`: A000045 A000124 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001519 A001590 A001608 A001653 A001687 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
+- `linearRecurrence`: A000045 A000078 A000124 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001519 A001590 A001608 A001653 A001687 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599
 - `logarithmicIntegral`: A069284 A070769
@@ -181,6 +185,7 @@
 - `lucasNumber`: A000032
 - `lucasNumbers`: A000032
 - `lyndonWords`: A001037
+- `madelungConstant`: A085469
 - `magicSquare`: A033812 A127907
 - `magicSquareSummary`: A033812 A126649 A126650 A126651 A127907
 - `mallowsSequence`: A005229
@@ -192,10 +197,11 @@
 - `mertensFunction`: A002321
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
-- `moebiusMu`: A008683
+- `moebiusMu`: A002321 A008683
 - `moserDeBruijnSequence`: A000695
 - `motzkinNumber`: A001006
 - `motzkinSequence`: A001006
+- `namedConstant`: A086088
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930
 - `nearestPrime`: A051697
@@ -204,6 +210,7 @@
 - `noergaardRhythmicInfinitySystem`: A073334
 - `numberOfCompositions`: A007318
 - `numberOfCompositionsWeak`: A178300
+- `oloid`: A215447
 - `omegaConstant`: A030178 A030797
 - `optimalGolombRulers`: A003022
 - `padovanSequence`: A000931 A001608 A182097
@@ -227,8 +234,11 @@
 - `previousPrime`: A007917
 - `prime`: A000040 A046929
 - `primeDistance`: A051699
+- `primeDivisors`: A003592
 - `primeFactors`: A020639
 - `primeGap`: A001223
+- `primeOmega`: A001222
+- `primeNu`: A001221 A034444
 - `primePi`: A000720
 - `primesList`: A000040
 - `primitiveRootList`: A001122 A001913 A033948 A046144
@@ -281,6 +291,7 @@
 - `sylvestersSequence`: A000058
 - `szekeresSequence`: A003278
 - `tetrahedralNumber`: A000292
+- `tetranacciConstant`: A058265
 - `thueMorseSequence`: A010060
 - `toothpickSequence`: A139250
 - `triangularArray`: A007318 A048601 A075363 A075364 A077028 A094587 A166556

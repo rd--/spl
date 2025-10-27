@@ -30,7 +30,7 @@ OEIS [A002210](https://oeis.org/A002210):
 >>> let n = 'LevysConstant';
 >>> let k = n.namedConstant;
 >>> (k, k.scale)
-(2.68545, 104)
+(3.27582, 104)
 ```
 
 Scatter plot of the digits of Lévy’s constant:
