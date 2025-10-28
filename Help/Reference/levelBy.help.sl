@@ -14,10 +14,12 @@ Values in a `Dictionary` are at the first level:
 Fetch elements from nested Records:
 
 ```
->>> (x: 1, y: (x: 2, y: 3)).levelBy { :k | k = 2 }
+>>> (x: 1, y: (x: 2, y: 3))
+>>> .levelBy { :k | k = 2 }
 [2 3]
 
->>> (x: 1, y: (x: 2, y: 3)).levelBy { :k | k = 1 }
+>>> (x: 1, y: (x: 2, y: 3))
+>>> .levelBy { :k | k = 1 }
 [1, (x: 2, y: 3)]
 ```
 
@@ -53,3 +55,5 @@ Level `zero` is the collection, which is then enclosed:
 * * *
 
 See also: level, withLevelCollect, withLevelDo
+
+Guides: List Functions

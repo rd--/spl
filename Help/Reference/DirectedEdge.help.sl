@@ -13,6 +13,13 @@ to represent a rule that transforms α to β.
 1 --> 2
 ```
 
+Vertex list:
+
+```
+>>> (1 --> 2).vertexList
+[1 2]
+```
+
 `asEdge` at `Association` answers a `DirectedEdge`:
 
 ```

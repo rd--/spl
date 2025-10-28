@@ -30,6 +30,9 @@ that is _e^x_.
 
 >>> (2.pi.i / 23).exp
 0.9629J0.2698
+
+>>> 3J4.exp
+3J0.exp * 0J4.exp
 ```
 
 `exp` threads elementwise over lists and matrices:

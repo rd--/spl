@@ -39,6 +39,12 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 0J1.5 0J-1.8].arg
 [0 1.5708 -1.5708]
+
+>>> [1J1 -1J1 -1J-1 1J-1].arg
+[1/4.pi 3/4.pi -3/4.pi -1/4.pi]
+
+>>> [1J0 0J1 -1J0 0J-1].arg
+[0 1/2.pi 1.pi -1/2.pi]
 ```
 
 Values at `zero` & `Infinity`:
@@ -63,7 +69,7 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/arg-A.svg)
 
-Plot _arg(x + i)_ on the reals:
+Plot _arg(x+i)_ on the reals:
 
 ~~~spl svg=B
 (-3 -- 3).functionPlot { :x |
@@ -73,14 +79,25 @@ Plot _arg(x + i)_ on the reals:
 
 ![](sw/spl/Help/Image/arg-B.svg)
 
+The color function proceeds counterclockwise around zeros of a function:
+
+~~~spl png=A
+[-2J-2 2J2].complexPlot { :z |
+	z.arg.real
+}
+~~~
+
 * * *
 
 See also: abs, absArg, arcTan, conjugate, Complex, toPolarCoordinates
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Arg.html),
+[1](https://mathworld.wolfram.com/ComplexArgument.html)
+[2](https://reference.wolfram.com/language/ref/Arg.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/angle.html)
+[1](https://mathworks.com/help/matlab/ref/angle.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Argument_(complex_analysis))
 
 Categories: Complex

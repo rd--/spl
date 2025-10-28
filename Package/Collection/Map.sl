@@ -140,20 +140,20 @@ Map! : [Object, Equatable, Iterable, Indexable, Collection, Extensible, Removabl
 
 +List {
 
-	associationsToMap { :self |
+	associationListToMap { :self |
 		self.isAssociationList.if {
-			self.collect(asList:/1).uncheckedListToMap
+			self.collect(keyValue:/1).uncheckedMatrixToMap
 		} {
-			self.error('List>>associationsToMap')
+			self.error('List>>associationListToMap')
 		}
 	}
 
-	listToMap { :self |
+	matrixToMap { :self |
 		let [_, m] = self.dimensions;
 		(m = 2).if {
-			self.uncheckedListToMap
+			self.uncheckedMatrixToMap
 		} {
-			self.error('List>>listToMap')
+			self.error('List>>matrixToMap')
 		}
 	}
 
@@ -162,22 +162,22 @@ Map! : [Object, Equatable, Iterable, Indexable, Collection, Extensible, Removabl
 			Map()
 		} {
 			self.anyOne.isAssociation.if {
-				self.associationsToMap
+				self.associationListToMap
 			} {
-				self.listToMap
+				self.matrixToMap
 			}
 		}
 	}
 
 	Map { :self |
-		self.listToMap
+		self.matrixToMap
 	}
 
 	substitutionSystem { :self :initialCondition :anInteger |
 		self.asMap.substitutionSystem(initialCondition, anInteger)
 	}
 
-	uncheckedListToMap { :self |
+	uncheckedMatrixToMap { :self |
 		<primitive: return new Map(_self);>
 	}
 

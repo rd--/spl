@@ -1,6 +1,6 @@
 # PolarCoordinates
 
-- _PolarCoordinates([r, θ])_
+- _PolarCoordinates([r θ])_
 
 `PolarCoordinates` is a `Type` that represents a point in a polar coordinate system,
 where each point on a plane is determined by a distance from a reference point and an angle in radians from a reference direction.

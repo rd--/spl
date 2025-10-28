@@ -19,6 +19,9 @@ at `Fraction`:
 
 >>> 13/27.continuedFraction
 [0 2 13]
+
+>>> 1/3.continuedFraction
+[0 3]
 ```
 
 At negative _x_:
@@ -270,7 +273,8 @@ At `Decimal`,
 OEIS [A003417](https://oeis.org/A003417):
 
 ```
->>> 'E'.namedConstant.continuedFraction(72)
+>>> 'E'.namedConstant
+>>> .continuedFraction(72)
 [
 	2 1  2 1 1  4 1 1  6
 	1 1  8 1 1 10 1 1 12

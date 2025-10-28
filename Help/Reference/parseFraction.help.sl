@@ -1,11 +1,10 @@
 # parseFraction
 
-- _parseFraction(aString)_
-- _parseFraction(aString, elseClause:/0)_
+- _parseFraction(s, f:/0)_
 
-Answer the `Fraction` represented by _aString_,
+Answer the `Fraction` represented by the string _s_,
 using a solidus to delimit the numerator and denominator,
-else evaluate _elseClause_ or signal an `error`.
+else evaluate the else clause _f_ or signal an `error`.
 
 Parse fraction:
 
@@ -21,7 +20,7 @@ Parse large fractions:
 2L ^ 54 - 1 / 23
 ```
 
-Signal an `error` if _aString_ is not a fraction:
+Signal an `error` if the string _s_ is not a fraction:
 
 ```
 >>> '3.141'.parseFraction { nil }
@@ -31,6 +30,17 @@ nil
 >>> 	'3.141'.parseFraction
 >>> }.hasError
 true
+```
+
+At `Record`:
+
+```
+>>> (numerator: 2, denominator: 3)
+>>> .parseFraction
+2/3
+
+>>> 2/3.asRecord
+(numerator: 2, denominator: 3)
 ```
 
 * * *

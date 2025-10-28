@@ -97,6 +97,8 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/abs.html),
 _Smalltalk_
-5.6.2.10
+5.6.2.10,
+_W_
+[1](https://en.wikipedia.org/wiki/Absolute_value)
 
 Categories: Arithmetic

@@ -49,6 +49,7 @@
 				chebyshevU: [008312 053117],
 				collatzSequence: [070165],
 				connellSequence: [001614],
+				continuedFraction: [003417],
 				convergents: [001040 001053],
 				convolve: [001629],
 				conwaysConstant: [014715],

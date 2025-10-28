@@ -22,14 +22,21 @@ Threads over lists:
 
 ```
 >>> (-1, -2 .. -5).sqrt.realImaginary
-[0 # 5, 1:5.sqrt].transpose
+[
+	0 # 5,
+	1:5.sqrt
+].transpose
 ```
 
 At `SmallFloat` and `LargeInteger` and `Fraction`:
 
 ```
 >>> [3.141 23L 5/7].realImaginary
-[3.141 0; 23L 0; 5/7 0]
+[
+	3.141 0;
+	23L 0;
+	5/7 0
+]
 ```
 
 * * *

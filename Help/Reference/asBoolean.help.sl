@@ -1,6 +1,8 @@
 # asBoolean
 
-- _asBoolean(aBoolean | anInteger)_
+- _asBoolean(x)_
+
+Convert the object _x_ into a boolean value.
 
 0 is `false`, 1 is `true`, `true` and `false` are themselves.
 
@@ -34,6 +36,13 @@ or `isNonZero`:
 >>> 	x != 0
 >>> }
 [true true false true true]
+```
+
+Threads over lists:
+
+```
+>>> [0 false 1 true].asBoolean
+[false false true true]
 ```
 
 Inverses of `asBoolean` are `asBit` and `boole`.

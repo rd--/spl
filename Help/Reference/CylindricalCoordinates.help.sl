@@ -1,6 +1,6 @@
 # CylindricalCoordinates
 
-- _CylindricalCoordinates([ρ, φ, z])_
+- _CylindricalCoordinates([ρ φ z])_
 
 The three components of `CylindricalCoordinates` are:
 
@@ -12,7 +12,7 @@ The three components of `CylindricalCoordinates` are:
 
 See also: CartesianCoordinates, fromCylindricalCoordinates, SphericalCoordinates, toCylindricalCoordinates
 
-Guides: Coordinate Systems
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_

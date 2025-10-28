@@ -48,12 +48,12 @@ i.e. `year`, `month`, `dayOfMonth`, `hour`, `minute`, `second`:
 [1970 01 01 00 00 00.000]
 ```
 
-These fields are answered by `asList`:
+These fields are answered by `components`:
 
 ```
 >>> '2025-04-08T17:07:20.500Z'
 >>> .parseDateAndTime
->>> .asList
+>>> .components
 [2025 04 08 17 07 20.500]
 ```
 

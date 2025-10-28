@@ -32,17 +32,17 @@ Duration : [Object, Equatable, Comparable, Magnitude] { | seconds |
 		Frequency(self.seconds.reciprocal)
 	}
 
-	asList { :self |
-		let b = [24 60 60];
-		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
-	}
-
 	asSeconds { :self |
 		self.seconds
 	}
 
+	components { :self |
+		let b = [24 60 60];
+		self.seconds.mixedRadixEncode(b).padLeft([4], 0)
+	}
+
 	durationString { :self |
-		let [d, h, m, s] = self.asList;
+		let [d, h, m, s] = self.components;
 		'P%DT%H%M%S'.format([d, h, m, s])
 	}
 
@@ -107,9 +107,13 @@ Duration : [Object, Equatable, Comparable, Magnitude] { | seconds |
 	parseDuration { :self :elseClause:/0 |
 		self.isIso8601DurationString.if {
 			let [
-				years, months, days,
-				hours, minutes, seconds
-			] = self.parseCalendarDuration.asList;
+				years,
+				months,
+				days,
+				hours,
+				minutes,
+				seconds
+			] = self.parseCalendarDuration.components;
 			(years + months > 0).if {
 				elseClause()
 			} {

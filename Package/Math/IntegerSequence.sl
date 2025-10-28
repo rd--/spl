@@ -980,7 +980,7 @@
 	}
 
 	tagSystem { :m :r :i :k |
-		let word = i.asList;
+		let word = i;
 		let answer = [word];
 		let rules = r.asMap;
 		let j = 2;

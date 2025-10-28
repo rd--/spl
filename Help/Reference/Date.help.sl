@@ -46,12 +46,12 @@ i.e. `year`, `month`, `dayOfMonth`:
 [1970 1 1]
 ```
 
-These fields are answered by `asList`:
+These fields are answered by `components`:
 
 ```
 >>> '2025-04-08'
 >>> .parseDate
->>> .asList
+>>> .components
 [2025 04 08]
 ```
 

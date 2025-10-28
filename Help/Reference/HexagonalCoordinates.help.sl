@@ -1,6 +1,6 @@
 # HexagonalCoordinates
 
-- _HexagonalCoordinates([q, r, s])_
+- _HexagonalCoordinates([q r s])_
 
 A `Type` representing cubical hexagonal coordinates.
 _q_ is the _row_ axis,

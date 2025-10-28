@@ -65,13 +65,13 @@ A `Duration` can be formatted as ISO-8601 using `durationString`:
 'P25DT0H0M0S'
 ```
 
-The `asList` method answers the list _(days, hours, minutes, seconds)_:
+The `components` method answers the list _(days, hours, minutes, seconds)_:
 
 ```
->>> Duration(1487477).asList
+>>> Duration(1487477).components
 [17 5 11 17]
 
->>> Duration(777600).asList
+>>> Duration(777600).components
 [9 0 0 0]
 ```
 

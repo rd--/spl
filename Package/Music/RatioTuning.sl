@@ -84,12 +84,14 @@ RatioTuning : [Object, Equatable, Cache, Tuning] { | name description ratios oct
 	}
 
 	storeString { :self |
-		'RatioTuning(%, %, %, %)'.format([
-			self.name.storeString,
-			self.description.storeString,
-			self.ratios.storeString,
-			self.octave.storeString
-		])
+		'RatioTuning(%, %, %, %)'.format(
+			[
+				self.name.storeString,
+				self.description.storeString,
+				self.ratios.storeString,
+				self.octave.storeString
+			]
+		)
 	}
 
 }

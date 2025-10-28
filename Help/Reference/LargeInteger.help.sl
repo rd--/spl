@@ -149,7 +149,9 @@ Can be implicitly converted to a `SmallFloat`:
 Multiplication of large integers:
 
 ```
->>> 7612058254738945 * 9263591128439081L
+>>> 7612058254738945
+>>> *
+>>> 9263591128439081L
 70514995317761165008628990709545L
 ```
 
@@ -164,6 +166,26 @@ Print & store `String`:
 
 >>> (23L ^ 23).storeString
 '20880467999847912034355032910567L'
+```
+
+Zero:
+
+```
+>>> 0L.isZero
+true
+
+>>> 1L.zero
+0L
+```
+
+One:
+
+```
+>>> 1L.isOne
+true
+
+>>> 0L.one
+1L
 ```
 
 * * *

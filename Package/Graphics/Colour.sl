@@ -603,14 +603,16 @@ RgbColour : [Object, Equatable, Colour] { | rgb alpha |
 		let p = (1 - s) * v;
 		let q = (1 - (s * f)) * v;
 		let t = (1 - (s * (1 - f))) * v;
-		i.caseOf([
-			0 ->  { [v, t, p] },
-			1 ->  { [q, v, p] },
-			2 ->  { [p, v, t] },
-			3 ->  { [p, q, v] },
-			4 ->  { [t, p, v] },
-			5 ->  { [v, p, q] }
-		]) {
+		i.caseOf(
+			[
+				0 -> { [v, t, p] },
+				1 -> { [q, v, p] },
+				2 -> { [p, v, t] },
+				3 -> { [p, q, v] },
+				4 -> { [t, p, v] },
+				5 -> { [v, p, q] }
+			]
+		) {
 			self.unimplementedCase('hsvToRgb')
 		}
 	}

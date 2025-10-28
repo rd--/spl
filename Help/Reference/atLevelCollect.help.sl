@@ -1,9 +1,9 @@
 # atLevelCollect
 
-- _atLevelCollect(aCollection, anInteger | aCollection, aBlock:/1)_
+- _atLevelCollect(c, [l₁ l₂ …], f:/1)_
 
 A variant of `withLevelCollect`,
-levels are selected if they are equal to _anInteger_ or are an element of _aCollection_.
+levels are selected if they are equal to any integer _l_.
 
 Select one level:
 
@@ -15,14 +15,14 @@ Select one level:
 ]
 
 >>> [2 3 2].iota
->>> .atLevelCollect(0, reverse:/1)
+>>> .atLevelCollect([0], reverse:/1)
 [
 	7 8; 9 10; 11 12:;
 	1 2; 3 4; 5 6
 ]
 
 >>> [2 3 2].iota
->>> .atLevelCollect(1, reverse:/1)
+>>> .atLevelCollect([1], reverse:/1)
 [
 	5 6; 3 4; 1 2:;
 	11 12; 9 10; 7 8
@@ -36,7 +36,7 @@ Select one level:
 ]
 
 >>> [2 3 2].iota
->>> .atLevelCollect(3, negate:/1)
+>>> .atLevelCollect([3], negate:/1)
 [
 	-1 -2; -3 -4; -5 -6:;
 	-7 -8; -9 -10; -11 -12

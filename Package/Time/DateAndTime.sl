@@ -9,22 +9,17 @@ DateAndTime : [Object, Equatable, Comparable, Magnitude] { | primitive |
 	}
 
 	asDate { :self |
-		Date([self.year, self.month, self.dayOfMonth])
+		Date(
+			[
+				self.year,
+				self.month,
+				self.dayOfMonth
+			]
+		)
 	}
 
 	asDateAndTime { :self |
 		self
-	}
-
-	asList { :self |
-		[
-			self.year,
-			self.month,
-			self.dayOfMonth,
-			self.hour,
-			self.minute,
-			self.second
-		]
 	}
 
 	asTime { :self |
@@ -33,6 +28,17 @@ DateAndTime : [Object, Equatable, Comparable, Magnitude] { | primitive |
 
 	asTimeStamp { :self |
 		TimeStamp(self.absoluteTime)
+	}
+
+	components { :self |
+		[
+			self.year,
+			self.month,
+			self.dayOfMonth,
+			self.hour,
+			self.minute,
+			self.second
+		]
 	}
 
 	dateAndTimeString { :self |
@@ -82,7 +88,11 @@ DateAndTime : [Object, Equatable, Comparable, Magnitude] { | primitive |
 	}
 
 	storeString { :self |
-		'DateAndTime(%)'.format([self.asList])
+		'DateAndTime(%)'.format(
+			[
+				self.components
+			]
+		)
 	}
 
 	unixTimeInMilliseconds { :self |

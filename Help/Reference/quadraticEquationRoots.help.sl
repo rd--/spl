@@ -31,6 +31,9 @@ Two distinct real roots:
 
 >>> quadraticEquationRoots(3, -2, -4)
 [1.53518 -0.86852]
+
+>>> quadraticEquationRoots(1, -3, 2)
+[2 1]
 ```
 
 Two imaginary roots:

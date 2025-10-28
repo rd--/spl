@@ -143,7 +143,14 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		self.asLargeInteger.asSmallInteger
 	}
 
-	asList { :self |
+	asRecord { :self |
+		(
+			numerator: self.numerator.asInteger,
+			denominator: self.denominator.asInteger
+		)
+	}
+
+	components { :self |
 		[
 			self.numerator.asInteger,
 			self.denominator.asInteger
@@ -240,8 +247,8 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 	}
 
 	isFareyPair { :self :aFraction |
-		let [a, b] = self.asList;
-		let [c, d] = aFraction.asList;
+		let [a, b] = self.numeratorDenominator;
+		let [c, d] = aFraction.numeratorDenominator;
 		(b * c) - (a * d) = 1
 	}
 
@@ -404,12 +411,12 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		}
 	}
 
-	one { :self |
-		ReducedFraction(1L, 1L)
+	numeratorDenominator { :self |
+		[self.numerator, self.denominator]
 	}
 
-	parts { :self |
-		[self.numerator, self.denominator]
+	one { :self |
+		ReducedFraction(1L, 1L)
 	}
 
 	phiWeightedMediant { :self :aFraction |
@@ -486,7 +493,7 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 
 	sylvesterExpansion { :self |
 		let a = [];
-		let [x, y] = self.parts;
+		let [x, y] = self.numeratorDenominator;
 		(x = 0 | { y = 0 }).if {
 			[]
 		} {
@@ -723,6 +730,14 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 				denominator
 			)
 		}
+	}
+
+}
+
++Record {
+
+	parseFraction { :self |
+		Fraction(self['numerator'], self['denominator'])
 	}
 
 }

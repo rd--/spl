@@ -5,7 +5,7 @@
 	bartlettWindow { :self |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			(self  > 0).if {
 				1 - (2 * self)
 			} {
@@ -17,7 +17,7 @@
 	bartlettHannWindow { :self |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			let a0 = 0.62;
 			let a1 = 0.48;
 			let a2 = 0.38;
@@ -36,7 +36,7 @@
 		let a2 = 0.08;
 		(x.abs > 0.5).if {
 			0
-		}  {
+		} {
 			a0 + (a1 * (2.pi * x).cos) + (a2 * (4.pi * x).cos)
 		}
 	}
@@ -44,7 +44,7 @@
 	blackmanHarrisWindow { :x |
 		(x.abs > 0.5).if {
 			0
-		}  {
+		} {
 			let a0 = 0.35875;
 			let a1 = 0.48829;
 			let a2 = 0.14128;
@@ -68,7 +68,7 @@
 	cosineWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			self.pi.cos ^ alpha
 		}
 	}
@@ -80,7 +80,7 @@
 	dirichletWindow { :self |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			1
 		}
 	}
@@ -113,7 +113,7 @@
 	generalCosineWindow { :x :a |
 		(x.abs > 0.5).if {
 			0
-		}  {
+		} {
 			let y = a[1];
 			2.toDo(a.size) { :k |
 				let n = (k - 1) * 2;
@@ -126,7 +126,7 @@
 	hammingWindow { :self |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			(21 / 46) * (2.pi * self).cos + (25 / 46)
 		}
 	}
@@ -134,7 +134,7 @@
 	hannWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			let c = (2.pi * self).cos;
 			alpha - (alpha * c) + c
 		}
@@ -258,7 +258,7 @@
 	welchWindow { :self :alpha |
 		(self.abs > 0.5).if {
 			0
-		}  {
+		} {
 			(alpha.square - (4 * self.square)) / alpha.square
 		}
 	}

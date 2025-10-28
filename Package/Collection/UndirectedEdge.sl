@@ -9,10 +9,6 @@ UndirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
 		self
 	}
 
-	asList { :self |
-		self.vertexList
-	}
-
 	asUndirectedEdge { :self |
 		self
 	}

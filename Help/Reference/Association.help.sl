@@ -59,7 +59,7 @@ the store string is similar but adds parentheses:
 Fetch both key and value:
 
 ```
->>> ('x' -> 1).asList
+>>> ('x' -> 1).keyValue
 ['x' 1]
 ```
 

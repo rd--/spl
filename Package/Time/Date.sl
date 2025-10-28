@@ -16,20 +16,20 @@ Date! : [Object, Equatable, Comparable, Magnitude] {
 		DateAndTime(self.absoluteTime)
 	}
 
-	asList { :self |
-		[
-			self.year,
-			self.month,
-			self.dayOfMonth
-		]
-	}
-
 	asTime { :self |
 		Time(self.absoluteTime)
 	}
 
 	asTimeStamp { :self |
 		TimeStamp(self.absoluteTime)
+	}
+
+	components { :self |
+		[
+			self.year,
+			self.month,
+			self.dayOfMonth
+		]
 	}
 
 	dateString { :self |

@@ -1,8 +1,8 @@
 # level
 
-- _level(aCollection, aList)_
+- _level(c, [l₁ l₂ …])_
 
-Answer a `List` of all sub-trees of _aCollection_ at levels in  _aList_.
+Answer a `List` of all sub-trees of the collection _c_ at levels in  the list _l_.
 Answer is depth first.
 
 Values in a `Dictionary` are at the first level:
@@ -111,6 +111,8 @@ Level zero is the collection, which is then enclosed:
 * * *
 
 See also: depth, levelBy, withLevelCollect, withLevelDo
+
+Guides: List Functions
 
 References:
 _Mathematica_

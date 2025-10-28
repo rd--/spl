@@ -1,8 +1,9 @@
 # vertexList
 
-- _vertexList(aGraph | anEdge | aGeometry)_
+- _vertexList(x)_
 
-Answer a `List` of the vertices in _aGraph_.
+Answer a `List` of the vertices at the object _x_,
+ordinarily a graph, an edge or a geometry.
 
 At an undirected graph:
 

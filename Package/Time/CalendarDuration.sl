@@ -4,36 +4,8 @@ CalendarDuration : [Object, Equatable, Comparable] { | components |
 		self
 	}
 
-	asList { :self |
-		self.components
-	}
-
 	compare { :self :operand |
 		self.components.compare(operand.components)
-	}
-
-	years  { :self |
-		self.components.at(1)
-	}
-
-	months  { :self |
-		self.components.at(2)
-	}
-
-	days  { :self |
-		self.components.at(3)
-	}
-
-	hours  { :self |
-		self.components.at(4)
-	}
-
-	minutes  { :self |
-		self.components.at(5)
-	}
-
-	seconds  { :self |
-		self.components.at(6)
 	}
 
 	durationString { :self |
@@ -42,8 +14,36 @@ CalendarDuration : [Object, Equatable, Comparable] { | components |
 		)
 	}
 
+	months { :self |
+		self.components.at(2)
+	}
+
+	days { :self |
+		self.components.at(3)
+	}
+
+	hours { :self |
+		self.components.at(4)
+	}
+
+	minutes { :self |
+		self.components.at(5)
+	}
+
+	parts { :self |
+		self.components
+	}
+
+	seconds { :self |
+		self.components.at(6)
+	}
+
 	storeString { :self |
 		self.storeStringAsInitializeSlots
+	}
+
+	years { :self |
+		self.components.at(1)
 	}
 
 }

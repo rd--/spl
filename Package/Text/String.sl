@@ -50,22 +50,24 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	alphabet { :self |
-		self.caseOf([
-			'english' -> {
-				[
-					'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
-					'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
-					'u' 'v' 'w' 'x' 'y' 'z'
-				]
-			},
-			'greek' -> {
-				[
-					'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
-					'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
-					'φ' 'χ' 'ψ' 'ω'
-				]
-			}
-		]) {
+		self.caseOf(
+			[
+				'english' -> {
+					[
+						'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
+						'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
+						'u' 'v' 'w' 'x' 'y' 'z'
+					]
+				},
+				'greek' -> {
+					[
+						'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
+						'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
+						'φ' 'χ' 'ψ' 'ω'
+					]
+				}
+			]
+		) {
 			self.error('String>>alphabet: unknown alphabet')
 		}
 	}
@@ -115,10 +117,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	asHexString { :self |
 		self.asciiByteArray.base16Encode
-	}
-
-	asList { :self |
-		self.characters
 	}
 
 	asLowerCase { :self |
@@ -190,6 +188,22 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		aCollection.anySatisfy { :prefix |
 			self.beginsWith(prefix)
 		}
+	}
+
+	caesarCipher { :self :n |
+		let c = [];
+		self.asciiByteArray.do { :i |
+			i.between([97 122]).if {
+				c.add((i + n + 7) % 26 + 97)
+			} {
+				i.between([65 90]).if {
+					c.add((i + n + 13) % 26 + 65)
+				} {
+					c.add(i)
+				}
+			}
+		};
+		c.asciiString
 	}
 
 	capitalize { :self |
@@ -955,11 +969,13 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	toCharacterCode { :self :encoding |
-		encoding.caseOf([
-			'Ascii' -> { self.asciiList },
-			'Utf8' -> { self.utf8List },
-			'Utf16' -> { self.utf16List }
-		])
+		encoding.caseOf(
+			[
+				'Ascii' -> { self.asciiList },
+				'Utf8' -> { self.utf8List },
+				'Utf16' -> { self.utf16List }
+			]
+		)
 	}
 
 	trim { :self |
@@ -1142,11 +1158,13 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	fromCharacterCode { :self :encoding |
 		self.allSatisfy(isSmallFloat:/1).if {
-			encoding.caseOf([
-				'Ascii' -> { self.asciiString },
-				'Utf8' -> { self.utf8String },
-				'Utf16' -> { self.utf16String }
-			])
+			encoding.caseOf(
+				[
+					'Ascii' -> { self.asciiString },
+					'Utf8' -> { self.utf8String },
+					'Utf16' -> { self.utf16String }
+				]
+			)
 		} {
 			self.collect { :each |
 				each.fromCharacterCode(encoding)

@@ -7,7 +7,8 @@ Convert the object _x_ to a normal form from a special form.
 At `SparseArray` answers a normal dense list:
 
 ```
->>> SparseArray([[4] -> 'a', [9] -> 'b']).normal
+>>> SparseArray([[4] -> 'a', [9] -> 'b'])
+>>> .normal
 [0 0 0 'a' 0 0 0 0 'b']
 ```
 
@@ -27,14 +28,20 @@ At `Fraction` answer the normalized form:
 
 ```
 >>> let n = ReducedFraction(2, 4);
->>> (n.asList, n.normal.asList)
+>>> (
+>>> 	n.components,
+>>> 	n.normal.components
+>>> )
 ([2 4], [1 2])
 ```
 
 Fractions are ordinarily normalized by construction.
 
 ```
->>> (Fraction(2, 4).asList, 2/4.asList)
+>>> (
+>>> 	Fraction(2, 4).components,
+>>> 	2/4.components
+>>> )
 ([1 2], [1 2])
 ```
 

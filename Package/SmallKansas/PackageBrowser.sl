@@ -1,6 +1,6 @@
 /* Requires: ColumnBrowser SmallKansas Trait */
 
-+SmallKansas  {
++SmallKansas {
 
 	PackageBrowser { :self |
 		let packages = system.packageDictionary.values.select(isLoaded:/1);

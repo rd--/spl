@@ -1,8 +1,9 @@
 # numerator
 
-- _numerator(aNumber)_
+- _numerator(n/d)_
 
-Answer the denominator of a _Fraction_ or itself for an _Integer_.
+Answer the numerator _n_ of a `Fraction` _n/d_,
+or the identity for an `Integer`.
 
 ```
 >>> 2/3.numerator
@@ -41,6 +42,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Numerator.html)
 [2](https://reference.wolfram.com/language/ref/Numerator.html),
 _Smalltalk_
-5.6.3.2
+5.6.3.2,
+_W_
+[1](https://en.wikipedia.org/wiki/Fraction)
 
 Categories: Arithmetic

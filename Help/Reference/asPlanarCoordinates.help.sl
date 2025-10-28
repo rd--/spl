@@ -1,8 +1,8 @@
 # asPlanarCoordinates
 
-- _asPlanarCoordinates(aCollection)_
+- _asPlanarCoordinates(c)_
 
-Answer a `PlanarCoordinates`.
+Answer a `PlanarCoordinates` given a collection _c_.
 
 `List` case:
 

@@ -5,7 +5,7 @@
 Convert the sequence _x_ into a `RunArray`:
 
 ```
->>> 'abbbccccc'.asList.asRunArray.runs
+>>> 'abbbccccc'.characters.asRunArray.runs
 [1 3 5]
 ```
 

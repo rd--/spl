@@ -6,10 +6,6 @@ Association : [Object, Equatable, Comparable] { | key value |
 		self
 	}
 
-	asList { :self |
-		[self.key, self.value]
-	}
-
 	compare { :self :anAssociation |
 		self.key.compare(anAssociation.key)
 	}
@@ -28,6 +24,10 @@ Association : [Object, Equatable, Comparable] { | key value |
 
 	first { :self |
 		self.key
+	}
+
+	keyValue { :self |
+		[self.key, self.value]
 	}
 
 	keyValue { :self :key :value |

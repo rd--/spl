@@ -186,24 +186,26 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 	}
 
 	printString { :self |
-		(self.scale = 0).if {
+		let scale = self.scale;
+		let fraction = self.fraction;
+		(scale = 0).if {
 			self.integerPart.asLargeInteger.basicPrintString(10) ++ 'D'
 		} {
 			'%%.%D'.format(
 				[
-					self.fraction.isNegative.if {
+					self.isNegative.if {
 						'-'
 					} {
 						''
 					},
-					self.integerPart
-					.asLargeInteger
+					fraction
+					.integerPart
 					.abs
 					.basicPrintString(10),
-					(self.fractionalPart.fraction.abs * (10L ^ self.scale))
+					(fraction.fractionalPart.abs * (10L ^ scale))
 					.round
 					.basicPrintString(10)
-					.padLeft([self.scale], '0')
+					.padLeft([scale], '0')
 				]
 			)
 		}

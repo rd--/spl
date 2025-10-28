@@ -1,9 +1,9 @@
 # withLevelCollect
 
-- _withLevelCollect(aCollection, aBlock:/2)_
+- _withLevelCollect(c, f:/2)_
 
-A descending traversal over _aCollection_,
-where _aBlock_ is applied to each sub-tree with the corresponding level as the second argument.
+A descending traversal over the collection _c_,
+where the block _f_ is applied to each sub-tree with the corresponding level as the second argument.
 
 Annotate each node of a tree with the level value:
 
@@ -95,6 +95,8 @@ Reverse at each two and three element combination of levels of a rank three arra
 * * *
 
 See also: atLevelCollect, collect, deepCollect, depth, withIndexCollect
+
+Guides: List Functions
 
 References:
 _Apl_

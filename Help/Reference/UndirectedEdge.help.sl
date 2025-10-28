@@ -15,6 +15,13 @@ Make an undirected edge:
 1 --- 2
 ```
 
+Vertex list:
+
+```
+>>> (1 --- 2).vertexList
+[1 2]
+```
+
 The vertices are sorted by construction:
 
 ```

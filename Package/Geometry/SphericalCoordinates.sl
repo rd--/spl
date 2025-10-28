@@ -12,10 +12,6 @@ SphericalCoordinates : [Object, Equatable] { | coordinates |
 		)
 	}
 
-	asList { :self |
-		self.coordinates.copy
-	}
-
 	asRecord { :self |
 		let [r, theta, phi] = self.coordinates;
 		(radius: r, theta: theta, phi: phi)
@@ -31,6 +27,10 @@ SphericalCoordinates : [Object, Equatable] { | coordinates |
 
 	inclination { :self |
 		self.phi
+	}
+
+	parts { :self |
+		self.coordinates.copy
 	}
 
 	phi { :self |
@@ -91,7 +91,7 @@ SphericalCoordinates : [Object, Equatable] { | coordinates |
 +List {
 
 	asSphericalCoordinates { :self |
-		SphericalCoordinates(self.asList)
+		SphericalCoordinates(self)
 	}
 
 	fromSphericalCoordinates { :self |

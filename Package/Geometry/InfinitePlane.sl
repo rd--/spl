@@ -17,7 +17,7 @@ InfinitePlane : [Object, Equatable] { | a b c d |
 	}
 
 	distance { :self :aPoint |
-		self.terms.signedPointPlaneDistance(aPoint.asList)
+		self.terms.signedPointPlaneDistance(aPoint.coordinates)
 	}
 
 	embeddingDimension { :self |

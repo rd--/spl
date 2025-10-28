@@ -11,16 +11,20 @@ DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
 
 	format { :self |
 		(self.prefix = '>>>').if {
-			'% ~ (%)'.format([
-				self.program.unwords,
-				self.expectedAnswer.unwords
-			])
+			'% ~ (%)'.format(
+				[
+					self.program.unwords,
+					self.expectedAnswer.unwords
+				]
+			)
 		} {
 			(self.prefix = '>>').if {
-				'{ % }.value.asString.equalIgnoringExtraWhitespace(%.utf8String)'.format([
-					self.program.unwords,
-					self.expectedAnswer.unlines.trim.utf8ByteArray.storeString
-				])
+				'{ % }.value.asString.equalIgnoringExtraWhitespace(%.utf8String)'.format(
+					[
+						self.program.unwords,
+						self.expectedAnswer.unlines.trim.utf8ByteArray.storeString
+					]
+				)
 			} {
 				self.error('format: unknown prefix: ' ++ self.prefix)
 			}

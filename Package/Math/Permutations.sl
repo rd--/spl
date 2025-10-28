@@ -6,7 +6,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 		}
 	}
 
-	~  { :self :anObject |
+	~ { :self :anObject |
 		self = anObject
 	}
 

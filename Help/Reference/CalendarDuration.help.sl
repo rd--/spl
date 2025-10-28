@@ -42,11 +42,11 @@ A `CalendarDuration` can be formatted as ISO-8601 using `durationString`:
 'P0Y0M25DT0H0M0S'
 ```
 
-The `asList` method answers the list _(years, months, days, hours, minutes, seconds)_:
+The `components` method answers the list _(years, months, days, hours, minutes, seconds)_:
 
 ```
 >>> CalendarDuration([1 2 3 4 5 6])
->>> .asList
+>>> .components
 [1 2 3 4 5 6]
 ```
 

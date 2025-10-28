@@ -34,6 +34,18 @@
 		self.collect(absSquare:/1)
 	}
 
+	asBit { :self |
+		self.collect(asBit:/1)
+	}
+
+	asBoolean { :self |
+		self.collect(asBoolean:/1)
+	}
+
+	asComplex { :self |
+		self.collect(asComplex:/1)
+	}
+
 	asFloat { :self |
 		self.collect(asFloat:/1)
 	}
@@ -44,6 +56,10 @@
 
 	asInteger { :self |
 		self.collect(asInteger:/1)
+	}
+
+	asNumber { :self |
+		self.collect(asNumber:/1)
 	}
 
 	bellNumber { :self |

@@ -26,7 +26,7 @@ Equivalent to:
 >>> 	2.sqrt.arcTan
 >>> ];
 >>> let p = v.asSphericalCoordinates;
->>> p.asCartesianCoordinates.asList
+>>> p.asCartesianCoordinates.coordinates
 [1 1 1]
 ```
 

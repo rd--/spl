@@ -76,6 +76,9 @@ Complex arguments:
 
 >>> 0J1.log
 0J1.5708
+
+>>> 1.e.square.j(0).log / 1I * -2.pi.j(1)
+2.j(4.pi)
 ```
 
 At branch cut:

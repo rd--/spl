@@ -1,6 +1,6 @@
 # BarycentricCoordinates
 
-- _BarycentricCoordinates([λ₁, λ₂ …])_
+- _BarycentricCoordinates([λ₁ λ₂ …])_
 
 A `Type` representing a point in a barycentric coordinate system.
 
@@ -12,7 +12,7 @@ they can be normalized to `sum` to `zero`.
 
 See also: fromBarycentricCoordinates, toBarycentricCoordinates
 
-Guides: Coordinate Systems, Geometry Functions
+Guides: Coordinate System Functions, Geometry Functions
 
 References:
 _Mathematica_

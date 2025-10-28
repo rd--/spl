@@ -8,9 +8,10 @@ answer a `List` whose elements are the elements of _x_.
 If the collection is a `List`, answer it directly.
 
 ```
->>> let l = [1 .. 5];
->>> l.asList == l
-true
+>>> let a = [1 .. 5];
+>>> let b = a.asList;
+>>> (b, b == a)
+([1 .. 5], true)
 ```
 
 At `Tuple`:
@@ -20,21 +21,18 @@ At `Tuple`:
 [1 2 3]
 ```
 
-At `Record`:
+At `Record`,
+answer a list of the values:
 
 ```
 >>> (x: 1, y: 2, z: 3).asList
 [1 2 3]
 
+>>> (x: 1, y: 2, z: 3).values
+[1 2 3]
+
 >>> (x: 1, y: 2, z: 3).associations
 ['x' -> 1, 'y' -> 2, 'z' -> 3]
-```
-
-At `Association`:
-
-```
->>> (1 -> 3).asList
-[1 3]
 ```
 
 At `Multiset`:
@@ -46,64 +44,14 @@ At `Multiset`:
 [1 2 2 3 3 3 4 4 4 4]
 ```
 
-At `String`:
-
-```
->>> 'string'.asList
-['s' 't' 'r' 'i' 'n' 'g']
-```
-
 At `NumericArray` answers the `normal` `List` array:
 
 ```
 >>> NumericArray([1 2; 3 4; 5 6]).asList
 [1 2; 3 4; 5 6]
-```
 
-At `Fraction`:
-
-```
->>> 1/3.asList
-[1 3]
-```
-
-At `Complex`:
-
-```
->>> 1J3.asList
-[1 3]
-```
-
-At `CartesianCoordinates`:
-
-```
->>> CartesianCoordinates([1 3 5]).asList
-[1 3 5]
-```
-
-At `SphericalCoordinates`:
-
-```
->>> SphericalCoordinates([1 3 5]).asList
-[1 3 5]
-```
-
-At `Date`,
-answer _(year, month, day, hour, minute, second)_:
-
-```
->>> '2025-04-07T17:07:20.500Z'
->>> .parseDateAndTime
->>> .asList
-[2025 04 07 17 07 20.500]
-```
-
-At `Duration`,
-answer _(days, hours, minutes, seconds)_:
-
-```
->>> 'P4DT12H30M5S'.parseDuration.asList
-[4 12 30 5]
+>>> NumericArray([1 2; 3 4; 5 6]).normal
+[1 2; 3 4; 5 6]
 ```
 
 This should not be defined for scalar values, see `asCollection`.
@@ -111,6 +59,8 @@ This should not be defined for scalar values, see `asCollection`.
 * * *
 
 See also: copy, List, asCollection
+
+Guides: List Functions
 
 References:
 _Mathematica_

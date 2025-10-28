@@ -75,7 +75,8 @@ The `ReducedFraction` method does not,
 it assumes the fraction being specified is in reduced form:
 
 ```
->>> ReducedFraction(2, 4).asList
+>>> ReducedFraction(2, 4)
+>>> .numeratorDenominator
 [2 4]
 ```
 
@@ -174,14 +175,17 @@ There are accessor methods for the `numerator` and `denominator`:
 ```
 >>> let n = 22/7;
 >>> (n.numerator, n.denominator)
-(22, 7)
+(22L, 7L)
 ```
 
-The `asList` method answers a `List` of these:
+The `components` method answers a `List` of these:
 
 ```
->>> 22/7.asList
+>>> 22/7.components
 [22 7]
+
+>>> 22/7.numeratorDenominator
+[22L 7L]
 ```
 
 The letter `r` abbreviates `Fraction` (`r` for _rational_),
@@ -233,7 +237,7 @@ This is a close approximation to 2.sqrt:
 
 ```
 >>> let f = { :r |
->>> 	let [x, y] = r.asList;
+>>> 	let [x, y] = r.components;
 >>> 	(x ^ 2 + (2 * (y ^ 2))).r(2 * x * y)
 >>> };
 >>> (

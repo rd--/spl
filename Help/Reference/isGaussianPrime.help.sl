@@ -25,7 +25,7 @@ The Guassian integers with components in _(-5, -1)_ that are prime:
 
 ```
 >>> (-5 .. -1).tuples(2).select { :each |
->>> 	each.asComplex.isGaussianPrime
+>>> 	each.listToComplex.isGaussianPrime
 >>> }
 [
 	-5 -4; -5 -2; -4 -5; -4 -1; -3 -2; -2 -5;
@@ -52,7 +52,7 @@ Plot Gaussian primes in the complex plane:
 { :a :b |
 	let c = Complex(a, b);
 	c.isGaussianPrime.if {
-		c.asList
+		c.realImaginary
 	} {
 		nil
 	}

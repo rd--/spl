@@ -1,8 +1,8 @@
 # asCartesianCoordinates
 
-- _asCartesianCoordinates(aCollection)_
+- _asCartesianCoordinates(c)_
 
-Answer a `CartesianCoordinates`.
+Answer `CartesianCoordinates` given a collection _c_.
 
 `List` case:
 

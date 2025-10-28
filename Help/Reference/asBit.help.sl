@@ -30,6 +30,13 @@ else it is an error:
 true
 ```
 
+Threads over lists:
+
+```
+>>> [0 false 1 true].asBit
+[0 0 1 1]
+```
+
 * * *
 
 See also: asBoolean, boole, Boolean

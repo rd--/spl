@@ -361,12 +361,12 @@
 +Fraction{
 
 	lowerChristoffelWord { :self |
-		let [n, d] = self.asList;
+		let [n, d] = self.numeratorDenominator;
 		self.lowerChristoffelWord(n + d)
 	}
 
 	upperChristoffelWord { :self |
-		let [n, d] = self.asList;
+		let [n, d] = self.numeratorDenominator;
 		self.lowerChristoffelWord(n + d)
 	}
 

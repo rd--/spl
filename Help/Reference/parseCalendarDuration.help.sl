@@ -21,7 +21,7 @@ CalendarDuration([0 0 4 12 30 5])
 
 >>> 'P4DT12H30M5S'
 >>> .parseCalendarDuration
->>> .asList
+>>> .components
 [0 0 4 12 30 5]
 ```
 
@@ -33,7 +33,7 @@ CalendarDuration([0 0 0 0 5 7.5])
 
 >>> 'PT5M7.5S'
 >>> .parseCalendarDuration
->>> .asList
+>>> .components
 [0 0 0 0 5 7.5]
 ```
 
@@ -44,7 +44,8 @@ weeks should not be combined with any other unit:
 >>> 'P6W'.parseCalendarDuration
 CalendarDuration([0 0 42 0 0 0])
 
->>> 'P6W'.parseCalendarDuration.asList
+>>> 'P6W'.parseCalendarDuration
+>>> .components
 [0 0 42 0 0 0]
 ```
 

@@ -101,31 +101,31 @@
 +String {
 
 	withCollect { :self :aString :aBlock:/2 |
-		self.asList.withCollect(aString.asList, aBlock:/2)
+		self.characters.withCollect(aString.characters, aBlock:/2)
 	}
 
 	expand { :self :counts |
-		self.asList.expand(counts).stringCatenate
+		self.characters.expand(counts).stringCatenate
 	}
 
 	find { :haystack :needle |
-		haystack.asList.find(needle.asList)
+		haystack.characters.find(needle.characters)
 	}
 
 	gradeDown { :self |
-		self.asList.gradeDown
+		self.characters.gradeDown
 	}
 
 	gradeUp { :self |
-		self.asList.gradeUp
+		self.characters.gradeUp
 	}
 
 	membership { :self :aString |
-		self.asList.membership(aString.asList)
+		self.characters.membership(aString.characters)
 	}
 
 	partitionApl { :self :aSequence |
-		self.asList.partitionApl(aSequence).collect { :each |
+		self.characters.partitionApl(aSequence).collect { :each |
 			each.stringCatenate
 		}
 	}
@@ -135,7 +135,7 @@
 	}
 
 	replicateEach { :self :counts |
-		self.asList.replicateEach(counts).stringCatenate
+		self.characters.replicateEach(counts).stringCatenate
 	}
 
 	shape { :self |

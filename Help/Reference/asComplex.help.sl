@@ -14,21 +14,28 @@ In the `Number` case answer a `Complex` number with a real part of _x_ and an im
 1
 ```
 
-In the two-element `List` case _[a b]_ answer _a+bi_:
-
-```
->>> [2 3].asComplex
-2J3
-
->>> 2J3.asList
-[2 3]
-```
-
 In the `Complex` case answer `identity`.
 
 ```
 >>> 1J1.asComplex
 1J1
+```
+
+Threads over lists:
+
+```
+>>> [1 2 3].asComplex
+[1J0 2J0 3J0]
+```
+
+Convert a two-element `List` _[a b]_ into the complex number _a+bi_:
+
+```
+>>> [2 3].listToComplex
+2J3
+
+>>> 2J3.realImaginary
+[2 3]
 ```
 
 * * *

@@ -76,11 +76,13 @@
 	}
 
 	errorMessage { :self :message |
-		'%: %: (%)'.format([
-			self.typeOf,
-			message,
-			self.printStringLimitedTo(16)
-		])
+		'%: %: (%)'.format(
+			[
+				self.typeOf,
+				message,
+				self.printStringLimitedTo(16)
+			]
+		)
 	}
 
 	error { :self :message |
@@ -140,11 +142,13 @@
 	}
 
 	notificationMessage { :self :message |
-		'%: %: (%)'.format([
-			self.typeOf,
-			message,
-			self.printStringLimitedTo(16)
-		])
+		'%: %: (%)'.format(
+			[
+				self.typeOf,
+				message,
+				self.printStringLimitedTo(16)
+			]
+		)
 	}
 
 	notify { :self :message |
@@ -232,10 +236,12 @@
 	}
 
 	storeStringAsInitializeSlots { :self |
-		'%(%)'.format([
-			self.typeOf,
-			self.slotValueList.collect(storeString:/1).commaSeparated
-		])
+		'%(%)'.format(
+			[
+				self.typeOf,
+				self.slotValueList.collect(storeString:/1).commaSeparated
+			]
+		)
 	}
 
 	storeString { :self |
@@ -260,11 +266,13 @@
 	}
 
 	warningMessage { :self :message |
-		'Warning: %: %: (%)'.format([
-			self.typeOf,
-			message,
-			self.printStringLimitedTo(16)
-		])
+		'Warning: %: %: (%)'.format(
+			[
+				self.typeOf,
+				message,
+				self.printStringLimitedTo(16)
+			]
+		)
 	}
 
 	warning { :self :message |

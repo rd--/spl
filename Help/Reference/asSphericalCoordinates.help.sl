@@ -1,8 +1,8 @@
 # asSphericalCoordinates
 
-- _asSphericalCoordinates(aCollection)_
+- _asSphericalCoordinates(c)_
 
-Answer a `SphericalCoordinates`.
+Answer a `SphericalCoordinates` given a collection _c_..
 
 `List` case:
 

@@ -98,7 +98,7 @@ Find the inverse of a permutation:
 At `List` of `Character`:
 
 ```
->>> ', ZAMBIA.'.asList.ordering(<)
+>>> ', ZAMBIA.'.characters.ordering(<)
 [2 1 9 4 8 6 7 5 3]
 ```
 

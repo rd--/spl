@@ -34,7 +34,7 @@ Run a tag system to completion:
 >>> 		'b' -> 'a',
 >>> 		'c' -> 'aaa'
 >>> 	],
->>> 	'aaa',
+>>> 	'aaa'.characters,
 >>> 	Infinity
 >>> ).collect(stringJoin:/1)
 [
@@ -77,6 +77,18 @@ Plot the size of each sucessive term:
 ~~~
 
 ![](sw/spl/Help/Image/tagSystem-A.svg)
+
+Matrix plot of first few terms:
+
+~~~spl svg=B
+1.tagSystem(
+	[1 -> [1 0], 0 -> [0 1]],
+	[1],
+	21
+).padRight.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/tagSystem-B.svg)
 
 * * *
 

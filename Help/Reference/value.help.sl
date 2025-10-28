@@ -83,11 +83,11 @@ This mode is off by default.
 
 See also: $, also, Association, Block, blockValue, cull, identity, in, valueWithReturn, with
 
-Guides: Block Functions, Value Protocol
+Guides: Dictionary Functions, Block Functions, Value Protocol
 
 References:
 _Smalltalk_
 5.4.2.2
 5.4.4.2
 
-Categories: Evaluating
+Categories: Accessing, Evaluating

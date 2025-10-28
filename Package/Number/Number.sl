@@ -1186,7 +1186,7 @@
 		self * 2.71828182845904523536028747135266249775724709369995
 	}
 
-	electricConstant  { :self |
+	electricConstant { :self |
 		self * 8.8541878188E-12
 	}
 

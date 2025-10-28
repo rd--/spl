@@ -1,5 +1,6 @@
 # Complex
 
+- _Complex([r i])_
 - _Complex(r, i)_
 
 A `Type` representing a complex number with the specified `real` and `imaginary` parts.
@@ -22,12 +23,18 @@ Answer a `Complex` number:
 ```
 >>> Complex(1, 5)
 1J5
+
+>>> Complex([1 5])
+1J5
 ```
 
 Threads overs lists and arrays:
 
 ```
->>> 1:5.Complex(5:9)
+>>> Complex(1:5, 5:9)
+[1J5 2J6 3J7 4J8 5J9]
+
+>>> Complex([1 5; 2 6; 3 7; 4 8; 5 9])
 [1J5 2J6 3J7 4J8 5J9]
 ```
 
@@ -107,10 +114,7 @@ Combinations of operands of different types:
 -4J0
 ```
 
-`real` & `imaginary` answer the components.
-`abs` (absolute value) answers the distance from zero.
-`absSquare` answers the square of the absolute value.
-`arg` answers the phase angle in radians.
+`real` & `imaginary` answer the components:
 
 ```
 >>> 1J2.real
@@ -118,16 +122,32 @@ Combinations of operands of different types:
 
 >>> 1J2.imaginary
 2
+```
 
+`conjugate` negates the imaginary part:
+
+```
 >>> 1J2.conjugate
 1J-2
+```
 
+`abs` (absolute value) answers the distance from zero:
+
+```
 >>> 1J2.abs
 2.23607
+```
 
+`absSquare` answers the square of the absolute value:
+
+```
 >>> 1J2.absSquare
 5
+```
 
+`arg` answers the phase angle in radians:
+
+```
 >>> 1J2.arg
 1.10715
 ```
@@ -173,10 +193,13 @@ Use `real` and `imaginary` to extract parts of `Complex` numbers:
 (1, 2)
 ```
 
-The `asList` method answers a two `List` of the real and imaginary components:
+The `components` method answers a two `List` of the real and imaginary components:
 
 ```
->>> 1J2.asList
+>>> 1J2.components
+[1 2]
+
+>>> 1J2.realImaginary
 [1 2]
 ```
 

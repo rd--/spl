@@ -34,6 +34,13 @@ To convert a `String` use `parseNumber`:
 3.141
 ```
 
+Threads over lists:
+
+```
+>>> [1 2.3 4J5].asNumber
+[1 2.3 4J5]
+```
+
 * * *
 
 See also: asBit, asInteger, boole, parseNumber

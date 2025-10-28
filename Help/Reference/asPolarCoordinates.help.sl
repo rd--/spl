@@ -1,8 +1,8 @@
 # asPolarCoordinates
 
-- _asPolarCoordinates(aCollection)_
+- _asPolarCoordinates(c)_
 
-Answer an instance of `PolarCoordinates`.
+Answer an instance of `PolarCoordinates` given a collection _c_..
 
 `List` case:
 

@@ -326,6 +326,10 @@ Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 		Point(self.asList)
 	}
 
+	coordinates { :self |
+		self.asList
+	}
+
 }
 
 +@Integer {

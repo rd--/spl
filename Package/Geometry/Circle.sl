@@ -158,11 +158,11 @@ Circle : [Object, Equatable, Geometry] { | center radius |
 					Circle(c, r)
 				},
 				3 -> {
-					let [z1, z2, z3] = self.collect(asComplex:/1);
+					let [z1, z2, z3] = self.collect(listToComplex:/1);
 					let w = (z3 - z1) / (z2 - z1);
 					let c = (z2 - z1) * (w - (w.abs ^ 2)) / (0J2 * w.imaginary) + z1;
 					let r = (z1 - c).abs;
-					Circle(c.asList, r)
+					Circle(c.realImaginary, r)
 				}
 			])
 		}
@@ -241,7 +241,7 @@ UnitCircle : [Object] {
 +Fraction {
 
 	fordCircle { :self |
-		let [h, k] = self.asList;
+		let [h, k] = self.numeratorDenominator;
 		let r = 1 / (2 * k.square);
 		Circle([h / k, r], r)
 	}
@@ -350,7 +350,7 @@ UnitCircle : [Object] {
 +Complex {
 
 	circleInversion { :self :circle |
-		self.asList.circleInversion(circle).asComplex
+		self.realImaginary.circleInversion(circle).asComplex
 	}
 
 }

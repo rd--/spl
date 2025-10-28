@@ -1,9 +1,11 @@
 # withLevelDo
 
-- _withLevelDo(anIterable, aBlock:/2)_
+- _withLevelDo(c, f:/2)_
 
-Apply _aBlock_ to each item in _anIterable_ with its level as the second argument.
+Apply the block _f_ to each item in the iterable collection _c_ with its level as the second argument.
 
 * * *
 
 See also: level, levelBy, withLevelCollect
+
+Guides: List Functions

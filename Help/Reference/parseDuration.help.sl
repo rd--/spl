@@ -25,7 +25,7 @@ Four days, twelve hours, thirty minutes, and five seconds:
 
 >>> 'P4DT12H30M5S'
 >>> .parseDuration
->>> .asList
+>>> .components
 [4 12 30 5]
 ```
 
@@ -35,7 +35,7 @@ Five minutes and seven and one half seconds:
 >>> 'PT5M7.5S'.parseDuration
 Duration((5 * 60) + 7.5)
 
->>> 'PT5M7.5S'.parseDuration.asList
+>>> 'PT5M7.5S'.parseDuration.components
 [0 0 5 7.5]
 ```
 
@@ -46,7 +46,7 @@ weeks should not be combined with any other unit:
 >>> 'P6W'.parseDuration
 Duration(6 * 7 * 24 * 60 * 60)
 
->>> 'P6W'.parseDuration.asList
+>>> 'P6W'.parseDuration.components
 [42 0 0 0]
 ```
 

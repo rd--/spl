@@ -187,7 +187,10 @@ _Mathworks_
 _Python_
 [1](https://docs.python.org/3/library/functions.html#min),
 _Smalltalk_
-5.6.1.7
+5.6.1.7,
+_W_
+[1](https://en.wikipedia.org/wiki/Minimum)
+
 
 Unicode: U+230A ⌊ Left Floor
 

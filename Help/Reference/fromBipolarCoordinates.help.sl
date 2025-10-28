@@ -2,7 +2,7 @@
 
 - _fromBipolarCoordinates(a, [σ τ])_
 
-Answer the _(x, y)_ Cartesian coordinates corresponding to the bipolar coordinates _(σ, τ)_,
+Answer the _(x,y)_ Cartesian coordinates corresponding to the bipolar coordinates _(σ,τ)_,
 where σ is in _[0,2π)_ and τ is in _(-∞,∞)_.
 
 A curve with constant τ in bipolar coordinates,

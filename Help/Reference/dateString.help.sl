@@ -13,7 +13,7 @@ Answer the ISO-8601 date string.
 This format is recognised by `parseDate`:
 
 ```
->>> '2025-04-08'.parseDate.asList
+>>> '2025-04-08'.parseDate.components
 [2025 04 08]
 ```
 

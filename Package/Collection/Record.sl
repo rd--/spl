@@ -151,7 +151,7 @@ Record! : [Object, Equatable, Json, Iterable, Indexable, Collection, Removable, 
 
 	Record { :self |
 		self.isAssociationList.if {
-			self.collect(asList:/1).listToRecord
+			self.collect(keyValue:/1).listToRecord
 		} {
 			self.listToRecord
 		}

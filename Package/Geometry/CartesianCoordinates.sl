@@ -1,9 +1,5 @@
 @CartesianCoordinates {
 
-	asList { :self |
-		self.coordinates.copy
-	}
-
 	assertIsCompatibleOperand { :self :operand |
 		(
 			(self.typeOf = operand.typeOf) & {
@@ -187,20 +183,22 @@ CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Magnitude, Inde
 +Record {
 
 	asCartesianCoordinates { :self |
-		self.size.caseOf([
-			2 -> {
-				let (x: x, y: y) = self;
-				CartesianCoordinates([x y])
-			},
-			3 -> {
-				let (x: x, y: y, z: z) = self;
-				CartesianCoordinates([x y z])
-			},
-			4 -> {
-				let (x: x, y: y, z: z, w: w) = self;
-				CartesianCoordinates([x y z w])
-			}
-		]) {
+		self.size.caseOf(
+			[
+				2 -> {
+					let (x: x, y: y) = self;
+					CartesianCoordinates([x y])
+				},
+				3 -> {
+					let (x: x, y: y, z: z) = self;
+					CartesianCoordinates([x y z])
+				},
+				4 -> {
+					let (x: x, y: y, z: z, w: w) = self;
+					CartesianCoordinates([x y z w])
+				}
+			]
+		) {
 			self.error('asCartesianCoordinates: not x,y or x,y,z or x,y,z,w')
 		}
 	}

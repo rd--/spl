@@ -23,13 +23,13 @@ Verify the result using `permute`:
 Relation with `ordering`:
 
 ```
->>> 'adcghf'.asList.findPermutation
+>>> 'adcghf'.characters.findPermutation
 [2 3; 4 6 5].cycles
 
->>> 'adcghf'.asList.ordering.asPermutation
+>>> 'adcghf'.characters.ordering.asPermutation
 [2 3; 4 6 5].cycles
 
->>> let l = 'adcghf'.asList;
+>>> let l = 'adcghf'.characters;
 >>> l.sorted.findPermutation(l)
 [2 3; 4 6 5].cycles
 ```

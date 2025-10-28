@@ -120,14 +120,14 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 		self.real.round.j(self.imaginary.round)
 	}
 
-	asList { :self |
-		[self.real, self.imaginary]
-	}
-
 	asMatrix { :self |
 		let a = self.real;
 		let b = self.imaginary;
 		[a b.negate; b a]
+	}
+
+	asRecord { :self |
+		(real: self.real, imaginary: self.imaginary)
 	}
 
 	atRandom { :self |
@@ -157,6 +157,10 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 		} {
 			self.error('compare: not Complex')
 		}
+	}
+
+	components { :self |
+		[self.real, self.imaginary]
 	}
 
 	conjugate { :self |
@@ -443,7 +447,16 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 
 +List {
 
-	asComplex { :self |
+	Complex { :self |
+		self.isVector.if {
+			let [r, i] = self;
+			Complex(r, i)
+		} {
+			self.collect(Complex:/1)
+		}
+	}
+
+	listToComplex { :self |
 		let [a, b] = self;
 		a.j(b)
 	}
@@ -477,6 +490,18 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 		self.parseComplex {
 			self.error('parseComplex: invalid input')
 		}
+	}
+
+}
+
++Record {
+
+	parseComplex { :self |
+		self.keys.caseOf(
+			[
+				['real' 'imaginary'] -> { Complex(self['real'], self['imaginary']) }
+			]
+		)
 	}
 
 }

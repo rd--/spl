@@ -2,7 +2,7 @@ GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 
 	asCircle { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
-		let [a, b] = alpha.asList;
+		let [a, b] = alpha.realImaginary;
 		Circle(
 			[a.negate, b] / c,
 			(self.discriminant / c.square).sqrt
@@ -16,7 +16,7 @@ GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 
 	asPoint { :self |
 		let [c, alpha, _] = self.assertIsPoint.coefficientList;
-		let [r, i] = alpha.asList;
+		let [r, i] = alpha.realImaginary;
 		Point(
 			[r.negate, i] / c
 		)
@@ -58,7 +58,7 @@ GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 
 	implicitEquation { :self |
 		let [c, alpha, d] = self.coefficientList;
-		let [a, b] = alpha.asList;
+		let [a, b] = alpha.realImaginary;
 		{ :x :y |
 			(c * (x.square + y.square)) + (2 * ((a * x) - (b * y))) + d
 		}
@@ -82,7 +82,7 @@ GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 
 	lineEquation { :self |
 		let [_, alpha, d] = self.assertIsLine.coefficientList;
-		let [a, b] = alpha.asList;
+		let [a, b] = alpha.realImaginary;
 		[a, -1 * b, d / 2]
 	}
 

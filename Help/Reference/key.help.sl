@@ -16,4 +16,6 @@ Answer the key _k_ of the association _k→v_.
 
 See also: Association, associations, keys, value
 
+Guides: Dictionary Functions
+
 Categories: Accessing

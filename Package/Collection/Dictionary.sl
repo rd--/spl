@@ -600,7 +600,7 @@ Dictionary : [Object, Copyable, Equatable, Iterable, Indexable, Collection, Exte
 			Dictionary()
 		} {
 			self.isAssociationList.if {
-				self.collect(asList:/1).listToDictionary
+				self.collect(keyValue:/1).listToDictionary
 			} {
 				self.listToDictionary
 			}

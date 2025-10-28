@@ -22,7 +22,7 @@ RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun 
 		answer
 	}
 
-	asIdentitySet  { :self |
+	asIdentitySet { :self |
 		self.values.asIdentitySet
 	}
 

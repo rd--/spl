@@ -272,6 +272,11 @@ Approximate comparison:
 true
 ```
 
+_Note_:
+The implentation is in terms of `Fraction`,
+which is in terms of `LargeInteger`,
+which may not have arbitrary precision.
+
 * * *
 
 See also: asDecimal, asDecimalFraction, Complex, Fraction, LargeInteger, parseDecimal, SmallFloat

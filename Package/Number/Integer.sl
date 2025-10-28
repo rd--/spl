@@ -1299,17 +1299,19 @@
 		(n = 0).if {
 			1
 		} {
-			d.caseOf([
-				2 -> {
-					let f = { :c |
-						n.divisors.count { :x | (x % 4) = c }
-					};
-					4 * (f(1) - f(3))
-				},
-				4 -> {
-					8 * n.divisors.select { :x | x.divisible(4).not }.sum
-				}
-			]) {
+			d.caseOf(
+				[
+					2 -> {
+						let f = { :c |
+							n.divisors.count { :x | (x % 4) = c }
+						};
+						4 * (f(1) - f(3))
+					},
+					4 -> {
+						8 * n.divisors.select { :x | x.divisible(4).not }.sum
+					}
+				]
+			) {
 				d.error('squaresR: d≠{2,4}')
 			}
 		}

@@ -1,8 +1,8 @@
 # unitNormal
 
-- _unitNormal(aSurface)_
+- _unitNormal(s)_
 
-Answer the unit normal vector of _aSurface_.
+Answer the unit normal vector of the surface _s_.
 
 The unit normal of the _x/y_ infinite plane:
 
