@@ -106,6 +106,18 @@ Chirp signal:
 
 ![](sw/spl/Help/Image/cos-F.svg)
 
+Phase warping and amplitude modulation:
+
+~~~spl svg=G
+(0 -- 1).functionPlot { :x |
+	let p = 50 * (x ^ x);
+	let a = 1 / ((2 * x) + 1);
+	p.cos * a
+}
+~~~
+
+![](sw/spl/Help/Image/cos-G.svg)
+
 * * *
 
 See also: arcCos, arcCosh, cosh, sec, sin, tan

@@ -330,8 +330,8 @@ true
 Plot over a subset of the reals:
 
 ~~~spl svg=A
-(0 -- 5).functionPlot { :each |
-	each ^ 3
+(0 -- 5).functionPlot { :x |
+	x ^ 3
 }
 ~~~
 
@@ -361,6 +361,16 @@ OEIS [A074704](https://oeis.org/A074704):
 ~~~
 
 ![](sw/spl/Help/Image/circumflexAccent-C.svg)
+
+Plot _x_ raised to a scaled power of _x_:
+
+~~~spl svg=D
+(0 -- 1).functionPlot { :x |
+	x ^ (5 * x)
+}
+~~~
+
+![](sw/spl/Help/Image/circumflexAccent-D.svg)
 
 Where supported `^` is displayed as ˆ.
 
