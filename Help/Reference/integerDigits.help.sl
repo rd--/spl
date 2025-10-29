@@ -213,11 +213,12 @@ OEIS [A010060](https://oeis.org/A010060):
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
-{ :n |
+let k = 200;
+1:k.collect { :n |
 	let m = n.prime;
 	let r = m.integerDigits(2).reverse;
 	m - r.fromDigits(2)
-}.map(1:200).scatterPlot
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/integerDigits-A.svg)
@@ -225,11 +226,12 @@ Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 Scatter plot of first few terms of OEIS [A117966](https://oeis.org/A117966):
 
 ~~~spl svg=B
-{ :i |
+let k = 123;
+0:k.collect { :i |
 	i.integerDigits(3).collect { :n |
 		(n = 2).if { -1 } { n }
 	}.fromDigits(3)
-}.map(0:200).scatterPlot
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/integerDigits-B.svg)
@@ -272,6 +274,17 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/integerDigits-D.svg)
 
+Scatter plot of every fourth item of the first few terms of OEIS [A063543](https://oeis.org/A063543):
+
+~~~spl svg=E
+1:4:1000.collect { :n |
+	let d = n.integerDigits;
+	n - d.reject(isZero:/1).product
+}.scatterPlot
+~~~
+
+![](<sw/spl/Help/Image/integerDigits-E.svg>)
+
 * * *
 
 See also: digitCount, fromDigits
@@ -290,5 +303,8 @@ _OEIS_
 [5](https://oeis.org/A117966)
 [6](https://oeis.org/A160855)
 [7](https://oeis.org/A010060)
+[8](https://oeis.org/A063543),
+_W_
+[1](https://en.wikipedia.org/wiki/Numerical_digit)
 
 Categories: Converting

@@ -26,13 +26,26 @@ The digital root of a natural number in a given radix is the (single digit) valu
 8
 ```
 
-The base-10 digital roots of the first few integers:
+The base-10 digital roots of the first few integers,
+OEIS [A010888](https://oeis.org/A010888):
 
 ```
->>> 1:20.collect { :n |
+>>> 0:36.collect { :n |
 >>> 	n.digitalRoot(10)
 >>> }
-[1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 1 2]
+[
+	0
+	1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9
+	1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9
+]
+```
+
+Note similarity to
+OEIS [A010878](https://oeis.org/A010878):
+
+```
+>>> 0:17.collect { :n | n % 9 }
+[0 1 2 3 4 5 6 7 8 0 1 2 3 4 5 6 7 8]
 ```
 
 Plot:
@@ -47,7 +60,7 @@ Plot:
 
 * * *
 
-See also: digitalRootSet
+See also: digitalRootSet, digitSum, multiplicativeDigitalRoot
 
 Guides: Integer Sequence Functions
 
@@ -56,3 +69,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/DigitalRoot.html),
 _OEIS_
 [1](https://oeis.org/A010888)
+[2](https://oeis.org/A010878),
+_W_
+[1](https://en.wikipedia.org/wiki/Digital_root)

@@ -122,6 +122,24 @@
 		}
 	}
 
+	ekgSequence { :n |
+		let l = [1 2];
+		let i = 2;
+		{ i < n }.whileTrue {
+			let k = 3;
+			{
+				gcd(l[i], k) = 1 | {
+					l.includes(k)
+				}
+			}.whileTrue {
+				k := k + 1
+			};
+			l.add(k);
+			i := i + 1
+		};
+		l
+	}
+
 	entringerTriangle { :self |
 		let f:/2 = { :n :k |
 			k.isZero.if {
@@ -876,6 +894,26 @@
 
 	wythoffUpper { :self |
 		(self * 1.goldenRatio.square).floor
+	}
+
+	yellowstonePermutation { :n |
+		let l = [1 2 3];
+		let i = 3;
+		{ i < n }.whileTrue {
+			let k = 4;
+			{
+				gcd(l[i - 1], k) = 1 | {
+					gcd(l[i], k) > 1 | {
+						l.includes(k)
+					}
+				}
+			}.whileTrue {
+				k := k + 1
+			};
+			l.add(k);
+			i := i + 1
+		};
+		l
 	}
 
 }

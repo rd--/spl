@@ -62,7 +62,7 @@ Extract parts of a list cyclically:
 
 * * *
 
-See also: %, /, //, \\, commonResidue, minimalResidue, quotient, remainder
+See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder
 
 Guides: Integer Functions
 

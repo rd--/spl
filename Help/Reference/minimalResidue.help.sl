@@ -25,6 +25,8 @@ Answer the minimal residue of the integer _n_ modulo _m_.
 
 See also: %, commonResidue, positiveResidue, Residue
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MinimalResidue.html)

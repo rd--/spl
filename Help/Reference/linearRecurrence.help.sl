@@ -66,6 +66,7 @@ OEIS [A000129](http://oeis.org/A000129):
 ```
 
 Pell–Lucas numbers,
+also called the companion Pell numbers,
 OEIS [A002203](http://oeis.org/A002203):
 
 ```
@@ -530,6 +531,31 @@ OEIS [A000078](https://oeis.org/A000078):
 	56 108 208 401 773
 	1490 2872 5536 10671 20569
 	39648 76424 147312 283953 547337
+]
+```
+
+Triangular numbers that are square numbers,
+OEIS [A001108](https://oeis.org/A001108):
+
+```
+>>> linearRecurrence([7 -7 1], [0 1 8], 12)
+[
+	0 1 8 49 288 1681 9800 57121 332928 1940449
+	11309768 65918161
+]
+```
+
+Number of triangular partitions,
+OEIS [A001840](https://oeis.org/A001840):
+
+```
+>>> linearRecurrence(
+>>> 	[2 -1 1 -2 1], [0 1 2 3 5], 23
+>>> )
+[
+	 0  1  2  3  5  7  9 12 15 18
+	22 26 30 35 40 45 51 57 63 70
+	77 84 92
 ]
 ```
 

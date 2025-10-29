@@ -119,6 +119,17 @@ Discrete plot of row-order Sierpiński’s triangle:
 
 ![](sw/spl/Help/Image/pascalTriangle-D.svg)
 
+Matrix plot of the first few rows of Pascal’s triangle modulo five:
+
+~~~spl svg=E
+(20.pascalTriangle % 5)
+.padRight
+.rescale
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/pascalTriangle-E.svg)
+
 * * *
 
 See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, stolarskyHarborthConstant, table, triangularNumber

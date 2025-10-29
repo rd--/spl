@@ -15,4 +15,6 @@ as in `commonResidue`.
 
 * * *
 
-See also: %, minimalResidue, positiveResidue, Residue
+See also: %, commonResidue, minimalResidue, Residue
+
+Guides: Integer Functions

@@ -1,8 +1,8 @@
 # complexPlot
 
-- _complexPlot([z⌊ z⌈], aBlock:/1)_
+- _complexPlot([z⌊ z⌈], f:/1)_
 
-Answer a plot of _arg(f)_ over the complex rectangle with corners _z⌊_ and _z⌈_.
+Answer a plot of the argument, `arg`, of _f_ over the complex rectangle with corners _z⌊_ and _z⌈_.
 
 A cyclic colour function,
 from _-π_ to _π_,

@@ -26,6 +26,32 @@ The square is symmetric:
 true
 ```
 
+Matrix plot of _n=13_:
+
+~~~spl svg=A
+13.vedicSquare.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/vedicSquare-A.svg)
+
+Matrix plot indicating the occurrences of _3_ where _n=37_:
+
+~~~spl svg=B
+37.vedicSquare.deepCollect { :x |
+	x = 3
+}.boole.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/vedicSquare-B.svg)
+
+Matrix plot of _n=100_:
+
+~~~spl png=C
+100.vedicSquare.rescale.Graymap
+~~~
+
+![](sw/spl/Help/Image/vedicSquare-C.png)
+
 * * *
 
 See also: %, commonResidue, positiveResidue

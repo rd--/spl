@@ -179,6 +179,8 @@
 	'Math-Integrals'
 	'Math-Interpolation'
 	'Math-IterativeMaps'
+	'Math-ApproximateMathFunctions'
+	'Math-MathematicalConstant'
 	'Math-MatrixFunctions'
 	'Math-NumericalFunctions'
 	'Math-OnlineEncyclopediaOfIntegerSequences'

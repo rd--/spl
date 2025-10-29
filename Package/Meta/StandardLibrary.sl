@@ -175,6 +175,7 @@
 	'Integrals'
 	'Interpolation'
 	'IterativeMaps'
+	'MathematicalConstant'
 	'MatrixFunctions'
 	'NumericalFunctions'
 	'OnlineEncyclopediaOfIntegerSequences'

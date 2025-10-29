@@ -18,6 +18,8 @@ Answer the common residue of _n_ (modulo _m_).
 
 See also: %, minimalResidue, positiveResidue, Residue
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CommonResidue.html)

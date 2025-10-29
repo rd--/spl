@@ -71,6 +71,13 @@ Sqyare and cube root approximations:
 [3.1623, 3.1414, 3.1414]
 ```
 
+Approximation accurate to fifteen decimal places:
+
+```
+>>> 3 / 163.sqrt * 640320.log
+3.141592653589793
+```
+
 Approximation by Kochański, 1685:
 
 ```
@@ -209,6 +216,18 @@ Scatter plot of the digits of π:
 
 ![](sw/spl/Help/Image/pi-A.svg)
 
+Scatter plot of the digits of _π^2/9_,
+OEIS [A100044](https://oeis.org/A100044):
+
+~~~spl svg=B
+'Pi^2/9'
+.namedConstant
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/pi-B.svg)
+
 `pi` is not defined as a constant, unlike `Infinity` and `NaN`.
 
 Where supported `pi` is displayed as π.
@@ -226,7 +245,8 @@ OEIS
 [1](https://oeis.org/A000796)
 [2](https://oeis.org/A001203)
 [3](https://oeis.org/A002485)
-[4](https://oeis.org/A002486),
+[4](https://oeis.org/A002486)
+[5](https://oeis.org/A100044),
 _Smalltalk_
 5.6.8.10,
 _W_

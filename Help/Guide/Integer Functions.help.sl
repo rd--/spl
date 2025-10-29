@@ -69,17 +69,26 @@ Integer Part:
 
 Digit-Related Functions:
 
+- `digitalRoot`
 - `digitCount`
+- `digitProduct`
 - `digitSum`
 - `fromDigits`
 - `integerDigits`
 - `integerExponent`
 - `integerLength`
 - `integerReverse`
+- `multiplicativeDigitalRoot`
 
 Digit-Based Substitution System Functions:
 
 - `thueMorse`
+
+Residue Functions:
+
+- `commonResidue`
+- `minimalResidue`
+- `positiveResidue`
 
 Partition Functions:
 

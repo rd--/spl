@@ -3,7 +3,7 @@
 @Integer {
 
 	additivePersistence { :x :b |
-		x.digitalRootSet(b).second.size - 1
+		x.digitalRootSet(b, sum:/1).second.size - 1
 	}
 
 	aliquotSum { :n |
@@ -163,29 +163,19 @@
 		1
 	}
 
-	digitalRootSet { :x :b |
-		let digitSum = { :x :b |
-			let total = 0;
-			{
-				x > 0
-			}.whileTrue {
-				total := total + (x % b);
-				x := x // b
-			};
-			total
-		};
+	digitalRootSet { :x :b :f:/1 |
 		let seen = IdentitySet();
 		{
 			seen.includes(x)
 		}.whileFalse {
 			seen.add(x);
-			x := digitSum(x, b)
+			x := x.integerDigits(b).f
 		};
 		[x, seen]
 	}
 
 	digitalRoot { :x :b |
-		x.digitalRootSet(b).first
+		x.digitalRootSet(b, sum:/1).first
 	}
 
 	digitCount { :n :b :d |
@@ -205,6 +195,14 @@
 
 	digitCount { :n |
 		n.digitCount(10)
+	}
+
+	digitProduct { :self :base |
+		self.integerDigits(base).product
+	}
+
+	digitProduct { :self |
+		self.digitProduct(10)
 	}
 
 	digitSum { :self :base |
@@ -1085,6 +1083,14 @@
 		}
 	}
 
+	multiplicativeDigitalRoot { :x :b |
+		x.digitalRootSet(b, product:/1).first
+	}
+
+	multiplicativeDigitalRoot { :x |
+		x.multiplicativeDigitalRoot(10)
+	}
+
 	multiplicativeOrder { :k :n :r |
 		(n = 1).if {
 			1
@@ -1105,6 +1111,10 @@
 
 	multiplicativeOrder { :k :n |
 		k.multiplicativeOrder(n, [1])
+	}
+
+	multiplicativePersistence { :x :b |
+		x.digitalRootSet(b, product:/1).second.size - 1
 	}
 
 	numberOfCompositions { :n :k |

@@ -157,9 +157,21 @@ Plot `log` at integer points:
 
 ![](sw/spl/Help/Image/log-C.svg)
 
+Complex plot:
+
+~~~spl png=D
+[-2J-2 2J2].complexPlot { :z |
+	(z ^ 3).log
+}
+~~~
+
+![](sw/spl/Help/Image/log-D.png)
+
 * * *
 
 See also: exp, log2, log10, logarithmicIntegral
+
+Guides: Mathematical Functions
 
 References:
 _Apl_
@@ -170,7 +182,11 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/hatdot),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Logarithm.html)
-[2](https://reference.wolfram.com/language/ref/Log.html),
+[2](https://mathworld.wolfram.com/NaturalLogarithm.html)
+[3](https://mathworld.wolfram.com/CommonLogarithm.html)
+[4](https://mathworld.wolfram.com/BinaryLogarithm.html)
+[5](https://mathworld.wolfram.com/Ln.html)
+[6](https://reference.wolfram.com/language/ref/Log.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.log.html)
 _Smalltalk_
@@ -178,6 +194,7 @@ _Smalltalk_
 5.6.7.10,
 _W_
 [1](https://en.wikipedia.org/wiki/Logarithm)
+[2](https://en.wikipedia.org/wiki/Natural_logarithm)
 
 Unicode: U+235F ⍟ Apl Functional Symbol Circle Star
 

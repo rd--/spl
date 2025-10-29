@@ -27,6 +27,12 @@ Specific values:
 >>> 121.partitionFunctionP
 2056148051
 
+>>> 200.partitionFunctionP
+3972999029388
+
+>>> 500.partitionFunctionP
+2300165032574323995027L
+
 >>> 666.partitionFunctionP
 11956824258286445517629485L
 

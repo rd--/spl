@@ -61,11 +61,13 @@
 				differences: [049296],
 				digitCount: [000120 006046 005823],
 				digitalRoot: [010888],
+				digitSum: [000120 053735 053737 053824 053827 053828 053829 053830 007953],
 				discriminant: [007878],
 				divisorSigma: [000005],
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
 				e: [001113],
+				ekgSequence: [064413 064664],
 				engelExpansion: [006784 000027 028254],
 				entringerTriangle: [008281],
 				equispacedTriples: [002620],
@@ -194,7 +196,7 @@
 					000931 000204 000129 002203 001608 000975 005578 000295 000225 000045
 					051049 001590 000930 079398 103372 103373 001076 134816 003269 017817
 					003520 000975 001687 052920 017827 001653 001519 002943 000127 000931
-					056530 000124 000078
+					056530 000124 000078 001108 001840
 				],
 				liouvilleLambda: [008836],
 				lobbNumber: [039599],
@@ -328,6 +330,7 @@
 				wythoffPair: [000201 001950],
 				wythoffUpper: [001950],
 				zeckendorfRepresentation: [014417],
+				yellowstonePermutation: [098550],
 				zero: [000004]
 			)
 		}

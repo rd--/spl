@@ -1,8 +1,8 @@
 # log2
 
-- _log2(aNumber)_
+- _log2(x)_
 
-The base two logarithm of _aNumber_.
+The base two logarithm of the number _x_.
 
 ```
 >>> (2 ^ 10).log2
