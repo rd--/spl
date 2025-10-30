@@ -343,11 +343,12 @@
 		}
 	}
 
-	seiffertsSpiral { :k |
+	seiffertsSpiral { :m |
+		let k = m.sqrt;
 		{ :s |
-			let rho = jacobiSn(s, k);
+			let rho = jacobiSn(s, m);
 			let theta = k * s;
-			let z = jacobiCn(s, k);
+			let z = jacobiCn(s, m);
 			[rho theta z].fromCylindricalCoordinates
 		}
 	}
