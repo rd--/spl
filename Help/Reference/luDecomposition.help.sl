@@ -8,7 +8,7 @@ where _l_ is lower triangular,
 _u_ is upper triangular,
 and _l.u = p.m_.
 
-LU decomposition of a 2×2 matrix:
+LU decomposition of two 2×2 matrices:
 
 ```
 >>> let m = [4 3; 6 3];
@@ -20,6 +20,13 @@ LU decomposition of a 2×2 matrix:
 	[0 1; 1 0],
 	true
 )
+
+>>> [2 1; 1 4].luDecomposition
+[
+	[1 0; 0.5 1],
+	[2 1; 0 3.5],
+	[1 0; 0 1]
+]
 ```
 
 LU decomposition of three 3×3 matrices:

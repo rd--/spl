@@ -31,9 +31,9 @@ let k = 99;
 let i = (0 -- 5).subdivide(k);
 (
 	1 - { :x :y |
-		n.collect { :each |
+		n.sum { :each |
 			each.dot([x, y]).sin
-		}.sum / 5
+		} / 5
 	}.table(i, i).abs
 ).Graymap
 ~~~

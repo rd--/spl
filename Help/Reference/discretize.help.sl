@@ -63,6 +63,33 @@ Plot the sine function:
 
 ![](sw/spl/Help/Image/discretize-D.svg)
 
+Plot half phase-space orbits for the Kepler problem:
+
+~~~spl svg=E
+let l = 0.6;
+let endPoints = { :e |
+	let a = 2 * e * l.square;
+	let b = (1 + a).sqrt;
+	let c = 2 * e;
+	let p = (-1 + b) / c;
+	let q = (-1 - b) / c;
+	p -- q
+};
+let p = { :r :e |
+	let a = l.square / 2 / r.square;
+	let b = 1 / r;
+	let c = (e - a + b).max(0);
+	2 * c.sqrt
+};
+[-0.5 -0.75 -1 -1.25].collect { :e |
+	e.endPoints.discretize(150) { :r |
+		[r, p(r, e)]
+	}
+}.linePlot
+~~~
+
+![](sw/spl/Help/Image/discretize-E.svg)
+
 * * *
 
 See also: --, Interval, Range, subdivide

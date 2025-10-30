@@ -186,6 +186,20 @@ Plot with increasing density:
 
 ![](sw/spl/Help/Image/sin-J.svg)
 
+Plot simple sine & cosine curve by R.Cabello:
+
+~~~spl svg=K
+(0 -- 20.pi).functionPlot { :t |
+	[
+		sin(t * 0.7).sin,
+		cos(t * 0.3).cos,
+		sin(t * 0.2).sin
+	]
+}
+~~~
+
+![](sw/spl/Help/Image/sin-K.svg)
+
 * * *
 
 See also: arcSin, cos, csc, haversine, sinDegrees, sinh, tan

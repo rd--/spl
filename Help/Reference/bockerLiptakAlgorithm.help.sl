@@ -1,6 +1,6 @@
 # bockerLiptakAlgorithm
 
-- _bockerLiptakAlgorithm(aList)_
+- _bockerLiptakAlgorithm([x₁ x₂ …])_
 
 Implements the round robin algorithm of Böcker and Lipták.
 

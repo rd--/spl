@@ -343,6 +343,15 @@
 		}
 	}
 
+	seiffertsSpiral { :k |
+		{ :s |
+			let rho = jacobiSn(s, k);
+			let theta = k * s;
+			let z = jacobiCn(s, k);
+			[rho theta z].fromCylindricalCoordinates
+		}
+	}
+
 	semicubicalParabola { :a |
 		{ :t |
 			let x = t.square;
@@ -364,6 +373,17 @@
 		{ :theta |
 			let r = (2 * (a ^ n) * (n * theta).cos).nthRoot(n);
 			[r theta].fromPolarCoordinates
+		}
+	}
+
+	sphericalSpiral { :a |
+		{ :t |
+			let c = (t * a).arcTan;
+			let d = c.cos;
+			let x = t.cos * d;
+			let y = t.sin * d;
+			let z = c.sin.-;
+			[x, y, z]
 		}
 	}
 
@@ -649,6 +669,117 @@
 			let z = (q * t).sin;
 			[x, y, z]
 		}
+	}
+
+}
+
++@Number {
+
+	catenoid { :c |
+		{ :u :v |
+			let a = c * (v / c).cosh;
+			let x = a * u.cos;
+			let y = a * u.sin;
+			let z = v;
+			[x, y, z]
+		}
+	}
+
+	dinisSurface { :a :b |
+		{ :u :v |
+			let i = v.cos + (0.5 * v).tan.log;
+			[
+				a * u.cos * v.sin,
+				a * u.sin * v.sin,
+				(a * i) + (b * u)
+			]
+		}
+	}
+
+	ellipsoid { :a :b :c |
+		{ :u :v |
+			let x = a * u.cos * v.sin;
+			let y = b * u.sin * v.sin;
+			let z = c * v.cos;
+			[x, y, z]
+		}
+	}
+
+	ellipticParaboloid { :a :b |
+		{ :u :v |
+			let p = u.sqrt;
+			let x = a * p * v.cos;
+			let y = b * p * v.sin;
+			let z = u;
+			[x, y, z]
+		}
+	}
+
+	helicoid { :a |
+		{ :u :v |
+			let x = v * (a * u).cos;
+			let y = v * (a * u).sin;
+			let z = u;
+			[x, y, z]
+		}
+	}
+
+	hyperbolicHelicoid { :t |
+		{ :u :v |
+			let a = 1 + (u.cosh * v.cosh);
+			let x = v.sinh * (t * u).cos;
+			let y = v.sinh * (t * u).sin;
+			let z = v.cosh * u.sinh;
+			[x, y, z] / a
+		}
+	}
+
+	moebiusStrip { :r |
+		{ :u :v |
+			let a = r + ((v / 2) * (u / 2).cos);
+			let x = a * u.cos;
+			let y = a * u.sin;
+			let z = (v / 2) * (u / 2).sin;
+			[x, y, z]
+		}
+	}
+
+	pleuckersConoid { :n |
+		{ :u :v |
+			let x = v * u.cos;
+			let y = v * u.sin;
+			let z = (n * u).sin;
+			[x, y, z]
+		}
+	}
+
+	pseudosphere { :u :v |
+		let i = v.cos + (0.5 * v).tan.log;
+		[
+			u.sech * v.cos,
+			u.sech * v.sin,
+			u - u.tanh
+		]
+	}
+
+	torus { :r |
+		{ :theta :phi |
+			let a = r + theta.sin;
+			let x = a * phi.cos;
+			let y = a * phi.sin;
+			let z = theta.cos;
+			[x, y, z]
+		}
+	}
+
+	umbilicTorus { :u :v |
+		let a = (u / 3) - (2 * v);
+		let b = (u / 3) + v;
+		let c = 7 + a.cos + (2 * b.cos);
+		let x = c * u.sin;
+		let y = c * u.cos;
+		let z = a.sin + (2 * b.sin);
+		[x, y, z]
 	}
 
 }

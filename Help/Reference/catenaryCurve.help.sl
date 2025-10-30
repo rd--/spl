@@ -41,7 +41,7 @@ A catenary curve with varying weight:
 
 * * *
 
-See also: cosh
+See also: catenoid, cosh
 
 Guides: Curve Functions
 

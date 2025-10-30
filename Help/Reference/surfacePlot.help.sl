@@ -97,16 +97,9 @@ A dilated half sphere:
 Dini’s surface:
 
 ~~~spl svg=G
-let a = 1;
-let b = 0.2;
-[0 4.pi; 2E-2 2].surfacePlot { :u :v |
-	let i = v.cos + (0.5 * v).tan.log;
-	[
-		a * u.cos * v.sin,
-		a * u.sin * v.sin,
-		(a * i) + (b * u)
-	]
-}
+[0 4.pi; 2E-2 2].surfacePlot(
+	dinisSurface(1, 0.2)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-G.svg)
@@ -114,14 +107,7 @@ let b = 0.2;
 A pseudosphere:
 
 ~~~spl svg=H
-[-2 2; 0 2.pi].surfacePlot { :u :v |
-	let i = v.cos + (0.5 * v).tan.log;
-	[
-		u.sech * v.cos,
-		u.sech * v.sin,
-		u - u.tanh
-	]
-}
+[-2 2; 0 2.pi].surfacePlot(pseudosphere:/2)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-H.svg)
@@ -141,14 +127,9 @@ A one-dimensional potential energy equation plotted as the parameter λ is varie
 Plot Möbius strip:
 
 ~~~spl svg=J
-let r = 0.35;
-[0 2.pi; -1 1].surfacePlot { :u :v |
-	let a = r + ((v / 2) * (u / 2).cos);
-	let x = a * u.cos;
-	let y = a * u.sin;
-	let z = (v / 2) * (u / 2).sin;
-	[x y z]
-}
+[0 2.pi; -1 1].surfacePlot(
+	moebiusStrip(0.35)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-J.svg)
@@ -156,13 +137,9 @@ let r = 0.35;
 Plot one half of Plücker’s conoid:
 
 ~~~spl svg=K
-let n = 2;
-[0 1.pi; 0 1].surfacePlot { :u :v |
-	let x = v * u.cos;
-	let y = v * u.sin;
-	let z = (n * u).sin;
-	[x y z]
-}
+[0 1.pi; 0 1].surfacePlot(
+	pleuckersConoid(2)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-K.svg)
@@ -183,14 +160,11 @@ Plot a double cone:
 Plot a torus:
 
 ~~~spl svg=M
-let r = 2.5;
-(0 -- 2.pi).surfacePlot { :theta :phi |
-	let a = r + theta.sin;
-	let x = a * phi.cos;
-	let y = a * phi.sin;
-	let z = theta.cos;
-	[x z y]
-}
+let f:/2 = torus(2.5);
+(0 -- 2.pi).surfacePlot { :u :v |
+	let [x, y, z] = f(u, v);
+	[x, z, y]
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-M.svg)
@@ -198,14 +172,9 @@ let r = 2.5;
 Plot a catenoid:
 
 ~~~spl svg=N
-let c = 2.5;
-(-1.pi -- 1.pi).surfacePlot { :u :v |
-	let a = c * (v / c).cosh;
-	let x = a * u.cos;
-	let y = a * u.sin;
-	let z = v;
-	[x y z]
-}
+(-1.pi -- 1.pi).surfacePlot(
+	catenoid(2.5)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-N.svg)
@@ -213,13 +182,9 @@ let c = 2.5;
 Plot a helicoid:
 
 ~~~spl svg=O
-let a = 1;
-[-1.pi 1.pi; -1 1].surfacePlot { :u :v |
-	let x = v * (a * u).cos;
-	let y = v * (a * u).sin;
-	let z = u;
-	[x y z]
-}
+[-1.pi 1.pi; -1 1].surfacePlot(
+	helicoid(1)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-O.svg)
@@ -227,14 +192,9 @@ let a = 1;
 Plot a hyperbolic helicoid:
 
 ~~~spl svg=P
-let t = 2;
-[-1.pi 1.pi; -1 1].surfacePlot { :u :v |
-	let a = 1 + (u.cosh * v.cosh);
-	let x = v.sinh * (t * u).cos;
-	let y = v.sinh * (t * u).sin;
-	let z = v.cosh * u.sinh;
-	[x y z] / a
-}
+[-1.pi 1.pi; -1 1].surfacePlot(
+	hyperbolicHelicoid(2)
+)
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-P.svg)
@@ -243,23 +203,38 @@ Plot an umbilic torus:
 
 ~~~spl svg=Q
 (-1.pi -- 1.pi).surfacePlot { :u :v |
-	let a = (u / 3) - (2 * v);
-	let b = (u / 3) + v;
-	let c = 7 + a.cos + (2 * b.cos);
-	let x = c * u.sin;
-	let y = c * u.cos;
-	let z = a.sin + (2 * b.sin);
-	[x z y]
+	let [x, y, z] = umbilicTorus(u, v);
+	[x, z, y]
 }
 ~~~
 
 ![](sw/spl/Help/Image/surfacePlot-Q.svg)
 
+Plot a hyperbolic paraboloid:
+
+~~~spl svg=R
+[0 1; -1.pi 1.pi].surfacePlot { :u :v |
+	[u, v, u * v]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-R.svg)
+
+Plot a maxima parabaloid:
+
+~~~spl svg=S
+(-3 -- 3).surfacePlot { :x :y |
+	[x * 1.5, y, 4 - (x.square + y.square)]
+}
+~~~
+
+![](sw/spl/Help/Image/surfacePlot-S.svg)
+
 * * *
 
 See also: discretePlot, functionPlot, graphPlot, LineDrawing, linePlot, matrixPlot, meshGrid, parametricPlot, scatterPlot
 
-Guides: Plotting Functions
+Guides: Plotting Functions, Surface Functions
 
 References:
 _Mathematica_

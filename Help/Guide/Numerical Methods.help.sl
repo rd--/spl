@@ -10,9 +10,19 @@
 - `gradientDescentMethod`
 - `hoskingMethod`
 - `milsteinMethod`
+- `nelderMeadMethod`
 - `newtonRaphsonMethod`
 - `rungeKuttaMethod`
 - `trapezoidalRule`
+
+Test Functions:
+
+- `ackleyFunction`
+- `goldsteinPriceFunction`
+- `griewankFunction`
+- `himmelblausFunction`
+- `rastriginFunction`
+- `rosenbrockFunction`
 
 * * *
 

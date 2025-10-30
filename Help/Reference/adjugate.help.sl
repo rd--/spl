@@ -1,8 +1,8 @@
 # adjugate
 
-- _adjugate(aMatrix)_
+- _adjugate(m)_
 
-Answer the adjugate of _aMatrix_, which must be square.
+Answer the adjugate of the matrix _m_, which must be square.
 The adjugate is also known as the classical adjoint or the adjunct matrix.
 
 Compute the adjugate of a 2×2 matrix:

@@ -179,7 +179,7 @@
 	'MatrixFunctions'
 	'NumericalFunctions'
 	'OnlineEncyclopediaOfIntegerSequences'
-	'Optimization'
+	'OptimizationFunctions'
 	'ParametricEquations'
 	'Permutations'
 	'Primes'

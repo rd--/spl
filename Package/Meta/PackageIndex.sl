@@ -184,7 +184,7 @@
 	'Math-MatrixFunctions'
 	'Math-NumericalFunctions'
 	'Math-OnlineEncyclopediaOfIntegerSequences'
-	'Math-Optimization'
+	'Math-OptimizationFunctions'
 	'Math-ParametricEquations'
 	'Math-Permutations'
 	'Math-Primes'
