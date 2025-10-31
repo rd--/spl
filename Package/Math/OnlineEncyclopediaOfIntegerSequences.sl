@@ -32,7 +32,7 @@
 				bitAnd: [279125],
 				bitReversalPermutation: [030109],
 				bitXor: [003188],
-				braceletCount: [081720 000029],
+				braceletCount: [081720 000029 027671],
 				brunsConstant: [065421],
 				calabisConstant: [046095],
 				calkinWilfSequence: [002487],

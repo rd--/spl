@@ -36,6 +36,7 @@ Plotting Functions:
 - `poincarePlot`
 - `polarPlot`
 - `reliefPlot`
+- `residueDesignPlot`
 - `revolutionPlot`
 - `runSequencePlot`
 - `scatterPlot`

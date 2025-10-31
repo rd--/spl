@@ -1,8 +1,8 @@
 # bjorklundsAlgorithmDo
 
-- _bjorklundsAlgorithmDo(k, n, aBlock:/1)_
+- _bjorklundsAlgorithmDo(k, n, f:/1)_
 
-Apply _aBlock_ at each step of Bjorklund’s algorithm.
+Apply the block _f_ at each step of Bjorklund’s algorithm.
 The algorithm mutates the same `List` at each step,
 to retain use `deepCopy` or `flatten`.
 

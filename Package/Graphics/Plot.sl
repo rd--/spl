@@ -930,3 +930,26 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++@Integer {
+
+	residueDesignPlot { :m :n |
+		let p = m.circlePoints([0 0], 1, 0.5.pi);
+		let i = [0 .. m - 1];
+		let j = (i * n) % m;
+		let l = [];
+		1.toDo(m) { :k |
+			let a = i[k];
+			let b = j[k];
+			(a = b).ifFalse {
+				l.add(Line([p[a + 1], p[b + 1]]))
+			}
+		};
+		[
+			Circle([0 0], 1),
+			PointCloud(p),
+			l
+		].LineDrawing
+	}
+
+}

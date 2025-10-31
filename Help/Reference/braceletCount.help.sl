@@ -38,6 +38,20 @@ OEIS [A000029](https://oeis.org/A000029):
 ]
 ```
 
+First few counts for _k=3_,
+OEIS [A027671](https://oeis.org/A027671):
+
+```
+>>> 1:15.collect { :n |
+>>> 	braceletCount(n, 3)
+>>> }
+[
+	3 6 10 21 39
+	92 198 498 1219 3210
+	8418 22913 62415 173088 481598
+]
+```
+
 * * *
 
 See also: necklaceCount
@@ -49,6 +63,7 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Necklace.html),
 _OEIS_
 [1](https://oeis.org/A081720)
-[2](https://oeis.org/A000029),
+[2](https://oeis.org/A000029)
+[3](https://oeis.org/A027671),
 _W_
 [1](https://en.wikipedia.org/wiki/Bracelet_(combinatorics))
