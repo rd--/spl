@@ -14,11 +14,12 @@ The result is scaled and biased by _a_ and _b_ to meet the desired contrast and 
 Evaluate symbolically:
 
 ```
->> [𝒂 𝒃 𝒄 𝒅].quilezGradient.value(𝒙)
+>> [`a` `b` `c` `d`].quilezGradient
+>> .value(`x`)
 (+ a (* b (cos (* (* 2 π) (+ (* c x) d)))))
 ```
 
-_a_ and _b_ of _1/2_ scales the _(-1, 1)_ answer of `cos` to _(0, 1)_.
+_a_ and _b_ of _1/2_ scales the _(-1,1)_ answer of `cos` to _(0,1)_.
 _c_ of _1_ leaves _mu_ unscaled.
 Draw a gradient that places the red, green and blue components at equal phase distances:
 
@@ -105,6 +106,8 @@ A yellow, magenta, cyan gradient:
 
 See also: asContinuousColourGradient, Colour, ColourGradient, cubeHelix, RgbColour, turboGradient
 
+Guides: Colour Functions
+
 References:
-_IQ_
+_Quilez_
 [1](https://iquilezles.org/articles/palettes/)

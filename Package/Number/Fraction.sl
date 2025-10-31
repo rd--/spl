@@ -718,7 +718,7 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 +[Fraction, SmallFloat] {
 
 	asDecimalFraction { :self :places |
-		self.asFractionOver(10 ^ places)
+		self.asFractionOver(10L ^ places)
 	}
 
 	asFractionOver { :self :denominator |

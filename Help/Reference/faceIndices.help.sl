@@ -1,8 +1,8 @@
 # faceIndices
 
-- _faceIndices(aGeometry)_
+- _faceIndices(g)_
 
-Answer a `List` of lists holding the indices of the vertices of each face.
+Answer a `List` of lists holding the indices of the vertices of each face at the geometry _g_.
 
 At `Triangle`:
 

@@ -68,6 +68,12 @@
 		}
 	}
 
+	assertIsOfShape { :self :shape |
+		self.assert {
+			self.shape = shape
+		}
+	}
+
 	coordinateBoundingBoxArray { :bounds :steps :offset |
 		let [m, n] = bounds.shape;
 		bounds.transpose.coordinateBoundsArray(steps, offset)

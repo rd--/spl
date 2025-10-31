@@ -1,9 +1,9 @@
 # asContinuousColourGradient
 
-- _asContinuousColourGradient(aList)_
+- _asContinuousColourGradient([c₁ c₂ …])_
 
 Answer a `ColourGradient`,
-arranged to be a continous gradient of the colour palette at _aList_,
+arranged to be a continous gradient of the colour palette at _c_,
 with equally spaced positions.
 
 Plot the continuous gradient of the the four colour _Rgby_ palette,

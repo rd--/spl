@@ -5,7 +5,7 @@
 Answer a collection of colour gradients collated from a variety of sources.
 The collection is keyed firstly by the collection name,
 and secondly by the palette name.
-Items are _(colourList, positionList)_ pairs,
+Items are colour list and position list pairs,
 which can be converted into a `ColourGradient` value using `asColourGradient`.
 
 Count collections:
@@ -41,7 +41,7 @@ Plot the two colour _Winter_ gradient from the _Mathworks_ collection:
 
 ~~~spl svg=A
 system
-.colourGradients['Mathworks', 'Winter']
+.colourGradients['Mathworks']['Winter']
 .asColourGradient
 ~~~
 
@@ -51,10 +51,7 @@ Plot the sixteen colour _Spring_ gradient from the _Mathworks_ collection:
 
 ~~~spl svg=B
 system
-.colourGradients[
-	'Mathworks',
-	'Spring'
-]
+.colourGradients['Mathworks']['Spring']
 .asColourGradient
 ~~~
 
@@ -65,10 +62,7 @@ resampled to sixteen colours:
 
 ~~~spl svg=C
 system
-.colourGradients[
-	'Viridis',
-	'Plasma'
-]
+.colourGradients['Viridis']['Plasma']
 .asColourGradient
 .resample(16)
 ~~~

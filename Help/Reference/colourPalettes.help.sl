@@ -5,7 +5,7 @@
 Answer a collection of colour palettes collated from a variety of sources.
 The collection is keyed firstly by the collection name,
 and secondly by the palette name.
-Items are _(r, g, b)_ triples in _(0, 1)_.
+Items are _(r,g,b)_ triples in _(0,1)_.
 
 Count collections:
 

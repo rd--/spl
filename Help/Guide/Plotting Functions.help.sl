@@ -10,6 +10,7 @@ Plotting Functions:
 - `autocorrelationPlot`
 - `carpetPlot`
 - `cobwebPlot`
+- `colourCalculatorPlot`
 - `complexPlot`
 - `complexListPlot`
 - `conformalPlot`

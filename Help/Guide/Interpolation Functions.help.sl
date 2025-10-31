@@ -34,6 +34,7 @@ Resampling Functions:
 Step Functions:
 
 - `easingFunction`
+- `inverseSmoothStep`
 - `smootherStep`
 - `smoothStepFunction`
 - `smoothStep`

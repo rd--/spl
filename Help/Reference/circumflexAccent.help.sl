@@ -372,6 +372,16 @@ Plot _x_ raised to a scaled power of _x_:
 
 ![](sw/spl/Help/Image/circumflexAccent-D.svg)
 
+Plot _x_ raised to a scaled power of _x_:
+
+~~~spl svg=E
+(-4 -- 2).functionPlot { :x |
+	x.abs ^ x
+}
+~~~
+
+![](sw/spl/Help/Image/circumflexAccent-E.svg)
+
 Where supported `^` is displayed as ˆ.
 
 The name of this operator is `circumflexAccent`.

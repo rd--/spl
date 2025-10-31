@@ -120,6 +120,7 @@
 	'Geometry-Matrix22'
 	'Geometry-Matrix33'
 	'Geometry-Parallelogram'
+	'Geometry-Parallelepiped'
 	'Geometry-Perspective'
 	'Geometry-PlanarCoordinates'
 	'Geometry-Plane'

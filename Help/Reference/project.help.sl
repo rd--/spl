@@ -1,8 +1,8 @@
 # project
 
-- _project(aGeometry, aProjection)_
+- _project(g, p)_
 
-Apply _aProjection_ to _aGeometry_.
+Apply the projection _p_ to the geometry _g_.
 
 At `Point`:
 

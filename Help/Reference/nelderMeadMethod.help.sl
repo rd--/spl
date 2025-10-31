@@ -6,7 +6,7 @@ Implement the Nelder-Mead method,
 also known as the downhill simplex method or polytope method,
 to find a local minimum or maximum of an objective function in a multidimensional space.
 
-Find the global minimum of an unconstrained problem:
+Find the local minimum of simple anonymous functions:
 
 ```
 >>> { :v |
@@ -14,11 +14,7 @@ Find the global minimum of an unconstrained problem:
 >>> 	(x ^ 4) - (3 * (x ^ 2)) - x
 >>> }.nelderMeadMethod([0])
 (fx: -3.51391, x: [1.30084])
-```
 
-Minimize a simple anonymous function:
-
-```
 >>> { :v |
 >>> 	let [x, y] = v;
 >>> 	(x - 0.3).square +
@@ -26,11 +22,7 @@ Minimize a simple anonymous function:
 >>> 	0.5
 >>> }.nelderMeadMethod([1 1])
 (fx: 0.5, x: [0.3 0])
-```
 
-Minimize a simple anonymous function:
-
-```
 >>> { :v |
 >>> 	let [x, y] = v;
 >>> 	(y.sin * x).square +
@@ -84,14 +76,46 @@ Minimize the Goldstein-Price function:
 (fx: 3, x: [0 -1])
 ```
 
-For nonlinear functions may find only a local minimum:
+Find local minimum of nonlinear function:
 
 ```
 >>> { :v |
 >>> 	let [x] = v;
->>> 	(-x * x.sin) + (3 * x.cos) + (x / 1000)
+>>> 	(-x * x.sin) +
+>>> 	(3 * x.cos) +
+>>> 	(x / 1000)
 >>> }.nelderMeadMethod([-10])
 (fx: -8.7905, x: [-8.3030])
+```
+
+Find a local minimum, starting the search at _x=2_:
+
+```
+>>> { :v |
+>>> 	let [x] = v;
+>>> 	x * x.cos
+>>> }.nelderMeadMethod([2])
+(fx: -3.28837, x: [3.42562])
+```
+
+With a different starting points, locate a different local minima:
+
+```
+>>> { :v |
+>>> 	let [x] = v;
+>>> 	x * x.cos
+>>> }.nelderMeadMethod([10])
+(fx: -9.47729, x: [9.52933])
+```
+
+Local minimum of a two-variable function:
+
+```
+>>> { :v |
+>>> 	let [x, y] = v;
+>>> 	x.sin * (2 * y).sin
+>>> }.nelderMeadMethod([2 2])
+(fx: -1, x: [1.5708, 2.3562])
 ```
 
 * * *
@@ -103,6 +127,7 @@ Guides: Numerical Methods
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Nelder-MeadMethod.html)
-[2](https://reference.wolfram.com/language/ref/NMinimize.html),
+[2](https://reference.wolfram.com/language/ref/FindMinimum.html)
+[3](https://reference.wolfram.com/language/ref/NMinimize.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Nelder%E2%80%93Mead_method)

@@ -1,8 +1,8 @@
 # asColourGradient
 
-- _asColourGradient([colourList, positionList])_
+- _asColourGradient([c₁ c₂ …; p₁ p₂ …])_
 
-Answer a `ColourGradient` having the specified colour and position lists.
+Answer a `ColourGradient` having the specified colours _c_ and and positions _p_.
 
 Answer a yellow-magenta-blue gradient with the magenta positioned at two-thirds:
 

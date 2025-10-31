@@ -1,6 +1,6 @@
 # smoothStepFunction
 
-- _smoothStepFunction(anInteger)_
+- _smoothStepFunction(n)_
 
 Answer the _n_-th smoothStep function.
 The zeroeth function is a straight line.

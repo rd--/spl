@@ -86,6 +86,16 @@ Phyllotaxis pattern:
 
 ![](sw/spl/Help/Image/arcCos-C.svg)
 
+Plot arch function:
+
+~~~spl svg=D
+(-1 -- 1).functionPlot { :x |
+	x.square.arcCos / x.square.cos
+}
+~~~
+
+![](sw/spl/Help/Image/arcCos-D.svg)
+
 * * *
 
 See also: arcCosh, arcSin, cos, sin, tan

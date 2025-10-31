@@ -116,6 +116,7 @@
 	'Line'
 	'LineSegment'
 	'Parallelogram'
+	'Parallelepiped'
 	'Perspective'
 	'Plane'
 	'PolarCoordinates'

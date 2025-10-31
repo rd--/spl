@@ -45,6 +45,9 @@ The determinants of _3×3_ `Integer` matrices:
 
 >>> [2 9 4; 7 5 3; 6 1 8].determinant
 -360
+
+>>> [1 -3 2; 3 7 -5; 4 1 6].determinant
+111
 ```
 
 The determinants of _4×4_ `Integer` matrices:

@@ -1,8 +1,8 @@
-Parallelogram : [Object, Equatable, Geometry] { | origin vectors |
+Parallelogram : [Object, Equatable, Geometry] { | origin vectorList |
 
 	area { :self |
 		let o = self.origin;
-		let [u, v] = self.vectors;
+		let [u, v] = self.vectorList;
 		let b = u[1];
 		let h = v[2] - o[2];
 		b * h
@@ -26,7 +26,7 @@ Parallelogram : [Object, Equatable, Geometry] { | origin vectors |
 
 	height { :self |
 		let o = self.origin;
-		let [_, v] = self.vectors;
+		let [_, v] = self.vectorList;
 		v[2] - o[2]
 	}
 
@@ -36,7 +36,7 @@ Parallelogram : [Object, Equatable, Geometry] { | origin vectors |
 
 	vertexCoordinates { :self |
 		let o = self.origin;
-		let [u, v] = self.vectors;
+		let [u, v] = self.vectorList;
 		let a = o;
 		let b = a + u;
 		let c = b + v;
@@ -48,8 +48,8 @@ Parallelogram : [Object, Equatable, Geometry] { | origin vectors |
 
 +List {
 
-	Parallelogram { :self :vectors |
-		newParallelogram().initializeSlots(self, vectors)
+	Parallelogram { :self :vectorList |
+		newParallelogram().initializeSlots(self, vectorList)
 	}
 
 }

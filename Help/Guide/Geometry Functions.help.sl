@@ -21,6 +21,7 @@ Types:
 - `InfinitePlane`
 - `Line`
 - `Parallelogram`
+- `Parallelepiped`
 - `PointCloud`
 - `Point`
 - `Polygon`

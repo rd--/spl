@@ -1,14 +1,14 @@
 # asFractionOver
 
-- _asFractionOver(aNumber, anInteger)_
+- _asFractionOver(x, n)_
 
-Derive a `Fraction` where _anInteger_ is the unreduced denominator.
+Derive a `Fraction` where _n_ is the unreduced denominator.
 
 At `SmallFloat`:
 
 ```
 >>> 1.pi.asFractionOver(1E2)
-157/50
+314/100
 
 >>> 1.pi.asFractionOver(1E5)
 314159/100000
@@ -31,6 +31,9 @@ At `Fraction`:
 
 >>> 1/3.asFractionOver(1E3)
 333/1000
+
+>>> 1/7.asFractionOver(1E12)
+142857142857/1000000000000
 ```
 
 * * *

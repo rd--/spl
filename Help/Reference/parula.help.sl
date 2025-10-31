@@ -1,8 +1,8 @@
 # parula
 
-- _parula(anInteger)_
+- _parula(n)_
 
-Answer the _parula_ colormap as a three-column matrix with _anInteger_ number of rows.
+Answer the _parula_ colormap as a three-column matrix with _n_ rows.
 Each row in the matrix contains the red, green, and blue intensities for a specific color.
 The intensities are in the range _(0,1)_.
 
@@ -18,7 +18,7 @@ Plot the _parula_ colour gradient sampled at sixteen steps:
 
 See also: asContinuousColourGradient, ColourGradient, colourGradients
 
-Guides: Colour Guides
+Guides: Colour Functions
 
 References:
 _Mathworks_

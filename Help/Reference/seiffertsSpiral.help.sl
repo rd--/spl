@@ -88,6 +88,10 @@ let m = 0.358;
 
 ![](sw/spl/Help/Image/seiffertsSpiral-F.svg)
 
+_Note:_
+The equation is that given by Erdős,
+which is slightly different to that given in the references.
+
 * * *
 
 See also: jacobiCn, jacobiSn, sphericalSpiral

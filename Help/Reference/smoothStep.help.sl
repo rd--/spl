@@ -122,7 +122,7 @@ Approximate `smoothStep` using `cos`:
 
 * * *
 
-See also: easingFunction, hermiteInterpolation, smootherStep, smoothStepFunction
+See also: easingFunction, hermiteInterpolation, inverseSmoothStep, smootherStep, smoothStepFunction
 
 Guides: Interpolation Functions, Sigmoid Functions
 

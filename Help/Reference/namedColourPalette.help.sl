@@ -1,10 +1,11 @@
 # namedColourPalette
 
-- _namedColourPalette(collectionName, paletteName)_
-- _namedColourPalette(paletteName)_
+- _namedColourPalette(c, p)_
+- _namedColourPalette(p)_
 
 Answer a `ColourPalette` by looking up the `colourPalettes` library.
-The binary form is a direct lookup:
+
+The binary form is a direct lookup for collection name _c_, and palette name _p_:
 
 Lookup the _Summer_ palette in the _Tableau_ collection:
 
@@ -37,4 +38,4 @@ The unary form allows specifying the collection and palette names separated by a
 
 See also: ColourGradient, ColourPalette, colourPalettes
 
-Guides: Colour Guides
+Guides: Colour Functions

@@ -1,9 +1,9 @@
 # asDiscreteColourGradient
 
-- _asDiscreteColourGradient(aList)_
+- _asDiscreteColourGradient([c₁ c₂ …])_
 
 Answer a `ColourGradient`,
-arranged to be a discrete gradient of the colour palette at _aList_,
+arranged to be a discrete gradient of the colour palette at _c_,
 with equally spaced positions.
 
 Plot the discrete gradient of the the nine colour _Set1_ palette,

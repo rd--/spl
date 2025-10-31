@@ -1,4 +1,4 @@
-/* Requires: Interval */
+/* Requires: Decimal Interval */
 
 Plot : [Object] { | pages format options |
 
@@ -905,6 +905,28 @@ Plot : [Object] { | pages format options |
 
 	revolutionPlot { :self :aBlock:/2 |
 		self.revolutionPlot([15, 15], aBlock:/2)
+	}
+
+}
+
++List{
+
+	colourCalculatorPlot { :self :colourList |
+		self.deepCollect { :each |
+			colourList[each.asInteger + 1]
+		}.asColourSvg
+
+	}
+
+}
+
++Decimal{
+
+	colourCalculatorPlot { :self :shape :colourList |
+		self
+		.integerDigits
+		.reshape(shape)
+		.colourCalculatorPlot(colourList)
 	}
 
 }

@@ -1,6 +1,6 @@
 # cubeHelix
 
-- _cubeHelix(start, rotations, hue, gamma)_
+- _cubeHelix(start, rotations, hue, γ)_
 
 `cubeHelix` is a color mapping that degrades gracefully to grayscale without losing information,
 making it useful for continuous color scales in scientific drawings that may be printed in grayscale.
@@ -17,5 +17,7 @@ Answers a one argument `Block` that implements the specified gradient function.
 * * *
 
 See also: asContinuousColourGradient, Colour, ColourGradient, quilezGradient, RgbColour
+
+Guides: Colour Functions
 
 Further Reading: Green 2011

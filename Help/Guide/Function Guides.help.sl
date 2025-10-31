@@ -66,6 +66,7 @@
 - `Statistics Functions`
 - `Stream Functions`
 - `String Functions`
+- `Surface Functions`
 - `System Functions`
 - `Time Series Functions`
 - `Tree Functions`

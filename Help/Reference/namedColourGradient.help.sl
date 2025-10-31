@@ -1,10 +1,11 @@
 # namedColourGradient
 
-- _namedColourGradient(collectionName, gradientName)_
-- _namedColourGradient(gradientName)_
+- _namedColourGradient(c, g)_
+- _namedColourGradient(g)_
 
 Answer a `ColourGradient` by looking up the `colourGradients` library.
-The binary form is a direct lookup:
+
+The binary form is a direct lookup given the collection name _c_ and the gradient name _g_.
 
 Lookup the _Plasma_ gradient in the _Viridis_ collection:
 
@@ -39,4 +40,4 @@ The unary form allows specifying the collection and gradient names separated by 
 
 See also: ColourGradient, ColourGradient, colourGradients, namedColourPalette
 
-Guides: Colour Guides
+Guides: Colour Functions

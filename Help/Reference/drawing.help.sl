@@ -9,3 +9,5 @@ The `Geometry` trait implements `draw`.
 * * *
 
 See also: Colour, ColourGradient, ColourPalette, Geometry, Graph, LineDrawing, PerspectiveDrawing, Plot, Scale, show
+
+Guides: Drawing Functions

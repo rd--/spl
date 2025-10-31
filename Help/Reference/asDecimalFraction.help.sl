@@ -2,7 +2,9 @@
 
 - _asDecimalFraction(x, n)_
 
-Derive a `Fraction` for the `SmallFloat` _x_ where the integer _n_ is the number of decimal places.
+Derive a `Fraction` for the number _x_ where the integer _n_ is the number of decimal places.
+
+At `SmallFloat`:
 
 ```
 >>> 1.pi.asDecimalFraction(2)
@@ -24,6 +26,13 @@ Derive a `Fraction` for the `SmallFloat` _x_ where the integer _n_ is the number
 >>> 	(2.01 / 2).asDecimalFraction(n)
 >>> }
 [1/1 1/1 201/200]
+```
+
+At `Fraction`:
+
+```
+>>> 1/7.asDecimalFraction(10)
+1428571429/10000000000
 ```
 
 * * *

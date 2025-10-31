@@ -5,6 +5,10 @@ Types:
 - `LineDrawing`
 - `PerspectiveDrawing`
 
+Trait Functions:
+
+- `drawing`
+
 Converting:
 
 - `asLineDrawing`
@@ -21,4 +25,4 @@ Text Drawings:
 
 * * *
 
-Guides: Colour Functions, Image Functions, Plotting Functions
+Guides: Colour Functions, Geometry Functions, Image Functions, Plotting Functions

@@ -1,9 +1,9 @@
 # ColourGradient
 
-- _ColourGradient(colourList, positionListOrNil)_
+- _ColourGradient([c₁ c₂ …], [p₁ p₂ …])_
 
 A `Type` holding a colour gradient.
-A colour gradient is a list of colours and a corresponding list of positions in the range _(0, 1)_.
+A colour gradient is a list of colours and a corresponding list of positions in the range _(0,1)_.
 If the position list is `nil` it is understood to an equally spaced gradient.
 
 The `size` of a colour gradient is the number of colours,
