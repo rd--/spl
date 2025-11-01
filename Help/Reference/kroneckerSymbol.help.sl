@@ -147,6 +147,20 @@ At specific values:
 -1
 ```
 
+Quadratic residues and nonresidues:
+
+```
+>>> 1:22.select { :x |
+>>> 	kroneckerSymbol(x, 23) = 1
+>>> }
+[1 2 3 4 6 8 9 12 13 16 18]
+
+>>> 1:22.select { :x |
+>>> 	kroneckerSymbol(x, 23) = -1
+>>> }
+[5 7 10 11 14 15 17 19 20 21 22]
+```
+
 Plot:
 
 ~~~spl svg=A

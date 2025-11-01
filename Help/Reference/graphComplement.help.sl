@@ -2,7 +2,7 @@
 
 - _graphComplement(g)_
 
-Answer the complement graph of _aGraph_.
+Answer the complement graph of the graph _g_.
 
 At `cycleGraph`:
 

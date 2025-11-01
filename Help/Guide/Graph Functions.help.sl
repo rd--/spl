@@ -31,6 +31,7 @@ Specific Graphs:
 - `knightGraph`
 - `namedGraph`
 - `nearestNeighbourGraph`
+- `paleyGraph`
 - `pathGraph`
 - `petersenGraph`
 - `rookGraph`

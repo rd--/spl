@@ -4,19 +4,23 @@
 
 Answer `true` if _n_ is a Pythagorean prime, else `false`.
 
-The first few Pythagorean primes:
+The first few Pythagorean primes,
+OEIS [A002144](https://oeis.org/A002144):
 
 ```
->>> 1:113.select(isPythagoreanPrime:/1)
+>>> 1:113.select(
+>>> 	isPythagoreanPrime:/1
+>>> )
 [
-	  5  13  17  29  37  41  53  61  73  89
+	  5  13  17  29  37
+	 41  53  61  73  89
 	 97 101 109 113
 ]
 ```
 
 * * *
 
-See also: isPrime
+See also: %, isPrime
 
 Guides: Prime Number Functions
 

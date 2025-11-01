@@ -95,6 +95,16 @@ Plot the Goldner-Harary graph:
 
 ![](sw/spl/Help/Image/namedGraph-I.svg)
 
+Plot the Clebsch graph:
+
+~~~spl svg=J
+'ClebschGraph'
+.namedGraph
+.circularGraphPlot
+~~~
+
+![](sw/spl/Help/Image/namedGraph-J.svg)
+
 * * *
 
 See also: Graph
@@ -111,3 +121,4 @@ _Mathematica_
 [6](https://mathworld.wolfram.com/OwensGraphs.html)
 [7](https://mathworld.wolfram.com/HerschelGraph.html)
 [8](https://mathworld.wolfram.com/Goldner-HararyGraph.html)
+[9](https://mathworld.wolfram.com/ClebschGraph.html)

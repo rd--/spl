@@ -192,6 +192,49 @@ Modulo of negative number with negative operand:
 [-0.1 -4.1 -3.1 -2.1 -1.1 -0.1]
 ```
 
+Number of squares modulo _n_,
+OEIS [A000224](https://oeis.org/A000224):
+
+```
+>>> 1:72.collect { :n |
+>>> 	1:n.collect { :k |
+>>> 		k.square % n
+>>> 	}.nub.size
+>>> }
+[
+	 1  2  2  2  3  4  4  3  4  6
+	 6  4  7  8  6  4  9  8 10  6
+	 8 12 12  6 11 14 11  8 15 12
+	16  7 12 18 12  8 19 20 14  9
+	21 16 22 12 12 24 24  8 22 22
+	18 14 27 22 18 12 20 30 30 12
+	31 32 16 12 21 24 34 18 24 24
+	36 12
+]
+```
+
+Modular multiplication tables:
+
+```
+>>> 4:5.collect { :m |
+>>> 	{ :i :j |
+>>> 		(i * j) % m
+>>> 	}.table(1:m, 1:m)
+>>> }
+[
+	1 2 3 0;
+	2 0 2 0;
+	3 2 1 0;
+	0 0 0 0
+	:;
+	1 2 3 4 0;
+	2 4 1 3 0;
+	3 1 4 2 0;
+	4 3 2 1 0;
+	0 0 0 0 0
+]
+```
+
 At `Symbol`:
 
 ```
@@ -272,6 +315,41 @@ Simulate a particle bouncing in a noncommensurate box:
 
 ![](sw/spl/Help/Image/percentSign-G.svg)
 
+Plot number of squares modulo _n_,
+OEIS [A000224](https://oeis.org/A000224):
+
+~~~spl svg=H
+1:150.collect { :n |
+	1:n.collect { :k |
+		k.square % n
+	}.nub.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-H.svg)
+
+Plot quadratic residue triangle,
+OEIS [A048152](https://oeis.org/A048152):
+
+~~~spl svg=I
+1:22.triangularArray { :q :p |
+	p.square % q
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-I.svg)
+
+Plot modular multiplication table:
+
+~~~spl svg=J
+let m = 14;
+{ :i :j |
+	(i * j) % m
+}.table(1:m, 1:m).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-J.svg)
+
 The name of this operator is `percentSign`.
 
 * * *
@@ -288,6 +366,9 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Congruence.html)
 [3](https://mathworld.wolfram.com/CommonResidue.html)
 [4](https://reference.wolfram.com/language/ref/Mod.html),
+_OEIS_
+[1](https://oeis.org/A000224)
+[2](https://oeis.org/A048152),
 _W_
 [1](https://en.wikipedia.org/wiki/Modulo)
 

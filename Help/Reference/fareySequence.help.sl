@@ -170,4 +170,6 @@ _OEIS_
 [2](https://oeis.org/A006842)
 [3](https://oeis.org/A006843)
 
+Further Reading: Farey 1816
+
 Categories: Math, Sequence

@@ -17,6 +17,7 @@ Counting Functions:
 
 - `binomial`
 - `braceletCount`
+- `deBruijnSequenceCount`
 - `necklaceCount`
 
 Factorial Functions:

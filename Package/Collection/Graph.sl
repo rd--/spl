@@ -499,6 +499,12 @@
 		}
 	}
 
+	seidelAdjacencyMatrix { :self |
+		let a = self.graphComplement.adjacencyMatrix;
+		let b = self.adjacencyMatrix;
+		a - b
+	}
+
 	simpleGraph { :self |
 		let v = self.vertexList;
 		let e = UnsortedSet();
@@ -772,6 +778,23 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		}.asGraph
 	}
 
+	cyclotomicGraph { :p |
+		p.isPrime.if {
+			let v = [1 .. p];
+			let e = [];
+			(1 .. p - 1).collect { :i |
+				(i + 1 .. p).collect { :j |
+					isCubicResidue(j - i, p).ifTrue {
+						e.add(i --- j)
+					}
+				}
+			};
+			Graph(v, e)
+		} {
+			p.error('cyclotomicGraph')
+		}
+	}
+
 	deBruijnGraph { :m :n |
 		let o = n - 1;
 		let k = m ^ n;
@@ -885,6 +908,19 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	knightGraph { :m |
 		knightGraph(m, m)
+	}
+
+	paleyGraph { :p |
+		let v = [1 .. p];
+		let e = [];
+		(1 .. p - 1).collect { :i |
+			(i + 1 .. p).collect { :j |
+				isQuadraticResidue(j - i, p).ifTrue {
+					e.add(i --- j)
+				}
+			}
+		};
+		Graph(v, e)
 	}
 
 	pathGraph { :self |
@@ -1155,6 +1191,14 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	namedGraphTable { :self |
 		self.cached('NamedGraphTable') {
 			(
+				'ClebschGraph': Graph(
+					[1 .. 16],
+					[
+						1 3; 1 5; 1 7; 1 10; 1 13; 2 5; 2 6; 2 8; 2 10; 2 14; 3 4; 3 6; 3 14; 3 15;
+						4 5; 4 8; 4 9; 4 16; 5 11; 5 12; 6 7; 6 9; 6 12; 7 8; 7 11; 7 16; 8 13; 8 15;
+						9 10; 9 11; 9 13; 10 15; 10 16; 11 14; 11 15; 12 13; 12 15; 12 16; 13 14; 14 16
+					]
+				),
 				'CoxeterGraph': Graph(
 					[1 .. 84],
 					[

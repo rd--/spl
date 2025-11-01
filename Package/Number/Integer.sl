@@ -735,6 +735,13 @@
 		}
 	}
 
+	isCubicResidue { :q :p |
+		let r = q.mod(p);
+		0.to(p - 1).anySatisfy { :x |
+			x.cube.mod(p) = r
+		}
+	}
+
 	isDeficientNumber { :n |
 		n.divisors.sum < (2 * n)
 	}
@@ -874,6 +881,13 @@
 
 	isPythagoreanTriple { :a :b |
 		isPythagoreanTriple(a, b, (a.square + b.square).sqrt)
+	}
+
+	isQuadraticResidue { :q :p |
+		let r = q.mod(p);
+		(1 .. (p / 2).floor).anySatisfy { :x |
+			x.square.mod(p) = r
+		}
 	}
 
 	isRefactorableNumber { :self |
@@ -1229,6 +1243,18 @@
 
 	printStringHex { :self |
 		self.printString(16)
+	}
+
+	quadraticNonresidues { :p |
+		(2 .. p - 1).reject { :q |
+			isQuadraticResidue(q, p)
+		}
+	}
+
+	quadraticResidues { :p |
+		(1 .. p - 1).select { :q |
+			isQuadraticResidue(q, p)
+		}
 	}
 
 	ramanujanTau { :n |

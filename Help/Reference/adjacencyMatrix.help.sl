@@ -1,8 +1,8 @@
 # adjacencyMatrix
 
-- _adjacencyMatrix(aGraph)_
+- _adjacencyMatrix(g)_
 
-Answer the vertex–vertex adjacency matrix of _aGraph_.
+Answer the vertex–vertex adjacency matrix of the graph _g_.
 An entry _(i,j)_ of the adjacency matrix is the number of directed edges from vertex _i_ to vertex _j_.
 The diagonal entries _(i,i)_ count the number of loops for vertex _i_.
 An undirected edge is interpreted as two directed edges with opposite directions.

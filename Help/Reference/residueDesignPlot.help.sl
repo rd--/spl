@@ -146,3 +146,5 @@ residueDesignPlot(42, 7)
 See also: circlePoints
 
 Guides: Plotting Functions
+
+Further Reading: Locke 1972

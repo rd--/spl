@@ -2,6 +2,12 @@
 
 +@Integer {
 
+	assertIsPrime { :self |
+		self.assert {
+			self.isPrime
+		}
+	}
+
 	carmichaelLambda { :n |
 		(n > 0).if {
 			let e = n.eulerPhi;

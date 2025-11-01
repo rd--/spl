@@ -144,6 +144,12 @@ Figurate Numbers:
 - `tetrahedralNumber`
 - `triangularNumber`
 
+Quadratic Residues:
+
+- `isQuadraticResidue`
+- `quadraticNonresidues`
+- `quadraticResidues`
+
 * * *
 
 Guides: Bitwise Functions, Combinatorial Functions, Integer Sequence Functions, Mathematical Functions, Prime Number Functions

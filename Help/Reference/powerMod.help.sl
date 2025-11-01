@@ -156,6 +156,23 @@ let n = 44.prime;
 
 ![](sw/spl/Help/Image/powerMod-C.svg)
 
+Plot table,
+read by rows,
+where _n_-th row contains all quadratic residues,
+including zero,
+modulo _n_,
+OEIS [A096008](https://oeis.org/A096008):
+
+~~~spl svg=D
+1:30.collect { :n |
+	(0 .. n - 1).collect { :k |
+		powerMod(k, 2, n)
+	}.nub.sort
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/powerMod-C.svg)
+
 * * *
 
 See also: ^, %
@@ -167,5 +184,7 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PowerMod.html)
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/sym.powermod.html),
+_OEIS_
+[1](https://oeis.org/A096008),
 _W_
 [1](https://en.wikipedia.org/wiki/Modular_exponentiation)

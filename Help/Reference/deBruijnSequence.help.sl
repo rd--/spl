@@ -24,6 +24,41 @@ A de Bruijn sequence of order three:
 8
 ```
 
+A de Bruijn sequence of order four:
+
+```
+>>> [0 1].deBruijnSequence(4)
+[0 0 0 0 1 0 0 1 1 0 1 0 1 1 1 1]
+
+>>> 2 ^ 4
+16
+```
+
+A de Bruijn sequence of order five:
+
+```
+>>> [0 1].deBruijnSequence(5)
+[
+	0 0 0 0 0 1 0 0 0 1
+	1 0 0 1 0 1 0 0 1 1
+	1 0 1 0 1 1 0 1 1 1
+	1 1
+]
+
+>>> 2 ^ 5
+32
+```
+
+A de Bruijn sequence on the elements _0,1,2_:
+
+```
+>>> [0 1 2].deBruijnSequence(2)
+[0 0 1 0 2 1 1 2 2]
+
+>>> 3 ^ 2
+9
+```
+
 A de Bruijn sequence on the elements _0,1,2,3_:
 
 ```
@@ -125,7 +160,7 @@ Use `shiftRegisterSequence` to generate a binary de Bruijn sequence:
 
 * * *
 
-See also: partition, shiftRegisterSequence, tuples
+See also: deBruijnSequenceCount, partition, shiftRegisterSequence, tuples
 
 Guides: Combinatorial Functions, Integer Sequence Functions
 
