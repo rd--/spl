@@ -179,6 +179,14 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		}
 	}
 
+	decimalPeriod { :self |
+		let n = self.denominator;
+		let a = 2L ^ n.integerExponent(2);
+		let b = 5L ^ n.integerExponent(5);
+		let c = n / a / b;
+		10L.multiplicativeOrder(c)
+	}
+
 	dividesImmediately { :self :aNumber |
 		let r = self / aNumber;
 		r.denominator = 1 & {

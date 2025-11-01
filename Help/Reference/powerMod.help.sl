@@ -125,6 +125,37 @@ At large integers:
 ].fromDigits(10L)
 ```
 
+Period of decimal expansion of the reciprocal of the _n_-th prime,
+starting at the fourth prime,
+OEIS [A002371](https://oeis.org/A002371):
+
+```
+>>> 4:67.prime.collect { :p |
+>>> 	let k = 1;
+>>> 	{
+>>> 		powerMod(10, k, p) != 1
+>>> 	}.whileTrue {
+>>> 		k := k + 1
+>>> 	};
+>>> 	k
+>>> }
+[
+	  6  2    6  16  18
+	 22  28  15   3   5
+	 21  46  13  58  60
+	 33  35   8  13  41
+	 44  96   4  34  53
+	108 112  42 130   8
+	 46 148  75  78  81
+	166  43 178 180  95
+	192  98  99  30 222
+	113 228 232   7  30
+	 50 256 262 268   5
+	 69  28 141 146 153
+	155 312  79 110
+]
+```
+
 Plot the sequence with fixed powers:
 
 ~~~spl svg=A

@@ -257,10 +257,6 @@
 		(3 * n.square - n) / 2
 	}
 
-	polygonalNumber { :n |
-		binomial(n + 1, 2)
-	}
-
 	pyramidalNumber { :r |
 		{ :n |
 			((3 * n.square) + (n.cube * (r - 2)) - (n * (r - 5))) / 6
@@ -329,6 +325,10 @@
 
 	qFactorial { :n :q |
 		n.qFactorial.at(q)
+	}
+
+	simplicialPolytopicNumber { :r :n |
+		binomial(n + (r - 1), r)
 	}
 
 	subfactorial { :self |

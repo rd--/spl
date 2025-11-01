@@ -74,7 +74,10 @@ If n has a primitive root, then it has exactly _phi(phi(n))_ of them:
 ```
 
 Select reptend primes,
-primes with a specified primitive root:
+a prime with a specified primitive root,
+in this case ten,
+called a full reptend prime,
+OEIS [A001913](https://oeis.org/A001913):
 
 ```
 >>> 1:35.prime.select { :x |
@@ -85,7 +88,12 @@ primes with a specified primitive root:
 	 59  61  97 109 113
 	131 149
 ]
+```
 
+Primes with primitive root two,
+OEIS [A001122](https://oeis.org/A001122):
+
+```
 >>> 1:35.prime.select { :x |
 >>> 	x.primitiveRootList.includes(2)
 >>> }

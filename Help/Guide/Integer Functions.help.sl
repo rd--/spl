@@ -141,6 +141,7 @@ Figurate Numbers:
 - `pentagonalNumber`
 - `polygonalNumber`
 - `pyramidalNumber`
+- `simplicialPolytopicNumber`
 - `tetrahedralNumber`
 - `triangularNumber`
 

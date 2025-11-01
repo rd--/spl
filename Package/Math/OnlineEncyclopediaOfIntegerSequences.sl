@@ -28,7 +28,7 @@
 				bernoulliNumber: [000367 002445],
 				bernoulliSequence: [027641 027642],
 				bernoulliTriangle: [008949],
-				binomial: [000125 006542 027907 000127 000984 166556],
+				binomial: [000125 006542 027907 000127 000984 166556 109449 000332],
 				bitAnd: [279125],
 				bitReversalPermutation: [030109],
 				bitXor: [003188],
@@ -223,6 +223,7 @@
 				moserDeBruijnSequence: [000695],
 				motzkinNumber: [001006],
 				motzkinSequence: [001006],
+				multiplicativeOrder: [001913],
 				namedConstant: [086088],
 				narayanaNumber: [001263],
 				narayanaSequence: [000930],
@@ -254,7 +255,12 @@
 				pi: [000796 001203 002485 002486],
 				plasticRatio: [060006],
 				politeness: [069283],
-				polygonalNumber: [000124 000217 139610],
+				polygonalNumber: [
+					000124 000217 139610 000027 000217 000290 000326 000384
+					000566 000567 001106 001107 051682 051864 051865 051866
+					051867 051868 051869 051870 051871 051872 051873 051874
+					051875 051876
+				],
 				powerMod: [096008],
 				previousPrime: [007917],
 				prime: [000040 046929],

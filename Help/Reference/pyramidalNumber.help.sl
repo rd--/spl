@@ -11,7 +11,13 @@ Answer the _n_-th _r_-pyramidal number.
 
 Threads over lists,
 calculate in turn the first few
-triangular, square, pentagonal, hexagonal and heptagonal pyramidal numbers:
+triangular, square, pentagonal, hexagonal and heptagonal pyramidal numbers,
+OEIS
+[A000292](https://oeis.org/A000292),
+[A000330](https://oeis.org/A000330),
+[A002411](https://oeis.org/A002411),
+[A002412](https://oeis.org/A002412),
+[A002413](https://oeis.org/A002413):
 
 ```
 >>> 3.pyramidalNumber(1:9)

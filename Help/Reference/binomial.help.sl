@@ -288,6 +288,26 @@ OEIS [A000125](https://oeis.org/A000125):
 ]
 ```
 
+The pentatope numbers,
+OEIS [A000332](https://oeis.org/A000332):
+
+```
+>>> 0:43.collect { :n |
+>>> 	binomial(n, 4)
+>>> }
+[
+	0 0 0 0 1
+	5 15 35 70 126
+	210 330 495 715 1001
+	1365 1820 2380 3060 3876
+	4845 5985 7315 8855 10626
+	12650 14950 17550 20475 23751
+	27405 31465 35960 40920 46376
+	52360 58905 66045 73815 82251
+	91390 101270 111930 123410
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -347,7 +367,8 @@ _OEIS_
 [4](https://oeis.org/A006542)
 [5](https://oeis.org/A027907)
 [6](https://oeis.org/A166556)
-[7](https://oeis.org/A109449),
+[7](https://oeis.org/A109449)
+[8](https://oeis.org/A000332),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 [2](https://en.wikipedia.org/wiki/Cake_number)

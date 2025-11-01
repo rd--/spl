@@ -121,6 +121,74 @@ Solve the discrete log problem with _5 ^ m % 7 = 4_:
 4
 ```
 
+Calculate list of full reptend primes,
+primes with primitive root ten,
+OEIS [A001913](https://oeis.org/A001913):
+
+```
+>>> 1:50.prime.select { :n |
+>>> 	let o = 10L.multiplicativeOrder(n);
+>>> 	o = (n - 1)
+>>> }
+[
+	  7  17  19  23  29
+	 47  59  61  97 109
+	113 131 149 167 179
+	181 193 223 229
+]
+```
+
+Period of decimal representation of _1/n_,
+OEIS [A007732](https://oeis.org/A007732):
+
+```
+>>> 1:90.collect { :n |
+>>> 	let a = 2 ^ n.integerExponent(2);
+>>> 	let b = 5 ^ n.integerExponent(5);
+>>> 	let c = n / a / b;
+>>> 	10L.multiplicativeOrder(c)
+>>> }
+[
+	1   1  1  1  1  1  6  1  1  1
+	2   1  6  6  1  1 16  1 18  1
+	6   2 22  1  1  6  3  6 28  1
+	15  1  2 16  6  1  3 18  6  1
+	5   6 21  2  1 22 46  1 42  1
+	16  6 13  3  2  6 18 28 58  1
+	60 15  6  1  6  2 33 16 22  6
+	35  1  8  3  1 18  6  6 13  1
+	 9  5  41 6 16 21 28  2 44  1
+]
+```
+
+Short period primes,
+the decimal expansion of _1/p_ has period less than _p-1_, but greater than zero,
+OEIS [A006559](https://oeis.org/A006559):
+
+```
+>>> 1:89.prime.select { :p |
+>>> 	[2 5].includes(p).if {
+>>> 		false
+>>> 	} {
+>>> 		let o = 10L.multiplicativeOrder(p);
+>>> 		o < (p - 1)
+>>> 	}
+>>> }
+[
+	  3  11  13  31  37
+	 41  43  53  67  71
+	 73  79  83  89 101
+	103 107 127 137 139
+	151 157 163 173 191
+	197 199 211 227 239
+	241 251 271 277 281
+	283 293 307 311 317
+	331 347 349 353 359
+	373 397 401 409 421
+	431 439 443 449 457
+]
+```
+
 Plot the sequence with a fixed modulus:
 
 ~~~spl svg=A
@@ -149,6 +217,9 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DiscreteLogarithm.html)
 [2](https://reference.wolfram.com/language/ref/MultiplicativeOrder.html),
+_OEIS_
+[1](https://oeis.org/A001913)
+[2](https://oeis.org/A007732),
 _W_
 [1](https://en.wikipedia.org/wiki/Multiplicative_order)
 [2](https://en.wikipedia.org/wiki/Discrete_logarithm)
