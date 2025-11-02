@@ -359,30 +359,30 @@ let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
 [1:3, 1:6, 1:9].detectMax(size:/1) = 1:9
 [1:3, 1:6, 1:9].detectMin(size:/1) = 1:3
 ['1', '2', '3', '4', '5'].indexOf('3') = 3 /* index of first occurrence of element in sequence */
-[9 .. 1].indexOf(3) = 7 /* index of first occurrence of element in sequence */
+[9, 8 .. 1].indexOf(3) = 7 /* index of first occurrence of element in sequence */
 [1, 2, 3, 2, 3].indexOf(3) = 3 /* first of multiple occurrences */
 [1, 2, 3, 2, 3].indexOf(4) = 0 /* or zero */
 [1, 2, 3, 2, 3].indexOfIfAbsent(4) { true }
 [1, 2, 3, 2, 3].lastIndexOf(3) = 5 /* index of last occurrence of element in sequence */
 [1, 2, 3, 2, 3].lastIndexOf(4) = 0 /* or zero */
 [1, 2, 3, 2, 3].lastIndexOfIfAbsent(4) { true }
-[9 .. 1].includes(3) = true /* decide if a collection includes an element, unicode = ∋ */
+[9, 8 .. 1].includes(3) = true /* decide if a collection includes an element, unicode = ∋ */
 [1 .. 9].includes(9) /* an array includes its last element */
 [1 .. 7].doesNotInclude(9) /* decide if a collection does not include an element, unicode = ∌ */
-[9 .. 1].anySatisfy { :each | each = 3 } = true
+[9, 8 .. 1].anySatisfy { :each | each = 3 } = true
 [].includes(3) = false /* the empty collection does not include any element */
-[9 .. 1].includesAll([3 .. 7]) = true
-[5 .. 3].includesAll([3 .. 7]) = false
+[9, 8 .. 1].includesAll([3 .. 7]) = true
+[5, 4 .. 3].includesAll([3 .. 7]) = false
 [].includesAll([3 .. 7]) = false
-5.fill(negate:/1) = [-1 .. -5] /* fill array with answers of a block applied to each index */
+5.fill(negate:/1) = [-1, -2 .. -5] /* fill array with answers of a block applied to each index */
 let r = Sfc32(12345); r.randomInteger([1 9], 5) = [8, 5, 9, 9, 4] /* duplicate block */
 let r = Sfc32(12345); { r.randomInteger([1 9], []) } ! 5 = [8, 5, 9, 9, 4] /* duplicate block */
-List(5).fillFromWith(1:5, negate:/1) = [-1 .. -5]
+List(5).fillFromWith(1:5, negate:/1) = [-1, -2 .. -5]
 let a = List(5); a.fillFromWith([1, 3, 5, 7, 9], square:/1); a = [1, 9, 25, 49, 81]
 let a = List(4); [1, 3, 5, 7].collectInto({ :each | each * each}, a); a = [1, 9, 25, 49]
 [1 2 3 4 3 2 1].occurrencesOf(3) = 2 /* number of occurrences of element in collection */
 let a = [1, 2]; let [x, y] = a; [y, x] = [2, 1]
-let i = 1:3; let [x, y, z] = i; [z, y, x] = [3 .. 1] /* sequence binding syntax */
+let i = 1:3; let [x, y, z] = i; [z, y, x] = [3, 2, 1] /* sequence binding syntax */
 let [x, y] = { let n = system.nextRandomFloat; [n, n] }.value; x = y
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
@@ -450,9 +450,9 @@ let c = []; [1 .. 9].splitByDo([3 .. 5]) { :each | c.add(each) }; c = [[1, 2], [
 ['x'].detectIfNone { :each | each.isNumber } { 42 } = 42
 let a = List(9); a.atAllPut('x'); a.allSatisfy { :each | each = 'x' } /* set all entries to the same value */
 let a = List(9); a.atAllPut('x') = 'x' & { a.atRandom = 'x' } /* answers object put */
-[1 .. 9].collect { :each | 10 - each } = [9 .. 1]
+[1 .. 9].collect { :each | 10 - each } = [9, 8 .. 1]
 [1, 2, 3] ++ [4, 5, 6] = [1, 2, 3, 4, 5, 6]
-[1 .. 5].reverse = [5 .. 1]
+[1 .. 5].reverse = [5, 4 .. 1]
 let c = [1 .. 5]; { c[1.5] }.hasError /* index not an integer */
 let c = [1 .. 5]; { c['1'] }.hasError /* index not an integer */
 { [1 .. 5].not }.hasError /* cannot be negate */
@@ -529,9 +529,9 @@ let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a /* deepCopy of shal
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] /* copy up to last instance of element */
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] /* copy up to end if no such element */
 let i = 9:-1:1; i @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
-let a = [9 .. 1]; a @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
-let a = [5 .. 1]; a @* [1 5 3] = [5 1 3] /* atAll operator */
-let a = [5 .. 1]; a @* [2 .. 4] = [4 3 2] /* atAll operator */
+let a = [9, 8 .. 1]; a @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
+let a = [5, 4 .. 1]; a @* [1 5 3] = [5 1 3] /* atAll operator */
+let a = [5, 4 .. 1]; a @* [2 .. 4] = [4 3 2] /* atAll operator */
 let a = [1, 1, 3, 4]; a @* [2, 4, 3, 1] = [1, 4, 3, 1] /* atAll operator */
 let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
 4.fill { :i | i * 2 } = [2, 4, 6, 8] /* fill list using block at indicies */
@@ -1346,7 +1346,7 @@ let d = (x: 1, y: 2, z: 3); d.removeAt('y') = 2 & { d = (x: 1, z: 3) }
 { (x: 1, y: 2, z: 3).removeAt('?') }.hasError
 let d = (x: 1, y: 2); d.atAllPut(3) = 3 & { d = (x: 3, y: 3) } /* set all values to indicated object */
 (x: 1, y: 2, z: 3).associations = ['x' -> 1, 'y' -> 2, 'z' -> 3] /* array of associations */
-let a = List(9); a.indicesDo { :each | a[each] := 10 - each }; a = [9 .. 1] /* iterate indices */
+let a = List(9); a.indicesDo { :each | a[each] := 10 - each }; a = [9, 8 .. 1] /* iterate indices */
 let d = (x: 1, y: 2); d.removeAssociation('x' -> 1); d = (y: 2) /* remove association */
 let d = (x: 1, y: 2); d.removeAssociationIfAbsent('z' -> 3) { }; d = (x: 1, y: 2) /* remove association, if absent clause */
 { (x: 1, y: 2).removeAssociation('z' -> 3) }.hasError /* remove association, error if absent */
@@ -1701,10 +1701,10 @@ let n = 2; 3.timesRepeat { n := n * n }; n = 256 /* iteration */
 0:15.collect(asHexDigit:/1).stringJoin = '0123456789ABCDEF' /* integer to hex character */
 let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] /* iterate over integer sequence */
 let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences are empty */
-let a = []; 5.toByDo(1, -1) { :each | a.add(each) }; a = [5 .. 1] /* iterate over integer sequence */
+let a = []; 5.toByDo(1, -1) { :each | a.add(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
 let a = []; 1.toByDo(5, -1) { :each | a.add(each) }; a = [] /* non-descending sequences are an error */
 let a = []; 1.toByDo(5, 1) { :each | a.add(each) }; a = [1 .. 5] /* with step */
-let a = []; 5.upOrDownToDo(1) { :each | a.add(each) }; a = [5 .. 1] /* iterate over integer sequence */
+let a = []; 5.upOrDownToDo(1) { :each | a.add(each) }; a = [5, 4 .. 1] /* iterate over integer sequence */
 let a = []; 1.toDo(5) { :each | a.add(each) }; a = [1 .. 5] /* toDo is ascending only */
 let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences are empty */
 0:255.collect { :each | each.digitAt(1) } = [0 .. 255]
@@ -1857,8 +1857,8 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1/10 .. 1).size = 11
 (0, 1/10 .. 1).last = 1
-9:-1:1.asList = [9 .. 1]
-5:-1:1.asList = [5 .. 1]
+9:-1:1.asList = [9, 8 .. 1]
+5:-1:1.asList = [5, 4 .. 1]
 (5, 3 .. 1).asList = [5, 3 .. 1]
 5.toBy(1, -1).asList = [5, 4, 3, 2, 1]
 5.toBy(1, -2).asList = [5, 3, 1]
@@ -1907,9 +1907,9 @@ toBy(9, 1, -1) = Range(9, 1, -1)
 1.thenTo(3, 9) = Range(1, 9, 2)
 1:9 = 1:9
 [1 .. 9] = 1:9.asList /* array interval syntax */
-[9 .. 1] = 9:-1:1.asList /* array interval syntax */
+[9, 8 .. 1] = 9:-1:1.asList /* array interval syntax */
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asList /* array interval syntax */
-let l = []; Range(9, 1, -1).do { :each | l.add(each) }; l = [9 .. 1]
+let l = []; Range(9, 1, -1).do { :each | l.add(each) }; l = [9, 8 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 1.to(9).collect { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
 Range(1, 6, 2).asList = [1, 3, 5]
@@ -2021,7 +2021,7 @@ let x = (2L ^ 54L); x != (x - 1) /* large integers behave ordinarily */
 2L ^ 100L = 1267650600228229401496703205376L /* raised to */
 let n = 2L; n.copy == n /* copy is identity */
 23L.asSmallFloat = 23 /* large integer to small float */
-let a = [9 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
+let a = [9, 8 .. 1]; { a[5L] }.hasError /* large integers are not valid indices */
 58909L.printStringHex = '16rE61D' /* hexadecimal representation */
 20L.factorial = 2432902008176640000L /* large integer factorial */
 7L << 23 = 58720256L /* left shift large integer */
@@ -2051,7 +2051,7 @@ LinkedList:/0.ofSize(3).size = 3 /* linked list of three nil values */
 let l = LinkedList(); l.addFirst(1); l.addFirst(2); l.asList = [2, 1] /* add to start */
 let l = LinkedList(); l.addLast(1); l.addLast(2); l.asList = [1, 2] /* add to end */
 let l = LinkedList(); 1.toDo(5) { :each | l.add(each) }; l.asList = [1 .. 5] /* add to end */
-1:9.asLinkedList.collect { :each | 10 - each } = [9 .. 1].asLinkedList /* collect */
+1:9.asLinkedList.collect { :each | 10 - each } = [9, 8 .. 1].asLinkedList /* collect */
 let l = [1 .. 9].asLinkedList; l.removeFirst; l.first = 2 /* remove first */
 let l = [1 .. 9].asLinkedList; l.removeLast; l.last = 8 /* remove last */
 let l = [1].asLinkedList; l.removeFirst = 1 & { l.isEmpty } /* remove first */
@@ -2061,7 +2061,7 @@ let l = 1:99.asLinkedList; l.removeAll; l.isEmpty /* remove all */
 1:99.asLinkedList.select(isEven:/1).asList = [2, 4 .. 98] /* select */
 1:9.asLinkedList.selectThenCollect(isEven:/1, square:/1).asList = [4, 16, 36, 64] /* avoid intermediate collection */
 1:9.asLinkedList.collectThenSelect(square:/1) { :each | each > 36 }.asList = [49, 64, 81] /* avoid intermediate collection */
-1:9.asLinkedList.reverse = [9 .. 1] /* reverse, species is List */
+1:9.asLinkedList.reverse = [9, 8 .. 1] /* reverse, species is List */
 { LinkedList().removeFirst }.hasError /* remove first, error if empty */
 { LinkedList().removeLast }.hasError /* remove last, error if empty */
 let l = 1:5.asLinkedList; l[3] = 3 /* index into */
@@ -2832,7 +2832,7 @@ system.includesPackage('Sequenceable') /* package */
 [1, 3, 2] ++ [4, 5] = [1, 3, 2, 4, 5] /* append sequences */
 [1, 3, 2, 4, 5].reverse = [5, 4, 2, 3, 1] /* reverse sequence (answer new array) */
 [1, 3, 2, 4, 5].sorted = [1, 2, 3, 4, 5] /* sort using default comparison (answer new array) */
-[1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5 .. 1] /* sort using provided comparison (answer new array) */
+[1, 3, 2, 4, 5].sorted { :i :j | i > j } = [5, 4 .. 1] /* sort using provided comparison (answer new array) */
 [3, 3, 3, 2, 2, 1].sorted.size = 6 /* sort retains duplicates */
 let c = [3, 2, 1]; c.sort; c = [1, 2, 3] /* sort is in place (mutating) */
 let a = [3, 2, 1]; a.sort = a /* sort is in place (mutating) */
@@ -2893,8 +2893,8 @@ let a = [1 .. 9]; a.rotateLeft(3) !== a /* rotation is not in place */
 let d = []; 3:-1:1.withDo(1:3) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] /* do with elements from a second sequence of equal size */
 let d = []; 3:-1:1.reverseWithDo(1:3) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
 let d = []; 3:-1:1.withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
-9:-1:1.withCollect(1:9) { :p :q | p * 2 + q } = [19 .. 11]
-9:-1:1.withIndexCollect { :each :index | each * 2 + index } = [19 .. 11]
+9:-1:1.withCollect(1:9) { :p :q | p * 2 + q } = [19, 18 .. 11]
+9:-1:1.withIndexCollect { :each :index | each * 2 + index } = [19, 18 .. 11]
 [1, 3, 5, 7, 11, 15, 23].findBinary { :arg | 11 - arg } = 11
 [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 11 - arg } = 5
 { [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 12 - arg } }.hasError
@@ -2918,7 +2918,7 @@ let a = []; 0:1.asDigitsToPowerDo(2) { :each | a.add(each.copy) }; a = [[0, 0], 
 let a = List(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] /* set all elements to a single value */
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
-let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
+let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let l = [1 .. 9]; l.atAllPutAll(3:7, 7:-1:3); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
 let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted != c } /* sorted copy */
@@ -2949,15 +2949,15 @@ let a = [1 .. 7]; a.replaceFromToWithStartingAt(3, 5, [-3, -4, -5], 1); a = [1, 
 [1 .. 7].forceToPaddingWith(9, 0) = [1, 2, 3, 4, 5, 6, 7, 0, 0] /* copy of sequence with required length and initializer */
 [1 .. 7].forceToPaddingWith(5, 0) = [1 .. 5] /* partial copy */
 let a = [1 .. 4]; a += 8; a = [9 .. 12] /* in place array/scalar addition */
-let a = [1 .. 4]; a += [4 .. 1]; a = [5, 5, 5, 5] /* in place array/array addition */
+let a = [1 .. 4]; a += [4, 3 .. 1]; a = [5, 5, 5, 5] /* in place array/array addition */
 let a = [5 .. 8]; a -= 4; a = [1 .. 4] /* in place array/scalar subtraction */
-let a = [5 .. 8]; a -= [4 .. 1]; a = [1, 3 .. 7] /* in place array/array subtraction */
+let a = [5 .. 8]; a -= [4, 3 .. 1]; a = [1, 3 .. 7] /* in place array/array subtraction */
 let a = [1 .. 4]; a *= 2; a = [2, 4 .. 8] /* in place array/scalar multiplication */
-let a = [1 .. 4]; a *= [4 .. 1]; a = [4, 6, 6, 4] /* in place array/array multiplication */
+let a = [1 .. 4]; a *= [4, 3 .. 1]; a = [4, 6, 6, 4] /* in place array/array multiplication */
 let a = [2, 4 .. 8]; a /= 2; a = [1, 2 .. 4] /* in place array/scalar division */
 let a = [2, 4 .. 8]; a /= [1 .. 4]; a = [2, 2, 2, 2] /* in place array/array division */
-let a = [9 .. 1]; a.withReplace(1:9) { :p :q | p * 2 + q }; a = [19 .. 11] /* in place withCollect */
-[7 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] /* the (index -> value) associations of a sequence */
+let a = [9, 8 .. 1]; a.withReplace(1:9) { :p :q | p * 2 + q }; a = [19, 18 .. 11] /* in place withCollect */
+[7, 6 .. 4].indexValueAssociations = [1 -> 7, 2 -> 6, 3 -> 5, 4 -> 4] /* the (index -> value) associations of a sequence */
 let a = []; (x: 1, y: 2, z: 3).indicesDo { :each | a.add(each) }; a = ['x', 'y', 'z'] /* iterate indices */
 1:4.foldLeft(Association:/2) = (((1 -> 2) -> 3) -> 4) /* fold, left associative */
 1:4.foldRight(Association:/2) = (1 -> (2 -> (3 -> 4))) /* fold, right associative */
@@ -3246,9 +3246,9 @@ SortedList().species = SortedList:/0 /* species is sorted array */
 SortedList().size = 0 /* query size */
 let a = SortedList(); a.add(3); a.add(1); a.add(2); a.contents = [1 .. 3] /* add inserts items into sequence */
 let a = [3, 1].asSortedList; a.add(2); a.contents = [1 .. 3] /* sorted array from array */
-let a = [9 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /* collect into ordered collection */
-let a = [1 .. 9].asSortedList(>); a.contents = [9 .. 1] /* sorted array with specified sort block */
-let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9 .. 1]
+let a = [9, 8 .. 1].asSortedList; a.collect { :x | 9 - x }; a.contents = [1 .. 9] /* collect into ordered collection */
+let a = [1 .. 9].asSortedList(>); a.contents = [9, 8 .. 1] /* sorted array with specified sort block */
+let a = [5 .. 9].asSortedList(>); a.addAll([1 .. 4]); a.contents = [9, 8 .. 1]
 [5, 2, 50, -10].asSortedList.asList = [-10, 2, 5, 50]
 'hello'.characters.asSortedList.asList = 'ehllo'.characters
 ```
@@ -3505,7 +3505,7 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 ## Syntax -- array and interval syntax
 ```
 [1 .. 3] = [1, 2, 3]
-[3 .. 1] = [3, 2, 1]
+[3, 2 .. 1] = [3, 2, 1]
 [1, 3 .. 9] = [1, 3, 5, 7, 9]
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 1] = [1]
@@ -3514,8 +3514,8 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
 1:1 = Range(1, 1, 1)
-[1 .. 3] = 1:3.asList
-[3 .. 1] = 3:-1:1.asList
+[1 .. 5] = 1:1:5.asList
+[5, 4 .. 1] = 5:-1:1.asList
 [1, 3 .. 9] = (1, 3 .. 9).asList
 [9, 7 .. 1] = (9, 7 .. 1).asList
 [1 .. 1] = 1:1.asList
@@ -3623,7 +3623,7 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 (1, 3 .. 9) = Range(1, 9, 2) /* 1 to 9 by 2 */
 (9, 7 .. 1) = Range(9, 1, -2) /* 9 to 1 by -2 */
 [1 .. 9] = 1:9.asList /* 1 to 9 by 1 */
-[9 .. 1] = 9:-1:1.asList /* 9 to 1 by -1 */
+[9, 8 .. 1] = 9:-1:1.asList /* 9 to 1 by -1 */
 [1, 3 .. 9] = (1, 3 .. 9).asList /* 1 to 9 by 1 */
 [9, 7 .. 1] = (9, 7 .. 1).asList /* 9 to 1 by -2 */
 ```

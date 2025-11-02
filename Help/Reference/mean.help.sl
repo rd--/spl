@@ -83,6 +83,13 @@ Mean of a probability distribution:
 0
 ```
 
+At `Range`:
+
+```
+>>> 1:9.mean
+5
+```
+
 * * *
 
 See also: arithmeticMean, arithmeticGeometricMean, geometricMean, median

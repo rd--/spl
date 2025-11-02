@@ -152,7 +152,7 @@
 
 	bitCountPerByteTable { :self |
 		self.cached('bitCountPerByteTable') {
-			(0 .. 255).collect { :i |
+			0.to(255).collect { :i |
 				let bitCount = 0;
 				let n = i;
 				{
@@ -168,7 +168,7 @@
 
 	highBitPerByteTable { :self |
 		self.cached('highBitPerByteTable') {
-			(1 .. 8).injectInto([0]) { :highBits :rank |
+			1.to(8).injectInto([0]) { :highBits :rank |
 				highBits ++ highBits.collect { :each |
 					rank
 				}
@@ -178,7 +178,7 @@
 
 	lowBitPerByteTable { :self |
 		self.cached('lowBitPerByteTable') {
-			(1 .. 8).injectInto([1]) { :lowBits :unusedRank |
+			1.to(8).injectInto([1]) { :lowBits :unusedRank |
 				let prefix = lowBits.copy;
 				prefix[1] := lowBits[1] + 1;
 				prefix ++ lowBits

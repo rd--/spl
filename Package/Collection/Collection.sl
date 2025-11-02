@@ -602,7 +602,7 @@
 
 	powerSetDo { :self :aBlock:/1 |
 		let size = 2 ^ self.size;
-		let powersOfTwo = 2 ^ (0 .. (self.size - 1));
+		let powersOfTwo = 2 ^ 0.to(self.size - 1);
 		let list = self.asList;
 		0.toDo(size - 1) { :i |
 			let subset = self.species.new;

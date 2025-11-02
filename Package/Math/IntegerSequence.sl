@@ -44,7 +44,7 @@
 				}
 			}
 		}.memoize(true);
-		(0 .. n - 1).collect(a:/1)
+		0.to(n - 1).collect(a:/1)
 	}
 
 	beattySequence { :n :theta |
@@ -118,7 +118,7 @@
 
 	connellSequence { :self |
 		0:self.collect { :n |
-			2 * (1 .. n + 1) + (n ^ 2) - 1
+			2 * 1.to(n + 1) + (n ^ 2) - 1
 		}
 	}
 
@@ -224,8 +224,8 @@
 	}
 
 	finesSequence { :self |
-		(0 .. self).collect { :n |
-			(0 .. n).collect { :m |
+		0.to(self).collect { :n |
+			0.to(n).collect { :m |
 				(-1 ^ (m + n))
 				*
 				((n + m).! / n.! / m.!)
@@ -330,7 +330,7 @@
 			a[n + 1] := (n < 2).if {
 				1L
 			} {
-				(0 .. n - 1).sum { :k |
+				0.to(n - 1).sum { :k |
 					a[k + 1] ^ 2
 				} / (n - 1)
 			}
@@ -351,12 +351,12 @@
 	}
 
 	gouldsSequence { :k |
-		(0 .. k - 1).collect(gouldsNumber:/1)
+		0.to(k - 1).collect(gouldsNumber:/1)
 	}
 
 	hammersleyPointSet { :d :n |
 		(d = 2).if {
-			(1 .. n).collect { :i |
+			1.to(n).collect { :i |
 				[i.vanDerCorputNumber(2), Fraction(i, n)]
 			}
 		} {
@@ -388,7 +388,7 @@
 				f(n - f(n - 1)) + f(n - f(n - 2))
 			}
 		}.memoize(true);
-		(1 .. self).collect(f:/1)
+		1.to(self).collect(f:/1)
 	}
 
 	josephusProblem { :n :k |
@@ -437,7 +437,7 @@
 		let number = 0;
 		let answer = [0];
 		let inventory = [0].asIdentityMultiset;
-		(2 .. terms).do { :n |
+		2.to(terms).do { :n |
 			let count = inventory.occurrencesOf(number);
 			number := (count = 0).if {
 				0
@@ -574,7 +574,7 @@
 	}
 
 	moserDeBruijnSequence { :self |
-		(0 .. self - 1).collect { :n |
+		0.to(self - 1).collect { :n |
 			n.integerDigits(2).riffle([0]).fromDigits(2)
 		}
 	}
@@ -614,7 +614,7 @@
 				}
 			}
 		}.memoize(true);
-		(0 .. self - 1).collect(f:/1)
+		0.to(self - 1).collect(f:/1)
 	}
 
 	noergaardRhythmicInfinitySystem { :n |
@@ -690,7 +690,7 @@
 	}
 
 	regularPaperfoldingSequence { :self |
-		(0 .. self - 1).collect { :n |
+		0.to(self - 1).collect { :n |
 			let a = n + 1;
 			let b = 2 ^ integerExponent(a, 2);
 			let c = ((a / b) - 1) / 2;
@@ -719,7 +719,7 @@
 
 	seidelTriangle { :self |
 		let answer = self.entringerTriangle;
-		(2, 4 .. self).do { :i |
+		2.toBy(self, 2).do { :i |
 			answer[i].reverseInPlace
 		};
 		answer
@@ -730,7 +730,7 @@
 	}
 
 	selfCountingSequence { :k |
-		(1 .. k).collect(selfCountingNumber:/1)
+		1.to(k).collect(selfCountingNumber:/1)
 	}
 
 	somosSequence { :k :m |
@@ -739,7 +739,7 @@
 			a[n + 1] := (n < k).if {
 				1L
 			} {
-				(1 .. (k / 2).floor).sum { :j |
+				1.to((k / 2).floor).sum { :j |
 					a[n - j + 1] * a[n - (k - j) + 1]
 				} / a[n - k + 1]
 			}
@@ -801,7 +801,7 @@
 	}
 
 	szekeresSequence { :self |
-		(0 .. self - 1).collect { :n |
+		0.to(self - 1).collect { :n |
 			fromDigits(integerDigits(n, 2), 3) + 1
 		}
 	}
@@ -820,7 +820,7 @@
 				}
 			}
 		}.memoize;
-		(0 .. self - 1).collect(a:/1)
+		0.to(self - 1).collect(a:/1)
 	}
 
 	thueMorse { :index |
@@ -922,7 +922,7 @@
 
 	haltonSequence { :self :k |
 		self.collect { :b |
-			(1 .. k).vanDerCorputNumber(b)
+			1.to(k).vanDerCorputNumber(b)
 		}.transpose
 	}
 
@@ -944,7 +944,7 @@
 		n.timesRepeat {
 			let j = u.size;
 			u.add(
-				(1 .. k).collect { :m |
+				1.to(k).collect { :m |
 					f[m].value(u[j - i[m] + 1])
 				}.catenate
 			)
@@ -1005,7 +1005,7 @@
 +SmallFloat {
 
 	kroneckerSequence { :alpha :n |
-		((0 .. n - 1) * alpha) % 1
+		(0.to(n - 1) * alpha) % 1
 	}
 
 	kroneckerSequence { :alpha :n :k0 |

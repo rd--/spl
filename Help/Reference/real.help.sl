@@ -24,7 +24,7 @@ At `Quaternion`:
 Threads over lists:
 
 ```
->>> (-1 .. -5).sqrt.real
+>>> (-1, -2 .. -5).sqrt.real
 [0 0 0 0 0]
 ```
 

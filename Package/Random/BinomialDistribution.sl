@@ -19,7 +19,7 @@ BinomialDistribution : [Object, Equatable, ProbabilityDistribution] { | n p |
 		let n = self.n;
 		let p = self.p;
 		{ :k |
-			(0 .. k).collect { :i |
+			0.to(k).collect { :i |
 				n.binomial(i) * (p ^ i) * ((1 - p) ^ (n - i))
 			}.sum
 		}

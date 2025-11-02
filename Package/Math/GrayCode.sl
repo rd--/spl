@@ -66,7 +66,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 	GrayCode { :self |
 		let n = 2 ^ self;
 		GrayCode(
-			(0 .. n - 1).grayEncode.integerDigits(2, self)
+			0.to(n - 1).grayEncode.integerDigits(2, self)
 		)
 	}
 
@@ -96,7 +96,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 	grayCodeTransitionSequence { :self |
 		let n = self.size;
-		(2 .. n + 1).collect { :i |
+		2.to(n + 1).collect { :i |
 			(self.atWrap(i) - self.at(i - 1))
 			.detectIndex { :x |
 				x != 0

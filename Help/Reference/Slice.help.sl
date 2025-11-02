@@ -27,7 +27,7 @@ Traits implemented by `Slice`:
 `sliceFromTo` constructs a `Slice` from a `Sequence`:
 
 ```
->>> let a = [1 .. 9] ++ [9 .. 1];
+>>> let a = [1 .. 9] ++ [9, 8 .. 1];
 >>> let b = a.sliceFromTo(7, 13);
 >>> (
 >>> 	a.size, a.indices, a.sum,

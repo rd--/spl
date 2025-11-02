@@ -1,8 +1,8 @@
 # takeList
 
-- _takeList(aSequence, counts)_
+- _takeList([x₁ x₂ …], [c₁ c₂ …])_
 
-Answer the `List` of results obtained by successively taking _counts[i]_ elements from _aSequence_.
+Answer the `List` of results obtained by successively taking counts _c_ elements from the sequence _x_.
 
 At `List`:
 

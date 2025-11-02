@@ -148,11 +148,11 @@
 	}
 
 	characterRange { :self :anInteger |
-		(self .. anInteger).collect(asCharacter:/1)
+		self.to(anInteger).collect(asCharacter:/1)
 	}
 
 	combinations { :n :m |
-		(1 .. n).combinations(m)
+		1.to(n).combinations(m)
 	}
 
 	commonResidue { :self :modulus |
@@ -186,7 +186,7 @@
 
 	digitCount { :n :b |
 		let digits = n.integerDigits(b);
-		((b - 1) .. 0).collect { :d |
+		(b - 1).toBy(0, -1).collect { :d |
 			digits.count { :each |
 				each = d
 			}
@@ -223,7 +223,7 @@
 
 	divisorSummatoryFunction { :x |
 		let u = x.sqrt.floor;
-		2 * (1 .. u).sum { :k |
+		2 * 1.to(u).sum { :k |
 			(x / k).floor
 		} - u.square
 	}
@@ -270,7 +270,7 @@
 		let answer = [initialState];
 		let previousState = initialState;
 		{ stepCount < stepLimit }.whileTrue {
-			let nextState = (1 .. stateSize).collect { :i |
+			let nextState = 1.to(stateSize).collect { :i |
 				let j = [i - 1, i, i + 1];
 				let k = previousState.atAllWrap(j).fromDigits(2);
 				ruleTable[8 - k]
@@ -885,7 +885,7 @@
 
 	isQuadraticResidue { :q :p |
 		let r = q.mod(p);
-		(1 .. (p / 2).floor).anySatisfy { :x |
+		1.to((p / 2).floor).anySatisfy { :x |
 			x.square.mod(p) = r
 		}
 	}
@@ -1247,13 +1247,13 @@
 	}
 
 	quadraticNonresidues { :p |
-		(2 .. p - 1).reject { :q |
+		2.to(p - 1).reject { :q |
 			isQuadraticResidue(q, p)
 		}
 	}
 
 	quadraticResidues { :p |
-		(1 .. p - 1).select { :q |
+		1.to(p - 1).select { :q |
 			isQuadraticResidue(q, p)
 		}
 	}
@@ -1261,7 +1261,7 @@
 	ramanujanTau { :n |
 		let a = 65/756 * divisorSigma(11, n);
 		let b = 691/756 * divisorSigma(5, n);
-		let c = 691/3 * (1 .. n - 1).sum { :k |
+		let c = 691/3 * 1.to(n - 1).sum { :k |
 			divisorSigma(5, k) * divisorSigma(5, n - k)
 		};
 		a + b - c
@@ -1391,7 +1391,7 @@
 
 	theodorusSpiral { :n |
 		let theta = 0;
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			let p = [i.sqrt theta];
 			theta := theta + (1 / i.sqrt).arcTan;
 			p.fromPolarCoordinates
@@ -1650,8 +1650,8 @@
 
 	ferrersDiagram { :self |
 		let m = self.size;
-		(0 .. m - 1).collect { :i |
-			(1 .. self[m - i]).collect { :j |
+		0.to(m - 1).collect { :i |
+			1.to(self[m - i]).collect { :j |
 				Disk([j, i], 0.25)
 			}
 		}.LineDrawing

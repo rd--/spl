@@ -68,7 +68,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 	}
 
 	dictionary { :self |
-		(1 .. self.degree).collect { :i |
+		1.to(self.degree).collect { :i |
 			i -> self.image(i)
 		}.asMap
 	}
@@ -258,7 +258,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 		let list = self.list;
 		let k = list.size;
 		let answer = [];
-		[1 .. k].powerSetDo { :each |
+		1.to(k).powerSetDo { :each |
 			let subsequence = list @* each;
 			(subsequence.reducedPermutation = pattern).ifTrue {
 				answer.add(each)
@@ -282,7 +282,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 
 	rank { :self |
 		let c = self.rightInversionCount;
-		let r = [self.degree .. 1];
+		let r = self.degree.toBy(1, -1);
 		c.mixedRadixDecode(r)
 	}
 
@@ -915,7 +915,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 
 	bitReversalPermutation { :k |
 		let n = 2 ^ k;
-		(0 .. n - 1).collect { :i |
+		0.to(n - 1).collect { :i |
 			i.integerDigits(2, k).reverse.fromDigits(2) + 1
 		}
 	}
@@ -945,7 +945,9 @@ Permutation : [Object, Equatable] { | cycles degree |
 	}
 
 	unrankPermutation { :rank :degree |
-		rank.mixedRadixEncode([degree .. 1]).rightInversionCountToPermutation
+		rank.mixedRadixEncode(
+			degree.toBy(1, -1)
+		).rightInversionCountToPermutation
 	}
 
 }

@@ -10,7 +10,7 @@ The unary form answers _x₁_.
 >>> 1:6.first
 1
 
->>> (6 .. 1).first
+>>> (6, 5 .. 1).first
 6
 ```
 

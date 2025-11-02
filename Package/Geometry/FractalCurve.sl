@@ -248,7 +248,7 @@
 	}
 
 	zOrderCurve { :self |
-		(0 .. self - 1).collect { :n |
+		0.to(self - 1).collect { :n |
 			let b = n.integerDigits(2);
 			let k = b.size;
 			let [y, x] = b.padLeft([k + (k % 2)], 0).deinterleave(2);
@@ -263,7 +263,7 @@
 +SmallFloat {
 
 	riemannFunction { :x :a :n |
-		(1 .. n).sum { :i |
+		1.to(n).sum { :i |
 			let j = i ^ a;
 			sin(j * x) / j
 		}
@@ -278,7 +278,7 @@
 			let d = x - floor(x);
 			min(d, 1 - d)
 		};
-		(0 .. n - 1).sum { :i |
+		0.to(n - 1).sum { :i |
 			s(x * (2 ^ i)) / (2 ^ i)
 		}
 	}
@@ -288,7 +288,7 @@
 	}
 
 	weierstrassFunction { :x :a :b :n |
-		(0 .. n).collect { :i |
+		0.to(n).collect { :i |
 			(a ^ i) * ((b ^ i) * x.pi).cos
 		}.sum
 	}
@@ -298,7 +298,7 @@
 +Complex {
 
 	riemannFunction { :x :a :n |
-		(1 .. n).sum { :i |
+		1.to(n).sum { :i |
 			(0J1.pi * (i ^ a) * x).exp / (i ^ a).pi
 		}
 	}

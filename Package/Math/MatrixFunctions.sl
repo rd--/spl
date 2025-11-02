@@ -66,8 +66,8 @@
 		{ :i :j |
 			(x[i] + y[j]) ^ -1
 		}.table(
-			(1 .. x.size),
-			(1 .. y.size)
+			1.to(x.size),
+			1.to(y.size)
 		)
 	}
 
@@ -401,12 +401,12 @@
 		self.isSquareMatrix.if {
 			let n = self.numberOfRows;
 			(n = 2).if {
-				let [a, b, c, d] = self.contents.catenate;
+				let [a, b, c, d] = self.catenate;
 				let r = 1 / ((a * d) - (b * c));
 				let m = [[d, b.-], [c.-, a]];
 				r * m
 			} {
-				let m = self.contents;
+				let m = self;
 				let i = n.identityMatrix;
 				let e = (m ++.each i).rowReduce;
 				e.collect { :each |
@@ -714,9 +714,9 @@
 	permanent { :self |
 		self.isSquareMatrix.if {
 			let size = self.numberOfRows;
-			let array = self.contents;
+			let array = self;
 			let answer = 0;
-			[1 .. size].plainChangesDo { :p |
+			[1, 2 .. size].plainChangesDo { :p |
 				let sign = p.permutationSymbol;
 				let entries = p.withIndexCollect { :i :j |
 					array[i][j]
@@ -725,7 +725,11 @@
 			};
 			answer
 		} {
-			self.error('List>>permanent: not defined at non-square matrices')
+			self.ifEmpty {
+				1
+			} {
+				self.error('List>>permanent: not defined at non-square matrices')
+			}
 		}
 	}
 
@@ -803,7 +807,7 @@
 		]);
 		1.toDo(n) { :i |
 			i.toDo(n) { :j |
-				let x = (0 .. dimension - 1).collect { :k |
+				let x = 0.to(dimension - 1).collect { :k |
 					f.value(data[i + (k * delay)] - data[j + (k * delay)])
 				};
 				m[i][j] := m[j][i] := g.value(x)
@@ -1249,7 +1253,7 @@
 		let k = u.size;
 		let n = (1 + sqrt(1 + (8 * k))) / 2;
 		n.isInteger.if {
-			let p = u.takeList([n - 1 .. 0]);
+			let p = u.takeList((n - 1).toBy(0, -1));
 			let q = p.collect { :each |
 				each.padLeft([n], 0)
 			};
@@ -1304,7 +1308,7 @@
 			} {
 				r[j - i + 1]
 			}
-		}.table((1 .. r.size), (1 .. c.size))
+		}.table(1.to(r.size), 1.to(c.size))
 	}
 
 	trace { :self :aBlock:/1 |
@@ -1393,7 +1397,7 @@
 	}
 
 	pascalMatrix { :n :l |
-		let m = (0 .. n - 1);
+		let m = 0.to(n - 1);
 		l.caseOf([
 			'LowerTriangular' -> { binomial:/2 },
 			'UpperTriangular' -> { binomial:/2.swap },

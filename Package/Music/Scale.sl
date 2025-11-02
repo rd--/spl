@@ -49,10 +49,10 @@ Scale : [Object] { | startIndex intervals description |
 		anInteger.betweenAnd(1, self.size).if {
 			let intervals = self.intervals;
 			let k = anInteger - 1;
-			(1 .. self.size).collect { :i |
-				(i .. i + k).collect { :j |
+			1.to(self.size).collect { :i |
+				i.to(i + k).sum { :j |
 					intervals.atWrap(j)
-				}.sum
+				}
 			}
 		} {
 			self.error('intervalsBy: invalid step size')

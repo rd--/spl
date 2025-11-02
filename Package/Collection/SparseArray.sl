@@ -109,7 +109,7 @@ SparseArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, S
 
 	ravel { :self |
 		let n = self.shape.product;
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			self.atLinear(i)
 		}
 	}
@@ -201,7 +201,7 @@ SparseArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, S
 		let [m, n] = self;
 		let k = m.min(n);
 		SparseArray(
-			(1 .. k).collect { :i |
+			1.to(k).collect { :i |
 				[i i] -> 1
 			},
 			[m n],

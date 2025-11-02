@@ -31,7 +31,7 @@ Line : [Object, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 	edgeList { :self |
-		(1 .. self.vertexCount - 1).collect { :i |
+		1.to(self.vertexCount - 1).collect { :i |
 			[i, i + 1]
 		}
 	}

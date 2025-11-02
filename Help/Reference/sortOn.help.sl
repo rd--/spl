@@ -27,7 +27,7 @@ Sort according to `negate` value of each item:
 >>> let alpha = [1 .. 9];
 >>> let beta = alpha.sortOn(negate:/1);
 >>> (alpha, alpha == beta)
-([9 .. 1], true)
+([9, 8 .. 1], true)
 ```
 
 * * *

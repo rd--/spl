@@ -12,7 +12,7 @@ Syntax for the `atAll` protocol.
 At `Range`:
 
 ```
->>> let c = (9 .. 1);
+>>> let c = (9, 8 .. 1);
 >>> (c[3:7], c[[7, 3]])
 ([7 6 5 4 3], [3 7])
 ```
@@ -47,7 +47,7 @@ Select one column of a matrix:
 The @* operator expresses this operation succinctly at vectors:
 
 ```
->>> let c = [9 .. 1];
+>>> let c = [9, 8 .. 1];
 >>> c @* 3:7
 [7 6 5 4 3]
 ```

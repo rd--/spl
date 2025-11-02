@@ -38,7 +38,7 @@ Sort a sorted sequence:
 Sort a descending sequence:
 
 ```
->>> [99 .. 1].quickSort
+>>> [99, 98 .. 1].quickSort
 [1 .. 99]
 ```
 

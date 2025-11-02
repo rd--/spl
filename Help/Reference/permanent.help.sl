@@ -150,6 +150,13 @@ The permanent of the transpose of _m_ equals the permanent of _m_:
 (0.89478, p)
 ```
 
+The permanent of an empty matrix:
+
+```
+>>> [].permanent
+1
+```
+
 * * *
 
 See also: determinant, isSquareMatrix, permutations, trace

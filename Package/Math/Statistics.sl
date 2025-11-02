@@ -13,7 +13,7 @@
 		let m = Infinity;
 		let k = 0;
 		1.toDo(n) { :i |
-			let d = (1 .. n).collect { :j |
+			let d = 1.to(n).collect { :j |
 				aBlock(self[i], self[j])
 			}.sum;
 			(d < m).ifTrue {
@@ -211,7 +211,7 @@
 	absoluteCorrelationFunction { :x :hList |
 		let n = x.size;
 		hList.collect { :h |
-			(1 .. n - h).collect { :i |
+			1.to(n - h).collect { :i |
 				x[i] * x[i + h]
 			}.sum / n
 		}
@@ -241,10 +241,10 @@
 		let n = x.size;
 		let mu = x.mean;
 		hList.collect { :h |
-			let a = (1 .. n - h).collect { :i |
+			let a = 1.to(n - h).collect { :i |
 				(x[i] - mu) * (x[i + h] - mu)
 			}.sum;
-			let b = (1 .. n).collect { :i |
+			let b = 1.to(n).collect { :i |
 				(x[i] - mu).square
 			}.sum;
 			a / b
@@ -269,7 +269,7 @@
 		let n = x.size;
 		let mu = x.mean;
 		hList.collect { :h |
-			(1 / n) * (1 .. n - h).collect { :i |
+			(1 / n) * 1.to(n - h).collect { :i |
 				(x[i + h] - mu) * (x[i] - mu)
 			}.sum
 		}
@@ -327,7 +327,7 @@
 
 	gaussianFilter { :x :r |
 		let sigma = r / 2;
-		let k = [r.negate .. r].collect(sigma.gaussianKernel);
+		let k = r.negate.to(r).collect(sigma.gaussianKernel);
 		let y = k.convolve(x);
 		y.removeFirst(r);
 		y.removeLast(r);

@@ -44,7 +44,7 @@
 		let p = self.peakDetect;
 		let z = 0;
 		let answer = [];
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			let q = p[i];
 			(q = 1 & { z = 0 }).ifTrue {
 				answer.add([i, self[i]])
@@ -87,13 +87,13 @@
 	}
 
 	maxDetect { :self |
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			self.isLocalMinimaBy(i, 0, >=)
 		}.boole
 	}
 
 	minDetect { :self |
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			self.isLocalMinimaBy(i, 0, <=)
 		}.boole
 	}
@@ -138,7 +138,7 @@
 		let k = self.size;
 		valueWithReturn { :return:/1 |
 			1.toDo(k - 1) { :i |
-				(i .. k).allSatisfy { :j |
+				i.to(k).allSatisfy { :j |
 					aBlock(self[j], self[j.mod(i, 1)])
 				}.ifTrue {
 					self.copyFromTo(1, i).return

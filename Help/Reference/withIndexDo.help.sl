@@ -8,11 +8,11 @@ At `Range`, iterate over indices and values:
 
 ```
 >>> let l = [];
->>> (3 .. 1).withIndexDo { :each :index |
+>>> (4, 3 .. 1).withIndexDo { :each :index |
 >>> 	l.add(each -> index)
 >>> };
 >>> l
-[3 -> 1, 2 -> 2, 1 -> 3]
+[4 -> 1, 3 -> 2, 2 -> 3, 1 -> 4]
 ```
 
 * * *

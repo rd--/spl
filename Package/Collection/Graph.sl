@@ -726,7 +726,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	completeBipartiteGraph { :self :anInteger |
 		let u = 1:self;
-		let v = ((self + 1) .. (self + anInteger));
+		let v = (self + 1).to(self + anInteger);
 		let e = [];
 		u.do { :i |
 			e.addAll(
@@ -757,7 +757,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	cubeGraph { :self |
 		let k = 2 ^ self;
 		let m = (k - 1).integerLength(2);
-		let n = (0 .. (k - 1)).collect { :each |
+		let n = 0.to(k - 1).collect { :each |
 			each.integerDigits(2).padLeft([m], 0)
 		};
 		let e = [];
@@ -782,8 +782,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		p.isPrime.if {
 			let v = [1 .. p];
 			let e = [];
-			(1 .. p - 1).collect { :i |
-				(i + 1 .. p).collect { :j |
+			1.to(p - 1).collect { :i |
+				(i + 1).to(p).collect { :j |
 					isCubicResidue(j - i, p).ifTrue {
 						e.add(i --- j)
 					}
@@ -798,7 +798,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	deBruijnGraph { :m :n |
 		let o = n - 1;
 		let k = m ^ n;
-		let s = (0 .. k - 1).collect { :i |
+		let s = 0.to(k - 1).collect { :i |
 			i.integerDigits(m, n)
 		};
 		let v = [1 .. k];
@@ -913,8 +913,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	paleyGraph { :p |
 		let v = [1 .. p];
 		let e = [];
-		(1 .. p - 1).collect { :i |
-			(i + 1 .. p).collect { :j |
+		1.to(p - 1).collect { :i |
+			(i + 1).to(p).collect { :j |
 				isQuadraticResidue(j - i, p).ifTrue {
 					e.add(i --- j)
 				}
@@ -924,7 +924,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	pathGraph { :self |
-		(1 .. (self - 1)).collect { :each |
+		1.to(self - 1).collect { :each |
 			[each, each + 1]
 		}.asGraph
 	}
@@ -933,7 +933,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		(k < (n / 2)).if {
 			let u = [1 .. n];
 			let v = [n + 1 .. n + n];
-			let e = (1 .. n).collect { :i |
+			let e = 1.to(n).collect { :i |
 				let a = (i + 1).mod(n, 1);
 				let b = (i + k).mod(n, 1);
 				[

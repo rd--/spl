@@ -10,7 +10,7 @@ The unary form answers the last element of the sequence _x_.
 >>> 1:6.last
 6
 
->>> (6 .. 1).last
+>>> (6, 5 .. 1).last
 1
 ```
 

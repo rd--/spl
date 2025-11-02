@@ -125,7 +125,7 @@
 			p.key = q.key
 		}.do { :p |
 			let j = p.size;
-			let q = [i .. (i + j - 1)].mean;
+			let q = i.to(i + j - 1).mean;
 			j.timesRepeat {
 				v.add(q)
 			};

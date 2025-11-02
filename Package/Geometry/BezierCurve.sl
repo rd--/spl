@@ -233,7 +233,7 @@ BezierCurve : [Object, Equatable, Cache, Geometry] { | controlPoints splineDegre
 
 	bezierFunctionAtBernsteinBasis { :self :x |
 		let n = self.size - 1;
-		let b = [0 .. n].collect { :d |
+		let b = 0.to(n).collect { :d |
 			n.bernsteinBasis(d, x)
 		};
 		(b * self).sum
@@ -265,7 +265,7 @@ BezierCurve : [Object, Equatable, Cache, Geometry] { | controlPoints splineDegre
 				right.addFirst(p[1])
 			} {
 				let k = p.size - 1;
-				(1 .. k).collect { :i |
+				1.to(k).collect { :i |
 					(i = 1).ifTrue {
 						left.addLast(p[i])
 					};
@@ -304,7 +304,7 @@ BezierCurve : [Object, Equatable, Cache, Geometry] { | controlPoints splineDegre
 		(self.size = 1).if {
 			self[1]
 		} {
-			(1 .. self.size - 1).collect { :i |
+			1.to(self.size - 1).collect { :i |
 				((1 - x) * self[i]) + (x * self[i + 1])
 			}.deCasteljausAlgorithm(x)
 		}

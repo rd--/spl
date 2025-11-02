@@ -23,7 +23,7 @@ Threads over lists:
 
 ```
 >>> 1:10.bitNot
-[-2 .. -11]
+[-2, -3 .. -11]
 ```
 
 At `BitSet`, mutates set:

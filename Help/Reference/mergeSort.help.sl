@@ -37,7 +37,7 @@ Sort a sorted sequence:
 Sort a descending sequence:
 
 ```
->>> [99 .. 1].mergeSort
+>>> [99, 98 .. 1].mergeSort
 [1 .. 99]
 ```
 

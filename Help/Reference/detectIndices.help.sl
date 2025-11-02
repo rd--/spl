@@ -7,7 +7,7 @@ Answer the indices of the items in _aSequence_ that answer `true` to _aBlock_.
 Find indices of even numbers:
 
 ```
->>> [9 .. 1].detectIndices(isEven:/1)
+>>> [9, 8 .. 1].detectIndices(isEven:/1)
 [2 4 6 8]
 ```
 

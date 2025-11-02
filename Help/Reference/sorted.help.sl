@@ -15,7 +15,7 @@ The unary form of `sorted` sorts using `<|`.
 [1 .. 5]
 
 >>> [1 3 2 4 5].sorted(>)
-[5 .. 1]
+[5, 4 .. 1]
 ```
 
 With literal block:
@@ -24,7 +24,7 @@ With literal block:
 >>> [1 3 2 4 5].sorted { :i :j |
 >>> 	i > j
 >>> }
-[5 .. 1]
+[5, 4 .. 1]
 ```
 
 Answer is a new `List`, see `sort` for in place variant:

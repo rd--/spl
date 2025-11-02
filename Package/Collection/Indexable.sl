@@ -297,7 +297,7 @@
 
 	positionSmallest { :self :n |
 		let x = self.sorted;
-		(1 .. n).collect { :y |
+		1.to(n).collect { :y |
 			self.indicesOf(x[y])
 		}
 	}

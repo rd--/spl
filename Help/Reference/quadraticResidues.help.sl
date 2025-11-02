@@ -4,14 +4,16 @@
 
 Answer the list of positive quadratic residues modulo _p_.
 
-Quadratic residues of twenty-three:
+Quadratic residues of twenty-three,
+OEIS [A010385](https://oeis.org/A010385):
 
 ```
 >>> 23.quadraticResidues
 [1 2 3 4 6 8 9 12 13 16 18]
 ```
 
-Quadratic residues of seventy-three:
+Quadratic residues of seventy-three,
+OEIS [A010434](https://oeis.org/A010434):
 
 ```
 >>> 73.quadraticResidues
@@ -86,8 +88,8 @@ modulo _n_,
 OEIS [A096008](https://oeis.org/A096008):
 
 ```
->>> 1:20.collect { :n |
->>> 	(0 .. n - 1).collect { :k |
+>>> 1.to(20).collect { :n |
+>>> 	0.to(n - 1).collect { :k |
 >>> 		powerMod(k, 2, n)
 >>> 	}.nub.sort
 >>> }
@@ -194,6 +196,8 @@ _OEIS_
 [3](https://oeis.org/A105612)
 [4](https://oeis.org/A047210)
 [5](https://oeis.org/A096103)
-[6](https://oeis.org/A048152),
+[6](https://oeis.org/A048152)
+[7](https://oeis.org/A010434)
+[8](https://oeis.org/A010385),
 _W_
 [1](https://en.wikipedia.org/wiki/Quadratic_residue)

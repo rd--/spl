@@ -500,10 +500,10 @@ const asSl: ohm.ActionDict<string> = {
 		return `${rhsName} = assertIsOfSize(${rhs.asSl}, ${namesArray.length}); ${slots}`;
 	},
 	ListRangeSyntax(_left, start, _dots, end, _right) {
-		return `asList(upOrDownTo(${start.asSl}, ${end.asSl}))`;
+		return `asList(nonemptyRange(${start.asSl}, ${end.asSl}, 1))`;
 	},
 	ListRangeThenSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `asList(thenTo(${start.asSl}, ${then.asSl}, ${end.asSl}))`;
+		return `asList(nonemptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl}))`;
 	},
 	ListSyntax(_l, items, _r) {
 		return `[${commaListSl(items.asIteration().children)}]`;
@@ -554,10 +554,10 @@ const asSl: ohm.ActionDict<string> = {
 		return `propertyWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
 	RangeSyntax(_left, start, _dots, end, _right) {
-		return `upOrDownTo(${start.asSl}, ${end.asSl})`;
+		return `nonemptyRange(${start.asSl}, ${end.asSl}, 1)`;
 	},
 	RangeThenSyntax(_left, start, _comma, then, _dots, end, _right) {
-		return `thenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
+		return `nonemptyThenTo(${start.asSl}, ${then.asSl}, ${end.asSl})`;
 	},
 	RecordAssignment(_l, lhs, _r, _e, rhs) {
 		const rhsDictionaryName = genVarSym();

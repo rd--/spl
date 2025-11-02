@@ -119,7 +119,7 @@ Tree : [Object, Equatable, Iterable, Indexable] { | value subTrees |
 	}
 
 	indices { :self |
-		(1 .. self.size)
+		1.to(self.size)
 	}
 
 	isBinary { :self |

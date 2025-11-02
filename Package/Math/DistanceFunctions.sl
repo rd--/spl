@@ -111,7 +111,7 @@
 
 	leeDistance { :x :y :q |
 		let n = x.size;
-		(1 .. n).sum { :i |
+		1.to(n).sum { :i |
 			let z = (x[i] - y[i]).abs;
 			min(z, q - z)
 		}
@@ -425,13 +425,13 @@
 		let [a, b] = self;
 		let n = a.size;
 		let y = n / 1.goldenRatio;
-		let p = (1 .. n).collect { :i |
+		let p = 1.to(n).collect { :i |
 			[b[i], 0]
 		};
-		let q = (1 .. n).collect { :i |
+		let q = 1.to(n).collect { :i |
 			[a[i], y]
 		};
-		let r = (1 .. n).collect { :i |
+		let r = 1.to(n).collect { :i |
 			Line([p[i], q[i]])
 		};
 		[
@@ -529,7 +529,7 @@
 		let o = (y.range - x.min) * 1.5;
 		let p = [[1 .. x.size], x + o].transpose;
 		let q = [[1 .. y.size], y].transpose;
-		let r = (1 .. a.size).collect { :i |
+		let r = 1.to(a.size).collect { :i |
 			Line([p[a[i]], q[b[i]]])
 		};
 		[

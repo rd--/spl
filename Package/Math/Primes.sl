@@ -152,7 +152,7 @@
 				self = 2
 			} {
 				let limit = self.sqrt.floor;
-				3.toBy(5, limit).noneSatisfy { :each |
+				3.toBy(limit, 2).noneSatisfy { :each |
 					self % each = 0
 				}
 			}

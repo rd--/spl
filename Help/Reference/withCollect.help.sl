@@ -8,7 +8,7 @@ Collect and answer the result of evaluating the block _f_ with corresponding ele
 >>> 9:-1:1.withCollect(1:9) { :p :q |
 >>> 	p * 2 + q
 >>> }
-[19 .. 11]
+[19, 18 .. 11]
 ```
 
 There are variant forms with distinct rules for how to behave when the sequences are of different lengths.

@@ -44,7 +44,7 @@
 	}
 
 	trinomial { :n :k |
-		(0 .. n).sum { :i |
+		0.to(n).sum { :i |
 			binomial(n, i)
 			*
 			binomial(n - i, k - (2 * i))
@@ -88,7 +88,7 @@
 	}
 
 	delannoyNumber { :m :n |
-		(0 .. m.min(n)).collect { :k |
+		0.to(m.min(n)).collect { :k |
 			(m + n - k).integerBinomial(m) * m.integerBinomial(k)
 		}.sum
 	}
@@ -143,7 +143,7 @@
 	lassalleNumber { :m |
 		let a = List(m, m.one);
 		2.toDo(m) { :n |
-			let z = (1 .. (n - 1)).collect { :j |
+			let z = 1.to(n - 1).collect { :j |
 				-1 ^ j * (2 * n - 1).binomial(2 * j - 1) * a[j] * (n - j).catalanNumber
 			}.sum;
 			a[n] := -1 ^ (n - 1) * (n.catalanNumber + z)
@@ -182,7 +182,7 @@
 	}
 
 	pascalTriangle { :self |
-		(0 .. self - 1).triangularArray(binomial:/2)
+		0.to(self - 1).triangularArray(binomial:/2)
 	}
 
 	partitionFunctionP { :self :anInteger |
@@ -273,10 +273,10 @@
 	}
 
 	qBinomialDirect { :n :m |
-		let a = (0 .. m - 1).product { :i |
+		let a = 0.to(m - 1).product { :i |
 			Polynomial([0: 1, (n - i): -1])
 		};
-		let b = (0 .. m - 1).product { :i |
+		let b = 0.to(m - 1).product { :i |
 			Polynomial([0: 1, (i + 1): -1])
 		};
 		a.polynomialQuotient(b)
@@ -332,7 +332,7 @@
 	}
 
 	subfactorial { :self |
-		(0 .. self).collect { :each |
+		0.to(self).collect { :each |
 			each.factorial * (-1 ^ (self - each)) * self.binomial(each)
 		}.sum
 	}
@@ -379,7 +379,7 @@
 +LargeInteger {
 
 	gouldsNumber { :n |
-		(0L .. n).collect { :k |
+		0L.to(n).collect { :k |
 			binomial(n, k) % 2L
 		}.sum
 	}

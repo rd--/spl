@@ -353,10 +353,10 @@ Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 		let dTheta = 1.pi / mTheta;
 		let dPhi = a / dTheta;
 		let answer = [];
-		(0 .. mTheta - 1).do { :m |
+		0.toDo(mTheta - 1) { :m |
 			let theta = (m + 0.5).pi / mTheta;
 			let mPhi = (2.pi * theta.sin / dPhi).round;
-			(0 .. mPhi - 1).do { :n |
+			0.toDo(mPhi - 1) { :n |
 				let phi = (2.pi * n) / mPhi;
 				answer.add(
 					[

@@ -93,11 +93,11 @@
 		/* http://numbers.computation.free.fr/Constants/Miscellaneous/zetaevaluations.pdf */
 		let p = 8;
 		let n = ((1.3 * p) + (0.9 * s.imaginary.abs)).round;
-		let e = { :k | (k .. n).sum { :j | binomial(n, j) } };
+		let e = { :k | k.to(n).sum { :j | binomial(n, j) } };
 		let a = 1 / (1 - (2 ^ (1 - s)));
-		let b = (1 .. n).sum { :k | (-1 ^ (k - 1)) / (k ^ s) };
+		let b = 1.to(n).sum { :k | (-1 ^ (k - 1)) / (k ^ s) };
 		let c = 1 / (2 ^ n);
-		let d = (n + 1 .. 2 * n).sum { :k | ((-1 ^ (k - 1)) * e(k - n)) / (k ^ s) };
+		let d = (n + 1).to(2 * n).sum { :k | ((-1 ^ (k - 1)) * e(k - n)) / (k ^ s) };
 		a * (b + (c * d))
 	}
 }
@@ -349,7 +349,7 @@
 	fabiusFunction { :x :n |
 		let dyadicRationals = { :x :n |
 			let m = 2 ^ n;
-			[0 .. x * m].collect { :k |
+			0.to(x * m).collect { :k |
 				k \ m
 			}
 		};

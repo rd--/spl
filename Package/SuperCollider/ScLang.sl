@@ -358,7 +358,7 @@
 		let size = self.size * 2;
 		let answer = self.species.ofSize(size);
 		let index = 1;
-		(1 .. self.size).do { :each |
+		1.toDo(self.size) { :each |
 			let e1 = self[each];
 			let e2 = (each = self.size).if {
 				0

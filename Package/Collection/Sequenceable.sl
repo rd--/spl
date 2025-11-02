@@ -1266,7 +1266,7 @@
 
 	gradient { :y :h |
 		let n = y.size;
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			(i = 1).if {
 				y[2] - y[1]
 			} {
@@ -1394,7 +1394,7 @@
 					} ++ increasing(done, remaining.allButFirst)
 				}
 			};
-			(1 .. self.size).collectCatenate { :i |
+			1.to(self.size).collectCatenate { :i |
 				increasing(self.first(i).last(1), self.drop(i))
 			}
 		}
@@ -1472,7 +1472,7 @@
 	}
 
 	indices { :self |
-		(1 .. self.size)
+		1.to(self.size)
 	}
 
 	indicesAndValuesDo { :self :aBlock:/2 |
@@ -1559,7 +1559,7 @@
 			[-1 1].includes(z).ifFalse {
 				self.error('isAlternating: invalid z')
 			};
-			(2 .. k).allSatisfy { :i |
+			2.to(k).allSatisfy { :i |
 				let x = self[i - 1].compare(self[i]);
 				let r = (0 - x) = z;
 				z := x;
@@ -1621,7 +1621,7 @@
 	isLogarithmicallyConcave { :a |
 		let n = a.size;
 		(n < 3) | {
-			(2 .. n - 1).allSatisfy { :i |
+			2.to(n - 1).allSatisfy { :i |
 				a[i].square >= (a[i - 1] * a[i + 1])
 			}
 		}
@@ -1640,7 +1640,7 @@
 		(k < 2).if {
 			true
 		} {
-			(1 .. k // 2).allSatisfy { :i |
+			1.to(k // 2).allSatisfy { :i |
 				self[i] = self[k + 1 - i]
 			}
 		}
@@ -1652,7 +1652,7 @@
 			true
 		} {
 			let z = self[2] - self[1];
-			(3 .. k).allSatisfy { :i |
+			3.to(k).allSatisfy { :i |
 				(self[i] - self[i - 1]) = z
 			}
 		}
@@ -2019,7 +2019,7 @@
 		(prefix > 1).ifTrue {
 			self.error('@Sequenceable>>mixedRadixDecode: sequence too long')
 		};
-		(k .. 1).do { :index |
+		k.toByDo(1, -1) { :index |
 			answer := answer + (self[index + prefix] * base);
 			base := base * factors[index]
 		};
@@ -2169,7 +2169,7 @@
 	}
 
 	pairsCollect { :self :aBlock:/2 |
-		(1 .. self.size // 2).collect { :index |
+		1.to(self.size // 2).collect { :index |
 			aBlock(self[2 * index - 1], self[2 * index])
 		}
 	}
@@ -2357,7 +2357,7 @@
 			let answerSize = counts.sum;
 			let answer = self.species.ofSize(answerSize);
 			let answerIndex = 1;
-			(1 .. self.size).do { :selfIndex |
+			1.to(self.size).do { :selfIndex |
 				let entry = aBlock(self[selfIndex]);
 				counts[selfIndex].timesRepeat {
 					answer[answerIndex] := entry;
@@ -2498,7 +2498,7 @@
 		self.ifEmpty {
 			self.copy
 		} {
-			(1 .. self.size).collect { :each |
+			1.to(self.size).collect { :each |
 				self.foldRightPrefix(each, aBlock:/2)
 			}
 		}

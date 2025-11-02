@@ -7,10 +7,10 @@ Answer whether all elements of the collection _c₂_ are elements of the collect
 At `List`:
 
 ```
->>> [9 .. 1].includesAll([3 .. 7])
+>>> [9, 8 .. 1].includesAll([3 .. 7])
 true
 
->>> [3 .. 7].isSubset([9 .. 1])
+>>> [3 .. 7].isSubset([9, 8 .. 1])
 true
 ```
 

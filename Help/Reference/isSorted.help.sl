@@ -23,7 +23,7 @@ At `Range`:
 >>> (1 .. 9).isSorted
 true
 
->>> (9 .. 1).isSorted
+>>> (9, 8 .. 1).isSorted
 false
 
 >>> 1:9.isSorted

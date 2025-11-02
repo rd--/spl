@@ -12,7 +12,7 @@ using _f_ to resolve conflicts:
 >>> .merge(
 >>> 	[2 -2; 4 -4].TimeSeries
 >>> )
-TimeSeries([-1 .. -5], [1 .. 5])
+TimeSeries([-1, -2 .. -5], [1 .. 5])
 ```
 
 At a `List` of dictionaries,

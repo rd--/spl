@@ -5,7 +5,7 @@
 Like _replace_ except that the iteration index supplies the second argument to the block.
 
 ```
->>> let l = [9 .. 1];
+>>> let l = [9, 8 .. 1];
 >>> l.withIndexReplace { :each :index |
 >>> 	each * index
 >>> };

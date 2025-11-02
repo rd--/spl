@@ -69,7 +69,7 @@ At the empty list:
 At decreasing list:
 
 ```
->>> [10 .. 1].longestIncreasingSubsequence
+>>> [10, 9 .. 1].longestIncreasingSubsequence
 [1]
 ```
 

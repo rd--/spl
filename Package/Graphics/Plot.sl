@@ -305,7 +305,7 @@ Plot : [Object] { | pages format options |
 
 	poincarePlot { :x :n |
 		let m = x.size - n;
-		(1 .. m).collect { :i |
+		1.to(m).collect { :i |
 			[x[i], x[i + n]]
 		}.scatterPlot
 	}
@@ -611,7 +611,7 @@ Plot : [Object] { | pages format options |
 		let k = 100;
 		let [a, b] = self.minMax.log;
 		let h = (b - a) / (k - 1);
-		let x = (0 .. k - 1).collect { :i |
+		let x = 0.to(k - 1).collect { :i |
 			(a + (i * h)).exp
 		};
 		operand.nest.collect { :aBlock:/1 |

@@ -1,8 +1,9 @@
 # Range
 
-- _Range([start, stop, step])_
+- _Range([i j k])_
 
-A `Range` is a `Type` that represents a finite arithmetic progression.
+A `Range` is a `Type` that represents a finite arithmetic progression,
+ranging from _i_ to _j_ by step _k_.
 
 ```
 >>> Range([1 9 1]).asList
@@ -84,7 +85,7 @@ true
 >>> (1, 1.5 .. 3.75).isProper
 false
 
->>> (1, 2 .. 0).isProper
+>>> Range(1, 0, 1).isProper
 false
 ```
 
@@ -98,11 +99,17 @@ true
 false
 ```
 
-While the _(p .. q)_ notation cannot make empty or _improper_ `Range` values,
-the _(p, q .. r)_ notation may:
+While the _.._ range notation cannot make empty `Range` values,
+the _:_ notation may:
 
 ```
->>> (7, 8 .. 5)
+>>> { (7 .. 5) }.hasError
+true
+
+>>> { (7, 8 .. 5) }.hasError
+true
+
+>>> 7:5
 Range([7 5 1])
 ```
 

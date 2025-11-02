@@ -184,7 +184,7 @@
 			b[i] := (dy / dx) - (dx * (c[i + 1] + (2 * c[i])) / 3);
 			d[i] := (c[i + 1] - c[i]) / (3 * dx)
 		};
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin:/1)
 		}
 	}
@@ -232,7 +232,7 @@
 		(x.size != firstDerivative.size).ifTrue {
 			x.error('hermiteInterpolatorCoefficientList: firstDerivative list invalid')
 		};
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			let w = x[i + 1] - x[i];
 			let w2 = w * w;
 			let yv = y[i];
@@ -267,7 +267,7 @@
 	linearInterpolatorCoefficientList { :x :y |
 		let n = x.size - 1;
 		assertIsValidInterpolatorData(x, y, 2);
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			let dx = x[i + 1] - x[i];
 			let dy = y[i + 1] - y[i];
 			let m = dy / dx;
@@ -410,7 +410,7 @@
 	}
 
 	downsample { :self :anInteger |
-		(1, 1 + anInteger .. self.size).collect { :each |
+		1.toBy(self.size, anInteger).collect { :each |
 			self[each]
 		}
 	}
@@ -574,7 +574,7 @@
 			};
 			m := slope.median;
 			[
-				(1 .. k).collect { :i | y[i] - (m * x[i]) }.median,
+				1.to(k).collect { :i | y[i] - (m * x[i]) }.median,
 				m
 			]
 		} {

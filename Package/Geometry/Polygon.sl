@@ -124,7 +124,7 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	sideLengths { :self |
 		let v = self.vertexCoordinates;
-		(2 .. v.size + 1).collect { :i |
+		2.to(v.size + 1).collect { :i |
 			v.atWrap(i).euclideanDistance(v.atWrap(i + 1))
 		}
 	}
@@ -195,7 +195,7 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 	midpointPolygon { :self |
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			[self.at(i), self.atWrap(i + 1)].midpoint
 		}
 	}
@@ -239,7 +239,7 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 	polygonInteriorAngles { :self |
 		let n = self.size;
 		let answer = [];
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			self.polygonVertexAngle(i)
 		}
 	}

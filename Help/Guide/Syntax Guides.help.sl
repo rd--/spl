@@ -28,6 +28,7 @@
 - `Record Assignment Syntax`
 - `Record Syntax`
 - `Slot Assignment Syntax`
+- `Span Syntax`
 - `Trailing Block Syntax`
 - `Trailing Record Syntax`
 - `Unary Operator Syntax`

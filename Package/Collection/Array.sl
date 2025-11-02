@@ -35,7 +35,7 @@
 		self.isVector.if {
 			let [m, n] = z;
 			let k = self.size;
-			(1 .. k + z.sum).collect { :i |
+			1.to(k + z.sum).collect { :i |
 				let d = i - m;
 				d.betweenAnd(1, k).if {
 					self[d]
@@ -389,7 +389,7 @@
 	}
 
 	iota { :shape |
-		(1 .. shape.product).reshape(shape)
+		1.to(shape.product).reshape(shape)
 	}
 
 	isVectorOf { :self :elementType |

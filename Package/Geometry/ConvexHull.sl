@@ -17,7 +17,7 @@
 			}
 		};
 		p.removeAtAll(
-			(2 .. p.size - 1).select { :i |
+			2.to(p.size - 1).select { :i |
 				p[i][2] = p[i + 1][2]
 			}
 		);

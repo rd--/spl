@@ -147,7 +147,7 @@ Range(0, -9, -1)
 
 See also: :, ArithmeticProgression, Interval, List, Range
 
-Guides: Range Syntax
+Guides: Range Syntax, Span Syntax
 
 References:
 _Mathematica_

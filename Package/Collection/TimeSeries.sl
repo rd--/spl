@@ -181,7 +181,7 @@ TimeSeries : [Object, Equatable, Iterable, Indexable, Collection] { | values tim
 		} {
 			let t = self.times;
 			let v = self.values.transpose;
-			(1 .. k).collect { :i |
+			1.to(k).collect { :i |
 				TimeSeries(v[i], t)
 			}
 		}
@@ -294,7 +294,7 @@ TimeSeries : [Object, Equatable, Iterable, Indexable, Collection] { | values tim
 						true
 					} {
 						let z = self[2][1] - self[1][1];
-						(3 .. m).allSatisfy { :i |
+						3.to(m).allSatisfy { :i |
 							self[i][1] - self[i - 1][1] = z
 						}
 					}

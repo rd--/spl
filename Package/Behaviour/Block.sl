@@ -38,9 +38,9 @@ Block! : [Object, Equatable] {
 	array { :aBlock :shape |
 		shape.size.caseOf(
 			[
-				1 -> { aBlock.table((1 .. shape[1])) },
-				2 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2])) },
-				3 -> { aBlock.table((1 .. shape[1]), (1 .. shape[2]), (1 .. shape[3])) }
+				1 -> { aBlock.table(1.to(shape[1])) },
+				2 -> { aBlock.table(1.to(shape[1]), 1.to(shape[2])) },
+				3 -> { aBlock.table(1.to(shape[1]), 1.to(shape[2]), 1.to(shape[3])) }
 			]
 		) {
 			aBlock.error('array: not vector or matrix or volume')
@@ -48,7 +48,7 @@ Block! : [Object, Equatable] {
 	}
 
 	arrayFilter { :aBlock:/1 :aList :anInteger |
-		(1 .. aList.size).collect { :i |
+		1.to(aList.size).collect { :i |
 			aBlock(aList.copyFromToPin(i - anInteger, i + anInteger))
 		}
 	}
@@ -89,7 +89,7 @@ Block! : [Object, Equatable] {
 	blockMap { :aBlock:/1 :aList :n :d |
 		let answer = [];
 		let index = 1;
-		(1, 1 + d .. aList.size - n + 1).collect { :i |
+		1.toBy(aList.size - n + 1, d).collect { :i |
 			answer.add(aBlock(aList.copyFromTo(i, i + n - 1)))
 		};
 		answer
@@ -325,7 +325,7 @@ Block! : [Object, Equatable] {
 
 	neighbourhoodMap { :aBlock:/2 :x :r |
 		let n = x.size;
-		(1 .. n).collect { :i |
+		1.to(n).collect { :i |
 			let j = (i - r).max(1);
 			let k = (i + r).min(n);
 			aBlock(x.copyFromTo(j, k), i)

@@ -9,7 +9,7 @@ An alias for `bindLeft`.
 [5 .. 9]
 
 >>> [5 .. 9].collect(-.bind(4))
-[-1 .. -5]
+[-1, -2 .. -5]
 ```
 
 * * *

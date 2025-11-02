@@ -26,17 +26,17 @@ If _stop_ is less than _start_ the `Range` is empty:
 To write a descending `Range` see `Range Syntax` or `thenTo` or `toBy`:
 
 ```
->>> 7:-1:5.asList
-[7 6 5]
+>>> 7:-1:3.asList
+[7 6 5 4 3]
 
->>> (7 .. 5).asList
-[7 6 5]
+>>> (7, 6 .. 3).asList
+[7 6 5 4 3]
 
->>> 7.toBy(5, -1).asList
-[7 6 5]
+>>> 7.toBy(3, -1).asList
+[7 6 5 4 3]
 
->>> 7.thenTo(6, 5).asList
-[7 6 5]
+>>> 7.thenTo(6, 3).asList
+[7 6 5 4 3]
 ```
 
 Threads over lists:

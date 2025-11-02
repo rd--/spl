@@ -20,7 +20,7 @@ PoissonDistribution : [Object, Equatable, ProbabilityDistribution] { | mu |
 	cdf { :self |
 		let mu = self.mu;
 		{ :x |
-			(0 .. x).collect { :i |
+			0.to(x).collect { :i |
 				(mu.-.exp * (mu ^ i)) / i.!
 			}.sum
 		}

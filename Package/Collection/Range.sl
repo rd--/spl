@@ -181,6 +181,18 @@ Range : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenc
 
 +@Number {
 
+	nonemptyRange { :start :stop :step |
+		Range(start, stop, step).also { :x |
+			x.isEmpty.ifTrue {
+				x.error('Range: invalid (empty) range')
+			}
+		}
+	}
+
+	nonemptyThenTo { :self :second :last |
+		nonemptyRange(self, last, second - self)
+	}
+
 	Range { :start :stop :step |
 		step.isZero.if {
 			start.error('@Number>>Range: step is zero')
@@ -230,12 +242,18 @@ Range : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenc
 
 +[List, Range] {
 
-	to { :self :stop |
-		stop.adaptToCollectionAndApply(self, to:/2)
+	nonemptyRange { :start :stop :step |
+		stop.adaptToCollectionAndApply(start) { :i :j |
+			nonemptyRange(i, j, step)
+		}
 	}
 
-	upOrDownTo { :self :stop |
-		stop.adaptToCollectionAndApply(self, upOrDownTo:/2)
+	to { :start :stop |
+		stop.adaptToCollectionAndApply(start, to:/2)
+	}
+
+	upOrDownTo { :start :stop |
+		stop.adaptToCollectionAndApply(start, upOrDownTo:/2)
 	}
 
 }

@@ -256,7 +256,7 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 				let m = self.operands.size;
 				let n = anObject.operands.size;
 				m = n & {
-					(1 .. m).allSatisfy { :i |
+					1.to(m).allSatisfy { :i |
 						let p = self.operands[i];
 						let q = anObject.operands[i];
 						p.isEqualSymbolicExpression(q)

@@ -370,7 +370,7 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 		(n = 0).if {
 			UnivariatePolynomial([1])
 		} {
-			(1 .. n).sum { :k |
+			1.to(n).sum { :k |
 				let x = UnivariatePolynomial([0 1]);
 				let c = UnivariatePolynomial([binomial(n - 1, k - 1)]);
 				x * c * bellB(k - 1)

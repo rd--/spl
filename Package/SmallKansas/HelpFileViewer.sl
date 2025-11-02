@@ -14,7 +14,7 @@ HelpFileViewer : [Object, UserEventTarget, View] { | smallKansas outerElement ev
 	showHelpFile { :self :helpFile |
 		let lines = helpFile.lines;
 		let codeRanges = helpFile.fencedCodeBlockLineRanges;
-		let nonCodeRanges = (1 .. lines.size).differenceAll(codeRanges).asRangeList;
+		let nonCodeRanges = 1.to(lines.size).differenceAll(codeRanges).asRangeList;
 		let allRanges = (codeRanges ++ nonCodeRanges).sortBy { :p :q |
 			p.start < q.start
 		};

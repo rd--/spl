@@ -38,7 +38,7 @@
 	antidiagonal { :self :k |
 		let m = self.assertIsMatrix('List>>antidiagonal');
 		let l = m.shape.min - k.abs;
-		(l .. 1).collect { :i |
+		l.toBy(1, -1).collect { :i |
 			let r = l - i + 1 - k.min(0);
 			let c = i - k.min(0);
 			m[r][c]
@@ -79,7 +79,7 @@
 	column { :self :anInteger |
 		let [m, n] = self.shape;
 		anInteger.betweenAnd(1, n).if {
-			(1 .. m).collect { :i |
+			1.to(m).collect { :i |
 				self[i][anInteger]
 			}
 		} {
@@ -92,7 +92,7 @@
 		aList.allSatisfy { :each |
 			each.betweenAnd(1, n)
 		}.if {
-			(1 .. m).collect { :i |
+			1.to(m).collect { :i |
 				aList.collect { :j |
 					self[i][j]
 				}
@@ -335,7 +335,7 @@
 	}
 
 	circulantMatrix { :self |
-		(1 .. self.size).collect { :i |
+		1.to(self.size).collect { :i |
 			self.rotateRight(i)
 		}
 	}
@@ -411,7 +411,7 @@
 
 	zeroMatrix { :shape |
 		let [m, n] = shape;
-		(1 .. m).collect { :unused |
+		1.to(m).collect { :unused |
 			List(n, 0)
 		}
 	}
@@ -490,7 +490,7 @@
 	}
 
 	vedicSquare { :self |
-		let l = [1 .. self];
+		let l = 1.to(self);
 		{ :i :j |
 			(i * j).positiveResidue(self)
 		}.table(l, l)

@@ -7,7 +7,7 @@ DirichletDistribution : [Object] { | alpha |
 		(k - 1).downToDo(1) { :i |
 			r[i] := r[i + 1] + alpha[i + 1]
 		};
-		(1 .. k).collect { :i |
+		1.to(k).collect { :i |
 			BetaDistribution(alpha[i], r[i])
 		}
 	}
@@ -20,7 +20,7 @@ DirichletDistribution : [Object] { | alpha |
 			(x.sum > 1).if {
 				0
 			} {
-				(1 .. k - 1).collect { :i |
+				1.to(k - 1).collect { :i |
 					x[i] ^ (alpha[i] - 1)
 				}.product * ((1 - x.sum) ^ (alpha[k] - 1)) / b
 			}

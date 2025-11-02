@@ -78,7 +78,7 @@ let e = {
 };
 let v = SinOsc(1 - e() / f, 4) + 1 / 2 ^ 2;
 let p = LfPulse(
-	f @* [8 .. 2] / 111,
+	f @* [8, 7 .. 2] / 111,
 	0,
 	1 - v
 ) * [1 2 4];
@@ -86,7 +86,7 @@ let o = VarSaw(
 	f + (p * f),
 	0,
 	1 - e() ^ 2 / 2
-) * (p.rotateRight(2) - e() @* [8 .. 1] ^ 0.125);
+) * (p.rotateRight(2) - e() @* [8, 7 .. 1] ^ 0.125);
 let r = FreeVerb(
 	Bpf(
 		o * e() ^ 2,
@@ -94,7 +94,7 @@ let r = FreeVerb(
 		1.1 - v
 	),
 	1 - v,
-	v @* [8 .. 1],
+	v @* [8, 7 .. 1],
 	0.999
 ) * (1 - (e() ^ 4)) + (e() * v * o);
 Splay(r, (v[8] * 111).Sin)

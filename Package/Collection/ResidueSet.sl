@@ -80,7 +80,7 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 
 	leastResidueSystem { :modulus |
 		ResidueSet(
-			(0 .. modulus - 1),
+			0.to(modulus - 1),
 			modulus
 		)
 	}

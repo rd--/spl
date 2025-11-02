@@ -1246,7 +1246,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 +List {
 
 	burrowsWheelerMatrix { :self |
-		(1 .. self.size).collect { :each |
+		1.to(self.size).collect { :each |
 			self.rotateLeft(each)
 		}.lexicographicSort
 	}
@@ -1259,7 +1259,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		let k = self.size;
 		let table = List(k, List());
 		k.timesRepeat {
-			(1 .. k).do { :i |
+			1.toDo(k) { :i |
 				table[i] := [self[i]] ++ table[i]
 			};
 			table.lexicographicSort

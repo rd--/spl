@@ -148,7 +148,7 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 	}
 
 	indices { :self |
-		(0 .. self.capacity - 1)
+		0.to(self.capacity - 1)
 	}
 
 	isEmpty { :self |

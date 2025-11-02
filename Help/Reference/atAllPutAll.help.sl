@@ -6,10 +6,12 @@ Store the elements of _valueList_ into the slots of _aSequence_ selected by _ind
 Answer _valueList_.
 
 ```
->>> let l = [1 .. 9];
->>> let z = l.atAllPutAll([3 .. 7], [7 .. 3]);
->>> (l, z)
-([1 2 7 6 5 4 3 8 9], [7 .. 3])
+>>> let a = [1 .. 9];
+>>> let b = [3 .. 7];
+>>> let c = [7, 6 .. 3];
+>>> let d = a.atAllPutAll(b, c);
+>>> (a, d)
+([1 2 7 6 5 4 3 8 9], c)
 ```
 
 Using `Range` as indices and values:

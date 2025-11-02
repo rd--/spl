@@ -162,20 +162,20 @@ Span(1, 9, 2)
 
 ```
 >> '(1 .. 9)'.splSimplify
-upOrDownTo(1, 9)
+nonemptyRange(1, 9, 1)
 
 >> '(1, 3 .. 9)'.splSimplify
-thenTo(1, 3, 9)
+nonemptyThenTo(1, 3, 9)
 ```
 
 List range expressions:
 
 ```
 >> '[1 .. 9]'.splSimplify
-asList(upOrDownTo(1, 9))
+asList(nonemptyRange(1, 9, 1))
 
 >> '[1, 3 .. 9]'.splSimplify
-asList(thenTo(1, 3, 9))
+asList(nonemptyThenTo(1, 3, 9))
 ```
 
 `Method Syntax` is rewritten as `Apply Syntax`:

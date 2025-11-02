@@ -24,7 +24,7 @@
 +List {
 
 	barlowIndispensabilities { :p |
-		(1 .. p.product).collect { :each |
+		1.to(p.product).collect { :each |
 			p.barlowIndispensability(each)
 		}
 	}

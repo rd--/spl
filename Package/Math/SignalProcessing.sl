@@ -26,10 +26,10 @@
 		let [n, m] = [a.size, b.size];
 		let y = List(x.size, 0);
 		1.toDo(x.size) { :i |
-			let p = (0 .. m - 1).collect { :j |
+			let p = 0.to(m - 1).collect { :j |
 				b.at(j + 1) * x.atIfAbsent(i - j) { 0 }
 			}.sum;
-			let q = (0 .. n - 1).collect { :j |
+			let q = 0.to(n - 1).collect { :j |
 				a.at(j + 1) * y.atIfAbsent(i - j) { y0.at(1 - (i - j)) }
 			}.sum;
 			y[i] := p - q
@@ -68,7 +68,7 @@
 
 	recurrenceTable { :self:/2 :i :n |
 		let r = i.copy;
-		(i.size + 1 .. n).do { :m |
+		(i.size + 1).toDo(n) { :m |
 			let z = self(r, m);
 			r.add(z)
 		};

@@ -9,12 +9,12 @@ If there is no such element, raise an error.
 Find the first element matching a predicate:
 
 ```
->>> (5 .. 1).detect { :each |
+>>> (5, 4 .. 1).detect { :each |
 >>> 	each % 2 = 0
 >>> }
 4
 
->>> (5 .. 1).detect { :each |
+>>> (5, 4 .. 1).detect { :each |
 >>> 	each * 2 <= 4
 >>> }
 2
@@ -24,7 +24,7 @@ It is an error if no element is detected:
 
 ```
 >>> {
->>> 	(5 .. 1).detect { :each |
+>>> 	(5, 4 .. 1).detect { :each |
 >>> 		each % 7 = 0
 >>> 	}
 >>> }.hasError

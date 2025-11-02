@@ -117,7 +117,7 @@
 +SmallFloat {
 
 	oddLimitSet { :self |
-		let n = (1, 3 .. self);
+		let n = 1.toBy(self, 2);
 		let l = [];
 		let r = [n, n].tuplesDo { :each |
 			l.add(Fraction(each[1], each[2]))

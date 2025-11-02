@@ -382,7 +382,7 @@
 
 	pochhammer { :a :n |
 		(a.isInteger & { n.isInteger }).if {
-			(a + (0 .. n - 1)).product
+			(a + 0.to(n - 1)).product
 		} {
 			let p = gamma(a + n);
 			let q = gamma(a);
@@ -395,7 +395,7 @@
 +@Number {
 
 	qPochhammer { :a :q :n |
-		(0 .. n - 1).product { :k |
+		0.to(n - 1).product { :k |
 			(1 - (a * (q ^ k)))
 		}
 	}

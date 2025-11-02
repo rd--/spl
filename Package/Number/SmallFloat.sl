@@ -554,7 +554,9 @@ SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, 
 		let f = self.abs.fractionalPart;
 		let d = i.integerDigits(base);
 		let k = d.size;
-		let m = (k .. 1).collect { :each | base ^ (each - 1) };
+		let m = k.toBy(1, -1).collect { :each |
+			base ^ (each - 1)
+		};
 		let l = (d * m);
 		(f = 0).ifFalse {
 			l[k] := l[k] + f
@@ -819,7 +821,7 @@ SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, 
 			each.splitBy(',').collect(parseDecimalInteger:/1)
 		};
 		let [m, n] = [p, q].collect(size:/1);
-		(p * (60 ^ (m - 1 .. 0))).sum + (q / (60 ^ 1:n)).sum
+		(p * (60 ^ (m - 1).toBy(0, -1))).sum + (q / (60 ^ 1.to(n))).sum
 	}
 
 	parseSmallInteger { :self :radix :elseClause:/0 |

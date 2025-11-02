@@ -46,7 +46,7 @@
 	}
 
 	eulerianNumberSecondOrder { :n :m |
-		(0 .. n - m).sum { :k |
+		0.to(n - m).sum { :k |
 			(-1 ^ (n + k))
 			*
 			binomial(2 * n + 1, k)
@@ -62,7 +62,7 @@
 	hyperfactorial { :self |
 		let one = self.one;
 		self.isInteger.if {
-			(one .. self).collect { :k |
+			one.to(self).collect { :k |
 				k ^ k
 			}.product
 		} {
@@ -104,7 +104,7 @@
 	}
 
 	involutionNumber { :n |
-		(0 .. n // 2).sum { :k |
+		0.to(n // 2).sum { :k |
 			((2 * k) - 1).doubleFactorial * binomial(n, 2 * k)
 		}
 	}

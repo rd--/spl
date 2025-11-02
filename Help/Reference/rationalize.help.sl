@@ -31,7 +31,7 @@ Find rational approximations to within a given tolerance:
 Successive rational approximations to `pi`:
 
 ```
->>> (-1 .. -10).collect { :n |
+>>> (-1, -2 .. -10).collect { :n |
 >>> 	1.pi.rationalize(10 ^ n)
 >>> }
 [

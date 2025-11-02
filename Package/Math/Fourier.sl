@@ -32,7 +32,7 @@
 	}
 
 	deinterleaveComplexData { :self |
-		(1, 3 ..  self.size - 1).collect { :each |
+		1.toBy(self.size - 1, 2).collect { :each |
 			Complex(self[each], self[each + 1])
 		}
 	}
@@ -41,7 +41,7 @@
 		let x = self;
 		let m = x.size;
 		let p = -2.pi * 1.i / m;
-		(0 .. m - 1).collect { :k |
+		0.to(m - 1).collect { :k |
 			let q = p * k;
 			let z = 0;
 			0.toDo(m - 1) { :n |
@@ -163,7 +163,7 @@
 	}
 
 	fejerKernelDirichlet { :n |
-		let d = (0 .. n - 1).collect(dirichletKernel:/1);
+		let d = 0.to(n - 1).collect(dirichletKernel:/1);
 		{ :x |
 			d.collect { :each:/1 |
 				each(x)
@@ -184,7 +184,7 @@
 	fourierMatrix { :n |
 		let m = 1 / n.sqrt;
 		let omega = 1.e ^ (2.pi * 0J1 / n);
-		let l = (0 .. n - 1);
+		let l = 0.to(n - 1);
 		{ :i :j |
 			m * (omega ^ (i * j))
 		}.table(l, l)

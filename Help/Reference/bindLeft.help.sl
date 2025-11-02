@@ -9,7 +9,7 @@ Answer a unary `Block` that evaluates the binary block _f_ with the object _x_ b
 [5 .. 9]
 
 >>> [5 .. 9].collect(-.bindLeft(4))
-[-1 .. -5]
+[-1, -2 .. -5]
 ```
 
 * * *

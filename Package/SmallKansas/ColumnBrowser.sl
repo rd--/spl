@@ -19,7 +19,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		self.textEditor := self.smallKansas.TextEditor(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
-		self.columnLists := (1 .. self.numberOfColumns).collect { :index |
+		self.columnLists := 1.to(self.numberOfColumns).collect { :index |
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		1.toDo(columnProportions.size) { :index |

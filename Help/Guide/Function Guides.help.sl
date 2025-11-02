@@ -20,6 +20,7 @@
 - `Dictionary Functions`
 - `Distance Functions`
 - `Drawing Functions`
+- `Enumeration Functions`
 - `Feature Detection Functions`
 - `File Functions`
 - `Filter Functions`

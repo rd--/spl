@@ -104,10 +104,10 @@
 		let n = breakPointList.size;
 		let m = n - 1;
 		Env(
-			(1, 3 .. n).collect { :index |
+			1.toBy(n, 2).collect { :index |
 				breakPointList[index]
 			},
-			(2, 4 .. m).collect { :index |
+			2.toBy(m, 2).collect { :index |
 				breakPointList[index]
 			}.differentiate,
 			curves,

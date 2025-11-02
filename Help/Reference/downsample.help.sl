@@ -1,8 +1,8 @@
 # downsample
 
-- _downsample(aSequence, anInteger)_
+- _downsample([x₁ x₂ …], n)_
 
-Answer a downsampled copy of _aSequence_ by sampling every _anInteger_-th element.
+Answer a downsampled copy of the sequence _x_ by sampling every _n_-th element.
 
 Downsample a `List` by a factor of two:
 
