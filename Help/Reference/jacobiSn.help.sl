@@ -56,7 +56,7 @@ let alpha = { :phi |
 
 Plot with `sin`:
 
-~~~
+~~~spl svg=C
 let m = 0.5.square;
 let p = 4 * m.ellipticK;
 (0 -- p).functionPlot(
@@ -65,6 +65,9 @@ let p = 4 * m.ellipticK;
 		{ :x | x.jacobiSn(m) }
 	]
 )
+~~~
+
+![](sw/spl/Help/Image/jacobiSn-C.svg)
 
 * * *
 

@@ -79,14 +79,6 @@ Plot _arg(x+i)_ on the reals:
 
 ![](sw/spl/Help/Image/arg-B.svg)
 
-The color function proceeds counterclockwise around zeros of a function:
-
-~~~spl png=A
-[-2J-2 2J2].complexPlot { :z |
-	z.arg.real
-}
-~~~
-
 * * *
 
 See also: abs, absArg, arcTan, conjugate, Complex, toPolarCoordinates
