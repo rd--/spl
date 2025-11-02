@@ -235,6 +235,7 @@ _Mathworks_
 [1](https://mathworks.com/help/symbolic/sym.powermod.html),
 _OEIS_
 [1](https://oeis.org/A096008)
-[2](https://oeis.org/A001567),
+[2](https://oeis.org/A001567)
+[3](https://oeis.org/A002371),
 _W_
 [1](https://en.wikipedia.org/wiki/Modular_exponentiation)

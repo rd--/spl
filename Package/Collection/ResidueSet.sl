@@ -39,6 +39,10 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 		self.contents.copy
 	}
 
+	boxNotation { :self |
+		self.asBitSet.boxNotation
+	}
+
 	complement { :self |
 		self.asBitSet.complement.asResidueSet
 	}

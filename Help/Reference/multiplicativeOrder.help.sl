@@ -138,6 +138,33 @@ OEIS [A001913](https://oeis.org/A001913):
 ]
 ```
 
+Primes with small primitive roots,
+OEIS
+[A001122](https://oeis.org/A001122),
+[A019334](https://oeis.org/A019334),
+[A019335](https://oeis.org/A019335),
+[A019336](https://oeis.org/A019336),
+[A019337](https://oeis.org/A019337),
+[A019338](https://oeis.org/A019338),
+[A019339](https://oeis.org/A019339):
+
+```
+>>> [2 3 5 6 7 11].collect { :p |
+>>> 	1:17.prime.select { :n |
+>>> 		multiplicativeOrder(p, n) = (n - 1)
+>>> 	}
+>>> }
+[
+	3 5 11 13 19 29 37 53 59;
+	2 5 7 17 19 29 31 43 53;
+	2 3 7 17 23 37 43 47 53;
+	11 13 17 41 59;
+	2 5 11 13 17 23 41;
+	3 5 11 29 53 59;
+	2 3 13 17 23 29 31 41 47 59
+]
+```
+
 Period of decimal representation of _1/n_,
 OEIS [A007732](https://oeis.org/A007732):
 
@@ -146,7 +173,36 @@ OEIS [A007732](https://oeis.org/A007732):
 >>> 	let a = 2 ^ n.integerExponent(2);
 >>> 	let b = 5 ^ n.integerExponent(5);
 >>> 	let c = n / a / b;
->>> 	10L.multiplicativeOrder(c)
+>>> 	10.multiplicativeOrder(c)
+>>> }
+[
+	1   1  1  1  1  1  6  1  1  1
+	2   1  6  6  1  1 16  1 18  1
+	6   2 22  1  1  6  3  6 28  1
+	15  1  2 16  6  1  3 18  6  1
+	5   6 21  2  1 22 46  1 42  1
+	16  6 13  3  2  6 18 28 58  1
+	60 15  6  1  6  2 33 16 22  6
+	35  1  8  3  1 18  6  6 13  1
+	 9  5  41 6 16 21 28  2 44  1
+]
+```
+
+Period of decimal representation of _1/n_,
+or 0 if _1/n_ terminates,
+OEIS [A051626](https://oeis.org/A051626):
+
+[n_] := If[ PowerMod[10, n, n] == 0, 0, MultiplicativeOrder[10, n/2^IntegerExponent[n, 2]/5^IntegerExponent[n, 5]]]; Array[a, 90]
+
+```
+>>> 1:90.collect { :n |
+>>> 	(powerMod(10, n, n) = 0).if {
+>>> 		0
+>>> 	} {
+>>> 		let a = 2 ^ n.integerExponent(2);
+>>> 		let b = 5 ^ n.integerExponent(5);
+>>> 		let c = n / a / b;
+>>> 		10.multiplicativeOrder(c)
 >>> }
 [
 	1   1  1  1  1  1  6  1  1  1

@@ -1,8 +1,8 @@
 # setBitAt
 
-- _setBitAt(aBitSet, anInteger)_
+- _setBitAt(b, n)_
 
-Set the value corresponding to _anInteger_ to 1.
+Set the value at the BitSet _b_ corresponding to the integer _n_ to 1.
 Answer `true` if the value was not already 1, else false.
 
 ```
@@ -14,3 +14,5 @@ Answer `true` if the value was not already 1, else false.
 * * *
 
 See also: bitAt, bitAtPut, BitSet
+
+Guides: Bitwise Functions

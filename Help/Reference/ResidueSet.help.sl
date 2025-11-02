@@ -83,6 +83,14 @@ indicating the presence of entries in the set:
 '101101011010'
 ```
 
+Box notation:
+
+```
+>>> ResidueSet([0 2 4 5 7 9 11], 12)
+>>> .boxNotation
+'◼◻◼◻◼◼◻◼◻◼◻◼'
+```
+
 `ResidueSet` implements the arithmetic operators `+`, `-` and `*`:
 
 ```

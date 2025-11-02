@@ -182,6 +182,22 @@ Copy `BitSet` and mutate copy:
 '10100100'
 ```
 
+Box notation answers a Unicode string where an empty box,
+ordinarily ◻,
+represents a zero and a filled box,
+ordinarily ◼,
+represents a one:
+
+```
+>>> BitSet([0 2 5], 8)
+>>> .boxNotation(['◻' '◼'])
+'◼◻◼◻◻◼◻◻'
+
+>>> BitSet([0 2 4 5 7 9 11], 12)
+>>> .boxNotation
+'◼◻◼◻◼◼◻◼◻◼◻◼'
+```
+
 The `printString` of a `BitSet`:
 
 ```
@@ -214,5 +230,7 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 See also: add, asBitSet, at, atPut, bitAt, clearBitAt, includes, remove, ResidueSet, setBitAt
 
 Guides: Bitwise Functions
+
+Unicode: U+25FB ◻ White Medium Square, U+25FC ◼ Black Medium Square
 
 Categories: Collection, Type

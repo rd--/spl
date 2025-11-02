@@ -1,8 +1,8 @@
 # codePoint
 
-- _codePoint(aString | aCharacter)_
+- _codePoint(c)_
 
-Answer the Unicode code point of a character.
+Answer the Unicode code point of the character _c_.
 
 ```
 >>> ' '.codePoint
@@ -31,6 +31,8 @@ The inverse is `asCharacter`:
 * * *
 
 See also: asCharacter, asciiValue, Character, String
+
+Guides: String Functions
 
 References:
 _Python_

@@ -70,6 +70,21 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 		}
 	}
 
+	boxNotation { :self :zeroOne |
+		let [zeroCode, oneCode] = zeroOne.collect(codePoint:/1);
+		let unicode = List(self.capacity, zeroCode);
+		self.bitsDo { :each :index |
+			(each = 1).ifTrue {
+				unicode[index + 1] := oneCode
+			}
+		};
+		unicode.utf16String
+	}
+
+	boxNotation { :self |
+		self.boxNotation(['◻' '◼'])
+	}
+
 	clearBitAt { :self :anInteger |
 		let byteIndex = anInteger.bitShift(-3) + 1;
 		let value = self.bytes[byteIndex];

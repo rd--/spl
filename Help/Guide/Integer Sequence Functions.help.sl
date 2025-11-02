@@ -8,6 +8,7 @@
 - `aperysConstant`: A002117
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
 - `arithmeticProgression`: A000027 A005408 A005843 A008585 A008586
+- `artinsConstant`: A005596
 - `baumSweetSequence`: A086747
 - `beattySequence`: A000201 A001950 A001951 A001952 A022838 A022843 A022844 A054385 A054386 A054406
 - `bellB`: A106800
@@ -15,11 +16,11 @@
 - `bernoulliNumber`: A000367 A002445
 - `bernoulliSequence`: A027641 A027642
 - `bernoulliTriangle`: A008949
-- `binomial`: A000125 A000127 A000984 A006542 A027907 A166556
+- `binomial`: A000125 A000127 A000332 A000984 A006542 A027907 A109449 A166556
 - `bitAnd`: A279125
 - `bitReversalPermutation`: A030109
 - `bitXor`: A003188
-- `braceletCount`: A000029 A081720
+- `braceletCount`: A000029 A027671 A081720
 - `brunsConstant`: A065421
 - `calabisConstant`: A046095
 - `calkinWilfSequence`: A002487
@@ -36,6 +37,7 @@
 - `chebyshevU`: A008312 A053117
 - `collatzSequence`: A070165
 - `connellSequence`: A001614
+- `continuedFraction`: A003417
 - `convergents`: A001040 A001053
 - `convolve`: A001629
 - `conwaysConstant`: A014715
@@ -47,11 +49,13 @@
 - `differences`: A049296
 - `digitCount`: A000120 A005823 A006046
 - `digitalRoot`: A010888
+- `digitSum`: A000120 A007953 A053735 A053737 A053824 A053827 A053828 A053829 A053830
 - `discriminant`: A007878
 - `divisorSigma`: A000005
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
 - `e`: A001113
+- `ekgSequence`: A064413 A064664
 - `engelExpansion`: A000027 A006784 A028254
 - `entringerTriangle`: A008281
 - `equispacedTriples`: A002620
@@ -116,6 +120,7 @@
 - `isChenPrime`: A109611
 - `isColossallyAbundantNumber`: A004490
 - `isComposite`: A002808
+- `isCubicResidue`: A046530
 - `isDeficientNumber`: A005100
 - `isEven`: A005843
 - `isFullReptendPrime`: A001913
@@ -136,7 +141,7 @@
 - `isPoliteNumber`: A138591
 - `isPowerfulNumber`: A001694 A060355 A118896
 - `isPracticalNumber`: A005153
-- `isPrime`: A005846
+- `isPrime`: A000353 A005384 A005385 A005846
 - `isPrimePower`: A246655
 - `isPrimitiveAbundantNumber`: A071395
 - `isPronicNumber`: A002378
@@ -150,6 +155,7 @@
 - `isSmoothNumber`: A000079 A002473 A003586 A051037 A051038 A080197 A080681 A080682 A080683
 - `isSphenicNumber`: A007304 A165936
 - `isSternPrime`: A042978
+- `isStrongPseudoprime`: A001262 A002023 A020229 A020230 A020231 A020232 A020234 A020235
 - `isStrongPrime`: A051634
 - `isSumOfTwoSquares`: A001481
 - `isSumProductNumber`: A038369
@@ -159,6 +165,7 @@
 - `isWeakPrime`: A051635
 - `isWeirdNumber`: A006037
 - `iterate`: A014707 A118006
+- `jacobiSymbol`: A047713
 - `jacobsthalNumber`: A001045
 - `josephusProblem`: A006257 A032434 A054995
 - `josephusSequence`: A209258
@@ -176,7 +183,7 @@
 - `leibnizHarmonicTriangle`: A003506
 - `lemniscateConstant`: A062539
 - `levysConstant`: A086702 A086703
-- `linearRecurrence`: A000045 A000078 A000124 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001519 A001590 A001608 A001653 A001687 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
+- `linearRecurrence`: A000045 A000078 A000124 A000127 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001108 A001519 A001590 A001608 A001653 A001687 A001840 A002203 A002943 A003269 A003520 A005578 A017817 A017827 A051049 A052920 A056530 A079398 A103372 A103373 A134816
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599
 - `logarithmicIntegral`: A069284 A070769
@@ -201,6 +208,7 @@
 - `moserDeBruijnSequence`: A000695
 - `motzkinNumber`: A001006
 - `motzkinSequence`: A001006
+- `multiplicativeOrder`: A001913
 - `namedConstant`: A086088
 - `narayanaNumber`: A001263
 - `narayanaSequence`: A000930
@@ -222,6 +230,7 @@
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A086383 A096650
 - `pentagonalNumber`: A000326
+- `percentSign`: A000224
 - `perfectDigitalInvariantSequence`: A193995
 - `perfectNumber`: A000396
 - `periodDoublingSequence`: A096268
@@ -230,7 +239,8 @@
 - `pi`: A000796 A001203 A002485 A002486
 - `plasticRatio`: A060006
 - `politeness`: A069283
-- `polygonalNumber`: A000124 A000217 A139610
+- `polygonalNumber`: A000027 A000124 A000217 A000217 A000290 A000326 A000384 A000566 A000567 A001106 A001107 A051682 A051864 A051865 A051866 A051867 A051868 A051869 A051870 A051871 A051872 A051873 A051874 A051875 A051876 A139610
+- `powerMod`: A001567 A096008
 - `previousPrime`: A007917
 - `prime`: A000040 A046929
 - `primeDistance`: A051699
@@ -245,6 +255,8 @@
 - `primorial`: A002110
 - `pyramidalNumber`: A000292 A000330 A002411 A002412 A002413
 - `pythagorasConstant`: A002193
+- `quadraticNonresidues`: A053760
+- `quadraticResidues`: A046071 A047210 A048152 A096008 A096103 A105612
 - `quotientRemainder`: A118006
 - `rabbitConstant`: A014565
 - `radical`: A007947
@@ -308,6 +320,7 @@
 - `wythoffPair`: A000201 A001950
 - `wythoffUpper`: A001950
 - `zeckendorfRepresentation`: A014417
+- `yellowstonePermutation`: A098550
 - `zero`: A000004
 
 The above list is printed by:

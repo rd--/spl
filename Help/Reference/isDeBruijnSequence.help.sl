@@ -17,9 +17,20 @@ true
 >>> .isDeBruijnSequence(2, 4)
 true
 
+>>> [0 0 0 0 1 1 1 1 0 1 1 0 0 1 0 1]
+>>> .isDeBruijnSequence(2, 4)
+true
+
+>>> 'AAAABAABBABABBBB'
+>>> .characters
+>>> .isDeBruijnSequence(2, 4)
+true
+
 >>> [
->>> 	0 0 0 0 0 1 0 0 0 1 1 0 0 1 0 1 0 0 1 1
->>> 	1 0 1 0 1 1 0 1 1 1 1 1
+>>> 	0 0 0 0 0 1 0 0 0 1
+>>> 	1 0 0 1 0 1 0 0 1 1
+>>> 	1 0 1 0 1 1 0 1 1 1
+>>> 	1 1
 >>> ].isDeBruijnSequence(2, 5)
 true
 

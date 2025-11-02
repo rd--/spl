@@ -21,6 +21,7 @@
 				aperysConstant: [002117],
 				arithmeticGeometricMean: [068521 084895 084896 084897],
 				arithmeticProgression: [000027 005408 005843 008585 008586],
+				artinsConstant: [005596],
 				baumSweetSequence: [086747],
 				beattySequence: [001951 001952 022838 054406 022843 054385 022844 054386 000201 001950],
 				bellB: [106800],
@@ -56,6 +57,7 @@
 				copelandErdosSequence: [033308],
 				cot: [069855],
 				coth: [085984],
+				decimalPeriod: [001913 051626],
 				delannoySequence: [008288],
 				derangements: [000166],
 				differences: [049296],
@@ -225,7 +227,7 @@
 				moserDeBruijnSequence: [000695],
 				motzkinNumber: [001006],
 				motzkinSequence: [001006],
-				multiplicativeOrder: [001913],
+				multiplicativeOrder: [001913 001122 019334 019335 019336 019337 019338 019339],
 				namedConstant: [086088],
 				narayanaNumber: [001263],
 				narayanaSequence: [000930],
@@ -263,7 +265,7 @@
 					051867 051868 051869 051870 051871 051872 051873 051874
 					051875 051876
 				],
-				powerMod: [096008 001567],
+				powerMod: [096008 001567 002371],
 				previousPrime: [007917],
 				prime: [000040 046929],
 				primeDistance: [051699],

@@ -117,6 +117,10 @@
 		self.gcd(anInteger) = 1
 	}
 
+	isFullReptendPrime { :n :p |
+		multiplicativeOrder(p, n) = (n - 1)
+	}
+
 	isFullReptendPrime { :self |
 		self = 7 | {
 			self.isPrime & {
@@ -148,7 +152,7 @@
 				self = 2
 			} {
 				let limit = self.sqrt.floor;
-				(3, 5 .. limit).noneSatisfy { :each |
+				3.toBy(5, limit).noneSatisfy { :each |
 					self % each = 0
 				}
 			}
@@ -694,7 +698,7 @@
 	primitiveRootList { :n |
 		let e = n.eulerPhi;
 		let p = e.primeFactors;
-		(1 .. n - 1).select { :g |
+		1.to(n - 1).select { :g |
 			g.isCoprime(n)
 		}.select { :g |
 			p.collect { :i |
@@ -706,7 +710,7 @@
 	}
 
 	primorial { :n |
-		(1 .. n).product(prime:/1)
+		1.to(n).product(prime:/1)
 	}
 
 	radical { :self |
@@ -1022,7 +1026,7 @@
 				n.isPrime
 			}
 		).if {
-			(0 .. n - 1).collect { :k |
+			0.to(n - 1).collect { :k |
 				(2 * n * k) + k.powerMod(2, n)
 			}
 		} {
@@ -1080,7 +1084,7 @@
 			let r = n.primitiveRootList;
 			r.collect { :g |
 				SparseArray(
-					(1 .. n - 1).collect { :i |
+					1.to(n - 1).collect { :i |
 						[g.powerMod(i, n), i] -> 1
 					}
 				)
@@ -1097,7 +1101,7 @@
 	ellipticCurveOverFiniteField { :a :b :q |
 		let p = UnivariatePolynomial([b, a, 0, 1]);
 		let c = [];
-		[0 .. q - 1].collect { :x |
+		0.to(q - 1).collect { :x |
 			let a = p.at(x);
 			let l = legendreSymbol(a, q);
 			(l = 0).ifTrue {

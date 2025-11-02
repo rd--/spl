@@ -1106,6 +1106,7 @@
 	}
 
 	multiplicativeOrder { :k :n :r |
+		k := k.asLargeInteger;
 		(n = 1).if {
 			1
 		} {

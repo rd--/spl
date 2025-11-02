@@ -160,7 +160,7 @@ Use `shiftRegisterSequence` to generate a binary de Bruijn sequence:
 
 * * *
 
-See also: deBruijnSequenceCount, partition, shiftRegisterSequence, tuples
+See also: deBruijnSequenceCount, isDeBruijnSequence, partition, shiftRegisterSequence, tuples
 
 Guides: Combinatorial Functions, Integer Sequence Functions
 
