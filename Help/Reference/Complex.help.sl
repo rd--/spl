@@ -203,10 +203,10 @@ The `components` method answers a two `List` of the real and imaginary component
 [1 2]
 ```
 
-The `asComplex` method is defined at `List`:
+Convert a list of two places to a complex number:
 
 ```
->>> [1 2].asComplex
+>>> [1 2].listToComplex
 1J2
 ```
 

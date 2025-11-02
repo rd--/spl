@@ -562,8 +562,8 @@ system.includesPackage('Association') /* association package */
 ('x' -> 1).isAssociation /* type predicate */
 Association('x', 1) = ('x' -> 1)
 let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
-('x' -> 1).asList = ['x', 1] /* two element [key, value] array */
-['x' -> 1, 'y' -> 2].collect(asList:/1) = ['x' 1; 'y' 2]
+('x' -> 1).keyValue = ['x', 1] /* two element [key, value] array */
+['x' -> 1, 'y' -> 2].collect(keyValue:/1) = ['x' 1; 'y' 2]
 (23 -> 3.141).printString = '23 -> 3.141'
 (23 -> 3.141).storeString = '(23 -> 3.141)'
 (1 -> '1').key = (1 -> 'one').key
@@ -2823,7 +2823,7 @@ let a = RunArray([23, 34, 45], ['a', 'b', 'a']); (a.allocatedSize / a.size * 100
 RunArray([1, 3, 5], ['a', 'b', 'c']).asList.stringIntercalate('') = 'abbbccccc' /* from runs and values, as array */
 [1 -> 'a', 3 -> 'b', 5 -> 'c'].associationListToRunArray.asList.stringIntercalate('') = 'abbbccccc' /* from associations, as array */
 [4 3 3 2 2 2 1 1 1 1].asRunArray = RunArray([1 2 3 4], [4 3 2 1]) /* from sequence */
-'abbbccccc'.asList.asRunArray.runs = [1 3 5]
+'abbbccccc'.characters.asRunArray.runs = [1 3 5]
 ```
 
 ## Sequenceable -- collection trait
@@ -3451,7 +3451,7 @@ let a = 'string'.characterList; a.stringJoin = 'string'
 '154'.parseNumber = 154 /* parse integral number */
 'A clear but rather long-winded summary'.contractTo(19) = 'A clear ... summary' /* contract string to be of size */
 'antidisestablishmentarianism'.contractTo(10) = 'anti...ism' /* contract string to be of size */
-'string'.asList.sort.stringJoin = 'ginrst'
+'string'.characters.sort.stringJoin = 'ginrst'
 'x' != 'x'.asCharacter /* a single element string is not equal to a character */
 'Mačiūnas'.removeDiacritics = 'Maciunas' /* transform to ascii by deleting diacritics */
 'string'.copy == 'string' /* copy is identity */
@@ -4077,7 +4077,7 @@ PlanarCoordinates([200, 100]) + PlanarCoordinates([50, 25]) = PlanarCoordinates(
 PlanarCoordinates([200, 100]) - PlanarCoordinates([50, 25]) = PlanarCoordinates([150, 75]) /* subtract points */
 PlanarCoordinates([200, 100]) * PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 400]) /* multiply points */
 PlanarCoordinates([1800, 100]) / PlanarCoordinates([3, 4]) = PlanarCoordinates([600, 25]) /* divide points */
-PlanarCoordinates([200 100]).asList = [200, 100] /* array of x and y */
+PlanarCoordinates([200 100]).coordinates = [200, 100] /* array of x and y */
 let v = PlanarCoordinates([3, 4]); v.first = 3 & { v.second = 4 } /* implements first and second */
 let v = PlanarCoordinates([3, 4]); v[1] = 3 & { v[2] = 4 } /* implements at */
 let v = PlanarCoordinates([3, 4]); v[1] := 7; v.first = 7 /* implements atPut */
@@ -4100,11 +4100,11 @@ PlanarCoordinates([1, 1]).normalize.norm ~ 1
 ```
 [1, 2, 3].asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from list */
 (x: 1, y: 2, z: 3).asCartesianCoordinates = CartesianCoordinates([1, 2, 3]) /* from record */
-let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.asList = [1, 2, 3] /* point as array */
+let a = [1, 2, 3]; let v = a.asCartesianCoordinates; v.coordinates = [1, 2, 3] /* point as array */
 CartesianCoordinates([0, 0, 0]).isOrigin /* are x, y and z all zero */
 let v = CartesianCoordinates([1, 2, 3]); [v.x, v.y, v.z] = [1, 2, 3] /* fields are x, y, z */
 let v = CartesianCoordinates([3, 4, 5]); v[1] = 3 & { v[2] = 4 & { v[3] = 5 } } /* implements at */
-let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.asList = [5, 4, 3] /* implements atPut */
+let v = CartesianCoordinates([3, 4, 5]); v[1] := 5; v[3] := 3; v.coordinates = [5, 4, 3] /* implements atPut */
 let v = CartesianCoordinates([3, 4, 5]); [v.first, v.second, v.third] = [3, 4, 5] /* implements first &etc. */
 CartesianCoordinates([0, 0, 1]).asSphericalCoordinates = SphericalCoordinates([1, 0, 0])
 SphericalCoordinates([1, 0, 0]).asCartesianCoordinates = CartesianCoordinates([0, 0, 1])
@@ -4118,7 +4118,7 @@ CartesianCoordinates([1, 2, 3]).distance(CartesianCoordinates([6, 5, 4])) = 35.s
 CartesianCoordinates([0, 0, 0]).isCartesianCoordinates = true /* is Cartesian coordinate */
 CartesianCoordinates([0, 0, 0]).isOrigin = true /* is zero */
 let v = CartesianCoordinates([0, 0, 0]); v.asCartesianCoordinates == v /* identity */
-CartesianCoordinates([1, 3, 5]).asList = [1 3 5] /* point as array */
+CartesianCoordinates([1, 3, 5]).coordinates = [1 3 5] /* point as array */
 [1 3 5].asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* array as point */
 (x: 1, y: 3, z: 5).asCartesianCoordinates = CartesianCoordinates([1, 3, 5]) /* record as point */
 SphericalCoordinates([1, 2, 3]).asRecord = (radius: 1, theta: 2, phi: 3)

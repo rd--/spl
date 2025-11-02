@@ -50,6 +50,9 @@ Complex(3, 4)
 ```
 >>> 3.1416D
 3.1416D
+
+>>> 0.1D5
+0.10000D
 ```
 
 `LargeInteger` literals:

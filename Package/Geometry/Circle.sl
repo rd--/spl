@@ -350,7 +350,7 @@ UnitCircle : [Object] {
 +Complex {
 
 	circleInversion { :self :circle |
-		self.realImaginary.circleInversion(circle).asComplex
+		self.realImaginary.circleInversion(circle).listToComplex
 	}
 
 }
