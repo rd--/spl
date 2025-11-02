@@ -435,6 +435,10 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		self.weightedMediant(aFraction, 1, 1.goldenRatio)
 	}
 
+	printStringToFixed { :self :anInteger |
+		self.asFloat.printStringToFixed(anInteger)
+	}
+
 	raisedToFraction { :self :aFraction |
 		let rootNumerator = self.numerator.nthRoot(aFraction.denominator).truncate;
 		let rootDenominator = self.denominator.nthRoot(aFraction.denominator).truncate;

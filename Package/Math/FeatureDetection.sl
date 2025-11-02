@@ -152,13 +152,13 @@
 		self.findRepeat(=)
 	}
 
-	findTransientRepeat { :self :n |
+	findTransientRepeat { :self :n :aBlock:/2 |
 		let k = self.size;
 		valueWithReturn { :return:/1 |
 			let m = k - (n * 2) + 1;
 			1.toDo(m) { :i |
 				let part = self.sliceFromTo(i, k);
-				let repeat = part.findRepeat;
+				let repeat = part.findRepeat(aBlock:/2);
 				(repeat !== part & { (repeat.size * n) <= (k - i + 1) }).ifTrue {
 					[self.copyFromTo(1, i - 1), repeat.asList].return
 				}
@@ -166,8 +166,12 @@
 			[self, []]
 		}
 	}
-}
 
+	findTransientRepeat { :self :n |
+		self.findTransientRepeat(n, =)
+	}
+
+}
 
 +String {
 

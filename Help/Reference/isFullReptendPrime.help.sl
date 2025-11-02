@@ -19,6 +19,7 @@ OEIS [A001913](https://oeis.org/A001913):
 First few terms where _b=2_,
 OEIS [A001122](https://oeis.org/A001122):
 
+```
 >>> 1:250.select { :n |
 >>> 	n.isFullReptendPrime(2)
 >>> }

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-5.000 -5.000 110.000 110.000">
 <g fill="none" stroke="black" stroke-width="0.0071%" transform="translate(0, 100.0000) scale(70.7107, -70.7107)">
-<path d="M 1.414,-0.000 A 1.414 1.414 0.000 0 1 0.000,1.414" />
+<path d="M 1.414,0.000 A 1.414 1.414 0.000 0 1 0.000,1.414" />
 <circle cx="1.414" cy="0.000" r="0.007" />
 <circle cx="1.000" cy="1.000" r="0.007" />
 <circle cx="0.000" cy="1.414" r="0.007" />

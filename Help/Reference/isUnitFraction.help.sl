@@ -50,5 +50,3 @@ _OEIS_
 [1](https://oeis.org/A003592),
 _W_
 [1](https://en.wikipedia.org/wiki/Unit_fraction)
-
-

@@ -10,7 +10,7 @@ Plot Eisenstein primes in the complex plane:
 let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 { :a :b |
 	isEisensteinPrime(a, b).if {
-		(a + (b * omega)).asList
+		(a + (b * omega)).realImaginary
 	} {
 		nil
 	}

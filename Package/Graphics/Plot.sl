@@ -564,7 +564,7 @@ Plot : [Object] { | pages format options |
 					y
 				} {
 					y.isComplex.if {
-						y.asList
+						y.realImaginary
 					} {
 						[x, y]
 					}

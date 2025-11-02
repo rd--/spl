@@ -30,7 +30,7 @@ At `Range`:
 At `List`:
 
 ```
->>> let aList = [9 .. 1];
+>>> let aList = [9, 8 .. 1];
 >>> aList[7]
 3
 ```

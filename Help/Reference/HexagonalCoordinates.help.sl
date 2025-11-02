@@ -51,7 +51,7 @@ Draw the six nearest neighbours of the _(0, 0, 0)_ cell:
 HexagonalCoordinates([0 0 0])
 .nearestNeighbours
 .collect { :p |
-	let c = p.asCartesianCoordinates.asList;
+	let c = p.asCartesianCoordinates.coordinates;
 	let r = 0.9;
 	6.regularPolygon(c, r, 0.5.pi)
 }.LineDrawing
@@ -67,7 +67,7 @@ beginning with the least clockwise diagonal neighbour:
 HexagonalCoordinates([0 0 0])
 .diagonalNeighbours
 .collect { :p |
-	let c = p.asCartesianCoordinates.asList;
+	let c = p.asCartesianCoordinates.coordinates;
 	let r = 0.9;
 	6.regularPolygon(c, r, 0.5.pi)
 }.LineDrawing

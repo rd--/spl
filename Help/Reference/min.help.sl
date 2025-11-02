@@ -191,7 +191,6 @@ _Smalltalk_
 _W_
 [1](https://en.wikipedia.org/wiki/Minimum)
 
-
 Unicode: U+230A ⌊ Left Floor
 
 Categories: Testing

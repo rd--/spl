@@ -50,7 +50,7 @@ Plot Eisenstein integer primes on the complex plane:
 { :a :b |
 	let c = EisensteinInteger(a, b);
 	c.isPrime.if {
-		c.asComplex.asList
+		c.asComplex.realImaginary
 	} {
 		nil
 	}

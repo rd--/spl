@@ -568,6 +568,13 @@
 		a - ((y ^ 2) * b)
 	}
 
+	trottCurve { :x :y |
+		let a = 144 * ((x ^ 4) + (y ^ 4));
+		let b = 225 * ((x ^ 2) + (y ^ 2));
+		let c = 350 * (x ^ 2) * (y ^ 2);
+		a - b + c + 81
+	}
+
 	wattsCurve { :a :b :c |
 		let aa = a * a;
 		let bb = b * b;
@@ -649,13 +656,6 @@
 		{ :x |
 			(d / x) - (a * x.square) - (b * x) - c
 		}
-	}
-
-	trottCurve { :x :y |
-		let a = 144 * ((x ^ 4) + (y ^ 4));
-		let b = 225 * ((x ^ 2) + (y ^ 2));
-		let c = 350 * (x ^ 2) * (y ^ 2);
-		a - b + c + 81
 	}
 
 }

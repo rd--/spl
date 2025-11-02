@@ -43,4 +43,3 @@ _OEIS_
 [1](https://oeis.org/A085469),
 _W_
 [1](https://en.wikipedia.org/wiki/Madelung_constant)
-

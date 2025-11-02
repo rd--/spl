@@ -157,7 +157,7 @@ let n = 5;
 
 Plot the Nim-sum table:
 
-~~~
+~~~spl svg=E
 0:20.triangularArray { :a :b |
 	b.bitXor(a - b)
 }.catenate.scatterPlot

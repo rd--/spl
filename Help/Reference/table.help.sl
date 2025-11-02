@@ -265,8 +265,10 @@ which form a triangular lattice in the complex plane:
 let omega = (-1 + (0J1 * 3.sqrt)) / 2;
 { :a :b |
 	let c = a + (b * omega);
-	c.asList
-}.table(-9:9, -9:9).flatten(1).scatterPlot
+	c.realImaginary
+}.table(-9:9, -9:9)
+.flatten(1)
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/table-B.svg)

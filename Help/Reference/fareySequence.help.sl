@@ -143,7 +143,7 @@ let f = 20.fareySequence;
 Draw the Farey sunburst:
 
 ~~~spl svg=E
-let x = 9.fareySequence.collect(asList:/1);
+let x = 9.fareySequence.collect(components:/1);
 let y = x.collect(reverse:/1);
 [1 1; 1 -1; -1 1; -1 -1].collect { :m |
 	[

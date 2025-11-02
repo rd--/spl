@@ -66,7 +66,6 @@ A parallelepiped can tile space:
 { :i :j :k |
 	let v = [1 0 0; 1 1 0; 0 1 0.5];
 	let o = (v * [i j k]).sum;
-	o.postLine;
 	Parallelepiped(o, v)
 }.table(1:3, 1:2, 1:3)
 .GeometryCollection

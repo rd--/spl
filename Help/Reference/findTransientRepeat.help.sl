@@ -77,7 +77,8 @@ using `~` to compare items:
 
 ~~~spl svg=A
 [0, 1/6.pi .. 8.pi].cos
-.findTransientRepeat(~)
+.findTransientRepeat(2, ~)
+.second
 .discretePlot
 ~~~
 

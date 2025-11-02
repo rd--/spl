@@ -381,8 +381,8 @@ One useful technique, originated by Ervin Wilson, is a variation of the katapykn
 >>> [4 5 6].collect { :m |
 >>> 	let p = 4 * m;
 >>> 	let q = 3 * m;
->>> 	(p - 1 .. q + 2).collect { :i |
->>> 		(i - 1 .. q + 1).collect { :j |
+>>> 	(p - 1).toBy(q + 2, -1).collect { :i |
+>>> 		(i - 1).toBy(q + 1, -1).collect { :j |
 >>> 			[
 >>> 				[p, i, j, q],
 >>> 				[

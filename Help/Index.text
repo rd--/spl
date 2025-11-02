@@ -53,6 +53,7 @@ Guide/Documentation Tests.help.sl
 Guide/Drawing Functions.help.sl
 Guide/Elementwise Functions.help.sl
 Guide/Emacs Editor.help.sl
+Guide/Enumeration Functions.help.sl
 Guide/Error Handling.help.sl
 Guide/Experimental Assignment Operator Syntax.help.sl
 Guide/Experimental AtIfAbsentPut Syntax.help.sl
@@ -196,6 +197,7 @@ Guide/Small Kansas.help.sl
 Guide/Smalltalk Arity.help.sl
 Guide/Smalltalk Perspective.help.sl
 Guide/Sort Functions.help.sl
+Guide/Span Syntax.help.sl
 Guide/Special Functions.help.sl
 Guide/Specialised Constructors.help.sl
 Guide/Statistics Functions.help.sl
@@ -380,6 +382,7 @@ Reference/arrayPad.help.sl
 Reference/arrayPlot.help.sl
 Reference/arrayReduce.help.sl
 Reference/arrayRules.help.sl
+Reference/artinsConstant.help.sl
 Reference/asApproximateFraction.help.sl
 Reference/asAsciiString.help.sl
 Reference/asAssociation.help.sl
@@ -2566,6 +2569,8 @@ Reference/noergaardRhythmicInfinitySystem.help.sl
 Reference/NoncentralBetaDistribution.help.sl
 Reference/NoncentralChiSquareDistribution.help.sl
 Reference/noncontiguousSubsequences.help.sl
+Reference/nonemptyRange.help.sl
+Reference/nonemptyThenTo.help.sl
 Reference/noneSatisfy.help.sl
 Reference/noneTrue.help.sl
 Reference/NormalDistribution.help.sl

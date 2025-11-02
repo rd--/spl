@@ -105,7 +105,7 @@
 		let a = [root.z * cos(root.t), root.z * sin(root.t) ];
 		let coroot = {z: pow(root.z, p/q), t: (p*root.t+2*pi)/q};
 		let b = [coroot.z * cos(coroot.t), coroot.z * sin(coroot.t) ];
-		return [_asComplex_1(a), _asComplex_1(b), root.r];
+		return [_listToComplex_1(a), _listToComplex_1(b), root.r];
 		>
 	}
 
@@ -119,7 +119,7 @@
 		let answer = [];
 		let count = 0;
 		{ modQ < maxD }.whileTrue {
-			answer.add(Circle(q.asList, modQ * r));
+			answer.add(Circle(q.realImaginary, modQ * r));
 			q := q * delta;
 			modQ := modQ * modDelta;
 			count := count + 1
@@ -127,7 +127,7 @@
 		q := z * recipDelta;
 		modQ := q.abs;
 		{ modQ > minD }.whileTrue {
-			answer.add(Circle(q.asList, modQ * r));
+			answer.add(Circle(q.realImaginary, modQ * r));
 			q := q * recipDelta;
 			modQ := modQ * modRecipDelta;
 			count := count + 1
