@@ -652,8 +652,8 @@ const asSl: ohm.ActionDict<string> = {
 	doubleQuotedStringLiteral(_l, s, _r) {
 		return `DoubleQuotedString('${s.sourceString}')`;
 	},
-	floatDecimalLiteral(s, i, _, f, _d) {
-		return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D')`;
+	floatDecimalLiteral(s, i, _, f, _d, k) {
+		return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`;
 	},
 	floatLiteral(s, i, _dot, f) {
 		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' +
@@ -670,8 +670,8 @@ const asSl: ohm.ActionDict<string> = {
 	infinityLiteral(s, i) {
 		return validateSign(s.sourceString) + i.sourceString;
 	},
-	integerDecimalLiteral(s, i, _d) {
-		return `parseDecimal('${s.sourceString}${i.sourceString}D')`;
+	integerDecimalLiteral(s, i, _d, k) {
+		return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`;
 	},
 	smallIntegerLiteral(s, i) {
 		return s.sourceString + i.sourceString;

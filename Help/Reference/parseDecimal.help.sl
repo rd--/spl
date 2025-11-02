@@ -37,7 +37,29 @@ With large integer:
 23L ^ 23
 ```
 
-The _D_ suffix is required:
+With scale specifier:
+
+```
+>>> '0.3D5'.parseDecimal
+0.30000D
+
+>>> '5D3'.parseDecimal
+5.000D
+
+>>> '3.141D3'.parseDecimal
+3.141D
+```
+
+It is an error is the specified scale is less than the implicit scale:
+
+```
+>>> {
+>>> 	'3.141D2'.parseDecimal
+>>> }.hasError
+true
+```
+
+The _D_ indicator is required:
 
 ```
 >>> '23'.parseDecimal { nil }

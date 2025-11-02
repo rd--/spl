@@ -43,6 +43,22 @@ false
 false
 ```
 
+Find at last place:
+
+```
+>>> [0 1 1 0 0]
+>>> .includesSubstring([0 0])
+true
+```
+
+Do not find when not present:
+
+```
+>>> [0 1 0 1 0]
+>>> .includesSubstring([0 0])
+false
+```
+
 * * *
 
 See also: includes, includesSubsequence, substrings

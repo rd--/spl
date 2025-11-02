@@ -9,6 +9,9 @@ answer the number of places after the decimal point:
 ```
 >>> 3.141D.scale
 3
+
+>>> 3.141D.precision
+4
 ```
 
 At a `Geometry` _g_,
@@ -79,7 +82,9 @@ Nested polygons:
 
 * * *
 
-See also: rotate, translate
+See also: precision, rotate, translate
+
+Guides: Geometry Functions
 
 References:
 _Mathematica_

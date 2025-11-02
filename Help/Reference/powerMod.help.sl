@@ -156,6 +156,24 @@ OEIS [A002371](https://oeis.org/A002371):
 ]
 ```
 
+Fermat pseudoprimes to base two,
+also called Sarrus numbers or Poulet numbers,
+OEIS [A001567](https://oeis.org/A001567):
+
+```
+>>> (3, 5 .. 5000).select { :n |
+>>> 	n.isPrime.not & {
+>>> 		2.powerMod(n - 1, n) = 1
+>>> 	}
+>>> }
+[
+	 341  561  645 1105 1387
+	1729 1905 2047 2465 2701
+	2821 3277 4033 4369 4371
+	4681
+]
+```
+
 Plot the sequence with fixed powers:
 
 ~~~spl svg=A
@@ -216,6 +234,7 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/sym.powermod.html),
 _OEIS_
-[1](https://oeis.org/A096008),
+[1](https://oeis.org/A096008)
+[2](https://oeis.org/A001567),
 _W_
 [1](https://en.wikipedia.org/wiki/Modular_exponentiation)

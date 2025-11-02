@@ -153,7 +153,7 @@
 				isPoliteNumber: [138591],
 				isPowerfulNumber: [001694 118896 060355],
 				isPracticalNumber: [005153],
-				isPrime: [005846],
+				isPrime: [005846 005385 005384 000353],
 				isPrimePower: [246655],
 				isPrimitiveAbundantNumber: [071395],
 				isPronicNumber: [002378],
@@ -167,6 +167,7 @@
 				isSmoothNumber: [000079 003586 051037 002473 051038 080197 080681 080682 080683],
 				isSphenicNumber: [007304 165936],
 				isSternPrime: [042978],
+				isStrongPseudoprime: [001262 020229 020230 020231 020232 02023 020234 020235],
 				isStrongPrime: [051634],
 				isSumOfTwoSquares: [001481],
 				isSumProductNumber: [038369],
@@ -176,6 +177,7 @@
 				isWeakPrime: [051635],
 				isWeirdNumber: [006037],
 				iterate: [014707 118006],
+				jacobiSymbol: [047713],
 				jacobsthalNumber: [001045],
 				josephusProblem: [006257 054995 032434],
 				josephusSequence: [209258],
@@ -261,7 +263,7 @@
 					051867 051868 051869 051870 051871 051872 051873 051874
 					051875 051876
 				],
-				powerMod: [096008],
+				powerMod: [096008 001567],
 				previousPrime: [007917],
 				prime: [000040 046929],
 				primeDistance: [051699],

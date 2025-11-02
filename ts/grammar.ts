@@ -173,8 +173,8 @@ Sl {
 	spanFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
 	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral
-	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" // ("d" | "D")
-	integerDecimalLiteral = plusOrMinus? digit+ "D" // ("d" | "D")
+	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" (digit+)? // ("d" | "D")
+	integerDecimalLiteral = plusOrMinus? digit+ "D" (digit+)? // ("d" | "D")
 	scientificLiteral = integerOrFloatLiteral "E" integerLiteral // ("e" | "E")
 	complexLiteral = integerOrFloatLiteral "J" integerOrFloatLiteral // ("j" | "J")
 	imaginaryLiteral = integerOrFloatLiteral "I" // ("i" | "I")

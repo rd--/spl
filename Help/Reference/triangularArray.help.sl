@@ -90,7 +90,7 @@ Floyd’s triangle:
 
 ```
 >>> 1:7.triangularArray { :n :k |
->>> 	(n - 1).polygonalNumber + k
+>>> 	3.polygonalNumber(n - 1) + k
 >>> }
 [
 	1;

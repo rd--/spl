@@ -68,5 +68,7 @@ See also: e
 Guides: Number Literals
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/ScientificNotation.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Scientific_notation)

@@ -1,8 +1,8 @@
 # parseDecimalNumeral
 
-- _parseDecimalNumeral(aString, elseClause:/0)_
+- _parseDecimalNumeral(s, f:/0)_
 
-Parse the decimal numeral at _aString_.
+Parse the decimal numeral at the string _s_.
 
 With decimal point:
 
@@ -46,6 +46,8 @@ nil
 * * *
 
 See also: asNumber, isBooleanString, isDecimalNumeralString, parseDecimalInteger
+
+Guides: Parsing Functions
 
 References:
 _W_

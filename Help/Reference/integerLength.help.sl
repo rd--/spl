@@ -63,6 +63,13 @@ At negative integers:
 [8 7 6 5 4 3 2 1]
 ```
 
+At `zero`:
+
+```
+>>> 0.integerLength(10)
+0
+```
+
 Plot for base 10 from -25 to 25:
 
 ~~~spl svg=A

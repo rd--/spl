@@ -75,7 +75,8 @@ With negative first argument:
 [1 0 -1 1]
 ```
 
-Find Euler–Jacobi pseudoprimes:
+Find Euler–Jacobi pseudoprimes,
+OEIS [A047713](https://oeis.org/A047713):
 
 ```
 >>> 1:5000.select { :m |
@@ -130,5 +131,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/JacobiSymbol.html)
 [2](https://reference.wolfram.com/language/ref/JacobiSymbol.html),
+_OEIS_
+[1](https://oeis.org/A047713),
 _W_
 [1](https://en.wikipedia.org/wiki/Jacobi_symbol)

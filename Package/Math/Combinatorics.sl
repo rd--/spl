@@ -252,6 +252,19 @@
 		}.catenate
 	}
 
+	isDeBruijnSequence { :x :k :n |
+		let a = x.nub.sort;
+		(a.size = k) & {
+			x.size = (k ^ n) & {
+				let b = a.tuples(n);
+				let c = x ++ x.first(n - 1);
+				b.allSatisfy { :d |
+					c.includesSubstring(d)
+				}
+			}
+		}
+	}
+
 }
 
 +@Integer {

@@ -56,7 +56,7 @@ Parallelepiped : [Object, Geometry] { | origin vectorList |
 
 	Parallelepiped { :origin :vectorList |
 		origin.assertIsOfSize(3);
-		origin.assertIsOfShape([3 3]);
+		vectorList.assertIsOfShape([3 3]);
 		newParallelepiped().initializeSlots(origin, vectorList)
 	}
 

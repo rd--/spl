@@ -32,6 +32,20 @@ At `Fraction`:
 0.243038
 ```
 
+At `SmallFloat`,
+compare with `log` with base ten:
+
+```
+>>> 1000.log10
+3
+
+>>> 1000.log(10) < 3
+true
+
+>>> 1000.log / 10.log < 3
+true
+```
+
 Threads over lists:
 
 ```
@@ -57,6 +71,8 @@ See also: ^, log
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/CommonLogarithm.html)
-[2](https://reference.wolfram.com/language/ref/Log10.html)
+[2](https://reference.wolfram.com/language/ref/Log10.html),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-math.log10),
 _W_
 [1](https://en.wikipedia.org/wiki/Common_logarithm)

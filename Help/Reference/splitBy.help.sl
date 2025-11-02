@@ -16,8 +16,8 @@ At `List`:
 ```
 
 Split a `String` into a `List` of `String`s,
-according to _separator_,
-which is also a `String`.
+according to the separator,
+which is also a `String`:
 
 ```
 >>> 'a,b,c'.splitBy(',')
@@ -31,6 +31,9 @@ which is also a `String`.
 
 >>> ''.splitBy(',')
 ['']
+
+>>> '0.3D9'.splitBy('D')
+['0.3' '9']
 ```
 
 The inverse is `stringJoin`:

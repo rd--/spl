@@ -210,6 +210,18 @@ OEIS [A010060](https://oeis.org/A010060):
 ]
 ```
 
+At `Decimal`,
+answer the list of significant digits without indicating the location of the decimal place,
+see also `realDigits`:
+
+```
+>>> 3.141D.integerDigits
+[3 1 4 1]
+
+>>> 0.010D.integerDigits
+[0 1 0]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -283,7 +295,17 @@ Scatter plot of every fourth item of the first few terms of OEIS [A063543](https
 }.scatterPlot
 ~~~
 
-![](<sw/spl/Help/Image/integerDigits-E.svg>)
+![](sw/spl/Help/Image/integerDigits-E.svg)
+
+Scatter plot of the first half of the integer digits of the decimal representation of _1/503_:
+
+~~~spl svg=F
+Decimal(1/503, 251)
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-F.svg)
 
 * * *
 
@@ -306,5 +328,7 @@ _OEIS_
 [8](https://oeis.org/A063543),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
+
+Further Reading: Blum 1986
 
 Categories: Converting

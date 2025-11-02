@@ -139,7 +139,12 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 	}
 
 	integerDigits { :self |
-		self.unscaledInteger.integerDigits
+		let [d, n] = self.realDigits;
+		(n < 0).if {
+			(0 # n.abs) ++ d
+		} {
+			d
+		}
 	}
 
 	integerPart { :self |
@@ -185,6 +190,10 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 		self.fraction.numerator
 	}
 
+	precision { :self |
+		self.integerPart.asLargeInteger.integerLength(10) + self.scale
+	}
+
 	printString { :self |
 		let scale = self.scale;
 		let fraction = self.fraction;
@@ -217,6 +226,12 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 			self.fraction.raisedToInteger(aNumber),
 			self.scale
 		)
+	}
+
+	realDigits { :self |
+		let l = self.fraction.log10.floor;
+		let u = self.unscaledInteger.integerDigits;
+		[u, l + 1]
 	}
 
 	reciprocal { :self |
@@ -330,45 +345,62 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 
 +String {
 
-	basicParseDecimal { :self :elseClause:/0 |
-		let parts = self.splitBy('.');
-		parts.size.caseOf([
-			1 -> {
-				UnsimplifiedDecimal(
-					parts[1].parseLargeInteger(elseClause:/0).asFraction,
-					0
-				)
-			},
-			2 -> {
-				let sign = self.beginsWith('-').if { -1 } { 1 };
-				let i = parts[1].parseLargeInteger(elseClause:/0);
-				let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));
-				let k = parts[2].size;
-				UnsimplifiedDecimal(
-					i + Fraction(f, 10L ^ k),
-					k
-				)
-			}
-		]) {
-			elseClause()
-		}
-	}
-
 	parseDecimal { :self :elseClause:/0 |
-		self.endsWith('D').if {
-			self.allButLast.basicParseDecimal(elseClause:/0)
+		let parts = self.splitBy('D');
+		(parts.size = 2).if {
+			parseDecimalWithScale(
+				parts[1],
+				parts[2].isEmpty.if {
+					nil
+				} {
+					parts[2].parseDecimalInteger {
+						self.error('parseDecimal: invalid scale')
+					}
+				},
+				elseClause:/0
+			)
 		} {
 			elseClause()
 		}
 	}
 
 	parseDecimal { :self |
-		self.endsWith('D').if {
-			self.allButLast.basicParseDecimal {
-				self.error('String>>parseDecimal: no D suffix')
-			}
-		} {
+		self.parseDecimal {
 			self.error('String>>parseDecimal')
+		}
+	}
+
+	parseDecimalWithScale { :self :scaleOrNil :elseClause:/0 |
+		let parts = self.splitBy('.');
+		parts.size.caseOf(
+			[
+				1 -> {
+					UnsimplifiedDecimal(
+						parts[1].parseLargeInteger(elseClause:/0).asFraction,
+						scaleOrNil.ifNil { 0 }
+					)
+				},
+				2 -> {
+					let sign = self.beginsWith('-').if { -1 } { 1 };
+					let i = parts[1].parseLargeInteger(elseClause:/0);
+					let f = sign.copySignTo(parts[2].parseLargeInteger(elseClause:/0));
+					let k = parts[2].size;
+					scaleOrNil.ifNotNil { :x |
+						(x >= k).if {
+							f := f * (10L ^ (x - k));
+							k := x
+						} {
+							self.error('parseDecimal: invalid scale')
+						}
+					};
+					UnsimplifiedDecimal(
+						i + Fraction(f, 10L ^ k),
+						k
+					)
+				}
+			]
+		) {
+			elseClause()
 		}
 	}
 

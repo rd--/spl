@@ -199,6 +199,21 @@
 		}
 	}
 
+	isStrongPseudoprime { :n :b |
+		n.isEven.not & {
+			n.isPrime.not & {
+				let s = integerExponent(n - 1, 2);
+				let d = (n - 1) / (2 ^ s);
+				powerMod(b, d, n) = 1 | {
+					1.to(s).anySatisfy { :i |
+						let z = d * (2 ^ (i - 1));
+						powerMod(b, z, n) = (n - 1)
+					}
+				}
+			}
+		}
+	}
+
 	isStrongPrime { :n |
 		(n >= 3) & {
 			n.isPrime & {

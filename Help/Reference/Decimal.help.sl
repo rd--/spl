@@ -13,6 +13,15 @@ It is able to accurately represent arbitrary precision decimal fractions.
 0.53846D
 ```
 
+The `scale` of a decimal is the number of places after the decimal point,
+the `precision` is the total number of significant digits:
+
+```
+>>> let n = 1.2000000000000000000D;
+>>> (n.scale, n.precision)
+(19, 20)
+```
+
 Parse `String` as `Decimal`,
 with and without fractional part:
 

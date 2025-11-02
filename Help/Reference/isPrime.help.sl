@@ -150,7 +150,8 @@ At `zero` and `one`:
 [false false]
 ```
 
-Eulers prime-generating polynomial (OEIS [A005846](https://oeis.org/A005846)):
+Eulers prime-generating polynomial,
+OEIS [A005846](https://oeis.org/A005846):
 
 ```
 >>> let e = 0:23.collect { :n |
@@ -167,6 +168,75 @@ Eulers prime-generating polynomial (OEIS [A005846](https://oeis.org/A005846)):
 		461 503 547 593
 	]
 )
+```
+
+Safe primes,
+OEIS [A005385](https://oeis.org/A005385):
+
+```
+>>> 2:400.prime.select { :p |
+>>> 	((p - 1) / 2).isPrime
+>>> }
+[
+	   5    7   11   23   47
+	  59   83  107  167  179
+	 227  263  347  359  383
+	 467  479  503  563  587
+	 719  839  863  887  983
+	1019 1187 1283 1307 1319
+	1367 1439 1487 1523 1619
+	1823 1907 2027 2039 2063
+	2099 2207 2447 2459 2579
+]
+```
+
+Sophie Germain primes,
+OEIS [A005384](https://oeis.org/A005384):
+
+```
+>>> 1:200.prime.select { :p |
+>>> 	((2 * p) + 1).isPrime
+>>> }
+[
+	   2    3    5   11   23
+	  29   41   53   83   89
+	 113  131  173  179  191
+	 233  239  251  281  293
+	 359  419  431  443  491
+	 509  593  641  653  659
+	 683  719  743  761  809
+	 911  953 1013 1019 1031
+	1049 1103 1223
+]
+```
+
+Primes _p_ where _1/p_ has a decimal period of _p-1_,
+the maximum-possible cycle length,
+OEIS [A000353](https://oeis.org/A000353):
+
+```
+>>> 1:900.prime.select { :p |
+>>> 	[7 19 23].includes(p % 40) & {
+>>> 		((p - 1) / 2).isPrime
+>>> 	}
+>>> }
+[
+	   7   23   47   59  167
+	 179  263  383  503  863
+	 887  983 1019 1367 1487
+	1619 1823 2063 2099 2207
+	2447 2459 2579 2819 2903
+	3023 3167 3623 3779 3863
+	4007 4127 4139 4259 4703
+	5087 5099 5807 5927 5939
+	6047 6659 6779 6899 6983
+]
+
+>>> 1/47.decimalPeriod
+46
+
+>>> 1/383.decimalPeriod
+382
 ```
 
 Plot primes up to one-thousand:
@@ -194,8 +264,12 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/isprime.html),
 _OEIS_
-[1](https://oeis.org/A005846),
+[1](https://oeis.org/A005846)
+[2](https://oeis.org/A005385)
+[3](https://oeis.org/A005384)
+[4](https://oeis.org/A000353),
 _W_
 [1](https://en.wikipedia.org/wiki/Primality_test)
+[2](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)
 
 Categories: Arithmetic
