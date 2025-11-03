@@ -83,3 +83,12 @@ Span : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequence
 	}
 
 }
+
++List {
+
+	Span { :self |
+		let [start, stop, step] = self;
+		Span(start, stop, step)
+	}
+
+}

@@ -13,6 +13,36 @@ a square matrix in which each row is rotated one element to the right relative t
 	2 3 4 1;
 	1 2 3 4
 ]
+
+>>> 4.iota.rotateLeft
+>>> .circulantMatrix
+[
+	1 2 3 4;
+	4 1 2 3;
+	3 4 1 2;
+	2 3 4 1
+]
+```
+
+The circulant matrix of the diatonic scale represented as a bit vector:
+
+```
+>>> [1 1 0 1 0 1 0 1 1 0 1 0]
+>>> .circulantMatrix
+[
+	0 1 1 0 1 0 1 0 1 1 0 1;
+	1 0 1 1 0 1 0 1 0 1 1 0;
+	0 1 0 1 1 0 1 0 1 0 1 1;
+	1 0 1 0 1 1 0 1 0 1 0 1;
+	1 1 0 1 0 1 1 0 1 0 1 0;
+	0 1 1 0 1 0 1 1 0 1 0 1;
+	1 0 1 1 0 1 0 1 1 0 1 0;
+	0 1 0 1 1 0 1 0 1 1 0 1;
+	1 0 1 0 1 1 0 1 0 1 1 0;
+	0 1 0 1 0 1 1 0 1 0 1 1;
+	1 0 1 0 1 0 1 1 0 1 0 1;
+	1 1 0 1 0 1 0 1 1 0 1 0
+]
 ```
 
 * * *

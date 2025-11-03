@@ -953,3 +953,17 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List {
+
+	residueSetPlot { :self :modulus |
+		let i = ((modulus - self) % modulus).nub.sort;
+		let p = modulus.circlePoints([0 0], 1, 1/2.pi);
+		[
+			Circle([0 0], 1),
+			PointCloud(p),
+			Polygon(p.atAll(i + 1))
+		].LineDrawing
+	}
+
+}

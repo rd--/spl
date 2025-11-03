@@ -694,6 +694,10 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		)
 	}
 
+	lexicographicallyLeastRotation { :self |
+		self.characters.lexicographicallyLeastRotation.stringJoin
+	}
+
 	lineCount { :self |
 		self.isEmpty.if {
 			1

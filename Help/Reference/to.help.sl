@@ -1,8 +1,8 @@
 # to
 
-- _to(start, stop)_
+- _to(i, j)_
 
-Construct a `Range` by counting from _start_ up to _stop_ by `one`.
+Construct a `Range` by counting from the start value _i_ up to the stop value _j_ by `one`.
 
 ```
 >>> 1.to(5).asList
@@ -12,7 +12,7 @@ Construct a `Range` by counting from _start_ up to _stop_ by `one`.
 [6 7 8 9 10]
 ```
 
-If _stop_ is less than _start_ the `Range` is empty:
+If _j_ is less than _i_ the `Range` is empty:
 
 ```
 >>> let r = 5.to(1);
@@ -23,7 +23,7 @@ If _stop_ is less than _start_ the `Range` is empty:
 []
 ```
 
-To write a descending `Range` see `Range Syntax` or `thenTo` or `toBy`:
+To write a descending `Range` see `Range Syntax`, `Span Syntax`, `thenTo` or `toBy`:
 
 ```
 >>> 7:-1:3.asList
@@ -53,7 +53,7 @@ Threads over lists:
 ```
 
 _Rationale_:
-The behaviour when _stop < start_ is inherited from Smalltalk,
+The behaviour when _j<i_ is inherited from Smalltalk,
 and mirrors the behaviour at Haskell.
 It allows writing _1.to(k)_ as a sequence of indices into collection of size _k_,
 where _k_ may be zero.

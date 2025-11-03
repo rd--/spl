@@ -1,10 +1,14 @@
 # toBy
 
-- _toBy(start, stop, step)_
+- _toBy(i, j, k)_
 
-Construct a `Range` by counting up or down from _start_ to _stop_ by _step_.
+Construct a `Range` by counting up or down from the start value _i_ to the stop value _j_ by step _k_.
+This method is an alias for `Range`.
 
 ```
+>>> 1.toBy(9, 2)
+Range(1, 9, 2)
+
 >>> 1.toBy(9, 2).asList
 [1 3 5 7 9]
 
@@ -15,14 +19,14 @@ Construct a `Range` by counting up or down from _start_ to _stop_ by _step_.
 [9 7 5 3 1]
 ```
 
-It is an `error` if _step_ is zero:
+It is an `error` if the step _k_ is zero:
 
 ```
 >>> { 1.toBy(9, 0) }.hasError
 true
 ```
 
-If _step_ does not lead towards _stop_, the `Range` is empty:
+If the step _k_ does not lead towards the stop value _j_, the `Range` is empty:
 
 ```
 >>> 1.toBy(9, -1).size
@@ -33,12 +37,14 @@ If _step_ does not lead towards _stop_, the `Range` is empty:
 ```
 
 _Rationale_:
-The behaviour when _step_ does not lead towards _stop_ is inherited from Smalltalk.
+The behaviour when the step does not lead towards the stop value is inherited from Smalltalk.
 It allows writing, for instance, _1.toBy(k, 1)_ where _k_ may be zero.
 
 * * *
 
 See also: Range, thenTo, to, upOrDownTo
+
+Guides: Enumeration Functions
 
 References:
 _Smalltalk_

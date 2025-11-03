@@ -37,6 +37,7 @@ Plotting Functions:
 - `polarPlot`
 - `reliefPlot`
 - `residueDesignPlot`
+- `residueSetPlot`
 - `revolutionPlot`
 - `runSequencePlot`
 - `scatterPlot`

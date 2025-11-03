@@ -7,10 +7,26 @@ There are two forms of `Range` syntax.
 - _(α .. β)_ ⇒ _Range(α, β, 1)_
 - _(α, β .. γ)_ ⇒ _Range(α, γ, β - α)_
 
+```
+>> '(i .. j)'.splSimplify
+nonemptyRange(i, j, 1)
+
+>> '(i, j .. k)'.splSimplify
+nonemptyThenTo(i, j, k)
+```
+
 `List` range expression rewrite rules:
 
 - _[α .. β]_ ⇒ _(α .. β).asList_
 - _[α, β .. γ]_ ⇒ _(α, β .. γ).asList_
+
+```
+>> '[i .. j]'.splSimplify
+asList(nonemptyRange(i, j, 1))
+
+>> '[i, j .. k]'.splSimplify
+asList(nonemptyThenTo(i, j, k))
+```
 
 Answer ascending `Range` values:
 

@@ -223,7 +223,7 @@
 				mertensFunction: [002321],
 				metallicMean: [001622 014176 098316 098317 098318],
 				minkowskiQuestionMark: [048819],
-				moebiusMu: [008683 002321],
+				moebiusMu: [008683 002321 006575],
 				moserDeBruijnSequence: [000695],
 				motzkinNumber: [001006],
 				motzkinSequence: [001006],

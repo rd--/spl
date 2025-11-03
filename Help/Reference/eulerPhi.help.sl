@@ -96,6 +96,29 @@ OEIS [A007694](https://oeis.org/A007694):
 ]
 ```
 
+Count a class of asymmetric rhythm cycles equivalence classes,
+OEIS [A115114](https://oeis.org/A115114):
+
+```
+>>> 1:27.collect { :n |
+>>> 	n.divisors.sum { :d |
+>>> 		let o = d.isOdd.boole;
+>>> 		let m = 3 ^ (n / d);
+>>> 		eulerPhi(2 * d)
+>>> 		+
+>>> 		(o * eulerPhi(d) * m)
+>>> 	} / (2 * n)
+>>> }
+[
+	2 3 6 11 26 63 158 411 1098 2955
+	8054 22151 61322 170823 478318
+	1345211 3798242 10761723 30585830
+	87169619 249056138 713205903
+	2046590846 5883948951 16945772210
+	48882035163 141214768974
+]
+```
+
 Plot the sequence:
 
 ~~~spl svg=A
@@ -176,7 +199,8 @@ _OEIS_
 [1](https://oeis.org/A000010)
 [2](https://oeis.org/A002088)
 [3](https://oeis.org/A018804)
-[4](https://oeis.org/A010554),
+[4](https://oeis.org/A010554)
+[5](https://oeis.org/A115114),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
 

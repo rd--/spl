@@ -4,6 +4,9 @@
 
 Answer the first _n_ terms of the Kolakoski sequence.
 
+First few terms,
+OEIS [A000002](https://oeis.org/A000002):
+
 ```
 >>> 108.kolakoskiSequence
 [

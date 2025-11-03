@@ -1,8 +1,10 @@
 # thenTo
 
-- _thenTo(start, then, stop)_
+- _thenTo(i, j, k)_
 
-Construct a `Range` by counting up or down from _start_ to _then_ through until _stop_.
+Construct a `Range` by counting up or down from the start value _i_,
+first to _j_,
+then through until stop value _k_.
 
 ```
 >>> 1.thenTo(3, 9).asList
@@ -15,10 +17,14 @@ Construct a `Range` by counting up or down from _start_ to _then_ through until 
 [4 2 0 -2 -4 -6]
 ```
 
-If _then_ is in the wrong direction to arrive at _stop_, the `Range` is empty:
+If _j_ is in the wrong direction to arrive at _k_,
+the `Range` is empty:
 
 ```
->>> 6.thenTo(8, 2).asList
+>>> 7.thenTo(9, 3).asList
+[]
+
+>>> 5.thenTo(3, 9).asList
 []
 ```
 

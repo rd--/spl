@@ -51,9 +51,22 @@ ParetoDistribution(2, 5)
 
 ![](sw/spl/Help/Image/ParetoDistribution-C.svg)
 
+Plot a Lévy flight in two dimensions:
+
+~~~spl svg=D
+let k = 1000;
+let r = Sfc32(376812);
+let d = ParetoDistribution(1, 1.5);
+let u = r.randomReal([0 2.pi], [k]);
+let v = d.randomVariate(r, [k]);
+u.anglePath(v, [0 0]).Line
+~~~
+
+![](sw/spl/Help/Image/ParetoDistribution-D.svg)
+
 * * *
 
-See also: StableDistribution
+See also: LevyDistribution, StableDistribution
 
 Guides: Probability Distributions, Random Functions
 
@@ -62,3 +75,4 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ParetoDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Pareto_distribution)
+[2](https://en.wikipedia.org/wiki/L%C3%A9vy_flight)

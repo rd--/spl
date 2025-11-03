@@ -392,3 +392,40 @@
 	}
 
 }
+
++List{
+
+	duvalsAlgorithm { :self |
+		let n = self.size;
+		let factorisation = [];
+		let i = 1;
+		{ i <= n }.whileTrue {
+			let j = i + 1;
+			let k = i;
+			{ j <= n & { self[k] <=| self[j] } }.whileTrue {
+				(self[k] <| self[j]).if {
+					k := i
+				} {
+					k := k + 1
+				};
+				j := j + 1
+			};
+			{ i <= k }.whileTrue {
+				factorisation.add(
+					self.copyFromTo(i, i + j - k - 1)
+				);
+				i := i + j - k
+			}
+		};
+		factorisation
+	}
+
+}
+
++String{
+
+	duvalsAlgorithm { :self |
+		self.characters.duvalsAlgorithm.collect(stringJoin:/1)
+	}
+
+}

@@ -1,6 +1,6 @@
 # nonemptyThenTo
 
-- _nonemptyThenTo(start, then, stop)_
+- _nonemptyThenTo(i, j, k)_
 
 A variant of `thenTo` that disallows empty range values.
 

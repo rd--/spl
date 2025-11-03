@@ -1,6 +1,6 @@
 # Span
 
-- _Span(start, stop, step)_
+- _Span([i j k])_
 
 A `Span` is a `Type` that represents a finite arithmetic progression of positive integers,
 that may be specified relative to an implicit extent at either `start` or `stop`.

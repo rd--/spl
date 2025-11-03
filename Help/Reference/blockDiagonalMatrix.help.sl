@@ -1,8 +1,8 @@
 # blockDiagonalMatrix
 
-- _blockDiagonalMatrix(aSequence)_
+- _blockDiagonalMatrix([m₁ m₂ …])_
 
-Answer a matrix which places the matrices at _aSequence_ on the block diagonal, and zeroes elsewhere.
+Answer a matrix which places the matrices at the sequence _m_ on the block diagonal, and zeroes elsewhere.
 
 If the submatrices are 1×1 the answer is a diagonal matrix:
 
@@ -107,6 +107,9 @@ _Julia_
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BlockDiagonalMatrix.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/blkdiag.html)
+[1](https://mathworks.com/help/matlab/ref/blkdiag.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Block_diagonal_matrix)
+[2](https://en.wikipedia.org/wiki/Direct_sum_of_matrices)
 
 Categories: Math, Matrix

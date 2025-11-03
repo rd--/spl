@@ -84,6 +84,19 @@ CauchyDistribution(0, 1 / 9)
 
 ![](sw/spl/Help/Image/CauchyDistribution-G.svg)
 
+Plot a Lévy flight in two dimensions:
+
+~~~spl svg=H
+let k = 750;
+let r = Sfc32(768712);
+let d = CauchyDistribution(0, 1);
+let u = r.randomReal([0 2.pi], [k]);
+let v = d.randomVariate(r, [k]);
+u.anglePath(v, [0 0]).Line
+~~~
+
+![](sw/spl/Help/Image/CauchyDistribution-H.svg)
+
 * * *
 
 See also: NormalDistribution, StableDistribution, UniformDistribution, WeibullDistribution
@@ -100,5 +113,6 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3663.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Cauchy_distribution)
+[2](https://en.wikipedia.org/wiki/L%C3%A9vy_flight)
 
 Categories: Probability, Random

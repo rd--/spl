@@ -5,6 +5,14 @@ Rewrite rules:
 - _α:β_ => _Span(α, β, 1)_
 - _α:γ:β_ => _Span(α, β, γ)_
 
+```
+>> '1:x'.splSimplify
+Span(1, x, 1)
+
+>> '9:-1:x'.splSimplify
+Span(9, j, -1)
+```
+
 In the case where α is an integer literal,
 and β is an integer literal or an identifier,
 a `Range` can be written α:β.

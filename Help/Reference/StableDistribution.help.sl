@@ -2,7 +2,7 @@
 
 - _StableDistribution(α, β, μ, σ)_
 
-A `Type` thhat represents the stable distribution with index of stability α,
+A `Type` that represents the stable distribution with index of stability α,
 skewness parameter β,
 location parameter μ,
 and scale parameter σ.
@@ -61,6 +61,19 @@ StableDistribution(
 
 ![](sw/spl/Help/Image/StableDistribution-D.svg)
 
+Plot a Lévy flight in two dimensions:
+
+~~~spl svg=E
+let k = 750;
+let r = Sfc32(387612);
+let d = StableDistribution(1, 0, 0, 1);
+let u = r.randomReal([0 2.pi], [k]);
+let v = d.randomVariate(r, [k]);
+u.anglePath(v, [0 0]).Line
+~~~
+
+![](sw/spl/Help/Image/StableDistribution-E.svg)
+
 * * *
 
 See also: CauchyDistribution, LevyDistribution, NormalDistribution, ParetoDistribution
@@ -74,5 +87,6 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/StableDistribution.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Stable_distribution)
+[2](https://en.wikipedia.org/wiki/L%C3%A9vy_flight)
 
 Further Reading: Chambers 1976

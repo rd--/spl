@@ -2,7 +2,7 @@
 
 - _lexicographicallyLeastRotation([x₁ x₂ …])_
 
-Answer the rotation of _aSequence_ that is lexicographically least of all the rotations.
+Answer the rotation of the sequence _x_ that is lexicographically least of all the rotations.
 
 Three rotations that are not least:
 
@@ -17,9 +17,16 @@ Least rotation of the letters in a word:
 
 ```
 >>> 'BCABDADAB'
->>> .contents
 >>> .lexicographicallyLeastRotation
-['A' 'B' 'B' 'C' 'A' 'B' 'D' 'A' 'D']
+'ABBCABDAD'
+
+>>> 'abracadabra'
+>>> .lexicographicallyLeastRotation
+'aabracadabr'
+
+>>> 'bbaaccaadd'
+>>> .lexicographicallyLeastRotation
+'aaccaaddbb'
 ```
 
 The published form of Booths algorithm fails for cases such as:
@@ -32,7 +39,9 @@ The published form of Booths algorithm fails for cases such as:
 
 * * *
 
-See also: lexicographicallyLeastRotationStartIndex
+See also: duvalsAlgorithm, lexicographicallyLeastRotationStartIndex
+
+Guides: List Functions
 
 References:
 _W_

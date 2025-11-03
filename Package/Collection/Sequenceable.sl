@@ -1791,7 +1791,9 @@
 	}
 
 	lexicographicallyLeastRotation { :self |
-		self.rotateLeft(self.lexicographicallyLeastRotationStartIndex - 1)
+		self.rotateLeft(
+			self.lexicographicallyLeastRotationStartIndex - 1
+		)
 	}
 
 	leastSquares { :m :b |
