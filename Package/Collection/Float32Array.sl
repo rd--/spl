@@ -50,16 +50,20 @@ Float32Array! : [Object, Equatable, Comparable, Iterable, Indexable, Collection,
 
 +List {
 
-	basicAsFloat32Array { :self |
-		<primitive: return new Float32Array(_self);>
+	asFloat32Array { :self |
+		Float32Array(self)
 	}
 
-	asFloat32Array { :self |
+	Float32Array { :self |
 		self.isSmallFloatVector.if {
-			self.basicAsFloat32Array
+			self.uncheckedFloat32Array
 		} {
-			self.error('List>>asFloat32Array: invalid')
+			self.error('List>>Float32Array')
 		}
+	}
+
+	uncheckedFloat32Array { :self |
+		<primitive: return new Float32Array(_self);>
 	}
 
 }
@@ -67,7 +71,7 @@ Float32Array! : [Object, Equatable, Comparable, Iterable, Indexable, Collection,
 +Range {
 
 	asFloat32Array { :self |
-		self.asList.basicAsFloat32Array
+		Float32Array(self.asList)
 	}
 
 }

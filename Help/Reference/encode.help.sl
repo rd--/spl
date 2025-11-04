@@ -2,12 +2,13 @@
 
 - _encode(a, littleEndian)_
 
-Enode a `TypedArray` into a `ByteArray`.
+Enode the `TypedArray` _a_ into a `ByteArray`.
 
 `Float32Array` encoding of `pi` and `e`:
 
 ```
->>> [1.pi 1.e].asFloat32Array.encode(true)
+>>> Float32Array([1.pi 1.e])
+>>> .encode(true)
 [
 	219  15  73  64
 	 84 248  45  64
@@ -17,7 +18,8 @@ Enode a `TypedArray` into a `ByteArray`.
 `Float64Array` encoding of `pi` and `e`:
 
 ```
->>> [1.pi 1.e].asFloat64Array.encode(true)
+>>> Float64Array([1.pi 1.e])
+>>> .encode(true)
 [
 	 24  45  68  84 251  33   9  64
 	105  87  20 139  10 191   5  64
@@ -27,5 +29,7 @@ Enode a `TypedArray` into a `ByteArray`.
 * * *
 
 See also: encodeInt8, encodeInt16, encodeInt32, encodeFloat32, encodeFloat64
+
+Guides: Bitwise Functions
 
 Categories: Encoding

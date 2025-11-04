@@ -1,20 +1,22 @@
 # encodeInt16
 
-- _encodeInt16(anInteger, littleEndian)_
+- _encodeInt16(n, littleEndian)_
 
-Answer a `ByteArray` that holds the 16-bit encoding of _anInteger_,
+Answer a `ByteArray` that holds the 16-bit encoding of the integer _n_,
 in _littleEndian_ format if the flag is `true`.
 
 ```
 >>> 1.encodeInt16(true)
-[1, 0].asByteArray
+ByteArray([1 0])
 
 >>> 1.encodeInt16(false)
-[0, 1].asByteArray
+ByteArray([0 1])
 ```
 
 * * *
 
 See also: encode, encodeInt8, encodeInt32, encodeFloat32, encodeFloat64
+
+Guides: Bitwise Functions
 
 Categories: Encoding

@@ -50,6 +50,7 @@ Partition Functions:
 - `partitionFunctionQ`
 - `partitionsP`
 - `partitionsQ`
+- `setPartitions`
 - `stirlingS2`
 
 Composition Functions:

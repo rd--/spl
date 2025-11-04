@@ -7,6 +7,9 @@ A bracelet,
 also called a turnover or free necklace,
 is a necklace that is considered equivalent under reflection.
 
+Table giving number of bracelets with _n_ beads of _k_ colors,
+OEIS [A081720](http://oeis.org/A081720):
+
 ```
 >>> 1:7.collect { :n |
 >>> 	1:n.collect { :k |
@@ -52,6 +55,20 @@ OEIS [A027671](https://oeis.org/A027671):
 ]
 ```
 
+First few counts for _k=4_,
+OEIS [A032275](https://oeis.org/A032275):
+
+```
+>>> 1:14.collect { :n |
+>>> 	braceletCount(n, 4)
+>>> }
+[
+	4 10 20 55 136
+	430 1300 4435 15084 53764
+	192700 704370 2589304 9608050
+]
+```
+
 * * *
 
 See also: necklaceCount
@@ -60,10 +77,12 @@ Guides: Combinatorial Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Necklace.html),
+[1](https://mathworld.wolfram.com/Necklace.html)
+[2](https://mathworld.wolfram.com/Free.html),
 _OEIS_
 [1](https://oeis.org/A081720)
 [2](https://oeis.org/A000029)
-[3](https://oeis.org/A027671),
+[3](https://oeis.org/A027671)
+[4](https://oeis.org/A032275),
 _W_
 [1](https://en.wikipedia.org/wiki/Bracelet_(combinatorics))

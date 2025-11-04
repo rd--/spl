@@ -8,13 +8,16 @@ The unary form answers the number of unrestricted partitions of the `Integer` _n
 The binary form denotes the number of ways of writing _n_ as a `sum` of exactly _k_ terms
 or, equivalently, the number of partitions into parts of which the largest is exactly _k_.
 
-First few terms of OEIS [A000041](https://oeis.org/A000041):
+First few terms,
+OEIS [A000041](https://oeis.org/A000041):
 
 ```
 >>> 0:15.collect(partitionFunctionP:/1)
 [
-	1 1 2 3 5 7 11 15 22 30
-	42 56 77 101 135 176
+	  1   1   2   3   5
+	  7  11  15  22  30
+	 42  56  77 101 135
+	176
 ]
 ```
 

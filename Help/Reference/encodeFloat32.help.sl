@@ -1,8 +1,8 @@
 # encodeFloat32
 
-- _encodeFloat32(aSmallFloat, littleEndian)_
+- _encodeFloat32(n, littleEndian)_
 
-Answer a `ByteArray` that holds the 32-bit encoding of _aSmallFloat_,
+Answer a `ByteArray` that holds the 32-bit encoding of the small float _n_,
 in _littleEndian_ format if the flag is `true`.
 
 ```
@@ -26,5 +26,7 @@ Encode `pi` and `e`:
 * * *
 
 See also: encode, encodeInt8, encodeInt16, encodeInt32, encodeFloat64
+
+Guides: Bitwise Functions
 
 Categories: Encoding

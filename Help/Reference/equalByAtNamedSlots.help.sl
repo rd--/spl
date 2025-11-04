@@ -10,6 +10,6 @@ Used to implement `=` and `~` at types where equality depends on some slots but 
 
 * * *
 
-See also: =, ~, hasEqualSlots, slotList, slotNameList, slotRead, slotWrite
+See also: =, ~, hasEqualSlots, slotList, slotNameList, uncheckedSlotRead, uncheckedSlotWrite
 
 Guides: Reflection Functions

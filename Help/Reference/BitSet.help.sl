@@ -1,6 +1,7 @@
 # BitSet
 
-- _BitSet(c, n)_
+- _BitSet([b₁ b₂ …])_
+- _BitSet([i₁ i₂ …], n)_
 
 Answer a new `BitSet` from the collection _c_ with capacity _n_.
 The capacity is fixed and need not be a multiple of eight.
@@ -27,12 +28,14 @@ A `Binary`-like protocol:
 - `clearBitAt`
 - `setBitAt`
 
-A new `BitSet` is empty, the `size` of a `BitSet` is the number of non-zero bits:
+A new `BitSet` is empty.
+The `size` of a `BitSet` is the number of non-zero bits,
+equivalently the `bitCount`:
 
 ```
 >>> let b = BitSet([], 7);
->>> (b.capacity, b.size, b.isEmpty)
-(7, 0, true)
+>>> (b.capacity, b.size, b.bitCount, b.isEmpty)
+(7, 0, 0, true)
 ```
 
 All bytes at the empty `BitSet` are `zero`:
@@ -46,14 +49,23 @@ All bytes at the empty `BitSet` are `zero`:
 true
 ```
 
-`asBitSet` constructs a `BitSet` from a `List` of integers.
-The `capacity` is set to one more than the largest index.
-`asList` answers a `List` of the indices which have bits set.
+The binary form of `BitSet` constructs a `BitSet` from a `List` of integers,
+with the specified `capacity`.
+Valid indices start from `zero` and run to one less than the capacity:
 
 ```
->>> let b = [1 3 9].asBitSet;
->>> (b.capacity, b.asList)
-(10, [1 3 9])
+>>> let l = [0 2 4 5 7 9 11];
+>>> let b = BitSet(l, 12);
+>>> (b.capacity, b.size, b.asString)
+(12, 7, '101011010101')
+```
+
+`positionVector` answers a `List` of the indices which have bits set.
+
+```
+>>> let b = BitSet([1 3 9], 12);
+>>> (b.capacity, b.positionVector)
+(12, [1 3 9])
 ```
 
 Add three integers to a `BitSet`:
@@ -63,7 +75,7 @@ Add three integers to a `BitSet`:
 >>> b.add(1);
 >>> b.add(3);
 >>> b.add(9);
->>> (b.size, b.asList)
+>>> (b.size, b.positionVector)
 (3, [1 3 9])
 ```
 
@@ -75,28 +87,38 @@ however including it is:
 >>> b.add(5);
 >>> b.include(5);
 >>> b.include(5);
->>> (b.size, b.asList)
+>>> (b.size, b.positionVector)
 (1, [5])
 ```
 
 `BitSet` implements the predicate `includes`:
 
 ```
->>> [1 3 9].asBitSet
+>>> BitSet([1 3 9], 12)
 >>> .includes(3)
 true
 
->>> let b = [1 3 9].asBitSet;
+>>> let b = BitSet([1 3 9], 12);
 >>> [1, 3 .. 9].collect { :each |
 >>> 	b.includes(each)
 >>> }
 [true true false false true]
+```
 
->>> let b = '101001'.asBitSet;
+The unary form of `BitSet` accepts a bit vector,
+either as a list or as a string:
+
+```
+>>> let b = BitSet([1 0 1 0 0 1]);
 >>> [0 2 5].collect { :each |
 >>> 	b.includes(each)
 >>> }
 [true true true]
+
+>>> let b = BitSet('101011010101');
+>>> (b.capacity, b.size, b.positionVector)
+(12, 7, [0 2 4 5 7 9 11])
+```
 ```
 
 A three element `BitSet`, set entries using `atPut` which requires `zero` or `one` values:
@@ -106,28 +128,28 @@ A three element `BitSet`, set entries using `atPut` which requires `zero` or `on
 >>> b[1] := 1;
 >>> b[3] := 1;
 >>> b[9] := 1;
->>> (b.size, b.asList)
+>>> (b.size, b.positionVector)
 (3, [1 3 9])
 ```
 
 Read entries using `at`, which answers `zero` or `one` values:
 
 ```
->>> let b = [1 3 9].asBitSet;
+>>> let b = BitSet([1 3 9], 12);
 >>> [1, 3 .. 9].collect { :each |
 >>> 	b[each]
 >>> }
 [1 1 0 0 1]
 ```
 
-Add elements using `addAll` and iterate over indices using `do`:
+Add elements using `addAll` and iterate over indices using `positionsDo`:
 
 ```
 >>> let b = BitSet([], 64);
 >>> let c = [1 3 9 27];
 >>> let l = [];
 >>> b.addAll(c);
->>> b.do { :each |
+>>> b.positionsDo { :each |
 >>> 	l.add(each)
 >>> };
 >>> (b.size, l)
@@ -137,17 +159,20 @@ Add elements using `addAll` and iterate over indices using `do`:
 Copy `BitSet` and mutate copy:
 
 ```
->>> let b = [1 7].asBitSet;
+>>> let b = BitSet([1 7], 12);
 >>> let c = b.copy;
 >>> c.add(3);
 >>> (b, c)
-([1 7].asBitSet, [1 3 7].asBitSet)
+(
+	BitSet([1 7], 12),
+	BitSet([1 3 7], 12)
+)
 ```
 
 `bitAt` is equal to `at`:
 
 ```
->>> [1 3 9].asBitSet
+>>> BitSet([1 3 9], 12)
 >>> .bitAt(3)
 1
 ```
@@ -164,16 +189,24 @@ Copy `BitSet` and mutate copy:
 `clearBitAt` is equal to `remove`:
 
 ```
->>> let b = [1 3 9].asBitSet;
+>>> let b = BitSet([1 3 9], 12);
 >>> b.clearBitAt(3);
->>> b.asList
+>>> b.positionVector
 [1 9]
+```
+
+`bitVector` answer a list of `capacity` places indicating the status of each bit:
+
+```
+>>> BitSet([0 2 4 5 7 9 11], 12)
+>>> .bitVector
+[1 0 1 0 1 1 0 1 0 1 0 1]
 ```
 
 `asString` answers a `String` of `capacity` places with '0' for indices that are 0 and '1' for indices that are 1:
 
 ```
->>> [0 2 4 5 7 9 11].asBitSet
+>>> BitSet([0 2 4 5 7 9 11], 12)
 >>> .asString
 '101011010101'
 
@@ -201,18 +234,19 @@ represents a one:
 The `printString` of a `BitSet`:
 
 ```
->>> [0 2 4 5 7 9 11]
->>> .asBitSet
+>>> BitSet([0 2 4 5 7 9 11], 12)
 >>> .printString
 'BitSet([0, 2, 4, 5, 7, 9, 11], 12)'
 ```
 
-`bitNot` at `BitSet` flips the status of each bit:
+`bitNot` at `BitSet` flips the status of each bit,
+in place:
 
 ```
->>> let b = [0 2 4 5 7 9 11].asBitSet;
+>>> let l = [0 2 4 5 7 9 11];
+>>> let b = BitSet(l, 12);
 >>> b.bitNot;
->>> b.asList
+>>> b.positionVector
 [1 3 6 8 10]
 ```
 
@@ -220,9 +254,15 @@ The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` o
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
->>> let b = l.asBitSet;
->>> (b.asList, b.complement.asList)
-(l, [1 3 6 8 10])
+>>> let b = BitSet(l, 12);
+>>> (
+>>> 	b.positionVector,
+>>> 	b.complement.positionVector
+>>> )
+(
+	[0 2 4 5 7 9 11],
+	[1 3 6 8 10]
+)
 ```
 
 * * *

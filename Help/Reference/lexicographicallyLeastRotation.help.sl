@@ -39,9 +39,9 @@ The published form of Booths algorithm fails for cases such as:
 
 * * *
 
-See also: duvalsAlgorithm, lexicographicallyLeastRotationStartIndex
+See also: duvalsAlgorithm, isNecklace, lexicographicallyLeastRotationStartIndex
 
-Guides: List Functions
+Guides: Cominatorial Functions, List Functions
 
 References:
 _W_

@@ -1,9 +1,9 @@
 # contents
 
-- _contents(x)_
+- _contents(x, f:/2)_
 
 Answer the contents of _x_.
-The `contents` of an `Iterable` object is a `List` of all of the items accessed by `do`.
+The `contents` of an `Iterable` object is a `List` of all of the items accessed by _f_, or by `do`.
 
 At `Box`:
 

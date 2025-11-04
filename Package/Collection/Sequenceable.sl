@@ -1591,6 +1591,14 @@
 		}
 	}
 
+	isBitVector { :self |
+		self.allSatisfy { :each |
+			each.isZero | {
+				each.isOne
+			}
+		}
+	}
+
 	isCloseTo { :self :anObject |
 		self.equalBy(anObject, isCloseTo:/2)
 	}
@@ -1625,6 +1633,10 @@
 				a[i].square >= (a[i - 1] * a[i + 1])
 			}
 		}
+	}
+
+	isNecklace { :self |
+		self = self.lexicographicallyLeastRotation
 	}
 
 	isOctetSequence { :self |

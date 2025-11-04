@@ -67,12 +67,16 @@
 		self.anySatisfy(identity:/1)
 	}
 
-	contents { :self |
+	contents { :self :aBlock:/2 |
 		let answer = [];
-		self.do { :each |
+		aBlock(self) { :each |
 			answer.add(each)
 		};
 		answer
+	}
+
+	contents { :self |
+		self.contents(do:/2)
 	}
 
 	count { :self :aBlock:/1 |

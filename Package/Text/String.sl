@@ -583,6 +583,12 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.utf8ByteArray.allSatisfy(isAsciiCodePoint:/1)
 	}
 
+	isBitVector { :self |
+		self.isEmpty | {
+			self.isBitString
+		}
+	}
+
 	isBlankLine { :self |
 		self.isEmpty | {
 			self.allSatisfy { :each |

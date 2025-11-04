@@ -4,25 +4,25 @@
 
 Answer the Stirling number of the second kind.
 
-Table of first few terms:
+Table of first few terms,
+OEIS [A008277](https://oeis.org/A008277):
 
 ```
->>> 0:9.collect { :n |
->>> 	0:n.collect { :k |
+>>> 1:9.collect { :n |
+>>> 	1:n.collect { :k |
 >>> 		stirlingS2(n, k)
 >>> 	}
 >>> }
 [
 	1;
-	0 1;
-	0 1 1;
-	0 1 3 1;
-	0 1 7 6 1;
-	0 1 15 25 10 1;
-	0 1 31 90 65 15 1;
-	0 1 63 301 350 140 21 1;
-	0 1 127 966 1701 1050 266 28 1;
-	0 1 255 3025 7770 6951 2646 462 36 1
+	1 1;
+	1 3 1;
+	1 7 6 1;
+	1 15 25 10 1;
+	1 31 90 65 15 1;
+	1 63 301 350 140 21 1;
+	1 127 966 1701 1050 266 28 1;
+	1 255 3025 7770 6951 2646 462 36 1
 ]
 ```
 
@@ -63,7 +63,9 @@ Plot sums of digits:
 
 ~~~spl svg=A
 { :n :m |
-	stirlingS2(n, m).integerDigits.sum
+	stirlingS2(n, m)
+	.integerDigits
+	.sum
 }.table(2:17, 2:17).matrixPlot
 ~~~
 

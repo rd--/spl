@@ -37,10 +37,10 @@ Object:
 - `hasEqualSlots`
 - `slotList`
 - `slotNameList`
-- `slotRead`
 - `slotValueList`
-- `slotWrite`
 - `storeStringAsInitializeSlots`
+- `uncheckedSlotRead`
+- `uncheckedSlotWrite`
 
 Predicates:
 

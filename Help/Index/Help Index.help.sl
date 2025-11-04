@@ -616,10 +616,10 @@
 - `methodDictionary`, `traitDictionary`, `typeDictionary`
 - `Method`, `Trait`, `Type`
 - `slotList`, `slotNameList`, `slotValueList`
-- `slotRead`, `slotWrite`
 - `equalByAtNamedSlots`
 - `hasEqualSlots`
 - `storeStringAsInitializeSlots`
+- `uncheckedSlotRead`, `uncheckedSlotWrite`
 
 ## Regular Expressions
 

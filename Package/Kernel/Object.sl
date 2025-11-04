@@ -13,7 +13,7 @@
 	}
 
 	?? { :self :anObject |
-		self
+		selfg
 	}
 
 	~? { :self :aBlock:/0 |
@@ -215,24 +215,8 @@
 
 	slotValueList { :self |
 		self.typeDefinition.slotNameList.collect { :each |
-			self.slotRead(each)
+			self.uncheckedSlotRead(each)
 		}
-	}
-
-	slotRead { :self :key |
-		<primitive: return _self[_key];>
-	}
-
-	slotReadList { :self :keyList |
-		<primitive: return _keyList.map(function (key) {
-			return _self[key];
-		});
-		>
-	}
-
-	slotWrite { :self :key :value |
-		<primitive: _self[_key] = _value;>
-		nil
 	}
 
 	storeStringAsInitializeSlots { :self |
@@ -258,6 +242,23 @@
 
 	typeOf { :self |
 		<primitive: return sl.splTypeOf(_self);>
+	}
+
+
+	uncheckedSlotRead { :self :key |
+		<primitive: return _self[_key];>
+	}
+
+	uncheckedSlotReadList { :self :keyList |
+		<primitive: return _keyList.map(function (key) {
+			return _self[key];
+		});
+		>
+	}
+
+	uncheckedSlotWrite { :self :key :value |
+		<primitive: _self[_key] = _value;>
+		nil
 	}
 
 	value { :self |

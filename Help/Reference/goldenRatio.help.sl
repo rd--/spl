@@ -53,6 +53,15 @@ and therefore phi and its inverse have equal fraction parts:
 0
 ```
 
+φ squared, or φ plus one,
+OEIS [A104457](https://oeis.org/A104457):
+
+```
+>>> let phi = 1.goldenRatio;
+>>> (phi, phi + 1, phi.square)
+(1.61803, 2.61803, 2.61803)
+```
+
 The family of constants given by this family of polynomials is called the harmonious numbers:
 
 ```
@@ -305,7 +314,8 @@ _Mathematica_
 [4](https://reference.wolfram.com/language/ref/GoldenRatio.html),
 _OEIS_
 [1](https://oeis.org/A001622)
-[2](https://oeis.org/A005206),
+[2](https://oeis.org/A005206)
+[3](https://oeis.org/A104457),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio)
 [2](https://en.wikipedia.org/wiki/Golden_rectangle)

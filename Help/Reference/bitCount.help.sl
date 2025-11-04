@@ -1,8 +1,9 @@
 # bitCount
 
-- _bitCount(anInteger | aByteArray)_
+- _bitCount(n)_
+- _bitCount([b₁ b₂ …])_
 
-Answer the number of bits set to 1 in _anInteger_.
+Answer the number of bits set to one in the integer _n_.
 
 ```
 >>> 32.bitCount
@@ -10,6 +11,13 @@ Answer the number of bits set to 1 in _anInteger_.
 
 >>> 31.bitCount
 5
+```
+
+At `BitSet`:
+
+```
+>>> BitSet([0 4 7], 12).bitCount
+3
 ```
 
 At `ByteArray`, sum `bitCount` of each byte:

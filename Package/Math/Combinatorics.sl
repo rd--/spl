@@ -132,6 +132,60 @@
 		)
 	}
 
+	setPartitionsDo { :n :k :f:/1 |
+		/* https://devblogs.microsoft.com/oldnewthing/20140324-00/?p=1413 */
+		<primitive:
+		function rec(n, k, f) {
+			if (n == 0 && k == 0) {
+				f([]);
+				return;
+			}
+			if (n == 0 || k == 0) {
+				return;
+			}
+			rec(
+				n - 1,
+				k,
+				function(s) {
+					for (let i = 0; i < k; i++) {
+						s[i].push(n);
+						f(s);
+						s[i].pop();
+					}
+				}
+			);
+			rec(
+				n - 1,
+				k - 1,
+				function(s) {
+					s.push([n]);
+					f(s);
+					s.pop();
+				}
+			);
+		};
+		rec(_n, _k, _f_1);
+		return _n;
+		>
+	}
+
+	setPartitions { :n :k |
+		let answer = [];
+		let kList = k.nest;
+		kList.do { :i |
+			setPartitionsDo(n, i) { :each |
+				answer.add(each.deepCopy)
+			}
+		};
+		answer
+	}
+
+	setPartitions { :n |
+		1.to(n).collect { :k |
+			setPartitions(n, k)
+		}.catenate
+	}
+
 	stirlingS1 { :n :k |
 		(k = 0).if {
 			(n < 1).boole

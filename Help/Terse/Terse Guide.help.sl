@@ -2270,8 +2270,8 @@ let z = ['a' -> { 1 + 1 }, 'b' -> { 2 + 2 }, 'c' -> { 3 + 3 } ]; 'b'.caseOf(z) =
 3.perform('plusSign', 4) = 7 /* perform named binary method, name is not qualified */
 4/3.slotNameList = ['numerator', 'denominator']
 4/3.slotList = ['numerator' -> 4, 'denominator' -> 3]
-4/3.numerator = 4/3.slotRead('numerator') /* slot read */
-let n = 4/3; n.slotWrite('denominator', 5L); n = 4/5 /* slot write */
+4/3.numerator = 4/3.uncheckedSlotRead('numerator') /* slot read */
+let n = 4/3; n.uncheckedSlotWrite('denominator', 5L); n = 4/5 /* slot write */
 1.pi.in { :x | x.round + 20 } = 23 /* evaluate block with object */
 { 1.pi.error('pi') }.hasError /* user error */
 ```
@@ -3970,10 +3970,10 @@ system.typeLookup('RgbColour').traitNameList = ['Object' 'Equatable' 'Colour'] /
 ## Type -- slot access
 ```
 ('x' -> 1).slotNameList = ['key', 'value'] /* slot names */
-('x' -> 1).slotRead('key') = 'x' /* read slot */
-('x' -> 1).slotRead('answer') = nil /* unknown slot names answer nil */
-let a = ('x' -> 1); a.slotWrite('key', 'y'); a = ('y' -> 1) /* write slot */
-let a = ('x' -> 1); a.slotWrite('hidden', 1.pi); a = ('x' -> 1) & { a.slotRead('hidden') = 1.pi } /* writes to unknown slot add a slot */
+('x' -> 1).uncheckedSlotRead('key') = 'x' /* read slot */
+('x' -> 1).uncheckedSlotRead('answer') = nil /* unknown slot names answer nil */
+let a = ('x' -> 1); a.uncheckedSlotWrite('key', 'y'); a = ('y' -> 1) /* write slot */
+let a = ('x' -> 1); a.uncheckedSlotWrite('hidden', 1.pi); a = ('x' -> 1) & { a.uncheckedSlotRead('hidden') = 1.pi } /* writes to unknown slot add a slot */
 ```
 
 ## Syntax -- unary messages

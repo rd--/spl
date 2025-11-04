@@ -1,6 +1,6 @@
-# slotRead
+# uncheckedSlotRead
 
-- _slotRead(x, s)_
+- _uncheckedSlotRead(x, s)_
 
 Answer the value of the slot named _s_ at the object _x_,
 or `nil` if no such slot exists.
@@ -11,8 +11,8 @@ or `nil` if no such slot exists.
 
 >>> let a = ('x' -> 1);
 >>> (
->>> 	a.slotRead('key'),
->>> 	a.slotRead('value')
+>>> 	a.uncheckedSlotRead('key'),
+>>> 	a.uncheckedSlotRead('value')
 >>> )
 ('x', 1)
 ```
@@ -20,13 +20,16 @@ or `nil` if no such slot exists.
 Answer `nil` for unknown slot:
 
 ```
->>> ('x' -> 1).slotRead('unknownSlot')
+>>> ('x' -> 1)
+>>> .uncheckedSlotRead(
+>>> 	'unknownSlot'
+>>> )
 nil
 ```
 
 * * *
 
-See also: slotList, slotNameList, slotValueList, slotWrite
+See also: slotList, slotNameList, slotValueList, uncheckedSlotWrite
 
 Guides: Reflection Functions
 

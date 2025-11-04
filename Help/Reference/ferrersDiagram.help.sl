@@ -44,7 +44,7 @@ An twenty-one part integer partition of ninety-six:
 
 See also: Disk, integerPartitions, LineDrawing
 
-Guides: Combinatorial Functions
+Guides: Combinatorial Functions, Plotting Functions
 
 References:
 _Mathematica_

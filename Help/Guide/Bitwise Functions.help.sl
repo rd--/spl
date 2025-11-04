@@ -46,6 +46,14 @@ Converting:
 - `integerDigits`
 - `fromDigits`
 
+Coding:
+
+- `encode`
+- `encodeInt8`
+- `encodeInt16`
+- `encodeFloat32`
+- `encodeFloat64`
+
 * * *
 
 Guides: Boolean Functions, Integer Functions, Logical Operators, Mathematical Functions

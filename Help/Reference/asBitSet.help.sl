@@ -1,29 +1,20 @@
 # asBitSet
 
-- _asBitSet(c, k)_
+- _asBitSet(x)_
 
-In the `Collection` case,
-answer a `BitSet` with the indices at the collection _c_ set to `one`.
-Valid indices start from `zero`.
-If the capacity _k_ is omitted it is set to one more than the largest index.
+At `List` requires a bit vector:
 
 ```
->>> let l = [0 2 4 5 7 9 11];
->>> let b = l.asBitSet;
->>> (b.capacity, b.size, b.asString)
-(12, 7, '101011010101')
+>>> [1 0 1 0 1 1 0 1 0 1 0 1]
+>>> .asBitSet
+BitSet([0 2 4 5 7 9 11], 12)
 ```
 
-In the `String` case,
-answers a `BitSet` with indices set at places where the corresponding character is `one`.
-If the capacity _k_ is omitted it is set to the `size` of the string.
+At `String`:
 
 ```
->>> let s = '101011010101';
->>> let b = s.asBitSet;
->>> let l = b.asList;
->>> (b.capacity, b.size, l)
-(12, 7, [0 2 4 5 7 9 11])
+>>> '101011010101'.asBitSet
+BitSet([0 2 4 5 7 9 11], 12)
 ```
 
 In the particular case of `ByteArray`,
@@ -33,11 +24,13 @@ Print the 32-bit twos-complement encodings of five and negative five:
 
 ```
 >>> 5.encodeInt32(true)
->>> .asBitSet.asString
+>>> .asBitSet
+>>> .asString
 '10100000000000000000000000000000'
 
 >>> -5.encodeInt32(true)
->>> .asBitSet.asString
+>>> .asBitSet
+>>> .asString
 '11011111111111111111111111111111'
 ```
 

@@ -16,7 +16,7 @@ There is an experimental slot reader syntax (:@) and writer syntax (:@ :=).
 
 * * *
 
-See also: perform, slotList, slotRead, slotValueList, slotWrite
+See also: perform, slotList, slotValueList, uncheckedSlotRead, uncheckedSlotWrite
 
 Guides: Reflection Functions, Slot Access Syntax
 

@@ -1,8 +1,8 @@
 # encodeFloat64
 
-- _encodeFloat64(aSmallFloat, littleEndian)_
+- _encodeFloat64(n, littleEndian)_
 
-Answer a `ByteArray` that holds the 64-bit IEEE encoding of _aSmallFloat_,
+Answer a `ByteArray` that holds the 64-bit IEEE encoding of the small float _n_,
 in _littleEndian_ format if the flag is `true`.
 
 Encode small integer:
@@ -28,3 +28,7 @@ Encode `pi` and `e`:
 * * *
 
 See also: encodeInt8, encodeInt16, encodeInt32, encodeFloat32
+
+Guides: Bitwise Functions
+
+Categories: Encoding

@@ -32,7 +32,9 @@ let g = [1 3].unitSquare;
 
 * * *
 
-See also: centroid, Polygon, rotateLeft, rotateRight, scaled
+See also: centroid, circulantMatrix, Polygon, rotateLeft, rotateRight, scaled
+
+Guides: List Functions
 
 References:
 _Mathematica_

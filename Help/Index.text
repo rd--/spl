@@ -1179,6 +1179,7 @@ Reference/Dust2.help.sl
 Reference/Dust.help.sl
 Reference/DustRange.help.sl
 Reference/Duty.help.sl
+Reference/duvalsAlgorithm.help.sl
 Reference/Dwhite.help.sl
 Reference/dyadicMap.help.sl
 Reference/dyckWords.help.sl
@@ -1820,6 +1821,7 @@ Reference/isBeckettGrayCode.help.sl
 Reference/isBigEndian.help.sl
 Reference/isBinary.help.sl
 Reference/isBisymmetricMatrix.help.sl
+Reference/isBitString.help.sl
 Reference/isBitVector.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
@@ -1930,6 +1932,7 @@ Reference/isMomentOfSymmetry.help.sl
 Reference/isMonotonicallyIncreasing.help.sl
 Reference/isNaN.help.sl
 Reference/isNarcissisticNumber.help.sl
+Reference/isNecklace.help.sl
 Reference/isNegative.help.sl
 Reference/isNegativeZero.help.sl
 Reference/isNil.help.sl
@@ -3118,6 +3121,7 @@ Reference/reshapeLike.help.sl
 Reference/residueDesignPlot.help.sl
 Reference/Residue.help.sl
 Reference/ResidueSet.help.sl
+Reference/residueSetPlot.help.sl
 Reference/resolvedPromise.help.sl
 Reference/Resonz.help.sl
 Reference/respondsTo.help.sl
@@ -3350,9 +3354,7 @@ Reference/Slope.help.sl
 Reference/slopeInterceptForm.help.sl
 Reference/slotList.help.sl
 Reference/slotNameList.help.sl
-Reference/slotRead.help.sl
 Reference/slotValueList.help.sl
-Reference/slotWrite.help.sl
 Reference/smallFloatEpsilon.help.sl
 Reference/SmallFloat.help.sl
 Reference/smallFloatMax.help.sl
@@ -3725,6 +3727,8 @@ Reference/Ugen.help.sl
 Reference/umbilicTorus.help.sl
 Reference/uncheckedAt.help.sl
 Reference/uncheckedAtPut.help.sl
+Reference/uncheckedSlotRead.help.sl
+Reference/uncheckedSlotWrite.help.sl
 Reference/uncheckedStringIntercalate.help.sl
 Reference/UndirectedEdge.help.sl
 Reference/undirectedGraph.help.sl

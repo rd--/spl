@@ -259,14 +259,14 @@ atAll(c, [i, j])
 
 ```
 >> 'a::b'.splSimplify
-propertyRead(a, 'b')
+uncheckedSlotRead(a, 'b')
 ```
 
 `Property Write Syntax` is rewritten as `Apply Syntax`:
 
 ```
 >> 'a::b := c'.splSimplify
-propertyWrite(a, 'b', c)
+uncheckedSlotWrite(a, 'b', c)
 ```
 
 `Vector Syntax` is rewritten as `List Syntax`:

@@ -43,10 +43,10 @@ Sl {
 
 	Primary
 		= AtPutSyntax
-		| PropertyWriteSyntax
+		| UncheckedSlotWriteSyntax
 		| AtAllSyntax
 		| AtSyntax
-		| PropertyReadSyntax
+		| UncheckedSlotReadSyntax
 		| ValueApply
 		| DotExpressionWithTrailingRecordSyntax
 		| DotExpressionWithTrailingClosuresSyntax
@@ -81,10 +81,10 @@ Sl {
 		| RangeThenSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
-	PropertyWriteSyntax = Primary "::" recordKey ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
 	AtAllSyntax = Primary "[" NonemptyListOf<(spanLiteral | ListSyntax), ","> "]"
-	PropertyReadSyntax = Primary "::" recordKey
+	UncheckedSlotReadSyntax = Primary "::" recordKey
+	UncheckedSlotWriteSyntax = Primary "::" recordKey ":=" Expression
 	ValueApply = Primary "." ParameterList
 	ParameterList = "(" ListOf<Expression, ","> ")"
 	NonEmptyParameterList = "(" NonemptyListOf<Expression, ","> ")"

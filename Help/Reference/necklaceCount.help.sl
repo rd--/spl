@@ -4,8 +4,12 @@
 - _necklaceCount(n, [m])_
 
 Answers the number of _n_-bead necklaces,
+also called fixed necklaces,
 either with up to _k_ different colored beads,
 or with exactly _m_ different colored beads.
+
+Table of the number of _n_-bead necklaces with up to _k_ different colored beads,
+OEIS [A054631](https://oeis.org/A054631):
 
 ```
 >>> 1:7.collect { :n |
@@ -73,3 +77,4 @@ _OEIS_
 [3](https://oeis.org/A087854),
 _W_
 [1](https://en.wikipedia.org/wiki/Necklace_(combinatorics))
+[2](https://en.wikipedia.org/wiki/Necklace_polynomial)

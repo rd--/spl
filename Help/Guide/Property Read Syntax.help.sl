@@ -2,7 +2,12 @@
 
 Rewrite rule:
 
-- _c::p_ ⟹ _propertyRead(c, 'p')_
+- _c::p_ ⟹ _uncheckedSlotRead(c, 'p')_
+
+```
+>> 'r::p'.splSimplify
+uncheckedSlotRead(r, 'p')
+```
 
 _c::p_ reads the value at the property _'p'_ from the record _r_.
 

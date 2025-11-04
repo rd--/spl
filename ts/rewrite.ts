@@ -547,11 +547,11 @@ const asSl: ohm.ActionDict<string> = {
 	Program(tmp, stm) {
 		return tmp.asSl + stm.asSl;
 	},
-	PropertyReadSyntax(c, _colons, k) {
-		return `propertyRead(${c.asSl}, '${k.sourceString}')`;
+	UncheckedSlotReadSyntax(c, _colons, k) {
+		return `uncheckedSlotRead(${c.asSl}, '${k.sourceString}')`;
 	},
-	PropertyWriteSyntax(c, _colons, k, _equals, v) {
-		return `propertyWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
+	UncheckedSlotWriteSyntax(c, _colons, k, _equals, v) {
+		return `uncheckedSlotWrite(${c.asSl}, '${k.sourceString}', ${v.asSl})`;
 	},
 	RangeSyntax(_left, start, _dots, end, _right) {
 		return `nonemptyRange(${start.asSl}, ${end.asSl}, 1)`;

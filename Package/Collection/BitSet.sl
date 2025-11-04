@@ -21,16 +21,12 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 	}
 
 	asList { :self |
-		let answer = [];
-		self.do { :each |
-			answer.add(each)
-		};
-		answer
+		self.positionVector
 	}
 
 	asString { :self |
 		let ascii = ByteArray(self.capacity);
-		self.bitsDo { :each :index |
+		self.bitsWithIndexDo { :each :index |
 			ascii[index + 1] := 48 + each
 		};
 		ascii.asciiString
@@ -51,29 +47,49 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 	}
 
 	bitAtPut { :self :anInteger :aBit |
-		aBit.caseOf([
-			0 -> { self.clearBitAt(anInteger) },
-			1 -> { self.setBitAt(anInteger) }
-		]);
+		aBit.caseOf(
+			[
+				0 -> { self.clearBitAt(anInteger) },
+				1 -> { self.setBitAt(anInteger) }
+			]
+		);
 		aBit
 	}
 
+	bitCount { :self |
+		let answer = 0;
+		self.bitsDo { :each |
+			answer := answer + each
+		};
+		answer
+	}
+
 	bitNot { :self |
-		self.bitsDo { :each :index |
+		self.bitsWithIndexDo { :each :index |
 			self[index] := 1 - each
 		}
 	}
 
-	bitsDo { :self :aBlock:/2 |
+	bitsDo { :self :aBlock:/1 |
 		self.indices.do { :index |
-			aBlock(self[index], index)
+			aBlock(self.bitAt(index))
 		}
+	}
+
+	bitsWithIndexDo { :self :aBlock:/2 |
+		self.indices.do { :index |
+			aBlock(self.bitAt(index), index)
+		}
+	}
+
+	bitVector { :self |
+		self.contents(bitsDo:/2)
 	}
 
 	boxNotation { :self :zeroOne |
 		let [zeroCode, oneCode] = zeroOne.collect(codePoint:/1);
 		let unicode = List(self.capacity, zeroCode);
-		self.bitsDo { :each :index |
+		self.bitsWithIndexDo { :each :index |
 			(each = 1).ifTrue {
 				unicode[index + 1] := oneCode
 			}
@@ -103,27 +119,6 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 		let answer = self.copy;
 		answer.bitNot;
 		answer
-	}
-
-	do { :self :aBlock:/1 |
-		let remainingBits = self.tally;
-		let lowBits = system.lowBitPerByteTable;
-		1.toDo(self.bytes.size) { :index |
-			(1 <= remainingBits).if {
-				let byte = self.bytes[index];
-				(byte = 0).ifFalse {
-					let byteOffset = index.bitShift(3) - 9;
-					{
-						aBlock(lowBits[byte] + byteOffset);
-						remainingBits := remainingBits - 1;
-						byte := byte.bitAnd(byte - 1);
-						byte = 0
-					}.whileFalse
-				}
-			} {
-				self
-			}
-		}
 	}
 
 	include { :self :anInteger |
@@ -161,6 +156,31 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 		} {
 			0
 		}
+	}
+
+	positionsDo { :self :aBlock:/1 |
+		let remainingBits = self.tally;
+		let lowBits = system.lowBitPerByteTable;
+		1.toDo(self.bytes.size) { :index |
+			(1 <= remainingBits).if {
+				let byte = self.bytes[index];
+				(byte = 0).ifFalse {
+					let byteOffset = index.bitShift(3) - 9;
+					{
+						aBlock(lowBits[byte] + byteOffset);
+						remainingBits := remainingBits - 1;
+						byte := byte.bitAnd(byte - 1);
+						byte = 0
+					}.whileFalse
+				}
+			} {
+				self
+			}
+		}
+	}
+
+	positionVector { :self |
+		self.contents(positionsDo:/2)
 	}
 
 	postCopy { :self |
@@ -203,7 +223,7 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 	storeString { :self |
 		'BitSet(%, %)'.format(
 			[
-				self.asList.storeString,
+				self.positionVector.storeString,
 				self.capacity
 			]
 		)
@@ -230,8 +250,18 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 		BitSet(self, capacity)
 	}
 
-	asBitSet { :self |
-		self.asBitSet(self.max + 1)
+	BitSet { :self |
+		self.isBitVector.if {
+			let answer = BitSet(self.size);
+			self.withIndexDo { :each :index |
+				each.isOne.ifTrue {
+					answer.add(index - 1)
+				}
+			};
+			answer
+		} {
+			self.error('BitSet: not bit vector')
+		}
 	}
 
 	BitSet { :self :capacity |
@@ -242,45 +272,30 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 
 }
 
-+String {
-
-	asBitSet { :self :capacity :elseClause:/0 |
-		self.isBitString.if {
-			let answer = BitSet(self.size);
-			let ascii = self.asciiByteArray;
-			let zeroCodePoint = '0'.codePoint;
-			let oneCodePoint = '1'.codePoint;
-			ascii.withIndexDo { :each :index |
-				(each = oneCodePoint).if {
-					answer.add(index - 1)
-				} {
-					(each != zeroCodePoint).ifTrue {
-						self.error('asBitSet: not 0 or 1: ' ++ each)
-					}
-				}
-			};
-			answer
-		} {
-			elseClause()
-		}
-	}
-
-	asBitSet { :self :capacity |
-		self.asBitSet(capacity) {
-			self.error('asBitSet: invalid string')
-		}
-	}
++@Sequenceable {
 
 	asBitSet { :self |
-		self.asBitSet(self.size)
+		BitSet(self)
 	}
 
-	parseBitSet { :self :elseClause:/0 |
-		self.asBitSet(self.size, elseClause:/0)
+}
+
++String {
+
+	asBitSet { :self |
+		self.parseBitSet
+	}
+
+	BitSet { :self |
+		self.parseBitSet
 	}
 
 	parseBitSet { :self |
-		self.asBitSet(self.size)
+		self.isBitVector.if {
+			BitSet(self.codePoints - 48)
+		} {
+			self.error('String>>parseBitSet: not bit vector')
+		}
 	}
 
 }
@@ -289,7 +304,7 @@ BitSet : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removab
 
 	asBitSet { :self :capacity |
 		(self.size * 8 != capacity).if {
-			self.error('asBitSet: incorrect capacity')
+			self.error('ByteArray>>asBitSet: incorrect capacity')
 		} {
 			newBitSet().initializeSlots(
 				capacity,

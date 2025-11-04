@@ -2,7 +2,12 @@
 
 Rewrite rule:
 
-- _r::p := x_ ⟹ _propertyWrite(r, 'p', x)_
+- _r::p := x_ ⟹ _uncheckedSlotWrite(r, 'p', x)_
+
+```
+>> 'r::p := x'.splSimplify
+uncheckedSlotWrite(r, 'p', x)
+```
 
 _r::p := x_ sets the value of the property _'p'_ at the record _r_ to the value _x_.
 
@@ -13,7 +18,7 @@ _r::p := x_ sets the value of the property _'p'_ at the record _r_ to the value 
 (w: (x: (y: (z: -1))))
 ```
 
-Where supported _::_ is displayed as _·_.
+Where supported `::` is displayed as ·.
 
 * * *
 
