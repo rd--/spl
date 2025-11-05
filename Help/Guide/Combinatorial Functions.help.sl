@@ -9,16 +9,32 @@ Binomial Functions:
 - `polygonalNumber`
 - `deBruijnSequence`
 
-Combination Functions:
-
-- `subsets`
-
 Counting Functions:
 
 - `binomial`
 - `braceletCount`
+- `catalanTriangle`
 - `deBruijnSequenceCount`
+- `delannoyNumber`
+- `fussCatalanNumber`
+- `lobbNumber`
+- `motzkinNumber`
+- `narayanaNumber`
 - `necklaceCount`
+- `schroderNumber`
+- `superCatalanNumber`
+- `wedderburnEtheringtonNumbers`
+
+Enumeration Functions:
+
+- `bellStrings`
+- `binaryReflectedGrayCode`
+- `bracelets`
+- `catalanStrings`
+- `integerPartitions`
+- `necklaces`
+- `setPartitions`
+- `subsets`
 
 Factorial Functions:
 
@@ -62,6 +78,7 @@ Plotting Functions
 - `circularPartitionsDrawing`
 - `ferrersDiagram`
 - `integerPartitionsTable`
+- `necklacePlot`
 - `rectangularPartitionsDrawing`
 
 * * *

@@ -22,13 +22,23 @@ Construct a `ResidueSet` from a `Collection` and a modulus:
 4.leastResidueSystem
 ```
 
-`ResidueSet` implements `size`, `modulus` and `asList`:
+`ResidueSet` implements `size`, `modulus`, `positionVector` and `bitVector`:
 
 ```
 >>> let l = [0 2 4 5 7 9 11];
 >>> let s = ResidueSet(l, 12);
->>> (s.size, s.modulus, s.asList)
-(7, 12, [0 2 4 5 7 9 11])
+>>> (
+>>> 	s.size,
+>>> 	s.modulus,
+>>> 	s.positionVector,
+>>> 	s.bitVector
+>>> )
+(
+	7,
+	12,
+	[0 2 4 5 7 9 11],
+	[1 0 1 0 1 1 0 1 0 1 0 1 0]
+)
 ```
 
 A `ResidueSet` has a `complement`:

@@ -162,7 +162,7 @@ Line plot of the modular ternary gray encodings of the first few integers:
 
 * * *
 
-See also: Binary, bitShiftRight, bitXor, deBruijnSequence, grayDecode, isGrayCode, shiftRegisterSequence
+See also: Binary, binaryReflectedGrayCode, bitShiftRight, bitXor, deBruijnSequence, grayDecode, isGrayCode, shiftRegisterSequence
 
 Guides: Integer Sequence Functions
 

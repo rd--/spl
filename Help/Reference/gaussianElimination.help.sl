@@ -1,6 +1,6 @@
 # gaussianElimination
 
-- _gaussianElimination(aMatrix, aVector)_
+- _gaussianElimination(m, v)_
 
 Gaussian elimination is a method for solving matrix equations of the form _Ax=b_.
 

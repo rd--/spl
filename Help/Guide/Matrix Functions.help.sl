@@ -142,7 +142,9 @@ Geometry:
 
 Linear Systems:
 
+- `gaussianElimination`
 - `leastSquares`
+- `thomasAlgorithm`
 
 Tuning:
 

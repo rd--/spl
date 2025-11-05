@@ -119,6 +119,17 @@
 		}
 	}
 
+	fussCatalanNumber { :p :r :m |
+		let a = (m * p) + r;
+		(r / a) * binomial(a, m)
+	}
+
+	fussCatalanNumber { :p :r |
+		{ :m |
+			fussCatalanNumber(p, r, m)
+		}
+	}
+
 	generalizedPentagonalNumbers { :n |
 		linearRecurrence([1 2 -2 -1 1], [0 1 2 5 7], n)
 	}

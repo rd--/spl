@@ -136,7 +136,7 @@ Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue m
 
 }
 
-+List{
++List {
 
 	isCommonResidueVector { :self :n |
 		self.allSatisfy { :each |

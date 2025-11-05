@@ -425,7 +425,7 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 }
 
-+List{
++List {
 
 	spirolateral { :a :n :theta :k |
 		let i = 1;

@@ -21,6 +21,62 @@
 		}
 	}
 
+	bellStringsDo { :n :yield:/1 |
+		let word = List(n, 0);
+		let focus = [1 .. n + 1];
+		let start = List(n, 0);
+		let maxima = [];
+		let first = List(n, true);
+		yield(word);
+		{ focus[1] < n }.whileTrue {
+			let index = focus[1];
+			focus[1] := 1;
+			(word[index] = start[index]).if {
+				let m = 0;
+				first[index].if {
+					first[index] := false
+				} {
+					maxima.isEmpty.if {
+						m := 1
+					} {
+						m := word[maxima[1]]
+					}
+				};
+				word[index] := m + 1;
+				(m + 1 != 1).ifTrue {
+					maxima.addFirst(index)
+				}
+			} {
+				(word[index] = 2 & { start[index] = 1 }).if {
+					word[index] := word[index] - 2;
+					(maxima[1] = index).ifTrue {
+						maxima.removeFirst
+					}
+				} {
+					word[index] := word[index] - 1;
+					(maxima[1] = index).ifTrue {
+						maxima.removeFirst
+					}
+				}
+			};
+			yield(word);
+			((word[index] + start[index]) = 1).ifTrue {
+				focus[index] := focus[index + 1];
+				focus[index + 1] := index + 1;
+				start[index] := word[index]
+			}
+		};
+		nil
+	}
+
+	bellStrings { :n |
+		let answer = [];
+		bellStringsDo(n) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
 	braceletCount { :n :k |
 		let t1 = 0;
 		1.toDo(n) { :d |
@@ -33,6 +89,45 @@
 		} {
 			(t1 + (n * (k ^ ((n + 1) / 2)))) / (2 * n)
 		}
+	}
+
+	catalanStringsDo { :n :k :yield:/1 |
+		let word = List(n, 0);
+		let focus = [1 .. n + 1];
+		let start = List(n, 0);
+		yield(word);
+		{ focus[1] < n }.whileTrue {
+			let index = focus[1];
+			focus[1] := 1;
+			(word[index] = start[index]).if {
+				(word[index] = 1 & { word[index + 1] = 0 & { k = 2 } }).if {
+					word[index] := 0
+				} {
+					word[index] := word[index + 1] + k - 1
+				}
+			} {
+				(word[index] = 2 & { start[index] = 1 }).if {
+					word[index] := word[index] - 2
+				} {
+					word[index] := word[index] - 1
+				}
+			};
+			yield(word);
+			((word[index] + start[index]) = 1).ifTrue {
+				focus[index] := focus[index + 1];
+				focus[index + 1] := index + 1;
+				start[index] := word[index]
+			}
+		};
+		nil
+	}
+
+	catalanStrings { :n :k |
+		let answer = [];
+		catalanStringsDo(n, k) { :each |
+			answer.add(each.copy)
+		};
+		answer
 	}
 
 	eulerianNumber { :n :m |
@@ -122,14 +217,107 @@
 		}
 	}
 
+	necklaces { :n :k |
+		/* https://www.jasondavies.com/necklaces/necklaces.js */
+		<primitive:
+		function fkm(n, k) {
+			let necklaces = [];
+			let a = [];
+			let i = -1;
+			let j = null;
+			while (++i < n) {
+				a[i] = 0;
+			}
+			necklaces.push(a.slice());
+			while (1) {
+				i = n;
+				while (--i >= 0) {
+					if (a[i] < k - 1) {
+						break;
+					}
+				}
+				if (i < 0) {
+					break;
+				}
+				a[j = i++]++;
+				while (++j < n) {
+					a[j] = a[j % i];
+				}
+				if (n % i === 0) {
+					necklaces.push(a.slice());
+				}
+			}
+			return necklaces;
+		};
+		return fkm(_n, _k)
+		>
+	}
+
 	polygonalNumber { :r :n |
 		(1 / 2) * n * (n * (r - 2) - r + 4)
+	}
+
+	restrictedGrowthStringsDo { :n :visit:/1 |
+		<primitive:
+		function fillArray(n, d) {
+			let a = [];
+			for (let i = 0; i < n; i++) {
+				a[i] = d;
+			}
+			return a;
+		}
+		let n = _n;
+		let visit = _visit_1;
+		let a = fillArray(n + 1, 0);
+		let b = fillArray(n + 1, 1);
+		let m = 1;
+		while (true) {
+			visit(a.slice(1));
+			while (a[n] < m) {
+				a[n]++;
+			}
+			let j = n - 1;
+			while (a[j] === b[j]) {
+				j--;
+			}
+			if (j === 0) {
+				return;
+			}
+			a[j]++;
+			m = b[j] + (a[j] === b[j] ? 1 : 0);
+			j++;
+			while (j < n) {
+				a[j] = 0;
+				b[j] = m;
+				j++;
+			}
+			a[n] = 0;
+		}
+		>
+	}
+
+	restrictedGrowthStrings { :self |
+		let answer = [];
+		restrictedGrowthStringsDo(self) { :p |
+			answer.add(p.copy)
+		};
+		answer
 	}
 
 	secondOrderEulerianTriangle { :self |
 		1:self.triangularArray(
 			eulerianNumberSecondOrder:/2
 		)
+	}
+
+	setPartition { :self |
+		let m = { [] } ! self.size;
+		self.withIndexDo { :a :i |
+			m[a + 1].add(i)
+		};
+		m.reject { :each |
+			each.isEmpty
+		}
 	}
 
 	setPartitionsDo { :n :k :f:/1 |
@@ -207,6 +395,26 @@
 		((1 / k.factorial) * 0:k.sum { :i |
 			(-1 ^ (k - i)) * binomial(k, i) * (i ^ n)
 		}).round
+	}
+
+	wedderburnEtheringtonNumbers { :self |
+		let a:/1 = { :n |
+			let f = { :k | a(k) * a(n - k) };
+			[
+				{ n < 2 } -> {
+					n
+				},
+				{ n.isOdd } -> {
+					1.to((n - 1) / 2).sum(f:/1)
+				},
+				{ n.isEven } -> {
+					1.to((n / 2) - 1).sum(f:/1)
+					+
+					((1 / 2) * a(n / 2) * (1 + a(n / 2)))
+				}
+			].which
+		}.memoize(true);
+		0.to(self - 1).collect(a:/1)
 	}
 
 }
@@ -433,7 +641,7 @@
 
 }
 
-+Fraction{
++Fraction {
 
 	lowerChristoffelWord { :self |
 		let [n, d] = self.numeratorDenominator;
@@ -447,7 +655,7 @@
 
 }
 
-+List{
++List {
 
 	duvalsAlgorithm { :self |
 		let n = self.size;
@@ -476,7 +684,7 @@
 
 }
 
-+String{
++String {
 
 	duvalsAlgorithm { :self |
 		self.characters.duvalsAlgorithm.collect(stringJoin:/1)

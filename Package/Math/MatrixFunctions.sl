@@ -1301,6 +1301,29 @@
 		].catenate
 	}
 
+	thomasAlgorithm { :a :b :c :d :x :n |
+		<primitive:
+		let a = _a, b = _b, c = _c, d = _d, x = _x, n = _n;
+		for (let i = 1; i < n; i++) {
+			let m = a[i] / b[i - 1];
+			b[i] -= m * c[i - 1];
+			d[i] -= m * d[i - 1];
+		}
+		x[n - 1] = d[n - 1] / b[n - 1];
+		for (let i = n - 2; i >= 0; i--) {
+			x[i] = (d[i] - c[i] * x[i + 1]) / b[i];
+		};
+		return x
+		>
+	}
+
+	thomasAlgorithm { :a :b :c :d |
+		let n = a.size;
+		let x = List(n);
+		thomasAlgorithm(a, b, c, d, x, n);
+		x
+	}
+
 	toeplitzMatrix { :c :r |
 		{ :i :j |
 			(i >= j).if {

@@ -32,11 +32,18 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 	}
 
 	asList { :self |
-		self.contents.asList.sort
+		self.positionVector
 	}
 
 	asIdentitySet { :self |
 		self.contents.copy
+	}
+
+	bitVector { :self |
+		let positions = self.contents;
+		0.to(self.modulus).collect { :each |
+			positions.includes(each).boole
+		}
 	}
 
 	boxNotation { :self |
@@ -55,6 +62,10 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 		self.contents.include(anInteger % self.modulus)
 	}
 
+	positionVector { :self |
+		self.contents.asList.sort
+	}
+
 	size { :self |
 		self.contents.size
 	}
@@ -62,7 +73,7 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 	storeString { :self |
 		'ResidueSet(%, %)'.format(
 			[
-				self.asList.storeString,
+				self.positionVector.storeString,
 				self.modulus.printString
 			]
 		)
@@ -104,7 +115,10 @@ ResidueSet : [Object, Equatable, Iterable, Collection, Extensible] { | contents 
 +BitSet {
 
 	asResidueSet { :self |
-		self.asList.asResidueSet(self.capacity)
+		ResidueSet(
+			self.positionVector,
+			self.capacity
+		)
 	}
 
 }

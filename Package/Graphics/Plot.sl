@@ -909,7 +909,7 @@ Plot : [Object] { | pages format options |
 
 }
 
-+List{
++List {
 
 	colourCalculatorPlot { :self :colourList |
 		self.deepCollect { :each |
@@ -920,7 +920,7 @@ Plot : [Object] { | pages format options |
 
 }
 
-+Decimal{
++Decimal {
 
 	colourCalculatorPlot { :self :shape :colourList |
 		self
@@ -964,6 +964,50 @@ Plot : [Object] { | pages format options |
 			PointCloud(p),
 			Polygon(p.atAll(i + 1))
 		].LineDrawing
+	}
+
+}
+
++List {
+
+	necklacePlot { :self :modulus |
+		let circleR = 16;
+		let dotR = 1;
+		let i = (modulus - self) % modulus;
+		let p = modulus.circlePoints([0 0], circleR, 1/2.pi);
+		let e = 0.to(modulus - 1).collect { :each |
+			i.includes(each).if {
+				Disk(p[each + 1], dotR)
+			} {
+				Circle(p[each + 1], dotR)
+			}
+		};
+		[
+			Circle([0 0], circleR),
+			e
+		].LineDrawing
+	}
+
+}
+
++ResidueSet {
+
+	necklacePlot { :self |
+		necklacePlot(
+			self.positionVector,
+			self.modulus
+		)
+	}
+
+}
+
++BitSet {
+
+	necklacePlot { :self |
+		necklacePlot(
+			self.positionVector,
+			self.capacity
+		)
 	}
 
 }

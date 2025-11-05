@@ -10,6 +10,7 @@ Progression Functions:
 
 - `arithmeticProgression`
 - `geometricProgression`
+- `iota`
 - `nonemptyRange`
 - `thenTo`
 - `to`

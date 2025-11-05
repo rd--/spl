@@ -72,7 +72,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 }
 
-+List{
++List {
 
 	grayCodeFromOneIndexedTransitionSequence { :self |
 		let k = self.max;
@@ -136,7 +136,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 }
 
-+@Integer{
++@Integer {
 
 	savageWinklerAlgorithmSubpath { :n :j |
 		let pi = { :n |
@@ -199,6 +199,16 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 		0.to(n - 1).collect { :j |
 			savageWinklerAlgorithmSubpath(n, j)
 		}.catenate
+	}
+
+}
+
++@Integer {
+
+	binaryReflectedGrayCode { :n |
+		0.to((2 ^ n) - 1).collect { :i |
+			i.grayEncode.integerDigits(2, n)
+		}
 	}
 
 }

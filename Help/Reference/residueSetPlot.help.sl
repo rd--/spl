@@ -54,6 +54,6 @@ A _#=5,m=16_ set:
 
 * * *
 
-See also: residueDesignPlot
+See also: necklacePlot, residueDesignPlot
 
 Guides: Plotting Functions

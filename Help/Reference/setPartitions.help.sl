@@ -1,8 +1,37 @@
 # setPartitions
 
+- _setPartitions(n)_
 - _setPartitions(n, k)_
 
-Answer the partitions of the set _1,2…n_ into _k_ parts.
+The unary forms answers the set partitions of the set _1,2,…n_.
+
+The fifteen partitions of the set _1,2,3,4_:
+
+```
+>>> 4.setPartitions
+[
+	1 2 3 4:;
+	1 3 4; 2:;
+	1 3; 2 4:;
+	1 4; 2 3:;
+	1; 2 3 4:;
+	1 2 4; 3:;
+	1 2; 3 4:;
+	1 2 3; 4:;
+	1 4; 2; 3:;
+	1; 2 4; 3:;
+	1; 2; 3 4:;
+	1 3; 2; 4:;
+	1; 2 3; 4:;
+	1 2; 3; 4:;
+	1; 2; 3; 4
+]
+
+>>> bellNumber(4)
+15
+```
+
+The binary form answers the partitions of the set _1,2…n_ into _k_ parts.
 
 The three partitions of a three element set into two parts:
 
@@ -56,7 +85,7 @@ The twenty-five partitions of a five element set into three parts:
 
 * * *
 
-See also: bellNumber, integerPartitions, stirlingS2
+See also: bellNumber, integerPartitions, restrictedGrowthStrings, stirlingS2
 
 Guides: Combinatorial Functions
 

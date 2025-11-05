@@ -45,7 +45,7 @@ The binary form answers the entry at position _n,k_:
 
 * * *
 
-See also: catalanNumber, finesSequence
+See also: catalanNumber, finesSequence, fussCatalanNumber
 
 Guides: Integer Sequence Functions
 

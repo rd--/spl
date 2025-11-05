@@ -1,4 +1,4 @@
-+List{
++List {
 
 	isLyndonWord { :self :alphabet |
 		self.isEmpty.if {

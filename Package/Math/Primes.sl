@@ -1133,7 +1133,7 @@
 
 }
 
-+@Integer{
++@Integer {
 
 	primeBounds { :n |
 		(n.primeLowerBound -- n.primeUpperBound)
@@ -1155,7 +1155,7 @@
 
 }
 
-+@Integer{
++@Integer {
 
 	primePiBounds { :x |
 		(x.primePiLowerBound -- x.primePiUpperBound)

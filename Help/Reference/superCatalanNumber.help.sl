@@ -4,6 +4,7 @@
 
 The super Catalan numbers count the number of lattice paths with diagonal steps from _(n,n)_ to _(0,0)_,
 which do not touch the diagonal line _x=y_.
+Also called the Schröder–Hipparchus numbers.
 
 The first ten super Catalan numbers:
 
