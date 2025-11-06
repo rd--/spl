@@ -41,6 +41,7 @@ Transforming:
 - `arrayFlatten`
 - `arrayReduce`
 - `flipLeftRight`
+- `slice`
 
 * * *
 

@@ -119,20 +119,26 @@
 		self.asGeometryCollection.asPerspectiveDrawing
 	}
 
-	circularGraphPlot { :self :ordering :radius |
+	circularGraphPlot { :self :options |
 		let k = self.vertexCount;
+		let ordering = options.atIfAbsent('ordering') { [1 .. k] };
+		let radius = options.atIfAbsent('radius') { 1 };
+		let drawCircle = options.atIfAbsent('drawCircle') { false };
 		let p = k.circlePoints([0 0], radius, 0);
 		let e = self.edgeList.collect { :each |
 			Line(p.atAll(ordering.atAll(each.vertexList)))
 		};
 		[
 			p.PointCloud,
-			e
+			e,
+			drawCircle.if { Circle([0 0], radius) } { [] }
 		].LineDrawing
 	}
 
 	circularGraphPlot { :self |
-		self.circularGraphPlot([1 .. self.vertexCount], 1)
+		self.circularGraphPlot(
+			(:)
+		)
 	}
 
 	complement { :self |
@@ -437,6 +443,23 @@
 		self.vertexList.collect { :each |
 			each -> self.vertexLabel(each)
 		}
+	}
+
+	linearGraphPlot { :self |
+		let k = self.vertexCount;
+		let p = 1:k.collect { :i | [i 0] };
+		let e = self.edgeList.collect { :each |
+			let [i, j] = each;
+			let y = (j - i) / 2;
+			let x = i + y;
+			Line([i 0; x y; j 0])
+		};
+		[
+			Line([1 0; k 0]),
+			PointCloud(p),
+			Point([1, k / 2]),
+			e
+		].LineDrawing
 	}
 
 	lineGraph { :self |

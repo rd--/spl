@@ -330,6 +330,8 @@ Reference/angleBisector.help.sl
 Reference/anglePath.help.sl
 Reference/angleVector.help.sl
 Reference/annularSteinerChain.help.sl
+Reference/Annulus.help.sl
+Reference/AnnulusSector.help.sl
 Reference/anticomplementaryTriangle.help.sl
 Reference/antidiagonal.help.sl
 Reference/antidiagonalIndicesDo.help.sl
@@ -576,6 +578,7 @@ Reference/beginsWithAny.help.sl
 Reference/beginsWith.help.sl
 Reference/bellB.help.sl
 Reference/bellNumber.help.sl
+Reference/bellStrings.help.sl
 Reference/benedettiHeight.help.sl
 Reference/berahaConstant.help.sl
 Reference/BernoulliDistribution.help.sl
@@ -617,6 +620,7 @@ Reference/binaryDetectIndex.help.sl
 Reference/binaryDistance.help.sl
 Reference/Binary.help.sl
 Reference/BinaryLargeObject.help.sl
+Reference/binaryReflectedGrayCode.help.sl
 Reference/binarySearch.help.sl
 Reference/binarySearchLeftmost.help.sl
 Reference/binarySearchRightmost.help.sl
@@ -680,9 +684,11 @@ Reference/boustrophedonTriangle.help.sl
 Reference/bowCurve.help.sl
 Reference/Box.help.sl
 Reference/boxMatrix.help.sl
+Reference/boxNotation.help.sl
 Reference/Bpf.help.sl
 Reference/Bpz2.help.sl
 Reference/braceletCount.help.sl
+Reference/bracelets.help.sl
 Reference/brayCurtisDistance.help.sl
 Reference/bresenhamLineAlgorithm.help.sl
 Reference/Brf.help.sl
@@ -736,6 +742,7 @@ Reference/caseOf.help.sl
 Reference/cassiniOval.help.sl
 Reference/catalanNumber.help.sl
 Reference/catalansConstant.help.sl
+Reference/catalanStrings.help.sl
 Reference/catalanTriangle.help.sl
 Reference/CategoryBrowser.help.sl
 Reference/CategoryDictionary.help.sl
@@ -780,6 +787,7 @@ Reference/chineseRemainder.help.sl
 Reference/ChiSquareDistribution.help.sl
 Reference/choleskyDecomposition.help.sl
 Reference/chop.help.sl
+Reference/chordDiagrams.help.sl
 Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
 Reference/circleCurve.help.sl
@@ -793,6 +801,7 @@ Reference/circulantGraph.help.sl
 Reference/circulantMatrix.help.sl
 Reference/circularArcThrough.help.sl
 Reference/circularGraphPlot.help.sl
+Reference/circularMatrixPlot.help.sl
 Reference/circularPartitionsDrawing.help.sl
 Reference/CircularSector.help.sl
 Reference/CircularSegment.help.sl
@@ -1221,7 +1230,6 @@ Reference/encodeInt16.help.sl
 Reference/encodeInt32.help.sl
 Reference/encodeOn.help.sl
 Reference/encodeUri.help.sl
-Reference/endIndex.help.sl
 Reference/endsWithAny.help.sl
 Reference/endsWith.help.sl
 Reference/engelExpansion.help.sl
@@ -1448,6 +1456,7 @@ Reference/FSinOsc.help.sl
 Reference/fullStopFullStop.help.sl
 Reference/fullStop.help.sl
 Reference/functionPlot.help.sl
+Reference/fussCatalanNumber.help.sl
 Reference/galileanSpiral.help.sl
 Reference/gallPetersProjection.help.sl
 Reference/gallStereographicProjection.help.sl
@@ -1992,6 +2001,7 @@ Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
 Reference/isRegularlySpaced.help.sl
 Reference/isRegularNumber.help.sl
+Reference/isRestrictedGrowthString.help.sl
 Reference/isRight.help.sl
 Reference/isRoughNumber.help.sl
 Reference/isRowVector.help.sl
@@ -2249,6 +2259,7 @@ Reference/liouvilleLambda.help.sl
 Reference/lissajousCurve.help.sl
 Reference/List.help.sl
 Reference/listInterpolation.help.sl
+Reference/ListView.help.sl
 Reference/lobbNumber.help.sl
 Reference/LocalBuf.help.sl
 Reference/LocalControl.help.sl
@@ -2530,6 +2541,8 @@ Reference/nearestNeighbourGraph.help.sl
 Reference/nearestNeighbourInterpolator.help.sl
 Reference/nearestPrime.help.sl
 Reference/necklaceCount.help.sl
+Reference/necklacePlot.help.sl
+Reference/necklaces.help.sl
 Reference/negate.help.sl
 Reference/Negate.help.sl
 Reference/neighbourhoodGraph.help.sl
@@ -3126,6 +3139,7 @@ Reference/resolvedPromise.help.sl
 Reference/Resonz.help.sl
 Reference/respondsTo.help.sl
 Reference/Response.help.sl
+Reference/restrictedGrowthStrings.help.sl
 Reference/resultant.help.sl
 Reference/reuleauxPolygonCurve.help.sl
 Reference/reverseDo.help.sl
@@ -3280,6 +3294,7 @@ Reference/sessionTime.help.sl
 Reference/setBitAt.help.sl
 Reference/setharesDissonance.help.sl
 Reference/Set.help.sl
+Reference/setPartitions.help.sl
 Reference/SetResetFf.help.sl
 Reference/setToEnd.help.sl
 Reference/SfAcquire.help.sl
@@ -3347,9 +3362,7 @@ Reference/SkewNormalDistribution.help.sl
 Reference/skip.help.sl
 Reference/skipTo.help.sl
 Reference/Slew.help.sl
-Reference/sliceFromTo.help.sl
 Reference/slice.help.sl
-Reference/Slice.help.sl
 Reference/Slope.help.sl
 Reference/slopeInterceptForm.help.sl
 Reference/slotList.help.sl
@@ -3464,7 +3477,6 @@ Reference/stanleySequence.help.sl
 Reference/starFigure.help.sl
 Reference/starGraph.help.sl
 Reference/starPolygon.help.sl
-Reference/startIndex.help.sl
 Reference/stemLeafPlot.help.sl
 Reference/stepArity.help.sl
 Reference/Stepper.help.sl
@@ -3609,6 +3621,7 @@ Reference/thenTo.help.sl
 Reference/theodorusSpiral.help.sl
 Reference/theta.help.sl
 Reference/third.help.sl
+Reference/thomasAlgorithm.help.sl
 Reference/threshold.help.sl
 Reference/thueMorse.help.sl
 Reference/thueMorseSequence.help.sl
@@ -3831,6 +3844,7 @@ Reference/warpingPlot.help.sl
 Reference/wattsCurve.help.sl
 Reference/WeakMap.help.sl
 Reference/WebSocket.help.sl
+Reference/wedderburnEtheringtonNumbers.help.sl
 Reference/weeks.help.sl
 Reference/WeibullDistribution.help.sl
 Reference/weierstrassFunction.help.sl

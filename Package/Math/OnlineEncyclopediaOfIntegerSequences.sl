@@ -48,6 +48,7 @@
 				champernowneSequence: [007376],
 				chebyshevT: [008310 053120],
 				chebyshevU: [008312 053117],
+				chordDiagrams: [007769],
 				collatzSequence: [070165],
 				connellSequence: [001614],
 				continuedFraction: [003417],

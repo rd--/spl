@@ -1,5 +1,9 @@
 # Combinatorial Functions
 
+Types:
+
+- `Chord`
+
 Binomial Functions:
 
 - `binomial`
@@ -14,6 +18,7 @@ Counting Functions:
 - `binomial`
 - `braceletCount`
 - `catalanTriangle`
+- `chordDiagramCount`
 - `deBruijnSequenceCount`
 - `delannoyNumber`
 - `fussCatalanNumber`
@@ -31,6 +36,7 @@ Enumeration Functions:
 - `binaryReflectedGrayCode`
 - `bracelets`
 - `catalanStrings`
+- `chordDiagrams`
 - `integerPartitions`
 - `necklaces`
 - `setPartitions`

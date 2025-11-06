@@ -123,7 +123,7 @@ Line : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 }
 
-+[List, Slice] {
++[List, ListView] {
 
 	bresenhamLineAlgorithm { :self |
 		let [x1, y1] = self[1];

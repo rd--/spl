@@ -1,8 +1,9 @@
 # edgeList
 
-- _edgeList(aGraph | aGeometry)_
+- _edgeList(g)_
 
-Answer a `List` of the edges in a `Graph` or a geometric object.
+Answer a `List` of the edges at _g_,
+ordinarily a `Graph` or a `Geometry` object.
 
 At undirected graphs:
 

@@ -1,10 +1,9 @@
 # circularGraphPlot
 
-- _circularGraphPlot(g, p, r)_
+- _circularGraphPlot(g)_
 
-Answer a drawing of the graph _g_,
-where the vertices are placed on a circle of radius _r_,
-ordered according to the permutation _p_.
+Answer a drawing of the graph _g_.
+where the vertices are placed in sequence on a circle.
 
 Plot a complete graph on eight vertices:
 
@@ -26,26 +25,19 @@ Sfc32(379714)
 
 ![](sw/spl/Help/Image/circularGraphPlot-B.svg)
 
-Draw the [Herschel Graph](https://mathworld.wolfram.com/HerschelGraph.html):
+Draw the Herschel graph:
 
 ~~~spl svg=C
-[
-	1 3; 1 4; 1 5; 1 6;
-	2 3; 2 4; 2 7; 2 8;
-	3 11;
-	4 10;
-	5 9; 5 10;
-	6 9; 6 11;
-	7 9; 7 10;
-	8 9; 8 11
-].asGraph.circularGraphPlot
+'HerschelGraph'
+.namedGraph
+.circularGraphPlot
 ~~~
 
 ![](sw/spl/Help/Image/circularGraphPlot-C.svg)
 
 * * *
 
-See also: circlePoints, graphPlot, Graph
+See also: graphPlot, linearGraphPlot, Graph
 
 Guides: Graph Functions, Plotting Functions
 

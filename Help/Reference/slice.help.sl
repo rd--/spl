@@ -1,8 +1,8 @@
 # slice
 
-- _slice(anArray, cuts)_
+- _slice(a, cuts)_
 
-Select regions of arrays.
+Select regions of the array _a_ specified by _cuts_.
 
 A 4×5 matrix:
 
@@ -174,3 +174,5 @@ Rows 1&2 of page 2:
 * * *
 
 See also: at, Sequence
+
+Guides: Array Functions

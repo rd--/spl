@@ -12,8 +12,8 @@ Types:
 - `ByteArray`
 - `Float64Array`
 - `List`
+- `ListView`
 - `Range`
-- `Slice`
 - `SortedList`
 - `Span`
 - `Tuple`
@@ -109,10 +109,6 @@ Resampling:
 - `downsample`
 - `resample`
 - `upsample`
-
-Slice Functions:
-
-- `sliceFromTo`
 
 Sorting:
 

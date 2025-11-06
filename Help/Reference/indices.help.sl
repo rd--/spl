@@ -38,11 +38,14 @@ C.f. `keys`:
 ['x' 'y' 'z']
 ```
 
-At `Slice`:
+At `ListView`:
 
 ```
->>> [1 .. 9].sliceFromTo(3, 7).indices
+>>> ListView([1 .. 9], 3, 7, 1).indices
 1:5
+
+>>> ListView([1 .. 9], 3, 7, 0).indices
+0:4
 ```
 
 The `size` of a collection is equal to the size of its `indices`:

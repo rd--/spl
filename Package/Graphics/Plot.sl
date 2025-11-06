@@ -157,6 +157,18 @@ Plot : [Object] { | pages format options |
 		y.autocorrelationPlot(k)
 	}
 
+	circularMatrixPlot { :self |
+		let [m, n] = self.shape;
+		let theta = 2.pi / n;
+		{ :i :j |
+			AnnulusSector(
+				[0, 0],
+				[i, i + 1],
+				[theta * j, theta * (j + 1)]
+			)
+		}.table(1:m, 1:n).LineDrawing
+	}
+
 	complexListPlot { :self |
 		self.flatten.realImaginary.scatterPlot
 	}

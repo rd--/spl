@@ -9,6 +9,8 @@ Plotting Functions:
 - `arrayPlot`
 - `autocorrelationPlot`
 - `carpetPlot`
+- `chordDiagramPlot`
+- `circularMatrixPlot`
 - `cobwebPlot`
 - `colourCalculatorPlot`
 - `complexPlot`
@@ -26,6 +28,7 @@ Plotting Functions:
 - `graphPlot`
 - `histogramPlot`
 - `lagPlot`
+- `linearGraphPlot`
 - `linePlot`
 - `logLinearPlot`
 - `logPlot`

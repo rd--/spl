@@ -99,7 +99,7 @@
 - `BitSet`, `PriorityQueue`, `SortedList`
 - `ArithmeticProgression`, `Range`
 - `Association`
-- `Slice`
+- `ListView`
 
 ## Combinatorial Functions
 

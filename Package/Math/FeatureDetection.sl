@@ -132,7 +132,7 @@
 
 }
 
-+[List, Slice] {
++[List, ListView] {
 
 	findRepeat { :self :aBlock:/2 |
 		let k = self.size;
