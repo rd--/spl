@@ -87,6 +87,7 @@
 	'Collection-WeakMap'
 	'Exception-Error'
 	'Exception-Missing'
+	'Geometry-Annulus'
 	'Geometry-Arc'
 	'Geometry-AxonometricProjection'
 	'Geometry-Ball'

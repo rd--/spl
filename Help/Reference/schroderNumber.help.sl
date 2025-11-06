@@ -10,13 +10,18 @@ also called a large Schröder number or big Schröder number.
 518431875418926
 ```
 
-The first few Schröder numbers:
+The first few Schröder numbers,
+OEIS [A006318](https://oeis.org/A006318):
 
 ```
 >>> 2:8.collect(schroderNumber:/1)
 [2 6 22 90 394 1806 8558]
 ```
 
+A triangular array associated with the Schröder numbers,
+OEIS [A033877](https://oeis.org/A033877):
+
+```
 >>> let t = { :n :k |
 >>> 	[
 >>> 		{ k < 0 | { k > n } } -> {
@@ -31,7 +36,16 @@ The first few Schröder numbers:
 >>> 	].which
 >>> };
 >>> 1:7.triangularArray(t:/2)
-[[1], [1, 2], [1, 4, 6], [1, 6, 16, 22], [1, 8, 30, 68, 90], [1, 10, 48, 146, 304, 394], [1, 12, 70, 264, 714, 1412, 1806]]
+[
+	1;
+	1 2;
+	1 4 6;
+	1 6 16 22;
+	1 8 30 68 90;
+	1 10 48 146 304 394;
+	1 12 70 264 714 1412 1806
+]
+```
 
 * * *
 
@@ -43,6 +57,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/SchroederNumber.html),
 _OEIS_
-[1](https://oeis.org/A006318),
+[1](https://oeis.org/A006318)
+[2](https://oeis.org/A033877),
 _W_
 [1](https://en.wikipedia.org/wiki/Schr%C3%B6der_number)

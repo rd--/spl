@@ -88,6 +88,7 @@
 
 	/* Geometry */
 	'Geometry' /* Trait */
+	'Annulus'
 	'Arc'
 	'Ball'
 	'BarycentricCoordinates'

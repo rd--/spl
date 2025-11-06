@@ -6,6 +6,7 @@ Traits:
 
 Types:
 
+- `Annulus`
 - `Arc`
 - `BezierCurve`
 - `Circle`

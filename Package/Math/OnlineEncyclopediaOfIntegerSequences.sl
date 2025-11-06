@@ -293,7 +293,7 @@
 				repunit: [000225 003462 002450 003463 003464 023000 023001 002452 002275 016123 016125],
 				rudinShapiro: [020985],
 				rulerFunction: [001511],
-				schroderNumber: [006318],
+				schroderNumber: [006318 033877],
 				schroderSequence: [006318],
 				secondFeigenbaumConstant: [006891],
 				secondOrderEulerianTriangle: [008517],

@@ -4,7 +4,7 @@
 
 A `Tree` is a recursive `Type`.
 A Tree has a `value` and a possibly empty `List` of `subTrees`.
-Each subTree of a Tree is a Tree.
+Each sub-tree of a Tree is a Tree.
 
 The `expressionTree` method constructs a `Tree` from a `List`:
 

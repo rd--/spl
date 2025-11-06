@@ -257,49 +257,80 @@
 		(1 / 2) * n * (n * (r - 2) - r + 4)
 	}
 
-	restrictedGrowthStringsDo { :n :visit:/1 |
-		<primitive:
-		function fillArray(n, d) {
-			let a = [];
-			for (let i = 0; i < n; i++) {
-				a[i] = d;
+	restrictedGrowthStringsDo { :n :f:/1 |
+		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/v.cpp */
+		let a = List(n, 0);
+		let b = List(n, 0);
+		let r = true;
+		f(a);
+		{ r }.whileTrue {
+			let c = n;
+			{ a[c] = (n - 1) | { a[c] > b[c] } }.whileTrue {
+				c := c - 1
+			};
+			(c = 1).if {
+				r := false
+			} {
+				a[c] := a[c] + 1;
+				(c + 1).to(n).do { :i |
+					a[i] := 0;
+					b[i] := max(a[i - 1], b[i - 1])
+				};
+				f(a)
 			}
-			return a;
-		}
-		let n = _n;
-		let visit = _visit_1;
-		let a = fillArray(n + 1, 0);
-		let b = fillArray(n + 1, 1);
-		let m = 1;
-		while (true) {
-			visit(a.slice(1));
-			while (a[n] < m) {
-				a[n]++;
-			}
-			let j = n - 1;
-			while (a[j] === b[j]) {
-				j--;
-			}
-			if (j === 0) {
-				return;
-			}
-			a[j]++;
-			m = b[j] + (a[j] === b[j] ? 1 : 0);
-			j++;
-			while (j < n) {
-				a[j] = 0;
-				b[j] = m;
-				j++;
-			}
-			a[n] = 0;
-		}
-		>
+		};
+		nil
 	}
 
-	restrictedGrowthStrings { :self |
+	restrictedGrowthStrings { :n |
 		let answer = [];
-		restrictedGrowthStringsDo(self) { :p |
-			answer.add(p.copy)
+		n.restrictedGrowthStringsDo { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
+
+	restrictedGrowthStringsDo { :n :k :f:/1 |
+		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/x.cpp */
+		let a = List(n, 0);
+		let b = List(n, 0);
+		let r = true;
+		let m = -1;
+		(n - 1).downToDo(n - k + 1) { :i |
+			let x = k - n + i;
+			a[i + 1] := x;
+			b[i + 1] := x - 1
+		};
+		f(a);
+		{ r }.whileTrue {
+			let m = nil;
+			{ r & { m != (k - 1) } }.whileTrue {
+				let c = n;
+				{ a[c] = (k - 1) | { a[c] > b[c] } }.whileTrue {
+					c := c - 1
+				};
+				(c = 1).if {
+					r := false
+				} {
+					a[c] := a[c] + 1;
+					(c + 1).to(n).do { :i |
+						a[i] := 0;
+						b[i] := max(a[i - 1], b[i - 1])
+					};
+					m := max(a[n], b[n])
+				}
+			};
+			m.ifNotNil {
+				f(a)
+			}
+		};
+		nil
+	}
+
+	restrictedGrowthStrings { :n :k |
+		let answer = [];
+		restrictedGrowthStringsDo(n, k) { :each |
+			answer.add(each.copy)
 		};
 		answer
 	}
@@ -310,68 +341,24 @@
 		)
 	}
 
-	setPartition { :self |
-		let m = { [] } ! self.size;
-		self.withIndexDo { :a :i |
-			m[a + 1].add(i)
-		};
-		m.reject { :each |
-			each.isEmpty
+	setPartitionsDo { :n :k :f:/1 |
+		restrictedGrowthStringsDo(n, k) { :x |
+			f(x.setPartition)
 		}
 	}
 
-	setPartitionsDo { :n :k :f:/1 |
-		/* https://devblogs.microsoft.com/oldnewthing/20140324-00/?p=1413 */
-		<primitive:
-		function rec(n, k, f) {
-			if (n == 0 && k == 0) {
-				f([]);
-				return;
-			}
-			if (n == 0 || k == 0) {
-				return;
-			}
-			rec(
-				n - 1,
-				k,
-				function(s) {
-					for (let i = 0; i < k; i++) {
-						s[i].push(n);
-						f(s);
-						s[i].pop();
-					}
-				}
-			);
-			rec(
-				n - 1,
-				k - 1,
-				function(s) {
-					s.push([n]);
-					f(s);
-					s.pop();
-				}
-			);
-		};
-		rec(_n, _k, _f_1);
-		return _n;
-		>
+	setPartitionsDo { :n :f:/1 |
+		restrictedGrowthStringsDo(n) { :x |
+			f(x.setPartition)
+		}
 	}
 
 	setPartitions { :n :k |
-		let answer = [];
-		let kList = k.nest;
-		kList.do { :i |
-			setPartitionsDo(n, i) { :each |
-				answer.add(each.deepCopy)
-			}
-		};
-		answer
+		restrictedGrowthStrings(n, k).collect(setPartition:/1)
 	}
 
 	setPartitions { :n |
-		1.to(n).collect { :k |
-			setPartitions(n, k)
-		}.catenate
+		restrictedGrowthStrings(n).collect(setPartition:/1)
 	}
 
 	stirlingS1 { :n :k |
@@ -485,6 +472,15 @@
 		}
 	}
 
+	isRestrictedGrowthString { :a |
+		let n = a.size;
+		a[1] = 0 & {
+			1.to(n - 1).allSatisfy { :i |
+				a[i + 1] <= (1 + a.sliceFromTo(1, i).max)
+			}
+		}
+	}
+
 	isTableau { :self |
 		self.collect(size:/1).isSortedBy(>=) & {
 			self.catenate.isPermutationList & {
@@ -493,6 +489,14 @@
 				}
 			}
 		}
+	}
+
+	setPartition { :self |
+		let answer = { [] } ! self.size;
+		self.withIndexDo { :each :index |
+			answer.at(each + 1).add(index)
+		};
+		answer.reject(isEmpty:/1)
 	}
 
 	transposeTableau { :self |
