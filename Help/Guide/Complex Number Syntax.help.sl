@@ -1,4 +1,17 @@
-# Complex Literals
+# Complex Number Syntax
+
+Rewrite rules:
+
+- _aJb_ ⟹ _Complex(a, b)_
+- _aI_ ⟹ _Complex(0, a)_
+
+```
+>> '3J4'.splSimplify
+Complex(3, 4)
+
+>> '3I'.splSimplify
+Complex(0, 3)
+```
 
 A complex number is a number consisting of a _real_ and an _imaginary_ component.
 There are two literal notations for complex numbers.
@@ -15,8 +28,6 @@ Complex(3, 4)
 Complex(2.3, 4.5)
 ```
 
-The rewrite rule is _aJb => Complex(a, b)_.
-
 In the second,
 a purely imaginary number may be written using the syntax _aI_.
 
@@ -30,8 +41,6 @@ a purely imaginary number may be written using the syntax _aI_.
 >>> 2 + 3I
 2J3
 ```
-
-The rewrite rule is _aI_ => Complex(0, a)_.
 
 `j` is the name of a method:
 
@@ -64,10 +73,10 @@ The rewrite rule is _aI_ => Complex(0, a)_.
 
 See also: Complex, i, j
 
-Guides: Complex Number Functions, Number Literals
+Guides: Complex Number Functions, Number Syntax
 
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Complex_number)
 
-Categories: Literals
+Categories: Syntax

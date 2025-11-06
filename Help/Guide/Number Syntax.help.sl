@@ -1,4 +1,14 @@
-# Number Literals
+# Number Syntax
+
+Guides:
+
+- `Complex Number Syntax`
+- `Decimal Number Syntax`
+- `Fraction Syntax`
+- `Integer Syntax`
+- `Radix Syntax`
+- `Real Number Syntax`
+- `Scientific Notation`
 
 Numbers may be written with a sign, which is part of the literal syntax.
 
@@ -76,12 +86,6 @@ Radix literals:
 
 See also: SmallFloat
 
-Guides: Complex Literals, Fraction Literals, Integer Literals, Literals Syntax, Radix Syntax, Scientific Notation
-
-References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/ScientificNotation.html),
-_W_
-[1](https://en.wikipedia.org/wiki/Scientific_notation)
+Guides: Complex Number Syntax, Decimal Number Syntax, Fraction Syntax, Integer Syntax, Radix Syntax, Real Number Syntax, Scientific Notation
 
 Categories: Syntax

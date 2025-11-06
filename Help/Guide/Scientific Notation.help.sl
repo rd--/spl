@@ -65,7 +65,7 @@ The parser does not require that _1 <= a < 10_:
 
 See also: e
 
-Guides: Number Literals
+Guides: Number Syntax, Syntax Guides
 
 References:
 _Mathematica_

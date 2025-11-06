@@ -141,14 +141,14 @@ The continued fraction at the higher precision decimal constant is accurate to m
 ]
 ```
 
-_e_ is also a part of the `Scientific Notation` for `Number Literals`,
+_e_ is also a part of the `Scientific Notation` for `Number Syntax`,
 however in that context an upper case _E_ is ordinary.
 
 * * *
 
 See also: exp, log, pi
 
-Guides: Mathematical Constants, Number Literals, Scientific Notation
+Guides: Mathematical Constants, Number Syntax, Scientific Notation
 
 References:
 _Mathematica_

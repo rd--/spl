@@ -733,13 +733,13 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 
 +[Fraction, SmallFloat] {
 
-	asDecimalFraction { :self :places |
-		self.asFractionOver(10L ^ places)
+	asDecimalFraction { :self :scale |
+		self.asFractionOver(10L ^ scale)
 	}
 
 	asFractionOver { :self :denominator |
 		self.isInteger.if {
-			ReducedFraction(self, 1L)
+			ReducedFraction(self.asLargeInteger, 1L)
 		} {
 			Fraction(
 				(self * denominator).round,

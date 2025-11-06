@@ -1,8 +1,17 @@
-# Fraction Literals
+# Fraction Syntax
+
+Rewrite rule:
+
+- _n/d_ ⟹ _Fraction(nL, dL)_
+
+```
+>> '3/4'.splSimplify
+Fraction(3L, 4L)
+```
 
 A `Fraction` is a number consisting of two integers, a numerator and a denominator.
 
-Fractions may be written as literals using the syntax _numerator/denominator_,
+Fractions may be written using the syntax _numerator/denominator_,
 i.e. `3/4` or `2/3`.
 
 ```
@@ -13,7 +22,7 @@ Fraction(3, 4)
 Fraction(2, 3)
 ```
 
-Fraction literals assume that infix operators are written using white-space separators,
+Fraction syntax assume that infix operators are written using white-space separators,
 however at present the parser does not require this.
 The expression _x/y/z_ should be an error,
 however it is currently parsed as _x/y / z_.
@@ -26,8 +35,6 @@ however it is currently parsed as _x/y / z_.
 15/4
 ```
 
-The rewrite rule is _n/d => Fraction(n, d)_.
-
 If the `Fraction` package is not installed,
 the `SmallFloat` package can implement `Fraction` as `/`.
 
@@ -35,4 +42,4 @@ the `SmallFloat` package can implement `Fraction` as `/`.
 
 See also: Fraction
 
-Guides: Number Literals, Literals Syntax, Syntax Guides
+Guides: Number Syntax, Syntax Guides

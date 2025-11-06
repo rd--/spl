@@ -140,6 +140,7 @@
 				for (let j = a[t - p] + 1; j < k; j++) {
 					a[t] = j;
 					if (t === 1) {
+						/* Errata: https://www.socs.uoguelph.ca/~sawada/pub.html */
 						genBracelets(t + 1, t, 1, 1, 1, rs);
 					} {
 						genBracelets(t + 1, t , r, u, 0, rs);

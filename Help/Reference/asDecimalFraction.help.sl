@@ -33,6 +33,9 @@ At `Fraction`:
 ```
 >>> 1/7.asDecimalFraction(10)
 1428571429/10000000000
+
+>>> 23/1.asDecimalFraction(0)
+23/1
 ```
 
 * * *

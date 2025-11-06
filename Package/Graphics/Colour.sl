@@ -283,6 +283,14 @@ RgbColour : [Object, Equatable, Colour] { | rgb alpha |
 		level.greyLevel(1)
 	}
 
+	greyLevelOrTransparent { :level |
+		level.isVeryCloseTo(1).if {
+			greyLevel(1, 0)
+		} {
+			level.greyLevel
+		}
+	}
+
 	lightnessCie { :y :yn |
 		let f = { :y :yn |
 			let yyn = y / yn;
@@ -372,6 +380,14 @@ RgbColour : [Object, Equatable, Colour] { | rgb alpha |
 
 	cmyToRgb { :self |
 		1 - self
+	}
+
+	greyscaleMatrix { :self |
+		let maxEntry = self.abs.max.max;
+		self.deepCollect { :each |
+			let level = (maxEntry - each.abs) / maxEntry;
+			level.greyLevelOrTransparent
+		}
 	}
 
 	hslToHsv { :self |

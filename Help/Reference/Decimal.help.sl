@@ -38,7 +38,7 @@ with and without fractional part:
 ```
 
 Literal syntax,
-with and without fractional part:
+with and without fractional part and scale specifier:
 
 ```
 >>> 3.1416D
@@ -46,6 +46,12 @@ with and without fractional part:
 
 >>> 23D
 23D
+
+>>> 2.1D4
+2.1000D
+
+>>> 3D3
+3.000D
 ```
 
 Multiplication with integer:

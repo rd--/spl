@@ -57,4 +57,4 @@ Random Functions:
 
 * * *
 
-Guides: Complex Literals, Integer Functions, Mathematical Functions, Quaternion Functions
+Guides: Complex Number Syntax, Integer Functions, Mathematical Functions, Quaternion Functions

@@ -34,6 +34,9 @@ At `Fraction`:
 
 >>> 1/7.asFractionOver(1E12)
 142857142857/1000000000000
+
+>>> 23/1.asFractionOver(1)
+23/1
 ```
 
 * * *

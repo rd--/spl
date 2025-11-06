@@ -45,6 +45,6 @@ other radices may raise errors.
 
 * * *
 
-See also: Integer Literals, Literals Syntax
+See also: Integer Syntax, Number Syntax
 
 Categories: Syntax

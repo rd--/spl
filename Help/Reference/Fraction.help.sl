@@ -330,7 +330,7 @@ Print `String`:
 
 See also: /, denominator, normalized, numerator, ReducedFraction, reduced
 
-Guides: Fraction Literals, Numeric Types
+Guides: Fraction Syntax, Numeric Types
 
 References:
 _Haskell_

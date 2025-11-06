@@ -1,8 +1,10 @@
 # asDecimal
 
-- _asDecimal(aNumber, anInteger)_
+- _asDecimal(n, k)_
 
-Answer a `Decimal` value representing _aNumber_ to precision _anInteger_.
+Answer a `Decimal` value representing th number _n_ with decimal scale _k_.
+_k_ tells the number of places after the decimal point,
+the precision of the number the total number of digits.
 
 At `Decimal`:
 
@@ -11,6 +13,9 @@ At `Decimal`:
 3.14D
 
 >>> 3.14D.asDecimal(3)
+3.140D
+
+>>> 3.14D3
 3.140D
 ```
 
@@ -74,3 +79,5 @@ At `LargeInteger`:
 * * *
 
 See also: asFloat, asInteger, Decimal
+
+Guides: Decimal Number Syntax, Mathematical Functions

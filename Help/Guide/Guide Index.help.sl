@@ -4,12 +4,15 @@ Function Guides:
 
 - `Function Guides`
 
-Literal Number Guides:
+Number Syntax Guides:
 
-- `Complex Literals`
-- `Fraction Literals`
-- `Integer Literals`
-- `Number Literals`
+- `Complex Number Syntax`
+- `Decimal Number Syntax`
+- `Fraction Syntax`
+- `Integer Syntax`
+- `Number Syntax`
+- `Radix Syntax`
+- `Real Number Syntax`
 
 Type Guides:
 

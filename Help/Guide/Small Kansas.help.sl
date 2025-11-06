@@ -14,7 +14,7 @@ To get help about a word, for instance `SinOscFb`, select 'Help For It (h)'.
 
 To see the implementations of a word, for instance `playEvery`, select 'Implementors Of It (m)'.
 
-Text in back-ticks, for instance `Fraction Literals`, indicates that the bracketed text is the name of a help document,
+Text in back-ticks, for instance `Fraction Syntax`, indicates that the bracketed text is the name of a help document,
 which can be visited the same way.
 
 Ordinarily an internal copy of the SuperCollider synthesiser is used,

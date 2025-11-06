@@ -100,7 +100,7 @@ Where supported `/` is displayed as ÷.
 
 The name of this operator is `solidus`.
 
-This glyph forms part of the `Fraction Literals` syntax:
+This glyph forms part of the `Fraction Syntax`:
 
 ```
 >>> 616/33
@@ -134,7 +134,7 @@ At `Symbol`:
 
 See also: //, +, -, *, Divide
 
-Guides: Binary Operators, Fraction Literals, Mathematical Functions
+Guides: Binary Operators, Fraction Syntax, Mathematical Functions
 
 References:
 _Apl_

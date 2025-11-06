@@ -1,4 +1,4 @@
-# Integer Literals
+# Integer Syntax
 
 Integer literals evaluate to the type `SmallFloat`.
 
@@ -46,6 +46,6 @@ Leading signs, both negative and positive, are allowed:
 
 See also: Integer, LargeInteger, SmallFloat
 
-Guides: Literals Syntax, Radix Syntax
+Guides: Number Syntax, Radix Syntax
 
 Categories: Syntax

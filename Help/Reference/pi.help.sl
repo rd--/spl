@@ -25,7 +25,7 @@ and approximately equal to _3.14159_.
 [1.5708, 4.71239]
 ```
 
-It is common to write fractional values of `pi` using `Fraction Literals`,
+It is common to write fractional values of `pi` using `Fraction Syntax`,
 which can be confusing if one is not aware of the distinction between _x / y_ and _x/y_:
 
 ```

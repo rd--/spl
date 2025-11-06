@@ -71,9 +71,11 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 	svgFragment { :self :options |
-		'<polygon points="%" />'.format([
-			self.vertexCoordinates.asSvgPointList(options)
-		])
+		'<polygon points="%" />'.format(
+			[
+				self.vertexCoordinates.asSvgPointList(options)
+			]
+		)
 	}
 
 	innerPolygons { :self |

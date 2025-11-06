@@ -71,25 +71,19 @@ Svg : [Object] { | contents |
 	}
 
 	asGreyscaleSvg { :self |
-		let maxEntry = self.abs.max.max;
-		self.deepCollect { :each |
-			let level = (maxEntry - each.abs) / maxEntry;
-			level.isVeryCloseTo(1).if {
-				RgbColour([1 1 1], 0)
-			} {
-				level.greyLevel
-			}
-		}.asColourSvg
+		self.greyscaleMatrix.asColourSvg
 	}
 
 	asSvgPointList { :self :options |
 		let precision = options['precision'];
 		self.collect { :each |
 			let [x, y] = each;
-			'%,%'.format([
-				x.printStringToFixed(precision),
-				y.printStringToFixed(precision)
-			])
+			'%,%'.format(
+				[
+					x.printStringToFixed(precision),
+					y.printStringToFixed(precision)
+				]
+			)
 		}.unwords
 	}
 

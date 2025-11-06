@@ -48,6 +48,6 @@ and `quotient` is written as `\\` which is symmetrical with `remainder` which is
 
 See also: Fraction
 
-Guides: Fraction Literals, Numeric Types
+Guides: Fraction Syntax, Numeric Types
 
 Categories: Math
