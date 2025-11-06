@@ -2200,9 +2200,9 @@
 			self.sum
 		} {
 			let m = (n / 2).floor;
-			self.sliceFromTo(1, m).pairwiseSum
+			ListView(self, 1, m, 1).pairwiseSum
 			+
-			self.sliceFromTo(m + 1, n).pairwiseSum
+			ListView(self, m + 1, n, 1).pairwiseSum
 		}
 	}
 
@@ -2585,7 +2585,7 @@
 				(e > k).if {
 					r := r + 1
 				} {
-					let v = list.sliceFromTo(i, e);
+					let v = ListView(list, i, e, 1);
 					u.hasEqualElements(v).if {
 						let w = rules[r].value.nest;
 						answer.addAll(w);
@@ -2603,7 +2603,7 @@
 			}
 		};
 		(i < k).ifTrue {
-			answer.addAll(list.sliceFromTo(i, k))
+			answer.addAll(ListView(list, i, k, 1))
 		};
 		answer
 	}

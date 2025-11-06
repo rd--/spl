@@ -30,4 +30,10 @@ See also: necklaceCount
 
 Guides: Combinatorial Functions
 
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Necklace.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Necklace_(combinatorics))
+
 Further Reading: Ruskey 1992

@@ -6,7 +6,7 @@ Set the value at the BitSet _b_ corresponding to the integer _n_ to 1.
 Answer `true` if the value was not already 1, else false.
 
 ```
->>> let b = [1 3 9].asBitSet;
+>>> let b = BitSet([1 3 9], 10);
 >>> (b.setBitAt(6), b.asList)
 (true, [1 3 6 9])
 ```

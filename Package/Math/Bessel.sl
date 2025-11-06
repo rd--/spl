@@ -52,7 +52,7 @@
 			if(n === 1) return bessel1(x);
 			if(n < 0) return NaN;
 			if(Math.abs(x) === 0) return 0;
-			if(x == Infinity) return Infinity;
+			if(x === Infinity) return Infinity;
 			let ret = 0.0, j, tox = 2 / Math.abs(x), bip = 0.0, bi=1.0, bim=0.0;
 			const m=2*Math.round((n+Math.round(Math.sqrt(40*n)))/2);
 			for (j=m;j>0;j--) {
@@ -63,7 +63,7 @@
 					bip *= 1E-10;
 					ret *= 1E-10;
 				}
-				if(j == n) ret = bip;
+				if(j === n) ret = bip;
 			}
 			ret *= besseli(x, 0) / bi;
 			return x < 0 && (n%2) ? -ret : ret;

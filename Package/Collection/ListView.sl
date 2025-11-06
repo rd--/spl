@@ -20,6 +20,10 @@ ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequ
 		}
 	}
 
+	copyFromTo { :self :from :to |
+		ListView(self, from, to, self.referenceIndex)
+	}
+
 	do { :self :aBlock:/1 |
 		let items = self.contents;
 		self.startIndex.toDo(self.endIndex) { :index |

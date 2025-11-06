@@ -308,7 +308,7 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 				let t = (j = 0).if { 1 } { (j = 1).if { x } { x ^ (n - i) } };
 				let f:/2 = (m < 0).if { - } { + };
 				(m != 0).ifTrue {
-					answer := f(answer, (m = 1).if { t } { (t == 1).if { m.abs } { m.abs * t } })
+					answer := f(answer, (m == 1).if { t } { (t == 1).if { m.abs } { m.abs * t } })
 				}
 			};
 			answer

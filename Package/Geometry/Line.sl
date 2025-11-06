@@ -136,7 +136,7 @@ Line : [Object, Equatable, Geometry] { | vertexCoordinates |
 		let answer = [];
 		{
 			answer.add([x1, y1]);
-			((x1 == x2) & { y1 == y2 }).if {
+			((x1 = x2) & { y1 = y2 }).if {
 				false
 			} {
 				let e2 = 2 * e;
@@ -167,9 +167,9 @@ Line : [Object, Equatable, Geometry] { | vertexCoordinates |
 			}
 		};
 		(dMax > epsilon).if {
-			let p = ramerDouglasPeuckerAlgorithm(self.sliceFromTo(1, index), epsilon);
-			let q = ramerDouglasPeuckerAlgorithm(self.sliceFromTo(index, end), epsilon);
-			answer.addAll(p.sliceFromTo(1, p.size - 1));
+			let p = ramerDouglasPeuckerAlgorithm(ListView(self, 1, index, 1), epsilon);
+			let q = ramerDouglasPeuckerAlgorithm(ListView(self, index, end, 1), epsilon);
+			answer.addAll(ListView(p, 1, p.size - 1, 1));
 			answer.addAll(q)
 		} {
 			answer.add(self[1]);

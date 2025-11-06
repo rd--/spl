@@ -1,8 +1,8 @@
 # capacity
 
-- _capacity(aCollection)_
+- _capacity(c)_
 
-Answer the current capacity of _aCollection_.
+Answer the current capacity of the collection _c_.
 
 At `List` is equal to size:
 
@@ -14,7 +14,7 @@ At `List` is equal to size:
 At `BitSet`:
 
 ```
->>> let b = [1 3 5 7 9].asBitSet;
+>>> let b = BitSet([1 3 5 7 9], 10);
 >>> (b.capacity, b.size)
 (10, 5)
 ```

@@ -177,9 +177,11 @@
 	trimmedMean { :self :f |
 		let [f1, f2] = f;
 		let n = self.size;
-		self.sorted(<=).sliceFromTo(
+		ListView(
+			self.sorted(<=),
 			1 + (f1 * n).floor,
-			n - (f2 * n).floor
+			n - (f2 * n).floor,
+			1
 		).mean
 	}
 

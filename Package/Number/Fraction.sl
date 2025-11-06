@@ -213,8 +213,8 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isNumber.if {
 			anObject.isFraction.if {
-				self.numerator == anObject.numerator & {
-					self.denominator == anObject.denominator
+				self.numerator = anObject.numerator & {
+					self.denominator = anObject.denominator
 				}
 			} {
 				anObject.adaptToFractionAndApply(self, aBlock:/2)

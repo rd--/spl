@@ -8,7 +8,7 @@ First few terms,
 OEIS [A001190](https://oeis.org/A001190):
 
 ```
->>> 16.wedderburnEtheringtonNumbers
+>>> 24.wedderburnEtheringtonNumbers
 [
 	0 1 1 1 2 3 6 11 23 46 98 207
 	451 983 2179 4850 10905 24631

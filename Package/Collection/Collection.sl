@@ -560,7 +560,7 @@
 	}
 
 	nubBy { :self :aBlock:/2 |
-		(aBlock:/2 == equalsSignEqualsSign:/2).if {
+		(aBlock:/2 = equalsSignEqualsSign:/2).if {
 			self.nubIdentical
 		} {
 			let seen = [];

@@ -40,7 +40,7 @@ Quantity : [Object, Equatable, Comparable, Magnitude, Frequency, Length, Mass, P
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isQuantity & {
-			self.unit == anObject.unit & {
+			self.unit = anObject.unit & {
 				aBlock(self.magnitude, anObject.magnitude)
 			}
 		}

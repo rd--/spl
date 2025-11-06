@@ -9,7 +9,7 @@ answer the complement of the collection _c_.
 The `complement` of a `BitSet` is a `BitSet` with each bit having the `bitNot` of the initial set:
 
 ```
->>> let b = [0 2 4 5 7 9 11].asBitSet;
+>>> let b = BitSet([0 2 4 5 7 9 11], 12);
 >>> (b.asList, b.complement.asList)
 ([0 2 4 5 7 9 11], [1 3 6 8 10])
 ```

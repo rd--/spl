@@ -177,7 +177,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	beginsWith { :self :aString |
 		<primitive:
-		if(typeof _aString == 'string') {
+		if(typeof _aString === 'string') {
 			return _self.startsWith(_aString);
 		}
 		>
@@ -275,11 +275,11 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	compare { :self :operand |
 		<primitive:
-		if(typeof _operand == 'string') {
+		if(typeof _operand === 'string') {
 			const n = _self.localeCompare(_operand);
 			if(n < 0) {
 				return -1;
-			} else if(n == 0) {
+			} else if(n === 0) {
 				return 0;
 			} else {
 				return 1;
@@ -380,7 +380,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	endsWith { :self :aString |
 		<primitive:
-		if(typeof _aString == 'string') {
+		if(typeof _aString === 'string') {
 			return _self.endsWith(_aString);
 		}
 		>

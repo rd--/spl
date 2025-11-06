@@ -25,7 +25,7 @@
 	}
 
 	hasEqualSlots { :self :anObject :aBlock:/2 |
-		self.typeOf == anObject.typeOf & {
+		self.typeOf = anObject.typeOf & {
 			self.equalByAtNamedSlots(
 				anObject,
 				self.slotNameList,
@@ -39,7 +39,7 @@
 	}
 
 	primitiveEquals { :self :anObject |
-		<primitive: return _self == _anObject;>
+		<primitive: return _self === _anObject;>
 	}
 
 }

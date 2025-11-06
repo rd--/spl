@@ -21,13 +21,13 @@
 		}
 	}
 
-	bellStringsDo { :n :yield:/1 |
+	bellStringsDo { :n :receive:/1 |
 		let word = List(n, 0);
 		let focus = [1 .. n + 1];
 		let start = List(n, 0);
 		let maxima = [];
 		let first = List(n, true);
-		yield(word);
+		receive(word);
 		{ focus[1] < n }.whileTrue {
 			let index = focus[1];
 			focus[1] := 1;
@@ -59,7 +59,7 @@
 					}
 				}
 			};
-			yield(word);
+			receive(word);
 			((word[index] + start[index]) = 1).ifTrue {
 				focus[index] := focus[index + 1];
 				focus[index + 1] := index + 1;
@@ -91,11 +91,82 @@
 		}
 	}
 
-	catalanStringsDo { :n :k :yield:/1 |
+	braceletsDo { :n :k :receive:/1 |
+		/* https://www.jasondavies.com/necklaces/necklaces.js */
+		<primitive:
+		let n = _n;
+		let k = _k;
+		let a = [];
+		let i = -1;
+		function checkRev(t, i) {
+			while (++i < (t + 1) / 2 + 1) {
+				if (a[i] < a[t - i + 1]) {
+					return 0;
+				}
+				if (a[i] > a[t - i + 1]) {
+					return -1;
+				}
+			}
+			return 1;
+		}
+		function genBracelets(t, p, r, u, v, rs) {
+			if (t - 1 > (n - r) / 2 + r) {
+				if (a[t - 1] > a[n - t + 2 + r]) {
+					rs = false;
+				} else if (a[t - 1] < a[n - t + 2 + r]) {
+					rs = true;
+				}
+			}
+			if (t > n) {
+				if (!rs && n % p === 0) {
+					_receive_1(a.slice(1));
+				}
+			} else {
+				a[t] = a[t - p];
+				v = a[t] === a[1] ? v + 1 : 0;
+				if (u === -1 && a[t - 1] !== a[1]) {
+					u = r = t - 2;
+				}
+				if (u === -1 || t !== n || a[n] !== a[1]) {
+					if (u === v) {
+						let rev = checkRev(t, u);
+						if (rev !== -1) {
+							genBracelets(t + 1, p, rev ? t : r, u, v, rev ? false : rs);
+						}
+					} else {
+						genBracelets(t + 1, p, r, u, v, rs);
+					}
+				}
+				for (let j = a[t - p] + 1; j < k; j++) {
+					a[t] = j;
+					if (t === 1) {
+						genBracelets(t + 1, t, 1, 1, 1, rs);
+					} {
+						genBracelets(t + 1, t , r, u, 0, rs);
+					}
+				}
+			}
+		}
+		while (++i < n) {
+			a[i] = 0;
+		}
+		return genBracelets(1, 1, 1, -1, 0, false);
+		>
+	}
+
+	bracelets { :n :k |
+		let answer = [];
+		braceletsDo(n, k) { :each |
+			answer.add(each)
+		};
+		answer
+	}
+
+	catalanStringsDo { :n :k :receive:/1 |
 		let word = List(n, 0);
 		let focus = [1 .. n + 1];
 		let start = List(n, 0);
-		yield(word);
+		receive(word);
 		{ focus[1] < n }.whileTrue {
 			let index = focus[1];
 			focus[1] := 1;
@@ -112,7 +183,7 @@
 					word[index] := word[index] - 1
 				}
 			};
-			yield(word);
+			receive(word);
 			((word[index] + start[index]) = 1).ifTrue {
 				focus[index] := focus[index + 1];
 				focus[index + 1] := index + 1;
@@ -476,7 +547,7 @@
 		let n = a.size;
 		a[1] = 0 & {
 			1.to(n - 1).allSatisfy { :i |
-				a[i + 1] <= (1 + a.sliceFromTo(1, i).max)
+				a[i + 1] <= (1 + ListView(a, 1, i, 1).max)
 			}
 		}
 	}

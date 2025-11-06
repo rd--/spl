@@ -20,7 +20,7 @@ FractionalBrownianMotionProcess : [Object] { | mu sigma h |
 		<primitive:
 		/* https://www.columbia.edu/~ad3217/fbm.html */
 		function covariance(i, h) {
-			if (i == 0) {
+			if (i === 0) {
 				return 1;
 			}
 			return (Math.pow(i - 1, 2 * h) - (2 * Math.pow(i, 2 * h)) + Math.pow(i + 1, 2 * h)) / 2;

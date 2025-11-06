@@ -1,8 +1,8 @@
 # ramerDouglasPeuckerAlgorithm
 
-- _ramerDouglasPeuckerAlgorithm(aMatrix, aNumber)_
+- _ramerDouglasPeuckerAlgorithm(m, n)_
 
-Simplify the line segment at _aMatrix_ to a similar line with fewer points using the Ramer–Douglas–Peucker algorithm.
+Simplify the line segment at the matrix _m_ to a similar line with fewer points using the Ramer–Douglas–Peucker algorithm.
 
 Plot two approximate `sin` functions,
 the initial approximation has 100 places,

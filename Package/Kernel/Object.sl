@@ -13,7 +13,7 @@
 	}
 
 	?? { :self :anObject |
-		selfg
+		self
 	}
 
 	~? { :self :aBlock:/0 |
