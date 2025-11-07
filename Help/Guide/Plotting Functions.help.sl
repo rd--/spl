@@ -33,6 +33,7 @@ Plotting Functions:
 - `logLinearPlot`
 - `logPlot`
 - `matrixPlot`
+- `necklacePlot`
 - `parametricPlot`
 - `pathPlot`
 - `periodogramPlot`

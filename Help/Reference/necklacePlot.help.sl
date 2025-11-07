@@ -16,7 +16,8 @@ ResidueSet([0 2 4 5 7 9 11], 12)
 
 ![](sw/spl/Help/Image/necklacePlot-A.svg)
 
-The binary form at `List` requires a position vector and a modulus:
+The binary form at `List` requires a position vector and a modulus,
+and specifies a two colour necklace:
 
 ~~~spl svg=B
 [0 3 6 10 12].necklacePlot(16)
@@ -33,6 +34,17 @@ BitSet([0 4 8 11], 16)
 ~~~
 
 ![](sw/spl/Help/Image/necklacePlot-C.svg)
+
+In the unary form at `List`,
+each value indicates the bead colour at that position,
+here plot a three colour five bead necklace:
+
+~~~spl svg=D
+[0 2 2 1 2]
+.necklacePlot
+~~~
+
+![](sw/spl/Help/Image/necklacePlot-D.svg)
 
 * * *
 

@@ -986,22 +986,28 @@ Plot : [Object] { | pages format options |
 
 +List {
 
-	necklacePlot { :self :modulus |
+	necklacePlot { :self |
 		let circleR = 16;
 		let dotR = 1;
-		let i = (modulus - self) % modulus;
-		let p = modulus.circlePoints([0 0], circleR, 1/2.pi);
-		let e = 0.to(modulus - 1).collect { :each |
-			i.includes(each).if {
-				Disk(p[each + 1], dotR)
-			} {
-				Circle(p[each + 1], dotR)
-			}
+		let n = self.size;
+		let c = (1 - self.normalizeRange([0 1])).collect(greyLevelOrTransparent:/1);
+		let p = n.circlePoints([0 0], circleR, 1/2.pi).reverse.rotateRight;
+		let e = 1.to(n).collect { :each |
+			AnnotatedGeometry(
+				Circle(p[each], dotR),
+				(fillColour: c[each])
+			)
 		};
 		[
 			Circle([0 0], circleR),
 			e
 		].LineDrawing
+	}
+
+	necklacePlot { :self :modulus |
+		0.to(modulus - 1).collect { :each |
+			self.includes(each).boole
+		}.necklacePlot
 	}
 
 }

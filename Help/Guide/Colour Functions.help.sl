@@ -10,6 +10,7 @@ Traits and Types:
 Constructors:
 
 - `HsvColour`
+- `greyLevel`
 
 Accessing:
 

@@ -1,12 +1,12 @@
 # greyLevel
 
-- _greyLevel(aNumber, anotherNumber)_
+- _greyLevel(n, α)_
 
-Answer a color in the grayscale color space with gray level _aNumber_ and alpha transparency _anotherNumber_.
+Answer a color in the grayscale color space with gray level _n_ and alpha transparency _α_.
 
 ```
 >>> 0.5.greyLevel(0.75)
-RgbColour([0.5, 0.5, 0.5], 0.75)
+RgbColour([0.5 0.5 0.5], 0.75)
 ```
 
 Plot a 10×10 matrix of varying shades of grey and alpha:
@@ -24,6 +24,8 @@ greyLevel:/2
 * * *
 
 See also: blue, Colour, green, red, RgbColour
+
+Guides: Colour Functions
 
 References:
 _Mathematica_
