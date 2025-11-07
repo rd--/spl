@@ -1,15 +1,23 @@
 # initializeSlots
 
-- _initializeSlots(anObject, firstSlot...)_
+- _initializeSlots(x, p₁, p₂ …)_
 
-The system generates an _initializeSlots_ method for each declared `Type` with as many arguments as the type has slots.
-The method sets the slots of _anObject_ to the provided values, and answer _anObject_.
+The system generates an `initializeSlots` method for each declared `Type` with as many arguments as the type has slots.
+The method sets the slots of the object _x_ to the provided values, and answers _x_.
 
 ```
 >>> let i = 1 -- 9;
 >>> let t = i.typeDefinition;
->>> (t.name, t.slotNameList, i.initializeSlots(3, 7))
-('Interval', ['min' 'max'], 3 -- 7)
+>>> (
+>>> 	t.name,
+>>> 	t.slotNameList,
+>>> 	i.initializeSlots(3, 7)
+>>> )
+(
+	'Interval',
+	['min' 'max'],
+	3 -- 7
+)
 ```
 
 This method,
@@ -17,7 +25,8 @@ along with the _new type_ method implemented at `Void` for each `Type`,
 provide the instantation mechanism for objects:
 
 ```
->>> newInterval().initializeSlots(1, 9)
+>>> newInterval()
+>>> .initializeSlots(1, 9)
 1 -- 9
 ```
 
@@ -34,5 +43,7 @@ It is, in effect, a shorthand for setting each slot individually:
 * * *
 
 See also: initialize, new, Type
+
+Guides: Reflection Functions
 
 Categories: Instance Creation, Reflection

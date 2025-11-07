@@ -159,12 +159,16 @@ Plot : [Object] { | pages format options |
 
 	circularMatrixPlot { :self |
 		let [m, n] = self.shape;
-		let theta = 2.pi / n;
+		let theta = 2.pi / m;
+		let c = self.greyscaleMatrix;
 		{ :i :j |
-			AnnulusSector(
-				[0, 0],
-				[i, i + 1],
-				[theta * j, theta * (j + 1)]
+			AnnotatedGeometry(
+				AnnulusSector(
+					[0, 0],
+					[j, j + 1],
+					[theta * (i - 1), theta * i]
+				),
+				(fillColour: c[i][j])
 			)
 		}.table(1:m, 1:n).LineDrawing
 	}

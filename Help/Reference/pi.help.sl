@@ -64,7 +64,7 @@ Fractions approximating π:
 (377/120, 0.002356)
 ```
 
-Sqyare and cube root approximations:
+Square and cube root approximations:
 
 ```
 >>> [10.sqrt, 31.nthRoot(3), 3 + (2.sqrt / 10)]
@@ -193,6 +193,13 @@ Euler’s identity:
 ```
 >>> (1.e ^ 1.pi.i) + 1
 0
+```
+
+A number that is, to within the available precision, an integer:
+
+```
+>>> 163.sqrt.pi.exp
+2.6253741264076826E17
 ```
 
 π is also stored as a named constant with higher precision,

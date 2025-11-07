@@ -1,18 +1,25 @@
 @Geometry {
 
 	asLineDrawing { :self |
-		[self].LineDrawing
+		LineDrawing([self])
 	}
 
 	asPerspectiveDrawing { :self :projection |
-		[self].PerspectiveDrawing(
-			projection: projection,
-			height: 100
+		PerspectiveDrawing(
+			[self],
+			(
+				projection: projection,
+				height: 100
+			)
 		)
 	}
 
 	asPerspectiveDrawing { :self |
-		[self].PerspectiveDrawing
+		PerspectiveDrawing([self])
+	}
+
+	boundingBox { :self |
+		self.typeResponsibility('boundingBox')
 	}
 
 	drawing { :self |
@@ -26,6 +33,39 @@
 
 	embeddingDimension { :self |
 		self.typeResponsibility('embeddingDimension')
+	}
+
+	svgFragment { :self :options |
+		self.typeResponsibility('svgFragment')
+	}
+
+}
+
+AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
+
+	boundingBox { :self |
+		self.geometry.boundingBox
+	}
+
+	embeddingDimension { :self |
+		self.geometry.embeddingDimension
+	}
+
+	svgFragment { :self :options |
+		'<g fill="%">%</g>'.format(
+			[
+				self.annotation.at('fillColour').rgbString,
+				self.geometry.svgFragment(options)
+			]
+		)
+	}
+
+}
+
++@Geometry {
+
+	AnnotatedGeometry { :self :annotation |
+		newAnnotatedGeometry().initializeSlots(self, annotation)
 	}
 
 }

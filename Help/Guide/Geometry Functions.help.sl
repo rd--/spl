@@ -6,7 +6,9 @@ Traits:
 
 Types:
 
+- `AnnotatedGeometry`
 - `Annulus`
+- `AnnulusSector`
 - `Arc`
 - `BezierCurve`
 - `Circle`

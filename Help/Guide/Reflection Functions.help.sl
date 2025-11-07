@@ -35,6 +35,7 @@ Object:
 
 - `equalByAtNamedSlots`
 - `hasEqualSlots`
+- `initializeSlots`
 - `slotList`
 - `slotNameList`
 - `slotValueList`

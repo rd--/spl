@@ -109,7 +109,22 @@ AnnulusSector : [Object, Equatable, Geometry] { | center radii angles |
 	}
 
 	svgFragment { :self :options |
-		self.geometry.svgFragment(options)
+		let precision = options['precision'];
+		let [r1, r2] = self.radii;
+		let a1 = self.innerArc;
+		let a2 = self.outerArc;
+		let [_, p1, q1] = a1.vertexCoordinates;
+		let [_, p2, q2] = a2.vertexCoordinates;
+		'<path d="M %,% % L %,% % Z" />'.format(
+			[
+				p1[1].printStringToFixed(precision),
+				p1[2].printStringToFixed(precision),
+				svgArcTo(r1, r1, 0, a1.isMajorArc, true, q1[1], q1[2], precision),
+				q2[1].printStringToFixed(precision),
+				q2[2].printStringToFixed(precision),
+				svgArcTo(r2, r2, 0, a2.isMajorArc, false, p2[1], p2[2], precision)
+			]
+		)
 	}
 
 }
