@@ -774,7 +774,9 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeGraphDrawing { :self :radius |
-		self.completeGraph.circularGraphPlot([1 .. self], radius)
+		self.completeGraph.circularGraphPlot (
+			radius: radius
+		)
 	}
 
 	cubeGraph { :self |

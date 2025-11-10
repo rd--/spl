@@ -25,7 +25,7 @@ Simplex : [Object, Equatable] { | coordinates |
 		let simplexVector = { :p |
 			let k = p.size;
 			[
-				List(k, 0),
+				[List(k, 0)],
 				p.collect { :each |
 					basisVector(k, each)
 				}

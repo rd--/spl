@@ -32,7 +32,7 @@ ChordDiagram([1 7; 2 4; 3 6; 5 8])
 
 Plot chord diagram, _n=3_:
 
-~~~spl svg=A
+~~~spl svg=B
 ChordDiagram([1 2; 3 5; 4 6])
 .chordDiagramPlot
 ~~~

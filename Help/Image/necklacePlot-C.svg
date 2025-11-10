@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-55.0 -55.0 110.0 110.0">
 <g fill="none" stroke="black" stroke-width="0.1700%" transform="translate(0, 0.0000) scale(2.9412, -2.9412)">
 <circle cx="0.0" cy="0.0" r="16.0" />
-<circle cx="0.0" cy="16.0" r="1.0" fill="black" />
-<circle cx="-6.1" cy="14.8" r="1.0" />
-<circle cx="-11.3" cy="11.3" r="1.0" />
-<circle cx="-14.8" cy="6.1" r="1.0" />
-<circle cx="-16.0" cy="0.0" r="1.0" />
-<circle cx="-14.8" cy="-6.1" r="1.0" fill="black" />
-<circle cx="-11.3" cy="-11.3" r="1.0" />
-<circle cx="-6.1" cy="-14.8" r="1.0" />
-<circle cx="-0.0" cy="-16.0" r="1.0" fill="black" />
-<circle cx="6.1" cy="-14.8" r="1.0" />
-<circle cx="11.3" cy="-11.3" r="1.0" />
-<circle cx="14.8" cy="-6.1" r="1.0" />
-<circle cx="16.0" cy="-0.0" r="1.0" fill="black" />
-<circle cx="14.8" cy="6.1" r="1.0" />
-<circle cx="11.3" cy="11.3" r="1.0" />
-<circle cx="6.1" cy="14.8" r="1.0" />
+<g fill="rgb(0,0,0)"><circle cx="0.0" cy="16.0" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="6.1" cy="14.8" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="11.3" cy="11.3" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="14.8" cy="6.1" r="1.0" /></g>
+<g fill="rgb(0,0,0)"><circle cx="16.0" cy="-0.0" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="14.8" cy="-6.1" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="11.3" cy="-11.3" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="6.1" cy="-14.8" r="1.0" /></g>
+<g fill="rgb(0,0,0)"><circle cx="-0.0" cy="-16.0" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-6.1" cy="-14.8" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-11.3" cy="-11.3" r="1.0" /></g>
+<g fill="rgb(0,0,0)"><circle cx="-14.8" cy="-6.1" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-16.0" cy="0.0" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-14.8" cy="6.1" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-11.3" cy="11.3" r="1.0" /></g>
+<g fill="rgba(255,255,255,0)"><circle cx="-6.1" cy="14.8" r="1.0" /></g>
 </g>
 </svg>

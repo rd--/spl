@@ -68,4 +68,3 @@ See also: ChordDiagram, chordDiagramCount
 Guides: Combinatorial Functions
 
 Further Reading: Sawada 2002
-

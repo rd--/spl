@@ -34,7 +34,12 @@ equivalently the `bitCount`:
 
 ```
 >>> let b = BitSet([], 7);
->>> (b.capacity, b.size, b.bitCount, b.isEmpty)
+>>> (
+>>> 	b.capacity,
+>>> 	b.size,
+>>> 	b.bitCount,
+>>> 	b.isEmpty
+>>> )
 (7, 0, 0, true)
 ```
 
@@ -118,7 +123,6 @@ either as a list or as a string:
 >>> let b = BitSet('101011010101');
 >>> (b.capacity, b.size, b.positionVector)
 (12, 7, [0 2 4 5 7 9 11])
-```
 ```
 
 A three element `BitSet`, set entries using `atPut` which requires `zero` or `one` values:

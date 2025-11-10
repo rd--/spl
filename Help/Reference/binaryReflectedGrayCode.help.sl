@@ -60,7 +60,7 @@ Step plot of bits of four letter code:
 
 Step plot of prfix sum of bits of four letter code:
 
-~~~spl svg=A
+~~~spl svg=B
 4.binaryReflectedGrayCode
 .catenate
 .prefixSum

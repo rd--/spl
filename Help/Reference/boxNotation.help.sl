@@ -23,4 +23,3 @@ At `ResidueSet`:
 * * *
 
 See also: BitSet, ResidueSet
-
