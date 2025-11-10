@@ -481,7 +481,9 @@ let r = { :freq :mul |
 							Blip(r(l(), 24), r(l(), 228)).Abs.kr
 						]
 					} ! 6,
-					r(0.02, 0.5) ! 6 ! 6
+					[6 6].constantArray(
+						r(0.02, 0.5)
+					)
 				)[n],
 				0.995
 			),

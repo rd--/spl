@@ -24,7 +24,7 @@ As frequency control:
 ```
 SinOsc(
 	LfBrownNoise1(
-		[3 11] ! 8,
+		List(8, [3 11]),
 		0.2,
 		2
 	) * 400 + 450,

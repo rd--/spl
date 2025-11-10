@@ -31,7 +31,7 @@ let t = Impulse(1, 0);
 let a = TRand(222, 333, t);
 let d = TRand(111, 555, t);
 let freq = 8.arithmeticProgression(a, d);
-(SinOsc(freq, 0) / TRand(7, 13, tr)).Splay
+(SinOsc(freq, 0) / TRand(7, 13, t)).Splay
 ```
 
 * * *

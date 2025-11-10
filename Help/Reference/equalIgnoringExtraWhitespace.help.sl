@@ -5,9 +5,10 @@
 Answer `true` if the strings _s₁_ and _s₂_ are equal ignoring any additional whitespace that occurs in _s₂_.
 
 ```
-'f(x,y)'.equalIgnoringExtraWhitespace(
-	'f(x, y)'
-)
+>>> 'f(x,y)'.equalIgnoringExtraWhitespace(
+>>> 	'f(x, y)'
+>>> )
+true
 ```
 
 * * *

@@ -110,7 +110,7 @@ DemandEnvGen(
 	SampleDur() * y,
 	1,
 	0,
-	K2A(1),
+	Dc(1),
 	Impulse(xx, 0) * 1.5,
 	1, 0, 1, 0
 )
@@ -128,7 +128,7 @@ DemandEnvGen(
 	SampleDur() * y,
 	1,
 	0,
-	K2A(1),
+	Dc(1),
 	Impulse(xx, 0) + [0, 0.3],
 	1, 0, 1, 0
 )

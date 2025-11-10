@@ -6,4 +6,4 @@ let highDriver = Hpf(WhiteNoise() * 0.1, highCutoffEnv) * Perc(1, 1, 2, -4) * 0.
 let thwack = Perc(1, 0.001, 0.001, -4);
 let freq = { ExpRand(300, 20000) } ! 100;
 let res = Ringz(lowDriver + highDriver + thwack, freq, 1).mean;
-((res * 1) + (lowDriver * 2) + thwack) ! 2 * 0.25
+List(2, ((res * 1) + (lowDriver * 2) + thwack)) * 0.25

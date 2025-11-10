@@ -266,7 +266,7 @@
 }
 
 /* Auto-generated (ChannelCount) */
-+SmallFloat {
++[SmallFloat, List] {
 	BufRd { :numChan :bufnum :phase :loop :interpolation | <primitive: return sc.BufRd(_numChan, _bufnum, _phase, _loop, _interpolation);> }
 	DecodeB2 { :numChan :w :x :y :orientation | <primitive: return sc.DecodeB2(_numChan, _w, _x, _y, _orientation);> }
 	Demultiplexer { :numChannels :input :selector | <primitive: return sc.Demultiplexer(_numChannels, _input, _selector);> }
@@ -284,7 +284,7 @@
 }
 
 /* Auto-generated (ListProcessor) */
-+List {
++[List, Ugen] {
 	Dswitch { :index :list | <primitive: return sc.Dswitch(_index, _list);> }
 	Dswitch1 { :index :list | <primitive: return sc.Dswitch1(_index, _list);> }
 }
@@ -354,7 +354,7 @@
 	Abs { :self | <primitive: return sc.Abs(_self);> }
 	Ceiling { :self | <primitive: return sc.Ceil(_self);> }
 	Floor { :self | <primitive: return sc.Floor(_self);> }
-	FractionPart { :self | <primitive: return sc.Frac(_self);> }
+	FractionalPart { :self | <primitive: return sc.Frac(_self);> }
 	Sign { :self | <primitive: return sc.Sign(_self);> }
 	Sqrt { :self | <primitive: return sc.Sqrt(_self);> }
 	Exp { :self | <primitive: return sc.Exp(_self);> }

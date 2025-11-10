@@ -1,6 +1,6 @@
 # FractionalPart
 
-- _FractionalPart(aNumber)_
+- _FractionalPart(x)_
 
 Fractional part.
 Answer only the fractional part of the signal.

@@ -118,12 +118,13 @@ true
 A rectangular array is represented by nested lists with consistent dimensions:
 
 ```
-[
-	[[1, 2, 3], [4, 5, 6]],
-	[[7, 8, 9], [10, 11, 12]],
-	[[13, 14, 15], [16, 17, 18]],
-	[[19, 20, 21], [22, 23, 24]]
-].isArray
+>>> [
+>>> 	[[ 1,  2,  3], [ 4,  5,  6]],
+>>> 	[[ 7,  8,  9], [10, 11, 12]],
+>>> 	[[13, 14, 15], [16, 17, 18]],
+>>> 	[[19, 20, 21], [22, 23, 24]]
+>>> ].isArray
+true
 ```
 
 Ragged arrays are nested lists that are not rectangular arrays:

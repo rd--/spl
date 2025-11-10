@@ -8,11 +8,11 @@ The triangle of signed Stirling numbers of the first kind,
 OEIS [A008275](http://oeis.org/A008275):
 
 ```
-1:6.collect { :n |
-	1:n.collect { :m |
-		stirlingS1(n, m)
-	}
-}
+>>> 1:6.collect { :n |
+>>> 	1:n.collect { :m |
+>>> 		stirlingS1(n, m)
+>>> 	}
+>>> }
 [
 	1;
 	-1 1;

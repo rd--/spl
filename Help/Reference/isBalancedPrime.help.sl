@@ -7,7 +7,7 @@ Answer `true` if _n_ is a balanced prime, else `false`.
 The first few balanced primes:
 
 ```
-1:1000.select(isBalancedPrime:/1)
+>>> 1:1000.select(isBalancedPrime:/1)
 [
 	5  53 157 173 211
 	257 263 373 563 593

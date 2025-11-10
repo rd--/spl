@@ -33,7 +33,7 @@ let seq = Drand(2000, [
 ]) * Drand(2000, [1 1 1 2 2 2 4 4 8]);
 let freq = Demand(trig, 0, seq * 100);
 let osc = SinOsc(freq + [0 0.7], 0);
-osc.Cubed.Cubed.ScaleNeg(
+osc.Cube.Cube.ScaleNeg(
 	MouseX(-1, 1, 0, 0.2)
 ) * 0.1
 ```

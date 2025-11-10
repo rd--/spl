@@ -26,7 +26,7 @@ let f = XLine(220, 440, 10);
 let o1 = SinOsc(f + [0, 0.7], 0);
 let o2 = LfSaw (f + [0, 0.7], 0) * 0.3;
 let o3 = o1 + o2;
-o3.Distort.Distort.Cubed * 0.5
+o3.Distort.Distort.Cube * 0.5
 
 /* LfSaw ; https://scsynth.org/t/6320/2 (nh) ; Event control */
 Voicer(1, 16) { :e |

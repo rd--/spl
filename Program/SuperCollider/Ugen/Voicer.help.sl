@@ -134,6 +134,6 @@ Voicer(
 				bwr: e.y * 0.25
 			) * 24,
 			pos: e.i * 2 - 1
-		) * e.z.Squared * e.w
+		) * e.z.Square * e.w
 	}
 ).Sum
