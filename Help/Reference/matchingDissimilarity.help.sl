@@ -45,10 +45,10 @@ Compute dissimilarity between any `false`, `true` vectors of equal length:
 Matching dissimilarity is bounded by 0 and 1:
 
 ```
->>> (1 # 4).matchingDissimilarity(1 # 4)
+>>> [1 1 1 1].matchingDissimilarity([1 1 1 1])
 0
 
->>> (1 # 4).matchingDissimilarity(0 # 4)
+>>> [1 1 1 1].matchingDissimilarity([0 0 0 0])
 1
 ```
 

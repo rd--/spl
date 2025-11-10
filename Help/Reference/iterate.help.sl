@@ -60,7 +60,7 @@ The iteration function can operate on a list:
 
 ```
 >>> let e = 0.2;
->>> let z = (1 - e) # 2;
+>>> let z = List(2, 1 - e);
 >>> { :each |
 >>> 	[e 0] + (each * z)
 >>> }.iterate([1 1], 5)

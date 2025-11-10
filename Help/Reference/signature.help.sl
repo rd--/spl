@@ -2,8 +2,8 @@
 
 - _signature(p)_
 
-Answer the signature of the permutation _p_ needed to place the elements of in canonical order.
-The signature of the permutation is _-1 ^ n_,
+Answer the signature of the permutation _p_ needed to place the elements of _p_ in canonical order.
+The signature of the permutation is _-1ⁿ_,
 where _n_ is the number of transpositions of pairs of elements that must be composed to build up the permutation.
 
 ```
@@ -60,29 +60,35 @@ Rank-3 totally antisymmetric (Levi-Civita) tensor:
 ]
 ```
 
+Plot signatures of indices of a 4×4×4×4 array,
+partitioned into a square matrix:
+
 ~~~spl svg=A
-let m = signature:/1.map(
-	(4 # 4).shapeIndices
-).partition(4 ^ 2);
-(m * 0.5 + 0.5).matrixPlot
+signature:/1.map(
+	(4 # [4]).shapeIndices
+).partition(4 ^ 2).rescale.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/signature-A.svg)
 
+Plot signatures of indices of a 5×5×5×5×5 array,
+partitioned into a rectangular matrix:
+
 ~~~spl svg=B
-let m = signature:/1.map(
-	(5 # 5).shapeIndices
-).partition(5 ^ 3);
-(m * 0.5 + 0.5).matrixPlot
+signature:/1.map(
+	(5 # [5]).shapeIndices
+).partition(5 ^ 3).abs.matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/signature-B.svg)
 
+Plot signatures of indices of a 6×6×6×6×6×6 array,
+partitioned into a rectangular matrix:
+
 ~~~spl png=C
-let m = signature:/1.map(
-	(6 # 6).shapeIndices
-).partition(6 ^ 3);
-(m * 0.5 + 0.5).Graymap
+signature:/1.map(
+	(6 # [6]).shapeIndices
+).partition(6 ^ 3).abs.Bitmap
 ~~~
 
 ![](sw/spl/Help/Image/signature-C.png)

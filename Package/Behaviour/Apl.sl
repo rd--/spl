@@ -26,9 +26,9 @@
 		counts.collectCatenate { :each |
 			(each > 0).if {
 				index := index + 1;
-				self[index] # each
+				List(each, self[index])
 			} {
-				zero # each.abs.max(1)
+				List(each.abs.max(1), zero)
 			}
 		}
 	}
@@ -132,10 +132,6 @@
 
 	rank { :self |
 		1
-	}
-
-	replicateEach { :self :counts |
-		self.characters.replicateEach(counts).stringCatenate
 	}
 
 	shape { :self |

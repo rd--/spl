@@ -69,7 +69,7 @@ Draw points at each vertex of an _m×m_ _k_ dimensional grid:
 let m = 1;
 let k = 8;
 let v = 1.gradyTuningLatticeCoordinates(k);
-([0 m] ! k).coordinateBoundsArray(1 ! k)
+List(k, [0 m]).coordinateBoundsArray(List(k, 1))
 .flatten(k - 1)
 .collect { :x |
 	(x * v).sum

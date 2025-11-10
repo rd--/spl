@@ -1,7 +1,6 @@
 # repeat
 
 - _repeat(s, n)_
-- _repeat(f:/0)_
 
 At `String`,
 answer a string consisting of the string _s_ repeated _n_ times.
@@ -20,33 +19,12 @@ Repeat a triplet of characters seven times:
 'xyzxyzxyzxyzxyzxyzxyz'
 ```
 
-At `Block`,
-evaluate the no-argument block _f_ repeatedly,
-ending only if the block explicitly returns (non-locally):
-
-```
->>> { :return:/1 |
->>> 	{
->>> 		system
->>> 		.randomBoolean(0.5, [])
->>> 		.ifTrue {
->>> 			true.return
->>> 		}
->>> 	}.repeat
->>> }.valueWithReturn
-true
-```
-
 * * *
 
-See also: Block, constantArray, findRepeat, stringCatenate, stringJoin, whileFalse, whileTrue
+See also: constantArray, findRepeat, stringCatenate, stringJoin
 
-Guides: Block Functions, Non-local Return, String Functions
+Guides: String Functions
 
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringRepeat.html),
-_SuperCollider_
-[1](https://doc.sccode.org/Classes/Function.html#-loop)
-
-Categories: Controlling

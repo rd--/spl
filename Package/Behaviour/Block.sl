@@ -18,6 +18,10 @@ Block! : [Object, Equatable] {
 		self:/1.composeLeft(aBlock:/1)
 	}
 
+	! { :self:/0 :shape |
+		self:/0.duplicate(shape)
+	}
+
 	apply { :self :aList |
 		<primitive:
 		if(sl.isArray(_aList) && (_self.length === _aList.length)) {
@@ -141,6 +145,12 @@ Block! : [Object, Equatable] {
 			conditionBlock()
 		}.whileTrue;
 		answer
+	}
+
+	duplicate { :self:/0 :shape |
+		shape.fill { :unused |
+			self()
+		}
 	}
 
 	elementwise { :self:/1 :x |
@@ -379,7 +389,7 @@ Block! : [Object, Equatable] {
 		<primitive: return _self.parameterNames;>
 	}
 
-	repeat { :self:/0 |
+	repeatForever { :self:/0 |
 		{
 			self();
 			true

@@ -142,7 +142,7 @@ Compute the minimum number of coins of different value needed to make up an amou
 Amortize a 5% loan of 1000 with 10 annual payments of 90:
 
 ```
->>> (90 # 10).foldList(1000) { :x :i |
+>>> List(10, 90).foldList(1000) { :x :i |
 >>> 	(x * 1.05).round - i
 >>> }
 [

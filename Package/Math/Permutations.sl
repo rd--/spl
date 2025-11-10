@@ -21,7 +21,7 @@ Permutation : [Object, Equatable] { | cycles degree |
 		anInteger.isNegative.if {
 			self.inverse ^ anInteger.negate
 		} {
-			(self # anInteger).product
+			List(anInteger, self).product
 		}
 	}
 

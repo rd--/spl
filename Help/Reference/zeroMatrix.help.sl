@@ -38,7 +38,7 @@ A 3×2 matrix:
 This can also be written using either `!` or `reshape`:
 
 ```
->>> 0 ! [2 3]
+>>> { 0 } ! [2 3]
 [0 0 0; 0 0 0]
 
 >>> [0].reshape([2 3])

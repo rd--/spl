@@ -544,9 +544,11 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 			c.at(self)
 		} {
 			let p = self.isPrime.if {
-				UnivariatePolynomial(1 # self)
+				UnivariatePolynomial(
+					List(self, 1)
+				)
 			} {
-				let p = UnivariatePolynomial([-1] ++ (0 # (self - 1)) ++ [1]);
+				let p = UnivariatePolynomial([-1] ++ List(self - 1, 0) ++ [1]);
 				self.divisors.allButLast.do { :d |
 					p := p.quotient(d.cyclotomic)
 				};

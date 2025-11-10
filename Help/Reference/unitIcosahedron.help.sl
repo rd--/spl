@@ -17,7 +17,7 @@ and that each edge as a unit:
 >>> 	p.faceIndices.collect(size:/1),
 >>> 	p.edgeLengths
 >>> )
-(12, 20, 30, 3 # 20, 1 # 30)
+(12, 20, 30, 20 # [3], 30 # [1])
 ```
 
 Draw the _xz_ projection of the unit icosahedron:

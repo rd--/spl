@@ -2,7 +2,7 @@
 let note = 60;
 let semi = [4, 7, 11, 12];
 let delayTimes = (note + ([0] ++ semi)).MidiCps.reciprocal;
-let in = LeakDc(PinkNoise(), 0.995) ! 2 / 5 + AudioIn([1, 2]);
+let in = 2 # [LeakDc(PinkNoise(), 0.995)] / 5 + AudioIn([1, 2]);
 let cf = SinOsc(1 / 10, 0).LinLin(-1, 1, 50, 500);
 let z = Bpf(in, cf, 1);
 let cmb = { :x :i |

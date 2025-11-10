@@ -111,7 +111,6 @@ let l = []; [1 .. 9].adjacentPairsDo { :a :b | l.add(a -> b) }; l.size = 8
 [1, 2, 4].separate { :a :b | (b - a) > 1 } = [[1, 2], [4]] /* separate using predicate block */
 [1, 2, 4, 5, 7, 8].separate { :a :b | (b - a) > 1 } = [[1, 2], [4, 5], [7, 8]]
 [1, 3, 5].stutter(3) = [1, 1, 1, 3, 3, 3, 5, 5, 5]
-[1 .. 5].duplicateEach(2) = [1 1 2 2 3 3 4 4 5 5]
 [1 .. 4].similarity([1 .. 4]) = 1 /* similarity based on Levenshtein distance (1 = equal) */
 [1 .. 4].similarity([5 .. 8]) = 0 /* similarity based on Levenshtein distance (0 = unequal) */
 [1 .. 4].similarity([1 3 2 4]) = 0.5 /* similarity based on Levenshtein distance */

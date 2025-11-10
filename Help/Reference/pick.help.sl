@@ -1,8 +1,8 @@
 # pick
 
-- _pick(aList, anotherList, anObject)_
+- _pick([x₁ x₂ …], [y₁ y₂ …], z)_
 
-Pick out elements of _aList_ for which the corresponding element of _anotherList_ is equal to _anObject_.
+Pick out elements of the list _x_ for which the corresponding element of the list _y_ is equal to the object _z_.
 
 Pick out elements wherever `one` appears in the selector list:
 
@@ -10,7 +10,7 @@ Pick out elements wherever `one` appears in the selector list:
 >>> 1:5.pick([1 0 1 0 0], 1)
 [1 3]
 
->>> 1:5 # [1 0 1 0 0]
+>>> [1 0 1 0 0] # [1 2 3 4 5]
 [1 3]
 ```
 
@@ -31,6 +31,8 @@ Pick out elements wherever `true` appears in the selector list:
 * * *
 
 See also: #, reject, select
+
+Guides: List Functions
 
 References:
 _Mathematica_

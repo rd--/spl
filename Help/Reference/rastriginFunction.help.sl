@@ -19,7 +19,7 @@ Maxima:
 ```
 >>> let x = 4.52299366;
 >>> 1:9.collect { :n |
->>> 	(x # n).rastriginFunction
+>>> 	List(n, x).rastriginFunction
 >>> }
 [
 	 40.35329

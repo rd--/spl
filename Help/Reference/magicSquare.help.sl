@@ -94,8 +94,8 @@ A 10×10 magic square:
 >>> .magicSquareSummary
 (
 	sum: 505,
-	rowSums: 505 # 10,
-	columnSums: 505 # 10,
+	rowSums: 10 # [505],
+	columnSums: 10 # [505],
 	diagonalSum: 505,
 	anitdiagonalSum: 505,
 	rank: 7

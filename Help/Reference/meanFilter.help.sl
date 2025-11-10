@@ -16,7 +16,7 @@ Relation to `convolve`:
 ```
 >>> let r = 1;
 >>> let m = (2 * r) + 1;
->>> let k = (1 / m) # m;
+>>> let k = List(m, 1 / m);
 >>> let x = [1 0 -1 1 2 3 1 -1 0 1];
 >>> let a = x.meanFilter(r);
 >>> let b = k.convolve(x);

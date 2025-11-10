@@ -3,21 +3,23 @@ let k = 13;
 let f0 = 48.MidiCps;
 let scales = (1 .. k).collect { :i |
 	(0 .. 2 * i + 1).collect { :j |
-		Fraction(i + 1n, i) ^ j
+		Fraction(i + 1L, i) ^ j
 	}
 };
 let durations = scales.collect { :each |
-	0.25 # (each.size - 1) ++ [1]
+	((each.size - 1) # [0.25]) ++ [1]
 };
 UgenGraph(
 	'saw',
-	Saw(
-		NamedControl('freq', 440)
-	) * Cutoff(
-		0,
-		4.8,
-		-20
-	) * 0.2 ! 2
+	2 # [
+		Saw(
+			NamedControl('freq', 440)
+		) * Cutoff(
+			0,
+			4.8,
+			-20
+		) * 0.2
+	]
 ).send;
 LsBind(
 	instrument: 'saw',

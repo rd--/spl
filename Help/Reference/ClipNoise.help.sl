@@ -7,7 +7,7 @@ Generates noise whose values are either -1 or 1.
 This produces the maximum energy for the least peak to peak amplitude.
 
 ```
-ClipNoise(0.05 # 2, 0)
+ClipNoise([0.05 0.05], 0)
 ```
 
 * * *

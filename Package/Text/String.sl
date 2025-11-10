@@ -131,6 +131,12 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.asBracketedComment('/*', '*/')
 	}
 
+	assertIsCharacter { :self |
+		(self.size = 1).ifFalse {
+			self.error('assertIsCharacter')
+		}
+	}
+
 	assertIsString { :self |
 		self
 	}
@@ -895,7 +901,8 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	repeat { :self :n |
-		(self # n).stringCatenate
+		<primitive: return _self.repeat(_n);>
+		/* List(n, self).stringCatenate */
 	}
 
 	replaceString { :self :stringToFind :stringToReplaceWith |
@@ -1137,6 +1144,15 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	isUtf16SurrogateCodePoint { :self |
 		/* 0xD800 = 55296, 0xDfFF = 57343 */
 		self.betweenAnd(55296, 57343)
+	}
+
+	String { :self :letter |
+		letter.assertIsCharacter;
+		letter.repeat(self)
+	}
+
+	String { :self |
+		String(self, ' ')
 	}
 
 }

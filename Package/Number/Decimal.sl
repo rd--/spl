@@ -141,7 +141,7 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 	integerDigits { :self |
 		let [d, n] = self.realDigits;
 		(n < 0).if {
-			(0 # n.abs) ++ d
+			List(n.abs, 0) ++ d
 		} {
 			d
 		}

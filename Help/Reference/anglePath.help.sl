@@ -7,7 +7,7 @@ then takes a series of steps of length _r_ at successive relative angles _θ_.
 If _r_ and _o_ are elided _r_ is uniformly one, and _o_ is _(0,0)_.
 
 ```
->>> (90.degree # 3).anglePath
+>>> List(3, 90.degree).anglePath
 [0 0; 0 1; -1 1; -1 0]
 ```
 
@@ -25,7 +25,7 @@ p.Line
 Advance 20 steps, always turning 110° toward the left:
 
 ~~~spl svg=B
-(110.degree # 20).anglePath.Line
+List(20, 110.degree).anglePath.Line
 ~~~
 
 ![](sw/spl/Help/Image/anglePath-B.svg)

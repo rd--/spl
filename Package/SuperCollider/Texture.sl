@@ -80,9 +80,12 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 +Clock {
 
 	playEvery { :self :aBlock:/1 :delay |
-		self.repeatEvery({ :currentTime :nextDelay |
-			aBlock(nextDelay).playAt(currentTime)
-		}, delay)
+		self.repeatEvery(
+			{ :currentTime :nextDelay |
+				aBlock(nextDelay).playAt(currentTime)
+			},
+			delay
+		)
 	}
 
 }

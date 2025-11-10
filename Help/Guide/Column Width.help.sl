@@ -108,7 +108,7 @@ The tab-indented nested list below indicates the most deeply nested list or prog
 >>> 		]
 >>> 	]
 >>> ].shape
-1 # 8
+8 # [1]
 ```
 
 _Rationale_:

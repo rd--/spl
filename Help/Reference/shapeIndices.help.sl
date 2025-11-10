@@ -1,8 +1,8 @@
 # shapeIndices
 
-- _shapeIndices(aSequence)_
+- _shapeIndices(⍴)_
 
-Enumerate all of the indices given by the shape indicated at _aSequence_.
+Enumerate all of the indices given by the shape indicated at the sequence _⍴_.
 
 Indices are `List`s,
 if the shape indicates a vector the indices are lists of one place.
@@ -50,5 +50,7 @@ Volume indices:
 * * *
 
 See also: @>, atPath, cartesianIndex, deepIndices, linearIndex, reshape, shape, shapeIndicesDo
+
+Guides: Indexing Functions
 
 Categories: Accessing, Indexing

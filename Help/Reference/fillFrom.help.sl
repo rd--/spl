@@ -2,7 +2,7 @@
 
 - _fillFrom(c₁, c₂)_
 
-Use the element of the collection _c₂_ to fill the collection _c₁_.
+Use the elements of the collection _c₂_ to fill the collection _c₁_.
 Answer _c₁_.
 It is an `error` if the collections are not of equal size.
 

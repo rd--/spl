@@ -31,18 +31,18 @@ List squares modulo three and five in two-dimensional unit bins:
 >>> }.binLists([0 2 1], [0 5 1])
 [
 	[
-		[0 0] ! 1,
-		[0 1] ! 2,
+		List(1, [0 0]),
+		List(2, [0 1]),
 		[],
 		[],
-		[0 4] ! 3
+		List(3, [0 4])
 	],
 	[
-		[1 0] ! 3,
-		[1 1] ! 6,
+		List(3, [1 0]),
+		List(6, [1 1]),
 		[],
 		[],
-		[1 4] ! 5
+		List(5, [1 4])
 	]
 ]
 ```
@@ -50,6 +50,8 @@ List squares modulo three and five in two-dimensional unit bins:
 * * *
 
 See also: binCounts, histogramList
+
+Guides: List Functions
 
 References:
 _Mathematica_

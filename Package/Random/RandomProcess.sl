@@ -22,7 +22,9 @@
 			let answer = self.next(timeList.size);
 			self.reset;
 			answer
-		}.regularTemporalData((t ++ [1]) ! n)
+		}.regularTemporalData(
+			List(n, (t ++ [1]))
+		)
 	}
 
 }

@@ -68,7 +68,7 @@ Collection Functions:
 
 Iteration Functions:
 
-- `repeat`
+- `repeatForever`
 
 Exceptions:
 

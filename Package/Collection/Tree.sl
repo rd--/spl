@@ -315,7 +315,7 @@ Tree : [Object, Equatable, Iterable, Indexable] { | value subTrees |
 	completeKaryTree { :n :k |
 		let f = { :n :k |
 			(n <= 2).if {
-				nil # k
+				List(k, nil)
 			} {
 				{ f(n - 1, k) } ! k
 			}

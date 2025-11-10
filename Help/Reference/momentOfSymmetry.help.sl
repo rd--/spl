@@ -178,7 +178,7 @@ let appendOuterRing = { :mos |
 	let period = mos.anyOne.sum;
 	let leastStep = mos.last.min;
 	let k = (period / leastStep).round;
-	mos ++ [leastStep # k]
+	mos ++ [List(k, leastStep)]
 };
 7.momentOfSymmetry(12)
 .appendOuterRing

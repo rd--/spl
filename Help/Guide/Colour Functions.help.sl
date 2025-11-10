@@ -48,6 +48,10 @@ Converting:
 - `xyzToRgb`: Xyz to Rgb
 - `xyzToXyy`: Xyz to Xyy
 
+Printing:
+
+- `rgbString`
+
 Drawing:
 
 - `arrayPlot`

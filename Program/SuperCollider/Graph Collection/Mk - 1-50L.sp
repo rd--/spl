@@ -7,7 +7,7 @@ z
 
 /* https://sccode.org/1-50L (mk) */
 let z = PinkNoise();
-let lfo = { :rt | LfNoise1(rt # 2) };
+let lfo = { :rt | LfNoise1([rt rt]) };
 16.timesRepeat {
 	z := Brf(
 		z,
@@ -19,7 +19,7 @@ z
 
 /* https://sccode.org/1-50L (mk) */
 let z = PinkNoise();
-let lfo = { :rt | LfPulse(rt # 2, 0, 0.5) };
+let lfo = { :rt | LfPulse([rt rt], 0, 0.5) };
 16.timesRepeat {
 	z := Brf(
 		z,
@@ -32,12 +32,12 @@ z
 /* https://sccode.org/1-50L (Mk) */
 let freq = 100;
 let rt = 0.5;
-let z = PinkNoise(1 # 2, 0);
+let z = PinkNoise([1 1], 0);
 let rw = { :f1 :f2 :q |
 	4.timesRepeat {
 		z := Brf(
 			z,
-			Rand(f1, f2).RoundTo(10) + (freq * LfNoise1(Rand(0, rt) # 2)),
+			Rand(f1, f2).RoundTo(10) + (freq * LfNoise1(2 # [Rand(0, rt)])),
 			q
 		)
 	}
@@ -52,4 +52,4 @@ z := FreqShift(
 	0
 ) * 0.25 + z;
 z := CombC(z, 1, 1, 8);
-Lpf(z, LfNoise1(Rand(0, rt) # 2) * 1250 + 2500)
+Lpf(z, LfNoise1(2 # [Rand(0, rt)]) * 1250 + 2500)

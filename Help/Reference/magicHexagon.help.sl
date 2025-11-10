@@ -46,14 +46,14 @@ Row sums:
 
 ```
 >>> 3.magicHexagon.sum
-38 # 5
+5 # [38]
 ```
 
 Column sums:
 
 ```
 >>> 3.magicHexagon.collect(sum:/1)
-38 # 5
+5 # [38]
 ```
 
 Antidiaogonals and sums:
@@ -93,7 +93,7 @@ All lines and sums:
 >>> 	17  1  6 14;
 >>> 	18 11  9
 >>> ].collect(sum:/1)
-38 # 15
+15 # [38]
 ```
 
 Sums of concentric circles:

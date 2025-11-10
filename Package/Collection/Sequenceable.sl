@@ -28,12 +28,8 @@
 		self ++.each aList
 	}
 
-	# { :self :anObject |
-		self.replicateEach(anObject)
-	}
-
-	! { :self :anObject |
-		self.duplicateShape(anObject)
+	# { :counts :items |
+		counts.replicate(items)
 	}
 
 	&& { :self :other |
@@ -485,7 +481,7 @@
 		} {
 			let prefixSize = (anInteger - aList.size / 2).ceiling.max(0);
 			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
-			(anObject # prefixSize) ++ aList ++ (anObject # suffixSize)
+			List(prefixSize, anObject) ++ aList ++ List(suffixSize, anObject)
 		}
 	}
 
@@ -672,7 +668,11 @@
 	}
 
 	copyReplaceFromToWithObject { :self :start :stop :anObject |
-		self.copyReplaceFromToWith(start, stop, anObject # (stop - start + 1).max(1))
+		self.copyReplaceFromToWith(
+			start,
+			stop,
+			List((stop - start + 1).max(1), anObject)
+		)
 	}
 
 	copyUpThrough { :self :anElement |
@@ -918,13 +918,6 @@
 		}
 	}
 
-	duplicateEach { :self :counts |
-		counts.isInteger.ifTrue {
-			counts := counts # self.size
-		};
-		self.replicateEachApplying(counts, value:/1)
-	}
-
 	endsWith { :self :aList |
 		aList.isSequenceable.if {
 			let sequenceSize = aList.size;
@@ -1110,7 +1103,7 @@
 		(k >= n).if {
 			self.copyFromTo(1, n)
 		} {
-			self ++ (zero # (n - k))
+			self ++ List(n - k, zero)
 		}
 	}
 
@@ -1730,7 +1723,7 @@
 		(i >= n).if {
 			self.copyFromTo(i - n + 1, i)
 		} {
-			(zero # (n - i)) ++ self
+			List(n - i, zero) ++ self
 		}
 	}
 
@@ -1993,8 +1986,8 @@
 		let m = y.size;
 		let n = x.size;
 		[
-			x.asList ! m,
-			(y.asList ! n).transpose
+			List(m, x.asList),
+			List(n, y.asList).transpose
 		]
 	}
 
@@ -2045,7 +2038,7 @@
 
 	movingAverage { :x :rOrW |
 		let answer = [];
-		let [r, w] = rOrW.isList.if { [rOrW.size, rOrW] } { [rOrW, 1 # rOrW] };
+		let [r, w] = rOrW.isList.if { [rOrW.size, rOrW] } { [rOrW, List(rOrW, 1)] };
 		let wSum = w.sum;
 		1.toDo(x.size - r + 1) { :i |
 			let n = 0;
@@ -2178,7 +2171,7 @@
 			let i = anInteger - self.size;
 			let j = i // 2;
 			let k = i - j;
-			(anObject # j) ++ self ++ (anObject # k)
+			List(j, anObject) ++ self ++ List(k, anObject)
 		}
 	}
 
@@ -2364,16 +2357,16 @@
 		self
 	}
 
-	replicateEachApplying { :self :counts :aBlock:/1 |
-		(self.size != counts.size).if {
-			self.error('@Sequenceable>>replicateEachApplying: counts not of correct size')
+	replicate { :counts :items :aBlock:/1 |
+		(counts.size != items.size).if {
+			counts.error('@Sequenceable>>replicate: counts not of correct size')
 		} {
 			let answerSize = counts.sum;
-			let answer = self.species.ofSize(answerSize);
+			let answer = items.species.ofSize(answerSize);
 			let answerIndex = 1;
-			1.to(self.size).do { :selfIndex |
-				let entry = aBlock(self[selfIndex]);
-				counts[selfIndex].timesRepeat {
+			1.to(items.size).do { :index |
+				let entry = aBlock(items[index]);
+				counts[index].timesRepeat {
 					answer[answerIndex] := entry;
 					answerIndex := answerIndex + 1
 				}
@@ -2382,11 +2375,8 @@
 		}
 	}
 
-	replicateEach { :self :counts |
-		counts.isScalarInteger.ifTrue {
-			counts := counts # self.size
-		};
-		self.replicateEachApplying(counts, identity:/1)
+	replicate { :counts :items |
+		counts.replicate(items, identity:/1)
 	}
 
 	reverse { :self :level |
@@ -2831,7 +2821,7 @@
 
 	takeFirst { :self :count :fill |
 		(count > self.size).if {
-			self ++ (fill # (count - self.size))
+			self ++ List(count - self.size, fill)
 		} {
 			self.copyFromTo(1, count)
 		}
@@ -2839,7 +2829,7 @@
 
 	takeLast { :self :count :fill |
 		(count > self.size).if {
-			(fill # (count - self.size)) ++ self
+			List(count - self.size, fill) ++ self
 		} {
 			self.copyFromTo(self.size - count + 1, self.size)
 		}
@@ -2937,7 +2927,7 @@
 	}
 
 	tuples { :self :count |
-		(self ! count).tuples
+		List(count, self).tuples
 	}
 
 	tuplesArray { :self |
@@ -3152,6 +3142,10 @@
 
 +@Integer {
 
+	# { :count :items |
+		count.replicate(items)
+	}
+
 	binaryDetectIndex { :self :aBlock:/1 |
 		valueWithReturn { :return:/1 |
 			let low = 1;
@@ -3191,6 +3185,15 @@
 
 	partIndex { :self :operand |
 		operand.atSymmetrical(self)
+	}
+
+	replicate { :self :items :aBlock:/1 |
+		self.assertIsInteger('@Integer>>replicate');
+		List(items.size, self).replicate(items, aBlock:/1)
+	}
+
+	replicate { :self :items |
+		self.replicate(items, identity:/1)
 	}
 
 	toAsCollect { :self :stop :species :aBlock:/1 |

@@ -148,7 +148,7 @@ FreqShift, feedback, FreqShift:
 		SinOsc(4.24, 0.5) * 3,
 		0
 	) * 0.5;
-	(osc + snd) / 3 # 2
+	2 # [(osc + snd) / 3]
 }.OverlapTexture(3, 3, 3).Mix
 ```
 
@@ -174,7 +174,7 @@ Non-graph variant:
 		SinOsc(4.24, 0.5) * 3,
 		0
 	) * 0.5;
-	(osc + snd) / 3 # 2
+	2 # [(osc + snd) / 3]
 }.overlapTextureProgram(3, 3, 3)
 ~~~
 

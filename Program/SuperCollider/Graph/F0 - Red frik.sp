@@ -11,7 +11,7 @@ let o2 = MulAdd(
 	TRand(0.3, 0.5, tr)
 );
 Rhpf(
-	BrownNoise(1 # 2, 0),
+	BrownNoise(2 # [1], 0),
 	TRand(0.3, 3, tr),
 	o2
 ) * 0.1

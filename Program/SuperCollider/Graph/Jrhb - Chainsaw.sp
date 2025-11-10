@@ -1,6 +1,6 @@
 /* Chainsaw (jrhb) */
 let f = { :saw |
-	let rate = ExpRand(0.1, 2) # 2;
+	let rate = 2 # [ExpRand(0.1, 2)];
 	let freq1 = system.coin(0.6).if {
 		LfNoise1(rate).ExpRange(0.01, 10)
 	} {

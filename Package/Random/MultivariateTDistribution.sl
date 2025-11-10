@@ -4,7 +4,7 @@ MultivariateTDistribution : [Object] { | mu sigma nu |
 		let k = self.sigma.size;
 		let [n] = shape;
 		let x = ChiSquareDistribution(self.nu).randomVariate(r, shape) / self.nu;
-		let z = MultinormalDistribution(0 # k, self.sigma).randomVariate(r, shape);
+		let z = MultinormalDistribution(List(k, 0), self.sigma).randomVariate(r, shape);
 		[self.mu] + (z / x.sqrt)
 	}
 

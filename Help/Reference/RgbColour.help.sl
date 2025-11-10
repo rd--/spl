@@ -1,10 +1,16 @@
 # RgbColour
 
-- _RgbColour([r, g, b], alpha)_
+- _RgbColour([r g b], alpha)_
 
 A `Type` representing a color in the _Rgb_ color space,
 using red, blue and green components,
 with an `alpha` channel.
+
+```
+>>> let c = RgbColour([1 0 0], 1);
+>>> (c.rgbString, c.isRed)
+('rgb(255,0,0)', true)
+```
 
 * * *
 

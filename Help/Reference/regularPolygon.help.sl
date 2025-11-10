@@ -27,7 +27,7 @@ The `interiorAngles` of a regular polygon are equal:
 ```
 >>> 7.regularPolygon([0 0], 1, 0)
 >>> .interiorAngles
-2.244 # 7
+7 # [2.244]
 ```
 
 The `centroid` of a regular polygon is its center:

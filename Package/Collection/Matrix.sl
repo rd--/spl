@@ -214,7 +214,7 @@
 	magicSquareSummary { :self |
 		let n = self.size;
 		let mu = n * (n * n + 1) / 2;
-		let v = 1 # n;
+		let v = List(n, 1);
 		(
 			sum: mu,
 			rowSums: self.dot(v),
@@ -270,7 +270,7 @@
 		let k = d.size;
 		let m = self;
 		1.toDo(k) { :i |
-			m := (m ! d[i]).join(i)
+			m := List(d[i], m).join(i)
 		};
 		m
 	}
@@ -325,7 +325,7 @@
 						(i = k).if {
 							d[i][j]
 						} {
-							0 # s[k][2]
+							List(s[k][2], 0)
 						}
 					}
 				)
@@ -562,7 +562,8 @@
 			[
 				[n ^ 2 + 1] / 2,
 				{ :j :i |
-					-1 ^ j * i # j
+					let k = (-1 ^ j) * i;
+					List(j, k)
 				}.table(1:n, [-1, n])
 			].flatten.take(n ^ 2).accumulate
 		).partition(n)
@@ -657,7 +658,7 @@
 	spiralMatrix { :n |
 		let [dx, dy] = [1, 0];
 		let [x, y] = [1, 1];
-		let answer = { nil ! n } ! n;
+		let answer = { List(n) } ! n;
 		1.toDo(n ^ 2) { :i |
 			let [nx, ny] = [x + dx, y + dy];
 			answer[x][y] := i;

@@ -17,7 +17,7 @@ and that each edge as a unit:
 >>> 	p.faceIndices.collect(size:/1),
 >>> 	p.edgeLengths
 >>> )
-(20, 12, 30, 5 # 12, 1 # 30)
+(20, 12, 30, 12 # [5], 30 # [1])
 ```
 
 Draw the _xy_ projection of the unit dodecahedron:

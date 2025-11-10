@@ -88,7 +88,7 @@ All integers are divisible by one:
 
 ```
 >>> [1 .. 13].divisible(1)
-true ! 13
+13 # [true]
 ```
 
 The sum of the first few multiples of three or five:

@@ -26,12 +26,9 @@ Disk : [Object, Equatable, Geometry] { | center radius |
 	}
 
 	svgFragment { :self :options |
-		let precision = options['precision'];
-		'<circle cx="%" cy="%" r="%" fill="black" />'.format([
-			self.center[1].printStringToFixed(precision),
-			self.center[2].printStringToFixed(precision),
-			self.radius.printStringToFixed(precision)
-		])
+		self.asCircle.AnnotatedGeometry(
+			fillColour: RgbColour([0 0 0], 1)
+		).svgFragment(options)
 	}
 
 }

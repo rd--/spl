@@ -56,7 +56,7 @@ Prime factors of specific values:
 [3 2863099537]
 
 >>> (2 ^ 31).primeFactors
-2 # 31
+31 # [2]
 
 >>> (2 ^ 31 + 1).primeFactorsWheel
 [3 715827883]

@@ -44,7 +44,7 @@ EqPan2(
 Lpf(
 	Hpf(
 		WhiteNoise(
-			0.2 # 2,
+			2 # [0.2],
 			0
 		),
 		700

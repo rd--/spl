@@ -7,19 +7,19 @@ Generates noise whose spectrum has equal power at all frequencies.
 De-correlated stereo white noise:
 
 ```
-WhiteNoise(0.1 # 2, 0)
+WhiteNoise([0.1 0.1], 0)
 ```
 
 High pass filtered:
 
 ```
-WhiteNoise(0.1 # 2, 0).Hpz1
+WhiteNoise(2 # [0.1], 0).Hpz1
 ```
 
 Low pass filtered:
 
 ```
-WhiteNoise(0.1 # 2, 0).Lpz1
+WhiteNoise(2 # [0.1], 0).Lpz1
 ```
 
 * * *

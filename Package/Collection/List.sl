@@ -316,26 +316,6 @@ List! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Collection, E
 
 +@Object {
 
-	! { :self :anObject |
-		self.duplicateInteger(anObject)
-	}
-
-	# { :self :anObject |
-		self.replicateInteger(anObject)
-	}
-
-	duplicateInteger { :self :anInteger |
-		anInteger.fill { :unusedIndex |
-			self.value
-		}
-	}
-
-	duplicateShape { :self :shape |
-		shape.fill { :unusedIndex |
-			self.value
-		}
-	}
-
 	enclose { :self |
 		[self]
 	}
@@ -345,22 +325,6 @@ List! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Collection, E
 			self
 		} {
 			[self]
-		}
-	}
-
-	replicateInteger { :self :anInteger |
-		anInteger.isInteger.if {
-			anInteger.fill(self.constant)
-		} {
-			self.error('@Object>>replicateInteger: not integer')
-		}
-	}
-
-	replicateShape { :self :aSequence |
-		aSequence.isEmpty.if {
-			self.value
-		} {
-			aSequence.fill(self.constant)
 		}
 	}
 

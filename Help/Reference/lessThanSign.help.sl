@@ -68,9 +68,8 @@ Create a mask to process a `List`,
 selecting only items less than five:
 
 ```
->>> let list = [3 1 4 1 5 9 2 6];
->>> let mask = list < 5;
->>> list # mask.boole
+>>> let x = [3 1 4 1 5 9 2 6];
+>>> (x < 5).boole # x
 [3 1 4 1 2]
 ```
 

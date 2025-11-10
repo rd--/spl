@@ -44,10 +44,10 @@ or to `nil` if _x_ is elided.
 The `#` and `!` operators can also construct these lists:
 
 ```
->>> 1 # 3
+>>> 3 # [1]
 [1 1 1]
 
->>> 0 ! 5
+>>> { 0 } ! 5
 [0 0 0 0 0]
 ```
 

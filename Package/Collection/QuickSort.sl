@@ -77,7 +77,7 @@
 						self.return
 					}
 				}
-			}.repeat
+			}.repeatForever
 		}
 	}
 

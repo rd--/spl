@@ -216,7 +216,7 @@
 	}
 
 	padRight { :self :shape :anObject |
-		let affix = anObject # (shape[1].abs - self.size);
+		let affix = List(shape[1].abs - self.size, anObject);
 		let next = shape[1].isNegative.if { affix ++ self } { self ++ affix };
 		(shape.size = 1).if {
 			next

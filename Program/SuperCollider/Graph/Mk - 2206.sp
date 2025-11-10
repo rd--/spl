@@ -10,7 +10,7 @@ let ctl = (
 ).localControls;
 let numChans = 2;
 let input = AudioIn([1 .. numChans]);
-let localIn = LocalIn(numChans, 0 # numChans);
+let localIn = LocalIn(numChans, numChans # [0]);
 let output = (1 .. numChans).collect { :cNum |
 	let randScale = Rand(0.95, 1.0);
 	let delayScale = cNum.isOdd.if {

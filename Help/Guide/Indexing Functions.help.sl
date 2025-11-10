@@ -95,6 +95,12 @@ Wrap Indices:
 - `wrapExclusive`
 - `wrapIndex`
 
+Enumerating:
+
+- `deepIndices`
+- `indices`
+- `shapeIndices`
+
 Indexing Syntax
 
 - `At Syntax`

@@ -1,16 +1,8 @@
 # replicateInteger
 
-- _replicateInteger(anObject, anInteger)_
+- _replicateInteger(n, x)_
 
-Make a `List` having _anInteger_ copies of _anObject_:
-
-```
->>> 'x'.replicateInteger(3)
-['x' 'x' 'x']
-
->>> [1 2 3].replicateInteger(2)
-[1 2 3; 1 2 3]
-```
+Make a `List` having _n_ copies of the object _x_:
 
 * * *
 

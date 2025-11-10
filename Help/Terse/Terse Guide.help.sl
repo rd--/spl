@@ -354,7 +354,7 @@ let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
 [1 .. 9].shuffled.sorted = [1 .. 9] /* resort after shuffle */
 [].shuffled = []
 13.fibonacciSequence = [1 1 2 3 5 8 13 21 34 55 89 144 233]
-'3' # 3 = ['3', '3', '3']
+3 # [3] = [3 3 3]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [1:3, 1:6, 1:9].detectMax(size:/1) = 1:9
 [1:3, 1:6, 1:9].detectMin(size:/1) = 1:3
@@ -675,18 +675,18 @@ BitSet(64).size = 0 /* a new bitset is empty */
 BitSet(64).capacity = 64 /* the capacity of a bitset is set when initialized */
 BitSet(64).isEmpty /* a new bitset is empty */
 BitSet(64).bytes.allSatisfy { :each | each = 0 } /* all bytes at the empty bitset are zero */
-[1, 3, 9].asBitSet.capacity = 10 /* bitset from array, capacity is one more than largest index */
+BitSet([1, 3, 9], 10).capacity = 10 /* bitset from array, capacity is one more than largest index */
 let b = BitSet(64); b.add(1); b.add(3); b.add(9); b.size = 3 /* add three integers to bitset */
 let b = BitSet(64); b.add(5); b.include(5); b.include(5); b.size = 1 /* adding the same integer over again */
-let b = [1, 3, 9].asBitSet; b.includes(3) /* does bitset include element */
-let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
+let b = BitSet([1, 3, 9], 10); b.includes(3) /* does bitset include element */
+let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b.includes(each) } = [true, true, false, false, true]
 let b = BitSet(64); b[1] := 1; b[3] := 1; b[9] := 1; b.size = 3 /* a three element bitset, atPut */
-let b = [1, 3, 9].asBitSet; [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
-let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll(c); b.do { :each | a.add(each) }; a = c
-let b = [1, 7].asBitSet; let c = b.copy; c.add(3); b != c & { c = [1, 3, 7].asBitSet } /* copy bitset */
-[1, 3, 9].asBitSet.bitAt(3) = 1 /* bitAt is equal to at */
+let b = BitSet([1, 3, 9], 10); [1, 3 .. 9].collect { :each | b[each] } = [1, 1, 0, 0, 1] /* at */
+let a = []; let b = BitSet(64); let c = [1, 3, 9, 27]; b.addAll(c); b.positionsDo { :each | a.add(each) }; a = c
+let b = BitSet([1, 7], 8); let c = b.copy; c.add(3); b != c & { c = BitSet([1, 3, 7], 8) } /* copy bitset */
+BitSet([1, 3, 9], 10).bitAt(3) = 1 /* bitAt is equal to at */
 BitSet(64).with { :b | b.setBitAt(3); b.bitAt(3) = 1 } /* setBitAt is equal to add */
-[1, 3, 9].asBitSet.with { :b | b.clearBitAt(3); b.asList = [1, 9] } /* clearBitAt is equal to remove */
+BitSet([1, 3, 9], 10).with { :b | b.clearBitAt(3); b.asList = [1, 9] } /* clearBitAt is equal to remove */
 ```
 
 ## Bitwise Manipulation
@@ -1266,7 +1266,7 @@ let c = 2.i; let z = c.copy; z.real := 3; z != c & { z = (3 + 2.i) } /* copy com
 let a = [1, [2]]; let c = a.copy; c[2][1] := -2; c = a & { a = [1, [-2]] } /* shallow copy of list */
 let a = [1, [2]]; let c = a.deepCopy; c[2][1] := -2; c != a & { a = [1, [2]] } /* deep copy of list */
 let b = [1, 2, 2].asIdentityMultiset; let c = b.copy; c.add(3); c != b & { c = [1, 2, 2, 3].asIdentityMultiset } /* copy bag */
-let b = [1, 2].asBitSet; let c = b.copy; c.add(3); c != b & { c = [1, 2, 3].asBitSet } /* copy bitset */
+let b = BitSet([1, 2], 3); let c = b.copy; c.add(3); c != b & { c = BitSet([1, 2, 3], 4) } /* copy bitset */
 let b = [1, 2].asByteArray; let c = b.copy; c[1] := 3; c[1] = 3 & { b[1] = 1 } /* copy byte array */
 ```
 
@@ -1721,12 +1721,12 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences
 3.take(6) = 0 /* if k is greater than n answer is zero */
 58909.printStringHex = '16rE61D' /* hexadecimal representation */
 58909.printString(16) = '16rE61D' /* hexadecimal representation */
-let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
-let a = []; (1:3 ! 2).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
-let a = []; (1:2 ! 3).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
-let a = []; (1:2 ! 4).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
-let c = 0; let k = 3; let n = 4; (1:k ! n).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
-let c = 0; (1:4 ! 6).tuplesDo { :each | c := c + 1 }; c = 4096
+let a = []; List(2, 1:3).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
+let a = []; List(2, 1:3).tuplesDo { :each | a.add(each.sum) }; a = [2 3 4 3 4 5 4 5 6]
+let a = []; List(3, 1:2).tuplesDo { :each | a.add(each.sum) }; a = [3 4 4 5 4 5 5 6]
+let a = []; List (4, 1:2).tuplesDo { :each | a.add(each.sum) }; a = [4 5 5 6 5 6 6 7 5 6 6 7 6 7 7 8]
+let c = 0; let k = 3; let n = 4; List(n, 1:k).tuplesDo { :each | c := c + 1 }; c = (k ^ n)
+let c = 0; List(6, 1:4).tuplesDo { :each | c := c + 1 }; c = 4096
 -2:7.collect { :each | each.foldIndex(5) } = [4 3 2 1 2 3 4 5 4 3]
 -2:7.collect { :each | each.wrapIndex(5) } = [3 4 5 1 2 3 4 5 1 2]
 23.integerDigits(2, 5) = [1, 0, 1, 1, 1] /* binary */
@@ -2418,7 +2418,7 @@ valueWithReturn { :return:/1 | 1.toDo(10) { :index | (index = 5).ifTrue { 5.retu
 { 1.pi.assert { false } }.hasError /* raise an error if block does not evaluate to true */
 { true }.assert = nil /* assert that block evaluates to true, answers nil */
 { { false }.assert }.hasError /* raise an error if block does not evaluate to true */
-valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeat } /* repeat a block until it returns */
+valueWithReturn { :return:/1 | { (9.atRandom > 7).ifTrue { true.return } }.repeatForever } /* repeat a block until it returns */
 { 1.anUnknownMessage }.ifError { :err | err }.isError /* evaluate error block on error */
 { 1.anUnknownMessage }.ifError { true } /* error block is culled (i.e. may elide error argument) */
 let f = { let x = 0; { x := x + 1; x } }; let g = f:/0.value; [g.value, g.value] = [1, 2] /* closure */
@@ -2426,8 +2426,8 @@ let f = { let x = 0; { x := x + 1; x } }; [f:/0.value.value, f:/0.value.value] =
 let f = { :n | (n = 1).if { 1 } { f(n - 1) * n } }; 7:9.collect(f:/1) = [5040, 40320, 362880]
 let f = { system.nextRandomFloat }; f:/0.once = f:/0.once /* evaluate block once and cache result */
 let f = { 1:9.atRandom }; f:/0.once = f:/0.once & { f:/0.once = f:/0.once } /* the cache is kept in a weak map */
-'3' # 3 = ['3', '3', '3'] /* answer an array of n places each having the same value */
-'3' # 3 = List(3, '3') /* constructor with fill value */
+2 # [3] = [3 3] /* answer an array of n places each having the same value */
+2 # [3] = List(2, 3) /* constructor with fill value */
 let m = { system.nextRandomFloat }.!(9).mean; m > 0 & { m < 1 }
 { 1 } ! 2 = [1 1] /* evaluate a block twice and collect the answers in an array */
 { '3' } ! 3 = ['3', '3', '3'] /* evaluate block indicated number of times and collect answers in an array */
@@ -2987,10 +2987,9 @@ let x = [0 1]; x.cartesianProduct(x) = [0 0; 0 1; 1 0; 1 1] /* self cartesian pr
 1:16.third(4) = 9:12 /* third group of n elements of sequence */
 1:16.fourth(4) = 13:16 /* fourth group of n elements of sequence */
 1:16.last(4) = 13:16  /* last group of n elements of sequence */
-1:4.replicateEach(2) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
-1:4.replicateEach([2 2 2 2]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
-1:4.replicateEachApplying([2 2 2 2], square:/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
-[{ 1 }, { 2 }].duplicateEach(2) = [1 1 2 2] /* duplicate each element n times */
+2.replicate([1 2 3 4]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
+[2 2 2 2].replicate([1 2 3 4]) = [1 1 2 2 3 3 4 4]  /* replicate each element n times */
+2.replicate([1 2 3 4], square:/1) = [1 1 4 4 9 9 16 16] /* replicate each element */
 1:10.middle = 6 /* middle element */
 1:10.median = 5.5 /* mean of two middle-most elements */
 1:11.median = 6 /* middle element */

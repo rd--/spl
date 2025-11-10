@@ -76,7 +76,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 	grayCodeFromOneIndexedTransitionSequence { :self |
 		let k = self.max;
-		let v = 0 # k;
+		let v = List(k, 0);
 		let c = [v.copy];
 		self.allButLastDo { :i |
 			v[i] := 1 - v[i];

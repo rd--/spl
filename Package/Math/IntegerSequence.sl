@@ -959,7 +959,7 @@
 	stanleySequence { :s1 :m :mmm |
 		/* https://oeis.org/A185256 */
 		let t1 = s1.size;
-		let s2 = (s1 ! (t1 + m)).flatten;
+		let s2 = List(t1 + m, s1).flatten;
 		let chvec = List(mmm + 1, 0);
 		let swi = nil;
 		1.toDo(t1) { :i |

@@ -119,7 +119,7 @@ Plot a _4,2_ Hamming graph,
 which is the hypercube graph:
 
 ~~~spl svg=J
-(2.completeGraph # 4)
+List(4, 2.completeGraph)
 .reduce(graphProduct:/2)
 .graphPlot
 ~~~

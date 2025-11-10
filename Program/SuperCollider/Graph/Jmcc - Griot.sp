@@ -15,6 +15,8 @@ let del = (1 .. n).collect { :i |
 	DelayTap(buf[i], tapTimes[i]) /* Tap the delay lines */
 };
 let flt = Lpf(del, MouseX(10, 10000, 0, 0.2)) * 0.98; /* Filter the taps */
-(1 .. n).collect { :i |
-	flt[i] <! DelayWrite(buf[i], flt[i] + exc[i]) /* Write to delay lines */
-}.sum # 2
+2 # [
+	(1 .. n).collect { :i |
+		flt[i] <! DelayWrite(buf[i], flt[i] + exc[i]) /* Write to delay lines */
+	}.sum
+]

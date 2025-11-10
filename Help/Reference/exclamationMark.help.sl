@@ -64,9 +64,6 @@ evaluates the _x_ _n_ times as _value(x)_ and collect the results into a `List`:
 >>> let x = Sfc32(6783141);
 >>> { x.nextRandomFloat } ! 3
 [0.394068 0.704648 0.187997]
-
->>> 1 ! 3
-[1 1 1]
 ```
 
 In the `Sequence` case,
@@ -99,7 +96,7 @@ Matrix value:
 Create a 3×2 constant matrix:
 
 ```
->>> 'x' ! [3 2]
+>>> { 'x' } ! [3 2]
 [
 	'x' 'x';
 	'x' 'x';
@@ -110,7 +107,7 @@ Create a 3×2 constant matrix:
 Create a 3×2×3 constant array:
 
 ```
->>> 1 ! [3 2 3]
+>>> { 1 } ! [3 2 3]
 [
 	1 1 1; 1 1 1:;
 	1 1 1; 1 1 1:;

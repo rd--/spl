@@ -40,7 +40,7 @@ At answer of `^`:
 
 ```
 >>> (2 ^ 31).primeFactors
-2 # 31
+31 # [2]
 
 >>> (2 ^ 31 + 1).primeFactors
 [3 715827883]
@@ -112,7 +112,7 @@ At a power of two:
 
 ```
 >>> (2 ^ 52).primeFactors
-2 # 52
+52 # [2]
 ```
 
 `min` of `primeFactors` is called the _least prime factor_.

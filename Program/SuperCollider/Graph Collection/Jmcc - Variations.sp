@@ -132,7 +132,7 @@ let root = 5;
 let scale = [0 2 4 5 7 9 11] + root;
 let oct = [24 36 48 60 72 84];
 let f = (scale.atRandom + oct.atRandom).MidiCps;
-let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+let x = BrownNoise(2 # [0.007], 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 let k = RingzBank(x, 12.arithmeticProgression(f, f), 12.geometricProgression(1, Rand(0.7, 0.9)), { Rand(1, 3) } ! 12);
 (k * 0.1).SoftClip
 
@@ -141,7 +141,7 @@ let root = 5;
 let scale = [0 2 4 5 7 9 11] + root;
 let oct = [24 36 48 60 72 84];
 let f = (scale.atRandom + oct.atRandom).MidiCps;
-let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+let x = BrownNoise(2 # [0.007], 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 let k = RingzBank(
 	x,
 	12.arithmeticProgression(f, f),
@@ -155,7 +155,7 @@ let root = 5;
 let scale = [0 2 4 5 7 9 11] + root;
 let oct = [24 36 48 60 72 84];
 let f = (scale.atRandom + oct.atRandom).MidiCps;
-let x = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
+let x = BrownNoise(2 # [0.007], 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.6 + 0.4).Max(0);
 let d = [
 	12.arithmeticProgression(f, f),
 	12.geometricProgression(1, Rand(0.7, 0.9)),
@@ -260,7 +260,7 @@ let n = 6;
 } !> n
 
 /* Scratchy (Jmcc) #1 */
-let n = BrownNoise(0.5 # 2, -0.49);
+let n = BrownNoise(2 # [0.5], -0.49);
 let f = n.Max(0) * 20;
 Rhpf(f, 5000, 1)
 
@@ -323,7 +323,7 @@ let y = z * 0.6;
 
 /* Wind metals (Jmcc) ; texture=overlap,5,2,12,inf */
 let n = 6;
-let exc = BrownNoise(0.007 # 2, 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.75 + 0.25).Max(0);
+let exc = BrownNoise(2 # [0.007], 0) * (LfNoise1(ExpRand(0.125, 0.5)) * 0.75 + 0.25).Max(0);
 let f = { Rand(0, Rand(500, 8000)) + ExpRand(60, 4000) } ! n;
 let dt = { Rand(0.1, 2) } ! n;
 let s = RingzBank(exc, f, nil, dt) * 0.1;
@@ -480,7 +480,7 @@ let z = { :tr |
 z
 
 /* Scratchy ; Jmcc ; left-to-right */
-BrownNoise(0.5 # 2, -0.49).Max(0).Times(20).Rhpf(5000, 1)
+BrownNoise(2 # [0.5], -0.49).Max(0).Times(20).Rhpf(5000, 1)
 
 /* Slow beating sines (Jmcc) #7 ; texture=xFade,4,4,inf */
 let n = 20;

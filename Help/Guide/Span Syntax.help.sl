@@ -10,7 +10,7 @@ Rewrite rules:
 Span(1, x, 1)
 
 >> '9:-1:x'.splSimplify
-Span(9, j, -1)
+Span(9, x, -1)
 ```
 
 In the case where α is an integer literal,

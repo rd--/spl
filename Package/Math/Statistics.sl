@@ -167,7 +167,7 @@
 	}
 
 	stochasticVector { :self :k |
-		let v = 0 # k;
+		let v = List(k, 0);
 		self.do { :i |
 			v[i] := v[i] + 1
 		};

@@ -52,7 +52,7 @@ Define a moving-average filter with a window size of three:
 
 ```
 >>> let a = [1];
->>> let b = 1/3 # 3;
+>>> let b = 3 # [1/3];
 >>> let x = [2 1 6 2 4 3];
 >>> [a, b].recurrenceFilter(x)
 [2/3 1 3 3 4 3]
@@ -62,7 +62,7 @@ Discard initial outputs:
 
 ```
 >>> let a = [1];
->>> let b = 1/3 # 3;
+>>> let b = 3 # [1/3];
 >>> let x = [1 3 2 1 6 2 4 3];
 >>> let y = [a, b].recurrenceFilter(x);
 >>> y.allButFirst(2)

@@ -277,7 +277,7 @@
 	}
 
 	gaussSeidelMethod { :a :b |
-		let x = 0 # a.size;
+		let x = List(a.size, 0);
 		let epsilon = 1E-9;
 		let maximumIterations = 100;
 		a.gaussSeidelMethod(b, x, epsilon, maximumIterations)
@@ -309,7 +309,7 @@
 
 	hankelMatrix { :c |
 		let m = c.size;
-		let r = [c.last] ++ (0 # (m - 1));
+		let r = [c.last] ++ List(m - 1, 0);
 		hankelMatrix(c, r)
 	}
 
@@ -1293,8 +1293,8 @@
 		let d = m + n;
 		let x = d - m - 1;
 		let y = d - n - 1;
-		let a = p.reverse ++ (0 # x);
-		let b = q.reverse ++ (0 # y);
+		let a = p.reverse ++ List(x, 0);
+		let b = q.reverse ++ List(y, 0);
 		[
 			0:x.collect { :i | a.rotateRight(i) },
 			0:y.collect { :i | b.rotateRight(i) }
@@ -1343,7 +1343,7 @@
 				let limit = self.shape.min;
 				aBlock(
 					1:limit.collect { :each |
-						self.atPath(each # rank)
+						self.atPath(List(rank, each))
 					}
 				)
 			} {

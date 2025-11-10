@@ -1,8 +1,8 @@
 # j
 
-- _j(real, imaginary)_
+- _j(r, i)_
 
-Answer a `Complex` number with a real part of `real` and an imaginary part of `imaginary`.
+Answer a `Complex` number with a real part of _r_ and an imaginary part of _i_.
 
 ```
 >>> (1 + -2.i) + (3 + 4.i)

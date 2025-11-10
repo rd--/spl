@@ -74,7 +74,7 @@ Methods:
 - [over](https://aplwiki.com/wiki/Over) Over ⍥
 - [rank](https://aplwiki.com/wiki/Rank) Rank
 - [reduce](https://aplwiki.com/wiki/Reduce) Reduce /
-- [replicateEach](https://aplwiki.com/wiki/Replicate) Replicate /
+- [replicate](https://aplwiki.com/wiki/Replicate) Replicate /
 - [reshape](https://aplwiki.com/wiki/Reshape) Reshape ⍴
 - [reverse](https://aplwiki.com/wiki/Reverse) Reverse ⌽
 - [rotateLeft](https://aplwiki.com/wiki/Rotate) Rotate ⌽

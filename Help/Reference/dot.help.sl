@@ -47,7 +47,7 @@ Scalar product of vectors in three dimensions:
 Dot product of exact vectors:
 
 ```
->>> (2 # 5).dot(3 # 5)
+>>> (5 # [2]).dot(5 # [3])
 30
 
 >>> [1 2 3 4 5].dot([1 8 9 0 -1])

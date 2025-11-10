@@ -1,13 +1,13 @@
 # unitCube
 
-- _unitCube(center)_
+- _unitCube([x y z])_
 
-Answer a `Polyhedron` of the unit cube at _center_.
+Answer a `Polyhedron` of the unit cube at center _x,y,z_.
 
 The `vertices` of the unit cube at _(0.5,0.5,0.5)_:
 
 ```
->>> (0.5 # 3).unitCube.vertexCoordinates
+>>> [0.5 0.5 0.5].unitCube.vertexCoordinates
 [
 	0 0 0;
 	1 0 0;
@@ -33,7 +33,7 @@ and that each edge as a unit:
 >>> 	p.faceIndices.collect(size:/1),
 >>> 	p.edgeLengths
 >>> )
-(8, 6, 12, 4 # 6, 1 # 12)
+(8, 6, 12, 6 # [4], 12 # [1])
 ```
 
 Draw the unit cube:

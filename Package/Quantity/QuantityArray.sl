@@ -31,7 +31,7 @@ QuantityArray : [Object, Equatable] { | magnitudeArray unitOrUnitList |
 			u
 		} {
 			let d = self.magnitudeArray.dimensions;
-			u # d.last
+			List(d.last, u)
 		}
 	}
 

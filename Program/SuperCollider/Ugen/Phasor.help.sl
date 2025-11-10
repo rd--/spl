@@ -39,4 +39,4 @@ let ixa = { :freq :in :index |
 	(w3 + (in * index)).Fold2(1)
 };
 let freq = 100;
-ixa(freq, SinOsc(freq, 0), Line(0, 10, 3)) * 0.5 # 2
+2 # [ixa(freq, SinOsc(freq, 0), Line(0, 10, 3)) * 0.5]

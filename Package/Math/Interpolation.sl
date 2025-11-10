@@ -796,7 +796,7 @@
 	bSplineFunction { :self :d |
 		let n = self.size;
 		let m = n - d;
-		let k = (0 # d) ++ [0 .. m] ++ (m # d);
+		let k = List(d, 0) ++ [0 .. m] ++ List(d, m);
 		{ :t |
 			self.bSplineFunctionPrimitive(d, k, nil, t)
 		}

@@ -30,7 +30,9 @@
 
 	staffordsAlgorithm { :self :n :u :nsets |
 		/* https://github.com/jlelli/taskgen/ */
-		let range = { :i :j :k | Range(i, j - k, k).asList };
+		let range = { :i :j :k |
+			Range(i, j - k, k).asList
+		};
 		let k = u.floor.min(n - 1);
 		let s1 = u - range(k, k - n, -1);
 		let s2 = range(k + n, k, -1) - u;
@@ -42,10 +44,10 @@
 		let x = [n, m].zeroMatrix;
 		let rt = self.randomReal([0 1], [n - 1, m]);
 		let rs = self.randomReal([0 1], [n - 1, m]);
-		let j = (k + 1) # m;
-		let sm = 0 # m;
-		let pr = 1 # m;
-		let s = u # m;
+		let j = List(m, k + 1);
+		let sm = List(m, 0);
+		let pr = List(m, 1);
+		let s = List(m, u);
 		w[1][2] := huge;
 		range(2, n + 1, 1).do { :i |
 			let t1 = w.at(i - 2 + 1).atAll(range(1, i + 1, 1) + 1) * s1.atAll(range(0, i, 1) + 1) / i;

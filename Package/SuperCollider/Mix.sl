@@ -1,7 +1,7 @@
 +@Integer {
 
 	SparseMatrixMixer { :numOutputs :inputList :sparseMatrix |
-		let answer = Dc(0) # numOutputs;
+		let answer = List(numOutputs, Dc(0));
 		sparseMatrix.do { :each |
 			let [inputIndex, outputIndex, gain] = each;
 			/* ['SparseMatrixMixer', each].postLine; */
@@ -16,86 +16,87 @@
 
 	mixRuleSparseMatrixTable { :self |
 		self.cache.atIfAbsentPut('mixRuleSparseMatrixTable') {
+			let ones = { :k | List(k, 1) };
 			(
 				'2×2→1×4': [
 					4.iota,
 					4.iota,
-					1 # 4
+					4.ones
 				].transpose,
 				'4×2→1×4': [
 					8.iota,
 					[1 2 2 3 3 4 4 1],
-					1 # 8
+					8.ones
 				].transpose,
 				'4×2→1×8': [
 					8.iota,
 					8.iota,
-					1 # 8
+					8.ones
 				].transpose,
 				'8×2→1×8': [
 					16.iota,
 					[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
-					1 # 16
+					16.ones
 				].transpose,
 				'8×2→2×4': [
 					16.iota,
 					[0 4] +.x [1 2 2 3 3 4 4 1],
-					1 # 16
+					16.ones
 				].transpose,
 				'16×2→2×8': [
 					32.iota,
 					[0 8] +.x [1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
-					1 # 32
+					32.ones
 				].transpose,
 				'16×2→4×4': [
 					32.iota,
 					[0 4 8 12] +.x [1 2 2 3 3 4 4 1],
-					1 # 32
+					32.ones
 				].transpose,
 				'2×2→1×8': [
 					4.iota,
 					[8 2 4 6],
-					1 # 4
+					4.ones
 				].transpose,
 				'3×2→1×8': [
 					6.iota,
 					[8 2 7 3 6 4],
-					1 # 6
+					6.ones
 				].transpose,
 				'3×6→1×2+1×8+2×4': [
 					18.iota,
 					18.iota,
-					1 # 18
+					18.ones
 				].transpose,
 				'4×2→1×8': [
 					8.iota,
 					8.iota,
-					1 # 8
+					8.ones
 				].transpose,
 				'5×2→1×2+1×8': [
 					10.iota,
 					10.iota,
-					1 # 10
+					10.ones
 				].transpose,
 				'6×2→1×8+2×4': [
 					12.iota,
 					12.iota,
-					1 # 12
+					12.ones
 				].transpose,
 				'7×2→1×8+2×4': [
 					14.iota,
 					14.iota,
-					1 # 14
+					14.ones
 				].transpose,
 				'8×1→1×8': [
 					8.iota,
 					8.iota,
-					1 # 8
+					8.ones
 				].transpose,
 				'9×2→1×2+1×8+2×4': [
 					18.iota,
 					18.iota,
-					1 # 18
+					18.ones
 				].transpose,
 				'10×2→1×2+1×8+2×4': [
 					20.iota,
@@ -104,7 +105,7 @@
 						[2 10] +.x 8.iota,
 						2 + [1 5]
 					].catenate,
-					1 # 20
+					20.ones
 				].transpose,
 				'11×2→1×2+1×8+2×4': [
 					22.iota,
@@ -113,7 +114,7 @@
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7]
 					].catenate,
-					1 # 22
+					22.ones
 				].transpose,
 				'12×2→1×2+1×8+2×4': [
 					24.iota,
@@ -122,7 +123,7 @@
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7 4 8]
 					].catenate,
-					1 # 24
+					24.ones
 				].transpose,
 				'13×2→1×2+1×8+2×4': [
 					26.iota,
@@ -131,12 +132,12 @@
 						[2 10] +.x 8.iota,
 						2 + [1 5 3 7 4 8 2 6]
 					].catenate,
-					1 # 26
+					26.ones
 				].transpose,
 				'1×8+2×4→1×8+2×4': [
 					16.iota,
 					16.iota,
-					1 # 16
+					16.ones
 				].transpose,
 				'16×2→1×8+2×4': [
 					32.iota,
@@ -144,7 +145,7 @@
 						[1 2 2 3 3 4 4 5 5 6 6 7 7 8 8 1],
 						[8 12] +.x [1 2 2 4 4 3 3 1]
 					].catenate,
-					1 # 32
+					32.ones
 				].transpose
 			)
 		}

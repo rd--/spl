@@ -676,7 +676,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 	edgeWeights { :self |
 		self.properties.atIfAbsent('edgeWeights') {
-			1 # self.edgeCount
+			List(self.edgeCount, 1)
 		}
 	}
 

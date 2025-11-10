@@ -24,7 +24,7 @@ but it is not and the answer is negative `one`:
 ```
 
 By convention the return block is called return:/1.
-`repeat` repeats a block until it exits non-locally:
+`repeatForever` repeats a block until it exits non-locally:
 
 ```
 >>> let count = 1;
@@ -35,7 +35,7 @@ By convention the return block is called return:/1.
 >>> 		} {
 >>> 			count := count + 1
 >>> 		}
->>> 	}.repeat
+>>> 	}.repeatForever
 >>> }.valueWithReturn;
 >>> answer
 100
@@ -49,7 +49,7 @@ i.e. _spl-insert-non-local-return (C-c C-r)_ in Emacs.
 
 * * *
 
-See also: Block, repeat, value
+See also: Block, repeatForever, value
 
 Guides: Block Functions, Non-local Return
 

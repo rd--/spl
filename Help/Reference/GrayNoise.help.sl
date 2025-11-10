@@ -8,13 +8,13 @@ This type of noise has a high RMS level relative to its peak to peak level.
 The spectrum is emphasized towards lower frequencies.
 
 ```
-GrayNoise(0.125 # 2, 0)
+GrayNoise([0.125 0.125], 0)
 ```
 
 High pass filtered:
 
 ```
-GrayNoise(0.125 # 2, 0).Hpz1
+GrayNoise(2 # [0.125], 0).Hpz1
 ```
 
 High pass filtered,

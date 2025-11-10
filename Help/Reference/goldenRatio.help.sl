@@ -148,7 +148,7 @@ As a continued fraction:
 
 ```
 >>> 1.goldenRatio.continuedFraction(20)
-(1 # 20)
+20 # [1]
 ```
 
 ϕ, taken as a frequency ratio, is about 833.1¢,

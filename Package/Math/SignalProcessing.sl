@@ -39,7 +39,7 @@
 
 	recurrenceFilter { :c :x |
 		let k = c.at(1).size - 1;
-		c.recurrenceFilter(x, 0 # k)
+		c.recurrenceFilter(x, List(k, 0))
 	}
 
 	unwrapPhase { :self :period |

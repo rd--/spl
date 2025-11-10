@@ -9,7 +9,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.05
+).Pan2(0, 0.05)
 
 /* MiBraids ; some modulation ; requires=keywords */
 let mod = LfNoise1(0.5) * 0.5 + 0.5;
@@ -23,7 +23,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.05
+).Pan2(0, 0.05)
 
 /* MiBraids ; vosim ; requires=keywords */
 let pitch = LinLin(LfNoise0(4), -1, 1, 33, 66).RoundTo(1);
@@ -39,7 +39,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.1
+).Pan2(0, 0.1)
 
 /* MiBraids ; fluted ; requires=keywords */
 let pitch = 38;
@@ -55,7 +55,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.1
+).Pan2(0, 0.1)
 
 /* MiBraids ; scanning ; requires=keywords */
 let pitch = MouseY(33, 72, 0, 0.2);
@@ -72,7 +72,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.1
+).Pan2(0, 0.1)
 
 /* MiBraids ; paraphonic ; requires=keywords */
 let timbre = LfNoise1(0.03) * 0.5 + 0.5;
@@ -87,7 +87,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.1
+).Pan2(0, 0.1)
 
 /* MiBraids ; trigger ; 28=plucked ; requires=keywords */
 let tr = Dust(0.6);
@@ -104,7 +104,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.1
+).Pan2(0, 0.1)
 
 /* MiBraids ; 34=kick ; requires=keywords */
 let trig = Impulse(4, 0);
@@ -121,7 +121,7 @@ MiBraids(
 	decim: 0,
 	bits: 0,
 	ws: 0
-) # 2 * 0.2
+).Pan2(0, 0.2)
 
 /* MiBraids ; 34=kick ; sample rate, bit reduction and distortion ; requires=keywords */
 let tr = CoinGate(0.3, Impulse(4, 0));
@@ -137,4 +137,4 @@ MiBraids(
 	decim: decim,
 	bits: 3,
 	ws: ws
-) # 2 * 0.1
+).Pan2(0, 0.1)

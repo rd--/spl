@@ -28,7 +28,7 @@ There are eight compositions of four:
 >>> 	1 1 2; 1 2 1; 2 1 1;
 >>> 	1 1 1 1
 >>> ].collect(sum:/1)
-(4 # 8)
+8 # [4]
 ```
 
 There are sixteen compositions of five:

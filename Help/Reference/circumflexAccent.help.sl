@@ -254,7 +254,7 @@ For positive integers _y_, _x ^ y_ equals the `product` of _y_ copies of _x_.
 >>> 3 ^ 5
 243
 
->>> (3 # 5).product
+>>> List(5, 3).product
 243
 ```
 

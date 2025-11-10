@@ -59,4 +59,4 @@ let output = Select(
 	outSignal,
 	[tri1, osc3, tri2, osc2, pwm, sh0b, filt]
 );
-LeakDc(output * amp # 2, 0.995) <! LocalOut([runglerF, buf1]) * 0.1
+LeakDc(2 # [output * amp], 0.995) <! LocalOut([runglerF, buf1]) * 0.1

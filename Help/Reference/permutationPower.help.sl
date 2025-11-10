@@ -19,7 +19,7 @@ The same answer arrived at using `permutationProduct`:
 
 ```
 >>> let p = [1 7 6 3; 2 5 4].cycles;
->>> (p # 6).permutationProduct
+>>> List(6, p).permutationProduct
 [1 6; 2; 3 7; 4; 5].cycles
 ```
 

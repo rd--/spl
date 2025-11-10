@@ -146,7 +146,7 @@ however points exchange places:
 let a = Circle([5 0], 4);
 let b = Circle([0 0], 3);
 let c = a.circleInversion(b);
-let p = (-3 / 2.sqrt) # 2;
+let p = List(2, -3 / 2.sqrt);
 let q = p.circleInversion(a);
 let r = a.center;
 [

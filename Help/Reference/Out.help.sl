@@ -8,10 +8,11 @@ Sum a sequence of signals to a bus.
 - bus: the index of the bus to sum out to, the lowest numbers correspond to the audio hardware
 - channelsList: a list of channels to write out
 
-One _Out_ summing one _SinOsc_ to two buses:
+One `Out` summing one `SinOsc` to two buses:
 
 ```
-Out(0, SinOsc(440, 0) * 0.1 # 2)
+let o = SinOsc(440, 0) * 0.1;
+Out(0, [o o])
 ```
 
 Two _Out_ summing distinct frequencies to one bus each:

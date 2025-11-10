@@ -7,7 +7,7 @@ let d = { :a :p |
 };
 let q = [1 2 3 4 5 11 9];
 let a = [
-	m() > 0.05 * d((4 # 7) ++ [16 8], 3).Lag3Ud(0, 0.005),
+	m() > 0.05 * d((7 # [4]) ++ [16 8], 3).Lag3Ud(0, 0.005),
 	Hpf(m() > 0.05 * d(q, 5), 7777),
 	m() > 0.05 * d(q, 5),
 	3 / 5 * (m() > 0.1) * d([1 2 3 4 5 3 9], 6).Lag3Ud(1E-5, 1E-3),
@@ -74,7 +74,7 @@ Splay((v + l).SoftClip * -6.DbAmp)
 /* https://sonomu.club/@lukiss/112015967098344604 ; Mar 01, 2024 */
 let f = 111 * [0 1.04955 2.97513 4.70781 7.01955 8.40528 9.68826 0].MidiRatio;
 let e = {
-	LfSaw(GrayNoise() * (1 / 7 # 8) - 7, 0).Lag3(0.001).Max(0)
+	LfSaw(GrayNoise() * (8 # [1 / 7]) - 7, 0).Lag3(0.001).Max(0)
 };
 let v = SinOsc(1 - e() / f, 4) + 1 / 2 ^ 2;
 let p = LfPulse(
@@ -158,10 +158,12 @@ let r = { :a :b |
 };
 let t = Sweep(0, r(-1E3, 1E3)) % r(28, 512);
 let b = t.BitAnd(r(64, 256)).BitOr(t.ShiftRight(r(4, 18)));
-LeakDc(
-	0.5 * LfTri(b.MidiCps % 1E4, 0) * (b > 32).Lag3(0.1),
-	0.995
-) # 2
+2 # [
+	LeakDc(
+		0.5 * LfTri(b.MidiCps % 1E4, 0) * (b > 32).Lag3(0.1),
+		0.995
+	)
+]
 
 /* https://sonomu.club/@lukiss/111534969935581348 ; Dec 7, 2023 */
 let p = {
@@ -307,7 +309,7 @@ let o = (Blip(r(11, 111), r(1 / 3, 333)) * e).Tanh;
 		CombC(
 			o,
 			3 / 4,
-			r(1 / 512, 3 / 4) * (LfdNoise1(6 # 2).kr * 0.001 + 1),
+			r(1 / 512, 3 / 4) * (LfdNoise1(2 # [6]).kr * 0.001 + 1),
 			r(1 / 2, 1 / 64) * TChoose(t(), [-1, 1]).kr
 		).Tanh,
 		0.995
@@ -484,7 +486,7 @@ let o = SinOsc(440, 0);
 		SinOsc(o + 1 ^ (n + 1).prime, 0).pi
 	)
 };
-o ! 2 / 3
+2 # [o] / 3
 
 /* https://sonomu.club/@lukiss/113469893460208702 ; Nov 12, 2024, 11:06 PM ; ? see .scd */
 let z = { :x | LfSaw(x, 0) };

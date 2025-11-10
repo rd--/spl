@@ -3,7 +3,7 @@
 - _Silent(numChannels)_
 
 Output zero (silence).
-Equivalent to _Dc(0) # numChannels_.
+Equivalent to a list of _Dc(0)_ values.
 
 Offset eight random sine tones by eight silent channels,
 requires sixteen channel system to hear:

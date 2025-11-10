@@ -49,7 +49,7 @@ Rotate successive rows of a matrix by their row number:
 
 ```
 >>> let u = [1 2 3 4];
->>> let m = u ! 5;
+>>> let m = List(5, u);
 >>> m.withIndexCollect(rotateLeft:/2)
 [
 	2 3 4 1;

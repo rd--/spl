@@ -1,8 +1,8 @@
 # fill
 
-- _fill(anInteger | aSequence, aBlock:/1)_
+- _fill(⍴, f:/1)_
 
-Allocate a vector or array of the indicated shape and fill each slot by applying _aBlock_ to the index.
+Allocate a vector or array of the indicated shape _⍴_, and fill each slot by applying the unary block _f_ to the index.
 At `Integer` answers a vector, at `Sequence` answers an array.
 
 List of squares of indices with literal block:
@@ -76,7 +76,7 @@ A constant 3×3 matrix:
 ]
 ```
 
-If the shape is empty answer a scalar of _aBlock_ applied to `zero`:
+If the shape is empty answer a scalar of _f_ applied to `zero`:
 
 ```
 >>> [].fill { :i |

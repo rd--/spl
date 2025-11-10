@@ -1,5 +1,5 @@
 /* https://twitter.com/redFrik/status/1746982829144113215 f0 */
-let z = LocalIn(14, [1 / 4] ++ (0 # 13));
+let z = LocalIn(14, [1 / 4] ++ (13 # [0]));
 let d = 0.14 * 1.4;
 let h = Hilbert(
 	Lpf(

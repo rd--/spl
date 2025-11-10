@@ -72,7 +72,7 @@ Splay(
 	PlayBuf(
 		1,
 		SfAcquireMono('Floating'),
-		LfNoise2(1 # c) * 0.1 / c + 1,
+		LfNoise2(c # [1]) * 0.1 / c + 1,
 		t,
 		Sweep(0, MouseX(0.001, 1 / 5, 1, 0.2)) % 1 * 180000,
 		0,
@@ -88,7 +88,7 @@ Splay(
 	LeakDc(
 		-12.DbAmp * StandardN(
 			e * c * 220,
-			LfdNoise3(1 # 4) * 0.1 + 0.97215,
+			LfdNoise3(4 # [1]) * 0.1 + 0.97215,
 			1 / 4,
 			1 / 4
 		) * e.reverse,
@@ -230,7 +230,7 @@ Splay(
 /* Something awfully old ; https://github.com/lukiss/Losers-Union-SC-Research ; requires=kr */
 let a = LocalBuf(1, 8 * 2048);
 let f = {
-	LfdNoise3(0.001 # 7).Tan.Abs.kr
+	LfdNoise3(7 # [0.001]).Tan.Abs.kr
 };
 Splay(
 	LeakDc(
@@ -354,7 +354,7 @@ Splay(
 /* Drone 22 Maj 2021 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let n = 4;
 let l = { :mul |
-	(LfdNoise3(0.05 # n) * mul).Abs
+	(LfdNoise3(n # [0.05]) * mul).Abs
 };
 let d = {
 	{
@@ -397,7 +397,7 @@ Normalizer(
 				r(19, 11),
 				r(1, 18),
 				r(0.1, 5),
-				r(0.01, 0.06 # 2),
+				r(0.01, 2 # [0.06]),
 				0.1,
 				0,
 				0
@@ -597,7 +597,7 @@ Splay(
 /* 20 jan. 2023 ; https://github.com/lukiss/Losers-Union-SC-Research */
 let l = { :lo :hi |
 	TChoose(
-		Dust(3 # 2),
+		Dust(2 # [3]),
 		CuspN(1.1 ^ 0:5, 1, 1.9, 0).Tanh
 	).ExpRange(lo, hi)
 };

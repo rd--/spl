@@ -11,7 +11,7 @@ The two solutions of the Frobenius equation _6x + 9y + 20z = 24_:
 >>> let b = 24;
 >>> let x = a.frobeniusSolve(b);
 >>> (x, x.dot(a))
-([1 2 0; 4 0 0], b # x.size)
+([1 2 0; 4 0 0], x.size # [b])
 ```
 
 The eight solutions of the Frobenius equation _12x + 16y + 20z + 27t = 123_:
@@ -32,7 +32,7 @@ The eight solutions of the Frobenius equation _12x + 16y + 20z + 27t = 123_:
 		5 1 1 1;
 		8 0 0 1
 	],
-	b # x.size
+	x.size # [b]
 )
 ```
 
@@ -84,7 +84,7 @@ The twenty-one solutions of the Frobenius equation _5x + 8y + 9z + 12t = 67_:
 		10 1 1 0;
 		11 0 0 1
 	],
-	b # x.size
+	x.size # [b]
 )
 ```
 

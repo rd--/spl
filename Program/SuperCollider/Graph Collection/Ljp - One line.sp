@@ -22,33 +22,33 @@ let p = SinOsc(1760, 0) * [0.01, 0.01];
 p + CombC(p, 0.1, LfNoise1(0.5) * 0.1 + 0.1, [-10, 10])
 
 /* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7a */
-SinOsc(1, SinOsc(333, SinOsc(143, 0) * (LfNoise2(0.2 # 2) * 100 + 110))) * 0.1
+SinOsc(1, SinOsc(333, SinOsc(143, 0) * (LfNoise2(2 # [0.2]) * 100 + 110))) * 0.1
 
 /* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7b */
-SinOsc(1, SinOsc(33, SinOsc(1403, 0) * (LfNoise2(0.2 # 2) * 10 + 11)) * 10) * 0.1
+SinOsc(1, SinOsc(33, SinOsc(1403, 0) * (LfNoise2(2 # [0.2]) * 10 + 11)) * 10) * 0.1
 
 /* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7c */
-SinOsc(1, SinOsc(14003, 0) * (LfNoise2(0.2 # 2) * 100 + 101)) * 0.1
+SinOsc(1, SinOsc(14003, 0) * (LfNoise2(2 # [0.2]) * 100 + 101)) * 0.1
 
 /* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7d */
-SinOsc(2, SinOsc(6003, 0) * (LfNoise2(1 # 2) * 200 + 201)) * 0.1
+SinOsc(2, SinOsc(6003, 0) * (LfNoise2(2 # [1]) * 200 + 201)) * 0.1
 
 /* Fm curio ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #7e */
-SinOsc(0, SinOsc(9005, 0) * (LfNoise2(1 # 2) * 100 + 101)) * 0.1
+SinOsc(0, SinOsc(9005, 0) * (LfNoise2(2 # [1]) * 100 + 101)) * 0.1
 
 /* Blizzard ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #8 ; edit (rd) */
-let f = 0.2 # 8;
+let f = 8 # [0.2];
 Bpf(PinkNoise() * 0.2, LfNoise1(f) * 1000 + 1040, LfNoise1(f) * 0.3 + 0.31).Splay
 
 /* Fey emissions ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #9 */
-let d = Dust(2 # 2);
+let d = Dust(2 # [2]);
 CombN(Bpf(d, LfNoise0(10) * 3000 + 3040, 0.001) * 200, 0.2, 0.2, 5)
 
 /* Sine slurps ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #10 */
-SinOsc(0, Bpf(Dust(10 # 2) * 20000, LfNoise1(10 # 2) * 4000 + 4000, 0.1)) * 0.2
+SinOsc(0, Bpf(Dust(2 # [10]) * 20000, LfNoise1(2 # [10]) * 4000 + 4000, 0.1)) * 0.2
 
 /* Noise slurps ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #11 */
-SinOsc(0, Bpf(WhiteNoise(1000 # 2, 0), LfNoise1(0.1 # 2) * 2000 + 4000, 0.001)) * 0.1
+SinOsc(0, Bpf(WhiteNoise(2 # [1000], 0), LfNoise1(2 # [0.1]) * 2000 + 4000, 0.001)) * 0.1
 
 /* feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12a */
 let p = Saw(440 + [0, 0.2]) * 0.02;
@@ -59,15 +59,15 @@ let p = Saw(440 + [0, 0.2]) * 0.02;
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12c */
-let p = PinkNoise(0.03 # 2, 0);
+let p = PinkNoise(2 # [0.03], 0);
 p + CombC(p, 0.2, LfNoise0(1) * 0.2 + 0.2, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12d */
-let p = WhiteNoise(0.02 # 2, 0);
+let p = WhiteNoise(2 # [0.02], 0);
 p + CombC(p, 0.1, LfNoise1(10) * 0.08 + 0.08, -10000)
 
 /* Feedback racket ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #12e */
-let p = Dust2(200 # 2) * 0.2;
+let p = Dust2(2 # [200]) * 0.2;
 p + CombC(p, 0.4, LfNoise0(2) * 0.4 + 0.4, -10000)
 
 /* Trills ; https://w2.mat.ucsb.edu/l.putnam/sc3one/index.html #13a */

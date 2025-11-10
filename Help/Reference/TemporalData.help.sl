@@ -90,8 +90,9 @@ Resample multiple paths at equal times:
 let r = Sfc32(178314);
 PoissonProcess(5)
 .randomFunction(r, [1 10], 5)
-.resample([1, 1.2 .. 10] ! 5)
-.scatterPlot
+.resample(
+	List(5, [1, 1.2 .. 10])
+).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/TemporalData-E.svg)

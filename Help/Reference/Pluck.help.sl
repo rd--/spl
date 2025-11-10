@@ -38,7 +38,7 @@ let freq = SinOsc(
 Splay(
 	LeakDc(
 		Pluck(
-			WhiteNoise() / 4 # k,
+			List(k, WhiteNoise() / 4),
 			Impulse({ Rand(3, 11) } ! k, 0),
 			1 / 100,
 			1 / freq,

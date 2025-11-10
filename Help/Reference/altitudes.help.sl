@@ -7,7 +7,7 @@ Answer the altitudes of the triangle _t_.
 ```
 >>> [1 1 1].sssTriangle
 >>> .altitudes
-(3.sqrt / 2) # 3
+3 # [3.sqrt / 2]
 
 >>> [3 4 5].sssTriangle
 >>> .altitudes

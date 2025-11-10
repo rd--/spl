@@ -84,7 +84,7 @@ Expand the size of a matrix by repeating elements:
 
 ```
 >>> [3 3].iota.kroneckerProduct(
->>> 	1 ! [2 2]
+>>> 	[1 1; 1 1]
 >>> )
 [
 	1 1 2 2 3 3;
@@ -101,7 +101,7 @@ Visualizes a Laplacian operator matrix:
 ~~~spl svg=A
 let n = 5;
 let i = n.identityMatrix;
-let e = (1 # 4).diagonalMatrix(-1);
+let e = [1 1 1 1].diagonalMatrix(-1);
 let d = (e + e.transpose) - (2 * i);
 (
 	d.kroneckerProduct(i)

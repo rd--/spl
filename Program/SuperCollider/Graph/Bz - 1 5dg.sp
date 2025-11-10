@@ -26,4 +26,4 @@ let hh = Rhpf(Resonz(trig[3], 11.rGen(4000, 6500), 0.0005).sum, 2400, 0.4) * ctl
 let tm = Resonz(trig[4], ctl::tmFreq, 0.03) * ctl::tmVel;
 let cl = Hpf((Resonz(trig[5], 9.rGen(500, 3500), 0.01) * ctl::clVel).sum, 700);
 let wd = Resonz(trig[6], 850, 0.04) * ctl::wdVel;
-(kd # 2 + sd + hh + tm + cl + wd).Tanh * 0.15
+(2 # [kd] + sd + hh + tm + cl + wd).Tanh * 0.15

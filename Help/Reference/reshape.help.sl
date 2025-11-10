@@ -1,8 +1,8 @@
 # reshape
 
-- _reshape(aCollection, shape)_
+- _reshape(c, ⍴)_
 
-Answer a `List` with the indicated _shape_ and with elements drawn from _aCollection_.
+Answer a `List` with the indicated _shape_ and with elements drawn from the collection _c_.
 Elements are drawn in `ravel` order,
 truncating if the result has smaller bound than the right argument,
 and repeating cyclically if it has larger bound.
@@ -242,7 +242,7 @@ Make a vector of 10 places:
 
 ```
 >>> ['x'].reshape([10])
-('x' # 10)
+List(10, 'x')
 ```
 
 Make a 3×2 matrix:
@@ -252,14 +252,19 @@ Make a 3×2 matrix:
 [
 	1 1;
 	1 1;
-	1 1]
+	1 1
+]
 ```
 
 Make a 3×4 matrix:
 
 ```
->>> ['x'].reshape([3 4])
-('x' # 4 ! 3)
+>>> [0 1].reshape([3 4])
+[
+	0 1 0 1;
+	0 1 0 1;
+	0 1 0 1
+]
 ```
 
 `shape` after `reshape` is requested `shape`:

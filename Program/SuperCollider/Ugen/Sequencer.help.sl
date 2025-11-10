@@ -11,7 +11,7 @@ let clock = Impulse(8, 0);
 let trig1 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 let root = Sequencer([24 26 24 22], PulseDivider(clock, 64, 0));
 let x = Rlpf(
-	GrayNoise(0.4 # 2, 0) * Decay2(trig1, 0.005, 0.7),
+	GrayNoise(2 # [0.4], 0) * Decay2(trig1, 0.005, 0.7),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -33,7 +33,7 @@ let trig1 = ImpulseSequencer(
 );
 let r = Lpf(
 	Rlpf(
-		BrownNoise(1 # 2, 0) * Decay2(trig1, 0.005, 0.7) * 3,
+		BrownNoise(2 # [1], 0) * Decay2(trig1, 0.005, 0.7) * 3,
 		MouseX(200, 300, 1, 0.2),
 		0.4
 	).Distort,
@@ -41,7 +41,7 @@ let r = Lpf(
 );
 let trig2 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 let x = Rlpf(
-	GrayNoise(0.4 # 2, 0) * Decay2(trig2, 0.005, 0.3),
+	GrayNoise(2 # [0.4], 0) * Decay2(trig2, 0.005, 0.3),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -58,9 +58,7 @@ let trig4 = ImpulseSequencer(
 	clock
 );
 let y = SinOsc((root + 24).MidiCps, 0) * Decay2(trig4, 0.005, 0.2);
-let trig5 = ImpulseSequencer(
-	[1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1] * 0.3,
-clock);
+let trig5 = ImpulseSequencer([1 31 4] # [1 0 1] * 0.3, clock);
 let w = SinOsc((root + 24 + 7).MidiCps, 0) * Decay2(trig5, 0.005, 0.2);
 let snd = (r * 0.1 + x + z + [y, w]) * 0.4;
 (CombN(snd, 0.51, 0.51, 4) * 0.4 + snd.reverse).SoftClip
@@ -97,7 +95,7 @@ let trig3 = DemandImpulseSequencer([q], clock);
 let exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
 let s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
 /* whine */
-let exc4 = GrayNoise(0.0007 # 2, 0);
+let exc4 = GrayNoise(2 # [0.0007], 0);
 let y = { :tr |
 	let env = SinOsc(TRand(1, 6, tr), { TRand(0, 2.pi, tr) } ! 2) * 0.5 + 0.5;
 	DynRingzBank(

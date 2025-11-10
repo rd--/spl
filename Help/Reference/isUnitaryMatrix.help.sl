@@ -23,7 +23,7 @@ true
 Test if a diagonal matrix is unitary:
 
 ```
->>> let m = (-1.i # 5).diagonalMatrix;
+>>> let m = List(5, -1.i).diagonalMatrix;
 >>> m.isUnitaryMatrix
 true
 ```

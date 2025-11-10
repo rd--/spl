@@ -137,7 +137,7 @@ Scale : [Object] { | startIndex intervals description |
 		[
 			opening,
 			self.intervals.collect { :each |
-				dash # (each - 1)
+				List(each - 1, dash)
 			}.intersperse(separator),
 			closing
 		].stringJoin
@@ -247,10 +247,10 @@ Scale : [Object] { | startIndex intervals description |
 				answer := l ++ s
 			} {
 				(x = 1 & { y > 1 }).if {
-					answer := [l, s # y].stringJoin
+					answer := [l, List(y, s)].stringJoin
 				} {
 					(x > 1 & { y = 1 }).if {
-						answer := [l # x, s].stringJoin
+						answer := [List(x, l), s].stringJoin
 					} {
 						'momentOfSymmetryXy'.error
 					}
@@ -259,7 +259,8 @@ Scale : [Object] { | startIndex intervals description |
 		} {
 			let k = x.gcd(y);
 			(k != 1).if {
-				answer := (momentOfSymmetryXy(x // k, y // k, l, s) # k).stringJoin
+				let m = momentOfSymmetryXy(x // k, y // k, l, s);
+				answer := List(k, m).stringJoin
 			} {
 				(k = 1).if {
 					let m1 = min(x, y);
@@ -273,11 +274,11 @@ Scale : [Object] { | startIndex intervals description |
 						prescale.reverse
 					};
 					(x > y).if {
-						lRule := [l # ceiling(m2 / m1), s].stringJoin;
-						sRule := [l # floor(m2 / m1), s].stringJoin
+						lRule := [List(ceiling(m2 / m1), l), s].stringJoin;
+						sRule := [List(floor(m2 / m1), l), s].stringJoin
 					} {
-						lRule := [l, s # ceiling(m2 / m1)].stringJoin;
-						sRule := [l, s # floor(m2 / m1)].stringJoin
+						lRule := [l, List(ceiling(m2 / m1), s)].stringJoin;
+						sRule := [l, List(floor(m2 / m1), s)].stringJoin
 					};
 					prescale.contents.do { :step |
 						(step = l).if {
@@ -308,7 +309,7 @@ Scale : [Object] { | startIndex intervals description |
 
 	horogramDrawingTable { :self |
 		let period = self.anyOne.sum;
-		(self ++ [1 # period]).integerPartitionsTable
+		(self ++ [List(period, 1)]).integerPartitionsTable
 	}
 
 	rectangularHorogramDrawing { :self |

@@ -515,7 +515,7 @@
 						answer.return
 					};
 					index := index + 1
-				}.repeat;
+				}.repeatForever;
 				answer
 			}
 		}

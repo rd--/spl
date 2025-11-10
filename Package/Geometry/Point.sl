@@ -3,7 +3,7 @@
 Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 
 	boundingBox { :self |
-		self.coordinates ! 2
+		{ self.coordinates } ! 2
 	}
 
 	circleInversion { :self :circle |
