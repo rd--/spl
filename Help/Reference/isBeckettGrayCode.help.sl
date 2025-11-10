@@ -33,7 +33,7 @@ There are no 3-bit or 4-bit Beckett-Gray codes.
 There is one 3-bit non-cyclic Beckett-Gray code:
 
 ```
->>> [
+>>> let c = [
 >>> 	0 0 0;
 >>> 	0 0 1;
 >>> 	0 1 1;
@@ -42,8 +42,12 @@ There is one 3-bit non-cyclic Beckett-Gray code:
 >>> 	1 0 0;
 >>> 	1 0 1;
 >>> 	1 1 1
->>> ].isBeckettGrayCode
-false
+>>> ];
+>>> (
+>>> 	c.isBeckettGrayCode,
+>>> 	c.isBinaryGrayCode
+>>> )
+(false, true)
 ```
 
 There are four 4-bit non-cyclic Beckett-Gray codes,

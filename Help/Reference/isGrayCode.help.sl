@@ -1,16 +1,23 @@
 # isGrayCode
 
-- _isGrayCode([x₁ x₂ …])_
+- _isGrayCode([x₁ x₂ …], kind)_
 
-Answer `true` if the sequence of bit-vectors _x_ is a Gray code, else `false`.
+Answer `true` if the sequence of vectors _x_ is a Gray code of the specified kind,
+else `false`.
 
-A 3-bit non-cyclic Gray code:
+A 3-bit non-cyclic binary Gray code:
 
 ```
 >>> [
->>> 	0 0 0; 0 0 1; 0 1 1; 0 1 0;
->>> 	1 1 0; 1 0 0; 1 0 1; 1 1 1
->>> ].isGrayCode
+>>> 	0 0 0;
+>>> 	0 0 1;
+>>> 	0 1 1;
+>>> 	0 1 0;
+>>> 	1 1 0;
+>>> 	1 0 0;
+>>> 	1 0 1;
+>>> 	1 1 1
+>>> ].isGrayCode('Binary')
 true
 ```
 

@@ -34,10 +34,10 @@ If _n_ is a scalar integer it re-written as a list:
 [1 1 1 3 3 3 5 5 5]
 ```
 
-C.f. `!`:
+C.f. `duplicate`:
 
 ```
->>> { [1 3 5] } ! 3
+>>> { [1 3 5] }.duplicate(3)
 [
 	1 3 5;
 	1 3 5;
@@ -47,7 +47,7 @@ C.f. `!`:
 
 * * *
 
-See also: !, #
+See also: !, #, duplicate, List
 
 Guides: List Functions
 

@@ -33,8 +33,8 @@ Guide/Combinatorial Functions.help.sl
 Guide/Comment Syntax.help.sl
 Guide/Comparing Collections.help.sl
 Guide/Comparison Functions.help.sl
-Guide/Complex Literals.help.sl
 Guide/Complex Number Functions.help.sl
+Guide/Complex Number Syntax.help.sl
 Guide/Complicated Method Arity.help.sl
 Guide/Control Blocks.help.sl
 Guide/Control Functions.help.sl
@@ -43,6 +43,7 @@ Guide/Copying Functions.help.sl
 Guide/Csound Gen Routines.help.sl
 Guide/Curve Functions.help.sl
 Guide/Date and Time Functions.help.sl
+Guide/Decimal Number Syntax.help.sl
 Guide/Defining Methods.help.sl
 Guide/Defining Types.help.sl
 Guide/Dictionary Functions.help.sl
@@ -78,7 +79,7 @@ Guide/File Functions.help.sl
 Guide/Filter Functions.help.sl
 Guide/Filters and Method Syntax.help.sl
 Guide/Fourier Analysis Functions.help.sl
-Guide/Fraction Literals.help.sl
+Guide/Fraction Syntax.help.sl
 Guide/Function Guides.help.sl
 Guide/Further Reading.help.sl
 Guide/Generic Functions.help.sl
@@ -98,9 +99,9 @@ Guide/Indexable Syntax.help.sl
 Guide/Indexing Functions.help.sl
 Guide/Integer Arithmetic.help.sl
 Guide/Integer Functions.help.sl
-Guide/Integer Literals.help.sl
 Guide/Integer Sequence Functions.help.sl
 Guide/Integer Sequences.help.sl
+Guide/Integer Syntax.help.sl
 Guide/Interpolation Functions.help.sl
 Guide/Iteration Functions.help.sl
 Guide/Leading Dot Notation.help.sl
@@ -134,7 +135,7 @@ Guide/Nil Functions.help.sl
 Guide/Non-local Return.help.sl
 Guide/Notational Conventions.help.sl
 Guide/Number Functions.help.sl
-Guide/Number Literals.help.sl
+Guide/Number Syntax.help.sl
 Guide/Numerical Methods.help.sl
 Guide/Numerical Precision.help.sl
 Guide/Numeric Types.help.sl
@@ -173,6 +174,7 @@ Guide/Random Number Generators.help.sl
 Guide/Random Processes.help.sl
 Guide/Random Unit Generators.help.sl
 Guide/Range Syntax.help.sl
+Guide/Real Number Syntax.help.sl
 Guide/Record Assignment Syntax.help.sl
 Guide/Record Syntax.help.sl
 Guide/Reference Help Files.help.sl
@@ -329,6 +331,7 @@ Reference/AnalogueClock.help.sl
 Reference/angleBisector.help.sl
 Reference/anglePath.help.sl
 Reference/angleVector.help.sl
+Reference/AnnotatedGeometry.help.sl
 Reference/annularSteinerChain.help.sl
 Reference/Annulus.help.sl
 Reference/AnnulusSector.help.sl
@@ -787,6 +790,9 @@ Reference/chineseRemainder.help.sl
 Reference/ChiSquareDistribution.help.sl
 Reference/choleskyDecomposition.help.sl
 Reference/chop.help.sl
+Reference/chordDiagramCount.help.sl
+Reference/ChordDiagram.help.sl
+Reference/chordDiagramPlot.help.sl
 Reference/chordDiagrams.help.sl
 Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
@@ -1180,8 +1186,7 @@ Reference/Dswitch1.help.sl
 Reference/Dswitch.help.sl
 Reference/duffingEquation.help.sl
 Reference/duffingMap.help.sl
-Reference/duplicateInteger.help.sl
-Reference/duplicateShape.help.sl
+Reference/duplicate.help.sl
 Reference/Duration.help.sl
 Reference/durationString.help.sl
 Reference/Dust2.help.sl
@@ -2233,6 +2238,7 @@ Reference/LinCurve.help.sl
 Reference/linearBezierFunctionAt.help.sl
 Reference/linearCombination.help.sl
 Reference/LinearCongruential.help.sl
+Reference/linearGraphPlot.help.sl
 Reference/linearIndex.help.sl
 Reference/linearInterpolation.help.sl
 Reference/linearInterpolator.help.sl
@@ -2478,6 +2484,7 @@ Reference/mittenpunkt.help.sl
 Reference/mixedFractionParts.help.sl
 Reference/mixedRadixDecode.help.sl
 Reference/mixedRadixEncode.help.sl
+Reference/mixedRadixGrayCode.help.sl
 Reference/Mix.help.sl
 Reference/ModDif.help.sl
 Reference/mod.help.sl
@@ -3108,6 +3115,7 @@ Reference/removeOscListener.help.sl
 Reference/removePunctuation.help.sl
 Reference/repeatedTiming.help.sl
 Reference/repeatEvery.help.sl
+Reference/repeatForever.help.sl
 Reference/repeat.help.sl
 Reference/repeatMatrix.help.sl
 Reference/replaceAllWith.help.sl
@@ -3120,9 +3128,7 @@ Reference/replaceStringAll.help.sl
 Reference/replaceString.help.sl
 Reference/replaceSubarray.help.sl
 Reference/replaceWith.help.sl
-Reference/replicateEach.help.sl
-Reference/replicateInteger.help.sl
-Reference/replicateShape.help.sl
+Reference/replicate.help.sl
 Reference/repunit.help.sl
 Reference/Request.help.sl
 Reference/resample.help.sl

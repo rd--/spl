@@ -16,6 +16,8 @@ true
 
 See also: perform, Type, typeOf
 
+Guides: Reflection Functions
+
 References:
 _Smalltalk_
 5.3.1.19

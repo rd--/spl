@@ -1,13 +1,13 @@
 # isCyclicGrayCode
 
-- _isCyclicGrayCode([x₁ x₂ …])_
+- _isCyclicGrayCode([x₁ x₂ …], kind)_
 
-Answer `true` if the sequence of bit-vectors _x_ is a cyclic Gray code, else `false`.
+Answer `true` if the sequence of vectors _x_ is a cyclic Gray code of the specified kind, else `false`.
 
 The 1-bit cyclic Gray code:
 
 ```
->>> [0; 1].isCyclicGrayCode
+>>> [0; 1].isCyclicGrayCode('Binary')
 true
 ```
 
@@ -15,11 +15,11 @@ Two 2-bit cyclic Gray codes:
 
 ```
 >>> [0 0; 0 1; 1 1; 1 0]
->>> .isCyclicGrayCode
+>>> .isCyclicGrayCode('Binary')
 true
 
 >>> [0 0; 1 0; 1 1; 0 1]
->>> .isCyclicGrayCode
+>>> .isCyclicGrayCode('Binary')
 true
 ```
 
@@ -27,9 +27,15 @@ A 3-bit cyclic Gray code:
 
 ```
 >>> [
->>> 	0 0 0; 0 0 1; 0 1 1; 0 1 0;
->>> 	1 1 0; 1 1 1; 1 0 1; 1 0 0
->>> ].isCyclicGrayCode
+>>> 	0 0 0;
+>>> 	0 0 1;
+>>> 	0 1 1;
+>>> 	0 1 0;
+>>> 	1 1 0;
+>>> 	1 1 1;
+>>> 	1 0 1;
+>>> 	1 0 0
+>>> ].isCyclicGrayCode('Binary')
 true
 ```
 
@@ -37,11 +43,23 @@ A 4-bit cyclic Gray code:
 
 ```
 >>> [
->>> 	0 0 0 0; 1 0 0 0; 1 1 0 0; 1 1 1 0;
->>> 	1 1 1 1; 1 1 0 1; 0 1 0 1; 0 0 0 1;
->>> 	1 0 0 1; 1 0 1 1; 1 0 1 0; 0 0 1 0;
->>> 	0 0 1 1; 0 1 1 1; 0 1 1 0; 0 1 0 0
->>> ].isCyclicGrayCode
+>>> 	0 0 0 0;
+>>> 	1 0 0 0;
+>>> 	1 1 0 0;
+>>> 	1 1 1 0;
+>>> 	1 1 1 1;
+>>> 	1 1 0 1;
+>>> 	0 1 0 1;
+>>> 	0 0 0 1;
+>>> 	1 0 0 1;
+>>> 	1 0 1 1;
+>>> 	1 0 1 0;
+>>> 	0 0 1 0;
+>>> 	0 0 1 1;
+>>> 	0 1 1 1;
+>>> 	0 1 1 0;
+>>> 	0 1 0 0
+>>> ].isCyclicGrayCode('Binary')
 true
 ```
 
@@ -49,18 +67,39 @@ A 5-bit cyclic Gray code:
 
 ```
 >>> [
->>> 	0 0 0 0 0; 0 0 0 0 1; 0 0 0 1 1;
->>> 	0 0 0 1 0; 0 0 1 1 0; 0 0 1 1 1;
->>> 	0 0 1 0 1; 0 0 1 0 0; 0 1 1 0 0;
->>> 	0 1 1 0 1; 0 1 1 1 1; 0 1 1 1 0;
->>> 	0 1 0 1 0; 0 1 0 1 1; 0 1 0 0 1;
->>> 	0 1 0 0 0; 1 1 0 0 0; 1 1 0 0 1;
->>> 	1 1 0 1 1; 1 1 0 1 0; 1 1 1 1 0;
->>> 	1 1 1 1 1; 1 1 1 0 1; 1 1 1 0 0;
->>> 	1 0 1 0 0; 1 0 1 0 1; 1 0 1 1 1;
->>> 	1 0 1 1 0; 1 0 0 1 0; 1 0 0 1 1;
->>> 	1 0 0 0 1; 1 0 0 0 0
->>> ].isCyclicGrayCode
+>>> 	0 0 0 0 0;
+>>> 	0 0 0 0 1;
+>>> 	0 0 0 1 1;
+>>> 	0 0 0 1 0;
+>>> 	0 0 1 1 0;
+>>> 	0 0 1 1 1;
+>>> 	0 0 1 0 1;
+>>> 	0 0 1 0 0;
+>>> 	0 1 1 0 0;
+>>> 	0 1 1 0 1;
+>>> 	0 1 1 1 1;
+>>> 	0 1 1 1 0;
+>>> 	0 1 0 1 0;
+>>> 	0 1 0 1 1;
+>>> 	0 1 0 0 1;
+>>> 	0 1 0 0 0;
+>>> 	1 1 0 0 0;
+>>> 	1 1 0 0 1;
+>>> 	1 1 0 1 1;
+>>> 	1 1 0 1 0;
+>>> 	1 1 1 1 0;
+>>> 	1 1 1 1 1;
+>>> 	1 1 1 0 1;
+>>> 	1 1 1 0 0;
+>>> 	1 0 1 0 0;
+>>> 	1 0 1 0 1;
+>>> 	1 0 1 1 1;
+>>> 	1 0 1 1 0;
+>>> 	1 0 0 1 0;
+>>> 	1 0 0 1 1;
+>>> 	1 0 0 0 1;
+>>> 	1 0 0 0 0
+>>> ].isCyclicGrayCode('Binary')
 true
 ```
 

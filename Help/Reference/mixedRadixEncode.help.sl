@@ -1,8 +1,8 @@
 # mixedRadixEncode
 
-- _mixedRadixEncode(anInteger, bases)_
+- _mixedRadixEncode(n, [b₁ b₂ …])_
 
-Given a list of _bases_ encode _anInteger_.
+Given a list of bases _b_ encode the integer _n_.
 Mixed radix counting systems are common in calendrical calculations.
 
 ```

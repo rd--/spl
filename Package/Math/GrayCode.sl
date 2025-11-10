@@ -105,7 +105,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 	}
 
 	isBeckettGrayCode { :self |
-		self.isCyclicGrayCode & {
+		self.isBinaryCyclicGrayCode & {
 			self.first.allSatisfy(isZero:/1) & {
 				let [m, n] = self.shape;
 				let k = (m - 1) // 2;
@@ -117,19 +117,47 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 		}
 	}
 
-	isCyclicGrayCode { :self |
-		self.isGrayCode & {
-			(self.last - self.first).sum.abs = 1
-		}
-	}
-
-	isGrayCode { :self |
+	isBinaryGrayCode { :self |
 		let [m, n] = self.shape;
 		(m = (2 ^ n)) & {
 			self.allSatisfy(isBitVector:/1) & {
 				2:m.allSatisfy { :i |
 					(self[i] - self[i - 1]).sum.abs = 1
 				}
+			}
+		}
+	}
+
+	isBinaryCyclicGrayCode { :self |
+		self.isBinaryGrayCode & {
+			(self.last - self.first).sum.abs = 1
+		}
+	}
+
+	isCyclicGrayCode { :self :kind |
+		kind.caseOf(
+			[
+				'Binary' -> { self.isBinaryCyclicGrayCode }
+			]
+		)
+	}
+
+	isCyclicGrayCode { :self |
+		(self ++ [self.first]).isGrayCode
+	}
+
+	isGrayCode { :self :kind |
+		kind.caseOf(
+			[
+				'Binary' -> { self.isBinaryGrayCode }
+			]
+		)
+	}
+
+	isGrayCode { :self |
+		self.isMatrix & {
+			self.differences.allSatisfy { :each |
+				each.count(isNonZero:/1) = 1
 			}
 		}
 	}
@@ -209,6 +237,50 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 		0.to((2 ^ n) - 1).collect { :i |
 			i.grayEncode.integerDigits(2, n)
 		}
+	}
+
+}
+
++List{
+
+	mixedRadixGrayCodeDo { :bases :receive:/2 |
+		/* https://www.socs.uoguelph.ca/~sawada/papers/RSG.pdf */
+		let n = bases.size;
+		let word = List(n, 0);
+		let focus = [1 .. n + 1];
+		let start = List(n, 0);
+		receive(word, nil);
+		{ focus[1] <= n }.whileTrue {
+			let index = focus[1];
+			focus[1] := 1;
+			(word[index] = start[index]).if {
+				(bases[index] = 2 & { start[index] = 1 }).if {
+					word[index] := 0
+				} {
+					word[index] := bases[index] - 1
+				}
+			} {
+				(word[index] = 2 & { start[index] = 1}).if {
+					word[index] := word[index] - 2
+				} {
+					word[index] := word[index] - 1
+				}
+			};
+			receive(word, index);
+			(word[index] = (1 - start[index])).ifTrue {
+				start[index] := word[index];
+				focus[index] := focus[index + 1];
+				focus[index + 1] := index + 1
+			}
+		}
+	}
+
+	mixedRadixGrayCode { :bases |
+		let answer = [];
+		bases.mixedRadixGrayCodeDo { :each :unused |
+			answer.add(each.copy)
+		};
+		answer
 	}
 
 }

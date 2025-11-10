@@ -168,8 +168,8 @@
 - `copyReplaceAllWith`
 - `copyWith`
 - `copyWithout`, `copyWithoutAll`, `copyWithoutIdenticalElements`
-- `#`, `replicateEach`, `replicateInteger`
-- `!`, `duplicateInteger`, `duplicateShape`
+- `replicate`, `#`
+- `duplicate`, `!`
 
 ## Date
 
