@@ -92,8 +92,9 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=abs),
 _Mathematica_
 [1](https://mathworld.wolfram.com/AbsoluteValue.html)
-[2](https://reference.wolfram.com/language/ref/Abs.html)
-[3](https://reference.wolfram.com/language/ref/RealAbs.html),
+[2](https://mathworld.wolfram.com/ComplexModulus.html)
+[3](https://reference.wolfram.com/language/ref/Abs.html)
+[4](https://reference.wolfram.com/language/ref/RealAbs.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/abs.html),
 _Smalltalk_

@@ -14,7 +14,8 @@ At `SmallFloat`:
 9
 ```
 
-At `Complex`:
+At `Complex`,
+also known as the squared `norm`:
 
 ```
 >>> 3J4.absSquare
@@ -24,6 +25,9 @@ At `Complex`:
 25
 
 >>> [3 4].square.sum
+25
+
+>>> 3J4 * 3J4.conjugate
 25
 ```
 
@@ -49,10 +53,12 @@ Threads over lists:
 
 * * *
 
-See also: abs, Complex, square
+See also: abs, Complex, conjugate, square
 
 Guides: Complex Number Functions, Quaternion Functions
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/AbsoluteSquare.html),
 _Julia_
 [1](https://docs.julialang.org/en/v1/base/math/#Base.abs2)

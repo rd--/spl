@@ -47,6 +47,7 @@ Guides: Complex Number Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Im.html)
+[1](https://mathworld.wolfram.com/ImaginaryPart.html)
+[2](https://reference.wolfram.com/language/ref/Im.html)
 
 Categories: Accessing, Complex, Math

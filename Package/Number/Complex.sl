@@ -229,6 +229,10 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 		}
 	}
 
+	isGaussianUnit { :self |
+		[1J0 -1J0 0J1 0J-1].includes(self)
+	}
+
 	isInteger { :self |
 		false
 	}
@@ -245,6 +249,10 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 
 	isNegative { :self |
 		false
+	}
+
+	isPurelyImaginary { :self |
+		self.real.isZero
 	}
 
 	isRational { :unused |

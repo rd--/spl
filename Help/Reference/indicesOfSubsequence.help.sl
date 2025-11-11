@@ -30,4 +30,4 @@ Find the positions of a sublist:
 
 See also: indicesOfSubstring
 
-Guides: List Functions
+Guides: List Functions, Sequence Alignment Functions

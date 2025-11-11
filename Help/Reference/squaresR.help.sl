@@ -14,7 +14,8 @@ Number of ways to represent _n_ as a sum of two squares:
 12
 ```
 
-First few terms with _d=2_:
+First few terms with _d=2_,
+OEIS [A004018](https://oeis.org/A004018):
 
 ```
 >>> 0:28.collect { :n |
@@ -27,7 +28,8 @@ First few terms with _d=2_:
 ]
 ```
 
-First few terms with _d=4_:
+First few terms with _d=4_,
+OEIS [A000118](https://oeis.org/A000118):
 
 ```
 >>> 0:28.collect { :n |
@@ -52,6 +54,22 @@ Number of lattice points inside the circle of radius twenty with center at the o
 1257
 ```
 
+Numbers that are the sum of two squares,
+OEIS [A001481](https://oeis.org/A001481):
+
+```
+>>> 0:99.select { :n |
+>>> 	2.squaresR(n) != 0
+>>> }
+[
+	 0  1  2  4  5  8  9 10 13 16
+	17 18 20 25 26 29 32 34 36 37
+	40 41 45 49 50 52 53 58 61 64
+	65 68 72 73 74 80 81 82 85 89
+	90 97 98
+]
+```
+
 Plot first few terms:
 
 ~~~spl svg=A
@@ -74,6 +92,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/SquaresR.html),
 _OEIS_
 [1](https://oeis.org/A000118)
-[2](https://oeis.org/A004018),
+[2](https://oeis.org/A004018)
+[3](https://oeis.org/A001481),
 _W_
 [1](https://en.wikipedia.org/wiki/Sum_of_squares_function)

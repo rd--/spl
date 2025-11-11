@@ -1,14 +1,35 @@
 # Sequence Alignment Functions
 
+Subsequence Functions:
+
 - `longestCommonSubsequence`
-- `longestCommonSubstring`
 - `longestIncreasingSubsequence`
 - `noncontiguousSubsequences`
-- `sequenceCount`
-- `sequencePosition`
 - `subsequences`
+
+Substring Functions:
+
+- `longestCommonPrefix`
+- `longestCommonSubstring`
+- `longestCommonSuffix`
 - `substrings`
+- `substringsInCommon`
+
+Index Functions:
+
+- `indexOfSubstring`
+- `indicesOfSubsequence`
+- `indicesOfSubstring`
+- `sequencePosition`
+
+Counting Functions:
+
+- `sequenceCount`
+
+Warping Functions:
+
 - `warpingCorrespondence`
+- `warpingMatrices`
 
 Similarity and Distance Measures:
 

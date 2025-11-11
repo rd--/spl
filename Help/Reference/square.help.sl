@@ -7,6 +7,15 @@ Answer the number _n_ multiplied by itself.
 ```
 >>> (3 * 3, 3 ^ 2, 3.square)
 (9, 9, 9)
+
+>>> 12.square + 33.square
+1233
+
+>>> 25840.square + 43776.square
+2584043776
+
+>>> 1675455088L.square + 3734621953L.square
+16754550883734621953L
 ```
 
 At `List`:

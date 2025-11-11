@@ -183,6 +183,20 @@ Calculate number of divisors:
 8
 ```
 
+Numbers that are the product of two distinct primes,
+OEIS [A006881](https://oeis.org/A006881):
+
+```
+>>> 1:99.select { :n |
+>>> 	n.factorInteger.values = [1 1]
+>>> }
+[
+	 6 10 14 15 21 22 26 33 34 35
+	38 39 46 51 55 57 58 62 65 69
+	74 77 82 85 86 87 91 93 94 95
+]
+```
+
 Plot the number of distinct prime factors of the first 100 numbers:
 
 ~~~spl svg=A

@@ -65,6 +65,7 @@
 	'Collection-Removable'
 	'Collection-ResidueSet'
 	'Collection-RunArray'
+	'Collection-SequenceAlignment'
 	'Collection-Sequenceable'
 	'Collection-Set'
 	'Collection-Sort'

@@ -15,4 +15,4 @@ Answer the _n_-length substrings of _u_ that are also substrings of _v_.
 
 See also: partition, substrings
 
-Guides: List Functions
+Guides: List Functions, Sequence Alignment Functions

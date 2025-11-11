@@ -19,6 +19,7 @@ In _12345_ both _24_ and _125_ appear as scattered subsequences, _23_ does not:
 See also: includesSubsequence, includesSubstring
 
 Guides: List Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Subsequence)

@@ -42,6 +42,6 @@ With empty substring answers zero:
 
 See also: indexOf, indexOfSubstringStartingAt
 
-Guides: List Functions
+Guides: List Functions, Sequence Alignment Functions
 
 Categories: Accessing

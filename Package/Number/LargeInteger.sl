@@ -319,7 +319,7 @@ LargeInteger! : [Object, Equatable, Comparable, Binary, Magnitude, Number, Integ
 			return _self % BigInt(_anInteger);
 		}
 		>
-		self.error('ramainder: not integer')
+		self.error('remainder: not integer')
 	}
 
 	sqrt { :self |

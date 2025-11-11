@@ -43,6 +43,7 @@ Guides: Complex Number Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Re.html)
+[1](https://mathworld.wolfram.com/RealPart.html)
+[2](https://reference.wolfram.com/language/ref/Re.html)
 
 Categories: Accessing, Complex, Math

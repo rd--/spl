@@ -30,6 +30,7 @@
 	'PriorityQueue'
 	'QuickSort'
 	'RunArray'
+	'SequenceAlignment'
 	'Set'
 	'Sort'
 	'Span'

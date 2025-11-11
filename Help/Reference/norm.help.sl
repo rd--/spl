@@ -118,7 +118,7 @@ Sfc32(567131)
 
 * * *
 
-See also: abs, dot, euclideanDistance, hypotenuse, rootMeanSquare
+See also: abs, absSquare, dot, euclideanDistance, hypotenuse, rootMeanSquare
 
 References:
 _Mathematica_

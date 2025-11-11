@@ -56,9 +56,11 @@ Functions for partitioning:
 
 Longest functions:
 
+- `longestCommonPrefix`
 - `longestCommonSubsequence`
 - `longestCommonSubstringList`
 - `longestCommonSubstring`
+- `longestCommonSuffix`
 - `longestIncreasingSubsequenceList`
 - `longestIncreasingSubsequence`
 

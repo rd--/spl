@@ -782,6 +782,12 @@
 		self.typeResponsibility('@Integer>>isInteger')
 	}
 
+	isIntegerSquare { :self |
+		self.isInteger & {
+			self.sqrt.isInteger
+		}
+	}
+
 	isKaprekarNumber { :self :base :power |
 		let n = self.integerLength(base);
 		let d = (self ^ power).integerDigits(base);

@@ -4,6 +4,9 @@
 
 Answer the first _n_ elements of the Thue-Morse sequence.
 
+First few terms,
+OEIS [A010060](http://oeis.org/A010060):
+
 ```
 >>> (2 ^ 0:5).collect { :k |
 >>> 	k.thueMorseSequence.stringJoin
@@ -27,7 +30,8 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/thueMorseSequence-A.svg)
 
-The first differences of the Thue–Morse sequence form an infinite square-free word over an alphabet of size three:
+The first differences of the Thue–Morse sequence form an infinite square-free word over an alphabet of size three,
+OEIS [A029883](https://oeis.org/A029883):
 
 ```
 >>> 24.thueMorseSequence.differences

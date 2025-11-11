@@ -44,7 +44,7 @@ If no such match is found, answer `zero`:
 
 See also: includesSubstring, indexOf, indexOfSubstring
 
-Guides: List Functions
+Guides: List Functions, Sequence Alignment Functions
 
 References:
 _Smalltalk_

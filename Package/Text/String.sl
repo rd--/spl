@@ -299,12 +299,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		self.contractTo(32)
 	}
 
-	contiguousSubsequences { :self |
-		self.onCharactersList(
-			contiguousSubsequences:/1
-		)
-	}
-
 	contractTo { :self :smallSize |
 		(self.size <= smallSize).if {
 			self
@@ -525,32 +519,12 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	includesSubsequence { :self :aString |
-		self
-		.characters
-		.includesSubsequence(
-			aString.characters
-		)
-	}
-
-	includesSubstring { :self :aString |
-		<primitive: return _self.includes(_aString);>
-	}
-
 	indefiniteArticle { :self |
 		self.first.isVowel.if {
 			'an'
 		} {
 			'a'
 		}
-	}
-
-	indexOfSubstringStartingAt { :self :aString :anInteger |
-		<primitive: return _self.indexOf(_aString, _anInteger - 1) + 1;>
-	}
-
-	indexOfSubstring { :self :aString |
-		<primitive: return _self.indexOf(_aString) + 1;>
 	}
 
 	indices { :self |
@@ -732,41 +706,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		} {
 			self.withoutTrailingLineFeed.splitBy('\n')
 		}
-	}
-
-	longestCommonSubsequence { :self :aString |
-		self.onCharacters { :c |
-			c.longestCommonSubsequence(
-				aString.characters
-			)
-		}
-	}
-
-	longestCommonSubstringList { :self :aString |
-		self
-		.characters
-		.longestCommonSubstringList(aString.characters)
-		.collect(stringCatenate:/1)
-	}
-
-	longestCommonSubstring { :self :aString |
-		self.onCharacters { :c |
-			c.longestCommonSubstring(
-				aString.characters
-			)
-		}
-	}
-
-	longestIncreasingSubsequence { :self |
-		self.onCharacters(
-			longestIncreasingSubsequence:/1
-		)
-	}
-
-	noncontiguousSubsequences { :self |
-		self.onCharactersList(
-			noncontiguousSubsequences:/1
-		)
 	}
 
 	normalizeWhitespace { :self |
@@ -967,18 +906,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 
 	stringReverse { :self |
 		self.reverse
-	}
-
-	subsequences { :self |
-		self.onCharactersList(
-			subsequences:/1
-		)
-	}
-
-	substrings { :self |
-		self.onCharactersList(
-			substrings:/1
-		)
 	}
 
 	take { :self :anInteger |
