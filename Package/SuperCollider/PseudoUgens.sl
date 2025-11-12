@@ -10,8 +10,8 @@
 		{ ClipNoise() } ! mul.shape * mul + add
 	}
 
-	GrayNoise { :mul :add |
-		{ GrayNoise() } ! mul.shape * mul + add
+	GreyNoise { :mul :add |
+		{ GreyNoise() } ! mul.shape * mul + add
 	}
 
 	PinkNoise { :mul :add |

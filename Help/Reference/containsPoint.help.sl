@@ -14,7 +14,7 @@ At `Circle`:
 [true true false true]
 ```
 
-The `zero` radius circle contains the centre:
+The `zero` radius circle contains the center:
 
 ```
 >>> let c = [3 7];

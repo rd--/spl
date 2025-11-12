@@ -3,7 +3,7 @@
 @Indexable {
 
 	@ { :self :index |
-		self[index]
+		self.at(index)
 	}
 
 	@* { :self :indexList |
@@ -15,7 +15,9 @@
 	}
 
 	@/ { :self :pathString |
-		self.atPath(pathString.splitBy('/'))
+		self.atPath(
+			pathString.splitBy('/')
+		)
 	}
 
 	assertIsOfSize { :self :anInteger |

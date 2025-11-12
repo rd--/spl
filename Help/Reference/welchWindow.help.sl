@@ -52,7 +52,7 @@ Frequency response of the Welch window:
 ~~~spl svg=D
 51.windowTable { :x |
 	x.welchWindow
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/welchWindow-D.svg)

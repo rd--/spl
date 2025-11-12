@@ -3,7 +3,7 @@
 - _HsvColour(hsv, alpha)_
 
 Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)_.
-`HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` color model.
+`HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` colour model.
 
 ~~~spl svg=A
 HsvColour([1/3 1/4 1], 1)

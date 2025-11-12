@@ -2,8 +2,8 @@
 
 - _parula(n)_
 
-Answer the _parula_ colormap as a three-column matrix with _n_ rows.
-Each row in the matrix contains the red, green, and blue intensities for a specific color.
+Answer the _parula_ colour map as a three-column matrix with _n_ rows.
+Each row in the matrix contains the red, green, and blue intensities for a specific colour.
 The intensities are in the range _(0,1)_.
 
 Plot the _parula_ colour gradient sampled at sixteen steps:

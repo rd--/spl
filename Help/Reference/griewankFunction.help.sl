@@ -50,7 +50,7 @@ Plot in two dimensions:
 let c = (-100 -- 100).subdivide(100);
 { :i :j |
 	[i j].griewankFunction
-}.table(c, c).rescale.Graymap
+}.table(c, c).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/griewankFunction-D.png)

@@ -2,7 +2,7 @@
 
 - _greyLevel(n, α)_
 
-Answer a color in the grayscale color space with gray level _n_ and alpha transparency _α_.
+Answer a colour in the greyscale color space with grey level _n_ and alpha transparency _α_.
 
 ```
 >>> 0.5.greyLevel(0.75)

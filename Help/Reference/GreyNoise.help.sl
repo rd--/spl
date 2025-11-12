@@ -1,20 +1,20 @@
-# GrayNoise
+# GreyNoise
 
-- _GrayNoise(mul=1, add=0)_
+- _GreyNoise(mul=1, add=0)_
 
 Noise generator.
 Generates noise which results from flipping random bits in a word.
-This type of noise has a high RMS level relative to its peak to peak level.
+This type of noise has a high Rms level relative to its peak to peak level.
 The spectrum is emphasized towards lower frequencies.
 
 ```
-GrayNoise([0.125 0.125], 0)
+GreyNoise([0.125 0.125], 0)
 ```
 
 High pass filtered:
 
 ```
-GrayNoise(2 # [0.125], 0).Hpz1
+GreyNoise(2 # [0.125], 0).Hpz1
 ```
 
 High pass filtered,
@@ -23,7 +23,7 @@ modulating cutoff frequency:
 ```
 {
 	Hpf(
-		GrayNoise() * 0.1,
+		GreyNoise() * 0.1,
 		LfNoise2(3) * 6666 + 9999
 	)
 } ! 2

@@ -1,8 +1,8 @@
-/* GrayNoise */
+/* GreyNoise */
 { :tr |
 	Ringz(
 		Lpz1(
-			GrayNoise(
+			GreyNoise(
 				LfPulse(
 					4,
 					0,

@@ -23,7 +23,7 @@ Equivalent action with a permutation list:
 Exchange the first and last characters of the english alphabet:
 
 ```
->>> let a = 'english'.alphabet;
+>>> let a = 'english'.namedAlphabet;
 >>> let p = [[1 26]].asPermutation;
 >>> a.permute(p).stringJoin
 'zbcdefghijklmnopqrstuvwxya'
@@ -32,7 +32,7 @@ Exchange the first and last characters of the english alphabet:
 Permute several characters:
 
 ```
->>> let a = 'english'.alphabet;
+>>> let a = 'english'.namedAlphabet;
 >>> let c = [1 6 18 2; 3 20 11];
 >>> let p = c.asPermutation;
 >>> a.permute(p).stringJoin

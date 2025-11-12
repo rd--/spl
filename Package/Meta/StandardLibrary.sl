@@ -148,7 +148,7 @@
 	'Colour'
 	'ColourGradient'
 	'ColourPalette'
-	'Graymap'
+	'Greymap'
 	'Image'
 	'PerspectiveDrawing'
 	'Svg'

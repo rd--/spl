@@ -7,7 +7,7 @@
 	ClipNoise { <primitive: return sc.ClipNoise();> }
 	ControlDur { <primitive: return sc.ControlDur();> }
 	ControlRate { <primitive: return sc.ControlRate();> }
-	GrayNoise { <primitive: return sc.GrayNoise();> }
+	GreyNoise { <primitive: return sc.GrayNoise();> }
 	NumOutputBuses { <primitive: return sc.NumOutputBuses();> }
 	PinkNoise { <primitive: return sc.PinkNoise();> }
 	RadiansPerSample { <primitive: return sc.RadiansPerSample();> }

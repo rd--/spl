@@ -37,7 +37,7 @@ himmelblausFunction:/2
 .log
 .rescale
 .round(0.1)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/himmelblausFunction-A.png)

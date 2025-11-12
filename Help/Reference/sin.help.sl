@@ -106,7 +106,7 @@ Draw the `sin` function at integer points:
 ~~~spl png=C
 { :x :y |
 	(x * y).sin
-}.table(-40:40, -40:40).abs.Graymap
+}.table(-40:40, -40:40).abs.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/sin-C.png)

@@ -46,7 +46,7 @@ let i = (0 -- 1).discretize(100);
 let m = { :x :y |
 	f([x y])
 }.table(i, i).rescale;
-(1 - m).Graymap
+(1 - m).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/DirichletDistribution-C.png)

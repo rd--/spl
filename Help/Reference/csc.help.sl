@@ -50,7 +50,7 @@ Draw csc at integer points:
 	{ :x :y |
 		(x * y).csc.abs.arcTan
 	}.table(-50:50, -50:50).abs / 2
-).Graymap
+).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/csc-B.png)

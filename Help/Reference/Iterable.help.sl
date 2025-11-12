@@ -13,7 +13,7 @@ Types implementing `Iterable`:
 
 ```
 >>> system
->>> .traitTypes('Iterable')
+>>> .traitTypes('@Iterable')
 >>> .sort
 [
 	'AsciiString'

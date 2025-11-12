@@ -5,8 +5,14 @@
 Answer the list of the names of the types implementing the trait _t_.
 
 ```
->>> system.traitTypes('@Set')
-['SortedSet' 'UnsortedSet' 'IdentitySet']
+>>> system
+>>> .traitTypes('@Set')
+>>> .sort
+[
+	'IdentitySet'
+	'SortedSet'
+	'UnsortedSet'
+]
 ```
 
 * * *

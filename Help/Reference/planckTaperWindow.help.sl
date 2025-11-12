@@ -49,7 +49,7 @@ Frequency response of the Planck-taper window:
 ~~~spl svg=C
 51.windowTable { :x |
 	x.planckTaperWindow(1 / 10)
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/planckTaperWindow-C.svg)

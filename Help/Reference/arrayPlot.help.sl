@@ -25,7 +25,7 @@ Sfc32(821343)
 
 ![](sw/spl/Help/Image/arrayPlot-B.svg)
 
-Plot a 1×6×3 color map:
+Plot a 1×6×3 colour map:
 
 ~~~spl svg=C
 (0, 0.2 .. 1).collect { :h |
@@ -62,7 +62,7 @@ let g = (1 -- c.size).discretize(36).collect(
 
 * * *
 
-See also: asColourSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: asColourSvg, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Plotting Functions
 

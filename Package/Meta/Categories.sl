@@ -824,7 +824,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'withReplace'
 	],
 	'enumerating-string': [
-		'alphabet'
+		'namedAlphabet'
 		'characterRange'
 		'countCharacters'
 		'countUtf16CodeUnits'
@@ -1611,7 +1611,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'GrainBuf'
 		'GrainFm'
 		'GrainSin'
-		'GrayNoise'
+		'GreyNoise'
 		'GreyholeRaw'
 		'Gt'
 		'GVerb'

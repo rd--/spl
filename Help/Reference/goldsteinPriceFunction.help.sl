@@ -32,7 +32,7 @@ let c = (-2 -- 2).subdivide(100);
 .logScale
 .rescale
 .round(0.1)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/goldsteinPriceFunction-B.png)

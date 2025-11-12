@@ -67,7 +67,7 @@ Two dimensional Gaussian noise:
 let r = Sfc32(180513);
 NormalDistribution(0, 1)
 .randomVariate(r, [100 100])
-.asGraymap
+.asGreymap
 ~~~
 
 ![](sw/spl/Help/Image/NormalDistribution-D.png)

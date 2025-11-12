@@ -205,7 +205,7 @@
 - `Crackle`: chaotic noise function
 - `Dust`: random impulses
 - `Dust2`: bipolar random impulses
-- `GrayNoise`: noise generator
+- `GreyNoise`: noise generator
 - `LfClipNoise`: clipped noise
 - `LfNoise0`: step noise
 - `LfNoise1`: ramp noise

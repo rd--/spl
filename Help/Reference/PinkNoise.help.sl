@@ -48,7 +48,7 @@ PinkNoise(2 # [0.2], 0).Bpf(
 
 * * *
 
-See also: BrownNoise, ClipNoise, GrayNoise, WhiteNoise
+See also: BrownNoise, ClipNoise, GreyNoise, WhiteNoise
 
 Guides: Unit Generators
 

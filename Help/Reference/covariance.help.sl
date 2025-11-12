@@ -88,7 +88,7 @@ Compute the covariance for a `gcd` array:
 
 ~~~spl png=A
 let m = gcd:/2.table(1:100, 1:100);
-(1 - m.covariance(m).rescale).Graymap
+(1 - m.covariance(m).rescale).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/covariance-A.png)
@@ -98,7 +98,7 @@ The covariance tends to be large only on the diagonal of a random matrix:
 ~~~spl png=B
 let r = Sfc32(278914);
 let m = r.randomReal([-1 1], [100 100]);
-(1 - m.covariance(m).rescale).Graymap
+(1 - m.covariance(m).rescale).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/covariance-B.png)

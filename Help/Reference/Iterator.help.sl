@@ -13,7 +13,7 @@ List of types implementing `Iterator`:
 
 ```
 >>> system
->>> .traitTypes('Iterator')
+>>> .traitTypes('@Iterator')
 >>> .sort
 [
 	'AliasMethod'

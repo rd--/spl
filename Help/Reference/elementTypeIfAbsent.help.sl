@@ -29,7 +29,7 @@ At `List` of `String`:
 
 ```
 >>> 'english'
->>> .alphabet
+>>> .namedAlphabet
 >>> .elementTypeIfAbsent { 'Any' }
 'String'
 ```

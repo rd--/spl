@@ -2,7 +2,7 @@
 
 - _turboGradient(aNumber)_
 
-A polynomial approximation for the _Turbo_ color gradient.
+A polynomial approximation for the _Turbo_ colour gradient.
 
 Calculate and plot a thirty-two place approximation of the _Turbo_ colour gradient:
 

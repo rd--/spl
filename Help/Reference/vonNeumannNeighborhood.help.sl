@@ -9,7 +9,7 @@ or extent,
 _r_.
 
 The number of cells in a von Neumann neighborhood,
-including the centre cell,
+including the center cell,
 is given by `delannoyNumber`.
 
 In one dimension:

@@ -112,7 +112,7 @@ let i = 1:2:18;
 
 * * *
 
-See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Graymap, linePlot, parametricPlot, scatterPlot, surfacePlot
+See also: arrayPlot, asGreyscaleSvg, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, linePlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Matrix Functions, Plotting Functions
 

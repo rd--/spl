@@ -11,7 +11,7 @@ let clock = Impulse(8, 0);
 let trig1 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 let root = Sequencer([24 26 24 22], PulseDivider(clock, 64, 0));
 let x = Rlpf(
-	GrayNoise(2 # [0.4], 0) * Decay2(trig1, 0.005, 0.7),
+	GreyNoise(2 # [0.4], 0) * Decay2(trig1, 0.005, 0.7),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -41,7 +41,7 @@ let r = Lpf(
 );
 let trig2 = ImpulseSequencer([0.4 0.1 0.2 0.1], clock);
 let x = Rlpf(
-	GrayNoise(2 # [0.4], 0) * Decay2(trig2, 0.005, 0.3),
+	GreyNoise(2 # [0.4], 0) * Decay2(trig2, 0.005, 0.3),
 	MouseX(200, 8000, 1, 0.2),
 	0.2
 ).Distort;
@@ -95,7 +95,7 @@ let trig3 = DemandImpulseSequencer([q], clock);
 let exc3 = WhiteNoise() * Decay2(trig3, 0.005, 0.05);
 let s = RingzBank(exc3, { Rand(3500, 4000) } ! 4, nil, { Rand(0.05, 0.2) } ! 4).Distort * 0.1;
 /* whine */
-let exc4 = GrayNoise(2 # [0.0007], 0);
+let exc4 = GreyNoise(2 # [0.0007], 0);
 let y = { :tr |
 	let env = SinOsc(TRand(1, 6, tr), { TRand(0, 2.pi, tr) } ! 2) * 0.5 + 0.5;
 	DynRingzBank(

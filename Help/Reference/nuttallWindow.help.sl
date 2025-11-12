@@ -49,7 +49,7 @@ Frequency response of the Nuttall window:
 ~~~spl svg=C
 51.windowTable(
 	nuttallWindow:/1
-).fftPlot(512, 'Centred', 'Logarithmic')
+).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/nuttallWindow-C.svg)

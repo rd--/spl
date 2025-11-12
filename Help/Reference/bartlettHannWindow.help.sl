@@ -41,7 +41,7 @@ Frequency response of the Bartlett-Hann window:
 ~~~spl svg=C
 51.windowTable(
 	bartlettHannWindow:/1
-).fftPlot(512, 'Centred', 'Logarithmic')
+).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/bartlettHannWindow-C.svg)

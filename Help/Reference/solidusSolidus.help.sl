@@ -44,7 +44,7 @@ At `Symbol`:
 Plot the spiral matrix of the quotient:
 
 ~~~spl png=A
-(99.spiralMatrix // 654).rescale.Graymap
+(99.spiralMatrix // 654).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/solidusSolidus-A.png)

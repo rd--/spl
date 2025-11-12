@@ -2,12 +2,12 @@
 
 - _braceletCount(n, k)_
 
-Answers the number of _n_-bead bracelets with up to _k_ different colored beads.
+Answers the number of _n_-bead bracelets with up to _k_ different coloured beads.
 A bracelet,
 also called a turnover or free necklace,
 is a necklace that is considered equivalent under reflection.
 
-Table giving number of bracelets with _n_ beads of _k_ colors,
+Table giving number of bracelets with _n_ beads of _k_ colours,
 OEIS [A081720](http://oeis.org/A081720):
 
 ```

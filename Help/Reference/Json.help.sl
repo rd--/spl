@@ -13,7 +13,7 @@ Types implementing `Json`:
 
 ```
 >>> system
->>> .traitTypes('Json')
+>>> .traitTypes('@Json')
 >>> .sort
 [
 	'Boolean'

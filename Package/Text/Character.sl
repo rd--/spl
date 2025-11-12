@@ -1,10 +1,11 @@
 @Character {
 
 	asciiValue { :self |
-		(self.codePoint > 127).if {
+		let c = self.codePoint;
+		(c > 127).if {
 			self.error('asciiValue: not ascii')
 		} {
-			self.codePoint
+			c
 		}
 	}
 
@@ -18,18 +19,7 @@
 
 	digitValue { :self |
 		let integerValue = self.asCodePoint;
-		let digitValues = system.cache.atIfAbsentPut('digitValues') {
-			let answer = List(256, -1);
-			0.toDo(9) { :i |
-				answer[48 + i + 1] := i
-			};
-			10.toDo(35) { :i |
-				answer[55 + i + 1] := i;
-				answer[87 + i + 1] := i
-			};
-			answer
-		};
-		digitValues[integerValue + 1]
+		system.digitValueTable[integerValue + 1]
 	}
 
 	isAlphaNumeric { :self |
@@ -140,10 +130,6 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 		}
 	}
 
-	< { :self :operand |
-		self.codePoint < operand.codePoint
-	}
-
 	asCharacter { :self |
 		self
 	}
@@ -204,17 +190,17 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 		Character(self.fromCodePoint, self)
 	}
 
-	digitValue { :self |
+	digitCharacter { :self |
 		self.betweenAnd(0, 35).if {
-			(
+			Character(
 				self + (self < 10).if {
 					48
 				} {
 					55
 				}
-			).asCharacter
+			)
 		} {
-			self.error('digitValue')
+			self.error('digitCharacter')
 		}
 	}
 
@@ -245,6 +231,20 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 }
 
 +@Cache {
+
+	digitValueTable { :self |
+		self.cache.atIfAbsentPut('digitValueTable') {
+			let answer = List(256, -1);
+			0.toDo(9) { :i |
+				answer[48 + i + 1] := i
+			};
+			10.toDo(35) { :i |
+				answer[55 + i + 1] := i;
+				answer[87 + i + 1] := i
+			};
+			answer
+		}
+	}
 
 	morseCodeTable { :self |
 		self.cached('morseCodeTable') {

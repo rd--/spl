@@ -129,7 +129,7 @@ Create a 2×3 matrix from the `characters` of a `String` value:
 	'd' 'e' 'f'
 ]
 
->>> 'greek'.alphabet.reshape([2 7])
+>>> 'greek'.namedAlphabet.reshape([2 7])
 [
 	'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η';
 	'θ' 'ι' 'κ' 'λ' 'μ' 'ν' 'ξ'

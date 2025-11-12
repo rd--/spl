@@ -28,7 +28,7 @@ Replace the first column at all rows with the specified column vector:
 ]
 ```
 
-Replace the centre of a 5×5 matrix with the specified 3×3 matrix:
+Replace the center of a 5×5 matrix with the specified 3×3 matrix:
 
 ```
 >>> let m = [5 5].iota;

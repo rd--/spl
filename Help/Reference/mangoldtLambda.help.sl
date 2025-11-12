@@ -58,7 +58,7 @@ Plot Mangoldt lambda for the sum of two squares:
 let m = { :a :b |
 	((a ^ 2) + (b ^ 2)).mangoldtLambda
 }.table(1:50, 1:50);
-(1 - m.rescale).Graymap
+(1 - m.rescale).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/mangoldtLambda-C.png)

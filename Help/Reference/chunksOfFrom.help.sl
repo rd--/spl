@@ -30,7 +30,7 @@ At the `alphabet`:
 
 ```
 >>> 'english'
->>> .alphabet
+>>> .namedAlphabet
 >>> .stringCatenate
 >>> .chunksOfFrom(3, 10)
 [

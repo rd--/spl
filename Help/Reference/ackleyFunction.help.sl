@@ -15,7 +15,7 @@ let f:/1 = ackleyFunction(20, 0.2, 2.pi);
 }.table(i, i)
 .rescale
 .round(0.1)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/ackleyFunction-A.png)

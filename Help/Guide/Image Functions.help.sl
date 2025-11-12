@@ -3,7 +3,7 @@
 Image Types:
 
 - `Bitmap`
-- `Graymap`
+- `Greymap`
 - `Image`
 - `LineDrawing`
 - `Svg`
@@ -11,7 +11,7 @@ Image Types:
 Converting:
 
 - `asColourSvg`
-- `asGraymap`
+- `asGreymap`
 - `asGreyscaleSvg`
 - `asLineDrawing`
 - `asPerspectiveDrawing`

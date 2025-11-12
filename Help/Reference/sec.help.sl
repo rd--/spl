@@ -49,7 +49,7 @@ Plot over a subset of the complex numbers:
 let i = (-1.pi -- 1.pi).subdivide(100);
 { :y :x |
 	Complex(x, y).sec.abs.clip([0 1])
-}.table(i, i).Graymap
+}.table(i, i).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/sec-B.png)

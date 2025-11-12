@@ -6,12 +6,24 @@
 holding behaviours for collection types that do not contain duplicate items,
 and an alias for the `SortedSet` type.
 
+```
+>>> system
+>>> .traitDictionary['Set']
+>>> .isTrait
+true
+```
+
 Types implementing the `Set` trait:
 
 ```
 >>> system
 >>> .traitTypes('@Set')
-['SortedSet' 'UnsortedSet' 'IdentitySet']
+>>> .sort
+[
+	'IdentitySet'
+	'SortedSet'
+	'UnsortedSet'
+]
 ```
 
 The empty set constructor,

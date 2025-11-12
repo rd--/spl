@@ -104,7 +104,7 @@ Visualize the least common multiples of two integers:
 ~~~spl png=B
 { :m :n |
 	lcm(m, n)
-}.table(1:50, 1:50).rescale.Graymap
+}.table(1:50, 1:50).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/lcm-B.png)
@@ -118,7 +118,7 @@ let m = f[30];
 	let a = f[i];
 	let b = f[j];
 	lcm(a, b) % m
-}.table(1:75, 1:75).rescale.Graymap
+}.table(1:75, 1:75).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/lcm-C.png)

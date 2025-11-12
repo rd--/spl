@@ -13,7 +13,7 @@ Types implementing `Binary`:
 
 ```
 >>> system
->>> .traitTypes('Binary')
+>>> .traitTypes('@Binary')
 >>> .sort
 [
 	'LargeInteger'

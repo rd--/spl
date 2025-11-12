@@ -3811,11 +3811,11 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 ```
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
-system.traitTypes('Collection').includes('List') = true
+system.traitTypes('@Collection').includes('List') = true
 system.typeTraits('List').includes('PrimitiveArray') = true
 system.methodTraits('atRandom:/1').includesAll(['Collection', 'Sequenceable']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Multiset']
-system.traitTypes('Object').includes('SmallFloat') = true
+system.traitTypes('@Object').includes('SmallFloat') = true
 system.traitLookup('Object').methodDictionary.includesIndex('respondsTo:/2') = true
 system.traitLookup('Collection').isTrait = true
 system.traitLookup('Collection').name = 'Collection'

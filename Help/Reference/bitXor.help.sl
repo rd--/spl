@@ -129,7 +129,7 @@ Matrix plot of `bitXor`:
 
 ~~~spl png=B
 let n = 127;
-(bitXor:/2.array([n n]) / n).Graymap
+(bitXor:/2.array([n n]) / n).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-B.png)

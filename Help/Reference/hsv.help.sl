@@ -3,7 +3,7 @@
 - _hsv(aColour)_
 
 Answer a triple of _hue_, _saturation_ and _value_.
-_Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ color model.
+_Hsv_ is a cylindrical-coordinate representation of points in an _Rgb_ colour model.
 
 ```
 >>> RgbColour([0.75, 1, 0.75], 1).hsv

@@ -13,7 +13,7 @@ List of types implementing `Stream`:
 
 ```
 >>> system
->>> .traitTypes('Stream')
+>>> .traitTypes('@Stream')
 >>> .sort
 [
 	'BlockStream'

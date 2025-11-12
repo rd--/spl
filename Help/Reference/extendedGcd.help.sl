@@ -63,7 +63,7 @@ Plot matrix:
 	c[1].abs
 }.table(1:100, 1:100)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/extendedGcd-A.png)

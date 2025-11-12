@@ -67,12 +67,12 @@ Sfc32(329149)
 
 ![](sw/spl/Help/Image/randomReal-C.svg)
 
-A `Graymap` of a random 50×90 _(0, 1)_ matrix:
+A `Greymap` of a random 50×90 _(0, 1)_ matrix:
 
 ~~~spl png=D
 Sfc32(814789)
 .randomReal([0 1], [50 90])
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/randomReal-D.png)

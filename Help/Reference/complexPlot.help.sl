@@ -8,7 +8,7 @@ A cyclic colour function,
 from _-π_ to _π_,
 identifies features such as zeros, poles and essential singularities.
 
-The color function proceeds counterclockwise around zeros of a function:
+The colour function proceeds counterclockwise around zeros of a function:
 
 ~~~spl png=A
 [-2J-2 2J2].complexPlot { :z |
@@ -18,7 +18,7 @@ The color function proceeds counterclockwise around zeros of a function:
 
 ![](sw/spl/Help/Image/complexPlot-A.png)
 
-At a multiple zero, the colors cycle around the zero multiple times:
+At a multiple zero, the colours cycle around the zero multiple times:
 
 ~~~spl png=B
 [-2J-2 2J2].complexPlot { :z |
@@ -28,7 +28,7 @@ At a multiple zero, the colors cycle around the zero multiple times:
 
 ![](sw/spl/Help/Image/complexPlot-B.png)
 
-At a pole, the colors cycle around the point in the reverse direction:
+At a pole, the colours cycle around the point in the reverse direction:
 
 ~~~spl png=C
 [-2J-2 2J2].complexPlot { :z |
@@ -38,7 +38,7 @@ At a pole, the colors cycle around the point in the reverse direction:
 
 ![](sw/spl/Help/Image/complexPlot-C.png)
 
-At an essential singularity, the colors cycle infinitely often:
+At an essential singularity, the colours cycle infinitely often:
 
 ~~~spl png=D
 [-0.5J-0.5 0.5J0.5].complexPlot { :z |

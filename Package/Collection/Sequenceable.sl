@@ -1461,6 +1461,13 @@
 		}
 	}
 
+	isLexicographicallyLeastRotation { :self |
+		let i = self.lexicographicallyLeastRotationStartIndex;
+		i = 1 | {
+			self = self.rotateLeft(i - 1)
+		}
+	}
+
 	isLogarithmicallyConcave { :a |
 		let n = a.size;
 		(n < 3) | {
@@ -1471,7 +1478,7 @@
 	}
 
 	isNecklace { :self |
-		self = self.lexicographicallyLeastRotation
+		self.isLexicographicallyLeastRotation
 	}
 
 	isOctetSequence { :self |
@@ -1675,9 +1682,8 @@
 	}
 
 	lexicographicallyLeastRotation { :self |
-		self.rotateLeft(
-			self.lexicographicallyLeastRotationStartIndex - 1
-		)
+		let i = self.lexicographicallyLeastRotationStartIndex;
+		self.rotateLeft(i - 1)
 	}
 
 	lexicographicallyLeastSquareFreeWord { :word :n |

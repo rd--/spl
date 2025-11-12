@@ -47,7 +47,7 @@ Matrix plot indicating the occurrences of _3_ where _n=37_:
 Matrix plot of _n=100_:
 
 ~~~spl png=C
-100.vedicSquare.rescale.Graymap
+100.vedicSquare.rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/vedicSquare-C.png)

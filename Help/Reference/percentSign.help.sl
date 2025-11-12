@@ -278,7 +278,7 @@ Plot of a spiral matrix where numbers are colored based on their congruence:
 
 ~~~spl png=D
 (109.spiralMatrix % 109 / 109)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/percentSign-D.png)

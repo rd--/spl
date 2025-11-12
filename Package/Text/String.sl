@@ -49,29 +49,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	alphabet { :self |
-		self.caseOf(
-			[
-				'english' -> {
-					[
-						'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
-						'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
-						'u' 'v' 'w' 'x' 'y' 'z'
-					]
-				},
-				'greek' -> {
-					[
-						'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
-						'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
-						'φ' 'χ' 'ψ' 'ω'
-					]
-				}
-			]
-		) {
-			self.error('String>>alphabet: unknown alphabet')
-		}
-	}
-
 	asBracketedComment { :self :open :close |
 		(self.includesSubstring(open) | {
 			self.includesSubstring(close)
@@ -661,7 +638,7 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 	}
 
 	letterNumber { :self :aString |
-		aString.alphabet.indexOf(
+		aString.namedAlphabet.indexOf(
 			self.asLowerCase
 		)
 	}
@@ -691,6 +668,29 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 			[]
 		} {
 			self.withoutTrailingLineFeed.splitBy('\n')
+		}
+	}
+
+	namedAlphabet { :self |
+		self.caseOf(
+			[
+				'english' -> {
+					[
+						'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j'
+						'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't'
+						'u' 'v' 'w' 'x' 'y' 'z'
+					]
+				},
+				'greek' -> {
+					[
+						'α' 'β' 'γ' 'δ' 'ε' 'ζ' 'η' 'θ' 'ι' 'κ'
+						'λ' 'μ' 'ν' 'ξ' 'ο' 'π' 'ρ' 'σ' 'τ' 'υ'
+						'φ' 'χ' 'ψ' 'ω'
+					]
+				}
+			]
+		) {
+			self.error('String>>namedAlphabet: unknown alphabet')
 		}
 	}
 

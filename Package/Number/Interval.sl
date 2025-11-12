@@ -77,7 +77,7 @@ Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 		}
 	}
 
-	centre { :self |
+	center { :self |
 		(self.min + self.max) / 2
 	}
 

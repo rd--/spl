@@ -9,11 +9,11 @@
 true
 ```
 
-Types implementing `Numbers`:
+Types implementing `Number`:
 
 ```
 >>> system
->>> .traitTypes('Number')
+>>> .traitTypes('@Number')
 >>> .sort
 [
 	'Complex'

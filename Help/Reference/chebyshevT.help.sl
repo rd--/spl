@@ -107,7 +107,7 @@ let f:/1 = 4.chebyshevT.asBlock;
 let i = (-1.15 -- 1.15).subdivide(100);
 { :x :y |
 	f(x) + f(y)
-}.table(i, i).rescale.Graymap
+}.table(i, i).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/chebyshevT-D.png)

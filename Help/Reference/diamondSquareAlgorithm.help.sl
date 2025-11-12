@@ -28,7 +28,7 @@ _c_ is elided and the corners are initialized to `zero`:
 let r = Sfc32(797142);
 diamondSquareAlgorithm(r, 6, 0.85)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/diamondSquareAlgorithm-B.png)

@@ -50,7 +50,7 @@ Frequency response of the Blackman-Nuttall window:
 ~~~spl svg=C
 51.windowTable(
 	blackmanNuttallWindow:/1
-).fftPlot(512, 'Centred', 'Logarithmic')
+).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/blackmanNuttallWindow-C.svg)

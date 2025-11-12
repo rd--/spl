@@ -51,14 +51,14 @@ without thesholding:
 (0 -- 4.pi).subdivide(200).collect { :x |
 	(x * 0.7).sin + (x * 1.3).sin
 }.recurrenceMatrix(1, 1, 'Manhattan')
-.rescale.Graymap
+.rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/recurrenceMatrix-D.png)
 
 * * *
 
-See also: Bitmap, distanceMatrix, Graymap, matrixPlot, recurrenceTable
+See also: Bitmap, distanceMatrix, Greymap, matrixPlot, recurrenceTable
 
 Guides: Matrix Functions, Plotting Functions
 

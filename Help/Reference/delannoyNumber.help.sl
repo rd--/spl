@@ -27,7 +27,7 @@ Plot modulo three:
 ~~~spl png=A
 { :m :n |
 	(m.delannoyNumber(n) % 3) / 2
-}.table(0:80, 0:80).Graymap
+}.table(0:80, 0:80).Greymap
 ~~~
 
 ![](sw/spl/Help/Image/delannoyNumber-A.png)

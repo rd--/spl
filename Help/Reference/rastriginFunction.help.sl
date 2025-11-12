@@ -43,7 +43,7 @@ let i = (-2 -- 2).subdivide(k);
 	rastriginFunction([x, y])
 }.table(i, i)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/rastriginFunction-A.png)

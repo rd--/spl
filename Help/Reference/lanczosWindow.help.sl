@@ -41,7 +41,7 @@ Frequency response of the Lanczos window:
 ~~~spl svg=C
 51.windowTable { :x |
 	x.lanczosWindow
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/lanczosWindow-C.svg)

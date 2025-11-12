@@ -51,7 +51,7 @@ Frequency response of the Bohman window:
 ~~~spl svg=C
 51.windowTable { :x |
 	x.bohmanWindow
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/bohmanWindow-C.svg)

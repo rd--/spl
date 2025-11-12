@@ -138,7 +138,7 @@ Plot the bitwise and of the first few integers:
 bitAnd:/2
 .table(-31:31, -31:31)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/bitAnd-E.png)

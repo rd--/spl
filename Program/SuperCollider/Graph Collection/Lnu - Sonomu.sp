@@ -74,7 +74,7 @@ Splay((v + l).SoftClip * -6.DbAmp)
 /* https://sonomu.club/@lukiss/112015967098344604 ; Mar 01, 2024 */
 let f = 111 * [0 1.04955 2.97513 4.70781 7.01955 8.40528 9.68826 0].MidiRatio;
 let e = {
-	LfSaw(GrayNoise() * (8 # [1 / 7]) - 7, 0).Lag3(0.001).Max(0)
+	LfSaw(GreyNoise() * (8 # [1 / 7]) - 7, 0).Lag3(0.001).Max(0)
 };
 let v = SinOsc(1 - e() / f, 4) + 1 / 2 ^ 2;
 let p = LfPulse(

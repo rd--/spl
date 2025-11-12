@@ -49,7 +49,7 @@ let i = (-1 -- 1).subdivide(99);
 
 * * *
 
-See also: asPbm, Graymap, matrixPlot, Svg
+See also: asPbm, Greymap, matrixPlot, Svg
 
 Guides: Image Functions
 

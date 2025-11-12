@@ -8,7 +8,7 @@ c + SinOsc(
 	b * 99 * Amplitude(c, 0, 1 / 7),
 	0
 ) + (
-	GrayNoise()
+	GreyNoise()
 	*
 	CombN(c, 1, b / 3, 1)
 ) / 2

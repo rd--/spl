@@ -12,7 +12,7 @@ ClipNoise([0.05 0.05], 0)
 
 * * *
 
-See also: BrownNoise, GrayNoise, PinkNoise, WhiteNoise
+See also: BrownNoise, GreyNoise, PinkNoise, WhiteNoise
 
 Guides: Unit Generators
 

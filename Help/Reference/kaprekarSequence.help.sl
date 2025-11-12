@@ -68,7 +68,7 @@ partitioned into a 100×100 matrix:
 ~~~spl png=A
 0:9999.collect { :x |
 	x.kaprekarSequence(10, 4).size
-}.reshape([100 100]).rescale.Graymap
+}.reshape([100 100]).rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/kaprekarSequence-A.png)

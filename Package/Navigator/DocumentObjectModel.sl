@@ -927,7 +927,7 @@ ImageBitmap! : [Object] {
 
 ImageData! : [Object] {
 
-	colorSpace { :self | <primitive: return _self.colorSpace;> }
+	colourSpace { :self | <primitive: return _self.colorSpace;> }
 	data { :self | <primitive: return _self.data;> }
 	height { :self | <primitive: return _self.height;> }
 	width { :self | <primitive: return _self.width;> }

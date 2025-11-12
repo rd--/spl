@@ -47,7 +47,7 @@ let f:/1 = rosenbrockFunction(1, 100);
 .log
 .rescale
 .round(0.1)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/rosenbrockFunction-C.png)

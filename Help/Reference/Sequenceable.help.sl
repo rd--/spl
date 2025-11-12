@@ -12,7 +12,7 @@ true
 Types implementing `Sequenceable`:
 
 >>> system
->>> .traitTypes('Sequenceable')
+>>> .traitTypes('@Sequenceable')
 >>> .sort
 [
 	'AsciiString'

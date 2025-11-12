@@ -14,7 +14,7 @@ Random signal generators:
 - `Crackle`
 - `Dust2`
 - `Dust`
-- `GrayNoise`
+- `GreyNoise`
 - `LfClipNoise`
 - `LfNoise0`
 - `LfNoise1`

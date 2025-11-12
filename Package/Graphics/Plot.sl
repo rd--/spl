@@ -222,7 +222,7 @@ Plot : [Object] { | pages format options |
 		let b = (a / a.abs.max).abs;
 		let c = m.caseOf([
 			'Half' -> { b.first(n // 2) },
-			'Centred' -> { b.fftShift }
+			'Centered' -> { b.fftShift }
 		]);
 		let d = c.max(1E-6).abs;
 		let e = s.caseOf([

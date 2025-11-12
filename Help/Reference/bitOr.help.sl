@@ -76,7 +76,7 @@ Plot the bitwise and of the first few integers:
 bitOr:/2
 .table(-31:31, -31:31)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/bitOr-D.png)

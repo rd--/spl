@@ -2,7 +2,7 @@
 
 - _RgbColour([r g b], alpha)_
 
-A `Type` representing a color in the _Rgb_ color space,
+A `Type` representing a colour in the _Rgb_ colour space,
 using red, blue and green components,
 with an `alpha` channel.
 

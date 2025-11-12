@@ -23,7 +23,8 @@ There are aliases `lowerBound`, `upperBound` and `endPoints`:
 ```
 >>> let i = Interval(0, 1);
 >>> (
->>> 	i.lowerBound, i.upperBound,
+>>> 	i.lowerBound,
+>>> 	i.upperBound,
 >>> 	i.endPoints
 >>> )
 (0, 1, [0 1])
@@ -140,12 +141,12 @@ or `subdivide`:
 1:10
 ```
 
-The `centre` and `radius` of an interval:
+The `center` and `radius` of an interval:
 
 ```
 >>> let x = 3 -- 7;
 >>> (
->>> 	x.centre,
+>>> 	x.center,
 >>> 	(3 + 7) / 2,
 >>> 	x.radius,
 >>> 	(7 - 3) / 2

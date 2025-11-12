@@ -1,24 +1,38 @@
 # Magnitude
 
 `Magnitude` is a `Trait` defining comparison operators between numeric values.
-Types that implement magnitude should also implement `Equatable`,
-and should declare themselves `Comparable`.
 
 ```
 >>> system
->>> .traitTypes('Magnitude')
->>> .includesAll(
->>> 	[
->>> 		'SmallFloat'
->>> 		'LargeInteger'
->>> 		'Residue'
->>> 		'Fraction'
->>> 		'Decimal'
->>> 		'Quantity'
->>> 	]
->>> )
+>>> .traitDictionary['Number']
+>>> .isTrait
 true
 ```
+
+Types implementing `Magnitude`:
+
+```
+>>> system
+>>> .traitTypes('@Magnitude')
+>>> .sort
+[
+	'Character'
+	'Date'
+	'DateAndTime'
+	'Decimal'
+	'Duration'
+	'Fraction'
+	'Interval'
+	'LargeInteger'
+	'Quantity'
+	'Residue'
+	'SmallFloat'
+	'TimeStamp'
+]
+```
+
+Types that implement magnitude should also implement `Equatable`,
+and should declare themselves `Comparable`.
 
 The required methods are:
 

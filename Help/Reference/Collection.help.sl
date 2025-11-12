@@ -13,7 +13,7 @@ Types implementing `Collection`:
 
 ```
 >>> system
->>> .traitTypes('Collection')
+>>> .traitTypes('@Collection')
 >>> .sort
 [
 	'AsciiString'

@@ -6,4 +6,4 @@ Show the showable object _x_.
 
 * * *
 
-See also: Bitmap, Graymap, Image, Promise, Svg
+See also: Bitmap, Greymap, Image, Promise, Svg

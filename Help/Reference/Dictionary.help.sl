@@ -22,7 +22,7 @@ Types implementing `Dictionary`:
 
 ```
 >>> system
->>> .traitTypes('Dictionary')
+>>> .traitTypes('@Dictionary')
 >>> .sort
 [
 	'Dictionary'

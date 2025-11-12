@@ -93,7 +93,7 @@
 ## Noise Generators
 
 - `Dust`, `Dust2`
-- `BrownNoise`, `ClipNoise`, `GrayNoise`, `PinkNoise`, `WhiteNoise`
+- `BrownNoise`, `ClipNoise`, `GreyNoise`, `PinkNoise`, `WhiteNoise`
 
 ## Panning
 

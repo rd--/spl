@@ -22,7 +22,7 @@
 	},
 	{
 		let amp = LfNoise2(0.6).LagUd(0, 15);
-		let src = GrayNoise() * amp;
+		let src = GreyNoise() * amp;
 		let pan = LfNoise2(0.1);
 		let flt = Bpf(src, LfNoise2(0.2).ExpRange(500, 5000), 1);
 		EqPan2(flt, pan)

@@ -145,7 +145,7 @@
 	'Graphics-Colour'
 	'Graphics-ColourGradient'
 	'Graphics-ColourPalette'
-	'Graphics-Graymap'
+	'Graphics-Greymap'
 	'Graphics-Image'
 	'Graphics-LineDrawing'
 	'Graphics-PerspectiveDrawing'

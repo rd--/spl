@@ -12,7 +12,7 @@ true
 Ordinarily all `Type` definitions should implement `Object`:
 
 ```
->>> system.traitTypes('Object').size
+>>> system.traitTypes('@Object').size
 system.typeDictionary.size - 1
 ```
 

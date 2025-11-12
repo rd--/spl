@@ -13,7 +13,7 @@ Types implementing `Indexable`:
 
 ```
 >>> system
->>> .traitTypes('Indexable')
+>>> .traitTypes('@Indexable')
 >>> .sort
 [
 	'AsciiString'

@@ -22,10 +22,10 @@ Convert _Rgb_ colourspace array to Cie _Xyz_ tristimulus values.
 ```
 
 _Note_:
-The _Srgb_ standard specifies the colors and relative intensities of the three primaries by defining the mapping between these values,
+The _Srgb_ standard specifies the colours and relative intensities of the three primaries by defining the mapping between these values,
 in linear brightness scale,
 before the gamma encoding,
-and the Cie _Xyz_ perceptual color coordinates.
+and the Cie _Xyz_ perceptual colour coordinates.
 
 * * *
 

@@ -202,6 +202,7 @@ Guide/Sort Functions.help.sl
 Guide/Span Syntax.help.sl
 Guide/Special Functions.help.sl
 Guide/Specialised Constructors.help.sl
+Guide/Spelling Rules.help.sl
 Guide/Statistics Functions.help.sl
 Guide/Stream Functions.help.sl
 Guide/String Functions.help.sl
@@ -440,7 +441,7 @@ Reference/asFrequency.help.sl
 Reference/asGaussianInteger.help.sl
 Reference/asGeometryCollection.help.sl
 Reference/asGraph.help.sl
-Reference/asGraymap.help.sl
+Reference/asGreymap.help.sl
 Reference/asGreyscaleSvg.help.sl
 Reference/asHeaders.help.sl
 Reference/asHertz.help.sl
@@ -1542,8 +1543,6 @@ Reference/grayCodeFromTransitionSequence.help.sl
 Reference/GrayCode.help.sl
 Reference/grayDecode.help.sl
 Reference/grayEncode.help.sl
-Reference/Graymap.help.sl
-Reference/GrayNoise.help.sl
 Reference/greaterThanSignEqualsSign.help.sl
 Reference/greaterThanSignGreaterThanSignGreaterThanSign.help.sl
 Reference/greaterThanSignGreaterThanSign.help.sl
@@ -1551,6 +1550,8 @@ Reference/greaterThanSign.help.sl
 Reference/greaterThanSignTilde.help.sl
 Reference/green.help.sl
 Reference/greyLevel.help.sl
+Reference/Greymap.help.sl
+Reference/GreyNoise.help.sl
 Reference/gridGraph.help.sl
 Reference/griewankFunction.help.sl
 Reference/groupBy.help.sl
@@ -1915,6 +1916,7 @@ Reference/isInteger.help.sl
 Reference/isIntegerMatrix.help.sl
 Reference/isIntegerPartition.help.sl
 Reference/isIntegerRange.help.sl
+Reference/isIntegerSquare.help.sl
 Reference/isIntersecting.help.sl
 Reference/isInvolution.help.sl
 Reference/isIso8601DurationString.help.sl
@@ -2037,8 +2039,10 @@ Reference/isSplPunctuationToken.help.sl
 Reference/isSplSyntaxCharacter.help.sl
 Reference/isSplSyntaxToken.help.sl
 Reference/isSquareFree.help.sl
+Reference/isSquareFreeWord.help.sl
 Reference/isSquareMatrix.help.sl
 Reference/isSquareSuperparticular.help.sl
+Reference/isSquareWord.help.sl
 Reference/isSternPrime.help.sl
 Reference/isStream.help.sl
 Reference/isStrictlyIncreasing.help.sl
@@ -2208,6 +2212,7 @@ Reference/levyCCurve.help.sl
 Reference/LevyDistribution.help.sl
 Reference/levysConstant.help.sl
 Reference/lexicographicallyLeastRotation.help.sl
+Reference/lexicographicallyLeastSquareFreeWord.help.sl
 Reference/lexicographicOrder.help.sl
 Reference/lexicographicPermutationsDo.help.sl
 Reference/lexicographicPermutations.help.sl
@@ -2298,9 +2303,11 @@ Reference/logPlot.help.sl
 Reference/logScale.help.sl
 Reference/logspace.help.sl
 Reference/logSumExp.help.sl
+Reference/longestCommonPrefix.help.sl
 Reference/longestCommonSubsequence.help.sl
 Reference/longestCommonSubstring.help.sl
 Reference/longestCommonSubstringList.help.sl
+Reference/longestCommonSuffix.help.sl
 Reference/longestIncreasingSubsequence.help.sl
 Reference/longestIncreasingSubsequenceList.help.sl
 Reference/lookAndSaySequence.help.sl

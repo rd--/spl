@@ -18,7 +18,7 @@ Types implementing `Cache`:
 
 ```
 >>> system
->>> .traitTypes('Cache')
+>>> .traitTypes('@Cache')
 >>> .sort
 [
 	'BezierCurve'

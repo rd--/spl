@@ -1,6 +1,6 @@
-# randomColor
+# randomColour
 
-- _randomColor(r, shape)_
+- _randomColour(r, shape)_
 
 Answer an array of the indicated _shape_ containing random `RgbColour` values.
 

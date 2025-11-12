@@ -35,7 +35,8 @@ true
 A lipogrammatic panagram (Ezra 7:21):
 
 ```
->>> let l = 'english'.alphabet.without('j');
+>>> let e = 'english'.namedAlphabet;
+>>> let l = e.without('j');
 >>> let v = [
 >>> 	'And I, even I Artaxerxes'
 >>> 	'the king, do make a decree'

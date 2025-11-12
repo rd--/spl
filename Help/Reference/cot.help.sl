@@ -76,7 +76,7 @@ Plot at integer points:
 { :x :y |
 	(x * y).cot.abs.arcCot
 }.table(-40:40, -40:40)
-.rescale.Graymap
+.rescale.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/cot-B.png)

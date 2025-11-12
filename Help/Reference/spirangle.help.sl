@@ -4,7 +4,7 @@
 
 Answer a `Line` of an _n_-angle spirangle,
 to _m_ iterations,
-with centre _(x,y)_,
+with center _(x,y)_,
 radius increment _r_,
 initial radial _i_
 and start angle _θ_.

@@ -24,7 +24,7 @@ WhiteNoise(2 # [0.1], 0).Lpz1
 
 * * *
 
-See also: BrownNoise, ClipNoise, GrayNoise, PinkNoise, Rand, TRand
+See also: BrownNoise, ClipNoise, GreyNoise, PinkNoise, Rand, TRand
 
 Guides: Unit Generators
 

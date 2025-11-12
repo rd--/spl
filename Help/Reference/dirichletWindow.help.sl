@@ -40,7 +40,7 @@ Frequency response of the Dirichlet window:
 ~~~spl svg=B
 51.windowTable(
 	dirichletWindow:/1
-).fftPlot(512, 'Centred', 'Logarithmic')
+).fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/dirichletWindow-B.svg)

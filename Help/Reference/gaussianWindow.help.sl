@@ -70,7 +70,7 @@ Frequency response of the Gaussian window:
 ~~~spl svg=E
 51.windowTable { :x |
 	x.gaussianWindow(0.135)
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/gaussianWindow-E.svg)

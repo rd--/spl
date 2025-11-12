@@ -341,7 +341,7 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 
 	asSymbolicExpression { :self |
 		self.asSymbolicExpression(
-			'greek'.alphabet.take(self.numArgs)
+			'greek'.namedAlphabet.take(self.numArgs)
 		)
 	}
 

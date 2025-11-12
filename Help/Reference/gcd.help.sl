@@ -193,7 +193,7 @@ Matrix plot of table:
 
 ~~~spl png=B
 (1 - gcd:/2.table(1:100, 1:100).rescale)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/gcd-B.png)
@@ -206,7 +206,7 @@ let m = { :j :k |
 	n[j].gcd(n[k])
 }.table(1:100, 1:100);
 (1 - (m % n[11]).rescale)
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/gcd-C.png)

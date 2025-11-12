@@ -4,6 +4,7 @@
 
 A `Range` is a `Type` that represents a finite arithmetic progression,
 ranging from _i_ to _j_ by step _k_.
+The range is closed, it includes both the lower and upper bound.
 
 ```
 >>> Range([1 9 1]).asList
@@ -22,30 +23,37 @@ ranging from _i_ to _j_ by step _k_.
 
 Ordinarily the range is inclusive,
 both `start` and `stop` are elements of the answer.
-However the `step` value may specify a range that not include `stop`.
+However the `step` value may specify a range that not include `stop`,
+in which case it is not a proper range:
 
 ```
->>> Range([1 9 3]).asList
-[1 4 7]
+>>> let x = Range([1 9 3]);
+>>> (x.asList, x.isProper)
+([1 4 7], false)
 
->>> Range([0 10 3]).asList
-[0 3 6 9]
+>>> let x = Range([0 10 3]);
+>>> (x.asList, x.isProper)
+([0 3 6 9], false)
 ```
 
 Note in particular that with non-integer values _stop_ may not be in the list of values specified by the `Range`:
 
 ```
->>> let r = Range([1.2 2.2 0.15]);
->>> (r.size, r.asList)
-(7, [1.2 1.35 1.5 1.65 1.8 1.95 2.1])
+>>> let x = Range([1.2 2.2 0.15]);
+>>> (x.size, x.asList, x.isProper)
+(
+	7,
+	[1.2 1.35 1.5 1.65 1.8 1.95 2.1],
+	false
+)
 ```
 
 The `last`, `min` and `max` methods report the true value:
 
 ```
->>> let r = Range([1.2 2.2 0.15]);
->>> (r.last, r.end, r.max)
-(2.1, 2.1, 2.1)
+>>> let x = Range([1.2 2.2 0.15]);
+>>> (x.last, x.end, x.max, x.isProper)
+(2.1, 2.1, 2.1, false)
 ```
 
 This is distinct from the problem of accumulating errors in the summation process,
@@ -57,11 +65,10 @@ which is handled specially:
 >>> }.iterate(0, 100) > 1
 true
 
->>> Range([0 1 0.01]).last > 1
-false
-
->>> Range([0 1 0.01]).asList.last > 1
-false
+>>> let a = Range([0 1 0.01]);
+>>> let b = a.asList;
+>>> (a.last > 1, b.last > 1, a.isProper)
+(false, false, true)
 ```
 
 Range expressions are written _(i .. j)_,

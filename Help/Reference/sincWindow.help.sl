@@ -55,7 +55,7 @@ Frequency response of the sinc window:
 ~~~spl svg=D
 51.windowTable { :x |
 	x.sincWindow(2)
-}.fftPlot(512, 'Centred', 'Logarithmic')
+}.fftPlot(512, 'Centered', 'Logarithmic')
 ~~~
 
 ![](sw/spl/Help/Image/sincWindow-D.svg)

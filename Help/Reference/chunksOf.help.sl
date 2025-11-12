@@ -38,7 +38,7 @@ At the `alphabet`:
 
 ```
 >>> 'english'
->>> .alphabet
+>>> .namedAlphabet
 >>> .stringJoin
 >>> .chunksOf(3)
 [

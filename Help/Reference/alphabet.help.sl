@@ -1,14 +1,14 @@
-# alphabet
+# namedAlphabet
 
-- _alphabet(a)_
+- _namedAlphabet(a)_
 
-Answer a `List` of the letters in the named alphabet _a_.
+Answer a `List` of the letters in the named namedAlphabet _a_.
 
 ```
->>> 'english'.alphabet.stringCatenate
+>>> 'english'.namedAlphabet.stringCatenate
 'abcdefghijklmnopqrstuvwxyz'
 
->>> 'greek'.alphabet.stringCatenate
+>>> 'greek'.namedAlphabet.stringCatenate
 'αβγδεζηθικλμνξοπρστυφχψω'
 ```
 
@@ -16,13 +16,13 @@ The answer has only lower case letters:
 
 ```
 >>> 'english'
->>> .alphabet
+>>> .namedAlphabet
 >>> .stringCatenate
 >>> .asUpperCase
 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 >>> 'greek'
->>> .alphabet
+>>> .namedAlphabet
 >>> .stringCatenate
 >>> .asUpperCase
 'ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ'

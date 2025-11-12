@@ -243,7 +243,7 @@ let p = 200.prime;
 	modularInverse(a.square + b.square, p)
 }.table(1:100, 1:100)
 .rescale
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/modularInverse-B.png)

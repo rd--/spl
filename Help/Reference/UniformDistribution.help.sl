@@ -84,7 +84,7 @@ Two dimensional uni-variate uniform noise:
 let r = Sfc32(180513);
 UniformDistribution([0 1])
 .randomVariate(r, [100 100])
-.Graymap
+.Greymap
 ~~~
 
 ![](sw/spl/Help/Image/UniformDistribution-D.png)

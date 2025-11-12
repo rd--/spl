@@ -13,7 +13,7 @@ Types implementing `Integer`:
 
 ```
 >>> system
->>> .traitTypes('Integer')
+>>> .traitTypes('@Integer')
 >>> .sort
 [
 	'LargeInteger'
