@@ -163,12 +163,27 @@ Calculate the accumulated distance at each point along a straight line path:
 [0, h, h + 1, 2 * h + 1, 2 * h + 2]
 ```
 
+Central polygonal numbers,
+OEIS [A000124](https://oeis.org/A000124):
+
+```
+>>> 1:13.foldList(1, +)
+[
+	 1  2  4  7 11 16 22 29 37 46
+	56 67 79 92
+]
+```
+
 * * *
 
 See also: accumulate, collect, differences, foldLeft, injectInto, ratios
 
+Guides: List Functions
+
 References:
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:mapAccumL),
+_OEIS_
+[1](https://oeis.org/A000124),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FoldList.html)

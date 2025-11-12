@@ -33,6 +33,8 @@ Plane and line with fractional intersection point:
 
 See also: lineLineIntersection
 
+Guides: Geometry Functions
+
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection)

@@ -50,6 +50,17 @@ Find the cumulative sum of the columns of a matix:
 ]
 ```
 
+Central polygonal numbers,
+OEIS [A000124](https://oeis.org/A000124):
+
+```
+>>> 0:13.accumulate + 1
+[
+	 1  2  4  7 11 16 22 29 37 46
+	56 67 79 92
+]
+```
+
 Plot a random walk:
 
 ~~~spl svg=A
@@ -71,6 +82,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Accumulate.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.cumsum.html),
+_OEIS_
+[1](https://oeis.org/A000124),
 _Python_
 [1](https://docs.python.org/3/library/itertools.html#itertools.accumulate),
 _W_

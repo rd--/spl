@@ -21,6 +21,7 @@ Specific Graphs:
 - `circulantGraph`
 - `completeBipartiteGraph`
 - `completeGraph`
+- `crownGraph`
 - `cubeGraph`
 - `cycleGraph`
 - `deBruijnGraph`

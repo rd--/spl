@@ -274,6 +274,7 @@ Uncategorized:
 
 - `connectLineSegments`
 - `lineEquation`
+- `slopeInterceptForm`
 - `unitVector`
 
 * * *

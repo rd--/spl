@@ -779,6 +779,21 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		)
 	}
 
+	crownGraph { :n |
+		let a = [1 .. n];
+		let b = a + n;
+		let v = a ++ b;
+		let e = [];
+		1.toDo(n) { :i |
+			1.toDo(n) { :j |
+				(i != j).ifTrue {
+					e.add(a[i] --- b[j])
+				}
+			}
+		};
+		Graph(v, e)
+	}
+
 	cubeGraph { :self |
 		let k = 2 ^ self;
 		let m = (k - 1).integerLength(2);

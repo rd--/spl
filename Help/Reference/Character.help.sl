@@ -71,8 +71,11 @@ but it is similar to such:
 Printing:
 
 ```
->> Character('c')
+>> Character('c').storeString
 Character('c', 99)
+
+>> Character('c').asString
+'c'
 ```
 
 _Note:_

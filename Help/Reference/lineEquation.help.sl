@@ -71,6 +71,8 @@ If the coefficients are all integers they are given in reduced form:
 
 See also: HalfLine, InfiniteLine, Line, slopeInterceptForm
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/LinearEquation.html)
