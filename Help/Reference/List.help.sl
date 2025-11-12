@@ -10,19 +10,20 @@ Traits implemented by `List`:
 ```
 >>> system.typeLookup('List')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
-	'Comparable'
-	'Json'
-	'Iterable'
-	'Indexable'
 	'Collection'
+	'Comparable'
+	'Equatable'
 	'Extensible'
+	'Indexable'
+	'Iterable'
+	'Json'
+	'Object'
+	'Ordered'
+	'PrimitiveArray'
 	'Removable'
 	'Sequenceable'
-	'PrimitiveSequence'
-	'Ordered'
 ]
 ```
 

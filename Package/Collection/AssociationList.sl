@@ -16,6 +16,10 @@
 		self.assertIsAssociationList.do(aBlock:/1)
 	}
 
+	includesKey { :self :key |
+		self.assertIsAssociationList.keys.includes(key)
+	}
+
 	isAssociationList { :self |
 		self.allSatisfy(isAssociation:/1)
 	}

@@ -1,14 +1,24 @@
 # Object
 
-`Object` is a `Trait`.
-Ordinarily all `Type` definitions should implement `Object`.
-
-`Object` defines the basic system predicates.
+`Object` is a `Trait`:
 
 ```
->>> system.traitTypes('Object').size + 1
-system.typeDictionary.size
+>>> system
+>>> .traitDictionary['Object']
+>>> .isTrait
+true
+```
 
+Ordinarily all `Type` definitions should implement `Object`:
+
+```
+>>> system.traitTypes('Object').size
+system.typeDictionary.size - 1
+```
+
+`Object` defines the basic reflection functions:
+
+```
 >>> system
 >>> .traitDictionary['Object']
 >>> .methodDictionary

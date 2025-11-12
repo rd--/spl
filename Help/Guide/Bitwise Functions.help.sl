@@ -1,7 +1,8 @@
 # Bitwise Functions
 
-Types:
+Types and Traits:
 
+- `Binary`
 - `BitSet`
 
 Logic:

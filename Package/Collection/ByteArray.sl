@@ -1,4 +1,4 @@
-ByteArray! : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable, PrimitiveSequence] {
+ByteArray! : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable, PrimitiveArray] {
 
 	asciiString { :self |
 		<primitive: return new TextDecoder('ascii').decode(_self);>

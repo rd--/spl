@@ -32,4 +32,6 @@ At `AsciiString`:
 
 See also: asciiByteArray, AsciiString, asHexDigit, base64Encode, parseBase16, String
 
+Guides: String Functions
+
 Categories: Converting

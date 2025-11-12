@@ -3,7 +3,7 @@
 - _indicesOfSubstring(u, v)_
 
 Answer a `List`, possibly empty, of all the start indices of the sequence _v_,
-as a contigusous subsequence,
+as a contiguous subsequence,
 in the sequence _u_.
 
 The subsequence _345_ appears once in _123456789_:
@@ -23,14 +23,6 @@ The subsequence _23_ appears twice in _123234345_:
 >>> p.indicesOfSubstring(q)
 [2 4]
 ```
-
->>> [3,1,2,3,2,3,4,1,2,4,2,1,2].indicesOfSubstring([1,2])
-[2 8 12]
-
->>> sub_search([1,2], [3,1,2,3,2,3,4,1,2,4,2,1,2], 1, 11)
-[1, 7, 11]
->>> sub_search([1,2], [3,1,2,3,2,3,4,1,2,4,2,1,2], 2, 10)
-[7]
 
 * * *
 

@@ -16,7 +16,7 @@ and a `String`:
 A `Character` is not a `String`:
 
 ```
->>> let c = 'c'.asCharacter;
+>>> let c = Character('c');
 >>> (c.isCharacter, c.isString)
 (true, false)
 ```

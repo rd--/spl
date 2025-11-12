@@ -83,7 +83,7 @@ At `String`:
 At `Character`:
 
 ```
->>> 'x'.asCharacter.asString
+>>> Character('x').asString
 'x'
 ```
 

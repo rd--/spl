@@ -1,14 +1,18 @@
 # isUpperCase
 
-- _isUpperCase(aCharacter | aString)_
+- _isUpperCase(s)_
 
-Answer `true` if _aString_ has only upper case characters.
+Answer `true` if the string _s_ has only upper case characters.
 
 ```
 >>> 'ASCII'.isUpperCase
 true
+```
 
->>> 'A'.asCharacter.isUpperCase
+At `Character`:
+
+```
+>>> Character('A').isUpperCase
 true
 ```
 

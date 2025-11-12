@@ -1,4 +1,4 @@
-@PrimitiveSequence {
+@PrimitiveArray {
 
 	asList { :self |
 		List(self.size).fillFrom(self)
@@ -31,7 +31,7 @@
 			});
 		}
 		>
-		self.error('@PrimitiveSequence>>collect: not a block')
+		self.error('@PrimitiveArray>>collect: not a block')
 	}
 
 	deepCopy { :self |

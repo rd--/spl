@@ -700,32 +700,6 @@
 		answer
 	}
 
-	cross { :u |
-		let [x, y] = u;
-		[y.-, x]
-	}
-
-	cross { :u :v |
-		let k = u.size;
-		(k = 2).if {
-			let [ux, uy] = u;
-			let [vx, vy] = v;
-			(ux * vy) - (uy * vx)
-		} {
-			let [ux, uy, uz] = u;
-			let [vx, vy, vz] = v;
-			[
-				(uy * vz) - (uz * vy),
-				(uz * vx) - (ux * vz),
-				(ux * vy) - (uy * vx)
-			]
-		}
-	}
-
-	crossedMultiply { :self :aList |
-		self.withCollectCrossed(aList, *)
-	}
-
 	cumulativeMax { :self |
 		self.scan(max:/2)
 	}
@@ -1548,6 +1522,30 @@
 		}
 	}
 
+	isSquareFreeWordExtension { :x :l |
+		let n = x.size + 1;
+		x := x ++ [l];
+		1.to(n // 2).noneSatisfy { :i |
+			0.to(i - 1).allSatisfy { :j |
+				let p = n - j;
+				let q = n - j - i;
+				x[p] = x[q]
+			}
+		}
+	}
+
+	isSquareWord { :x |
+		let n = x.size;
+		(n > 0) & {
+			n.isEven & {
+				let m = n // 2;
+				1.to(m).allSatisfy { :i |
+					x[i] = x[i + m]
+				}
+			}
+		}
+	}
+
 	isUnimodal { :x :f:/2 |
 		(x.size < 3).if {
 			false
@@ -1683,20 +1681,9 @@
 	}
 
 	lexicographicallyLeastSquareFreeWord { :word :n |
-		let makesSquare = { :x :l |
-			let n = x.size + 1;
-			x := x ++ [l];
-			1.to(n // 2).noneSatisfy { :i |
-				0.to(i - 1).allSatisfy { :j |
-					let p = n - j;
-					let q = n - j - i;
-					x[p] = x[q]
-				}
-			}
-		};
 		(n - word.size).timesRepeat {
 			let letter = 0;
-			{ makesSquare(word, letter) }.whileFalse {
+			{ isSquareFreeWordExtension(word, letter) }.whileFalse {
 				letter := letter + 1
 			};
 			word := word ++ [letter]
@@ -2236,10 +2223,6 @@
 		}
 	}
 
-	scalarTripleProduct { :a :b :c |
-		a.dot(b.cross(c))
-	}
-
 	scan { :self :aBlock:/2 |
 		self.scanLeft(aBlock:/2)
 	}
@@ -2658,10 +2641,6 @@
 
 	unique { :self |
 		self.nub.sort
-	}
-
-	vectorTripleProduct { :a :b :c |
-		a.cross(b.cross(c))
 	}
 
 	which { :self |

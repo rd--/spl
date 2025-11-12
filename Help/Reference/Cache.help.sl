@@ -1,6 +1,33 @@
 # Cache
 
-`Cache` is both a `Trait` and a `Type` used to implement initialise-on-demand global variables.
+`Cache` is both a `Trait` and a `Type`.
+
+```
+>>> system
+>>> .traitDictionary['Cache']
+>>> .isTrait
+true
+
+>>> system
+>>> .typeDictionary['Cache']
+>>> .isType
+true
+```
+
+Types implementing `Cache`:
+
+```
+>>> system
+>>> .traitTypes('Cache')
+>>> .sort
+[
+	'BezierCurve'
+	'HelpFile'
+	'Markdown'
+	'RatioTuning'
+	'System'
+]
+```
 
 The required method of the `Cache` trait is `cache`, which should answer a `Dictionary`.
 
@@ -11,14 +38,17 @@ for where it is not.
 
 The `System` type,
 which is instantiated once as `system`,
-implements `Cache`.
+implements `Cache`,
+and is used to implement initialise-on-demand global variables.
 
 The `primesList` method caches previous requests,
 and continues any required calculations from the cached answers.
 
 ```
 >>> 23.primesList
-system.cache['primesList'].first(23)
+system
+.cache['primesList']
+.first(23)
 ```
 
 `Cache` is also the `Type` of the persistent store for `fetch` results,

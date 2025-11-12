@@ -193,6 +193,7 @@
 	'Statistics'
 	'TrigonometricFunctions'
 	'UnivariatePolynomial'
+	'VectorFunctions'
 	'WindowFunction'
 
 	/* Stream */

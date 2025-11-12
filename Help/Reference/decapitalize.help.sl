@@ -15,14 +15,14 @@ Answer a copy of the string _s_ with the first character decapitalized if it is 
 '3.141'
 ```
 
-Capitalize letters of the Greek alphabet:
+Decapitalize letters of the Greek alphabet:
 
 ```
->>> 'Π'.decapitalize
-'π'
+>>> 'Πφ'.decapitalize
+'πφ'
 
->>> 'Φ'.decapitalize
-'φ'
+>>> 'Φπ'.decapitalize
+'φπ'
 ```
 
 Threads over lists:

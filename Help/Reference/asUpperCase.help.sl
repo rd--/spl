@@ -1,15 +1,15 @@
 # asUpperCase
 
-- _asUpperCase(aCharacter | aString)_
+- _asUpperCase(s)_
 
-Answer a `String` made up from _aString_ whose characters are all uppercase.
+Answer a `String` made up from the string _s_ whose characters are all uppercase.
 
 ```
 >>> 'ascii'.asUpperCase
 'ASCII'
 
->>> 'a'.asCharacter.asUpperCase
-'A'.asCharacter
+>>> Character('a').asUpperCase
+Character('A')
 ```
 
 * * *

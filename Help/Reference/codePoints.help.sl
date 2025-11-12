@@ -1,11 +1,20 @@
 # codePoints
 
-- _codePoints(aString)_
+- _codePoints(s)_
 
-Answer a `List` of the `Integer` code points of _aString_.
+Answer a `List` of the `Integer` code points of the string _s_.
+
+At `String`:
 
 ```
 >>> 'codePoints'.codePoints
+[99 111 100 101 80 111 105 110 116 115]
+```
+
+At `AsciiString`:
+
+```
+>>> AsciiString('codePoints').codePoints
 [99 111 100 101 80 111 105 110 116 115]
 ```
 
@@ -35,7 +44,7 @@ c.f. `utf8ByteArray`:
 ```
 
 The answer will be equal to `utf16List`,
-if the code points in range:
+if the code points are in range:
 
 ```
 >>> 'AaBbCcΑαΒβΓγ'.utf16List
@@ -48,6 +57,8 @@ if the code points in range:
 * * *
 
 See also: Character, characterList, codePoint, String, utf8ByteArray, utf16List
+
+Guides: String Functions
 
 References:
 _Mathematica_

@@ -82,10 +82,6 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	asCharacter { :self |
-		Character(self, self.codePoint)
-	}
-
 	asciiByteArray { :self |
 		let answer = self.utf8ByteArray;
 		answer.allSatisfy(isAsciiCodePoint:/1).if {
@@ -505,18 +501,8 @@ String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] 
 		}
 	}
 
-	includes { :self :aCharacter |
-		self.characterList.includes(aCharacter.asCharacter)
-	}
-
-	includesBy { :self :aCharacter :aBlock:/2 |
-		self.characterList.includesBy(aCharacter.asCharacter, aBlock:/2)
-	}
-
-	includesIndex { :self :index |
-		index.isInteger & {
-			index.betweenAnd(1, self.size)
-		}
+	includesBy { :self :letter :aBlock:/2 |
+		self.characters.includesBy(letter.characterString, aBlock:/2)
 	}
 
 	indefiniteArticle { :self |

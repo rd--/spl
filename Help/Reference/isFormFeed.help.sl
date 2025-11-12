@@ -8,7 +8,7 @@ Answer `true` if the character _c_ is a form feed.
 >>> '\f'.isFormFeed
 true
 
->>> 12.asCharacter.isFormFeed
+>>> Character(12).isFormFeed
 true
 ```
 

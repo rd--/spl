@@ -4,12 +4,18 @@
 
 Answer a `String` made up from the string _s_ whose characters are all lower case.
 
+At `String`:
+
 ```
 >>> 'Word'.asLowerCase
 'word'
+```
 
->>> 'X'.asCharacter.asLowerCase
-'x'.asCharacter
+At `Character`:
+
+```
+>>> Character('X').asLowerCase
+Character('x', 120)
 ```
 
 * * *

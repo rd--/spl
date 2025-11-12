@@ -14,6 +14,7 @@ Predicate Functions:
 
 Product Functions:
 
+- `cross`
 - `dot`
 - `dotProduct`
 - `inner`

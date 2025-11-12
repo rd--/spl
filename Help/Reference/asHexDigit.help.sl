@@ -1,14 +1,16 @@
 # asHexDigit
 
-- _asHexDigit(anInteger)_
+- _asHexDigit(n)_
 
-Answer the `Character` representing given hexadecimal digit.
+Answer the `String` representing given hexadecimal digit.
 
 ```
 >>> 15.asHexDigit
-'F'.asCharacter
+'F'
 
->>> [0 .. 15].collect(asHexDigit:/1).stringJoin
+>>> [0 .. 15]
+>>> .collect(asHexDigit:/1)
+>>> .stringJoin
 '0123456789ABCDEF'
 ```
 
@@ -22,5 +24,7 @@ true
 * * *
 
 See also: asHexString, base16Encode, Character, Integer
+
+Guides: String Functions
 
 Categories: Converting

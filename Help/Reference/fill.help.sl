@@ -73,7 +73,7 @@ A 3×3 matrix, each place holding its column index minus its row index:
 	-2 -1 0
 ]
 
->>> -.array([3 3])
+>>> -.swap.array([3 3])
 [
 	 0  1 2;
 	-1  0 1;

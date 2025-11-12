@@ -6,6 +6,33 @@
 and also a `Type` representing a dictionary where keys are compared according to `=`,
 the equality operator.
 
+```
+>>> system
+>>> .traitDictionary['Dictionary']
+>>> .isTrait
+true
+
+>>> system
+>>> .typeDictionary['Dictionary']
+>>> .isType
+true
+```
+
+Types implementing `Dictionary`:
+
+```
+>>> system
+>>> .traitTypes('Dictionary')
+>>> .sort
+[
+	'Dictionary'
+	'Map'
+	'Record'
+	'Storage'
+	'TypedDictionary'
+]
+```
+
 Dictionaries are homogenous sets of key and value pairs,
 called associations,
 with the property that each key occurs at most once.
@@ -71,29 +98,29 @@ Construct a dictionary with a specified comparator:
 (1, [0 -> 3])
 ```
 
-Dictionary is a trait:
+Methods for accessing:
 
-```
->>> system
->>> .traitDictionary['Dictionary']
->>> .isTrait
-true
-```
+- `associationAtIfAbsent`
+- `associationAt`
+- `atIfAbsent`
+- `at`
+- `keyAtValueIfAbsent`
+- `keyAtValue`
+- `keys`
+- `values`
 
-Map implements Dictionary:
+Methods for testing:
 
-```
->>> system
->>> .traitTypes('Dictionary')
->>> .includes('Map')
-true
-```
+- `includesKey`
+- `includes`
 
-Methods for accessing: at, atIfAbsent, associationAt, associationAtIfAbsent, keyAtValue, keyAtValueIfAbsent, keys, values
+Methods for enumerating:
 
-Methods for testing: includes, includesKey
-
-Methods for enumerating: do, keysDo, valuesDo, keysAndValuesDo, associationsDo
+- `associationsDo`
+- `do`
+- `keysAndValuesDo`
+- `keysDo`
+- `valuesDo`
 
 * * *
 

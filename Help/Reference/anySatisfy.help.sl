@@ -28,6 +28,13 @@ At `Record`:
 true
 ```
 
+At `String`:
+
+```
+>>> 'Text'.anySatisfy(isUpperCase:/1)
+true
+```
+
 * * *
 
 See also: allSatisfy, noneSatisfy

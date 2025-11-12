@@ -4,7 +4,7 @@
 
 Answers whether the collection _c_ contains any elements.
 
-For a finite collection this may be the same as asking if the `size` is not zero,
+For a finite collection this may be the same as asking if the `size` is equal to zero,
 however `size` may require traversing the entire collection,
 whereas `isEmpty` may only need to examine if there is an initial element.
 

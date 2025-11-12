@@ -3,7 +3,7 @@
 - _isNotEmpty(c)_
 
 Answers whether the collection _c_ contains any elements.
-Negation of _isEmpty_.
+Negation of `isEmpty`.
 
 At `List`:
 

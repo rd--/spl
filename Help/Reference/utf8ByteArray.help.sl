@@ -23,14 +23,14 @@ Answer a `ByteArray` of the Utf-8 encoding of the string _s_.
 `utf8String` is the inverse of `utf8ByteArray`:
 
 ```
->>> let integer = 8750;
->>> let character = integer.asCharacter;
->>> let string = character.characterString;
->>> let byteArray = string.utf8ByteArray;
+>>> let n = 8750;
+>>> let c = Character(n);
+>>> let s = c.characterString;
+>>> let b = s.utf8ByteArray;
 >>> (
->>> 	integer,
->>> 	byteArray.asList,
->>> 	byteArray.utf8String
+>>> 	n,
+>>> 	b.asList,
+>>> 	b.utf8String
 >>> )
 (8750, [226 136 174], '∮')
 ```

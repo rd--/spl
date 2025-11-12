@@ -21,8 +21,8 @@ Lookup method in the `System` method dictionary and collate information:
 	2,
 	'collect',
 	true,
-	'PrimitiveSequence',
-	'PrimitiveSequence',
+	'PrimitiveArray',
+	'PrimitiveArray',
 	['self', 'aBlock:/1']
 )
 ```

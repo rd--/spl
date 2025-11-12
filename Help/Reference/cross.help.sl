@@ -175,7 +175,7 @@ The scalar triple product and the the vector triple product:
 
 See also: dot, kroneckerProduct, outer, permutationSymbol, vectorAngle
 
-Guides: List Functions
+Guides: List Functions, Vector Functions
 
 References:
 _Julia_

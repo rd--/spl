@@ -8,7 +8,7 @@ Answer `true` if _aCharacter_ is a space (`isSpace`) or a tab (`isTab`).
 >>> ' '.isBlank
 true
 
->>> 9.asCharacter.isBlank
+>>> Character(9).isBlank
 true
 ```
 

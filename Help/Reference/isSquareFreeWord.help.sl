@@ -72,7 +72,7 @@ true
 
 * * *
 
-See also: lexicographicallyLeastSquareFreeWord
+See also: isSquareWord, lexicographicallyLeastSquareFreeWord
 
 Guides: Integer Sequences
 

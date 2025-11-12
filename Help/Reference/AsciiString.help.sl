@@ -1,11 +1,27 @@
 # AsciiString
 
+- _AsciiString(x)_
+
 A `Type` holding an Ascii encoded text string.
 
-`AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequence`.
+At `Integer` answers a null string of the inidicated size:
 
 ```
->>> let s = 'text'.asAsciiString;
+>>> AsciiString(5).codePoints
+[0 0 0 0 0]
+```
+
+At `String`:
+
+```
+>>> AsciiString('String').codePoints
+[83 116 114 105 110 103]
+```
+
+`AsciiString` implements `Iterable`, `Collection`, `Indexable` and `Sequenceable`.
+
+```
+>>> let s = AsciiString('text');
 >>> (
 >>> 	s.isAsciiString,
 >>> 	s.size,
@@ -15,49 +31,49 @@ A `Type` holding an Ascii encoded text string.
 (
 	true,
 	4,
-	't'.asCharacter,
-	'ext'.asAsciiString
+	Character('t'),
+	AsciiString('ext')
 )
 ```
 
 Select characters by index:
 
 ```
->>> let s = 'text'.asAsciiString;
->>> s @* [2 4]
-'et'.asAsciiString
+>>> let s = AsciiString('text');
+>>> s.atAll([2 4])
+AsciiString('et')
 ```
 
 Transform to upper case using `collect` and `asUpperCase`:
 
 ```
->>> 'text'.asAsciiString
+>>> AsciiString('text')
 >>> .collect(asUpperCase:/1)
-'TEXT'.asAsciiString
+AsciiString('TEXT')
 ```
 
 Filter out vowels using `reject` and `isVowel`:
 
 ```
->>> 'text'.asAsciiString.reject(isVowel:/1)
-'txt'.asAsciiString
+>>> AsciiString('text').reject(isVowel:/1)
+AsciiString('txt')
 ```
 
 Catenate using `++`:
 
 ```
->>> 'te'.asAsciiString ++ 'xt'.asAsciiString
-'text'.asAsciiString
+>>> AsciiString('te') ++ AsciiString('xt')
+AsciiString('text')
 ```
 
 Split on sub-string using `splitBy`:
 
 ```
->>> 'two words'.asAsciiString
->>> .splitBy(' '.asAsciiString)
+>>> AsciiString('two words')
+>>> .splitBy(AsciiString(' '))
 [
-	'two'.asAsciiString,
-	'words'.asAsciiString
+	AsciiString('two'),
+	AsciiString('words')
 ]
 ```
 

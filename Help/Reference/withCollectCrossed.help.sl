@@ -1,6 +1,8 @@
 # withCollectCrossed
 
-A variant on _withCollectTable_ that writes folds away one layer of stucture.
+- _withCollectCrossed(u, v)_
+
+A variant on `withCollectTable` that removes one layer of stucture.
 
 ```
 >>> [10 20 30 40 50].withCollectCrossed(
@@ -32,14 +34,16 @@ The matrix form is likewise folded.
 >>> x.withCollectCrossed(x, *)
 [
 	16 20.25;
-	8 13.5 20 27;
-	8 13.5 20 27;
-	4 9 25 36
+	 8 13.5 20 27;
+	 8 13.5 20 27;
+	 4  9   25 36
 ]
 ```
 
 * * *
 
 See also: withCollectTable
+
+Guides: Matrix Functions, Vector Functions
 
 Categories: Arithmetic

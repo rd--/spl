@@ -1,5 +1,9 @@
 AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
+	asAsciiString { :self |
+		self
+	}
+
 	asByteArray { :self |
 		self.contents.copy
 	}
@@ -22,6 +26,10 @@ AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable]
 
 	atPut { :self :anInteger :aCharacter |
 		self.contents.atPut(anInteger, aCharacter.codePoint)
+	}
+
+	codePoints { :self |
+		self.contents.asList
 	}
 
 	do { :self :aBlock:/1 |
@@ -58,8 +66,12 @@ AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable]
 
 +String {
 
-	asAsciiString { :self |
+	AsciiString { :self |
 		newAsciiString().initializeSlots(self.asciiByteArray)
+	}
+
+	asAsciiString { :self |
+		AsciiString(self)
 	}
 
 }

@@ -1,5 +1,7 @@
 # withCollectTable
 
+- _withCollectTable(u, v)_
+
 Given vectors _u_ & _v_ generates the table _[u1v, u2v ...]_.
 
 ```

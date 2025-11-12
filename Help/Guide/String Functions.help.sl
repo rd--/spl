@@ -38,6 +38,8 @@ Converting:
 - `asUpperCase`
 - `capitalize`
 - `characterList`
+- `characters`
+- `codePoint`
 - `codePoints`
 - `decapitalize`
 - `removeDiacritics`

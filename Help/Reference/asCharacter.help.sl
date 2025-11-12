@@ -8,21 +8,22 @@ At `String`:
 
 ```
 >>> 'c'.asCharacter
-99.asCharacter
+Character('c', 99)
 ```
 
 At `Integer`:
 
 ```
 >>> 99.asCharacter
-'c'.asCharacter
+Character('c', 99)
 ```
 
 At `Character`:
 
 ```
->>> 120.asCharacter.asCharacter
-'x'
+>>> let c = Character(120);
+>>> c.asCharacter == c
+true
 ```
 
 * * *

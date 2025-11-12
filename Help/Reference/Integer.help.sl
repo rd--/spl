@@ -1,8 +1,34 @@
 # Integer
 
-`Integer` is a numeric `Trait`.
+`Integer` is a `Trait` for numbers.
 
-Methods for arithmetic: `isPowerOfTwo`, `factorial`, `gcd`, `lcm`, `take`
+```
+>>> system
+>>> .traitDictionary['Integer']
+>>> .isTrait
+true
+```
+
+Types implementing `Integer`:
+
+```
+>>> system
+>>> .traitTypes('Integer')
+>>> .sort
+[
+	'LargeInteger'
+	'SmallFloat'
+	'Symbol'
+]
+```
+
+Methods for arithmetic:
+
+- `isPowerOfTwo`
+- `factorial`
+- `gcd`
+- `lcm`
+- `take`
 
 * * *
 

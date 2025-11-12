@@ -28,8 +28,18 @@ At `String`:
 [false true false]
 ```
 
+At `Record`:
+
+```
+>>> (x: 1, y: 2, z: 3)
+>>> .includesIndex('y')
+true
+```
+
 * * *
 
 See also: at, includesKey, Indexable, indices
+
+Guides: Dictionary Functions, List Functions
 
 Categories: Testing

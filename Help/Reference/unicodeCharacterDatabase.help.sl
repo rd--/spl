@@ -43,7 +43,9 @@ The entry for code point 03C0:
 Parse code point and convert to a character:
 
 ```
->>> '03C0'.parseSmallInteger(16).asCharacter
+>>> Character(
+>>> 	'03C0'.parseSmallInteger(16)
+>>> )
 'π'
 ```
 

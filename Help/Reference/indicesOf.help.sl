@@ -1,8 +1,8 @@
 # indicesOf
 
-- _indicesOf(aCollection, anObject)_
+- _indicesOf(c, x)_
 
-Answer a `List`, possibly empty, of all the indices of _anObject_ in _aCollection_.
+Answer a `List`, possibly empty, of all the indices of the object _x_ in the collection _c_.
 
 At `List`:
 
@@ -37,9 +37,18 @@ At `String`:
 [1 4 6 8 11]
 ```
 
+At `String` with non-character seach string:
+
+```
+>>> 'abracadabra'.indicesOf('ab')
+[1 8]
+```
+
 * * *
 
 See also: deepIndicesOf, indicesOfSubstring, indexOf, occurrencesOf
+
+Guides: Dictionary Functions, List Functions
 
 References:
 _J_

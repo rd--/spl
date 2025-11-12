@@ -22,7 +22,7 @@ as for use as keys in `Map` (the identity dictionary).
 ```
 >>> [
 >>> 	23L,
->>> 	'x'.asCharacter,
+>>> 	'x'.Character,
 >>> 	2J3,
 >>> 	2/3,
 >>> 	[2, 3],
@@ -36,7 +36,7 @@ Note however that both `Character` and `Symbol` values are cached,
 so that they also might be considered immediate:
 
 ```
->>> 'x'.asCharacter == 'x'.asCharacter
+>>> 'x'.Character == 'x'.Character
 true
 
 >>> 'x'.Symbol == 'x'.Symbol

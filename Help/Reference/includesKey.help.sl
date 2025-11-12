@@ -26,8 +26,17 @@ At `Map`:
 true
 ```
 
+At an `Association` `List`:
+
+```
+>>> ['w' -> 1, 'x' -> 2, 'y' -> 3]
+>>> .includesKey('x')
+true
+```
+
 _Rationale:_
 The indices of dictionaries are called keys.
+At a dictionary,
 `includesKey` is another name for `includesIndex`,
 and `keys` is another name for `indices`.
 
@@ -40,6 +49,8 @@ true
 * * *
 
 See also: at, Dictionary, includes, includesIndex, Indexable, keys
+
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

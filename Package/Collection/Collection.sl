@@ -193,10 +193,12 @@
 	}
 
 	concisePrintString { :self |
-		'% (size: %)'.format([
-			self.typeOf.withIndefiniteArticle,
-			self.size
-		])
+		'% (size: %)'.format(
+			[
+				self.typeOf.withIndefiniteArticle,
+				self.size
+			]
+		)
 	}
 
 	copyList { :self |

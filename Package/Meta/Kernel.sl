@@ -13,8 +13,8 @@
 	'Integer' /* > Cache */
 
 	/* Primitive Traits */
+	'PrimitiveArray'
 	'PrimitiveMap'
-	'PrimitiveSequence'
 
 	/* Collection Traits */
 	'ArithmeticProgression'

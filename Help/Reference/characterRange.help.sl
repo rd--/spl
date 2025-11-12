@@ -90,8 +90,8 @@ At `Integer`:
 At `Character`:
 
 ```
->>> let c1 = 'a'.asCharacter;
->>> let c2 = 'c'.asCharacter;
+>>> let c1 = 'a'.Character;
+>>> let c2 = 'c'.Character;
 >>> c1.characterRange(c2)
 [
 	Character('a', 97),

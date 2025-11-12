@@ -11,6 +11,14 @@ Answer an `AsciiString` value holding a byte-string encoding of the string _s_.
 ByteArray([116 101 120 116])
 ```
 
+At `AsciiString`:
+
+```
+>>> let s = AsciiString('text');
+>>> s.asAsciiString == s
+true
+```
+
 * * *
 
 See also: AsciiString, asciiByteArray, asHexString, isAscii, removeDiacritics

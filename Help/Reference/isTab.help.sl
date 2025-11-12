@@ -8,7 +8,7 @@ Answer `true` if the character _c_ is a tab.
 >>> '\t'.isTab
 true
 
->>> 9.asCharacter.isTab
+>>> Character(9).isTab
 true
 ```
 

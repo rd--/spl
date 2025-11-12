@@ -25,7 +25,20 @@ At `Record`:
 true
 ```
 
-At `String`, `isSameAs` is a case insensitive equality predicate:
+At `String`,
+a specialised implementation to ensure that _x_ is a character:
+
+```
+>>> 'String'.includesBy('i', =)
+true
+
+>>> {
+>>> 	'String'.includesBy('Str', =)
+>>> }.hasError
+true
+```
+
+`isSameAs` is a case insensitive equality predicate:
 
 ```
 >>> 'String'.includesBy('I', isSameAs:/2)

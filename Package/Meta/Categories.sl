@@ -19,16 +19,17 @@ system.categoryDictionary.categorizeDictionary('type', (
 		'List'
 		'Record'
 	],
-	'Collection-PrimitiveSequence': [
+	'Collection-PrimitiveArray': [
 		'ArrayBuffer'
 		'ByteArray'
+		'Float32Array'
 		'Float64Array'
-		'SortedList'
 	],
 	'Collection-Ordered': [
 		'Heap'
 		'Range'
 		'PriorityQueue'
+		'SortedList'
 	],
 	'Collection-Stream': [
 		'ReadStream'

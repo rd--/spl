@@ -163,6 +163,14 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 		[self.real, self.imaginary]
 	}
 
+	concisePrintString { :self |
+		[
+			{ self.isReal } -> { self.real.printString },
+			{ self.isPurelyImaginary } -> { self.imaginary.printString ++ 'I' },
+			{ true } -> { self.printString }
+		].which
+	}
+
 	conjugate { :self |
 		Complex(self.real, self.imaginary.negate)
 	}

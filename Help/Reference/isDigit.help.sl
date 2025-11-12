@@ -15,7 +15,7 @@ true
 _x_ is not a digit:
 
 ```
->>> 'x'.asCharacter.isDigit
+>>> Character('x').isDigit
 false
 ```
 

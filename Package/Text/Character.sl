@@ -185,7 +185,7 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 	}
 
 	storeString { :self |
-		self.codePoint.asString ++ '.asCharacter'
+		self.storeStringAsInitializeSlots
 	}
 
 	zero { :self |
@@ -197,7 +197,11 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 +SmallFloat {
 
 	asCharacter { :self |
-		self.fromCodePoint.asCharacter
+		Character(self)
+	}
+
+	Character { :self |
+		Character(self.fromCodePoint, self)
 	}
 
 	digitValue { :self |
@@ -218,6 +222,10 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 
 +String {
 
+	asCharacter { :self |
+		Character(self)
+	}
+
 	Character { :self :codePoint |
 		self.isCharacter.if {
 			system.cache.atIfAbsentPut('characterDictionary') {
@@ -228,6 +236,10 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 		} {
 			self.error('String>>Character: not character?')
 		}
+	}
+
+	Character { :self |
+		Character(self, self.codePoint)
 	}
 
 }

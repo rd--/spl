@@ -38,7 +38,7 @@ true
 >>> 	m.origin.name,
 >>> 	m.block . ([3 4 5], { :x | x * x })
 >>> )
-(true, 'PrimitiveSequence', [9 16 25])
+(true, 'PrimitiveArray', [9 16 25])
 
 >>> [3 4 5].collect { :x | x * x }
 [9 16 25]

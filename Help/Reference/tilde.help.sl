@@ -86,10 +86,10 @@ At `Character`,
 answers true to character and the equivalent one place `String`:
 
 ```
->>> 'x'.asCharacter ~ 'x'
+>>> Character('x') ~ 'x'
 true
 
->>> 'x' ~ 'x'.asCharacter
+>>> 'x' ~ Character('x')
 true
 ```
 

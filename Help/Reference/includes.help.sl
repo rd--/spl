@@ -49,7 +49,7 @@ At `Dictionary`:
 true
 ```
 
-At `String`, answer `true` if string includes character:
+At `String`, answer `true` if the string includes a particular character:
 
 ```
 >>> 'String'.includes('i')

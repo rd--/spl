@@ -16,7 +16,7 @@ The `elementType` of the answer is `String`:
 'String'
 ```
 
-Inverse are `join` and `stringJoin`:
+Inverse are `stringCatenate` and `stringJoin`:
 
 ```
 >>> 'mississippi'.characters.stringCatenate
@@ -36,6 +36,8 @@ Inverse are `join` and `stringJoin`:
 * * *
 
 See also: characterList, String
+
+Guides: String Functions
 
 References:
 _Mathematica_

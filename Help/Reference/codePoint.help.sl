@@ -4,12 +4,11 @@
 
 Answer the Unicode code point of the character _c_.
 
+At `String`:
+
 ```
 >>> ' '.codePoint
 32
-
->>> 32.asCharacter.codePoint
-16r0020
 
 >>> 'π'.codePoint
 16r03C0
@@ -21,10 +20,24 @@ Answer the Unicode code point of the character _c_.
 8364
 ```
 
-The inverse is `asCharacter`:
+It is an error if the string has more than one place:
 
 ```
->>> 8364.asCharacter
+>>> { 'xy'.codePoint }.hasError
+true
+```
+
+At `Character`:
+
+```
+>>> Character(32).codePoint
+16r0020
+```
+
+The inverse is `fromCodePoint`:
+
+```
+>>> 8364.fromCodePoint
 '€'
 ```
 

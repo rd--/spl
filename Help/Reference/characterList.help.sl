@@ -17,7 +17,7 @@ The elements of the answer are characters:
 
 ```
 >>> 'text'.characterList
-['t' 'e' 'x' 't'].collect(asCharacter:/1)
+['t' 'e' 'x' 't'].collect(Character:/1)
 ```
 
 Code points of characters of a string:
@@ -45,7 +45,7 @@ and likewise lists of each:
 
 ```
 >>> let s = 'x';
->>> let c = 'x'.asCharacter;
+>>> let c = Character('x');
 >>> (
 >>> 	s = c, s ~ c,
 >>> 	[s] = [c], [s] ~ [c],
@@ -93,14 +93,16 @@ Unicode strings:
 ```
 >>> 'αβγ'.characterList
 [
-	'α'.asCharacter,
-	'β'.asCharacter,
-	'γ'.asCharacter
+	'α'.Character,
+	'β'.Character,
+	'γ'.Character
 ]
 ```
 
 * * *
 
-See also: Character, codePoints, String
+See also: Character, characters, codePoints, String
+
+Guides: String Functions
 
 Categories: Converting

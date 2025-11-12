@@ -8,7 +8,7 @@ Answer `true` if _s_ is a grave accent, else `false`.
 >>> '"'.isQuotationMark
 true
 
->>> 34.asCharacter.isQuotationMark
+>>> Character(34).isQuotationMark
 true
 ```
 

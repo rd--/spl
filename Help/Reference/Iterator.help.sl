@@ -2,6 +2,31 @@
 
 `Iterator` is a `Trait` that represents the ability to maintain a position reference into a collection of objects.
 
+```
+>>> system
+>>> .traitDictionary['Iterator']
+>>> .isTrait
+true
+```
+
+List of types implementing `Iterator`:
+
+```
+>>> system
+>>> .traitTypes('Iterator')
+>>> .sort
+[
+	'AliasMethod'
+	'BlockStream'
+	'CollectionStream'
+	'LinearCongruential'
+	'MersenneTwister'
+	'MutableCollectionStream'
+	'Sfc32'
+	'SplitMix'
+]
+```
+
 To implement `Iterator` a type must implement `next`.
 
 ```

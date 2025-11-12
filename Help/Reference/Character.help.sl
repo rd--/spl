@@ -1,6 +1,22 @@
 # Character
 
+- _Character(x)_
+
 A `Character` is both a `Trait`, and also a `Type` holding a single character string.
+
+At `String`:
+
+```
+>>> Character('c').codePoint
+99
+```
+
+At `SmallFloat`:
+
+```
+>>> Character(99).characterString
+'c'
+```
 
 The `codePoint` method retrieves the unicode code point:
 
@@ -8,14 +24,14 @@ The `codePoint` method retrieves the unicode code point:
 >>> 'x'.codePoint
 120
 
->>> 'x'.asCharacter.codePoint
+>>> Character('x').codePoint
 120
 ```
 
 The `characterString` method retrieves the single element string:
 
 ```
->>> 'x'.asCharacter.characterString
+>>> Character('x').characterString
 'x'
 
 >>> 'x'.characterString
@@ -25,25 +41,21 @@ The `characterString` method retrieves the single element string:
 Characters are cached on construction, and therefore equal characters are identical:
 
 ```
->>> let c1 = 'x'.asCharacter;
->>> let c2 = 120.asCharacter;
+>>> let c1 = Character('x');
+>>> let c2 = Character(120);
 >>> (c1 = c2, c1 == c2)
 (true, true)
 ```
 
 There is no literal syntax for characters,
-the `printString` for a `Character` is not however equal to the `printString` for a one place `String`:
+and the `printString` for a `Character` is not equal to the `printString` for a one place `String`:
 
 ```
->>> 'x'.asCharacter.printString
-'120.asCharacter'
-```
+>> Character('x').printString
+Character('x', 120)
 
-The `storeString` is distinguished:
-
-```
->>> 'x'.asCharacter.storeString
-'120.asCharacter'
+>> Character('x').storeString
+Character('x', 120)
 ```
 
 A `Character` is not equal to an equivalent string of one place,
@@ -51,9 +63,16 @@ but it is similar to such:
 
 ```
 >>> let s = 'c';
->>> let c = 'c'.asCharacter;
+>>> let c = Character('c');
 >>> (s = c, c = s, s ~ c, c ~ s)
 (false, false, true, true)
+```
+
+Printing:
+
+```
+>> Character('c')
+Character('c', 99)
 ```
 
 _Note:_
@@ -63,5 +82,7 @@ Except where necessary the use of `Character` and `Character` `List` values are 
 * * *
 
 See also: asCharacter, isAlphaNumeric, isCharacter, isDigit, isLetter, isUpperCase, isLowerCase, String
+
+Guides: String Functions
 
 Categories: Text, Type

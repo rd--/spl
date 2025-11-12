@@ -537,9 +537,9 @@ let a = [1 1 3 4]; a @* [2 4 3 1] = [1 4 3 1] /* atAll operator */
 4.fill { :i | i * 2 } = [2, 4, 6, 8] /* fill list using block at indicies */
 ```
 
-## PrimitiveSequence -- collection trait
+## PrimitiveArray -- collection trait
 ```
-system.includesPackage('PrimitiveSequence') /* package */
+system.includesPackage('PrimitiveArray') /* package */
 let a = [1, 7, 3, 9, 5]; let b = a.sortBy { :p :q | p >= q }; a = [9, 7 .. 1] & { a == b } /* sort using provided comparison, in place */
 [1, 7, 3, 9, 5].sortBy { :p :q | p >= q } = [9, 7 .. 1] /* sort using provided comparison, in place answering array */
 [1, 7, 3, 9, 5].sort = [1, 3 .. 9] /* sort using default comparison of <= */
@@ -3783,7 +3783,7 @@ system.doesTypeImplementMethod('List', 'species') = true
 [1, 2, 3].respondsTo(select:/2) = true /* does a value (courtesy the type) implement a method */
 system.methodPrintString('add').size >= 3
 system.methodLookupAtType('collect', 2, 'List').isMethod = true
-system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveSequence'
+system.methodLookupAtType('collect', 2, 'List').origin.name = 'PrimitiveArray'
 system.methodLookupAtType('collect', 2, 'List').block.value([3, 4, 5], { :x | x * x }) = collect([3, 4, 5], { :x | x * x })
 system.methodLookupAtType('sum', 1, 'List') == system.methodLookupAtType('sum', 1, 'SortedSet')
 'sum:/1'.parseQualifiedMethodName = ['sum', 1]
@@ -3812,7 +3812,7 @@ let [t, r] = { system.absoluteTime }.repeatedTiming(0.01); t < 0.00001 & { r > 1
 system.traitDictionary.isDictionary = true
 system.traitDictionary.includesIndex('Collection') = true
 system.traitTypes('Collection').includes('List') = true
-system.typeTraits('List').includes('PrimitiveSequence') = true
+system.typeTraits('List').includes('PrimitiveArray') = true
 system.methodTraits('atRandom:/1').includesAll(['Collection', 'Sequenceable']) = true
 system.methodTraits('sum:/1') = ['ArithmeticProgression', 'Collection', 'Iterable', 'Multiset']
 system.traitTypes('Object').includes('SmallFloat') = true

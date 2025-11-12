@@ -14,7 +14,7 @@ true
 Upper case _Y_ is a letter:
 
 ```
->>> 'Y'.asCharacter.isLetter
+>>> 'Y'.Character.isLetter
 true
 ```
 

@@ -255,13 +255,7 @@
 	}
 
 	indicesOf { :self :anObject |
-		let answer = [];
-		self.withIndexDo { :each :index |
-			(each = anObject).ifTrue {
-				answer.add(index)
-			}
-		};
-		answer
+		self.indices { :each | each = anObject }
 	}
 
 	indicesSorted { :self |

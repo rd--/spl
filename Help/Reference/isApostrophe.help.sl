@@ -5,8 +5,11 @@
 Answer `true` if _s_ is an apostrophe, else `false`.
 
 ```
->>> 39.asCharacter.isApostrophe
+>>> Character(39).isApostrophe
 true
+
+>>> '’'.isApostrophe
+false
 ```
 
 * * *

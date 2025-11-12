@@ -1,7 +1,7 @@
 # Writing Primitives
 
 The primitive for accessing an item in a collection is `atIfAbsent`.
-For an example implementation see `PrimitiveSequence`.
+For an example implementation see `PrimitiveArray`.
 
 The primitive checks that the index is a valid integer for the collection,
 and if it is returns the appropriate element.
