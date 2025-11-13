@@ -1,4 +1,4 @@
-UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
+UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientList |
 
 	+ { :self :operand |
 		let c1 = self.coefficientList;
@@ -203,10 +203,6 @@ UnivariatePolynomial : [Object, Copyable, Equatable] { | coefficientList |
 		self.coefficientList.resultant(
 			operand.coefficientList
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	terms { :self |

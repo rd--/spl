@@ -1,4 +1,4 @@
-ColourGradient : [Object] { | colourList positionListOrNil |
+ColourGradient : [Object, Storeable] { | colourList positionListOrNil |
 
 	asBlock { :self |
 		self.positionList.linearInterpolator(
@@ -74,10 +74,6 @@ ColourGradient : [Object] { | colourList positionListOrNil |
 		} {
 			self.error('size: invalid')
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

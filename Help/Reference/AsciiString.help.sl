@@ -77,6 +77,13 @@ Split on sub-string using `splitBy`:
 ]
 ```
 
+Store string:
+
+```
+>> AsciiString('String').storeString
+AsciiString('String')
+```
+
 * * *
 
 See also: ByteArray, Character, String

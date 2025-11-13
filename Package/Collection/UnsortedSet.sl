@@ -1,4 +1,4 @@
-UnsortedSet : [Object, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
+UnsortedSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Set] { | contents comparator |
 
 	asList { :self |
 		self.contents.copy
@@ -40,7 +40,7 @@ UnsortedSet : [Object, Equatable, Iterable, Collection, Extensible, Removable, U
 	}
 
 	storeString { :self |
-		'UnsortedSet(%)'.format([self.contents.storeString])
+		self.storeStringAsInitializeSlotsOmitting(['comparator'])
 	}
 
 }

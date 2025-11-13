@@ -1,4 +1,4 @@
-CalendarDuration : [Object, Equatable, Comparable] { | components |
+CalendarDuration : [Object, Storeable, Equatable, Comparable] { | components |
 
 	asCalendarDuration { :self |
 		self
@@ -36,10 +36,6 @@ CalendarDuration : [Object, Equatable, Comparable] { | components |
 
 	seconds { :self |
 		self.components.at(6)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	years { :self |

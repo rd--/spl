@@ -1,4 +1,4 @@
-Range : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	+ { :self :operand |
 		operand.isSmallFloat.if {
@@ -171,10 +171,6 @@ Range : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenc
 
 	species { :self |
 		List:/1
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

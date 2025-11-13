@@ -1,6 +1,6 @@
 /* Requires: String */
 
-BacktickQuotedString : [Object, Equatable] { | contents:<String> |
+BacktickQuotedString : [Object, Storeable, Equatable] { | contents:<String> |
 
 	asString { :self |
 		self.contents
@@ -10,13 +10,17 @@ BacktickQuotedString : [Object, Equatable] { | contents:<String> |
 		'`%`'.format([self.contents])
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
+}
+
++String {
+
+	BacktickQuotedString { :self |
+		newBacktickQuotedString().initializeSlots(self)
 	}
 
 }
 
-DoubleQuotedString : [Object, Equatable] { | contents:<String> |
+DoubleQuotedString : [Object, Storeable, Equatable] { | contents:<String> |
 
 	asString { :self |
 		self.contents
@@ -26,17 +30,9 @@ DoubleQuotedString : [Object, Equatable] { | contents:<String> |
 		'"%"'.format([self.contents])
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 }
 
 +String {
-
-	BacktickQuotedString { :self |
-		newBacktickQuotedString().initializeSlots(self)
-	}
 
 	DoubleQuotedString { :self |
 		newDoubleQuotedString().initializeSlots(self)

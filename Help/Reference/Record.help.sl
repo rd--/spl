@@ -10,16 +10,18 @@ List of traits implemented by `Record`:
 ```
 >>> system.typeLookup('Record')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
-	'Json'
-	'Iterable'
-	'Indexable'
 	'Collection'
-	'Removable'
-	'Extensible'
 	'Dictionary'
+	'Equatable'
+	'Extensible'
+	'Indexable'
+	'Iterable'
+	'Json'
+	'Object'
+	'Removable'
+	'Storeable'
 ]
 ```
 

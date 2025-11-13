@@ -53,15 +53,11 @@ ListView : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequ
 	}
 
 	printString { :self |
-		self.storeStringAsInitializeSlots
+		self.asList.printString
 	}
 
 	size { :self |
 		self.endIndex - self.startIndex + 1
-	}
-
-	storeString { :self |
-		self.error('ListView>>storeString: not storeable')
 	}
 
 }

@@ -1,6 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
+Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 
 	boundingBox { :self |
 		{ self.coordinates } ! 2
@@ -34,10 +34,6 @@ Point : [Object, Equatable, Geometry, CartesianCoordinates] { | coordinates |
 		Point(
 			projection.asUnaryBlock.value(self.coordinates)
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	svgFragment { :self :options |

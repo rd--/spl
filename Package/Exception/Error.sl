@@ -62,7 +62,7 @@
 
 }
 
-Error! : [Object, Equatable, Exception, PrimitiveError] {
+Error! : [Object, Storeable, Equatable, Exception, PrimitiveError] {
 
 	printString { :self |
 		'*ERROR* ' ++ self.description

@@ -7,14 +7,16 @@ List of traits implemented by `String`:
 ```
 >>> system.typeLookup('String')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
-	'Comparable'
-	'Json'
-	'Iterable'
-	'Indexable'
 	'Character'
+	'Comparable'
+	'Equatable'
+	'Indexable'
+	'Iterable'
+	'Json'
+	'Object'
+	'Storeable'
 ]
 ```
 

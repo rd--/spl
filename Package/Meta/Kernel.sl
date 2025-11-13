@@ -9,6 +9,7 @@
 	'Magnitude'
 	'Number'
 	'RandomNumberGenerator'
+	'Storeable'
 	'Binary' /* > Cache */
 	'Integer' /* > Cache */
 

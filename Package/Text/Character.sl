@@ -118,7 +118,7 @@
 
 }
 
-Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterString codePoint |
+Character : [Object, Storeable, Equatable, Comparable, Magnitude, Character] { | characterString codePoint |
 
 	= { :self :anObject |
 		self == anObject
@@ -168,10 +168,6 @@ Character : [Object, Equatable, Comparable, Magnitude, Character] { | characterS
 		} {
 			self.asLowerCase == aCharacter.asLowerCase
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	zero { :self |

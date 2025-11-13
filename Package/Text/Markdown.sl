@@ -179,10 +179,6 @@ Markdown : [Object, Equatable, Cache, Iterable] { | source cache |
 		'<Markdown>'
 	}
 
-	storeString { :self |
-		'Markdown(' ++ self.source.storeString ++ ')'
-	}
-
 }
 
 +String {

@@ -12,25 +12,25 @@ to convert a `Multiset` to a `Set` use `asSet`,
 to convert a `Multiset` to a `List` use `asList`:
 
 ```
->>> let list = [1 1 1 3 3 5];
->>> let bag = list.asMultiset;
->>> let set = bag.asSet;
+>>> let a = [1 1 1 3 3 5];
+>>> let b = a.asMultiset;
+>>> let c = b.asSet;
 >>> (
->>> 	list.size,
->>> 	bag.size,
->>> 	set.size,
->>> 	bag.asList
+>>> 	a.size,
+>>> 	b.size,
+>>> 	c.size,
+>>> 	b.asList
 >>> )
-(6, 6, 3, list)
+(6, 6, 3, a)
 ```
 
 To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
 
 ```
->>> let bag = [1 1 1 3 3 5].asMultiset;
+>>> let a = [1 1 1 3 3 5].asMultiset;
 >>> (
->>> 	bag.sortedCounts,
->>> 	bag.sortedElements
+>>> 	a.sortedCounts,
+>>> 	a.sortedElements
 >>> )
 (
 	[3 -> 1, 2 -> 3, 1 -> 5],
@@ -41,45 +41,54 @@ To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedE
 To get the elements as a `Dictionary` use `valuesAndCounts`:
 
 ```
->>> [1 1 1 3 3 5].asMultiset.valuesAndCounts
+>>> [1 1 1 3 3 5].asMultiset
+>>> .valuesAndCounts
 [|1 -> 3, 3 -> 2, 5 -> 1|]
 ```
 
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
 
 ```
->>> let bag = [1 1 1 3 3 5].asMultiset;
->>> bag.occurrencesOf(3)
+>>> [1 1 1 3 3 5].asMultiset
+>>> .occurrencesOf(3)
 2
 ```
 
 The `size`, also called the _cardinality_, of a `IdentityMultiset` is the `sum` of the counts:
 
 ```
->>> let bag = [1 1 1 3 3 5].asMultiset;
->>> (bag.size, 3 + 2 + 1)
-(6, 6)
+>>> [1 1 1 3 3 5].asMultiset
+>>> .size
+3 + 2 + 1
 ```
 
 To add an element to a `Multiset` use `add` or `addWithOccurrences`:
 
 ```
->>> let bag = [1 1 1].asMultiset;
->>> bag.addWithOccurrences(3, 2);
->>> bag.add(5);
->>> bag.sortedElements
+>>> let a = [1 1 1].asMultiset;
+>>> a.addWithOccurrences(3, 2);
+>>> a.add(5);
+>>> a.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 To remove an element from a `Multiset` use `remove`:
 
 ```
->>> let bag = [1 1 1 3 3 5].asMultiset;
->>> bag.remove(1);
->>> bag.remove(3);
->>> bag.remove(5);
->>> bag.sortedElements
+>>> let a = [1 1 1 3 3 5].asMultiset;
+>>> a.remove(1);
+>>> a.remove(3);
+>>> a.remove(5);
+>>> a.sortedElements
 [1 -> 2, 3 -> 1]
+```
+
+Store string:
+
+```
+>>> [1 1 1 2 3 3].asMultiset
+>>> .storeString
+'Multiset([|1 -> 3, 2 -> 1, 3 -> 2|])'
 ```
 
 * * *

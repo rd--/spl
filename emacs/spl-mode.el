@@ -302,6 +302,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("**" . ?⇈) ; U+21C8 ⇈ Upwards Paired Arrows
      ("*.x" . ?⊗) ; U+2297 ⊗ Circled Times
      ("//" . ?⫽) ; U+02AFD ⫽ Double Solidus Operator
+     ("\\" . ?⑊) ; U+244A ⑊ OCR Double Backslash
      ("+-" . ?±) ; U+00B1 ± Plus-Minus Sign
      ("++" . ?⧺) ; U+29FA ⧺ Double plus
      ("+++" . ?⧻) ; U+29FB ⧻ Triple Plus

@@ -1,4 +1,4 @@
-DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
+DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAnswer |
 
 	evaluate { :self |
 		{
@@ -29,10 +29,6 @@ DocumentationTest : [Object, Equatable] { | prefix program expectedAnswer |
 				self.error('format: unknown prefix: ' ++ self.prefix)
 			}
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

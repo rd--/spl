@@ -531,7 +531,7 @@
 
 }
 
-Dictionary : [Object, Copyable, Equatable, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
+Dictionary : [Object, Storeable, Copyable, Equatable, Iterable, Indexable, Collection, Extensible, Removable, Dictionary] { | keys values comparator |
 
 	atIfAbsent { :self :key :ifAbsent:/0 |
 		let index = self.keys.indexOfBy(key, self.comparator);
@@ -574,7 +574,8 @@ Dictionary : [Object, Copyable, Equatable, Iterable, Indexable, Collection, Exte
 
 	storeString { :self |
 		self.storeStringLiteral(
-			'[| |]', '[|', '|]',
+			'[| |]',
+			'[|', '|]',
 			storeString:/1, ' -> ', storeString:/1
 		)
 	}

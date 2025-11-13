@@ -1,6 +1,6 @@
 /* Requires: CartesianCoordinates */
 
-SphericalCoordinates : [Object, Equatable] { | coordinates |
+SphericalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
 	asSphericalCoordinates { :self |
 		self
@@ -51,10 +51,6 @@ SphericalCoordinates : [Object, Equatable] { | coordinates |
 
 	theta { :self |
 		self.coordinates[2]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	x { :self |

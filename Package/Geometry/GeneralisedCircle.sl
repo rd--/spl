@@ -1,4 +1,4 @@
-GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
+GeneralisedCircle : [Object, Storeable, Equatable, Geometry] { | c alpha d |
 
 	asCircle { :self |
 		let [c, alpha, _] = self.assertIsCircle.coefficientList;
@@ -84,10 +84,6 @@ GeneralisedCircle : [Object, Equatable, Geometry] { | c alpha d |
 		let [_, alpha, d] = self.assertIsLine.coefficientList;
 		let [a, b] = alpha.realImaginary;
 		[a, -1 * b, d / 2]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

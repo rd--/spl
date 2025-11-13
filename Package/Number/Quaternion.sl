@@ -1,6 +1,6 @@
 /* Requires: Complex */
 
-Quaternion : [Object, Equatable, Number] { | contents |
+Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
 	* { :self :anObject |
 		anObject.isQuaternion.if {
@@ -160,10 +160,6 @@ Quaternion : [Object, Equatable, Number] { | contents |
 
 	square { :self |
 		self * self
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	zero { :self |

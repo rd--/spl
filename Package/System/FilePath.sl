@@ -1,4 +1,4 @@
-FilePath : [Object, Equatable] { | contents |
+FilePath : [Object, Storeable, Equatable] { | contents |
 
 	absolutePathString { :self |
 		self.contents
@@ -42,10 +42,6 @@ FilePath : [Object, Equatable] { | contents |
 
 	removeFile { :self |
 		system.removeFile(self.contents)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	writeBinaryFile { :self :data |

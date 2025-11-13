@@ -1,4 +1,4 @@
-SparseArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape unspecifiedValue |
+SparseArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape unspecifiedValue |
 
 	arrayDepth { :self |
 		self.rank

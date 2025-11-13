@@ -1,4 +1,4 @@
-NumericArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
+NumericArray : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Collection, Sequenceable] { | contents shape storageType |
 
 	arrayDepth { :self |
 		self.shape.size
@@ -133,10 +133,7 @@ NumericArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, 
 	}
 
 	storeString { :self |
-		'NumericArray(%, %)'.format([
-			self.contents,
-			self.shape
-		])
+		self.storeStringAsInitializeSlotsOmitting(['storageType'])
 	}
 
 	transposeInPlace { :self |
@@ -220,11 +217,13 @@ NumericArray : [Object, Equatable, Comparable, Iterable, Indexable, Collection, 
 	}
 
 	NumericArray { :self :storageType |
-		let contents = storageType.caseOf([
-			'Byte' -> { self.ravel.asByteArray },
-			'Float32' -> { self.ravel.asFloat32Array },
-			'Float64' -> { self.ravel.asFloat64Array }
-		]);
+		let contents = storageType.caseOf(
+			[
+				'Byte' -> { self.ravel.asByteArray },
+				'Float32' -> { self.ravel.asFloat32Array },
+				'Float64' -> { self.ravel.asFloat64Array }
+			]
+		);
 		NumericArray(contents, self.shape)
 	}
 

@@ -1,6 +1,6 @@
 /* Requires: SmallFloat String */
 
-LargeInteger! : [Object, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
+LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
 	== { :self :anObject |
 		<primitive: return _self === _anObject;>
@@ -350,8 +350,12 @@ LargeInteger! : [Object, Equatable, Comparable, Binary, Magnitude, Number, Integ
 		>
 	}
 
-	storeString { :self |
+	storeStringLiteral { :self |
 		self.basicPrintString(10) ++ 'L'
+	}
+
+	storeString { :self |
+		self.storeStringLiteral
 	}
 
 	toNumber { :self :precision |

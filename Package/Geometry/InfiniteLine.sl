@@ -1,4 +1,4 @@
-InfiniteLine : [Object, Equatable] { | point vector |
+InfiniteLine : [Object, Storeable, Equatable] { | point vector |
 
 	asGeneralisedCircle { :self |
 		let [a, b, c] = self.lineEquation;
@@ -44,10 +44,6 @@ InfiniteLine : [Object, Equatable] { | point vector |
 		let m = j / i;
 		let c = y - (m * x);
 		[m, c]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	theta { :self |

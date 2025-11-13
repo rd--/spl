@@ -1,4 +1,4 @@
-Circle : [Object, Equatable, Geometry] { | center radius |
+Circle : [Object, Storeable, Equatable, Geometry] { | center radius |
 
 	asGeneralisedCircle { :self |
 		let c = 1;
@@ -108,13 +108,6 @@ Circle : [Object, Equatable, Geometry] { | center radius |
 
 	scale { :self :m |
 		Circle(self.center, self.radius * m)
-	}
-
-	storeString { :self |
-		'Circle(%, %)'.format([
-			self.center.storeString,
-			self.radius.storeString
-		])
 	}
 
 	translate { :self :factor |

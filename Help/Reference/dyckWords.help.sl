@@ -1,6 +1,6 @@
 # dyckWords
 
-- _dyckWords(n, [a b])_
+- _dyckWords(n, [a b]=[1 0])_
 
 Enumerate all Dyck words of size _2n_.
 A Dyck word is a balanced string of brackets _a_ and _b_.
@@ -14,6 +14,9 @@ Words of length four on _-1,1_:
 	-1 -1 1 1;
 	-1 1 -1 1
 ]
+
+>>> 2.catalanNumber
+2
 ```
 
 Words of length six on _0,1_:
@@ -27,6 +30,9 @@ Words of length six on _0,1_:
 	0 1 0 0 1 1;
 	0 1 0 1 0 1
 ]
+
+>>> 3.catalanNumber
+5
 ```
 
 Words of length eight:
@@ -49,6 +55,9 @@ Words of length eight:
 	0 1 0 1 0 0 1 1;
 	0 1 0 1 0 1 0 1
 ]
+
+>>> 4.catalanNumber
+14
 ```
 
 The number of Dyck words of length _2n_ is the _n_-th Catalan number.
@@ -65,7 +74,7 @@ The number of Dyck words of length _2n_ is the _n_-th Catalan number.
 
 * * *
 
-See also: catalanNumber
+See also: catalanNumber, isDyckWord
 
 Guides: Combinatorial Functions
 

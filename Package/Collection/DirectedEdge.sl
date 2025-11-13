@@ -1,4 +1,4 @@
-DirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
+DirectedEdge : [Object, Storeable, Equatable, Comparable, Indexable] { | vertexList |
 
 	asAssociation { :self |
 		let [from, to] = self.vertexList;
@@ -76,10 +76,6 @@ DirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
 
 	size { :self |
 		2
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	tail { :self |

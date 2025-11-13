@@ -1,6 +1,6 @@
 /* Requires: TimeStamp */
 
-TimeInterval : [Object, Equatable] { | min max |
+TimeInterval : [Object, Storeable, Equatable] { | min max |
 
 	absoluteTime { :self |
 		Interval(
@@ -23,10 +23,6 @@ TimeInterval : [Object, Equatable] { | min max |
 
 	minMax { :self |
 		[self.min, self.max]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

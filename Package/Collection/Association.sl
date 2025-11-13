@@ -1,6 +1,6 @@
 /* Requires: List, Object */
 
-Association : [Object, Equatable, Comparable] { | key value |
+Association : [Object, Storeable, Equatable, Comparable] { | key value |
 
 	asAssociation { :self |
 		self
@@ -45,15 +45,6 @@ Association : [Object, Equatable, Comparable] { | key value |
 
 	second { :self |
 		self.value
-	}
-
-	storeString { :self |
-		'(% -> %)'.format(
-			[
-				self.key.storeString,
-				self.value.storeString
-			]
-		)
 	}
 
 }

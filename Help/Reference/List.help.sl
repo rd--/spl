@@ -24,6 +24,7 @@ Traits implemented by `List`:
 	'PrimitiveArray'
 	'Removable'
 	'Sequenceable'
+	'Storeable'
 ]
 ```
 

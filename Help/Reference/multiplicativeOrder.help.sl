@@ -3,7 +3,7 @@
 - _multiplicativeOrder(k, n)_
 
 Answer the multiplicative order of _k_ modulo _n_,
-defined as the smallest integer _m_ such that _(k ^ m) % n = 1_.
+defined as the smallest integer _m_ such that _(k^m)%n=1_.
 
 If _n_ is `one` answer _n_:
 
@@ -111,7 +111,7 @@ Find which of the remainders above was matched:
 2
 ```
 
-Solve the discrete log problem with _5 ^ m % 7 = 4_:
+Solve the discrete log problem with _5^m%7=4_:
 
 ```
 >>> 5.multiplicativeOrder(7, [4])
@@ -127,8 +127,9 @@ OEIS [A001913](https://oeis.org/A001913):
 
 ```
 >>> 1:50.prime.select { :n |
->>> 	let o = 10L.multiplicativeOrder(n);
->>> 	o = (n - 1)
+>>> 	10.multiplicativeOrder(n)
+>>> 	=
+>>> 	(n - 1)
 >>> }
 [
 	  7  17  19  23  29
@@ -151,7 +152,9 @@ OEIS
 ```
 >>> [2 3 5 6 7 11].collect { :p |
 >>> 	1:17.prime.select { :n |
->>> 		multiplicativeOrder(p, n) = (n - 1)
+>>> 		multiplicativeOrder(p, n)
+>>> 		=
+>>> 		(n - 1)
 >>> 	}
 >>> }
 [
@@ -196,8 +199,9 @@ OEIS [A006559](https://oeis.org/A006559):
 >>> 	[2 5].includes(p).if {
 >>> 		false
 >>> 	} {
->>> 		let o = 10L.multiplicativeOrder(p);
->>> 		o < (p - 1)
+>>> 		10.multiplicativeOrder(p)
+>>> 		<
+>>> 		(p - 1)
 >>> 	}
 >>> }
 [
@@ -212,6 +216,31 @@ OEIS [A006559](https://oeis.org/A006559):
 	331 347 349 353 359
 	373 397 401 409 421
 	431 439 443 449 457
+]
+```
+
+Number of cyclotomic cosets of _2%(2n+1)_,
+OEIS [A006694](https://oeis.org/A006694):
+
+```
+>>> 0:99.collect { :n |
+>>> 	(2 * n + 1).divisors.sum { :d |
+>>> 		d.eulerPhi
+>>> 		/
+>>> 		2.multiplicativeOrder(d)
+>>> 	} - 1
+>>> }
+[
+	0  1  1  2  2  1  1  4  2  1
+	5  2  2  3  1  6  4  5  1  4
+	2  3  7  2  4  7  1  4  4  1
+	1 12  6  1  5  2  8  7  5  2
+	4  1 11  4  8  9 13  4  2  7
+	1  2 14  1  3  4  4  5 11  8
+	2  7  3 18 10  1  9 10  2  1
+	5  4  6  9  1 10 12 13  3  4
+	8  1 13  2  2 11  1  8  4  1
+	1  4  6  7 19  2  2 19  1  2
 ]
 ```
 
@@ -245,7 +274,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/MultiplicativeOrder.html),
 _OEIS_
 [1](https://oeis.org/A001913)
-[2](https://oeis.org/A007732),
+[2](https://oeis.org/A007732)
+[3](https://oeis.org/A006694),
 _W_
 [1](https://en.wikipedia.org/wiki/Multiplicative_order)
 [2](https://en.wikipedia.org/wiki/Discrete_logarithm)

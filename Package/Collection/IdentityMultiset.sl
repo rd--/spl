@@ -1,6 +1,6 @@
 /* Requires: Multiset */
 
-IdentityMultiset : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
+IdentityMultiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
 
 	addWithOccurrences { :self :anObject :anInteger |
 		anObject.isImmediate.ifFalse {

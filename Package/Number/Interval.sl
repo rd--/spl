@@ -1,13 +1,15 @@
-Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
+Interval : [Object, Storeable, Equatable, Number] { | min max |
 
 	< { :self :operand |
 		operand.isInterval.if {
-			self.min < operand.min & {
-				self.max < operand.max
-			}
+			self.max < operand.min
 		} {
 			operand.adaptToIntervalAndApply(self, <)
 		}
+	}
+
+	> { :self :operand |
+		operand < self
 	}
 
 	+ { :self :operand |
@@ -200,10 +202,6 @@ Interval : [Object, Equatable, Comparable, Magnitude, Number] { | min max |
 
 	subdivide { :self :n |
 		self.discretize(n + 1)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	union { :self :operand |

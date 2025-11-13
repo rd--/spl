@@ -1,8 +1,8 @@
 # lexicographicPermutations
 
-- _lexicographicPermutations(aSequence)_
+- _lexicographicPermutations([x₁ x₂ …])_
 
-Answer a `List` of the distinct permutations of _aSequence_, in lexicographic order.
+Answer a `List` of the distinct permutations of the sequence _x_, in lexicographic order.
 
 ```
 >>> [1 2 3 4].lexicographicPermutations

@@ -13,7 +13,7 @@ Solve an initial-value problem for a first-order difference equation with kernel
 
 Find the first few Fibonacci numbers,
 also Erv Wilson’s Meru 1,
-OEIS [A000045](https://oeis.org/A000045):
+OEIS [A000045](http://oeis.org/A000045):
 
 ```
 >>> linearRecurrence([1 1], [1 1], 13)
@@ -559,6 +559,33 @@ OEIS [A001840](https://oeis.org/A001840):
 ]
 ```
 
+Site swap pattern _26120123456_,
+OEIS [A065171](https://oeis.org/A065171):
+
+```
+>>> linearRecurrence(
+>>> 	[0 0 0 2 0 0 0 -1],
+>>> 	[1 4 2 8 3 12 6 16],
+>>> 	69
+>>> )
+[
+	  1   4   2   8   3
+	 12   6  16   5  20
+	 10  24   7  28  14
+	 32   9  36  18  40
+	 11  44  22  48  13
+	 52  26  56  15  60
+	 30  64  17  68  34
+	 72  19  76  38  80
+	 21  84  42  88  23
+	 92  46  96  25 100
+	 50 104  27 108  54
+	112  29 116  58 120
+	 31 124  62 128  33
+	132  66 136  35
+]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -587,7 +614,8 @@ _OEIS_
 [3](http://oeis.org/A000129)
 [4](http://oeis.org/A002203)
 [5](http://oeis.org/A001608)
-[6](http://oeis.org/A000124),
+[6](http://oeis.org/A000124)
+[7](http://oeis.org/A065171),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 [2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)

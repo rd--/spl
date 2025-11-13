@@ -68,7 +68,7 @@
 
 }
 
-PolygonMesh : [Object, Equatable, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
+PolygonMesh : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
 
 	canonicalForm { :self |
 		let v = self.vertexCoordinates;
@@ -92,10 +92,6 @@ PolygonMesh : [Object, Equatable, Geometry, PolygonMesh] { | vertexCoordinates f
 				self.vertexCoordinates.atAll(each).asSvgPointList(options)
 			])
 		}.unlines
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

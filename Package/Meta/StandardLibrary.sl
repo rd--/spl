@@ -168,6 +168,7 @@
 	'Combinatorics'
 	'DifferentialEquations'
 	'DistanceFunctions'
+	'DyckWord'
 	'EasingFunctions'
 	'Elementwise'
 	'FeatureDetection'

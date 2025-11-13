@@ -1,4 +1,4 @@
-Boolean! : [Object, Equatable, Json] {
+Boolean! : [Object, Storeable, Equatable, Json] {
 
 	& { :self :aBlock:/0 |
 		<primitive: return _self && _aBlock_0();>

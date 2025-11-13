@@ -110,7 +110,7 @@
 
 }
 
-CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
+CartesianCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
 
 	asCartesianCoordinates { :self |
 		self
@@ -144,10 +144,6 @@ CartesianCoordinates : [Object, Copyable, Equatable, Comparable, Indexable, Cart
 
 	second { :self |
 		self.at(2)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	third { :self |

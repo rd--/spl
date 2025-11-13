@@ -1,4 +1,4 @@
-Arc : [Object, Equatable, Geometry] { | center radii angles |
+Arc : [Object, Storeable, Equatable, Geometry] { | center radii angles |
 
 	apothem { :self |
 		let a = self.chordLength;
@@ -128,10 +128,6 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 		}
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 	svgFragment { :self :options |
 		let precision = options['precision'];
 		let r = self.radii;
@@ -194,7 +190,7 @@ Arc : [Object, Equatable, Geometry] { | center radii angles |
 
 }
 
-CircularSector : [Object, Geometry] { | arc |
+CircularSector : [Object, Storeable, Geometry] { | arc |
 
 	boundingBox { :self |
 		self.geometry.boundingBox
@@ -216,10 +212,6 @@ CircularSector : [Object, Geometry] { | arc |
 		)
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 	svgFragment { :self :options |
 		self.geometry.svgFragment(options)
 	}
@@ -234,7 +226,7 @@ CircularSector : [Object, Geometry] { | arc |
 
 }
 
-CircularSegment : [Object, Geometry] { | arc |
+CircularSegment : [Object, Storeable, Geometry] { | arc |
 
 	boundingBox { :self |
 		self.geometry.boundingBox
@@ -253,10 +245,6 @@ CircularSegment : [Object, Geometry] { | arc |
 				a
 			]
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	svgFragment { :self :options |

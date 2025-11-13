@@ -10,15 +10,17 @@ Traits implemented by `SortedSet`:
 ```
 >>> system.typeLookup('SortedSet')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
+	'Collection'
 	'Copyable'
 	'Equatable'
-	'Iterable'
-	'Collection'
 	'Extensible'
+	'Iterable'
+	'Object'
 	'Removable'
 	'Set'
+	'Storeable'
 ]
 ```
 

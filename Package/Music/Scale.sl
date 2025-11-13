@@ -1,4 +1,4 @@
-Scale : [Object] { | startIndex intervals description |
+Scale : [Object, Storeable] { | startIndex intervals description |
 
 	asLineDrawing { :self |
 		let i = [0] ++ self.intervals.prefixSum * 3;
@@ -123,10 +123,6 @@ Scale : [Object] { | startIndex intervals description |
 
 	stepArity { :self |
 		self.intervals.nub.size
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	textDrawing { :self |

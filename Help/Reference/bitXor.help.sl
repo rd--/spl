@@ -115,6 +115,22 @@ At `LargeInteger`:
 2166136195L
 ```
 
+Siteswap transition sequence,
+in siteswaps the number of 1-bits is a constant:
+
+```
+>>> [5 2 5 1 2 6 3 3 0 4]
+>>> .foldList(2r111) { :n :k |
+>>> 	n.bitXor(1 << k) - 1 / 2
+>>> }
+[
+	2r000111 2r010011 2r001011
+	2r010101 2r001011 2r000111
+	2r100011 2r010101 2r001110
+	2r000111 2r001011
+]
+```
+
 Scatter plot of OEIS [A003188](https://oeis.org/A003188):
 
 ~~~spl svg=A
@@ -181,3 +197,4 @@ _Smalltalk_
 5.6.5.9,
 _W_
 [1](https://en.wikipedia.org/wiki/Exclusive_or)
+[2](https://en.wikipedia.org/wiki/Bitwise_XOR)

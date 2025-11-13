@@ -8,16 +8,19 @@ Answer a `List` of the `Trait` names implemented by the `Type` _t_.
 >>> 23.typeDefinition.name
 'SmallFloat'
 
->>> 23.typeDefinition.traitNameList
+>>> 23.typeDefinition
+>>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
+	'Binary'
 	'Comparable'
+	'Equatable'
+	'Integer'
 	'Json'
 	'Magnitude'
 	'Number'
-	'Integer'
-	'Binary'
+	'Object'
+	'Storeable'
 ]
 ```
 

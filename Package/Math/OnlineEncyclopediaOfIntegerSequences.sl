@@ -124,7 +124,7 @@
 				hexagonalNumber: [000384],
 				hofstadterQSequence: [005185],
 				integerDigits: [062756 364024 007376 265326 117966 160855 010060],
-				integerExponent: [001511 007814],
+				integerExponent: [001511 007814 025480],
 				integerSquareRoot: [000196],
 				interprime: [024675],
 				inventorySequence: [342585],
@@ -188,7 +188,7 @@
 				jacobsthalNumber: [001045],
 				josephusProblem: [006257 054995 032434],
 				josephusSequence: [209258],
-				jugglerSequence: [007320 094716],
+				jugglerSequence: [007320 094716 094683 389383],
 				kaprekarSequence: [099009],
 				keplerBouwkampConstant: [085365],
 				keplerTree: [294442 020651],
@@ -206,7 +206,7 @@
 					000931 000204 000129 002203 001608 000975 005578 000295 000225 000045
 					051049 001590 000930 079398 103372 103373 001076 134816 003269 017817
 					003520 000975 001687 052920 017827 001653 001519 002943 000127 000931
-					056530 000124 000078 001108 001840
+					056530 000124 000078 001108 001840 000045
 				],
 				liouvilleLambda: [008836],
 				lobbNumber: [039599],
@@ -232,7 +232,7 @@
 				moserDeBruijnSequence: [000695],
 				motzkinNumber: [001006],
 				motzkinSequence: [001006],
-				multiplicativeOrder: [001913 001122 019334 019335 019336 019337 019338 019339],
+				multiplicativeOrder: [001913 001122 019334 019335 019336 019337 019338 019339 006694],
 				namedConstant: [086088],
 				narayanaNumber: [001263],
 				narayanaSequence: [000930],

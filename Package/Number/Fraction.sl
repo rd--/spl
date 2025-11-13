@@ -1,4 +1,4 @@
-Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
+Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
 
 	< { :self :aNumber |
 		aNumber.isFraction.if {
@@ -500,11 +500,15 @@ Fraction : [Object, Equatable, Comparable, Magnitude, Number] { | numerator deno
 		self.asFloat.sqrt
 	}
 
-	storeString { :self |
+	storeStringLiteral { :self |
 		[
 			self.numerator.basicPrintString(10),
 			self.denominator.basicPrintString(10)
 		].stringIntercalate('/')
+	}
+
+	storeString { :self |
+		self.storeStringLiteral
 	}
 
 	sylvesterExpansion { :self |

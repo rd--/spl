@@ -45,15 +45,17 @@ true
 false
 ```
 
-The print string is given using the `->` operator,
-the store string is similar but adds parentheses:
+The print string is given using the `->` operator:
 
 ```
 >>> (0 -> 1).printString
 '0 -> 1'
+```
+
+The store string is given using the constructor:
 
 >>> (0 -> 1).storeString
-'(0 -> 1)'
+'Association(0, 1)'
 ```
 
 Fetch both key and value:

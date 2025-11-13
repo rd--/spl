@@ -347,9 +347,14 @@ export function copyTraitMethodsToType(
 	traitName: TraitName,
 	typeName: TypeName,
 ): void {
-	if (!traitExists(traitName) || !typeExists(typeName)) {
+	if (!traitExists(traitName)) {
 		throw new Error(
-			`copyTraitMethodsToType: trait or type does not exist: ${traitName}, ${typeName}`,
+			`copyTraitMethodsToType: trait does not exist: ${traitName}`,
+		);
+	}
+	if (!typeExists(typeName)) {
+		throw new Error(
+			`copyTraitMethodsToType: type does not exist: ${typeName}`,
 		);
 	}
 	const trait = getTrait(traitName);

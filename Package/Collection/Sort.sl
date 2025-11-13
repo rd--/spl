@@ -1,5 +1,9 @@
 +@Collection {
 
+	alphabet { :self |
+		self.nub.sort
+	}
+
 	heapSortBy { :self :sortBlock:/2 |
 		let h = Heap(sortBlock:/2);
 		let l = [];

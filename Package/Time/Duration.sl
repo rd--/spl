@@ -1,4 +1,4 @@
-Duration : [Object, Equatable, Comparable, Magnitude] { | seconds |
+Duration : [Object, Storeable, Equatable, Comparable, Magnitude] { | seconds |
 
 	< { :self :aDuration |
 		self.seconds < aDuration.asDuration.seconds
@@ -48,10 +48,6 @@ Duration : [Object, Equatable, Comparable, Magnitude] { | seconds |
 
 	isZero { :self |
 		self.seconds = 0
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

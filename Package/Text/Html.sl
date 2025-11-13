@@ -1,4 +1,4 @@
-Html : [Object, Equatable] { | contents |
+Html : [Object, Storeable, Equatable] { | contents |
 
 	asHtmlElement { :self :document |
 		document.parseHtml(self.contents)
@@ -10,10 +10,6 @@ Html : [Object, Equatable] { | contents |
 
 	isFragment { :self |
 		self.isDocument.not
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

@@ -1,6 +1,6 @@
 /* Requires: Cache Fraction ScalaTuning Tuning */
 
-RatioTuning : [Object, Equatable, Cache, Tuning] { | name description ratios octave cache |
+RatioTuning : [Object, Storeable, Equatable, Cache, Tuning] { | name description ratios octave cache |
 
 	asCents { :self |
 		self.ratios.collect { :each |
@@ -84,14 +84,7 @@ RatioTuning : [Object, Equatable, Cache, Tuning] { | name description ratios oct
 	}
 
 	storeString { :self |
-		'RatioTuning(%, %, %, %)'.format(
-			[
-				self.name.storeString,
-				self.description.storeString,
-				self.ratios.storeString,
-				self.octave.storeString
-			]
-		)
+		self.storeStringAsInitializeSlotsOmitting(['cache'])
 	}
 
 }

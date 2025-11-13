@@ -24,7 +24,7 @@
 
 }
 
-BetaDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta |
+BetaDistribution : [Object, Storeable, Equatable, ProbabilityDistribution] { | alpha beta |
 
 	= { :self :anObject |
 		self.hasEqualSlots(anObject)
@@ -63,10 +63,6 @@ BetaDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta |
 		{
 			rng.betaDistribution(alpha, beta)
 		} ! shape
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

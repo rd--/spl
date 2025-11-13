@@ -1,6 +1,6 @@
 /* CartesianCoordinates */
 
-PlanarCoordinates : [Object, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
+PlanarCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
 
 	+ { :self :anObject |
 		self.applyBinaryOperator(anObject, +)
@@ -119,10 +119,6 @@ PlanarCoordinates : [Object, Copyable, Equatable, Comparable, Indexable, Cartesi
 
 	rho { :self |
 		self.radius
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	swapInPlace { :self |

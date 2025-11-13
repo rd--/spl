@@ -1,6 +1,6 @@
 /* Requires: Polygon */
 
-Triangle : [Object, Equatable, Geometry] { | vertexCoordinates |
+Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 
 	altitudes { :self |
 		let [a, b, c] = self.sideLengths;
@@ -642,10 +642,6 @@ Triangle : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	spiekerCircle { :self |
 		self.medialTriangle.incircle
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	surfaceNormal { :self |

@@ -1,6 +1,6 @@
 /* Requires: ScalaTuning, Tuning */
 
-CentsTuning : [Object, Equatable, Tuning] { | name description asCents octave |
+CentsTuning : [Object, Storeable, Equatable, Tuning] { | name description asCents octave |
 
 	asFractions { :self :epsilon |
 		self.asRatios.collect { :each |
@@ -22,10 +22,6 @@ CentsTuning : [Object, Equatable, Tuning] { | name description asCents octave |
 
 	size { :self |
 		self.cents.size
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

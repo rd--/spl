@@ -49,6 +49,15 @@ Exact comparisons can be made with intervals:
 ```
 >>> (5 -- 8) > 1.pi
 true
+
+>>> 3 < (4 -- 5)
+true
+
+>>> (2 -- 3) < (4 -- 5)
+true
+
+>>> (1 -- 3) < (2 -- 3)
+false
 ```
 
 Numbers automatically turn into intervals:

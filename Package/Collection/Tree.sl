@@ -1,4 +1,4 @@
-Tree : [Object, Equatable, Iterable, Indexable] { | value subTrees |
+Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 	addChild { :self :child |
 		child.isTree.if {
@@ -209,10 +209,6 @@ Tree : [Object, Equatable, Iterable, Indexable] { | value subTrees |
 
 	size { :self |
 		self.subTrees.size
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	treePlot { :self |

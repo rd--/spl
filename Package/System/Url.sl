@@ -58,13 +58,9 @@
 		<primitive: return _self.search;>
 	}
 
-	storeString { :self |
-		'Url(%)'.format([self.href.storeString])
-	}
-
 }
 
-URL! : [Object, Equatable, Url] {
+URL! : [Object, Storeable, Equatable, Url] {
 
 	asUrl { :self |
 		self
@@ -80,6 +76,10 @@ URL! : [Object, Equatable, Url] {
 
 	userName { :self |
 		<primitive: return _self.username;>
+	}
+
+	storeString { :self |
+		'Url(%)'.format([self.href.storeString])
 	}
 
 }

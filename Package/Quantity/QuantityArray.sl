@@ -1,4 +1,4 @@
-QuantityArray : [Object, Equatable] { | magnitudeArray unitOrUnitList |
+QuantityArray : [Object, Storeable, Equatable] { | magnitudeArray unitOrUnitList |
 
 	assertIsValid { :self |
 		(self.unitList.size = self.columnCount).if {
@@ -19,10 +19,6 @@ QuantityArray : [Object, Equatable] { | magnitudeArray unitOrUnitList |
 		m.atLevelCollect(d - 1) { :each |
 			each.withCollect(u, Quantity:/2)
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	unitList { :self |

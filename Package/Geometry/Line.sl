@@ -1,4 +1,4 @@
-Line : [Object, Equatable, Geometry] { | vertexCoordinates |
+Line : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 
 	arcLength { :self |
 		let answer = 0;
@@ -72,10 +72,6 @@ Line : [Object, Equatable, Geometry] { | vertexCoordinates |
 		Line(
 			self.vertexCoordinates.collect(projection.asUnaryBlock)
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	svgFragment { :self :options |

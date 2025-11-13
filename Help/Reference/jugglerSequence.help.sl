@@ -5,7 +5,8 @@
 Answer the juggler sequence beggining with the integer _a₁_,
 and continuing until the sequence reaches `one`.
 
-The first few juggler sequences:
+The first few juggler sequences,
+OEIS [A389383](https://oeis.org/A389383):
 
 ```
 >>> 1:10.collect(jugglerSequence:/1)
@@ -63,6 +64,31 @@ OEIS [A094716](https://oeis.org/A094716):
 ]
 ```
 
+The sequence function,
+OEIS [A094683](https://oeis.org/A094683):
+
+```
+>>> 0:75.collect(jugglerMap:/1)
+[
+	0 1 1 5 2
+	11 2 18 2 27
+	3 36 3 46 3
+	58 4 70 4 82
+	4 96 4 110 4
+	125 5 140 5 156
+	5 172 5 189 5
+	207 6 225 6 243
+	6 262 6 281 6
+	301 6 322 6 343
+	7 364 7 385 7
+	407 7 430 7 453
+	7 476 7 500 8
+	524 8 548 8 573
+	8 598 8 623 8
+	649
+]
+```
+
 Plot of sizes:
 
 ~~~spl svg=A
@@ -83,6 +109,17 @@ Log scale plot of heights:
 
 ![](sw/spl/Help/Image/jugglerSequence-B.svg)
 
+Log plot of table:
+
+~~~spl svg=C
+1:23.collect(jugglerSequence:/1)
+.catenate
+.log
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/jugglerSequence-C.svg)
+
 * * *
 
 See also: ^, isEven
@@ -94,6 +131,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/JugglerSequence.html),
 _OEIS_
 [1](https://oeis.org/A007320)
-[2](https://oeis.org/A094716),
+[2](https://oeis.org/A094716)
+[3](https://oeis.org/A094683)
+[4](https://oeis.org/A389383),
 _W_
 [1](https://en.wikipedia.org/wiki/Juggler_sequence)

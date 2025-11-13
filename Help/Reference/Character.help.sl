@@ -75,7 +75,7 @@ Printing:
 Character('c', 99)
 
 >> Character('c').asString
-'c'
+c
 ```
 
 _Note:_

@@ -7,7 +7,7 @@
 
 }
 
-BetaBinomialDistribution : [Object, Equatable, ProbabilityDistribution] { | alpha beta n |
+BetaBinomialDistribution : [Object, Storeable, Equatable, ProbabilityDistribution] { | alpha beta n |
 
 	mean { :self |
 		let alpha = self.alpha;
@@ -32,10 +32,6 @@ BetaBinomialDistribution : [Object, Equatable, ProbabilityDistribution] { | alph
 		{
 			rng.betaBinomialDistribution(alpha, beta, n)
 		} ! shape
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	variance { :self |

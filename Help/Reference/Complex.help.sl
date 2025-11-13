@@ -10,11 +10,13 @@ Traits implemented by `Complex`:
 ```
 >>> system.typeLookup('Complex')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
 	'Comparable'
+	'Equatable'
 	'Number'
+	'Object'
+	'Storeable'
 ]
 ```
 

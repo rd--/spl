@@ -1,4 +1,4 @@
-Sphere : [Object, Equatable, Geometry] { | center radius |
+Sphere : [Object, Storeable, Equatable, Geometry] { | center radius |
 
 	area { :self |
 		(self.radius.square * 4).pi
@@ -31,10 +31,6 @@ Sphere : [Object, Equatable, Geometry] { | center radius |
 		{
 			u.randomPoint(aRandom) * r + c
 		} ! shape
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	translateBy { :self :factor |

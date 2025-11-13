@@ -55,10 +55,6 @@ Storage! : [Object, Collection, Dictionary] {
 		<primitive: return _self.length;>
 	}
 
-	storeString { :self |
-		'a Storage'
-	}
-
 	uncheckedAt { :self :key |
 		<primitive: return _self.getItem(_key);>
 	}

@@ -1,4 +1,4 @@
-Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
+Polygon : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 
 	arcLength { :self |
 		self.vertexCoordinates.polygonArcLength
@@ -133,10 +133,6 @@ Polygon : [Object, Equatable, Geometry] { | vertexCoordinates |
 
 	signedArea { :self |
 		self.vertexCoordinates.shoelaceFormula
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	sutherlandHodgmanAlgorithm { :self :operand |

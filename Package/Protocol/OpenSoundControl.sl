@@ -1,6 +1,6 @@
 /* Requires: ByteArray */
 
-OscParameter : [Object] { | typeLetter value |
+OscParameter : [Object, Storeable] { | typeLetter value |
 
 	asRecord { :self |
 		(
@@ -11,10 +11,6 @@ OscParameter : [Object] { | typeLetter value |
 
 	asOscParameter { :self |
 		self
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -51,7 +47,7 @@ OscParameter : [Object] { | typeLetter value |
 
 }
 
-OscMessage : [Object] { | address parameterList |
+OscMessage : [Object, Storeable] { | address parameterList |
 
 	asRecord { :self |
 		(
@@ -62,10 +58,6 @@ OscMessage : [Object] { | address parameterList |
 
 	encode { :self |
 		self.asRecord.basicEncodeOscMessage
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -81,7 +73,7 @@ OscMessage : [Object] { | address parameterList |
 
 }
 
-OscBundle : [Object] { | time messageList |
+OscBundle : [Object, Storeable] { | time messageList |
 
 	asRecord { :self |
 		(
@@ -92,10 +84,6 @@ OscBundle : [Object] { | time messageList |
 
 	encode { :self |
 		self.asRecord.basicEncodeOscBundle
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

@@ -7,15 +7,17 @@ List traits implemented by `SmallFloat`:
 ```
 >>> system.typeLookup('SmallFloat')
 >>> .traitNameList
+>>> .sort
 [
-	'Object'
-	'Equatable'
+	'Binary'
 	'Comparable'
+	'Equatable'
+	'Integer'
 	'Json'
 	'Magnitude'
 	'Number'
-	'Integer'
-	'Binary'
+	'Object'
+	'Storeable'
 ]
 ```
 

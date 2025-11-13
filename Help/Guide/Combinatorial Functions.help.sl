@@ -37,6 +37,7 @@ Enumeration Functions:
 - `bracelets`
 - `catalanStrings`
 - `chordDiagrams`
+- `dyckWords`
 - `integerPartitions`
 - `necklaces`
 - `setPartitions`
@@ -78,6 +79,13 @@ Partition Functions:
 Composition Functions:
 
 - `integerCompositions`
+
+Predicate Functions:
+
+- `isDyckWord`
+- `isLatticeWord`
+- `isLyndonWord`
+- `isYamanouchiWord`
 
 Plotting Functions
 

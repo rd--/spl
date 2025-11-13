@@ -1,4 +1,4 @@
-UndirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
+UndirectedEdge : [Object, Storeable, Equatable, Comparable, Indexable] { | vertexList |
 
 	asDirectedEdge { :self |
 		let [i, j] = self.vertexList;
@@ -71,10 +71,6 @@ UndirectedEdge : [Object, Equatable, Comparable, Indexable] { | vertexList |
 
 	size { :self |
 		2
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

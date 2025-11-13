@@ -1,4 +1,4 @@
-Quantity : [Object, Equatable, Comparable, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
+Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
 	< { :self :anObject |
 		self.isCommensurate(anObject).if {
@@ -122,10 +122,6 @@ Quantity : [Object, Equatable, Comparable, Magnitude, Frequency, Length, Mass, P
 		} {
 			self.error('seconds: not time')
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

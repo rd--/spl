@@ -1,4 +1,4 @@
-RegExp! : [Object, Equatable] {
+RegExp! : [Object, Storeable, Equatable] {
 
 	asRegularExpression { :self |
 		self

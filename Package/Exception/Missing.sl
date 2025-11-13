@@ -1,8 +1,4 @@
-Missing : [Object, Equatable] { | reason value |
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
+Missing : [Object, Storeable, Equatable] { | reason value |
 
 }
 

@@ -1,4 +1,4 @@
-Annulus : [Object, Equatable, Geometry] { | center radii |
+Annulus : [Object, Storeable, Equatable, Geometry] { | center radii |
 
 	area { :self |
 		let [r, bigR] = self.radii;
@@ -40,10 +40,6 @@ Annulus : [Object, Equatable, Geometry] { | center radii |
 		bigR
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 	svgFragment { :self :options |
 		self.geometry.svgFragment(options)
 	}
@@ -58,7 +54,7 @@ Annulus : [Object, Equatable, Geometry] { | center radii |
 
 }
 
-AnnulusSector : [Object, Equatable, Geometry] { | center radii angles |
+AnnulusSector : [Object, Storeable, Equatable, Geometry] { | center radii angles |
 
 	area { :self |
 		let [r, bigR] = self.radii;
@@ -102,10 +98,6 @@ AnnulusSector : [Object, Equatable, Geometry] { | center radii angles |
 	outerRadius { :self |
 		let [_, r] = self.radii;
 		r
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	svgFragment { :self :options |

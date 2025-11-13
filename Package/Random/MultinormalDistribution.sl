@@ -1,4 +1,4 @@
-MultinormalDistribution : [Object] { | mu sigma |
+MultinormalDistribution : [Object, Storeable] { | mu sigma |
 
 	randomVariate { :self :r :shape |
 		let mu = self.mu;
@@ -17,10 +17,6 @@ MultinormalDistribution : [Object] { | mu sigma |
 			};
 			z
 		} ! shape
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

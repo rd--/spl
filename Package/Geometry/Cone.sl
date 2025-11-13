@@ -1,4 +1,4 @@
-Cone : [Object, Equatable, Geometry] { | coordinates radius |
+Cone : [Object, Storeable, Equatable, Geometry] { | coordinates radius |
 
 	baseArea { :self |
 		let r = self.radius;
@@ -28,10 +28,6 @@ Cone : [Object, Equatable, Geometry] { | coordinates radius |
 		let r = self.radius;
 		let h = self.height;
 		(r.square + h.square).sqrt
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	volume { :self |

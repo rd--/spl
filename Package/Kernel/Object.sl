@@ -177,7 +177,7 @@
 	}
 
 	printString { :self |
-		self.storeString
+		self.typeOf.withIndefiniteArticle
 	}
 
 	printStringLimitedTo { :self :count |
@@ -217,19 +217,6 @@
 		self.typeDefinition.slotNameList.collect { :each |
 			self.uncheckedSlotRead(each)
 		}
-	}
-
-	storeStringAsInitializeSlots { :self |
-		'%(%)'.format(
-			[
-				self.typeOf,
-				self.slotValueList.collect(storeString:/1).commaSeparated
-			]
-		)
-	}
-
-	storeString { :self |
-		self.typeOf.withIndefiniteArticle
 	}
 
 	then { :self :aBlock:/1 |

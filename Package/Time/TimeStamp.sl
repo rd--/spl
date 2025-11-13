@@ -1,4 +1,4 @@
-TimeStamp : [Object, Equatable, Comparable, Magnitude] { | absoluteTime |
+TimeStamp : [Object, Storeable, Equatable, Comparable, Magnitude] { | absoluteTime |
 
 	< { :self :aTimeStamp |
 		self.absoluteTime < aTimeStamp.absoluteTime
@@ -37,10 +37,6 @@ TimeStamp : [Object, Equatable, Comparable, Magnitude] { | absoluteTime |
 	round { :self :operand |
 		self.absoluteTime := self.absoluteTime.round(operand.asSeconds);
 		self
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

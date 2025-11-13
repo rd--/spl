@@ -1,4 +1,4 @@
-Tetrahedron : [Object, Equatable] { | vertexCoordinates |
+Tetrahedron : [Object, Storeable, Equatable] { | vertexCoordinates |
 
 	asPerspectiveDrawing { :self |
 		self.asPolyhedron.asPerspectiveDrawing
@@ -65,10 +65,6 @@ Tetrahedron : [Object, Equatable] { | vertexCoordinates |
 				each + v
 			}
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	toBarycentricCoordinates { :self :c |

@@ -1,6 +1,6 @@
 /* Requires: RegularExpression String */
 
-SmallFloat! : [Object, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
+SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
 
 	= { :self :anObject |
 		anObject.isNumber.if {

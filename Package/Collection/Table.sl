@@ -1,4 +1,4 @@
-Table : [Object, Equatable] { | contents columnLabels columnTypes |
+Table : [Object, Storeable, Equatable] { | contents columnLabels columnTypes |
 
 	asHtml { :self |
 		let h = '<tr><th></th>%</tr>'.format([
@@ -67,10 +67,6 @@ Table : [Object, Equatable] { | contents columnLabels columnTypes |
 
 	shape { :self |
 		self.contents.shape
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

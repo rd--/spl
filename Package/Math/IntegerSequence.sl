@@ -418,16 +418,19 @@
 		z
 	}
 
-	jugglerSequence { :a1 |
-		(a1 < 1).if {
+	jugglerMap { :n |
+		let e = n.isEven.if { 0.5 } { 1.5 };
+		(n ^ e).floor
+	}
+
+	jugglerSequence { :n |
+		(n < 1).if {
 			[]
 		} {
-			let a = [a1];
-			let ak = a1;
-			{ ak != 1 }.whileTrue {
-				let e = ak.isEven.if { 0.5 } { 1.5 };
-				ak := (ak ^ e).floor;
-				a.add(ak)
+			let a = [n];
+			{ n != 1 }.whileTrue {
+				n := n.jugglerMap;
+				a.add(n)
 			};
 			a
 		}

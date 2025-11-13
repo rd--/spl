@@ -1,4 +1,4 @@
-Record! : [Object, Equatable, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
+Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, Removable, Extensible, Dictionary] {
 
 	asRecord { :self |
 		self
@@ -93,7 +93,11 @@ Record! : [Object, Equatable, Json, Iterable, Indexable, Collection, Removable, 
 	}
 
 	storeString { :self |
-		self.storeStringLiteral('(:)', '(', ')', identity:/1, ': ', storeString:/1)
+		self.storeStringLiteral(
+			'(:)',
+			'(', ')',
+			identity:/1, ': ', storeString:/1
+		)
 		/*self.isEmpty.if {
 			'(:)'
 		} {

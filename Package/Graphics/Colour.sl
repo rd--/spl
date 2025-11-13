@@ -156,13 +156,9 @@
 		}
 	}
 
-	storeString { :self |
-		self.storeStringAsInitializeSlots
-	}
-
 }
 
-RgbColour : [Object, Equatable, Colour] { | rgb alpha |
+RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 	lighten { :self :aNumber |
 		RgbColour(

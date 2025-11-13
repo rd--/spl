@@ -1,6 +1,6 @@
 /* Requires: Character List */
 
-String! : [Object, Equatable, Comparable, Json, Iterable, Indexable, Character] {
+String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
 	= { :self :anObject |
 		self == anObject

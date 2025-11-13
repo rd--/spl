@@ -1,4 +1,4 @@
-AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable] { | contents |
+AsciiString : [Object, Storeable, Equatable, Iterable, Indexable, Collection, Sequenceable] { | contents |
 
 	asAsciiString { :self |
 		self
@@ -51,7 +51,7 @@ AsciiString : [Object, Equatable, Iterable, Indexable, Collection, Sequenceable]
 	}
 
 	storeString { :self |
-		self.contents.asciiString.storeString ++ '.asAsciiString'
+		'AsciiString(%)'.format([self.contents.asciiString.storeString])
 	}
 
 }

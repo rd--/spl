@@ -76,6 +76,8 @@ At `Symbol`:
 
 The name of this operator is `reverseSolidusReverseSolidus`.
 
+Where supported `\\` is displayed as ⑊.
+
 * * *
 
 See also: /, //, %, mod, quotient, quotientRemainder, remainder
@@ -85,5 +87,7 @@ Guides: Binary Operators, Mathematical Functions
 References:
 _Smalltalk_
 5.6.2.9
+
+Unicode: U+244A ⑊ OCR Double Backslash
 
 Categories: Arithmetic operators

@@ -1,9 +1,9 @@
 # minimumChangePermutations
 
-- _minimumChangePermutations(anInteger | aSequence)_
-- _heapsAlgorithm(alpha)_ ⟹ _minimumChangePermutations(alpha)_
+- _minimumChangePermutations(n)_
+- _minimumChangePermutations([x₁ x₂ …])_
 
-Answer a `List` of the permutations of _[1 .. anInteger]_ in minimum change order,
+Answer a `List` of the permutations of _1..n_ in minimum change order,
 following Heap’s algorithm.
 
 _S3_ in minimum change sequence:
@@ -38,7 +38,8 @@ Show sequence of swaps:
 ```
 >>> let l = 4.minimumChangePermutations;
 >>> l.adjacentPairsCollect { :p :q |
->>> 	p.findPermutation(q).cycles.first
+>>> 	let r = p.findPermutation(q);
+>>> 	r.cycles.first
 >>> }
 [
 	1 2; 1 3; 1 2; 1 3; 1 2; 1 4;
@@ -47,6 +48,16 @@ Show sequence of swaps:
 	1 2; 1 3; 1 2; 1 3; 1 2
 ]
 ```
+
+Plot minimum change sequence of _S3_:
+
+~~~spl svg=A
+3.heapsAlgorithm
+.transpose
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/minimumChangePermutations-A.svg)
 
 * * *
 

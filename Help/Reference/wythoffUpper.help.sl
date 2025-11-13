@@ -27,4 +27,6 @@ Guides: Integer Sequence Functions
 
 References:
 _OEIS_
-[1](https://oeis.org/A001950)
+[1](https://oeis.org/A001950),
+_W_
+[1](https://en.wikipedia.org/wiki/Beatty_sequence)

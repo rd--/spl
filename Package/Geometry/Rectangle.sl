@@ -1,4 +1,4 @@
-Rectangle : [Object, Equatable, Geometry] { | lowerLeft upperRight |
+Rectangle : [Object, Storeable, Equatable, Geometry] { | lowerLeft upperRight |
 
 	arcLength { :self |
 		self.perimeter
@@ -20,13 +20,6 @@ Rectangle : [Object, Equatable, Geometry] { | lowerLeft upperRight |
 
 	asPolygon { :self |
 		self.vertexCoordinates.Polygon
-	}
-
-	asString { :self :aBlock:/1 |
-		'Rectangle(%, %)'.format([
-			aBlock(self.lowerLeft),
-			aBlock(self.upperRight)
-		])
 	}
 
 	boundingBox { :self |
@@ -215,14 +208,6 @@ Rectangle : [Object, Equatable, Geometry] { | lowerLeft upperRight |
 
 	pointAtFraction { :self :relativePoint |
 		self.lowerLeft + (self.extent * relativePoint)
-	}
-
-	printString { :self |
-		self.asString(printString:/1)
-	}
-
-	storeString { :self |
-		self.asString(storeString:/1)
 	}
 
 	randomPoint { :self :rng :shape |

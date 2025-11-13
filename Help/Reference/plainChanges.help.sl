@@ -57,7 +57,8 @@ Show sequence of swaps, and since swaps are always adjacent show only first plac
 ```
 >>> let l = 4.plainChanges;
 >>> l.adjacentPairsCollect { :p :q |
->>> 	p.findPermutation(q).cycles.first.first
+>>> 	let r = p.findPermutation(q);
+>>> 	r.cycles.first.first
 >>> }
 [
 	3 2 1 3 1 2 3 1
@@ -65,6 +66,16 @@ Show sequence of swaps, and since swaps are always adjacent show only first plac
 	3 2 1 3 1 2 3
 ]
 ```
+
+Plot plain changes of _S3_:
+
+~~~spl svg=A
+3.steinhausJohnsonTrotter
+.transpose
+.linePlot
+~~~
+
+![](sw/spl/Help/Image/plainChanges-A.svg)
 
 * * *
 

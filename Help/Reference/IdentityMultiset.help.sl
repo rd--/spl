@@ -22,25 +22,25 @@ to convert a `IdentityMultiset` to an `IdentitySet` use `asIdentitySet`,
 to convert a `IdentityMultiset` to a `List` use `asList`:
 
 ```
->>> let list = [1 1 1 3 3 5];
->>> let bag = list.asIdentityMultiset;
->>> let set = bag.asIdentitySet;
+>>> let a = [1 1 1 3 3 5];
+>>> let b = a.asIdentityMultiset;
+>>> let c = b.asIdentitySet;
 >>> (
->>> 	list.size,
->>> 	bag.size,
->>> 	set.size,
->>> 	bag.asList
+>>> 	a.size,
+>>> 	b.size,
+>>> 	c.size,
+>>> 	b.asList
 >>> )
-(6, 6, 3, list)
+(6, 6, 3, a)
 ```
 
 To get the elements as a `List` of `Association`s use `sortedCounts` or `sortedElements`.
 
 ```
->>> let bag = [1 1 1 3 3 5].asIdentityMultiset;
+>>> let a = [1 1 1 3 3 5].asIdentityMultiset;
 >>> (
->>> 	bag.sortedCounts,
->>> 	bag.sortedElements
+>>> 	a.sortedCounts,
+>>> 	a.sortedElements
 >>> )
 (
 	[3 -> 1, 2 -> 3, 1 -> 5],
@@ -60,46 +60,46 @@ To get the elements as a `Map` use `valuesAndCounts`:
 To count the occurences of an item, also called the _multiplicity_, use `occurrencesOf`:
 
 ```
->>> let bag = [1 1 1 3 3 5].asIdentityMultiset;
->>> bag.occurrencesOf(3)
+>>> [1 1 1 3 3 5].asIdentityMultiset
+>>> .occurrencesOf(3)
 2
 ```
 
 The `size`, also called the _cardinality_, of a `IdentityMultiset` is the `sum` of the counts:
 
 ```
->>> let bag = [1 1 1 3 3 5].asIdentityMultiset;
->>> (bag.size, 3 + 2 + 1)
-(6, 6)
+>>> [1 1 1 3 3 5].asIdentityMultiset
+>>> .size
+3 + 2 + 1
 ```
 
 To add an element to an `IdentityMultiset` use `add` or `addWithOccurrences`:
 
 ```
->>> let bag = [1 1 1].asIdentityMultiset;
->>> bag.addWithOccurrences(3, 2);
->>> bag.add(5);
->>> bag.sortedElements
+>>> let a = [1 1 1].asIdentityMultiset;
+>>> a.addWithOccurrences(3, 2);
+>>> a.add(5);
+>>> a.sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 To remove an element from an `IdentityMultiset` use `remove`:
 
 ```
->>> let bag = [1 1 1 3 3 5].asIdentityMultiset;
->>> bag.remove(1);
->>> bag.remove(3);
->>> bag.remove(5);
->>> bag.sortedElements
+>>> let a = [1 1 1 3 3 5].asIdentityMultiset;
+>>> a.remove(1);
+>>> a.remove(3);
+>>> a.remove(5);
+>>> a.sortedElements
 [1 -> 2, 3 -> 1]
 ```
 
 Compare instances:
 
 ```
->>> let p = [1 2 3].asIdentityMultiset;
->>> let q = [1 2 3].asIdentityMultiset;
->>> p = q
+>>> let a = [1 2 3].asIdentityMultiset;
+>>> let b = [1 2 3].asIdentityMultiset;
+>>> a = b
 true
 ```
 

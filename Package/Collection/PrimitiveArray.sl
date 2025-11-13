@@ -120,10 +120,12 @@
 	}
 
 	storeString { :self |
-		'%(%)'.format([
-			self.typeOf,
-			self.asList.storeString
-		])
+		'%(%)'.format(
+			[
+				self.typeOf,
+				self.asList.storeString
+			]
+		)
 	}
 
 	uncheckedAt { :self :index |

@@ -1,6 +1,6 @@
 /* Requires: Comparable List Number Object */
 
-Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
+Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary |
 
 	* { :self :anObject |
 		anObject.isComplex.if {
@@ -391,10 +391,6 @@ Complex : [Object, Equatable, Comparable, Number] { | real imaginary |
 
 	truncate { :self |
 		self.integerPart
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	zero { :self |

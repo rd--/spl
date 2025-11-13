@@ -1,4 +1,4 @@
-ChordDiagram : [Object] { | lengthVector |
+ChordDiagram : [Object, Storeable] { | lengthVector |
 
 	asGraph { :self |
 		Graph(
@@ -24,10 +24,6 @@ ChordDiagram : [Object] { | lengthVector |
 
 	size { :self |
 		self.lengthVector.size / 2
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	vertexList { :self |

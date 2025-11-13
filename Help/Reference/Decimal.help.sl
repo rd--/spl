@@ -287,6 +287,13 @@ Approximate comparison:
 true
 ```
 
+Store string:
+
+```
+>>> 3.14D.storeString
+'Decimal(157/50, 2)'
+```
+
 _Note_:
 The implentation is in terms of `Fraction`,
 which is in terms of `LargeInteger`,

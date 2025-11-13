@@ -1,4 +1,4 @@
-Date! : [Object, Equatable, Comparable, Magnitude] {
+Date! : [Object, Storeable, Equatable, Comparable, Magnitude] {
 
 	< { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
@@ -75,7 +75,7 @@ Date! : [Object, Equatable, Comparable, Magnitude] {
 	}
 
 	storeString { :self |
-		'Date(%)'.format([self.asList])
+		'Date(%)'.format([self.components])
 	}
 
 	year { :self |

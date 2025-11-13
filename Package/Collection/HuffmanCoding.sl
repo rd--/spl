@@ -1,4 +1,4 @@
-HuffmanCoding : [Object, Equatable] { | symbolTable encoding |
+HuffmanCoding : [Object, Storeable, Equatable] { | symbolTable encoding |
 
 	decode { :self |
 		let codeTable = self.symbolTable.associations.sortByOn(<) { :x |
@@ -18,10 +18,6 @@ HuffmanCoding : [Object, Equatable] { | symbolTable encoding |
 
 	decodeString { :self |
 		self.decode.stringJoin
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

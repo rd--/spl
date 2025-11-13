@@ -4,7 +4,7 @@
 
 ```
 >>> system
->>> .traitDictionary['Number']
+>>> .traitDictionary['Magnitude']
 >>> .isTrait
 true
 ```
@@ -22,7 +22,6 @@ Types implementing `Magnitude`:
 	'Decimal'
 	'Duration'
 	'Fraction'
-	'Interval'
 	'LargeInteger'
 	'Quantity'
 	'Residue'

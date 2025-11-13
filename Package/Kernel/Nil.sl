@@ -1,4 +1,4 @@
-Nil! : [Object, Equatable, Json] {
+Nil! : [Object, Storeable, Equatable, Json] {
 
 	? { :unused :aBlock:/0 |
 		aBlock()

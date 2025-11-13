@@ -1,4 +1,4 @@
-Permutation : [Object, Equatable] { | cycles degree |
+Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	= { :self :anObject |
 		anObject.isPermutation & {

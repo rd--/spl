@@ -1,4 +1,4 @@
-Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue modulus |
+Residue : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | commonResidue modulus |
 
 	+ { :self :aNumber |
 		self.binaryOperator(aNumber, +)
@@ -88,8 +88,12 @@ Residue : [Object, Equatable, Comparable, Magnitude, Number] { | commonResidue m
 		}
 	}
 
-	storeString { :self |
+	storeStringLiteral { :self |
 		self.commonResidue.storeString ++ 'Z' ++ self.modulus.storeString
+	}
+
+	storeString { :self |
+		self.storeStringLiteral
 	}
 
 }

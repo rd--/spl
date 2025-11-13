@@ -14,7 +14,8 @@ The number of trailing zeros:
 The highest power of 2:
 
 ```
->>> ((2 ^ 10) + (2 ^ 7)).integerExponent(2)
+>>> ((2 ^ 10) + (2 ^ 7))
+>>> .integerExponent(2)
 7
 ```
 
@@ -79,6 +80,27 @@ OEIS [A001511](https://oeis.org/A001511):
 ]
 ```
 
+A sequence related to the Josephus problem,
+OEIS [A025480](https://oeis.org/A025480):
+
+```
+>>> 1:84.collect { :n |
+>>> 	let m = integerExponent(n, 2) + 1;
+>>> 	bitShiftRight(n, m)
+>>> }
+[
+	 0  0  1  0  2  1  3  0  4  2
+	 5  1  6  3  7  0  8  4  9  2
+	10  5 11  1 12  6 13  3 14  7
+	15  0 16  8 17  4 18  9 19  2
+	20 10 21  5 22 11 23  1 24 12
+	25  6 26 13 27  3 28 14 29  7
+	30 15 31  0 32 16 33  8 34 17
+	35  4 36 18 37  9 38 19 39  2
+	40 20 41 10
+]
+```
+
 Plot it:
 
 ~~~spl svg=A
@@ -101,3 +123,6 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A001511)
 [2](https://oeis.org/A007814)
+[3](https://oeis.org/A025480)
+
+Further Reading: Levine 2006

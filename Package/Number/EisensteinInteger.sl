@@ -1,4 +1,4 @@
-EisensteinInteger : [Object, Equatable] { | a b |
+EisensteinInteger : [Object, Storeable, Equatable] { | a b |
 
 	* { :self :operand |
 		let [a, b] = self.asList;
@@ -42,10 +42,6 @@ EisensteinInteger : [Object, Equatable] { | a b |
 
 	real { :self |
 		self.a - self.b / 2
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

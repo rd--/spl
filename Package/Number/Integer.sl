@@ -234,35 +234,6 @@
 		}
 	}
 
-	dyckWords { :n :letters |
-		let [a, b] = letters;
-		let f = { :x :i :n0 :n1 |
-			let d0 = { f(x ++ [a], i + 1, n0 + 1, n1) };
-			let d1 = { f(x ++ [b], i + 1, n0, n1 + 1) };
-			((n0 < n) && (n1 < n) && (n0 > n1)).if {
-				d0() ++ d1()
-			} {
-				(
-					((n0 < n) && (n1 < n) && (n0 = n1)) ||
-					((n0 < n) && (n1 = n))
-				).if {
-					d0()
-				} {
-					((n0 = n) && (n1 < n)).if {
-						d1()
-					} {
-						((n0 = n1) && (n1 = n)).if {
-							[x]
-						} {
-							n.error('Integer>>dyckWords')
-						}
-					}
-				}
-			}
-		};
-		f([a], 1, 1, 0)
-	}
-
 	elementaryCellularAutomaton { :ruleNumber :initialState :stepLimit |
 		let stateSize = initialState.size;
 		let ruleTable = ruleNumber.integerDigits(2, 8);

@@ -1,4 +1,4 @@
-SiUnit : [Object, Equatable] { | name symbol quantity dimension |
+SiUnit : [Object, Storeable, Equatable] { | name symbol quantity dimension |
 
 	assertIsValid { :self |
 		(
@@ -24,10 +24,6 @@ SiUnit : [Object, Equatable] { | name symbol quantity dimension |
 		self.name = symbolOrName | {
 			self.symbol = symbolOrName
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

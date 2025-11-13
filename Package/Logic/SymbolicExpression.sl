@@ -166,7 +166,7 @@
 
 }
 
-Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
+Symbol : [Object, Storeable, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber] { | name |
 
 	isEqualSymbolicExpression { :self :anObject |
 		self == anObject
@@ -174,10 +174,6 @@ Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagn
 
 	printString { :self |
 		self.name
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }
@@ -202,7 +198,7 @@ Symbol : [Object, Number, Integer, SymbolicObject, SymbolicBoolean, SymbolicMagn
 
 }
 
-SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber, Iterable] { | operator operands |
+SymbolicExpression : [Object, Storeable, Number, SymbolicObject, SymbolicBoolean, SymbolicMagnitude, SymbolicNumber, Iterable] { | operator operands |
 
 	asTree { :self |
 		Tree(
@@ -283,10 +279,6 @@ SymbolicExpression : [Object, Number, SymbolicObject, SymbolicBoolean, SymbolicM
 				]
 			)
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

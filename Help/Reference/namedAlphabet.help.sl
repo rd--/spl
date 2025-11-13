@@ -5,10 +5,14 @@
 Answer a `List` of the letters in the named namedAlphabet _a_.
 
 ```
->>> 'english'.namedAlphabet.stringCatenate
+>>> 'english'
+>>> .namedAlphabet
+>>> .stringCatenate
 'abcdefghijklmnopqrstuvwxyz'
 
->>> 'greek'.namedAlphabet.stringCatenate
+>>> 'greek'
+>>> .namedAlphabet
+>>> .stringCatenate
 'αβγδεζηθικλμνξοπρστυφχψω'
 ```
 

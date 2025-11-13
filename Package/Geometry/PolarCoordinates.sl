@@ -1,4 +1,4 @@
-PolarCoordinates : [Object, Equatable] { | coordinates |
+PolarCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
 	asList { :self |
 		self.coordinates.copy
@@ -34,10 +34,6 @@ PolarCoordinates : [Object, Equatable] { | coordinates |
 
 	rho { :self |
 		self.coordinates[1]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	theta { :self |

@@ -1,4 +1,4 @@
-GeoJson : [Object] { | contents |
+GeoJson : [Object, Storeable] { | contents |
 
 	asRecord { :self |
 		self.contents
@@ -195,10 +195,6 @@ GeoJson : [Object] { | contents |
 				)
 			}
 		}
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	type { :self |

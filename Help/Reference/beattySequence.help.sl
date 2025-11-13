@@ -4,7 +4,9 @@
 
 Answer the first _n_ terms of the Beatty sequence corresponding to θ.
 
-The sequences for _α=√2_:
+The sequences for _α=√2_,
+OEIS [A001951](https://oeis.org/A001951)
+and [A001952](https://oeis.org/A001952):
 
 ```
 >>> 13.beattySequence(2.sqrt)
@@ -40,7 +42,9 @@ The sequences for _α=e_:
 [1 3 4 6 7 9 11 12 14 15 17 18 20]
 ```
 
-The sequences for _α=π_:
+The sequences for _α=π_,
+OEIS [A022844](https://oeis.org/A022844)
+and [A054386](https://oeis.org/A054386):
 
 ```
 >>> 13.beattySequence(1.pi)

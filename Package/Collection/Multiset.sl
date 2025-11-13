@@ -159,10 +159,6 @@
 		self.contents.associations.sortByOn(precedesOrEqualTo:/2, key:/1)
 	}
 
-	storeString { :self |
-		self.contents.storeString ++ '.' ++ self.typeOf
-	}
-
 	sum { :self |
 		self.ifEmpty {
 			self.error('sum: empty')
@@ -185,7 +181,7 @@
 
 }
 
-Multiset : [Object, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
+Multiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensible, Removable, Unordered, Multiset] { | contents |
 
 	postCopy { :self |
 		self.contents := self.contents.copy

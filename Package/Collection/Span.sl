@@ -1,4 +1,4 @@
-Span : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
+Span : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
 	asRange { :self |
 		self.isRelative.if {
@@ -55,10 +55,6 @@ Span : [Object, Equatable, Comparable, Iterable, Collection, Indexable, Sequence
 
 	species { :self |
 		List:/1
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

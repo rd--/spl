@@ -1,16 +1,12 @@
 /* Requires: PolygonMesh */
 
-Polyhedron : [Object, Equatable, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
+Polyhedron : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCoordinates faceIndices |
 
 	project { :self :projection |
 		PolygonMesh(
 			self.vertexCoordinates.collect(projection.asUnaryBlock),
 			self.faceIndices
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	translate { :self :v |

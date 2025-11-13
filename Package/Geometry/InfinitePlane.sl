@@ -1,4 +1,4 @@
-InfinitePlane : [Object, Equatable] { | a b c d |
+InfinitePlane : [Object, Storeable, Equatable] { | a b c d |
 
 	area { :self |
 		Infinity
@@ -43,10 +43,6 @@ InfinitePlane : [Object, Equatable] { | a b c d |
 			n / self.b,
 			n / self.c
 		]
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 	surfaceNormal { :self |

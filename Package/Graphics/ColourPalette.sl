@@ -1,4 +1,4 @@
-ColourPalette : [Object] { | colourList |
+ColourPalette : [Object, Storeable] { | colourList |
 
 	asContinuousColourGradient { :self |
 		self.colourList.asContinuousColourGradient
@@ -18,10 +18,6 @@ ColourPalette : [Object] { | colourList |
 
 	size { :self |
 		self.colourList.size
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

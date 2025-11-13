@@ -8,16 +8,16 @@ Answer a `String` representation of the object _x_ from which it can be reconstr
 >>> let x = (1 -> 2);
 >>> let s = x.storeString;
 >>> (s, system.evaluate(s))
-('(1 -> 2)', x)
+('Association(1, 2)', x)
 
 >>> let x = (false -> true);
 >>> let s = x.storeString;
 >>> (s, system.evaluate(s))
-('(false -> true)', x)
+('Association(false, true)', x)
 
 >> ('+' -> 'plus')
 >> .storeString
-('+' -> 'plus')
+Association('+', 'plus')
 ```
 
 * * *

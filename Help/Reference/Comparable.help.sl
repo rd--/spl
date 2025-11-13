@@ -2,6 +2,54 @@
 
 `Comparable` is a `Trait` collecting behaviours for objects that are comparable.
 
+```
+>>> system
+>>> .traitDictionary['Comparable']
+>>> .isTrait
+true
+```
+Types implementing `Comparable`:
+
+```
+>>> system
+>>> .traitTypes('@Comparable')
+>>> .sort
+[
+	'Association'
+	'ByteArray'
+	'CalendarDuration'
+	'CartesianCoordinates'
+	'Character'
+	'Complex'
+	'Date'
+	'DateAndTime'
+	'Decimal'
+	'DirectedEdge'
+	'Duration'
+	'Float32Array'
+	'Float64Array'
+	'Fraction'
+	'Heap'
+	'LargeInteger'
+	'LinkedList'
+	'List'
+	'ListView'
+	'NumericArray'
+	'Package'
+	'PlanarCoordinates'
+	'Quantity'
+	'Range'
+	'Residue'
+	'SmallFloat'
+	'SortedList'
+	'Span'
+	'SparseArray'
+	'String'
+	'TimeStamp'
+	'UndirectedEdge'
+]
+```
+
 The required method is:
 
 - `compare`

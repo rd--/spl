@@ -1,4 +1,4 @@
-Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale |
+Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | fraction scale |
 
 	= { :self :operand |
 		operand.isDecimal.if {
@@ -250,16 +250,6 @@ Decimal : [Object, Equatable, Comparable, Magnitude, Number] { | fraction scale 
 			self.fraction.square,
 			self.scale
 		)
-	}
-
-	storeString { :self |
-		'Decimal(%, %)'.format(
-			[
-				self.fraction.storeString,
-				self.scale
-			]
-		)
-
 	}
 
 	truncate { :self |

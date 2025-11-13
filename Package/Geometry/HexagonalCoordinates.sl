@@ -1,4 +1,4 @@
-HexagonalCoordinates : [Object, Equatable] { | coordinates |
+HexagonalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
 	+ { :self :operand |
 		operand.isHexagonalCoordinates.if {
@@ -81,10 +81,6 @@ HexagonalCoordinates : [Object, Equatable] { | coordinates |
 		HexagonalCoordinates(
 			self.coordinates.roundedHexagonalCoordinates
 		)
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }

@@ -1,4 +1,4 @@
-BivariatePolynomial : [Object, Copyable, Equatable] { | coefficientMatrix |
+BivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientMatrix |
 
 	asBlock { :self |
 		let m = self.coefficientMatrix;
@@ -27,10 +27,6 @@ BivariatePolynomial : [Object, Copyable, Equatable] { | coefficientMatrix |
 
 	postCopy { :self |
 		self.coefficientMatrix := self.coefficientMatrix.deepCopy
-	}
-
-	storeString { :self |
-		self.storeStringAsInitializeSlots
 	}
 
 }
