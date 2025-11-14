@@ -84,4 +84,18 @@ DyckWord : [Object, Storeable] { | word tokens |
 		self.dyckWords([1 0])
 	}
 
+	isDyckWord { :n |
+		valueWithReturn { :return:/1 |
+			let l = 0;
+			{ n > 0 }.whileTrue {
+				l := l + (-1 ^ n);
+				(l < 0).ifTrue {
+					false.return
+				};
+				n := n // 2
+			};
+			(l > 0).not
+		}
+	}
+
 }

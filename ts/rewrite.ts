@@ -312,7 +312,9 @@ const asJs: ohm.ActionDict<string> = {
 		}
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return `${s.sourceString}${i.sourceString}n`;
+		const sT = s.sourceString;
+		const iT = i.sourceString.replace(/^0+/, '');
+		return `${sT}${iT}n`;
 	},
 	lowercaseIdentifier(c1, cN) {
 		return `_${c1.sourceString}${cN.sourceString}`;
@@ -653,7 +655,16 @@ const asSl: ohm.ActionDict<string> = {
 		return `DoubleQuotedString('${s.sourceString}')`;
 	},
 	floatDecimalLiteral(s, i, _, f, _d, k) {
-		return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`;
+		const sT = s.sourceString;
+		const iT = i.sourceString;
+		const fT = f.sourceString;
+		let kT = k.sourceString;
+		const e = Math.pow(10, fT.length);
+		if (kT.length === 0) {
+			kT = fT.length
+		};
+		return `Decimal(Fraction(${sT}${iT}${fT}L, ${e}L), ${kT})`;
+		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
 		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' +
@@ -671,7 +682,14 @@ const asSl: ohm.ActionDict<string> = {
 		return validateSign(s.sourceString) + i.sourceString;
 	},
 	integerDecimalLiteral(s, i, _d, k) {
-		return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`;
+		const sT = s.sourceString;
+		const iT = i.sourceString;
+		let kT = k.sourceString;
+		if (kT.length === 0) {
+			kT = 0
+		};
+		return `Decimal(Fraction(${sT}${iT}L, 1L), ${kT})`;
+		/* return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`; */
 	},
 	smallIntegerLiteral(s, i) {
 		return s.sourceString + i.sourceString;

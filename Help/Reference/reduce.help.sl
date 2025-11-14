@@ -81,6 +81,8 @@ true
 
 See also: deepReduce, foldLeft, foldRight, injectInto, reduceBy, scan
 
+Guides: List Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Reduce),

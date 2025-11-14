@@ -68,6 +68,22 @@
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
 
+	catalanRank { :n |
+		let m = n.integerLength(2) // 2;
+		let a = n.integerDigits(2).reverse.fromDigits(2);
+		let y = 0;
+		let t = 1;
+		1.toDo(2 * m - 1) { :x |
+			let u = 2 * m - x;
+			let v = m - ((x + y + 1 ) / 2);
+			let mn = binomial(u, v) - binomial(u, v - 1);
+			t := t + (mn * (1 - (a % 2 )));
+			y := y - (-1 ^ a);
+			a := a // 2
+		};
+		0:m.collect(catalanNumber:/1).sum - t
+	}
+
 	catalanTriangle { :r |
 		{ :x |
 			let y = x.accumulate;
@@ -77,6 +93,12 @@
 
 	catalanTriangle { :n :k |
 		((n - k + 1) / (n + 1)) * (n + k).binomial(k)
+	}
+
+	catalanUnrank { :n |
+		let m = n + 1;
+		let u = system.catalanUnrankTableExtendTo(m);
+		u['table'].at(m)
 	}
 
 	centeredHexagonalNumber { :n |
@@ -393,6 +415,34 @@
 		0L.to(n).collect { :k |
 			binomial(n, k) % 2L
 		}.sum
+	}
+
+}
+
++System {
+
+	catalanUnrankTable { :self |
+		self.cached('catalanUnrankTable') {
+			(
+				table: 0:999.select(isDyckWord:/1),
+				limit: 999
+			)
+		}
+	}
+
+	catalanUnrankTableExtendTo { :self :k |
+		let u = self.catalanUnrankTable;
+		let t = u['table'];
+		{ k > t.size }.whileTrue {
+			let m = u['limit'];
+			(m + 1).toDo(m * 2) { :i |
+				i.isDyckWord.ifTrue {
+					t.add(i)
+				}
+			};
+			u['limit'] := m * 2
+		};
+		u
 	}
 
 }

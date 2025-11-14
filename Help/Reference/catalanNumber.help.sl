@@ -31,6 +31,18 @@ Definition in terms of `gamma`:
 4862
 ```
 
+Partial sums of Catalan numbers,
+OEIS [A014137](https://oeis.org/A014137):
+
+```
+>>> 0:14.collect(catalanNumber:/1)
+>>> .accumulate
+[
+	1 2 4 9 23 65 197 626 2056 6918
+	23714 82500 290512 1033412 3707852
+]
+```
+
 * * *
 
 See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, gamma, lassalleNumber, superCatalanNumber
@@ -42,7 +54,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CatalanNumber.html)
 [2](https://reference.wolfram.com/language/ref/CatalanNumber.html),
 _OEIS_
-[1](https://oeis.org/A000108),
+[1](https://oeis.org/A000108)
+[2](https://oeis.org/A014137),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)
 

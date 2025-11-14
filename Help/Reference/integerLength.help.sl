@@ -70,6 +70,16 @@ At `zero`:
 0
 ```
 
+Length of binary representation of first few integers,
+OEIS [A070939](https://oeis.org/A070939):
+
+```
+>>> 0:511.collect { :n |
+>>> 	n.integerDigits(2).size
+>>> }.asRunArray.asAssociationList
+[2 -> 1, 2 -> 2, 4 -> 3, 8 -> 4, 16 -> 5, 32 -> 6, 64 -> 7, 128 -> 8, 256 -> 9]
+```
+
 Plot for base 10 from -25 to 25:
 
 ~~~spl svg=A
@@ -108,4 +118,6 @@ Guides: Integer Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/IntegerLength.html)
+[1](https://reference.wolfram.com/language/ref/IntegerLength.html),
+_OEIS_
+[1](https://oeis.org/A070939)

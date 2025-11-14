@@ -190,6 +190,10 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		self.fraction.numerator
 	}
 
+	one { :self |
+		1D
+	}
+
 	precision { :self |
 		self.integerPart.asLargeInteger.integerLength(10) + self.scale
 	}
@@ -261,7 +265,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 	}
 
 	zero { :self |
-		UnsimplifiedDecimal(0/1, 0)
+		0D
 	}
 
 }

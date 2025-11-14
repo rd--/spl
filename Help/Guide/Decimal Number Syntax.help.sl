@@ -3,6 +3,25 @@
 A `Decimal` is a real number specified to a fixed number of decimal places, called the _scale_.
 Decimals may be written as literals using the syntax _rD_ or _rDs_.
 
+Rewrite rules:
+
+```
+>> '23D'.splSimplify
+Decimal(Fraction(23L, 1L), 0)
+
+>> '23D3'.splSimplify
+Decimal(Fraction(23L, 1L), 3)
+
+>> '3.14D'.splSimplify
+Decimal(Fraction(314L, 100L), 2)
+
+>> '3.14D3'.splSimplify
+Decimal(Fraction(314L, 100L), 3)
+
+>> '0.1D3'.splSimplify
+Decimal(Fraction(01L, 10L), 3)
+```
+
 Implicit scale:
 
 ```

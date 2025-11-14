@@ -27,21 +27,31 @@ Threads over lists:
 [31/32 1/64 33/64]
 ```
 
-Binary van der Corput sequence (OEIS A030101):
+Binary van der Corput sequence,
+OEIS [A030101](https://oeis.org/A030101)
+and [A062383](https://oeis.org/A062383):
 
 ```
 >>> 0:9.vanDerCorputNumber(2)
 [0 1/2 1/4 3/4 1/8 5/8 3/8 7/8 1/16 9/16]
 
->>> let v = 0:19.vanDerCorputNumber(2);
->>> v.numerator
+>>> 0:19.vanDerCorputNumber(2)
+>>> .numerator
 [
 	0 1 1 3 1 5 3 7 1 9 5
 	13 3 11 7 15 1 17 9 25
 ]
+
+>>> 0:19.vanDerCorputNumber(2)
+>>> .denominator
+[
+	 1  2  4  4  8  8  8  8 16 16
+	16 16 16 16 16 16 32 32 32 32
+]
 ```
 
-Ternary van der Corput sequence (OEIS A030102):
+Ternary van der Corput sequence,
+OEIS [A030102](https://oeis.org/A030102):
 
 ```
 >>> 0:9.vanDerCorputNumber(3)
@@ -64,7 +74,7 @@ Quaternary van der Corput sequence:
 >>> let v = 0:19.vanDerCorputNumber(4);
 >>> v.numerator
 [
-	0 1 1 3 1 5 9 13 1 3
+	0 1 1 3  1  5 9 13  1  3
 	5 7 3 7 11 15 1 17 33 49
 ]
 ```
@@ -127,7 +137,7 @@ Plot sorted binary sequence of length 2⁶:
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-E.svg)
 
-Show decimal sequence at length hafway between 10ⁱ and 10²:
+Show decimal sequence at length halfway between 10ⁱ and 10²:
 
 ~~~spl svg=F
 1:55.vanDerCorputNumber(10)
@@ -136,6 +146,16 @@ Show decimal sequence at length hafway between 10ⁱ and 10²:
 ~~~
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-F.svg)
+
+Plot numerators of binary sequence:
+
+~~~spl svg=G
+0:300.vanDerCorputNumber(2)
+.numerator
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-G.svg)
 
 * * *
 
@@ -148,7 +168,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/vanderCorputSequence.html),
 _OEIS_
 [1](https://oeis.org/A030101)
-[2](https://oeis.org/A030102),
+[2](https://oeis.org/A030102)
+[3](https://oeis.org/A062383),
 _W_
 [1](https://en.wikipedia.org/wiki/Van_der_Corput_sequence)
 

@@ -95,6 +95,11 @@ Plotting Functions
 - `necklacePlot`
 - `rectangularPartitionsDrawing`
 
+Ranking and Unranking Functions:
+
+- `catalanRank`
+- `catalanUnrank`
+
 * * *
 
 Guides: Integer Functions, Mathematical Functions

@@ -28,6 +28,20 @@ At `SmallFloat`:
 0.0
 ```
 
+At `LargeInteger`:
+
+```
+>>> 23L.zero
+0L
+```
+
+At `Decimal`:
+
+```
+>>> 3.141D.zero
+0D
+```
+
 At `List`, answers with a zeroed collection of the same `shape`:
 
 ```
@@ -39,7 +53,7 @@ At `List`, answers with a zeroed collection of the same `shape`:
 
 See also: isNegative, isNonZero, isPositive, isZero, one
 
-Guides: Mathematical Functions
+Guides: Mathematical Functions, Number Functions
 
 References:
 _Mathematica_

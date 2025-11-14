@@ -1,6 +1,6 @@
 # foldLeft
 
-- _foldLeft(aSequence, aBlock:/2)_
+- _foldLeft([x₁ x₂ …], f:/2)_
 
 Reduce from left to right.
 
@@ -62,6 +62,8 @@ true
 * * *
 
 See also: foldRight, reduce
+
+Guides: List Functions
 
 References:
 _Haskell_
