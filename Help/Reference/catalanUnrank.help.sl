@@ -25,6 +25,28 @@ OEIS [A014486](https://oeis.org/A014486):
 ]
 ```
 
+The inverse function is `catalanRank`:
+
+```
+>>> let n = 53;
+>>> 0:n.collect(catalanUnrank:/1)
+>>> .collect(catalanRank:/1)
+[0 .. n]
+```
+
+A related sequence giving the zero-indices, or zero,
+OEIS [A080300](https://oeis.org/A080300):
+
+```
+>>> let i = 0:5.collect(catalanUnrank:/1);
+>>> 0:44.collect { :n | i.indexOf(n) - 1 }.max(0)
+[
+	0 0 1 0 0 0 0 0 0 0 2 0 3 0 0 0 0 0 0 0
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+	0 0 4 0 5
+]
+```
+
 Plot first few terms:
 
 ~~~spl svg=A
@@ -33,21 +55,6 @@ Plot first few terms:
 ~~~
 
 ![](sw/spl/Help/Image/catalanUnrank-A.svg)
-
-
-cat x = x.catalanNumber
-b2d x = x.fromDigits(2)
-d2b x = x.integerDigits(2)
-
-tree[n_] := Join[Table[1, {i, 1, n}], Table[0, {i, 1, n}]];
-nexttree[t_] := Flatten[Reverse[t]/. {a___, 0, 0, 1, b___}:> Reverse[{Sort[{a, 0}]//Reverse, 1, 0, b}]];
-wood[ n_ /; n<8 ] := NestList[ nexttree, tree[ n ], cat[ n ]-1 ];
-bracket[ tree_ ] := (Flatten[ {tree, 0} ]/. 0->{0})//.{1, z___, 1, a_List, b_List, y___}:>{1, z, {1, a, b}, y};
-widthfirst[ dectree_ ] := b2d[ Drop[ Flatten[ {Table[ Cases[ Level[ #, {k}, z ], _Integer ], {k, Depth[ # ]-1} ] }/.z->List ], -1 ] ] & @(bracket@d2b[ dectree ]);
-Ordering[Reverse[widthfirst /@ b2d /@ wood[6]]]
-
-let tree = { :n | List(n, 1) ++ List(n, 0) };
-
 
 * * *
 
@@ -58,3 +65,4 @@ Guides: Combinatorial Functions
 References:
 _OEIS_
 [1](https://oeis.org/A014486)
+[2](https://oeis.org/A080300)

@@ -13,6 +13,12 @@ The operator form or `bitShiftRight`.
 
 >>> 48.bitShiftRight(4)
 3
+
+>>> 2r11100 >> 1
+2r01110
+
+>>> 2r11010 >> 1
+2r01101
 ```
 
 Shift right by `one` is equivalent to `//` by two:

@@ -55,7 +55,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/CatalanNumber.html),
 _OEIS_
 [1](https://oeis.org/A000108)
-[2](https://oeis.org/A014137),
+[2](https://oeis.org/A014137)
+[3](https://oeis.org/A014138),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)
 

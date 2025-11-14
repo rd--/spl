@@ -100,6 +100,13 @@ Ranking and Unranking Functions:
 - `catalanRank`
 - `catalanUnrank`
 
+Siteswap Functions:
+
+- `isSiteswap`
+- `siteswapStateAllowedTransitions`
+- `siteswapStateTransition`
+- `siteswapState`
+
 * * *
 
 Guides: Integer Functions, Mathematical Functions

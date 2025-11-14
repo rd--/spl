@@ -1,8 +1,8 @@
 # withoutTrailingZeros
 
-- _withoutTrailingZeros(aList)_
+- _withoutTrailingZeros([x₁ x₂ …])_
 
-Answer a `List` that is like _aList_ but without any trailing zeros.
+Answer a `List` that is like the list _x_ but without any trailing zeros.
 
 Remove all trailing zeros:
 

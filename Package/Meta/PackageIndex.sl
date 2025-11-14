@@ -196,6 +196,7 @@
 	'Math-Primes'
 	'Math-Shuffle'
 	'Math-SignalProcessing'
+	'Math-Siteswap'
 	'Math-SpecialFunctions'
 	'Math-Statistics'
 	'Math-TrigonometricFunctions'

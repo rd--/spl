@@ -190,6 +190,7 @@
 	'Primes'
 	'Shuffle'
 	'SignalProcessing'
+	'Siteswap'
 	'SpecialFunctions'
 	'Statistics'
 	'TrigonometricFunctions'

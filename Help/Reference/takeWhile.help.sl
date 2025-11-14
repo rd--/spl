@@ -1,8 +1,8 @@
 # takeWhile
 
-- _takeWhile(aSequence | aStream, aBlock:/1)_
+- _takeWhile([x₁ x₂ …], f:/1)_
 
-Answer the prefix of _aSequence_ or _aStream_ for which a _aBlock_ answers `true`.
+Answer the prefix of the sequence or stream _x_ for which the unary block _f_ answers `true`.
 
 ```
 >>> 1:9.takeWhile { :each | each < 5 }

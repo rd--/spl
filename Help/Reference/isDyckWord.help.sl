@@ -66,6 +66,42 @@ OEIS [A014486](https://oeis.org/A014486):
 ]
 ```
 
+Dyck language interpreted as binary numbers in ascending order,
+OEIS [A063171](https://oeis.org/A063171):
+
+```
+>>> 0:684.select(isDyckWord:/1)
+>>> .integerDigits(2)
+>>> .collect(fromDigits:/1)
+[
+	0
+	10
+	1010
+	1100
+	101010
+	101100
+	110010
+	110100
+	111000
+	10101010
+	10101100
+	10110010
+	10110100
+	10111000
+	11001010
+	11001100
+	11010010
+	11010100
+	11011000
+	11100010
+	11100100
+	11101000
+	11110000
+	1010101010
+	1010101100
+]
+```
+
 There are large gaps:
 
 ```
@@ -92,3 +128,4 @@ References:
 _OEIS_
 [1](https://oeis.org/A080116)
 [2](https://oeis.org/A014486)
+[3](https://oeis.org/A063171)
