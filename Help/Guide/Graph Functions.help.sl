@@ -17,7 +17,9 @@ Constructor Functions:
 
 Specific Graphs:
 
+- `balancedCayleyTree`
 - `bookGraph`
+- `cayleyTree`
 - `circulantGraph`
 - `completeBipartiteGraph`
 - `completeGraph`

@@ -22,6 +22,7 @@
 				arithmeticGeometricMean: [068521 084895 084896 084897],
 				arithmeticProgression: [000027 005408 005843 008585 008586],
 				artinsConstant: [005596],
+				balancedCayleyTree: [003945 003946 003947 083329 025192 136412],
 				baumSweetSequence: [086747],
 				beattySequence: [001951 001952 022838 054406 022843 054385 022844 054386 000201 001950],
 				bellB: [106800],

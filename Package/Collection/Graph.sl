@@ -729,6 +729,30 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 +@Integer {
 
+	balancedCayleyTree { :n :k |
+		let gapList = [1] ++ 0.to(k - 1).collect { :i |
+			n * ((n - 1) ^ i)
+		};
+		let startList = ([0] ++ gapList).prefixSum + 1;
+		let v = [1 .. gapList.sum];
+		let e = [];
+		1.toDo(k) { :i |
+			let count = (i = 1).if { n } { n - 1 };
+			let start = startList[i];
+			let gap = gapList[i];
+			let begin = start;
+			let end = start + gap;
+			gap.timesRepeat {
+				count.timesRepeat {
+					e.add(begin --- end);
+					end := end + 1
+				};
+				begin := begin + 1
+			}
+		};
+		Graph(v, e)
+	}
+
 	bookGraph { :self |
 		(self + 1).starGraph
 		.graphProduct(

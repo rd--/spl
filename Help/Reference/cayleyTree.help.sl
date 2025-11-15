@@ -54,7 +54,7 @@ cayleyTree(4, 3).graphPlot
 
 * * *
 
-See also: Graph
+See also: balancedCayleyTree, Graph
 
 Guides: Graph Functions
 
