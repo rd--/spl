@@ -54,6 +54,8 @@ At `Polyhedron`:
 
 See also: edgeCount, Graph, Polygon, Polyhedron, vertexList
 
+Guides: Geometry Functions, Graph Function
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/EdgeSet.html)

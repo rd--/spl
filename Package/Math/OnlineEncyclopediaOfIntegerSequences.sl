@@ -51,6 +51,7 @@
 				chebyshevT: [008310 053120],
 				chebyshevU: [008312 053117],
 				chordDiagrams: [007769],
+				circumflexAccent: [000272],
 				collatzSequence: [070165],
 				connellSequence: [001614],
 				continuedFraction: [003417],

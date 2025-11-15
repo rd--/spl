@@ -1,12 +1,12 @@
 # vertexOutDegree
 
-- _vertexOutDegree(aGraph)_
-- _vertexOutDegree(aGraph, aVertex)_
+- _vertexOutDegree(g)_
+- _vertexOutDegree(g, v)_
 
 Out the binary case,
-answer the vertex out-degree of _aVertex_ in _aGraph_.
+answer the vertex out-degree of the vertex _v_ in the graph _g_.
 
-Out the unary case answer the `vertexOutDegree` for each entry in `vertexList`.
+In the unary case answer the `vertexOutDegree` for each entry in `vertexList`.
 
 A vertexes out-degree is the number of edges incident to it.
 For an undirected graph, an edge is taken to be both an in-edge or an out-edge.
@@ -81,7 +81,7 @@ Undirected graphs correspond to directed graphs with each edge both an in- and o
 
 * * *
 
-See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexInDegree, vertexList, vertexOutVertexList, Graph
+See also: adjacencyMatrix, asGraph, vertexCount, vertexDegree, vertexInDegree, vertexList
 
 Guides: Graph Functions
 

@@ -1,10 +1,10 @@
 # vertexDegree
 
-- _vertexDegree(aGraph)_
-- _vertexDegree(aGraph, aVertex)_
+- _vertexDegree(g)_
+- _vertexDegree(g, v)_
 
 In the binary case,
-answer the vertex degree of _aVertex_ in _aGraph_.
+answer the vertex degree of the vertex _v_ in the graph _g_.
 
 In the unary case answer the `vertexDegree` for each entry in `vertexList`.
 

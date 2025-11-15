@@ -1,8 +1,8 @@
 # isLoopFree
 
-- _isLoopFree(aGraph)_
+- _isLoopFree(g)_
 
-Answers `true` if _aGraph_ has no self-loops, else `false`.
+Answers `true` if the graph _g_ has no self-loops, else `false`.
 
 ```
 >>> 5.completeGraph.isLoopFree
@@ -15,7 +15,9 @@ false
 The adjacency matrix of a graph without self-loops has a zero diagonal:
 
 ```
->>> 5.wheelGraph.adjacencyMatrix.diagonal
+>>> 5.wheelGraph
+>>> .adjacencyMatrix
+>>> .diagonal
 [0 0 0 0 0]
 ```
 

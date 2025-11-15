@@ -327,6 +327,16 @@ Can overflow `LargeInteger`:
 true
 ```
 
+Number of trees on _n_ labeled nodes,
+OEIS [A000272](https://oeis.org/A000272):
+
+```
+>>> 1:9.collect { :n |
+>>> 	n ^ (n - 2)
+>>> }
+[1 1 3 16 125 1296 16807 262144 4782969]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -403,6 +413,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/Power.html)
 [2](https://reference.wolfram.com/language/ref/Power.html),
+_OEIS_
+[1](https://oeis.org/A000272),
 _Smalltalk_
 5.6.2.27,
 _W_

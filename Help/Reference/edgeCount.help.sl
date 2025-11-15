@@ -1,8 +1,8 @@
 # edgeCount
 
-- _edgeCount(aGraph | aGeometry)_
+- _edgeCount(g)_
 
-Answer the number of edges in a `Graph` or a geometric object.
+Answer the number of edges in the `Graph` or geometric object _g_.
 
 At `Graph`:
 
@@ -49,6 +49,8 @@ At `Polyhedron`, the number of edges is half of the sum of the face degrees:
 * * *
 
 See also: edgeList, Graph, Polygon, Polyhedron, vertexCount
+
+Guides: Geometry Functions, Graph Function
 
 References:
 _Mathematica_

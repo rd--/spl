@@ -1,8 +1,9 @@
 # vertexCount
 
-- _vertexCount(aGraph | aGeometry)_
+- _vertexCount(g)_
 
-Answer the number of vertices in _aGraph_, also called the _order_ of the graph.
+Answer the number of vertices in the graph or geometry _g_,
+also called the _order_ of the graph.
 
 At an undirected graph:
 

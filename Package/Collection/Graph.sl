@@ -736,6 +736,22 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		)
 	}
 
+	cayleyTree { :n :k |
+		let v = [1 .. n + 1];
+		let e = 2.to(n + 1).collect { :i |
+			1 --- i
+		};
+		{ k > 1 }.whileTrue {
+			let i = v.last;
+			1.toDo(n - 1) { :j |
+				v.add(i + j);
+				e.add(i --- (i + j))
+			};
+			k := k - 1
+		};
+		Graph(v, e)
+	}
+
 	circulantGraph { :self :aList |
 		let e = [];
 		1.toDo(self) { :i |
