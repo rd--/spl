@@ -1,8 +1,8 @@
 # permutationMin
 
-- _permutationMin(aPermutation)_
+- _permutationMin(p)_
 
-Answer the smallest integer moved by _aPermutation_.
+Answer the smallest integer moved by the permutation _p_.
 
 Smallest point moved by a permutation:
 
@@ -28,6 +28,8 @@ Infinity
 * * *
 
 See also: cycles, permutationLength, permutationMax, permutationSupport
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

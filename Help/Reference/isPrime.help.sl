@@ -239,6 +239,18 @@ OEIS [A000353](https://oeis.org/A000353):
 382
 ```
 
+The de Polignac numbers,
+OEIS [A006285](https://oeis.org/A006285):
+
+
+```
+>>> (5, 7 .. 701).select { :n |
+>>> 	let m = 2 ^ (1 .. n.log(2).floor);
+>>> 	(n - m).isPrime.allFalse
+>>> }
+[127 149 251 331 337 373 509 599 701]
+```
+
 Plot primes up to one-thousand:
 
 ~~~spl svg=A
@@ -267,7 +279,8 @@ _OEIS_
 [1](https://oeis.org/A005846)
 [2](https://oeis.org/A005385)
 [3](https://oeis.org/A005384)
-[4](https://oeis.org/A000353),
+[4](https://oeis.org/A000353)
+[5](https://oeis.org/A006285),
 _W_
 [1](https://en.wikipedia.org/wiki/Primality_test)
 [2](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)

@@ -148,6 +148,23 @@ Calculate the divisor summatory function:
 ]
 ```
 
+OEIS [A078923](https://oeis.org/A078923),
+the complement is OEIS [A005114](https://oeis.org/A005114)
+the nonaliquot numbers:
+
+```
+>>> let sigma:/1 = { :n |
+>>> 	1.divisorSigma(n)
+>>> }.memoize(true);
+>>> 0:9.select { :n |
+>>> 	let m = (n = 1).if { 2 } { (n - 1) ^ 2 };
+>>> 	1:m.anySatisfy { :k |
+>>> 		sigma(k) - k = n
+>>> 	}
+>>> }
+[0 1 3 4 6 7 8 9]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_:
 
 ~~~spl svg=A
@@ -199,6 +216,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/DivisorSigma.html),
 _OEIS_
 [1](https://oeis.org/A000005)
-[2](https://oeis.org/A000203),
+[2](https://oeis.org/A000203)
+[3](https://oeis.org/A078923)
+[4](https://oeis.org/A005114):
 _W_
 [1](https://en.wikipedia.org/wiki/Divisor_function)

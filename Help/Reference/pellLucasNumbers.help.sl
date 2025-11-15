@@ -4,10 +4,18 @@
 
 Answer the first _n_ Pell-Lucas numbers.
 
-The first eleven Pell-Lucas numbers (OEIS A002203):
+The first eleven Pell-Lucas numbers,
+OEIS [A002203](https://oeis.org/A002203):
 
 ```
 >>> 11.pellLucasNumbers
+[2 2 6 14 34 82 198 478 1154 2786 6726]
+```
+
+There is a linear recurrence:
+
+```
+>>> linearRecurrence([2 1], [2 2], 11)
 [2 2 6 14 34 82 198 478 1154 2786 6726]
 ```
 

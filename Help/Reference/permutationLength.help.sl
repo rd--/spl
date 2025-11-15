@@ -1,8 +1,8 @@
 # permutationLength
 
-- _permutationLength(aPermutation)_
+- _permutationLength(p)_
 
-Answer the number of integers moved by _aPermutation_.
+Answer the number of integers moved by the permutation _p_.
 
 Number of points moved by a permutation:
 
@@ -28,6 +28,8 @@ Length of the support of the identity:
 * * *
 
 See also: cycles, permutationMax, permutationMin, permutationSupport
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

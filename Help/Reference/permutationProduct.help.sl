@@ -1,10 +1,10 @@
 # permutationProduct
 
-- _permutationProduct(aSequence)_
+- _permutationProduct([p₁ p₂ …])_
 
-Answer the left to right product of the permutations at _aSequence_.
+Answer the left to right product of the permutations at the sequence _p_.
 
-The product of permutations _[p, q, r]_ is the result of applying _p_, then _q_, then _r_.
+The product of permutations _a,b,c_ is the result of applying first _a_, then _b_, then _c_.
 
 Product of two permutations:
 
@@ -92,6 +92,8 @@ p.permutationPower(6)
 * * *
 
 See also: cycles, permutationPower, permutationReplace, permute
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

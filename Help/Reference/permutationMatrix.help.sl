@@ -1,8 +1,8 @@
 # permutationMatrix
 
-- _permutationMatrix(aSequence)_
+- _permutationMatrix(p)_
 
-Answer the permutation matrix given by the permutation vector _aSequence_.
+Answer the permutation matrix given by the permutation vector _p_.
 
 A three element permutation vector:
 

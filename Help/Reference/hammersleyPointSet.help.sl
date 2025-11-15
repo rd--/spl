@@ -33,6 +33,8 @@ Plot the first few terms:
 
 See also: haltonSequence, poissonDiskSampling, vanDerCorputNumber
 
+Guides: Geometric Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HammersleyPointSet.html),

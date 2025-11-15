@@ -1,8 +1,8 @@
 # permutationReplace
 
-- _permutationReplace(aSequence, aPermutation)_
+- _permutationReplace([x₁ x₂ …], p)_
 
-Replaces each item in _aSequence_ by its `image` under _aPermutation_.
+Replaces each item in th sequence _x_ by its `image` under the permutation _p_.
 
 `permutationReplace` on arrays of integers returns the list of respective images:
 
@@ -16,6 +16,8 @@ Replaces each item in _aSequence_ by its `image` under _aPermutation_.
 * * *
 
 See also: image, Permutation
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

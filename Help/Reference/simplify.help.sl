@@ -12,8 +12,15 @@ At `Fraction`:
 >>> r.simplify;
 >>> r
 1/2
+
+>>> let r = ReducedFraction(0, 4);
+>>> r.simplify;
+>>> r
+0/1
 ```
 
 * * *
 
 See also: Fraction, ReducedFraction, simplify
+
+Guides: Number Functions

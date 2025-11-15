@@ -25,6 +25,13 @@ There is a closed form for calculating the n-th Pell number (zero-indexed):
 ]
 ```
 
+There is a linear recurrence:
+
+```
+>>> linearRecurrence([2 1], [0 1], 12)
+[0 1 2 5 12 29 70 169 408 985 2378 5741]
+```
+
 The silver ratio is the limiting ratio of consecutive Pell numbers:
 
 ```

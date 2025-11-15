@@ -1,8 +1,8 @@
 # permutationPatternPositions
 
-- _permutationPatternPositions(aPermutation, pattern)_
+- _permutationPatternPositions(p, q)_
 
-Answer the list of places where the _pattern_ appears in _aPermutation_.
+Answer the list of places where the pattern _q_ appears in the permutation _p_.
 
 _351462_ has three occurences of _132_:
 
@@ -12,7 +12,7 @@ _351462_ has three occurences of _132_:
 [1 2 4; 3 4 6; 3 5 6]
 ```
 
-_32415_ has five copied of _213_:
+_32415_ has five copies of _213_:
 
 ```
 >>> [3 2 4 1 5]
@@ -31,6 +31,8 @@ _51342_ has no instances of _213_, i.e. it avoids _213_:
 * * *
 
 See also: permutationHasPattern, reducedPermutation
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

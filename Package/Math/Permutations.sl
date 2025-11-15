@@ -359,7 +359,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	storeString { :self |
-		self.cycles.storeString ++ '.cycles'
+		'Permutation(%)'.format([self.cycles.storeString])
 	}
 
 	support { :self |
@@ -377,31 +377,47 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 +List {
 
-	asPermutation { :self |
+	Permutation { :self |
 		self.isPermutationCycles.if {
-			self.cycles
+			self.uncheckedCyclesToPermutation
 		} {
 			self.isPermutationList.if {
-				newPermutation().initializeSlots(
-					self.permutationListToPermutationCycles(true),
-					self.max
-				)
+				self.uncheckedPermutationListToPermutation
 			} {
-				self.error('List>>asPermutation: not permutation')
+				self.error('List>>Permutation: not permutation')
 			}
 		}
 	}
 
+	uncheckedCyclesToPermutation { :self |
+		newPermutation().initializeSlots(
+			self.isEmpty.if {
+				[]
+			} {
+				self.permutationCyclesToCanonicalForm(true)
+			},
+			self.permutationDegree
+		)
+	}
+
+	uncheckedPermutationListToPermutation { :self |
+		newPermutation().initializeSlots(
+			self.permutationListToPermutationCycles(true),
+			self.max
+		)
+	}
+
+}
+
++List {
+
+	asPermutation { :self |
+		Permutation(self)
+	}
+
 	cycles { :self |
 		self.isPermutationCycles.if {
-			newPermutation().initializeSlots(
-				self.isEmpty.if {
-					[]
-				} {
-					self.permutationCyclesToCanonicalForm(true)
-				},
-				self.permutationDegree
-			)
+			self.uncheckedCyclesToPermutation
 		} {
 			self.error('List>>cycles: not permutation cycles')
 		}

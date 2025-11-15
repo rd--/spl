@@ -4,7 +4,7 @@
 
 Answer `true` if the sequence _x_ is a valid permutation list, and `false` otherwise.
 
-A valid permutation list of size _n_ is a rearrangement of the integers _1:n_.
+A valid permutation list of size _n_ is a rearrangement of the integers _1,2…n_.
 
 A valid permutation list:
 
@@ -107,6 +107,8 @@ Product of two permutation lists of the same length:
 * * *
 
 See also: ordering, permutationList, permutationCycles, isPermutationCycles
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

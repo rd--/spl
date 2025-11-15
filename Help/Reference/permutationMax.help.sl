@@ -1,8 +1,8 @@
 # permutationMax
 
-- _permutationMax(aPermutation)_
+- _permutationMax(p)_
 
-Answer the largest integer moved by _aPermutation_.
+Answer the largest integer moved by the permutation _p_.
 
 The largest integer moved by a permutation is sometimes called its degree.
 Another common definition of permutation degree is the number of integers moved.
@@ -33,6 +33,8 @@ Maximum of the support of the identity:
 * * *
 
 See also: cycles, permutationLength, permutationMin, permutationSupport
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

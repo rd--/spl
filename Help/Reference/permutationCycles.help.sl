@@ -93,6 +93,8 @@ A histogram of the cycle count for the permutations of the symmetric group _S6_:
 
 See also: isPermutationCycles, isPermutationList, permutationList, permutationMatrix
 
+Guides: Permutation Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PermutationCycles.html)

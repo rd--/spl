@@ -1,16 +1,24 @@
 # findPermutation
 
-- _findPermutation(aSequence)_
-- _findPermutation(aSequence, anotherSequence)_
+- _findPermutation([x₁ x₂ …], [y₁ y₂ …])_
 
-Answer a permutation that converts _aSequence_ into _anotherSequence_,
-for two sequences that differ only in the order of their arguments.
+Answer a permutation that converts the sequence _x_ into the sequence _y_,
+for two sequences that differ only in the order of their items.
 
 Permutation relating two expressions with the same elements:
 
 ```
->>> [1 3 4 5 2].findPermutation([3 1 2 4 5])
+>>> [1 3 4 5 2]
+>>> .findPermutation([3 1 2 4 5])
 [1 2; 3 4 5].cycles
+
+>>> [1 2 3 4 5 6]
+>>> .findPermutation([2 1 3 5 4 6])
+[1 2; 4 5].Permutation
+
+>>> [2 1 3 5 4 6]
+>>> .findPermutation([2 3 1 4 5 6])
+[2 3; 4 5].Permutation
 ```
 
 Verify the result using `permute`:
@@ -20,13 +28,15 @@ Verify the result using `permute`:
 [3 1 2 4 5]
 ```
 
+In the unary case answer the permutation required to order _x_.
 Relation with `ordering`:
 
 ```
 >>> 'adcghf'.characters.findPermutation
 [2 3; 4 6 5].cycles
 
->>> 'adcghf'.characters.ordering.asPermutation
+>>> 'adcghf'.characters
+>>> .ordering.Permutation
 [2 3; 4 6 5].cycles
 
 >>> let l = 'adcghf'.characters;
@@ -37,6 +47,8 @@ Relation with `ordering`:
 * * *
 
 See also: cycles, ordering, Permutation, permute
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

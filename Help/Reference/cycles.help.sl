@@ -1,8 +1,13 @@
 # cycles
 
+- _cycles(p)_
 - _cycles([c₁ c₂ …])_
 
-Answer the `Permutation` given by the permutation cycles _c_.
+At `List`,
+answer the `Permutation` given by the permutation cycles _c_.
+
+At `Permutation`,
+answer the cyclic notation of the permutation.
 
 A permutation with two cycles:
 
@@ -47,6 +52,8 @@ true
 * * *
 
 See also: asPermutation, Permutation, permutationReplace, permute
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

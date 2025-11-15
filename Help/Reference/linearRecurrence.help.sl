@@ -586,6 +586,26 @@ OEIS [A065171](https://oeis.org/A065171):
 ]
 ```
 
+Numerators and denominators of continued fraction convergents to √2,
+OEIS [A001333](https://oeis.org/A001333)
+and [A000129](https://oeis.org/A000129):
+
+```
+>>> linearRecurrence([2 1], [1 1], 12)
+[1 1 3 7 17 41 99 239 577 1393 3363 8119]
+
+>>> linearRecurrence([2 1], [0 1], 12)
+[0 1 2 5 12 29 70 169 408 985 2378 5741]
+```
+
+Number of indecomposable ground-state three-ball juggling sequences of period _n_,
+OEIS [A084519](https://oeis.org/A084519):
+
+```
+>>> linearRecurrence([3 2 2], [1 1 3], 10)
+[1 1 3 13 47 173 639 2357 8695 32077]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -615,7 +635,8 @@ _OEIS_
 [4](http://oeis.org/A002203)
 [5](http://oeis.org/A001608)
 [6](http://oeis.org/A000124)
-[7](http://oeis.org/A065171),
+[7](http://oeis.org/A065171)
+[8](http://oeis.org/A084519),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 [2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)

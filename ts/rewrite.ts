@@ -313,7 +313,10 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	largeIntegerLiteral(s, i, _l) {
 		const sT = s.sourceString;
-		const iT = i.sourceString.replace(/^0+/, '');
+		let iT = i.sourceString.replace(/^0+/, '');
+		if (iT.length === 0) {
+			iT = '0';
+		}
 		return `${sT}${iT}n`;
 	},
 	lowercaseIdentifier(c1, cN) {
@@ -659,11 +662,11 @@ const asSl: ohm.ActionDict<string> = {
 		const iT = i.sourceString;
 		const fT = f.sourceString;
 		let kT = k.sourceString;
-		const e = Math.pow(10, fT.length);
+		const e = 10n ** BigInt(fT.length);
 		if (kT.length === 0) {
 			kT = fT.length
 		};
-		return `Decimal(Fraction(${sT}${iT}${fT}L, ${e}L), ${kT})`;
+		return `Decimal(Fraction(${sT}${iT}${fT}L, ${e.toString(10)}L), ${kT})`;
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {

@@ -1,8 +1,8 @@
 # isPermutationCycles
 
-- _isPermutationCycles(aSequence)_
+- _isPermutationCycles([c₁ c₂ …])_
 
-Answer `true` if _aSequence_ contains a valid permutation in cyclic form, and `false` otherwise.
+Answer `true` if the sequence _c_ contains a valid permutation in cyclic form, and `false` otherwise.
 
 A valid permutation in cyclic form:
 
@@ -56,6 +56,8 @@ false
 * * *
 
 See also: permutationCycles, permutationList, isPermutationList
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

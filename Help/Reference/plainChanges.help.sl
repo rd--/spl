@@ -18,6 +18,9 @@ Plain changes of _S3_:
 	2 3 1;
 	2 1 3
 ]
+
+>>> 3.!
+6
 ```
 
 Plain changes of _S4_:
@@ -50,6 +53,9 @@ Plain changes of _S4_:
 	2 1 4 3;
 	2 1 3 4
 ]
+
+>>> 4.!
+24
 ```
 
 Show sequence of swaps, and since swaps are always adjacent show only first place:

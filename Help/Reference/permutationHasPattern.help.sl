@@ -1,8 +1,8 @@
 # permutationHasPattern
 
-- _permutationHasPattern(aPermutation, pattern)_
+- _permutationHasPattern(p, q)_
 
-Answer `true` if _aPermutation_ includes _pattern_.
+Answer `true` if the permutation _p_ includes the pattern _q_.
 
 ```
 >>> [6 2 5 4 3 1]
@@ -53,6 +53,8 @@ true
 * * *
 
 See also: permutationPatternPositions
+
+Guides: Permutation Functions
 
 References:
 _Sage_

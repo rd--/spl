@@ -59,6 +59,7 @@ Mathematical Constants:
 - `supersilverRatio`: ς
 - `tetranacciConstant`
 - `tribonacciConstant`
+- `vanDerCorputsConstant`
 
 Pyhsical Constants:
 

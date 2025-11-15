@@ -1,8 +1,8 @@
 # ordering
 
-- _ordering(l, f:/2=<)_
+- _ordering([x₁ x₂ …], f:/2=<)_
 
-Answer the positions in the sequence _l_ at which each successive element of _sort(l)_ appears.
+Answer the positions in the sequence _x_ at which each successive element of _sort(x)_ appears.
 
 Find the ordering that sorts a list:
 

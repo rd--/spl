@@ -14,7 +14,14 @@ There is a `LargeInteger` type, written with an _L_ suffix:
 true
 ```
 
-and an `Integer` trait:
+Leading zeroes are allowed:
+
+```
+>>> [01 01L 0 0L]
+[1 1L 0 0L]
+```
+
+There is an `Integer` trait:
 
 ```
 >>> [23, 23L].collect(isInteger:/1)

@@ -68,7 +68,7 @@
 				digitalRoot: [010888],
 				digitSum: [000120 053735 053737 053824 053827 053828 053829 053830 007953],
 				discriminant: [007878],
-				divisorSigma: [000005],
+				divisorSigma: [000005 000203 078923 005114],
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
 				e: [001113],
@@ -163,7 +163,7 @@
 				isPoliteNumber: [138591],
 				isPowerfulNumber: [001694 118896 060355],
 				isPracticalNumber: [005153],
-				isPrime: [005846 005385 005384 000353],
+				isPrime: [005846 005385 005384 000353 006285],
 				isPrimePower: [246655],
 				isPrimitiveAbundantNumber: [071395],
 				isPronicNumber: [002378],
@@ -210,7 +210,7 @@
 					000931 000204 000129 002203 001608 000975 005578 000295 000225 000045
 					051049 001590 000930 079398 103372 103373 001076 134816 003269 017817
 					003520 000975 001687 052920 017827 001653 001519 002943 000127 000931
-					056530 000124 000078 001108 001840 000045
+					056530 000124 000078 001108 001840 000045 001333 000129 084519
 				],
 				liouvilleLambda: [008836],
 				lobbNumber: [039599],
@@ -346,6 +346,7 @@
 				tribonacciNumber: [000073],
 				tribonacciWord: [092782],
 				vanDerCorputNumber: [030101 030102 062383],
+				vanDerCorputsConstant: [143305],
 				vanDerLaanSequence: [182097],
 				vedicSquare: [125959 180592 180593 180594],
 				wedderburnEtheringtonNumbers: [001190],

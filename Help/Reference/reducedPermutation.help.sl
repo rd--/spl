@@ -1,8 +1,8 @@
 # reducedPermutation
 
-- _reducedPermutation(aSequence)_
+- _reducedPermutation([x₁ x₂ …])_
 
-Answer the permutation pattern of _aSequence_,
+Answer the permutation pattern of the sequence _x_,
 which must not have duplicate elements.
 
 ```
@@ -16,3 +16,5 @@ which must not have duplicate elements.
 * * *
 
 See also: permutationHasPattern, permutationPatternPositions
+
+Guides: Permutation Functions

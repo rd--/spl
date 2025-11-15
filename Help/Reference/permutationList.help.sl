@@ -1,12 +1,12 @@
 # permutationList
 
-- _permutationList(aPermutation, anInteger)_
+- _permutationList(p, n)_
 
-Answer a permutation list representation of _aPermutation_,
+Answer a permutation list representation of the permutation _p_,
 which may be given in cyclic form.
 
 In the binary case,
-the answer will have _anInteger_ places.
+the answer will have _n_ places.
 
 In the unary case,
 the size will is given by `permutationMax`.
@@ -66,6 +66,8 @@ At a permutation list, answer the identity:
 * * *
 
 See also: isPermutationList, permutationCycles, permutationMatrix
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

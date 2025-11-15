@@ -1,8 +1,8 @@
 # permutationSupport
 
-- _permutationSupport(aPermutation)_
+- _permutationSupport(p)_
 
-Answer the support of _aPermutation_.
+Answer the support of the permutation _p_.
 
 The support of a permutation _p_ is the list of integers that are not fixed by _p_.
 The list of integers is answered sorted.
@@ -31,6 +31,8 @@ Support of identity permutation:
 * * *
 
 See also: cycles, permutationMax, permutationMin, permutationLength
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_
