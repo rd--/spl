@@ -307,6 +307,20 @@ Decimal(1/503, 251)
 
 ![](sw/spl/Help/Image/integerDigits-F.svg)
 
+Plot number of runs in binary expansion of _n_,
+OEIS [A005811](https://oeis.org/A005811):
+
+~~~spl svg=G
+1:255.collect { :n |
+	n.integerDigits(2)
+	.split(=)
+	.collect(size:/1)
+	.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-G.svg)
+
 * * *
 
 See also: digitCount, fromDigits
@@ -325,7 +339,8 @@ _OEIS_
 [5](https://oeis.org/A117966)
 [6](https://oeis.org/A160855)
 [7](https://oeis.org/A010060)
-[8](https://oeis.org/A063543),
+[8](https://oeis.org/A063543)
+[9](https://oeis.org/A005811),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

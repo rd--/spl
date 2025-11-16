@@ -85,6 +85,17 @@ OEIS [A005823](https://oeis.org/A005823):
 
 ![](sw/spl/Help/Image/digitCount-C.svg)
 
+Number of ones in binary reflected Gray code of _n_,
+OEIS [A005811](https://oeis.org/A005811):
+
+~~~spl svg=D
+0:250.collect { :n |
+	n.grayEncode.digitCount(2, 1)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-D.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
@@ -99,5 +110,6 @@ _OEIS_
 [1](https://oeis.org/A000120)
 [2](https://oeis.org/A006046)
 [3](https://oeis.org/A005823)
+[4](https://oeis.org/A005811)
 
 Categories: Querying

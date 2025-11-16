@@ -39,7 +39,9 @@ OEIS [A080300](https://oeis.org/A080300):
 
 ```
 >>> let i = 0:5.collect(catalanUnrank:/1);
->>> 0:44.collect { :n | i.indexOf(n) - 1 }.max(0)
+>>> 0:44.collect { :n |
+>>> 	i.indexOf(n) - 1
+>>> }.max(0)
 [
 	0 0 1 0 0 0 0 0 0 0 2 0 3 0 0 0 0 0 0 0
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -56,6 +58,19 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/catalanUnrank-A.svg)
 
+Plot first few terms of
+OEIS [A057514](https://oeis.org/A057514):
+
+~~~spl svg=B
+0:200.collect { :n |
+	n.catalanUnrank
+	.grayEncode
+	.digitCount(2, 1) / 2
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/catalanUnrank-B.svg)
+
 * * *
 
 See also: catalanRank, isDyckWord
@@ -66,3 +81,4 @@ References:
 _OEIS_
 [1](https://oeis.org/A014486)
 [2](https://oeis.org/A080300)
+[3](https://oeis.org/A057514)
