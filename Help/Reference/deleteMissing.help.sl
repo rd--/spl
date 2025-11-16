@@ -24,6 +24,8 @@ Delete missing values from a record:
 
 See also: Missing
 
+Guides: Error Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/DeleteMissing.html)

@@ -54,6 +54,23 @@ Raise a floating point matrix to a positive integer power:
 ]
 ```
 
+First few terms of OEIS [A052534](https://oeis.org/A052534):
+
+```
+>>> let v = [0 1 0];
+>>> let m = [
+>>> 	1 1 1;
+>>> 	1 1 0;
+>>> 	1 0 0
+>>> ];
+>>> 0:11.collect { :n |
+>>> 	v.dot(
+>>> 		matrixPower(m, n + 1)
+>>> 	).dot(v)
+>>> }
+[1 2 4 9 20 45 101 227 510 1146 2575 5786]
+```
+
 * * *
 
 See also: dot
@@ -62,6 +79,8 @@ Guides: Matrix Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/MatrixPower.html)
+[1](https://reference.wolfram.com/language/ref/MatrixPower.html),
+_OEIS_
+[1](https://oeis.org/A052534)
 
 Categories: Math, Matrix

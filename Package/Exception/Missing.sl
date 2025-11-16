@@ -20,6 +20,16 @@ Missing : [Object, Storeable, Equatable] { | reason value |
 		self.reject(isMissingOrNil:/1)
 	}
 
+	deleteMissing { :self :n |
+		(n = 1).if {
+			self.deleteMissing
+		} {
+			self.collect { :each |
+				each.deleteMissing(n - 1)
+			}
+		}
+	}
+
 }
 
 +[Missing, Nil] {

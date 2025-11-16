@@ -173,6 +173,32 @@ OEIS [A005130](https://oeis.org/A005130):
 ]
 ```
 
+Irregular triangular array of Motzkin polynomial coefficients,
+OEIS [A055151](https://oeis.org/A055151):
+
+```
+>>> 0:9.triangularArray { :n :k |
+>>> 	(k < 0 | { 2 * k > n }).if {
+>>> 		nil
+>>> 	} {
+>>> 		let a = n - (2 * k);
+>>> 		n.! / (a.! * k.! * (k + 1).!)
+>>> 	}
+>>> }.deleteMissing(2)
+[
+	1;
+	1;
+	1  1;
+	1  3;
+	1  6   2;
+	1 10  10;
+	1 15  30   5;
+	1 21  70  35;
+	1 28 140 140  14;
+	1 36 252 420 126
+]
+```
+
 * * *
 
 See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial
@@ -192,7 +218,8 @@ _Mathworks_
 _OEIS_
 [1](https://oeis.org/A000142)
 [2](https://oeis.org/A000435)
-[3](https://oeis.org/A005130),
+[3](https://oeis.org/A005130)
+[4](https://oeis.org/A055151),
 _Smalltalk_
 5.6.5.11,
 _W_

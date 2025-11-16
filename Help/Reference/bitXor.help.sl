@@ -131,7 +131,9 @@ in siteswaps the number of 1-bits is a constant:
 ]
 ```
 
-Scatter plot of OEIS [A003188](https://oeis.org/A003188):
+Scatter plot of Gray encoding of _n_,
+OEIS [A003188](https://oeis.org/A003188):
+
 
 ~~~spl svg=A
 0:250.collect { :n |

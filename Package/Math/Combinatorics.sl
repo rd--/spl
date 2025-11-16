@@ -77,6 +77,37 @@
 		answer
 	}
 
+	binaryCombinationsDo { :s :t :visit:/1 |
+		let n = s + t;
+		let b = List(t, 1) ++ List(s, 0);
+		let x = t;
+		let y = t;
+		visit(b);
+		{ x < n }.whileTrue {
+			b[x] := 0;
+			b[y] := 1;
+			x := x + 1;
+			y := y + 1;
+			(b[x] = 0).ifTrue {
+				b[x] := 1;
+				b[1] := 0;
+				(y > 2).ifTrue {
+					x := 2
+				};
+				y := 1
+			};
+			visit(b)
+		}
+	}
+
+	binaryCombinations { :s :t |
+		let r = [];
+		binaryCombinationsDo(s, t) { :b |
+			r.add(b.copy)
+		};
+		r
+	}
+
 	braceletCount { :n :k |
 		let t1 = 0;
 		1.toDo(n) { :d |
@@ -273,6 +304,69 @@
 	involutionNumber { :n |
 		0.to(n // 2).sum { :k |
 			((2 * k) - 1).doubleFactorial * binomial(n, 2 * k)
+		}
+	}
+
+	motzkinWordsDo { :t :s :visit:/1 |
+		let n = (2 * s) + t;
+		let b = List(s, 2) ++ List(t, 1) ++ List(s, 0);
+		let x = n - 1;
+		let y = t + s + 1;
+		let z = s + 1;
+		visit(b);
+		{ x < (n - 1) | { b[x] < 2 } }.whileTrue {
+			let p = nil;
+			let q = b[x - 1];
+			let r = b[x];
+			((x + 1) <= n).ifTrue {
+				p := b[x + 1]
+			};
+			b[x] := b[x - 1];
+			b[y] := b[y - 1];
+			(z > 1).ifTrue {
+				b[z] := b[z - 1]
+			};
+			b[1] := r;
+			y := y + 1;
+			z := z + 1;
+			x := x + 1;
+			(p = 0).if {
+				((z - 2) > (x - y)).if {
+					b[1] := 2;
+					b[2] := 0;
+					b[x] := r;
+					z := 2;
+					y := 2;
+					x := 3
+				} {
+					x := x + 1
+				}
+			} {
+				(x <= n & { q >= b[x] }).ifTrue {
+					b[x] := 2;
+					b[x - 1] := 1;
+					b[1] := 1;
+					z := 1
+				}
+			};
+			(b[2] > b[1]).ifTrue {
+				z := 1;
+				y := 2;
+				x := 2
+			};
+			visit(b)
+		}
+	}
+
+	motzkinWords { :t :s |
+		(s = 0).if {
+			[List(t, 1)]
+		} {
+			let r = [];
+			motzkinWordsDo(t, s) { :b |
+				r.add(b.copy)
+			};
+			r
 		}
 	}
 
@@ -583,6 +677,30 @@
 }
 
 +@Sequenceable {
+
+	combinationsAtATimeDo { :self :kk :aBlock:/1 |
+		let aCollection = List(kk);
+		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
+	}
+
+	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
+		(n + 1).toDo(self.size) { :index |
+			aCollection[j] := self[index];
+			(j = aCollection.size).if {
+				aBlock(aCollection)
+			} {
+				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock:/1)
+			}
+		}
+	}
+
+	combinations { :self :m |
+		let answer = [];
+		self.combinationsAtATimeDo(m) { :each |
+			answer.add(each.copy)
+		};
+		answer
+	}
 
 	deBruijnSequence { :self :anInteger |
 		self.lyndonWords(anInteger).select { :each |

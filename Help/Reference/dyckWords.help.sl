@@ -5,30 +5,31 @@
 Enumerate all Dyck words of size _2n_.
 A Dyck word is a balanced string of brackets _a_ and _b_.
 The set of Dyck words forms a Dyck language.
+Common brakets are _1,0_ or _1,-1_ or _2,0_ or _(,)_.
 
-Words of length four on _-1,1_:
+Words of length four on _1,0_:
 
 ```
->>> 2.dyckWords([-1 1])
+>>> 2.dyckWords([1 0])
 [
-	-1 -1 1 1;
-	-1 1 -1 1
+	1 1 0 0;
+	1 0 1 0
 ]
 
 >>> 2.catalanNumber
 2
 ```
 
-Words of length six on _0,1_:
+Words of length six on _1,0_:
 
 ```
->>> 3.dyckWords([0 1])
+>>> 3.dyckWords([1 0])
 [
-	0 0 0 1 1 1;
-	0 0 1 0 1 1;
-	0 0 1 1 0 1;
-	0 1 0 0 1 1;
-	0 1 0 1 0 1
+	1 1 1 0 0 0;
+	1 0 1 1 0 0;
+	1 1 0 1 0 0;
+	1 0 1 0 1 0;
+	1 1 0 0 1 0
 ]
 
 >>> 3.catalanNumber
@@ -38,22 +39,22 @@ Words of length six on _0,1_:
 Words of length eight:
 
 ```
->>> 4.dyckWords([0 1])
+>>> 4.dyckWords([1 0])
 [
-	0 0 0 0 1 1 1 1;
-	0 0 0 1 0 1 1 1;
-	0 0 0 1 1 0 1 1;
-	0 0 0 1 1 1 0 1;
-	0 0 1 0 0 1 1 1;
-	0 0 1 0 1 0 1 1;
-	0 0 1 0 1 1 0 1;
-	0 0 1 1 0 0 1 1;
-	0 0 1 1 0 1 0 1;
-	0 1 0 0 0 1 1 1;
-	0 1 0 0 1 0 1 1;
-	0 1 0 0 1 1 0 1;
-	0 1 0 1 0 0 1 1;
-	0 1 0 1 0 1 0 1
+	1 1 1 1 0 0 0 0;
+	1 0 1 1 1 0 0 0;
+	1 1 0 1 1 0 0 0;
+	1 1 1 0 1 0 0 0;
+	1 0 1 1 0 1 0 0;
+	1 1 0 1 0 1 0 0;
+	1 0 1 0 1 1 0 0;
+	1 1 0 0 1 1 0 0;
+	1 1 1 0 0 1 0 0;
+	1 0 1 1 0 0 1 0;
+	1 1 0 1 0 0 1 0;
+	1 0 1 0 1 0 1 0;
+	1 1 0 0 1 0 1 0;
+	1 1 1 0 0 0 1 0
 ]
 
 >>> 4.catalanNumber
@@ -85,6 +86,6 @@ _Mathematica_
 _W_
 [1](https://en.wikipedia.org/wiki/Dyck_language)
 
-Further Reading: Deutsch 1999, Duchon 2000, Kása 2009
+Further Reading: Deutsch 1999, Duchon 2000, Kása 2009, Lapey 2022, Ruskey 2008
 
 Categories: Enumerating

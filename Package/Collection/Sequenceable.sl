@@ -501,30 +501,6 @@
 		answer
 	}
 
-	combinationsAtATimeDo { :self :kk :aBlock:/1 |
-		let aCollection = List(kk);
-		self.combinationsAtInAfterDo(1, aCollection, 0, aBlock:/1)
-	}
-
-	combinationsAtInAfterDo { :self :j :aCollection :n :aBlock:/1 |
-		(n + 1).toDo(self.size) { :index |
-			aCollection[j] := self[index];
-			(j = aCollection.size).if {
-				aBlock(aCollection)
-			} {
-				self.combinationsAtInAfterDo(j + 1, aCollection, index, aBlock:/1)
-			}
-		}
-	}
-
-	combinations { :self :m |
-		let answer = [];
-		self.combinationsAtATimeDo(m) { :each |
-			answer.add(each.copy)
-		};
-		answer
-	}
-
 	compare { :self :aList |
 		let n = self.size;
 		let m = aList.size;

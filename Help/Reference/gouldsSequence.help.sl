@@ -94,6 +94,7 @@ Guides: Integer Sequence Functions
 References:
 OEIS
 [1](https://oeis.org/A001316)
-[2](https://oeis.org/A006046),
+[2](https://oeis.org/A006046)
+[3](https://oeis.org/A000120),
 _W_
 [1](https://en.wikipedia.org/wiki/Gould%27s_sequence)

@@ -1,8 +1,8 @@
 # deepReduce
 
-- _deepReduce(anIterable, aBlock:/2)_
+- _deepReduce(c, f:/2)_
 
-Apply _aBlock_ cumulatively to the deep elements of _anIterable_.
+Apply the block _f_ cumulatively to the deep elements of the iterable collection _c_.
 This is `reduceBy` of `deepDo`, see `reduce` for details.
 
 Sum the numeric elements of a matrix,
@@ -16,7 +16,7 @@ compare to `reduce` which sums the columns:
 [12 15 18]
 ```
 
-In cases where _aBlock_ is not associative, reduce associates to the left:
+In cases where the block _f_ is not associative, reduce associates to the left:
 
 ```
 >>> [3 3].iota.deepReduce(-)

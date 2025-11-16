@@ -45,7 +45,7 @@ OEIS [A014137](https://oeis.org/A014137):
 
 * * *
 
-See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, gamma, lassalleNumber, superCatalanNumber
+See also: bellNumber, binomial, catalanTriangle, dyckWords, factorial, fussCatalanNumber, gamma, lassalleNumber, superCatalanNumber
 
 Guides: Combinatorial Functions, Integer Sequence Functions
 

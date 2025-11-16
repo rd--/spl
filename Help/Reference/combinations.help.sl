@@ -5,7 +5,8 @@
 
 The combinations of _x_,
 or of the set _1:n_,
-taken _k_ at a time.
+taken _k_ at a time,
+in lexicographic order.
 
 All combinations of four numbers taken three at a time:
 
@@ -17,6 +18,9 @@ All combinations of four numbers taken three at a time:
 	1 3 4;
 	2 3 4
 ]
+
+>>> binomial(4, 3)
+4
 ```
 
 All combinations of five numbers taken three at a time:
@@ -79,7 +83,9 @@ The number of such combinations is given by `binomial`:
 
 * * *
 
-See also: binomial, combinationsAtATimeDo, subsets, tuples
+See also: binaryCombinations, binomial, combinationsAtATimeDo, subsets, tuples
+
+Guides: Combinatorial Functions
 
 References:
 _Mathworks_

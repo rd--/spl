@@ -308,6 +308,28 @@ OEIS [A000332](https://oeis.org/A000332):
 ]
 ```
 
+The number of Schröder paths from _0,0_ to _2n,0_ having _k_ peaks,
+OEIS [A060693](https://oeis.org/A060693):
+
+```
+>>> 0:7.triangularArray { :n :k |
+>>> 	let a = binomial(n, k);
+>>> 	let b = binomial(2 * n - k, n);
+>>> 	let c = n - k + 1;
+>>> 	a * b / c
+>>> }
+[
+	1;
+	1 1;
+	2 3 1;
+	5 10 6 1;
+	14 35 30 10 1;
+	42 126 140 70 15 1;
+	132 462 630 420 140 21 1;
+	429 1716 2772 2310 1050 252 28 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -368,7 +390,8 @@ _OEIS_
 [5](https://oeis.org/A027907)
 [6](https://oeis.org/A166556)
 [7](https://oeis.org/A109449)
-[8](https://oeis.org/A000332),
+[8](https://oeis.org/A000332)
+[9](https://oeis.org/A060693),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 [2](https://en.wikipedia.org/wiki/Cake_number)

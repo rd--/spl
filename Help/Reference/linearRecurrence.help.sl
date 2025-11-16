@@ -606,6 +606,14 @@ OEIS [A084519](https://oeis.org/A084519):
 [1 1 3 13 47 173 639 2357 8695 32077]
 ```
 
+Number of distributive lattices,
+OEIS [A006356](https://oeis.org/A006356):
+
+```
+>>> linearRecurrence([2 1 -1], [1 3 6], 11)
+[1 3 6 14 31 70 157 353 793 1782 4004]
+```
+
 Draw spiral:
 
 ~~~spl svg=A
@@ -636,7 +644,8 @@ _OEIS_
 [5](http://oeis.org/A001608)
 [6](http://oeis.org/A000124)
 [7](http://oeis.org/A065171)
-[8](http://oeis.org/A084519),
+[8](http://oeis.org/A084519)
+[9](http://oeis.org/A006356),
 _W_
 [1](https://en.wikipedia.org/wiki/Recurrence_relation)
 [2](https://en.wikipedia.org/wiki/Linear_recurrence_with_constant_coefficients)

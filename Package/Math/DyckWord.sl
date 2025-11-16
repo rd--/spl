@@ -51,7 +51,45 @@ DyckWord : [Object, Storeable] { | word tokens |
 
 +@Integer {
 
-	dyckWords { :n :letters |
+	dyckWordsDo { :t :letters :visit:/1 |
+		let [one, zero] = letters;
+		let n = 2 * t;
+		let b = List(t, one) ++ List(t, zero);
+		let x = t;
+		let y = t;
+		visit(b);
+		{ x < (n - 1) }.whileTrue {
+			b[x] := zero;
+			b[y] := one;
+			x := x + 1;
+			y := y + 1;
+			(b[x] = zero).ifTrue {
+				(x >= ((2 * y) - 2)).if {
+					x := x + 1
+				} {
+					b[x] := one;
+					b[2] := zero;
+					x := 3;
+					y := 2
+				}
+			};
+			visit(b)
+		}
+	}
+
+	dyckWords { :t :letters |
+		let r = [];
+		dyckWordsDo(t, letters) { :b |
+			r.add(b.copy)
+		};
+		r
+	}
+
+	dyckWords { :self |
+		self.dyckWords([1 0])
+	}
+
+	dyckWordsRecursiveAlgorithm { :n :letters |
 		let [a, b] = letters;
 		let f = { :x :i :n0 :n1 |
 			let d0 = { f(x ++ [a], i + 1, n0 + 1, n1) };
@@ -78,10 +116,6 @@ DyckWord : [Object, Storeable] { | word tokens |
 			}
 		};
 		f([a], 1, 1, 0)
-	}
-
-	dyckWords { :self |
-		self.dyckWords([1 0])
 	}
 
 	isDyckWord { :n |

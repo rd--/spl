@@ -33,12 +33,15 @@ Counting Functions:
 Enumeration Functions:
 
 - `bellStrings`
+- `binaryCombinations`
 - `binaryReflectedGrayCode`
 - `bracelets`
 - `catalanStrings`
 - `chordDiagrams`
+- `combinations`
 - `dyckWords`
 - `integerPartitions`
+- `motzkinWords`
 - `necklaces`
 - `setPartitions`
 - `subsets`
