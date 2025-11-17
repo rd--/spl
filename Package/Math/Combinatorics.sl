@@ -638,6 +638,25 @@
 		}
 	}
 
+	isLukasiewiczWord { :y :least |
+		let n = y.size;
+		let w = least.caseOf(
+			[
+				-1 -> { y },
+				0 -> { y - 1 }
+			]
+		);
+		1.to(n - 1).allSatisfy { :i |
+			1.to(i).sum { :j |
+				y[j]
+			}.isNonNegative
+		} & { w.sum.isZero }
+	}
+
+	isLukasiewiczWord { :y |
+		isLukasiewiczWord(y, 0)
+	}
+
 	isRestrictedGrowthString { :a |
 		let n = a.size;
 		a[1] = 0 & {

@@ -5,6 +5,9 @@
 Answer the _n_--th prime number.  The first prime number is two.
 
 ```
+>>> 1.prime
+2
+
 >>> 5.prime
 11
 
@@ -16,6 +19,9 @@ Answer the _n_--th prime number.  The first prime number is two.
 
 >>> 3579.prime
 33413
+
+>>> 100000.prime
+1299709
 ```
 
 The inverse is `primePi`:
@@ -105,6 +111,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000040)
 [2](https://oeis.org/A046929),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-nthPrime)
 

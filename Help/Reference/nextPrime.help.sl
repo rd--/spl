@@ -145,6 +145,8 @@ References:
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=nextprime),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/NextPrime.html)
+[1](https://reference.wolfram.com/language/ref/NextPrime.html),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.nextprime)
 
 Categories: Arithmetic

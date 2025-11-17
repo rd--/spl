@@ -77,7 +77,29 @@ OEIS [A070939](https://oeis.org/A070939):
 >>> 0:511.collect { :n |
 >>> 	n.integerDigits(2).size
 >>> }.asRunArray.asAssociationList
-[2 -> 1, 2 -> 2, 4 -> 3, 8 -> 4, 16 -> 5, 32 -> 6, 64 -> 7, 128 -> 8, 256 -> 9]
+[
+	2 -> 1,
+	2 -> 2,
+	4 -> 3,
+	8 -> 4,
+	16 -> 5,
+	32 -> 6,
+	64 -> 7,
+	128 -> 8,
+	256 -> 9
+]
+```
+
+Numbers where the sum of the digits equals the number of digits,
+OEIS [A061384](https://oeis.org/A061384):
+
+```
+>>> 1:300.select { :n |
+>>> 	n.integerDigits(10).sum
+>>> 	=
+>>> 	n.integerLength(10)
+>>> }
+[1 11 20 102 111 120 201 210 300]
 ```
 
 Plot for base 10 from -25 to 25:
@@ -121,3 +143,4 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/IntegerLength.html),
 _OEIS_
 [1](https://oeis.org/A070939)
+[2](https://oeis.org/A061384)

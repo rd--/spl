@@ -1,8 +1,8 @@
 # isBooleanString
 
-- _isBooleanString(aString)_
+- _isBooleanString(s)_
 
-Answer `true` is _aString_ is either true or false,
+Answer `true` is the string _s_ is either true or false,
 else `false`.
 
 ```

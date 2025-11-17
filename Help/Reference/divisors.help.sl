@@ -5,9 +5,12 @@
 Answers the `List` of integers that are divisors of the integer _n_.
 For all positive integers, `divisors` includes `one` and _n_ as the first and last entries.
 
-Divisors of 30:
+Divisors of 24 and 30:
 
 ```
+>>> 24.divisors
+[1 2 3 4 6 8 12 24]
+
 >>> 30.divisors
 [1 2 3 5 6 10 15 30]
 ```
@@ -183,6 +186,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Divisor.html)
 [2](http://reference.wolfram.com/language/ref/Divisors.html),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.divisors),
 _W_
 [1](https://en.wikipedia.org/wiki/Table_of_divisors)
 

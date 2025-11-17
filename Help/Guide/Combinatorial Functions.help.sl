@@ -87,6 +87,7 @@ Predicate Functions:
 
 - `isDyckWord`
 - `isLatticeWord`
+- `isLukasiewiczWord`
 - `isLyndonWord`
 - `isYamanouchiWord`
 

@@ -17,6 +17,9 @@ Answer the `List` of prime factors of _n_, each associated with its exponent.
 >>> (2 ^ 3) * 3 * 5
 120
 
+>>> factorInteger(2000)
+[2 -> 4, 5 -> 3]
+
 >>> 7.!.factorInteger
 [2 -> 4, 3 -> 2, 5 -> 1, 7 -> 1]
 
@@ -40,6 +43,13 @@ Answer the `List` of prime factors of _n_, each associated with its exponent.
 	11491 -> 1,
 	11082704099 -> 1
 ]
+```
+
+Factor prime:
+
+```
+>>> factorInteger(65537)
+[65537 -> 1]
 ```
 
 A prime power has one prime factor:
@@ -207,6 +217,26 @@ Plot the number of distinct prime factors of the first 100 numbers:
 
 ![](sw/spl/Help/Image/factorInteger-A.svg)
 
+Plot first few terms of
+OEIS [A124859](https://oeis.org/A124859):
+
+~~~spl svg=B
+{ :n |
+	let f = factorInteger(n);
+	(n = 1).if {
+		1
+	} {
+		f.product { :x |
+			let a = x.key;
+			let b = x.value;
+			prime(primePi(a) + 1) ^ b
+		}
+	}
+}.map(1:50).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-B.svg)
+
 * * *
 
 See also: ->, Association, divisors, isPrime, primeFactors, primeFactorization, product
@@ -221,6 +251,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factor.html),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.factorint),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_factorization)
 

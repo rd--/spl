@@ -1,5 +1,34 @@
 /* Requires: LibraryItem */
 
++List {
+
+	boxNotation { :self :zeroOne |
+		self.isVector.if {
+			self.isBitVector.if {
+				let zeroOneCode = zeroOne.collect(codePoint:/1);
+				self.collect { :each |
+					zeroOneCode[each + 1]
+				}.utf16String
+			} {
+				self.isBooleanVector.if {
+					self.boole.boxNotation(zeroOne)
+				} {
+					self.error('boxNotation')
+				}
+			}
+		} {
+			self.collect { :each |
+				each.boxNotation(zeroOne)
+			}
+		}
+	}
+
+	boxNotation { :self |
+		self.boxNotation(['◻' '◼'])
+	}
+
+}
+
 +String {
 
 	unicodeItalic { :self |

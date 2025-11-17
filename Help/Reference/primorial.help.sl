@@ -6,6 +6,15 @@ Answer the _n_-th primorial number,
 the product of the first _n_ primes.
 
 ```
+>>> primorial(4)
+210
+
+>>> [2 3 5 7].product
+210
+
+>>> primorial(1)
+2
+
 >>> 11.primorial
 200560490130
 
@@ -35,4 +44,6 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A002110)
 _W_
-[1](https://en.wikipedia.org/wiki/Primorial)
+[1](https://en.wikipedia.org/wiki/Primorial),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.primorial)

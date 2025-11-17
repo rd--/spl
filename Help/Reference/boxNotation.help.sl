@@ -1,8 +1,8 @@
 # boxNotation
 
-- _boxNotation(x)_
+- _boxNotation(x, c=[◻◼])_
 
-Answer a string having the _box notation_ of the onbject _x_.
+Answer a string having the _box notation_ of the object _x_.
 
 At `BitSet`:
 
@@ -20,6 +20,29 @@ At `ResidueSet`:
 '◼◻◼◻◼◼◻◼◻◼◻◼'
 ```
 
+At `List`:
+
+```
+>>> [1 0 1 0 1 1 0 1 0 1 0 1]
+>>> .boxNotation
+'◼◻◼◻◼◼◻◼◻◼◻◼'
+```
+
+At matrix:
+
+```
+>>> [
+>>> 	1 0 1 0 1 1;
+>>> 	0 1 0 1 0 0
+>>> ].boxNotation
+[
+	'◼◻◼◻◼◼'
+	'◻◼◻◼◻◻'
+]
+```
+
 * * *
 
-See also: BitSet, ResidueSet
+See also: BitSet, List, ResidueSet
+
+Guides: String Functions

@@ -185,3 +185,11 @@ Boolean! : [Object, Storeable, Equatable, Json] {
 	}
 
 }
+
++List {
+
+	isBooleanVector { :self |
+		self.allSatisfy(isBoolean:/1)
+	}
+
+}
