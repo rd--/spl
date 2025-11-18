@@ -60,7 +60,7 @@
 		let p = [0 0];
 		let answer = [p];
 		let theta = 1/2.pi;
-		1:self.do { :n |
+		1.toDo(self) { :n |
 			let m = n.fibonacciWord;
 			p := p + theta.angleVector;
 			answer.add(p);
@@ -248,7 +248,7 @@
 	}
 
 	zOrderCurve { :self |
-		0.to(self - 1).collect { :n |
+		0.toCollect(self - 1) { :n |
 			let b = n.integerDigits(2);
 			let k = b.size;
 			let [y, x] = b.padLeft([k + (k % 2)], 0).deinterleave(2);
@@ -288,7 +288,7 @@
 	}
 
 	weierstrassFunction { :x :a :b :n |
-		0.to(n).collect { :i |
+		0.toCollect(n) { :i |
 			(a ^ i) * ((b ^ i) * x.pi).cos
 		}.sum
 	}

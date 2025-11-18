@@ -127,7 +127,7 @@
 				numerators[i][j][i] := d[j]
 			}
 		};
-		1:k.collect { :i |
+		1.to(k).collect { :i |
 			numerators[i].determinant / divisor
 		}
 	}
@@ -205,7 +205,7 @@
 					0
 				}
 			}
-		}.table(1:n, 1:n)
+		}.table(1.to(n), 1.to(n))
 	}
 
 	frobeniusNorm { :self |
@@ -323,14 +323,14 @@
 			} {
 				r[k - m + 1]
 			}
-		}.table(1:m, 1:n)
+		}.table(1.to(m), 1.to(n))
 	}
 
 	hilbertMatrix { :self |
 		let [m, n] = self;
 		{ :i :j |
 			1 / (i + j - 1)
-		}.table(1:m, 1:n)
+		}.table(1.to(m), 1.to(n))
 	}
 
 	heldKarpAlgorithm { :self |
@@ -420,9 +420,9 @@
 
 	isDiagonallyDominantMatrix { :self :aBlock:/2 |
 		let [m, n] = self.shape;
-		1:m.allSatisfy { :i |
+		1.to(m).allSatisfy { :i |
 			let x = self[i][i].abs;
-			let z = 1:n.collect { :j |
+			let z = 1.to(n).collect { :j |
 				(j = i).if { 0 } { self[i][j].abs }
 			}.sum;
 			aBlock(x, z)
@@ -580,8 +580,8 @@
 	lowerTriangularize { :self :k |
 		let m = self.assertIsMatrix('List>>lowerTriangularize');
 		let [r, c] = m.shape;
-		1.to(r - k).do { :i |
-			(i + 1 + k).to(c).do { :j |
+		1.toDo(r - k) { :i |
+			(i + 1 + k).toDo(c) { :j |
 				m[i][j] := 0
 			}
 		};
@@ -641,7 +641,7 @@
 	matchPairs { :self |
 		let [_, i] = self.kuhnMunkresAlgorithm;
 		let k = i.size;
-		[i, 1:k].transpose.select { :each |
+		[i, 1.to(k)].transpose.select { :each |
 			each[1] != 0
 		}
 	}
@@ -654,28 +654,30 @@
 		let [a, b] = m.shape;
 		(a = b).if {
 			let r = [b, a].zeroMatrix;
-			p.caseOf([
-				0 -> {
-					1:b.do { :i |
-						1:a.do { :j |
-							(i = j).if {
-								r[i][j] := 1
-							} {
-								r[i][j] := 0
+			p.caseOf(
+				[
+					0 -> {
+						1.toDo(b) { :i |
+							1.toDo(a) { :j |
+								(i = j).if {
+									r[i][j] := 1
+								} {
+									r[i][j] := 0
+								}
+							}
+						}
+					},
+					1 -> {
+						1.toDo(b) { :i |
+							1.toDo(a) { :j |
+								r[i][j] := m[i][j]
 							}
 						}
 					}
-				},
-				1 -> {
-					1:b.do { :i |
-						1:a.do { :j |
-							r[i][j] := m[i][j]
-						}
-					}
-				}
-			]) {
+				]
+			) {
 				r := m;
-				2:p.do { :i |
+				2.toDo(p) { :i |
 					r := r.dot(m)
 				}
 			};
@@ -704,7 +706,7 @@
 			let r = m - i + 1;
 			let c = n - j + 1;
 			self.submatrix([1 .. m].without(r), [1 .. n].without(c)).determinant
-		}.table(1:m, 1:n)
+		}.table(1.to(m), 1.to(n))
 	}
 
 	orthogonalize { :self |
@@ -1296,8 +1298,8 @@
 		let a = p.reverse ++ List(x, 0);
 		let b = q.reverse ++ List(y, 0);
 		[
-			0:x.collect { :i | a.rotateRight(i) },
-			0:y.collect { :i | b.rotateRight(i) }
+			0.to(x).collect { :i | a.rotateRight(i) },
+			0.to(y).collect { :i | b.rotateRight(i) }
 		].catenate
 	}
 
@@ -1342,7 +1344,7 @@
 				let rank = self.rank;
 				let limit = self.shape.min;
 				aBlock(
-					1:limit.collect { :each |
+					1.to(limit).collect { :each |
 						self.atPath(List(rank, each))
 					}
 				)
@@ -1376,7 +1378,7 @@
 		let m = k - 1;
 		{ :i :j |
 			x[i] ^ j
-		}.table(1:n, 0:m)
+		}.table(1.to(n), 0.to(m))
 	}
 
 	vandermondeMatrix { :x |
@@ -1389,7 +1391,7 @@
 
 	exchangeMatrix { :self |
 		let answer = [self, self].zeroMatrix;
-		1:self.do { :each |
+		1.toDo(self) { :each |
 			answer[self - each + 1][each] := 1
 		};
 		answer

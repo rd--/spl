@@ -212,7 +212,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 +@Integer {
 
 	alternatingHarmonicSeries { :n |
-		1:n.collect { :n |
+		1.to(n).collect { :n |
 			Fraction(-1 ^ (n + 1), n)
 		}
 	}
@@ -252,7 +252,7 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 	}
 
 	harmonicSeries { :self |
-		Fraction(1, 1:self)
+		Fraction(1, 1.to(self))
 	}
 
 	List { :size |

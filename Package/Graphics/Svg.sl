@@ -52,7 +52,10 @@ Svg : [Object] { | contents |
 					]
 				)
 			}
-		}.table(1:width, 1:height).collect(deleteMissing:/1);
+		}.table(
+			1.to(width),
+			1.to(height)
+		).collect(deleteMissing:/1);
 		[
 			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
 				'http://www.w3.org/2000/svg',

@@ -165,7 +165,7 @@ SVGTransformList! : [Object] {
 			let [i, j] = each;
 			let [x1, y1] = points[i];
 			let [x2, y2] = points[j];
-			'line'.createSvgElement(
+			'line'.createSvgElement (
 				x1: x1,
 				y1: y1,
 				x2: x2,

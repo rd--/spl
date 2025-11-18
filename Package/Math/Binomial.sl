@@ -4,7 +4,7 @@
 
 	bernoulliPolynomial { :n |
 		let b = (n + 1).bernoulliSequence;
-		let c = 0:n.collect { :k |
+		let c = 0.to(n).collect { :k |
 			binomial(n, k) * b[k + 1]
 		};
 		UnivariatePolynomial(c.reverse)
@@ -57,8 +57,8 @@
 
 	bernoulliTriangle { :self |
 		let m = self - 1;
-		0:m.triangularArray { :n :k |
-			0:k.collect { :p |
+		0.to(m).triangularArray { :n :k |
+			0.to(k).collect { :p |
 				n.binomial(p)
 			}.sum
 		}
@@ -81,7 +81,7 @@
 			y := y - (-1 ^ a);
 			a := a // 2
 		};
-		0:m.collect(catalanNumber:/1).sum - t
+		0.to(m).collect(catalanNumber:/1).sum - t
 	}
 
 	catalanTriangle { :r |
@@ -132,7 +132,7 @@
 				(n = 0).if {
 					1
 				} {
-					1:n.collect { :k |
+					1.toCollect(n) { :k |
 						integerBinomial(2 * n, 2 * k) * f(2 * (n - k))
 					}.sum.negate
 				}
@@ -185,7 +185,7 @@
 	}
 
 	leibnizHarmonicTriangle { :self |
-		1:self.triangularArray { :n :k |
+		1.to(self).triangularArray { :n :k |
 			Fraction(1, n.binomial(k) * k)
 		}
 	}
@@ -268,7 +268,7 @@
 		(n < 1).if {
 			1
 		} {
-			1:n.sum { :k |
+			1.to(n).sum { :k |
 				partitionFunctionQ(n, k)
 			}
 		}
@@ -323,7 +323,7 @@
 			(n < 2).if {
 				Polynomial([1])
 			} {
-				2:n.product { :d |
+				2.to(n).product { :d |
 					let a = floor(n / d);
 					let b = floor(m / d);
 					let c = floor((n - m) / d);
@@ -350,7 +350,7 @@
 		(n < 2).if {
 			Polynomial([1])
 		} {
-			2:n.product { :d |
+			2.to(n).product { :d |
 				d.cyclotomic ^ floor(n / d)
 			}
 		}
@@ -390,7 +390,7 @@
 	}
 
 	tetrahedralNumber { :n |
-		1:n.collect { :k |
+		1.toCollect(n) { :k |
 			(k * (k + 1)) / 2
 		}.sum
 	}
@@ -424,7 +424,7 @@
 	catalanUnrankTable { :self |
 		self.cached('catalanUnrankTable') {
 			(
-				table: 0:999.select(isDyckWord:/1),
+				table: 0.to(999).select(isDyckWord:/1),
 				limit: 999
 			)
 		}

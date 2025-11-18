@@ -1198,7 +1198,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 +List {
 
 	burrowsWheelerMatrix { :self |
-		1.to(self.size).collect { :each |
+		1.toCollect(self.size) { :each |
 			self.rotateLeft(each)
 		}.lexicographicSort
 	}

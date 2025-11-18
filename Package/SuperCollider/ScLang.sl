@@ -28,7 +28,7 @@
 
 	powersetBitwise { :self |
 		let k = 1.bitShift(self.size) - 1;
-		0:k.collect { :each |
+		0.toCollect(k) { :each |
 			let index = 0;
 			self.select { :elem |
 				index := index + 1;
@@ -345,7 +345,7 @@
 			self.resample(size)
 		};
 		let b = a.integrate.normalizeRange([1 size]);
-		1:size.collect { :index |
+		1.toCollect(size) { :index |
 			b.indexOfInBetween(index) - 1 / size
 		}
 	}
@@ -505,7 +505,7 @@
 
 	multiChannelExpand { :self |
 		let k = self.collect(sizeForExtending:/1).max;
-		1:k.collect { :index |
+		1.toCollect(k) { :index |
 			self.collect { :each |
 				each.atExtending(index)
 			}

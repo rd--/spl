@@ -262,7 +262,7 @@ Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 	faceIndices { :self |
-		[[1 .. 3]]
+		[[1 2 3]]
 	}
 
 	farOutPoint { :self |

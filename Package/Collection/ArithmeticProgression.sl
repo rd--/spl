@@ -41,7 +41,7 @@
 			self
 		} {
 			(startIndex > endIndex).if {
-				1:0
+				1.to(0)
 			} {
 				self[startIndex].toBy(self[endIndex], self.step)
 			}

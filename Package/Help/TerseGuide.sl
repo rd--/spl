@@ -21,7 +21,7 @@
 			let failCount = 0;
 			let passCount = 0;
 			entries[1].postLine;
-			2.to(testCount + 1).collect { :index |
+			2.toCollect(testCount + 1) { :index |
 				let test = entries[index];
 				options.atIfAbsent('verbose', false).ifTrue {
 					test.postLine

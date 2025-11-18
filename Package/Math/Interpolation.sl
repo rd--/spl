@@ -184,7 +184,7 @@
 			b[i] := (dy / dx) - (dx * (c[i + 1] + (2 * c[i])) / 3);
 			d[i] := (c[i + 1] - c[i]) / (3 * dx)
 		};
-		1.to(n).collect { :i |
+		1.toCollect(n) { :i |
 			[y[i], b[i], c[i], d[i]].withoutTrailing(isOrigin:/1)
 		}
 	}
@@ -232,7 +232,7 @@
 		(x.size != firstDerivative.size).ifTrue {
 			x.error('hermiteInterpolatorCoefficientList: firstDerivative list invalid')
 		};
-		1.to(n).collect { :i |
+		1.toCollect(n) { :i |
 			let w = x[i + 1] - x[i];
 			let w2 = w * w;
 			let yv = y[i];
@@ -267,7 +267,7 @@
 	linearInterpolatorCoefficientList { :x :y |
 		let n = x.size - 1;
 		assertIsValidInterpolatorData(x, y, 2);
-		1.to(n).collect { :i |
+		1.toCollect(n) { :i |
 			let dx = x[i + 1] - x[i];
 			let dy = y[i + 1] - y[i];
 			let m = dy / dx;
@@ -442,7 +442,7 @@
 
 	upsample { :self :anInteger |
 		let answer = List(self.size * anInteger, 0);
-		0.to(self.size - 1).do { :each |
+		0.toDo(self.size - 1) { :each |
 			answer[(each * anInteger) + 1] := self[each + 1]
 		};
 		answer

@@ -447,7 +447,7 @@
 
 	linearGraphPlot { :self |
 		let k = self.vertexCount;
-		let p = 1:k.collect { :i | [i 0] };
+		let p = 1.to(k).collect { :i | [i 0] };
 		let e = self.edgeList.collect { :each |
 			let [i, j] = each;
 			let y = (j - i) / 2;
@@ -788,7 +788,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	completeBipartiteGraph { :self :anInteger |
-		let u = 1:self;
+		let u = 1.to(self);
 		let v = (self + 1).to(self + anInteger);
 		let e = [];
 		u.do { :i |
@@ -853,7 +853,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	cycleGraph { :self |
-		1:self.collect { :each |
+		1.to(self).collect { :each |
 			[each, each % self + 1]
 		}.asGraph
 	}
@@ -925,7 +925,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 			let m = k / 2;
 			let e = [];
 			1.toDo(n) { :i |
-				1.to(m).do { :j |
+				1.toDo(m) { :j |
 					let z = (i + j).mod(n, 1);
 					e.add([i, z])
 				}
@@ -971,7 +971,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 		let d = 5.sqrt;
 		let c = { :i :j |
 			[i, j]
-		}.table(1:m, 1:n).catenate;
+		}.table(1.to(m), 1.to(n)).catenate;
 		let e = [];
 		1.toDo(m * n) { :i |
 			(i + 1).toDo(m * n) { :j |
@@ -1051,7 +1051,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	}
 
 	starGraph { :self |
-		2:self.collect { :each |
+		2.to(self).collect { :each |
 			[1, each]
 		}.asGraph
 	}
@@ -1091,7 +1091,7 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 	gridGraph { :shape |
 		let k = shape.product;
 		let v = k.iota;
-		let c = 1:k.collect { :i |
+		let c = 1.to(k).collect { :i |
 			shape.cartesianIndex(i)
 		};
 		let e = [];
@@ -1126,8 +1126,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				}
 			}
 		};
-		1:k.do { :i |
-			1:k.do { :j |
+		1.toDo(k) { :i |
+			1.toDo(k) { :j |
 				let n = self(v[i], v[j]);
 				n.timesRepeat {
 					addEdge(i, j)
@@ -1150,8 +1150,8 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				}
 			}
 		};
-		1:k.do { :i |
-			1:k.do { :j |
+		1.toDo(k) { :i |
+			1.toDo(k) { :j |
 				self(v[i], v[j]).ifTrue {
 					addEdge(i, j)
 				}

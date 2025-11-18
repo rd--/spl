@@ -196,7 +196,7 @@
 	lowFrequencySendsSparseMatrix { :self |
 		let lowFrequencySends = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Sends', []);
 		let lowFrequencyGain = system.preference('ScSynth/Outputs/Mixer/LowFrequency/Gain', 1);
-		1.to(self.shape.sum).collect { :input |
+		1.toCollect(self.shape.sum) { :input |
 			[
 				input,
 				lowFrequencySends.atWrap(input),

@@ -211,7 +211,7 @@
 
 	griewankFunction { :x |
 		let n = x.size;
-		let i = 1:n;
+		let i = 1.to(n);
 		let a = (x ^ 2).sum / 4000;
 		let b = (x / i.sqrt).cos.product;
 		a - b + 1
@@ -220,7 +220,7 @@
 	rastriginFunction { :x |
 		let n = x.size;
 		let a = 10;
-		(a * n) + 1:n.sum { :i |
+		(a * n) + 1.to(n).sum { :i |
 			x[i].square - (a * (2.pi * x[i]).cos)
 		}
 	}

@@ -24,7 +24,7 @@
 +List {
 
 	barlowIndispensabilities { :p |
-		1.to(p.product).collect { :each |
+		1.toCollect(p.product) { :each |
 			p.barlowIndispensability(each)
 		}
 	}
@@ -41,15 +41,15 @@
 					p[k]
 				}
 			};
-			0.to(z - 1).collect { :r |
-				let m2 = 0.to(r).collect { :k |
+			0.toCollect(z - 1) { :r |
+				let m2 = 0.toCollect(r) { :k |
 					ix(z + 1 - k)
 				}.product;
 				let a = ix(z - r);
 				let b = 1 + (u / m2).integerPart;
 				let c = 1 + (b % a);
 				let d = barlowBasicIndispensability(a, c);
-				let e = 0.to(z - r - 1).collect(ix:/1).product;
+				let e = 0.toCollect(z - r - 1, ix:/1).product;
 				e * d
 			}.sum
 		} {

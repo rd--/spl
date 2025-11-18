@@ -291,7 +291,7 @@ Polygon : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 			let v = p.circlePoints([0 0], 1, 0);
 			let i = [0, q .. n * q - 1];
 			GeometryCollection(
-				1:m.collect { :j |
+				1.to(m).collect { :j |
 					Polygon(
 						v.atAll((i + j).mod(p, 1)++ [j])
 					)

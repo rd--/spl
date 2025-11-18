@@ -34,10 +34,10 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 		let q = self.q;
 		let [m, n] = q.shape;
 		let t = [m, n].zeroMatrix;
-		1:m.do { :i |
+		1.toDo(m) { :i |
 			let h = q[i][i].abs;
 			let r = (h = 0).if { 0 } { 1 / h };
-			1:n.do { :j |
+			1.toDo(n) { :j |
 				(i != j).ifTrue {
 					t[i][j] := q[i][j] * r
 				}
@@ -67,7 +67,7 @@ ContinuousMarkovProcess : [Object] { | p0 q |
 			} {
 				m[i][j] * mu[i]
 			}
-		}.table(1:n, 1:n);
+		}.table(1.to(n), 1.to(n));
 		ContinuousMarkovProcess(p0, q)
 	}
 

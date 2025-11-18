@@ -328,7 +328,7 @@
 	}
 
 	mertensFunction { :self |
-		1:self.sum { :k |
+		1.to(self).sum { :k |
 			k.moebiusMu
 		}
 	}
@@ -1039,7 +1039,7 @@
 				n.isPrime
 			}
 		).if {
-			0.to(n - 1).collect { :k |
+			0.toCollect(n - 1) { :k |
 				(2 * n * k) + k.powerMod(2, n)
 			}
 		} {
@@ -1097,7 +1097,7 @@
 			let r = n.primitiveRootList;
 			r.collect { :g |
 				SparseArray(
-					1.to(n - 1).collect { :i |
+					1.toCollect(n - 1) { :i |
 						[g.powerMod(i, n), i] -> 1
 					}
 				)

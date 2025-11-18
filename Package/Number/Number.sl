@@ -270,7 +270,7 @@
 	}
 
 	downToDo { :self :anInteger :aBlock:/1 |
-		Range(self, anInteger, -1).do(aBlock:/1)
+		self.toByDo(anInteger, -1, aBlock:/1)
 	}
 
 	double { :self |
@@ -515,7 +515,7 @@
 		self.isZero.if {
 			self
 		} {
-			1.eulerGamma + (self.log.abs.log) + 1:limit.collect { :k |
+			1.eulerGamma + (self.log.abs.log) + 1.toCollect(limit) { :k |
 				(self.log ^ k) / (k.factorial * k)
 			}.sum
 		}
@@ -972,7 +972,7 @@
 	}
 
 	stope { :x :p :y |
-		(x + (p * (1:y - 1))).reduce(*)
+		(x + (p * ([1 .. y] - 1))).reduce(*)
 	}
 
 	strictlyPositive { :self |
@@ -1016,6 +1016,25 @@
 			}
 		};
 		self
+	}
+
+	toCollect { :start :end :aBlock:/1 |
+		let size = end - start + 1;
+		(size < 1).if {
+			[]
+		} {
+			let answer = List(size);
+			let i = 1;
+			let j = start;
+			{
+				i <= size
+			}.whileTrue {
+				answer[i] := aBlock(j);
+				i := i + 1;
+				j := j + 1
+			};
+			answer
+		}
 	}
 
 	toDoWithBreak { :self :end :aBlock:/2 |

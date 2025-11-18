@@ -80,10 +80,10 @@ LineDrawing : [Object] { | contents metadata |
 				((q / period).negate * 2.pi + 0.5.pi) % 2.pi
 			}
 		};
-		let circles = 1.to(circleCount).collect { :each |
+		let circles = 1.toCollect(circleCount) { :each |
 			Circle([0 0], each * radius)
 		};
-		let lines = 1.to(circleCount).collect { :each |
+		let lines = 1.toCollect(circleCount) { :each |
 			let innerRadius = each - 1 * radius;
 			let outerRadius = each * radius;
 			angles[each].collect { :theta |
@@ -107,12 +107,12 @@ LineDrawing : [Object] { | contents metadata |
 				q * (columnWidth / period)
 			}
 		};
-		let horizontalLines = 0.to(rowCount).collect { :each |
+		let horizontalLines = 0.toCollect(rowCount) { :each |
 			let y = each * rowHeight;
 			Line([0 y; columnWidth y])
 		};
 		let leftmostVerticalLine = Line([0 0; 0 height]);
-		let verticalLines = 1.to(rowCount).collect { :each |
+		let verticalLines = 1.toCollect(rowCount) { :each |
 			let y1 = height - (each * rowHeight);
 			let y2 = height - (each - 1 * rowHeight);
 			marks[each].collect { :x |

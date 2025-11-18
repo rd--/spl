@@ -61,7 +61,7 @@
 					} {
 						o
 					}
-				}.table(1:p, 1:q)
+				}.table(1.to(p), 1.to(q))
 			} {
 				self.error('arrayPad')
 			}
@@ -270,7 +270,9 @@
 		let shape = subarray.shape;
 		(shape = indices.collect(size:/1)).if {
 			let i = indices.tuples;
-			let j = shape.collect { :n | [1 .. n] }.tuples;
+			let j = shape.collect { :n |
+				[1 .. n]
+			}.tuples;
 			i.withDo(j) { :p :q |
 				self.atPathPut(p, subarray.atPath(q))
 			}
@@ -368,10 +370,10 @@
 
 	boustrophedonTriangle { :a |
 		let m = a.size;
-		let t = 1:m.triangularArray { :i :j |
+		let t = 1.to(m).triangularArray { :i :j |
 			a[i]
 		};
-		1:m.triangularArrayDo(
+		1.to(m).triangularArrayDo(
 			{ :k :n |
 				(n != 1).ifTrue {
 					t[k][n] := t[k][n - 1] + t[k - 1][k - n + 1]

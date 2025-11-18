@@ -104,7 +104,7 @@
 
 	columnsCollect { :self :aBlock:/1 |
 		let [m, n] = self.shape;
-		1:n.collect { :i |
+		1.to(n).collect { :i |
 			aBlock(self.column(i))
 		}
 	}
@@ -122,7 +122,7 @@
 	diagonal { :self :k |
 		let m = self.assertIsMatrix('List>>diagonal');
 		let l = m.shape.min - k.abs;
-		1:l.collect { :i |
+		1.to(l).collect { :i |
 			m.at(
 				i - k.min(0),
 				i + k.max(0)
@@ -321,7 +321,7 @@
 		1.toDo(n) { :i |
 			1.toDo(d[i].size) { :j |
 				answer.add(
-					1:n.collectCatenate { :k |
+					1.to(n).collectCatenate { :k |
 						(i = k).if {
 							d[i][j]
 						} {
@@ -525,7 +525,7 @@
 	boxMatrix { :self |
 		let r = self.ceiling;
 		let n = r * 2 + 1;
-		{ :i :j | 1 }.table(1:n, 1:n)
+		{ :i :j | 1 }.table(1.to(n), 1.to(n))
 	}
 
 	crossMatrix { :self |
@@ -534,7 +534,7 @@
 		let c = [r, r];
 		{ :i :j |
 			([i - 1, j - 1].editDistance(c) <= 1).boole
-		}.table(1:n, 1:n)
+		}.table(1.to(n), 1.to(n))
 	}
 
 	diamondMatrix { :self |
@@ -544,7 +544,7 @@
 		let l = (self + 0.5).abs;
 		{ :i :j |
 			([i - 1, j - 1].manhattanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
+		}.table(1.to(n), 1.to(n))
 	}
 
 	diskMatrix { :self |
@@ -554,7 +554,7 @@
 		let l = (self + 0.5).abs;
 		{ :i :j |
 			([i - 1, j - 1].euclideanDistance(c) <= l).boole
-		}.table(1:n, 1:n)
+		}.table(1.to(n), 1.to(n))
 	}
 
 	evoluteSpiralMatrix { :n |
@@ -564,7 +564,7 @@
 				{ :j :i |
 					let k = (-1 ^ j) * i;
 					List(j, k)
-				}.table(1:n, [-1, n])
+				}.table(1.to(n), [-1, n])
 			].flatten.take(n ^ 2).accumulate
 		).partition(n)
 	}

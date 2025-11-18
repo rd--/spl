@@ -234,7 +234,7 @@
 	}
 
 	eulerianNumber { :n :m |
-		0:m.sum { :i |
+		0.to(m).sum { :i |
 			(-1 ^ i)
 			*
 			binomial(n + 1, i)
@@ -438,7 +438,7 @@
 				r := false
 			} {
 				a[c] := a[c] + 1;
-				(c + 1).to(n).do { :i |
+				(c + 1).toDo(n) { :i |
 					a[i] := 0;
 					b[i] := max(a[i - 1], b[i - 1])
 				};
@@ -479,7 +479,7 @@
 					r := false
 				} {
 					a[c] := a[c] + 1;
-					(c + 1).to(n).do { :i |
+					(c + 1).toDo(n) { :i |
 						a[i] := 0;
 						b[i] := max(a[i - 1], b[i - 1])
 					};
@@ -502,7 +502,7 @@
 	}
 
 	secondOrderEulerianTriangle { :self |
-		1:self.triangularArray(
+		1.to(self).triangularArray(
 			eulerianNumberSecondOrder:/2
 		)
 	}
@@ -540,14 +540,11 @@
 	}
 
 	stirlingS2 { :n :k |
-		/*
-		0:k.sum { :i |
-			((-1 ^ (k - i)) * (i ^ n)) / ((k - i).factorial * i.factorial)
-		}
-		*/
-		((1 / k.factorial) * 0:k.sum { :i |
-			(-1 ^ (k - i)) * binomial(k, i) * (i ^ n)
-		}).round
+		(
+			(1 / k.factorial) * 0.to(k).sum { :i |
+				(-1 ^ (k - i)) * binomial(k, i) * (i ^ n)
+			}
+		).round
 	}
 
 	wedderburnEtheringtonNumbers { :self |

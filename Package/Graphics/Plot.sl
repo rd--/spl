@@ -170,7 +170,7 @@ Plot : [Object] { | pages format options |
 				),
 				(fillColour: c[i][j])
 			)
-		}.table(1:m, 1:n).LineDrawing
+		}.table(1.to(m), 1.to(n)).LineDrawing
 	}
 
 	complexListPlot { :self |
@@ -321,7 +321,7 @@ Plot : [Object] { | pages format options |
 
 	poincarePlot { :x :n |
 		let m = x.size - n;
-		1.to(m).collect { :i |
+		1.toCollect(m) { :i |
 			[x[i], x[i + n]]
 		}.scatterPlot
 	}
@@ -340,7 +340,7 @@ Plot : [Object] { | pages format options |
 			self[i][j]
 			.rescale([z0, z1], [0, 1])
 			.colourFunction
-		}.table(1:m, 1:n);
+		}.table(1.to(m), 1.to(n));
 		options['dataReversed'].ifFalse {
 			data.reverse
 		};
@@ -471,16 +471,16 @@ Plot : [Object] { | pages format options |
 			let [m, n] = self.shape;
 			{ :i :j |
 				[i, j, self[i,j]]
-			}.table(1:m, 1:n).surfacePlot
+			}.table(1.to(m), 1.to(n)).surfacePlot
 		} {
 			let [m, n, _] = self.shape;
-			let p = 1:m.collect { :i |
-				1:n.collect { :j |
+			let p = 1.toCollect(m) { :i |
+				1.toCollect(n) { :j |
 					self[i][j]
 				}
 			};
-			let q = 1:n.collect { :j |
-				1:m.collect { :i |
+			let q = 1.toCollect(n) { :j |
+				1.toCollect(m) { :i |
 					self[i][j]
 				}
 			};
@@ -627,7 +627,7 @@ Plot : [Object] { | pages format options |
 		let k = 100;
 		let [a, b] = self.minMax.log;
 		let h = (b - a) / (k - 1);
-		let x = 0.to(k - 1).collect { :i |
+		let x = 0.toCollect(k - 1) { :i |
 			(a + (i * h)).exp
 		};
 		operand.nest.collect { :aBlock:/1 |
@@ -992,7 +992,7 @@ Plot : [Object] { | pages format options |
 		let n = self.size;
 		let c = (1 - self.normalizeRange([0 1])).collect(greyLevelOrTransparent:/1);
 		let p = n.circlePoints([0 0], circleR, 1/2.pi).reverse.rotateRight;
-		let e = 1.to(n).collect { :each |
+		let e = 1.toCollect(n) { :each |
 			AnnotatedGeometry(
 				Circle(p[each], dotR),
 				(fillColour: c[each])
@@ -1005,7 +1005,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	necklacePlot { :self :modulus |
-		0.to(modulus - 1).collect { :each |
+		0.toCollect(modulus - 1) { :each |
 			self.includes(each).boole
 		}.necklacePlot
 	}

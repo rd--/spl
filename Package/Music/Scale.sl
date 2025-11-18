@@ -49,7 +49,7 @@ Scale : [Object, Storeable] { | startIndex intervals description |
 		anInteger.betweenAnd(1, self.size).if {
 			let intervals = self.intervals;
 			let k = anInteger - 1;
-			1.to(self.size).collect { :i |
+			1.toCollect(self.size) { :i |
 				i.to(i + k).sum { :j |
 					intervals.atWrap(j)
 				}
@@ -64,7 +64,7 @@ Scale : [Object, Storeable] { | startIndex intervals description |
 	}
 
 	intervalClasses { :self |
-		1.to(self.size).collect { :each |
+		1.toCollect(self.size) { :each |
 			self.intervalClass(each)
 		}
 	}
@@ -82,7 +82,7 @@ Scale : [Object, Storeable] { | startIndex intervals description |
 	}
 
 	isMomentOfSymmetry { :self |
-		1.to(self.size - 1).collect { :each |
+		1.toCollect(self.size - 1) { :each |
 			self.intervalClass(each)
 		}.allSatisfy { :each |
 			each.size = 2

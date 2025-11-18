@@ -80,7 +80,7 @@
 				let [m, n] = u.shape;
 				{ :i :j |
 					u[i][j] * v
-				}.table(1:m, 1:n)
+				}.table(1.to(m), 1.to(n))
 			} {
 				u.collect { :alpha |
 					v.collect { :beta |

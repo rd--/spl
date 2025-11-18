@@ -87,7 +87,7 @@ Matrix33 : [Object, Equatable] { | elements |
 
 	asMatrix33 { :self |
 		(self.size != 9).if {
-			self.error('List>>asMatrix33: not 9-element array')
+			self.error('asMatrix33: not 9-element array')
 		} {
 			newMatrix33().initializeSlots(self)
 		}

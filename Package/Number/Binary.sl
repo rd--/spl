@@ -152,7 +152,7 @@
 
 	bitCountPerByteTable { :self |
 		self.cached('bitCountPerByteTable') {
-			0.to(255).collect { :i |
+			0.toCollect(255) { :i |
 				let bitCount = 0;
 				let n = i;
 				{

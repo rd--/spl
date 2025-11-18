@@ -352,7 +352,7 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 
 	UnivariatePolynomial { :self |
 		let n = self.keys.max;
-		let c = 0:n.collect { :i |
+		let c = 0.to(n).collect { :i |
 			self.atIfAbsent(i) { 0 }
 		};
 		UnivariatePolynomial(c)

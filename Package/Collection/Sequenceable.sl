@@ -2084,7 +2084,7 @@
 			let answerSize = counts.sum;
 			let answer = items.species.ofSize(answerSize);
 			let answerIndex = 1;
-			1.to(items.size).do { :index |
+			1.toDo(items.size) { :index |
 				let entry = aBlock(items[index]);
 				counts[index].timesRepeat {
 					answer[answerIndex] := entry;

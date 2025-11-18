@@ -1,9 +1,9 @@
 # asRandomTable
 
-- _asRandomTable(aSequence, anInteger)_
+- _asRandomTable([x₁ x₂ …], n)_
 
-Given _aSequence_ holding a discrete probability density function,
-answer a sequence of _anInteger_ places holding the associated cumulative distribution function.
+Given the sequence _x_ holding a discrete probability density function,
+answer a sequence of _n_ places holding the associated cumulative distribution function.
 
 ~~~spl svg=A
 [1 1 0 1 1].linePlot

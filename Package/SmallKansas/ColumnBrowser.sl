@@ -19,7 +19,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 		self.textEditor := self.smallKansas.TextEditor(
 			'ColumnBrowserTextEditor', mimeType, ''
 		);
-		self.columnLists := 1.to(self.numberOfColumns).collect { :index |
+		self.columnLists := 1.toCollect(self.numberOfColumns) { :index |
 			ListChooser(withFilter & { index = 1 }, nil, listSize)
 		};
 		1.toDo(columnProportions.size) { :index |
@@ -69,7 +69,7 @@ ColumnBrowser : [Object, View] { | smallKansas browserPane columnsPane previewPa
 	}
 
 	pathUpTo { :self :size |
-		1:size.collect { :each |
+		1.toCollect(size) { :each |
 			self.columnLists[each].select.value
 		}
 	}

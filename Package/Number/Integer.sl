@@ -113,7 +113,7 @@
 	}
 
 	bjorklundsAlgorithmDo { :k :n :aBlock:/1 |
-		let s = 1:n.collect { :i |
+		let s = 1.toCollect(n) { :i |
 			(i <= k).if {
 				[1]
 			} {
@@ -130,7 +130,7 @@
 				k > 1
 			}
 		}.whileTrue {
-			1:k.do { :i |
+			1.toDo(k) { :i |
 				s[i].addAll(s[s.size - i + 1])
 			};
 			s.removeLast(k);
@@ -148,7 +148,7 @@
 	}
 
 	characterRange { :self :anInteger |
-		self.to(anInteger).collect(asCharacter:/1)
+		self.toCollect(anInteger, asCharacter:/1)
 	}
 
 	combinations { :n :m |
@@ -241,7 +241,7 @@
 		let answer = [initialState];
 		let previousState = initialState;
 		{ stepCount < stepLimit }.whileTrue {
-			let nextState = 1.to(stateSize).collect { :i |
+			let nextState = 1.toCollect(stateSize) { :i |
 				let j = [i - 1, i, i + 1];
 				let k = previousState.atAllWrap(j).fromDigits(2);
 				ruleTable[8 - k]
@@ -365,7 +365,7 @@
 	}
 
 	integerCompositionsDo { :n :aBlock:/1 |
-		integerCompositionsDo(n, 1:n, aBlock:/1)
+		integerCompositionsDo(n, 1.to(n), aBlock:/1)
 	}
 
 	integerCompositions { :n |
@@ -439,7 +439,7 @@
 	}
 
 	integerCompositionsWeak { :n |
-		integerCompositionsWeak(n, 1:n)
+		integerCompositionsWeak(n, 1.to(n))
 	}
 
 	integerCompositionsWeak { :n :kList |
@@ -632,7 +632,7 @@
 	}
 
 	integerPartitionsRecursive { :n |
-		1:n.collectCatenate { :k |
+		1.to(n).collectCatenate { :k |
 			n.integerPartitionsExactly(k)
 		}
 	}
@@ -1372,7 +1372,7 @@
 
 	theodorusSpiral { :n |
 		let theta = 0;
-		1.to(n).collect { :i |
+		1.toCollect(n) { :i |
 			let p = [i.sqrt theta];
 			theta := theta + (1 / i.sqrt).arcTan;
 			p.fromPolarCoordinates
@@ -1631,8 +1631,8 @@
 
 	ferrersDiagram { :self |
 		let m = self.size;
-		0.to(m - 1).collect { :i |
-			1.to(self[m - i]).collect { :j |
+		0.toCollect(m - 1) { :i |
+			1.toCollect(self[m - i]) { :j |
 				Disk([j, i], 0.25)
 			}
 		}.LineDrawing
