@@ -69,20 +69,6 @@
 		self.sortComparing(canonicalCompare:/2)
 	}
 
-	colexicographicCompare { :self :operand |
-		let n = self.size;
-		let m = operand.size;
-		valueWithReturn { :return:/1 |
-			0.toDo(n.min(m) - 1) { :i |
-				let c = self[n - i].compare(operand[m - i]);
-				(c != 0).ifTrue {
-					c.return
-				}
-			};
-			n.compare(m)
-		}
-	}
-
 	indicesSorted { :self |
 		self.indices
 	}
@@ -283,8 +269,22 @@
 		self.canonicalCompare(operand) = -1
 	}
 
+	colexicographicCompare { :self :operand |
+		let n = self.size;
+		let m = operand.size;
+		valueWithReturn { :return:/1 |
+			0.toDo(n.min(m) - 1) { :i |
+				let c = self[n - i].compare(operand[m - i]);
+				(c != 0).ifTrue {
+					c.return
+				}
+			};
+			n.compare(m)
+		}
+	}
+
 	lexicographicOrder { :self :operand |
-		self.compare(operand).negate
+		self.lexicographicCompare(operand).negate
 	}
 
 	canonicalOrder { :self :operand |
@@ -297,6 +297,18 @@
 
 	colexicographicSort { :self |
 		self.sortComparing(colexicographicCompare:/2)
+	}
+
+	gradedColexicographicSort { :self |
+		self
+		.collect(reverseSort:/1)
+		.sortComparingEach(
+			[
+				sum:/1.compareOn,
+				size:/1.compareOn,
+				colexicographicCompare:/2
+			]
+		)
 	}
 
 	gradedLexicographicSort { :self |

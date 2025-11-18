@@ -366,6 +366,61 @@ OEIS [A193073](https://oeis.org/A193073):
 
 ![](sw/spl/Help/Image/integerPartitions-D.svg)
 
+Partitions in graded colexicographical ordering,
+OEIS [A036037](https://oeis.org/A036037):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> }.catenate
+>>> .gradedColexicographicSort
+[
+	1;
+	2;
+	1 1;
+	3;
+	2 1;
+	1 1 1;
+	4;
+	3 1;
+	2 2;
+	2 1 1;
+	1 1 1 1;
+	5;
+	4 1;
+	3 2;
+	3 1 1;
+	2 2 1;
+	2 1 1 1;
+	1 1 1 1 1;
+	6;
+	5 1;
+	4 2;
+	3 3;
+	4 1 1;
+	3 2 1;
+	2 2 2;
+	3 1 1 1;
+	2 2 1 1;
+	2 1 1 1 1;
+	1 1 1 1 1 1
+]
+```
+
+Plot first few terms of
+OEIS [A036037](https://oeis.org/A036037):
+
+~~~spl svg=E
+1:8.collect { :n |
+	n.integerPartitions
+}.catenate
+.gradedColexicographicSort
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-E.svg)
+
 * * *
 
 See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ, qBinomial, setPartitions

@@ -5,6 +5,10 @@ also known as dictionary order or alphabetical order or lexicographic,
 is a natural order structure of the Cartesian product of two or more ordered sets:
 
 ```
+>>> [2; 1 1]
+>>> .lexicographicSort
+[1 1; 2]
+
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
 >>> }.lexicographicSort
@@ -35,6 +39,10 @@ is a natural order structure of the Cartesian product of two or more ordered set
 The reverse lexicographic order is derived from the lexicographic order by inverting the external order of elements:
 
 ```
+>>> [1 1; 2]
+>>> .reverseLexicographicSort
+[2; 1 1]
+
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
 >>> }.reverseLexicographicSort
@@ -65,6 +73,10 @@ The reverse lexicographic order is derived from the lexicographic order by inver
 The reflected lexicographic order is derived from the lexicographic order by inverting the internal order of elements.
 
 ```
+>>> [2; 1 1]
+>>> .reflectedLexicographicSort
+[1 1; 2]
+
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
 >>> }.reflectedLexicographicSort
@@ -95,6 +107,10 @@ The reflected lexicographic order is derived from the lexicographic order by inv
 The reverse reflected lexicographic order is derived from the lexicographic order by inverting both the internal order and the external order of elements:
 
 ```
+>>> [1 1; 2]
+>>> .reverseReflectedLexicographicSort
+[2; 1 1]
+
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
 >>> }.reverseReflectedLexicographicSort
@@ -125,6 +141,10 @@ The reverse reflected lexicographic order is derived from the lexicographic orde
 The colexicographic order is a natural order structure of the Cartesian product of two or more ordered sets:
 
 ```
+>>> [2; 1 1]
+>>> .colexicographicSort
+[1 1; 2]
+
 >>> [1 .. 6].subsets { :x |
 >>> 	x.size = 3
 >>> }.colexicographicSort
@@ -272,6 +292,14 @@ Graded reflected colexicographic ordering of integer partitions:
 >>> [2 2 5; 1 4 4; 1 3 5]
 >>> .gradedReflectedColexicographicSort
 [1 3 5; 1 4 4; 2 2 5]
+```
+
+Graded colexicographic ordering of integer partitions:
+
+```
+>>> [5 2 2; 4 4 1]
+>>> .gradedColexicographicSort
+[4 4 1; 5 2 2]
 ```
 
 * * *
