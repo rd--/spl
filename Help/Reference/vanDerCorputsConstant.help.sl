@@ -21,7 +21,6 @@ OEIS [A143305](https://oeis.org/A143305):
 
 ![](sw/spl/Help/Image/vanDerCorputsConstant-A.svg)
 
-
 * * *
 
 See also: namedConstant

@@ -253,19 +253,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 	}
 
 	compare { :self :operand |
-		<primitive:
-		if(typeof _operand === 'string') {
-			const n = _self.localeCompare(_operand);
-			if(n < 0) {
-				return -1;
-			} else if(n === 0) {
-				return 0;
-			} else {
-				return 1;
-			}
-		};
-		>
-		self.error('String>>compare: non string operand')
+		self.lexicographicCompare(operand)
 	}
 
 	concisePrintString { :self |
@@ -643,6 +631,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		)
 	}
 
+	lexicographicCompare { :self :operand |
+		self.localeCompare(operand)
+	}
+
 	lexicographicallyLeastRotation { :self |
 		self.characters.lexicographicallyLeastRotation.stringJoin
 	}
@@ -668,6 +660,14 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 			[]
 		} {
 			self.withoutTrailingLineFeed.splitBy('\n')
+		}
+	}
+
+	localeCompare { :self :operand |
+		operand.isString.if {
+			self.uncheckedLocaleCompare(operand)
+		} {
+			self.error('localeCompare: non string operand')
 		}
 	}
 
@@ -930,6 +930,19 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 	uncheckedAt { :self :index |
 		self.codePointAt(index).fromCodePoint
+	}
+
+	uncheckedLocaleCompare { :self :operand |
+		<primitive:
+		const n = _self.localeCompare(_operand);
+		if(n < 0) {
+			return -1;
+		} else if(n === 0) {
+			return 0;
+		} else {
+			return 1;
+		};
+		>
 	}
 
 	uncheckedReplaceString { :self :stringToFind :stringToReplaceWith |

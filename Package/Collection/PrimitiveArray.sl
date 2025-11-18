@@ -111,11 +111,23 @@
 		>
 	}
 
-	sortedBy { :self :aBlock:/2 |
+	sortComparing { :self :compareBlock:/2 |
+		<primitive:
+		return _self.sort(_compareBlock_2);
+		>
+	}
+
+	sortedBy { :self :sortBlock:/2 |
 		<primitive:
 		return _self.toSorted(function(p, q) {
-			return _aBlock_2(p, q) ? -1 : 1
+			return _sortBlock_2(p, q) ? -1 : 1
 		});
+		>
+	}
+
+	sortedComparing { :self :compareBlock:/2 |
+		<primitive:
+		return _self.toSorted(_compareBlock_2);
 		>
 	}
 

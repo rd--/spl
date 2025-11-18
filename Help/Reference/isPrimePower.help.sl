@@ -14,7 +14,7 @@ true
 true
 
 >>> 2401.factorInteger
-[7 -> 4]
+[[7 4]]
 ```
 
 The number 6 is not a prime power:
@@ -31,7 +31,8 @@ At `Fraction`:
 true
 ```
 
-[A246655](https://oeis.org/A246655) in the OEIS:
+First few terms,
+OEIS [A246655](https://oeis.org/A246655):
 
 ```
 >>> 2:49.select(isPrimePower:/1)
@@ -42,7 +43,8 @@ true
 ]
 ```
 
-The first few prime powers that are not prime:
+The first few prime powers that are not prime,
+OEIS [A246547](https://oeis.org/A246547)
 
 ```
 >>> 1:99.select { :each |
@@ -53,7 +55,8 @@ The first few prime powers that are not prime:
 [4 8 9 16 25 27 32 49 64 81]
 ```
 
-Recognize Mersenne numbers, integers that have the form _2^n - 1_:
+Recognize Mersenne numbers,
+integers that have the form _2^n - 1_:
 
 ```
 >>> let isMersenneNumber = { :n |
@@ -131,7 +134,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PrimePower.html)
 [2](https://reference.wolfram.com/language/ref/PrimePowerQ.html),
 _OEIS_
-[1](https://oeis.org/A246655),
+[1](https://oeis.org/A246655)
+[2](https://oeis.org/A246547),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_power)
 

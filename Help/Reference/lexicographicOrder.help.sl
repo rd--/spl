@@ -4,17 +4,48 @@
 
 Answer `negate` of `compare` of the sequences _x_ and _y_.
 
-Find whether two lists are ordered lexicographically:
+Find whether two equal length lists are ordered lexicographically:
 
 ```
->>> [1 2 3 4].lexicographicOrder([3 4])
+>>> [1 2 3].lexicographicOrder([2 3 4])
 1
+
+>>> [1 2 3].lexicographicOrder([1 2 4])
+1
+
+>>> [2 3 4].lexicographicOrder([1 2 3])
+-1
+
+>>> [1 2 4].lexicographicOrder([1 2 3])
+-1
+```
+
+At unequal length lists:
+
+```
+>>> [1 2].lexicographicOrder([1 2 3])
+1
+
+>>> [1 2 3].lexicographicOrder([1 2])
+-1
+
+>>> [1 2 3].lexicographicOrder([2 3])
+1
+
+>>> [2 3].lexicographicOrder([1 2 3])
+-1
 ```
 
 Shorter lists are ordered first in canonical order:
 
 ```
->>> [1 2 3 4].canonicalOrder([3 4])
+>>> [1 2].canonicalOrder([1 2 3])
+1
+
+>>> [1 2 3].canonicalOrder([1 2])
+-1
+
+>>> [1 2 3].canonicalOrder([2 3])
 -1
 ```
 
@@ -31,6 +62,8 @@ At `String`:
 * * *
 
 See also: compare
+
+Guides: Sorting Functions
 
 References:
 _Mathematica_

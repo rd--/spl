@@ -31,7 +31,7 @@ It has tuning lattice coordinates _11 -4 -2_:
 
 ```
 >>> 1.schisma.factorInteger
-[2 -> -15, 3 -> 8, 5 -> 1]
+[2 -15; 3 8; 5 1]
 ```
 
 * * *

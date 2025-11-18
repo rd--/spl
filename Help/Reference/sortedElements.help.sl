@@ -1,28 +1,40 @@
 # sortedElements
 
-- _sortedElements(b)_
+- _sortedElements(x)_
 
-At `Multiset`,
-answer a `List` of `Association`s between elements and counts of the bag _b_,
+Answers a `List` of `Association`s between elements and counts,
 sorted by increasing element.
-The idiom `asMultiset` of `sortedElements` can be written as `counts`.
+
+At `Multiset`:
 
 ```
->>> [1 3 5 1 3 1].asMultiset.sortedElements
+>>> [1 3 5 1 3 1].Multiset
+>>> .sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 3 5 1 5 1].asMultiset.sortedElements
+>>> [1 3 5 1 5 1].Multiset
+>>> .sortedElements
 [1 -> 3, 3 -> 1, 5 -> 2]
 
->>> 'abcaca'.characters.asMultiset.sortedElements
+>>> 'abcaca'
+>>> .characters
+>>> .Multiset
+>>> .sortedElements
 ['a' -> 3, 'b' -> 1, 'c' -> 2]
+```
+
+At `List`:
+
+```
+>>> [1 3 5 1 3 1].sortedElements
+[1 -> 3, 3 -> 2, 5 -> 1]
 ```
 
 * * *
 
-See also: asIdentityMultiset, counts, IdentityMultiset, sortedCounts
+See also: Association, counts, List, Multiset, sortedCounts, valuesAndCounts
 
-Guides: Set Functions
+Guides: List Functions, Set Functions
 
 References:
 _Mathematica_

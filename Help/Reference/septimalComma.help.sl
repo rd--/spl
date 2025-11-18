@@ -29,7 +29,7 @@ It has tuning lattice coordinates _6 -2 0 -1_:
 
 ```
 >>> 1.septimalComma.factorInteger
-[2 -> 6, 3 -> -2, 7 -> -1]
+[2 6; 3 -2; 7 -1]
 ```
 
 * * *

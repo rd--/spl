@@ -242,7 +242,6 @@ OEIS [A000353](https://oeis.org/A000353):
 The de Polignac numbers,
 OEIS [A006285](https://oeis.org/A006285):
 
-
 ```
 >>> (5, 7 .. 701).select { :n |
 >>> 	let m = 2 ^ (1 .. n.log(2).floor);

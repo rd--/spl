@@ -16,6 +16,9 @@ Answer the distinct prime factors of _x_.
 
 >>> 105.primeNu
 3
+
+>>> 2434500.distinctPrimeFactors
+[2 3 5 541]
 ```
 
 Compute for large integers:

@@ -2,9 +2,20 @@
 
 - _primeSignature(n)_
 
-Answer the prime signature of _n_.
+Answer the prime signature of _n_,
+the sorted exponents of the prime factorization.
 
-First instances of prime signatures, sorted by sum of signature:
+```
+>>> 1.primeSignature
+[1]
+
+>>> 16.primeSignature
+[4]
+```
+
+First instances of prime signatures,
+sorted by sum of signature,
+OEIS [A036035](https://oeis.org/A036035):
 
 ```
 >>> [
@@ -14,7 +25,7 @@ First instances of prime signatures, sorted by sum of signature:
 >>> 	120  180  420 2310
 >>> ].collect(primeSignature:/1)
 [
-	;
+	1;
 	1;
 	2;
 	1 1;
@@ -55,7 +66,7 @@ OEIS [A025487](https://oeis.org/A025487):
 >>> 	2048 2160 2304 2310
 >>> ].collect(primeSignature:/1)
 [
-	;
+	1;
 	1;
 	2;
 	1 1;
@@ -118,10 +129,20 @@ OEIS [A118914](https://oeis.org/A118914):
 ```
 >>> 1:20.collect(primeSignature:/1)
 [
-	; 1; 1; 2; 1; 1 1; 1; 3; 2; 1 1; 1;
+	1; 1; 1; 2; 1; 1 1; 1; 3; 2; 1 1; 1;
 	2 1; 1; 1 1; 1 1; 4; 1; 2 1; 1; 2 1
 ]
 ```
+
+Plot first few terms:
+
+~~~spl svg=A
+1:75.collect(primeSignature:/1)
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-A.svg)
 
 * * *
 
@@ -133,7 +154,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeSignature.html),
 OEIS
-[1](https://oeis.org/A025487)
-[2](https://oeis.org/A118914),
+[1](https://oeis.org/A036035)
+[2](https://oeis.org/A025487)
+[3](https://oeis.org/A118914),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_signature)

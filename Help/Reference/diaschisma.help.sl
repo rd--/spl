@@ -38,7 +38,7 @@ It has tuning lattice coordinates _11 -4 -2_:
 
 ```
 >>> 1.diaschisma.factorInteger
-[2 -> 11, 3 -> -4, 5 -> -2]
+[2 11; 3 -4; 5 -2]
 ```
 
 * * *

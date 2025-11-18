@@ -1,23 +1,40 @@
 # sortedCounts
 
-- _sortedCounts(b)_
+- _sortedCounts(x)_
 
-At `Multiset`,
-answer a `List` of `Association`s between counts and elements, sorted by _decreasing_ count.
+Answer a `List` of `Association`s between counts and elements,
+sorted by _decreasing_ count.
+
+At `Multiset`:
 
 ```
->>> [1 2 3 1 2 1].asMultiset.sortedCounts
+>>> [1 2 3 1 2 1].Multiset
+>>> .sortedCounts
 [3 -> 1, 2 -> 2, 1 -> 3]
 
->>> [1 2 3 1 3 1].asMultiset.sortedCounts
+>>> [1 2 3 1 3 1].Multiset
+>>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 2]
 
->>> 'abcaca'.characters.asMultiset.sortedCounts
+>>> 'abcaca'
+>>> .characters
+>>> .Multiset
+>>> .sortedCounts
 [3 -> 'a', 2 -> 'c', 1 -> 'b']
+```
+
+At `List`:
+
+```
+>>> [1 2 3 1 2 1]
+>>> .sortedCounts
+[3 -> 1, 2 -> 2, 1 -> 3]
 ```
 
 * * *
 
-See also: asIdentityMultiset, Association, IdentityMultiset, List, sortedElements
+See also: Association, Multiset, List, sortedElements
+
+Guides: List Functions, Set Functions
 
 Categories: Accessing

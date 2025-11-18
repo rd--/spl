@@ -6,22 +6,22 @@ Answer a `Multiset` giving the prime factors of the integer _n_ and their multip
 
 ```
 >>> 21.primeFactorization
-[3 7].asMultiset
+[3 7].Multiset
 
 >>> 36.primeFactorization
-[2 2 3 3].asMultiset
+[2 2 3 3].Multiset
 
 >>> 60.primeFactorization
-[2 2 3 5].asMultiset
+[2 2 3 5].Multiset
 
 >>> 120.primeFactorization
-[2 2 2 3 5].asMultiset
+[2 2 2 3 5].Multiset
 
 >>> 6.factorial.primeFactorization
-[2 2 2 2 3 3 5].asMultiset
+[2 2 2 2 3 3 5].Multiset
 
 >>> 2401.primeFactorization
-[7 7 7 7].asMultiset
+[7 7 7 7].Multiset
 
 >>> 20L.factorial
 >>> .primeFactorization
@@ -55,7 +55,7 @@ Powerful numbers are numbers whose prime factors are all repeated:
 
 ```
 >>> 324.primeFactorization
-[2 2 3 3 3 3].asMultiset
+[2 2 3 3 3 3].Multiset
 
 >>> 324.isPowerfulNumber
 true
@@ -67,6 +67,6 @@ and an `IdentityMultiset` cannot have negative counts.
 
 * * *
 
-See also: factorInteger
+See also: factorInteger, primeFactors
 
 Guides: Prime Number Functions

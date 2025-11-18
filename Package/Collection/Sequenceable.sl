@@ -475,46 +475,6 @@
 		(anInteger - 1).mixedRadixEncode(shape) + 1
 	}
 
-	centerArray { :aList :anInteger :anObject |
-		(aList.size > anInteger).if {
-			aList.error('centerArray')
-		} {
-			let prefixSize = (anInteger - aList.size / 2).ceiling.max(0);
-			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
-			List(prefixSize, anObject) ++ aList ++ List(suffixSize, anObject)
-		}
-	}
-
-	chineseRemainder { :r :m |
-		let p = m.product;
-		let q = m.withCollect(r) { :i :j |
-			j * (p / i).modularInverse(i) * (p / i)
-		}.sum;
-		q % p
-	}
-
-	collect { :self :aBlock:/1 |
-		let answer = self.species.ofSize(self.size);
-		self.indicesDo { :index |
-			answer[index] := aBlock(self[index])
-		};
-		answer
-	}
-
-	compare { :self :aList |
-		let n = self.size;
-		let m = aList.size;
-		valueWithReturn { :return:/1 |
-			1.toDo(n.min(m)) { :i |
-				let c = self[i].compare(aList[i]);
-				(c != 0).ifTrue {
-					c.return
-				}
-			};
-			n.compare(m)
-		}
-	}
-
 	catenateSeparatedBy { :self :aList |
 		self.ifEmpty {
 			self.copy
@@ -550,6 +510,36 @@
 
 	catenate { :self |
 		self.catenate(false)
+	}
+
+	centerArray { :aList :anInteger :anObject |
+		(aList.size > anInteger).if {
+			aList.error('centerArray')
+		} {
+			let prefixSize = (anInteger - aList.size / 2).ceiling.max(0);
+			let suffixSize = (anInteger - aList.size - prefixSize).max(0);
+			List(prefixSize, anObject) ++ aList ++ List(suffixSize, anObject)
+		}
+	}
+
+	chineseRemainder { :r :m |
+		let p = m.product;
+		let q = m.withCollect(r) { :i :j |
+			j * (p / i).modularInverse(i) * (p / i)
+		}.sum;
+		q % p
+	}
+
+	compare { :self :operand |
+		self.lexicographicCompare(operand)
+	}
+
+	collect { :self :aBlock:/1 |
+		let answer = self.species.ofSize(self.size);
+		self.indicesDo { :index |
+			answer[index] := aBlock(self[index])
+		};
+		answer
 	}
 
 	collect { :self :aSequence :aBlock:/2 |

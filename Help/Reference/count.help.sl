@@ -14,7 +14,6 @@ At `Range`:
 
 At `List`:
 
-
 ```
 >>> [1 .. 9].count(isEven:/1)
 4

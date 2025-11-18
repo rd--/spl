@@ -2,46 +2,48 @@
 
 - _factorInteger(n)_
 
-Answer the `List` of prime factors of _n_, each associated with its exponent.
+Answer the a two column matrix of the prime factors of _n_,
+each associated with its exponent.
+The answer is sorted by factor.
 
 ```
 >>> 36.factorInteger
-[2 -> 2, 3 -> 2]
+[2 2; 3 2]
 
 >>> (2 ^ 2) * (3 ^ 2)
 36
 
 >>> 120.factorInteger
-[2 -> 3, 3 -> 1, 5 -> 1]
+[2 3; 3 1; 5 1]
 
 >>> (2 ^ 3) * 3 * 5
 120
 
 >>> factorInteger(2000)
-[2 -> 4, 5 -> 3]
+[2 4; 5 3]
 
 >>> 7.!.factorInteger
-[2 -> 4, 3 -> 2, 5 -> 1, 7 -> 1]
+[2 4; 3 2; 5 1; 7 1]
 
 >>> 20.!.factorInteger
 [
-	2 -> 18,
-	3 -> 8,
-	5 -> 4,
-	7 -> 2,
-	11 -> 1,
-	13 -> 1,
-	17 -> 1,
-	19 -> 1
+	 2 18;
+	 3  8;
+	 5  4;
+	 7  2;
+	11  1;
+	13  1;
+	17  1;
+	19  1
 ]
 
 >>> (3 ^ 51).factorInteger
 [
-	2 -> 28,
-	3 -> 2,
-	7 -> 1,
-	11491 -> 1,
-	11082704099 -> 1
+	          2 28;
+	          3  2;
+	          7  1;
+	      11491  1;
+	11082704099  1
 ]
 ```
 
@@ -49,48 +51,48 @@ Factor prime:
 
 ```
 >>> factorInteger(65537)
-[65537 -> 1]
+[[65537 1]]
 ```
 
 A prime power has one prime factor:
 
 ```
 >>> 25.factorInteger
-[5 -> 2]
+[[5 2]]
 ```
 
 For negative numbers, the item _-1 -> 1_ is included in the list of factors:
 
 ```
 >>> -120.factorInteger
-[-1 -> 1, 2 -> 3, 3 -> 1, 5 -> 1]
+[-1 1; 2 3; 3 1; 5 1]
 ```
 
 At `Fraction` the prime factors of the denominator are given with negative exponents.
 
 ```
 >>> 3/8.factorInteger
-[2 -> -3, 3 -> 1]
+[2 -3; 3 1]
 
 >>> 225/224.factorInteger
-[2 -> -5, 3 -> 2, 5 -> 2, 7 -> -1]
+[2 -5; 3 2; 5 2; 7 -1]
 
 >>> 1/25.factorInteger
-[5 -> -2]
+[[5 -2]]
 ```
 
 Every positive integer can be represented as a product of prime factors:
 
 ```
 >>> 60.factorInteger
-[2 -> 2, 3 -> 1, 5 -> 1]
+[2 2; 3 1; 5 1]
 ```
 
 A unit factor:
 
 ```
 >>> -60.factorInteger
-[-1 -> 1, 2 -> 2, 3 -> 1, 5 -> 1]
+[-1 1; 2 2; 3 1; 5 1]
 ```
 
 Threads over lists:
@@ -98,9 +100,9 @@ Threads over lists:
 ```
 >>> [11 101 1001].factorInteger
 [
-	[11 -> 1],
-	[101 -> 1],
-	[7 -> 1, 11 -> 1, 13 -> 1]
+	11 1:;
+	101 1:;
+	7 1; 11 1; 13 1
 ]
 ```
 
@@ -114,7 +116,7 @@ true
 Use `factorInteger` to find all prime divisors of a number:
 
 ```
->>> 2434500.factorInteger.collect(key:/1)
+>>> 2434500.factorInteger.collect(first:/1)
 [2 3 5 541]
 ```
 
@@ -122,17 +124,17 @@ The prime factorization of a prime number is itself:
 
 ```
 >>> 11.factorInteger
-[11 -> 1]
+[[11 1]]
 ```
 
 Compute the original number from a factorization:
 
 ```
 >>> 120.factorInteger
-[2 -> 3, 3 -> 1, 5 -> 1]
+[2 3; 3 1; 5 1]
 
->>> [2 -> 3, 3 -> 1, 5 -> 1].collect { :x |
->>> 	x.key ^ x.value
+>>> [2 3; 3 1; 5 1].collect { :x |
+>>> 	x[1] ^ x[2]
 >>> }.product
 120
 ```
@@ -144,14 +146,14 @@ Compute the original number from a factorization:
 [2 5]
 
 >>> 20.factorInteger
-[2 -> 2, 5 -> 1]
+[2 2; 5 1]
 ```
 
 `primeNu` gives the number of distinct prime factors:
 
 ```
 >>> 10.!.factorInteger
-[2 -> 8, 3 -> 4, 5 -> 2, 7 -> 1]
+[2 8; 3 4; 5 2; 7 1]
 
 >>> 10.!.primeNu
 4
@@ -164,29 +166,29 @@ Coprime numbers have no prime factors in common:
 true
 
 >>> 20.factorInteger
-[2 -> 2, 5 -> 1]
+[2 2; 5 1]
 
 >>> 39.factorInteger
-[3 -> 1, 13 -> 1]
+[3 1; 13 1]
 ```
 
 At zero and negative one and one:
 
 ```
 >>> 0.factorInteger
-[0 -> 1]
+[[0 1]]
 
 >>> 1.factorInteger
-[]
+[[1 1]]
 
 >>> -1.factorInteger
-[-1 -> 1]
+[[-1 1]]
 ```
 
 Calculate number of divisors:
 
 ```
->>> (24.factorInteger.values + 1).product
+>>> (24.factorInteger.column(2) + 1).product
 8
 
 >>> 0.divisorSigma(24)
@@ -197,8 +199,8 @@ Numbers that are the product of two distinct primes,
 OEIS [A006881](https://oeis.org/A006881):
 
 ```
->>> 1:99.select { :n |
->>> 	n.factorInteger.values = [1 1]
+>>> 2:99.select { :n |
+>>> 	n.factorInteger.column(2) = [1 1]
 >>> }
 [
 	 6 10 14 15 21 22 26 33 34 35
@@ -222,14 +224,12 @@ OEIS [A124859](https://oeis.org/A124859):
 
 ~~~spl svg=B
 { :n |
-	let f = factorInteger(n);
 	(n = 1).if {
 		1
 	} {
-		f.product { :x |
-			let a = x.key;
-			let b = x.value;
-			prime(primePi(a) + 1) ^ b
+		factorInteger(n).product { :x |
+			let i = x[1].primePi + 1;
+			i.prime ^ x[2]
 		}
 	}
 }.map(1:50).scatterPlot

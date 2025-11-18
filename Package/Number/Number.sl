@@ -256,7 +256,11 @@
 	divisorSigma { :k :n |
 		n.isNumber.if {
 			(k = 0).if {
-				(n.factorInteger.values + 1).product
+				(n = 1).if {
+					1
+				} {
+					(n.factorInteger.column(2) + 1).product
+				}
 			} {
 				(n.divisors ^ k).sum
 			}

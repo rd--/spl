@@ -54,6 +54,7 @@ The print string is given using the `->` operator:
 
 The store string is given using the constructor:
 
+```
 >>> (0 -> 1).storeString
 'Association(0, 1)'
 ```

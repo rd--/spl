@@ -2,7 +2,8 @@
 
 - _isSemiprime(n)_
 
-Predicate to decide if _n_ is a semiprime number.
+Predicate to decide if _n_ is a semiprime number,
+OEIS [A001358](https://oeis.org/A001358)
 
 ```
 >>> 1:100.select(isSemiprime:/1)
@@ -14,7 +15,8 @@ Predicate to decide if _n_ is a semiprime number.
 ]
 ```
 
-Semiprimes that are not square numbers are called discrete, distinct, or squarefree semiprimes:
+Semiprimes that are not square numbers are called discrete, distinct, or squarefree semiprimes,
+OEIS [A006881](https://oeis.org/A006881):
 
 ```
 >>> 1:100.select { :n |

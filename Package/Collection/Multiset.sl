@@ -3,13 +3,8 @@
 	= { :self :aMultiset |
 		(self.typeOf = aMultiset.typeOf) & {
 			self.size = aMultiset.size & {
-				valueWithReturn { :return:/1 |
-					self.contents.associationsDo { :assoc |
-						(aMultiset.occurrencesOf(assoc.key) = assoc.value).ifFalse {
-							false.return
-						}
-					};
-					true
+				self.contents.associationsAllSatisfy { :each |
+					aMultiset.occurrencesOf(each.key) = each.value
 				}
 			}
 		}
@@ -53,6 +48,14 @@
 		anObject
 	}
 
+	countsAndElements { :self |
+		let answer = [];
+		self.contents.associationsDo { :each |
+			answer.add([each.key, each.value])
+		};
+		answer
+	}
+
 	cumulativeCounts { :self |
 		let s = self.size / 100.0;
 		let n = 0;
@@ -63,12 +66,20 @@
 	}
 
 	do { :self :aBlock:/1 |
-		self.contents.associationsDo { :assoc |
-			assoc.value.timesRepeat {
-				aBlock(assoc.key)
+		self.contents.associationsDo { :each |
+			each.value.timesRepeat {
+				aBlock(each.key)
 			}
 		};
 		self
+	}
+
+	elementsAndCounts { :self |
+		let answer = [];
+		self.contents.associationsDo { :each |
+			answer.add([each.key, each.value])
+		};
+		answer
 	}
 
 	includes { :self :anObject |
@@ -205,8 +216,28 @@ Multiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extens
 
 +Dictionary {
 
+	asMultiset { :self |
+		self.Multiset
+	}
+
 	Multiset { :self |
 		newMultiset().initializeSlots(self)
+	}
+
+}
+
++List {
+
+	Multiset { :self |
+		self.asMultiset
+	}
+
+	sortedCounts { :self |
+		self.asMultiset.sortedCounts
+	}
+
+	sortedElements { :self |
+		self.asMultiset.sortedElements
 	}
 
 }

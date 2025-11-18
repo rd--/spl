@@ -565,7 +565,7 @@ let a = 'x' -> 1; [a.key, a.value] = ['x', 1] /* key and value accessors */
 ('x' -> 1).keyValue = ['x', 1] /* two element [key, value] array */
 ['x' -> 1, 'y' -> 2].collect(keyValue:/1) = ['x' 1; 'y' 2]
 (23 -> 3.141).printString = '23 -> 3.141'
-(23 -> 3.141).storeString = '(23 -> 3.141)'
+(23 -> 3.141).storeString = 'Association(23, 3.141)'
 (1 -> '1').key = (1 -> 'one').key
 (1 -> '1').value != (1 -> 'one').value
 (1 -> '1') != (1 -> 'one')
@@ -875,8 +875,6 @@ system.includesPackage('Character') /* character package */
 '䶰䶱䶲䶳䶴䶵'.characterList.collect(codePoint:/1) = [19888 .. 19893]
 'x'.asCharacter = 120.asCharacter /* characters are comparable */
 'x'.asCharacter.codePoint = 120
-'x'.asCharacter.printString = '120.asCharacter'
-'x'.asCharacter.storeString = '120.asCharacter'
 'x'.asCharacter == 120.asCharacter /* characters are identical */
 '𠮷'.asCharacter == '𠮷'.asCharacter /* characters are identical */
 'x'.asCharacter.asciiValue = 120 /* ascii code point of character */
@@ -886,18 +884,17 @@ system.includesPackage('Character') /* character package */
 32.asCharacter.characterString = ' ' /* 32 is space */
 ' '.asCharacter.codePoint = 32 /* space is 32 */
 97.asCharacter.characterString = 'a' /* 92 is a */
-'a'.asCharacter.printString = '97.asCharacter' /* print as asCharacter */
 'a'.asCharacter.asString = 'a' /* single element string of Character */
 { 'xy'.asCharacter }.hasError /* it is an error is the string is not a single Character */
 let c = '𠮷'.asCharacter; c = c.copy & { c == c.copy } /* copy is not only equal to but identical */
 92.asCharacter.characterString = '\\' /* escaped character */
 '0123456789abcdef'.characterList.collect(digitValue:/1) = [0 .. 15] /* digit value of character */
-0:15.collect(digitValue:/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
-{ 36.digitValue }.hasError /* error if integer is out of range */
+0:15.collect(digitCharacter:/1).stringJoin = '0123456789ABCDEF' /* character of given digit value */
+{ 36.digitCharacter }.hasError /* error if integer is out of range */
 'x'.asCharacter.asUpperCase = 'X'.asCharacter /* to upper case */
 'X'.asCharacter.asLowerCase = 'x'.asCharacter /* to lower case */
 let s = 'string'; let a = []; a.addAll(s); a.size = 6 /* add elements from String to end of List */
-'fgaguzst'.characterList.minMax = ['a'.asCharacter, 'z'.asCharacter] /* character minMax */
+'fgaguzst'.codePoints.minMax = [97, 122] /* character minMax */
 'alphabet'.characterList.collect(isVowel:/1) = [true, false, false, false, true, false, true, false] /* is character a vowel */
 'x'.asCharacter.zero = ' '.asCharacter
 ```
@@ -1236,7 +1233,7 @@ true.asBit = 1 /* asBit */
 126.asCharacter = '~'.asCharacter /* integer to character */
 '~'.asCharacter.isCharacter /* string to character */
 let c = '~'.asCharacter; c.asCharacter == c /* identity */
-let c = 126.asCharacter; c.asString = '~' & { c.printString = '126.asCharacter' } /* character to string */
+let c = 126.asCharacter; c.asString = '~' /* character to string */
 '~'.asString = '~' /* identity operation */
 '~'.asString == '~' /* identity operation */
 23.asString = '23' /* Object>>printString (integral to string) */
@@ -1625,7 +1622,7 @@ Fraction(-4, -12) = 1/3
 64/33.primeFactors = [2, 2, 2, 2, 2, 2, 1/3, 1/11] /* the factors of the denominator are fractions */
 64/33.primeFactors.product = 64/33 /* the product of the factors is the fraction */
 3/8.primeFactors = [3 1/2 1/2 1/2] /* factors of fraction */
-3/8.factorInteger = [2 -> -3, 3 -> 1] /* factors of fraction */
+3/8.factorInteger = [2 -3; 3 1] /* factors of fraction */
 ```
 
 ## Frequency -- temporal type
@@ -1761,15 +1758,15 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 10071203840.primeFactors.asIdentityMultiset.sortedElements = [2 -> 13, 5 -> 1, 19 -> 1, 12941 -> 1] /* prime factor histogram */
 6606028800.primeFactors.asIdentityMultiset.sortedCounts = [22 -> 2, 2 -> 5, 2 -> 3, 1 -> 7]
 8589298611.primeFactors = [3, 2863099537] /* large prime factors */
-120.factorInteger = [2 -> 3, 3 -> 1, 5 -> 1]
-60.factorInteger = [2 -> 2, 3 -> 1, 5 -> 1]
-36.factorInteger = [2 -> 2, 3 -> 2]
-20.factorial.factorInteger = [2 -> 18, 3 -> 8, 5 -> 4, 7 -> 2, 11 -> 1, 13 -> 1, 17 -> 1, 19 -> 1]
-2401.factorInteger = [7 -> 4]
-2434500.factorInteger.collect(key:/1) = [2, 3, 5, 541] /* prime divisors */
-2434500.primeDivisors = [2, 3, 5, 541] /* prime divisors */
-6.factorial.factorInteger = [2 -> 4, 3 -> 2, 5 -> 1]
-324.factorInteger = [2 -> 2, 3 -> 4] /* powerful numbers are numbers whose prime factors are all repeated */
+120.factorInteger = [2 3; 3 1; 5 1]
+60.factorInteger = [2 2; 3 1; 5 1]
+36.factorInteger = [2 2; 3 2]
+20.factorial.factorInteger = [2 18; 3 8; 5 4; 7 2; 11 1; 13 1; 17 1; 19 1]
+2401.factorInteger = [[7 4]]
+2434500.factorInteger.column(1) = [2 3 5 541] /* prime divisors */
+2434500.primeDivisors = [2 3 5 541] /* prime divisors */
+6.factorial.factorInteger = [2 4; 3 2; 5 1]
+324.factorInteger = [2 2; 3 4] /* powerful numbers are numbers whose prime factors are all repeated */
 2401.isPrimePower /* the factorization has one place and the base is a prime number */
 2:49.select(isPrimePower:/1) = [2 3 4 5 7 8 9 11 13 16 17 19 23 25 27 29 31 32 37 41 43 47 49] /* OEIS A246655 */
 1.isPrimePower = false /* one is not a prime power */
@@ -1779,7 +1776,7 @@ system.cache['primesList'][23] = 83 /* prime extends the primesList cache as req
 1:22.select { :each | each.isAlmostPrime(2) } = [4, 6, 9, 10, 14, 15, 21, 22] /* A001358 */
 1:449.select { :each | each.isAlmostPrime(7) } = [128, 192, 288, 320, 432, 448] /* A046308 */
 1:5121.select { :each | each.isAlmostPrime(11) } = [2048, 3072, 4608, 5120] /* A069272 */
-(10 ^ 12 + 3).factorInteger = [61 -> 1, 14221 -> 1, 1152763 -> 1] /* moderately large number */
+(10 ^ 12 + 3).factorInteger = [61 1; 14221 1; 1152763 1] /* moderately large number */
 2:30.select { :each | each.primeFactors.max <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 27, 30]
 2:15.select { :each | each.primeLimit <= 5 } = [2, 3, 4, 5, 6, 8, 9, 10, 12, 15]
 1.primeLimit = 0/* by convention the prime limit of one is zero */
@@ -3963,7 +3960,7 @@ system.typeLookup('RgbColour').constructorName = 'newRgbColour:/0' /* constructo
 system.typeLookup('RgbColour').instanceOf.isRgbColour /* initialized instance of type */
 system.typeLookup('RgbColour').name = 'RgbColour' /* name of type */
 system.typeLookup('RgbColour').packageName = 'Colour' /* package name of type */
-system.typeLookup('RgbColour').traitNameList = ['Object' 'Equatable' 'Colour'] /* traits (named) implemented by type */
+system.typeLookup('RgbColour').traitNameList = ['Object' 'Storeable' 'Equatable' 'Colour'] /* traits (named) implemented by type */
 ```
 
 ## Type -- slot access

@@ -34,7 +34,8 @@ At `IdentityMultiset`:
 [1: 1, 2: 2, 3: 3]
 ```
 
-At a 3×2 matrix:
+At a two column matrix,
+here a 3×2 matrix:
 
 ```
 >>> [1 2; 3 4; 5 6].asMap

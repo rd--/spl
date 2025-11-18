@@ -1,8 +1,8 @@
 # keySort
 
-- _keySort(d)_
+- _keySort(x)_
 
-Answer an association list of the items in the dictionary _d_ sorted by key.
+Answer an association list of the items in the dictionary-like object _x_ sorted by key.
 
 Sort the elements in a `Record` by key:
 
@@ -33,25 +33,13 @@ At `List`:
 ['a' -> 3, 'b' -> 2, 'c' -> 1]
 ```
 
-Use `valueSort` to sort by value:
-
-```
->>> (a: 3, c: 1, b: 2).valueSort
-['c' -> 1, 'b' -> 2, 'a' -> 3]
-
->>> ['a': 3, 'c': 1, 'b': 2].valueSort
-['c' -> 1, 'b' -> 2, 'a' -> 3]
-
->>> 'abcaba'.characters.asMultiset.valueSort
-['c' -> 1, 'b' -> 2, 'a' -> 3]
-
->>> ['a' -> 3, 'b' -> 2, 'c' -> 1].valueSort
-['c' -> 1, 'b' -> 2, 'a' -> 3]
-```
+Use `valueSort` to sort by value.
 
 * * *
 
 See also: Dictionary, keys, sort, valueSort
+
+Guides: Dictionary Functions
 
 References:
 _Mathematica_

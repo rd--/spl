@@ -1,3 +1,19 @@
++Block {
+
+	compareOn { :f:/1 |
+		{ :a :b |
+			compare(f(a), f(b))
+		}
+	}
+
+	reverseCompareOn { :f:/1 |
+		{ :a :b |
+			compare(f(b), f(a))
+		}
+	}
+
+}
+
 +@Collection {
 
 	alphabet { :self |
@@ -24,7 +40,7 @@
 	}
 
 	sorted { :self :sortBlock:/2 |
-		self.asList.sortBy(sortBlock:/2)
+		self.copyList.sortBy(sortBlock:/2)
 	}
 
 	stemLeafPlot { :self |
@@ -50,7 +66,21 @@
 +@Sequenceable {
 
 	canonicalSort { :self |
-		self.sortBy(canonicalPrecedes:/2)
+		self.sortComparing(canonicalCompare:/2)
+	}
+
+	colexicographicCompare { :self :operand |
+		let n = self.size;
+		let m = operand.size;
+		valueWithReturn { :return:/1 |
+			0.toDo(n.min(m) - 1) { :i |
+				let c = self[n - i].compare(operand[m - i]);
+				(c != 0).ifTrue {
+					c.return
+				}
+			};
+			n.compare(m)
+		}
 	}
 
 	indicesSorted { :self |
@@ -99,8 +129,18 @@
 		}
 	}
 
-	lexicographicSort { :self |
-		self.sortBy(precedes:/2)
+	lexicographicCompare { :self :operand |
+		let n = self.size;
+		let m = operand.size;
+		valueWithReturn { :return:/1 |
+			1.toDo(n.min(m)) { :i |
+				let c = self[i].compare(operand[i]);
+				(c != 0).ifTrue {
+					c.return
+				}
+			};
+			n.compare(m)
+		}
 	}
 
 	longestIncreasingSubsequenceList { :self |
@@ -149,6 +189,18 @@
 		])
 	}
 
+	reverseColexicographicCompare { :self :operand |
+		self.colexicographicCompare(operand).negate
+	}
+
+	reverseLexicographicCompare { :self :operand |
+		self.lexicographicCompare(operand).negate
+	}
+
+	reverseSort { :self |
+		self.sortBy(|>)
+	}
+
 	sort { :self :sortBlock:/2 :keyBlock:/1 |
 		keyBlock:/1.ifNil {
 			self.sortBy(sortBlock:/2 ? { <| })
@@ -162,7 +214,22 @@
 	}
 
 	sort { :self |
-		self.sortBy(<|)
+		self.sortComparing(compare:/2)
+	}
+
+	sortComparingEach { :self :blockList |
+		let n = blockList.size;
+		self.sortComparing { :a :b |
+			let answer = 0;
+			let index = 1;
+			{ answer = 0 & { index <= n } }.whileTrue {
+				let f:/2 = blockList[index];
+				let c = f(a, b);
+				index := index + 1;
+				answer := c
+			};
+			answer
+		}
 	}
 
 	sortOn { :self :keyBlock:/1 |
@@ -170,7 +237,7 @@
 	}
 
 	sorted { :self :sortBlock:/2 |
-		self.copy.sortBy(sortBlock:/2)
+		self.copyList.sortBy(sortBlock:/2)
 	}
 
 	sorted { :self |
@@ -222,6 +289,87 @@
 
 	canonicalOrder { :self :operand |
 		self.canonicalCompare(operand).negate
+	}
+
+}
+
++List {
+
+	colexicographicSort { :self |
+		self.sortComparing(colexicographicCompare:/2)
+	}
+
+	gradedLexicographicSort { :self |
+		self
+		.collect(reverseSort:/1)
+		.sortComparingEach(
+			[
+				sum:/1.compareOn,
+				lexicographicCompare:/2
+			]
+		)
+	}
+
+	gradedReflectedColexicographicSort { :self |
+		self
+		.collect(sort:/1)
+		.sortComparingEach(
+			[
+				sum:/1.compareOn,
+				size:/1.compareOn,
+				lexicographicCompare:/2
+			]
+		)
+	}
+
+	gradedReflectedLexicographicSort { :self |
+		self
+		.collect(sort:/1)
+		.sortComparingEach(
+			[
+				sum:/1.compareOn,
+				colexicographicCompare:/2
+			]
+		)
+	}
+
+	gradedReverseLexicographicSort { :self |
+		self
+		.collect(reverseSort:/1)
+		.sortComparingEach(
+			[
+				sum:/1.compareOn,
+				reverseLexicographicCompare:/2
+			]
+		)
+	}
+
+	lexicographicSort { :self |
+		self.sortComparing(lexicographicCompare:/2)
+	}
+
+	reflectedColexicographicSort { :self |
+		self.colexicographicSort.collect(reverse:/1)
+	}
+
+	reflectedLexicographicSort { :self |
+		self.lexicographicSort.collect(reverse:/1)
+	}
+
+	reverseColexicographicSort { :self |
+		self.sortComparing(reverseColexicographicCompare:/2)
+	}
+
+	reverseLexicographicSort { :self |
+		self.sortComparing(reverseLexicographicCompare:/2)
+	}
+
+	reverseReflectedColexicographicSort { :self |
+		self.reverseColexicographicSort.collect(reverse:/1)
+	}
+
+	reverseReflectedLexicographicSort { :self |
+		self.reverseLexicographicSort.collect(reverse:/1)
 	}
 
 }

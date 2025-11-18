@@ -22,13 +22,14 @@ the product of the first _n_ primes.
 200560490130
 ```
 
-The first few terms:
+The first few terms,
+OEIS [A002110](https://oeis.org/A002110):
 
 ```
->>> 1:9.collect(primorial:/1)
+>>> 0:9.collect(primorial:/1)
 [
-	2 6 30 210 2310
-	30030 510510 9699690 223092870
+	1 2 6 30 210 2310 30030
+	510510 9699690 223092870
 ]
 ```
 

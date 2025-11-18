@@ -24,7 +24,7 @@
 					e / 2
 				} {
 					n.factorInteger.collect { :x |
-						(x.key ^ x.value).carmichaelLambda
+						(x[1] ^ x[2]).carmichaelLambda
 					}.lcm
 				}
 			}
@@ -46,7 +46,7 @@
 	}
 
 	distinctPrimeFactors { :self |
-		self.primeFactorization.valuesAndCounts.keys
+		self.primeFactorization.asSet.asList
 	}
 
 	euclidNumber { :n |
@@ -54,15 +54,15 @@
 	}
 
 	factorInteger { :self |
-		self.isNegative.if {
-			let answer = self.negate.factorInteger;
-			answer.addFirst(-1 -> 1);
-			answer
+		[-1 0 1].includes(self).if {
+			[[self, 1]]
 		} {
-			self.isZero.if {
-				[0 -> 1]
+			self.isNegative.if {
+				let answer = self.negate.factorInteger;
+				answer.addFirst([-1, 1]);
+				answer
 			} {
-				self.primeFactorization.sortedElements
+				self.primeFactorization.sortedElements.collect(keyValue:/1)
 			}
 		}
 	}
@@ -186,7 +186,7 @@
 	}
 
 	isSemiprime { :n |
-		n.factorInteger.values.sum = 2
+		n.factorInteger.column(2).sum = 2
 	}
 
 	isSternPrime { :n |
@@ -318,10 +318,10 @@
 	mangoldtLambda { :n |
 		let primeFactors = n.factorInteger;
 		let isPrimePower = primeFactors.size = 1 & {
-			primeFactors.first.key.isPrime
+			primeFactors[1][1].isPrime
 		};
 		isPrimePower.if {
-			primeFactors.first.key.log
+			primeFactors[1][1].log
 		} {
 			0
 		}
@@ -474,20 +474,22 @@
 	}
 
 	primeDivisors { :self |
-		self.primeFactorization.valuesAndCounts.keys
+		self.factorInteger.column(1)
 	}
 
 	primeExponents { :self |
-		let dictionary = self.primeFactorization.valuesAndCounts;
-		dictionary.keys.max.primesUpTo.collect { :each |
-			dictionary.atIfAbsent(each) {
+		let p = self.factorInteger;
+		let n = p.last.at(1);
+		let m = p.matrixToMap;
+		n.primesUpTo.collect { :each |
+			m.atIfAbsent(each) {
 				0
 			}
 		}
 	}
 
 	primeFactorization { :self |
-		self.primeFactors.asMultiset
+		self.primeFactors.Multiset
 	}
 
 	primeFactors { :self |
@@ -602,7 +604,7 @@
 	}
 
 	primeSignature { :self |
-		self.factorInteger.values.sort(>)
+		self.factorInteger.column(2).sort(>)
 	}
 
 	primesBetweenAnd { :iMin :iMax |
@@ -714,7 +716,7 @@
 	}
 
 	radical { :self |
-		self.factorInteger.collect(key:/1).product
+		self.primeDivisors.product
 	}
 
 	sieveOfAtkinDo { :limit :aBlock:/1 |
@@ -873,7 +875,7 @@
 	isPrimePower { :self |
 		let primeFactors = self.factorInteger;
 		primeFactors.size = 1 & {
-			primeFactors.first.key.isPrime
+			primeFactors[1][1].isPrime
 		}
 	}
 
@@ -882,11 +884,22 @@
 +Fraction {
 
 	factorInteger { :self |
-		let n = self.numerator.factorInteger;
-		let d = self.denominator.factorInteger.collect { :each |
-			each.key -> each.value.negate
-		};
-		(n ++ d).sortBy(<|)
+		let n = self.numerator;
+		let d = self.denominator;
+		let a = n.factorInteger;
+		(d = 1).if {
+			a
+		} {
+			let b = d.factorInteger;
+			b.do { :each |
+				each[2] := each[2].negate
+			};
+			(n = 1).if {
+				b
+			} {
+				(a ++ b).sortBy(<|)
+			}
+		}
 	}
 
 	primeFactors { :self |

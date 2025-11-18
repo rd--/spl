@@ -17,7 +17,7 @@ Items are sorted by key:
 ['x' -> 1, 'y' -> 1, 'z' -> 2]
 ```
 
-Count the number of items in a random list of 100 small integers:
+Count the number of items in a random list of one hundred small integers:
 
 ```
 >>> let l = Sfc32(98765).next(100);
@@ -27,9 +27,9 @@ Count the number of items in a random list of 100 small integers:
 
 * * *
 
-See also: Multiset, commonest, count, sort, sortedElements, tally
+See also: commonest, count, Multiset, sort, sortedCounts, sortedElements, tally
 
-Guides: List Functions
+Guides: List Functions, Set Functions
 
 References:
 _Mathematica_

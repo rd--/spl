@@ -14,6 +14,9 @@ Answer the prime divisors of the integer _n_.
 >>> (2 ^ 2) * (3 ^ 2) * (5 ^ 3)
 4500
 
+>>> 2434500.factorInteger
+[2 2; 3 2; 5 3; 541 1]
+
 >>> 2434500.primeFactors
 [2 2 3 3 5 5 5 541]
 
@@ -25,12 +28,12 @@ Integers where the prime divisors includes only two and five,
 OEIS [A003592](https://oeis.org/A003592):
 
 ```
->>> 1:100.select { :n |
+>>> 2:100.select { :n |
 >>> 	let d = n.primeDivisors;
 >>> 	d.includesOnly([2 5])
 >>> }
 [
-	 1  2  4  5   8
+	    2  4  5   8
 	10 16 20 25  32
 	40 50 64 80 100
 ]

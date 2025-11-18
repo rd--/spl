@@ -8,6 +8,7 @@
 >>> .isTrait
 true
 ```
+
 Types implementing `Comparable`:
 
 ```

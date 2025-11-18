@@ -159,7 +159,7 @@
 		let m = n + 2;
 		{
 			let z = factorInteger(binomial(m, n));
-			z[1].key <= n
+			z[1][1] <= n
 		}.whileTrue {
 			m := m + 1
 		};
@@ -484,8 +484,7 @@
 				true
 			} {
 				let factors = factorInteger(n);
-				let p = factors.keys;
-				let e = factors.values;
+				let [p, e] = factors.transpose;
 				let i = 1;
 				let ok = true;
 				{

@@ -11,6 +11,7 @@ true
 
 Types implementing `Sequenceable`:
 
+```
 >>> system
 >>> .traitTypes('@Sequenceable')
 >>> .sort

@@ -25,7 +25,7 @@ It has tuning lattice coordinates _7 0 -3_:
 
 ```
 >>> 1.diesis.factorInteger
-[2 -> 7, 5 -> -3]
+[2 7; 5 -3]
 ```
 
 * * *

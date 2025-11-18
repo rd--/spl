@@ -37,7 +37,7 @@ It has tuning lattice coordinates _-4 4 -1_:
 
 ```
 >>> 1.syntonicComma.factorInteger
-[2 -> -4, 3 -> 4, 5 -> -1]
+[2 -4; 3 4; 5 -1]
 ```
 
 It is the distance between the Ptolemaic and Pythagorean chromatic semitones:

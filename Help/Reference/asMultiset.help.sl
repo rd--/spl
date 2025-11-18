@@ -7,10 +7,12 @@ Convert the list _x_ to a `Multiset`.
 At a `List` of integers:
 
 ```
->>> [1 1 1 3 3 5].asMultiset.sortedElements
+>>> [1 1 1 3 3 5].asMultiset
+>>> .sortedElements
 [1 -> 3, 3 -> 2, 5 -> 1]
 
->>> [1 1 1 3 3 5].asMultiset.sortedCounts
+>>> [1 1 1 3 3 5].asMultiset
+>>> .sortedCounts
 [3 -> 1, 2 -> 3, 1 -> 5]
 ```
 

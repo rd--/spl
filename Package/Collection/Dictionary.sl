@@ -62,6 +62,17 @@
 		answer
 	}
 
+	associationsAllSatisfy { :self :aBlock:/1 |
+		valueWithReturn { :return:/1 |
+			self.associationsDo { :each |
+				aBlock(each).ifFalse {
+					false.return
+				}
+			};
+			true
+		}
+	}
+
 	associationsDo { :self :aBlock:/1 |
 		self.keysAndValuesDo { :key :value |
 			aBlock(key -> value)

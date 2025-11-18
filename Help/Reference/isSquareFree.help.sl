@@ -73,7 +73,7 @@ In the prime factorization of a square-free number, the exponents of primes are 
 true
 
 >>> 210.factorInteger
-[2 -> 1, 3 -> 1, 5 -> 1, 7 -> 1]
+[2 1; 3 1; 5 1; 7 1]
 ```
 
 `primeNu` is equal to `primeOmega` for square-free numbers:

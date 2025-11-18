@@ -14,6 +14,7 @@ OEIS [A000290](https://oeis.org/A000290):
 
 First few terms of OEIS [A000122](https://oeis.org/A000122):
 
+```
 >>> 0:104.collect { :n |
 >>> 	[
 >>> 		{ n = 0 } -> { 1 },

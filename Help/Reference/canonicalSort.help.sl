@@ -4,7 +4,7 @@
 
 Sorts a list _xₙ_ into canonical order in place.
 Answer the sorted list.
-This is `sort` of `canonicalPrecedes`.
+This is `sortComparing` of `canonicalCompare`.
 
 Sort subsets canonically:
 
@@ -15,7 +15,7 @@ Sort subsets canonically:
 [; 1; 2; 3; 1 2; 1 3; 2 3; 1 2 3]
 ```
 
-Order is determined by first by sequence length,
+Order is determined first by sequence length,
 and then by the first element that differs:
 
 ```

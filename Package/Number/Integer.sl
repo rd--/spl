@@ -794,7 +794,7 @@
 
 	isPerfectPower { :self |
 		(self >= 4) & {
-			let alpha = self.factorInteger.values;
+			let alpha = self.factorInteger.column(2);
 			alpha.gcd > 1
 		}
 	}
@@ -909,9 +909,9 @@
 
 	isSumOfTwoSquares { :self |
 		self.factorInteger.select { :each |
-			(each.key % 4) = 3
+			(each[1] % 4) = 3
 		}.allSatisfy { :each |
-			each.value.isEven
+			each[2].isEven
 		}
 	}
 
@@ -958,9 +958,13 @@
 
 	jacobiSymbol { :a :n |
 		n.isOdd.if {
-			n.factorInteger.collect { :each |
-				a.legendreSymbol(each.key) ^ each.value
-			}.product
+			(n = 1).if {
+				1
+			} {
+				n.factorInteger.collect { :each |
+					a.legendreSymbol(each[1]) ^ each[2]
+				}.product
+			}
 		} {
 			[a, n].error('jacobiSymbol: even n?')
 		}

@@ -146,6 +146,226 @@ Find partitions of six of even length only:
 ]
 ```
 
+Partitions in graded reflected colexicographic order (Abramowitz and Stegun),
+OEIS [A036036](https://oeis.org/A036036):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> }.catenate
+>>> .gradedReflectedColexicographicSort
+[
+	1;
+	2;
+	1 1;
+	3;
+	1 2;
+	1 1 1;
+	4;
+	1 3;
+	2 2;
+	1 1 2;
+	1 1 1 1;
+	5;
+	1 4;
+	2 3;
+	1 1 3;
+	1 2 2;
+	1 1 1 2;
+	1 1 1 1 1;
+	6;
+	1 5;
+	2 4;
+	3 3;
+	1 1 4;
+	1 2 3;
+	2 2 2;
+	1 1 1 3;
+	1 1 2 2;
+	1 1 1 1 2;
+	1 1 1 1 1 1
+]
+```
+
+Plot first few terms of
+OEIS [A036036](https://oeis.org/A036036):
+
+~~~spl svg=A
+1:8.collect { :n |
+	n.integerPartitions
+}.catenate
+.gradedReflectedColexicographicSort
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-A.svg)
+
+Partitions in graded reverse lexicographic ordering (Mathematica),
+OEIS [A080577](https://oeis.org/A080577):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> }.catenate
+>>> .gradedReverseLexicographicSort
+[
+	1;
+	2;
+	1 1;
+	3;
+	2 1;
+	1 1 1;
+	4;
+	3 1;
+	2 2;
+	2 1 1;
+	1 1 1 1;
+	5;
+	4 1;
+	3 2;
+	3 1 1;
+	2 2 1;
+	2 1 1 1;
+	1 1 1 1 1;
+	6;
+	5 1;
+	4 2;
+	4 1 1;
+	3 3;
+	3 2 1;
+	3 1 1 1;
+	2 2 2;
+	2 2 1 1;
+	2 1 1 1 1;
+	1 1 1 1 1 1
+]
+```
+
+Plot first few terms of
+OEIS [A080577](https://oeis.org/A080577):
+
+~~~spl svg=B
+1:8.collect { :n |
+	n.integerPartitions
+}.catenate
+.gradedReverseLexicographicSort
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-B.svg)
+
+Partitions in graded reflected lexicographic order (Maple),
+OEIS [A080576](https://oeis.org/A080576):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> }.catenate
+>>> .gradedReflectedLexicographicSort
+[
+	1;
+	1 1;
+	2;
+	1 1 1;
+	1 2;
+	3;
+	1 1 1 1;
+	1 1 2;
+	2 2;
+	1 3;
+	4;
+	1 1 1 1 1;
+	1 1 1 2;
+	1 2 2;
+	1 1 3;
+	2 3;
+	1 4;
+	5;
+	1 1 1 1 1 1;
+	1 1 1 1 2;
+	1 1 2 2;
+	2 2 2;
+	1 1 1 3;
+	1 2 3;
+	3 3;
+	1 1 4;
+	2 4;
+	1 5;
+	6
+]
+```
+
+Plot first few terms of
+OEIS [A080576](https://oeis.org/A080576):
+
+~~~spl svg=C
+1:8.collect { :n |
+	n.integerPartitions
+}.catenate
+.gradedReflectedLexicographicSort
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-C.svg)
+
+Partitions in graded lexicographical ordering,
+OEIS [A193073](https://oeis.org/A193073):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> }.catenate
+>>> .gradedLexicographicSort
+[
+	1;
+	1 1;
+	2;
+	1 1 1;
+	2 1;
+	3;
+	1 1 1 1;
+	2 1 1;
+	2 2;
+	3 1;
+	4;
+	1 1 1 1 1;
+	2 1 1 1;
+	2 2 1;
+	3 1 1;
+	3 2;
+	4 1;
+	5;
+	1 1 1 1 1 1;
+	2 1 1 1 1;
+	2 2 1 1;
+	2 2 2;
+	3 1 1 1;
+	3 2 1;
+	3 3;
+	4 1 1;
+	4 2;
+	5 1;
+	6
+]
+```
+
+Plot first few terms of
+OEIS [A193073](https://oeis.org/A193073):
+
+~~~spl svg=D
+1:8.collect { :n |
+	n.integerPartitions
+}.catenate
+.gradedLexicographicSort
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitions-D.svg)
+
 * * *
 
 See also: integerPartitionsOdd, integerPartitionsStrict, integerPartitionsTable, partitionFunctionP, partitionFunctionQ, qBinomial, setPartitions
@@ -156,6 +376,12 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Partition.html)
 [2](https://reference.wolfram.com/language/ref/IntegerPartitions.html),
+_OEIS_
+[1](https://oeis.org/A036036)
+[2](https://oeis.org/A036037)
+[3](https://oeis.org/A080576)
+[4](https://oeis.org/A080577)
+[5](https://oeis.org/A193073),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_partition)
 

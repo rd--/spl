@@ -63,7 +63,7 @@ It has tuning lattice coordinates _-19 12_:
 
 ```
 >>> 1.pythagoreanComma.factorInteger
-[2 -> -19, 3 -> 12]
+[2 -19; 3 12]
 ```
 
 The twelfth part of the ditonic comma is very nearly two cents:

@@ -58,7 +58,7 @@ The nine valid Motzkin words of length four:
 ```
 >>> motzkinWords(4, 0)
 [
-	1 1 1 1
+	[1 1 1 1]
 ]
 
 >>> motzkinWords(2, 1)

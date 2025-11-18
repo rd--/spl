@@ -49,6 +49,14 @@ IdentityMultiset : [Object, Storeable, Copyable, Equatable, Iterable, Collection
 
 }
 
++List {
+
+	IdentityMultiset { :self |
+		self.asIdentityMultiset
+	}
+
+}
+
 +@Collection {
 
 	asIdentityMultiset { :self |
