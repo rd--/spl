@@ -49,8 +49,8 @@ might be written in Sᴘʟ as:
 
 ```
 >>> let answer = [];
->>> (1 .. 5).do { :x |
->>> 	(1 .. x).do { :y |
+>>> [1 .. 5].do { :x |
+>>> 	[1 .. x].do { :y |
 >>> 		(x + y).isPrime.ifTrue {
 >>> 			answer.add([x, y])
 >>> 		}

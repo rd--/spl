@@ -101,6 +101,11 @@ Enumerating:
 - `indices`
 - `shapeIndices`
 
+Converting:
+
+- `cartesianIndex`
+- `linearIndex`
+
 Indexing Syntax
 
 - `At Syntax`

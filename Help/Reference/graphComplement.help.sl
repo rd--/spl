@@ -53,7 +53,7 @@ The graphComplement of a `completeGraph` is an edgeless graph:
 >>> let g = 5.completeGraph
 >>> .graphComplement;
 >>> (g.vertexList, g.isEmpty)
-([1 .. 5], true)
+([1 2 3 4 5], true)
 ```
 
 For simple graphs, the graphComplement of the graphComplement is the original graph:

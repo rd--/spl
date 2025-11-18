@@ -161,7 +161,7 @@ also called Sarrus numbers or Poulet numbers,
 OEIS [A001567](https://oeis.org/A001567):
 
 ```
->>> (3, 5 .. 5000).select { :n |
+>>> [3, 5 .. 5000].select { :n |
 >>> 	n.isPrime.not & {
 >>> 		2.powerMod(n - 1, n) = 1
 >>> 	}
@@ -198,7 +198,7 @@ Plot a list of powers of 3 where the exponent is varied, modulo some prime numbe
 
 ~~~spl svg=C
 let n = 44.prime;
-(1 .. n - 1).functionPlot { :x |
+[1 .. n - 1].functionPlot { :x |
 	3.powerMod(x, n)
 }
 ~~~
@@ -214,7 +214,7 @@ OEIS [A096008](https://oeis.org/A096008):
 
 ~~~spl svg=D
 1:30.collect { :n |
-	(0 .. n - 1).collect { :k |
+	[0 .. n - 1].collect { :k |
 		powerMod(k, 2, n)
 	}.nub.sort
 }.catenate.scatterPlot

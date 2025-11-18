@@ -75,10 +75,8 @@ Sl {
 		| EmptySetSyntax
 		| SetSyntax
 		| TupleSyntax
-		| ListRangeSyntax
-		| ListRangeThenSyntax
 		| RangeSyntax
-		| RangeThenSyntax
+		| ListRangeSyntax
 
 	AtPutSyntax = Primary "[" NonemptyListOf<Expression, ","> "]" ":=" Expression
 	AtSyntax = Primary "[" NonemptyListOf<Expression, ","> "]"
@@ -119,10 +117,14 @@ Sl {
 	SetSyntax = "{|" ListOf<Expression, ","> "|}"
 	TupleSyntax = "(" NonemptyListOf<Expression, ","> ")"
 	ListSyntax = "[" ListOf<Expression, ","> "]"
-	ListRangeSyntax = "[" Expression ".." Expression "]"
-	ListRangeThenSyntax = "[" Expression "," Expression ".." Expression "]"
-	RangeSyntax = "(" Expression ".." Expression ")"
-	RangeThenSyntax = "(" Expression "," Expression ".." Expression ")"
+	RangeSyntax = RangeFromToSyntax | RangeFromThenToSyntax | RangeFromToBySyntax
+    RangeFromToSyntax = "(" Expression ".." Expression ")"
+	RangeFromThenToSyntax = "(" Expression "," Expression ".." Expression ")"
+	RangeFromToBySyntax = "(" Expression ".." Expression ";" Expression ")"
+	ListRangeSyntax = ListRangeFromToSyntax | ListRangeFromThenToSyntax | ListRangeFromToBySyntax
+    ListRangeFromToSyntax = "[" Expression ".." Expression "]"
+	ListRangeFromThenToSyntax = "[" Expression "," Expression ".." Expression "]"
+	ListRangeFromToBySyntax = "[" Expression ".." Expression ";" Expression "]"
 	EmptyListSyntax = "[" "]"
 	VectorSyntax = "[" VectorSyntaxItem+ "]"
 	VectorSyntaxItem = VectorSyntaxUnarySend | literal | reservedIdentifier | identifier

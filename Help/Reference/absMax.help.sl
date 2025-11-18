@@ -1,12 +1,12 @@
 # absMax
 
-- _absMax(aCollection)_
+- _absMax(c)_
 
-The maximum absolute value in _aCollection_.
-The collection must be non-empty and contain compatible Magnitudes.
+The maximum absolute value in the collection _c_.
+The collection must be non-empty and contain compatible magnitudes.
 
 ```
->>> let c = (-9 .. 5);
+>>> let c = [-9 .. 5];
 >>> (c.max, c.absMax)
 (5, 9)
 ```
@@ -14,5 +14,7 @@ The collection must be non-empty and contain compatible Magnitudes.
 * * *
 
 See also: abs, max
+
+Guides: List Functions
 
 Categories: Testing

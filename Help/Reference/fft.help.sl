@@ -77,7 +77,7 @@ let n = 512;
 let m = n // 8;
 let x = (0 -- 0.5).discretize(n);
 let y = x.collect { :t |
-	(1 .. 5).collect { :n |
+	[1 .. 5].collect { :n |
 		n * (n * 10 * 2.pi * t).cos
 	}.sum
 };

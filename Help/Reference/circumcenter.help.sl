@@ -33,6 +33,8 @@ At `Tetrahedron`:
 
 See also: center, circumcircle, circumradius
 
+Guides: Geometry Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Circumcenter.html)

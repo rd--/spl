@@ -82,7 +82,7 @@ p.Line.nest.LineDrawing
 Moiré pattern:
 
 ~~~spl svg=D
-(0, 0.02 .. 1).collect { :x |
+[0, 0.02 .. 1].collect { :x |
 	[
 		[[x, 0], [1 - x, 1]],
 		[[0, x], [1, 1 - x]]

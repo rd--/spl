@@ -13,7 +13,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	* { :self :aPermutation |
 		let length = self.degree.max(aPermutation.degree);
 		aPermutation.apply(
-			self.apply([1 .. length])
+			self.apply(length.iota)
 		).ordering.asPermutation
 	}
 
@@ -88,7 +88,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		let l = self.list;
 		let i = self.inversions;
 		let e = i.collect { :each | l @* each };
-		let v = [1 .. self.degree];
+		let v = self.degree.iota;
 		Graph(v, e)
 	}
 
@@ -368,7 +368,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	twoLineNotation { :self |
 		[
-			[1 .. self.degree],
+			self.degree.iota,
 			self.list
 		]
 	}
@@ -673,7 +673,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		(anInteger = 0).if {
 			[]
 		} {
-			let answer = [1 .. anInteger];
+			let answer = anInteger.iota;
 			self.do { :each |
 				1.toDo(each.size) { :index |
 					answer[each[index]] := each.atWrap(index + 1)
@@ -784,7 +784,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	permutationPower { :self :anInteger |
 		(anInteger = 0).if {
-			[1 .. self.permutationDegree].asPermutation
+			self.permutationDegree.iota.asPermutation
 		} {
 			self.asPermutation ^ anInteger
 		}
@@ -877,7 +877,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	rightInversionCountToPermutationList { :self |
-		let list = [1 .. self.size];
+		let list = self.size.iota;
 		self.collect { :each |
 			list.removeAt(each + 1)
 		}
@@ -937,18 +937,18 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 	heapsAlgorithm { :self |
-		[1 .. self].heapsAlgorithm
+		self.iota.heapsAlgorithm
 	}
 
 	minimumChangePermutations { :self |
-		[1 .. self].minimumChangePermutations
+		self.iota.minimumChangePermutations
 	}
 
 	plainChanges { :self |
 		(self < 1).if {
 			self.error('@Integer>>plainChanges: n < 1')
 		} {
-			[1 .. self].plainChanges
+			self.iota.plainChanges
 		}
 	}
 

@@ -1,8 +1,8 @@
 # binarySearchLeftmost
 
-- _binarySearchLeftmost(aSequence, anObject)_
+- _binarySearchLeftmost([x₁ x₂ …], y)_
 
-Answer the index of _anObject_ in _aSequence_,
+Answer the index of the object _y_ in the sequence _x_,
 which is known to be sorted.
 
 Find an integer in a sorted list of integers:
@@ -59,7 +59,7 @@ distinguishes out of range values at left but not right:
 
 ```
 >>> let l = [0 2.5 5 7.5 10];
->>> (-1 .. 11).collect { :each |
+>>> -1:11.collect { :each |
 >>> 	l.binarySearchLeftmost(each)
 >>> }
 [0 1 1 1 2 2 3 3 3 4 4 5 5]

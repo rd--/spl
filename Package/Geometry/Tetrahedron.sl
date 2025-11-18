@@ -34,8 +34,8 @@ Tetrahedron : [Object, Storeable, Equatable] { | vertexCoordinates |
 		let d = c.arrayPad([0 0; 0 1], 1);
 		let f = { :m :i |
 			d.submatrix(
-				[1 .. 4],
-				[1 .. 5].without(i + 1)
+				4.iota,
+				5.iota.without(i + 1)
 			).determinant * m
 		};
 		let dx = f(1, 1);

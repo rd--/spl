@@ -15,7 +15,7 @@ nil
 
 >>> FilePath('/tmp/spl.binary')
 >>> .readBinaryFile
-ByteArray([1 .. 9])
+ByteArray(1:9)
 ```
 
 * * *

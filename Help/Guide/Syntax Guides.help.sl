@@ -21,6 +21,7 @@
 - `Infix Method Syntax`
 - `Let Syntax`
 - `List Assignment Syntax`
+- `List Range Syntax`
 - `Map Syntax`
 - `Method Syntax`
 - `Operator Syntax`

@@ -25,7 +25,7 @@ Construct a Cauchy matrix:
 Generate a rectangular Cauchy matrix:
 
 ```
->>> [1 .. 5].cauchyMatrix([1 .. 3])
+>>> [1 2 3 4 5].cauchyMatrix([1 2 3])
 [
 	1/2 1/3 1/4;
 	1/3 1/4 1/5;

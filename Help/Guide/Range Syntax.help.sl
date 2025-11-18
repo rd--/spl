@@ -1,11 +1,10 @@
 # Range Syntax
 
-There are two forms of `Range` syntax.
-
-`Range` expression rewrite rules:
+`Range` syntax rewrite rules:
 
 - _(α .. β)_ ⇒ _Range(α, β, 1)_
 - _(α, β .. γ)_ ⇒ _Range(α, γ, β - α)_
+- _(α .. β; γ)_ ⇒ _Range(α, β, γ)_
 
 ```
 >> '(i .. j)'.splSimplify
@@ -13,19 +12,9 @@ nonemptyRange(i, j, 1)
 
 >> '(i, j .. k)'.splSimplify
 nonemptyThenTo(i, j, k)
-```
 
-`List` range expression rewrite rules:
-
-- _[α .. β]_ ⇒ _(α .. β).asList_
-- _[α, β .. γ]_ ⇒ _(α, β .. γ).asList_
-
-```
->> '[i .. j]'.splSimplify
-asList(nonemptyRange(i, j, 1))
-
->> '[i, j .. k]'.splSimplify
-asList(nonemptyThenTo(i, j, k))
+>> '(i .. j; k)'.splSimplify
+nonemptyRange(i, j, k)
 ```
 
 Answer ascending `Range` values:
@@ -34,14 +23,8 @@ Answer ascending `Range` values:
 >>> (1 .. 9)
 Range(1, 9, 1)
 
->>> (1 .. 9).asList
-[1 2 3 4 5 6 7 8 9]
-
 >>> (1, 3 .. 9)
 Range(1, 9, 3 - 1)
-
->>> (1, 3 .. 9).asList
-[1 3 5 7 9]
 ```
 
 Answer descending `Range` values:
@@ -54,37 +37,17 @@ Range(9, 1, (1 - 9).sign)
 Range(9, 1, 7 - 9)
 ```
 
-Answer ascending `List` values:
+Answer a `Range` of one place:
 
 ```
->>> [1 .. 9]
-[1 2 3 4 5 6 7 8 9]
+>>> (1 .. 1)
+Range(1, 1, 1)
 
->>> [1, 3 .. 9]
-[1 3 5 7 9]
-```
+>>> (1, 2 .. 1)
+Range(1, 1, 1)
 
-Answer descending `List` values:
-
-```
->>> [9, 8 .. 1]
-[9 8 7 6 5 4 3 2 1]
-
->>> [9, 7 .. 1]
-[9 7 5 3 1]
-```
-
-Answer a list of one place:
-
-```
->>> [1 .. 1]
-[1]
-
->>> [1, 2 .. 1]
-[1]
-
->>> [1, 0 .. 1]
-[1]
+>>> (1, 0 .. 1)
+Range(1, 1, -1)
 ```
 
 Where supported the notation `..` i displayed as ….
@@ -92,19 +55,19 @@ Where supported the notation `..` i displayed as ….
 _Note_:
 In Smalltalk _α to: β_ is an empty `Range` if α <= β,
 as is _α:β_ in Matlab and Octave and Julia.
-The re-write rules here call `Range` for the literal form _α:β_,
-and `nonemptyRange` for the forms _(α .. β)_ and _[α .. β]_.
+The Sᴘʟ re-write rules call `Range` for the `Span Syntax` form _α:β_,
+and `nonemptyRange` for the `Range Syntax` _(α .. β)_ and related forms.
 To write descending intervals the step must be specified.
 This definition avoids subtle differences if _(α .. β)_ is used where _α:β_ or _α.to(β)_ is required.
 The notation `α:β` is from Matlab/Octave and S/R and Fortress and Julia.
 The literal case is not written _p..q_ since it would make white space significant in the list case,
-i.e. _[p..q]_ would be a list of one interval, and not equal to _[p .. q]_.
+i.e. _[p..q]_ would be a list of one range, and not equal to _[p .. q]_.
 
 * * *
 
 See also: List, Range, thenTo, upOrDownTo
 
-Guides: Span Syntax
+Guides: List Range Syntax, Span Syntax
 
 References:
 _Fortress_

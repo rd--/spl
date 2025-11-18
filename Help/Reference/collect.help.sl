@@ -11,21 +11,27 @@ Answer the new collection.
 At `Range`:
 
 ```
->>> (2, 6 .. 14).collect { :x | x * x }
+>>> 2:4:14.collect { :x |
+>>> 	x * x
+>>> }
 [4 36 100 196]
 ```
 
 At `List`:
 
 ```
->>> [2, 6 .. 14].collect { :x | x * x }
+>>> [2 6 10 14].collect { :x |
+>>> 	x * x
+>>> }
 [4 36 100 196]
 ```
 
 At `Record`:
 
 ```
->>> (x: 6, y: 10, z: 14).collect { :x | x * x }
+>>> (x: 6, y: 10, z: 14).collect { :x |
+>>> 	x * x
+>>> }
 (x: 36, y: 100, z: 196)
 ```
 

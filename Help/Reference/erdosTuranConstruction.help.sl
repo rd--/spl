@@ -23,8 +23,8 @@ Calculate all differences for order five:
 ```
 >>> let r = erdosTuranConstruction(5);
 >>> let k = r.size;
->>> (1 .. k - 1).collect { :i |
->>> 	(i + 1 .. k).collect { :j |
+>>> [1 .. k - 1].collect { :i |
+>>> 	[i + 1 .. k].collect { :j |
 >>> 		r[j] - r[i]
 >>> 	}
 >>> }

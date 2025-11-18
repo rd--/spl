@@ -9,15 +9,15 @@ and removes a specified number of layers of nesting.
 ```
 >>> [1, [2, [3, [4, [5], 6], 7], 8], 9]
 >>> .flatten
-[1 .. 9]
+[1 2 3 4 5 6 7 8 9]
 
 >>> [1, [2, [3, [4, [5, [6, [7, [8, [9]]]]]]]]]
 >>> .flatten
-[1 .. 9]
+[1 2 3 4 5 6 7 8 9]
 
 >>> [[[[[[[[[1], 2], 3], 4], 5], 6], 7], 8], 9]
 >>> .flatten
-[1 .. 9]
+[1 2 3 4 5 6 7 8 9]
 ```
 
 Only flatten one level:
@@ -44,7 +44,7 @@ Join lists and individual elements:
 
 >>> [[1], 2, [[3, 4], 5], [[[]]], [[[6]]], 7, 8, []]
 >>> .flatten
-[1 .. 8]
+[1 2 3 4 5 6 7 8]
 ```
 
 Unravel a matrix:

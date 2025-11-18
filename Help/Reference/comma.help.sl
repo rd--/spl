@@ -37,14 +37,14 @@ Comma separates parameter items in `Method Syntax`:
 true
 ```
 
-Comma separates the first to items in `Range Syntax`:
+Comma separates the first two items in `Range Syntax`:
 
 ```
 >>> (1, 3 .. 9)
 Range(1, 9, 2)
 
 >>> [1, 3 .. 9]
-[1, 3, 5, 7, 9]
+[1 3 5 7 9]
 ```
 
 The name of this syntax token is `comma`.

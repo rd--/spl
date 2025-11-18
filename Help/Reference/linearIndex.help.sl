@@ -1,8 +1,8 @@
 # linearIndex
 
-- _linearIndex(shape, cartesianIndex)_
+- _linearIndex(⍴, i)_
 
-Answer the linear index of `cartesianIndex` given an array _shape_.
+Answer the linear index of the cartesian index _i_ given an array shape _⍴_.
 The indices are counted such that the rightmost index increments first.
 
 At vector:

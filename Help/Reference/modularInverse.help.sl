@@ -179,7 +179,7 @@ Two numbers are modular inverses of each other if their product is one:
 
 ```
 >>> let p = 5.prime;
->>> let g = (1 .. p - 1);
+>>> let g = [1 .. p - 1];
 >>> { :i :j |
 >>> 	(i * j) % p -> [i, j]
 >>> }.table(g, g)

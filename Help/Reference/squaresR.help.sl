@@ -48,7 +48,7 @@ OEIS [A000118](https://oeis.org/A000118):
 Number of lattice points inside the circle of radius twenty with center at the origin:
 
 ```
->>> (0 .. 20 ^ 2).sum { :k |
+>>> [0 .. 20 ^ 2].sum { :k |
 >>> 	2.squaresR(k)
 >>> }
 1257

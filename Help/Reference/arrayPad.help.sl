@@ -56,8 +56,8 @@ Pad only on the right:
 Remove elements from each edge of an array:
 
 ```
->>> [1 .. 10].arrayPad([-2 -2], 0)
-[3 .. 8]
+>>> 10.iota.arrayPad([-2 -2], 0)
+[3 4 5 6 7 8]
 ```
 
 Pad with extra rows:

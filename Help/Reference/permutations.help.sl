@@ -7,7 +7,7 @@ Answer a `List` of the permutations containing at most _n_ elements of the seque
 The six length three permutations of three elements:
 
 ```
->>> [1 .. 3].permutations
+>>> [1 2 3].permutations
 [
 	1 2 3;
 	1 3 2;
@@ -21,7 +21,7 @@ The six length three permutations of three elements:
 The six length-two permutations of three elements:
 
 ```
->>> [1 .. 3].permutations(2)
+>>> [1 2 3].permutations(2)
 [
 	1 2;
 	2 1;
@@ -35,7 +35,7 @@ The six length-two permutations of three elements:
 Calculate the same sequence as the permutations of the two element subsets:
 
 ```
->>> [1 .. 3].subsets { :each |
+>>> [1 2 3].subsets { :each |
 >>> 	each.size = 2
 >>> }.collect(permutations:/1).++
 [
@@ -51,7 +51,7 @@ Calculate the same sequence as the permutations of the two element subsets:
 The number of length-_n_ permutations of a length-_n_ list of distinct elements is _n!_:
 
 ```
->>> [1 .. 5].permutations.size
+>>> [1 2 3 4 5].permutations.size
 120
 
 >>> 5.!
@@ -61,7 +61,7 @@ The number of length-_n_ permutations of a length-_n_ list of distinct elements 
 A permutation that leaves no element invariant is called a derangement:
 
 ```
->>> [1 .. 5].permutations.select { :each |
+>>> [1 2 3 4 5].permutations.select { :each |
 >>> 	(each =.map each.sorted)
 >>> 	.noneSatisfy(identity:/1)
 >>> }.size
@@ -78,7 +78,7 @@ The number of derangements of _n_ distinct elements is _n.subfactorial_:
 Length-two permutations of four elements:
 
 ```
->>> [1 .. 4].permutations(2)
+>>> [1 2 3 4].permutations(2)
 [
 	1 2;
 	2 1;
@@ -98,7 +98,7 @@ Length-two permutations of four elements:
 The number of length-_k_ permutations of _n_ elements is given by _n!/(n-k)!_ or `stope`:
 
 ```
->>> [1 .. 5].permutations(2).size
+>>> [1 2 3 4 5].permutations(2).size
 20
 
 >>> 5.! / (5 - 2).!
@@ -162,7 +162,7 @@ the answer will too:
 Different algorithms answer the same permutations in different sequences:
 
 ```
->>> let l = [1 .. 4];
+>>> let l = [1 2 3 4];
 >>> let a = [
 >>> 	l.permutations,
 >>> 	l.minimumChangePermutations,

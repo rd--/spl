@@ -5,7 +5,7 @@
 Answer if the sequence _u_ ends with another sequence _v_.
 
 ```
->>> [1 .. 5].endsWith([3 .. 5])
+>>> 1:5.endsWith(3:5)
 true
 ```
 
@@ -13,7 +13,7 @@ Suffix must be a sequence:
 
 ```
 >>> {
->>> 	[1 .. 5].endsWith(5) = false
+>>> 	1:5.endsWith(5) = false
 >>> }.hasError
 true
 ```

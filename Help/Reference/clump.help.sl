@@ -1,14 +1,14 @@
 # clump
 
-- _clump(aSequence, anInteger)_
+- _clump([x₁ x₂ …], n)_
 
-Answer a `List` of sub-sequences of _aSequence_,
-each having _anInteger_ items.
+Answer a `List` of sub-sequences of the sequence _x_,
+each having _n_ items.
 
 Create a 2×4 matrix from an 8 place vector:
 
 ```
->>> [1 .. 8].clump(4)
+>>> 8.iota.clump(4)
 [
 	1 2 3 4;
 	5 6 7 8
@@ -18,7 +18,7 @@ Create a 2×4 matrix from an 8 place vector:
 If the sequence `size` is not `divisible` by _anInteger_ the last item of the answer will have fewer than _anInteger_ places:
 
 ```
->>> [1 .. 8].clump(3)
+>>> 8.iota.clump(3)
 [
 	1 2 3;
 	4 5 6;
@@ -29,7 +29,7 @@ If the sequence `size` is not `divisible` by _anInteger_ the last item of the an
 This is as distinct from both `partition`:
 
 ```
->>> [1 .. 8].partition(3)
+>>> 8.iota.partition(3)
 [
 	1 2 3;
 	4 5 6
@@ -39,7 +39,7 @@ This is as distinct from both `partition`:
 and `reshape`:
 
 ```
->>> [1 .. 8].reshape([3 3])
+>>> 8.iota.reshape([3 3])
 [
 	1 2 3;
 	4 5 6;
@@ -50,7 +50,7 @@ and `reshape`:
 `clump` is equivalent to `chunksOf`:
 
 ```
->>> [1 .. 8].chunksOf(3)
+>>> 8.iota.chunksOf(3)
 [
 	1 2 3;
 	4 5 6;
@@ -61,6 +61,8 @@ and `reshape`:
 * * *
 
 See also: chunksOf, partition, reshape
+
+Guides: List Functions
 
 References:
 _SuperCollider_

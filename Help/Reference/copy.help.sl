@@ -30,18 +30,21 @@ For collection types makes a shallow copy,
 at `List`:
 
 ```
->>> [1 .. 5].copy
-[1 .. 5]
+>>> [1 2 3 4 5].copy
+[1 2 3 4 5]
 
->>> let a = [1 .. 5];
+>>> let a = [1 2 3 4 5];
 >>> a !== a.copy
 true
 
->>> let a = [1 .. 5];
+>>> let a = [1 2 3 4 5];
 >>> let b = a.copy;
 >>> a[1] := -1;
 >>> (a, b)
-([-1 2 3 4 5], [1 .. 5])
+(
+	[-1 2 3 4 5],
+	[1 2 3 4 5]
+)
 ```
 
 * * *

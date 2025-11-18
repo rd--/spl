@@ -262,7 +262,7 @@ Plot an integer modulo an integer, i.e. varying the modulus:
 Binomial coefficients modulo two:
 
 ~~~spl png=C
-let k = (0L .. 64L);
+let k = [0L .. 64L];
 { :i :j |
 	(i >= j).if {
 		i.binomial(j) % 2
@@ -308,7 +308,7 @@ let n = 2;
 Simulate a particle bouncing in a noncommensurate box:
 
 ~~~spl svg=G
-(0, 0.01 .. 15).collect { :t |
+[0, 0.01 .. 15].collect { :t |
 	t % [2.sqrt 1]
 }.Line
 ~~~

@@ -44,7 +44,7 @@ Plot:
 
 ~~~spl svg=A
 -0.25.symmetricPower(
-	(0, 0.01 .. 1)
+	[0, 0.01 .. 1]
 ).linePlot
 ~~~
 

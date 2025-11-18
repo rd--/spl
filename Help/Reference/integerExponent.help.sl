@@ -22,7 +22,7 @@ The highest power of 2:
 Number of trailing zeros in factorials:
 
 ```
->>> (1L .. 40L).collect { :n |
+>>> [1L .. 40L].collect { :n |
 >>> 	n.factorial.integerExponent(10)
 >>> }
 [
@@ -52,7 +52,7 @@ OEIS [A007814](https://oeis.org/A007814):
 A formula for digitCount:
 
 ```
->>> (1L .. 30L).collect { :n |
+>>> [1L .. 30L].collect { :n |
 >>> 	n - n.factorial.integerExponent(2)
 >>> }
 [
@@ -68,7 +68,7 @@ OEIS [A001511](https://oeis.org/A001511):
 ```
 >>> [3 4 5].collect { :n |
 >>> 	let m = (2 ^ n) - 1;
->>> 	(1 .. m).collect { :each |
+>>> 	1:m.collect { :each |
 >>> 		each.integerExponent(2) + 1
 >>> 	}
 >>> }

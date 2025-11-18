@@ -12,14 +12,14 @@ At `List`, sort into descending order:
 >>> let a = [1 7 3 9 5];
 >>> a.sortBy(>=);
 >>> a
-[9, 7 .. 1]
+[9 7 5 3 1]
 ```
 
 At `List`, sort into ascending order:
 
 ```
 >>> [1 7 3 9 5].sortBy(<=)
-[1, 3 .. 9]
+[1 3 5 7 9]
 ```
 
 At an `Association` list, sort by descending key:

@@ -7,7 +7,7 @@ and the next elements equal the rest of the elements of _v_.
 Begin the search at element the index _n_ of _u_.
 
 ```
->>> let p = (1, 3 .. 9);
+>>> let p = [1, 3 .. 9];
 >>> let q = [5 7 9];
 >>> let i = p.indexOfSubstringStartingAt(q, 3);
 >>> (p.includesSubstring(q), i)

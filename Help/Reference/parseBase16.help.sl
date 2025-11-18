@@ -7,7 +7,7 @@ Answer the `ByteArray` encoded in Base16 at the string _s_.
 ```
 >>> '0102030405060708090A0B0C0D0E0F'
 >>> .parseBase16
-[1 .. 15].asByteArray
+ByteArray(1:15)
 ```
 
 This is another name for `base16Decode`.

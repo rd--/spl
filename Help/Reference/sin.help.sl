@@ -137,7 +137,7 @@ Approximate the almost nowhere differentiable Riemann–Weierstrass function:
 
 ~~~spl svg=F
 (0 -- 2.pi).functionPlot { :x |
-	(1 .. 12).collect { :j |
+	1:12.collect { :j |
 		(j ^ 2 * x).sin / (j ^ 2)
 	}.sum
 }

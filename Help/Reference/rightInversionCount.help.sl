@@ -45,7 +45,7 @@ For the permutation _4 3 6 5 1 2_ the signe figuratif is given as _(3 2 3 2 0)_:
 The right inversion counts of _S3_:
 
 ```
->>> [1 .. 3]
+>>> [1 2 3]
 >>> .lexicographicPermutations
 >>> .collect(rightInversionCount:/1)
 [0 0 0; 0 1 0; 1 0 0; 1 1 0; 2 0 0; 2 1 0]
@@ -54,7 +54,7 @@ The right inversion counts of _S3_:
 The right inversion counts of _S4_:
 
 ```
->>> [1 .. 4]
+>>> [1 2 3 4]
 >>> .lexicographicPermutations
 >>> .collect(rightInversionCount:/1)
 [

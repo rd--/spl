@@ -7,7 +7,7 @@ Answer the first element for which _f_ evaluates to `true`.
 If there is no such element, evaluate and answer the exception block _g_.
 
 ```
->>> (5, 4 .. 1).detectIfNone { :each |
+>>> [5 4 3 2 1].detectIfNone { :each |
 >>> 	each % 7 = 0
 >>> } {
 >>> 	nil
@@ -18,6 +18,8 @@ nil
 * * *
 
 See also: detect, detectIfFoundIfNone, findFirst, reject, select
+
+Guides: List Functions
 
 References:
 _Smalltalk_

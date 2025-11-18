@@ -727,6 +727,18 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 }
 
++[List, Range] {
+
+	Graph { :vertexList :edgeList |
+		newGraph().initializeSlots(
+			vertexList,
+			edgeList.collect(asEdge:/1),
+			(:)
+		)
+	}
+
+}
+
 +@Integer {
 
 	balancedCayleyTree { :n :k |
@@ -1199,14 +1211,6 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 				]
 			)
 		}.asGraph
-	}
-
-	Graph { :vertexList :edgeList |
-		newGraph().initializeSlots(
-			vertexList,
-			edgeList.collect(asEdge:/1),
-			(:)
-		)
 	}
 
 	kirchhoffGraph { :self |

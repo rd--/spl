@@ -32,6 +32,7 @@
 	'Collection-CategoryDictionary'
 	'Collection-Collection'
 	'Collection-Cons'
+	'Collection-CopyableSequence'
 	'Collection-Dictionary'
 	'Collection-DirectedEdge'
 	'Collection-Extensible'

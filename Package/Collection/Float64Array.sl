@@ -36,7 +36,7 @@ Float64Array! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, 
 
 }
 
-+List {
++[List, Range] {
 
 	asFloat64Array { :self |
 		Float64Array(self)
@@ -44,22 +44,18 @@ Float64Array! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, 
 
 	Float64Array { :self |
 		self.isSmallFloatVector.if {
-			self.uncheckedFloat64Array
+			self.asList.uncheckedFloat64Array
 		} {
-			self.error('List>>asFloat64Array: invalid')
+			self.error('asFloat64Array: invalid')
 		}
-	}
-
-	uncheckedFloat64Array { :self |
-		<primitive: return new Float64Array(_self);>
 	}
 
 }
 
-+Range {
++List {
 
-	asFloat64Array { :self |
-		self.asList.asFloat64Array
+	uncheckedFloat64Array { :self |
+		<primitive: return new Float64Array(_self);>
 	}
 
 }

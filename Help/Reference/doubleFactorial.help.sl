@@ -25,20 +25,22 @@ Threads over lists:
 [1 2 3 8 15 48 105 384 945 3840]
 ```
 
-For even numbers, OEIS [A000165](http://oeis.org/A000165):
+For even numbers,
+OEIS [A000165](http://oeis.org/A000165):
 
 ```
->>> (0, 2 .. 14).doubleFactorial
+>>> [0, 2 .. 14].doubleFactorial
 [1 2 8 48 384 3840 46080 645120]
 
 >>> 14.doubleFactorial
-(2, 4 .. 14).product
+[2, 4 .. 14].product
 ```
 
-For odd numbers, OEIS [A001147](http://oeis.org/A001147):
+For odd numbers,
+OEIS [A001147](http://oeis.org/A001147):
 
 ```
->>> (1, 3 .. 13).collect(doubleFactorial:/1)
+>>> [1, 3 .. 13].collect(doubleFactorial:/1)
 [1 3 15 105 945 10395 135135]
 
 >>> 13.doubleFactorial

@@ -180,9 +180,9 @@ Calculate the triangle of trinomial coefficients,
 OEIS [A027907](https://oeis.org/A027907):
 
 ```
->>> (0 .. 6).collect { :n |
->>> 	(0 .. 2 * n).collect { :k |
->>> 		(0 .. n).sum { :i |
+>>> [0 .. 6].collect { :n |
+>>> 	[0 .. 2 * n].collect { :k |
+>>> 		[0 .. n].sum { :i |
 >>> 			binomial(n, i)
 >>> 			*
 >>> 			binomial(n - i, k - (2 * i))
@@ -204,7 +204,7 @@ The sum of binomial coefficients _(n-i,i)_ for _i_ in _(0,n/2)_ is the _n+1_-th 
 
 ```
 >>> let n = 23;
->>> (0 .. n // 2).sum { :i |
+>>> [0 .. n // 2].sum { :i |
 >>> 	binomial(n - i, i)
 >>> }
 (n + 1).fibonacci
@@ -354,8 +354,8 @@ Scatter plot of the partial sums of Sierpinski’s sieve,
 OEIS [A166556](https://oeis.org/A166556):
 
 ~~~spl svg=C
-(0 .. 21).triangularArray { :n :k |
-	(k .. n).sum { :j |
+[0 .. 21].triangularArray { :n :k |
+	[k .. n].sum { :j |
 		binomial(j, k) % 2
 	}
 }.++.scatterPlot

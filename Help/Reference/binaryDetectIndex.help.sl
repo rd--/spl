@@ -1,12 +1,12 @@
 # binaryDetectIndex
 
-- _binaryDetectIndex(anInteger, aBlock:/1)_
-- _binaryDetectIndex(aSequence, aBlock:/1)_
+- _binaryDetectIndex(n, f:/1)_
+- _binaryDetectIndex([x₁ x₂ …], f:/1)_
 
 At `Integer`,
-answer the smallest index _i_ in _(1 .. anInteger)_ for which _aBlock(i)_ answers `true`,
-assuming that _aBlock(i) = true_ implies _aBlock(i + 1) = true_.
-If there is no such index answer _anInteger + 1_.
+answer the smallest index _i_ in _1:n__ for which _f(i)_ answers `true`,
+assuming that _f(i)=⊤_ implies _f(i+1)=⊤_.
+If there is no such index answer _n+1_.
 Used to implement `binarySearch`.
 
 ```
@@ -57,8 +57,8 @@ Detect first value that is not a small integer at `Range`:
 ```
 >>> let x = 1E0;
 >>> let y = 1E19;
->>> let i = (x .. y).binaryDetectIndex { :x |
->>> 	x.isSmallInteger.not
+>>> let i = (x .. y).binaryDetectIndex { :n |
+>>> 	n.isSmallInteger.not
 >>> };
 >>> (y - x, i, x + i, (2 ^ 53) - 1)
 (
@@ -72,6 +72,8 @@ Detect first value that is not a small integer at `Range`:
 * * *
 
 See also: binarySearch, detectIndex
+
+Guides: List Functions
 
 References:
 _Go_

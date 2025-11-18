@@ -21,7 +21,7 @@ The `sum` of a finite arithmetic progression is called an arithmetic series:
 >>> let d = 7;
 >>> n.arithmeticProgression(0, d)
 >>> .prefixSum
-(0 .. n - 1).triangularNumber * d
+[0 .. n - 1].triangularNumber * d
 ```
 
 The _n_, or count, and _d_, or step, values may be signals:

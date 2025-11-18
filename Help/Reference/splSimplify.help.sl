@@ -166,6 +166,9 @@ nonemptyRange(1, 9, 1)
 
 >> '(1, 3 .. 9)'.splSimplify
 nonemptyThenTo(1, 3, 9)
+
+>> '(1 .. 9; 2)'.splSimplify
+nonemptyRange(1, 9, 2)
 ```
 
 List range expressions:
@@ -176,6 +179,9 @@ asList(nonemptyRange(1, 9, 1))
 
 >> '[1, 3 .. 9]'.splSimplify
 asList(nonemptyThenTo(1, 3, 9))
+
+>> '[1 .. 9; 2]'.splSimplify
+asList(nonemptyRange(1, 9, 2))
 ```
 
 `Method Syntax` is rewritten as `Apply Syntax`:

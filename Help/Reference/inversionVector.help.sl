@@ -23,7 +23,7 @@ The inversion vector of a permutation indicates for each place the number of ele
 The inversion vectors of _S4_:
 
 ```
->>> [1 .. 4]
+>>> [1 2 3 4]
 >>> .lexicographicPermutations
 >>> .collect(inversionVector:/1)
 [

@@ -8,7 +8,7 @@ It is based on the properties of strong pseudoprimes.
 At `SmallFloat`:
 
 ```
->>> (1 .. 30).select { :n |
+>>> [1 .. 30].select { :n |
 >>> 	n.millerRabinPrimalityTest(10)
 >>> }
 [2 3 5 7 11 13 17 19 23 29]
@@ -17,7 +17,7 @@ At `SmallFloat`:
 At `LargeInteger`:
 
 ```
->>> (1L .. 131L).select { :n |
+>>> [1L .. 131L].select { :n |
 >>> 	n.millerRabinPrimalityTest(10)
 >>> }
 [
@@ -30,7 +30,7 @@ At `LargeInteger`:
 	127 131
 ]
 
->>> (827L .. 999L).select { :n |
+>>> [827L .. 999L].select { :n |
 >>> 	n.millerRabinPrimalityTest(10)
 >>> }
 [

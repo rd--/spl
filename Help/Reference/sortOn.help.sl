@@ -24,10 +24,10 @@ Sort according to `sum` of each sub-list:
 Sort according to `negate` value of each item:
 
 ```
->>> let alpha = [1 .. 9];
+>>> let alpha = [1 2 3 4 5];
 >>> let beta = alpha.sortOn(negate:/1);
 >>> (alpha, alpha == beta)
-([9, 8 .. 1], true)
+([5 4 3 2 1], true)
 ```
 
 * * *

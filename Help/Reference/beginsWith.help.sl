@@ -5,7 +5,10 @@
 Answer `true` if the sequence _u_ starts with, or has an initial prefix, the sequence _v_, else `false`.
 
 ```
->>> [1 .. 5].beginsWith([1 .. 3])
+>>> [1 3 5 7].beginsWith([1 3])
+true
+
+>>> 1:5.beginsWith(1:3)
 true
 
 >>> 3:9.beginsWith(1:5)
@@ -16,7 +19,7 @@ Prefix must be a sequence:
 
 ```
 >>> {
->>> 	[1 .. 5].beginsWith(1) = false
+>>> 	1:5.beginsWith(1) = false
 >>> }.hasError
 true
 ```
@@ -66,7 +69,7 @@ Guides: List Functions, String Functions
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringStartsQ.html)
 

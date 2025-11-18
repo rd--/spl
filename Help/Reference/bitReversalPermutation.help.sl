@@ -26,7 +26,7 @@ that is the bit reversal permutation is an involution:
 >>> 	6 14  4 12  8 16
 >>> ];
 >>> p.permute(p)
-[1 .. 16]
+16.iota
 ```
 
 * * *

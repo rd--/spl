@@ -8,10 +8,10 @@ answer a `List` whose elements are the elements of _x_.
 If the collection is a `List`, answer it directly.
 
 ```
->>> let a = [1 .. 5];
+>>> let a = [1 2 3 4 5];
 >>> let b = a.asList;
 >>> (b, b == a)
-([1 .. 5], true)
+([1 2 3 4 5], true)
 ```
 
 At `Tuple`:

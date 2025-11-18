@@ -16,6 +16,16 @@ A semicolon separates vectors in `Matrix Syntax`:
 [[1, 3], [5, 7]]
 ```
 
+A semicolon separates step size item in `Range Syntax`:
+
+```
+>>> (1 .. 9; 2)
+Range(1, 9, 2)
+
+>>> [1 .. 9; 2]
+[1 3 5 7 9]
+```
+
 The name of this syntax token is `semicolon`.
 
 * * *

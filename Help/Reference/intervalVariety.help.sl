@@ -6,7 +6,7 @@ Answer the `size` of the `intervalClass` of the generic interval _anInteger_ of 
 
 ```
 >>> let s = Scale(1, [2 2 1 2 2 2 1], 'Maj.');
->>> (1 .. 7).collect { :each |
+>>> 1:7.collect { :each |
 >>> 	s.intervalVariety(each)
 >>> }
 [2 2 2 2 2 2 1]

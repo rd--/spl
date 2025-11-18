@@ -49,6 +49,8 @@ Where supported `iota` is displayed as ⍳.
 
 See also: rank, reshape, shape
 
+Guides: Array Functions, Matrix Functions, List Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Index_Generator),

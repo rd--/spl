@@ -169,6 +169,14 @@ Inverse of a matrix of rational numbers:
 ]
 ```
 
+The identity matrix is self inverse:
+
+```
+>>> let m = 5.identityMatrix;
+>>> m.inverse
+m
+```
+
 * * *
 
 See also: gaussJordanInverse, matrixRank, pseudoInverse, rowReduce

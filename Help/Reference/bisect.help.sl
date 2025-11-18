@@ -1,8 +1,8 @@
 # bisect
 
-- _bisect(aSequence, anObject)_
+- _bisect([x₁ x₂ …], y)_
 
-Locate the insertion point for _anObject_ in _aSequence_ to maintain sorted order.
+Locate the insertion point for the object _y_ in the sequence _x_ to maintain sorted order.
 This method is an alias for `binarySearchRightmost`.
 
 Show equivalent use of `detectIndex` and `binarySearchRightmost`:
@@ -24,15 +24,17 @@ Show equivalent use of `detectIndex` and `binarySearchRightmost`:
 Insertion can be performed using `addBeforeIndex`:
 
 ```
->>> let l = [1, 3 .. 15];
->>> l.addBeforeIndex(8, 5);
->>> l
-[1 3 5 7 8 9 11 13 15]
+>>> let a = [1 3 5 7 9 11 13 15];
+>>> let b = a.addBeforeIndex(8, 5);
+>>> (a, b)
+([1 3 5 7 8 9 11 13 15], 8)
 ```
 
 * * *
 
 See also: <, <=, addBeforeIndex, binarySearchRightmost, detectIndex
+
+Guides: List Functions
 
 References:
 _Python_

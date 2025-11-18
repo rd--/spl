@@ -131,7 +131,7 @@ Overlap regular polygons of increasing radii and vertices:
 The `arcLength` of successive regular polygons with radius `one` approximates _2π_:
 
 ~~~spl svg=I
-(3 .. 47).functionPlot { :n |
+[3 .. 47].functionPlot { :n |
 	n.regularPolygon([0 0], 1, 0)
 	.arcLength
 }

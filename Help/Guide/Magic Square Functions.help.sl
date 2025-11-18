@@ -30,7 +30,7 @@ A 4×4×4 magic cube:
 >>> 	25  4 53 48
 >>> ];
 >>> let column = { :m :c |
->>> 	(1 .. m.size).collect { :r |
+>>> 	[1 .. m.size].collect { :r |
 >>> 		m[r][c]
 >>> 	}
 >>> };

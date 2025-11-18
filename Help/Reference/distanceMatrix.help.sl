@@ -114,7 +114,7 @@ Recurrence plot of a trigonometric operation:
 ~~~spl svg=A
 let m = { :x :y |
 	x.sin * y.cos
-}.table([-10 .. 10], [-10 .. 10]);
+}.table(-10:10, -10:10);
 (m.distanceMatrix < 1)
 .boole
 .matrixPlot

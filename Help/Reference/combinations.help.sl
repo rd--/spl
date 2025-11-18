@@ -55,13 +55,13 @@ All combinations of a list of three items taken two at a time:
 All combinations of a list of five items taken four at a time:
 
 ```
->>> (2, 4 .. 10).combinations(4)
+>>> [2, 4 .. 10].combinations(4)
 [
-	2 4 6 8;
-	2 4 6 10;
-	2 4 8 10;
-	2 6 8 10;
-	4 6 8 10
+	2  4  6  8;
+	2  4  6 10;
+	2  4  8 10;
+	2  6  8 10;
+	4  6  8 10
 ]
 ```
 

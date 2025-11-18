@@ -1,15 +1,15 @@
 # cartesianIndex
 
-- _cartesianIndex(shape, linearIndex)_
+- _cartesianIndex(⍴, i)_
 
-Answer the cartesian index of `linearIndex` given an array _shape_.
+Answer the cartesian index of the linear index _i_ given an array shape _⍴_.
 The indices are counted such that the rightmost index increments first.
 
 At vector:
 
 ```
 >>> let shape = [3];
->>> (1 .. 3).collect { :each |
+>>> 1:3.collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
 [1; 2; 3]
@@ -19,7 +19,7 @@ At matrix:
 
 ```
 >>> let shape = [2 4];
->>> (1 .. 2 * 4).collect { :each |
+>>> [1 .. 2 * 4].collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
 [
@@ -28,7 +28,7 @@ At matrix:
 ]
 
 >>> let shape = [3 3];
->>> (1 .. 3 * 3).collect { :each |
+>>> [1 .. 3 * 3].collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
 [
@@ -42,7 +42,7 @@ At volume:
 
 ```
 >>> let shape = [2 2 2];
->>> (1 .. 2 * 2 * 2).collect { :each |
+>>> [1 .. 2 * 2 * 2].collect { :each |
 >>> 	shape.cartesianIndex(each)
 >>> }
 [
@@ -60,6 +60,8 @@ At volume:
 * * *
 
 See also: deepIndices, linearIndex, mixedRadixEncode, shapeIndices
+
+Guides: Indexing Functions
 
 References:
 _Julia_

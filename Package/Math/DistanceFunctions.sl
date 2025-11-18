@@ -122,12 +122,14 @@
 	}
 
 	levenshteinDistance { :self :other :equalityBlock:/2 |
-		(self.isEmpty | {
-			other.isEmpty
-		}).if {
+		(
+			self.isEmpty | {
+				other.isEmpty
+			}
+		).if {
 			self.size
 		} {
-			let matrix = [0 .. other.size];
+			let matrix = (other.size + 1).iota(0, 1);
 			1.toDo(self.size) { :xIndex |
 				let corner = xIndex - 1;
 				matrix[1] := xIndex - 1;

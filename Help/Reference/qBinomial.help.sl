@@ -103,7 +103,7 @@ and largest part at most _n_:
 ```
 >>> let n = 5;
 >>> let m = 3;
->>> (1 .. n * m).collect { :i |
+>>> [1 .. n * m].collect { :i |
 >>> 	i.integerPartitions.count { :x |
 >>> 		x.size <= n & {
 >>> 			x.max <= m

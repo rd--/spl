@@ -12,6 +12,10 @@
 		<primitive: return sc.realFft(_self);>
 	}
 
+}
+
++[List, Range] {
+
 	convolve { :u :v |
 		(u.isEmpty | { v.isEmpty }).if {
 			'convolve: invalid vector'.error

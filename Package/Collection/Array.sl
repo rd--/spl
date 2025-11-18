@@ -31,43 +31,6 @@
 		}
 	}
 
-	arrayPad { :self :z :o |
-		self.isVector.if {
-			let [m, n] = z;
-			let k = self.size;
-			1.to(k + z.sum).collect { :i |
-				let d = i - m;
-				d.betweenAnd(1, k).if {
-					self[d]
-				} {
-					o
-				}
-			}
-		} {
-			self.isMatrix.if {
-				let [m, n] = z;
-				let [a, b] = self.shape;
-				let p = m.sum + a;
-				let q = n.sum + b;
-				{ :i :j |
-					let d = i - m[1];
-					let e = j - n[1];
-					(
-						d.betweenAnd(1, a) & {
-							e.betweenAnd(1, b)
-						}
-					).if {
-						self[d][e]
-					} {
-						o
-					}
-				}.table(1.to(p), 1.to(q))
-			} {
-				self.error('arrayPad')
-			}
-		}
-	}
-
 	assertIsOfShape { :self :shape |
 		self.assert {
 			self.shape = shape
@@ -364,6 +327,44 @@
 
 +[List, Range] {
 
+
+	arrayPad { :self :z :o |
+		self.isVector.if {
+			let [m, n] = z;
+			let k = self.size;
+			1.to(k + z.sum).collect { :i |
+				let d = i - m;
+				d.betweenAnd(1, k).if {
+					self[d]
+				} {
+					o
+				}
+			}
+		} {
+			self.isMatrix.if {
+				let [m, n] = z;
+				let [a, b] = self.shape;
+				let p = m.sum + a;
+				let q = n.sum + b;
+				{ :i :j |
+					let d = i - m[1];
+					let e = j - n[1];
+					(
+						d.betweenAnd(1, a) & {
+							e.betweenAnd(1, b)
+						}
+					).if {
+						self[d][e]
+					} {
+						o
+					}
+				}.table(1.to(p), 1.to(q))
+			} {
+				self.error('arrayPad')
+			}
+		}
+	}
+
 	boustrophedonTransform { :self |
 		self.boustrophedonTriangle.collect(last:/1)
 	}
@@ -510,6 +511,10 @@
 
 	dimensions { :self |
 		[self.size]
+	}
+
+	isSmallFloatVector { :self |
+		self.elementType = 'SmallFloat'
 	}
 
 	rank { :self |

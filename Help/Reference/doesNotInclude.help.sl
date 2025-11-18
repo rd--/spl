@@ -14,7 +14,7 @@ true
 At `Range`:
 
 ```
->>> (1, 3 .. 21).doesNotInclude(6)
+>>> [1, 3 .. 21].doesNotInclude(6)
 true
 ```
 

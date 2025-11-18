@@ -34,7 +34,7 @@ C.f. `angleVector`:
 
 ```
 >>> 6.circlePoints([0 0], 1, 0)
-(0, 1/3.pi .. 2.pi)
+[0, 1/3.pi .. 2.pi]
 .collect(angleVector:/1)
 .allButLast
 ```

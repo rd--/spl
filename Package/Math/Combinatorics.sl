@@ -23,7 +23,7 @@
 
 	bellStringsDo { :n :receive:/1 |
 		let word = List(n, 0);
-		let focus = [1 .. n + 1];
+		let focus = (n + 1).iota;
 		let start = List(n, 0);
 		let maxima = [];
 		let first = List(n, true);
@@ -196,7 +196,7 @@
 
 	catalanStringsDo { :n :k :receive:/1 |
 		let word = List(n, 0);
-		let focus = [1 .. n + 1];
+		let focus = (n + 1).iota;
 		let start = List(n, 0);
 		receive(word);
 		{ focus[1] < n }.whileTrue {

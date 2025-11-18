@@ -114,7 +114,7 @@ Calculate the third to twelfth terms of OEIS [A000435](https://oeis.org/A000435)
 >>> 3:12.collect { :n |
 >>> 	(n - 1).factorial
 >>> 	*
->>> 	(0 .. n - 2).collect { :k |
+>>> 	[0 .. n - 2].collect { :k |
 >>> 		n ^ k / k.factorial
 >>> 	}.sum
 >>> }

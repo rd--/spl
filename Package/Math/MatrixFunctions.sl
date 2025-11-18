@@ -156,7 +156,7 @@
 					(array[1, 1] * array[2, 3] * array[3, 2])
 				} {
 					let answer = 0;
-					[1 .. size].plainChangesDo { :p |
+					size.iota.plainChangesDo { :p |
 						let sign = p.permutationSymbol;
 						let entries = p.withIndexCollect { :i :j |
 							array[i][j]
@@ -697,7 +697,10 @@
 
 	minor { :self :i :j |
 		let [m, n] = self.shape;
-		self.submatrix([1 .. m].without(i), [1 .. n].without(j)).determinant
+		self.submatrix(
+			m.iota.without(i),
+			n.iota.without(j)
+		).determinant
 	}
 
 	minors { :self |
@@ -705,7 +708,10 @@
 		{ :i :j |
 			let r = m - i + 1;
 			let c = n - j + 1;
-			self.submatrix([1 .. m].without(r), [1 .. n].without(c)).determinant
+			self.submatrix(
+				m.iota.without(r),
+				n.iota.without(c)
+			).determinant
 		}.table(1.to(m), 1.to(n))
 	}
 
@@ -718,7 +724,7 @@
 			let size = self.numberOfRows;
 			let array = self;
 			let answer = 0;
-			[1, 2 .. size].plainChangesDo { :p |
+			size.iota.plainChangesDo { :p |
 				let sign = p.permutationSymbol;
 				let entries = p.withIndexCollect { :i :j |
 					array[i][j]
@@ -1414,7 +1420,7 @@
 	}
 
 	hankelMatrix { :n |
-		[1 .. n].hankelMatrix
+		n.iota.hankelMatrix
 	}
 
 	hilbertMatrix { :self |

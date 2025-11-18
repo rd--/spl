@@ -48,12 +48,12 @@ Three raised to integers one through nine:
 Negative exponents:
 
 ```
->>> (-1, -2 .. -9).collect { :each |
+>>> [-1, -2 .. -9].collect { :each |
 >>> 	3.raisedToInteger(each)
 >>> }
 1 / [3 9 27 81 243 729 2187 6561 19683]
 
->>> (-1, -2 .. -9).collect { :each |
+>>> [-1, -2 .. -9].collect { :each |
 >>> 	3 ^ each
 >>> }
 1 / [3 9 27 81 243 729 2187 6561 19683]

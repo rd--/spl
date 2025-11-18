@@ -12,15 +12,14 @@ The answer at index two is always `zero`.
 The sequence of all indispensability values is a permutation of the integers from `zero` to `one` less than _p.product_:
 
 ```
->>> let f = { :p |
->>> 	(1 .. p.product).collect { :each |
->>> 		p.barlowIndispensability(each)
->>> 	}
->>> };
 >>> [
 >>> 	2; 3; 2 2; 5; 3 2; 2 3;
 >>> 	3 2 2; 2 3 2; 2 2 3; 3 5
->>> ].collect(f:/1)
+>>> ].collect { :p |
+>>> 	[1 .. p.product].collect { :each |
+>>> 		p.barlowIndispensability(each)
+>>> 	}
+>>> }
 [
 	1 0;
 	2 0 1;

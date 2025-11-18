@@ -1,9 +1,9 @@
 # asRange
 
-- _asRange(aSequence)_
+- _asRange([x₁ x₂ …])_
 
-Answer a `Range` that is equivalent to _aSequence_,
-or signal an error if _aSequence_ is not an arithmetic series.
+Answer a `Range` that is equivalent to the sequence _x_,
+or signal an error if _x_ is not an arithmetic series.
 
 At `List`:
 
@@ -12,9 +12,11 @@ At `List`:
 1:9
 
 >>> [1 3 5 7 9].asRange
-(1, 3 .. 9)
+1:2:9
 
->>> { [1 3 1 3 1].asRange }.hasError
+>>> {
+>>> 	[1 3 1 3 1].asRange
+>>> }.hasError
 true
 ```
 
@@ -28,5 +30,7 @@ At `Range` is identity:
 * * *
 
 See also: isArithmeticProgression, Range
+
+Guides: List Functions
 
 Categories: Converting

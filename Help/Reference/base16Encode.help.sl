@@ -5,10 +5,12 @@
 Answer the byte array _b_ encoded as a Base-16 `String`.
 
 ```
->>> [0 .. 15].asByteArray.base16Encode
+>>> [0 .. 15].asByteArray
+>>> .base16Encode
 '000102030405060708090A0B0C0D0E0F'
 
->>> [248 .. 255].asByteArray.base16Encode
+>>> [248 .. 255].asByteArray
+>>> .base16Encode
 'F8F9FAFBFCFDFEFF'
 ```
 

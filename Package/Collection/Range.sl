@@ -40,6 +40,10 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		self.rangeSyntaxString
 	}
 
+	elementType { :self |
+		self.start.typeOf
+	}
+
 	equalBy { :self :operand :aBlock:/2 |
 		operand.isRange & {
 			aBlock(self.start, operand.start) & {
@@ -185,8 +189,8 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	nonemptyThenTo { :self :second :last |
-		nonemptyRange(self, last, second - self)
+	nonemptyThenTo { :start :then :stop |
+		nonemptyRange(start, stop, then - start)
 	}
 
 	Range { :start :stop :step |

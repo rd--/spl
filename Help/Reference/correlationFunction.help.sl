@@ -14,14 +14,14 @@ Estimate the correlation function at τ=2:
 Estimate the correlation function at τ=9:
 
 ```
->>> [1 .. 10].correlationFunction([9])
+>>> 1:10.correlationFunction([9])
 [-27/110]
 ```
 
 Obtain empirical estimates of the correlation function up to τ=9:
 
 ```
->>> [1 .. 10].correlationFunction([1 .. 9])
+>>> 1:10.correlationFunction(1:9)
 [
 	7/10 68/165 49/330 -13/165 -17/66
 	-62/165 -131/311 -21/55 -27/110
@@ -31,7 +31,7 @@ Obtain empirical estimates of the correlation function up to τ=9:
 Compute the correlation function for τ=1-9 in steps of 2:
 
 ```
->>> [1 .. 10].correlationFunction([1, 3 .. 9])
+>>> 1:10.correlationFunction(1:2:9)
 [7/10 49/330 -17/66 -131/311 -27/110]
 ```
 
@@ -51,7 +51,7 @@ Plot correlation function of a perturbed `sin` function:
 ~~~spl svg=A
 let r = Sfc32(126813);
 let n = 600;
-let y = [0 .. n].collect { :x |
+let y = 0:n.collect { :x |
 	(2.pi * x / 100).sin
 };
 (y + r.randomReal([0 10], [y.size]))
@@ -64,6 +64,8 @@ let y = [0 .. n].collect { :x |
 * * *
 
 See also: absoluteCorrelationFunction, autocorrelationPlot, correlation, covariance, covarianceFunction
+
+Guides: Statistics Functions
 
 References:
 _Mathematica_
