@@ -4,7 +4,8 @@
 
 Answer the _bit-reversal permutation_ for a sequence of size _2 ^ k_.
 
-The first five bit-reversal permutations, OEIS A030109 (one-indexed):
+The first five bit-reversal permutations,
+OEIS [A049773](https://oeis.org/A049773):
 
 ```
 >>> 0:4.collect(bitReversalPermutation:/1)
@@ -29,15 +30,26 @@ that is the bit reversal permutation is an involution:
 16.iota
 ```
 
+Plot first few terms
+
+~~~spl svg=A
+0:7.collect(bitReversalPermutation:/1)
+.catenate
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitReversalPermutation-A.svg)
+
 * * *
 
-See also: fromDigits, integerDigits, permute, Permutation
+See also: fromDigits, integerDigits, permute, Permutation, reversalPermutation
 
-Guides: Bitwise Functions, Integer Sequence Functions
+Guides: Bitwise Functions, Integer Sequence Functions, Permutation Functions
 
 References:
 _OEIS_
-[1](https://oeis.org/A030109),
+[1](https://oeis.org/A030109)
+[2](https://oeis.org/A049773),
 _W_
 [1](https://en.wikipedia.org/wiki/Bit-reversal_permutation)
 

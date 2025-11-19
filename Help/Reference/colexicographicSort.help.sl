@@ -55,6 +55,17 @@ Sort binary combinations:
 ]
 ```
 
+Walsh functions in colexicographic order:
+
+~~~spl svg=A
+let m = (2 ^ 4).walshMatrix;
+(1 - m.unitStep)
+.colexicographicSort
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/colexicographicSort-A.svg)
+
 * * *
 
 See also: canonicalSort, lexicographicSort, sort

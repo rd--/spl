@@ -98,6 +98,43 @@ The dot product of a permutation matrix _m_ with it’s transpose is the identit
 7.identityMatrix
 ```
 
+Define the _n×n_ bit reversal permutation matrix:
+
+```
+>>> let n = 2;
+>>> let m = 2 ^ n;
+>>> permutationMatrix(
+>>> 	n.bitReversalPermutation
+>>> ).dot([m m].iota)
+[
+	 1  2  3  4;
+	 9 10 11 12;
+	 5  6  7  8;
+	13 14 15 16
+]
+
+>>> 2.bitReversalPermutation
+[1 3 2 4]
+```
+
+Define the _n×n_ Gray code permutation matrix:
+
+```
+>>> let n = 2 ^ 2;
+>>> permutationMatrix(
+>>> 	[0 .. n - 1].grayDecode + 1
+>>> ).dot([n n].iota)
+[
+	 1  2  3  4;
+	 5  6  7  8;
+	13 14 15 16;
+	 9 10 11 12
+]
+
+>>> 0:3.grayDecode + 1
+[1 2 4 3]
+```
+
 * * *
 
 See also: permutationCycles, permutationList, permute

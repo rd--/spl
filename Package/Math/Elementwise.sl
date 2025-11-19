@@ -280,6 +280,12 @@
 		self.collect(integerPart:/1)
 	}
 
+	integerReverse { :self :base :length |
+		self.collect { :each |
+			each.integerReverse(base, length)
+		}
+	}
+
 	integerReverse { :self |
 		self.collect(integerReverse:/1)
 	}
@@ -669,6 +675,10 @@
 
 	bitShiftRightUnsigned { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitShiftRightUnsigned:/2)
+	}
+
+	bitXor { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitXor:/2)
 	}
 
 	Complex { :self :anObject |

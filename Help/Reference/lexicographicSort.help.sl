@@ -89,9 +89,20 @@ Sort binary combinations:
 ]
 ```
 
+Walsh functions in lexicographic order:
+
+~~~spl svg=A
+let m = (2 ^ 4).hadamardMatrix;
+(1 - m.unitStep)
+.lexicographicSort
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/lexicographicSort-A.svg)
+
 * * *
 
-See also: canonicalSort, precedes, sort
+See also: colexicographicSort, canonicalSort, precedes, sort
 
 Guides: Comparison Functions, Sort Functions
 

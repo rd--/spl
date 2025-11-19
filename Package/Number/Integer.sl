@@ -641,6 +641,10 @@
 		self.integerPartitions.select(isDuplicateFree:/1)
 	}
 
+	integerReverse { :self :base :length |
+		self.integerDigits(base, length).reverse.fromDigits(base)
+	}
+
 	integerReverse { :self :base |
 		self.integerDigits(base).reverse.fromDigits(base)
 	}

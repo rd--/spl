@@ -9,21 +9,24 @@ A valid permutation list of size _n_ is a rearrangement of the integers _1,2…n
 A valid permutation list:
 
 ```
->>> [3 2 6 1 5 4 7 8].isPermutationList
+>>> [3 2 6 1 5 4 7 8]
+>>> .isPermutationList
 true
 ```
 
 A permutation lists must not contain duplicates:
 
 ```
->>> [3 2 2 4 1].isPermutationList
+>>> [3 2 2 4 1]
+>>> .isPermutationList
 false
 ```
 
 A permutation lists must not contain non-positive integers:
 
 ```
->>> [0 1 2 3 4].isPermutationList
+>>> [0 1 2 3 4]
+>>> .isPermutationList
 false
 ```
 
@@ -54,7 +57,8 @@ The integers up to 4321 whose decimal digits form permutation lists:
 
 ```
 >>> 1:4321.select { :each |
->>> 	each.integerDigits.isPermutationList
+>>> 	each.integerDigits
+>>> 	.isPermutationList
 >>> }
 [
 	1

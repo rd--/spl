@@ -3,6 +3,8 @@
 - _hadamardMatrix(n)_
 
 Answer the _n×n_ Hadamard matrix, where _n_ is a power of two.
+The ordering of rows is called the natural ordering,
+see `walshMatrix` for the sequency ordering.
 
 The first Hadamard matrix:
 
@@ -26,7 +28,9 @@ The second Hadamard matrix:
 ]
 ```
 
-The third Hadamard matrix:
+The third Hadamard matrix,
+the number of sign changes are _0,7,3,4,1,6,2,5_,
+OEIS [A240908](https://oeis.org/A240908):
 
 ```
 >>> 8.hadamardMatrix
@@ -42,7 +46,10 @@ The third Hadamard matrix:
 ]
 ```
 
-The fourth Haramard matrix:
+The fourth Haramard matrix,
+the numebr of sign changes are
+_0,15,7,8,3,12,4,11,1,14,6,9,2,13,5,10_,
+OEIS [A240909](http://oeis.org/A240909):
 
 ```
 >>> 16.hadamardMatrix.unitStep
@@ -102,7 +109,9 @@ ordered by counting the number of sign changes in each row:
 The product of a Boolean function and a Hadamard matrix is its Walsh spectrum:
 
 ```
->>> [1 0 1 0 0 1 1 0].dot(8.hadamardMatrix)
+>>> [1 0 1 0 0 1 1 0].dot(
+>>> 	8.hadamardMatrix
+>>> )
 [4 2 0 -2 0 2 0 2]
 ```
 
@@ -126,12 +135,17 @@ Draw the 128×128 Hadamard matrix:
 
 See also: fastWalshHadamardTransform, walshMatrix
 
+Guides: Matrix Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HadamardMatrix.html)
 [1](https://reference.wolfram.com/language/ref/HadamardMatrix.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/hadamard.html),
+_OEIS_
+[1](http://oeis.org/A240908)
+[2](http://oeis.org/A240909),
 _W_
 [1](https://en.wikipedia.org/wiki/Hadamard_matrix)
 

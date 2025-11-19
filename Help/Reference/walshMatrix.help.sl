@@ -3,7 +3,9 @@
 - _walshMatrix(n)_
 
 Answer the _n×n_ Walsh matrix, where _n_ is a power of two.
-A Walsh matrix is a row permutation of a `hadamardMatrix`.
+A Walsh matrix is a row permutation of a `hadamardMatrix`,
+also called the sequency order Hadamard matrix.
+The number of sign changes in row _n_ is _n-1_.
 
 The first three Walsh matrices:
 
@@ -70,7 +72,8 @@ The Walsh matrix can be used to implement the Walsh-Hadamard transform:
 Plot the 8×8 Walsh matrix:
 
 ~~~spl svg=A
-(8.walshMatrix + 1).matrixPlot
+let n = 2 ^ 3;
+(n.walshMatrix + 1).matrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/walshMatrix-A.svg)
@@ -83,9 +86,24 @@ Draw the 128×128 Walsh matrix:
 
 ![](sw/spl/Help/Image/walshMatrix-B.png)
 
+The gray code permutation of the Walsh matrix is called the dyadic or Paley ordering:
+
+~~~spl svg=C
+let n = 2 ^ 4;
+let g = [0 .. n - 1].grayDecode;
+let p = (g + 1).permutationMatrix;
+p.dot(n.walshMatrix)
+.unitStep
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/walshMatrix-C.svg)
+
 * * *
 
-See also: hadamardMatrix
+See also: hadamardMatrix, walshFunction
+
+Guides: Matrix Functions
 
 References:
 _Mathematica_

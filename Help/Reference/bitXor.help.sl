@@ -131,6 +131,15 @@ in siteswaps the number of 1-bits is a constant:
 ]
 ```
 
+Threads over lists:
+
+```
+>>> let n = 4;
+>>> let a = [0 .. n - 1];
+>>> bitXor(a, a // 2)
+[0 1 3 2]
+```
+
 Scatter plot of Gray encoding of _n_,
 OEIS [A003188](https://oeis.org/A003188):
 

@@ -43,10 +43,14 @@ General:
 - `derangements`
 - `image`
 - `inverse`
-- `lexicographicPermutations`: permutations in lexicographic sequence
-- `minimumChangePermutations`: permutations in minimum change sequence (Heap’s algorithm)
-- `permutations`: permutations
-- `plainChanges`: permutations in plain changes sequence (Steinhaus-Johnson-Trotter)
+
+Enumeration:
+
+- `bitReversalPermutation`
+- `lexicographicPermutations`
+- `minimumChangePermutations`: Heap’s algorithm
+- `permutations`
+- `plainChanges`: Steinhaus-Johnson-Trotter
 
 Lists:
 

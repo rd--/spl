@@ -952,6 +952,12 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
+	reversalPermutation { :n :b |
+		[0 .. b ^ n - 1].collect { :i |
+			i.integerReverse(b, n) + 1
+		}
+	}
+
 	steinhausJohnsonTrotterDo { :self :aBlock:/1 |
 		self.plainChangesDo(aBlock:/1)
 	}

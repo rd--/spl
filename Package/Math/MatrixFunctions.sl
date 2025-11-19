@@ -1444,6 +1444,10 @@
 		pascalMatrix(n, 'Symmetric')
 	}
 
+	walshFunction { :n :m |
+		(2 ^ n).walshMatrix.at(m)
+	}
+
 	walshMatrix { :n |
 		let h = n.hadamardMatrix;
 		let z = h.collect(zeroCrossingCount:/1);
