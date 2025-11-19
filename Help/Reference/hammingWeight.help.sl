@@ -47,6 +47,17 @@ Line plot of the first eight-bit integers:
 
 ![](sw/spl/Help/Image/hammingWeight-B.svg)
 
+Plot integers with hamming weight of three,
+OEIS [A014311](https://oeis.org/A014311):
+
+~~~spl svg=C
+0:250.select { :n |
+	n.hammingWeight = 3
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hammingWeight-C.svg)
+
 * * *
 
 See also: digitCount, gouldsSequence, thueMorseSequence
@@ -56,6 +67,7 @@ Guides: Bitwise Functions, Integer Functions
 References:
 _OEIS_
 [1](https://oeis.org/A000120)
-[2](https://oeis.org/A010060),
+[2](https://oeis.org/A010060)
+[3](https://oeis.org/A014311),
 _W_
 [1](https://en.wikipedia.org/wiki/Hamming_weight)

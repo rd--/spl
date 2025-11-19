@@ -55,11 +55,45 @@ Sort matrix of strings:
 ['bx' 'xa'; 'c' 'a']
 ```
 
+Sort binary combinations:
+
+```
+>>> binaryCombinations(2, 3)
+>>> .lexicographicSort
+[
+	0 0 1 1 1;
+	0 1 0 1 1;
+	0 1 1 0 1;
+	0 1 1 1 0;
+	1 0 0 1 1;
+	1 0 1 0 1;
+	1 0 1 1 0;
+	1 1 0 0 1;
+	1 1 0 1 0;
+	1 1 1 0 0
+]
+
+>>> 1:5.combinations(3)
+>>> .reverseLexicographicSort
+[
+	3 4 5;
+	2 4 5;
+	2 3 5;
+	2 3 4;
+	1 4 5;
+	1 3 5;
+	1 3 4;
+	1 2 5;
+	1 2 4;
+	1 2 3
+]
+```
+
 * * *
 
 See also: canonicalSort, precedes, sort
 
-Guides: Comparison Functions, Sorting Functions
+Guides: Comparison Functions, Sort Functions
 
 References:
 _Mathematica_

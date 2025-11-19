@@ -98,7 +98,7 @@ OEIS [A005811](https://oeis.org/A005811):
 
 * * *
 
-See also: bitAnd, hammingDistance, integerDigits, integerExponent, integerLength, thueMorse
+See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse
 
 Guides: Bitwise Functions, Integer Functions, Integer Sequence Functions
 

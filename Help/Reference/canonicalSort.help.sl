@@ -52,4 +52,4 @@ Sort matrix of strings:
 
 See also: lexicographicSort, precedes, sort
 
-Guides: Comparison Functions, Sorting Functions
+Guides: Comparison Functions, Sort Functions

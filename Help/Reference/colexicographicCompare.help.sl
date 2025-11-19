@@ -82,4 +82,4 @@ At `String`:
 
 See also: colexicographicSort, lexicographicSort
 
-Guides: Sorting Functions
+Guides: Sort Functions

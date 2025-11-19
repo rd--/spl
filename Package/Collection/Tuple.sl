@@ -61,3 +61,19 @@ Tuple : [Object, Storeable, Copyable, Equatable] { | contents |
 	}
 
 }
+
++Tuple {
+
+	unitBox { :self |
+		self.contents.collect(unitBox:/1).product
+	}
+
+	unitStep { :self |
+		self.contents.noneSatisfy(isNegative:/1).boole
+	}
+
+	unitTriangle { :self |
+		self.contents.collect(unitTriangle:/1).product
+	}
+
+}

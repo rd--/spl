@@ -11,6 +11,16 @@ and `zero` otherwise.
 
 >>> 0.8.unitStep
 1
+
+>>> (1, 1.pi, 5.3).unitStep
+1
+```
+
+Threads over lists:
+
+```
+>>> [-1.6 3.2].unitStep
+[0 1]
 ```
 
 Plot:
@@ -25,7 +35,7 @@ Plot in two dimensions:
 
 ~~~spl svg=B
 (-1 -- 1).surfacePlot { :x :y |
-	[x y].unitStep * 23
+	(x, y).unitStep * 23
 }
 ~~~
 

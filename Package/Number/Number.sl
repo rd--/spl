@@ -1145,22 +1145,6 @@
 
 +List {
 
-	unitBox { :self |
-		self.collect(unitBox:/1).product
-	}
-
-	unitStep { :self |
-		self.collect(unitStep:/1).product
-	}
-
-	unitTriangle { :self |
-		self.collect(unitTriangle:/1).product
-	}
-
-}
-
-+List {
-
 	rescaleBlock { :a :b |
 		let [min, max] = a;
 		let [yMin, yMax] = b;

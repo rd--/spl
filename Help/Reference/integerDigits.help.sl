@@ -222,6 +222,22 @@ see also `realDigits`:
 [0 1 0]
 ```
 
+Numbers with exactly three ones in binary expansion,
+OEIS [A014311](https://oeis.org/A014311):
+
+```
+>>> 1:99.select { :n |
+>>> 	integerDigits(n, 2)
+>>> 	.countOccurences(1) = 3
+>>> }
+[
+	 7 11 13 14 19 21 22 25 26 28
+	35 37 38 41 42 44 49 50 52 56
+	67 69 70 73 74 76 81 82 84 88
+	97 98
+]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -323,7 +339,7 @@ OEIS [A005811](https://oeis.org/A005811):
 
 * * *
 
-See also: digitCount, fromDigits
+See also: digitCount, fromDigits, hammingWeight
 
 Guides: Bitwise Functions, Integer Functions, Integer Sequence Functions, Mathematical Functions
 
@@ -340,7 +356,8 @@ _OEIS_
 [6](https://oeis.org/A160855)
 [7](https://oeis.org/A010060)
 [8](https://oeis.org/A063543)
-[9](https://oeis.org/A005811),
+[9](https://oeis.org/A005811)
+[10](https://oeis.org/A014311),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

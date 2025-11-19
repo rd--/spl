@@ -10,7 +10,6 @@ Comparison Operators:
 Sort:
 
 - `heapSort`
-- `lexicographicSort`
 - `mergeInPlace`
 - `mergeSortBy`
 - `mergeSortFromToBy`
@@ -25,6 +24,14 @@ Sort:
 - `sort`
 - `sorted`
 - `sortedWithIndices`
+
+Kinds of Sorts:
+
+- `colexicographicSort`
+- `lexicographicSort`
+- `reverseColexicographicSort`
+- `reverseLexicographicSort`
+- `reverseSort`
 
 Order:
 
@@ -60,4 +67,4 @@ Selecting:
 
 * * *
 
-See also: Comparison Functions, Statistics Functions
+See also: Comparison Functions, Statistics Functions, Types of Orderings

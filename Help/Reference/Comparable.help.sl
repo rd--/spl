@@ -78,6 +78,6 @@ Types such as `Complex` and `String` and `List` implement `Comparable` but not `
 
 See also: Equatable, Magnitude
 
-Guides: Comparison Functions, Sorting Functions
+Guides: Comparison Functions, Sort Functions
 
 Unicode: U+227a ≺ Precedes, U+227c ≼ Precedes Or Equal To, U+227B ≻ Succeeds, U+227D ≽ Succeeds or Equal To

@@ -1448,7 +1448,7 @@
 		let h = n.hadamardMatrix;
 		let z = h.collect(zeroCrossingCount:/1);
 		let p = z.ordering;
-		h @* p
+		h.atAll(p)
 	}
 
 }

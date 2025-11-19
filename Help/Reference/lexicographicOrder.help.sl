@@ -63,7 +63,7 @@ At `String`:
 
 See also: compare
 
-Guides: Sorting Functions
+Guides: Sort Functions
 
 References:
 _Mathematica_

@@ -531,6 +531,10 @@
 		self.collect(unitize:/1)
 	}
 
+	unitStep { :self |
+		self.collect(unitStep:/1)
+	}
+
 	vanDerCorputNumber { :self :base |
 		self.collect { :n |
 			n.vanDerCorputNumber(base)
