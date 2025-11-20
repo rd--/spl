@@ -8,7 +8,10 @@ The two strict partitions of four:
 
 ```
 >>> 4.integerPartitionsStrict
-[4; 3 1]
+[
+	4;
+	3 1
+]
 
 >>> 4.partitionFunctionQ
 2
@@ -18,7 +21,11 @@ The three strict partitions of five:
 
 ```
 >>> 5.integerPartitionsStrict
-[5; 4 1; 3 2]
+[
+	5;
+	4 1;
+	3 2
+]
 
 >>> 5.partitionFunctionQ
 3
@@ -28,7 +35,12 @@ The four strict partitions of six:
 
 ```
 >>> 6.integerPartitionsStrict
-[6; 5 1; 4 2; 3 2 1]
+[
+	6;
+	5 1;
+	4 2;
+	3 2 1
+]
 
 >>> 6.partitionFunctionQ
 4
@@ -38,7 +50,14 @@ The six strict partitions of eight:
 
 ```
 >>> 8.integerPartitionsStrict
-[8; 7 1; 6 2; 5 3; 5 2 1; 4 3 1]
+[
+	8;
+	7 1;
+	6 2;
+	5 3;
+	5 2 1;
+	4 3 1
+]
 
 >>> 8.partitionFunctionQ
 6

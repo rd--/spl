@@ -54,8 +54,21 @@ Integer Decompositions:
 - `fareySequence`
 - `frobeniusSolve`
 - `integerDigits`
-- `integerPartitions`
 - `numberDecompose`
+
+Integer Partition Functions:
+
+- `conjugatePartition`
+- `ferrersDiagram`
+- `integerPartitions`
+- `integerPartitionsOdd`
+- `integerPartitionsStrict`
+- `integerPartitionRank`
+- `integerPartitionUnrank`
+- `partitionFunctionP`
+- `partitionFunctionQ`
+- `partitionsP`
+- `partitionsQ`
 
 Integer Part:
 
@@ -92,7 +105,6 @@ Residue Functions:
 
 Partition Functions:
 
-- `integerPartitions`
 - `partitionFunctionP`
 - `partitionFunctionQ`
 - `partitionsP`

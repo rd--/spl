@@ -58,6 +58,8 @@ Use a test function with a specific tolerance to resolve this:
 
 See also: fixedPoint, nestList, nestWhileList
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FixedPoint.html)

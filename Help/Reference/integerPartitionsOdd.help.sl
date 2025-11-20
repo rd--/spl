@@ -8,7 +8,10 @@ The two odd partitions of four:
 
 ```
 >>> 4.integerPartitionsOdd
-[3 1; 1 1 1 1]
+[
+	3 1;
+	1 1 1 1
+]
 
 >>> 4.partitionFunctionQ
 2
@@ -18,7 +21,11 @@ The three odd partitions of five:
 
 ```
 >>> 5.integerPartitionsOdd
-[5; 3 1 1; 1 1 1 1 1]
+[
+	5;
+	3 1 1;
+	1 1 1 1 1
+]
 
 >>> 5.partitionFunctionQ
 3
@@ -28,7 +35,12 @@ The four odd partitions of six:
 
 ```
 >>> 6.integerPartitionsOdd
-[5 1; 3 3; 3 1 1 1; 1 1 1 1 1 1]
+[
+	5 1;
+	3 3;
+	3 1 1 1;
+	1 1 1 1 1 1
+]
 
 >>> 6.partitionFunctionQ
 4

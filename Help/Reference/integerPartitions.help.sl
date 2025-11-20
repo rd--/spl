@@ -34,6 +34,31 @@ All seven partitions of five:
 7
 ```
 
+Canonical order,
+OEIS [A334301](https://oeis.org/A334301):
+
+```
+>>> 1:6.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.canonicalSort
+>>> }
+[
+	1
+	:;
+	2; 1 1
+	:;
+	3; 2 1; 1 1 1
+	:;
+	4; 2 2; 3 1; 2 1 1; 1 1 1 1
+	:;
+	5; 3 2; 4 1; 2 2 1; 3 1 1; 2 1 1 1;
+	1 1 1 1 1
+	:;
+	6; 3 3; 4 2; 5 1; 2 2 2; 3 2 1; 4 1 1;
+	2 2 1 1; 3 1 1 1; 2 1 1 1 1; 1 1 1 1 1 1
+]
+```
+
 In ascending order:
 
 ```
@@ -437,7 +462,8 @@ _OEIS_
 [3](https://oeis.org/A080576)
 [4](https://oeis.org/A080577)
 [5](https://oeis.org/A193073)
-[6](https://oeis.org/wiki/Orderings_of_partitions),
+[6](https://oeis.org/A334301)
+[7](https://oeis.org/wiki/Orderings_of_partitions),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_partition)
 

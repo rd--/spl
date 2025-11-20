@@ -177,6 +177,7 @@
 	'Gamma'
 	'GrayCode'
 	'HyperbolicFunctions'
+	'IntegerPartition'
 	'IntegerSequence'
 	'Integrals'
 	'Interpolation'

@@ -70,6 +70,18 @@ BlockStream : [Object, Iterator, Stream] { | onNext onReset nextItem |
 		self:/1.iterate(anObject).next(count + 1)
 	}
 
+	nestListDistinct { :self:/1 :anObject |
+		let next = anObject;
+		let answer = [];
+		{
+			answer.add(next);
+			next := self(next)
+		}.doWhileTrue {
+			answer.includes(next).not
+		};
+		[answer, next]
+	}
+
 	nestWhileList { :self:/1 :anObject :aBlock:/1 |
 		self:/1.iterate(anObject).nextWhile(aBlock:/1)
 	}

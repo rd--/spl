@@ -77,6 +77,8 @@ Evaluate the Collatz, or hailstone, sequence:
 
 See also: iterate, nestList, takeWhile
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NestWhileList.html)

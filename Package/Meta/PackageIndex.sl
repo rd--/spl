@@ -182,6 +182,7 @@
 	'Math-Gamma'
 	'Math-GrayCode'
 	'Math-HyperbolicFunctions'
+	'Math-IntegerPartition'
 	'Math-IntegerSequence'
 	'Math-Integrals'
 	'Math-Interpolation'
