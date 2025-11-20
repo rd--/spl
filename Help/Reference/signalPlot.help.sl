@@ -1,10 +1,10 @@
 # signalPlot
 
-- _signalPlot(d, i)_
+- _signalPlot(d, o)_
 
 Plot the signal data at _d_,
 which should be of the form _[u₁ u₂ …; v₁ v₂ …; …]_,
-and lie in the interval _i_,
+and lie in the interval _domain_,
 which is set to _(-1,1)_ if not specified.
 
 The channels of the signal,

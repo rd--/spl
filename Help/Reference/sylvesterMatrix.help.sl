@@ -68,7 +68,7 @@ the `resultant` vanishes exactly when the polynomials have roots in common:
 
 See also: rotateRight, resultant
 
-Guides: Polynomial Functions
+Guides: Matrix Functions, Polynomial Functions
 
 References:
 _Mathematica_

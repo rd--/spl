@@ -238,6 +238,174 @@ OEIS [A014311](https://oeis.org/A014311):
 ]
 ```
 
+OEIS [A029931](https://oeis.org/A029931):
+
+```
+>>> 0:77.collect { :n |
+>>> 	let b = n.integerDigits(2);
+>>> 	b.dot([b.size .. 1; -1])
+>>> }
+[
+	 0  1  2  3  3  4  5  6  4  5
+	 6  7  7  8  9 10  5  6  7  8
+	 8  9 10 11  9 10 11 12 12 13
+	14 15  6  7  8  9  9 10 11 12
+	10 11 12 13 13 14 15 16 11 12
+	13 14 14 15 16 17 15 16 17 18
+	18 19 20 21  7  8  9 10 10 11
+	12 13 11 12 13 14 14 15
+]
+```
+
+Compositions,
+OEIS [A101211](https://oeis.org/A101211),
+and [A227736](https://oeis.org/A227736) for reverse:
+
+```
+>>> 1:34.collect { :n |
+>>> 	n.integerDigits(2)
+>>> 	.split(=)
+>>> 	.collect(size:/1)
+>>> }
+[
+	1;
+	1 1;
+	2;
+	1 2;
+	1 1 1;
+	2 1;
+	3;
+	1 3;
+	1 2 1;
+	1 1 1 1;
+	1 1 2;
+	2 2;
+	2 1 1;
+	3 1;
+	4;
+	1 4;
+	1 3 1;
+	1 2 1 1;
+	1 2 2;
+	1 1 1 2;
+	1 1 1 1 1;
+	1 1 2 1;
+	1 1 3;
+	2 3;
+	2 2 1;
+	2 1 1 1;
+	2 1 2;
+	3 2;
+	3 1 1;
+	4 1;
+	5;
+	1 5;
+	1 4 1;
+	1 3 1 1
+]
+```
+
+Compositions in reverse lexicographic order,
+OEIS [A066099](https://oeis.org/A066099):
+
+```
+>>> 0:40.collect { :n |
+>>> 	let a = n.integerDigits(2);
+>>> 	let b = a.reverse;
+>>> 	let c = b.indicesOf(1);
+>>> 	let d = [0] ++ c;
+>>> 	let e = d.differences;
+>>> 	e.reverse
+>>> }
+[
+	;
+	1;
+	2;
+	1 1;
+	3;
+	2 1;
+	1 2;
+	1 1 1;
+	4;
+	3 1;
+	2 2;
+	2 1 1;
+	1 3;
+	1 2 1;
+	1 1 2;
+	1 1 1 1;
+	5;
+	4 1;
+	3 2;
+	3 1 1;
+	2 3;
+	2 2 1;
+	2 1 2;
+	2 1 1 1;
+	1 4;
+	1 3 1;
+	1 2 2;
+	1 2 1 1;
+	1 1 3;
+	1 1 2 1;
+	1 1 1 2;
+	1 1 1 1 1;
+	6;
+	5 1;
+	4 2;
+	4 1 1;
+	3 3;
+	3 2 1;
+	3 1 2;
+	3 1 1 1;
+	2 4
+]
+```
+
+Subsets of integers arranged in Yates order,
+OEIS [A048793](https://oeis.org/A048793):
+
+```
+>>> 0:30.collect { :n |
+>>> 	n.integerDigits(2)
+>>> 	.reverse
+>>> 	.indicesOf(1)
+>>> }
+[
+	;
+	1;
+	2;
+	1 2;
+	3;
+	1 3;
+	2 3;
+	1 2 3;
+	4;
+	1 4;
+	2 4;
+	1 2 4;
+	3 4;
+	1 3 4;
+	2 3 4;
+	1 2 3 4;
+	5;
+	1 5;
+	2 5;
+	1 2 5;
+	3 5;
+	1 3 5;
+	2 3 5;
+	1 2 3 5;
+	4 5;
+	1 4 5;
+	2 4 5;
+	1 2 4 5;
+	3 4 5;
+	1 3 4 5;
+	2 3 4 5
+]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -337,6 +505,20 @@ OEIS [A005811](https://oeis.org/A005811):
 
 ![](sw/spl/Help/Image/integerDigits-G.svg)
 
+Plot product of run lengths in binary representation,
+OEIS [A167489](https://oeis.org/A167489):
+
+~~~spl svg=H
+0:250.collect { :n |
+	n.integerDigits(2)
+	.split(=)
+	.collect(size:/1)
+	.product
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-H.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight
@@ -357,7 +539,12 @@ _OEIS_
 [7](https://oeis.org/A010060)
 [8](https://oeis.org/A063543)
 [9](https://oeis.org/A005811)
-[10](https://oeis.org/A014311),
+[10](https://oeis.org/A014311)
+[11](https://oeis.org/A029931)
+[12](https://oeis.org/A066099)
+[13](https://oeis.org/A048793)
+[14](https://oeis.org/A167489)
+[15]((https://oeis.org/A101211),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

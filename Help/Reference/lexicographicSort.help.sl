@@ -89,6 +89,27 @@ Sort binary combinations:
 ]
 ```
 
+Lexicographic sort of the integer partitions of six:
+
+```
+>>> 6.integerPartitions
+>>> .padRight
+>>> .lexicographicSort
+[
+	1 1 1 1 1 1;
+	2 1 1 1 1 0;
+	2 2 1 1 0 0;
+	2 2 2 0 0 0;
+	3 1 1 1 0 0;
+	3 2 1 0 0 0;
+	3 3 0 0 0 0;
+	4 1 1 0 0 0;
+	4 2 0 0 0 0;
+	5 1 0 0 0 0;
+	6 0 0 0 0 0
+]
+```
+
 Walsh functions in lexicographic order:
 
 ~~~spl svg=A

@@ -103,6 +103,10 @@
 		d.binomial(n) * (x ^ n) * ((1 - x) ^ (d - n))
 	}
 
+	binaryExpansion { :n |
+		n.integerDigits(2)
+	}
+
 	binetsFormula { :n |
 		let z = 5.sqrt;
 		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
@@ -157,6 +161,10 @@
 
 	commonResidue { :self :modulus |
 		self % modulus
+	}
+
+	decimalExpansion { :n |
+		n.integerDigits(10)
 	}
 
 	denominator { :self |

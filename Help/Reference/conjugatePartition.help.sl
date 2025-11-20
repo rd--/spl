@@ -2,7 +2,8 @@
 
 - _conjugatePartition(p)_
 
-Answer the conjugate partition of the partition _p_.
+Answer the conjugate partition of the partition _p_,
+which is given in descending order.
 
 A partition of ten and its conjugate:
 

@@ -48,11 +48,15 @@ The `dot` product of an _n×n_ Walsh matrix with its transposition is the _n^2_ 
 The Walsh matrix can be used to implement the Walsh-Hadamard transform:
 
 ```
->>> [1 1 1 1 0 0 0 0].dot(8.walshMatrix) / 8
-[1/2 1/2 0 0 0 0 0 0]
+>>> [1 1 1 1 0 0 0 0].dot(
+>>> 	8.walshMatrix
+>>> ) / 8
+[1 1 0 0 0 0 0 0] / 2
 
->>> [1 1 1 1 1 0 0 0].dot(8.walshMatrix) / 8
-[0.625 0.375 -0.125 0.125 0.125 -0.125 -0.125 0.125]
+>>> [1 1 1 1 1 0 0 0].dot(
+>>> 	8.walshMatrix
+>>> ) / 8
+[5 3 -1 1 1 -1 -1 1] / 8
 
 >>> [19 -1 11 -9 -7 13 -15 5]
 >>> .dot(8.walshMatrix) / 8
@@ -69,7 +73,7 @@ The Walsh matrix can be used to implement the Walsh-Hadamard transform:
 [8 0 12 0 18 0 0 10]
 ```
 
-Plot the 8×8 Walsh matrix:
+Matrix plot of the 8×8 Walsh matrix:
 
 ~~~spl svg=A
 let n = 2 ^ 3;
@@ -98,6 +102,14 @@ p.dot(n.walshMatrix)
 ~~~
 
 ![](sw/spl/Help/Image/walshMatrix-C.svg)
+
+Signal plot of the 16×16 Walsh matrix:
+
+~~~spl svg=D
+16.walshMatrix.signalPlot
+~~~
+
+![](sw/spl/Help/Image/walshMatrix-D.svg)
 
 * * *
 

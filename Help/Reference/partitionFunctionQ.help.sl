@@ -20,7 +20,12 @@ since there are four partitions of 10 into three distinct parts:
 >>> p.collect(nub:/1).select { :each |
 >>> 	each.size = k
 >>> }
-[7 2 1; 6 3 1; 5 4 1; 5 3 2]
+[
+	7 2 1;
+	6 3 1;
+	5 4 1;
+	5 3 2
+]
 ```
 
 First few terms of OEIS [A000041](https://oeis.org/A000041):

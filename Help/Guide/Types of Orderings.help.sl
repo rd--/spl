@@ -286,7 +286,7 @@ Reverse reflected colexicographic order:
 ]
 ```
 
-Graded reflected colexicographic ordering of integer partitions:
+Graded reflected colexicographic ordering of integer partitions (Maple):
 
 ```
 >>> [2 2 5; 1 4 4; 1 3 5]

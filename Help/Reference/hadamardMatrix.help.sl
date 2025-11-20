@@ -47,7 +47,7 @@ OEIS [A240908](https://oeis.org/A240908):
 ```
 
 The fourth Haramard matrix,
-the numebr of sign changes are
+the number of sign changes are
 _0,15,7,8,3,12,4,11,1,14,6,9,2,13,5,10_,
 OEIS [A240909](http://oeis.org/A240909):
 
@@ -73,12 +73,23 @@ OEIS [A240909](http://oeis.org/A240909):
 ]
 ```
 
-The `dot` product of an _n×n_ Hadamard matrix with its transposition is the _n^2_ identity matrix multiplied by _n^2_:
+The `dot` product of an _n×n_ Hadamard matrix with its transposition is the _n_-identity matrix multiplied by _n_,
+_HHᵀ=nIₙ_:
 
 ```
->>> let m = 16.hadamardMatrix;
->>> m.dot(m.transpose)
-(16 * 16.identityMatrix)
+>>> let n = 16;
+>>> let h = n.hadamardMatrix;
+>>> h.dot(h.transpose)
+n * n.identityMatrix
+```
+
+Hadamard matrices constructed using Sylvester’s method are symmetric and have trace zero:
+
+```
+>>> let n = 16;
+>>> let h = n.hadamardMatrix;
+>>> (h.isSymmetricMatrix, h.trace)
+(true, 0)
 ```
 
 A Walsh matrix is a row permutation of a Hadamard matrix,
@@ -115,7 +126,7 @@ The product of a Boolean function and a Hadamard matrix is its Walsh spectrum:
 [4 2 0 -2 0 2 0 2]
 ```
 
-Plot the 16×16 Hadamard matrix:
+Matrix plot of the 16×16 Hadamard matrix:
 
 ~~~spl svg=A
 (16.hadamardMatrix + 1).matrixPlot
@@ -130,6 +141,14 @@ Draw the 128×128 Hadamard matrix:
 ~~~
 
 ![](sw/spl/Help/Image/hadamardMatrix-B.png)
+
+Signal plot of the 16×16 Hadamard matrix:
+
+~~~spl svg=C
+16.hadamardMatrix.signalPlot
+~~~
+
+![](sw/spl/Help/Image/hadamardMatrix-C.svg)
 
 * * *
 

@@ -383,17 +383,11 @@ Plot : [Object] { | pages format options |
 	}
 
 	signalPlot { :y :i |
-		let [a, b] = i.minMax;
-		let c = b - a;
-		y.isVector.if {
-			y.linePlot
-		} {
-			let n = y.size;
-			let z = 1.15;
-			y.withIndexCollect { :each :i |
-				each + ((n - i) * c * z)
-			}.linePlot
-		}
+		signalPlot (
+			data: y,
+			domain: i,
+			plotType: 'Line'
+		)
 	}
 
 	signalPlot { :y |
@@ -1030,6 +1024,31 @@ Plot : [Object] { | pages format options |
 			self.positionVector,
 			self.capacity
 		)
+	}
+
+}
+
++Record {
+
+	signalPlot { :o |
+		let y = o['data'];
+		let [a, b] = o['domain'].minMax;
+		let plot:/1 = o['plotType'].caseOf(
+			[
+				'Line' -> { linePlot:/1 },
+				'Step' -> { stepPlot:/1 }
+			]
+		);
+		let c = b - a;
+		y.isVector.if {
+			y.plot
+		} {
+			let n = y.size;
+			let z = 1.15;
+			y.withIndexCollect { :each :i |
+				each + ((n - i) * c * z)
+			}.plot
+		}
 	}
 
 }

@@ -436,7 +436,8 @@ _OEIS_
 [2](https://oeis.org/A036037)
 [3](https://oeis.org/A080576)
 [4](https://oeis.org/A080577)
-[5](https://oeis.org/A193073),
+[5](https://oeis.org/A193073)
+[6](https://oeis.org/wiki/Orderings_of_partitions),
 _W_
 [1](https://en.wikipedia.org/wiki/Integer_partition)
 
