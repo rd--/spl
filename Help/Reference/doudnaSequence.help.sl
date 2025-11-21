@@ -1,17 +1,3 @@
-+@Integer{
-	doudnaSequenceFunction { :n |
-		let a = n.integerDigits(2);
-		let b = a.reverse;
-		let c = b.indicesOf(1);
-		let d = 1.to(n.digitCount(2, 1));
-		let e = c - d + 1;
-		e.prime.product
-	}
-	doudnaSequence { :n |
-		0.toCollect(n - 1, doudnaSequenceFunction:/1)
-	}
-}
-
 # doudnaSequence
 
 - _doudnaSequence(n)_

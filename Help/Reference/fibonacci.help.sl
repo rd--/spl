@@ -194,7 +194,8 @@ OEIS [A058071](https://oeis.org/A058071):
 ]
 ```
 
-https://oeis.org/A001060
+First few terms of
+OEIS [A001060](https://oeis.org/A001060):
 
 ```
 >>> 0:11.collect { :n |

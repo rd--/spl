@@ -139,7 +139,7 @@ reversing each row gives [A238689](https://oeis.org/A238689):
 	3 3;
 	2 5;
 	11;
-	2 2 3;
+	2 2 3
 ]
 ```
 
