@@ -1069,6 +1069,20 @@
 		self * 2
 	}
 
+	unitaryDivisorSigma { :k :n |
+		(n = 1).if {
+			1
+		} {
+			let a = n.factorInteger;
+			let b = a.collect { :x |
+				x[1] ^ x[2]
+			};
+			let c = b ^ k;
+			let d = 1 + c;
+			d.product
+		}
+	}
+
 	unitBox { :self |
 		(self.abs <= 0.5).boole
 	}

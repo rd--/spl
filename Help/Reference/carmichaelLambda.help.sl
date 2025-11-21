@@ -110,6 +110,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A002322)
 [2](https://oeis.org/A002997),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.reduced_totient),
 _W_
 [1](https://en.wikipedia.org/wiki/Carmichael_function)
 [2](https://en.wikipedia.org/wiki/Carmichael_number)

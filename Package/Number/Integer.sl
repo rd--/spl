@@ -298,6 +298,14 @@
 		}
 	}
 
+	evenPart { :n |
+		(n = 0).if {
+			1
+		} {
+			2 ^ n.integerExponent(2)
+		}
+	}
+
 	extendedEuclideanAlgorithm { :a :b |
 		let [r0, r] = [a, b];
 		let [s0, s] = [1, 0];
@@ -671,8 +679,12 @@
 		self.isNarcissisticNumber(10)
 	}
 
+	isPalindrome { :self :base |
+		self.integerDigits(base).isPalindrome
+	}
+
 	isPalindrome { :self |
-		self.integerDigits.isPalindrome
+		self.isPalindrome(10)
 	}
 
 	isPerfectDigitalInvariant { :self :base :power |
@@ -1052,6 +1064,14 @@
 		self
 	}
 
+	oddPart { :n |
+		(n = 0).if {
+			0
+		} {
+			n / (2 ^ n.integerExponent(2))
+		}
+	}
+
 	perfectDigitalInvariantFunction { :self :base :power |
 		let sum = 0;
 		{ self > 0 }.whileTrue {
@@ -1381,6 +1401,12 @@
 
 	truncate { :self |
 		self
+	}
+
+	unitaryDivisors { :n |
+		n.divisors.select { :d |
+			d.gcd(n / d) = 1
+		}
 	}
 
 	wrapIndex { :self :size |

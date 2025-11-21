@@ -5,6 +5,8 @@
 Answer the _n_-th tribonacci number,
 calculated using a closed form.
 
+First few terms:
+
 ```
 >>> [0 .. 21].tribonacciNumber
 [
@@ -67,5 +69,7 @@ _OEIS_
 [3](https://oeis.org/A001590)
 [4](https://oeis.org/A001644)
 [5](https://oeis.org/A100683),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.tribonacci),
 _W_
 [1](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers)

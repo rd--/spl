@@ -1,11 +1,12 @@
 # lucasNumber
 
-- _lucasNumber(anInteger)_
+- _lucasNumber(n)_
 
-Answer the _anInteger_-th Lucas number.
-The Lucas numbers _L(n)_ satisfy the recurrence relation _L(n) = L(n-1) + L(n-2)_ with _L(1) = 1_ and _L(2) = 3_.
+Answer the _n_-th Lucas number.
+The Lucas numbers _L(n)_ satisfy the recurrence relation _L(n)=L(n-1)+L(n-2)_ with _L(1)=1_ and _L(2)=3_.
 
-Compute the first twenty Lucas numbers:
+Compute the first twenty Lucas numbers,
+OEIS [A000032](https://oeis.org/A000032):
 
 ```
 >>> 1:20.collect(lucasNumber:/1)
@@ -68,6 +69,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/LucasL.html),
 _OEIS_
 [1](https://oeis.org/A000032),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.lucas),
 _W_
 [1](https://en.wikipedia.org/wiki/Lucas_number)
 

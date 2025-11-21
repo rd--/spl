@@ -168,7 +168,8 @@ _OEIS_
 [1](https://oeis.org/A076668)
 [2](https://oeis.org/A000165),
 _Python_
-[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.factorial2.html),
+[1](https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.factorial2.html)
+[2](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.factorial2),
 _W_
 [1](https://en.wikipedia.org/wiki/Double_factorial)
 

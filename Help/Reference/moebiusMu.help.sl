@@ -13,6 +13,9 @@ Compute the Möbius function at ten and eleven:
 
 >>> 11.moebiusMu
 -1
+
+>>> (13 * 7 * 5).moebiusMu
+-1
 ```
 
 Depends only of the prime signature of _n_:
@@ -149,6 +152,8 @@ _OEIS_
 [1](https://oeis.org/A008683)
 [2](https://oeis.org/A002321)
 [3](https://oeis.org/A006575),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.mobius),
 _W_
 [1](https://en.wikipedia.org/wiki/M%C3%B6bius_function)
 [2](https://en.wikipedia.org/wiki/Mertens_function)

@@ -9,6 +9,7 @@ Comparison Operators:
 
 Sort:
 
+- `countingSort`
 - `heapSort`
 - `mergeInPlace`
 - `mergeSortBy`

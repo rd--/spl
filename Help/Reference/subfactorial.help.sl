@@ -56,4 +56,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Subfactorial.html)
 [2](https://reference.wolfram.com/language/ref/Subfactorial.html)
 _OEIS_
-[1](https://oeis.org/A000166)
+[1](https://oeis.org/A000166),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.subfactorial),
+_W_
+[1](https://en.wikipedia.org/wiki/Subfactorial)

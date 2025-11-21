@@ -144,6 +144,36 @@ Plot first few terms:
 
 ![](sw/spl/Help/Image/primeSignature-A.svg)
 
+Smallest number with same prime signature as _n_,
+OEIS [A046523](https://oeis.org/A046523):
+
+```
+>>> 2:31.collect { :n |
+>>> 	let s = n.primeSignature;
+>>> 	2:n.detect { :x |
+>>> 		x.primeSignature = s
+>>> 	}
+>>> }
+[
+	 2  2  4  2  6  2  8  4  6  2
+	12  2  6  6 16  2 12  2 12  6
+	 6  2 24  4  6  8 12  2 30  2
+]
+```
+
+Plot first few terms:
+
+~~~spl svg=B
+2:100.collect { :n |
+	let s = n.primeSignature;
+	2:n.detect { :x |
+		x.primeSignature = s
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeSignature-B.svg)
+
 * * *
 
 See also: factorInteger
@@ -156,6 +186,7 @@ _Mathematica_
 OEIS
 [1](https://oeis.org/A036035)
 [2](https://oeis.org/A025487)
-[3](https://oeis.org/A118914),
+[3](https://oeis.org/A118914)
+[4](https://oeis.org/A046523),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_signature)

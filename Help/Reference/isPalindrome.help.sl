@@ -54,6 +54,15 @@ true
 false
 ```
 
+A number that is a palindrome in base eight and ten:
+
+```
+>>> [8 10].collect { :b |
+>>> 	121.isPalindrome(b)
+>>> }
+[true true]
+```
+
 First few palindromic numbers in base ten,
 OEIS [A002113](https://oeis.org/A002113):
 
@@ -160,5 +169,7 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A002113)
 [2](https://oeis.org/A006072),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_
 [1](https://en.wikipedia.org/wiki/Palindrome)

@@ -57,6 +57,8 @@ _OEIS_
 [1](https://oeis.org/A000108)
 [2](https://oeis.org/A014137)
 [3](https://oeis.org/A014138),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.catalan),
 _W_
 [1](https://en.wikipedia.org/wiki/Catalan_number)
 

@@ -13,6 +13,9 @@ Answer the factorial power _x^(n)_.
 
 >>> 1:5.collect(factorialPower:/2.bind(4))
 [4 12 24 24 0]
+
+>>> 5.factorialPower(5)
+120
 ```
 
 Triangle of falling factorials,
@@ -54,6 +57,8 @@ Guides: Combinatorial Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FallingFactorial.html)
-[2](https://reference.wolfram.com/language/ref/FactorialPower.html)
-_OEIS
-[1](https://oeis.org/A068424)
+[2](https://reference.wolfram.com/language/ref/FactorialPower.html),
+_OEIS_
+[1](https://oeis.org/A068424),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.FallingFactorial)

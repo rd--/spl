@@ -94,6 +94,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A001221)
 [2](https://oeis.org/A034444),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primenu),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_omega_function)
 

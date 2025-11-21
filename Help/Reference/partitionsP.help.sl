@@ -84,4 +84,6 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/PartitionFunctionP.html)
 [2](https://reference.wolfram.com/language/ref/PartitionsP.html),
 _OEIS_
-[1](https://oeis.org/A000041)
+[1](https://oeis.org/A000041),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.partition)

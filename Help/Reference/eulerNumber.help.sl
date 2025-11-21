@@ -75,5 +75,7 @@ _OEIS_
 [2](https://oeis.org/A000111)
 [3](https://oeis.org/A000364)
 [4](https://oeis.org/A028296),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.euler),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler_numbers)

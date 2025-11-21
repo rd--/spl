@@ -115,5 +115,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/StirlingS1.html),
 _OEIS_
 [1](http://oeis.org/A008275),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.stirling),
 _W_
 [1](https://en.wikipedia.org/wiki/Stirling_numbers_of_the_first_kind)

@@ -18,6 +18,9 @@ Compute Jacobi symbols:
 >>> jacobiSymbol(10, 5)
 0
 
+>>> 45.jacobiSymbol(77)
+-1
+
 >>> (1 .. 10).collect { :n |
 >>> 	(1, 3 .. n).collect { :m |
 >>> 		jacobiSymbol(n, m)
@@ -133,5 +136,7 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/JacobiSymbol.html),
 _OEIS_
 [1](https://oeis.org/A047713),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.jacobi_symbol),
 _W_
 [1](https://en.wikipedia.org/wiki/Jacobi_symbol)

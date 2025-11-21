@@ -280,6 +280,8 @@ _OEIS_
 [3](https://oeis.org/A005384)
 [4](https://oeis.org/A000353)
 [5](https://oeis.org/A006285),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.primetest.isprime),
 _W_
 [1](https://en.wikipedia.org/wiki/Primality_test)
 [2](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)

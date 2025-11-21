@@ -84,5 +84,7 @@ _OEIS_
 [2](https://oeis.org/A002445)
 [3](https://oeis.org/A001067)
 [4](https://oeis.org/A006953),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.bernoulli),
 _W_
 [1](https://en.wikipedia.org/wiki/Bernoulli_number)

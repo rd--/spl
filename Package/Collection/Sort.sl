@@ -20,6 +20,37 @@
 		self.nub.sort
 	}
 
+	countingSort { :input :key:/1 :k |
+		let n = input.size;
+		let count = List(k, 0);
+		let output = List(n);
+		1.toDo(n) { :i |
+			let j = key(input[i]);
+			count[j] := count[j] + 1
+		};
+		2.toDo(k) { :i |
+			count[i] := count[i] + count[i - 1]
+		};
+		n.downToDo(1) { :i |
+			let j = key(input[i]);
+			count[j] := count[j] - 1;
+			output[count[j] + 1] := input[i]
+		};
+		output
+	}
+
+	countingSort { :input :key:/1 |
+		let k = 1;
+		input.do { :each |
+			k := max(k, key(each))
+		};
+		countingSort(input, key:/1, k)
+	}
+
+	countingSort { :input |
+		countingSort(input, identity:/1, input.max)
+	}
+
 	heapSortBy { :self :sortBlock:/2 |
 		let h = Heap(sortBlock:/2);
 		let l = [];

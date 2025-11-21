@@ -93,5 +93,7 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/BellB.html),
 _OEIS_
 [1](https://oeis.org/A106800),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.bell),
 _W_
 [1](https://en.wikipedia.org/wiki/Bell_polynomials)

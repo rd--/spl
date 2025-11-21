@@ -392,6 +392,8 @@ _OEIS_
 [7](https://oeis.org/A109449)
 [8](https://oeis.org/A000332)
 [9](https://oeis.org/A060693),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.binomial),
 _W_
 [1](https://en.wikipedia.org/wiki/Binomial_coefficient)
 [2](https://en.wikipedia.org/wiki/Cake_number)

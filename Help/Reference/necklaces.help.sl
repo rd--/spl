@@ -5,6 +5,23 @@
 Answer all necklaces of length _n_ from the alphabet _0,1…k_.
 Algorithm due to Fredricksen, Kessler and Maiorana.
 
+List of _4,2_ necklaces:
+
+```
+>>> necklaces(4, 2)
+[
+	0 0 0 0;
+	0 0 0 1;
+	0 0 1 1;
+	0 1 0 1;
+	0 1 1 1;
+	1 1 1 1
+]
+
+>>> necklaceCount(4, 2)
+6
+```
+
 List of _5,2_ necklaces:
 
 ```
@@ -58,6 +75,8 @@ Guides: Combinatorial Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Necklace.html),
+_Python_
+[1](https://docs.sympy.org/latest/modules/utilities/iterables.html#sympy.utilities.iterables.necklaces),
 _W_
 [1](https://en.wikipedia.org/wiki/Necklace_(combinatorics))
 

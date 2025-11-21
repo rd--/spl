@@ -11,12 +11,13 @@ There are five ways three numbers can be partitioned:
 5
 ```
 
-Threads element-wise over lists (OEIS A000110):
+Threads element-wise over lists,
+OEIS [A000110](https://oeis.org/A000110):
 
 ```
->>> 1:11.bellNumber
+>>> 0:11.bellNumber
 [
-	1 2 5 15 52 203 877
+	1 1 2 5 15 52 203 877
 	4140 21147 115975
 	678570
 ]

@@ -86,5 +86,7 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PrimeOmega.html),
 _OEIS_
 [1](https://oeis.org/A001222),
+_Python_
+[1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_omega_function)

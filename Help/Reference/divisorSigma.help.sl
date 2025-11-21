@@ -218,6 +218,8 @@ _OEIS_
 [1](https://oeis.org/A000005)
 [2](https://oeis.org/A000203)
 [3](https://oeis.org/A078923)
-[4](https://oeis.org/A005114):
+[4](https://oeis.org/A005114),
+_Python_
+[1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.divisor_sigma),
 _W_
 [1](https://en.wikipedia.org/wiki/Divisor_function)

@@ -119,7 +119,8 @@ Guides: Bitwise Functions, Integer Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/IntegerExponent.html),
+[1](https://mathworld.wolfram.com/GreatestDividingExponent.html)
+[2](https://reference.wolfram.com/language/ref/IntegerExponent.html),
 _OEIS_
 [1](https://oeis.org/A001511)
 [2](https://oeis.org/A007814)
