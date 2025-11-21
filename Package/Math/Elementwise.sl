@@ -565,6 +565,10 @@
 		}
 	}
 
+	zeckendorfRepresentation { :self |
+		self.collect(zeckendorfRepresentation:/1)
+	}
+
 	zeta { :self |
 		self.collect(zeta:/1)
 	}

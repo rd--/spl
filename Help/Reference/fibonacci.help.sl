@@ -177,7 +177,9 @@ OEIS [A058071](https://oeis.org/A058071):
 
 ```
 >>> 1:11.triangularArray { :n :k |
->>> 	fibonacci(k) * fibonacci(n - k + 1)
+>>> 	fibonacci(k)
+>>> 	*
+>>> 	fibonacci(n - k + 1)
 >>> }
 [
 	 1;
@@ -199,9 +201,26 @@ OEIS [A001060](https://oeis.org/A001060):
 
 ```
 >>> 0:11.collect { :n |
->>> 	(n + 4).fibonacci - (n - 1).fibonacci
+>>> 	(n + 4).fibonacci
+>>> 	-
+>>> 	(n - 1).fibonacci
 >>> }
 [2 5 7 12 19 31 50 81 131 212 343 555]
+```
+
+The closed form is implemented using approximate floating point constants and functions,
+and is accurate only to the 75th term:
+
+```
+>>> let n = 75;
+>>> 1:n.fibonacci = n.fibonacciSequence
+true
+
+>>> 76.fibonacci
+3416454622906708
+
+>>> 76.fibonacciSequence.last
+3416454622906707L
 ```
 
 Plot over a subset of the reals:
@@ -212,28 +231,35 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/fibonacci-A.svg)
 
-Plot modulo seven, period is sixteen:
+Plot modulo seven,
+period is sixteen,
+OEIS [A105870](https://oeis.org/A105870):
 
 ~~~spl svg=B
-(0:35.fibonacci % 7).discretePlot
+(0:35.fibonacci % 7)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/fibonacci-B.svg)
 
-Fibonacci numbers modulo 10:
+Fibonacci numbers modulo ten
+period is sixty,
+OEIS [A003893](https://oeis.org/A003893):
 
 ~~~spl svg=C
-(1:100.fibonacci % 10).discretePlot
+(1:75.fibonacci % 10)
+.discretePlot
 ~~~
 
 ![](sw/spl/Help/Image/fibonacci-C.svg)
 
-Plot Fibonacci modulo _n_:
+Plot Fibonacci modulo _n_,
+OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=D
-1:200.functionPlot { :n |
+1:75.collect { :n |
 	n.fibonacci % n
-}
+}.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/fibonacci-D.svg)
@@ -251,7 +277,9 @@ Log plot of positive and negative Fibonacci numbers:
 Plot over a larger subset of the reals:
 
 ~~~spl svg=F
-(-7.5 -- 7.5).functionPlot(fibonacci:/1)
+(-7.5 -- 7.5).functionPlot(
+	fibonacci:/1
+)
 ~~~
 
 ![](sw/spl/Help/Image/fibonacci-F.svg)
@@ -291,7 +319,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Fibonacci.html),
 _OEIS_
 [1](https://oeis.org/A000045)
-[2](https://oeis.org/A001605),
+[2](https://oeis.org/A001605)
+[3](https://oeis.org/A105870),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.fibonacci),
 _W_

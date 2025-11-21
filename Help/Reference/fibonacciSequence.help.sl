@@ -4,6 +4,9 @@
 
 Answer a `List` of the first _n_ Fibonacci numbers:
 
+First few terms,
+OEIS [A000045](https://oeis.org/A000045):
+
 ```
 >>> 20.fibonacciSequence
 [
@@ -51,7 +54,8 @@ The Fibonacci Q-matrix:
 [17711 28657 46368]
 ```
 
-The first few Fibonacci primes:
+The first few Fibonacci primes,
+OEIS [A005478](https://oeis.org/A005478):
 
 ```
 >>> 30.fibonacciSequence
@@ -59,7 +63,8 @@ The first few Fibonacci primes:
 [2 3 5 13 89 233 1597 28657 514229]
 ```
 
-Indices of first few prime Fibonacci numbers:
+Indices of first few prime Fibonacci numbers,
+OEIS [A001605](https://oeis.org/A001605):
 
 ```
 >>> let k = 50;
@@ -96,6 +101,18 @@ OEIS [007660](https://oeis.org/A007660):
 	528706 1803416167 953476947989903
 ]
 ```
+
+
+Plot Fibonacci modulo _n_,
+OEIS [A002708](https://oeis.org/A002708):
+
+~~~spl svg=A
+let n = 200;
+(n.fibonacciSequence % (1 .. 200))
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacciSequence-A.svg)
 
 * * *
 

@@ -95,7 +95,7 @@
 				factorInteger: [006881 124859],
 				fareySequence: [005728 006842 006843],
 				feigenbaumConstant: [006890],
-				fibonacci: [000045],
+				fibonacci: [000045 000129 006190 001076 052918 058071 001060 105870 003893],
 				fibonacciFactorial: [003266],
 				fibonacciFactorialConstant: [062073],
 				fibonacciSequence: [000045 007660],
@@ -369,6 +369,7 @@
 				wythoffUpper: [001950],
 				zeckendorfRepresentation: [014417],
 				yellowstonePermutation: [098550],
+				zeckendorfRepresentation: [014417 007895],
 				zero: [000004]
 			)
 		}
