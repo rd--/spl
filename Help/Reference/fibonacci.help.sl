@@ -194,6 +194,15 @@ OEIS [A058071](https://oeis.org/A058071):
 ]
 ```
 
+https://oeis.org/A001060
+
+```
+>>> 0:11.collect { :n |
+>>> 	(n + 4).fibonacci - (n - 1).fibonacci
+>>> }
+[2 5 7 12 19 31 50 81 131 212 343 555]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

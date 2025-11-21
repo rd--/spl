@@ -163,6 +163,25 @@ Plot the first few terms of the `dyadicMap`:
 
 ![](sw/spl/Help/Image/nestList-A.svg)
 
+Plot the _flipping pebbles_ automata by Sutner:
+
+~~~spl svg=B
+let p = [0 0 0 0 0 0 1 1 1 1 1 1];
+let n = p.size;
+{ :x |
+	let i = 1;
+	let y = x.copy;
+	{ i <= n }.whileTrue {
+		y[i] := 1 - y[i];
+		[i, x[i], y[i]].postLine;
+		i := i + (y[i] + 2)
+	};
+	y
+}.nestList(p, 32).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/nestList-B.svg)
+
 * * *
 
 See also: foldLeft, iterate, reduce, scan

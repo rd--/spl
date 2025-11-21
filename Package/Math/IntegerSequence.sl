@@ -122,6 +122,10 @@
 		}
 	}
 
+	ehrenfeuchtMycielskiSequence { :n |
+		[]
+	}
+
 	ekgSequence { :n |
 		let l = [1 2];
 		let i = 2;

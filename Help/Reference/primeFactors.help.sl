@@ -28,6 +28,13 @@ In the `Integer` case all factors will be integers:
 [2 3 23]
 ```
 
+At `one`:
+
+```
+>>> 1.primeFactors
+[]
+```
+
 The number 30 is the smallest 3-dimensional number,
 it contains each of the three smallest prime numbers (2, 3, and 5) once:
 
@@ -115,6 +122,27 @@ At a power of two:
 52 # [2]
 ```
 
+Table of first few terms,
+OEIS [A027746](https://oeis.org/A027746),
+reversing each row gives [A238689](https://oeis.org/A238689):
+
+```
+>>> 2:12.primeFactors
+[
+	2;
+	3;
+	2 2;
+	5;
+	2 3;
+	7;
+	2 2 2;
+	3 3;
+	2 5;
+	11;
+	2 2 3;
+]
+```
+
 `min` of `primeFactors` is called the _least prime factor_.
 Plot the first few entries of [A020639](https://oeis.org/A020639),
 excluding the first:
@@ -154,7 +182,9 @@ _Mathematica_
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factor.html),
 _OEIS_
-[1](https://oeis.org/A020639),
+[1](https://oeis.org/A020639)
+[2](https://oeis.org/A027746)
+[3](https://oeis.org/A238689),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-factors)
 

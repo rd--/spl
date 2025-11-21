@@ -135,6 +135,10 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		self.integerPartitions.select(isDuplicateFree:/1)
 	}
 
+	integerPartitionUnrankHeinz { :n |
+		n.primeFactors.primePi
+	}
+
 	integerPartitionUnrankKarttunenAscending { :n |
 		let p = [];
 		let b = n % 2;
@@ -154,6 +158,9 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 	integerPartitionUnrank { :n :method |
 		method.caseOf(
 			[
+				'Heinz' -> {
+					n.integerPartitionUnrankHeinz
+				},
 				'KarttunenAscending' -> {
 					n.integerPartitionUnrankKarttunenAscending
 				},
@@ -277,6 +284,10 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		}.LineDrawing
 	}
 
+	heinzNumber { :p |
+		p.prime.product
+	}
+
 	integerPartitionRankKarttunenAscending { :p |
 		let n = 0;
 		let parity = p.size % 2;
@@ -297,6 +308,9 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 	integerPartitionRank { :p :method |
 		method.caseOf(
 			[
+				'Heinz' -> {
+					p.heinzNumber
+				},
 				'KarttunenAscending' -> {
 					p.integerPartitionRankKarttunenAscending
 				},

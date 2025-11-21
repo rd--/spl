@@ -95,6 +95,28 @@ let k = 65;
 
 ![](sw/spl/Help/Image/prime-C.svg)
 
+Plot a permutation of the natural numbers,
+OEIS [A243353](https://oeis.org/A243353):
+
+~~~spl svg=D
+let f = { :n :i :x |
+	(n = 0).if {
+		x
+	} {
+		n.isEven.if {
+			f(n / 2, i + 1, x)
+		} {
+			f((n - 1) / 2, i, x * i.prime)
+		}
+	}
+};
+0:250.collect { :n |
+	f(n.bitXor((n / 2).floor), 1, 1)
+}.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-D.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo
@@ -110,7 +132,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Prime.html),
 _OEIS_
 [1](https://oeis.org/A000040)
-[2](https://oeis.org/A046929),
+[2](https://oeis.org/A046929)
+[3](https://oeis.org/A243353),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_

@@ -65,6 +65,19 @@ In the binary case, take the `ceiling` instead if _x_ is within ε:
 (2400, 2401)
 ```
 
+A Kutz sequence,
+OEIS [A007891](https://oeis.org/A007891):
+
+```
+>>> 1:20.collect { :n |
+>>> 	(n - (2 * (n / 3).floor)) ^ 2
+>>> }
+[
+	 1  4  1  4  9  4  9 16  9 16
+	25 16 25 36 25 36 49 36 49 64
+]
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A

@@ -4,7 +4,46 @@
 
 Answer the _n_-th integer partition according to the ranking method _m_.
 
-The first few terms,
+With _m=Heinz_,
+OEIS [A112798](https://oeis.org/A112798):
+
+```
+>>> let m = 'Heinz';
+>>> 2:28.collect { :n |
+>>> 	n.integerPartitionUnrank(m)
+>>> }
+[
+	1;
+	2;
+	1 1;
+	3;
+	1 2;
+	4;
+	1 1 1;
+	2 2;
+	1 3;
+	5;
+	1 1 2;
+	6;
+	1 4;
+	2 3;
+	1 1 1 1;
+	7;
+	1 2 2;
+	8;
+	1 1 3;
+	2 4;
+	1 5;
+	9;
+	1 1 1 2;
+	3 3;
+	1 6;
+	2 2 2;
+	1 1 4
+]
+```
+
+With _m=KarttunenAscending_,
 OEIS [A227739](https://oeis.org/A227739):
 
 ```
@@ -83,8 +122,7 @@ See also: integerPartitionRank, integerPartitions
 Guides: Integer Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _OEIS
 [1](https://oeis.org/A227739)
 [2](https://oeis.org/A129594)
+[3](https://oeis.org/A112798)
