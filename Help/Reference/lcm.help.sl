@@ -112,7 +112,7 @@ Visualize the least common multiples of two integers:
 Fibonacci numbers:
 
 ~~~spl png=C
-let f = 100.fibonacciSequence;
+let f = 1:100.fibonacciNumber;
 let m = f[30];
 { :i :j |
 	let a = f[i];

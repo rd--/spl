@@ -31,10 +31,11 @@
 		}
 	}
 
-	fibonacciInteger { :n |
+	fibonacciNumber { :n |
+		let m = n + 1;
 		system
-		.cachedFibonacciSequenceExtendedTo(n)
-		.at(n)
+		.cachedFibonacciSequenceExtendedTo(m)
+		.at(m)
 	}
 
 	fibonacciPolynomial { :n |

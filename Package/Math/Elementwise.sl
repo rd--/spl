@@ -202,6 +202,10 @@
 		self.collect(fibonacci:/1)
 	}
 
+	fibonacciNumber { :self |
+		self.collect(fibonacciNumber:/1)
+	}
+
 	fibonacciWord { :self |
 		self.collect(fibonacciWord:/1)
 	}

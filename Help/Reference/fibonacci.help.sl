@@ -223,13 +223,13 @@ true
 3416454622906707L
 ```
 
-The variant `fibonacciInteger` consults a cached table and is accurate:
+The variant `fibonacciNumber` consults a cached table and is accurate:
 
 ```
->>> 77.fibonacciInteger
+>>> 76.fibonacciNumber
 3416454622906707L
 
->>> 176.fibonacciInteger
+>>> 175.fibonacciNumber
 1672445759041379840132227567949787325L
 ```
 

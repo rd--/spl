@@ -201,7 +201,7 @@ Matrix plot of table:
 Fibonacci numbers:
 
 ~~~spl png=C
-let n = 100.fibonacciSequence;
+let n = 1:100.fibonacciNumber;
 let m = { :j :k |
 	n[j].gcd(n[k])
 }.table(1:100, 1:100);
