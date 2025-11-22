@@ -29,8 +29,8 @@ The Fibonacci sequence modulo eight has period twelve:
 
 >>> (12 * 2).fibonacciSequence % 8
 [
-	1 1 2 3 5 0 5 5 2 7 1 0
-	1 1 2 3 5 0 5 5 2 7 1 0
+	0 1 1 2 3 5 0 5 5 2 7 1
+	0 1 1 2 3 5 0 5 5 2 7 1
 ]
 ```
 

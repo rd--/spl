@@ -473,7 +473,7 @@ a.scatterPlot
 Scatter plot of every fourth item of the first few terms of OEIS [A063543](https://oeis.org/A063543):
 
 ~~~spl svg=E
-1:4:1000.collect { :n |
+1:1000:4.collect { :n |
 	let d = n.integerDigits;
 	n - d.reject(isZero:/1).product
 }.scatterPlot

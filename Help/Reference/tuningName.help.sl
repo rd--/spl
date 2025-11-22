@@ -36,7 +36,7 @@ Answer a `String` naming the tuning specified by the list of ratios _r_ accordin
 >>> .tuningName
 'kornerup_11'
 
->>> 26.fibonacciSequence
+>>> 1:26.fibonacci
 >>> .octaveReduce
 >>> .nub.sort.tuningName
 'burt_fibo23'

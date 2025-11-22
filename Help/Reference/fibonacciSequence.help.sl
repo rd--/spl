@@ -8,12 +8,13 @@ First few terms,
 OEIS [A000045](https://oeis.org/A000045):
 
 ```
->>> 20.fibonacciSequence
+>>> 21.fibonacciSequence
 [
-	   1    1    2    3    5
-	   8   13   21   34   55
-	  89  144  233  377  610
-	 987 1597 2584 4181 6765
+	   0    1    1    2    3
+	   5    8   13   21   34
+	  55   89  144  233  377
+	 610  987 1597 2584 4181
+	6765
 ]
 ```
 
@@ -47,9 +48,8 @@ The Fibonacci Q-matrix:
 	28657 17711
 ]
 
->>> (23 + 1)
->>> .fibonacciSequence
->>> .drop(23 + 1 - 3)
+>>> 25.fibonacciSequence
+>>> .last(3)
 [17711 28657 46368]
 ```
 
@@ -70,14 +70,14 @@ OEIS [A001605](https://oeis.org/A001605):
 >>> let f = k.fibonacciSequence;
 >>> 1:k.select { :i |
 >>> 	f[i].isPrime
->>> }
+>>> } - 1
 [3 4 5 7 11 13 17 23 29 43 47]
 ```
 
 The one-hundredth Fibonacci number:
 
 ```
->>> 100.fibonacciSequence.last
+>>> 101.fibonacciSequence.last
 354224848179261915075L
 ```
 
@@ -108,8 +108,8 @@ OEIS [A082115](https://oeis.org/A082115):
 ```
 >>> 16.fibonacciSequence % 3
 [
-	1 1 2 0 2 2 1 0
-	1 1 2 0 2 2 1 0
+	0 1 1 2 0 2 2 1
+	0 1 1 2 0 2 2 1
 ]
 ```
 
@@ -117,8 +117,8 @@ Plot Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
 
 ~~~spl svg=A
-let n = 200;
-(n.fibonacciSequence % (1 .. 200))
+let n = 201;
+(n.fibonacciSequence % (0 .. 200))
 .scatterPlot
 ~~~
 

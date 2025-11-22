@@ -213,23 +213,23 @@ and is accurate only to the 75th term:
 
 ```
 >>> let n = 75;
->>> 1:n.fibonacci = n.fibonacciSequence
+>>> (0 .. n - 1).fibonacci = n.fibonacciSequence
 true
 
 >>> 76.fibonacci
 3416454622906708
 
->>> 76.fibonacciSequence.last
+>>> 77.fibonacciSequence.last
 3416454622906707L
 ```
 
 The variant `fibonacciInteger` consults a cached table and is accurate:
 
 ```
->>> 76.fibonacciInteger
+>>> 77.fibonacciInteger
 3416454622906707L
 
->>> 175.fibonacciInteger
+>>> 176.fibonacciInteger
 1672445759041379840132227567949787325L
 ```
 

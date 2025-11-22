@@ -34,7 +34,7 @@ Note loss of precision for large values:
 >>> 100.fibonacci
 354224848179262260000L
 
->>> 100.fibonacciSequence.last
+>>> 101.fibonacciSequence.last
 354224848179261915075L
 ```
 

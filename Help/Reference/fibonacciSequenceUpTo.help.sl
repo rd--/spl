@@ -8,10 +8,10 @@ There are seven Fibonacci numbers less than or equal to twenty:
 
 ```
 >>> 20.fibonacciSequenceUpTo
-[1 1 2 3 5 8 13]
+[0 1 1 2 3 5 8 13]
 
->>> 7.fibonacciSequence
-[1 1 2 3 5 8 13]
+>>> 8.fibonacciSequence
+[0 1 1 2 3 5 8 13]
 ```
 
 The sum of the even Fibonacci numbers less than four million:

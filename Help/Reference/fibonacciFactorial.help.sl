@@ -7,14 +7,14 @@ Answer the product of the first _n_ Fibonacci numbers.
 A Fibonacci factorial:
 
 ```
->>> 17.fibonacciFactorial
+>>> 18.fibonacciFactorial
 132622487406311849122176000L
 ```
 
 The first few terms:
 
 ```
->>> 0:13.collect(fibonacciFactorial:/1)
+>>> 1:14.collect(fibonacciFactorial:/1)
 [
 	1 1 1
 	2 6 30

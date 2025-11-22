@@ -254,7 +254,7 @@
 	}
 
 	fibonacciFactorial { :self |
-		self.fibonacciSequence.product
+		self.fibonacciSequence.allButFirst.product
 	}
 
 	hyperfactorial { :self |

@@ -354,8 +354,8 @@ Scatter plot of the partial sums of Sierpinski’s sieve,
 OEIS [A166556](https://oeis.org/A166556):
 
 ~~~spl svg=C
-[0 .. 21].triangularArray { :n :k |
-	[k .. n].sum { :j |
+(0 .. 21).triangularArray { :n :k |
+	(k .. n).sum { :j |
 		binomial(j, k) % 2
 	}
 }.++.scatterPlot

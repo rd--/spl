@@ -49,11 +49,11 @@
 	}
 
 	fibonacciSequence { :n |
-		n.lucasSequence('U', 1, -1)
+		n.lucasSequence('U', 1L, -1L)
 	}
 
 	fibonacciSequenceUpTo { :self |
-		let answer = [1];
+		let answer = [0];
 		let n = 1;
 		let k = 1;
 		{
@@ -67,8 +67,8 @@
 	}
 
 	lucasSequence { :n :p :q :a :b |
-		let answer = [];
-		let i = 0;
+		let answer = [a];
+		let i = 1;
 		{ i < n }.whileTrue {
 			let c = b;
 			answer.add(b);

@@ -101,7 +101,7 @@ Noise modulated `sin` function:
 
 ~~~spl svg=H
 let r = Sfc32(367281);
-let i = 1:2:18;
+let i = 1:18:2;
 { :x :y |
 	let z = ((x + y) / 1.pi).sin;
 	z * r.nextRandomFloat
