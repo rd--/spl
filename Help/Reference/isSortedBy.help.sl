@@ -23,10 +23,10 @@ true
 At `Range`:
 
 ```
->>> 9:-1:1.isSortedBy(>)
+>>> 9:1:-1.isSortedBy(>)
 true
 
->>> 9:-1:1.isSortedBy { :i :j | i > j }
+>>> 9:1:-1.isSortedBy { :i :j | i > j }
 true
 ```
 

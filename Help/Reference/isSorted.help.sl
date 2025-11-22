@@ -29,17 +29,17 @@ false
 >>> 1:9.isSorted
 true
 
->>> 9:-1:1.isSorted
+>>> 9:1:-1.isSorted
 false
 ```
 
-At `Span`:
+At `RelativeRange`:
 
 ```
->>> Span(1, 9, 1).isSorted
+>>> 1:-1.isSorted
 true
 
->>> Span(9, 1, -1).isSorted
+>>> -1:1:-1.isSorted
 false
 ```
 

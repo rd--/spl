@@ -32,10 +32,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		self
 	}
 
-	asSpan { :self |
-		Span(self.start, self.stop, self.step)
-	}
-
 	concisePrintString { :self |
 		self.rangeSyntaxString
 	}

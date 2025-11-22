@@ -12,7 +12,7 @@ Find index of first occurrence of element in sequence:
 >>> ['1' '2' '3' '4' '5'].indexOf('3')
 3
 
->>> 9:-1:1.indexOf(3)
+>>> 9:1:-1.indexOf(3)
 7
 
 >>> [2 3 5 6].indexOf(5)

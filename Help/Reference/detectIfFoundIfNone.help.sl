@@ -7,7 +7,7 @@ Answer the value of _ifFound_ at the first element for which _predicate_ evaluat
 If there is no such element, evaluate and answer _ifNone_ block.
 
 ```
->>> 5:-1:1.detectIfFoundIfNone { :each |
+>>> 5:1:-1.detectIfFoundIfNone { :each |
 >>> 	each % 2 = 0
 >>> } { :each |
 >>> 	each ^ 3

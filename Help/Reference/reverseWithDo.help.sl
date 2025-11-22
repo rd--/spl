@@ -7,7 +7,7 @@ along with the corresponding element, also in reverse order, from _anotherSequen
 
 ```
 >>> let d = [];
->>> 3:-1:1.reverseWithDo(1:3) { :p :q |
+>>> 3:1:-1.reverseWithDo(1:3) { :p :q |
 >>> 	d.add(p -> q)
 >>> };
 >>> d

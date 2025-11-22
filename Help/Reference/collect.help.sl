@@ -11,7 +11,7 @@ Answer the new collection.
 At `Range`:
 
 ```
->>> 2:4:14.collect { :x |
+>>> 2:14:4.collect { :x |
 >>> 	x * x
 >>> }
 [4 36 100 196]

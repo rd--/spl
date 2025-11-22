@@ -25,4 +25,4 @@ true
 
 See also: Range
 
-Guides: Range Syntax, Span Syntax
+Guides: Range Syntax, Range Literal Syntax

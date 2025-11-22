@@ -25,8 +25,8 @@ Types implementing `Sequenceable`:
 	'ListView'
 	'NumericArray'
 	'Range'
+	'RelativeRange'
 	'SortedList'
-	'Span'
 	'SparseArray'
 ]
 ```

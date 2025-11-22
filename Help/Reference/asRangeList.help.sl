@@ -1,8 +1,8 @@
 # asRangeList
 
-- _asRangeList(aSequence)_
+- _asRangeList([x₁ x₂ …])_
 
-Answer a `List` of `Range` values that, when concatenated, is equivalent to _aSequence_.
+Answer a `List` of `Range` values that, when concatenated, is equivalent to the sequence _x_.
 
 At empty `List`:
 
@@ -75,5 +75,7 @@ Find complementary ranges:
 * * *
 
 See also: asRange, Range
+
+Guides: List Functions
 
 Categories: Converting

@@ -31,7 +31,7 @@ Obtain empirical estimates of the correlation function up to τ=9:
 Compute the correlation function for τ=1-9 in steps of 2:
 
 ```
->>> 1:10.correlationFunction(1:2:9)
+>>> 1:10.correlationFunction(1:9:2)
 [7/10 49/330 -17/66 -131/311 -27/110]
 ```
 

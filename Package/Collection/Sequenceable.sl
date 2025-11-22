@@ -190,10 +190,6 @@
 		}
 	}
 
-	asSpan { :self |
-		self.asRange.asSpan
-	}
-
 	asRangeList { :self |
 		self.isEmpty.if {
 			[]
@@ -222,10 +218,6 @@
 				answer
 			}
 		}
-	}
-
-	asSpanList { :self |
-		self.asRangeList.collect(asSpan:/1)
 	}
 
 	assertShape { :self :shape |

@@ -55,7 +55,7 @@ Where supported the notation `..` i displayed as ….
 _Note_:
 In Smalltalk _α to: β_ is an empty `Range` if α <= β,
 as is _α:β_ in Matlab and Octave and Julia.
-The Sᴘʟ re-write rules call `Range` for the `Span Syntax` form _α:β_,
+The Sᴘʟ re-write rules call `Range` for the `Range Literal Syntax` form _α:β_,
 and `nonemptyRange` for the `Range Syntax` _(α .. β)_ and related forms.
 To write descending intervals the step must be specified.
 This definition avoids subtle differences if _(α .. β)_ is used where _α:β_ or _α.to(β)_ is required.
@@ -67,7 +67,7 @@ i.e. _[p..q]_ would be a list of one range, and not equal to _[p .. q]_.
 
 See also: List, Range, thenTo, upOrDownTo
 
-Guides: List Range Syntax, Span Syntax
+Guides: List Range Syntax, Literal Range Syntax
 
 References:
 _Fortress_

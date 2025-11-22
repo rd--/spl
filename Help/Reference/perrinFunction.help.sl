@@ -1,8 +1,8 @@
 # perrinFunction
 
-- _perrinFunction(aNumber)_
+- _perrinFunction(x)_
 
-The Perrin numbers are a doubly infinite constant-recursive integer sequence with characteristic equation _x ^ 3 = x + 1_.
+The Perrin numbers are a doubly infinite constant-recursive integer sequence with characteristic equation _x^3=x+1_.
 The Perrin numbers bear the same relationship to the Padovan sequence as the Lucas numbers do to the Fibonacci sequence.
 
 The first few terms in positive direction:
@@ -18,7 +18,7 @@ The first few terms in positive direction:
 The first few terms in negative direction:
 
 ```
->>> 0:-1:-17.collect(perrinFunction:/1)
+>>> 0:-17:-1.collect(perrinFunction:/1)
 [
 	3 -1 1 2 -3 4 -2 -1 5 -7 6
 	-1 -6 12 -13 7 5 -18

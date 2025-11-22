@@ -16,7 +16,7 @@ Answer the sum of all the elements in the collection _c_.
 385
 ```
 
-At `Span` and `Range`,
+At `RelativeRange` and `Range`,
 the `sum` is calculated directly using a closed form:
 
 ```

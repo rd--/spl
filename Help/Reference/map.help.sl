@@ -42,10 +42,10 @@ The ternary form is a variant of `withCollect`:
 ```
 >>> { :p :q |
 >>> 	p * 2 + q
->>> }.map(9:-1:1, 1:9)
+>>> }.map(9:1:-1, 1:9)
 [19, 18 .. 11]
 
->>> 9:-1:1.withCollect(
+>>> 9:1:-1.withCollect(
 >>> 	1:9
 >>> ) { :p :q |
 >>> 	p * 2 + q
@@ -64,11 +64,11 @@ The quaternary form is a variant of `withWithCollect`:
 ```
 >>> { :p :q :r |
 >>> 	p * q ^ r
->>> }.map(1:7, 9:-1:3, 5:-1:-1)
+>>> }.map(1:7, 9:3:-1, 5:-1:-1)
 [59049 65536 9261 576 25 1 0.04762]
 
 >>> 1:7.withWithCollect(
->>> 	9:-1:3,
+>>> 	9:3:-1,
 >>> 	5:-1:-1
 >>> ) { :p :q :r |
 >>> 	p * q ^ r

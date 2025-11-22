@@ -30,11 +30,11 @@
 	'PatienceSort'
 	'PriorityQueue'
 	'QuickSort'
+	'RelativeRange'
 	'RunArray'
 	'SequenceAlignment'
 	'Set'
 	'Sort'
-	'Span'
 	'SparseArray'
 	'Stack' /* LinkedList */
 	'SortedList'

@@ -4,7 +4,7 @@ Types and Traits:
 
 - `ArithmeticProgression`
 - `Range`
-- `Span`
+- `RelativeRange`
 
 Progression Functions:
 

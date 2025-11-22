@@ -23,10 +23,10 @@ If _j_ is less than _i_ the `Range` is empty:
 []
 ```
 
-To write a descending `Range` see `Range Syntax`, `Span Syntax`, `thenTo` or `toBy`:
+To write a descending `Range` see `Range Syntax`, `Range Literal Syntax`, `thenTo` or `toBy`:
 
 ```
->>> 7:-1:3.asList
+>>> 7:3:-1.asList
 [7 6 5 4 3]
 
 >>> (7, 6 .. 3).asList

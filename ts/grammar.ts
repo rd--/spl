@@ -170,8 +170,8 @@ Sl {
 
 	literal = spanLiteral | numberLiteral | singleQuotedStringLiteral | doubleQuotedStringLiteral | backtickQuotedStringLiteral | symbolicCharacterLiteral
 	numberLiteral = decimalLiteral | scientificLiteral | complexLiteral | imaginaryLiteral | residueLiteral | floatLiteral | fractionLiteral | largeIntegerLiteral | radixIntegerLiteral | smallIntegerLiteral | infinityLiteral | nanLiteral
-	spanLiteral = spanFromByToLiteral | spanFromToLiteral
-	spanFromByToLiteral = integerLiteral ":" integerLiteral ":" (integerLiteral | identifier)
+	spanLiteral = spanFromToByLiteral | spanFromToLiteral
+	spanFromToByLiteral = integerLiteral ":" (integerLiteral | identifier) ":" integerLiteral
 	spanFromToLiteral = integerLiteral ":" (integerLiteral | identifier)
 	floatLiteral = plusOrMinus? digit+ "." digit+
 	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral

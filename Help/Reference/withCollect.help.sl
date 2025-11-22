@@ -5,7 +5,7 @@
 Collect and answer the result of evaluating the block _f_ with corresponding elements from each sequence _c_:
 
 ```
->>> 9:-1:1.withCollect(1:9) { :p :q |
+>>> 9:1:-1.withCollect(1:9) { :p :q |
 >>> 	p * 2 + q
 >>> }
 [19, 18 .. 11]

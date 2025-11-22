@@ -7,7 +7,7 @@ which must have the same `size`.
 
 ```
 >>> let x = [];
->>> 2:5.withDo(7:-1:4) { :i :j |
+>>> 2:5.withDo(7:4:-1) { :i :j |
 >>> 	x.add([i, j, i - j])
 >>> };
 >>> x

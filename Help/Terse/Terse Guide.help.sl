@@ -528,7 +528,7 @@ let a = [nil, true, false, 3.141, 23, 'str']; a.deepCopy = a /* deepCopy of shal
 [1, 3 .. 9].copyUpTo(-1) = [1, 3 .. 9] /* copy up to end if no such element */
 [1, 2, 3, 4, 2, 3, 4, 3, 4, 4].copyUpToLast(3) = [1, 2, 3, 4, 2, 3, 4] /* copy up to last instance of element */
 [1, 3 .. 9].copyUpToLast(-1) = [1, 3 .. 9] /* copy up to end if no such element */
-let i = 9:-1:1; i @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
+let i = 9:1:-1; i @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
 let a = [9, 8 .. 1]; a @* [5, 3, 7] = [5, 7, 3] /* atAll operator */
 let a = [5, 4 .. 1]; a @* [1 5 3] = [5 1 3] /* atAll operator */
 let a = [5, 4 .. 1]; a @* [2 .. 4] = [4 3 2] /* atAll operator */
@@ -832,7 +832,7 @@ let a = ByteArray(8); a.atPut(1, 179) = 179 & { a.at(1) = 179 }
 1:9.asByteArray.isByteArray = true /* array of numbers in 0-255 to byte array */
 { [-1].asByteArray }.hasError /* out of range element error */
 { ['1'].asByteArray }.hasError /* not a number element error */
-1:9.asByteArray.reverse = 9:-1:1.asByteArray
+1:9.asByteArray.reverse = 9:1:-1.asByteArray
 1:3.asByteArray.printString = 'ByteArray([1, 2, 3])'
 1:3.asByteArray.storeString = 'ByteArray([1, 2, 3])'
 ByteArray(4).base16Encode = '00000000'
@@ -1407,9 +1407,9 @@ Float64Array(8).atPut(1, 1.pi) = 1.pi /* atPut protocol, answer value put */
 let a = Float64Array(8); a.atPut(1, 1.pi) = 1.pi & { a.at(1) = 1.pi }
 let a = Float64Array(8); (a[1] := 1.pi) = 1.pi & { a[1] = 1.pi }
 1:9.asFloat64Array.isFloat64Array = true /* interval as array */
-1:9.asFloat64Array.reverse = 9:-1:1.asFloat64Array /* reverse copy */
-let a = [1 .. 9].asFloat64Array; a.reverseInPlace; a = 9:-1:1.asFloat64Array /* reverse in place */
-let a = 9:-1:1.asFloat64Array; a.sort; a = 1:9.asFloat64Array /* sort in place */
+1:9.asFloat64Array.reverse = 9:1:-1.asFloat64Array /* reverse copy */
+let a = [1 .. 9].asFloat64Array; a.reverseInPlace; a = 9:1:-1.asFloat64Array /* reverse in place */
+let a = 9:1:-1.asFloat64Array; a.sort; a = 1:9.asFloat64Array /* sort in place */
 { Float64Array(1).atPut(3, 'x') }.hasError /* out of bounds error */
 let a = Float64Array(1); a.uncheckedAtPut(1, 'x'); a.at(1).isNaN = true /* unsafe mutation inserts NaN */
 let a = Float64Array(1); a.uncheckedAtPut(3, 'x'); a.uncheckedAt(3) = nil /* unsafe mutation does not extend array */
@@ -1842,26 +1842,26 @@ let i = 1:9; i.copy !== i & { i.copy = i } /* copy is equal not identical */
 1:9.reject { :item | item < 7 } = [7, 8, 9] /* return elements that fail test */
 1:9.collect { :item | item + item }.last = 18 /* transform each element */
 1:9.detect { :item | item > 3 } = 4 /* detect first element that passes test */
-9:-1:1.detect(isEven:/1) = 8 /* detect first element that passes test */
+9:1:-1.detect(isEven:/1) = 8 /* detect first element that passes test */
 { (9, 7 .. 1).detect(isEven:/1) }.hasError /* if no element is detected, raise error */
 { [].detect { :item | true } }.hasError /* detect at an empty collection raises an error */
 1:9.injectInto(0) { :sum :item | sum + item } = 45 /* sum elements */
 1:9.asList = [1 .. 9] /* convert to array */
 1:9 = 1:9 /* equality */
-1:9 != 9:-1:1 /* inequality */
+1:9 != 9:1:-1 /* inequality */
 1:9 != [1 .. 9] /* intervals are not equal to arrays */
 10.toBy(90, 10).includes(30)
 10.toBy(90, 10) = (10, 20 .. 90)
 (0, 1/10 .. 1).size = 11
 (0, 1/10 .. 1).last = 1
-9:-1:1.asList = [9, 8 .. 1]
-5:-1:1.asList = [5, 4 .. 1]
+9:1:-1.asList = [9, 8 .. 1]
+5:1:-1.asList = [5, 4 .. 1]
 (5, 3 .. 1).asList = [5, 3 .. 1]
 5.toBy(1, -1).asList = [5, 4, 3, 2, 1]
 5.toBy(1, -2).asList = [5, 3, 1]
 (1.5 .. 4.5).asList = [1.5, 2.5, 3.5, 4.5] /* non-integer start and end */
-1:9.min = 1 & { 9:-1:1.min = 1 } /* minima */
-1:9.max = 9 & { 9:-1:1.max = 9 } /* maxima */
+1:9.min = 1 & { 9:1:-1.min = 1 } /* minima */
+1:9.max = 9 & { 9:1:-1.max = 9 } /* maxima */
 1:9.species = List:/1 /* species of Range is List */
 1.to(9).isRange = true /* to generates a Range */
 to(1, 9).size = 9 /* to generates a Range */
@@ -1879,7 +1879,7 @@ Range(-1, 1, 1).storeString = 'Range(-1, 1, 1)'
 Range(1, 9, 1) = 1:9
 Range(1, 10, 3).size = 4
 Range(1, 10, 3).asList = [1, 4, 7, 10]
-1.to(6).reverse = 6:-1:1
+1.to(6).reverse = 6:1:-1
 1:6.first = 1 /* first element of interval */
 1.to(6).first = 1 /* first element of interval */
 { 1.to(0).first }.hasError /* first element of empty interval */
@@ -1904,7 +1904,7 @@ toBy(9, 1, -1) = Range(9, 1, -1)
 1.thenTo(3, 9) = Range(1, 9, 2)
 1:9 = 1:9
 [1 .. 9] = 1:9.asList /* array interval syntax */
-[9, 8 .. 1] = 9:-1:1.asList /* array interval syntax */
+[9, 8 .. 1] = 9:1:-1.asList /* array interval syntax */
 [3 - 2 .. 7 + 2] = (3 - 2 .. 7 + 2).asList /* array interval syntax */
 let l = []; Range(9, 1, -1).do { :each | l.add(each) }; l = [9, 8 .. 1]
 collect(1.to(9)) { :each | each * each } = [1, 4, 9, 16, 25, 36, 49, 64, 81]
@@ -1920,7 +1920,7 @@ Range(1, 6, 2).reverse.asList = [5, 3, 1] /* start becomes last, not stop */
 3:7.any(3) = [3 .. 5] /* any three elements, chooses first */
 1:9.max = 9
 1:0.size = 0
-1:-1:0.size = 2
+1:0:-1.size = 2
 3.to(5) = 3:5
 1.to(0).size = 0
 3.to(5) = 3:5
@@ -1949,7 +1949,7 @@ let i = (9, 7 .. 1); i.removeFirst = 9 & { i = (7, 5 .. 1) } /* remove first ele
 let i = (1, 3 .. 9); i.removeLast = 9 & { i = (1, 3 .. 7) } /* remove first element */
 let i = (9, 7 .. 1); i.removeLast = 1 & { i = (9, 7 .. 3) } /* remove first element */
 1:9.sorted = 1:9 /* ascending intervals are sorted */
-9:-1:1.sorted = 1:9 /* reverse interval if descending */
+9:1:-1.sorted = 1:9 /* reverse interval if descending */
 let n = 0; 1:5.permutationsDo { :each | n := n + 1 }; n = 120 /* interval permutations */
 (1, 3 .. 17).copyFromTo(3, 6) = (5, 7 .. 11) /* copy from start index to end index */
 (17, 15 .. 1).copyFromTo(3, 6) = (13, 11 .. 7) /* copy from start index to end index */
@@ -2069,7 +2069,7 @@ let l = 1:5.asLinkedList; l[3] := -3; l.asList = [1, 2, -3, 4, 5] /* mutate at i
 1:9.asLinkedList.lastLink.value = 9 /* last link */
 let l = 1:3.asLinkedList; l.firstLink.value := -1; l.asList = [-1, 2, 3] /* mutate link value */
 1:9.asLinkedList.isSorted = true /* are elements in sequence */
-9:-1:1.asLinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
+9:1:-1.asLinkedList.isSortedBy(>) = true /* are elements in sequence by predicate */
 [1, 3 .. 9].asLinkedList.indices = 1:5 /* indices of linked list (an interval) */
 let l = 1:9.asLinkedList; l.copy = l & { l.copy !== l } /* copy is equal but not identical */
 let l = 1:9.asLinkedList; let c = l.copy; c[1] := 9; c[1] = 9 & { l[1] = 1 } /* copies are distinct */
@@ -2566,7 +2566,7 @@ system.includesPackage('Iterator') /* Iterator package */
 let r = [1 .. 5].asIterator; [r.next, r.next(3), r.next, r.next] = [1, [2, 3, 4], 5, nil] /* next answers nil at end */
 let r = [1 .. 3].asIterator; [r.next, r.upToEnd] = [1, [2, 3]] /* read up to end */
 let r = 1:5.asIterator; r.upTo(3) = 1:2 & { r.next = 4} /* matching element is consumed */
-let r = 9:-1:1.asIterator; [r.upTo(3), r.upToEnd] = [9:-1:4, 2:-1:1] /* matching element is consumed */
+let r = 9:1:-1.asIterator; [r.upTo(3), r.upToEnd] = [9:4:-1, 2:1:-1] /* matching element is consumed */
 [].asIterator.next = nil /* next at an empty read iterator answers nil */
 let r = '.....ascii'.characters.asIterator; let l = List(5); r.next(5); r.nextInto(l); l.stringIntercalate('') = 'ascii'
 1:9.asIterator.nextOrUpToEnd(23) = [1 .. 9] /* take at most n items from iterator */
@@ -2887,11 +2887,11 @@ let a = [1 .. 9]; a.rotateLeft(3) !== a /* rotation is not in place */
 1:7.rotateRight(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
 1:7.rotate(3) = [5 6 7 1 2 3 4] /* rotate right */
 1:7.rotate(-4) = [5 6 7 1 2 3 4] /* negative argument rotates left */
-let d = []; 3:-1:1.withDo(1:3) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] /* do with elements from a second sequence of equal size */
-let d = []; 3:-1:1.reverseWithDo(1:3) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
-let d = []; 3:-1:1.withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
-9:-1:1.withCollect(1:9) { :p :q | p * 2 + q } = [19, 18 .. 11]
-9:-1:1.withIndexCollect { :each :index | each * 2 + index } = [19, 18 .. 11]
+let d = []; 3:1:-1.withDo(1:3) { :p :q | d.add(p -> q) }; d = [3 -> 1, 2 -> 2, 1 -> 3] /* do with elements from a second sequence of equal size */
+let d = []; 3:1:-1.reverseWithDo(1:3) { :p :q | d.add(p -> q) }; d = [1 -> 3, 2 -> 2, 3 -> 1]
+let d = []; 3:1:-1.withIndexDo { :each :index | d.add(each -> index) }; d = [3 -> 1, 2 -> 2, 1 -> 3]
+9:1:-1.withCollect(1:9) { :p :q | p * 2 + q } = [19, 18 .. 11]
+9:1:-1.withIndexCollect { :each :index | each * 2 + index } = [19, 18 .. 11]
 [1, 3, 5, 7, 11, 15, 23].findBinary { :arg | 11 - arg } = 11
 [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 11 - arg } = 5
 { [1, 3, 5, 7, 11, 15, 23].findBinaryIndex { :arg | 12 - arg } }.hasError
@@ -2916,7 +2916,7 @@ let a = List(9); a.atAllPut(0); a = [0, 0, 0, 0, 0, 0, 0, 0, 0] /* set all eleme
 let a = [1 .. 9]; a.atAllPut([3 .. 7], 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let a = [1 .. 9]; a.atAllPut(3:7, 0); a = [1, 2, 0, 0, 0, 0, 0, 8, 9] /* set all selected indices to a value */
 let l = [1 .. 9]; l.atAllPutAll([3 .. 7], [7, 6 .. 3]); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
-let l = [1 .. 9]; l.atAllPutAll(3:7, 7:-1:3); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
+let l = [1 .. 9]; l.atAllPutAll(3:7, 7:3:-1); l = [1 2 7 6 5 4 3 8 9] /* set all selected indices to corresponding values */
 let a = [1 .. 9]; a.replace { :each | each * each }; a = [1, 4, 9, 16, 25, 36, 49, 64, 81] /* in place collect */
 let c = [7, 2, 6, 1]; c.sorted = [1, 2, 6, 7] & { c.sorted != c } /* sorted copy */
 let c = [7, 2, 6, 1]; c.sort = [1, 2, 6, 7] & { c = [1, 2, 6, 7] } /* sort in place */
@@ -2928,10 +2928,10 @@ let a = []; 1:4.combinationsAtATimeDo(3) { :each | a.add(each.copy) }; a = [[1, 
 let a = []; 1:5.combinationsAtATimeDo(3) { :each | a.add(each.sum) }; a = [6, 7, 8, 8, 9, 10, 9, 10, 11, 12]
 let a = []; 1:9.fromToDo(3, 7) { :each | a.add(each) }; a = [3 .. 7] /* partial iterator */
 let a = []; [1 / 3, 1 / 4, 1 / 4, 0.9, 1 / 3, 1].groupsDo { :p :q :r | a.add(p.round(q) = r) }; a = [true, true]
-let a = []; 9:-1:1.indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] /* indexed */
-let a = []; 9:-1:1.withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] /* keys are indices */
-let a = []; 9:-1:7.withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] /* keys are indices */
-let a = []; 9:-1:7.withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]/* index is second argument */
+let a = []; 9:1:-1.indicesDo { :index | a.add(index * 2) }; a = [2, 4 .. 19] /* indexed */
+let a = []; 9:1:-1.withIndexDo { :value :index | a.add(index * 2 + value) }; a = [11 .. 19] /* keys are indices */
+let a = []; 9:7:-1.withIndexDo { :value :index | a.add(index -> value) }; a = [1 -> 9, 2 -> 8, 3 -> 7] /* keys are indices */
+let a = []; 9:7:-1.withIndexDo { :each :index | a.add(index -> each) }; a = [1 -> 9, 2 -> 8, 3 -> 7]/* index is second argument */
 let a = [1 .. 5]; a.atIncrementBy(3, 6); a = [1, 2, 9, 4, 5] /* increment value at index by */
 let a = [1 .. 9]; a.atLastPut(3, -7); a = [1, 2, 3, 4, 5, 6, -7, 8, 9] /* set at index from end */
 'string'.contents.sorted = ['g', 'i', 'n', 'r', 's', 't']
@@ -3506,12 +3506,12 @@ let x = 1; let y = 2; let z = 3; x := x * y + z; y := x + y * z; z := x + y + z;
 [9, 7 .. 1] = [9, 7, 5, 3, 1]
 [1 .. 1] = [1]
 1:3 = Range(1, 3, 1)
-3:-1:1 = Range(3, 1, -1)
+3:1:-1 = Range(3, 1, -1)
 (1, 3 .. 9) = Range(1, 9, 2)
 (9, 7 .. 1) = Range(9, 1, -2)
 1:1 = Range(1, 1, 1)
-[1 .. 5] = 1:1:5.asList
-[5, 4 .. 1] = 5:-1:1.asList
+[1 .. 5] = 1:5:1.asList
+[5, 4 .. 1] = 5:1:-1.asList
 [1, 3 .. 9] = (1, 3 .. 9).asList
 [9, 7 .. 1] = (9, 7 .. 1).asList
 [1 .. 1] = 1:1.asList
@@ -3615,11 +3615,11 @@ var x, y, z; (x: x, y: y, z: z) := (x: 1 * 2, y: 3 * 4, z: 5 * 6); [z, y, x] = [
 ```
 1:9 = Range(1, 9, 1) /* 1 to 9 by 1 */
 1:9 = Range(1, 9, 1) /* 1 to 9 by 1 */
-9:-1:1 = Range(9, 1, -1) /* 9 to 1 by -1 */
+9:1:-1 = Range(9, 1, -1) /* 9 to 1 by -1 */
 (1, 3 .. 9) = Range(1, 9, 2) /* 1 to 9 by 2 */
 (9, 7 .. 1) = Range(9, 1, -2) /* 9 to 1 by -2 */
 [1 .. 9] = 1:9.asList /* 1 to 9 by 1 */
-[9, 8 .. 1] = 9:-1:1.asList /* 9 to 1 by -1 */
+[9, 8 .. 1] = 9:1:-1.asList /* 9 to 1 by -1 */
 [1, 3 .. 9] = (1, 3 .. 9).asList /* 1 to 9 by 1 */
 [9, 7 .. 1] = (9, 7 .. 1).asList /* 9 to 1 by -2 */
 ```

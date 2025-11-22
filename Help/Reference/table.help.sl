@@ -39,7 +39,7 @@ A table with _i_ running from 0 to 20 in steps of 2:
 >>> square:/1.table(Range(0, 20, 2))
 [0 4 16 36 64 100 144 196 256 324 400]
 
->>> 0:2:20.square
+>>> 0:20:2.square
 [0 4 16 36 64 100 144 196 256 324 400]
 ```
 

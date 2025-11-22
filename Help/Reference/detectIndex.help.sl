@@ -8,7 +8,7 @@ Answer `nil` if there is no such item.
 Find index of first even number:
 
 ```
->>> 9:-1:1.detectIndex(isEven:/1)
+>>> 9:1:-1.detectIndex(isEven:/1)
 2
 ```
 

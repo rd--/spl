@@ -148,14 +148,14 @@ Tuple([1, 2, 3])
 
 All of the forms of `Range Syntax` are rewritten as `Apply Syntax`.
 
-`Span` literals:
+`Range Literal Syntax`:
 
 ```
 >> '1:9'.splSimplify
-Span(1, 9, 1)
+rangeOrRelativeRange(1, 9, 1)
 
->> '1:2:9'.splSimplify
-Span(1, 9, 2)
+>> '1:9:2'.splSimplify
+rangeOrRelativeRange(1, 9, 2)
 ```
 
 `Range` expressions:
@@ -255,7 +255,7 @@ atPut(c, i, x)
 
 ```
 >> 'c[1:9]'.splSimplify
-atAll(c, Span(1, 9, 1))
+atAll(c, rangeOrRelativeRange(1, 9, 1))
 
 >> 'c[[i, j]]'.splSimplify
 atAll(c, [i, j])

@@ -14,8 +14,8 @@ Types:
 - `List`
 - `ListView`
 - `Range`
+- `RelativeRange`
 - `SortedList`
-- `Span`
 - `Tuple`
 
 Accessing:

@@ -16,7 +16,7 @@ let h = { :x |
 	}
 };
 let h1 = h(f0);
-0:2:1200.centsToRatio.collect { :r |
+0:1200:2.centsToRatio.collect { :r |
 	setharesDissonance(h1, h(f0 * r))
 }.linePlot
 ~~~
@@ -33,7 +33,7 @@ Calculate cents values of the minima of the dissonance function:
 >>> 	}
 >>> };
 >>> let h1 = h(f0);
->>> let x = 0:2:1200;
+>>> let x = 0:1200:2;
 >>> let i = x.centsToRatio.collect { :r |
 >>> 	let h2 = h(f0 * r);
 >>> 	-1 * setharesDissonance(h1, h2)

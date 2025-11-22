@@ -225,15 +225,15 @@ or _i:j:k_ where _j_ is the step size.
 >>> 1:4
 Range([1 4 1])
 
->>> 1:2:9
+>>> 1:9:2
 Range([1 9 2])
 ```
 
 * * *
 
-See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, Span, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
+See also: .., ArithmeticProgression, characterRange, discretize, do, downTo, end, Interval, isIntegerRange, last, reverseDo, RelativeRange, start, stop, subdivide, thenTo, to, toBy, upOrDownTo
 
-Guides: Range Syntax
+Guides: Range Syntax, Range Literal Syntax
 
 References:
 _Mathematica_

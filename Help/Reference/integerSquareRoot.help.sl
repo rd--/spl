@@ -35,7 +35,7 @@ OEIS [A000196](https://oeis.org/A000196):
 Integer square root of the first few odd powers of seven:
 
 ```
->>> (7L ^ 1:2:21).integerSquareRoot
+>>> (7L ^ 1:21:2).integerSquareRoot
 [
 	2
 	18

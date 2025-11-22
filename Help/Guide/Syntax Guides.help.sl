@@ -25,11 +25,11 @@
 - `Map Syntax`
 - `Method Syntax`
 - `Operator Syntax`
+- `Range Literal Syntax`
 - `Range Syntax`
 - `Record Assignment Syntax`
 - `Record Syntax`
 - `Slot Assignment Syntax`
-- `Span Syntax`
 - `Trailing Block Syntax`
 - `Trailing Record Syntax`
 - `Unary Operator Syntax`

@@ -56,7 +56,7 @@ The _V(1,-2)_ sequence is the Jacobsthal-Lucas sequence,
 OEIS [A014551](https://oeis.org/A014551):
 
 ```
->>> 12.lucasSequence('V', 1, -2)
+>>> 11.lucasSequence('V', 1, -2)
 [1 5 7 17 31 65 127 257 511 1025 2047]
 ```
 

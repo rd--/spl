@@ -18,7 +18,7 @@ Using `Range` as indices and values:
 
 ```
 >>> let l = 9.iota;
->>> l.atAllPutAll(3:7, 7:-1:3);
+>>> l.atAllPutAll(3:7, 7:3:-1);
 >>> l
 [1 2 7 6 5 4 3 8 9]
 ```

@@ -50,7 +50,7 @@ Parts three through third-to-last extracted in steps of two:
 
 ```
 >>> [1 3 5 7 9 11 13 15 17 19 21]
->>> .part([3:2:-3])
+>>> .part([3:-3:2])
 [5 9 13 17]
 ```
 
@@ -58,7 +58,7 @@ Parts extracted in steps of two starting at the beginning:
 
 ```
 >>> [1 3 5 7 9 11 13 15 17 19 21]
->>> .part([1:2:-1])
+>>> .part([1:-1:2])
 [1 5 9 13 17 21]
 ```
 
@@ -156,7 +156,7 @@ Extract the first element from each list:
 
 * * *
 
-See also: at, atAll, atAllSymmetrical, atSymmetrical, extract, Range, Span
+See also: at, atAll, atAllSymmetrical, atSymmetrical, extract, Range, RelativeRange
 
 Guides: Indexing Functions
 

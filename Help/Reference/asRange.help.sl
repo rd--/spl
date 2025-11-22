@@ -12,7 +12,7 @@ At `List`:
 1:9
 
 >>> [1 3 5 7 9].asRange
-1:2:9
+1:9:2
 
 >>> {
 >>> 	[1 3 1 3 1].asRange
@@ -29,7 +29,7 @@ At `Range` is identity:
 
 * * *
 
-See also: isArithmeticProgression, Range
+See also: asRangeList, isArithmeticProgression, Range
 
 Guides: List Functions
 
