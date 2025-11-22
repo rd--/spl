@@ -2,7 +2,9 @@
 
 - _fibonacci(n, x=1)_
 
-Answer the _n_-th Fibonacci number, _F(n)_.
+Answer the generalized Fibonacci number _F𐞪(n)_,
+where _n_ may be any real number.
+Where _n_ is an integer answers _F(n)_.
 
 The eighth Fibonacci number:
 
@@ -63,10 +65,10 @@ At negative `one`:
 Values at fixed points:
 
 ```
->>> 1:5.collect { :x |
+>>> 0:9.collect { :x |
 >>> 	fibonacci(3, x)
 >>> }
-[2 5 10 17 26]
+[1 2 5 10 17 26 37 50 65 82]
 ```
 
 Threads over lists:
@@ -84,24 +86,25 @@ Threads over lists:
 [1 1 2 5 13 34 89 233]
 ```
 
-Fibonomial coefficients:
+Fibonomial coefficients,
+OEIS [A010048](https://oeis.org/A010048):
 
 ```
->>> { :n :k |
+>>> 1:7.triangularArray { :n :k |
 >>> 	1:k.collect { :j |
 >>> 		(n + j - k).fibonacci
 >>> 		/
 >>> 		j.fibonacci
 >>> 	}.product
->>> }.table(1:7, 1:7)
+>>> }
 [
-	 1   0   0   0   0  0 0;
-	 1   1   0   0   0  0 0;
-	 2   2   1   0   0  0 0;
-	 3   6   3   1   0  0 0;
-	 5  15  15   5   1  0 0;
-	 8  40  60  40   8  1 0;
-	13 104 260 260 104 13 1
+	 1;
+	 1   1;
+	 2   2   1;
+	 3   6   3   1;
+	 5  15  15   5   1;
+	 8  40  60  40   8   1;
+	13 104 260 260 104  13   1
 ]
 ```
 
@@ -320,7 +323,7 @@ Plot the Fibonacci polynomial for various orders:
 
 * * *
 
-See also: binetsFormula, fibonacciPolynomial, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio, lucasNumber
+See also: binetsFormula, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 
@@ -330,7 +333,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000045)
 [2](https://oeis.org/A001605)
-[3](https://oeis.org/A105870),
+[3](https://oeis.org/A105870)
+[4](https://oeis.org/A010048),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.fibonacci),
 _W_

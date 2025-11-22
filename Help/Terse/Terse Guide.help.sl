@@ -353,7 +353,7 @@ let a = [1 .. 9]; let r = Sfc32(13579); a.shuffle(r); a = [9, 8, 2, 3, 5, 7, 1, 
 let a = [1 .. 9]; a.shuffled != a & { a = [1 .. 9] } /* answer shuffled copy */
 [1 .. 9].shuffled.sorted = [1 .. 9] /* resort after shuffle */
 [].shuffled = []
-13.fibonacciSequence = [1 1 2 3 5 8 13 21 34 55 89 144 233]
+14.fibonacciSequence = [0 1 1 2 3 5 8 13 21 34 55 89 144 233]
 3 # [3] = [3 3 3]
 [1, 2, 3, 4, 3, 2, 1].detectMax(identity:/1) = 4
 [1:3, 1:6, 1:9].detectMax(size:/1) = 1:9
@@ -507,7 +507,6 @@ let l = [1 2 3]; l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] } /* add all el
 [1].addAllLast([2 3]) = [2 3] /* answer is argument */
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] /* alias for addAllLast */
 let i = 1:9; let a = []; a.addAll(i); a.size = 9 /* add elements from Range to end of List */
-13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] /* removeAt answers the removed element */
 let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 let c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] /* remove first three objects from array */

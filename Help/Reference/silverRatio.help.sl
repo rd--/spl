@@ -139,7 +139,7 @@ let c = [2, s + 1, 2] / (s + 5);
 
 * * *
 
-See also: e, metallicMean, pellNumbers, pi, plasticRatio, supersilverRatio
+See also: e, metallicMean, pellSequence, pi, plasticRatio, supersilverRatio
 
 Guides: Integer Sequence Functions, Mathematical Constants
 

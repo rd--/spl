@@ -5,6 +5,13 @@
 Answer the Pisano period of _n_,
 the period of the Fibonacci sequence when considered modulo _n_.
 
+Specific values:
+
+```
+>>> 25.pisanoPeriod
+100
+```
+
 First few terms,
 OEIS [A001175](https://oeis.org/A001175):
 

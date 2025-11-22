@@ -59,7 +59,7 @@ OEIS [A035517](https://oeis.org/A035517):
 >>> 0:10.collect { :n |
 >>> 	let z = n.zeckendorfRepresentation;
 >>> 	let i = z.reverse.indicesOf(1);
->>> 	(i + 1).fibonacci
+>>> 	(i + 1).fibonacciNumber
 >>> }
 [
 	;

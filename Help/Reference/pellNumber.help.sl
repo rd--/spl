@@ -2,11 +2,12 @@
 
 - _pellNumber(n)_
 
-Answer the _n_-th Pell number, zero-indexed.
+Answer the generalized Pell number _P𐞪(n)_.
+Where _n_ is an integer answers the Pell number _P(n)_.
 
 ```
->>> 9.pellNumbers
-0:8.collect(pellNumber:/1)
+>>> 0:8.collect(pellNumber:/1)
+[0 1 2 5 12 29 70 169 408]
 ```
 
 At non-integer values:
@@ -55,7 +56,7 @@ Plot over a subset of the reals:
 
 * * *
 
-See also: fibonacci, pellNumbers, pellLucasNumbers
+See also: fibonacci, pellSequence, pellLucasSequence
 
 Guides: Integer Sequence Functions
 

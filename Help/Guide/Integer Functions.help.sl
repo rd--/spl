@@ -47,6 +47,21 @@ Recurrence and Sum Functions:
 - `harmonicNumber`
 - `lucasNumber`
 
+Fibonacci Functions:
+
+- `binetsFormula`
+- `fibonacciNumber`
+- `fibonacciPolynomial`
+- `fibonacciSequence`
+- `fibonacciWord`
+- `fibonacci`
+- `lucasNumber`
+- `lucasSequence`
+- `pellLucasSequence`
+- `pellNumber`
+- `pellSequence`
+- `pisanoPeriod`
+
 Integer Decompositions:
 
 - `divisors`

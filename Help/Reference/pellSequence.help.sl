@@ -1,11 +1,11 @@
-# pellNumbers
+# pellSequence
 
-- _pellNumbers(n)_
+- _pellSequence(n)_
 
 Answer a `List` of the first _n_ Pell numbers:
 
 ```
->>> 16.pellNumbers
+>>> 16.pellSequence
 [
 	     0    1     2     5    12
 	    29   70   169   408   985
@@ -19,8 +19,9 @@ There is a closed form for calculating the n-th Pell number (zero-indexed):
 ```
 >>> [0 .. 15].collect(pellNumber:/1)
 [
-	0 1 2 5 12 29 70 169 408 985
-	2378 5741 13860 33461 80782
+	     0    1     2     5    12
+	    29   70   169   408   985
+	  2378 5741 13860 33461 80782
 	195025
 ]
 ```
@@ -40,17 +41,20 @@ The silver ratio is the limiting ratio of consecutive Pell numbers:
 ```
 
 A Pell prime is a Pell number that is prime.
-The first few Pell primes (OEIS A086383):
+The first few Pell primes,
+OEIS [A086383](https://oeis.org/A086383):
 
 ```
->>> 30.pellNumbers.select(isPrime:/1)
+>>> 30.pellSequence
+>>> .select(isPrime:/1)
 [2 5 29 5741 33461 44560482149]
 ```
 
-The zero indices of the Pell primes in `pellNumbers` are themselves prime (OEIS A096650):
+The zero indices of the Pell primes in `pellSequence` are themselves prime,
+OEIS [A096650](https://oeis.org/A096650):
 
 ```
->>> let p = 99.pellNumbers;
+>>> let p = 99.pellSequence;
 >>> [
 >>> 	2 5 29 5741 33461
 >>> 	44560482149
@@ -62,7 +66,7 @@ The zero indices of the Pell primes in `pellNumbers` are themselves prime (OEIS 
 
 * * *
 
-See also: fibonacciSequence, linearRecurrence, pellLucasNumbers, silverRatio
+See also: fibonacciSequence, linearRecurrence, pellLucasSequence, pellNumber, silverRatio
 
 Guides: Integer Sequence Functions, Mathematical Sequences
 

@@ -67,6 +67,30 @@
 		answer
 	}
 
+	fibonacciWord { :self |
+		let a = self.goldenRatio.floor;
+		let b = (self + 1).goldenRatio.floor;
+		2 + a - b
+	}
+
+	lucasInteger { :self |
+		(self = 1).if {
+			1
+		} {
+			let phi = 1.goldenRatio;
+			(phi ^ self).round
+		}
+	}
+
+	lucasNumber { :self |
+		let phi = 1.goldenRatio;
+		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
+	}
+
+	lucasSequence { :self |
+		[1 1].linearRecurrence([2 1 3], self)
+	}
+
 	lucasSequence { :n :p :q :a :b |
 		let answer = [a];
 		let i = 1;
@@ -89,22 +113,8 @@
 		)
 	}
 
-	lucasInteger { :self |
-		(self = 1).if {
-			1
-		} {
-			let phi = 1.goldenRatio;
-			(phi ^ self).round
-		}
-	}
-
-	lucasNumber { :self |
-		let phi = 1.goldenRatio;
-		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
-	}
-
-	lucasNumbers { :self |
-		[1 1].linearRecurrence([1 3], self)
+	pellLucasSequence { :self |
+		[2 1].linearRecurrence([2 2], self)
 	}
 
 	pellNumber { :self |
@@ -113,12 +123,8 @@
 		((((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)).real
 	}
 
-	pellNumbers { :self |
+	pellSequence { :self |
 		[2 1].linearRecurrence([0 1], self)
-	}
-
-	pellLucasNumbers { :self |
-		[2 1].linearRecurrence([2 2], self)
 	}
 
 	pisanoPeriod { :n |

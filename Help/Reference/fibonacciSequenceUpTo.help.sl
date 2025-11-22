@@ -4,7 +4,7 @@
 
 Answer a `List` of the Fibonacci numbers less than or equal to _n_.
 
-There are seven Fibonacci numbers less than or equal to twenty:
+There are eight Fibonacci numbers less than or equal to twenty:
 
 ```
 >>> 20.fibonacciSequenceUpTo

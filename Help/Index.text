@@ -1370,6 +1370,7 @@ Reference/fibonacciCurve.help.sl
 Reference/fibonacciFactorialConstant.help.sl
 Reference/fibonacciFactorial.help.sl
 Reference/fibonacci.help.sl
+Reference/fibonacciNumber.help.sl
 Reference/fibonacciPolynomial.help.sl
 Reference/fibonacciSequence.help.sl
 Reference/fibonacciSequenceUpTo.help.sl
@@ -2391,7 +2392,6 @@ Reference/LsUnfold.help.sl
 Reference/LsWhite.help.sl
 Reference/LsXRand.help.sl
 Reference/lucasNumber.help.sl
-Reference/lucasNumbers.help.sl
 Reference/lucasSequence.help.sl
 Reference/luDecomposition.help.sl
 Reference/luvToXyz.help.sl
@@ -2800,9 +2800,9 @@ Reference/pedalTriangle.help.sl
 Reference/peekFor.help.sl
 Reference/peek.help.sl
 Reference/peekPriority.help.sl
-Reference/pellLucasNumbers.help.sl
+Reference/pellLucasSequence.help.sl
 Reference/pellNumber.help.sl
-Reference/pellNumbers.help.sl
+Reference/pellSequence.help.sl
 Reference/pendulumEquation.help.sl
 Reference/pentadentriteCurve.help.sl
 Reference/pentagonalNumber.help.sl

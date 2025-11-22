@@ -324,10 +324,6 @@
 		self.extendedEuclideanAlgorithm(anInteger)
 	}
 
-	fibonacciWord { :self |
-		2 + self.goldenRatio.floor - (self + 1).goldenRatio.floor
-	}
-
 	foldIndex { :self :size |
 		self.fold(1, size)
 	}
@@ -1416,7 +1412,7 @@
 			let k = f.size - 1;
 			let z = [];
 			f.removeFirst;
-			k.toByDo(1, -1) { :i |
+			k.toByDo(2, -1) { :i |
 				let n = f[i];
 				z.add((n <= self).if { 1 } { 0 });
 				(n <= self).ifTrue {

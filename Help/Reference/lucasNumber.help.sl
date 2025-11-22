@@ -9,12 +9,13 @@ Compute the first twenty Lucas numbers,
 OEIS [A000032](https://oeis.org/A000032):
 
 ```
->>> 1:20.collect(lucasNumber:/1)
+>>> 0:20.collect(lucasNumber:/1)
 [
-	1 3 4 7 11
-	18 29 47 76 123
-	199 322 521 843 1364
-	2207 3571 5778 9349 15127
+	2 1 3 4 7
+	11 18 29 47 76
+	123 199 322 521 843
+	1364 2207 3571 5778 9349
+	15127
 ]
 ```
 
@@ -73,7 +74,7 @@ Plot modulo _n-1_:
 
 * * *
 
-See also: fibonacci, lucasNumbers
+See also: fibonacci, lucasSequence
 
 Guides: Integer Functions, Integer Sequence Functions
 
