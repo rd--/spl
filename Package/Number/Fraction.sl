@@ -254,6 +254,12 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		self.denominator.isPowerOfTwo
 	}
 
+	isEven { :self |
+		self.isInteger & {
+			self.numerator.isEven
+		}
+	}
+
 	isExact { :unused |
 		true
 	}
@@ -274,6 +280,12 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 
 	isNegative { :self |
 		self.numerator.isNegative
+	}
+
+	isOdd { :self |
+		self.isInteger & {
+			self.numerator.isOdd
+		}
 	}
 
 	isPhiWeightedMediantNoble { :self :aFraction |

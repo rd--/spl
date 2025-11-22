@@ -157,6 +157,16 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/sqrt-A.svg)
 
+Plot the signature sequence of √2,
+OEIS [A007336](https://oeis.org/A007336):
+
+~~~spl svg=B
+2.sqrt.signatureSequence(17, 13, 96)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sqrt-B.svg)
+
 Where supported `sqrt` is displayed as √.
 
 * * *

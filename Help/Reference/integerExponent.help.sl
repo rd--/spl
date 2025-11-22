@@ -111,6 +111,21 @@ Plot it:
 
 ![](sw/spl/Help/Image/integerExponent-A.svg)
 
+Plot the self-descriptive sequence
+OEIS [A110963](https://oeis.org/A110963):
+
+~~~spl svg=B
+1:100.collect { :n |
+	{ :x |
+		let a = x.integerExponent(2);
+		let b = x.bitShiftRight(a);
+		(b + 1) / 2
+	}.iterate(n, 2)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-A.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
@@ -125,5 +140,6 @@ _OEIS_
 [1](https://oeis.org/A001511)
 [2](https://oeis.org/A007814)
 [3](https://oeis.org/A025480)
+[4](https://oeis.org/A110963)
 
 Further Reading: Levine 2006

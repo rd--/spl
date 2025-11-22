@@ -830,6 +830,19 @@
 		self.padovanSequence([1 0 1])
 	}
 
+	vanEckSequence { :n |
+		let l = [0 0];
+		2.toDo(n - 1) { :i |
+			let k = (1 .. i - 1).findLast { :m |
+				l[i] = l[m]
+			};
+			l.add(
+				(k = 0).if { 0 } { i - k }
+			)
+		};
+		l
+	}
+
 	wythoffArray { :m :n |
 		let phi = 1.goldenRatio;
 		(n = 1).if {
@@ -975,6 +988,16 @@
 			s[i] := (s[i - 1] + alpha) % 1
 		};
 		s
+	}
+
+	signatureSequence { :theta :p :q :n |
+		{ :i :j |
+			[i + (j * theta), i]
+		}.table(1:p, 1:q)
+		.catenate
+		.sortOn(first:/1)
+		.collect(second:/1)
+		.take(n)
 	}
 
 	tagSystem { :m :r :i :k |

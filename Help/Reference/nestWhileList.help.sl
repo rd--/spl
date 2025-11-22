@@ -11,14 +11,23 @@ Keep dividing by 2 until the result is no longer an even number:
 ```
 >>> { :x |
 >>> 	x / 2
->>> }.nestWhileList(123456, isEven:/1)
-[123456 61728 30864 15432 7716 3858 1929]
+>>> }.nestWhileList(
+>>> 	123456,
+>>> 	isEven:/1
+>>> )
+[
+	123456 61728 30864 15432 7716
+	  3858  1929
+]
 ```
 
 Iterate taking logarithms until the result is no longer positive:
 
 ```
->>> log:/1.nestWhileList(100, isPositive:/1)
+>>> log:/1.nestWhileList(
+>>> 	100,
+>>> 	isPositive:/1
+>>> )
 [100 4.60517 1.52718 0.42342 -0.85938]
 ```
 
@@ -52,7 +61,10 @@ Find the multiplicative order of 2 modulo 19:
 >>> }.nestWhileList(2) { :x |
 >>> 	x != 1
 >>> }
-[2 4 8 16 13 7 14 9 18 17 15 11 3 6 12 5 10 1]
+[
+	 2  4  8 16 13  7 14  9 18 17
+	15 11  3  6 12  5 10  1
+]
 ```
 
 Evaluate the Collatz, or hailstone, sequence:
@@ -75,7 +87,7 @@ Evaluate the Collatz, or hailstone, sequence:
 
 * * *
 
-See also: iterate, nestList, takeWhile
+See also: iterate, nestList, nestWhile, takeWhile
 
 Guides: List Functions
 

@@ -30,7 +30,9 @@ The sequences for _α=√3_:
 [2 4 7 9 11 14 16 18 21 23 26 28 30]
 ```
 
-The sequences for _α=e_:
+The sequences for _α=e_,
+OEIS [A022843](https://oeis.org/A022843)
+and [A054385](https://oeis.org/A054385):
 
 ```
 >>> 13.beattySequence(1.e)
@@ -57,7 +59,9 @@ and [A054386](https://oeis.org/A054386):
 ```
 
 The sequences for _α=φ_,
-the lower and upper Wythoff sequences:
+the lower and upper Wythoff sequences,
+OEIS [A000201](https://oeis.org/A000201)
+and [A001950](https://oeis.org/A001950):
 
 ```
 >>> 13.beattySequence(1.goldenRatio)
@@ -67,6 +71,15 @@ the lower and upper Wythoff sequences:
 >>> let beta = alpha / (alpha - 1);
 >>> 13.beattySequence(beta)
 [2 5 7 10 13 15 18 20 23 26 28 31 34]
+```
+
+Prefix sums,
+OEIS [A054347](https://oeis.org/A054347):
+
+```
+>>> 13.beattySequence(1.goldenRatio)
+>>> .prefixSum
+[1 4 8 14 22 31 42 54 68 84 101 120 141]
 ```
 
 * * *
@@ -89,6 +102,7 @@ _OEIS_
 [7](https://oeis.org/A022844)
 [8](https://oeis.org/A054386)
 [9](https://oeis.org/A000201)
-[10](https://oeis.org/A001950),
+[10](https://oeis.org/A001950)
+[11](https://oeis.org/A054347),
 _W_
 [1](https://en.wikipedia.org/wiki/Beatty_sequence)

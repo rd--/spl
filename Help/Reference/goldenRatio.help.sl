@@ -300,6 +300,17 @@ Scatter plot of the digits of φ:
 
 ![](sw/spl/Help/Image/goldenRatio-H.svg)
 
+Plot signature sequence of 1/φ,
+OEIS [A084531](https://oeis.org/A084531):
+
+~~~spl svg=I
+let phi = 1.goldenRatio;
+phi.signatureSequence(30, 20, 200)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/goldenRatio-I.svg)
+
 * * *
 
 See also: e, fibonacci, fibonacciSequence, goldenAngle, harmoniousNumber, metallicMean, logarithmicSpiral, pi, plasticRatio, supergoldenRatio, wythoffLower
@@ -315,7 +326,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A001622)
 [2](https://oeis.org/A005206)
-[3](https://oeis.org/A104457),
+[3](https://oeis.org/A104457)
+[4](https://oeis.org/A084531),
 _W_
 [1](https://en.wikipedia.org/wiki/Golden_ratio)
 [2](https://en.wikipedia.org/wiki/Golden_rectangle)

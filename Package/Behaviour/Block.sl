@@ -342,6 +342,15 @@ Block! : [Object, Equatable] {
 		}
 	}
 
+	nestWhile { :self:/1 :anObject :aBlock:/1 |
+		{
+			aBlock(anObject)
+		}.whileTrue {
+			anObject := self(anObject)
+		};
+		anObject
+	}
+
 	new { :self |
 		self.cull(0)
 	}

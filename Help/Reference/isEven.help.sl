@@ -60,6 +60,9 @@ Non-integers are never even:
 ```
 >>> 1.pi.isEven
 false
+
+>>> 1/2.isEven
+false
 ```
 
 OEIS [A005843](https://oeis.org/A005843):
