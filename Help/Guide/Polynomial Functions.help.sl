@@ -18,6 +18,7 @@ Constructors:
 - `chebyshevT`
 - `chebyshevU`
 - `cyclotomic`
+- `fibonacciPolynomial`
 - `legendreP`
 
 Converting:

@@ -303,32 +303,6 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		<primitive: return Math.exp(_self)>
 	}
 
-	fibonacci { :n :x |
-		let a = (4 + x.square).sqrt;
-		let b = x + a;
-		let c = 2 ^ (0 - n);
-		let d = 2 ^ n;
-		let e = b ^ n;
-		let f = b ^ (0 - n);
-		let g = n.pi.cos;
-		let r = ((c * e) - (d * f * g)) / a;
-		(n.isInteger & { x.isInteger }).if {
-			r.round
-		} {
-			r
-		}
-	}
-
-	fibonacci { :n |
-		let phi = 1.goldenRatio;
-		let r = ((phi ^ n) - (n.pi.cos * (phi ^ n.-))) / 5.sqrt;
-		n.isInteger.if {
-			r.round
-		} {
-			r
-		}
-	}
-
 	floor { :self |
 		<primitive: return Math.floor(_self)>
 	}
@@ -441,11 +415,6 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 
 	log10 { :self |
 		<primitive: return Math.log10(_self)>
-	}
-
-	lucasNumber { :self |
-		let phi = 1.goldenRatio;
-		(phi ^ self) + (self.pi.cos * (phi ^ self.negate))
 	}
 
 	max { :self :anObject |

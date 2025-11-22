@@ -13,8 +13,7 @@ OEIS [A000045](https://oeis.org/A000045):
 	   1    1    2    3    5
 	   8   13   21   34   55
 	  89  144  233  377  610
-	 987 1597 2584 4181
-	6765
+	 987 1597 2584 4181 6765
 ]
 ```
 
@@ -102,6 +101,17 @@ OEIS [007660](https://oeis.org/A007660):
 ]
 ```
 
+The Fibonacci sequence modulo three,
+period is eight,
+OEIS [A082115](https://oeis.org/A082115):
+
+```
+>>> 16.fibonacciSequence % 3
+[
+	1 1 2 0 2 2 1 0
+	1 1 2 0 2 2 1 0
+]
+```
 
 Plot Fibonacci modulo _n_,
 OEIS [A002708](https://oeis.org/A002708):
@@ -127,7 +137,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000045)
 [2](https://oeis.org/A005478)
-[3](https://oeis.org/A001605),
+[3](https://oeis.org/A001605)
+[4](https://oeis.org/A082115),
 _W_
 [1](https://en.wikipedia.org/wiki/Fibonacci_sequence)
 

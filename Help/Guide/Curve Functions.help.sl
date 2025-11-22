@@ -105,6 +105,7 @@ Fractal Curve Functions:
 - `sierpinskiCarpet`
 - `sierpinskiCurve`
 - `sierpinskiSieve`
+- `takagiFunction`
 - `vicsekCurve`
 - `weierstrassFunction`
 - `zOrderCurve`

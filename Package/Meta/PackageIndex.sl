@@ -178,6 +178,7 @@
 	'Math-EasingFunctions'
 	'Math-Elementwise'
 	'Math-FeatureDetection'
+	'Math-FibonacciNumbers'
 	'Math-Fourier'
 	'Math-Gamma'
 	'Math-GrayCode'

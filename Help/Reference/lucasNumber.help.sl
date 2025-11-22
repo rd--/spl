@@ -37,6 +37,20 @@ Threads elementwise over lists:
 ```
 >>> [1 2 3 4 5].lucasNumber
 [1 3 4 7 11]
+
+>>> [-5 .. 5].lucasNumber
+[-11 7 -4 3 -1 2 1 3 4 7 11]
+```
+
+The variant `lucasInteger` uses a different closed form and answers an exact integer.
+The indices of prime Lucas numbers,
+OEIS [A001606](https://oeis.org/A001606):
+
+```
+>>> 1:50.select { :n |
+>>> 	n.lucasInteger.isPrime
+>>> }
+[2 4 5 7 8 11 13 16 17 19 31 37 41 47]
 ```
 
 Plot over a subset of the reals:
@@ -68,7 +82,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/LucasNumber.html)
 [2](https://reference.wolfram.com/language/ref/LucasL.html),
 _OEIS_
-[1](https://oeis.org/A000032),
+[1](https://oeis.org/A000032)
+[2](https://oeis.org/A001606),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.lucas),
 _W_

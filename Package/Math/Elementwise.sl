@@ -132,6 +132,12 @@
 		self.collect(denominator:/1)
 	}
 
+	digitCount { :self :b :d |
+		self.collect { :n |
+			digitCount(n, b, d)
+		}
+	}
+
 	divisors { :self |
 		self.collect(divisors:/1)
 	}

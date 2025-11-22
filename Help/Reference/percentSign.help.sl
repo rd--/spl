@@ -350,6 +350,26 @@ let m = 14;
 
 ![](sw/spl/Help/Image/percentSign-J.svg)
 
+Plot left of binary expansions,
+OEIS [A028897](https://oeis.org/A028897):
+
+~~~spl svg=K
+let a = { :n |
+	(n < 10).if {
+		n
+	} {
+		(n % 10 != 0).if {
+			a(n - 1) + 1
+		} {
+			2 * a(n / 10)
+		}
+	}
+};
+0:200.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/percentSign-K.svg)
+
 The name of this operator is `percentSign`.
 
 * * *
@@ -368,7 +388,8 @@ _Mathematica_
 [4](https://reference.wolfram.com/language/ref/Mod.html),
 _OEIS_
 [1](https://oeis.org/A000224)
-[2](https://oeis.org/A048152),
+[2](https://oeis.org/A048152)
+[3](https://oeis.org/A028897),
 _W_
 [1](https://en.wikipedia.org/wiki/Modulo)
 

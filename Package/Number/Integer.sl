@@ -107,11 +107,6 @@
 		n.integerDigits(2)
 	}
 
-	binetsFormula { :n |
-		let z = 5.sqrt;
-		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
-	}
-
 	bitLength { :self |
 		self.integerLength(2)
 	}

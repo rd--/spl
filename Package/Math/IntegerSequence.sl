@@ -208,38 +208,6 @@
 		answer
 	}
 
-	fibonacciSequence { :self |
-		self.fibonacciSequenceInto([])
-	}
-
-	fibonacciSequenceInto { :self :answer |
-		let a = 0L;
-		let b = 1L;
-		let i = 0;
-		{ i < self }.whileTrue {
-			let tmp = b;
-			answer.add(b);
-			b := b + a;
-			a := tmp;
-			i := i + 1
-		};
-		answer
-	}
-
-	fibonacciSequenceUpTo { :self |
-		let answer = [1];
-		let n = 1;
-		let k = 1;
-		{
-			n <= self
-		}.whileTrue {
-			answer.add(n);
-			n := n + answer[k];
-			k := k + 1
-		};
-		answer
-	}
-
 	finesSequence { :self |
 		0.toCollect(self) { :n |
 			0.to(n).collect { :m |
@@ -561,19 +529,6 @@
 		}.nestList([1], m - 1)
 	}
 
-	lucasNumber { :self |
-		(self = 1).if {
-			1
-		} {
-			let phi = 1.goldenRatio;
-			(phi ^ self).round
-		}
-	}
-
-	lucasNumbers { :self |
-		[1 1].linearRecurrence([1 3], self)
-	}
-
 	mallowsSequence { :n |
 		let a = List(n, 1);
 		3.toDo(n) { :i |
@@ -656,20 +611,6 @@
 
 	padovanSequence { :self |
 		self.padovanSequence([1 1 1])
-	}
-
-	pellNumber { :self |
-		let n = self;
-		let x = 2.sqrt;
-		((((1 + x) ^ n) - ((1 - x) ^ n)) / (2 * x)).real
-	}
-
-	pellNumbers { :self |
-		[2 1].linearRecurrence([0 1], self)
-	}
-
-	pellLucasNumbers { :self |
-		[2 1].linearRecurrence([2 2], self)
 	}
 
 	periodDoublingSequence { :n |

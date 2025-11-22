@@ -223,6 +223,16 @@ true
 3416454622906707L
 ```
 
+The variant `fibonacciInteger` consults a cached table and is accurate:
+
+```
+>>> 76.fibonacciInteger
+3416454622906707L
+
+>>> 175.fibonacciInteger
+1672445759041379840132227567949787325L
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -310,7 +320,7 @@ Plot the Fibonacci polynomial for various orders:
 
 * * *
 
-See also: binetsFormula, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio, lucasNumber
+See also: binetsFormula, fibonacciPolynomial, fibonacciSequence, fibonacciSequenceUpTo, goldenRatio, lucasNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 

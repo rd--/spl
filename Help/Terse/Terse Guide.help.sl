@@ -507,7 +507,7 @@ let l = [1 2 3]; l.addAllLast([4 5]) = [4 5] & { l = [1 2 3 4 5] } /* add all el
 [1].addAllLast([2 3]) = [2 3] /* answer is argument */
 let l = [1]; l.addAll([2, 3]); l.addAll([]); l.addAll([4 .. 6]); l = [1 .. 6] /* alias for addAllLast */
 let i = 1:9; let a = []; a.addAll(i); a.size = 9 /* add elements from Range to end of List */
-13.fibonacciSequenceInto([]) = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+13.fibonacciSequence = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
 let c = [1 .. 5]; [c.removeAt(1), c] = [1, [2, 3, 4, 5]] /* removeAt answers the removed element */
 let c = [1 .. 5]; [c.removeAt(3), c] = [3, [1, 2, 4, 5]]
 let c = [1 .. 5]; [c.removeFirst(3), c] = [[1, 2, 3], [4, 5]] /* remove first three objects from array */

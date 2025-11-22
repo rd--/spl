@@ -173,6 +173,7 @@
 	'EasingFunctions'
 	'Elementwise'
 	'FeatureDetection'
+	'FibonacciNumbers'
 	'Fourier'
 	'Gamma'
 	'GrayCode'

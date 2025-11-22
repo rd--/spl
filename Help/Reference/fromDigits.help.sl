@@ -54,6 +54,20 @@ If _b_ is a large integer, so is the answer:
 123L
 ```
 
+Binary expansions as decimal numbers,
+OEIS [A007088](https://oeis.org/A007088):
+
+```
+>>> 0:15.collect { :i |
+>>> 	i.integerDigits(2)
+>>> 	.fromDigits(10)
+>>> }
+[
+	0 1 10 11 100 101 110 111 1000 1001
+	1010 1011 1100 1101 1110 1111
+]
+```
+
 Reverse binary digits,
 OEIS [A030101](https://oeis.org/A030101):
 
@@ -105,6 +119,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/FromDigits.html),
 _OEIS_
-[1](https://oeis.org/A030101)
+[1](https://oeis.org/A019518)
+[2](https://oeis.org/A007088)
+[3](https://oeis.org/A030101)
 
 Categories: Converting

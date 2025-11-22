@@ -1,8 +1,8 @@
 # fibonacciSequenceUpTo
 
-- _fibonacciSequenceUpTo(anInteger)_
+- _fibonacciSequenceUpTo(n)_
 
-Answer a `List` of the Fibonacci numbers less than or equal to _anInteger_.
+Answer a `List` of the Fibonacci numbers less than or equal to _n_.
 
 There are seven Fibonacci numbers less than or equal to twenty:
 
@@ -27,3 +27,5 @@ The sum of the even Fibonacci numbers less than four million:
 * * *
 
 See also: fibonacci, fibonacciSequence
+
+Guides: Integer Functions
