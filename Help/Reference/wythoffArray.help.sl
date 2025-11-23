@@ -27,7 +27,7 @@ The first nine rows and columns of the Wythoff array:
 
 * * *
 
-See also: fibonacci, wythoffLower, wythoffPair, wythoffUpper
+See also: fibonacci, stolarskyArray, wythoffLower, wythoffPair, wythoffUpper
 
 Guides: Integer Sequence Functions
 

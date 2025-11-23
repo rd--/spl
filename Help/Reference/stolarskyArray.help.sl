@@ -23,7 +23,7 @@ The first seven rows and columns of the Stolarsky array:
 
 * * *
 
-See also: fibonacci, goldenRatio, wythoffArray
+See also: fibonacci, goldenRatio, stolarskyIndex, wythoffArray
 
 Guides: Integer Sequence Functions
 

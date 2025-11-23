@@ -4,8 +4,8 @@
 
 Answer _n_ × the golden ratio,
 also called the golden mean,
-_(√5 + 1) / 2_,
-usually written as Phi or phi, also as tau.
+_(√5+1)/2_,
+usually written as ϕ (Phi) or φ(phi), also as τ (tau).
 
 ```
 >>> 1.goldenRatio

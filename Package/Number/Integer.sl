@@ -1237,37 +1237,6 @@
 		}
 	}
 
-	stolarskyArray { :m :n |
-		let phi = 1.goldenRatio;
-		let g = { :x | (x * phi + 0.5).floor };
-		(n = 1).if {
-			(m = 1).if {
-				1
-			} {
-				let z = (m - 1).stolarskyArray(1) + 1;
-				let rowContains = { :r :x |
-					let k = r.stolarskyArray(1);
-					{
-						k < x
-					}.whileTrue {
-						k := g(k)
-					};
-					k = x
-				};
-				{
-					1.to(m - 1).anySatisfy { :r |
-						r.rowContains(z)
-					}
-				}.whileTrue {
-					z := z + 1
-				};
-				z
-			}
-		} {
-			g(m.stolarskyArray(n - 1))
-		}
-	}
-
 	subdivide { :self |
 		Range(0, 1, Fraction(1, self))
 	}

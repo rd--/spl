@@ -279,7 +279,7 @@
 				perrinFunction: [001608 112881],
 				perrinSequence: [001608],
 				pi: [000796 001203 002485 002486],
-				pisanoPeriod: [001175],
+				pisanoPeriod: [001175 066853],
 				plasticRatio: [060006],
 				politeness: [069283],
 				polygonalNumber: [
@@ -288,6 +288,7 @@
 					051867 051868 051869 051870 051871 051872 051873 051874
 					051875 051876
 				],
+				Polynomial: [003263],
 				powerMod: [096008 001567 002371],
 				previousPrime: [007917],
 				prime: [000040 046929 243353],
@@ -346,6 +347,7 @@
 				stirlingS2: [008277],
 				stolarskyArray: [035506],
 				stolarskyHarborthConstant: [006046 077464],
+				stolarskyIndex: [098861 098862],
 				subfactorial: [000166],
 				substitutionSystem: [003849 010060 014577 020985 096268],
 				superCatalanNumber: [001003 006318],
@@ -377,7 +379,7 @@
 				wythoffPair: [000201 001950],
 				wythoffUpper: [001950],
 				yellowstonePermutation: [098550],
-				zeckendorfRepresentation: [014417 007895 003714 328208 035517 094202],
+				zeckendorfRepresentation: [014417 007895 003714 328208 035517 094202 035614],
 				zero: [000004]
 			)
 		}

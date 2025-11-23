@@ -32,7 +32,9 @@ Relation to `lowerChristoffelWord`:
 1:100.collect(fibonacciWord:/1)
 ```
 
-Threads over lists, derive the binary complement of the Fibonacci word:
+Threads over lists.
+Derive the binary complement of the Fibonacci word,
+OEIS [A005614](https://oeis.org/A005614):
 
 ```
 >>> 1 - 1:20.fibonacciWord

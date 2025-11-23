@@ -41,6 +41,27 @@ The Fibonacci sequence modulo eight has period twelve:
 ]
 ```
 
+Number of different residues of _F(i)%n_ over all _i_,
+OEIS [A066853](https://oeis.org/A066853):
+
+```
+>>> 1:73.collect { :n |
+>>> 	let k = n.pisanoPeriod;
+>>> 	let f = k.fibonacciSequence;
+>>> 	(f % n).nub.size
+>>> }.scatterPlot
+[
+	 1  2  3  4  5  6  7  6  9 10
+	 7 11  9 14 15 11 13 11 12 20
+	 9 14 19 13 25 18 27 21 10 30
+	19 21 19 13 35 15 29 13 25 30
+	19 18 33 20 45 21 15 15 37 50
+	35 30 37 29 12 25 33 20 37 55
+	25 21 23 42 45 38 51 20 29 70
+	44 15 57
+]
+```
+
 Plot first few terms:
 
 ~~~spl svg=A
@@ -49,6 +70,19 @@ Plot first few terms:
 ~~~
 
 ![](sw/spl/Help/Image/pisanoPeriod-A.svg)
+
+Plot first few terms of
+OEIS [A066853](https://oeis.org/A066853):
+
+~~~spl svg=B
+1:125.collect { :n |
+	let k = n.pisanoPeriod;
+	let f = k.fibonacciSequence;
+	(f % n).nub.size
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/pisanoPeriod-B.svg)
 
 * * *
 
@@ -60,6 +94,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PisanoPeriod.html),
 _OEIS_
-[1](https://oeis.org/A001175),
+[1](https://oeis.org/A001175)
+[2](https://oeis.org/A066853),
 _W_
 [1](https://en.wikipedia.org/wiki/Pisano_period)

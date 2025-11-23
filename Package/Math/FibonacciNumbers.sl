@@ -170,6 +170,97 @@
 		}
 	}
 
+	stolarskyArray { :m :n |
+		let phi = 1.goldenRatio;
+		let g = { :x |
+			(x * phi + 0.5).floor
+		};
+		let f:/2 = { :m :n |
+			(n = 1).if {
+				(m = 1).if {
+					1
+				} {
+					let z = f(m - 1, 1) + 1;
+					let rowContains = { :r :x |
+						let k = f(r, 1);
+						{
+							k < x
+						}.whileTrue {
+							k := g(k)
+						};
+						k = x
+					};
+					{
+						1.to(m - 1).anySatisfy { :r |
+							r.rowContains(z)
+						}
+					}.whileTrue {
+						z := z + 1
+					};
+					z
+				}
+			} {
+				g(f(m, n - 1))
+			}
+		}.memoize;
+		f(m, n)
+	}
+
+	stolarskyIndex { :n |
+		n.wythoffIndex(stolarskyArray:/2)
+	}
+
+	wythoffArray { :m :n |
+		let phi = 1.goldenRatio;
+		(n = 1).if {
+			((m * phi).floor * phi).floor
+		} {
+			(n = 2).if {
+				((m * phi).floor * phi.square).floor
+			} {
+				m.wythoffArray(n - 2) + m.wythoffArray(n - 1)
+			}
+		}
+	}
+
+	wythoffIndex { :n :array:/2 |
+		valueWithReturn { :return:/1 |
+			let r = 1;
+			let m = 1;
+			{ m < n }.whileTrue {
+				let c = 1;
+				{ m < n }.whileTrue {
+					c := c + 1;
+					m := array(r, c)
+				};
+				(m = n).if {
+					[r, c].return
+				} {
+					r := r + 1;
+					m := array(r, 1)
+				}
+			};
+			[r, 1]
+		}
+	}
+
+	wythoffIndex { :n |
+		n.wythoffIndex(wythoffArray:/2)
+	}
+
+	wythoffLower { :self |
+		(self * 1.goldenRatio).floor
+	}
+
+	wythoffPair { :self |
+		let phi = 1.goldenRatio;
+		[(self * phi).floor, (self * phi.square).floor]
+	}
+
+	wythoffUpper { :self |
+		(self * 1.goldenRatio.square).floor
+	}
+
 	zeckendorfRepresentation { :self |
 		(self <= 0).if {
 			[0]

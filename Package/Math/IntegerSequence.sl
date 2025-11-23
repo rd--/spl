@@ -843,32 +843,6 @@
 		l
 	}
 
-	wythoffArray { :m :n |
-		let phi = 1.goldenRatio;
-		(n = 1).if {
-			((m * phi).floor * phi).floor
-		} {
-			(n = 2).if {
-				((m * phi).floor * phi.square).floor
-			} {
-				m.wythoffArray(n - 2) + m.wythoffArray(n - 1)
-			}
-		}
-	}
-
-	wythoffLower { :self |
-		(self * 1.goldenRatio).floor
-	}
-
-	wythoffPair { :self |
-		let phi = 1.goldenRatio;
-		[(self * phi).floor, (self * phi.square).floor]
-	}
-
-	wythoffUpper { :self |
-		(self * 1.goldenRatio.square).floor
-	}
-
 	yellowstonePermutation { :n |
 		let l = [1 2 3];
 		let i = 3;

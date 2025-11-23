@@ -101,7 +101,7 @@ OEIS [A025480](https://oeis.org/A025480):
 ]
 ```
 
-Plot it:
+Plot first few terms for for _b=2_:
 
 ~~~spl svg=A
 (1:127).functionPlot { :n |
@@ -124,7 +124,18 @@ OEIS [A110963](https://oeis.org/A110963):
 }.scatterPlot
 ~~~
 
-![](sw/spl/Help/Image/integerExponent-A.svg)
+![](sw/spl/Help/Image/integerExponent-B.svg)
+
+Plot number of zeroes at the end of _n_ when written in base ten,
+OEIS [A122840](https://oeis.org/A122840):
+
+~~~spl svg=C
+1:200.collect { :n |
+	n.integerExponent(10)
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-C.svg)
 
 * * *
 

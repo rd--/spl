@@ -206,6 +206,23 @@ OEIS [A328208](https://oeis.org/A328208):
 ]
 ```
 
+The horizontal para-Fibonacci sequence,
+OEIS [A035614](https://oeis.org/A035614):
+
+```
+>>> 0:80.collect { :n |
+>>> 	let z = (n + 1).zeckendorfRepresentation;
+>>> 	z.fromDigits.integerExponent(10)
+>>> }
+[
+	0 1 2 0 3 0 1 4 0 1 2 0 5 0 1 2 0 3 0 1
+	6 0 1 2 0 3 0 1 4 0 1 2 0 7 0 1 2 0 3 0
+	1 4 0 1 2 0 5 0 1 2 0 3 0 1 8 0 1 2 0 3
+	0 1 4 0 1 2 0 5 0 1 2 0 3 0 1 6 0 1 2 0
+	3
+]
+```
+
 Discrete plot of a representation with 115 places:
 
 ~~~spl svg=A
@@ -325,7 +342,8 @@ _OEIS_
 [4](https://oeis.org/A328208)
 [5](https://oeis.org/A035517)
 [6](https://oeis.org/A094202)
-[7](https://oeis.org/A104324),
+[7](https://oeis.org/A104324)
+[8](https://oeis.org/A035614),
 _W_
 [1](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
 

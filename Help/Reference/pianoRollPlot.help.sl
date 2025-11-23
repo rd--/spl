@@ -31,8 +31,7 @@ and note numbers need not be integers:
 let r = Sfc32(953712);
 UniformDistribution(
 	[1 23; 1 3; 38 84]
-)
-.randomVariate(r, [37])
+).randomVariate(r, [37])
 .pianoRollPlot
 ~~~
 
