@@ -5,6 +5,30 @@
 		((1 + z) ^ n) - ((1 - z) ^ n) / ((2 ^ n) * z)
 	}
 
+	dualZeckendorfRepresentation { :n |
+		(n = 0).if {
+			[0]
+		} {
+			let z = zeckendorfRepresentation(n);
+			let i = 1;
+			{ i <= (z.size - 2) }.whileTrue {
+				(z[i] = 1 & { z[i + 1] = 0 & { z[i + 2] = 0 } }).ifTrue {
+					z[i] := 0;
+					z[i + 1] := 1;
+					z[i + 2] := 1;
+					(i > 2).ifTrue {
+						i := i - 3
+					}
+				};
+				i := i + 1
+			};
+			(z[1] = 0).ifTrue {
+				z.removeFirst
+			};
+			z
+		}
+	}
+
 	fibonacci { :n :x |
 		let a = (4 + x.square).sqrt;
 		let b = x + a;
@@ -143,6 +167,25 @@
 				a != a0
 			};
 			k
+		}
+	}
+
+	zeckendorfRepresentation { :self |
+		(self <= 0).if {
+			[0]
+		} {
+			let f = self.fibonacciSequenceUpTo;
+			let k = f.size - 1;
+			let z = [];
+			f.removeFirst;
+			k.toByDo(2, -1) { :i |
+				let n = f[i];
+				z.add((n <= self).if { 1 } { 0 });
+				(n <= self).ifTrue {
+					self := self - n
+				}
+			};
+			z
 		}
 	}
 

@@ -4,7 +4,8 @@
 
 Answer the _n_-th letter in the infinite Fibonacci word.
 
-Calculate the first one hundred elements:
+Calculate the first one hundred elements,
+OEIS [A003849](https://oeis.org/A003849):
 
 ```
 >>> 1:100.collect(fibonacciWord:/1)

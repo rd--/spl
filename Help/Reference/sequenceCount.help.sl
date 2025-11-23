@@ -45,7 +45,7 @@ OEIS [A104326](https://oeis.org/A104326):
 >>> 	n.integerDigits(2)
 >>> }.select { :n |
 >>> 	n.sequenceCount([0 0]) = 0
->>> }
+>>> }.collect { :x | x.split(=).size }
 [
 	0;
 	1;
@@ -75,6 +75,22 @@ OEIS [A104326](https://oeis.org/A104326):
 ]
 ```
 
+Numbers with no adjacent zeroes in binary expansion,
+OEIS [A003754](https://oeis.org/A003754):
+
+```
+>>> 0:85.select { :n |
+>>> 	n.integerDigits(2)
+>>> 	.sequenceCount([0 0]) = 0
+>>> }
+[
+	 0  1  2  3  5  6  7 10 11 13
+	14 15 21 22 23 26 27 29 30 31
+	42 43 45 46 47 53 54 55 58 59
+	61 62 63 85
+]
+```
+
 * * *
 
 See also: count, sequencePosition
@@ -87,3 +103,4 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A003714)
 [2](https://oeis.org/A104326)
+[3](https://oeis.org/A003754)

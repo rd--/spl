@@ -1663,6 +1663,19 @@
 		x.dot(cx).inverse.dot(x).dot(cy).transpose.first
 	}
 
+	lengthWhile { :x :f:/1 |
+		let n = x.size;
+		let i = 1;
+		{
+			i <= n & {
+				f(x[i])
+			}
+		}.whileTrue {
+			i := i + 1
+		};
+		i - 1
+	}
+
 	linearCombination { :v :c |
 		(c * v).sum
 	}

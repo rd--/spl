@@ -1404,25 +1404,6 @@
 		self - 1 % size + 1
 	}
 
-	zeckendorfRepresentation { :self |
-		(self <= 0).if {
-			[0]
-		} {
-			let f = self.fibonacciSequenceUpTo;
-			let k = f.size - 1;
-			let z = [];
-			f.removeFirst;
-			k.toByDo(2, -1) { :i |
-				let n = f[i];
-				z.add((n <= self).if { 1 } { 0 });
-				(n <= self).ifTrue {
-					self := self - n
-				}
-			};
-			z
-		}
-	}
-
 }
 
 +@Integer {

@@ -8,6 +8,63 @@ using no two consecutive numbers,
 and that such a representation is unique.
 The Zeckendorf representation gives this unique set of indices as a binary string.
 
+The first number whose representation takes three summands is twelve:
+
+```
+>>> 12.zeckendorfRepresentation
+[1 0 1 0 1]
+```
+
+The first number whose representation takes four summands is thirty-three:
+
+```
+>>> 33.zeckendorfRepresentation
+[1 0 1 0 1 0 1]
+```
+
+There are _F(k)_ Zeckendorf representations of length _k_.
+The thirteen representations of length seven:
+
+```
+>>> 21:33.zeckendorfRepresentation
+[
+	1 0 0 0 0 0 0;
+	1 0 0 0 0 0 1;
+	1 0 0 0 0 1 0;
+	1 0 0 0 1 0 0;
+	1 0 0 0 1 0 1;
+	1 0 0 1 0 0 0;
+	1 0 0 1 0 0 1;
+	1 0 0 1 0 1 0;
+	1 0 1 0 0 0 0;
+	1 0 1 0 0 0 1;
+	1 0 1 0 0 1 0;
+	1 0 1 0 1 0 0;
+	1 0 1 0 1 0 1
+]
+```
+
+The Zeckendorf representation of 1⏨:
+
+```
+>>> (10 ^ 10).zeckendorfRepresentation
+[
+	1 0 0 1 0 0 0 1 0 1 0 0 0 0 1 0 1 0 1 0
+	1 0 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 0 1
+	0 0 1 0 0 1 0 1
+]
+```
+
+Reconstruct integer from Zeckendorf representation:
+
+```
+>>> let n = 10 ^ 10;
+>>> let z = n.zeckendorfRepresentation;
+>>> let i = z.reverse.indicesOf(1);
+>>> (z.size, (i + 1).fibonacci.sum)
+(48, 10 ^ 10)
+```
+
 First few terms,
 OEIS [A014417](https://oeis.org/A014417):
 
@@ -217,9 +274,44 @@ OEIS [A094202](https://oeis.org/A094202):
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-E.svg)
 
+Plot the number of runs of identical bits in the binary Zeckendorf representation of _n_,
+OEIS [A104324](https://oeis.org/A104324):
+
+~~~spl svg=F
+1:200.collect { :n |
+	n.zeckendorfRepresentation
+	.split(=)
+	.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
+
+Plot the number of runs of identical bits in the binary Zeckendorf representation of _n_,
+OEIS [A104324](https://oeis.org/A104324):
+
+~~~spl svg=F
+1:200.collect { :n |
+	n.zeckendorfRepresentation
+	.split(=)
+	.size
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
+
+Matrix plot of Zeckendorf representations of length seven:
+
+~~~spl svg=G
+21:33.zeckendorfRepresentation
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-G.svg)
+
 * * *
 
-See also: fibonacci
+See also: dualZeckendorfRepresentation, fibonacci
 
 Guides: Integer Sequence Functions
 
@@ -232,7 +324,8 @@ _OEIS_
 [3](https://oeis.org/A003714)
 [4](https://oeis.org/A328208)
 [5](https://oeis.org/A035517)
-[6](https://oeis.org/A094202),
+[6](https://oeis.org/A094202)
+[7](https://oeis.org/A104324),
 _W_
 [1](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
 

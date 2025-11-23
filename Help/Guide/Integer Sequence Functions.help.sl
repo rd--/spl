@@ -61,6 +61,7 @@
 - `divisorSigma`: A000005 A000203 A005114 A078923
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
+- `dualZeckendorfRepresentation`: A003754 A104325 A104326 A112309 A112310 A331191
 - `e`: A001113
 - `ekgSequence`: A064413 A064664
 - `engelExpansion`: A000027 A006784 A028254
@@ -351,8 +352,8 @@
 - `wythoffLower`: A000201
 - `wythoffPair`: A000201 A001950
 - `wythoffUpper`: A001950
-- `zeckendorfRepresentation`: A003714 A007895 A014417 A035517 A094202 A328208
 - `yellowstonePermutation`: A098550
+- `zeckendorfRepresentation`: A003714 A007895 A014417 A035517 A094202 A328208
 - `zero`: A000004
 
 The above list is printed by:
