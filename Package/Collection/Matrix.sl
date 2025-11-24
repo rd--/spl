@@ -528,6 +528,12 @@
 		{ :i :j | 1 }.table(1.to(n), 1.to(n))
 	}
 
+	cartesianIndexToDiagonalIndex { :i :j |
+		let a = i.triangularNumber;
+ 		let b = Range(i, i + j - 2, 1);
+		a + b.sum
+	}
+
 	crossMatrix { :self |
 		let r = self.ceiling;
 		let n = r * 2 + 1;
@@ -535,6 +541,14 @@
 		{ :i :j |
 			([i - 1, j - 1].editDistance(c) <= 1).boole
 		}.table(1.to(n), 1.to(n))
+	}
+
+	diagonalIndexToCartesianIndex { :n |
+		let a = 0.5 + (2 * n).sqrt;
+		let b = 1.5 + (2 * n).sqrt;
+		let i = n - binomial(a.floor, 2);
+		let j = binomial(b.floor, 2) - n + 1;
+		[i, j]
 	}
 
 	diamondMatrix { :self |

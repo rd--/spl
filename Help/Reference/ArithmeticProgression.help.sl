@@ -47,7 +47,13 @@ The last item is treated especially so that it will not be outside the specified
 
 ```
 >>> let r = (1 -- 5).subdivide(100);
->>> (r.size, r.end, r.last, r[101], r.asList.last)
+>>> (
+>>> 	r.size,
+>>> 	r.end,
+>>> 	r.last,
+>>> 	r[101],
+>>> 	r.asList.last
+>>> )
 (101, 5, 5, 5, 5)
 ```
 

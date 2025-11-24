@@ -134,6 +134,7 @@
 	'Rectangle'
 	'Simplex'
 	'Sphere'
+	'Spiral'
 	'StadiumShape'
 	'Superellipse'
 	'Tetrahedron'

@@ -86,6 +86,17 @@ Division by `zero` is an `error`:
 true
 ```
 
+Molien series for four-dimensional representation of S₃,
+OEIS [A000601](https://oeis.org/A000601):
+
+```
+>>> let p = Polynomial([0 66 21 2]);
+>>> 0:13.collect { :n |
+>>> 	(p[n] // 72) + 1
+>>> }
+[1 2 4 7 11 16 23 31 41 53 67 83 102 123]
+```
+
 Plot the sequence of quotients:
 
 ~~~spl svg=A
@@ -141,6 +152,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerDivision.html)
 [2](https://mathworld.wolfram.com/Quotient.html)
 [3](https://reference.wolfram.com/language/ref/Quotient.html),
+_OEIS_
+[1](https://oeis.org/A000601),
 _Smalltalk_
 5.6.2.26
 

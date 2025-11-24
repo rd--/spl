@@ -138,6 +138,7 @@
 	'Geometry-Simplex'
 	'Geometry-Sphere'
 	'Geometry-SphericalCoordinates'
+	'Geometry-Spiral'
 	'Geometry-Superellipse'
 	'Geometry-StadiumShape'
 	'Geometry-Tetrahedron'

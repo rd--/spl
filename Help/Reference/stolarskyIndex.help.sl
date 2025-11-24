@@ -10,9 +10,9 @@ First few terms:
 ```
 >>> 1:25.collect(stolarskyIndex:/1)
 [
-	1 1; 1 2; 1 3; 2 1; 1 4; 2 2; 3 1; 1 5;
-	4 1; 2 3; 3 2; 5 1; 1 6; 6 1; 4 2; 2 4;
-	7 1; 3 3; 5 2; 8 1; 1 7; 9 1; 6 2; 4 3;
+	 1 1; 1 2; 1 3; 2 1; 1 4; 2 2; 3 1; 1 5;
+	 4 1; 2 3; 3 2; 5 1; 1 6; 6 1; 4 2; 2 4;
+	 7 1; 3 3; 5 2; 8 1; 1 7; 9 1; 6 2; 4 3;
 	10 1
 ]
 ```
@@ -37,7 +37,7 @@ OEIS [A098861](https://oeis.org/A098861):
 Plot first few terms:
 
 ~~~spl svg=A
-1:65.collect { :n |
+1:150.collect { :n |
 	n.stolarskyIndex[1] - 1
 }.scatterPlot
 ~~~
@@ -64,7 +64,7 @@ OEIS [A098862](https://oeis.org/A098862):
 Plot first few terms:
 
 ~~~spl svg=B
-1:55.collect { :n |
+1:150.collect { :n |
 	n.stolarskyIndex[2] - 1
 }.scatterPlot
 ~~~

@@ -208,6 +208,38 @@ OEIS [A048601](https://oeis.org/A048601):
 ]
 ```
 
+Start counting again and again,
+OEIS [A002260](https://oeis.org/A002260)
+and [A004736](https://oeis.org/A004736):
+
+```
+>>> 1:7.triangularArray { :i :j |
+>>> 	j
+>>> }
+[
+	1;
+	1 2;
+	1 2 3;
+	1 2 3 4;
+	1 2 3 4 5;
+	1 2 3 4 5 6;
+	1 2 3 4 5 6 7
+]
+
+>>> 1:7.triangularArray { :i :j |
+>>> 	i - j + 1
+>>> }
+[
+	1;
+	2 1;
+	3 2 1;
+	4 3 2 1;
+	5 4 3 2 1;
+	6 5 4 3 2 1;
+	7 6 5 4 3 2 1
+]
+```
+
 * * *
 
 See also: array, collect, table
@@ -224,7 +256,9 @@ _OEIS_
 [4](https://oeis.org/A094587)
 [5](https://oeis.org/A166556)
 [6](https://oeis.org/A077028)
-[7](https://oeis.org/A048601),
+[7](https://oeis.org/A048601)
+[8](https://oeis.org/A002260)
+[9](https://oeis.org/A004736),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

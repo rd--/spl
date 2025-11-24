@@ -183,7 +183,7 @@ Guides: Prime Number Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/PrimeSignature.html),
-OEIS
+_OEIS_
 [1](https://oeis.org/A036035)
 [2](https://oeis.org/A025487)
 [3](https://oeis.org/A118914)

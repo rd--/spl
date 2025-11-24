@@ -23,5 +23,5 @@ Guides: Mathematical Constants
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FreimansConstant.html),
-OEIS
+_OEIS_
 [1](http://oeis.org/A118472),

@@ -5,6 +5,13 @@
 Answer the line segments representing the first _n_ places of the Z-order curve,
 also called the Morton curve or the Lebesgue curve.
 
+First few terms:
+
+```
+>>> 8.zOrderCurve
+[0 0; 1 0; 0 1; 1 1; 2 0; 3 0; 2 1; 3 1]
+```
+
 Draw the first few terms of the Z-order curve:
 
 ~~~spl svg=A

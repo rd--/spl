@@ -248,7 +248,7 @@ Guides: Mathematical Constants
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Pi.html),
-OEIS
+_OEIS_
 [1](https://oeis.org/A000796)
 [2](https://oeis.org/A001203)
 [3](https://oeis.org/A002485)

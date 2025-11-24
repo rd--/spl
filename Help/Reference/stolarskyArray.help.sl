@@ -21,6 +21,27 @@ The first seven rows and columns of the Stolarsky array:
 ]
 ```
 
+Plot upper left 11×11 area of the array:
+
+~~~spl svg=A
+{ :m :n |
+	m.stolarskyArray(n)
+}.table(1:11, 1:11)
+.logScale
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/stolarskyArray-A.svg)
+
+_Note_:
+The definition is recursive and the system caches the array on construction.
+The array is stored as a `Map` indexed by `cartesianIndexToDiagonalIndex`.
+
+```
+>>> system.cachedStolarskyArray.isMap
+true
+```
+
 * * *
 
 See also: fibonacci, goldenRatio, stolarskyIndex, wythoffArray

@@ -263,6 +263,7 @@ Spiral Functions:
 - `norwichSpiral`
 - `sinusoidalSpiral`
 - `spiralMatrix`
+- `squareSpiral`
 - `theodorusSpiral`
 - `tractrixSpiral`
 

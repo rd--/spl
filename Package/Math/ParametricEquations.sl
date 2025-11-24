@@ -20,13 +20,6 @@
 		}
 	}
 
-	archimedeanSpiral { :a :n |
-		{ :theta |
-			let r = a * (theta ^ (1 / n));
-			[r, theta].fromPolarCoordinates
-		}
-	}
-
 	bicorn { :a |
 		{ :t |
 			let x = a * t.sin;
@@ -152,10 +145,6 @@
 		}
 	}
 
-	eulerSpiral { :theta |
-		[theta.fresnelC, theta.fresnelS]
-	}
-
 	fernandezGuastiSquircle { :r :s |
 		{ :theta |
 			let a = r * 2.sqrt;
@@ -182,13 +171,6 @@
 		{ :theta |
 			let r = a * (1 + (2 * (0.5 * theta).sin));
 			[r, theta].fromPolarCoordinates
-		}
-	}
-
-	galileanSpiral { :a :b |
-		{ :theta |
-			let rho = (b * theta.square) - a;
-			[rho theta].fromPolarCoordinates
 		}
 	}
 
@@ -239,14 +221,6 @@
 		}
 	}
 
-	inverseNorwichSpiral { :a |
-		{ :t |
-			let rho = a * t.cos.square;
-			let theta = (2 * t) - t.tan;
-			[rho theta].fromPolarCoordinates
-		}
-	}
-
 	lemniscate { :a |
 		{ :theta |
 			/*let rho = a * (2 * theta).cos.sqrt;
@@ -279,21 +253,6 @@
 			let x = ((a * t) + delta).sin;
 			let y = (b * t).sin;
 			[x, y]
-		}
-	}
-
-	logarithmicSpiral { :a :b |
-		{ :theta |
-			let r = a * (b * theta).exp;
-			[r, theta].fromPolarCoordinates
-		}
-	}
-
-	norwichSpiral { :a |
-		{ :t |
-			let rho = a / t.cos.square;
-			let theta = t.tan - (2 * t);
-			[rho theta].fromPolarCoordinates
 		}
 	}
 
@@ -343,16 +302,6 @@
 		}
 	}
 
-	seiffertsSpiral { :m |
-		let k = m.sqrt;
-		{ :s |
-			let rho = jacobiSn(s, m);
-			let theta = k * s;
-			let z = jacobiCn(s, m);
-			[rho theta z].fromCylindricalCoordinates
-		}
-	}
-
 	semicubicalParabola { :a |
 		{ :t |
 			let x = t.square;
@@ -367,24 +316,6 @@
 				a * theta.cot,
 				b * theta.sin * theta.cos
 			]
-		}
-	}
-
-	sinusoidalSpiral { :n :a |
-		{ :theta |
-			let r = (2 * (a ^ n) * (n * theta).cos).nthRoot(n);
-			[r theta].fromPolarCoordinates
-		}
-	}
-
-	sphericalSpiral { :a |
-		{ :t |
-			let c = (t * a).arcTan;
-			let d = c.cos;
-			let x = t.cos * d;
-			let y = t.sin * d;
-			let z = c.sin.-;
-			[x, y, z]
 		}
 	}
 
@@ -451,15 +382,6 @@
 			theta - theta.tanh,
 			1 / theta.cosh
 		]
-	}
-
-	tractrixSpiral { :a |
-		{ :t |
-			[
-				a * cos(t) * cos(t - tan(t)),
-				a * cos(t) * sin(t - tan(t))
-			]
-		}
 	}
 
 	trifolium { :r :a :b |

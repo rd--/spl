@@ -5,29 +5,38 @@
 In the unary case,
 answer the integer nearest _n_ toward `zero`,
 that is the integer part of the number.
+Unary trunate is equivalent to `integerPart`.
 
 ```
->>> 1.25.truncate
-1
-
->>> -1.25.truncate
--1
+>>> [1.25 1.75 -1.25 -1.75].collect { :n |
+>>> 	[n.truncate n.integerPart n.round]
+>>> }
+[
+	 1  1  1;
+	 1  1  2;
+	-1 -1 -1;
+	-1 -1 -2
+]
 
 >>> 1.pi.truncate
 3
 
->>> (0 - 1.pi).truncate
+>>> -1.pi.truncate
 -3
 ```
 
-Compare to `floor`:
+Compare to `ceiling` and `floor`:
 
 ```
->>> 1.25.floor
-1
-
->>> -1.25.floor
--2
+>>> [1.25 1.75 -1.25 -1.75].collect { :n |
+>>> 	[n.truncate n.ceiling n.floor]
+>>> }
+[
+	 1  2  1;
+	 1  2  1;
+	-1 -1 -2;
+	-1 -1 -2
+]
 ```
 
 At `Fraction`:
@@ -41,6 +50,28 @@ At `Fraction`:
 
 >>> 7/8.truncate
 0
+```
+
+At `Complex`:
+
+```
+>>> 1.4J2.3.truncate
+1J2
+
+>>> 3.1J-2.2.truncate
+3J-2
+
+>>> -5.3J10.9.truncate
+-5J10
+```
+
+Threads over lists,
+round matrix elements toward zero:
+
+```
+>>> [-1.9 -3.4; 1.6 2.5; -4.5 4.5]
+>>> .truncate
+[-1 -3; 1 2; -4 4]
 ```
 
 In the binary case,
@@ -78,8 +109,12 @@ See also: ceiling, floor, integerPart, round, roundDown, roundTowardsZero, round
 Guides: Rounding Functions
 
 References:
+_Maple_
+[1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=trunc),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Truncate.html),
+_Mathworks_
+[1](https://au.mathworks.com/help/matlab/ref/double.fix.html),
 _Smalltalk_
 5.6.2.41,
 _W_

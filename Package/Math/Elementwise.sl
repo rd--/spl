@@ -132,6 +132,10 @@
 		self.collect(denominator:/1)
 	}
 
+	diagonalIndexToCartesianIndex { :self |
+		self.collect(diagonalIndexToCartesianIndex:/1)
+	}
+
 	digitCount { :self :b :d |
 		self.collect { :n |
 			digitCount(n, b, d)

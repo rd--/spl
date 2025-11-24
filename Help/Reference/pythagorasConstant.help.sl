@@ -62,7 +62,7 @@ See also: e, pi, sqrt
 Guides: Mathematical Constants
 
 References:
-OEIS
+_OEIS_
 [1](https://oeis.org/A002193),
 _W_
 [1](https://en.wikipedia.org/wiki/Square_root_of_2)

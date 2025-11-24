@@ -4,6 +4,9 @@
 
 Answer the first _k_ terms of the self-counting sequence.
 
+First few terms,
+OEIS [A002024](https://oeis.org/A002024):
+
 ```
 >>> 23.selfCountingSequence
 [
@@ -26,5 +29,5 @@ Guides: Integer Sequence Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Self-CountingSequence.html),
-OEIS
+_OEIS_
 [1](https://oeis.org/A002024)

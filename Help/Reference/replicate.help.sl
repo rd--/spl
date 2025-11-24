@@ -21,6 +21,14 @@ which must have the same number of places as _x_.
 [1 1 3 3 3 5 5 5 5]
 ```
 
+The self counting sequence,
+OEIS [A002024](https://oeis.org/A002024):
+
+```
+>>> 1:5 # 1:5
+[1 2 2 3 3 3 4 4 4 4 5 5 5 5 5]
+```
+
 If _n_ is a scalar integer it re-written as a list:
 
 ```
@@ -55,6 +63,8 @@ References:
 _Apl_
 [1](https://aplwiki.com/wiki/Replicate),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic)
+[1](https://code.jsoftware.com/wiki/Vocabulary/number#dyadic),
+_OEIS_
+[1](https://oeis.org/A002024)
 
 Categories: Copying

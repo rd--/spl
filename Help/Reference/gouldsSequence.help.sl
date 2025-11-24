@@ -92,7 +92,7 @@ See also: binomial, gouldsNumber, hammingWeight, pascalTriangle
 Guides: Integer Sequence Functions
 
 References:
-OEIS
+_OEIS_
 [1](https://oeis.org/A001316)
 [2](https://oeis.org/A006046)
 [3](https://oeis.org/A000120),

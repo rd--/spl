@@ -83,6 +83,32 @@ The inverse is `arcSin`:
 1
 ```
 
+List of _x_-coordinates of point moving in clockwise square spiral,
+OEIS [A174344](https://oeis.org/A174344):
+
+```
+>>> let f = { :n |
+>>> 	(n = 0).if {
+>>> 		0
+>>> 	} {
+>>> 		let a = 4 * (n - 1) + 1;
+>>> 		let b = a.sqrt.floor % 4;
+>>> 		f(n - 1) + sin(b.pi / 2)
+>>> 	}
+>>> };
+>>> 0:74.collect(f:/1)
+[
+	 0  1  1  0 -1 -1 -1  0  1  2
+	 2  2  2  1  0 -1 -2 -2 -2 -2
+	-2 -1  0  1  2  3  3  3  3  3
+	 3  2  1  0 -1 -2 -3 -3 -3 -3
+	-3 -3 -3 -2 -1  0  1  2  3  4
+	 4  4  4  4  4  4  4  3  2  1
+	 0 -1 -2 -3 -4 -4 -4 -4 -4 -4
+	-4 -4 -4 -3 -2
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -210,6 +236,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Sine.html)
 [2](https://reference.wolfram.com/language/ref/Sin.html),
+_OEIS_
+[1](https://oeis.org/A174344),
 _Smalltalk_
 5.6.7.13,
 _W_

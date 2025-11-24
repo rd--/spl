@@ -47,7 +47,7 @@ Reject items that are integers:
 
 * * *
 
-See also: collect, detect, select
+See also: collect, detect, groupBy, select
 
 Guides: Collection Functions
 

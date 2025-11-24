@@ -330,6 +330,40 @@ OEIS [A060693](https://oeis.org/A060693):
 ]
 ```
 
+Start counting again and again,
+OEIS [A002260](https://oeis.org/A002260)
+and [A004736](https://oeis.org/A004736):
+
+```
+>>> 1:28.collect { :n |
+>>> 	let a = 0.5 + (2 * n).sqrt;
+>>> 	n - binomial(a.floor, 2)
+>>> }
+[
+	1
+	1 2
+	1 2 3
+	1 2 3 4
+	1 2 3 4 5
+	1 2 3 4 5 6
+	1 2 3 4 5 6 7
+]
+
+>>> 1:28.collect { :n |
+>>> 	let a = 1.5 + (2 * n).sqrt;
+>>> 	binomial(a.floor, 2) - n + 1
+>>> }
+[
+	1
+	2 1
+	3 2 1
+	4 3 2 1
+	5 4 3 2 1
+	6 5 4 3 2 1
+	7 6 5 4 3 2 1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -391,7 +425,9 @@ _OEIS_
 [6](https://oeis.org/A166556)
 [7](https://oeis.org/A109449)
 [8](https://oeis.org/A000332)
-[9](https://oeis.org/A060693),
+[9](https://oeis.org/A060693)
+[10](https://oeis.org/A002260)
+[11](https://oeis.org/A004736),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.binomial),
 _W_

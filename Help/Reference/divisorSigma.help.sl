@@ -132,7 +132,8 @@ Abundant numbers, numbers _n_ such that the sum of their divisors is greater tha
 [12 18 20 24 30]
 ```
 
-Calculate the divisor summatory function:
+Calculate the divisor summatory function,
+OEIS [A006218](https://oeis.org/A006218):
 
 ```
 >>> 0.divisorSigma(1:39).foldList(0, +)
@@ -148,21 +149,29 @@ Calculate the divisor summatory function:
 ]
 ```
 
+The aliquot numbers
 OEIS [A078923](https://oeis.org/A078923),
-the complement is OEIS [A005114](https://oeis.org/A005114)
-the nonaliquot numbers:
+and the nonaliquot numbers
+OEIS [A005114](https://oeis.org/A005114):
 
 ```
 >>> let sigma:/1 = { :n |
 >>> 	1.divisorSigma(n)
 >>> }.memoize(true);
->>> 0:9.select { :n |
->>> 	let m = (n = 1).if { 2 } { (n - 1) ^ 2 };
+>>> 0:11.groupBy { :n |
+>>> 	let m = (n = 1).if {
+>>> 		2
+>>> 	} {
+>>> 		(n - 1) ^ 2
+>>> 	};
 >>> 	1:m.anySatisfy { :k |
 >>> 		sigma(k) - k = n
 >>> 	}
 >>> }
-[0 1 3 4 6 7 8 9]
+[
+	true: [0 1 3 4 6 7 8 9 10 11],
+	false: [2 5]
+]
 ```
 
 Plot divisor function _σ₀(n)_ up to _n=100_:

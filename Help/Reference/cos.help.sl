@@ -46,6 +46,32 @@ The inverse is `arcCos`:
 1
 ```
 
+List of _y_-coordinates of point moving in clockwise square spiral,
+OEIS [A268038](https://oeis.org/A268038):
+
+```
+>>> let f = { :n |
+>>> 	(n = 0).if {
+>>> 		0
+>>> 	} {
+>>> 		let a = 4 * (n - 1) + 1;
+>>> 		let b = a.sqrt.floor % 4;
+>>> 		f(n - 1) + cos(b.pi / 2)
+>>> 	}
+>>> };
+>>> 0:74.collect(f:/1).round
+[
+	 0  0 -1 -1 -1  0  1  1  1  1
+	 0 -1 -2 -2 -2 -2 -2 -1  0  1
+	 2  2  2  2  2  2  1  0 -1 -2
+	-3 -3 -3 -3 -3 -3 -3 -2 -1  0
+	 1  2  3  3  3  3  3  3  3  3
+	 2  1  0 -1 -2 -3 -4 -4 -4 -4
+	-4 -4 -4 -4 -4 -3 -2 -1  0  1
+	 2  3  4  4  4
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -130,6 +156,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/Cos.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/double.cos.html),
+_OEIS_
+[1](https://oeis.org/A268038),
 _Smalltalk_
 5.6.7.5,
 _W_

@@ -47,6 +47,30 @@ Threads over lists:
 [-2 -1 -1 0 0 1 1 2 2]
 ```
 
+A self-generating sequence,
+OEIS [A005041](https://oeis.org/A005041):
+
+```
+0:7.collect { :n |
+	List(
+		((n + 1) / 3).ceiling + 1,
+		n + 1
+	)
+}
+[
+	1 1;
+	2 2;
+	3 3;
+	4 4 4;
+	5 5 5;
+	6 6 6;
+	7 7 7 7;
+	8 8 8 8
+]
+```
+
+Table[n+1, {n, 0, 20}, {Ceiling[(n+1)/3]+1}] // Flatten
+
 Ceiling is a staircase function:
 
 ~~~spl svg=A
@@ -73,6 +97,8 @@ _J_
 _Mathematica_
 [1](https://mathworld.wolfram.com/CeilingFunction.html)
 [2](https://reference.wolfram.com/language/ref/Ceiling.html),
+_OEIS_
+[1](https://oeis.org/A005041),
 _Smalltalk_
 5.6.2.18,
 _W_

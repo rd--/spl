@@ -64,6 +64,37 @@ Plot over a subset of the reals:
 
 ![](sw/spl/Help/Image/integerPart-A.svg)
 
+Implement the Frisch continuous-but-nowhere-differentiable function:
+
+~~~spl svg=B
+let f = { :x :n |
+	1:n.sum { :k |
+		let a = (k * x).integerPart;
+		let b = ((k + 1) * x).integerPart;
+		(a = b).boole / (2 ^ k)
+	}
+};
+1:50.collect { :j |
+	0:j.collect { :i |
+		i / j
+	}
+}.catenate.nub.sort.collect { :x |
+	[x, f(x, 100)]
+}.linePlot
+~~~
+
+![](sw/spl/Help/Image/integerPart-B.svg)
+
+Plot quantized quadratic function:
+
+~~~spl svg=C
+(-3 -- 3).functionPlot { :x |
+	(x + x.square).integerPart
+}
+~~~
+
+![](sw/spl/Help/Image/integerPart-C.svg)
+
 * * *
 
 See also: ceiling, floor, fractionalPart, truncate

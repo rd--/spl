@@ -171,18 +171,20 @@
 	}
 
 	stolarskyArray { :m :n |
-		let phi = 1.goldenRatio;
-		let g = { :x |
-			(x * phi + 0.5).floor
-		};
-		let f:/2 = { :m :n |
+		let c = system.cachedStolarskyArray;
+		let d = cartesianIndexToDiagonalIndex(m, n);
+		c.atIfAbsentPut(d) {
+			let phi = 1.goldenRatio;
+			let g = { :x |
+				(x * phi + 0.5).floor
+			};
 			(n = 1).if {
 				(m = 1).if {
 					1
 				} {
-					let z = f(m - 1, 1) + 1;
+					let z = stolarskyArray(m - 1, 1) + 1;
 					let rowContains = { :r :x |
-						let k = f(r, 1);
+						let k = stolarskyArray(r, 1);
 						{
 							k < x
 						}.whileTrue {
@@ -200,10 +202,9 @@
 					z
 				}
 			} {
-				g(f(m, n - 1))
+				g(stolarskyArray(m, n - 1))
 			}
-		}.memoize;
-		f(m, n)
+		}
 	}
 
 	stolarskyIndex { :n |
@@ -297,6 +298,12 @@
 			self.cache.atPut('fibonacciSequence', answer)
 		};
 		answer
+	}
+
+	cachedStolarskyArray { :self |
+		self.cached('stolarskyArray') {
+			Map()
+		}
 	}
 
 }

@@ -109,7 +109,7 @@ At `Sfc32`, which implements `Stream`:
 
 * * *
 
-See also: collect, detect, keySelect, reject
+See also: collect, detect, groupBy, keySelect, reject
 
 Guides: Collection Functions
 

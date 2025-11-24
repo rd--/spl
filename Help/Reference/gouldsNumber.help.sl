@@ -29,7 +29,7 @@ See also: gouldsSequence, hammingWeight
 Guides: Integer Sequence Functions
 
 References:
-OEIS
+_OEIS_
 [1](https://oeis.org/A001316),
 _W_
 [1](https://en.wikipedia.org/wiki/Gould%27s_sequence)

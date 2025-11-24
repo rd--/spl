@@ -129,7 +129,7 @@ Derive the seven tone Pythagorean scale:
 ```
 
 The regular paper-folding (or dragon curve) sequence,
-c.f. OEIS [A014707](https://oeis.org/A014707):
+OEIS [A014707](https://oeis.org/A014707):
 
 ```
 >>> { :l |
@@ -191,8 +191,8 @@ A complete binary tree:
 ]
 ```
 
-Plot the first few terms of OEIS [A118006](https://oeis.org/A118006),
-the pattern is called Reverend Back’s abbey floor:
+Plot the first few terms of Reverend Back’s abbey floor,
+OEIS [A118006](https://oeis.org/A118006):
 
 ~~~spl svg=A
 let i = { :x |
@@ -205,7 +205,8 @@ let i = { :x |
 
 ![](sw/spl/Help/Image/iterate-A.svg)
 
-Plot the first few terms of OEIS [A164349](https://oeis.org/A164349):
+Plot the first few terms of
+OEIS [A164349](https://oeis.org/A164349):
 
 ~~~spl svg=B
 { :x |
