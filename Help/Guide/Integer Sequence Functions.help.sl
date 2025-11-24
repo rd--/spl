@@ -18,7 +18,7 @@
 - `bernoulliSequence`: A027641 A027642
 - `bernoulliTriangle`: A008949
 - `binaryExpansion`: A007088
-- `binomial`: A000125 A000127 A000332 A000984 A006542 A027907 A060693 A109449 A166556
+- `binomial`: A000125 A000127 A000332 A000984 A002260 A004736 A006542 A027907 A060693 A109449 A166556
 - `bitAnd`: A279125
 - `bitReversalPermutation`: A030109
 - `bitXor`: A003188
@@ -29,11 +29,13 @@
 - `cantorNumbers`: A005823
 - `cantorStaircase`: A095844 A095845
 - `carmichaelLambda`: A002322
+- `cartesianIndexToDiagonalIndex`: A000124 A000217
 - `catalanNumber`: A000108 A014137 A014138
 - `catalanTriangle`: A000096 A005586 A005587 A009766
 - `catalansConstant`: A006752
 - `catalanRank`: A215406
 - `catalanUnrank`: A014486 A057514 A080300
+- `ceiling`: A005041
 - `centeredHexagonalNumber`: A003215
 - `centeredPolygonalNumber`: A001844 A003215 A005448 A005891
 - `champernowneSequence`: A007376
@@ -44,6 +46,7 @@
 - `collatzSequence`: A070165
 - `connellSequence`: A001614
 - `continuedFraction`: A003417
+- `cos`: A268038
 - `convergents`: A001040 A001053
 - `convolve`: A001629
 - `conwaysConstant`: A014715
@@ -84,7 +87,8 @@
 - `factorInteger`: A006881 A124859
 - `fareySequence`: A005728 A006842 A006843
 - `feigenbaumConstant`: A006890
-- `fibonacci`: A000045 A000129 A001060 A001076 A003893 A006190 A052918 A058071 A105870
+- `fibonacci`: A000045 A000129 A001060 A001076 A001177 A003893 A006190 A052918 A058071 A105870
+- `fibonacciEntryPoint`: A001177
 - `fibonacciFactorial`: A003266
 - `fibonacciFactorialConstant`: A062073
 - `fibonacciPolynomial`: A049310 A162515
@@ -128,6 +132,7 @@
 - `interprime`: A024675
 - `inventorySequence`: A342585
 - `involutionNumber`: A000085
+- `iota`: A002260 A004736
 - `isAbundantNumber`: A005101
 - `isAlmostPrime`: A000040 A001358 A046308 A069272
 - `isAmicablePair`: A259180
@@ -206,6 +211,7 @@
 - `linearRecurrence`: A000045 A000045 A000078 A000124 A000127 A000129 A000129 A000204 A000225 A000295 A000930 A000931 A000931 A000975 A000975 A001076 A001108 A001333 A001519 A001590 A001608 A001653 A001687 A001840 A002203 A002943 A003269 A003520 A005578 A006356 A017817 A017827 A051049 A052920 A056530 A079398 A084519 A103372 A103373 A134816
 - `liouvilleLambda`: A008836
 - `lobbNumber`: A039599
+- `log`: A130233
 - `logarithmicIntegral`: A069284 A070769
 - `lookAndSaySequence`: A005150 A005341
 - `lowerChristoffelWord`: A144595 A144596 A144608
@@ -236,7 +242,7 @@
 - `nearestPrime`: A051697
 - `necklaceCount`: A000031 A054631 A087854
 - `nestWhile`: A003602
-- `noergaardInfinitySequence`: A004718
+- `noergaardInfinitySequence`: A004718 A083866 A256184 A256185
 - `noergaardRhythmicInfinitySystem`: A073334
 - `numberOfCompositions`: A007318
 - `numberOfCompositionsWeak`: A178300
@@ -260,7 +266,7 @@
 - `perrinFunction`: A001608 A112881
 - `perrinSequence`: A001608
 - `pi`: A000796 A001203 A002485 A002486
-- `pisanoPeriod`: A001175
+- `pisanoPeriod`: A001175 A066853
 - `plasticRatio`: A060006
 - `politeness`: A069283
 - `polygonalNumber`: A000027 A000124 A000217 A000217 A000290 A000326 A000384 A000566 A000567 A001106 A001107 A051682 A051864 A051865 A051866 A051867 A051868 A051869 A051870 A051871 A051872 A051873 A051874 A051875 A051876 A139610
@@ -281,6 +287,7 @@
 - `primorial`: A002110
 - `pyramidalNumber`: A000292 A000330 A002411 A002412 A002413
 - `pythagorasConstant`: A002193
+- `quotient`: A000601
 - `quadraticNonresidues`: A028736 A028786 A053760
 - `quadraticResidues`: A010385 A010434 A046071 A047210 A048152 A096008 A096103 A105612
 - `quotientRemainder`: A118006
@@ -290,6 +297,7 @@
 - `recamanSequence`: A005132
 - `reciprocalFibonacciConstant`: A079586
 - `regularPaperfoldingSequence`: A014577
+- `replicate`: A002024
 - `repunit`: A000225 A002275 A002450 A002452 A003462 A003463 A003464 A016123 A016125 A023000 A023001
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511
@@ -300,22 +308,24 @@
 - `seidelTriangle`: A008280
 - `selfCountingNumber`: A002024
 - `selfCountingSequence`: A002024
-- `sequenceCount`: A003714
+- `sequenceCount`: A003714 A003754 A104326
 - `sierpinskiConstant`: A062089 A241017
 - `sieveOfAtkin`: A000040
 - `sieveOfEratosthenes`: A000040
 - `sieveOfPritchard`: A000040
 - `sieveOfSundaram`: A000040
-- `signatureSequence`: A007337 A084531 A084532
+- `signatureSequence`: A007337 A084531 A084532 A118276
 - `silverConstant`: A116425
 - `silverRatio`: A014176
+- `sin`: A174344
 - `soldnersConstant`: A070769 A091723
 - `somosSequence`: A006720
 - `sortingNumber`: A001855
 - `square`: A000290
 - `squarePyramidalNumber`: A000330
+- `squareSpiral`: A174344 A268038
 - `squaresR`: A000118 A001481 A004018
-- `sqrt`: A007336
+- `sqrt`: A000037 A007336
 - `stanleySequence`: A005487 A005836 A005836 A185256 A187843 A188052 A188053 A188054 A188055 A188056 A188057
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487
@@ -323,6 +333,7 @@
 - `stirlingS2`: A008277
 - `stolarskyArray`: A035506
 - `stolarskyHarborthConstant`: A006046 A077464
+- `stolarskyIndex`: A098861 A098862
 - `subfactorial`: A000166
 - `substitutionSystem`: A003849 A010060 A014577 A020985 A096268
 - `superCatalanNumber`: A001003 A006318
@@ -335,7 +346,7 @@
 - `tetranacciConstant`: A058265
 - `thueMorseSequence`: A010060
 - `toothpickSequence`: A139250
-- `triangularArray`: A007318 A048601 A075363 A075364 A077028 A094587 A166556
+- `triangularArray`: A002260 A004736 A007318 A048601 A075363 A075364 A077028 A094587 A166556
 - `triangularNumber`: A000217
 - `tribonacciConstant`: A058265
 - `tribonacciNumber`: A000073
@@ -354,7 +365,7 @@
 - `wythoffPair`: A000201 A001950
 - `wythoffUpper`: A001950
 - `yellowstonePermutation`: A098550
-- `zeckendorfRepresentation`: A003714 A007895 A014417 A035517 A094202 A328208
+- `zeckendorfRepresentation`: A003714 A007895 A014417 A035517 A035614 A087172 A094202 A102364 A328208
 - `zero`: A000004
 
 The above list is printed by:

@@ -34,6 +34,16 @@ Scatter plot of first few terms:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-B.svg)
 
+Positions of zeros,
+zero-indexed,
+OEIS [A083866](https://oeis.org/A083866):
+
+```
+>>> 81.noergaardInfinitySequence
+>>> .indicesOf(0) - 1
+[0 5 10 17 20 27 34 40 45 54 65 68 75 80]
+```
+
 The first variant,
 OEIS [A256184](https://oeis.org/A256184):
 
@@ -60,6 +70,32 @@ Scatter plot of first few terms of first variant:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-C.svg)
 
+The second variant,
+OEIS [A256185](https://oeis.org/A256185):
+
+```
+>>> 73.noergaardInfinitySequence(2)
+[
+	  0 -3 -2  3 -6  1  2  -5  0 -3
+	  0 -5  6 -9  4 -1 -2  -3 -2 -1
+	 -4  5 -8  3  0 -3 -2   3 -6  1
+	  0 -3 -2  5 -8  3 -6   3 -8  9
+	-12  7 -4  1 -6  1 -4  -1  2 -5
+	  0  3 -6  1  2 -5  0   1 -4 -1
+	  4 -7  2 -5  2 -7  8 -11  6 -3
+	  0 -5  0
+]
+```
+
+Scatter plot of first few terms of second variant:
+
+~~~spl svg=D
+250.noergaardInfinitySequence(2)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/noergaardInfinitySequence-D.svg)
+
 * * *
 
 See also: inventorySequence, memoize, noergaardInfinityTree, noergaardRhythmicInfinitySystem
@@ -70,5 +106,7 @@ References:
 _OEIS_
 [1](https://oeis.org/A004718)
 [2](https://oeis.org/A256184)
+[3](https://oeis.org/A083866)
+[4](https://oeis.org/A256185)
 
 Further Reading: Allouche 2003, Kullberg 1996

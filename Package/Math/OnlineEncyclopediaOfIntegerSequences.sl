@@ -260,7 +260,7 @@
 				nearestPrime: [051697],
 				necklaceCount: [054631 000031 087854],
 				nestWhile: [003602],
-				noergaardInfinitySequence: [004718 256184],
+				noergaardInfinitySequence: [004718 256184 083866 256185],
 				noergaardRhythmicInfinitySystem: [073334],
 				numberOfCompositions: [007318],
 				numberOfCompositionsWeak: [178300],

@@ -593,6 +593,22 @@
 						}
 					}.memoize;
 					0.toCollect(self - 1, f:/1)
+				},
+				2 -> {
+					let f:/1 = { :n |
+						(n = 0).if {
+							0
+						} {
+							(n % 3).caseOf(
+								[
+									0 -> { 0 - f(n // 3) },
+									1 -> { f(n // 3) - 3 },
+									2 -> { -2 - f(n // 3) }
+								]
+							)
+						}
+					}.memoize;
+					0.toCollect(self - 1, f:/1)
 				}
 			]
 		)
