@@ -229,6 +229,7 @@
 				],
 				liouvilleLambda: [008836],
 				lobbNumber: [039599],
+				log: [130233],
 				logarithmicIntegral: [070769 069284],
 				lookAndSaySequence: [005150 005341],
 				lowerChristoffelWord: [144595 144596 144608],
@@ -259,7 +260,7 @@
 				nearestPrime: [051697],
 				necklaceCount: [054631 000031 087854],
 				nestWhile: [003602],
-				noergaardInfinitySequence: [004718],
+				noergaardInfinitySequence: [004718 256184],
 				noergaardRhythmicInfinitySystem: [073334],
 				numberOfCompositions: [007318],
 				numberOfCompositionsWeak: [178300],
@@ -388,7 +389,7 @@
 				wythoffPair: [000201 001950],
 				wythoffUpper: [001950],
 				yellowstonePermutation: [098550],
-				zeckendorfRepresentation: [014417 007895 003714 328208 035517 094202 035614],
+				zeckendorfRepresentation: [014417 007895 003714 328208 035517 094202 035614 087172 102364],
 				zero: [000004]
 			)
 		}

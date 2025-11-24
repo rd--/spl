@@ -154,24 +154,6 @@ Of a not very small integer:
 )
 ```
 
-Number of terms in the Zeckendorf representation of _n_,
-OEIS [A007895](https://oeis.org/A007895):
-
-```
->>> 0:104.collect { :n |
->>> 	n.zeckendorfRepresentation
->>> 	.occurrencesOf(1)
->>> }
-[
-	0 1 1 1 2 1 2 2 1 2 2 2 3 1 2 2 2 3 2 3
-	3 1 2 2 2 3 2 3 3 2 3 3 3 4 1 2 2 2 3 2
-	3 3 2 3 3 3 4 2 3 3 3 4 3 4 4 1 2 2 2 3
-	2 3 3 2 3 3 3 4 2 3 3 3 4 3 4 4 2 3 3 3
-	4 3 4 4 3 4 4 4 5 1 2 2 2 3 2 3 3 2 3 3
-	3 4 2 3 3
-]
-```
-
 Zeckendorf representation as binary integer,
 OEIS [A003714](https://oeis.org/A003714):
 
@@ -223,6 +205,17 @@ OEIS [A035614](https://oeis.org/A035614):
 ]
 ```
 
+Greatest Fibonacci number that does not exceed _n_,
+OEIS [A087172](https://oeis.org/A087172):
+
+```
+>>> 1:18.collect { :n |
+>>> 	let z = n.zeckendorfRepresentation;
+>>> 	(z.size + 1).fibonacci
+>>> }
+[1 2 3 3 5 5 5 8 8 8 8 8 13 13 13 13 13 13]
+```
+
 Discrete plot of a representation with 115 places:
 
 ~~~spl svg=A
@@ -241,8 +234,25 @@ indicating the proportions of zeros and ones:
 [0 -> 85, 1 -> 30]
 ```
 
-Plot first few terms of
+Number of ones (terms) in the Zeckendorf representation of _n_,
 OEIS [A007895](https://oeis.org/A007895):
+
+```
+>>> 0:104.collect { :n |
+>>> 	n.zeckendorfRepresentation
+>>> 	.occurrencesOf(1)
+>>> }
+[
+	0 1 1 1 2 1 2 2 1 2 2 2 3 1 2 2 2 3 2 3
+	3 1 2 2 2 3 2 3 3 2 3 3 3 4 1 2 2 2 3 2
+	3 3 2 3 3 3 4 2 3 3 3 4 3 4 4 1 2 2 2 3
+	2 3 3 2 3 3 3 4 2 3 3 3 4 3 4 4 2 3 3 3
+	4 3 4 4 3 4 4 4 5 1 2 2 2 3 2 3 3 2 3 3
+	3 4 2 3 3
+]
+```
+
+Plot first few terms:
 
 ~~~spl svg=B
 0:125.collect { :n |
@@ -304,19 +314,6 @@ OEIS [A104324](https://oeis.org/A104324):
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
 
-Plot the number of runs of identical bits in the binary Zeckendorf representation of _n_,
-OEIS [A104324](https://oeis.org/A104324):
-
-~~~spl svg=F
-1:200.collect { :n |
-	n.zeckendorfRepresentation
-	.split(=)
-	.size
-}.scatterPlot
-~~~
-
-![](sw/spl/Help/Image/zeckendorfRepresentation-F.svg)
-
 Matrix plot of Zeckendorf representations of length seven:
 
 ~~~spl svg=G
@@ -325,6 +322,32 @@ Matrix plot of Zeckendorf representations of length seven:
 ~~~
 
 ![](sw/spl/Help/Image/zeckendorfRepresentation-G.svg)
+
+Number of zeroes in the Zeckendorf representation of _n_,
+OEIS [A102364](https://oeis.org/A102364):
+
+```
+>>> 1:60.collect { :n |
+>>> 	n.zeckendorfRepresentation
+>>> 	.occurrencesOf(0)
+>>> }
+[
+	0 1 2 1 3 2 2 4 3 3 3 2 5 4 4 4 3 4 3 3
+	6 5 5 5 4 5 4 4 5 4 4 4 3 7 6 6 6 5 6 5
+	5 6 5 5 5 4 6 5 5 5 4 5 4 4 8 7 7 7 6 7
+]
+```
+
+Plot first few terms:
+
+~~~spl svg=H
+1:250.collect { :n |
+ 	n.zeckendorfRepresentation
+	.occurrencesOf(0)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/zeckendorfRepresentation-H.svg)
 
 * * *
 
@@ -343,7 +366,9 @@ _OEIS_
 [5](https://oeis.org/A035517)
 [6](https://oeis.org/A094202)
 [7](https://oeis.org/A104324)
-[8](https://oeis.org/A035614),
+[8](https://oeis.org/A035614)
+[9](https://oeis.org/A087172)
+[10](https://oeis.org/A102364),
 _W_
 [1](https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem)
 

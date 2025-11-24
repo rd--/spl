@@ -48,22 +48,23 @@ Plot first few terms:
 ![](sw/spl/Help/Image/wythoffIndex-A.svg)
 
 The horizontal para-Fibonacci sequence,
-OEIS [A035614](https://oeis.org/A035614):
+OEIS [A035612](https://oeis.org/A035612)
+and OEIS [A035614](https://oeis.org/A035614):
 
 ```
 >>> 1:81.collect { :n |
->>> 	n.wythoffIndex[2] - 1
+>>> 	n.wythoffIndex[2]
 >>> }
 [
-	0 1 2 0 3 0 1 4 0 1
-	2 0 5 0 1 2 0 3 0 1
-	6 0 1 2 0 3 0 1 4 0
-	1 2 0 7 0 1 2 0 3 0
-	1 4 0 1 2 0 5 0 1 2
-	0 3 0 1 8 0 1 2 0 3
-	0 1 4 0 1 2 0 5 0 1
-	2 0 3 0 1 6 0 1 2 0
-	3
+	1 2 3 1 4 1 2 5 1 2
+	3 1 6 1 2 3 1 4 1 2
+	7 1 2 3 1 4 1 2 5 1
+	2 3 1 8 1 2 3 1 4 1
+	2 5 1 2 3 1 6 1 2 3
+	1 4 1 2 9 1 2 3 1 4
+	1 2 5 1 2 3 1 6 1 2
+	3 1 4 1 2 7 1 2 3 1
+	4
 ]
 ```
 
@@ -88,7 +89,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/WythoffArray.html),
 _OEIS_
 [1](https://oeis.org/A019586)
-[2](https://oeis.org/A035614),
+[2](https://oeis.org/A035614)
+[3](https://oeis.org/A035612),
 _W_
 [1](https://en.wikipedia.org/wiki/Wythoff_array)
 

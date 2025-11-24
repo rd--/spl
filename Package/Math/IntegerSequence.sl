@@ -576,6 +576,28 @@
 		answer
 	}
 
+	noergaardInfinitySequence { :self :variant |
+		variant.caseOf(
+			[
+				0 -> { self.noergaardInfinitySequence },
+				1 -> {
+					let f:/1 = { :n |
+						(n = 0).if {
+							0
+						} {
+							(n % 3 != 0).if {
+								f(n // 3) - (3 - (n % 3))
+							} {
+								0 - f(n // 3)
+							}
+						}
+					}.memoize;
+					0.toCollect(self - 1, f:/1)
+				}
+			]
+		)
+	}
+
 	noergaardInfinitySequence { :self |
 		let f:/1 = { :n |
 			(n = 0).if {
@@ -584,7 +606,7 @@
 				(n % 2 = 1).if {
 					f((n - 1) // 2) + 1
 				} {
-					f(n // 2).-
+					0 - f(n // 2)
 				}
 			}
 		}.memoize(true);

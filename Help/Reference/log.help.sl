@@ -114,6 +114,18 @@ Show that the natural logarithm of -1 is iπ:
 [-1 -2 -3 -4 -5]
 ```
 
+Calculate the lower Fibonacci inverse,
+OEIS [A130233](https://oeis.org/A130233):
+
+```
+>>> 0:20.collect { :n |
+>>> 	let a = (5.sqrt * n + 1.5).log;
+>>> 	let b = ((1 + 5.sqrt) / 2).log;
+>>> 	(a / b).truncate
+>>> }
+[0 2 3 4 4 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7 7]
+```
+
 Note that `log` is subject to the usual small inaccuracies,
 in particular it should not be used to implement `integerLength`:
 
@@ -188,7 +200,9 @@ _Mathematica_
 [5](https://mathworld.wolfram.com/Ln.html)
 [6](https://reference.wolfram.com/language/ref/Log.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/double.log.html)
+[1](https://mathworks.com/help/matlab/ref/double.log.html),
+_OEIS_
+[1](https://oeis.org/A130233),
 _Smalltalk_
 5.6.7.9
 5.6.7.10,
