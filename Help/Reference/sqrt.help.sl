@@ -181,7 +181,7 @@ Plot the signature sequence of √2,
 OEIS [A007336](https://oeis.org/A007336):
 
 ~~~spl svg=B
-2.sqrt.signatureSequence(17, 13, 96)
+2.sqrt.signatureSequence(200)
 .scatterPlot
 ~~~
 

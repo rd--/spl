@@ -2,8 +2,7 @@
 
 - _asInteger(x)_
 
-Answer the integer value nearest to the number _x_,
-rounding towards zero if required.
+Answer the value _x_ as the either a small or large integer as required.
 
 In the `Integer` case this will answer a value that is equal to _x_,
 however it may change the type of the value:

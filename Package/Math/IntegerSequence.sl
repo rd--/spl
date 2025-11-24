@@ -964,7 +964,7 @@
 		s
 	}
 
-	signatureSequence { :theta :p :q :n |
+	signatureSequence { :theta :n :p :q |
 		{ :i :j |
 			[i + (j * theta), i]
 		}.table(1:p, 1:q)
@@ -972,6 +972,26 @@
 		.sortOn(first:/1)
 		.collect(second:/1)
 		.take(n)
+	}
+
+	signatureSequence { :theta :n |
+		let m = n.sqrt.ceiling;
+		let s = [];
+		let z = s;
+		{
+			s := { :i :j |
+				[i, i + (j * theta)]
+			}.table(1:m, 1:m)
+			.catenate
+			.sortOn(second:/1)
+			.collect(first:/1)
+			.take(n);
+			s != z
+		}.whileTrue {
+			z := s;
+			m := 2 * m
+		};
+		s
 	}
 
 	tagSystem { :m :r :i :k |

@@ -199,6 +199,28 @@ OEIS [A058071](https://oeis.org/A058071):
 ]
 ```
 
+Fibonacci entry points,
+OEIS [A001177](https://oeis.org/A001177):
+
+```
+>>> 1:69.collect { :n |
+>>> 	let k = 1;
+>>> 	{ k.fibonacci % n != 0 }.whileTrue {
+>>> 		k := k + 1
+>>> 	};
+>>> 	k
+>>> }
+[
+	 1  3  4  6  5 12  8 6  12 15
+	10 12  7 24 20 12  9 12 18 30
+	 8 30 24 12 25 21 36 24 14 60
+	30 24 20  9 40 12 19 18 28 30
+	20 24 44 30 60 24 16 12 56 75
+	36 42 27 36 10 24 36 42 58 60
+	15 30 24 48 35 60 68 18 24
+]
+```
+
 First few terms of
 OEIS [A001060](https://oeis.org/A001060):
 
@@ -212,27 +234,15 @@ OEIS [A001060](https://oeis.org/A001060):
 ```
 
 The closed form is implemented using approximate floating point constants and functions,
-and is accurate only to the 75th term:
+and is accurate only to the 75th term.
+For positive integer values where _x=1_ `fibonacci` is equivalent to `fibonacciNumber`,
+which consults a cached table, is accurate, and may answer a `LargeInteger`:
 
 ```
->>> let n = 75;
->>> (0 .. n - 1).fibonacci = n.fibonacciSequence
-true
-
 >>> 76.fibonacci
 3416454622906708
 
->>> 77.fibonacciSequence.last
-3416454622906707L
-```
-
-The variant `fibonacciNumber` consults a cached table and is accurate:
-
-```
->>> 76.fibonacciNumber
-3416454622906707L
-
->>> 175.fibonacciNumber
+>>> 175.fibonacci
 1672445759041379840132227567949787325L
 ```
 
@@ -321,9 +331,28 @@ Plot the Fibonacci polynomial for various orders:
 
 ![](sw/spl/Help/Image/fibonacci-H.svg)
 
+Plot number of representations of _n_ as a sum of distinct Fibonacci numbers,
+OEIS [A000119](https://oeis.org/A000119):
+
+~~~spl svg=I
+1:150.collect { :n |
+	let a = Polynomial([0: 1, n: n]);
+	let m = 2;
+	let f = m.fibonacci;
+	{ f <= n }.whileTrue {
+		a := a * Polynomial([0: 1, f: 1]);
+		m := m + 1;
+		f := m.fibonacci
+	};
+	a.coefficientList.at(n)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fibonacci-I.svg)
+
 * * *
 
-See also: binetsFormula, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
+See also: binetsFormula, fibonacciEntryPoint, fibonacciNumber, fibonacciPolynomial, fibonacciSequence, goldenRatio, lucasNumber
 
 Guides: Integer Functions, Integer Sequence Functions
 

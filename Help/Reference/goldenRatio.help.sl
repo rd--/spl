@@ -305,7 +305,7 @@ OEIS [A084531](https://oeis.org/A084531):
 
 ~~~spl svg=I
 let phi = 1.goldenRatio;
-phi.signatureSequence(30, 20, 200)
+phi.signatureSequence(200)
 .scatterPlot
 ~~~
 

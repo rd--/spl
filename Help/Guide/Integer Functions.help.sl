@@ -50,6 +50,7 @@ Recurrence and Sum Functions:
 Fibonacci Functions:
 
 - `binetsFormula`
+- `fibonacciEntryPoint`
 - `fibonacciNumber`
 - `fibonacciPolynomial`
 - `fibonacciSequence`
