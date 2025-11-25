@@ -1,20 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="98" height="98" viewBox="0 0 98 98">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="0" y="14" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="0" y="56" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="0" y="84" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="14" y="14" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="14" y="42" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="14" y="56" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="14" y="70" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="28" y="0" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="28" y="14" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="28" y="28" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="42" y="28" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="56" y="14" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="56" y="28" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="70" y="0" width="14" height="14" fill="rgb(0,0,0)"/>
-<rect x="84" y="0" width="14" height="14" fill="rgb(0,0,0)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-10.88 3.82 110.00 110.00">
+<g fill="none" stroke="black" stroke-width="0.0340%" transform="translate(0, 117.6471) scale(14.7059, -14.7059)">
+<g fill="rgb(0,0,0)" ><circle cx="0.00" cy="7.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="1.00" cy="7.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="2.00" cy="7.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="3.00" cy="7.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="4.00" cy="7.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="5.00" cy="7.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="6.00" cy="7.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="0.50" cy="6.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="1.50" cy="6.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="2.50" cy="6.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="3.50" cy="6.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="4.50" cy="6.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="5.50" cy="6.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="1.00" cy="5.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="2.00" cy="5.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="3.00" cy="5.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="4.00" cy="5.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="5.00" cy="5.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="1.50" cy="4.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="2.50" cy="4.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="3.50" cy="4.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="4.50" cy="4.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="2.00" cy="3.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="3.00" cy="3.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="4.00" cy="3.00" r="0.40" /></g>
+<g stroke="rgba(128,128,128,0.75)" ><circle cx="2.50" cy="2.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="3.50" cy="2.00" r="0.40" /></g>
+<g fill="rgb(0,0,0)" ><circle cx="3.00" cy="1.00" r="0.40" /></g>
 </g>
 </svg>

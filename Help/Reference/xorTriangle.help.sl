@@ -27,7 +27,7 @@ OEIS [A334556](https://oeis.org/A334556):
 83
 .integerDigits(2)
 .xorTriangle
-.padRight.matrixPlot
+.triangularArrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/xorTriangle-A.svg)
@@ -38,28 +38,26 @@ A rotationally symmetrical triangle with side length sixteen that has a central 
 59257
 .integerDigits(2)
 .xorTriangle
-.padRight
-.matrixPlot
+.triangularArrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/xorTriangle-B.svg)
 
-Another such triangle, the ten-thousandth listed at
+Another such triangle,
 OEIS [A334769](https://oeis.org/A334769):
 
 ~~~spl svg=C
-325218466199
+63713
 .integerDigits(2)
 .xorTriangle
-.padRight
-.matrixPlot
+.triangularArrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/xorTriangle-C.svg)
 
 * * *
 
-See also: bitXor, xor
+See also: bitXor, triangularArrayPlot, xor
 
 Guides: Bitwise Functions, Geometry Functions
 

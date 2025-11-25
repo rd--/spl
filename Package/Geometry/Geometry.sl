@@ -52,9 +52,21 @@ AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
 	}
 
 	svgFragment { :self :options |
-		'<g fill="%">%</g>'.format(
+		let a = self.annotation;
+		let stroke = a.atIfPresentIfAbsent('strokeColour') { :x |
+			'stroke="%" '.format([x.rgbString])
+		} {
+			''
+		};
+		let fill = a.atIfPresentIfAbsent('fillColour') { :x |
+			'fill="%" '.format([x.rgbString])
+		} {
+			''
+		};
+		'<g %%>%</g>'.format(
 			[
-				self.annotation.at('fillColour').rgbString,
+				stroke,
+				fill,
 				self.geometry.svgFragment(options)
 			]
 		)

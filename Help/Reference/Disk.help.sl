@@ -1,8 +1,8 @@
 # Disk
 
-- _Disk(c, r)_
+- _Disk([x y], r)_
 
-A `Type` that represents a disk of radius _r_ and center _c_.
+A `Type` that represents a disk of radius _r_ and center _x,y_.
 
 ```
 >>> let d = Disk([0 0], 1);

@@ -56,6 +56,7 @@ Plotting Functions:
 - `surfacePlot`
 - `timelinePlot`
 - `treePlot`
+- `triangularArrayPlot`
 - `vectorPlot`
 - `warpingPlot`
 
