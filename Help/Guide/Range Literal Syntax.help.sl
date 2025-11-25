@@ -1,29 +1,30 @@
 # Range Literal Syntax
 
+- _α:β_
+- _α:β:γ_
+
 Rewrite rules:
 
 ```
->> '1:x'.splSimplify
-rangeOrRelativeRange(1, x, 1)
+>> '1:n'.splSimplify
+rangeOrRelativeRange(1, n, 1)
 
->> '9:x:-1'.splSimplify
-rangeOrRelativeRange(9, x, -1)
+>> 'n:1:-1'.splSimplify
+rangeOrRelativeRange(n, 1, -1)
 ```
 
-In the case where α is an integer literal,
-and β is an integer literal or an identifier,
-a `Range` can be written α:β.
+α and β must be either integer literals or identifiers.
 In the literal form,
 as with literal `Fraction` values,
 white space is significant,
-and `α : β` is not allowed.
+and `α : β` is not recognised as a range literal.
 
 ```
 >>> 1:9
 Range(1, 9, 1)
 
->>> let k = 9;
->>> 1:k
+>>> let n = 9;
+>>> 1:n
 Range(1, 9, 1)
 ```
 
@@ -85,6 +86,18 @@ RelativeRange(-1, 1, -1)
 
 >>> [1 .. 9].part([1:-1])
 [1 2 3 4 5 6 7 8 9]
+```
+
+Note that white space is particularly important in distinguishing a ternary range literal from a record literal:
+
+```
+>>> let n = 3;
+>>> (n:1:-1)
+Range(3, 1, -1)
+
+>>> let n = 3;
+>>> (n: 1:-1)
+(n: RelativeRange(1, -1, 1))
 ```
 
 * * *

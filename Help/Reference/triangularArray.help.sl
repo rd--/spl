@@ -269,7 +269,7 @@ let f = { :n :k |
 
 * * *
 
-See also: array, collect, table
+See also: array, collect, isTriangularArray, table
 
 Guides: Array Functions
 

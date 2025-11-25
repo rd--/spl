@@ -1058,25 +1058,36 @@ Plot : [Object] { | pages format options |
 	triangularArrayPlot { :a |
 		let n = a.size;
 		let k = a[1].size;
-		let isInverted = k != 1;
-		let kStep = isInverted.if { -1 } { 1 };
-		let x0 = isInverted.if { 0 } { (n - 1) / 2 };
-		let xStep = isInverted.if { 1 } { -1 };
+		let kStep = 1;
+		let x0 = (n - 1) / 2;
+		let xStep = -1;
 		let t = [];
 		let y = n;
+		(k != 1).ifTrue {
+			x0 := 0;
+			xStep := 1;
+			kStep := -1
+		};
 		1.toDo(n) { :i |
 			let x = x0 + ((i - 1) * 0.5);
 			1.toDo(k) { :j |
+				let e = a[i][j];
 				t.add(
-					(a[i][j] = 0).if {
+					(e = 0).if {
 						AnnotatedGeometry(
 							Circle([x y], 0.4),
 							(
-								strokeColour: RgbColour([0.5 0.5 0.5], 0.75)
+								strokeColour:
+								RgbColour([0.5 0.5 0.5], 0.75)
 							)
 						)
 					} {
-						Disk([x y], 0.4)
+						AnnotatedGeometry(
+							Circle([x y], 0.4),
+							(
+								fillColour: (1 - e).greyLevel
+							)
+						)
 					}
 				);
 				x := x + xStep

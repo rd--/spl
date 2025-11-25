@@ -31,6 +31,17 @@ An inverted triangular array with side length eight:
 
 ![](sw/spl/Help/Image/triangularArrayPlot-B.svg)
 
+Plot Pascal’s triangle,
+rescaled to lie in _(0,1)_:
+
+~~~spl svg=C
+7.pascalTriangle
+.rescale
+.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArrayPlot-C.svg)
+
 * * *
 
 See also: triangularArray

@@ -572,3 +572,15 @@
 	}
 
 }
+
++List {
+
+	isTriangularArray { :self |
+		let k = self.size;
+		let l = self.collect(size:/1);
+		l.hasEqualElements(Range(1, k, 1)) | {
+			l.hasEqualElements(Range(k, 1, -1))
+		}
+	}
+
+}

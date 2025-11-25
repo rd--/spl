@@ -55,6 +55,7 @@ Calculate directly:
 >>> let x = [6.5 3.8 6.6 5.7 6.0 6.4 5.3];
 >>> let m = x.median;
 >>> (x - m).abs.median
+0.5
 ```
 
 * * *

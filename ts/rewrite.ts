@@ -737,10 +737,10 @@ const asSl: ohm.ActionDict<string> = {
 		}
 		return r.toString(10);
 	},
-	spanFromToByLiteral(start, _colon, end, _anotherColon, step) {
+	rangeFromToByLiteral(start, _colon, end, _anotherColon, step) {
 		return `rangeOrRelativeRange(${start.asSl}, ${end.asSl}, ${step.asSl})`;
 	},
-	spanFromToLiteral(start, _colon, end) {
+	rangeFromToLiteral(start, _colon, end) {
 		return `rangeOrRelativeRange(${start.asSl}, ${end.asSl}, 1)`;
 	},
 	residueLiteral(i, _z, m) {

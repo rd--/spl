@@ -32,6 +32,9 @@ false
 
 >>> 1:9.hasEqualElements([1 .. 9])
 true
+
+>>> [3 2 1].hasEqualElements(3:1:-1)
+true
 ```
 
 A `Range` and a `List` are never identical, but may have identical elements:
@@ -46,7 +49,10 @@ Two distinct `List` objects are never identical, but may have identical elements
 ```
 >>> let p = [1 .. 9];
 >>> let q = [1 .. 9];
->>> (p == q, p.hasEqualElements(q, ==))
+>>> (
+>>> 	p == q,
+>>> 	p.hasEqualElements(q, ==)
+>>> )
 (false, true)
 ```
 
