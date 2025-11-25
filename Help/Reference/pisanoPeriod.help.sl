@@ -49,7 +49,7 @@ OEIS [A066853](https://oeis.org/A066853):
 >>> 	let k = n.pisanoPeriod;
 >>> 	let f = k.fibonacciSequence;
 >>> 	(f % n).nub.size
->>> }.scatterPlot
+>>> }
 [
 	 1  2  3  4  5  6  7  6  9 10
 	 7 11  9 14 15 11 13 11 12 20

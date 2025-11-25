@@ -519,6 +519,25 @@ OEIS [A167489](https://oeis.org/A167489):
 
 ![](sw/spl/Help/Image/integerDigits-H.svg)
 
+Count the number of occurrences of the _n_-th digit of the sequence among the first _n_ digits,
+OEIS [A322182](https://oeis.org/A322182):
+
+~~~spl svg=I
+let a = [1];
+let d = [1];
+2.toDo(200) { :i |
+	let p = d[i - 1];
+	let q = (1 .. i - 1).sum { :j |
+		(d[j] = p).boole
+	};
+	a.add(q);
+	d.addAll(q.integerDigits)
+};
+a.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-I.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight
@@ -544,7 +563,8 @@ _OEIS_
 [12](https://oeis.org/A066099)
 [13](https://oeis.org/A048793)
 [14](https://oeis.org/A167489)
-[15]((https://oeis.org/A101211),
+[15](https://oeis.org/A101211)
+[16](https://oeis.org/A322182),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

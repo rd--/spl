@@ -167,9 +167,33 @@ on a log scale:
 
 ![](sw/spl/Help/Image/primeFactors-B.svg)
 
+Plot sum of the prime factors of _n_,
+OEIS [A001414](https://oeis.org/A001414):
+
+~~~spl svg=C
+1:75.collect { :n |
+	n.primeFactors.sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-C.svg)
+
+Log scale scatter plot of the sum of the prime factors of the sum of the preceding terms,
+OEIS [A268868](https://oeis.org/A268868):
+
+~~~spl svg=D
+let x = [1 1];
+150.timesRepeat {
+	x.add(x.sum.primeFactors.sum)
+};
+x.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeFactors-D.svg)
+
 * * *
 
-See also: factorInteger, isPrime, primeFactorization, primeLimit, product
+See also: distinctPrimeFactors, factorInteger, isPrime, primeFactorization, primeLimit, product
 
 Guides: Prime Number Functions
 
@@ -184,7 +208,9 @@ _Mathworks_
 _OEIS_
 [1](https://oeis.org/A020639)
 [2](https://oeis.org/A027746)
-[3](https://oeis.org/A238689),
+[3](https://oeis.org/A238689)
+[4](https://oeis.org/A001414)
+[5](https://oeis.org/A268868),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/Integer.html#-factors)
 

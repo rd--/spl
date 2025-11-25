@@ -52,6 +52,16 @@ OEIS [A001348](https://oeis.org/A001348):
 [3 7 31 127 2047 8191 131071 524287]
 ```
 
+Prime-indexed primes,
+OEIS [A006450](https://oeis.org/A006450)
+
+```
+>>> 1:13.collect { :n |
+>>> 	n.prime.prime
+>>> }
+[3 5 11 17 31 41 59 67 83 109 127 157 179]
+```
+
 This value is cached (memoized) by the system,
 so that subsequent accesses do not require recalculation:
 
@@ -144,7 +154,8 @@ _OEIS_
 [1](https://oeis.org/A000040)
 [2](https://oeis.org/A046929)
 [3](https://oeis.org/A243353)
-[4](https://oeis.org/A001348),
+[4](https://oeis.org/A001348)
+[5](https://oeis.org/A006450),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_
