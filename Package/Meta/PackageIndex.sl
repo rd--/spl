@@ -183,6 +183,7 @@
 	'Math-Fourier'
 	'Math-Gamma'
 	'Math-GrayCode'
+	'Math-GroupTheory'
 	'Math-HyperbolicFunctions'
 	'Math-IntegerPartition'
 	'Math-IntegerSequence'

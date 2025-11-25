@@ -137,6 +137,31 @@ OEIS [A122840](https://oeis.org/A122840):
 
 ![](sw/spl/Help/Image/integerExponent-C.svg)
 
+An experimental sequence by D.J. Sycamore,
+OEIS [A366601](https://oeis.org/A366601):
+
+~~~spl svg=D
+let a = { :n |
+	let m = integerExponent(n, 2) + 1;
+	bitShiftRight(n, m)
+};
+let c = [0];
+250.timesRepeat {
+	let x = c.last;
+	let k = c.occurrencesOf(x);
+	(k = 1).if {
+		let i = a(x + 1);
+		let j = c[i + 1];
+		c.add(j)
+	} {
+		c.add(k - 1)
+	}
+};
+c.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-D.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
@@ -152,5 +177,6 @@ _OEIS_
 [2](https://oeis.org/A007814)
 [3](https://oeis.org/A025480)
 [4](https://oeis.org/A110963)
+[5](https://oeis.org/A366601)
 
 Further Reading: Levine 2006

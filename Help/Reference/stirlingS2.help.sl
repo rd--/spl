@@ -59,6 +59,19 @@ Stirling numbers are large for moderate-size arguments:
 7713000216608565000L
 ```
 
+Threads over lists.
+At _m=3_,
+OEIS [A000392](https://oeis.org/A000392)
+and A000453 [A000453](https://oeis.org/A000453):
+
+```
+>>> 1:11.stirlingS2(3)
+[0 0 1 6 25 90 301 966 3025 9330 28501]
+
+>>> 4:11.stirlingS2(4)
+[1 10 65 350 1701 7770 34105 145750]
+```
+
 Plot sums of digits:
 
 ~~~spl svg=A
@@ -92,6 +105,8 @@ _Mathematica_
 [1](http://mathworld.wolfram.com/StirlingNumberoftheSecondKind.html)
 [2](https://reference.wolfram.com/language/ref/StirlingS2.html),
 _OEIS_
-[1](https://oeis.org/A008277),
+[1](https://oeis.org/A008277)
+[2](https://oeis.org/A000392)
+[3](https://oeis.org/A000453),
 _W_
 [1](https://en.wikipedia.org/wiki/Stirling_numbers_of_the_second_kind)

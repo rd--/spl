@@ -271,6 +271,14 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		self.chop(1E-10)
 	}
 
+	clearZeroSignBit { :n |
+		n.isZero.if {
+			0
+		} {
+			n
+		}
+	}
+
 	copy { :self |
 		self
 	}

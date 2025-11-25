@@ -42,6 +42,16 @@ OEIS [A000040](https://oeis.org/A000040):
 [29 541 7919]
 ```
 
+Mersenne numbers,
+OEIS [A001348](https://oeis.org/A001348):
+
+```
+>>> 1:8.collect { :n |
+>>> 	2 ^ n.prime - 1
+>>> }
+[3 7 31 127 2047 8191 131071 524287]
+```
+
 This value is cached (memoized) by the system,
 so that subsequent accesses do not require recalculation:
 
@@ -133,7 +143,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A000040)
 [2](https://oeis.org/A046929)
-[3](https://oeis.org/A243353),
+[3](https://oeis.org/A243353)
+[4](https://oeis.org/A001348),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.prime),
 _SuperCollider_

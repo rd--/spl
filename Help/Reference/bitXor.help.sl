@@ -82,32 +82,6 @@ also the binary 4-tuples combined by `bitXor`:
 ]
 ```
 
-The Nim-sum table,
-the antidiagonals of the Cayley table,
-OEIS [A003987](https://oeis.org/A003987):
-
-```
->>> 0:13.triangularArray { :a :b |
->>> 	b.bitXor(a - b)
->>> }
-[
-	0;
-	1 1;
-	2 0 2;
-	3 3 3 3;
-	4 2 0 2 4;
-	5 5 1 1 5 5;
-	6 4 6 0 6 4 6;
-	7 7 7 7 7 7 7 7;
-	8 6 4 6 0 6 4 6 8;
-	9 9 5 5 1 1 5 5 9 9;
-	10 8 10 4 2 0 2 4 10 8 10;
-	11 11 11 11 3 3 3 3 11 11 11 11;
-	12 10 8 10 12 2 0 2 12 10 8 10 12;
-	13 13 9 9 13 13 1 1 13 13 9 9 13 13
-]
-```
-
 At `LargeInteger`:
 
 ```
@@ -181,6 +155,32 @@ let n = 5;
 
 ![](sw/spl/Help/Image/bitXor-D.svg)
 
+The Nim-sum table,
+the antidiagonals of the Cayley table,
+OEIS [A003987](https://oeis.org/A003987):
+
+```
+>>> 0:13.triangularArray { :a :b |
+>>> 	b.bitXor(a - b)
+>>> }
+[
+	0;
+	1 1;
+	2 0 2;
+	3 3 3 3;
+	4 2 0 2 4;
+	5 5 1 1 5 5;
+	6 4 6 0 6 4 6;
+	7 7 7 7 7 7 7 7;
+	8 6 4 6 0 6 4 6 8;
+	9 9 5 5 1 1 5 5 9 9;
+	10 8 10 4 2 0 2 4 10 8 10;
+	11 11 11 11 3 3 3 3 11 11 11 11;
+	12 10 8 10 12 2 0 2 12 10 8 10 12;
+	13 13 9 9 13 13 1 1 13 13 9 9 13 13
+]
+```
+
 Plot the Nim-sum table:
 
 ~~~spl svg=E
@@ -190,6 +190,18 @@ Plot the Nim-sum table:
 ~~~
 
 ![](sw/spl/Help/Image/bitXor-E.svg)
+
+Replace each pair of adjacent bits with their sum,
+OEIS [A038554](https://oeis.org/A038554):
+
+~~~spl svg=F
+0:250.collect { :n |
+	let a = (n / 2).floor.bitXor(n);
+	a - (2 ^ a.log2.floor)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-F.svg)
 
 * * *
 

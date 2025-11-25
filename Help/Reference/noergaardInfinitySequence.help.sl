@@ -11,9 +11,30 @@ OEIS [A004718](https://oeis.org/A004718):
 >>> 23.noergaardInfinitySequence
 [
 	 0  1 -1  2  1  0 -2  3 -1  2
-	-0  1  2 -1 -3  4  1  0 -2  3
+	 0  1  2 -1 -3  4  1  0 -2  3
 	 0  1 -1
 ]
+```
+
+The terms can be calculated using a closed form:
+
+```
+>>> 0:22.collect(
+>>> 	noergaardInfinityNumber:/1
+>>> )
+[
+	 0  1 -1  2  1  0 -2  3 -1  2
+	 0  1  2 -1 -3  4  1  0 -2  3
+	 0  1 -1
+]
+```
+
+The sequence is square free:
+
+```
+>>> 200.noergaardInfinitySequence
+>>> .isSquareFreeWord
+true
 ```
 
 Discrete plot of first few terms:
@@ -42,6 +63,11 @@ OEIS [A083866](https://oeis.org/A083866):
 >>> 81.noergaardInfinitySequence
 >>> .indicesOf(0) - 1
 [0 5 10 17 20 27 34 40 45 54 65 68 75 80]
+
+>>> 0:80.select { :n |
+>>> 	n.noergaardInfinityNumber = 0
+>>> }
+[0 5 10 17 20 27 34 40 45 54 65 68 75 80]
 ```
 
 The first variant,
@@ -59,6 +85,18 @@ OEIS [A256184](https://oeis.org/A256184):
 	 0 -2 -1 -3  1  2  5 -7 -6  4
 	-6 -5
 ]
+```
+
+Note repetition of order three:
+
+```
+>>> 72.noergaardInfinitySequence(1)
+>>> .atAll(33:35)
+[-1 -1 -1]
+
+>>> 36.noergaardInfinitySequence(1)
+>>> .isSquareFreeWord
+false
 ```
 
 Scatter plot of first few terms of first variant:
@@ -87,6 +125,15 @@ OEIS [A256185](https://oeis.org/A256185):
 ]
 ```
 
+Note that only odd intervals occur:
+
+```
+>>> 73.noergaardInfinitySequence(2)
+>>> .differences
+>>> .allSatisfy(isOdd:/1)
+true
+```
+
 Scatter plot of first few terms of second variant:
 
 ~~~spl svg=D
@@ -98,7 +145,7 @@ Scatter plot of first few terms of second variant:
 
 * * *
 
-See also: inventorySequence, memoize, noergaardInfinityTree, noergaardRhythmicInfinitySystem
+See also: inventorySequence, memoize, noergaardInfinityNumber, noergaardRhythmicInfinitySystem
 
 Guides: Integer Sequence Functions
 
@@ -109,4 +156,4 @@ _OEIS_
 [3](https://oeis.org/A083866)
 [4](https://oeis.org/A256185)
 
-Further Reading: Allouche 2003, Kullberg 1996
+Further Reading: Allouche 2003, Au 2017, Kullberg 1996

@@ -237,6 +237,26 @@ OEIS [A124859](https://oeis.org/A124859):
 
 ![](sw/spl/Help/Image/factorInteger-B.svg)
 
+A generalization of Euler’s totient function,
+OEIS [A321029](https://oeis.org/A321029):
+
+~~~spl svg=C
+let f = { :p :e |
+	(p < 7).if {
+		p ^ (e - 1)
+	} {
+		(p - 5) * (p ^ (e - 1))
+	}
+};
+2:125.collect { :n |
+	n.factorInteger.collect { :x |
+		f(x[1], x[2])
+	}.product
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-C.svg)
+
 * * *
 
 See also: ->, Association, divisors, isPrime, primeFactors, primeFactorization, product
@@ -251,6 +271,10 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/FactorInteger.html),
 _Mathworks_
 [1](https://mathworks.com/help/matlab/ref/factor.html),
+_OEIS_
+[1](https://oeis.org/A006881)
+[2](https://oeis.org/A124859)
+[3](https://oeis.org/A321029),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.factorint),
 _W_

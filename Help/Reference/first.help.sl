@@ -34,6 +34,15 @@ The first element in a sorted list is the same as finding the minimum element:
 1
 ```
 
+It is an error if there are too few items:
+
+```
+>>> {
+>>> 	[1 2 3].first(4)
+>>> }.hasError
+true
+```
+
 The ternary form will fill missing places with the specified value.
 Convert a list to a fixed size:
 
@@ -55,6 +64,8 @@ At `String`:
 * * *
 
 See also: fourth, last, middle, second, third
+
+Guides: List Functions
 
 References:
 _J_

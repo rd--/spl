@@ -20,7 +20,7 @@
 				aliquotSum: [001065],
 				aperysConstant: [002117],
 				arithmeticGeometricMean: [068521 084895 084896 084897],
-				arithmeticProgression: [000027 005408 005843 008585 008586],
+				arithmeticProgression: [000027 005408 005843 008585 008586 001477],
 				artinsConstant: [005596],
 				balancedCayleyTree: [003945 003946 003947 083329 025192 136412],
 				baumSweetSequence: [086747],
@@ -108,6 +108,8 @@
 				fibonacciSequence: [000045 007660 082115],
 				fibonacciWord: [003849],
 				finesSequence: [000957],
+				finiteGroupCount: [000001],
+				finiteAbelianGroupCount: [000688 060689],
 				floor: [007891],
 				fortunateNumber: [005235],
 				freimansConstant: [118472],
@@ -137,7 +139,7 @@
 				hexagonalNumber: [000384],
 				hofstadterQSequence: [005185],
 				integerDigits: [062756 364024 007376 265326 117966 160855 010060 005811 014311 029931 066099 048793 167489 101211],
-				integerExponent: [001511 007814 025480 110963],
+				integerExponent: [001511 007814 025480 110963 366601],
 				integerLength: [070939 061384],
 				integerPartitions: [036036 080577 080576 193073 334301],
 				integerPartitionUnrank: [227739 129594 112798],
@@ -297,7 +299,7 @@
 				Polynomial: [003263],
 				powerMod: [096008 001567 002371],
 				previousPrime: [007917],
-				prime: [000040 046929 243353],
+				prime: [000040 046929 243353 001348],
 				primeDistance: [051699],
 				primeDivisors: [003592],
 				primeFactors: [020639 027746 238689],
@@ -306,7 +308,7 @@
 				primeNu: [001221 034444],
 				primePi: [000720 049084 156552 112798 056239],
 				primesList: [000040],
-				primeSignature: [036035 025487 118914 046523],
+				primeSignature: [036035 025487 118914 046523 181819],
 				primitiveRootList: [033948 046144 001913 001122],
 				primorial: [002110],
 				pyramidalNumber: [000292 000330 002411 002412 002413],
@@ -354,7 +356,7 @@
 				sternBrocotNumber: [002487],
 				sternBrocotSequence: [002487],
 				stirlingS1: [008275],
-				stirlingS2: [008277],
+				stirlingS2: [008277 000392 000453],
 				stolarskyArray: [035506],
 				stolarskyHarborthConstant: [006046 077464],
 				stolarskyIndex: [098861 098862],
@@ -370,7 +372,7 @@
 				tetranacciConstant: [058265],
 				thueMorseSequence: [010060],
 				toothpickSequence: [139250],
-				triangularArray: [007318 075363 075364 094587 166556 077028 048601 002260 004736],
+				triangularArray: [007318 075363 075364 094587 166556 077028 048601 002260 004736 096470],
 				triangularNumber: [000217],
 				tribonacciConstant: [058265],
 				tribonacciNumber: [000073],
@@ -388,6 +390,7 @@
 				wythoffLower: [000201],
 				wythoffPair: [000201 001950],
 				wythoffUpper: [001950],
+				xorTriangle: [334556 334769],
 				yellowstonePermutation: [098550],
 				zeckendorfRepresentation: [014417 007895 003714 328208 035517 094202 035614 087172 102364],
 				zero: [000004]
@@ -396,3 +399,19 @@
 	}
 
 }
+
++System {
+
+	oeisSequenceData { :self |
+		self.requireLibraryItem('OeisSequenceData')
+	}
+
+}
+
+LibraryItem(
+	name: 'OeisSequenceData',
+	category: 'Math/IntegerSequences',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/oeis/oeis.json',
+	mimeType: 'application/json',
+	parser: identity:/1
+)

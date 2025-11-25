@@ -68,7 +68,7 @@
 	}
 
 	meanDeviation { :self :aBlock:/1 |
-		(self - aBlock(self)).abs.sum / self.size
+		(self - aBlock(self)).abs.mean
 	}
 
 	meanDeviation { :self |
@@ -94,6 +94,18 @@
 
 	meanSquare { :self |
 		self.square.mean
+	}
+
+	medianDeviation { :self |
+		self.isVector.if {
+			(self - median(self)).abs.median
+		} {
+			self.isMatrix.if {
+				self.transpose.collect(medianDeviation:/1)
+			} {
+				self.error('medianDeviation')
+			}
+		}
 	}
 
 	moment { :self :r |

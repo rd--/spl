@@ -11,6 +11,7 @@ Constructors:
 - `equilateralTriangle`
 - `sasTriangle`
 - `sssTriangle`
+- `xorTriangle`
 
 Queries:
 

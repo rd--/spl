@@ -48,3 +48,5 @@ system
 * * *
 
 See also: addLibraryItem, awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeCharacterDatabase
+
+Guides: Library Catalogue

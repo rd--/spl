@@ -102,8 +102,7 @@ To clear the library item from the cache:
 system
 .libraryItem(
 	'NistEngineeringStatisticsHandbookData'
-)
-.clearCache
+).clearCache
 ~~~
 
 * * *

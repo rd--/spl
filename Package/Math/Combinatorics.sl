@@ -901,3 +901,13 @@
 	}
 
 }
+
++@Collection {
+
+	stirlingS2 { :n :m |
+		n.collect { :each |
+			stirlingS2(each, m)
+		}
+	}
+
+}

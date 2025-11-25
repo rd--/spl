@@ -906,3 +906,21 @@ Triangle : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 	}
 
 }
+
++List {
+
+	xorTriangle { :self |
+		let next = self;
+		let answer = [next];
+		{
+			next.size > 1
+		}.whileTrue {
+			next := next.partitionCollect(2, 1) { :each |
+				(each[2] + each[1]) % 2
+			};
+			answer.add(next)
+		};
+		answer
+	}
+
+}

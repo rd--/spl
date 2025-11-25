@@ -178,6 +178,7 @@
 	'Fourier'
 	'Gamma'
 	'GrayCode'
+	'GroupTheory'
 	'HyperbolicFunctions'
 	'IntegerPartition'
 	'IntegerSequence'

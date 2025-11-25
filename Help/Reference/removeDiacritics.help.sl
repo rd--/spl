@@ -16,6 +16,12 @@ Answer a copy of the string _s_ with diacritic marks removed, and the characters
 
 >>> 'háček'.removeDiacritics
 'hacek'
+
+>>> 'smörgåsbord'.removeDiacritics
+'smorgasbord'
+
+>>> 'rôle'.removeDiacritics
+'role'
 ```
 
 Threads over lists:

@@ -6,7 +6,7 @@
 In the unary case,
 answer a `UnivariatePolynomial` holding the Chebyshev polynomial of the first kind of degree _n_.
 
-Coefficient for the first few Chebyshev polynomials of the first kind,
+Coefficients for the first few Chebyshev polynomials of the first kind,
 OEIS [A008310](https://oeis.org/A008310):
 
 ```
@@ -111,6 +111,19 @@ let i = (-1.15 -- 1.15).subdivide(100);
 ~~~
 
 ![](sw/spl/Help/Image/chebyshevT-D.png)
+
+Log scale plot of succesive coefficients,
+including zeroes,
+OEIS [A053120](https://oeis.org/A053120):
+
+~~~spl svg=E
+0:13.collect { :n |
+	n.chebyshevT
+	.coefficientList
+}.catenate.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/chebyshevT-E.svg)
 
 Evaluate symbolically:
 

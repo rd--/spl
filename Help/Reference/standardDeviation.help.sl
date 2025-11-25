@@ -1,8 +1,8 @@
 # standardDeviation
 
-- _standardDeviation(aCollection)_
+- _standardDeviation(c)_
 
-Answer an unbiased estimate of the variance of _aCollection_, using Bessel’s correction.
+Answer an unbiased estimate of the variance of the collection _c_, using Bessel’s correction.
 
 The standard deviation is the square root of the `variance`.
 
@@ -44,9 +44,36 @@ Standard deviation at a matrix is column-wise:
 ]
 ```
 
+The square of the standard deviation is the variance:
+
+```
+>>> [1 2 3 4].variance
+5/3
+
+>>> [1 2 3 4].standardDeviation
+5/3.sqrt
+```
+
+Standard deviation is a scaled `norm` of deviations from the `mean`,
+and the square root of a scaled central moment:
+
+```
+>>> let r = Sfc32(367814);
+>>> let n = 20;
+>>> let x = r.randomReal([0 10], [n]);
+>>> (
+>>> 	x.standardDeviation,
+>>> 	(x - x.mean).norm / (n - 1).sqrt,
+>>> 	(x.centralMoment(2) * n / (n - 1)).sqrt
+>>> )
+(2.4402, 2.4402, 2.4402)
+```
+
 * * *
 
 See also: mean, sampleStandardDeviation, variance
+
+Guides: Statistics Functions
 
 References:
 _Mathematica_

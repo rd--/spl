@@ -1,11 +1,12 @@
 # meanDeviation
 
-- _meanDeviation(aCollection)_
+- _meanDeviation(c)_
 
-Answer the mean absolute deviation from the mean of the elements in _aCollection_.
+Answer the mean absolute deviation from the mean of the elements in the collection _c_.
 
 ```
->>> [1.21 3.4 2 4.66 1.5 5.61 7.22].meanDeviation
+>>> [1.21 3.4 2 4.66 1.5 5.61 7.22]
+>>> .meanDeviation
 1.86245
 
 >>> [1 4 5 2].meanDeviation
@@ -21,7 +22,8 @@ Answer the mean absolute deviation from the mean of the elements in _aCollection
 Specify the measure of central tendency:
 
 ```
->>> [2 2 3 4 14].meanDeviation(median:/1)
+>>> [2 2 3 4 14]
+>>> .meanDeviation(median:/1)
 2.8
 
 >>> [2 2 3 4 14]
@@ -31,17 +33,22 @@ Specify the measure of central tendency:
 3
 ```
 
-Calculation in terms of `-`, `mean`, `abs`, `sum`, `/` and `size`:
+Calculation in terms of `-`, `mean` and `abs`:
 
 ```
->>> let l = [2 4 4 4 5 5 7 9];
->>> ((l - l.mean).abs.sum / l.size, l.meanDeviation)
+>>> let x = [2 4 4 4 5 5 7 9];
+>>> (
+>>> 	(x - x.mean).abs.mean,
+>>> 	x.meanDeviation
+>>> )
 (12 / 8, 12 / 8)
 ```
 
 * * *
 
-See also: mean, standardDeviation
+See also: mean, medianDeviation, standardDeviation
+
+Guides: Statistics Functions
 
 References:
 _Mathematica_

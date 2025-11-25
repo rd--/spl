@@ -40,6 +40,6 @@ and this function requires the item be in the interpreter cache.
 
 See also: HelpFile, HelpIndex, LibraryItem
 
-Guides: Help Functions, System Functions
+Guides: Help Functions, Library Catalogue, System Functions
 
 Categories: Help

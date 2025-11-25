@@ -240,6 +240,33 @@ and [A004736](https://oeis.org/A004736):
 ]
 ```
 
+Plot the triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
+OEIS [A096470](https://oeis.org/A096470):
+
+~~~spl svg=A
+let f = { :n :k |
+	(k = 0 | { n = k }).if {
+		1
+	} {
+		(n < 0 | { k < 0 }).if {
+			0
+		} {
+			(n > k).if {
+				f(n - 1, k) - f(n, k - 1)
+			} {
+				0
+			}
+		}
+	}
+};
+0:10.triangularArray(f:/2)
+.catenate
+.logScale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-A.svg)
+
 * * *
 
 See also: array, collect, table
@@ -258,7 +285,8 @@ _OEIS_
 [6](https://oeis.org/A077028)
 [7](https://oeis.org/A048601)
 [8](https://oeis.org/A002260)
-[9](https://oeis.org/A004736),
+[9](https://oeis.org/A004736)
+[10](https://oeis.org/A096470),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)
