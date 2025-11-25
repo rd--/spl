@@ -88,8 +88,8 @@ OEIS [A321298](https://oeis.org/A321298)
 >>> let f = { :n :k |
 >>> 	(2 * k <= n).if {
 >>> 		2 * k
->>>	} {
->>>		let m = n // 2;
+>>> 	} {
+>>> 		let m = n // 2;
 >>> 		let r = n \\ 2;
 >>> 		(r = 0).if {
 >>> 			2 * f(m, k - m) - 1
@@ -100,7 +100,7 @@ OEIS [A321298](https://oeis.org/A321298)
 >>> 				2 * f(m, k - m - 1) + 1
 >>> 			}
 >>> 		}
->>>	}
+>>> 	}
 >>> };
 >>> 1:13.triangularArray(f:/2)
 [

@@ -10,7 +10,8 @@ Evaluate symbolically:
 >> stirrupCurve(`x`, `y`)
 (-
  (^ (- (^ x 2) 1) 2)
- (* (^ y 2) (* (* (- y 1) (- y 2)) (+ y 5))))
+ (* (^ y 2) (* (* (- y 1) (- y 2)) (+ y 5)))
+)
 ```
 
 Plot the stirrup curve at _z=0_::

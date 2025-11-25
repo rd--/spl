@@ -342,7 +342,7 @@ Plot first few terms:
 
 ~~~spl svg=H
 1:250.collect { :n |
- 	n.zeckendorfRepresentation
+	n.zeckendorfRepresentation
 	.occurrencesOf(0)
 }.scatterPlot
 ~~~

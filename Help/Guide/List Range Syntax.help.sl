@@ -27,7 +27,7 @@ Answer ascending `List` values:
 
 >>> [1 .. 9; 2]
 [1 3 5 7 9]
-~~~
+```
 
 Answer descending `List` values:
 

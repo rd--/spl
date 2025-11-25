@@ -36,4 +36,3 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/OddPart.html),
 _OEIS_
 [1](https://oeis.org/A000265)
-

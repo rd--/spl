@@ -65,6 +65,7 @@ OEIS [A000788](https://oeis.org/A000788):
 Numbers with an odd number of ones in their binary expansion,
 OEIS [A000069](https://oeis.org/A000069):
 
+```
 >>> 0:49.select { :n |
 >>> 	n.digitCount(2, 1).isOdd
 >>> }
@@ -78,6 +79,7 @@ OEIS [A000069](https://oeis.org/A000069):
 Numbers with an even number of ones in their binary expansion,
 OEIS [A001969](https://oeis.org/A001969):
 
+```
 >>> 0:49.select { :n |
 >>> 	n.digitCount(2, 1).isEven
 >>> }

@@ -35,6 +35,7 @@ and [A299174](https://oeis.org/A299174):
 Counting by three and four,
 OEIS [A008585](https://oeis.org/A008585)
 and [A008586](https://oeis.org/A008586):
+
 ```
 >>> 5.arithmeticProgression(0, 3)
 [0 3 6 9 12]

@@ -530,7 +530,7 @@
 
 	cartesianIndexToDiagonalIndex { :i :j |
 		let a = i.triangularNumber;
- 		let b = Range(i, i + j - 2, 1);
+		let b = Range(i, i + j - 2, 1);
 		a + b.sum
 	}
 

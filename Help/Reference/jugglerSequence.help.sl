@@ -93,7 +93,7 @@ Plot of sizes:
 
 ~~~spl svg=A
 1:150.collect { :a |
- 	a.jugglerSequence.size - 1
+	a.jugglerSequence.size - 1
 }.scatterPlot
 ~~~
 
@@ -103,7 +103,7 @@ Log scale plot of heights:
 
 ~~~spl svg=B
 1:250.collect { :a |
- 	a.jugglerSequence.max
+	a.jugglerSequence.max
 }.log.scatterPlot
 ~~~
 

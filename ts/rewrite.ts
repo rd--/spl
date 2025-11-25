@@ -670,8 +670,8 @@ const asSl: ohm.ActionDict<string> = {
 		let kT = k.sourceString;
 		const e = 10n ** BigInt(fT.length);
 		if (kT.length === 0) {
-			kT = fT.length
-		};
+			kT = fT.length;
+		}
 		return `Decimal(Fraction(${sT}${iT}${fT}L, ${e.toString(10)}L), ${kT})`;
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
@@ -695,8 +695,8 @@ const asSl: ohm.ActionDict<string> = {
 		const iT = i.sourceString;
 		let kT = k.sourceString;
 		if (kT.length === 0) {
-			kT = 0
-		};
+			kT = 0;
+		}
 		return `Decimal(Fraction(${sT}${iT}L, 1L), ${kT})`;
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}D${k.sourceString}')`; */
 	},

@@ -52,7 +52,7 @@ function objectNameByConstructor(anObject: SplObject): TypeName {
 		return 'BinaryLargeObject';
 	}
 	if (name == 'bound Storage') {
-		return 'Storage' /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
+		return 'Storage'; /* deno 2.3.1, <https://github.com/denoland/deno/issues/27303>, delete when fixed */
 	}
 	return name;
 }

@@ -58,4 +58,3 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NestWhile.html),
 _OEIS_
 [1](https://oeis.org/A003602)
-

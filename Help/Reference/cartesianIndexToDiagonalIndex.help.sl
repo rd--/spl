@@ -11,7 +11,7 @@ Calculate the first _n_ rows and _m_ columns of the infinite matrix counted by a
 
 ```
 >>> cartesianIndexToDiagonalIndex:/2
->>> .table(1:11, 1:1).++
+>>> .table(1:7, 1:8)
 [
 	 1  2  4  7 11 16 22 29;
 	 3  5  8 12 17 23 30 38;
@@ -53,4 +53,3 @@ References:
 _OEIS_
 [1](https://oeis.org/A000124)
 [2](https://oeis.org/A000217)
-

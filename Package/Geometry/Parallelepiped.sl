@@ -8,7 +8,7 @@ Parallelepiped : [Object, Geometry] { | origin vectorList |
 		Polyhedron(
 			self.vertexCoordinates,
 			self.faceIndices
-			)
+		)
 	}
 
 	dimension { :self |

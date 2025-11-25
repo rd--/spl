@@ -45,7 +45,7 @@ OEIS [A104326](https://oeis.org/A104326):
 >>> 	n.integerDigits(2)
 >>> }.select { :n |
 >>> 	n.sequenceCount([0 0]) = 0
->>> }.collect { :x | x.split(=).size }
+>>> }
 [
 	0;
 	1;
