@@ -226,7 +226,7 @@ Reverse colexicographic order:
 ]
 ```
 
-Reflected colexicographic order:
+Reflected colexicographic order (Abramowitz and Stegun):
 
 ```
 >>> [1 .. 6].subsets { :x |

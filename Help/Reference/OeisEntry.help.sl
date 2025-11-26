@@ -20,7 +20,8 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 >>> 		e.name,
 >>> 		e.keywords,
 >>> 		e.offset,
->>> 		e.data.size
+>>> 		e.data.size,
+>>> 		e.bFileData.size
 >>> 	)
 >>> }
 (
@@ -29,7 +30,8 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 	'Number of groups of order n.',
 	['nonn' 'core' 'nice' 'hard'],
 	0,
-	94
+	94,
+	2048
 )
 ~~~
 
@@ -71,3 +73,13 @@ true
 * * *
 
 Guides: Integer Sequence Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/IntegerSequence.html),
+_OEIS_
+[1](https://oeis.org),
+_W_
+[1](https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences)
+
+Further Reading: Sloane 1973, Sloane 1995

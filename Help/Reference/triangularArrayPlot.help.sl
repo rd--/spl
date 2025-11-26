@@ -42,6 +42,15 @@ rescaled to lie in _(0,1)_:
 
 ![](sw/spl/Help/Image/triangularArrayPlot-C.svg)
 
+Plot Sierpiński’s triangle:
+
+~~~spl svg=C
+(16.pascalTriangle % 2)
+.triangularArrayPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArrayPlot-D.svg)
+
 * * *
 
 See also: triangularArray

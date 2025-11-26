@@ -231,6 +231,28 @@ let multiply = { :n :m |
 
 ![](sw/spl/Help/Image/bitXor-G.svg)
 
+Plot binary coding of a polynomial over _GF(2)_,
+OEIS [A193231](https://oeis.org/A193231):
+
+~~~spl svg=H
+let f:/1 = { :n |
+	[
+		{ n <= 1 } -> { n },
+		{ n.isEven } -> {
+			let m = f(n / 2);
+			bitXor(2 * m, m)
+		},
+		{ n.isOdd } -> {
+			let m = f((n - 1) / 2);
+			bitXor(m, 2 * m + 1)
+		}
+	].which
+}.memoize;
+0:127.collect(f:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-H.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor
@@ -243,7 +265,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/BitXor.html),
 _OEIS_
 [1](https://oeis.org/A003188)
-[2](https://oeis.org/A048720),
+[2](https://oeis.org/A048720)
+[3](https://oeis.org/A193231),
 _Smalltalk_
 5.6.5.9,
 _W_
