@@ -1,6 +1,7 @@
 # Function Guides
 
 - `Array Functions`
+- `Asynchronous Functions`
 - `Benchmarking Functions`
 - `Bitwise Functions`
 - `Block Functions`
@@ -57,6 +58,7 @@
 - `Regular Expression Functions`
 - `Rounding Functions`
 - `Scale Functions`
+- `Scheduling Functions`
 - `Sequence Alignment Functions`
 - `Set Functions`
 - `Sigmoid Functions`

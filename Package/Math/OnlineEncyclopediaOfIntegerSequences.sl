@@ -1,11 +1,167 @@
-+@Integer {
+OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFile |
 
-	oeisReference { :self :letter |
-		letter ++ self.asString.padLeft([6], '0')
+	bFileData { :self |
+		self.bFile.ifNil {
+			self.error('bFileData: not fetched')
+		} { :bFile |
+			bFile.column(2)
+		}
 	}
 
-	oeisReference { :self |
-		self.oeisReference('A')
+	bFileUrl { :self |
+		Url(
+			'https://oeis.org/%/b%.txt'.format(
+				[
+					self.identifier,
+					self.identifier.allButFirst
+				]
+			)
+		)
+	}
+
+	data { :self |
+		self.lookupField('data')
+		.splitBy(',')
+		.collect(parseDecimalInteger:/1)
+	}
+
+	equalBy { :self :operand :aBlock:/2 |
+		aBlock(self.identifier, operand.identifier)
+	}
+
+	fetch { :self |
+		[
+			self.fetchContents,
+			self.fetchBFile
+		].allFulfilled.then { :unused |
+			self
+		}
+	}
+
+	fetchContents { :self |
+		self.contents.ifNil {
+			self.jsonUrl.fetchMimeType(
+				'application/json'
+			).then { :data |
+				let [entry] = data;
+				self.contents := entry
+			}
+		} { :contents |
+			contents.resolvedPromise
+		}
+	}
+
+	fetchBFile { :self |
+		self.bFileUrl.cachedFetchMimeType(
+			'OnlineEncyclopediaOfIntegerSequences',
+			'text/plain'
+		).then { :data |
+			self.bFile := data.oeisParseBFile;
+			self
+		}
+	}
+
+	isValid { :self |
+		self.identifier.isOeisIdentifier
+	}
+
+	jsonUrl { :self |
+		Url(
+			'https://oeis.org/search?q=id:%&fmt=json'.format(
+				[
+					self.identifier
+				]
+			)
+		)
+	}
+
+	keywords { :self |
+		self.lookupField('keyword').splitBy(',')
+	}
+
+	lookupField { :self :key |
+		self.contents.ifNil {
+			self.fetchContents;
+			self.error('lookupField: contents not fetched')
+		} { :contents |
+			contents.at(key)
+		}
+	}
+
+	name { :self |
+		self.lookupField('name')
+	}
+
+	number { :self |
+		self.lookupField('number')
+	}
+
+	offset { :self |
+		self.lookupField('offset')
+		.splitBy(',')
+		.at(1)
+		.parseDecimalInteger
+	}
+
+	storeString { :self |
+		'OeisEntry(%)'.format([self.identifier.storeString])
+	}
+
+	then { :self :aBlock:/1 |
+		self.fetch.then(aBlock:/1)
+	}
+
+}
+
++String {
+
+	OeisEntry { :self |
+		system.oeisEntries.atIfAbsentPut(self) {
+			newOeisEntry().initializeSlots(self, nil, nil)
+		}
+	}
+
+}
+
++String {
+
+	isOeisIdentifier { :self |
+		let c = self.characters;
+		c.size = 7 & {
+			c[1] = 'A' & {
+				2:7.allSatisfy { :i |
+					c[i].isDigit
+				}
+			}
+		}
+	}
+
+	oeisParseBFile { :self |
+		self.lines.reject { :s |
+			s.isEmpty | {
+				s.beginsWith('#')
+			}
+		}.collect { :s |
+			s.splitBy(' ').collect { :n |
+				n.parseDecimalInteger
+			}
+		}
+	}
+
+	oeisNumber { :self |
+		self.allButFirst.parseDecimalInteger
+	}
+
+}
+
++@Integer {
+
+	OeisEntry { :self |
+		OeisEntry(self.oeisIdentifier)
+	}
+
+	oeisIdentifier { :self |
+		'A' ++ self.asString.padLeft([6], '0')
 	}
 
 }
@@ -34,7 +190,7 @@
 				binomial: [000125 006542 027907 000127 000984 166556 109449 000332 060693 002260 004736],
 				bitAnd: [279125],
 				bitReversalPermutation: [030109],
-				bitXor: [003188],
+				bitXor: [003188 048720],
 				braceletCount: [081720 000029 027671 032275],
 				brunsConstant: [065421],
 				calabisConstant: [046095],
@@ -56,7 +212,7 @@
 				chebyshevU: [008312 053117],
 				chordDiagrams: [007769],
 				circumflexAccent: [000272],
-				collatzSequence: [070165],
+				collatzSequence: [070165 008884 006877 006577 127824],
 				connellSequence: [001614],
 				continuedFraction: [003417],
 				cos: [268038],
@@ -75,7 +231,6 @@
 				digitSum: [000120 053735 053737 053824 053827 053828 053829 053830 007953],
 				discriminant: [007878],
 				distinctPrimeFactors: [008472],
-
 				divisorSigma: [000005 000203 078923 005114],
 				divisorSummatoryFunction: [006218],
 				doubleFactorial: [001147 000165],
@@ -102,7 +257,7 @@
 				factorInteger: [006881 124859],
 				fareySequence: [005728 006842 006843],
 				feigenbaumConstant: [006890],
-				fibonacci: [000045 000129 006190 001076 052918 058071 001060 105870 003893 001177],
+				fibonacci: [000045 000129 006190 001076 052918 058071 001060 105870 003893 001177 000071],
 				fibonacciEntryPoint: [001177],
 				fibonacciFactorial: [003266],
 				fibonacciFactorialConstant: [062073],
@@ -140,7 +295,7 @@
 				harmoniousNumber: [001622 060006 060007 160155 230159 230160],
 				hexagonalNumber: [000384],
 				hofstadterQSequence: [005185],
-				integerDigits: [062756 364024 007376 265326 117966 160855 010060 005811 014311 029931 066099 048793 167489 101211 322182],
+				integerDigits: [062756 364024 007376 265326 117966 160855 010060 005811 014311 029931 066099 048793 167489 101211 322182 007954],
 				integerExponent: [001511 007814 025480 110963 366601],
 				integerLength: [070939 061384],
 				integerPartitions: [036036 080577 080576 193073 334301],
@@ -175,7 +330,7 @@
 				isLukasiewiczWord: [071153],
 				isNarcissisticNumber: [005188],
 				isOdd: [005408],
-				isPalindrome: [006072],
+				isPalindrome: [002113 006072 006995],
 				isPerfectNumber: [000396],
 				isPerfectPower: [001597],
 				isPerfectSquare: [000290],
@@ -183,7 +338,7 @@
 				isPowerfulNumber: [001694 118896 060355],
 				isPracticalNumber: [005153],
 				isPrime: [005846 005385 005384 000353 006285],
-				isPrimePower: [246655 246547],
+				isPrimePower: [246655 246547 000015],
 				isPrimitiveAbundantNumber: [071395],
 				isPronicNumber: [002378],
 				isPseudoperfectNumber: [005835],
@@ -248,6 +403,7 @@
 				markovNumberTree: [002559],
 				matrixPower: [052534],
 				meisselMertensConstant: [077761],
+				memoize: [004001 002083],
 				mersenneNumber: [000225],
 				mersennePrimeExponent: [000043],
 				mertensFunction: [002321],
@@ -374,7 +530,7 @@
 				tetranacciConstant: [058265],
 				thueMorseSequence: [010060],
 				toothpickSequence: [139250],
-				triangularArray: [007318 075363 075364 094587 166556 077028 048601 002260 004736 096470],
+				triangularArray: [007318 075363 075364 094587 166556 077028 048601 002260 004736 096470 003991],
 				triangularNumber: [000217],
 				tribonacciConstant: [058265],
 				tribonacciNumber: [000073],
@@ -400,9 +556,34 @@
 		}
 	}
 
+	oeisSplFunctionListing { :self |
+		self
+		.oeisSplFunctionReferenceTable
+		.keysAndValuesDo { :k :v |
+			'- `%`: %'.format(
+				[
+					k,
+					v.isEmpty.if {
+						'...'
+					} {
+						v.sort.collect(
+							oeisIdentifier:/1
+						).unwords
+					}
+				]
+			).postLine
+		}
+	}
+
 }
 
 +System {
+
+	oeisEntries { :self |
+		self.cached('oeisEntries') {
+			Map()
+		}
+	}
 
 	oeisSequenceData { :self |
 		self.requireLibraryItem('OeisSequenceData')

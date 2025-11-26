@@ -1,9 +1,9 @@
 # resolvedPromise
 
-- _resolvedPromise(anObject)_
+- _resolvedPromise(x)_
 
-Answers either a new `Promise` resolved with _anObject_,
-or _anObject_ itself if it is a `Promise`.
+Answers either a new `Promise` resolved with the object _x_,
+or _x_ itself if it is a `Promise`.
 
 ```
 >>> let promise = 'answer'.resolvedPromise;
@@ -14,6 +14,8 @@ true
 * * *
 
 See also: Promise, rejectedPromise
+
+Guides: Asynchronous Functions
 
 References:
 _Tc39_

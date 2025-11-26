@@ -1,14 +1,16 @@
 # thenElse
 
-- _thenElse(aPromise, onResolved:/1, onRejected:/1)_
+- _thenElse(p, f:/1, g:/1)_
 
-Schedules _onResolved_ to be called if _aPromise_ resolves, with the value resolved to,
-and _onRejected_ to be called if _aPromise_ rejects, with the reason for the rejection.
-The answer is an equivalent `Promise` object to _aPromise_.
+Schedules the block _f_ to be called if the promise _p_ resolves, with the value resolved to,
+and the block _g_ to be called if _p_ rejects, with the reason for the rejection.
+The answer is an equivalent `Promise` object to _p_.
 
 * * *
 
 See also: finally, onRejection, Promise, then
+
+Guides: Asynchronous Functions
 
 References
 _Tc39_

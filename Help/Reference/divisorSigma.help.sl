@@ -89,6 +89,7 @@ Threads elementwise over lists:
 [1 5 10 21 26]
 ```
 
+First few terms at _k=0_,
 OEIS [A000005](https://oeis.org/A000005):
 
 ```
@@ -174,7 +175,8 @@ OEIS [A005114](https://oeis.org/A005114):
 ]
 ```
 
-Plot divisor function _σ₀(n)_ up to _n=100_:
+Plot divisor function _σ₀(n)_ up to _n=100_,
+OEIS [A000005](https://oeis.org/A000005):
 
 ~~~spl svg=A
 1:100.functionPlot { :x |

@@ -25,4 +25,6 @@ and schedules for them to be added to the interpreter cache.
 
 See also: Cache, CacheStorage, cachedFetchMimeType, fetch, fetchMimeType, Promise, Response
 
+Guides: Network Functions
+
 Categories: Network, Scheduling

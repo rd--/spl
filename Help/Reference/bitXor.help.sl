@@ -203,6 +203,34 @@ OEIS [A038554](https://oeis.org/A038554):
 
 ![](sw/spl/Help/Image/bitXor-F.svg)
 
+Plot table for binary multiplication without carries,
+OEIS [A048720](https://oeis.org/A048720):
+
+~~~spl svg=G
+let inverse = { :n |
+	(1 + (1 + (8 * n)).sqrt / 2).floor
+};
+let multiply = { :n :m |
+	let s = 0;
+	{ n > 0 }.whileTrue {
+		(1 = (n % 2)).ifTrue {
+			s := s.bitXor(m)
+		};
+		n := (n / 2).floor;
+		m := m * 2
+	};
+	s
+};
+0:250.collect { :n |
+	let i = n.inverse;
+	let a = (i - 1) * (i / 2 + 1) - n;
+	let b = n - ((i * (i - 1)) / 2);
+	multiply(a, b)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-G.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor
@@ -214,7 +242,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/XOR.html)
 [2](https://reference.wolfram.com/language/ref/BitXor.html),
 _OEIS_
-[1](https://oeis.org/A003188),
+[1](https://oeis.org/A003188)
+[2](https://oeis.org/A048720),
 _Smalltalk_
 5.6.5.9,
 _W_

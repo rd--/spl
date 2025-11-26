@@ -267,6 +267,17 @@ let f = { :n :k |
 
 ![](sw/spl/Help/Image/triangularArray-A.svg)
 
+Plot multiplication table read by antidiagonals,
+OEIS [A003991](https://oeis.org/A003991):
+
+~~~spl svg=B
+0:13.triangularArray { :x :y |
+	(x + 1 - y) * y
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-B.svg)
+
 * * *
 
 See also: array, collect, isTriangularArray, table
@@ -286,7 +297,8 @@ _OEIS_
 [7](https://oeis.org/A048601)
 [8](https://oeis.org/A002260)
 [9](https://oeis.org/A004736)
-[10](https://oeis.org/A096470),
+[10](https://oeis.org/A096470)
+[11](https://oeis.org/A003991),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

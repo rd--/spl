@@ -71,7 +71,10 @@ Values at fixed points:
 [1 2 5 10 17 26 37 50 65 82]
 ```
 
-Threads over lists:
+Threads over lists.
+First few terms,
+OEIS [A000045](https://oeis.org/A000045)
+and OEIS [A000045](https://oeis.org/A000071):
 
 ```
 >>> 1:20.fibonacci
@@ -82,6 +85,13 @@ Threads over lists:
 	987 1597 2584 4181 6765
 ]
 
+>>> 1:13.fibonacci - 1
+[0 0 1 2 4 7 12 20 33 54 88 143 232]
+```
+
+Odd terms from _-1_:
+
+```
 >>> [-1, 1 .. 13].fibonacci
 [1 1 2 5 13 34 89 233]
 ```
@@ -363,7 +373,8 @@ _OEIS_
 [1](https://oeis.org/A000045)
 [2](https://oeis.org/A001605)
 [3](https://oeis.org/A105870)
-[4](https://oeis.org/A010048),
+[4](https://oeis.org/A010048)
+[5](https://oeis.org/A000071),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.fibonacci),
 _W_

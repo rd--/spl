@@ -28,6 +28,10 @@ Threads over lists:
 ```
 >>> [2 4 5 6 7 35].eulerPhi
 [1 2 4 2 6 24]
+```
+
+First few terms,
+OEIS [A000010](https://oeis.org/A000010):
 
 >>> 1:23.eulerPhi
 [
@@ -119,7 +123,8 @@ OEIS [A115114](https://oeis.org/A115114):
 ]
 ```
 
-Plot the sequence:
+Plot the first few terms,
+OEIS [A000010](https://oeis.org/A000010):
 
 ~~~spl svg=A
 1:50.functionPlot(eulerPhi:/1)

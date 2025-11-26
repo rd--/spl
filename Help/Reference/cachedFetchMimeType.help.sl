@@ -1,9 +1,9 @@
 # cachedFetchMimeType
 
-- _cachedFetchMimeType(aUrl, cacheName, aMimeType)_
+- _cachedFetchMimeType(url, cache, mimeType)_
 
 A caching variant of `fetchMimeType`.
-Runs `fetchMimeType` unless _aUrl_ is not located in _cacheName_ at `caches`.
+Runs `fetchMimeType` unless _url_ is not located in the named _cache_ at `caches`.
 
 Fetch Utf-8 encoded text:
 
@@ -20,5 +20,7 @@ system
 * * *
 
 See also: Cache, CacheStorage, cachedFetch, fetch, fetchMimeType, Url
+
+Guides: Network Functions
 
 Categories: Network

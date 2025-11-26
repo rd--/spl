@@ -15,6 +15,9 @@ Compute the number of primes up to 15 and 100:
 
 >>> 100.primePi
 25
+
+>>> 104729.primePi
+10000
 ```
 
 Threads over lists:

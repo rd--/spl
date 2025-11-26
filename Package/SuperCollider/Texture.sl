@@ -59,12 +59,14 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 		TextureProgram(self, envelopeBlock:/1, delayTime)
 	}
 
-	playEvery { :self:/1 :delay |
-		system.clock.playEvery(self:/1, delay)
+	playEvery { :self:/1 :delayTime :aClock |
+		{ :currentTime :nextDelay |
+			self(nextDelay).playAt(currentTime)
+		}.repeatEvery(delayTime, aClock)
 	}
 
-	recurseEvery { :self:/2 :anObject :delay |
-		system.clock.recurseEvery(self:/2, anObject, delay)
+	playEvery { :self:/1 :delay |
+		playEvery(self:/1, delay, system.clock)
 	}
 
 	spawnTextureProgram { :self :nextTime |
@@ -73,19 +75,6 @@ TextureProgram : [Object] { | iterationCounter soundBlock envelopeBlock delayTim
 
 	xFadeTextureProgram { :self :sustainTime :transitionTime |
 		self.overlapTextureProgram(sustainTime, transitionTime, 2)
-	}
-
-}
-
-+Clock {
-
-	playEvery { :self :aBlock:/1 :delay |
-		self.repeatEvery(
-			{ :currentTime :nextDelay |
-				aBlock(nextDelay).playAt(currentTime)
-			},
-			delay
-		)
 	}
 
 }

@@ -1,11 +1,21 @@
 DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAnswer |
 
 	evaluate { :self |
-		{
+		let result = {
 			system.evaluate(self.format)
 		}.ifError { :err |
 			['DocumentationTest>>evaluate', err].postLine;
 			false
+		};
+		result.isPromise.if {
+			result.then { :deferredResult |
+				deferredResult.ifFalse {
+					['Error: Deferred test failed', self.program.unlines].postLine
+				}
+			};
+			true
+		} {
+			result
 		}
 	}
 
@@ -92,6 +102,16 @@ DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAn
 
 	DocumentationTest { :prefix :program :expectedAnswer |
 		newDocumentationTest().initializeSlots(prefix, program, expectedAnswer)
+	}
+
+}
+
++Promise {
+
+	~ { :self :operand |
+		self.then { :answer |
+			answer ~ operand
+		}
 	}
 
 }

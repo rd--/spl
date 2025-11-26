@@ -538,6 +538,17 @@ a.scatterPlot
 
 ![](sw/spl/Help/Image/integerDigits-I.svg)
 
+Plot product of decimal digits of _n_,
+OEIS [A007954](https://oeis.org/A007954):
+
+~~~spl svg=J
+1:150.collect { :n |
+	n.integerDigits.product
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-J.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight
@@ -564,7 +575,8 @@ _OEIS_
 [13](https://oeis.org/A048793)
 [14](https://oeis.org/A167489)
 [15](https://oeis.org/A101211)
-[16](https://oeis.org/A322182),
+[16](https://oeis.org/A322182)
+[17](https://oeis.org/A007954),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

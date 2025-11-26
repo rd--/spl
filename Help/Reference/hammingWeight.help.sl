@@ -27,7 +27,8 @@ OEIS [A010060](https://oeis.org/A010060):
 32.thueMorseSequence
 ```
 
-Scatter plot first few terms:
+Scatter plot first few terms,
+OEIS [A000120](https://oeis.org/A000120):
 
 ~~~spl svg=A
 0:99.collect(

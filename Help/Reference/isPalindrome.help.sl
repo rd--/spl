@@ -157,6 +157,17 @@ The squares of 1, 11, 111 and so on are special palindromes:
 ]
 ```
 
+Plot numbers whose binary expansion is palindromic,
+OEIS [A006995](https://oeis.org/A006995):
+
+~~~spl svg
+0:1000.select { :n |
+	n.integerDigits(2).isPalindrome
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPalindrome-A.svg)
+
 * * *
 
 See also: =, reverse
@@ -168,7 +179,8 @@ _Mathematica_
 [3](https://reference.wolfram.com/language/ref/PalindromeQ.html),
 _OEIS_
 [1](https://oeis.org/A002113)
-[2](https://oeis.org/A006072),
+[2](https://oeis.org/A006072)
+[3](https://oeis.org/A006995),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_

@@ -35,10 +35,13 @@ Encoding & Decoding:
 
 Fetching:
 
-- `fetch`
-- `fetchText`
-- `fetchJson`
+- `cachedFetchMimeType`
+- `cachedFetch`
 - `fetchByteArray`
+- `fetchJson`
+- `fetchMimeType`
+- `fetchText`
+- `fetch`
 
 * * *
 

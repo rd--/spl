@@ -6,19 +6,6 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.initializeSlots(PriorityQueue(), nil, nil)
 	}
 
-	recurseEvery { :self :aBlock:/2 :anObject :delay |
-		self.scheduleInjecting(0, anObject) { :currentTime :inputValue |
-			let nextDelay = delay.value;
-			(
-				inputValue.isNotNil & {
-					nextDelay.isNotNil
-				}
-			).ifTrue {
-				[nextDelay, aBlock(currentTime, inputValue)]
-			}
-		}
-	}
-
 	removeAll { :self |
 		self.priorityQueue.removeAllAndShrink;
 		self.existingDelay.ifNotNil {
@@ -28,17 +15,7 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		self.existingDelay := nil
 	}
 
-	repeatEvery { :self :aBlock:/2 :delay |
-		self.schedule(0) { :currentTime |
-			let nextDelay = delay.value;
-			nextDelay.ifNotNil {
-				aBlock(currentTime, nextDelay);
-				nextDelay
-			}
-		}
-	}
-
-	schedule { :self :deltaTime :aBlock:/1 |
+	scheduleBlock { :self :deltaTime :aBlock:/1 |
 		let currentTime = system.sessionTime;
 		let scheduledTime = currentTime + deltaTime;
 		let wakeupTime = self.nextEntryTime;
@@ -56,11 +33,11 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 		}
 	}
 
-	scheduleInjecting { :self :deltaTime :anObject :aBlock:/2 |
-		self.schedule(deltaTime) { :currentTime |
+	scheduleBlockInjecting { :self :deltaTime :anObject :aBlock:/2 |
+		self.scheduleBlock(deltaTime) { :currentTime |
 			let reply = aBlock(currentTime, anObject);
 			reply.ifNotNil {
-				self.scheduleInjecting(reply[1], reply[2], aBlock:/2)
+				self.scheduleBlockInjecting(reply[1], reply[2], aBlock:/2)
 			};
 			nil
 		}
@@ -116,26 +93,61 @@ Clock : [Object] { | priorityQueue nextEntryTime existingDelay |
 
 }
 
-+SmallFloat {
-
-	schedule { :self :aBlock:/2 |
-		system.clock.schedule(self, aBlock:/2)
-	}
-
-	scheduleInjecting { :self :anObject :aBlock:/2 |
-		system.clock.scheduleInjecting(self, anObject, aBlock:/2)
-	}
-
-}
-
 +Block {
 
+	recurseEvery { :self:/2 :anObject :delayTime :aClock |
+		{ :currentTime :inputValue |
+			let nextDelay = delayTime.value;
+			(
+				inputValue.isNotNil & {
+					nextDelay.isNotNil
+				}
+			).ifTrue {
+				[nextDelay, self(currentTime, inputValue)]
+			}
+		}.scheduleInjecting(anObject, 0, aClock)
+	}
+
+	recurseEvery { :self:/2 :anObject :delayTime |
+		recurseEvery(self:/2, anObject, delayTime, system.clock)
+	}
+
+	repeatEvery { :self:/2 :delayTime :aClock |
+		{ :currentTime |
+			let nextDelay = delayTime.value;
+			nextDelay.ifNotNil {
+				self(currentTime, nextDelay);
+				nextDelay
+			}
+		}.schedule(0, aClock)
+	}
+
+	repeatEvery { :self:/2 :delayTime |
+		repeatEvery(self:/2, delayTime, system.clock)
+	}
+
+	schedule { :self:/1 :deltaTime :aClock |
+		aClock.scheduleBlock(deltaTime, self:/1)
+	}
+
+	schedule { :self:/1 :deltaTime |
+		schedule(self:/1, deltaTime, system.clock)
+	}
+
 	schedule { :self:/1 |
-		system.clock.schedule(0, self:/1)
+		schedule(self:/1, 0, system.clock)
+	}
+
+	scheduleInjecting { :self:/2 :anObject :deltaTime :aClock |
+		aClock.scheduleBlockInjecting(deltaTime, anObject, self:/2)
+	}
+
+	scheduleInjecting { :self:/2 :anObject :deltaTime |
+		scheduleInjecting(self:/2, anObject, deltaTime, system.clock)
 	}
 
 	scheduleInjecting { :self:/2 :anObject |
-		system.clock.scheduleInjecting(0, anObject, self:/2)
+		scheduleInjecting(self:/2, anObject, 0, system.clock)
 	}
 
 }

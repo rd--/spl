@@ -188,7 +188,8 @@ At zero and negative one and one:
 Calculate number of divisors:
 
 ```
->>> (24.factorInteger.column(2) + 1).product
+>>> (24.factorInteger.column(2) + 1)
+>>> .product
 8
 
 >>> 0.divisorSigma(24)
@@ -257,9 +258,27 @@ let f = { :p :e |
 
 ![](sw/spl/Help/Image/factorInteger-C.svg)
 
+Plot the arithmetic derivative of _n_,
+OEIS [A003415](https://oeis.org/A003415):
+
+~~~spl svg=D
+1:150.collect { :n |
+	(n < 2).if {
+		0
+	} {
+		n.abs.factorInteger
+		.collect { :x |
+			x[2] / x[1]
+		}.sum * n
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-D.svg)
+
 * * *
 
-See also: ->, Association, divisors, isPrime, primeFactors, primeFactorization, product
+See also: divisors, isPrime, primeFactors, primeFactorization, product
 
 Guides: Integer Functions, Prime Number Functions
 

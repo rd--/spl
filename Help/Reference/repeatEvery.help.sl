@@ -1,16 +1,19 @@
 # repeatEvery
 
-- _repeatEvery(aClock, aBlock:/2, aDelay)_
+- _repeatEvery(f:/2, n, c)_
 
-Schedule _aBlock_ at intervals given by _aDelay_ on _aClock_.
-_aBlock_ receives the current time and the delay interval before the block will execute next.
+Schedule the block _f_ at intervals given by delay _n_ on the clock _c_.
+_f_ receives the current time and the delay interval before the block will execute next.
 
 Print a message every few seconds indefinitely:
 
 ~~~spl scheduler
-system.clock.repeatEvery { :t :d |
-	['About to delay for', t, d].postLine
-} {
+{ :t :d |
+	[
+		'Clock says', t,
+		'About to delay for', d
+	].postLine
+}.repeatEvery {
 	1:5.atRandom
 }
 ~~~
@@ -24,5 +27,7 @@ system.clock.removeAll
 * * *
 
 See also: recurseEvery, schedule
+
+Guides: Scheduling Functions
 
 Categories: Scheduling

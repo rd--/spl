@@ -1,16 +1,14 @@
 # rejectedPromise
 
-- _rejectedPromise(anError)_
+- _rejectedPromise(e)_
 
-Answers a new `Promise` rejected with _anError_.
+Answers a new `Promise` rejected with the error _e_.
 
 ```
 >>> Error('X')
 >>> .rejectedPromise
->>> .thenElse { :unusedAnswer |
->>> 	'Y'.error
->>> } { :err |
->>> 	{ err.messageText = 'X' } .assert
+>>> .onRejection { :e |
+>>> 	{ e.messageText = 'X' }.assert
 >>> }.isPromise
 true
 ```
@@ -18,6 +16,8 @@ true
 * * *
 
 See also: Promise, resolvedPromise
+
+Guides: Asynchronous Functions
 
 References:
 _Tc39_

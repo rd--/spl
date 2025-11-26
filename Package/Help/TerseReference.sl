@@ -65,7 +65,11 @@
 	}
 
 	terseReferenceSummary { :directoryName :options |
-		directoryName.terseReferenceSummaryDo(options, 'Documentation Tests', terseReferenceEntry:/2)
+		directoryName.terseReferenceSummaryDo(
+			options,
+			'Documentation Tests',
+			terseReferenceEntry:/2
+		)
 	}
 
 	terseSuperColliderGraphSummary { :directoryName :options |

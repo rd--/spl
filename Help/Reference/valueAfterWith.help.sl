@@ -1,8 +1,8 @@
 # valueAfterWith
 
-- _valueAfterWith(aBlock:/1, aNumber | aDuration, anObject)_
+- _valueAfterWith(f:/1, n, x)_
 
-Schedule _aBlock_ to be evaluated after _aNumber_ of seconds has passed with _anObject_ as its parameter.
+Schedule the block _f_ to be evaluated after _n_ seconds has passed with the object _x_ as its parameter.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
 ~~~spl scheduler
@@ -18,5 +18,7 @@ r['z'] := 23
 * * *
 
 See also: cancel, valueAfter, valueEvery
+
+Guides: Scheduling Functions
 
 Categories: Scheduling

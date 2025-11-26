@@ -123,6 +123,20 @@ true
 5
 ```
 
+Smallest prime power _≥n_,
+OEIS [A000015](https://oeis.org/A000015):
+
+```
+>>> 2:18.collect { :n |
+>>> 	{ :x |
+>>> 		x + 1
+>>> 	}.nestWhile(n) { :x |
+>>> 		x.isPrimePower.not
+>>> 	}
+>>> }
+[2 3 4 5 7 7 8 9 11 11 13 13 16 16 16 17 19]
+```
+
 * * *
 
 See also: divisors, isComposite, isCoprime, isGaussianPrime, isPrime, isSquareFree, moebiusMu, primeNu, primeOmega
@@ -135,7 +149,8 @@ _Mathematica_
 [2](https://reference.wolfram.com/language/ref/PrimePowerQ.html),
 _OEIS_
 [1](https://oeis.org/A246655)
-[2](https://oeis.org/A246547),
+[2](https://oeis.org/A246547)
+[3](https://oeis.org/A000015),
 _W_
 [1](https://en.wikipedia.org/wiki/Prime_power)
 

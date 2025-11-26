@@ -6,6 +6,9 @@ Answer the first _n_ terms of Recamáns sequence.
 The _n_-the term is _a[n-1]-n_ if non-negative and not already in the sequence,
 otherwise _a[n-1]+n_.
 
+First few terms,
+OEIS [A005132](https://oeis.org/A005132):
+
 ```
 >>> 71.recamanSequence
 [

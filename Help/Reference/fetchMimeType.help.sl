@@ -1,9 +1,9 @@
 # fetchMimeType
 
-- _fetchMimeType(aUrl, aMimeType)_
+- _fetchMimeType(url, mimeType)_
 
-Answer a `Promise` that will resolve to the contents of _aUrl_,
-according to the value of _aMimeType_, which should be either:
+Answer a `Promise` that will resolve to the contents of _url_,
+according to the value of _mimeType_, which should be either:
 
 - 'application/octet-stream'
 - 'application/json'

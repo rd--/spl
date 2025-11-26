@@ -2,7 +2,7 @@
 
 - _collatzSequence(n)_
 
-Answer the sequence of integers,
+Answer the Collatz sequence of integers,
 starting with _n_,
 in which each term is obtained from the previous term as either
 
@@ -46,7 +46,17 @@ OEIS [A070165](http://oeis.org/A070165):
 ]
 ```
 
-Plot the number of steps required to reach one for the first few integers:
+The number of steps required to reach one for the first few integers,
+OEIS [A006577](https://oeis.org/A006577):
+
+```
+>>> 1:18.collect { :each |
+>>> 	each.collatzSequence.size - 1
+>>> }
+[0 1 7 2 5 8 16 3 19 6 14 9 9 17 17 4 12 20]
+```
+
+Plot:
 
 ~~~spl svg=A
 1:200.collect { :each |
@@ -74,6 +84,28 @@ Plot the orbit for twenty-seven, which has one-hundred and twelve places:
 
 ![](sw/spl/Help/Image/collatzSequence-C.svg)
 
+Plot numbers sorted by their Collatz stopping time,
+OEIS [A127824](https://oeis.org/A127824):
+
+~~~spl svg=D
+let s = [1];
+let t = 1:15.collect { :unused |
+	let u = s.select { :x |
+		x % 3 = 1 & {
+			let y = (x - 1) / 3;
+			y.isOdd & {
+				y > 1
+			}
+		}
+	} - 1 / 3;
+	s := ((2 * s) ++ u).nub.sort;
+	s
+};
+([1] ++ t.catenate).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/collatzSequence-D.svg)
+
 * * *
 
 See also: isEven, isOdd, nestWhileList
@@ -87,6 +119,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A070165)
 [2](https://oeis.org/A008884)
-[3](https://oeis.org/A006877),
+[3](https://oeis.org/A006877)
+[4](https://oeis.org/A006577)
+[5](https://oeis.org/A127824),
 _W_
 [1](https://en.wikipedia.org/wiki/Collatz_conjecture)

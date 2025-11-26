@@ -7,7 +7,7 @@
 - `aliquotSum`: A001065
 - `aperysConstant`: A002117
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
-- `arithmeticProgression`: A000027 A005408 A005843 A008585 A008586
+- `arithmeticProgression`: A000027 A001477 A005408 A005843 A008585 A008586
 - `artinsConstant`: A005596
 - `balancedCayleyTree`: A003945 A003946 A003947 A025192 A083329 A136412
 - `baumSweetSequence`: A086747
@@ -61,6 +61,7 @@
 - `digitalRoot`: A010888
 - `digitSum`: A000120 A007953 A053735 A053737 A053824 A053827 A053828 A053829 A053830
 - `discriminant`: A007878
+- `distinctPrimeFactors`: A008472
 - `divisorSigma`: A000005 A000203 A005114 A078923
 - `divisorSummatoryFunction`: A006218
 - `doubleFactorial`: A000165 A001147
@@ -95,6 +96,8 @@
 - `fibonacciSequence`: A000045 A007660 A082115
 - `fibonacciWord`: A003849
 - `finesSequence`: A000957
+- `finiteGroupCount`: A000001
+- `finiteAbelianGroupCount`: A000688 A060689
 - `floor`: A007891
 - `fortunateNumber`: A005235
 - `freimansConstant`: A118472
@@ -123,8 +126,8 @@
 - `harmoniousNumber`: A001622 A060006 A060007 A160155 A230159 A230160
 - `hexagonalNumber`: A000384
 - `hofstadterQSequence`: A005185
-- `integerDigits`: A005811 A007376 A010060 A014311 A029931 A048793 A062756 A066099 A101211 A117966 A160855 A167489 A265326 A364024
-- `integerExponent`: A001511 A007814 A025480 A110963
+- `integerDigits`: A005811 A007376 A010060 A014311 A029931 A048793 A062756 A066099 A101211 A117966 A160855 A167489 A265326 A322182 A364024
+- `integerExponent`: A001511 A007814 A025480 A110963 A366601
 - `integerLength`: A061384 A070939
 - `integerPartitions`: A036036 A080576 A080577 A193073 A334301
 - `integerPartitionUnrank`: A112798 A129594 A227739
@@ -226,6 +229,7 @@
 - `markovNumberTree`: A002559
 - `matrixPower`: A052534
 - `meisselMertensConstant`: A077761
+- `memoize`: A004001
 - `mersenneNumber`: A000225
 - `mersennePrimeExponent`: A000043
 - `mertensFunction`: A002321
@@ -273,16 +277,16 @@
 - `Polynomial`: A003263
 - `powerMod`: A001567 A002371 A096008
 - `previousPrime`: A007917
-- `prime`: A000040 A046929 A243353
+- `prime`: A000040 A001348 A006450 A046929 A243353
 - `primeDistance`: A051699
 - `primeDivisors`: A003592
-- `primeFactors`: A020639 A027746 A238689
+- `primeFactors`: A001414 A020639 A027746 A238689 A268868
 - `primeGap`: A001223
 - `primeOmega`: A001222
 - `primeNu`: A001221 A034444
 - `primePi`: A000720 A049084 A056239 A112798 A156552
 - `primesList`: A000040
-- `primeSignature`: A025487 A036035 A046523 A118914
+- `primeSignature`: A025487 A036035 A046523 A118914 A181819
 - `primitiveRootList`: A001122 A001913 A033948 A046144
 - `primorial`: A002110
 - `pyramidalNumber`: A000292 A000330 A002411 A002412 A002413
@@ -330,7 +334,7 @@
 - `sternBrocotNumber`: A002487
 - `sternBrocotSequence`: A002487
 - `stirlingS1`: A008275
-- `stirlingS2`: A008277
+- `stirlingS2`: A000392 A000453 A008277
 - `stolarskyArray`: A035506
 - `stolarskyHarborthConstant`: A006046 A077464
 - `stolarskyIndex`: A098861 A098862
@@ -346,7 +350,7 @@
 - `tetranacciConstant`: A058265
 - `thueMorseSequence`: A010060
 - `toothpickSequence`: A139250
-- `triangularArray`: A002260 A004736 A007318 A048601 A075363 A075364 A077028 A094587 A166556
+- `triangularArray`: A002260 A004736 A007318 A048601 A075363 A075364 A077028 A094587 A096470 A166556
 - `triangularNumber`: A000217
 - `tribonacciConstant`: A058265
 - `tribonacciNumber`: A000073
@@ -364,6 +368,7 @@
 - `wythoffLower`: A000201
 - `wythoffPair`: A000201 A001950
 - `wythoffUpper`: A001950
+- `xorTriangle`: A334556 A334769
 - `yellowstonePermutation`: A098550
 - `zeckendorfRepresentation`: A003714 A007895 A014417 A035517 A035614 A087172 A094202 A102364 A328208
 - `zero`: A000004
@@ -371,21 +376,7 @@
 The above list is printed by:
 
 ~~~spl console
-system.oeisSplFunctionReferenceTable
-.keysAndValuesDo { :k :v |
-	'- `%`: %'.format(
-		[
-			k,
-			v.isEmpty.if {
-				'...'
-			} {
-				v.sort.collect(
-					oeisReference:/1
-				).unwords
-			}
-		]
-	).postLine
-}
+system.oeisSplFunctionListing
 ~~~
 
 * * *

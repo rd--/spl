@@ -78,7 +78,8 @@ OEIS [A047999](https://oeis.org/A047999):
 ]
 ```
 
-A `log` scaled scatter plot of the row-order sequence:
+A `log` scaled scatter plot of the row-order sequence,
+OEIS [A007318](https://oeis.org/A007318):
 
 ~~~spl svg=A
 21.pascalTriangle

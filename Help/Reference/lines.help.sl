@@ -1,8 +1,8 @@
 # lines
 
-- _lines(aString)_
+- _lines(s)_
 
-Answer a `List` of `String`, one for each line of _aString_, without the line ending delimiters.
+Answer a `List` of `String`, one for each line of the string _s_, without the line ending delimiters.
 
 ```
 >>> 'a\nbc\ndef'.lines
@@ -58,12 +58,12 @@ Two non-empty lines:
 ['one' 'two']
 ```
 
-The inverse is _unlines_:
+The inverse is `unlines`:
 
 ```
->>> let list = ['a' 'bc' 'def'];
->>> list.unlines.lines
-list
+>>> ['a' 'bc' 'def']
+>>> .unlines.lines
+['a' 'bc' 'def']
 ```
 
 * * *

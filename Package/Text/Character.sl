@@ -210,9 +210,7 @@ Character : [Object, Storeable, Equatable, Comparable, Magnitude, Character] { |
 
 	Character { :self :codePoint |
 		self.isCharacter.if {
-			system.cache.atIfAbsentPut('characterDictionary') {
-				(:)
-			}.atIfAbsentPut(self) {
+			system.characterDictionary.atIfAbsentPut(self) {
 				newCharacter().initializeSlots(self, codePoint)
 			}
 		} {
@@ -227,6 +225,12 @@ Character : [Object, Storeable, Equatable, Comparable, Magnitude, Character] { |
 }
 
 +@Cache {
+
+	characterDictionary { :self |
+		self.cached('characterDictionary') {
+			Record()
+		}
+	}
 
 	digitValueTable { :self |
 		self.cache.atIfAbsentPut('digitValueTable') {

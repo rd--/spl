@@ -1,4 +1,4 @@
-'Help/Reference'.splFilePath.terseReferenceSummary(verbose: false, pattern: '.*')
+'Help/Reference'.splFilePath.terseReferenceSummary (verbose: false, pattern: '.*')
 
 Total => 14,439
 

@@ -1,8 +1,8 @@
 # valueAfter
 
-- _valueAfter(aBlock:/0, aNumber | aDuration)_
+- _valueAfter(f:/0, n)_
 
-Schedule _aBlock_ to be evaluated after _aNumber_ of seconds has passed.
+Schedule the block _f_ to be evaluated after _n_ seconds has passed.
 Answers an identifier that can be used to `cancel` the scheduled activity.
 
 ```
@@ -14,5 +14,7 @@ Answers an identifier that can be used to `cancel` the scheduled activity.
 * * *
 
 See also: cancel, valueAfterWith, valueEvery
+
+Guides: Scheduling Functions
 
 Categories: Scheduling

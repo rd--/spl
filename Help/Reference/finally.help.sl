@@ -1,13 +1,15 @@
 # finally
 
-- _finally(aPromise, aBlock:/0)_
+- _finally(p, f:/0)_
 
-Schedule _aBlock_ be called when _aPromise_ is settled, either as fulfilled or rejected.
-Answer an equivalent `Promise` object to _aPromise_.
+Schedule the block _f_ be called when the promise _p_ is settled, either as fulfilled or rejected.
+Answer an equivalent `Promise` object to _p_.
 
 * * *
 
 See also: onRejection, Promise, then, thenElse
+
+Guides: Asynchronous Functions
 
 References
 _Tc39_

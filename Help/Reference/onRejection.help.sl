@@ -1,16 +1,19 @@
 # onRejection
 
-- _onRejection(aPromise, aBlock:/1)_ ⟹ _thenElse(aPromise, { :unused | nil }, aBlock:/1)_
+- _onRejection(p, f:/1)_
 
-Schedule _aBlock_ be called if _aPromise_ is rejected,
+Schedule the block _f_ be called if the promise _p_ is rejected,
 with the reason as argument.
-Answer an equivalent `Promise` object to _aPromise_.
+Answer an equivalent `Promise` object to _p_.
 
-`onRejection` is an idiom over `thenElse`.
+`onRejection` is an idiom over `thenElse`,
+equivalent to _p.thenElse(nil.constant, f:/1)_.
 
 * * *
 
 See also: finally, Promise, then, thenElse
+
+Guides: Asynchronous Functions
 
 References
 _Tc39_

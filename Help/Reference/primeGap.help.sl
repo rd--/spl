@@ -6,6 +6,9 @@ Answer the _n_-th prime gap.
 A prime gap is the difference between two successive prime numbers.
 The _n_-th prime gap is the difference between the _n+1_-th and the _n_-th prime numbers.
 
+First few terms,
+OEIS [A001223](https://oeis.org/A001223):
+
 ```
 >>> 1:20.collect(primeGap:/1)
 [
@@ -30,7 +33,8 @@ Most frequent gaps in initial primes sequence:
 ]
 ```
 
-Plot:
+Plot first few terms,
+OEIS [A001223](https://oeis.org/A001223):
 
 ~~~spl svg=A
 1:99.functionPlot(primeGap:/1)
