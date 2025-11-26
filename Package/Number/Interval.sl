@@ -12,7 +12,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		operand < self
 	}
 
-	+ { :self :operand |
+	[plus, +] { :self :operand |
 		operand.isInterval.if {
 			Interval(
 				self.min + operand.min,
@@ -23,7 +23,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
-	- { :self :operand |
+	[minus, -] { :self :operand |
 		operand.isInterval.if {
 			Interval(
 				self.min - operand.min,
@@ -34,7 +34,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
-	* { :self :operand |
+	[times, *] { :self :operand |
 		operand.isInterval.if {
 			let products = ([self.min, self.max] *.outer [operand.min, operand.max]).flatten;
 			Interval(products.min, products.max)

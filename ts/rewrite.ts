@@ -64,10 +64,12 @@ function rewriteMethodListToCore(n: ohm.Node, b: ohm.Node): string[] {
 	const k = nArray.length;
 	const answer = [];
 	for (let i = 0; i < k; i++) {
-		const bInitial = bArray[i].sourceString;
-		const bCore = bArray[i].asSl;
+		const n = nArray[i];
+		const b = bArray[i];
+		const bInitial = b.sourceString;
+		const bCore = b.asSl;
 		context.methodBodyInitialSourceTable.set(bCore, bInitial);
-		answer.push('\t' + nArray[i].sourceString + ' ' + bCore);
+		answer.push('\t' + n.sourceString + ' ' + bCore);
 	}
 	return answer;
 }
@@ -125,7 +127,7 @@ function makeTypeDefinition(
 	typeName: string,
 	traits: string,
 	instanceVariables: string,
-	methodNames: string[],
+	methodNames: ohm.Node[],
 	methodBlocks: ohm.Node[],
 ): string {
 	// console.debug(`makeTypeDefinition: ${isHostType} ${typeName} ${instanceVariables}`);
@@ -202,7 +204,7 @@ const asJs: ohm.ActionDict<string> = {
 			n.asIteration().children.map(
 				(c) => c.sourceString,
 			),
-			mn.children.map((c) => c.sourceString),
+			mn.children,
 			mb.children,
 		);
 	},
@@ -252,7 +254,7 @@ const asJs: ohm.ActionDict<string> = {
 		const mth = makeMethodList(
 			'addMethodToExistingTrait',
 			[unqualifiedTraitName],
-			mn.children.map((c) => c.sourceString),
+			mn.children,
 			mb.children,
 		);
 		return `${trait}\n${mth}\n`;
@@ -268,7 +270,7 @@ const asJs: ohm.ActionDict<string> = {
 			n.sourceString,
 			t.asJs,
 			v.asJs,
-			mn.children.map((c) => c.sourceString),
+			mn.children,
 			mb.children,
 		);
 	},
@@ -978,7 +980,7 @@ function commaListSl(nodeArray: ohm.Node[]): string {
 function makeMethod(
 	slProc: string,
 	typeOrTraitNameArray: string[],
-	methodName: string,
+	methodName: ohm.Node,
 	methodBlock: ohm.Node,
 ): string {
 	const blkCoreSource = methodBlock.sourceString;
@@ -998,24 +1000,35 @@ function makeMethod(
 	}).join('\n');
 }
 
+function extractMethodNameList(methodNameOrList: ohm.Node): string[] {
+	if(methodNameOrList.ctorName === 'MethodNameList') {
+		return methodNameOrList.child(1).asIteration().children.map((c) => c.sourceString);
+	} {
+		return [methodNameOrList.sourceString];
+	}
+}
+
 function makeMethodList(
 	slProc: string,
 	typeOrTraitNameArray: string[],
-	methodNames: string[],
+	methodNames: ohm.Node[],
 	methodBlocks: ohm.Node[],
 ): string {
 	let methodList = '';
 	while (methodNames.length > 0) {
-		const methodName = methodNames.shift()!;
+		const methodNameList = extractMethodNameList(methodNames.shift()!.child(0));
 		const methodBlock = methodBlocks.shift()!;
-		const methodSource = makeMethod(
-			slProc,
-			typeOrTraitNameArray,
-			methodName,
-			methodBlock,
-		);
-		// console.debug(`makeMethodList: ${methodSource}`);
-		methodList += methodSource;
+		// console.debug('makeMethodList', methodNameList);
+		for (const methodName of methodNameList) {
+			const methodSource = makeMethod(
+				slProc,
+				typeOrTraitNameArray,
+				methodName,
+				methodBlock,
+			);
+			// console.debug(`makeMethodList: ${methodSource}`);
+			methodList += methodSource;
+		}
 	}
 	return methodList;
 }

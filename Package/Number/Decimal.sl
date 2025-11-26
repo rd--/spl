@@ -19,7 +19,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	* { :self :operand |
+	[times, *] { :self :operand |
 		operand.isDecimal.if {
 			UnsimplifiedDecimal(
 				self.fraction * operand.fraction,
@@ -30,7 +30,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	+ { :self :operand |
+	[plus, +] { :self :operand |
 		operand.isDecimal.if {
 			UnsimplifiedDecimal(
 				self.fraction + operand.fraction,
@@ -41,7 +41,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	- { :self :operand |
+	[minus, -] { :self :operand |
 		operand.isDecimal.if {
 			UnsimplifiedDecimal(
 				self.fraction - operand.fraction,
@@ -52,9 +52,9 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	/ { :self :operand |
+	[divide, /] { :self :operand |
 		operand.isZero.if {
-			self.error('Decimal>>/: zero divide')
+			self.error('Decimal>>divide: zero')
 		} {
 			operand.isDecimal.if {
 				Decimal(
@@ -67,7 +67,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	^ { :self :aNumber |
+	[power, ^] { :self :aNumber |
 		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
 		} {
@@ -182,7 +182,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		self.fraction.numerator = 0
 	}
 
-	negate { :self |
+	[negate, -] { :self |
 		UnsimplifiedDecimal(self.fraction.negate, self.scale)
 	}
 
@@ -238,7 +238,7 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		[u, l + 1]
 	}
 
-	reciprocal { :self |
+	[reciprocal, /] { :self |
 		self.isZero.if {
 			self.error('Decimal>>reciprocal: zero divide')
 		} {

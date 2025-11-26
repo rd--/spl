@@ -32,7 +32,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, <=)
 	}
 
-	+ { :self :anObject |
+	[plus, +] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self + _anObject;
@@ -41,7 +41,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, +)
 	}
 
-	- { :self :anObject |
+	[subtract, -] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self - _anObject;
@@ -50,7 +50,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, -)
 	}
 
-	* { :self :anObject |
+	[times, *] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self * _anObject;
@@ -59,7 +59,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, *)
 	}
 
-	/ { :self :anObject |
+	[divide, /] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self / _anObject;
@@ -68,7 +68,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, /)
 	}
 
-	% { :self :anObject |
+	[mod, %] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return ((_self % _anObject) + _anObject) % _anObject;
@@ -77,7 +77,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, %)
 	}
 
-	^ { :self :anObject |
+	[power, ^] { :self :anObject |
 		anObject.isSmallFloat.if {
 			anObject.isInteger.if {
 				self.raisedToInteger(anObject)
@@ -93,7 +93,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 	}
 
-	<< { :self :anObject |
+	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
 			return _self << _anObject;
@@ -102,7 +102,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, <<)
 	}
 
-	>> { :self :anObject |
+	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
 			return _self >> _anObject;
@@ -112,7 +112,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 	}
 
 
-	>>> { :self :anObject |
+	[bitShiftRightUnsigned, >>>] { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
 			return _self >>> _anObject;

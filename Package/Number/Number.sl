@@ -8,10 +8,6 @@
 		self.sign
 	}
 
-	- { :self |
-		self.negate
-	}
-
 	/ { :self |
 		self.reciprocal
 	}
@@ -570,10 +566,6 @@
 		(i * j) + k
 	}
 
-	negate { :self |
-		self * -1
-	}
-
 	/*
 	niceNumberAbove { :self |
 		let exponent = self.log10.floor;
@@ -594,6 +586,10 @@
 		niceFraction * (10 ^ exponent)
 	}
 	*/
+
+	[negate, -] { :self |
+		self * -1
+	}
 
 	niceNumberAbove { :self |
 		self.niceNumberBy { :l :n |
@@ -929,7 +925,7 @@
 		}
 	}
 
-	sign { :self |
+	[sign, -] { :self |
 		(self > 0).if {
 			self.one
 		} {

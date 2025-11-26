@@ -29,7 +29,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, <)
 	}
 
-	+ { :self :anObject |
+	[plus, +] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self + BigInt(_anObject);
@@ -38,7 +38,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, +)
 	}
 
-	- { :self :anObject |
+	[minus, -] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self - BigInt(_anObject);
@@ -47,7 +47,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, -)
 	}
 
-	* { :self :anObject |
+	[times, *] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self * BigInt(_anObject);
@@ -56,7 +56,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, *)
 	}
 
-	/ { :self :anObject |
+	[divide, /] { :self :anObject |
 		anObject.isInteger.if {
 			let fraction = Fraction(self, anObject.asLargeInteger);
 			fraction.isInteger.if {
@@ -69,7 +69,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		}
 	}
 
-	% { :self :anObject |
+	[mod, %] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			const i = BigInt(_anObject);
@@ -79,6 +79,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, %)
 	}
 
+	/*
 	^ { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
@@ -87,8 +88,9 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		>
 		anObject.adaptToIntegerAndApply(self, ^)
 	}
+	*/
 
-	^ { :self :anObject |
+	[power, ^] { :self :anObject |
 		anObject.isScalarInteger.if {
 			self.raisedToInteger(anObject)
 		} {
@@ -96,7 +98,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		}
 	}
 
-	<< { :self :anObject |
+	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
 			return _self << _anObject;
@@ -104,10 +106,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 			return _self << BigInt(_anObject);
 		}
 		>
-		self.error('shiftLeft: operand not a LargeInteger or SmallFloat')
+		self.error('bitShiftLeft: operand not a LargeInteger or SmallFloat')
 	}
 
-	>> { :self :anObject |
+	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
 		if(sl.isLargeInteger(_anObject)) {
 			return _self >> _anObject;
@@ -115,7 +117,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 			return _self >> BigInt(_anObject);
 		}
 		>
-		self.error('shiftRight: operand not a LargeInteger or SmallFloat')
+		self.error('bitShiftRight: operand not a LargeInteger or SmallFloat')
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |

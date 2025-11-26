@@ -2,12 +2,12 @@
 
 @Binary {
 
-	<< { :self :anInteger |
-		self.typeResponsibility('@Binary>>shiftLeft')
+	[bitShiftLeft, <<] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftLeft')
 	}
 
-	>> { :self :anInteger |
-		self.typeResponsibility('@Binary>>shiftRight')
+	[bitShiftRight, >>] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftRight')
 	}
 
 	bitAnd { :self :anInteger |
@@ -76,6 +76,7 @@
 		}
 	}
 
+	/*
 	bitShiftLeft { :self :anInteger |
 		self << anInteger
 	}
@@ -87,6 +88,7 @@
 	bitShiftRightUnsigned { :self :anInteger |
 		self >>> anInteger
 	}
+	*/
 
 	highBit { :self |
 		(self < 0).if {

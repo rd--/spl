@@ -2,7 +2,7 @@
 
 Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary |
 
-	* { :self :anObject |
+	[times, *] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
 			let b = self.imaginary;
@@ -15,7 +15,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 	}
 
 
-	+ { :self :anObject |
+	[plus, +] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
 			let b = self.imaginary;
@@ -27,7 +27,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	- { :self :anObject |
+	[minus, -] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
 			let b = self.imaginary;
@@ -39,7 +39,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	/ { :self :anObject |
+	[divide, /] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
 			let b = self.imaginary;
@@ -54,7 +54,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	^ { :self :aNumber |
+	[power, ^] { :self :aNumber |
 		aNumber.isCollection.if {
 			aNumber.collect { :each |
 				self ^ each

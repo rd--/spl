@@ -8,7 +8,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	* { :self :aNumber |
+	[times, *] { :self :aNumber |
 		aNumber.isFraction.if {
 			let d1 = self.numerator.gcd(aNumber.denominator);
 			let d2 = self.denominator.gcd(aNumber.numerator);
@@ -29,7 +29,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	+ { :self :aNumber |
+	[plus, +] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			ReducedFraction(
 				self.numerator + (self.denominator * aNumber.asLargeInteger),
@@ -57,7 +57,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	- { :self :aNumber |
+	[minus, -] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			ReducedFraction(
 				self.numerator - (self.denominator * aNumber.asLargeInteger),
@@ -72,7 +72,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	/ { :self :aNumber |
+	[divide, /] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			self * ReducedFraction(1, aNumber.asLargeInteger)
 		} {
@@ -84,7 +84,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	^ { :self :aNumber |
+	[power, ^] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			self.raisedToInteger(aNumber.asInteger)
 		} {
@@ -414,7 +414,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		})
 	}
 
-	negate { :self |
+	[negate, -] { :self |
 		ReducedFraction(self.numerator.negate, self.denominator)
 	}
 
@@ -477,7 +477,7 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	reciprocal { :self |
+	[reciprocal, /] { :self |
 		(self.numerator.abs = 1).if {
 			/* preference: answer proper integer */
 			ReducedFraction(self.denominator * self.numerator, self.denominator.one)

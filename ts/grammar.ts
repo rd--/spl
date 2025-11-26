@@ -6,15 +6,17 @@ Sl {
 
 	TopLevel = LibraryExpression+ | Program
 	LibraryExpression = TypeDefinition | TraitDefinition | MethodDefinitions | LibraryItem | TypeExtension | TraitExtension
-	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (methodName Block)* "}"
-	TypeExtension = "+" typeName "{" (methodName Block)* "}"
-	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (methodName Block)* "}"
+    MethodNameList = "[" NonemptyListOf<methodName, ","> "]"
+    MethodNameOrMethodNameList = methodName | MethodNameList
+	TypeDefinition = typeName "!"? TraitList "{" SlotDefinitions? (MethodNameOrMethodNameList Block)* "}"
+	TypeExtension = "+" typeName "{" (MethodNameOrMethodNameList Block)* "}"
+	MethodDefinitions = "+" "[" NonemptyListOf<typeOrTraitName, ","> "]" "{" (MethodNameOrMethodNameList Block)* "}"
 	SlotDefinitions = "|" (TypedSlot | UntypedSlot)+ "|"
 	TypedSlot = slotName ":" "<" typeName ">"
 	UntypedSlot = slotName
 	TraitList = ":" "[" ListOf<unqualifiedTraitName, ","> "]"
-	TraitExtension = "+" qualifiedTraitName "{" (methodName Block)* "}"
-	TraitDefinition = qualifiedTraitName "{" (methodName Block)* "}"
+	TraitExtension = "+" qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
+	TraitDefinition = qualifiedTraitName "{" (MethodNameOrMethodNameList Block)* "}"
 	LibraryItem = LibraryItemLiteral | LibraryItemExpression
 	LibraryItemLiteral = "LibraryItem" NonEmptyRecordSyntax
 	LibraryItemExpression = "LibraryItem" ApplySyntax
