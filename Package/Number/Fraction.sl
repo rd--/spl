@@ -8,24 +8,15 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	[times, *] { :self :aNumber |
-		aNumber.isFraction.if {
-			let d1 = self.numerator.gcd(aNumber.denominator);
-			let d2 = self.denominator.gcd(aNumber.numerator);
-			let numerator = (self.numerator // d1) * (aNumber.numerator // d2);
-			(d2 = self.denominator & {
-				d1 = aNumber.denominator
-			}).if {
-				/* preference: answer proper integer */
-				ReducedFraction(numerator, numerator.one)
-			} {
-				Fraction(
-					numerator,
-					(self.denominator // d2) * (aNumber.denominator // d1)
-				)
-			}
+	[divide, /] { :self :aNumber |
+		aNumber.isScalarInteger.if {
+			self * ReducedFraction(1, aNumber.asLargeInteger)
 		} {
-			aNumber.adaptToFractionAndApply(self, *)
+			aNumber.isFraction.if {
+				self * aNumber.reciprocal
+			} {
+				aNumber.adaptToFractionAndApply(self, /)
+			}
 		}
 	}
 
@@ -57,7 +48,23 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	[minus, -] { :self :aNumber |
+	[power, ^] { :self :aNumber |
+		aNumber.isScalarInteger.if {
+			self.raisedToInteger(aNumber.asInteger)
+		} {
+			aNumber.isFraction.if {
+				self.isNegative.if {
+					Complex(self.asFloat, 0) ^ aNumber
+				} {
+					self.raisedToFraction(aNumber)
+				}
+			} {
+				aNumber.adaptToFractionAndApply(self, ^)
+			}
+		}
+	}
+
+	[subtract, -] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			ReducedFraction(
 				self.numerator - (self.denominator * aNumber.asLargeInteger),
@@ -72,31 +79,24 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
-	[divide, /] { :self :aNumber |
-		aNumber.isScalarInteger.if {
-			self * ReducedFraction(1, aNumber.asLargeInteger)
-		} {
-			aNumber.isFraction.if {
-				self * aNumber.reciprocal
+	[times, *] { :self :aNumber |
+		aNumber.isFraction.if {
+			let d1 = self.numerator.gcd(aNumber.denominator);
+			let d2 = self.denominator.gcd(aNumber.numerator);
+			let numerator = (self.numerator // d1) * (aNumber.numerator // d2);
+			(d2 = self.denominator & {
+				d1 = aNumber.denominator
+			}).if {
+				/* preference: answer proper integer */
+				ReducedFraction(numerator, numerator.one)
 			} {
-				aNumber.adaptToFractionAndApply(self, /)
+				Fraction(
+					numerator,
+					(self.denominator // d2) * (aNumber.denominator // d1)
+				)
 			}
-		}
-	}
-
-	[power, ^] { :self :aNumber |
-		aNumber.isScalarInteger.if {
-			self.raisedToInteger(aNumber.asInteger)
 		} {
-			aNumber.isFraction.if {
-				self.isNegative.if {
-					Complex(self.asFloat, 0) ^ aNumber
-				} {
-					self.raisedToFraction(aNumber)
-				}
-			} {
-				aNumber.adaptToFractionAndApply(self, ^)
-			}
+			aNumber.adaptToFractionAndApply(self, *)
 		}
 	}
 

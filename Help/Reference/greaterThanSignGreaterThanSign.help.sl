@@ -1,4 +1,4 @@
-# >> (greaterThanSignGreaterThanSign)
+# >> (greaterThanSign...)
 
 - _n >> k_
 

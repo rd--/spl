@@ -19,39 +19,6 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
-	[times, *] { :self :operand |
-		operand.isDecimal.if {
-			UnsimplifiedDecimal(
-				self.fraction * operand.fraction,
-				self.scale + operand.scale /* self.scale.max(operand.scale) */
-			)
-		} {
-			operand.adaptToDecimalAndApply(self, *)
-		}
-	}
-
-	[plus, +] { :self :operand |
-		operand.isDecimal.if {
-			UnsimplifiedDecimal(
-				self.fraction + operand.fraction,
-				self.scale.max(operand.scale)
-			)
-		} {
-			operand.adaptToDecimalAndApply(self, +)
-		}
-	}
-
-	[minus, -] { :self :operand |
-		operand.isDecimal.if {
-			UnsimplifiedDecimal(
-				self.fraction - operand.fraction,
-				self.scale.max(operand.scale)
-			)
-		} {
-			operand.adaptToDecimalAndApply(self, -)
-		}
-	}
-
 	[divide, /] { :self :operand |
 		operand.isZero.if {
 			self.error('Decimal>>divide: zero')
@@ -67,11 +34,62 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		}
 	}
 
+	[negate, -] { :self |
+		UnsimplifiedDecimal(
+			self.fraction.negate,
+			self.scale
+		)
+	}
+
+	[plus, +] { :self :operand |
+		operand.isDecimal.if {
+			UnsimplifiedDecimal(
+				self.fraction + operand.fraction,
+				self.scale.max(operand.scale)
+			)
+		} {
+			operand.adaptToDecimalAndApply(self, +)
+		}
+	}
+
 	[power, ^] { :self :aNumber |
 		aNumber.isInteger.if {
 			self.raisedToInteger(aNumber)
 		} {
 			self.unimplementedCase('^')
+		}
+	}
+
+	[reciprocal, /] { :self |
+		self.isZero.if {
+			self.error('Decimal>>reciprocal: zero divide')
+		} {
+			Decimal(
+				self.fraction.reciprocal,
+				self.scale.max(1)
+			)
+		}
+	}
+
+	[subtract, -] { :self :operand |
+		operand.isDecimal.if {
+			UnsimplifiedDecimal(
+				self.fraction - operand.fraction,
+				self.scale.max(operand.scale)
+			)
+		} {
+			operand.adaptToDecimalAndApply(self, -)
+		}
+	}
+
+	[times, *] { :self :operand |
+		operand.isDecimal.if {
+			UnsimplifiedDecimal(
+				self.fraction * operand.fraction,
+				self.scale + operand.scale /* self.scale.max(operand.scale) */
+			)
+		} {
+			operand.adaptToDecimalAndApply(self, *)
 		}
 	}
 
@@ -182,10 +200,6 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		self.fraction.numerator = 0
 	}
 
-	[negate, -] { :self |
-		UnsimplifiedDecimal(self.fraction.negate, self.scale)
-	}
-
 	numerator { :self |
 		self.fraction.numerator
 	}
@@ -236,17 +250,6 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		let l = self.fraction.log10.floor;
 		let u = self.unscaledInteger.integerDigits;
 		[u, l + 1]
-	}
-
-	[reciprocal, /] { :self |
-		self.isZero.if {
-			self.error('Decimal>>reciprocal: zero divide')
-		} {
-			Decimal(
-				self.fraction.reciprocal,
-				self.scale.max(1)
-			)
-		}
 	}
 
 	square { :self |

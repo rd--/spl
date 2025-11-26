@@ -1,21 +1,20 @@
 @Iterable {
 
-	& { :self |
+	[and, &] { :self |
 		self.allSatisfy(blockValue:/1)
 	}
 
-	&& { :self |
+	[evaluatingAnd, &&] { :self |
 		self.allSatisfy(identity:/1)
 	}
 
 
-	| { :self |
-		self.anySatisfy(blockValue:/1)
+	[evaluatingOr, ||] { :self |
+		self.anySatisfy(identity:/1)
 	}
 
-
-	|| { :self |
-		self.anySatisfy(identity:/1)
+	[or, |] { :self |
+		self.anySatisfy(blockValue:/1)
 	}
 
 	absMax { :self |

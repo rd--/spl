@@ -29,7 +29,7 @@ The name of this operator is `asterisk`.
 
 * * *
 
-See also: +, -, /, ^, *+, times
+See also: +, -, /, ^, *+, sign, times
 
 Guides: Binary Operators
 

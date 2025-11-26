@@ -1,31 +1,31 @@
 Boolean! : [Object, Storeable, Equatable, Json] {
 
-	& { :self :aBlock:/0 |
-		<primitive: return _self && _aBlock_0();>
-	}
-
-	| { :self :aBlock:/0 |
-		<primitive: return _self || _aBlock_0();>
-	}
-
-	&& { :self :anObject |
-		self & {
-			anObject.assertIsBoolean
-		}
-	}
-
-	|| { :self :anObject |
-		self | {
-			anObject.assertIsBoolean
-		}
-	}
-
 	==> { :self :aBlock:/0 |
 		self.if {
 			aBlock()
 		} {
 			true
 		}
+	}
+
+	[and, &] { :self :aBlock:/0 |
+		<primitive: return _self && _aBlock_0();>
+	}
+
+	[evaluatingAnd, &&] { :self :anObject |
+		self & {
+			anObject.assertIsBoolean
+		}
+	}
+
+	[evaluatingOr, ||] { :self :anObject |
+		self | {
+			anObject.assertIsBoolean
+		}
+	}
+
+	[or, |] { :self :aBlock:/0 |
+		<primitive: return _self || _aBlock_0();>
 	}
 
 	always { :self :aBlock:/0 |

@@ -591,40 +591,12 @@
 
 +@Sequenceable {
 
-	+ { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, +)
-	}
-
-	- { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, -)
-	}
-
-	* { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, *)
-	}
-
-	/ { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, /)
-	}
-
-	// { :self :anObject |
-		self.quotient(anObject)
-	}
-
-	\\ { :self :anObject |
-		self.remainder(anObject)
-	}
-
 	\ { :self :aNumber |
 		self.Fraction(aNumber)
 	}
 
 	< { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, <)
-	}
-
-	<< { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, <<)
 	}
 
 	<= { :self :anObject |
@@ -639,20 +611,48 @@
 		anObject.adaptToCollectionAndApply(self, >=)
 	}
 
-	>> { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, >>)
-	}
-
-	^ { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, ^)
-	}
-
-	% { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, %)
-	}
-
 	*+ { :self :mul :add |
 		self * mul + add
+	}
+
+	[bitShiftLeft, <<] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftLeft:/2)
+	}
+
+	[bitShiftRight, >>] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, bitShiftRight:/2)
+	}
+
+	[divide, /] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, divide:/2)
+	}
+
+	[mod, %] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, mod:/2)
+	}
+
+	[plus, +] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, plus:/2)
+	}
+
+	[power, ^] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, power:/2)
+	}
+
+	[quotient, //] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, quotient:/2)
+	}
+
+	[remainder, \\] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, remainder:/2)
+	}
+
+	[subtract, -] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, subtract:/2)
+	}
+
+	[times, *] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, times:/2)
 	}
 
 	absArg { :self |
@@ -681,14 +681,6 @@
 
 	bitOr { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, bitOr:/2)
-	}
-
-	bitShiftLeft { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftLeft:/2)
-	}
-
-	bitShiftRight { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, bitShiftRight:/2)
 	}
 
 	bitShiftRightUnsigned { :self :anObject |
@@ -744,10 +736,6 @@
 		anObject.adaptToCollectionAndApply(self, min:/2)
 	}
 
-	mod { :m :n |
-		n.adaptToCollectionAndApply(m, mod:/2)
-	}
-
 	mod { :m :n :d |
 		n.adaptToCollectionAndApply(m) { :i :j |
 			i.mod(j, d)
@@ -760,14 +748,6 @@
 
 	nthRoot { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, nthRoot:/2)
-	}
-
-	quotient { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, quotient:/2)
-	}
-
-	remainder { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, remainder:/2)
 	}
 
 	round { :self :anObject |

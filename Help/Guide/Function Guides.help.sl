@@ -1,5 +1,6 @@
 # Function Guides
 
+- `Arithmetic Functions`
 - `Array Functions`
 - `Asynchronous Functions`
 - `Benchmarking Functions`

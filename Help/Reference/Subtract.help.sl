@@ -1,24 +1,24 @@
-# Minus
+# Subtract
 
-- _Minus(aNumber, anotherNumber)_
+- _Subtract(m, n)_
 
-`Minus` is an alias for the binary operator `-`,
+`Subtract` is an alias for the binary operator `-`,
 which is named `hyphenMinus`.
 
 At `SmallFloat`:
 
 ```
->>> Minus(3, 4)
+>>> Subtract(3, 4)
 -1
 
 >>> 3 - 4
 -1
 
->>> hyphenMinus(3, 4)
+>>> hyphenSubtract(3, 4)
 -1
 ```
 
-It answers the sum of _aNumber_ and the negation of _anotherNumber_:
+It answers the sum of _m_ and the negation of _n_:
 
 ```
 >>> Plus(3, Negate(4))

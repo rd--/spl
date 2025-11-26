@@ -18,6 +18,13 @@
 		}
 	}
 
+	hyperbolicSpiral { :a |
+		{ :theta |
+			let r = a / theta;
+			[r, theta].fromPolarCoordinates
+		}
+	}
+
 	inverseNorwichSpiral { :a |
 		{ :t |
 			let rho = a * t.cos.square;

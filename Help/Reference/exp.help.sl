@@ -46,6 +46,9 @@ that is _e^x_.
 
 >>> [-1 0 1].exp
 [0.367879 1 2.71828]
+
+>>> [1 2 1.e].^
+[2.71828 7.38906 15.15426]
 ```
 
 The values at `zero`, `one` & `Infinity`:
@@ -112,6 +115,13 @@ x.sin
 >>> let b = 1 + (2 * x).i.exp;
 >>> (a / b).i
 x.tan
+```
+
+At `Symbol`:
+
+```
+>> `m`.^
+(^ 2.718281828459045 m)
 ```
 
 Plot over a subset of the reals:

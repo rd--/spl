@@ -1,6 +1,6 @@
 # ratios
 
-- _ratios(aSequence)_
+- _ratios([x₁ x₂ …])_
 
 Answer the successive ratios of elements in list.
 

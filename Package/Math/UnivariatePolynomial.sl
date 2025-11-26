@@ -1,6 +1,6 @@
 UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientList |
 
-	+ { :self :operand |
+	[plus, +] { :self :operand |
 		let c1 = self.coefficientList;
 		let c2 = operand.coefficientList;
 		let n = c1.size.max(c2.size);
@@ -9,11 +9,28 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 		)
 	}
 
-	- { :self :operand |
+	[power, ^] { :self :operand |
+		(operand = 0).if {
+			Polynomial([1])
+		} {
+			let answer = self;
+			(operand - 1).timesRepeat {
+				answer := answer * self
+			};
+			answer
+		}
+	}
+
+	[quotient, //] { :numerator :denominator |
+		let [q, _] = numerator.quotientRemainder(denominator);
+		q
+	}
+
+	[subtract, -] { :self :operand |
 		self + operand.negate
 	}
 
-	* { :self :operand |
+	[times, *] { :self :operand |
 		let a = self.coefficientList;
 		operand.isUnivariatePolynomial.if {
 			let b = operand.coefficientList;
@@ -28,18 +45,6 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 			UnivariatePolynomial(c)
 		} {
 			UnivariatePolynomial(a * operand)
-		}
-	}
-
-	^ { :self :operand |
-		(operand = 0).if {
-			Polynomial([1])
-		} {
-			let answer = self;
-			(operand - 1).timesRepeat {
-				answer := answer * self
-			};
-			answer
 		}
 	}
 
@@ -172,11 +177,6 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 
 	postCopy { :self |
 		self.coefficientList := self.coefficientList.copy
-	}
-
-	quotient { :numerator :denominator |
-		let [q, _] = numerator.quotientRemainder(denominator);
-		q
 	}
 
 	quotientRemainder { :numerator :denominator |

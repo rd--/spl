@@ -383,7 +383,7 @@
 /* Auto-generated */
 +[List, SmallFloat, Ugen] {
 	Plus { :self :anObject | <primitive: return sc.Add(_self, _anObject);> }
-	Minus { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
+	Subtract { :self :anObject | <primitive: return sc.Sub(_self, _anObject);> }
 	Times { :self :anObject | <primitive: return sc.Mul(_self, _anObject);> }
 	Quotient { :self :anObject | <primitive: return sc.Idiv(_self, _anObject);> }
 	Divide { :self :anObject | <primitive: return sc.Fdiv(_self, _anObject);> }

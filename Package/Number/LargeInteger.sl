@@ -29,31 +29,26 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, <)
 	}
 
-	[plus, +] { :self :anObject |
+	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self + BigInt(_anObject);
+		if(sl.isLargeInteger(_anObject)) {
+			return _self << _anObject;
+		} else if(sl.isSmallFloat(_anObject)) {
+			return _self << BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, +)
+		self.error('bitShiftLeft: operand not a LargeInteger or SmallFloat')
 	}
 
-	[minus, -] { :self :anObject |
+	[bitShiftRight, >>] { :self :anObject |
 		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self - BigInt(_anObject);
+		if(sl.isLargeInteger(_anObject)) {
+			return _self >> _anObject;
+		} else if(sl.isSmallFloat(_anObject)) {
+			return _self >> BigInt(_anObject);
 		}
 		>
-		anObject.adaptToIntegerAndApply(self, -)
-	}
-
-	[times, *] { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self * BigInt(_anObject);
-		}
-		>
-		anObject.adaptToIntegerAndApply(self, *)
+		self.error('bitShiftRight: operand not a LargeInteger or SmallFloat')
 	}
 
 	[divide, /] { :self :anObject |
@@ -79,6 +74,15 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		anObject.adaptToIntegerAndApply(self, %)
 	}
 
+	[plus, +] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self + BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, +)
+	}
+
 	/*
 	^ { :self :anObject |
 		<primitive:
@@ -98,26 +102,31 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		}
 	}
 
-	[bitShiftLeft, <<] { :self :anObject |
+	[quotient, //] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
-			return _self << _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
-			return _self << BigInt(_anObject);
-		}
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self / BigInt(_anObject);
+		};
 		>
-		self.error('bitShiftLeft: operand not a LargeInteger or SmallFloat')
+		anObject.adaptToIntegerAndApply(self, quotient:/2)
 	}
 
-	[bitShiftRight, >>] { :self :anObject |
+	[subtract, -] { :self :anObject |
 		<primitive:
-		if(sl.isLargeInteger(_anObject)) {
-			return _self >> _anObject;
-		} else if(sl.isSmallFloat(_anObject)) {
-			return _self >> BigInt(_anObject);
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self - BigInt(_anObject);
 		}
 		>
-		self.error('bitShiftRight: operand not a LargeInteger or SmallFloat')
+		anObject.adaptToIntegerAndApply(self, -)
+	}
+
+	[times, *] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self * BigInt(_anObject);
+		}
+		>
+		anObject.adaptToIntegerAndApply(self, *)
 	}
 
 	adaptToNumberAndApply { :self :aNumber :aBlock:/2 |
@@ -297,15 +306,6 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.storeString
 	}
 
-	quotient { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self / BigInt(_anObject);
-		};
-		>
-		anObject.adaptToIntegerAndApply(self, quotient:/2)
-	}
-
 	raisedToInteger { :self :anInteger |
 		<primitive:
 		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
@@ -315,7 +315,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.error('raisedToInteger: not integer')
 	}
 
-	remainder { :self :anInteger |
+	[remainder, \\] { :self :anInteger |
 		<primitive:
 		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {
 			return _self % BigInt(_anInteger);

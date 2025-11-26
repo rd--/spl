@@ -2,43 +2,6 @@
 
 Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary |
 
-	[times, *] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex((a * c) - (b * d), (a * d) + (b * c))
-		} {
-			anObject.adaptToComplexAndApply(self, *)
-		}
-	}
-
-
-	[plus, +] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(a + c, b + d)
-		} {
-			anObject.adaptToComplexAndApply(self, +)
-		}
-	}
-
-	[minus, -] { :self :anObject |
-		anObject.isComplex.if {
-			let a = self.real;
-			let b = self.imaginary;
-			let c = anObject.real;
-			let d = anObject.imaginary;
-			Complex(a - c, b - d)
-		} {
-			anObject.adaptToComplexAndApply(self, -)
-		}
-	}
-
 	[divide, /] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -51,6 +14,18 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 			)
 		} {
 			anObject.adaptToComplexAndApply(self, /)
+		}
+	}
+
+	[plus, +] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(a + c, b + d)
+		} {
+			anObject.adaptToComplexAndApply(self, +)
 		}
 	}
 
@@ -81,6 +56,38 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 					}
 				}
 			}
+		}
+	}
+
+	[quotient, //] { :self :aNumber |
+		self.shouldNotImplement('quotient')
+	}
+
+	[remainder, \\] { :self :aNumber |
+		self.shouldNotImplement('remainder')
+	}
+
+	[subtract, -] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex(a - c, b - d)
+		} {
+			anObject.adaptToComplexAndApply(self, -)
+		}
+	}
+
+	[times, *] { :self :anObject |
+		anObject.isComplex.if {
+			let a = self.real;
+			let b = self.imaginary;
+			let c = anObject.real;
+			let d = anObject.imaginary;
+			Complex((a * c) - (b * d), (a * d) + (b * c))
+		} {
+			anObject.adaptToComplexAndApply(self, *)
 		}
 	}
 
@@ -345,10 +352,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		].stringIntercalate('J')
 	}
 
-	quotient { :self :aNumber |
-		self.shouldNotImplement('quotient')
-	}
-
 	realImaginary { :self |
 		[self.real, self.imaginary]
 	}
@@ -359,10 +362,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		} {
 			1 / self
 		}
-	}
-
-	remainder { :self :aNumber |
-		self.shouldNotImplement('remainder')
 	}
 
 	sign { :self |

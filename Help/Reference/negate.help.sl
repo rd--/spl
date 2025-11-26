@@ -4,6 +4,81 @@
 
 Answer a number that is the negation of the number _x_.
 Equivalent to multiplication by negative `one`.
+The operator form in `-`.
+
+At `SmallFloat`:
+
+```
+>>> 3.-
+-3
+
+>>> -3.-
+3
+```
+
+At `LargeInteger`:
+
+```
+>>> 32L.!.-
+-263130836933693530167218012160000000L
+```
+
+At `Fraction`:
+
+```
+>>> 3/4.-
+-3/4
+```
+
+Threads over lists:
+
+```
+>>> [1 3 5 7 6 4 2].-
+[-1 -3 -5 -7 -6 -4 -2]
+
+>>> [0 1 2.2 3J4 4/5 -66].-
+[-0 -1 -2.2 -3J-4 -4/5 66]
+
+>>> [3 3].iota.-
+[
+	-1 -2 -3;
+	-4 -5 -6;
+	-7 -8 -9
+]
+```
+
+At `Range`:
+
+```
+>>> (1 .. 9).-
+(-1, -2 .. -9)
+
+>>> (1, 3 .. 9).-
+(-1, -3 .. -9)
+```
+
+Negation is its own inverse:
+
+```
+>>> 3.-.-
+3
+
+>>> 1:9.-.-
+1:9
+
+>>> [1 3 5].-.-
+[1 3 5]
+```
+
+At `Symbol`:
+
+```
+>> `m` - `n`
+(- m n)
+
+>> `m`.-
+(* m -1)
+```
 
 At `zero` and `one`:
 
@@ -61,6 +136,8 @@ hence _1 negated_ and not _negate(1)_.
 * * *
 
 See also: -, abs, sign
+
+Guides: Arithmetic Functions
 
 References:
 _Apl_

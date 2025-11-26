@@ -2,14 +2,7 @@
 
 ## Arithmetic Functions
 
-- `accumulate`: cumulative sums
-- `differences`: successive differences
-- `mean`: mean
-- `prefixSum`: cf. accumulate
-- `product`: product
-- `ratios`: successive ratios
-- `sqrt`: square root
-- `sum`: sum
+- `Arithmetic Functions`: Guide
 
 ## Array Bounds
 

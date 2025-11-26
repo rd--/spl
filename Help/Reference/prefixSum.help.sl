@@ -1,9 +1,9 @@
 # prefixSum
 
-- _prefixSum(aList)_
+- _prefixSum([x₁ x₂ …])_
 
-Answer a `List` of the successive accumulated totals of elements in _aSequence_.
-This operation is also called `accumulate`, and is equivalent to _scan(aSequence, +)_.
+Answer a `List` of the successive accumulated totals of elements in the sequence _x_.
+This operation is also called `accumulate`, and is equivalent to _scan(x,+)_.
 
 Triangular numbers:
 

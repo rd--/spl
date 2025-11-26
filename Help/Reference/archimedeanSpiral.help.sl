@@ -60,7 +60,7 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/ArchimedesSpiral.html)
 [3](https://mathworld.wolfram.com/FermatsSpiral.html)
 [4](https://mathworld.wolfram.com/HyperbolicSpiral.html)
-[5](https://mathworld.wolfram.com/Lituus.html)
+[5](https://mathworld.wolfram.com/Lituus.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Spiral)
 [2](https://en.wikipedia.org/wiki/Archimedean_spiral)

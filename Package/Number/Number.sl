@@ -1,5 +1,13 @@
 @Number {
 
+	[quotient, //] { :self :aNumber |
+		self.quotientBy(aNumber, truncate:/1)
+	}
+
+	[remainder, \\] { :self :aNumber |
+		self.remainderBy(aNumber, truncate:/1)
+	}
+
 	+ { :self |
 		self.conjugate
 	}
@@ -18,14 +26,6 @@
 
 	! { :self |
 		self.factorialOrGamma
-	}
-
-	// { :self :aNumber |
-		self.quotient(aNumber)
-	}
-
-	\\ { :self :aNumber |
-		self.remainder(aNumber)
 	}
 
 	% { :self :aNumber |
@@ -758,10 +758,6 @@
 		}
 	}
 
-	quotient { :self :aNumber |
-		self.quotientBy(aNumber, truncate:/1)
-	}
-
 	quotientRemainder { :self :aNumber |
 		[
 			self.quotient(aNumber),
@@ -834,10 +830,6 @@
 
 	remainderBy { :self :aNumber :aBlock:/1 |
 		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
-	}
-
-	remainder { :self :aNumber |
-		self.remainderBy(aNumber, truncate:/1)
 	}
 
 	rescale { :self :a |

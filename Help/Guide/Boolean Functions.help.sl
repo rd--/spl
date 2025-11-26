@@ -16,6 +16,10 @@ Operators:
 
 Functions:
 
+- `and`
+- `or`
+- `evaluatingAnd`
+- `evaluatingOr`
 - `not`
 - `xor`
 

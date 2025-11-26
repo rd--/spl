@@ -32,67 +32,6 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, <=)
 	}
 
-	[plus, +] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self + _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, +)
-	}
-
-	[subtract, -] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self - _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, -)
-	}
-
-	[times, *] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self * _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, *)
-	}
-
-	[divide, /] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return _self / _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, /)
-	}
-
-	[mod, %] { :self :anObject |
-		<primitive:
-		if(sl.isSmallFloat(_anObject)) {
-			return ((_self % _anObject) + _anObject) % _anObject;
-		}
-		>
-		anObject.adaptToNumberAndApply(self, %)
-	}
-
-	[power, ^] { :self :anObject |
-		anObject.isSmallFloat.if {
-			anObject.isInteger.if {
-				self.raisedToInteger(anObject)
-			} {
-				self.isNegative.if {
-					Complex(self, 0) ^ anObject
-				} {
-					self.raisedToSmallFloat(anObject)
-				}
-			}
-		} {
-			anObject.adaptToNumberAndApply(self, ^)
-		}
-	}
-
 	[bitShiftLeft, <<] { :self :anObject |
 		<primitive:
 		if(sl.isBitwise(_anObject)) {
@@ -119,6 +58,67 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 		>
 		anObject.adaptToNumberAndApply(self, >>>)
+	}
+
+	[divide, /] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self / _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, /)
+	}
+
+	[mod, %] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return ((_self % _anObject) + _anObject) % _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, %)
+	}
+
+	[plus, +] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self + _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, +)
+	}
+
+	[power, ^] { :self :anObject |
+		anObject.isSmallFloat.if {
+			anObject.isInteger.if {
+				self.raisedToInteger(anObject)
+			} {
+				self.isNegative.if {
+					Complex(self, 0) ^ anObject
+				} {
+					self.raisedToSmallFloat(anObject)
+				}
+			}
+		} {
+			anObject.adaptToNumberAndApply(self, ^)
+		}
+	}
+
+	[subtract, -] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self - _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, -)
+	}
+
+	[times, *] { :self :anObject |
+		<primitive:
+		if(sl.isSmallFloat(_anObject)) {
+			return _self * _anObject;
+		}
+		>
+		anObject.adaptToNumberAndApply(self, *)
 	}
 
 	abs { :self |

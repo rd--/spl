@@ -60,28 +60,36 @@
 
 @SymbolicNumber {
 
-	+ { :self :operand |
-		'+'.symbolicPrimitive([self, operand])
-	}
-
-	- { :self :operand |
-		'-'.symbolicPrimitive([self, operand])
-	}
-
-	* { :self :operand |
-		'*'.symbolicPrimitive([self, operand])
-	}
-
-	/ { :self :operand |
+	[divide, /] { :self :operand |
 		'/'.symbolicPrimitive([self, operand])
 	}
 
-	% { :self :operand |
+	[mod, %] { :self :operand |
 		'%'.symbolicPrimitive([self, operand])
 	}
 
-	^ { :self :operand |
+	[plus, +] { :self :operand |
+		'+'.symbolicPrimitive([self, operand])
+	}
+
+	[power, ^] { :self :operand |
 		'^'.symbolicPrimitive([self, operand])
+	}
+
+	[quotient, //] { :self :operand |
+		'quotient'.symbolicPrimitive([self, operand])
+	}
+
+	[remainder, \\] { :self :operand |
+		'remainder'.symbolicPrimitive([self, operand])
+	}
+
+	[subtract, -] { :self :operand |
+		'-'.symbolicPrimitive([self, operand])
+	}
+
+	[times, *] { :self :operand |
+		'*'.symbolicPrimitive([self, operand])
 	}
 
 	abs { :self |
@@ -138,14 +146,6 @@
 
 	one { :unused |
 		1
-	}
-
-	quotient { :self :operand |
-		'quotient'.symbolicPrimitive([self, operand])
-	}
-
-	remainder { :self :operand |
-		'remainder'.symbolicPrimitive([self, operand])
 	}
 
 	sin { :self |

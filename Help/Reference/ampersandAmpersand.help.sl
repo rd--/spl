@@ -3,55 +3,18 @@
 - _b₁ && b₂_
 - _c.&&_
 
-Evaluating conjunction, that is the evaluating form of `&`.
-The operand _b₂_ must be a `Boolean`.
+The operator form of `evaluatingAnd`.
 
 ```
->>> true && true
-true
-
 >>> true && false
-false
-```
-
-Collects over lists:
-
-```
->>> let u = [false false true true];
->>> let v = [false true false true];
->>> u && v
-[false false false true]
-```
-
-As a reduction decides if all elements are `true`:
-
-```
->>> [true true true true true].reduce(&&)
-true
-
->>> [true false false true true].reduce(&&)
-false
-```
-
-Combine assertions with `&&`:
-
-```
->>> (2 > 1) && (1.pi > 3)
-true
-```
-
-`&&` is defined for the integers `zero` and `one`, which are the `boole` of `false` and `true`:
-
-```
->>> &&.table([0 1], [0 1])
-[0 0; 0 1]
+evaluatingAnd(true, false)
 ```
 
 The name of this operator is `ampersandAmpersand`.
 
 * * *
 
-See also: &, |, ||, allTrue, lcm
+See also: &, |, ||, evaluatingAnd
 
 Guides: Boolean Functions, Logical Operators
 

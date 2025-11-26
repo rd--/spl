@@ -23,7 +23,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
-	[minus, -] { :self :operand |
+	[subtract, -] { :self :operand |
 		operand.isInterval.if {
 			Interval(
 				self.min - operand.min,

@@ -97,7 +97,7 @@ At `Symbol`:
 
 See also: *, +, -, /, ^, *+, cross, dot, product, sign
 
-Guides: Binary Operators
+Guides: Arithmetic Functions, Binary Operators
 
 References:
 _Apl_

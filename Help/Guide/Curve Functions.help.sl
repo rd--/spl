@@ -32,6 +32,7 @@ Algebraic Curve Functions:
 - `hippopede`
 - `hypocycloid`
 - `hypotrochoid`
+- `hyperbolicSpiral`
 - `inverseNorwichSpiral`
 - `lateralHarmonographCurve`
 - `lemniscate`
