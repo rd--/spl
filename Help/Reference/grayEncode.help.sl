@@ -160,6 +160,18 @@ Line plot of the modular ternary gray encodings of the first few integers:
 
 ![](sw/spl/Help/Image/grayEncode-E.svg)
 
+Log scale scatter plot of first differences of encoding,
+OEIS [A055975](https://oeis.org/A055975):
+
+~~~spl svg=F
+0:250.collect(grayEncode:/1)
+.differences
+.logScale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/grayEncode-F.svg)
+
 * * *
 
 See also: Binary, binaryReflectedGrayCode, bitShiftRight, bitXor, deBruijnSequence, grayDecode, isGrayCode, shiftRegisterSequence
@@ -173,6 +185,7 @@ _OEIS_
 [1](https://oeis.org/A003188)
 [2](https://oeis.org/A014550)
 [3](https://oeis.org/A105530)
-[4](https://oeis.org/A098488),
+[4](https://oeis.org/A098488)
+[5](https://oeis.org/A055975),
 _W_
 [1](https://en.wikipedia.org/wiki/Gray_code)

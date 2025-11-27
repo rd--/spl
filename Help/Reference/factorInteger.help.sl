@@ -276,6 +276,29 @@ OEIS [A003415](https://oeis.org/A003415):
 
 ![](sw/spl/Help/Image/factorInteger-D.svg)
 
+A completely multiplicative sequence,
+OEIS [A003961](https://oeis.org/A003961):
+
+~~~spl svg=E
+let a = { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isPrime.if {
+			(n.primePi + 1).prime
+		} {
+			n.factorInteger.product { :x |
+				a(x[1]) ^ x[2]
+			}
+		}
+	}
+};
+1:100.collect(a:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorInteger-E.svg)
+
 * * *
 
 See also: divisors, isPrime, primeFactors, primeFactorization, product

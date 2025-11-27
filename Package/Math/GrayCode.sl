@@ -241,7 +241,7 @@ GrayCode : [Object, Equatable] { | sequence alphabet |
 
 }
 
-+List{
++List {
 
 	mixedRadixGrayCodeDo { :bases :receive:/2 |
 		/* https://www.socs.uoguelph.ca/~sawada/papers/RSG.pdf */

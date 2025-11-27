@@ -33,6 +33,19 @@ OEIS [A002110](https://oeis.org/A002110):
 ]
 ```
 
+Run length transform of primorials,
+OEIS [A278159](https://oeis.org/A278159):
+
+~~~spl svg=A
+0:250.collect { :n |
+	let b = n.binaryExpansion;
+	let r = b.runLengthsOf(1);
+	r.collect(primorial:/1).product
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primorial-A.svg)
+
 * * *
 
 See also: euclidNumber, factorial, primePi
@@ -41,9 +54,10 @@ Guides: Prime Number Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/Primorial.html)
+[1](https://mathworld.wolfram.com/Primorial.html),
 _OEIS_
 [1](https://oeis.org/A002110)
+[2](https://oeis.org/A278159),
 _W_
 [1](https://en.wikipedia.org/wiki/Primorial),
 _Python_

@@ -426,6 +426,26 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/mod-K.svg)
 
+First differences of the ones-counting sequence,
+OEIS [A088705](https://oeis.org/A088705)
+
+~~~spl svg=L
+let a = { :n |
+	(n < 1).if {
+		0
+	} {
+		(n % 2 = 0).if {
+			a(n / 2) - 1
+		} {
+			1
+		}
+	}
+};
+0:127.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-L.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder
@@ -438,6 +458,11 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/Modulus.html)
 [3](https://mathworld.wolfram.com/CommonResidue.html)
 [4](https://reference.wolfram.com/language/ref/Mod.html),
+_OEIS_
+[1](https://oeis.org/A000224)
+[2](https://oeis.org/A048152)
+[3](https://oeis.org/A028897)
+[4](https://oeis.org/A088705),
 _W_
 [1](https://en.wikipedia.org/wiki/Modulo)
 

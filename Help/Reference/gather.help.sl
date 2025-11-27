@@ -44,6 +44,8 @@ Gather integers that have identical remainders:
 
 See also: binLists, collect, counts, deleteDuplicates, groupBy, partition, select, split, sort, tally
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Gather.html)

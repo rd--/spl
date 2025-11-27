@@ -77,6 +77,22 @@ List! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Co
 		}
 	}
 
+	gatherBy { :self :aBlock:/1 |
+		let a = [];
+		self.do { :x |
+			let k = aBlock(x);
+			let i = a.detectIndex { :y |
+				k = y.key
+			};
+			i.ifNil {
+				a.add(k -> [x])
+			} {
+				a[i].value.add(x)
+			}
+		};
+		a.collect(value:/1)
+	}
+
 	gather { :self :aBlock:/2 |
 		let answer = [];
 		self.do { :x |

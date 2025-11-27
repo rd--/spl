@@ -11,7 +11,7 @@ The number of trailing zeros:
 4
 ```
 
-The highest power of 2:
+The highest power of two:
 
 ```
 >>> ((2 ^ 10) + (2 ^ 7))
@@ -19,7 +19,8 @@ The highest power of 2:
 7
 ```
 
-Number of trailing zeros in factorials:
+Number of trailing zeros in factorials,
+OEIS [A027868](https://oeis.org/A027868):
 
 ```
 >>> [1L .. 40L].collect { :n |
@@ -49,7 +50,8 @@ OEIS [A007814](https://oeis.org/A007814):
 ]
 ```
 
-A formula for digitCount:
+A formula for Hamming weight,
+OEIS [A000120](https://oeis.org/A000120):
 
 ```
 >>> [1L .. 30L].collect { :n |
@@ -101,10 +103,11 @@ OEIS [A025480](https://oeis.org/A025480):
 ]
 ```
 
-Plot first few terms for for _b=2_:
+Plot first few terms for for _b=2_,
+OEIS [A007814](https://oeis.org/A007814):
 
 ~~~spl svg=A
-(1:127).functionPlot { :n |
+1:127.functionPlot { :n |
 	n.integerExponent(2)
 }
 ~~~
@@ -162,6 +165,17 @@ c.scatterPlot
 
 ![](sw/spl/Help/Image/integerExponent-D.svg)
 
+Count nonsingular complex Hermitian matrices,
+OEIS [A037227](https://oeis.org/A037227):
+
+~~~spl svg=E
+1:120.collect { :n |
+	2 * n.integerExponent(2) + 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerExponent-E.svg)
+
 * * *
 
 See also: ^, digitCount, factorInteger, integerDigits, log2, log10, rulerFunction
@@ -178,5 +192,8 @@ _OEIS_
 [3](https://oeis.org/A025480)
 [4](https://oeis.org/A110963)
 [5](https://oeis.org/A366601)
+[6](https://oeis.org/A027868)
+[7](https://oeis.org/A000120)
+[8](https://oeis.org/A037227)
 
 Further Reading: Levine 2006

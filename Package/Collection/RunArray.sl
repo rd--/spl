@@ -1,4 +1,4 @@
-RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
+RunArray : [Object, Equatable, Storeable, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
 
 	[at, @] { :self :index |
 		self.atSetRunOffsetAndValue(index) { :run :offset :value |
@@ -141,8 +141,27 @@ RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun 
 		self.runs.withDo(self.values, aBlock:/2)
 	}
 
+	runLengthsOf { :self :anObject |
+		let answer = [];
+		self.runsAndValuesDo { :run :value |
+			(value = anObject).ifTrue {
+				answer.add(run)
+			}
+		};
+		answer
+	}
+
 	size { :self |
 		self.runs.sum
+	}
+
+	storeString { :self |
+		'RunArray(%, %)'.format(
+			[
+				self.runs.storeString,
+				self.values.storeString
+			]
+		)
 	}
 
 	withIndexDo { :self :aBlock:/2 |
@@ -211,6 +230,14 @@ RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun 
 
 	RunArray { :self :values |
 		newRunArray().initializeSlots(self, values, nil, nil, nil)
+	}
+
+}
+
++List {
+
+	runLengthsOf { :self :anObject |
+		self.asRunArray.runLengthsOf(anObject)
 	}
 
 }

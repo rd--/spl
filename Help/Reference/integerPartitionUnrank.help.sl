@@ -8,7 +8,7 @@ With _m=Heinz_,
 OEIS [A112798](https://oeis.org/A112798):
 
 ```
->>> let m = 'Heinz';
+>>> let m = 'HeinzAscending';
 >>> 2:28.collect { :n |
 >>> 	n.integerPartitionUnrank(m)
 >>> }
@@ -115,6 +115,19 @@ let m = 'Karttunen';
 
 ![](sw/spl/Help/Image/integerPartitionUnrank-B.svg)
 
+Permute integers according to the sum of the Heinz partition,
+OEIS [A215366](https://oeis.org/A215366):
+
+~~~spl svg=C
+let n = 8;
+[1 .. 2 ^ n].gatherBy { :j |
+	j.integerPartitionUnrank('Heinz')
+	.sum
+}.take(n + 1).catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerPartitionUnrank-C.svg)
+
 * * *
 
 See also: integerPartitionRank, integerPartitions
@@ -126,3 +139,4 @@ _OEIS
 [1](https://oeis.org/A227739)
 [2](https://oeis.org/A129594)
 [3](https://oeis.org/A112798)
+[4](https://oeis.org/A215366)

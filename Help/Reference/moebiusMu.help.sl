@@ -137,6 +137,41 @@ OEIS [A006575](https://oeis.org/A006575):
 ]
 ```
 
+Count nonsingular complex Hermitian matrices,
+OEIS [A037227](https://oeis.org/A037227):
+
+~~~spl svg=C
+1:102.collect { :n |
+	n.divisors.sum { :d |
+		(-1^ (d + 1))
+		*
+		d.moebiusMu
+		*
+		0.divisorSigma(n / d)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-C.svg)
+
+A sequence by I.Gutkovskiy,
+OEIS [A318583](https://oeis.org/A318583):
+
+~~~spl svg=D
+let a:/1 = { :n |
+	(n <= 2).if {
+		1
+	} {
+		(n - 2).divisors.sum { :d |
+			a(d) * ((n - 2) / d).moebiusMu
+		}
+	}
+}.memoize(true);
+1:175.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-D.svg)
+
 * * *
 
 See also: isSquareFree, liouvilleLambda, primeSignature

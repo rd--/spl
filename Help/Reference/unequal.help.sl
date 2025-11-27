@@ -47,7 +47,8 @@ _Apl_
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/tildeco#dyadic),
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/Unequal.html),
+[1](https://mathworld.wolfram.com/Inequation.html)
+[2](https://reference.wolfram.com/language/ref/Unequal.html),
 _Smalltalk_
 5.3.1.3,
 _W_

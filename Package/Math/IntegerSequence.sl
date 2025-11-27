@@ -1157,3 +1157,22 @@
 
 }
 
++@Sequenceable {
+
+	runLengthTransform { :x :f:/1 |
+		x.collect { :n |
+			n.binaryExpansion
+			.runLengthsOf(1)
+			.collect(f:/1).product
+		}
+	}
+
+}
+
++SmallFloat {
+
+	runLengthTransform { :n :f:/1 |
+		runLengthTransform(Range(0, n - 1, 1), f:/1)
+	}
+
+}

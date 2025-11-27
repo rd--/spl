@@ -1,5 +1,10 @@
 # Integer Sequence Functions
 
+Integer Sequence Transform Functions:
+
+- `boustrophedonTransform`
+- `runLengthTransform`
+
 [OEIS](https://oeis.org/) _A_-References:
 
 - `additivePersistence`: A031286

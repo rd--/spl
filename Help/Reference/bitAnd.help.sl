@@ -111,7 +111,8 @@ Plot bitAnd with double and triple:
 
 ![](sw/spl/Help/Image/bitAnd-C.svg)
 
-Plot first hundred terms of OEIS [A279125](https://oeis.org/A279125):
+Plot first hundred terms of
+OEIS [A279125](https://oeis.org/A279125):
 
 ~~~spl svg=D
 let n = 100;
@@ -143,6 +144,39 @@ bitAnd:/2
 
 ![](sw/spl/Help/Image/bitAnd-E.png)
 
+Calculate run length transform of `fibonacci`,
+OEIS [A246028](https://oeis.org/A246028):
+
+~~~spl svg=F
+0:200.collect { :n |
+	0:n.sum { :k |
+		let a = (n - k).bitNot;
+		let b = bitAnd(a, 2 * k);
+		let c = bitAnd(n.bitNot, k);
+		bitOr(b, c).isZero.boole
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-F.svg)
+
+Least multiple to have no common one bit in binary expansion,
+OEIS [A261892](https://oeis.org/A261892):
+
+~~~spl svg=G
+1:200.collect { :n |
+	let k = 1;
+	{
+		bitAnd(k * n, n) != 0
+	}.whileTrue {
+		k := k + 1
+	};
+	k * n
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitAnd-G.svg)
+
 * * *
 
 See also: &, bitNot, bitOr, bitXor
@@ -154,7 +188,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/AND.html)
 [2](https://reference.wolfram.com/language/ref/BitAnd.html),
 _OEIS_
-[1](https://oeis.org/A279125),
+[1](https://oeis.org/A279125)
+[2](https://oeis.org/A246028),
 _Smalltalk_
 5.6.5.4,
 _W_

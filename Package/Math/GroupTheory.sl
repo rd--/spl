@@ -1,4 +1,4 @@
-+SmallFloat{
++SmallFloat {
 
 	finiteAbelianGroupCount { :n |
 		n.factorInteger
@@ -20,7 +20,7 @@
 
 }
 
-+@Collection{
++@Collection {
 
 	finiteAbelianGroupCount { :self |
 		self.collect(finiteAbelianGroupCount:/1)

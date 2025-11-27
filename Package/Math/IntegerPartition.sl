@@ -135,7 +135,7 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 		self.integerPartitions.select(isDuplicateFree:/1)
 	}
 
-	integerPartitionUnrankHeinz { :n |
+	integerPartitionUnrankHeinzAscending { :n |
 		n.primeFactors.primePi
 	}
 
@@ -158,8 +158,11 @@ IntegerPartitions : [Object, Equatable, Storeable] { | contents:<List> |
 	integerPartitionUnrank { :n :method |
 		method.caseOf(
 			[
+				'HeinzAscending' -> {
+					n.integerPartitionUnrankHeinzAscending
+				},
 				'Heinz' -> {
-					n.integerPartitionUnrankHeinz
+					n.integerPartitionUnrankHeinzAscending.reverse
 				},
 				'KarttunenAscending' -> {
 					n.integerPartitionUnrankKarttunenAscending
