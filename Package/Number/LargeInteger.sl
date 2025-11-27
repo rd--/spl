@@ -2,20 +2,6 @@
 
 LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
-	== { :self :anObject |
-		<primitive: return _self === _anObject;>
-	}
-
-	= { :self :anObject |
-		<primitive:
-		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
-			return _self === BigInt(_anObject);
-		} else {
-			return false;
-		}
-		>
-	}
-
 	~ { :self :anObject |
 		self.asSmallFloat ~ anObject
 	}
@@ -62,6 +48,16 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		} {
 			anObject.adaptToIntegerAndApply(self, /)
 		}
+	}
+
+	[equal, =] { :self :anObject |
+		<primitive:
+		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
+			return _self === BigInt(_anObject);
+		} else {
+			return false;
+		}
+		>
 	}
 
 	[mod, %] { :self :anObject |

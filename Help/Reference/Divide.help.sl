@@ -23,7 +23,7 @@ Divide(
 
 * * *
 
-See also: /, +, *, +, Minus, Plus, Times
+See also: /, +, *, +, Plus, Subtract, Times
 
 References:
 _Mathematica_

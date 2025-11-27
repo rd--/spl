@@ -2,10 +2,6 @@
 
 Block! : [Object, Equatable] {
 
-	= { :self :anObject |
-		self == anObject
-	}
-
 	~ { :self :anObject |
 		self == anObject
 	}
@@ -20,6 +16,10 @@ Block! : [Object, Equatable] {
 
 	! { :self:/0 :shape |
 		self:/0.duplicate(shape)
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	apply { :self :aList |
@@ -516,6 +516,7 @@ Block! : [Object, Equatable] {
 		{
 			self()
 		}.whileTrue {
+			nil
 		}
 	}
 

@@ -1,5 +1,9 @@
 @CartesianCoordinates {
 
+	[negate, -] { :self |
+		self.coordinates := self.coordinates.negate
+	}
+
 	assertIsCompatibleOperand { :self :operand |
 		(
 			(self.typeOf = operand.typeOf) & {
@@ -56,10 +60,6 @@
 
 	isPlanar { :self |
 		self.coordinates.size = 2
-	}
-
-	negate { :self |
-		self.coordinates := self.coordinates.negate
 	}
 
 	norm { :self |

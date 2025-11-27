@@ -33,6 +33,7 @@ Threads over lists:
 First few terms,
 OEIS [A000010](https://oeis.org/A000010):
 
+```
 >>> 1:23.eulerPhi
 [
 	 1  1  2  2  4  2  6  4  6  4

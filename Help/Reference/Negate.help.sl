@@ -18,6 +18,6 @@ At `SmallFloat`:
 
 * * *
 
-See also: -, +, *, /, Divide, Minus, Plus, Times
+See also: -, +, *, /, Divide, Plus, Subtract, Times
 
 Categories: Math, Ugen

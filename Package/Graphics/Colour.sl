@@ -160,16 +160,16 @@
 
 RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
-	lighten { :self :aNumber |
+	[negate, -] { :self |
 		RgbColour(
-			self.rgb.linearInterpolation([1 1 1], aNumber),
+			1 - self.rgb,
 			self.alpha
 		)
 	}
 
-	negate { :self |
+	lighten { :self :aNumber |
 		RgbColour(
-			1 - self.rgb,
+			self.rgb.linearInterpolation([1 1 1], aNumber),
 			self.alpha
 		)
 	}

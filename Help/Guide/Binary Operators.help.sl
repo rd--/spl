@@ -2,14 +2,14 @@
 
 Arithmetic Operators:
 
-- `+`
-- `*`
-- `-`
-- `/`
-- `^`
-- `%`
-- `//`
-- `\\`
+- `+`, `plus`
+- `*`, `times`
+- `-`, `subtract`
+- `/`, `divide`
+- `^`, `power`
+- `%`, `mod`
+- `//`, `quotient`
+- `\\`, `remainder`
 
 Equality Operators:
 
@@ -25,14 +25,15 @@ Comparison Operators:
 
 Logical Operators:
 
-- `&`
-- `&&`
-- `|`
-- `||`
+- `&`, `and`
+- `&&`, `evaluatingAnd`
+- `|`, `or`
+- `||`, `evaluatingOr`
 
 Bitwise Operators:
 
-- `>>`
+- `<<`, `bitShiftLeft`
+- `>>`, `bitShiftRight`
 - `>>>`
 
 Indexing Operators:

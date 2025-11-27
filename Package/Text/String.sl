@@ -2,10 +2,6 @@
 
 String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
-	= { :self :anObject |
-		self == anObject
-	}
-
 	~ { :self :anObject |
 		self.isCharacter.if {
 			anObject.isCharacter & {
@@ -22,6 +18,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 	< { :self :operand |
 		self.codePoint < operand.codePoint
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	abbreviateTo { :self :anInteger |

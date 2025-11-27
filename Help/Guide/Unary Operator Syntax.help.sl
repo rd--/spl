@@ -24,7 +24,7 @@ or in a prefix name in `Apply Syntax`:
 -3
 ```
 
-The translation is _3.- ⇒ hyphenMinus(3)  ⇒ hyphenMinus:/1 . (3)_.
+The translation is _3.- ⇒ -(3) ⇒ hyphenMinus(3)  ⇒ hyphenMinus:/1 . (3)_.
 
 Unary `+` is `conjugate`:
 

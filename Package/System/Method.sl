@@ -32,8 +32,8 @@ MethodInformation! : [Object, Equatable] {
 
 Method! : [Object] {
 
-	= { :self :anObject |
-		self == anObject
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	arity { :self |

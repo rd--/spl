@@ -1,13 +1,5 @@
 @Number {
 
-	[quotient, //] { :self :aNumber |
-		self.quotientBy(aNumber, truncate:/1)
-	}
-
-	[remainder, \\] { :self :aNumber |
-		self.remainderBy(aNumber, truncate:/1)
-	}
-
 	+ { :self |
 		self.conjugate
 	}
@@ -58,6 +50,18 @@
 
 	*+ { :self :mul :add |
 		self * mul + add
+	}
+
+	[negate, -] { :self |
+		self * -1
+	}
+
+	[quotient, //] { :self :aNumber |
+		self.quotientBy(aNumber, truncate:/1)
+	}
+
+	[remainder, \\] { :self :aNumber |
+		self.remainderBy(aNumber, truncate:/1)
 	}
 
 	abs { :self |
@@ -587,10 +591,6 @@
 	}
 	*/
 
-	[negate, -] { :self |
-		self * -1
-	}
-
 	niceNumberAbove { :self |
 		self.niceNumberBy { :l :n |
 			l[l.bisect(n)]
@@ -917,7 +917,7 @@
 		}
 	}
 
-	[sign, -] { :self |
+	sign { :self |
 		(self > 0).if {
 			self.one
 		} {

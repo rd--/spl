@@ -1,7 +1,7 @@
 Storage! : [Object, Collection, Dictionary] {
 
-	= { :self :anObject |
-		self == anObject
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	at { :self :key |

@@ -2,16 +2,16 @@
 
 Tuple : [Object, Storeable, Copyable, Equatable] { | contents |
 
+	[at, @] { :self :index |
+		self.contents.at(index)
+	}
+
 	asList { :self |
 		self.contents.copy
 	}
 
 	assertIsOfSize { :self :anInteger |
 		self.contents.assertIsOfSize(anInteger)
-	}
-
-	at { :self :index |
-		self.contents.at(index)
 	}
 
 	concisePrintString { :self |

@@ -1,6 +1,6 @@
 HexagonalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 
-	+ { :self :operand |
+	[plus, +] { :self :operand |
 		operand.isHexagonalCoordinates.if {
 			HexagonalCoordinates(self.coordinates + operand.coordinates)
 		} {
@@ -8,7 +8,7 @@ HexagonalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 		}
 	}
 
-	- { :self :operand |
+	[subtract, -] { :self :operand |
 		operand.isHexagonalCoordinates.if {
 			HexagonalCoordinates(self.coordinates - operand.coordinates)
 		} {
@@ -16,7 +16,7 @@ HexagonalCoordinates : [Object, Storeable, Equatable] { | coordinates |
 		}
 	}
 
-	* { :self :aNumber |
+	[times, *] { :self :aNumber |
 		HexagonalCoordinates(self.coordinates * aNumber)
 	}
 

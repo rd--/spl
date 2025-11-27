@@ -1,23 +1,23 @@
 Residue : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | commonResidue modulus |
 
-	+ { :self :aNumber |
-		self.binaryOperator(aNumber, +)
+	< { :self :aNumber |
+		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
 	}
 
-	- { :self :aNumber |
-		self.binaryOperator(aNumber, -)
-	}
-
-	* { :self :aNumber |
-		self.binaryOperator(aNumber, *)
-	}
-
-	/ { :self :aNumber |
+	[divide, /] { :self :aNumber |
 		self * aNumber.inverse
 	}
 
-	< { :self :aNumber |
-		self.commonResidue < self.assertIsCompatibleOperand(aNumber).commonResidue
+	[plus, +] { :self :aNumber |
+		self.binaryOperator(aNumber, +)
+	}
+
+	[subtract, -] { :self :aNumber |
+		self.binaryOperator(aNumber, -)
+	}
+
+	[times, *] { :self :aNumber |
+		self.binaryOperator(aNumber, *)
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |

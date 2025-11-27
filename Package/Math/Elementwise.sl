@@ -2,12 +2,12 @@
 
 +@Collection {
 
-	+ { :self |
-		self.collect(conjugate:/1)
+	[negate, -] { :self |
+		self.collect(negate:/1)
 	}
 
-	- { :self |
-		self.collect(negate:/1)
+	+ { :self |
+		self.collect(conjugate:/1)
 	}
 
 	* { :self |
@@ -407,10 +407,6 @@
 
 	mixedFractionParts { :self |
 		self.collect(mixedFractionParts:/1)
-	}
-
-	negate { :self |
-		self.collect(negate:/1)
 	}
 
 	nextPrime { :self |

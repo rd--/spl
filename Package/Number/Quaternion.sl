@@ -2,7 +2,35 @@
 
 Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
-	* { :self :anObject |
+	[divide, /] { :self :anObject |
+		anObject.isQuaternion.if {
+			self * anObject.reciprocal
+		} {
+			anObject.adaptToQuaternionAndApply(self, /)
+		}
+	}
+
+	[plus, +] { :self :anObject |
+		anObject.isQuaternion.if {
+			Quaternion(self.contents + anObject.contents)
+		} {
+			anObject.adaptToQuaternionAndApply(self, +)
+		}
+	}
+
+	[negate, -] { :self |
+		Quaternion(self.contents.negate)
+	}
+
+	[subtract, -] { :self :anObject |
+		anObject.isQuaternion.if {
+			Quaternion(self.contents + anObject.contents)
+		} {
+			anObject.adaptToQuaternionAndApply(self, -)
+		}
+	}
+
+	[times, *] { :self :anObject |
 		anObject.isQuaternion.if {
 			let [a, b, c, d] = self.contents;
 			let [p, q, r, s] = anObject.contents;
@@ -16,30 +44,6 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 			)
 		} {
 			anObject.adaptToQuaternionAndApply(self, *)
-		}
-	}
-
-	+ { :self :anObject |
-		anObject.isQuaternion.if {
-			Quaternion(self.contents + anObject.contents)
-		} {
-			anObject.adaptToQuaternionAndApply(self, +)
-		}
-	}
-
-	- { :self :anObject |
-		anObject.isQuaternion.if {
-			Quaternion(self.contents + anObject.contents)
-		} {
-			anObject.adaptToQuaternionAndApply(self, -)
-		}
-	}
-
-	/ { :self :anObject |
-		anObject.isQuaternion.if {
-			self * anObject.reciprocal
-		} {
-			anObject.adaptToQuaternionAndApply(self, /)
 		}
 	}
 
@@ -112,10 +116,6 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
 	isZero { :self |
 		self.contents.isOrigin
-	}
-
-	negate { :self |
-		Quaternion(self.contents.negate)
 	}
 
 	norm { :self |

@@ -2,95 +2,12 @@
 
 - _x = y_
 
-The structural equality predicate,
-answers `true` if the object _x_ is equal to another object _y_, else `false`.
-The meaning of equality is determined by the type of _x_.
-
-At `SmallFloat`:
+The operator form of `equal`.
 
 ```
 >>> 3 = 1
-false
-
->>> 2 = 2
-true
+equal(3, 1)
 ```
-
-At `List`:
-
-```
->>> [3 2 1] = [1 2 3]
-false
-
->>> [4 5] = [4 5]
-true
-```
-
-To compare element-wise use `map` or `withCollect` or `each`:
-
-```
->>> =.map([3 2 1], [1 2 3])
-[false true false]
-
->>> [3 2 1].withCollect([1 2 3], =)
-[false true false]
-
->>> [3 2 1] =.each [1 2 3]
-[false true false]
-```
-
-At `String`:
-
-```
->>> 'x' = 'x'
-true
-
->>> '321'.characters =.each '123'.characters
-[false true false]
-```
-
-At `Complex`:
-
-```
->>> 1J1 = 1J1
-true
-
->>> [3J2 2J2 1J2] =.each [2J2]
-[false true false]
-
->>> 1J0 = 1
-true
-```
-
-At `Fraction`:
-
-```
->>> 6/4 = 3/2
-true
-```
-
-At `SmallFloat` and `Fraction`:
-
-```
->>> 3/2 = 1.5 & { 1.5 = 3/2 }
-true
-```
-
-At `Record`, keys do not need to be in equal order:
-
-```
->>> (x: 1, y: 2, z: 3) = (z: 3, y: 2, x: 1)
-true
-```
-
-When the arguments to `=` are `boole`, it is the logical biconditional function:
-
-```
->>> ([0 1] =.table [0 1]).boole
-[1 0; 0 1]
-```
-
-The `=` method is not implemented at `Object`.
 
 `=` is both a syntax token and an operator.
 As a syntax token the `=` symbol is a part of `Let Syntax`.
@@ -99,24 +16,8 @@ The name of this operator and syntax token is `equalsSign`.
 
 * * *
 
-See also: <, <=, >, >=, !=, ==, ~, :=, hasEqualElements, hasEqualSlots
+See also: <, <=, >, >=, !=, ==, ~, :=, equal
 
 Guides: Comparison Functions, Let Syntax, Syntax Tokens
-
-References:
-_Apl_
-[1](https://aplwiki.com/wiki/Equal_to),
-_Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Prelude.html#t:Eq),
-_J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/eq#dyadic),
-_Mathematica_
-[1](https://mathworld.wolfram.com/Equal.html)
-[2](https://mathworld.wolfram.com/Equivalent.html)
-[3](https://reference.wolfram.com/language/ref/Equal.html),
-_Smalltalk_
-5.3.1.1,
-_W_
-[1](https://en.wikipedia.org/wiki/Logical_biconditional)
 
 Categories: Comparing

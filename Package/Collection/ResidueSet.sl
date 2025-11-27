@@ -2,21 +2,21 @@
 
 ResidueSet : [Object, Storeable, Equatable, Iterable, Collection, Extensible] { | contents modulus |
 
-	+ { :self :anInteger |
+	[plus, +] { :self :anInteger |
 		ResidueSet(
 			self.contents + anInteger,
 			self.modulus
 		)
 	}
 
-	- { :self :anInteger |
+	[subtract, -] { :self :anInteger |
 		ResidueSet(
 			self.contents - anInteger,
 			self.modulus
 		)
 	}
 
-	* { :self :anInteger |
+	[times, *] { :self :anInteger |
 		ResidueSet(
 			self.contents * anInteger,
 			self.modulus

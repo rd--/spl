@@ -1,28 +1,28 @@
 Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
-	= { :self :anObject |
-		anObject.isPermutation & {
-			self.cycles = anObject.cycles
-		}
-	}
-
 	~ { :self :anObject |
 		self = anObject
 	}
 
-	* { :self :aPermutation |
-		let length = self.degree.max(aPermutation.degree);
-		aPermutation.apply(
-			self.apply(length.iota)
-		).ordering.asPermutation
+	[equal, =] { :self :anObject |
+		anObject.isPermutation & {
+			equal(self.cycles, anObject.cycles)
+		}
 	}
 
-	^ { :self :anInteger |
+	[power, ^] { :self :anInteger |
 		anInteger.isNegative.if {
 			self.inverse ^ anInteger.negate
 		} {
 			List(anInteger, self).product
 		}
+	}
+
+	[times, *] { :self :aPermutation |
+		let length = self.degree.max(aPermutation.degree);
+		aPermutation.apply(
+			self.apply(length.iota)
+		).ordering.asPermutation
 	}
 
 	apply { :self :aSequence |

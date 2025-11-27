@@ -1,6 +1,14 @@
 Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexable, Sequenceable, ArithmeticProgression] { | start stop step |
 
-	+ { :self :operand |
+	[negate, -] { :self |
+		Range(
+			self.start.negate,
+			self.stop.negate,
+			self.step.negate
+		)
+	}
+
+	[plus, +] { :self :operand |
 		operand.isSmallFloat.if {
 			Range(
 				self.start + operand,
@@ -12,11 +20,7 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		}
 	}
 
-	- { :self |
-		self.negate
-	}
-
-	- { :self :operand |
+	[subtract, -] { :self :operand |
 		operand.isSmallFloat.if {
 			Range(
 				self.start - operand,
@@ -80,14 +84,6 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 
 	isVector { :unused |
 		true
-	}
-
-	negate { :self |
-		Range(
-			self.start.negate,
-			self.stop.negate,
-			self.step.negate
-		)
 	}
 
 	rangeSyntaxString { :self |

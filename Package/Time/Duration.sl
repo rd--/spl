@@ -4,20 +4,20 @@ Duration : [Object, Storeable, Equatable, Comparable, Magnitude] { | seconds |
 		self.seconds < aDuration.asDuration.seconds
 	}
 
-	* { :self :aNumber |
-		Duration(self.seconds * aNumber)
-	}
-
-	/ { :self :aNumber |
+	[divide, /] { :self :aNumber |
 		Duration(self.seconds / aNumber)
 	}
 
-	+ { :self :aDuration |
+	[plus, +] { :self :aDuration |
 		Duration(self.seconds + aDuration.asDuration.seconds)
 	}
 
-	- { :self :aDuration |
+	[subtract, -] { :self :aDuration |
 		Duration(self.seconds - aDuration.asDuration.seconds)
+	}
+
+	[times, *] { :self :aNumber |
+		Duration(self.seconds * aNumber)
 	}
 
 	abs { :self |

@@ -1,13 +1,5 @@
 @Object {
 
-	== { :self :anObject |
-		<primitive: return _self === _anObject;>
-	}
-
-	!== { :self :anObject |
-		<primitive: return _self !== _anObject;>
-	}
-
 	? { :self :aBlock:/0 |
 		self
 	}
@@ -18,6 +10,14 @@
 
 	~? { :self :aBlock:/0 |
 		aBlock()
+	}
+
+	[identical, ==] { :self :anObject |
+		<primitive: return _self === _anObject;>
+	}
+
+	[nonidentical, !==] { :self :anObject |
+		<primitive: return _self !== _anObject;>
 	}
 
 	assert { :self :aString :aBlock:/0 |

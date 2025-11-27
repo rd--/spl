@@ -8,9 +8,9 @@
 
 URLSearchParams! : [Object, Iterable, UrlQueryParameters] {
 
-	= { :self :anObject |
+	[equal, =] { :self :anObject |
 		anObject.isUrlQueryParameters & {
-			self.asString = anObject.asString
+			equal(self.asString, anObject.asString)
 		}
 	}
 

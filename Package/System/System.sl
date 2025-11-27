@@ -1,7 +1,7 @@
 System! : [Object, Cache, RandomNumberGenerator] {
 
-	= { :self :anObject |
-		self == anObject
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	absoluteTime { :unused |

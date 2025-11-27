@@ -14,7 +14,7 @@ At `SmallFloat`:
 >>> 3 - 4
 -1
 
->>> hyphenSubtract(3, 4)
+>>> hyphenMinus(3, 4)
 -1
 ```
 

@@ -1,6 +1,6 @@
 # AbsDif
 
-- _AbsDif(α, β)_ ⟹ _Abs(α - β)_
+- _AbsDif(α, β)_
 
 Answer the absolute value of the difference.
 
@@ -12,7 +12,7 @@ Answer the absolute value of the difference.
 Written out:
 
 ```
->>> Abs(Minus(1, 2))
+>>> Abs(Subtract(1, 2))
 1
 ```
 

@@ -2,12 +2,16 @@
 
 BitSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensible, Removable] { | capacity bytes tally |
 
-	= { :self :anObject |
+	[equal, =] { :self :anObject |
 		anObject.isBitSet & {
 			anObject.size = self.tally & {
 				anObject.bytes = self.bytes
 			}
 		}
+	}
+
+	[at, @] { :self :anInteger |
+		self.bitAt(anInteger)
 	}
 
 	add { :self :anInteger |
@@ -30,10 +34,6 @@ BitSet : [Object, Storeable, Copyable, Equatable, Iterable, Collection, Extensib
 			ascii[index + 1] := 48 + each
 		};
 		ascii.asciiString
-	}
-
-	at { :self :anInteger |
-		self.bitAt(anInteger)
 	}
 
 	atPut { :self :anInteger :aBit |

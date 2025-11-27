@@ -1,6 +1,15 @@
 HexagonalEfficientCoordinates : [Object, Equatable] { | coordinates |
 
-	+ { :self :operand |
+	[negate, -] { :self |
+		let [a, r, c] = self.coordinates;
+		HexagonalEfficientCoordinates(
+			a,
+			0 - r - a,
+			0 - c - a
+		)
+	}
+
+	[plus, +] { :self :operand |
 		let [a1, r1, c1] = self.coordinates;
 		let [a2, r2, c2] = operand.coordinates;
 		HexagonalEfficientCoordinates(
@@ -10,11 +19,11 @@ HexagonalEfficientCoordinates : [Object, Equatable] { | coordinates |
 		)
 	}
 
-	- { :self :operand |
+	[subtract, -] { :self :operand |
 		self + operand.negate
 	}
 
-	* { :self :operand |
+	[times, *] { :self :operand |
 		self.operand.isNonNegativeInteger.if {
 			let [a, r, c] = self.coordinates;
 			let z = a * (operand / 2).floor;
@@ -38,15 +47,6 @@ HexagonalEfficientCoordinates : [Object, Equatable] { | coordinates |
 
 	asList { :self |
 		self.coordinates
-	}
-
-	negate { :self |
-		let [a, r, c] = self.coordinates;
-		HexagonalEfficientCoordinates(
-			a,
-			0 - r - a,
-			0 - c - a
-		)
 	}
 
 	nearestNeighbours { :self |

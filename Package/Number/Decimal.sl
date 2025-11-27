@@ -1,16 +1,5 @@
 Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | fraction scale |
 
-	= { :self :operand |
-		operand.isDecimal.if {
-			(self.scale = operand.scale) & {
-				let m = 10L ^ self.scale;
-				(self.asFloat * m).round = (operand.asFloat * m).round
-			}
-		} {
-			false
-		}
-	}
-
 	< { :self :operand |
 		operand.isDecimal.if {
 			self.fraction < operand.fraction
@@ -31,6 +20,20 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 			} {
 				operand.adaptToDecimalAndApply(self, /)
 			}
+		}
+	}
+
+	[equal, =] { :self :operand |
+		operand.isDecimal.if {
+			equal(self.scale, operand.scale) & {
+				let m = 10L ^ self.scale;
+				equal(
+					(self.asFloat * m).round,
+					(operand.asFloat * m).round
+				)
+			}
+		} {
+			false
 		}
 	}
 

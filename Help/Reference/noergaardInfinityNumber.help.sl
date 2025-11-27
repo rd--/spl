@@ -24,7 +24,7 @@ OEIS [A004718](https://oeis.org/A004718):
 
 Scatter plot of first few terms:
 
-~~~spl svg=B
+~~~spl svg=A
 0:250.collect(
 	noergaardInfinityNumber:/1
 ).scatterPlot

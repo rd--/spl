@@ -1,15 +1,15 @@
 ColourPalette : [Object, Storeable] { | colourList |
 
+	[at, @] { :self :index |
+		self.colourList.at(index)
+	}
+
 	asContinuousColourGradient { :self |
 		self.colourList.asContinuousColourGradient
 	}
 
 	asDiscreteColourGradient { :self |
 		self.colourList.asDiscreteColourGradient
-	}
-
-	at { :self :index |
-		self.colourList.at(index)
 	}
 
 	drawing { :self |

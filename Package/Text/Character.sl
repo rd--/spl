@@ -120,14 +120,14 @@
 
 Character : [Object, Storeable, Equatable, Comparable, Magnitude, Character] { | characterString codePoint |
 
-	= { :self :anObject |
-		self == anObject
-	}
-
 	~ { :self :anObject |
 		anObject.isCharacter & {
 			self.characterString = anObject.characterString
 		}
+	}
+
+	[equal, =] { :self :anObject |
+		identical(self, anObject)
 	}
 
 	asCharacter { :self |

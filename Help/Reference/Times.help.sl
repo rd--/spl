@@ -23,7 +23,7 @@ Times(
 
 * * *
 
-See also: +, *, Divide, Minus, MulAdd, Plus, Power
+See also: +, *, Divide, MulAdd, Plus, Subtract, Power
 
 References:
 _Mathematica_

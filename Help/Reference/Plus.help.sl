@@ -48,6 +48,6 @@ not _TimesPlus_.
 
 * * *
 
-See also: +, Divide, Minus, Times
+See also: +, Divide, Subtract, Times
 
 Categories: Math, Ugen

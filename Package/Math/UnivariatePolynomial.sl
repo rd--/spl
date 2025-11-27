@@ -1,5 +1,13 @@
 UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientList |
 
+	[at, @] { :self :x |
+		self.coefficientList.evaluateUnivariatePolynomial(x)
+	}
+
+	[negate, -] { :self |
+		self * -1
+	}
+
 	[plus, +] { :self :operand |
 		let c1 = self.coefficientList;
 		let c2 = operand.coefficientList;
@@ -59,10 +67,6 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 		self.isNormal.ifFalse {
 			self.error('assertIsNormal: not normal')
 		}
-	}
-
-	at { :self :x |
-		self.coefficientList.evaluateUnivariatePolynomial(x)
 	}
 
 	atAll { :self :aCollection |
@@ -139,10 +143,6 @@ UnivariatePolynomial : [Object, Storeable, Copyable, Equatable] { | coefficientL
 
 	monicPolynomial { :self |
 		self * self.leadingCoefficient.reciprocal
-	}
-
-	negate { :self |
-		self * -1
 	}
 
 	normalize { :self |

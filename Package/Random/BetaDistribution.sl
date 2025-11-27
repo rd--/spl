@@ -26,10 +26,6 @@
 
 BetaDistribution : [Object, Storeable, Equatable, ProbabilityDistribution] { | alpha beta |
 
-	= { :self :anObject |
-		self.hasEqualSlots(anObject)
-	}
-
 	cdf { :self |
 		let alpha = self.alpha;
 		let beta = self.beta;

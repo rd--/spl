@@ -2,18 +2,6 @@
 
 SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
 
-	= { :self :anObject |
-		anObject.isNumber.if {
-			anObject.isSmallFloat.if {
-				self == anObject
-			} {
-				anObject.adaptToNumberAndApply(self, =)
-			}
-		} {
-			false
-		}
-	}
-
 	< { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -38,7 +26,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 			return _self << _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, <<)
+		anObject.adaptToNumberAndApply(self, bitShiftLeft:/2)
 	}
 
 	[bitShiftRight, >>] { :self :anObject |
@@ -47,7 +35,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 			return _self >> _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, >>)
+		anObject.adaptToNumberAndApply(self, bitShiftRight:/2)
 	}
 
 
@@ -57,7 +45,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 			return _self >>> _anObject;
 		}
 		>
-		anObject.adaptToNumberAndApply(self, >>>)
+		anObject.adaptToNumberAndApply(self, bitShiftRightUnsigned:/2)
 	}
 
 	[divide, /] { :self :anObject |
@@ -67,6 +55,18 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 		>
 		anObject.adaptToNumberAndApply(self, /)
+	}
+
+	[equal, =] { :self :anObject |
+		anObject.isNumber.if {
+			anObject.isSmallFloat.if {
+				identical(self, anObject)
+			} {
+				anObject.adaptToNumberAndApply(self, equal:/2)
+			}
+		} {
+			false
+		}
 	}
 
 	[mod, %] { :self :anObject |

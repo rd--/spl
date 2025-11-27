@@ -12,6 +12,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		operand < self
 	}
 
+	[negate, -] { :self |
+		self.zero - self
+	}
+
 	[plus, +] { :self :operand |
 		operand.isInterval.if {
 			Interval(
@@ -174,10 +178,6 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 
 	minMax { :self |
 		[self.min, self.max]
-	}
-
-	negate { :self |
-		self.zero - self
 	}
 
 	one { :self |

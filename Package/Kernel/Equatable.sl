@@ -1,15 +1,15 @@
 @Equatable {
 
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
 	~ { :self :anObject |
 		self.equalBy(anObject, ~)
 	}
 
-	!= { :self :anObject |
-		(self = anObject).not
+	[equal, =] { :self :anObject |
+		self.equalBy(anObject, equal:/2)
+	}
+
+	[unequal, !=] { :self :anObject |
+		equal(self, anObject).not
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -22,6 +22,12 @@
 			return _aBlock_2(_self[key], _anObject[key]);
 		});
 		>
+	}
+
+	equalTo { :y |
+		{ :x |
+			equal(x, y)
+		}
 	}
 
 	hasEqualSlots { :self :anObject :aBlock:/2 |

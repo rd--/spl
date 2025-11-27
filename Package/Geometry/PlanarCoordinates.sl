@@ -2,28 +2,32 @@
 
 PlanarCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexable, CartesianCoordinates] { | coordinates |
 
-	+ { :self :anObject |
-		self.applyBinaryOperator(anObject, +)
-	}
-
-	- { :self :anObject |
-		self.applyBinaryOperator(anObject, -)
-	}
-
-	* { :self :anObject |
-		self.applyBinaryOperator(anObject, *)
-	}
-
-	/ { :self :anObject |
+	[divide, /] { :self :anObject |
 		self.applyBinaryOperator(anObject, /)
 	}
 
-	// { :self :anObject |
+	[mod, %] { :self :anObject |
+		self.applyBinaryOperator(anObject, %)
+	}
+
+	[negate, -] { :self |
+		self.applyUnaryOperator(negate:/1)
+	}
+
+	[plus, +] { :self :anObject |
+		self.applyBinaryOperator(anObject, +)
+	}
+
+	[quotient, //] { :self :anObject |
 		self.applyBinaryOperator(anObject, //)
 	}
 
-	% { :self :anObject |
-		self.applyBinaryOperator(anObject, %)
+	[subtract, -] { :self :anObject |
+		self.applyBinaryOperator(anObject, -)
+	}
+
+	[times, *] { :self :anObject |
+		self.applyBinaryOperator(anObject, *)
 	}
 
 	abs { :self |
@@ -87,10 +91,6 @@ PlanarCoordinates : [Object, Storeable, Copyable, Equatable, Comparable, Indexab
 
 	min { :self :anObject |
 		self.applyBinaryOperator(anObject, min:/2)
-	}
-
-	negate { :self |
-		self.applyUnaryOperator(negate:/1)
 	}
 
 	normalize { :self |

@@ -4,11 +4,11 @@ TimeStamp : [Object, Storeable, Equatable, Comparable, Magnitude] { | absoluteTi
 		self.absoluteTime < aTimeStamp.absoluteTime
 	}
 
-	+ { :self :operand |
+	[plus, +] { :self :operand |
 		TimeStamp(self.absoluteTime + operand.asSeconds)
 	}
 
-	- { :self :operand |
+	[subtract, -] { :self :operand |
 		TimeStamp(self.absoluteTime - operand.asSeconds)
 	}
 

@@ -17,6 +17,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
+	[negate, -] { :self |
+		Complex(self.real.negate, self.imaginary.negate)
+	}
+
 	[plus, +] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -316,10 +320,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		} {
 			anObject.adaptToComplexAndApply(self, min:/1)
 		}
-	}
-
-	negate { :self |
-		Complex(self.real.negate, self.imaginary.negate)
 	}
 
 	norm { :self |

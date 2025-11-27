@@ -12,12 +12,12 @@ Nil! : [Object, Storeable, Equatable, Json] {
 		nil
 	}
 
-	= { :self :anObject |
-		anObject.isNil
-	}
-
 	~ { :self :anObject |
 		self = anObject
+	}
+
+	[equal, =] { :self :anObject |
+		anObject.isNil
 	}
 
 	concisePrintString { :self |

@@ -916,8 +916,8 @@ Clock().typeOf = 'Clock' /* type of clock */
 Clock().isClock /* clock predicate */
 Clock().priorityQueue.isPriorityQueue /* priority queue of clock */
 Clock().priorityQueue.isEmpty /* priority queue is initially empty */
-let c = Clock(); let i = 3; c.schedule(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
-let c = Clock(); let i = 3; c.schedule(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
+let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | nil }; c.nextEntryTime <= (system.sessionTime + i)
+let c = Clock(); let i = 3; c.scheduleBlock(i) { :t | t.postLine }; c.removeAll; c.nextEntryTime = nil
 ```
 
 ## Collection -- collection trait
@@ -2641,9 +2641,9 @@ let d = (x: 23, y: 3.141); d['x'] := 42; d = (x: 42, y: 3.141)
 (x: 1).copy = (x: 1) /* a copy of record is a record */
 let d = (x: 23, y: 3.141); let c = d.copy; d !== c & { d = c } /* copy is equal to but not identical to */
 let d = (x: 1, y: 2); let c = d.copy; c['x'] := 3; c['x'] = 3 & { d['x'] = 1 } /* copies are distinct */
-(x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is optional */
-let x = 1; (x:9) = (x: 9) /* white space after colon is optional */
-let x = 9; (9:x) = 9:x /* interval literals may have identifiers as upper bound */
+(x: 1, y: 2) ++ (z: 3) = (x: 1, y: 2, z: 3) /* white space after colon is required */
+let x = 1; (x:9) != (x: 9) /* white space after colon is required */
+let x = 1; (x:9) = Range(1, 9, 1) /* range literals may have identifiers as lower bound */
 (x: 1, y: 2).associations = ['x' -> 1, 'y' -> 2] /* array of associations at record */
 (x: 1, y: 2).asList = [1, 2] /* values as List */
 { let d = (x: 1, y: 2, z: 3); let (x: x, z: z) = d; [x, z] = [1, 3] }.hasError /* partial dictionary match not allowed */

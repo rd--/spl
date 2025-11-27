@@ -1,11 +1,11 @@
 @SymbolicObject {
 
-	= { :self :anObject |
-		'='.symbolicPrimitive([self, anObject])
-	}
-
 	~ { :self :anObject |
 		'~'.symbolicPrimitive([self, anObject])
+	}
+
+	[equal, =] { :self :anObject |
+		'='.symbolicPrimitive([self, anObject])
 	}
 
 }

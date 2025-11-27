@@ -8,6 +8,12 @@
 		answer
 	}
 
+	[at, @] { :self :key |
+		self.atIfAbsent(key) {
+			self.error('@Dictionary>>at: unknown key: ' ++ key)
+		}
+	}
+
 	add { :self :anAssociation |
 		self.includesKey(anAssociation.key).if {
 			self.error('@Dictionary>>add: key exists: ' ++ anAssociation.key)
@@ -99,12 +105,6 @@
 			}
 		};
 		answer
-	}
-
-	at { :self :key |
-		self.atIfAbsent(key) {
-			self.error('@Dictionary>>at: unknown key: ' ++ key)
-		}
 	}
 
 	atIfAbsent { :self :key :ifAbsent:/0 |

@@ -4,34 +4,34 @@
 		self.size
 	}
 
-	+ { :self :anObject |
-		self.collect(+.bindRight(anObject))
-	}
-
-	- { :self :anObject |
-		self.collect(-.bindRight(anObject))
-	}
-
-	* { :self :anObject |
-		self.collect(*.bindRight(anObject))
-	}
-
-	/ { :self :anObject |
-		self.collect(/.bindRight(anObject))
-	}
-
-	^ { :self :anObject |
-		self.collect(^.bindRight(anObject))
-	}
-
-	% { :self :anObject |
-		self.collect(%.bindRight(anObject))
-	}
-
 	++ { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);
 		answer
+	}
+
+	[divide, /] { :self :anObject |
+		self.collect(/.bindRight(anObject))
+	}
+
+	[mod, %] { :self :anObject |
+		self.collect(%.bindRight(anObject))
+	}
+
+	[plus, +] { :self :anObject |
+		self.collect(+.bindRight(anObject))
+	}
+
+	[power, ^] { :self :anObject |
+		self.collect(^.bindRight(anObject))
+	}
+
+	[subtract, -] { :self :anObject |
+		self.collect(-.bindRight(anObject))
+	}
+
+	[times, *] { :self :anObject |
+		self.collect(*.bindRight(anObject))
 	}
 
 	adaptToIntegerAndApply { :self :anInteger :aBlock:/2 |

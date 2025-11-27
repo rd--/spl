@@ -186,7 +186,7 @@ OEIS [A181819](https://oeis.org/A181819):
 
 Plot first few terms:
 
-~~~
+~~~spl svg=C
 2:120.collect { :n |
 	n.primeSignature.prime.product
 }.scatterPlot

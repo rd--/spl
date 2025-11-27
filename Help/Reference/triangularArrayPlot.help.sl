@@ -44,7 +44,7 @@ rescaled to lie in _(0,1)_:
 
 Plot Sierpiński’s triangle:
 
-~~~spl svg=C
+~~~spl svg=D
 (16.pascalTriangle % 2)
 .triangularArrayPlot
 ~~~

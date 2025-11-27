@@ -23,19 +23,7 @@
 
 Cache! : [Object] {
 
-	basicDelete { :self :key |
-		<primitive: return _self.delete(_key);>
-	}
-
-	basicMatch { :self :key |
-		<primitive: return _self.match(_key);>
-	}
-
-	basicPut { :self :key :value |
-		<primitive: return _self.put(_key, _value);>
-	}
-
-	at { :self :key |
+	[at, @] { :self :key |
 		self.shouldNotImplement('at: see atIfPresentIfAbsent')
 	}
 
@@ -45,7 +33,7 @@ Cache! : [Object] {
 
 	atIfPresentIfAbsent { :self :key :ifPresent:/1 :ifAbsent:/0 |
 		let validKey = self.validateKey(key);
-		self.basicMatch(validKey).then { :answer |
+		self.uncheckedMatch(validKey).then { :answer |
 			answer.isResponse.if {
 				ifPresent(answer)
 			} {
@@ -63,7 +51,7 @@ Cache! : [Object] {
 	atPut { :self :key :value |
 		let validKey = self.validateKey(key);
 		let validValue = self.validateValue(value);
-		self.basicPut(validKey, validValue)
+		self.uncheckedPut(validKey, validValue)
 	}
 
 	includesKey { :self :key |
@@ -72,11 +60,23 @@ Cache! : [Object] {
 
 	removeKeyIfAbsent { :self :key :aBlock:/0 |
 		let validKey = self.validateKey(key);
-		self.basicDelete(validKey).then { :answer |
+		self.uncheckedDelete(validKey).then { :answer |
 			answer.ifFalse {
 				aBlock()
 			}
 		}
+	}
+
+	uncheckedDelete { :self :key |
+		<primitive: return _self.delete(_key);>
+	}
+
+	uncheckedMatch { :self :key |
+		<primitive: return _self.match(_key);>
+	}
+
+	uncheckedPut { :self :key :value |
+		<primitive: return _self.put(_key, _value);>
 	}
 
 	validateKey { :self :key |

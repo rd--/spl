@@ -160,7 +160,7 @@ The squares of 1, 11, 111 and so on are special palindromes:
 Plot numbers whose binary expansion is palindromic,
 OEIS [A006995](https://oeis.org/A006995):
 
-~~~spl svg
+~~~spl svg=A
 0:1000.select { :n |
 	n.integerDigits(2).isPalindrome
 }.scatterPlot

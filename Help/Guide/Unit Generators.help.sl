@@ -161,26 +161,25 @@
 - `ArcSin`: arc sine
 - `ArcTan`: arc tangent
 - `Ceiling`: next higher integer
-- `Clip`: clipping
 - `Clip2`: bilateral clipping
+- `Clip`: clipping
 - `Cos`: cosine
 - `Cosh`: hyperbolic cosine
 - `Cube`: cube value
-- `Exp`: exponential
 - `Divide`: division
+- `Exp`: exponential
 - `Floor`: next lower integer
-- `Fold`: fold a signal outside given thresholds
 - `Fold2`: bilateral folding
-- `Gcd`: greatest common divisor
+- `Fold`: fold a signal outside given thresholds
 - `FractionPart`: fractional part
+- `Gcd`: greatest common divisor
 - `Hypotenuse`: hypotenuse
 - `Lcm`: least common multiple
-- `Log`: natural logarithm
 - `Log10`: base 10 logarithm
 - `Log2`: base 2 logarithm
+- `Log`: natural logarithm
 - `Max`: maximum
 - `Min`: minimum
-- `Minus`: subtraction
 - `ModDif`: minimum difference of two values in modulo arithmetics
 - `MulAdd`: multiply and add
 - `Negate`: negation
@@ -193,10 +192,11 @@
 - `Sinh`: hyperbolic sine
 - `Sqrt`: square root
 - `Square`: square value
+- `Subtract`: subtraction
 - `Tan`: tangent
 - `Tanh`: hyperbolic tangent
-- `Wrap`: wrap a signal outside given thresholds
 - `Wrap2`: bilateral wrapping
+- `Wrap`: wrap a signal outside given thresholds
 
 ## Noise Generators
 

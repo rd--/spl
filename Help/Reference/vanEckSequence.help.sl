@@ -27,9 +27,11 @@ Log scale scatter plot:
 
 ~~~spl svg=A
 250.vanEckSequence
-.logScale
+.log
 .scatterPlot
 ~~~
+
+![](sw/spl/Help/Image/vanEckSequence-A.svg)
 
 * * *
 

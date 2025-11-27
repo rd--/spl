@@ -8,22 +8,15 @@ Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Leng
 		}
 	}
 
-	* { :self :anObject |
-		anObject.isNumber.if {
-			Quantity(
-				self.magnitude * anObject,
-				self.unit
-			)
-		} {
-			self.error('*: invalid operand')
-		}
-	}
-
-	/ { :self :anObject |
+	[divide, /] { :self :anObject |
 		self * anObject.reciprocal
 	}
 
-	+ { :self :anObject |
+	[negate, -] { :self |
+		Quantity(self.magnitude.negate, self.unit)
+	}
+
+	[plus, +] { :self :anObject |
 		self.isCommensurate(anObject).if {
 			Quantity(
 				self.magnitude + anObject.magnitude,
@@ -34,8 +27,19 @@ Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Leng
 		}
 	}
 
-	- { :self :anObject |
+	[subtract, -] { :self :anObject |
 		self + anObject.negate
+	}
+
+	[times, *] { :self :anObject |
+		anObject.isNumber.if {
+			Quantity(
+				self.magnitude * anObject,
+				self.unit
+			)
+		} {
+			self.error('*: invalid operand')
+		}
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -102,10 +106,6 @@ Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Leng
 		} {
 			self.error('metres: not length')
 		}
-	}
-
-	negate { :self |
-		Quantity(self.magnitude.negate, self.unit)
 	}
 
 	radians { :self |

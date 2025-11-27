@@ -1,5 +1,17 @@
 RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun cachedOffset |
 
+	[at, @] { :self :index |
+		self.atSetRunOffsetAndValue(index) { :run :offset :value |
+			(offset < 0).ifTrue {
+				self.errorInvalidIndex('at', index)
+			};
+			(offset >= self.runs[run]).ifTrue {
+				self.indexError(index)
+			};
+			value
+		}
+	}
+
 	asList { :self |
 		let answer = List(self.size);
 		self.withIndexDo { :each :index |
@@ -28,18 +40,6 @@ RunArray : [Object, Equatable, Indexable] { | runs values cachedIndex cachedRun 
 
 	allocatedSize { :self |
 		self.runs.size * 2 + 3
-	}
-
-	at { :self :index |
-		self.atSetRunOffsetAndValue(index) { :run :offset :value |
-			(offset < 0).ifTrue {
-				self.errorInvalidIndex('at', index)
-			};
-			(offset >= self.runs[run]).ifTrue {
-				self.indexError(index)
-			};
-			value
-		}
 	}
 
 	atSetRunOffsetAndValue { :self :index :aBlock:/3 |
