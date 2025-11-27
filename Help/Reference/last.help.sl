@@ -51,8 +51,10 @@ See also: drop, first, middle, take
 Guides: List Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:last),
 _J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtdot#dyadic)
+[1](https://code.jsoftware.com/wiki/Vocabulary/curlyrtdot#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Last.html),
 _Smalltalk_

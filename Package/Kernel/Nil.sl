@@ -1,23 +1,23 @@
 Nil! : [Object, Storeable, Equatable, Json] {
 
-	? { :unused :aBlock:/0 |
-		aBlock()
+	[equal, =] { :self :anObject |
+		anObject.isNil
 	}
 
-	?? { :unused :anObject |
+	[evaluatingIfNil, ??] { :unused :anObject |
 		anObject.value
 	}
 
-	~? { :unused :aBlock:/0 |
+	[ifNil, ?] { :self :whenNil:/0 |
+		whenNil()
+	}
+
+	[ifNotNil, !?] { :self :whenNotNil:/1 |
 		nil
 	}
 
-	~ { :self :anObject |
+	[similar, ~] { :self :anObject |
 		self = anObject
-	}
-
-	[equal, =] { :self :anObject |
-		anObject.isNil
 	}
 
 	concisePrintString { :self |
@@ -28,16 +28,8 @@ Nil! : [Object, Storeable, Equatable, Json] {
 		nil
 	}
 
-	ifNil { :self :whenNil:/0 |
-		whenNil()
-	}
-
 	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
 		whenNil()
-	}
-
-	ifNotNil { :self :whenNotNil:/1 |
-		nil
 	}
 
 	ifNotNil { :self :whenNotNil:/1 :whenNil:/0 |
@@ -68,15 +60,19 @@ Nil! : [Object, Storeable, Equatable, Json] {
 
 +@Object {
 
-	ifNil { :self :whenNil:/0 |
+	[evaluatingIfNil, ??] { :self :anObject |
 		self
 	}
 
-	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
+	[ifNil, ?] { :self :whenNil:/0 |
+		self
+	}
+
+	[ifNotNil, !?] { :self :whenNotNil:/1 |
 		whenNotNil:/1.cull(self)
 	}
 
-	ifNotNil { :self :whenNotNil:/1 |
+	ifNil { :self :whenNil:/0 :whenNotNil:/1 |
 		whenNotNil:/1.cull(self)
 	}
 

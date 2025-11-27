@@ -1,59 +1,89 @@
 # Operator List
 
-Math operators:
+Unary Math Operators:
 
-- `+`: add
-- `-`: subtract
-- `*`: multiply (×)
-- `/`: divide (÷)
-- `^`: raise to (ˆ)
-- `%`: modulo
-- `//`: quotient (⫽)
-- `*+`: multiply add
+- `+`, `conjugate`
+- `-`, `negate`
+- `*`, `sign`
+- `/`, `reciprocal`
+- `^`, `exp`
+- `!`, `factorial`
+- `!!`, `doubleFactorial`
 
-Comparison operators:
+Binary Math Operators:
 
-- `=`: equal to
-- `!=`: not equal to (≠)
-- `==`: identical to (≡)
-- `!==`: not identical to (≢)
+- `+`, `plus`
+- `-`, `subtract`
+- `*`, `times`
+- `/`, `divide`
+- `^`, `power`
+- `%`, `mod`
+- `//`, `quotient`
+- `\\`, `remainder`
+
+Ternary Math Operators:
+
+- `*+`, `multiplyAdd`
+
+Comparison Operators:
+
+- `=`, `equal`
+- `!=`, `unequal`
+- `==`, `identical`
+- `!==`, `nonidentical`
+- `~`, `similar`
+- `!~`, `dissimilar`
 - `>`: greater than
-- `>=`: greater than or equal to (≥)
-- `>~`: greater than or similar to (⪆)
+- `>=`: greater than or equal to
+- `>~`: greater than or similar to
 - `<`: less than
-- `<=`: less than or equal to (≤)
-- `<~`: less than or similar to (⪅)
-- `~`: similar to
-- `!~`: not similar to (≉)
+- `<=`: less than or equal to
+- `<~`: less than or similar to
 - `<=>`: collation order
 
-Logical operators:
+Logical Operators:
 
-- `&`: and
-- `|`: or
-- `&&`: evaluting and
-- `||`: evaluating or (‖)
+- `&`, `and`
+- `|`, `or`
+- `&&`, `evaluatingAnd`
+- `||`, `evaluatingOr`
 
-Conditional operators:
+Conditional Operators:
 
-- `?`: if nil
+- `?`, `ifNil`
+- `!?`, `ifNotNil`
+- `??`, `evaluatingIfNil`
 
-Collection operators:
+Collection Operators:
 
-- `++`: append (⧺)
-- `->`: associate with (→)
-- `@`: at
-- `@*`: at all
-- `@>`: at path
+- `->`, `Association`
+- `@`, `at`
+- `@*`, `atAll`
+- `@>`, `atPath`
+- `++`: append
 
-Evaluating operators:
+Evaluating Operators:
 
-- `$`: apply
+- `$`, `value`
 
-Iteration operators:
+Iteration Operators:
 
-- `!`: duplicate
-- `#`: replicate
+- `!`, `duplicate`
+- `#`, `replicate`
+
+Unicode:
+
+- `!=`: ≠
+- `==`: ≡
+- `!==`: ≢
+- `>=`: ≥
+- `>~`: ⪆
+- `<=`: ≤
+- `<~`: ⪅
+- `!~`: ≉
+- `||`: ‖
+- `++`: ⧺
+- `->`: →
 
 * * *
 

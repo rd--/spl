@@ -2,16 +2,6 @@
 
 String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
-	~ { :self :anObject |
-		self.isCharacter.if {
-			anObject.isCharacter & {
-				self.codePoint == anObject.codePoint
-			}
-		} {
-			self == anObject
-		}
-	}
-
 	++ { :self :anObject |
 		self.uncheckedAppendString(anObject.asString)
 	}
@@ -22,6 +12,16 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 
 	[equal, =] { :self :anObject |
 		identical(self, anObject)
+	}
+
+	[similar, ~] { :self :anObject |
+		self.isCharacter.if {
+			anObject.isCharacter & {
+				self.codePoint == anObject.codePoint
+			}
+		} {
+			self == anObject
+		}
 	}
 
 	abbreviateTo { :self :anInteger |

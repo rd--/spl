@@ -982,7 +982,7 @@ let a = [1, 2, 3, 2, 1]; a.removeAllFoundIn([2, 3]); a = [1, 2, 1] /* removes on
 [2, -3, 4, -35, 4, -11].collect { :each | each.abs } = [2, 3, 4, 35, 4, 11]
 [2, -3, 4, -35, 4, -11].collect(abs:/1) = [2, 3, 4, 35, 4, 11]
 1:100.injectInto(0) { :sum :each | sum + each } = 5050
-let a = [1 .. 5]; a.contents = a & { a.contents !== a } /* contents at list is equal but not identitical */
+let a = [1 .. 5]; a.contents = a & { a.contents !== a } /* contents at list is equal but not identical */
 (1:9 / 3).round = [0, 1, 1, 1, 2, 2, 2, 3, 3] /* unary math operator at collection */
 [].collectThenDo { :each | 'error'.error } { :each | 'error'.error }.isEmpty /* neither block is run for empty collections */
 let n = 0; 3:7.collectThenDo(square:/1) { :each | n := n + each } = [9, 16, 25, 36, 49] & { n = 135 } /* collect then do */

@@ -1,13 +1,13 @@
 @Graph {
 
-	~ { :self :aGraph |
+	[plus, +] { :self :aGraph |
+		self.graphSum(aGraph)
+	}
+
+	[similar, ~] { :self :aGraph |
 		self.vertexList.sorted = aGraph.vertexList.sorted & {
 			self.edgeList.sorted = aGraph.edgeList.sorted
 		}
-	}
-
-	+ { :self :aGraph |
-		self.graphSum(aGraph)
 	}
 
 	adjacencyList { :self |

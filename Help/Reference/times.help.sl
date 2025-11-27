@@ -88,14 +88,11 @@ At `Symbol`:
 ```
 >> `m` * `n`
 (* m n)
-
->> `m`.*
-(if (> m 0) 1 (if (< m 0) -1 0))
 ```
 
 * * *
 
-See also: *, +, -, /, ^, *+, cross, dot, product, sign
+See also: *, +, -, /, ^, cross, dot, product, sign
 
 Guides: Arithmetic Functions, Binary Operators
 

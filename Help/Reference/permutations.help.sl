@@ -185,6 +185,8 @@ See also: !, lexicographicPermutations, minimumChangePermutations, permutationsD
 Guides: Permutation Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:permutations),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Permutations.html),
 _Mathworks_

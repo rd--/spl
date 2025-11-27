@@ -296,6 +296,49 @@ If the string begins with a doctest, also delete all non doctest lines."
   (setq
    prettify-symbols-alist
    '(
+     ("[]" . ?⍬) ; Apl ; U+236C ⍬ APL Functional Symbol Zilde
+     ("ceiling" . ?⌈) ; Apl
+     ("doubleFactorial" . ?‼) ; U+203C ‼ Double Exclamation Mark
+     ("factorial" . ?!) ; Apl
+     ("floor" . ?⌊) ; Apl
+     ("gradeDown" . ?⍒) ; Apl
+     ("gradeUp" . ?⍋) ; Apl
+     ("identity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
+     ("innerProduct" . ?‧) ; Apl ; U+2027 ‧ Hyphenation Point ; U+25AA ▪ Black Small Square
+     ("iota" . ?⍳) ; Apl ; U+2373 ⍳ APL Functional Symbol Iota
+     ("leftIdentity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
+     ("log" . ?⍟) ; Apl ; U+235F ⍟ Apl Functional Symbol Circle Star
+     ("max" . ?⌈) ; Apl ; U+2308 ⌈ Left Ceiling
+     ("min" . ?⌊) ; Apl ; U+230A ⌊ Left Floor
+     ("negate" . ?-) ; Apl
+     ("nthRoot" . ?√) ; Apl
+     ("over" . ?⍥) ; Apl
+     ("reciprocal" . ?÷) ; Apl
+     ("reshape" . ?⍴) ; Apl
+     ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
+     ("rotateLeft" . ?⌽) ; Apl
+     ("shape" . ?⍴) ; Apl ; U+2374 ⍴ Apl Functional Symbol Rho
+     ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
+     ;("bind" . ?∘) ; Apl
+     ;("conjugate" . ?+) ; Apl & J
+     ;("constant" . ?⍨) ; Apl
+     ;("drop" . ?↓) ; Apl
+     ;("enclose" . ?⊂) ; Apl
+     ;("exp" . ?*) ; Apl (Not ×, C.f. sign, J=^)
+     ;("expand" . ?\\) ; Apl
+     ;("find" . ?⍷) ; Apl
+     ;("foldRight" . ?/) ; Apl
+     ;("nest" . ?⊆) ; Apl
+     ;("nubSieve" . ?≠) ; Apl
+     ;("partition" . ?⊆) ; Apl
+     ;("power" . ?*) ; Apl
+     ;("reduce" . ?/) ; Apl
+     ;("replicateEach" . ?/) ; Apl
+     ;("sign" . ?×) ; Apl (Not *, C.f. exp, J=*)
+     ;("take" . ?↑) ; Apl
+     ;("tally" . ?≢) ; Apl
+     ;("unique" . ?∪) ; Apl ; U+2191 ↑ Upwards Arrow; U+222A ∪ Union
+     ;("windowedReduce" . ?/) ; Apl
      ("!!" . ?‼) ; U+203C ‼ Double Exclamation Mark
      ("!~" . ?≉) ; U+2249 ≉ Not Almost Equal To ; ≁
      ("*" . ?×) ; U+00D7 × Multiplication Sign
@@ -353,46 +396,6 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("Sqrt" . ?√) ; U+221A √ Square Root
      ("Sum" . ?∑) ; U+03A3 Σ Greek Capital Letter Sigma ; U+2211 ∑ N-Ary Summation
      ("^" . ?ˆ) ; U+02C6 ˆ Modifier Letter Circumflex Accent ; U+2191 ↑ Upwards Arrow
-     ("[]" . ?⍬) ; Apl ; U+236C ⍬ APL Functional Symbol Zilde
-     ;("bind" . ?∘) ; Apl
-     ("ceiling" . ?⌈) ; Apl
-     ;("constant" . ?⍨) ; Apl
-     ;("drop" . ?↓) ; Apl
-     ;("enclose" . ?⊂) ; Apl
-     ;("exp" . ?*) ; Apl
-     ;("expand" . ?\\) ; Apl
-     ("factorial" . ?!) ; Apl
-     ("doubleFactorial" . ?‼) ; U+203C ‼ Double Exclamation Mark
-     ;("find" . ?⍷) ; Apl
-     ("floor" . ?⌊) ; Apl
-     ;("foldRight" . ?/) ; Apl
-     ("gradeDown" . ?⍒) ; Apl
-     ("gradeUp" . ?⍋) ; Apl
-     ("identity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
-     ("innerProduct" . ?‧) ; Apl ; U+2027 ‧ Hyphenation Point ; U+25AA ▪ Black Small Square
-     ("iota" . ?⍳) ; Apl ; U+2373 ⍳ APL Functional Symbol Iota
-     ("leftIdentity" . ?⊣) ; Apl ; U+22A3 ⊣ Left Tack
-     ("log" . ?⍟) ; Apl ; U+235F ⍟ Apl Functional Symbol Circle Star
-     ("max" . ?⌈) ; Apl ; U+2308 ⌈ Left Ceiling
-     ("min" . ?⌊) ; Apl ; U+230A ⌊ Left Floor
-     ("negate" . ?-) ; Apl
-     ;("nest" . ?⊆) ; Apl
-     ("nthRoot" . ?√) ; Apl
-     ;("nubSieve" . ?≠) ; Apl
-     ("over" . ?⍥) ; Apl
-     ;("partition" . ?⊆) ; Apl
-     ("reciprocal" . ?÷) ; Apl
-     ;("reduce" . ?/) ; Apl
-     ;("replicateEach" . ?/) ; Apl
-     ("reshape" . ?⍴) ; Apl
-     ("rightIdentity" . ?⊢) ; Apl ; U+22A2 ⊢ Right Tack
-     ("rotateLeft" . ?⌽) ; Apl
-     ("shape" . ?⍴) ; Apl ; U+2374 ⍴ Apl Functional Symbol Rho
-     ("swap" . ?⍨) ; Apl ; U+2368 ⍨ APL Functional Symbol Tilde Diaeresis
-     ;("take" . ?↑) ; Apl
-     ;("tally" . ?≢) ; Apl
-     ;("unique" . ?∪) ; Apl ; U+2191 ↑ Upwards Arrow; U+222A ∪ Union
-     ;("windowedReduce" . ?/) ; Apl
      ("alpha" . ?α) ; U+03B1 α Greek Small Letter Alpha
      ("and" . ?∧) ; U+2227 ∧ Logical and
      ("beta" . ?β) ; U+03B2 β Greek Small Letter Beta
@@ -403,7 +406,6 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("catenate" . ?⧻) ; U+29FB ⧻ Triple Plus
      ("Chi" . ?Χ) ; U+03A7 Χ Greek Capital Letter Chi
      ("chi" . ?χ) ; U+03C7 χ Greek Small Letter Chi
-     ("conjugate" . ?*) ; U+002A * Asterisk ; U+203B ※ Reference Mark ; U+A673 ꙳ Slavonic Asterisk
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times
      ("degree" . ?°) ; U+00b0 ° Degree Sign
      ("delta" . ?δ) ; U+03B4 δ Greek Small Letter Delta

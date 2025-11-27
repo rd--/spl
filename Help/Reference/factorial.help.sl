@@ -201,7 +201,7 @@ OEIS [A055151](https://oeis.org/A055151):
 
 * * *
 
-See also: binomial, doubleFactorial, gamma, pochhammer, factorialPower, subfactorial
+See also: !, binomial, doubleFactorial, factorialOrGamma, factorialPower, gamma, pochhammer, subfactorial
 
 Guides: Combinatorial Functions, Integer Sequence Functions
 

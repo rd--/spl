@@ -15,6 +15,12 @@ Binary cases:
 
 >>> nil.ifNil { true }
 true
+
+>>> 1 ? { 2 }
+1
+
+>>> nil ? { 2 }
+2
 ```
 
 Ternary cases:

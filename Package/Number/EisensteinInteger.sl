@@ -1,6 +1,10 @@
 EisensteinInteger : [Object, Storeable, Equatable] { | a b |
 
-	* { :self :operand |
+	[conjugate, +] { :self |
+		EisensteinInteger(0 - self.a - 1, 0 - self.b)
+	}
+
+	[times, *] { :self :operand |
 		let [a, b] = self.asList;
 		let [c, d] = operand.asList;
 		EisensteinInteger(
@@ -20,10 +24,6 @@ EisensteinInteger : [Object, Storeable, Equatable] { | a b |
 
 	asList { :self |
 		[self.a, self.b]
-	}
-
-	conjugate { :self |
-		EisensteinInteger(0 - self.a - 1, 0 - self.b)
 	}
 
 	imaginary { :self |

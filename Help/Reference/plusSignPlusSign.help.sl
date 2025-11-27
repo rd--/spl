@@ -102,11 +102,14 @@ The unary form flattens the collection by one level into a `List`:
 
 Where supported `++` is displayed as ⧺.
 
-_Note:_ In Smalltalk the binary form is the comma operator.
+_Note:_
+In Smalltalk the binary form is the comma operator.
 
 * * *
 
 See also: +++, catenate, flatten, join
+
+Guides: Dictionary Functions, List Functions
 
 Unicode: U+29FA ⧺ Double plus
 
@@ -119,6 +122,8 @@ _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Catenate.html)
 [1](https://reference.wolfram.com/language/ref/Join.html),
 _Smalltalk_
-5.7.8.1
+5.7.8.1,
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat)
 
 Categories: Copying

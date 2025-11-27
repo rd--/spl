@@ -8,13 +8,13 @@ Traits:
 
 Equation:
 
-- `=`: equal to
-- `==`: ≡ identical to
+- `equal`, `=`
+- `identical`, `==`
 
 Inequation:
 
-- `!=`: ≠ not equal to
-- `!==`: ≢ not identical to
+- `unequal`, `!=`
+- `nonidentical`, `!==`
 
 Inequalities:
 

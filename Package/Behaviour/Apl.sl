@@ -87,15 +87,6 @@
 		answer
 	}
 
-	windowedReduce { :self :windowSize :aBlock:/2 |
-		self.partition(windowSize.abs, 1).collect { :each |
-			windowSize.isNegative.ifTrue {
-				each.reverseInPlace
-			};
-			each.foldRight(aBlock:/2)
-		}
-	}
-
 }
 
 +String {

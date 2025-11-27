@@ -1,39 +1,7 @@
 @Number {
 
-	+ { :self |
-		self.conjugate
-	}
-
-	* { :self |
-		self.sign
-	}
-
-	/ { :self |
-		self.reciprocal
-	}
-
-	^ { :self |
-		1.e ^ self
-	}
-
-	! { :self |
-		self.factorialOrGamma
-	}
-
-	% { :self :aNumber |
-		self - (self // aNumber * aNumber)
-	}
-
 	\ { :self :aNumber |
 		self.Fraction(aNumber)
-	}
-
-	~ { :self :aNumber |
-		self.isCloseTo(aNumber)
-	}
-
-	!~ { :self :aNumber |
-		self.isCloseTo(aNumber).not
 	}
 
 	<~ { :self :aNumber |
@@ -48,8 +16,24 @@
 		}
 	}
 
-	*+ { :self :mul :add |
-		self * mul + add
+	[dissimilar, !~] { :self :aNumber |
+		self.isCloseTo(aNumber).not
+	}
+
+	[factorialOrGamma, !] { :self |
+		self.isNonNegativeInteger.if {
+			self.factorial
+		} {
+			(1 + self).gamma
+		}
+	}
+
+	[mod, %] { :self :aNumber |
+		self - (aNumber * self.quotient(aNumber))
+	}
+
+	[multiplyAdd, *+] { :i :j :k |
+		(i * j) + k
 	}
 
 	[negate, -] { :self |
@@ -60,8 +44,28 @@
 		self.quotientBy(aNumber, truncate:/1)
 	}
 
+	[reciprocal, /] { :self |
+		self.one / self
+	}
+
 	[remainder, \\] { :self :aNumber |
 		self.remainderBy(aNumber, truncate:/1)
+	}
+
+	[sign, *] { :self |
+		(self > 0).if {
+			self.one
+		} {
+			(self < 0).if {
+				self.one.negate
+			} {
+				self.zero
+			}
+		}
+	}
+
+	[similar, ~] { :self :aNumber |
+		self.isCloseTo(aNumber)
 	}
 
 	abs { :self |
@@ -283,14 +287,6 @@
 
 	epanechnikovKernel { :u |
 		0.75 * (1 - (u * u))
-	}
-
-	factorialOrGamma { :self |
-		self.isNonNegativeInteger.if {
-			self.factorial
-		} {
-			(1 + self).gamma
-		}
 	}
 
 	floor { :self :epsilon |
@@ -558,16 +554,8 @@
 		[i, self - i]
 	}
 
-	mod { :m :n |
-		m - (n * m.quotient(n))
-	}
-
 	mod { :m :n :d |
 		m - (n * ((m - d) / n).floor)
-	}
-
-	multiplyAdd { :i :j :k |
-		(i * j) + k
 	}
 
 	/*
@@ -824,10 +812,6 @@
 		[self, self.zero]
 	}
 
-	reciprocal { :self |
-		self.one / self
-	}
-
 	remainderBy { :self :aNumber :aBlock:/1 |
 		self - (self.quotientBy(aNumber, aBlock:/1) * aNumber)
 	}
@@ -913,18 +897,6 @@
 				x / ((p * q) + 1)
 			} {
 				((p * q) - x) / ((p * q) - 1)
-			}
-		}
-	}
-
-	sign { :self |
-		(self > 0).if {
-			self.one
-		} {
-			(self < 0).if {
-				self.one.negate
-			} {
-				self.zero
 			}
 		}
 	}

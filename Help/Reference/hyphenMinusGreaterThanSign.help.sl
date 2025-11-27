@@ -17,6 +17,8 @@ Where supported `->` is displayed as →.
 
 See also: <-, Association, key, value
 
+Guides: Operator List, Operator Syntax
+
 Unicode: U+2190 → Rightwards Arrow
 
 Categories: Collection

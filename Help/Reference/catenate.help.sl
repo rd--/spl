@@ -67,7 +67,11 @@ Where supported `catenate` is displayed as ⧻.
 
 See also: ++, +++, collectCatenate, dictionaryJoin, flatten
 
+Guides: List Functions
+
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:concat),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Catenate.html.en)
 

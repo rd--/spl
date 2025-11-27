@@ -1,11 +1,11 @@
 @SymbolicObject {
 
-	~ { :self :anObject |
-		'~'.symbolicPrimitive([self, anObject])
-	}
-
 	[equal, =] { :self :anObject |
 		'='.symbolicPrimitive([self, anObject])
+	}
+
+	[similar, ~] { :self :anObject |
+		'~'.symbolicPrimitive([self, anObject])
 	}
 
 }
@@ -60,8 +60,16 @@
 
 @SymbolicNumber {
 
+	[conjugate, +] { :self |
+		'conjugate'.symbolicPrimitive([self])
+	}
+
 	[divide, /] { :self :operand |
 		'/'.symbolicPrimitive([self, operand])
+	}
+
+	[exp, ^] { :self |
+		'exp'.symbolicPrimitive([self])
 	}
 
 	[mod, %] { :self :operand |
@@ -104,10 +112,6 @@
 		)
 	}
 
-	conjugate { :self |
-		'conjugate'.symbolicPrimitive([self])
-	}
-
 	cos { :self |
 		'cos'.symbolicPrimitive([self])
 	}
@@ -118,10 +122,6 @@
 
 	csc { :self |
 		'csc'.symbolicPrimitive([self])
-	}
-
-	exp { :self |
-		'exp'.symbolicPrimitive([self])
 	}
 
 	gamma { :self |

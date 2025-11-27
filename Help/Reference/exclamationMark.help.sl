@@ -3,139 +3,18 @@
 - _x.!_
 - _x ! n_
 
-The unary form answers the `factorial` of the number _x_ if it is a non-negative integer,
-else it answers `gamma`.
-
-At integral `SmallFloat` and `LargeInteger`:
+In the unary case the operator form of `factorialOrGamma`:
 
 ```
 >>> 9.!
-362880
-
->>> 25L.!
-15511210043330985984000000L
+factorialOrGamma(9)
 ```
 
-At `Range`:
-
-```
->>> 1:9.!
-[1 2 6 24 120 720 5040 40320 362880]
-```
-
-Evaluate at real values:
-
-```
->>> 1.5.!
-1.32934
-
->>> (22 / 10).!
-2.42397
-```
-
-Plot over a subset of the reals:
-
-~~~spl svg=A
-(-5 -- 5).functionPlot { :x |
-	x.!.clip([-10 10])
-}
-~~~
-
-![](sw/spl/Help/Image/exclamationMark-A.svg)
-
-Plot the volume of the unit hypersphere as a function of dimension:
-
-~~~spl svg=B
-(0 -- 25).functionPlot { :n |
-	1.pi ^ (n / 2) / (n / 2).!
-}
-~~~
-
-![](sw/spl/Help/Image/exclamationMark-B.svg)
-
-In the binary case there two meanings depending on the type of the operand _n_.
-In the `Integer` case,
-evaluates the _x_ _n_ times as _value(x)_ and collect the results into a `List`:
-
-```
->>> { 1 } ! 3
-[1 1 1]
-
->>> let x = Sfc32(6783141);
->>> { x.nextRandomFloat } ! 3
-[0.394068 0.704648 0.187997]
-```
-
-In the `Sequence` case,
-evaluate _value(x)_ to fill an array of the indicated size or shape.
-
-Scalar value:
-
-```
->>> { 1 } ! []
-1
-```
-
-Vector value:
-
-```
->>> { 1 } ! [3]
-[1 1 1]
-```
-
-Matrix value:
+In the binary case the operator form of `duplicate`:
 
 ```
 >>> { 1 } ! [2 3]
-[
-	1 1 1;
-	1 1 1
-]
-```
-
-Create a 3×2 constant matrix:
-
-```
->>> { 'x' } ! [3 2]
-[
-	'x' 'x';
-	'x' 'x';
-	'x' 'x'
-]
-```
-
-Create a 3×2×3 constant array:
-
-```
->>> { 1 } ! [3 2 3]
-[
-	1 1 1; 1 1 1:;
-	1 1 1; 1 1 1:;
-	1 1 1; 1 1 1
-]
-```
-
-An empty shape answers a scalar value,
-which is distinct from a size value of `one`:
-
-```
->>> { 'x' } ! []
-'x'
-
->>> { 'x' } ! 1
-['x']
-```
-
-With external state:
-
-```
->>> let x = 1;
->>> { x := x * 2; x } ! 5
-[2 4 8 16 32]
-
->>> let r = Sfc32(12345);
->>> { r.nextRandomInteger(1, 9) } ! 5
-[8 5 9 9 4]
+duplicate({ 1 }, [2 3])
 ```
 
 The name of this operator is `exclamationMark`.
@@ -143,7 +22,7 @@ The name of this operator is `exclamationMark`.
 `!` is both an operator and a syntax token.
 As a syntax token `!` is part of `Type Definition Syntax`.
 
-Answer a `List` constructed by evaluating a no-argument block the indicated number of times.
+`!` is a SuperCollider idiom:
 
 ```
 {
@@ -154,7 +33,7 @@ Answer a `List` constructed by evaluating a no-argument block the indicated numb
 } ! 2
 ```
 
-Ordinarily _anObject_ is a no-argument _Block_ and each element of the answer is a result of evaluating the block.
+The particular case of duplicating a signal function and then panning it:
 
 ```
 { :tr |
@@ -167,7 +46,7 @@ Ordinarily _anObject_ is a no-argument _Block_ and each element of the answer is
 }.OverlapTexture(4, 4, 2).Mix
 ```
 
-This can be written more simply using the _!^_ operator as:
+can be written more simply using the `!^` operator:
 
 ```
 { :tr |
@@ -182,7 +61,7 @@ This can be written more simply using the _!^_ operator as:
 
 * * *
 
-See also: !^, !+, #, duplicateInteger, duplicateShape, factorial, fill, List
+See also: #, !^, duplicate, factorialOrGamma
 
 Guides: Binary Operators, Type Definition Syntax
 

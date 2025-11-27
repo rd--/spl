@@ -1,17 +1,5 @@
 @Object {
 
-	? { :self :aBlock:/0 |
-		self
-	}
-
-	?? { :self :anObject |
-		self
-	}
-
-	~? { :self :aBlock:/0 |
-		aBlock()
-	}
-
 	[identical, ==] { :self :anObject |
 		<primitive: return _self === _anObject;>
 	}

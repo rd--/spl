@@ -2,10 +2,6 @@
 
 LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
-	~ { :self :anObject |
-		self.asSmallFloat ~ anObject
-	}
-
 	< { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
@@ -105,6 +101,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		};
 		>
 		anObject.adaptToIntegerAndApply(self, quotient:/2)
+	}
+
+	[similar, ~] { :self :anObject |
+		self.asSmallFloat ~ anObject
 	}
 
 	[subtract, -] { :self :anObject |

@@ -89,3 +89,7 @@ Methods:
 - [transpose](https://aplwiki.com/wiki/Transpose) Transpose ⍉
 - [windowedReduce](https://aplwiki.com/wiki/Windowed_Reduce) Windowed Reduce /
 - [withLevelCollect](https://aplwiki.com/wiki/Depth_(operator)) Depth ¨
+
+Note:
+In Apl, unary _×_ is `sign` and unary _*_ is `exp`.
+In J, unary _*_ is `sign` and unary _^_ is `exp`.

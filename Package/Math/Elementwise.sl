@@ -2,28 +2,32 @@
 
 +@Collection {
 
+	[conjugate, +] { :self |
+		self.collect(conjugate:/1)
+	}
+
+	[doubleFactorial, !!] { :self |
+		self.collect(doubleFactorial:/1)
+	}
+
+	[exp, ^] { :self |
+		self.collect(exp:/1)
+	}
+
+	[factorialOrGamma, !] { :self |
+		self.collect(factorialOrGamma:/1)
+	}
+
 	[negate, -] { :self |
 		self.collect(negate:/1)
 	}
 
-	+ { :self |
-		self.collect(conjugate:/1)
-	}
-
-	* { :self |
-		self.collect(sign:/1)
-	}
-
-	/ { :self |
+	[reciprocal, /] { :self |
 		self.collect(reciprocal:/1)
 	}
 
-	! { :self |
-		self.collect(factorialOrGamma:/1)
-	}
-
-	^ { :self |
-		1.e ^ self
+	[sign, *] { :self |
+		self.collect(sign:/1)
 	}
 
 	abs { :self |
@@ -104,10 +108,6 @@
 		self.collect(chop:/1)
 	}
 
-	conjugate { :self |
-		self.collect(conjugate:/1)
-	}
-
 	continuedFraction { :self |
 		self.collect(continuedFraction:/1)
 	}
@@ -150,10 +150,6 @@
 		self.collect(double:/1)
 	}
 
-	doubleFactorial { :self |
-		self.collect(doubleFactorial:/1)
-	}
-
 	e { :self |
 		self.collect(e:/1)
 	}
@@ -186,16 +182,8 @@
 		self.collect(eulerPhi:/1)
 	}
 
-	exp { :self |
-		self.collect(exp:/1)
-	}
-
 	factorial { :self |
 		self.collect(factorial:/1)
-	}
-
-	factorialOrGamma { :self |
-		self.collect(factorialOrGamma:/1)
 	}
 
 	factorInteger { :self |
@@ -475,10 +463,6 @@
 		self.collect(realImaginary:/1)
 	}
 
-	reciprocal { :self |
-		self.collect(reciprocal:/1)
-	}
-
 	replaceNaN { :x :y |
 		x.collect { :each |
 			each.replaceNaN(y)
@@ -503,10 +487,6 @@
 
 	rudinShapiro { :self |
 		self.collect(rudinShapiro:/1)
-	}
-
-	sign { :self |
-		self.collect(sign:/1)
 	}
 
 	sqrt { :self |

@@ -22,7 +22,8 @@ Where supported `^` is displayed as ˆ.
 The name of this operator is `circumflexAccent`.
 
 _Note:_
-In Smalltalk ^ is the _return_ operator, in C it is the _exclusive or_ operator.
+In Smalltalk ^ is the _return_ operator,
+in C it is the _exclusive or_ operator.
 
 * * *
 

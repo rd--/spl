@@ -1,9 +1,9 @@
 # addLast
 
-- _addLast(aSequence, newObject)_
+- _addLast([x₁ x₂ …], y)_
 
-Add _newObject_ to the end of _aSequence_.
-Answer _newObject_.
+Add the object _y_ to the end of the sequence _x_.
+Answer _y_.
 
 ```
 >>> let l = [1];
@@ -46,9 +46,12 @@ Append a column to a matrix:
 
 See also: add, addFirst
 
+Guides: List Functions
+
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/AppendTo.html),
+[1](https://reference.wolfram.com/language/ref/AppendTo.html)
+[2](https://reference.wolfram.com/language/ref/Append.html),
 _Smalltalk_
 5.7.18.13
 

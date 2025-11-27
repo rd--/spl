@@ -3,24 +3,18 @@
 - _m * n_
 - _n.*_
 
-The binary form is `times`:
+The binary case is the operator form of `times`:
 
 ```
 >>> 3 * 4
 times(3, 4)
 ```
 
-The unary form is `sign`:
+The unary case is the operator form of `sign`:
 
 ```
 >>> -3.*
 sign(-3)
-
->>> 1.pi.*
-1
-
->>> [-3 0 3].*
-[-1 0 1]
 ```
 
 Where supported `*` is displayed as ×.

@@ -69,6 +69,10 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		}
 	}
 
+	[exp, ^] { :self |
+		<primitive: return Math.exp(_self)>
+	}
+
 	[mod, %] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
@@ -101,6 +105,10 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		} {
 			anObject.adaptToNumberAndApply(self, ^)
 		}
+	}
+
+	[sign, *] { :self |
+		<primitive: return Math.sign(_self);>
 	}
 
 	[subtract, -] { :self :anObject |
@@ -305,10 +313,6 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 
 	encodeInt32 { :self :littleEndian |
 		<primitive: return sc.encodeInt32(_self, _littleEndian);>
-	}
-
-	exp { :self |
-		<primitive: return Math.exp(_self)>
 	}
 
 	floor { :self |
@@ -627,10 +631,6 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		} {
 			n.round
 		}
-	}
-
-	sign { :self |
-		<primitive: return Math.sign(_self);>
 	}
 
 	signExponentMantissa { :self |

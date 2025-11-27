@@ -108,7 +108,7 @@ DocumentationTest : [Object, Storeable, Equatable] { | prefix program expectedAn
 
 +Promise {
 
-	~ { :self :operand |
+	[similar, ~] { :self :operand |
 		self.then { :answer |
 			answer ~ operand
 		}

@@ -8,7 +8,7 @@ Anwer `true` if the object _x_ is `nil` else `false`.
 >>> nil.isNil
 true
 
->>> (:).isNil
+>>> Record().isNil
 false
 ```
 

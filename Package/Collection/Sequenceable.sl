@@ -28,16 +28,16 @@
 		self ++.each aList
 	}
 
-	# { :counts :items |
-		counts.replicate(items)
-	}
-
-	&& { :self :other |
+	[evaluatingAnd, &&] { :self :other |
 		self.withCollect(other, &&)
 	}
 
-	|| { :self :other |
+	[evaluatingOr, ||] { :self :other |
 		self.withCollect(other, ||)
+	}
+
+	[replicate, #] { :counts :items |
+		counts.replicate(items, identity:/1)
 	}
 
 	accumulate { :self |
@@ -2100,10 +2100,6 @@
 		}
 	}
 
-	replicate { :counts :items |
-		counts.replicate(items, identity:/1)
-	}
-
 	reverse { :self :level |
 		(level <= 1).if {
 			let answer = self.species.ofSize(self.size);
@@ -2799,8 +2795,8 @@
 
 +@Integer {
 
-	# { :count :items |
-		count.replicate(items)
+	[replicate, #] { :self :items |
+		self.replicate(items, identity:/1)
 	}
 
 	binaryDetectIndex { :self :aBlock:/1 |
@@ -2847,10 +2843,6 @@
 	replicate { :self :items :aBlock:/1 |
 		self.assertIsInteger('@Integer>>replicate');
 		List(items.size, self).replicate(items, aBlock:/1)
-	}
-
-	replicate { :self :items |
-		self.replicate(items, identity:/1)
 	}
 
 	toAsCollect { :self :stop :species :aBlock:/1 |

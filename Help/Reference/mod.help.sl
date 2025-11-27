@@ -73,7 +73,7 @@ At negative _n_, relation to `\\`:
 (7, 7)
 ```
 
-Rational numbers:
+At `Fraction`:
 
 ```
 >>> 5/2 % 2

@@ -1,29 +1,42 @@
 # windowedReduce
 
-- _windowedReduce(aSequence, anInteger, aBlock:/2)_
+- _windowedReduce([x₁ x₂ …], n, f:/2)_
 
-Insert _aBlock_ between overlapping windows of size _anInteger_ drawn from _aSequence_,
+Insert the binary block _f_ between overlapping windows of size _n_ drawn from th sequence _x_,
 and evaluate into a `List` in left-to-right order.
 
 Sum adjacent triples:
 
 ```
 >>> [5 1 4 1 8].windowedReduce(3, +)
-[5 + (1 + 4), 1 + (4 + 1), 4 + (1 + 8)]
+[
+	5 + (1 + 4),
+	1 + (4 + 1),
+	4 + (1 + 8)
+]
 ```
 
 Within each window, evaluation is by `foldRight`:
 
 ```
 >>> [5 1 4 1 8].windowedReduce(3, -)
-[5 - (1 - 4), 1 - (4 - 1), 4 - (1 - 8)]
+[
+	5 - (1 - 4),
+	1 - (4 - 1),
+	4 - (1 - 8)
+]
 ```
 
 Adjacent differences:
 
 ```
 >>> [1 2 4 7 11].windowedReduce(2, -)
-[1 - 2, 2 - 4, 4 - 7, 7 - 11]
+[
+	1 -  2,
+	2 -  4,
+	4 -  7,
+	7 - 11
+]
 ```
 
 Adjacent differences with swapped operator,
@@ -32,7 +45,12 @@ c.f. `differences`:
 ```
 >>> [1 2 4 7 11]
 >>> .windowedReduce(2, -.swap)
-[2 - 1, 4 - 2, 7 - 4, 11 - 7]
+[
+	 2 - 1,
+	 4 - 2,
+	 7 - 4,
+	11 - 7
+]
 ```
 
 Adjacent ratios with swapped operator,
@@ -62,10 +80,20 @@ When the window size is negative, each window is reversed before the reduction i
 
 ```
 >>> [1 2 3 4 5].windowedReduce(-2, -)
-[2 - 1, 3 - 2, 4 - 3, 5 - 4]
+[
+	2 - 1,
+	3 - 2,
+	4 - 3,
+	5 - 4
+]
 
 >>> [1 2 3 4 5].windowedReduce(2, -)
-[1 - 2, 2 - 3, 3 - 4, 4 - 5]
+[
+	1 - 2,
+	2 - 3,
+	3 - 4,
+	4 - 5
+]
 ```
 
 Adjacent comparisons, edge detection:
@@ -79,7 +107,9 @@ Adjacent comparisons, edge detection:
 
 * * *
 
-See also: adjacentPairsCollect, collect, movingMap, pairsCollect, partition
+See also: adjacentPairsCollect, collect, foldRight, movingMap, pairsCollect, partition, reduce
+
+Guides: List Functions
 
 References:
 _Apl_

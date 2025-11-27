@@ -2,6 +2,10 @@
 
 Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary |
 
+	[conjugate, +] { :self |
+		Complex(self.real, self.imaginary.negate)
+	}
+
 	[divide, /] { :self :anObject |
 		anObject.isComplex.if {
 			let a = self.real;
@@ -15,6 +19,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		} {
 			anObject.adaptToComplexAndApply(self, /)
 		}
+	}
+
+	[exp, ^] { :self |
+		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
 	[negate, -] { :self |
@@ -69,6 +77,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 
 	[remainder, \\] { :self :aNumber |
 		self.shouldNotImplement('remainder')
+	}
+
+	[sign, *] { :self |
+		self / self.abs
 	}
 
 	[subtract, -] { :self :anObject |
@@ -198,10 +210,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		} {
 			false
 		}
-	}
-
-	exp { :self |
-		self.real.exp * (self.imaginary.cos + self.imaginary.sin.i)
 	}
 
 	fractionalPart { :self |
@@ -364,10 +372,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	sign { :self |
-		self / self.abs
-	}
-
 	sqrt { :self |
 		(self.imaginary = 0 & {
 			self.real >= 0
@@ -408,6 +412,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 
 +@Number {
 
+	[conjugate, +] { :self |
+		self
+	}
+
 	adaptToComplexAndApply { :self :aComplexNumber :aBlock:/2 |
 		aComplexNumber.aBlock(self.asComplex)
 	}
@@ -422,10 +430,6 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 
 	Complex { :real :imaginary |
 		Complex(real.asFloat, imaginary.asFloat)
-	}
-
-	conjugate { :self |
-		self
 	}
 
 	i { :self |

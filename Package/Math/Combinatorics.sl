@@ -571,7 +571,7 @@
 
 +@Number {
 
-	doubleFactorial { :self |
+	[doubleFactorial, !!] { :self |
 		self.isInteger.if {
 			self.asLargeInteger.integerDoubleFactorial.normal
 		} {

@@ -2,10 +2,6 @@
 
 Block! : [Object, Equatable] {
 
-	~ { :self :anObject |
-		self == anObject
-	}
-
 	$ { :self:/1 :anObject |
 		self(anObject)
 	}
@@ -14,12 +10,18 @@ Block! : [Object, Equatable] {
 		self:/1.composeLeft(aBlock:/1)
 	}
 
-	! { :self:/0 :shape |
-		self:/0.duplicate(shape)
+	[duplicate, !] { :self:/0 :shape |
+		shape.fill { :unused |
+			self()
+		}
 	}
 
 	[equal, =] { :self :anObject |
 		identical(self, anObject)
+	}
+
+	[similar, ~] { :self :anObject |
+		self == anObject
 	}
 
 	apply { :self :aList |
@@ -145,12 +147,6 @@ Block! : [Object, Equatable] {
 			conditionBlock()
 		}.whileTrue;
 		answer
-	}
-
-	duplicate { :self:/0 :shape |
-		shape.fill { :unused |
-			self()
-		}
 	}
 
 	elementwise { :self:/1 :x |

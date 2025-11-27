@@ -109,6 +109,8 @@ See also: array, collect, each, swap, table, withCollect, withWithCollect
 Guides: Block Functions, List Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:map),
 _Python_
 [1](https://docs.python.org/3/library/functions.html#map)
 

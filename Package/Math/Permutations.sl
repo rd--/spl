@@ -1,9 +1,5 @@
 Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
-	~ { :self :anObject |
-		self = anObject
-	}
-
 	[equal, =] { :self :anObject |
 		anObject.isPermutation & {
 			equal(self.cycles, anObject.cycles)
@@ -16,6 +12,10 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		} {
 			List(anInteger, self).product
 		}
+	}
+
+	[similar, ~] { :self :anObject |
+		self = anObject
 	}
 
 	[times, *] { :self :aPermutation |

@@ -20,6 +20,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	[exp, ^] { :self |
+		self.asFloat.exp
+	}
+
 	[plus, +] { :self :aNumber |
 		aNumber.isScalarInteger.if {
 			ReducedFraction(
@@ -222,10 +226,6 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		} {
 			false
 		}
-	}
-
-	exp { :self |
-		self.asFloat.exp
 	}
 
 	gcd { :self :aFraction |

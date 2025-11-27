@@ -121,7 +121,7 @@ At `Symbol`:
 
 ```
 >> `m`.^
-(^ 2.718281828459045 m)
+(exp m)
 ```
 
 Plot over a subset of the reals:

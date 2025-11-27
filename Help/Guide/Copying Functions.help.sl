@@ -31,6 +31,12 @@ Copying Properties:
 
 - `copySignTo`
 
+Array Functions:
+
+- `duplicate`, `!`
+- `fill`
+- `replicate`, `#`
+
 * * *
 
 Guides: List Functions

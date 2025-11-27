@@ -127,6 +127,8 @@ Guides: Dictionary Functions, List Functions, Stream Functions
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Tally),
+_Haskell_
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:length)
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/number),
 _Mathematica_

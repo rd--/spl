@@ -34,6 +34,12 @@ Threads elementwise over lists and matrices:
 ```
 >>> [1.2 2.5J1.5 0J-1.8].conjugate
 [1.2 2.5J-1.5 0J1.8]
+
+>>> [0 2 -1.1 1E300 -200].conjugate
+[0 2 -1.1 1E300 -200]
+
+>>> [2J3 -4J-3 -12 1.5J1.5].conjugate
+[2J-3 -4J3 -12 1.5J-1.5]
 ```
 
 Value at zero:

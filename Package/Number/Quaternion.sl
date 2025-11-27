@@ -2,6 +2,11 @@
 
 Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
+	[conjugate, +] { :self |
+		let [a, b, c, d] = self.contents;
+		Quaternion([a, b.-, c.-, d.-])
+	}
+
 	[divide, /] { :self :anObject |
 		anObject.isQuaternion.if {
 			self * anObject.reciprocal
@@ -20,6 +25,14 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
 	[negate, -] { :self |
 		Quaternion(self.contents.negate)
+	}
+
+	[sign, *] { :self |
+		self.contents.isOrigin.if {
+			0
+		} {
+			Quaternion(self.contents / self.norm)
+		}
 	}
 
 	[subtract, -] { :self :anObject |
@@ -77,11 +90,6 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 			[a.j(b), c.j(d)],
 			[c.-.j(d), a.j(b.-)]
 		]
-	}
-
-	conjugate { :self |
-		let [a, b, c, d] = self.contents;
-		Quaternion([a, b.-, c.-, d.-])
 	}
 
 	equalBy { :self :anObject :aBlock:/2 |
@@ -148,14 +156,6 @@ Quaternion : [Object, Storeable, Equatable, Number] { | contents |
 
 	realImaginary { :self |
 		[self.real, self.imaginary]
-	}
-
-	sign { :self |
-		self.contents.isOrigin.if {
-			0
-		} {
-			Quaternion(self.contents / self.norm)
-		}
 	}
 
 	square { :self |

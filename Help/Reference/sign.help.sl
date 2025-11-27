@@ -36,11 +36,14 @@ See also `signBit`:
 true
 ```
 
-The unary operator `*` is `sign`:
+Threads over lists:
 
 ```
->>> [-2.5 3.14].*
+>>> [-2.5 3.14].sign
 [-1 1]
+
+>>> [-3 0 3].sign
+[-1 0 1]
 ```
 
 At `Fraction`:
@@ -99,6 +102,13 @@ The binary form answers a `Number` with the same sign as the operand _b_ and the
 
 >>> 3/4.sign(-0.75)
 -3/4
+```
+
+At `Symbol`:
+
+```
+>> `m`.*
+(if (> m 0) 1 (if (< m 0) -1 0))
 ```
 
 Plot the `real` part of the `sign` function:

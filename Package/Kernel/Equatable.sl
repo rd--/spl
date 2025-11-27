@@ -1,11 +1,11 @@
 @Equatable {
 
-	~ { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
-
 	[equal, =] { :self :anObject |
 		self.equalBy(anObject, equal:/2)
+	}
+
+	[similar, ~] { :self :anObject |
+		self.equalBy(anObject, ~)
 	}
 
 	[unequal, !=] { :self :anObject |
