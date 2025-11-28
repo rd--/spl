@@ -2,7 +2,7 @@
 
 - _stringIntercalate([s₁ s₂ …], t)_
 
-Join the list of strings _s_ into a string, intercalating teh string _t_ between each.
+Join the list of strings _s_ into a string, intercalating the string _t_ between each.
 
 Join a list of strings into a string, this form is equal to `stringCatenate`:
 

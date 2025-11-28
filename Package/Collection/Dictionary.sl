@@ -2,16 +2,16 @@
 
 @Dictionary {
 
-	++ { :self :aDictionary |
-		let answer = self.copy;
-		answer.includeAll(aDictionary);
-		answer
-	}
-
 	[at, @] { :self :key |
 		self.atIfAbsent(key) {
 			self.error('@Dictionary>>at: unknown key: ' ++ key)
 		}
+	}
+
+	[concatenation, ++] { :self :aDictionary |
+		let answer = self.copy;
+		answer.includeAll(aDictionary);
+		answer
 	}
 
 	add { :self :anAssociation |

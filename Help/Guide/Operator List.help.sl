@@ -60,7 +60,7 @@ Collection Operators:
 - `@`, `at`
 - `@*`, `atAll`
 - `@>`, `atPath`
-- `++`: append
+- `++`, `concatenation`, `catenate`
 
 Evaluating Operators:
 

@@ -4,7 +4,7 @@
 		self.size
 	}
 
-	++ { :self :aCollection |
+	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection.assertIsCollection);
 		answer

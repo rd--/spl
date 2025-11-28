@@ -1,6 +1,6 @@
 # scan
 
-- _scan([x₁ x₂ …], aBlock:2)_
+- _scan([x₁ x₂ …], f:2)_
 
 Similar to `reduce` but answer a sequence of successive reduced values.
 Just as `reduce` is an alias for `foldLeft`, `scan` is an alias for `scanLeft`.

@@ -53,6 +53,7 @@ Decoding and Encoding:
 
 Editing:
 
+- `stringIntercalate`
 - `removeDiacritics`
 - `trim`
 - `withBlanksTrimmed`
@@ -68,6 +69,9 @@ Hashing:
 
 Joining:
 
+- `stringCatenate`
+- `stringJoin`
+- `stringReverse`
 - `unlines`
 - `unwords`
 

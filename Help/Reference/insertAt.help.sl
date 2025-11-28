@@ -28,6 +28,8 @@ Equivalent to `addBeforeIndex`:
 
 See also: addAfter, addAfterIndex, addBeforeIndex, at, copyReplaceFromToWith, removeAt
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Insert.html)

@@ -12,20 +12,24 @@
 	}
 	*/
 
-	++ { :self :aList |
+	+++ { :self :aList |
+		self ++.each aList
+	}
+
+	[catenate, ++] { :self |
+		self.isEmpty.if {
+			self
+		} {
+			self.catenateValuesSeparatedBy([], self.anyOne.species)
+		}
+	}
+
+	[concatenation, ++] { :self :aList |
 		self.copyReplaceFromToWith(
 			self.size + 1,
 			self.size,
 			aList
 		)
-	}
-
-	++ { :self |
-		self.catenate
-	}
-
-	+++ { :self :aList |
-		self ++.each aList
 	}
 
 	[evaluatingAnd, &&] { :self :other |
@@ -467,14 +471,21 @@
 		(anInteger - 1).mixedRadixEncode(shape) + 1
 	}
 
-	catenateSeparatedBy { :self :aList |
+	catenateStrict { :self |
+		(self.elementType = self.typeOf).ifFalse {
+			self.error('@Sequenceable>>catenateStrict: invalid element type')
+		};
+		self.catenate
+	}
+
+	catenateValuesSeparatedBy { :self :aList :new:/1 |
 		self.ifEmpty {
 			self.copy
 		} {
 			let answerSize = self.injectInto(0) { :sum :each |
 				sum + each.size
 			} + (self.size - 1 * aList.size);
-			let answer = self.species.ofSize(answerSize);
+			let answer = new(answerSize);
 			let index = 1;
 			let put = { :items |
 				items.do { :item |
@@ -491,17 +502,8 @@
 		}
 	}
 
-	catenate { :self :isChecked |
-		isChecked.ifTrue {
-			(self.elementType = self.typeOf).ifFalse {
-				self.error('@Sequenceable>>catenate: invalid element type')
-			}
-		};
-		self.catenateSeparatedBy([])
-	}
-
-	catenate { :self |
-		self.catenate(false)
+	catenateValues { :self |
+		self.catenateValuesSeparatedBy([], self.species)
 	}
 
 	centerArray { :aList :anInteger :anObject |

@@ -29,12 +29,9 @@ At matrices:
 [1 2 3; 5 7 9]
 ```
 
-This is similar to the operation called _integrate_ in SuperCollider.
-It is equal to the _cumsum_ function in R.
-
 * * *
 
-See also: +, accumulate, differences, prefixes, scan, sum
+See also: +, accumulate, differences, prefixes, prefixProduct, scan, sum
 
 Guides: Mathematical Functions
 
@@ -43,6 +40,8 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/CumulativeSum.html),
 _Python_
 [1](https://numpy.org/doc/2.1/reference/generated/numpy.cumsum.html),
+_R_
+[1](https://stat.ethz.ch/R-manual/R-devel/library/base/html/cumsum.html),
 _SuperCollider_
 [1](https://doc.sccode.org/Classes/SequenceableCollection.html#-integrate),
 _W_

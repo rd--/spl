@@ -1,6 +1,6 @@
 SortedList : [Object, Storeable, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | contents sortBlock |
 
-	++ { :self :aCollection |
+	[concatenation, ++] { :self :aCollection |
 		let answer = self.copy;
 		answer.addAll(aCollection);
 		answer

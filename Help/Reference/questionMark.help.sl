@@ -15,7 +15,7 @@ The name of this operator is `questionMark`.
 
 * * *
 
-See also: ??, ifNil
+See also: !?, ??, ifNil
 
 Guides: Operator List, Nil Functions
 

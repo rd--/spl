@@ -2210,8 +2210,8 @@ let c = nil; c ?? 'red' = 'red' /* evaluating nil-coalescing operator, if lhs is
 let c = 'blue'; c ?? 'red' = 'blue' /* nil-coalescing operator */
 nil ? { 'rhs' } = 'rhs' /* right hand side if left hand side is nil */
 'lhs' ? { nil } = 'lhs' /* left hand side unless nil */
-nil ~? { 1 } = nil /* left hand side if nil, else right hand side */
-1 ~? { 2 } = 2 /* right hand side if left hand side is not nil */
+nil !? { 1 } = nil /* left hand side if nil, else right hand side */
+1 !? { 2 } = 2 /* right hand side if left hand side is not nil */
 ```
 
 ## Number -- numeric trait

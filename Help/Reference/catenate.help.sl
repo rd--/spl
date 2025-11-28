@@ -1,21 +1,22 @@
 # catenate
 
-- _catenate(c, isStrict=false)_
+- _catenate([c₁ c₂ …])_
 
-Flattens the collection _c_ by one level into a `List`.
-If _isStrict_ is `true`,
-each of the items in _c_ must be of the same type as the container.
+Join the collectionss _c_ by into a new collection of the same type.
+The operator form is `++`.
+
+At `List`:
 
 ```
+>>> [1 2 3; 4 5 6; 7 8 9].++
+[1 2 3 4 5 6 7 8 9]
+
 >>> [1 2 3; 4 5; 6].catenate
 [1 2 3 4 5 6]
-```
 
-Is `identity` at the empty `List`:
-
-```
->>> [].catenate
-[]
+>>> let x = ByteArray([1 2 3]);
+>>> [x x x].catenate
+ByteArray([1 2 3 1 2 3 1 2 3])
 ```
 
 Catenate two matrices vertically, ie. columnwise:
@@ -41,22 +42,24 @@ Catenate effectively flattens the first two levels of a high-dimensional array:
 [1 2; 3 4; 5 6; 7 8]
 ```
 
-At a `List` of `Record` answers the `catenate` of the values,
-see `dictionaryJoin` for a _merge_ function:
+Although the answer type is ordinarily given by the element type,
+there is a special case for an empty collection,
+which answers itself.
 
 ```
->>> [(x: 1), (y: 2), (z: 3)].catenate
-[1 2 3]
+>>> [].catenate
+[]
+
+>>> let x = [];
+>>> x.catenate == x
+true
 ```
 
-At `List` of `String`:
+The elements must not be immutable:
 
 ```
->>> ['abc' 'pqr' 'xyz'].catenate
-['a' 'b' 'c' 'p' 'q' 'r' 'x' 'y' 'z']
-
 >>> {
->>> 	['x' 'y' 'z'].catenate(true)
+>>> 	['x' 'y' 'z'].catenate
 >>> }.hasError
 true
 ```

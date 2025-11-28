@@ -1,8 +1,8 @@
 # stringReverse
 
-- _stringReverse(aString)_
+- _stringReverse(s)_
 
-Answer a `String` that reverses the order of the characters in _aString_.
+Answer a `String` that reverses the order of the characters in the string _s_.
 
 Reverse the characters in a string:
 
@@ -14,13 +14,20 @@ Reverse the characters in a string:
 Threads over lists:
 
 ```
->>> ['cat' 'dog' 'fish' 'coelenterate'].stringReverse
+>>> [
+>>> 	'cat'
+>>> 	'dog'
+>>> 	'fish'
+>>> 	'coelenterate'
+>>> ].stringReverse
 ['tac' 'god' 'hsif' 'etaretneleoc']
 ```
 
 * * *
 
 See also: reverse, String
+
+Guides: String Functions
 
 References:
 _Mathematica_

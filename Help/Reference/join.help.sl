@@ -58,7 +58,7 @@ With ragged arrays, successive elements are effectively concatenated:
 ]
 ```
 
-The second row comes from the concatenation of nothing with _3, 4_:
+The second row comes from the concatenation of nothing with _3,4_:
 
 ```
 >>> [0; :; 1 2; 3 4].join(2)
@@ -170,13 +170,17 @@ At the empty list:
 >>> [].join(1)
 []
 
+>>> let x = [];
+>>> x.join(1) == x
+true
+
 >>> { [].join(2) }.hasError
 true
 ```
 
 * * *
 
-See also: ++, +++, arrayFlatten, catenate, flatten, intercalate, repeatMatrix, splitBy, stringCatenate, stringJoin
+See also: ++, +++, arrayFlatten, catenate, concatenation, flatten, intercalate, repeatMatrix, splitBy, stringCatenate, stringJoin
 
 Guides: Array Functions, List Functions, Matrix Functions
 

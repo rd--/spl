@@ -1,8 +1,9 @@
 # scanLeft
 
-- _scanLeft(aSequence, aBlock:2)_
+- _scanLeft([x₁ x₂ …], f:2)_
 
-_scanLeft_ is similar to _foldLeft_, but answers a list of each successive reduced value from the left.
+`scanLeft` is similar to `foldLeft`,
+but answers a list of each successive reduced value from the left.
 
 ```
 >>> [1 .. 4].scanLeft(+)
@@ -33,6 +34,8 @@ _scanLeft_ is similar to _foldLeft_, but answers a list of each successive reduc
 * * *
 
 See also: reduce, scan, scanLeftAssociatingRight, scanRight
+
+Guides: List Functions
 
 References:
 _Haskell_

@@ -403,7 +403,8 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("cancelSharp" . ?♮) ; U+266E ♮ Music Natural Sign
      ("complement" . ?∁) ; U+2201 ∁ Complement
      ("compose" . ?∘) ;  U+2218 ∘ Ring Operator
-     ("catenate" . ?⧻) ; U+29FB ⧻ Triple Plus
+     ("catenate" . ?⧺) ; U+29FA ⧺ Double plus, U+29FB ⧻ Triple Plus
+     ("concatenation" . ?⧺) ; U+29FA ⧺ Double plus
      ("Chi" . ?Χ) ; U+03A7 Χ Greek Capital Letter Chi
      ("chi" . ?χ) ; U+03C7 χ Greek Small Letter Chi
      ("crossedMultiply" . ?⊗) ; U+2297 ⊗ Circled Times

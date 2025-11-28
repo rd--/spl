@@ -2,12 +2,12 @@
 
 String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
-	++ { :self :anObject |
-		self.uncheckedAppendString(anObject.asString)
-	}
-
 	< { :self :operand |
 		self.codePoint < operand.codePoint
+	}
+
+	[concatenation, ++] { :self :anObject |
+		self.uncheckedConcatenation(anObject.asString)
 	}
 
 	[equal, =] { :self :anObject |
@@ -886,8 +886,26 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		<primitive: return `'${_self}'`;>
 	}
 
+	stringInsert { :s1 :s2 :n |
+		n.isNegative.ifTrue {
+			n := s1.size + n + 2
+		};
+		[s1.take(n - 1), s2, s1.drop(n - 1)].stringJoin
+	}
+
 	stringLength { :self |
 		self.size
+	}
+
+	stringRepeat { :s :n :m |
+		let k = s.size;
+		let q = m // k;
+		let r = m \\ k;
+		((q # [s]) ++ [s.take(r)]).stringJoin
+	}
+
+	stringRepeat { :s :n |
+		(n # [s]).stringJoin
 	}
 
 	stringReverse { :self |
@@ -920,7 +938,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		}
 	}
 
-	uncheckedAppendString { :self :aString |
+	uncheckedConcatenation { :self :aString |
 		<primitive: return _self + _aString;>
 	}
 
