@@ -59,15 +59,12 @@ TurtleGeometry()
 Draw a flower:
 
 ~~~spl svg=D
-let petal = { :t |
+TurtleGeometry()
+.repeat(6) { :t |
 	2.timesRepeat {
 		t.arcRight(1, 60);
 		t.right(120)
 	}
-};
-TurtleGeometry()
-.repeat(6) { :t |
-	t.petal;
 	t.right(60)
 }
 ~~~
@@ -77,15 +74,12 @@ TurtleGeometry()
 Draw a sun:
 
 ~~~spl svg=E
-let ray = { :t |
+TurtleGeometry()
+.repeat(9) { :t |
 	2.timesRepeat {
 		t.arcLeft(1, 90);
 		t.arcRight(1, 90)
-	}
-};
-TurtleGeometry()
-.repeat(9) { :t |
-	t.ray;
+	};
 	t.right(160)
 }
 ~~~
@@ -95,19 +89,19 @@ TurtleGeometry()
 Draw polygons:
 
 ~~~spl svg=F
-let poly = { :t |
+let polygon = { :t :angle |
 	let turn = 0;
 	{
 		t.forward(100);
-		t.right(60);
-		turn := turn + 60
+		t.right(angle);
+		turn := turn + angle
 	}.doWhileTrue {
 		turn \\ 360 != 0
 	}
 };
 TurtleGeometry()
 .repeat(8) { :t |
-	t.poly;
+	t.polygon(60);
 	t.right(45)
 }
 ~~~
@@ -117,15 +111,12 @@ TurtleGeometry()
 Draw spirolateral:
 
 ~~~spl svg=G
-let spiroPart = { :t |
+TurtleGeometry()
+.repeat(3) { :t |
 	1:10.do { :i |
 		t.forward(i);
 		t.right(60)
 	}
-};
-TurtleGeometry()
-.repeat(3) { :t |
-	t.spiroPart
 }
 ~~~
 
@@ -134,7 +125,8 @@ TurtleGeometry()
 Draw generalised spirolateral:
 
 ~~~spl svg=H
-let spiroPart = { :t |
+TurtleGeometry()
+.repeat(4) { :t |
 	1:11.do { :i |
 		t.forward(i);
 		[3 4 5].includes(i).if {
@@ -143,10 +135,6 @@ let spiroPart = { :t |
 			t.right(90)
 		}
 	}
-};
-TurtleGeometry()
-.repeat(4) { :t |
-	t.spiroPart
 }
 ~~~
 
@@ -181,12 +169,12 @@ TurtleGeometry()
 Draw polygon with local phase change:
 
 ~~~spl svg=K
-let p = 0;
+let a = 0;
 TurtleGeometry()
 .repeat(72) { :t |
-	t.forward(p.cosDegrees);
+	t.forward(a.cosDegrees);
 	t.left(45);
-	p := p + 20
+	a := a + 20
 }
 ~~~
 
