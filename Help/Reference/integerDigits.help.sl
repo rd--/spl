@@ -406,6 +406,29 @@ OEIS [A048793](https://oeis.org/A048793):
 ]
 ```
 
+Concatenate the decimal numbers _n,n-1,…,1_,
+OEIS [A000422](https://oeis.org/A000422):
+
+```
+>>> 1:10.collect { :n |
+>>> 	n:1:-1.collect(integerDigits:/1)
+>>> 	.catenate
+>>> 	.fromDigits
+>>> }
+[
+	1
+	21
+	321
+	4321
+	54321
+	654321
+	7654321
+	87654321
+	987654321
+	10987654321
+]
+```
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -576,7 +599,8 @@ _OEIS_
 [14](https://oeis.org/A167489)
 [15](https://oeis.org/A101211)
 [16](https://oeis.org/A322182)
-[17](https://oeis.org/A007954),
+[17](https://oeis.org/A007954)
+[18](https://oeis.org/A000422),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

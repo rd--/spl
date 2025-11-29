@@ -467,6 +467,14 @@
 		answer
 	}
 
+	integerConcatenation { :m :n :b |
+		(m * (b ^ n.integerLength(b))) + n
+	}
+
+	integerConcatenation { :m :n |
+		integerConcatenation(m, n, 10)
+	}
+
 	integerDigitsReverseDo { :self :base :numDigits :aBlock:/1 |
 		let num = self.abs;
 		numDigits.timesRepeat {

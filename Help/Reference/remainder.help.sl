@@ -4,6 +4,7 @@
 
 Remainder defined in terms of `quotient`.
 Answers a `Number` with the same sign as _m_.
+The operator form is `\\`.
 
 ```
 >>> 9.remainder(4)

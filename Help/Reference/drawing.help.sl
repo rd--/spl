@@ -4,7 +4,7 @@
 
 Answer a drawing of the drawable object _x_.
 
-The `Geometry` trait implements `draw`.
+The `Geometry` trait implements `drawing`.
 
 * * *
 

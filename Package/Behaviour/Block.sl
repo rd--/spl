@@ -189,6 +189,14 @@ Block! : [Object, Equatable] {
 		>
 	}
 
+	foldList { :f:/2 :y :x |
+		x.foldList(y, f:/2)
+	}
+
+	foldList { :f:/2 :x |
+		x.allButFirst.foldList(x[1], f:/2)
+	}
+
 	hasError { :self:/0 |
 		let answer = false;
 		self:/0.ifError {

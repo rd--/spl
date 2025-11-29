@@ -101,6 +101,26 @@ Draw a line for which consecutive relative angles increase and are modulated by 
 
 ![](sw/spl/Help/Image/anglePath-I.svg)
 
+Turtle geometry,
+the path _p_ is given as _turn_ and _forward_ pairs:
+
+~~~spl svg=J
+let p = [
+	0 100;
+	90 100;
+	90 50;
+	90 50;
+	90 100;
+	90 25;
+	90 25;
+	90 50
+];
+let [t, r] = p.repeat(4).transpose;
+anglePath(t.degree, r, [0 0]).Line
+~~~
+
+![](sw/spl/Help/Image/anglePath-J.svg)
+
 * * *
 
 See also: absArg, accumulate, angleVector, cos, degree, foldList, sin, substitutionSystem

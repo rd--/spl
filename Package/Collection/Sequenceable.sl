@@ -2047,6 +2047,17 @@
 		}
 	}
 
+	repeat { :s :n :m |
+		let k = s.size;
+		let q = m // k;
+		let r = m \\ k;
+		((q # [s]) ++ [s.take(r)]).catenate
+	}
+
+	repeat { :s :n |
+		(n # [s]).catenate
+	}
+
 	replace { :self :aBlock:/1 |
 		self.indicesDo { :index |
 			self[index] := aBlock(self[index])

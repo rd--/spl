@@ -141,6 +141,7 @@
 	'CylindricalCoordinates' /* CartesianCoordinates */
 	'SphericalCoordinates' /* CartesianCoordinates */
 	'Triangle'
+	'TurtleGeometry'
 
 	/* Chemistry */
 	'CrystalStructure'

@@ -1,5 +1,6 @@
 # foldList
 
+- _foldList(f:/2, y, [x₁ x₂ …])_
 - _foldList([x₁ x₂ …], y, f:/2)_
 
 Apply a the binary block _f_ to each element of the sequence _x_,
@@ -10,8 +11,14 @@ from left to right.
 Cumulative sums of the elements of the list:
 
 ```
+>>> +.foldList(3, [1 1 1 1])
+[3 4 5 6 7]
+
 >>> [1 1 1 1].foldList(3, +)
 [3 4 5 6 7]
+
+>>> +.foldList(0, 1:9)
+[0 1 3 6 10 15 21 28 36 45]
 
 >>> 1:9.foldList(0, +)
 [0 1 3 6 10 15 21 28 36 45]
@@ -20,6 +27,9 @@ Cumulative sums of the elements of the list:
 Cumulative powers:
 
 ```
+>>> ^.foldList(2, [2 3 2 3])
+[2 4 64 4096 68719476736]
+
 >>> [2 3 2 3].foldList(2, ^)
 [2 4 64 4096 68719476736]
 ```
@@ -27,7 +37,14 @@ Cumulative powers:
 Perform a chain of cross products:
 
 ```
->>> [0 1 1; 1 1 -1].foldList([1 -1 1], cross:/2)
+>>> cross:/2.foldList(
+>>> 	[1 -1 1],
+>>> 	[0 1 1; 1 1 -1]
+>>> )
+[1 -1 1; -2 -1 1; 0 -1 -1]
+
+>>> [0 1 1; 1 1 -1]
+>>> .foldList([1 -1 1], cross:/2)
 [1 -1 1; -2 -1 1; 0 -1 -1]
 ```
 

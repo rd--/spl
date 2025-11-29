@@ -162,10 +162,15 @@ Arc : [Object, Storeable, Equatable, Geometry] { | center radii angles |
 		let circle = circleThrough(self);
 		let c = circle.center;
 		let r = circle.radius;
-		let [a, _, b] = self;
+		let [a, m, b] = self;
 		let p = counterClockwiseVectorAngle([1 0], a - c);
+		let n = counterClockwiseVectorAngle([1 0], m - c);
 		let q = counterClockwiseVectorAngle([1 0], b - c);
-		Arc(c, [r, r], [p, q])
+		(((n - p) % 2.pi) + ((q - n) % 2.pi) > 2.pi).if {
+			Arc(c, [r, r], [q, p])
+		} {
+			Arc(c, [r, r], [p, q])
+		}
 	}
 
 	poincareDiskArc { :self |

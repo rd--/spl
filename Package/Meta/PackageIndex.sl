@@ -143,6 +143,7 @@
 	'Geometry-StadiumShape'
 	'Geometry-Tetrahedron'
 	'Geometry-Triangle'
+	'Geometry-TurtleGeometry'
 	'Graphics-Bitmap'
 	'Graphics-Colour'
 	'Graphics-ColourGradient'

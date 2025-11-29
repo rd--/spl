@@ -18,6 +18,16 @@ Convert from polar to rectangular coordinates:
 [1 1]
 ```
 
+Negative _r_:
+
+```
+>>> [-1 0].fromPolarCoordinates
+[-1 0]
+
+>>> [-1 1/2.pi].fromPolarCoordinates
+[0 -1]
+```
+
 Collects over lists:
 
 ```

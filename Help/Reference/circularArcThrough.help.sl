@@ -101,6 +101,38 @@ let a = p.circularArcThrough;
 
 ![](sw/spl/Help/Image/circularArcThrough-D.svg)
 
+Draw a minor arc, ascending from _(0,0)_ to _(1,1)_:
+
+~~~spl svg=E
+let x = 1 / 2.sqrt;
+let p = [0 0; x 0.5; 1 1];
+let a = p.circularArcThrough;
+[
+	p.PointCloud,
+	a.center.Point,
+	[1/2 1/2].unitSquare,
+	a
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circularArcThrough-E.svg)
+
+Draw a minor arc, ascending from _(0,0)_ to _(1,1)_:
+
+~~~spl svg=F
+let y = 1 / 2.sqrt;
+let p = [0 0; 0.5 y; 1 1];
+let a = p.circularArcThrough;
+[
+	p.PointCloud,
+	a.center.Point,
+	[1/2 1/2].unitSquare,
+	a
+].LineDrawing
+~~~
+
+![](sw/spl/Help/Image/circularArcThrough-F.svg)
+
 * * *
 
 See also: Arc, Circle, circleThrough

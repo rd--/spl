@@ -825,6 +825,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		<primitive: return _self.replace(/\p{Punctuation}/gu, '');>
 	}
 
+	repeat { :self :n :m |
+		self.stringRepeat(n, m)
+	}
+
 	repeat { :self :n |
 		<primitive: return _self.repeat(_n);>
 		/* List(n, self).stringCatenate */

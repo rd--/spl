@@ -35,6 +35,7 @@ Types:
 - `StadiumShape`
 - `Tetrahedron`
 - `Triangle`
+- `TurtleGeometry`
 
 Analysis Functions:
 
@@ -62,6 +63,7 @@ Arc Functions
 - `centralAngle`
 - `centroid`
 - `chordLength`
+- `circularArcThrough`
 - `isCircularArc`
 - `isMajorArc`
 - `parametricEquation`

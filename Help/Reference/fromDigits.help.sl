@@ -26,7 +26,7 @@ Digits larger than the base are "carried":
 ```
 
 Calculate the first few decimal Smarandache–Wellin numbers,
-c.f. OEIS [A019518](https://oeis.org/A019518):
+OEIS [A019518](https://oeis.org/A019518):
 
 ```
 >>> 1:9.collect { :n |
