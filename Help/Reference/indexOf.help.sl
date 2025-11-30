@@ -1,9 +1,9 @@
 # indexOf
 
-- _indexOf(c, x)_
+- _indexOf([x₁ x₂ …], y)_
 
-Answer the index of the first occurence of ythe object _x_ within the sequential collection _c_.
-At sequences answer `zero` (an invalid index) if _x_ is not found,
+Answer the index of the first occurence of the object _y_ within the sequential collection _x_.
+At sequences answer `zero` (an invalid index) if _y_ is not found,
 else signal an `error`.
 
 Find index of first occurrence of element in sequence:

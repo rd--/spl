@@ -439,6 +439,7 @@ If the string begins with a doctest, also delete all non doctest lines."
      ("omega" . ?ω) ; U+03C9 ω Greek Small Letter Omega
      ("Omega" . ?Ω) ; U+03A9 Ω Greek Capital Letter Omega
      ("or" . ?∨) ; ∨ U+2228 Logical Or
+     ("percent" . ?%) ; Unicode: U+0025 % Percent Sign
      ("phi" . ?φ) ; U+03C6 φ Greek Small Letter Phi
      ("psi" . ?ψ) ; U+03C8 ψ Greek Small Letter Psi
      ("pi" . ?π) ; U+03C0 π Greek Small Letter Pi

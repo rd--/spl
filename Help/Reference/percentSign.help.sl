@@ -17,6 +17,6 @@ See also: /, //, \\, mod
 
 Guides: Binary Operators
 
-Unicode: U+0025 % Percent Sign Unicode
+Unicode: U+0025 % Percent Sign
 
 Categories: Math, Operator

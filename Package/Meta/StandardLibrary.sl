@@ -188,6 +188,7 @@
 	'IterativeMaps'
 	'MathematicalConstant'
 	'MatrixFunctions'
+	'MixedRadix'
 	'NumericalFunctions'
 	'OnlineEncyclopediaOfIntegerSequences'
 	'OptimizationFunctions'

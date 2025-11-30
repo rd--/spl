@@ -210,6 +210,8 @@ Solving permutation puzzles, ie. <https://xkcd.com/287/>:
 
 See also: mixedRadixDecode, numberDecompose
 
+Guides: Mathematical Functions
+
 References:
 _Apl_
 [1](https://aplwiki.com/wiki/Encode),

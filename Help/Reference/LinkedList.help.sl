@@ -10,4 +10,6 @@ Unlike `List` certain methods, such as `atIndex`, are linear and not constant ti
 
 * * *
 
+See also: List
+
 Categories: Collection, Type

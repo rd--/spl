@@ -188,6 +188,15 @@ also Dyck words on _2,0_:
 true
 ```
 
+A longer Łukasiewicz word of length eighteen:
+
+```
+>>> [
+>>> 	5 -1 -1 0 0 -1 2 -1 -1 -1
+>>> 	-1 2 0 2 -1 -1 -1 -1
+>>> ].isLukasiewiczWord(-1)
+```
+
 _Note_:
 In some contexts the words are given with a trailing _0_ (or _-1_).
 

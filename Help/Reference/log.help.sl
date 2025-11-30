@@ -179,6 +179,19 @@ Complex plot:
 
 ![](sw/spl/Help/Image/log-D.png)
 
+Calculate the time for a given principal to double under compound interest at rate _r_,
+given conversion period _n_:
+
+~~~spl svg=E
+let m = 2;
+let n = 1;
+(1 -- 20).percent.functionPlot { :r |
+	m.log / (n * (1 + (r / n)).log)
+}
+~~~
+
+![](sw/spl/Help/Image/log-E.svg)
+
 * * *
 
 See also: exp, log2, log10, logarithmicIntegral

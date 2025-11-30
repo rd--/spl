@@ -16,7 +16,7 @@ Plot a chord diagram specified as a length vector:
 Plot a chord diagram specified as an edge list:
 
 ~~~spl svg=B
-ChordDiagram([1 2; 3 5; 4 9; 6 7; 8 10])
+[1 2; 3 5; 4 9; 6 7; 8 10]
 .chordDiagramPlot
 ~~~
 

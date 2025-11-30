@@ -6,12 +6,21 @@ At `Number`,
 answer _x_ times the constant representing the number of radians in one degree,
 approximately equal to _0.01745_.
 
+At `SmallFloat`:
+
 ```
 >>> 1.degree
 1/180.pi
 
 >>> 360.degree
 2.pi
+```
+
+At `Interval`:
+
+```
+>>> (0 -- 90).degree
+(0 -- 1/2.pi)
 ```
 
 One degree is divided into sixty _arc minutes_,

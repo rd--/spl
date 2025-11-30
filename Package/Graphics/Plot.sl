@@ -19,22 +19,27 @@ Plot : [Object] { | pages format options |
 		};
 		let items = [];
 		let gen:/1 = self.format.caseOf([
-			'line' -> {
-				{ :p |
-					[p.Line]
-				}
-			},
-			'scatter' -> {
-				{ :p |
-					[p.PointCloud]
-				}
-			},
 			'discrete' -> {
 				{ :p |
 					p.collect { :each |
 						let [x, y] = each;
 						Line([x 0; x y])
 					}
+				}
+			},
+			'line' -> {
+				{ :p |
+					[p.Line]
+				}
+			},
+			'pointLine' -> {
+				{ :p |
+					[p.Line, p.PointCloud]
+				}
+			},
+			'scatter' -> {
+				{ :p |
+					[p.PointCloud]
 				}
 			}
 		]);
@@ -328,6 +333,10 @@ Plot : [Object] { | pages format options |
 
 	poincarePlot { :x |
 		x.poincarePlot(1)
+	}
+
+	pointLinePlot { :self |
+		self.typedSwitchingPlot('pointLine')
 	}
 
 	reliefPlot { :self :options |

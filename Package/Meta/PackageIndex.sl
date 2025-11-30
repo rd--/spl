@@ -194,6 +194,7 @@
 	'Math-ApproximateMathFunctions'
 	'Math-MathematicalConstant'
 	'Math-MatrixFunctions'
+	'Math-MixedRadix'
 	'Math-NumericalFunctions'
 	'Math-OnlineEncyclopediaOfIntegerSequences'
 	'Math-OptimizationFunctions'

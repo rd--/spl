@@ -1,6 +1,6 @@
 # indexOfStartingAtBy
 
-- _indexOfStartingAtBy(c, x, i, f:/2)_
+- _indexOfStartingAtBy([x₁ x₂ …], y, i, f:/2)_
 
 A variant of `indexOf` allowing to specify the starting index _i_ and the comparison function _f_.
 

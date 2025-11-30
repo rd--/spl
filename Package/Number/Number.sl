@@ -599,24 +599,8 @@
 		}
 	}
 
-	numberDecompose { :self :u |
-		(self < 0).if {
-			self.-.numberDecompose(u).-
-		} {
-			let answer = [];
-			let x = self;
-			let k = u.size;
-			u.withIndexDo { :each :index |
-				(index = k).if {
-					answer.add(x / each)
-				} {
-					let n = (x / each).floor;
-					x := x - (n * each);
-					answer.add(n)
-				}
-			};
-			answer
-		}
+	percent { :n |
+		n * 0.01
 	}
 
 	perlinBiasFunction { :b :x |

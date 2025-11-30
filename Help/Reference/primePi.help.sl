@@ -145,7 +145,8 @@ OEIS [A156552](https://oeis.org/A156552):
 
 ![](sw/spl/Help/Image/primePi-B.svg)
 
-Plot OEIS [A056239](https://oeis.org/A056239):
+Step plot of sequence by K.A. Rasmussen,
+OEIS [A056239](https://oeis.org/A056239):
 
 ~~~spl svg=C
 1:111.collect { :n |
@@ -154,6 +155,50 @@ Plot OEIS [A056239](https://oeis.org/A056239):
 ~~~
 
 ![](sw/spl/Help/Image/primePi-C.svg)
+
+Log scatter plot of a sequence by K. Matylla,
+OEIS [A135141](https://oeis.org/A135141):
+
+~~~spl svg=D
+let a = { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isPrime.if {
+			2 * a(n.primePi)
+		} {
+			2 * a(n - 1 - n.primePi) + 1
+		}
+	}
+};
+1:200.collect(a:/1).log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-D.svg)
+
+Count distinct rooted trees obtained from the tree with Matula-Goebel number _n_ by adding one edge,
+OEIS [A214567](https://oeis.org/A214567):
+
+~~~spl svg=E
+let a = { :n |
+	(n = 1).if {
+		1
+	} {
+		n.isPrime.if {
+			a(n.primePi) + 1
+		} {
+			n.distinctPrimeFactors
+			.sum { :x |
+				a(x) - 1
+			} + 1
+		}
+	}
+};
+1:150.collect(a:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primePi-E.svg)
 
 * * *
 
@@ -170,7 +215,8 @@ _OEIS_
 [2](https://oeis.org/A049084)
 [3](https://oeis.org/A156552)
 [4](https://oeis.org/A112798)
-[5](https://oeis.org/A056239),
+[5](https://oeis.org/A056239)
+[6](https://oeis.org/A135141),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.primepi),
 _W_

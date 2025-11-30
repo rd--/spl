@@ -943,18 +943,6 @@
 		}
 	}
 
-	mixedRadixEncode { :self :factors |
-		let answer = List(factors.size);
-		factors.size.toByDo(1, -1) { :index |
-			answer[index] := self % factors[index];
-			self := self // factors[index]
-		};
-		(self > 0).ifTrue {
-			answer.addFirst(self)
-		};
-		answer
-	}
-
 	modularInverse { :a :n |
 		let t = 0;
 		let t1 = 1;

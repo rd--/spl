@@ -210,7 +210,7 @@ and the line segmented:
 
 * * *
 
-See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, scatterPlot, stepPlot, surfacePlot
+See also: discretePlot, functionPlot, graphPlot, matrixPlot, parametricPlot, pointLinePlot, scatterPlot, stepPlot, surfacePlot
 
 Guides: Plotting Functions
 

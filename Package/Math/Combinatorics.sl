@@ -654,6 +654,12 @@
 		isLukasiewiczWord(y, 0)
 	}
 
+	isMotzkinWord { :self |
+		self.nub.sort = [0 1 2] & {
+			self.isLukasiewiczWord
+		}
+	}
+
 	isRestrictedGrowthString { :a |
 		let n = a.size;
 		a[1] = 0 & {

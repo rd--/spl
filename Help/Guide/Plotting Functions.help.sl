@@ -39,6 +39,7 @@ Plotting Functions:
 - `periodogramPlot`
 - `pianoRollPlot`
 - `poincarePlot`
+- `pointLinePlot`
 - `polarPlot`
 - `reliefPlot`
 - `residueDesignPlot`

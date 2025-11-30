@@ -18,6 +18,11 @@ Add different denominations of money:
 >>> let c = [5 1 2 1.32];
 >>> c.numberCompose(u)
 60.32
+
+>>> let u = [10 5 2 1];
+>>> let c = [5 1 2 1.32];
+>>> (u * c).sum
+60.32
 ```
 
 Add amounts of days, hours, minutes, and seconds to return seconds:
@@ -37,3 +42,11 @@ Add amounts of days, hours, minutes, and seconds to return seconds:
 * * *
 
 See also: mixedRadixEncode, numberCompose
+
+Guides: Mathematical Functions
+
+References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/MixedRadix.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Mixed_radix)

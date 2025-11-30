@@ -49,6 +49,7 @@ Enumeration:
 - `bitReversalPermutation`
 - `lexicographicPermutations`
 - `minimumChangePermutations`: Heap’s algorithm
+- `multisetPermutations`
 - `permutations`
 - `plainChanges`: Steinhaus-Johnson-Trotter
 

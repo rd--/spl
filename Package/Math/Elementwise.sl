@@ -417,6 +417,10 @@
 		self.collect(pellNumber:/1)
 	}
 
+	percent { :self |
+		self.collect(percent:/1)
+	}
+
 	pi { :self |
 		self.collect(pi:/1)
 	}

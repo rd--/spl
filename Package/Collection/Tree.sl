@@ -185,6 +185,16 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		answer
 	}
 
+	matulaGoebelNumber { :self |
+		self.isLeaf.if {
+			1
+		} {
+			self.subTrees.product { :t |
+				t.matulaGoebelNumber.prime
+			}
+		}
+	}
+
 	postOrderDo { :self :aBlock:/1 |
 		self.subTrees.do { :each |
 			each.postOrderDo(aBlock:/1)
@@ -354,6 +364,11 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		}
 	}
 
+	matulaGoebelTree { :n |
+		let p = n.primeFactors.primePi;
+		Tree(n, p.collect(matulaGoebelTree:/1))
+	}
+
 	sternBrocotTree { :n :r |
 		n.unfoldTree(r) { :each |
 			let a = each.continuedFraction;
@@ -434,6 +449,21 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		};
 		f(0, n - 1);
 		t
+	}
+
+}
+
++SmallFloat{
+}
+
++@Collection{
+
+	matulaGoebelTree { :self |
+		self.collect(matulaGoebelTree:/1)
+	}
+
+	matulaGoebelNumber { :self |
+		self.collect(matulaGoebelNumber:/1)
 	}
 
 }

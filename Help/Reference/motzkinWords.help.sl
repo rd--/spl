@@ -3,7 +3,7 @@
 - _motzkinWords(t, s)_
 
 Answer the _t,s_ Motzkin words.
-Each word constaints are _t_ ones,
+Each word contains _t_ ones,
 _s_ zeroes,
 and _s_ twos.
 

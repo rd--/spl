@@ -1,6 +1,6 @@
 # numberCompose
 
-- _numberCompose(aSequence, anotherSequence)_
+- _numberCompose([x₁ x₂ …], [y₁ y₂ …])_
 
 The `sum` of the element-wise `*` of two sequences.
 
@@ -93,6 +93,8 @@ the former is left padded with zeros:
 * * *
 
 See also: *, dot, inner, mixedRadixDecode, numberDecompose, sum
+
+Guides: Mathematical Functions
 
 References:
 _Mathematica_

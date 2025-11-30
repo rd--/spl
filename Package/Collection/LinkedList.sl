@@ -1,5 +1,17 @@
 @Link {
 
+	asList { :self |
+		let h = self;
+		let answer = [];
+		{
+			h.isNotNil
+		}.whileTrue {
+			answer.add(h.value);
+			h := h.nextLink
+		};
+		answer
+	}
+
 	asLink { :self |
 		self
 	}
@@ -8,6 +20,13 @@
 		self.typeResponsibility('nextLink')
 	}
 
+	lastLink { :self |
+		self.nextLink.isNil.if {
+			self
+		} {
+			self.lastLink
+		}
+	}
 
 }
 
@@ -19,7 +38,7 @@
 
 }
 
-LinkedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | firstLink lastLink |
+LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Indexable, Collection, Extensible, Removable, Sequenceable] { | firstLink lastLink |
 
 	add { :self :aLinkOrObject |
 		self.addLast(aLinkOrObject)
@@ -282,11 +301,19 @@ LinkedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Coll
 		List:/1
 	}
 
+	storeString { :self |
+		'LinkedList(%)'.format([self.asList.storeString])
+	}
+
 }
 
 +@Collection {
 
 	asLinkedList { :self |
+		LinkedList(self)
+	}
+
+	LinkedList { :self |
 		let answer = LinkedList();
 		self.do { :each |
 			answer.add(each)
@@ -304,7 +331,7 @@ LinkedList : [Object, Copyable, Equatable, Comparable, Iterable, Indexable, Coll
 
 }
 
-ValueLink : [Object, Equatable, Link] { | nextLink value |
+ValueLink : [Object, Storeable, Equatable, Link] { | nextLink value |
 
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isValueLink & {

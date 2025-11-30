@@ -1786,24 +1786,6 @@
 		self ++ self.copyFromTo(n + 1, self.size - m).reverse
 	}
 
-	mixedRadixDecode { :self :factors |
-		let answer = 0;
-		let base = 1;
-		let k = factors.size.min(self.size);
-		let prefix = self.size - factors.size;
-		(prefix > 1).ifTrue {
-			self.error('@Sequenceable>>mixedRadixDecode: sequence too long')
-		};
-		k.toByDo(1, -1) { :index |
-			answer := answer + (self[index + prefix] * base);
-			base := base * factors[index]
-		};
-		(prefix = 1).ifTrue {
-			answer := answer + (self[1] * base)
-		};
-		answer
-	}
-
 	movingAverage { :x :rOrW |
 		let answer = [];
 		let [r, w] = rOrW.isList.if { [rOrW.size, rOrW] } { [rOrW, List(rOrW, 1)] };
@@ -1871,10 +1853,6 @@
 				true
 			}
 		}
-	}
-
-	numberCompose { :c :u |
-		(c * u.last(c.size)).sum
 	}
 
 	occurrencesOf { :self :anObject |

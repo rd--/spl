@@ -328,6 +328,36 @@ Antilog:
 [10 5 0.1]
 ```
 
+Calculate the time _t_ for a principal to multiply by _m_,
+when receiving compound interest at rate _r_ with conversion period _n_,
+and then calculate the total accumulated value _a_ at time _t_:
+
+```
+>>> let m = 3;
+>>> let r = 5.percent;
+>>> let n = 12;
+>>> let t = m.log / (n * (1 + (r / n)).log);
+>>> let p = 600;
+>>> let a = p * ((1 + (r / n)) ^ (t * n));
+>>> (t, a)
+(22.02, m * p)
+```
+
+Given the principal _p_, interest rate _r_, and total number of payments _n_,
+calculate the periodic payment amount _a_,
+and hence the total payment and total interest:
+
+```
+>>> let p = 600000;
+>>> let r = 5.percent;
+>>> let n = 20 * 12;
+>>> let i = r / 12;
+>>> let j = (1 + i) ^ n;
+>>> let a = p * ((i * j) / (j - 1));
+>>> (a, n * a, n * a - p)
+(3959.73, 950336, 350336)
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

@@ -39,6 +39,9 @@ OEIS [A007088](https://oeis.org/A007088):
 	1 1 1 0;
 	1 1 1 1
 ]
+
+>>> 45.binaryExpansion
+[1 0 1 1 0 1]
 ```
 
 * * *

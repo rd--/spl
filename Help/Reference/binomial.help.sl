@@ -364,6 +364,37 @@ and [A004736](https://oeis.org/A004736):
 ]
 ```
 
+Sperner’s theorem,
+OEIS [A001405](https://oeis.org/A001405);
+
+```
+>>> 0:12.collect { :n |
+>>> 	n.binomial((n / 2).floor)
+>>> }
+[1 1 2 3 6 10 20 35 70 126 252 462 924]
+```
+
+Triangle of Dyck paths counted by number of long interior inclines,
+OEIS [A108838](https://oeis.org/A108838):
+
+```
+>>> 2:9.triangularArray { :i :j |
+>>> 	let a = binomial(i - 1, j - 2);
+>>> 	let b = binomial(i, j);
+>>> 	2 * a * b / (i - 1)
+>>> }
+[
+	2;
+	3 2;
+	4 8 2;
+	5 20 15 2;
+	6 40 60 24 2;
+	7 70 175 140 35 2;
+	8 112 420 560 280 48 2;
+	9 168 882 1764 1470 504 63 2
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -427,7 +458,9 @@ _OEIS_
 [8](https://oeis.org/A000332)
 [9](https://oeis.org/A060693)
 [10](https://oeis.org/A002260)
-[11](https://oeis.org/A004736),
+[11](https://oeis.org/A004736)
+[12](https://oeis.org/A001405)
+[13](https://oeis.org/A108838),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.binomial),
 _W_

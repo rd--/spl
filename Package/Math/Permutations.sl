@@ -973,3 +973,54 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 }
+
++List {
+
+	multisetPermutationsDoLink { :self :visit:/1 |
+		let n = self.size;
+		let l = LinkedList(self.sorted(|>));
+		let h = l.firstLink;
+		let i = l.linkAt(n - 1);
+		let j = l.lastLink;
+		visit(h);
+		{
+			j.nextLink.isNotNil | {
+				j.value < h.value
+			}
+		}.whileTrue {
+			let s = (
+				j.nextLink.isNotNil & {
+					i.value >= j.nextLink.value
+				}
+			).if {
+				j
+			} {
+				i
+			};
+			let t = s.nextLink;
+			s.nextLink := t.nextLink;
+			t.nextLink := h;
+			(t.value < h.value).ifTrue {
+				i := t
+			};
+			j := i.nextLink;
+			h := t;
+			visit(h)
+		}
+	}
+
+	multisetPermutationsDo { :self :visit:/1 |
+		self.multisetPermutationsDoLink { :each |
+			visit(each.asList)
+		}
+	}
+
+	multisetPermutations { :self |
+		let answer = [];
+		self.multisetPermutationsDoLink { :each |
+			answer.add(each.asList)
+		};
+		answer
+	}
+
+}

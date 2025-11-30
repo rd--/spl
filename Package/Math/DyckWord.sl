@@ -1,5 +1,12 @@
 DyckWord : [Object, Storeable] { | word tokens |
 
+	binaryExpansion { :self |
+		let [a, b] = self.tokens;
+		self.word.collect { :each |
+			(each = a).boole
+		}
+	}
+
 	heights { :self |
 		let [a, b] = self.tokens;
 		let h = 0;
@@ -9,6 +16,43 @@ DyckWord : [Object, Storeable] { | word tokens |
 			answer.add(h)
 		};
 		answer
+	}
+
+	integer { :self |
+		self.binaryExpansion.fromDigits(2)
+	}
+
+	lukasiewiczWord { :self |
+		let w = [];
+		self.tree.do { :t |
+			w.add(t.size)
+		};
+		w
+	}
+
+	parenthesization { :self |
+		self.binaryExpansion.collect { :each |
+			(each = 1).if { '(' } { ')' }
+		}.stringJoin
+	}
+
+	tree { :self |
+		let w = self.binaryExpansion;
+		let s = [Tree(nil, [])];
+		w.do { :x |
+			(x = 1).if {
+				let t = Tree(nil, []);
+				s[1].subTrees.addLast(t);
+				s.addFirst(t)
+			} {
+				s.removeFirst
+			}
+		};
+		s[1]
+	}
+
+	treePlot { :self |
+		self.tree.treePlot
 	}
 
 }

@@ -1,8 +1,8 @@
 # numberDecompose
 
-- _numberDecompose(aNumber, aSequence)_
+- _numberDecompose(x, [b₁ b₂ …])_
 
-Answer a list of coefficients of a decomposition of _aNumber_ in the basis _aSequence_.
+Answer a list of coefficients of a decomposition of the number _x_ in the basis sequence _b_.
 
 The basis must be of non-increasing positive numbers.
 The result has the same length of the basis, even if the initial coefficients are zero.

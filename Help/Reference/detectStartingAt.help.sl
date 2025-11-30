@@ -1,8 +1,8 @@
 # detectStartingAt
 
-- _detectStartingAt(aSequence, aBlock:/1, anInteger)_
+- _detectStartingAt([x₁ x₂ …], f:/1, n)_
 
-Like `detect` but begin at index _anInteger_ instead of `one`.
+Like `detect` but begin at index _n_ instead of `one`.
 
 ```
 >>> 1:6.detectStartingAt(isEven:/1, 3)
@@ -15,3 +15,5 @@ Like `detect` but begin at index _anInteger_ instead of `one`.
 * * *
 
 See also: detect
+
+Guides: List Functions
