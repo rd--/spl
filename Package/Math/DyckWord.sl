@@ -7,6 +7,37 @@ DyckWord : [Object, Storeable] { | word tokens |
 		}
 	}
 
+	chordDiagram { :self |
+		ChordDiagram(self.edgeList)
+	}
+
+	chordDiagramPlot { :self |
+		self.edgeList.chordDiagramPlot
+	}
+
+	edgeList { :self |
+		let [a, b] = self.tokens;
+		let w = self.word;
+		let n = w.size;
+		let e = [];
+		let h = self.heights;
+		1.toDo(n) { :i |
+			(w[i] = a).ifTrue {
+				let j = h.indexOfStartingAtBy(h[i], i + 1, =) - 1;
+				e.add([i, j])
+			}
+		};
+		e
+	}
+
+	graph { :self |
+		Graph(self.vertexList, self.edgeList)
+	}
+
+	graphPlot { :self |
+		self.graph.graphPlot
+	}
+
 	heights { :self |
 		let [a, b] = self.tokens;
 		let h = 0;
@@ -20,6 +51,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 
 	integer { :self |
 		self.binaryExpansion.fromDigits(2)
+	}
+
+	linearGraphPlot { :self |
+		self.graph.linearGraphPlot
 	}
 
 	lukasiewiczWord { :self |
@@ -55,6 +90,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 		self.tree.treePlot
 	}
 
+	vertexList { :self |
+		[1 .. self.word.size]
+	}
+
 }
 
 +List {
@@ -65,6 +104,11 @@ DyckWord : [Object, Storeable] { | word tokens |
 		} {
 			word.error('DyckWord: invalid word')
 		}
+	}
+
+	DyckWord { :self |
+		let [b, a] = self.minMax;
+		DyckWord(self, [a, b])
 	}
 
 }
