@@ -10,7 +10,7 @@ The inverse of `matulaGoebelTree`:
 ```
 >>> let n = [1 .. 23];
 >>> let t = n.matulaGoebelTree;
->>> let m = t.matulaGobelNumber;
+>>> let m = t.matulaGoebelNumber;
 >>> (n = m, m)
 (true, [1 .. 23])
 ```

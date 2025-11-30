@@ -195,6 +195,7 @@ A longer Łukasiewicz word of length eighteen:
 >>> 	5 -1 -1 0 0 -1 2 -1 -1 -1
 >>> 	-1 2 0 2 -1 -1 -1 -1
 >>> ].isLukasiewiczWord(-1)
+true
 ```
 
 _Note_:
