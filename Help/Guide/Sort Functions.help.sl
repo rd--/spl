@@ -9,6 +9,7 @@ Comparison Operators:
 
 Sort:
 
+- `bitonicSort`
 - `bubbleSort`
 - `combSort`
 - `countingSort`
@@ -19,10 +20,12 @@ Sort:
 - `mergeSortBy`
 - `mergeSortFromToBy`
 - `mergeSort`
+- `oddEvenSort`
 - `patienceSort`
 - `quickSortFromToBy`
 - `quickSortBy`
 - `quickSort`
+- `radixSort`
 - `selectionSort`
 - `shellSort`
 - `sortBy`
@@ -74,10 +77,13 @@ Selecting:
 
 Sort Matrices:
 
+- `bitonicSortMatrix`
 - `bubbleSortMatrix`
 - `combSortMatrix`
 - `cycleSortMatrix`
 - `insertionSortMatrix`
+- `oddEvenSortMatrix`
+- `radixSortMatrix`
 - `shellSortMatrix`
 - `selectionSortMatrix`
 

@@ -629,3 +629,130 @@
 	}
 
 }
+
++List {
+
+	bitonicMerge { :a :low :count :direction :observe:/1 |
+		(count > 1).ifTrue {
+			let k = count / 2;
+			low.toDo(low + k - 1) { :i |
+				((direction = 1 & { a[i] > a[i + k] }) | { direction = 0 & { a[i] < a[i + k] } }).ifTrue {
+					a.swapWith(i, i + k);
+					observe(a)
+				}
+			};
+			bitonicMerge(a, low, k, direction, observe:/1);
+			bitonicMerge(a, low + k, k, direction, observe:/1)
+		}
+	}
+
+	bitonicSort { :a :low :count :direction :observe:/1 |
+		(count > 1).ifTrue {
+			let k = count / 2;
+			bitonicSort(a, low, k, 1, observe:/1);
+			bitonicSort(a, low + k, k, 0, observe:/1);
+			bitonicMerge(a, low, count, direction, observe:/1)
+		}
+	}
+
+	bitonicSort { :a :f:/1 |
+		let n = a.size;
+		n.isPowerOfTwo.if {
+			bitonicSort(a, 1, a.size, 1, f:/1);
+			a
+		} {
+			a.error('bitonicSort: size must be power of two')
+		}
+	}
+
+	bitonicSort { :a |
+		a.bitonicSort(nil.constant)
+	}
+
+	bitonicSortMatrix { :a |
+		let m = [a.copy];
+		a.bitonicSort { :x |
+			m.add(a.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	radixSort { :s :f:/1 |
+		let shift = 1;
+		{ s.isSorted }.whileFalse {
+			let zeroes = [];
+			let ones = [];
+			let continue = true;
+			let o = s.copy;
+			{ continue & { o.size != 0 } }.whileTrue {
+				let item = o.removeFirst;
+				(item.bitAnd(shift) = 0).if {
+					zeroes.add(item)
+				} {
+					ones.add(item)
+				};
+				(zeroes ++ o ++ ones).withIndexDo { :each :index |
+					s[index] := each
+				};
+				f(s);
+				continue := s.isSorted.not
+			};
+			continue.ifTrue {
+				f(s);
+				shift := shift << 1
+			}
+		};
+		s
+	}
+
+	radixSort { :s |
+		s.radixSort(nil.constant)
+	}
+
+	radixSortMatrix { :s |
+		let m = [s.copy];
+		s.radixSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	oddEvenSort { :s :f:/1 |
+		let n = s.size;
+		let sorted = false;
+		{ sorted }.whileFalse {
+			sorted := true;
+			1.toDo(2) { :j |
+				j.toByDo(n - 1, 2) { :i |
+					(s[i] > s[i + 1]).ifTrue {
+						s.swapWith(i, i + 1);
+						f(s);
+						sorted := false
+					}
+				}
+			}
+		};
+		s
+	}
+
+	oddEvenSort { :s |
+		s.oddEvenSort(nil.constant)
+	}
+
+	oddEvenSortMatrix { :s |
+		let m = [s.copy];
+		s.oddEvenSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
