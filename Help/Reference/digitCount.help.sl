@@ -162,7 +162,7 @@ OEIS [A023416](https://oeis.org/A023416):
 
 ![](sw/spl/Help/Image/digitCount-E.svg)
 
-Plot total number of zeros in binary expansions,
+Plot total number of zeroes in binary expansions,
 a form of the Takagi curve,
 OEIS [A059015](https://oeis.org/A059015):
 

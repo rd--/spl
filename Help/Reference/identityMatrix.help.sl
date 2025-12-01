@@ -3,7 +3,7 @@
 - _identityMatrix(n)_
 - _identityMatrix([n m])_
 
-Answers the _n x n_ or _n x m_ matrix with ones on the main diagonal and zeros elsewhere.
+Answers the _n x n_ or _n x m_ matrix with ones on the main diagonal and zeroes elsewhere.
 
 A 2×2 identity matrix:
 

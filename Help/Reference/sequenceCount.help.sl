@@ -36,7 +36,7 @@ OEIS [A003714](https://oeis.org/A003714):
 ]
 ```
 
-Numbers whose binary representation contains no two adjacent zeros,
+Numbers whose binary representation contains no two adjacent zeroes,
 called the dual Zeckendorf representation,
 OEIS [A104326](https://oeis.org/A104326):
 

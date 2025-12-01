@@ -28,11 +28,11 @@ To create a matrix that has multiple rows, separate the rows with semicolons.
 ]
 ```
 
-Another way to create a matrix is to use a function, such as `iota`, `zeros`, or `randomReal`.
-Create a 5×1 column vector of zeros:
+Another way to create a matrix is to use a function, such as `iota`, `zeroes`, or `randomReal`.
+Create a 5×1 column vector of zeroes:
 
 ```
->>> [5 1].zeros
+>>> [5 1].zeroes
 [0; 0; 0; 0; 0]
 ```
 

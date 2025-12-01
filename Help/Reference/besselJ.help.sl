@@ -17,7 +17,7 @@ Evaluate at specific real values:
 0.3528
 ```
 
-The first three zeros of _J0(x)_:
+The first three zeroes of _J0(x)_:
 
 ```
 >>> [2.405 5.520 8.654].collect { :x |

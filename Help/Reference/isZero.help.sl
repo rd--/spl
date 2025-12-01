@@ -52,7 +52,7 @@ Threads over lists:
 [true true true]
 ```
 
-To decide if a list has only zeros use `allSatisfy` or `isOrigin`:
+To decide if a list has only zeroes use `allSatisfy` or `isOrigin`:
 
 ```
 >>> [0 0 0].allSatisfy(isZero:/1)

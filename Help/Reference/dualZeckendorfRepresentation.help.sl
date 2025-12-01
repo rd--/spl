@@ -187,7 +187,7 @@ Discrete plot of a representation with 114 places:
 ![](sw/spl/Help/Image/dualZeckendorfRepresentation-A.svg)
 
 Counts of above plot,
-indicating the proportions of zeros and ones:
+indicating the proportions of zeroes and ones:
 
 ```
 >>> 9E23.dualZeckendorfRepresentation

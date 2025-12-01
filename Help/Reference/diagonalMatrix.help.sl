@@ -38,7 +38,7 @@ A 3×3 subdiagonal matrix:
 ]
 ```
 
-Pad with zeros to make a larger square matrix:
+Pad with zeroes to make a larger square matrix:
 
 ```
 >>> [1 2 3].diagonalMatrix(0, [5 5])

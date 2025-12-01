@@ -55,7 +55,7 @@ Scatter plot of first few terms:
 
 ![](sw/spl/Help/Image/noergaardInfinitySequence-B.svg)
 
-Positions of zeros,
+Positions of zeroes,
 zero-indexed,
 OEIS [A083866](https://oeis.org/A083866):
 

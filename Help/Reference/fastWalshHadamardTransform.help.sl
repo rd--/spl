@@ -6,7 +6,7 @@ In place Fast Walsh-Hadamard Transform,
 without normalization,
 using Hadamard ordering.
 Operates only on signals with length equal to a power of two.
-If the length is less than a power of two, pad with zeros to the next greater power of two before processing.
+If the length is less than a power of two, pad with zeroes to the next greater power of two before processing.
 
 ```
 >>> [1 0 1 0 0 1 1 0]
@@ -22,7 +22,7 @@ If the length is less than a power of two, pad with zeros to the next greater po
 [2 0 4 0 3 10 0 0]
 ```
 
-Automatically pads with zeros to the nearest power of two:
+Automatically pads with zeroes to the nearest power of two:
 
 ```
 >>> [1 1 1 1 1]

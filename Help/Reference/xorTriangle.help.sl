@@ -32,7 +32,7 @@ OEIS [A334556](https://oeis.org/A334556):
 
 ![](sw/spl/Help/Image/xorTriangle-A.svg)
 
-A rotationally symmetrical triangle with side length sixteen that has a central triangles of zeros:
+A rotationally symmetrical triangle with side length sixteen that has a central triangles of zeroes:
 
 ~~~spl svg=B
 59257

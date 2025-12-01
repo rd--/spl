@@ -25,7 +25,7 @@ The third order magic hexagon:
 ]
 ```
 
-With zeros deleted:
+With zeroes deleted:
 
 ```
 >>> 3.magicHexagon.collect { :row |

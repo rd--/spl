@@ -22,7 +22,7 @@ With `epsilon`:
 (4E-16, 0)
 ```
 
-Replace values in a matrix with zeros or ones:
+Replace values in a matrix with zeroes or ones:
 
 ```
 >>> [-2 1 0 1; 1 -2 1 0; 0 1 -2 1; 1 0 -2 1]

@@ -4,7 +4,7 @@
 
 Implement the Griewank test function.
 
-Zeros:
+Zeroes:
 
 ```
 >>> [0].griewankFunction

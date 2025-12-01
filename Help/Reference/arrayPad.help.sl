@@ -6,7 +6,7 @@ Pad _a_,
 which may be a vector or a matrix,
 with _m_ elements at the beginning and _n_ elements at the end.
 
-Pad the edges of a list with zeros:
+Pad the edges of a list with zeroes:
 
 ```
 >>> [1 2 3].arrayPad([1 1], 0)

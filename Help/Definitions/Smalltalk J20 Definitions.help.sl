@@ -2200,7 +2200,7 @@ receiver. Answer false otherwise.
 representation of mask are 1 in the binary representation of the
 receiver. Answer false otherwise. If the receiver has fewer bits than the
 operand, the receiver is treated as if it were extended on the left
-with zeros to the length of the operand.  The result is undefined if either
+with zeroes to the length of the operand.  The result is undefined if either
 the receiver or the operand is a negative integer.
 
 *Parameters*: mask ⧼integer⧽
@@ -2219,7 +2219,7 @@ receiver. Answer false otherwise.
 representation of mask are 1 in the binary representation of the
 receiver. Answer false otherwise. If the receiver has fewer bits than the
 operand, the receiver is treated as if it were extended on the left
-with zeros to the length of the operand.  Result is undefined if either the
+with zeroes to the length of the operand.  Result is undefined if either the
 receiver or the operand is a negative integer.
 
 *Parameters*: mask ⧼integer⧽
@@ -2236,7 +2236,7 @@ operand.
 *Definition*: Answer the result of the bit-wise logical and of the
 binary representation of the receiver and the binary representation of
 operand. The shorter of the receiver or the operand is extended on the
-left with zeros to the length of the longer of the two.  The result is
+left with zeroes to the length of the longer of the two.  The result is
 undefined if either the receiver or the operand is a negative integer.
 
 *Parameters*: operand ⧼integer⧽
@@ -2299,7 +2299,7 @@ Cf: bitAtPut
 *Definition*: Answer the result of bit-wise logical or the binary
 representation of the receiver and the binary representation of
 operand. The shorter of the receiver or the operand is extended on the
-left with zeros to the length of the longer of the two.  The result is
+left with zeroes to the length of the longer of the two.  The result is
 undefined if either the receiver or the operand is a negative integer.
 
 *Parameters*: operand⧼integer⧽
@@ -2316,7 +2316,7 @@ Cf: bitOr
 binary representation of the receiver by shift bits.
 
 *Definition*: If shift is positive, the receiver is shifted left and
-zeros (0) are shifted in on the right. If shift is negative, the
+zeroes (0) are shifted in on the right. If shift is negative, the
 receiver is shifted right and low order bits are discarded.  The result
 is undefined if either the receiver is negative.
 
@@ -2335,7 +2335,7 @@ Cf: bitShift
 *Definition*: Answer the result of the bit-wise exclusive or of the
 binary representation of the receiver and the binary representation of
 operand. The shorter of the receiver or the operand is extended on the
-left with zeros to the length of the longer of the two.  The result is
+left with zeroes to the length of the longer of the two.  The result is
 undefined if either the receiver or the operand is a negative integer.
 
 *Parameters*: operand ⧼integer⧽
@@ -2432,7 +2432,7 @@ receiver. Answer false otherwise.
 representation of mask are 1 in the binary representation of the
 receiver. Answer false otherwise. If the receiver has fewer bits than the
 operand, the receiver is treated as if it were extended on the left
-with zeros to the length of the operand.  The result is undefined if either
+with zeroes to the length of the operand.  The result is undefined if either
 the receiver or the operand is a negative integer.
 
 *Parameters*: mask ⧼integer⧽

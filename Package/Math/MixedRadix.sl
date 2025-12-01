@@ -7,7 +7,7 @@
 		};
 		self.numberDecompose(
 			Range(k, 1, -1).!
-		)
+		).withoutLeadingZeroes
 	}
 
 	factorialNumberSystemDecode { :self |

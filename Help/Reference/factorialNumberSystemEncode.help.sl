@@ -44,6 +44,76 @@ OEIS [A007623](https://oeis.org/A007623):
 ]
 ```
 
+Integers whose factorial expansion ends with one,
+OEIS [A071156](https://oeis.org/A071156):
+
+```
+>>> 0:14.collect(oeisA071156:/1)
+[0 1 3 5 9 11 15 17 23 33 35 39 41 47 57]
+```
+
+Th factorial number system encoding of A071156,
+OEIS [A071158](https://oeis.org/A071158):
+
+```
+>>> 1:39.collect { :n |
+>>> 	n.oeisA071156
+>>> 	.factorialNumberSystemEncode
+>>> }
+[
+	    1
+	   11
+	   21
+	  111
+	  121
+	  211
+	  221
+	  321
+	 1111
+	 1121
+	 1211
+	 1221
+	 1321
+	 2111
+	 2121
+	 2211
+	 2221
+	 2321
+	 3211
+	 3221
+	 3321
+	 4321
+	11111
+	11121
+	11211
+	11221
+	11321
+	12111
+	12121
+	12211
+	12221
+	12321
+	13211
+	13221
+	13321
+	14321
+	21111
+	21121
+	21211
+]
+```
+
+The terms of A071156 can be calculated from A014486 using
+OEIS [A085198](https://oeis.org/A085198):
+
+~~~spl svg=A
+0:150.collect(oeisA085198:/1)
+.logScale
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/factorialNumberSystemEncode-A.svg)
+
 * * *
 
 See also: factorial, factorialExpansion, factorialNumberSystemDecode
@@ -52,6 +122,8 @@ Guides: Mathematical Functions
 
 References:
 _OEIS_
-[1](https://oeis.org/A007623),
+[1](https://oeis.org/A007623)
+[2](https://oeis.org/A071156)
+[3](https://oeis.org/A071158),
 _W_
 [1](https://en.wikipedia.org/wiki/Factorial_number_system)

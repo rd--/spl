@@ -5,7 +5,7 @@
 Answer `true` if the sequence of bit-vectors _x_ is a Beckett-Gray code, else `false`.
 
 A Beckett-Gray code is a special kind of cyclic Gray code where
-the first pattern is all zeros,
+the first pattern is all zeroes,
 and whenever a bit transitions _1→0_ it is the bit which has been _1_ longest.
 
 The 1-bit Beckett-Gray code:

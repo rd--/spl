@@ -2,7 +2,7 @@
 
 - _upsample([x₁ x₂ …], n)_
 
-Answer an upsampled copy of the sequence _x_ by inserting _n-1_ zeros after each element.
+Answer an upsampled copy of the sequence _x_ by inserting _n-1_ zeroes after each element.
 
 Upsample a `List` by a factor of three:
 

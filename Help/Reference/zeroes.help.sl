@@ -1,13 +1,13 @@
-# zeros
+# zeroes
 
-- _zeros(shape)_
+- _zeroes(shape)_
 
-Create array of all zeros with specified _shape_.
+Create array of all zeroes with specified _shape_.
 
-Create a 4×4 matrix of zeros:
+Create a 4×4 matrix of zeroes:
 
 ```
->>> [4 4].zeros
+>>> [4 4].zeroes
 [
 	0 0 0 0;
 	0 0 0 0;
@@ -16,10 +16,10 @@ Create a 4×4 matrix of zeros:
 ]
 ```
 
-Create a 2×3×4 matrix of zeros:
+Create a 2×3×4 matrix of zeroes:
 
 ```
->>> [2 3 4].zeros
+>>> [2 3 4].zeroes
 [
 	0 0 0 0;
 	0 0 0 0;
@@ -31,11 +31,11 @@ Create a 2×3×4 matrix of zeros:
 ]
 ```
 
-Create an array of zeros that is the same size as an existing array:
+Create an array of zeroes that is the same size as an existing array:
 
 ```
 >>> let a = [1 4; 2 5; 3 6];
->>> a.shape.zeros
+>>> a.shape.zeroes
 [
 	0 0;
 	0 0;

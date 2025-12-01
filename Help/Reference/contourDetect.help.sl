@@ -6,7 +6,7 @@ Answer a `SparseArray` in which `1` corresponds to zero values,
 as well as positive values that have at least one negative neighbour,
 according to _delta_.
 
-Zeros and zero crossings of a list:
+Zeroes and zero crossings of a list:
 
 ```
 >>> [4 0 1 -2 1 -2 -3 -1 3]

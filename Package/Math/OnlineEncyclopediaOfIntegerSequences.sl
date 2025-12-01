@@ -1,3 +1,35 @@
++SmallFloat {
+
+	oeisA014486 { :n |
+		n.catalanUnrank
+	}
+
+	oeisA071156 { :n |
+		n.oeisA014486.oeisA085198
+	}
+
+	oeisA085198 { :n |
+		let s = 0;
+		let h = 1;
+		let i = 2;
+		let fi = 1;
+		{ n != 0 }.whileTrue {
+			n.isOdd.if {
+				n := (n - 1) / 2;
+				h := h - 1
+			} {
+				n := n / 2;
+				s := s + (h * fi);
+				h := h + 1;
+				fi := fi * i;
+				i := i + 1
+			}
+		};
+		s
+	}
+
+}
+
 OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFile |
 
 	bFileData { :self |

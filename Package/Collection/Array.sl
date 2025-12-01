@@ -319,7 +319,7 @@
 		}
 	}
 
-	zeros { :self |
+	zeroes { :self |
 		[0].reshape(self)
 	}
 

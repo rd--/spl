@@ -2719,6 +2719,24 @@
 		}
 	}
 
+	withoutLeadingZeroes { :self |
+		let n = self.size;
+		(n = 0).if {
+			self
+		} {
+			let i = self.detectIndex(isNonZero:/1);
+			i.isNil.if {
+				self[1].isZero.if {
+					self.copyFromTo(1, 1)
+				} {
+					self
+				}
+			} {
+				self.copyFromTo(i, self.size)
+			}
+		}
+	}
+
 	withoutTrailing { :self :aBlock:/1 |
 		let n = self.size;
 		{
@@ -2735,7 +2753,7 @@
 		}
 	}
 
-	withoutTrailingZeros { :self |
+	withoutTrailingZeroes { :self |
 		self.withoutTrailing(isZero:/1)
 	}
 

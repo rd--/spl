@@ -46,7 +46,7 @@ For the matrix case see also `reshape`:
 ]
 ```
 
-A matrix of exact zeros:
+A matrix of exact zeroes:
 
 ```
 >>> [3 3].constantArray(0)

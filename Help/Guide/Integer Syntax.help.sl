@@ -35,7 +35,7 @@ There is a `Radix Syntax` for specifying non-decimal integers:
 [10 10 10 10]
 ```
 
-Leading zeros are allowed:
+Leading zeroes are allowed:
 
 ```
 >>> [00 01 02 03 04 05 06 07 08 09]

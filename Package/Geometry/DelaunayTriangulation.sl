@@ -124,7 +124,7 @@ DelaunayTriangulation : [Object] { | vertexCoordinates triangulation |
 	}
 
 	voronoiExteriorCellRays { :self |
-		let answer = [self.vertexCount, 2].zeros;
+		let answer = [self.vertexCount, 2].zeroes;
 		let hull = self.convexHullIndices;
 		let coord = self.basicCoordinates;
 		let h = hull.last;

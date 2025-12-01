@@ -6,9 +6,9 @@ Answer a plot of the argument, `arg`, of _f_ over the complex rectangle with cor
 
 A cyclic colour function,
 from _-π_ to _π_,
-identifies features such as zeros, poles and essential singularities.
+identifies features such as zeroes, poles and essential singularities.
 
-The colour function proceeds counterclockwise around zeros of a function:
+The colour function proceeds counterclockwise around zeroes of a function:
 
 ~~~spl png=A
 [-2J-2 2J2].complexPlot { :z |
@@ -68,7 +68,7 @@ The following plot shows multiple features of the Joukowski transformation:
 
 ![](sw/spl/Help/Image/complexPlot-F.png)
 
-The following plot shows a function with simple zeros,
+The following plot shows a function with simple zeroes,
 a double pole,
 and a saddle point:
 
@@ -94,7 +94,7 @@ Plot complex functions of a complex variable:
 
 Plot features of a complex function of a complex variable,
 here indicating a triple zero,
-simple zeros,
+simple zeroes,
 a simple pole,
 a double pole,
 and an essential singularity:
@@ -115,7 +115,7 @@ and an essential singularity:
 
 ![](sw/spl/Help/Image/complexPlot-I.png)
 
-Plot a complex function with zeros at poles:
+Plot a complex function with zeroes at poles:
 
 ~~~spl png=J
 [-2J-2 2J2].complexPlot { :z |

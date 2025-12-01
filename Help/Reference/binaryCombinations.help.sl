@@ -2,7 +2,7 @@
 
 - _binaryCombinations(s, t)_
 
-Answer the combinations of _s_ zeros and _t_ ones,
+Answer the combinations of _s_ zeroes and _t_ ones,
 or equally the multiset permutations of the specified binary multiset.
 
 Where _s=1,t=3_:

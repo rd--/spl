@@ -55,7 +55,7 @@ The basic operation of `numberDecompose` is `dot`:
 ```
 
 If the list of coefficients is shorter than the list of units,
-the former is left padded with zeros:
+the former is left padded with zeroes:
 
 ```
 >>> let c = [5 1 2 1.32];

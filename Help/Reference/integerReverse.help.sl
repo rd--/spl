@@ -23,7 +23,7 @@ true
 [1 1 1 1 1 0 1 1 1 1 1]
 ```
 
-Reverse the digits of an integer after padding it with zeros on the left:
+Reverse the digits of an integer after padding it with zeroes on the left:
 
 ```
 >>> 1234.integerReverse(10, 6)

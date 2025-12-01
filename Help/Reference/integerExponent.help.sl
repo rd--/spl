@@ -4,7 +4,7 @@
 
 Answers the highest power of _b_ that divides _n_.
 
-The number of trailing zeros:
+The number of trailing zeroes:
 
 ```
 >>> 1230000.integerExponent(10)
@@ -19,7 +19,7 @@ The highest power of two:
 7
 ```
 
-Number of trailing zeros in factorials,
+Number of trailing zeroes in factorials,
 OEIS [A027868](https://oeis.org/A027868):
 
 ```

@@ -136,7 +136,7 @@ At `Integer`:
 ]
 ```
 
-The state may elide trailing zeros:
+The state may elide trailing zeroes:
 
 ```
 >>> [1 1 1 0 0].siteswapStateTransition(5)

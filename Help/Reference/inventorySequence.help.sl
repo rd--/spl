@@ -4,10 +4,10 @@
 
 Answer the first _n_ terms of the inventory sequence [A342585](https://oeis.org/A342585).
 
-> The sequence records the number of zeros thus far in the sequence,
+> The sequence records the number of zeroes thus far in the sequence,
 > then the number of ones thus far, then the number of twos thus far
 > and so on, until a zero is recorded and the inventory then starts again,
-> recording the number of zeros.
+> recording the number of zeroes.
 
 Calculate the first few terms:
 
