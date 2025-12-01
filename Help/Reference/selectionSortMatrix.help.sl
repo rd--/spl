@@ -31,6 +31,20 @@ Sfc32(326871)
 
 ![](sw/spl/Help/Image/selectionSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(326871)
+.randomPermutation(128)
+.list
+.selectionSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/selectionSortMatrix-B.png)
+
 * * *
 
 See also: selectionSort, sort

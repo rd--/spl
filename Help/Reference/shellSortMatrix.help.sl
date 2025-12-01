@@ -43,6 +43,20 @@ Sfc32(372816)
 
 ![](sw/spl/Help/Image/shellSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl svg=A
+Sfc32(372816)
+.randomPermutation(64)
+.list
+.shellSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/shellSortMatrix-B.png)
+
 * * *
 
 See also: shellSort, sort

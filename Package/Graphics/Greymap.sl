@@ -28,7 +28,7 @@ Greymap : [Object] { | contents |
 	}
 
 	show { :self |
-		let pngFileName = '/tmp/graymap.png';
+		let pngFileName = '/tmp/greymap.png';
 		self.writePng(pngFileName);
 		system.systemCommand('chromium', [pngFileName])
 	}
@@ -45,7 +45,7 @@ Greymap : [Object] { | contents |
 	}
 
 	writePng { :self :fileName |
-		let pgmFileName = '/tmp/graymap.pgm';
+		let pgmFileName = '/tmp/greymap.pgm';
 		self.writePgm(pgmFileName);
 		system.systemCommand('convert', [pgmFileName, '-transparent', 'white', '-strip', fileName])
 	}

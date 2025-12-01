@@ -37,6 +37,21 @@ Sfc32(417821)
 
 ![](sw/spl/Help/Image/cycleSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(417821)
+.randomPermutation(128)
+.list
+.cycleSortMatrix
+.replaceNil(0)
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/cycleSortMatrix-B.png)
+
 * * *
 
 See also: cycleSort, sort

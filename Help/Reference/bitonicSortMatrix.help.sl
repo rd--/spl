@@ -39,6 +39,20 @@ Sfc32(362718)
 
 ![](sw/spl/Help/Image/bitonicSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(362718)
+.randomPermutation(64)
+.list
+.bitonicSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/bitonicSortMatrix-B.png)
+
 * * *
 
 See also: bitonicSort, sort

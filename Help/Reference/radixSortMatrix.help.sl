@@ -36,6 +36,21 @@ Sfc32(327481)
 
 ![](sw/spl/Help/Image/radixSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(327481)
+.randomPermutation(64)
+.list
+.radixSortMatrix
+.deleteDuplicates
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/radixSortMatrix-B.png)
+
 * * *
 
 See also: radixSort, sort

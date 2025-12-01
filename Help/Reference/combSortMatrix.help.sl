@@ -35,6 +35,20 @@ Sfc32(372861)
 
 ![](sw/spl/Help/Image/combSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(372861)
+.randomPermutation(128)
+.list
+.combSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/combSortMatrix-B.png)
+
 * * *
 
 See also: combSort, sort

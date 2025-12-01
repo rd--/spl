@@ -33,6 +33,20 @@ Sfc32(372861)
 
 ![](sw/spl/Help/Image/insertionSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(372861)
+.randomPermutation(128)
+.list
+.insertionSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/insertionSortMatrix-B.png)
+
 * * *
 
 See also: insertionSort, sort

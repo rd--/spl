@@ -32,6 +32,20 @@ Sfc32(327681)
 
 ![](sw/spl/Help/Image/bubbleSortMatrix-A.svg)
 
+Plot matrix of sucessive sort states:
+
+~~~spl png=B
+Sfc32(372681)
+.randomPermutation(36)
+.list
+.bubbleSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/bubbleSortMatrix-B.png)
+
 * * *
 
 See also: bubbleSort, sort

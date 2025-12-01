@@ -32,6 +32,20 @@ Sfc32(376581)
 
 ![](sw/spl/Help/Image/oddEvenSortMatrix-A.svg)
 
+Sort longer list:
+
+~~~spl png=B
+Sfc32(376581)
+.randomPermutation(36)
+.list
+.oddEvenSortMatrix
+.transpose
+.rescale
+.Greymap
+~~~
+
+![](sw/spl/Help/Image/oddEvenSortMatrix-B.png)
+
 * * *
 
 See also: oddEvenSort, sort
