@@ -5,7 +5,7 @@ Nil! : [Object, Storeable, Equatable, Json] {
 	}
 
 	[evaluatingIfNil, ??] { :unused :anObject |
-		anObject.value
+		anObject
 	}
 
 	[ifNil, ?] { :self :whenNil:/0 |
@@ -52,6 +52,10 @@ Nil! : [Object, Storeable, Equatable, Json] {
 		false
 	}
 
+	replaceNil { :unused :anObject |
+		anObject
+	}
+
 	storeString { :self |
 		'nil'
 	}
@@ -60,7 +64,7 @@ Nil! : [Object, Storeable, Equatable, Json] {
 
 +@Object {
 
-	[evaluatingIfNil, ??] { :self :anObject |
+	[evaluatingIfNil, ??] { :self :unused |
 		self
 	}
 
@@ -86,6 +90,10 @@ Nil! : [Object, Storeable, Equatable, Json] {
 
 	isNotNil { :self |
 		true
+	}
+
+	replaceNil { :self :unused |
+		self
 	}
 
 }

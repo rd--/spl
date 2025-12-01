@@ -123,6 +123,15 @@ in lexicographic order:
 
 ![](sw/spl/Help/Image/multisetPermutations-B.svg)
 
+Circular matrix plot:
+
+~~~spl svg=C
+[1 2 3 1].multisetPermutations
+.circularMatrixPlot
+~~~
+
+![](sw/spl/Help/Image/multisetPermutations-C.svg)
+
 * * *
 
 See also: multinomial, permutations

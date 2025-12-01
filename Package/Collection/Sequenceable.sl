@@ -1729,6 +1729,14 @@
 		}
 	}
 
+	maxFromTo { :self :fromIndex :toIndex |
+		let answer = self[fromIndex];
+		(fromIndex + 1).toDo(toIndex) { :i |
+			answer := max(answer, self[i])
+		};
+		answer
+	}
+
 	maximumSegmentSum { :self |
 		let answer = -Infinity;
 		let currentSum = 0;

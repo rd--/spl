@@ -9,8 +9,12 @@ Comparison Operators:
 
 Sort:
 
+- `bubbleSort`
+- `combSort`
 - `countingSort`
+- `cycleSort`
 - `heapSort`
+- `insertionSort`
 - `mergeInPlace`
 - `mergeSortBy`
 - `mergeSortFromToBy`
@@ -19,6 +23,8 @@ Sort:
 - `quickSortFromToBy`
 - `quickSortBy`
 - `quickSort`
+- `selectionSort`
+- `shellSort`
 - `sortBy`
 - `sortByOn`
 - `sortOn`
@@ -65,6 +71,15 @@ Querying:
 Selecting:
 
 - `takeSmallest`
+
+Sort Matrices:
+
+- `bubbleSortMatrix`
+- `combSortMatrix`
+- `cycleSortMatrix`
+- `insertionSortMatrix`
+- `shellSortMatrix`
+- `selectionSortMatrix`
 
 * * *
 

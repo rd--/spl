@@ -27,4 +27,6 @@ At `List`:
 
 See also: collect, replaceWith
 
+Guides: Dictionary Functions, List Functions
+
 Categories: Enumerating

@@ -20,6 +20,13 @@ Delete missing values from a record:
 (x: 1, z: 3)
 ```
 
+`Nil` values are considered to be missing:
+
+```
+>>> [1 2 3 nil 5].deleteMissing
+[1 2 3 5]
+```
+
 * * *
 
 See also: Missing

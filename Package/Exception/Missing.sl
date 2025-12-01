@@ -1,4 +1,4 @@
-Missing : [Object, Storeable, Equatable] { | reason value |
+Missing : [Object, Storeable, Equatable] { | reasonMissing value |
 
 }
 
@@ -17,7 +17,7 @@ Missing : [Object, Storeable, Equatable] { | reason value |
 +@Collection {
 
 	deleteMissing { :self |
-		self.reject(isMissingOrNil:/1)
+		self.reject(isMissing:/1)
 	}
 
 	deleteMissing { :self :n |
@@ -32,18 +32,14 @@ Missing : [Object, Storeable, Equatable] { | reason value |
 
 }
 
-+[Missing, Nil] {
++Nil {
 
-	isMissingOrNil { :unused |
+	isMissing { :unused |
 		true
 	}
 
-}
-
-+@Object {
-
-	isMissingOrNil { :unused |
-		false
+	reasonMissing { :unused |
+		'Unknown'
 	}
 
 }

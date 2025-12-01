@@ -243,6 +243,16 @@ OEIS [A001060](https://oeis.org/A001060):
 [2 5 7 12 19 31 50 81 131 212 343 555]
 ```
 
+Leonardo numbers,
+OEIS [A001595](https://oeis.org/A001595):
+
+```
+>>> 0:13.collect { :n |
+>>> 	2 * (n + 1).fibonacci - 1
+>>> }
+[1 1 3 5 9 15 25 41 67 109 177 287 465 753]
+```
+
 The closed form is implemented using approximate floating point constants and functions,
 and is accurate only to the 75th term.
 For positive integer values where _x=1_ `fibonacci` is equivalent to `fibonacciNumber`,
@@ -374,7 +384,8 @@ _OEIS_
 [2](https://oeis.org/A001605)
 [3](https://oeis.org/A105870)
 [4](https://oeis.org/A010048)
-[5](https://oeis.org/A000071),
+[5](https://oeis.org/A000071)
+[6](https://oeis.org/A001595),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.numbers.fibonacci),
 _W_

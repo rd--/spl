@@ -473,6 +473,12 @@
 		}
 	}
 
+	replaceNil { :x :y |
+		x.collect { :each |
+			each.replaceNil(y)
+		}
+	}
+
 	riemannXi { :self |
 		self.collect(riemannXi:/1)
 	}

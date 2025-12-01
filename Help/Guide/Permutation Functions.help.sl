@@ -9,6 +9,7 @@ Accessing:
 - `ascents`
 - `descents`
 - `fixedPoints`
+- `inversions`
 - `length`
 - `majorIndex`
 - `max`

@@ -51,7 +51,7 @@
 		countingSort(input, identity:/1, input.max)
 	}
 
-	heapSortBy { :self :sortBlock:/2 |
+	heapSort { :self :sortBlock:/2 |
 		let h = Heap(sortBlock:/2);
 		let l = [];
 		let k = self.size;
@@ -63,7 +63,7 @@
 	}
 
 	heapSort { :self |
-		self.heapSortBy(<=|)
+		self.heapSort(<=|)
 	}
 
 	sorted { :self |
@@ -413,6 +413,219 @@
 
 	reverseReflectedLexicographicSort { :self |
 		self.reverseLexicographicSort.collect(reverse:/1)
+	}
+
+}
+
++List {
+
+	bubbleSort { :s :f:/1 |
+		let n = s.size - 1;
+		let isSorted = false;
+		{ isSorted }.whileFalse {
+			let t = 1;
+			1.toDo(n) { :j |
+				(s[j] > s[j + 1]).ifTrue {
+					s.swapWith(j, j + 1);
+					f(s);
+					t := j
+				}
+			};
+			isSorted := t = 1;
+			n := t
+		};
+		s
+	}
+
+	bubbleSort { :s |
+		s.bubbleSort(nil.constant)
+	}
+
+	bubbleSortMatrix { :s |
+		let m = [s.copy];
+		s.bubbleSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	insertionSort { :s :f:/1 |
+		let n = s.size;
+		2.toDo(n) { :i |
+			1.toDo(i) { :j |
+				(s[i] < s[j]).ifTrue {
+					let x = s.removeAt(i);
+					s.insertAt(x, j);
+					f(s)
+				}
+			}
+		};
+		s
+	}
+
+	insertionSort { :s |
+		s.insertionSort(nil.constant)
+	}
+
+	insertionSortMatrix { :s |
+		let m = [s.copy];
+		s.insertionSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	shellSort { :s :t :f:/1 |
+		let n = s.size;
+		t.do { :h |
+			(h + 1).toDo(n) { :j |
+				let i = j - h;
+				let r = s[j];
+				let continue = true;
+				{ continue & { i > 0 } }.whileTrue {
+					(r < s[i]).if {
+						s.swapWith(i, i + h);
+						i := i - h;
+						f(s)
+					} {
+						continue := false
+					}
+				};
+				s[i + h] := r
+			}
+		};
+		s
+	}
+
+	shellSort { :s |
+		s.shellSort([5, 3, 1], nil.constant)
+	}
+
+	shellSortMatrix { :s :t |
+		let m = [s.copy];
+		s.shellSort(t) { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+	shellSortMatrix { :s |
+		s.shellSortMatrix([5, 3, 1])
+	}
+
+}
+
++List {
+
+	combSort { :s :f:/1 |
+		let n = s.size;
+		let gap = n;
+		let continue = true;
+		{ continue }.whileTrue {
+			let swaps = false;
+			gap := (gap / 1.25).floor;
+			1.toDo(n - gap) { :i |
+				(s[i] > s[i + gap]).ifTrue {
+					s.swapWith(i, i + gap);
+					f(s);
+					swaps := true
+				}
+			};
+			(swaps.not & { gap <= 1 }).ifTrue {
+				continue := false
+			}
+		};
+		s
+	}
+
+	combSort { :s |
+		s.combSort(nil.constant)
+	}
+
+	combSortMatrix { :s |
+		let m = [s.copy];
+		s.combSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	selectionSort { :s :f:/1 |
+		let n = s.size;
+		n.toByDo(1, -1) { :j |
+			let m = s.indexOf(s.maxFromTo(1, j));
+			(m != j).ifTrue {
+				s.swapWith(j, m);
+				f(s)
+			}
+		};
+		s
+	}
+
+	selectionSort { :s |
+		s.selectionSort(nil.constant)
+	}
+
+	selectionSortMatrix { :s |
+		let m = [s.copy];
+		s.selectionSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	cycleSort { :s :f:/1 |
+		s.isPermutationList.ifFalse {
+			s.error('cycleSort: not permutation list')
+		};
+		1.toDo(s.size) { :i |
+			(i != s[i]).ifTrue {
+				let n = i;
+				let continue = true;
+				let y = nil;
+				{ continue }.whileTrue {
+					let x = s[n];
+					s[n] := (n != i).if { y } { nil } ;
+					f(s);
+					y := x;
+					n := y;
+					(n = i).ifTrue {
+						s[n] := y;
+						f(s);
+						continue := false
+					}
+				}
+			}
+		};
+		s
+	}
+
+	cycleSort { :s |
+		s.cycleSort(nil.constant)
+	}
+
+	cycleSortMatrix { :s |
+		let m = [s.copy];
+		s.cycleSort { :x |
+			m.add(x.copy)
+		};
+		m
 	}
 
 }

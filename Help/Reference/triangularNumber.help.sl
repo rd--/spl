@@ -87,6 +87,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TriangularNumber.html),
 _OEIS_
-[1](https://oeis.org/A000217),
+[1](https://oeis.org/A000217)
+[2](https://oeis.org/A008302),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_number)

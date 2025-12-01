@@ -1,8 +1,8 @@
 # permutationDegree
 
-- _permutationDegree(aPermutation)_
+- _permutationDegree(p)_
 
-Answer the notated degree of _aPermutation_.
+Answer the notated degree of the permutation _p_.
 
 In the permutation list case the answer is the maximum entry,
 and is equal to `permutationMax`:
@@ -34,5 +34,7 @@ and uses it for reconstructing notations as required.
 * * *
 
 See also: Permutation, permutationMax
+
+Guides: Permutation Functions
 
 Categories: Permutations

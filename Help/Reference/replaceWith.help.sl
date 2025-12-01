@@ -17,4 +17,6 @@ Replace first occurence of a string matching the regular expression _r_ in the s
 
 See also: replace, replaceString, replaceStringAll, replaceAllWith
 
+Guides: Regular Expression Functions
+
 Categories: Replacing

@@ -522,6 +522,10 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
+	majorIndex { :self |
+		Permutation(self).majorIndex
+	}
+
 	minimumChangePermutations { :self |
 		let answer = [];
 		self.minimumChangePermutationsDo { :each |
@@ -1024,3 +1028,28 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 	}
 
 }
+
++SmallFloat {
+
+	mahonianNumber { :n :k |
+		(n = 0 & { k = 0 }).if {
+			1
+		} {
+			(n = -1).if {
+				0
+			} {
+				let m = n * (n - 1) / 2;
+				(k >= 0 & { k <= m }).if {
+					let a = mahonianNumber(n, k - 1);
+					let b = mahonianNumber(n - 1, k);
+					let c = mahonianNumber(n - 1, k - n);
+					a + b - c
+				} {
+					0
+				}
+			}
+		}
+	}
+
+}
+

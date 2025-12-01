@@ -16,16 +16,66 @@
 		self
 	}
 
-	nextLink { :self |
-		self.typeResponsibility('nextLink')
+	do { :self :aBlock:/1 |
+		self.linksDo { :each |
+			aBlock(each.value)
+		}
+	}
+
+	linkAt { :self :index |
+		self.linkAtIfAbsent(index) {
+			self.errorInvalidIndex('linkAt', index)
+		}
+	}
+
+	linkAtIfAbsent { :self :index :errorBlock:/0 |
+		let counter = 0;
+		valueWithReturn { :return:/1 |
+			self.linksDo { :link |
+				counter := counter + 1;
+				(counter = index).ifTrue {
+					link.return
+				}
+			};
+			errorBlock()
+		}
+	}
+
+	linkOf { :self :anObject |
+		self.linkOfIfAbsent(anObject) {
+			'linkOf: no such element'.error
+		}
+	}
+
+	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
+		valueWithReturn { :return:/1 |
+			self.linksDo { :link |
+				(link.value = anObject.value).ifTrue {
+					link.return
+				}
+			};
+			errorBlock()
+		}
+	}
+
+	linksDo { :self :aBlock:/1 |
+		let next = self;
+		{ next.isNil }.whileFalse {
+			aBlock(next);
+			next := next.nextLink
+		}
 	}
 
 	lastLink { :self |
-		self.nextLink.isNil.if {
-			self
-		} {
-			self.lastLink
-		}
+		let next = self;
+		{ next.nextLink.isNil }.whileFalse {
+			next := next.nextLink
+		};
+		next
+	}
+
+	nextLink { :self |
+		self.typeResponsibility('nextLink')
 	}
 
 }
@@ -126,12 +176,8 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 	}
 
 	do { :self :aBlock:/1 |
-		let aLink = self.firstLink;
-		{
-			aLink = nil
-		}.whileFalse {
-			aBlock(aLink.value);
-			aLink := aLink.nextLink
+		self.ifNotEmpty {
+			self.firstLink.do(aBlock:/1)
 		}
 	}
 
@@ -144,48 +190,40 @@ LinkedList : [Object, Equatable, Storeable, Copyable, Comparable, Iterable, Inde
 	}
 
 	linkAt { :self :index |
-		self.linkAtIfAbsent(index) {
-			self.errorInvalidIndex('linkAt', index)
+		self.ifEmpty {
+			self.error('linkAt: empty')
+		} {
+			self.firstLink.linkAt(index)
 		}
 	}
 
 	linkAtIfAbsent { :self :index :errorBlock:/0 |
-		let counter = 0;
-		valueWithReturn { :return:/1 |
-			self.linksDo { :link |
-				counter := counter + 1;
-				(counter = index).ifTrue {
-					link.return
-				}
-			};
+		self.ifEmpty {
 			errorBlock()
+		} {
+			self.firstLink.linkAtIfAbsent(index, errorBlock:/0)
 		}
 	}
 
 	linkOf { :self :anObject |
-		self.linkOfIfAbsent(anObject) {
-			'LinkedList>>linkOf: no such element'.error
+		self.ifEmpty {
+			self.error('linkOf: empty')
+		} {
+			self.firstLink.linkOf(anObject)
 		}
 	}
 
 	linkOfIfAbsent { :self :anObject :errorBlock:/0 |
-		valueWithReturn { :return:/1 |
-			self.linksDo { :link |
-				(link.value = anObject.value).ifTrue {
-					link.return
-				}
-			};
+		self.ifEmpty {
 			errorBlock()
+		} {
+			self.firstLink.linkOfIfAbsent(anObject, errorBlock:/0)
 		}
 	}
 
 	linksDo { :self :aBlock:/1 |
-		let aLink = self.firstLink;
-		{
-			aLink = nil
-		}.whileFalse {
-			aBlock(aLink);
-			aLink := aLink.nextLink
+		self.ifNotEmpty {
+			self.firstLink.linksDo(aBlock:/1)
 		}
 	}
 
