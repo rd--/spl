@@ -1108,3 +1108,27 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List {
+
+	partitionPlot { :self |
+		let n = self.sum(size:/1);
+		let p = circlePoints(n, [0 0], 100, 0);
+		let c = Circle([0 0], 100);
+		let l = self.collect { :a |
+			let b = p.atAll(a);
+			let k = a.size;
+			(k = 1).if {
+				Disk(b[1], 2)
+			} {
+				(k = 2).if {
+					Line(b)
+				} {
+					Polygon(b)
+				}
+			}
+		};
+		GeometryCollection([l, p.PointCloud, c])
+	}
+
+}

@@ -14,6 +14,7 @@ Sort:
 - `combSort`
 - `countingSort`
 - `cycleSort`
+- `gnomeSort`
 - `heapSort`
 - `insertionSort`
 - `mergeInPlace`
@@ -28,6 +29,7 @@ Sort:
 - `radixSort`
 - `selectionSort`
 - `shellSort`
+- `shuffleSort`
 - `sortBy`
 - `sortByOn`
 - `sortOn`
@@ -81,10 +83,12 @@ Sort Matrices:
 - `bubbleSortMatrix`
 - `combSortMatrix`
 - `cycleSortMatrix`
+- `gnomeSortMatrix`
 - `insertionSortMatrix`
 - `oddEvenSortMatrix`
 - `radixSortMatrix`
 - `shellSortMatrix`
+- `shuffleSortMatrix`
 - `selectionSortMatrix`
 
 * * *

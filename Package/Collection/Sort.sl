@@ -756,3 +756,80 @@
 	}
 
 }
+
++List {
+
+	gnomeSort { :s :f:/1 |
+		let n = s.size;
+		let i = 1;
+		{ i <= n }.whileTrue {
+			(i = 1 | { s[i] >= s[i - 1] }).if {
+				i := i + 1
+			} {
+				s.swapWith(i, i - 1);
+				f(s);
+				i := i - 1
+			}
+		};
+		s
+	}
+
+	gnomeSort { :s |
+		s.gnomeSort(nil.constant)
+	}
+
+	gnomeSortMatrix { :s |
+		let m = [s.copy];
+		s.gnomeSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+
++List {
+
+	shuffleSort { :s :f:/1 |
+		let begin = 1;
+		let end = s.size - 1;
+		let finished = false;
+		{ finished }.whileFalse {
+			finished := true;
+			begin.toDo(end) { :i |
+				(s[i] > s[i + 1]).ifTrue {
+					s.swapWith(i, i + 1);
+					f(s);
+					finished := false
+				}
+			};
+			finished.ifFalse {
+				finished := true;
+				end := end - 1;
+				end.downToDo(begin) { :i |
+					(s[i] > s[i + 1]).ifTrue {
+						s.swapWith(i, i + 1);
+						f(s);
+						finished := false
+					}
+				}
+			};
+			begin := begin + 1
+		};
+		s
+	}
+
+	shuffleSort { :s |
+		s.shuffleSort(nil.constant)
+	}
+
+	shuffleSortMatrix { :s |
+		let m = [s.copy];
+		s.shuffleSort { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}
+

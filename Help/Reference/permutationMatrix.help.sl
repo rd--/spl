@@ -135,6 +135,18 @@ Define the _n×n_ Gray code permutation matrix:
 [1 2 4 3]
 ```
 
+Plot the permutation matrix of a random permutation of length thirty-two:
+
+~~~spl svg=A
+Sfc32(326871)
+.randomPermutation(32)
+.list
+.permutationMatrix
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/permutationMatrix-A.svg)
+
 * * *
 
 See also: permutationCycles, permutationList, permute

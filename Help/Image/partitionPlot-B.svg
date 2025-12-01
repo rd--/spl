@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="101.0" height="100.0" viewBox="-55.0 -55.0 111.0 110.0">
+<g fill="none" stroke="black" stroke-width="1.0000%" transform="translate(0, 0.0000) scale(0.5000, -0.5000)">
+<g fill="rgb(0,0,0)" ><circle cx="100.0" cy="0.0" r="2.0" /></g>
+<polygon points="70.7,70.7 -70.7,-70.7 -0.0,-100.0 70.7,-70.7" />
+<line x1="0.0" y1="100.0" x2="-100.0" y2="0.0" />
+<g fill="rgb(0,0,0)" ><circle cx="-70.7" cy="70.7" r="2.0" /></g>
+<circle cx="100.0" cy="0.0" r="1.0" />
+<circle cx="70.7" cy="70.7" r="1.0" />
+<circle cx="0.0" cy="100.0" r="1.0" />
+<circle cx="-70.7" cy="70.7" r="1.0" />
+<circle cx="-100.0" cy="0.0" r="1.0" />
+<circle cx="-70.7" cy="-70.7" r="1.0" />
+<circle cx="-0.0" cy="-100.0" r="1.0" />
+<circle cx="70.7" cy="-70.7" r="1.0" />
+<circle cx="0.0" cy="0.0" r="100.0" />
+</g>
+</svg>
