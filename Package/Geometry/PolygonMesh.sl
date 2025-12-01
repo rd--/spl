@@ -104,6 +104,36 @@ PolygonMesh : [Object, Storeable, Equatable, Geometry, PolygonMesh] { | vertexCo
 
 }
 
++List {
+
+	arrayMesh { :self |
+		let [m, n] = self.shape;
+		let vertexList = [];
+		let faceList = [];
+		let zeroIndexedCellVertices = { :x :y |
+			[[x, y], [x + 1, y], [x + 1, y + 1], [x, y + 1]]
+		};
+		let vertexIndex = { :v |
+			vertexList.indexOf(v)
+		};
+		{ :i :j |
+			self[i][j].isNonZero.ifTrue {
+				let v = zeroIndexedCellVertices(j - 1, m - i);
+				vertexList.addAllIfNotPresent(v);
+				faceList.add(v.collect(vertexIndex:/1))
+			}
+		}.table(1:m, 1:n);
+		AnnotatedGeometry(
+			PolygonMesh(vertexList, faceList),
+			(
+				strokeColour: 0.25.greyLevel(0.25),
+				fillColour: 0.5.greyLevel(0.5)
+			)
+		)
+	}
+
+}
+
 +System {
 
 	planarConvexPolytopeGraphCatalogue { :self |
