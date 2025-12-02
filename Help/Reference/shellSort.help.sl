@@ -30,3 +30,5 @@ Guides: Sort Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Shell_sort)
+
+Further Reading: Shell 1959

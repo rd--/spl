@@ -32,3 +32,5 @@ Guides: Sort Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Bitonic_sorter)
+
+Further Reading: Batcher 1968

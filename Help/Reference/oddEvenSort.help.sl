@@ -30,3 +30,5 @@ Guides: Sort Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Odd-even_sort)
+
+Further Reading: Habermanm 1972

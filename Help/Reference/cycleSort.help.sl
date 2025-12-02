@@ -31,3 +31,5 @@ Guides: Sort Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Cycle_sort)
+
+Further Reading: Haddon 1990

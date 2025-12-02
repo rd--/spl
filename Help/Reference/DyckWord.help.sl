@@ -15,6 +15,7 @@ On the letters _1,-1_, _n=4_:
 >>> 	w.length,
 >>> 	w.heightList,
 >>> 	w.parenthesization,
+>>> 	w.parenthesizationList,
 >>> 	w.binaryExpansion,
 >>> 	w.integer,
 >>> 	w.edgeList,
@@ -25,6 +26,7 @@ On the letters _1,-1_, _n=4_:
 	8,
 	[0 1 2 1 2 1 0 1 0],
 	'(()())()',
+	[[[],[]],[]],
 	[1 1 0 1 0 0 1 0],
 	210,
 	[1 6; 2 3; 4 5; 7 8],
@@ -66,7 +68,8 @@ DyckWord(
 
 ![](sw/spl/Help/Image/DyckWord-A.svg)
 
-Plot word interpreted as tree, _n=7_:
+Plot the word _(((())())(()))_ interpreted as a tree,
+_n=7_:
 
 ~~~spl svg=B
 DyckWord(
@@ -77,7 +80,8 @@ DyckWord(
 
 ![](sw/spl/Help/Image/DyckWord-B.svg)
 
-Plot word interpreted as a chord diagram, _n=3_:
+Plot the word _()()()_ interpreted as a chord diagram,
+_n=3_:
 
 ~~~spl svg=C
 DyckWord([1 0 1 0 1 0])
@@ -86,7 +90,8 @@ DyckWord([1 0 1 0 1 0])
 
 ![](sw/spl/Help/Image/DyckWord-C.svg)
 
-Plot word interpreted as a chord diagram, _n=7_:
+Plot the word _((((()))()()))_ interpreted as a chord diagram,
+_n=7_:
 
 ~~~spl svg=D
 DyckWord([1 1 1 1 1 0 0 0 1 0 1 0 0 0])
@@ -95,7 +100,8 @@ DyckWord([1 1 1 1 1 0 0 0 1 0 1 0 0 0])
 
 ![](sw/spl/Help/Image/DyckWord-D.svg)
 
-Plot word interpreted as a graph on a line:
+Plot the word _()(())_ interpreted as a graph on a line,
+_n=3_:
 
 ~~~spl svg=E
 DyckWord([1 0 1 1 0 0])
@@ -104,7 +110,7 @@ DyckWord([1 0 1 1 0 0])
 
 ![](sw/spl/Help/Image/DyckWord-E.svg)
 
-Plot word interpreted as a set partition,
+Plot the word _()()(()()(()))_ interpreted as a set partition,
 the associated restricted growth string is _0011210_,
 the set partition is _127-346-5_:
 

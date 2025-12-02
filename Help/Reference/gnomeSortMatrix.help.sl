@@ -8,14 +8,14 @@ record each intermediate state as a row in a matrix.
 Matrix holds each intermediate permutation of the initial sequence in turn:
 
 ```
->>> [5 3 2 4]
+>>> [2 1 7 5 3]
 >>> .gnomeSortMatrix
 [
-	5 3 2 4;
-	3 5 2 4;
-	3 2 5 4;
-	2 3 5 4;
-	2 3 4 5
+	2 1 7 5 3;
+	1 2 7 5 3;
+	1 2 5 7 3;
+	1 2 5 3 7;
+	1 2 3 5 7
 ]
 ```
 

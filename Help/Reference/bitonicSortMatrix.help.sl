@@ -61,4 +61,4 @@ Guides: Sort Functions
 
 References:
 _W_
-[1](https://en.wikipedia.org/wiki/Bitonic_sort)
+[1](https://en.wikipedia.org/wiki/Bitonic_sorter)

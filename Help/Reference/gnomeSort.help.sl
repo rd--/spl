@@ -30,3 +30,5 @@ Guides: Sort Functions
 References:
 _W_
 [1](https://en.wikipedia.org/wiki/Gnome_sort)
+
+Further Reading: Singer 1980

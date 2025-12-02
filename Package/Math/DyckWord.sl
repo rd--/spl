@@ -75,6 +75,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 		}.stringJoin
 	}
 
+	parenthesizationList { :self |
+		self.tree.asList.deepCollect { :unused | [] }
+	}
+
 	partitionPlot { :self |
 		self.setPartition.partitionPlot
 	}
