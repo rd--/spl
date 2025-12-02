@@ -211,7 +211,7 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/MotzkinNumber.html),
 _OEIS_
-[1](https://oeis.org/A071153)
+[1](https://oeis.org/A071153),
 
 Further Reading: Balakirsky 2002, Lapey 2022
 

@@ -395,6 +395,35 @@ OEIS [A108838](https://oeis.org/A108838):
 ]
 ```
 
+Catalan triangle with zeroes,
+OEIS [A053121](https://oeis.org/A053121):
+
+```
+>>> 0:10.triangularArray { :n :m |
+>>> 	(n < m | { (n - m).isOdd }).if {
+>>> 		0
+>>> 	} {
+>>> 		(m + 1) * binomial(
+>>> 			n + 1,
+>>> 			(n - m) / 2
+>>> 		) / (n + 1)
+>>> 	}
+>>> }
+[
+	   1;
+	   0   1;
+	   1   0   1;
+	   0   2   0   1;
+	   2   0   3   0   1;
+	   0   5   0   4   0   1;
+	   5   0   9   0   5   0   1;
+	   0  14   0  14   0   6   0  1;
+	  14   0  28   0  20   0   7  0  1;
+	   0  42   0  48   0  27   0  8  0  1;
+	  42   0  90   0  75   0  35  0  9  0  1
+]
+```
+
 Plot over a subset of the reals as a function of its first parameter:
 
 ~~~spl svg=A
@@ -460,7 +489,8 @@ _OEIS_
 [10](https://oeis.org/A002260)
 [11](https://oeis.org/A004736)
 [12](https://oeis.org/A001405)
-[13](https://oeis.org/A108838),
+[13](https://oeis.org/A108838)
+[14](https://oeis.org/A053121),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.binomial),
 _W_

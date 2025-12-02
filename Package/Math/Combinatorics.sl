@@ -627,6 +627,10 @@
 
 +List {
 
+	canonicalSetPartition { :self |
+		self.collect(sort:/1).sortOn(first:/1)
+	}
+
 	isIntegerPartition { :self :n |
 		self.sum = n & {
 			self.allSatisfy(isPositiveInteger:/1) & {
@@ -684,7 +688,7 @@
 		self.withIndexDo { :each :index |
 			answer.at(each + 1).add(index)
 		};
-		answer.reject(isEmpty:/1)
+		answer.reject(isEmpty:/1).canonicalSetPartition
 	}
 
 	transposeTableau { :self |

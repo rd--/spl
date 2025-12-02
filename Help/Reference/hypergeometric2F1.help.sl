@@ -33,6 +33,18 @@ At `Complex`:
 -0.972167J-0.181659
 ```
 
+Count a kind of Schröder tree,
+OEIS [A010683](https://oeis.org/A010683):
+
+```
+>>> 1:9.collect { :n |
+>>> 	2 * hypergeometric2F1(
+>>> 		1 - n, n + 3, 2, -1
+>>> 	)
+>>> }
+[2 7 28 121 550 2591 12536 61921 310954]
+```
+
 Plot varying _z_ over a subset of the reals:
 
 ~~~spl svg=A
@@ -71,6 +83,8 @@ Guides: Special Functions
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HypergeometricFunction.html)
-[2](https://reference.wolframcloud.com/language/ref/Hypergeometric2F1.html)
+[2](https://reference.wolframcloud.com/language/ref/Hypergeometric2F1.html),
+_OEIS_
+[1](https://oeis.org/A010683),
 _W_
 [1](https://en.wikipedia.org/wiki/Hypergeometric_function)

@@ -329,6 +329,7 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 				harmoniousNumber: [001622 060006 060007 160155 230159 230160],
 				hexagonalNumber: [000384],
 				hofstadterQSequence: [005185],
+				hypergeometric2F1: [010683],
 				integerDigits: [062756 364024 007376 265326 117966 160855 010060 005811 014311 029931 066099 048793 167489 101211 322182 007954],
 				integerExponent: [001511 007814 025480 110963 366601],
 				integerLength: [070939 061384],

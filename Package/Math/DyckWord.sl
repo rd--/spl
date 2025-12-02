@@ -20,7 +20,7 @@ DyckWord : [Object, Storeable] { | word tokens |
 		let w = self.word;
 		let n = w.size;
 		let e = [];
-		let h = self.heights;
+		let h = self.heightList;
 		1.toDo(n) { :i |
 			(w[i] = a).ifTrue {
 				let j = h.indexOfStartingAtBy(h[i], i + 1, =) - 1;
@@ -38,7 +38,7 @@ DyckWord : [Object, Storeable] { | word tokens |
 		self.graph.graphPlot
 	}
 
-	heights { :self |
+	heightList { :self |
 		let [a, b] = self.tokens;
 		let h = 0;
 		let answer = [h];
@@ -53,6 +53,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 		self.binaryExpansion.fromDigits(2)
 	}
 
+	length { :self |
+		self.word.size
+	}
+
 	linearGraphPlot { :self |
 		self.graph.linearGraphPlot
 	}
@@ -62,13 +66,34 @@ DyckWord : [Object, Storeable] { | word tokens |
 		self.tree.do { :t |
 			w.add(t.size)
 		};
-		w
+		w.allButLast
 	}
 
 	parenthesization { :self |
 		self.binaryExpansion.collect { :each |
 			(each = 1).if { '(' } { ')' }
 		}.stringJoin
+	}
+
+	partitionPlot { :self |
+		self.setPartition.partitionPlot
+	}
+
+	restrictedGrowthString { :self |
+		let n = self.length;
+		let h = self.heightList;
+		let b = self.binaryExpansion;
+		let s = [];
+		2.toDo(n) { :i |
+			(b[i] = 0).ifTrue {
+				s.add(h[i] - 1)
+			}
+		};
+		s
+	}
+
+	setPartition { :self |
+		self.restrictedGrowthString.setPartition
 	}
 
 	tree { :self |

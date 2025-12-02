@@ -32,7 +32,7 @@ Sfc32(327681)
 
 ![](sw/spl/Help/Image/bubbleSortMatrix-A.svg)
 
-Plot matrix of sucessive sort states:
+Sort longer list:
 
 ~~~spl png=B
 Sfc32(372681)

@@ -107,3 +107,46 @@
 	}
 
 }
+
++List {
+
+	mergeSortVisiting { :s :left :right :f:/1 |
+		(left < right).ifTrue {
+			let middle = (left + right) // 2;
+			let i = left;
+			let endI = middle;
+			let j = middle + 1;
+			mergeSortVisiting(s, left, middle, f:/1);
+			mergeSortVisiting(s, middle + 1, right, f:/1);
+			{ i <= endI & { j <= right } }.whileTrue {
+				(s[i] < s[j]).if {
+					i := i + 1
+				} {
+					let x = s[j];
+					(j - 1).downToDo(i) { :k |
+						s[k + 1] := s[k]
+					};
+					s[i] := x;
+					f(s);
+					i := i + 1;
+					endI := endI + 1;
+					j := j + 1
+				}
+			}
+		};
+		s
+	}
+
+	mergeSortVisiting { :s :f:/1 |
+		mergeSortVisiting(s, 1, s.size, f:/1)
+	}
+
+	mergeSortMatrix { :s |
+		let m = [s.copy];
+		s.mergeSortVisiting { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}

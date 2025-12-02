@@ -266,6 +266,28 @@ which consults a cached table, is accurate, and may answer a `LargeInteger`:
 1672445759041379840132227567949787325L
 ```
 
+The golden triangle,
+OEIS [A180662](https://oeis.org/A180662):
+
+```
+>>> 0:10.triangularArray { :n :k |
+>>> 	[k, k + 1].fibonacci.product
+>>> }
+[
+	0;
+	0 1;
+	0 1 2;
+	0 1 2 6;
+	0 1 2 6 15;
+	0 1 2 6 15 40;
+	0 1 2 6 15 40 104;
+	0 1 2 6 15 40 104 273;
+	0 1 2 6 15 40 104 273 714;
+	0 1 2 6 15 40 104 273 714 1870;
+	0 1 2 6 15 40 104 273 714 1870 4895
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

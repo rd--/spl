@@ -12,21 +12,28 @@ On the letters _1,-1_, _n=4_:
 >>> 	[1 -1]
 >>> );
 >>> (
->>> 	w.heights,
+>>> 	w.length,
+>>> 	w.heightList,
 >>> 	w.parenthesization,
 >>> 	w.binaryExpansion,
->>> 	w.integer, w.edgeList
+>>> 	w.integer,
+>>> 	w.edgeList,
+>>> 	w.restrictedGrowthString,
+>>> 	w.setPartition
 >>> )
 (
+	8,
 	[0 1 2 1 2 1 0 1 0],
 	'(()())()',
 	[1 1 0 1 0 0 1 0],
 	210,
-	[1 6; 2 3; 4 5; 7 8]
+	[1 6; 2 3; 4 5; 7 8],
+	[1 1 0 0],
+	[1 2; 3 4]
 )
 ```
 
-Corresponding Lukasiewicz-word:
+Corresponding Łukasiewicz-word:
 
 ```
 >>> let w = DyckWord(
@@ -34,14 +41,14 @@ Corresponding Lukasiewicz-word:
 >>> 	[1 0]
 >>> );
 >>> (w.integer, w.lukasiewiczWord)
-(50, [2 1 0 0])
+(50, [2 1 0])
 
 >>> let w = DyckWord(
 >>> 	[1 1 1 1 0 0 1 0 0 1 1 0 0 0],
 >>> 	[1 0]
 >>> );
 >>> (w.integer, w.lukasiewiczWord)
-(15512, [1 2 2 1 0 0 1 0])
+(15512, [1 2 2 1 0 0 1])
 ```
 
 Plot heights, _n=12_:
@@ -54,7 +61,7 @@ DyckWord(
 		0 0 0 0
 	],
 	[1 0]
-).heights.pointLinePlot
+).heightList.pointLinePlot
 ~~~
 
 ![](sw/spl/Help/Image/DyckWord-A.svg)
@@ -96,6 +103,17 @@ DyckWord([1 0 1 1 0 0])
 ~~~
 
 ![](sw/spl/Help/Image/DyckWord-E.svg)
+
+Plot word interpreted as a set partition,
+the associated restricted growth string is _0011210_,
+the set partition is _127-346-5_:
+
+~~~spl svg=F
+DyckWord([1 0 1 0 1 1 0 1 0 1 1 0 0 0])
+.partitionPlot
+~~~
+
+![](sw/spl/Help/Image/DyckWord-F.svg)
 
 * * *
 

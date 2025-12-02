@@ -85,6 +85,7 @@ Sort Matrices:
 - `cycleSortMatrix`
 - `gnomeSortMatrix`
 - `insertionSortMatrix`
+- `mergeSortMatrix`
 - `oddEvenSortMatrix`
 - `radixSortMatrix`
 - `shellSortMatrix`

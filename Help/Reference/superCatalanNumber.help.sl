@@ -6,7 +6,8 @@ The super Catalan numbers count the number of lattice paths with diagonal steps 
 which do not touch the diagonal line _x=y_.
 Also called the Schröder–Hipparchus numbers.
 
-The first ten super Catalan numbers:
+The first ten super Catalan numbers,
+OEIS [A001003](https://oeis.org/A001003):
 
 ```
 >>> 1:10.collect(superCatalanNumber:/1)

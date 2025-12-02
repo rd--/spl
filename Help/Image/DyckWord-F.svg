@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-55.0 -55.0 110.0 110.0">
+<g fill="none" stroke="black" stroke-width="1.0000%" transform="translate(0, 0.0000) scale(0.5000, -0.5000)">
+<polygon points="100.0,0.0 62.3,78.2 62.3,-78.2" />
+<polygon points="-22.3,97.5 -90.1,43.4 -22.3,-97.5" />
+<g fill="rgb(0,0,0)" ><circle cx="-90.1" cy="-43.4" r="2.0" /></g>
+<circle cx="100.0" cy="0.0" r="1.0" />
+<circle cx="62.3" cy="78.2" r="1.0" />
+<circle cx="-22.3" cy="97.5" r="1.0" />
+<circle cx="-90.1" cy="43.4" r="1.0" />
+<circle cx="-90.1" cy="-43.4" r="1.0" />
+<circle cx="-22.3" cy="-97.5" r="1.0" />
+<circle cx="62.3" cy="-78.2" r="1.0" />
+<circle cx="0.0" cy="0.0" r="100.0" />
+</g>
+</svg>
