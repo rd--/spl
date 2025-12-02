@@ -1,9 +1,9 @@
 # quickSortBy
 
-- _quickSortBy(aSequence, aBlock:/2)_
+- _quickSortBy([x₁ x₂ …], f:/2)_
 
-Sort _aSequence_ in place using the comparator _aBlock_.
-Answers _aSequence_.
+Sort the sequence _x_ in place using the comparator block _f_.
+Answers _x_.
 
 At `List`, sort into descending order:
 

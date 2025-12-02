@@ -1139,6 +1139,14 @@
 
 +Block {
 
+	binomialTransform { :b:/1 |
+		{ :n |
+			0:n.sum { :k |
+				binomial(n, k) * b(k)
+			}
+		}
+	}
+
 	eulerTransform { :a:/1 |
 		let b:/1 = { :n |
 			(n = 0).if {
@@ -1153,6 +1161,14 @@
 			}
 		}.memoize(true);
 		b:/1
+	}
+
+	inverseBinomialTransform { :b:/1 |
+		{ :n |
+			0:n.sum { :k |
+				(-1 ^ (n - k)) * binomial(n, k) * b(k)
+			}
+		}
 	}
 
 }
@@ -1173,6 +1189,27 @@
 
 	runLengthTransform { :n :f:/1 |
 		runLengthTransform(Range(0, n - 1, 1), f:/1)
+	}
+
+}
+
++List {
+
+	binomialTransform { :self |
+		self.zeroIndexedListTransform(binomialTransform:/1)
+	}
+
+	inverseBinomialTransform { :a |
+		self.zeroIndexedListTransform(inverseBinomialTransform:/1)
+	}
+
+	zeroIndexedListTransform { :self :aBlock:/1 |
+		let n = self.size - 1;
+		0:n.collect(
+			{ :i |
+				self[i + 1]
+			}.aBlock
+		)
 	}
 
 }

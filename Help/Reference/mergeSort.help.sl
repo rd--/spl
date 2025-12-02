@@ -72,7 +72,7 @@ r.downsample(4).scatterPlot
 
 * * *
 
-See also: isSorted, mergeSortBy, mergeSortFromToBy, sort
+See also: isSorted, mergeSortBy, mergeSortFromToBy, quickSort, sort
 
 Guides: Sort Functions
 

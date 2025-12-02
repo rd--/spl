@@ -453,27 +453,31 @@
 
 +List {
 
-	insertionSort { :s :f:/1 |
+	insertionSort { :s :sortBlock:/2 :visitBlock:/1 |
 		let n = s.size;
 		2.toDo(n) { :i |
 			1.toDo(i) { :j |
-				(s[i] < s[j]).ifTrue {
+				sortBlock(s[i], s[j]).ifTrue {
 					let x = s.removeAt(i);
 					s.insertAt(x, j);
-					f(s)
+					visitBlock(s)
 				}
 			}
 		};
 		s
 	}
 
+	insertionSort { :s :sortBlock:/2 |
+		s.insertionSort(sortBlock:/2, nil.constant)
+	}
+
 	insertionSort { :s |
-		s.insertionSort(nil.constant)
+		s.insertionSort(<, nil.constant)
 	}
 
 	insertionSortMatrix { :s |
 		let m = [s.copy];
-		s.insertionSort { :x |
+		s.insertionSort(<) { :x |
 			m.add(x.copy)
 		};
 		m

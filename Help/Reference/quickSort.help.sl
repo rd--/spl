@@ -68,9 +68,31 @@ r.downsample(4).scatterPlot
 
 ![](sw/spl/Help/Image/quickSort-A.svg)
 
+Plot count of comparisons made in sorting increasingly long lists,
+comparing quick and merge sorts:
+
+~~~spl svg=B
+let n = 2000;
+let f = [quickSort:/2, mergeSort:/2];
+let r = Sfc32(369781);
+let x = r.randomReal([0 1], [n]);
+[100, 200 .. n].collect { :k |
+	f.collect { :sort:/2 |
+		let m = 0;
+		sort(x.take(k)) { :a :b |
+			m := m + 1;
+			a < b
+		};
+		m
+	}
+}.transpose.linePlot
+~~~
+
+![](sw/spl/Help/Image/quickSort-B.svg)
+
 * * *
 
-See also: isSorted, quickSortBy, quickSortByFromTo, sort
+See also: isSorted, mergeSort, sort
 
 Guides: Sort Functions
 

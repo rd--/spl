@@ -89,12 +89,17 @@ Threads over lists:
 
 >>> [2 3 0 6 10].isPrime.boole
 [1 1 0 0 0]
+```
 
->>> 0:24.isPrime.boole
+Characteristic function of prime numbers,
+OEIS [A010051](https://oeis.org/A010051):
+
+```
+>>> 1:24.isPrime.boole
 [
-	0 0 1 1 0 1 0 1 0 0
-	0 1 0 1 0 0 0 1 0 1
-	0 0 0 1 0
+	0 1 1 0 1 0 1 0 0 0
+	1 0 1 0 0 0 1 0 1 0
+	0 0 1 0
 ]
 ```
 
@@ -279,7 +284,8 @@ _OEIS_
 [2](https://oeis.org/A005385)
 [3](https://oeis.org/A005384)
 [4](https://oeis.org/A000353)
-[5](https://oeis.org/A006285),
+[5](https://oeis.org/A006285)
+[6](https://oeis.org/A010051),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.primetest.isprime),
 _W_

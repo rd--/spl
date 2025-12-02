@@ -1,6 +1,6 @@
 # shellSortMatrix
 
-- _shellSortMatrix([x₁ x₂ …])_
+- _shellSortMatrix([x₁ x₂ …], t=[5 3 1])_
 
 Sort the sequence _x_ using the shell sort algorithm,
 record each intermediate state as a row in a matrix.
@@ -43,13 +43,13 @@ Sfc32(372816)
 
 ![](sw/spl/Help/Image/shellSortMatrix-A.svg)
 
-Sort longer list:
+Sort longer list, using Ciuria’s gap sequence:
 
-~~~spl svg=A
+~~~spl png=B
 Sfc32(372816)
-.randomPermutation(64)
+.randomPermutation(128)
 .list
-.shellSortMatrix
+.shellSortMatrix([57 23 10 4 1])
 .transpose
 .rescale
 .Greymap

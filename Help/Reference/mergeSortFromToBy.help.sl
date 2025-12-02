@@ -1,9 +1,10 @@
 # mergeSortFromToBy
 
-- _mergeSortFromToBy(aSequence, startIndex, stopIndex, aBlock:/2)_
+- _mergeSortFromToBy([x₁ x₂ …], i, j, f:/2)_
 
-Sort _aSequence_ in place using the mergesort algorithm between the indicated indices,
-using the specified comparator.
+Sort the sequence _x_ in place using the merge sort algorithm,
+between the indicated start and end indices _i_ and _j_,
+using the specified comparator _f_.
 
 Sort the middle of a sequence:
 

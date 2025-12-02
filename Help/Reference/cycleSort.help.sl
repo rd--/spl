@@ -3,7 +3,7 @@
 - _cycleSort([x₁ x₂ …], f:/1)_
 
 Sort the sequence _x_ in place using the cycle sort algorithm.
-The sequence must be a permutation list.
+The sequence _x_ must be a permutation list.
 The sort process can be monitored by the unary block _f_.
 
 Sort list:

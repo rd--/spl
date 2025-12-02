@@ -23,7 +23,7 @@ Find ordinal ranks for lists without repeated items:
 [6 2 4 7 10 9 3 5 8 1]
 ```
 
-Ordinal ranking, tied elements are assigned fractional ranks:
+Ordinal ranking, tied elements are assigned distinct ordinal ranks:
 
 ```
 >>> [0 2 3 2].ranking('Ordinal')
@@ -34,7 +34,7 @@ Ordinal ranking, tied elements are assigned fractional ranks:
 
 ```
 
-Fractional ranking, tied elements are assigned fractional ranks:
+Fractional ranking, tied elements are assigned shared fractional ranks:
 
 ```
 >>> [0 2 3 2].ranking('Fractional')

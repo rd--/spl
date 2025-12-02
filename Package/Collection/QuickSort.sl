@@ -94,3 +94,57 @@
 	}
 
 }
+
++List {
+
+	quickSortHoare { :s :l :r :f:/1 |
+		let partition = { :s :l :r |
+			let pivot = s[l];
+			let i = l - 1;
+			let j = r + 1;
+			let continue = true;
+			{ continue }.whileTrue {
+				{
+					i := i + 1
+				}.doWhileTrue {
+					s[i] < pivot
+				};
+				{
+					j := j - 1
+				}.doWhileTrue {
+					s[j] > pivot
+				};
+				(i >= j).if {
+					continue := false
+				} {
+					s.swapWith(i, j);
+					f(s)
+				}
+			};
+			j
+		};
+		(l < r & { l >= 1 & { r >= 1 } }).ifTrue {
+			let p = partition(s, l, r);
+			quickSortHoare(s, l, p, f:/1);
+			quickSortHoare(s, p + 1, r, f:/1)
+		};
+		s
+	}
+
+	quickSortHoare { :s :f:/1 |
+		s.quickSortHoare(1, s.size, f:/1)
+	}
+
+	quickSortHoare { :s |
+		s.quickSortHoare(nil.constant)
+	}
+
+	quickSortMatrix { :s |
+		let m = [s.copy];
+		s.quickSortHoare { :x |
+			m.add(x.copy)
+		};
+		m
+	}
+
+}

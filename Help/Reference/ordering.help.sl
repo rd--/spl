@@ -113,7 +113,7 @@ _Apl_
 [1](https://aplwiki.com/wiki/Grade),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/Ordering.html),
-_NumPy_
+_Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.argsort.html)
 
 Categories: Sorting

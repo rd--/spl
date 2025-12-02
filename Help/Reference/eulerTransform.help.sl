@@ -2,7 +2,8 @@
 
 - _eulerTransform(f:/1)_
 
-Implement the third type of Euler transform defining a relationship between certain types of integer sequences.
+Implement the third type of Euler transform,
+defining a relationship between certain types of integer sequences.
 
 The Euler transform of the identity function counts the number of planar partitions,
 OEIS [A000219](https://oeis.org/A000219):
@@ -58,7 +59,7 @@ OEIS [A166861](https://oeis.org/A166861):
 
 * * *
 
-See also: boustrophedonTransform, divisors, memoize, sum
+See also: binomialTransform, boustrophedonTransform, divisors, memoize, sum
 
 Guides: Integer Sequence Functions
 

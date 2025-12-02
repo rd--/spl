@@ -82,6 +82,8 @@ the answer is zero:
 
 See also: binomial, binomialGamma
 
+Guides: Combinatorial Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/PascalBinomial.html),

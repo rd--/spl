@@ -92,5 +92,5 @@ Guides: Statistics Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BinCounts.html),
-_NumPy_
+_Python_
 [1](https://numpy.org/doc/stable/reference/generated/numpy.histogram.html)

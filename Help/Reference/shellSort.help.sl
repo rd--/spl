@@ -1,6 +1,6 @@
 # shellSort
 
-- _shellSort([x₁ x₂ …], f:/1)_
+- _shellSort([x₁ x₂ …], t=[5 3 1], f:/1)_
 
 Sort the sequence _x_ in place using the shell sort algorithm.
 The sort process can be monitored by the unary block _f_.

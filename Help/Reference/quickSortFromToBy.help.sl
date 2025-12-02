@@ -1,9 +1,14 @@
 # quickSortFromToBy
 
-- _quickSortFromToBy(aSequence, startIndex, endIndex, sortBlock:/2)_
+- _quickSortFromToBy([x₁ x₂ …], i, j, f:/2)_
 
-Sort elements _startIndex_ through _endIndex_ of _aSequence_ to be non-descending according to _sortBlock_
-using an in-place quicksort with simple median-of-three	partitioning with guaranteed _O(log(n))_ space usage.
+Sort elements
+from start index _i_
+through to end index _j_
+of the sequence _x_
+to be non-descending according to the sort block _f_,
+using an in-place quicksort
+with simple median-of-three partitioning with guaranteed _O(log(n))_ space usage.
 
 Sort the middle of a sequence:
 
@@ -13,7 +18,7 @@ Sort the middle of a sequence:
 [3, 2, 1, 1, 2, 3, 3, 2, 1]
 ```
 
-Sort a first half of a random sequence of integers:
+Sort the first half of a random sequence of integers:
 
 ```
 >>> let r = Sfc32(178942);

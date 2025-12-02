@@ -2,7 +2,9 @@
 
 Integer Sequence Transform Functions:
 
+- `binomialTransform`
 - `boustrophedonTransform`
+- `eulerTransform`
 - `runLengthTransform`
 
 [OEIS](https://oeis.org/) _A_-References:
