@@ -63,6 +63,14 @@ At a permutation list, answer the identity:
 [4 3 2 1]
 ```
 
+At `Permutation`:
+
+```
+>>> [1 3; 4 5].asPermutation
+>>> .permutationList
+[3 2 1 5 4]
+```
+
 * * *
 
 See also: isPermutationList, permutationCycles, permutationMatrix

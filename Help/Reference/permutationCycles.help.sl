@@ -45,7 +45,7 @@ When applied to a `Permutation` object the answer has unary cycles removed:
 
 ```
 >>> let p = [1 .. 5].asPermutation;
->>> p.cycles
+>>> p.permutationCycles
 []
 ```
 

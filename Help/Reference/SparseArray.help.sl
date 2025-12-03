@@ -40,8 +40,8 @@ Make a large sparse vector:
 >>> let s = SparseArray(
 >>> 	1:10.collect { :i | [2 ^ i] -> 1}
 >>> );
->>> (s.shape, s.sum)
-([1024], 10)
+>>> (s.shape, s.sum, s[4])
+([1024], 10, 1)
 ```
 
 Make a large sparse matrix:

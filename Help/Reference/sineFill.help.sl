@@ -1,8 +1,8 @@
 # sineFill
 
-- _sineFill([x₁ x₂ …], amplitudeList, phaseList)_
+- _sineFill([x₁ x₂ …], [a₁ a₂ …], [ϕ₁ ϕ₂ …])_
 
-Fill the sequence _x_ with a sum of sines at the indicated amplitudes and phases.
+Fill the sequence _x_ with the sum of the sine function of succesive harmonics at amplitudes _a_ and phases _ϕ_.
 The table is _not_ normalised, see `normalizeSignal`.
 
 Plot approximation of sawtooth wave:

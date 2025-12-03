@@ -191,11 +191,11 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		self.support.size
 	}
 
-	list { :self |
+	[list, permutationList] { :self |
 		self.list(self.degree)
 	}
 
-	list { :self :anInteger |
+	[list, permutationList] { :self :anInteger |
 		self.cycles.permutationCyclesToPermutationList(anInteger)
 	}
 
@@ -234,7 +234,7 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
-	order { :self |
+	[order, permutationOrder] { :self |
 		self.isIdentity.if {
 			1
 		} {
@@ -242,14 +242,14 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
-	orderList { :self |
-		let answer = [];
+	[orderList, permutationOrderList] { :self |
 		let next = self;
+		let answer = [next];
 		{
+			next := next * self;
+			answer.add(next)
+		}.doWhileFalse {
 			next.isIdentity
-		}.whileFalse {
-			answer.add(next);
-			next := next * self
 		};
 		answer
 	}
@@ -274,6 +274,10 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 				p[i] > p[i + 1]
 			}
 		}
+	}
+
+	permutationCycles { :self |
+		self.cycles
 	}
 
 	postCopy { :self |
@@ -782,6 +786,10 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 
 	permutationOrder { :self |
 		self.asPermutation.order
+	}
+
+	permutationOrderList { :self |
+		self.asPermutation.orderList
 	}
 
 	permutationPatternPositions { :self :pattern |

@@ -1,8 +1,8 @@
 # permutationOrder
 
-- _permutationOrder(aPermutation)_
+- _permutationOrder(p)_
 
-Answer the order of _aPermutation_.
+Answer the order of the permutation _p_.
 
 The order of a permutation _p_ is the smallest positive integer _m_,
 such that the product of the permutation _p_ with itself _m_ times yields the identity permutation.
@@ -48,6 +48,8 @@ The order of a permutation can be computed as the least common multiple of the l
 * * *
 
 See also: cycles, inversePermutation, permutationOrderList, permutationPower, permutationProduct
+
+Guides: Permutation Functions
 
 References:
 _Mathematica_

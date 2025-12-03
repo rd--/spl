@@ -89,6 +89,7 @@ Predicate Functions:
 - `isLatticeWord`
 - `isLukasiewiczWord`
 - `isLyndonWord`
+- `isRestrictedGrowthString`
 - `isYamanouchiWord`
 
 Plotting Functions
@@ -96,6 +97,7 @@ Plotting Functions
 - `circularPartitionsDrawing`
 - `ferrersDiagram`
 - `integerPartitionsTable`
+- `murasakiDiagram`
 - `necklacePlot`
 - `rectangularPartitionsDrawing`
 

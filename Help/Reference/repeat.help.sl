@@ -1,9 +1,9 @@
 # repeat
 
-- _repeat(s, n)_
-- _repeat(s, n, m)_
+- _repeat([x₁ x₂ …], n)_
+- _repeat([x₁ x₂ …], n, m)_
 
-Answer a sequence consisting of the sequence _s_ repeated _n_ times.
+Answer a sequence consisting of the sequence _x_ repeated _n_ times.
 The ternary form truncates the answer to be of length at most _m_.
 
 At `List`:
@@ -37,7 +37,7 @@ Repeat a triplet of characters seven times:
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat
 
-Guides: String Functions
+Guides: List Functions, String Functions
 
 References:
 _Mathematica_

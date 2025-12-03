@@ -1,17 +1,37 @@
++@RandomNumberGenerator {
+
+	fisherYatesShuffle { :self :aList |
+		aList.size.toByDo(2, -1) { :each |
+			aList.swapWith(
+				each,
+				self.nextRandomInteger(1, each)
+			)
+		};
+		aList
+	}
+
+	sattoloShuffle { :self :aList |
+		let i = aList.size;
+		{
+			i > 1
+		}.whileTrue {
+			let j = self.nextRandomInteger(1, i - 1);
+			aList.swapWith(i, j);
+			i := i - 1
+		};
+		aList
+	}
+
+}
+
 +@Sequenceable {
 
 	fisherYatesShuffle { :self :rng |
-		self.size.toByDo(2, -1) { :each |
-			self.swapWith(
-				each,
-				rng.nextRandomInteger(1, each)
-			)
-		};
-		self
+		rng.fisherYatesShuffle(self)
 	}
 
 	fisherYatesShuffle { :self |
-		self.fisherYatesShuffle(system)
+		system.fisherYatesShuffle(self)
 	}
 
 	inShuffle { :self |
@@ -97,19 +117,11 @@
 	}
 
 	sattoloShuffle { :self :rng |
-		let i = self.size;
-		{
-			i > 1
-		}.whileTrue {
-			let j = rng.nextRandomInteger(1, i - 1);
-			self.swapWith(i, j);
-			i := i - 1
-		};
-		self
+		rng.sattoloShuffle(self)
 	}
 
 	sattoloShuffle { :self |
-		self.sattoloShuffle(system)
+		system.sattoloShuffle(self)
 	}
 
 	shuffle { :self :rng |

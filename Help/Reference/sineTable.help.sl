@@ -1,8 +1,8 @@
 # sineTable
 
-- _sineTable(anInteger, amplitudeList, phaseList)_
+- _sineTable(n, [a₁ a₂ …], [ϕ₁ ϕ₂ …])_
 
-Answer a `List` of _anInteger_ places with a sum of sines at the indicated amplitudes and phases.
+Answer a `List` of _n_ places holding the sum of the sine functions of succesive harmonics at amplitudes _a_ and phases _ϕ_.
 The table is _not_ normalised, see `normalizeSignal`.
 
 Approximation of sawtooth wave:
@@ -27,8 +27,29 @@ More accurate approximation:
 
 ![](sw/spl/Help/Image/sineTable-B.svg)
 
+A pure tone:
+
+~~~spl svg=C
+256.sineTable([1], [0]).linePlot
+~~~
+
+![](sw/spl/Help/Image/sineTable-C.svg)
+
+Plot approximation of square wave:
+
+~~~spl svg=D
+512.sineTable(
+	[3 0 1 0 0 0 0 0 0.33],
+	[0 0 0 0 0 0 0 0 1.pi]
+).linePlot
+~~~
+
+![](sw/spl/Help/Image/sineTable-D.svg)
+
 * * *
 
 See also: addSine, normalizeSignal, sineFill
+
+Guides: Signal Processing Functions
 
 Categories: Wavetable

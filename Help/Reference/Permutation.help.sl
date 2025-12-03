@@ -32,7 +32,7 @@ A permutation in one-line (permutation list) notation:
 Identity permutation predicate:
 
 ```
->>> let p = [].Permutation;
+>>> let p = Permutation([]);
 >>> p.isIdentity
 true
 ```

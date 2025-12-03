@@ -51,8 +51,8 @@ A three-partition of six:
 
 * * *
 
-See also: setPartitions
+See also: setPartition, setPartitions
 
-Guides: Plotting Functions
+Guides: Combinatorial Functions, Plotting Functions
 
 Further Reading: Dower 1971

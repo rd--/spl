@@ -200,10 +200,12 @@
 	}
 
 	ranking { :self :mode |
-		mode.caseOf([
-			'Fractional' -> { self.rankingFractional },
-			'Ordinal' -> { self.rankingOrdinal }
-		])
+		mode.caseOf(
+			[
+				'Fractional' -> { self.rankingFractional },
+				'Ordinal' -> { self.rankingOrdinal }
+			]
+		)
 	}
 
 	reverseColexicographicCompare { :self :operand |

@@ -26,7 +26,7 @@ Play a round of Bulgarian solitaire:
 
 * * *
 
-See also: iterate, nestList, nestWhileList
+See also: fixedPointList, iterate, nestList, nestWhileList
 
 Guides: List Functions
 

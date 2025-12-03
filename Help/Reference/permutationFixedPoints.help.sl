@@ -1,8 +1,8 @@
 # permutationFixedPoints
 
-- _permutationFixedPoints(aPermutation)_
+- _permutationFixedPoints(p)_
 
-Answer a `List` of the fixed points of _aPermutation_.
+Answer a `List` of the fixed points of the permutation _p_.
 
 ```
 >>> [1 3 2 4].permutationFixedPoints
@@ -26,6 +26,8 @@ The fixed points of the identity permutation:
 * * *
 
 See also: Permutation
+
+Guides: Permutation Functions
 
 References:
 _Sage_

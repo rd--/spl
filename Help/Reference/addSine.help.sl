@@ -1,8 +1,12 @@
 # addSine
 
-- _addSine([x₁ x₂ …], harmonicNumber, amplitude, initialPhase, offset)_
+- _addSine([x₁ x₂ …], h, a, ϕ, i)_
 
 Add a sine component to the mutable sequence _x_.
+The parameters are harmonic number _h_,
+amplitude _a_,
+initial phase _ϕ_,
+and initial index offset _i_.
 
 Plot approximation of square wave:
 
@@ -18,7 +22,7 @@ x.linePlot
 
 * * *
 
-See also: sineFill
+See also: sin, sineFill, sineTable
 
 Guides: Signal Processing Functions
 

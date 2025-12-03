@@ -48,6 +48,12 @@ Exceptions:
 - `isError`
 - `signal`
 
+Repetition:
+
+- `repeatForever`
+- `repeatForeverWithBreak`
+- `timesRepeat`
+
 * * *
 
 Guides: Iteration Functions, Non-local Return

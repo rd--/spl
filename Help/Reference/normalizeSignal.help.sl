@@ -25,4 +25,6 @@ The unary form normalizes to _(-1,1)_.
 
 See also: normalize, normalizeRange, rescale
 
+Guides: Signal Processing Functions
+
 Categories: Math

@@ -1,8 +1,8 @@
 # permutationRank
 
-- _permutationRank(aPermutation)_
+- _permutationRank(p)_
 
-Answer the zero-based index of _aPermutation_ in the lexicographic ordering of the symmetric group to which it belongs.
+Answer the zero-based index of the permutation _p_ in the lexicographic ordering of the symmetric group to which it belongs.
 
 ```
 >>> [4 2 3 1].permutationRank
@@ -28,6 +28,8 @@ The inverse is `unrankPermutation`:
 * * *
 
 See also: Permutation, unrankPermutation
+
+Guides: Permutation Functions
 
 References:
 _J_

@@ -1166,7 +1166,11 @@ Plot : [Object] { | pages format options |
 				let cost = 0 - candidate.sum(first:/1);
 				candidate.do { :a |
 					candidate.do { :b |
-						(isNestedWithin(a[2], b[2]) & { a[1] > b[1] }).ifTrue {
+						(
+							isNestedWithin(a[2], b[2]) & {
+								a[1] > b[1]
+							}
+						).ifTrue {
 							cost := cost + 1
 						}
 					}

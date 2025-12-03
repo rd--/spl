@@ -104,10 +104,12 @@ Representation:
 
 Shuffle Functions:
 
+- `fisherYatesShuffle`
 - `inShuffle`
 - `klondikeShuffle`
 - `mongesShuffle`
 - `outShuffle`
+- `sattoloShuffle`
 - `spiralShuffle`
 
 * * *

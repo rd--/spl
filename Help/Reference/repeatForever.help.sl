@@ -20,9 +20,9 @@ true
 
 * * *
 
-See also: Block, whileFalse, whileTrue
+See also: Block, repeatForeverWithBreak, whileFalse, whileTrue
 
-Guides: Block Functions, Non-local Return
+Guides: Block Functions, Control Functions, Non-local Return
 
 References:
 _SuperCollider_
