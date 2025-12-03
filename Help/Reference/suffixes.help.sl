@@ -15,6 +15,13 @@ Answer a `List` of all of the suffixes of the sequence _x_.
 [45 44 42 39 35 30 24 17 9]
 ```
 
+Iterator:
+
+```
+>>> [1 .. 5].suffixesStream.upToEnd
+[1 2 3 4 5; 2 3 4 5; 3 4 5; 4 5; 5]
+```
+
 * * *
 
 See also: prefixes

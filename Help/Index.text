@@ -646,6 +646,7 @@ Reference/binomialGamma.help.sl
 Reference/binomial.help.sl
 Reference/binomialPascal.help.sl
 Reference/BinomialProcess.help.sl
+Reference/binomialTransform.help.sl
 Reference/BinormalDistribution.help.sl
 Reference/bisect.help.sl
 Reference/bitAnd.help.sl
@@ -2121,6 +2122,7 @@ Reference/isSuperabundantNumber.help.sl
 Reference/isSuperiorHighlyCompositeNumber.help.sl
 Reference/isSuperparticular.help.sl
 Reference/isSuperpartient.help.sl
+Reference/isSuperpermutation.help.sl
 Reference/isSymmetricMatrix.help.sl
 Reference/isTab.help.sl
 Reference/isTableau.help.sl
@@ -2439,6 +2441,7 @@ Reference/LsXRand.help.sl
 Reference/lucasNumber.help.sl
 Reference/lucasSequence.help.sl
 Reference/luDecomposition.help.sl
+Reference/lukasiewiczWord.help.sl
 Reference/luvToXyz.help.sl
 Reference/lyndonWords.help.sl
 Reference/madelungConstant.help.sl
@@ -2511,6 +2514,7 @@ Reference/mergeInPlace.help.sl
 Reference/mergeSortBy.help.sl
 Reference/mergeSortFromToBy.help.sl
 Reference/mergeSort.help.sl
+Reference/mergeSortMatrix.help.sl
 Reference/mersenneNumber.help.sl
 Reference/mersennePrimeExponent.help.sl
 Reference/MersenneTwister.help.sl
@@ -2603,6 +2607,7 @@ Reference/multisetIntersection.help.sl
 Reference/multisetPermutations.help.sl
 Reference/MultiTapDelay.help.sl
 Reference/MultivariateTDistribution.help.sl
+Reference/murasakiDiagram.help.sl
 Reference/MutableCollectionStream.help.sl
 Reference/nadarayaWatsonEstimator.help.sl
 Reference/nagelPoint.help.sl
@@ -3084,6 +3089,7 @@ Reference/questionMarkQuestionMark.help.sl
 Reference/quickSortBy.help.sl
 Reference/quickSortFromToBy.help.sl
 Reference/quickSort.help.sl
+Reference/quickSortMatrix.help.sl
 Reference/quilezGradient.help.sl
 Reference/quotationMark.help.sl
 Reference/quotientBy.help.sl
@@ -3215,6 +3221,7 @@ Reference/removePunctuation.help.sl
 Reference/repeatedTiming.help.sl
 Reference/repeatEvery.help.sl
 Reference/repeatForever.help.sl
+Reference/repeatForeverWithBreak.help.sl
 Reference/repeat.help.sl
 Reference/repeatMatrix.help.sl
 Reference/replaceAllWith.help.sl
@@ -3408,6 +3415,7 @@ Reference/sessionTime.help.sl
 Reference/setBitAt.help.sl
 Reference/setharesDissonance.help.sl
 Reference/Set.help.sl
+Reference/setPartition.help.sl
 Reference/setPartitions.help.sl
 Reference/SetResetFf.help.sl
 Reference/setToEnd.help.sl

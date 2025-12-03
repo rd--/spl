@@ -409,6 +409,15 @@ Block! : [Object, Equatable] {
 		}.whileTrue
 	}
 
+	repeatForeverWithBreak { :self:/1 |
+		valueWithReturn { :return:/1 |
+			let break = { return(nil) };
+			{
+				self(break:/0)
+			}.repeatForever
+		}
+	}
+
 	sourceCode { :self |
 		<primitive: return _self.sourceCode;>
 	}

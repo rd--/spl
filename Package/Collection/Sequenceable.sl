@@ -2325,6 +2325,21 @@
 		answer
 	}
 
+	suffixesStream { :self |
+		let n = self.size;
+		let i = 0;
+		BlockStream {
+			i := i + 1;
+			(i <= n).if {
+				self.copyFromTo(i, n)
+			} {
+				nil
+			}
+		} {
+			i := 0
+		}
+	}
+
 	suffixesDo { :self :aBlock:/1 |
 		let size = self.size;
 		1.toDo(size) { :each |
