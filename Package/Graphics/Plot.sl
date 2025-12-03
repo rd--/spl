@@ -1132,3 +1132,66 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++List {
+
+	murasakiDiagramConfiguration { :p |
+		/* https://github.com/olooney/genjiko */
+		let intervalsOverlap = { :a :b |
+			(a.max < b.min | { b.max < a.min }).not
+		};
+		let validateDiagram = { :d |
+			let n = d.size;
+			n < 2 | {
+				(1 .. n - 1).allSatisfy { :i |
+					(i + 1 .. n).noneSatisfy { :j |
+						let a = d[i];
+						let b = d[j];
+						a[1] = b[1] & {
+							intervalsOverlap(a[2], b[2])
+						}
+					}
+				}
+			}
+		};
+		let isNestedWithin = { :a :b |
+			a.min > b.min & { a.max < b.max }
+		};
+		let bestCost = Infinity;
+		let bestDiagram = nil;
+		let heights = ([0 .. p.size - 1].reverse * 0.2) + 1;
+		heights.tuples(p.size).do { :h |
+			let candidate = [h, p].transpose;
+			candidate.validateDiagram.ifTrue {
+				let cost = 0 - candidate.sum(first:/1);
+				candidate.do { :a |
+					candidate.do { :b |
+						(isNestedWithin(a[2], b[2]) & { a[1] > b[1] }).ifTrue {
+							cost := cost + 1
+						}
+					}
+				};
+				(cost < bestCost).ifTrue {
+					bestCost := cost;
+					bestDiagram := candidate
+				}
+			}
+		};
+		bestDiagram
+	}
+
+	murasakiDiagram { :p |
+		let c = p.murasakiDiagramConfiguration;
+		let g = [];
+		c.do { :each |
+			let [y, xList] = each;
+			y := y * 3.5;
+			xList.do { :x |
+				g.add(Line([x 0; x y]))
+			};
+			g.add(Line([xList.first y; xList.last y]))
+		};
+		GeometryCollection(g)
+	}
+
+}

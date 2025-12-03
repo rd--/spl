@@ -494,6 +494,12 @@ Permutation : [Object, Storeable, Equatable] { | cycles degree |
 		}
 	}
 
+	isSuperpermutation { :p |
+		p.alphabet.permutations.allSatisfy { :q |
+			p.includesSubstring(q)
+		}
+	}
+
 	leftInversionCount { :self |
 		self.asPermutation.leftInversionCount
 	}
