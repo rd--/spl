@@ -19,6 +19,14 @@ Equivalent to `floor` of `log` plus `one`:
 6
 ```
 
+First few terms,
+OEIS [A029837](https://oeis.org/A029837):
+
+```
+>>> 0:23.collect(bitLength:/1)
+[0 1 2 2 3 3 3 3 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5]
+```
+
 Plot is a kind of staircase:
 
 ~~~spl svg=A
@@ -35,4 +43,6 @@ Guides: Bitwise Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/BitLength.html)
+[1](https://reference.wolfram.com/language/ref/BitLength.html),
+_OEIS_
+[1](https://oeis.org/A029837)

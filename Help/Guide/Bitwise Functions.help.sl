@@ -19,10 +19,11 @@ Single-Bit:
 
 Structural:
 
-- `bitLength`: bit length
-- `bitShiftLeft`: bit shift right
-- `bitShiftRight`: bit shift left
-- `highBit`: bit length
+- `bitLength`
+- `bitShiftLeft`, `<<`
+- `bitShiftRight`, `>>`
+- `bitShiftRightUnsigned`, `>>>`
+- `highBit`
 
 Operators Forms:
 

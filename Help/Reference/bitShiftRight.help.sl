@@ -52,6 +52,26 @@ Shift 7 places to the right, leaving no nonzero bits:
 [0 0 1 4]
 ```
 
+Index from the right of the first zero bit of _n_,
+OEIS [A001511](https://oeis.org/A001511):
+
+```
+>>> 0:43.collect { :n |
+>>> 	let c = 1;
+>>> 	let x = n;
+>>> 	{ x.bitAnd(1) }.whileTrue {
+>>> 		x := x >> 1;
+>>> 		c := c + 1
+>>> 	};
+>>> 	c
+>>> }
+[
+	1 2 1 3 1 2 1 4 1 2 1 3 1 2 1 5 1 2 1 3
+	1 2 1 4 1 2 1 3 1 2 1 6 1 2 1 3 1 2 1 4
+	1 2 1 3
+]
+```
+
 The operator form is `>>`.
 
 * * *

@@ -73,6 +73,26 @@ OEIS [A001317](https://oeis.org/A001317):
 ]
 ```
 
+Compute the first dimension of the Sobol sequence,
+OEIS [A280995](https://oeis.org/A280995)
+and [A062383](https://oeis.org/A062383):
+
+~~~spl svg=A
+let n = 64;
+let l = n.bitLength;
+let v = 1:l.collect { :i |
+	1L << (32 - i)
+};
+let x = List(n, 0);
+2.toDo(n) { :i |
+	let j = (i - 1).rulerFunction;
+	x[i] := x[i - 1].bitXor(v[j])
+};
+(x / (2 ^ 32)).stepPlot
+~~~
+
+![](sw/spl/Help/Image/bitShiftLeft-A.svg)
+
 * * *
 
 See also: <<, bitShift, bitShiftRight

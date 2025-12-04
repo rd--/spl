@@ -10,6 +10,10 @@
 		self.typeResponsibility('@Binary>>bitShiftRight')
 	}
 
+	[bitShiftRightUnsigned, >>>] { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitShiftRightUnsigned')
+	}
+
 	bitAnd { :self :anInteger |
 		self.typeResponsibility('@Binary>>bitAnd')
 	}
@@ -75,20 +79,6 @@
 			self << anInteger
 		}
 	}
-
-	/*
-	bitShiftLeft { :self :anInteger |
-		self << anInteger
-	}
-
-	bitShiftRight { :self :anInteger |
-		self >> anInteger
-	}
-
-	bitShiftRightUnsigned { :self :anInteger |
-		self >>> anInteger
-	}
-	*/
 
 	highBit { :self |
 		(self < 0).if {

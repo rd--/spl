@@ -1,8 +1,8 @@
 # unsigned32BitWordList
 
-- _unsigned32BitWordList(aSmallFloat)_
+- _unsigned32BitWordList(n)_
 
-Answer the two unsigned 32-bit words of the byte representation of _aSmallFloat_.
+Answer the two unsigned 32-bit words of the byte representation of the `SmallFloat` _n_.
 The words are in machine order.
 
 ```

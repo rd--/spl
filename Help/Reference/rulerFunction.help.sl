@@ -4,6 +4,8 @@
 
 Answer the exponent of the largest power of two which divides the number _2n_.
 
+OEIS [A001511](https://oeis.org/A001511):
+
 ```
 >>> [1 .. 23].collect(rulerFunction:/1)
 [

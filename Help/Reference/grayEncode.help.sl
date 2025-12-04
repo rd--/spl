@@ -112,6 +112,21 @@ OEIS [A098488](https://oeis.org/A098488):
 1810
 ```
 
+Reverse binary digits of gray encoding,
+OEIS [A280995](https://oeis.org/A280995):
+
+```
+>>> 0:23.collect { :n |
+>>> 	n.grayEncode
+>>> 	.integerReverse(2)
+>>> }
+[
+	 0  1  3  1  3  7  5  1  3 11
+	15  7  5 13  9  1  3 19 27 11
+	15 31 23  7
+]
+```
+
 Scatter plot of the gray encodings of the first few integers:
 
 ~~~spl svg=A
@@ -186,6 +201,7 @@ _OEIS_
 [2](https://oeis.org/A014550)
 [3](https://oeis.org/A105530)
 [4](https://oeis.org/A098488)
-[5](https://oeis.org/A055975),
+[5](https://oeis.org/A055975)
+[6](https://oeis.org/A280995),
 _W_
 [1](https://en.wikipedia.org/wiki/Gray_code)

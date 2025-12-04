@@ -55,7 +55,5 @@ OEIS [A002620](https://oeis.org/A002620):
 See also: adjacentPairs, detectEquispacedTriple, partition, subsequences
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _OEIS_
 [1](https://oeis.org/A002620)

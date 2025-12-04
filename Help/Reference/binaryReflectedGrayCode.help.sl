@@ -58,7 +58,7 @@ Step plot of bits of four letter code:
 
 ![](sw/spl/Help/Image/binaryReflectedGrayCode-A.svg)
 
-Step plot of prfix sum of bits of four letter code:
+Step plot of prefix sum of bits of four letter code:
 
 ~~~spl svg=B
 4.binaryReflectedGrayCode

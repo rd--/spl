@@ -50,7 +50,5 @@ See also: digitCount, integerDigits, prime
 Guides: Integer Sequence Functions
 
 References:
-_Mathematica_
-[1](https://mathworld.wolfram.com/x.html)
 _OEIS_
 [1](https://oeis.org/A005940)
