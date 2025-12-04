@@ -1,9 +1,8 @@
 # selectionSort
 
-- _selectionSort([x₁ x₂ …], f:/1)_
+- _selectionSort([x₁ x₂ …])_
 
 Sort the sequence _x_ in place using the selection sort algorithm.
-The sort process can be monitored by the unary block _f_.
 
 Sort list:
 

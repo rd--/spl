@@ -48,7 +48,7 @@ Plot approximation of square wave:
 
 * * *
 
-See also: addSine, normalizeSignal, sineFill
+See also: addSine, gen09, normalizeSignal, sineFill
 
 Guides: Signal Processing Functions
 

@@ -153,6 +153,7 @@
 	'Graphics-LineDrawing'
 	'Graphics-PerspectiveDrawing'
 	'Graphics-Plot'
+	'Graphics-PlotSet'
 	'Graphics-Svg'
 	'Graphics-Writing'
 	'Help-DocumentationTest'

@@ -1,10 +1,9 @@
 # insertionSort
 
-- _insertionSort([x₁ x₂ …], f:/2, g:/1)_
+- _insertionSort([x₁ x₂ …], f:/2)_
 
-Sort the sequence _x_ in place using the insertion sort algorithm.
-The comparison block can be given as the binary block _f_.
-The sort process can be monitored by the unary block _g_.
+Sort the sequence _x_ in place using the insertion sort algorithm,
+according to the comparison block _f_.
 
 Sort list:
 
@@ -25,11 +24,12 @@ Sort is in place:
 ([1 2 3 4 5], true)
 ```
 
-Show comparisons made in doing a sort:
+Show every _k_-th comparison made in doing a sort:
 
 ~~~spl svg=A
 let n = 150;
 let m = 50;
+let k = 4;
 let r = [];
 0:n.collect { :x |
 	(x.sin * m).round
@@ -37,7 +37,7 @@ let r = [];
 	r.add(a);
 	a > b
 };
-r.downsample(4).scatterPlot
+r.downsample(k).scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/insertionSort-A.svg)

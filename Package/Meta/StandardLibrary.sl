@@ -156,6 +156,7 @@
 	'PerspectiveDrawing'
 	'Svg'
 	'Plot' /* Interval, LineDrawing */
+	'PlotSet'
 	'Writing'
 	'LineDrawing' /* Svg Writing */
 

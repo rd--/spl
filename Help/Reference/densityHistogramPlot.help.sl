@@ -24,7 +24,7 @@ specifying bins:
 ~~~spl svg=B
 let r = Sfc32(678314);
 BinormalDistribution([0 0], [1 1], 0.5)
-.randomVariate(r, [500])
+.randomVariate(r, [50])
 .densityHistogramPlot(
 	[-3 3 0.5],
 	[-3 3 0.5]
@@ -55,4 +55,6 @@ Guides: Plotting Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/DensityHistogram.html)
+[1](https://reference.wolfram.com/language/ref/DensityHistogram.html),
+_Python_
+[1](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist2d.html)

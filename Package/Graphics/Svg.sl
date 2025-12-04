@@ -57,16 +57,20 @@ Svg : [Object] { | contents |
 			1.to(height)
 		).collect(deleteMissing:/1);
 		[
-			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
-				'http://www.w3.org/2000/svg',
-				width * bitSize,
-				height * bitSize,
-				viewBox.asSvgViewBox(margin: 0, precision: 0)
-			]),
-			'<g stroke="none" transform="translate(0, %) scale(1, %)">'.format([
-				yAscending.if { height * bitSize } { 0 },
-				yAscending.if { -1 } { 1 }
-			]),
+			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format(
+				[
+					'http://www.w3.org/2000/svg',
+					width * bitSize,
+					height * bitSize,
+					viewBox.asSvgViewBox(margin: 0, precision: 0)
+				]
+			),
+			'<g stroke="none" transform="translate(0, %) scale(1, %)">'.format(
+				[
+					yAscending.if { height * bitSize } { 0 },
+					yAscending.if { -1 } { 1 }
+				]
+			),
 			items,
 			'</g>',
 			'</svg>'
@@ -129,18 +133,22 @@ Svg : [Object] { | contents |
 		let strokeWith = (0.5 / scaleFactor);
 		let yTranslation = scaledBoundingBox.height + (2 * scaledBoundingBox.lowerLeft[2]);
 		[
-			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format([
-				'http://www.w3.org/2000/svg',
-				scaledBoundingBox.width.printStringToFixed(1),
-				scaledBoundingBox.height.printStringToFixed(1),
-				scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
-			]),
-			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format([
-				strokeWith.printStringToFixed(4), '%',
-				yTranslation.printStringToFixed(4),
-				scaleFactor.printStringToFixed(4),
-				scaleFactor.negate.printStringToFixed(4)
-			]),
+			'<svg xmlns="%" width="%" height="%" viewBox="%">'.format(
+				[
+					'http://www.w3.org/2000/svg',
+					scaledBoundingBox.width.printStringToFixed(1),
+					scaledBoundingBox.height.printStringToFixed(1),
+					scaledBoundingBox.asSvgViewBox(margin: 5, precision: precision)
+				]
+			),
+			'<g fill="none" stroke="black" stroke-width="%%" transform="translate(0, %) scale(%, %)">'.format(
+				[
+					strokeWith.printStringToFixed(4), '%',
+					yTranslation.printStringToFixed(4),
+					scaleFactor.printStringToFixed(4),
+					scaleFactor.negate.printStringToFixed(4)
+				]
+			),
 			self(options),
 			'</g>',
 			'</svg>'
