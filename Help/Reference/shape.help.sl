@@ -172,7 +172,7 @@ Where supported `shape` is displayed as ⍴.
 
 See also: arrayDepth, dimensions, impliedShape, iota, isArray, isMatrix, isVector, numberOfRows, numberOfColumns, rank, recycle, reshape, shapeIndices
 
-Guide: Array Functions, List Functions, Matrix Functions, Vector Functions
+Guides: Array Functions, List Functions, Matrix Functions, Vector Functions
 
 References:
 _Apl_

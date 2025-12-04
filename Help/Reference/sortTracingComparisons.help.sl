@@ -78,3 +78,9 @@ plot traces for sort of two shorter van der Corput sequences:
 ~~~
 
 ![](sw/spl/Help/Image/sortTracingComparisons-F.svg)
+
+* * *
+
+See also: sort, sortTracingState
+
+Guides: Sort Functions

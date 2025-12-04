@@ -97,7 +97,7 @@
 
 +List {
 
-	quickSortHoare { :s :l :r :f:/1 |
+	quickSortHoareWithMonitor { :self :l :r :monitorBlock:/1 |
 		let partition = { :s :l :r |
 			let pivot = s[l];
 			let i = l - 1;
@@ -118,33 +118,31 @@
 					continue := false
 				} {
 					s.swapWith(i, j);
-					f(s)
+					monitorBlock(s)
 				}
 			};
 			j
 		};
 		(l < r & { l >= 1 & { r >= 1 } }).ifTrue {
-			let p = partition(s, l, r);
-			quickSortHoare(s, l, p, f:/1);
-			quickSortHoare(s, p + 1, r, f:/1)
+			let p = partition(self, l, r);
+			quickSortHoareWithMonitor(self, l, p, monitorBlock:/1);
+			quickSortHoareWithMonitor(self, p + 1, r, monitorBlock:/1)
 		};
-		s
+		self
 	}
 
-	quickSortHoare { :s :f:/1 |
-		s.quickSortHoare(1, s.size, f:/1)
+	quickSortHoareWithMonitor { :self :monitorBlock:/1 |
+		self.quickSortHoareWithMonitor(1, self.size, monitorBlock:/1)
 	}
 
-	quickSortHoare { :s |
-		s.quickSortHoare(nil.constant)
+	quickSortHoare { :self |
+		self.quickSortHoareWithMonitor(nil.constant)
 	}
 
-	quickSortMatrix { :s |
-		let m = [s.copy];
-		s.quickSortHoare { :x |
-			m.add(x.copy)
-		};
-		m
+	quickSortMatrix { :self |
+		self.sortTracingState(
+			quickSortHoareWithMonitor:/2
+		)
 	}
 
 }

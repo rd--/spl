@@ -93,6 +93,11 @@ Sort Matrices:
 - `shuffleSortMatrix`
 - `selectionSortMatrix`
 
+Tracing:
+
+- `sortTracingComparisons`
+- `sortTracingState`
+
 * * *
 
 See also: Comparison Functions, Statistics Functions, Types of Orderings

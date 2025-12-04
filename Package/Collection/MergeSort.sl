@@ -110,43 +110,41 @@
 
 +List {
 
-	mergeSortVisiting { :s :left :right :f:/1 |
+	mergeSortWithMonitor { :self :left :right :monitorBlock:/1 |
 		(left < right).ifTrue {
 			let middle = (left + right) // 2;
 			let i = left;
 			let endI = middle;
 			let j = middle + 1;
-			mergeSortVisiting(s, left, middle, f:/1);
-			mergeSortVisiting(s, middle + 1, right, f:/1);
+			mergeSortWithMonitor(self, left, middle, monitorBlock:/1);
+			mergeSortWithMonitor(self, middle + 1, right, monitorBlock:/1);
 			{ i <= endI & { j <= right } }.whileTrue {
-				(s[i] < s[j]).if {
+				(self[i] < self[j]).if {
 					i := i + 1
 				} {
-					let x = s[j];
+					let x = self[j];
 					(j - 1).downToDo(i) { :k |
-						s[k + 1] := s[k]
+						self[k + 1] := self[k]
 					};
-					s[i] := x;
-					f(s);
+					self[i] := x;
+					monitorBlock(self);
 					i := i + 1;
 					endI := endI + 1;
 					j := j + 1
 				}
 			}
 		};
-		s
+		self
 	}
 
-	mergeSortVisiting { :s :f:/1 |
-		mergeSortVisiting(s, 1, s.size, f:/1)
+	mergeSortWithMonitor { :self :monitorBlock:/1 |
+		mergeSortWithMonitor(self, 1, self.size, monitorBlock:/1)
 	}
 
-	mergeSortMatrix { :s |
-		let m = [s.copy];
-		s.mergeSortVisiting { :x |
-			m.add(x.copy)
-		};
-		m
+	mergeSortMatrix { :self |
+		self.sortTracingState(
+			mergeSortWithMonitor:/2
+		)
 	}
 
 }

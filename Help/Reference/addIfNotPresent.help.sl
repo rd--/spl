@@ -29,6 +29,6 @@ SortedList([1 2 3 4 5 6])
 
 See also: addAllIfNotPresent, addIfNotPresentBy, ifAbsentAdd
 
-Guide: List Functions
+Guides: List Functions
 
 Categories: Adding

@@ -1,6 +1,6 @@
 # randomPermutation
 
-- _randomPermutation(r, n)_
+- _randomPermutation(r, n, ⍴=[])_
 
 Answer a pseudo-random permutation of the integers from `one` to _n_,
 using the random number generator _r_.

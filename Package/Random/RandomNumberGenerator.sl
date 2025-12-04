@@ -96,14 +96,22 @@
 		min + self.randomLargeInteger(max - min)
 	}
 
+	randomPermutation { :self :anInteger :shape |
+		{
+			self.fisherYatesShuffle(anInteger.iota).asPermutation
+		} ! shape
+	}
+
 	randomPermutation { :self :anInteger |
-		anInteger.iota.fisherYatesShuffle(self).asPermutation
+		self.randomPermutation(anInteger, [])
 	}
 
 	randomPermutationList { :self :anInteger :shape |
-		{
-			self.randomPermutation(anInteger)
-		} ! shape
+		self.randomPermutation(anInteger, shape).collect(permutationList:/1)
+	}
+
+	randomPermutationList { :self :anInteger |
+		self.randomPermutation(anInteger, []).permutationList
 	}
 
 	randomReal { :self :range :shape |
