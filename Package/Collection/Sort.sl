@@ -701,15 +701,15 @@
 		self.bitonicSortWithMonitor(<, monitorBlock:/1)
 	}
 
-	bitonicSort { :a :sortBlock:/2 |
-		a.bitonicSortWithMonitor(sortBlock:/2, nil.constant)
+	bitonicSort { :self :sortBlock:/2 |
+		self.bitonicSortWithMonitor(sortBlock:/2, nil.constant)
 	}
 
-	bitonicSort { :a |
-		a.bitonicSort(<)
+	bitonicSort { :self |
+		self.bitonicSort(<)
 	}
 
-	bitonicSortMatrix { :a |
+	bitonicSortMatrix { :self |
 		self.sortTracingState(
 			bitonicSortWithMonitor:/2
 		)
@@ -832,7 +832,7 @@
 		self.gnomeSort(<)
 	}
 
-	gnomeSortMatrixWithMonitor { :self |
+	gnomeSortMatrix { :self |
 		self.sortTracingState(
 			gnomeSortWithMonitor:/2
 		)
