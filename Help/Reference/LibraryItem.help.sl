@@ -45,6 +45,13 @@ system
 .allFulfilled
 ~~~
 
+To clear a library item from the cache:
+
+~~~spl cache
+let n = 'OeisSequenceData';
+system.libraryItem(n).clearCache
+~~~
+
 * * *
 
 See also: addLibraryItem, awaitLibraryItem, helpIndex, requestLibraryItem, requireLibraryItem, unicodeCharacterDatabase

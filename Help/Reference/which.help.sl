@@ -27,6 +27,32 @@ Use `true` for an else clause that always matches:
 [-1 0 1]
 ```
 
+Implement the Ackerman function:
+
+```
+>>> let a = { :m :n |
+>>> 	[
+>>> 		{ m = 0 } -> { n + 1 },
+>>> 		{ m = 1 } -> { n + 2 },
+>>> 		{ m = 2 } -> { 3 + (2 * n) },
+>>> 		{ m = 3 } -> { 5 + (8 * ((2 ^ n) - 1)) },
+>>> 		{ n = 0 } -> { a(m - 1, 1) },
+>>> 		{ true } -> { a(m - 1, a(m, n - 1)) }
+>>> 	].which
+>>> };
+>>> 0:3.collect { :m |
+>>> 	0:8.collect { :n |
+>>> 		a(m, n)
+>>> 	}
+>>> }
+[
+	1 2 3 4 5 6 7 8 9;
+	2 3 4 5 6 7 8 9 10;
+	3 5 7 9 11 13 15 17 19;
+	5 13 29 61 125 253 509 1021 2045
+]
+```
+
 * * *
 
 See also: caseOf, if

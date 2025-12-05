@@ -187,6 +187,7 @@
 	'Integrals'
 	'Interpolation'
 	'IterativeMaps'
+	'LowDiscrepancySequence'
 	'MathematicalConstant'
 	'MatrixFunctions'
 	'MixedRadix'
@@ -222,13 +223,12 @@
 	'LinearCongruential'
 	'MersenneTwister'
 	'PoissonDiskSampling'
-	'ProbabilityDistribution'
 	'RandomFixedSum'
-	'RandomProcess'
 	'Sfc32' /* Stream */
 	'SplitMix'
 
 	/* Random - ProbabilityDistribution */
+	'ProbabilityDistribution' /* Trait */
 	'BernoulliDistribution'
 	'BetaDistribution'
 	'BetaBinomialDistribution'
@@ -265,6 +265,7 @@
 	'WeibullDistribution'
 
 	/* Random - RandomProcess */
+	'RandomProcess' /* Trait */
 	'BernoulliProcess'
 	'BinomialProcess'
 	'BrownianBridgeProcess'

@@ -33,7 +33,7 @@ Plot the first few terms:
 
 See also: haltonSequence, poissonDiskSampling, vanDerCorputNumber
 
-Guides: Geometric Functions
+Guides: Geometric Functions, Sequence Functions
 
 References:
 _Mathematica_

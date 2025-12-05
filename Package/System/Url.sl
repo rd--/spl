@@ -214,7 +214,7 @@ URL! : [Object, Storeable, Equatable, Url] {
 				/* ['cachedFetch: absent', self, cacheName].postLine; */
 				self.fetch.thenElse { :response |
 					cache.atPut(self, response).then { :unused |
-						cache.basicMatch(self)
+						cache.uncheckedMatch(self)
 					}
 				} { :reason |
 					self.error('cachedFetch: ' ++ reason)

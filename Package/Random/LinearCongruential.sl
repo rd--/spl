@@ -1,20 +1,25 @@
 /* Requires: RandomNumberGenerator Iterator Stream */
 
-LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | seed state |
+LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream] { | parameters seed state |
 
-	initialize { :self :aNumber |
-		self.seed := aNumber;
+	initialize { :self :parameters :seed |
+		self.parameters := parameters;
+		self.seed := seed;
 		self.reset;
 		self
 	}
 
+	modulus { :self |
+		self.parameters.at(3)
+	}
+
+	nextState { :self |
+		let [a, c, m] = self.parameters;
+		self.state := (self.state * a + c) \\ m
+	}
+
 	nextRandomFloat { :self |
-		let m = 139968;
-		let a = 3877;
-		let c = 29573;
-		let r = (self.state * a + c) \\ m;
-		self.state := r;
-		r / m
+		self.nextState / self.modulus
 	}
 
 	reset { :self |
@@ -23,18 +28,42 @@ LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream
 
 }
 
-+@Integer {
++List {
 
-	LinearCongruential { :self |
-		newLinearCongruential().initialize(self)
+	LinearCongruential { :parameters :seed |
+		newLinearCongruential().initialize(parameters, seed)
 	}
 
 }
 
-+Void {
++@Integer {
 
-	LinearCongruential {
-		LinearCongruential(42)
+	numericalRecipesLinearCongruential { :self |
+		LinearCongruential([3877, 29573, 139968], self)
+	}
+
+}
+
++List{
+
+	lehmerGenerator { :p :s0 |
+		let [a, m] = p;
+		s0.isCoprime(m).if {
+			let s = s0;
+			BlockStream {
+				let x = s;
+				s := (a * x) % m;
+				x / m
+			} {
+				s := s0
+			}
+		} {
+			p.error('lehmerGenerator: s not coprime with m')
+		}
+	}
+
+	lehmerGenerator { :p :s :n |
+		lehmerGenerator(p, s).next(n)
 	}
 
 }

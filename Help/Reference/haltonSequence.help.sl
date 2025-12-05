@@ -74,7 +74,7 @@ As _b_ increases sample values can exhibit surprisingly regular patterns:
 
 See also: hammersleyPointSet, kroneckerSequence, poissonDiskSampling, vanDerCorputNumber
 
-Guides: Integer Sequence Functions
+Guides: Integer Sequence Functions, Sequence Functions
 
 References:
 _OEIS_

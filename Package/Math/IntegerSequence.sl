@@ -154,7 +154,15 @@
 	}
 
 	ehrenfeuchtMycielskiSequence { :n |
-		[]
+		let t = system.oeisSequenceData.at('A038219');
+		let k = t.size;
+		(n < k).if {
+			1:n.collect { :i |
+				t.at(i).at(2)
+			}
+		} {
+			n.error('ehrenfeuchtMycielskiSequence')
+		}
 	}
 
 	ekgSequence { :n |
@@ -1210,68 +1218,6 @@
 				self[i + 1]
 			}.aBlock
 		)
-	}
-
-}
-
-+SmallFloat {
-
-	sobolSequenceData { :d |
-		[
-			[2, 1, 0, [1]],
-			[3, 2, 1, [1, 3]],
-			[4, 3, 1, [1, 3, 1]],
-			[5, 3, 2, [1, 1, 1]],
-			[6, 4, 1, [1, 1, 3, 3]],
-			[7, 4, 4, [1, 3, 5, 13]],
-			[8, 5, 2, [1, 1, 5, 5, 17]],
-			[9, 5, 4, [1, 1, 5, 5, 5]]
-		].at(d - 1)
-	}
-
-	sobolSequence { :n :d |
-		let l = n.bitLength;
-		let v = List(l);
-		let x = List(n, 0);
-		(d = 1).if {
-			1.toDo(l) { :i |
-				v[i] := 1L << (32 - i)
-			}
-		} {
-			let [_, s, a, m] = d.sobolSequenceData;
-			(l <= s).if {
-				1.toDo(l) { :i |
-					v[i] := m[i] << (32L - i)
-				}
-			} {
-				1:s.collect { :i |
-					v[i] := m[i] << (32L - i)
-				};
-				(s + 1).toDo(l) { :i |
-					v[i] := v[i - s].bitXor(v[i - s] >> s);
-					1.toDo(2 - 1) { :k |
-						v[i] := v[i].bitXor((a >> (s - 1 - k)).bitAnd(1) * v[i - k])
-					};
-					v
-				}
-			}
-		};
-		2.toDo(n) { :i |
-			let j = (i - 1).rulerFunction;
-			x[i] := x[i - 1].bitXor(v[j])
-		};
-		(x / (2 ^ 32))
-	}
-
-}
-
-+List {
-
-	sobolSequence { :shape |
-		let [m, n] = shape;
-		1:n.collect { :d |
-			sobolSequence(m, d)
-		}.transpose
 	}
 
 }

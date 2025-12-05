@@ -446,6 +446,22 @@ let a = { :n |
 
 ![](sw/spl/Help/Image/mod-L.svg)
 
+Implement the Park-Miller generator,
+which is correct when caculated with 64-bit IEEE floating point math:
+
+~~~spl svg=M
+let a = 48271;
+let m = 2 ^ 31 - 1;
+let s = 618379;
+let n = 100;
+let r = { :x |
+	(a * x) % m
+}.nestList(s, n);
+(r / m).discretePlot
+~~~
+
+![](sw/spl/Help/Image/mod-M.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

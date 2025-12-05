@@ -73,15 +73,35 @@ Scatter plot of first few terms of two-dimensional sequence:
 
 ![](sw/spl/Help/Image/sobolSequence-B.svg)
 
+Matrix plot of first sixteen rows of the twelve dimensional sequence:
+
+~~~spl svg=C
+[16 12].sobolSequence.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-C.svg)
+
+Matrix plot of first sixty-four rows of the two-hundred and fifty-six dimensional sequence:
+
+~~~spl png=D
+[64 256].sobolSequence.Greymap
+~~~
+
+![](sw/spl/Help/Image/sobolSequence-D.png)
+
 * * *
 
-See also: bitAnd, bitLength, bitXor, rulerFunction, sobolSequenceData
+See also: bitAnd, bitLength, bitXor, haltonSequence, rulerFunction, sobolSequenceData, vanDerCorputNumber
 
 Guides: Sequence Functions
 
 References:
+_Kuo_
+[1](https://web.maths.unsw.edu.au/~fkuo/sobol/),
 _OEIS_
 [1](https://oeis.org/A280995)
 [2](https://oeis.org/A062383),
 _W_
 [1](https://en.wikipedia.org/wiki/Sobol_sequence)
+
+Further Reading: Sobol 1967, Joe and Kuo 2003

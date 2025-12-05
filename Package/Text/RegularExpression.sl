@@ -4,48 +4,6 @@ RegExp! : [Object, Storeable, Equatable] {
 		self
 	}
 
-	basicExec { :self :aString |
-		<primitive:
-		const result = _self.exec(_aString);
-		return {
-			match: result ? result[0] : null
-		};
-		>
-	}
-
-	basicExecIndices { :self :aString |
-		<primitive:
-		const result = _self.exec(_aString);
-		return {
-			match: result ? result[0] : null,
-			indices: result ? [result.indices[0][0] + 1, result.indices[0][1]] : null
-		};
-		>
-	}
-
-	basicMatchAll { :self :aString |
-		<primitive:
-		return [..._aString.matchAll(_self)].map(function(each) {
-			return each[0]
-		});>
-	}
-
-	basicReplaceWith { :self :aString :replacementString |
-		<primitive: return _aString.replace(_self, _replacementString);>
-	}
-
-	basicReplaceAllWith { :self :aString :replacementString |
-		<primitive: return _aString.replaceAll(_self, _replacementString);>
-	}
-
-	basicSearch { :self :aString |
-		<primitive: return _self.test(_aString);>
-	}
-
-	basicSplit { :self :aString |
-		<primitive: return _aString.split(_self);>
-	}
-
 	equalBy { :self :anObject :aBlock:/2 |
 		anObject.isRegularExpression & {
 			aBlock(self.source, anObject.source) & {
@@ -56,12 +14,12 @@ RegExp! : [Object, Storeable, Equatable] {
 
 	exec { :self :aString |
 		aString.assertIsString;
-		self.basicExec(aString)
+		self.uncheckedExec(aString)
 	}
 
 	execIndices { :self :aString |
 		aString.assertIsString;
-		self.basicExecIndices(aString)
+		self.uncheckedExecIndices(aString)
 	}
 
 	flags { :self |
@@ -90,7 +48,7 @@ RegExp! : [Object, Storeable, Equatable] {
 
 	matchAll { :self :aString |
 		aString.assertIsString;
-		self.basicMatchAll(aString)
+		self.uncheckedMatchAll(aString)
 	}
 
 	matches { :self :aString |
@@ -104,12 +62,12 @@ RegExp! : [Object, Storeable, Equatable] {
 	replaceWith { :self :aString :replacementString |
 		aString.assertIsString;
 		replacementString.assertIsString;
-		self.basicReplaceWith(aString, replacementString)
+		self.uncheckedReplaceWith(aString, replacementString)
 	}
 
 	replaceModifying { :self :aString :aBlock:/1 |
 		aString.assertIsString;
-		self.basicReplaceWith(aString) { :match :offset :string |
+		self.uncheckedReplaceWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
 	}
@@ -117,24 +75,24 @@ RegExp! : [Object, Storeable, Equatable] {
 	replaceAllWith { :self :aString :replacementString |
 		aString.assertIsString;
 		replacementString.assertIsString;
-		self.basicReplaceAllWith(aString, replacementString)
+		self.uncheckedReplaceAllWith(aString, replacementString)
 	}
 
 	replaceAllModifying { :self :aString :aBlock:/1 |
 		aString.assertIsString;
-		self.basicReplaceAllWith(aString) { :match :offset :string |
+		self.uncheckedReplaceAllWith(aString) { :match :offset :string |
 			aBlock(match)
 		}
 	}
 
 	search { :self :aString |
 		aString.assertIsString;
-		self.basicSearch(aString)
+		self.uncheckedSearch(aString)
 	}
 
 	splitBy { :self :aString |
 		aString.assertIsString;
-		self.basicSplit(aString)
+		self.uncheckedSplit(aString)
 	}
 
 	source { :self |
@@ -147,6 +105,48 @@ RegExp! : [Object, Storeable, Equatable] {
 
 	stringLiteral { :self |
 		<primitive: return _self.toString();>
+	}
+
+	uncheckedExec { :self :aString |
+		<primitive:
+		const result = _self.exec(_aString);
+		return {
+			match: result ? result[0] : null
+		};
+		>
+	}
+
+	uncheckedExecIndices { :self :aString |
+		<primitive:
+		const result = _self.exec(_aString);
+		return {
+			match: result ? result[0] : null,
+			indices: result ? [result.indices[0][0] + 1, result.indices[0][1]] : null
+		};
+		>
+	}
+
+	uncheckedMatchAll { :self :aString |
+		<primitive:
+		return [..._aString.matchAll(_self)].map(function(each) {
+			return each[0]
+		});>
+	}
+
+	uncheckedReplaceWith { :self :aString :replacementString |
+		<primitive: return _aString.replace(_self, _replacementString);>
+	}
+
+	uncheckedReplaceAllWith { :self :aString :replacementString |
+		<primitive: return _aString.replaceAll(_self, _replacementString);>
+	}
+
+	uncheckedSearch { :self :aString |
+		<primitive: return _self.test(_aString);>
+	}
+
+	uncheckedSplit { :self :aString |
+		<primitive: return _aString.split(_self);>
 	}
 
 }

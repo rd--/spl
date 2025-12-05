@@ -1874,14 +1874,14 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'splitRegularExpression'
 	],
 	'private-regexp': [
-		'basicExec'
-		'basicExecIndices'
-		'basicMatch'
-		'basicMatchAll'
-		'basicReplaceWith'
-		'basicReplaceAllWith'
-		'basicSearch'
-		'basicSplit'
+		'uncheckedExec'
+		'uncheckedExecIndices'
+		'uncheckedMatch'
+		'uncheckedMatchAll'
+		'uncheckedReplaceWith'
+		'uncheckedReplaceAllWith'
+		'uncheckedSearch'
+		'uncheckedSplit'
 		'exec'
 		'execIndices'
 	],

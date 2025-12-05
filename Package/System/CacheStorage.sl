@@ -1,21 +1,9 @@
 CacheStorage! : [Object] {
 
-	basicDelete { :self :key |
-		<primitive: return _self.delete(_key);>
-	}
-
-	basicHas { :self :key |
-		<primitive: return _self.has(_key);>
-	}
-
-	basicOpen { :self :key |
-		<primitive: return _self.open(_key);>
-	}
-
 	atIfAbsent { :self :key :ifAbsent:/0 |
 		self.includesKey(key).then { :answer |
 			answer.if {
-				self.basicOpen(key)
+				self.uncheckedOpen(key)
 			} {
 				ifAbsent()
 			}
@@ -24,20 +12,20 @@ CacheStorage! : [Object] {
 
 	atIfPresent { :self :key :ifPresent:/1 |
 		let validKey = self.validateKey(key);
-		self.basicOpen(key).then { :cache |
+		self.uncheckedOpen(key).then { :cache |
 			ifPresent(cache)
 		}
 	}
 
 	includesKey { :self :key |
 		let validKey = self.validateKey(key);
-		self.basicHas(validKey)
+		self.uncheckedHas(validKey)
 	}
 
 	removeKeyIfAbsent { :self :key :ifAbsent:/0 |
 		self.includesKey(key).then { :answer |
 			answer.if {
-				self.basicDelete(key)
+				self.uncheckedDelete(key)
 			} {
 				ifAbsent()
 			}
@@ -50,6 +38,18 @@ CacheStorage! : [Object] {
 		} {
 			self.error('CacheStorage>>validateKey: key not String')
 		}
+	}
+
+	uncheckedDelete { :self :key |
+		<primitive: return _self.delete(_key);>
+	}
+
+	uncheckedHas { :self :key |
+		<primitive: return _self.has(_key);>
+	}
+
+	uncheckedOpen { :self :key |
+		<primitive: return _self.open(_key);>
 	}
 
 }
