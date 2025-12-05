@@ -279,7 +279,15 @@ The tips of a pentagram are golden triangles:
 
 ![](sw/spl/Help/Image/goldenRatio-G.svg)
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.goldenRatio(34)
+1.6180339887498948482045868343656381D
+```
+
 φ is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A001622](https://oeis.org/A001622):
 
 ```
@@ -292,8 +300,7 @@ OEIS [A001622](https://oeis.org/A001622):
 Scatter plot of the digits of φ:
 
 ~~~spl svg=H
-'GoldenRatio'
-.namedConstant
+1.goldenRatio(104)
 .integerDigits
 .scatterPlot
 ~~~

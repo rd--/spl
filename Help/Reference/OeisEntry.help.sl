@@ -12,7 +12,7 @@ _n_ is the entry identifier, either as an integer or an _A-_ string.
 
 Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 
-~~~
+```
 >>> OeisEntry('A000001').then { :e |
 >>> 	(
 >>> 		e.identifier,
@@ -33,9 +33,9 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 	94,
 	2048
 )
-~~~
+```
 
-Plot the `data` given in the OEIS entry proper:
+Plot all of the `data` given in the OEIS entry proper:
 
 ~~~spl svg=A
 OeisEntry('A000001').then { :e |
@@ -47,7 +47,8 @@ OeisEntry('A000001').then { :e |
 
 ![](sw/spl/Help/Image/OeisEntry-A.svg)
 
-Plot the `bFileData` given in B-file associated with the OEIS entry:
+Plot the first few items of `bFileData`,
+as given in B-file associated with the OEIS entry:
 
 ~~~spl svg=B
 OeisEntry('A000001').then { :e |
@@ -71,6 +72,8 @@ true
 ```
 
 * * *
+
+See also: cachedFetch
 
 Guides: Integer Sequence Functions
 

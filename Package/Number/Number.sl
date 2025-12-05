@@ -281,7 +281,7 @@
 		self * 2
 	}
 
-	e { :self :aNumber |
+	E { :self :aNumber |
 		self * (10 ^ aNumber)
 	}
 

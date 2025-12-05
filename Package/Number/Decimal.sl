@@ -266,6 +266,34 @@ Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | frac
 		self.fraction.truncate
 	}
 
+	truncateScale { :self :k :mode:/1 |
+		let s = self.scale;
+		(k < s).if {
+			let f = self.fraction;
+			let n = f.numerator;
+			let d = f.denominator;
+			let i = n * ((10L ^ s) / d);
+			let j = 10L ^ (s - k);
+			Decimal(
+				Fraction(
+					mode(i / j),
+					10L ^ k
+				),
+				k
+			)
+		} {
+			(k = s).if {
+				self
+			} {
+				self.error('truncateScale')
+			}
+		}
+	}
+
+	truncateScale { :self :k |
+		self.truncateScale(k, truncate:/1)
+	}
+
 	unscaledInteger { :self |
 		(self.fraction * (10L ^ self.scale)).asInteger
 	}

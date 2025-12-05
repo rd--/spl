@@ -344,4 +344,48 @@
 		system.namedConstantTable.at(self)
 	}
 
+	namedConstant { :self :n :s |
+		(self.namedConstant * n).truncateScale(s)
+	}
+
+}
+
++@Number {
+
+	calabisConstant { :n :s |
+		'CalabisConstant'.namedConstant(n, s)
+	}
+
+	catalansConstant { :n :s |
+		'CatalansConstant'.namedConstant(n, s)
+	}
+
+	e { :n :s |
+		'E'.namedConstant(n, s)
+	}
+
+	eulerGamma { :n :s |
+		'EulerGamma'.namedConstant(n, s)
+	}
+
+	goldenRatio { :n :s |
+		'GoldenRatio'.namedConstant(n, s)
+	}
+
+	pi { :n :s |
+		'Pi'.namedConstant(n, s)
+	}
+
+	pythagorasConstant { :n :s |
+		'PythagorasConstant'.namedConstant(n, s)
+	}
+
+	levysConstant { :n :s |
+		'LevysConstant'.namedConstant(n, s)
+	}
+
+	vanDerCorputsConstant { :n :s |
+		'VanDerCorputsConstant'.namedConstant(n, s)
+	}
+
 }

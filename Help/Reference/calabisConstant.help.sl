@@ -1,6 +1,6 @@
 # calabisConstant
 
-- _calabisConstant(n)_
+- _calabisConstant(n, m)_
 
 Answer _n_ times Calabi’s constant.
 
@@ -18,7 +18,15 @@ OEIS [A046096](https://oeis.org/A046096):
 [1 1 1 4 2 1 2 1 5 2 1 3 1 1 390 1 1 2]
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.calabisConstant(34)
+1.5513875245483203922619525102646238D
+```
+
 Calabi’s constant is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A046095](https://oeis.org/A046095):
 
 ```
@@ -31,8 +39,7 @@ OEIS [A046095](https://oeis.org/A046095):
 Scatter plot of the digits of Calabi’s constant:
 
 ~~~spl svg=A
-'CalabisConstant'
-.namedConstant
+1.calabisConstant(101)
 .integerDigits
 .scatterPlot
 ~~~
@@ -41,7 +48,7 @@ Scatter plot of the digits of Calabi’s constant:
 
 * * *
 
-See also: namedConstant, Triangle
+See also: Triangle
 
 Guides: Mathematical Constants
 

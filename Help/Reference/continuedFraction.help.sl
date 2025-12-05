@@ -273,7 +273,7 @@ At `Decimal`,
 OEIS [A003417](https://oeis.org/A003417):
 
 ```
->>> 'E'.namedConstant
+>>> 1.e(104)
 >>> .continuedFraction(72)
 [
 	2 1  2 1 1  4 1 1  6

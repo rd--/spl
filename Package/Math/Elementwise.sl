@@ -154,7 +154,7 @@
 		self.collect(e:/1)
 	}
 
-	e { :self :aNumber |
+	E { :self :aNumber |
 		self * (10 ^ aNumber)
 	}
 

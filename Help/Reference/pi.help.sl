@@ -1,6 +1,6 @@
 # pi
 
-- _pi(n)_
+- _pi(n, m)_
 
 Answer _n_ times `pi`,
 the ratio of a circles circumference to its diameter,
@@ -202,7 +202,15 @@ A number that is, to within the available precision, an integer:
 2.6253741264076826E17
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.pi(34)
+3.1415926535897932384626433832795028D
+```
+
 π is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A000796](https://oeis.org/A000796):
 
 ```
@@ -215,8 +223,7 @@ OEIS [A000796](https://oeis.org/A000796):
 Scatter plot of the digits of π:
 
 ~~~spl svg=A
-'Pi'
-.namedConstant
+1.pi(104)
 .integerDigits
 .scatterPlot
 ~~~

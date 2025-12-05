@@ -34,7 +34,15 @@ which is the norm of _(1,1)-(0,0)_:
 2.sqrt
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.pythagorasConstant(34)
+1.4142135623730950488016887242096980D
+```
+
 Pythagoras’ constant is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A002193](https://oeis.org/A002193):
 
 ```
@@ -47,8 +55,7 @@ OEIS [A002193](https://oeis.org/A002193):
 Scatter plot of the digits of Pythagoras’ constant:
 
 ~~~spl svg=A
-'PythagorasConstant'
-.namedConstant
+1.pythagorasConstant(98)
 .integerDigits
 .scatterPlot
 ~~~

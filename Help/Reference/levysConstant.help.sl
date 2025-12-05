@@ -1,6 +1,6 @@
 # levysConstant
 
-- _levysConstant(n)_
+- _levysConstant(n, m)_
 
 Answer _n_ times Lévy’s constant, _exp(β)_.
 
@@ -23,7 +23,15 @@ Continued fraction:
 [3 3 1 1 1 2 29 1 130 1 12 3 8]
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.levysConstant(34)
+3.2758229187218111597876818824538438D
+```
+
 Lévy’s constant is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A002210](https://oeis.org/A002210):
 
 ```
@@ -36,8 +44,7 @@ OEIS [A002210](https://oeis.org/A002210):
 Scatter plot of the digits of Lévy’s constant:
 
 ~~~spl svg=A
-'LevysConstant'
-.namedConstant
+1.levysConstant(104)
 .integerDigits
 .scatterPlot
 ~~~

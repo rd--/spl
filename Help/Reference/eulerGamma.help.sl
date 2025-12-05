@@ -56,7 +56,15 @@ Plot approach to limit:
 
 ![](sw/spl/Help/Image/eulerGamma-A.svg)
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.eulerGamma(34)
+0.5772156649015328606065120900824024D
+```
+
 γ is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A001620](https://oeis.org/A001620):
 
 ```
@@ -69,8 +77,7 @@ OEIS [A001620](https://oeis.org/A001620):
 Scatter plot of the digits of γ:
 
 ~~~spl svg=B
-'EulerGamma'
-.namedConstant
+1.eulerGamma(99)
 .integerDigits
 .scatterPlot
 ~~~

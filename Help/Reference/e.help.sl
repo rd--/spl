@@ -1,15 +1,12 @@
 # e
 
-- _e(n)_
+- _e(n, m)_
 
-In the unary case,
-answer _n_ times `e`.
+Answer _n_ times `e`.
 The number `e`,
 also known as Euler’s number or Napier’s constant
 is a mathematical constant approximately equal to 2.71828.
 It is the base of natural logarithms.
-
-Answer _n_ times `e`.
 
 ```
 >>> 1.e
@@ -49,24 +46,6 @@ Euler’s formula and Euler’s identity:
 1.pi.i
 ```
 
-In the binary case,
-answer the scientific notation _m×10ⁿ_:
-
-```
->>> 1.e(6)
-1E6
-
->>> 1.e(-6)
-1E-6
-```
-
-The binary form likewise threads over lists:
-
-```
->>> [0 0.1 0.2 0.3 0.4 0.5 0.75 1.0].e(2)
-[0 10 20 30 40 50 75 100]
-```
-
 Expressions that approach _e_:
 
 ```
@@ -102,7 +81,15 @@ The graph of _eˣ_ has gradient `one` at `zero`:
 
 ![](sw/spl/Help/Image/e-A.svg)
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.e(34)
+2.7182818284590452353602874713526624D
+```
+
 `e` is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A001113](https://oeis.org/A001113):
 
 ```
@@ -115,8 +102,7 @@ OEIS [A001113](https://oeis.org/A001113):
 Scatter plot of the digits of `e`:
 
 ~~~spl svg=B
-'E'
-.namedConstant
+1.e(104)
 .integerDigits
 .scatterPlot
 ~~~
@@ -126,7 +112,7 @@ Scatter plot of the digits of `e`:
 The continued fraction at the higher precision decimal constant is accurate to many more places:
 
 ```
->>> 'E'.namedConstant.continuedFraction(90)
+>>> 1.e(104).continuedFraction(90)
 [
 	2 1  2 1 1  4 1 1  6
 	1 1  8 1 1 10 1 1 12
@@ -143,6 +129,23 @@ The continued fraction at the higher precision decimal constant is accurate to m
 
 _e_ is also a part of the `Scientific Notation` for `Number Syntax`,
 however in that context an upper case _E_ is ordinary.
+
+There is also an `E` method that answers the scientific notation _m×10ⁿ_:
+
+```
+>>> 1.E(6)
+1E6
+
+>>> 1.E(-6)
+1E-6
+```
+
+Threads over lists:
+
+```
+>>> [0 0.1 0.2 0.3 0.4 0.5 0.75 1.0].E(2)
+[0 10 20 30 40 50 75 100]
+```
 
 * * *
 

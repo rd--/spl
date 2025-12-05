@@ -17,7 +17,15 @@ the alternating sum of the reciprocals of the odd square numbers.
 [0 1 10 1 8 1 88 4 1 1 7 22 1 2]
 ```
 
+The binary case answers a `Decimal` value with _m_ decimal places:
+
+```
+>>> 1.catalansConstant(34)
+0.9159655941772190150546035149323841D
+```
+
 Catalans’s constant is also stored as a named constant with higher precision,
+and this stored value gives the upper limit for _m_,
 OEIS [A006752](https://oeis.org/A006752):
 
 ```
@@ -30,8 +38,7 @@ OEIS [A006752](https://oeis.org/A006752):
 Scatter plot of the digits of Catalans’s constant:
 
 ~~~spl svg=A
-'CatalansConstant'
-.namedConstant
+1.catalansConstant(105)
 .integerDigits
 .scatterPlot
 ~~~
