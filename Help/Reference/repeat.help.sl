@@ -33,6 +33,14 @@ Repeat a triplet of characters seven times:
 'xyzxyzxyzxyzxyzxyzxyz'
 ```
 
+The all ones sequence,
+OEIS [A000012](http://oeis.org/A000012):
+
+```
+>>> [1].repeat(23)
+[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1]
+```
+
 * * *
 
 See also: constantArray, findRepeat, stringCatenate, stringJoin, stringRepeat
@@ -42,3 +50,5 @@ Guides: List Functions, String Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringRepeat.html),
+_OEIS_
+[1](http://oeis.org/A000012)

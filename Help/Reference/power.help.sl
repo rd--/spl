@@ -150,6 +150,14 @@ Threads elementwise over lists and matrices:
 [2.82843 5.27803 7.46426 0.21764]
 ```
 
+_2^n+1,
+OEIS [A000051](https://oeis.org/A000051):
+
+```
+>>> 2 ^ 1:9 + 1
+[3 5 9 17 33 65 129 257 513]
+```
+
 Choose sign based on a `List` of `boole`:
 
 ```
@@ -358,6 +366,19 @@ and hence the total payment and total interest:
 (3959.73, 950336, 350336)
 ```
 
+Fermat numbers,
+OEIS [A000215](https://oeis.org/A000215):
+
+```
+>>> (0L .. 6).collect { :n |
+>>> 	2 ^ (2 ^ n) + 1
+>>> }
+[
+	3 5 17 257 65537 4294967297
+	18446744073709551617L
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A
@@ -428,7 +449,9 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/Power.html)
 [2](https://reference.wolfram.com/language/ref/Power.html),
 _OEIS_
-[1](https://oeis.org/A000272),
+[1](https://oeis.org/A000272)
+[2](https://oeis.org/A000051)
+[3](https://oeis.org/A000215),
 _Smalltalk_
 5.6.2.27,
 _W_

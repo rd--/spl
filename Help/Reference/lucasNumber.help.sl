@@ -33,11 +33,12 @@ At negative integer:
 -199
 ```
 
-Threads elementwise over lists:
+Threads elementwise over lists,
+OEIS [A000204](http://oeis.org/A000204):
 
 ```
->>> [1 2 3 4 5].lucasNumber
-[1 3 4 7 11]
+>>> [1 .. 10].lucasNumber
+[1 3 4 7 11 18 29 47 76 123]
 
 >>> [-5 .. 5].lucasNumber
 [-11 7 -4 3 -1 2 1 3 4 7 11]
@@ -52,6 +53,16 @@ OEIS [A001606](https://oeis.org/A001606):
 >>> 	n.lucasInteger.isPrime
 >>> }
 [2 4 5 7 8 11 13 16 17 19 31 37 41 47]
+```
+
+First few terms of
+OEIS [A000285](https://oeis.org/A000285):
+
+```
+>>> 1:15.collect { :n |
+>>> 	(3 * lucasNumber(n) - fibonacci(n)) / 2
+>>> }
+[1 4 5 9 14 23 37 60 97 157 254 411 665 1076 1741]
 ```
 
 Plot over a subset of the reals:

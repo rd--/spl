@@ -614,6 +614,14 @@ OEIS [A006356](https://oeis.org/A006356):
 [1 3 6 14 31 70 157 353 793 1782 4004]
 ```
 
+First few terms of
+OEIS [A000285](https://oeis.org/A000285):
+
+```
+>>> linearRecurrence([1 1], [1 4], 15)
+[1 4 5 9 14 23 37 60 97 157 254 411 665 1076 1741]
+```
+
 Draw spiral:
 
 ~~~spl svg=A

@@ -2,7 +2,8 @@
 
 - _kolakoskiSequence(n)_
 
-Answer the first _n_ terms of the Kolakoski sequence.
+Answer the first _n_ terms of the Kolakoski sequence,
+also called the Oldenburger-Kolakoski sequence.
 
 First few terms,
 OEIS [A000002](https://oeis.org/A000002):

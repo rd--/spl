@@ -1,6 +1,6 @@
 # Sequence Functions
 
-Low Discrepancy Sequence Functions
+Low Discrepancy Sequence Functions:
 
 - `ehrenfeuchtMycielskiSequence`
 - `haltonSequence`
@@ -8,3 +8,8 @@ Low Discrepancy Sequence Functions
 - `poissonDiskSampling`
 - `sobolSequence`
 - `vanDerCorputNumber`
+
+Self-Describing Sequence Functions:
+
+- `golombsSequence`
+- `kolakoskiSequence`

@@ -4,14 +4,19 @@
 
 An integer _n_ is _k_-smooth if it has no prime factors _> k_.
 
-List the first few _k_-smooth numbers for small _k_:
+Powers of two,
+OEIS [A000079](https://oeis.org/A000079):
 
 ```
 >>> 1:512.select { :n |
 >>> 	n.isSmoothNumber(2)
 >>> }
 [1 2 4 8 16 32 64 128 256 512]
+```
 
+List the first few _k_-smooth numbers for small _k_:
+
+```
 >>> 1:24.select { :n |
 >>> 	n.isSmoothNumber(3)
 >>> }

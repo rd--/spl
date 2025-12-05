@@ -3,7 +3,7 @@
 - _plasticRatio(n)_
 
 Answer _n_ times the plastic ratio (rho) ,
-also called the minimal Pisot number or plastic number or plastic constant,
+also called the minimal Pisot-Vijayaraghavan number or plastic number or plastic constant,
 is the limiting ratio of the successive terms of the Padovan sequence or Perrin sequence.
 
 ```
@@ -67,10 +67,12 @@ Guides: Integer Sequence Functions, Mathematical Constants
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/PlasticConstant.html),
+[1](https://mathworld.wolfram.com/PlasticConstant.html)
+[2](https://mathworld.wolfram.com/PisotNumber.html),
 _OEIS_
 [1](https://oeis.org/A060006),
 _W_
 [1](https://en.wikipedia.org/wiki/Plastic_ratio)
+[2](https://en.wikipedia.org/wiki/Pisot%E2%80%93Vijayaraghavan_number)
 
 Categories: Math, Constant
