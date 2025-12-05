@@ -43,7 +43,7 @@ true
 Show every _k_-th comparison made in doing a sort:
 
 ~~~spl svg=A
-let n = 50;
+let n = 20;
 let m = 50;
 let k = 4;
 let r = [];

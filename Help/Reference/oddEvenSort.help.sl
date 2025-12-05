@@ -9,7 +9,7 @@ Sort list:
 
 ```
 >>> [1 3 5 2 4 3].oddEvenSort
-[1 2 3 4 5]
+[1 2 3 3 4 5]
 
 >>> [1 3 5 2 4 3].oddEvenSort(>)
 [5 4 3 3 2 1]
@@ -18,10 +18,10 @@ Sort list:
 Sort is in place:
 
 ```
->>> let s = [1 3 5 2 4];
+>>> let s = [1 3 5 2 4 3];
 >>> let t = s.oddEvenSort;
 >>> (t, t == s)
-([1 2 3 4 5], true)
+([1 2 3 3 4 5], true)
 ```
 
 Show every _k_-th comparison made in doing a sort:

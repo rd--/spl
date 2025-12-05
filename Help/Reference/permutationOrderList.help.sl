@@ -53,7 +53,7 @@ Plot permutation of seventeen places with only one cycle,
 no fixed points,
 and therefore of order seventeen:
 
-~~~
+~~~spl svg=C
 [7 17 15 8 11 10 14 1 3 9 2 4 12 5 13 6 16]
 .permutationOrderList.collect(
 	permutationList:/1

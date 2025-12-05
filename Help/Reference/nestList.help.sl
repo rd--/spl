@@ -189,7 +189,6 @@ let n = p.size;
 	let y = x.copy;
 	{ i <= n }.whileTrue {
 		y[i] := 1 - y[i];
-		[i, x[i], y[i]].postLine;
 		i := i + (y[i] + 2)
 	};
 	y

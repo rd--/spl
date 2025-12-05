@@ -14,11 +14,11 @@ TurtleGeometry : [Object, Equatable, Storeable, Geometry] { | instructionList |
 	}
 
 	arcLeft { :self :distance :degrees |
-		self.arc(distance, degrees, 1)
+		self.arc(distance, degrees, -1)
 	}
 
 	arcRight { :self :distance :degrees |
-		self.arc(distance, degrees, -1)
+		self.arc(distance, degrees, 1)
 	}
 
 	backward { :self :distance |

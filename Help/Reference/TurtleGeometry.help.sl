@@ -64,7 +64,7 @@ TurtleGeometry()
 	2.timesRepeat {
 		t.arcRight(1, 60);
 		t.right(120)
-	}
+	};
 	t.right(60)
 }
 ~~~

@@ -17,17 +17,6 @@ let s = 791823;
 
 ![](sw/spl/Help/Image/lehmerGenerator-A.svg)
 
-
-~~~spl svg=C
-let n = 150;
-let a = 1.goldenRatio % 1;
-let b = 1.silverRatio % 1;
-let x = lehmerGenerator([a 1], 1, n); x.linePlot
-
-let y = { :n | (n + b) % 1 }.nestList(0, n);
-[x y].transpose.scatterPlot
-~~~
-
 * * *
 
 See also: RandomNumberGenerator
