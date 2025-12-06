@@ -18,8 +18,8 @@ Plot : [Object] { | pages format options |
 			each * [[xScalar, 1]]
 		};
 		let items = [];
-		let gen:/1 = self.format.caseOf([
-			'discrete' -> {
+		let gen:/1 = self.format.caseOf (
+			'discrete': {
 				{ :p |
 					p.collect { :each |
 						let [x, y] = each;
@@ -27,22 +27,22 @@ Plot : [Object] { | pages format options |
 					}
 				}
 			},
-			'line' -> {
+			'line': {
 				{ :p |
 					[p.Line]
 				}
 			},
-			'pointLine' -> {
+			'pointLine': {
 				{ :p |
 					[p.Line, p.PointCloud]
 				}
 			},
-			'scatter' -> {
+			'scatter': {
 				{ :p |
 					[p.PointCloud]
 				}
 			}
-		]);
+		);
 		r.includesY(0).ifTrue {
 			items.add(Point([r.left * xScalar, 0]))
 		};
@@ -52,7 +52,7 @@ Plot : [Object] { | pages format options |
 		scaledSegments.do { :each |
 			items.addAll(each.gen)
 		};
-		items.LineDrawing
+		LineDrawing(items, (height: self.height))
 	}
 
 	asLineDrawingXyz { :self |
@@ -73,8 +73,10 @@ Plot : [Object] { | pages format options |
 					[x.negate, z, y.negate].p
 				}
 			};
-			let l = self.pages.collect { :each | each.t.Line };
-			[l].LineDrawing
+			let l = self.pages.collect { :each |
+				each.t.Line
+			};
+			LineDrawing(l, (height: self.height))
 		} {
 			self.error('n×3 matrix: format must be line')
 		}
@@ -123,22 +125,34 @@ Plot : [Object] { | pages format options |
 	}
 
 	drawing { :self |
-		self.format.caseOf([
-			'array' -> {
-				let [contents] = self.pages;
-				contents.asColourSvg
-			},
-			'graph' -> {
-				let [graph] = self.pages;
-				graph.dotDrawing(self.options)
-			},
-			'matrix' -> {
-				let [contents] = self.pages;
-				contents.asGreyscaleSvg
-			}
-		]) {
+		self.format.caseOf(
+			[
+				'array' -> {
+					let [contents] = self.pages;
+					contents.asColourSvg
+				},
+				'graph' -> {
+					let [graph] = self.pages;
+					graph.dotDrawing(self.options)
+				},
+				'matrix' -> {
+					let [contents] = self.pages;
+					contents.asGreyscaleSvg
+				}
+			]
+		) {
 			self.asLineDrawing.drawing
 		}
+	}
+
+	height { :self |
+		self.options.atIfAbsent('height') {
+			100
+		}
+	}
+
+	height { :self :aNumber |
+		self.options.atPut('height', aNumber)
 	}
 
 	pageCount { :self |
@@ -225,15 +239,15 @@ Plot : [Object] { | pages format options |
 	fftPlot { :x :n :m :s |
 		let a = x.fft(n) / (x.size / 2);
 		let b = (a / a.abs.max).abs;
-		let c = m.caseOf([
-			'Half' -> { b.first(n // 2) },
-			'Centered' -> { b.fftShift }
-		]);
+		let c = m.caseOf (
+			'Half': { b.first(n // 2) },
+			'Centered': { b.fftShift }
+		);
 		let d = c.max(1E-6).abs;
-		let e = s.caseOf([
-			'Linear' -> { d },
-			'Logarithmic' -> { 20 * d.log(10) }
-		]);
+		let e = s.caseOf (
+			'Linear': { d },
+			'Logarithmic': { 20 * d.log(10) }
+		);
 		e.linePlot
 	}
 
@@ -564,7 +578,7 @@ Plot : [Object] { | pages format options |
 	}
 
 	Plot { :self :format |
-		self.Plot(format, (:))
+		Plot(self, format, (:))
 	}
 
 }
@@ -1042,11 +1056,9 @@ Plot : [Object] { | pages format options |
 	signalPlot { :o |
 		let y = o['data'];
 		let [a, b] = o['domain'].minMax;
-		let plot:/1 = o['plotType'].caseOf(
-			[
-				'Line' -> { linePlot:/1 },
-				'Step' -> { stepPlot:/1 }
-			]
+		let plot:/1 = o['plotType'].caseOf (
+			'Line': { linePlot:/1 },
+			'Step': { stepPlot:/1 }
 		);
 		let c = b - a;
 		y.isVector.if {

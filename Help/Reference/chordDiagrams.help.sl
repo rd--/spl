@@ -61,6 +61,17 @@ Enumerate and count chord diagrams where _n=5_:
 105
 ```
 
+Plot the five chord diagrams of length three:
+
+~~~spl svg=A
+3.chordDiagrams
+.collect(chordDiagramPlot:/1)
+.rowVector
+.PlotSet
+~~~
+
+![](sw/spl/Help/Image/chordDiagrams-A.svg)
+
 * * *
 
 See also: ChordDiagram, chordDiagramCount

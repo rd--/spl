@@ -109,6 +109,14 @@
 		}
 	}
 
+	columnVector { :self |
+		self.isVector.if {
+			self.collect(enclose:/1)
+		} {
+			self.error('columnVector')
+		}
+	}
+
 	designMatrix { :self :aBlock:/1 |
 		let [m, n] = self.shape;
 		self.submatrix(
@@ -292,6 +300,14 @@
 			self.atAll(aList)
 		} {
 			self.error('List>>rows: illegal index')
+		}
+	}
+
+	rowVector { :self |
+		self.isVector.if {
+			[self]
+		} {
+			self.error('rowVector')
 		}
 	}
 

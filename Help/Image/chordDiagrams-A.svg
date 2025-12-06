@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="56.25">
+<g transform="translate(0, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
+<g fill="none" stroke="black" stroke-width="0.0222%" transform="translate(0, 0.0000) scale(22.5000, -22.5000)">
+<circle cx="1.000" cy="0.000" r="0.022" />
+<circle cx="0.500" cy="0.866" r="0.022" />
+<circle cx="-0.500" cy="0.866" r="0.022" />
+<circle cx="-1.000" cy="0.000" r="0.022" />
+<circle cx="-0.500" cy="-0.866" r="0.022" />
+<circle cx="0.500" cy="-0.866" r="0.022" />
+<line x1="1.000" y1="0.000" x2="0.500" y2="0.866" />
+<line x1="-0.500" y1="0.866" x2="-1.000" y2="0.000" />
+<line x1="-0.500" y1="-0.866" x2="0.500" y2="-0.866" />
+<circle cx="0.000" cy="0.000" r="1.000" />
+</g>
+</svg>
+</g>
+<g transform="translate(56.25, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
+<g fill="none" stroke="black" stroke-width="0.0222%" transform="translate(0, 0.0000) scale(22.5000, -22.5000)">
+<circle cx="1.000" cy="0.000" r="0.022" />
+<circle cx="0.500" cy="0.866" r="0.022" />
+<circle cx="-0.500" cy="0.866" r="0.022" />
+<circle cx="-1.000" cy="0.000" r="0.022" />
+<circle cx="-0.500" cy="-0.866" r="0.022" />
+<circle cx="0.500" cy="-0.866" r="0.022" />
+<line x1="1.000" y1="0.000" x2="0.500" y2="0.866" />
+<line x1="-0.500" y1="0.866" x2="-0.500" y2="-0.866" />
+<line x1="-1.000" y1="0.000" x2="0.500" y2="-0.866" />
+<circle cx="0.000" cy="0.000" r="1.000" />
+</g>
+</svg>
+</g>
+<g transform="translate(112.5, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
+<g fill="none" stroke="black" stroke-width="0.0222%" transform="translate(0, 0.0000) scale(22.5000, -22.5000)">
+<circle cx="1.000" cy="0.000" r="0.022" />
+<circle cx="0.500" cy="0.866" r="0.022" />
+<circle cx="-0.500" cy="0.866" r="0.022" />
+<circle cx="-1.000" cy="0.000" r="0.022" />
+<circle cx="-0.500" cy="-0.866" r="0.022" />
+<circle cx="0.500" cy="-0.866" r="0.022" />
+<line x1="1.000" y1="0.000" x2="0.500" y2="0.866" />
+<line x1="-0.500" y1="0.866" x2="0.500" y2="-0.866" />
+<line x1="-1.000" y1="0.000" x2="-0.500" y2="-0.866" />
+<circle cx="0.000" cy="0.000" r="1.000" />
+</g>
+</svg>
+</g>
+<g transform="translate(168.75, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
+<g fill="none" stroke="black" stroke-width="0.0222%" transform="translate(0, 0.0000) scale(22.5000, -22.5000)">
+<circle cx="1.000" cy="0.000" r="0.022" />
+<circle cx="0.500" cy="0.866" r="0.022" />
+<circle cx="-0.500" cy="0.866" r="0.022" />
+<circle cx="-1.000" cy="0.000" r="0.022" />
+<circle cx="-0.500" cy="-0.866" r="0.022" />
+<circle cx="0.500" cy="-0.866" r="0.022" />
+<line x1="1.000" y1="0.000" x2="-0.500" y2="0.866" />
+<line x1="0.500" y1="0.866" x2="-0.500" y2="-0.866" />
+<line x1="-1.000" y1="0.000" x2="0.500" y2="-0.866" />
+<circle cx="0.000" cy="0.000" r="1.000" />
+</g>
+</svg>
+</g>
+<g transform="translate(225, 0)">
+<svg xmlns="http://www.w3.org/2000/svg" width="45.0" height="45.0" viewBox="-27.500 -27.500 55.000 55.000">
+<g fill="none" stroke="black" stroke-width="0.0222%" transform="translate(0, 0.0000) scale(22.5000, -22.5000)">
+<circle cx="1.000" cy="0.000" r="0.022" />
+<circle cx="0.500" cy="0.866" r="0.022" />
+<circle cx="-0.500" cy="0.866" r="0.022" />
+<circle cx="-1.000" cy="0.000" r="0.022" />
+<circle cx="-0.500" cy="-0.866" r="0.022" />
+<circle cx="0.500" cy="-0.866" r="0.022" />
+<line x1="1.000" y1="0.000" x2="-1.000" y2="0.000" />
+<line x1="0.500" y1="0.866" x2="-0.500" y2="-0.866" />
+<line x1="-0.500" y1="0.866" x2="0.500" y2="-0.866" />
+<circle cx="0.000" cy="0.000" r="1.000" />
+</g>
+</svg>
+</g>
+</svg>

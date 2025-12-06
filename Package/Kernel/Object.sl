@@ -28,12 +28,6 @@
 		self.error('@Object>>caseError: case not found and no otherwise clause')
 	}
 
-	caseOf { :self :aCollection |
-		self.caseOf(aCollection) { :case |
-			self.caseError
-		}
-	}
-
 	caseOf { :self :aCollection :otherwise:/1 |
 		valueWithReturn { :return:/1 |
 			aCollection.associationsDo { :each |
@@ -42,6 +36,12 @@
 				}
 			};
 			otherwise:/1.cull(self)
+		}
+	}
+
+	caseOf { :self :aCollection |
+		self.caseOf(aCollection) { :case |
+			self.caseError
 		}
 	}
 

@@ -7,6 +7,10 @@ LineDrawing : [Object] { | contents metadata |
 		'<img src="data:image/svg+xml;base64,\n%\n">'.format([svgEncodedPretty])
 	}
 
+	asLineDrawing { :self |
+		self
+	}
+
 	asObjectUrl { :self |
 		self
 		.asSvg
@@ -17,13 +21,15 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	asSvg { :self |
-		let height = self.metadata['height'];
 		let boundingCoordinates = self.boundingBox;
 		{ :options |
 			self.contents.collect { :each |
 				each.svgFragment(options)
 			}
-		}.scaledFragments(height, boundingCoordinates)
+		}.scaledFragments(
+			self.height,
+			boundingCoordinates
+		)
 	}
 
 	boundingBox { :self |
@@ -32,6 +38,16 @@ LineDrawing : [Object] { | contents metadata |
 
 	drawing { :self |
 		self.asSvg
+	}
+
+	height { :self |
+		self.metadata.atIfAbsent('height') {
+			100
+		}
+	}
+
+	height { :self :aNumber |
+		self.metadata.atPut('height', aNumber)
 	}
 
 }
@@ -59,7 +75,12 @@ LineDrawing : [Object] { | contents metadata |
 	}
 
 	LineDrawing { :self |
-		self.LineDrawing(height: 100)
+		LineDrawing(
+			self,
+			(
+				height: 100
+			)
+		)
 	}
 
 }

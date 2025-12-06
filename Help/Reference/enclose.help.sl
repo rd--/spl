@@ -1,8 +1,8 @@
 # enclose
 
-- _enclose(anObject)_
+- _enclose(x)_
 
-Enclose _anObject_ in a `List`.
+Enclose the object _x_ in a `List`.
 Answers a `List` of one place.
 
 ```
@@ -24,6 +24,8 @@ _enclose(x)_ can be written _[x]_.
 * * *
 
 See also: first, nest
+
+Guides: List Functions
 
 References:
 _Apl_

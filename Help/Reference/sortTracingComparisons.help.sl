@@ -74,7 +74,7 @@ plot traces for sort of two shorter van der Corput sequences:
 	.sortTracingComparisons(
 		quickSort:/2
 	).at(2).scatterPlot
-}.PlotSet
+}.columnVector.PlotSet
 ~~~
 
 ![](sw/spl/Help/Image/sortTracingComparisons-F.svg)

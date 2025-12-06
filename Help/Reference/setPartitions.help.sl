@@ -83,6 +83,17 @@ The twenty-five partitions of a five element set into three parts:
 25
 ```
 
+Plot the fifteen partitions of the set _1,2,3,4_:
+
+~~~spl svg=A
+4.setPartitions
+.collect(partitionPlot:/1)
+.reshape([3 5])
+.PlotSet
+~~~
+
+![](sw/spl/Help/Image/setPartitions-A.svg)
+
 * * *
 
 See also: bellNumber, integerPartitions, restrictedGrowthStrings, stirlingS2

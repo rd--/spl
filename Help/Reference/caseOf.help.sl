@@ -60,6 +60,18 @@ If no match is found, and no _otherwise_ clause is given, report an `error`:
 true
 ```
 
+Using a `Record` to select a `String` key,
+written using `Trailing Record Syntax`:
+
+```
+>>> 'y'.caseOf (
+>>> 	x: { 1 },
+>>> 	y: { 2 },
+>>> 	z: { 3 }
+>>> )
+2
+```
+
 If the collection _c_ does not contain associations, report an `error`:
 
 ```
