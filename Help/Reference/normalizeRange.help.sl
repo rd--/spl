@@ -15,6 +15,20 @@ taking as the domain the `min` and `max` items of the collection:
 [-1 -9/11 1/11 1]
 ```
 
+If the input has only one distinct value answer itself,
+or constant minima or maxima:
+
+```
+>>> [1 1 1 1].normalizeRange([0 1])
+[1 1 1 1]
+
+>>> [-1 -1 -1 -1].normalizeRange([0 1])
+[0 0 0 0]
+
+>>> [2 2 2 2].normalizeRange([0 1])
+[1 1 1 1]
+```
+
 In this form the `min` and `max` of the answer are the specified minima and maxima respectively.
 
 Note that this is not the same as the `normalizeSignal` function,

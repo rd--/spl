@@ -24,7 +24,8 @@ Decode encoded first few integers:
 ```
 
 Threads over lists,
-first terms of OEIS [A006068](https://oeis.org/A006068):
+first terms of
+OEIS [A006068](https://oeis.org/A006068):
 
 ```
 >>> 0:63.grayDecode
@@ -39,7 +40,8 @@ first terms of OEIS [A006068](https://oeis.org/A006068):
 ]
 ```
 
-Generate the Thue–Morse sequence:
+Generate the Thue–Morse sequence,
+OEIS [A010060](http://oeis.org/A010060):
 
 ```
 >>> 0:25.grayDecode.bitAnd(1)
@@ -57,7 +59,8 @@ Generate the Thue–Morse sequence:
 ]
 ```
 
-Generate the Rudin-Shapiro sequence:
+Generate the Rudin-Shapiro sequence,
+OEIS [A020985](http://oeis.org/A020985):
 
 ```
 >>> let n = 1:25.bitAnd(

@@ -69,6 +69,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 		w.allButLast
 	}
 
+	murasakiDiagram { :self |
+		self.setPartition.murasakiDiagram
+	}
+
 	parenthesization { :self |
 		self.binaryExpansion.collect { :each |
 			(each = 1).if { '(' } { ')' }

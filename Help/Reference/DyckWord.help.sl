@@ -35,6 +35,17 @@ On the letters _1,-1_, _n=4_:
 )
 ```
 
+The Dyck word corresponding to _(())(())_:
+
+```
+>>> let w = DyckWord([1 1 0 0 1 1 0 0]);
+>>> (
+>>> 	w.restrictedGrowthString,
+>>> 	w.setPartition
+>>> )
+([0 1 2 1], [1; 2 4; 3])
+```
+
 Corresponding Łukasiewicz-word:
 
 ```

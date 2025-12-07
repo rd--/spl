@@ -312,6 +312,19 @@ GrayCode(
 
 ![](sw/spl/Help/Image/isBeckettGrayCode-C.png)
 
+Plot a 6-bit Beckett-Gray code:
+
+~~~spl svg=D
+[
+	0 1 0 2 0 1 3 1 2 0 2 4 0 3 1 2
+	1 5 2 4 3 0 1 4 5 0 5 2 3 4 1 3
+	0 4 5 1 3 5 3 4 5 2 3 5 1 4 3 0
+	2 5 1 4 5 2 3 4 0 5 1 2 5 4 1 5
+].GrayCode.sequence.transpose.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/isBeckettGrayCode-D.svg)
+
 * * *
 
 See also: GrayCode, grayDecode, grayEncode, isBitVector, isCyclicGrayCode, isGrayCode

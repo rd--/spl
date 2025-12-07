@@ -74,7 +74,7 @@ Plot the five chord diagrams of length three:
 
 * * *
 
-See also: ChordDiagram, chordDiagramCount
+See also: ChordDiagram, chordDiagramCount, chordDiagramPlot
 
 Guides: Combinatorial Functions
 

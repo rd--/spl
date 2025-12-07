@@ -18,7 +18,8 @@ The number 6 has an odd number of 11 sequences in its binary form:
 [1 1 0]
 ```
 
-The first few elements of the sequence:
+The first few elements of the sequence,
+OEIS [A020985](http://oeis.org/A020985):
 
 ```
 >>> 0:31.collect(rudinShapiro:/1)

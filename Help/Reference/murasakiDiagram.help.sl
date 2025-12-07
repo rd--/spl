@@ -49,6 +49,19 @@ A three-partition of six:
 
 ![](sw/spl/Help/Image/murasakiDiagram-E.svg)
 
+
+Plot the fourteen non-crossing partitions of four,
+enumerated by the Dyck words:
+
+~~~spl svg=F
+4.dyckWords.collect { :w |
+	DyckWord(w)
+	.murasakiDiagram
+}.reshape([2 7]).PlotSet
+~~~
+
+![](sw/spl/Help/Image/murasakiDiagram-F.svg)
+
 * * *
 
 See also: setPartition, setPartitions

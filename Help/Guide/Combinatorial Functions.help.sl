@@ -2,7 +2,9 @@
 
 Types:
 
-- `Chord`
+- `ChordDiagram`
+- `DyckWord`
+- `GrayCode`
 
 Binomial Functions:
 
@@ -43,6 +45,7 @@ Enumeration Functions:
 - `integerPartitions`
 - `motzkinWords`
 - `necklaces`
+- `restrictedGrowthStrings`
 - `setPartitions`
 - `subsets`
 
@@ -67,6 +70,18 @@ Frobenius Functions:
 - `bockerLiptakAlgorithm`
 - `frobeniusNumber`
 - `frobeniusSolve`
+
+Gray Code Functions:
+
+- `GrayCode`
+- `binaryReflectedGrayCode`
+- `grayCodeFromTransitionSequence`
+- `grayDecode`
+- `grayEncode`
+- `isBeckettGrayCode`
+- `isCyclicGrayCode`
+- `isGrayCode`
+- `mixedRadixGrayCode`
 
 Partition Functions:
 

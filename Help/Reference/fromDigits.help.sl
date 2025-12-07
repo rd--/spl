@@ -68,6 +68,30 @@ OEIS [A007088](https://oeis.org/A007088):
 ]
 ```
 
+Restricted growth string for the decimal expansion of the number _n_,
+OEIS [A123895](https://oeis.org/A123895):
+
+```
+>>> 0:68.collect { :n |
+>>> 	let d = [0] ++ n.integerDigits;
+>>> 	let b = d.deleteDuplicates;
+>>> 	let a = [0 .. b.size];
+>>> 	d.collect { :i |
+>>> 		let j = b.indexOf(i);
+>>> 		a[j]
+>>> 	}.withoutLeadingZeroes
+>>> }.collect(fromDigits:/1)
+[
+	 0  1  1  1  1  1  1  1  1  1
+	10 11 12 12 12 12 12 12 12 12
+	10 12 11 12 12 12 12 12 12 12
+	10 12 12 11 12 12 12 12 12 12
+	10 12 12 12 11 12 12 12 12 12
+	10 12 12 12 12 11 12 12 12 12
+	10 12 12 12 12 12 11 12 12
+]
+```
+
 Reverse binary digits,
 OEIS [A030101](https://oeis.org/A030101):
 
@@ -97,7 +121,8 @@ OEIS [A030101](https://oeis.org/A030101):
 ]
 ```
 
-Plot first few terms:
+Plot first few terms of
+OEIS [A030101](https://oeis.org/A030101):
 
 ~~~spl svg=A
 0:200.collect { :i |

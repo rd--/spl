@@ -31,6 +31,25 @@ Enumerate _6,2_ bracelets:
 14
 ```
 
+Matrix plot of _8,2_ bracelets:
+
+~~~spl svg=A
+bracelets(8, 2)
+.transpose
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/bracelets-A.svg)
+
+Circular matrix plot of _3,3_ bracelets:
+
+~~~spl svg=B
+bracelets(3, 3)
+.circularMatrixPlot
+~~~
+
+![](sw/spl/Help/Image/bracelets-B.svg)
+
 * * *
 
 See also: braceletCount, necklaces

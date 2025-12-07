@@ -75,6 +75,8 @@ See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, 
 Guides: Indexing Functions, List Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/FirstPosition.html),
 _Smalltalk_
 5.7.8.20
 

@@ -66,9 +66,20 @@ List of _6,2_ necklaces:
 14
 ```
 
+Plot the set of eight _5,2_ necklaces:
+
+~~~spl svg=A
+necklaces(5, 2)
+.collect(necklacePlot:/1)
+.reshape([2 4])
+.PlotSet
+~~~
+
+![](sw/spl/Help/Image/necklaces-A.svg)
+
 * * *
 
-See also: necklaceCount
+See also: necklaceCount, necklacePlot
 
 Guides: Combinatorial Functions
 

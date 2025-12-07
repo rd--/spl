@@ -537,7 +537,22 @@
 	}
 
 	normalizeRange { :self :minMax |
-		self.rescale([self.min, self.max], minMax)
+		let [i, j] = self.minMax;
+		(i = j).if {
+			let n = self.size;
+			let [p, q] = minMax;
+			(i < p).if {
+				List(n, p)
+			} {
+				(j > q).if {
+					List(n, q)
+				} {
+					self
+				}
+			}
+		} {
+			self.rescale([i, j], minMax)
+		}
 	}
 
 	normalizeSignal { :self :minMax |

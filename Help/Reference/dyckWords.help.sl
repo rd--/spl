@@ -65,7 +65,7 @@ The number of Dyck words of length _2n_ is the _n_-th Catalan number.
 
 ```
 >>> 1:7.collect { :each |
->>> 	each.dyckWords([-1 1]).size
+>>> 	each.dyckWords.size
 >>> }
 [1 2 5 14 42 132 429]
 

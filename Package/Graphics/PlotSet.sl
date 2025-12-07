@@ -7,8 +7,9 @@ PlotSet : [Object] { | plotMatrix:<List> |
 		let [m, n] = plotMatrix.shape;
 		Svg(
 			[
-				'<svg xmlns="http://www.w3.org/2000/svg" height="%">'.format(
+				'<svg xmlns="http://www.w3.org/2000/svg" width="%" height="%">'.format(
 					[
+						n * (columnWidth * 1.25),
 						m * (rowHeight * 1.25)
 					]
 				),

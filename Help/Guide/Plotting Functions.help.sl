@@ -1,8 +1,9 @@
 # Plotting Functions
 
-Plot Type:
+Types:
 
 - `Plot`
+- `PlotSet`
 
 Plotting Functions:
 

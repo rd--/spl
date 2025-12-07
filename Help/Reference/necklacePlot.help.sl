@@ -48,7 +48,7 @@ here plot a three colour five bead necklace:
 
 * * *
 
-See also: residueSetPlot
+See also: necklaces, residueSetPlot
 
 Guides: Plotting Functions
 

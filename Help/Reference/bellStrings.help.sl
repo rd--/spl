@@ -60,12 +60,13 @@ Strings for _n=4_:
 15
 ```
 
-Matrix plot of length five Bell strings:
+Circular matrix plot of length five Bell strings,
+the last column is elided since it is always zero:
 
 ~~~spl svg=A
-(4 - bellStrings(5))
-.transpose
-.matrixPlot
+bellStrings(5)
+.collect(allButLast:/1)
+.circularMatrixPlot
 ~~~
 
 ![](sw/spl/Help/Image/bellStrings-A.svg)

@@ -109,6 +109,25 @@ Where _s=3,t=3_:
 20
 ```
 
+Matrix plot of _s=3,t=4_:
+
+~~~spl svg=A
+binaryCombinations(3, 4)
+.transpose
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/binaryCombinations-A.svg)
+
+Circular matrix plot of _s=3,t=2_:
+
+~~~spl svg=A
+binaryCombinations(3, 2)
+.circularMatrixPlot
+~~~
+
+![](sw/spl/Help/Image/binaryCombinations-B.svg)
+
 * * *
 
 See also: combinations

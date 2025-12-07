@@ -91,9 +91,35 @@ A restricted growth string can be used to describe a set partition:
 ]
 ```
 
+Plot the fifteen _5,2_ restricted growth strings,
+interpreted as set partitions:
+
+~~~spl svg=A
+restrictedGrowthStrings(5, 2)
+.collect { :each |
+	each.setPartition
+	.partitionPlot
+}.reshape([3 5]).PlotSet
+~~~
+
+![](sw/spl/Help/Image/restrictedGrowthStrings-A.svg)
+
+Plot the fifteen four letter restricted growth strings,
+interpreted as set partitions:
+
+~~~spl svg=B
+4.restrictedGrowthStrings
+.collect { :each |
+	each.setPartition
+	.partitionPlot
+}.reshape([3 5]).PlotSet
+~~~
+
+![](sw/spl/Help/Image/restrictedGrowthStrings-B.svg)
+
 * * *
 
-See also: bellNumber, setPartitions
+See also: bellNumber, isRestrictedGrowthString, setPartitions
 
 Guides: Combinatorial Functions
 
