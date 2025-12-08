@@ -2,7 +2,33 @@
 
 - _restrictedGrowthString(w)_
 
-Answer the restricted growth string associated with the Dyck word _w_.
+Answer the restricted growth string associated with the Dyck word _w_,
+given by the height at each opening parenthesis.
+
+```
+>>> [
+>>> 	1 1 0 0 1 0;
+>>> 	1 1 0 0 1 1 0 0
+>>> ].collect { :w |
+>>> 	let d = DyckWord(w);
+>>> 	[
+>>> 		d.parenthesization,
+>>> 		d.restrictedGrowthString
+>>> 	]
+>>> }
+[
+	[
+		'(())()',
+		[0 1 0]
+	],
+	[
+		'(())(())',
+		[0 1 0 1]
+	]
+]
+```
+
+The restricted growth string associated with a Dyck is a restricted growth string:
 
 ```
 >>> 4.dyckWords.allSatisfy { :w |

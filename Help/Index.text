@@ -191,6 +191,7 @@ Guide/Scheduling Functions.help.sl
 Guide/Scheme Perspective.help.sl
 Guide/Scientific Notation.help.sl
 Guide/Sequence Alignment Functions.help.sl
+Guide/Sequence Functions.help.sl
 Guide/Set Functions.help.sl
 Guide/Set Syntax.help.sl
 Guide/Sigmoid Functions.help.sl
@@ -758,8 +759,11 @@ Reference/cartesianProductDo.help.sl
 Reference/cartesianProduct.help.sl
 Reference/caseOf.help.sl
 Reference/cassiniOval.help.sl
+Reference/catalanExpansion.help.sl
+Reference/catalanIndex.help.sl
 Reference/catalanNumber.help.sl
 Reference/catalanRank.help.sl
+Reference/catalanRestrictedGrowthString.help.sl
 Reference/catalansConstant.help.sl
 Reference/catalanStrings.help.sl
 Reference/catalanTriangle.help.sl
@@ -883,6 +887,7 @@ Reference/ColumnBrowser.help.sl
 Reference/column.help.sl
 Reference/columnsCollect.help.sl
 Reference/columns.help.sl
+Reference/columnVector.help.sl
 Reference/CombC.help.sl
 Reference/combinationProductSet.help.sl
 Reference/combinationsAtATimeDo.help.sl
@@ -1650,6 +1655,7 @@ Reference/heapSort.help.sl
 Reference/heavisideLambda.help.sl
 Reference/heavisidePi.help.sl
 Reference/heavisideTheta.help.sl
+Reference/heightList.help.sl
 Reference/heighwayDragonCurve.help.sl
 Reference/heinzNumber.help.sl
 Reference/heldKarpAlgorithm.help.sl
@@ -2255,6 +2261,7 @@ Reference/leftSquareBracket.help.sl
 Reference/leftSquareBracketRightSquareBracket.help.sl
 Reference/legendreP.help.sl
 Reference/legendreSymbol.help.sl
+Reference/lehmerGenerator.help.sl
 Reference/leibnizHarmonicTriangle.help.sl
 Reference/leitnerCrystalStructureCatalogue.help.sl
 Reference/lemniscateConstant.help.sl
@@ -2681,6 +2688,7 @@ Reference/noergaardRhythmicInfinitySystem.help.sl
 Reference/NoncentralBetaDistribution.help.sl
 Reference/NoncentralChiSquareDistribution.help.sl
 Reference/noncontiguousSubsequences.help.sl
+Reference/noncrossingPartition.help.sl
 Reference/nonemptyRange.help.sl
 Reference/nonemptyThenTo.help.sl
 Reference/noneSatisfy.help.sl
@@ -2949,6 +2957,7 @@ Reference/playEvery.help.sl
 Reference/play.help.sl
 Reference/plompLeveltDissonance.help.sl
 Reference/Plot.help.sl
+Reference/PlotSet.help.sl
 Reference/Pluck.help.sl
 Reference/plus.help.sl
 Reference/Plus.help.sl
@@ -3252,6 +3261,7 @@ Reference/resolvedPromise.help.sl
 Reference/Resonz.help.sl
 Reference/respondsTo.help.sl
 Reference/Response.help.sl
+Reference/restrictedGrowthString.help.sl
 Reference/restrictedGrowthStrings.help.sl
 Reference/resultant.help.sl
 Reference/reuleauxPolygonCurve.help.sl
@@ -3312,6 +3322,7 @@ Reference/rowCatenate.help.sl
 Reference/row.help.sl
 Reference/rowReduce.help.sl
 Reference/rows.help.sl
+Reference/rowVector.help.sl
 Reference/rucklidgeEquation.help.sl
 Reference/rudinShapiro.help.sl
 Reference/rulerFunction.help.sl
@@ -3509,6 +3520,7 @@ Reference/smootherStep.help.sl
 Reference/smoothStepFunction.help.sl
 Reference/smoothStep.help.sl
 Reference/sobolevaModifiedTanh.help.sl
+Reference/sobolSequence.help.sl
 Reference/SoftClip.help.sl
 Reference/softMax.help.sl
 Reference/softPlus.help.sl
@@ -3530,6 +3542,8 @@ Reference/sortedWithIndices.help.sl
 Reference/sort.help.sl
 Reference/sortingNumber.help.sl
 Reference/sortOn.help.sl
+Reference/sortTracingComparisons.help.sl
+Reference/sortTracingState.help.sl
 Reference/Sos.help.sl
 Reference/SoundFile.help.sl
 Reference/soundPlot.help.sl
@@ -3841,6 +3855,7 @@ Reference/trochoid.help.sl
 Reference/trottCurve.help.sl
 Reference/true.help.sl
 Reference/truncate.help.sl
+Reference/truncateScale.help.sl
 Reference/truncateTo.help.sl
 Reference/tschirnhausenCubic.help.sl
 Reference/tukeyWindow.help.sl

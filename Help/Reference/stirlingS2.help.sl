@@ -4,6 +4,13 @@
 
 Answer the Stirling number of the second kind.
 
+Evaluate a Stirling number of the second kind:
+
+```
+>>> stirlingS2(50, 2)
+562949953421311
+```
+
 Table of first few terms,
 OEIS [A008277](https://oeis.org/A008277):
 
@@ -26,23 +33,19 @@ OEIS [A008277](https://oeis.org/A008277):
 ]
 ```
 
-Evaluate a Stirling number of the second kind:
+The tenth row:
 
 ```
->>> stirlingS2(50, 2)
-562949953421311
-```
-
-Evaluate multiple Stirling numbers:
-
-```
->>> 1:10.collect { :m |
->>> 	stirlingS2(10, m)
+>>> 1:10.collect { :k |
+>>> 	stirlingS2(10, k)
 >>> }
 [
 	1 511 9330 34105 42525
 	22827 5880 750 45 1
 ]
+
+>>> 10.bellNumber
+115975
 ```
 
 At zero:

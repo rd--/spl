@@ -83,6 +83,18 @@ OEIS [A008284](https://oeis.org/A008284):
 ]
 ```
 
+The sixteenth row:
+
+```
+>>> 1:16.collect { :k |
+>>> 	16.partitionFunctionP(k)
+>>> }
+[1 8 21 34 37 35 28 22 15 11 7 5 3 2 1 1]
+
+>>> 16.partitionsP
+231
+```
+
 Initial triangle of _P(n,1:k)_,
 OEIS [A026820](https://oeis.org/A026820):
 

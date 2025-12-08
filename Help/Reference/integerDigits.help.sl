@@ -429,6 +429,27 @@ OEIS [A000422](https://oeis.org/A000422):
 ]
 ```
 
+List of binary words that correspond to a valid pairing of parentheses,
+OEIS [A036991](https://oeis.org/A036991):
+
+```
+>>> 1:100.select { :n |
+>>> 	n.integerDigits(2)
+>>> 	.reverse
+>>> 	.replaceAllWith(0, -1)
+>>> 	.accumulate
+>>> 	.min > -1
+>>> }
+[
+	 1  3  5  7 11 13 15 19 21 23
+	27 29 31 39 43 45 47 51 53 55
+	59 61 63 71 75 77 79 83 85 87
+	91 93 95
+]
+```
+
+Select[Range[210], Min[Accumulate[Reverse[IntegerDigits[#, 2]]/.{0->-1}]]>-1&]
+
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
 ~~~spl svg=A
@@ -600,7 +621,8 @@ _OEIS_
 [15](https://oeis.org/A101211)
 [16](https://oeis.org/A322182)
 [17](https://oeis.org/A007954)
-[18](https://oeis.org/A000422),
+[18](https://oeis.org/A000422)
+[19](https://oeis.org/A036991),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

@@ -77,6 +77,16 @@ necklaces(5, 2)
 
 ![](sw/spl/Help/Image/necklaces-A.svg)
 
+Matrix plot of the thirty-six _8,2_ necklaces:
+
+~~~spl svg=B
+necklaces(8, 2)
+.transpose
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/necklaces-B.svg)
+
 * * *
 
 See also: necklaceCount, necklacePlot

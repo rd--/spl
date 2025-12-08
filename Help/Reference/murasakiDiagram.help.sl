@@ -49,22 +49,35 @@ A three-partition of six:
 
 ![](sw/spl/Help/Image/murasakiDiagram-E.svg)
 
-
-Plot the fourteen non-crossing partitions of four,
+Plot the set partitions of four,
 enumerated by the Dyck words:
 
 ~~~spl svg=F
 4.dyckWords.collect { :w |
 	DyckWord(w)
+	.setPartition
 	.murasakiDiagram
 }.reshape([2 7]).PlotSet
 ~~~
 
 ![](sw/spl/Help/Image/murasakiDiagram-F.svg)
 
+Plot the non-crossing set partitions of four,
+enumerated by the Dyck words:
+
+~~~spl svg=G
+4.dyckWords.collect { :w |
+	DyckWord(w)
+	.noncrossingPartition
+	.murasakiDiagram
+}.reshape([2 7]).PlotSet
+~~~
+
+![](sw/spl/Help/Image/murasakiDiagram-G.svg)
+
 * * *
 
-See also: setPartition, setPartitions
+See also: noncrossingPartition, setPartition, setPartitions
 
 Guides: Combinatorial Functions, Plotting Functions
 

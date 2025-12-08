@@ -34,6 +34,8 @@ The answer is a `Map` keyed by the answers of _f_.
 
 See also: countsBy, reject, select
 
+Guides: List Functions
+
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/GroupBy.html)

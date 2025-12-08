@@ -171,6 +171,64 @@ Find partitions of six of even length only:
 ]
 ```
 
+The 22 partitions of 19 into 11 parts in lexicographic order:
+
+```
+>>> integerPartitions(19, [11])
+>>> .collect(reverse:/1)
+>>> .lexicographicSort
+[
+	1 1 1 1 1 1 1 1 1 1 9;
+	1 1 1 1 1 1 1 1 1 2 8;
+	1 1 1 1 1 1 1 1 1 3 7;
+	1 1 1 1 1 1 1 1 1 4 6;
+	1 1 1 1 1 1 1 1 1 5 5;
+	1 1 1 1 1 1 1 1 2 2 7;
+	1 1 1 1 1 1 1 1 2 3 6;
+	1 1 1 1 1 1 1 1 2 4 5;
+	1 1 1 1 1 1 1 1 3 3 5;
+	1 1 1 1 1 1 1 1 3 4 4;
+	1 1 1 1 1 1 1 2 2 2 6;
+	1 1 1 1 1 1 1 2 2 3 5;
+	1 1 1 1 1 1 1 2 2 4 4;
+	1 1 1 1 1 1 1 2 3 3 4;
+	1 1 1 1 1 1 1 3 3 3 3;
+	1 1 1 1 1 1 2 2 2 2 5;
+	1 1 1 1 1 1 2 2 2 3 4;
+	1 1 1 1 1 1 2 2 3 3 3;
+	1 1 1 1 1 2 2 2 2 2 4;
+	1 1 1 1 1 2 2 2 2 3 3;
+	1 1 1 1 2 2 2 2 2 2 3;
+	1 1 1 2 2 2 2 2 2 2 2
+]
+```
+
+Number of partitions of _n_ into an odd number of parts,
+OEIS [A027193](https://oeis.org/A027193):
+
+```
+>>> 1:16.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.select { :p |
+>>> 		p.size.isOdd
+>>> 	}
+>>> }
+[1 1 2 2 4 5 8 10 16 20 29 37 52 66 90 113]
+```
+
+Number of partitions of _n_ into an even number of parts,
+OEIS [A027187](https://oeis.org/A027187):
+
+```
+>>> 1:16.collect { :n |
+>>> 	n.integerPartitions
+>>> 	.select { :p |
+>>> 		p.size.isEven
+>>> 	}.size
+>>> }
+[0 1 1 3 3 6 7 12 14 22 27 40 49 69 86 118]
+```
+
 Partitions in graded reflected colexicographic order (Abramowitz and Stegun),
 OEIS [A036036](https://oeis.org/A036036):
 

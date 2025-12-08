@@ -6,11 +6,15 @@ Answer the number of partitions of _x_ into distinct parts.
 An alias for the unary form of `partitionFunctionP`.
 
 ```
+>>> 50.partitionsP
+204226
+
 >>> [2 4 6].collect(partitionsP:/1)
 [2 5 11]
 ```
 
-Threads over lists:
+Threads over lists, first few terms of
+OEIS [A000041](https://oeis.org/A000041):
 
 ```
 >>> 0:12.partitionsP

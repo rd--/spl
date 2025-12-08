@@ -69,8 +69,33 @@ DyckWord : [Object, Storeable] { | word tokens |
 		w.allButLast
 	}
 
+	/*
 	murasakiDiagram { :self |
 		self.setPartition.murasakiDiagram
+	}
+	*/
+
+	noncrossingPartition { :self |
+		let n = self.length;
+		let b = self.binaryExpansion;
+		let i = 1;
+		let j = true;
+		let u = [];
+		let r = [[]];
+		b.do { :x |
+			(x = 1).if {
+				u.add(i);
+				i := i + 1;
+				j.ifFalse {
+					r.add([]);
+					j := true
+				}
+			} {
+				r.last.add(u.removeLast);
+				j := false
+			}
+		};
+		r
 	}
 
 	parenthesization { :self |
@@ -92,9 +117,9 @@ DyckWord : [Object, Storeable] { | word tokens |
 		let h = self.heightList;
 		let b = self.binaryExpansion;
 		let s = [];
-		2.toDo(n) { :i |
-			(b[i] = 0).ifTrue {
-				s.add(h[i] - 1)
+		1.toDo(n - 1) { :i |
+			(b[i] = 1).ifTrue {
+				s.add(h[i])
 			}
 		};
 		s
