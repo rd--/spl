@@ -56,7 +56,7 @@ Plot first few terms:
 
 * * *
 
-See also: !, bellB, binomial, catalanNumber, lobbNumber, narayanaNumber, stirlingS2
+See also: !, bellB, binomial, catalanNumber, lobbNumber, narayanaNumber, orderedBellNumber, stirlingS2
 
 Guides: Combinatorial Functions, Integer Sequence Functions
 

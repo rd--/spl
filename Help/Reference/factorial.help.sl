@@ -199,6 +199,16 @@ OEIS [A055151](https://oeis.org/A055151):
 ]
 ```
 
+Count partitions into lists of lists,
+OEIS [A002866](https://oeis.org/A002866):
+
+```
+>>> 1:8.collect { :n |
+>>> 	2 ^ (n - 1) * n.!
+>>> }
+[1 4 24 192 1920 23040 322560 5160960]
+```
+
 * * *
 
 See also: !, binomial, doubleFactorial, factorialOrGamma, factorialPower, gamma, pochhammer, subfactorial

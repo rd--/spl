@@ -105,8 +105,8 @@ At `zero`:
 At `LargeInteger`:
 
 ```
->>> 333L.binomial(33L)
-3888653852803216535842634400242612716809201918L
+>>> 123L.binomial(45L)
+8966473191018617158916954970192684L
 ```
 
 If _k_ is greater than _n_ the answer is zero:
@@ -160,8 +160,9 @@ OEIS [A109449](https://oeis.org/A109449):
 
 ```
 >>> 0:8.triangularArray { :n :k |
->>> 	let m = eulerUpDownNumber(n - k);
->>> 	binomial(n, k) * m
+>>> 	binomial(n, k)
+>>> 	*
+>>> 	eulerUpDownNumber(n - k)
 >>> }
 [
 	1;
@@ -421,6 +422,41 @@ OEIS [A053121](https://oeis.org/A053121):
 	  14   0  28   0  20   0   7  0  1;
 	   0  42   0  48   0  27   0  8  0  1;
 	  42   0  90   0  75   0  35  0  9  0  1
+]
+```
+
+Count partitions into any number of ordered subsets,
+OEIS [A000262](https://oeis.org/A000262):
+
+```
+>>> (1 .. 9).collect { :n |
+>>> 	(0 .. n - 1).sum { :j |
+>>> 		binomial(n - 1, j) / (j + 1).!
+>>> 	} * n.!
+>>> }
+[1 3 13 73 501 4051 37633 394353 4596553]
+```
+
+The Lah triangle,
+a lower triangular matrix of the Jabotinsky type,
+OEIS [A105278](https://oeis.org/A105278):
+
+```
+>>> 1:7.triangularArray { :j :k |
+>>> 	(j - k).!
+>>> 	*
+>>> 	binomial(j, k)
+>>> 	*
+>>> 	binomial(j - 1, k - 1)
+>>> }
+[
+	1;
+	2 1;
+	6 6 1;
+	24 36 12 1;
+	120 240 120 20 1;
+	720 1800 1200 300 30 1;
+	5040 15120 12600 4200 630 42 1
 ]
 ```
 

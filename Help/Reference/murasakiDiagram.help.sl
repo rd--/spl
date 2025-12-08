@@ -49,15 +49,12 @@ A three-partition of six:
 
 ![](sw/spl/Help/Image/murasakiDiagram-E.svg)
 
-Plot the set partitions of four,
-enumerated by the Dyck words:
+Plot the set partitions of four:
 
 ~~~spl svg=F
-4.dyckWords.collect { :w |
-	DyckWord(w)
-	.setPartition
-	.murasakiDiagram
-}.reshape([2 7]).PlotSet
+4.setPartitions.collect(
+	murasakiDiagram:/1
+).reshape([3 5]).PlotSet
 ~~~
 
 ![](sw/spl/Help/Image/murasakiDiagram-F.svg)
@@ -68,7 +65,7 @@ enumerated by the Dyck words:
 ~~~spl svg=G
 4.dyckWords.collect { :w |
 	DyckWord(w)
-	.noncrossingPartition
+	.noncrossingSetPartition
 	.murasakiDiagram
 }.reshape([2 7]).PlotSet
 ~~~

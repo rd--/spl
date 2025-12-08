@@ -283,6 +283,12 @@
 		}
 	}
 
+	orderedBellNumber { :n |
+		0:n.sum { :k |
+			k.! * stirlingS2(n, k)
+		}
+	}
+
 	pascalTriangle { :self |
 		0.to(self - 1).triangularArray(binomial:/2)
 	}

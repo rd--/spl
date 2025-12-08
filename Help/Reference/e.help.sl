@@ -70,6 +70,20 @@ OEIS [A003417](https://oeis.org/A003417):
 ]
 ```
 
+A Beatty sequence,
+OEIS [A000062](https://oeis.org/A000062):
+
+```
+>>> 1:21.collect { :n |
+>>> 	(n / (1.e - 2)).floor
+>>> }
+[
+	 1  2  4  5  6  8  9 11 12 13
+	15 16 18 19 20 22 23 25 26 27
+	29
+]
+```
+
 The graph of _eˣ_ has gradient `one` at `zero`:
 
 ~~~spl svg=A

@@ -75,7 +75,7 @@ DyckWord : [Object, Storeable] { | word tokens |
 	}
 	*/
 
-	noncrossingPartition { :self |
+	noncrossingSetPartition { :self |
 		let n = self.length;
 		let b = self.binaryExpansion;
 		let i = 1;
