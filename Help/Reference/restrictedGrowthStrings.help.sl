@@ -21,7 +21,8 @@ The five strings of length three:
 5
 ```
 
-The fifteen strings of length four:
+The fifteen strings of length four,
+in lexicographic order:
 
 ```
 >>> 4.restrictedGrowthStrings

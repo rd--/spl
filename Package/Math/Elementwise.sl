@@ -96,6 +96,10 @@
 		self.collect(boole:/1)
 	}
 
+	catalanNumber { :self |
+		self.collect(catalanNumber:/1)
+	}
+
 	cantorStaircase { :self |
 		self.collect(cantorStaircase:/1)
 	}

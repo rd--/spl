@@ -64,6 +64,36 @@
 		}
 	}
 
+	catalanExpansion { :n |
+		(n = 0).if {
+			[]
+		} {
+			let m = n;
+			let k = n.catalanIndex;
+			let e = List(k, 0);
+			k.toByDo(1, -1) { :j |
+				let c = 0;
+				{ m >= j.catalanNumber }.whileTrue {
+					m := m - j.catalanNumber;
+					c := c + 1
+				};
+				e[k - j + 1] := c
+			};
+			(e[1] = 0).ifTrue {
+				e := e.drop(1)
+			};
+			e
+		}
+	}
+
+	catalanIndex { :n |
+		let i = 0;
+		{ i.catalanNumber <= n }.whileTrue {
+			i := i + 1
+		};
+		i
+	}
+
 	catalanNumber { :self |
 		(self.one / (self + 1)) * (2 * self).binomial(self)
 	}
@@ -82,6 +112,45 @@
 			a := a // 2
 		};
 		0.to(m).collect(catalanNumber:/1).sum - t
+	}
+
+	catalanRestrictedGrowthString { :z |
+		(z = 0).if {
+			[0]
+		} {
+			let t = { :j :k |
+				let a = (k + j).! * (k - j + 1);
+				let b = j.! * (k + 1).!;
+				a / b
+			};
+			let k = 2;
+			let i = 0;
+			let d = nil;
+			let x = nil;
+			let m = nil;
+			{ z >= t(i, i + 1) }.whileTrue {
+				i := i + 1
+			};
+			d := List(i, 0);
+			d[1] := 1;
+			x := z - t(i - 1, i);
+			m := i - 1;
+			{ x > 0 }.whileTrue {
+				let w = 0;
+				let s = 0;
+				let p = 0;
+				{ w <= x }.whileTrue {
+					p := w;
+					w := w + t(m - 1, m + s);
+					s := s + 1
+				};
+				d[k] := s - 1;
+				m := m - 1;
+				k := k + 1;
+				x := x - p
+			};
+			d
+		}
 	}
 
 	catalanTriangle { :r |

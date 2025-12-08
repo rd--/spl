@@ -15,6 +15,19 @@ Binomial Functions:
 - `polygonalNumber`
 - `deBruijnSequence`
 
+Catalan Functions:
+
+- `catalanExpansion`
+- `catalanIndex`
+- `catalanNumber`
+- `catalanRank`
+- `catalanRestrictedGrowthString`
+- `catalanTriangle`
+- `catalanUnrank`
+- `fussCatalanNumber`
+- `lassalleNumber`
+- `superCatalanNumber`
+
 Counting Functions:
 
 - `binomial`
@@ -31,6 +44,10 @@ Counting Functions:
 - `schroderNumber`
 - `superCatalanNumber`
 - `wedderburnEtheringtonNumbers`
+
+Dyck Word Functions:
+
+- `heightList`
 
 Enumeration Functions:
 
@@ -120,6 +137,13 @@ Ranking and Unranking Functions:
 
 - `catalanRank`
 - `catalanUnrank`
+
+Restricted Growth String Functions:
+
+- `catalanRestrictedGrowthString`
+- `isRestrictedGrowthString`
+- `restrictedGrowthString`
+- `restrictedGrowthStrings`
 
 Siteswap Functions:
 

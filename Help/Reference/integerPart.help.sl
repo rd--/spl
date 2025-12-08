@@ -3,7 +3,7 @@
 - _integerPart(x)_
 
 Answers the integer part of _x_.
-`integerPart` is equivalent to `truncate`.
+`integerPart` is equivalent to the unary form of `truncate`.
 
 Find the integer part of a real number:
 

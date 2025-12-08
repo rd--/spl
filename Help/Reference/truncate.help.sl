@@ -9,7 +9,11 @@ Unary trunate is equivalent to `integerPart`.
 
 ```
 >>> [1.25 1.75 -1.25 -1.75].collect { :n |
->>> 	[n.truncate n.integerPart n.round]
+>>> 	[
+>>> 		n.truncate,
+>>> 		n.integerPart,
+>>> 		n.round
+>>> 	]
 >>> }
 [
 	 1  1  1;
@@ -92,6 +96,9 @@ answer the next multiple of _α_ toward `zero` that is nearest _n_.
 
 >>> -3.1479.truncate(0.01)
 -3.14
+
+>>> -2.22.truncate(0.1)
+-2.2
 ```
 
 Truncate is a staircase function:
@@ -109,12 +116,16 @@ See also: ceiling, floor, integerPart, round, roundDown, roundTowardsZero, round
 Guides: Rounding Functions
 
 References:
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/math/#Base.trunc),
 _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=trunc),
 _Mathematica_
 [1](https://mathworld.wolfram.com/Truncate.html),
 _Mathworks_
 [1](https://au.mathworks.com/help/matlab/ref/double.fix.html),
+_Python_
+[1](https://docs.python.org/3/library/math.html#math.trunc),
 _Smalltalk_
 5.6.2.41,
 _W_

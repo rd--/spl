@@ -232,6 +232,8 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 				cantorStaircase: [095844 095845],
 				carmichaelLambda: [002322],
 				cartesianIndexToDiagonalIndex: [000124 000217],
+				catalanExpansion: [014418],
+				catalanIndex: [081288],
 				catalanNumber: [000108 014137 014138],
 				catalanTriangle: [009766 000096 005586 005587],
 				catalansConstant: [006752],

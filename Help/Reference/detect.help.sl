@@ -18,6 +18,9 @@ Find the first element matching a predicate:
 >>> 	each * 2 <= 4
 >>> }
 2
+
+>>> [1 2 4 7 6 2].detect(isEven:/1)
+2
 ```
 
 It is an error if no element is detected:
@@ -52,6 +55,8 @@ See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, 
 Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
+_Mathematica_
+[1](https://reference.wolfram.com/language/ref/SelectFirst.html),
 _Smalltalk_
 5.7.1.11
 

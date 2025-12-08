@@ -16,6 +16,15 @@ defined by division with truncation toward zero.
 The operator form is `//`:
 
 ```
+>>> 9 // 4
+2
+
+>>> -5 // 3
+-1
+
+>>> 5 // 2
+2
+
 >>> 17 // 5
 3
 
@@ -60,6 +69,9 @@ Quotient threads elementwise over lists:
 ```
 >>> [1 2 3 4 5 6 7 8 9 10] // 3
 [0 0 1 1 1 2 2 2 3 3]
+
+>>> [-5 .. 5] // 3
+[-1 -1 -1 0 0 0 0 0 1 1 1]
 ```
 
 Quotient is equivalent to `floor` of division for integers:
@@ -148,6 +160,8 @@ References:
 _Haskell_:
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:quot)
 [2](https://hackage.haskell.org/package/base/docs/Prelude.html#v:div),
+_Julia_
+[1](https://docs.julialang.org/en/v1/base/math/#Base.div),
 _Mathematica_
 [1](https://mathworld.wolfram.com/IntegerDivision.html)
 [2](https://mathworld.wolfram.com/Quotient.html)

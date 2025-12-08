@@ -121,6 +121,16 @@ OEIS [A030101](https://oeis.org/A030101):
 ]
 ```
 
+At empty list answers `zero`:
+
+```
+>>> [].fromDigits(10)
+0
+
+>>> [].fromDigits(2)
+0
+```
+
 Plot first few terms of
 OEIS [A030101](https://oeis.org/A030101):
 

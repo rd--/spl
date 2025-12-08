@@ -144,6 +144,10 @@ DyckWord : [Object, Storeable] { | word tokens |
 		DyckWord(self, [a, b])
 	}
 
+	heightList { :self |
+		DyckWord(self).heightList
+	}
+
 }
 
 +List {
