@@ -2,8 +2,9 @@
 
 - _restrictedGrowthString(w)_
 
-Answer the restricted growth string associated with the Dyck word _w_,
-given by the height at each opening parenthesis.
+Answer a restricted growth string associated with the Dyck word _w_.
+There are multiple possible assocaited strings,
+the one given here is the height at each opening parenthesis.
 
 ```
 >>> [
@@ -44,3 +45,7 @@ true
 See also: DyckWord, restrictedGrowthStrings
 
 Guides: Combinatorial Functions
+
+References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/RestrictedGrowthString.html)

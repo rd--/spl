@@ -425,13 +425,13 @@
 
 	restrictedGrowthStringsDo { :n :f:/1 |
 		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/v.cpp */
-		let a = List(n, 0);
-		let b = List(n, 0);
+		let a = List(n, 1);
+		let b = List(n, 1);
 		let r = true;
 		f(a);
 		{ r }.whileTrue {
 			let c = n;
-			{ a[c] = (n - 1) | { a[c] > b[c] } }.whileTrue {
+			{ a[c] = n | { a[c] > b[c] } }.whileTrue {
 				c := c - 1
 			};
 			(c = 1).if {
@@ -439,7 +439,7 @@
 			} {
 				a[c] := a[c] + 1;
 				(c + 1).toDo(n) { :i |
-					a[i] := 0;
+					a[i] := 1;
 					b[i] := max(a[i - 1], b[i - 1])
 				};
 				f(a)
@@ -458,21 +458,21 @@
 
 	restrictedGrowthStringsDo { :n :k :f:/1 |
 		/* https://github.com/gstamatelat/partitions-enumeration/blob/master/x.cpp */
-		let a = List(n, 0);
-		let b = List(n, 0);
+		let a = List(n, 1);
+		let b = List(n, 1);
 		let r = true;
 		let m = -1;
 		(n - 1).downToDo(n - k + 1) { :i |
-			let x = k - n + i;
+			let x = k - n + i + 1;
 			a[i + 1] := x;
 			b[i + 1] := x - 1
 		};
 		f(a);
 		{ r }.whileTrue {
 			let m = nil;
-			{ r & { m != (k - 1) } }.whileTrue {
+			{ r & { m != k } }.whileTrue {
 				let c = n;
-				{ a[c] = (k - 1) | { a[c] > b[c] } }.whileTrue {
+				{ a[c] = k | { a[c] > b[c] } }.whileTrue {
 					c := c - 1
 				};
 				(c = 1).if {
@@ -480,7 +480,7 @@
 				} {
 					a[c] := a[c] + 1;
 					(c + 1).toDo(n) { :i |
-						a[i] := 0;
+						a[i] := 1;
 						b[i] := max(a[i - 1], b[i - 1])
 					};
 					m := max(a[n], b[n])
@@ -664,13 +664,17 @@
 		}
 	}
 
-	isRestrictedGrowthString { :a |
+	isRestrictedGrowthString { :a :one |
 		let n = a.size;
-		a[1] = 0 & {
+		a[1] = one & {
 			1.to(n - 1).allSatisfy { :i |
 				a[i + 1] <= (1 + ListView(a, 1, i, 1).max)
 			}
 		}
+	}
+
+	isRestrictedGrowthString { :a |
+		a.isRestrictedGrowthString(1)
 	}
 
 	isTableau { :self |
@@ -686,7 +690,7 @@
 	setPartition { :self |
 		let answer = { [] } ! self.size;
 		self.withIndexDo { :each :index |
-			answer.at(each + 1).add(index)
+			answer.at(each).add(index)
 		};
 		answer.reject(isEmpty:/1).canonicalSetPartition
 	}

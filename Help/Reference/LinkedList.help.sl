@@ -26,6 +26,7 @@ Empty linked list:
 >>> LinkedList().isEmpty
 true
 ```
+
 Linked list from list:
 
 ```

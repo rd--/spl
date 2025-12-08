@@ -119,7 +119,7 @@ DyckWord : [Object, Storeable] { | word tokens |
 		let s = [];
 		1.toDo(n - 1) { :i |
 			(b[i] = 1).ifTrue {
-				s.add(h[i])
+				s.add(h[i] + 1)
 			}
 		};
 		s

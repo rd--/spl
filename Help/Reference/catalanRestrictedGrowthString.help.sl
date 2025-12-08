@@ -2,13 +2,13 @@
 
 - _catalanRestrictedGrowthString(n)_
 
-Answer the _n_-th restricted-growth string in the list given in length-wise and lexicographic order.
+Answer the _n_-th zero-indexed restricted-growth string in the list given in length-wise and lexicographic order.
 
 The first few terms:
 
 ```
 >>> 0:45.collect(
->>> catalanRestrictedGrowthString:/1
+>>> 	catalanRestrictedGrowthString:/1
 >>> )
 [
 	0;

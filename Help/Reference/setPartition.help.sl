@@ -8,7 +8,7 @@ At `List`, _x_ must be a restricted growth string.
 The set partition _1-2-34_:
 
 ```
->>> let s = [0 1 2 2];
+>>> let s = [1 2 3 3];
 >>> (
 >>> 	s.isRestrictedGrowthString,
 >>> 	s.setPartition
@@ -19,7 +19,7 @@ The set partition _1-2-34_:
 The set partition _1-2346-5_:
 
 ```
->>> let s = [0 1 1 1 2 1];
+>>> let s = [1 2 2 2 3 2];
 >>> (
 >>> 	s.isRestrictedGrowthString,
 >>> 	s.setPartition
@@ -51,7 +51,7 @@ At `DyckWord`:
 Plot the set partition _167-234-5_:
 
 ~~~spl svg=A
-[0 1 1 1 2 0 0]
+[1 2 2 2 3 1 1]
 .setPartition
 .partitionPlot
 ~~~

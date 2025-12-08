@@ -20,7 +20,8 @@ On the letters _1,-1_, _n=4_:
 >>> 	w.integer,
 >>> 	w.edgeList,
 >>> 	w.restrictedGrowthString,
->>> 	w.setPartition
+>>> 	w.setPartition,
+>>> 	w.noncrossingSetPartition
 >>> )
 (
 	8,
@@ -30,8 +31,9 @@ On the letters _1,-1_, _n=4_:
 	[1 1 0 1 0 0 1 0],
 	210,
 	[1 6; 2 3; 4 5; 7 8],
-	[1 1 0 0],
-	[1 2; 3 4]
+	[1 2 2 1],
+	[1 4; 2 3],
+	[2; 3 1; 4]
 )
 ```
 
@@ -41,9 +43,10 @@ The Dyck word corresponding to _(())(())_:
 >>> let w = DyckWord([1 1 0 0 1 1 0 0]);
 >>> (
 >>> 	w.restrictedGrowthString,
->>> 	w.setPartition
+>>> 	w.setPartition,
+>>> 	w.noncrossingSetPartition
 >>> )
-([0 1 2 1], [1; 2 4; 3])
+([1 2 1 2], [1 3; 2 4], [2 1; 4 3])
 ```
 
 Corresponding Łukasiewicz-word:
@@ -122,8 +125,8 @@ DyckWord([1 0 1 1 0 0])
 ![](sw/spl/Help/Image/DyckWord-E.svg)
 
 Plot the word _()()(()()(()))_ interpreted as a set partition,
-the associated restricted growth string is _0011210_,
-the set partition is _127-346-5_:
+the associated restricted growth string is _1112223_,
+the set partition is _123-456-7_:
 
 ~~~spl svg=F
 DyckWord([1 0 1 0 1 1 0 1 0 1 1 0 0 0])

@@ -10,11 +10,11 @@ The five strings of length three:
 ```
 >>> 3.restrictedGrowthStrings
 [
-	0 0 0;
-	0 0 1;
-	0 1 0;
-	0 1 1;
-	0 1 2
+	1 1 1;
+	1 1 2;
+	1 2 1;
+	1 2 2;
+	1 2 3
 ]
 
 >>> 3.bellNumber
@@ -27,21 +27,21 @@ in lexicographic order:
 ```
 >>> 4.restrictedGrowthStrings
 [
-	0 0 0 0;
-	0 0 0 1;
-	0 0 1 0;
-	0 0 1 1;
-	0 0 1 2;
-	0 1 0 0;
-	0 1 0 1;
-	0 1 0 2;
-	0 1 1 0;
-	0 1 1 1;
-	0 1 1 2;
-	0 1 2 0;
-	0 1 2 1;
-	0 1 2 2;
-	0 1 2 3
+	1 1 1 1;
+	1 1 1 2;
+	1 1 2 1;
+	1 1 2 2;
+	1 1 2 3;
+	1 2 1 1;
+	1 2 1 2;
+	1 2 1 3;
+	1 2 2 1;
+	1 2 2 2;
+	1 2 2 3;
+	1 2 3 1;
+	1 2 3 2;
+	1 2 3 3;
+	1 2 3 4
 ]
 
 >>> 4.bellNumber
@@ -53,12 +53,12 @@ The binary form answers the string of length _n_ that partition into _k_ blocks:
 ```
 >>> restrictedGrowthStrings(4, 3)
 [
-	0 0 1 2;
-	0 1 0 2;
-	0 1 1 2;
-	0 1 2 0;
-	0 1 2 1;
-	0 1 2 2
+	1 1 2 3;
+	1 2 1 3;
+	1 2 2 3;
+	1 2 3 1;
+	1 2 3 2;
+	1 2 3 3
 ]
 
 >>> stirlingS2(4, 3)
@@ -68,7 +68,7 @@ The binary form answers the string of length _n_ that partition into _k_ blocks:
 A restricted growth string can be used to describe a set partition:
 
 ```
->>> [0 1 2 2].setPartition
+>>> [1 2 3 3].setPartition
 [1; 2; 3 4]
 
 >>> 4.restrictedGrowthStrings
@@ -128,4 +128,4 @@ References:
 _Mathematica_
 [1](http://mathworld.wolfram.com/RestrictedGrowthString.html)
 
-Further Reading: Knuth 2011
+Further Reading: Hutchinson 1963, Knuth 2011

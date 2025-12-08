@@ -211,7 +211,7 @@ OEIS [A027193](https://oeis.org/A027193):
 >>> 	n.integerPartitions
 >>> 	.select { :p |
 >>> 		p.size.isOdd
->>> 	}
+>>> 	}.size
 >>> }
 [1 1 2 2 4 5 8 10 16 20 29 37 52 66 90 113]
 ```
