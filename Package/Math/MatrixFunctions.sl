@@ -1429,15 +1429,17 @@
 
 	pascalMatrix { :n :l |
 		let m = 0.to(n - 1);
-		l.caseOf([
-			'LowerTriangular' -> { binomial:/2 },
-			'UpperTriangular' -> { binomial:/2.swap },
-			'Symmetric' -> {
-				{ :i :j |
-					binomial(i + j, j)
+		l.caseOf(
+			[
+				'LowerTriangular' -> { binomial:/2 },
+				'UpperTriangular' -> { binomial:/2.swap },
+				'Symmetric' -> {
+					{ :i :j |
+						binomial(i + j, j)
+					}
 				}
-			}
-		]).table(m, m)
+			]
+		).table(m, m)
 	}
 
 	pascalMatrix { :n |

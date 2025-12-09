@@ -93,6 +93,15 @@ The numerator is the reverse of the radix-_k_ representation:
 n.integerDigits(k).reverse.fromDigits(k)
 ```
 
+Evaluate for large arguments:
+
+```
+>> 50.!.vanDerCorputNumber(10L)
+>> .numerator
+215069865146773448867460661
+80621634087331710239041403L
+```
+
 Plot decimal sequence:
 
 ~~~spl svg=A
@@ -162,15 +171,42 @@ Plot numerators of binary sequence:
 
 ![](sw/spl/Help/Image/vanDerCorputNumber-G.svg)
 
+Generate a two-dimensional Halton sequence with bases two and three:
+
+~~~spl svg=H
+1:256.collect { :n |
+	[2 3].collect { :b |
+		vanDerCorputNumber(n, b)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-H.svg)
+
+Generate a two-dimensional Hammersley sequence:
+
+~~~spl svg=I
+let n = 256;
+1:n.collect { :k |
+	[
+		k \ n,
+		vanDerCorputNumber(k, 2)
+	]
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/vanDerCorputNumber-I.svg)
+
 * * *
 
-See also: fromDigits, haltonSequence, integerDigits
+See also: fromDigits, haltonSequence, hammersleyPointSet, integerDigits
 
 Guides: Integer Sequence Functions
 
 References:
 _Mathematica_
-[1](https://mathworld.wolfram.com/vanderCorputSequence.html),
+[1](https://mathworld.wolfram.com/vanderCorputSequence.html)
+[2](https://resources.wolframcloud.com/FunctionRepository/resources/RadicalInverse/),
 _OEIS_
 [1](https://oeis.org/A030101)
 [2](https://oeis.org/A030102)

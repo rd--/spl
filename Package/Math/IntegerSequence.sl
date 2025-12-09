@@ -921,6 +921,29 @@
 
 +List {
 
+	faurePermutation { :n |
+		(n = 1).if {
+			[0]
+		} {
+			n.isEven.if {
+				let a = 2 * (n / 2).faurePermutation;
+				let b = a + 1;
+				a ++ b
+			} {
+				let a = (n - 1).faurePermutation;
+				let b = (n - 1) / 2;
+				let c = a.collect { :x |
+					(x >= b).if {
+						x + 1
+					} {
+						x
+					}
+				};
+				c.first(b) ++ [b] ++ c.last(b)
+			}
+		}
+	}
+
 	haltonSequence { :self :k |
 		self.collect { :b |
 			1.to(k).vanDerCorputNumber(b)

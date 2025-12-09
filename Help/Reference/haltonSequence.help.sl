@@ -83,4 +83,4 @@ _OEIS_
 _W_
 [1](https://en.wikipedia.org/wiki/Halton_sequence)
 
-Further Reading: Halton 1964, Kocis 1997
+Further Reading: Halton 1960, Kocis 1997

@@ -3,6 +3,7 @@
 Low Discrepancy Sequence Functions:
 
 - `ehrenfeuchtMycielskiSequence`
+- `faurePermutation`
 - `haltonSequence`
 - `hammersleyPointSet`
 - `poissonDiskSampling`

@@ -44,8 +44,8 @@ Threads over lists:
 >>> [0 7 23].integerDigits
 [0; 7; 2 3]
 
->>> [6 7 2 0].integerDigits(2)
-[1 1 0; 1 1 1; 1 0; 0]
+>>> [6 7 2 0 13].integerDigits(2)
+[1 1 0; 1 1 1; 1 0; 0; 1 1 0 1]
 ```
 
 Find the digits of 7 in different bases:

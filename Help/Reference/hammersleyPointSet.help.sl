@@ -40,3 +40,5 @@ _Mathematica_
 [1](https://mathworld.wolfram.com/HammersleyPointSet.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Hammersley_set)
+
+Further Reading: Hammersley 1960
