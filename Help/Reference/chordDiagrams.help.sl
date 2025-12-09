@@ -66,7 +66,7 @@ Plot the five chord diagrams of length three:
 ~~~spl svg=A
 3.chordDiagrams
 .collect(chordDiagramPlot:/1)
-.rowVector
+.reshape([1 5])
 .PlotSet
 ~~~
 

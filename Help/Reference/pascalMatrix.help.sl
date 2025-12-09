@@ -74,6 +74,22 @@ The determinant is in each case `one`:
 [1 1 1]
 ```
 
+Calculate modulo seven:
+
+```
+>>> 8.pascalMatrix('LowerTriangular') % 7
+[
+	1 0 0 0 0 0 0 0;
+	1 1 0 0 0 0 0 0;
+	1 2 1 0 0 0 0 0;
+	1 3 3 1 0 0 0 0;
+	1 4 6 4 1 0 0 0;
+	1 5 3 3 5 1 0 0;
+	1 6 1 6 1 6 1 0;
+	1 0 0 0 0 0 0 1
+]
+```
+
 Log plot of 4×4 Pascal matrix:
 
 ~~~spl svg=A

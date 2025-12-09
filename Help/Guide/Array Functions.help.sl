@@ -32,6 +32,15 @@ Products:
 - `outer`
 - `outerProduct`
 
+Replacing:
+
+- `replaceSubarray`
+
+Selecting:
+
+- `part`
+- `subarray`
+
 Tensors:
 
 - `tensorProduct`
@@ -40,9 +49,11 @@ Transforming:
 
 - `arrayFlatten`
 - `arrayReduce`
+- `arrayReshape`
 - `flipLeftRight`
+- `reshape`
 - `slice`
 
 * * *
 
-Guides: Apl Perspective
+Guides: Apl Perspective, Indexing Functions, Matrix Functions

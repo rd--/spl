@@ -15,18 +15,22 @@ PlotSet : [Object] { | plotMatrix:<List> |
 				),
 				{ :i :j |
 					let p = plotMatrix[i][j];
-					let d = p.asLineDrawing;
-					d.height := rowHeight;
-					[
-						'<g transform="translate(%, %)">'.format(
-							[
-								(j - 1) * (columnWidth * 1.25),
-								(i - 1) * (rowHeight * 1.25)
-							]
-						),
-						d.drawing.contents,
-						'</g>'
-					].unlines
+					p.isNotNil.if {
+						let d = p.asLineDrawing;
+						d.height := rowHeight;
+						[
+							'<g transform="translate(%, %)">'.format(
+								[
+									(j - 1) * (columnWidth * 1.25),
+									(i - 1) * (rowHeight * 1.25)
+								]
+							),
+							d.drawing.contents,
+							'</g>'
+						].unlines
+					} {
+						''
+					}
 				}.table(1:m, 1:n).catenate.unlines,
 				'</svg>'
 			].unlines
@@ -48,6 +52,12 @@ PlotSet : [Object] { | plotMatrix:<List> |
 
 	PlotSet { :self |
 		newPlotSet().initializeSlots(self)
+	}
+
+	PlotSet { :self :shape |
+		PlotSet(
+			self.arrayReshape(shape, nil)
+		)
 	}
 
 }

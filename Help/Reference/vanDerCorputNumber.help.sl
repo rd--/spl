@@ -23,8 +23,13 @@ The base-2 radical inverse of 42:
 Threads over lists:
 
 ```
->>> [31 32 33].vanDerCorputNumber(2)
-[31/32 1/64 33/64]
+>>> [5 10 15 30 31 32 33]
+>>> .vanDerCorputNumber(2)
+[5/8 5/16 15/16 15/32 31/32 1/64 33/64]
+
+>>> [5 10 15 20 25 30 40]
+>>> .vanDerCorputNumber(3)
+[7/9 10/27 7/27 20/27 17/27 10/81 40/81]
 ```
 
 Binary van der Corput sequence,

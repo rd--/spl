@@ -133,7 +133,7 @@ Matrix plot of the first few rows of Pascal’s triangle modulo five:
 
 * * *
 
-See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, stolarskyHarborthConstant, table, triangularNumber
+See also: bernoulliTriangle, binomial, gouldsSequence, leibnizHarmonicTriangle, pascalMatrix, stolarskyHarborthConstant, table, triangularNumber
 
 Guides: Integer Sequence Functions
 

@@ -3,6 +3,7 @@
 - _rowVector([x₁ x₂ …])_
 
 Answer the row vector of the vector _x_.
+Equivalent to `enclose` if _x_ is a vector.
 
 ```
 >>> [1 2 3].rowVector
@@ -11,7 +12,7 @@ Answer the row vector of the vector _x_.
 
 * * *
 
-See also: isRowVector, List, Matrix
+See also: enclose, isRowVector, List, Matrix
 
 Guides: Matrix Functions
 

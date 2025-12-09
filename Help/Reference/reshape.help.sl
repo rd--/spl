@@ -303,11 +303,44 @@ Truncate a list:
 [1 3 5]
 ```
 
+Construct a 2×2×2×2 array,
+
+```
+>>> 1:16.reshape([2 2 2 2])
+[
+	[
+		 1  2;  3  4:;
+		 5  6;  7  8
+	],
+	[
+		 9 10; 11 12:;
+		13 14; 15 16
+	]
+]
+
+>>> 1:16.reshape([2 2 2 2])
+>>> .collect(transpose:/1)
+[
+	[
+		 1  2;  5  6:;
+		 3  4;  7  8
+	],
+	[
+		 9 10; 13 14:;
+		11 12; 15 16
+	]
+]
+```
+
 Where supported `reshape` is displayed as ⍴.
+
+The `arrayReshape` variant has different rules for mismatching item counts.
 
 * * *
 
-See also: iota, rank, recycle, reshapeLike, shape
+See also: arrayReshape, iota, rank, recycle, reshapeLike, shape
+
+Guides: Array Functions, List Functions, Matrix Functions
 
 References:
 _Apl_

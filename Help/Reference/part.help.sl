@@ -158,7 +158,7 @@ Extract the first element from each list:
 
 See also: at, atAll, atAllSymmetrical, atSymmetrical, extract, Range, RelativeRange
 
-Guides: Indexing Functions
+Guides: Array Functions, Indexing Functions
 
 References:
 _Mathematica_

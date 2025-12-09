@@ -57,7 +57,7 @@ For streams, answers `true` if both the set of past and future sequence values a
 
 See also: ifEmpty, isNotEmpty, size
 
-Guides: Collection Functions
+Guides: Collection Functions, Graph Functions
 
 References:
 _Haskell_

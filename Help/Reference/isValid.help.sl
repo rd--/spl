@@ -25,4 +25,4 @@ false
 
 See also: initializeSlots
 
-Guides: Reflection Functions
+Guides: Graph Functions, Reflection Functions

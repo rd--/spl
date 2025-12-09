@@ -1,8 +1,8 @@
 # isMixed
 
-- _isMixed(aGraph)_
+- _isMixed(g)_
 
-Answers `true` if _aGraph_ has both directed and undirected edges, else `false`.
+Answers `true` if the graph _g_ has both directed and undirected edges, else `false`.
 
 ```
 >>> let d = [1 -> 2, 2 -> 3, 3 -> 1];
@@ -38,6 +38,8 @@ Draw a mixed graph:
 * * *
 
 See also: ---, -->, Graph, isDirected, isUndirected
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

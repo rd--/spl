@@ -100,7 +100,7 @@ restrictedGrowthStrings(5, 2)
 .collect { :each |
 	each.setPartition
 	.partitionPlot
-}.reshape([3 5]).PlotSet
+}.PlotSet([3 5])
 ~~~
 
 ![](sw/spl/Help/Image/restrictedGrowthStrings-A.svg)
@@ -113,7 +113,7 @@ interpreted as set partitions:
 .collect { :each |
 	each.setPartition
 	.partitionPlot
-}.reshape([3 5]).PlotSet
+}.PlotSet([3 5])
 ~~~
 
 ![](sw/spl/Help/Image/restrictedGrowthStrings-B.svg)

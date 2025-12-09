@@ -1,8 +1,8 @@
 # isDirectedEdge
 
-- _isDirectedEdge(anObject)_
+- _isDirectedEdge(x)_
 
-Answer `true` if _anObject_ is allowed as a _directed edge_ in a `Graph`.
+Answer `true` if the object _x_ is allowed as a _directed edge_ in a `Graph`.
 
 Directed edges are ordinarily written infix using `-->`:
 

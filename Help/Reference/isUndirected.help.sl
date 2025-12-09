@@ -1,8 +1,8 @@
 # isUndirected
 
-- _isUndirected(aGraph | anEdge)_
+- _isUndirected(x)_
 
-Answers `true` if _aGraph_ is an undirected graph, else `false`.
+Answers `true` if graph or edge _x_ is undirected, else `false`.
 
 A graph is undirected if all of its edges are undirected.
 
@@ -48,6 +48,8 @@ Edges answer `isUndirected`:
 * * *
 
 See also: Graph, isDirected, isMixed
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

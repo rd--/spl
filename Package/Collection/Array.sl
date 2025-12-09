@@ -327,7 +327,6 @@
 
 +[List, Range] {
 
-
 	arrayPad { :self :z :o |
 		self.isVector.if {
 			let [m, n] = z;
@@ -363,6 +362,24 @@
 				self.error('arrayPad')
 			}
 		}
+	}
+
+	arrayReshape { :self :shape :missingValue |
+		let m = self.size;
+		let n = shape.product;
+		(m = n).if {
+			self.reshape(shape)
+		} {
+			(m < n).if {
+				(self.flatten ++ List(n - m, missingValue)).reshape(shape)
+			} {
+				self.error('arrayReshape')
+			}
+		}
+	}
+
+	arrayReshape { :self :shape |
+		self.arrayReshape(shape, nil)
 	}
 
 	boustrophedonTransform { :self |

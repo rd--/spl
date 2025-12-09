@@ -3,8 +3,9 @@
 - _restrictedGrowthString(w)_
 
 Answer a restricted growth string associated with the Dyck word _w_.
-There are multiple possible assocaited strings,
-the one given here is the height at each opening parenthesis.
+There are multiple possible associated strings,
+the one given here is the height at each opening parenthesis,
+and is one-indexed.
 
 ```
 >>> [
@@ -20,11 +21,11 @@ the one given here is the height at each opening parenthesis.
 [
 	[
 		'(())()',
-		[0 1 0]
+		[1 2 1]
 	],
 	[
 		'(())(())',
-		[0 1 0 1]
+		[1 2 1 2]
 	]
 ]
 ```

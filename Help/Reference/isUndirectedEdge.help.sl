@@ -1,8 +1,8 @@
 # isUndirectedEdge
 
-- _isUndirectedEdge(anObject)_
+- _isUndirectedEdge(x)_
 
-Answer `true` if _anObject_ is allowed as an _undirected edge_ in a `Graph`.
+Answer `true` if the object _x_ is allowed as an _undirected edge_ in a `Graph`.
 
 Undirected edges are ordinarily written infix using `---`:
 

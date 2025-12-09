@@ -83,6 +83,46 @@ An approximation for `prime`:
 (1999993, 1994024, 5969)
 ```
 
+Faure’s _A_ function:
+
+```
+>>> 0:13.collect { :s |
+>>> 	1:s.product { :k |
+>>> 		let p = k.prime;
+>>> 		(p - 1) / (2 * p.log)
+>>> 	}
+>>> }.round(0.01)
+[
+	  1       0.72     0.66     0.82    1.26
+	  2.62    6.14    17.33    52.96  185.78
+	772.41 3373.99 16818.92 90580.83
+]
+```
+
+Faure’s _C_ function:
+
+```
+>>> 2:13.collect { :s |
+>>> 	(s = 2).if {
+>>> 		3 / (16 * 2.log.square)
+>>> 	} {
+>>> 		let q = s.isPrime.if {
+>>> 			s
+>>> 		} {
+>>> 			s.nextPrime
+>>> 		};
+>>> 		let a = 1 / s.!;
+>>> 		let b = (q - 1) / (2 * q.log);
+>>> 		a * (b ^ s)
+>>> 	}
+>>> }.round(1E-5) * 100
+[
+	39.026 12.569 9.936 2.469 1.865
+	 0.411  0.886 0.205 0.043 0.008
+	 0.006  0.001
+]
+```
+
 Plot first fifty primes:
 
 ~~~spl svg=A

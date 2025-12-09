@@ -1,8 +1,8 @@
 # isDirected
 
-- _isDirected(aGraph | anEdge)_
+- _isDirected(x)_
 
-Answers `true` if _aGraph_ is a directed graph, else `false`.
+Answers `true` if the graph or edge _x_ is directed, else `false`.
 
 A graph is directed if all of its edges are directed.
 
@@ -43,6 +43,8 @@ Edges answer `isDirected`:
 * * *
 
 See also: Graph, isDirectedEdge, isMixed, isUndirected
+
+Guides: Graph Functions
 
 References:
 _Mathematica_

@@ -54,7 +54,7 @@ Plot the set partitions of four:
 ~~~spl svg=F
 4.setPartitions.collect(
 	murasakiDiagram:/1
-).reshape([3 5]).PlotSet
+).PlotSet([3 5])
 ~~~
 
 ![](sw/spl/Help/Image/murasakiDiagram-F.svg)
@@ -67,7 +67,7 @@ enumerated by the Dyck words:
 	DyckWord(w)
 	.noncrossingSetPartition
 	.murasakiDiagram
-}.reshape([2 7]).PlotSet
+}.PlotSet([2 7])
 ~~~
 
 ![](sw/spl/Help/Image/murasakiDiagram-G.svg)

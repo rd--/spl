@@ -1,6 +1,8 @@
 # matchesEdge
 
-- _matchesEdge(anEdge, anotherEdge)_
+- _matchesEdge(e₁, e₂)_
+
+Answer `true` if the edges _e₁_ and _e₂_ match
 
 An undirected edge matches a directed edge,
 in both directions,
