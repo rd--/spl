@@ -448,7 +448,21 @@ OEIS [A036991](https://oeis.org/A036991):
 ]
 ```
 
-Select[Range[210], Min[Accumulate[Reverse[IntegerDigits[#, 2]]/.{0->-1}]]>-1&]
+Bit reversal,
+OEIS [A030101](https://oeis.org/A030101):
+
+```
+>>> 0:23.collect { :n |
+>>> 	n.integerDigits(2)
+>>> 	.reverse
+>>> 	.fromDigits(2)
+>>> }
+[
+	 0  1  1  3  1  5  3  7  1  9
+	 5 13  3 11  7 15 1  17  9 25
+	 5 21 13 29
+]
+```
 
 Scatter plot of first few terms of OEIS [A265326](https://oeis.org/A265326):
 
@@ -622,7 +636,8 @@ _OEIS_
 [16](https://oeis.org/A322182)
 [17](https://oeis.org/A007954)
 [18](https://oeis.org/A000422)
-[19](https://oeis.org/A036991),
+[19](https://oeis.org/A036991)
+[20](https://oeis.org/A030101),
 _W_
 [1](https://en.wikipedia.org/wiki/Numerical_digit)
 

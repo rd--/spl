@@ -74,7 +74,10 @@ Quaternary van der Corput sequence:
 
 ```
 >>> 0:9.vanDerCorputNumber(4)
-[0 1/4 1/2 3/4 1/16 5/16 9/16 13/16 1/8 3/8]
+[
+	0    1/4   1/2  3/4 1/16
+	5/16 9/16 13/16 1/8 3/8
+]
 
 >>> let v = 0:19.vanDerCorputNumber(4);
 >>> v.numerator
@@ -100,6 +103,36 @@ Evaluate for large arguments:
 >> .numerator
 215069865146773448867460661
 80621634087331710239041403L
+```
+
+The sequence is a permutation of the integers _0:n-1_ where _n_ is a power of _b_:
+
+```
+>>> 0:7.vanDerCorputNumber(2) * 8
+[0 4 2 6 1 5 3 7]
+
+>>> 0:8.vanDerCorputNumber(3) * 9
+[0 3 6 1 4 7 2 5 8]
+```
+
+The first _n+1_ such permutations for _b=2_,
+OEIS [A030109](https://oeis.org/A030109):
+
+```
+>>> let n = 4;
+>>> let b = 2;
+>>> 0:n.collect { :i |
+>>> 	let j = b ^ i;
+>>> 	let k = j - 1;
+>>> 	0:k.vanDerCorputNumber(b) * j
+>>> }
+[
+	0;
+	0 1;
+	0 2 1 3;
+	0 4 2 6 1 5 3 7;
+	0 8 4 12 2 10 6 14 1 9 5 13 3 11 7 15
+]
 ```
 
 Plot decimal sequence:
