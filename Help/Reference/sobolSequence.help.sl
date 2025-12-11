@@ -36,7 +36,7 @@ Denominators,
 [1 2 4 4 8 8 8 8 16 16 16 16 16 16 16 16]
 ```
 
-First few terms of first dimension:
+First few terms of second dimension:
 
 ```
 >>> sobolSequence(16, 2)
@@ -53,6 +53,22 @@ Numerators:
 ```
 >>> sobolSequence(16, 2).numerator
 [0 1 1 3 3 7 1 5 5 13 1 9 3 11 7 15]
+```
+
+First few terms of two-dimensional sequence:
+
+```
+>>> [8 2].sobolSequence
+[
+	  0   0;
+	1/2 1/2;
+	3/4 1/4;
+	1/4 3/4;
+	3/8 3/8;
+	7/8 7/8;
+	5/8 1/8
+	1/8 5/8
+]
 ```
 
 Step plot of first few terms of first dimension:

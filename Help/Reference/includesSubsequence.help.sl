@@ -11,6 +11,10 @@ _abcde_ includes _ce_:
 >>> let q = 'ce';
 >>> p.includesSubsequence(q)
 true
+
+>>> 'either a contiguous'
+>>> .includesSubsequence('hat')
+true
 ```
 
 _12345_ includes _35_:
@@ -43,6 +47,13 @@ true
 true
 ```
 
+Find `List` in `Range`:
+
+```
+>>> 1:100.includesSubsequence([5 11 23])
+true
+```
+
 * * *
 
 See also: includesSubstring, subsequences
@@ -50,5 +61,7 @@ See also: includesSubstring, subsequences
 Guides: List Functions, String Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:isSubsequenceOf),
 _W_
 [1](https://en.wikipedia.org/wiki/Subsequence)

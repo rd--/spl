@@ -102,6 +102,19 @@ The sum of the first few multiples of three or five:
 233168
 ```
 
+Negative values:
+
+```
+>>> 8.divisible(-4)
+true
+
+>>> -8.divisible(4)
+true
+
+>>> -8.divisible(-4)
+true
+```
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

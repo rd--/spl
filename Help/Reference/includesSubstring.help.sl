@@ -11,6 +11,10 @@ _abcde_ includes _cd_:
 >>> let q = 'cd';
 >>> p.includesSubstring(q)
 true
+
+>>> 'sequence as substring'
+>>> .includesSubstring('string')
+true
 ```
 
 _12345_ includes _34_:
@@ -59,6 +63,16 @@ Do not find when not present:
 false
 ```
 
+At `Range`:
+
+```
+>>> 1:100.includesSubstring(20:50)
+true
+
+>>> 1:10.includesSubstring(7:13)
+false
+```
+
 * * *
 
 See also: includes, includesSubsequence, substrings
@@ -66,5 +80,7 @@ See also: includes, includesSubsequence, substrings
 Guides: String Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:isInfixOf),
 _W_
 [1](https://en.wikipedia.org/wiki/Substring)

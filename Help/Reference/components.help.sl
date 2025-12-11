@@ -2,7 +2,7 @@
 
 - _components(x)_
 
-Answer a `List` of the components, or part, of the object _x_.
+Answer a `List` of the components, or parts, of the object _x_.
 
 At `Fraction`:
 

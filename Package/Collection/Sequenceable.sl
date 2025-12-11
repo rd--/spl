@@ -816,7 +816,7 @@
 
 	drop { :self :count |
 		(count.abs >= self.size).if {
-			self.species.new
+			self.empty
 		} {
 			(count < 0).if {
 				self.dropLast(count.negate)
@@ -842,6 +842,10 @@
 		} {
 			self.species.new
 		}
+	}
+
+	empty { :self |
+		self.species.new
 	}
 
 	endsWith { :self :aList |
@@ -2486,8 +2490,15 @@
 		}
 	}
 
+	take { :self :count |
+		self.copyFromTo(1, count)
+	}
+
 	takeDrop { :self :count |
-		[self.take(count), self.drop(count)]
+		[
+			self.take(count),
+			self.drop(count)
+		]
 	}
 
 	takeFirst { :self :count :fill |

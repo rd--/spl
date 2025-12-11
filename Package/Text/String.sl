@@ -920,6 +920,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		self.copyFromTo(1, anInteger.min(self.size))
 	}
 
+	takeDrop { :self :count |
+		[self.take(count), self.drop(count)]
+	}
+
 	toCharacterCode { :self :encoding |
 		encoding.caseOf(
 			[

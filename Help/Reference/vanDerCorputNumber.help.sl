@@ -109,10 +109,26 @@ The sequence is a permutation of the integers _0:n-1_ where _n_ is a power of _b
 
 ```
 >>> 0:7.vanDerCorputNumber(2) * 8
-[0 4 2 6 1 5 3 7]
+[
+	0 4 2 6
+	1 5 3 7
+]
 
 >>> 0:8.vanDerCorputNumber(3) * 9
-[0 3 6 1 4 7 2 5 8]
+[
+	0 3 6
+	1 4 7
+	2 5 8
+]
+
+>>> 0:24.vanDerCorputNumber(5) * 25
+[
+	0 5 10 15 20
+	1 6 11 16 21
+	2 7 12 17 22
+	3 8 13 18 23
+	4 9 14 19 24
+]
 ```
 
 The first _n+1_ such permutations for _b=2_,

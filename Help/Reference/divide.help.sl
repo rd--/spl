@@ -103,9 +103,22 @@ At `Symbol`:
 (/ 1 m)
 ```
 
+Plot equal divisions of the unit interval _(0,1)_,
+the _y_ coordinate is given by the order of the divisions:
+
+~~~spl svg=A
+1:20.collect { :y |
+	(1:y / y).collect { :x |
+		[x y]
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divide-A.svg)
+
 * * *
 
-See also: /, //, +, -, *
+See also: /, //, +, -, *, times
 
 Guides: Arithmetic Functions, Binary Operators, Mathematical Functions
 

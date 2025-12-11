@@ -90,9 +90,25 @@ At `Symbol`:
 (* m n)
 ```
 
+Plot multiples of each the integers up to _n_ extending to _m_,
+the _y_ coordinate is given by the multiplier:
+
+~~~spl svg=A
+let m = 40;
+let n = 20;
+1:n.collect { :y |
+	let k = m // y;
+	(1:k * y).collect { :x |
+		[x y]
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/times-A.svg)
+
 * * *
 
-See also: *, +, -, /, ^, cross, dot, product, sign
+See also: *, +, -, /, ^, cross, divide, dot, product, sign
 
 Guides: Arithmetic Functions, Binary Operators
 

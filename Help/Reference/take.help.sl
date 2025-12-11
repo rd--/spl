@@ -6,13 +6,23 @@
 Answer a copy of the collection _c_ with only the first _n_ places,
 or less if _c_ is not large enough.
 
+At `String`:
+
 ```
 >>> 'Hello World!'.take(5)
 'Hello'
+```
 
+At `Range`:
+
+```
 >>> 1:5.take(3)
-[1 2 3]
+1:3
+```
 
+At `List`:
+
+```
 >>> [1 2].take(3)
 [1 2]
 
@@ -22,11 +32,15 @@ or less if _c_ is not large enough.
 >>> [1 2].take(0)
 []
 
->>> { [1 2].take(-1) }.hasError
-true
-
 >>> [5 4 3 2 1].take(3)
 [5 4 3]
+```
+
+It is an error if _n_ is less than zero:
+
+```
+>>> { [1 2].take(-1) }.hasError
+true
 ```
 
 The ternary form only applies to sequences.

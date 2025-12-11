@@ -1211,3 +1211,16 @@ Plot : [Object] { | pages format options |
 	}
 
 }
+
++[List, Range] {
+	divisorPlot { :xRange :yRange |
+		let xMin = xRange.min;
+		yRange.collect { :y |
+			xRange.select { :x |
+				x.divisible(y)
+			}.collect { :x |
+				[x - xMin, y]
+			}
+		}.catenate.scatterPlot
+	}
+}

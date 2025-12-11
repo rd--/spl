@@ -23,6 +23,7 @@ Plotting Functions:
 - `densityHistogramPlot`
 - `discretePlot`
 - `discreteFunctionPlot`
+- `divisorPlot`
 - `ferrersDiagram`
 - `fftPlot`
 - `functionPlot`

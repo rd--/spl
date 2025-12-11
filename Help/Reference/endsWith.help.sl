@@ -2,7 +2,7 @@
 
 - _endsWith(u, v)_
 
-Answer if the sequence _u_ ends with another sequence _v_.
+Answer `true` if the sequence _u_ ends with another sequence _v_.
 
 ```
 >>> 1:5.endsWith(3:5)
@@ -33,6 +33,9 @@ true
 
 >>> 'quickSort'.endsWith('Sort')
 true
+
+>>> 'endsWith?'.endsWith('With')
+false
 ```
 
 The empty string ends with the empty string, and with nothing else:
@@ -53,7 +56,7 @@ Guides: String Functions
 
 References:
 _Haskell_
-[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isPrefixOf)
+[1](https://hackage.haskell.org/package/base/docs/Data-List.html#v:isSuffixOf)
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/StringEndsQ.html)
 

@@ -6,6 +6,18 @@ Answer the Farey sequence of order _n_.
 
 The Farey sequence of order _n_ is the sorted sequence of reduced fractions between 0 and 1 with denominators not exceeding _n_.
 
+The first four Farey sequence:
+
+```
+>>> 1:4.collect(fareySequence:/1)
+[
+	0/1 1/1;
+	0/1 1/2 1/1;
+	0/1 1/3 1/2 2/3 1/1;
+	0/1 1/4 1/3 1/2 2/3 3/4 1/1
+]
+```
+
 The Farey sequence of order five:
 
 ```
@@ -143,17 +155,31 @@ let f = 20.fareySequence;
 Draw the Farey sunburst:
 
 ~~~spl svg=E
-let x = 9.fareySequence.collect(components:/1);
-let y = x.collect(reverse:/1);
+let a = 9.fareySequence;
+let b = a.collect(components:/1);
+let c = b.collect(reverse:/1);
 [1 1; 1 -1; -1 1; -1 -1].collect { :m |
 	[
-		([m] * x).Line,
-		([m] * y).Line
+		([m] * b).Line,
+		([m] * c).Line
 	]
 }.LineDrawing
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-E.svg)
+
+Plot the first twelve sequences,
+the _y_ coordinate is given by the order:
+
+~~~spl svg=F
+1:12.collect { :y |
+	y.fareySequence.collect { :x |
+		[x y]
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-F.svg)
 
 * * *
 

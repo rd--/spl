@@ -13,6 +13,9 @@ If there is no such element, evaluate and answer the exception block _g_.
 >>> 	nil
 >>> }
 nil
+
+>>> 1:9.detectIfNone { :x | x > 9 } { nil }
+nil
 ```
 
 * * *

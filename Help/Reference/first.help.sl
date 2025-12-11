@@ -68,6 +68,8 @@ See also: fourth, last, middle, second, third
 Guides: List Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:head),
 _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/curlylfdot#dyadic),
 _Mathematica_

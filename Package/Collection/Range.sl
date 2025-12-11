@@ -44,6 +44,10 @@ Range : [Object, Storeable, Equatable, Comparable, Iterable, Collection, Indexab
 		self.start.typeOf
 	}
 
+	empty { :self |
+		Range(1, 0, 1)
+	}
+
 	equalBy { :self :operand :aBlock:/2 |
 		operand.isRange & {
 			aBlock(self.start, operand.start) & {

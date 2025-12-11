@@ -55,6 +55,8 @@ See also: detectIfFoundIfNone, detectIfNone, detectIndex, detectMin, findFirst, 
 Guides: Collection Functions, Dictionary Functions, List Functions
 
 References:
+_Haskell_
+[1](https://hackage.haskell.org/package/base-4.21.0.0/docs/Data-List.html#v:find),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/SelectFirst.html),
 _Smalltalk_
