@@ -66,6 +66,44 @@ A longer prime sequence:
 
 ![](sw/spl/Help/Image/fromPolarCoordinates-C.svg)
 
+Plot number spiral where the perfect squares are aligned on the _x_-axis:
+
+~~~spl svg=D
+let n = 5.square;
+let f = { :n |
+	let m = n.sqrt;
+	[m, m * 2.pi].fromPolarCoordinates
+};
+[
+	(0 .. n).collect(f:/1).PointCloud,
+	(0, 0.02 .. n).collect(f:/1).Line
+].GeometryCollection
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-D.svg)
+
+Plot integers _0-250_:
+
+~~~spl svg=E
+0:250.collect { :n |
+	let m = n.sqrt;
+	[m, m * 2.pi].fromPolarCoordinates
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-E.svg)
+
+Plot first 250 prime numbers:
+
+~~~spl svg=F
+1:250.prime.collect { :n |
+	let m = n.sqrt;
+	[m, m * 2.pi].fromPolarCoordinates
+}.PointCloud
+~~~
+
+![](sw/spl/Help/Image/fromPolarCoordinates-F.svg)
+
 * * *
 
 See also: fromBipolarCoordinates, PolarCoordinates, toPolarCoordinates, fromSphericalCoordinates

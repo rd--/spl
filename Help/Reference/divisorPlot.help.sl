@@ -63,3 +63,5 @@ divisorPlot(
 See also: divisible, scatterPlot
 
 Guides: Plotting Functions
+
+Further Reading: Ventrella 2010
