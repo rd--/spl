@@ -178,6 +178,14 @@
 		((k * n) / 2) * (n - 1) + 1
 	}
 
+	choose { :n :k |
+		(k > n).if {
+			0
+		} {
+			n.integerBinomial(k)
+		}
+	}
+
 	delannoyNumber { :m :n |
 		0.to(m.min(n)).collect { :k |
 			(m + n - k).integerBinomial(m) * m.integerBinomial(k)
@@ -386,14 +394,6 @@
 			}
 		};
 		f:/1.memoize(true).value(self)
-	}
-
-	take { :n :k |
-		(k > n).if {
-			0
-		} {
-			n.integerBinomial(k)
-		}
 	}
 
 	tetrahedralNumber { :n |

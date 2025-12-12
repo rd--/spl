@@ -240,6 +240,28 @@ and [A004736](https://oeis.org/A004736):
 ]
 ```
 
+The greatest common divisor matrix read by antidiagonals,
+OEIS [A003989](https://oeis.org/A003989):
+
+```
+>>> 1:11.triangularArray { :x :y |
+>>> 	gcd(x - y + 1, y)
+>>> }
+[
+	1;
+	1 1;
+	1 2 1;
+	1 1 1 1;
+	1 2 3 2 1;
+	1 1 1 1 1 1;
+	1 2 1 4 1 2 1;
+	1 1 3 1 1 3 1 1;
+	1 2 1 2 5 2 1 2 1;
+	1 1 1 1 1 1 1 1 1 1;
+	1 2 3 4 1 6 1 4 3 2 1
+]
+```
+
 Plot the triangle given by recursion _T(n,k)=T(n-1,k)-T(n,k-1)_,
 OEIS [A096470](https://oeis.org/A096470):
 
@@ -278,6 +300,17 @@ OEIS [A003991](https://oeis.org/A003991):
 
 ![](sw/spl/Help/Image/triangularArray-B.svg)
 
+Plot the greatest common divisor matrix read by antidiagonals,
+OEIS [A003989](https://oeis.org/A003989):
+
+~~~spl svg=C
+1:25.triangularArray { :x :y |
+	gcd(x - y + 1, y) - 1
+}.catenate.discretePlot
+~~~
+
+![](sw/spl/Help/Image/triangularArray-C.svg)
+
 * * *
 
 See also: array, collect, isTriangularArray, table
@@ -298,7 +331,8 @@ _OEIS_
 [8](https://oeis.org/A002260)
 [9](https://oeis.org/A004736)
 [10](https://oeis.org/A096470)
-[11](https://oeis.org/A003991),
+[11](https://oeis.org/A003991)
+[12](https://oeis.org/A003989),
 _W_
 [1](https://en.wikipedia.org/wiki/Triangular_array)
 [2](https://en.wikipedia.org/wiki/Floyd%27s_triangle)

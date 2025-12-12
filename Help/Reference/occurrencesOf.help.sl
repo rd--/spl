@@ -53,6 +53,30 @@ At `String`:
 1
 ```
 
+Scatter plot of the first _k_ terms of the inventory sequence,
+OEIS [A342585](https://oeis.org/A342585):
+
+~~~spl svg=D
+let k = 200;
+let a = [];
+let c = 0;
+let n = 0;
+let f = 1.toDo(k) { :i |
+	let n = a.occurrencesOf(c);
+	a.add(n);
+	(n = 0).if {
+		c := 0
+	} {
+		c := c + 1
+	}
+};
+a.collect { :n |
+	n.isZero.if { 0 } { n.log }
+}.scatterPlot
+~~~
+
+![](<sw/spl/Help/Image/occurrencesOf-A.svg>)
+
 * * *
 
 See also: count, includes, indicesOf
@@ -60,6 +84,8 @@ See also: count, includes, indicesOf
 Guides: Dictionary Functions, List Functions, Set Functions
 
 References:
+_OEIS_
+[1](https://oeis.org/A342585),
 _Smalltalk_
 5.7.1.19
 

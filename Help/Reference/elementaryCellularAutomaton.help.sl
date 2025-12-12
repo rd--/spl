@@ -1,6 +1,10 @@
 # elementaryCellularAutomaton
 
-- _elementaryCellularAutomaton(rule, initialState, stepCount)_
+- _elementaryCellularAutomaton(r, s, n)_
+
+Implement the elementary cellular automaton given by rule _r_,
+initial state _s_,
+and step count _n_.
 
 The cell configurations and their interpretation as binary integers:
 
@@ -35,6 +39,31 @@ The first two steps of rule 30:
 	0 0 0 1 0 0 0;
 	0 0 1 1 1 0 0;
 	0 1 1 0 0 1 0
+]
+```
+
+The first _n_ rows of the triangular array of Rule 30,
+OEIS [A070950](https://oeis.org/A070950):
+
+```
+>>> let n = 9;
+>>> let m = n * 2 - 1;
+>>> 30.elementaryCellularAutomaton(
+>>> 	[1].centerArray(m, 0),
+>>> 	n - 1
+>>> ).withIndexCollect { :x :i |
+>>> 	x.middle(i * 2 - 1)
+>>> }
+[
+	1;
+	1 1 1;
+	1 1 0 0 1;
+	1 1 0 1 1 1 1;
+	1 1 0 0 1 0 0 0 1;
+	1 1 0 1 1 1 1 0 1 1 1;
+	1 1 0 0 1 0 0 0 0 1 0 0 1;
+	1 1 0 1 1 1 1 0 0 1 1 1 1 1 1;
+	1 1 0 0 1 0 0 0 1 1 1 0 0 0 0 0 1
 ]
 ```
 
@@ -141,7 +170,10 @@ See also: arrayFilter, blockMap, centerArray, convolve, fromDigits, integerDigit
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/CellularAutomaton.html),
+[1](https://mathworld.wolfram.com/ElementaryCellularAutomaton.html)
+[2](https://reference.wolfram.com/language/ref/CellularAutomaton.html),
+_OEIS_
+[1](https://oeis.org/A070950),
 _SEP_
 [1](https://plato.stanford.edu/entries/cellular-automata/),
 _W_

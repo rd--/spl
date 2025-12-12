@@ -39,6 +39,7 @@
 - `Interpolation Functions`
 - `Iteration Functions`
 - `List Functions`
+- `Low-Discrepancy Sequence Functions`
 - `Magic Square Functions`
 - `Mathematical Functions`
 - `Matrix Functions`
@@ -60,6 +61,7 @@
 - `Rounding Functions`
 - `Scale Functions`
 - `Scheduling Functions`
+- `Sequence Functions`
 - `Sequence Alignment Functions`
 - `Set Functions`
 - `Sigmoid Functions`

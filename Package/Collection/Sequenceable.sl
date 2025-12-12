@@ -2491,7 +2491,8 @@
 	}
 
 	take { :self :count |
-		self.copyFromTo(1, count)
+		let n = count.min(self.size);
+		self.copyFromTo(1, n)
 	}
 
 	takeDrop { :self :count |

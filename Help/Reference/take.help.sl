@@ -11,6 +11,9 @@ At `String`:
 ```
 >>> 'Hello World!'.take(5)
 'Hello'
+
+>>> 'Text'.take(5)
+'Text'
 ```
 
 At `Range`:
@@ -18,6 +21,9 @@ At `Range`:
 ```
 >>> 1:5.take(3)
 1:3
+
+>>> 1:5.take(9)
+1:5
 ```
 
 At `List`:
@@ -34,6 +40,9 @@ At `List`:
 
 >>> [5 4 3 2 1].take(3)
 [5 4 3]
+
+>>> [1 .. 5].take(9)
+[1 2 3 4 5]
 ```
 
 It is an error if _n_ is less than zero:
@@ -69,36 +78,15 @@ or as a prefix:
 [0 0 0 5 4 3 2 1]
 ```
 
-At `Integer` `take` is an alias for `binomial`,
-which tells the number of combinations of _n_ elements taken _k_ at a time.
-
-```
->>> 6.take(3)
-((6 * 5 * 4) / (1 * 2 * 3))
-
->>> binomial(6, 3)
-20
-```
-
-If _k > n_ answers zero:
-
-```
->>> 3.take(6)
-0
-
->>> binomial(3, 6)
-0
-```
-
 * * *
 
-See also: any, binomial, drop, takeFirst, takeLast
+See also: any, drop, first, takeFirst, takeLast
+
+Guides: List Functions
 
 References:
 _Apl_
 [1](http://aplwiki.com/wiki/Take),
-_J_
-[1](https://code.jsoftware.com/wiki/Vocabulary/bang#dyadic),
 _Haskell_
 [1](https://hackage.haskell.org/package/base/docs/Prelude.html#v:take)
 _Mathematica_

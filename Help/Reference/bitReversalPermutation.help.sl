@@ -46,6 +46,16 @@ that is the bit reversal permutation is an involution:
 16.iota
 ```
 
+The Van der Corput sequence is given by dividing the zero-indexed bit-reversal permutation by its length:
+
+```
+>>> 3.bitReversalPermutation - 1 / (2 ^ 3)
+[0/1 1/2 1/4 3/4 1/8 5/8 3/8 7/8]
+
+>>> 0:7.vanDerCorputNumber(2)
+[0/1 1/2 1/4 3/4 1/8 5/8 3/8 7/8]
+```
+
 Plot first few terms
 
 ~~~spl svg=A
@@ -56,9 +66,19 @@ Plot first few terms
 
 ![](sw/spl/Help/Image/bitReversalPermutation-A.svg)
 
+Plot a Hammersley set whose coordinates are the integers _0:255_ paired with their bit-reversals:
+
+~~~spl svg=B
+let x = [0 .. 255];
+let y = 8.bitReversalPermutation;
+[x, y].transpose.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitReversalPermutation-B.svg)
+
 * * *
 
-See also: fromDigits, integerDigits, permute, Permutation, reversalPermutation
+See also: fromDigits, hammersleyPointSet, integerDigits, permute, Permutation, reversalPermutation
 
 Guides: Bitwise Functions, Integer Sequence Functions, Permutation Functions
 

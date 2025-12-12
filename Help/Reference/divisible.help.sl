@@ -115,6 +115,17 @@ true
 true
 ```
 
+Matrix plot of divisor table:
+
+~~~spl svg=A
+divisible:/2.swap
+.table(1:12, 1:60)
+.boole
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-A.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

@@ -48,6 +48,11 @@ Integer Predicates:
 - `isOdd`
 - `isSmallInteger`
 
+Fraction Predicates:
+
+- `isAdjacentFraction`
+- `isDyadicRational`
+
 Type Predicates:
 
 - `isComplex`

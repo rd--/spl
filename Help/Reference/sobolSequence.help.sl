@@ -66,7 +66,7 @@ First few terms of two-dimensional sequence:
 	1/4 3/4;
 	3/8 3/8;
 	7/8 7/8;
-	5/8 1/8
+	5/8 1/8;
 	1/8 5/8
 ]
 ```

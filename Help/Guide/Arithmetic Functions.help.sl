@@ -7,10 +7,10 @@ Binary Functions:
 - `subtract`, `-`
 - `divide`, `/`
 - `power`, `^`
-- `sqrt`
 
 Division Functions:
 
+- `divide`, `/`
 - `mod`, `%`
 - `quotient`, `//`
 - `remainder`, `\\`
@@ -20,6 +20,7 @@ Unary Functions:
 - `negate`, `-`
 - `reciprocal`, `/`
 - `exp`, `^`
+- `sqrt`
 
 List Functions:
 

@@ -6,6 +6,7 @@ clean:
 
 add-additions:
 	git add Help/Reference/*.sl
+	git add Help/Guide/*.sl
 	git add Help/Image/*.svg
 	git add Help/Image/*.png
 

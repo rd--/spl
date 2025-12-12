@@ -60,11 +60,11 @@ At `String`:
 ['abcdef' 'ghijklmn']
 ```
 
-It is an error if _n_ is too large:
+It is a not error if _n_ is too large:
 
 ```
->>> { [1 .. 5].takeDrop(6) }.hasError
-true
+>>> [1 .. 5].takeDrop(6)
+[[1 2 3 4 5], []]
 ```
 
 * * *

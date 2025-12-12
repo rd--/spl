@@ -1,8 +1,8 @@
 # inspectAsList
 
-- _inspectAsList(anObject, maxIndices)_
+- _inspectAsList(x, n)_
 
-Answer a `List` of at most _maxIndices_ `Association`s describing _anObject_.
+Answer a `List` of at most _n_ indices `Association`s describing the object _x_.
 
 ```
 >>> let r = (x: 0, y: 1.pi);

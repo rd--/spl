@@ -53,6 +53,7 @@ Enumeration:
 - `multisetPermutations`
 - `permutations`
 - `plainChanges`: Steinhaus-Johnson-Trotter
+- `reversalPermutation`
 
 Lists:
 

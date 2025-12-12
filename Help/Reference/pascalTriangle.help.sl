@@ -3,7 +3,7 @@
 - _pascalTriangle(n)_
 
 Answer the first _n_ rows of Pascal’s triangle,
-also known as meru-prastāra, مثلث خیام and Yang Hui’s Triangle
+also known as meru-prastāra, مثلث خیام and Yang Hui’s triangle.
 
 The first eleven rows,
 OEIS [A007318](https://oeis.org/A007318):

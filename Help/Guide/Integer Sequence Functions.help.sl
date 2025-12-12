@@ -8,7 +8,6 @@ Integer Sequence Transform Functions:
 - `runLengthTransform`
 
 [OEIS](https://oeis.org/) _A_-References:
-
 - `additivePersistence`: A031286
 - `aliquotSequence`: A044050
 - `aliquotSum`: A001065
@@ -26,9 +25,10 @@ Integer Sequence Transform Functions:
 - `bernoulliTriangle`: A008949
 - `binaryExpansion`: A007088
 - `binomial`: A000125 A000127 A000332 A000984 A002260 A004736 A006542 A027907 A060693 A109449 A166556
-- `bitAnd`: A279125
+- `bitAnd`: A246028 A279125
 - `bitReversalPermutation`: A030109
-- `bitXor`: A003188
+- `bitShiftLeft`: A001317
+- `bitXor`: A003188 A048720 A193231
 - `braceletCount`: A000029 A027671 A032275 A081720
 - `brunsConstant`: A065421
 - `calabisConstant`: A046095
@@ -37,6 +37,8 @@ Integer Sequence Transform Functions:
 - `cantorStaircase`: A095844 A095845
 - `carmichaelLambda`: A002322
 - `cartesianIndexToDiagonalIndex`: A000124 A000217
+- `catalanExpansion`: A014418
+- `catalanIndex`: A081288
 - `catalanNumber`: A000108 A014137 A014138
 - `catalanTriangle`: A000096 A005586 A005587 A009766
 - `catalansConstant`: A006752
@@ -50,7 +52,7 @@ Integer Sequence Transform Functions:
 - `chebyshevU`: A008312 A053117
 - `chordDiagrams`: A007769
 - `circumflexAccent`: A000272
-- `collatzSequence`: A070165
+- `collatzSequence`: A006577 A006877 A008884 A070165 A127824
 - `connellSequence`: A001614
 - `continuedFraction`: A003417
 - `cos`: A268038
@@ -95,7 +97,7 @@ Integer Sequence Transform Functions:
 - `factorInteger`: A006881 A124859
 - `fareySequence`: A005728 A006842 A006843
 - `feigenbaumConstant`: A006890
-- `fibonacci`: A000045 A000129 A001060 A001076 A001177 A003893 A006190 A052918 A058071 A105870
+- `fibonacci`: A000045 A000071 A000129 A001060 A001076 A001177 A003893 A006190 A052918 A058071 A105870
 - `fibonacciEntryPoint`: A001177
 - `fibonacciFactorial`: A003266
 - `fibonacciFactorialConstant`: A062073
@@ -124,6 +126,7 @@ Integer Sequence Transform Functions:
 - `gompertzConstant`: A073003
 - `gouldsNumber`: A001316
 - `gouldsSequence`: A000120 A001316 A006046
+- `gradedReflectedColexicographicSort`: A036038
 - `grahlSequence`: A229037 A309890
 - `grayDecode`: A006068
 - `grayEncode`: A003188 A014550 A098488 A105530
@@ -133,11 +136,12 @@ Integer Sequence Transform Functions:
 - `harmoniousNumber`: A001622 A060006 A060007 A160155 A230159 A230160
 - `hexagonalNumber`: A000384
 - `hofstadterQSequence`: A005185
-- `integerDigits`: A005811 A007376 A010060 A014311 A029931 A048793 A062756 A066099 A101211 A117966 A160855 A167489 A265326 A322182 A364024
+- `hypergeometric2F1`: A010683
+- `integerDigits`: A005811 A007376 A007954 A010060 A014311 A029931 A048793 A062756 A066099 A101211 A117966 A160855 A167489 A265326 A322182 A364024
 - `integerExponent`: A001511 A007814 A025480 A110963 A366601
 - `integerLength`: A061384 A070939
 - `integerPartitions`: A036036 A080576 A080577 A193073 A334301
-- `integerPartitionUnrank`: A112798 A129594 A227739
+- `integerPartitionUnrank`: A112798 A129594 A215366 A227739
 - `integerSquareRoot`: A000196
 - `interprime`: A024675
 - `inventorySequence`: A342585
@@ -168,7 +172,7 @@ Integer Sequence Transform Functions:
 - `isLukasiewiczWord`: A071153
 - `isNarcissisticNumber`: A005188
 - `isOdd`: A005408
-- `isPalindrome`: A006072
+- `isPalindrome`: A002113 A006072 A006995
 - `isPerfectNumber`: A000396
 - `isPerfectPower`: A001597
 - `isPerfectSquare`: A000290
@@ -176,7 +180,7 @@ Integer Sequence Transform Functions:
 - `isPowerfulNumber`: A001694 A060355 A118896
 - `isPracticalNumber`: A005153
 - `isPrime`: A000353 A005384 A005385 A005846 A006285
-- `isPrimePower`: A246547 A246655
+- `isPrimePower`: A000015 A246547 A246655
 - `isPrimitiveAbundantNumber`: A071395
 - `isPronicNumber`: A002378
 - `isPseudoperfectNumber`: A005835
@@ -236,12 +240,13 @@ Integer Sequence Transform Functions:
 - `markovNumberTree`: A002559
 - `matrixPower`: A052534
 - `meisselMertensConstant`: A077761
-- `memoize`: A004001
+- `memoize`: A002083 A004001
 - `mersenneNumber`: A000225
 - `mersennePrimeExponent`: A000043
 - `mertensFunction`: A002321
 - `metallicMean`: A001622 A014176 A098316 A098317 A098318
 - `minkowskiQuestionMark`: A048819
+- `mod`: A000224 A028897 A048152 A088705
 - `moebiusMu`: A002321 A006575 A008683
 - `moserDeBruijnSequence`: A000695
 - `motzkinNumber`: A001006
@@ -257,6 +262,7 @@ Integer Sequence Transform Functions:
 - `noergaardRhythmicInfinitySystem`: A073334
 - `numberOfCompositions`: A007318
 - `numberOfCompositionsWeak`: A178300
+- `occurrencesOf`: A342585
 - `oddPart`: A000265
 - `oloid`: A215447
 - `omegaConstant`: A030178 A030797
@@ -270,7 +276,6 @@ Integer Sequence Transform Functions:
 - `pellLucasNumbers`: A002203
 - `pellNumbers`: A000129 A086383 A086383 A096650
 - `pentagonalNumber`: A000326
-- `percentSign`: A000224 A028897 A048152
 - `perfectDigitalInvariantSequence`: A193995
 - `perfectNumber`: A000396
 - `periodDoublingSequence`: A096268
@@ -295,7 +300,7 @@ Integer Sequence Transform Functions:
 - `primesList`: A000040
 - `primeSignature`: A025487 A036035 A046523 A118914 A181819
 - `primitiveRootList`: A001122 A001913 A033948 A046144
-- `primorial`: A002110
+- `primorial`: A002110 A278159
 - `pyramidalNumber`: A000292 A000330 A002411 A002412 A002413
 - `pythagorasConstant`: A002193
 - `quotient`: A000601
@@ -312,6 +317,8 @@ Integer Sequence Transform Functions:
 - `repunit`: A000225 A002275 A002450 A002452 A003462 A003463 A003464 A016123 A016125 A023000 A023001
 - `rudinShapiro`: A020985
 - `rulerFunction`: A001511
+- `runLengthsOf`: A245562
+- `runLengthTransform`: A246028 A278159
 - `schroderNumber`: A006318 A033877
 - `schroderSequence`: A006318
 - `secondFeigenbaumConstant`: A006891
@@ -357,7 +364,7 @@ Integer Sequence Transform Functions:
 - `tetranacciConstant`: A058265
 - `thueMorseSequence`: A010060
 - `toothpickSequence`: A139250
-- `triangularArray`: A002260 A004736 A007318 A048601 A075363 A075364 A077028 A094587 A096470 A166556
+- `triangularArray`: A002260 A003991 A004736 A007318 A048601 A075363 A075364 A077028 A094587 A096470 A166556
 - `triangularNumber`: A000217
 - `tribonacciConstant`: A058265
 - `tribonacciNumber`: A000073

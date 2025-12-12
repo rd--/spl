@@ -4,9 +4,18 @@
 
 Answer a `List` of `String`s giving the slot names for the type of the object _x_.
 
+At `Fraction`:
+
 ```
 >>> 2/3.slotNameList
 ['numerator' 'denominator']
+```
+
+At `Complex`:
+
+```
+>>> 2J3.slotNameList
+['real' 'imaginary']
 ```
 
 These slots can be read using `slotList` or `slotValueList`.

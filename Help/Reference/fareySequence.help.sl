@@ -124,7 +124,7 @@ Plot numerators:
 ~~~spl svg=B
 23.fareySequence
 .numerator
-.discretePlot
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-B.svg)
@@ -134,7 +134,7 @@ Plot denominators:
 ~~~spl svg=C
 23.fareySequence
 .denominator
-.discretePlot
+.scatterPlot
 ~~~
 
 ![](sw/spl/Help/Image/fareySequence-C.svg)

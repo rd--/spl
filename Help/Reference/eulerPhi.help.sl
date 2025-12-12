@@ -42,14 +42,25 @@ OEIS [A000010](https://oeis.org/A000010):
 ]
 ```
 
-Length of the _nth_-order Farey sequence can be expressed in terms of `eulerPhi`,
-c.f. OEIS [A002088](https://oeis.org/A002088):
+Sum of totient function,
+called the totient summatory function,
+OEIS [A002088](https://oeis.org/A002088):
 
 ```
->>> 1:15.collect { :k |
->>> 	1:k.eulerPhi.sum + 1
+>>> 0:14.collect { :k |
+>>> 	1:k.eulerPhi.sum
 >>> }
-[2 3 5 7 11 13 19 23 29 33 43 47 59 65 73]
+[0 1 2 4 6 10 12 18 22 28 32 42 46 58 64]
+```
+
+Offset by one gives the length of the _nth_-order Farey sequence,
+OEIS [A005728](https://oeis.org/A005728):
+
+```
+>>> 0:14.collect { :k |
+>>> 	1:k.eulerPhi.sum
+>>> } + 1
+[1 2 3 5 7 11 13 19 23 29 33 43 47 59 65]
 ```
 
 EulerPhi is non-negative:
@@ -198,7 +209,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/pco#dyadic),
 _Mathematica_
 [1](https://mathworld.wolfram.com/TotientFunction.html)
-[2](https://reference.wolfram.com/language/ref/EulerPhi.html),
+[2](https://mathworld.wolfram.com/TotientSummatoryFunction.html)
+[3](https://reference.wolfram.com/language/ref/EulerPhi.html),
 _Mathworks_
 [1](https://mathworks.com/help/symbolic/eulerphi.html),
 _OEIS_
@@ -206,9 +218,11 @@ _OEIS_
 [2](https://oeis.org/A002088)
 [3](https://oeis.org/A018804)
 [4](https://oeis.org/A010554)
-[5](https://oeis.org/A115114),
+[5](https://oeis.org/A115114)
+[6](https://oeis.org/A005728),
 _W_
 [1](https://en.wikipedia.org/wiki/Euler%27s_totient_function)
+[2](https://en.wikipedia.org/wiki/Totient_summatory_function)
 
 Unicode: U+03C6 φ Greek Small Letter Phi
 

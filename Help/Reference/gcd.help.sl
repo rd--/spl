@@ -116,7 +116,10 @@ Real rational numbers:
 1/105
 ```
 
-Table of the first one hundred integers:
+Table of the first one hundred integers,
+called the greatest common divisor matrix,
+reading by antidiagonals gives the sequence
+OEIS [A003989](https://oeis.org/A003989):
 
 ```
 >>> gcd:/2.table(1:10, 1:10)
@@ -221,6 +224,14 @@ Form the greatest common divisors of one with rational numbers:
 
 ![](sw/spl/Help/Image/gcd-D.svg)
 
+Matrix plot of first one-hundred and twenty-one places:
+
+~~~spl svg=E
+gcd:/2.table(1:11, 1:11).matrixPlot
+~~~
+
+![](sw/spl/Help/Image/gcd-E.svg)
+
 * * *
 
 See also: ||, chineseRemainder, divisible, euclideanAlgorithm, extendedGcd, Fraction, isCoprime, isPrime, lcm
@@ -239,11 +250,13 @@ _Mathematica_
 [2](https://mathworld.wolfram.com/GCD.html)
 [3](https://reference.wolfram.com/language/ref/PolynomialGCD.html),
 _OEIS_
-[1](https://oeis.org/A008364),
+[1](https://oeis.org/A008364)
+[2](https://oeis.org/A003989),
 _Smalltalk_
 5.6.5.12,
 _W_
 [1](https://en.wikipedia.org/wiki/Greatest_common_divisor)
 [2](https://en.wikipedia.org/wiki/Polynomial_greatest_common_divisor)
+[3](https://en.wikipedia.org/wiki/GCD_matrix)
 
 Categories: Arithmetic

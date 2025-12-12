@@ -72,6 +72,12 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 		<primitive: return _self[_aString] = _anObject;>
 	}
 
+	/*
+	pseudoSlotNameList { :self |
+		['keys' 'values']
+	}
+	*/
+
 	removeKeyIfAbsent { :self :key :aBlock |
 		<primitive:
 		if(Object.hasOwn(_self, _key)) {
