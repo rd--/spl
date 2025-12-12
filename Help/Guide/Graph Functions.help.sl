@@ -15,6 +15,11 @@ Constructor Functions:
 - `relationGraph`
 - `weightedAdjacencyGraph`
 
+Random Graphs:
+
+- `randomBernoulliGraph`
+- `randomUniformGraph`
+
 Specific Graphs:
 
 - `balancedCayleyTree`

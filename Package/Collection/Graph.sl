@@ -1270,6 +1270,37 @@ Graph : [Object, Graph] { | vertexList edgeList properties |
 
 }
 
++@RandomNumberGenerator {
+
+	randomBernoulliGraph { :r :n :p |
+		let v = [1 .. n];
+		let e = [];
+		1.toDo(n - 1) { :i |
+			(i + 1).toDo(n) { :j |
+				(r.nextRandomFloat < p).ifTrue {
+					e.add([i, j])
+				}
+			}
+		};
+		Graph(v, e)
+	}
+
+	randomUniformGraph { :r :n :m |
+		let v = [1 .. n];
+		let e = [];
+		{ e.size < m }.whileTrue {
+			let a = r.nextRandomInteger(1, n);
+			let b = r.nextRandomInteger(1, n);
+			let c = [a, b].sort;
+			(a != b & { e.includes(c).not }).ifTrue {
+				e.add(c)
+			}
+		};
+		Graph(v, e)
+	}
+
+}
+
 +System {
 
 	namedGraphTable { :self |
