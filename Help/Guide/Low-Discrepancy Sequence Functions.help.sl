@@ -1,12 +1,22 @@
-# Low-discrepancy Sequence Functions
+# Low-Discrepancy Sequence Functions
+
+Low-Discrepancy Functions:
 
 - `ehrenfeuchtMycielskiSequence`
-- `faurePermutation`
 - `haltonSequence`
 - `hammersleyPointSet`
-- `poissonDiskSampling`
 - `sobolSequence`
 - `vanDerCorputNumber`
+
+Sampling Functions:
+
+- `poissonDiskSampling`
+
+Permutation Functions:
+
+- `bitReversalPermutation`
+- `faurePermutation`
+- `reversalPermutation`
 
 * * *
 

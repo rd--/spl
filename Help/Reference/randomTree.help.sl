@@ -33,8 +33,10 @@ Sfc32(112212).randomTree(5).treePlot
 
 See also: RandomNumberGenerator, Sfc32, Tree
 
-Guides: Random Functions
+Guides: Graph Functions, Random Functions
 
 References:
 _Mathematica_
-[1](https://reference.wolfram.com/language/ref/RandomTree.html)
+[1](https://reference.wolfram.com/language/ref/RandomTree.html),
+_W_
+[1](https://en.wikipedia.org/wiki/Random_tree)
