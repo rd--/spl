@@ -1,9 +1,10 @@
 # mediant
 
-- _mediant(aFraction, anotherFraction)_
-- _mediant(aCollection)_
+- _mediant(a/c, b/d)_
+- _mediant([n/d₁ n/d₂ …])_
 
-For fractions _a/c_ and _b/d_ answer _a+b/c+d_.
+For fractions _a/c_ and _b/d_ answer _(a+b)/(c+d)_.
+The mediant lies strictly between the two fractions.
 
 ```
 >>> 1/2.mediant(3/4)
@@ -13,7 +14,9 @@ For fractions _a/c_ and _b/d_ answer _a+b/c+d_.
 2/1
 ```
 
-In the unary case answers the sum of the numerators divided by the sum of the denominators:
+In the unary case answers the sum of the numerators divided by the sum of the denominators,
+also called the generalized mediant,
+or the weighted mediant with weight one:
 
 ```
 >>> [1/2 3/4].mediant

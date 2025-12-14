@@ -157,6 +157,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		system.randomComplex([0J0, self], [])
 	}
 
+	ceiling { :self |
+		Complex(self.real.ceiling, self.imaginary.ceiling)
+	}
+
 	chop { :self :epsilon |
 		let x = self.real;
 		let y = self.imaginary;
@@ -210,6 +214,10 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		} {
 			false
 		}
+	}
+
+	floor { :self |
+		Complex(self.real.floor, self.imaginary.floor)
 	}
 
 	fractionalPart { :self |

@@ -17,7 +17,7 @@ The first fifteen terms:
 ```
 
 The denominators give the terms of Stern’s diatomic sequence,
-c.f. OEIS A002487:
+OEIS [A002487](https://oeis.org/A002487):
 
 ```
 >>> 90.calkinWilfSequence

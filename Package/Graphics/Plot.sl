@@ -196,7 +196,7 @@ Plot : [Object] { | pages format options |
 		self.flatten.realImaginary.scatterPlot
 	}
 
-	complexPlot { :self :k :aBlock:/1 |
+	complexPlotBy { :self :k :aspect:/1 :aBlock:/1 |
 		let [min, max] = self;
 		let colourFunction:/1 = system
 		.colourGradients[
@@ -207,8 +207,12 @@ Plot : [Object] { | pages format options |
 		let i = (min.imaginary -- max.imaginary).subdivide(k);
 		{ :x :y |
 			let z = Complex(y, x);
-			colourFunction(aBlock(z).arg / 2.pi + 0.5)
+			colourFunction(aBlock(z).aspect / 2.pi + 0.5)
 		}.table(i, r).reverse.Image
+	}
+
+	complexPlot { :self :k :aBlock:/1 |
+		complexPlotBy(self, k, arg:/1, aBlock:/1)
 	}
 
 	complexPlot { :self :aBlock:/1 |

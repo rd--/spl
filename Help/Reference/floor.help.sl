@@ -86,6 +86,30 @@ Floor is a staircase function:
 
 ![](sw/spl/Help/Image/floor-A.svg)
 
+Plot the Gauss map over a subset of the reals:
+
+~~~spl svg=B
+(-2 -- 2).discretize(250) { :x |
+	(1 / x) - (1 / x).floor
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/floor-B.svg)
+
+Plot the Gauss map over a subset of the complexes:
+
+~~~spl png=C
+[-1J-1 1J1].complexPlot { :z |
+	(z ~ 0J0).if {
+		z
+	} {
+		(1 / z) - (1 / z).floor
+	}
+}
+~~~
+
+![](sw/spl/Help/Image/floor-C.png)
+
 Where supported `floor` is displayed as ⌊.
 
 * * *

@@ -5,7 +5,8 @@
 Answer the _n_-th entry in the Stern-Brocot sequence.
 Sometimes known as the _fusc_ function.
 
-The first one hundred entries:
+The first one hundred entries,
+OEIS [A002487](https://oeis.org/A002487):
 
 ```
 >>> 0:99.collect(sternBrocotNumber:/1)

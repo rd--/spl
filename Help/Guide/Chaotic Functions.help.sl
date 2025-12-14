@@ -22,6 +22,7 @@ Map Functions:
 - `deJongMap`
 - `duffingMap`
 - `dyadicMap`
+- `gaussIteratedMap`
 - `henonAreaPreservingMap`
 - `henonMap`
 - `ikedaMap`

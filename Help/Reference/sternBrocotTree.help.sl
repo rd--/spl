@@ -1,13 +1,14 @@
 # sternBrocotTree
 
-- _sternBrocotTree(anInteger)_
+- _sternBrocotTree(n)_
 
-Answer the Stern-Brocot `Tree` of depth _anInteger_.
+Answer the Stern-Brocot `Tree` of depth _n_.
 
 The terms of the tree to depth five in level order:
 
 ```
->>> 4.sternBrocotTree.levelOrderValues
+>>> 4.sternBrocotTree
+>>> .levelOrderValues
 [
 	1/1
 	1/2 2/1
@@ -23,12 +24,15 @@ The sorted values of the tree for depths one through four:
 >>> 	n.sternBrocotTree.values.sort
 >>> }
 [
-	1/1;
+	1/1
+	;
 	1/2 1/1
-	2/1;
+	2/1
+	;
 	1/3 1/2 2/3 1/1
 	3/2 2/1
-	3/1;
+	3/1
+	;
 	1/4 1/3 2/5 1/2 3/5 2/3 3/4 1/1
 	4/3 3/2 5/3 2/1
 	5/2 3/1
@@ -60,6 +64,8 @@ true
 * * *
 
 See also: calkinWilfTree, mediant, sternBrocotNumber, sternBrocotSequence
+
+Guides: Mathematical Sequences
 
 References:
 _Mathematica_

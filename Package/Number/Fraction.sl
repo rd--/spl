@@ -512,6 +512,29 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		self.asFloat.sqrt
 	}
 
+	sternBrocotChildren { :self |
+		let a = self.continuedFraction;
+		let b = a.copy;
+		a[a.size] := a[a.size] + 1;
+		b[a.size] := b[a.size] - 1;
+		b.add(2);
+		[
+			a.fromContinuedFraction,
+			b.fromContinuedFraction
+		].sort
+	}
+
+	sternBrocotParent { :self |
+		(self = 1/1).if {
+			1/1
+		} {
+			let c = self.continuedFraction;
+			let n = c.size;
+			c[n] := c[n] - 1;
+			c.fromContinuedFraction
+		}
+	}
+
 	storeStringLiteral { :self |
 		[
 			self.numerator.basicPrintString(10),
@@ -652,6 +675,11 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		} {
 			self.error('List>>Fraction: invalid size')
 		}
+	}
+
+	lambdomaMatrix { :self |
+		let [m, n] = self;
+		Fraction:/2.swap.table(1:m, 1:n)
 	}
 
 }

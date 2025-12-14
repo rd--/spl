@@ -16,6 +16,11 @@ The first four Farey sequence:
 	0/1 1/3 1/2 2/3 1/1;
 	0/1 1/4 1/3 1/2 2/3 3/4 1/1
 ]
+
+>>> 1:4.collect { :n |
+>>> 	1:n.eulerPhi.sum + 1
+>>> }
+[2 3 5 7]
 ```
 
 The Farey sequence of order five:
@@ -27,6 +32,9 @@ The Farey sequence of order five:
 	1/2 3/5 2/3 3/4 4/5
 	1/1
 ]
+
+>>> 1:5.eulerPhi.sum + 1
+11
 ```
 
 The Farey sequence of order six:
@@ -34,10 +42,13 @@ The Farey sequence of order six:
 ```
 >>> 6.fareySequence
 [
-	0/1 1/6 1/5 1/4 1/3 2/5
-	1/2 3/5 2/3 3/4 4/5 5/6
-	1/1
+	0/1 1/6 1/5 1/4 1/3
+	2/5 1/2 3/5 2/3 3/4
+	4/5 5/6 1/1
 ]
+
+>>> 1:6.eulerPhi.sum + 1
+13
 ```
 
 Find the 17th element of the Farey sequence of order 24,
@@ -47,8 +58,14 @@ and the 500th of order 50:
 >>> 24.fareySequence[17]
 2/21
 
+>>> 1:24.eulerPhi.sum + 1
+181
+
 >>> 50.fareySequence[500]
 29/45
+
+>>> 1:50.eulerPhi.sum + 1
+775
 ```
 
 Denominators of Farey sequence of order 12:
@@ -57,12 +74,15 @@ Denominators of Farey sequence of order 12:
 >>> 12.fareySequence
 >>> .collect(denominator:/1)
 [
-	1 12 11 10 9 8 7 6 11 5 9 4
-	11 7 10 3 11 8 5 12 7 9 11
-	2
-	11 9 7 12 5 8 11 3 10 7 11
-	4 9 5 11 6 7 8 9 10 11 12 1
+	 1 12 11 10  9  8  7  6 11  5
+	 9  4 11  7 10  3 11  8  5 12
+	 7  9 11 2  11  9  7 12  5  8
+	11  3 10  7 11  4  9  5 11  6
+	 7  8  9 10 11 12  1
 ]
+
+>>> 1:12.eulerPhi.sum + 1
+47
 ```
 
 The length of a Farey sequence for a few small orders,
@@ -78,7 +98,7 @@ Compare with a closed-form formula in terms of Euler’s totient function `euler
 
 ```
 >>> 1:12.collect { :n |
->>> 	1 + 1:n.collect(eulerPhi:/1).sum
+>>> 	1 + 1:n.eulerPhi.sum
 >>> }
 [2 3 5 7 11 13 19 23 29 33 43 47]
 ```
@@ -99,11 +119,21 @@ The product of all nonzero elements of the Farey sequence for a few small orders
 ]
 ```
 
-Lengths of longer Farey sequences, _50_ then _200, 300, 400, 500_:
+Lengths of longer Farey sequences, _50_ and _99_,
+then _200,300,400,500_:
 
 ```
 >>> 50.fareySequence.size
 775
+
+>>> 1:50.eulerPhi.sum + 1
+775
+
+>>> 99.fareySequence.size
+3005
+
+>>> 1:99.eulerPhi.sum + 1
+3005
 
 >>> (2:5 * 100).collect { :n |
 >>> 	n.fareySequence.size

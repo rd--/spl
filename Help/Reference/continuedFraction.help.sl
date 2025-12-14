@@ -22,6 +22,9 @@ at `Fraction`:
 
 >>> 1/3.continuedFraction
 [0 3]
+
+>>> 17/24.continuedFraction
+[0 1 2 2 3]
 ```
 
 At negative _x_:

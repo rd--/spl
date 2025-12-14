@@ -221,15 +221,22 @@
 		}
 	}
 
-	fareySequence { :n |
+	fareySequenceDo { :n :visit:/1 |
 		let [a, b, c, d] = [0, 1, 1, n];
-		let answer = [Fraction(a, b)];
+		visit(Fraction(a, b));
 		{
 			c <= n
 		}.whileTrue {
-			let k = ((n + b) / d).floor;
+			let k = (n + b) // d;
 			[a, b, c, d] := [c, d, k * c - a, k * d - b];
-			answer.add(Fraction(a, b))
+			visit(Fraction(a, b))
+		}
+	}
+
+	fareySequence { :n |
+		let answer = [];
+		n.fareySequence { :each |
+			answer.add(each)
 		};
 		answer
 	}

@@ -371,12 +371,7 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 	sternBrocotTree { :n :r |
 		n.unfoldTree(r) { :each |
-			let a = each.continuedFraction;
-			let b = a.copy;
-			a[a.size] := a[a.size] + 1;
-			b[a.size] := b[a.size] - 1;
-			b.add(2);
-			[a.fromContinuedFraction, b.fromContinuedFraction].sort
+			each.sternBrocotChildren
 		}
 	}
 

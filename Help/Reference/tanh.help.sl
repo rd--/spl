@@ -75,10 +75,12 @@ Plot over a subset of the reals:
 Plot `tanh` alongside a Padé approximation:
 
 ~~~spl svg=B
-(-1.pi -- 1.pi).functionPlot([
-	tanh:/1,
-	tanhApproximation:/1
-])
+(-1.pi -- 1.pi).functionPlot(
+	[
+		tanh:/1,
+		tanhApproximation:/1
+	]
+)
 ~~~
 
 ![](sw/spl/Help/Image/tanh-B.svg)
@@ -102,6 +104,23 @@ Plot a tractrix pursuit curve:
 ~~~
 
 ![](sw/spl/Help/Image/tanh-D.svg)
+
+Plot `tanh` alongside a simple approximation suitable for use as a non-linear distortion function:
+
+~~~spl svg=E
+(-1.pi -- 1.pi).functionPlot(
+	[
+		tanh:/1,
+		{ :x |
+			let a = 27 + x.square;
+			let b = 27 + (9 * x.square);
+			x * a / b
+		}
+	]
+)
+~~~
+
+![](sw/spl/Help/Image/tanh-E.svg)
 
 * * *
 
