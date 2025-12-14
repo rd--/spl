@@ -235,7 +235,7 @@
 
 	fareySequence { :n |
 		let answer = [];
-		n.fareySequence { :each |
+		n.fareySequenceDo { :each |
 			answer.add(each)
 		};
 		answer

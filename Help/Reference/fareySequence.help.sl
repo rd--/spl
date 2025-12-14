@@ -211,6 +211,43 @@ the _y_ coordinate is given by the order:
 
 ![](sw/spl/Help/Image/fareySequence-F.svg)
 
+Plot a metric by Neville where _u/v=2/7_:
+
+~~~spl svg=G
+let [u, v] = [2, 7];
+27.fareySequence.collect { :n |
+	let [x, y] = n.numeratorDenominator;
+	((v * x) - (u * y)).abs
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-G.svg)
+
+Plot the difference between the mean and mediant of adjacent pairs of a Farey sequence:
+
+~~~spl svg=H
+26.fareySequence
+.adjacentPairs
+.collect { :each |
+	each.mean - each.mediant
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-H.svg)
+
+Plot the relative term-wise difference between the mean and mediant of adjacent pairs of a Farey sequence:
+
+~~~spl svg=I
+27.fareySequence
+.adjacentPairsCollect { :p :q |
+	let a = [p q].mean;
+	let b = [p q].mediant;
+	(a - b) / (q - p)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fareySequence-I.svg)
+
 * * *
 
 See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide
