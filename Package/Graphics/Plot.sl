@@ -1296,9 +1296,9 @@ Plot : [Object] { | pages format options |
 
 +List{
 
-	integerSequencePlot { :self |
+	integerSequencePlot { :self :kind |
 		self
-		.integerSequenceMatrix
+		.integerSequenceMatrix(kind)
 		.matrixPlot
 	}
 

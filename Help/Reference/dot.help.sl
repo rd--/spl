@@ -177,7 +177,19 @@ Note that it is effectively multiplying _v_ on the left side of the matrix, not 
 (-0.02493, -0.02493, 1.15989)
 ```
 
-Multiply real 3×3 matrices:
+Multiply 3×3 integer matrices:
+
+```
+>>> let m = [3 3].iota;
+>>> m.dot(m + 9)
+[
+	 84  90  96;
+	201 216 231;
+	318 342 366
+]
+```
+
+Multiply 3×3 real matrices:
 
 ```
 >>> let m = [

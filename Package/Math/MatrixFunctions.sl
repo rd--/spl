@@ -175,6 +175,10 @@
 		*.inner(self, aList, +)
 	}
 
+	drawdownMatrix { :m1 :m2 :m3 |
+		m3.dot(m2.transpose).dot(m1)
+	}
+
 	eigenvalues { :m :epsilon :n |
 		let x = m.deepCopy;
 		let i = 0;

@@ -6,6 +6,17 @@
 In the unary case,
 answer a new matrix that is like the matrix _m_ but with the rows and columns transposed.
 
+```
+>>> [[1, 2]].transpose
+[[1], [2]]
+
+>>> [1 2; 3 4].transpose
+[1 3; 2 4]
+
+>>> [1 2; 3 4; 5 6].transpose
+[1 3 5; 2 4 6]
+```
+
 In the binary case,
 answer a new array that is like the array _a_ but with the dimensions shape rearranged according to the permutation _p_.
 

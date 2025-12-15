@@ -1,14 +1,67 @@
 # integerSequenceMatrix
 
-- _integerSequenceMatrix([n₁ n₂ …])_
+- _integerSequenceMatrix([n₁ n₂ …], kind)_
 
-Answer a _0,1_ matrix where the integer sequence _n_ tells the _1_ row for each column.
+Answer a _0,1_ matrix where the integer sequence _n_ tells the _1_ row for each column,
+if _kind='Column'_,
+or the _1_ column for each row,
+if _kind='Row'_.
+
+```
+>>> [1 2 3 4 3 2 1]
+>>> .integerSequenceMatrix('Column')
+[
+	1 0 0 0 0 0 1;
+	0 1 0 0 0 1 0;
+	0 0 1 0 1 0 0;
+	0 0 0 1 0 0 0
+]
+
+>>> [1 2 3 4 3 2 1]
+>>> .integerSequenceMatrix(
+>>> 	'ColumnReversed'
+>>> )
+[
+	0 0 0 1 0 0 0;
+	0 0 1 0 1 0 0;
+	0 1 0 0 0 1 0;
+	1 0 0 0 0 0 1
+]
+
+>>> [1 2 3 4 3 2 1]
+>>> .integerSequenceMatrix('Row')
+[
+	1 0 0 0;
+	0 1 0 0;
+	0 0 1 0;
+	0 0 0 1;
+	0 0 1 0;
+	0 1 0 0;
+	1 0 0 0
+]
+
+>>> [1 2 3 4 3 2 1]
+>>> .integerSequenceMatrix(
+>>> 	'RowReversed'
+>>> )
+[
+	0 0 0 1;
+	0 0 1 0;
+	0 1 0 0;
+	1 0 0 0;
+	0 1 0 0;
+	0 0 1 0;
+	0 0 0 1
+]
+```
 
 Matrix of one cycle of the squares modulo seventeen:
 
 ```
 >>> 1:17.square.mod(17, 1)
->>> .integerSequenceMatrix
+>>> .integerSequenceMatrix(
+>>> 	'ColumnReverse'
+>>> )
 [
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1;
 	0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0;
@@ -45,7 +98,9 @@ equivalent to deleting rows that are all zeroes:
 ```
 >>> 1:17.square.mod(17, 1)
 >>> .integerSequenceCompress
->>> .integerSequenceMatrix
+>>> .integerSequenceMatrix(
+>>> 	'ColumnReverse'
+>>> )
 [
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1;
 	0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0;
@@ -65,7 +120,9 @@ whereby each distinct term is assigned a consecutive integer value from one in t
 ```
 >>> 1:17.square.mod(17, 1)
 >>> .integerSequenceNormalize
->>> .integerSequenceMatrix
+>>> .integerSequenceMatrix(
+>>> 	'ColumnReverse'
+>>> )
 [
 	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1;
 	0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0;
