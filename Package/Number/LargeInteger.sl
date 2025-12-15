@@ -302,6 +302,10 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		self.storeString
 	}
 
+	printStringToFixed { :self :anInteger |
+		self.asSmallInteger.printStringToFixed(anInteger)
+	}
+
 	raisedToInteger { :self :anInteger |
 		<primitive:
 		if (sl.isLargeInteger(_anInteger) || sl.isSmallFloatInteger(_anInteger)) {

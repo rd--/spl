@@ -56,6 +56,19 @@ let c = [0 0.25 0.5 0.75 1].pi.collect(
 
 ![](sw/spl/Help/Image/hypocycloid-D.svg)
 
+Nested hypocycloids scaled to lie on the same circle:
+
+~~~spl svg=E
+(0 -- 2.pi).functionPlot(200,
+	[4 8 16 32].collect { :n |
+		hypocycloid(n, 1)
+		.composeRight { :x | x / n }
+	}
+)
+~~~
+
+![](sw/spl/Help/Image/hypocycloid-E.svg)
+
 * * *
 
 See also: botanicCurve, butterflyCurve, cycloid, epitrochoid, hypotrochoid, lissajousCurve

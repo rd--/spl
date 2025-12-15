@@ -1,6 +1,6 @@
 # SparseArray
 
-- _SparseArray(anAssociationList, shape, unspecifiedValue)_
+- _SparseArray([[i₁ j₁] -> x₁, …], ⍴, y)_
 
 `normal` answers the `List` array form of the sparse array.
 `size` answers the first element of the `shape`.
@@ -8,12 +8,14 @@
 Construct a sparse matrix with values at only a few specified positions:
 
 ```
->>> let s = SparseArray([
->>> 	[1 1] -> 1,
->>> 	[2 2] -> 2,
->>> 	[3 3] -> 3,
->>> 	[1 3] -> 4
->>> ]);
+>>> let s = SparseArray(
+>>> 	[
+>>> 		[1 1] -> 1,
+>>> 		[2 2] -> 2,
+>>> 		[3 3] -> 3,
+>>> 		[1 3] -> 4
+>>> 	]
+>>> );
 >>> (
 >>> 	s.normal,
 >>> 	s.shape,

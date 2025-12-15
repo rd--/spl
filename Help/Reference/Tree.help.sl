@@ -431,6 +431,17 @@ A `Tree` is a binary tree if it, and every subtree, is of `size` two:
 (true, [6 2 1 3 nil 4 nil 5 8 7 9])
 ```
 
+Since `do` visits each subtree, `includes` looks for subtrees.
+To look for a value use `includesValue`:
+
+```
+>>> let t = 9.sternBrocotTree;
+>>> let a = 23/37;
+>>> let b = Tree(a, []);
+>>> (t.includes(b), t.includesValue(a))
+(true, true)
+```
+
 A complete binary tree:
 
 ~~~spl svg=A

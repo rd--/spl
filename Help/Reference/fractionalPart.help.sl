@@ -105,20 +105,6 @@ fraction part is a sawtooth function:
 
 ![](sw/spl/Help/Image/fractionalPart-A.svg)
 
-A positive real number _x_ is an integer divisor of a positive integer _n_ if the fractional parts of _x_ and _n/x_ are simultaneously zero or one,
-however the function is difficult to differentiate:
-
-~~~spl svg=B
-let n = 29 * 97;
-(1 -- 100).discretize(200) { :x |
-	let a = x.fractionalPart;
-	let b = (n / x).fractionalPart;
-	1 - (a * (1 - b))
-}.scatterPlot
-~~~
-
-![](sw/spl/Help/Image/fractionalPart-B.svg)
-
 * * *
 
 See also: integerPart, truncate

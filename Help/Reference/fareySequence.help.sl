@@ -18,7 +18,7 @@ The first four Farey sequence:
 ]
 
 >>> 1:4.collect { :n |
->>> 	1:n.eulerPhi.sum + 1
+>>> 	n.totientSummatoryFunction + 1
 >>> }
 [2 3 5 7]
 ```
@@ -33,7 +33,7 @@ The Farey sequence of order five:
 	1/1
 ]
 
->>> 1:5.eulerPhi.sum + 1
+>>> 5.totientSummatoryFunction + 1
 11
 ```
 
@@ -47,7 +47,7 @@ The Farey sequence of order six:
 	4/5 5/6 1/1
 ]
 
->>> 1:6.eulerPhi.sum + 1
+>>> 6.totientSummatoryFunction + 1
 13
 ```
 
@@ -58,13 +58,13 @@ and the 500th of order 50:
 >>> 24.fareySequence[17]
 2/21
 
->>> 1:24.eulerPhi.sum + 1
+>>> 24.totientSummatoryFunction + 1
 181
 
 >>> 50.fareySequence[500]
 29/45
 
->>> 1:50.eulerPhi.sum + 1
+>>> 50.totientSummatoryFunction + 1
 775
 ```
 
@@ -81,7 +81,7 @@ Denominators of Farey sequence of order 12:
 	 7  8  9 10 11 12  1
 ]
 
->>> 1:12.eulerPhi.sum + 1
+>>> 12.totientSummatoryFunction + 1
 47
 ```
 
@@ -126,13 +126,13 @@ then _200,300,400,500_:
 >>> 50.fareySequence.size
 775
 
->>> 1:50.eulerPhi.sum + 1
+>>> 50.totientSummatoryFunction + 1
 775
 
 >>> 99.fareySequence.size
 3005
 
->>> 1:99.eulerPhi.sum + 1
+>>> 99.totientSummatoryFunction + 1
 3005
 
 >>> (2:5 * 100).collect { :n |
@@ -250,7 +250,7 @@ Plot the relative term-wise difference between the mean and mediant of adjacent 
 
 * * *
 
-See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide
+See also: Fraction, eulerPhi, gcd, isFareyPair, minkowskiQuestionMark, sternBrocotSequence, subdivide, totientSummatoryFunction
 
 Guides: Integer Functions, Integer Sequence Functions, Mathematical Sequences
 

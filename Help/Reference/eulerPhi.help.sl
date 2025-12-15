@@ -2,7 +2,8 @@
 
 - _eulerPhi(n)_
 
-Answer the Euler totient function.
+Answer the Euler totient function,
+written _φ(n)_.
 Also known as the Euler totient function or phi function.
 Counts positive integers up to _n_ that are relatively prime to _n_.
 
@@ -200,7 +201,7 @@ let f = { :n |
 
 * * *
 
-See also: divisors, factorInteger, gcd, lcm, powerMod
+See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction
 
 Guides: Integer Sequence Functions
 

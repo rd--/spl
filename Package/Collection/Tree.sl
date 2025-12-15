@@ -118,6 +118,12 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 		self.asGraph.graphPlot
 	}
 
+	includesValue { :self :anObject |
+		self.anySatisfy { :each |
+			each.value = anObject
+		}
+	}
+
 	indices { :self |
 		1.to(self.size)
 	}

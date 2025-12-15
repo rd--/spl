@@ -934,6 +934,32 @@
 		}.transpose
 	}
 
+	integerSequenceCompress { :a |
+		let b = a.deleteDuplicates.sort;
+		let k = b.size;
+		let m = Map([b, 1:k].transpose);
+		a.collect { :i |
+			m.at(i)
+		}
+	}
+
+	integerSequenceMatrix { :y |
+		let c = y.size;
+		let [m, n] = y.minMax;
+		let r = n - m + 1;
+		1:c.collect { :i |
+			[r - y[i] + 1, i] -> 1
+		}.SparseArray([r, c], 0)
+		.normal
+	}
+
+	integerSequenceNormalize { :a |
+		let b = a.deleteDuplicates;
+		a.collect { :i |
+			b.indexOf(i)
+		}
+	}
+
 	kroneckerSequence { :alpha :n :k0 |
 		alpha.collect { :each |
 			each.kroneckerSequence(n, k0)

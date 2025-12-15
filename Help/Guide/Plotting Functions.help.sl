@@ -24,11 +24,13 @@ Plotting Functions:
 - `discretePlot`
 - `discreteFunctionPlot`
 - `divisorPlot`
+- `fareyDiagram`
 - `ferrersDiagram`
 - `fftPlot`
 - `functionPlot`
 - `graphPlot`
 - `histogramPlot`
+- `integerSequencePlot`
 - `lagPlot`
 - `linearGraphPlot`
 - `linePlot`

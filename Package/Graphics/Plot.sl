@@ -1228,3 +1228,78 @@ Plot : [Object] { | pages format options |
 		}.catenate.scatterPlot
 	}
 }
+
++SmallFloat {
+
+	fareyDiagram { :n :kind |
+		kind.caseOf(
+			[
+				'Square' -> { n.fareyDiagramSquare }
+			]
+		)
+	}
+
+	fareyDiagramSquare { :n |
+		let l = [];
+		let pt = { :x |
+			[
+				x.asFloat * 100,
+				100 / x.denominator.asFloat
+			]
+		};
+		2.toDo(n) { :i |
+			let f = i.fareySequence;
+			let k = f.size;
+			1.toDo(k) { :j |
+				(f[j].denominator = i).ifTrue {
+					let q = f[j];
+					let p = f[j - 1];
+					let r = f[j + 1];
+					let s = 1 / q.denominator;
+					l.add(Line([q 0; q s]));
+					l.add(
+						Line(
+							[
+								[p, 0],
+								[q, s],
+								[r, 0]
+							]
+						)
+					);
+					l.add(
+						Line(
+							[
+								[p, 1 / p.denominator],
+								[q, 0],
+								[r, 1 / r.denominator]
+							]
+						)
+					);
+					(p = 0).ifTrue {
+						l.add(Line([0 1; q s]))
+					};
+					(r = 1).ifTrue {
+						l.add(Line([q s; 1 1]))
+					}
+				}
+			}
+		};
+		GeometryCollection(
+			[
+				Rectangle([0 0], [1 1]),
+				l
+			]
+		)
+	}
+
+}
+
++List{
+
+	integerSequencePlot { :self |
+		self
+		.integerSequenceMatrix
+		.matrixPlot
+	}
+
+}

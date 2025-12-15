@@ -1334,6 +1334,10 @@
 		}
 	}
 
+	totientSummatoryFunction { :n |
+		1:n.sum(eulerPhi:/1)
+	}
+
 	tribonacciNumber { :n |
 		let a = (19 + (3 * 33.sqrt)).cubeRoot;
 		let b = (586 + (102 * 33.sqrt)).cubeRoot;

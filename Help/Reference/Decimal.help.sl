@@ -191,6 +191,12 @@ Multiplication with `Decimal` follows the schoolbook approach and gives all of t
 
 >>> 2.01D * 0.5D
 1.005D
+
+>>> 0.123D * 2.5D
+0.3075D
+
+>>> 0.123D * 4.84375D
+0.59578125D
 ```
 
 Division:
@@ -310,5 +316,6 @@ _Python_
 [1](https://docs.python.org/3/library/decimal.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Decimal)
+[2](https://en.wikipedia.org/wiki/Fixed-point_arithmetic)
 
 Categories: Math, Type
