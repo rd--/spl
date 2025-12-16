@@ -21,6 +21,7 @@ Integer Sequence Transform Functions:
 - `runLengthTransform`
 
 [OEIS](https://oeis.org/) _A_-References:
+
 - `additivePersistence`: A031286
 - `aliquotSequence`: A044050
 - `aliquotSum`: A001065

@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100" viewBox="0 0 150 100">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="50" height="50" fill="rgb(0,153,0)"/>
-<rect x="0" y="50" width="50" height="50" fill="rgb(255,0,230)"/>
-<rect x="50" y="0" width="50" height="50" fill="rgb(102,26,204)"/>
-<rect x="50" y="50" width="50" height="50" fill="rgb(153,153,255)"/>
-<rect x="100" y="0" width="50" height="50" fill="rgb(179,230,179)"/>
-<rect x="100" y="50" width="50" height="50" fill="rgb(255,204,77)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="150.0" height="100.0" viewBox="-5.0 45.0 160.0 110.0">
+<g fill="none" stroke="black" stroke-width="0.5000%" transform="translate(0, 200.0000) scale(1.0000, -1.0000)">
+<g stroke="none" stroke-width="0" >
+<g fill="rgb(0,153,0)" ><rect x="0.0" y="100.0" width="50.0" height="50.0" /></g>
+<g fill="rgb(255,0,230)" ><rect x="0.0" y="50.0" width="50.0" height="50.0" /></g>
+<g fill="rgb(102,26,204)" ><rect x="50.0" y="100.0" width="50.0" height="50.0" /></g>
+<g fill="rgb(153,153,255)" ><rect x="50.0" y="50.0" width="50.0" height="50.0" /></g>
+<g fill="rgb(179,230,179)" ><rect x="100.0" y="100.0" width="50.0" height="50.0" /></g>
+<g fill="rgb(255,204,77)" ><rect x="100.0" y="50.0" width="50.0" height="50.0" /></g>
+</g>
 </g>
 </svg>

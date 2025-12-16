@@ -24,9 +24,12 @@ A 5×9 matrix:
 
 ![](sw/spl/Help/Image/asGreyscaleDrawing-B.svg)
 
+_Note_:
+This is `asLineDrawing` of `ColourGrid` of `greyscaleMatrix`.
+
 * * *
 
-See also: asColourDrawing, matrixPlot
+See also: asColourDrawing, asLineDrawing, ColourGrid, matrixPlot
 
 Guides: Colour Functions, Image Functions
 

@@ -38,3 +38,5 @@ The Stern-Brocot tree is `unfoldTree` of _1/1_ and `sternBrocotChildren`:
 * * *
 
 See also: continuedFraction, Fraction, fromContinuedFraction, sternBrocotParent, sternBrocotTree
+
+Guides: Mathematical Sequences

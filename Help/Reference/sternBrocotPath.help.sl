@@ -1,11 +1,3 @@
-+Fraction{
-	sternBrocotPath { :self |
-		sternBrocotParent:/1.nestWhileList(self) { :x |
-			x != 1/1
-		}
-	}
-}
-
 # sternBrocotPath
 
 - _sternBrocotPath(n/d)_
@@ -39,3 +31,5 @@ The length of the path is equal to the `sternBrocotLevel`:
 * * *
 
 See also: sternBrocotChildren, sternBrocotLevel, sternBrocotParent, sternBrocotTree
+
+Guides: Mathematical Sequences

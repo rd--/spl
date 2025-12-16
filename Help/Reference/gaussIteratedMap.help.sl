@@ -2,14 +2,6 @@
 
 - _gaussIteratedMap(α, β)_
 
-+SmallFloat{
-	gaussIteratedMap { :alpha :beta |
-		{ :x |
-			(-alpha * x.square).exp + beta
-		}
-	}
-}
-
 A discrete dynamical system defined by a quadratic difference equation.
 
 Cobweb plot at _α=4.9_ and _β=-0.58_,

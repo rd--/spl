@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="111" height="111" viewBox="0 0 111 111">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
 <rect x="0" y="6" width="3" height="3" fill="rgb(0,0,0)"/>
 <rect x="3" y="57" width="3" height="3" fill="rgb(0,0,0)"/>
 <rect x="6" y="0" width="3" height="3" fill="rgb(0,0,0)"/>
@@ -36,5 +35,4 @@
 <rect x="99" y="105" width="3" height="3" fill="rgb(0,0,0)"/>
 <rect x="102" y="48" width="3" height="3" fill="rgb(0,0,0)"/>
 <rect x="105" y="99" width="3" height="3" fill="rgb(0,0,0)"/>
-</g>
 </svg>

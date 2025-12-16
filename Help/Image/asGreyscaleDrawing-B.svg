@@ -1,49 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="162" height="90" viewBox="0 0 162 90">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="18" height="18" fill="rgb(249,249,249)"/>
-<rect x="0" y="18" width="18" height="18" fill="rgb(198,198,198)"/>
-<rect x="0" y="36" width="18" height="18" fill="rgb(147,147,147)"/>
-<rect x="0" y="54" width="18" height="18" fill="rgb(96,96,96)"/>
-<rect x="0" y="72" width="18" height="18" fill="rgb(45,45,45)"/>
-<rect x="18" y="0" width="18" height="18" fill="rgb(244,244,244)"/>
-<rect x="18" y="18" width="18" height="18" fill="rgb(193,193,193)"/>
-<rect x="18" y="36" width="18" height="18" fill="rgb(142,142,142)"/>
-<rect x="18" y="54" width="18" height="18" fill="rgb(91,91,91)"/>
-<rect x="18" y="72" width="18" height="18" fill="rgb(40,40,40)"/>
-<rect x="36" y="0" width="18" height="18" fill="rgb(238,238,238)"/>
-<rect x="36" y="18" width="18" height="18" fill="rgb(187,187,187)"/>
-<rect x="36" y="36" width="18" height="18" fill="rgb(136,136,136)"/>
-<rect x="36" y="54" width="18" height="18" fill="rgb(85,85,85)"/>
-<rect x="36" y="72" width="18" height="18" fill="rgb(34,34,34)"/>
-<rect x="54" y="0" width="18" height="18" fill="rgb(232,232,232)"/>
-<rect x="54" y="18" width="18" height="18" fill="rgb(181,181,181)"/>
-<rect x="54" y="36" width="18" height="18" fill="rgb(130,130,130)"/>
-<rect x="54" y="54" width="18" height="18" fill="rgb(79,79,79)"/>
-<rect x="54" y="72" width="18" height="18" fill="rgb(28,28,28)"/>
-<rect x="72" y="0" width="18" height="18" fill="rgb(227,227,227)"/>
-<rect x="72" y="18" width="18" height="18" fill="rgb(176,176,176)"/>
-<rect x="72" y="36" width="18" height="18" fill="rgb(125,125,125)"/>
-<rect x="72" y="54" width="18" height="18" fill="rgb(74,74,74)"/>
-<rect x="72" y="72" width="18" height="18" fill="rgb(23,23,23)"/>
-<rect x="90" y="0" width="18" height="18" fill="rgb(221,221,221)"/>
-<rect x="90" y="18" width="18" height="18" fill="rgb(170,170,170)"/>
-<rect x="90" y="36" width="18" height="18" fill="rgb(119,119,119)"/>
-<rect x="90" y="54" width="18" height="18" fill="rgb(68,68,68)"/>
-<rect x="90" y="72" width="18" height="18" fill="rgb(17,17,17)"/>
-<rect x="108" y="0" width="18" height="18" fill="rgb(215,215,215)"/>
-<rect x="108" y="18" width="18" height="18" fill="rgb(164,164,164)"/>
-<rect x="108" y="36" width="18" height="18" fill="rgb(113,113,113)"/>
-<rect x="108" y="54" width="18" height="18" fill="rgb(62,62,62)"/>
-<rect x="108" y="72" width="18" height="18" fill="rgb(11,11,11)"/>
-<rect x="126" y="0" width="18" height="18" fill="rgb(210,210,210)"/>
-<rect x="126" y="18" width="18" height="18" fill="rgb(159,159,159)"/>
-<rect x="126" y="36" width="18" height="18" fill="rgb(108,108,108)"/>
-<rect x="126" y="54" width="18" height="18" fill="rgb(57,57,57)"/>
-<rect x="126" y="72" width="18" height="18" fill="rgb(6,6,6)"/>
-<rect x="144" y="0" width="18" height="18" fill="rgb(204,204,204)"/>
-<rect x="144" y="18" width="18" height="18" fill="rgb(153,153,153)"/>
-<rect x="144" y="36" width="18" height="18" fill="rgb(102,102,102)"/>
-<rect x="144" y="54" width="18" height="18" fill="rgb(51,51,51)"/>
-<rect x="144" y="72" width="18" height="18" fill="rgb(0,0,0)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="180.0" height="100.0" viewBox="-5.0 15.0 190.0 110.0">
+<g fill="none" stroke="black" stroke-width="0.4500%" transform="translate(0, 140.0000) scale(1.1111, -1.1111)">
+<g stroke="none" stroke-width="0" >
+<g fill="rgb(249,249,249)" ><rect x="0.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(198,198,198)" ><rect x="0.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(147,147,147)" ><rect x="0.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(96,96,96)" ><rect x="0.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(45,45,45)" ><rect x="0.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(244,244,244)" ><rect x="18.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(193,193,193)" ><rect x="18.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(142,142,142)" ><rect x="18.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(91,91,91)" ><rect x="18.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(40,40,40)" ><rect x="18.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(238,238,238)" ><rect x="36.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(187,187,187)" ><rect x="36.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(136,136,136)" ><rect x="36.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(85,85,85)" ><rect x="36.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(34,34,34)" ><rect x="36.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(232,232,232)" ><rect x="54.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(181,181,181)" ><rect x="54.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(130,130,130)" ><rect x="54.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(79,79,79)" ><rect x="54.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(28,28,28)" ><rect x="54.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(227,227,227)" ><rect x="72.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(176,176,176)" ><rect x="72.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(125,125,125)" ><rect x="72.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(74,74,74)" ><rect x="72.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(23,23,23)" ><rect x="72.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(221,221,221)" ><rect x="90.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(170,170,170)" ><rect x="90.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(119,119,119)" ><rect x="90.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(68,68,68)" ><rect x="90.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(17,17,17)" ><rect x="90.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(215,215,215)" ><rect x="108.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(164,164,164)" ><rect x="108.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(113,113,113)" ><rect x="108.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(62,62,62)" ><rect x="108.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(11,11,11)" ><rect x="108.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(210,210,210)" ><rect x="126.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(159,159,159)" ><rect x="126.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(108,108,108)" ><rect x="126.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(57,57,57)" ><rect x="126.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(6,6,6)" ><rect x="126.0" y="18.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(204,204,204)" ><rect x="144.0" y="90.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(153,153,153)" ><rect x="144.0" y="72.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(102,102,102)" ><rect x="144.0" y="54.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(51,51,51)" ><rect x="144.0" y="36.0" width="18.0" height="18.0" /></g>
+<g fill="rgb(0,0,0)" ><rect x="144.0" y="18.0" width="18.0" height="18.0" /></g>
+</g>
 </g>
 </svg>

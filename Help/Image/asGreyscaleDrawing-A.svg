@@ -1,10 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="99" height="99" viewBox="0 0 99 99">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
-<rect x="0" y="0" width="33" height="33" fill="rgb(170,170,170)"/>
-<rect x="0" y="33" width="33" height="33" fill="rgb(0,0,0)"/>
-<rect x="33" y="0" width="33" height="33" fill="rgb(85,85,85)"/>
-<rect x="66" y="0" width="33" height="33" fill="rgb(170,170,170)"/>
-<rect x="66" y="33" width="33" height="33" fill="rgb(170,170,170)"/>
-<rect x="66" y="66" width="33" height="33" fill="rgb(170,170,170)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-5.0 28.3 110.0 110.0">
+<g fill="none" stroke="black" stroke-width="0.4950%" transform="translate(0, 166.6667) scale(1.0101, -1.0101)">
+<g stroke="none" stroke-width="0" >
+<g fill="rgb(170,170,170)" ><rect x="0.0" y="99.0" width="33.0" height="33.0" /></g>
+<g fill="rgb(0,0,0)" ><rect x="0.0" y="66.0" width="33.0" height="33.0" /></g>
+<g fill="rgb(85,85,85)" ><rect x="33.0" y="99.0" width="33.0" height="33.0" /></g>
+<g fill="rgb(170,170,170)" ><rect x="66.0" y="99.0" width="33.0" height="33.0" /></g>
+<g fill="rgb(170,170,170)" ><rect x="66.0" y="66.0" width="33.0" height="33.0" /></g>
+<g fill="rgb(170,170,170)" ><rect x="66.0" y="33.0" width="33.0" height="33.0" /></g>
+</g>
 </g>
 </svg>

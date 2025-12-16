@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="88" height="104" viewBox="0 0 88 104">
-<g stroke="none" transform="translate(0, 0) scale(1, 1)">
 <rect x="0" y="0" width="8" height="8" fill="rgb(157,157,157)"/>
 <rect x="0" y="8" width="8" height="8" fill="rgb(39,39,39)"/>
 <rect x="0" y="16" width="8" height="8" fill="rgb(235,235,235)"/>
@@ -143,5 +142,4 @@
 <rect x="80" y="80" width="8" height="8" fill="rgb(39,39,39)"/>
 <rect x="80" y="88" width="8" height="8" fill="rgb(20,20,20)"/>
 <rect x="80" y="96" width="8" height="8" fill="rgb(0,0,0)"/>
-</g>
 </svg>

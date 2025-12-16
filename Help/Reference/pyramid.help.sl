@@ -1,11 +1,10 @@
 # pyramid
 
-- _pyramid(aSequence, patternType)_
+- _pyramid([x₁ x₂ …], k)_
 
-Return a new sequence whose elements are those of _aSequence_ reordered using a "counting" algorithm.
-_patternType_ is an integer and selects the counting algorithm.
+Return a new sequence whose elements are those of the sequence _x_ reordered using the counting algorithm _k_.
 
-The `catenate` of `prefixes`:
+_k=1_ answers the `catenate` of `prefixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(1)
@@ -27,7 +26,7 @@ The `catenate` of `prefixes`:
 ]
 ```
 
-The `catenate` of the `reverse` of the `suffixes`:
+_k=2_ answers the `catenate` of the `reverse` of the `suffixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(2)
@@ -49,7 +48,7 @@ The `catenate` of the `reverse` of the `suffixes`:
 ]
 ```
 
-The `catenate` of the `reverse` of the `prefixes`:
+_k=3_ answers `catenate` of the `reverse` of the `prefixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(3)
@@ -60,9 +59,18 @@ The `catenate` of the `reverse` of the `prefixes`:
 	1 2
 	1
 ]
+
+>>> [1 2 3 4 5].prefixes.reverse
+[
+	1 2 3 4 5;
+	1 2 3 4;
+	1 2 3;
+	1 2;
+	1
+]
 ```
 
-The `catenate` of the `suffixes`:
+_k=4_ answers the `catenate` of the `suffixes`:
 
 ```
 >>> [1 2 3 4 5].pyramid(4)
@@ -73,9 +81,18 @@ The `catenate` of the `suffixes`:
 	4 5
 	5
 ]
+
+>>> [1 2 3 4 5].suffixes
+[
+	1 2 3 4 5;
+	2 3 4 5;
+	3 4 5;
+	4 5;
+	5
+]
 ```
 
-Pyramids _1_ and _3_:
+_k=5_ answers pyramids _1_ and _3_:
 
 ```
 >>> [1 2 3 4 5].pyramid(5)
@@ -92,7 +109,7 @@ Pyramids _1_ and _3_:
 ]
 ```
 
-Pyramids _2_ and _4_:
+_k=6_ answers pyramids _2_ and _4_:
 
 ```
 >>> [1 2 3 4 5].pyramid(6)
@@ -109,7 +126,7 @@ Pyramids _2_ and _4_:
 ]
 ```
 
-Pyramids _3_ and _1_:
+_k=7_ answers pyramids _3_ and _1_:
 
 ```
 >>> [1 2 3 4 5].pyramid(7)

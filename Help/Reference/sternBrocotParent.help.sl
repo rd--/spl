@@ -51,3 +51,5 @@ it answers itself:
 * * *
 
 See also: continuedFraction, Fraction, fromContinuedFraction, sternBrocotChildren, sternBrocotTree
+
+Guides: Mathematical Sequences

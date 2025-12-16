@@ -29,4 +29,3 @@ Self-Describing Sequence Functions:
 * * *
 
 Guides: Function Guides
-

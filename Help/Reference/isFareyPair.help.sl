@@ -1,6 +1,6 @@
 # isFareyPair
 
-- _isFareyPair(aFraction, anotherFraction)_
+- _isFareyPair(a/c, b/d)_
 
 Answer true if two fractions are neighbours in a `fareySequence`.
 
@@ -21,3 +21,5 @@ false
 * * *
 
 See also: fareySequence
+
+Guides: Mathematical Sequences

@@ -37,8 +37,10 @@ A diamond pattern:
 
 ~~~spl svg=B
 let i1 = [
-	4 3 2 1 2 3 4 1 2 3 4
-	3 2 1 4 3 2 1 4 3 2 1
+	4 3 2 1 2 3 4
+	1 2 3 4	3 2 1
+	4 3 2 1
+	4 3 2 1
 ];
 let m = [
 	0 0 1 1;
@@ -99,6 +101,20 @@ drawdownMatrix(i1, m, i1)
 ~~~
 
 ![](sw/spl/Help/Image/drawdownMatrix-D.png)
+
+A pattern of diagonal lines:
+
+~~~spl png=E
+let i1 = [1 .. 8].repeat(7, 50);
+let m = 8.identityMatrix.transpose;
+let i2 = [8, 7 .. 4].collect { :n |
+	[1 .. n].mirror(1, 1)
+}.catenate;
+drawdownMatrix(i1, m, i1)
+.Bitmap(3)
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-E.png)
 
 * * *
 

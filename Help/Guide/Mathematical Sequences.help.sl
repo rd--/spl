@@ -23,6 +23,22 @@ Arrays:
 
 - `wythoffArray`
 
+Farey Functions:
+
+- `fareyDiagram`
+- `fareySequence`
+- `isFareyPair`
+
+Stern-Brocot Functions:
+
+- `sternBrocotChildren`
+- `sternBrocotLevel`
+- `sternBrocotNumber`
+- `sternBrocotParent`
+- `sternBrocotPath`
+- `sternBrocotSequence`
+- `sternBrocotTree`
+
 * * *
 
 Guides: Integer Sequence Functions, Magic Square Functions, Mathematical Constants, Mathematical Functions

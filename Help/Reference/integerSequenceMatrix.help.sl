@@ -143,7 +143,15 @@ whereby each distinct term is assigned a consecutive integer value from one in t
 ]
 ```
 
-![](sw/spl/Help/Image/integerSequenceMatrix-C.svg)
+In the case where the integer sequence is a permutation,
+the _k=Column_ form is equivalent to `permutationMatrix`:
+
+```
+>>> [1 3 5 4 2 6]
+>>> .integerSequenceMatrix('Column')
+[1 3 5 4 2 6]
+.permutationMatrix
+```
 
 * * *
 

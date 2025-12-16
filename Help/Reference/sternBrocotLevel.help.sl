@@ -27,3 +27,5 @@ false
 * * *
 
 See also: sternBrocotTree
+
+Guides: Mathematical Sequences

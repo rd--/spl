@@ -28,9 +28,12 @@ Sfc32(731894)
 
 ![](sw/spl/Help/Image/asColourDrawing-B.svg)
 
+_Note_:
+This is `asLineDrawing` of `ColourGrid`.
+
 * * *
 
-See also: arrayPlot, asGreyscaleDrawing, matrixPlot
+See also: arrayPlot, asGreyscaleDrawing, asLineDrawing, ColourGrid, matrixPlot
 
 Guides: Colour Functions, Image Functions
 

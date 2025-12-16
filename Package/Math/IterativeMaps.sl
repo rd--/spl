@@ -54,6 +54,13 @@
 		}
 	}
 
+
+	gaussIteratedMap { :alpha :beta |
+		{ :x |
+			(-alpha * x.square).exp + beta
+		}
+	}
+
 	henonAreaPreservingMap { :a |
 		let s = a.sin;
 		let c = a.cos;

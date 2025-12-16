@@ -964,7 +964,7 @@ Plot : [Object] { | pages format options |
 	colourCalculatorPlot { :self :colourList |
 		self.deepCollect { :each |
 			colourList[each.asInteger + 1]
-		}.asColourSvg
+		}.ColourGrid
 
 	}
 

@@ -56,7 +56,7 @@ At `String`:
 Scatter plot of the first _k_ terms of the inventory sequence,
 OEIS [A342585](https://oeis.org/A342585):
 
-~~~spl svg=D
+~~~spl svg=A
 let k = 200;
 let a = [];
 let c = 0;

@@ -539,6 +539,12 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		}
 	}
 
+	sternBrocotPath { :self |
+		sternBrocotParent:/1.nestWhileList(self) { :x |
+			x != 1/1
+		}
+	}
+
 	storeStringLiteral { :self |
 		[
 			self.numerator.basicPrintString(10),
