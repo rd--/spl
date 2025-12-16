@@ -50,10 +50,12 @@ Predicates:
 - `isDiagonalMatrix`
 - `isDiagonallyDominantMatrix`
 - `isIntegerMatrix`
+- `isInvolutoryMatrix`
 - `isLowerTriangularMatrix`
 - `isMatrix`
 - `isNormalMatrix`
 - `isOrthogonalMatrix`
+- `isSignatureMatrix`
 - `isSquareMatrix`
 - `isSymmetricMatrix`
 - `isUnitaryMatrix`
@@ -145,6 +147,13 @@ Linear Systems:
 - `gaussianElimination`
 - `leastSquares`
 - `thomasAlgorithm`
+
+Plotting:
+
+- `Bitmap`
+- `Greymap`
+- `Image`
+- `matrixPlot`
 
 Tuning:
 

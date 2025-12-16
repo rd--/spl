@@ -95,20 +95,33 @@ Plot : [Object] { | pages format options |
 	}
 
 	asLineDrawing { :self |
-		self.columnCount.caseOf(
+		self.format.caseOf(
 			[
-				1 -> {
-					self.asLineDrawingY
+				'array' -> {
+					let [contents] = self.pages;
+					ColourGrid(contents).asLineDrawing
 				},
-				2 -> {
-					self.asLineDrawingXy
-				},
-				3 -> {
-					self.asLineDrawingXyz
+				'matrix' -> {
+					let [contents] = self.pages;
+					ColourGrid(contents.greyscaleMatrix).asLineDrawing
 				}
 			]
 		) {
-			self.unimplementedCase('asLineDrawing')
+			self.columnCount.caseOf(
+				[
+					1 -> {
+						self.asLineDrawingY
+					},
+					2 -> {
+						self.asLineDrawingXy
+					},
+					3 -> {
+						self.asLineDrawingXyz
+					}
+				]
+			) {
+				self.unimplementedCase('asLineDrawing')
+			}
 		}
 	}
 
@@ -129,7 +142,7 @@ Plot : [Object] { | pages format options |
 			[
 				'array' -> {
 					let [contents] = self.pages;
-					contents.asColourSvg
+					ColourGrid(contents).drawing
 				},
 				'graph' -> {
 					let [graph] = self.pages;
@@ -137,7 +150,7 @@ Plot : [Object] { | pages format options |
 				},
 				'matrix' -> {
 					let [contents] = self.pages;
-					contents.asGreyscaleSvg
+					ColourGrid(contents.greyscaleMatrix).drawing
 				}
 			]
 		) {

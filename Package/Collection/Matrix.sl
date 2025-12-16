@@ -8,6 +8,12 @@
 		}
 	}
 
+	isInvolutoryMatrix { :m |
+		m.isSquareMatrix & {
+			m = m.inverse
+		}
+	}
+
 	isRowVector { :self |
 		self.isMatrix & {
 			self.numberOfRows = 1
@@ -209,6 +215,14 @@
 		(self.arrayDepth >= 2) & {
 			self.allSatisfy { :each |
 				each.elementType = elementType
+			}
+		}
+	}
+
+	isSignatureMatrix { :self |
+		self.isDiagonalMatrix & {
+			self.diagonal.allSatisfy { :n |
+				n.abs = 1
 			}
 		}
 	}

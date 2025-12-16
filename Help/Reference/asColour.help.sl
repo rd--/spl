@@ -4,7 +4,7 @@
 - _asColour([r g b α=1])_
 
 Answer an `RgbColour` value specified as either the greyscale level _g_,
-or as _(r,g,b)_ parameters.
+or as _(r,g,b)_ or _(r,g,b,α)_ parameters.
 
 Opaque grey:
 

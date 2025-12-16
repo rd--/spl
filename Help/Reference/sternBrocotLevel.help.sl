@@ -1,9 +1,3 @@
-+Fraction{
-	sternBrocotLevel { :self |
-		self.continuedFraction.sum.normal
-	}
-}
-
 # sternBrocotLevel
 
 - _sternBrocotLevel(n/d)_

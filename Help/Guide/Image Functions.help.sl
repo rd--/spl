@@ -10,9 +10,9 @@ Image Types:
 
 Converting:
 
-- `asColourSvg`
+- `asColourDrawing`
 - `asGreymap`
-- `asGreyscaleSvg`
+- `asGreyscaleDrawing`
 - `asLineDrawing`
 - `asPerspectiveDrawing`
 

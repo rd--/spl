@@ -53,21 +53,38 @@ AnnotatedGeometry : [Object, Geometry] { | geometry annotation |
 
 	svgFragment { :self :options |
 		let a = self.annotation;
+		let toColour = { :x |
+			x.isNil.if {
+				'none'
+			} {
+				x.rgbString
+			}
+		};
 		let stroke = a.atIfPresentIfAbsent('strokeColour') { :x |
-			'stroke="%" '.format([x.rgbString])
+			'stroke="%" '.format([toColour(x)])
+		} {
+			''
+		};
+		let strokeWidth = a.atIfPresentIfAbsent('strokeWidth') { :x |
+			'stroke-width="%" '.format([x.isNil.if { 0 } { x }])
 		} {
 			''
 		};
 		let fill = a.atIfPresentIfAbsent('fillColour') { :x |
-			'fill="%" '.format([x.rgbString])
+			'fill="%" '.format([toColour(x)])
 		} {
 			''
 		};
-		'<g %%>%</g>'.format(
+		let fragmentText = self.geometry.svgFragment(options);
+		fragmentText.includes('\n').ifTrue {
+			fragmentText := '\n' ++ fragmentText ++ '\n'
+		};
+		'<g %%%>%</g>'.format(
 			[
 				stroke,
+				strokeWidth,
 				fill,
-				self.geometry.svgFragment(options)
+				fragmentText
 			]
 		)
 	}

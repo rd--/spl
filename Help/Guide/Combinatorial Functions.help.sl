@@ -37,6 +37,7 @@ Counting Functions:
 - `deBruijnSequenceCount`
 - `delannoyNumber`
 - `fussCatalanNumber`
+- `involutionNumber`
 - `lobbNumber`
 - `motzkinNumber`
 - `narayanaNumber`

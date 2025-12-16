@@ -147,6 +147,7 @@
 	'Graphics-Bitmap'
 	'Graphics-Colour'
 	'Graphics-ColourGradient'
+	'Graphics-ColourGrid'
 	'Graphics-ColourPalette'
 	'Graphics-Greymap'
 	'Graphics-Image'

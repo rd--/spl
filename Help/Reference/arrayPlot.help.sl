@@ -62,7 +62,7 @@ let g = (1 -- c.size).discretize(36).collect(
 
 * * *
 
-See also: asColourSvg, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
+See also: asColourDrawing, Bitmap, discretePlot, functionPlot, graphPlot, Greymap, Image, linePlot, matrixPlot, parametricPlot, scatterPlot, surfacePlot
 
 Guides: Plotting Functions
 

@@ -1,5 +1,18 @@
 # Integer Sequence Functions
 
+Compression and Normalization:
+
+- `integerSequenceCompress`
+- `integerSequenceNormalize`
+
+Matrices:
+
+- `integerSequenceMatrix`
+
+Plotting:
+
+- `integerSequencePlot`
+
 Integer Sequence Transform Functions:
 
 - `binomialTransform`

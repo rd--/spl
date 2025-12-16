@@ -1,8 +1,8 @@
 # mirror
 
-- _mirror(aList, m, n)_
+- _mirror([x₁ x₂ …], m, n)_
 
-Answer a `List` that is a mirrored form of _aList_,
+Answer a `List` that is a mirrored form of the list _x_,
 where _m_ tells how many items to discard from the start of the reversal,
 and _n_ tells how many to discard from the end of the reversal.
 

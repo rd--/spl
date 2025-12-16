@@ -150,6 +150,7 @@
 	'Bitmap'
 	'Colour'
 	'ColourGradient'
+	'ColourGrid'
 	'ColourPalette'
 	'Greymap'
 	'Image'

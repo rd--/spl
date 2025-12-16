@@ -1,17 +1,19 @@
-Bitmap : [Object] { | contents |
+Bitmap : [Object] { | contents scale |
 
 	asPbm { :self |
-		let [rowCount, columnCount] = self.contents.shape;
+		let contents = self.contents;
+		let scale = self.scale;
+		let [rowCount, columnCount] = contents.shape;
 		let header = [
 			'P1',
-			'% %'.format([columnCount, rowCount])
+			'% %'.format([columnCount * scale, rowCount * scale])
 		];
-		let rows = self.contents.collect { :each |
+		let rows = contents.collect { :each |
 			each.collect { :item |
-				item.asBit.printString
+				List(scale, item.asBit.printString).unwords
 			}.unwords
 		};
-		(header ++ rows ++ ['']).unlines
+		(header ++ (scale # rows) ++ ['']).unlines
 	}
 
 	drawing { :self |
@@ -61,12 +63,16 @@ Bitmap : [Object] { | contents |
 
 +List {
 
-	Bitmap { :self |
+	Bitmap { :self :scale |
 		self.isMatrix.if {
-			newBitmap().initializeSlots(self)
+			newBitmap().initializeSlots(self, scale)
 		} {
 			self.error('Bitmap: not matrix')
 		}
+	}
+
+	Bitmap { :self |
+		Bitmap(self, 1)
 	}
 
 }

@@ -524,6 +524,10 @@ Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | num
 		].sort
 	}
 
+	sternBrocotLevel { :self |
+		self.continuedFraction.sum.normal
+	}
+
 	sternBrocotParent { :self |
 		(self = 1/1).if {
 			1/1

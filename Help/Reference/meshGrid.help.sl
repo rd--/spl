@@ -25,8 +25,8 @@ and y-coordinates defined by the vector _y_.
 		5 5 5
 	],
 	[
-		2 5 10;
-		5 8 13;
+		 2  5 10;
+		 5  8 13;
 		10 13 18;
 		17 20 25;
 		26 29 34
@@ -48,6 +48,8 @@ z.surfacePlot
 * * *
 
 See also: coordinateBoundingBoxArray, coordinateBoundsArray, surfacePlot
+
+Guides: Geometry Functions
 
 References:
 _Mathworks_

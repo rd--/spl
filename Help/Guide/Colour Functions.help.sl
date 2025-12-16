@@ -4,6 +4,7 @@ Traits and Types:
 
 - `Colour`
 - `ColourGradient`
+- `ColourGrid`
 - `ColourPalette`
 - `RgbColour`
 
@@ -55,8 +56,8 @@ Printing:
 Drawing:
 
 - `arrayPlot`
-- `asGreyscaleSvg`
-- `asColourSvg`
+- `asGreyscaleDrawing`
+- `asColourDrawing`
 
 Encoding and Decoding:
 
@@ -110,10 +111,10 @@ Standards:
 
 - `lightnessCie`
 
-Svg:
+Drawings:
 
-- `asColourSvg`
-- `asGreyscaleSvg`
+- `asColourDrawing`
+- `asGreyscaleDrawing`
 
 * * *
 
