@@ -5,7 +5,7 @@
 Answer a `List` that has, alternately, the elements of _l₁, l₂, …_.
 
 ```
->>> [3 4 5 ; 0 1 2].interleave
+>>> [3 4 5; 0 1 2].interleave
 [3 0 4 1 5 2]
 ```
 

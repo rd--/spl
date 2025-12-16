@@ -133,7 +133,9 @@
 	}
 
 	denominator { :self |
-		self.collect(denominator:/1)
+		self.collect { :each |
+			each.denominator.asInteger
+		}
 	}
 
 	diagonalIndexToCartesianIndex { :self |
@@ -406,7 +408,9 @@
 	}
 
 	numerator { :self |
-		self.collect(numerator:/1)
+		self.collect { :each |
+			each.numerator.asInteger
+		}
 	}
 
 	partitionsP { :self |

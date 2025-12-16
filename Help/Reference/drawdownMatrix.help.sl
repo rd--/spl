@@ -116,6 +116,34 @@ drawdownMatrix(i1, m, i1)
 
 ![](sw/spl/Help/Image/drawdownMatrix-E.png)
 
+A pattern derived from the order-eight Farey sequence:
+
+~~~spl png=F
+let f = 8.fareySequence;
+let i1 = f.numerator.repeat(4) + 1;
+let m = 8.identityMatrix.reverse;
+let i2 = f.denominator.repeat(4);
+drawdownMatrix(i1, m, i2)
+.Bitmap(2)
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-F.png)
+
+A pattern derived from interleaving the natural and the Fibonacci numbers:
+
+~~~spl svg=G
+let n = 24;
+let i = [
+	1:n,
+	1:n.fibonacci
+].interleave.mod(8, 1);
+let m = 8.identityMatrix.reverse;
+drawdownMatrix(i, m, i)
+.Bitmap(3)
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-G.png)
+
 * * *
 
 See also: Bitmap, integerSequenceMatrix, matrixPlot
