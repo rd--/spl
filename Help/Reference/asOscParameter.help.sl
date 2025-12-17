@@ -1,8 +1,8 @@
 # asOscParameter
 
-- _asOscParameter(aNumber | aString | aByteArray)_
+- _asOscParameter(x, t)_
 
-The `typeLetter` can be inferred for numbers, strings and byte arrays.
+The type letter _t_ can be inferred for numbers, strings and byte arrays.
 
 At `Integer`:
 
@@ -28,13 +28,17 @@ At `String`:
 At `ByteArray`:
 
 ```
->>> [1 3 5].asByteArray.asOscParameter.asRecord
+>>> [1 3 5].asByteArray
+>>> .asOscParameter
+>>> .asRecord
 (type: 'b', value: [1 3 5].asByteArray)
 ```
 
 * * *
 
 See also: OscBundle, OscMessage, OscParameter
+
+Guides: Protocol Functions
 
 References:
 _OpenSoundControl_

@@ -1,8 +1,8 @@
 # OscParameter
 
-- _OscParameter(aString, anObject)_
+- _OscParameter(t, x)_
 
-An _Open Sound Control_ parameter consists of a _type letter_ and a _value_.
+An _Open Sound Control_ parameter consists of a type letter _t_ and a corresponding value _x_.
 The type letters are:
 
 - _b_: byte array
@@ -29,6 +29,8 @@ To infer a type for a value see `asOscParameter`.
 * * *
 
 See also: asOscParameter, asRecord, OscBundle, OscMessage
+
+Guides: Protocol Functions
 
 References:
 _OpenSoundControl_

@@ -26,7 +26,7 @@ OEIS [A174344](https://oeis.org/A174344):
 ]
 ```
 
-First few _x_-coordinates,
+First few _y_-coordinates,
 OEIS [A268038](https://oeis.org/A268038):
 
 ```

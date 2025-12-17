@@ -1,11 +1,13 @@
 # OscBundle
 
-- _OscBundle(time, messageList)_
+- _OscBundle(t, [m₁ m₂ …])_
 
-An _Open Sound Control_ bundle consists of an _time_ and a (possibly empty) _messageList_.
+An _Open Sound Control_ bundle consists of a time _t_ and a (possibly empty) message list _m_.
 
 ```
->>> OscBundle(0, [OscMessage('/x', [])]).asRecord
+>>> let t = 0;
+>>> let m = OscMessage('/x', []);
+>>> OscBundle(t, [m]).asRecord
 (
 	timeTag: (native: 0),
 	packets: [(address: '/x', args: [])]
@@ -15,7 +17,8 @@ An _Open Sound Control_ bundle consists of an _time_ and a (possibly empty) _mes
 The `encode` method answers the binary encoding of the bundle as a `ByteArray`:
 
 ```
->>> OscBundle(0, [OscMessage('/x', [])]).encode
+>>> let m = OscMessage('/x', []);
+>>> OscBundle(0, [m]).encode
 [
 	35 98 117 110 100 108 101 0 131 170
 	126 128 0 0 0 0 0 0 0 8
@@ -26,5 +29,7 @@ The `encode` method answers the binary encoding of the bundle as a `ByteArray`:
 * * *
 
 See also: encode, OscMessage, OscParameter
+
+Guides: Protocol Functions
 
 Categories: OpenSoundControl

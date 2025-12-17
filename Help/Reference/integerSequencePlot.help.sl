@@ -4,12 +4,14 @@
 
 Plot the integer sequence _n_.
 Answers `matrixPlot` of `integerSequenceMatrix`.
+If _k_ is elided it is set to _'RowReverse'_,
+making the plot equivalent to `scatterPlot`.
 
 Plot two cycles of the squares modulo thirty:
 
 ~~~spl svg=A
 1:60.square.mod(30, 1)
-.integerSequencePlot('RowReverse')
+.integerSequencePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerSequencePlot-A.svg)
@@ -28,7 +30,7 @@ whereby values are moved down to fill in gaps:
 ~~~spl svg=B
 1:60.square.mod(30, 1)
 .integerSequenceCompress
-.integerSequencePlot('RowReverse')
+.integerSequencePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerSequencePlot-B.svg)
@@ -39,7 +41,7 @@ whereby each distinct term is assigned a consecutive integer value from one in t
 ~~~spl svg=C
 1:60.square.mod(30, 1)
 .integerSequenceNormalize
-.integerSequencePlot('RowReverse')
+.integerSequencePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerSequencePlot-C.svg)
@@ -58,7 +60,7 @@ Plot four cycles of the Fibonacci sequence modulo eight:
 
 ~~~spl svg=D
 1:48.fibonacci.mod(8, 1)
-.integerSequencePlot('RowReverse')
+.integerSequencePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerSequencePlot-D.svg)
@@ -67,11 +69,12 @@ Plot two cycles of the Fibonacci sequence modulo twelve:
 
 ~~~spl svg=E
 1:48.fibonacci.mod(12, 1)
-.integerSequencePlot('RowReverse')
+.integerSequencePlot
 ~~~
 
 ![](sw/spl/Help/Image/integerSequencePlot-E.svg)
 
+The implicit value of _k_ is 'RowReverse'.
 'Row' indicates that the sequence items tell the indices of the non-zero rows in each column,
 and 'Reverse' that the rows should be counted in reverse to the usual manner,
 so that the last or lowest row has index one,

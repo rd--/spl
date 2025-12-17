@@ -10,6 +10,10 @@
 		self.typeResponsibility('asUrl')
 	}
 
+	directory { :self |
+		self.pathName.pathDirectory
+	}
+
 	fileName { :self |
 		self.pathName.splitBy('/').last
 	}
@@ -229,6 +233,35 @@ URL! : [Object, Storeable, Equatable, Url] {
 		} { :reason |
 			self.error('Url>>cachedFetchMimeType: ' ++ reason)
 		}
+	}
+
+}
+
+
++String {
+
+	gitHubFileUrl { :userName :projectName :filePath |
+		Url(
+			'https://raw.githubusercontent.com/%/%/refs/heads/master/%'.format(
+				[
+					userName,
+					projectName,
+					filePath
+				]
+			)
+		)
+	}
+
+	gitLabFileUrl { :userName :projectName :filePath |
+		Url(
+			'https://gitlab.com/%/%/-/raw/master/%'.format(
+				[
+					userName,
+					projectName,
+					filePath
+				]
+			)
+		)
 	}
 
 }

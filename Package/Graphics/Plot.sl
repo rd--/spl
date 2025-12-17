@@ -1307,12 +1307,16 @@ Plot : [Object] { | pages format options |
 
 }
 
-+List{
++List {
 
 	integerSequencePlot { :self :kind |
 		self
 		.integerSequenceMatrix(kind)
 		.matrixPlot
+	}
+
+	integerSequencePlot { :self |
+		self.integerSequencePlot('RowReverse')
 	}
 
 }

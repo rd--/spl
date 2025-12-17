@@ -762,6 +762,10 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 		<primitive: return _self.split('\n\n');>
 	}
 
+	parseIni { :self |
+		<primitive: return sl.iniParse(_self);>
+	}
+
 	parseJson { :self :elseClause |
 		<primitive:
 		let answer = null;

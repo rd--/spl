@@ -40,4 +40,6 @@ true
 
 See also: asJson, Boolean, isImmediate, Json, json, List, Nil, parseJson, SmallFloat, String, Record
 
+Guides: Protocol Functions
+
 Categories: Testing

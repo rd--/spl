@@ -142,6 +142,7 @@
 	'SphericalCoordinates' /* CartesianCoordinates */
 	'Triangle'
 	'TurtleGeometry'
+	'WeavingInformationFile'
 
 	/* Chemistry */
 	'CrystalStructure'

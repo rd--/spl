@@ -64,6 +64,8 @@ At `Record`:
 
 See also: isJson, Json, parseJson
 
+Guides: Protocol Functions
+
 References:
 _Json_
 [1](https://www.json.org/json-en.html)

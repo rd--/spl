@@ -1,9 +1,9 @@
 # OscMessage
 
-- _OscMessage(address, parameterList)_
+- _OscMessage(a, [p₁ p₂ …])_
 
 A `Type` representing an _Open Sound Control_ message,
-which consists of an _address_ `String` and a (possibly empty) _parameterList_.
+which consists of an address string _a_ and a (possibly empty) parameter list _p_.
 
 An `OscMessage` with no parameters:
 
@@ -47,5 +47,7 @@ The `encode` method answers the binary encoding of the message as a `ByteArray`:
 * * *
 
 See also: asRecord, encode, OscBundle, OscParameter
+
+Guides: Protocol Functions
 
 Categories: OpenSoundControl

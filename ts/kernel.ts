@@ -1,14 +1,10 @@
-import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
-export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
-
-import { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
 export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twister.ts';
-
-import { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
+export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
-
-import { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
 export { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
+export { parse as iniParse } from '../lib/scsynth-wasm-builds/lib/ext/ini.js';
+
+import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
 import * as evaluate from './evaluate.ts';
 import { slOptions } from './options.ts';

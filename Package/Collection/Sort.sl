@@ -891,7 +891,7 @@
 
 }
 
-+List{
++List {
 
 	sortTracingComparisons { :self :sort:/2 |
 		let a = [];

@@ -1,7 +1,7 @@
 # Types of Orderings
 
 The lexicographic order,
-also known as dictionary order or alphabetical order or lexicographic,
+also known as dictionary or alphabetical order,
 is a natural order structure of the Cartesian product of two or more ordered sets:
 
 ```
@@ -70,7 +70,7 @@ The reverse lexicographic order is derived from the lexicographic order by inver
 ]
 ```
 
-The reflected lexicographic order is derived from the lexicographic order by inverting the internal order of elements.
+The reflected lexicographic order is derived from the lexicographic order by inverting the internal order of elements:
 
 ```
 >>> [2; 1 1]

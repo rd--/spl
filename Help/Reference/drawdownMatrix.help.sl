@@ -2,6 +2,7 @@
 
 - _drawdownMatrix(m₁, m₂, m₃)_
 - _drawdownMatrix(i₁, m, i₂)_
+- _drawdownMatrix(w)_
 
 Answer the _drawdown_ weaving matrix given
 _m₁_ is the _threading_ matrix (_Th_),
@@ -15,6 +16,8 @@ the threading matrix with _k='RowReverse'_,
 the treadling matrix with _k='Column'_.
 The _reverse_ for the threading matrix indicates that the rows are numbered from the last to the first,
 aligning the one row of the threading matrix with the one column of the treadling matrix where they meet at the tieup matrix.
+
+The matrices may also be given by a `WeavingInformationFile`.
 
 A 2×2 twill pattern:
 
@@ -144,9 +147,34 @@ drawdownMatrix(i, m, i)
 
 ![](sw/spl/Help/Image/drawdownMatrix-G.png)
 
+A traditional Lao design encoded in the tieup matrix:
+
+~~~spl png=H
+let i1 = [1 .. 12].mirror(1, 1).repeat(2);
+let m = [
+	1 1 0 1 1 0 1 0 0 0 0 1 0 1 0 0 1;
+	1 0 0 0 0 1 0 1 0 1 1 0 1 0 0 1 0;
+	0 0 1 1 1 0 1 0 1 0 0 1 0 0 1 0 0;
+	0 1 1 1 0 0 0 1 0 1 0 0 0 1 0 0 1;
+	1 1 0 0 0 0 0 0 1 0 1 0 1 0 0 1 0;
+	1 0 0 1 1 1 1 1 0 1 0 1 0 0 1 0 1;
+	0 1 0 1 1 1 1 0 0 0 1 0 1 0 0 1 0;
+	0 0 1 0 1 0 0 0 0 0 0 1 0 1 0 0 1;
+	1 0 0 1 0 0 1 1 1 1 1 0 1 0 1 0 0;
+	0 1 0 0 1 0 0 1 1 1 0 0 0 1 0 1 0;
+	0 0 1 0 0 1 1 1 0 0 0 0 0 0 0 0 1;
+	1 0 0 1 1 0 1 0 0 1 1 1 1 0 1 0 0
+];
+let i2 = [1 .. 17].mirror(1, 1).repeat(2);
+drawdownMatrix(i1, m, i2)
+.Bitmap(3)
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-H.png)
+
 * * *
 
-See also: Bitmap, integerSequenceMatrix, matrixPlot
+See also: Bitmap, integerSequenceMatrix, matrixPlot, WeavingInformationFile
 
 Guides: Matrix Functions
 

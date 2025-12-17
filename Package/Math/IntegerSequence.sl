@@ -949,39 +949,6 @@
 		}
 	}
 
-	integerSequenceColumnMatrix { :x :reverse |
-		let r = x.size;
-		let [m, n] = x.minMax;
-		let c = n - m + 1;
-		1:r.collect { :i |
-			let j = reverse.if { c - x[i] + 1 } { x[i] };
-			[i, j] -> 1
-		}.SparseArray([r, c], 0)
-		.normal
-	}
-
-	integerSequenceRowMatrix { :y :reverse |
-		let c = y.size;
-		let [m, n] = y.minMax;
-		let r = n - m + 1;
-		1:c.collect { :i |
-			let j = reverse.if { r - y[i] + 1 } { y[i] };
-			[j, i] -> 1
-		}.SparseArray([r, c], 0)
-		.normal
-	}
-
-	integerSequenceMatrix { :v :kind |
-		kind.caseOf(
-			[
-				'Column' -> { v.integerSequenceColumnMatrix(false) },
-				'ColumnReverse' -> { v.integerSequenceColumnMatrix(true) },
-				'Row' -> { v.integerSequenceRowMatrix(false) },
-				'RowReverse' -> { v.integerSequenceRowMatrix(true) }
-			]
-		)
-	}
-
 	integerSequenceNormalize { :a |
 		let b = a.deleteDuplicates;
 		a.collect { :i |
@@ -1303,6 +1270,61 @@
 				self[i + 1]
 			}.aBlock
 		)
+	}
+
+}
+
++List {
+
+	integerSequenceColumnSparseArray { :x :reverse |
+		let r = x.size;
+		let [m, n] = x.minMax;
+		let c = n - m + 1;
+		1:r.collect { :i |
+			let j = reverse.if {
+				c - x[i] + 1
+			} {
+				x[i]
+			};
+			[i, j] -> 1
+		}.SparseArray([r, c], 0)
+	}
+
+	integerSequenceRowSparseArray { :y :reverse |
+		let c = y.size;
+		let [m, n] = y.minMax;
+		let r = n - m + 1;
+		1:c.collect { :i |
+			let j = reverse.if {
+				r - y[i] + 1
+			} {
+				y[i]
+			};
+			[j, i] -> 1
+		}.SparseArray([r, c], 0)
+	}
+
+	integerSequenceSparseArray { :v :kind |
+		kind.caseOf(
+			[
+				'Column' -> {
+					v.integerSequenceColumnSparseArray(false)
+				},
+				'ColumnReverse' -> {
+					v.integerSequenceColumnSparseArray(true)
+				},
+				'Row' -> {
+					v.integerSequenceRowSparseArray(false)
+				},
+				'RowReverse' -> {
+					v.integerSequenceRowSparseArray(true)
+				}
+			]
+		)
+	}
+
+	integerSequenceMatrix { :v :kind |
+		v.integerSequenceSparseArray(kind).normal
 	}
 
 }

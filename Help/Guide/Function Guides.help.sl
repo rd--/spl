@@ -53,6 +53,7 @@
 - `Polynomial Functions`
 - `Predicate Functions`
 - `Prime Number Functions`
+- `Protocol Functions`
 - `Quantity Functions`
 - `Quaternion Functions`
 - `Random Functions`

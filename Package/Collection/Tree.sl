@@ -454,10 +454,7 @@ Tree : [Object, Storeable, Equatable, Iterable, Indexable] { | value subTrees |
 
 }
 
-+SmallFloat{
-}
-
-+@Collection{
++@Collection {
 
 	matulaGoebelTree { :self |
 		self.collect(matulaGoebelTree:/1)

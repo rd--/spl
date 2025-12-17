@@ -44,7 +44,7 @@ LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream
 
 }
 
-+List{
++List {
 
 	lehmerGenerator { :p :s0 |
 		let [a, m] = p;
