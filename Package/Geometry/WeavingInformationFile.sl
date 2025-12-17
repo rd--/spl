@@ -38,8 +38,7 @@ WeavingInformationFile : [Object] { | contents |
 		.weavingInformationFileRecordToMatrix(
 			self.treadles,
 			self.shafts)
-		.transpose
-		.reverse
+		.matrixRotate(1)
 	}
 
 	tieupRecord { :self |
