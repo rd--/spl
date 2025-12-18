@@ -31,6 +31,10 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 		self.primitiveDeepCopy
 	}
 
+	encodeIni { :self |
+		<primitive: return sl.encodeIni(_self);>
+	}
+
 	includesKey { :self :key |
 		<primitive: return Object.hasOwn(_self, _key);>
 	}
@@ -99,10 +103,17 @@ Record! : [Object, Storeable, Equatable, Json, Iterable, Indexable, Collection, 
 	}
 
 	storeString { :self |
+		let formatKey = { :k |
+			k.includes(' ').if {
+				k.storeString
+			} {
+				k
+			}
+		};
 		self.storeStringLiteral(
 			'(:)',
 			'(', ')',
-			identity:/1, ': ', storeString:/1
+			formatKey:/1, ': ', storeString:/1
 		)
 		/*self.isEmpty.if {
 			'(:)'

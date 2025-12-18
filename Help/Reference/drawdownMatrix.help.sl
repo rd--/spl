@@ -6,8 +6,8 @@
 
 Answer the _drawdown_ weaving matrix given
 _m₁_ is the _threading_ matrix (_Th_),
-_m2_ is the _tieup_ matrix  (_Tu_) and
-_m3_ is the _treadling_ matrix (_Tr_).
+_m₂_ is the _tieup_ matrix  (_Tu_) and
+_m₃_ is the _treadling_ matrix (_Tr_).
 The answer matrix is given by _m₃×m₂ᵀ×m₁_.
 
 The threading and treadling matrices may be specified as integer sequences,
@@ -172,9 +172,55 @@ drawdownMatrix(i1, m, i2)
 
 ![](sw/spl/Help/Image/drawdownMatrix-H.png)
 
+An eight-harness, broken twill boxes draft:
+
+~~~spl png=I
+let i1 = [
+	4 3 2 1 4 3 2 1
+	8 7 6 5 8 7 6 5
+	4 3 2 1 4 3 2 1
+];
+let m = [
+	1 5 6 7;
+	2 5 6 8;
+	3 5 7 8;
+	4 6 7 8;
+	1 5;
+	2 6;
+	3 7;
+	4 8
+].binaryMatrix;
+let i2 = [
+	1 2 3 4 1 2 3 4
+	5 6 7 8 5 6 7 8
+	1 2 3 4 1 2 3 4
+];
+drawdownMatrix(i1, m, i2)
+.Bitmap(4)
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-I.png)
+
+A simple asymmetrical tieup matrix:
+
+~~~spl svg=J
+let i1 = [1 2 3 4 3 2 1].repeat(2);
+let m = [
+	1 1 0 0;
+	1 0 1 0;
+	0 1 0 1;
+	1 0 0 0
+];
+let i2 = [1 2 3 4].repeat(3);
+drawdownMatrix(i1, m, i2)
+.matrixPlot
+~~~
+
+![](sw/spl/Help/Image/drawdownMatrix-J.svg)
+
 * * *
 
-See also: Bitmap, integerSequenceMatrix, matrixPlot, WeavingInformationFile
+See also: Bitmap, integerSequenceMatrix, matrixPlot, tieupMatrix, WeavingInformationFile
 
 Guides: Matrix Functions
 

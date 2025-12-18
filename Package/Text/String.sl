@@ -763,7 +763,7 @@ String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, 
 	}
 
 	parseIni { :self |
-		<primitive: return sl.iniParse(_self);>
+		<primitive: return sl.parseIni(_self);>
 	}
 
 	parseJson { :self :elseClause |

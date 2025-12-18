@@ -9,6 +9,7 @@ Traits and Types:
 Constructing:
 
 - `array`
+- `binaryMatrix`
 - `repeatMatrix`
 - `table`
 - `triangularArray`
@@ -147,6 +148,14 @@ Linear Systems:
 - `gaussianElimination`
 - `leastSquares`
 - `thomasAlgorithm`
+
+Weaving:
+
+- `WeavingInformationFile`
+- `drawdownMatrix`
+- `liftplanMatrix`
+- `threadingMatrix`
+- `tieupMatrix`
 
 Plotting:
 

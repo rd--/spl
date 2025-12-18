@@ -11,11 +11,45 @@ WeavingInformationFile : [Object] { | contents |
 	}
 
 	drawdownMatrix { :self |
-		drawdownMatrix(
-			self.threadingMatrix,
-			self.tieupMatrix,
-			self.treadlingMatrix
-		)
+		self.hasLiftplan.if {
+			drawdownMatrix(
+				self.threadingMatrix,
+				self.shafts.identityMatrix.transpose,
+				self.liftplanMatrix
+			)
+		} {
+			drawdownMatrix(
+				self.threadingMatrix,
+				self.tieupMatrix,
+				self.treadlingMatrix
+			)
+		}
+	}
+
+	hasLiftplan { :self |
+		self.hasSection('LIFTPLAN')
+	}
+
+	hasSection { :self :sectionName |
+		self.contents.keys.includes(sectionName)
+	}
+
+	liftplanMatrix { :self |
+		self.hasLiftplan.if {
+			let r = self.liftplanRecord;
+			let m = r.size;
+			let n = self.shafts;
+			r.weavingInformationFileRecordToMatrix(m, n)
+		} {
+			liftplanMatrix(
+				self.tieupMatrix,
+				self.treadlingMatrix
+			)
+		}
+	}
+
+	liftplanRecord { :self |
+		self.contents.at('LIFTPLAN')
 	}
 
 	shafts { :self |
@@ -37,8 +71,8 @@ WeavingInformationFile : [Object] { | contents |
 		self.tieupRecord
 		.weavingInformationFileRecordToMatrix(
 			self.treadles,
-			self.shafts)
-		.matrixRotate(1)
+			self.shafts
+		).matrixRotate(1)
 	}
 
 	tieupRecord { :self |
@@ -82,10 +116,18 @@ WeavingInformationFile : [Object] { | contents |
 
 }
 
++Record {
+
+	WeavingInformationFile { :self |
+		newWeavingInformationFile().initializeSlots(self)
+	}
+
+}
+
 +String {
 
 	WeavingInformationFile { :self |
-		newWeavingInformationFile().initializeSlots(self.parseIni)
+		WeavingInformationFile(self.parseIni)
 	}
 
 }

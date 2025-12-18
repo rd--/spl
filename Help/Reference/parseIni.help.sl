@@ -41,7 +41,7 @@ Missing value:
 
 * * *
 
-See also: parseJson
+See also: encodeIni, parseJson
 
 Guides: Protocol Functions
 

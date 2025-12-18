@@ -2,6 +2,7 @@
 
 Initialization File (Ini):
 
+- `encodeIni`
 - `parseIni`
 
 JavaScript Object Notation (Json):

@@ -1,14 +1,17 @@
 # WeavingInformationFile
 
-- _WeavingInformationFile(s)_
+- _WeavingInformationFile(w)_
 
-A `Type` representing a weaving information file (_Wif)_ specified by the string _s_.
+A `Type` representing a weaving information file (_Wif)_ specified by _w_,
+which may be a `String` encoded in _Ini_ format,
+or a `Record`.
 
 An Estonian linen pattern:
 
 ~~~spl png=A
 'rd--'.gitHubFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Estonia-A.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -24,6 +27,7 @@ Another Estonian linen pattern:
 ~~~spl png=B
 'rd--'.gitLabFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Estonia-B.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -39,6 +43,7 @@ A rosepath pattern:
 ~~~spl png=C
 'rd--'.gitHubFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Rosepath.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -55,6 +60,7 @@ Threading matrix of Estonian design:
 ~~~spl svg=D
 'rd--'.gitHubFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Estonia-A.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -70,6 +76,7 @@ Treadling matrix of Estonian design:
 ~~~spl svg=E
 'rd--'.gitHubFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Estonia-A.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -80,11 +87,12 @@ Treadling matrix of Estonian design:
 
 ![](sw/spl/Help/Image/WeavingInformationFile-E.svg)
 
-Tieup matrix of Estonian design:
+The tieup matrix of an Estonian design:
 
 ~~~spl svg=F
 'rd--'.gitHubFileUrl(
 	'hsc3-data',
+	'main',
 	'data/weaving/eatough/Estonia-A.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -100,6 +108,7 @@ A sample design that includes two patterns separated by an empty row:
 ~~~spl svg=G
 'lealbaugh'.gitHubFileUrl(
 	'little-loom',
+	'master',
 	'wifs/plain.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -115,6 +124,7 @@ An initial fragment of a diamond design:
 ~~~spl png=H
 'lealbaugh'.gitHubFileUrl(
 	'little-loom',
+	'master',
 	'wifs/diamonds.wif'
 ).fetchText.then { :w |
 	WeavingInformationFile(w)
@@ -125,9 +135,41 @@ An initial fragment of a diamond design:
 
 ![](sw/spl/Help/Image/WeavingInformationFile-H.png)
 
+A design from an old German pattern book:
+
+~~~spl png=I
+'pdhammond42'.gitHubFileUrl(
+	'weavedreamer',
+	'master',
+	'testdata/12233.wif'
+).fetchText.then { :w |
+	WeavingInformationFile(w)
+	.drawdownMatrix
+	.Bitmap(4)
+}
+~~~
+
+![](sw/spl/Help/Image/WeavingInformationFile-I.png)
+
+Plot a drawdown matrix from a weaving information file specified using a liftplan:
+
+~~~spl svg=J
+'rd--'.gitHubFileUrl(
+	'hsc3-data',
+	'main',
+	'data/weaving/booker/point.wif'
+).fetchText.then { :w |
+	WeavingInformationFile(w)
+	.drawdownMatrix
+	.matrixPlot
+}
+~~~
+
+![](sw/spl/Help/Image/WeavingInformationFile-J.svg)
+
 * * *
 
-See also: drawdownMatrix
+See also: drawdownMatrix, liftplanMatrix, threadingMatrix, tieupMatrix
 
 Guides: Matrix Functions
 

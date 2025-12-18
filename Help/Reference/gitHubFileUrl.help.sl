@@ -1,12 +1,13 @@
 # gitHubFileUrl
 
-- _gitHubFileUrl(u, p, f)_
+- _gitHubFileUrl(u, p, f, b='main')_
 
-Answer a file `Url` for the file _f_ at the project _p_ of the user _u_.
+Answer a file `Url` for the file _f_ at branch _b_ of the project _p_ of the user _u_.
 
 ```
 >>> let u = 'rd--'.gitHubFileUrl(
 >>> 	'spl',
+>>> 	'main',
 >>> 	'README.md'
 >>> );
 >>> (
@@ -18,7 +19,7 @@ Answer a file `Url` for the file _f_ at the project _p_ of the user _u_.
 (
 	'https:',
 	'raw.githubusercontent.com',
-	'/rd--/spl/refs/heads/master',
+	'/rd--/spl/refs/heads/main',
 	'README.md'
 )
 ```

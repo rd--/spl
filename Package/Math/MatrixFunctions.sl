@@ -587,6 +587,13 @@
 		answer
 	}
 
+	liftplanMatrix { :m1 :m2 |
+		m2.isVector.ifTrue {
+			m2 := m2.integerSequenceMatrix('Column')
+		};
+		m2.dot(m1)
+	}
+
 	lowerTriangularize { :self :k |
 		let m = self.assertIsMatrix('List>>lowerTriangularize');
 		let [r, c] = m.shape;

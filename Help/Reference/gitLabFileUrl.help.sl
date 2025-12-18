@@ -1,12 +1,13 @@
 # gitLabFileUrl
 
-- _gitLabFileUrl(u, p, f)_
+- _gitLabFileUrl(u, p, b, f)_
 
-Answer a file `Url` for the file _f_ at the project _p_ of the user _u_.
+Answer a file `Url` for the file _f_ at branch _b_ of the project _p_ of the user _u_.
 
 ```
 >>> let u = 'rd--'.gitLabFileUrl(
 >>> 	'spl',
+>>> 	'main',
 >>> 	'README.md'
 >>> );
 >>> (
@@ -18,7 +19,7 @@ Answer a file `Url` for the file _f_ at the project _p_ of the user _u_.
 (
 	'https:',
 	'gitlab.com',
-	'/rd--/spl/-/raw/master',
+	'/rd--/spl/-/raw/main',
 	'README.md'
 )
 ```

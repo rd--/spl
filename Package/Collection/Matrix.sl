@@ -346,6 +346,23 @@
 		answer
 	}
 
+	binaryMatrix { :onesMatrix :shape |
+		let [m, n] = shape;
+		let answer = shape.zeroMatrix;
+		1.toDo(m) { :i |
+			onesMatrix[i].do { :j |
+				answer[i][j] := 1
+			}
+		};
+		answer
+	}
+
+	binaryMatrix { :onesMatrix |
+		let m = onesMatrix.size;
+		let n = onesMatrix.catenate.max;
+		onesMatrix.binaryMatrix([m, n])
+	}
+
 	blockDiagonalMatrix { :d |
 		let n = d.size;
 		let s = d.collect(shape:/1);
@@ -719,6 +736,21 @@
 			} {
 				[dx, dy] := [dy.-, dx];
 				[x, y] := [x + dx, y + dy]
+			}
+		};
+		answer
+	}
+
+}
+
++Map {
+
+	binaryMatrix { :onesMap :shape |
+		let [m, n] = shape;
+		let answer = shape.zeroMatrix;
+		onesMap.keysDo { :i |
+			onesMap[i].do { :j |
+				answer[i][j] := 1
 			}
 		};
 		answer

@@ -379,6 +379,26 @@ OEIS [A000215](https://oeis.org/A000215):
 ]
 ```
 
+Two to the power of _n_ to the power of two,
+OEIS [A002416](https://oeis.org/A002416):
+
+```
+>>> 1:9.collect { :n |
+>>> 	2L ^ (n ^ 2)
+>>> }
+[
+	2
+	16
+	512
+	65536
+	33554432
+	68719476736
+	562949953421312
+	18446744073709551616L
+	2417851639229258349412352L
+]
+```
+
 Plot over a subset of the reals:
 
 ~~~spl svg=A

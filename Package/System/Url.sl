@@ -240,24 +240,26 @@ URL! : [Object, Storeable, Equatable, Url] {
 
 +String {
 
-	gitHubFileUrl { :userName :projectName :filePath |
+	gitHubFileUrl { :userName :projectName :branch :filePath |
 		Url(
-			'https://raw.githubusercontent.com/%/%/refs/heads/master/%'.format(
+			'https://raw.githubusercontent.com/%/%/refs/heads/%/%'.format(
 				[
 					userName,
 					projectName,
+					branch,
 					filePath
 				]
 			)
 		)
 	}
 
-	gitLabFileUrl { :userName :projectName :filePath |
+	gitLabFileUrl { :userName :projectName :branch :filePath |
 		Url(
-			'https://gitlab.com/%/%/-/raw/master/%'.format(
+			'https://gitlab.com/%/%/-/raw/%/%'.format(
 				[
 					userName,
 					projectName,
+					branch,
 					filePath
 				]
 			)

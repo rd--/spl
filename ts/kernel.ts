@@ -2,7 +2,7 @@ export { MersenneTwister } from '../lib/scsynth-wasm-builds/lib/ext/mersenne-twi
 export { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 export { default as Delaunator } from '../lib/scsynth-wasm-builds/lib/ext/delaunator.js';
 export { default as earcut } from '../lib/scsynth-wasm-builds/lib/ext/earcut.js';
-export { parse as iniParse } from '../lib/scsynth-wasm-builds/lib/ext/ini.js';
+export { parse as parseIni, stringify as encodeIni } from '../lib/scsynth-wasm-builds/lib/ext/ini.js';
 
 import { PriorityQueue } from '../lib/scsynth-wasm-builds/lib/ext/PriorityQueue.js';
 
