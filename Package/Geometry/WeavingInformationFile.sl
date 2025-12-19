@@ -1,21 +1,27 @@
 WeavingInformationFile : [Object] { | contents |
 
 	drawdownMatrix { :self :m :n |
-		drawdownMatrix(
-			self.threadingMatrix.collect { :each |
-				each.take(n)
-			},
-			self.tieupMatrix,
-			self.treadlingMatrix.take(m)
-		)
+		self.hasLiftplan.if {
+			self.liftplanMatrix.take(m).dot(
+				self.threadingMatrix.collect { :each |
+					each.take(n)
+				}
+			)
+		} {
+			drawdownMatrix(
+				self.threadingMatrix.collect { :each |
+					each.take(n)
+				},
+				self.tieupMatrix,
+				self.treadlingMatrix.take(m)
+			)
+		}
 	}
 
 	drawdownMatrix { :self |
 		self.hasLiftplan.if {
-			drawdownMatrix(
-				self.threadingMatrix,
-				self.shafts.identityMatrix.transpose,
-				self.liftplanMatrix
+			self.liftplanMatrix.dot(
+				self.threadingMatrix
 			)
 		} {
 			drawdownMatrix(

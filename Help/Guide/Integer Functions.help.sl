@@ -133,12 +133,16 @@ Parsing Functions:
 
 Predicates:
 
+- `isBit`
+- `isByte`
 - `isGaussianInteger`
 - `isInteger`
 - `isLargeInteger`
 - `isNonNegativeInteger`
+- `isOne`
 - `isScalarInteger`
 - `isSmallInteger`
+- `isZero`
 
 Number Theory Predicates:
 

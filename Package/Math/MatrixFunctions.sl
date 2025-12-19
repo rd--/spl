@@ -428,6 +428,12 @@
 		}
 	}
 
+	isBinaryMatrix { :self |
+		self.isMatrix & {
+			self.deepAllSatisfy(isBit:/1)
+		}
+	}
+
 	isDiagonallyDominantMatrix { :self :aBlock:/2 |
 		let [m, n] = self.shape;
 		1.to(m).allSatisfy { :i |

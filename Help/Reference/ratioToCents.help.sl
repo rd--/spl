@@ -1,8 +1,8 @@
 # ratioToCents
 
-- _ratioToCents(aNumber)_
+- _ratioToCents(n/d)_
 
-Answer the size of the interval represented by the ratio _aNumber_ in _cents_.
+Answer the size of the interval represented by the ratio _n/d_ in _cents_.
 There are 1200 cents in an octave.
 
 The perfect fifth is 702 cents:
@@ -15,9 +15,12 @@ The perfect fifth is 702 cents:
 701.995
 ```
 
-The octave is 1200 cents:
+The unison is 0 cents and the octave is 1200 cents:
 
 ```
+>>> 1.ratioToCents
+0
+
 >>> 2.ratioToCents
 1200
 ```
@@ -59,6 +62,13 @@ Threads over lists:
 >>> .ratioToCents
 >>> .round
 [0 204 386 498 702 884 1088]
+```
+
+The eight tone scale given by harmonics eight through fifteen:
+
+```
+>>> (8:15 / 8).ratioToCents.round
+[0 204 386 551 702 841 969 1088]
 ```
 
 * * *

@@ -176,6 +176,19 @@ A logarithmic plot of the intervals between consecutive divisors:
 
 ![](sw/spl/Help/Image/divisors-C.svg)
 
+Array read by rows in which row _n_ lists the divisors of _n_ that are _≥√n_,
+OEIS [A161908](https://oeis.org/A161908):
+
+~~~spl svg=D
+1:100.collect { :n |
+	n.divisors.select { :m |
+		m >= n.sqrt
+	}
+}.catenate.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-D.svg)
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder

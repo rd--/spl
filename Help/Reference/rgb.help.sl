@@ -1,8 +1,8 @@
 # rgb
 
-- _rgb(aColour)_
+- _rgb(c)_
 
-Answer the _rgb_ components of _aColour_.
+Answer the _rgb_ components of the colour _c_.
 
 ```
 >>> RgbColour([1, 0.8, 0.25], 1).rgb

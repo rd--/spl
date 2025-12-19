@@ -89,7 +89,7 @@ Plot binary matrix:
 
 * * *
 
-See also: zeroMatrix
+See also: isBinaryMatrix, permutationMatrix, zeroMatrix
 
 Guides: Matrix Functions
 

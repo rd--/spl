@@ -121,7 +121,7 @@ binaryCombinations(3, 4)
 
 Circular matrix plot of _s=3,t=2_:
 
-~~~spl svg=A
+~~~spl svg=B
 binaryCombinations(3, 2)
 .circularMatrixPlot
 ~~~

@@ -215,6 +215,35 @@ let n = 200;
 
 ![](sw/spl/Help/Image/divisorSigma-D.svg)
 
+Number of divisors of _n_ that are at most _√n_,
+OEIS [A038548](http://oeis.org/A038548):
+
+```
+>>> 1:105.collect { :n |
+>>> 	(0.divisorSigma(n) + 1) / 2
+>>> }.floor
+[
+	1 1 1 2 1 2 1 2 2 2 1 3 1 2 2 3 1 3 1
+	3 2 2 1 4 2 2 2 3 1 4 1 3 2 2 2 5 1 2
+	2 4 1 4 1 3 3 2 1 5 2 3 2 3 1 4 2 4 2
+	2 1 6 1 2 3 4 2 4 1 3 2 4 1 6 1 2 3 3
+	2 4 1 5 3 2 1 6 2 2 2 4 1 6 2 3 2 2 2
+	6 1 3 3 5 1 4 1 4 4
+]
+```
+
+Plot of
+OEIS [A038548](http://oeis.org/A038548):
+
+~~~spl svg=E
+1:85.collect { :n |
+	(0.divisorSigma(n) + 1) / 2
+}.floor.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-E.svg)
+
+
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber

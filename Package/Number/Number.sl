@@ -429,6 +429,12 @@
 		(((b + (c / 2)).square - (c / a)).sqrt - (b + (c / 2))).sqrt * x.sign
 	}
 
+	isBit { :self |
+		self = 0 | {
+			self = 1
+		}
+	}
+
 	isCloseToBy { :self :aNumber :epsilon |
 		self.typeResponsibility('isCloseToBy')
 	}

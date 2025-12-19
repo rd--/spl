@@ -1,8 +1,8 @@
 # rgba
 
-- _rgba(aColour)_
+- _rgba(c)_
 
-Answer the _rgba_ components of _aColour_.
+Answer the _rgba_ components of the colour _c_.
 
 ```
 >>> HsvColour([180 / 360, 1, 1], 1).rgba
@@ -25,5 +25,7 @@ Threads over lists:
 * * *
 
 See also: Colour, hsv, rgb, srgb
+
+Guides: Colour Functions
 
 Categories: Colour

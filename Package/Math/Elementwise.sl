@@ -310,6 +310,10 @@
 		self.collect(inverseErfc:/1)
 	}
 
+	isBit { :self |
+		self.collect(isBit:/1)
+	}
+
 	isComposite { :self |
 		self.collect(isComposite:/1)
 	}

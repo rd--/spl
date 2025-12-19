@@ -87,8 +87,8 @@ OEIS [A025480](https://oeis.org/A025480):
 
 ```
 >>> 1:84.collect { :n |
->>> 	let m = integerExponent(n, 2) + 1;
->>> 	bitShiftRight(n, m)
+>>> 	let m = n.integerExponent(2);
+>>> 	bitShiftRight(n, m + 1)
 >>> }
 [
 	 0  0  1  0  2  1  3  0  4  2
@@ -100,6 +100,42 @@ OEIS [A025480](https://oeis.org/A025480):
 	30 15 31  0 32 16 33  8 34 17
 	35  4 36 18 37  9 38 19 39  2
 	40 20 41 10
+]
+```
+
+Numbers without a superior odd divisor,
+OEIS [A116882](https://oeis.org/A116882),
+and the complement sequence
+[A116883](https://oeis.org/A116883):
+
+```
+>>> 1:1500.select { :n |
+>>> 	let m = n.integerExponent(2);
+>>> 	2 ^ (2 * m) >= n
+>>> }
+[
+	  1   2   4   8  12
+	 16  24  32  40  48
+	 56  64  80  96 112
+	128 144 160 176 192
+	208 224 240 256 288
+	320 352 384 416 448
+	480 512 544 576 608
+]
+
+>>> 1:83.select { :n |
+>>> 	let m = n.integerExponent(2);
+>>> 	n >= (4 ^ m)
+>>> }
+[
+	 1  3  5  6  7  9 10 11 13 14
+	15 17 18 19 20 21 22 23 25 26
+	27 28 29 30 31 33 34 35 36 37
+	38 39 41 42 43 44 45 46 47 49
+	50 51 52 53 54 55 57 58 59 60
+	61 62 63 65 66 67 68 69 70 71
+	72 73 74 75 76 77 78 79 81 82
+	83
 ]
 ```
 
@@ -195,5 +231,7 @@ _OEIS_
 [6](https://oeis.org/A027868)
 [7](https://oeis.org/A000120)
 [8](https://oeis.org/A037227)
+[9](https://oeis.org/A116882)
+[10](https://oeis.org/A116883)
 
 Further Reading: Levine 2006

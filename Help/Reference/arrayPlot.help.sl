@@ -1,8 +1,9 @@
 # arrayPlot
 
-- _arrayPlot(a)_
+- _arrayPlot(a, f:/1)_
 
 Answer a plot that gives a visual representation of the elements in the array _a_.
+If the colour function _f_ is elided `asColour` is specified.
 
 A 3×3×3 matrix:
 

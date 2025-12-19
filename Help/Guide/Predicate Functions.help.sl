@@ -7,6 +7,7 @@ Number Predicates:
 - `isAlmostPrime`
 - `isAmicablePair`
 - `isBalancedPrime`
+- `isBit`
 - `isByte`
 - `isCachedPrime`
 - `isCarmichaelNumber`

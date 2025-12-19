@@ -115,6 +115,14 @@ ColourGradient : [Object, Storeable] { | colourList positionListOrNil |
 
 +String {
 
+	namedColourFunction { :collectionName :paletteName |
+		namedColourGradient(collectionName, paletteName).asBlock
+	}
+
+	namedColourFunction { :self |
+		self.namedColourGradient.asBlock
+	}
+
 	namedColourGradient { :collectionName :paletteName |
 		system
 		.colourGradients

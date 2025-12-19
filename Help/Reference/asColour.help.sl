@@ -29,6 +29,13 @@ With `alpha` channel:
 RgbColour([0.1 0.2 0.3], 0.4)
 ```
 
+At `RgbColour` answer `identity`:
+
+```
+>>> 1.red.asColour
+RgbColour([1 0 0], 1)
+```
+
 A blue colour patch:
 
 ~~~spl svg=A

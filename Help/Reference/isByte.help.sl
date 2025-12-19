@@ -38,7 +38,7 @@ true
 
 * * *
 
-See also: Integer, isInteger
+See also: isBit, Integer, isInteger
 
 Guides: Predicate Functions
 
