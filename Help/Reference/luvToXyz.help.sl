@@ -1,10 +1,10 @@
 # luvToXyz
 
-- _luvToXyz(luv)_
-- _luvToXyz(luv, whiteReference)_
+- _luvToXyz([l u v], w=D65)_
 
 Convert from Cie _L*u*v*_ colourspace to _Cie Xyz_ tristimulus values.
 _L_ is in _(0,100)_ and _a_ and _b_ are unbounded but ordinarily in _(-100,100)_.
+_w_ is the white reference, implicitly _D65_.
 
 Specific values:
 

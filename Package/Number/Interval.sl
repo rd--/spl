@@ -243,6 +243,10 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		Interval(self, self)
 	}
 
+	centeredInterval { :center :range |
+		Interval(center - range, center + range)
+	}
+
 	Interval { :min :max |
 		(min > max).if {
 			[min, max].error('Interval: min > max')

@@ -1,6 +1,6 @@
 # srgbEncode
 
-- _srgbEncode(aNumber | aList | aColour)_
+- _srgbEncode(c)_
 
 Encode linear _Rgb_ values to non-linear _Rgb_ values using the _Srgb_ colour component transfer function (Cctf).
 Also called the companding or gamma function.

@@ -273,6 +273,11 @@
 		n * 1.83928675521416113255185
 	}
 
+	unitDegree { :self |
+		let m = 1 / 360;
+		self * m
+	}
+
 	vacuumPermeability { :self |
 		self * 1.25663706127E-6
 	}

@@ -1,6 +1,6 @@
 # parseRgbColour
 
-- _parseRgbColour(aString)_
+- _parseRgbColour(s)_
 
 Parse a subset of the _Css_ and _Svg_ format _rgb_ colour notation.
 The answer is an `RgbColour` value,

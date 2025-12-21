@@ -29,6 +29,13 @@ With `alpha` channel:
 RgbColour([0.1 0.2 0.3], 0.4)
 ```
 
+At list of `Fraction` values:
+
+```
+>>> [1/3 1/5 1/7].asColour
+RgbColour([1/3 1/5 1/7], 1)
+```
+
 At `RgbColour` answer `identity`:
 
 ```

@@ -1,6 +1,6 @@
 # parseHexColour
 
-- _parseHexColour(aString)_
+- _parseHexColour(s)_
 
 Parse a subset of the _Css_ and _Html_ format hexadecimal colour notation,
 answering an `RgbColour` value in _Srgb_ colour space.

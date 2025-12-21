@@ -1,5 +1,7 @@
 # lchToLuv
 
+- _lchToLuv([l c h])_
+
 Convert from _Lchuv_ colourspace to _Luv_ colourspace.
 This is equalivalent to both `jchToJab` and `lchToLab`.
 

@@ -1,6 +1,6 @@
 # hsvToHsl
 
-- _hsvToHsl(hsv)_
+- _hsvToHsl([h s v])_
 
 Answer an _(h,s,l)_ triple given an _(h,s,v)_ triple.
 

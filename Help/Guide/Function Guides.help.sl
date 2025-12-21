@@ -37,6 +37,7 @@
 - `Integer Functions`
 - `Integer Sequence Functions`
 - `Interpolation Functions`
+- `Interval Functions`
 - `Iteration Functions`
 - `List Functions`
 - `Low-Discrepancy Sequence Functions`

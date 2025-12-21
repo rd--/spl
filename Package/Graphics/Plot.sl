@@ -177,13 +177,13 @@ Plot : [Object] { | pages format options |
 +List {
 
 	arrayPlot { :self :colourFunction:/1 |
-		self.asFloat
+		self
 		.deepCollect(colourFunction:/1)
 		.arrayPlot
 	}
 
 	arrayPlot { :self |
-		[self.asFloat].Plot('array')
+		[self].Plot('array')
 	}
 
 	autocorrelationPlot { :y :k |

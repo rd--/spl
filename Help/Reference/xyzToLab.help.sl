@@ -1,7 +1,8 @@
 # xyzToLab
 
-- _xyzToLab(xyz)_
-- _xyzToLab(xyz, whiteReference)_
+- _xyzToLab([x y z], w=D65)_
+
+Convert from _Xyz_ tristimulus values to Cie _L*a*b*_ colourspace.
 
 With standard (D65) white reference:
 

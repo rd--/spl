@@ -83,6 +83,18 @@ let m = [16 16].lambdomaMatrix;
 
 ![](sw/spl/Help/Image/lambdomaMatrix-D.svg)
 
+Colour directly as hue value:
+
+~~~spl svg=E
+[16 16].lambdomaMatrix
+.octaveReduce
+.arrayPlot { :x |
+	HsvColour([x 0.8 0.8], 1)
+}
+~~~
+
+![](sw/spl/Help/Image/lambdomaMatrix-E.svg)
+
 * * *
 
 See also: Fraction, swap, table

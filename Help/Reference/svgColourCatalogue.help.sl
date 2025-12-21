@@ -11,7 +11,7 @@ Count the entries:
 147
 ```
 
-The colours are _(r,g,b)_ triples, not `RgbColour` values:
+The colours are given as _(r,g,b)_ triples, not `RgbColour` values:
 
 ```
 >>> system
@@ -21,7 +21,8 @@ The colours are _(r,g,b)_ triples, not `RgbColour` values:
 true
 ```
 
-Lookup a colour:
+Lookup a colour,
+lookup is case-sensitive and named are given in all lower case:
 
 ```
 >>> system
@@ -52,7 +53,7 @@ The `svgColourCatalogue` method is `requireLibraryItem` of 'SvgColourCatalogue'.
 
 * * *
 
-See also: asColour, Colour, LibraryItem, RgbColour
+See also: asColour, Colour, LibraryItem, namedColour, RgbColour, svgColourDictionary
 
 Guides: Colour Functions, Library Catalogue
 

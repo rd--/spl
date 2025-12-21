@@ -26,7 +26,9 @@ Accessing:
 
 Catalogues:
 
+- `namedColour`
 - `svgColourCatalogue`
+- `svgColourDictionary`
 
 Converting:
 
@@ -45,7 +47,6 @@ Converting:
 - `rgbToXyz`: Rgb to Xyz
 - `xyyToXyz`: Xyy to Xyz
 - `xyzToOklab`: Xyz to Oklab
-- `oklabToXyz`: Oklab to Xyz
 - `xyzToRgb`: Xyz to Rgb
 - `xyzToXyy`: Xyz to Xyy
 
@@ -79,6 +80,12 @@ Gradients and Palettes:
 - `parula`
 - `quilezGradient`
 
+Names:
+
+- `namedColour`
+- `namedColourGradient`
+- `namedColourPalette`
+
 Parsers and Printers:
 
 - `parseHexColour`
@@ -111,7 +118,7 @@ Standards:
 
 - `lightnessCie`
 
-Drawings:
+Line Drawings:
 
 - `asColourDrawing`
 - `asGreyscaleDrawing`

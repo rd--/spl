@@ -1,6 +1,6 @@
 # oklabToXyz
 
-- _oklabToXyz(oklab)_
+- _oklabToXyz([L a b])_
 
 Convert from _Oklab_ colourspace to Cie _Xyz_ tristimulus values.
 _L_ is in _(0,1)_ and _a_ and _b_ are unbounded but ordinarily in _(-0.5,0.5)_.

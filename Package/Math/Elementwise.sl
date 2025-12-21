@@ -549,6 +549,10 @@
 		self.collect(unitize:/1)
 	}
 
+	unitDegree { :self |
+		self.collect(unitDegree:/1)
+	}
+
 	unitStep { :self |
 		self.collect(unitStep:/1)
 	}

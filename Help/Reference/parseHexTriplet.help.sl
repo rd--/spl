@@ -1,8 +1,9 @@
 # parseHexTriplet
 
-- _parseHexTriplet(aString)_
+- _parseHexTriplet(s)_
 
-Parse a subset of the _Css_ and _Html_ format hexadecimal colour notation,
+At `String`,
+parse a subset of the _Css_ and _Html_ format hexadecimal colour notation,
 answering a `List` of _(0,1)_ values.
 The triplet must have a leading number sign.
 
@@ -25,6 +26,23 @@ Draw parsed colour:
 ~~~
 
 ![](sw/spl/Help/Image/parseHexTriplet-A.svg)
+
+A rainbow:
+
+~~~spl svg=B
+[
+	'#DD0000'
+	'#FE6230'
+	'#FEF600'
+	'#00BB00'
+	'#009BFE'
+	'#000083'
+	'#30009B'
+].collect(parseHexTriplet:/1)
+.enclose.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/parseHexTriplet-B.svg)
 
 * * *
 

@@ -1,9 +1,9 @@
 # parseRgbTriplet
 
-- _parseRgbTriplet(aString)_
+- _parseRgbTriplet(s)_
 
 Parse a subset of the _Css_ and _Svg_ format _rgb_ colour notation.
-The answer is an _(r, g, b)_ triple in _(0, 1)_.
+The answer is an _(r,g,b)_ triple in _(0,1)_.
 
 ```
 >>> 'rgb(152,236,232)'

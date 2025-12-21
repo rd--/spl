@@ -1,9 +1,9 @@
 # red
 
-- _red(aColour | aNumber)_
+- _red(x)_
 
 At `Colour`,
-answer the value of the _red_ channel of _aColour_.
+answer the value of the _red_ channel of the colour _x_.
 The value is in _(0,1)_.
 
 ```

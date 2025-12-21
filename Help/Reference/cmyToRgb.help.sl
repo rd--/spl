@@ -1,6 +1,6 @@
 # cmyToRgb
 
-- _cmyToRgb(cmy)_
+- _cmyToRgb([c m y])_
 
 Convert from _Cmy_ colourspace to _Rgb_ colourspace.
 
@@ -41,9 +41,10 @@ true
 
 See also: Colour, rgbToCmy
 
+Guides: Colour Functions
+
 References:
 _Python_
 [1](https://colour.readthedocs.io/en/develop/generated/colour.CMY_to_RGB.html),
-
 _W_
 [1](https://en.wikipedia.org/wiki/CMYK_color_model)

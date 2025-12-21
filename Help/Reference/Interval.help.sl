@@ -177,7 +177,7 @@ Sample a function uniformly on an interval:
 
 See also: --, discretize, includes, intersection, Range, subdivide, union
 
-Guides: Range Syntax
+Guides: Interval Functions
 
 References:
 _Mathematica_

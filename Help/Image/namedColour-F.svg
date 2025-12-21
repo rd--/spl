@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="96" viewBox="0 0 160 96">
+<rect x="0" y="0" width="32" height="32" fill="rgb(0,100,0)"/>
+<rect x="0" y="32" width="32" height="32" fill="rgb(173,255,47)"/>
+<rect x="0" y="64" width="32" height="32" fill="rgb(60,179,113)"/>
+<rect x="32" y="0" width="32" height="32" fill="rgb(85,107,47)"/>
+<rect x="32" y="32" width="32" height="32" fill="rgb(124,252,0)"/>
+<rect x="32" y="64" width="32" height="32" fill="rgb(0,250,154)"/>
+<rect x="64" y="0" width="32" height="32" fill="rgb(143,188,143)"/>
+<rect x="64" y="32" width="32" height="32" fill="rgb(144,238,144)"/>
+<rect x="64" y="64" width="32" height="32" fill="rgb(152,251,152)"/>
+<rect x="96" y="0" width="32" height="32" fill="rgb(34,139,34)"/>
+<rect x="96" y="32" width="32" height="32" fill="rgb(32,178,170)"/>
+<rect x="96" y="64" width="32" height="32" fill="rgb(46,139,87)"/>
+<rect x="128" y="0" width="32" height="32" fill="rgb(0,128,0)"/>
+<rect x="128" y="32" width="32" height="32" fill="rgb(50,205,50)"/>
+<rect x="128" y="64" width="32" height="32" fill="rgb(0,255,127)"/>
+</svg>

@@ -1,6 +1,6 @@
 # HsvColour
 
-- _HsvColour(hsv, alpha)_
+- _HsvColour([h s v], alpha)_
 
 Answer an `RgbColour` value given `hue`, `saturation` and `value`, all in _(0,1)_.
 `HsvColour` is a cylindrical-coordinate representations of points in an `RgbColour` colour model.
@@ -56,22 +56,28 @@ true
 Colour predicates (_s=1_ & _v=1_):
 
 ```
->>> HsvColour([0/360 1 1], 1).isRed
+>>> HsvColour([0/360 1 1], 1)
+>>> .isRed
 true
 
->>> HsvColour([120/360 1 1], 1).isGreen
+>>> HsvColour([120/360 1 1], 1)
+>>> .isGreen
 true
 
->>> HsvColour([240/360 1 1], 1).isBlue
+>>> HsvColour([240/360 1 1], 1)
+>>> .isBlue
 true
 
->>> HsvColour([60/360 1 1], 1).isYellow
+>>> HsvColour([60/360 1 1], 1)
+>>> .isYellow
 true
 
->>> HsvColour([180/360 1 1], 1).isCyan
+>>> HsvColour([180/360 1 1], 1)
+>>> .isCyan
 true
 
->>> HsvColour([300/360 1 1], 1).isMagenta
+>>> HsvColour([300/360 1 1], 1)
+>>> .isMagenta
 true
 ```
 

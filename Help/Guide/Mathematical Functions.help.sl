@@ -205,6 +205,10 @@
 
 - `Interpolation Functions`: Guide
 
+## Interval Functions
+
+- `Interval Functions`: Guide
+
 ## Low-discrepancy Sequences
 
 - `haltonSequence`

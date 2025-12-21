@@ -1,8 +1,8 @@
 # hexTriplet
 
-- _hexTriplet(aColour)_
+- _hexTriplet(c)_
 
-Answer the number sign prefixed two character per byte hexadecimal _Rgb_ notation string of _aColour_.
+Answer the number sign prefixed two character per byte hexadecimal _Rgb_ notation string of the colour _c_.
 
 If the _alpha_ channel is one it is not given:
 

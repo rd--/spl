@@ -1,6 +1,6 @@
 # rgbToXyz
 
-- _rgbToXyz(rgb)_
+- _rgbToXyz([r g b])_
 
 Convert _Rgb_ colourspace array to Cie _Xyz_ tristimulus values.
 

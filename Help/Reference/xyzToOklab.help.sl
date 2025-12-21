@@ -1,6 +1,6 @@
 # xyzToOklab
 
-- _xyzToOklab(xyz)_
+- _xyzToOklab([x y z])_
 
 Convert from Cie _Xyz_ tristimulus values to _Oklab_ colourspace.
 
@@ -21,6 +21,8 @@ Inverse is `oklabToXyz`:
 * * *
 
 See also: Colour, oklabToXyz
+
+Guides: Colour Functions
 
 References:
 _Python_

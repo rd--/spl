@@ -1,6 +1,6 @@
 # hsvToRgb
 
-- _hsvToRgb(hsv)_
+- _hsvToRgb([h s v])_
 
 Convert from _Hsv_ _(0,1)_ colourspace to _Rgb_ _(0,1)_ colourspace.
 Answer an _(r,g,b)_ triple given an _(h,s,v)_ triple.

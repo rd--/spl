@@ -198,10 +198,13 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 +List {
 
 	asColour { :self |
-		self.size.caseOf([
-			3 -> { RgbColour(self, 1) },
-			4 -> { RgbColour(self.take(3), self[4]) }
-		]) {
+		let a = self.asFloat;
+		a.size.caseOf(
+			[
+				3 -> { RgbColour(a, 1) },
+				4 -> { RgbColour(a.first(3), a[4]) }
+			]
+		) {
 			self.error('asColour')
 		}
 	}
@@ -219,6 +222,22 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 	hue { :self |
 		self.collect(hue:/1)
+	}
+
+	isBlue { :self |
+		self.asColour.isBlue
+	}
+
+	isGreen { :self |
+		self.asColour.isGreen
+	}
+
+	isRed { :self |
+		self.asColour.isRed
+	}
+
+	isYellow { :self |
+		self.asColour.isYellow
 	}
 
 	RgbColour { :self :alpha |
@@ -778,6 +797,34 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		}
 	}
 
+	namedColour { :catalogueName :colourName |
+		colourName.isList.if {
+			colourName.collect { :i |
+				namedColour(catalogueName, i)
+			}
+		} {
+			catalogueName.caseOf(
+				[
+					'Svg' -> {
+						system
+						.svgColourCatalogue
+						.at(colourName.asLowerCase)
+						.asColour
+					}
+				]
+			)
+		}
+	}
+
+	namedColour { :self |
+		self.includes('/').if {
+			let [catalogueName, colourName] = self.splitBy('/');
+			namedColour(catalogueName, colourName)
+		} {
+			self.error('namedColour')
+		}
+	}
+
 	parseHexColour { :self |
 		self.parseHexTriplet.asColour
 	}
@@ -828,6 +875,21 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 }
 
++List {
+
+	namedColour { :self |
+		self.collect(namedColour:/1)
+	}
+
+	namedColour { :k :c |
+		k.collect { :i |
+			i.namedColour(c)
+		}
+	}
+
+}
+
+
 +System {
 
 	colourCheckerChart { :self |
@@ -840,6 +902,10 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.requireLibraryItem(
 			'SvgColourCatalogue'
 		)
+	}
+
+	svgColourDictionary { :self |
+		self.svgColourCatalogue.collect(asColour:/1)
 	}
 
 }

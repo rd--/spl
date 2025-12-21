@@ -28,6 +28,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/ToLowerCase.html),
 _Smalltalk_
-5.3.4.2
+5.3.4.2,
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/text-processing.html#sec-string.prototype.tolowercase)
 
 Categories: Converting

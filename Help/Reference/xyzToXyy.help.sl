@@ -1,6 +1,6 @@
-# xyyToXyz
+# xyzToXyy
 
-- _xyyToXyz(xyy)_
+- _xyzToXyy([x y z])_
 
 Convert from Cie _Xyz_ tristimulus values to Cie _Xyy_ colourspace.
 Answer an _(x,y,z)_ triple given an _(x,y,y)_ triple.
@@ -10,7 +10,11 @@ At specific value:
 ```
 >>> [0.20654 0.12197 0.05137].xyzToXyy
 [0.54370 0.32108 0.12197]
+```
 
+The inverse is `xyyToXyz`:
+
+```
 >>> [0.54370 0.32108 0.12197].xyyToXyz
 [0.20654 0.12197 0.05137]
 ```

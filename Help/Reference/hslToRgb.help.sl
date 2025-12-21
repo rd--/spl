@@ -1,6 +1,6 @@
 # hslToRgb
 
-- _hslToRgb(hsl)_
+- _hslToRgb([h s l])_
 
 Convert from _Hsl_ _(0,1)_ colourspace to _Rgb_ _(0,1)_ colourspace.
 Answer an _(r,g,b)_ triple given an _(h,s,l)_ triple.
