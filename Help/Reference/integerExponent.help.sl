@@ -109,7 +109,7 @@ and the complement sequence
 [A116883](https://oeis.org/A116883):
 
 ```
->>> 1:1500.select { :n |
+>>> 1:639.select { :n |
 >>> 	let m = n.integerExponent(2);
 >>> 	2 ^ (2 * m) >= n
 >>> }

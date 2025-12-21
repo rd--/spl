@@ -12,5 +12,7 @@ Online editors:
 Videos:
 [Small Kansas](?t=spl&e=md/video.md)
 
+Tested with:
+[deno](https://deno.com/) 2.6.3
 
 © [Rohan Drape](http://rohandrape.net/), 2022-2025, [Gpl](http://gnu.org/copyleft/)

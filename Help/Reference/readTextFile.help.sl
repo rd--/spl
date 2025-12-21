@@ -11,7 +11,7 @@ If the file does not exists signal an `Error`.
 >>> .readTextFile
 >>> .lines
 >>> .size
-16
+18
 ~~~
 
 This uses a different primitive to `fetch`,
