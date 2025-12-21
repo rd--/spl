@@ -1712,9 +1712,9 @@ let a = []; 5.toDo(1) { :each | a.add(each) }; a = [] /* non-ascending sequences
 (2 ^ 128L - 1).digitLength = 16
 [64 226 1].asByteArray.fnv1aHash = 2230130162L
 (1 << 30) == 1073741824 /* equal integers are identical */
-6.take(3) = 20 /* n choose k */
-6.take(3) = ((6 * 5 * 4) / (1 * 2 * 3))
-3.take(6) = 0 /* if k is greater than n answer is zero */
+6.choose(3) = 20 /* n choose k */
+6.choose(3) = ((6 * 5 * 4) / (1 * 2 * 3))
+3.choose(6) = 0 /* if k is greater than n answer is zero */
 58909.printStringHex = '16rE61D' /* hexadecimal representation */
 58909.printString(16) = '16rE61D' /* hexadecimal representation */
 let a = []; List(2, 1:3).tuplesDo { :each | a.add(each.copy) }; a = [1 1; 1 2; 1 3; 2 1; 2 2; 2 3; 3 1; 3 2; 3 3]
@@ -2550,10 +2550,10 @@ let r = SplitMix(98765); let a = r.next(9); r.reset; r.next(9) = a /* stream int
 ## Random -- LinearCongruential
 ```
 system.includesPackage('LinearCongruential') /* LinearCongruential package */
-let r = LinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
-let r = LinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
-let r = LinearCongruential(42); r.isStream /* stream predicate */
-let r = LinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
+let r = numericalRecipesLinearCongruential(42); r.typeOf = 'LinearCongruential' & { r.isLinearCongruential } & { r.isRandomNumberGenerator }
+let r = numericalRecipesLinearCongruential(42); [r.nextRandomFloat, r.nextRandomFloat] = [0.3746499199817101, 0.729023776863283]
+let r = numericalRecipesLinearCongruential(42); r.isStream /* stream predicate */
+let r = numericalRecipesLinearCongruential(42); let a = r.next(9); r.reset; r.next(9) = a /* stream interface, next(k) answers next k items, reset resets */
 ```
 
 ## Iterator -- collection trait
