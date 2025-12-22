@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="162" height="54" viewBox="0 0 162 54">
+<svg xmlns="http://www.w3.org/2000/svg" width="162" height="81" viewBox="0 0 162 81">
 <rect x="0" y="0" width="27" height="27" fill="rgb(0,0,255)"/>
-<rect x="0" y="27" width="27" height="27" fill="rgb(147,112,219)"/>
-<rect x="27" y="0" width="27" height="27" fill="rgb(0,0,139)"/>
-<rect x="27" y="27" width="27" height="27" fill="rgb(123,104,238)"/>
-<rect x="54" y="0" width="27" height="27" fill="rgb(72,61,139)"/>
-<rect x="54" y="27" width="27" height="27" fill="rgb(25,25,112)"/>
-<rect x="81" y="0" width="27" height="27" fill="rgb(248,248,255)"/>
-<rect x="81" y="27" width="27" height="27" fill="rgb(0,0,128)"/>
-<rect x="108" y="0" width="27" height="27" fill="rgb(230,230,250)"/>
-<rect x="108" y="27" width="27" height="27" fill="rgb(65,105,225)"/>
-<rect x="135" y="0" width="27" height="27" fill="rgb(0,0,205)"/>
-<rect x="135" y="27" width="27" height="27" fill="rgb(106,90,205)"/>
+<rect x="0" y="27" width="27" height="27" fill="rgb(119,136,153)"/>
+<rect x="0" y="54" width="27" height="27" fill="rgb(25,25,112)"/>
+<rect x="27" y="0" width="27" height="27" fill="rgb(100,149,237)"/>
+<rect x="27" y="27" width="27" height="27" fill="rgb(119,136,153)"/>
+<rect x="27" y="54" width="27" height="27" fill="rgb(0,0,128)"/>
+<rect x="54" y="0" width="27" height="27" fill="rgb(0,0,139)"/>
+<rect x="54" y="27" width="27" height="27" fill="rgb(176,196,222)"/>
+<rect x="54" y="54" width="27" height="27" fill="rgb(65,105,225)"/>
+<rect x="81" y="0" width="27" height="27" fill="rgb(72,61,139)"/>
+<rect x="81" y="27" width="27" height="27" fill="rgb(0,0,205)"/>
+<rect x="81" y="54" width="27" height="27" fill="rgb(106,90,205)"/>
+<rect x="108" y="0" width="27" height="27" fill="rgb(248,248,255)"/>
+<rect x="108" y="27" width="27" height="27" fill="rgb(147,112,219)"/>
+<rect x="108" y="54" width="27" height="27" fill="rgb(112,128,144)"/>
+<rect x="135" y="0" width="27" height="27" fill="rgb(230,230,250)"/>
+<rect x="135" y="27" width="27" height="27" fill="rgb(123,104,238)"/>
+<rect x="135" y="54" width="27" height="27" fill="rgb(112,128,144)"/>
 </svg>
