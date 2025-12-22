@@ -59,3 +59,7 @@ Svg colours with _green_ in the name that are not selected:
 See also: isBlue, isRed, isYellow
 
 Guides: Colour Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Green)

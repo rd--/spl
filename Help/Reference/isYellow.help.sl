@@ -50,3 +50,7 @@ Svg colours with _yellow_ in the name that are not selected:
 See also: isBlue, isGreen, isRed
 
 Guides: Colour Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Yellow)

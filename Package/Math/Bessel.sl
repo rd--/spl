@@ -179,7 +179,8 @@
 		const bessel_iter = function(x, n, f0, f1, sign) {
 			if(n === 0) return f0;
 			if(n === 1) return f1;
-			const tdx = 2 / x, f2 = f1;
+			const tdx = 2 / x;
+			let f2 = f1;
 			for(let o = 1; o < n; ++o) {
 				f2 = f1 * o * tdx + sign * f0;
 				f0 = f1; f1 = f2;

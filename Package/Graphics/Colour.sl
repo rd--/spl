@@ -228,8 +228,20 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.asColour.isBlue
 	}
 
+	isCyan { :self |
+		self.asColour.isCyan
+	}
+
 	isGreen { :self |
 		self.asColour.isGreen
+	}
+
+	isGrey { :self |
+		self.asColour.isGrey
+	}
+
+	isMagenta { :self |
+		self.asColour.isMagenta
 	}
 
 	isRed { :self |
