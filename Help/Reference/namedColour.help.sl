@@ -118,9 +118,9 @@ Shades of green:
 
 ![](sw/spl/Help/Image/namedColour-F.svg)
 
-Rainbow:
+A rainbow:
 
-~~~spl svg=F
+~~~spl svg=G
 'Svg'.namedColour(
 	[
 		'Red'
@@ -134,11 +134,10 @@ Rainbow:
 ).enclose.arrayPlot
 ~~~
 
-![](sw/spl/Help/Image/namedColour-F.svg)
-
+![](sw/spl/Help/Image/namedColour-G.svg)
 
 * * *
 
-See also: Colour
+See also: Colour, parseHexColour, parseHexTriplet, parseRgbColour
 
 Guides: Colour Functions

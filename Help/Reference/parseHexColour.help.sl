@@ -23,6 +23,23 @@ Draw parsed colour:
 
 ![](sw/spl/Help/Image/parseHexColour-A.svg)
 
+A rainbow:
+
+~~~spl svg=B
+[
+	'#DD0000'
+	'#FE6230'
+	'#FEF600'
+	'#00BB00'
+	'#009BFE'
+	'#000083'
+	'#30009B'
+].collect(parseHexColour:/1)
+.enclose.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/parseHexColour-B.svg)
+
 * * *
 
 See also: Colour, hexTriplet, parseHexTriplet, parseRgbColour, rgbString, RgbColour

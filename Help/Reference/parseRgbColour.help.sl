@@ -26,6 +26,23 @@ Draw parsed colour:
 
 ![](sw/spl/Help/Image/parseRgbColour-A.svg)
 
+A rainbow:
+
+~~~spl svg=B
+[
+	'rgb(221,0,0)'
+	'rgb(254,98,48)'
+	'rgb(254,246,0)'
+	'rgb(0,187,0)'
+	'rgb(0,155,254)'
+	'rgb(0,0,131)'
+	'rgb(48,0,155)'
+].collect(parseRgbColour:/1)
+.enclose.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/parseRgbColour-B.svg)
+
 * * *
 
 See also: Colour, parseHexColour, parseRgbTriplet, RgbColour, rgbString
