@@ -453,15 +453,15 @@
 
 	- { :self | Negate(self) }
 
-	^ { :self :anObject | Power(self, anObject) }
-	+ { :self :anObject | Plus(self, anObject) }
-	* { :self :anObject | Times(self, anObject) }
-	- { :self :anObject | Subtract(self, anObject) }
-	/ { :self :anObject | Divide(self, anObject) }
-	// { :self :anObject | Quotient(self, anObject) }
-	% { :self :anObject | Mod(self, anObject) }
-	= { :self :anObject | Equal(self, anObject) }
-	!= { :self :anObject | Unequal(self, anObject) }
+	[power, ^] { :self :anObject | Power(self, anObject) }
+	[plus, +] { :self :anObject | Plus(self, anObject) }
+	[times, *] { :self :anObject | Times(self, anObject) }
+	[subtract, -] { :self :anObject | Subtract(self, anObject) }
+	[divide, /] { :self :anObject | Divide(self, anObject) }
+	[quotient, //] { :self :anObject | Quotient(self, anObject) }
+	[mod, %] { :self :anObject | Mod(self, anObject) }
+	[equal, =] { :self :anObject | Equal(self, anObject) }
+	[unequal, !=] { :self :anObject | Unequal(self, anObject) }
 	< { :self :anObject | LessThan(self, anObject) }
 	> { :self :anObject | GreaterThan(self, anObject) }
 	<= { :self :anObject | LessThanOrEqual(self, anObject) }
