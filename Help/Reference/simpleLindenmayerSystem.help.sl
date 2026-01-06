@@ -71,6 +71,36 @@ A Sierpiński pentagon:
 
 ![](sw/spl/Help/Image/simpleLindenmayerSystem-C.svg)
 
+First iteration of a simple rule and an intitial string specifying a square:
+
+~~~spl svg=D
+'F'.simpleLindenmayerSystem(
+	[1/2.pi -1/2.pi],
+	[
+		'F' -> 'F+F-F-FF+F+F-F'
+	],
+	'F+F+F+F',
+	1
+).Line
+~~~
+
+![](sw/spl/Help/Image/simpleLindenmayerSystem-D.svg)
+
+The second iteration of a related rule:
+
+~~~spl svg=E
+'F'.simpleLindenmayerSystem(
+	[1/2.pi -1/2.pi],
+	[
+		'F' -> 'FF+F-F+F+FF'
+	],
+	'F+F+F+F',
+	2
+).Line
+~~~
+
+![](sw/spl/Help/Image/simpleLindenmayerSystem-E.svg)
+
 * * *
 
 See also: substitutionSystem
