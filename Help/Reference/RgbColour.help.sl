@@ -12,6 +12,15 @@ with an `alpha` channel.
 ('rgb(255,0,0)', true)
 ```
 
+Plot as colour swatch,
+a blue-green close to the Munsell blue-green:
+
+~~~spl svg=A
+RgbColour([0 0.65 0.61], 1)
+~~~
+
+![](sw/spl/Help/Image/RgbColour-A.svg)
+
 * * *
 
 See also: asColour, Colour, HsvColour, srgbEncode

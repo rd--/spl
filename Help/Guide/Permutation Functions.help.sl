@@ -113,6 +113,10 @@ Shuffle Functions:
 - `sattoloShuffle`
 - `spiralShuffle`
 
+Traversal Functions:
+
+- `farthestFirstTraversal`
+
 * * *
 
 Guides: Mathematical Functions

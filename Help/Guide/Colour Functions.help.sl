@@ -12,6 +12,7 @@ Constructors:
 
 - `HsvColour`
 - `greyLevel`
+- `RybColour`
 
 Accessing:
 
@@ -32,23 +33,24 @@ Catalogues:
 
 Converting:
 
-- `asColour`: as Colour
-- `cmyToRgb`: Cmy to Rgb
-- `hslToHsv`: Hsl to Hsv
-- `hslToRgb`: Hsl to Rgb
-- `hsvToHsl`: Hsv to Hsl
-- `hsvToRgb`: Hsv to Rgb
-- `labToXyz`: Lab to Xyz
-- `lchToLuv`: Lch to Luv
-- `luvToXyz`: Luc to Xyz
-- `oklabToXyz`: Oklab to Xyz
-- `rgbToHsl`: Rgb to Hsl
-- `rgbToHsv`: Rgb to Hsv
-- `rgbToXyz`: Rgb to Xyz
-- `xyyToXyz`: Xyy to Xyz
-- `xyzToOklab`: Xyz to Oklab
-- `xyzToRgb`: Xyz to Rgb
-- `xyzToXyy`: Xyz to Xyy
+- `asColour`
+- `cmyToRgb`
+- `hslToHsv`
+- `hslToRgb`
+- `hsvToHsl`
+- `hsvToRgb`
+- `labToXyz`
+- `lchToLuv`
+- `luvToXyz`
+- `oklabToXyz`
+- `rgbToHsl`
+- `rgbToHsv`
+- `rgbToXyz`
+- `rybToRgb`
+- `xyyToXyz`
+- `xyzToOklab`
+- `xyzToRgb`
+- `xyzToXyy`
 
 Printing:
 

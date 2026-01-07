@@ -40,6 +40,7 @@ Sort:
 Kinds of Sorts:
 
 - `colexicographicSort`
+- `farthestFirstTraversal`
 - `lexicographicSort`
 - `reverseColexicographicSort`
 - `reverseLexicographicSort`

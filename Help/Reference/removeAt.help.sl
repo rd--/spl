@@ -1,8 +1,8 @@
 # removeAt
 
-- _removeAt(aCollection, anInteger)_
+- _removeAt(c, i)_
 
-Remove the element at the index _anInteger_ from _aCollection_.
+Remove the element at the index _i_ from the collection _c_.
 Answers the removed element.
 
 Remove first item of a `List`, see also `removeFirst`:

@@ -61,6 +61,16 @@ The Euclidean distance in two dimensions is the straight line distance:
 2.sqrt
 ```
 
+Distance from _(0,1,0)_ to each of a set of vectors:
+
+```
+>>> [1 1 0; 0 1 0; 1 1 1; 0.5 0.5 0.5]
+>>> .collect { :v |
+>>> 	[0 1 0].euclideanDistance(v)
+>>> }
+[1 0 2 0.75].sqrt
+```
+
 * * *
 
 See also: -, abs, brayCurtisDistance, canberraDistance, chessboardDistance, editDistance, hammingDistance, manhattanDistance, norm

@@ -264,6 +264,20 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.collect(rgb:/1)
 	}
 
+	RybColour { :ryb :alpha |
+		ryb.isVector.if {
+			RgbColour(ryb.rybToRgb, alpha)
+		} {
+			ryb.collect { :each |
+				RybColour(each, alpha)
+			}
+		}
+	}
+
+	RybColour { :ryb |
+		RybColour(ryb, 1)
+	}
+
 }
 
 +SmallFloat {
@@ -613,6 +627,32 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 			[0.0193, 0.1192, 0.9505]
 		];
 		m.dot(self)
+	}
+
+	rybToRgb { :ryb |
+		let [r, y, b] = ryb;
+		let rybTable = (
+			white: [1 1 1],
+			red: [1 0 0],
+			yellow: [1 1 0],
+			blue: [0.163 0.373 0.6],
+			violet: [0.5 0 0.5],
+			green: [0 0.66 0.2],
+			orange: [1 0.5 0],
+			black: [0.2 0.094 0.0]
+		);
+		[1 2 3].collect { :i |
+			[
+				rybTable['white'][i] * (1 - r) * (1 - b) * (1 - y),
+				rybTable['red'][i] * r * (1 - b) * (1 - y),
+				rybTable['blue'][i] * (1 - r) * b * (1 - y),
+				rybTable['violet'][i] * r * b * (1 - y),
+				rybTable['yellow'][i] * (1 - r) * (1 - b) * y,
+				rybTable['orange'][i] * r * (1 - b) * y,
+				rybTable['green'][i] * (1 - r) * b * y,
+				rybTable['black'][i] * r * b * y
+			].sum
+		}
 	}
 
 	saturate { :self |

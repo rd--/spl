@@ -29,10 +29,10 @@ At `List`:
 2.sqrt
 
 >>> [1 2 3].norm
-3.7417
+14.sqrt
 
 >>> [1 -2 3].norm
-3.7417
+14.sqrt
 
 >>> [2 2 2].norm
 12.sqrt
@@ -46,7 +46,12 @@ As square root of sum of squares:
 ```
 >>> let v = [1 .. 5];
 >>> v.norm
-(v ^ 2).sum.sqrt
+v.square.sum.sqrt
+
+>>> let v = [1 .. 5];
+>>> let p = 2;
+>>> v.norm(2)
+(v ^ p).sum ^ (1 / p)
 ```
 
 As square root of `dot` with `conjugate`:
@@ -57,7 +62,7 @@ As square root of `dot` with `conjugate`:
 v.dot(v.conjugate).sqrt
 ```
 
-C.f. `hypot`:
+C.f. `hypotenuse`:
 
 ```
 >>> [3 4].norm

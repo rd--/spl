@@ -913,3 +913,31 @@
 	}
 
 }
+
++List {
+
+	farthestFirstTraversal { :self :k :distanceFunction:/2 :reductionFunction:/1 |
+		let answer = [self[k]];
+		let remaining = self.copy;
+		remaining.removeAt(k);
+		{ remaining.isEmpty }.whileFalse {
+			let distances = remaining.collect { :p |
+				reductionFunction(
+					answer.collect { :q |
+						distanceFunction(p, q)
+					}
+				)
+			};
+			let maxDistance = distances.max;
+			let index = distances.indexOf(maxDistance);
+			answer.add(remaining[index]);
+			remaining.removeAt(index)
+		};
+		answer
+	}
+
+	farthestFirstTraversal { :self |
+		self.farthestFirstTraversal(1, euclideanDistance:/2, min:/1)
+	}
+
+}
