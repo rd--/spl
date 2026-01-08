@@ -142,14 +142,20 @@ digits of successive base-two numbers:
 )
 ```
 
-The first nine three-tuples of the base-three counting system:
+The 3×3×3 three-tuples of the base-three counting system:
 
 ```
->>> [0 1 2].tuples(3).first(9)
+>>> [0 1 2].tuples(3)
 [
 	0 0 0; 0 0 1; 0 0 2;
 	0 1 0; 0 1 1; 0 1 2;
-	0 2 0; 0 2 1; 0 2 2
+	0 2 0; 0 2 1; 0 2 2;
+	1 0 0; 1 0 1; 1 0 2;
+	1 1 0; 1 1 1; 1 1 2;
+	1 2 0; 1 2 1; 1 2 2;
+	2 0 0; 2 0 1; 2 0 2;
+	2 1 0; 2 1 1; 2 1 2;
+	2 2 0; 2 2 1; 2 2 2
 ]
 ```
 
@@ -186,7 +192,8 @@ Each occurrence of an element is picked separately:
 All possible trigrams of A and B:
 
 ```
->>> ['A' 'B'].tuples(3).collect(stringJoin:/1)
+>>> ['A' 'B'].tuples(3)
+>>> .collect(stringJoin:/1)
 [
 	'AAA' 'AAB' 'ABA' 'ABB'
 	'BAA' 'BAB' 'BBA' 'BBB'

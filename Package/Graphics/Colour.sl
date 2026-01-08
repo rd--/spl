@@ -629,30 +629,24 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		m.dot(self)
 	}
 
-	rybToRgb { :ryb |
+	rybToRgb { :ryb :colourTable |
 		let [r, y, b] = ryb;
-		let rybTable = (
-			white: [1 1 1],
-			red: [1 0 0],
-			yellow: [1 1 0],
-			blue: [0.163 0.373 0.6],
-			violet: [0.5 0 0.5],
-			green: [0 0.66 0.2],
-			orange: [1 0.5 0],
-			black: [0.2 0.094 0.0]
-		);
 		[1 2 3].collect { :i |
 			[
-				rybTable['white'][i] * (1 - r) * (1 - b) * (1 - y),
-				rybTable['red'][i] * r * (1 - b) * (1 - y),
-				rybTable['blue'][i] * (1 - r) * b * (1 - y),
-				rybTable['violet'][i] * r * b * (1 - y),
-				rybTable['yellow'][i] * (1 - r) * (1 - b) * y,
-				rybTable['orange'][i] * r * (1 - b) * y,
-				rybTable['green'][i] * (1 - r) * b * y,
-				rybTable['black'][i] * r * b * y
+				colourTable['white'][i] * (1 - r) * (1 - b) * (1 - y),
+				colourTable['red'][i] * r * (1 - b) * (1 - y),
+				colourTable['blue'][i] * (1 - r) * b * (1 - y),
+				colourTable['violet'][i] * r * b * (1 - y),
+				colourTable['yellow'][i] * (1 - r) * (1 - b) * y,
+				colourTable['orange'][i] * r * (1 - b) * y,
+				colourTable['green'][i] * (1 - r) * b * y,
+				colourTable['black'][i] * r * b * y
 			].sum
 		}
+	}
+
+	rybToRgb { :ryb |
+		rybToRgb(ryb, system.rybColourTable)
 	}
 
 	saturate { :self |
@@ -948,6 +942,21 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.requireLibraryItem(
 			'ColourCheckerChart'
 		)
+	}
+
+	rybColourTable { :self |
+		self.cached('RybColourTable') {
+			(
+				white: [1 1 1],
+				red: [1 0 0],
+				yellow: [1 1 0],
+				blue: [0.163 0.373 0.6],
+				violet: [0.5 0 0.5],
+				green: [0 0.66 0.2],
+				orange: [1 0.5 0],
+				black: [0.2 0.094 0.0]
+			)
+		}
 	}
 
 	svgColourCatalogue { :self |

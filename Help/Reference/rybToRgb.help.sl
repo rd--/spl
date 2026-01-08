@@ -31,6 +31,36 @@ Cyan is blue and green:
 [0.0815 0.5165 0.4]
 ```
 
+The conversion is in relation to a colour table:
+
+```
+>>> system.rybColourTable.isRecord
+true
+
+>>> system.rybColourTable.keys
+[
+	'white'
+	'red'
+	'yellow'
+	'blue'
+	'violet'
+	'green'
+	'orange'
+	'black'
+]
+```
+
+Draw colour table:
+
+~~~spl svg=A
+system.rybColourTable
+.values
+.enclose
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/rybToRgb-A.svg)
+
 * * *
 
 See also: hsvToRgb, RgbColour, RybColour
