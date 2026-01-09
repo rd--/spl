@@ -47,7 +47,7 @@ Where supported `degree` is displayed as °.
 
 * * *
 
-See also: angleVector, arcMinute, arcSecond, arcSin, degrees, fromDms, pi, sin
+See also: angleVector, arcMinute, arcSecond, arcSin, degrees, fromDms, pi, sin, unitDegree
 
 Guides: Mathematical Constants, Polynomial Functions, Trigonometric Functions
 

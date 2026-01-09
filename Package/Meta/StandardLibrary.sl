@@ -155,6 +155,7 @@
 	'ColourPalette'
 	'Greymap'
 	'Image'
+	'NaturalColourSystem'
 	'PerspectiveDrawing'
 	'Svg'
 	'Plot' /* Interval, LineDrawing */

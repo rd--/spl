@@ -10,6 +10,12 @@ The triplet must have a leading number sign.
 ```
 >>> '#98ECE8'.parseHexTriplet
 [0.59608 0.92549 0.90980]
+
+>>> '#FECB00'.parseHexTriplet * 255
+[254 203 0]
+
+>>> '#005293'.parseHexTriplet * 255
+[0 82 147]
 ```
 
 The triplet can, in fact, have four places, indicating an _alpha_ channel:

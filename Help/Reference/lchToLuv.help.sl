@@ -45,6 +45,8 @@ Guides: Colour Functions
 
 References:
 _Python_
-[1](https://colour.readthedocs.io/en/develop/generated/colour.LCHuv_to_Luv.html)
+[1](https://colour.readthedocs.io/en/develop/generated/colour.LCHuv_to_Luv.html),
+_W_
+[1](https://en.wikipedia.org/wiki/HCL_color_space)
 
 Categories: Colour

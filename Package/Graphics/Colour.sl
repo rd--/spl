@@ -12,6 +12,23 @@
 		self.rgb.third
 	}
 
+	chroma { :self :method |
+		method.caseOf(
+			[
+				'P' -> {
+					let [r, g, b] = self.rgb;
+					let alpha = 0.5 * ((2 * r) - g - b);
+					let beta = (3.sqrt / 2) * (g - b);
+					(alpha.square + beta.square).sqrt
+				},
+				'R' -> {
+					let rgb = self.rgb;
+					rgb.max - rgb.min
+				}
+			]
+		)
+	}
+
 	drawing { :self |
 		[
 			'<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">',
@@ -31,6 +48,10 @@
 		'#' ++ c.collect { :each |
 			(each * 255).round.byteHexString
 		}.stringCatenate
+	}
+
+	hsl { :self |
+		self.rgb.rgbToHsl
 	}
 
 	hsv { :self |
@@ -134,6 +155,10 @@
 		self.rgb.first
 	}
 
+	relativeLuminance { :self |
+		(self.rgb * [0.2126 0.7152 0.0722]).sum
+	}
+
 	rgba { :self |
 		self.rgb ++ [self.alpha]
 	}
@@ -216,14 +241,6 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		)
 	}
 
-	hsv { :self |
-		self.collect(hsv:/1)
-	}
-
-	hue { :self |
-		self.collect(hue:/1)
-	}
-
 	isBlue { :self |
 		self.asColour.isBlue
 	}
@@ -256,14 +273,6 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		newRgbColour().initializeSlots(self, alpha)
 	}
 
-	rgba { :self |
-		self.collect(rgba:/1)
-	}
-
-	rgb { :self |
-		self.collect(rgb:/1)
-	}
-
 	RybColour { :ryb :alpha |
 		ryb.isVector.if {
 			RgbColour(ryb.rybToRgb, alpha)
@@ -292,6 +301,10 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 	asColour { :self |
 		self.greyLevel
+	}
+
+	black { :alpha |
+		RgbColour([0 0 0], alpha)
 	}
 
 	blue { :alpha |
@@ -398,17 +411,13 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		].catenate.saturate
 	}
 
+	white { :alpha |
+		RgbColour([1 1 1], alpha)
+	}
+
 }
 
 +List {
-
-	adobeRgbDecode { :self |
-		self.collect(adobeRgbDecode:/1)
-	}
-
-	adobeRgbEncode { :self |
-		self.collect(adobeRgbEncode:/1)
-	}
 
 	adobeRgbToXyz { :self |
 		let m = [
@@ -593,21 +602,6 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		}
 	}
 
-	xyzToOklab { :self |
-		let xyzToLms = [
-			[0.8189330101,  0.3618667424, -0.1288597137],
-			[0.0329845436,  0.9293118715,  0.0361456387],
-			[0.0482003018,  0.2643662691,  0.6338517070]
-		];
-		let lmsToLab = [
-			[0.2104542553,  0.7936177850, -0.0040720468],
-			[1.9779984951, -2.4285922050,  0.4505937099],
-			[0.0259040371,  0.7827717662, -0.8086757660]
-		];
-		let lms = xyzToLms.dot(self);
-		lmsToLab.dot(lms.cubeRoot)
-	}
-
 	rgbToHsl { :self |
 		self.rgbToHsv.hsvToHsl
 	}
@@ -723,6 +717,15 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.collect(srgbEncode:/1)
 	}
 
+	xyzToAdobeRgb { :self |
+		let m = [
+			+2.0413690 -0.5649464 -0.3446944;
+			-0.9692660 +1.8760108 +0.0415560;
+			+0.0134474 -0.1183897 +1.0154096
+		];
+		m.dot(self)
+	}
+
 	xyzToLab { :self :reference |
 		let [x, y, z] = self;
 		let [rx, ry, rz] = reference;
@@ -783,13 +786,19 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		self.xyzToLuv(d65)
 	}
 
-	xyzToAdobeRgb { :self |
-		let m = [
-			+2.0413690 -0.5649464 -0.3446944;
-			-0.9692660 +1.8760108 +0.0415560;
-			+0.0134474 -0.1183897 +1.0154096
+	xyzToOklab { :self |
+		let xyzToLms = [
+			[0.8189330101,  0.3618667424, -0.1288597137],
+			[0.0329845436,  0.9293118715,  0.0361456387],
+			[0.0482003018,  0.2643662691,  0.6338517070]
 		];
-		m.dot(self)
+		let lmsToLab = [
+			[0.2104542553,  0.7936177850, -0.0040720468],
+			[1.9779984951, -2.4285922050,  0.4505937099],
+			[0.0259040371,  0.7827717662, -0.8086757660]
+		];
+		let lms = xyzToLms.dot(self);
+		lmsToLab.dot(lms.cubeRoot)
 	}
 
 	xyzToRgb { :self |
@@ -851,6 +860,12 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 		} {
 			catalogueName.caseOf(
 				[
+					'Crayola' -> {
+						system
+						.crayolaColourCatalogue
+						.at(colourName)
+						.asColour
+					},
 					'Svg' -> {
 						system
 						.svgColourCatalogue
@@ -921,11 +936,15 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 }
 
-+List {
++Nil {
 
-	namedColour { :self |
-		self.collect(namedColour:/1)
+	asColour { :unused |
+		RgbColour([0 0 0], 0)
 	}
+
+}
+
++List {
 
 	namedColour { :k :c |
 		k.collect { :i |
@@ -935,12 +954,59 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 
 }
 
++List {
+
+	adobeRgbDecode { :self |
+		self.collect(adobeRgbDecode:/1)
+	}
+
+	adobeRgbEncode { :self |
+		self.collect(adobeRgbEncode:/1)
+	}
+
+	chroma { :self :method |
+		self.collect { :each |
+			each.chroma(method)
+		}
+	}
+
+	hsl { :self |
+		self.collect(hsl:/1)
+	}
+
+	hsv { :self |
+		self.collect(hsv:/1)
+	}
+
+	hue { :self |
+		self.collect(hue:/1)
+	}
+
+	namedColour { :self |
+		self.collect(namedColour:/1)
+	}
+
+	rgba { :self |
+		self.collect(rgba:/1)
+	}
+
+	rgb { :self |
+		self.collect(rgb:/1)
+	}
+
+}
 
 +System {
 
 	colourCheckerChart { :self |
 		self.requireLibraryItem(
 			'ColourCheckerChart'
+		)
+	}
+
+	crayolaColourCatalogue { :self |
+		self.requireLibraryItem(
+			'CrayolaColourCatalogue'
 		)
 	}
 
@@ -991,6 +1057,18 @@ LibraryItem(
 	parser: { :libraryItem |
 		libraryItem.collect { :each |
 			each.parseHexTriplet
+		}
+	}
+)
+
+LibraryItem(
+	name: 'CrayolaColourCatalogue',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/crayola.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			each / 255
 		}
 	}
 )

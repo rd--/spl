@@ -3,11 +3,20 @@
 - _hue(c)_
 
 Answer the _hue_ of the colour _c_.
-`hue` is the first element of `hsv`.
 
 ```
 >>> RgbColour([0.75 1 0.75], 1).hue
 1/3
+```
+
+`hue` is the first element of both `hsv` and `hsl`.
+
+```
+>>> let c = 'Svg'.namedColour(
+>>> 	'CornflowerBlue'
+>>> );
+>>> (c.hue, c.hsl[1], c.hsv[1])
+(0.6071, 0.6071, 0.6071)
 ```
 
 Threads over lists:
@@ -174,6 +183,12 @@ system.svgColourDictionary
 
 * * *
 
-See also: Colour, HsvColour, hsv, hsvToRgb
+See also: chroma, Colour, HsvColour, hsl, hsv, hsvToRgb
+
+Guides: Colour Functions
+
+References:
+_W_
+[1](https://en.wikipedia.org/wiki/Hue)
 
 Categories: Accessing, Colour

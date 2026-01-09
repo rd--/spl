@@ -1,6 +1,6 @@
 # turboGradient
 
-- _turboGradient(aNumber)_
+- _turboGradient(n)_
 
 A polynomial approximation for the _Turbo_ colour gradient.
 

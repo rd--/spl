@@ -12,12 +12,22 @@ The value is in _(0,1)_.
 ```
 
 At `Number`,
-answer a red colour value with the alpha channel set to _aNumber_.
+answer a red colour value with the alpha channel set to _x_:
 
 ```
 >>> 0.65.red
 RgbColour([1 0 0], 0.65)
 ```
+
+Plot reds with increasing α:
+
+~~~spl svg=A
+[0, 0.1 .. 1].collect(red:/1)
+.enclose
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/red-A.svg)
 
 * * *
 

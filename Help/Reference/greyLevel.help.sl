@@ -1,12 +1,19 @@
 # greyLevel
 
-- _greyLevel(n, α)_
+- _greyLevel(n, α=1)_
 
 Answer a colour in the greyscale color space with grey level _n_ and alpha transparency _α_.
 
 ```
 >>> 0.5.greyLevel(0.75)
 RgbColour([0.5 0.5 0.5], 0.75)
+```
+
+The unary form:
+
+```
+>>> 0.5.greyLevel
+RgbColour([0.5, 0.5, 0.5], 1)
 ```
 
 Plot a 10×10 matrix of varying shades of grey and alpha:

@@ -12,12 +12,14 @@ Constructors:
 
 - `HsvColour`
 - `greyLevel`
+- `NcsColour`
 - `RybColour`
 
 Accessing:
 
 - `alpha`
 - `blue`
+- `chroma`
 - `green`
 - `hsv`
 - `hue`
@@ -27,6 +29,7 @@ Accessing:
 
 Catalogues:
 
+- `crayolaColourCatalogue`
 - `namedColour`
 - `svgColourCatalogue`
 - `svgColourDictionary`
@@ -41,7 +44,9 @@ Converting:
 - `hsvToRgb`
 - `labToXyz`
 - `lchToLuv`
+- `luvToLch`
 - `luvToXyz`
+- `ncsToRgb`
 - `oklabToXyz`
 - `rgbToHsl`
 - `rgbToHsv`
@@ -92,6 +97,7 @@ Parsers and Printers:
 
 - `parseHexColour`
 - `parseHexTriplet`
+- `parseNcs`
 - `parseRgbColour`
 - `parseRgbTriplet`
 

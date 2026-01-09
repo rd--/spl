@@ -16,7 +16,8 @@ If the _alpha_ channel is one it is not given:
 '#A3D9D9'
 ```
 
-If the _alpha_ channel is not `one` it is given:
+If the _alpha_ channel is not `one` it is given,
+and the answer is not a triplet but a quartet:
 
 ```
 >>> RgbColour([0.2 0.5 0.7], 0.9)

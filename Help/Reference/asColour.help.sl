@@ -43,6 +43,14 @@ At `RgbColour` answer `identity`:
 RgbColour([1 0 0], 1)
 ```
 
+At `Nil` answer black with α=0,
+a transparent colour:
+
+```
+>>> nil.asColour
+RgbColour([0, 0, 0], 0)
+```
+
 A blue colour patch:
 
 ~~~spl svg=A

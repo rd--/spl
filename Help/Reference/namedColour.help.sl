@@ -1,11 +1,10 @@
-# namedColourPalette
+# namedColour
 
-- _namedColourPalette(l, c)_
-- _namedColourPalette(c)_
+- _namedColour(k, c)_
 
 Answer a `Colour` by looking up the colour name _c_ in the colour catalogue _k_.
 
-The binary form is a direct lookup for catalogue name _k_, and palette name _c_:
+The binary form is a direct lookup for catalogue name _k_ and colour name _c_:
 
 Lookup _Orange_ in the _Svg_ catalogue:
 
@@ -135,6 +134,24 @@ A rainbow:
 ~~~
 
 ![](sw/spl/Help/Image/namedColour-G.svg)
+
+A rainbow from the Crayola catalogue:
+
+~~~spl svg=G
+'Crayola'.namedColour(
+	[
+		'Red'
+		'Orange'
+		'Yellow'
+		'Green'
+		'Blue (I)'
+		'Indigo'
+		'Violet (I)'
+	]
+).enclose.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/namedColour-H.svg)
 
 * * *
 

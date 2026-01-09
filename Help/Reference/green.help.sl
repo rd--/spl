@@ -1,23 +1,36 @@
 # green
 
-- _green(aColour | aNumber)_
+- _green(x)_
 
 At `Colour`,
-answer the value of the _green_ channel of _aColour_.
+answer the value of the _green_ channel of _x_.
 The value is in _(0,1)_.
 
 ```
->>> HsvColour([111 / 360, 0.5, 0.5], 1).green
+>>> HsvColour(
+>>> 	[111.unitDegree 0.5 0.5],
+>>> 	1
+>>> ).green
 0.5
 ```
 
 At `Number`,
-answer a green colour value with the alpha channel set to _aNumber_.
+answer a green colour value with the alpha channel set to _x_:
 
 ```
 >>> 0.65.green
 RgbColour([0 1 0], 0.65)
 ```
+
+Plot greens with increasing α:
+
+~~~spl svg=A
+[0, 0.1 .. 1].collect(green:/1)
+.enclose
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/green-A.svg)
 
 * * *
 

@@ -22,7 +22,8 @@ At `List`:
 At `RgbColour`:
 
 ```
->>> RgbColour([1 0.8 0.25], 1).srgbEncode
+>>> RgbColour([1 0.8 0.25], 1)
+>>> .srgbEncode
 RgbColour([1 0.9063 0.5371], 1)
 ```
 

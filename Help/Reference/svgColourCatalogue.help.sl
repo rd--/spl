@@ -22,7 +22,7 @@ true
 ```
 
 Lookup a colour,
-lookup is case-sensitive and named are given in all lower case:
+lookup is case-sensitive and names are given in all lower case:
 
 ```
 >>> system
@@ -32,18 +32,31 @@ lookup is case-sensitive and named are given in all lower case:
 'rgb(176,224,230)'
 ```
 
-Display a 13×13 table of all of the colours,
+Display a 10×15 table of all of the colours,
 the end of the table recycles earlier colours:
 
 ~~~spl svg=A
 system
 .svgColourCatalogue
 .values
-.reshape([13 13 3])
+.reshape([10 15 3])
 .arrayPlot
 ~~~
 
 ![](sw/spl/Help/Image/svgColourCatalogue-A.svg)
+
+Sorted lexicographically:
+
+~~~spl svg=B
+system
+.svgColourCatalogue
+.values
+.lexicographicSort
+.reshape([10 15 3])
+.arrayPlot
+~~~
+
+![](sw/spl/Help/Image/svgColourCatalogue-B.svg)
 
 _Note:_
 The catalogue is a `LibraryItem`,
