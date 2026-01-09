@@ -1060,7 +1060,7 @@ system.categoryDictionary.categorizeDictionary('method', { :each | each.asMethod
 		'parseDoubleQuotedString'
 		'parseFraction'
 		'parseHexColour'
-		'parseHexString'
+		'parseBase16'
 		'parseSmallInteger'
 		'parseJson'
 		'parseLargeInteger'

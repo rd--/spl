@@ -153,6 +153,14 @@ A rainbow from the Crayola catalogue:
 
 ![](sw/spl/Help/Image/namedColour-H.svg)
 
+Colour swatch for _NCS S 0580-Y10R_:
+
+~~~spl svg=I
+'Ncs'.namedColour('S 0580-Y10R')
+~~~
+
+![](sw/spl/Help/Image/namedColour-I.svg)
+
 * * *
 
 See also: Colour, parseHexColour, parseHexTriplet, parseRgbColour

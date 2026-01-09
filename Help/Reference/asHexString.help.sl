@@ -30,7 +30,7 @@ At `AsciiString`:
 
 * * *
 
-See also: asciiByteArray, AsciiString, asHexDigit, base64Encode, parseBase16, String
+See also: asciiByteArray, AsciiString, asHexDigit, base16Decode, base16Encode, String
 
 Guides: String Functions
 

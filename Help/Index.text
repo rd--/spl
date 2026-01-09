@@ -105,6 +105,7 @@ Guide/Integer Sequence Functions.help.sl
 Guide/Integer Sequences.help.sl
 Guide/Integer Syntax.help.sl
 Guide/Interpolation Functions.help.sl
+Guide/Interval Functions.help.sl
 Guide/Iteration Functions.help.sl
 Guide/Leading Dot Notation.help.sl
 Guide/Let Syntax.help.sl
@@ -170,6 +171,7 @@ Guide/Program Syntax.help.sl
 Guide/Property Read Syntax.help.sl
 Guide/Property Syntax.help.sl
 Guide/Property Write Syntax.help.sl
+Guide/Protocol Functions.help.sl
 Guide/Quantity Functions.help.sl
 Guide/Quaternion Functions.help.sl
 Guide/Radix Syntax.help.sl
@@ -634,6 +636,7 @@ Reference/binaryDistance.help.sl
 Reference/binaryExpansion.help.sl
 Reference/Binary.help.sl
 Reference/BinaryLargeObject.help.sl
+Reference/binaryMatrix.help.sl
 Reference/binaryReflectedGrayCode.help.sl
 Reference/binarySearch.help.sl
 Reference/binarySearchLeftmost.help.sl
@@ -671,6 +674,7 @@ Reference/bitXor.help.sl
 Reference/BivariatePolynomial.help.sl
 Reference/bjorklundsAlgorithmDo.help.sl
 Reference/bjorklundsAlgorithm.help.sl
+Reference/black.help.sl
 Reference/blackmanHarrisWindow.help.sl
 Reference/blackmanNuttallWindow.help.sl
 Reference/blackmanWindow.help.sl
@@ -789,6 +793,7 @@ Reference/ceiling.help.sl
 Reference/Ceiling.help.sl
 Reference/centerArray.help.sl
 Reference/centeredHexagonalNumber.help.sl
+Reference/centeredInterval.help.sl
 Reference/centeredPolygonalNumber.help.sl
 Reference/centeredRectangle.help.sl
 Reference/centimetres.help.sl
@@ -820,6 +825,7 @@ Reference/chordDiagramCount.help.sl
 Reference/ChordDiagram.help.sl
 Reference/chordDiagramPlot.help.sl
 Reference/chordDiagrams.help.sl
+Reference/chroma.help.sl
 Reference/chunksOfFrom.help.sl
 Reference/chunksOf.help.sl
 Reference/circleCurve.help.sl
@@ -883,6 +889,7 @@ Reference/colourCheckerChart.help.sl
 Reference/ColourChooser.help.sl
 Reference/ColourGradient.help.sl
 Reference/colourGradients.help.sl
+Reference/ColourGrid.help.sl
 Reference/Colour.help.sl
 Reference/ColourPalette.help.sl
 Reference/colourPalettes.help.sl
@@ -1006,6 +1013,7 @@ Reference/CpsMidi.help.sl
 Reference/CpsOct.help.sl
 Reference/Crackle.help.sl
 Reference/cramersRule.help.sl
+Reference/crayolaColourCatalogue.help.sl
 Reference/crc16.help.sl
 Reference/createObjectUrl.help.sl
 Reference/crossedMultiply.help.sl
@@ -1277,6 +1285,7 @@ Reference/enclose.help.sl
 Reference/encodeFloat32.help.sl
 Reference/encodeFloat64.help.sl
 Reference/encode.help.sl
+Reference/encodeIni.help.sl
 Reference/encodeInt16.help.sl
 Reference/encodeInt32.help.sl
 Reference/encodeOn.help.sl
@@ -1387,6 +1396,7 @@ Reference/false.help.sl
 Reference/fareyDiagram.help.sl
 Reference/fareySequence.help.sl
 Reference/farOutPoint.help.sl
+Reference/farthestFirstTraversal.help.sl
 Reference/fastWalshHadamardTransform.help.sl
 Reference/faurePermutation.help.sl
 Reference/FbSineC.help.sl
@@ -1573,6 +1583,8 @@ Reference/Geometry.help.sl
 Reference/gergonnePoint.help.sl
 Reference/GetTempo.help.sl
 Reference/gijswijtsSequence.help.sl
+Reference/gitHubFileUrl.help.sl
+Reference/gitLabFileUrl.help.sl
 Reference/glaisher.help.sl
 Reference/gluLookAt.help.sl
 Reference/gluPerspective.help.sl
@@ -1715,6 +1727,7 @@ Reference/Hpf.help.sl
 Reference/Hpz1.help.sl
 Reference/Hpz2.help.sl
 Reference/href.help.sl
+Reference/hsl.help.sl
 Reference/hslToHsv.help.sl
 Reference/hslToRgb.help.sl
 Reference/HsvColour.help.sl
@@ -1914,12 +1927,15 @@ Reference/isBase64String.help.sl
 Reference/isBeckettGrayCode.help.sl
 Reference/isBigEndian.help.sl
 Reference/isBinary.help.sl
+Reference/isBinaryMatrix.help.sl
 Reference/isBisymmetricMatrix.help.sl
+Reference/isBit.help.sl
 Reference/isBitString.help.sl
 Reference/isBitVector.help.sl
 Reference/isBlank.help.sl
 Reference/isBlankLine.help.sl
 Reference/isBlock.help.sl
+Reference/isBlue.help.sl
 Reference/isBooleanString.help.sl
 Reference/isByte.help.sl
 Reference/isCachedPrime.help.sl
@@ -1941,6 +1957,7 @@ Reference/isConstantStructure.help.sl
 Reference/isConvex.help.sl
 Reference/isCoprime.help.sl
 Reference/isCubicResidue.help.sl
+Reference/isCyan.help.sl
 Reference/isCyclicGrayCode.help.sl
 Reference/isDateAndTimeString.help.sl
 Reference/isDateString.help.sl
@@ -1980,6 +1997,8 @@ Reference/isGaussianPrime.help.sl
 Reference/isGeometricProgression.help.sl
 Reference/isGraveAccent.help.sl
 Reference/isGrayCode.help.sl
+Reference/isGreen.help.sl
+Reference/isGrey.help.sl
 Reference/isHalfInteger.help.sl
 Reference/isHamiltonianInteger.help.sl
 Reference/isHappyNumber.help.sl
@@ -2022,6 +2041,7 @@ Reference/isLowerCase.help.sl
 Reference/isLowerTriangularMatrix.help.sl
 Reference/isLukasiewiczWord.help.sl
 Reference/isLyndonWord.help.sl
+Reference/isMagenta.help.sl
 Reference/isMagicSquare.help.sl
 Reference/isMatrix.help.sl
 Reference/isMatrixOf.help.sl
@@ -2086,6 +2106,7 @@ Reference/isQuadraticResidue.help.sl
 Reference/isQuotationMark.help.sl
 Reference/isRadixIntegerString.help.sl
 Reference/isRational.help.sl
+Reference/isRed.help.sl
 Reference/isRefactorableNumber.help.sl
 Reference/isRegular.help.sl
 Reference/isRegularlySampled.help.sl
@@ -2165,6 +2186,7 @@ Reference/isVowel.help.sl
 Reference/isWeakPrime.help.sl
 Reference/isWeirdNumber.help.sl
 Reference/isYamanouchiWord.help.sl
+Reference/isYellow.help.sl
 Reference/isZero.help.sl
 Reference/Iterable.help.sl
 Reference/iterate.help.sl
@@ -2325,6 +2347,7 @@ Reference/LfTri.help.sl
 Reference/lHospitalQuintic.help.sl
 Reference/library.help.sl
 Reference/LibraryItem.help.sl
+Reference/liftplanMatrix.help.sl
 Reference/lightnessCie.help.sl
 Reference/limacon.help.sl
 Reference/limitDenominator.help.sl
@@ -2637,6 +2660,7 @@ Reference/namedAlphabet.help.sl
 Reference/namedAxonometricProjection.help.sl
 Reference/namedCartographicProjection.help.sl
 Reference/namedColourGradient.help.sl
+Reference/namedColour.help.sl
 Reference/namedColourPalette.help.sl
 Reference/namedConstant.help.sl
 Reference/NamedControl.help.sl
@@ -2650,6 +2674,8 @@ Reference/NaN.help.sl
 Reference/narayanaNumber.help.sl
 Reference/narayanaSequence.help.sl
 Reference/Navigator.help.sl
+Reference/NcsColour.help.sl
+Reference/ncsToRgb.help.sl
 Reference/nearest.help.sl
 Reference/nearestNeighbourAlgorithm.help.sl
 Reference/nearestNeighbourGraph.help.sl
@@ -2841,12 +2867,13 @@ Reference/parseDuration.help.sl
 Reference/parseFraction.help.sl
 Reference/parseFractionSeparatedBy.help.sl
 Reference/parseHexColour.help.sl
-Reference/parseHexString.help.sl
 Reference/parseHexTriplet.help.sl
 Reference/parseHtml.help.sl
+Reference/parseIni.help.sl
 Reference/parseJson.help.sl
 Reference/parseLargeInteger.help.sl
 Reference/parseMethodSignature.help.sl
+Reference/parseNcs.help.sl
 Reference/parseNumber.help.sl
 Reference/parseRgbColour.help.sl
 Reference/parseRgbTriplet.help.sl
@@ -3351,6 +3378,8 @@ Reference/runLengthsOf.help.sl
 Reference/runLengthTransform.help.sl
 Reference/RunningSum.help.sl
 Reference/runSequencePlot.help.sl
+Reference/RybColour.help.sl
+Reference/rybToRgb.help.sl
 Reference/sageSmallGraphCatalogue.help.sl
 Reference/SampleDur.help.sl
 Reference/SampleRate.help.sl
@@ -3716,6 +3745,7 @@ Reference/survivalFunction.help.sl
 Reference/sutherlandHodgmanAlgorithm.help.sl
 Reference/Svf.help.sl
 Reference/svgColourCatalogue.help.sl
+Reference/svgColourDictionary.help.sl
 Reference/svgFragment.help.sl
 Reference/Svg.help.sl
 Reference/SvgViewer.help.sl
@@ -3794,9 +3824,11 @@ Reference/theodorusSpiral.help.sl
 Reference/theta.help.sl
 Reference/third.help.sl
 Reference/thomasAlgorithm.help.sl
+Reference/threadingMatrix.help.sl
 Reference/threshold.help.sl
 Reference/thueMorse.help.sl
 Reference/thueMorseSequence.help.sl
+Reference/tieupMatrix.help.sl
 Reference/tilde.help.sl
 Reference/Time.help.sl
 Reference/TimeInterval.help.sl
@@ -3940,6 +3972,7 @@ Reference/unitaryDivisorSigma.help.sl
 Reference/unitBox.help.sl
 Reference/unitCircle.help.sl
 Reference/unitCube.help.sl
+Reference/unitDegree.help.sl
 Reference/unitDodecahedron.help.sl
 Reference/unit.help.sl
 Reference/unitIcosahedron.help.sl
@@ -4028,6 +4061,7 @@ Reference/warpingMatrices.help.sl
 Reference/warpingPlot.help.sl
 Reference/wattsCurve.help.sl
 Reference/WeakMap.help.sl
+Reference/WeavingInformationFile.help.sl
 Reference/WebSocket.help.sl
 Reference/wedderburnEtheringtonNumbers.help.sl
 Reference/weeks.help.sl
@@ -4047,6 +4081,7 @@ Reference/whenCached.help.sl
 Reference/which.help.sl
 Reference/whileFalse.help.sl
 Reference/whileTrue.help.sl
+Reference/white.help.sl
 Reference/WhiteNoise.help.sl
 Reference/whiteSpaceDelimitedWordAtIndex.help.sl
 Reference/WienerProcess.help.sl

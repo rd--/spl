@@ -185,11 +185,22 @@ ByteArray! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Col
 
 +String {
 
-	base16Decode { :self |
-		self.parseBase16
+	base16DecodeInto { :self :where |
+		<primitive:
+		for(let i = 0; i < _self.length; i++) {
+			_where[i] = parseInt(_self.substr(i * 2, 2), 16);
+		};
+		return _where;
+		>
 	}
 
-	base64Decode { :self |
+	[base16Decode, parseBase16] { :self |
+		self.base16DecodeInto(
+			ByteArray(self.size / 2)
+		)
+	}
+
+	[base64Decode, parseBase64] { :self |
 		<primitive:
 		const binaryString = atob(_self);
 		return Uint8Array.from(binaryString, function(m) {
@@ -200,25 +211,6 @@ ByteArray! : [Object, Storeable, Equatable, Comparable, Iterable, Indexable, Col
 
 	crc16 { :self |
 		self.utf8ByteArray.crc16
-	}
-
-	parseBase16Into { :self :where |
-		<primitive:
-		for(let i = 0; i < _self.length; i++) {
-			_where[i] = parseInt(_self.substr(i * 2, 2), 16);
-		};
-		return _where;
-		>
-	}
-
-	parseBase64 { :self |
-		self.base64Decode
-	}
-
-	parseBase16 { :self |
-		self.parseBase16Into(
-			ByteArray(self.size / 2)
-		)
 	}
 
 }

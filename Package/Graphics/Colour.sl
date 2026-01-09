@@ -866,6 +866,12 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 						.at(colourName)
 						.asColour
 					},
+					'Ncs' -> {
+						system
+						.ncsColourCatalogue
+						.at(colourName)
+						.asColour
+					},
 					'Svg' -> {
 						system
 						.svgColourCatalogue
@@ -905,7 +911,7 @@ RgbColour : [Object, Storeable, Equatable, Colour] { | rgb alpha |
 				}
 			};
 			(k = 9).if {
-				let a = (k = 9).if { self.copyFromTo(8, 9) } { 'FF' };
+				let a = self.copyFromTo(8, 9);
 				f([r, g, b, a])
 			} {
 				f([r, g, b])

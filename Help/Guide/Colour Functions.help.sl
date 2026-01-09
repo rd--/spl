@@ -31,6 +31,7 @@ Catalogues:
 
 - `crayolaColourCatalogue`
 - `namedColour`
+- `ncsColourCatalogue`
 - `svgColourCatalogue`
 - `svgColourDictionary`
 
@@ -87,11 +88,23 @@ Gradients and Palettes:
 - `parula`
 - `quilezGradient`
 
+Lookup Functions:
+
+- `ncsLookup`
+
 Names:
 
 - `namedColour`
 - `namedColourGradient`
 - `namedColourPalette`
+
+Natural Colour System:
+
+- `NcsColour`
+- `ncsColourCatalogue`
+- `ncsLookup`
+- `ncsToRgb`
+- `parseNcs`
 
 Parsers and Printers:
 

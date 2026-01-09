@@ -10,7 +10,7 @@
 		if (C1 !== 'N') {
 			const S = (1.05 * Sn - 5.25);
 			const C = Cn;
-			let Ra = nil, Ba = nil, Ga = nil;
+			let Ra = null, Ba = null, Ga = null;
 			if (C1 === 'Y' && N <= 60) {
 				Ra = 1
 			} else if ((C1 === 'Y' && N > 60) || (C1 === 'R' && N <= 80)) {
@@ -81,6 +81,16 @@
 		NcsColour(self.parseNcs)
 	}
 
+	ncsLookup { :self |
+		self.beginsWith('NCS ').if {
+			system.ncsColourCatalogue.at(
+				self.drop(4)
+			).asColour
+		} {
+			self.error('ncsLookup')
+		}
+	}
+
 	parseNcs { :self |
 		/* https://github.com/m90/ncs-color/ */
 		<primitive:
@@ -97,3 +107,26 @@
 	}
 
 }
+
++System {
+
+	ncsColourCatalogue { :self |
+		self.requireLibraryItem(
+			'NcsColourCatalogue'
+		)
+	}
+
+}
+
+LibraryItem(
+	name: 'NcsColourCatalogue',
+	category: 'Graphics/Colour',
+	url: 'https://rohandrape.net/sw/hsc3-data/data/colour/ncs.json',
+	mimeType: 'application/json',
+	parser: { :libraryItem |
+		libraryItem.collect { :each |
+			let b = each.parseBase16;
+			b.contents / 255
+		}
+	}
+)
