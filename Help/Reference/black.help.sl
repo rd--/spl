@@ -7,7 +7,7 @@ answer a black colour value with the alpha channel set to _x_:
 
 ```
 >>> 0.65.black
-RgbColour([0 0 1], 0.65)
+RgbColour([0 0 0], 0.65)
 ```
 
 Plot blacks with increasing α:

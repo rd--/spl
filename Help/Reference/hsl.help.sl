@@ -15,7 +15,7 @@ Threads over lists:
 ```
 >>> [1.red 1.green 1.blue].hsl
 [
-	  1 1 1/2;
+	  0 1 1/2;
 	1/3 1 1/2;
 	2/3 1 1/2
 ]

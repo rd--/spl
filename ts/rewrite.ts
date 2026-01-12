@@ -12,6 +12,14 @@ export const context = {
 	methodBodyInitialSourceTable: new Map(), // key=core,value=initial
 };
 
+function deleteUnderscores(text: string): string {
+	return text.replaceAll('_', '');
+}
+
+function deleteLeadingZeroes(s: string): string {
+	return s.replace(/^0+(?!\.|$)/, '');
+}
+
 function initContext(name: string): void {
 	// console.debug('initContext');
 	context.packageName = name;
@@ -42,10 +50,6 @@ function genSym(prefix: string): string {
 	return `${prefix}${genSymCounter}`;
 }
 */
-
-function clearLeadingZeroes(s: string): string {
-	return s.replace(/^0+(?!\.|$)/, '');
-}
 
 function genArityCheck(k: number, a: string): string {
 	return [
@@ -306,7 +310,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	smallIntegerLiteral(s, i) {
 		// Allow 03 for 3 and -03 for -3
-		const x = parseInt(i.sourceString);
+		const x = parseInt(deleteUnderscores(i.sourceString));
 		if (Number.isSafeInteger(x)) {
 			return `${s.sourceString + x}`;
 		} else {
@@ -315,10 +319,7 @@ const asJs: ohm.ActionDict<string> = {
 	},
 	largeIntegerLiteral(s, i, _l) {
 		const sT = s.sourceString;
-		let iT = i.sourceString.replace(/^0+/, '');
-		if (iT.length === 0) {
-			iT = '0';
-		}
+		let iT = deleteLeadingZeroes(i.sourceString);
 		return `${sT}${iT}n`;
 	},
 	lowercaseIdentifier(c1, cN) {
@@ -678,7 +679,7 @@ const asSl: ohm.ActionDict<string> = {
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
-		return s.sourceString + clearLeadingZeroes(i.sourceString) + '.' +
+		return s.sourceString + deleteLeadingZeroes(i.sourceString) + '.' +
 			f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {
@@ -709,7 +710,7 @@ const asSl: ohm.ActionDict<string> = {
 		return n.sourceString;
 	},
 	largeIntegerLiteral(s, i, _l) {
-		return s.sourceString + i.sourceString + 'L';
+		return s.sourceString + deleteUnderscores(i.sourceString) + 'L';
 	},
 	lowercaseIdentifier(c1, cN) {
 		return c1.sourceString + cN.sourceString;
@@ -731,7 +732,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	radixIntegerLiteral(s, b, _r, i) {
 		const r = Number.parseInt(
-			s.sourceString + i.sourceString,
+			s.sourceString + deleteUnderscores(i.sourceString),
 			Number.parseInt(b.sourceString, 10),
 		);
 		if (Number.isNaN(r)) {

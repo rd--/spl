@@ -31,6 +31,20 @@ Integer literals may have leading zeroes:
 [23 023]
 ```
 
+Integer literals allow underscores to be used as separators:
+
+```
+>>> 123_456_789
+123456789
+```
+
+The seperators do not need to be in the traditional places:
+
+```
+>>> 12_34_56_78
+123345678
+```
+
 `Scientific Notation`:
 
 ```
@@ -72,6 +86,13 @@ Complex(3, 4)
 20880467999847912034355032910567L
 ```
 
+Underscores are allowed:
+
+```
+>>> 123_456_789L
+123456789L
+```
+
 Radix literals:
 
 ```
@@ -80,6 +101,13 @@ Radix literals:
 
 >>> 2r101101110
 366
+```
+
+Underscores are allowed:
+
+```
+>>> 2r1011_0111_0101
+2r101101110101
 ```
 
 * * *
