@@ -23,7 +23,7 @@ system.colourGradients[
 
 ![](sw/spl/Help/Image/ColourGradient-A.svg)
 
-The `namedColourGradient` answers a `ColourGradient` value:
+The method `namedColourGradient` answers a `ColourGradient` value:
 
 ~~~spl svg=B
 'Kovesi/Linear-Bmy-10-95-C78'

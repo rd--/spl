@@ -242,36 +242,28 @@
 		self.atAllUsing(indexList, at:/2)
 	}
 
-	atAll { :self :primaryIndices :secondaryIndices |
-		self.atAll(primaryIndices).collect { :each |
-			each.atAll(secondaryIndices)
-		}
-	}
-
-	atAll { :self :primaryIndices :secondaryIndices :tertiaryIndices |
-		self.atAll(primaryIndices).collect { :each |
-			each.atAll(secondaryIndices, tertiaryIndices)
-		}
-	}
-
 	atAllFold { :self :indexList |
 		self.atAllUsing(indexList, atFold:/2)
 	}
 
-	atOrMissingAll { :self :indexList |
-		self.atAllUsing(indexList, atOrMissing:/2)
-	}
-
-	atOrNilAll { :self :indexList |
-		self.atAllUsing(indexList, atOrNil:/2)
+	atAllPath { :self :indicesMatrix |
+		let k = indicesMatrix.size;
+		(k = 0).if {
+			self.error('atAllPath: no indices')
+		} {
+			let a = self.atAll(indicesMatrix[1]);
+			(k = 1).if {
+				a
+			} {
+				a.collect { :each |
+					each.atAllPath(indicesMatrix.allButFirst)
+				}
+			}
+		}
 	}
 
 	atAllPin { :self :indexList |
 		self.atAllUsing(indexList, atPin:/2)
-	}
-
-	atAllPath { :self :indexList |
-		self.atAllUsing(indexList, atPath:/2)
 	}
 
 	atAllPut { :self :anObject |
@@ -313,6 +305,14 @@
 	atMod { :self :index |
 		let n = self.size;
 		self[index - 1 % n + 1]
+	}
+
+	atOrMissingAll { :self :indexList |
+		self.atAllUsing(indexList, atOrMissing:/2)
+	}
+
+	atOrNilAll { :self :indexList |
+		self.atAllUsing(indexList, atOrNil:/2)
 	}
 
 	atPin { :self :index |

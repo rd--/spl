@@ -10,8 +10,9 @@ Plot the continuous gradient of the the four colour _Rgby_ palette,
 from the _WallStreetJournal_ collection of `colourPalettes`:
 
 ~~~spl svg=A
-system
-.colourPalettes['WallStreetJournal', 'Rgby']
+system.colourPalettes
+.at('WallStreetJournal')
+.at('Rgby')
 .asContinuousColourGradient
 ~~~
 

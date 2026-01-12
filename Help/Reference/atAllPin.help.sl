@@ -1,8 +1,8 @@
 # atAllPin
 
-- _atAllPin(s₁, s₂)_
+- _atAllPin(c, [i₁ i₂ …])_
 
-Answer the elements of the seqence _s₁_ at each index in the sequence _s₂_ if possible.
+Answer the elements of the collection _c_ at each index in the sequence _i_ if possible.
 Answer the first or last element if index is out of bounds.
 
 ```

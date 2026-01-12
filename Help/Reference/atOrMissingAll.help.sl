@@ -17,4 +17,6 @@ or `Missing` if the index is invalid.
 
 * * *
 
-See also: atAll, atOrMissing, Missing
+See also: atAll, atOrMissing, atOrNilAll, Missing
+
+Guides: Indexing Functions

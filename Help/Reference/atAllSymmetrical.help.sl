@@ -1,6 +1,6 @@
 # atAllSymmetrical
 
-- _atAllSymmetrical(c, i)_
+- _atAllSymmetrical(c, [i₁ i₂ …])_
 
 Answer the items at integer indices _i_ in the sequence _c_.
 For negative indices answer the item at the specified number of places from the end.

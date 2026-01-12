@@ -1,8 +1,8 @@
 # ColourPalette
 
-- _ColourPalette(aList)_
+- _ColourPalette([c₁ c₂ …])_
 
-A `Type` representing a colour palette.
+A `Type` representing a colour palette specified as a sequence of colours _c_.
 
 A colour palette specifed in _Hex-Triplet_ notation:
 
@@ -22,7 +22,8 @@ A colour palette specifed in _Hex-Triplet_ notation:
 The `namedColourPalette` method answers a `ColourPalette` value:
 
 ~~~spl svg=B
-'Superfishel Stone'.namedColourPalette
+'Tableau/Superfishel Stone'
+.namedColourPalette
 ~~~
 
 ![](sw/spl/Help/Image/ColourPalette-B.svg)

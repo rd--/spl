@@ -1,8 +1,8 @@
 # atPin
 
-- _atPin(s, i)_
+- _atPin(c, i)_
 
-Answer the element of the seqence _s_ at the index _i_ if possible.
+Answer the element of the collection _c_ at the index _i_ if possible.
 Answer the first or last element if the index is out of bounds.
 
 ```
