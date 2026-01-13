@@ -86,7 +86,7 @@ Complex(3, 4)
 20880467999847912034355032910567L
 ```
 
-Underscores are allowed:
+Underscores are allowed as separators:
 
 ```
 >>> 123_456_789L
@@ -103,7 +103,7 @@ Radix literals:
 366
 ```
 
-Underscores are allowed:
+Underscores are allowed as separators:
 
 ```
 >>> 2r1011_0111_0101

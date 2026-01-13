@@ -1,8 +1,8 @@
 # matrixResample
 
-- _matrixResample(aMatrix, shape)_
+- _matrixResample(m, ⍴)_
 
-Answer a matrix that is the bilinear resampling of _aMatrix_ to have the specified _shape_.
+Answer a matrix that is the bilinear resampling of the matrix _m_ to have the specified shape _⍴_.
 
 Resample a 3×3 matrix to a 6×6 matrix:
 

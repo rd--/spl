@@ -679,7 +679,7 @@ const asSl: ohm.ActionDict<string> = {
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
-		return s.sourceString + deleteLeadingZeroes(i.sourceString) + '.' +
+		return s.sourceString + deleteLeadingZeroes(deleteUnderscores(i.sourceString)) + '.' +
 			f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {

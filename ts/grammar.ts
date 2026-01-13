@@ -176,7 +176,7 @@ Sl {
     rangeLiteralItem = integerLiteral | identifier
 	rangeFromToByLiteral = rangeLiteralItem ":" rangeLiteralItem ":" integerLiteral
 	rangeFromToLiteral = rangeLiteralItem ":" rangeLiteralItem
-	floatLiteral = plusOrMinus? digit+ "." digit+
+	floatLiteral = plusOrMinus? decimalDigits "." digit+
 	decimalLiteral = floatDecimalLiteral | integerDecimalLiteral
 	floatDecimalLiteral = plusOrMinus? digit+ "." digit+ "D" (digit+)? // ("d" | "D")
 	integerDecimalLiteral = plusOrMinus? digit+ "D" (digit+)? // ("d" | "D")
