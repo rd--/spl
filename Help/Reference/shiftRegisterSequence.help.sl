@@ -87,6 +87,21 @@ i.shiftRegisterSequence(t, n)
 
 ![](sw/spl/Help/Image/shiftRegisterSequence-A.png)
 
+The NES linear-feedback shift register:
+
+~~~spl svg=B
+let i = List(15, 1);
+let t = [1, 2];
+let n = 165;
+shiftRegisterSequence(i, t, n)
+.partition(15, 1)
+.collect { :each |
+	each.reverse.fromDigits(2)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/shiftRegisterSequence-B.svg)
+
 * * *
 
 See also: deBruijnGraph, deBruijnSequence, elementaryCellularAutomaton, linearRecurrence, nestList, randomInteger

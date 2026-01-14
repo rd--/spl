@@ -253,6 +253,21 @@ let f:/1 = { :n |
 
 ![](sw/spl/Help/Image/bitXor-H.svg)
 
+Implement and plot a simple linear-feedback shift register:
+
+~~~spl svg=I
+{ :x |
+	let a = x.bitAnd(1);
+	let b = x.bitShiftRight(1);
+	let c = b.bitAnd(1);
+	let d = a.bitXor(c);
+	let e = d.bitShiftLeft(14);
+	x.bitShiftRight(1).bitOr(e)
+}.nestList(16r7FFF, 127).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/bitXor-I.svg)
+
 * * *
 
 See also: bitAnd, bitNot, bitOr, xor
