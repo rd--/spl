@@ -253,16 +253,18 @@ let f:/1 = { :n |
 
 ![](sw/spl/Help/Image/bitXor-H.svg)
 
-Implement and plot a simple linear-feedback shift register:
+Implement and plot a simple linear-feedback shift register used by Nintendo,
+the low two bits are _Xor_-ed,
+all bits are shifted right by one,
+and the result of the _Xor_ is put into the now-empty high bit:
 
 ~~~spl svg=I
 { :x |
-	let a = x.bitAnd(1);
-	let b = x.bitShiftRight(1);
-	let c = b.bitAnd(1);
-	let d = a.bitXor(c);
-	let e = d.bitShiftLeft(14);
-	x.bitShiftRight(1).bitOr(e)
+	let a = x.bitAt(1);
+	let b = x.bitAt(2);
+	let c = a.bitXor(b);
+	let d = c.bitShiftLeft(14);
+	x.bitShiftRight(1).bitOr(d)
 }.nestList(16r7FFF, 127).scatterPlot
 ~~~
 

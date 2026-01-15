@@ -68,8 +68,10 @@
 		self.typeResponsibility('@Binary>>bitOr')
 	}
 
-	bitXor { :self :anInteger |
-		self.typeResponsibility('@Binary>>bitXor')
+	bitSet { :self :anInteger |
+		self.bitOr(
+			1.bitShift(anInteger)
+		)
 	}
 
 	bitShift { :self :anInteger |
@@ -78,6 +80,10 @@
 		} {
 			self << anInteger
 		}
+	}
+
+	bitXor { :self :anInteger |
+		self.typeResponsibility('@Binary>>bitXor')
 	}
 
 	highBit { :self |

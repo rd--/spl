@@ -69,7 +69,12 @@ OEIS [A005041](https://oeis.org/A005041):
 ]
 ```
 
-Table[n+1, {n, 0, 20}, {Ceiling[(n+1)/3]+1}] // Flatten
+The unary operator form is `>`:
+
+```
+>>> 3.141.>
+4
+```
 
 Ceiling is a staircase function:
 

@@ -61,6 +61,15 @@ Form a number from digits:
 451678
 ```
 
+Form an alternating sum:
+
+```
+>> [`a` `b` `c` `d` `e`]
+>> .reverse
+>> .injectInto(0, -.swap)
+(- a (- b (- c (- d (- e 0)))))
+```
+
 Successively partition a list:
 
 ```
@@ -97,6 +106,33 @@ At the empty and one-element lists:
 >>> [1].injectInto(0, +)
 1
 ```
+
+Generate all subsets of a set:
+
+```
+>>> [1 2 3].injectInto([[]]) { :s :e |
+>>> 	s ++ s.collect { :x |
+>>> 		(x ++ [e])
+>>> 	}
+>>> }
+[; 1; 2; 1 2; 3; 1 3; 2 3; 1 2 3]
+```
+
+An explicit form of the primitive recursive function _r(z,r(s,r(s,r(s,p(2)))))_:
+
+~~~spl svg=A
+1:125.collect { :i |
+	1:i.injectInto(0) { :a :b |
+		1:a.injectInto(b) { :p :q |
+			let x = ((p + 2) / (q + 2));
+			let y = x.>.log(2).>;
+			2 ^ y * (q + 2) - 2 - p
+		}
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/injectInto-A.svg)
 
 * * *
 

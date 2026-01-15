@@ -315,7 +315,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		<primitive: return sc.encodeInt32(_self, _littleEndian);>
 	}
 
-	floor { :self |
+	[floor, <] { :self |
 		<primitive: return Math.floor(_self)>
 	}
 

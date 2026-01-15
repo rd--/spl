@@ -1,8 +1,9 @@
 # > (greaterThanSign)
 
 - _x > y_
+- _x.>_
 
-Answers `true` if _x_ is greater than _y_, else `false`.
+The binary form answers `true` if _x_ is greater than _y_, else `false`.
 
 ```
 >>> 1.pi > 1.e
@@ -30,6 +31,13 @@ When the arguments to `>` are `boole`, it is the material non-implication `Boole
 ```
 >>> ([0 1] >.table [0 1]).boole
 [0 0; 1 0]
+```
+
+The unary form is the operator for `ceiling`:
+
+```
+>>> 3.141.>
+4
 ```
 
 The name of this operator is `greaterThanSign`.

@@ -425,7 +425,7 @@
 +Ugen {
 
 	/*
-	ceiling { :self | <primitive: return sc.Ceil(_self);> }
+	[ceiling, >] { :self | <primitive: return sc.Ceil(_self);> }
 	fractionalPart { :self | <primitive: return sc.Frac(_self);> }
 	negate { :self | <primitive: return sc.Neg(_self);> }
 	reciprocal { :self | <primitive: return sc.Recip(_self);> }

@@ -1,8 +1,9 @@
 # < (lessThanSign)
 
 - _x < y_
+- _x.>_
 
-Answers `true` if _x_ is comparable with and less than _y_.
+The binary form answers `true` if _x_ is comparable with and less than _y_.
 Also known as strong inequality or strict inequality.
 
 At `Integer`:
@@ -71,6 +72,13 @@ selecting only items less than five:
 >>> let x = [3 1 4 1 5 9 2 6];
 >>> (x < 5).boole # x
 [3 1 4 1 2]
+```
+
+The unary form is the operator for `floor`:
+
+```
+>>> 3.141.<
+3
 ```
 
 The name of this operator is `lessThanSign`.

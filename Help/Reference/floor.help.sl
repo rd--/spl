@@ -78,6 +78,13 @@ OEIS [A007891](https://oeis.org/A007891):
 ]
 ```
 
+The unary operator form is `<`:
+
+```
+>>> 3.141.<
+3
+```
+
 Floor is a staircase function:
 
 ~~~spl svg=A

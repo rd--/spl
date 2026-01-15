@@ -157,7 +157,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		system.randomComplex([0J0, self], [])
 	}
 
-	ceiling { :self |
+	[ceiling, >] { :self |
 		Complex(self.real.ceiling, self.imaginary.ceiling)
 	}
 
@@ -216,7 +216,7 @@ Complex : [Object, Storeable, Equatable, Comparable, Number] { | real imaginary 
 		}
 	}
 
-	floor { :self |
+	[floor, <] { :self |
 		Complex(self.real.floor, self.imaginary.floor)
 	}
 

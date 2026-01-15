@@ -7,15 +7,16 @@ Types and Traits:
 
 Logic:
 
-- `bitAnd`: bitwise and
-- `bitNot`: bitwise not
-- `bitOr`: bitwise or
-- `bitXor`: bitwise exclusive or
+- `bitAnd`
+- `bitNot`
+- `bitOr`
+- `bitXor`: exclusive or
 
 Single-Bit:
 
-- `bitAt`: read bit
-- `bitAtPut`: write bit
+- `bitAt`
+- `bitAtPut`
+- `bitSet`
 
 Structural:
 

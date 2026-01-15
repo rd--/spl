@@ -104,7 +104,7 @@
 		self.collect(cantorStaircase:/1)
 	}
 
-	ceiling { :self |
+	[ceiling, >] { :self |
 		self.collect(ceiling:/1)
 	}
 
@@ -214,7 +214,7 @@
 		}
 	}
 
-	floor { :self |
+	[floor, <] { :self |
 		self.collect(floor:/1)
 	}
 

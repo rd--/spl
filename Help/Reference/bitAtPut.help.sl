@@ -2,8 +2,8 @@
 
 - _bitAtPut(n, k, b)_
 
-Set the bit corresponding to the coefficient of _2 ^ (k - 1)_ in the integer _n_ to _b_.
-_bitAtPut_ sets the bit _k - 1_ places from the right.
+Set the bit corresponding to the coefficient of _2^(k-1)_ in the integer _n_ to _b_.
+`bitAtPut` sets the bit _k-1_ places from the right.
 
 Display coefficients at powers of 2 in the integer 42:
 
@@ -50,7 +50,7 @@ Show which bits have been set:
 
 * * *
 
-See also: bitAt, BitSet, highBit, integerDigits, setBitAt
+See also: bitAt, bitSet, BitSet, highBit, integerDigits, setBitAt
 
 Guides: Bitwise Functions
 
