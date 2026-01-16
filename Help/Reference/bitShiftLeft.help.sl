@@ -34,6 +34,21 @@ Shift seven places to the left:
 4096
 ```
 
+At `SmallFloat` the integers are taken to be 32-bit signed integers:
+
+>>> 1.bitShiftLeft(31)
+-2147483648
+
+>>> 1L.bitShiftLeft(31)
+2147483648L
+
+>>> 1.bitShiftLeft(32)
+1
+
+>>> 1L.bitShiftLeft(32)
+4294967296L
+```
+
 `bitShiftLeft` works with numbers of any size:
 
 ```
@@ -56,6 +71,16 @@ The operator form is `<<`:
 ```
 >>> 32 << 7
 4096
+```
+
+At `LargeInteger`:
+
+```
+>>> 1L << 31
+2147483648L
+
+>>> 1 << 32L
+4294967296L
 ```
 
 Sierpiński’s triangle,
@@ -103,6 +128,8 @@ References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitShiftLeft.html),
 _OEIS_
-[1](https://oeis.org/A001317)
+[1](https://oeis.org/A001317),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-left-shift-operator)
 
 Categories: Bits, Binary

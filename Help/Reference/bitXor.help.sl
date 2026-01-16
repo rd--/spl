@@ -4,6 +4,11 @@
 
 Answer bitwise exclusive or of _i_ and _j_.
 
+```
+>>> 16r5A463CA6.bitXor(16r67376856)
+16r3D7154F0
+```
+
 Truth table:
 
 ```

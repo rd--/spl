@@ -1,31 +1,41 @@
-# > (greaterThanSign)
+# greater
 
 - _x > y_
-- _x.>_
 
-The binary form is `greater`:
+Answers `true` if _x_ is greater than _y_, else `false`.
+The operator form is `>`.
 
 ```
 >>> 1.pi > 1.e
 true
+
+>>> 3 ^ 3 > 23
+true
 ```
 
-The unary form is `ceiling`:
+Element-wise at `List`:
 
 ```
->>> 3.141.>
-4
+>>> [1 3 5 7 9] > [3 4 5 6 7]
+[false false false true true]
+
+>>> [1 .. 9] > [1 3 5 1 5 9 1 7 13]
+[
+	false false false true false
+	false true true false
+]
 ```
 
-The name of this operator is `greaterThanSign`.
+When the arguments to `>` are `boole`, it is the material non-implication `Boolean` function:
 
-_Rationale_:
-In J the ceiling operator is _>._,
-in Apl it is _⌈_.
+```
+>>> ([0 1] >.table [0 1]).boole
+[0 0; 1 0]
+```
 
 * * *
 
-See also: >=, |>, <, <=, ceiling, greater, Magnitude
+See also: >, >=, |>, <, <=, greaterEqual, less, Magnitude
 
 Guides: Comparison Functions, Sort Functions
 

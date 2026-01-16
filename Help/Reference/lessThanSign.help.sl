@@ -3,78 +3,14 @@
 - _x < y_
 - _x.>_
 
-The binary form answers `true` if _x_ is comparable with and less than _y_.
-Also known as strong inequality or strict inequality.
-
-At `Integer`:
+The binary form is `less`:
 
 ```
 >>> 3 < 5
 true
 ```
 
-At `SmallFloat`:
-
-```
->>> 3.4 < 5.6
-true
-```
-
-At `Fraction`:
-
-```
->>> 3/4 < 5/6
-true
-```
-
-At `Complex`, inequalities are defined only for real numbers:
-
-```
->>> { 3J3 < 5J5 }.hasError
-true
-```
-
-Element-wise at `Sequence`:
-
-```
->>> [1 3 5 7 9] < [3 4 5 6 7]
-[true true false false false]
-```
-
-`String` and `Number` cannot be compared with each other:
-
-```
->>> { '5' < 3 }.hasError
-true
-
->>> { 5 < '3' }.hasError
-true
-```
-
-When the arguments to `<` are `boole`, it is the converse non-implication `Boolean` function:
-
-```
->>> ([0 1] <.table [0 1]).boole
-[0 1; 0 0]
-```
-
-Negative zero and positive zero are regarded as equal by the numerical comparison operations:
-
-```
->>> -0 < 0
-false
-```
-
-Create a mask to process a `List`,
-selecting only items less than five:
-
-```
->>> let x = [3 1 4 1 5 9 2 6];
->>> (x < 5).boole # x
-[3 1 4 1 2]
-```
-
-The unary form is the operator for `floor`:
+The unary form is `floor`:
 
 ```
 >>> 3.141.<
@@ -83,9 +19,13 @@ The unary form is the operator for `floor`:
 
 The name of this operator is `lessThanSign`.
 
+_Rationale_:
+In J the floor operator is _<._,
+in Apl it is _⌊_.
+
 * * *
 
-See also: =, !=, <=, >, >=, <=>, Magnitude
+See also: =, !=, <=, >, >=, <=>, less, lessEqual, Magnitude
 
 Guides: Binary Operators, Comparison Functions, Sort Functions
 

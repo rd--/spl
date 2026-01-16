@@ -2,28 +2,11 @@
 
 - _x <= y_
 
-Answers `true` if _x_ is less than or equal to _y_.
+The operator form of `lessEqual`:
 
 ```
 >>> 1.e <= 1.pi
 true
-
->>> 1.e <= 1.e
-true
-```
-
-Element-wise at `List`:
-
-```
->>> [1 3 5 7 9] <= [3 4 5 6 7]
-[true true true false false]
-```
-
-When the arguments to `<=` are `boole`, it is the material implication `Boolean` function:
-
-```
->>> ([0 1] <=.table [0 1]).boole
-[1 1; 0 1]
 ```
 
 Where supported `<=` is displayed as ≤.
@@ -32,7 +15,7 @@ The name of this operator is `lessThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, >=, =
+See also: <, >, >=, =, lessEqual
 
 Guides: Comparison Functions
 

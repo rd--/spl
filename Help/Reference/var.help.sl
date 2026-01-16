@@ -21,7 +21,7 @@ Declare three variables:
 (nil, nil, nil)
 ```
 
-A variables is assigned to using `:=`:
+A variable is assigned to using `:=`:
 
 ```
 >>> var x;

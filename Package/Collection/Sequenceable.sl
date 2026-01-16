@@ -2,16 +2,6 @@
 
 @Sequenceable {
 
-	/*
-	= { :self :anObject |
-		self.equalBy(anObject, =)
-	}
-
-	~ { :self :anObject |
-		self.equalBy(anObject, ~)
-	}
-	*/
-
 	+++ { :self :aList |
 		self ++.each aList
 	}

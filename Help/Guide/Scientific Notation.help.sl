@@ -61,6 +61,13 @@ The parser does not require that _1 <= a < 10_:
 1E3
 ```
 
+Equivalent `LargeInteger`:
+
+```
+>>> 1E20
+100000000000000000000L
+```
+
 * * *
 
 See also: e

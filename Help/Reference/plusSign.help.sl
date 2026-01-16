@@ -3,7 +3,7 @@
 - _m + n_
 - _m.+_
 
-The binary form is `plus`.
+The binary form is `plus`:
 
 ```
 >>> 3 + 4

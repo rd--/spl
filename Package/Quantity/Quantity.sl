@@ -1,6 +1,6 @@
 Quantity : [Object, Storeable, Equatable, Comparable, Magnitude, Frequency, Length, Mass, PlaneAngle, Time] { | magnitude unit |
 
-	< { :self :anObject |
+	[less, <] { :self :anObject |
 		self.isCommensurate(anObject).if {
 			self.magnitude < anObject.magnitude
 		} {

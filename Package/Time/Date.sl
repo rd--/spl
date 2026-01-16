@@ -1,6 +1,6 @@
 Date! : [Object, Storeable, Equatable, Comparable, Magnitude] {
 
-	< { :self :aDate |
+	[less, <] { :self :aDate |
 		self.absoluteTime < aDate.absoluteTime
 	}
 

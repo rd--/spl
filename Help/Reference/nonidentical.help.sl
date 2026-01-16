@@ -5,6 +5,7 @@
 Answers `true` if an object _p_ is not identical to another object _q_, else `false`.
 This is the non-identity operator.
 It decides if two values are not identical.
+The operator form is `!==`.
 
 At `Symbol`:
 

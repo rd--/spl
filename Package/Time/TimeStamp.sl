@@ -1,6 +1,6 @@
 TimeStamp : [Object, Storeable, Equatable, Comparable, Magnitude] { | absoluteTime |
 
-	< { :self :aTimeStamp |
+	[less, <] { :self :aTimeStamp |
 		self.absoluteTime < aTimeStamp.absoluteTime
 	}
 

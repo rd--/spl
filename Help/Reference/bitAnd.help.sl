@@ -8,6 +8,9 @@ Answers the bitwise and of the integers _i_ and _j_.
 ```
 >>> 61.bitAnd(15)
 13
+
+>>> 16r5A463CA6.bitAnd(16r67376856)
+16r42062806
 ```
 
 Threads over lists,

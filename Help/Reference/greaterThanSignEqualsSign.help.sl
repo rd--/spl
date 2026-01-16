@@ -2,30 +2,11 @@
 
 - _x >= y_
 
-Answers _true_ if the number _x_ is greater than or equal to the number _y_.
-
-At `SmallFloat`:
+The operator form of `greaterEqual`:
 
 ```
 >>> 1.pi >= 1.e
 true
-
->>> 1.pi >= 1.pi
-true
-```
-
-Element-wise at `List`:
-
-```
->>> [1 3 5 7 9] >= [3 4 5 6 7]
-[false false true true true]
-```
-
-When the arguments to `>=` are `boole`, it is the converse implication `Boolean` function:
-
-```
->>> ([0 1] >=.table [0 1]).boole
-[1 0; 1 1]
 ```
 
 Where supported `>=` is displayed as ≥.
@@ -34,7 +15,7 @@ The name of this operator is `greaterThanSignEqualsSign`.
 
 * * *
 
-See also: <, >, <=, =, !=, <=>, Magnitude
+See also: <, >, <=, =, !=, <=>, greaterEqual, Magnitude
 
 Guides: Comparison Functions
 

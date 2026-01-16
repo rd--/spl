@@ -4,6 +4,7 @@
 
 Answers `true` if the object _x_ is identical to another object _y_, else `false`.
 `identical` decides if two values are references to the same object.
+The operator form is `==`.
 
 Equal strings are identical:
 

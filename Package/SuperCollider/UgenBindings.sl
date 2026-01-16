@@ -390,10 +390,10 @@
 	Mod { :self :anObject | <primitive: return sc.Mod(_self, _anObject);> }
 	Equal { :self :anObject | <primitive: return sc.Eq(_self, _anObject);> }
 	Unequal { :self :anObject | <primitive: return sc.Ne(_self, _anObject);> }
-	LessThan { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
-	GreaterThan { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
-	LessThanOrEqual { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
-	GreaterThanOrEqual { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
+	Less { :self :anObject | <primitive: return sc.Lt(_self, _anObject);> }
+	Greater { :self :anObject | <primitive: return sc.Gt(_self, _anObject);> }
+	LessEqual { :self :anObject | <primitive: return sc.Le(_self, _anObject);> }
+	GreaterEqual { :self :anObject | <primitive: return sc.Ge(_self, _anObject);> }
 	Min { :self :anObject | <primitive: return sc.Min(_self, _anObject);> }
 	Max { :self :anObject | <primitive: return sc.Max(_self, _anObject);> }
 	BitAnd { :self :anObject | <primitive: return sc.BitAnd(_self, _anObject);> }
@@ -462,12 +462,12 @@
 	[mod, %] { :self :anObject | Mod(self, anObject) }
 	[equal, =] { :self :anObject | Equal(self, anObject) }
 	[unequal, !=] { :self :anObject | Unequal(self, anObject) }
-	< { :self :anObject | LessThan(self, anObject) }
-	> { :self :anObject | GreaterThan(self, anObject) }
-	<= { :self :anObject | LessThanOrEqual(self, anObject) }
-	>= { :self :anObject | GreaterThanOrEqual(self, anObject) }
-	<< { :self :anObject | ShiftLeft(self, anObject) }
-	>> { :self :anObject | ShiftRight(self, anObject) }
+	[less, <] { :self :anObject | LessThan(self, anObject) }
+	[greater, >] { :self :anObject | GreaterThan(self, anObject) }
+	[lessEqual, <=] { :self :anObject | LessThanOrEqual(self, anObject) }
+	[greaterEqual, >=] { :self :anObject | GreaterThanOrEqual(self, anObject) }
+	[bitShiftLeft, <<] { :self :anObject | ShiftLeft(self, anObject) }
+	[bitShiftRight, >>] { :self :anObject | ShiftRight(self, anObject) }
 
 }
 

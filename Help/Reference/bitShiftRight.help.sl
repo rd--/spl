@@ -35,6 +35,13 @@ Shift 7 places to the right, leaving no nonzero bits:
 0
 ```
 
+At negative integer:
+
+```
+>>> -4 >> 1
+-2
+```
+
 `bitShiftRight` works with numbers of any size:
 
 ```
@@ -83,6 +90,8 @@ Guides: Bitwise Functions
 References:
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/BitShiftRight.html),
+_Tc39_
+[1](https://tc39.es/ecma262/multipage/ecmascript-language-expressions.html#sec-signed-right-shift-operator),
 _W_
 [1](https://en.wikipedia.org/wiki/Binary_shift)
 

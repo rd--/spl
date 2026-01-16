@@ -1,6 +1,6 @@
 Decimal : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | fraction scale |
 
-	< { :self :operand |
+	[less, <] { :self :operand |
 		operand.isDecimal.if {
 			self.fraction < operand.fraction
 		} {

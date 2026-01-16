@@ -1,6 +1,6 @@
 Interval : [Object, Storeable, Equatable, Number] { | min max |
 
-	< { :self :operand |
+	[less, <] { :self :operand |
 		operand.isInterval.if {
 			self.max < operand.min
 		} {
@@ -8,7 +8,7 @@ Interval : [Object, Storeable, Equatable, Number] { | min max |
 		}
 	}
 
-	> { :self :operand |
+	[greater, >] { :self :operand |
 		operand < self
 	}
 

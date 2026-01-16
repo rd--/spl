@@ -2,7 +2,7 @@
 
 SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number, Integer, Binary] {
 
-	< { :self :anObject |
+	[less, <] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self < _anObject;
@@ -11,7 +11,7 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		anObject.adaptToNumberAndApply(self, <)
 	}
 
-	<= { :self :anObject |
+	[lessEqual, <=] { :self :anObject |
 		<primitive:
 		if(sl.isSmallFloat(_anObject)) {
 			return _self <= _anObject;

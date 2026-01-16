@@ -1,6 +1,6 @@
 Duration : [Object, Storeable, Equatable, Comparable, Magnitude] { | seconds |
 
-	< { :self :aDuration |
+	[less, <] { :self :aDuration |
 		self.seconds < aDuration.asDuration.seconds
 	}
 

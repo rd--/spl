@@ -32,19 +32,19 @@
 
 @SymbolicMagnitude {
 
-	< { :self :aMagnitude |
+	[less, <] { :self :aMagnitude |
 		'<'.symbolicPrimitive([self, aMagnitude])
 	}
 
-	<= { :self :aMagnitude |
+	[lessEqual, <=] { :self :aMagnitude |
 		'<='.symbolicPrimitive([self, aMagnitude])
 	}
 
-	> { :self :aMagnitude |
+	[greater, >] { :self :aMagnitude |
 		'>'.symbolicPrimitive([self, aMagnitude])
 	}
 
-	>= { :self :aMagnitude |
+	[greaterEqual, >=] { :self :aMagnitude |
 		'>='.symbolicPrimitive([self, aMagnitude])
 	}
 

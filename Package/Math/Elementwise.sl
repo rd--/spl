@@ -597,19 +597,19 @@
 		self.Fraction(aNumber)
 	}
 
-	< { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, <)
+	[less, <] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, less:/2)
 	}
 
-	<= { :self :anObject |
+	[lessEqual, <=] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, <=)
 	}
 
-	> { :self :anObject |
-		anObject.adaptToCollectionAndApply(self, >)
+	[greater, >] { :self :anObject |
+		anObject.adaptToCollectionAndApply(self, greater:/2)
 	}
 
-	>= { :self :anObject |
+	[greaterEqual, >=] { :self :anObject |
 		anObject.adaptToCollectionAndApply(self, >=)
 	}
 

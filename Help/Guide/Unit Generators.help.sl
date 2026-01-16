@@ -40,9 +40,9 @@
 
 - `Equal`
 - `GreaterThanOrEqual`
-- `GreaterThan`
+- `Greater`
 - `LessThanOrEqual`
-- `LessThan`
+- `Less`
 - `Unequal`
 
 ## Constants

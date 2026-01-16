@@ -1,20 +1,20 @@
 @Magnitude {
 
-	< { :self :aMagnitude |
+	[less, <] { :self :aMagnitude |
 		self.typeResponsibility('@Magnitude>><')
 	}
 
-	<= { :self :aMagnitude |
+	[lessEqual, <=] { :self :aMagnitude |
 		self < aMagnitude | {
 			self = aMagnitude
 		}
 	}
 
-	> { :self :aMagnitude |
+	[greater, >] { :self :aMagnitude |
 		aMagnitude < self
 	}
 
-	>= { :self :aMagnitude |
+	[greaterEqual, >=] { :self :aMagnitude |
 		aMagnitude <= self
 	}
 

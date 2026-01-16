@@ -5,18 +5,31 @@
 Answers the number _m_ raised to the power of _n_.
 The operator form is `^`.
 
-```
->>> 2L ^ 100L
-1267650600228229401496703205376L
+At `SmallFloat`:
 
+```
 >>> 2.square ^ 3
 64
 
 >>> 2 ^ 12
 4096
+```
 
+With negative exponent:
+
+```
 >>> 2 ^ -1
 1/2
+```
+
+At `LargeInteger`:
+
+```
+>>> 2L ^ 100
+1267650600228229401496703205376L
+
+>>> -2 ^ 111L
+-2596148429267413814265248164610048L
 ```
 
 Zero to the power of zero is one:

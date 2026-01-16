@@ -2,7 +2,7 @@
 
 LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Number, Integer] {
 
-	< { :self :anObject |
+	[less, <] { :self :anObject |
 		<primitive:
 		if (sl.isLargeInteger(_anObject) || sl.isSmallFloatInteger(_anObject)) {
 			return _self < BigInt(_anObject);

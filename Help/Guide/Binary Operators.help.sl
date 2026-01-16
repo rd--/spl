@@ -13,15 +13,16 @@ Arithmetic Operators:
 
 Equality Operators:
 
-- `=`
-- `==`
+- `=`, `equal`
+- `!=`, `unequal`
+- `==`, `identical`
 
 Comparison Operators:
 
-- `<`
-- `<=`
-- `>`
-- `>=`
+- `<`, `less`
+- `<=`, `lessEqual`
+- `>`, `greater`
+- `>=`, `greaterEqual`
 
 Logical Operators:
 

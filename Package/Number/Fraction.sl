@@ -1,6 +1,6 @@
 Fraction : [Object, Storeable, Equatable, Comparable, Magnitude, Number] { | numerator denominator |
 
-	< { :self :aNumber |
+	[less, <] { :self :aNumber |
 		aNumber.isFraction.if {
 			(self.numerator * aNumber.denominator) < (aNumber.numerator * self.denominator)
 		} {

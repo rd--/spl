@@ -2,7 +2,7 @@
 
 String! : [Object, Storeable, Equatable, Comparable, Json, Iterable, Indexable, Character] {
 
-	< { :self :operand |
+	[less, <] { :self :operand |
 		self.codePoint < operand.codePoint
 	}
 
