@@ -18,7 +18,7 @@ Read the `identifier`, `number`, `name`, `keywords`, `offset` and `data` fields:
 >>> 		e.identifier,
 >>> 		e.number,
 >>> 		e.name,
->>> 		e.keywords,
+>>> 		e.stableKeywords,
 >>> 		e.offset,
 >>> 		e.data.size,
 >>> 		e.bFileData.size

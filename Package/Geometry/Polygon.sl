@@ -316,6 +316,17 @@ Polygon : [Object, Storeable, Equatable, Geometry] { | vertexCoordinates |
 		starPolygon(p, q, [0 0], 1, 0)
 	}
 
+	trapezoid { :a :alpha :b :beta |
+		let p = (-a + b) * alpha.cos * (alpha + beta).csc * beta.sin;
+		let q = (-a + b) * (alpha + beta).csc * alpha.sin * beta.sin;
+		[
+			[0, 0],
+			[p, q],
+			[a + p, q],
+			[b, 0]
+		].Polygon
+	}
+
 }
 
 +@RandomNumberGenerator {

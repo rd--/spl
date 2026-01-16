@@ -197,7 +197,7 @@ ScSynth! : [Object] {
 
 	writeScSynDefFile { :self :scSynDefName :scSynDefFileName |
 		let graphDef = scSynDefName.encodeUgenAt(self.busOffset, self);
-		scSynDefFileName.writeBinaryFile(graphDef)
+		system.writeBinaryFile(scSynDefFileName, graphDef)
 	}
 
 }

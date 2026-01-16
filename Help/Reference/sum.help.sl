@@ -117,6 +117,25 @@ An instance of a family of cutoff, or weighting, functions that answer _-1/12_ f
 -1/12
 ```
 
+Log scale scatter plot of OEIS [A281488](https://oeis.org/A281488):
+
+~~~spl svg=A
+let a = [1];
+2:200.do { :n |
+	let m = n - 1;
+	a.add(
+		1:m.select { :d |
+			(n - 2) % d = 0
+		}.sum { :d |
+			a[d]
+		}.negate
+	)
+};
+a.logScale.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/sum-A.svg)
+
 Evaluate symbolically:
 
 ```

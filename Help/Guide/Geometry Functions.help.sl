@@ -148,11 +148,13 @@ Constructors:
 - `closedLine`
 - `equilateralTriangle`
 - `fordCircle`
+- `hexagonalSpiralPoints`
 - `parallelogram`
 - `polygonCollection`
 - `regularPolygon`
 - `spirangle`
 - `starPolygon`
+- `trapezoid`
 - `unitCircle`
 - `unitCube`
 - `unitDodecahedron`
@@ -260,6 +262,7 @@ Spiral Functions:
 - `doyleSpiral`
 - `eulerSpiral`
 - `evoluteSpiralMatrix`
+- `hexagonalSpiralPoints`
 - `inverseNorwichSpiral`
 - `logarithmicSpiral`
 - `norwichSpiral`

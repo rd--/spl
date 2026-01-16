@@ -21,6 +21,18 @@ The range is closed, it includes both the lower and upper bound.
 [9 7 5 3 1]
 ```
 
+Count backwards by seven,
+OEIS [A115020](https://oeis.org/A115020):
+
+```
+>>> Range([100 2 -7]).asList
+[
+	100  93  86  79  72  65
+	 58  51  44  37  30  23
+	 16   9  2
+]
+```
+
 Ordinarily the range is inclusive,
 both `start` and `stop` are elements of the answer.
 However the `step` value may specify a range that not include `stop`,

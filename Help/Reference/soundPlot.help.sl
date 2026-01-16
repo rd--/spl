@@ -1,8 +1,8 @@
 # soundPlot
 
-- _soundPlot(aSound, aNumber)_
+- _soundPlot(s, n)_
 
-Render _aNumber_ seconds of _aSound_,
+Render _n_ seconds of the sound _s_,
 which may have multiple channels,
 and plot the answer.
 

@@ -175,6 +175,24 @@ OEIS [A005114](https://oeis.org/A005114):
 ]
 ```
 
+Select _n_ where the cube of the number of divisors of _n_ is larger than _n_,
+OEIS [A056757](https://oeis.org/A056757):
+
+```
+>>> 1:99.select { :n |
+>>> 	0.divisorSigma(n) ^ 3 > n
+>>> }
+[
+	 2  3  4  5  6  7  8  9 10 12
+	14 15 16 18 20 21 22 24 25 26
+	27 28 30 32 33 34 35 36 38 39
+	40 42 44 45 46 48 50 51 52 54
+	55 56 57 58 60 62 63 64 66 68
+	70 72 75 76 78 80 81 84 88 90
+	92 96 98 99
+]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 

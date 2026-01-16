@@ -3,7 +3,7 @@
 - _bartlettWindow(x)_
 
 Answer the Bartlett window function at _x_.
-The Bartlett window is triangular.
+The Bartlett window is also called the triangular window or Fejér window.
 
 ```
 >>> 0.1.bartlettWindow

@@ -199,6 +199,17 @@ let f = { :n |
 
 ![](sw/spl/Help/Image/eulerPhi-D.svg)
 
+Plot [A076512](https://oeis.org/A076512):
+
+~~~spl svg=E
+1:86.collect { :n |
+	let phi = n.eulerPhi.asFraction;
+	((n - phi) / phi).denominator
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/eulerPhi-E.svg)
+
 * * *
 
 See also: divisors, factorInteger, gcd, lcm, powerMod, totientSummatoryFunction

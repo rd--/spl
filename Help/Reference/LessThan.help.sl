@@ -1,17 +1,17 @@
-# LessThan
+# Less
 
-- _LessThan(α, β)_
+- _Less(α, β)_
 
 Answer `one` if α is less than β, else `zero`.
 
 ```
->>> LessThan(0, 1)
+>>> Less(0, 1)
 1
 
->>> LessThan(1, 0)
+>>> Less(1, 0)
 0
 
->>> LessThan(1, 1)
+>>> Less(1, 1)
 0
 ```
 
@@ -21,7 +21,7 @@ Amplitude modulated pink noise:
 PinkNoise()
 .Times(
 	Lag(
-		LfSaw(1, -1).LessThan(0),
+		LfSaw(1, -1).Less(0),
 		0.1
 	)
 )
@@ -36,6 +36,6 @@ PinkNoise() * Lag(LfSaw(1, -1) < 0, 0.1) * 0.05
 
 * * *
 
-See also: GreaterThan, Plus, Times
+See also: Greater, Plus, Times
 
 Categories: Ugen

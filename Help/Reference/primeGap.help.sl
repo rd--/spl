@@ -42,6 +42,15 @@ OEIS [A001223](https://oeis.org/A001223):
 
 ![](sw/spl/Help/Image/primeGap-A.svg)
 
+Scatter plot of first few terms:
+
+~~~spl svg=B
+1:200.collect(primeGap:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/primeGap-B.svg)
+
 * * *
 
 See also: isPrime, nextPrime, prime

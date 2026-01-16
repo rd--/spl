@@ -70,9 +70,9 @@ Guides: Numerical Methods
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/TrapezoidalRule.html)
-[2](https://mathworld.wolfram.com/Newton-CotesFormulas.html)
+[2](https://mathworld.wolfram.com/Newton-CotesFormulas.html),
 _Mathworks_
-[1](https://mathworks.com/help/matlab/ref/trapz.html)
+[1](https://mathworks.com/help/matlab/ref/trapz.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Trapezoidal_rule)
 [2](https://en.wikipedia.org/wiki/Newton%E2%80%93Cotes_formulas)

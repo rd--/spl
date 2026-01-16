@@ -93,8 +93,56 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 		}
 	}
 
+	isChanged { :self |
+		self.keywords.includes('changed')
+	}
+
+	isConstant { :self |
+		self.keywords.includes('cons')
+	}
+
+	isCore { :self |
+		self.keywords.includes('core')
+	}
+
+	isEigensequence { :self |
+		self.keywords.includes('eigen')
+	}
+
+	isFinite { :self |
+		self.keywords.includes('fini')
+	}
+
+	isHard { :self |
+		self.keywords.includes('hard')
+	}
+
+	isIrregularTable { :self |
+		self.keywords.includes('tabf')
+	}
+
+	isMultiplicative { :self |
+		self.keywords.includes('mult')
+	}
+
+	isNice { :self |
+		self.keywords.includes('nice')
+	}
+
+	isNonNegative { :self |
+		self.keywords.includes('nonn')
+	}
+
+	isTable { :self |
+		self.keywords.includes('tabl')
+	}
+
 	isValid { :self |
 		self.identifier.isOeisIdentifier
+	}
+
+	isWalk { :self |
+		self.keywords.includes('walk')
 	}
 
 	jsonUrl { :self |
@@ -133,6 +181,13 @@ OeisEntry : [Object, Storeable, Equatable] { | identifier:<String> contents bFil
 		.splitBy(',')
 		.at(1)
 		.parseDecimalInteger
+	}
+
+	stableKeywords { :self |
+		let unstable = ['changed', 'new'];
+		self.keywords.reject { :each |
+			unstable.includes(each)
+		}
 	}
 
 	storeString { :self |

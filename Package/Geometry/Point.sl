@@ -342,6 +342,18 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 		n.circlePoints([0 0], r, theta)
 	}
 
+	hexagonalSpiralPoints { :n |
+		let m = n // 6 + 1;
+		let l = 0:m.collect { :i |
+			i + [1 1 1 1 2 1]
+		}.catenate.first(n);
+		let a = l.collect { :i |
+			[60.degree] ++ List(i - 1, 0)
+		}.catenate;
+		let d = List(a.size, 1);
+		anglePath(a, d, [0 0])
+	}
+
 	spherePoints { :n :r |
 		let a = (4.pi * r.square) / n;
 		let d = a.sqrt;

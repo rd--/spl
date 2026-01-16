@@ -33,6 +33,20 @@ Scatter plot of the terms in _(6000, 6200)_:
 
 ![](sw/spl/Help/Image/hofstadterQSequence-B.svg)
 
+Plot the obscure sequence OEIS [A086267](https://oeis.org/A086267):
+
+~~~spl svg=C
+let k = 106;
+let h = (k + 2).hofstadterQSequence;
+h.partition(3, 1).collect { :i |
+	let [a, b, c] = i;
+	let r = (a - (2 * b) + c - 4) / a;
+	3 + (a % 6) + r.floor
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/hofstadterQSequence-C.svg)
+
 * * *
 
 See also: fibonacciSequence, mallowsSequence, memoize

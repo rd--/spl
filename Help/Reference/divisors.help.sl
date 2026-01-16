@@ -151,6 +151,33 @@ Find all perfect numbers less than 500:
 [6 28 496]
 ```
 
+Orderly numbers,
+OEIS [A167408](https://oeis.org/A167408):
+
+```
+>>> 1:99.select { :n |
+>>> 	let d = n.divisors;
+>>> 	let t = d.size;
+>>> 	let u = [1 .. t];
+>>> 	let k = 3;
+>>> 	let m = (t + 4).max(d.last - 2);
+>>> 	{
+>>> 		k <= m & {
+>>> 			(d % k).nub.sort != u
+>>> 		}
+>>> 	}.whileTrue {
+>>> 		k := k + 1
+>>> 	};
+>>> 	k <= m
+>>> }
+[
+	 1  2  5  7  8  9 11 12 13 17
+	19 20 23 27 29 31 37 38 41 43
+	47 52 53 57 58 59 61 67 68 71
+	72 73 76 79 83 87 89 97
+]
+```
+
 A logarithmic plot of `divisors` of the diatonic number 8640,
 showing the sigmoid shape typical of divisor sets:
 
