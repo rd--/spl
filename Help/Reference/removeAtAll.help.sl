@@ -1,8 +1,8 @@
 # removeAtAll
 
-- _removeAtAll(aCollection, indexCollection)_
+- _removeAtAll(c, [i₁ i₂ …])_
 
-Remove the element at each index in _indexCollection_ from _aCollection_.
+Remove the element at each index in the index collection _i_ from the collection _c_.
 Answers a `List` of the removed elements.
 
 Remove first and third item of a `List`:

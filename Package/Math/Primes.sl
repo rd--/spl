@@ -315,6 +315,21 @@
 		}
 	}
 
+	luckyNumbers { :n |
+		let l = [1, 3 .. n];
+		let j = 2;
+		{
+			j < l.size & {
+				l[j] <= l.size
+			}
+		}.whileTrue {
+			let i = Range(l[j], l.size, l[j] - 1);
+			l.removeAtAll(i);
+			j := j + 1
+		};
+		l
+	}
+
 	mangoldtLambda { :n |
 		let primeFactors = n.factorInteger;
 		let isPrimePower = primeFactors.size = 1 & {

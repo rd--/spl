@@ -392,6 +392,27 @@ Point : [Object, Storeable, Equatable, Geometry, CartesianCoordinates] { | coord
 		answer
 	}
 
+	squareSpiralPoints { :n |
+		let m = n // 2 + 1;
+		let l = 1:m.collect { :i |
+			[i, i]
+		}.catenate.first(n);
+		let a = l.collect { :i |
+			[90.degree] ++ List(i - 1, 0)
+		}.catenate;
+		let d = List(a.size, 1);
+		anglePath(a, d, [0 0])
+	}
+
+	triangularSpiralPoints { :n |
+		let l = 1:n;
+		let a = l.collect { :i |
+			[120.degree] ++ List(i - 1, 0)
+		}.catenate;
+		let d = List(a.size, 1);
+		anglePath(a, d, [0 0])
+	}
+
 }
 
 +@Number {

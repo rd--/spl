@@ -59,8 +59,19 @@ h.atAll(p).PointCloud
 
 ![](sw/spl/Help/Image/hexagonalSpiralPoints-B.svg)
 
+The same diagram for lucky numbers:
+
+~~~spl svg=C
+let h = (23 * 6).hexagonalSpiralPoints;
+let k = h.size;
+let p = k.luckyNumbers;
+h.atAll(p).PointCloud
+~~~
+
+![](sw/spl/Help/Image/hexagonalSpiralPoints-C.svg)
+
 * * *
 
-See also: anglePath, circlePoints
+See also: anglePath, circlePoints, squareSpiralPoints, triangularSpiralPoints
 
 Guides: Geometry Functions

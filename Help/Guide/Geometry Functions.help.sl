@@ -153,8 +153,10 @@ Constructors:
 - `polygonCollection`
 - `regularPolygon`
 - `spirangle`
+- `squareSpiralPoints`
 - `starPolygon`
 - `trapezoid`
+- `triangularSpiralPoints`
 - `unitCircle`
 - `unitCube`
 - `unitDodecahedron`
@@ -269,8 +271,10 @@ Spiral Functions:
 - `sinusoidalSpiral`
 - `spiralMatrix`
 - `squareSpiral`
+- `squareSpiralPoints`
 - `theodorusSpiral`
 - `tractrixSpiral`
+- `triangularSpiralPoints`
 
 Triangle Functions:
 
