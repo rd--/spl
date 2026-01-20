@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100.0" height="100.0" viewBox="-55.00 -55.00 110.00 110.00">
 <g fill="none" stroke="black" stroke-width="0.0200%" transform="translate(0, 0.0000) scale(25.0000, -25.0000)">
-<circle cx="-2.00" cy="0.00" r="0.02" />
-<circle cx="0.00" cy="2.00" r="0.02" />
 <circle cx="0.00" cy="0.61" r="0.02" />
 <circle cx="0.61" cy="1.14" r="0.02" />
 <circle cx="1.14" cy="1.50" r="0.02" />
