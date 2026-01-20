@@ -36,6 +36,7 @@ Shift seven places to the left:
 
 At `SmallFloat` the integers are taken to be 32-bit signed integers:
 
+```
 >>> 1.bitShiftLeft(31)
 -2147483648
 

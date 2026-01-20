@@ -22,40 +22,40 @@ at(c, i, j, k)
 At `Range`:
 
 ```
->>> let aRange = 9.iota.reverse;
->>> aRange[7]
+>>> let a = 9:1:-1;
+>>> a[7]
 3
 ```
 
 At `List`:
 
 ```
->>> let aList = [9, 8 .. 1];
->>> aList[7]
+>>> let a = [9, 8 .. 1];
+>>> a[7]
 3
 ```
 
 At `Record`:
 
 ```
->>> let aRecord = (x: 1, y: 2, z: 3);
->>> aRecord['z']
+>>> let a = (x: 1, y: 2, z: 3);
+>>> a['z']
 3
 ```
 
-At a `List` of lists:
+At matrix, a `List` of lists:
 
 ```
->>> let aMatrix = [4 2].iota;
->>> aMatrix[2, 1]
+>>> let a = [4 2].iota;
+>>> a[2, 1]
 3
 ```
 
 At a `Record` of records:
 
 ```
->>> let aRecord = (x: (p: 1), y: (q: 2), z: (r: 3));
->>> aRecord['z', 'r']
+>>> let a = (x: (p: 1), y: (q: 2), z: (r: 3));
+>>> a['z', 'r']
 3
 ```
 
@@ -64,8 +64,8 @@ This syntax is for accessing containers that support multiple indices, such as a
 It is not a syntax for the `atAll` protocol, see `AtAll Syntax`.
 
 ```
->>> let aMatrix = [5 5].iota;
->>> aMatrix[1:5, 3:3]
+>>> let a = [5 5].iota;
+>>> a[1:5, 3:3]
 [3; 8; 13; 18; 23]
 ```
 

@@ -9,22 +9,20 @@ In the matrix below the first entry says that warp one goes through the heddle i
 
 ~~~spl svg=A
 WeavingInformationFile (
-	'WEAVING':
-		(
-			'Treadles': 8,
-			'Shafts': 8
-		),
-	'THREADING':
-		(
-			'1': 8,
-			'2': 7,
-			'3': 6,
-			'4': 5,
-			'5': 4,
-			'6': 3,
-			'7': 2,
-			'8': 1
-		)
+	'WEAVING': (
+		'Treadles': 8,
+		'Shafts': 8
+	),
+	'THREADING': (
+		'1': 8,
+		'2': 7,
+		'3': 6,
+		'4': 5,
+		'5': 4,
+		'6': 3,
+		'7': 2,
+		'8': 1
+	)
 ).threadingMatrix.matrixPlot
 ~~~
 

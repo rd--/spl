@@ -39,7 +39,7 @@ Svg colours with _blue_ in the name that are not selected:
 
 ~~~spl svg=B
 'Svg'.namedColour(
-[
+	[
 		'AliceBlue'
 		'CadetBlue'
 		'DarkSlateBlue'

@@ -396,7 +396,7 @@ const asSl: ohm.ActionDict<string> = {
 	},
 	AtAllSyntax(c, _l, k, _r) {
 		const elem = k.asIteration().children;
-		return `atAll(${c.asSl}, ${commaListSl(elem)})`;
+		return `atAllPath(${c.asSl}, [${commaListSl(elem)}])`;
 	},
 	AtPutSyntax(c, _l, k, _r, _e, v) {
 		const elem = k.asIteration().children;
@@ -679,7 +679,8 @@ const asSl: ohm.ActionDict<string> = {
 		/* return `parseDecimal('${s.sourceString}${i.sourceString}.${f.sourceString}D${k.sourceString}')`; */
 	},
 	floatLiteral(s, i, _dot, f) {
-		return s.sourceString + deleteLeadingZeroes(deleteUnderscores(i.sourceString)) + '.' +
+		return s.sourceString +
+			deleteLeadingZeroes(deleteUnderscores(i.sourceString)) + '.' +
 			f.sourceString;
 	},
 	fractionLiteral(s, n, _s, d) {
@@ -1002,9 +1003,12 @@ function makeMethod(
 }
 
 function extractMethodNameList(methodNameOrList: ohm.Node): string[] {
-	if(methodNameOrList.ctorName === 'MethodNameList') {
-		return methodNameOrList.child(1).asIteration().children.map((c) => c.sourceString);
-	} {
+	if (methodNameOrList.ctorName === 'MethodNameList') {
+		return methodNameOrList.child(1).asIteration().children.map((c) =>
+			c.sourceString
+		);
+	}
+	{
 		return [methodNameOrList.sourceString];
 	}
 }

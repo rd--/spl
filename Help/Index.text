@@ -529,6 +529,7 @@ Reference/asWords.help.sl
 Reference/asWriteStream.help.sl
 Reference/atAllBlend.help.sl
 Reference/atAll.help.sl
+Reference/atAllPath.help.sl
 Reference/atAllPin.help.sl
 Reference/atAllPutAll.help.sl
 Reference/atAllPut.help.sl
@@ -666,10 +667,12 @@ Reference/bitonicSort.help.sl
 Reference/bitonicSortMatrix.help.sl
 Reference/bitOr.help.sl
 Reference/bitReversalPermutation.help.sl
+Reference/bitSet.help.sl
 Reference/BitSet.help.sl
 Reference/bitShift.help.sl
 Reference/bitShiftLeft.help.sl
 Reference/bitShiftRight.help.sl
+Reference/bitShiftRightUnsigned.help.sl
 Reference/bitXor.help.sl
 Reference/BivariatePolynomial.help.sl
 Reference/bjorklundsAlgorithmDo.help.sl
@@ -1622,6 +1625,8 @@ Reference/grayCodeFromTransitionSequence.help.sl
 Reference/GrayCode.help.sl
 Reference/grayDecode.help.sl
 Reference/grayEncode.help.sl
+Reference/greaterEqual.help.sl
+Reference/greater.help.sl
 Reference/greaterThanSignEqualsSign.help.sl
 Reference/greaterThanSignGreaterThanSignGreaterThanSign.help.sl
 Reference/greaterThanSignGreaterThanSign.help.sl
@@ -1698,6 +1703,7 @@ Reference/hessianNormalForm.help.sl
 Reference/HexagonalCoordinates.help.sl
 Reference/HexagonalEfficientCoordinates.help.sl
 Reference/hexagonalNumber.help.sl
+Reference/hexagonalSpiralPoints.help.sl
 Reference/hexTriplet.help.sl
 Reference/HiddenMarkovProcess.help.sl
 Reference/highBit.help.sl
@@ -2305,7 +2311,9 @@ Reference/lemniscateConstant.help.sl
 Reference/lemniscate.help.sl
 Reference/Length.help.sl
 Reference/lengthWhile.help.sl
-Reference/LessThan.help.sl
+Reference/lessEqual.help.sl
+Reference/less.help.sl
+Reference/Less.help.sl
 Reference/lessThanSignEqualsSignGreaterThanSign.help.sl
 Reference/lessThanSignEqualsSign.help.sl
 Reference/lessThanSignExclamationMark.help.sl
@@ -2485,6 +2493,7 @@ Reference/LsWhite.help.sl
 Reference/LsXRand.help.sl
 Reference/lucasNumber.help.sl
 Reference/lucasSequence.help.sl
+Reference/luckyNumbers.help.sl
 Reference/luDecomposition.help.sl
 Reference/lukasiewiczWord.help.sl
 Reference/luvToXyz.help.sl
@@ -2640,6 +2649,8 @@ Reference/movingMap.help.sl
 Reference/movingMedian.help.sl
 Reference/movingSum.help.sl
 Reference/MulAdd.help.sl
+Reference/muLawDecode.help.sl
+Reference/muLawEncode.help.sl
 Reference/multichoose.help.sl
 Reference/multinomial.help.sl
 Reference/MultinormalDistribution.help.sl
@@ -2674,7 +2685,9 @@ Reference/NaN.help.sl
 Reference/narayanaNumber.help.sl
 Reference/narayanaSequence.help.sl
 Reference/Navigator.help.sl
+Reference/ncsColourCatalogue.help.sl
 Reference/NcsColour.help.sl
+Reference/ncsLookup.help.sl
 Reference/ncsToRgb.help.sl
 Reference/nearest.help.sl
 Reference/nearestNeighbourAlgorithm.help.sl
@@ -3647,6 +3660,7 @@ Reference/square.help.sl
 Reference/Square.help.sl
 Reference/squarePyramidalNumber.help.sl
 Reference/squareSpiral.help.sl
+Reference/squareSpiralPoints.help.sl
 Reference/squaresR.help.sl
 Reference/squareWave.help.sl
 Reference/srgbDecode.help.sl
@@ -3881,6 +3895,7 @@ Reference/transposeInPlace.help.sl
 Reference/transposeIrregular.help.sl
 Reference/transposeTableau.help.sl
 Reference/trapezoidalRule.help.sl
+Reference/trapezoid.help.sl
 Reference/Tree.help.sl
 Reference/treePlot.help.sl
 Reference/triangleCentre.help.sl
@@ -3890,6 +3905,7 @@ Reference/triangularArray.help.sl
 Reference/triangularArrayPlot.help.sl
 Reference/TriangularDistribution.help.sl
 Reference/triangularNumber.help.sl
+Reference/triangularSpiralPoints.help.sl
 Reference/triangulation.help.sl
 Reference/tribonacciConstant.help.sl
 Reference/tribonacciNumber.help.sl

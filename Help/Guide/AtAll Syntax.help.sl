@@ -4,7 +4,7 @@ Rewrite rule,
 where _i_ and _j_ are instances of `Range Syntax` or `List Syntax`:
 
 - _c[i]_ ⟹ _atAll(c, i)_
-- _c[i, j]_ ⟹ _atAll(c, i, j)_
+- _c[i, j]_ ⟹ _atAllPath(c, [i, j])_
 - _&etc_
 
 Syntax for the `atAll` protocol.

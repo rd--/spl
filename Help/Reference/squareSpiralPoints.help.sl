@@ -7,7 +7,7 @@ Answer a list of _(x,y)_ coordinate pairs of a square spiral with _n_ sides star
 Points on the first four sides of the spiral:
 
 ```
->>> 3.squareSpiralPoints
+>>> 4.squareSpiralPoints
 [0 0; 0 1; -1 1; -1 0; -1 -1; 0 -1; 1 -1]
 ```
 

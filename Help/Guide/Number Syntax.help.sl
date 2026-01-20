@@ -42,7 +42,7 @@ The seperators do not need to be in the traditional places:
 
 ```
 >>> 12_34_56_78
-123345678
+12345678
 ```
 
 `Scientific Notation`:

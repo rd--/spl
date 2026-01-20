@@ -261,7 +261,6 @@ OEIS [A038548](http://oeis.org/A038548):
 
 ![](sw/spl/Help/Image/divisorSigma-E.svg)
 
-
 * * *
 
 See also: aliquotSum, divisible, divisors, divisorSum, divisorSummatoryFunction, eulerPhi, isAbundantNumber

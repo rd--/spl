@@ -41,7 +41,7 @@ Svg colours with _green_ in the name that are not selected:
 
 ~~~spl svg=B
 'Svg'.namedColour(
-[
+	[
 		'DarkOliveGreen'
 		'DarkSeaGreen'
 		'LightSeaGreen'

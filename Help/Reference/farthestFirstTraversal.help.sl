@@ -116,7 +116,7 @@ and `sum` as the reduction function:
 >>> };
 >>> [0 1 2].tuples(3)
 >>> .farthestFirstTraversal(
->>>	1,
+>>> 	1,
 >>> 	f:/2,
 >>> 	sum:/1
 >>> )
