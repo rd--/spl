@@ -78,6 +78,14 @@ Promise! : [Object] {
 		}
 	}
 
+	writePng { :self :fileName |
+		self.thenElse { :result |
+			result.writePng(fileName)
+		} { :err |
+			self.error('writePng: ' ++ err)
+		}
+	}
+
 	writeSvg { :self :fileName |
 		self.thenElse { :result |
 			result.writeSvg(fileName)

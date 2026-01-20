@@ -698,10 +698,10 @@
 	}
 
 	primesUpTo { :self |
-		system.cachedPrimesList.copyFromTo(
-			1,
-			self.nextPrime.indexOfPrime - 1
-		)
+		let a = self.nextPrime;
+		let b = a.indexOfPrime - 1;
+		let c = system.cachedPrimesList;
+		c.copyFromTo(1,	b)
 	}
 
 	primesUpToDo { :self :aBlock:/1 |

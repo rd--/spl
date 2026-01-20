@@ -33,6 +33,16 @@ For prime numbers equal to `primePi`:
 0
 ```
 
+Index of the previous and next primes of sixteen-eighty:
+
+```
+>>> 1680.previousPrime.indexOfPrime
+263
+
+>>> 1680.nextPrime.indexOfPrime
+264
+```
+
 Plot first few terms:
 
 ~~~spl svg=A

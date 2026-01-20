@@ -43,12 +43,14 @@ Plot : [Object] { | pages format options |
 				}
 			}
 		);
+
 		r.includesY(0).ifTrue {
 			items.add(Point([r.left * xScalar, 0]))
 		};
 		r.includesX(0).ifTrue {
 			items.add(Point([0, r.upper]))
 		};
+
 		scaledSegments.do { :each |
 			items.addAll(each.gen)
 		};

@@ -35,7 +35,7 @@ lookup is case-sensitive and names are given in all lower case:
 Display a 11×15 table of all of the colours,
 the end of the table recycles earlier colours:
 
-~~~spl crayola=A
+~~~spl svg=A
 system
 .crayolaColourCatalogue
 .values
@@ -47,7 +47,7 @@ system
 
 Sorted by `relativeLuminance`:
 
-~~~spl crayola=B
+~~~spl svg=B
 system
 .crayolaColourCatalogue
 .values

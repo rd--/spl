@@ -134,7 +134,7 @@ drawdownMatrix(i1, m, i2)
 
 A pattern derived from interleaving the natural and the Fibonacci numbers:
 
-~~~spl svg=G
+~~~spl png=G
 let n = 24;
 let i = [
 	1:n,

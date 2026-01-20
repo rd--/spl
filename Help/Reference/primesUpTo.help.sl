@@ -16,7 +16,7 @@ Answer a `List` of the prime numbers less than or equal to the integer _n_.
 ]
 ```
 
-If _anInteger_ is prime it is the last element:
+If _n_ is prime it is the last element:
 
 ```
 >>> 13.primesUpTo
@@ -35,6 +35,13 @@ There is one prime up to two:
 ```
 >>> 2.primesUpTo
 [2]
+```
+
+Count primes up to sixteen-eighty:
+
+```
+>>> 1680.primesUpTo.size
+263
 ```
 
 * * *

@@ -137,7 +137,7 @@ A rainbow:
 
 A rainbow from the Crayola catalogue:
 
-~~~spl svg=G
+~~~spl svg=H
 'Crayola'.namedColour(
 	[
 		'Red'
