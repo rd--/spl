@@ -9,6 +9,11 @@ Beta Functions:
 
 - `betaRegularized`
 
+Companding Functions:
+
+- `muLawDecode`
+- `muLawEncode`
+
 Easing Functions:
 
 - `easingFunction`

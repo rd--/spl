@@ -1,5 +1,10 @@
 # Signal Processing Functions
 
+Companding Functions:
+
+- `muLawDecode`
+- `muLawEncode`
+
 Convolution Functions:
 
 - `convolve`

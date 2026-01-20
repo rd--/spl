@@ -489,6 +489,18 @@ SmallFloat! : [Object, Storeable, Equatable, Comparable, Json, Magnitude, Number
 		y + (lo[1] / lo[2])
 	}
 
+	muLawDecode { :y |
+		let mu = 255;
+		let a = ((1 + mu) ^ y.abs) - 1;
+		y.sign * (a / mu)
+	}
+
+	muLawEncode { :x |
+		let mu = 255;
+		let a = (1 + (mu * x.abs)).log;
+		x.sign * (a / (1 + mu).log)
+	}
+
 	multiplyI32 { :m :n |
 		/* <primitive: return ((_m & 0xffff) * _n) + ((((_m >>> 16) * _n) & 0xffff) << 16);> */
 		<primitive: return Math.imul(_m, _n);>

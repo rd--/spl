@@ -407,6 +407,14 @@
 		self.collect(mixedFractionParts:/1)
 	}
 
+	muLawEncode { :self |
+		self.collect(muLawEncode:/1)
+	}
+
+	muLawDecode { :self |
+		self.collect(muLawDecode:/1)
+	}
+
 	nextPrime { :self |
 		self.collect(nextPrime:/1)
 	}
