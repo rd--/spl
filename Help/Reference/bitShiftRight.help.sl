@@ -83,7 +83,7 @@ The operator form is `>>`.
 
 * * *
 
-See also: >>, bitShift, bitShiftLeft
+See also: <<, >>, >>> bitShift, bitShiftLeft, bitShiftRightUnsigned
 
 Guides: Bitwise Functions
 

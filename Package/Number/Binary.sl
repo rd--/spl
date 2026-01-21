@@ -185,3 +185,26 @@
 	}
 
 }
+
++List {
+
+	xorShift32 { :self |
+		let [a, b, c] = self;
+		{ :n |
+			n := n.bitXor(n.bitShiftLeft(a));
+			n := n.bitXor(n.bitShiftRightUnsigned(b));
+			n := n.bitXor(n.bitShiftLeft(c));
+			n
+		}
+	}
+
+}
+
++SmallFloat {
+
+	xorShift32 { :n :shape |
+		let k = shape.product;
+		[13, 17, 5].xorShift32.nestList(n, k).reshape(shape)
+	}
+
+}

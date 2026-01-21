@@ -1,8 +1,8 @@
 # Sfc32
 
-- _Sfc32(anInteger)_
+- _Sfc32(n)_
 
-Answer a pseudo random number generator seeded with _anInteger_.
+Answer a pseudo random number generator seeded with the integer _n_.
 Sfc stands for _Small Fast Counter_,
 the algorithm is part of the _PractRand_ test suite, which it passes.
 

@@ -39,7 +39,10 @@ LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream
 +@Integer {
 
 	numericalRecipesLinearCongruential { :self |
-		LinearCongruential([3877, 29573, 139968], self)
+		LinearCongruential(
+			[3877, 29573, 139968],
+			self
+		)
 	}
 
 }
@@ -64,6 +67,20 @@ LinearCongruential : [Object, Equatable, Iterator, RandomNumberGenerator, Stream
 
 	lehmerGenerator { :p :s :n |
 		lehmerGenerator(p, s).next(n)
+	}
+
+	linearCongruentialFunction { :self |
+		let [a, c, m] = self;
+		{ :n |
+			((n * a) + c) \\ m
+		}
+	}
+
+	linearCongruential { :self :n :shape |
+		let k = shape.product;
+		self.linearCongruentialFunction
+		.nestList(n, k - 1)
+		.reshape(shape)
 	}
 
 }
