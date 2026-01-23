@@ -1,8 +1,8 @@
 # intervals
 
-- _intervals(aScale)_
+- _intervals(s)_
 
-Answer the intervals of _aScale_.
+Answer the intervals of the scale _s_.
 
 `intervals` is `intervalsBy` of `one`.
 

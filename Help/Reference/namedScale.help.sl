@@ -1,8 +1,8 @@
 # namedScale
 
-- _namedScale(aString)_
+- _namedScale(s)_
 
-Answer the `Scale` which is named by _aString_,
+Answer the `Scale` which is named by the string _s_,
 according to the Scala scale archive.
 
 ```

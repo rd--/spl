@@ -1,5 +1,6 @@
 [
 	/* Music */
+	'AtonalTheory'
 	'Meter'
 	'Pitch'
 	'Scale'

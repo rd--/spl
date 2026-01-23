@@ -1,8 +1,8 @@
 # intervalClasses
 
-- _intervalClasses(aScale)_
+- _intervalClasses(s)_
 
-Answer the `intervalClass` for each possible generic interval of _aScale_ in sequence.
+Answer the `intervalClass` for each possible generic interval of the scale _s_ in sequence.
 
 A strictly proper scale:
 

@@ -1,12 +1,12 @@
 # degreeToKey
 
-- _degreeToKey(aScale, degree)_
+- _degreeToKey(s, degree)_
 - _degreeToKey(degree, scale, stepsPerOctave)_
 
 Convert from degree to key.
 
 In the binary case,
-the _scale_ is an instance of `Scale`,
+the scale _s_ is an instance of `Scale`,
 and both and indices are counted from `one`:
 
 ```

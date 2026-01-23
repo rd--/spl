@@ -28,7 +28,7 @@ All minimal elements are returned, in order of appearance:
 ['x' 1; 'y' 1; 'u' 1]
 ```
 
-Prune an `Record` to its minimal values:
+Prune a `Record` to its minimal values:
 
 ```
 >>> (a: [4 1], b: [2 3], c: [4 2], d: [1 1])

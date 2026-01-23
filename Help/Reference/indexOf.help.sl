@@ -70,7 +70,7 @@ At `Range` there is a closed form:
 
 * * *
 
-See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, lastIndexOf
+See also: detect, detectIndex, indexOfIfAbsent, indexOfStartingAtBy, indicesOf, keyAtValue, lastIndexOf
 
 Guides: Indexing Functions, List Functions
 

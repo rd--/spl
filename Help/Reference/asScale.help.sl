@@ -1,8 +1,8 @@
 # asScale
 
-- _asScale(aList)_
+- _asScale([i₁ i₂ …])_
 
-Answer a `Scale` given _aList_ of intervals.
+Answer a `Scale` given a list of intervals _i_.
 The `startIndex` is set to `one`,
 and the description is set to _undescribed scale_.
 

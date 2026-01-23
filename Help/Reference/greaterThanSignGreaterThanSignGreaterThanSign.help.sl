@@ -2,7 +2,7 @@
 
 - _α >>> β_
 
-The operator form or `bitShiftRightUnsigned`.
+The operator form of `bitShiftRightUnsigned`.
 
 Answers a number whose binary representation is _α_ shifted by _β_ bits to the right.
 Excess bits shifted off to the right are discarded,

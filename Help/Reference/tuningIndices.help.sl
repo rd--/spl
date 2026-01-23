@@ -1,9 +1,9 @@
 # tuningIndices
 
-- _tuningIndices(aScale)_
+- _tuningIndices(s)_
 
 A `Scale` is a sub-set of the indices of a `Tuning`,
-and this method answer the indices specified by the scale.
+and this method answer the indices specified by the scale _s_.
 
 ```
 >>> 'Major'.namedScale.tuningIndices

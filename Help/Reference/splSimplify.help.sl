@@ -255,10 +255,10 @@ atPut(c, i, x)
 
 ```
 >> 'c[1:9]'.splSimplify
-atAll(c, rangeOrRelativeRange(1, 9, 1))
+atAllPath(c, [rangeOrRelativeRange(1, 9, 1)])
 
 >> 'c[[i, j]]'.splSimplify
-atAll(c, [i, j])
+atAllPath(c, [[i, j]])
 ```
 
 `Property Read Syntax` is rewritten as `Apply Syntax`:

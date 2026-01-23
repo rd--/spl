@@ -1,15 +1,17 @@
 # Scale
 
-- _Scale(startIndex, intervals, description)_
+- _Scale(n, [i₁ i₂ …], d)_
 
 A `Scale` is a sub-set of the indices of a `Tuning`.
 
-_startIndex_ is the index at the `Tuning` of the first note of the scale,
+_n_ is the start index,
+the index at the `Tuning` of the first note of the scale,
 and is usually one.
 
-_intervals_ is a sequence of integers giving the distance of each index from the last.
+_i_ is a sequence of integers giving the intervals of the scale,
+the distance of each index from the last.
 
-_description_ is a `String` describing the scale.
+_d_ is the scale description, a comma separated list names for the scale.
 
 The `nameList` of a scale is the `description` separated into parts by the sub-string ', '.
 

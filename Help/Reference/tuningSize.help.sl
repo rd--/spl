@@ -1,6 +1,6 @@
 # tuningSize
 
-- _tuningSize(aScale)_
+- _tuningSize(s)_
 
 Of a `Scale`,
 answers the number of steps per octave.

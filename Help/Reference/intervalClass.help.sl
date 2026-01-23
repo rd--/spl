@@ -1,8 +1,8 @@
 # intervalClass
 
-- _intervalClass(aScale, anInteger)_
+- _intervalClass(s, n)_
 
-Answer the interval class for the generic interval _anInteger_ of _aScale_.
+Answer the interval class for the generic interval _n_ of the scale _s_.
 
 The interval class is the set of intervals in the answer of `intervalsBy`,
 that is,

@@ -126,5 +126,7 @@ _NIST_
 [1](https://www.itl.nist.gov/div898/handbook/eda/section3/eda3661.htm),
 _W_
 [1](https://en.wikipedia.org/wiki/Normal_distribution)
+[2](https://en.wikipedia.org/wiki/Marsaglia_polar_method)
+[3](https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform)
 
 Categories: Probability, Random

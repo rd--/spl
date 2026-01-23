@@ -1,8 +1,8 @@
 # isMomentOfSymmetry
 
-- _isMomentOfSymmetry(aScale)_
+- _isMomentOfSymmetry(s)_
 
-Answer `true` if the _aScale_ is a moment of symmetry `Scale`, else `false`.
+Answer `true` if the the scale _s_ is a moment of symmetry `Scale`, else `false`.
 
 Tells if each `intervalClass`,
 with the exception of the _period_,

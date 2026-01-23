@@ -1,10 +1,10 @@
 # stepArity
 
-- _stepArity(aScale)_
+- _stepArity(s)_
 
 Answer the step arity,
 also called step variety,
-of _aScale_.
+of th scale _s_.
 
 The step arity is the number of step sizes.
 Scales with a step arity of one are called unary scales,

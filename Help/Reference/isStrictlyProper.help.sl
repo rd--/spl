@@ -1,8 +1,8 @@
 # isStrictlyProper
 
-- _isStrictlyProper(aScale)_
+- _isStrictlyProper(s)_
 
-Answer `true` if _aScale_ is strictly proper, else `false`.
+Answer `true` if the scale _s_ is strictly proper, else `false`.
 
 A scale is strictly proper (Rothenberg 1977) if its `intervalClasses` are strictly ascending.
 
