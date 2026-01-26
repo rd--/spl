@@ -7,6 +7,8 @@ do not occur in any collection that is an element of _c₂_,
 according to the equality predicate _=_,
 which is taken to be `=` if elided.
 
+Find the integers in the range _1:75_ that are not in any of the indicated ranges _13:18_ &etc.:
+
 ```
 >>> 1:75.differenceAll(
 >>> 	[

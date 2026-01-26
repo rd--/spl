@@ -1,5 +1,9 @@
 # Sequence Alignment Functions
 
+Alignment Functions:
+
+- `needlemanWunschAlgorithm`
+
 Subsequence Functions:
 
 - `longestCommonSubsequence`
@@ -41,6 +45,8 @@ Similarity and Distance Measures:
 - `warpingMatrices`
 
 * * *
+
+Guides: Distance Functions, Similarity Functions
 
 References:
 _W_

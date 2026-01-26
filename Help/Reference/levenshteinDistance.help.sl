@@ -45,11 +45,20 @@ Deletion from interior:
 ```
 >>> [1 2 3].levenshteinDistance([1 3])
 1
+```
 
+At `String`:
+
+```
 >>> 'uninformed'.levenshteinDistance(
 >>> 	'uniformed'
 >>> )
 1
+
+>>> 'boats'.levenshteinDistance(
+>>> 	'float'
+>>> )
+3
 ```
 
 Substitutions:
@@ -75,7 +84,7 @@ Levenshtein distance treats transposition as separate deletion and insertion ope
 
 * * *
 
-See also: editDistance, hammingDistance, damerauLevenshteinDistance, manhattanDistance
+See also: editDistance, hammingDistance, damerauLevenshteinDistance, manhattanDistance, needlemanWunschAlgorithm
 
 Guides: Distance Functions, Similarity Functions
 

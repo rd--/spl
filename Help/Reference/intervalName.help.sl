@@ -18,6 +18,9 @@ Three commas:
 
 >>> 32805/32768.intervalName
 'schisma'
+
+>>> 4375/4374.intervalName
+'ragisma'
 ```
 
 Two fourths:

@@ -34,7 +34,7 @@ Sequence Similarity
 
 * * *
 
-Guides: Distance Functions, Function Guides, Mathematical Functions
+Guides: Distance Functions, Function Guides, Mathematical Functions, Sequence Alignment Functions
 
 References:
 _W_

@@ -18,6 +18,8 @@ calculates the coefficients of the interpolation polynomial of these points in t
 
 See also: nevillesAlgorithm
 
+Guides: Interpolation Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/DividedDifference.html),

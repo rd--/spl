@@ -25,6 +25,7 @@ Distance:
 - `minkowskiDistance`
 - `normalizedSquaredEuclideanDistance`
 - `squaredEuclideanDistance`
+- `wagnerFischerAlgorithm`
 - `warpingDistance`
 
 Geometry:

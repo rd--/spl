@@ -544,3 +544,147 @@
 
 }
 
++List{
+
+	wagnerFischerAlgorithm { :a :b |
+		<primitive:
+		const a = _a;
+		const b = _b;
+		const m = [];
+		for (let i = 0; i <= a.length; i++) {
+			m[i] = [];
+			for (let j = 0; j <= b.length; j++) {
+				m[i][j] = 0;
+			}
+		}
+		for (let i = 0; i <= a.length; i++) {
+			m[i][0] = i;
+		}
+		for (let j = 0; j <= b.length; j++) {
+			m[0][j] = j;
+		}
+		for (let i = 1; i <= a.length; i++) {
+			for (let j = 1; j <= b.length; j++) {
+				const insertCost = m[i][j - 1] + 1;
+				const deleteCost = m[i - 1][j] + 1;
+				const substituteCost = (a[i - 1] === b[j - 1]) ? m[i - 1][j - 1] : m[i - 1][j - 1] + 1;
+				m[i][j] = Math.min(
+					insertCost,
+					deleteCost,
+					substituteCost
+				);
+			}
+		};
+		return m;
+		>
+	}
+
+}
+
++String{
+
+	wagnerFischerAlgorithm { :a :b |
+		a.characters.wagnerFischerAlgorithm(
+			b.characters
+		)
+	}
+
+}
+
++List {
+
+	needlemanWunschAlgorithm { :a :b :o |
+		<primitive:
+		/* https://gist.github.com/shinout/f19da7720d130f3925ac */
+		const s1 = _a;
+		const s2 = _b;
+		const UP = 1;
+		const LEFT = 2;
+		const UL = 4;
+		const P = _o[0]; /* Match */
+		const M = _o[1]; /* Mismatch */
+		const G = _o[2]; /* Insertion or deletion (Indel) */
+		const mat = {};
+		const direc = {};
+		for(let i=0; i<s1.length+1; i++) {
+			mat[i] = {0:0};
+			direc[i] = {0:[]};
+			for(let j=1; j<s2.length+1; j++) {
+				mat[i][j] = (i == 0)
+				? 0
+				: (s1[i-1] == s2[j-1]) ? P : M
+				direc[i][j] = [];
+			}
+		}
+		for(let i=0; i<s1.length+1; i++) {
+			for(let j=0; j<s2.length+1; j++) {
+				const newval = (i == 0 || j == 0) ? G * (i + j) : Math.max(mat[i-1][j] + G, mat[i-1][j-1] + mat[i][j], mat[i][j-1] + G);
+				if (i > 0 && j > 0) {
+					if( newval == mat[i-1][j] + G) {
+						direc[i][j].push(UP);
+					}
+					if( newval == mat[i][j-1] + G) {
+						direc[i][j].push(LEFT);
+					}
+					if( newval == mat[i-1][j-1] + mat[i][j]) {
+						direc[i][j].push(UL);
+					}
+				} else {
+					direc[i][j].push((j == 0) ? UP : LEFT);
+				}
+				mat[i][j] = newval;
+			}
+		}
+		console.table(mat);
+		const answer = [[],[]];
+		let I = s1.length;
+		let J = s2.length;
+		while(I > 0 || J > 0) {
+			const D = direc[I][J][0];
+			if(D === UP) {
+				I--;
+				answer[0].push(s1[I]);
+				answer[1].push(null);
+			}
+			if(D === LEFT) {
+				J--;
+				answer[0].push(null);
+				answer[1].push(s2[J]);
+			}
+			if(D === UL) {
+				I--;
+				J--;
+				answer[0].push(s1[I]);
+				answer[1].push(s2[J]);
+			}
+		}
+		return answer.map(function(v) {
+			return v.reverse();
+		});
+		>
+	}
+
+	needlemanWunschAlgorithm { :a :b |
+		needlemanWunschAlgorithm(a, b, [1, -1, -1])
+	}
+
+}
+
++String {
+
+	needlemanWunschAlgorithm { :a :b :c |
+		let p = a.characters;
+		let q = b.characters;
+		let [x, y] = p.needlemanWunschAlgorithm(q, c);
+		[
+			x.replaceAllWith(nil, '-').stringJoin,
+			y.replaceAllWith(nil, '-').stringJoin
+		]
+	}
+
+	needlemanWunschAlgorithm { :a :b |
+		needlemanWunschAlgorithm(a, b, [1, -1, -1])
+	}
+
+}
+

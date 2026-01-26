@@ -44,6 +44,7 @@ Polynomial Interpolation Functions:
 - `bSplineFunction`
 - `bezierFunction`
 - `cubicHermiteFunction`
+- `dividedDifferences`
 - `lagrangeInterpolatingPolynomial`
 - `nevillesAlgorithm`
 
