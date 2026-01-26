@@ -52,6 +52,7 @@ A score of three, for _+a_ and _+t_ and _n≠r_:
 >>> 	'Sunday',
 >>> 	'Saturday'
 >>> )
+3
 ```
 
 * * *
