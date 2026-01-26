@@ -41,6 +41,8 @@ Many complexities of access can be bypassed by using the method `withStartStopAn
 See also: asRunArray, List
 
 References:
+_Mathematica_
+[1](https://mathworld.wolfram.com/Run-LengthEncoding.html),
 _W_
 [1](https://en.wikipedia.org/wiki/Run-length_encoding)
 

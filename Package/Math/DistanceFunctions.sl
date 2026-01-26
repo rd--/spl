@@ -593,11 +593,12 @@
 
 +List {
 
-	needlemanWunschAlgorithm { :a :b :o |
+	needlemanWunschAlgorithm { :a :b :c :o |
 		<primitive:
 		/* https://gist.github.com/shinout/f19da7720d130f3925ac */
 		const s1 = _a;
 		const s2 = _b;
+		const insertionMarker = _c;
 		const UP = 1;
 		const LEFT = 2;
 		const UL = 4;
@@ -635,7 +636,6 @@
 				mat[i][j] = newval;
 			}
 		}
-		console.table(mat);
 		const answer = [[],[]];
 		let I = s1.length;
 		let J = s2.length;
@@ -644,11 +644,11 @@
 			if(D === UP) {
 				I--;
 				answer[0].push(s1[I]);
-				answer[1].push(null);
+				answer[1].push(insertionMarker);
 			}
 			if(D === LEFT) {
 				J--;
-				answer[0].push(null);
+				answer[0].push(insertionMarker);
 				answer[1].push(s2[J]);
 			}
 			if(D === UL) {
@@ -664,26 +664,62 @@
 		>
 	}
 
-	needlemanWunschAlgorithm { :a :b |
-		needlemanWunschAlgorithm(a, b, [1, -1, -1])
+	needlemanWunschAlgorithm { :a :b :c |
+		needlemanWunschAlgorithm(a, b, c, [1, -1, -1])
 	}
 
 }
 
 +String {
 
-	needlemanWunschAlgorithm { :a :b :c |
+	needlemanWunschAlgorithm { :a :b :c :o |
 		let p = a.characters;
 		let q = b.characters;
-		let [x, y] = p.needlemanWunschAlgorithm(q, c);
-		[
-			x.replaceAllWith(nil, '-').stringJoin,
-			y.replaceAllWith(nil, '-').stringJoin
-		]
+		needlemanWunschAlgorithm(p, q, c, o).collect(stringJoin:/1)
 	}
 
-	needlemanWunschAlgorithm { :a :b |
-		needlemanWunschAlgorithm(a, b, [1, -1, -1])
+	needlemanWunschAlgorithm { :a :b :c |
+		needlemanWunschAlgorithm(a, b, c, [1, -1, -1])
+	}
+
+}
+
++List{
+
+	sequenceAlignment { :a :b |
+		let [c, d] = needlemanWunschAlgorithm(a, b, nil, [1, -1, -1]);
+		let e = c =.each d;
+		let p = split(e, =);
+		let q = p.collect(size:/1);
+		let r = [1] ++ (q.prefixSum + 1);
+		(1 .. p.size).collect { :i |
+			let x = p[i];
+			let n = x.size;
+			let w = x[1];
+			let j = r[i];
+			let k = j + n - 1;
+			let y = c.copyFromTo(j, k).without(nil);
+			w.if {
+				y
+			} {
+				let z = d.copyFromTo(j, k).without(nil);
+				[y, z]
+			}
+		}
+	}
+
+}
+
++String{
+
+	sequenceAlignment { :a :b |
+		sequenceAlignment(a.characters, b.characters).collect { :each |
+			each.isVector.if {
+				each.stringJoin
+			} {
+				each.collect(stringJoin:/1)
+			}
+		}
 	}
 
 }

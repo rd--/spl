@@ -3,6 +3,7 @@
 Alignment Functions:
 
 - `needlemanWunschAlgorithm`
+- `sequenceAlignment`
 
 Subsequence Functions:
 
