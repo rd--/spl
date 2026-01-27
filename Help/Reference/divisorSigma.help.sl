@@ -212,6 +212,55 @@ OEIS [A024916](https://oeis.org/A024916):
 ]
 ```
 
+Arithmetic numbers,
+OEIS [A003601](https://oeis.org/A003601):
+
+```
+>>> 1:99.select { :n |
+>>> 	let tau = 0.divisorSigma(n);
+>>> 	let sigma = 1.divisorSigma(n);
+>>> 	(sigma / tau).isInteger
+>>> }
+[
+	 1  3  5  6  7 11 13 14 15 17
+	19 20 21 22 23 27 29 30 31 33
+	35 37 38 39 41 42 43 44 45 46
+	47 49 51 53 54 55 56 57 59 60
+	61 62 65 66 67 68 69 70 71 73
+	77 78 79 83 85 86 87 89 91 92
+	93 94 95 96 97 99
+]
+```
+
+Antiharmonic numbers,
+OEIS [A020487](https://oeis.org/A020487):
+
+```
+>>> 1:200.select { :n |
+>>> 	let a = 1.divisorSigma(n);
+>>> 	let b = 2.divisorSigma(n);
+>>> 	b.divisible(a)
+>>> }
+[
+	  1   4   9  16  20
+	 25  36  49  50  64
+	 81 100 117 121 144
+	169 180 196 200
+]
+```
+
+Harmonic means of divisors of harmonic numbers,
+OEIS [A001600](https://oeis.org/A001600):
+
+```
+>>> 1:500.collect { :n |
+>>> 	let tau = 0.divisorSigma(n);
+>>> 	let sigma = 1.divisorSigma(n);
+>>> 	n * tau / sigma
+>>> }.select(isInteger:/1)
+[1 2 3 5 6 5]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 

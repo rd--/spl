@@ -48,6 +48,23 @@ Use a test function with a specific tolerance to resolve this:
 [0.5 0.8775 0.6390 0.8027 0.6948 0.7682]
 ```
 
+Fixed point of _n←(n-1)/2_ until result is prime,
+OEIS [A039634](https://oeis.org/A039634):
+
+~~~spl svg=A
+1:150.collect { :n |
+	{ :x |
+		(x.isPrime | { x = 1 }).if {
+			x
+		} {
+			(x - 1) // 2
+		}
+	}.fixedPoint(n, =)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/fixedPoint-A.svg)
+
 * * *
 
 See also: fixedPointList
@@ -58,6 +75,8 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/FixedPoint.html)
 [2](https://reference.wolfram.com/language/ref/FixedPoint.html),
+_OEIS_
+[1](https://oeis.org/A039634),
 _W_
 [1](https://en.wikipedia.org/wiki/Fixed_point_(mathematics))
 [2](https://en.wikipedia.org/wiki/Fixed-point_iteration)

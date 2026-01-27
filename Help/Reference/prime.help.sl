@@ -177,6 +177,18 @@ let f = { :n :i :x |
 
 ![](sw/spl/Help/Image/prime-D.svg)
 
+Prefix sum of primes modulo four minus two,
+OEIS [A038698](https://oeis.org/A038698):
+
+~~~spl svg=E
++.foldList(
+	0,
+	2:267.prime % 4 - 2
+).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/prime-E.svg)
+
 * * *
 
 See also: indexOfPrime, isPrime, nextPrime, primesList, primesUpTo

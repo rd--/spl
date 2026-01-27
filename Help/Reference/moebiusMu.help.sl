@@ -172,6 +172,25 @@ let a:/1 = { :n |
 
 ![](sw/spl/Help/Image/moebiusMu-D.svg)
 
+Dirichlet inverse of sigma function,
+OEIS [A046692](http://oeis.org/A046692):
+
+~~~spl svg=E
+1:200.collect { :n |
+	let k = 0;
+	1.toDo(n) { :d |
+		(n % d = 0).ifTrue {
+			let a = d.moebiusMu;
+			let b = (n / d).moebiusMu;
+			k := k + (d * a * b)
+		}
+	};
+	k
+}.discretePlot
+~~~
+
+![](sw/spl/Help/Image/moebiusMu-E.svg)
+
 * * *
 
 See also: isSquareFree, liouvilleLambda, primeSignature

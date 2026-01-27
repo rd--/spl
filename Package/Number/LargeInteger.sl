@@ -214,6 +214,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		}
 	}
 
+	/*
 	gcd { :self :anInteger |
 		anInteger.isLargeInteger.if {
 			self.uncheckedGcd(anInteger)
@@ -221,6 +222,7 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 			anInteger.adaptToNumberAndApply(self, gcd:/2)
 		}
 	}
+	*/
 
 	highBitOfMagnitude { :self |
 		valueWithReturn { :return:/1 |

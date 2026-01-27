@@ -46,6 +46,26 @@
 		aliquotSequence(n, 21)
 	}
 
+	arshonsSequence { :n |
+		let oddRules = [
+			[1, [1, 2, 3]],
+			[2, [2, 3, 1]],
+			[3, [3, 1, 2]]
+		].Map;
+		let evenRules = oddRules.collect(reverse:/1);
+		{ :w |
+ 			let k = w.size;
+			1:k.collect { :n |
+				let e = w[n];
+				n.isOdd.if {
+					oddRules.at(e)
+				} {
+					evenRules.at(e)
+				}
+			}.catenate
+		}.iterate([1], n - 1)
+	}
+
 	baumSweetSequence { :n |
 		let a:/1 = { :i |
 			(i < 2).if {

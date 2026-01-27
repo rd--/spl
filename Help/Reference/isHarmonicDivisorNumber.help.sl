@@ -24,6 +24,8 @@ The first few harmonic divisor numbers:
 
 See also: divisorSigma, divisors, harmonicMean
 
+Guides: Integer Functions
+
 References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/HarmonicDivisorNumber.html),

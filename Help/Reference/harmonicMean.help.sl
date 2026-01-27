@@ -37,7 +37,7 @@ Harmonic mean of the first thirty integers:
 
 * * *
 
-See also: geometricMean, mean
+See also: contraharmonicMean, geometricMean, mean
 
 References:
 _Mathematica_

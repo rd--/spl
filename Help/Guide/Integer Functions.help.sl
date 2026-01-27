@@ -136,6 +136,7 @@ Predicates:
 - `isBit`
 - `isByte`
 - `isGaussianInteger`
+- `isHarmonicDivisorNumber`
 - `isInteger`
 - `isLargeInteger`
 - `isNonNegativeInteger`

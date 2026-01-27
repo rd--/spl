@@ -135,6 +135,37 @@ let b = 2;
 
 ![](sw/spl/Help/Image/nextPrime-B.svg)
 
+Plot sequence of _p_ where _a(n)_ is the smallest prime _q_ so that _n=(p+1)/(q+1)_ with _p_ prime,
+OEIS [A062251](https://oeis.org/A062251):
+
+~~~spl svg=C
+1:137.collect { :n |
+	let q = 2;
+	let r = nil;
+	{
+		r := n * (q + 1) - 1;
+		r.isPrime
+	}.whileFalse {
+		q := q.nextPrime
+	};
+	r
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nextPrime-C.svg)
+
+Plot the difference between the next prime of _n²_ and _n²_,
+OEIS [A053000](https://oeis.org/A053000):
+
+~~~spl svg=D
+0:200.collect { :n |
+	let m = n.square;
+	m.nextPrime - m
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/nextPrime-D.svg)
+
 * * *
 
 See also: isPrime, previousPrime
@@ -146,6 +177,9 @@ _Maple_
 [1](https://www.maplesoft.com/support/help/Maple/view.aspx?path=nextprime),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/NextPrime.html),
+_OEIS_
+[1](https://oeis.org/A062251)
+[2](https://oeis.org/A053000),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.generate.nextprime)
 

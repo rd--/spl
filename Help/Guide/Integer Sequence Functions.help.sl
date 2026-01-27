@@ -28,6 +28,7 @@ Integer Sequence Transform Functions:
 - `aperysConstant`: A002117
 - `arithmeticGeometricMean`: A068521 A084895 A084896 A084897
 - `arithmeticProgression`: A000027 A001477 A005408 A005843 A008585 A008586
+- `arshonsSequence`: A099054
 - `artinsConstant`: A005596
 - `balancedCayleyTree`: A003945 A003946 A003947 A025192 A083329 A136412
 - `baumSweetSequence`: A086747
