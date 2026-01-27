@@ -471,6 +471,24 @@ let r = { :x |
 
 ![](sw/spl/Help/Image/mod-M.svg)
 
+Plot the largest _m_ such that _n_ is congruent to -1, 0 or 1 `mod` _k_ for all _k_ from 1 to _m_,
+OEIS [A187824](https://oeis.org/A187824):
+
+~~~spl svg=N
+2:99.collect { :n |
+	let k = 4;
+	{
+		let r = n % k;
+		r < 2 | { k - r < 2 }
+	}.whileTrue {
+		k := k + 1
+	};
+	k - 1
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/mod-N.svg)
+
 * * *
 
 See also: %, /, //, \\, commonResidue, minimalResidue, positiveResidue, quotient, remainder

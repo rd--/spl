@@ -174,6 +174,16 @@ OEIS [A059015](https://oeis.org/A059015):
 
 ![](sw/spl/Help/Image/digitCount-F.svg)
 
+Scatter plot of the number of ones in the binary expansion of _3ⁿ_,
+OEIS [A011754](https://oeis.org/A011754):
+
+~~~spl svg=G
+(3L ^ 0:99).digitCount(2, 1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/digitCount-G.svg)
+
 * * *
 
 See also: bitAnd, hammingDistance, hammingWeight, integerDigits, integerExponent, integerLength, thueMorse

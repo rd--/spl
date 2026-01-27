@@ -214,6 +214,14 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 		}
 	}
 
+	gcd { :self :anInteger |
+		anInteger.isLargeInteger.if {
+			self.uncheckedGcd(anInteger)
+		} {
+			anInteger.adaptToNumberAndApply(self, gcd:/2)
+		}
+	}
+
 	highBitOfMagnitude { :self |
 		valueWithReturn { :return:/1 |
 			let realLength = self.digitLength;
@@ -362,6 +370,19 @@ LargeInteger! : [Object, Storeable, Equatable, Comparable, Binary, Magnitude, Nu
 
 	toNumber { :self :precision |
 		<primitive: BigInt.asIntN(_precision, _self);>
+	}
+
+	uncheckedGcd { :self :anInteger |
+		<primitive:
+		let a = _self;
+		let b = _anInteger;
+		while (b !== 0n) {
+			const r = a % b;
+			a = b;
+			b = r;
+		}
+		return a;
+		>
 	}
 
 	uncheckedRaisedToInteger { :self :anInteger |

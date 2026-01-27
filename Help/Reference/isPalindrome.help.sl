@@ -79,7 +79,8 @@ OEIS [A002113](https://oeis.org/A002113):
 ]
 ```
 
-Search for palindromic primes:
+Search for palindromic primes,
+OEIS [A002385](https://oeis.org/A002385):
 
 ```
 >>> 100.primesList.select(isPalindrome:/1)
@@ -168,6 +169,16 @@ OEIS [A006995](https://oeis.org/A006995):
 
 ![](sw/spl/Help/Image/isPalindrome-A.svg)
 
+Plot first few palindromic primes:
+
+~~~spl svg=B
+1:6000.prime
+.select(isPalindrome:/1)
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPalindrome-B.svg)
+
 * * *
 
 See also: =, reverse
@@ -180,7 +191,8 @@ _Mathematica_
 _OEIS_
 [1](https://oeis.org/A002113)
 [2](https://oeis.org/A006072)
-[3](https://oeis.org/A006995),
+[3](https://oeis.org/A006995)
+[4](https://oeis.org/A002385),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.primeomega),
 _W_

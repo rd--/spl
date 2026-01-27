@@ -293,6 +293,28 @@
 		}
 	}
 
+	eulerPhiInverse { :m |
+		(m = 1).if {
+			[1, 2]
+		} {
+			m.isOdd.if {
+				[]
+			} {
+				let p = select(divisors(m) + 1, isPrime:/1);
+				let nmax = m * (p / (p - 1)).product;
+				let n = m;
+				let nn = [];
+				{ n <= nmax }.whileTrue {
+					(n.eulerPhi = m).ifTrue {
+						nn.add(n)
+					};
+					n := n + 1
+				};
+				nn
+			}
+		}
+	}
+
 	evenPart { :n |
 		(n = 0).if {
 			1

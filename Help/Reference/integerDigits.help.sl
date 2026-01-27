@@ -607,6 +607,23 @@ OEIS [A007954](https://oeis.org/A007954):
 
 ![](sw/spl/Help/Image/integerDigits-J.svg)
 
+Making numbers into palindromic numbers,
+OEIS [A033865](https://oeis.org/A033865):
+
+~~~spl svg=K
+0:87.collect { :n |
+	{ :i |
+		let j = i.integerDigits;
+		i + j.reverse.fromDigits
+	}.nestWhile(n) { :i |
+		let j = i.integerDigits;
+		j.isPalindrome.not
+	}
+}.log.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerDigits-K.svg)
+
 * * *
 
 See also: digitCount, fromDigits, hammingWeight

@@ -263,6 +263,31 @@ Plot primes up to one-thousand:
 
 ![](sw/spl/Help/Image/isPrime-A.svg)
 
+_a(n+1)_ tells the number of earlier terms _a(k)_ where _a(k)+n_ is a prime,
+OEIS [A114897](https://oeis.org/A114897):
+
+~~~spl svg=B
+let a:/1 = { :n |
+	(n = 1).if {
+		1
+	} {
+		let k = 1;
+		let c = 0;
+		{ k < n }.whileTrue {
+			let m = a(k) + n - 1;
+			m.isPrime.ifTrue {
+				c := c + 1
+			};
+			k := k + 1
+		};
+		c
+	}
+}.memoize(true);
+1:150.collect(a:/1).scatterPlot
+~~~
+
+![](sw/spl/Help/Image/isPrime-B.svg)
+
 * * *
 
 See also: isComposite, isGaussianPrime, isPrimePower, isPrimeTrialDivision, isSemiprime, isSternPrime, millerRabinPrimalityTest, nextPrime, prime, primesList
@@ -285,7 +310,8 @@ _OEIS_
 [3](https://oeis.org/A005384)
 [4](https://oeis.org/A000353)
 [5](https://oeis.org/A006285)
-[6](https://oeis.org/A010051),
+[6](https://oeis.org/A010051)
+[7](https://oeis.org/A114897),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.primetest.isprime),
 _W_

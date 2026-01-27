@@ -1,8 +1,8 @@
 # isScalarInteger
 
-- _isScalarInteger(anObject)_
+- _isScalarInteger(x)_
 
-Answer `true` if _anObject_ is a `Number` and is an `Integer`, else `false`.
+Answer `true` if the object _x_ is a `Number` and is an `Integer`, else `false`.
 
 At `SmallFloat`:
 

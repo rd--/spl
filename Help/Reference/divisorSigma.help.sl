@@ -193,6 +193,25 @@ OEIS [A056757](https://oeis.org/A056757):
 ]
 ```
 
+Prefix sum,
+OEIS [A024916](https://oeis.org/A024916):
+
+```
+>>> accumulate(divisorSigma(1, 1:49))
+[
+	   1    4    8   15   21
+	  33   41   56   69   87
+	  99  127  141  165  189
+	 220  238  277  297  339
+	 371  407  431  491  522
+	 564  604  660  690  762
+	 794  857  905  959 1007
+	1098 1136 1196 1252 1342
+	1384 1480 1524 1608 1686
+	1758 1806 1930 1987
+]
+```
+
 Plot divisor function _σ₀(n)_ up to _n=100_,
 OEIS [A000005](https://oeis.org/A000005):
 
@@ -260,6 +279,26 @@ OEIS [A038548](http://oeis.org/A038548):
 ~~~
 
 ![](sw/spl/Help/Image/divisorSigma-E.svg)
+
+Plot smallest _k_ such that _σ(k)=n_, or zero if there is no such _k_,
+OEIS [A051444](https://oeis.org/A051444):
+
+~~~spl svg=F
+let m = 10 ^ 2;
+1:89.collect { :n |
+	let k = 1;
+	{
+		1.divisorSigma(k) != n & {
+			k < m
+		}
+	}.whileTrue {
+		k := k + 1
+	};
+	(k = m).if { 0 } { k }
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisorSigma-F.svg)
 
 * * *
 

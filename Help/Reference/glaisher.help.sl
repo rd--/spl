@@ -27,6 +27,16 @@ Continued fraction:
 [1 3 1 1 5 1 1 1 3 12 4 1 271 1 1 2]
 ```
 
+Scatter plot of the digits:
+
+~~~spl svg=A
+1.glaisher(109)
+.integerDigits
+.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/glaisher-A.svg)
+
 * * *
 
 See also: exp, zeta

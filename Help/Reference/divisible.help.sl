@@ -126,6 +126,19 @@ divisible:/2.swap
 
 ![](sw/spl/Help/Image/divisible-A.svg)
 
+Plot number of divisors _d_ of _n_ such that _d+1_ is not a divisor of _n_,
+OEIS [A137921](https://oeis.org/A137921):
+
+~~~spl svg=B
+1:105.collect { :n |
+	divisorSum(n) { :m |
+		boole(divisible(n, m + 1).not)
+	}
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisible-B.svg)
+
 * * *
 
 See also: %, divisors, even, gcd, mod, quotient, round

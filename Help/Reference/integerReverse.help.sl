@@ -37,6 +37,18 @@ Threads over lists:
 [321 432 543 654]
 ```
 
+Plot primes whose reversal in base ten is also prime,
+sometimes called reversible primes,
+OEIS [A007500](https://oeis.org/A007500):
+
+~~~spl svg=A
+1:600.prime.select { :n |
+	n.integerReverse.isPrime
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/integerReverse-A.svg)
+
 * * *
 
 See also: bitReversalPermutation, fromDigits, integerDigits, integerLength, isPalindrome, reverse, vanDerCorputNumber

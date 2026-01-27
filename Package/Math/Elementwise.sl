@@ -188,6 +188,10 @@
 		self.collect(eulerPhi:/1)
 	}
 
+	eulerPhiInverse { :self |
+		self.collect(eulerPhiInverse:/1)
+	}
+
 	factorial { :self |
 		self.collect(factorial:/1)
 	}
