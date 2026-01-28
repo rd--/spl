@@ -493,6 +493,23 @@ OEIS [A166556](https://oeis.org/A166556):
 
 ![](sw/spl/Help/Image/binomial-C.svg)
 
+Pascal’s triangle,
+excluding first and last two elements of each row,
+read by rows,
+row _n_ read mod _n_,
+OEIS [A053202](https://oeis.org/A053202):
+
+~~~spl svg=D
+4:23.collect { :n |
+	let m = n - 2;
+	2:m.collect { :k |
+		binomial(n, k) % n
+	}
+}.++.discretePlot
+~~~
+
+![](sw/spl/Help/Image/binomial-D.svg)
+
 * * *
 
 See also: factorial, multinomial, trinomial
@@ -526,7 +543,8 @@ _OEIS_
 [11](https://oeis.org/A004736)
 [12](https://oeis.org/A001405)
 [13](https://oeis.org/A108838)
-[14](https://oeis.org/A053121),
+[14](https://oeis.org/A053121)
+[15](https://oeis.org/A053202),
 _Python_
 [1](https://docs.sympy.org/latest/modules/functions/combinatorial.html#sympy.functions.combinatorial.factorials.binomial),
 _W_

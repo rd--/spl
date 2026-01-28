@@ -112,6 +112,18 @@ At `String`:
 'efgabcd'
 ```
 
+Plot periodic derivative of _n_,
+OEIS [A038556](https://oeis.org/A038556):
+
+~~~spl svg=A
+0:76.collect { :n |
+	let b = n.integerDigits(2);
+	b.bitXor(b.rotateLeft).fromDigits(2)
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/rotateLeft-A.svg)
+
 * * *
 
 See also: atWrap, rotateRight
@@ -125,6 +137,8 @@ _J_
 [1](https://code.jsoftware.com/wiki/Vocabulary/bardot#dyadic),
 _Mathematica_
 [1](https://reference.wolfram.com/language/ref/RotateLeft.html),
+_OEIS_
+[1](https://oeis.org/A038556),
 _W_
 [1](https://en.wikipedia.org/wiki/Circular_shift)
 

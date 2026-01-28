@@ -216,6 +216,18 @@ OEIS [A161908](https://oeis.org/A161908):
 
 ![](sw/spl/Help/Image/divisors-D.svg)
 
+Sum of the nonprime divisors of _n_,
+OEIS [A023890](https://oeis.org/A023890):
+
+~~~spl svg=E
+1:275.collect { :n |
+	n.divisors.reject(isPrime:/1).sum
+}.scatterPlot
+~~~
+
+![](sw/spl/Help/Image/divisors-E.svg)
+
+
 * * *
 
 See also: divisorSigma, divisorSum, gcd, remainder
@@ -226,6 +238,10 @@ References:
 _Mathematica_
 [1](https://mathworld.wolfram.com/Divisor.html)
 [2](http://reference.wolfram.com/language/ref/Divisors.html),
+_OEIS_
+[1](https://oeis.org/A167408)
+[2](https://oeis.org/A161908)
+[3](https://oeis.org/A023890),
 _Python_
 [1](https://docs.sympy.org/latest/modules/ntheory.html#sympy.ntheory.factor_.divisors),
 _W_
